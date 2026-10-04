@@ -22,6 +22,7 @@ import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import { VORONIN_UNIVERSALITY } from '../data/voronin-universality-numerical.js';
 import { zetaCriticalStrip } from '../math/zeta.js';
 import AnimationEmbed from '../components/AnimationEmbed.jsx';
+import { ED } from '../styles/tokens.js';
 
 // ---------------------------------------------------------------------------
 // Geometry.
@@ -58,7 +59,7 @@ const monoTick = {
 // Color ramp for the heatmap: smaller values = greener (good), larger = redder (bad).
 // Warm-themed endpoints (green -> brass -> terracotta) instead of neon green/red.
 function heatColor(value, vMin, vMax) {
-  if (vMax - vMin < 1e-12) return 'rgb(150,140,120)';
+  if (vMax - vMin < 1e-12) return ED.inkFaint;
   const t = Math.max(0, Math.min(1, (value - vMin) / (vMax - vMin)));
   // green (76,122,74) -> brass (181,138,46) -> terracotta (194,58,28).
   let r, g, b;
@@ -219,7 +220,7 @@ export default function VoroninUniversalityPage() {
                     fontFamily: 'var(--ed-mono, var(--font-mono))',
                     fontSize: 12,
                     cursor: 'pointer',
-                    background: isSel ? 'rgba(181,138,46,0.16)' : 'var(--paper)',
+                    background: isSel ? 'color-mix(in srgb, var(--brass-deco) 16%, transparent)' : 'var(--paper)',
                     color: isSel ? 'var(--brass-dk)' : 'var(--ink-soft)',
                     border: '1px solid ' + (isSel ? 'var(--brass)' : 'var(--hairline)'),
                   }}
@@ -294,13 +295,13 @@ export default function VoroninUniversalityPage() {
           </div>
           <svg width={SWEEP_W} height={SWEEP_H} role="img" aria-label="Voronin sup-norm vs tau">
             {/* Axes. */}
-            <line x1={SWEEP_M.left} y1={SWEEP_M.top} x2={SWEEP_M.left} y2={SWEEP_M.top + SWEEP_IH} stroke="#d5c9b2" strokeWidth={1} />
-            <line x1={SWEEP_M.left} y1={SWEEP_M.top + SWEEP_IH} x2={SWEEP_M.left + SWEEP_IW} y2={SWEEP_M.top + SWEEP_IH} stroke="#d5c9b2" strokeWidth={1} />
+            <line x1={SWEEP_M.left} y1={SWEEP_M.top} x2={SWEEP_M.left} y2={SWEEP_M.top + SWEEP_IH} stroke={ED.rule} strokeWidth={1} />
+            <line x1={SWEEP_M.left} y1={SWEEP_M.top + SWEEP_IH} x2={SWEEP_M.left + SWEEP_IW} y2={SWEEP_M.top + SWEEP_IH} stroke={ED.rule} strokeWidth={1} />
 
             {/* X ticks. */}
             {[10, 200, 400, 600, 800, 1000].map((tau) => (
               <g key={'xt-' + tau}>
-                <line x1={sx(tau)} y1={SWEEP_M.top + SWEEP_IH} x2={sx(tau)} y2={SWEEP_M.top + SWEEP_IH + 4} stroke="#d5c9b2" />
+                <line x1={sx(tau)} y1={SWEEP_M.top + SWEEP_IH} x2={sx(tau)} y2={SWEEP_M.top + SWEEP_IH + 4} stroke={ED.rule} />
                 <text x={sx(tau)} y={SWEEP_M.top + SWEEP_IH + 16} textAnchor="middle" style={monoTick}>{tau}</text>
               </g>
             ))}
@@ -309,7 +310,7 @@ export default function VoroninUniversalityPage() {
             {/* Y ticks. */}
             {[0, 0.25, 0.5, 0.75, 1.0, 1.25, 1.5].filter((v) => v <= yMax).map((v) => (
               <g key={'yt-' + v}>
-                <line x1={SWEEP_M.left - 4} y1={sy(v)} x2={SWEEP_M.left} y2={sy(v)} stroke="#d5c9b2" />
+                <line x1={SWEEP_M.left - 4} y1={sy(v)} x2={SWEEP_M.left} y2={sy(v)} stroke={ED.rule} />
                 <text x={SWEEP_M.left - 8} y={sy(v) + 3} textAnchor="end" style={monoTick}>{v.toFixed(2)}</text>
               </g>
             ))}
@@ -319,16 +320,16 @@ export default function VoroninUniversalityPage() {
 
             {/* Horizontal guide at 1.0 (the assertion threshold). */}
             {1.0 <= yMax && (
-              <line x1={SWEEP_M.left} y1={sy(1.0)} x2={SWEEP_M.left + SWEEP_IW} y2={sy(1.0)} stroke="#c23a1c" strokeWidth={1} strokeDasharray="3,3" />
+              <line x1={SWEEP_M.left} y1={sy(1.0)} x2={SWEEP_M.left + SWEEP_IW} y2={sy(1.0)} stroke={ED.accent} strokeWidth={1} strokeDasharray="3,3" />
             )}
 
             {/* Sweep polyline. */}
-            <polyline points={polyPoints} fill="none" stroke="#8c6a1d" strokeWidth={1.5} />
+            <polyline points={polyPoints} fill="none" stroke={ED.brass} strokeWidth={1.5} />
 
             {/* Best-tau marker. */}
             <g>
-              <line x1={sx(best.tauStar)} y1={SWEEP_M.top} x2={sx(best.tauStar)} y2={SWEEP_M.top + SWEEP_IH} stroke="#4c7a4a" strokeWidth={1} strokeDasharray="4,3" />
-              <circle cx={sx(best.tauStar)} cy={sy(best.infNormAchieved)} r={5} fill="#4c7a4a" stroke="#fdfaf3" strokeWidth={1.5} />
+              <line x1={sx(best.tauStar)} y1={SWEEP_M.top} x2={sx(best.tauStar)} y2={SWEEP_M.top + SWEEP_IH} stroke={ED.series3} strokeWidth={1} strokeDasharray="4,3" />
+              <circle cx={sx(best.tauStar)} cy={sy(best.infNormAchieved)} r={5} fill={ED.series3} stroke={ED.paper} strokeWidth={1.5} />
               <text x={sx(best.tauStar) + 8} y={sy(best.infNormAchieved) - 8} style={{ ...monoLabel, fill: 'var(--green)' }}>
                 tau* = {best.tauStar}, inf = {best.infNormAchieved.toFixed(3)}
               </text>
@@ -336,7 +337,7 @@ export default function VoroninUniversalityPage() {
 
             {/* Custom-tau marker (only when active). */}
             {isCustomActive && (
-              <line x1={sx(activeTau)} y1={SWEEP_M.top} x2={sx(activeTau)} y2={SWEEP_M.top + SWEEP_IH} stroke="#8c6a1d" strokeWidth={1.5} strokeDasharray="6,3" />
+              <line x1={sx(activeTau)} y1={SWEEP_M.top} x2={sx(activeTau)} y2={SWEEP_M.top + SWEEP_IH} stroke={ED.brass} strokeWidth={1.5} strokeDasharray="6,3" />
             )}
           </svg>
         </div>
@@ -367,10 +368,10 @@ export default function VoroninUniversalityPage() {
                 return (
                   <g key={'cell-' + i}>
                     <rect x={x} y={y} width={HEAT_CELL - 2} height={HEAT_CELL - 2}
-                          fill={heatColor(c.diffMag, heat.vMin, heat.vMax)} stroke="#f6f1e7" strokeWidth={1} />
+                          fill={heatColor(c.diffMag, heat.vMin, heat.vMax)} stroke={ED.paper2} strokeWidth={1} />
                     <text x={x + (HEAT_CELL - 2) / 2} y={y + (HEAT_CELL - 2) / 2 + 4}
                           textAnchor="middle"
-                          style={{ ...monoTick, fill: '#fdf8ef', fontWeight: 700 }}>
+                          style={{ ...monoTick, fill: 'var(--paper)', fontWeight: 700 }}>
                       {c.diffMag.toFixed(2)}
                     </text>
                   </g>

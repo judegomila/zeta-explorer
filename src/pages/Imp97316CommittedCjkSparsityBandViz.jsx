@@ -5,6 +5,7 @@ import {
   IMP97316_ANCHORS_TABLE,
   IMP97316_SUMMARY,
 } from '../data/imp-97316-committed-cjk-sparsity-band-viz-data.js';
+import { ED, alpha } from '../styles/tokens.js';
 
 // imp-97316: the imp-97293 committed c_{jk} overlap matrix has an exact sparsity/band support
 // (nonzero iff j+k even AND k<=j+6) but shipped only as tables and counts, no chart. This page
@@ -36,29 +37,29 @@ function BandChart({ rows, kmax }) {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
       {yTicks.map((v) => (
         <g key={`y${v}`}>
-          <line x1={padL - 4} y1={yOf(v)} x2={padL} y2={yOf(v)} stroke="#334155" strokeWidth={1} />
-          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={8.5}>
+          <line x1={padL - 4} y1={yOf(v)} x2={padL} y2={yOf(v)} stroke={ED.rule} strokeWidth={1} />
+          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8.5}>
             {Math.round(v)}
           </text>
         </g>
       ))}
       {xTicks.map((v) => (
         <g key={`x${v}`}>
-          <line x1={xOf(v)} y1={padT + plotH} x2={xOf(v)} y2={padT + plotH + 4} stroke="#334155" strokeWidth={1} />
-          <text x={xOf(v)} y={padT + plotH + 14} textAnchor="middle" fill="#64748b" fontSize={8}>
+          <line x1={xOf(v)} y1={padT + plotH} x2={xOf(v)} y2={padT + plotH + 4} stroke={ED.rule} strokeWidth={1} />
+          <text x={xOf(v)} y={padT + plotH + 14} textAnchor="middle" fill={ED.inkFaint} fontSize={8}>
             {Math.round(v)}
           </text>
         </g>
       ))}
-      <path d={`M ${topPath} L ${bottomPath} Z`} fill="rgba(56,189,248,0.28)" stroke="#38bdf8" strokeWidth={1.4} />
-      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill="#94a3b8" fontSize={9}>
+      <path d={`M ${topPath} L ${bottomPath} Z`} fill={alpha(ED.series1, 0.28)} stroke={ED.series1} strokeWidth={1.4} />
+      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkSoft} fontSize={9}>
         profile row j
       </text>
-      <text x={12} y={padT + 8} fill="#94a3b8" fontSize={9}>
+      <text x={12} y={padT + 8} fill={ED.inkSoft} fontSize={9}>
         Legendre degree k
       </text>
     </svg>
@@ -74,15 +75,15 @@ export default function Imp97316CommittedCjkSparsityBandViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> MEASUREMENT/PRESENTATION only.
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> MEASUREMENT/PRESENTATION only.
         imp-97293 computed the exact 100&times;106 committed overlap matrix c_jk on the raw rational
         Gegenbauer profiles and proved its support is exactly {'{'}j+k even{'}'} AND {'{'}k&nbsp;&le;&nbsp;j+6{'}'}:
         {' '}{IMP97316_SUMMARY.nonzero} nonzero of {IMP97316_SUMMARY.total} cells
@@ -91,7 +92,7 @@ export default function Imp97316CommittedCjkSparsityBandViz() {
         Platt&ndash;Trudgian &Lambda;&nbsp;&le;&nbsp;0.2 remains SOTA; RH open; NO QED.
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1rem', maxWidth: 700 }}>
         The shaded band is the surviving-column range [kMin, kMax] = [j%2, j+6] for each profile row
         j = 0..99: it widens linearly with j and is never clipped by the top Legendre degree
         Kmax&nbsp;=&nbsp;105 (band width per row ranges {IMP97316_SUMMARY.minRowCount}&ndash;
@@ -100,12 +101,12 @@ export default function Imp97316CommittedCjkSparsityBandViz() {
 
       <BandChart rows={IMP97316_ROW_BAND} kmax={105} />
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', margin: '1.5rem 0 0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', margin: '1.5rem 0 0.5rem' }}>
         Exact anchor entries (from the imp-97293 offline sweep)
       </h3>
-      <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.78rem', color: '#cbd5e1' }}>
+      <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.78rem', color: 'var(--ink)' }}>
         <thead>
-          <tr style={{ borderBottom: '1px solid #334155' }}>
+          <tr style={{ borderBottom: '1px solid var(--rule)' }}>
             <th style={{ textAlign: 'left', padding: '0.3rem 0.5rem' }}>(j, k)</th>
             <th style={{ textAlign: 'left', padding: '0.3rem 0.5rem' }}>c_jk (exact rational)</th>
             <th style={{ textAlign: 'left', padding: '0.3rem 0.5rem' }}>band edge (k=j+6)?</th>
@@ -113,7 +114,7 @@ export default function Imp97316CommittedCjkSparsityBandViz() {
         </thead>
         <tbody>
           {IMP97316_ANCHORS_TABLE.map((r) => (
-            <tr key={`${r.j},${r.k}`} style={{ borderBottom: '1px solid #1e293b' }}>
+            <tr key={`${r.j},${r.k}`} style={{ borderBottom: '1px solid var(--rule-soft)' }}>
               <td style={{ padding: '0.3rem 0.5rem' }}>({r.j}, {r.k})</td>
               <td style={{ padding: '0.3rem 0.5rem', fontFamily: 'monospace' }}>{r.value}</td>
               <td style={{ padding: '0.3rem 0.5rem' }}>{r.atBandEdge ? 'yes' : 'no'}</td>
@@ -126,14 +127,14 @@ export default function Imp97316CommittedCjkSparsityBandViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page consuming the imp-97316
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the imp-97316
         viz-data leaf (sparsity census and anchors reused verbatim from imp-97293; the per-row band
         is a direct combinatorial reading of the proved support rule, cross-checked against the
         offline-swept total at import). Changes no bound, establishes no operator positivity;

@@ -2,6 +2,7 @@ import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP34448_DEFLOW_DECAY_EXPONENT } from '../data/imp-34448-deflow-decay-exponent.js';
 import { IMP34571_DEFLOW_EXPONENT_VS_ANALYTIC_SLOPE } from '../data/imp-34571-deflow-exponent-vs-analytic-slope.js';
+import { ED } from '../styles/tokens.js';
 
 const OBSERVED_RUNGS = IMP34448_DEFLOW_DECAY_EXPONENT.localExponentSample;
 const M = IMP34571_DEFLOW_EXPONENT_VS_ANALYTIC_SLOPE;
@@ -37,11 +38,11 @@ function ObservedExponentChart() {
         y1={yAt(M.analyticEflowSlopeMagnitude)}
         x2={padL + cW}
         y2={yAt(M.analyticEflowSlopeMagnitude)}
-        stroke="#f87171"
+        stroke={ED.series2}
         strokeWidth={1}
         strokeDasharray="4,3"
       />
-      <text x={padL + 4} y={yAt(M.analyticEflowSlopeMagnitude) - 6} textAnchor="start" fill="#f87171" fontSize={9.5}>
+      <text x={padL + 4} y={yAt(M.analyticEflowSlopeMagnitude) - 6} textAnchor="start" fill={ED.series2} fontSize={9.5}>
         analytic E_flow slope magnitude = {M.analyticEflowSlopeMagnitude.toFixed(3)}
       </text>
 
@@ -51,35 +52,35 @@ function ObservedExponentChart() {
         y1={yAt(M.observedPInf)}
         x2={padL + cW}
         y2={yAt(M.observedPInf)}
-        stroke="#38bdf8"
+        stroke={ED.series1}
         strokeWidth={1}
         strokeDasharray="4,3"
       />
-      <text x={padL + cW - 4} y={yAt(M.observedPInf) + 12} textAnchor="end" fill="#38bdf8" fontSize={9.5}>
+      <text x={padL + cW - 4} y={yAt(M.observedPInf) + 12} textAnchor="end" fill={ED.series1} fontSize={9.5}>
         observed-only pInf &asymp; {M.observedPInf.toFixed(4)}
       </text>
 
-      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
+      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
 
-      <path d={path} fill="none" stroke="#4ade80" strokeWidth={2} />
+      <path d={path} fill="none" stroke={ED.series3} strokeWidth={2} />
       {OBSERVED_RUNGS.map((q) => (
         <g key={q.kMid}>
-          <circle cx={xAt(q.kMid)} cy={yAt(q.p)} r={4} fill="#4ade80" stroke="#0a0f1a" strokeWidth={1} />
-          <text x={xAt(q.kMid)} y={yAt(q.p) - 10} textAnchor="middle" fill="#cbd5e1" fontSize={8.5}>
+          <circle cx={xAt(q.kMid)} cy={yAt(q.p)} r={4} fill={ED.series3} stroke={ED.paper} strokeWidth={1} />
+          <text x={xAt(q.kMid)} y={yAt(q.p) - 10} textAnchor="middle" fill={ED.ink} fontSize={8.5}>
             {q.p.toFixed(4)}
           </text>
         </g>
       ))}
 
-      <text x={padL + cW / 2} y={svgH - 6} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 6} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         kMid = log10(N), directly-observed rungs only
       </text>
       <text
         x={16}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={`rotate(-90, 16, ${padT + cH / 2})`}
       >
@@ -94,7 +95,7 @@ export default function Imp34596DeflowObservedExponentViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Observed-Only Deflow Decay Exponent vs the Analytic E_flow Slope (imp-34596 / imp-34571)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-34571 refit the imp-34448 local decay exponent p(N) = pInf - c/log(N) using ONLY the
         directly-observed rungs (kMid {OBSERVED_RUNGS[0].kMid}..{OBSERVED_RUNGS[OBSERVED_RUNGS.length - 1].kMid},
         all strictly below the crossing kEnd*&nbsp;&asymp;&nbsp;{M.crossingKend} and the fp floor
@@ -104,7 +105,7 @@ export default function Imp34596DeflowObservedExponentViz() {
         {' '}{M.analyticEflowSlopeMagnitude}. No viz existed for this observed-only refit.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         local decay exponent p(N), directly-observed window only (kMid {OBSERVED_RUNGS[0].kMid}..
         {OBSERVED_RUNGS[OBSERVED_RUNGS.length - 1].kMid})
       </p>
@@ -119,35 +120,35 @@ export default function Imp34596DeflowObservedExponentViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>quantity</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>value</th>
           </tr>
         </thead>
         <tbody>
-          <tr style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+          <tr style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
             <td style={{ padding: '0.4rem 0.6rem' }}>observed-only pInf</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{M.observedPInf.toFixed(6)}</td>
           </tr>
-          <tr style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+          <tr style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
             <td style={{ padding: '0.4rem 0.6rem' }}>observed-only c (1/log(N) coefficient)</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{M.observedC}</td>
           </tr>
-          <tr style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+          <tr style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
             <td style={{ padding: '0.4rem 0.6rem' }}>analytic E_flow slope magnitude</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{M.analyticEflowSlopeMagnitude}</td>
           </tr>
-          <tr style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+          <tr style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
             <td style={{ padding: '0.4rem 0.6rem' }}>residual vs analytic target</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>
               {M.residualVsAnalytic.toExponential(3)}
             </td>
           </tr>
-          <tr style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+          <tr style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
             <td style={{ padding: '0.4rem 0.6rem' }}>imp-34448 full-window pInf (cross-check)</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{M.fullWindowPInf}</td>
           </tr>
-          <tr style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+          <tr style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
             <td style={{ padding: '0.4rem 0.6rem' }}>residual vs full-window pInf</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>
               {M.residualVsFullWindow.toExponential(3)}
@@ -160,14 +161,14 @@ export default function Imp34596DeflowObservedExponentViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-data only, reusing the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-data only, reusing the
         imp-34448 directly-observed local exponent samples and the imp-34571 observed-only OLS
         refit verbatim. The residual of {M.residualVsAnalytic.toExponential(1)} against the analytic
         E_flow log-slope magnitude is the same order as the 1/log(N) finite-rung correction

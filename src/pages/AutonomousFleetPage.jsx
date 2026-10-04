@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PostLayout, { Figure, Pull } from '../components/editorial/PostLayout.jsx';
+import { ED } from '../styles/tokens.js';
 
 /* New explanation page: the autonomous fleet / engine room — how the approach is
    run. Functional post reading-view. Describes the pipeline, not live status. */
@@ -12,7 +13,7 @@ export default function AutonomousFleetPage() {
       meta={['live', 'infrastructure']}
       title={<>The autonomous fleet</>}
       dek={<>The approach is run continuously by a fleet of AI engines against a self-refilling queue of tickets, with independent referees and hard no-false-QED gates. This page describes how the machine works — not a claim about the mathematics.</>}
-      byline={['Infrastructure · mathexplorer', 'method, not result']}
+      byline={['Infrastructure · zetaexplorer', 'method, not result']}
       ticker={<span><b>engine live</b> · fleet working the frontier</span>}
       footer={<>Related: <Link to="/route-map">the wall map</Link> · <Link to="/lambda-bounds">the bounds ledger</Link><br /><br />← <Link to="/">the atlas</Link></>}
     >
@@ -25,14 +26,14 @@ export default function AutonomousFleetPage() {
         <svg width="100%" height="170" viewBox="0 0 440 170" fill="none">
           {[['sources', 40], ['queue', 150], ['engines', 260], ['referee', 360]].map(([lbl, x], i) => (
             <g key={i}>
-              <rect x={x} y="60" width="72" height="34" rx="6" fill="#f6f1e7" stroke="#d5c9b2" />
-              <text x={Number(x) + 36} y="81" fontFamily="IBM Plex Mono" fontSize="10" fill="#4a4238" textAnchor="middle">{lbl}</text>
-              {i < 3 && <path d={`M${Number(x) + 72} 77 H${Number(x) + 110}`} stroke="#8c6a1d" strokeWidth="1.2" markerEnd="url(#ar)" />}
+              <rect x={x} y="60" width="72" height="34" rx="6" fill={ED.paper2} stroke={ED.rule} />
+              <text x={Number(x) + 36} y="81" fontFamily="IBM Plex Mono" fontSize="10" fill={ED.inkSoft} textAnchor="middle">{lbl}</text>
+              {i < 3 && <path d={`M${Number(x) + 72} 77 H${Number(x) + 110}`} stroke={ED.brass} strokeWidth="1.2" markerEnd="url(#ar)" />}
             </g>
           ))}
-          <path d="M396 94 C420 130 150 150 120 100" stroke="#d5c9b2" strokeWidth="1" strokeDasharray="3 3" />
-          <text x="210" y="150" fontFamily="IBM Plex Mono" fontSize="9" fill="#877b67">rejected → re-queued as sub-gaps</text>
-          <defs><marker id="ar" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6" fill="#8c6a1d" /></marker></defs>
+          <path d="M396 94 C420 130 150 150 120 100" stroke={ED.rule} strokeWidth="1" strokeDasharray="3 3" />
+          <text x="210" y="150" fontFamily="IBM Plex Mono" fontSize="9" fill={ED.inkFaint}>rejected → re-queued as sub-gaps</text>
+          <defs><marker id="ar" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6" fill={ED.brass} /></marker></defs>
         </svg>
       </Figure>
 

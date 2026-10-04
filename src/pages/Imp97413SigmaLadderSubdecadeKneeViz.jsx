@@ -6,8 +6,9 @@ import {
   IMP97413_EXPONENT_ASYMPTOTE,
   IMP97413_KNEE_MARKER,
 } from '../data/imp-97413-sigma-ladder-subdecade-knee-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
-const COLORS = { exponent: '#38bdf8', asymptote: '#f9a8d4', knee: '#facc15' };
+const COLORS = { exponent: ED.series1, asymptote: ED.series7, knee: ED.series4 };
 
 function LadderWithKneeChart() {
   const svgW = 640;
@@ -27,7 +28,7 @@ function LadderWithKneeChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
       <line
         x1={padL}
@@ -49,17 +50,17 @@ function LadderWithKneeChart() {
         return (
           <g key={r.decade}>
             <rect x={x0 + 2} y={y} width={x1 - x0 - 4} height={padT + cH - y} fill={COLORS.exponent} opacity={0.85} />
-            <text x={(x0 + x1) / 2} y={y - 6} textAnchor="middle" fill="#7dd3fc" fontSize={9}>
+            <text x={(x0 + x1) / 2} y={y - 6} textAnchor="middle" fill={ED.series1} fontSize={9}>
               {r.p_local}
             </text>
-            <text x={(x0 + x1) / 2} y={padT + cH + 14} textAnchor="middle" fill="#64748b" fontSize={8}>
+            <text x={(x0 + x1) / 2} y={padT + cH + 14} textAnchor="middle" fill={ED.inkFaint} fontSize={8}>
               {r.decade}
             </text>
           </g>
         );
       })}
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
 
       <line
         x1={xS(IMP97413_KNEE_MARKER.log10Nstar)}
@@ -90,7 +91,7 @@ function LadderWithKneeChart() {
         x={12}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={'rotate(-90,12,' + (padT + cH / 2) + ')'}
       >
@@ -105,7 +106,7 @@ export default function Imp97413SigmaLadderSubdecadeKneeViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Sigma(N) Decay-Exponent Ladder with the Sub-Decade Knee (imp-33582 / imp-33721 / imp-97413)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         The imp-33582 per-decade local decay exponent of sigma(N) = E_coll/E(N) ramps monotonely
         from &sim;0.0105 just past the interior peak to &sim;0.4310 by N &sim; 1e12, approaching the
         imp-3463 far-tail 1/2 asymptote from below. Overlaid on the same log10-N axis is the imp-33721
@@ -114,7 +115,7 @@ export default function Imp97413SigmaLadderSubdecadeKneeViz() {
         imp-33701 originally reported, and landing essentially where sigma crosses one half.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         per-decade local decay exponent, with the imp-33721 sub-decade knee marked on the same axis
       </p>
       <LadderWithKneeChart />
@@ -123,23 +124,23 @@ export default function Imp97413SigmaLadderSubdecadeKneeViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement/visualization only -- no
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> measurement/visualization only -- no
         proof, no reduction below RH. sigma(N) is the inherited imp-3220/imp-3406 extrapolation model,
         NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is untouched; changes no
         bound; establishes no operator positivity; imp-3066 K_a &ge; 0 remains untouched. No RH
         verdict, NO QED.
       </div>
 
-      <div style={{ marginTop: '1rem', fontSize: '0.85rem', color: '#64748b' }}>
+      <div style={{ marginTop: '1rem', fontSize: '0.85rem', color: 'var(--ink-faint)' }}>
         <strong>Related:</strong>{' '}
-        <Link to="/viz-imp33607-sigma-postpeak-decay" style={{ color: '#7c3aed' }}>
+        <Link to="/viz-imp33607-sigma-postpeak-decay" style={{ color: 'var(--series-5)' }}>
           Sigma(N) Post-Peak Decay Past the PATH-1 Ceiling (imp-33607)
         </Link>
       </div>

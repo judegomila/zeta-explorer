@@ -4,6 +4,7 @@ import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 import SystemArchitectureDiagram from '../components/SystemArchitectureDiagram.jsx';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import TableOfContents from '../components/TableOfContents.jsx';
+import { ED } from '../styles/tokens.js';
 
 const TOC = [
   { id: 'overview', label: 'Overview' },
@@ -81,11 +82,11 @@ export default function DocsPage() {
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 8, marginTop: 12 }}>
           {[
-            { color: '#3b82f6', label: 'Number Theory' },
-            { color: '#8b5cf6', label: 'Analytic Structure' },
-            { color: '#10b981', label: 'Physical Model' },
-            { color: '#f59e0b', label: 'Analysis' },
-            { color: '#ef4444', label: 'Computation' },
+            { color: ED.series1, label: 'Number Theory' },
+            { color: ED.series5, label: 'Analytic Structure' },
+            { color: ED.series3, label: 'Physical Model' },
+            { color: ED.brass, label: 'Analysis' },
+            { color: ED.series2, label: 'Computation' },
           ].map(l => (
             <div key={l.label} style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 11, color: 'var(--ink-soft)' }}>
               <span style={{ width: 10, height: 10, borderRadius: '50%', background: l.color, flexShrink: 0 }} />

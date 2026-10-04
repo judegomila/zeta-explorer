@@ -2,6 +2,7 @@ import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP34684_FOURTH_ORDER_STENCIL_REFERENCE_CROSSVALIDATION } from '../data/imp-34684-fourth-order-stencil-reference-weight-crossvalidation.js';
 import { IMP34654_SIXTH_ORDER_STENCIL_REFERENCE_CROSSVALIDATION } from '../data/imp-34654-sixth-order-stencil-reference-weight-crossvalidation.js';
+import { ED } from '../styles/tokens.js';
 
 const FOURTH = IMP34684_FOURTH_ORDER_STENCIL_REFERENCE_CROSSVALIDATION;
 const SIXTH = IMP34654_SIXTH_ORDER_STENCIL_REFERENCE_CROSSVALIDATION;
@@ -51,8 +52,8 @@ function ShiftChart() {
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
       {gridLogs.map((g) => (
         <g key={g}>
-          <line x1={padL} x2={padL + cW} y1={yAt(g)} y2={yAt(g)} stroke="#1e293b" strokeWidth={1} />
-          <text x={padL - 8} y={yAt(g) + 3} textAnchor="end" fill="#64748b" fontSize={9.5}>
+          <line x1={padL} x2={padL + cW} y1={yAt(g)} y2={yAt(g)} stroke={ED.ruleSoft} strokeWidth={1} />
+          <text x={padL - 8} y={yAt(g) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9.5}>
             1e{g}
           </text>
         </g>
@@ -67,13 +68,13 @@ function ShiftChart() {
               y={y}
               width={barW}
               height={zeroY - y}
-              fill={r.order === 4 ? '#38bdf8' : '#f472b6'}
+              fill={r.order === 4 ? ED.series1 : ED.series7}
               opacity={0.85}
             />
-            <text x={x} y={y - 8} textAnchor="middle" fill="#94a3b8" fontSize={10}>
+            <text x={x} y={y - 8} textAnchor="middle" fill={ED.inkSoft} fontSize={10}>
               {r.shift.toExponential(2)}
             </text>
-            <text x={x} y={svgH - padB + 18} textAnchor="middle" fill="#94a3b8" fontSize={10.5}>
+            <text x={x} y={svgH - padB + 18} textAnchor="middle" fill={ED.inkSoft} fontSize={10.5}>
               {r.label}
             </text>
           </g>
@@ -83,13 +84,13 @@ function ShiftChart() {
         x={16}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={9.5}
         transform={`rotate(-90 16 ${padT + cH / 2})`}
       >
         |raw-float plateau &minus; exact-integer plateau| (log scale)
       </text>
-      <text x={padL + cW / 2} y={svgH - 6} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 6} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         finite-difference q3 stencil order
       </text>
     </svg>
@@ -101,7 +102,7 @@ export default function Imp34701RawFloatWeightPlateauShiftByStencilOrderViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Raw-Float-Weight Plateau Shift by Stencil Order (imp-34684 vs imp-34654)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         Both the imp-34611 4th-order (7-point) and imp-34626 6th-order (9-point) q3 stencils re-derive
         their exact-integer weights from two independent reference constructions (Fornberg 1988
         recurrence and a Vandermonde solve). Feeding the RAW, un-rounded reference floats through the
@@ -110,7 +111,7 @@ export default function Imp34701RawFloatWeightPlateauShiftByStencilOrderViz() {
         orders of magnitude smaller for the 4th-order stencil.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         Raw-float-vs-exact-integer plateau shift, by stencil order
       </p>
       <ShiftChart />
@@ -119,14 +120,14 @@ export default function Imp34701RawFloatWeightPlateauShiftByStencilOrderViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Finding:</strong> the 4th-order 7-point q3 stencil
+        <strong style={{ color: 'var(--ink-soft)' }}>Finding:</strong> the 4th-order 7-point q3 stencil
         ([1,-8,13,0,-13,8,-1]/8) has Fornberg weights that are EXACTLY REPRESENTABLE in double precision
         (raw residual {FOURTH.raw_fornberg_float_residual}), so its raw-float plateau differs from the
         exact-integer plateau by only {FOURTH.plateau_raw_vs_reference_abs}. The 6th-order 9-point q3
@@ -142,14 +143,14 @@ export default function Imp34701RawFloatWeightPlateauShiftByStencilOrderViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement/cross-validation only,
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> measurement/cross-validation only,
         isRigorous false on both source modules; the inherited imp-3220/imp-3406 sigma&nbsp;-&gt;&nbsp;1
         deep-tail surrogate (least trustworthy there) is carried as-is and NOT rigorous. Neither module
         changes a bound; the C_mb GUE-conditional share per imp-486 is untouched, imp-3066 K_a&gt;=0

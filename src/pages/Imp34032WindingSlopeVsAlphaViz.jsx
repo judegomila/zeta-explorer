@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP33968_WINDING_RATE_VS_ALPHA_CURVE } from '../data/imp-33968-winding-rate-vs-alpha-curve.js';
+import { ED } from '../styles/tokens.js';
 
 const { curve: CURVE, maxWindingDeviation: MAX_DEVIATION, maxFitResidual: MAX_FIT_RESIDUAL } =
   IMP33968_WINDING_RATE_VS_ALPHA_CURVE;
@@ -55,27 +56,27 @@ function WindingSlopeChart() {
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
       {/* top panel: measured vs closed-form winding slope */}
-      <polyline points={analyticPoints} fill="none" stroke="#facc15" strokeWidth={2} strokeDasharray="6,3" />
-      <polyline points={measuredPoints} fill="none" stroke="#38bdf8" strokeWidth={1.5} />
+      <polyline points={analyticPoints} fill="none" stroke={ED.brassDeco} strokeWidth={2} strokeDasharray="6,3" />
+      <polyline points={measuredPoints} fill="none" stroke={ED.series1} strokeWidth={1.5} />
       {xs.map((x, i) => (
-        <circle key={`m-${x}`} cx={xAt(x)} cy={yAt(measuredYs[i])} r={3} fill="#38bdf8" stroke="#0a0f1a" strokeWidth={0.75} />
+        <circle key={`m-${x}`} cx={xAt(x)} cy={yAt(measuredYs[i])} r={3} fill={ED.series1} stroke={ED.paper} strokeWidth={0.75} />
       ))}
       {xs.map((x) => (
-        <text key={`xt-top-${x}`} x={xAt(x)} y={padT + topH + 14} textAnchor="middle" fill="#64748b" fontSize={8.5}>
+        <text key={`xt-top-${x}`} x={xAt(x)} y={padT + topH + 14} textAnchor="middle" fill={ED.inkFaint} fontSize={8.5}>
           {x}
         </text>
       ))}
-      <text x={padL + 4} y={padT + 12} fill="#38bdf8" fontSize={9.5}>
+      <text x={padL + 4} y={padT + 12} fill={ED.series1} fontSize={9.5}>
         measured winding slope d arg(-A)/d theta
       </text>
-      <text x={padL + 4} y={padT + 26} fill="#facc15" fontSize={9.5}>
+      <text x={padL + 4} y={padT + 26} fill={ED.brass} fontSize={9.5}>
         closed form -(1+alpha)
       </text>
       <text
         x={16}
         y={padT + topH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={`rotate(-90 16 ${padT + topH / 2})`}
       >
@@ -83,29 +84,29 @@ function WindingSlopeChart() {
       </text>
 
       {/* bottom panel: per-alpha fit residual 1-R^2, log10 scale */}
-      <polyline points={residualPoints} fill="none" stroke="#a78bfa" strokeWidth={1.5} />
+      <polyline points={residualPoints} fill="none" stroke={ED.series5} strokeWidth={1.5} />
       {xs.map((x, i) => (
-        <circle key={`r-${x}`} cx={xAt(x)} cy={yAtRes(logResiduals[i])} r={2.5} fill="#a78bfa" stroke="#0a0f1a" strokeWidth={0.75} />
+        <circle key={`r-${x}`} cx={xAt(x)} cy={yAtRes(logResiduals[i])} r={2.5} fill={ED.series5} stroke={ED.paper} strokeWidth={0.75} />
       ))}
       {xs.map((x) => (
-        <text key={`xt-bot-${x}`} x={xAt(x)} y={botTop + botH + 14} textAnchor="middle" fill="#64748b" fontSize={8.5}>
+        <text key={`xt-bot-${x}`} x={xAt(x)} y={botTop + botH + 14} textAnchor="middle" fill={ED.inkFaint} fontSize={8.5}>
           {x}
         </text>
       ))}
-      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         alpha (cusp exponent)
       </text>
       <text
         x={16}
         y={botTop + botH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={`rotate(-90 16 ${botTop + botH / 2})`}
       >
         log10(1-R^2)
       </text>
-      <text x={padL + 4} y={botTop + 12} fill="#a78bfa" fontSize={9.5}>
+      <text x={padL + 4} y={botTop + 12} fill={ED.series5} fontSize={9.5}>
         per-alpha linear-fit residual (1-R^2)
       </text>
     </svg>
@@ -117,7 +118,7 @@ export default function Imp34032WindingSlopeVsAlphaViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Winding-slope-vs-alpha Curve (imp-33968)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-33924 derived the joint (alpha, theta) leading amplitude A(alpha, theta) and showed its
         theta-winding rate d arg(-A)/d theta equals the closed form -(1+alpha). imp-33968 upgraded
         the imp-33924 cross-check from a single-tolerance pass/fail into an explicit rate-vs-alpha
@@ -127,7 +128,7 @@ export default function Imp34032WindingSlopeVsAlphaViz() {
         the phase is essentially perfectly linear in theta at every alpha.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         winding slope vs alpha -- measured vs closed form -(1+alpha), with fit-residual trace
       </p>
       <WindingSlopeChart />
@@ -136,14 +137,14 @@ export default function Imp34032WindingSlopeVsAlphaViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement only, on the model
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> measurement only, on the model
         cusp rho(x) = |x|^-alpha. Max deviation from the closed form is {MAX_DEVIATION} and the max
         per-alpha fit residual is {MAX_FIT_RESIDUAL}. This re-measures a phase slope already derived
         in closed form by imp-33924; it does not re-derive the m_prime -&gt; C_ren map. H4 is NOT

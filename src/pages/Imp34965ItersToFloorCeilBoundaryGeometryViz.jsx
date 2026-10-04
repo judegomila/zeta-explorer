@@ -3,6 +3,7 @@ import PageHeader from '../components/PageHeader.jsx';
 import { effectiveHeightForN } from '../data/lambda-rh-height-mapping.js';
 import { C_C_PINNED } from '../data/polymath15-constant-C-C.js';
 import { IMP34926_ITERS_TO_FLOOR_CEIL_BOUNDARY_GEOMETRY as D } from '../data/imp-34926-iters-to-floor-ceil-boundary-geometry.js';
+import { ED } from '../styles/tokens.js';
 
 // Reproduces the imp-34926 fixed-point map, log-law constants and ceil-boundary geometry verbatim
 // purely to resample the per-seed frac(x) and penultimate-relative-distance values across the
@@ -82,12 +83,12 @@ function FracDistributionChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
       {xTicks.map((t) => (
         <g key={t}>
-          <line x1={xAt(t)} y1={padT + cH} x2={xAt(t)} y2={padT + cH + 4} stroke="#334155" strokeWidth={1} />
-          <text x={xAt(t)} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={9}>
+          <line x1={xAt(t)} y1={padT + cH} x2={xAt(t)} y2={padT + cH + 4} stroke={ED.rule} strokeWidth={1} />
+          <text x={xAt(t)} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
             {t.toFixed(1)}
           </text>
         </g>
@@ -97,7 +98,7 @@ function FracDistributionChart() {
         y1={padT}
         x2={xAt(D.summary.ceil_boundary_geometry.minus_one_frac_x_lo)}
         y2={padT + cH}
-        stroke="#fbbf24"
+        stroke={ED.brassDeco}
         strokeWidth={1}
         strokeDasharray="4 3"
       />
@@ -106,14 +107,14 @@ function FracDistributionChart() {
         y1={padT}
         x2={xAt(D.summary.ceil_boundary_geometry.minus_one_frac_x_hi)}
         y2={padT + cH}
-        stroke="#fbbf24"
+        stroke={ED.brassDeco}
         strokeWidth={1}
         strokeDasharray="4 3"
       />
       {OFF_BY_ONE_SEEDS.map((p, i) => (
-        <circle key={i} cx={xAt(p.frac)} cy={yAt(p.exp)} r={3.5} fill="#f87171" opacity={0.85} />
+        <circle key={i} cx={xAt(p.frac)} cy={yAt(p.exp)} r={3.5} fill={ED.series2} opacity={0.85} />
       ))}
-      <text x={padL + cW / 2} y={svgH - 6} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 6} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         frac(x) of each off-by-one seed (dot height = log10(seed)) -- clustered in [0.5622, 0.9986]
       </text>
     </svg>
@@ -140,24 +141,24 @@ function PenultDistanceChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
       {yTicks.map((t) => (
         <g key={t}>
-          <line x1={padL - 4} y1={yAt(Math.pow(10, t))} x2={padL} y2={yAt(Math.pow(10, t))} stroke="#334155" strokeWidth={1} />
-          <text x={padL - 8} y={yAt(Math.pow(10, t)) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+          <line x1={padL - 4} y1={yAt(Math.pow(10, t))} x2={padL} y2={yAt(Math.pow(10, t))} stroke={ED.rule} strokeWidth={1} />
+          <text x={padL - 8} y={yAt(Math.pow(10, t)) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             1e{t.toFixed(1)}
           </text>
         </g>
       ))}
-      <line x1={padL} y1={yAt(EPS_FP)} x2={padL + cW} y2={yAt(EPS_FP)} stroke="#38bdf8" strokeWidth={1.5} strokeDasharray="5 3" />
-      <text x={padL + cW - 4} y={yAt(EPS_FP) - 6} textAnchor="end" fill="#38bdf8" fontSize={9.5} fontWeight={700}>
+      <line x1={padL} y1={yAt(EPS_FP)} x2={padL + cW} y2={yAt(EPS_FP)} stroke={ED.series1} strokeWidth={1.5} strokeDasharray="5 3" />
+      <text x={padL + cW - 4} y={yAt(EPS_FP) - 6} textAnchor="end" fill={ED.series1} fontSize={9.5} fontWeight={700}>
         EPS_FP floor = {EPS_FP.toExponential(2)}
       </text>
       {OFF_BY_ONE_SEEDS.filter((p) => p.penultRelDist !== null).map((p, i) => (
-        <circle key={i} cx={xAt(p.exp)} cy={yAt(p.penultRelDist)} r={3.5} fill="#34d399" opacity={0.85} />
+        <circle key={i} cx={xAt(p.exp)} cy={yAt(p.penultRelDist)} r={3.5} fill={ED.series3} opacity={0.85} />
       ))}
-      <text x={padL + cW / 2} y={svgH - 6} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 6} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         penultimate relative distance at each off-by-one seed (log10 seed on x) -- every point sits below the EPS_FP floor
       </text>
     </svg>
@@ -169,11 +170,11 @@ export default function Imp34965ItersToFloorCeilBoundaryGeometryViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Iters-to-Floor Ceil-Boundary Geometry (imp-34965 / imp-34926)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         {D.question}
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         frac(x) at each of the {D.summary.wide_band_off_by_one} off-by-one seeds across the widened
         [1e3,1e18] band -- every point sits in the TOP of the ceil cell, between{' '}
         {D.summary.ceil_boundary_geometry.minus_one_frac_x_lo.toFixed(4)} and{' '}
@@ -182,7 +183,7 @@ export default function Imp34965ItersToFloorCeilBoundaryGeometryViz() {
       </p>
       <FracDistributionChart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.25rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.25rem 0 0.5rem' }}>
         The penultimate relative distance -- the last non-zero relative distance to N_CROSS_FP before
         bit-collapse -- at every off-by-one seed sits strictly below the EPS_FP model floor (dashed
         line), the decisive witness that the floor is conservative and the terminal ceil can only ever
@@ -194,14 +195,14 @@ export default function Imp34965ItersToFloorCeilBoundaryGeometryViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page resampling the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-only page resampling the
         imp-34926 fixed-point map and ceil-boundary geometry on the same [1e3,1e18] 10^0.05 grid (no
         new math; aggregate counts and bounds baked from imp-34926). MEASUREMENT / ASSESSMENT ONLY on
         the inherited imp-3220/imp-3406 surrogate map, IEEE-754 double precision, no interval

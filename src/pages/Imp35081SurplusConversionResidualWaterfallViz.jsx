@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP34954_SURPLUS_CLOSED_FORM_VS_LANDMARK_GAP_CROSSCHECK } from '../data/imp-34954-surplus-closed-form-vs-landmark-gap-crosscheck.js';
+import { ED } from '../styles/tokens.js';
 
 const DATA = IMP34954_SURPLUS_CLOSED_FORM_VS_LANDMARK_GAP_CROSSCHECK;
 const LC = DATA.leadingConversion;
@@ -9,10 +10,10 @@ const RC = DATA.refinedConversion;
 // Four bars: the three equivalent leading conversion forms (all ~4.6-4.9%) collapse to
 // a single "leading" cluster, then the measured-slope refinement drops the residual an order of magnitude.
 const BARS = [
-  { label: '8 × surplus', value: LC.resid_8S, color: '#38bdf8' },
-  { label: '2r', value: LC.resid_2r, color: '#38bdf8' },
-  { label: '1-(1+r)^{-2}', value: LC.resid_powerlaw, color: '#38bdf8' },
-  { label: 'measured-slope G=1-(1+r)^{1/slope}', value: RC.resid_refined_slope, color: '#4ade80' },
+  { label: '8 × surplus', value: LC.resid_8S, color: ED.series1 },
+  { label: '2r', value: LC.resid_2r, color: ED.series1 },
+  { label: '1-(1+r)^{-2}', value: LC.resid_powerlaw, color: ED.series1 },
+  { label: 'measured-slope G=1-(1+r)^{1/slope}', value: RC.resid_refined_slope, color: ED.series3 },
 ];
 
 function ResidualWaterfallChart() {
@@ -34,11 +35,11 @@ function ResidualWaterfallChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={plotW} height={panelH} fill="none" stroke="#334155" strokeWidth={1} />
-      <text x={padL} y={padT - 12} fill="#94a3b8" fontSize={11} fontWeight={700}>
+      <rect x={padL} y={padT} width={plotW} height={panelH} fill="none" stroke={ED.rule} strokeWidth={1} />
+      <text x={padL} y={padT - 12} fill={ED.inkSoft} fontSize={11} fontWeight={700}>
         L1-L3 gap residual (relative) &mdash; three equivalent leading forms vs the measured-slope refinement
       </text>
-      <line x1={padL} y1={zeroY} x2={padL + plotW} y2={zeroY} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={zeroY} x2={padL + plotW} y2={zeroY} stroke={ED.rule} strokeWidth={1.5} />
 
       {BARS.map((b, i) => {
         const cx = padL + gap * (i + 0.5);
@@ -56,14 +57,14 @@ function ResidualWaterfallChart() {
             <text x={cx} y={yTop - 8} textAnchor="middle" fill={b.color} fontSize={11} fontWeight={700}>
               {(b.value * 100).toFixed(2)}%
             </text>
-            <text x={cx} y={zeroY + 18} textAnchor="middle" fill="#94a3b8" fontSize={10}>
+            <text x={cx} y={zeroY + 18} textAnchor="middle" fill={ED.inkSoft} fontSize={10}>
               {b.label}
             </text>
           </g>
         );
       })}
 
-      <text x={padL + plotW / 2} y={padT + 14} textAnchor="middle" fill="#fbbf24" fontSize={10} fontWeight={700}>
+      <text x={padL + plotW / 2} y={padT + 14} textAnchor="middle" fill={ED.brass} fontSize={10} fontWeight={700}>
         the three leading forms cluster near ~4.6-4.9%; the measured slope alone drops the residual ~14x
       </text>
     </svg>
@@ -75,7 +76,7 @@ export default function Imp35081SurplusConversionResidualWaterfallViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Surplus-to-Gap Conversion Residual Decomposition (imp-35081 / imp-34954)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-34954 resolved the ~4.6% residual of converting the sigma-space surplus
         r/(2(2+r)) into the measured relative-N L1-L3 landmark gap ({(LC.rel_N_gap_L1_L3 * 100).toFixed(3)}%).
         The three equivalent leading conversion forms &mdash; 8&times;surplus, 2r, and
@@ -100,7 +101,7 @@ export default function Imp35081SurplusConversionResidualWaterfallViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>quantity</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>value</th>
           </tr>
@@ -120,7 +121,7 @@ export default function Imp35081SurplusConversionResidualWaterfallViz() {
             ['gap, slope + E_flow-drift refinement', RC.gap_refined_slope_plus_eflow_drift],
             ['residual, slope + E_flow-drift refinement', RC.resid_refined_full],
           ].map(([label, value]) => (
-            <tr key={label} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+            <tr key={label} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
               <td style={{ padding: '0.4rem 0.6rem' }}>{label}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{value}</td>
             </tr>
@@ -132,14 +133,14 @@ export default function Imp35081SurplusConversionResidualWaterfallViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page rendering
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-only page rendering
         the imp-34954 baked residual literals (imported verbatim, no new computation);
         establishes no new numerical claim. Conditional-share diagnostic on the inherited
         imp-3220/imp-3406 extrapolation, NOT an RH bound. Far-tail exponent stays 1/2

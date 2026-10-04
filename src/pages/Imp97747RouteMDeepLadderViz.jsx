@@ -5,12 +5,13 @@ import {
   IMP97747_SLOPES,
   IMP97747_SUMMARY,
 } from '../data/imp-97747-route-m-deep-ladder-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
-const POINT_COLOR = '#60a5fa';
-const RISE_COLOR = '#f87171';
-const ENDPOINT_COLOR = '#facc15';
-const THEIL_SEN_COLOR = '#34d399';
-const OLS_COLOR = '#a78bfa';
+const POINT_COLOR = ED.series1;
+const RISE_COLOR = ED.series2;
+const ENDPOINT_COLOR = ED.series4;
+const THEIL_SEN_COLOR = ED.series3;
+const OLS_COLOR = ED.series5;
 
 // Scatter of log|residual| vs log(log p) across the 23-rung ladder, with the 8 RISE rungs
 // marked red and the three slope estimators drawn as reference lines through the first rung.
@@ -46,8 +47,8 @@ function LadderChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#334155" strokeWidth={1} />
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#334155" strokeWidth={1} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1} />
 
       <path d={slopeLine(IMP97747_SLOPES.endpoint)} fill="none" stroke={ENDPOINT_COLOR} strokeWidth={1.25} strokeDasharray="5 3" />
       <path d={slopeLine(IMP97747_SLOPES.theilSen)} fill="none" stroke={THEIL_SEN_COLOR} strokeWidth={1.25} strokeDasharray="2 3" />
@@ -78,14 +79,14 @@ function LadderChart() {
         red = 8 RISE rungs (sign change)
       </text>
 
-      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill="#94a3b8" fontSize={10}>
+      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill={ED.inkSoft} fontSize={10}>
         log(log p)
       </text>
       <text
         x={14}
         y={padT + plotH / 2}
         textAnchor="middle"
-        fill="#94a3b8"
+        fill={ED.inkSoft}
         fontSize={10}
         transform={`rotate(-90, 14, ${padT + plotH / 2})`}
       >
@@ -104,32 +105,32 @@ export default function Imp97747RouteMDeepLadderViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> a measurement/presentation-only
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a measurement/presentation-only
         page reshaping the frozen imp-97722 23-rung ladder verbatim (no re-derivation, no new
         computation). MCM stays refuted from omega=11; Platt&ndash;Trudgian &Lambda; &le; 0.2
         remains SOTA; RH open; NO QED.
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         {IMP97747_SUMMARY.reading}
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         log|residual| vs log(log p), 23-rung ladder (p from 2e6 to ~4.93e8)
       </h3>
       <LadderChart />
 
       <table style={{ width: '100%', marginTop: '1.25rem', borderCollapse: 'collapse', fontSize: '0.8rem' }}>
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'right' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'right' }}>
             <th style={{ textAlign: 'left', padding: '0.4rem 0.5rem' }}>#</th>
             <th style={{ textAlign: 'right', padding: '0.4rem 0.5rem' }}>p_omega</th>
             <th style={{ padding: '0.4rem 0.5rem' }}>residual</th>
@@ -141,9 +142,9 @@ export default function Imp97747RouteMDeepLadderViz() {
             <tr
               key={row.index}
               style={{
-                color: row.isRise ? RISE_COLOR : '#cbd5e1',
+                color: row.isRise ? RISE_COLOR : 'var(--ink)',
                 textAlign: 'right',
-                borderTop: '1px solid #1e293b',
+                borderTop: '1px solid var(--rule-soft)',
               }}
             >
               <td style={{ textAlign: 'left', padding: '0.3rem 0.5rem' }}>{row.index}</td>
@@ -159,14 +160,14 @@ export default function Imp97747RouteMDeepLadderViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> {IMP97747_SUMMARY.verdict}
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> {IMP97747_SUMMARY.verdict}
       </div>
     </div>
   );

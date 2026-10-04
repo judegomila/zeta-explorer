@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP34648_PLATEAU_DRIFT_LARGE_DP_TRUNCATION_SWEET_SPOT } from '../data/imp-34648-plateau-drift-large-dp-truncation-sweet-spot.js';
+import { ED, alpha } from '../styles/tokens.js';
 
 const M = IMP34648_PLATEAU_DRIFT_LARGE_DP_TRUNCATION_SWEET_SPOT;
 
@@ -44,8 +45,8 @@ function SweetSpotChart() {
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
       {/* roundoff valley: order estimate is noise below ~3.4e-2 */}
-      <rect x={valleyX1} y={padT} width={valleyX2 - valleyX1} height={cH} fill="rgba(248,113,113,0.08)" />
-      <text x={(valleyX1 + valleyX2) / 2} y={padT + 14} textAnchor="middle" fill="#f87171" fontSize={8.5}>
+      <rect x={valleyX1} y={padT} width={valleyX2 - valleyX1} height={cH} fill={alpha(ED.series2, 0.08)} />
+      <text x={(valleyX1 + valleyX2) / 2} y={padT + 14} textAnchor="middle" fill={ED.series2} fontSize={8.5}>
         roundoff valley (noise)
       </text>
 
@@ -55,44 +56,44 @@ function SweetSpotChart() {
         y={yAt(M.plateau_order_max)}
         width={plateauX2 - plateauX1}
         height={yAt(M.plateau_order_min) - yAt(M.plateau_order_max)}
-        fill="rgba(56,189,248,0.12)"
+        fill={alpha(ED.series1, 0.12)}
       />
-      <text x={(plateauX1 + plateauX2) / 2} y={yAt(M.plateau_order_max) - 6} textAnchor="middle" fill="#38bdf8" fontSize={8.5}>
+      <text x={(plateauX1 + plateauX2) / 2} y={yAt(M.plateau_order_max) - 6} textAnchor="middle" fill={ED.series1} fontSize={8.5}>
         broad plateau ({M.plateau_order_min}..{M.plateau_order_max})
       </text>
 
       {/* predicted order = 2 reference line */}
-      <line x1={padL} y1={yAt(M.predicted_order)} x2={padL + cW} y2={yAt(M.predicted_order)} stroke="#475569" strokeWidth={1} strokeDasharray="2,3" />
-      <text x={padL + cW} y={yAt(M.predicted_order) - 5} textAnchor="end" fill="#94a3b8" fontSize={9}>
+      <line x1={padL} y1={yAt(M.predicted_order)} x2={padL + cW} y2={yAt(M.predicted_order)} stroke={ED.rule} strokeWidth={1} strokeDasharray="2,3" />
+      <text x={padL + cW} y={yAt(M.predicted_order) - 5} textAnchor="end" fill={ED.inkSoft} fontSize={9}>
         predicted order = {M.predicted_order}
       </text>
 
       {/* imp-34587 Richardson node marker */}
-      <line x1={richardsonX} y1={padT} x2={richardsonX} y2={padT + cH} stroke="#a78bfa" strokeWidth={1.5} strokeDasharray="3,3" />
-      <text x={richardsonX} y={padT + cH + 14} textAnchor="middle" fill="#a78bfa" fontSize={8.5}>
+      <line x1={richardsonX} y1={padT} x2={richardsonX} y2={padT + cH} stroke={ED.series5} strokeWidth={1.5} strokeDasharray="3,3" />
+      <text x={richardsonX} y={padT + cH + 14} textAnchor="middle" fill={ED.series5} fontSize={8.5}>
         imp-34587 node (dp&sim;{M.imp34587_richardson_node_dp})
       </text>
 
-      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
+      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
 
-      <path d={climbPath} fill="none" stroke="#38bdf8" strokeWidth={1.5} />
+      <path d={climbPath} fill="none" stroke={ED.series1} strokeWidth={1.5} />
       {CLIMB_POINTS.map((p) => (
         <circle
           key={p.dp}
           cx={xAt(p.dp)}
           cy={yAt(p.order)}
           r={p.label === 'sweet spot' ? 5 : 3.5}
-          fill={p.label === 'sweet spot' ? '#4ade80' : '#38bdf8'}
-          stroke="#0a0f1a"
+          fill={p.label === 'sweet spot' ? ED.series3 : ED.series1}
+          stroke={ED.paper}
           strokeWidth={1}
         />
       ))}
 
-      <text x={padL} y={16} fill="#38bdf8" fontSize={10}>
+      <text x={padL} y={16} fill={ED.series1} fontSize={10}>
         local order (2nd-order stencil) vs dp anchor
       </text>
-      <text x={padL + cW / 2} y={svgH - 6} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 6} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         dp anchor (log scale, geometric triple {'{'}dp, 2dp, 4dp{'}'})
       </text>
     </svg>
@@ -104,7 +105,7 @@ export default function Imp34671TruncationSweetSpotPlateauViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Large-dp Truncation Sweet Spot: A Broad Plateau at 2, Not the Richardson Node (imp-34671 / imp-34648)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-34648 swept the D<sub>&infin;</sub>-free local scaling exponent of the imp-34630
         2nd-order large-dp drift arm across a fine geometric dp grid. The resolved exponent climbs
         from &sim;{M.order_at_6e2_imp34630} to &sim;{M.order_at_7p5e2_imp34630} and lands
@@ -118,40 +119,40 @@ export default function Imp34671TruncationSweetSpotPlateauViz() {
         different dp scale, not the same tuning.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         local order vs dp anchor, with roundoff valley, plateau band, and Richardson-node offset
       </p>
       <SweetSpotChart />
 
       <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.8rem', marginTop: '1.5rem' }}>
         <tbody>
-          <tr style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+          <tr style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
             <td style={{ padding: '0.4rem 0.6rem' }}>sweet-spot dp anchor / resolved order</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>
               {M.sweet_spot_anchor_dp} / {M.sweet_spot_resolved_order}
             </td>
           </tr>
-          <tr style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+          <tr style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
             <td style={{ padding: '0.4rem 0.6rem' }}>plateau order range (dp &sim; 6.8e-2..1.02e-1)</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>
               {M.plateau_order_min} .. {M.plateau_order_max}
             </td>
           </tr>
-          <tr style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+          <tr style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
             <td style={{ padding: '0.4rem 0.6rem' }}>roundoff valley boundary (order is noise below)</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{M.roundoff_valley_below_dp}</td>
           </tr>
-          <tr style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+          <tr style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
             <td style={{ padding: '0.4rem 0.6rem' }}>imp-34587 Richardson node dp</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{M.imp34587_richardson_node_dp}</td>
           </tr>
-          <tr style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+          <tr style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
             <td style={{ padding: '0.4rem 0.6rem' }}>sweet spot / Richardson-node ratio</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>
               {M.sweet_spot_vs_imp34587_node_ratio}x
             </td>
           </tr>
-          <tr style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+          <tr style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
             <td style={{ padding: '0.4rem 0.6rem' }}>imp-34630 coarse brackets (6e-2 / 7.5e-2)</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>
               {M.order_at_6e2_imp34630} / {M.order_at_7p5e2_imp34630}
@@ -164,14 +165,14 @@ export default function Imp34671TruncationSweetSpotPlateauViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-data only, reusing the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-data only, reusing the
         imp-34648/imp-34630 measurement literals verbatim (climb points, plateau range, valley
         boundary, Richardson-node dp); no zeros bundle imported. Measurement only &mdash; this
         re-aggregates the already-certified imp-34611/imp-34630 decomposition through a finer local

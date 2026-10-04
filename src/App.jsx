@@ -1,15 +1,17 @@
 import { ZETAEXPLORER_CANARY } from './data/provenance-canary.js';
 if (typeof window !== 'undefined') window.__ZX_CANARY = ZETAEXPLORER_CANARY;
-import React, { useState, useEffect, useRef, Suspense, lazy } from 'react';
-import { HashRouter, Routes, Route, NavLink, useLocation, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect, useMemo, useRef, Suspense, lazy } from 'react';
+import { ED as ED_TOKENS } from './styles/tokens.js';
+import { HashRouter, Routes, Route, NavLink, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { MathModalProvider } from './components/KaTeXMath.jsx';
 import HomePageEditorial from './pages/HomePageEditorial.jsx';
 import RouteErrorBoundary from './components/RouteErrorBoundary.jsx';
-import { NAV_GROUPS } from './data/nav-groups.js';
+import { NAV_GROUPS, NAV_DROPPED, NAV_SEARCH_ONLY } from './data/nav-groups.js';
 import './styles/app.css';
 import './styles/editorial.css';
 import { isEditorialRoute, isVizLegacyRoute } from './data/editorial-routes.js';
-import { EditorialHeader } from './components/editorial/PostLayout.jsx';
+import { getConceptIndex, loadConceptRegistry } from './components/conceptRegistryClient.js';
+import { EditorialHeader, GroupDropdown, useDropdownRow, useMenuPanel } from './components/editorial/PostLayout.jsx';
 
 // Lazy-load all pages except the editorial landing for code-splitting
 const HomePage = lazy(() => import('./pages/HomePage.jsx')); // legacy dark home, now /classic
@@ -59,6 +61,8 @@ const TwistorPage = lazy(() => import('./pages/TwistorPage.jsx'));
 const PaperPage = lazy(() => import('./pages/PaperPage.jsx'));
 const HistoryPage = lazy(() => import('./pages/HistoryPage.jsx'));
 const ConceptsPage = lazy(() => import('./pages/ConceptsPage.jsx'));
+const ConceptDetailPage = lazy(() => import('./pages/ConceptDetailPage.jsx'));
+const ConceptClassPage = lazy(() => import('./pages/ConceptClassPage.jsx'));
 const SurrogateModelPage = lazy(() => import('./pages/SurrogateModelPage.jsx'));
 const PascalPage = lazy(() => import('./pages/PascalPage.jsx'));
 const ZXCalculusPage = lazy(() => import('./pages/ZXCalculusPage.jsx'));
@@ -92,6 +96,8 @@ const LambdaTimelinePage = lazy(() => import('./pages/LambdaTimelinePage.jsx'));
 const RhDagPage = lazy(() => import('./pages/RhDagPage.jsx'));
 const FrontierDagPage = lazy(() => import('./pages/FrontierDagPage.jsx'));
 const ProgramDagPage = lazy(() => import('./pages/ProgramDagPage.jsx'));
+const RhLandscapeDagPage = lazy(() => import('./pages/RhLandscapeDagPage.jsx'));
+const ProjectDagPage = lazy(() => import('./pages/ProjectDagPage.jsx'));
 const RigorDashboardPage = lazy(() => import('./pages/RigorDashboardPage.jsx'));
 const DysonVerifierPage = lazy(() => import('./pages/DysonVerifierPage.jsx'));
 const HealthPage = lazy(() => import('./pages/HealthPage.jsx'));
@@ -1862,64 +1868,23 @@ function PageLoader() {
 
   return (
     <div style={{ padding: '2rem 1.5rem', maxWidth: 900, margin: '0 auto' }}>
-      <div style={{ height: 26, width: '50%', borderRadius: 6, background: 'var(--color-border, #e2e8f0)', marginBottom: 24, animation: 'pulse 1.6s ease-in-out infinite' }} />
+      <div style={{ height: 26, width: '50%', borderRadius: 6, background: 'var(--rule)', marginBottom: 24, animation: 'pulse 1.6s ease-in-out infinite' }} />
       {[100, 88, 94].map((w, i) => (
         <div key={i} style={{ marginBottom: 12 }}>
-          <div style={{ height: 13, width: w + '%', borderRadius: 4, background: 'var(--color-border, #e2e8f0)', animation: 'pulse 1.6s ease-in-out infinite' }} />
+          <div style={{ height: 13, width: w + '%', borderRadius: 4, background: 'var(--rule)', animation: 'pulse 1.6s ease-in-out infinite' }} />
         </div>
       ))}
-      <div style={{ height: 13, width: '60%', borderRadius: 4, background: 'var(--color-border, #e2e8f0)', marginTop: 24, animation: 'pulse 1.6s ease-in-out infinite' }} />
+      <div style={{ height: 13, width: '60%', borderRadius: 4, background: 'var(--rule)', marginTop: 24, animation: 'pulse 1.6s ease-in-out infinite' }} />
     </div>
   );
 }
 
-function NavDropdown({ label, items }) {
-  const location = useLocation();
-  const [isOpen, setIsOpen] = useState(false);
-  const dropdownRef = useRef();
-  const hasActive = items.some(item => location.pathname === item.to);
-
-  // Close dropdown on route change
-  useEffect(() => { setIsOpen(false); }, [location.pathname]);
-
-  // Close dropdown on outside click
-  useEffect(() => {
-    if (!isOpen) return;
-    const handleClick = (e) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) setIsOpen(false);
-    };
-    document.addEventListener('mousedown', handleClick);
-    return () => document.removeEventListener('mousedown', handleClick);
-  }, [isOpen]);
-
-  return (
-    <div
-      ref={dropdownRef}
-      className={`nav-dropdown ${hasActive ? 'nav-dropdown-active' : ''} ${isOpen ? 'nav-dropdown-open' : ''}`}
-      onKeyDown={e => { if (e.key === 'Escape' && isOpen) setIsOpen(false); }}
-    >
-      <button
-        className="nav-dropdown-trigger"
-        onClick={() => setIsOpen(o => !o)}
-        aria-expanded={isOpen}
-        aria-haspopup="menu"
-        aria-label={`${label} menu`}
-      >
-        {label}
-        <svg width="10" height="6" viewBox="0 0 10 6" fill="currentColor" style={{ marginLeft: 4 }} aria-hidden="true">
-          <path d="M1 1l4 4 4-4" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-        </svg>
-      </button>
-      <div className="nav-dropdown-menu" role="menu" aria-label={`${label} navigation`}>
-        {items.map(item => (
-          // end: all nav items are non-root flat paths; prevents false-active if a nested route is ever added under the same slug
-          // NavLink auto-applies aria-current="page" on the active route; role=menuitem completes the menu pattern
-          <NavLink key={item.to} to={item.to} end role="menuitem">{item.label}</NavLink>
-        ))}
-      </div>
-    </div>
-  );
-}
+// Classic dark nav dropdown: shares behaviour (hover intent, click toggle,
+// Escape, outside click, arrow keys, sectioned panel) with the editorial header.
+const CLASSIC_DD_CLASSES = {
+  wrap: 'nav-dropdown', btn: 'nav-dropdown-trigger', caret: 'nav-ddcaret', panel: 'nav-dropdown-menu',
+  col: 'nav-ddcol', sec: 'nav-ddsec', head: 'nav-ddhead',
+};
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -1936,10 +1901,10 @@ const KEYBOARD_SHORTCUTS = [
   { key: '6', label: 'Statistics', path: '/statistics' },
   { key: '7', label: 'RH Proof State', path: '/rh-proof-state' },
   { key: '8', label: 'Improvement Queue', path: '/improvement-queue' },
-  { key: '9', label: 'RH DAG', path: '/rh-dag' },
+  { key: '9', label: 'Open problems graph', path: '/frontier-dag' },
 ];
 
-function KeyboardShortcutOverlay({ show, onClose }) {
+function KeyboardShortcutOverlay({ show, onClose, scope }) {
   const dialogRef = useRef(null);
   const previousFocusRef = useRef(null);
 
@@ -1978,6 +1943,7 @@ function KeyboardShortcutOverlay({ show, onClose }) {
 
   return (
     <div
+      className={scope}
       style={{
         position: 'fixed', inset: 0, zIndex: 9999,
         background: 'rgba(0,0,0,0.7)', display: 'flex',
@@ -1993,18 +1959,18 @@ function KeyboardShortcutOverlay({ show, onClose }) {
         tabIndex={-1}
         onKeyDown={handleKeyDown}
         style={{
-          background: '#1e293b', border: '1px solid #334155',
+          background: 'var(--paper-2)', border: '1px solid var(--rule)',
           borderRadius: 12, padding: '28px 36px', maxWidth: 420, width: '90%',
-          color: '#e2e8f0', fontFamily: 'var(--font-mono)', outline: 'none',
+          color: 'var(--ink)', fontFamily: 'var(--font-mono)', outline: 'none',
         }}
         onClick={e => e.stopPropagation()}
       >
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 18 }}>
-          <h3 id="kbd-shortcuts-title" style={{ margin: 0, fontSize: 18, color: '#f8fafc' }}>Keyboard Shortcuts</h3>
+          <h3 id="kbd-shortcuts-title" style={{ margin: 0, fontSize: 18, color: 'var(--ink)' }}>Keyboard Shortcuts</h3>
           <button
             onClick={onClose}
             style={{
-              background: 'none', border: 'none', color: '#94a3b8',
+              background: 'none', border: 'none', color: 'var(--ink-soft)',
               fontSize: 20, cursor: 'pointer', padding: '0 4px',
             }}
             aria-label="Close"
@@ -2016,29 +1982,29 @@ function KeyboardShortcutOverlay({ show, onClose }) {
           {KEYBOARD_SHORTCUTS.map(s => (
             <div key={s.key} style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
               <kbd style={{
-                background: '#334155', border: '1px solid #475569',
+                background: 'var(--paper-3)', border: '1px solid var(--rule)',
                 borderRadius: 4, padding: '2px 8px', fontSize: 14,
-                minWidth: 24, textAlign: 'center', color: '#e0f2fe',
+                minWidth: 24, textAlign: 'center', color: 'var(--ink)',
               }}>{s.key}</kbd>
-              <span style={{ color: '#cbd5e1', fontSize: 14 }}>{s.label}</span>
+              <span style={{ color: 'var(--ink-soft)', fontSize: 14 }}>{s.label}</span>
             </div>
           ))}
-          <div style={{ borderTop: '1px solid #334155', margin: '8px 0', paddingTop: 8 }}>
+          <div style={{ borderTop: '1px solid var(--rule)', margin: '8px 0', paddingTop: 8 }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
               <kbd style={{
-                background: '#334155', border: '1px solid #475569',
+                background: 'var(--paper-3)', border: '1px solid var(--rule)',
                 borderRadius: 4, padding: '2px 8px', fontSize: 14,
-                minWidth: 24, textAlign: 'center', color: '#e0f2fe',
+                minWidth: 24, textAlign: 'center', color: 'var(--ink)',
               }}>?</kbd>
-              <span style={{ color: '#cbd5e1', fontSize: 14 }}>Show this help</span>
+              <span style={{ color: 'var(--ink-soft)', fontSize: 14 }}>Show this help</span>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginTop: 8 }}>
               <kbd style={{
-                background: '#334155', border: '1px solid #475569',
+                background: 'var(--paper-3)', border: '1px solid var(--rule)',
                 borderRadius: 4, padding: '2px 8px', fontSize: 14,
-                minWidth: 24, textAlign: 'center', color: '#e0f2fe',
+                minWidth: 24, textAlign: 'center', color: 'var(--ink)',
               }}>Esc</kbd>
-              <span style={{ color: '#cbd5e1', fontSize: 14 }}>Close overlay</span>
+              <span style={{ color: 'var(--ink-soft)', fontSize: 14 }}>Close overlay</span>
             </div>
           </div>
         </div>
@@ -2047,10 +2013,16 @@ function KeyboardShortcutOverlay({ show, onClose }) {
   );
 }
 
-const ALL_ROUTES = [
-  { to: '/', label: 'Home', group: 'Home' },
-  ...NAV_GROUPS.flatMap(g => g.items.map(item => ({ ...item, group: g.label }))),
-];
+// Every page the command palette and document title know about: all placed nav
+// links (grouped), then former nav entries and routed pages that have no nav slot.
+const ALL_ROUTES = (() => {
+  const seen = new Set();
+  const out = [];
+  const add = (r) => { if (!seen.has(r.to)) { seen.add(r.to); out.push(r); } };
+  NAV_GROUPS.forEach(g => g.items.forEach(item => add({ ...item, group: g.label })));
+  [...NAV_DROPPED, ...NAV_SEARCH_ONLY].forEach(d => add({ to: d.path, label: d.label, group: 'Other' }));
+  return out;
+})();
 
 function DocumentTitle() {
   const { pathname } = useLocation();
@@ -2061,17 +2033,29 @@ function DocumentTitle() {
   return null;
 }
 
-function CommandPalette({ show, onClose, navigate }) {
+function CommandPalette({ show, onClose, navigate, scope }) {
   const [query, setQuery] = useState('');
   const [activeIndex, setActiveIndex] = useState(0);
   const inputRef = useRef();
+  // Concept and concept-class pages come from the concepts registry, loaded the first time the
+  // palette opens (dynamic import; not part of the main bundle).
+  const [conceptIdx, setConceptIdx] = useState(() => getConceptIndex());
+  useEffect(() => {
+    if (show && !conceptIdx) loadConceptRegistry().then((idx) => { if (idx) setConceptIdx(idx); });
+  }, [show, conceptIdx]);
+  const conceptRoutes = useMemo(() => (conceptIdx ? [
+    ...conceptIdx.registry.map((c) => ({ to: `/concept/${c.slug}`, label: c.term, group: 'Concept', keywords: c.aliases.join(' ').toLowerCase() })),
+    ...conceptIdx.classes.map((k) => ({ to: `/concepts/class/${k.slug}`, label: k.name, group: 'Concept class', keywords: '' })),
+  ] : []), [conceptIdx]);
 
-  const results = query.trim() === ''
+  const ql = query.trim().toLowerCase();
+  const matchRoute = (r) => r.label.toLowerCase().includes(ql) || r.to.toLowerCase().includes(ql) || (r.keywords && r.keywords.includes(ql));
+  const results = ql === ''
     ? ALL_ROUTES.slice(0, 12)
-    : ALL_ROUTES.filter(r =>
-        r.label.toLowerCase().includes(query.toLowerCase()) ||
-        r.to.toLowerCase().includes(query.toLowerCase())
-      ).slice(0, 12);
+    : (() => {
+        const pages = ALL_ROUTES.filter(matchRoute).slice(0, 8);
+        return [...pages, ...conceptRoutes.filter(matchRoute).slice(0, 12 - pages.length)];
+      })();
 
   useEffect(() => {
     if (show) {
@@ -2098,6 +2082,7 @@ function CommandPalette({ show, onClose, navigate }) {
       role="dialog"
       aria-modal="true"
       aria-label="Page navigation"
+      className={scope}
       style={{
         position: 'fixed', inset: 0, zIndex: 10000,
         background: 'rgba(0,0,0,0.75)', display: 'flex',
@@ -2108,15 +2093,15 @@ function CommandPalette({ show, onClose, navigate }) {
     >
       <div
         style={{
-          background: '#1e293b', border: '1px solid #334155',
+          background: 'var(--paper-2)', border: '1px solid var(--rule)',
           borderRadius: 12, width: '90%', maxWidth: 560,
           boxShadow: '0 24px 64px rgba(0,0,0,0.6)',
           overflow: 'hidden',
         }}
         onClick={e => e.stopPropagation()}
       >
-        <div style={{ display: 'flex', alignItems: 'center', padding: '12px 16px', borderBottom: '1px solid #334155', gap: 10 }}>
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ color: '#64748b', flexShrink: 0 }} aria-hidden="true">
+        <div style={{ display: 'flex', alignItems: 'center', padding: '12px 16px', borderBottom: '1px solid var(--rule)', gap: 10 }}>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ color: 'var(--ink-faint)', flexShrink: 0 }} aria-hidden="true">
             <circle cx="6.5" cy="6.5" r="5" stroke="currentColor" strokeWidth="1.5"/>
             <path d="M10.5 10.5L14 14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
           </svg>
@@ -2132,15 +2117,15 @@ function CommandPalette({ show, onClose, navigate }) {
             value={query}
             onChange={e => setQuery(e.target.value)}
             onKeyDown={handleKeyDown}
-            placeholder="Search pages..."
+            placeholder="Search pages and concepts..."
             style={{
               flex: 1, background: 'none', border: 'none', outline: 'none',
-              color: '#f1f5f9', fontSize: 16, fontFamily: 'var(--font-mono)',
+              color: 'var(--ink)', fontSize: 16, fontFamily: 'var(--font-mono)',
             }}
           />
           <kbd style={{
-            background: '#334155', border: '1px solid #475569', borderRadius: 4,
-            padding: '1px 6px', fontSize: 11, color: '#94a3b8', flexShrink: 0,
+            background: 'var(--paper-3)', border: '1px solid var(--rule)', borderRadius: 4,
+            padding: '1px 6px', fontSize: 11, color: 'var(--ink-soft)', flexShrink: 0,
           }}>Esc</kbd>
         </div>
         <div
@@ -2150,7 +2135,7 @@ function CommandPalette({ show, onClose, navigate }) {
           style={{ maxHeight: 360, overflowY: 'auto' }}
         >
           {results.length === 0 ? (
-            <div role="status" style={{ padding: '24px 16px', color: '#64748b', textAlign: 'center', fontSize: 14 }}>
+            <div role="status" style={{ padding: '24px 16px', color: 'var(--ink-faint)', textAlign: 'center', fontSize: 14 }}>
               No pages match
             </div>
           ) : results.map((r, i) => (
@@ -2164,18 +2149,18 @@ function CommandPalette({ show, onClose, navigate }) {
               style={{
                 display: 'flex', alignItems: 'center', gap: 12,
                 padding: '10px 16px', cursor: 'pointer',
-                background: i === activeIndex ? '#1d3557' : 'transparent',
-                borderLeft: i === activeIndex ? '2px solid #3b82f6' : '2px solid transparent',
+                background: i === activeIndex ? 'var(--paper-3)' : 'transparent',
+                borderLeft: i === activeIndex ? '2px solid var(--accent)' : '2px solid transparent',
               }}
               onMouseEnter={() => setActiveIndex(i)}
             >
-              <span style={{ color: '#64748b', fontSize: 11, fontFamily: 'var(--font-mono)', minWidth: 80, flexShrink: 0 }}>{r.group}</span>
-              <span style={{ color: i === activeIndex ? '#f1f5f9' : '#cbd5e1', fontSize: 14 }}>{r.label}</span>
-              <span style={{ marginLeft: 'auto', color: '#475569', fontSize: 12, fontFamily: 'var(--font-mono)' }}>{r.to}</span>
+              <span style={{ color: 'var(--ink-faint)', fontSize: 11, fontFamily: 'var(--font-mono)', width: 118, flexShrink: 0, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{r.group}</span>
+              <span style={{ color: i === activeIndex ? 'var(--ink)' : 'var(--ink-soft)', fontSize: 14 }}>{r.label}</span>
+              <span style={{ marginLeft: 'auto', color: 'var(--ink-faint)', fontSize: 12, fontFamily: 'var(--font-mono)' }}>{r.to}</span>
             </div>
           ))}
         </div>
-        <div style={{ padding: '8px 16px', borderTop: '1px solid #334155', display: 'flex', gap: 16, fontSize: 11, color: '#475569', fontFamily: 'var(--font-mono)' }}>
+        <div style={{ padding: '8px 16px', borderTop: '1px solid var(--rule)', display: 'flex', gap: 16, fontSize: 11, color: 'var(--ink-faint)', fontFamily: 'var(--font-mono)' }}>
           <span>up/down navigate</span>
           <span>enter go</span>
           <span>esc close</span>
@@ -2228,30 +2213,38 @@ function useKeyboardShortcuts(navigate) {
   return { showHelp, setShowHelp, showPalette, setShowPalette };
 }
 
-function MobileNavSection({ label, items }) {
+function MobileNavSection({ group, expanded, onToggle, btnRef }) {
   const location = useLocation();
-  const hasActive = items.some(item => location.pathname === item.to);
-  const [collapsed, setCollapsed] = useState(!hasActive);
+  const hasActive = group.items.some(item => location.pathname === item.to);
+  const bodyId = `mobile-nav-${group.label.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}`;
   return (
     <div className="nav-mobile-section">
       <button
+        ref={btnRef}
+        type="button"
         className={`nav-mobile-section-header${hasActive ? ' nav-mobile-section-active' : ''}`}
-        onClick={() => setCollapsed(c => !c)}
-        aria-expanded={!collapsed}
+        onClick={onToggle}
+        aria-expanded={expanded}
+        aria-controls={bodyId}
+        aria-current={hasActive ? 'true' : undefined}
       >
-        <span>{label}</span>
+        <span>{group.label}</span>
         <svg
-          className={`nav-mobile-chevron${collapsed ? '' : ' nav-mobile-chevron-open'}`}
+          className={`nav-mobile-chevron${expanded ? ' nav-mobile-chevron-open' : ''}`}
           width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"
         >
           <path d="M2 4L6 8L10 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
       </button>
-      <div className={`nav-mobile-section-items${collapsed ? '' : ' nav-mobile-section-items-open'}`}>
+      <div id={bodyId} hidden={!expanded} className={`nav-mobile-section-items${expanded ? ' nav-mobile-section-items-open' : ''}`}>
         <div className="nav-mobile-section-inner">
-          {items.map(item => (
-            // end: all nav items are non-root flat paths; prevents false-active if a nested route is ever added under the same slug
-            <NavLink key={item.to} to={item.to} end>{item.label}</NavLink>
+          {group.sections.map(sec => (
+            <div key={sec.heading} role="group" aria-label={sec.heading}>
+              <div className="nav-ddhead">{sec.heading}</div>
+              {sec.items.map(item => (
+                <NavLink key={item.to} to={item.to} end>{item.label}</NavLink>
+              ))}
+            </div>
           ))}
         </div>
       </div>
@@ -2259,54 +2252,45 @@ function MobileNavSection({ label, items }) {
   );
 }
 
+// Classic dark top bar (shown on /classic and the 404 page). Same six groups
+// and the same 1100px collapse point as the editorial header (header.css).
 function NavBar({ onShowShortcuts, onShowPalette }) {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const navRef = useRef();
-  const hamburgerRef = useRef();
   const location = useLocation();
+  const row = useDropdownRow();
+  const hamburgerRef = useRef();
+  const panelRef = useRef();
+  const groupBtnRefs = useRef([]);
+  const [expanded, setExpanded] = useState(() => new Set());
+  const [menuOpen, setMenuOpen] = useMenuPanel({
+    burgerRef: hamburgerRef,
+    panelRef,
+    onOpenFocus: () => groupBtnRefs.current[0],
+  });
 
-  // Close menu on route change
-  useEffect(() => { setMenuOpen(false); }, [location]);
+  const openMenu = () => {
+    const cur = NAV_GROUPS.findIndex(g => g.items.some(it => it.to === location.pathname));
+    setExpanded(new Set(cur >= 0 ? [cur] : []));
+    setMenuOpen(true);
+  };
+  const toggleGroup = (i) => setExpanded(prev => {
+    const n = new Set(prev);
+    if (n.has(i)) n.delete(i); else n.add(i);
+    return n;
+  });
 
-  // Close menu on outside click
+  // Close the narrow-width panel on a click outside the bar and panel.
   useEffect(() => {
-    if (!menuOpen) return;
+    if (!menuOpen) return undefined;
     const handleClick = (e) => {
-      if (navRef.current && !navRef.current.contains(e.target)) setMenuOpen(false);
+      if (panelRef.current?.contains(e.target) || hamburgerRef.current?.contains(e.target)) return;
+      setMenuOpen(false);
     };
     document.addEventListener('mousedown', handleClick);
     return () => document.removeEventListener('mousedown', handleClick);
-  }, [menuOpen]);
-
-  // Escape to close + focus trap (mobile a11y)
-  useEffect(() => {
-    if (!menuOpen) return;
-    const handleKeyDown = (e) => {
-      if (e.key === 'Escape') {
-        setMenuOpen(false);
-        hamburgerRef.current?.focus();
-        return;
-      }
-      if (e.key === 'Tab') {
-        const focusable = navRef.current?.querySelectorAll(
-          'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
-        );
-        if (!focusable || focusable.length === 0) return;
-        const first = focusable[0];
-        const last = focusable[focusable.length - 1];
-        if (e.shiftKey) {
-          if (document.activeElement === first) { e.preventDefault(); last.focus(); }
-        } else {
-          if (document.activeElement === last) { e.preventDefault(); first.focus(); }
-        }
-      }
-    };
-    document.addEventListener('keydown', handleKeyDown);
-    return () => document.removeEventListener('keydown', handleKeyDown);
-  }, [menuOpen]);
+  }, [menuOpen, setMenuOpen]);
 
   return (
-    <div className="nav-bar" ref={navRef}>
+    <div className="nav-bar">
       <NavLink
         to="/"
         end
@@ -2316,60 +2300,65 @@ function NavBar({ onShowShortcuts, onShowPalette }) {
       >
         zeta<span className="nav-logo-text">explorer</span>
       </NavLink>
+      <nav id="mobile-nav" ref={panelRef} aria-label="Site sections" className={`nav-links ${menuOpen ? 'nav-open' : ''}`}>
+        {/* >= 1100px: grouped dropdowns */}
+        <div className="nav-desktop-groups" ref={row.rowRef}>
+          {NAV_GROUPS.map((group, i) => (
+            <GroupDropdown
+              key={group.label}
+              group={group}
+              idx={i}
+              row={row}
+              classes={CLASSIC_DD_CLASSES}
+              idPrefix="nav-dd"
+              showIcon={false}
+            />
+          ))}
+        </div>
+        {/* < 1100px: accordion sections inside the burger panel */}
+        <div className="nav-mobile-flat">
+          {NAV_GROUPS.map((group, i) => (
+            <MobileNavSection
+              key={group.label}
+              group={group}
+              expanded={expanded.has(i)}
+              onToggle={() => toggleGroup(i)}
+              btnRef={(el) => { groupBtnRefs.current[i] = el; }}
+            />
+          ))}
+        </div>
+      </nav>
       <button
+        type="button"
+        className="nav-search"
         onClick={onShowPalette}
         aria-label="Search pages"
         title="Search pages (Ctrl+K)"
-        style={{
-          background: '#1e293b', border: '1px solid #334155',
-          borderRadius: 6, color: '#94a3b8', fontSize: 14,
-          height: 28, cursor: 'pointer', display: 'flex',
-          alignItems: 'center', justifyContent: 'center', gap: 5,
-          marginLeft: 'auto', flexShrink: 0, padding: '0 8px',
-        }}
       >
-        <svg width="13" height="13" viewBox="0 0 16 16" fill="none">
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true">
           <circle cx="6.5" cy="6.5" r="5" stroke="currentColor" strokeWidth="1.5"/>
           <path d="M10.5 10.5L14 14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
         </svg>
-        <span style={{ fontSize: 11, fontFamily: 'var(--font-mono)' }}>Search</span>
+        <span>Search</span>
       </button>
       <button
+        type="button"
+        className="nav-kbd"
         onClick={onShowShortcuts}
         aria-label="Keyboard shortcuts"
         title="Keyboard shortcuts (?)"
-        style={{
-          background: '#334155', border: '1px solid #475569',
-          borderRadius: 6, color: '#94a3b8', fontSize: 14,
-          width: 28, height: 28, cursor: 'pointer', display: 'flex',
-          alignItems: 'center', justifyContent: 'center',
-          fontFamily: 'var(--font-mono)', flexShrink: 0,
-        }}
       >?</button>
       <button
         ref={hamburgerRef}
+        type="button"
         className={`hamburger-btn ${menuOpen ? 'hamburger-open' : ''}`}
-        onClick={() => setMenuOpen(o => !o)}
-        aria-label="Toggle navigation"
+        onClick={() => (menuOpen ? setMenuOpen(false) : openMenu())}
+        aria-label={menuOpen ? 'Close menu' : 'Open menu'}
         aria-expanded={menuOpen}
         aria-controls="mobile-nav"
       >
         <span /><span /><span />
       </button>
-      <nav id="mobile-nav" className={`nav-links ${menuOpen ? 'nav-open' : ''}`}>
-        {/* Desktop: grouped dropdowns */}
-        <div className="nav-desktop-groups">
-          {NAV_GROUPS.map(group => (
-            <NavDropdown key={group.label} label={group.label} items={group.items} />
-          ))}
-        </div>
-        {/* Mobile: collapsible sections */}
-        <div className="nav-mobile-flat">
-          {NAV_GROUPS.map(group => (
-            <MobileNavSection key={group.label} label={group.label} items={group.items} />
-          ))}
-        </div>
-      </nav>
     </div>
   );
 }
@@ -2383,6 +2372,11 @@ function AppShell() {
   const vizLegacy = isVizLegacyRoute(location.pathname);
   const cream = editorial || vizLegacy;
   const { showHelp, setShowHelp, showPalette, setShowPalette } = useKeyboardShortcuts(navigate);
+  // Match html/body/#root to the page theme so macOS/iOS overscroll shows cream, not the dark shell.
+  useEffect(() => {
+    const els = [document.documentElement, document.body, document.getElementById('root')].filter(Boolean);
+    els.forEach((el) => { el.style.background = cream ? ED_TOKENS.paper : ''; });
+  }, [cream]);
 
   return (
     <>
@@ -2391,8 +2385,9 @@ function AppShell() {
       <a className="skip-link" href="#main-content">Skip to content</a>
       {/* Editorial routes render their own cream in-page header (EditorialHeader). */}
       {!cream && <NavBar onShowShortcuts={() => setShowHelp(true)} onShowPalette={() => setShowPalette(true)} />}
-      <KeyboardShortcutOverlay show={showHelp} onClose={() => setShowHelp(false)} />
-      <CommandPalette show={showPalette} onClose={() => setShowPalette(false)} navigate={navigate} />
+      {/* Overlays take the cream tokens on cream routes (.ed-root scope). */}
+      <KeyboardShortcutOverlay show={showHelp} onClose={() => setShowHelp(false)} scope={cream ? 'ed-root ed-overlay' : undefined} />
+      <CommandPalette show={showPalette} onClose={() => setShowPalette(false)} navigate={navigate} scope={cream ? 'ed-root ed-overlay' : undefined} />
       <main
         id="main-content"
         className={
@@ -2455,6 +2450,10 @@ function AppShell() {
           <Route path="/paper" element={<PaperPage />} />
           <Route path="/history" element={<HistoryPage />} />
           <Route path="/concepts" element={<ConceptsPage />} />
+          <Route path="/concepts/class/:slug" element={<ConceptClassPage />} />
+          <Route path="/concepts/class" element={<Navigate to="/concepts" replace />} />
+          <Route path="/concept/:slug" element={<ConceptDetailPage />} />
+          <Route path="/concept" element={<Navigate to="/concepts" replace />} />
           <Route path="/surrogate-model" element={<SurrogateModelPage />} />
           <Route path="/pascal" element={<PascalPage />} />
           <Route path="/zx-calculus" element={<ZXCalculusPage />} />
@@ -2619,6 +2618,8 @@ function AppShell() {
           <Route path="/rh-dag" element={<RhDagPage />} />
           <Route path="/frontier-dag" element={<FrontierDagPage />} />
           <Route path="/program-dag" element={<ProgramDagPage />} />
+          <Route path="/rh-landscape-dag" element={<RhLandscapeDagPage />} />
+          <Route path="/project-dag" element={<ProjectDagPage />} />
           <Route path="/rigor-dashboard" element={<RigorDashboardPage />} />
           <Route path="/rh-proof-state" element={<RHProofStateDashboardPage />} />
           <Route path="/what-we-know" element={<WhatWeKnowPage />} />

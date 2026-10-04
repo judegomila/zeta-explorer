@@ -6,11 +6,12 @@ import {
   IMP33325_MAXBJ_RANGE,
   IMP33325_PLATEAU_TABLE,
 } from '../data/imp-33325-far-term-tighter-majorant-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
-const RMAJ_COLOR = '#f472b6';
-const RTIGHT_COLOR = '#4ade80';
-const BAND_COLOR = '#38bdf8';
-const MAXBJ_COLOR = '#f59e0b';
+const RMAJ_COLOR = ED.series7;
+const RTIGHT_COLOR = ED.series3;
+const BAND_COLOR = ED.series1;
+const MAXBJ_COLOR = ED.series4;
 
 function RatioChart() {
   const svgW = 640;
@@ -31,12 +32,12 @@ function RatioChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
       {yTicks.map((v) => (
         <g key={v}>
-          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke="#1e293b" strokeWidth={0.7} />
-          <text x={padL - 6} y={yS(v) + 3.5} textAnchor="end" fill="#475569" fontSize={9}>
+          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke={ED.ruleSoft} strokeWidth={0.7} />
+          <text x={padL - 6} y={yS(v) + 3.5} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v}
           </text>
         </g>
@@ -82,16 +83,16 @@ function RatioChart() {
       </text>
 
       {IMP33325_PLATEAU_TABLE.map((r, i) => (
-        <text key={r.plateauIndex} x={xS(i)} y={padT + cH + 14} textAnchor="middle" fill="#64748b" fontSize={9}>
+        <text key={r.plateauIndex} x={xS(i)} y={padT + cH + 14} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
           {r.plateauIndex}
         </text>
       ))}
-      <text x={padL + cW / 2} y={padT + cH + 30} textAnchor="middle" fill="#64748b" fontSize={9}>
+      <text x={padL + cW / 2} y={padT + cH + 30} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
         imp-3725 plateau index (0..9, N in [1e4,1e6])
       </text>
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
-      <text x={16} y={padT + cH / 2} textAnchor="middle" fill="#64748b" fontSize={10} transform={`rotate(-90,16,${padT + cH / 2})`}>
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
+      <text x={16} y={padT + cH / 2} textAnchor="middle" fill={ED.inkFaint} fontSize={10} transform={`rotate(-90,16,${padT + cH / 2})`}>
         ratio
       </text>
     </svg>
@@ -115,12 +116,12 @@ function MaxBjChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
       {[0, 1, 2, 3, 4, 5, 6, 7].map((v) => (
         <g key={v}>
-          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke="#1e293b" strokeWidth={0.7} />
-          <text x={padL - 6} y={yS(v) + 3.5} textAnchor="end" fill="#475569" fontSize={9}>
+          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke={ED.ruleSoft} strokeWidth={0.7} />
+          <text x={padL - 6} y={yS(v) + 3.5} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v}
           </text>
         </g>
@@ -140,16 +141,16 @@ function MaxBjChart() {
       </text>
 
       {IMP33325_PLATEAU_TABLE.map((r, i) => (
-        <text key={r.plateauIndex} x={xS(i)} y={padT + cH + 14} textAnchor="middle" fill="#64748b" fontSize={9}>
+        <text key={r.plateauIndex} x={xS(i)} y={padT + cH + 14} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
           {r.plateauIndex}
         </text>
       ))}
-      <text x={padL + cW / 2} y={padT + cH + 30} textAnchor="middle" fill="#64748b" fontSize={9}>
+      <text x={padL + cW / 2} y={padT + cH + 30} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
         imp-3725 plateau index (0..9, N in [1e4,1e6])
       </text>
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
-      <text x={16} y={padT + cH / 2} textAnchor="middle" fill="#64748b" fontSize={10} transform={`rotate(-90,16,${padT + cH / 2})`}>
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
+      <text x={16} y={padT + cH / 2} textAnchor="middle" fill={ED.inkFaint} fontSize={10} transform={`rotate(-90,16,${padT + cH / 2})`}>
         max B_j
       </text>
     </svg>
@@ -161,7 +162,7 @@ export default function Imp33325FarTermTighterMajorantViz() {
     <div style={{ padding: '1.5rem', maxWidth: 940, margin: '0 auto' }}>
       <PageHeader title="Far-Term Tighter-Majorant Collapse (imp-33290)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
         imp-33290 found that swapping the certified per-term majorant 8/s_min(j)^2
         for the realised-gap-aware bound 8*B_j (B_j = P_j/D_j, provably still an
         upper bound by AM-HM) collapses the certified over-charge ratio R_maj
@@ -174,27 +175,27 @@ export default function Imp33325FarTermTighterMajorantViz() {
         imp-33250 residual dg2.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         R_maj vs R_tight collapse onto the K_real floor band, by plateau
       </p>
       <RatioChart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.25rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.25rem 0 0.5rem' }}>
         max_j B_j growth -- the relocated N-uniformity obstruction, by plateau
       </p>
       <MaxBjChart />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.85rem', margin: '1rem 0 1.25rem' }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.85rem', margin: '1rem 0 1.25rem' }}>
         Collapse magnitude: at the endpoint plateau (N=1e6), R_maj = 6.82 falls to
         R_tight ={' '}
-        <strong style={{ color: '#4ade80' }}>1.044</strong> -- an{' '}
-        <strong style={{ color: '#4ade80' }}>84.70%</strong> reduction of the
+        <strong style={{ color: 'var(--series-3)' }}>1.044</strong> -- an{' '}
+        <strong style={{ color: 'var(--series-3)' }}>84.70%</strong> reduction of the
         certified over-charge. Across all 10 plateaus R_maj spans{' '}
         <strong style={{ color: RMAJ_COLOR }}>
           [{IMP33325_RMAJ_RANGE.min.toFixed(2)}, {IMP33325_RMAJ_RANGE.max.toFixed(2)}]
         </strong>{' '}
         while R_tight stays within{' '}
-        <strong style={{ color: '#4ade80' }}>
+        <strong style={{ color: 'var(--series-3)' }}>
           [{IMP33325_KREAL_BAND.min.toFixed(2)}, {IMP33325_KREAL_BAND.max.toFixed(2)}]
         </strong>
         , and max_j B_j spans{' '}
@@ -208,14 +209,14 @@ export default function Imp33325FarTermTighterMajorantViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> R_tight
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> R_tight
         is identically the imp-33269 baked K_real (rReal) -- the swap 8/s_min(j)^2
         -&gt; 8*B_j is exactly the realised elasticity kernel, so the tightened
         ratio lands on the K_real floor by construction, not by fit. The max_j B_j
@@ -228,14 +229,14 @@ export default function Imp33325FarTermTighterMajorantViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> presentation
         of an already-verified feasibility assessment (imp-33290). The over-charge
         is removable by a provable tighter bound, but N-uniform certification is
         NOT achieved -- it relocates to the open imp-33250 residual dg2. imp-3066

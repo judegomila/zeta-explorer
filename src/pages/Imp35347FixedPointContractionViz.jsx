@@ -1,5 +1,6 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
+import { ED } from '../styles/tokens.js';
 
 // Import-light: literals baked verbatim from the imp-35243 iters-to-floor
 // single-rate log-law cohort (imp-34997/imp-35109/imp-35111/imp-35174/imp-35243).
@@ -37,7 +38,7 @@ function ContractionChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <text x={padL} y={padT - 8} fill="#94a3b8" fontSize={11} fontWeight={700}>
+      <text x={padL} y={padT - 8} fill={ED.inkSoft} fontSize={11} fontWeight={700}>
         Digits converged to N_CROSS_FP vs Picard iterate k (rate r={R_CONTRACT}, ln(1/r)={LN_INV_R} nats)
       </text>
       {/* floor line */}
@@ -46,39 +47,39 @@ function ContractionChart() {
         y1={yAt(FLOOR_DIGITS)}
         x2={svgW - padR}
         y2={yAt(FLOOR_DIGITS)}
-        stroke="#475569"
+        stroke={ED.rule}
         strokeDasharray="4 4"
         strokeWidth={1}
       />
-      <text x={svgW - padR} y={yAt(FLOOR_DIGITS) - 6} textAnchor="end" fill="#64748b" fontSize={10}>
+      <text x={svgW - padR} y={yAt(FLOOR_DIGITS) - 6} textAnchor="end" fill={ED.inkFaint} fontSize={10}>
         machine-epsilon floor ({FLOOR_DIGITS.toFixed(2)} digits)
       </text>
       {/* axes */}
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#334155" strokeWidth={1} />
-      <line x1={padL} y1={padT + plotH} x2={svgW - padR} y2={padT + plotH} stroke="#334155" strokeWidth={1} />
-      <path d={pathD} fill="none" stroke="#a78bfa" strokeWidth={2.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1} />
+      <line x1={padL} y1={padT + plotH} x2={svgW - padR} y2={padT + plotH} stroke={ED.rule} strokeWidth={1} />
+      <path d={pathD} fill="none" stroke={ED.series5} strokeWidth={2.5} />
       {points.map((p) => (
         <circle
           key={p.k}
           cx={xAt(p.k)}
           cy={yAt(p.digits)}
           r={3.5}
-          fill={p.digits >= FLOOR_DIGITS ? '#f472b6' : '#a78bfa'}
+          fill={p.digits >= FLOOR_DIGITS ? ED.series7 : ED.series5}
         />
       ))}
       {points.map((p) => (
-        <text key={`lbl-${p.k}`} x={xAt(p.k)} y={padT + plotH + 16} textAnchor="middle" fill="#64748b" fontSize={9.5}>
+        <text key={`lbl-${p.k}`} x={xAt(p.k)} y={padT + plotH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5}>
           {p.k}
         </text>
       ))}
-      <text x={padL + plotW / 2} y={padT + plotH + 34} textAnchor="middle" fill="#94a3b8" fontSize={11}>
+      <text x={padL + plotW / 2} y={padT + plotH + 34} textAnchor="middle" fill={ED.inkSoft} fontSize={11}>
         Picard iterate k
       </text>
       <text
         x={16}
         y={padT + plotH / 2}
         textAnchor="middle"
-        fill="#94a3b8"
+        fill={ED.inkSoft}
         fontSize={11}
         transform={`rotate(-90 16 ${padT + plotH / 2})`}
       >
@@ -93,7 +94,7 @@ export default function Imp35347FixedPointContractionViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Iters-to-Floor Single-Rate Contraction to N_CROSS_FP (imp-35347 / imp-35243)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         The imp-35243 cohort models the Picard iteration g(N) = K&middot;log(T0(N)) as a single-rate
         contraction to the fixed point N_CROSS_FP&nbsp;&asymp;&nbsp;{N_CROSS_FP.toExponential(4)}, with
         local rate |g&prime;(N_cross)|&nbsp;=&nbsp;R_CONTRACT&nbsp;&asymp;&nbsp;{R_CONTRACT} (equivalently
@@ -110,14 +111,14 @@ export default function Imp35347FixedPointContractionViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #a78bfa',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--series-5)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.82rem',
-          color: '#cbd5e1',
+          color: 'var(--ink)',
         }}
       >
-        <strong style={{ color: '#e2e8f0' }}>Ceil-phase drift overlay:</strong> because the ceil argument's
+        <strong style={{ color: 'var(--ink)' }}>Ceil-phase drift overlay:</strong> because the ceil argument's
         fractional phase drifts monotonically at DRIFT_PER_DECADE&nbsp;&asymp;&nbsp;{DRIFT_PER_DECADE} phase
         units per decade of seed N (imp-34997), it takes &asymp;{DECADES_PER_CYCLE.toFixed(1)} decades to
         accumulate a full phase unit &mdash; the slow drift that carries the off-by-one ceil ambiguity out of,
@@ -129,14 +130,14 @@ export default function Imp35347FixedPointContractionViz() {
         style={{
           marginTop: '1rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page baking the imp-35243
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-only page baking the imp-35243
         single-rate log-law literals verbatim (no new computation, no data-module import). The reentry band
         this contraction feeds remains a feature of the analytic surrogate 15&ndash;25 decades above the
         Platt&ndash;Trudgian verified-zero height (&asymp;3e12); the imp-35243 surrogate-fidelity assessment

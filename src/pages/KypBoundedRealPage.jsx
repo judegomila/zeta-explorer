@@ -21,15 +21,16 @@ import { Link } from 'react-router-dom';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import { BlockMath, InlineMath } from '../components/KaTeXMath.jsx';
 import { KYP_BOUNDED_REAL } from '../data/kyp-bounded-real-section.js';
+import { ED, alpha } from '../styles/tokens.js';
 
 const K = KYP_BOUNDED_REAL;
 const mono = 'var(--ed-mono, var(--font-mono))';
 
 // Color theme per App (warm accents: blue / brass / green)
 const APP_COLORS = {
-  'App M': { fg: 'var(--blue)', bg: 'rgba(63,107,134,0.08)', border: 'var(--blue)' },
-  'App N': { fg: 'var(--brass)', bg: 'rgba(140,106,29,0.08)', border: 'var(--brass)' },
-  'App O': { fg: 'var(--green)', bg: 'rgba(76,122,74,0.08)', border: 'var(--green)' },
+  'App M': { fg: 'var(--blue)', bg: alpha(ED.series1, 0.08), border: 'var(--blue)' },
+  'App N': { fg: 'var(--brass)', bg: alpha(ED.brass, 0.08), border: 'var(--brass)' },
+  'App O': { fg: 'var(--green)', bg: alpha(ED.series3, 0.08), border: 'var(--green)' },
 };
 
 // Warm rotation for the per-prime delay lanes in the SVG diagram.
@@ -57,21 +58,21 @@ function ParallelDelayDiagram() {
       aria-label="Parallel-delay realization of the prime-delay system: input feeds delay lines at tau_p = log p for each prime p"
     >
       {/* Input node */}
-      <circle cx={inputX} cy={inputY} r={18} fill="rgba(63,107,134,0.12)" stroke="#3f6b86" strokeWidth="2" />
-      <text x={inputX} y={inputY + 5} textAnchor="middle" fontFamily={mono} fontSize="13" fill="#3f6b86">u</text>
+      <circle cx={inputX} cy={inputY} r={18} fill={alpha(ED.series1, 0.12)} stroke={ED.series1} strokeWidth="2" />
+      <text x={inputX} y={inputY + 5} textAnchor="middle" fontFamily={mono} fontSize="13" fill={ED.series1}>u</text>
 
       {/* Summing junction */}
-      <circle cx={summingX} cy={inputY} r={18} fill="rgba(194,58,28,0.10)" stroke="#c23a1c" strokeWidth="2" />
-      <text x={summingX} y={inputY - 4} textAnchor="middle" fontFamily={mono} fontSize="16" fontWeight="700" fill="#c23a1c">+</text>
-      <text x={summingX} y={inputY + 12} textAnchor="middle" fontFamily={mono} fontSize="10" fill="#877b67">sum</text>
+      <circle cx={summingX} cy={inputY} r={18} fill={alpha(ED.series2, 0.1)} stroke={ED.accent} strokeWidth="2" />
+      <text x={summingX} y={inputY - 4} textAnchor="middle" fontFamily={mono} fontSize="16" fontWeight="700" fill={ED.accent}>+</text>
+      <text x={summingX} y={inputY + 12} textAnchor="middle" fontFamily={mono} fontSize="10" fill={ED.inkFaint}>sum</text>
 
       {/* Output arrow */}
-      <line x1={summingX + 18} y1={inputY} x2={outputX - 10} y2={inputY} stroke="#4a4238" strokeWidth="1.5" markerEnd="url(#arr)" />
-      <text x={outputX + 4} y={inputY + 5} fontFamily={mono} fontSize="13" fill="#8c6a1d">y</text>
+      <line x1={summingX + 18} y1={inputY} x2={outputX - 10} y2={inputY} stroke={ED.inkSoft} strokeWidth="1.5" markerEnd="url(#arr)" />
+      <text x={outputX + 4} y={inputY + 5} fontFamily={mono} fontSize="13" fill={ED.brass}>y</text>
 
       <defs>
         <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
-          <path d="M 0 0 L 10 5 L 0 10 z" fill="#4a4238" />
+          <path d="M 0 0 L 10 5 L 0 10 z" fill={ED.inkSoft} />
         </marker>
       </defs>
 
@@ -85,34 +86,34 @@ function ParallelDelayDiagram() {
         return (
           <g key={p}>
             {/* Fan-out from input */}
-            <line x1={inputX + 18} y1={inputY} x2={inputX + 50} y2={inputY} stroke="#4a4238" strokeWidth="1" />
-            <line x1={inputX + 50} y1={inputY} x2={inputX + 50} y2={laneY} stroke="#4a4238" strokeWidth="1" />
-            <line x1={inputX + 50} y1={laneY} x2={delayX - 4} y2={laneY} stroke="#4a4238" strokeWidth="1" markerEnd="url(#arr)" />
+            <line x1={inputX + 18} y1={inputY} x2={inputX + 50} y2={inputY} stroke={ED.inkSoft} strokeWidth="1" />
+            <line x1={inputX + 50} y1={inputY} x2={inputX + 50} y2={laneY} stroke={ED.inkSoft} strokeWidth="1" />
+            <line x1={inputX + 50} y1={laneY} x2={delayX - 4} y2={laneY} stroke={ED.inkSoft} strokeWidth="1" markerEnd="url(#arr)" />
 
             {/* Delay block */}
             <rect
               x={delayX} y={laneY - delayH2 / 2}
               width={delayW} height={delayH2}
               rx="5" ry="5"
-              fill="#f6f1e7" stroke={hue} strokeWidth="1.5"
+              fill={ED.paper2} stroke={hue} strokeWidth="1.5"
             />
             <text x={delayX + delayW / 2} y={laneY - 2} textAnchor="middle" fontFamily={mono} fontSize="11" fill={hue}>
               {`e^{-${p === 2 ? '\\log 2' : p === 3 ? '\\log 3' : `\\log ${p}`} z}`}
             </text>
-            <text x={delayX + delayW / 2} y={laneY + 12} textAnchor="middle" fontFamily={mono} fontSize="10" fill="#877b67">
+            <text x={delayX + delayW / 2} y={laneY + 12} textAnchor="middle" fontFamily={mono} fontSize="10" fill={ED.inkFaint}>
               {`p=${p}, tau=${Math.log(p).toFixed(3)}`}
             </text>
 
             {/* Fan-in to summing junction */}
-            <line x1={delayX + delayW + 4} y1={laneY} x2={summingX - 20} y2={laneY} stroke="#4a4238" strokeWidth="1" markerEnd="url(#arr)" />
-            <line x1={summingX - 20} y1={laneY} x2={summingX - 20} y2={inputY} stroke="#4a4238" strokeWidth="1" />
-            <line x1={summingX - 20} y1={inputY} x2={summingX - 18} y2={inputY} stroke="#4a4238" strokeWidth="1" />
+            <line x1={delayX + delayW + 4} y1={laneY} x2={summingX - 20} y2={laneY} stroke={ED.inkSoft} strokeWidth="1" markerEnd="url(#arr)" />
+            <line x1={summingX - 20} y1={laneY} x2={summingX - 20} y2={inputY} stroke={ED.inkSoft} strokeWidth="1" />
+            <line x1={summingX - 20} y1={inputY} x2={summingX - 18} y2={inputY} stroke={ED.inkSoft} strokeWidth="1" />
           </g>
         );
       })}
 
       {/* Label */}
-      <text x={W / 2} y={H - 8} textAnchor="middle" fontFamily={mono} fontSize="11" fill="#877b67">
+      <text x={W / 2} y={H - 8} textAnchor="middle" fontFamily={mono} fontSize="11" fill={ED.inkFaint}>
         Parallel prime-delay realization of Sigma_a (first 8 primes shown)
       </text>
     </svg>
@@ -121,7 +122,7 @@ function ParallelDelayDiagram() {
 
 // ── Per-App card ──────────────────────────────────────────────────────────────
 function AppCard({ app }) {
-  const col = APP_COLORS[app.label] || { fg: 'var(--ink)', bg: 'rgba(0,0,0,0)', border: 'var(--hairline)' };
+  const col = APP_COLORS[app.label] || { fg: 'var(--ink)', bg: alpha(ED.paper, 0), border: 'var(--hairline)' };
   return (
     <div
       className="card"
@@ -176,7 +177,7 @@ function ConjectureCard({ conj }) {
   return (
     <div
       className="card"
-      style={{ marginTop: 16, borderLeft: '4px solid var(--brass)', background: 'rgba(140,106,29,0.05)' }}
+      style={{ marginTop: 16, borderLeft: '4px solid var(--brass)', background: 'color-mix(in srgb, var(--brass) 5%, transparent)' }}
     >
       <div style={{ display: 'flex', alignItems: 'baseline', gap: 12, flexWrap: 'wrap' }}>
         <h3 style={{ color: 'var(--brass)', margin: 0, fontSize: 18 }}>
@@ -190,7 +191,7 @@ function ConjectureCard({ conj }) {
             style={{
               fontFamily: mono, fontSize: 11, padding: '2px 8px',
               borderRadius: 4, color: 'var(--green)',
-              background: 'rgba(76,122,74,0.10)', border: '1px solid var(--green)',
+              background: 'color-mix(in srgb, var(--series-3) 10%, transparent)', border: '1px solid var(--green)',
             }}
           >
             implies RH
@@ -230,7 +231,7 @@ export default function KypBoundedRealPage() {
           style={{
             marginTop: 12,
             borderLeft: '4px solid var(--brass-dk)',
-            background: 'rgba(181,138,46,0.08)',
+            background: 'color-mix(in srgb, var(--brass-deco) 8%, transparent)',
           }}
           role="note"
           aria-label="Verdict: RH-equivalent, not a reduction"
@@ -239,7 +240,7 @@ export default function KypBoundedRealPage() {
             <span
               style={{
                 fontFamily: mono, fontSize: 11, padding: '2px 8px', borderRadius: 4,
-                color: 'var(--brass-dk)', background: 'rgba(181,138,46,0.14)', border: '1px solid var(--brass-dk)',
+                color: 'var(--brass-dk)', background: 'color-mix(in srgb, var(--brass-deco) 14%, transparent)', border: '1px solid var(--brass-dk)',
               }}
             >
               VERDICT: RH-EQUIVALENT, NOT A REDUCTION
@@ -382,7 +383,7 @@ export default function KypBoundedRealPage() {
         </div>
 
         {/* ─── Open sub-problems ─── */}
-        <div className="card" style={{ marginTop: 24, borderLeft: '4px solid var(--terra-dk)', background: 'rgba(194,58,28,0.05)' }}>
+        <div className="card" style={{ marginTop: 24, borderLeft: '4px solid var(--terra-dk)', background: 'color-mix(in srgb, var(--series-2) 5%, transparent)' }}>
           <h3 style={{ color: 'var(--terra-dk)', marginBottom: 10 }}>Open sub-problems (shared bottleneck)</h3>
           <ul style={{ margin: 0, padding: '0 0 0 20px' }}>
             {K.landscape.openSubproblems.map((p, i) => (

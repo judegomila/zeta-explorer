@@ -6,6 +6,7 @@ import {
   BOX_MIN_ROWS,
   IMP95776_SUMMARY,
 } from '../data/imp-95776-cf-reff-gue-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 // Log-x line chart: flat-RvM r_eff (diverging) vs GUE-reweighted r_eff (saturating)
 // across the near-anchor cutoff c, plus the cutoff-independent saturation asymptote.
@@ -36,36 +37,36 @@ function ReffCutoffChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1} />
 
       {/* Cutoff-independent GUE saturation asymptote */}
-      <line x1={padL} y1={satY} x2={padL + plotW} y2={satY} stroke="#60a5fa" strokeWidth={1} strokeDasharray="4,3" />
-      <text x={padL + plotW} y={satY - 4} textAnchor="end" fill="#60a5fa" fontSize={9.5}>
+      <line x1={padL} y1={satY} x2={padL + plotW} y2={satY} stroke={ED.series1} strokeWidth={1} strokeDasharray="4,3" />
+      <text x={padL + plotW} y={satY - 4} textAnchor="end" fill={ED.series1} fontSize={9.5}>
         GUE saturates at {REFF_GUE_SATURATED}x
       </text>
 
-      <path d={flatPath} fill="none" stroke="#f472b6" strokeWidth={2} />
-      <path d={guePath} fill="none" stroke="#60a5fa" strokeWidth={2} />
+      <path d={flatPath} fill="none" stroke={ED.series7} strokeWidth={2} />
+      <path d={guePath} fill="none" stroke={ED.series1} strokeWidth={2} />
 
       {REFF_CUTOFF_ROWS.map((r) => (
         <g key={`pt-${r.c}`}>
-          <circle cx={xOf(r.c)} cy={yOf(r.flat)} r={3.5} fill="#f472b6" />
-          <circle cx={xOf(r.c)} cy={yOf(r.gue)} r={3.5} fill="#60a5fa" />
-          <text x={xOf(r.c)} y={svgH - 8} textAnchor="middle" fill="#64748b" fontSize={9}>
+          <circle cx={xOf(r.c)} cy={yOf(r.flat)} r={3.5} fill={ED.series7} />
+          <circle cx={xOf(r.c)} cy={yOf(r.gue)} r={3.5} fill={ED.series1} />
+          <text x={xOf(r.c)} y={svgH - 8} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
             {r.label}
           </text>
         </g>
       ))}
 
       {[Math.ceil(yMax), Math.floor(yMin)].map((v, i) => (
-        <text key={`y${i}`} x={padL - 6} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={8.5}>
+        <text key={`y${i}`} x={padL - 6} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8.5}>
           {v}
         </text>
       ))}
 
-      <text x={padL + 4} y={padT + 12} fill="#f472b6" fontSize={10}>flat-RvM r_eff (diverging)</text>
-      <text x={padL + 4} y={padT + 26} fill="#60a5fa" fontSize={10}>GUE-reweighted r_eff (saturating)</text>
+      <text x={padL + 4} y={padT + 12} fill={ED.series7} fontSize={10}>flat-RvM r_eff (diverging)</text>
+      <text x={padL + 4} y={padT + 26} fill={ED.series1} fontSize={10}>GUE-reweighted r_eff (saturating)</text>
     </svg>
   );
 }
@@ -91,7 +92,7 @@ function BoxMinBarChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={zeroY} x2={padL + plotW} y2={zeroY} stroke="#64748b" strokeWidth={1} />
+      <line x1={padL} y1={zeroY} x2={padL + plotW} y2={zeroY} stroke={ED.rule} strokeWidth={1} />
       {BOX_MIN_ROWS.map((r, i) => {
         const x = padL + i * barW + barW * 0.2;
         const w = barW * 0.6;
@@ -99,11 +100,11 @@ function BoxMinBarChart() {
         const h = Math.abs(yOf(r.gap) - zeroY);
         return (
           <g key={r.label}>
-            <rect x={x} y={y0} width={w} height={h} fill={i === 3 ? '#f87171' : '#818cf8'} opacity={0.85} />
-            <text x={x + w / 2} y={yOf(r.gap) - 6} textAnchor="middle" fill="#cbd5e1" fontSize={9.5}>
+            <rect x={x} y={y0} width={w} height={h} fill={i === 3 ? ED.series2 : ED.series5} opacity={0.85} />
+            <text x={x + w / 2} y={yOf(r.gap) - 6} textAnchor="middle" fill={ED.ink} fontSize={9.5}>
               {r.gap.toFixed(6)}
             </text>
-            <text x={x + w / 2} y={svgH - padB + 14} textAnchor="middle" fill="#64748b" fontSize={8.5}>
+            <text x={x + w / 2} y={svgH - padB + 14} textAnchor="middle" fill={ED.inkFaint} fontSize={8.5}>
               {r.label}
             </text>
           </g>
@@ -122,15 +123,15 @@ export default function Imp95776CfReffGueViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> a
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a
         measurement/presentation-only page re-plotting the frozen imp-95747
         literals (no re-derivation, no new computation). It changes no bound
         and proves no RH-relevant theorem. The imp-486 C_mb GUE-conditional
@@ -138,20 +139,20 @@ export default function Imp95776CfReffGueViz() {
         &Lambda; &le; 0.2 remains state of the art. NO QED.
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         {IMP95776_SUMMARY.reading}
       </p>
 
       <ReffCutoffChart />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.85rem', margin: '1.25rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.85rem', margin: '1.25rem 0 0.5rem' }}>
         Resulting box-min gap depths at each landmark r_eff (same fixed wedge corner throughout):
       </p>
       <BoxMinBarChart />
 
-      <table style={{ width: '100%', fontSize: '0.78rem', color: '#cbd5e1', borderCollapse: 'collapse', marginTop: '1.25rem' }}>
+      <table style={{ width: '100%', fontSize: '0.78rem', color: 'var(--ink)', borderCollapse: 'collapse', marginTop: '1.25rem' }}>
         <thead>
-          <tr style={{ color: '#64748b' }}>
+          <tr style={{ color: 'var(--ink-faint)' }}>
             <th style={{ textAlign: 'left', paddingBottom: 4 }}>cutoff c (spacings)</th>
             <th style={{ textAlign: 'right', paddingBottom: 4 }}>flat-RvM r_eff</th>
             <th style={{ textAlign: 'right', paddingBottom: 4 }}>GUE-reweighted r_eff</th>
@@ -159,10 +160,10 @@ export default function Imp95776CfReffGueViz() {
         </thead>
         <tbody>
           {REFF_CUTOFF_ROWS.map((r) => (
-            <tr key={r.c} style={{ borderTop: '1px solid rgba(148,163,184,0.15)' }}>
+            <tr key={r.c} style={{ borderTop: '1px solid color-mix(in srgb, var(--rule) 15%, transparent)' }}>
               <td style={{ padding: '3px 0' }}>{r.label}</td>
-              <td style={{ textAlign: 'right', color: '#f472b6' }}>{r.flat.toFixed(4)}</td>
-              <td style={{ textAlign: 'right', color: '#60a5fa' }}>{r.gue.toFixed(4)}</td>
+              <td style={{ textAlign: 'right', color: 'var(--series-7)' }}>{r.flat.toFixed(4)}</td>
+              <td style={{ textAlign: 'right', color: 'var(--series-1)' }}>{r.gue.toFixed(4)}</td>
             </tr>
           ))}
         </tbody>
@@ -172,14 +173,14 @@ export default function Imp95776CfReffGueViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> {IMP95776_SUMMARY.verdict}
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> {IMP95776_SUMMARY.verdict}
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP34692_DERIVATIVE_CROSSCHECK_WIDE_GRID } from '../data/imp-34692-derivative-crosscheck-wide-grid.js';
+import { ED } from '../styles/tokens.js';
 
 const M = IMP34692_DERIVATIVE_CROSSCHECK_WIDE_GRID;
 const log10 = (x) => Math.log(x) / Math.LN10;
@@ -73,37 +74,37 @@ function WideGridChart({ points }) {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
+      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
 
       <line
         x1={xAt(N_CROSS)}
         y1={padT}
         x2={xAt(N_CROSS)}
         y2={padT + cH}
-        stroke="#facc15"
+        stroke={ED.brassDeco}
         strokeWidth={1}
         strokeDasharray="2 3"
       />
-      <text x={xAt(N_CROSS) + 4} y={padT + 10} fill="#facc15" fontSize={9}>
+      <text x={xAt(N_CROSS) + 4} y={padT + 10} fill={ED.brass} fontSize={9}>
         N_cross &asymp; 3.28e9
       </text>
 
-      <path d={linePath} fill="none" stroke="#38bdf8" strokeWidth={1.75} />
+      <path d={linePath} fill="none" stroke={ED.series1} strokeWidth={1.75} />
 
-      <circle cx={xAt(worst.N)} cy={yAt(worst.rel)} r={4} fill="#f87171" stroke="#0a0f1a" strokeWidth={1} />
-      <text x={xAt(worst.N) + 6} y={yAt(worst.rel) - 6} fill="#f87171" fontSize={9}>
+      <circle cx={xAt(worst.N)} cy={yAt(worst.rel)} r={4} fill={ED.series2} stroke={ED.paper} strokeWidth={1} />
+      <text x={xAt(worst.N) + 6} y={yAt(worst.rel) - 6} fill={ED.series2} fontSize={9}>
         worst &asymp; {worst.rel.toExponential(2)}
       </text>
 
-      <text x={padL + cW / 2} y={svgH - 6} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 6} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         N (log scale, {N_STAR.toExponential(2)} &rarr; {N_TAIL.toExponential(2)})
       </text>
       <text
         x={14}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={`rotate(-90, 14, ${padT + cH / 2})`}
       >
@@ -140,37 +141,37 @@ function StepStudyChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
+      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
 
       <line
         x1={xAt(bestH)}
         y1={padT}
         x2={xAt(bestH)}
         y2={padT + cH}
-        stroke="#facc15"
+        stroke={ED.brassDeco}
         strokeWidth={1}
         strokeDasharray="2 3"
       />
-      <text x={xAt(bestH) + 4} y={padT + 10} fill="#facc15" fontSize={9}>
+      <text x={xAt(bestH) + 4} y={padT + 10} fill={ED.brass} fontSize={9}>
         optimum h/N &asymp; {bestH.toExponential(0)}
       </text>
 
-      <path d={linePath} fill="none" stroke="#38bdf8" strokeWidth={2} />
+      <path d={linePath} fill="none" stroke={ED.series1} strokeWidth={2} />
       {pts.map((p) => (
-        <circle key={p.h_over_N} cx={xAt(p.h_over_N)} cy={yAt(p.rel_err)} r={4} fill="#cbd5e1" stroke="#0a0f1a" strokeWidth={1} />
+        <circle key={p.h_over_N} cx={xAt(p.h_over_N)} cy={yAt(p.rel_err)} r={4} fill="#cbd5e1" stroke={ED.paper} strokeWidth={1} />
       ))}
 
-      <circle cx={xAt(bestH)} cy={yAt(bestErr)} r={5} fill="#4ade80" stroke="#0a0f1a" strokeWidth={1} />
+      <circle cx={xAt(bestH)} cy={yAt(bestErr)} r={5} fill={ED.series3} stroke={ED.paper} strokeWidth={1} />
 
-      <text x={padL + cW / 2} y={svgH - 6} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 6} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         log10 relative step h/N (truncation &rarr; roundoff, at N_cross)
       </text>
       <text
         x={14}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={`rotate(-90, 14, ${padT + cH / 2})`}
       >
@@ -187,7 +188,7 @@ export default function Imp34718DerivativeCrosscheckWideGridViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Wide-Grid Derivative Cross-Check (imp-34718 / imp-34692)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         The imp-34650 analytic map derivative gPrime(N) = K&middot;(dT0/dN)/T0, with
         dT0/dN = 2&pi;/log(T0/2&pi;), was checked against a central finite difference at only two
         contraction endpoints (N = 1e9, 1e10). imp-34692 widened that check to a dense 201-point
@@ -197,12 +198,12 @@ export default function Imp34718DerivativeCrosscheckWideGridViz() {
         at the near-optimal h/N = 1e-5), with no sign or reciprocal slip anywhere on the interval.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         FD-vs-analytic relative error of gPrime(N) across the 200-point log grid (h/N = 1e-6)
       </p>
       <WideGridChart points={gridPoints} />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
         Step-size V-curve at N_cross: O(h&sup2;) truncation down to a floor, then roundoff climb
       </p>
       <StepStudyChart />
@@ -216,14 +217,14 @@ export default function Imp34718DerivativeCrosscheckWideGridViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>h/N</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>relative error</th>
           </tr>
         </thead>
         <tbody>
           {M.measured.step_study.map((s) => (
-            <tr key={s.h_over_N} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+            <tr key={s.h_over_N} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{s.h_over_N.toExponential(0)}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{s.rel_err.toExponential(3)}</td>
             </tr>
@@ -235,11 +236,11 @@ export default function Imp34718DerivativeCrosscheckWideGridViz() {
         style={{
           marginTop: '1rem',
           padding: '0.6rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
         }}
       >
         Because tuning h drives the residual arbitrarily small (best {M.measured.best_step_rel_err}{' '}
@@ -252,14 +253,14 @@ export default function Imp34718DerivativeCrosscheckWideGridViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page, recomputing the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-only page, recomputing the
         imp-34692 sweep (inline Riemann&ndash;von Mangoldt inverse-height solver, re-typed and
         independent of the source solver) purely for plotting; establishes no new numerical claim.
         Cross-validation of an inherited imp-3220/imp-3406 surrogate derivative; does not touch the

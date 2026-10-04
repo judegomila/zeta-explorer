@@ -6,9 +6,10 @@ import {
   IMP3884_MAX_MEASURED_REL_K_CHANGE,
   IMP3884_CARRYFORWARD_MARGIN,
 } from '../data/imp-3884-thetabar-elasticity-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
-const PREDICTED_COLOR = '#38bdf8';
-const MEASURED_COLOR = '#facc15';
+const PREDICTED_COLOR = ED.series1;
+const MEASURED_COLOR = ED.series4;
 
 function ElasticityBandChart() {
   const svgW = 680;
@@ -36,12 +37,12 @@ function ElasticityBandChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
       {yTicks.map((v) => (
         <g key={v}>
-          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke="#1e293b" strokeWidth={0.7} />
-          <text x={padL - 6} y={yS(v) + 3.5} textAnchor="end" fill="#475569" fontSize={9}>
+          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke={ED.ruleSoft} strokeWidth={0.7} />
+          <text x={padL - 6} y={yS(v) + 3.5} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v.toExponential(0)}
           </text>
         </g>
@@ -53,37 +54,37 @@ function ElasticityBandChart() {
         const yMeas = yS(r.measuredRelKChange);
         return (
           <g key={r.plateauIndex}>
-            <line x1={xMid} y1={yPred} x2={xMid} y2={yMeas} stroke="#475569" strokeWidth={1} />
+            <line x1={xMid} y1={yPred} x2={xMid} y2={yMeas} stroke={ED.rule} strokeWidth={1} />
             <circle cx={xMid} cy={yPred} r={3.4} fill={PREDICTED_COLOR} />
             <circle cx={xMid} cy={yMeas} r={3.4} fill="none" stroke={MEASURED_COLOR} strokeWidth={1.8} />
           </g>
         );
       })}
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
 
       {[1e4, 1e5, 1e6].map((n) => (
         <g key={'x' + n}>
-          <line x1={xS(n)} y1={padT + cH} x2={xS(n)} y2={padT + cH + 5} stroke="#334155" strokeWidth={1} />
-          <text x={xS(n)} y={padT + cH + 17} textAnchor="middle" fill="#64748b" fontSize={9}>
+          <line x1={xS(n)} y1={padT + cH} x2={xS(n)} y2={padT + cH + 5} stroke={ED.rule} strokeWidth={1} />
+          <text x={xS(n)} y={padT + cH + 17} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
             N={n.toExponential(0)}
           </text>
         </g>
       ))}
-      <text x={padL + cW / 2} y={padT + cH + 36} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={padT + cH + 36} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         N (log scale, plateau midpoint)
       </text>
-      <text x={16} y={padT + cH / 2} textAnchor="middle" fill="#64748b" fontSize={10} transform={'rotate(-90,16,' + (padT + cH / 2) + ')'}>
+      <text x={16} y={padT + cH / 2} textAnchor="middle" fill={ED.inkFaint} fontSize={10} transform={'rotate(-90,16,' + (padT + cH / 2) + ')'}>
         relative K_paper shift (log scale)
       </text>
 
       <g fontSize={9}>
         <circle cx={padL + 8} cy={padT + 12} r={3.4} fill={PREDICTED_COLOR} />
-        <text x={padL + 16} y={padT + 15} fill="#7dd3fc">
+        <text x={padL + 16} y={padT + 15} fill={ED.series1}>
           predicted: O((H/Dmin)^2) elasticity &times; feasible-window width
         </text>
         <circle cx={padL + 8} cy={padT + 26} r={3.4} fill="none" stroke={MEASURED_COLOR} strokeWidth={1.8} />
-        <text x={padL + 16} y={padT + 29} fill="#fde68a">
+        <text x={padL + 16} y={padT + 29} fill={ED.brass}>
           measured: imp-3728 improveFactor - 1
         </text>
       </g>
@@ -111,19 +112,19 @@ function PredictionRatioChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
       {yTicks.map((v) => (
         <g key={v}>
-          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke="#1e293b" strokeWidth={0.7} />
-          <text x={padL - 6} y={yS(v) + 3.5} textAnchor="end" fill="#475569" fontSize={9}>
+          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke={ED.ruleSoft} strokeWidth={0.7} />
+          <text x={padL - 6} y={yS(v) + 3.5} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v.toFixed(1)}
           </text>
         </g>
       ))}
 
-      <line x1={padL} y1={yS(1)} x2={padL + cW} y2={yS(1)} stroke="#f472b6" strokeWidth={1.2} strokeDasharray="4,3" />
-      <text x={padL + cW - 4} y={yS(1) - 5} textAnchor="end" fill="#f9a8d4" fontSize={8.5}>
+      <line x1={padL} y1={yS(1)} x2={padL + cW} y2={yS(1)} stroke={ED.series7} strokeWidth={1.2} strokeDasharray="4,3" />
+      <text x={padL + cW - 4} y={yS(1) - 5} textAnchor="end" fill={ED.series7} fontSize={8.5}>
         ratio = 1 (exact match)
       </text>
 
@@ -139,21 +140,21 @@ function PredictionRatioChart() {
               y={barTop}
               width={barW}
               height={barH}
-              fill={r.predictionRatio >= 1 ? '#34d399' : '#f87171'}
+              fill={r.predictionRatio >= 1 ? ED.series3 : ED.series2}
               opacity={0.75}
             />
-            <text x={x + barW / 2} y={padT + cH + 14} textAnchor="middle" fill="#64748b" fontSize={8.5}>
+            <text x={x + barW / 2} y={padT + cH + 14} textAnchor="middle" fill={ED.inkFaint} fontSize={8.5}>
               {r.plateauIndex}
             </text>
           </g>
         );
       })}
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
-      <text x={padL + cW / 2} y={padT + cH + 32} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
+      <text x={padL + cW / 2} y={padT + cH + 32} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         plateau index (0..9, tiling N in [1e4, 1e6])
       </text>
-      <text x={16} y={padT + cH / 2} textAnchor="middle" fill="#64748b" fontSize={10} transform={'rotate(-90,16,' + (padT + cH / 2) + ')'}>
+      <text x={16} y={padT + cH / 2} textAnchor="middle" fill={ED.inkFaint} fontSize={10} transform={'rotate(-90,16,' + (padT + cH / 2) + ')'}>
         measured / predicted
       </text>
     </svg>
@@ -165,7 +166,7 @@ export default function Imp3884ThetabarElasticityViz() {
     <div style={{ padding: '1.5rem', maxWidth: 940, margin: '0 auto' }}>
       <PageHeader title="thetaBar-Elasticity of the Certified K_paper: Predicted vs Measured (imp-3854)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-3854 derives a closed-form bound on how much the imp-3725 certified K_paper enclosure can
         move as the free frozen-horizon knob thetaBar ranges over its feasible window [0.99, thetaBar*]:
         the elasticity |d ln K_paper/d thetaBar| &asymp; (H/smin)<sup>2</sup>/thetaBar<sup>2</sup>, a
@@ -178,12 +179,12 @@ export default function Imp3884ThetabarElasticityViz() {
         carryforward margin is thetaBar-robust, not a lucky choice of thetaBar = 0.99.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         Predicted O((H/Dmin)^2) elasticity band (blue) vs measured relative K_paper shift (gold ring), per plateau
       </p>
       <ElasticityBandChart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
         predictionRatio = measured / predicted, per plateau -- double-inertness confirmed within [0.5, 2]
       </p>
       <PredictionRatioChart />
@@ -192,14 +193,14 @@ export default function Imp3884ThetabarElasticityViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> the top chart's connecting line
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> the top chart's connecting line
         on each plateau is short -- both markers sit within roughly a factor of 1.5 of each other on a
         log axis spanning more than an order of magnitude, and every predicted/measured pair is below
         2e-5. The bottom chart shows the same comparison as a ratio: bars above the ratio=1 line (green)
@@ -212,14 +213,14 @@ export default function Imp3884ThetabarElasticityViz() {
         style={{
           marginTop: '1rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> visualization of an existing
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> visualization of an existing
         derivation on the imp-3725 true-flow lemma; the (H/Dmin)<sup>2</sup> magnitude is an empirical
         smin &asymp; Dmin refinement confirmed to a factor of ~1.6, not a QED-grade equality. Tunes the
         F_mb factor only; does not close cond-CH or any conditional leg; imp-3066 K_a &ge; 0 positivity untouched. NO QED.

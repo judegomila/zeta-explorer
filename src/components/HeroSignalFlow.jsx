@@ -485,10 +485,10 @@ export default function HeroSignalFlow() {
           width: '100%',
           height: 340,
           borderRadius: 12,
-          border: '1px solid #1e293b',
+          border: '1px solid var(--rule-soft)',
           cursor: 'pointer',
-          background: '#04060d',
-          boxShadow: '0 0 48px rgba(16, 185, 129, 0.05), 0 8px 32px rgba(0, 0, 0, 0.4)',
+          background: 'var(--paper)',
+          boxShadow: '0 0 48px color-mix(in srgb, var(--series-3) 5%, transparent), 0 8px 32px rgba(0, 0, 0, 0.4)',
         }}
       />
       {/* Controls: fixed height, no layout shift */}

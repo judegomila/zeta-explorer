@@ -10,6 +10,7 @@ import {
   VERIFIED_HEIGHT_WALL,
   IMP95218_ROUTE7_COST_CURVE,
 } from '../data/imp-95218-route7-cost-curve.js';
+import { STATUS, ED, TINT } from '../styles/tokens.js';
 
 /* /viz-cost-floor — the geometry of the program's floor (imp-95218 route-VII
    cost curve rendered as a (t, y) plane). ACCURACY RULE: every pixel of the
@@ -149,10 +150,10 @@ const ROWS = [
 ];
 
 const ROW_STYLE = {
-  measured: { color: '#4c7a4a', shape: 'circle' },
-  attempted: { color: '#3f6b86', shape: 'ring' },
-  contract: { color: '#877b67', shape: 'square' },
-  killed: { color: '#c23a1c', shape: 'x' },
+  measured: { color: STATUS.measured.fg, shape: 'circle' },
+  attempted: { color: ED.series1, shape: 'ring' },
+  contract: { color: STATUS.neutral.fg, shape: 'square' },
+  killed: { color: STATUS.refuted.fg, shape: 'x' },
 };
 
 function fmtRows(l10) {
@@ -171,7 +172,7 @@ export default function VizCostFloorPage() {
     const cv = canvasRef.current;
     if (!cv) return;
     const ctx = cv.getContext('2d');
-    ctx.fillStyle = '#fdfaf3';
+    ctx.fillStyle = ED.paper;
     ctx.fillRect(0, 0, PLOT_W, PLOT_H);
     const img = ctx.createImageData(GRID, GRID);
     for (let iy = 0; iy < GRID; iy++) {
@@ -288,9 +289,9 @@ export default function VizCostFloorPage() {
             <text x={13} y={PAD.t + CH / 2} textAnchor="middle" transform={`rotate(-90 13 ${PAD.t + CH / 2})`} style={{ font: '600 11px "IBM Plex Mono", monospace' }} fill="var(--ink-soft)">y (half-strip bottom)</text>
 
             {/* derived program-floor band U ≈ 0.145–0.150 */}
-            <path d={overlay.bandPath} fill="#4c7a4a" opacity="0.16" />
-            {isoUPath(FLOOR_BAND.uLo) && <path d={isoUPath(FLOOR_BAND.uLo)} fill="none" stroke="#4c7a4a" strokeWidth="1.4" strokeDasharray="2 3" opacity="0.85" />}
-            {isoUPath(FLOOR_BAND.uHi) && <path d={isoUPath(FLOOR_BAND.uHi)} fill="none" stroke="#4c7a4a" strokeWidth="1.4" strokeDasharray="2 3" opacity="0.85" />}
+            <path d={overlay.bandPath} fill={ED.series3} opacity="0.16" />
+            {isoUPath(FLOOR_BAND.uLo) && <path d={isoUPath(FLOOR_BAND.uLo)} fill="none" stroke={ED.series3} strokeWidth="1.4" strokeDasharray="2 3" opacity="0.85" />}
+            {isoUPath(FLOOR_BAND.uHi) && <path d={isoUPath(FLOOR_BAND.uHi)} fill="none" stroke={ED.series3} strokeWidth="1.4" strokeDasharray="2 3" opacity="0.85" />}
 
             {/* iso-U level curves (label y-positions staggered to avoid collisions) */}
             {ISO_U.map((U) => {
@@ -302,7 +303,7 @@ export default function VizCostFloorPage() {
               return (
                 <g key={`u${U}`}>
                   <path d={d} fill="none" stroke="var(--ink)" strokeWidth="1.1" opacity="0.55" />
-                  <text x={xOfT(Math.max(tLab, T_MIN)) + 4} y={yOfY(yLab) + 12} style={{ font: '600 10px "IBM Plex Mono", monospace' }} fill="var(--ink)" stroke="#fdfaf3" strokeWidth="2.5" paintOrder="stroke" opacity="0.9">
+                  <text x={xOfT(Math.max(tLab, T_MIN)) + 4} y={yOfY(yLab) + 12} style={{ font: '600 10px "IBM Plex Mono", monospace' }} fill="var(--ink)" stroke={ED.paper} strokeWidth="2.5" paintOrder="stroke" opacity="0.9">
                     U={U}
                   </text>
                 </g>
@@ -314,9 +315,9 @@ export default function VizCostFloorPage() {
               const { p1, p2 } = budgetLinePoints(b.rows);
               return (
                 <g key={b.rows}>
-                  <line x1={xOfT(p1.t)} y1={yOfY(p1.y)} x2={xOfT(p2.t)} y2={yOfY(p2.y)} stroke="#fdfaf3" strokeWidth="3" opacity="0.5" />
-                  <line x1={xOfT(p1.t)} y1={yOfY(p1.y)} x2={xOfT(p2.t)} y2={yOfY(p2.y)} stroke="#b5563f" strokeWidth="1.5" strokeDasharray="6 4" />
-                  <text x={xOfT(p2.t) + 3} y={yOfY(0.015 + i * 0.0)} transform={`rotate(-86.5 ${xOfT(p2.t) + 3} ${yOfY(0.015)})`} style={{ font: '600 9.5px "IBM Plex Mono", monospace' }} fill="#fdfaf3" stroke="#5c201a" strokeWidth="0.2" paintOrder="stroke">
+                  <line x1={xOfT(p1.t)} y1={yOfY(p1.y)} x2={xOfT(p2.t)} y2={yOfY(p2.y)} stroke={ED.paper} strokeWidth="3" opacity="0.5" />
+                  <line x1={xOfT(p1.t)} y1={yOfY(p1.y)} x2={xOfT(p2.t)} y2={yOfY(p2.y)} stroke={STATUS.nogo.fg} strokeWidth="1.5" strokeDasharray="6 4" />
+                  <text x={xOfT(p2.t) + 3} y={yOfY(0.015 + i * 0.0)} transform={`rotate(-86.5 ${xOfT(p2.t) + 3} ${yOfY(0.015)})`} style={{ font: '600 9.5px "IBM Plex Mono", monospace' }} fill={ED.paper} stroke={STATUS.refuted.fg} strokeWidth="0.2" paintOrder="stroke">
                     {b.label}
                   </text>
                 </g>
@@ -325,9 +326,9 @@ export default function VizCostFloorPage() {
 
             {/* calibration band y ∈ [0.165, 0.19] */}
             {[0.165, 0.19].map((y) => (
-              <line key={`cal${y}`} x1={PAD.l} y1={yOfY(y)} x2={PLOT_W - PAD.r} y2={yOfY(y)} stroke="#3f6b86" strokeWidth="0.8" strokeDasharray="1.5 4" opacity="0.6" />
+              <line key={`cal${y}`} x1={PAD.l} y1={yOfY(y)} x2={PLOT_W - PAD.r} y2={yOfY(y)} stroke={ED.series1} strokeWidth="0.8" strokeDasharray="1.5 4" opacity="0.6" />
             ))}
-            <text x={PAD.l + 8} y={yOfY(0.165) + 12} style={{ font: '9.5px "IBM Plex Mono", monospace' }} fill="#9fc0d4" opacity="0.95">
+            <text x={PAD.l + 8} y={yOfY(0.165) + 12} style={{ font: '9.5px "IBM Plex Mono", monospace' }} fill={TINT.blue} opacity="0.95">
               calibration band y ∈ [0.165, 0.19]
             </text>
 
@@ -339,7 +340,7 @@ export default function VizCostFloorPage() {
               return (
                 <g key={r.key}>
                   <title>{`${r.label} — t=${r.t.toFixed(7)}, y=${r.y.toFixed(6)} · ${r.detail}`}</title>
-                  {s.shape === 'circle' && <circle cx={cx} cy={cy} r="5" fill={s.color} stroke="#fdfaf3" strokeWidth="1.5" />}
+                  {s.shape === 'circle' && <circle cx={cx} cy={cy} r="5" fill={s.color} stroke={ED.paper} strokeWidth="1.5" />}
                   {s.shape === 'ring' && <circle cx={cx} cy={cy} r="5" fill="none" stroke={s.color} strokeWidth="2.2" />}
                   {s.shape === 'square' && <rect x={cx - 4.5} y={cy - 4.5} width="9" height="9" fill="none" stroke={s.color} strokeWidth="2" />}
                   {s.shape === 'x' && (
@@ -352,7 +353,7 @@ export default function VizCostFloorPage() {
                     x={r.key === 'killed01399' ? cx + 9 : cx - 8}
                     y={cy + (r.key === 'v3' ? -7 : r.key === 'fourgate' ? -7 : r.key === 'contract014' ? 18 : 16)}
                     textAnchor={r.key === 'killed01399' ? 'start' : 'end'}
-                    style={{ font: '600 10px "IBM Plex Mono", monospace' }} fill={s.color} stroke="#fdfaf3" strokeWidth="2.5" paintOrder="stroke"
+                    style={{ font: '600 10px "IBM Plex Mono", monospace' }} fill={s.color} stroke={ED.paper} strokeWidth="2.5" paintOrder="stroke"
                   >
                     {r.label}
                   </text>
@@ -377,7 +378,7 @@ export default function VizCostFloorPage() {
               t = {hover.t.toFixed(4)} · y = {hover.y.toFixed(4)} · <strong style={{ color: 'var(--ink)' }}>U = t + y²/2 = {hover.U.toFixed(5)}</strong> · ln N1* = {hover.ln.toFixed(2)} ·{' '}
               lane rows ≈ <strong style={{ color: 'var(--ink)' }}>{fmtRows(hover.l10)}</strong>
               {hover.l10 !== null && <> (log10 = {hover.l10.toFixed(2)})</>} · SC3 unconditional floor log10 N1* &gt; {hover.sc3.toFixed(2)} ·{' '}
-              <span style={{ color: hover.status.startsWith('inside') || hover.status.startsWith('no lane') ? '#4c7a4a' : '#c23a1c', fontWeight: 700 }}>{hover.status}</span>
+              <span style={{ color: hover.status.startsWith('inside') || hover.status.startsWith('no lane') ? 'var(--series-3)' : 'var(--accent)', fontWeight: 700 }}>{hover.status}</span>
             </>
           ) : (
             <>hover the plane for the exact readout: (t, y, U = t + y²/2, log10 lane rows from the calibrated law, the SC3 unconditional floor, and the budget status)</>
@@ -400,7 +401,7 @@ export default function VizCostFloorPage() {
             <span style={{ display: 'inline-block', width: 12, height: 12, borderRadius: 3, background: `rgb(${SEAM_COVERED_RGB.join(',')})`, verticalAlign: '-2px', marginRight: 4, border: '1px solid var(--hairline)' }} />
             no lane (verified height covers it)
           </span>
-          <span className="ed-mono" style={{ fontSize: 10.5, fontWeight: 700, color: '#4c7a4a' }}>▨ derived floor band U ≈ 0.145–0.150</span>
+          <span className="ed-mono" style={{ fontSize: 10.5, fontWeight: 700, color: 'var(--series-3)' }}>▨ derived floor band U ≈ 0.145–0.150</span>
         </div>
 
         <p style={{ fontSize: 14.5, color: 'var(--ink-soft)', lineHeight: 1.65, marginTop: 18, maxWidth: '58rem' }}>

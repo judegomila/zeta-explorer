@@ -7,8 +7,9 @@ import {
   IMP33266_ABSENT_COUNT,
   IMP33266_PARTIAL_COUNT,
 } from '../data/imp-33266-g6a-k4-toolkit-status-map-viz-data.js';
+import { ED, TINT } from '../styles/tokens.js';
 
-const STATUS_COLOR = { absent: '#f87171', partial: '#facc15' };
+const STATUS_COLOR = { absent: ED.series2, partial: ED.series4 };
 
 function StatusPill({ availability }) {
   return (
@@ -20,7 +21,7 @@ function StatusPill({ availability }) {
         fontSize: '0.72rem',
         fontWeight: 700,
         textTransform: 'uppercase',
-        color: '#0a0f1a',
+        color: 'var(--paper)',
         background: STATUS_COLOR[availability] || '#94a3b8',
       }}
     >
@@ -34,9 +35,9 @@ function ToolkitTable() {
     <div style={{ overflowX: 'auto' }}>
       <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.82rem' }}>
         <thead>
-          <tr style={{ borderBottom: '1px solid #334155' }}>
+          <tr style={{ borderBottom: '1px solid var(--rule)' }}>
             {['Tool', 'Yields', 'Produces', 'Requires', 'Status'].map((h) => (
-              <th key={h} style={{ textAlign: 'left', padding: '0.4rem 0.6rem', color: '#94a3b8' }}>
+              <th key={h} style={{ textAlign: 'left', padding: '0.4rem 0.6rem', color: 'var(--ink-soft)' }}>
                 {h}
               </th>
             ))}
@@ -44,13 +45,13 @@ function ToolkitTable() {
         </thead>
         <tbody>
           {IMP33266_TOOLKIT.map((t) => (
-            <tr key={t.id} style={{ borderBottom: '1px solid #1e293b' }}>
-              <td style={{ padding: '0.5rem 0.6rem', color: '#e2e8f0', fontWeight: 600, whiteSpace: 'nowrap' }}>
+            <tr key={t.id} style={{ borderBottom: '1px solid var(--rule-soft)' }}>
+              <td style={{ padding: '0.5rem 0.6rem', color: 'var(--ink)', fontWeight: 600, whiteSpace: 'nowrap' }}>
                 {t.id}: {t.tool}
               </td>
-              <td style={{ padding: '0.5rem 0.6rem', color: '#64748b' }}>{t.yields}</td>
-              <td style={{ padding: '0.5rem 0.6rem', color: '#7dd3fc' }}>{t.produces.join(', ')}</td>
-              <td style={{ padding: '0.5rem 0.6rem', color: '#c4b5fd' }}>{t.requires.join(', ')}</td>
+              <td style={{ padding: '0.5rem 0.6rem', color: 'var(--ink-faint)' }}>{t.yields}</td>
+              <td style={{ padding: '0.5rem 0.6rem', color: 'var(--series-1)' }}>{t.produces.join(', ')}</td>
+              <td style={{ padding: '0.5rem 0.6rem', color: 'var(--series-5)' }}>{t.requires.join(', ')}</td>
               <td style={{ padding: '0.5rem 0.6rem' }}>
                 <StatusPill availability={t.availability} />
               </td>
@@ -83,7 +84,7 @@ function DependencyChainDiagram() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={0} y={0} width={svgW} height={svgH} fill="#0a0f1a" rx={4} />
+      <rect x={0} y={0} width={svgW} height={svgH} fill={ED.paper} rx={4} />
       {edges.map(([a, b]) => (
         <line
           key={a + b}
@@ -91,7 +92,7 @@ function DependencyChainDiagram() {
           y1={y[a]}
           x2={nodes.find((n) => n.id === b).x}
           y2={y[b]}
-          stroke="#475569"
+          stroke={ED.rule}
           strokeWidth={1.4}
           markerEnd="url(#arrow)"
         />
@@ -109,8 +110,8 @@ function DependencyChainDiagram() {
             width={n.id === 'modulus' ? 118 : 60}
             height={36}
             rx={5}
-            fill={n.root ? '#7f1d1d' : '#1e293b'}
-            stroke={n.root ? '#f87171' : '#334155'}
+            fill={n.root ? TINT.terra : ED.paper3}
+            stroke={n.root ? ED.series2 : ED.rule}
             strokeWidth={1.4}
           />
           {n.label.split('\n').map((line, i) => (
@@ -119,7 +120,7 @@ function DependencyChainDiagram() {
               x={n.x + (n.id === 'modulus' ? 59 : 30)}
               y={y[n.id] - 3 + i * 12}
               textAnchor="middle"
-              fill="#e2e8f0"
+              fill={ED.ink}
               fontSize={9.5}
             >
               {line}
@@ -136,7 +137,7 @@ export default function Imp33266ToolkitStatusMapViz() {
     <div style={{ padding: '1.5rem', maxWidth: 940, margin: '0 auto' }}>
       <PageHeader title="G6a K4 Caustic-Regularity Toolkit: Status Map (imp-3846)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-3846 walked the classical caustic-regularity toolkit tool-by-tool against the imp-3642
         CM/Dyson RK4 flow. Of the {IMP33266_TOTAL_TOOLS} classical tools, {IMP33266_ABSENT_COUNT} are
         wholly absent from the repo (T1 Oleinik, T2 Lax/Dafermos, T3 Hopf-Lax, T4 Arnold) and
@@ -145,12 +146,12 @@ export default function Imp33266ToolkitStatusMapViz() {
         its availability; the diagram shows the dependency chain the four absent tools collapse onto.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         toolkit tool-by-tool: yields, hypothesis produced/required, repo availability
       </p>
       <ToolkitTable />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
         dependency chain: {IMP33266_DEPENDENCY_CHAIN.label}
       </p>
       <DependencyChainDiagram />
@@ -159,14 +160,14 @@ export default function Imp33266ToolkitStatusMapViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the map:</strong> every genuinely-absent tool
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the map:</strong> every genuinely-absent tool
         (T1, T2, T3, T4) lists H2 (genuine nonlinearity / convex flux of the free-Burgers hydrodynamic
         limit) as a prerequisite, so the four absent hypotheses are not independent gaps but a single
         dependency chain rooted at H2. T5 is the only tool with a partial input (the discrete
@@ -179,14 +180,14 @@ export default function Imp33266ToolkitStatusMapViz() {
         style={{
           marginTop: '1rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> literature-anchored scoping /
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> literature-anchored scoping /
         derivation only -- no tool is fully present, H2 stays UNWRITTEN as a certificate (imp-3872
         empirically probes it but does not certify it, see the companion imp-3900 viz), the K4 route
         stays WHOLLY NEW, and G6a_shock_lipschitz stays OPEN. No estimate shipped, no positivity, no

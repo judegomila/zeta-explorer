@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP33701_SIGMA_POSTPEAK_RAMP_CURVATURE_INFLECTION } from '../data/imp-33701-sigma-postpeak-ramp-curvature-inflection.js';
+import { ED } from '../styles/tokens.js';
 
 const { ladder, rampVelocity, rampAcceleration, inflectionDecade, steepestStepDecade } =
   IMP33701_SIGMA_POSTPEAK_RAMP_CURVATURE_INFLECTION;
@@ -38,14 +39,14 @@ function RampCurvatureChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={yS(0)} x2={padL + cW} y2={yS(0)} stroke="#334155" strokeWidth={1} />
-      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={yS(0)} x2={padL + cW} y2={yS(0)} stroke={ED.rule} strokeWidth={1} />
+      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
 
       {yTicks.map((t) => (
         <g key={'yt' + t}>
-          <line x1={padL - 4} y1={yS(t)} x2={padL + cW} y2={yS(t)} stroke="#1e293b" strokeWidth={1} />
-          <text x={padL - 8} y={yS(t) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+          <line x1={padL - 4} y1={yS(t)} x2={padL + cW} y2={yS(t)} stroke={ED.ruleSoft} strokeWidth={1} />
+          <text x={padL - 8} y={yS(t) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {t.toFixed(2)}
           </text>
         </g>
@@ -57,66 +58,66 @@ function RampCurvatureChart() {
         y1={padT}
         x2={xS(inflectionK)}
         y2={padT + cH}
-        stroke="#f87171"
+        stroke={ED.series2}
         strokeWidth={1.25}
         strokeDasharray="5,3"
       />
-      <text x={xS(inflectionK) + 4} y={padT + 10} fill="#f87171" fontSize={9}>
+      <text x={xS(inflectionK) + 4} y={padT + 10} fill={ED.series2} fontSize={9}>
         knee ({inflectionDecade})
       </text>
 
       {xTicks.map((k) => (
         <g key={'xt' + k}>
-          <line x1={xS(k)} y1={padT + cH - 4} x2={xS(k)} y2={padT + cH + 4} stroke="#334155" strokeWidth={1} />
-          <text x={xS(k)} y={padT + cH + 18} textAnchor="middle" fill="#64748b" fontSize={9}>
+          <line x1={xS(k)} y1={padT + cH - 4} x2={xS(k)} y2={padT + cH + 4} stroke={ED.rule} strokeWidth={1} />
+          <text x={xS(k)} y={padT + cH + 18} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
             {'10^' + k}
           </text>
         </g>
       ))}
-      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         N (decade boundary)
       </text>
       <text
         x={14}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={`rotate(-90 14 ${padT + cH / 2})`}
       >
         p_local, D1, D2
       </text>
 
-      <polyline points={p_points} fill="none" stroke="#38bdf8" strokeWidth={1.75} />
+      <polyline points={p_points} fill="none" stroke={ED.series1} strokeWidth={1.75} />
       {p_local.map((r) => (
-        <circle key={'p' + r.k} cx={xS(r.k)} cy={yS(r.p)} r={2.75} fill="#38bdf8" stroke="#0a0f1a" strokeWidth={0.75} />
+        <circle key={'p' + r.k} cx={xS(r.k)} cy={yS(r.p)} r={2.75} fill={ED.series1} stroke={ED.paper} strokeWidth={0.75} />
       ))}
 
-      <polyline points={d1_points} fill="none" stroke="#a78bfa" strokeWidth={1.75} />
+      <polyline points={d1_points} fill="none" stroke={ED.series5} strokeWidth={1.75} />
       {d1.map((r) => (
-        <circle key={'d1' + r.k} cx={xS(r.k)} cy={yS(r.d1)} r={2.75} fill="#a78bfa" stroke="#0a0f1a" strokeWidth={0.75} />
+        <circle key={'d1' + r.k} cx={xS(r.k)} cy={yS(r.d1)} r={2.75} fill={ED.series5} stroke={ED.paper} strokeWidth={0.75} />
       ))}
 
-      <polyline points={d2_points} fill="none" stroke="#fbbf24" strokeWidth={1.75} strokeDasharray="4,2" />
+      <polyline points={d2_points} fill="none" stroke={ED.brassDeco} strokeWidth={1.75} strokeDasharray="4,2" />
       {d2.map((r) => (
         <circle
           key={'d2' + r.k}
           cx={xS(r.k)}
           cy={yS(r.d2)}
           r={r.k === inflectionK ? 4.5 : 2.75}
-          fill={r.k === inflectionK ? '#f87171' : '#fbbf24'}
-          stroke="#0a0f1a"
+          fill={r.k === inflectionK ? ED.series2 : ED.brassDeco}
+          stroke={ED.paper}
           strokeWidth={0.75}
         />
       ))}
 
       <g fontSize={9}>
-        <circle cx={padL + 8} cy={padT + 8} r={3} fill="#38bdf8" />
-        <text x={padL + 16} y={padT + 11} fill="#94a3b8">p_local(k) (exponent ladder)</text>
-        <circle cx={padL + 8} cy={padT + 22} r={3} fill="#a78bfa" />
-        <text x={padL + 16} y={padT + 25} fill="#94a3b8">D1 (ramp velocity)</text>
-        <circle cx={padL + 8} cy={padT + 36} r={3} fill="#fbbf24" />
-        <text x={padL + 16} y={padT + 39} fill="#94a3b8">D2 (ramp acceleration)</text>
+        <circle cx={padL + 8} cy={padT + 8} r={3} fill={ED.series1} />
+        <text x={padL + 16} y={padT + 11} fill={ED.inkSoft}>p_local(k) (exponent ladder)</text>
+        <circle cx={padL + 8} cy={padT + 22} r={3} fill={ED.series5} />
+        <text x={padL + 16} y={padT + 25} fill={ED.inkSoft}>D1 (ramp velocity)</text>
+        <circle cx={padL + 8} cy={padT + 36} r={3} fill={ED.brassDeco} />
+        <text x={padL + 16} y={padT + 39} fill={ED.inkSoft}>D2 (ramp acceleration)</text>
       </g>
     </svg>
   );
@@ -127,7 +128,7 @@ export default function Imp33731SigmaRampCurvatureViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="sigma(N) Exponent-Ramp Curvature: Ladder, Velocity, Acceleration (imp-33701 / imp-33731)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-33701 differenced the imp-33582 six-decade local decay-exponent ladder p_dec(6..11)
         and found the RAMP is monotone in value but SIGMOID in shape: the first difference (ramp
         velocity D1) rises then falls, and the second difference (ramp acceleration D2) changes
@@ -136,7 +137,7 @@ export default function Imp33731SigmaRampCurvatureViz() {
         with the knee ({inflectionDecade}) and the steepest step ({steepestStepDecade}) marked.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         p_local(k), D1(k), D2(k) vs decade boundary N = 10^k, k = 6..11
       </p>
       <RampCurvatureChart />
@@ -150,7 +151,7 @@ export default function Imp33731SigmaRampCurvatureViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>decade k</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>p_local</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>D1 (velocity, to next k)</th>
@@ -166,8 +167,8 @@ export default function Imp33731SigmaRampCurvatureViz() {
               <tr
                 key={k}
                 style={{
-                  borderBottom: '1px solid #1e293b',
-                  color: isKnee ? '#f87171' : '#cbd5e1',
+                  borderBottom: '1px solid var(--rule-soft)',
+                  color: isKnee ? 'var(--series-2)' : 'var(--ink)',
                 }}
               >
                 <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>10^{k}</td>
@@ -184,14 +185,14 @@ export default function Imp33731SigmaRampCurvatureViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement/fit only -- the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> measurement/fit only -- the
         component model is the inherited imp-3220/imp-3406 extrapolation, not a rigorous
         asymptotic, and the C_mb GUE-conditional per imp-486 is untouched. This page adds no new
         derivation; it gives the imp-33701 curvature finding a visual surface. No bound changes;

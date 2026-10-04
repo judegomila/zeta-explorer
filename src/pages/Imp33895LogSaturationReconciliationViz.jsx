@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP33854_LOG_SATURATION_EXPONENT_RECONCILIATION } from '../data/imp-33854-log-saturation-exponent-reconciliation.js';
+import { ED } from '../styles/tokens.js';
 
 const { sharedGrid, findings, diagnostics } = IMP33854_LOG_SATURATION_EXPONENT_RECONCILIATION;
 
@@ -38,13 +39,13 @@ function CollapseChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
 
       {ticksY.map((t) => (
         <g key={'yt' + t}>
-          <line x1={padL - 4} y1={yS(10 ** t)} x2={padL + cW} y2={yS(10 ** t)} stroke="#1e293b" strokeWidth={1} />
-          <text x={padL - 8} y={yS(10 ** t) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+          <line x1={padL - 4} y1={yS(10 ** t)} x2={padL + cW} y2={yS(10 ** t)} stroke={ED.ruleSoft} strokeWidth={1} />
+          <text x={padL - 8} y={yS(10 ** t) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {(10 ** t).toExponential(1)}
           </text>
         </g>
@@ -52,44 +53,44 @@ function CollapseChart() {
 
       {sharedGrid.map((r) => (
         <g key={'xt' + r.N_log10}>
-          <line x1={xS(r.N_log10)} y1={padT + cH} x2={xS(r.N_log10)} y2={padT + cH + 4} stroke="#334155" strokeWidth={1} />
-          <text x={xS(r.N_log10)} y={padT + cH + 18} textAnchor="middle" fill="#64748b" fontSize={9}>
+          <line x1={xS(r.N_log10)} y1={padT + cH} x2={xS(r.N_log10)} y2={padT + cH + 4} stroke={ED.rule} strokeWidth={1} />
+          <text x={xS(r.N_log10)} y={padT + cH + 18} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
             {r.N_log10}
           </text>
         </g>
       ))}
-      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         log10 N
       </text>
       <text
         x={14}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={`rotate(-90 14 ${padT + cH / 2})`}
       >
         shortfall (log scale)
       </text>
 
-      {line('gapSigma', '#f87171')}
-      {dots('gapSigma', '#f87171')}
-      {line('gapEcoll', '#4ade80')}
-      {dots('gapEcoll', '#4ade80')}
-      {line('gFundamental', '#93c5fd')}
-      {dots('gFundamental', '#93c5fd')}
+      {line('gapSigma', ED.series2)}
+      {dots('gapSigma', ED.series2)}
+      {line('gapEcoll', ED.series3)}
+      {dots('gapEcoll', ED.series3)}
+      {line('gFundamental', ED.series1)}
+      {dots('gFundamental', ED.series1)}
 
       <g transform={`translate(${padL + 12}, ${padT + 4})`}>
-        <circle cx={0} cy={0} r={3} fill="#f87171" />
-        <text x={8} y={3} fill="#cbd5e1" fontSize={9}>
+        <circle cx={0} cy={0} r={3} fill={ED.series2} />
+        <text x={8} y={3} fill={ED.ink} fontSize={9}>
           gap_sigma = 1/2 - p
         </text>
-        <circle cx={0} cy={14} r={3} fill="#4ade80" />
-        <text x={8} y={17} fill="#cbd5e1" fontSize={9}>
+        <circle cx={0} cy={14} r={3} fill={ED.series3} />
+        <text x={8} y={17} fill={ED.ink} fontSize={9}>
           gap_ecoll = q + 1/2
         </text>
         <circle cx={0} cy={28} r={3} fill="#93c5fd" />
-        <text x={8} y={31} fill="#cbd5e1" fontSize={9}>
+        <text x={8} y={31} fill={ED.ink} fontSize={9}>
           g(N) = (1/2) d ln(log T0)/d ln N
         </text>
       </g>
@@ -102,7 +103,7 @@ export default function Imp33895LogSaturationReconciliationViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="imp-33854 Log-Saturation Reconciliation: Two Shortfalls, One Object (imp-33895)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-33816 and imp-33620 reported two seemingly separate slow-approach rates: the
         sigma(N) exponent shortfall gap_sigma = 1/2 - p, and the E_coll exponent residual
         gap_ecoll = q + 1/2. imp-33854 proved both reduce to a single fundamental object
@@ -112,7 +113,7 @@ export default function Imp33895LogSaturationReconciliationViz() {
         ladder, showing the visual collapse.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         gap_sigma, gap_ecoll, and g(N) across the shared grid (log-log)
       </p>
       <CollapseChart />
@@ -126,7 +127,7 @@ export default function Imp33895LogSaturationReconciliationViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>log10 N</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>sigma</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>gap_sigma</th>
@@ -136,7 +137,7 @@ export default function Imp33895LogSaturationReconciliationViz() {
         </thead>
         <tbody>
           {sharedGrid.map((r) => (
-            <tr key={r.N_log10} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+            <tr key={r.N_log10} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.N_log10}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.sigma}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.gapSigma}</td>
@@ -151,14 +152,14 @@ export default function Imp33895LogSaturationReconciliationViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> {findings.R2_residual_is_qSigma_vanishing}{' '}
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> {findings.R2_residual_is_qSigma_vanishing}{' '}
         Max deviation of the exact identity gap_ecoll = g is {diagnostics.max_I1_deviation_gapEcoll_minus_g}
         (machine precision). Measurement/derivation only -- the component model is the inherited
         imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional share

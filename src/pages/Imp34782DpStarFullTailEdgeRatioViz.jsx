@@ -2,6 +2,7 @@ import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP34735_DP_STAR_PROBE_BAND_CROSSOVER_N } from '../data/imp-34735-dp-star-probe-band-crossover-N.js';
 import { IMP34754_DP_STAR_PROBE_BAND_RATIO_DEEP_TAIL } from '../data/imp-34754-dp-star-probe-band-ratio-deep-tail.js';
+import { ED } from '../styles/tokens.js';
 
 const NEAR = IMP34735_DP_STAR_PROBE_BAND_CROSSOVER_N;
 const FAR = IMP34754_DP_STAR_PROBE_BAND_RATIO_DEEP_TAIL;
@@ -44,15 +45,15 @@ function FullTailEdgeRatioChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={plotW} height={plotH} fill="none" stroke="#334155" strokeWidth={1} />
-      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill="#94a3b8" fontSize={11}>
+      <rect x={padL} y={padT} width={plotW} height={plotH} fill="none" stroke={ED.rule} strokeWidth={1} />
+      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill={ED.inkSoft} fontSize={11}>
         log10(N)
       </text>
       <text
         x={14}
         y={padT + plotH / 2}
         textAnchor="middle"
-        fill="#94a3b8"
+        fill={ED.inkSoft}
         fontSize={11}
         transform={`rotate(-90 14 ${padT + plotH / 2})`}
       >
@@ -60,30 +61,30 @@ function FullTailEdgeRatioChart() {
       </text>
 
       {/* y = 1 no-crossing boundary */}
-      <line x1={padL} y1={sy(1)} x2={padL + plotW} y2={sy(1)} stroke="#f59e0b" strokeWidth={1.5} strokeDasharray="6 4" />
-      <text x={padL + plotW - 4} y={sy(1) - 6} textAnchor="end" fill="#f59e0b" fontSize={11}>
+      <line x1={padL} y1={sy(1)} x2={padL + plotW} y2={sy(1)} stroke={ED.brassDeco} strokeWidth={1.5} strokeDasharray="6 4" />
+      <text x={padL + plotW - 4} y={sy(1) - 6} textAnchor="end" fill={ED.brass} fontSize={11}>
         ratio = 1 (trust-boundary crossing)
       </text>
 
-      <path d={coarserPath} fill="none" stroke="#38bdf8" strokeWidth={1.5} />
-      <path d={finerPath} fill="none" stroke="#f87171" strokeWidth={1.5} />
+      <path d={coarserPath} fill="none" stroke={ED.series1} strokeWidth={1.5} />
+      <path d={finerPath} fill="none" stroke={ED.series2} strokeWidth={1.5} />
       {rows.map((r) => (
         <g key={r.N}>
-          <circle cx={sx(Math.log10(Number(r.N)))} cy={sy(r.ratio_to_finer_0p05)} r={3.2} fill="#f87171" stroke="#0f172a" strokeWidth={0.5} />
-          <circle cx={sx(Math.log10(Number(r.N)))} cy={sy(r.ratio_to_coarser_0p1)} r={3.2} fill="#38bdf8" stroke="#0f172a" strokeWidth={0.5} />
+          <circle cx={sx(Math.log10(Number(r.N)))} cy={sy(r.ratio_to_finer_0p05)} r={3.2} fill={ED.series2} stroke={ED.paper} strokeWidth={0.5} />
+          <circle cx={sx(Math.log10(Number(r.N)))} cy={sy(r.ratio_to_coarser_0p1)} r={3.2} fill={ED.series1} stroke={ED.paper} strokeWidth={0.5} />
         </g>
       ))}
 
       {/* the ~81%-of-corruption landmark: the finer edge at the N = 1e300 ceiling */}
-      <circle cx={sx(Math.log10(Number(lastRow.N)))} cy={sy(lastRow.ratio_to_finer_0p05)} r={5.5} fill="none" stroke="#facc15" strokeWidth={1.5} />
-      <text x={sx(Math.log10(Number(lastRow.N))) - 6} y={sy(lastRow.ratio_to_finer_0p05) - 10} textAnchor="end" fill="#facc15" fontSize={11}>
+      <circle cx={sx(Math.log10(Number(lastRow.N)))} cy={sy(lastRow.ratio_to_finer_0p05)} r={5.5} fill="none" stroke={ED.brassDeco} strokeWidth={1.5} />
+      <text x={sx(Math.log10(Number(lastRow.N))) - 6} y={sy(lastRow.ratio_to_finer_0p05) - 10} textAnchor="end" fill={ED.brass} fontSize={11}>
         ~{Math.round(lastRow.ratio_to_finer_0p05 * 100)}% of the way to corruption (N=1e300)
       </text>
 
-      <text x={padL + 8} y={padT + 16} fill="#f87171" fontSize={11}>
+      <text x={padL + 8} y={padT + 16} fill={ED.series2} fontSize={11}>
         dp*(N)/0.05 (finer edge, crossed first) &rarr; ~{lastRow.ratio_to_finer_0p05} at 1e300
       </text>
-      <text x={padL + 8} y={padT + 32} fill="#38bdf8" fontSize={11}>
+      <text x={padL + 8} y={padT + 32} fill={ED.series1} fontSize={11}>
         dp*(N)/0.1 (coarser edge, crossed last) &rarr; ~{lastRow.ratio_to_coarser_0p1} at 1e300
       </text>
     </svg>
@@ -95,7 +96,7 @@ export default function Imp34782DpStarFullTailEdgeRatioViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="dp* / Probe-Band Edge-Ratio Ladder, Full Tail N = 1e13..1e300 (imp-34782 / imp-34754)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-34735 tracked the imp-34691 edge ratios dp*(N)/0.05 (finer, crossed first) and
         dp*(N)/0.1 (coarser, crossed last) from N&nbsp;=&nbsp;1e13 to their 1e100 ceiling; imp-34754
         carried the identical exact-model ladder another 200 decades deeper, to N&nbsp;=&nbsp;1e300. Stitched
@@ -108,7 +109,7 @@ export default function Imp34782DpStarFullTailEdgeRatioViz() {
         somewhat EARLIER than that since the exact ladder runs above the closed form in the deep tail).
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         Combined edge-ratio ladder vs the y = 1 no-crossing boundary
       </p>
       <FullTailEdgeRatioChart />
@@ -122,7 +123,7 @@ export default function Imp34782DpStarFullTailEdgeRatioViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>N</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>dp*(N)</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>ratio to 0.05 (finer)</th>
@@ -131,7 +132,7 @@ export default function Imp34782DpStarFullTailEdgeRatioViz() {
         </thead>
         <tbody>
           {FULL_LADDER.map((r) => (
-            <tr key={r.N} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+            <tr key={r.N} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{Number(r.N).toExponential(0)}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.dp_star}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.ratio_to_finer_0p05}</td>
@@ -145,11 +146,11 @@ export default function Imp34782DpStarFullTailEdgeRatioViz() {
         style={{
           marginTop: '1rem',
           padding: '0.6rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
         }}
       >
         No crossing anywhere below N&nbsp;=&nbsp;1e300: the finer edge reaches
@@ -166,14 +167,14 @@ export default function Imp34782DpStarFullTailEdgeRatioViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page stitching the imp-34735
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-only page stitching the imp-34735
         (1e13..1e100) and imp-34754 (1e100..1e300) exact-model edge-ratio ladders together (imported
         literals, no new computation); establishes no new numerical claim. q1..q3 are inherited central
         differences on the imp-3220/imp-3406 component model, not fresh closed forms, so the ratio ladder is

@@ -8,6 +8,7 @@ import {
   IMP96376_DENSITY_GROWTH_SERIES,
   IMP96376_FIRST_PRIME5_RUNG,
 } from '../data/imp-96337-mixed-ladder-margin-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 function RungMarginChart() {
   const svgW = 680;
@@ -35,41 +36,41 @@ function RungMarginChart() {
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
       {yTicks.map((v) => (
         <g key={`y${v}`}>
-          <line x1={padL} y1={yOf(v)} x2={padL + plotW} y2={yOf(v)} stroke="#334155" strokeWidth={0.5} opacity={0.4} />
-          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={8.5}>{v.toFixed(1)}</text>
+          <line x1={padL} y1={yOf(v)} x2={padL + plotW} y2={yOf(v)} stroke={ED.rule} strokeWidth={0.5} opacity={0.4} />
+          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8.5}>{v.toFixed(1)}</text>
         </g>
       ))}
 
       {/* ceiling (s_2 = 0.353553) reference line -- the modulus-1 gap sits above this */}
-      <line x1={padL} y1={yOf(IMP96337_ANCHORS.ceiling)} x2={padL + plotW} y2={yOf(IMP96337_ANCHORS.ceiling)} stroke="#94a3b8" strokeWidth={0.75} strokeDasharray="2 3" opacity={0.6} />
+      <line x1={padL} y1={yOf(IMP96337_ANCHORS.ceiling)} x2={padL + plotW} y2={yOf(IMP96337_ANCHORS.ceiling)} stroke={ED.rule} strokeWidth={0.75} strokeDasharray="2 3" opacity={0.6} />
 
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
 
       {IMP96337_RUNG_SERIES.map((p) => (
         <g key={`rung-${p.u}`}>
-          <line x1={xOf(p.u)} y1={yOf(0)} x2={xOf(p.u)} y2={yOf(p.s)} stroke="#f472b6" strokeWidth={4} opacity={0.9} />
-          <line x1={xOf(p.u)} y1={yOf(p.s)} x2={xOf(p.u)} y2={yOf(IMP96337_ANCHORS.ceiling)} stroke="#38bdf8" strokeWidth={4} opacity={0.55} />
+          <line x1={xOf(p.u)} y1={yOf(0)} x2={xOf(p.u)} y2={yOf(p.s)} stroke={ED.series7} strokeWidth={4} opacity={0.9} />
+          <line x1={xOf(p.u)} y1={yOf(p.s)} x2={xOf(p.u)} y2={yOf(IMP96337_ANCHORS.ceiling)} stroke={ED.series1} strokeWidth={4} opacity={0.55} />
         </g>
       ))}
 
       {xTicks.map((v) => (
-        <text key={`x${v}`} x={xOf(v)} y={padT + plotH + 14} textAnchor="middle" fill="#64748b" fontSize={7.5}>
+        <text key={`x${v}`} x={xOf(v)} y={padT + plotH + 14} textAnchor="middle" fill={ED.inkFaint} fontSize={7.5}>
           {v}
         </text>
       ))}
 
-      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill="#64748b" fontSize={9.5}>
+      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5}>
         u = 2^a 3^b (log2 axis, leading ten S-units, u = 2..24)
       </text>
 
       <g transform={`translate(${padL + 8}, ${padT + 8})`}>
-        <line x1={0} y1={0} x2={18} y2={0} stroke="#f472b6" strokeWidth={4} />
-        <text x={22} y={3} fill="#94a3b8" fontSize={8.5}>rung magnitude s_u = u^(-1/2)/2</text>
-        <line x1={0} y1={16} x2={18} y2={16} stroke="#38bdf8" strokeWidth={4} opacity={0.55} />
-        <text x={22} y={19} fill="#94a3b8" fontSize={8.5}>margin below ceiling, s_2 - s_u</text>
-        <line x1={0} y1={30} x2={18} y2={30} stroke="#94a3b8" strokeWidth={0.75} strokeDasharray="2 3" />
-        <text x={22} y={33} fill="#94a3b8" fontSize={8.5}>ceiling s_2 = {IMP96337_ANCHORS.ceiling.toFixed(6)} (attained only at u = 2)</text>
+        <line x1={0} y1={0} x2={18} y2={0} stroke={ED.series7} strokeWidth={4} />
+        <text x={22} y={3} fill={ED.inkSoft} fontSize={8.5}>rung magnitude s_u = u^(-1/2)/2</text>
+        <line x1={0} y1={16} x2={18} y2={16} stroke={ED.series1} strokeWidth={4} opacity={0.55} />
+        <text x={22} y={19} fill={ED.inkSoft} fontSize={8.5}>margin below ceiling, s_2 - s_u</text>
+        <line x1={0} y1={30} x2={18} y2={30} stroke={ED.rule} strokeWidth={0.75} strokeDasharray="2 3" />
+        <text x={22} y={33} fill={ED.inkSoft} fontSize={8.5}>ceiling s_2 = {IMP96337_ANCHORS.ceiling.toFixed(6)} (attained only at u = 2)</text>
       </g>
     </svg>
   );
@@ -110,27 +111,27 @@ function ThresholdCountChart() {
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
       {yTicks.map((v) => (
         <g key={`y${v}`}>
-          <line x1={padL} y1={yOf(v)} x2={padL + plotW} y2={yOf(v)} stroke="#334155" strokeWidth={0.5} opacity={0.4} />
-          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={8.5}>{v}</text>
+          <line x1={padL} y1={yOf(v)} x2={padL + plotW} y2={yOf(v)} stroke={ED.rule} strokeWidth={0.5} opacity={0.4} />
+          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8.5}>{v}</text>
         </g>
       ))}
 
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
 
-      <path d={stepPath} fill="none" stroke="#facc15" strokeWidth={1.75} opacity={0.95} />
+      <path d={stepPath} fill="none" stroke={ED.brassDeco} strokeWidth={1.75} opacity={0.95} />
 
       {IMP96337_THRESHOLD_SERIES.map((row) => (
-        <circle key={`t-${row.threshold}`} cx={xOf(row.threshold)} cy={yOf(row.count)} r={2.8} fill="#facc15" />
+        <circle key={`t-${row.threshold}`} cx={xOf(row.threshold)} cy={yOf(row.count)} r={2.8} fill={ED.brassDeco} />
       ))}
 
       {xTicks.map((v) => (
-        <text key={`x${v}`} x={xOf(v)} y={padT + plotH + 14} textAnchor="middle" fill="#64748b" fontSize={7.5}>
+        <text key={`x${v}`} x={xOf(v)} y={padT + plotH + 14} textAnchor="middle" fill={ED.inkFaint} fontSize={7.5}>
           {v.toFixed(2)}
         </text>
       ))}
 
-      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill="#64748b" fontSize={9.5}>
+      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5}>
         threshold t (descending right-to-left, larger t = fewer qualifying rungs)
       </text>
     </svg>
@@ -167,42 +168,42 @@ function DensityGrowthChart() {
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
       {yTicks.map((v) => (
         <g key={`y${v}`}>
-          <line x1={padL} y1={yOf(v)} x2={padL + plotW} y2={yOf(v)} stroke="#334155" strokeWidth={0.5} opacity={0.4} />
-          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={8.5}>{v}</text>
+          <line x1={padL} y1={yOf(v)} x2={padL + plotW} y2={yOf(v)} stroke={ED.rule} strokeWidth={0.5} opacity={0.4} />
+          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8.5}>{v}</text>
         </g>
       ))}
 
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
 
-      <path d={pathFor('cubicAsymptotic')} fill="none" stroke="#94a3b8" strokeWidth={1.25} strokeDasharray="2 3" opacity={0.85} />
-      <path d={pathFor('twoPrimeCount')} fill="none" stroke="#38bdf8" strokeWidth={1.75} opacity={0.9} />
-      <path d={pathFor('threePrimeCount')} fill="none" stroke="#f472b6" strokeWidth={1.75} opacity={0.9} />
+      <path d={pathFor('cubicAsymptotic')} fill="none" stroke={ED.rule} strokeWidth={1.25} strokeDasharray="2 3" opacity={0.85} />
+      <path d={pathFor('twoPrimeCount')} fill="none" stroke={ED.series1} strokeWidth={1.75} opacity={0.9} />
+      <path d={pathFor('threePrimeCount')} fill="none" stroke={ED.series7} strokeWidth={1.75} opacity={0.9} />
 
       {IMP96376_DENSITY_GROWTH_SERIES.map((row) => (
         <g key={`d-${row.U}`}>
-          <circle cx={xOf(row.U)} cy={yOf(row.twoPrimeCount)} r={2.6} fill="#38bdf8" />
-          <circle cx={xOf(row.U)} cy={yOf(row.threePrimeCount)} r={2.6} fill="#f472b6" />
+          <circle cx={xOf(row.U)} cy={yOf(row.twoPrimeCount)} r={2.6} fill={ED.series1} />
+          <circle cx={xOf(row.U)} cy={yOf(row.threePrimeCount)} r={2.6} fill={ED.series7} />
         </g>
       ))}
 
       {xTicks.map((v) => (
-        <text key={`x${v}`} x={xOf(v)} y={padT + plotH + 14} textAnchor="middle" fill="#64748b" fontSize={7.5}>
+        <text key={`x${v}`} x={xOf(v)} y={padT + plotH + 14} textAnchor="middle" fill={ED.inkFaint} fontSize={7.5}>
           {v.toExponential(0)}
         </text>
       ))}
 
-      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill="#64748b" fontSize={9.5}>
+      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5}>
         U (log10 axis) &mdash; S-unit count(u &le; U)
       </text>
 
       <g transform={`translate(${padL + 8}, ${padT + 8})`}>
-        <line x1={0} y1={0} x2={18} y2={0} stroke="#f472b6" strokeWidth={1.75} />
-        <text x={22} y={3} fill="#94a3b8" fontSize={8.5}>three-prime {'{'}oo,2,3,5{'}'} count, ~(ln U)^3</text>
-        <line x1={0} y1={16} x2={18} y2={16} stroke="#38bdf8" strokeWidth={1.75} />
-        <text x={22} y={19} fill="#94a3b8" fontSize={8.5}>two-prime {'{'}oo,2,3{'}'} count, ~(ln U)^2</text>
-        <line x1={0} y1={30} x2={18} y2={30} stroke="#94a3b8" strokeWidth={1.25} strokeDasharray="2 3" />
-        <text x={22} y={33} fill="#94a3b8" fontSize={8.5}>cubic leading term (ln U)^3/(6 ln2 ln3 ln5)</text>
+        <line x1={0} y1={0} x2={18} y2={0} stroke={ED.series7} strokeWidth={1.75} />
+        <text x={22} y={3} fill={ED.inkSoft} fontSize={8.5}>three-prime {'{'}oo,2,3,5{'}'} count, ~(ln U)^3</text>
+        <line x1={0} y1={16} x2={18} y2={16} stroke={ED.series1} strokeWidth={1.75} />
+        <text x={22} y={19} fill={ED.inkSoft} fontSize={8.5}>two-prime {'{'}oo,2,3{'}'} count, ~(ln U)^2</text>
+        <line x1={0} y1={30} x2={18} y2={30} stroke={ED.rule} strokeWidth={1.25} strokeDasharray="2 3" />
+        <text x={22} y={33} fill={ED.inkSoft} fontSize={8.5}>cubic leading term (ln U)^3/(6 ln2 ln3 ln5)</text>
       </g>
     </svg>
   );
@@ -217,18 +218,18 @@ export default function Imp96337MixedLadderMarginViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 760,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> {IMP96337_HONEST_BANNER}
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> {IMP96337_HONEST_BANNER}
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
         imp-96270 tabulated the mixed 2^a 3^b {'{'}oo,2,3{'}'} S-unit prolate ladder tail: every rung
         magnitude s_u = u^(-1/2)/2 sits at or below the ceiling s_2 = {IMP96337_ANCHORS.ceiling.toFixed(6)},
         {' '}a wide gap {IMP96337_ANCHORS.gapBelowOne.toFixed(6)} below the modulus-1 boundary, attained
@@ -237,20 +238,20 @@ export default function Imp96337MixedLadderMarginViz() {
         count of rungs within any margin of the ceiling is finite.
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         Rung magnitude s_u and margin below the ceiling (leading ten S-units)
       </h3>
       <RungMarginChart />
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', margin: '1.5rem 0 0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', margin: '1.5rem 0 0.5rem' }}>
         Rung-count within threshold (finite lattice-point count, t = 0.30..0.05)
       </h3>
       <ThresholdCountChart />
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', margin: '1.5rem 0 0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', margin: '1.5rem 0 0.5rem' }}>
         imp-96376: three-prime {'{'}oo,2,3,5{'}'} tail density vs the two-prime count
       </h3>
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '0.75rem', maxWidth: 760 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '0.75rem', maxWidth: 760 }}>
         Adding the prime 5 does not raise the ceiling: the new smallest rung u = 5 sits at
         s&#8325; = {IMP96376_FIRST_PRIME5_RUNG.s.toFixed(6)}, a margin
         {' '}{IMP96376_FIRST_PRIME5_RUNG.marginBelowCeiling.toFixed(6)} below s&#8322; = {IMP96337_ANCHORS.ceiling.toFixed(6)}.
@@ -263,14 +264,14 @@ export default function Imp96337MixedLadderMarginViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> the top chart stacks each rung's
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> the top chart stacks each rung's
         magnitude (pink) below its margin to the ceiling (blue); only u = 2 touches the dashed ceiling
         line, and every other rung sits with clear daylight beneath it. The bottom step chart shows the
         count of rungs at or above a threshold only grows to 19 by t = 0.05 &mdash; a finite,
@@ -281,14 +282,14 @@ export default function Imp96337MixedLadderMarginViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page consuming the imp-96270
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the imp-96270
         baked leadingMagnitudes and countAboveThreshold fields verbatim (only the margin and threshold
         reordering are computed here), extended by imp-96376 with the imp-96333 three-prime
         cubicGrowthSamples and firstNewRung fields. This is a tabulation of the already-reduced

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import ZeroStepper from '../components/ZeroStepper.jsx';
 import VizCeilingNote from '../components/VizCeilingNote.jsx';
+import { ED } from '../styles/tokens.js';
 
 /*
  * Near a Zeta Zero: rings, nodal lines, and vortex structure.
@@ -37,13 +38,13 @@ function hsl2rgb(h, s, l) {
   return [Math.round(f(0) * 255), Math.round(f(8) * 255), Math.round(f(4) * 255)];
 }
 
-function Card({ children, accent = '#d5c9b2' }) {
+function Card({ children, accent = ED.rule }) {
   return (
     <div
       className="card"
       style={{
-        background: '#f6f1e7',
-        border: '1px solid #d5c9b2',
+        background: 'var(--paper-2)',
+        border: '1px solid var(--rule)',
         borderLeft: `3px solid ${accent}`,
         borderRadius: 10,
         padding: '18px 22px',
@@ -146,7 +147,7 @@ function NearZeroCanvas({ centerIdx, halfWin, showNodal }) {
       ctx.beginPath();
       ctx.arc(vx, vy, isCentral ? 7.5 : 4.5, 0, 2 * Math.PI);
       ctx.lineWidth = isCentral ? 2.5 : 1.5;
-      ctx.strokeStyle = isCentral ? '#fde047' : 'rgba(255,255,255,0.7)';
+      ctx.strokeStyle = isCentral ? ED.brassDeco : 'rgba(255,255,255,0.7)';
       ctx.fillStyle = 'rgba(0,0,0,0.5)';
       ctx.fill();
       ctx.stroke();
@@ -158,7 +159,7 @@ function NearZeroCanvas({ centerIdx, halfWin, showNodal }) {
       ref={ref}
       width={PX}
       height={PX}
-      style={{ width: '100%', maxWidth: 540, borderRadius: 10, border: '1px solid #1c1814', display: 'block' }}
+      style={{ width: '100%', maxWidth: 540, borderRadius: 10, border: '1px solid var(--ink)', display: 'block' }}
     />
   );
 }
@@ -200,9 +201,9 @@ export default function VizNearZeroPage() {
     <div className="ed-root">
       <EditorialHeader />
       <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
-        <header style={{ borderBottom: '1px solid #d5c9b2', paddingBottom: 18, marginBottom: 24 }}>
+        <header style={{ borderBottom: '1px solid var(--rule)', paddingBottom: 18, marginBottom: 24 }}>
           <h1 className="ed-h1" style={{ fontSize: 30, margin: '8px 0 4px 0' }}>Near a Zeta Zero</h1>
-          <p style={{ color: '#4a4238', fontSize: 14, margin: '8px 0 0 0', lineHeight: 1.6 }}>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 14, margin: '8px 0 0 0', lineHeight: 1.6 }}>
             Zoom in on a single zero <code>ρ = ½ + iγ</code>. The amplitude{' '}
             <strong>rings</strong> (|H| level contours) converge on ρ. The{' '}
             <strong>nodal lines</strong> — blue (Re H = 0) and orange (Im H = 0)
@@ -215,7 +216,7 @@ export default function VizNearZeroPage() {
         <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap', alignItems: 'flex-start' }}>
           <div style={{ flex: '1 1 460px' }}>
             <NearZeroCanvas centerIdx={centerIdx} halfWin={halfWin} showNodal={showNodal} />
-            <div style={{ fontSize: 11, color: '#877b67', marginTop: 6, fontFamily: 'var(--ed-mono)' }}>
+            <div style={{ fontSize: 11, color: 'var(--ink-faint)', marginTop: 6, fontFamily: 'var(--ed-mono)' }}>
               Re s in [½−{halfWin}, ½+{halfWin}], Im s in [{(gc - halfWin).toFixed(2)}, {(gc + halfWin).toFixed(2)}]
               {' '}· central zero γ ≈ {gc.toFixed(4)}
             </div>
@@ -223,7 +224,7 @@ export default function VizNearZeroPage() {
 
           <div style={{ flex: '0 1 280px', display: 'flex', flexDirection: 'column', gap: 16 }}>
             <Card>
-              <div style={{ fontSize: 12, fontWeight: 600, marginBottom: 8, color: '#1c1814' }}>Animate Sweep</div>
+              <div style={{ fontSize: 12, fontWeight: 600, marginBottom: 8, color: 'var(--ink)' }}>Animate Sweep</div>
               <button
                 onClick={() => {
                   if (!playing && centerIdx >= GAMMAS.length - 2) setCenterIdx(1);
@@ -231,13 +232,13 @@ export default function VizNearZeroPage() {
                 }}
                 style={{
                   padding: '5px 14px', fontSize: 12, borderRadius: 6, cursor: 'pointer',
-                  background: playing ? '#8c6a1d' : '#b58a2e', color: '#fdfaf3',
+                  background: playing ? 'var(--brass)' : 'var(--brass-deco)', color: 'var(--paper)',
                   border: 'none', fontWeight: 600, letterSpacing: 0.3,
                 }}
               >
                 {playing ? '⏸ Pause' : '▶ Play'}
               </button>
-              <label style={{ fontSize: 12, color: '#4a4238', marginTop: 8, display: 'block' }}>
+              <label style={{ fontSize: 12, color: 'var(--ink-soft)', marginTop: 8, display: 'block' }}>
                 Speed (slower ← → faster)
                 <input
                   type="range" min={200} max={1500} step={100}
@@ -249,7 +250,7 @@ export default function VizNearZeroPage() {
             </Card>
 
             <Card>
-              <div style={{ fontSize: 12, fontWeight: 600, marginBottom: 8, color: '#1c1814' }}>Select Zero</div>
+              <div style={{ fontSize: 12, fontWeight: 600, marginBottom: 8, color: 'var(--ink)' }}>Select Zero</div>
               <ZeroStepper
                 gammas={GAMMAS}
                 idx={centerIdx}
@@ -266,7 +267,7 @@ export default function VizNearZeroPage() {
             </Card>
 
             <Card>
-              <label style={{ fontSize: 12, color: '#4a4238' }}>
+              <label style={{ fontSize: 12, color: 'var(--ink-soft)' }}>
                 Zoom half-width: ±{halfWin.toFixed(1)}
                 <input
                   type="range"
@@ -278,57 +279,57 @@ export default function VizNearZeroPage() {
                   style={{ width: '100%', marginTop: 6 }}
                 />
               </label>
-              <div style={{ fontSize: 11, color: '#877b67', marginTop: 4 }}>{zoomLabel}</div>
+              <div style={{ fontSize: 11, color: 'var(--ink-faint)', marginTop: 4 }}>{zoomLabel}</div>
             </Card>
 
-            <Card accent="#3f6b86">
-              <div style={{ fontSize: 12, fontWeight: 600, marginBottom: 8, color: '#1c1814' }}>Nodal Lines</div>
+            <Card accent={ED.series1}>
+              <div style={{ fontSize: 12, fontWeight: 600, marginBottom: 8, color: 'var(--ink)' }}>Nodal Lines</div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 12 }}>
-                  <div style={{ width: 18, height: 3, background: '#3f6b86', borderRadius: 2, flexShrink: 0 }} />
-                  <span style={{ color: '#4a4238' }}>Re H(s) = 0</span>
+                  <div style={{ width: 18, height: 3, background: 'var(--series-1)', borderRadius: 2, flexShrink: 0 }} />
+                  <span style={{ color: 'var(--ink-soft)' }}>Re H(s) = 0</span>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 12 }}>
-                  <div style={{ width: 18, height: 3, background: '#c23a1c', borderRadius: 2, flexShrink: 0 }} />
-                  <span style={{ color: '#4a4238' }}>Im H(s) = 0</span>
+                  <div style={{ width: 18, height: 3, background: 'var(--series-2)', borderRadius: 2, flexShrink: 0 }} />
+                  <span style={{ color: 'var(--ink-soft)' }}>Im H(s) = 0</span>
                 </div>
-                <div style={{ fontSize: 11, color: '#877b67', marginTop: 4 }}>
+                <div style={{ fontSize: 11, color: 'var(--ink-faint)', marginTop: 4 }}>
                   Both nodal curves cross at every zero. Four arcs meeting at a point = winding number 1.
                 </div>
               </div>
             </Card>
 
-            <label style={{ fontSize: 12, color: '#4a4238', display: 'flex', gap: 8, alignItems: 'center' }}>
+            <label style={{ fontSize: 12, color: 'var(--ink-soft)', display: 'flex', gap: 8, alignItems: 'center' }}>
               <input type="checkbox" checked={showNodal} onChange={(e) => setShowNodal(e.target.checked)} />
               Show nodal lines
             </label>
           </div>
         </div>
 
-        <Card accent="#8c6a1d">
-          <h3 style={{ marginTop: 0, color: '#1c1814' }}>What the rings and nodal lines show</h3>
-          <ul style={{ fontSize: 13, color: '#4a4238', lineHeight: 1.7 }}>
+        <Card accent={ED.brass}>
+          <h3 style={{ marginTop: 0, color: 'var(--ink)' }}>What the rings and nodal lines show</h3>
+          <ul style={{ fontSize: 13, color: 'var(--ink-soft)', lineHeight: 1.7 }}>
             <li><strong>Rings = amplitude level contours.</strong> The concentric bands are level sets |H(s)| = r. Near a simple zero they form ovals converging on ρ; the nearest-neighbor zeros distort them at larger scales.</li>
             <li><strong>Nodal lines = the skeleton.</strong> Blue (Re H = 0) and orange (Im H = 0) are the curves where the real and imaginary parts vanish. They always intersect at the zeros: two arcs of each colour, four arcs total per simple zero.</li>
             <li><strong>Winding number = 1.</strong> As any small loop encircles the yellow dot, arg H completes a full 2π rotation. This is the argument principle: each simple zero = one unit of winding.</li>
             <li><strong>Vortex at the crossing.</strong> The four-arc intersection is the phase vortex of V = H'/H. Under RH every such vortex lies on the critical line Re s = ½ (dashed). An off-axis vortex = an off-axis zero = an RH violation.</li>
             <VizCeilingNote claim="Λ ≥ 0" ceiling="panel 7 of the Visual Geometries gallery; vortex/winding thread re-derives Λ ≥ 0 only" />
           </ul>
-          <div style={{ fontSize: 12, marginTop: 8, color: '#4a4238' }}>
+          <div style={{ fontSize: 12, marginTop: 8, color: 'var(--ink-soft)' }}>
             Related:{' '}
-            <Link to="/vortex-field" style={{ color: '#c23a1c' }}>Vortex Field (wide view)</Link>
+            <Link to="/vortex-field" style={{ color: 'var(--accent)' }}>Vortex Field (wide view)</Link>
             {' · '}
-            <Link to="/viz-prime-caustic" style={{ color: '#c23a1c' }}>Prime Caustics</Link>
+            <Link to="/viz-prime-caustic" style={{ color: 'var(--accent)' }}>Prime Caustics</Link>
             {' · '}
-            <Link to="/statistics" style={{ color: '#c23a1c' }}>Zero Statistics</Link>
+            <Link to="/statistics" style={{ color: 'var(--accent)' }}>Zero Statistics</Link>
             {' · '}
-            <Link to="/route-map" style={{ color: '#c23a1c' }}>Route Map</Link>
+            <Link to="/route-map" style={{ color: 'var(--accent)' }}>Route Map</Link>
           </div>
         </Card>
 
-        <footer style={{ marginTop: 32, padding: '16px 0', borderTop: '1px solid #d5c9b2' }}>
+        <footer style={{ marginTop: 32, padding: '16px 0', borderTop: '1px solid var(--rule)' }}>
           <div style={{ marginTop: 14 }}>
-            <Link to="/" style={{ color: '#c23a1c', fontSize: 13 }}>← the atlas</Link>
+            <Link to="/" style={{ color: 'var(--accent)', fontSize: 13 }}>← the atlas</Link>
           </div>
         </footer>
       </div>

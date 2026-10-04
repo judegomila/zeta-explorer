@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP34512_POLE_LEAKAGE_FIT_15_20_PERCENT_CROSSINGS } from '../data/imp-34512-pole-leakage-fit-15-20-percent-crossings.js';
+import { ED } from '../styles/tokens.js';
 
 const {
   poleLocation,
@@ -44,13 +45,13 @@ function FitConvergenceChart() {
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
       {/* Panel 1: effective exponent */}
-      <line x1={panel1X0} y1={padT} x2={panel1X0} y2={padT + expH} stroke="#334155" strokeWidth={1.5} />
+      <line x1={panel1X0} y1={padT} x2={panel1X0} y2={padT + expH} stroke={ED.rule} strokeWidth={1.5} />
       <line
         x1={panel1X0}
         y1={padT + expH}
         x2={panel1X0 + panelW}
         y2={padT + expH}
-        stroke="#334155"
+        stroke={ED.rule}
         strokeWidth={1.5}
       />
       <line
@@ -58,12 +59,12 @@ function FitConvergenceChart() {
         y1={yExp(1)}
         x2={panel1X0 + panelW}
         y2={yExp(1)}
-        stroke="#f472b6"
+        stroke={ED.series7}
         strokeWidth={1.5}
         strokeDasharray="5,4"
         opacity={0.85}
       />
-      <text x={panel1X0 + panelW - 4} y={yExp(1) - 4} textAnchor="end" fill="#f472b6" fontSize={9}>
+      <text x={panel1X0 + panelW - 4} y={yExp(1) - 4} textAnchor="end" fill={ED.series7} fontSize={9}>
         order-1 (simple pole)
       </text>
       {WINDOWS.map((w, i) => {
@@ -76,18 +77,18 @@ function FitConvergenceChart() {
               y={y}
               width={barW}
               height={padT + expH - y}
-              fill="#38bdf8"
+              fill={ED.series1}
               opacity={0.7}
               rx={2}
             />
-            <text x={x + barW / 2} y={y - 6} textAnchor="middle" fill="#cbd5e1" fontSize={10} fontFamily="monospace">
+            <text x={x + barW / 2} y={y - 6} textAnchor="middle" fill={ED.ink} fontSize={10} fontFamily="monospace">
               {w.exponent.toFixed(2)}
             </text>
             <text
               x={x + barW / 2}
               y={padT + expH + 14}
               textAnchor="middle"
-              fill="#64748b"
+              fill={ED.inkFaint}
               fontSize={8}
             >
               {w.label}
@@ -95,18 +96,18 @@ function FitConvergenceChart() {
           </g>
         );
       })}
-      <text x={panel1X0 + panelW / 2} y={padT + expH + 34} textAnchor="middle" fill="#94a3b8" fontSize={9.5}>
+      <text x={panel1X0 + panelW / 2} y={padT + expH + 34} textAnchor="middle" fill={ED.inkSoft} fontSize={9.5}>
         effective exponent p
       </text>
 
       {/* Panel 2: recovered pole */}
-      <line x1={panel2X0} y1={padT} x2={panel2X0} y2={padT + expH} stroke="#334155" strokeWidth={1.5} />
+      <line x1={panel2X0} y1={padT} x2={panel2X0} y2={padT + expH} stroke={ED.rule} strokeWidth={1.5} />
       <line
         x1={panel2X0}
         y1={padT + expH}
         x2={panel2X0 + panelW}
         y2={padT + expH}
-        stroke="#334155"
+        stroke={ED.rule}
         strokeWidth={1.5}
       />
       <line
@@ -114,12 +115,12 @@ function FitConvergenceChart() {
         y1={yK(poleLocation)}
         x2={panel2X0 + panelW}
         y2={yK(poleLocation)}
-        stroke="#f472b6"
+        stroke={ED.series7}
         strokeWidth={1.5}
         strokeDasharray="5,4"
         opacity={0.85}
       />
-      <text x={panel2X0 + panelW - 4} y={yK(poleLocation) - 4} textAnchor="end" fill="#f472b6" fontSize={9}>
+      <text x={panel2X0 + panelW - 4} y={yK(poleLocation) - 4} textAnchor="end" fill={ED.series7} fontSize={9}>
         k* = {poleLocation.toFixed(5)}
       </text>
       {WINDOWS.map((w, i) => {
@@ -132,18 +133,18 @@ function FitConvergenceChart() {
               y={y}
               width={barW}
               height={padT + expH - y}
-              fill="#a78bfa"
+              fill={ED.series5}
               opacity={0.7}
               rx={2}
             />
-            <text x={x + barW / 2} y={y - 6} textAnchor="middle" fill="#cbd5e1" fontSize={10} fontFamily="monospace">
+            <text x={x + barW / 2} y={y - 6} textAnchor="middle" fill={ED.ink} fontSize={10} fontFamily="monospace">
               {w.kStarFit.toFixed(2)}
             </text>
             <text
               x={x + barW / 2}
               y={padT + expH + 14}
               textAnchor="middle"
-              fill="#64748b"
+              fill={ED.inkFaint}
               fontSize={8}
             >
               {w.label}
@@ -151,7 +152,7 @@ function FitConvergenceChart() {
           </g>
         );
       })}
-      <text x={panel2X0 + panelW / 2} y={padT + expH + 34} textAnchor="middle" fill="#94a3b8" fontSize={9.5}>
+      <text x={panel2X0 + panelW / 2} y={padT + expH + 34} textAnchor="middle" fill={ED.inkSoft} fontSize={9.5}>
         recovered 1/leak-root pole k*_fit
       </text>
     </svg>
@@ -163,7 +164,7 @@ export default function Imp34534PoleLeakageSinglePoleFitViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Pole-Leakage Single-Pole Fit: Exponent Collapse and Pole Recovery (imp-34534)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-34512 fit the imp-34247 pole-leakage metric leak(k) = 100 |dy/dk(k) &minus; P| / |P| to
         the single simple-pole form A/(k* &minus; k) + P over three progressively tighter windows
         approaching the imp-34023 pole k* &asymp; {poleLocation.toFixed(5)}. Over the widest measured
@@ -175,7 +176,7 @@ export default function Imp34534PoleLeakageSinglePoleFitViz() {
         pole and its asymptotic driver.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         effective exponent collapsing to 1, and recovered pole climbing to k*, as the fit window tightens
       </p>
       <FitConvergenceChart />
@@ -189,7 +190,7 @@ export default function Imp34534PoleLeakageSinglePoleFitViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>Fit window</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>Effective exponent p</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>Recovered k*_fit</th>
@@ -197,7 +198,7 @@ export default function Imp34534PoleLeakageSinglePoleFitViz() {
         </thead>
         <tbody>
           {WINDOWS.map((w) => (
-            <tr key={w.label} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+            <tr key={w.label} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
               <td style={{ padding: '0.4rem 0.6rem' }}>{w.label}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{w.exponent.toFixed(4)}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{w.kStarFit.toFixed(5)}</td>
@@ -206,7 +207,7 @@ export default function Imp34534PoleLeakageSinglePoleFitViz() {
         </tbody>
       </table>
 
-      <p style={{ color: '#64748b', fontSize: '0.8rem', marginTop: '1rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontSize: '0.8rem', marginTop: '1rem' }}>
         The single-pole form A/(k* &minus; k) + P is only the ASYMPTOTIC (k &rarr; k*) statement, not
         a global fit of the pre-pole window &mdash; the wide window's exponent &asymp;{' '}
         {poleExponentWide.toFixed(2)} and undershooting pole estimate are pre-asymptotic artifacts that
@@ -217,14 +218,14 @@ export default function Imp34534PoleLeakageSinglePoleFitViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement / threshold-location +
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> measurement / threshold-location +
         fit only. The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous
         asymptotic; the residExp simple-zero structure is a numerical/structural observation, not a
         derivation; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no

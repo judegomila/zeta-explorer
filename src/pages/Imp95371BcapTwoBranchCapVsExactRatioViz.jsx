@@ -4,38 +4,39 @@ import {
   IMP95371_BCAP_SERIES,
   IMP95371_SUMMARY,
 } from '../data/imp-95371-bcap-two-branch-cap-vs-exact-ratio-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 function AxisFrame({ children, svgW, svgH, padL, padR, padT, padB, xTicks, yTicks, xOf, yOf, xLabel, yLabel }) {
   const plotW = svgW - padL - padR;
   const plotH = svgH - padT - padB;
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
       {xTicks.map((v) => (
         <g key={`x${v}`}>
-          <line x1={xOf(v)} y1={padT + plotH} x2={xOf(v)} y2={padT + plotH + 4} stroke="#334155" strokeWidth={1} />
-          <text x={xOf(v)} y={padT + plotH + 15} textAnchor="middle" fill="#64748b" fontSize={8.5}>
+          <line x1={xOf(v)} y1={padT + plotH} x2={xOf(v)} y2={padT + plotH + 4} stroke={ED.rule} strokeWidth={1} />
+          <text x={xOf(v)} y={padT + plotH + 15} textAnchor="middle" fill={ED.inkFaint} fontSize={8.5}>
             {v}
           </text>
         </g>
       ))}
       {yTicks.map((v) => (
         <g key={`y${v}`}>
-          <line x1={padL - 4} y1={yOf(v)} x2={padL} y2={yOf(v)} stroke="#334155" strokeWidth={1} />
-          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={8.5}>
+          <line x1={padL - 4} y1={yOf(v)} x2={padL} y2={yOf(v)} stroke={ED.rule} strokeWidth={1} />
+          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8.5}>
             {v}
           </text>
         </g>
       ))}
-      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill="#64748b" fontSize={9.5}>
+      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5}>
         {xLabel}
       </text>
       <text
         x={14}
         y={padT + plotH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={9.5}
         transform={`rotate(-90 14 ${padT + plotH / 2})`}
       >
@@ -87,7 +88,7 @@ function BranchPanel({ series }) {
         y1={yOf(series.cap)}
         x2={padL + plotW}
         y2={yOf(series.cap)}
-        stroke="#f87171"
+        stroke={ED.series2}
         strokeWidth={1.5}
         strokeDasharray="5 3"
       />
@@ -96,23 +97,23 @@ function BranchPanel({ series }) {
         y1={padT}
         x2={xOf(series.cStar)}
         y2={padT + plotH}
-        stroke="#94a3b8"
+        stroke={ED.rule}
         strokeWidth={1}
         strokeDasharray="3 3"
       />
-      <polyline points={lineI} fill="none" stroke="#fb923c" strokeWidth={1.5} strokeDasharray="6 3" opacity={0.85} />
-      <polyline points={lineII} fill="none" stroke="#a78bfa" strokeWidth={1.5} strokeDasharray="6 3" opacity={0.85} />
-      <polyline points={lineExact} fill="none" stroke="#38bdf8" strokeWidth={2} opacity={0.95} />
-      <text x={padL + 8} y={padT + 14} fill="#38bdf8" fontSize={9}>
+      <polyline points={lineI} fill="none" stroke={ED.series4} strokeWidth={1.5} strokeDasharray="6 3" opacity={0.85} />
+      <polyline points={lineII} fill="none" stroke={ED.series5} strokeWidth={1.5} strokeDasharray="6 3" opacity={0.85} />
+      <polyline points={lineExact} fill="none" stroke={ED.series1} strokeWidth={2} opacity={0.95} />
+      <text x={padL + 8} y={padT + 14} fill={ED.series1} fontSize={9}>
         exact ratio (1 - cos(w b/a)) / (1 - sech(b/2))
       </text>
-      <text x={padL + 8} y={padT + 27} fill="#fb923c" fontSize={9}>
+      <text x={padL + 8} y={padT + 27} fill={ED.series4} fontSize={9}>
         branch (i): 4 w^2 c / a^2
       </text>
-      <text x={padL + 8} y={padT + 40} fill="#a78bfa" fontSize={9}>
+      <text x={padL + 8} y={padT + 40} fill={ED.series5} fontSize={9}>
         branch (ii): 2 + 2/(c - 1)
       </text>
-      <text x={padL + 8} y={padT + 53} fill="#f87171" fontSize={9}>
+      <text x={padL + 8} y={padT + 53} fill={ED.series2} fontSize={9}>
         flat cap 2 + 4 w^2/a^2 = {series.cap.toFixed(3)}
       </text>
     </AxisFrame>
@@ -129,21 +130,21 @@ export default function Imp95371BcapTwoBranchCapVsExactRatioViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> a presentation of an
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a presentation of an
         already-proven lemma, not a new result. It changes no Lambda bound and establishes no
         operator positivity. Platt&ndash;Trudgian &Lambda; &le; 0.2 remains state of the art. RH
         does not follow from anything on this page. NO QED.
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         The imp-95329 LEMMA BCAP bounds (1 &minus; cos(w b/a)) / (1 &minus; sech(b/2)) by the flat
         constant 2 + 4w&sup2;/a&sup2;, uniformly in b &gt; 0. The proof takes the minimum of two
         monotone branches in c = cosh(b/2): branch (i) = 4w&sup2;c/a&sup2; (increasing, tight for
@@ -156,7 +157,7 @@ export default function Imp95371BcapTwoBranchCapVsExactRatioViz() {
 
       {IMP95371_BCAP_SERIES.map((series, i) => (
         <div key={series.w}>
-          <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+          <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
             w = {i === 0 ? 'π' : '2π'}, a = {s.a}: c* = {series.cStar.toFixed(4)}, cap =
             {' '}
             {series.cap.toFixed(4)}, max sampled ratio/cap ={' '}
@@ -170,14 +171,14 @@ export default function Imp95371BcapTwoBranchCapVsExactRatioViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> the dashed vertical line
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> the dashed vertical line
         marks the crossover c*; left of it branch (i) is the active (smaller) branch, right of it
         branch (ii) takes over, and both meet the flat cap exactly at c*. The imp-95329 record
         separately reports the cap as near-sharp (measured supremum ratio/cap = 0.9998) on a much
@@ -190,14 +191,14 @@ export default function Imp95371BcapTwoBranchCapVsExactRatioViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page consuming the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the
         imp-95371 baked viz-data (all four curves recomputed from the imp-95329 LEMMA BCAP closed
         forms). Changes no bound, establishes no operator positivity, no RH claim;
         Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. NO QED.

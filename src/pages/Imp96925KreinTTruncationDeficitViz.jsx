@@ -5,6 +5,7 @@ import {
   IMP96814_DEFICIT_REL_PCT,
   IMP96814_VERDICT,
 } from '../data/imp-96814-krein-t-truncation-deficit-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 // imp-96925: the imp-96814 leaf was named "-viz-data" but had no confirmed consumer
 // (no .jsx page imported it). This is the first consumer: a line chart of the
@@ -12,9 +13,9 @@ import {
 // shared N=52..124 ladder, showing the deficit is SMALLEST at the binding 2a=ln3
 // rung and grows super-linearly with N at every rung.
 const COLOR_BY_KEY = Object.freeze({
-  '2a=1.00': '#38bdf8',
-  '2a=1.05': '#facc15',
-  '2a=ln3': '#4ade80',
+  '2a=1.00': ED.series1,
+  '2a=1.05': ED.series4,
+  '2a=ln3': ED.series3,
 });
 
 function DeficitTrendPanel() {
@@ -39,18 +40,18 @@ function DeficitTrendPanel() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
       {[minY, maxY / 2, maxY].map((v) => (
         <g key={`y${v}`}>
-          <line x1={padL - 4} y1={yOf(v)} x2={padL} y2={yOf(v)} stroke="#334155" strokeWidth={1} />
-          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={8.5}>
+          <line x1={padL - 4} y1={yOf(v)} x2={padL} y2={yOf(v)} stroke={ED.rule} strokeWidth={1} />
+          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8.5}>
             {v.toFixed(1)}%
           </text>
         </g>
       ))}
       {ns.map((n) => (
-        <text key={`x${n}`} x={xOf(n)} y={padT + plotH + 14} textAnchor="middle" fill="#64748b" fontSize={8}>
+        <text key={`x${n}`} x={xOf(n)} y={padT + plotH + 14} textAnchor="middle" fill={ED.inkFaint} fontSize={8}>
           {n}
         </text>
       ))}
@@ -67,7 +68,7 @@ function DeficitTrendPanel() {
           ))}
         </g>
       ))}
-      <text x={padL + plotW / 2} y={padT + plotH + 32} textAnchor="middle" fill="#94a3b8" fontSize={9}>
+      <text x={padL + plotW / 2} y={padT + plotH + 32} textAnchor="middle" fill={ED.inkSoft} fontSize={9}>
         N (shared T=800 / T=3200 rungs: 52, 76, 100, 124)
       </text>
     </svg>
@@ -83,22 +84,22 @@ export default function Imp96925KreinTTruncationDeficitViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> measurement only. The
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> measurement only. The
         deficit is a LOWER bound on the true t-truncation gap (T=3200 may still slightly
         under-resolve near ln3). No operator positivity established; interval-rigorous
         certificate reach stays 2a&le;{IMP96814_VERDICT.intervalRigorousReachUnchanged}; RH
         open; NO QED.
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-96768 measured the Route I Krein Rayleigh floor lambda_min(T_a[sigma_2]) at a fixed
         t-tail (T=800) and again at a best-resolved tail (T=3200), both at N in {'{52, 76, 100, 124}'}.
         imp-96814 sized the relative deficit (T=3200 minus T=800, as a percent of the T=3200 floor)
@@ -106,7 +107,7 @@ export default function Imp96925KreinTTruncationDeficitViz() {
         2a=ln3 rung, it is the SMALLEST there at every N, and largest at 2a=1.00.
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         Relative t-truncation deficit vs N, by 2a rung
       </h3>
       <DeficitTrendPanel />
@@ -123,14 +124,14 @@ export default function Imp96925KreinTTruncationDeficitViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> {IMP96814_VERDICT.answer}
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> {IMP96814_VERDICT.answer}
         &nbsp;At N=100 the 2a=ln3 deficit is {IMP96814_VERDICT.ln3DeficitAtN100RelPct}% of the
         T=3200 floor, versus a much larger share at 2a=1.00 and 2a=1.05 &mdash; the modest ln3
         deficit strengthens (does not weaken) the imp-96768 t-converged positive-plateau reading
@@ -141,14 +142,14 @@ export default function Imp96925KreinTTruncationDeficitViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page consuming the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the
         imp-96814 viz-data leaf (every deficit value reused verbatim from imp-96768). Changes no
         bound, establishes no operator positivity; Platt-Trudgian Lambda&le;0.2 remains SOTA; RH
         open; NO QED.

@@ -2,11 +2,12 @@ import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP35194_BACKGROUND_FIELD_SUP_N_UNIFORMITY } from '../data/imp-35194-background-field-sup-n-uniformity.js';
 import { IMP35218_REAL_ORDINATE_BACKGROUND_FIELD_SUP } from '../data/imp-35218-real-ordinate-background-field-sup.js';
+import { ED } from '../styles/tokens.js';
 
 const UNIT = IMP35194_BACKGROUND_FIELD_SUP_N_UNIFORMITY;
 const REAL = IMP35218_REAL_ORDINATE_BACKGROUND_FIELD_SUP;
 const N_KEYS = ['N50', 'N100', 'N200'];
-const N_COLORS = { N50: '#38bdf8', N100: '#a78bfa', N200: '#f472b6' };
+const N_COLORS = { N50: ED.series1, N100: ED.series5, N200: ED.series7 };
 
 // Unit-spacing fractionTable rows carry a single scalar beta per N (imp-35194 schema);
 // real-ordinate rows carry a beta object keyed by N (imp-35218 schema). Normalize both
@@ -41,22 +42,22 @@ function OverlayChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <text x={padL} y={padT - 20} fill="#94a3b8" fontSize={11} fontWeight={700}>
+      <text x={padL} y={padT - 20} fill={ED.inkSoft} fontSize={11} fontWeight={700}>
         beta(N) vs. min-gap fraction: unit-spacing (solid) vs. real ordinates (dashed)
       </text>
 
       {yTicks.map((t) => (
         <g key={t}>
-          <line x1={padL} y1={yOf(t)} x2={padL + plotW} y2={yOf(t)} stroke="#1e293b" strokeWidth={1} />
-          <text x={padL - 6} y={yOf(t) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+          <line x1={padL} y1={yOf(t)} x2={padL + plotW} y2={yOf(t)} stroke={ED.ruleSoft} strokeWidth={1} />
+          <text x={padL - 6} y={yOf(t) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {t}
           </text>
         </g>
       ))}
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
       {xTicks.map((t) => (
-        <text key={t} x={xOf(t)} y={padT + plotH + 16} textAnchor="middle" fill="#64748b" fontSize={9}>
+        <text key={t} x={xOf(t)} y={padT + plotH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
           {t}
         </text>
       ))}
@@ -86,7 +87,7 @@ function OverlayChart() {
           {key.replace('N', 'N=')}
         </text>
       ))}
-      <text x={padL + plotW - 96} y={padT + 12 + 3 * 13 + 6} fill="#94a3b8" fontSize={9}>
+      <text x={padL + plotW - 96} y={padT + 12 + 3 * 13 + 6} fill={ED.inkSoft} fontSize={9}>
         solid = unit spacing, dashed = real ordinates
       </text>
     </svg>
@@ -115,20 +116,20 @@ function SpreadChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <text x={padL} y={padT - 14} fill="#94a3b8" fontSize={11} fontWeight={700}>
+      <text x={padL} y={padT - 14} fill={ED.inkSoft} fontSize={11} fontWeight={700}>
         relative spread of beta(N) across N=50,100,200 (log scale): unit vs. real ordinates
       </text>
 
       {yTicks.map((t) => (
         <g key={t}>
-          <line x1={padL} y1={yOf(t)} x2={padL + plotW} y2={yOf(t)} stroke="#1e293b" strokeWidth={1} />
-          <text x={padL - 6} y={yOf(t) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+          <line x1={padL} y1={yOf(t)} x2={padL + plotW} y2={yOf(t)} stroke={ED.ruleSoft} strokeWidth={1} />
+          <text x={padL - 6} y={yOf(t) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {(t * 100).toFixed(1)}%
           </text>
         </g>
       ))}
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
 
       {fractions.map((frac, i) => {
         const cx = padL + groupW * i + groupW / 2;
@@ -136,19 +137,19 @@ function SpreadChart() {
         const realSpread = REAL.fractionTable[i].relSpreadAcrossN;
         return (
           <g key={frac}>
-            <rect x={cx - barW - 2} y={yOf(unitSpread)} width={barW} height={padT + plotH - yOf(unitSpread)} fill="#38bdf8" opacity={0.85} />
-            <rect x={cx + 2} y={yOf(realSpread)} width={barW} height={padT + plotH - yOf(realSpread)} fill="#f472b6" opacity={0.85} />
-            <text x={cx} y={padT + plotH + 16} textAnchor="middle" fill="#64748b" fontSize={9}>
+            <rect x={cx - barW - 2} y={yOf(unitSpread)} width={barW} height={padT + plotH - yOf(unitSpread)} fill={ED.series1} opacity={0.85} />
+            <rect x={cx + 2} y={yOf(realSpread)} width={barW} height={padT + plotH - yOf(realSpread)} fill={ED.series7} opacity={0.85} />
+            <text x={cx} y={padT + plotH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
               {frac}
             </text>
           </g>
         );
       })}
 
-      <text x={padL + 10} y={padT + 14} fill="#38bdf8" fontSize={9.5} fontWeight={700}>
+      <text x={padL + 10} y={padT + 14} fill={ED.series1} fontSize={9.5} fontWeight={700}>
         unit spacing (&lt; 1.5%)
       </text>
-      <text x={padL + 10} y={padT + 28} fill="#f472b6" fontSize={9.5} fontWeight={700}>
+      <text x={padL + 10} y={padT + 28} fill={ED.series7} fontSize={9.5} fontWeight={700}>
         real ordinates (&gt; 100%)
       </text>
     </svg>
@@ -160,7 +161,7 @@ export default function Imp35252RealVsUnitBackgroundFieldSupContrastViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Background-Field Sup: Real Ordinates vs. Unit Spacing (imp-35252 / imp-35218 / imp-35194)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         Restarting the imp-35194 running-sup beta(N) measurement from the first N REAL Riemann zero
         ordinates (imp-35218) instead of unit spacing REFUTES the unit-spacing N-uniformity: at each
         matched min-gap fraction beta(N) grows strongly with N on real data (relative spread ~
@@ -184,7 +185,7 @@ export default function Imp35252RealVsUnitBackgroundFieldSupContrastViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>min-gap fraction</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>unit beta(50/100/200)</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>unit spread</th>
@@ -196,7 +197,7 @@ export default function Imp35252RealVsUnitBackgroundFieldSupContrastViz() {
           {UNIT.fractionTable.map((u, i) => {
             const r = REAL.fractionTable[i];
             return (
-              <tr key={u.fraction} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+              <tr key={u.fraction} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
                 <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{u.fraction}</td>
                 <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>
                   {u.beta.N50} / {u.beta.N100} / {u.beta.N200}
@@ -216,14 +217,14 @@ export default function Imp35252RealVsUnitBackgroundFieldSupContrastViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page rendering the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-only page rendering the
         imp-35194 and imp-35218 measured fraction tables verbatim (no new computation). MEASUREMENT
         ONLY, frontier-diagnostic probe of the imp-35167 M2 background-field-sup obstruction under the
         M3 initial-gap regime; does NOT certify N-uniformity over the full trajectory (the sup diverges

@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP34955_SIGMA_KNEE_CROSSING_CMB_SENSITIVITY as D } from '../data/imp-34955-sigma-knee-crossing-cmb-sensitivity.js';
+import { ED, alpha } from '../styles/tokens.js';
 
 const SWEEP = D.sweep; // 11-point C_mb in [0.5,1] grid: epsAt5pct, epsAt25pct
 const R_DS = D.radiusContext.dombSykesRadius; // 91
@@ -37,53 +38,53 @@ function CmbSensitivityChart() {
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
       {/* imp-34882 Domb-Sykes uncertainty band [79, 106] */}
-      <rect x={padL} y={yAt(R_DS_HI)} width={cW} height={yAt(R_DS_LO) - yAt(R_DS_HI)} fill="rgba(56,189,248,0.10)" />
+      <rect x={padL} y={yAt(R_DS_HI)} width={cW} height={yAt(R_DS_LO) - yAt(R_DS_HI)} fill={alpha(ED.series1, 0.1)} />
 
       {/* axes */}
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
       {yTicks.map((v) => (
         <g key={v}>
-          <line x1={padL - 4} y1={yAt(v)} x2={padL + cW} y2={yAt(v)} stroke="#1e293b" strokeWidth={1} />
-          <text x={padL - 8} y={yAt(v) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+          <line x1={padL - 4} y1={yAt(v)} x2={padL + cW} y2={yAt(v)} stroke={ED.ruleSoft} strokeWidth={1} />
+          <text x={padL - 8} y={yAt(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v}
           </text>
         </g>
       ))}
       {xTicks.map((v) => (
         <g key={v}>
-          <line x1={xAt(v)} y1={padT + cH} x2={xAt(v)} y2={padT + cH + 4} stroke="#334155" strokeWidth={1} />
-          <text x={xAt(v)} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={9}>
+          <line x1={xAt(v)} y1={padT + cH} x2={xAt(v)} y2={padT + cH + 4} stroke={ED.rule} strokeWidth={1} />
+          <text x={xAt(v)} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
             {v.toFixed(2)}
           </text>
         </g>
       ))}
 
       {/* Domb-Sykes point estimate R ~ 91 */}
-      <line x1={padL} y1={yAt(R_DS)} x2={padL + cW} y2={yAt(R_DS)} stroke="#fbbf24" strokeWidth={1} strokeDasharray="4 3" />
-      <text x={padL + cW - 4} y={yAt(R_DS) - 5} textAnchor="end" fill="#fbbf24" fontSize={9}>
+      <line x1={padL} y1={yAt(R_DS)} x2={padL + cW} y2={yAt(R_DS)} stroke={ED.brassDeco} strokeWidth={1} strokeDasharray="4 3" />
+      <text x={padL + cW - 4} y={yAt(R_DS) - 5} textAnchor="end" fill={ED.brass} fontSize={9}>
         R_DombSykes ~ {R_DS}
       </text>
 
       {/* 25% crossing (stays inside the band band-wide) */}
-      <path d={path25} fill="none" stroke="#34d399" strokeWidth={2} />
+      <path d={path25} fill="none" stroke={ED.series3} strokeWidth={2} />
       {SWEEP.map((p) => (
-        <circle key={`25-${p.cmb}`} cx={xAt(p.cmb)} cy={yAt(p.epsAt25pct)} r={2.5} fill="#34d399" />
+        <circle key={`25-${p.cmb}`} cx={xAt(p.cmb)} cy={yAt(p.epsAt25pct)} r={2.5} fill={ED.series3} />
       ))}
-      <text x={xAt(0.52)} y={yAt(SWEEP[0].epsAt25pct) - 8} fill="#34d399" fontSize={9}>
+      <text x={xAt(0.52)} y={yAt(SWEEP[0].epsAt25pct) - 8} fill={ED.series3} fontSize={9}>
         25% crossing
       </text>
 
       {/* 5% crossing (exits the low edge for C_mb < ~1) */}
-      <path d={path5} fill="none" stroke="#f87171" strokeWidth={2} />
+      <path d={path5} fill="none" stroke={ED.series2} strokeWidth={2} />
       {SWEEP.map((p) => (
-        <circle key={`5-${p.cmb}`} cx={xAt(p.cmb)} cy={yAt(p.epsAt5pct)} r={2.5} fill="#f87171" />
+        <circle key={`5-${p.cmb}`} cx={xAt(p.cmb)} cy={yAt(p.epsAt5pct)} r={2.5} fill={ED.series2} />
       ))}
-      <text x={xAt(0.52)} y={yAt(SWEEP[0].epsAt5pct) + 14} fill="#f87171" fontSize={9}>
+      <text x={xAt(0.52)} y={yAt(SWEEP[0].epsAt5pct) + 14} fill={ED.series2} fontSize={9}>
         5% crossing
       </text>
 
-      <text x={padL + cW / 2} y={svgH - 6} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 6} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         C_mb (multiplicative factor on E_coll); y = raw-total resummed-deviation crossing-eps
       </text>
     </svg>
@@ -95,11 +96,11 @@ export default function Imp34983SigmaKneeCrossingCmbSensitivityViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Sigma-Knee Resummation-Crossing C_mb Sensitivity (imp-34983 / imp-34955)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         {D.question}
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         Both crossings drift monotonically and sublinearly as C_mb runs 0.5&nbsp;&rarr;&nbsp;1 (5%:{' '}
         {D.drift.eps5AtCmbLo.toFixed(2)}&nbsp;&rarr;&nbsp;{D.drift.eps5AtCmbHi.toFixed(2)}, elasticity ~
         {ELASTICITY_5.toFixed(2)}; 25%: {D.drift.eps25AtCmbLo.toFixed(2)}&nbsp;&rarr;&nbsp;
@@ -114,14 +115,14 @@ export default function Imp34983SigmaKneeCrossingCmbSensitivityViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page rendering the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-only page rendering the
         imp-34955 C_mb sweep verbatim (no new computation). The range-level coincidence -- the 25%
         crossing landing inside [{R_DS_LO}, {R_DS_HI}] -- is ROBUST to the GUE-conditional C_mb knob
         (imp-486), but the tight point-level landing on R&nbsp;~&nbsp;{R_DS} is C_mb-specific. Measurement

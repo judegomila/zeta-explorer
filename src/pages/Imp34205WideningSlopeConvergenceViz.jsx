@@ -10,6 +10,7 @@ import {
   IMP34205_CAVEAT_BANNER,
 } from '../data/imp-34205-widening-slope-convergence-viz-data.js';
 import { IMP34246_WIDENING_SLOPE_LIMIT_ANALYTIC_DERIVATION } from '../data/imp-34246-widening-slope-limit-analytic-derivation.js';
+import { ED } from '../styles/tokens.js';
 
 function SlopeConvergenceChart() {
   const svgW = 720;
@@ -34,13 +35,13 @@ function SlopeConvergenceChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
 
       {[-1.0, -1.1, -1.2, -1.3, -1.4, -1.5].map((b) => (
         <g key={'yt' + b}>
-          <line x1={padL - 4} y1={yS(b)} x2={padL + cW} y2={yS(b)} stroke="#1e293b" strokeWidth={1} />
-          <text x={padL - 8} y={yS(b) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+          <line x1={padL - 4} y1={yS(b)} x2={padL + cW} y2={yS(b)} stroke={ED.ruleSoft} strokeWidth={1} />
+          <text x={padL - 8} y={yS(b) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {b.toFixed(2)}
           </text>
         </g>
@@ -51,40 +52,40 @@ function SlopeConvergenceChart() {
         y1={yS(IMP34205_LIMIT_MARKERS.expBInf)}
         x2={padL + cW}
         y2={yS(IMP34205_LIMIT_MARKERS.expBInf)}
-        stroke="#4ade80"
+        stroke={ED.series3}
         strokeWidth={1}
         strokeDasharray="4,3"
       />
-      <text x={padL + 6} y={yS(IMP34205_LIMIT_MARKERS.expBInf) - 6} fill="#4ade80" fontSize={9}>
+      <text x={padL + 6} y={yS(IMP34205_LIMIT_MARKERS.expBInf) - 6} fill={ED.series3} fontSize={9}>
         b_inf (exp-approach) {IMP34205_LIMIT_MARKERS.expBInf.toFixed(3)}
       </text>
 
       {[11, 12, 13, 14, 15, 16, 17, 18].map((k) => (
         <g key={'xt' + k}>
-          <line x1={xS(k)} y1={padT + cH - 4} x2={xS(k)} y2={padT + cH + 4} stroke="#334155" strokeWidth={1} />
-          <text x={xS(k)} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={9}>
+          <line x1={xS(k)} y1={padT + cH - 4} x2={xS(k)} y2={padT + cH + 4} stroke={ED.rule} strokeWidth={1} />
+          <text x={xS(k)} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
             {k}
           </text>
         </g>
       ))}
-      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         kEnd (ladder window right edge)
       </text>
       <text
         x={16}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={`rotate(-90 16 ${padT + cH / 2})`}
       >
         b (OLS widening slope)
       </text>
 
-      <polyline points={powPoints} fill="none" stroke="#f87171" strokeWidth={1.25} strokeDasharray="6,3" />
-      <polyline points={expPoints} fill="none" stroke="#38bdf8" strokeWidth={1.75} />
+      <polyline points={powPoints} fill="none" stroke={ED.series2} strokeWidth={1.25} strokeDasharray="6,3" />
+      <polyline points={expPoints} fill="none" stroke={ED.series1} strokeWidth={1.75} />
       {IMP34205_SWEEP_POINTS.map((r) => (
-        <circle key={'pt' + r.kEnd} cx={xS(r.kEnd)} cy={yS(r.b)} r={2.75} fill="#c4b5fd" stroke="#0a0f1a" strokeWidth={0.75} />
+        <circle key={'pt' + r.kEnd} cx={xS(r.kEnd)} cy={yS(r.b)} r={2.75} fill="#c4b5fd" stroke={ED.paper} strokeWidth={0.75} />
       ))}
     </svg>
   );
@@ -107,13 +108,13 @@ function SlopeStepChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
 
       {[0, stepMax / 2, stepMax].map((v) => (
         <g key={'yt' + v}>
-          <line x1={padL - 4} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke="#1e293b" strokeWidth={1} />
-          <text x={padL - 8} y={yS(v) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+          <line x1={padL - 4} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke={ED.ruleSoft} strokeWidth={1} />
+          <text x={padL - 8} y={yS(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v.toFixed(3)}
           </text>
         </g>
@@ -129,19 +130,19 @@ function SlopeStepChart() {
             y={y}
             width={barW}
             height={padT + cH - y}
-            fill="#a78bfa"
+            fill={ED.series5}
             opacity={0.4 + 0.5 * (i / (n - 1))}
           />
         );
       })}
-      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         sweep step index (kEnd increasing by 0.5)
       </text>
       <text
         x={16}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={`rotate(-90 16 ${padT + cH / 2})`}
       >
@@ -158,13 +159,13 @@ export default function Imp34205WideningSlopeConvergenceViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Widening-Slope Drift Convergence (imp-34205 / imp-34129)" />
 
-      <p style={{ color: '#64748b', fontSize: '0.8rem', marginBottom: '0.75rem' }}>
-        <Link to="/viz-imp34281-m2-ceiling-cohort-index" style={{ color: '#64748b' }}>
+      <p style={{ color: 'var(--ink-faint)', fontSize: '0.8rem', marginBottom: '0.75rem' }}>
+        <Link to="/viz-imp34281-m2-ceiling-cohort-index" style={{ color: 'var(--ink-faint)' }}>
           &larr; back to the M2-ceiling cohort index
         </Link>
       </p>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-34022 found the imp-33843 log-linear widening slope b tilts across three windows
         (kEnd 11, 11.5, 12), leaving open whether it drifts open-endedly or saturates. imp-34129
         extended the imp-33810/imp-33877 ladder to kEnd=18 and fit the drift b(kEnd) to two
@@ -174,12 +175,12 @@ export default function Imp34205WideningSlopeConvergenceViz() {
         {localSlopeMean.toFixed(3)}.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         measured b(kEnd) (purple points) vs exponential-approach fit (blue) vs power-approach fit (red, dashed)
       </p>
       <SlopeConvergenceChart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
         per-step increment of b across the sweep (shrinking bars = decelerating drift = convergent)
       </p>
       <SlopeStepChart />
@@ -193,7 +194,7 @@ export default function Imp34205WideningSlopeConvergenceViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>fit</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>b_inf</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>rate</th>
@@ -201,13 +202,13 @@ export default function Imp34205WideningSlopeConvergenceViz() {
           </tr>
         </thead>
         <tbody>
-          <tr style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+          <tr style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
             <td style={{ padding: '0.4rem 0.6rem' }}>exponential-approach (winner)</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{expBInf.toFixed(6)}</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>lam={expLam}</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{expSsr.toExponential(3)}</td>
           </tr>
-          <tr style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+          <tr style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
             <td style={{ padding: '0.4rem 0.6rem' }}>power-approach</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{powBInf.toFixed(6)}</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>p={powP}</td>
@@ -220,28 +221,28 @@ export default function Imp34205WideningSlopeConvergenceViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> {IMP34205_CAVEAT_BANNER}
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> {IMP34205_CAVEAT_BANNER}
       </div>
 
       <div
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>imp-34246 leading-slope correction:</strong> the free
+        <strong style={{ color: 'var(--ink-soft)' }}>imp-34246 leading-slope correction:</strong> the free
         exponential-approach fit above pins b_inf &asymp; {expBInf.toFixed(3)}, but imp-34246 derives
         (within the inherited component model, not rigorously) that the LEADING per-k slope of
         y(k)=ln(eflow_attr/resid_exp) is{' '}

@@ -5,11 +5,12 @@ import {
   IMP97787_LANDMARKS,
   IMP97787_SUMMARY,
 } from '../data/imp-97787-fartail-diagnostic-hump-min-crossover-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
-const CURVE_COLOR = '#60a5fa';
-const HUMP_COLOR = '#f472b6';
-const MIN_COLOR = '#facc15';
-const CROSSOVER_COLOR = '#34d399';
+const CURVE_COLOR = ED.series1;
+const HUMP_COLOR = ED.series7;
+const MIN_COLOR = ED.series4;
+const CROSSOVER_COLOR = ED.series3;
 
 // Line chart of the imp-97759 non-monotone far-tail diagnostic shape across log10 N = 2..50 on a
 // symlog-style y-scale (linear below 1, log above), with the hump, local minimum, and the
@@ -51,22 +52,22 @@ function HumpMinCrossoverChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#334155" strokeWidth={1} />
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#334155" strokeWidth={1} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1} />
 
       {/* limit = 1 reference line */}
-      <line x1={padL} y1={yOf(1)} x2={padL + plotW} y2={yOf(1)} stroke="#475569" strokeWidth={1} strokeDasharray="2 3" />
-      <text x={padL + 4} y={yOf(1) - 4} fill="#64748b" fontSize={9}>
+      <line x1={padL} y1={yOf(1)} x2={padL + plotW} y2={yOf(1)} stroke={ED.rule} strokeWidth={1} strokeDasharray="2 3" />
+      <text x={padL + 4} y={yOf(1) - 4} fill={ED.inkFaint} fontSize={9}>
         limit = 1
       </text>
 
       {yTicks.map((t) => (
-        <text key={t} x={padL - 8} y={yOf(t) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+        <text key={t} x={padL - 8} y={yOf(t) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
           {t}
         </text>
       ))}
       {xTicks.map((t) => (
-        <text key={t} x={xOf(t)} y={svgH - 24} textAnchor="middle" fill="#94a3b8" fontSize={9}>
+        <text key={t} x={xOf(t)} y={svgH - 24} textAnchor="middle" fill={ED.inkSoft} fontSize={9}>
           1e{t}
         </text>
       ))}
@@ -88,7 +89,7 @@ function HumpMinCrossoverChart() {
         </g>
       ))}
 
-      <text x={padL + 6} y={padT + 12} fill="#94a3b8" fontSize={10}>
+      <text x={padL + 6} y={padT + 12} fill={ED.inkSoft} fontSize={10}>
         diag(N) = (1/2 - p) * 2 log T0
       </text>
     </svg>
@@ -104,26 +105,26 @@ export default function Imp97787FarTailDiagnosticHumpMinCrossoverViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(52,211,153,0.06)',
-          borderLeft: '3px solid #34d399',
+          background: 'color-mix(in srgb, var(--series-3) 6%, transparent)',
+          borderLeft: '3px solid var(--series-3)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#34d399' }}>Honest status:</strong> a measurement/presentation-only
+        <strong style={{ color: 'var(--series-3)' }}>Honest status:</strong> a measurement/presentation-only
         page. The curve is reused byte-for-byte from imp-97806; the hump and minimum landmarks are
         reused verbatim from imp-97782/imp-97777, and the crossover landmark is reused verbatim
         from imp-97759 F1. Conditional-share diagnostic, NOT an RH bound; Platt&ndash;Trudgian
         &Lambda; &le; 0.2 remains SOTA; RH open; NO QED.
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         {IMP97787_SUMMARY.reading}
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         diag(N) across log10 N = 2..50 (symlog y-axis: linear below 1, log10 above)
       </h3>
       <HumpMinCrossoverChart />
@@ -141,7 +142,7 @@ export default function Imp97787FarTailDiagnosticHumpMinCrossoverViz() {
               alignItems: 'center',
               gap: '0.4rem',
               fontSize: '0.78rem',
-              color: '#cbd5e1',
+              color: 'var(--ink)',
             }}
           >
             <span style={{ width: 8, height: 8, borderRadius: '50%', background: color, display: 'inline-block' }} />
@@ -154,14 +155,14 @@ export default function Imp97787FarTailDiagnosticHumpMinCrossoverViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> {IMP97787_SUMMARY.verdict}
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> {IMP97787_SUMMARY.verdict}
       </div>
     </div>
   );

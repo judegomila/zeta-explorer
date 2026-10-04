@@ -7,6 +7,7 @@ import {
   IMP96646_WALL_BAND,
   IMP96646_LANDMARKS,
 } from '../data/imp-96646-krein-certificate-margin-viz-data.js';
+import { ED, alpha } from '../styles/tokens.js';
 
 // paired chart: certified eps margin (left axis, blue) and log10(l1) tail norm
 // (right axis, orange) vs support 2a, over the narrow window [0.86, 1.06]
@@ -58,61 +59,61 @@ function MarginAndNormPanel() {
         y={padT}
         width={xOf(IMP96646_WALL_BAND.hiTwoA) - xOf(IMP96646_WALL_BAND.loTwoA)}
         height={plotH}
-        fill="rgba(248,113,113,0.10)"
+        fill={alpha(ED.series2, 0.1)}
       />
-      <text x={xOf((IMP96646_WALL_BAND.loTwoA + IMP96646_WALL_BAND.hiTwoA) / 2)} y={padT + 12} textAnchor="middle" fill="#f87171" fontSize={8}>
+      <text x={xOf((IMP96646_WALL_BAND.loTwoA + IMP96646_WALL_BAND.hiTwoA) / 2)} y={padT + 12} textAnchor="middle" fill={ED.series2} fontSize={8}>
         LP wall
       </text>
 
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL + plotW} y1={padT} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL + plotW} y1={padT} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
 
       {epsTicks.map((v) => (
         <g key={`e${v}`}>
-          <line x1={padL} y1={yEpsOf(v)} x2={padL + plotW} y2={yEpsOf(v)} stroke="#1e293b" strokeWidth={1} />
-          <text x={padL - 8} y={yEpsOf(v) + 3} textAnchor="end" fill="#38bdf8" fontSize={8.5}>
+          <line x1={padL} y1={yEpsOf(v)} x2={padL + plotW} y2={yEpsOf(v)} stroke={ED.ruleSoft} strokeWidth={1} />
+          <text x={padL - 8} y={yEpsOf(v) + 3} textAnchor="end" fill={ED.series1} fontSize={8.5}>
             {v}
           </text>
         </g>
       ))}
       {logTicks.map((v) => (
-        <text key={`l${v}`} x={padL + plotW + 8} y={yLogOf(v) + 3} textAnchor="start" fill="#fb923c" fontSize={8.5}>
+        <text key={`l${v}`} x={padL + plotW + 8} y={yLogOf(v) + 3} textAnchor="start" fill={ED.series4} fontSize={8.5}>
           1e{v}
         </text>
       ))}
       {xTicks.map((x) => (
         <g key={`x${x}`}>
-          <line x1={xOf(x)} y1={padT} x2={xOf(x)} y2={padT + plotH} stroke="#1e293b" strokeWidth={1} />
-          <text x={xOf(x)} y={padT + plotH + 14} textAnchor="middle" fill="#94a3b8" fontSize={8.5}>
+          <line x1={xOf(x)} y1={padT} x2={xOf(x)} y2={padT + plotH} stroke={ED.ruleSoft} strokeWidth={1} />
+          <text x={xOf(x)} y={padT + plotH + 14} textAnchor="middle" fill={ED.inkSoft} fontSize={8.5}>
             {x}
           </text>
         </g>
       ))}
 
       {/* eps linear fit, projected to zero at 2a = 1.0 */}
-      <path d={epsFitPath} fill="none" stroke="#38bdf8" strokeWidth={1.3} strokeDasharray="5 3" />
+      <path d={epsFitPath} fill="none" stroke={ED.series1} strokeWidth={1.3} strokeDasharray="5 3" />
       {/* l1 log-linear fit */}
-      <path d={l1FitPath} fill="none" stroke="#fb923c" strokeWidth={1.3} strokeDasharray="5 3" />
+      <path d={l1FitPath} fill="none" stroke={ED.series4} strokeWidth={1.3} strokeDasharray="5 3" />
 
       {IMP96646_ANCHORS.map((r) => (
         <g key={`a${r.twoA}`}>
-          <circle cx={xOf(r.twoA)} cy={yEpsOf(r.eps)} r={4} fill="#38bdf8" />
-          <circle cx={xOf(r.twoA)} cy={yLogOf(r.log10L1)} r={4} fill="#fb923c" />
+          <circle cx={xOf(r.twoA)} cy={yEpsOf(r.eps)} r={4} fill={ED.series1} />
+          <circle cx={xOf(r.twoA)} cy={yLogOf(r.log10L1)} r={4} fill={ED.series4} />
         </g>
       ))}
 
-      <text x={padL + plotW / 2} y={padT + plotH + 32} textAnchor="middle" fill="#94a3b8" fontSize={9}>
+      <text x={padL + plotW / 2} y={padT + plotH + 32} textAnchor="middle" fill={ED.inkSoft} fontSize={9}>
         support 2a
       </text>
-      <text x={12} y={padT + plotH / 2} textAnchor="middle" fill="#38bdf8" fontSize={9} transform={`rotate(-90 12 ${padT + plotH / 2})`}>
+      <text x={12} y={padT + plotH / 2} textAnchor="middle" fill={ED.series1} fontSize={9} transform={`rotate(-90 12 ${padT + plotH / 2})`}>
         certified eps margin
       </text>
       <text
         x={svgW - 10}
         y={padT + plotH / 2}
         textAnchor="middle"
-        fill="#fb923c"
+        fill={ED.series4}
         fontSize={9}
         transform={`rotate(-90 ${svgW - 10} ${padT + plotH / 2})`}
       >
@@ -138,10 +139,10 @@ function ReachDiagram() {
   const { ln2, interceptRigorousReach, wallLoTwoA, wallHiTwoA, ln3 } = IMP96646_LANDMARKS;
 
   const segments = [
-    { from: 0, to: ln2, color: '#475569', label: 'classical (Yoshida / CC)' },
-    { from: ln2, to: interceptRigorousReach, color: '#22c55e', label: 'interval-rigorous (this work)' },
-    { from: interceptRigorousReach, to: wallHiTwoA, color: '#f87171', label: 'LP wall' },
-    { from: wallHiTwoA, to: ln3, color: '#334155', label: 'open (0.96 < 2a < ln3)' },
+    { from: 0, to: ln2, color: ED.inkFaint, label: 'classical (Yoshida / CC)' },
+    { from: ln2, to: interceptRigorousReach, color: ED.series3, label: 'interval-rigorous (this work)' },
+    { from: interceptRigorousReach, to: wallHiTwoA, color: ED.series2, label: 'LP wall' },
+    { from: wallHiTwoA, to: ln3, color: ED.inkSoft, label: 'open (0.96 < 2a < ln3)' },
   ];
 
   return (
@@ -149,7 +150,7 @@ function ReachDiagram() {
       {segments.map((s) => (
         <rect key={s.label} x={xOf(s.from)} y={barY} width={Math.max(0, xOf(s.to) - xOf(s.from))} height={barH} fill={s.color} />
       ))}
-      <rect x={xOf(wallLoTwoA)} y={barY} width={xOf(wallHiTwoA) - xOf(wallLoTwoA)} height={barH} fill="#f87171" opacity={0.55} />
+      <rect x={xOf(wallLoTwoA)} y={barY} width={xOf(wallHiTwoA) - xOf(wallLoTwoA)} height={barH} fill={ED.series2} opacity={0.55} />
 
       {[
         { at: ln2, label: 'ln2=0.693' },
@@ -157,13 +158,13 @@ function ReachDiagram() {
         { at: ln3, label: 'ln3=1.099' },
       ].map((m) => (
         <g key={m.label}>
-          <line x1={xOf(m.at)} y1={barY - 6} x2={xOf(m.at)} y2={barY + barH + 6} stroke="#e2e8f0" strokeWidth={1.2} />
-          <text x={xOf(m.at)} y={barY - 10} textAnchor="middle" fill="#e2e8f0" fontSize={9}>
+          <line x1={xOf(m.at)} y1={barY - 6} x2={xOf(m.at)} y2={barY + barH + 6} stroke={ED.inkSoft} strokeWidth={1.2} />
+          <text x={xOf(m.at)} y={barY - 10} textAnchor="middle" fill={ED.ink} fontSize={9}>
             {m.label}
           </text>
         </g>
       ))}
-      <text x={xOf(interceptRigorousReach)} y={barY + barH + 20} textAnchor="middle" fill="#94a3b8" fontSize={8}>
+      <text x={xOf(interceptRigorousReach)} y={barY + barH + 20} textAnchor="middle" fill={ED.inkSoft} fontSize={8}>
         2a
       </text>
     </svg>
@@ -175,7 +176,7 @@ export default function Imp96646KreinCertificateMarginViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Krein sigma2 Certificate Margin: Verified Rungs, eps -> 0 Wall, ln2 / ln3" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         Three interval-verified sigma_2 certificate rungs (2a = 0.90, 0.94, 0.96) have a certified
         margin eps(2a) = {IMP96646_EPS_FIT.slope}*(2a) + {IMP96646_EPS_FIT.intercept} (exactly
         linear, R^2 = {IMP96646_EPS_FIT.r2.toFixed(5)}) and a tail l1-norm growing log-linearly at
@@ -184,12 +185,12 @@ export default function Imp96646KreinCertificateMarginViz() {
         with the observed double-precision LP conditioning wall.
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         Certified margin eps (blue) and tail l1-norm (orange) vs support 2a
       </h3>
       <MarginAndNormPanel />
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', margin: '1.25rem 0 0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', margin: '1.25rem 0 0.5rem' }}>
         Reach diagram: 2a = 0 .. ln 3
       </h3>
       <ReachDiagram />
@@ -198,14 +199,14 @@ export default function Imp96646KreinCertificateMarginViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> the dashed blue line is the
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> the dashed blue line is the
         linear fit through the three verified eps anchors, hitting zero exactly at 2a = 1.0; the
         dashed orange line is the log-linear fit through the same three anchors’ tail l1-norms
         (53.8 &rarr; 3.16e4 &rarr; 1.47e6), both independently pointing at the same double-precision
@@ -218,14 +219,14 @@ export default function Imp96646KreinCertificateMarginViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page consuming the imp-96646
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the imp-96646
         viz-data (every number reused verbatim from the Route I Krein certificate literals). The
         double-precision LP wall is a conditioning symptom, not a positivity failure: lambda_min(T_a[sigma_2])
         stays positive well past 2a = 1.0. Changes no bound, establishes no operator positivity, no RH

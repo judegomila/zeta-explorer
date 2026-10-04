@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP33858_WIDENING_FIT_RESIDUAL_LOCALIZATION } from '../data/imp-33858-widening-fit-residual-localization.js';
+import { ED } from '../styles/tokens.js';
 
 const { perRungResidual, trough, farTailPeak, lag1Autocorr, signFlips, whiteNoiseExpectedFlips, aggregateRmse } =
   IMP33858_WIDENING_FIT_RESIDUAL_LOCALIZATION;
@@ -27,13 +28,13 @@ function ResidualShapeChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={yZero} x2={padL + cW} y2={yZero} stroke="#334155" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={yZero} x2={padL + cW} y2={yZero} stroke={ED.rule} strokeWidth={1.5} />
 
       {[rMax, rMax / 2, 0, -rMax / 2, -rMax].map((t) => (
         <g key={'yt' + t}>
-          <line x1={padL - 4} y1={yS(t)} x2={padL + cW} y2={yS(t)} stroke="#1e293b" strokeWidth={1} />
-          <text x={padL - 8} y={yS(t) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+          <line x1={padL - 4} y1={yS(t)} x2={padL + cW} y2={yS(t)} stroke={ED.ruleSoft} strokeWidth={1} />
+          <text x={padL - 8} y={yS(t) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {t.toFixed(2)}
           </text>
         </g>
@@ -41,20 +42,20 @@ function ResidualShapeChart() {
 
       {[6, 7, 8, 9, 10, 11].map((k) => (
         <g key={'xt' + k}>
-          <line x1={xS(k)} y1={padT + cH} x2={xS(k)} y2={padT + cH + 4} stroke="#334155" strokeWidth={1} />
-          <text x={xS(k)} y={padT + cH + 18} textAnchor="middle" fill="#64748b" fontSize={9}>
+          <line x1={xS(k)} y1={padT + cH} x2={xS(k)} y2={padT + cH + 4} stroke={ED.rule} strokeWidth={1} />
+          <text x={xS(k)} y={padT + cH + 18} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
             {k}
           </text>
         </g>
       ))}
-      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         k (ladder rung, N = 10^k)
       </text>
       <text
         x={14}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={`rotate(-90 14 ${padT + cH / 2})`}
       >
@@ -64,7 +65,7 @@ function ResidualShapeChart() {
       {perRungResidual.map((r) => {
         const isTrough = r.k === trough.k;
         const isPeak = r.k === farTailPeak.k;
-        const fill = isTrough ? '#f87171' : isPeak ? '#4ade80' : r.resid >= 0 ? '#93c5fd' : '#c4b5fd';
+        const fill = isTrough ? ED.series2 : isPeak ? ED.series3 : r.resid >= 0 ? ED.series1 : ED.series5;
         const y0 = yS(0);
         const y1 = yS(r.resid);
         return (
@@ -75,7 +76,7 @@ function ResidualShapeChart() {
             width={barW}
             height={Math.max(1, Math.abs(y1 - y0))}
             fill={fill}
-            stroke="#0a0f1a"
+            stroke={ED.paper}
             strokeWidth={0.5}
           />
         );
@@ -89,7 +90,7 @@ export default function Imp33894ResidualShapeViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="imp-33843 Log-Linear Fit: Signed Residual Shape (imp-33858 / imp-33894)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-33843 fit the imp-33810 eflow_attr/resid_exp widening to a log-linear surrogate and
         reported only the aggregate residual (RMSE &sim;{aggregateRmse}). imp-33858 tabulated the
         signed residual at each of the 21 rungs and found it is NOT uniform noise: it flips sign
@@ -101,7 +102,7 @@ export default function Imp33894ResidualShapeViz() {
         largest single residual).
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         Signed per-rung residual e_k of the imp-33843 log-linear fit, k = 6.00 .. 11.00
       </p>
       <ResidualShapeChart />
@@ -115,20 +116,20 @@ export default function Imp33894ResidualShapeViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>k</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>residual e_k</th>
           </tr>
         </thead>
         <tbody>
           {perRungResidual.map((r) => (
-            <tr key={r.k} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+            <tr key={r.k} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.k.toFixed(2)}</td>
               <td
                 style={{
                   padding: '0.4rem 0.6rem',
                   fontFamily: 'monospace',
-                  color: r.k === trough.k ? '#f87171' : r.k === farTailPeak.k ? '#4ade80' : '#cbd5e1',
+                  color: r.k === trough.k ? 'var(--series-2)' : r.k === farTailPeak.k ? 'var(--series-3)' : 'var(--ink)',
                 }}
               >
                 {r.resid}
@@ -142,14 +143,14 @@ export default function Imp33894ResidualShapeViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement/visualization only
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> measurement/visualization only
         -- the curvature shown here is real (a coherent low-frequency structure, not scatter) but
         stays small (&sim;12% multiplicative, within &sim;0.12 ln-ratio units) and does NOT overturn
         the imp-33843 log-linear-over-power-law form selection (R^2 &sim;0.99715 unchanged). The
@@ -162,14 +163,14 @@ export default function Imp33894ResidualShapeViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Cohort note:</strong> the residual series plotted above
+        <strong style={{ color: 'var(--ink-soft)' }}>Cohort note:</strong> the residual series plotted above
         is the SAME 21-rung series that imp-33886, imp-33920, imp-33921, imp-33963 (Dickey-Fuller
         unit-root test), imp-33964 (Ljung-Box portmanteau test), and imp-33965 (exact Durbin-Watson
         permutation bound) each run a different formal serial-dependence test against. All six tests

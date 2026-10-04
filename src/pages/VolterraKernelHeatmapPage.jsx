@@ -20,6 +20,7 @@ import React, { useState, useRef, useEffect, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import { BlockMath, InlineMath } from '../components/KaTeXMath.jsx';
+import { ED } from '../styles/tokens.js';
 
 // ── de Bruijn-Newman Phi kernel ─────────────────────────────────────────────
 const N_PHI = 10;
@@ -141,7 +142,7 @@ function renderHeatmap(canvas, heatmap, N, maxKernel, logScale = true) {
   ctx.putImageData(imageData, 0, 0);
 
   // Draw axes labels.
-  ctx.fillStyle = '#1c1814';
+  ctx.fillStyle = ED.ink;
   ctx.font = '12px monospace';
   ctx.textAlign = 'center';
   ctx.textBaseline = 'bottom';
@@ -193,16 +194,16 @@ export default function VolterraKernelHeatmapPage() {
       <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
         <h1 className="ed-h1" style={{ marginBottom: 10 }}>Volterra Kernel Heatmap</h1>
 
-        <p style={{ color: '#4a4238', fontSize: 15, lineHeight: 1.6, maxWidth: 760 }}>
+        <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.6, maxWidth: 760 }}>
           Squared magnitude <InlineMath math="|k_{a,\Phi}(x,y)|^2" /> of the Volterra operator kernel:
         </p>
         <BlockMath math="k_{a,\Phi}(x, y) = \Phi(x) \Phi(y) \sinh(a(x - y)) \cdot \mathbf{1}_{0 \le y \le x}" />
 
-        <p style={{ color: '#4a4238', fontSize: 15, lineHeight: 1.6, maxWidth: 760 }}>
+        <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.6, maxWidth: 760 }}>
           The heatmap reveals <strong>rank-1 concentration</strong>: the kernel's energy is
           concentrated along the diagonal (x &asymp; y), with exponential decay off-diagonal. This
           structure explains why the {' '}
-          <Link to="/lambda-bounds" style={{ color: '#8c6a1d' }}>Hilbert-Schmidt bound</Link> (imp-1267) is so tight
+          <Link to="/lambda-bounds" style={{ color: 'var(--brass)' }}>Hilbert-Schmidt bound</Link> (imp-1267) is so tight
           — the operator has an effective rank-1 structure, making the HS-norm &asymp; op-norm
           to within <strong>2.02%</strong> (imp-1267).
         </p>
@@ -210,13 +211,13 @@ export default function VolterraKernelHeatmapPage() {
         <div className="viz-controls" style={{
           margin: '20px 0',
           padding: 10,
-          background: '#f6f1e7',
-          border: '1px solid #d5c9b2',
-          borderLeft: '3px solid #8c6a1d',
+          background: 'var(--paper-2)',
+          border: '1px solid var(--rule)',
+          borderLeft: '3px solid var(--brass)',
           borderRadius: 8,
         }}>
           <div style={{ marginBottom: 10 }}>
-            <label style={{ marginRight: 20, color: '#1c1814' }}>
+            <label style={{ marginRight: 20, color: 'var(--ink)' }}>
               a ={' '}
               <select
                 value={a}
@@ -233,7 +234,7 @@ export default function VolterraKernelHeatmapPage() {
           </div>
 
           <div style={{ marginBottom: 10 }}>
-            <label style={{ marginRight: 20, color: '#1c1814' }}>
+            <label style={{ marginRight: 20, color: 'var(--ink)' }}>
               <input
                 type="checkbox"
                 checked={logScale}
@@ -243,8 +244,8 @@ export default function VolterraKernelHeatmapPage() {
             </label>
           </div>
 
-          {renderStatus === 'rendering' && <span style={{ color: '#4a4238' }}>Rendering...</span>}
-          {renderStatus === 'error' && <span style={{ color: '#c23a1c' }}>Render error</span>}
+          {renderStatus === 'rendering' && <span style={{ color: 'var(--ink-soft)' }}>Rendering...</span>}
+          {renderStatus === 'error' && <span style={{ color: 'var(--accent)' }}>Render error</span>}
         </div>
 
         <div style={{ margin: '20px 0', textAlign: 'center' }}>
@@ -253,12 +254,12 @@ export default function VolterraKernelHeatmapPage() {
             width={600}
             height={600}
             style={{
-              border: '1px solid #d5c9b2',
+              border: '1px solid var(--rule)',
               display: 'block',
               margin: '0 auto 20px',
             }}
           />
-          <div style={{ fontSize: 12, color: '#877b67' }}>
+          <div style={{ fontSize: 12, color: 'var(--ink-faint)' }}>
             x (left → right: 0 to 4) &nbsp;&nbsp;
             y (bottom → top: 0 to 4)
             <br />
@@ -269,13 +270,13 @@ export default function VolterraKernelHeatmapPage() {
         <div className="section" style={{
           marginTop: 30,
           padding: 15,
-          background: '#f6f1e7',
-          border: '1px solid #d5c9b2',
-          borderLeft: '3px solid #4c7a4a',
+          background: 'var(--paper-2)',
+          border: '1px solid var(--rule)',
+          borderLeft: '3px solid var(--series-3)',
           borderRadius: 8,
         }}>
-          <h3 style={{ marginTop: 0, color: '#1c1814' }}>Why 2.02%?</h3>
-          <p style={{ color: '#4a4238', lineHeight: 1.6 }}>
+          <h3 style={{ marginTop: 0, color: 'var(--ink)' }}>Why 2.02%?</h3>
+          <p style={{ color: 'var(--ink-soft)', lineHeight: 1.6 }}>
             <strong>Rank-1 dominance:</strong> The Volterra kernel has a dominant eigenvector
             localized near the diagonal. When the spectrum is dominated by a single mode, the
             Hilbert-Schmidt norm (which sums all singular values squared) differs from the
@@ -283,8 +284,8 @@ export default function VolterraKernelHeatmapPage() {
             case, that factor is ~1.02, yielding a 2.02% slack.
           </p>
 
-          <p style={{ color: '#4a4238', lineHeight: 1.6 }}>
-            <strong>Empirical support:</strong> From <Link to="/lambda-bounds" style={{ color: '#8c6a1d' }}>imp-1267</Link>, the
+          <p style={{ color: 'var(--ink-soft)', lineHeight: 1.6 }}>
+            <strong>Empirical support:</strong> From <Link to="/lambda-bounds" style={{ color: 'var(--brass)' }}>imp-1267</Link>, the
             HS bound is{' '}
             <InlineMath math="\sqrt{I_0 \cdot J_a}" /> where <InlineMath math="I_0 = 1.047 \times 10^{-2}" />
             {' '}and <InlineMath math="J_a = \int_0^\infty \Phi(x)^2 \sinh^2(ax) dx" />.
@@ -292,7 +293,7 @@ export default function VolterraKernelHeatmapPage() {
             is ~1.6x the empirical operator norm (verified on 25 grid points from imp-1240).
           </p>
 
-          <p style={{ color: '#4a4238', lineHeight: 1.6 }}>
+          <p style={{ color: 'var(--ink-soft)', lineHeight: 1.6 }}>
             <strong>Closure:</strong> For <InlineMath math="a \in (0, 2]" />, the HS bound
             proves <InlineMath math="\|V_{a,\Phi}\| \le 1" /> analytically. For a {'>'} 2, the bound
             exceeds 1, marking the boundary of what HS can guarantee (see imp-1290, imp-1296).
@@ -302,29 +303,29 @@ export default function VolterraKernelHeatmapPage() {
         <div className="section" style={{
           marginTop: 30,
           padding: 15,
-          background: '#f6f1e7',
-          border: '1px solid #d5c9b2',
-          borderLeft: '3px solid #3f6b86',
+          background: 'var(--paper-2)',
+          border: '1px solid var(--rule)',
+          borderLeft: '3px solid var(--series-1)',
           borderRadius: 8,
         }}>
-          <h3 style={{ marginTop: 0, color: '#1c1814' }}>References</h3>
-          <ul style={{ margin: '10px 0', paddingLeft: 20, color: '#4a4238' }}>
+          <h3 style={{ marginTop: 0, color: 'var(--ink)' }}>References</h3>
+          <ul style={{ margin: '10px 0', paddingLeft: 20, color: 'var(--ink-soft)' }}>
             <li>
-              <Link to="/lambda-bounds" style={{ color: '#8c6a1d' }}>imp-1267</Link>: Hilbert-Schmidt bound derivation + numerical
+              <Link to="/lambda-bounds" style={{ color: 'var(--brass)' }}>imp-1267</Link>: Hilbert-Schmidt bound derivation + numerical
               verification
             </li>
             <li>
-              <Link to="/paper-audit-dashboard" style={{ color: '#8c6a1d' }}>Paper audit dashboard</Link>: Context for §25–27
+              <Link to="/paper-audit-dashboard" style={{ color: 'var(--brass)' }}>Paper audit dashboard</Link>: Context for §25–27
             </li>
             <li>
-              <Link to="/lambda-bounds" style={{ color: '#8c6a1d' }}>Lambda bounds</Link>: Full RH reduction chain
+              <Link to="/lambda-bounds" style={{ color: 'var(--brass)' }}>Lambda bounds</Link>: Full RH reduction chain
             </li>
           </ul>
         </div>
 
-        <div style={{ marginTop: 12, fontSize: 13, color: '#4a4238', borderTop: '1px solid #d5c9b2', paddingTop: 20 }}>
+        <div style={{ marginTop: 12, fontSize: 13, color: 'var(--ink-soft)', borderTop: '1px solid var(--rule)', paddingTop: 20 }}>
           <p style={{ margin: '12px 0 0 0' }}>
-            <Link to="/" style={{ color: '#8c6a1d' }}>← the atlas</Link>
+            <Link to="/" style={{ color: 'var(--brass)' }}>← the atlas</Link>
           </p>
         </div>
       </div>

@@ -5,6 +5,7 @@ import HamiltonianViz from '../components/HamiltonianViz.jsx';
 import ExplicitFormulaViz from '../components/ExplicitFormulaViz.jsx';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 import AnimationEmbed from '../components/AnimationEmbed.jsx';
+import { ED, alpha } from '../styles/tokens.js';
 
 // Hamiltonian & Energy Landscape — editorial (warm) re-theme.
 // Full-width dashboard. The two real viz components (HamiltonianViz,
@@ -199,7 +200,7 @@ export default function HamiltonianPage() {
               style={cardLeft(MISMATCH, {
                 marginTop: 12,
                 marginBottom: 12,
-                background: 'rgba(181,138,46,0.06)',
+                background: alpha(ED.brassDeco, 0.06),
                 padding: '10px 14px',
               })}
             >

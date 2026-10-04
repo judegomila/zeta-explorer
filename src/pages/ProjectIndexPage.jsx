@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import { waves, keyResults, withdrawn, projectStats } from '../data/wave-index.js';
+import { STATUS, ED, alpha } from '../styles/tokens.js';
 
 /**
  * Project Index page: navigable summary of all project improvements.
@@ -21,17 +22,17 @@ export default function ProjectIndexPage() {
   const [expandedWave, setExpandedWave] = useState(null);
 
   const statusColors = {
-    'PROVEN': '#4c7a4a',
-    'PROVEN (exact)': '#4c7a4a',
-    'VERIFIED': '#3f6b86',
-    'OPEN (~80%)': '#b58a2e',
-    'UNIFICATION (7 frameworks)': '#d9502e',
+    'PROVEN': STATUS.proved.fg,
+    'PROVEN (exact)': ED.series3,
+    'VERIFIED': STATUS.certified.fg,
+    'OPEN (~80%)': ED.brassDeco,
+    'UNIFICATION (7 frameworks)': ED.accentDeco,
   };
 
   const impactColors = {
-    critical: '#c23a1c',
-    high: '#b58a2e',
-    medium: '#3f6b86',
+    critical: ED.series2,
+    high: ED.brassDeco,
+    medium: ED.series1,
   };
 
   return (
@@ -49,12 +50,12 @@ export default function ProjectIndexPage() {
         {/* Project Stats */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))', gap: 12, marginBottom: 24 }}>
           {[
-            { label: 'Improvements', value: projectStats.totalImprovements, color: '#3f6b86' },
-            { label: 'Math Modules', value: projectStats.mathModules, color: '#d9502e' },
-            { label: 'Waves', value: projectStats.wavesCompleted, color: '#4c7a4a' },
-            { label: 'Self-corrections', value: projectStats.selfCorrections, color: '#b58a2e' },
-            { label: 'Self-corrected', value: projectStats.withdrawnClaims, color: '#c23a1c' },
-            { label: 'LP Confidence', value: projectStats.bayesianConfidence, color: '#3f6b86' },
+            { label: 'Improvements', value: projectStats.totalImprovements, color: ED.series1 },
+            { label: 'Math Modules', value: projectStats.mathModules, color: ED.accentDeco },
+            { label: 'Waves', value: projectStats.wavesCompleted, color: ED.series3 },
+            { label: 'Self-corrections', value: projectStats.selfCorrections, color: ED.brass },
+            { label: 'Self-corrected', value: projectStats.withdrawnClaims, color: ED.accent },
+            { label: 'LP Confidence', value: projectStats.bayesianConfidence, color: ED.series1 },
           ].map(s => (
             <div key={s.label} style={{
               padding: '12px 16px', borderRadius: 8, background: `${s.color}10`,
@@ -69,7 +70,7 @@ export default function ProjectIndexPage() {
         {/* Current Research Status */}
         <div className="card" style={{ marginBottom: 24, background: 'var(--paper2)', border: '1px solid var(--hairline)', borderLeft: '3px solid var(--terra)', borderRadius: 8, padding: '16px 18px' }}>
           <h3 style={{ color: 'var(--terra)', fontSize: 15, marginBottom: 12 }}>Current Research Status</h3>
-          <div style={{ marginBottom: 12, padding: '10px 14px', borderRadius: 6, background: 'rgba(181,138,46,0.06)', border: '1px solid rgba(181,138,46,0.30)' }}>
+          <div style={{ marginBottom: 12, padding: '10px 14px', borderRadius: 6, background: 'color-mix(in srgb, var(--brass-deco) 6%, transparent)', border: '1px solid color-mix(in srgb, var(--brass-deco) 30%, transparent)' }}>
             <div style={{ color: 'var(--brass-dk)', fontSize: 12, fontWeight: 600, marginBottom: 4 }}>Where the program actually stands</div>
             <div style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.6 }}>
               RH is open. The program's frontier: computer-assisted candidates Λ ≤ 0.1787854 (reviewed by Dan
@@ -108,7 +109,7 @@ export default function ProjectIndexPage() {
                 </span>
                 <span style={{
                   fontSize: 9, fontWeight: 700, padding: '2px 8px', borderRadius: 4,
-                  background: `${statusColors[r.status] || '#64748b'}20`,
+                  background: `${statusColors[r.status] || ED.series8}20`,
                   color: statusColors[r.status] || 'var(--faint)',
                 }}>{r.status}</span>
                 <span style={{
@@ -131,7 +132,7 @@ export default function ProjectIndexPage() {
             <div key={w.number} style={{
               marginBottom: 8, padding: '10px 14px', borderRadius: 6,
               background: 'var(--paper)',
-              border: `1px solid ${w.breakthrough ? 'rgba(76,122,74,0.35)' : w.critical ? 'rgba(181,138,46,0.35)' : 'var(--hairline)'}`,
+              border: `1px solid ${w.breakthrough ? alpha(ED.series3, 0.35) : w.critical ? alpha(ED.brassDeco, 0.35) : 'var(--hairline)'}`,
               cursor: 'pointer',
             }}
             role="button"
@@ -142,7 +143,7 @@ export default function ProjectIndexPage() {
               <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
                 <span style={{
                   width: 30, height: 30, borderRadius: '50%',
-                  background: 'rgba(63,107,134,0.15)', color: 'var(--blue)',
+                  background: 'color-mix(in srgb, var(--series-1) 15%, transparent)', color: 'var(--blue)',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   fontSize: 12, fontWeight: 700, flexShrink: 0,
                 }}>{w.number}</span>
@@ -183,7 +184,7 @@ export default function ProjectIndexPage() {
           {withdrawn.map(w => (
             <div key={w.id} style={{
               marginBottom: 10, padding: '10px 14px', borderRadius: 6,
-              background: 'rgba(194,58,28,0.05)', border: '1px solid rgba(194,58,28,0.18)',
+              background: 'color-mix(in srgb, var(--series-2) 5%, transparent)', border: '1px solid color-mix(in srgb, var(--accent) 18%, transparent)',
             }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 4 }}>
                 <span style={{ color: 'var(--terra-dk)', fontSize: 13, fontWeight: 600, flex: 1 }}>

@@ -13,7 +13,7 @@ export default function Imp34594EflowAttrFarSideSmoothnessLadderViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Far-Side eflow_attr Smoothness Ladder Through the Pole (imp-34572)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-34572 extended the imp-34406 eflow_attr recovery to seven rungs k = 21.30 .. 21.60,
         all above the eflow_over_resid pole k* &asymp; {kStar.toFixed(5)}. On this entire far side,
         eflow_attr stays strictly positive (min +{minEflowAttr.toExponential(3)} at the far
@@ -22,7 +22,7 @@ export default function Imp34594EflowAttrFarSideSmoothnessLadderViz() {
         or slope jump straddles the pole.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         the seven-rung far-side ladder
       </p>
       <table
@@ -33,7 +33,7 @@ export default function Imp34594EflowAttrFarSideSmoothnessLadderViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>k</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>eflow_attr</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>source</th>
@@ -41,7 +41,7 @@ export default function Imp34594EflowAttrFarSideSmoothnessLadderViz() {
         </thead>
         <tbody>
           {IMP34594_RUNGS.map((row) => (
-            <tr key={row.k} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+            <tr key={row.k} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{row.k.toFixed(2)}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>
                 {row.eflowAttr.toExponential(6)}
@@ -52,7 +52,7 @@ export default function Imp34594EflowAttrFarSideSmoothnessLadderViz() {
         </tbody>
       </table>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
         local per-k log-slope d ln(eflow_attr) / dk (smooth drift, no kink)
       </p>
       <table
@@ -63,14 +63,14 @@ export default function Imp34594EflowAttrFarSideSmoothnessLadderViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>k</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>local slope</th>
           </tr>
         </thead>
         <tbody>
           {IMP34594_LOCAL_SLOPES.map((row) => (
-            <tr key={row.k} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+            <tr key={row.k} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{row.k.toFixed(2)}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{row.slopePerK.toFixed(6)}</td>
             </tr>
@@ -82,14 +82,14 @@ export default function Imp34594EflowAttrFarSideSmoothnessLadderViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Summary:</strong> the three overlap rungs (k = 21.30,
+        <strong style={{ color: 'var(--ink-soft)' }}>Summary:</strong> the three overlap rungs (k = 21.30,
         21.40, 21.50) reproduce the imp-34406 near-side bracket exactly, and the four new far-side
         rungs (k = 21.35, 21.45, 21.55, 21.60) extend it strictly past k*, staying nonzero,
         monotone-decreasing and smoothly log-sloped throughout -- so continuity of the
@@ -101,14 +101,14 @@ export default function Imp34594EflowAttrFarSideSmoothnessLadderViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-data only, baked literals
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-data only, baked literals
         reproducing the imp-34572 measurement; no new derivation, no bound changed. Component model
         is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; C_mb
         GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a&ge;0 untouched; NO QED.

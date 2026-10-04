@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { SESSIONS } from '../data/sessions.js';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
+import { ED, alpha } from '../styles/tokens.js';
 
 // Research Journal — coarse-grained session narratives of the RH Λ approach.
 // Read interface for src/data/sessions.js (SESSIONS.md is the write-through).
@@ -32,9 +33,9 @@ const sessionChip = {
   fontWeight: 700,
   textTransform: 'uppercase',
   letterSpacing: 0.5,
-  background: 'rgba(181,138,46,0.14)',
+  background: alpha(ED.brassDeco, 0.14),
   color: 'var(--brass-dk)',
-  border: '1px solid rgba(181,138,46,0.40)',
+  border: '1px solid color-mix(in srgb, var(--brass-deco) 40%, transparent)',
 };
 
 function ticketLink(id) {
@@ -253,8 +254,8 @@ export default function ResearchJournalPage() {
                     marginBottom: 16,
                     padding: '10px 14px',
                     borderRadius: 6,
-                    background: 'rgba(181,138,46,0.08)',
-                    border: '1px solid rgba(181,138,46,0.30)',
+                    background: 'color-mix(in srgb, var(--brass-deco) 8%, transparent)',
+                    border: '1px solid color-mix(in srgb, var(--brass-deco) 30%, transparent)',
                   }}
                 >
                   <div
@@ -479,8 +480,8 @@ export default function ResearchJournalPage() {
                     marginBottom: 16,
                     padding: '10px 14px',
                     borderRadius: 6,
-                    background: 'rgba(194,58,28,0.08)',
-                    border: '1px solid rgba(194,58,28,0.30)',
+                    background: 'color-mix(in srgb, var(--series-2) 8%, transparent)',
+                    border: '1px solid color-mix(in srgb, var(--accent) 30%, transparent)',
                   }}
                 >
                   <div

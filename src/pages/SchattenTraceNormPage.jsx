@@ -349,7 +349,7 @@ export default function SchattenTraceNormPage() {
 
         <div className="card" style={{
           marginBottom: 24, borderLeft: '3px solid var(--brass)',
-          background: 'rgba(181,138,46,0.08)',
+          background: 'color-mix(in srgb, var(--brass-deco) 8%, transparent)',
         }}>
           <div style={{ fontSize: 13, lineHeight: 1.6, color: 'var(--ink-soft)' }}>
             <strong style={{ color: 'var(--ink)' }}>Status — equivalence, not reduction.</strong>{' '}

@@ -7,22 +7,23 @@ import {
   IMP96075_HONEST_BANNER,
   IMP96075_LATER_DENSE_LADDER_NOTE,
 } from '../data/imp-96075-route-m-vasyunin-dn-ladder-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 function AxisFrame({ children, svgW, svgH, padL, padR, padT, padB, xLabel, yLabel }) {
   const plotW = svgW - padL - padR;
   const plotH = svgH - padT - padB;
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill="#64748b" fontSize={9.5}>
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5}>
         {xLabel}
       </text>
       <text
         x={14}
         y={padT + plotH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={9.5}
         transform={`rotate(-90 14 ${padT + plotH / 2})`}
       >
@@ -64,14 +65,14 @@ function DnLadderPanel() {
       xLabel="N (log scale)"
       yLabel="d_N² log N / Σ_ρ 1/|ρ|²"
     >
-      <line x1={padL} y1={yOf(1)} x2={padL + plotW} y2={yOf(1)} stroke="#f87171" strokeWidth={1} strokeDasharray="4 3" opacity={0.6} />
-      <text x={padL + plotW - 4} y={yOf(1) - 5} textAnchor="end" fill="#f87171" fontSize={9}>
+      <line x1={padL} y1={yOf(1)} x2={padL + plotW} y2={yOf(1)} stroke={ED.series2} strokeWidth={1} strokeDasharray="4 3" opacity={0.6} />
+      <text x={padL + plotW - 4} y={yOf(1) - 5} textAnchor="end" fill={ED.series2} fontSize={9}>
         Burnol floor (ratio = 1)
       </text>
       {yTicks.map((v) => (
         <g key={`y${v}`}>
-          <line x1={padL - 4} y1={yOf(v)} x2={padL} y2={yOf(v)} stroke="#334155" strokeWidth={1} />
-          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={8.5}>
+          <line x1={padL - 4} y1={yOf(v)} x2={padL} y2={yOf(v)} stroke={ED.rule} strokeWidth={1} />
+          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8.5}>
             {v}
           </text>
         </g>
@@ -79,15 +80,15 @@ function DnLadderPanel() {
       <polyline
         points={rows.map((r) => `${xOf(r.N)},${yOf(r.ratioToBurnol)}`).join(' ')}
         fill="none"
-        stroke="#38bdf8"
+        stroke={ED.series1}
         strokeWidth={2}
         opacity={0.9}
       />
       {rows.map((r) => (
-        <circle key={r.N} cx={xOf(r.N)} cy={yOf(r.ratioToBurnol)} r={2.5} fill="#38bdf8" />
+        <circle key={r.N} cx={xOf(r.N)} cy={yOf(r.ratioToBurnol)} r={2.5} fill={ED.series1} />
       ))}
       {[5, 50, 500].map((N) => (
-        <text key={N} x={xOf(N)} y={padT + plotH + 16} textAnchor="middle" fill="#64748b" fontSize={9}>
+        <text key={N} x={xOf(N)} y={padT + plotH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
           N={N}
         </text>
       ))}
@@ -126,8 +127,8 @@ function ResidualPointsPanel() {
     >
       {[0, 0.25, 0.5, 0.75, 1].map((v) => (
         <g key={`y${v}`}>
-          <line x1={padL - 4} y1={yOf(v)} x2={padL} y2={yOf(v)} stroke="#334155" strokeWidth={1} />
-          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={8.5}>
+          <line x1={padL - 4} y1={yOf(v)} x2={padL} y2={yOf(v)} stroke={ED.rule} strokeWidth={1} />
+          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8.5}>
             {v}
           </text>
         </g>
@@ -139,13 +140,13 @@ function ResidualPointsPanel() {
             y={yOf(r.value)}
             width={barW}
             height={yOf(0) - yOf(r.value)}
-            fill={i === 0 ? '#f87171' : '#38bdf8'}
+            fill={i === 0 ? ED.series2 : ED.series1}
             opacity={0.85}
           />
-          <text x={xOf(i)} y={yOf(r.value) - 6} textAnchor="middle" fill="#e2e8f0" fontSize={9.5}>
+          <text x={xOf(i)} y={yOf(r.value) - 6} textAnchor="middle" fill={ED.ink} fontSize={9.5}>
             {r.value.toFixed(3)}
           </text>
-          <text x={xOf(i)} y={padT + plotH + 16} textAnchor="middle" fill="#64748b" fontSize={8.5}>
+          <text x={xOf(i)} y={padT + plotH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={8.5}>
             {r.label}
           </text>
         </g>
@@ -165,18 +166,18 @@ export default function Imp96075RouteMVasyuninDnLadderViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> {IMP96075_HONEST_BANNER}
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> {IMP96075_HONEST_BANNER}
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         Route M (rh-route-m-nyman-beurling-vasyunin-reciprocity) builds the exact Vasyunin
         cotangent-sum Gram for the Nyman-Beurling criterion and computes the distance d_N to the
         indicator function at N up to {last.N}. The ratio d_N&sup2; log N / &Sigma;_&rho; 1/|&rho;|&sup2;
@@ -188,23 +189,23 @@ export default function Imp96075RouteMVasyuninDnLadderViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Update (imp-96119):</strong> {IMP96075_LATER_DENSE_LADDER_NOTE}
+        <strong style={{ color: 'var(--series-2)' }}>Update (imp-96119):</strong> {IMP96075_LATER_DENSE_LADDER_NOTE}
       </div>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         d_N ladder: convergence onto the Burnol floor
       </h3>
       <DnLadderPanel />
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', margin: '1.25rem 0 0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', margin: '1.25rem 0 0.5rem' }}>
         The residual |1+&zeta;D_N|&sup2;/(&frac14;+t&sup2;), normalized by 1/|&rho;|&sup2;
       </h3>
       <ResidualPointsPanel />
@@ -213,14 +214,14 @@ export default function Imp96075RouteMVasyuninDnLadderViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> the residual is forced to
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> the residual is forced to
         equal 1 (in these normalized units) at every one of the {IMP96075_MELLIN_SUMMARY.zerosBelowT}{' '}
         zeros below T={IMP96075_MELLIN_SUMMARY.T} (since &zeta;(&rho;)=0 exactly), then drops to a
         median of {IMP96075_RESIDUAL_POINTS[1].value.toFixed(3)} and a max of{' '}
@@ -236,14 +237,14 @@ export default function Imp96075RouteMVasyuninDnLadderViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page consuming the imp-96075
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the imp-96075
         baked viz-data (values copied verbatim from the Route M NB_DISTANCE_LADDER and
         RECIPROCITY_STRUCTURAL_TEST.mellinResidual records, no re-derivation). {IMP96075_HONEST_BANNER}
       </div>

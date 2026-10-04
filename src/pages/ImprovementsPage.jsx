@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
+import { ED } from '../styles/tokens.js';
 
 // Auto-improvements log — editorial (warm) re-theme.
 // Identical data source / filter / pagination logic as the legacy dark page;
@@ -17,14 +18,14 @@ import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 //   #a855f7 violet -> var(--brass)    #8c6a1d
 
 const categoryConfig = {
-  bug:          { label: 'Bug Fix',      color: '#c23a1c' },
-  accuracy:     { label: 'Accuracy',     color: '#b58a2e' },
-  ux:           { label: 'UX',           color: '#3f6b86' },
-  visual:       { label: 'Visual',       color: '#d9502e' },
-  performance:  { label: 'Performance',  color: '#4c7a4a' },
-  content:      { label: 'Content',      color: '#3f6b86' },
-  architecture: { label: 'Architecture', color: '#c23a1c' },
-  proof:        { label: 'Proof',        color: '#8c6a1d' },
+  bug:          { label: 'Bug Fix',      color: ED.accent },
+  accuracy:     { label: 'Accuracy',     color: ED.brass },
+  ux:           { label: 'UX',           color: ED.series1 },
+  visual:       { label: 'Visual',       color: ED.accentDeco },
+  performance:  { label: 'Performance',  color: ED.series3 },
+  content:      { label: 'Content',      color: ED.series1 },
+  architecture: { label: 'Architecture', color: ED.accent },
+  proof:        { label: 'Proof',        color: ED.brass },
 };
 
 const PAGE_SIZE = 20;

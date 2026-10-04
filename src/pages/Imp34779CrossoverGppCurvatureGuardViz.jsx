@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP34757_CROSSOVER_GPP_DENSE_CROSS_CHECK } from '../data/imp-34757-crossover-gpp-dense-cross-check.js';
+import { ED } from '../styles/tokens.js';
 
 const M = IMP34757_CROSSOVER_GPP_DENSE_CROSS_CHECK;
 
@@ -29,18 +30,18 @@ function BandBoundVsMaxChart() {
         const label = `[${b.band[0].toExponential(0)}, ${b.band[1].toExponential(0)}]`;
         return (
           <g key={label}>
-            <text x={padL - 10} y={yGroup + barH + 2} textAnchor="end" fill="#94a3b8" fontSize={11}>
+            <text x={padL - 10} y={yGroup + barH + 2} textAnchor="end" fill={ED.inkSoft} fontSize={11}>
               {label}
             </text>
-            <rect x={padL} y={yGroup} width={cW} height={barH} fill="none" stroke="#334155" strokeWidth={1} />
+            <rect x={padL} y={yGroup} width={cW} height={barH} fill="none" stroke={ED.rule} strokeWidth={1} />
             <rect
               x={padL}
               y={yGroup}
               width={Math.max(xOf(Math.log10(b.left_endpoint_bound_B)), 2)}
               height={barH}
-              fill="#38bdf8"
+              fill={ED.series1}
             />
-            <text x={padL + xOf(Math.log10(b.left_endpoint_bound_B)) + 8} y={yGroup + barH - 3} fill="#38bdf8" fontSize={10}>
+            <text x={padL + xOf(Math.log10(b.left_endpoint_bound_B)) + 8} y={yGroup + barH - 3} fill={ED.series1} fontSize={10}>
               B = {b.left_endpoint_bound_B}
             </text>
             <rect
@@ -49,7 +50,7 @@ function BandBoundVsMaxChart() {
               width={cW}
               height={barH}
               fill="none"
-              stroke="#334155"
+              stroke={ED.rule}
               strokeWidth={1}
             />
             <rect
@@ -57,12 +58,12 @@ function BandBoundVsMaxChart() {
               y={yGroup + barH + rowGap}
               width={Math.max(xOf(Math.log10(b.max_abs_on_band)), 2)}
               height={barH}
-              fill="#f87171"
+              fill={ED.series2}
             />
             <text
               x={padL + xOf(Math.log10(b.max_abs_on_band)) + 8}
               y={yGroup + 2 * barH + rowGap - 3}
-              fill="#f87171"
+              fill={ED.series2}
               fontSize={10}
             >
               max = {b.max_abs_on_band}
@@ -97,9 +98,9 @@ function RelErrChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={plotW} height={plotH} fill="none" stroke="#334155" strokeWidth={1} />
-      <line x1={padL} x2={padL + plotW} y1={thresholdY} y2={thresholdY} stroke="#fbbf24" strokeWidth={1} strokeDasharray="5 4" />
-      <text x={padL + plotW - 4} y={thresholdY - 6} textAnchor="end" fill="#fbbf24" fontSize={10}>
+      <rect x={padL} y={padT} width={plotW} height={plotH} fill="none" stroke={ED.rule} strokeWidth={1} />
+      <line x1={padL} x2={padL + plotW} y1={thresholdY} y2={thresholdY} stroke={ED.brassDeco} strokeWidth={1} strokeDasharray="5 4" />
+      <text x={padL + plotW - 4} y={thresholdY - 6} textAnchor="end" fill={ED.brass} fontSize={10}>
         1e-5 threshold
       </text>
       {M.bands.map((b, i) => {
@@ -108,11 +109,11 @@ function RelErrChart() {
         const label = `[${b.band[0].toExponential(0)}, ${b.band[1].toExponential(0)}]`;
         return (
           <g key={label}>
-            <rect x={x} y={yTop} width={barW} height={padT + plotH - yTop} fill="#38bdf8" />
-            <text x={x + barW / 2} y={padT + plotH + 16} textAnchor="middle" fill="#94a3b8" fontSize={10}>
+            <rect x={x} y={yTop} width={barW} height={padT + plotH - yTop} fill={ED.series1} />
+            <text x={x + barW / 2} y={padT + plotH + 16} textAnchor="middle" fill={ED.inkSoft} fontSize={10}>
               {label}
             </text>
-            <text x={x + barW / 2} y={yTop - 6} textAnchor="middle" fill="#e2e8f0" fontSize={10}>
+            <text x={x + barW / 2} y={yTop - 6} textAnchor="middle" fill={ED.ink} fontSize={10}>
               {b.max_closed_vs_fd_rel_err}
             </text>
           </g>
@@ -122,7 +123,7 @@ function RelErrChart() {
         x={16}
         y={padT + plotH / 2}
         textAnchor="middle"
-        fill="#94a3b8"
+        fill={ED.inkSoft}
         fontSize={11}
         transform={`rotate(-90 16 ${padT + plotH / 2})`}
       >
@@ -137,7 +138,7 @@ export default function Imp34779CrossoverGppCurvatureGuardViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Crossover-Map Curvature Guard: Closed Form vs Central Difference (imp-34779 / imp-34757)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-34757 extended the imp-34731 closed-form-vs-central-difference cross-check of the inherited
         crossover-map second derivative g&Prime;(N) = -4&pi;&sup2;K(u+1)/(T&sup2;u&sup3) from 5 probes on a
         single band to {M.totalProbes} probes across three post-peak bands. Over all {M.totalProbes} probes
@@ -146,12 +147,12 @@ export default function Imp34779CrossoverGppCurvatureGuardViz() {
         left-endpoint bound B(band) is the sharp supremum (tightness deviation {M.maxTightnessDeviation}).
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         Left-endpoint bound B(band) vs measured band maximum |g&Prime;| (log10 scale, per band)
       </p>
       <BandBoundVsMaxChart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginTop: '1.5rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginTop: '1.5rem', marginBottom: '0.5rem' }}>
         Max closed-form-vs-central-difference relative disagreement per band
       </p>
       <RelErrChart />
@@ -165,7 +166,7 @@ export default function Imp34779CrossoverGppCurvatureGuardViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>band</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>B(band)</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>max |g&Prime;|</th>
@@ -176,7 +177,7 @@ export default function Imp34779CrossoverGppCurvatureGuardViz() {
         </thead>
         <tbody>
           {M.bands.map((b) => (
-            <tr key={b.band.join('-')} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+            <tr key={b.band.join('-')} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
               <td style={{ padding: '0.4rem 0.6rem' }}>
                 [{b.band[0].toExponential(0)}, {b.band[1].toExponential(0)}]
               </td>
@@ -194,11 +195,11 @@ export default function Imp34779CrossoverGppCurvatureGuardViz() {
         style={{
           marginTop: '1rem',
           padding: '0.6rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
         }}
       >
         Overall max relative disagreement across all {M.totalProbes} probes: {M.overallMaxRelErr}. All
@@ -210,14 +211,14 @@ export default function Imp34779CrossoverGppCurvatureGuardViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page presenting the imp-34757
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-only page presenting the imp-34757
         dense cross-check (imported literals, no new computation). This guards the curvature bound of the
         INHERITED imp-3220/imp-3406 surrogate crossover map; it changes no bound. The C_mb GUE-conditional
         share per imp-486 and the C_C 1/8 ansatz (imp-2642/imp-2643) are UNTOUCHED; establishes no operator

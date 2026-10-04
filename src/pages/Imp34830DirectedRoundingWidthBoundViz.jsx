@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP34799_KRAWCZYK_DIRECTED_ROUNDING_WIDTH_BOUND } from '../data/imp-34799-krawczyk-directed-rounding-width-bound.js';
+import { ED } from '../styles/tokens.js';
 
 const DATA = IMP34799_KRAWCZYK_DIRECTED_ROUNDING_WIDTH_BOUND;
 const B = DATA.bound;
@@ -46,32 +47,32 @@ function WidthBoundChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={plotW} height={plotH} fill="none" stroke="#334155" strokeWidth={1} />
+      <rect x={padL} y={padT} width={plotW} height={plotH} fill="none" stroke={ED.rule} strokeWidth={1} />
 
       {yTicks.map((t) => (
         <g key={t}>
-          <line x1={padL} y1={sy(t)} x2={padL + plotW} y2={sy(t)} stroke="#1e293b" strokeWidth={1} />
-          <text x={padL - 8} y={sy(t) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+          <line x1={padL} y1={sy(t)} x2={padL + plotW} y2={sy(t)} stroke={ED.ruleSoft} strokeWidth={1} />
+          <text x={padL - 8} y={sy(t) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {t.toExponential(0)}
           </text>
         </g>
       ))}
       {xTicks.map((t) => (
         <g key={t}>
-          <line x1={sx(t)} y1={padT} x2={sx(t)} y2={padT + plotH} stroke="#1e293b" strokeWidth={1} />
-          <text x={sx(t)} y={padT + plotH + 16} textAnchor="middle" fill="#64748b" fontSize={9}>
+          <line x1={sx(t)} y1={padT} x2={sx(t)} y2={padT + plotH} stroke={ED.ruleSoft} strokeWidth={1} />
+          <text x={sx(t)} y={padT + plotH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
             {t}
           </text>
         </g>
       ))}
-      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill="#94a3b8" fontSize={11}>
+      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkSoft} fontSize={11}>
         n_op (directed-rounding operation count)
       </text>
       <text
         x={14}
         y={padT + plotH / 2}
         textAnchor="middle"
-        fill="#94a3b8"
+        fill={ED.inkSoft}
         fontSize={11}
         transform={`rotate(-90 14 ${padT + plotH / 2})`}
       >
@@ -84,11 +85,11 @@ function WidthBoundChart() {
         y1={sy(MARGIN)}
         x2={padL + plotW}
         y2={sy(MARGIN)}
-        stroke="#facc15"
+        stroke={ED.brassDeco}
         strokeWidth={1.5}
         strokeDasharray="5 4"
       />
-      <text x={padL + plotW - 4} y={sy(MARGIN) - 6} textAnchor="end" fill="#facc15" fontSize={10} fontWeight={700}>
+      <text x={padL + plotW - 4} y={sy(MARGIN) - 6} textAnchor="end" fill={ED.brass} fontSize={10} fontWeight={700}>
         (H2) margin &delta;N_cross &asymp; {MARGIN.toExponential(2)}
       </text>
 
@@ -98,47 +99,47 @@ function WidthBoundChart() {
         y1={sy(MARGIN)}
         x2={sx(rep.nOp) + 14}
         y2={sy(rep.image)}
-        stroke="#94a3b8"
+        stroke={ED.rule}
         strokeWidth={1}
         strokeDasharray="2 3"
       />
       <text
         x={sx(rep.nOp) + 20}
         y={(sy(MARGIN) + sy(rep.image)) / 2}
-        fill="#94a3b8"
+        fill={ED.inkSoft}
         fontSize={9}
       >
         ~{B.headroom_orders_below_margin} orders
       </text>
 
       {/* image half-width curve */}
-      <polyline points={imagePts} fill="none" stroke="#38bdf8" strokeWidth={2} />
+      <polyline points={imagePts} fill="none" stroke={ED.series1} strokeWidth={2} />
       {ROWS.map((r) => (
-        <circle key={`img-${r.nOp}`} cx={sx(r.nOp)} cy={sy(r.image)} r={3.5} fill="#38bdf8" />
+        <circle key={`img-${r.nOp}`} cx={sx(r.nOp)} cy={sy(r.image)} r={3.5} fill={ED.series1} />
       ))}
       {/* residual half-width curve (raw, pre-amplification) */}
-      <polyline points={residualPts} fill="none" stroke="#f87171" strokeWidth={2} strokeDasharray="6 3" />
+      <polyline points={residualPts} fill="none" stroke={ED.series2} strokeWidth={2} strokeDasharray="6 3" />
       {ROWS.map((r) => (
-        <circle key={`res-${r.nOp}`} cx={sx(r.nOp)} cy={sy(r.residual)} r={3} fill="#f87171" />
+        <circle key={`res-${r.nOp}`} cx={sx(r.nOp)} cy={sy(r.residual)} r={3} fill={ED.series2} />
       ))}
 
-      <text x={sx(rep.nOp) - 8} y={sy(rep.image) - 10} textAnchor="end" fill="#38bdf8" fontSize={9} fontWeight={700}>
+      <text x={sx(rep.nOp) - 8} y={sy(rep.image) - 10} textAnchor="end" fill={ED.series1} fontSize={9} fontWeight={700}>
         r_image
       </text>
-      <text x={sx(rep.nOp) - 8} y={sy(rep.residual) + 14} textAnchor="end" fill="#f87171" fontSize={9} fontWeight={700}>
+      <text x={sx(rep.nOp) - 8} y={sy(rep.residual) + 14} textAnchor="end" fill={ED.series2} fontSize={9} fontWeight={700}>
         r_F (raw)
       </text>
-      <text x={sx(rep.nOp)} y={sy(rep.image) + 22} textAnchor="middle" fill="#facc15" fontSize={9}>
+      <text x={sx(rep.nOp)} y={sy(rep.image) + 22} textAnchor="middle" fill={ED.brass} fontSize={9}>
         amplification 1/FP_LO &asymp; {AMPLIFICATION.toFixed(4)}&times;
       </text>
 
       <g transform={`translate(${padL + 8},${padT + 10})`}>
-        <line x1={0} y1={0} x2={16} y2={0} stroke="#38bdf8" strokeWidth={2} />
-        <text x={20} y={3} fill="#94a3b8" fontSize={9}>
+        <line x1={0} y1={0} x2={16} y2={0} stroke={ED.series1} strokeWidth={2} />
+        <text x={20} y={3} fill={ED.inkSoft} fontSize={9}>
           image half-width r_image(n_op) = r_F(n_op)/FP_LO
         </text>
-        <line x1={0} y1={14} x2={16} y2={14} stroke="#f87171" strokeWidth={2} strokeDasharray="6 3" />
-        <text x={20} y={17} fill="#94a3b8" fontSize={9}>
+        <line x1={0} y1={14} x2={16} y2={14} stroke={ED.series2} strokeWidth={2} strokeDasharray="6 3" />
+        <text x={20} y={17} fill={ED.inkSoft} fontSize={9}>
           residual half-width r_F(n_op) = gamma(n_op)|g(m)|
         </text>
       </g>
@@ -151,7 +152,7 @@ export default function Imp34830DirectedRoundingWidthBoundViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Directed-Rounding Width Bound: r_F and r_image vs n_op (imp-34830 / imp-34799)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-34799 bounds how wide the Krawczyk image at N_cross would become once the surrogate
         F(m)&nbsp;=&nbsp;0 is replaced by a genuine directed-rounding evaluation: the residual half-width
         r_F(n_op)&nbsp;&le;&nbsp;&gamma;(n_op)|g(m)|, and the interval-Newton quotient by [F&prime;] amplifies
@@ -175,7 +176,7 @@ export default function Imp34830DirectedRoundingWidthBoundViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>n_op</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>residual half-width r_F</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>image half-width r_image</th>
@@ -184,7 +185,7 @@ export default function Imp34830DirectedRoundingWidthBoundViz() {
         </thead>
         <tbody>
           {B.width_table.map((r, i) => (
-            <tr key={r.n_op} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+            <tr key={r.n_op} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.n_op}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{ROWS[i].residual.toExponential(4)}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.image_half_width.toExponential(4)}</td>
@@ -198,14 +199,14 @@ export default function Imp34830DirectedRoundingWidthBoundViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page rendering the imp-34799
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-only page rendering the imp-34799
         width-bound table (imported literals, no new computation); establishes no new numerical claim. The
         bound is a derivation/assessment that ASSUMES a well-behaved n_op-operation directed-rounding
         evaluation (standard &gamma;(n) IA propagation) rather than instantiating one; it does NOT close the

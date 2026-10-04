@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { ED } from '../styles/tokens.js';
 
 /**
  * Shared keyboard-driven zero-stepper.
@@ -40,10 +41,10 @@ export default function ZeroStepper({ gammas, idx, onChange }) {
     fontSize: 14,
     fontWeight: 700,
     cursor: disabled ? 'default' : 'pointer',
-    border: '1px solid #334155',
+    border: '1px solid var(--rule)',
     borderRadius: 4,
-    background: disabled ? '#0f172a' : '#1e293b',
-    color: disabled ? '#475569' : '#e2e8f0',
+    background: disabled ? ED.paper2 : ED.paper3,
+    color: disabled ? ED.inkFaint : ED.ink,
     lineHeight: 1,
     userSelect: 'none',
   });
@@ -61,8 +62,8 @@ export default function ZeroStepper({ gammas, idx, onChange }) {
       >
         &#8592;
       </button>
-      <span style={{ color: '#94a3b8', minWidth: 40 }}>n={idx + 1}</span>
-      <span style={{ color: '#e2e8f0' }}>
+      <span style={{ color: 'var(--ink-soft)', minWidth: 40 }}>n={idx + 1}</span>
+      <span style={{ color: 'var(--ink)' }}>
         {'γ'}{idx + 1} &asymp; {gamma.toFixed(4)}
       </span>
       <button

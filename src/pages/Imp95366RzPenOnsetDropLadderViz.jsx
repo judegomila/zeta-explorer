@@ -4,35 +4,36 @@ import {
   IMP95366_ONSET_LADDER,
   IMP95366_ONSET_DROPS,
 } from '../data/imp-95366-rzpen-onset-drop-ladder-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 function AxisFrame({ children, svgW, svgH, padL, padR, padT, padB, xTicks, yTicks, xOf, yOf, xLabel, yLabel }) {
   const plotW = svgW - padL - padR;
   const plotH = svgH - padT - padB;
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
       {xTicks.map((v) => (
         <g key={`x${v}`}>
-          <line x1={xOf(v)} y1={padT + plotH} x2={xOf(v)} y2={padT + plotH + 4} stroke="#334155" strokeWidth={1} />
+          <line x1={xOf(v)} y1={padT + plotH} x2={xOf(v)} y2={padT + plotH + 4} stroke={ED.rule} strokeWidth={1} />
         </g>
       ))}
       {yTicks.map((v) => (
         <g key={`y${v}`}>
-          <line x1={padL - 4} y1={yOf(v)} x2={padL} y2={yOf(v)} stroke="#334155" strokeWidth={1} />
-          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={8.5}>
+          <line x1={padL - 4} y1={yOf(v)} x2={padL} y2={yOf(v)} stroke={ED.rule} strokeWidth={1} />
+          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8.5}>
             {v}
           </text>
         </g>
       ))}
-      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill="#64748b" fontSize={9.5}>
+      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5}>
         {xLabel}
       </text>
       <text
         x={14}
         y={padT + plotH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={9.5}
         transform={`rotate(-90 14 ${padT + plotH / 2})`}
       >
@@ -45,7 +46,7 @@ function AxisFrame({ children, svgW, svgH, padL, padR, padT, padB, xTicks, yTick
 
 const TRACK_KEYS = ['xStarUniform', 'xStarR13', 'xStarR105'];
 const TRACK_LABELS = { xStarUniform: 'm-and-r-uniform', xStarR13: 'r = 1.3', xStarR105: 'r = 1.05' };
-const TRACK_COLORS = { xStarUniform: '#38bdf8', xStarR13: '#fb923c', xStarR105: '#a78bfa' };
+const TRACK_COLORS = { xStarUniform: ED.series1, xStarR13: ED.series4, xStarR105: ED.series5 };
 
 // line chart of the every-octave firing onset ladder, one line per track
 function OnsetLadderPanel() {
@@ -93,7 +94,7 @@ function OnsetLadderPanel() {
         </g>
       ))}
       {rows.map((r, i) => (
-        <text key={r.leg} x={xOf(i)} y={padT + plotH + 16} textAnchor="middle" fill="#64748b" fontSize={9}>
+        <text key={r.leg} x={xOf(i)} y={padT + plotH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
           {r.leg}
         </text>
       ))}
@@ -145,16 +146,16 @@ function OnsetDropBarsPanel() {
             y={yOf(r.dropUniform)}
             width={barW}
             height={yOf(0) - yOf(r.dropUniform)}
-            fill={r.dropUniform > 1e-9 ? '#38bdf8' : '#334155'}
+            fill={r.dropUniform > 1e-9 ? ED.series1 : ED.paper3}
             opacity={0.85}
           />
-          <text x={xOf(i)} y={yOf(r.dropUniform) - 6} textAnchor="middle" fill="#e2e8f0" fontSize={9.5}>
+          <text x={xOf(i)} y={yOf(r.dropUniform) - 6} textAnchor="middle" fill={ED.ink} fontSize={9.5}>
             {r.dropUniform.toFixed(4)}
           </text>
-          <text x={xOf(i)} y={padT + plotH + 16} textAnchor="middle" fill="#64748b" fontSize={9}>
+          <text x={xOf(i)} y={padT + plotH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
             {r.leg}
           </text>
-          <text x={xOf(i)} y={padT + plotH + 28} textAnchor="middle" fill="#475569" fontSize={7.5}>
+          <text x={xOf(i)} y={padT + plotH + 28} textAnchor="middle" fill={ED.inkFaint} fontSize={7.5}>
             {r.module}
           </text>
         </g>
@@ -174,21 +175,21 @@ export default function Imp95366RzPenOnsetDropLadderViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> a floor-only measurement
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a floor-only measurement
         summary of already-proven per-leg onset shifts, not a new theorem. It changes no Lambda
         bound and establishes no operator positivity. Platt&ndash;Trudgian &Lambda; &le; 0.2
         remains state of the art. RH does not follow from anything on this page. NO QED.
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         The dyadic-twin-skeleton every-octave firing onset (the depth x beyond which the RZ-PEN
         block symbol-pencil floor certifies the coalescence bound) has been pushed out across the
         same chain of executed residual legs that imp-95349 charts for the rho = e^6 floor gain:
@@ -198,12 +199,12 @@ export default function Imp95366RzPenOnsetDropLadderViz() {
         evenly: the chart-refinement leg alone supplies the bulk of it.
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         Firing onset x* by chain leg, all three reported tracks
       </h3>
       <OnsetLadderPanel />
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', margin: '1.25rem 0 0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', margin: '1.25rem 0 0.5rem' }}>
         Per-leg onset drop (m-and-r-uniform track): which currency moved the needle
       </h3>
       <OnsetDropBarsPanel />
@@ -212,14 +213,14 @@ export default function Imp95366RzPenOnsetDropLadderViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> the beta-trace-cap leg
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> the beta-trace-cap leg
         (RZ-PEN3) moves the onset by only about 0.06 on every track, but the K = 256 chart-cover
         leg (RZ-PEN4) moves it by about 0.94 &mdash; almost the whole ladder drop. The last two
         legs (RZ-PEN5 side-weight/exact-root, RZ-PEN6 per-chart tail cap) leave the rho = 2 onset
@@ -231,14 +232,14 @@ export default function Imp95366RzPenOnsetDropLadderViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page consuming the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the
         imp-95366 baked viz-data (values copied verbatim from the imp-95328 / imp-95329 /
         imp-95330 / imp-95331 / imp-95332 records, no re-derivation). Changes no bound, establishes
         no operator positivity, no RH claim; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA.

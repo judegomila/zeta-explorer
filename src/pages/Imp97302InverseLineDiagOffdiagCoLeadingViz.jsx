@@ -4,6 +4,7 @@ import {
   IMP97302_ROWS,
   IMP97302_MEASURED,
 } from '../data/imp-97302-inverse-line-diag-offdiag-coleading-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 // imp-97302: the imp-97267/imp-97284 inverse-line DIAG-vs-OFFDIAG decomposition shipped as
 // tables but no chart. This page renders both components (DIAG and OFFDIAG) per b, plus the
@@ -37,20 +38,20 @@ function LineChart({ series, xLabel, yLabel, logX = false }) {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
       {yTicks.map((v) => (
         <g key={`y${v}`}>
-          <line x1={padL - 4} y1={yOf(v)} x2={padL} y2={yOf(v)} stroke="#334155" strokeWidth={1} />
-          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={8.5}>
+          <line x1={padL - 4} y1={yOf(v)} x2={padL} y2={yOf(v)} stroke={ED.rule} strokeWidth={1} />
+          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8.5}>
             {v.toFixed(3)}
           </text>
         </g>
       ))}
       {xTicks.map((v) => (
         <g key={`x${v}`}>
-          <line x1={xOf(logX ? 10 ** v : v)} y1={padT + plotH} x2={xOf(logX ? 10 ** v : v)} y2={padT + plotH + 4} stroke="#334155" strokeWidth={1} />
-          <text x={xOf(logX ? 10 ** v : v)} y={padT + plotH + 14} textAnchor="middle" fill="#64748b" fontSize={8}>
+          <line x1={xOf(logX ? 10 ** v : v)} y1={padT + plotH} x2={xOf(logX ? 10 ** v : v)} y2={padT + plotH + 4} stroke={ED.rule} strokeWidth={1} />
+          <text x={xOf(logX ? 10 ** v : v)} y={padT + plotH + 14} textAnchor="middle" fill={ED.inkFaint} fontSize={8}>
             {logX ? `1e${v.toFixed(1)}` : v.toFixed(0)}
           </text>
         </g>
@@ -69,10 +70,10 @@ function LineChart({ series, xLabel, yLabel, logX = false }) {
           ))}
         </g>
       ))}
-      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill="#94a3b8" fontSize={9}>
+      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkSoft} fontSize={9}>
         {xLabel}
       </text>
-      <text x={12} y={padT + 8} fill="#94a3b8" fontSize={9}>
+      <text x={12} y={padT + 8} fill={ED.inkSoft} fontSize={9}>
         {yLabel}
       </text>
     </svg>
@@ -93,13 +94,13 @@ function Legend({ series }) {
 
 export default function Imp97302InverseLineDiagOffdiagCoLeadingViz() {
   const magnitudeSeries = [
-    { label: 'DIAG (m=0)', color: '#38bdf8', points: IMP97302_ROWS.map((r) => ({ x: r.b, y: r.diag })) },
-    { label: 'OFFDIAG (m!=0 twisted moments)', color: '#f87171', points: IMP97302_ROWS.map((r) => ({ x: r.b, y: r.offdiag })) },
-    { label: 'M2w', color: '#a78bfa', dashed: true, points: IMP97302_ROWS.map((r) => ({ x: r.b, y: r.M2w })) },
+    { label: 'DIAG (m=0)', color: ED.series1, points: IMP97302_ROWS.map((r) => ({ x: r.b, y: r.diag })) },
+    { label: 'OFFDIAG (m!=0 twisted moments)', color: ED.series2, points: IMP97302_ROWS.map((r) => ({ x: r.b, y: r.offdiag })) },
+    { label: 'M2w', color: ED.series5, dashed: true, points: IMP97302_ROWS.map((r) => ({ x: r.b, y: r.M2w })) },
   ];
   const shareSeries = [
-    { label: 'diagShare = DIAG / M2w', color: '#38bdf8', points: IMP97302_ROWS.map((r) => ({ x: r.b, y: r.diagShare })) },
-    { label: 'offShare = OFFDIAG / M2w', color: '#f87171', points: IMP97302_ROWS.map((r) => ({ x: r.b, y: r.offShare })) },
+    { label: 'diagShare = DIAG / M2w', color: ED.series1, points: IMP97302_ROWS.map((r) => ({ x: r.b, y: r.diagShare })) },
+    { label: 'offShare = OFFDIAG / M2w', color: ED.series2, points: IMP97302_ROWS.map((r) => ({ x: r.b, y: r.offShare })) },
   ];
 
   return (
@@ -110,15 +111,15 @@ export default function Imp97302InverseLineDiagOffdiagCoLeadingViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> MEASUREMENT only. The exact
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> MEASUREMENT only. The exact
         character-detection identity M2w&nbsp;=&nbsp;DIAG&nbsp;+&nbsp;OFFDIAG (imp-97267) splits
         the inverse-line second moment into the m=0 diagonal and the real m&nbsp;&ne;&nbsp;0
         twisted-moment defect. Measured across b=101..1201 (imp-97267 + imp-97284), the
@@ -127,19 +128,19 @@ export default function Imp97302InverseLineDiagOffdiagCoLeadingViz() {
         Platt&ndash;Trudgian &Lambda;&nbsp;&le;&nbsp;0.2 remains SOTA; RH open; NO QED.
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1rem', maxWidth: 700 }}>
         DIAG (blue) and OFFDIAG (red) track each other closely across the whole measured range,
         with M2w (purple, dashed) sitting at roughly twice either one &mdash; consistent with the
         OFFDIAG/DIAG&nbsp;~&nbsp;1.0 ratio reported in imp-97267/imp-97284.
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         DIAG, OFFDIAG, and M2w vs b (log10 scale)
       </h3>
       <LineChart series={magnitudeSeries} xLabel="b (log10 scale)" yLabel="magnitude" logX />
       <Legend series={magnitudeSeries} />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', margin: '1.5rem 0 1rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', margin: '1.5rem 0 1rem', maxWidth: 700 }}>
         Normalizing by M2w shows the point directly: both shares stay in a band around 0.5 at
         every measured b (diagShare&nbsp;&isin;&nbsp;[{IMP97302_MEASURED.diagShareBand[0].toFixed(3)},{' '}
         {IMP97302_MEASURED.diagShareBand[1].toFixed(3)}], offShare&nbsp;&isin;&nbsp;
@@ -148,7 +149,7 @@ export default function Imp97302InverseLineDiagOffdiagCoLeadingViz() {
         {IMP97302_MEASURED.bRange[1]}.
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         Share of M2w carried by each component vs b (log10 scale)
       </h3>
       <LineChart series={shareSeries} xLabel="b (log10 scale)" yLabel="share of M2w" logX />
@@ -158,14 +159,14 @@ export default function Imp97302InverseLineDiagOffdiagCoLeadingViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page consuming the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the
         imp-97302 viz-data leaf (every value reused verbatim from the imp-97267 and imp-97284
         baked ladders, no re-derivation of the exact O(b^3) character-detection kernel). Changes
         no bound, establishes no operator positivity; Platt-Trudgian &Lambda;&le;0.2 remains SOTA;

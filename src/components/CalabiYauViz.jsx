@@ -6,6 +6,7 @@ import {
   threefoldLiftAnalysis, etaleCohomologyTest, deligneExtensionGap,
   calabiYauFisherInfo, cyZetaCrossCheck,
 } from '../math/calabi-yau.js';
+import { ED, alpha as TK_ALPHA } from '../styles/tokens.js';
 
 const TABS = ['Hodge Diamond', 'Periods', 'Mirror Map', 'Local Zeta', 'Spectral', 'Threefold Lift', 'Fisher Bridge'];
 
@@ -55,25 +56,25 @@ function HodgeDiamondTab() {
         // Cell background
         const isHighlight = val > 1;
         const isMirrorPair = (row === 2 && col === 1) || (row === 3 && (col === 1 || col === 2)) || (row === 4 && col === 1);
-        ctx.fillStyle = isHighlight ? 'rgba(139, 92, 246, 0.25)' :
-                        isMirrorPair ? 'rgba(59, 130, 246, 0.15)' :
+        ctx.fillStyle = isHighlight ? TK_ALPHA(ED.series5, 0.25) :
+                        isMirrorPair ? TK_ALPHA(ED.series1, 0.15) :
                         'rgba(30, 41, 59, 0.5)';
         ctx.beginPath();
         ctx.roundRect(x - 20, y - 12, 40, 24, 4);
         ctx.fill();
-        ctx.strokeStyle = isHighlight ? '#8b5cf6' : '#334155';
+        ctx.strokeStyle = isHighlight ? ED.series5 : ED.rule;
         ctx.lineWidth = 1;
         ctx.stroke();
 
         // Value
-        ctx.fillStyle = isHighlight ? '#c4b5fd' : val > 0 ? '#e2e8f0' : '#475569';
+        ctx.fillStyle = isHighlight ? ED.series5 : val > 0 ? ED.ink : ED.series8;
         ctx.fillText(val.toString(), x, y);
       }
     }
 
     // Labels
     ctx.font = '11px "JetBrains Mono", monospace';
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.textAlign = 'left';
     ctx.fillText(`χ = ${data.euler}`, 16, 20);
     ctx.fillText(`h¹¹ = ${data.h11}`, 16, 36);
@@ -85,7 +86,7 @@ function HodgeDiamondTab() {
 
     // Draw mirror symmetry axis
     ctx.setLineDash([4, 4]);
-    ctx.strokeStyle = '#f59e0b40';
+    ctx.strokeStyle = TK_ALPHA(ED.brassDeco, 0.25);
     ctx.beginPath();
     ctx.moveTo(cx, cy - 110);
     ctx.lineTo(cx, cy + 110);
@@ -93,7 +94,7 @@ function HodgeDiamondTab() {
     ctx.setLineDash([]);
 
     ctx.font = '10px "JetBrains Mono", monospace';
-    ctx.fillStyle = '#f59e0b';
+    ctx.fillStyle = ED.series4;
     ctx.textAlign = 'center';
     ctx.fillText('mirror axis', cx, cy + 125);
   }, [data]);
@@ -120,7 +121,7 @@ function HodgeDiamondTab() {
         <div className="control-group">
           <label>CY3-fold example</label>
           <select value={exampleIdx} onChange={e => setExampleIdx(+e.target.value)}
-            style={{ background: '#1e293b', color: '#e2e8f0', border: '1px solid #334155',
+            style={{ background: 'var(--paper-3)', color: 'var(--ink)', border: '1px solid var(--rule)',
                      borderRadius: 6, padding: '4px 8px', fontSize: 13 }}>
             {CY_EXAMPLES.map((ex, i) => (
               <option key={i} value={i}>{ex.name} (h¹¹={ex.h11}, h²¹={ex.h21})</option>
@@ -130,15 +131,15 @@ function HodgeDiamondTab() {
       </div>
 
       <canvas ref={canvasRef}
-        style={{ width: '100%', height: 280, borderRadius: 8, background: '#0a0e1a',
-                 border: '1px solid #1e293b' }} />
+        style={{ width: '100%', height: 280, borderRadius: 8, background: 'var(--paper)',
+                 border: '1px solid var(--rule-soft)' }} />
 
       <div style={{ marginTop: 12, padding: '10px 14px', borderRadius: 6,
-                    background: 'rgba(139, 92, 246, 0.08)', border: '1px solid rgba(139, 92, 246, 0.2)' }}>
-        <strong style={{ color: '#c4b5fd' }}>{ex.name}</strong>
-        <div style={{ color: '#94a3b8', marginTop: 4, fontSize: 13 }}>
+                    background: 'color-mix(in srgb, var(--series-5) 8%, transparent)', border: '1px solid color-mix(in srgb, var(--series-5) 20%, transparent)' }}>
+        <strong style={{ color: 'var(--series-5)' }}>{ex.name}</strong>
+        <div style={{ color: 'var(--ink-soft)', marginTop: 4, fontSize: 13 }}>
           Euler characteristic χ = {data.euler} | Betti: [{data.betti.join(', ')}]
-          {data.h11 === data.h21 && <span style={{ color: '#f59e0b' }}> — Self-mirror!</span>}
+          {data.h11 === data.h21 && <span style={{ color: 'var(--brass)' }}> — Self-mirror!</span>}
         </div>
       </div>
     </div>
@@ -185,7 +186,7 @@ function PeriodsTab() {
     const plotH = h - margin.top - margin.bottom;
 
     // Axes
-    ctx.strokeStyle = '#334155';
+    ctx.strokeStyle = ED.rule;
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.moveTo(margin.left, margin.top);
@@ -196,7 +197,7 @@ function PeriodsTab() {
     if (valid.length < 2) return;
 
     // ω₀ curve
-    ctx.strokeStyle = '#3b82f6';
+    ctx.strokeStyle = ED.series1;
     ctx.lineWidth = 2;
     ctx.beginPath();
     valid.forEach((d, i) => {
@@ -209,7 +210,7 @@ function PeriodsTab() {
     // Mirror map curve (scaled)
     if (validMirror.length > 2) {
 
-      ctx.strokeStyle = '#f59e0b';
+      ctx.strokeStyle = ED.brassDeco;
       ctx.lineWidth = 2;
       ctx.setLineDash([6, 3]);
       ctx.beginPath();
@@ -224,13 +225,13 @@ function PeriodsTab() {
 
     // Labels
     ctx.font = '11px "JetBrains Mono", monospace';
-    ctx.fillStyle = '#3b82f6';
+    ctx.fillStyle = ED.series1;
     ctx.textAlign = 'left';
     ctx.fillText('ω₀(z) — fundamental period', margin.left + 8, margin.top + 14);
-    ctx.fillStyle = '#f59e0b';
+    ctx.fillStyle = ED.series4;
     ctx.fillText('t(z) = ω₁/ω₀ — mirror map', margin.left + 8, margin.top + 30);
 
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.textAlign = 'center';
     ctx.fillText('z (complex structure parameter)', w / 2, h - 6);
     ctx.save();
@@ -260,13 +261,13 @@ function PeriodsTab() {
       <BlockMath tex="\omega_0(z) = \sum_{n=0}^{\infty} \frac{(5n)!}{(n!)^5} z^n, \qquad \left[\theta^4 - 5z(5\theta{+}1)(5\theta{+}2)(5\theta{+}3)(5\theta{+}4)\right]\omega_0 = 0" />
 
       <canvas ref={canvasRef}
-        style={{ width: '100%', height: 300, borderRadius: 8, background: '#0a0e1a',
-                 border: '1px solid #1e293b' }} />
+        style={{ width: '100%', height: 300, borderRadius: 8, background: 'var(--paper)',
+                 border: '1px solid var(--rule-soft)' }} />
 
       <div style={{ marginTop: 12, padding: '10px 14px', borderRadius: 6,
-                    background: 'rgba(59, 130, 246, 0.08)', border: '1px solid rgba(59, 130, 246, 0.2)' }}>
-        <strong style={{ color: '#93c5fd' }}>Picard-Fuchs Monodromy</strong>
-        <div style={{ color: '#94a3b8', marginTop: 4, fontSize: 13 }}>
+                    background: 'color-mix(in srgb, var(--series-1) 8%, transparent)', border: '1px solid color-mix(in srgb, var(--series-1) 20%, transparent)' }}>
+        <strong style={{ color: 'var(--series-1)' }}>Picard-Fuchs Monodromy</strong>
+        <div style={{ color: 'var(--ink-soft)', marginTop: 4, fontSize: 13 }}>
           As z encircles the conifold singularity at z = 1/3125, the periods undergo monodromy
           transformations in Sp(4,ℤ). This monodromy group encodes arithmetic data
           that constrains the Hasse-Weil L-function.
@@ -309,7 +310,7 @@ function MirrorMapTab() {
     const plotH = h - margin.top - margin.bottom;
 
     // Axes
-    ctx.strokeStyle = '#334155';
+    ctx.strokeStyle = ED.rule;
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.moveTo(margin.left, margin.top);
@@ -324,7 +325,7 @@ function MirrorMapTab() {
     const range = maxVal - minVal || 1;
 
     // Total prepotential
-    ctx.strokeStyle = '#10b981';
+    ctx.strokeStyle = ED.series3;
     ctx.lineWidth = 2;
     ctx.beginPath();
     data.forEach((d, i) => {
@@ -335,7 +336,7 @@ function MirrorMapTab() {
     ctx.stroke();
 
     // Classical part
-    ctx.strokeStyle = '#64748b';
+    ctx.strokeStyle = ED.rule;
     ctx.lineWidth = 1;
     ctx.setLineDash([4, 4]);
     ctx.beginPath();
@@ -348,7 +349,7 @@ function MirrorMapTab() {
     ctx.setLineDash([]);
 
     // Instanton correction region
-    ctx.fillStyle = 'rgba(245, 158, 11, 0.1)';
+    ctx.fillStyle = TK_ALPHA(ED.series4, 0.1);
     ctx.beginPath();
     data.forEach((d, i) => {
       const x = margin.left + (d.t / maxT) * plotW;
@@ -367,15 +368,15 @@ function MirrorMapTab() {
 
     // Labels
     ctx.font = '11px "JetBrains Mono", monospace';
-    ctx.fillStyle = '#10b981';
+    ctx.fillStyle = ED.series3;
     ctx.textAlign = 'left';
     ctx.fillText('F(t) total prepotential', margin.left + 8, margin.top + 14);
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.fillText('Classical: -κt³/6', margin.left + 8, margin.top + 30);
-    ctx.fillStyle = '#f59e0b';
+    ctx.fillStyle = ED.series4;
     ctx.fillText('Shaded: instanton corrections', margin.left + 8, margin.top + 46);
 
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.textAlign = 'center';
     ctx.fillText('t (Kähler parameter)', w / 2, h - 6);
   }, [data, tVals, kappa]);
@@ -409,22 +410,22 @@ function MirrorMapTab() {
       </div>
 
       <canvas ref={canvasRef}
-        style={{ width: '100%', height: 300, borderRadius: 8, background: '#0a0e1a',
-                 border: '1px solid #1e293b' }} />
+        style={{ width: '100%', height: 300, borderRadius: 8, background: 'var(--paper)',
+                 border: '1px solid var(--rule-soft)' }} />
 
       <div style={{ marginTop: 12, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
         <div style={{ padding: '10px 14px', borderRadius: 6,
-                      background: 'rgba(16, 185, 129, 0.08)', border: '1px solid rgba(16, 185, 129, 0.2)' }}>
-          <strong style={{ color: '#6ee7b7', fontSize: 13 }}>GW Invariants (Quintic)</strong>
-          <div style={{ color: '#94a3b8', marginTop: 4, fontSize: 12, fontFamily: 'var(--font-mono)' }}>
+                      background: 'color-mix(in srgb, var(--series-3) 8%, transparent)', border: '1px solid color-mix(in srgb, var(--series-3) 20%, transparent)' }}>
+          <strong style={{ color: 'var(--series-3)', fontSize: 13 }}>GW Invariants (Quintic)</strong>
+          <div style={{ color: 'var(--ink-soft)', marginTop: 4, fontSize: 12, fontFamily: 'var(--font-mono)' }}>
             n₁ = 2,875 | n₂ = 609,250<br />
             n₃ = 317,206,375 | n₄ = 242,467,530,000
           </div>
         </div>
         <div style={{ padding: '10px 14px', borderRadius: 6,
-                      background: 'rgba(245, 158, 11, 0.08)', border: '1px solid rgba(245, 158, 11, 0.2)' }}>
-          <strong style={{ color: '#fbbf24', fontSize: 13 }}>Zeta Connection</strong>
-          <div style={{ color: '#94a3b8', marginTop: 4, fontSize: 12 }}>
+                      background: 'color-mix(in srgb, var(--brass-deco) 8%, transparent)', border: '1px solid color-mix(in srgb, var(--brass-deco) 20%, transparent)' }}>
+          <strong style={{ color: 'var(--brass)', fontSize: 13 }}>Zeta Connection</strong>
+          <div style={{ color: 'var(--ink-soft)', marginTop: 4, fontSize: 12 }}>
             Instanton numbers n_d arise from counting rational curves on X —
             the same enumerative data that builds the Hasse-Weil L-function.
           </div>
@@ -477,12 +478,12 @@ function LocalZetaTab() {
       const y = h - margin.bottom - barH;
 
       // a_p bar
-      ctx.fillStyle = c.ap >= 0 ? 'rgba(59, 130, 246, 0.7)' : 'rgba(239, 68, 68, 0.7)';
+      ctx.fillStyle = c.ap >= 0 ? TK_ALPHA(ED.series1, 0.7) : TK_ALPHA(ED.series2, 0.7);
       ctx.fillRect(x, y, barW, barH);
 
       // Ramanujan bound line
       const boundY = h - margin.bottom - boundH;
-      ctx.strokeStyle = '#f59e0b50';
+      ctx.strokeStyle = TK_ALPHA(ED.brassDeco, 0.31);
       ctx.lineWidth = 1;
       ctx.beginPath();
       ctx.moveTo(x - 2, boundY);
@@ -491,7 +492,7 @@ function LocalZetaTab() {
 
       // Prime label
       ctx.font = '9px "JetBrains Mono", monospace';
-      ctx.fillStyle = '#475569';
+      ctx.fillStyle = ED.series8;
       ctx.textAlign = 'center';
       ctx.fillText(c.p.toString(), x + barW / 2, h - margin.bottom + 12);
     });
@@ -505,7 +506,7 @@ function LocalZetaTab() {
       const yPos = h - margin.bottom - frac * plotH;
 
       // Gridline
-      ctx.strokeStyle = 'rgba(51, 65, 85, 0.5)';
+      ctx.strokeStyle = TK_ALPHA(ED.rule, 0.5);
       ctx.lineWidth = 0.5;
       ctx.setLineDash([4, 4]);
       ctx.beginPath();
@@ -515,7 +516,7 @@ function LocalZetaTab() {
       ctx.setLineDash([]);
 
       // Tick label
-      ctx.fillStyle = '#64748b';
+      ctx.fillStyle = ED.series8;
       ctx.textAlign = 'right';
       ctx.fillText(Math.round(val).toString(), margin.left - 6, yPos + 3);
     }
@@ -524,14 +525,14 @@ function LocalZetaTab() {
     ctx.save();
     ctx.translate(12, margin.top + plotH / 2);
     ctx.rotate(-Math.PI / 2);
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = ED.series8;
     ctx.font = '11px "JetBrains Mono", monospace';
     ctx.textAlign = 'center';
     ctx.fillText('|a_p|', 0, 0);
     ctx.restore();
 
     // Axes
-    ctx.strokeStyle = '#334155';
+    ctx.strokeStyle = ED.rule;
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.moveTo(margin.left, margin.top);
@@ -541,13 +542,13 @@ function LocalZetaTab() {
 
     // Labels
     ctx.font = '11px "JetBrains Mono", monospace';
-    ctx.fillStyle = '#3b82f6';
+    ctx.fillStyle = ED.series1;
     ctx.textAlign = 'left';
     ctx.fillText('a_p coefficients (blue \u2265 0, red < 0)', margin.left + 8, margin.top + 14);
-    ctx.fillStyle = '#f59e0b';
+    ctx.fillStyle = ED.series4;
     ctx.fillText('— Ramanujan bound: 2p^(3/2)', margin.left + 8, margin.top + 30);
 
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.textAlign = 'center';
     ctx.fillText('prime p', w / 2, h - 6);
   }, [modData]);
@@ -576,7 +577,7 @@ function LocalZetaTab() {
         <div className="control-group">
           <label>Focus prime p</label>
           <select value={prime} onChange={e => setPrime(+e.target.value)}
-            style={{ background: '#1e293b', color: '#e2e8f0', border: '1px solid #334155',
+            style={{ background: 'var(--paper-3)', color: 'var(--ink)', border: '1px solid var(--rule)',
                      borderRadius: 6, padding: '4px 8px', fontSize: 13 }}>
             {primeOptions.map(p => (
               <option key={p} value={p}>p = {p} {p % 5 === 1 ? '(≡1 mod 5)' : ''}</option>
@@ -586,23 +587,23 @@ function LocalZetaTab() {
       </div>
 
       <canvas ref={canvasRef}
-        style={{ width: '100%', height: 300, borderRadius: 8, background: '#0a0e1a',
-                 border: '1px solid #1e293b' }} />
+        style={{ width: '100%', height: 300, borderRadius: 8, background: 'var(--paper)',
+                 border: '1px solid var(--rule-soft)' }} />
 
       <div style={{ marginTop: 12, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
         <div style={{ padding: '10px 14px', borderRadius: 6,
-                      background: 'rgba(245, 158, 11, 0.08)', border: '1px solid rgba(245, 158, 11, 0.2)' }}>
-          <strong style={{ color: '#fbbf24', fontSize: 13 }}>Point Counts (Fermat quintic / 𝔽<sub>{prime}</sub>)</strong>
-          <div style={{ color: '#94a3b8', marginTop: 4, fontSize: 12, fontFamily: 'var(--font-mono)' }}>
+                      background: 'color-mix(in srgb, var(--brass-deco) 8%, transparent)', border: '1px solid color-mix(in srgb, var(--brass-deco) 20%, transparent)' }}>
+          <strong style={{ color: 'var(--brass)', fontSize: 13 }}>Point Counts (Fermat quintic / 𝔽<sub>{prime}</sub>)</strong>
+          <div style={{ color: 'var(--ink-soft)', marginTop: 4, fontSize: 12, fontFamily: 'var(--font-mono)' }}>
             {data.counts.map((c, i) => (
               <div key={i}>#X(F_{'{'}p^{i + 1}{'}'}) = {c.toLocaleString()}</div>
             ))}
           </div>
         </div>
         <div style={{ padding: '10px 14px', borderRadius: 6,
-                      background: 'rgba(16, 185, 129, 0.08)', border: '1px solid rgba(16, 185, 129, 0.2)' }}>
-          <strong style={{ color: '#6ee7b7', fontSize: 13 }}>Weil → Riemann Analogy</strong>
-          <div style={{ color: '#94a3b8', marginTop: 4, fontSize: 12 }}>
+                      background: 'color-mix(in srgb, var(--series-3) 8%, transparent)', border: '1px solid color-mix(in srgb, var(--series-3) 20%, transparent)' }}>
+          <strong style={{ color: 'var(--series-3)', fontSize: 13 }}>Weil → Riemann Analogy</strong>
+          <div style={{ color: 'var(--ink-soft)', marginTop: 4, fontSize: 12 }}>
             {data.analogy}<br /><br />
             <strong>Deligne's proof</strong> (1974) of the Weil conjectures IS a proof of RH
             for varieties over finite fields. The strategy: use étale cohomology and
@@ -650,7 +651,7 @@ function SpectralTab() {
     const barW = plotW / dist.length;
 
     // GUE curve (filled)
-    ctx.fillStyle = 'rgba(139, 92, 246, 0.15)';
+    ctx.fillStyle = TK_ALPHA(ED.series5, 0.15);
     ctx.beginPath();
     ctx.moveTo(margin.left, h - margin.bottom);
     dist.forEach((d, i) => {
@@ -663,7 +664,7 @@ function SpectralTab() {
     ctx.fill();
 
     // GUE line
-    ctx.strokeStyle = '#8b5cf6';
+    ctx.strokeStyle = ED.series5;
     ctx.lineWidth = 2;
     ctx.beginPath();
     dist.forEach((d, i) => {
@@ -677,7 +678,7 @@ function SpectralTab() {
     dist.forEach((d, i) => {
       const x = margin.left + i * barW + 2;
       const barH = (d.cy / maxY) * plotH;
-      ctx.fillStyle = 'rgba(59, 130, 246, 0.5)';
+      ctx.fillStyle = TK_ALPHA(ED.series1, 0.5);
       ctx.fillRect(x, h - margin.bottom - barH, barW * 0.4, barH);
     });
 
@@ -685,12 +686,12 @@ function SpectralTab() {
     dist.forEach((d, i) => {
       const x = margin.left + i * barW + barW * 0.45;
       const barH = (d.zeta / maxY) * plotH;
-      ctx.fillStyle = 'rgba(16, 185, 129, 0.5)';
+      ctx.fillStyle = TK_ALPHA(ED.series3, 0.5);
       ctx.fillRect(x, h - margin.bottom - barH, barW * 0.4, barH);
     });
 
     // Axes
-    ctx.strokeStyle = '#334155';
+    ctx.strokeStyle = ED.rule;
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.moveTo(margin.left, margin.top);
@@ -705,7 +706,7 @@ function SpectralTab() {
       const frac = i / numYTicks;
       const val = frac * maxY;
       const yPos = h - margin.bottom - frac * plotH;
-      ctx.strokeStyle = 'rgba(51, 65, 85, 0.4)';
+      ctx.strokeStyle = TK_ALPHA(ED.rule, 0.4);
       ctx.lineWidth = 0.5;
       ctx.setLineDash([4, 4]);
       ctx.beginPath();
@@ -713,22 +714,22 @@ function SpectralTab() {
       ctx.lineTo(w - margin.right, yPos);
       ctx.stroke();
       ctx.setLineDash([]);
-      ctx.fillStyle = '#64748b';
+      ctx.fillStyle = ED.series8;
       ctx.textAlign = 'right';
       ctx.fillText(val.toFixed(1), margin.left - 6, yPos + 3);
     }
 
     // Legend
     ctx.font = '11px "JetBrains Mono", monospace';
-    ctx.fillStyle = '#8b5cf6';
+    ctx.fillStyle = ED.series5;
     ctx.textAlign = 'left';
     ctx.fillText('GUE Wigner surmise', margin.left + 8, margin.top + 14);
-    ctx.fillStyle = '#3b82f6';
+    ctx.fillStyle = ED.series1;
     ctx.fillText('CY Laplacian spacings', margin.left + 8, margin.top + 30);
-    ctx.fillStyle = '#10b981';
+    ctx.fillStyle = ED.series3;
     ctx.fillText('ζ(s) zero spacings', margin.left + 8, margin.top + 46);
 
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.textAlign = 'center';
     ctx.fillText('Normalized spacing s', w / 2, h - 6);
 
@@ -736,7 +737,7 @@ function SpectralTab() {
     ctx.save();
     ctx.translate(12, margin.top + plotH / 2);
     ctx.rotate(-Math.PI / 2);
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = ED.series8;
     ctx.font = '11px "JetBrains Mono", monospace';
     ctx.textAlign = 'center';
     ctx.fillText('P(s)', 0, 0);
@@ -744,7 +745,7 @@ function SpectralTab() {
 
     // KL divergence
     ctx.textAlign = 'right';
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = ED.series8;
     ctx.fillText(`D_KL(CY||GUE) = ${correlation.klCY.toFixed(3)}`, w - margin.right, margin.top + 14);
     ctx.fillText(`D_KL(ζ||GUE) = ${correlation.klZeta.toFixed(3)}`, w - margin.right, margin.top + 30);
   }, [spectrum, correlation]);
@@ -772,7 +773,7 @@ function SpectralTab() {
         <div className="control-group">
           <label>CY3 geometry</label>
           <select value={exampleIdx} onChange={e => setExampleIdx(+e.target.value)}
-            style={{ background: '#1e293b', color: '#e2e8f0', border: '1px solid #334155',
+            style={{ background: 'var(--paper-3)', color: 'var(--ink)', border: '1px solid var(--rule)',
                      borderRadius: 6, padding: '4px 8px', fontSize: 13 }}>
             {CY_EXAMPLES.map((ex, i) => (
               <option key={i} value={i}>{ex.name}</option>
@@ -782,18 +783,18 @@ function SpectralTab() {
       </div>
 
       <canvas ref={canvasRef}
-        style={{ width: '100%', height: 320, borderRadius: 8, background: '#0a0e1a',
-                 border: '1px solid #1e293b' }} />
+        style={{ width: '100%', height: 320, borderRadius: 8, background: 'var(--paper)',
+                 border: '1px solid var(--rule-soft)' }} />
 
       <div style={{ marginTop: 12, padding: '10px 14px', borderRadius: 6,
                     background: correlation.klCY < 0.5
-                      ? 'rgba(16, 185, 129, 0.08)' : 'rgba(245, 158, 11, 0.08)',
+                      ? 'color-mix(in srgb, var(--series-3) 8%, transparent)' : 'color-mix(in srgb, var(--brass-deco) 8%, transparent)',
                     border: `1px solid ${correlation.klCY < 0.5
-                      ? 'rgba(16, 185, 129, 0.2)' : 'rgba(245, 158, 11, 0.2)'}` }}>
-        <strong style={{ color: correlation.klCY < 0.5 ? '#6ee7b7' : '#fbbf24' }}>
+                      ? TK_ALPHA(ED.series3, 0.2) : TK_ALPHA(ED.series4, 0.2)}` }}>
+        <strong style={{ color: correlation.klCY < 0.5 ? 'var(--series-3)' : 'var(--brass)' }}>
           {correlation.verdict}
         </strong>
-        <div style={{ color: '#94a3b8', marginTop: 4, fontSize: 13 }}>
+        <div style={{ color: 'var(--ink-soft)', marginTop: 4, fontSize: 13 }}>
           Heat kernel coefficients: a₀ = {spectrum.heatCoeffs[0].value} (volume),{' '}
           a₁ = {spectrum.heatCoeffs[1].value} (Ricci-flat),{' '}
           a₂ = {spectrum.heatCoeffs[2].value.toFixed(5)} (∝ χ/{720})
@@ -803,7 +804,7 @@ function SpectralTab() {
       <div style={{ marginTop: 12, maxHeight: 180, overflow: 'auto' }}>
         <table style={{ width: '100%', fontSize: 12, borderCollapse: 'collapse' }}>
           <thead>
-            <tr style={{ color: '#64748b', borderBottom: '1px solid #1e293b' }}>
+            <tr style={{ color: 'var(--ink-faint)', borderBottom: '1px solid var(--rule-soft)' }}>
               <th style={{ textAlign: 'left', padding: 4 }}>s</th>
               <th style={{ textAlign: 'right', padding: 4 }}>ζ_Δ(s)</th>
               <th style={{ textAlign: 'left', padding: 4 }}>Meaning</th>
@@ -811,7 +812,7 @@ function SpectralTab() {
           </thead>
           <tbody>
             {spectrum.spectralZeta.map(({ s, value }) => (
-              <tr key={s} style={{ color: '#94a3b8', borderBottom: '1px solid #0f172a' }}>
+              <tr key={s} style={{ color: 'var(--ink-soft)', borderBottom: '1px solid var(--paper)' }}>
                 <td style={{ padding: 4 }}>{s}</td>
                 <td style={{ textAlign: 'right', padding: 4, fontFamily: 'var(--font-mono)' }}>
                   {value.toExponential(4)}
@@ -867,7 +868,7 @@ function ThreefoldLiftTab() {
     const plotW = w - margin.left - margin.right;
     const plotH = h - margin.top - margin.bottom;
 
-    ctx.strokeStyle = '#334155';
+    ctx.strokeStyle = ED.rule;
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.moveTo(margin.left, margin.top);
@@ -889,7 +890,7 @@ function ThreefoldLiftTab() {
     for (let i = 0; i <= 4; i++) {
       const frac = i / 4;
       const yPos = h - margin.bottom - frac * plotH;
-      ctx.strokeStyle = 'rgba(51, 65, 85, 0.4)';
+      ctx.strokeStyle = TK_ALPHA(ED.rule, 0.4);
       ctx.lineWidth = 0.5;
       ctx.setLineDash([4, 4]);
       ctx.beginPath();
@@ -897,14 +898,14 @@ function ThreefoldLiftTab() {
       ctx.lineTo(w - margin.right, yPos);
       ctx.stroke();
       ctx.setLineDash([]);
-      ctx.fillStyle = '#64748b';
+      ctx.fillStyle = ED.series8;
       ctx.textAlign = 'right';
       ctx.fillText((minScore + frac * range).toFixed(2), margin.left - 6, yPos + 3);
     }
 
     // sigma = 1/2 vertical line
     const halfX = margin.left + ((0.5 - minSigma) / sigmaRange) * plotW;
-    ctx.strokeStyle = 'rgba(239, 68, 68, 0.6)';
+    ctx.strokeStyle = TK_ALPHA(ED.series2, 0.6);
     ctx.lineWidth = 2;
     ctx.setLineDash([6, 4]);
     ctx.beginPath();
@@ -913,17 +914,17 @@ function ThreefoldLiftTab() {
     ctx.stroke();
     ctx.setLineDash([]);
 
-    ctx.fillStyle = '#ef4444';
+    ctx.fillStyle = ED.series2;
     ctx.font = '11px "JetBrains Mono", monospace';
     ctx.textAlign = 'center';
     ctx.fillText('\u03C3 = 1/2', halfX, margin.top - 6);
 
     // Lift score curve with gradient
     const gradient = ctx.createLinearGradient(margin.left, 0, w - margin.right, 0);
-    gradient.addColorStop(0, '#f59e0b');
-    gradient.addColorStop(0.25, '#10b981');
-    gradient.addColorStop(0.5, '#3b82f6');
-    gradient.addColorStop(1, '#8b5cf6');
+    gradient.addColorStop(0, ED.series4);
+    gradient.addColorStop(0.25, ED.series3);
+    gradient.addColorStop(0.5, ED.series1);
+    gradient.addColorStop(1, ED.series5);
 
     ctx.strokeStyle = gradient;
     ctx.lineWidth = 2.5;
@@ -944,29 +945,29 @@ function ThreefoldLiftTab() {
     const minY = h - margin.bottom - ((scores[minIdx] - minScore) / range) * plotH;
     ctx.beginPath();
     ctx.arc(minX, minY, 5, 0, Math.PI * 2);
-    ctx.fillStyle = '#10b981';
+    ctx.fillStyle = ED.series3;
     ctx.fill();
     ctx.strokeStyle = '#fff';
     ctx.lineWidth = 1.5;
     ctx.stroke();
 
-    ctx.fillStyle = '#10b981';
+    ctx.fillStyle = ED.series3;
     ctx.font = '10px "JetBrains Mono", monospace';
     ctx.textAlign = 'left';
     ctx.fillText('min at \u03C3=' + liftData[minIdx].sigma.toFixed(2), minX + 8, minY - 4);
 
     ctx.font = '11px "JetBrains Mono", monospace';
-    ctx.fillStyle = '#93c5fd';
+    ctx.fillStyle = ED.series1;
     ctx.textAlign = 'left';
     ctx.fillText('Motivic lift score vs \u03C3 (lower = better fit)', margin.left + 8, margin.top + 14);
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.textAlign = 'center';
     ctx.fillText('\u03C3 = Re(s)', w / 2, h - 6);
 
     ctx.save();
     ctx.translate(12, margin.top + plotH / 2);
     ctx.rotate(-Math.PI / 2);
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = ED.series8;
     ctx.textAlign = 'center';
     ctx.fillText('Lift score', 0, 0);
     ctx.restore();
@@ -996,7 +997,7 @@ function ThreefoldLiftTab() {
     const maxAbs = Math.max(...results.map(r => Math.max(Math.abs(r.cyNormalized), Math.abs(r.zetaAp))));
     const yRange = Math.max(maxAbs, 2.5);
 
-    ctx.strokeStyle = '#334155';
+    ctx.strokeStyle = ED.rule;
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.moveTo(margin.left, margin.top);
@@ -1005,7 +1006,7 @@ function ThreefoldLiftTab() {
     ctx.stroke();
 
     const zeroY = margin.top + plotH / 2;
-    ctx.strokeStyle = 'rgba(100, 116, 139, 0.4)';
+    ctx.strokeStyle = TK_ALPHA(ED.rule, 0.4);
     ctx.setLineDash([4, 4]);
     ctx.beginPath();
     ctx.moveTo(margin.left, zeroY);
@@ -1016,7 +1017,7 @@ function ThreefoldLiftTab() {
     const barW = plotW / results.length;
 
     // zeta coefficients line (constant at 1)
-    ctx.strokeStyle = '#10b981';
+    ctx.strokeStyle = ED.series3;
     ctx.lineWidth = 2;
     ctx.beginPath();
     results.forEach((r, i) => {
@@ -1032,19 +1033,19 @@ function ThreefoldLiftTab() {
       const val = r.cyNormalized;
       const barH = (Math.abs(val) / yRange) * (plotH / 2);
       const y = val >= 0 ? zeroY - barH : zeroY;
-      ctx.fillStyle = val >= 0 ? 'rgba(59, 130, 246, 0.6)' : 'rgba(239, 68, 68, 0.6)';
+      ctx.fillStyle = val >= 0 ? TK_ALPHA(ED.series1, 0.6) : TK_ALPHA(ED.series2, 0.6);
       ctx.fillRect(x, y, barW * 0.7, barH);
     });
 
     ctx.font = '8px "JetBrains Mono", monospace';
-    ctx.fillStyle = '#475569';
+    ctx.fillStyle = ED.series8;
     ctx.textAlign = 'center';
     results.forEach((r, i) => {
       ctx.fillText(r.p.toString(), margin.left + (i + 0.5) * barW, h - margin.bottom + 12);
     });
 
     ctx.font = '10px "JetBrains Mono", monospace';
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.textAlign = 'right';
     ctx.fillText(yRange.toFixed(1), margin.left - 6, margin.top + 4);
     ctx.fillText('0', margin.left - 6, zeroY + 3);
@@ -1052,12 +1053,12 @@ function ThreefoldLiftTab() {
 
     ctx.font = '11px "JetBrains Mono", monospace';
     ctx.textAlign = 'left';
-    ctx.fillStyle = '#10b981';
+    ctx.fillStyle = ED.series3;
     ctx.fillText('\u03B6(s) a_p = 1 (constant)', margin.left + 8, margin.top + 14);
-    ctx.fillStyle = '#3b82f6';
+    ctx.fillStyle = ED.series1;
     ctx.fillText('CY3 Tr(Frob_p|H\u00B3) / p^{3/2}', margin.left + 8, margin.top + 30);
 
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.textAlign = 'center';
     ctx.fillText('prime p', w / 2, h - 6);
   }, [etaleData]);
@@ -1072,7 +1073,7 @@ function ThreefoldLiftTab() {
 
   return (
     <div>
-      <div className="tab-explainer" style={{ borderLeftColor: '#ef4444', background: 'rgba(239, 68, 68, 0.05)' }}>
+      <div className="tab-explainer" style={{ borderLeftColor: 'var(--series-2)', background: 'color-mix(in srgb, var(--series-2) 5%, transparent)' }}>
         <p>
           <strong>The Threefold Lift Strategy:</strong> If we could find a Calabi-Yau 3-fold X such that{' '}
           <InlineMath tex="L(H^3(X),\, s) = \zeta(s)" />, then Deligne{"'"}s theorem would immediately
@@ -1093,7 +1094,7 @@ function ThreefoldLiftTab() {
         <div className="control-group">
           <label>Prime limit</label>
           <select value={numPrimes} onChange={e => setNumPrimes(+e.target.value)}
-            style={{ background: '#1e293b', color: '#e2e8f0', border: '1px solid #334155',
+            style={{ background: 'var(--paper-3)', color: 'var(--ink)', border: '1px solid var(--rule)',
                      borderRadius: 6, padding: '4px 8px', fontSize: 13 }}>
             {[30, 60, 100, 150, 200].map(n => (
               <option key={n} value={n}>primes up to {n}</option>
@@ -1103,45 +1104,45 @@ function ThreefoldLiftTab() {
       </div>
 
       <div style={{ marginBottom: 8 }}>
-        <div style={{ fontSize: 12, color: '#94a3b8', marginBottom: 4, fontWeight: 600 }}>
+        <div style={{ fontSize: 12, color: 'var(--ink-soft)', marginBottom: 4, fontWeight: 600 }}>
           Motivic Lift Score vs. {'\u03C3'}
         </div>
         <canvas ref={liftCanvasRef}
-          style={{ width: '100%', height: 260, borderRadius: 8, background: '#0a0e1a',
-                   border: '1px solid #1e293b' }} />
+          style={{ width: '100%', height: 260, borderRadius: 8, background: 'var(--paper)',
+                   border: '1px solid var(--rule-soft)' }} />
       </div>
 
       <div style={{ marginBottom: 8 }}>
-        <div style={{ fontSize: 12, color: '#94a3b8', marginBottom: 4, fontWeight: 600 }}>
+        <div style={{ fontSize: 12, color: 'var(--ink-soft)', marginBottom: 4, fontWeight: 600 }}>
           {'\u00C9'}tale Trace Comparison: CY3 vs. {'\u03B6'}(s)
         </div>
         <canvas ref={etaleCanvasRef}
-          style={{ width: '100%', height: 240, borderRadius: 8, background: '#0a0e1a',
-                   border: '1px solid #1e293b' }} />
+          style={{ width: '100%', height: 240, borderRadius: 8, background: 'var(--paper)',
+                   border: '1px solid var(--rule-soft)' }} />
       </div>
 
       <div style={{ marginTop: 12, padding: '10px 14px', borderRadius: 6,
-                    background: 'rgba(239, 68, 68, 0.08)', border: '1px solid rgba(239, 68, 68, 0.2)' }}>
-        <strong style={{ color: '#fca5a5', fontSize: 13 }}>
+                    background: 'color-mix(in srgb, var(--series-2) 8%, transparent)', border: '1px solid color-mix(in srgb, var(--series-2) 20%, transparent)' }}>
+        <strong style={{ color: 'var(--series-2)', fontSize: 13 }}>
           {'\u00C9'}tale Fit Score: {etaleData.fitScore.toFixed(3)} {'\u2014'} {etaleData.verdict}
         </strong>
-        <div style={{ color: '#94a3b8', marginTop: 4, fontSize: 12 }}>
+        <div style={{ color: 'var(--ink-soft)', marginTop: 4, fontSize: 12 }}>
           {etaleData.explanation}
         </div>
       </div>
 
       <div style={{ marginTop: 16 }}>
-        <div style={{ fontSize: 13, color: '#c4b5fd', fontWeight: 600, marginBottom: 8 }}>
+        <div style={{ fontSize: 13, color: 'var(--series-5)', fontWeight: 600, marginBottom: 8 }}>
           Deligne Extension Gap Analysis (overall gap: {(gapData.overallGap * 100).toFixed(0)}%)
         </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
           <div style={{ padding: '10px 14px', borderRadius: 6,
-                        background: 'rgba(16, 185, 129, 0.08)', border: '1px solid rgba(16, 185, 129, 0.2)' }}>
-            <strong style={{ color: '#6ee7b7', fontSize: 12 }}>What IS Proved</strong>
+                        background: 'color-mix(in srgb, var(--series-3) 8%, transparent)', border: '1px solid color-mix(in srgb, var(--series-3) 20%, transparent)' }}>
+            <strong style={{ color: 'var(--series-3)', fontSize: 12 }}>What IS Proved</strong>
             {gapData.proved.map((item, i) => (
-              <div key={i} style={{ color: '#94a3b8', fontSize: 11, marginTop: 6, lineHeight: 1.5 }}>
-                <span style={{ color: '#10b981' }}>{'\u2713'}</span>{' '}
+              <div key={i} style={{ color: 'var(--ink-soft)', fontSize: 11, marginTop: 6, lineHeight: 1.5 }}>
+                <span style={{ color: 'var(--series-3)' }}>{'\u2713'}</span>{' '}
                 <strong>{item.name}</strong> ({item.author})<br />
                 <span style={{ marginLeft: 16 }}>{item.statement}</span>
               </div>
@@ -1149,11 +1150,11 @@ function ThreefoldLiftTab() {
           </div>
 
           <div style={{ padding: '10px 14px', borderRadius: 6,
-                        background: 'rgba(239, 68, 68, 0.08)', border: '1px solid rgba(239, 68, 68, 0.2)' }}>
-            <strong style={{ color: '#fca5a5', fontSize: 12 }}>Key Obstructions</strong>
+                        background: 'color-mix(in srgb, var(--series-2) 8%, transparent)', border: '1px solid color-mix(in srgb, var(--series-2) 20%, transparent)' }}>
+            <strong style={{ color: 'var(--series-2)', fontSize: 12 }}>Key Obstructions</strong>
             {gapData.missing.map((item, i) => (
-              <div key={i} style={{ color: '#94a3b8', fontSize: 11, marginTop: 6, lineHeight: 1.5 }}>
-                <span style={{ color: '#ef4444' }}>{'\u2717'}</span>{' '}
+              <div key={i} style={{ color: 'var(--ink-soft)', fontSize: 11, marginTop: 6, lineHeight: 1.5 }}>
+                <span style={{ color: 'var(--series-2)' }}>{'\u2717'}</span>{' '}
                 <strong>{item.name}</strong><br />
                 <span style={{ marginLeft: 16 }}>{item.obstruction.slice(0, 120)}...</span>
               </div>
@@ -1162,9 +1163,9 @@ function ThreefoldLiftTab() {
         </div>
 
         <div style={{ marginTop: 12, padding: '10px 14px', borderRadius: 6,
-                      background: 'rgba(139, 92, 246, 0.08)', border: '1px solid rgba(139, 92, 246, 0.2)' }}>
-          <strong style={{ color: '#c4b5fd', fontSize: 12 }}>Summary</strong>
-          <div style={{ color: '#94a3b8', marginTop: 4, fontSize: 12, lineHeight: 1.6 }}>
+                      background: 'color-mix(in srgb, var(--series-5) 8%, transparent)', border: '1px solid color-mix(in srgb, var(--series-5) 20%, transparent)' }}>
+          <strong style={{ color: 'var(--series-5)', fontSize: 12 }}>Summary</strong>
+          <div style={{ color: 'var(--ink-soft)', marginTop: 4, fontSize: 12, lineHeight: 1.6 }}>
             {gapData.summary}
           </div>
         </div>
@@ -1209,7 +1210,7 @@ function FisherBridgeTab() {
     const plotW = w - margin.left - margin.right;
     const plotH = h - margin.top - margin.bottom;
 
-    ctx.strokeStyle = '#334155';
+    ctx.strokeStyle = ED.rule;
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.moveTo(margin.left, margin.top);
@@ -1222,7 +1223,7 @@ function FisherBridgeTab() {
     const snMax = 2.5;
 
     // CY Fisher fill + line (purple)
-    ctx.fillStyle = 'rgba(139, 92, 246, 0.12)';
+    ctx.fillStyle = TK_ALPHA(ED.series5, 0.12);
     ctx.beginPath();
     ctx.moveTo(margin.left, h - margin.bottom);
     for (const pt of cyData) {
@@ -1235,7 +1236,7 @@ function FisherBridgeTab() {
     ctx.closePath();
     ctx.fill();
 
-    ctx.strokeStyle = '#8b5cf6';
+    ctx.strokeStyle = ED.series5;
     ctx.lineWidth = 2;
     ctx.beginPath();
     let first = true;
@@ -1249,7 +1250,7 @@ function FisherBridgeTab() {
     ctx.stroke();
 
     // Riemann Fisher fill + line (blue)
-    ctx.fillStyle = 'rgba(59, 130, 246, 0.12)';
+    ctx.fillStyle = TK_ALPHA(ED.series1, 0.12);
     ctx.beginPath();
     ctx.moveTo(margin.left, h - margin.bottom);
     for (const pt of rData) {
@@ -1262,7 +1263,7 @@ function FisherBridgeTab() {
     ctx.closePath();
     ctx.fill();
 
-    ctx.strokeStyle = '#3b82f6';
+    ctx.strokeStyle = ED.series1;
     ctx.lineWidth = 2;
     ctx.beginPath();
     first = true;
@@ -1278,7 +1279,7 @@ function FisherBridgeTab() {
     // Peak line at sigma-tilde = 1
     const peakX = margin.left + (1 / snMax) * plotW;
     ctx.setLineDash([4, 4]);
-    ctx.strokeStyle = '#ef4444a0';
+    ctx.strokeStyle = TK_ALPHA(ED.series2, 0.63);
     ctx.lineWidth = 1.5;
     ctx.beginPath();
     ctx.moveTo(peakX, margin.top);
@@ -1287,7 +1288,7 @@ function FisherBridgeTab() {
     ctx.setLineDash([]);
 
     ctx.font = '10px "JetBrains Mono", monospace';
-    ctx.fillStyle = '#ef4444';
+    ctx.fillStyle = ED.series2;
     ctx.textAlign = 'center';
     ctx.fillText('\u03C3\u0303 = 1 (critical point)', peakX, margin.top - 6);
 
@@ -1295,7 +1296,7 @@ function FisherBridgeTab() {
     for (let i = 1; i <= 4; i++) {
       const frac = i / 4;
       const yPos = h - margin.bottom - frac * plotH;
-      ctx.strokeStyle = 'rgba(51, 65, 85, 0.4)';
+      ctx.strokeStyle = TK_ALPHA(ED.rule, 0.4);
       ctx.lineWidth = 0.5;
       ctx.setLineDash([4, 4]);
       ctx.beginPath();
@@ -1303,7 +1304,7 @@ function FisherBridgeTab() {
       ctx.lineTo(w - margin.right, yPos);
       ctx.stroke();
       ctx.setLineDash([]);
-      ctx.fillStyle = '#64748b';
+      ctx.fillStyle = ED.series8;
       ctx.textAlign = 'right';
       ctx.font = '10px "JetBrains Mono", monospace';
       ctx.fillText(frac.toFixed(1), margin.left - 6, yPos + 3);
@@ -1313,7 +1314,7 @@ function FisherBridgeTab() {
     for (let i = 0; i <= 5; i++) {
       const sn = i * 0.5;
       const x = margin.left + (sn / snMax) * plotW;
-      ctx.fillStyle = '#64748b';
+      ctx.fillStyle = ED.series8;
       ctx.textAlign = 'center';
       ctx.font = '10px "JetBrains Mono", monospace';
       ctx.fillText(sn.toFixed(1), x, h - margin.bottom + 14);
@@ -1322,12 +1323,12 @@ function FisherBridgeTab() {
     // Legend
     ctx.font = '11px "JetBrains Mono", monospace';
     ctx.textAlign = 'left';
-    ctx.fillStyle = '#3b82f6';
+    ctx.fillStyle = ED.series1;
     ctx.fillText('F(\u03C3) Riemann \u03B6(s) \u2014 peak at \u03C3=' + fisherData.peakRiemann.toFixed(3), margin.left + 8, margin.top + 14);
-    ctx.fillStyle = '#8b5cf6';
+    ctx.fillStyle = ED.series5;
     ctx.fillText('F(\u03C3) CY \u03B6\u2206(s) \u2014 peak at \u03C3=' + fisherData.peakCY.toFixed(2), margin.left + 8, margin.top + 30);
 
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.textAlign = 'center';
     ctx.fillText('\u03C3\u0303 = \u03C3/\u03C3c (normalized)', w / 2, h - 4);
 
@@ -1356,7 +1357,7 @@ function FisherBridgeTab() {
     const plotW = w - margin.left - margin.right;
     const plotH = h - margin.top - margin.bottom;
 
-    ctx.strokeStyle = '#334155';
+    ctx.strokeStyle = ED.rule;
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.moveTo(margin.left, margin.top);
@@ -1370,7 +1371,7 @@ function FisherBridgeTab() {
       crossCheck.pairCorrelation,
     ];
 
-    const barColors = ['#3b82f6', '#8b5cf6', '#10b981'];
+    const barColors = [ED.series1, ED.series5, ED.series3];
     const barW = plotW / (metrics.length * 2);
     const gap = barW;
 
@@ -1394,12 +1395,12 @@ function FisherBridgeTab() {
       ctx.stroke();
 
       ctx.font = '12px "JetBrains Mono", monospace';
-      ctx.fillStyle = '#e2e8f0';
+      ctx.fillStyle = ED.ink;
       ctx.textAlign = 'center';
       ctx.fillText((m.score * 100).toFixed(0) + '%', x + barW / 2, y - 8);
 
       ctx.font = '10px "JetBrains Mono", monospace';
-      ctx.fillStyle = '#94a3b8';
+      ctx.fillStyle = ED.series8;
       const words = m.label.split(' ');
       ctx.fillText(words.slice(0, 2).join(' '), x + barW / 2, h - margin.bottom + 12);
       if (words.length > 2) {
@@ -1411,7 +1412,7 @@ function FisherBridgeTab() {
     for (let i = 1; i <= 4; i++) {
       const frac = i / 4;
       const yPos = h - margin.bottom - frac * plotH;
-      ctx.strokeStyle = 'rgba(51, 65, 85, 0.4)';
+      ctx.strokeStyle = TK_ALPHA(ED.rule, 0.4);
       ctx.lineWidth = 0.5;
       ctx.setLineDash([4, 4]);
       ctx.beginPath();
@@ -1419,19 +1420,19 @@ function FisherBridgeTab() {
       ctx.lineTo(w - margin.right, yPos);
       ctx.stroke();
       ctx.setLineDash([]);
-      ctx.fillStyle = '#64748b';
+      ctx.fillStyle = ED.series8;
       ctx.textAlign = 'right';
       ctx.font = '10px "JetBrains Mono", monospace';
       ctx.fillText((frac * 100).toFixed(0) + '%', margin.left - 6, yPos + 3);
     }
 
     ctx.font = '12px "JetBrains Mono", monospace';
-    ctx.fillStyle = crossCheck.overallScore > 0.5 ? '#10b981' : '#f59e0b';
+    ctx.fillStyle = crossCheck.overallScore > 0.5 ? ED.series3 : ED.series4;
     ctx.textAlign = 'right';
     ctx.fillText('Overall: ' + (crossCheck.overallScore * 100).toFixed(1) + '%', w - margin.right, margin.top + 14);
 
     ctx.font = '11px "JetBrains Mono", monospace';
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = ED.series8;
     ctx.textAlign = 'left';
     ctx.fillText('CY \u2194 \u03B6 Cross-Check Scores', margin.left + 8, margin.top + 14);
   }, [crossCheck]);
@@ -1464,7 +1465,7 @@ function FisherBridgeTab() {
         <div className="control-group">
           <label>CY3 example</label>
           <select value={exampleIdx} onChange={e => setExampleIdx(+e.target.value)}
-            style={{ background: '#1e293b', color: '#e2e8f0', border: '1px solid #334155',
+            style={{ background: 'var(--paper-3)', color: 'var(--ink)', border: '1px solid var(--rule)',
                      borderRadius: 6, padding: '4px 8px', fontSize: 13 }}>
             {CY_EXAMPLES.map((cyEx, i) => (
               <option key={i} value={i}>{cyEx.name} (h{'\u00B9\u00B9'}={cyEx.h11}, h{'\u00B2\u00B9'}={cyEx.h21})</option>
@@ -1480,37 +1481,37 @@ function FisherBridgeTab() {
       </div>
 
       <div style={{ marginBottom: 8 }}>
-        <div style={{ fontSize: 12, color: '#64748b', marginBottom: 4 }}>
+        <div style={{ fontSize: 12, color: 'var(--ink-faint)', marginBottom: 4 }}>
           Fisher Information F({'\u03C3'}) — normalized profiles
         </div>
         <canvas ref={topCanvasRef}
-          style={{ width: '100%', height: 280, borderRadius: 8, background: '#0a0e1a',
-                   border: '1px solid #1e293b' }} />
+          style={{ width: '100%', height: 280, borderRadius: 8, background: 'var(--paper)',
+                   border: '1px solid var(--rule-soft)' }} />
       </div>
 
       <div style={{ marginTop: 16 }}>
-        <div style={{ fontSize: 12, color: '#64748b', marginBottom: 4 }}>
+        <div style={{ fontSize: 12, color: 'var(--ink-faint)', marginBottom: 4 }}>
           Cross-Check Scores: CY vs Riemann universality
         </div>
         <canvas ref={bottomCanvasRef}
-          style={{ width: '100%', height: 220, borderRadius: 8, background: '#0a0e1a',
-                   border: '1px solid #1e293b' }} />
+          style={{ width: '100%', height: 220, borderRadius: 8, background: 'var(--paper)',
+                   border: '1px solid var(--rule-soft)' }} />
       </div>
 
       <div style={{ marginTop: 12, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
         <div style={{ padding: '10px 14px', borderRadius: 6,
-                      background: 'rgba(59, 130, 246, 0.08)', border: '1px solid rgba(59, 130, 246, 0.2)' }}>
-          <strong style={{ color: '#93c5fd', fontSize: 13 }}>Riemann {'\u03B6'}(s) Fisher Peak</strong>
-          <div style={{ color: '#94a3b8', marginTop: 4, fontSize: 12 }}>
+                      background: 'color-mix(in srgb, var(--series-1) 8%, transparent)', border: '1px solid color-mix(in srgb, var(--series-1) 20%, transparent)' }}>
+          <strong style={{ color: 'var(--series-1)', fontSize: 13 }}>Riemann {'\u03B6'}(s) Fisher Peak</strong>
+          <div style={{ color: 'var(--ink-soft)', marginTop: 4, fontSize: 12 }}>
             Peak at {'\u03C3'} = {fisherData.peakRiemann.toFixed(4)} (expected: 0.5000)<br />
             The Euler product density is maximally sensitive to perturbations
             at the critical line — the information-theoretic signature of RH.
           </div>
         </div>
         <div style={{ padding: '10px 14px', borderRadius: 6,
-                      background: 'rgba(139, 92, 246, 0.08)', border: '1px solid rgba(139, 92, 246, 0.2)' }}>
-          <strong style={{ color: '#c4b5fd', fontSize: 13 }}>CY Spectral {'\u03B6\u2206'}(s) Fisher Peak</strong>
-          <div style={{ color: '#94a3b8', marginTop: 4, fontSize: 12 }}>
+                      background: 'color-mix(in srgb, var(--series-5) 8%, transparent)', border: '1px solid color-mix(in srgb, var(--series-5) 20%, transparent)' }}>
+          <strong style={{ color: 'var(--series-5)', fontSize: 13 }}>CY Spectral {'\u03B6\u2206'}(s) Fisher Peak</strong>
+          <div style={{ color: 'var(--ink-soft)', marginTop: 4, fontSize: 12 }}>
             Peak at {'\u03C3'} = {fisherData.peakCY.toFixed(2)} for {ex.name}<br />
             The CY spectral density exhibits an analogous critical point
             determined by Weyl asymptotics and Hodge structure.
@@ -1520,13 +1521,13 @@ function FisherBridgeTab() {
 
       <div style={{ marginTop: 12, padding: '10px 14px', borderRadius: 6,
                     background: crossCheck.overallScore > 0.5
-                      ? 'rgba(16, 185, 129, 0.08)' : 'rgba(245, 158, 11, 0.08)',
+                      ? 'color-mix(in srgb, var(--series-3) 8%, transparent)' : 'color-mix(in srgb, var(--brass-deco) 8%, transparent)',
                     border: '1px solid ' + (crossCheck.overallScore > 0.5
-                      ? 'rgba(16, 185, 129, 0.2)' : 'rgba(245, 158, 11, 0.2)') }}>
-        <strong style={{ color: crossCheck.overallScore > 0.5 ? '#6ee7b7' : '#fbbf24', fontSize: 13 }}>
+                      ? TK_ALPHA(ED.series3, 0.2) : TK_ALPHA(ED.brassDeco, 0.2)) }}>
+        <strong style={{ color: crossCheck.overallScore > 0.5 ? 'var(--series-3)' : 'var(--brass)', fontSize: 13 }}>
           Universality Verdict
         </strong>
-        <div style={{ color: '#94a3b8', marginTop: 4, fontSize: 12 }}>
+        <div style={{ color: 'var(--ink-soft)', marginTop: 4, fontSize: 12 }}>
           {crossCheck.details}
         </div>
       </div>

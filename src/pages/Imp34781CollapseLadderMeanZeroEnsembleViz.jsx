@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP34751_COLLAPSE_LADDER_MEAN_ZERO_STATISTICAL_TEST } from '../data/imp-34751-collapse-ladder-mean-zero-statistical-test.js';
+import { ED } from '../styles/tokens.js';
 
 const D = IMP34751_COLLAPSE_LADDER_MEAN_ZERO_STATISTICAL_TEST;
 
@@ -33,18 +34,18 @@ function FootingScatter({ devs, ci, mean, color, label }) {
         fill={color}
         opacity={0.12}
       />
-      <line x1={padL} x2={padL + plotW} y1={yOf(0)} y2={yOf(0)} stroke="#475569" strokeWidth={1} strokeDasharray="3,3" />
+      <line x1={padL} x2={padL + plotW} y1={yOf(0)} y2={yOf(0)} stroke={ED.rule} strokeWidth={1} strokeDasharray="3,3" />
       <line x1={padL} x2={padL + plotW} y1={yOf(mean)} y2={yOf(mean)} stroke={color} strokeWidth={1} strokeDasharray="5,2" />
       {devs.map((d, j) => (
         <circle key={j} cx={xOf(j)} cy={yOf(d)} r={3.5} fill={color} opacity={d > 0 ? 1 : 0.55} />
       ))}
-      <text x={padL} y={padT - 4} fill="#94a3b8" fontSize={10}>
+      <text x={padL} y={padT - 4} fill={ED.inkSoft} fontSize={10}>
         {label} (dashed = mean, band = 95% CI, dotted = 0)
       </text>
-      <text x={padL} y={svgH - 8} fill="#64748b" fontSize={10}>
+      <text x={padL} y={svgH - 8} fill={ED.inkFaint} fontSize={10}>
         footing j = 0
       </text>
-      <text x={padL + plotW} y={svgH - 8} textAnchor="end" fill="#64748b" fontSize={10}>
+      <text x={padL + plotW} y={svgH - 8} textAnchor="end" fill={ED.inkFaint} fontSize={10}>
         footing j = 23
       </text>
     </svg>
@@ -53,7 +54,7 @@ function FootingScatter({ devs, ci, mean, color, label }) {
 
 function TestSummaryRow({ label, nPos, nNeg, signP, runsR, runsExp, runsZ, ciLo, ciHi, meanV }) {
   return (
-    <tr style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+    <tr style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
       <td style={{ padding: '0.4rem 0.6rem' }}>{label}</td>
       <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{nPos} / {nNeg}</td>
       <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{signP}</td>
@@ -71,7 +72,7 @@ export default function Imp34781CollapseLadderMeanZeroEnsembleViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Collapse-Ladder Mean-Zero Ensemble: Per-Footing q3/q4 Deviations (imp-34781 / imp-34751)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-34751 upgraded the eyeballed three-footing "sign flips so it must be mean-zero" reading to a
         formal test over an ensemble of {D.n_footings} independent deep-group footings (each past the
         imp-33620 sigma&lt;0.01 anchor N*&nbsp;~&nbsp;{D.deep_tail_boundary_N.toExponential(3)}). Below are
@@ -79,34 +80,34 @@ export default function Imp34781CollapseLadderMeanZeroEnsembleViz() {
         formal tests, straddling 0 with no footing-ordered drift.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         q3 deviation from 2^3=8 across the 24 footings
       </p>
       <FootingScatter
         devs={D.q3_deviations_by_footing}
         ci={{ lo: D.q3_deviation_ci95[0], hi: D.q3_deviation_ci95[1] }}
         mean={D.q3_deviation_mean}
-        color="#38bdf8"
+        color={ED.series1}
         label="q3"
       />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginTop: '1.5rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginTop: '1.5rem', marginBottom: '0.5rem' }}>
         q4 deviation from 2^4=16 across the 24 footings
       </p>
       <FootingScatter
         devs={D.q4_deviations_by_footing}
         ci={{ lo: D.q4_deviation_ci95[0], hi: D.q4_deviation_ci95[1] }}
         mean={D.q4_deviation_mean}
-        color="#f87171"
+        color={ED.series2}
         label="q4"
       />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginTop: '1.5rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginTop: '1.5rem', marginBottom: '0.5rem' }}>
         Sign-test / runs-test / mean-CI summary (mean-zero null NOT rejected on either channel)
       </p>
       <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.78rem' }}>
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>channel</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>+/&minus; split</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>sign-test p</th>
@@ -147,11 +148,11 @@ export default function Imp34781CollapseLadderMeanZeroEnsembleViz() {
         style={{
           marginTop: '1rem',
           padding: '0.6rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
         }}
       >
         Both channels fail to reject the mean-zero null on all three tests (sign-test p&nbsp;&gt;&nbsp;0.05,
@@ -165,14 +166,14 @@ export default function Imp34781CollapseLadderMeanZeroEnsembleViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page presenting the imp-34751
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-only page presenting the imp-34751
         per-footing literals verbatim (no new computation). A CI containing 0 is failure to reject, NOT
         acceptance; this is a cross-check on the INHERITED imp-3220/imp-3406 surrogate, not a rehabilitation
         of it. The -2 asymptote and C_C&nbsp;=&nbsp;(1/8)&radic;(3&pi;) (imp-2714) ansatz are UNTOUCHED; the

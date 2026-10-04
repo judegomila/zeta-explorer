@@ -141,7 +141,7 @@ export default function ZetaStripLive({ height = 380 }) {
     <div>
       <canvas
         ref={canvasRef}
-        style={{ width: '100%', height, display: 'block', borderRadius: 8, background: '#0a0a0f' }}
+        style={{ width: '100%', height, display: 'block', borderRadius: 8, background: 'var(--paper)' }}
       />
       <div className="ed-mono" style={{ fontSize: 10.5, color: 'var(--faint)', marginTop: 7, lineHeight: 1.5 }}>
         ζ(σ+it) on σ∈[0.02, 1.65], t∈[1, 33] · hue = phase · vortices = the first five zeros (pulsing rings) ·

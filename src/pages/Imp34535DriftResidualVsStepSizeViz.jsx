@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP34513_DRIFT_RESIDUAL } from '../data/imp-34513-slowlog-drift-residual-crosscheck.js';
+import { ED } from '../styles/tokens.js';
 
 const { landmark_N, richardson_collapse_factor, max_richardson_residual } =
   IMP34513_DRIFT_RESIDUAL;
@@ -96,13 +97,13 @@ function ResidualLogLogChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#334155" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
       <line
         x1={padL}
         y1={padT + plotH}
         x2={padL + plotW}
         y2={padT + plotH}
-        stroke="#334155"
+        stroke={ED.rule}
         strokeWidth={1.5}
       />
 
@@ -112,12 +113,12 @@ function ResidualLogLogChart() {
         y1={py(refY0)}
         x2={px(refX1)}
         y2={py(refY1)}
-        stroke="#f472b6"
+        stroke={ED.series7}
         strokeWidth={1.25}
         strokeDasharray="5,4"
         opacity={0.75}
       />
-      <text x={px(refX1) - 4} y={py(refY1) + 14} textAnchor="end" fill="#f472b6" fontSize={9}>
+      <text x={px(refX1) - 4} y={py(refY1) + 14} textAnchor="end" fill={ED.series7} fontSize={9}>
         slope 2 (O(h&sup2;) reference)
       </text>
 
@@ -127,34 +128,34 @@ function ResidualLogLogChart() {
         y1={py(floorLog)}
         x2={padL + plotW}
         y2={py(floorLog)}
-        stroke="#34d399"
+        stroke={ED.series3}
         strokeWidth={1.25}
         strokeDasharray="3,3"
         opacity={0.75}
       />
-      <text x={padL + 4} y={py(floorLog) - 6} fill="#34d399" fontSize={9}>
+      <text x={padL + 4} y={py(floorLog) - 6} fill={ED.series3} fontSize={9}>
         Richardson floor &asymp; {max_richardson_residual.toExponential(1)} (max over ladder)
       </text>
 
-      <path d={pathD} fill="none" stroke="#38bdf8" strokeWidth={2} />
+      <path d={pathD} fill="none" stroke={ED.series1} strokeWidth={2} />
       {SWEEP_POINTS.map((p) => (
         <circle
           key={p.h}
           cx={px(Math.log10(p.h))}
           cy={py(Math.log10(p.residual))}
           r={4}
-          fill="#38bdf8"
+          fill={ED.series1}
         />
       ))}
 
-      <text x={padL + plotW / 2} y={svgH - 8} textAnchor="middle" fill="#94a3b8" fontSize={9.5}>
+      <text x={padL + plotW / 2} y={svgH - 8} textAnchor="middle" fill={ED.inkSoft} fontSize={9.5}>
         step size h (log scale)
       </text>
       <text
         x={14}
         y={padT + plotH / 2}
         textAnchor="middle"
-        fill="#94a3b8"
+        fill={ED.inkSoft}
         fontSize={9.5}
         transform={`rotate(-90 14 ${padT + plotH / 2})`}
       >
@@ -169,7 +170,7 @@ export default function Imp34535DriftResidualVsStepSizeViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Slow-Log Drift Residual vs Step Size h (imp-34535)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-34513 cross-checked the imp-34486 closed-form slow-log drift exponent against the
         imp-34446 central-difference measurement at the deep-tail landmark N* &asymp;{' '}
         {landmark_N.toExponential(4)}. The raw residual |analytic &minus; measured(h)| is a
@@ -180,7 +181,7 @@ export default function Imp34535DriftResidualVsStepSizeViz() {
         &asymp; {max_richardson_residual.toExponential(1)}.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         raw residual vs step size h at N*, log-log, against the O(h&sup2;) slope-2 reference
       </p>
       <ResidualLogLogChart />
@@ -194,7 +195,7 @@ export default function Imp34535DriftResidualVsStepSizeViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>step h</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>raw residual at N*</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>local log-log slope</th>
@@ -202,7 +203,7 @@ export default function Imp34535DriftResidualVsStepSizeViz() {
         </thead>
         <tbody>
           {SWEEP_POINTS.map((p, i) => (
-            <tr key={p.h} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+            <tr key={p.h} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>
                 {p.h.toExponential(1)}
               </td>
@@ -217,7 +218,7 @@ export default function Imp34535DriftResidualVsStepSizeViz() {
         </tbody>
       </table>
 
-      <p style={{ color: '#64748b', fontSize: '0.8rem', marginTop: '1rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontSize: '0.8rem', marginTop: '1rem' }}>
         The local slope sits at &asymp; 2.00 across the sweep (imp-34513 F2), confirming the raw
         residual is an O(h&sup2;) central-difference truncation floor. The green Richardson-floor
         line is the imp-34513 ladder-wide maximum after extrapolation ({richardson_collapse_factor.toFixed(0)}
@@ -229,14 +230,14 @@ export default function Imp34535DriftResidualVsStepSizeViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement / finite-difference
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> measurement / finite-difference
         diagnostic only, reproducing the imp-34513 cross-check. The component model is the inherited
         imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the -2 asymptote and C_C =
         (1/8)sqrt(3 pi) (imp-2714) ansatz are UNTOUCHED; the C_mb GUE-conditional share per imp-486 is

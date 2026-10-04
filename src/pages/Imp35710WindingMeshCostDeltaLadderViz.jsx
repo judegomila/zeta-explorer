@@ -5,9 +5,10 @@ import {
   IMP35710_DELTA_LADDER_ROWS,
   IMP35710_SUMMARY,
 } from '../data/imp-35710-winding-mesh-cost-delta-ladder-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
-const ASYMPTOTE_COLOR = '#f472b6';
-const CURVE_COLOR = '#38bdf8';
+const ASYMPTOTE_COLOR = ED.series7;
+const CURVE_COLOR = ED.series1;
 
 function BoundaryEvalsPerZeroChart({ rows, asymptote }) {
   const w = 720;
@@ -32,12 +33,12 @@ function BoundaryEvalsPerZeroChart({ rows, asymptote }) {
 
   return (
     <svg width={w} height={h} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={plotW} height={plotH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={plotW} height={plotH} fill={ED.paper} rx={2} />
 
       {[6, 9, 12, 15, 18].map((v) => (
         <g key={v}>
-          <line x1={padL} x2={padL + plotW} y1={yPix(v)} y2={yPix(v)} stroke="#1e293b" strokeWidth={0.7} />
-          <text x={padL - 8} y={yPix(v) + 3.5} textAnchor="end" fill="#64748b" fontSize={10}>
+          <line x1={padL} x2={padL + plotW} y1={yPix(v)} y2={yPix(v)} stroke={ED.ruleSoft} strokeWidth={0.7} />
+          <text x={padL - 8} y={yPix(v) + 3.5} textAnchor="end" fill={ED.inkFaint} fontSize={10}>
             {v}
           </text>
         </g>
@@ -60,20 +61,20 @@ function BoundaryEvalsPerZeroChart({ rows, asymptote }) {
       {rows.map((r) => (
         <g key={r.delta}>
           <circle cx={xPix(r.delta)} cy={yPix(r.boundaryEvalsPerZero)} r={3.5} fill={CURVE_COLOR} />
-          <text x={xPix(r.delta)} y={yPix(r.boundaryEvalsPerZero) - 10} textAnchor="middle" fill="#94a3b8" fontSize={9.5}>
+          <text x={xPix(r.delta)} y={yPix(r.boundaryEvalsPerZero) - 10} textAnchor="middle" fill={ED.inkSoft} fontSize={9.5}>
             {r.boundaryEvalsPerZero}
           </text>
-          <text x={xPix(r.delta)} y={padT + plotH + 16} textAnchor="middle" fill="#64748b" fontSize={10}>
+          <text x={xPix(r.delta)} y={padT + plotH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
             {r.delta}
           </text>
         </g>
       ))}
 
-      <rect x={padL} y={padT} width={plotW} height={plotH} fill="none" stroke="#334155" strokeWidth={1} />
-      <text x={14} y={padT + plotH / 2} textAnchor="middle" fill="#64748b" fontSize={10} transform={`rotate(-90,14,${padT + plotH / 2})`}>
+      <rect x={padL} y={padT} width={plotW} height={plotH} fill="none" stroke={ED.rule} strokeWidth={1} />
+      <text x={14} y={padT + plotH / 2} textAnchor="middle" fill={ED.inkFaint} fontSize={10} transform={`rotate(-90,14,${padT + plotH / 2})`}>
         boundary evals / enclosed zero
       </text>
-      <text x={padL + plotW / 2} y={h - 6} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + plotW / 2} y={h - 6} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         transition width &Delta; (log scale)
       </text>
     </svg>
@@ -84,7 +85,7 @@ function DeltaLadderTable({ rows }) {
   return (
     <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.8rem' }}>
       <thead>
-        <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+        <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
           <th style={{ padding: '0.4rem 0.6rem' }}>&Delta;</th>
           <th style={{ padding: '0.4rem 0.6rem' }}>enclosed zeros</th>
           <th style={{ padding: '0.4rem 0.6rem' }}>total boundary evals</th>
@@ -93,7 +94,7 @@ function DeltaLadderTable({ rows }) {
       </thead>
       <tbody>
         {rows.map((r) => (
-          <tr key={r.delta} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+          <tr key={r.delta} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.delta}</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.enclosedZeros}</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.totalEvals}</td>
@@ -110,7 +111,7 @@ export default function Imp35710WindingMeshCostDeltaLadderViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Winding-Barrier Mesh-Cost Delta-Ladder (imp-35710 / imp-35675)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
         imp-35675 measured the finite winding-barrier (B1) mesh cost at T_PT = 3&times;10<sup>12</sup>:
         boundary evaluations per enclosed zero across a transition-width &Delta; ladder
         {' '}{'{'}1, 2, 5, 10, 20, 50, 100{'}'}. No page rendered this Delta-ladder table before this
@@ -119,7 +120,7 @@ export default function Imp35710WindingMeshCostDeltaLadderViz() {
         panels/unit-height (imp-35653 Part C).
       </p>
 
-      <h3 style={{ color: '#cbd5e1', fontSize: '0.9rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.9rem', marginBottom: '0.5rem' }}>
         Boundary evaluations per enclosed zero vs transition width &Delta;
       </h3>
       <BoundaryEvalsPerZeroChart
@@ -131,7 +132,7 @@ export default function Imp35710WindingMeshCostDeltaLadderViz() {
         <DeltaLadderTable rows={IMP35710_DELTA_LADDER_ROWS} />
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.8rem', marginTop: '1rem' }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.8rem', marginTop: '1rem' }}>
         Cost is linear in &Delta;: total evals &asymp; {IMP35710_SUMMARY.slopePerUnitDelta.toFixed(2)}&nbsp;&Delta;{' '}
         + {IMP35710_SUMMARY.verticalIntercept.toFixed(2)}, while enclosed zeros scale as{' '}
         {IMP35710_SUMMARY.localDensityAtTPT.toFixed(2)}&nbsp;&Delta;. The ratio therefore decays
@@ -145,14 +146,14 @@ export default function Imp35710WindingMeshCostDeltaLadderViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation only of an
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> presentation only of an
         already-measured cost curve (imp-35675); adds no new Lambda bound and does not discharge
         the non-finite argument-principle tail lemma (imp-35653 Part D, work-item W3). NO QED.
       </div>

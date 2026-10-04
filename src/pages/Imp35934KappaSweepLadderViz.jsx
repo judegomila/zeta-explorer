@@ -6,10 +6,11 @@ import {
   IMP35934_KAPPA_RANGE,
   IMP35934_NAIVE_REL_GROWTH,
 } from '../data/imp-35934-kappa-sweep-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
-const NAIVE_COLOR = '#f87171';
-const PAIRWISE_COLOR = '#38bdf8';
-const KAHAN_COLOR = '#4ade80';
+const NAIVE_COLOR = ED.series2;
+const PAIRWISE_COLOR = ED.series1;
+const KAHAN_COLOR = ED.series3;
 
 function KappaSweepChart() {
   const w = 680;
@@ -38,14 +39,14 @@ function KappaSweepChart() {
 
   return (
     <svg width={w} height={h} style={{ display: 'block', maxWidth: '100%' }}>
-      <text x={padL} y={padT - 8} fill="#94a3b8" fontSize={11} fontWeight={700}>
+      <text x={padL} y={padT - 8} fill={ED.inkSoft} fontSize={11} fontWeight={700}>
         relative summation error vs kappa (log-log)
       </text>
 
       {yTicks.map((v) => (
         <g key={v}>
-          <line x1={padL} y1={yOf(10 ** v)} x2={padL + plotW} y2={yOf(10 ** v)} stroke="#1e293b" strokeWidth={0.7} />
-          <text x={padL - 6} y={yOf(10 ** v) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+          <line x1={padL} y1={yOf(10 ** v)} x2={padL + plotW} y2={yOf(10 ** v)} stroke={ED.ruleSoft} strokeWidth={0.7} />
+          <text x={padL - 6} y={yOf(10 ** v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             1e{v}
           </text>
         </g>
@@ -63,8 +64,8 @@ function KappaSweepChart() {
         </g>
       ))}
 
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <text x={padL + plotW / 2} y={h - 8} textAnchor="middle" fill="#64748b" fontSize={9}>
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <text x={padL + plotW / 2} y={h - 8} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
         kappa -- ~1 .. ~2e5 (Sum|t_k| / |Sum t_k|), N fixed at N_at_T_PT
       </text>
 
@@ -90,7 +91,7 @@ function SweepTable() {
   return (
     <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.8rem' }}>
       <thead>
-        <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+        <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
           <th style={{ padding: '0.4rem 0.6rem' }}>kappa</th>
           <th style={{ padding: '0.4rem 0.6rem', color: NAIVE_COLOR }}>naive rel</th>
           <th style={{ padding: '0.4rem 0.6rem', color: PAIRWISE_COLOR }}>pairwise rel</th>
@@ -99,7 +100,7 @@ function SweepTable() {
       </thead>
       <tbody>
         {IMP35934_KAPPA_SWEEP.map((p) => (
-          <tr key={p.kappa} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+          <tr key={p.kappa} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>
               {p.kappa.toExponential(2)}
               {p.label ? ` (${p.label})` : ''}
@@ -119,7 +120,7 @@ export default function Imp35934KappaSweepLadderViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Summation-Scheme Error vs Condition Number kappa (imp-35934 / imp-35854)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
         imp-35854 swept the imp-35812 oscillatory-sum constants (alpha,&nbsp;beta) so the measured
         condition number kappa&nbsp;=&nbsp;Sum|t_k|&nbsp;/&nbsp;|Sum&nbsp;t_k| ladders across
         ~{IMP35934_KAPPA_RANGE.decades.toFixed(1)}&nbsp;decades (kappa&nbsp;~&nbsp;1&nbsp;to&nbsp;~2e5)
@@ -134,7 +135,7 @@ export default function Imp35934KappaSweepLadderViz() {
         <SweepTable />
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.8rem', marginTop: '1rem' }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.8rem', marginTop: '1rem' }}>
         The naive relative error grows with kappa but FAR SUBLINEARLY -- only
         ~{IMP35934_NAIVE_REL_GROWTH.decades.toFixed(1)}&nbsp;decades of relative-error growth across
         ~{IMP35934_NAIVE_REL_GROWTH.kappaDecades.toFixed(1)}&nbsp;decades of kappa -- REFINING (not
@@ -148,14 +149,14 @@ export default function Imp35934KappaSweepLadderViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation only of the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> presentation only of the
         already-derived imp-35854 exact-BigInt-referenced kappa-sweep measurement (no new
         derivation, no heavy data-module import, no re-running the summation schemes at page load);
         measurement only; certifies no W1 bound; evaluates no true H&#8320;; instantiates no

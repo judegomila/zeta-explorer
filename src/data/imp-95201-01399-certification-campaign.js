@@ -165,7 +165,7 @@ export const TRANSFER_LEDGER = Object.freeze([
   }),
   Object.freeze({
     asset: 'Prop 4.3 effective collar + Lean interfaces',
-    transfers: 'the collar test M_t|dt| + M_y|dy| < m for endpoint robustness, and formalization/lean-aristotle verified-interface conventions for the criterion-weld reduction (the four-gate reduction was Lean-checked)',
+    transfers: 'the collar test M_t|dt| + M_y|dy| < m for endpoint robustness, and formalization/lean-aristotle verified-interface conventions for the criterion-weld reduction (in the four-gate package the y-transfer reduction and Lemma B3 were Lean-checked)',
     reparametrize: 'collar constants (m, M_t, M_y) measured on the new box',
   }),
 ]);
@@ -259,7 +259,7 @@ export const CAMPAIGN_TASKS = Object.freeze([
     lane: 'assembly',
     title: 'Criterion weld + collar + Lean interface + seal',
     what: 'exact Polymath-criterion substitution (Theorem 4.5 assembly), Prop 4.3 collar constants (m, M_t, M_y) on the new box for endpoint robustness, Lean-checked reduction via formalization/lean-aristotle, SHA256-sealed replay package',
-    transfers: ['v3 three-hypothesis weld conventions', 'four-gate Lean-checked-reduction pattern', 'Prop 4.3 collar'],
+    transfers: ['v3 three-hypothesis weld conventions', 'four-gate pattern (y-transfer reduction and Lemma B3 Lean-checked)', 'Prop 4.3 collar'],
     genuinelyNew: ['nothing mathematical; packaging and formal interface only'],
     computeScale: 'no heavy compute; ~2-4 weeks',
     tests: ['K4', 'K5'],

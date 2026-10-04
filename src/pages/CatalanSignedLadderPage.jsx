@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import PostLayout, { TheoremBox, Pull } from '../components/editorial/PostLayout.jsx';
 import WireframeAnim from '../components/editorial/WireframeAnim.jsx';
 import { CATALAN_SIGNED_LADDER as D } from '../data/catalan-signed-ladder.js';
+import { ED } from '../styles/tokens.js';
 
 /* Editorial presentation of the signed-ladder ↔ Catalan correspondence and the
    period-dimension obstruction. All mathematical content is sourced from
@@ -14,8 +15,8 @@ function DimTag({ n }) {
   return (
     <span className="ed-mono" style={{
       fontSize: 11, fontWeight: 700, padding: '0 6px', borderRadius: 4,
-      color: bad ? '#c23a1c' : '#4c7a4a',
-      border: `1px solid ${bad ? '#c23a1c' : '#4c7a4a'}`,
+      color: bad ? 'var(--accent)' : 'var(--series-3)',
+      border: `1px solid ${bad ? ED.series2 : ED.series3}`,
     }}>dim {n}</span>
   );
 }
@@ -27,7 +28,7 @@ export default function CatalanSignedLadderPage() {
       meta={[D.status]}
       title={D.title}
       dek={D.oneLine}
-      byline={['signed twin ladder · mathexplorer', 'G irrationality open']}
+      byline={['signed twin ladder · zetaexplorer', 'G irrationality open']}
       ticker={<span>χ₄ = the signed flip · G = β(2) = L(2,χ₄) · irrationality OPEN</span>}
       footer={<>
         Related: <Link to="/irrationality-pipeline">The irrationality pipeline</Link>
@@ -59,14 +60,14 @@ export default function CatalanSignedLadderPage() {
       <h2>{D.contrast.heading}</h2>
       <p>{D.contrast.device}</p>
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', margin: '1.25rem 0' }}>
-        <div className="ed-thm" style={{ borderLeftColor: '#4c7a4a' }}>
+        <div className="ed-thm" style={{ borderLeftColor: 'var(--series-3)' }}>
           <div className="tlab">ζ-world kernel — <DimTag n={D.contrast.zeta2.dim} /></div>
           <p className="ed-mono" style={{ fontSize: 14 }}>{D.contrast.zeta2.kernel}</p>
           <p className="ed-mono" style={{ fontSize: 15, fontWeight: 700 }}>{D.contrast.zeta2.value}</p>
           <p style={{ fontSize: 13, color: 'var(--faint)' }}>{D.contrast.zeta2.derivation}</p>
           <p style={{ fontSize: 13.5 }}>period space {D.contrast.zeta2.space} · {D.contrast.zeta2.verdict}</p>
         </div>
-        <div className="ed-thm" style={{ borderLeftColor: '#c23a1c' }}>
+        <div className="ed-thm" style={{ borderLeftColor: 'var(--accent)' }}>
           <div className="tlab">signed kernel — <DimTag n={D.contrast.catalan.dim} /></div>
           <p className="ed-mono" style={{ fontSize: 14 }}>{D.contrast.catalan.kernel}</p>
           <p className="ed-mono" style={{ fontSize: 15, fontWeight: 700 }}>{D.contrast.catalan.value}</p>
@@ -95,8 +96,8 @@ export default function CatalanSignedLadderPage() {
         {D.piColumn.mechanisms.map((m) => (
           <div key={m.name} style={{ borderLeft: '3px solid var(--hairline)', paddingLeft: 12, marginBottom: 12 }}>
             <div className="ed-mono" style={{ fontWeight: 700, fontSize: 13.5 }}>{m.name}</div>
-            <div style={{ fontSize: 13.5, color: '#4c7a4a' }}>gets: {m.gets}</div>
-            <div style={{ fontSize: 13.5, color: '#c23a1c' }}>stalls: {m.stall}</div>
+            <div style={{ fontSize: 13.5, color: 'var(--series-3)' }}>gets: {m.gets}</div>
+            <div style={{ fontSize: 13.5, color: 'var(--accent)' }}>stalls: {m.stall}</div>
           </div>
         ))}
       </div>

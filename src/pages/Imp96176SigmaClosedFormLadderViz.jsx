@@ -1,10 +1,11 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP96176_SIGMA_CLOSED_FORM_LADDER_VIZ as V } from '../data/imp-96176-sigma-closed-form-ladder-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 function RampTable() {
   return (
-    <table style={{ borderCollapse: 'collapse', fontSize: '0.82rem', color: '#94a3b8' }}>
+    <table style={{ borderCollapse: 'collapse', fontSize: '0.82rem', color: 'var(--ink-soft)' }}>
       <thead>
         <tr>
           {['decade', 'p_full', 'p_closed_form'].map((h) => (
@@ -13,8 +14,8 @@ function RampTable() {
               style={{
                 textAlign: 'right',
                 padding: '4px 12px',
-                borderBottom: '1px solid #334155',
-                color: '#64748b',
+                borderBottom: '1px solid var(--rule)',
+                color: 'var(--ink-faint)',
                 fontWeight: 600,
               }}
             >
@@ -66,35 +67,35 @@ function UShapeChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
-      <polyline points={fullPts.join(' ')} fill="none" stroke="#38bdf8" strokeWidth={2} />
-      <polyline points={cfPts.join(' ')} fill="none" stroke="#f87171" strokeWidth={2} strokeDasharray="4,2" />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
+      <polyline points={fullPts.join(' ')} fill="none" stroke={ED.series1} strokeWidth={2} />
+      <polyline points={cfPts.join(' ')} fill="none" stroke={ED.series2} strokeWidth={2} strokeDasharray="4,2" />
       <line
         x1={xS(peakK)}
         y1={padT}
         x2={xS(peakK)}
         y2={padT + cH}
-        stroke="#4ade80"
+        stroke={ED.series3}
         strokeWidth={1}
         strokeDasharray="2,2"
         opacity={0.6}
       />
-      <text x={xS(peakK)} y={padT + cH + 14} textAnchor="middle" fill="#4ade80" fontSize={9}>
+      <text x={xS(peakK)} y={padT + cH + 14} textAnchor="middle" fill={ED.series3} fontSize={9}>
         imp-3220 peak (N&asymp;9.22e5)
       </text>
       {[2, 4, 6, 8, 10, 12].map((k) => (
-        <text key={k} x={xS(k)} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={9}>
+        <text key={k} x={xS(k)} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
           1e{k}
         </text>
       ))}
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
-      <text x={svgW - padR - 4} y={padT + 12} textAnchor="end" fill="#38bdf8" fontSize={9}>
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
+      <text x={svgW - padR - 4} y={padT + 12} textAnchor="end" fill={ED.series1} fontSize={9}>
         sigma_full (U-shape)
       </text>
-      <text x={svgW - padR - 4} y={padT + 24} textAnchor="end" fill="#f87171" fontSize={9}>
+      <text x={svgW - padR - 4} y={padT + 24} textAnchor="end" fill={ED.series2} fontSize={9}>
         sigma_CF (monotone)
       </text>
-      <text x={padL + cW / 2} y={svgH - padB + 24} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - padB + 24} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         {V.axisLabel}
       </text>
     </svg>
@@ -106,7 +107,7 @@ export default function Imp96176SigmaClosedFormLadderViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Closed-Form Conditional-Share Ladder (imp-96151 / imp-96176)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-96151 promoted the imp-33723 closed-form crossover N_cross &asymp;{' '}
         {V.N_cross.toExponential(3)} to a two-term analytic share model sigma_CF(N) and tested
         it against the full three-term conditional share sigma_full(N) over the imp-3220
@@ -115,14 +116,14 @@ export default function Imp96176SigmaClosedFormLadderViz() {
         by construction.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         Schematic: full share (U-shape) vs. closed-form share (monotone right-arm only)
       </p>
       <UShapeChart />
 
       <p
         style={{
-          color: '#64748b',
+          color: 'var(--ink-faint)',
           fontWeight: 700,
           fontSize: '0.82rem',
           marginTop: '1.5rem',
@@ -137,14 +138,14 @@ export default function Imp96176SigmaClosedFormLadderViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> the blue curve
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> the blue curve
         (sigma_full) rises then falls, carrying the imp-3220 interior peak; the red dashed curve
         (sigma_CF) is strictly monotone decreasing across the whole range and reproduces only
         the post-peak right arm. Past 1e12 the table shows the two per-decade exponents match to
@@ -156,14 +157,14 @@ export default function Imp96176SigmaClosedFormLadderViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation/measurement only —
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> presentation/measurement only —
         renders the frozen imp-96151 closed-form-vs-full share comparison verbatim (no
         re-derivation, no fresh term). The component model is the inherited
         imp-3220/imp-3406/imp-33723 extrapolation, not a rigorous asymptotic; the C_mb

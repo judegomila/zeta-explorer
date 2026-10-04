@@ -10,6 +10,7 @@ import {
   IMP96320_HONEST_BANNER,
 } from '../data/imp-96320-route-l-reach-band-viz-data.js';
 import { IMP96310_FEASIBILITY_HEIGHT } from '../data/imp-96310-route-l-feasibility-height.js';
+import { ED } from '../styles/tokens.js';
 
 function ReachBandChart() {
   const svgW = 680;
@@ -35,8 +36,8 @@ function ReachBandChart() {
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
       {xTicks.map((v) => (
         <g key={`x${v}`}>
-          <line x1={xOf(v)} y1={padT} x2={xOf(v)} y2={padT + plotH} stroke="#334155" strokeWidth={0.5} opacity={0.3} />
-          <text x={xOf(v)} y={padT + plotH + 14} textAnchor="middle" fill="#64748b" fontSize={8}>
+          <line x1={xOf(v)} y1={padT} x2={xOf(v)} y2={padT + plotH} stroke={ED.rule} strokeWidth={0.5} opacity={0.3} />
+          <text x={xOf(v)} y={padT + plotH + 14} textAnchor="middle" fill={ED.inkFaint} fontSize={8}>
             {`1e${v}`}
           </text>
         </g>
@@ -48,7 +49,7 @@ function ReachBandChart() {
         y={band95Y0}
         width={xOf(IMP96320_BAND95.hiLog10) - xOf(IMP96320_BAND95.loLog10)}
         height={band95H}
-        fill="#38bdf8"
+        fill={ED.series1}
         opacity={0.14}
       />
       {/* 1-sigma envelope */}
@@ -57,11 +58,11 @@ function ReachBandChart() {
         y={band1sY0}
         width={xOf(IMP96320_BAND1SIGMA.hiLog10) - xOf(IMP96320_BAND1SIGMA.loLog10)}
         height={band1sH}
-        fill="#38bdf8"
+        fill={ED.series1}
         opacity={0.30}
       />
 
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
 
       {/* PT height point estimate */}
       <line
@@ -69,28 +70,28 @@ function ReachBandChart() {
         y1={band95Y0 - 6}
         x2={xOf(IMP96320_POINT_ESTIMATE.log10)}
         y2={band95Y0 + band95H + 6}
-        stroke="#facc15"
+        stroke={ED.brassDeco}
         strokeWidth={2}
       />
 
       {/* three source point estimates */}
       {IMP96320_SOURCE_POINTS.map((p) => (
-        <circle key={p.label} cx={xOf(p.log10)} cy={midY} r={3} fill="#f472b6" />
+        <circle key={p.label} cx={xOf(p.log10)} cy={midY} r={3} fill={ED.series7} />
       ))}
 
-      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill="#64748b" fontSize={9.5}>
+      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5}>
         reach N at the Platt-Trudgian height T0 = {IMP96320_T0.value.toExponential(4)} (log10 scale)
       </text>
 
       <g transform={`translate(${padL + 8}, ${padT})`}>
-        <rect x={0} y={0} width={14} height={9} fill="#38bdf8" opacity={0.14} />
-        <text x={19} y={8} fill="#94a3b8" fontSize={8}>95% band [{IMP96320_BAND95.lo.toExponential(2)}, {IMP96320_BAND95.hi.toExponential(2)}]</text>
-        <rect x={0} y={13} width={14} height={9} fill="#38bdf8" opacity={0.30} />
-        <text x={19} y={21} fill="#94a3b8" fontSize={8}>1-sigma band [{IMP96320_BAND1SIGMA.lo.toExponential(2)}, {IMP96320_BAND1SIGMA.hi.toExponential(2)}]</text>
-        <line x1={4} y1={30} x2={4} y2={38} stroke="#facc15" strokeWidth={2} />
-        <text x={19} y={37} fill="#94a3b8" fontSize={8}>point estimate ~{IMP96320_POINT_ESTIMATE.value.toExponential(0)}</text>
-        <circle cx={7} cy={45} r={3} fill="#f472b6" />
-        <text x={19} y={48} fill="#94a3b8" fontSize={8}>source point estimates (detector, Christoffel, pooled)</text>
+        <rect x={0} y={0} width={14} height={9} fill={ED.series1} opacity={0.14} />
+        <text x={19} y={8} fill={ED.inkSoft} fontSize={8}>95% band [{IMP96320_BAND95.lo.toExponential(2)}, {IMP96320_BAND95.hi.toExponential(2)}]</text>
+        <rect x={0} y={13} width={14} height={9} fill={ED.series1} opacity={0.30} />
+        <text x={19} y={21} fill={ED.inkSoft} fontSize={8}>1-sigma band [{IMP96320_BAND1SIGMA.lo.toExponential(2)}, {IMP96320_BAND1SIGMA.hi.toExponential(2)}]</text>
+        <line x1={4} y1={30} x2={4} y2={38} stroke={ED.brassDeco} strokeWidth={2} />
+        <text x={19} y={37} fill={ED.inkSoft} fontSize={8}>point estimate ~{IMP96320_POINT_ESTIMATE.value.toExponential(0)}</text>
+        <circle cx={7} cy={45} r={3} fill={ED.series7} />
+        <text x={19} y={48} fill={ED.inkSoft} fontSize={8}>source point estimates (detector, Christoffel, pooled)</text>
       </g>
     </svg>
   );
@@ -105,18 +106,18 @@ export default function Imp96320RouteLReachBandViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 760,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> {IMP96320_HONEST_BANNER}
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> {IMP96320_HONEST_BANNER}
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
         imp-96269 reported three Route L reach extrapolations at the Platt-Trudgian height
         (detector, Christoffel, baked pooled) that agree as point estimates to within a factor
         2.18, all near N ~ 1e15. imp-96287 propagated the log-log fit-parameter covariance
@@ -124,7 +125,7 @@ export default function Imp96320RouteLReachBandViz() {
         band is far wider than the point-estimate spread suggests.
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         Point estimate vs covariance-propagated bands (log scale)
       </h3>
       <ReachBandChart />
@@ -133,14 +134,14 @@ export default function Imp96320RouteLReachBandViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> the three pink dots are
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> the three pink dots are
         the point extrapolations (detector, Christoffel, baked pooled), all clustered near the
         yellow reported reach line at ~1e15. The dark-blue band is the 1-sigma envelope
         [{IMP96320_BAND1SIGMA.lo.toExponential(2)}, {IMP96320_BAND1SIGMA.hi.toExponential(2)}]; the
@@ -154,14 +155,14 @@ export default function Imp96320RouteLReachBandViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
         }}
       >
-        <strong style={{ color: '#f87171' }}>imp-96310 feasibility-height check:</strong> at no
+        <strong style={{ color: 'var(--series-2)' }}>imp-96310 feasibility-height check:</strong> at no
         feasible accessible-N does the reach reach the verified height. Even at the extreme
         feasibility ceiling N = {IMP96310_FEASIBILITY_HEIGHT.extremeFeasibilityCeiling.toExponential(0)} (the
         SOTA computed-zeros count), the inverted reach fit gives &gamma;_max ={' '}
@@ -177,14 +178,14 @@ export default function Imp96320RouteLReachBandViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page consuming the imp-96287
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the imp-96287
         baked covariance-propagated band literals verbatim (only the log10 axis reshaping is
         computed here). Derivation on baked literals only; changes no bound; RH open;
         Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. NO QED.

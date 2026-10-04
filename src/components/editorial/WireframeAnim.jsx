@@ -1,4 +1,5 @@
 import React from 'react';
+import { ED } from '../../styles/tokens.js';
 
 /* Wireframe-style animated SVG figures for the editorial simulator pages.
    Hairline line-art in the warm palette, animated with self-contained SMIL
@@ -21,11 +22,11 @@ import React from 'react';
    flow of x²−a², log p, the pair-correlation kernel), not drawn by hand.
    Colors: --brass #8c6a1d, --terra #d9502e, hairline #d5c9b2, faint #877b67 */
 
-const BRASS = '#8c6a1d';
-const TERRA = '#d9502e';
-const HAIR = '#d5c9b2';
-const FAINT = '#877b67';
-const INK = '#2c261c';
+const BRASS = ED.brass;
+const TERRA = ED.accentDeco;
+const HAIR = ED.rule;
+const FAINT = ED.inkFaint;
+const INK = ED.ink;
 
 // Build a sine polyline over [0, width] with n full periods, sampled every step px.
 function sinePath(width, mid, amp, periods, phase = 0, step = 6) {
@@ -41,7 +42,7 @@ function Frame({ children }) {
   return (
     <svg width="100%" viewBox="0 0 320 160" preserveAspectRatio="xMidYMid meet"
       style={{ display: 'block' }} role="img" aria-hidden="true">
-      <rect width="320" height="160" fill="#fdfaf3" />
+      <rect width="320" height="160" fill={ED.paper} />
       {children}
     </svg>
   );
@@ -191,7 +192,7 @@ function CriticalStrip() {
   return (
     <Frame>
       {/* the critical strip 0<Re<1 */}
-      <rect x={xOf(0)} y="14" width={xOf(1) - xOf(0)} height={148 - 14} fill="#f4ecda" opacity="0.7" />
+      <rect x={xOf(0)} y="14" width={xOf(1) - xOf(0)} height={148 - 14} fill={ED.paper2} opacity="0.7" />
       <line x1={xOf(0)} y1="14" x2={xOf(0)} y2="148" stroke={HAIR} strokeWidth="1" />
       <line x1={xOf(1)} y1="14" x2={xOf(1)} y2="148" stroke={HAIR} strokeWidth="1" />
       {/* real axis t=0 */}
@@ -244,7 +245,7 @@ function ZetaZeroVortex() {
         <line x1={cx} y1={cy} x2={cx + 34} y2={cy} stroke={INK} strokeWidth="1.4" />
         <animateTransform attributeName="transform" type="rotate" from={`0 ${cx} ${cy}`} to={`360 ${cx} ${cy}`} dur="6s" repeatCount="indefinite" />
       </g>
-      <circle cx={cx} cy={cy} r="4.5" fill="#fdfaf3" stroke={INK} strokeWidth="1.3" />
+      <circle cx={cx} cy={cy} r="4.5" fill={ED.paper} stroke={INK} strokeWidth="1.3" />
       <text x={cx} y="12" fontFamily="IBM Plex Mono" fontSize="8" fill={INK} textAnchor="middle">arg(s − ρ) — winding = 1</text>
     </Frame>
   );
@@ -360,7 +361,7 @@ function ContourWinding() {
   const rectPath = `M${L} ${T} L${R} ${T} L${R} ${B} L${L} ${B} Z`;
   return (
     <Frame>
-      <rect x={L} y={T} width={R - L} height={B - T} fill="#f4ecda" opacity="0.5" />
+      <rect x={L} y={T} width={R - L} height={B - T} fill={ED.paper2} opacity="0.5" />
       <path d={rectPath} fill="none" stroke={BRASS} strokeWidth="1.6" strokeDasharray="7 4">
         <animate attributeName="stroke-dashoffset" from="0" to="-22" dur="1.2s" repeatCount="indefinite" />
       </path>
@@ -502,7 +503,7 @@ function DeBruijnTrack() {
   return (
     <Frame>
       {/* proven corridor 0 ≤ Λ ≤ 0.2 */}
-      <rect x={px(0)} y={y - 6} width={px(0.2) - px(0)} height="12" fill="#f4ecda" opacity="0.9" />
+      <rect x={px(0)} y={y - 6} width={px(0.2) - px(0)} height="12" fill={ED.paper2} opacity="0.9" />
       <line x1={x0} y1={y} x2={x0 + xW} y2={y} stroke={HAIR} strokeWidth="1.4" />
       {/* the number line ticks */}
       {[-0.05, 0, 0.05, 0.1, 0.15, 0.2, 0.25].map((v) => (

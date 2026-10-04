@@ -6,6 +6,7 @@ import {
   IMP96604_GAP_SUMMARY,
   IMP96604_HONEST_BANNER,
 } from '../data/imp-96604-lammax-normalized-ratio-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 // log-N x-axis, two normalized ratio series on the y-axis (lam_max/log N in
 // sky-blue, lam_max/trace in amber), each with a dashed horizontal line at
@@ -36,20 +37,20 @@ function RatioPanel() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
       {yTicks.map((v) => (
         <g key={`y${v.toFixed(3)}`}>
-          <line x1={padL - 4} y1={yOf(v)} x2={padL} y2={yOf(v)} stroke="#334155" strokeWidth={1} />
-          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={8.5}>
+          <line x1={padL - 4} y1={yOf(v)} x2={padL} y2={yOf(v)} stroke={ED.rule} strokeWidth={1} />
+          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8.5}>
             {v.toFixed(2)}
           </text>
         </g>
       ))}
       {rows.map((r) => (
         <g key={`x${r.N}`}>
-          <line x1={xOf(r.logN)} y1={padT + plotH} x2={xOf(r.logN)} y2={padT + plotH + 4} stroke="#334155" strokeWidth={1} />
-          <text x={xOf(r.logN)} y={padT + plotH + 15} textAnchor="middle" fill="#64748b" fontSize={8}>
+          <line x1={xOf(r.logN)} y1={padT + plotH} x2={xOf(r.logN)} y2={padT + plotH + 4} stroke={ED.rule} strokeWidth={1} />
+          <text x={xOf(r.logN)} y={padT + plotH + 15} textAnchor="middle" fill={ED.inkFaint} fontSize={8}>
             {r.N}
           </text>
         </g>
@@ -61,11 +62,11 @@ function RatioPanel() {
         y1={yOf(IMP96604_TARGETS.lamMaxOverLogNTarget)}
         x2={padL + plotW}
         y2={yOf(IMP96604_TARGETS.lamMaxOverLogNTarget)}
-        stroke="#38bdf8"
+        stroke={ED.series1}
         strokeWidth={1}
         strokeDasharray="4 3"
       />
-      <text x={padL + plotW + 6} y={yOf(IMP96604_TARGETS.lamMaxOverLogNTarget) + 3} fill="#38bdf8" fontSize={8}>
+      <text x={padL + plotW + 6} y={yOf(IMP96604_TARGETS.lamMaxOverLogNTarget) + 3} fill={ED.series1} fontSize={8}>
         target 0.3526
       </text>
       <line
@@ -73,11 +74,11 @@ function RatioPanel() {
         y1={yOf(IMP96604_TARGETS.lamMaxOverTraceTarget)}
         x2={padL + plotW}
         y2={yOf(IMP96604_TARGETS.lamMaxOverTraceTarget)}
-        stroke="#facc15"
+        stroke={ED.brassDeco}
         strokeWidth={1}
         strokeDasharray="4 3"
       />
-      <text x={padL + plotW + 6} y={yOf(IMP96604_TARGETS.lamMaxOverTraceTarget) + 3} fill="#facc15" fontSize={8}>
+      <text x={padL + plotW + 6} y={yOf(IMP96604_TARGETS.lamMaxOverTraceTarget) + 3} fill={ED.brass} fontSize={8}>
         target 0.2797
       </text>
 
@@ -85,28 +86,28 @@ function RatioPanel() {
       <polyline
         points={rows.map((r) => `${xOf(r.logN)},${yOf(r.lamMaxOverLogN)}`).join(' ')}
         fill="none"
-        stroke="#38bdf8"
+        stroke={ED.series1}
         strokeWidth={1.4}
       />
       {rows.map((r) => (
-        <circle key={`a${r.N}`} cx={xOf(r.logN)} cy={yOf(r.lamMaxOverLogN)} r={3.5} fill="#38bdf8" />
+        <circle key={`a${r.N}`} cx={xOf(r.logN)} cy={yOf(r.lamMaxOverLogN)} r={3.5} fill={ED.series1} />
       ))}
 
       {/* lam_max/trace series */}
       <polyline
         points={rows.map((r) => `${xOf(r.logN)},${yOf(r.lamMaxOverTrace)}`).join(' ')}
         fill="none"
-        stroke="#facc15"
+        stroke={ED.brassDeco}
         strokeWidth={1.4}
       />
       {rows.map((r) => (
-        <circle key={`b${r.N}`} cx={xOf(r.logN)} cy={yOf(r.lamMaxOverTrace)} r={3.5} fill="#facc15" />
+        <circle key={`b${r.N}`} cx={xOf(r.logN)} cy={yOf(r.lamMaxOverTrace)} r={3.5} fill={ED.brassDeco} />
       ))}
 
-      <text x={padL + plotW / 2} y={padT + plotH + 34} textAnchor="middle" fill="#94a3b8" fontSize={9}>
+      <text x={padL + plotW / 2} y={padT + plotH + 34} textAnchor="middle" fill={ED.inkSoft} fontSize={9}>
         N
       </text>
-      <text x={16} y={padT + plotH / 2} fill="#94a3b8" fontSize={9} transform={`rotate(-90 16 ${padT + plotH / 2})`}>
+      <text x={16} y={padT + plotH / 2} fill={ED.inkSoft} fontSize={9} transform={`rotate(-90 16 ${padT + plotH / 2})`}>
         ratio
       </text>
     </svg>
@@ -122,18 +123,18 @@ export default function Imp96604LammaxNormalizedRatioViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> {IMP96604_HONEST_BANNER}
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> {IMP96604_HONEST_BANNER}
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-96562 asked whether either normalized candidate for the measured Vasyunin Gram lam_max
         log-slope 0.3526 is close enough to its asymptotic target to be read off numerically. Both
         series fall toward their target across N=250..6000 but remain far short: lam_max/log N goes
@@ -143,7 +144,7 @@ export default function Imp96604LammaxNormalizedRatioViz() {
         {' '}(target {IMP96604_GAP_SUMMARY.lamMaxOverTrace.target.toFixed(4)}).
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         Two normalized ratios vs N, with their asymptotic targets
       </h3>
       <RatioPanel />
@@ -152,14 +153,14 @@ export default function Imp96604LammaxNormalizedRatioViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> the sky-blue curve is
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> the sky-blue curve is
         lam_max/log N descending toward its dashed target line at 0.3526; the amber curve is
         lam_max/trace descending toward its dashed target line at 0.2797. At the top rung N=6000
         the blue curve sits at {IMP96604_GAP_SUMMARY.lamMaxOverLogN.lastOverTarget.toFixed(2)}x its
@@ -172,14 +173,14 @@ export default function Imp96604LammaxNormalizedRatioViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page consuming the imp-96604
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the imp-96604
         viz-data (ratio series reshaped verbatim from imp-96562). {IMP96604_HONEST_BANNER}
       </div>
     </div>

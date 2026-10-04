@@ -8,9 +8,10 @@ import {
   fullProofCheck,
 } from '../math/proof-checker.js';
 import { ZETA_ZEROS, zetaCriticalStrip, cAbs } from '../math/zeta.js';
+import { ED, alpha } from '../styles/tokens.js';
 
 const TABS = ['Identity Tests', 'D-H Counterexample', 'Logic Gaps', 'Full Report'];
-const TAB_COLORS = ['#10b981', '#ef4444', '#f59e0b', '#8b5cf6'];
+const TAB_COLORS = [ED.series3, ED.series2, ED.series4, ED.series5];
 
 const statusBadge = (pass, label) => (
   <span style={{
@@ -20,9 +21,9 @@ const statusBadge = (pass, label) => (
     fontSize: 11,
     fontWeight: 600,
     fontFamily: 'var(--font-mono)',
-    background: pass ? 'rgba(16, 185, 129, 0.15)' : 'rgba(239, 68, 68, 0.15)',
-    color: pass ? '#10b981' : '#ef4444',
-    border: `1px solid ${pass ? '#10b98140' : '#ef444440'}`,
+    background: pass ? 'color-mix(in srgb, var(--series-3) 15%, transparent)' : 'color-mix(in srgb, var(--series-2) 15%, transparent)',
+    color: pass ? 'var(--series-3)' : 'var(--series-2)',
+    border: `1px solid ${pass ? alpha(ED.series3, 0.25) : alpha(ED.series2, 0.25)}`,
   }}>{label || (pass ? 'PASS' : 'FAIL')}</span>
 );
 
@@ -34,21 +35,21 @@ const warnBadge = (label) => (
     fontSize: 11,
     fontWeight: 600,
     fontFamily: 'var(--font-mono)',
-    background: 'rgba(245, 158, 11, 0.15)',
-    color: '#f59e0b',
-    border: '1px solid #f59e0b40',
+    background: 'color-mix(in srgb, var(--brass-deco) 15%, transparent)',
+    color: 'var(--brass)',
+    border: '1px solid color-mix(in srgb, var(--brass-deco) 25%, transparent)',
   }}>{label || 'WARN'}</span>
 );
 
 const strengthBadge = (strength) => {
   const colors = {
-    proof: '#10b981',
-    strong: '#3b82f6',
-    weak: '#f59e0b',
-    circular: '#ef4444',
-    false: '#ef4444',
+    proof: ED.series3,
+    strong: ED.series1,
+    weak: ED.series4,
+    circular: ED.series2,
+    false: ED.series2,
   };
-  const c = colors[strength] || '#64748b';
+  const c = colors[strength] || ED.series8;
   return (
     <span style={{
       display: 'inline-block',
@@ -122,10 +123,10 @@ function IdentityTestsTab({ numPrimes }) {
         fontFamily: 'var(--font-mono)',
       }}>
         <thead>
-          <tr style={{ borderBottom: '1px solid #1e293b' }}>
+          <tr style={{ borderBottom: '1px solid var(--rule-soft)' }}>
             {['Test', 'Points', 'Max Error', 'Status'].map(h => (
               <th key={h} style={{
-                padding: '8px 12px', textAlign: 'left', color: '#64748b',
+                padding: '8px 12px', textAlign: 'left', color: 'var(--ink-faint)',
                 fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.5px',
               }}>{h}</th>
             ))}
@@ -137,19 +138,19 @@ function IdentityTestsTab({ numPrimes }) {
               <tr
                 onClick={() => setExpandedRow(expandedRow === i ? null : i)}
                 style={{
-                  cursor: 'pointer', borderBottom: '1px solid #1e293b',
-                  background: expandedRow === i ? '#0f1225' : 'transparent',
+                  cursor: 'pointer', borderBottom: '1px solid var(--rule-soft)',
+                  background: expandedRow === i ? 'var(--paper-2)' : 'transparent',
                 }}
               >
-                <td style={{ padding: '10px 12px', color: '#e2e8f0' }}>
+                <td style={{ padding: '10px 12px', color: 'var(--ink)' }}>
                   <span style={{
-                    display: 'inline-block', marginRight: 6, fontSize: 10, color: '#64748b',
+                    display: 'inline-block', marginRight: 6, fontSize: 10, color: 'var(--ink-faint)',
                     transition: 'transform 0.2s', transform: expandedRow === i ? 'rotate(90deg)' : 'rotate(0)',
                   }}>&#9654;</span>
                   {row.name}
                 </td>
-                <td style={{ padding: '10px 12px', color: '#94a3b8' }}>{row.points}</td>
-                <td style={{ padding: '10px 12px', color: '#94a3b8' }}>
+                <td style={{ padding: '10px 12px', color: 'var(--ink-soft)' }}>{row.points}</td>
+                <td style={{ padding: '10px 12px', color: 'var(--ink-soft)' }}>
                   {row.maxError != null ? row.maxError.toExponential(3) : '--'}
                 </td>
                 <td style={{ padding: '10px 12px' }}>
@@ -158,51 +159,51 @@ function IdentityTestsTab({ numPrimes }) {
               </tr>
               {expandedRow === i && (
                 <tr>
-                  <td colSpan={4} style={{ padding: '12px 16px', background: '#0a0e1a' }}>
+                  <td colSpan={4} style={{ padding: '12px 16px', background: 'var(--paper)' }}>
                     {row.verdict && (
                       <div style={{
-                        padding: '8px 12px', background: '#0f1225', borderRadius: 6,
-                        fontSize: 11, color: '#94a3b8', marginBottom: 10, lineHeight: 1.6,
+                        padding: '8px 12px', background: 'var(--paper-2)', borderRadius: 6,
+                        fontSize: 11, color: 'var(--ink-soft)', marginBottom: 10, lineHeight: 1.6,
                       }}>{row.verdict}</div>
                     )}
                     <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 11 }}>
                       <thead>
-                        <tr style={{ borderBottom: '1px solid #1e293b' }}>
-                          <th style={{ padding: '4px 8px', textAlign: 'left', color: '#64748b' }}>#</th>
+                        <tr style={{ borderBottom: '1px solid var(--rule-soft)' }}>
+                          <th style={{ padding: '4px 8px', textAlign: 'left', color: 'var(--ink-faint)' }}>#</th>
                           {row.name === 'Functional Equation' && (
                             <>
-                              <th style={{ padding: '4px 8px', textAlign: 'left', color: '#64748b' }}>s</th>
-                              <th style={{ padding: '4px 8px', textAlign: 'left', color: '#64748b' }}>Rel. Error</th>
-                              <th style={{ padding: '4px 8px', textAlign: 'left', color: '#64748b' }}>Status</th>
+                              <th style={{ padding: '4px 8px', textAlign: 'left', color: 'var(--ink-faint)' }}>s</th>
+                              <th style={{ padding: '4px 8px', textAlign: 'left', color: 'var(--ink-faint)' }}>Rel. Error</th>
+                              <th style={{ padding: '4px 8px', textAlign: 'left', color: 'var(--ink-faint)' }}>Status</th>
                             </>
                           )}
                           {row.name === 'Bridge Unitarity' && (
                             <>
-                              <th style={{ padding: '4px 8px', textAlign: 'left', color: '#64748b' }}>t</th>
-                              <th style={{ padding: '4px 8px', textAlign: 'left', color: '#64748b' }}>|chi|</th>
-                              <th style={{ padding: '4px 8px', textAlign: 'left', color: '#64748b' }}>Error</th>
-                              <th style={{ padding: '4px 8px', textAlign: 'left', color: '#64748b' }}>Status</th>
+                              <th style={{ padding: '4px 8px', textAlign: 'left', color: 'var(--ink-faint)' }}>t</th>
+                              <th style={{ padding: '4px 8px', textAlign: 'left', color: 'var(--ink-faint)' }}>|chi|</th>
+                              <th style={{ padding: '4px 8px', textAlign: 'left', color: 'var(--ink-faint)' }}>Error</th>
+                              <th style={{ padding: '4px 8px', textAlign: 'left', color: 'var(--ink-faint)' }}>Status</th>
                             </>
                           )}
                           {row.name === 'Euler Product Convergence' && (
                             <>
-                              <th style={{ padding: '4px 8px', textAlign: 'left', color: '#64748b' }}>sigma</th>
-                              <th style={{ padding: '4px 8px', textAlign: 'left', color: '#64748b' }}>Converges</th>
-                              <th style={{ padding: '4px 8px', textAlign: 'left', color: '#64748b' }}>Error vs true</th>
+                              <th style={{ padding: '4px 8px', textAlign: 'left', color: 'var(--ink-faint)' }}>sigma</th>
+                              <th style={{ padding: '4px 8px', textAlign: 'left', color: 'var(--ink-faint)' }}>Converges</th>
+                              <th style={{ padding: '4px 8px', textAlign: 'left', color: 'var(--ink-faint)' }}>Error vs true</th>
                             </>
                           )}
                         </tr>
                       </thead>
                       <tbody>
                         {row.details.map((d, j) => (
-                          <tr key={j} style={{ borderBottom: '1px solid #1e293b20' }}>
-                            <td style={{ padding: '4px 8px', color: '#64748b' }}>{j + 1}</td>
+                          <tr key={j} style={{ borderBottom: '1px solid color-mix(in srgb, var(--rule-soft) 13%, transparent)' }}>
+                            <td style={{ padding: '4px 8px', color: 'var(--ink-faint)' }}>{j + 1}</td>
                             {row.name === 'Functional Equation' && (
                               <>
-                                <td style={{ padding: '4px 8px', color: '#94a3b8' }}>
+                                <td style={{ padding: '4px 8px', color: 'var(--ink-soft)' }}>
                                   [{d.s[0].toFixed(2)}, {d.s[1].toFixed(1)}]
                                 </td>
-                                <td style={{ padding: '4px 8px', color: '#94a3b8' }}>
+                                <td style={{ padding: '4px 8px', color: 'var(--ink-soft)' }}>
                                   {d.relativeError.toExponential(3)}
                                 </td>
                                 <td style={{ padding: '4px 8px' }}>
@@ -212,19 +213,19 @@ function IdentityTestsTab({ numPrimes }) {
                             )}
                             {row.name === 'Bridge Unitarity' && (
                               <>
-                                <td style={{ padding: '4px 8px', color: '#94a3b8' }}>{d.t}</td>
-                                <td style={{ padding: '4px 8px', color: '#94a3b8' }}>{d.chiMagnitude.toFixed(6)}</td>
-                                <td style={{ padding: '4px 8px', color: '#94a3b8' }}>{d.error.toExponential(3)}</td>
+                                <td style={{ padding: '4px 8px', color: 'var(--ink-soft)' }}>{d.t}</td>
+                                <td style={{ padding: '4px 8px', color: 'var(--ink-soft)' }}>{d.chiMagnitude.toFixed(6)}</td>
+                                <td style={{ padding: '4px 8px', color: 'var(--ink-soft)' }}>{d.error.toExponential(3)}</td>
                                 <td style={{ padding: '4px 8px' }}>{statusBadge(d.passes)}</td>
                               </>
                             )}
                             {row.name === 'Euler Product Convergence' && (
                               <>
-                                <td style={{ padding: '4px 8px', color: '#94a3b8' }}>{d.sigma.toFixed(1)}</td>
+                                <td style={{ padding: '4px 8px', color: 'var(--ink-soft)' }}>{d.sigma.toFixed(1)}</td>
                                 <td style={{ padding: '4px 8px' }}>
                                   {statusBadge(d.converges, d.converges ? 'YES' : 'NO')}
                                 </td>
-                                <td style={{ padding: '4px 8px', color: '#94a3b8' }}>{d.error.toFixed(4)}</td>
+                                <td style={{ padding: '4px 8px', color: 'var(--ink-soft)' }}>{d.error.toFixed(4)}</td>
                               </>
                             )}
                           </tr>
@@ -239,12 +240,12 @@ function IdentityTestsTab({ numPrimes }) {
         </tbody>
       </table>
       <div style={{
-        marginTop: 12, padding: '10px 14px', background: '#0f1225',
-        borderRadius: 6, fontSize: 11, color: '#94a3b8', lineHeight: 1.6,
+        marginTop: 12, padding: '10px 14px', background: 'var(--paper-2)',
+        borderRadius: 6, fontSize: 11, color: 'var(--ink-soft)', lineHeight: 1.6,
       }}>
-        All three are <strong style={{ color: '#10b981' }}>known identities</strong> that hold for any
+        All three are <strong style={{ color: 'var(--series-3)' }}>known identities</strong> that hold for any
         function with a functional equation. They verify correctness of our implementation, but do{' '}
-        <strong style={{ color: '#ef4444' }}>not</strong> provide evidence for RH.
+        <strong style={{ color: 'var(--series-2)' }}>not</strong> provide evidence for RH.
       </div>
     </div>
   );
@@ -301,7 +302,7 @@ function DHCounterexampleTab() {
     const yScale = (v) => margin.top + plotH - (v / maxY) * plotH;
 
     // Grid
-    ctx.strokeStyle = '#1e293b';
+    ctx.strokeStyle = ED.ruleSoft;
     ctx.lineWidth = 0.5;
     for (let i = 0; i <= 5; i++) {
       const y = margin.top + (i / 5) * plotH;
@@ -314,7 +315,7 @@ function DHCounterexampleTab() {
 
     // sigma = 0.5 reference line
     const halfX = xScale(0.5);
-    ctx.strokeStyle = '#10b98160';
+    ctx.strokeStyle = alpha(ED.series3, 0.38);
     ctx.lineWidth = 1.5;
     ctx.setLineDash([5, 4]);
     ctx.beginPath();
@@ -322,13 +323,13 @@ function DHCounterexampleTab() {
     ctx.lineTo(halfX, margin.top + plotH);
     ctx.stroke();
     ctx.setLineDash([]);
-    ctx.fillStyle = '#10b981';
+    ctx.fillStyle = ED.series3;
     ctx.font = '10px var(--font-mono)';
     ctx.textAlign = 'center';
     ctx.fillText('\u03C3 = \u00BD', halfX, margin.top - 8);
 
     // Draw zeta curve (blue)
-    ctx.strokeStyle = '#3b82f6';
+    ctx.strokeStyle = ED.series1;
     ctx.lineWidth = 2.5;
     ctx.beginPath();
     points.forEach((p, i) => {
@@ -342,11 +343,11 @@ function DHCounterexampleTab() {
     ctx.lineTo(xScale(points[points.length - 1].sigma), margin.top + plotH);
     ctx.lineTo(xScale(points[0].sigma), margin.top + plotH);
     ctx.closePath();
-    ctx.fillStyle = '#3b82f610';
+    ctx.fillStyle = alpha(ED.series1, 0.06);
     ctx.fill();
 
     // Draw D-H curve (red)
-    ctx.strokeStyle = '#ef4444';
+    ctx.strokeStyle = ED.series2;
     ctx.lineWidth = 2.5;
     ctx.beginPath();
     points.forEach((p, i) => {
@@ -360,11 +361,11 @@ function DHCounterexampleTab() {
     ctx.lineTo(xScale(points[points.length - 1].sigma), margin.top + plotH);
     ctx.lineTo(xScale(points[0].sigma), margin.top + plotH);
     ctx.closePath();
-    ctx.fillStyle = '#ef444410';
+    ctx.fillStyle = alpha(ED.series2, 0.06);
     ctx.fill();
 
     // Axes
-    ctx.strokeStyle = '#334155';
+    ctx.strokeStyle = ED.rule;
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.moveTo(margin.left, margin.top);
@@ -373,7 +374,7 @@ function DHCounterexampleTab() {
     ctx.stroke();
 
     // X-axis labels
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.font = '10px var(--font-mono)';
     ctx.textAlign = 'center';
     for (let s = 0.1; s <= 0.9; s += 0.1) {
@@ -393,14 +394,14 @@ function DHCounterexampleTab() {
     ctx.save();
     ctx.translate(12, margin.top + plotH / 2);
     ctx.rotate(-Math.PI / 2);
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = ED.series8;
     ctx.font = '10px var(--font-mono)';
     ctx.textAlign = 'center';
     ctx.fillText('|f(\u03C3 + it)|', 0, 0);
     ctx.restore();
 
     // Title
-    ctx.fillStyle = '#e2e8f0';
+    ctx.fillStyle = ED.ink;
     ctx.font = 'bold 12px var(--font-mono)';
     ctx.textAlign = 'left';
     ctx.fillText(`|\u03B6(\u03C3+${testT}i)| vs |f_DH(\u03C3+${testT}i)|`, margin.left + 4, margin.top - 10);
@@ -409,19 +410,19 @@ function DHCounterexampleTab() {
     const lx = margin.left + plotW - 180;
     const ly = margin.top + 8;
     ctx.fillStyle = 'rgba(10, 14, 26, 0.9)';
-    ctx.strokeStyle = '#1e293b';
+    ctx.strokeStyle = ED.ruleSoft;
     ctx.lineWidth = 1;
     ctx.fillRect(lx, ly, 175, 50);
     ctx.strokeRect(lx, ly, 175, 50);
 
-    ctx.strokeStyle = '#3b82f6'; ctx.lineWidth = 2.5;
+    ctx.strokeStyle = ED.series1; ctx.lineWidth = 2.5;
     ctx.beginPath(); ctx.moveTo(lx + 8, ly + 16); ctx.lineTo(lx + 30, ly + 16); ctx.stroke();
-    ctx.fillStyle = '#94a3b8'; ctx.font = '10px var(--font-mono)'; ctx.textAlign = 'left';
+    ctx.fillStyle = ED.series8; ctx.font = '10px var(--font-mono)'; ctx.textAlign = 'left';
     ctx.fillText('|\u03B6(s)| Riemann zeta', lx + 36, ly + 20);
 
-    ctx.strokeStyle = '#ef4444'; ctx.lineWidth = 2.5;
+    ctx.strokeStyle = ED.series2; ctx.lineWidth = 2.5;
     ctx.beginPath(); ctx.moveTo(lx + 8, ly + 34); ctx.lineTo(lx + 30, ly + 34); ctx.stroke();
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = ED.series8;
     ctx.fillText('|f_DH(s)| Davenport-H.', lx + 36, ly + 38);
   }, [curveData, testT]);
 
@@ -447,7 +448,7 @@ function DHCounterexampleTab() {
       </div>
       {/* t slider */}
       <div style={{ marginBottom: 12, display: 'flex', alignItems: 'center', gap: 12 }}>
-        <label style={{ color: '#94a3b8', fontSize: 12, fontFamily: 'var(--font-mono)' }}>
+        <label style={{ color: 'var(--ink-soft)', fontSize: 12, fontFamily: 'var(--font-mono)' }}>
           t = {testT}
         </label>
         <input type="range" min={5} max={100} step={1} value={testT}
@@ -459,24 +460,24 @@ function DHCounterexampleTab() {
       <canvas
         ref={canvasRef}
         style={{
-          width: '100%', height: 300, background: '#0a0e1a',
-          borderRadius: 8, border: '1px solid #1e293b',
+          width: '100%', height: 300, background: 'var(--paper)',
+          borderRadius: 8, border: '1px solid var(--rule-soft)',
         }}
       />
 
       {/* Key message */}
       <div style={{
-        marginTop: 12, padding: '10px 14px', background: '#0f1225',
-        borderRadius: 6, border: '1px solid #ef444440',
-        fontSize: 12, color: '#e2e8f0', lineHeight: 1.6, textAlign: 'center',
+        marginTop: 12, padding: '10px 14px', background: 'var(--paper-2)',
+        borderRadius: 6, border: '1px solid color-mix(in srgb, var(--series-2) 25%, transparent)',
+        fontSize: 12, color: 'var(--ink)', lineHeight: 1.6, textAlign: 'center',
       }}>
-        The <strong style={{ color: '#3b82f6' }}>Euler product / Darlington synthesis</strong> is the{' '}
-        <strong style={{ color: '#ef4444' }}>ONLY</strong> Twin-Ladder Bridge property that distinguishes{' '}
+        The <strong style={{ color: 'var(--series-1)' }}>Euler product / Darlington synthesis</strong> is the{' '}
+        <strong style={{ color: 'var(--series-2)' }}>ONLY</strong> Twin-Ladder Bridge property that distinguishes{' '}
         <InlineMath tex={"\\zeta"} /> from Davenport-Heilbronn.
       </div>
 
       {/* Discriminator table */}
-      <h4 style={{ color: '#ef4444', fontSize: 13, marginTop: 20, marginBottom: 8 }}>
+      <h4 style={{ color: 'var(--series-2)', fontSize: 13, marginTop: 20, marginBottom: 8 }}>
         Discriminator Analysis
       </h4>
       <table style={{
@@ -484,10 +485,10 @@ function DHCounterexampleTab() {
         fontFamily: 'var(--font-mono)',
       }}>
         <thead>
-          <tr style={{ borderBottom: '1px solid #1e293b' }}>
+          <tr style={{ borderBottom: '1px solid var(--rule-soft)' }}>
             {['Property', 'Holds for \u03B6?', 'Holds for D-H?', 'Discriminates?'].map(h => (
               <th key={h} style={{
-                padding: '8px 10px', textAlign: 'left', color: '#64748b',
+                padding: '8px 10px', textAlign: 'left', color: 'var(--ink-faint)',
                 fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.5px',
               }}>{h}</th>
             ))}
@@ -498,10 +499,10 @@ function DHCounterexampleTab() {
             const discriminates = d.zetaHas && d.dhLacks;
             return (
               <tr key={i} style={{
-                borderBottom: '1px solid #1e293b',
-                background: discriminates ? 'rgba(16, 185, 129, 0.05)' : 'rgba(239, 68, 68, 0.03)',
+                borderBottom: '1px solid var(--rule-soft)',
+                background: discriminates ? 'color-mix(in srgb, var(--series-3) 5%, transparent)' : 'color-mix(in srgb, var(--series-2) 3%, transparent)',
               }}>
-                <td style={{ padding: '8px 10px', color: '#e2e8f0' }}>{d.property}</td>
+                <td style={{ padding: '8px 10px', color: 'var(--ink)' }}>{d.property}</td>
                 <td style={{ padding: '8px 10px' }}>
                   {statusBadge(d.zetaHas, d.zetaHas ? 'YES' : 'NO')}
                 </td>
@@ -521,31 +522,31 @@ function DHCounterexampleTab() {
 
       {/* Bridge test summary */}
       <div style={{
-        marginTop: 16, padding: '10px 14px', background: '#0f1225',
-        borderRadius: 6, fontSize: 11, color: '#94a3b8', lineHeight: 1.6,
-        borderLeft: '3px solid #ef4444',
+        marginTop: 16, padding: '10px 14px', background: 'var(--paper-2)',
+        borderRadius: 6, fontSize: 11, color: 'var(--ink-soft)', lineHeight: 1.6,
+        borderLeft: '3px solid var(--series-2)',
       }}>
-        <strong style={{ color: '#ef4444' }}>Bridge Test:</strong>{' '}
+        <strong style={{ color: 'var(--series-2)' }}>Bridge Test:</strong>{' '}
         {report.bridgeTest.implication}
       </div>
 
       {/* Hamiltonian test summary */}
       <div style={{
-        marginTop: 8, padding: '10px 14px', background: '#0f1225',
-        borderRadius: 6, fontSize: 11, color: '#94a3b8', lineHeight: 1.6,
-        borderLeft: '3px solid #f59e0b',
+        marginTop: 8, padding: '10px 14px', background: 'var(--paper-2)',
+        borderRadius: 6, fontSize: 11, color: 'var(--ink-soft)', lineHeight: 1.6,
+        borderLeft: '3px solid var(--brass-deco)',
       }}>
-        <strong style={{ color: '#f59e0b' }}>Hamiltonian Test:</strong>{' '}
+        <strong style={{ color: 'var(--brass)' }}>Hamiltonian Test:</strong>{' '}
         {report.hamiltonianTest.verdict}
       </div>
 
       {/* Conclusion */}
       <div style={{
-        marginTop: 12, padding: '12px 14px', background: 'rgba(239, 68, 68, 0.06)',
-        borderRadius: 6, fontSize: 12, color: '#e2e8f0', lineHeight: 1.7,
-        border: '1px solid #ef444440',
+        marginTop: 12, padding: '12px 14px', background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+        borderRadius: 6, fontSize: 12, color: 'var(--ink)', lineHeight: 1.7,
+        border: '1px solid color-mix(in srgb, var(--series-2) 25%, transparent)',
       }}>
-        <strong style={{ color: '#ef4444' }}>Conclusion:</strong>{' '}
+        <strong style={{ color: 'var(--series-2)' }}>Conclusion:</strong>{' '}
         {report.conclusion}
       </div>
     </div>
@@ -569,28 +570,28 @@ function LogicGapsTab({ numPrimes }) {
         <strong> Every gap found here</strong> is a place where the Twin-Ladder Bridge argument fails to constitute a proof.
       </div>
       {/* Circularity Check */}
-      <h4 style={{ color: '#f59e0b', fontSize: 13, marginBottom: 10 }}>
+      <h4 style={{ color: 'var(--brass)', fontSize: 13, marginBottom: 10 }}>
         Circularity Analysis
       </h4>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 8, marginBottom: 24 }}>
         {circResults.map((c, i) => (
           <div key={i} style={{
-            padding: '10px 14px', background: '#0f1225', borderRadius: 6,
-            borderLeft: `3px solid ${c.isCircular ? '#ef4444' : '#10b981'}`,
+            padding: '10px 14px', background: 'var(--paper-2)', borderRadius: 6,
+            borderLeft: `3px solid ${c.isCircular ? ED.series2 : ED.series3}`,
           }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 6 }}>
               {statusBadge(!c.isCircular, c.isCircular ? 'CIRCULAR' : 'OK')}
-              <span style={{ color: '#e2e8f0', fontSize: 12, fontWeight: 600 }}>{c.claim}</span>
+              <span style={{ color: 'var(--ink)', fontSize: 12, fontWeight: 600 }}>{c.claim}</span>
             </div>
-            <div style={{ fontSize: 11, color: '#64748b', marginBottom: 4 }}>
+            <div style={{ fontSize: 11, color: 'var(--ink-faint)', marginBottom: 4 }}>
               Depends on: {c.dependsOn.map((dep, j) => (
                 <span key={j} style={{
                   display: 'inline-block', margin: '2px 4px 2px 0', padding: '1px 6px',
-                  background: '#1e293b', borderRadius: 4, fontSize: 10, color: '#94a3b8',
+                  background: 'var(--paper-3)', borderRadius: 4, fontSize: 10, color: 'var(--ink-soft)',
                 }}>{dep}</span>
               ))}
             </div>
-            <div style={{ fontSize: 11, color: '#94a3b8', lineHeight: 1.5 }}>
+            <div style={{ fontSize: 11, color: 'var(--ink-soft)', lineHeight: 1.5 }}>
               {c.explanation}
             </div>
           </div>
@@ -598,7 +599,7 @@ function LogicGapsTab({ numPrimes }) {
       </div>
 
       {/* Implication Strength */}
-      <h4 style={{ color: '#f59e0b', fontSize: 13, marginBottom: 10 }}>
+      <h4 style={{ color: 'var(--brass)', fontSize: 13, marginBottom: 10 }}>
         Implication Strength Test
       </h4>
       <table style={{
@@ -606,10 +607,10 @@ function LogicGapsTab({ numPrimes }) {
         fontFamily: 'var(--font-mono)',
       }}>
         <thead>
-          <tr style={{ borderBottom: '1px solid #1e293b' }}>
+          <tr style={{ borderBottom: '1px solid var(--rule-soft)' }}>
             {['From \u2192 To', 'Strength', 'Evidence', 'Counterexample'].map(h => (
               <th key={h} style={{
-                padding: '8px 10px', textAlign: 'left', color: '#64748b',
+                padding: '8px 10px', textAlign: 'left', color: 'var(--ink-faint)',
                 fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.5px',
               }}>{h}</th>
             ))}
@@ -617,17 +618,17 @@ function LogicGapsTab({ numPrimes }) {
         </thead>
         <tbody>
           {implResults.implications.map((imp, i) => (
-            <tr key={i} style={{ borderBottom: '1px solid #1e293b' }}>
-              <td style={{ padding: '8px 10px', color: '#e2e8f0', fontSize: 11 }}>
-                {imp.from} <span style={{ color: '#64748b' }}>{'\u2192'}</span> {imp.to}
+            <tr key={i} style={{ borderBottom: '1px solid var(--rule-soft)' }}>
+              <td style={{ padding: '8px 10px', color: 'var(--ink)', fontSize: 11 }}>
+                {imp.from} <span style={{ color: 'var(--ink-faint)' }}>{'\u2192'}</span> {imp.to}
               </td>
               <td style={{ padding: '8px 10px' }}>
                 {strengthBadge(imp.strength)}
               </td>
-              <td style={{ padding: '8px 10px', color: '#94a3b8', fontSize: 11 }}>
+              <td style={{ padding: '8px 10px', color: 'var(--ink-soft)', fontSize: 11 }}>
                 {imp.evidence}
               </td>
-              <td style={{ padding: '8px 10px', color: '#ef4444', fontSize: 11 }}>
+              <td style={{ padding: '8px 10px', color: 'var(--series-2)', fontSize: 11 }}>
                 {imp.counterexample || '--'}
               </td>
             </tr>
@@ -636,21 +637,21 @@ function LogicGapsTab({ numPrimes }) {
       </table>
 
       {/* Flow Diagram */}
-      <h4 style={{ color: '#f59e0b', fontSize: 13, marginTop: 24, marginBottom: 10 }}>
+      <h4 style={{ color: 'var(--brass)', fontSize: 13, marginTop: 24, marginBottom: 10 }}>
         Logical Flow Diagram
       </h4>
       <div style={{
-        padding: 16, background: '#0a0e1a', borderRadius: 8,
-        border: '1px solid #1e293b', overflow: 'auto',
+        padding: 16, background: 'var(--paper)', borderRadius: 8,
+        border: '1px solid var(--rule-soft)', overflow: 'auto',
       }}>
         <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'center', gap: 12, flexWrap: 'wrap' }}>
           {/* Premises */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: 8, alignItems: 'center' }}>
-            <div style={{ fontSize: 10, color: '#64748b', textTransform: 'uppercase', marginBottom: 4 }}>Premises</div>
+            <div style={{ fontSize: 10, color: 'var(--ink-faint)', textTransform: 'uppercase', marginBottom: 4 }}>Premises</div>
             {['Functional Eq.', 'Euler Product', 'Selberg Class'].map(label => (
               <div key={label} style={{
-                padding: '6px 12px', background: '#1e293b', borderRadius: 6,
-                border: '1px solid #334155', fontSize: 11, color: '#3b82f6',
+                padding: '6px 12px', background: 'var(--paper-3)', borderRadius: 6,
+                border: '1px solid var(--rule)', fontSize: 11, color: 'var(--series-1)',
                 textAlign: 'center', minWidth: 100,
               }}>{label}</div>
             ))}
@@ -658,51 +659,51 @@ function LogicGapsTab({ numPrimes }) {
 
           {/* Arrows */}
           <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 8, paddingTop: 24 }}>
-            <div style={{ color: '#10b981', fontSize: 18 }}>{'\u2192'}</div>
-            <div style={{ color: '#10b981', fontSize: 18 }}>{'\u2192'}</div>
-            <div style={{ color: '#ef4444', fontSize: 18, textDecoration: 'line-through' }}>{'\u2192'}</div>
+            <div style={{ color: 'var(--series-3)', fontSize: 18 }}>{'\u2192'}</div>
+            <div style={{ color: 'var(--series-3)', fontSize: 18 }}>{'\u2192'}</div>
+            <div style={{ color: 'var(--series-2)', fontSize: 18, textDecoration: 'line-through' }}>{'\u2192'}</div>
           </div>
 
           {/* Intermediate claims */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: 8, alignItems: 'center' }}>
-            <div style={{ fontSize: 10, color: '#64748b', textTransform: 'uppercase', marginBottom: 4 }}>Claims</div>
+            <div style={{ fontSize: 10, color: 'var(--ink-faint)', textTransform: 'uppercase', marginBottom: 4 }}>Claims</div>
             {[
-              { label: 'Bridge Unitarity', color: '#f59e0b', status: 'identity' },
-              { label: 'H min at \u03C3=\u00BD', color: '#ef4444', status: 'circular' },
-              { label: 'Impedance Match', color: '#ef4444', status: 'circular' },
+              { label: 'Bridge Unitarity', color: ED.brass, status: 'identity' },
+              { label: 'H min at \u03C3=\u00BD', color: ED.series2, status: 'circular' },
+              { label: 'Impedance Match', color: ED.series2, status: 'circular' },
             ].map(c => (
               <div key={c.label} style={{
-                padding: '6px 12px', background: c.color === '#ef4444' ? 'rgba(239,68,68,0.08)' : '#1e293b',
+                padding: '6px 12px', background: c.color === '#ef4444' ? 'color-mix(in srgb, var(--series-2) 8%, transparent)' : 'var(--paper-3)',
                 borderRadius: 6, border: `1px solid ${c.color}40`,
                 fontSize: 11, color: c.color, textAlign: 'center', minWidth: 120,
               }}>
                 {c.label}
-                <div style={{ fontSize: 9, color: '#64748b', marginTop: 2 }}>{c.status}</div>
+                <div style={{ fontSize: 9, color: 'var(--ink-faint)', marginTop: 2 }}>{c.status}</div>
               </div>
             ))}
           </div>
 
           {/* Arrows */}
           <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 8, paddingTop: 24 }}>
-            <div style={{ color: '#ef4444', fontSize: 18, textDecoration: 'line-through' }}>{'\u21CF'}</div>
-            <div style={{ color: '#ef4444', fontSize: 18, textDecoration: 'line-through' }}>{'\u21CF'}</div>
-            <div style={{ color: '#f59e0b', fontSize: 18 }}>?</div>
+            <div style={{ color: 'var(--series-2)', fontSize: 18, textDecoration: 'line-through' }}>{'\u21CF'}</div>
+            <div style={{ color: 'var(--series-2)', fontSize: 18, textDecoration: 'line-through' }}>{'\u21CF'}</div>
+            <div style={{ color: 'var(--brass)', fontSize: 18 }}>?</div>
           </div>
 
           {/* Conclusion */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: 8, alignItems: 'center' }}>
-            <div style={{ fontSize: 10, color: '#64748b', textTransform: 'uppercase', marginBottom: 4 }}>Goal</div>
+            <div style={{ fontSize: 10, color: 'var(--ink-faint)', textTransform: 'uppercase', marginBottom: 4 }}>Goal</div>
             <div style={{
-              padding: '12px 16px', background: 'rgba(239, 68, 68, 0.08)',
-              borderRadius: 6, border: '1px solid #ef444440',
-              fontSize: 12, color: '#ef4444', fontWeight: 600, textAlign: 'center',
+              padding: '12px 16px', background: 'color-mix(in srgb, var(--series-2) 8%, transparent)',
+              borderRadius: 6, border: '1px solid color-mix(in srgb, var(--series-2) 25%, transparent)',
+              fontSize: 12, color: 'var(--series-2)', fontWeight: 600, textAlign: 'center',
             }}>
               All zeros on<br /><InlineMath tex={"\\sigma = \\tfrac{1}{2}"} />
             </div>
             <div style={{
-              padding: '6px 12px', background: 'rgba(16, 185, 129, 0.08)',
-              borderRadius: 6, border: '1px solid #10b98140',
-              fontSize: 11, color: '#10b981', textAlign: 'center',
+              padding: '6px 12px', background: 'color-mix(in srgb, var(--series-3) 8%, transparent)',
+              borderRadius: 6, border: '1px solid color-mix(in srgb, var(--series-3) 25%, transparent)',
+              fontSize: 11, color: 'var(--series-3)', textAlign: 'center',
             }}>
               Best path:<br />Euler product
             </div>
@@ -712,11 +713,11 @@ function LogicGapsTab({ numPrimes }) {
 
       {/* Overall assessment */}
       <div style={{
-        marginTop: 16, padding: '10px 14px', background: '#0f1225',
-        borderRadius: 6, fontSize: 11, color: '#94a3b8', lineHeight: 1.6,
-        borderLeft: '3px solid #f59e0b',
+        marginTop: 16, padding: '10px 14px', background: 'var(--paper-2)',
+        borderRadius: 6, fontSize: 11, color: 'var(--ink-soft)', lineHeight: 1.6,
+        borderLeft: '3px solid var(--brass-deco)',
       }}>
-        <strong style={{ color: '#f59e0b' }}>Overall:</strong>{' '}
+        <strong style={{ color: 'var(--brass)' }}>Overall:</strong>{' '}
         {implResults.overallAssessment}
       </div>
     </div>
@@ -750,7 +751,7 @@ function FullReportTab({ numPrimes }) {
   if (!report && !loading) {
     return (
       <div style={{ textAlign: 'center', padding: '40px 0' }}>
-        <p style={{ color: '#94a3b8', fontSize: 13, marginBottom: 16 }}>
+        <p style={{ color: 'var(--ink-soft)', fontSize: 13, marginBottom: 16 }}>
           Running full proof check...
         </p>
       </div>
@@ -762,10 +763,10 @@ function FullReportTab({ numPrimes }) {
       <div style={{ textAlign: 'center', padding: '40px 0' }}>
         <div style={{
           display: 'inline-block', width: 32, height: 32,
-          border: '3px solid #1e293b', borderTop: '3px solid #3b82f6',
+          border: '3px solid var(--rule-soft)', borderTop: '3px solid var(--series-1)',
           borderRadius: '50%', animation: 'spin 0.8s linear infinite',
         }} />
-        <p style={{ color: '#94a3b8', fontSize: 13, marginTop: 12 }}>
+        <p style={{ color: 'var(--ink-soft)', fontSize: 13, marginTop: 12 }}>
           Running skeptical proof check...
         </p>
         <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
@@ -800,7 +801,7 @@ function FullReportTab({ numPrimes }) {
       detail: `|chi| = ${t.chiMagnitude.toFixed(6)}, error = ${t.error.toExponential(3)}`,
     });
   });
-  sections.push({ label: 'Identities', color: '#10b981', tests: identityTests });
+  sections.push({ label: 'Identities', color: ED.series3, tests: identityTests });
 
   // Model Claims
   const modelTests = [];
@@ -825,7 +826,7 @@ function FullReportTab({ numPrimes }) {
       detail: `Max entropy sigma = ${t.maxEntropySigma}, H = ${t.entropyAtMax.toFixed(3)}`,
     });
   });
-  sections.push({ label: 'Model Claims', color: '#3b82f6', tests: modelTests });
+  sections.push({ label: 'Model Claims', color: ED.series1, tests: modelTests });
 
   // Stress Tests
   const stressTests = [];
@@ -837,7 +838,7 @@ function FullReportTab({ numPrimes }) {
       detail: `Bridge: ${t.bridgeOk ? 'OK' : 'FAIL'}, H-min: ${t.hamiltonianOk ? 'OK' : 'FAIL'}, Computable: ${t.zetaComputable ? 'YES' : 'NO'}`,
     });
   });
-  sections.push({ label: 'Stress Tests', color: '#f59e0b', tests: stressTests });
+  sections.push({ label: 'Stress Tests', color: ED.brass, tests: stressTests });
 
   // Logic
   const logicTests = [];
@@ -857,7 +858,7 @@ function FullReportTab({ numPrimes }) {
       detail: imp.evidence + (imp.counterexample ? ` Counterexample: ${imp.counterexample}` : ''),
     });
   });
-  sections.push({ label: 'Logic', color: '#8b5cf6', tests: logicTests });
+  sections.push({ label: 'Logic', color: ED.series5, tests: logicTests });
 
   return (
     <div>
@@ -870,17 +871,17 @@ function FullReportTab({ numPrimes }) {
       {/* Verdict box */}
       <div style={{
         padding: '16px 20px', marginBottom: 20, borderRadius: 8,
-        background: 'rgba(239, 68, 68, 0.08)',
-        border: '2px solid #ef4444',
+        background: 'color-mix(in srgb, var(--series-2) 8%, transparent)',
+        border: '2px solid var(--series-2)',
         textAlign: 'center',
       }}>
         <div style={{
-          fontSize: 16, fontWeight: 700, color: '#ef4444',
+          fontSize: 16, fontWeight: 700, color: 'var(--series-2)',
           fontFamily: 'var(--font-mono)', marginBottom: 8,
         }}>
           NOT A PROOF -- gaps remain
         </div>
-        <div style={{ fontSize: 11, color: '#94a3b8', lineHeight: 1.6, maxWidth: 600, margin: '0 auto' }}>
+        <div style={{ fontSize: 11, color: 'var(--ink-soft)', lineHeight: 1.6, maxWidth: 600, margin: '0 auto' }}>
           {verdict}
         </div>
       </div>
@@ -891,45 +892,45 @@ function FullReportTab({ numPrimes }) {
         gap: 8, marginBottom: 20,
       }}>
         <div style={{
-          textAlign: 'center', padding: 12, background: '#0f1225', borderRadius: 6,
-          border: '1px solid #10b98140',
+          textAlign: 'center', padding: 12, background: 'var(--paper-2)', borderRadius: 6,
+          border: '1px solid color-mix(in srgb, var(--series-3) 25%, transparent)',
         }}>
-          <div style={{ fontSize: 28, fontWeight: 700, color: '#10b981', fontFamily: 'var(--font-mono)' }}>
+          <div style={{ fontSize: 28, fontWeight: 700, color: 'var(--series-3)', fontFamily: 'var(--font-mono)' }}>
             {summary.passed}
           </div>
-          <div style={{ fontSize: 10, color: '#64748b', marginTop: 2 }}>PASSED</div>
+          <div style={{ fontSize: 10, color: 'var(--ink-faint)', marginTop: 2 }}>PASSED</div>
         </div>
         <div style={{
-          textAlign: 'center', padding: 12, background: '#0f1225', borderRadius: 6,
-          border: '1px solid #ef444440',
+          textAlign: 'center', padding: 12, background: 'var(--paper-2)', borderRadius: 6,
+          border: '1px solid color-mix(in srgb, var(--series-2) 25%, transparent)',
         }}>
-          <div style={{ fontSize: 28, fontWeight: 700, color: '#ef4444', fontFamily: 'var(--font-mono)' }}>
+          <div style={{ fontSize: 28, fontWeight: 700, color: 'var(--series-2)', fontFamily: 'var(--font-mono)' }}>
             {summary.failed}
           </div>
-          <div style={{ fontSize: 10, color: '#64748b', marginTop: 2 }}>FAILED</div>
+          <div style={{ fontSize: 10, color: 'var(--ink-faint)', marginTop: 2 }}>FAILED</div>
         </div>
         <div style={{
-          textAlign: 'center', padding: 12, background: '#0f1225', borderRadius: 6,
-          border: '1px solid #f59e0b40',
+          textAlign: 'center', padding: 12, background: 'var(--paper-2)', borderRadius: 6,
+          border: '1px solid color-mix(in srgb, var(--brass-deco) 25%, transparent)',
         }}>
-          <div style={{ fontSize: 28, fontWeight: 700, color: '#f59e0b', fontFamily: 'var(--font-mono)' }}>
+          <div style={{ fontSize: 28, fontWeight: 700, color: 'var(--brass)', fontFamily: 'var(--font-mono)' }}>
             {summary.warnings}
           </div>
-          <div style={{ fontSize: 10, color: '#64748b', marginTop: 2 }}>WARNINGS</div>
+          <div style={{ fontSize: 10, color: 'var(--ink-faint)', marginTop: 2 }}>WARNINGS</div>
         </div>
       </div>
 
       {/* Critical failures */}
       {criticalFailures.length > 0 && (
         <div style={{ marginBottom: 20 }}>
-          <h4 style={{ color: '#ef4444', fontSize: 13, marginBottom: 8 }}>Critical Failures</h4>
+          <h4 style={{ color: 'var(--series-2)', fontSize: 13, marginBottom: 8 }}>Critical Failures</h4>
           {criticalFailures.map((f, i) => (
             <div key={i} style={{
-              padding: '8px 12px', marginBottom: 6, background: 'rgba(239, 68, 68, 0.06)',
-              borderRadius: 6, borderLeft: '3px solid #ef4444',
-              fontSize: 11, color: '#94a3b8', lineHeight: 1.5,
+              padding: '8px 12px', marginBottom: 6, background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+              borderRadius: 6, borderLeft: '3px solid var(--series-2)',
+              fontSize: 11, color: 'var(--ink-soft)', lineHeight: 1.5,
             }}>
-              <strong style={{ color: '#ef4444' }}>{f.test}:</strong> {f.reason}
+              <strong style={{ color: 'var(--series-2)' }}>{f.test}:</strong> {f.reason}
             </div>
           ))}
         </div>
@@ -938,27 +939,27 @@ function FullReportTab({ numPrimes }) {
       {/* What works / what fails */}
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, marginBottom: 20 }}>
         <div>
-          <h4 style={{ color: '#10b981', fontSize: 13, marginBottom: 8 }}>What Works</h4>
+          <h4 style={{ color: 'var(--series-3)', fontSize: 13, marginBottom: 8 }}>What Works</h4>
           {whatWorks.map((w, i) => (
             <div key={i} style={{
-              padding: '6px 10px', marginBottom: 4, background: '#0f1225',
-              borderRadius: 4, borderLeft: '2px solid #10b981',
-              fontSize: 11, color: '#94a3b8', lineHeight: 1.4,
+              padding: '6px 10px', marginBottom: 4, background: 'var(--paper-2)',
+              borderRadius: 4, borderLeft: '2px solid var(--series-3)',
+              fontSize: 11, color: 'var(--ink-soft)', lineHeight: 1.4,
             }}>
-              <strong style={{ color: '#10b981' }}>{w.claim}</strong>
+              <strong style={{ color: 'var(--series-3)' }}>{w.claim}</strong>
               <div style={{ marginTop: 2 }}>{w.evidence}</div>
             </div>
           ))}
         </div>
         <div>
-          <h4 style={{ color: '#ef4444', fontSize: 13, marginBottom: 8 }}>What Fails</h4>
+          <h4 style={{ color: 'var(--series-2)', fontSize: 13, marginBottom: 8 }}>What Fails</h4>
           {whatFails.map((f, i) => (
             <div key={i} style={{
-              padding: '6px 10px', marginBottom: 4, background: '#0f1225',
-              borderRadius: 4, borderLeft: '2px solid #ef4444',
-              fontSize: 11, color: '#94a3b8', lineHeight: 1.4,
+              padding: '6px 10px', marginBottom: 4, background: 'var(--paper-2)',
+              borderRadius: 4, borderLeft: '2px solid var(--series-2)',
+              fontSize: 11, color: 'var(--ink-soft)', lineHeight: 1.4,
             }}>
-              <strong style={{ color: '#ef4444' }}>{f.claim}</strong>
+              <strong style={{ color: 'var(--series-2)' }}>{f.claim}</strong>
               <div style={{ marginTop: 2 }}>{f.reason}</div>
             </div>
           ))}
@@ -974,14 +975,14 @@ function FullReportTab({ numPrimes }) {
           <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
             {section.tests.map((t, i) => (
               <div key={i} style={{
-                padding: '6px 10px', background: '#0f1225',
+                padding: '6px 10px', background: 'var(--paper-2)',
                 borderRadius: 4, display: 'flex', alignItems: 'center', gap: 10,
-                borderLeft: `2px solid ${t.result === 'PASS' ? '#10b981' : t.result === 'FAIL' ? '#ef4444' : '#f59e0b'}`,
+                borderLeft: `2px solid ${t.result === 'PASS' ? ED.series3 : t.result === 'FAIL' ? ED.series2 : ED.series4}`,
               }}>
                 <div style={{ minWidth: 50 }}>{resultBadge(t.result)}</div>
                 <div style={{ flex: 1 }}>
-                  <div style={{ fontSize: 11, color: '#e2e8f0' }}>{t.name}</div>
-                  <div style={{ fontSize: 10, color: '#64748b', marginTop: 2 }}>{t.detail}</div>
+                  <div style={{ fontSize: 11, color: 'var(--ink)' }}>{t.name}</div>
+                  <div style={{ fontSize: 10, color: 'var(--ink-faint)', marginTop: 2 }}>{t.detail}</div>
                 </div>
               </div>
             ))}
@@ -1012,7 +1013,7 @@ export default function ProofCheckerViz() {
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
           <label style={{
-            color: '#94a3b8', fontSize: 12, fontFamily: 'var(--font-mono)',
+            color: 'var(--ink-soft)', fontSize: 12, fontFamily: 'var(--font-mono)',
           }}>
             Primes: {numPrimes}
           </label>
@@ -1025,8 +1026,8 @@ export default function ProofCheckerViz() {
         <button
           onClick={handleRunFullCheck}
           style={{
-            padding: '6px 16px', borderRadius: 6, border: '1px solid #3b82f6',
-            background: 'rgba(59, 130, 246, 0.1)', color: '#3b82f6',
+            padding: '6px 16px', borderRadius: 6, border: '1px solid var(--series-1)',
+            background: 'color-mix(in srgb, var(--series-1) 10%, transparent)', color: 'var(--series-1)',
             fontSize: 12, fontWeight: 600, fontFamily: 'var(--font-mono)',
             cursor: 'pointer',
           }}
@@ -1038,7 +1039,7 @@ export default function ProofCheckerViz() {
       {/* Tab bar */}
       <div style={{
         display: 'flex', gap: 0, marginBottom: 16,
-        borderBottom: '1px solid #1e293b',
+        borderBottom: '1px solid var(--rule-soft)',
       }}>
         {TABS.map((tab, i) => (
           <button
@@ -1049,7 +1050,7 @@ export default function ProofCheckerViz() {
               border: 'none',
               borderBottom: activeTab === i ? `2px solid ${TAB_COLORS[i]}` : '2px solid transparent',
               background: 'transparent',
-              color: activeTab === i ? TAB_COLORS[i] : '#64748b',
+              color: activeTab === i ? TAB_COLORS[i] : 'var(--ink-faint)',
               fontSize: 12,
               fontWeight: activeTab === i ? 600 : 400,
               fontFamily: 'var(--font-mono)',
@@ -1064,8 +1065,8 @@ export default function ProofCheckerViz() {
 
       {/* Tab content */}
       <div style={{
-        padding: 16, background: '#0d1117', borderRadius: 8,
-        border: '1px solid #1e293b',
+        padding: 16, background: 'var(--paper)', borderRadius: 8,
+        border: '1px solid var(--rule-soft)',
       }}>
         {activeTab === 0 && <IdentityTestsTab numPrimes={numPrimes} />}
         {activeTab === 1 && <DHCounterexampleTab />}

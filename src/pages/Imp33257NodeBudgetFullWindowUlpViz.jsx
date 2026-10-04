@@ -5,11 +5,12 @@ import {
   IMP33257_PASS_ULP_LINE,
   IMP33257_TAU_STAR_THRESHOLD,
 } from '../data/imp-33257-node-budget-full-window-ulp-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
-const WORST_COLOR = '#f472b6';
-const TAU6_COLOR = '#38bdf8';
-const PASS_COLOR = '#34d399';
-const FAIL_COLOR = '#fb7185';
+const WORST_COLOR = ED.series7;
+const TAU6_COLOR = ED.series1;
+const PASS_COLOR = ED.series3;
+const FAIL_COLOR = ED.series2;
 const FLOOR_ULP = 0.1; // display floor for log scale (grade3 tau=6 ULP is ~0.0)
 
 function NodeBudgetUlpChart() {
@@ -34,12 +35,12 @@ function NodeBudgetUlpChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
       {yTicks.map((t) => (
         <g key={'yt' + t}>
-          <line x1={padL} y1={yS(t)} x2={padL + cW} y2={yS(t)} stroke="#1e293b" strokeWidth={1} />
-          <text x={padL - 8} y={yS(t) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+          <line x1={padL} y1={yS(t)} x2={padL + cW} y2={yS(t)} stroke={ED.ruleSoft} strokeWidth={1} />
+          <text x={padL - 8} y={yS(t) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {t >= 1 ? t.toLocaleString() : t}
           </text>
         </g>
@@ -50,11 +51,11 @@ function NodeBudgetUlpChart() {
         y1={yS(IMP33257_PASS_ULP_LINE)}
         x2={padL + cW}
         y2={yS(IMP33257_PASS_ULP_LINE)}
-        stroke="#fbbf24"
+        stroke={ED.brassDeco}
         strokeWidth={1.5}
         strokeDasharray="5,3"
       />
-      <text x={padL + cW - 4} y={yS(IMP33257_PASS_ULP_LINE) - 5} textAnchor="end" fill="#fbbf24" fontSize={9}>
+      <text x={padL + cW - 4} y={yS(IMP33257_PASS_ULP_LINE) - 5} textAnchor="end" fill={ED.brass} fontSize={9}>
         &lt;1-ULP pass line
       </text>
 
@@ -78,23 +79,23 @@ function NodeBudgetUlpChart() {
               fill={row.passes ? PASS_COLOR : FAIL_COLOR}
               opacity={0.9}
             />
-            <text x={cx} y={padT + cH + 16} textAnchor="middle" fill="#94a3b8" fontSize={10} fontWeight={600}>
+            <text x={cx} y={padT + cH + 16} textAnchor="middle" fill={ED.inkSoft} fontSize={10} fontWeight={600}>
               grade {row.grade}
             </text>
-            <text x={cx} y={padT + cH + 29} textAnchor="middle" fill="#64748b" fontSize={8.5}>
+            <text x={cx} y={padT + cH + 29} textAnchor="middle" fill={ED.inkFaint} fontSize={8.5}>
               {row.panels.toLocaleString()}p, tau*={row.tauStar.toFixed(3)}
             </text>
           </g>
         );
       })}
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
 
       <text
         x={16}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={'rotate(-90,16,' + (padT + cH / 2) + ')'}
       >
@@ -103,11 +104,11 @@ function NodeBudgetUlpChart() {
 
       <g>
         <rect x={padL + 8} y={padT - 16} width={10} height={10} fill={WORST_COLOR} opacity={0.85} />
-        <text x={padL + 22} y={padT - 7} fill="#94a3b8" fontSize={9}>
+        <text x={padL + 22} y={padT - 7} fill={ED.inkSoft} fontSize={9}>
           worst-in-window ULP
         </text>
         <rect x={padL + 170} y={padT - 16} width={10} height={10} fill={TAU6_COLOR} opacity={0.9} />
-        <text x={padL + 184} y={padT - 7} fill="#94a3b8" fontSize={9}>
+        <text x={padL + 184} y={padT - 7} fill={ED.inkSoft} fontSize={9}>
           ULP at tau=6 (green=passes, red=fails)
         </text>
       </g>
@@ -116,8 +117,8 @@ function NodeBudgetUlpChart() {
 }
 
 function SweepTable() {
-  const th = { textAlign: 'right', padding: '0.35rem 0.6rem', color: '#94a3b8', fontWeight: 600, borderBottom: '1px solid #334155' };
-  const td = { textAlign: 'right', padding: '0.3rem 0.6rem', color: '#cbd5e1', fontVariantNumeric: 'tabular-nums' };
+  const th = { textAlign: 'right', padding: '0.35rem 0.6rem', color: ED.inkSoft, fontWeight: 600, borderBottom: '1px solid var(--rule)' };
+  const td = { textAlign: 'right', padding: '0.3rem 0.6rem', color: ED.ink, fontVariantNumeric: 'tabular-nums' };
   return (
     <table style={{ borderCollapse: 'collapse', fontSize: '0.78rem', width: '100%', maxWidth: 760 }}>
       <thead>
@@ -134,7 +135,7 @@ function SweepTable() {
       <tbody>
         {IMP33257_SWEEP_ROWS.map((row) => (
           <tr key={row.grade}>
-            <td style={{ ...td, textAlign: 'left', color: '#94a3b8' }}>{row.grade}</td>
+            <td style={{ ...td, textAlign: 'left', color: 'var(--ink-soft)' }}>{row.grade}</td>
             <td style={td}>{row.panels.toLocaleString()}</td>
             <td style={td}>{row.glNodes.toLocaleString()}</td>
             <td style={td}>{row.tauStar.toFixed(3)}</td>
@@ -155,7 +156,7 @@ export default function Imp33257NodeBudgetFullWindowUlpViz() {
     <div style={{ padding: '1.5rem', maxWidth: 940, margin: '0 auto' }}>
       <PageHeader title="Node-Budget vs Full-Window Accuracy: tau*>=6 is Necessary but Not Sufficient (imp-33232/imp-33257)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 720 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 720 }}>
         imp-3919 sized a minimal (panels,grade) graded-GL node budget for -ln A(tau) by requiring the
         innermost panel to drop below the peak scale sigma(6) (tau*(panels,grade) &ge; {IMP33257_TAU_STAR_THRESHOLD}),
         then validated it at a single point (tau=6, grade5, 0.83 ULP) and generalized to a ~2-order
@@ -165,12 +166,12 @@ export default function Imp33257NodeBudgetFullWindowUlpViz() {
         satisfy tau* &ge; {IMP33257_TAU_STAR_THRESHOLD}.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         worst-in-window ULP vs tau=6 ULP per tabulated minimal budget (log scale)
       </p>
       <NodeBudgetUlpChart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
         full-window sweep table
       </p>
       <SweepTable />
@@ -179,14 +180,14 @@ export default function Imp33257NodeBudgetFullWindowUlpViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart and table:</strong> every row clears the
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart and table:</strong> every row clears the
         imp-3919 crossover condition tau* &ge; {IMP33257_TAU_STAR_THRESHOLD}, yet grades 3-5 (panels &ge; 342)
         hold few-ULP worst-in-window and sub-ULP at tau=6, while grades 6-8 (the cheapest, steepest-graded
         rows imp-3919 advertised as the ~2-order node-savings) blow up at the tau=6 endpoint by
@@ -199,14 +200,14 @@ export default function Imp33257NodeBudgetFullWindowUlpViz() {
         style={{
           marginTop: '1rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation only; measures nothing
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> presentation only; measures nothing
         new and makes no claim beyond what imp-33232 already established. Accuracy measurement/rule-design
         audit, RH-equivalent scale class; mass-feasibility is necessary-but-not-sufficient. Operator
         positivity (imp-3066 off-diagonal endpoint-Hankel K_a &ge; 0) is UNTOUCHED. NO QED; imp-33232 assertions left intact.

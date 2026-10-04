@@ -25,6 +25,7 @@ import { Link } from 'react-router-dom';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import { BERRY_KEATING_XP } from '../data/berry-keating-xp-spectral.js';
 import AnimationEmbed from '../components/AnimationEmbed.jsx';
+import { ED } from '../styles/tokens.js';
 
 // ── SVG geometry shared by the panels. ────────────────────────────────
 
@@ -93,23 +94,23 @@ function PhasePortrait() {
     <svg width={PANEL_W} height={PANEL_H} role="img" aria-label="phase portrait of H = x*p">
       <g transform={'translate(' + PAD.left + ',' + PAD.top + ')'}>
         {/* Background. */}
-        <rect x={0} y={0} width={IW} height={IH} fill="#fdfaf3" stroke="#d5c9b2" />
+        <rect x={0} y={0} width={IW} height={IH} fill={ED.paper} stroke={ED.rule} />
 
         {/* Axes. */}
-        <line x1={x(X_LO)} y1={p(0)} x2={x(X_HI)} y2={p(0)} stroke="#4a4238" strokeWidth={1} />
-        <line x1={x(0)} y1={p(P_LO)} x2={x(0)} y2={p(P_HI)} stroke="#4a4238" strokeWidth={1} />
+        <line x1={x(X_LO)} y1={p(0)} x2={x(X_HI)} y2={p(0)} stroke={ED.inkSoft} strokeWidth={1} />
+        <line x1={x(0)} y1={p(P_LO)} x2={x(0)} y2={p(P_HI)} stroke={ED.inkSoft} strokeWidth={1} />
 
         {/* X ticks. */}
         {[-6, -4, -2, 0, 2, 4, 6].map((tx) => (
           <g key={'xt-' + tx}>
-            <line x1={x(tx)} y1={p(0) - 3} x2={x(tx)} y2={p(0) + 3} stroke="#877b67" />
+            <line x1={x(tx)} y1={p(0) - 3} x2={x(tx)} y2={p(0) + 3} stroke={ED.rule} />
             <text x={x(tx)} y={p(0) + 14} textAnchor="middle" style={tickStyle}>{tx}</text>
           </g>
         ))}
         {/* P ticks. */}
         {[-8, -4, 0, 4, 8].map((tp) => (
           <g key={'pt-' + tp}>
-            <line x1={x(0) - 3} y1={p(tp)} x2={x(0) + 3} y2={p(tp)} stroke="#877b67" />
+            <line x1={x(0) - 3} y1={p(tp)} x2={x(0) + 3} y2={p(tp)} stroke={ED.rule} />
             <text x={x(0) - 6} y={p(tp) + 3} textAnchor="end" style={tickStyle}>{tp}</text>
           </g>
         ))}
@@ -184,18 +185,18 @@ function EigenvalueScatter() {
   return (
     <svg width={PANEL_W} height={PANEL_H} role="img" aria-label="eigenvalues vs Riemann zeros scatter">
       <g transform={'translate(' + PAD.left + ',' + PAD.top + ')'}>
-        <rect x={0} y={0} width={IW} height={IH} fill="#fdfaf3" stroke="#d5c9b2" />
+        <rect x={0} y={0} width={IW} height={IH} fill={ED.paper} stroke={ED.rule} />
 
         {/* Grid lines. */}
         {ticks.map((t) => (
           <g key={'gx-' + t}>
-            <line x1={x(t)} y1={0} x2={x(t)} y2={IH} stroke="#e3d8c2" strokeWidth={0.5} />
-            <line x1={0} y1={y(t)} x2={IW} y2={y(t)} stroke="#e3d8c2" strokeWidth={0.5} />
+            <line x1={x(t)} y1={0} x2={x(t)} y2={IH} stroke={ED.ruleSoft} strokeWidth={0.5} />
+            <line x1={0} y1={y(t)} x2={IW} y2={y(t)} stroke={ED.ruleSoft} strokeWidth={0.5} />
           </g>
         ))}
 
         {/* Reference y = x line. */}
-        <path d={refLine} stroke="#4a4238" strokeDasharray="4,3" strokeWidth={1.2} fill="none" />
+        <path d={refLine} stroke={ED.inkSoft} strokeDasharray="4,3" strokeWidth={1.2} fill="none" />
         <text x={x(hi) - 4} y={y(hi) + 10} textAnchor="end" style={{ ...labelStyle, fill: 'var(--faint)' }}>
           y = x (perfect match)
         </text>
@@ -212,7 +213,7 @@ function EigenvalueScatter() {
                 cy={y(eig)}
                 r={3.2}
                 fill={N_COLOURS[N]}
-                stroke="#1c1814"
+                stroke={ED.ink}
                 strokeWidth={0.8}
                 opacity={0.92}
               />
@@ -223,9 +224,9 @@ function EigenvalueScatter() {
         {/* Axes. */}
         {ticks.map((t) => (
           <g key={'ax-' + t}>
-            <line x1={x(t)} y1={IH} x2={x(t)} y2={IH + 3} stroke="#877b67" />
+            <line x1={x(t)} y1={IH} x2={x(t)} y2={IH + 3} stroke={ED.rule} />
             <text x={x(t)} y={IH + 14} textAnchor="middle" style={tickStyle}>{t}</text>
-            <line x1={0} y1={y(t)} x2={-3} y2={y(t)} stroke="#877b67" />
+            <line x1={0} y1={y(t)} x2={-3} y2={y(t)} stroke={ED.rule} />
             <text x={-6} y={y(t) + 3} textAnchor="end" style={tickStyle}>{t}</text>
           </g>
         ))}
@@ -239,7 +240,7 @@ function EigenvalueScatter() {
         {/* Legend. */}
         {[50, 100, 200].map((N, i) => (
           <g key={'leg-' + N}>
-            <circle cx={12} cy={14 + i * 14} r={4} fill={N_COLOURS[N]} stroke="#1c1814" strokeWidth={0.8} />
+            <circle cx={12} cy={14 + i * 14} r={4} fill={N_COLOURS[N]} stroke={ED.ink} strokeWidth={0.8} />
             <text x={20} y={17 + i * 14} style={{ ...labelStyle, fill: N_COLOURS[N] }}>N = {N}</text>
           </g>
         ))}
@@ -262,12 +263,12 @@ function RmsResidual() {
   return (
     <svg width={PANEL_W} height={PANEL_H} role="img" aria-label="RMS residual vs N">
       <g transform={'translate(' + PAD.left + ',' + PAD.top + ')'}>
-        <rect x={0} y={0} width={IW} height={IH} fill="#fdfaf3" stroke="#d5c9b2" />
+        <rect x={0} y={0} width={IW} height={IH} fill={ED.paper} stroke={ED.rule} />
 
         {/* Y ticks. */}
         {[0, hi / 4, hi / 2, (3 * hi) / 4, hi].map((t, i) => (
           <g key={'rt-' + i}>
-            <line x1={0} y1={y(t)} x2={IW} y2={y(t)} stroke="#e3d8c2" strokeWidth={0.5} />
+            <line x1={0} y1={y(t)} x2={IW} y2={y(t)} stroke={ED.ruleSoft} strokeWidth={0.5} />
             <text x={-6} y={y(t) + 3} textAnchor="end" style={tickStyle}>{t.toFixed(1)}</text>
           </g>
         ))}
@@ -279,7 +280,7 @@ function RmsResidual() {
           const yTop = y(rmsByN[N]);
           return (
             <g key={'bar-' + N}>
-              <rect x={cx - barW / 2} y={yTop} width={barW} height={IH - yTop} fill={N_COLOURS[N]} opacity={0.85} stroke="#1c1814" />
+              <rect x={cx - barW / 2} y={yTop} width={barW} height={IH - yTop} fill={N_COLOURS[N]} opacity={0.85} stroke={ED.ink} />
               <text x={cx} y={yTop - 6} textAnchor="middle" style={{ ...labelStyle, fill: N_COLOURS[N], fontWeight: 700 }}>
                 {rmsByN[N].toFixed(2)}
               </text>
@@ -360,30 +361,30 @@ function CountingFunctionDemo() {
     <div>
       <svg width={PANEL_W} height={PANEL_H} role="img" aria-label="counting function N(E) comparison">
         <g transform={'translate(' + PAD.left + ',' + PAD.top + ')'}>
-          <rect x={0} y={0} width={IW} height={IH} fill="#fdfaf3" stroke="#d5c9b2" />
+          <rect x={0} y={0} width={IW} height={IH} fill={ED.paper} stroke={ED.rule} />
           {nTicks.map((t) => (
             <g key={'yt-' + t}>
-              <line x1={0} y1={yS(t)} x2={IW} y2={yS(t)} stroke="#e3d8c2" strokeWidth={0.5} />
+              <line x1={0} y1={yS(t)} x2={IW} y2={yS(t)} stroke={ED.ruleSoft} strokeWidth={0.5} />
               <text x={-6} y={yS(t) + 3} textAnchor="end" style={tickStyle}>{t}</text>
             </g>
           ))}
           {eTicks.map((t) => (
             <g key={'xt-' + t}>
-              <line x1={xS(t)} y1={IH} x2={xS(t)} y2={IH + 3} stroke="#877b67" />
+              <line x1={xS(t)} y1={IH} x2={xS(t)} y2={IH + 3} stroke={ED.rule} />
               <text x={xS(t)} y={IH + 14} textAnchor="middle" style={tickStyle}>{t}</text>
             </g>
           ))}
-          <path d={smoothPath} fill="none" stroke="#3f6b86" strokeWidth={2} />
-          <path d={actualPath} fill="none" stroke="#4c7a4a" strokeWidth={1.5} />
-          <line x1={xCur} y1={0} x2={xCur} y2={IH} stroke="#b58a2e" strokeWidth={1} strokeDasharray="3,2" />
+          <path d={smoothPath} fill="none" stroke={ED.series1} strokeWidth={2} />
+          <path d={actualPath} fill="none" stroke={ED.series3} strokeWidth={1.5} />
+          <line x1={xCur} y1={0} x2={xCur} y2={IH} stroke={ED.brassDeco} strokeWidth={1} strokeDasharray="3,2" />
           <text x={IW / 2} y={IH + 30} textAnchor="middle" style={labelStyle}>E (imaginary part)</text>
           <text x={-IH / 2} y={-36} textAnchor="middle" transform={'rotate(-90)'} style={labelStyle}>N(E)</text>
           <text x={IW / 2} y={-10} textAnchor="middle" style={{ ...labelStyle, fill: 'var(--ink)', fontWeight: 700 }}>
             sigma = 1/2 counting function
           </text>
-          <line x1={6} y1={16} x2={26} y2={16} stroke="#3f6b86" strokeWidth={2} />
+          <line x1={6} y1={16} x2={26} y2={16} stroke={ED.series1} strokeWidth={2} />
           <text x={30} y={19} style={{ ...labelStyle, fill: 'var(--blue)' }}>N_smooth</text>
-          <line x1={6} y1={30} x2={26} y2={30} stroke="#4c7a4a" strokeWidth={1.5} />
+          <line x1={6} y1={30} x2={26} y2={30} stroke={ED.series3} strokeWidth={1.5} />
           <text x={30} y={33} style={{ ...labelStyle, fill: 'var(--green)' }}>N_actual</text>
         </g>
       </svg>
@@ -402,17 +403,17 @@ function CountingFunctionDemo() {
           />
         </label>
         <div style={{ marginTop: 8, display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 8 }}>
-          <div style={{ padding: '6px 8px', background: 'rgba(63, 107, 134, 0.10)', border: '1px solid rgba(63, 107, 134, 0.35)', borderRadius: 4 }}>
+          <div style={{ padding: '6px 8px', background: 'color-mix(in srgb, var(--series-1) 10%, transparent)', border: '1px solid color-mix(in srgb, var(--series-1) 35%, transparent)', borderRadius: 4 }}>
             <div style={{ color: 'var(--blue)', fontSize: 10 }}>N_smooth(E)</div>
             <div style={{ color: 'var(--ink)', fontSize: 14, fontWeight: 700 }}>{ns.toFixed(3)}</div>
             <div style={{ color: 'var(--faint)', fontSize: 9, marginTop: 2 }}>(E/2pi)(ln(E/2pi)-1)+7/8</div>
           </div>
-          <div style={{ padding: '6px 8px', background: 'rgba(76, 122, 74, 0.10)', border: '1px solid rgba(76, 122, 74, 0.35)', borderRadius: 4 }}>
+          <div style={{ padding: '6px 8px', background: 'color-mix(in srgb, var(--series-3) 10%, transparent)', border: '1px solid color-mix(in srgb, var(--series-3) 35%, transparent)', borderRadius: 4 }}>
             <div style={{ color: 'var(--green)', fontSize: 10 }}>N_actual(E)</div>
             <div style={{ color: 'var(--ink)', fontSize: 14, fontWeight: 700 }}>{na}</div>
             <div style={{ color: 'var(--faint)', fontSize: 9, marginTop: 2 }}>counted from Odlyzko data</div>
           </div>
-          <div style={{ padding: '6px 8px', background: 'rgba(181, 138, 46, 0.12)', border: '1px solid rgba(181, 138, 46, 0.40)', borderRadius: 4 }}>
+          <div style={{ padding: '6px 8px', background: 'color-mix(in srgb, var(--brass-deco) 12%, transparent)', border: '1px solid color-mix(in srgb, var(--brass-deco) 40%, transparent)', borderRadius: 4 }}>
             <div style={{ color: 'var(--brass-dk)', fontSize: 10 }}>residual S(E)</div>
             <div style={{ color: 'var(--ink)', fontSize: 14, fontWeight: 700 }}>{(residual >= 0 ? '+' : '') + residual.toFixed(3)}</div>
             <div style={{ color: 'var(--faint)', fontSize: 9, marginTop: 2 }}>N_actual - N_smooth</div>
@@ -453,8 +454,8 @@ export default function BerryKeatingXpPage() {
         <div style={{
           marginTop: 16,
           padding: 12,
-          background: 'rgba(194, 58, 28, 0.08)',
-          border: '1px solid rgba(194, 58, 28, 0.35)',
+          background: 'color-mix(in srgb, var(--series-2) 8%, transparent)',
+          border: '1px solid color-mix(in srgb, var(--accent) 35%, transparent)',
           borderRadius: 8,
           color: 'var(--terra-dk)',
           fontFamily: 'var(--ed-mono, var(--font-mono))',
@@ -554,8 +555,8 @@ export default function BerryKeatingXpPage() {
           <div style={{
             marginTop: 12,
             padding: 10,
-            background: 'rgba(194, 58, 28, 0.06)',
-            border: '1px solid rgba(194, 58, 28, 0.25)',
+            background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+            border: '1px solid color-mix(in srgb, var(--accent) 25%, transparent)',
             borderRadius: 6,
             color: 'var(--terra-dk)',
             fontSize: 11,

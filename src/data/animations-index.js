@@ -37,13 +37,14 @@ export const ANIMATIONS_INDEX = Object.freeze([
       '/lambda-01758354-candidate: a revised mollifier and an extended ' +
       'finite lane (5.3×10⁶ windows, vs 3,149,013 in the 0.1787854 package) ' +
       'certify four independent gates — finite lane, tail D < 1 ' +
-      '(Euler–Maclaurin, closing only after extending the verified height ' +
-      'to N* = 6×10⁶), barrier reuse (monotone in t), and the y-transfer ' +
+      '(endpoint-cap bound, closing only after raising the finite/tail ' +
+      'cutoff to N* = 6×10⁶; the verified zero height X is unchanged), ' +
+      'barrier reuse (containment in the certified barrier box), and the y-transfer ' +
       'excision budget B ≈ 2.5×10⁻⁴ against an available margin of ' +
       '1.87×10⁻³. Includes the honest hard part: naive termwise ' +
       'monotonicity is false (double cancellations), fixed by ' +
       'profile-sector cells that dissolve an apparent 2²⁸⁷ enumeration ' +
-      'into 20,546 explicit profiles. The reduction is Lean-checked, the ' +
+      'into 20,546 explicit profiles. The y-transfer reduction and Lemma B3 are Lean-checked, the ' +
       'gates are Arb interval computations — and neither step is a referee.',
     scenes: [
       'Title — candidate, unrefereed, not SOTA',

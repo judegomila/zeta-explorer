@@ -1,4 +1,5 @@
 import React from 'react';
+import { ED } from '../styles/tokens.js';
 
 /**
  * WithinStepStepoverExplainer (imp-35363) — a short companion explainer for the
@@ -36,15 +37,15 @@ export default function WithinStepStepoverExplainer({ compact = false } = {}) {
   return (
     <div
       style={{
-        background: 'rgba(251,191,36,0.06)',
-        border: '1px solid rgba(251,191,36,0.35)',
-        borderLeft: '4px solid #fbbf24',
+        background: 'color-mix(in srgb, var(--brass-deco) 6%, transparent)',
+        border: '1px solid color-mix(in srgb, var(--brass-deco) 35%, transparent)',
+        borderLeft: '4px solid var(--brass-deco)',
         borderRadius: 8,
         padding: '14px 16px',
         margin: compact ? '12px 0' : '18px 0',
       }}
     >
-      <p style={{ margin: '0 0 8px 0', fontSize: 14, fontWeight: 'bold', color: '#fbbf24' }}>
+      <p style={{ margin: '0 0 8px 0', fontSize: 14, fontWeight: 'bold', color: 'var(--brass)' }}>
         Why an endpoint check misses a within-step step-over
       </p>
       <p style={{ margin: '0 0 10px 0', fontSize: 13, lineHeight: 1.7, color: 'var(--text-secondary, #94a3b8)' }}>
@@ -57,20 +58,20 @@ export default function WithinStepStepoverExplainer({ compact = false } = {}) {
         endpoints it already agrees on.
       </p>
       <svg width={svgW} height={svgH} style={{ display: 'block', margin: '0 auto 10px' }}>
-        <line x1={padL} y1={yZero} x2={x1} y2={yZero} stroke="#475569" strokeWidth={1} strokeDasharray="3 3" />
-        <text x={padL} y={yZero - 14} fill="#64748b" fontSize={8.5}>
+        <line x1={padL} y1={yZero} x2={x1} y2={yZero} stroke={ED.rule} strokeWidth={1} strokeDasharray="3 3" />
+        <text x={padL} y={yZero - 14} fill={ED.inkFaint} fontSize={8.5}>
           gap(t) = 0
         </text>
-        <path d={path} fill="none" stroke="#fbbf24" strokeWidth={2} />
-        <circle cx={x0} cy={yZero - 10} r={3.5} fill="#4ade80" />
-        <circle cx={x1} cy={yZero - 10} r={3.5} fill="#4ade80" />
-        <text x={x0 - 6} y={yZero - 18} fill="#4ade80" fontSize={8}>
+        <path d={path} fill="none" stroke={ED.brassDeco} strokeWidth={2} />
+        <circle cx={x0} cy={yZero - 10} r={3.5} fill={ED.series3} />
+        <circle cx={x1} cy={yZero - 10} r={3.5} fill={ED.series3} />
+        <text x={x0 - 6} y={yZero - 18} fill={ED.series3} fontSize={8}>
           + (endpoint)
         </text>
-        <text x={x1 - 44} y={yZero - 18} fill="#4ade80" fontSize={8}>
+        <text x={x1 - 44} y={yZero - 18} fill={ED.series3} fontSize={8}>
           + (endpoint)
         </text>
-        <text x={xMid - 30} y={yDip + 12} fill="#f87171" fontSize={8}>
+        <text x={xMid - 30} y={yDip + 12} fill={ED.series2} fontSize={8}>
           &minus; interior (missed)
         </text>
       </svg>
@@ -79,12 +80,12 @@ export default function WithinStepStepoverExplainer({ compact = false } = {}) {
       </p>
       <ul style={{ margin: 0, paddingLeft: 18, fontSize: 12.5, lineHeight: 1.75, color: 'var(--text-secondary, #94a3b8)' }}>
         <li>
-          <strong style={{ color: '#fcd34d' }}>Finer grid:</strong> shrink the step so the
+          <strong style={{ color: 'var(--brass)' }}>Finer grid:</strong> shrink the step so the
           interior dip straddles a step boundary instead of hiding inside one step (the
           imp-35324 tauC/4000 re-run).
         </li>
         <li>
-          <strong style={{ color: '#fcd34d' }}>True sub-step dense output:</strong> a DP45
+          <strong style={{ color: 'var(--brass)' }}>True sub-step dense output:</strong> a DP45
           dense-output interpolant evaluated within the step, rather than only at its two
           endpoints.
         </li>

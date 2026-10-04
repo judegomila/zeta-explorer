@@ -5,8 +5,9 @@ import WireframeAnim from '../components/editorial/WireframeAnim.jsx';
 import { FULL_ROUTE_MAP } from '../data/full-route-map-2026-06-19.js';
 import { CH_WALL_FRONTIER } from '../data/ch-wall-frontier-verdict-2026-06-26.js';
 import { ZETAEXPLORER_NO_GOS, FIELD_NO_GOS } from '../data/rh-no-go-theorems.js';
+import { STATUS } from '../styles/tokens.js';
 
-const KIND_COLOR = { theorem: '#4c7a4a', barrier: '#b58a2e', equivalence: '#6d55b8' };
+const KIND_COLOR = { theorem: STATUS.proved.fg, barrier: STATUS.nogo.fg, equivalence: STATUS.rhequiv.fg };
 
 function NoGoList({ items }) {
   return (
@@ -87,7 +88,7 @@ export default function WhatWeKnowPage() {
       <h2>① Established results and the separately graded candidates</h2>
       <ul style={{ paddingLeft: 20, lineHeight: 1.75 }}>
         <li><strong>Standalone private-review Newman candidate:</strong> <strong>Λ ≤ 0.1787854</strong> is a computer-assisted candidate for an unconditional proof. Its package claims a compact-slab and final-time-half-strip closure, full material replay, corrected errors, and exact Polymath weld. The bound is not established, has been reviewed by Dan Romik, and is not RH.</li>
-        <li><strong>Sharper Newman candidate:</strong> <strong>Λ ≤ 0.1758354</strong> — a computer-assisted candidate with four gates certified in Arb and a Lean-checked reduction. Unrefereed; not established. <Link to="/lambda-01758354-candidate">detail →</Link></li>
+        <li><strong>Sharper Newman candidate:</strong> <strong>Λ ≤ 0.1758354</strong> — a computer-assisted candidate with four gates certified in Arb and a Lean-checked y-transfer reduction and Lemma B3. Unrefereed; not established. <Link to="/lambda-01758354-candidate">detail →</Link></li>
         <li><strong>Λ ≤ 0.14 completion contract:</strong> a conditional contract, <em>not a bound</em> — the freeze-calculus / [B_v, Π_p]-weld route reduces the strict value to exactly one open family: the enclosure |C_E,17| {'<'} 0.2796881955526147 on 690988 ≤ N ≤ 54799999. Nothing is claimed unless that family closes. <Link to="/permutation-architecture">detail →</Link></li>
         <li><strong>Literature grades:</strong> <strong>Λ ≥ 0</strong> (Rodgers–Tao 2020) and the peer-reviewed upper benchmark <strong>Λ ≤ 0.2</strong> (Platt–Trudgian 2021). RH ⟺ Λ = 0.</li>
         <li><strong>Route B (Burgers / Koksma–Hlawka lim-sup):</strong> an unconditional, GUE-free, pair-correlation-free proof that lim supₙ |t_c(N)| = 0 for the N-particle Calogero–Moser/Dyson flow that models the zeros. This subsidiary theorem does not close the bridge to RH.</li>
@@ -196,7 +197,7 @@ export default function WhatWeKnowPage() {
           <strong> Λ ≤ 0.1787854</strong> as a computer-assisted candidate for an
           unconditional proof; the bound is not established, has been reviewed by Dan Romik, and is not RH.
           A sharper candidate, <Link to="/lambda-01758354-candidate"><strong>Λ ≤ 0.1758354</strong></Link> (four
-          Arb-certified gates + a Lean-checked reduction), is likewise unrefereed. The{' '}
+          Arb-certified gates + a Lean-checked y-transfer reduction and Lemma B3), is likewise unrefereed. The{' '}
           <Link to="/permutation-architecture"><strong>Λ ≤ 0.14</strong> completion contract</Link> is a
           conditional contract, not a bound — reduced to one open family. The exact global Twin Ladder
           residual inequality remains equivalent to RH, and RH itself remains open.

@@ -6,6 +6,7 @@ import {
   IMP97301_CLASS_LABELS,
   IMP97301_SUMMARY,
 } from '../data/imp-97301-e1-quarter-b-saturation-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 // imp-97301: the imp-97269 per-class b/4 E1-saturation cross-check shipped with a four-class
 // table but no chart. This page renders the saturation ratio q(b) = |E1(b)|/(b/4) against
@@ -13,10 +14,10 @@ import {
 // generic composites undershoot and decay as b grows.
 
 const CLASS_COLORS = {
-  primes: '#38bdf8',
-  primePowers: '#f87171',
-  primorials: '#a78bfa',
-  genericComposites: '#4ade80',
+  primes: ED.series1,
+  primePowers: ED.series2,
+  primorials: ED.series5,
+  genericComposites: ED.series3,
 };
 
 function LineChart({ series, xLabel, yLabel }) {
@@ -45,20 +46,20 @@ function LineChart({ series, xLabel, yLabel }) {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
       {yTicks.map((v) => (
         <g key={`y${v}`}>
-          <line x1={padL - 4} y1={yOf(v)} x2={padL} y2={yOf(v)} stroke="#334155" strokeWidth={1} />
-          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={8.5}>
+          <line x1={padL - 4} y1={yOf(v)} x2={padL} y2={yOf(v)} stroke={ED.rule} strokeWidth={1} />
+          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8.5}>
             {v.toFixed(2)}
           </text>
         </g>
       ))}
       {xTicks.map((v) => (
         <g key={`x${v}`}>
-          <line x1={xOf(v)} y1={padT + plotH} x2={xOf(v)} y2={padT + plotH + 4} stroke="#334155" strokeWidth={1} />
-          <text x={xOf(v)} y={padT + plotH + 14} textAnchor="middle" fill="#64748b" fontSize={8}>
+          <line x1={xOf(v)} y1={padT + plotH} x2={xOf(v)} y2={padT + plotH + 4} stroke={ED.rule} strokeWidth={1} />
+          <text x={xOf(v)} y={padT + plotH + 14} textAnchor="middle" fill={ED.inkFaint} fontSize={8}>
             {`1e${v.toFixed(1)}`}
           </text>
         </g>
@@ -76,10 +77,10 @@ function LineChart({ series, xLabel, yLabel }) {
           ))}
         </g>
       ))}
-      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill="#94a3b8" fontSize={9}>
+      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkSoft} fontSize={9}>
         {xLabel}
       </text>
-      <text x={12} y={padT + 8} fill="#94a3b8" fontSize={9}>
+      <text x={12} y={padT + 8} fill={ED.inkSoft} fontSize={9}>
         {yLabel}
       </text>
     </svg>
@@ -113,15 +114,15 @@ export default function Imp97301E1QuarterBSaturationViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> MEASUREMENT only. The
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> MEASUREMENT only. The
         saturation ratio q(b) = |E1(b)|/(b/4) never exceeds 1 on the dense sweep b in
         [2,20000] (0 violations); it rises toward 1 only on the primes (the class where the
         -b/4 leader survives) and undershoots, decaying with b, on prime powers, primorials and
@@ -130,20 +131,20 @@ export default function Imp97301E1QuarterBSaturationViz() {
         RH open; NO QED.
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1rem', maxWidth: 700 }}>
         Each point is a baked (b, q) pair from the imp-97269 per-class table, plotted against
         log10(b). The primes series (blue) climbs from 0.765 at b=7 to 0.999952 at b=99991,
         the only class where q approaches the b/4 ceiling. The three smooth classes (red,
         purple, green) start lower and decay further as b grows.
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         q(b) = |E1(b)|/(b/4) vs log10(b), by divisor class
       </h3>
       <LineChart series={series} xLabel="log10(b)" yLabel="q(b)" />
       <Legend series={series} />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', margin: '1.5rem 0 1rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', margin: '1.5rem 0 1rem', maxWidth: 700 }}>
         The binding class is <strong>{IMP97301_SUMMARY.bindingClass}</strong>: q ranges from{' '}
         {IMP97301_SUMMARY.primesMinQ.toFixed(3)} to {IMP97301_SUMMARY.primesMaxQ.toFixed(5)} on
         primes, while the smallest q reached across every smooth class is as low as{' '}
@@ -158,14 +159,14 @@ export default function Imp97301E1QuarterBSaturationViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page consuming the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the
         imp-97301 viz-data leaf (every value reused verbatim from the imp-97269 baked
         IMP97269_CLASS_TABLE, no re-derivation of the O(b) E1 kernel). Changes no bound,
         establishes no operator positivity; Platt-Trudgian &Lambda;&le;0.2 remains SOTA; RH

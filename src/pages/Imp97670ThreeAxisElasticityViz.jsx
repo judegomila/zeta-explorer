@@ -1,11 +1,12 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP97670_LANDMARK_ROWS, IMP97670_SUMMARY } from '../data/imp-97670-three-axis-elasticity-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 const AXIS_COLORS = Object.freeze({
-  elasticity_CC: '#f87171',
-  elasticity_ET: '#60a5fa',
-  elasticity_CF: '#34d399',
+  elasticity_CC: ED.series2,
+  elasticity_ET: ED.series1,
+  elasticity_CF: ED.series3,
 });
 const AXIS_LABELS = Object.freeze({
   elasticity_CC: 'E_CC',
@@ -37,8 +38,8 @@ function ElasticityGroupedBarChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={zeroY} x2={padL + plotW} y2={zeroY} stroke="#334155" strokeWidth={1} />
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#334155" strokeWidth={1} />
+      <line x1={padL} y1={zeroY} x2={padL + plotW} y2={zeroY} stroke={ED.rule} strokeWidth={1} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1} />
       {IMP97670_LANDMARK_ROWS.map((row, gi) => {
         const groupX = padL + gi * groupW;
         return (
@@ -61,7 +62,7 @@ function ElasticityGroupedBarChart() {
                 />
               );
             })}
-            <text x={groupX + groupW / 2} y={svgH - 12} textAnchor="middle" fill="#94a3b8" fontSize={10}>
+            <text x={groupX + groupW / 2} y={svgH - 12} textAnchor="middle" fill={ED.inkSoft} fontSize={10}>
               {row.label}
             </text>
           </g>
@@ -70,7 +71,7 @@ function ElasticityGroupedBarChart() {
       {AXES.map((axis, ai) => (
         <g key={axis} transform={`translate(${padL + 10 + ai * 110}, 10)`}>
           <rect width={10} height={10} fill={AXIS_COLORS[axis]} />
-          <text x={14} y={9} fill="#cbd5e1" fontSize={10}>
+          <text x={14} y={9} fill={ED.ink} fontSize={10}>
             {AXIS_LABELS[axis]}
           </text>
         </g>
@@ -88,33 +89,33 @@ export default function Imp97670ThreeAxisElasticityViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> a measurement/presentation-only
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a measurement/presentation-only
         page reshaping the frozen imp-97644 elasticity literals verbatim (no re-derivation, no new
         computation). Conditional-share diagnostic on the inherited imp-3220/imp-3406 extrapolation,
         not a rigorous asymptotic. Changes no bound; establishes no operator positivity;
         Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA; RH open; NO QED.
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         {IMP97670_SUMMARY.reading}
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         E_CC, E_ET, E_CF grouped by landmark (L2/L3/L4)
       </h3>
       <ElasticityGroupedBarChart />
 
       <table style={{ width: '100%', marginTop: '1.25rem', borderCollapse: 'collapse', fontSize: '0.82rem' }}>
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'right' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'right' }}>
             <th style={{ textAlign: 'left', padding: '0.4rem 0.5rem' }}>Landmark</th>
             <th style={{ padding: '0.4rem 0.5rem' }}>sigma</th>
             <th style={{ padding: '0.4rem 0.5rem' }}>E_CC</th>
@@ -125,7 +126,7 @@ export default function Imp97670ThreeAxisElasticityViz() {
         </thead>
         <tbody>
           {IMP97670_LANDMARK_ROWS.map((row) => (
-            <tr key={row.key} style={{ color: '#cbd5e1', textAlign: 'right', borderTop: '1px solid #1e293b' }}>
+            <tr key={row.key} style={{ color: 'var(--ink)', textAlign: 'right', borderTop: '1px solid var(--rule-soft)' }}>
               <td style={{ textAlign: 'left', padding: '0.4rem 0.5rem' }}>{row.label}</td>
               <td style={{ padding: '0.4rem 0.5rem' }}>{row.sigma}</td>
               <td style={{ padding: '0.4rem 0.5rem' }}>{row.elasticity_CC.toFixed(4)}</td>
@@ -141,14 +142,14 @@ export default function Imp97670ThreeAxisElasticityViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> {IMP97670_SUMMARY.verdict}
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> {IMP97670_SUMMARY.verdict}
       </div>
     </div>
   );

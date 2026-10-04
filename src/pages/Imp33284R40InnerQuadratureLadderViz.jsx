@@ -6,6 +6,7 @@ import {
   IMP33284_COARSE_DELTA,
   IMP33284_TIE_BAR,
 } from '../data/imp-33284-r40-inner-quadrature-ladder-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 const ALL_POINTS = [...IMP33284_LADDER, { hInner: IMP33284_COARSE_H_INNER, delta: IMP33284_COARSE_DELTA, withinTieBar: false, isCoarse: true }].sort(
   (a, b) => a.hInner - b.hInner,
@@ -44,48 +45,48 @@ function ConvergenceLadderChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
       {yTicks.map((v) => (
         <g key={v}>
-          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke="#1e293b" strokeWidth={0.7} />
-          <text x={padL - 4} y={yS(v) + 3.5} textAnchor="end" fill="#475569" fontSize={9}>
+          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke={ED.ruleSoft} strokeWidth={0.7} />
+          <text x={padL - 4} y={yS(v) + 3.5} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v.toExponential(0)}
           </text>
         </g>
       ))}
 
-      <line x1={padL} y1={yS(IMP33284_TIE_BAR)} x2={padL + cW} y2={yS(IMP33284_TIE_BAR)} stroke="#f472b6" strokeWidth={1.2} strokeDasharray="4,3" />
-      <text x={padL + 4} y={yS(IMP33284_TIE_BAR) - 5} textAnchor="start" fill="#f9a8d4" fontSize={8.5}>
+      <line x1={padL} y1={yS(IMP33284_TIE_BAR)} x2={padL + cW} y2={yS(IMP33284_TIE_BAR)} stroke={ED.series7} strokeWidth={1.2} strokeDasharray="4,3" />
+      <text x={padL + 4} y={yS(IMP33284_TIE_BAR) - 5} textAnchor="start" fill={ED.series7} fontSize={8.5}>
         informal tie bar ~1e-5
       </text>
 
-      <path d={guidePath} fill="none" stroke="#475569" strokeWidth={1} strokeDasharray="2,2" />
+      <path d={guidePath} fill="none" stroke={ED.rule} strokeWidth={1} strokeDasharray="2,2" />
 
-      <path d={path} fill="none" stroke="#38bdf8" strokeWidth={2} />
+      <path d={path} fill="none" stroke={ED.series1} strokeWidth={2} />
       {ALL_POINTS.map((r) => (
         <circle
           key={r.hInner}
           cx={xS(r.hInner)}
           cy={yS(r.delta)}
           r={r.isCoarse ? 5 : 4}
-          fill={r.isCoarse ? '#fb923c' : r.withinTieBar ? '#34d399' : '#38bdf8'}
-          stroke={r.isCoarse ? '#fdba74' : 'none'}
+          fill={r.isCoarse ? ED.series4 : r.withinTieBar ? ED.series3 : ED.series1}
+          stroke={r.isCoarse ? ED.series4 : 'none'}
           strokeWidth={r.isCoarse ? 1.5 : 0}
         />
       ))}
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
 
       {xTicks.map((v) => (
         <g key={'x' + v}>
-          <line x1={xS(v)} y1={padT + cH} x2={xS(v)} y2={padT + cH + 5} stroke="#334155" strokeWidth={1} />
-          <text x={xS(v)} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={9}>
+          <line x1={xS(v)} y1={padT + cH} x2={xS(v)} y2={padT + cH + 5} stroke={ED.rule} strokeWidth={1} />
+          <text x={xS(v)} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
             {v.toExponential(0)}
           </text>
         </g>
       ))}
-      <text x={padL + cW / 2} y={padT + cH + 34} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={padT + cH + 34} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         h_inner (log scale)
       </text>
 
@@ -93,7 +94,7 @@ function ConvergenceLadderChart() {
         x={12}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={'rotate(-90,12,' + (padT + cH / 2) + ')'}
       >
@@ -108,7 +109,7 @@ export default function Imp33284R40InnerQuadratureLadderViz() {
     <div style={{ padding: '1.5rem', maxWidth: 940, margin: '0 auto' }}>
       <PageHeader title="R_40 Inner-Quadrature O(h^4) Convergence Ladder (imp-33256 / imp-33284)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-33256 swept the inner A(tau) Simpson resolution (holding the outer moment grid fixed
         at the imp-3849 converged T_A=2, NM=3200) to explain the ~1.21e-5 imp-3888 R_40 residual.
         Refining the inner panel width h_inner drives delta = |R_40(h_inner) - R_40_converged|
@@ -118,7 +119,7 @@ export default function Imp33284R40InnerQuadratureLadderViz() {
         the bar -- purely because it is the coarsest inner grid in the family.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         delta vs h_inner (log-log), tie bar dashed pink, O(h^4) reference slope dashed grey
       </p>
       <ConvergenceLadderChart />
@@ -127,14 +128,14 @@ export default function Imp33284R40InnerQuadratureLadderViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> the ladder tracks the
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> the ladder tracks the
         O(h^4) reference slope closely across three-plus decades of h_inner, confirming the
         residual is genuine Simpson-order quadrature drift and not noise or a bug. Green markers
         sit within the informal tie bar; blue markers (the three coarsest sweep rungs) and the
@@ -145,14 +146,14 @@ export default function Imp33284R40InnerQuadratureLadderViz() {
         style={{
           marginTop: '1rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement/visualization
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> measurement/visualization
         only -- no proof, no reduction below RH. This ladder tabulates the inner-quadrature
         sensitivity of a single moment-ratio diagnostic (R_40) used inside a mass-feasibility
         check; mass-feasibility is necessary-but-not-sufficient and the operator-level K_a &ge; 0

@@ -9,8 +9,9 @@ import {
   IMP33607_EXPONENT_LADDER,
   IMP33607_EXPONENT_ASYMPTOTE,
 } from '../data/imp-33607-sigma-postpeak-decay-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
-const COLORS = { curve: '#10b981', peak: '#6ee7b7', threshold: '#a855f7', crossover: '#f472b6', exponent: '#38bdf8' };
+const COLORS = { curve: ED.series3, peak: ED.series3, threshold: ED.series5, crossover: ED.series7, exponent: ED.series1 };
 
 function ExponentLadderChart() {
   const svgW = 640;
@@ -30,7 +31,7 @@ function ExponentLadderChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
       <line
         x1={padL}
@@ -41,7 +42,7 @@ function ExponentLadderChart() {
         strokeWidth={1}
         strokeDasharray="4,2"
       />
-      <text x={padL + cW - 2} y={yS(IMP33607_EXPONENT_ASYMPTOTE) - 5} textAnchor="end" fill="#f9a8d4" fontSize={8.5}>
+      <text x={padL + cW - 2} y={yS(IMP33607_EXPONENT_ASYMPTOTE) - 5} textAnchor="end" fill={ED.series7} fontSize={8.5}>
         imp-3463 far-tail asymptote 1/2
       </text>
 
@@ -51,14 +52,14 @@ function ExponentLadderChart() {
         return (
           <g key={r.decade}>
             <rect x={x} y={y} width={barW} height={padT + cH - y} fill={COLORS.exponent} opacity={0.85} />
-            <text x={x + barW / 2} y={y - 6} textAnchor="middle" fill="#7dd3fc" fontSize={9}>
+            <text x={x + barW / 2} y={y - 6} textAnchor="middle" fill={ED.series1} fontSize={9}>
               {r.p_local}
             </text>
             <text
               x={x + barW / 2}
               y={padT + cH + 14}
               textAnchor="middle"
-              fill="#64748b"
+              fill={ED.inkFaint}
               fontSize={8}
             >
               {r.decade}
@@ -67,13 +68,13 @@ function ExponentLadderChart() {
         );
       })}
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
 
       <text
         x={12}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={'rotate(-90,12,' + (padT + cH / 2) + ')'}
       >
@@ -110,12 +111,12 @@ function SigmaPostpeakChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
       {[0.1, 0.5, 1].map((v) => (
         <g key={v}>
-          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke="#1e293b" strokeWidth={0.7} />
-          <text x={padL - 4} y={yS(v) + 3.5} textAnchor="end" fill="#475569" fontSize={9}>
+          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke={ED.ruleSoft} strokeWidth={0.7} />
+          <text x={padL - 4} y={yS(v) + 3.5} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v}
           </text>
         </g>
@@ -159,12 +160,12 @@ function SigmaPostpeakChart() {
         stroke={COLORS.peak}
         strokeWidth={2}
       />
-      <text x={xS(IMP33607_PEAK.N_peak) + 6} y={yS(IMP33607_PEAK.sigma_max) - 8} fill="#6ee7b7" fontSize={9}>
+      <text x={xS(IMP33607_PEAK.N_peak) + 6} y={yS(IMP33607_PEAK.sigma_max) - 8} fill={ED.series3} fontSize={9}>
         interior peak (imp-3406)
       </text>
 
       {IMP33607_THRESHOLDS.map((t) => (
-        <circle key={'thc' + t.label} cx={xS(t.N)} cy={yS(t.sigma)} r={4} fill={COLORS.threshold} stroke="#0a0f1a" strokeWidth={1} />
+        <circle key={'thc' + t.label} cx={xS(t.N)} cy={yS(t.sigma)} r={4} fill={COLORS.threshold} stroke={ED.paper} strokeWidth={1} />
       ))}
 
       <circle
@@ -175,21 +176,21 @@ function SigmaPostpeakChart() {
         stroke={COLORS.crossover}
         strokeWidth={2}
       />
-      <text x={xS(IMP33607_CROSSOVER.N) + 6} y={yS(IMP33607_CROSSOVER.sigma) + 16} fill="#f9a8d4" fontSize={9}>
+      <text x={xS(IMP33607_CROSSOVER.N) + 6} y={yS(IMP33607_CROSSOVER.sigma) + 16} fill={ED.series7} fontSize={9}>
         imp-3444 crossover
       </text>
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
 
       {xTickNs.map((N, i) => (
         <g key={'x' + N}>
-          <line x1={xS(N)} y1={padT + cH} x2={xS(N)} y2={padT + cH + 5} stroke="#334155" strokeWidth={1} />
-          <text x={xS(N)} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={8}>
+          <line x1={xS(N)} y1={padT + cH} x2={xS(N)} y2={padT + cH + 5} stroke={ED.rule} strokeWidth={1} />
+          <text x={xS(N)} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={8}>
             {xTickLabels[i]}
           </text>
         </g>
       ))}
-      <text x={padL + cW / 2} y={padT + cH + 34} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={padT + cH + 34} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         N (log scale)
       </text>
 
@@ -199,7 +200,7 @@ function SigmaPostpeakChart() {
           x={xS(t.N)}
           y={padT + cH + 48}
           textAnchor="middle"
-          fill="#c084fc"
+          fill={ED.series5}
           fontSize={7.5}
           transform={'rotate(-40,' + xS(t.N) + ',' + (padT + cH + 48) + ')'}
         >
@@ -211,7 +212,7 @@ function SigmaPostpeakChart() {
         x={12}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={'rotate(-90,12,' + (padT + cH / 2) + ')'}
       >
@@ -220,9 +221,9 @@ function SigmaPostpeakChart() {
 
       <g fontSize={9}>
         <line x1={padL + 2} y1={padT + 12} x2={padL + 10} y2={padT + 12} stroke={COLORS.curve} strokeWidth={2} />
-        <text x={padL + 14} y={padT + 15} fill="#6ee7b7">sigma(N) post-peak (imp-33582)</text>
+        <text x={padL + 14} y={padT + 15} fill={ED.series3}>sigma(N) post-peak (imp-33582)</text>
         <circle cx={padL + 6} cy={padT + 26} r={4} fill={COLORS.threshold} />
-        <text x={padL + 14} y={padT + 29} fill="#d8b4fe">threshold crossings (0.9, 0.5, 0.1)</text>
+        <text x={padL + 14} y={padT + 29} fill={ED.series5}>threshold crossings (0.9, 0.5, 0.1)</text>
       </g>
     </svg>
   );
@@ -233,7 +234,7 @@ export default function Imp33607SigmaPostpeakDecayViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Sigma(N) Post-Peak Decay Past the PATH-1 Ceiling (imp-33582 / imp-33607)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         Past the imp-3406 interior maximum (N_peak &sim; {IMP33607_PEAK.N_peak.toExponential(3)}, sigma_max
         &sim; {IMP33607_PEAK.sigma_max.toFixed(4)}), the conditional share sigma(N) = E_coll/E(N) decays
         slowly and acceleratingly across the extrapolation grid the 10^6 PATH-1 ceiling left open. The
@@ -241,12 +242,12 @@ export default function Imp33607SigmaPostpeakDecayViz() {
         of the imp-3444 E_coll = E_trunc crossover -- and drops below 0.1 only at N &sim; 3.21e11.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         sigma(N) past the interior peak, with the three threshold crossings and the imp-3444 crossover marked
       </p>
       <SigmaPostpeakChart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginTop: '1.5rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginTop: '1.5rem', marginBottom: '0.5rem' }}>
         per-decade local decay exponent p_local, ramping toward the far-tail 1/2 asymptote (imp-95081)
       </p>
       <ExponentLadderChart />
@@ -255,22 +256,22 @@ export default function Imp33607SigmaPostpeakDecayViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement/visualization only -- no
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> measurement/visualization only -- no
         proof, no reduction below RH. sigma(N) is the inherited imp-3220/imp-3406 extrapolation model, NOT
         a rigorous asymptotic; the C_mb GUE-conditional per imp-486 is untouched; changes no bound;
         establishes no operator positivity; imp-3066 K_a &ge; 0 remains untouched. No RH verdict, NO QED.
       </div>
 
-      <div style={{ marginTop: '1rem', fontSize: '0.85rem', color: '#64748b' }}>
+      <div style={{ marginTop: '1rem', fontSize: '0.85rem', color: 'var(--ink-faint)' }}>
         <strong>Related:</strong>{' '}
-        <Link to="/viz-imp3565-sigma-postpeak-decay-exponent" style={{ color: '#7c3aed' }}>
+        <Link to="/viz-imp3565-sigma-postpeak-decay-exponent" style={{ color: 'var(--series-5)' }}>
           Sigma(N) Post-Peak Decay Exponent (imp-3565)
         </Link>
       </div>

@@ -7,6 +7,7 @@ import {
   hasseZeta, pascalZetaScan, pascalRowConvergence, rowWeightedDirichlet,
 } from '../math/pascal.js';
 import { ZETA_ZEROS } from '../math/zeta.js';
+import { ED, alpha } from '../styles/tokens.js';
 
 function ZeroSnap({ tValue, setTValue }) {
   let bestIdx = 0, bestDist = Math.abs(tValue - ZETA_ZEROS[0]);
@@ -20,7 +21,7 @@ function ZeroSnap({ tValue, setTValue }) {
     <span
       style={{
         marginLeft: 6, fontSize: 11, fontFamily: 'var(--font-mono)',
-        color: bestDist < 0.3 ? '#10b981' : '#64748b',
+        color: bestDist < 0.3 ? 'var(--series-3)' : 'var(--ink-faint)',
         cursor: 'pointer', borderBottom: '1px dashed currentColor',
       }}
       title={`Click to snap t to γ${bestIdx + 1} = ${ZETA_ZEROS[bestIdx].toFixed(6)}`}
@@ -75,7 +76,7 @@ function TriangleTab() {
           .attr('height', cellSize - 4)
           .attr('rx', 4)
           .attr('fill', colorScale(Math.log(val + 1)))
-          .attr('stroke', isCentral ? '#f59e0b' : 'none')
+          .attr('stroke', isCentral ? ED.brassDeco : 'none')
           .attr('stroke-width', isCentral ? 2 : 0)
           .attr('opacity', 0.85);
 
@@ -99,7 +100,7 @@ function TriangleTab() {
     g.append('text')
       .attr('x', 0).attr('y', -14)
       .attr('text-anchor', 'middle')
-      .attr('fill', '#94a3b8').attr('font-size', 11)
+      .attr('fill', ED.inkSoft).attr('font-size', 11)
       .text(`${numRows} rows — central binomials highlighted in gold`);
 
     // Colorbar for the Viridis heatmap scale
@@ -122,18 +123,18 @@ function TriangleTab() {
       .attr('x', barX).attr('y', barY0)
       .attr('width', barW).attr('height', barH)
       .attr('rx', 3).attr('fill', `url(#${gradId})`)
-      .attr('stroke', '#334155').attr('stroke-width', 0.5);
+      .attr('stroke', ED.rule).attr('stroke-width', 0.5);
     svg.append('text')
       .attr('x', barX + barW / 2).attr('y', barY0 - 5)
-      .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 9)
+      .attr('text-anchor', 'middle').attr('fill', ED.inkSoft).attr('font-size', 9)
       .text(maxVal > 99999 ? maxVal.toExponential(1) : maxVal);
     svg.append('text')
       .attr('x', barX + barW / 2).attr('y', barY0 + barH + 12)
-      .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 9)
+      .attr('text-anchor', 'middle').attr('fill', ED.inkSoft).attr('font-size', 9)
       .text('1');
     svg.append('text')
       .attr('x', barX + barW + 4).attr('y', barY0 + barH / 2 + 3)
-      .attr('fill', '#64748b').attr('font-size', 9)
+      .attr('fill', ED.inkFaint).attr('font-size', 9)
       .text('Value');
   }, [rows, numRows]);
 
@@ -164,13 +165,13 @@ function TriangleTab() {
         <svg ref={svgRef} style={{ width: '100%', height: 'auto', minHeight: 200 }} />
       </div>
       <div className="card" style={{ marginTop: 16, padding: '14px 18px', fontSize: 13 }}>
-        <p style={{ color: '#94a3b8' }}>
+        <p style={{ color: 'var(--ink-soft)' }}>
           Each entry <InlineMath tex={"C(n,k) = \\binom{n}{k}"} /> is the binomial coefficient.
           Central binomials <InlineMath tex={"C(2n,n)"} /> (gold outlines) connect to <InlineMath tex={"\\pi"} /> and
           row products connect to <InlineMath tex={"e"} /> via:
         </p>
         <BlockMath tex={"\\pi = \\lim_{n\\to\\infty} \\frac{4^{2n}}{n\\,C(2n,n)^2}"} />
-        <p style={{ color: '#94a3b8', margin: 0 }}>
+        <p style={{ color: 'var(--ink-soft)', margin: 0 }}>
           Stirling's approximation gives <InlineMath tex={"C(2n,n) \\sim 4^{n}/\\sqrt{\\pi n}"} />,
           so <InlineMath tex={"4^{2n}/(n\\,C(2n,n)^2) \\to \\pi"} /> as <InlineMath tex={"n\\to\\infty"} />.
           The convergence is slow (<InlineMath tex={"O(1/n)"} />), so even <InlineMath tex={"n=100"} /> only gives <InlineMath tex={"\\pi"} /> to about 3 decimals.
@@ -213,60 +214,60 @@ function ConstantsTab() {
     // Grid
     g1.append('g').attr('transform', `translate(0,${chartH})`)
       .call(d3.axisBottom(x1).ticks(8).tickSize(0))
-      .selectAll('text').attr('fill', '#64748b').attr('font-size', 10);
+      .selectAll('text').attr('fill', ED.inkFaint).attr('font-size', 10);
     g1.append('g').call(d3.axisLeft(y1).ticks(5).tickSize(-w).tickFormat(d3.format('.4f')))
       .call(g => g.select('.domain').remove())
-      .call(g => g.selectAll('.tick line').attr('stroke', '#1e293b').attr('stroke-dasharray', '3,3'))
-      .selectAll('text').attr('fill', '#64748b').attr('font-size', 10);
+      .call(g => g.selectAll('.tick line').attr('stroke', ED.ruleSoft).attr('stroke-dasharray', '3,3'))
+      .selectAll('text').attr('fill', ED.inkFaint).attr('font-size', 10);
 
     // e reference line
     g1.append('line').attr('x1', 0).attr('x2', w)
       .attr('y1', y1(Math.E)).attr('y2', y1(Math.E))
-      .attr('stroke', '#10b981').attr('stroke-dasharray', '6,3').attr('opacity', 0.7);
+      .attr('stroke', ED.series3).attr('stroke-dasharray', '6,3').attr('opacity', 0.7);
     g1.append('text').attr('x', w - 4).attr('y', y1(Math.E) - 6)
-      .attr('text-anchor', 'end').attr('fill', '#10b981').attr('font-size', 11)
+      .attr('text-anchor', 'end').attr('fill', ED.series3).attr('font-size', 11)
       .text('e = 2.7183...');
 
     // Brothers' ratio
     g1.append('path')
       .datum(data.eData)
       .attr('d', d3.line().x(d => x1(d.n)).y(d => y1(d.ratio)).curve(d3.curveMonotoneX))
-      .attr('fill', 'none').attr('stroke', '#3b82f6').attr('stroke-width', 2);
+      .attr('fill', 'none').attr('stroke', ED.series1).attr('stroke-width', 2);
     data.eData.forEach(d => {
       g1.append('circle').attr('cx', x1(d.n)).attr('cy', y1(d.ratio))
-        .attr('r', 2.5).attr('fill', '#3b82f6');
+        .attr('r', 2.5).attr('fill', ED.series1);
     });
 
     // Classic (1+1/n)^n
     g1.append('path')
       .datum(data.eData)
       .attr('d', d3.line().x(d => x1(d.n)).y(d => y1(d.classic)).curve(d3.curveMonotoneX))
-      .attr('fill', 'none').attr('stroke', '#8b5cf6').attr('stroke-width', 1.5)
+      .attr('fill', 'none').attr('stroke', ED.series5).attr('stroke-width', 1.5)
       .attr('stroke-dasharray', '4,3');
 
     g1.append('text').attr('x', 4).attr('y', -6)
-      .attr('fill', '#e2e8f0').attr('font-size', 12).attr('font-weight', 600)
+      .attr('fill', ED.ink).attr('font-size', 12).attr('font-weight', 600)
       .text("Brothers' e from Pascal row products");
 
     // Axis labels
     g1.append('text')
       .attr('x', w / 2).attr('y', chartH + 30)
-      .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 11)
+      .attr('text-anchor', 'middle').attr('fill', ED.inkSoft).attr('font-size', 11)
       .text('n');
     g1.append('text')
       .attr('transform', `translate(-42, ${chartH / 2}) rotate(-90)`)
-      .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 11)
+      .attr('text-anchor', 'middle').attr('fill', ED.inkSoft).attr('font-size', 11)
       .text('Ratio');
 
     // Legend
     const leg1 = g1.append('g').attr('transform', `translate(${w - 180}, 10)`);
     leg1.append('line').attr('x1', 0).attr('x2', 16).attr('y1', 0).attr('y2', 0)
-      .attr('stroke', '#3b82f6').attr('stroke-width', 2);
-    leg1.append('text').attr('x', 20).attr('y', 4).attr('fill', '#94a3b8').attr('font-size', 10)
+      .attr('stroke', ED.series1).attr('stroke-width', 2);
+    leg1.append('text').attr('x', 20).attr('y', 4).attr('fill', ED.inkSoft).attr('font-size', 10)
       .text('sₙ₋₁·sₙ₊₁/sₙ²');
     leg1.append('line').attr('x1', 0).attr('x2', 16).attr('y1', 16).attr('y2', 16)
-      .attr('stroke', '#8b5cf6').attr('stroke-width', 1.5).attr('stroke-dasharray', '4,3');
-    leg1.append('text').attr('x', 20).attr('y', 20).attr('fill', '#94a3b8').attr('font-size', 10)
+      .attr('stroke', ED.series5).attr('stroke-width', 1.5).attr('stroke-dasharray', '4,3');
+    leg1.append('text').attr('x', 20).attr('y', 20).attr('fill', ED.inkSoft).attr('font-size', 10)
       .text('(1+1/n)ⁿ');
 
     // ─ Chart 2: Pi from central binomials ─
@@ -283,57 +284,57 @@ function ConstantsTab() {
 
     g2.append('g').attr('transform', `translate(0,${chartH})`)
       .call(d3.axisBottom(x2).ticks(8).tickSize(0))
-      .selectAll('text').attr('fill', '#64748b').attr('font-size', 10);
+      .selectAll('text').attr('fill', ED.inkFaint).attr('font-size', 10);
     g2.append('g').call(d3.axisLeft(y2).ticks(5).tickSize(-w).tickFormat(d3.format('.5f')))
       .call(g => g.select('.domain').remove())
-      .call(g => g.selectAll('.tick line').attr('stroke', '#1e293b').attr('stroke-dasharray', '3,3'))
-      .selectAll('text').attr('fill', '#64748b').attr('font-size', 10);
+      .call(g => g.selectAll('.tick line').attr('stroke', ED.ruleSoft).attr('stroke-dasharray', '3,3'))
+      .selectAll('text').attr('fill', ED.inkFaint).attr('font-size', 10);
 
     // π reference
     g2.append('line').attr('x1', 0).attr('x2', w)
       .attr('y1', y2(Math.PI)).attr('y2', y2(Math.PI))
-      .attr('stroke', '#f59e0b').attr('stroke-dasharray', '6,3').attr('opacity', 0.7);
+      .attr('stroke', ED.brassDeco).attr('stroke-dasharray', '6,3').attr('opacity', 0.7);
     g2.append('text').attr('x', w - 4).attr('y', y2(Math.PI) - 6)
-      .attr('text-anchor', 'end').attr('fill', '#f59e0b').attr('font-size', 11)
+      .attr('text-anchor', 'end').attr('fill', ED.brass).attr('font-size', 11)
       .text('π = 3.14159...');
 
     g2.append('path')
       .datum(data.piData)
       .attr('d', d3.line().x(d => x2(d.n)).y(d => y2(d.piApprox)).curve(d3.curveMonotoneX))
-      .attr('fill', 'none').attr('stroke', '#f59e0b').attr('stroke-width', 2);
+      .attr('fill', 'none').attr('stroke', ED.brassDeco).attr('stroke-width', 2);
     data.piData.forEach(d => {
       g2.append('circle').attr('cx', x2(d.n)).attr('cy', y2(d.piApprox))
-        .attr('r', 2.5).attr('fill', '#f59e0b');
+        .attr('r', 2.5).attr('fill', ED.brassDeco);
     });
 
     // Arcsin series
     g2.append('path')
       .datum(data.piArcsin)
       .attr('d', d3.line().x(d => x2(d.n + 1)).y(d => y2(d.piApprox)).curve(d3.curveMonotoneX))
-      .attr('fill', 'none').attr('stroke', '#ec4899').attr('stroke-width', 1.5).attr('stroke-dasharray', '4,3');
+      .attr('fill', 'none').attr('stroke', ED.series7).attr('stroke-width', 1.5).attr('stroke-dasharray', '4,3');
 
     g2.append('text').attr('x', 4).attr('y', -6)
-      .attr('fill', '#e2e8f0').attr('font-size', 12).attr('font-weight', 600)
+      .attr('fill', ED.ink).attr('font-size', 12).attr('font-weight', 600)
       .text('π from Central Binomial Coefficients');
 
     // Axis labels
     g2.append('text')
       .attr('x', w / 2).attr('y', chartH + 30)
-      .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 11)
+      .attr('text-anchor', 'middle').attr('fill', ED.inkSoft).attr('font-size', 11)
       .text('n');
     g2.append('text')
       .attr('transform', `translate(-42, ${chartH / 2}) rotate(-90)`)
-      .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 11)
+      .attr('text-anchor', 'middle').attr('fill', ED.inkSoft).attr('font-size', 11)
       .text('π approx');
 
     const leg2 = g2.append('g').attr('transform', `translate(${w - 200}, 10)`);
     leg2.append('line').attr('x1', 0).attr('x2', 16).attr('y1', 0).attr('y2', 0)
-      .attr('stroke', '#f59e0b').attr('stroke-width', 2);
-    leg2.append('text').attr('x', 20).attr('y', 4).attr('fill', '#94a3b8').attr('font-size', 10)
+      .attr('stroke', ED.brassDeco).attr('stroke-width', 2);
+    leg2.append('text').attr('x', 20).attr('y', 4).attr('fill', ED.inkSoft).attr('font-size', 10)
       .text('4²ⁿ / (n·C(2n,n)²)');
     leg2.append('line').attr('x1', 0).attr('x2', 16).attr('y1', 16).attr('y2', 16)
-      .attr('stroke', '#ec4899').attr('stroke-width', 1.5).attr('stroke-dasharray', '4,3');
-    leg2.append('text').attr('x', 20).attr('y', 20).attr('fill', '#94a3b8').attr('font-size', 10)
+      .attr('stroke', ED.series7).attr('stroke-width', 1.5).attr('stroke-dasharray', '4,3');
+    leg2.append('text').attr('x', 20).attr('y', 20).attr('fill', ED.inkSoft).attr('font-size', 10)
       .text('arcsin series');
 
     // ─ Chart 3: Error convergence (log scale) ─
@@ -351,21 +352,21 @@ function ConstantsTab() {
 
     g3.append('g').attr('transform', `translate(0,${chartH})`)
       .call(d3.axisBottom(x3).ticks(8).tickSize(0))
-      .selectAll('text').attr('fill', '#64748b').attr('font-size', 10);
+      .selectAll('text').attr('fill', ED.inkFaint).attr('font-size', 10);
     g3.append('g').call(d3.axisLeft(y3).ticks(5, '.0e').tickSize(-w))
       .call(g => g.select('.domain').remove())
-      .call(g => g.selectAll('.tick line').attr('stroke', '#1e293b').attr('stroke-dasharray', '3,3'))
-      .selectAll('text').attr('fill', '#64748b').attr('font-size', 10);
+      .call(g => g.selectAll('.tick line').attr('stroke', ED.ruleSoft).attr('stroke-dasharray', '3,3'))
+      .selectAll('text').attr('fill', ED.inkFaint).attr('font-size', 10);
 
     // e errors
     const eErrors = data.eData.filter(d => d.error > 0);
     g3.append('path')
       .datum(eErrors)
       .attr('d', d3.line().x(d => x3(d.n)).y(d => y3(d.error)).curve(d3.curveMonotoneX))
-      .attr('fill', 'none').attr('stroke', '#3b82f6').attr('stroke-width', 2);
+      .attr('fill', 'none').attr('stroke', ED.series1).attr('stroke-width', 2);
     eErrors.forEach(d => {
       g3.append('circle').attr('cx', x3(d.n)).attr('cy', y3(d.error))
-        .attr('r', 2.5).attr('fill', '#3b82f6');
+        .attr('r', 2.5).attr('fill', ED.series1);
     });
 
     // pi errors
@@ -373,10 +374,10 @@ function ConstantsTab() {
     g3.append('path')
       .datum(piErrors)
       .attr('d', d3.line().x(d => x3(d.n)).y(d => y3(d.error)).curve(d3.curveMonotoneX))
-      .attr('fill', 'none').attr('stroke', '#f59e0b').attr('stroke-width', 2);
+      .attr('fill', 'none').attr('stroke', ED.brassDeco).attr('stroke-width', 2);
     piErrors.forEach(d => {
       g3.append('circle').attr('cx', x3(d.n)).attr('cy', y3(d.error))
-        .attr('r', 2.5).attr('fill', '#f59e0b');
+        .attr('r', 2.5).attr('fill', ED.brassDeco);
     });
 
     // arcsin pi errors
@@ -384,40 +385,40 @@ function ConstantsTab() {
     g3.append('path')
       .datum(arcsinErrors)
       .attr('d', d3.line().x(d => x3(d.n + 1)).y(d => y3(d.error)).curve(d3.curveMonotoneX))
-      .attr('fill', 'none').attr('stroke', '#ec4899').attr('stroke-width', 1.5)
+      .attr('fill', 'none').attr('stroke', ED.series7).attr('stroke-width', 1.5)
       .attr('stroke-dasharray', '4,3');
     arcsinErrors.forEach(d => {
       g3.append('circle').attr('cx', x3(d.n + 1)).attr('cy', y3(d.error))
-        .attr('r', 2).attr('fill', '#ec4899');
+        .attr('r', 2).attr('fill', ED.series7);
     });
 
     g3.append('text').attr('x', 4).attr('y', -6)
-      .attr('fill', '#e2e8f0').attr('font-size', 12).attr('font-weight', 600)
+      .attr('fill', ED.ink).attr('font-size', 12).attr('font-weight', 600)
       .text('Convergence Error (log scale)');
 
     // Axis labels
     g3.append('text')
       .attr('x', w / 2).attr('y', chartH + 30)
-      .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 11)
+      .attr('text-anchor', 'middle').attr('fill', ED.inkSoft).attr('font-size', 11)
       .text('n');
     g3.append('text')
       .attr('transform', `translate(-42, ${chartH / 2}) rotate(-90)`)
-      .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 11)
+      .attr('text-anchor', 'middle').attr('fill', ED.inkSoft).attr('font-size', 11)
       .text('|Error|');
 
     const leg3 = g3.append('g').attr('transform', `translate(${w - 150}, 10)`);
     leg3.append('line').attr('x1', 0).attr('x2', 16).attr('y1', 0).attr('y2', 0)
-      .attr('stroke', '#3b82f6').attr('stroke-width', 2);
-    leg3.append('circle').attr('cx', 8).attr('cy', 0).attr('r', 2.5).attr('fill', '#3b82f6');
-    leg3.append('text').attr('x', 22).attr('y', 4).attr('fill', '#94a3b8').attr('font-size', 10).text('|e − approx|');
+      .attr('stroke', ED.series1).attr('stroke-width', 2);
+    leg3.append('circle').attr('cx', 8).attr('cy', 0).attr('r', 2.5).attr('fill', ED.series1);
+    leg3.append('text').attr('x', 22).attr('y', 4).attr('fill', ED.inkSoft).attr('font-size', 10).text('|e − approx|');
     leg3.append('line').attr('x1', 0).attr('x2', 16).attr('y1', 16).attr('y2', 16)
-      .attr('stroke', '#f59e0b').attr('stroke-width', 2);
-    leg3.append('circle').attr('cx', 8).attr('cy', 16).attr('r', 2.5).attr('fill', '#f59e0b');
-    leg3.append('text').attr('x', 22).attr('y', 20).attr('fill', '#94a3b8').attr('font-size', 10).text('|π − 4²ⁿ/(n·C²)|');
+      .attr('stroke', ED.brassDeco).attr('stroke-width', 2);
+    leg3.append('circle').attr('cx', 8).attr('cy', 16).attr('r', 2.5).attr('fill', ED.brassDeco);
+    leg3.append('text').attr('x', 22).attr('y', 20).attr('fill', ED.inkSoft).attr('font-size', 10).text('|π − 4²ⁿ/(n·C²)|');
     leg3.append('line').attr('x1', 0).attr('x2', 16).attr('y1', 32).attr('y2', 32)
-      .attr('stroke', '#ec4899').attr('stroke-width', 1.5).attr('stroke-dasharray', '4,3');
-    leg3.append('circle').attr('cx', 8).attr('cy', 32).attr('r', 2).attr('fill', '#ec4899');
-    leg3.append('text').attr('x', 22).attr('y', 36).attr('fill', '#94a3b8').attr('font-size', 10).text('|π − arcsin|');
+      .attr('stroke', ED.series7).attr('stroke-width', 1.5).attr('stroke-dasharray', '4,3');
+    leg3.append('circle').attr('cx', 8).attr('cy', 32).attr('r', 2).attr('fill', ED.series7);
+    leg3.append('text').attr('x', 22).attr('y', 36).attr('fill', ED.inkSoft).attr('font-size', 10).text('|π − arcsin|');
 
   }, [data, maxN]);
 
@@ -450,17 +451,17 @@ function ConstantsTab() {
         <svg ref={svgRef} style={{ width: '100%', height: 520 }} />
       </div>
       <div className="card" style={{ marginTop: 16, padding: '14px 18px', fontSize: 13 }}>
-        <p style={{ color: '#94a3b8', marginBottom: 4 }}>
-          <strong style={{ color: '#3b82f6' }}>Euler's number</strong> from Brothers' result,
+        <p style={{ color: 'var(--ink-soft)', marginBottom: 4 }}>
+          <strong style={{ color: 'var(--series-1)' }}>Euler's number</strong> from Brothers' result,
           where <InlineMath tex={"s_n = \\prod_{k=0}^{n} \\binom{n}{k}"} />:
         </p>
         <BlockMath tex={"e = \\lim_{n\\to\\infty} \\frac{s_{n-1}\\cdot s_{n+1}}{s_n^2}"} />
-        <p style={{ color: '#94a3b8', marginBottom: 4 }}>
-          <strong style={{ color: '#f59e0b' }}>Pi</strong> from central binomials:
+        <p style={{ color: 'var(--ink-soft)', marginBottom: 4 }}>
+          <strong style={{ color: 'var(--brass)' }}>Pi</strong> from central binomials:
         </p>
         <BlockMath tex={"\\pi = \\lim_{n\\to\\infty} \\frac{4^{2n}}{n\\,\\binom{2n}{n}^2}"} />
-        <p style={{ color: '#94a3b8' }}>
-          <strong style={{ color: '#ec4899' }}>Euler's identity</strong>{' '}
+        <p style={{ color: 'var(--ink-soft)' }}>
+          <strong style={{ color: 'var(--series-7)' }}>Euler's identity</strong>{' '}
           <InlineMath tex={"e^{i\\pi} + 1 = 0"} /> unites all three: having extracted{' '}
           <InlineMath tex="e" /> and <InlineMath tex={"\\pi"} /> from Pascal's triangle, we obtain{' '}
           <InlineMath tex={"i = \\frac{\\log(-1)}{\\pi}"} /> — the imaginary unit lives implicitly
@@ -501,11 +502,11 @@ function HasseTab() {
 
     g.append('g').attr('transform', `translate(0,${h})`)
       .call(d3.axisBottom(x).ticks(10))
-      .selectAll('text').attr('fill', '#64748b').attr('font-size', 10);
+      .selectAll('text').attr('fill', ED.inkFaint).attr('font-size', 10);
     g.append('g').call(d3.axisLeft(y).ticks(6).tickSize(-w).tickFormat(d3.format('.3f')))
       .call(g => g.select('.domain').remove())
-      .call(g => g.selectAll('.tick line').attr('stroke', '#1e293b').attr('stroke-dasharray', '3,3'))
-      .selectAll('text').attr('fill', '#64748b').attr('font-size', 10);
+      .call(g => g.selectAll('.tick line').attr('stroke', ED.ruleSoft).attr('stroke-dasharray', '3,3'))
+      .selectAll('text').attr('fill', ED.inkFaint).attr('font-size', 10);
 
     // Contribution bars
     const barW = Math.max(2, w / maxRows * 0.6);
@@ -516,7 +517,7 @@ function HasseTab() {
         .attr('y', h - barH)
         .attr('width', barW)
         .attr('height', barH)
-        .attr('fill', '#8b5cf6')
+        .attr('fill', ED.series5)
         .attr('opacity', 0.3);
     });
 
@@ -524,11 +525,11 @@ function HasseTab() {
     g.append('path')
       .datum(convergence)
       .attr('d', d3.line().x(d => x(d.row)).y(d => y(d.zetaMag)).curve(d3.curveMonotoneX))
-      .attr('fill', 'none').attr('stroke', '#3b82f6').attr('stroke-width', 2.5);
+      .attr('fill', 'none').attr('stroke', ED.series1).attr('stroke-width', 2.5);
 
     convergence.forEach(d => {
       g.append('circle').attr('cx', x(d.row)).attr('cy', y(d.zetaMag))
-        .attr('r', 2).attr('fill', '#3b82f6');
+        .attr('r', 2).attr('fill', ED.series1);
     });
 
     // Final value annotation
@@ -536,42 +537,42 @@ function HasseTab() {
     g.append('line')
       .attr('x1', 0).attr('x2', w)
       .attr('y1', y(final.zetaMag)).attr('y2', y(final.zetaMag))
-      .attr('stroke', '#10b981').attr('stroke-dasharray', '6,3').attr('opacity', 0.6);
+      .attr('stroke', ED.series3).attr('stroke-dasharray', '6,3').attr('opacity', 0.6);
     g.append('text')
       .attr('x', w - 4).attr('y', y(final.zetaMag) - 8)
-      .attr('text-anchor', 'end').attr('fill', '#10b981').attr('font-size', 11)
+      .attr('text-anchor', 'end').attr('fill', ED.series3).attr('font-size', 11)
       .text(`|ζ| ≈ ${final.zetaMag.toFixed(4)}`);
 
     // Labels
     g.append('text').attr('x', w / 2).attr('y', h + 38)
-      .attr('text-anchor', 'middle').attr('fill', '#64748b').attr('font-size', 11)
+      .attr('text-anchor', 'middle').attr('fill', ED.inkFaint).attr('font-size', 11)
       .text('Pascal row n');
     g.append('text')
       .attr('transform', `translate(-44,${h / 2}) rotate(-90)`)
-      .attr('text-anchor', 'middle').attr('fill', '#64748b').attr('font-size', 11)
+      .attr('text-anchor', 'middle').attr('fill', ED.inkFaint).attr('font-size', 11)
       .text('|ζ(s)|');
 
     g.append('text').attr('x', 4).attr('y', -10)
-      .attr('fill', '#e2e8f0').attr('font-size', 12).attr('font-weight', 600)
+      .attr('fill', ED.ink).attr('font-size', 12).attr('font-weight', 600)
       .text(`Hasse–Sondow convergence at s = ${sigma.toFixed(2)} + ${t.toFixed(2)}i`);
 
     // Legend
     const leg = g.append('g').attr('transform', `translate(${w - 200}, 10)`);
     const legBg = leg.append('rect')
       .attr('x', -6).attr('y', -8).attr('width', 200).attr('height', 50).attr('rx', 4)
-      .attr('fill', 'rgba(10,14,26,0.85)').attr('stroke', '#1e293b');
+      .attr('fill', alpha(ED.paper, 0.85)).attr('stroke', ED.ruleSoft);
     leg.append('line').attr('x1', 0).attr('x2', 16).attr('y1', 0).attr('y2', 0)
-      .attr('stroke', '#3b82f6').attr('stroke-width', 2.5);
-    leg.append('circle').attr('cx', 8).attr('cy', 0).attr('r', 2).attr('fill', '#3b82f6');
-    leg.append('text').attr('x', 22).attr('y', 4).attr('fill', '#94a3b8').attr('font-size', 10)
+      .attr('stroke', ED.series1).attr('stroke-width', 2.5);
+    leg.append('circle').attr('cx', 8).attr('cy', 0).attr('r', 2).attr('fill', ED.series1);
+    leg.append('text').attr('x', 22).attr('y', 4).attr('fill', ED.inkSoft).attr('font-size', 10)
       .text('|ζ(s)| partial sum');
     leg.append('rect').attr('x', 0).attr('y', 12).attr('width', 16).attr('height', 8)
-      .attr('fill', '#8b5cf6').attr('opacity', 0.3);
-    leg.append('text').attr('x', 22).attr('y', 20).attr('fill', '#94a3b8').attr('font-size', 10)
+      .attr('fill', ED.series5).attr('opacity', 0.3);
+    leg.append('text').attr('x', 22).attr('y', 20).attr('fill', ED.inkSoft).attr('font-size', 10)
       .text('Row contribution (5× scale)');
     leg.append('line').attr('x1', 0).attr('x2', 16).attr('y1', 30).attr('y2', 30)
-      .attr('stroke', '#10b981').attr('stroke-dasharray', '6,3').attr('opacity', 0.6);
-    leg.append('text').attr('x', 22).attr('y', 34).attr('fill', '#94a3b8').attr('font-size', 10)
+      .attr('stroke', ED.series3).attr('stroke-dasharray', '6,3').attr('opacity', 0.6);
+    leg.append('text').attr('x', 22).attr('y', 34).attr('fill', ED.inkSoft).attr('font-size', 10)
       .text('Converged value');
 
   }, [convergence, maxRows, sigma, t]);
@@ -583,8 +584,8 @@ function HasseTab() {
     return () => window.removeEventListener('resize', onResize);
   }, [draw]);
 
-  const sigmaColor = Math.abs(sigma - 0.5) < 0.02 ? '#10b981'
-    : Math.abs(sigma - 0.5) < 0.15 ? '#f59e0b' : '#ef4444';
+  const sigmaColor = Math.abs(sigma - 0.5) < 0.02 ? ED.series3
+    : Math.abs(sigma - 0.5) < 0.15 ? ED.series4 : ED.series2;
 
   return (
     <div>
@@ -628,7 +629,7 @@ function HasseTab() {
       <div className="viz-container">
         <svg ref={svgRef} style={{ width: '100%', height: 420 }} />
       </div>
-      <div className="card" style={{ marginTop: 16, padding: '14px 18px', fontSize: 13, color: '#94a3b8' }}>
+      <div className="card" style={{ marginTop: 16, padding: '14px 18px', fontSize: 13, color: 'var(--ink-soft)' }}>
         <p style={{ margin: '0 0 8px' }}>
           Each bar shows the magnitude of row <InlineMath tex={"n"} />'s contribution. The blue curve is the running
           approximation <InlineMath tex={"|\\zeta(s)|"} /> as more Pascal triangle rows are included:
@@ -671,25 +672,25 @@ function DecoratedTab() {
 
     g1.append('g').attr('transform', `translate(0,${h1})`)
       .call(d3.axisBottom(x).ticks(10))
-      .selectAll('text').attr('fill', '#64748b').attr('font-size', 10);
+      .selectAll('text').attr('fill', ED.inkFaint).attr('font-size', 10);
     g1.append('g').call(d3.axisLeft(y1).ticks(5).tickSize(-w).tickFormat(d3.format('.2f')))
       .call(g => g.select('.domain').remove())
-      .call(g => g.selectAll('.tick line').attr('stroke', '#1e293b').attr('stroke-dasharray', '3,3'))
-      .selectAll('text').attr('fill', '#64748b').attr('font-size', 10);
+      .call(g => g.selectAll('.tick line').attr('stroke', ED.ruleSoft).attr('stroke-dasharray', '3,3'))
+      .selectAll('text').attr('fill', ED.inkFaint).attr('font-size', 10);
 
     // σ = 0.5 line
     g1.append('line')
       .attr('x1', x(0.5)).attr('x2', x(0.5)).attr('y1', 0).attr('y2', h1)
-      .attr('stroke', '#10b981').attr('stroke-dasharray', '4,4').attr('opacity', 0.6);
+      .attr('stroke', ED.series3).attr('stroke-dasharray', '4,4').attr('opacity', 0.6);
     g1.append('text').attr('x', x(0.5) + 4).attr('y', 14)
-      .attr('fill', '#10b981').attr('font-size', 10).text('σ = ½');
+      .attr('fill', ED.series3).attr('font-size', 10).text('σ = ½');
 
     // σ = 1 line
     g1.append('line')
       .attr('x1', x(1)).attr('x2', x(1)).attr('y1', 0).attr('y2', h1)
-      .attr('stroke', '#ef4444').attr('stroke-dasharray', '4,4').attr('opacity', 0.4);
+      .attr('stroke', ED.series2).attr('stroke-dasharray', '4,4').attr('opacity', 0.4);
     g1.append('text').attr('x', x(1) + 4).attr('y', 14)
-      .attr('fill', '#ef4444').attr('font-size', 10).text('σ = 1');
+      .attr('fill', ED.series2).attr('font-size', 10).text('σ = 1');
 
     // Fill area
     g1.append('path')
@@ -699,21 +700,21 @@ function DecoratedTab() {
         .y0(h1)
         .y1(d => y1(Math.min(d.zetaMag, y1Max)))
         .curve(d3.curveMonotoneX))
-      .attr('fill', 'rgba(59,130,246,0.15)');
+      .attr('fill', alpha(ED.series1, 0.15));
 
     g1.append('path')
       .datum(scan.filter(d => d.zetaMag < y1Max))
       .attr('d', d3.line().x(d => x(d.sigma)).y(d => y1(Math.min(d.zetaMag, y1Max))).curve(d3.curveMonotoneX))
-      .attr('fill', 'none').attr('stroke', '#3b82f6').attr('stroke-width', 2);
+      .attr('fill', 'none').attr('stroke', ED.series1).attr('stroke-width', 2);
 
     g1.append('text').attr('x', 4).attr('y', -10)
-      .attr('fill', '#e2e8f0').attr('font-size', 12).attr('font-weight', 600)
+      .attr('fill', ED.ink).attr('font-size', 12).attr('font-weight', 600)
       .text(`|ζ(σ + ${t.toFixed(1)}i)| via Hasse–Sondow (${maxTerms} Pascal rows)`);
     g1.append('text').attr('x', w / 2).attr('y', h1 + 34)
-      .attr('text-anchor', 'middle').attr('fill', '#64748b').attr('font-size', 11).text('σ');
+      .attr('text-anchor', 'middle').attr('fill', ED.inkFaint).attr('font-size', 11).text('σ');
     g1.append('text')
       .attr('transform', `translate(-44,${h1 / 2}) rotate(-90)`)
-      .attr('text-anchor', 'middle').attr('fill', '#64748b').attr('font-size', 11)
+      .attr('text-anchor', 'middle').attr('fill', ED.inkFaint).attr('font-size', 11)
       .text('|ζ(s)|');
 
     // ─ Bottom: Row-weighted Dirichlet polynomial ─
@@ -724,16 +725,16 @@ function DecoratedTab() {
 
     g2.append('g').attr('transform', `translate(0,${h2})`)
       .call(d3.axisBottom(x).ticks(10))
-      .selectAll('text').attr('fill', '#64748b').attr('font-size', 10);
+      .selectAll('text').attr('fill', ED.inkFaint).attr('font-size', 10);
     g2.append('g').call(d3.axisLeft(y2).ticks(5).tickSize(-w).tickFormat(d3.format('.1f')))
       .call(g => g.select('.domain').remove())
-      .call(g => g.selectAll('.tick line').attr('stroke', '#1e293b').attr('stroke-dasharray', '3,3'))
-      .selectAll('text').attr('fill', '#64748b').attr('font-size', 10);
+      .call(g => g.selectAll('.tick line').attr('stroke', ED.ruleSoft).attr('stroke-dasharray', '3,3'))
+      .selectAll('text').attr('fill', ED.inkFaint).attr('font-size', 10);
 
     // σ = 0.5 line
     g2.append('line')
       .attr('x1', x(0.5)).attr('x2', x(0.5)).attr('y1', 0).attr('y2', h2)
-      .attr('stroke', '#10b981').attr('stroke-dasharray', '4,4').attr('opacity', 0.6);
+      .attr('stroke', ED.series3).attr('stroke-dasharray', '4,4').attr('opacity', 0.6);
 
     g2.append('path')
       .datum(rowDirichlet.points)
@@ -742,21 +743,21 @@ function DecoratedTab() {
         .y0(h2)
         .y1(d => y2(d.logMag))
         .curve(d3.curveMonotoneX))
-      .attr('fill', 'rgba(139,92,246,0.15)');
+      .attr('fill', alpha(ED.series5, 0.15));
 
     g2.append('path')
       .datum(rowDirichlet.points)
       .attr('d', d3.line().x(d => x(d.sigma)).y(d => y2(d.logMag)).curve(d3.curveMonotoneX))
-      .attr('fill', 'none').attr('stroke', '#8b5cf6').attr('stroke-width', 2);
+      .attr('fill', 'none').attr('stroke', ED.series5).attr('stroke-width', 2);
 
     g2.append('text').attr('x', 4).attr('y', -10)
-      .attr('fill', '#e2e8f0').attr('font-size', 12).attr('font-weight', 600)
+      .attr('fill', ED.ink).attr('font-size', 12).attr('font-weight', 600)
       .text(`Row ${selectedRow} Dirichlet polynomial: log₁₀|Z_N(σ + ${t.toFixed(1)}i)|`);
     g2.append('text').attr('x', w / 2).attr('y', h2 + 34)
-      .attr('text-anchor', 'middle').attr('fill', '#64748b').attr('font-size', 11).text('σ');
+      .attr('text-anchor', 'middle').attr('fill', ED.inkFaint).attr('font-size', 11).text('σ');
     g2.append('text')
       .attr('transform', `translate(-44,${h2 / 2}) rotate(-90)`)
-      .attr('text-anchor', 'middle').attr('fill', '#64748b').attr('font-size', 11)
+      .attr('text-anchor', 'middle').attr('fill', ED.inkFaint).attr('font-size', 11)
       .text('log₁₀|Z_N(s)|');
 
   }, [scan, rowDirichlet, t, selectedRow, maxTerms]);
@@ -804,13 +805,13 @@ function DecoratedTab() {
       <div className="viz-container">
         <svg ref={svgRef} style={{ width: '100%', height: 460 }} />
       </div>
-      <div className="card" style={{ marginTop: 16, padding: '14px 18px', fontSize: 13, color: '#94a3b8' }}>
+      <div className="card" style={{ marginTop: 16, padding: '14px 18px', fontSize: 13, color: 'var(--ink-soft)' }}>
         <p style={{ marginBottom: 8 }}>
-          <strong style={{ color: '#3b82f6' }}>Top:</strong> The full "decorated" zeta —{' '}
+          <strong style={{ color: 'var(--series-1)' }}>Top:</strong> The full "decorated" zeta —{' '}
           <InlineMath tex={"|\\zeta(\\sigma+it)|"} /> computed entirely from Pascal triangle rows via the Hasse–Sondow formula.
         </p>
         <p>
-          <strong style={{ color: '#8b5cf6' }}>Bottom:</strong> A single row's Dirichlet polynomial —
+          <strong style={{ color: 'var(--series-5)' }}>Bottom:</strong> A single row's Dirichlet polynomial —
           the "shape" of row <InlineMath tex={"N"} />'s contribution:
         </p>
         <BlockMath tex={"Z_N(s) = \\sum_{k=0}^{N} (-1)^k\\binom{N}{k}(k+1)^{-s}"} />
@@ -924,8 +925,8 @@ function ModPTab() {
         />
       </div>
       <div className="card" style={{ marginTop: 16, padding: '14px 18px', fontSize: 13 }}>
-        <p style={{ color: '#94a3b8', marginBottom: 8 }}>
-          <strong style={{ color: '#ec4899' }}>Lucas' theorem:</strong>{' '}
+        <p style={{ color: 'var(--ink-soft)', marginBottom: 8 }}>
+          <strong style={{ color: 'var(--series-7)' }}>Lucas' theorem:</strong>{' '}
           <InlineMath tex={"\\binom{n}{k} \\equiv \\prod_i \\binom{n_i}{k_i} \\pmod{p}"} />{' '}
           where <InlineMath tex={"n = \\sum n_i p^i"} /> is the base-<InlineMath tex={"p"} /> expansion.
           An entry is 0 (dark) iff some base-<InlineMath tex={"p"} /> digit of{' '}
@@ -934,7 +935,7 @@ function ModPTab() {
           <InlineMath tex={`\\binom{${modP}+1}{2} = ${nonzeroCount}`} />, giving Hausdorff dimension:
         </p>
         <BlockMath tex={`d_H(${modP}) = \\frac{\\log ${nonzeroCount}}{\\log ${modP}} \\approx ${fractalDim}`} />
-        <p style={{ color: '#94a3b8', margin: 0 }}>
+        <p style={{ color: 'var(--ink-soft)', margin: 0 }}>
           For p = 2 this is <InlineMath tex={"\\log 3 / \\log 2 \\approx 1.585"} />, the classical
           Sierpinski dimension. In the Twin-Ladder Bridge model, <InlineMath tex={"d_H(p)"} /> encodes the
           "harmonic complexity" of the p-oscillator's contribution to the Hasse–Sondow representation.

@@ -6,6 +6,7 @@ import {
   IMP96413_FINDING,
   IMP96413_HONEST_BANNER,
 } from '../data/imp-96413-count-model-sensitivity-ladder-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 function SensitivityLadderChart() {
   const svgW = 680;
@@ -27,14 +28,14 @@ function SensitivityLadderChart() {
   const yOf = (log10v) => padT + plotH - ((log10v - yMin) / (yMax - yMin)) * plotH;
   const barW = plotW / IMP96413_LADDER.length * 0.5;
 
-  const colors = ['#f472b6', '#22d3ee'];
+  const colors = [ED.series7, ED.series6];
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
       {Array.from({ length: yMax - yMin + 1 }, (_, i) => yMin + i).map((v) => (
         <g key={`y${v}`}>
-          <line x1={padL} y1={yOf(v)} x2={padL + plotW} y2={yOf(v)} stroke="#334155" strokeWidth={0.5} opacity={0.2} />
-          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={8}>
+          <line x1={padL} y1={yOf(v)} x2={padL + plotW} y2={yOf(v)} stroke={ED.rule} strokeWidth={0.5} opacity={0.2} />
+          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8}>
             {`1e${v}`}
           </text>
         </g>
@@ -55,23 +56,23 @@ function SensitivityLadderChart() {
               opacity={0.75}
               rx={3}
             />
-            <text x={cx} y={top - 8} textAnchor="middle" fill="#e2e8f0" fontSize={9.5}>
+            <text x={cx} y={top - 8} textAnchor="middle" fill={ED.ink} fontSize={9.5}>
               {r.absRateRelShift.toExponential(2)}
             </text>
-            <text x={cx} y={base + 16} textAnchor="middle" fill="#94a3b8" fontSize={9}>
+            <text x={cx} y={base + 16} textAnchor="middle" fill={ED.inkSoft} fontSize={9}>
               {`N = ${r.N.toExponential(0)}`}
             </text>
-            <text x={cx} y={base + 30} textAnchor="middle" fill="#64748b" fontSize={8}>
+            <text x={cx} y={base + 30} textAnchor="middle" fill={ED.inkFaint} fontSize={8}>
               {i === 0 ? '(imp-96290, baked)' : '(imp-96363, reconstructed)'}
             </text>
           </g>
         );
       })}
 
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
 
-      <text x={padL - 55} y={padT + plotH / 2} textAnchor="middle" fill="#64748b" fontSize={9} transform={`rotate(-90, ${padL - 55}, ${padT + plotH / 2})`}>
+      <text x={padL - 55} y={padT + plotH / 2} textAnchor="middle" fill={ED.inkFaint} fontSize={9} transform={`rotate(-90, ${padL - 55}, ${padT + plotH / 2})`}>
         {'|relative E_coll shift| (log scale)'}
       </text>
     </svg>
@@ -90,18 +91,18 @@ export default function Imp96413CountModelSensitivityLadderViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 760,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> {IMP96413_HONEST_BANNER}
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> {IMP96413_HONEST_BANNER}
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
         Switching from the Riemann-von Mangoldt main-term zero count to the +7/8-corrected count
         shifts the E_coll anchor by relative {rung0.absRateRelShift.toExponential(2)} at the
         independently baked N = {rung0.N.toExponential(0)} anchor (imp-96290), versus only{' '}
@@ -111,7 +112,7 @@ export default function Imp96413CountModelSensitivityLadderViz() {
         ratio of the two anchor heights.
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         Relative E_coll shift under the +7/8 count-model swap, by anchor height
       </h3>
       <SensitivityLadderChart />
@@ -120,14 +121,14 @@ export default function Imp96413CountModelSensitivityLadderViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> each bar is the absolute
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> each bar is the absolute
         value of the relative E_coll shift induced by the +7/8 count-model correction, at that
         anchor height, on a log scale. The pink bar (N = 1e4) is the ONE independently baked
         anchor pair; the cyan bar (N = 1e6) is reconstructed from the imp-96311 rate formula. The
@@ -138,14 +139,14 @@ export default function Imp96413CountModelSensitivityLadderViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> {IMP96413_FINDING}
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> {IMP96413_FINDING}
       </div>
     </div>
   );

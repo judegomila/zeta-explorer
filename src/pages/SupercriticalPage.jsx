@@ -52,10 +52,10 @@ export default function SupercriticalPage() {
           }
         />
 
-        <div className="card" style={{ marginTop: 16, borderColor: 'var(--terra-dk)', background: 'rgba(194,58,28,0.06)' }}>
+        <div className="card" style={{ marginTop: 16, borderColor: 'var(--terra-dk)', background: 'color-mix(in srgb, var(--series-2) 6%, transparent)' }}>
           <span style={{
             display: 'inline-block', padding: '2px 8px', borderRadius: 4,
-            background: 'rgba(194,58,28,0.14)', color: 'var(--terra-dk)', fontSize: 10, fontWeight: 700,
+            background: 'color-mix(in srgb, var(--series-2) 14%, transparent)', color: 'var(--terra-dk)', fontSize: 10, fontWeight: 700,
             letterSpacing: 1, marginBottom: 8,
           }}>ROUTE STATUS: EMPIRICALLY DEAD</span>
           <p style={{ fontSize: 12, color: 'var(--ink-soft)', lineHeight: 1.7, marginTop: 4 }}>
@@ -199,7 +199,7 @@ export default function SupercriticalPage() {
             {/* Cold phase */}
             <div style={{
               padding: '12px 14px', borderRadius: 8, background: 'var(--paper)',
-              border: '1px solid rgba(63,107,134,0.30)',
+              border: '1px solid color-mix(in srgb, var(--series-1) 30%, transparent)',
             }}>
               <h4 style={{ color: 'var(--blue)', fontSize: 12, marginBottom: 6 }}>
                 Cold Phase (<InlineMath tex={"\\sigma > 1"} />)
@@ -218,7 +218,7 @@ export default function SupercriticalPage() {
             {/* Hot phase */}
             <div style={{
               padding: '12px 14px', borderRadius: 8, background: 'var(--paper)',
-              border: '1px solid rgba(194,58,28,0.30)',
+              border: '1px solid color-mix(in srgb, var(--accent) 30%, transparent)',
             }}>
               <h4 style={{ color: 'var(--terra-dk)', fontSize: 12, marginBottom: 6 }}>
                 Hot Phase (<InlineMath tex={"0 < \\sigma < 1"} />)
@@ -236,7 +236,7 @@ export default function SupercriticalPage() {
             {/* Critical line */}
             <div style={{
               padding: '12px 14px', borderRadius: 8, background: 'var(--paper)',
-              border: '1px solid rgba(217,80,46,0.30)',
+              border: '1px solid color-mix(in srgb, var(--accent-deco) 30%, transparent)',
             }}>
               <h4 style={{ color: 'var(--terra)', fontSize: 12, marginBottom: 6 }}>
                 Critical Line (<InlineMath tex={"\\sigma = \\tfrac{1}{2}"} />)
@@ -275,7 +275,7 @@ export default function SupercriticalPage() {
 
           <div style={{
             marginTop: 14, padding: '10px 14px', borderRadius: 6,
-            background: 'rgba(217,80,46,0.08)', border: '1px solid rgba(217,80,46,0.30)',
+            background: 'color-mix(in srgb, var(--accent-deco) 8%, transparent)', border: '1px solid color-mix(in srgb, var(--accent-deco) 30%, transparent)',
             fontSize: 12, color: 'var(--terra)', lineHeight: 1.7,
           }}>
             <strong>Physical picture:</strong> Think of the critical strip as a hot gas of primes
@@ -319,7 +319,7 @@ export default function SupercriticalPage() {
             {/* Newman's conjecture */}
             <div style={{
               padding: '12px 14px', borderRadius: 8, background: 'var(--paper)',
-              border: '1px solid rgba(181,138,46,0.30)',
+              border: '1px solid color-mix(in srgb, var(--brass-deco) 30%, transparent)',
             }}>
               <h4 style={{ color: 'var(--brass-dk)', fontSize: 12, marginBottom: 6 }}>
                 Newman's Conjecture (1976)
@@ -334,7 +334,7 @@ export default function SupercriticalPage() {
             {/* Rodgers-Tao */}
             <div style={{
               padding: '12px 14px', borderRadius: 8, background: 'var(--paper)',
-              border: '1px solid rgba(76,122,74,0.30)',
+              border: '1px solid color-mix(in srgb, var(--series-3) 30%, transparent)',
             }}>
               <h4 style={{ color: 'var(--green)', fontSize: 12, marginBottom: 6 }}>
                 Rodgers-Tao Theorem (2020)
@@ -350,7 +350,7 @@ export default function SupercriticalPage() {
 
           <div style={{
             marginTop: 4, padding: '10px 14px', borderRadius: 6,
-            background: 'rgba(181,138,46,0.08)', border: '1px solid rgba(181,138,46,0.30)',
+            background: 'color-mix(in srgb, var(--brass-deco) 8%, transparent)', border: '1px solid color-mix(in srgb, var(--brass-deco) 30%, transparent)',
             fontSize: 12, color: 'var(--brass-dk)', lineHeight: 1.7,
           }}>
             <strong>Twin-Ladder Bridge interpretation:</strong> Heat flow "blurs" the oscillator frequencies. At{' '}
@@ -415,7 +415,7 @@ export default function SupercriticalPage() {
         </div>
 
         {/* Related Pages */}
-        <div className="card" style={{ marginTop: 24, background: 'rgba(63,107,134,0.05)' }}>
+        <div className="card" style={{ marginTop: 24, background: 'color-mix(in srgb, var(--series-1) 5%, transparent)' }}>
           <h3 style={{ color: 'var(--faint)', fontSize: 13, marginBottom: 10 }}>Related Pages</h3>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
             <Link to="/hamiltonian" style={{ color: 'var(--green)', fontSize: 13 }}>Hamiltonian (energy landscape)</Link>

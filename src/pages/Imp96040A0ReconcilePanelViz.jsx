@@ -6,6 +6,7 @@ import {
   IMP96040_CONJECTURAL,
   IMP96040_CAVEAT_BANNER,
 } from '../data/imp-96040-a0-reconcile-panel-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 // scatter of a_0(T) across the six accessible heights, with the sample mean,
 // a +/-SE band, and the imp-95984 published conjectural line overlaid.
@@ -35,19 +36,19 @@ function A0ScatterChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
       <line
         x1={padL}
         y1={padT + plotH}
         x2={padL + plotW}
         y2={padT + plotH}
-        stroke="#64748b"
+        stroke={ED.rule}
         strokeWidth={1.5}
       />
-      <text x={4} y={padT + 4} fill="#94a3b8" fontSize={10}>
+      <text x={4} y={padT + 4} fill={ED.inkSoft} fontSize={10}>
         a_0(T)
       </text>
-      <text x={padL + plotW - 40} y={svgH - 4} fill="#94a3b8" fontSize={10}>
+      <text x={padL + plotW - 40} y={svgH - 4} fill={ED.inkSoft} fontSize={10}>
         log10 T &#8594;
       </text>
 
@@ -57,7 +58,7 @@ function A0ScatterChart() {
         y={yOf(mean + seMean)}
         width={plotW}
         height={yOf(mean - seMean) - yOf(mean + seMean)}
-        fill="#60a5fa"
+        fill={ED.series1}
         opacity={0.12}
       />
       <line
@@ -65,11 +66,11 @@ function A0ScatterChart() {
         y1={yOf(mean)}
         x2={padL + plotW}
         y2={yOf(mean)}
-        stroke="#60a5fa"
+        stroke={ED.series1}
         strokeWidth={1.5}
         strokeDasharray="5,3"
       />
-      <text x={padL + plotW - 4} y={yOf(mean) - 4} fill="#60a5fa" fontSize={9} textAnchor="end">
+      <text x={padL + plotW - 4} y={yOf(mean) - 4} fill={ED.series1} fontSize={9} textAnchor="end">
         mean {mean.toFixed(5)} &plusmn; SE {seMean.toFixed(5)}
       </text>
 
@@ -79,10 +80,10 @@ function A0ScatterChart() {
         y1={yOf(conjectural)}
         x2={padL + plotW}
         y2={yOf(conjectural)}
-        stroke="#f87171"
+        stroke={ED.series2}
         strokeWidth={1.5}
       />
-      <text x={padL + 4} y={yOf(conjectural) - 4} fill="#f87171" fontSize={9} textAnchor="start">
+      <text x={padL + 4} y={yOf(conjectural) - 4} fill={ED.series2} fontSize={9} textAnchor="start">
         conjectural (I_F=1) {conjectural.toFixed(6)}
       </text>
 
@@ -91,11 +92,11 @@ function A0ScatterChart() {
         const y = yOf(row.a0);
         return (
           <g key={row.Tc}>
-            <circle cx={x} cy={y} r={3.5} fill="#facc15" />
-            <text x={x} y={y - 8} fill="#facc15" fontSize={9} textAnchor="middle">
+            <circle cx={x} cy={y} r={3.5} fill={ED.brassDeco} />
+            <text x={x} y={y - 8} fill={ED.brass} fontSize={9} textAnchor="middle">
               {row.a0.toFixed(3)}
             </text>
-            <text x={x} y={svgH - padB + 14} fill="#64748b" fontSize={9} textAnchor="middle">
+            <text x={x} y={svgH - padB + 14} fill={ED.inkFaint} fontSize={9} textAnchor="middle">
               {row.Tc.toExponential(0)}
             </text>
           </g>
@@ -115,18 +116,18 @@ export default function Imp96040A0ReconcilePanelViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> {IMP96040_CAVEAT_BANNER}
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> {IMP96040_CAVEAT_BANNER}
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         The imp-96005 reconciliation backed a_0(T) out of the six accessible heights
         (T = 1e4..5e5, yellow points), computed the sample mean and standard error (blue
         band), and compared it against the imp-95984 published conjectural value under
@@ -134,7 +135,7 @@ export default function Imp96040A0ReconcilePanelViz() {
         annotated with z = {zScore.toFixed(3)} / p &#8776; {pTwoSided.toFixed(3)}.
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         a_0(T) across the six accessible heights
       </h3>
       <A0ScatterChart />
@@ -143,41 +144,41 @@ export default function Imp96040A0ReconcilePanelViz() {
         style={{
           width: '100%',
           fontSize: '0.78rem',
-          color: '#cbd5e1',
+          color: 'var(--ink)',
           borderCollapse: 'collapse',
           marginTop: '1.25rem',
         }}
       >
         <thead>
-          <tr style={{ color: '#64748b' }}>
+          <tr style={{ color: 'var(--ink-faint)' }}>
             <th style={{ textAlign: 'left', paddingBottom: 4 }}>quantity</th>
             <th style={{ textAlign: 'right', paddingBottom: 4 }}>value</th>
           </tr>
         </thead>
         <tbody>
-          <tr style={{ borderTop: '1px solid rgba(148,163,184,0.15)' }}>
+          <tr style={{ borderTop: '1px solid color-mix(in srgb, var(--rule) 15%, transparent)' }}>
             <td style={{ padding: '3px 0' }}>sample mean a_0 (n=6)</td>
-            <td style={{ textAlign: 'right', color: '#60a5fa' }}>
+            <td style={{ textAlign: 'right', color: 'var(--series-1)' }}>
               {IMP96040_MEAN_SE.mean.toFixed(6)}
             </td>
           </tr>
-          <tr style={{ borderTop: '1px solid rgba(148,163,184,0.15)' }}>
+          <tr style={{ borderTop: '1px solid color-mix(in srgb, var(--rule) 15%, transparent)' }}>
             <td style={{ padding: '3px 0' }}>standard error of the mean</td>
-            <td style={{ textAlign: 'right', color: '#60a5fa' }}>
+            <td style={{ textAlign: 'right', color: 'var(--series-1)' }}>
               {IMP96040_MEAN_SE.seMean.toFixed(6)}
             </td>
           </tr>
-          <tr style={{ borderTop: '1px solid rgba(148,163,184,0.15)' }}>
+          <tr style={{ borderTop: '1px solid color-mix(in srgb, var(--rule) 15%, transparent)' }}>
             <td style={{ padding: '3px 0' }}>conjectural a_0 (I_F = 1, imp-95984)</td>
-            <td style={{ textAlign: 'right', color: '#f87171' }}>
+            <td style={{ textAlign: 'right', color: 'var(--series-2)' }}>
               {IMP96040_CONJECTURAL.value.toFixed(6)}
             </td>
           </tr>
-          <tr style={{ borderTop: '1px solid rgba(148,163,184,0.15)' }}>
+          <tr style={{ borderTop: '1px solid color-mix(in srgb, var(--rule) 15%, transparent)' }}>
             <td style={{ padding: '3px 0' }}>gap in standard errors (z)</td>
             <td style={{ textAlign: 'right' }}>{zScore.toFixed(4)}</td>
           </tr>
-          <tr style={{ borderTop: '1px solid rgba(148,163,184,0.15)' }}>
+          <tr style={{ borderTop: '1px solid color-mix(in srgb, var(--rule) 15%, transparent)' }}>
             <td style={{ padding: '3px 0' }}>two-sided p</td>
             <td style={{ textAlign: 'right' }}>{pTwoSided.toFixed(4)}</td>
           </tr>
@@ -188,14 +189,14 @@ export default function Imp96040A0ReconcilePanelViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page rendering the frozen
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page rendering the frozen
         imp-96005 six-height a_0 scatter, mean, SE band and conjectural line verbatim (no
         re-derivation). The gap is 0.337 SE (p &#8776; 0.736) -- fully noise-consistent, not a
         resolved discrepancy. Supplies no new bound, establishes no operator positivity, no RH

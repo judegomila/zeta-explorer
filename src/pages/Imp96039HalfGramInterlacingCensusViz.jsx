@@ -5,6 +5,7 @@ import {
   IMP96039_HEIGHT_BANDS,
   IMP96039_CAVEAT_BANNER,
 } from '../data/imp-96039-route-b-half-gram-interlacing-census-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 // bar chart: half-Gram (n=1 pencil) vs classical Gram interlacing-violation
 // fraction, up to gamma_300 (302 intervals each).
@@ -22,17 +23,17 @@ function CensusChart() {
   const yOf = (frac) => padT + plotH - frac * plotH;
   const barW = plotW / rows.length;
   const yTicks = [0, 0.25, 0.5, 0.75, 1];
-  const colors = ['#f472b6', '#4ade80'];
+  const colors = [ED.series7, ED.series3];
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
 
       {yTicks.map((v) => (
         <g key={`y${v}`}>
-          <line x1={padL - 4} y1={yOf(v)} x2={padL + plotW} y2={yOf(v)} stroke="#1e293b" strokeWidth={1} />
-          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={8.5}>
+          <line x1={padL - 4} y1={yOf(v)} x2={padL + plotW} y2={yOf(v)} stroke={ED.ruleSoft} strokeWidth={1} />
+          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8.5}>
             {Math.round(v * 100)}%
           </text>
         </g>
@@ -54,7 +55,7 @@ function CensusChart() {
             <text x={cx} y={barTop - 6} textAnchor="middle" fill={colors[i]} fontSize={9}>
               {row.violations}/{row.intervals} ({(row.fraction * 100).toFixed(1)}%)
             </text>
-            <text x={cx} y={padT + plotH + 16} textAnchor="middle" fill="#64748b" fontSize={8.5}>
+            <text x={cx} y={padT + plotH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={8.5}>
               {row.label}
             </text>
           </g>
@@ -65,7 +66,7 @@ function CensusChart() {
         x={12}
         y={padT + plotH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={9.5}
         transform={`rotate(-90 12 ${padT + plotH / 2})`}
       >
@@ -93,19 +94,19 @@ function HeightBandChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
 
       {yTicks.map((v) => (
         <g key={`y${v}`}>
-          <line x1={padL - 4} y1={yOf(v)} x2={padL + plotW} y2={yOf(v)} stroke="#1e293b" strokeWidth={1} />
-          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={8.5}>
+          <line x1={padL - 4} y1={yOf(v)} x2={padL + plotW} y2={yOf(v)} stroke={ED.ruleSoft} strokeWidth={1} />
+          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8.5}>
             {Math.round(v * 100)}%
           </text>
         </g>
       ))}
 
-      <line x1={padL} y1={yOf(0.5485)} x2={padL + plotW} y2={yOf(0.5485)} stroke="#94a3b8" strokeWidth={1} strokeDasharray="5 4" />
+      <line x1={padL} y1={yOf(0.5485)} x2={padL + plotW} y2={yOf(0.5485)} stroke={ED.rule} strokeWidth={1} strokeDasharray="5 4" />
 
       {bands.map((b, i) => {
         const cx = padL + barW * (i + 0.5);
@@ -117,20 +118,20 @@ function HeightBandChart() {
               y={barTop}
               width={barW * 0.6}
               height={padT + plotH - barTop}
-              fill="#f472b6"
+              fill={ED.series7}
               opacity={0.75}
             />
-            <text x={cx} y={barTop - 6} textAnchor="middle" fill="#f472b6" fontSize={8.5}>
+            <text x={cx} y={barTop - 6} textAnchor="middle" fill={ED.series7} fontSize={8.5}>
               {(b.fraction * 100).toFixed(0)}%
             </text>
-            <text x={cx} y={padT + plotH + 14} textAnchor="middle" fill="#64748b" fontSize={8}>
+            <text x={cx} y={padT + plotH + 14} textAnchor="middle" fill={ED.inkFaint} fontSize={8}>
               {b.lo}-{b.hi}
             </text>
           </g>
         );
       })}
 
-      <text x={padL + plotW / 2} y={svgH - 2} textAnchor="middle" fill="#64748b" fontSize={9}>
+      <text x={padL + plotW / 2} y={svgH - 2} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
         height band (gamma range)
       </text>
     </svg>
@@ -148,18 +149,18 @@ export default function Imp96039HalfGramInterlacingCensusViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(244,114,182,0.06)',
-          borderLeft: '3px solid #f472b6',
+          background: 'color-mix(in srgb, var(--series-7) 6%, transparent)',
+          borderLeft: '3px solid var(--series-7)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#f472b6' }}>Honest status:</strong> {IMP96039_CAVEAT_BANNER}
+        <strong style={{ color: 'var(--series-7)' }}>Honest status:</strong> {IMP96039_CAVEAT_BANNER}
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1rem', maxWidth: 700 }}>
         Lemma H (HKO): the zeros of the n=1 mean-field pencil Psi_1 interlace the zeta zeros only
         along the half-Gram lattice theta(x) = pi/2 (mod pi). Up to gamma_300 (302 intervals), this
         interlacing fails at the FIRST pair &mdash; interval ({halfGram.firstViolation[0].toFixed(3)},{' '}
@@ -172,7 +173,7 @@ export default function Imp96039HalfGramInterlacingCensusViz() {
 
       <CensusChart />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', margin: '1.25rem 0 0.5rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', margin: '1.25rem 0 0.5rem', maxWidth: 700 }}>
         The half-Gram violation fraction is height-flat: it stays near 0.55 (dashed reference line)
         across every band up to gamma&#8321;&#8322;&#8321;&#8321;-scale heights (imp-96021), rather
         than decaying toward 0 &mdash; the n=1 pencil never approaches interlacing.
@@ -184,14 +185,14 @@ export default function Imp96039HalfGramInterlacingCensusViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page consuming the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the
         Route B Lemma H interlacing census (baked literals, copied verbatim, not re-derived).
         Interlacing would presuppose RH; this chart establishes no operator positivity and carries
         no RH claim. Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. NO QED.

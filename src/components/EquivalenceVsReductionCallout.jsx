@@ -33,15 +33,15 @@ export default function EquivalenceVsReductionCallout({ compact = false } = {}) 
   return (
     <div
       style={{
-        background: 'rgba(167,139,250,0.08)',
-        border: '1px solid rgba(167,139,250,0.45)',
-        borderLeft: '4px solid #a78bfa',
+        background: 'color-mix(in srgb, var(--series-5) 8%, transparent)',
+        border: '1px solid color-mix(in srgb, var(--series-5) 45%, transparent)',
+        borderLeft: '4px solid var(--series-5)',
         borderRadius: 8,
         padding: '14px 16px',
         margin: compact ? '12px 0' : '18px 0',
       }}
     >
-      <p style={{ margin: '0 0 8px 0', fontSize: 14, fontWeight: 'bold', color: '#a78bfa' }}>
+      <p style={{ margin: '0 0 8px 0', fontSize: 14, fontWeight: 'bold', color: 'var(--series-5)' }}>
         Equivalence is NOT a reduction
       </p>
       <p style={{ margin: '0 0 10px 0', fontSize: 13, lineHeight: 1.7, color: 'var(--text-secondary, #94a3b8)' }}>
@@ -54,12 +54,12 @@ export default function EquivalenceVsReductionCallout({ compact = false } = {}) 
       <ul style={{ margin: 0, paddingLeft: 18, fontSize: 12.5, lineHeight: 1.75, color: 'var(--text-secondary, #94a3b8)' }}>
         {EQUIVALENTS.map((e) => (
           <li key={e.name}>
-            <strong style={{ color: '#c4b5fd' }}>{e.name}</strong>: {e.statement}
+            <strong style={{ color: 'var(--series-5)' }}>{e.name}</strong>: {e.statement}
           </li>
         ))}
       </ul>
       <p style={{ margin: '10px 0 0 0', fontSize: 12 }}>
-        <Link to="/state-of-program" style={{ color: '#a78bfa' }}>
+        <Link to="/state-of-program" style={{ color: 'var(--series-5)' }}>
           Canonical status →
         </Link>
       </p>

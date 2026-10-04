@@ -2,6 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import { glossary, glossaryStats } from '../data/glossary.js';
+import { ED, alpha } from '../styles/tokens.js';
 
 /**
  * Wiki / Glossary page for all project terms (imp-141).
@@ -32,16 +33,16 @@ export default function WikiPage() {
   // Warm palette: fg = editorial CSS var (theme-consistent), tint/border
   // are precomputed rgba matching that var's hex, for chip backgrounds.
   const categoryColors = {
-    framework: { fg: 'var(--blue)', tint: 'rgba(63,107,134,0.14)', border: 'rgba(63,107,134,0.45)' },
-    scattering: { fg: 'var(--brass)', tint: 'rgba(140,106,29,0.14)', border: 'rgba(140,106,29,0.45)' },
-    zeta: { fg: 'var(--green)', tint: 'rgba(76,122,74,0.14)', border: 'rgba(76,122,74,0.45)' },
-    'number theory': { fg: 'var(--terra)', tint: 'rgba(217,80,46,0.14)', border: 'rgba(217,80,46,0.45)' },
-    theorem: { fg: 'var(--brass-dk)', tint: 'rgba(181,138,46,0.16)', border: 'rgba(181,138,46,0.45)' },
-    proof: { fg: 'var(--terra-dk)', tint: 'rgba(194,58,28,0.14)', border: 'rgba(194,58,28,0.45)' },
-    physics: { fg: 'var(--terra-dk)', tint: 'rgba(194,58,28,0.14)', border: 'rgba(194,58,28,0.45)' },
-    method: { fg: 'var(--faint)', tint: 'rgba(135,123,103,0.14)', border: 'rgba(135,123,103,0.40)' },
+    framework: { fg: 'var(--blue)', tint: alpha(ED.series1, 0.14), border: alpha(ED.series1, 0.45) },
+    scattering: { fg: 'var(--brass)', tint: alpha(ED.brass, 0.14), border: alpha(ED.brass, 0.45) },
+    zeta: { fg: 'var(--green)', tint: alpha(ED.series3, 0.14), border: alpha(ED.series3, 0.45) },
+    'number theory': { fg: 'var(--terra)', tint: alpha(ED.accentDeco, 0.14), border: alpha(ED.accentDeco, 0.45) },
+    theorem: { fg: 'var(--brass-dk)', tint: alpha(ED.brassDeco, 0.16), border: alpha(ED.brassDeco, 0.45) },
+    proof: { fg: 'var(--terra-dk)', tint: alpha(ED.series2, 0.14), border: alpha(ED.accent, 0.45) },
+    physics: { fg: 'var(--terra-dk)', tint: alpha(ED.series2, 0.14), border: alpha(ED.accent, 0.45) },
+    method: { fg: 'var(--faint)', tint: alpha(ED.inkFaint, 0.14), border: alpha(ED.rule, 0.4) },
   };
-  const catColor = c => categoryColors[c] || { fg: 'var(--faint)', tint: 'rgba(135,123,103,0.14)', border: 'rgba(135,123,103,0.40)' };
+  const catColor = c => categoryColors[c] || { fg: 'var(--faint)', tint: alpha(ED.inkFaint, 0.14), border: alpha(ED.rule, 0.4) };
 
   return (
     <div className="ed-root">

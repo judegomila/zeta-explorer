@@ -4,6 +4,7 @@ import {
   IMP34459_MIGRATION_PROBE_ROWS,
   IMP34459_BRACKET,
 } from '../data/imp-34459-peak-relocation-regime-width-viz-data.js';
+import { ED, alpha } from '../styles/tokens.js';
 
 // Bar chart: |trough|/|peak| ratio vs effective window width w, shading the migration bracket
 // (lastEndpointLockedW, firstMigratedW] and coloring bars by whether the peak is endpoint-locked.
@@ -39,16 +40,16 @@ function RatioVsWidthBars() {
         y={padT}
         width={bracketX2 - bracketX1}
         height={cH}
-        fill="rgba(244,114,182,0.10)"
+        fill={alpha(ED.series7, 0.1)}
       />
 
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
 
       {yTicks.map((v) => (
         <g key={'y' + v}>
-          <line x1={padL - 4} y1={yAt(v)} x2={padL + cW} y2={yAt(v)} stroke="#1e293b" strokeWidth={1} />
-          <text x={padL - 8} y={yAt(v) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+          <line x1={padL - 4} y1={yAt(v)} x2={padL + cW} y2={yAt(v)} stroke={ED.ruleSoft} strokeWidth={1} />
+          <text x={padL - 8} y={yAt(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v.toFixed(2)}
           </text>
         </g>
@@ -61,15 +62,15 @@ function RatioVsWidthBars() {
             y={yAt(r.ratio)}
             width={barWidth}
             height={padT + cH - yAt(r.ratio)}
-            fill={r.peakIsEndpoint ? '#38bdf8' : '#facc15'}
-            stroke="#0a0f1a"
+            fill={r.peakIsEndpoint ? ED.series1 : ED.brassDeco}
+            stroke={ED.paper}
             strokeWidth={0.75}
           />
           <text
             x={xAt(r.effectiveW)}
             y={yAt(r.ratio) - 6}
             textAnchor="middle"
-            fill="#cbd5e1"
+            fill={ED.ink}
             fontSize={9.5}
           >
             {r.ratio.toFixed(4)}
@@ -78,7 +79,7 @@ function RatioVsWidthBars() {
             x={xAt(r.effectiveW)}
             y={padT + cH + 16}
             textAnchor="middle"
-            fill="#64748b"
+            fill={ED.inkFaint}
             fontSize={9}
           >
             w={r.effectiveW}
@@ -91,15 +92,15 @@ function RatioVsWidthBars() {
         y1={padT}
         x2={bracketX2}
         y2={padT + cH}
-        stroke="#f472b6"
+        stroke={ED.series7}
         strokeWidth={1.25}
         strokeDasharray="5,4"
       />
-      <text x={bracketX2 + 4} y={padT + 10} fill="#f472b6" fontSize={9.5}>
+      <text x={bracketX2 + 4} y={padT + 10} fill={ED.series7} fontSize={9.5}>
         w* = {IMP34459_BRACKET.firstMigratedW}
       </text>
 
-      <text x={padL + cW / 2} y={padT + cH + 34} textAnchor="middle" fill="#cbd5e1" fontSize={9.5}>
+      <text x={padL + cW / 2} y={padT + cH + 34} textAnchor="middle" fill={ED.ink} fontSize={9.5}>
         effective window width w &mdash; blue = peak endpoint-locked, amber = peak migrated
       </text>
     </svg>
@@ -111,7 +112,7 @@ export default function Imp34459PeakRelocationRegimeWidthViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Peak-Relocation Regime-Width Bracket (imp-34369)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-34288 found the imp-34085 |trough|/|peak| OLS amplitude ratio peaks at{' '}
         {IMP34459_BRACKET.lastEndpointLockedRatio} at window width w ={' '}
         {IMP34459_BRACKET.lastEndpointLockedW}, then recedes as the argmax peak migrates off the
@@ -122,7 +123,7 @@ export default function Imp34459PeakRelocationRegimeWidthViz() {
         instant the k = {IMP34459_BRACKET.triggerRungK} rung is added.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         |trough|/|peak| ratio vs effective window width, with the migration bracket shaded
       </p>
       <RatioVsWidthBars />
@@ -136,7 +137,7 @@ export default function Imp34459PeakRelocationRegimeWidthViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.5rem' }}>effective w</th>
             <th style={{ padding: '0.4rem 0.5rem' }}>peakK</th>
             <th style={{ padding: '0.4rem 0.5rem' }}>peak regime</th>
@@ -145,7 +146,7 @@ export default function Imp34459PeakRelocationRegimeWidthViz() {
         </thead>
         <tbody>
           {IMP34459_MIGRATION_PROBE_ROWS.map((r) => (
-            <tr key={r.effectiveW} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+            <tr key={r.effectiveW} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
               <td style={{ padding: '0.4rem 0.5rem', fontFamily: 'monospace' }}>{r.effectiveW}</td>
               <td style={{ padding: '0.4rem 0.5rem', fontFamily: 'monospace' }}>{r.peakK}</td>
               <td style={{ padding: '0.4rem 0.5rem' }}>
@@ -161,14 +162,14 @@ export default function Imp34459PeakRelocationRegimeWidthViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Summary:</strong> the maximum ratio (
+        <strong style={{ color: 'var(--ink-soft)' }}>Summary:</strong> the maximum ratio (
         {IMP34459_BRACKET.lastEndpointLockedRatio}) sits at the LAST endpoint-locked width w ={' '}
         {IMP34459_BRACKET.lastEndpointLockedW}; the peak relocates to k = 6.5 the instant the
         k = {IMP34459_BRACKET.triggerRungK} rung is added (w* = {IMP34459_BRACKET.firstMigratedW}).
@@ -181,14 +182,14 @@ export default function Imp34459PeakRelocationRegimeWidthViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-data only, baked literals
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-data only, baked literals
         reproducing the imp-34369 measurement; no new derivation, no bound changed. Component
         model is the inherited surrogate diagnostic, NOT a rigorous asymptotic; C_mb GUE-conditional
         per imp-486 UNTOUCHED; imp-3066 K_a&ge;0 untouched; NO QED.

@@ -57,7 +57,7 @@ function AnimationCard({ anim }) {
       <span style={badgeStyle}>{anim.grade}</span>
 
       <div style={{ marginTop: 14, borderRadius: 6, overflow: 'hidden',
-                    border: '1px solid var(--hairline)', background: '#0b0e14' }}>
+                    border: '1px solid var(--hairline)', background: 'var(--paper)' }}>
         <video
           controls
           playsInline

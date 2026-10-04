@@ -1,11 +1,12 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP35194_BACKGROUND_FIELD_SUP_N_UNIFORMITY } from '../data/imp-35194-background-field-sup-n-uniformity.js';
+import { ED } from '../styles/tokens.js';
 
 const D = IMP35194_BACKGROUND_FIELD_SUP_N_UNIFORMITY;
 const ROWS = D.fractionTable; // ordered widest -> tightest min-gap fraction (0.5 -> 0.05)
 const N_KEYS = ['N50', 'N100', 'N200'];
-const N_COLORS = { N50: '#38bdf8', N100: '#a78bfa', N200: '#f472b6' };
+const N_COLORS = { N50: ED.series1, N100: ED.series5, N200: ED.series7 };
 
 // Chart 1: beta(N) vs. min-gap fraction, log-log axes, three near-overlapping lines (N-uniformity).
 function BetaChart() {
@@ -30,22 +31,22 @@ function BetaChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <text x={padL} y={padT - 14} fill="#94a3b8" fontSize={11} fontWeight={700}>
+      <text x={padL} y={padT - 14} fill={ED.inkSoft} fontSize={11} fontWeight={700}>
         beta(N) vs. min-gap fraction (log-log), N = 50, 100, 200
       </text>
 
       {yTicks.map((t) => (
         <g key={t}>
-          <line x1={padL} y1={yOf(t)} x2={padL + plotW} y2={yOf(t)} stroke="#1e293b" strokeWidth={1} />
-          <text x={padL - 6} y={yOf(t) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+          <line x1={padL} y1={yOf(t)} x2={padL + plotW} y2={yOf(t)} stroke={ED.ruleSoft} strokeWidth={1} />
+          <text x={padL - 6} y={yOf(t) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {t}
           </text>
         </g>
       ))}
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
       {xTicks.map((t) => (
-        <text key={t} x={xOf(t)} y={padT + plotH + 16} textAnchor="middle" fill="#64748b" fontSize={9}>
+        <text key={t} x={xOf(t)} y={padT + plotH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
           {t}
         </text>
       ))}
@@ -95,31 +96,31 @@ function ProductChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <text x={padL} y={padT - 14} fill="#94a3b8" fontSize={11} fontWeight={700}>
+      <text x={padL} y={padT - 14} fill={ED.inkSoft} fontSize={11} fontWeight={700}>
         beta * g_min vs. min-gap fraction (front-coupling band, N = {D.frontGrowth.headlineN})
       </text>
 
       {yTicks.map((t) => (
         <g key={t}>
-          <line x1={padL} y1={yOf(t)} x2={padL + plotW} y2={yOf(t)} stroke="#1e293b" strokeWidth={1} />
-          <text x={padL - 6} y={yOf(t) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+          <line x1={padL} y1={yOf(t)} x2={padL + plotW} y2={yOf(t)} stroke={ED.ruleSoft} strokeWidth={1} />
+          <text x={padL - 6} y={yOf(t) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {t.toFixed(1)}
           </text>
         </g>
       ))}
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
       {xTicks.map((t) => (
-        <text key={t} x={xOf(t)} y={padT + plotH + 16} textAnchor="middle" fill="#64748b" fontSize={9}>
+        <text key={t} x={xOf(t)} y={padT + plotH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
           {t}
         </text>
       ))}
 
-      <path d={path} fill="none" stroke="#34d399" strokeWidth={2.25} />
+      <path d={path} fill="none" stroke={ED.series3} strokeWidth={2.25} />
       {ROWS.map((r) => (
-        <circle key={r.fraction} cx={xOf(r.fraction)} cy={yOf(r.product)} r={2.75} fill="#34d399" />
+        <circle key={r.fraction} cx={xOf(r.fraction)} cy={yOf(r.product)} r={2.75} fill={ED.series3} />
       ))}
-      <text x={padL + 10} y={padT + 14} fill="#34d399" fontSize={9.5} fontWeight={700}>
+      <text x={padL + 10} y={padT + 14} fill={ED.series3} fontSize={9.5} fontWeight={700}>
         beta * g_min &rarr; ~1 toward the front
       </text>
     </svg>
@@ -131,7 +132,7 @@ export default function Imp35233BetaFrontLawNUniformityViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Background-Field Sup: N-Uniformity vs. Front-Growth (imp-35233 / imp-35194)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         {D.finding} This page plots the two findings side by side: beta(N) collapses onto a single
         curve across N&nbsp;=&nbsp;50,&nbsp;100,&nbsp;200 at matched min-gap fraction (top), while the
         product beta&nbsp;*&nbsp;g_min narrows from ~{D.frontGrowth.productWidest} toward
@@ -152,7 +153,7 @@ export default function Imp35233BetaFrontLawNUniformityViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>min-gap fraction</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>beta(N=50)</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>beta(N=100)</th>
@@ -163,7 +164,7 @@ export default function Imp35233BetaFrontLawNUniformityViz() {
         </thead>
         <tbody>
           {ROWS.map((r) => (
-            <tr key={r.fraction} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+            <tr key={r.fraction} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.fraction}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.beta.N50}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.beta.N100}</td>
@@ -181,14 +182,14 @@ export default function Imp35233BetaFrontLawNUniformityViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page rendering the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-only page rendering the
         imp-35194 measured fraction table verbatim (no new computation). MEASUREMENT ONLY,
         frontier-diagnostic probe of the imp-35167 M2 background-field-sup obstruction; does NOT
         certify N-uniformity over the full trajectory (the sup diverges as g_min&nbsp;&rarr;&nbsp;0);

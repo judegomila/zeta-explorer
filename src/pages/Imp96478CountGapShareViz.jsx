@@ -6,6 +6,7 @@ import {
   IMP96478_FINDING,
   IMP96478_HONEST_BANNER,
 } from '../data/imp-96478-count-gap-share-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 function CountGapShareChart() {
   const svgW = 680;
@@ -38,8 +39,8 @@ function CountGapShareChart() {
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
       {yTicksFrac.map((v) => (
         <g key={`y${v}`}>
-          <line x1={padL} y1={yOfFrac(v)} x2={padL + plotW} y2={yOfFrac(v)} stroke="#334155" strokeWidth={0.5} opacity={0.2} />
-          <text x={padL - 8} y={yOfFrac(v) + 3} textAnchor="end" fill="#64748b" fontSize={8}>
+          <line x1={padL} y1={yOfFrac(v)} x2={padL + plotW} y2={yOfFrac(v)} stroke={ED.rule} strokeWidth={0.5} opacity={0.2} />
+          <text x={padL - 8} y={yOfFrac(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8}>
             {`${(v * 100).toFixed(0)}%`}
           </text>
         </g>
@@ -58,7 +59,7 @@ function CountGapShareChart() {
               y={y78Top}
               width={barW}
               height={yBase - y78Top}
-              fill="#facc15"
+              fill={ED.brassDeco}
               opacity={0.85}
             />
             <rect
@@ -66,10 +67,10 @@ function CountGapShareChart() {
               y={ySTop}
               width={barW}
               height={y78Top - ySTop}
-              fill="#a78bfa"
+              fill={ED.series5}
               opacity={0.85}
             />
-            <text x={cx} y={padT + plotH + 14} textAnchor="middle" fill="#64748b" fontSize={8}>
+            <text x={cx} y={padT + plotH + 14} textAnchor="middle" fill={ED.inkFaint} fontSize={8}>
               {`N=${b.N.toExponential(0)}`}
             </text>
           </g>
@@ -77,31 +78,31 @@ function CountGapShareChart() {
       })}
 
       {/* S(gamma_N) wobble, secondary axis */}
-      <path d={sPath} fill="none" stroke="#38bdf8" strokeWidth={1.5} strokeDasharray="3,2" />
+      <path d={sPath} fill="none" stroke={ED.series1} strokeWidth={1.5} strokeDasharray="3,2" />
       {IMP96478_SHARE_BARS.map((b, i) => {
         const cx = padL + barSlot * (i + 0.5);
-        return <circle key={`s${b.N}`} cx={cx} cy={yOfS(b.sOfGamma)} r={3} fill="#38bdf8" />;
+        return <circle key={`s${b.N}`} cx={cx} cy={yOfS(b.sOfGamma)} r={3} fill={ED.series1} />;
       })}
 
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL + plotW} y1={padT} x2={padL + plotW} y2={padT + plotH} stroke="#38bdf8" strokeWidth={1} opacity={0.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL + plotW} y1={padT} x2={padL + plotW} y2={padT + plotH} stroke={ED.series1} strokeWidth={1} opacity={0.5} />
 
-      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill="#64748b" fontSize={9.5}>
+      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5}>
         {'intermediate anchor N (log scale); dashed blue = backed-out S(gamma_N), right axis'}
       </text>
 
       <g transform={`translate(${padL + 8}, ${padT})`}>
-        <rect x={0} y={0} width={12} height={10} fill="#facc15" opacity={0.85} />
-        <text x={17} y={9} fill="#94a3b8" fontSize={8}>
+        <rect x={0} y={0} width={12} height={10} fill={ED.brassDeco} opacity={0.85} />
+        <text x={17} y={9} fill={ED.inkSoft} fontSize={8}>
           {'+7/8 share'}
         </text>
-        <rect x={0} y={14} width={12} height={10} fill="#a78bfa" opacity={0.85} />
-        <text x={17} y={23} fill="#94a3b8" fontSize={8}>
+        <rect x={0} y={14} width={12} height={10} fill={ED.series5} opacity={0.85} />
+        <text x={17} y={23} fill={ED.inkSoft} fontSize={8}>
           {'S(T) residual share'}
         </text>
-        <line x1={0} y1={35} x2={12} y2={35} stroke="#38bdf8" strokeWidth={1.5} strokeDasharray="3,2" />
-        <text x={17} y={38} fill="#94a3b8" fontSize={8}>
+        <line x1={0} y1={35} x2={12} y2={35} stroke={ED.series1} strokeWidth={1.5} strokeDasharray="3,2" />
+        <text x={17} y={38} fill={ED.inkSoft} fontSize={8}>
           {'S(gamma_N)'}
         </text>
       </g>
@@ -118,25 +119,25 @@ export default function Imp96478CountGapShareViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 760,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> {IMP96478_HONEST_BANNER}
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> {IMP96478_HONEST_BANNER}
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
         imp-96445 split the imp-96426 count-inversion relative gap at each intermediate
         anchor (N = 1e3..1e6) into the share explained by the deterministic +7/8
         Riemann&ndash;von Mangoldt term alone and the residual share from the S(T)
         fluctuation. {IMP96478_FINDING.plus78IsDominantShare}
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         stacked +7/8-vs-S(T) share split, with the S(gamma_N) wobble overlaid
       </h3>
       <CountGapShareChart />
@@ -145,14 +146,14 @@ export default function Imp96478CountGapShareViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> each bar sums to
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> each bar sums to
         100% of the measured count-inversion gap at that anchor -- yellow is the
         deterministic +7/8-only share (a 60-73% majority at every anchor), purple is the
         residual S(T) fluctuation share (27-40%, does not decay). The dashed blue line
@@ -165,14 +166,14 @@ export default function Imp96478CountGapShareViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page consuming the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the
         imp-96445 baked per-anchor fractions verbatim (only the log10(N) / stacked-bar
         projection is computed here, no re-fit, no zeros-bundle import). Accuracy-audit
         diagnostic only: no gap closed, no bound changed, conditional C_H &le; 0.127 stays

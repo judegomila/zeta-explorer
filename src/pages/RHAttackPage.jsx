@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import RHAttackViz from '../components/RHAttackViz.jsx';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
+import ConceptTerm from '../components/ConceptTerm.jsx';
 
 // Editorial (warm) re-theme: same structure/data/logic as the original dark
 // page, just re-skinned. RHAttackViz is left completely untouched.
@@ -48,8 +49,8 @@ export default function RHAttackPage() {
         <div style={{ marginBottom: 24 }}>
           <h1 className="ed-h1">RH Approach Strategies</h1>
           <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.6, maxWidth: 760, marginTop: 10 }}>
-            Computational tools for testing specific conditions equivalent to or implied by the
-            Riemann Hypothesis, using the Twin-Ladder Bridge framework. Each strategy identifies
+            Computational tools for testing specific conditions <ConceptTerm slug="rh-equivalent-statement">equivalent to</ConceptTerm> or implied by the
+            {' '}<ConceptTerm slug="riemann-hypothesis">Riemann Hypothesis</ConceptTerm>, using the <ConceptTerm slug="twin-ladder">Twin-Ladder Bridge</ConceptTerm> framework. Each strategy identifies
             what is established, what is assumed, and where the proof gaps lie.
           </p>
         </div>
@@ -57,7 +58,7 @@ export default function RHAttackPage() {
         <div className="card" style={{ marginBottom: 24, borderLeft: `3px solid ${RED}` }}>
           <h3 style={{ color: RED, fontSize: 14, marginBottom: 8 }}>Status</h3>
           <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.8 }}>
-            The Twin-Ladder Bridge model provides a beautiful physical framework for understanding the zeta function,
+            The Twin-Ladder Bridge model is a physical framework for understanding the zeta function,
             but <strong>analogies are not proofs</strong>. The gap between "the model is consistent with RH"
             and "the model proves RH" is enormous. This page makes those gaps explicit and testable.
             Every green checkmark below comes with a caveat; every red flag identifies a genuine
@@ -72,7 +73,7 @@ export default function RHAttackPage() {
             <h3 style={{ color: BLUE, fontSize: 14 }}>Five Approach Strategies</h3>
             <ol style={{ marginLeft: 16, color: 'var(--ink-soft)', fontSize: 13, lineHeight: 2 }}>
               <li>
-                <strong style={{ color: GREEN }}>Li Coefficients</strong> — Compute{' '}
+                <strong style={{ color: GREEN }}><ConceptTerm slug="li-criterion">Li Coefficients</ConceptTerm></strong> — Compute{' '}
                 <InlineMath tex={"\\lambda_n"} /> from known zeros. <InlineMath tex={"\\lambda_n > 0 \\;\\forall n \\iff \\text{RH}"} />.
               </li>
               <li>
@@ -82,13 +83,13 @@ export default function RHAttackPage() {
                 The formerly displayed infinite positive prime sum diverges and is not a Hamiltonian.
               </li>
               <li>
-                <strong style={{ color: PURPLE }}>S-Matrix Confinement</strong> — Darlington synthesis:
+                <strong style={{ color: PURPLE }}><ConceptTerm slug="scattering-matrix">S-Matrix</ConceptTerm> Confinement</strong> — <ConceptTerm slug="darlington-synthesis">Darlington synthesis</ConceptTerm>:
                 transmission-zero confinement is a useful comparison, but it does not confine the
                 poles of the displayed cascade ratio.
               </li>
               <li>
-                <strong style={{ color: AMBER }}>de Bruijn–Newman</strong> — Heat flow parameter{' '}
-                <InlineMath tex={"\\Lambda \\geq 0"} /> (proved by Rodgers–Tao, 2020); RH <InlineMath tex={"\\Leftrightarrow \\Lambda \\leq 0"} />.
+                <strong style={{ color: AMBER }}><ConceptTerm slug="de-bruijn-newman-constant">de Bruijn–Newman</ConceptTerm></strong> — <ConceptTerm slug="heat-flow-ht">Heat flow</ConceptTerm> parameter{' '}
+                <InlineMath tex={"\\Lambda \\geq 0"} /> (proved by <ConceptTerm slug="newman-conjecture">Rodgers–Tao</ConceptTerm>, 2020); RH <InlineMath tex={"\\Leftrightarrow \\Lambda \\leq 0"} />.
               </li>
               <li>
                 <strong style={{ color: RED }}>Proof Map</strong> — Explicit gap analysis:
@@ -356,10 +357,10 @@ export default function RHAttackPage() {
             )}
           </p>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 12 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 240px), 1fr))', gap: 12 }}>
             {/* S4 */}
             <div style={{
-              padding: '14px',
+              padding: '14px', minWidth: 0, overflowWrap: 'anywhere',
               borderRadius: 8,
               background: gapActive('S4') ? AMBER_A(0.16) : AMBER_A(0.08),
               border: gapActive('S4') ? `2px solid ${AMBER}` : `1px solid ${AMBER_A(0.25)}`,
@@ -390,7 +391,7 @@ export default function RHAttackPage() {
 
             {/* S5 */}
             <div style={{
-              padding: '14px',
+              padding: '14px', minWidth: 0, overflowWrap: 'anywhere',
               borderRadius: 8,
               background: gapActive('S5') ? RED_A(0.16) : RED_A(0.08),
               border: gapActive('S5') ? `2px solid ${RED}` : `1px solid ${RED_A(0.25)}`,
@@ -418,7 +419,7 @@ export default function RHAttackPage() {
 
             {/* S7 */}
             <div style={{
-              padding: '14px',
+              padding: '14px', minWidth: 0, overflowWrap: 'anywhere',
               borderRadius: 8,
               background: gapActive('S7') ? RED_A(0.16) : RED_A(0.08),
               border: gapActive('S7') ? `2px solid ${RED}` : `1px solid ${RED_A(0.25)}`,

@@ -4,6 +4,7 @@ import { IMP36097_E_SHARE_THRESHOLD_CROSSINGS } from '../data/imp-36097-e-share-
 import { IMP36046_E_SHARE_TAIL_BARS } from '../data/imp-36046-e-share-tail-landmarks-viz-data.js';
 import { IMP36138_SHARECOLL_SUBPERCENT_CROSSINGS } from '../data/imp-36138-sharecoll-subpercent-threshold-crossings-viz-data.js';
 import { IMP36155_SHARECOLL_CROSSING_PRECEDES_SOLE_SURVIVOR } from '../data/imp-36155-sharecoll-crossing-precedes-sole-survivor.js';
+import { ED } from '../styles/tokens.js';
 
 // The imp-36138 sub-1% shareColl crossings (1e-3, 1e-4); the 1e-2 rung is dropped here
 // since it already appears via IMP36097_E_SHARE_THRESHOLD_CROSSINGS (same anchor point).
@@ -13,9 +14,9 @@ const SOLE_SURVIVOR_LOG10_N = IMP36155_SHARECOLL_CROSSING_PRECEDES_SOLE_SURVIVOR
 const IMP36155_GAP = IMP36155_SHARECOLL_CROSSING_PRECEDES_SOLE_SURVIVOR.gap;
 
 const SERIES = [
-  { key: 'shareTrunc', label: 'E_trunc share', color: '#38bdf8' },
-  { key: 'shareFlow', label: 'E_flow share', color: '#a78bfa' },
-  { key: 'shareColl', label: 'E_coll share', color: '#f472b6' },
+  { key: 'shareTrunc', label: 'E_trunc share', color: ED.series1 },
+  { key: 'shareFlow', label: 'E_flow share', color: ED.series5 },
+  { key: 'shareColl', label: 'E_coll share', color: ED.series7 },
 ];
 
 // Combine the imp-36046 tail landmarks with the imp-36097 threshold crossings into a
@@ -50,34 +51,34 @@ function ShareLadderChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
 
       {xTicks.map((v) => (
         <g key={`x${v}`}>
-          <line x1={xOf(v)} y1={padT + plotH} x2={xOf(v)} y2={padT + plotH + 4} stroke="#334155" strokeWidth={1} />
-          <text x={xOf(v)} y={padT + plotH + 16} textAnchor="middle" fill="#64748b" fontSize={8.5}>
+          <line x1={xOf(v)} y1={padT + plotH} x2={xOf(v)} y2={padT + plotH + 4} stroke={ED.rule} strokeWidth={1} />
+          <text x={xOf(v)} y={padT + plotH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={8.5}>
             {v}
           </text>
         </g>
       ))}
       {yTicks.map((v) => (
         <g key={`y${v}`}>
-          <line x1={padL - 4} y1={yOf(v)} x2={padL} y2={yOf(v)} stroke="#334155" strokeWidth={1} />
-          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={8.5}>
+          <line x1={padL - 4} y1={yOf(v)} x2={padL} y2={yOf(v)} stroke={ED.rule} strokeWidth={1} />
+          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8.5}>
             {v.toFixed(2)}
           </text>
         </g>
       ))}
 
-      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill="#64748b" fontSize={9.5}>
+      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5}>
         log10 N
       </text>
       <text
         x={12}
         y={padT + plotH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={9.5}
         transform={`rotate(-90 12 ${padT + plotH / 2})`}
       >
@@ -90,12 +91,12 @@ function ShareLadderChart() {
         y1={padT}
         x2={xOf(SOLE_SURVIVOR_LOG10_N)}
         y2={padT + plotH}
-        stroke="#fbbf24"
+        stroke={ED.brassDeco}
         strokeWidth={1.5}
         strokeDasharray="4 3"
         opacity={0.8}
       />
-      <text x={xOf(SOLE_SURVIVOR_LOG10_N) - 4} y={padT + 10} textAnchor="end" fill="#fbbf24" fontSize={8.5}>
+      <text x={xOf(SOLE_SURVIVOR_LOG10_N) - 4} y={padT + 10} textAnchor="end" fill={ED.brass} fontSize={8.5}>
         sole-survivor N*
       </text>
 
@@ -118,7 +119,7 @@ function ShareLadderChart() {
             cy={yOf(p[s.key])}
             r={p.isCrossing ? 5 : 3.5}
             fill={s.color}
-            stroke="#0a0f1a"
+            stroke={ED.paper}
             strokeWidth={p.isCrossing ? 1.5 : 1}
           />
         )),
@@ -134,7 +135,7 @@ export default function Imp36143EShareThresholdCrossingLadderViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="E-Share Threshold-Crossing Ladder (imp-36097 / imp-36046 / imp-35971 / imp-36138 / imp-36155)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         The imp-35889 E(N) = E_trunc + E_flow + E_coll fractional-share split, traced from the
         imp-36046 tail landmarks through the imp-36097 threshold crossings where shareFlow first
         drops below 1e-3, 1e-5, and 1e-6, and where shareColl first drops below 1%. The shareColl
@@ -157,7 +158,7 @@ export default function Imp36143EShareThresholdCrossingLadderViz() {
 
       <div style={{ display: 'flex', gap: '1.25rem', justifyContent: 'center', marginTop: '0.5rem' }}>
         {SERIES.map((s) => (
-          <div key={s.key} style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.8rem', color: '#94a3b8' }}>
+          <div key={s.key} style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.8rem', color: 'var(--ink-soft)' }}>
             <span style={{ width: 12, height: 12, background: s.color, display: 'inline-block', borderRadius: 2 }} />
             {s.label}
           </div>
@@ -168,14 +169,14 @@ export default function Imp36143EShareThresholdCrossingLadderViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation-only consumer of
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> presentation-only consumer of
         the baked imp-36097, imp-36046, imp-36138, and imp-36155 viz-data literals (all reusing the
         recorded imp-35971 / imp-35889 shares); no new derivation, no bound changed. C_C GUE-conditional
         (imp-2642 / imp-2643 / imp-486) untouched; no RH verdict, NO QED.

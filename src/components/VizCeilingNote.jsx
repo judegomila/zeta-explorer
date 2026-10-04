@@ -37,13 +37,13 @@ export default function VizCeilingNote({
       <div
         style={{
           fontSize: 13,
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           lineHeight: 1.7,
           padding: '8px 14px',
           borderRadius: 6,
           marginTop: 12,
-          background: 'rgba(148,163,184,0.06)',
-          border: '1px solid rgba(148,163,184,0.12)',
+          background: 'color-mix(in srgb, var(--ink-soft) 6%, transparent)',
+          border: '1px solid color-mix(in srgb, var(--rule) 12%, transparent)',
         }}
       >
         {body}
@@ -51,5 +51,5 @@ export default function VizCeilingNote({
     );
   }
 
-  return <li style={{ color: '#94a3b8' }}>{body}</li>;
+  return <li style={{ color: 'var(--ink-soft)' }}>{body}</li>;
 }

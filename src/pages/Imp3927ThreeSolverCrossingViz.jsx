@@ -11,10 +11,11 @@ import {
   IMP3927_CROSS_CC_GL_INTERP_DELTA,
   IMP3927_CROSS_CC_SIMPSON_INTERP_DELTA,
 } from '../data/imp-3927-three-solver-crossing-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
-const SIMPSON_COLOR = '#f472b6';
-const GL_COLOR = '#38bdf8';
-const CC_COLOR = '#a78bfa';
+const SIMPSON_COLOR = ED.series7;
+const GL_COLOR = ED.series1;
+const CC_COLOR = ED.series5;
 
 function CrossingBracketChart() {
   const svgW = 680;
@@ -41,10 +42,10 @@ function CrossingBracketChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
-      <line x1={padL} y1={yS(0)} x2={padL + cW} y2={yS(0)} stroke="#334155" strokeWidth={1} strokeDasharray="4,3" />
-      <text x={padL + cW - 4} y={yS(0) - 4} textAnchor="end" fill="#7dd3fc" fontSize={8.5}>
+      <line x1={padL} y1={yS(0)} x2={padL + cW} y2={yS(0)} stroke={ED.rule} strokeWidth={1} strokeDasharray="4,3" />
+      <text x={padL + cW - 4} y={yS(0) - 4} textAnchor="end" fill={ED.series1} fontSize={8.5}>
         r_n = 0 (unity crossing)
       </text>
 
@@ -67,32 +68,32 @@ function CrossingBracketChart() {
           <circle cx={xS(row.n)} cy={yS(row.simpsonR)} r={5} fill={SIMPSON_COLOR} />
           <circle cx={xS(row.n)} cy={yS(row.glR)} r={4} fill={GL_COLOR} />
           <circle cx={xS(row.n)} cy={yS(row.ccR)} r={2.5} fill={CC_COLOR} />
-          <text x={xS(row.n)} y={padT + cH + 17} textAnchor="middle" fill="#64748b" fontSize={9}>
+          <text x={xS(row.n)} y={padT + cH + 17} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
             n={row.n}
           </text>
         </g>
       ))}
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
 
-      <text x={padL + cW / 2} y={padT + cH + 32} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={padT + cH + 32} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         rung n near the crossing
       </text>
-      <text x={16} y={padT + cH / 2} textAnchor="middle" fill="#64748b" fontSize={10} transform={'rotate(-90,16,' + (padT + cH / 2) + ')'}>
+      <text x={16} y={padT + cH / 2} textAnchor="middle" fill={ED.inkFaint} fontSize={10} transform={'rotate(-90,16,' + (padT + cH / 2) + ')'}>
         r_n = R_n - 1
       </text>
 
       <g>
         <circle cx={padL + 8} cy={padT - 6} r={4} fill={SIMPSON_COLOR} />
-        <text x={padL + 16} y={padT - 2} fill="#94a3b8" fontSize={9}>
+        <text x={padL + 16} y={padT - 2} fill={ED.inkSoft} fontSize={9}>
           Simpson (imp-3849), n* = {IMP3927_SIMPSON_INTERP}
         </text>
         <circle cx={padL + 8} cy={padT + 10} r={4} fill={GL_COLOR} />
-        <text x={padL + 16} y={padT + 14} fill="#94a3b8" fontSize={9}>
+        <text x={padL + 16} y={padT + 14} fill={ED.inkSoft} fontSize={9}>
           Gauss-Legendre (imp-3868), n* = {IMP3927_GL_INTERP.toFixed(5)}
         </text>
         <circle cx={padL + 8} cy={padT + 26} r={4} fill={CC_COLOR} />
-        <text x={padL + 16} y={padT + 30} fill="#94a3b8" fontSize={9}>
+        <text x={padL + 16} y={padT + 30} fill={ED.inkSoft} fontSize={9}>
           Clenshaw-Curtis (imp-3895), n* = {IMP3927_CC_INTERP}
         </text>
       </g>
@@ -119,10 +120,10 @@ function EpsSignChangeChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
-      <line x1={padL} y1={yS(0)} x2={padL + cW} y2={yS(0)} stroke="#334155" strokeWidth={1} strokeDasharray="4,3" />
-      <text x={padL + 6} y={yS(0) - 4} fill="#7dd3fc" fontSize={8.5}>
+      <line x1={padL} y1={yS(0)} x2={padL + cW} y2={yS(0)} stroke={ED.rule} strokeWidth={1} strokeDasharray="4,3" />
+      <text x={padL + 6} y={yS(0) - 4} fill={ED.series1} fontSize={8.5}>
         eps_n = 0
       </text>
 
@@ -131,12 +132,12 @@ function EpsSignChangeChart() {
         y1={padT}
         x2={xS(IMP3927_EPS_SIGN_CHANGE_N)}
         y2={padT + cH}
-        stroke="#fbbf24"
+        stroke={ED.brassDeco}
         strokeWidth={1}
         strokeDasharray="2,3"
         opacity={0.6}
       />
-      <text x={xS(IMP3927_EPS_SIGN_CHANGE_N) + 4} y={padT + 12} fill="#fbbf24" fontSize={8.5}>
+      <text x={xS(IMP3927_EPS_SIGN_CHANGE_N) + 4} y={padT + 12} fill={ED.brass} fontSize={8.5}>
         n = {IMP3927_EPS_SIGN_CHANGE_N}
       </text>
 
@@ -155,18 +156,18 @@ function EpsSignChangeChart() {
       {IMP3927_EPS_ROWS.map((row) => (
         <g key={'eps' + row.n}>
           <circle cx={xS(row.n)} cy={yS(row.ccEps)} r={3} fill={CC_COLOR} />
-          <text x={xS(row.n)} y={padT + cH + 17} textAnchor="middle" fill="#64748b" fontSize={9}>
+          <text x={xS(row.n)} y={padT + cH + 17} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
             {row.n}
           </text>
         </g>
       ))}
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
 
-      <text x={padL + cW / 2} y={padT + cH + 32} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={padT + cH + 32} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         rung n
       </text>
-      <text x={16} y={padT + cH / 2} textAnchor="middle" fill="#64748b" fontSize={10} transform={'rotate(-90,16,' + (padT + cH / 2) + ')'}>
+      <text x={16} y={padT + cH / 2} textAnchor="middle" fill={ED.inkFaint} fontSize={10} transform={'rotate(-90,16,' + (padT + cH / 2) + ')'}>
         eps_n = Q_n/tau*(n)^2 - 1
       </text>
     </svg>
@@ -190,7 +191,7 @@ function WellRecoveryChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
       <polyline
         points={IMP3927_WELL_ROWS.map((row, i) => `${xS(i)},${yS(row.r)}`).join(' ')}
@@ -201,18 +202,18 @@ function WellRecoveryChart() {
       {IMP3927_WELL_ROWS.map((row, i) => (
         <g key={'well' + row.n}>
           <circle cx={xS(i)} cy={yS(row.r)} r={5} fill={CC_COLOR} />
-          <text x={xS(i)} y={padT + cH + 17} textAnchor="middle" fill="#64748b" fontSize={9}>
+          <text x={xS(i)} y={padT + cH + 17} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
             n={row.n}
           </text>
         </g>
       ))}
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
 
-      <text x={padL + cW / 2} y={padT + cH + 32} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={padT + cH + 32} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         rung n (deep sub-unity well, recovering toward 1)
       </text>
-      <text x={16} y={padT + cH / 2} textAnchor="middle" fill="#64748b" fontSize={10} transform={'rotate(-90,16,' + (padT + cH / 2) + ')'}>
+      <text x={16} y={padT + cH / 2} textAnchor="middle" fill={ED.inkFaint} fontSize={10} transform={'rotate(-90,16,' + (padT + cH / 2) + ')'}>
         r_n = R_n - 1 (Clenshaw-Curtis)
       </text>
     </svg>
@@ -224,7 +225,7 @@ export default function Imp3927ThreeSolverCrossingViz() {
     <div style={{ padding: '1.5rem', maxWidth: 940, margin: '0 auto' }}>
       <PageHeader title="Three-Solver Saddle-Crossing Cross-Check: Simpson, Gauss-Legendre and Clenshaw-Curtis Agree to ~1e-6 (imp-3895/imp-3927)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-3895 re-derived the imp-3849 / imp-3868 exact-saddle ratio crossing n* = 215.23 through
         a THIRD, structurally distinct quadrature rule -- composite Clenshaw-Curtis (Chebyshev-extrema
         nodes) -- alongside composite Simpson (imp-3849, equispaced Newton-Cotes) and 5-point
@@ -233,17 +234,17 @@ export default function Imp3927ThreeSolverCrossingViz() {
         and the sub-unity well to the de Bruijn-Newman kernel, not to any single rule family's artifact.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         r_n = R_n - 1 bracketing n* = 215.23 -- Simpson vs Gauss-Legendre vs Clenshaw-Curtis
       </p>
       <CrossingBracketChart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
         eps_n = Q_n/tau*(n)^2 - 1 sign-change at n = 149, all three solvers overlaid
       </p>
       <EpsSignChangeChart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
         sub-unity well: r_n recovering toward 1 from n = 500 to n = 620 (Clenshaw-Curtis path)
       </p>
       <WellRecoveryChart />
@@ -252,14 +253,14 @@ export default function Imp3927ThreeSolverCrossingViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the charts:</strong> the top chart shows all
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the charts:</strong> the top chart shows all
         three solvers' r_n crossing from positive to negative between n = 215 and n = 216, with the
         Clenshaw-Curtis crossing n* = {IMP3927_CC_INTERP} agreeing with Gauss-Legendre to ~
         {IMP3927_CROSS_CC_GL_INTERP_DELTA.toExponential(0)} of a rung and with Simpson to ~
@@ -273,14 +274,14 @@ export default function Imp3927ThreeSolverCrossingViz() {
         style={{
           marginTop: '1rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> third-solver CONFIRMATION only,
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> third-solver CONFIRMATION only,
         at the RH-equivalent scale class; all three solvers share the finite NPHI=10 kernel
         truncation, so this removes the quadrature-rule-family worry, not the kernel-truncation
         floor. Mass-feasibility is necessary-but-not-sufficient; operator positivity (imp-3066

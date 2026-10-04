@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP34909_OP_DEPTH_NEWTON_STEP_RECONCILIATION } from '../data/imp-34909-op-depth-newton-step-reconciliation.js';
+import { ED } from '../styles/tokens.js';
 
 const D = IMP34909_OP_DEPTH_NEWTON_STEP_RECONCILIATION;
 
@@ -19,14 +20,14 @@ const BREACH_POINTS = [
     depth: 8,
     ratio: D.reconciliation.forward_ratio_at_d_star, // 2.0
     threshold: D.reconciliation.r_seed_ratio_imp34884, // 1
-    color: '#38bdf8',
+    color: ED.series1,
   },
   {
     label: 'imp-34889 step 5 (H2-margin, op-depth 40)',
     depth: D.reconciliation.step_889_as_op_depth, // 40
     ratio: D.reconciliation.forward_ratio_at_step_889_depth, // 32.0
     threshold: D.reconciliation.r_margin_ratio_imp34889, // ~19.91
-    color: '#f87171',
+    color: ED.series2,
   },
 ];
 
@@ -54,13 +55,13 @@ function ForwardDoublingCurveChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke="#334155" strokeWidth={1} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke={ED.rule} strokeWidth={1} />
 
       {yTicks.map((t) => (
         <g key={t}>
-          <line x1={padL - 4} y1={yAt(t)} x2={padL + cW} y2={yAt(t)} stroke="#1e293b" strokeWidth={1} />
-          <text x={padL - 8} y={yAt(t) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+          <line x1={padL - 4} y1={yAt(t)} x2={padL + cW} y2={yAt(t)} stroke={ED.ruleSoft} strokeWidth={1} />
+          <text x={padL - 8} y={yAt(t) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             2^{t}
           </text>
         </g>
@@ -72,7 +73,7 @@ function ForwardDoublingCurveChart() {
         y1={yAt(Math.log2(D.reconciliation.r_margin_ratio_imp34889))}
         x2={padL + cW}
         y2={yAt(Math.log2(D.reconciliation.r_margin_ratio_imp34889))}
-        stroke="#fbbf24"
+        stroke={ED.brassDeco}
         strokeWidth={1}
         strokeDasharray="4 3"
       />
@@ -80,7 +81,7 @@ function ForwardDoublingCurveChart() {
         x={padL + cW - 4}
         y={yAt(Math.log2(D.reconciliation.r_margin_ratio_imp34889)) - 5}
         textAnchor="end"
-        fill="#fbbf24"
+        fill={ED.brass}
         fontSize={8.5}
       >
         R_margin~{D.reconciliation.r_margin_ratio_imp34889}
@@ -89,7 +90,7 @@ function ForwardDoublingCurveChart() {
       <polyline
         points={CURVE_POINTS.map((p) => `${xAt(p.d)},${yAt(Math.log2(p.ratio))}`).join(' ')}
         fill="none"
-        stroke="#475569"
+        stroke={ED.rule}
         strokeWidth={2}
       />
 
@@ -105,13 +106,13 @@ function ForwardDoublingCurveChart() {
             strokeWidth={1}
             strokeDasharray="3 2"
           />
-          <text x={xAt(p.depth)} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={8.5}>
+          <text x={xAt(p.depth)} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={8.5}>
             depth {p.depth}
           </text>
         </g>
       ))}
 
-      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         op-depth (8 ops per Newton step) -- forward width ratio 2^(op-depth/8), log2 scale
       </text>
     </svg>
@@ -132,8 +133,8 @@ function ThresholdGapChart() {
   const cH = svgH - padT - padB;
 
   const rows = [
-    { label: 'R_seed (own seed bracket)', v: D.reconciliation.r_seed_ratio_imp34884, color: '#38bdf8' },
-    { label: 'R_margin ((H2) margin)', v: D.reconciliation.r_margin_ratio_imp34889, color: '#f87171' },
+    { label: 'R_seed (own seed bracket)', v: D.reconciliation.r_seed_ratio_imp34884, color: ED.series1 },
+    { label: 'R_margin ((H2) margin)', v: D.reconciliation.r_margin_ratio_imp34889, color: ED.series2 },
   ];
   const xMin = -1; // log10(0.1)
   const xMax = 2; // log10(100)
@@ -144,7 +145,7 @@ function ThresholdGapChart() {
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
       {rows.map((r, i) => (
         <g key={r.label}>
-          <text x={padL - 6} y={padT + i * rowH + rowH / 2 + 3} textAnchor="end" fill="#94a3b8" fontSize={9} fontFamily="monospace">
+          <text x={padL - 6} y={padT + i * rowH + rowH / 2 + 3} textAnchor="end" fill={ED.inkSoft} fontSize={9} fontFamily="monospace">
             {r.label}
           </text>
           <line
@@ -156,13 +157,13 @@ function ThresholdGapChart() {
             strokeWidth={10}
             strokeLinecap="round"
           />
-          <text x={xAt(r.v) + 6} y={padT + i * rowH + rowH / 2 + 3} fill="#64748b" fontSize={9}>
+          <text x={xAt(r.v) + 6} y={padT + i * rowH + rowH / 2 + 3} fill={ED.inkFaint} fontSize={9}>
             {r.v}
           </text>
         </g>
       ))}
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
-      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
+      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         log10 scale -- {D.reconciliation.log2_threshold_gap_doublings} doublings separate the two thresholds
         (== the {D.reconciliation.breach_step_gap}-step crossing gap)
       </text>
@@ -175,11 +176,11 @@ export default function Imp34940OpDepthNewtonStepReconciliationViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Op-Depth vs Newton-Step Forward-Breach Reconciliation (imp-34940 / imp-34909)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         {D.question}
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         On the shared {D.constants.ops_per_newton_step}-ops-per-step ladder, both published crossing
         points sit on the SAME 2^(op-depth/{D.constants.ops_per_newton_step}) forward-width-doubling
         curve: the imp-34884 seed-bracket crossing at op-depth 8{' '}
@@ -190,7 +191,7 @@ export default function Imp34940OpDepthNewtonStepReconciliationViz() {
       </p>
       <ForwardDoublingCurveChart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.25rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.25rem 0 0.5rem' }}>
         The two crossings differ only in which reference width they are measured against: the
         seed-bracket threshold R_seed = {D.reconciliation.r_seed_ratio_imp34884} vs the (H2)-margin
         threshold R_margin ~ {D.reconciliation.r_margin_ratio_imp34889}, a gap of{' '}
@@ -199,7 +200,7 @@ export default function Imp34940OpDepthNewtonStepReconciliationViz() {
       </p>
       <ThresholdGapChart />
 
-      <p style={{ color: '#64748b', fontSize: '0.78rem', marginTop: '0.75rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontSize: '0.78rem', marginTop: '0.75rem' }}>
         {D.finding}
       </p>
 
@@ -207,14 +208,14 @@ export default function Imp34940OpDepthNewtonStepReconciliationViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page rendering the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-only page rendering the
         imp-34909 constants/reconciliation/finding literals verbatim (no new computation).
         Reconciliation / measurement on the INHERITED imp-3220/imp-3406 surrogate crossover map; does
         NOT instantiate the imp-34687a directed-rounding layer; imp-34714a REMAINS OPEN. C_C 1/8

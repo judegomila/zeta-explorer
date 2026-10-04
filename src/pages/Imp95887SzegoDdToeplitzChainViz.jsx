@@ -6,8 +6,9 @@ import {
   IMP95887_FINDING_A_NOTE,
   IMP95887_CAVEAT_BANNER,
 } from '../data/imp-95887-szego-dd-toeplitz-chain-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
-const BAR_COLORS = { pred: '#94a3b8', dd: '#60a5fa', float64: '#f87171' };
+const BAR_COLORS = { pred: ED.series8, dd: ED.series1, float64: ED.series2 };
 
 // grouped bar chart: predicted C(delta) vs DD fit vs float64 fit, per delta row
 function SzegoFitBarChart() {
@@ -32,7 +33,7 @@ function SzegoFitBarChart() {
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
       {yTicks.map((t) => (
-        <line key={`gy${t}`} x1={padL} y1={yOf(t)} x2={padL + plotW} y2={yOf(t)} stroke="#1e293b" strokeWidth={1} />
+        <line key={`gy${t}`} x1={padL} y1={yOf(t)} x2={padL + plotW} y2={yOf(t)} stroke={ED.ruleSoft} strokeWidth={1} />
       ))}
       {IMP95887_SZEGO_FIT_ROWS.map((row, i) => {
         const gx = padL + i * groupW + groupW / 2;
@@ -58,11 +59,11 @@ function SzegoFitBarChart() {
                 />
               );
             })}
-            <text x={gx} y={padT + plotH + 16} textAnchor="middle" fill="#94a3b8" fontSize={10.5}>
+            <text x={gx} y={padT + plotH + 16} textAnchor="middle" fill={ED.inkSoft} fontSize={10.5}>
               {row.label}
             </text>
             {row.float64Broken && (
-              <text x={gx} y={padT + plotH + 30} textAnchor="middle" fill="#f87171" fontSize={8.5}>
+              <text x={gx} y={padT + plotH + 30} textAnchor="middle" fill={ED.series2} fontSize={8.5}>
                 float64 broken (+{row.float64RelErrPct.toFixed(0)}%)
               </text>
             )}
@@ -70,16 +71,16 @@ function SzegoFitBarChart() {
         );
       })}
       {yTicks.map((t) => (
-        <text key={`ty${t}`} x={padL - 8} y={yOf(t) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+        <text key={`ty${t}`} x={padL - 8} y={yOf(t) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
           {t.toFixed(0)}
         </text>
       ))}
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
       <text
         x={12}
         y={padT + plotH / 2}
         textAnchor="middle"
-        fill="#94a3b8"
+        fill={ED.inkSoft}
         fontSize={9.5}
         transform={`rotate(-90 12 ${padT + plotH / 2})`}
       >
@@ -89,7 +90,7 @@ function SzegoFitBarChart() {
         {['pred', 'dd', 'float64'].map((k, i) => (
           <g key={k} transform={`translate(${i * 130}, 0)`}>
             <rect width={10} height={10} fill={BAR_COLORS[k]} />
-            <text x={14} y={9} fill="#94a3b8" fontSize={9.5}>
+            <text x={14} y={9} fill={ED.inkSoft} fontSize={9.5}>
               {k === 'pred' ? 'predicted pi^2/(2d^2)' : k === 'dd' ? 'double-double fit' : 'float64 fit'}
             </text>
           </g>
@@ -119,7 +120,7 @@ function ReachVsUFitChart() {
   const yMax = Math.max(...rows.map((r) => r.uFitRelPct)) * 1.25;
   const yOf = (v) => padT + plotH - (v / yMax) * plotH;
 
-  const COLORS = { 'ln1.2': '#60a5fa', 'ln1.3': '#a78bfa' };
+  const COLORS = { 'ln1.2': ED.series1, 'ln1.3': ED.series5 };
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
@@ -130,7 +131,7 @@ function ReachVsUFitChart() {
           y1={padT + f * plotH}
           x2={padL + plotW}
           y2={padT + f * plotH}
-          stroke="#1e293b"
+          stroke={ED.ruleSoft}
           strokeWidth={1}
         />
       ))}
@@ -142,16 +143,16 @@ function ReachVsUFitChart() {
           </text>
         </g>
       ))}
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={9.5}>
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5}>
         reach R = delta (N+1)
       </text>
       <text
         x={12}
         y={padT + plotH / 2}
         textAnchor="middle"
-        fill="#94a3b8"
+        fill={ED.inkSoft}
         fontSize={9.5}
         transform={`rotate(-90 12 ${padT + plotH / 2})`}
       >
@@ -170,18 +171,18 @@ export default function Imp95887SzegoDdToeplitzChainViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> {IMP95887_CAVEAT_BANNER}
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> {IMP95887_CAVEAT_BANNER}
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         The imp-95778 orphan/consumer audit found the imp-95743 Szego-coefficient / DD-Toeplitz
         research chain assertion-reachable but not yet rendered on any page. This page surfaces the
         chain&rsquo;s two key held results: the imp-95743 double-double eigensolver cross-check of
@@ -190,10 +191,10 @@ export default function Imp95887SzegoDdToeplitzChainViz() {
         ln&nbsp;1.3.
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         Szego coefficient fit: predicted vs double-double vs float64
       </h3>
-      <p style={{ color: '#64748b', fontSize: '0.78rem', marginBottom: '0.5rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-faint)', fontSize: '0.78rem', marginBottom: '0.5rem', maxWidth: 700 }}>
         At delta&nbsp;=&nbsp;ln&nbsp;1.3 (the imp-95677 float64 cancellation floor) the float64 fit
         C&nbsp;=&nbsp;951 is meaningless (+1227%); the double-double fit C&nbsp;=&nbsp;66.68 tracks
         the predicted 71.69 to within &minus;7.0%. At delta&nbsp;=&nbsp;ln&nbsp;1.5 (the
@@ -201,9 +202,9 @@ export default function Imp95887SzegoDdToeplitzChainViz() {
       </p>
       <SzegoFitBarChart />
 
-      <table style={{ width: '100%', fontSize: '0.78rem', color: '#cbd5e1', borderCollapse: 'collapse', marginTop: '1rem' }}>
+      <table style={{ width: '100%', fontSize: '0.78rem', color: 'var(--ink)', borderCollapse: 'collapse', marginTop: '1rem' }}>
         <thead>
-          <tr style={{ color: '#64748b' }}>
+          <tr style={{ color: 'var(--ink-faint)' }}>
             <th style={{ textAlign: 'left', paddingBottom: 4 }}>delta</th>
             <th style={{ textAlign: 'right', paddingBottom: 4 }}>C predicted</th>
             <th style={{ textAlign: 'right', paddingBottom: 4 }}>C (DD fit)</th>
@@ -214,13 +215,13 @@ export default function Imp95887SzegoDdToeplitzChainViz() {
         </thead>
         <tbody>
           {IMP95887_SZEGO_FIT_ROWS.map((r) => (
-            <tr key={r.label} style={{ borderTop: '1px solid rgba(148,163,184,0.15)' }}>
+            <tr key={r.label} style={{ borderTop: '1px solid color-mix(in srgb, var(--rule) 15%, transparent)' }}>
               <td style={{ padding: '3px 0' }}>{r.label}</td>
               <td style={{ textAlign: 'right' }}>{r.cPred.toFixed(2)}</td>
-              <td style={{ textAlign: 'right', color: '#60a5fa' }}>{r.ddCFit.toFixed(2)}</td>
-              <td style={{ textAlign: 'right', color: '#60a5fa' }}>{r.ddRelErrPct.toFixed(2)}%</td>
-              <td style={{ textAlign: 'right', color: r.float64Broken ? '#f87171' : '#cbd5e1' }}>{r.float64CFit.toFixed(2)}</td>
-              <td style={{ textAlign: 'right', color: r.float64Broken ? '#f87171' : '#cbd5e1' }}>
+              <td style={{ textAlign: 'right', color: 'var(--series-1)' }}>{r.ddCFit.toFixed(2)}</td>
+              <td style={{ textAlign: 'right', color: 'var(--series-1)' }}>{r.ddRelErrPct.toFixed(2)}%</td>
+              <td style={{ textAlign: 'right', color: r.float64Broken ? 'var(--series-2)' : 'var(--ink)' }}>{r.float64CFit.toFixed(2)}</td>
+              <td style={{ textAlign: 'right', color: r.float64Broken ? 'var(--series-2)' : 'var(--ink)' }}>
                 {r.float64RelErrPct > 0 ? '+' : ''}
                 {r.float64RelErrPct.toFixed(2)}%
               </td>
@@ -229,17 +230,17 @@ export default function Imp95887SzegoDdToeplitzChainViz() {
         </tbody>
       </table>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginTop: '1.75rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginTop: '1.75rem', marginBottom: '0.5rem' }}>
         Per-delta reach vs u_fit_rel: reach does not order the intervals
       </h3>
-      <p style={{ color: '#64748b', fontSize: '0.78rem', marginBottom: '0.5rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-faint)', fontSize: '0.78rem', marginBottom: '0.5rem', maxWidth: 700 }}>
         {IMP95887_FINDING_A_NOTE}
       </p>
       <ReachVsUFitChart />
 
-      <table style={{ width: '100%', fontSize: '0.78rem', color: '#cbd5e1', borderCollapse: 'collapse', marginTop: '1rem' }}>
+      <table style={{ width: '100%', fontSize: '0.78rem', color: 'var(--ink)', borderCollapse: 'collapse', marginTop: '1rem' }}>
         <thead>
-          <tr style={{ color: '#64748b' }}>
+          <tr style={{ color: 'var(--ink-faint)' }}>
             <th style={{ textAlign: 'left', paddingBottom: 4 }}>delta</th>
             <th style={{ textAlign: 'right', paddingBottom: 4 }}>conditioning</th>
             <th style={{ textAlign: 'right', paddingBottom: 4 }}>reach R</th>
@@ -248,7 +249,7 @@ export default function Imp95887SzegoDdToeplitzChainViz() {
         </thead>
         <tbody>
           {IMP95887_DELTA_COMPARISON_ROWS.map((r) => (
-            <tr key={r.label} style={{ borderTop: '1px solid rgba(148,163,184,0.15)' }}>
+            <tr key={r.label} style={{ borderTop: '1px solid color-mix(in srgb, var(--rule) 15%, transparent)' }}>
               <td style={{ padding: '3px 0' }}>{r.label}</td>
               <td style={{ textAlign: 'right' }}>{r.condApprox.toExponential(1)}</td>
               <td style={{ textAlign: 'right' }}>{r.reachLatest.toFixed(0)}</td>
@@ -262,14 +263,14 @@ export default function Imp95887SzegoDdToeplitzChainViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page rendering the frozen
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page rendering the frozen
         imp-95743 and imp-95885 modules verbatim (no re-derivation). Supplies no new bound,
         establishes no operator positivity, no RH claim; Platt&ndash;Trudgian &Lambda; &le; 0.2
         remains SOTA. NO QED.

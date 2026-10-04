@@ -9,6 +9,7 @@ import {
   IMP95658_CONTOUR_EFLOW_ZERO,
   IMP95658_HEADLINE,
 } from '../data/imp-95658-eflow-inversion-contour-surface-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 // Diverging color: gap < 0 (inverted) fades toward red; gap > 0 fades toward blue, both pivoting
 // from the same dark background at gap = 0. minG/maxG are shared across BOTH panels so the two
@@ -57,7 +58,7 @@ function GapSurfacePanel({ surface, contour, minG, maxG, label }) {
 
   return (
     <div>
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.78rem', marginBottom: '0.4rem', textAlign: 'center' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.78rem', marginBottom: '0.4rem', textAlign: 'center' }}>
         {label}
       </p>
       <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
@@ -70,7 +71,7 @@ function GapSurfacePanel({ surface, contour, minG, maxG, label }) {
               width={colW}
               height={rowH}
               fill={cellColor(surface[i][j], minG, maxG)}
-              stroke="#0a0f1a"
+              stroke={ED.paper}
               strokeWidth={0.5}
             />
           )),
@@ -80,7 +81,7 @@ function GapSurfacePanel({ surface, contour, minG, maxG, label }) {
           <polyline
             points={clamped.map((p) => `${p.x},${p.y}`).join(' ')}
             fill="none"
-            stroke="#facc15"
+            stroke={ED.brassDeco}
             strokeWidth={2}
             strokeDasharray="3,3"
             opacity={0.7}
@@ -90,25 +91,25 @@ function GapSurfacePanel({ surface, contour, minG, maxG, label }) {
           <polyline
             points={onGrid.map((p) => `${p.x},${p.y}`).join(' ')}
             fill="none"
-            stroke="#facc15"
+            stroke={ED.brassDeco}
             strokeWidth={2.25}
           />
         )}
 
         {/* pinned point: C_C = C_C_PINNED, E_trunc = E_TRUNC_PT (multiplier 1x, 1x) */}
-        <circle cx={xOf(1)} cy={yOf(1)} r={5} fill="none" stroke="#38bdf8" strokeWidth={2} />
+        <circle cx={xOf(1)} cy={yOf(1)} r={5} fill="none" stroke={ED.series1} strokeWidth={2} />
 
         {IMP95658_AXIS_MULTS.filter((_, j) => j % 4 === 0).map((me) => (
-          <text key={`xt-${me}`} x={xOf(me)} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={9}>
+          <text key={`xt-${me}`} x={xOf(me)} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
             {me.toFixed(2)}
           </text>
         ))}
-        <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={10}>
+        <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
           E_trunc multiplier
         </text>
 
         {IMP95658_AXIS_MULTS.filter((_, i) => i % 4 === 0).map((mc) => (
-          <text key={`yt-${mc}`} x={padL - 8} y={yOf(mc) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+          <text key={`yt-${mc}`} x={padL - 8} y={yOf(mc) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {mc.toFixed(2)}
           </text>
         ))}
@@ -116,7 +117,7 @@ function GapSurfacePanel({ surface, contour, minG, maxG, label }) {
           x={12}
           y={padT + cH / 2}
           textAnchor="middle"
-          fill="#64748b"
+          fill={ED.inkFaint}
           fontSize={10}
           transform={`rotate(-90 12 ${padT + cH / 2})`}
         >
@@ -145,7 +146,7 @@ function ColorLegend({ minG, maxG }) {
           x={(i / (stops.length - 1)) * w}
           y={h + 12}
           textAnchor="middle"
-          fill="#64748b"
+          fill={ED.inkFaint}
           fontSize={9}
         >
           {s.toFixed(4)}
@@ -173,21 +174,21 @@ export default function Imp95681EflowInversionContourSurfaceViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> presentation/measurement
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> presentation/measurement
         only. It changes no Lambda bound and establishes no operator positivity. Platt&ndash;Trudgian
         &Lambda; &le; 0.2 remains state of the art. RH does not follow from anything on this page.
         NO QED.
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         The imp-95617/imp-95646 gap = log10 N_knee &minus; log10 N_cross surface inverts (gap &lt;
         0) in the low-C_C / high-E_trunc corner of the [0.5x, 1.5x]&sup2; multiplier box. imp-95639
         tested whether that inversion survives with the E_flow term (imp-398) switched off. It does
@@ -215,7 +216,7 @@ export default function Imp95681EflowInversionContourSurfaceViz() {
       </div>
 
       <div style={{ marginTop: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-        <span style={{ color: '#64748b', fontSize: '0.78rem' }}>gap (log10 N_knee &minus; log10 N_cross):</span>
+        <span style={{ color: 'var(--ink-faint)', fontSize: '0.78rem' }}>gap (log10 N_knee &minus; log10 N_cross):</span>
         <ColorLegend minG={minG} maxG={maxG} />
       </div>
 
@@ -228,19 +229,19 @@ export default function Imp95681EflowInversionContourSurfaceViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>quantity</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>WITH E_flow</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>E_flow = 0</th>
           </tr>
         </thead>
         <tbody>
-          <tr style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+          <tr style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
             <td style={{ padding: '0.4rem 0.6rem' }}>base gap (pinned point, 1x, 1x)</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{h.withFlow.baseGap}</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{h.eFlowZero.baseGap}</td>
           </tr>
-          <tr style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+          <tr style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
             <td style={{ padding: '0.4rem 0.6rem' }}>box-min gap</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>
               {h.withFlow.minGap} at (C_C {h.withFlow.minAt.cC_mult}x, E_trunc {h.withFlow.minAt.eTrunc_mult}x)
@@ -249,7 +250,7 @@ export default function Imp95681EflowInversionContourSurfaceViz() {
               {h.eFlowZero.minGap} at (C_C {h.eFlowZero.minAt.cC_mult}x, E_trunc {h.eFlowZero.minAt.eTrunc_mult}x)
             </td>
           </tr>
-          <tr style={{ color: '#cbd5e1' }}>
+          <tr style={{ color: 'var(--ink)' }}>
             <td style={{ padding: '0.4rem 0.6rem' }}>gap = 0 contour inside box?</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{String(h.withFlow.anyInvertInBox)}</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{String(h.eFlowZero.anyInvertInBox)}</td>
@@ -261,14 +262,14 @@ export default function Imp95681EflowInversionContourSurfaceViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> the gap = 0 contour
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> the gap = 0 contour
         (yellow) sits inside the visible box for the WITH-E_flow surface but is clamped to the 0.1x
         floor across the whole E_trunc range once E_flow is zeroed &mdash; it leaves the [0.1x,
         1.5x] search window entirely (dashed). The imp-95617 wedge is therefore attributable to the
@@ -279,14 +280,14 @@ export default function Imp95681EflowInversionContourSurfaceViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> {h.note}
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> {h.note}
       </div>
     </div>
   );

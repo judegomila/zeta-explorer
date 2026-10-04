@@ -7,14 +7,15 @@ import {
   IMP96670_GAP_SUMMARY,
   IMP96670_HONEST_BANNER,
 } from '../data/imp-96670-route-m-lammax-majorants-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 const COLORS = {
-  lamMax: '#e2e8f0',
-  trace: '#38bdf8',
-  rowsum: '#f87171',
-  brauer: '#fb923c',
-  frobenius: '#4ade80',
-  ws: '#34d399',
+  lamMax: ED.ink,
+  trace: ED.series1,
+  rowsum: ED.series2,
+  brauer: ED.series4,
+  frobenius: ED.series3,
+  ws: ED.series3,
 };
 
 // six-curve chart on a log(N) x-axis: measured lam_max + trace baseline +
@@ -43,12 +44,12 @@ function MajorantsPanel() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
       {[minY, maxY / 2, maxY].map((v) => (
         <g key={`y${v}`}>
-          <line x1={padL - 4} y1={yOf(v)} x2={padL} y2={yOf(v)} stroke="#334155" strokeWidth={1} />
-          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={8.5}>
+          <line x1={padL - 4} y1={yOf(v)} x2={padL} y2={yOf(v)} stroke={ED.rule} strokeWidth={1} />
+          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8.5}>
             {v.toFixed(1)}
           </text>
         </g>
@@ -67,7 +68,7 @@ function MajorantsPanel() {
           ))}
         </g>
       ))}
-      <text x={padL + plotW / 2} y={padT + plotH + 32} textAnchor="middle" fill="#94a3b8" fontSize={9}>
+      <text x={padL + plotW / 2} y={padT + plotH + 32} textAnchor="middle" fill={ED.inkSoft} fontSize={9}>
         N (log scale, ticks at the accessible ladder rungs 250..6000)
       </text>
     </svg>
@@ -77,14 +78,14 @@ function MajorantsPanel() {
 function ceilingBar(entry, maxLog10) {
   const widthPct = Math.max(2, (entry.log10CeilingN / maxLog10) * 100);
   const color =
-    entry.kind === 'worse' ? '#f87171' : entry.kind === 'sharper' ? '#4ade80' : entry.kind === 'compute' ? '#94a3b8' : '#38bdf8';
+    entry.kind === 'worse' ? ED.series2 : entry.kind === 'sharper' ? ED.series3 : entry.kind === 'compute' ? ED.inkSoft : ED.series1;
   return (
     <div key={entry.key} style={{ marginBottom: '0.4rem' }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem', color: '#94a3b8' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem', color: 'var(--ink-soft)' }}>
         <span>{entry.label}</span>
         <span>{entry.ceilingN.toExponential(3)}</span>
       </div>
-      <div style={{ height: 6, background: 'rgba(148,163,184,0.12)', borderRadius: 3 }}>
+      <div style={{ height: 6, background: 'color-mix(in srgb, var(--ink-soft) 12%, transparent)', borderRadius: 3 }}>
         <div style={{ width: `${widthPct}%`, height: '100%', background: color, borderRadius: 3 }} />
       </div>
     </div>
@@ -102,18 +103,18 @@ export default function Imp96670RouteMLammaxMajorantsViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> {IMP96670_HONEST_BANNER}
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> {IMP96670_HONEST_BANNER}
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-96648 measured four rigorous, unconditional upper bounds on lam_max(N) for the exact
         Route M Vasyunin Gram, alongside the measured power-iteration lam_max and the imp-96548
         trace bound. The Gershgorin row-sum and Brauer/Cassini bounds (dashed, red/orange) count
@@ -122,7 +123,7 @@ export default function Imp96670RouteMLammaxMajorantsViz() {
         sit just above the true lam_max and BELOW trace, giving a sharper, higher ceiling.
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         Six curves over the accessible N=250..6000 ladder
       </h3>
       <MajorantsPanel />
@@ -135,7 +136,7 @@ export default function Imp96670RouteMLammaxMajorantsViz() {
         ))}
       </div>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', margin: '1.5rem 0 0.75rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', margin: '1.5rem 0 0.75rem' }}>
         Re-solved double-precision conditioning ceilings (N, log scale)
       </h3>
       <div style={{ maxWidth: 700 }}>
@@ -146,14 +147,14 @@ export default function Imp96670RouteMLammaxMajorantsViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> the Frobenius /
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> the Frobenius /
         Wolkowicz-Styan majorant raises the rigorous lower conditioning ceiling from{' '}
         {IMP96670_CEILING_TABLE.find((c) => c.key === 'trace').ceilingN.toExponential(3)} (trace) to{' '}
         {IMP96670_GAP_SUMMARY.bestSharperCeilingN.toExponential(3)} (
@@ -170,14 +171,14 @@ export default function Imp96670RouteMLammaxMajorantsViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page consuming the imp-96670
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the imp-96670
         viz-data leaf (every curve and ceiling reused verbatim from imp-96648). {IMP96670_HONEST_BANNER}
       </div>
     </div>

@@ -5,9 +5,10 @@ import {
   IMP3906_MIN_SLACK,
   IMP3906_MAX_SLACK,
 } from '../data/imp-3906-dpsi-sensitivity-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
-const ACTUAL_COLOR = '#38bdf8';
-const CEILING_COLOR = '#f472b6';
+const ACTUAL_COLOR = ED.series1;
+const CEILING_COLOR = ED.series7;
 
 function SensitivityVsCeilingChart() {
   const svgW = 680;
@@ -31,12 +32,12 @@ function SensitivityVsCeilingChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
       {yTicks.map((v) => (
         <g key={v}>
-          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke="#1e293b" strokeWidth={0.7} />
-          <text x={padL - 6} y={yS(v) + 3.5} textAnchor="end" fill="#475569" fontSize={9}>
+          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke={ED.ruleSoft} strokeWidth={0.7} />
+          <text x={padL - 6} y={yS(v) + 3.5} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v.toExponential(0)}
           </text>
         </g>
@@ -71,7 +72,7 @@ function SensitivityVsCeilingChart() {
         );
       })}
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
 
       {IMP3906_ROWS.map((r, i) => (
         <text
@@ -79,20 +80,20 @@ function SensitivityVsCeilingChart() {
           x={padL + (i + 0.5) * groupW}
           y={padT + cH + 17}
           textAnchor="middle"
-          fill="#64748b"
+          fill={ED.inkFaint}
           fontSize={9}
         >
           plateau {r.plateauIndex}
         </text>
       ))}
-      <text x={padL + cW / 2} y={padT + cH + 32} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={padT + cH + 32} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         verified plateau (log axis)
       </text>
       <text
         x={16}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={'rotate(-90,16,' + (padT + cH / 2) + ')'}
       >
@@ -100,11 +101,11 @@ function SensitivityVsCeilingChart() {
       </text>
 
       <rect x={padL + cW - 160} y={padT + 4} width={9} height={9} fill={ACTUAL_COLOR} />
-      <text x={padL + cW - 147} y={padT + 12} fill="#94a3b8" fontSize={9}>
+      <text x={padL + cW - 147} y={padT + 12} fill={ED.inkSoft} fontSize={9}>
         actual log-sensitivity
       </text>
       <rect x={padL + cW - 160} y={padT + 18} width={9} height={9} fill={CEILING_COLOR} />
-      <text x={padL + cW - 147} y={padT + 26} fill="#94a3b8" fontSize={9}>
+      <text x={padL + cW - 147} y={padT + 26} fill={ED.inkSoft} fontSize={9}>
         rigorous 8/smin^2 ceiling
       </text>
     </svg>
@@ -132,12 +133,12 @@ function SlackFactorChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
       {yTicks.map((v) => (
         <g key={v}>
-          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke="#1e293b" strokeWidth={0.7} />
-          <text x={padL - 6} y={yS(v) + 3.5} textAnchor="end" fill="#475569" fontSize={9}>
+          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke={ED.ruleSoft} strokeWidth={0.7} />
+          <text x={padL - 6} y={yS(v) + 3.5} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v.toExponential(0)}
           </text>
         </g>
@@ -155,28 +156,28 @@ function SlackFactorChart() {
             y={barTop}
             width={32}
             height={Math.max(barBottom - barTop, 0)}
-            fill={isMin || isMax ? '#fbcfe8' : '#a78bfa'}
+            fill={isMin || isMax ? '#fbcfe8' : ED.series5}
             opacity={isMin || isMax ? 1 : 0.75}
             rx={2}
           />
         );
       })}
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
 
       {IMP3906_ROWS.map((r, i) => (
-        <text key={'x' + r.plateauIndex} x={xS(i)} y={padT + cH + 17} textAnchor="middle" fill="#64748b" fontSize={9}>
+        <text key={'x' + r.plateauIndex} x={xS(i)} y={padT + cH + 17} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
           plateau {r.plateauIndex}
         </text>
       ))}
-      <text x={padL + cW / 2} y={padT + cH + 32} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={padT + cH + 32} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         verified plateau (log axis)
       </text>
       <text
         x={16}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={'rotate(-90,16,' + (padT + cH / 2) + ')'}
       >
@@ -191,7 +192,7 @@ export default function Imp3906DpsiSensitivityViz() {
     <div style={{ padding: '1.5rem', maxWidth: 940, margin: '0 auto' }}>
       <PageHeader title="imp-3874 LEMMA-3854 Sensitivity Verification: Actual Log-Sensitivity 8-17 vs Rigorous Ceiling 1.8e4-5.9e5 (2279x-34007x Slack)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-3874 verified the imp-3854 LEMMA-3854 bound 0 &le; dPsi_N/dT &le; (8/smin&sup2;) Psi_N
         by direct finite difference against the exact analytic derivative, on 3 representative
         [1e4, 1e6] plateaus (0, 4, 9) swept across the feasible thetaBar window. The inequality
@@ -202,12 +203,12 @@ export default function Imp3906DpsiSensitivityViz() {
         constant is valid but vacuous.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         actual log-sensitivity vs rigorous ceiling per plateau, log axis
       </p>
       <SensitivityVsCeilingChart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
         ceiling / actual slack factor per plateau, log axis -- labelled bars mark the overall min and max
       </p>
       <SlackFactorChart />
@@ -216,14 +217,14 @@ export default function Imp3906DpsiSensitivityViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> the top chart pairs each
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> the top chart pairs each
         verified plateau&rsquo;s actual (dPsi_N/dT)/Psi_N (blue) against the rigorous 8/smin&sup2;
         ceiling it is bounded by (pink) &mdash; the blue bar never exceeds the pink one (LEMMA-3854
         holds), but the gap between them spans 3-4 orders of magnitude. The bottom chart plots
@@ -235,14 +236,14 @@ export default function Imp3906DpsiSensitivityViz() {
         style={{
           marginTop: '1rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> this presents an imp-3874
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> this presents an imp-3874
         VERIFICATION of an existing lemma (imp-3854), not a new bound &mdash; LEMMA-3854 is
         CONFIRMED at every sampled point and stays a valid (loose) over-bound. Only 3 of the 10
         imp-3725 plateaus are verified here (imp-3874-sub-all-plateaus stays open); no new Lambda

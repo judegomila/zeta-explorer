@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { WINDING_MONOTONICITY_RIGOR } from '../data/imp-34813-winding-monotonicity-rigor.js';
+import { ED } from '../styles/tokens.js';
 
 const DATA = WINDING_MONOTONICITY_RIGOR;
 const T_GRID = DATA.tGrid; // decreasing t, +1 .. -20
@@ -45,8 +46,8 @@ function WindingLadderChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={plotW} height={plotH} fill="none" stroke="#334155" strokeWidth={1} />
-      <text x={padL} y={padT - 10} fill="#94a3b8" fontSize={11} fontWeight={700}>
+      <rect x={padL} y={padT} width={plotW} height={plotH} fill="none" stroke={ED.rule} strokeWidth={1} />
+      <text x={padL} y={padT - 10} fill={ED.inkSoft} fontSize={11} fontWeight={700}>
         Exact real-zero count and minGap ladder vs de Bruijn time t (window [20,104])
       </text>
 
@@ -56,11 +57,11 @@ function WindingLadderChart() {
         x2={sx(FIRST_COLLISION.tExact)}
         y1={padT}
         y2={padT + plotH}
-        stroke="#f472b6"
+        stroke={ED.series7}
         strokeWidth={1.5}
         strokeDasharray="5 4"
       />
-      <text x={sx(FIRST_COLLISION.tExact) + 4} y={padT + 12} fill="#f472b6" fontSize={9}>
+      <text x={sx(FIRST_COLLISION.tExact) + 4} y={padT + 12} fill={ED.series7} fontSize={9}>
         t_c={FIRST_COLLISION.tExact}
       </text>
 
@@ -72,65 +73,65 @@ function WindingLadderChart() {
           x2={sx(T_GRID[i])}
           y1={padT + plotH}
           y2={padT + plotH - 8}
-          stroke="#facc15"
+          stroke={ED.brassDeco}
           strokeWidth={2}
         />
       ))}
 
       {/* minGap ladder (right axis) */}
-      <path d={gapPath} fill="none" stroke="#34d399" strokeWidth={1.4} strokeDasharray="3 3" />
+      <path d={gapPath} fill="none" stroke={ED.series3} strokeWidth={1.4} strokeDasharray="3 3" />
       {xs.map((t, i) => (
-        <circle key={`gap-${i}`} cx={sx(t)} cy={syGap(MIN_GAP[i])} r={2.4} fill="#34d399" />
+        <circle key={`gap-${i}`} cx={sx(t)} cy={syGap(MIN_GAP[i])} r={2.4} fill={ED.series3} />
       ))}
 
       {/* exact real-zero count (left axis, step-like line) */}
-      <path d={countPath} fill="none" stroke="#38bdf8" strokeWidth={2} />
+      <path d={countPath} fill="none" stroke={ED.series1} strokeWidth={2} />
       {xs.map((t, i) => (
         <circle
           key={`cnt-${i}`}
           cx={sx(t)}
           cy={syCount(EXACT_COUNT[i])}
           r={mergerIndices.includes(i) ? 4.6 : 3.4}
-          fill={mergerIndices.includes(i) ? '#facc15' : '#38bdf8'}
-          stroke="#0f172a"
+          fill={mergerIndices.includes(i) ? ED.brassDeco : ED.series1}
+          stroke={ED.paper}
           strokeWidth={0.6}
         />
       ))}
 
       {/* left axis ticks (count) */}
       {[0, 2, 4, 6, 8, 10].map((c) => (
-        <text key={`ylbl-${c}`} x={padL - 8} y={syCount(c) + 3} textAnchor="end" fill="#38bdf8" fontSize={9}>
+        <text key={`ylbl-${c}`} x={padL - 8} y={syCount(c) + 3} textAnchor="end" fill={ED.series1} fontSize={9}>
           {c}
         </text>
       ))}
       {/* right axis ticks (minGap) */}
       {[0, gapMax / 2, gapMax].map((g, i) => (
-        <text key={`gylbl-${i}`} x={padL + plotW + 8} y={syGap(g) + 3} fill="#34d399" fontSize={9}>
+        <text key={`gylbl-${i}`} x={padL + plotW + 8} y={syGap(g) + 3} fill={ED.series3} fontSize={9}>
           {g.toFixed(1)}
         </text>
       ))}
 
       {/* x-axis labels */}
       {xs.map((t, i) => (
-        <text key={`xlbl-${i}`} x={sx(t)} y={svgH - padB + 16} textAnchor="middle" fill="#64748b" fontSize={8.5}>
+        <text key={`xlbl-${i}`} x={sx(t)} y={svgH - padB + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={8.5}>
           {t}
         </text>
       ))}
-      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill="#94a3b8" fontSize={10}>
+      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkSoft} fontSize={10}>
         de Bruijn time t (decreasing &rarr;)
       </text>
 
       {/* legend */}
-      <rect x={padL + 12} y={padT + 8} width={12} height={2.5} fill="#38bdf8" />
-      <text x={padL + 30} y={padT + 13} fill="#38bdf8" fontSize={9.5}>
+      <rect x={padL + 12} y={padT + 8} width={12} height={2.5} fill={ED.series1} />
+      <text x={padL + 30} y={padT + 13} fill={ED.series1} fontSize={9.5}>
         exact real-zero count (left)
       </text>
-      <rect x={padL + 12} y={padT + 24} width={12} height={2.5} fill="#34d399" />
-      <text x={padL + 30} y={padT + 29} fill="#34d399" fontSize={9.5}>
+      <rect x={padL + 12} y={padT + 24} width={12} height={2.5} fill={ED.series3} />
+      <text x={padL + 30} y={padT + 29} fill={ED.series3} fontSize={9.5}>
         minGap ladder (right)
       </text>
-      <circle cx={padL + 18} cy={padT + 40} r={4.6} fill="#facc15" stroke="#0f172a" strokeWidth={0.6} />
-      <text x={padL + 30} y={padT + 44} fill="#facc15" fontSize={9.5}>
+      <circle cx={padL + 18} cy={padT + 40} r={4.6} fill={ED.brassDeco} stroke={ED.paper} strokeWidth={0.6} />
+      <text x={padL + 30} y={padT + 44} fill={ED.brass} fontSize={9.5}>
         pair-merger rung (count drop)
       </text>
     </svg>
@@ -142,7 +143,7 @@ export default function Imp34825WindingCountLadderViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Exact de Bruijn Winding Count Ladder (imp-34825 / imp-34813)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-34813 solved the exact de Bruijn family H_t on the window gamma&nbsp;&isin;&nbsp;[10,52]
         (x&nbsp;&isin;&nbsp;[20,104], 10 zeros at t=0) across a t-grid spanning +1 down to -20, tabulating
         the real-zero count and the minimum window gap at each rung. Every count drop
@@ -164,7 +165,7 @@ export default function Imp34825WindingCountLadderViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>t</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>exact count</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>minGap</th>
@@ -177,8 +178,8 @@ export default function Imp34825WindingCountLadderViz() {
               <tr
                 key={t}
                 style={{
-                  borderBottom: '1px solid #1e293b',
-                  color: isMerger ? '#facc15' : '#cbd5e1',
+                  borderBottom: '1px solid var(--rule-soft)',
+                  color: isMerger ? 'var(--brass)' : 'var(--ink)',
                 }}
               >
                 <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{t}</td>
@@ -194,11 +195,11 @@ export default function Imp34825WindingCountLadderViz() {
         style={{
           marginTop: '1rem',
           padding: '0.6rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
         }}
       >
         First-collision pair: {FIRST_COLLISION.pair}. Exact t_c&nbsp;=&nbsp;{FIRST_COLLISION.tExact} vs
@@ -210,14 +211,14 @@ export default function Imp34825WindingCountLadderViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page rendering the imp-34813
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-only page rendering the imp-34813
         tGrid/exactCount/minGapLadder literals verbatim (no new computation). Negative t is the EXACT
         de Bruijn flow at negative time, equal to Gaussian convolution of H_0 with width
         sqrt(2&nbsp;tau) at t&nbsp;=&nbsp;-4&nbsp;tau_repo &mdash; the imp-2673/2696 "smoothing artifact"

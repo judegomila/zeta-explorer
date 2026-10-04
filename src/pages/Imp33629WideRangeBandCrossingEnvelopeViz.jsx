@@ -7,11 +7,12 @@ import {
   IMP33629_CLUSTERS,
   IMP33629_SCAN,
 } from '../data/imp-33629-wide-range-band-crossing-envelope-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
-const FLOOR_COLOR = '#38bdf8';
-const ENVELOPE_COLOR = '#4ade80';
-const BAND_COLOR = '#f472b6';
-const CLUSTER_COLOR = '#f59e0b';
+const FLOOR_COLOR = ED.series1;
+const ENVELOPE_COLOR = ED.series3;
+const BAND_COLOR = ED.series7;
+const CLUSTER_COLOR = ED.series4;
 
 function WideScanChart() {
   const svgW = 900;
@@ -32,7 +33,7 @@ function WideScanChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
       {/* shaded disjoint band-clearing clusters */}
       {IMP33629_CLUSTERS.map((c) => (
@@ -49,8 +50,8 @@ function WideScanChart() {
 
       {[0, 20, 40, 60, 80].map((v) => (
         <g key={v}>
-          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke="#1e293b" strokeWidth={0.7} />
-          <text x={padL - 6} y={yS(v) + 3.5} textAnchor="end" fill="#475569" fontSize={9}>
+          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke={ED.ruleSoft} strokeWidth={0.7} />
+          <text x={padL - 6} y={yS(v) + 3.5} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v}
           </text>
         </g>
@@ -94,16 +95,16 @@ function WideScanChart() {
       ))}
 
       {[400, 450, 500, 550, 600, 650, 700].map((n) => (
-        <text key={n} x={xS(n)} y={padT + cH + 14} textAnchor="middle" fill="#64748b" fontSize={9}>
+        <text key={n} x={xS(n)} y={padT + cH + 14} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
           {n}
         </text>
       ))}
-      <text x={padL + cW / 2} y={padT + cH + 30} textAnchor="middle" fill="#64748b" fontSize={9}>
+      <text x={padL + cW / 2} y={padT + cH + 30} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
         depth rung n (tau* = saddleTau(n))
       </text>
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
-      <text x={12} y={padT + cH / 2} textAnchor="middle" fill="#64748b" fontSize={10} transform={`rotate(-90,12,${padT + cH / 2})`}>
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
+      <text x={12} y={padT + cH / 2} textAnchor="middle" fill={ED.inkFaint} fontSize={10} transform={`rotate(-90,12,${padT + cH / 2})`}>
         floorUlp(n)
       </text>
     </svg>
@@ -115,7 +116,7 @@ export default function Imp33629WideRangeBandCrossingEnvelopeViz() {
     <div style={{ padding: '1.5rem', maxWidth: 980, margin: '0 auto' }}>
       <PageHeader title="Wide-Range Band-Crossing Envelope (imp-33599)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 820 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 820 }}>
         imp-33579 densely scanned the narrow bracket n in [510,596] and found the imp-33316 &lt; 64
         ULP band crossing is a jittery, non-monotone envelope phenomenon, not a locatable rung.
         imp-33599 extends that scan to the WIDE window n in [{IMP33629_WINDOW_LO}, {IMP33629_WINDOW_HI}]
@@ -125,13 +126,13 @@ export default function Imp33629WideRangeBandCrossingEnvelopeViz() {
         envelope clears the band (amber).
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         floorUlp(n) over n in [{IMP33629_WINDOW_LO}, {IMP33629_WINDOW_HI}]: raw scatter vs rolling-max envelope,
         band-clearing clusters shaded
       </p>
       <WideScanChart />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.85rem', margin: '1rem 0 1.25rem' }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.85rem', margin: '1rem 0 1.25rem' }}>
         Even over the wide window there is NO smallest n at which the envelope monotonely and
         stably clears 64 ULP. Instead the band-clearing region is three disjoint isolated clusters:{' '}
         {IMP33629_CLUSTERS.map((c, i) => (
@@ -151,14 +152,14 @@ export default function Imp33629WideRangeBandCrossingEnvelopeViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> the blue scatter is the raw,
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> the blue scatter is the raw,
         per-rung arithmetic floor -- it bounces between near-0 and over-70 ULP from one integer rung
         to the next across the entire window. The green line is the +/-5 rolling-max envelope, the
         jitter-tolerant reading imp-33599 uses; its wide-range least-squares slope is weakly positive
@@ -176,14 +177,14 @@ export default function Imp33629WideRangeBandCrossingEnvelopeViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> accuracy/rule-design
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> accuracy/rule-design
         measurement only, of an already-verified scan (imp-33599). It changes no bound and patches
         no literal (imp-33213/imp-33316/imp-33557/imp-33579/imp-33599 intact). Mass-feasibility is
         necessary-but-not-sufficient; the operator-level positivity (imp-3066 K_a &ge; 0) is

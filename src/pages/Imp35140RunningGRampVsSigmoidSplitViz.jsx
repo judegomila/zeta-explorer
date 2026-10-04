@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP35028_RUNNING_G_RAMP_VS_SIGMOID_SPLIT } from '../data/imp-35028-running-g-ramp-vs-sigmoid-split.js';
+import { ED } from '../styles/tokens.js';
 
 const D = IMP35028_RUNNING_G_RAMP_VS_SIGMOID_SPLIT;
 const LADDER = D.ladder;
@@ -32,51 +33,51 @@ function RunningGChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <text x={padL} y={padT - 14} fill="#94a3b8" fontSize={11} fontWeight={700}>
+      <text x={padL} y={padT - 14} fill={ED.inkSoft} fontSize={11} fontWeight={700}>
         Running-g g = -d ln r/d ln N at both landmarks, far-tail ladder 1e14&hellip;1e18
       </text>
       {[yMin, (yMin + yMax) / 2, yMax].map((v) => (
         <g key={v}>
-          <line x1={padL} y1={yOf(v)} x2={padL + plotW} y2={yOf(v)} stroke="#1e293b" strokeWidth={1} />
-          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={10}>
+          <line x1={padL} y1={yOf(v)} x2={padL + plotW} y2={yOf(v)} stroke={ED.ruleSoft} strokeWidth={1} />
+          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={10}>
             {v.toFixed(4)}
           </text>
         </g>
       ))}
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
       {LADDER.map((r) => (
         <text
           key={r.targetScale}
           x={xOf(Math.log10(r.targetScale))}
           y={padT + plotH + 16}
           textAnchor="middle"
-          fill="#64748b"
+          fill={ED.inkFaint}
           fontSize={9}
         >
           1e{Math.log10(r.targetScale).toFixed(0)}
         </text>
       ))}
 
-      <path d={pathFor('gAnalytic')} fill="none" stroke="#64748b" strokeWidth={1.25} strokeDasharray="4 3" />
-      <path d={pathFor('gSigmoid')} fill="none" stroke="#4ade80" strokeWidth={2} />
-      <path d={pathFor('gRamp')} fill="none" stroke="#38bdf8" strokeWidth={1.5} strokeDasharray="2 2" />
+      <path d={pathFor('gAnalytic')} fill="none" stroke={ED.rule} strokeWidth={1.25} strokeDasharray="4 3" />
+      <path d={pathFor('gSigmoid')} fill="none" stroke={ED.series3} strokeWidth={2} />
+      <path d={pathFor('gRamp')} fill="none" stroke={ED.series1} strokeWidth={1.5} strokeDasharray="2 2" />
       {LADDER.map((r) => (
         <g key={`pts-${r.targetScale}`}>
-          <circle cx={xOf(Math.log10(r.targetScale))} cy={yOf(r.gSigmoid)} r={3} fill="#4ade80" />
-          <circle cx={xOf(Math.log10(r.targetScale))} cy={yOf(r.gRamp)} r={2} fill="#38bdf8" />
+          <circle cx={xOf(Math.log10(r.targetScale))} cy={yOf(r.gSigmoid)} r={3} fill={ED.series3} />
+          <circle cx={xOf(Math.log10(r.targetScale))} cy={yOf(r.gRamp)} r={2} fill={ED.series1} />
         </g>
       ))}
 
-      <circle cx={padL + 8} cy={padT + 4} r={4} fill="#4ade80" />
-      <text x={padL + 18} y={padT + 8} fill="#4ade80" fontSize={10}>
+      <circle cx={padL + 8} cy={padT + 4} r={4} fill={ED.series3} />
+      <text x={padL + 18} y={padT + 8} fill={ED.series3} fontSize={10}>
         g at sigmoid inflection
       </text>
-      <circle cx={padL + 8} cy={padT + 20} r={3} fill="#38bdf8" />
-      <text x={padL + 18} y={padT + 24} fill="#38bdf8" fontSize={10}>
+      <circle cx={padL + 8} cy={padT + 20} r={3} fill={ED.series1} />
+      <text x={padL + 18} y={padT + 24} fill={ED.series1} fontSize={10}>
         g at ramp knee (indistinguishable overlay)
       </text>
-      <line x1={padL + 4} y1={padT + 36} x2={padL + 14} y2={padT + 36} stroke="#64748b" strokeWidth={1.25} strokeDasharray="4 3" />
-      <text x={padL + 18} y={padT + 40} fill="#64748b" fontSize={10}>
+      <line x1={padL + 4} y1={padT + 36} x2={padL + 14} y2={padT + 36} stroke={ED.rule} strokeWidth={1.25} strokeDasharray="4 3" />
+      <text x={padL + 18} y={padT + 40} fill={ED.inkFaint} fontSize={10}>
         analytic (1/2)(1-1/t) reference
       </text>
     </svg>
@@ -107,7 +108,7 @@ function GapVsRequiredChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <text x={padL} y={padT - 14} fill="#94a3b8" fontSize={11} fontWeight={700}>
+      <text x={padL} y={padT - 14} fill={ED.inkSoft} fontSize={11} fontWeight={700}>
         Measured running-g gap vs the gap a 0.064 exponent split would require
       </text>
       <line
@@ -115,11 +116,11 @@ function GapVsRequiredChart() {
         y1={yOf(logRequired)}
         x2={padL + plotW}
         y2={yOf(logRequired)}
-        stroke="#f87171"
+        stroke={ED.series2}
         strokeWidth={1.25}
         strokeDasharray="4 3"
       />
-      <text x={padL + 4} y={yOf(logRequired) - 6} fill="#f87171" fontSize={9}>
+      <text x={padL + 4} y={yOf(logRequired) - 6} fill={ED.series2} fontSize={9}>
         required gap &asymp; {requiredGap.toFixed(3)} ({'≈'}{D.gGapVsSplitRatio}x the measured max)
       </text>
       {LADDER.map((r, i) => {
@@ -128,17 +129,17 @@ function GapVsRequiredChart() {
         const y1 = yOf(Math.log10(Math.abs(r.gRampOverSigmoidMinus1)));
         return (
           <g key={r.targetScale}>
-            <rect x={x} y={y1} width={barW} height={y0 - y1} fill="#38bdf8" opacity={0.85} />
-            <text x={x + barW / 2} y={y1 - 6} textAnchor="middle" fill="#94a3b8" fontSize={9}>
+            <rect x={x} y={y1} width={barW} height={y0 - y1} fill={ED.series1} opacity={0.85} />
+            <text x={x + barW / 2} y={y1 - 6} textAnchor="middle" fill={ED.inkSoft} fontSize={9}>
               {r.gRampOverSigmoidMinus1.toExponential(2)}
             </text>
-            <text x={x + barW / 2} y={padT + plotH + 16} textAnchor="middle" fill="#64748b" fontSize={9}>
+            <text x={x + barW / 2} y={padT + plotH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
               1e{Math.log10(r.targetScale).toFixed(0)}
             </text>
           </g>
         );
       })}
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
     </svg>
   );
 }
@@ -148,7 +149,7 @@ export default function Imp35140RunningGRampVsSigmoidSplitViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Running-g vs Sigmoid: Why the Ramp/Sigmoid Split Is NOT a Running-g Effect (imp-35140 / imp-35028)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-34948 measured two far-tail local decay exponents for the inflection-offset
         landmarks: the sigmoid inflection at {D.decayExponentSigmoid} (essentially the
         imp-33744-predicted -2) and the imp-33721 ramp knee at {D.decayExponentRamp}, staying
@@ -160,7 +161,7 @@ export default function Imp35140RunningGRampVsSigmoidSplitViz() {
 
       <RunningGChart />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.85rem', marginTop: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.85rem', marginTop: '1.25rem', maxWidth: 700 }}>
         The two curves are visually indistinguishable: g runs {LADDER[0].gSigmoid} &rarr;{' '}
         {LADDER[LADDER.length - 1].gSigmoid} at the sigmoid inflection and{' '}
         {LADDER[0].gRamp} &rarr; {LADDER[LADDER.length - 1].gRamp} at the ramp knee, both
@@ -172,7 +173,7 @@ export default function Imp35140RunningGRampVsSigmoidSplitViz() {
 
       <GapVsRequiredChart />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.85rem', marginTop: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.85rem', marginTop: '1.25rem', maxWidth: 700 }}>
         A running-g explanation for the {D.exponentSplit} exponent split would need a relative
         g gap on the order of {(D.exponentSplit / 2).toFixed(3)} (half the split, a rough
         fractional-exponent-shift estimate). The measured gap tops out at{' '}
@@ -192,7 +193,7 @@ export default function Imp35140RunningGRampVsSigmoidSplitViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.5rem' }}>N_half target</th>
             <th style={{ padding: '0.4rem 0.5rem' }}>t = ln N</th>
             <th style={{ padding: '0.4rem 0.5rem' }}>g sigmoid</th>
@@ -203,7 +204,7 @@ export default function Imp35140RunningGRampVsSigmoidSplitViz() {
         </thead>
         <tbody>
           {LADDER.map((r) => (
-            <tr key={r.targetScale} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+            <tr key={r.targetScale} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
               <td style={{ padding: '0.4rem 0.5rem', fontFamily: 'monospace' }}>{r.targetScale.toExponential(0)}</td>
               <td style={{ padding: '0.4rem 0.5rem', fontFamily: 'monospace' }}>{r.t}</td>
               <td style={{ padding: '0.4rem 0.5rem', fontFamily: 'monospace' }}>{r.gSigmoid}</td>
@@ -219,14 +220,14 @@ export default function Imp35140RunningGRampVsSigmoidSplitViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page rendering the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-only page rendering the
         imp-35028 ladder/decayExponent/maxRelRunningGGap literals verbatim (no new computation).
         Measurement on the inherited imp-3220/imp-3406 surrogate, NOT a rigorous asymptotic; C_mb
         GUE-conditional per imp-486 untouched; establishes no operator positivity; imp-3066

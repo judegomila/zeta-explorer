@@ -5,6 +5,7 @@ import {
   IMP97426_MAGNITUDE_THRESHOLD,
   IMP97426_INV_G2,
 } from '../data/imp-97426-per-term-overcharge-ladder-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 // imp-97426: bar chart of the imp-97392 per-term over-charge constant
 // maxGroup(omega) * g(2)/2 against the 1/2 MAGNITUDE ceiling, marking
@@ -27,12 +28,12 @@ function LadderBarChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
       {[0, 1, 2, 3, 4, 5].filter((v) => v <= maxVal).map((v) => (
         <g key={`y${v}`}>
-          <line x1={padL - 4} y1={yOf(v)} x2={padL} y2={yOf(v)} stroke="#334155" strokeWidth={1} />
-          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={8.5}>
+          <line x1={padL - 4} y1={yOf(v)} x2={padL} y2={yOf(v)} stroke={ED.rule} strokeWidth={1} />
+          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8.5}>
             {v}
           </text>
         </g>
@@ -42,11 +43,11 @@ function LadderBarChart() {
         y1={yOf(IMP97426_MAGNITUDE_THRESHOLD)}
         x2={padL + plotW}
         y2={yOf(IMP97426_MAGNITUDE_THRESHOLD)}
-        stroke="#4ade80"
+        stroke={ED.series3}
         strokeWidth={1.5}
         strokeDasharray="5 3"
       />
-      <text x={padL + plotW - 4} y={yOf(IMP97426_MAGNITUDE_THRESHOLD) - 5} textAnchor="end" fill="#4ade80" fontSize={9}>
+      <text x={padL + plotW - 4} y={yOf(IMP97426_MAGNITUDE_THRESHOLD) - 5} textAnchor="end" fill={ED.series3} fontSize={9}>
         MAGNITUDE ceiling 1/2
       </text>
       {rows.map((r, i) => {
@@ -54,14 +55,14 @@ function LadderBarChart() {
         const w = barW * 0.64;
         const y = yOf(r.perTermConst);
         const h = padT + plotH - y;
-        const color = r.status === 'PROVED' ? '#4ade80' : '#f87171';
+        const color = r.status === 'PROVED' ? ED.series3 : ED.series2;
         return (
           <g key={r.omega}>
             <rect x={x} y={y} width={w} height={h} fill={color} opacity={0.85} rx={2} />
             <text x={x + w / 2} y={y - 6} textAnchor="middle" fill={color} fontSize={9.5} fontWeight={600}>
               {r.perTermConst.toFixed(4)}
             </text>
-            <text x={x + w / 2} y={padT + plotH + 16} textAnchor="middle" fill="#94a3b8" fontSize={9.5}>
+            <text x={x + w / 2} y={padT + plotH + 16} textAnchor="middle" fill={ED.inkSoft} fontSize={9.5}>
               omega={r.omega}
             </text>
             <text x={x + w / 2} y={padT + plotH + 30} textAnchor="middle" fill={color} fontSize={8}>
@@ -83,22 +84,22 @@ export default function Imp97426PerTermOverchargeLadderViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> presentation of the
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> presentation of the
         imp-97392 per-term MAGNITUDE bound, reused verbatim. The omega&ge;4 gap is
         OPEN, not disproved &mdash; the per-term bound alone over-charges there; a
         uniform proof would need the retained Moebius cancellation between the
         positive-mu and negative-mu signed groups. No new bound; RH open; NO QED.
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-97290/imp-97392 reduce the b/4 ceiling |E1(b)| &le; b/4 to a SIGN condition
         plus a MAGNITUDE condition |Delta(b)| &le; b/2. The per-term (triangle-on-groups)
         proof of MAGNITUDE charges every proper-divisor term d&middot;g(b/d) &le; b&middot;g(2)/2, so
@@ -114,14 +115,14 @@ export default function Imp97426PerTermOverchargeLadderViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> the green
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> the green
         dashed line marks the 1/2 MAGNITUDE ceiling. &omega;=2 (0.3069) and &omega;=3
         (0.4603) sit below it &mdash; PROVED, with genuine slack. &omega;=4 (1.2274)
         jumps well past the ceiling, and &omega;=5 (2.3014), &omega;=6 (4.9096) climb
@@ -133,14 +134,14 @@ export default function Imp97426PerTermOverchargeLadderViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page consuming
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming
         the imp-97392 groupCounts kernel verbatim; no re-derivation. Establishes no new
         bound; the omega&ge;4 MAGNITUDE gap stays open; Platt-Trudgian Lambda&le;0.2
         remains SOTA; RH open; NO QED.

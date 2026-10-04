@@ -7,9 +7,10 @@ import {
   IMP35772_SLOPE_STD,
   IMP35772_SLOPE_CC,
 } from '../data/imp-35772-collision-scale-prefactor-propagation-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
-const STD_COLOR = '#f472b6';
-const CC_COLOR = '#38bdf8';
+const STD_COLOR = ED.series7;
+const CC_COLOR = ED.series1;
 
 function LandmarkChart({ rows }) {
   const w = 720;
@@ -36,26 +37,26 @@ function LandmarkChart({ rows }) {
 
   return (
     <svg width={w} height={h} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={plotW} height={plotH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={plotW} height={plotH} fill={ED.paper} rx={2} />
 
       <path d={ccPath} fill="none" stroke={CC_COLOR} strokeWidth={2} />
       <path d={stdPath} fill="none" stroke={STD_COLOR} strokeWidth={2} />
       {rows.map((r) => (
         <g key={r.label}>
-          <line x1={xPix(r.N)} x2={xPix(r.N)} y1={yPix(r.sMinCC)} y2={yPix(r.sMinStd)} stroke="#334155" strokeWidth={1} strokeDasharray="3,3" />
+          <line x1={xPix(r.N)} x2={xPix(r.N)} y1={yPix(r.sMinCC)} y2={yPix(r.sMinStd)} stroke={ED.rule} strokeWidth={1} strokeDasharray="3,3" />
           <circle cx={xPix(r.N)} cy={yPix(r.sMinCC)} r={3.5} fill={CC_COLOR} />
           <circle cx={xPix(r.N)} cy={yPix(r.sMinStd)} r={3.5} fill={STD_COLOR} />
-          <text x={xPix(r.N)} y={padT + plotH + 16} textAnchor="middle" fill="#64748b" fontSize={9.5}>
+          <text x={xPix(r.N)} y={padT + plotH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5}>
             {r.label} ({r.N.toExponential(2)})
           </text>
         </g>
       ))}
 
-      <rect x={padL} y={padT} width={plotW} height={plotH} fill="none" stroke="#334155" strokeWidth={1} />
-      <text x={14} y={padT + plotH / 2} textAnchor="middle" fill="#64748b" fontSize={10} transform={`rotate(-90,14,${padT + plotH / 2})`}>
+      <rect x={padL} y={padT} width={plotW} height={plotH} fill="none" stroke={ED.rule} strokeWidth={1} />
+      <text x={14} y={padT + plotH / 2} textAnchor="middle" fill={ED.inkFaint} fontSize={10} transform={`rotate(-90,14,${padT + plotH / 2})`}>
         s_min (log scale)
       </text>
-      <text x={padL + plotW / 2} y={h - 6} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + plotW / 2} y={h - 6} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         N (log scale)
       </text>
     </svg>
@@ -66,7 +67,7 @@ function LandmarkTable({ rows }) {
   return (
     <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.8rem' }}>
       <thead>
-        <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+        <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
           <th style={{ padding: '0.4rem 0.6rem' }}>landmark</th>
           <th style={{ padding: '0.4rem 0.6rem' }}>N</th>
           <th style={{ padding: '0.4rem 0.6rem' }}>s_min (std, c=&pi;&sup2;/3)</th>
@@ -76,7 +77,7 @@ function LandmarkTable({ rows }) {
       </thead>
       <tbody>
         {rows.map((r) => (
-          <tr key={r.label} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+          <tr key={r.label} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.label}</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.N.toExponential(3)}</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace', color: STD_COLOR }}>
@@ -100,7 +101,7 @@ export default function Imp35772CollisionScalePrefactorPropagationViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Collision-Scale Prefactor Propagation Onto Sigma-Landmarks (imp-35772 / imp-35724)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
         imp-35724 propagated the imp-35696 cube-root collision-scale prefactor
         ((&pi;&sup2;/3)/C_C)<sup>1/3</sup> &asymp; {IMP35772_PREFACTOR_RATIO.toFixed(4)} onto
         the two imp-35337 sigma-landmark heights: N_peak (the interior flat-cap
@@ -111,7 +112,7 @@ export default function Imp35772CollisionScalePrefactorPropagationViz() {
         slope of s_min against N untouched.
       </p>
 
-      <h3 style={{ color: '#cbd5e1', fontSize: '0.9rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.9rem', marginBottom: '0.5rem' }}>
         s_min(N) under the standard coefficient vs C_C, at both landmarks
       </h3>
       <LandmarkChart rows={IMP35772_LANDMARK_GRID} />
@@ -120,7 +121,7 @@ export default function Imp35772CollisionScalePrefactorPropagationViz() {
         <LandmarkTable rows={IMP35772_LANDMARK_GRID} />
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.8rem', marginTop: '1rem' }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.8rem', marginTop: '1rem' }}>
         The two-landmark log-log slope of s_min against N is {IMP35772_SLOPE_STD.toFixed(4)} for
         the standard reading and {IMP35772_SLOPE_CC.toFixed(4)} for the C_C reading &mdash;
         both reproducing the Ben Arous&ndash;Bourgade s_min &sim; M<sup>-1/3</sup> exponent.
@@ -132,14 +133,14 @@ export default function Imp35772CollisionScalePrefactorPropagationViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation only of
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> presentation only of
         the already-derived imp-35724 propagation measurement (no new derivation, no
         heavy data-module import); C_mb GUE-conditional (imp-486) UNTOUCHED; changes no
         bound, establishes no operator positivity, no RH verdict. NO QED.

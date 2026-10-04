@@ -1,7 +1,8 @@
-import React, { lazy, Suspense } from 'react';
+import React, { lazy, Suspense, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { EditorialHeader, GradeChip, InlineMath } from '../components/editorial/PostLayout.jsx';
 import WireframeAnim from '../components/editorial/WireframeAnim.jsx';
+import { useConceptLinker } from '../components/ConceptText.jsx';
 import { ZETAEXPLORER_NO_GOS } from '../data/rh-no-go-theorems.js';
 import { FULL_ROUTE_MAP } from '../data/full-route-map-2026-06-19.js';
 import { RESULTS_COUNT } from '../data/graded-results.js';
@@ -16,39 +17,73 @@ const WaveSimViz = lazy(() => import('../components/WaveSimViz.jsx'));
    scoped editorial.css applies. Old dark home preserved at /classic. */
 
 const FINDINGS = [
-  { to: '/threads', grade: 'CANDIDATE', date: '2026-09', isNew: true,
-    title: 'Λ ≤ 0.17759432 y-thaw package', desc: 'Candidate-unrefereed; 4/8 obligations closed, O1 at Aristotle. A package value, not a bound.' },
+  { to: '/lambda-01758354-candidate', grade: 'CANDIDATE', date: '2026-08',
+    title: 'Λ ≤ 0.1758354', desc: 'Computer-assisted candidate: four barrier gates certified in Arb, y-transfer reduction and Lemma B3 Lean-checked. Unreviewed and unpublished; PT Λ ≤ 0.2 stands.' },
+  { to: '/newman-lambda-01787854-candidate', grade: 'CANDIDATE', date: '2026-08',
+    title: 'Λ ≤ 0.1787854 (v3 package)', desc: 'Private v3 package: slab, half-strip, 3,149,013-row replay, tail and height certificates. Unreviewed, unpublished, not accepted.' },
+  { to: '/rh-landscape-dag', grade: 'MAP', date: '2026-09', isNew: true,
+    title: 'The general RH DAG', desc: 'Equivalent formulations, partial results, records, analogues and standing walls of RH, each node cited.' },
+  { to: '/project-dag', grade: 'MAP', date: '2026-09', isNew: true,
+    title: 'The project attempts DAG', desc: 'Every project route, certificate, candidate and no-go by lane, with typed edges linked to the general DAG.' },
+  { to: '/flow-blindness-no-go', grade: 'NO-GO', date: '2026-08',
+    title: 'Flow-blindness: soft ⇏ RH', desc: 'No flow-stable hypothesis proves RH, given Rodgers–Tao Λ ≥ 0; a proof needs arithmetic input. Core lemmas kernel-checked in Lean 4.' },
+  { to: '/viz-imp95549-ns-rigid-pencil-eigenvalue', grade: 'THEOREM', date: '2026-09', isNew: true,
+    title: 'NS-RIGID: native-span rigidity', desc: 'Each finite native-span positivity statement is flow-stable (so not the missing input) or its failure refutes RH. Only RH is flow-critical.' },
+  { to: '/flow-blindness-no-go', grade: 'THEOREM', date: '2026-08',
+    title: 'T3 is the zero-free strip', desc: 'T3(a) ⇔ no ζ-zero with Re s > ½ + a (trig core checked to 1e-30, full identity to 1e-15). It restates RH; it is not a mechanism.' },
+  { to: '/permutation-architecture', grade: 'NO-GO', date: '2026-09', isNew: true,
+    title: 'Theorem U: sieve-algebra universality', desc: 'Every freeze-calculus configuration is a basis choice in a 2^25-dim sieve algebra on one scalar; configurations change provability only.' },
+  { to: '/twin-ladder-paper-roadmap', grade: 'NO-GO', date: '2026-07',
+    title: 'Conjecture 22.1 obstruction', desc: 'The eq-20 frozen-ladder proxy is capped by an exponential-polynomial zero count; matching PT needs ≥ 1.2363e13 coefficients. Partial result.' },
+  { to: '/frozen-rung-pt-equivalence', grade: 'THEOREM', date: '2026-07',
+    title: 'Freezing rungs = Platt–Trudgian', desc: 'Frozen-rung certificates are inertia-preserving, so they cannot beat verified height. Full equivalence with PT is conditional on L1, L2.' },
+  { to: '/rh-novel-routes-roadmap', grade: 'NO-GO', date: '2026-09', isNew: true,
+    title: 'Sonine port obstruction past ln 2', desc: 'Past 2a = ln 2 the S = {∞, 2} Sonine excess carries half the p = 2 log cusp and is unbounded along its resonances. No finite-rank fix.' },
   { to: '/frontier-dag', grade: 'NO-GO', date: '2026-09', isNew: true,
-    title: 'Route VII derived floor U ≈ 0.145–0.150', desc: 'Reachable-floor analysis: below it requires arithmetic input, not more compute.' },
+    title: 'Route VII derived floor U ≈ 0.145–0.150', desc: 'Reachable-floor analysis for Route VII: going below it requires arithmetic input, not more compute. A route floor, not a bound on Λ.' },
   { to: '/threads', grade: 'NO-GO', date: '2026-09', isNew: true,
-    title: 'Inertia-PCC: same wall', desc: 'The inertia route meets the pair-correlation wall (λ_max(ρ) = 0.6231344958476320).' },
-  { to: '/flow-blindness-no-go', grade: 'NO-GO', date: '2026-08', isNew: true,
-    title: 'Flow-blindness: soft ⇏ RH', desc: 'Backward heat flow stays soft yet breaks RH; a proof needs arithmetic input.' },
-  { to: '/lambda-01758354-candidate', grade: 'CANDIDATE', date: '2026-08', isNew: true,
-    title: 'Λ ≤ 0.1758354', desc: 'Four gates certified in Arb, Lean-checked. Below the 0.1787854 candidate.' },
-  { to: '/permutation-architecture', grade: 'CONTRACT', date: '2026-08', isNew: true,
-    title: 'Λ ≤ 0.14 completion contract', desc: 'Conditional contract reduced to one open family — the freeze calculus route. A contract, not a bound.' },
-  { to: '/frozen-rung-pt-equivalence', grade: 'THEOREM', date: '2026-07', isNew: true,
-    title: 'Freezing rungs = Platt–Trudgian', desc: 'Inertia locks the frozen-ladder route to verified height.' },
-  { to: '/newman-lambda-01787854-candidate', grade: 'CANDIDATE', date: '2026',
-    title: 'Λ ≤ 0.1787854', desc: 'Private-review computer-assisted candidate; 3.15M-row certificate.' },
-  { to: '/lambda-bounds', grade: 'VERIFIED', date: '2026',
-    title: 'RH-free F_mb enclosure', desc: 'imp-3725 — a rigorous enclosure assuming no RH.' },
-  { to: '/route-map', grade: 'MAP', date: '2026',
-    title: `The wall map · ${FULL_ROUTE_MAP.totalRoutes} routes`, desc: 'Every closure route across 6 clusters, and exactly where it splits.' },
-  { to: '/critical-line-proportion', grade: 'MAP', date: '2026-08', isNew: true,
-    title: 'Zeros on the line · ≥ 2/3', desc: 'The other axis: peer-reviewed record 5/12 (PRZZ 2020); external ≥ 2/3 result (Claude/Anthropic 2026, Lean-checked, reviewed by Conrey and Goldston, not peer-reviewed, not this project’s).' },
-  { to: '/what-we-know', grade: 'NO-GO', date: '2026',
-    title: 'Negative results', desc: 'Theorems ruling out route families — the remaining gap, located.' },
-  { to: '/pt-floor-audit', grade: 'AUDIT', date: '2026',
-    title: 'Verified height binds the floor', desc: 'The Λ ≤ 0.2 floor is set by verified zero height, not slack.' },
-  { to: '/theorem-b-threshold', grade: 'RESULT', date: '2026',
+    title: 'Inertia-PCC: same wall', desc: 'The inertia route meets the pair-correlation wall (λ_max(ρ) = 0.6231344958476320). Measurement only.' },
+  { to: '/viz-imp96646-krein-certificate-margin', grade: 'CERTIFIED', date: '2026-09', isNew: true,
+    title: 'Route I Toeplitz–Krein certificate', desc: 'Pole-free Weil positivity certified in Arb for every 2a ≤ ln 3 (2026-09-28, internal referees). This range is also implied by the verified zeros.' },
+  { to: '/viz-imp96103-route-i-remainder-resonance', grade: 'RESULT', date: '2026-09', isNew: true,
+    title: 'Semilocal Sonine trace identity', desc: 'Exact identity for S = {∞, 2} with positive trace side, but the remainder is 96.7–99.7% of the trace: Weil positivity < ln 3 ⇔ D_S ≤ L_S.' },
+  { to: '/theta-basin-closure', grade: 'THEOREM', date: '2026-08',
+    title: 'c_glob = 0.8980208880762339', desc: 'Unique root of the half-lattice digamma rate bound: global isolation constant = half-lattice constant. Closes R2 subgap; no Λ change.' },
+  { to: '/catalan-signed-ladder', grade: 'THEOREM', date: '2026-09', isNew: true,
+    title: 'Catalan period-dimension obstruction', desc: 'Signed-ladder values: ζ(2) control 5ζ(2) − 8 (period dimension 2), Catalan G − π + 2ln2 + π²/12 (dimension 5). G irrationality open.' },
+  { to: '/theorem-b-threshold', grade: 'RESULT', date: '2026-06',
     title: 'Closed-form constants', desc: 'Exact values for the Theorem-B threshold and boundary constants.' },
-  { to: '/shift-bridge-positivity', grade: 'MAP', date: '2026',
-    title: 'The a-dial geometry', desc: 'Shift-bridge positivity; T3 as the sole global RH frontier.' },
-  { to: '/collapse-chain', grade: 'COLLAPSE', date: '2026',
-    title: '‖V‖ ≤ 1 collapse chain', desc: 'Seven §15–27 conjectures restate as one Volterra-norm bound — RH-equivalent, not a shortcut.' },
-  { to: '/autonomous-fleet', grade: 'ENGINE', date: 'live',
+  { to: '/lambda-bounds', grade: 'RESULT', date: '2026-07',
+    title: 'RH-free F_mb enclosure', desc: 'Two-sided enclosure of the backward-Dyson collision time on N ∈ [1e4, 1e6] (K ≤ 2.424e-6), no RH or GUE input. Step 4 stays open.' },
+  { to: '/pt-floor-audit', grade: 'AUDIT', date: '2026-07',
+    title: 'Verified height binds the floor', desc: 'The Λ ≤ 0.2 floor is set by verified zero height (~3e12), not barrier slack; SOS/Carleman/Putinar tightening is refuted as a lever.' },
+  { to: '/viz-imp34825-winding-count-ladder', grade: 'AUDIT', date: '2026-07',
+    title: 'Winding thread corrected', desc: 'Gaussian proxy is the exact de Bruijn flow at negative time; winding monotonicity is classical (de Bruijn Thm 13). Artifact claim refuted.' },
+  { to: '/permutation-architecture', grade: 'CONTRACT', date: '2026-09', isNew: true,
+    title: 'Λ ≤ 0.14 completion contract', desc: 'Fail-closed contract with one open weld family. Theorem U: only new arithmetic input or ≥ 3.4e17 cells can move it. Not a bound.' },
+  { to: '/collapse-chain', grade: 'AUDIT', date: '2026-06',
+    title: '‖V‖ ≤ 1 collapse: refuted as a reduction', desc: 'The proposed restatement of seven §15–27 conjectures as ‖V‖ ≤ 1 fails: ‖V‖ is scale-homogeneous, K_a is not. Residual ‖R‖ ≤ 1 is RH-equivalent.' },
+  { to: '/viz-imp97068-mirror-descent-poisson-kernel', grade: 'THEOREM', date: '2026-09', isNew: true,
+    title: 'Mirror pair lemma', desc: 'A conjugate pair below the topmost zero pulls it down by at least 2y/(Δ² + 4y²), the double-width Poisson kernel. Elementary proof.' },
+  { to: '/viz-imp97068-mirror-descent-poisson-kernel', grade: 'CONDITIONAL', date: '2026-09', isNew: true,
+    title: 'Conditional mirror-descent theorem', desc: 'H_desc-mirror ⇒ Λ ≤ t0 + y0²/2 = 0.145, modulo residuals. The hypothesis is open, pointwise at σ < 1 (NS-RIGID class). No bound.' },
+  { to: '/rh-novel-routes-roadmap', grade: 'NO-GO', date: '2026-09', isNew: true,
+    title: 'Pole-term bridges fail at ln 2', desc: 'Local, finite-rank and fixed-measure pole-term bridges fail past 2a = ln 2 via the shared p = 2 resonance. Nonlocal/arithmetic class open.' },
+  { to: '/rh-novel-routes-roadmap', grade: 'RESULT', date: '2026-09', isNew: true,
+    title: 'Route M: b/4 ceiling refuted', desc: 'Route M reduces to the mollifier lineage (Estermann). The b/4 ceiling |E1(b)| ≤ b/4 is refuted by explicit witnesses; κ_arith unaffected.' },
+  { to: '/formalization-status', grade: 'FORMAL', date: '2026-09', isNew: true,
+    title: 'Lean formalization (Aristotle)', desc: 'Aristotle Lean, 0 sorry: five-shell identity, flow-blindness no-go, frozen-rung parts, O1 lemma. expSum_hasDerivAt discharges DiniGate hA.' },
+  { to: '/viz-imp95141-ythaw-obligation-meter', grade: 'CONDITIONAL', date: '2026-09', isNew: true,
+    title: 'Λ ≤ 0.17759432 y-thaw package', desc: 'Package value, not a bound. Obligations O3, O5 closed; O1, O2, O4, O6 open. O1 is Lean-formalized with gates G1–G4 as hypotheses.' },
+  { to: '/route-map', grade: 'MAP', date: '2026-06',
+    title: `The wall map · ${FULL_ROUTE_MAP.totalRoutes} routes`, desc: 'Each mapped closure route across 6 clusters, and where it splits.' },
+  { to: '/critical-line-proportion', grade: 'MAP', date: '2026-08',
+    title: 'Zeros on the line · ≥ 2/3', desc: 'Peer-reviewed record 5/12 (PRZZ 2020); external ≥ 2/3 claim (Alpöge–Furman 2026, proof found by Claude; Lean-checked, not peer-reviewed, not this project’s).' },
+  { to: '/what-we-know', grade: 'NO-GO', date: '2026-09', isNew: true,
+    title: 'Negative results', desc: 'Theorems ruling out route families, and the gap that remains.' },
+  { to: '/shift-bridge-positivity', grade: 'MAP', date: '2026-07',
+    title: 'The a-dial geometry', desc: 'Shift-bridge positivity; T3, the program’s global frontier (T3 for all a > 0 ⇔ RH).' },
+  { to: '/autonomous-fleet', grade: 'ENGINE', date: '2026-09', isNew: true,
     title: 'The autonomous fleet', desc: 'Multi-engine + Fable-5 working the frontier, live.' },
 ];
 
@@ -60,6 +95,13 @@ const SIMS = [
 ];
 
 export default function HomePageEditorial() {
+  // Concept tooltips in the findings tiles: each concept is linked once across the grid. The
+  // tiles are links themselves, so the terms render nested (no <a> inside <a>).
+  const link = useConceptLinker();
+  const findingDescs = useMemo(() => {
+    const seen = new Set();
+    return FINDINGS.map((f) => link(f.desc, { seen, nested: true, max: 3 }));
+  }, [link]);
   return (
     <div className="ed-root">
       <EditorialHeader ticker={<Link to="/engine-room" style={{ color: 'inherit' }}><b>engine live</b> ↗</Link>} />
@@ -75,12 +117,12 @@ export default function HomePageEditorial() {
             <div className="ed-lbl">the interval · Rodgers–Tao ≤ Λ ≤ Platt–Trudgian</div>
             <div className="ed-track">
               <div className="ed-mk" style={{ left: '0%', background: 'var(--green)' }} />
-              <div className="ed-mktop" style={{ left: '3%', color: 'var(--green)' }}>0 · Λ ≥ 0 proved</div>
-              <div className="ed-mkcap" style={{ left: '1%' }}>0</div>
+              <div className="ed-mktop ed-mkedge-l" style={{ color: 'var(--green)' }}>0 · Λ ≥ 0 proved</div>
+              <div className="ed-mkcap ed-mkedge-l">0</div>
               <div className="ed-mk" style={{ left: '88%', background: 'var(--brass-dk)' }} />
               <div className="ed-mktop" style={{ left: '86%', color: 'var(--brass)' }}>0.1758354 candidate</div>
               <div className="ed-mk" style={{ left: '100%', background: 'var(--terra)' }} />
-              <div className="ed-mkcap" style={{ left: '92%', color: 'var(--terra-dk)' }}>0.20 · Platt–Trudgian</div>
+              <div className="ed-mkcap ed-mkedge-r" style={{ color: 'var(--terra-dk)' }}>0.20 · Platt–Trudgian</div>
             </div>
           </div>
         </div>
@@ -183,15 +225,15 @@ export default function HomePageEditorial() {
         <div className="ed-shead"><div><div className="ed-lbl">the ledger · • = new</div><h2>Findings</h2></div>
           <p>Bounds, models, walls, and no-gos. Each opens its own page. <Link to="/threads">Research threads →</Link></p></div>
         <div className="ed-map">
-          {FINDINGS.map((f) => (
-            <Link key={f.to} className="ed-tile" to={f.to}>
+          {FINDINGS.map((f, fi) => (
+            <Link key={f.title} className="ed-tile" to={f.to}>
               <div className="ed-tmeta">
                 {f.isNew && <span className="ed-new" />}
                 <GradeChip grade={f.grade} />
                 <span>{f.date}</span>
               </div>
               <h3>{f.title}</h3>
-              <p>{f.desc}</p>
+              <p>{findingDescs[fi]}</p>
             </Link>
           ))}
         </div>

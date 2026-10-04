@@ -6,9 +6,10 @@ import {
   eulerProductTrace, transferFunctionDecayComparison,
 } from '../math/odd-zeta.js';
 import { getPrimes } from '../math/primes.js';
+import { ED, alpha } from '../styles/tokens.js';
 
 const TABS = ['Values & Convergence', 'Apéry Sequences', 'Transfer Function', 'Linear Independence', 'Irrationality Measure'];
-const TAB_COLORS = ['#10b981', '#3b82f6', '#8b5cf6', '#f59e0b', '#ef4444'];
+const TAB_COLORS = [ED.series3, ED.series1, ED.series5, ED.series4, ED.series2];
 
 // ─── Shared canvas drawing helpers ──────────────────────────────────────────
 
@@ -27,7 +28,7 @@ function initCanvas(canvasRef) {
 }
 
 function drawAxes(ctx, margin, w, h) {
-  ctx.strokeStyle = '#334155';
+  ctx.strokeStyle = ED.rule;
   ctx.lineWidth = 1;
   ctx.beginPath();
   ctx.moveTo(margin.left, margin.top);
@@ -37,7 +38,7 @@ function drawAxes(ctx, margin, w, h) {
 }
 
 function drawGridLines(ctx, margin, plotW, plotH, yMin, yMax, numTicks, formatFn, w, h) {
-  ctx.fillStyle = '#64748b';
+  ctx.fillStyle = ED.series8;
   ctx.font = '9px var(--font-mono)';
   ctx.textAlign = 'right';
   for (let i = 0; i <= numTicks; i++) {
@@ -47,7 +48,7 @@ function drawGridLines(ctx, margin, plotW, plotH, yMin, yMax, numTicks, formatFn
     ctx.setLineDash([2, 3]);
     ctx.moveTo(margin.left, y);
     ctx.lineTo(w - margin.right, y);
-    ctx.strokeStyle = '#1e293b';
+    ctx.strokeStyle = ED.ruleSoft;
     ctx.stroke();
     ctx.setLineDash([]);
     ctx.fillText(formatFn ? formatFn(val) : val.toFixed(2), margin.left - 6, y + 3);
@@ -86,37 +87,37 @@ function ValuesTab({ selectedN, numPrimes }) {
       const barH = (bar.value / maxVal) * halfH * 0.85;
       const isSelected = bar.n === selectedN;
 
-      ctx.fillStyle = isSelected ? '#10b981' : '#10b98160';
+      ctx.fillStyle = isSelected ? ED.series3 : alpha(ED.series3, 0.38);
       ctx.fillRect(x - barWidth / 2, g1Top + halfH - barH, barWidth, barH);
 
       if (isSelected) {
-        ctx.strokeStyle = '#10b981';
+        ctx.strokeStyle = ED.series3;
         ctx.lineWidth = 2;
         ctx.strokeRect(x - barWidth / 2, g1Top + halfH - barH, barWidth, barH);
       }
 
       // Label
-      ctx.fillStyle = isSelected ? '#e2e8f0' : '#64748b';
+      ctx.fillStyle = isSelected ? ED.ink : ED.series8;
       ctx.font = '9px var(--font-mono)';
       ctx.textAlign = 'center';
       ctx.fillText(`${bar.n}`, x, g1Top + halfH + 14);
 
       // Value on top of bar
       if (barWidth > 20 || isSelected) {
-        ctx.fillStyle = '#94a3b8';
+        ctx.fillStyle = ED.series8;
         ctx.font = '8px var(--font-mono)';
         ctx.fillText(bar.value.toFixed(4), x, g1Top + halfH - barH - 4);
       }
     });
 
     // Title
-    ctx.fillStyle = '#10b981';
+    ctx.fillStyle = ED.series3;
     ctx.font = 'bold 11px sans-serif';
     ctx.textAlign = 'left';
     ctx.fillText('Odd Zeta Values: \u03B6(3), \u03B6(5), ..., \u03B6(21)', margin.left + 4, g1Top + 14);
 
     // X-axis label
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.font = '10px sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText('n (odd)', w / 2, g1Top + halfH + 30);
@@ -125,7 +126,7 @@ function ValuesTab({ selectedN, numPrimes }) {
     ctx.save();
     ctx.translate(14, g1Top + halfH / 2);
     ctx.rotate(-Math.PI / 2);
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.font = '10px sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText('\u03B6(n)', 0, 0);
@@ -136,7 +137,7 @@ function ValuesTab({ selectedN, numPrimes }) {
     const g2H = halfH;
 
     // Axes
-    ctx.strokeStyle = '#334155';
+    ctx.strokeStyle = ED.rule;
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.moveTo(margin.left, g2Top);
@@ -155,11 +156,11 @@ function ValuesTab({ selectedN, numPrimes }) {
       ctx.setLineDash([5, 3]);
       ctx.moveTo(margin.left, g2Top + g2H * 0.1);
       ctx.lineTo(w - margin.right, g2Top + g2H * 0.1);
-      ctx.strokeStyle = '#3b82f680';
+      ctx.strokeStyle = alpha(ED.series1, 0.5);
       ctx.stroke();
       ctx.setLineDash([]);
 
-      ctx.fillStyle = '#3b82f6';
+      ctx.fillStyle = ED.series1;
       ctx.font = '9px var(--font-mono)';
       ctx.textAlign = 'left';
       ctx.fillText(`\u03B6(${selectedN}) = ${target.toFixed(10)}`, margin.left + 8, g2Top + g2H * 0.1 - 6);
@@ -175,7 +176,7 @@ function ValuesTab({ selectedN, numPrimes }) {
         const y = g2Top + g2H - ((pt.cumulativeProduct - prodMin) / prodRange) * g2H * 0.8 - g2H * 0.1;
         if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
       });
-      ctx.strokeStyle = '#3b82f6';
+      ctx.strokeStyle = ED.series1;
       ctx.lineWidth = 2;
       ctx.stroke();
 
@@ -186,7 +187,7 @@ function ValuesTab({ selectedN, numPrimes }) {
           const y = g2Top + g2H - ((pt.cumulativeProduct - prodMin) / prodRange) * g2H * 0.8 - g2H * 0.1;
           ctx.beginPath();
           ctx.arc(x, y, 2.5, 0, Math.PI * 2);
-          ctx.fillStyle = '#3b82f6';
+          ctx.fillStyle = ED.series1;
           ctx.fill();
         }
       });
@@ -197,20 +198,20 @@ function ValuesTab({ selectedN, numPrimes }) {
       ctx.setLineDash([6, 3]);
       ctx.moveTo(margin.left, targetY);
       ctx.lineTo(w - margin.right, targetY);
-      ctx.strokeStyle = '#10b98180';
+      ctx.strokeStyle = alpha(ED.series3, 0.5);
       ctx.lineWidth = 1;
       ctx.stroke();
       ctx.setLineDash([]);
     }
 
     // Title
-    ctx.fillStyle = '#3b82f6';
+    ctx.fillStyle = ED.series1;
     ctx.font = 'bold 11px sans-serif';
     ctx.textAlign = 'left';
     ctx.fillText(`Euler Product Convergence for \u03B6(${selectedN})`, margin.left + 4, g2Top - 4);
 
     // X-axis label
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.font = '10px sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText('Number of primes', w / 2, g2Top + g2H + 14);
@@ -219,7 +220,7 @@ function ValuesTab({ selectedN, numPrimes }) {
     ctx.save();
     ctx.translate(14, g2Top + g2H / 2);
     ctx.rotate(-Math.PI / 2);
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.font = '10px sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText('\u220F 1/(1\u2212p\u207B\u207F)', 0, 0);
@@ -237,17 +238,17 @@ function ValuesTab({ selectedN, numPrimes }) {
   return (
     <div>
       <canvas ref={canvasRef}
-        style={{ width: '100%', height: 420, borderRadius: 8, background: '#0a0e1a', border: '1px solid #1e293b' }} />
+        style={{ width: '100%', height: 420, borderRadius: 8, background: 'var(--paper)', border: '1px solid var(--rule-soft)' }} />
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 8, marginTop: 12 }}>
         {[
-          { label: `\u03B6(${selectedN})`, value: currentValue.value?.toFixed(10) || 'N/A', color: '#10b981' },
-          { label: 'Euler Product', value: currentValue.eulerProductValue?.toFixed(10) || 'N/A', color: '#3b82f6' },
-          { label: 'Rel. Error', value: currentValue.relativeError?.toExponential(2) || 'N/A', color: '#f59e0b' },
-          { label: 'Conv. Rate', value: currentValue.convergenceRate?.toExponential(2) || 'N/A', color: '#8b5cf6' },
+          { label: `\u03B6(${selectedN})`, value: currentValue.value?.toFixed(10) || 'N/A', color: ED.series3 },
+          { label: 'Euler Product', value: currentValue.eulerProductValue?.toFixed(10) || 'N/A', color: ED.series1 },
+          { label: 'Rel. Error', value: currentValue.relativeError?.toExponential(2) || 'N/A', color: ED.brass },
+          { label: 'Conv. Rate', value: currentValue.convergenceRate?.toExponential(2) || 'N/A', color: ED.series5 },
         ].map(m => (
           <div key={m.label} className="stat-box" style={{ padding: '8px 10px' }}>
             <div style={{ color: m.color, fontWeight: 700, fontSize: 13, fontFamily: 'var(--font-mono)' }}>{m.value}</div>
-            <div style={{ color: '#64748b', fontSize: 10, marginTop: 2 }}>{m.label}</div>
+            <div style={{ color: 'var(--ink-faint)', fontSize: 10, marginTop: 2 }}>{m.label}</div>
           </div>
         ))}
       </div>
@@ -283,7 +284,7 @@ function AperyTab() {
     const yHi = maxVal + valRange * 0.1;
 
     // Axes
-    ctx.strokeStyle = '#334155';
+    ctx.strokeStyle = ED.rule;
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.moveTo(margin.left, margin.top);
@@ -297,11 +298,11 @@ function AperyTab() {
     ctx.setLineDash([6, 3]);
     ctx.moveTo(margin.left, zetaY);
     ctx.lineTo(w - margin.right, zetaY);
-    ctx.strokeStyle = '#10b981';
+    ctx.strokeStyle = ED.series3;
     ctx.lineWidth = 1;
     ctx.stroke();
     ctx.setLineDash([]);
-    ctx.fillStyle = '#10b981';
+    ctx.fillStyle = ED.series3;
     ctx.font = '10px var(--font-mono)';
     ctx.textAlign = 'right';
     ctx.fillText(`\u03B6(3) = ${data.aperyConstant.toFixed(6)}`, w - margin.right - 4, zetaY - 6);
@@ -313,7 +314,7 @@ function AperyTab() {
       const y = margin.top + halfH - ((conv.value - yLo) / (yHi - yLo)) * halfH;
       if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
     });
-    ctx.strokeStyle = '#3b82f6';
+    ctx.strokeStyle = ED.series1;
     ctx.lineWidth = 2;
     ctx.stroke();
 
@@ -322,12 +323,12 @@ function AperyTab() {
       const y = margin.top + halfH - ((conv.value - yLo) / (yHi - yLo)) * halfH;
       ctx.beginPath();
       ctx.arc(x, y, 3, 0, Math.PI * 2);
-      ctx.fillStyle = '#3b82f6';
+      ctx.fillStyle = ED.series1;
       ctx.fill();
     });
 
     // Y-axis labels
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.font = '9px var(--font-mono)';
     ctx.textAlign = 'right';
     for (let i = 0; i <= 4; i++) {
@@ -347,13 +348,13 @@ function AperyTab() {
     ctx.save();
     ctx.translate(14, margin.top + halfH / 2);
     ctx.rotate(-Math.PI / 2);
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.font = '10px sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText('a\u2099/b\u2099', 0, 0);
     ctx.restore();
 
-    ctx.fillStyle = '#3b82f6';
+    ctx.fillStyle = ED.series1;
     ctx.font = 'bold 11px sans-serif';
     ctx.textAlign = 'left';
     ctx.fillText("Ap\u00e9ry convergents a_n/b_n approaching \u03B6(3)", margin.left + 4, margin.top + 14);
@@ -362,7 +363,7 @@ function AperyTab() {
     const g2Top = margin.top + halfH + 44;
     const g2H = halfH;
 
-    ctx.strokeStyle = '#334155';
+    ctx.strokeStyle = ED.rule;
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.moveTo(margin.left, g2Top);
@@ -384,7 +385,7 @@ function AperyTab() {
         const y = g2Top + g2H - ((Math.log10(pt.error) - minLogE) / logRange) * g2H * 0.85 - g2H * 0.05;
         if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
       });
-      ctx.strokeStyle = '#ef4444';
+      ctx.strokeStyle = ED.series2;
       ctx.lineWidth = 2;
       ctx.stroke();
 
@@ -393,12 +394,12 @@ function AperyTab() {
         const y = g2Top + g2H - ((Math.log10(pt.error) - minLogE) / logRange) * g2H * 0.85 - g2H * 0.05;
         ctx.beginPath();
         ctx.arc(x, y, 2.5, 0, Math.PI * 2);
-        ctx.fillStyle = '#ef4444';
+        ctx.fillStyle = ED.series2;
         ctx.fill();
       });
 
       // Y-axis labels
-      ctx.fillStyle = '#64748b';
+      ctx.fillStyle = ED.series8;
       ctx.font = '9px var(--font-mono)';
       ctx.textAlign = 'right';
       for (let i = 0; i <= 4; i++) {
@@ -425,7 +426,7 @@ function AperyTab() {
         const clampedY = Math.max(g2Top, Math.min(g2Top + g2H, y));
         if (i === 0) ctx.moveTo(x, clampedY); else ctx.lineTo(x, clampedY);
       });
-      ctx.strokeStyle = '#f59e0b80';
+      ctx.strokeStyle = alpha(ED.brassDeco, 0.5);
       ctx.lineWidth = 1;
       ctx.stroke();
       ctx.setLineDash([]);
@@ -435,28 +436,28 @@ function AperyTab() {
     ctx.save();
     ctx.translate(14, g2Top + g2H / 2);
     ctx.rotate(-Math.PI / 2);
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.font = '10px sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText('log\u2081\u2080|error|', 0, 0);
     ctx.restore();
 
-    ctx.fillStyle = '#ef4444';
+    ctx.fillStyle = ED.series2;
     ctx.font = 'bold 11px sans-serif';
     ctx.textAlign = 'left';
     ctx.fillText('Convergence Error (log scale)', margin.left + 4, g2Top + 14);
 
     // Legend
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = ED.series8;
     ctx.font = '9px sans-serif';
     ctx.textAlign = 'right';
-    ctx.fillStyle = '#ef4444';
+    ctx.fillStyle = ED.series2;
     ctx.fillText('Actual error', w - margin.right - 4, g2Top + 14);
-    ctx.fillStyle = '#f59e0b';
+    ctx.fillStyle = ED.series4;
     ctx.fillText('Theoretical ~C^{-n}', w - margin.right - 4, g2Top + 26);
 
     // X-axis label
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.font = '10px sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText('Term n', w / 2, g2Top + g2H + 14);
@@ -482,20 +483,20 @@ function AperyTab() {
         </div>
       </div>
       <canvas ref={canvasRef}
-        style={{ width: '100%', height: 420, borderRadius: 8, background: '#0a0e1a', border: '1px solid #1e293b' }} />
+        style={{ width: '100%', height: 420, borderRadius: 8, background: 'var(--paper)', border: '1px solid var(--rule-soft)' }} />
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 8, marginTop: 12 }}>
         {[
-          { label: "Apéry's Constant", value: data.aperyConstant?.toFixed(10) || 'N/A', color: '#10b981' },
-          { label: 'Best Convergent', value: data.convergents[data.convergents.length - 1]?.value?.toFixed(10) || 'N/A', color: '#3b82f6' },
-          { label: 'Final Error', value: data.convergents[data.convergents.length - 1]?.error?.toExponential(2) || 'N/A', color: '#ef4444' },
+          { label: "Apéry's Constant", value: data.aperyConstant?.toFixed(10) || 'N/A', color: ED.series3 },
+          { label: 'Best Convergent', value: data.convergents[data.convergents.length - 1]?.value?.toFixed(10) || 'N/A', color: ED.series1 },
+          { label: 'Final Error', value: data.convergents[data.convergents.length - 1]?.error?.toExponential(2) || 'N/A', color: ED.series2 },
         ].map(m => (
           <div key={m.label} className="stat-box" style={{ padding: '8px 10px' }}>
             <div style={{ color: m.color, fontWeight: 700, fontSize: 13, fontFamily: 'var(--font-mono)' }}>{m.value}</div>
-            <div style={{ color: '#64748b', fontSize: 10, marginTop: 2 }}>{m.label}</div>
+            <div style={{ color: 'var(--ink-faint)', fontSize: 10, marginTop: 2 }}>{m.label}</div>
           </div>
         ))}
       </div>
-      <div style={{ marginTop: 12, padding: '10px 14px', background: '#0f1225', borderRadius: 6, fontSize: 11, color: '#94a3b8' }}>
+      <div style={{ marginTop: 12, padding: '10px 14px', background: 'var(--paper-2)', borderRadius: 6, fontSize: 11, color: 'var(--ink-soft)' }}>
         Apéry proved <InlineMath tex={"\\zeta(3)"} /> is irrational using the recurrence{' '}
         <InlineMath tex="(n+1)^3 a_{n+1} = (2n+1)(17n^2+17n+5)a_n - n^3 a_{n-1}" />.{' '}
         The convergents <InlineMath tex="a_n/b_n" /> approach <InlineMath tex={"\\zeta(3)"} /> at a geometric rate{' '}
@@ -538,10 +539,10 @@ function TransferTab({ selectedN, numPrimes }) {
     const plotW = w - margin.left - margin.right;
     const halfH = (h - margin.top - margin.bottom - 44) / 2;
 
-    const colors = ['#10b981', '#3b82f6', '#8b5cf6', '#f59e0b', '#ef4444'];
+    const colors = [ED.series3, ED.series1, ED.series5, ED.series4, ED.series2];
 
     // ─── Top: |H_p(n)| - 1 for each prime (decay comparison) ───
-    ctx.strokeStyle = '#334155';
+    ctx.strokeStyle = ED.rule;
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.moveTo(margin.left, margin.top);
@@ -562,7 +563,7 @@ function TransferTab({ selectedN, numPrimes }) {
     });
 
     // Y-axis tick labels for excess chart
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.font = '9px var(--font-mono)';
     ctx.textAlign = 'right';
     for (let i = 0; i <= 4; i++) {
@@ -570,12 +571,12 @@ function TransferTab({ selectedN, numPrimes }) {
       const y = margin.top + halfH - (val / maxExcess) * halfH * 0.85 - halfH * 0.02;
       ctx.beginPath();
       ctx.setLineDash([2, 3]);
-      ctx.strokeStyle = '#1e293b';
+      ctx.strokeStyle = ED.ruleSoft;
       ctx.moveTo(margin.left, y);
       ctx.lineTo(w - margin.right, y);
       ctx.stroke();
       ctx.setLineDash([]);
-      ctx.fillStyle = '#64748b';
+      ctx.fillStyle = ED.series8;
       ctx.fillText(val < 0.01 ? val.toExponential(1) : val.toFixed(3), margin.left - 6, y + 3);
     }
 
@@ -594,7 +595,7 @@ function TransferTab({ selectedN, numPrimes }) {
     });
 
     // X-axis labels (prime numbers)
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.font = '8px var(--font-mono)';
     ctx.textAlign = 'center';
     for (let i = 0; i < maxPrimeIdx; i += Math.max(1, Math.floor(maxPrimeIdx / 10))) {
@@ -611,12 +612,12 @@ function TransferTab({ selectedN, numPrimes }) {
       ctx.fillText(`\u03B6(${profile.n})`, legX, margin.top + 16 + pi * 14);
     });
 
-    ctx.fillStyle = '#8b5cf6';
+    ctx.fillStyle = ED.series5;
     ctx.font = 'bold 11px sans-serif';
     ctx.textAlign = 'left';
     ctx.fillText('Transfer Factor Excess |H_p(n)| - 1 by Prime', margin.left + 4, margin.top + 14);
 
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.font = '10px sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText('Prime p', w / 2, margin.top + halfH + 28);
@@ -625,7 +626,7 @@ function TransferTab({ selectedN, numPrimes }) {
     ctx.save();
     ctx.translate(14, margin.top + halfH / 2);
     ctx.rotate(-Math.PI / 2);
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.font = '10px sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText('|H_p(n)| \u2212 1', 0, 0);
@@ -635,7 +636,7 @@ function TransferTab({ selectedN, numPrimes }) {
     const g2Top = margin.top + halfH + 44;
     const g2H = halfH;
 
-    ctx.strokeStyle = '#334155';
+    ctx.strokeStyle = ED.rule;
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.moveTo(margin.left, g2Top);
@@ -649,7 +650,7 @@ function TransferTab({ selectedN, numPrimes }) {
       const barW = Math.min(plotW / stages.length * 0.6, 20);
 
       // Y-axis tick labels for impedance chart
-      ctx.fillStyle = '#64748b';
+      ctx.fillStyle = ED.series8;
       ctx.font = '9px var(--font-mono)';
       ctx.textAlign = 'right';
       for (let i = 0; i <= 4; i++) {
@@ -657,12 +658,12 @@ function TransferTab({ selectedN, numPrimes }) {
         const y = g2Top + g2H - (val / maxImp) * g2H * 0.85;
         ctx.beginPath();
         ctx.setLineDash([2, 3]);
-        ctx.strokeStyle = '#1e293b';
+        ctx.strokeStyle = ED.ruleSoft;
         ctx.moveTo(margin.left, y);
         ctx.lineTo(w - margin.right, y);
         ctx.stroke();
         ctx.setLineDash([]);
-        ctx.fillStyle = '#64748b';
+        ctx.fillStyle = ED.series8;
         ctx.fillText(val.toFixed(1), margin.left - 6, y + 3);
       }
 
@@ -679,7 +680,7 @@ function TransferTab({ selectedN, numPrimes }) {
         ctx.fillRect(x - barW / 2, g2Top + g2H - barH, barW, barH);
 
         if (i % Math.max(1, Math.floor(stages.length / 10)) === 0) {
-          ctx.fillStyle = '#64748b';
+          ctx.fillStyle = ED.series8;
           ctx.font = '8px var(--font-mono)';
           ctx.textAlign = 'center';
           ctx.fillText(`${stage.prime}`, x, g2Top + g2H + 12);
@@ -687,12 +688,12 @@ function TransferTab({ selectedN, numPrimes }) {
       });
     }
 
-    ctx.fillStyle = '#f59e0b';
+    ctx.fillStyle = ED.series4;
     ctx.font = 'bold 11px sans-serif';
     ctx.textAlign = 'left';
     ctx.fillText(`Impedance Profile at s = ${selectedN} (Real Axis)`, margin.left + 4, g2Top + 14);
 
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.font = '10px sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText('Prime p', w / 2, g2Top + g2H + 28);
@@ -701,7 +702,7 @@ function TransferTab({ selectedN, numPrimes }) {
     ctx.save();
     ctx.translate(14, g2Top + g2H / 2);
     ctx.rotate(-Math.PI / 2);
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.font = '10px sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText('Impedance Z_p', 0, 0);
@@ -719,26 +720,26 @@ function TransferTab({ selectedN, numPrimes }) {
   return (
     <div>
       <canvas ref={canvasRef}
-        style={{ width: '100%', height: 420, borderRadius: 8, background: '#0a0e1a', border: '1px solid #1e293b' }} />
+        style={{ width: '100%', height: 420, borderRadius: 8, background: 'var(--paper)', border: '1px solid var(--rule-soft)' }} />
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 8, marginTop: 12 }}>
         {[
-          { label: `\u03B6(${selectedN}) Total Transfer`, value: tfData.totalTransfer?.toFixed(8) || 'N/A', color: '#8b5cf6' },
-          { label: 'Stages', value: `${tfData.stages?.length || 0} primes`, color: '#3b82f6' },
+          { label: `\u03B6(${selectedN}) Total Transfer`, value: tfData.totalTransfer?.toFixed(8) || 'N/A', color: ED.series5 },
+          { label: 'Stages', value: `${tfData.stages?.length || 0} primes`, color: ED.series1 },
           // Render the exponent with Unicode superscript digits so the stat-box label
           // shows "2⁻ⁿ = …" instead of leaking literal LaTeX braces "2^{-n} = …" to the user.
-          { label: 'Leading Decay', value: tfData.stages?.[0] ? `2⁻${String(selectedN).split('').map(d => '⁰¹²³⁴⁵⁶⁷⁸⁹'[+d]).join('')} = ${tfData.stages[0].decay.toExponential(3)}` : 'N/A', color: '#f59e0b' },
+          { label: 'Leading Decay', value: tfData.stages?.[0] ? `2⁻${String(selectedN).split('').map(d => '⁰¹²³⁴⁵⁶⁷⁸⁹'[+d]).join('')} = ${tfData.stages[0].decay.toExponential(3)}` : 'N/A', color: ED.brass },
         ].map(m => (
           <div key={m.label} className="stat-box" style={{ padding: '8px 10px' }}>
             <div style={{ color: m.color, fontWeight: 700, fontSize: 13, fontFamily: 'var(--font-mono)' }}>{m.value}</div>
-            <div style={{ color: '#64748b', fontSize: 10, marginTop: 2 }}>{m.label}</div>
+            <div style={{ color: 'var(--ink-faint)', fontSize: 10, marginTop: 2 }}>{m.label}</div>
           </div>
         ))}
       </div>
-      <div style={{ marginTop: 12, padding: '10px 14px', background: '#0f1225', borderRadius: 6, fontSize: 11, color: '#94a3b8' }}>
-        <strong style={{ color: '#8b5cf6' }}>Top:</strong> Each prime's Euler factor excess{' '}
+      <div style={{ marginTop: 12, padding: '10px 14px', background: 'var(--paper-2)', borderRadius: 6, fontSize: 11, color: 'var(--ink-soft)' }}>
+        <strong style={{ color: 'var(--series-5)' }}>Top:</strong> Each prime's Euler factor excess{' '}
         <InlineMath tex="|H_p(n)| - 1 = p^{-n}/(1 - p^{-n})" /> decays as <InlineMath tex="p^{-n}" />.
         Higher <InlineMath tex="n" /> means faster decay: fewer primes contribute significantly.{' '}
-        <strong style={{ color: '#f59e0b' }}>Bottom:</strong> Impedance <InlineMath tex={"Z_p(n) = n\\log p + \\log p / n"} /> grows with the prime.
+        <strong style={{ color: 'var(--brass)' }}>Bottom:</strong> Impedance <InlineMath tex={"Z_p(n) = n\\log p + \\log p / n"} /> grows with the prime.
       </div>
     </div>
   );
@@ -782,11 +783,11 @@ function IntegerRelationPanel({ data }) {
   }, [data]);
 
   return (
-    <div style={{ marginTop: 16, padding: '12px 14px', background: '#0f1225', borderRadius: 8, border: '1px solid #1e293b' }}>
-      <h4 style={{ fontSize: 13, fontWeight: 700, color: '#f59e0b', marginBottom: 6 }}>
+    <div style={{ marginTop: 16, padding: '12px 14px', background: 'var(--paper-2)', borderRadius: 8, border: '1px solid var(--rule-soft)' }}>
+      <h4 style={{ fontSize: 13, fontWeight: 700, color: 'var(--brass)', marginBottom: 6 }}>
         Integer Relation Search
       </h4>
-      <p style={{ fontSize: 11, color: '#64748b', marginBottom: 10, lineHeight: 1.5 }}>
+      <p style={{ fontSize: 11, color: 'var(--ink-faint)', marginBottom: 10, lineHeight: 1.5 }}>
         Searches for the smallest nonzero integer combination{' '}
         <InlineMath tex={"c_0 \\cdot 1 + c_1 \\cdot \\zeta(3) + \\cdots + c_k \\cdot \\zeta(2k+1)"} />.
         A growing minimum residual as dimension increases is evidence of{' '}
@@ -795,29 +796,29 @@ function IntegerRelationPanel({ data }) {
       <div style={{ overflowX: 'auto' }}>
         <table style={{ width: '100%', borderCollapse: 'collapse', fontFamily: 'var(--font-mono)', fontSize: 11 }}>
           <thead>
-            <tr style={{ borderBottom: '1px solid #1e293b' }}>
-              <th style={{ color: '#64748b', textAlign: 'left', padding: '4px 8px', fontWeight: 600 }}>Basis</th>
-              <th style={{ color: '#64748b', textAlign: 'center', padding: '4px 8px', fontWeight: 600 }}>Bound</th>
-              <th style={{ color: '#64748b', textAlign: 'right', padding: '4px 8px', fontWeight: 600 }}>Min residual</th>
-              <th style={{ color: '#64748b', textAlign: 'left', padding: '4px 8px', fontWeight: 600 }}>Best coefficients</th>
+            <tr style={{ borderBottom: '1px solid var(--rule-soft)' }}>
+              <th style={{ color: 'var(--ink-faint)', textAlign: 'left', padding: '4px 8px', fontWeight: 600 }}>Basis</th>
+              <th style={{ color: 'var(--ink-faint)', textAlign: 'center', padding: '4px 8px', fontWeight: 600 }}>Bound</th>
+              <th style={{ color: 'var(--ink-faint)', textAlign: 'right', padding: '4px 8px', fontWeight: 600 }}>Min residual</th>
+              <th style={{ color: 'var(--ink-faint)', textAlign: 'left', padding: '4px 8px', fontWeight: 600 }}>Best coefficients</th>
             </tr>
           </thead>
           <tbody>
             {results.map((row, i) => (
-              <tr key={i} style={{ borderBottom: '1px solid #0f172a' }}>
+              <tr key={i} style={{ borderBottom: '1px solid var(--paper)' }}>
                 <td style={{ color: '#a5f3fc', padding: '4px 8px' }}>
                   {'{' + row.labels.join(', ') + '}'}
                 </td>
-                <td style={{ color: '#64748b', textAlign: 'center', padding: '4px 8px' }}>
+                <td style={{ color: 'var(--ink-faint)', textAlign: 'center', padding: '4px 8px' }}>
                   {"±"}{row.bound}
                 </td>
                 <td style={{
-                  color: row.minResidual < 1e-12 ? '#ef4444' : '#10b981',
+                  color: row.minResidual < 1e-12 ? 'var(--series-2)' : 'var(--series-3)',
                   textAlign: 'right', padding: '4px 8px', fontWeight: 600,
                 }}>
                   {row.minResidual < 1e-15 ? '0 (dependent!)' : row.minResidual.toExponential(3)}
                 </td>
-                <td style={{ color: '#94a3b8', padding: '4px 8px' }}>
+                <td style={{ color: 'var(--ink-soft)', padding: '4px 8px' }}>
                   {'[' + row.bestCoeffs.join(', ') + ']'}
                 </td>
               </tr>
@@ -826,11 +827,11 @@ function IntegerRelationPanel({ data }) {
         </table>
       </div>
       {data.values.length > 6 && (
-        <p style={{ fontSize: 10, color: '#475569', marginTop: 6, fontStyle: 'italic' }}>
+        <p style={{ fontSize: 10, color: 'var(--ink-faint)', marginTop: 6, fontStyle: 'italic' }}>
           Search limited to first 6 basis elements (higher dims exceed browser limits at this bound).
         </p>
       )}
-      <p style={{ fontSize: 10, color: '#475569', marginTop: 6, fontStyle: 'italic' }}>
+      <p style={{ fontSize: 10, color: 'var(--ink-faint)', marginTop: 6, fontStyle: 'italic' }}>
         No zero residual found = no integer relation within this bound.
         Ball-Rivoal proves infinitely many{' '}<InlineMath tex={"\\zeta(2k+1)"} /> are{' '}
         <InlineMath tex={"\\mathbb{Q}"} />-linearly independent.
@@ -914,7 +915,7 @@ function LinearIndependenceTab({ maxOdd, numPrimes }) {
     }
 
     // Row/column labels
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = ED.series8;
     ctx.font = '10px var(--font-mono)';
     for (let i = 0; i < dim; i++) {
       // Row labels (left)
@@ -930,7 +931,7 @@ function LinearIndependenceTab({ maxOdd, numPrimes }) {
     }
 
     // Title
-    ctx.fillStyle = '#f59e0b';
+    ctx.fillStyle = ED.series4;
     ctx.font = 'bold 11px sans-serif';
     ctx.textAlign = 'left';
     ctx.fillText('Gram Matrix Heatmap', margin.left + 4, margin.top + 14);
@@ -939,7 +940,7 @@ function LinearIndependenceTab({ maxOdd, numPrimes }) {
     const detStr = data.determinant !== 0
       ? `det = ${data.determinant.toExponential(3)}`
       : 'det = 0 (DEPENDENT)';
-    const detColor = data.determinant !== 0 ? '#10b981' : '#ef4444';
+    const detColor = data.determinant !== 0 ? ED.series3 : ED.series2;
     ctx.fillStyle = detColor;
     ctx.font = 'bold 10px var(--font-mono)';
     ctx.textAlign = 'right';
@@ -968,11 +969,11 @@ function LinearIndependenceTab({ maxOdd, numPrimes }) {
       ctx.fillRect(barX, barY + barH - (s + 1) * (barH / barSteps), barW, barH / barSteps + 0.5);
     }
     // Color bar border
-    ctx.strokeStyle = '#334155';
+    ctx.strokeStyle = ED.rule;
     ctx.lineWidth = 1;
     ctx.strokeRect(barX, barY, barW, barH);
     // Color bar labels
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = ED.series8;
     ctx.font = '8px var(--font-mono)';
     ctx.textAlign = 'left';
     ctx.fillText(`+${maxAbs.toExponential(1)}`, barX + barW + 4, barY + 4);
@@ -991,20 +992,20 @@ function LinearIndependenceTab({ maxOdd, numPrimes }) {
   return (
     <div>
       <canvas ref={canvasRef}
-        style={{ width: '100%', height: 380, borderRadius: 8, background: '#0a0e1a', border: '1px solid #1e293b' }} />
+        style={{ width: '100%', height: 380, borderRadius: 8, background: 'var(--paper)', border: '1px solid var(--rule-soft)' }} />
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 8, marginTop: 12 }}>
         {[
-          { label: 'Dimension', value: `${data.dimension}`, color: '#f59e0b' },
-          { label: 'log10(det)', value: isFinite(data.logDeterminant) ? data.logDeterminant.toFixed(2) : '-\u221E', color: data.determinant !== 0 ? '#10b981' : '#ef4444' },
-          { label: 'Near Dependencies', value: `${data.nearDependencies.length}`, color: data.nearDependencies.length > 0 ? '#ef4444' : '#10b981' },
+          { label: 'Dimension', value: `${data.dimension}`, color: ED.brass },
+          { label: 'log10(det)', value: isFinite(data.logDeterminant) ? data.logDeterminant.toFixed(2) : '-\u221E', color: data.determinant !== 0 ? ED.series3 : ED.series2 },
+          { label: 'Near Dependencies', value: `${data.nearDependencies.length}`, color: data.nearDependencies.length > 0 ? ED.series2 : ED.series3 },
         ].map(m => (
           <div key={m.label} className="stat-box" style={{ padding: '8px 10px' }}>
             <div style={{ color: m.color, fontWeight: 700, fontSize: 14, fontFamily: 'var(--font-mono)' }}>{m.value}</div>
-            <div style={{ color: '#64748b', fontSize: 10, marginTop: 2 }}>{m.label}</div>
+            <div style={{ color: 'var(--ink-faint)', fontSize: 10, marginTop: 2 }}>{m.label}</div>
           </div>
         ))}
       </div>
-      <div style={{ marginTop: 12, padding: '10px 14px', background: '#0f1225', borderRadius: 6, fontSize: 11, color: '#94a3b8' }}>
+      <div style={{ marginTop: 12, padding: '10px 14px', background: 'var(--paper-2)', borderRadius: 6, fontSize: 11, color: 'var(--ink-soft)' }}>
         <p style={{ margin: '0 0 6px' }}>The Gram matrix uses the inner product:</p>
         <BlockMath tex={"\\langle \\zeta(m), \\zeta(n) \\rangle = \\sum_p \\frac{\\log p}{(p^m-1)(p^n-1)}"} />
         <p style={{ margin: '6px 0 0' }}>
@@ -1039,7 +1040,7 @@ function IrrationalityMeasureTab({ selectedN }) {
 
     const approxs = data.bestApproximations.filter(a => a.q > 1 && a.error > 0);
     if (approxs.length < 2) {
-      ctx.fillStyle = '#64748b';
+      ctx.fillStyle = ED.series8;
       ctx.font = '12px sans-serif';
       ctx.textAlign = 'center';
       ctx.fillText('Insufficient approximations', w / 2, h / 2);
@@ -1063,15 +1064,15 @@ function IrrationalityMeasureTab({ selectedN }) {
 
       ctx.beginPath();
       ctx.arc(x, y, 4, 0, Math.PI * 2);
-      ctx.fillStyle = '#ef4444';
+      ctx.fillStyle = ED.series2;
       ctx.fill();
-      ctx.strokeStyle = '#ef444480';
+      ctx.strokeStyle = alpha(ED.series2, 0.5);
       ctx.lineWidth = 1;
       ctx.stroke();
 
       // Label some points
       if (i === 0 || i === approxs.length - 1 || i % Math.max(1, Math.floor(approxs.length / 5)) === 0) {
-        ctx.fillStyle = '#94a3b8';
+        ctx.fillStyle = ED.series8;
         ctx.font = '8px var(--font-mono)';
         ctx.textAlign = 'left';
         ctx.fillText(`${a.p}/${a.q}`, x + 6, y - 2);
@@ -1101,12 +1102,12 @@ function IrrationalityMeasureTab({ selectedN }) {
 
       ctx.moveTo(x1, Math.max(margin.top, Math.min(h - margin.bottom, y1)));
       ctx.lineTo(x2, Math.max(margin.top, Math.min(h - margin.bottom, y2)));
-      ctx.strokeStyle = '#f59e0b';
+      ctx.strokeStyle = ED.brassDeco;
       ctx.lineWidth = 1.5;
       ctx.stroke();
       ctx.setLineDash([]);
 
-      ctx.fillStyle = '#f59e0b';
+      ctx.fillStyle = ED.series4;
       ctx.font = '10px var(--font-mono)';
       ctx.textAlign = 'right';
       const muLabel = data.aperyBound
@@ -1135,19 +1136,19 @@ function IrrationalityMeasureTab({ selectedN }) {
 
       ctx.moveTo(x1, Math.max(margin.top, Math.min(h - margin.bottom, y1)));
       ctx.lineTo(x2, Math.max(margin.top, Math.min(h - margin.bottom, y2)));
-      ctx.strokeStyle = '#10b98160';
+      ctx.strokeStyle = alpha(ED.series3, 0.38);
       ctx.lineWidth = 1;
       ctx.stroke();
       ctx.setLineDash([]);
 
-      ctx.fillStyle = '#10b981';
+      ctx.fillStyle = ED.series3;
       ctx.font = '9px var(--font-mono)';
       ctx.textAlign = 'right';
       ctx.fillText('\u03BC = 2 (all irrationals)', w - margin.right - 4, margin.top + 42);
     }
 
     // Y-axis tick labels
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.font = '9px var(--font-mono)';
     ctx.textAlign = 'right';
     for (let i = 0; i <= 5; i++) {
@@ -1155,17 +1156,17 @@ function IrrationalityMeasureTab({ selectedN }) {
       const y = margin.top + plotH - (i / 5) * plotH * 0.85 - plotH * 0.05;
       ctx.beginPath();
       ctx.setLineDash([2, 3]);
-      ctx.strokeStyle = '#1e293b';
+      ctx.strokeStyle = ED.ruleSoft;
       ctx.moveTo(margin.left, y);
       ctx.lineTo(w - margin.right, y);
       ctx.stroke();
       ctx.setLineDash([]);
-      ctx.fillStyle = '#64748b';
+      ctx.fillStyle = ED.series8;
       ctx.fillText(val.toFixed(1), margin.left - 6, y + 3);
     }
 
     // X-axis tick labels
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.font = '9px var(--font-mono)';
     ctx.textAlign = 'center';
     for (let i = 0; i <= 5; i++) {
@@ -1183,23 +1184,23 @@ function IrrationalityMeasureTab({ selectedN }) {
     ctx.restore();
 
     // Title
-    ctx.fillStyle = '#ef4444';
+    ctx.fillStyle = ED.series2;
     ctx.font = 'bold 11px sans-serif';
     ctx.textAlign = 'left';
     ctx.fillText(`Best Rational Approximations to \u03B6(${selectedN})`, margin.left + 4, margin.top + 14);
 
     // Legend
     const legendItems = [
-      { color: '#ef4444', label: 'Best approximations p/q', dash: false, dot: true },
-      { color: '#f59e0b', label: `Slope \u03BC ${data.aperyBound ? '\u2264 ' + mu.toFixed(3) + ' (known)' : '\u2248 ' + (mu || 0).toFixed(2) + ' (est.)'}`, dash: true, dot: false },
-      { color: '#10b981', label: '\u03BC = 2 (all irrationals)', dash: true, dot: false },
+      { color: ED.series2, label: 'Best approximations p/q', dash: false, dot: true },
+      { color: ED.brass, label: `Slope \u03BC ${data.aperyBound ? '\u2264 ' + mu.toFixed(3) + ' (known)' : '\u2248 ' + (mu || 0).toFixed(2) + ' (est.)'}`, dash: true, dot: false },
+      { color: ED.series3, label: '\u03BC = 2 (all irrationals)', dash: true, dot: false },
     ];
     const legendX = margin.left + 8;
     const legendY0 = h - margin.bottom - legendItems.length * 16 - 14;
     const legendW = 210;
     const legendH = legendItems.length * 16 + 8;
     ctx.fillStyle = 'rgba(10, 14, 26, 0.85)';
-    ctx.strokeStyle = '#1e293b';
+    ctx.strokeStyle = ED.ruleSoft;
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.roundRect(legendX, legendY0, legendW, legendH, 4);
@@ -1223,7 +1224,7 @@ function IrrationalityMeasureTab({ selectedN }) {
         ctx.stroke();
         ctx.setLineDash([]);
       }
-      ctx.fillStyle = '#94a3b8';
+      ctx.fillStyle = ED.series8;
       ctx.font = '9px var(--font-mono)';
       ctx.textAlign = 'left';
       ctx.fillText(item.label, lx + 20, ly + 3);
@@ -1250,21 +1251,21 @@ function IrrationalityMeasureTab({ selectedN }) {
         </div>
       </div>
       <canvas ref={canvasRef}
-        style={{ width: '100%', height: 340, borderRadius: 8, background: '#0a0e1a', border: '1px solid #1e293b' }} />
+        style={{ width: '100%', height: 340, borderRadius: 8, background: 'var(--paper)', border: '1px solid var(--rule-soft)' }} />
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 8, marginTop: 12 }}>
         {[
-          { label: `\u03B6(${selectedN})`, value: data.value?.toFixed(10) || 'N/A', color: '#ef4444' },
-          { label: '\u03BC Estimate', value: data.measureEstimate?.toFixed(2) || 'N/A', color: '#f59e0b' },
-          { label: 'Known Bound', value: data.aperyBound ? `\u2264 ${data.aperyBound}` : 'Unknown', color: data.aperyBound ? '#10b981' : '#64748b' },
-          { label: 'Irrational?', value: data.isProvenIrrational ? 'PROVEN' : 'Open', color: data.isProvenIrrational ? '#10b981' : '#f59e0b' },
+          { label: `\u03B6(${selectedN})`, value: data.value?.toFixed(10) || 'N/A', color: ED.series2 },
+          { label: '\u03BC Estimate', value: data.measureEstimate?.toFixed(2) || 'N/A', color: ED.brass },
+          { label: 'Known Bound', value: data.aperyBound ? `\u2264 ${data.aperyBound}` : 'Unknown', color: data.aperyBound ? ED.series3 : ED.inkFaint },
+          { label: 'Irrational?', value: data.isProvenIrrational ? 'PROVEN' : 'Open', color: data.isProvenIrrational ? ED.series3 : ED.brass },
         ].map(m => (
           <div key={m.label} className="stat-box" style={{ padding: '8px 10px' }}>
             <div style={{ color: m.color, fontWeight: 700, fontSize: 13, fontFamily: 'var(--font-mono)' }}>{m.value}</div>
-            <div style={{ color: '#64748b', fontSize: 10, marginTop: 2 }}>{m.label}</div>
+            <div style={{ color: 'var(--ink-faint)', fontSize: 10, marginTop: 2 }}>{m.label}</div>
           </div>
         ))}
       </div>
-      <div style={{ marginTop: 12, padding: '10px 14px', background: '#0f1225', borderRadius: 6, fontSize: 11, color: '#94a3b8' }}>
+      <div style={{ marginTop: 12, padding: '10px 14px', background: 'var(--paper-2)', borderRadius: 6, fontSize: 11, color: 'var(--ink-soft)' }}>
         The irrationality measure <InlineMath tex={"\\mu"} /> bounds how well <InlineMath tex={"\\zeta(n)"} /> can be
         approximated by rationals: <InlineMath tex={"|\\zeta(n) - p/q| > c/q^{\\mu}"} /> for large <InlineMath tex="q" />.
         {selectedN === 3 && (
@@ -1304,7 +1305,7 @@ export default function OddZetaViz() {
           <label>Selected n</label>
           <select value={selectedN} onChange={e => setSelectedN(+e.target.value)}
             style={{
-              background: '#1a1f36', color: '#e2e8f0', border: '1px solid #2a3050',
+              background: 'var(--paper-3)', color: 'var(--ink)', border: '1px solid var(--rule)',
               borderRadius: 6, padding: '4px 8px', fontSize: 13, fontFamily: 'var(--font-mono)',
             }}>
             {[3, 5, 7, 9, 11, 13, 15, 17, 19, 21].map(n => (
@@ -1317,14 +1318,14 @@ export default function OddZetaViz() {
           <input type="range" min="5" max="50" step="1" value={numPrimes}
             title="Number of primes in the Euler product — more primes improve accuracy of ζ(n) but convergence is already rapid for large odd n"
             onChange={e => setNumPrimes(+e.target.value)} />
-          <span className="control-value">{numPrimes} <span style={{ color: '#64748b', fontSize: 11 }}>(up to p={getPrimes(numPrimes)[numPrimes - 1]})</span></span>
+          <span className="control-value">{numPrimes} <span style={{ color: 'var(--ink-faint)', fontSize: 11 }}>(up to p={getPrimes(numPrimes)[numPrimes - 1]})</span></span>
         </div>
         {activeTab === 3 && (
           <div className="control-group">
             <label>Max Odd</label>
             <select value={maxOdd} onChange={e => setMaxOdd(+e.target.value)}
               style={{
-                background: '#1a1f36', color: '#e2e8f0', border: '1px solid #2a3050',
+                background: 'var(--paper-3)', color: 'var(--ink)', border: '1px solid var(--rule)',
                 borderRadius: 6, padding: '4px 8px', fontSize: 13, fontFamily: 'var(--font-mono)',
               }}>
               {[7, 9, 11, 13, 15, 17, 19, 21].map(n => (

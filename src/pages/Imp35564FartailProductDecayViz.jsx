@@ -4,6 +4,7 @@ import {
   IMP35564_LADDER,
   IMP35564_SUMMARY,
 } from '../data/imp-35564-eflow-fartail-product-decay-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 function LineChart({ series, yFormat, color, yTicks }) {
   const w = 720;
@@ -34,15 +35,15 @@ function LineChart({ series, yFormat, color, yTicks }) {
     <svg width={w} height={h} style={{ display: 'block', maxWidth: '100%' }}>
       {yTicks.map((t) => (
         <g key={t}>
-          <line x1={padL} x2={w - padR} y1={yPix(t)} y2={yPix(t)} stroke="#1e293b" strokeWidth={1} />
-          <text x={padL - 8} y={yPix(t) + 4} textAnchor="end" fill="#64748b" fontSize={10}>
+          <line x1={padL} x2={w - padR} y1={yPix(t)} y2={yPix(t)} stroke={ED.ruleSoft} strokeWidth={1} />
+          <text x={padL - 8} y={yPix(t) + 4} textAnchor="end" fill={ED.inkFaint} fontSize={10}>
             {yFormat(t)}
           </text>
         </g>
       ))}
-      <line x1={padL} x2={w - padR} y1={padT + plotH} y2={padT + plotH} stroke="#334155" strokeWidth={1} />
+      <line x1={padL} x2={w - padR} y1={padT + plotH} y2={padT + plotH} stroke={ED.rule} strokeWidth={1} />
       {series.map((r) => (
-        <text key={r.x} x={xPix(r.x)} y={h - 10} textAnchor="middle" fill="#64748b" fontSize={9}>
+        <text key={r.x} x={xPix(r.x)} y={h - 10} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
           10^{r.x}
         </text>
       ))}
@@ -62,7 +63,7 @@ export default function Imp35564FartailProductDecayViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="E_flow Far-Tail Remnant*logN Product Decay Ladder (imp-35564 / imp-35535)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-35535 tabulated the fd-vs-analytic remnant*log N product P(N) across N&nbsp;=&nbsp;
         1e26..1e200 on the closed surrogate channel and measured its local decay exponent
         q&nbsp;=&nbsp;d&nbsp;log&nbsp;P&nbsp;/&nbsp;d&nbsp;log&nbsp;x (x&nbsp;=&nbsp;log&nbsp;N).
@@ -71,23 +72,23 @@ export default function Imp35564FartailProductDecayViz() {
         away from zero across the full ladder.
       </p>
 
-      <h3 style={{ color: '#cbd5e1', fontSize: '0.9rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.9rem', marginBottom: '0.5rem' }}>
         Product P(N) = remnant &middot; log N
       </h3>
       <LineChart
         series={productSeries}
         yFormat={(t) => t.toFixed(3)}
-        color="#38bdf8"
+        color={ED.series1}
         yTicks={[0.02, 0.03, 0.04, 0.05, 0.06]}
       />
 
-      <h3 style={{ color: '#cbd5e1', fontSize: '0.9rem', margin: '1.75rem 0 0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.9rem', margin: '1.75rem 0 0.5rem' }}>
         Local decay exponent q = d log P / d log x
       </h3>
       <LineChart
         series={qSeries}
         yFormat={(t) => t.toFixed(2)}
-        color="#f472b6"
+        color={ED.series7}
         yTicks={[-0.8, -0.6, -0.4, -0.2, 0]}
       />
 
@@ -100,7 +101,7 @@ export default function Imp35564FartailProductDecayViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>N</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>remnant</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>product P(N)</th>
@@ -109,7 +110,7 @@ export default function Imp35564FartailProductDecayViz() {
         </thead>
         <tbody>
           {IMP35564_LADDER.map((row) => (
-            <tr key={row.log10N} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+            <tr key={row.log10N} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>10^{row.log10N}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>
                 {row.remnant.toExponential(4)}
@@ -125,7 +126,7 @@ export default function Imp35564FartailProductDecayViz() {
         </tbody>
       </table>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.8rem', marginTop: '1rem' }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.8rem', marginTop: '1rem' }}>
         Across all {IMP35564_SUMMARY.rungCount} rungs the product falls monotonically from{' '}
         {IMP35564_SUMMARY.productAt1e26.toFixed(6)} (N=1e26) to{' '}
         {IMP35564_SUMMARY.productAt1e200.toFixed(6)} (N=1e200) -- a{' '}
@@ -139,14 +140,14 @@ export default function Imp35564FartailProductDecayViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Measurement only:</strong> viz-data only, re-exporting
+        <strong style={{ color: 'var(--ink-soft)' }}>Measurement only:</strong> viz-data only, re-exporting
         the imp-35535 ladder verbatim; no new derivation, no bound changed. Measurement only on the
         inherited imp-3220/imp-3406 surrogate; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no
         bound, establishes no operator positivity, no RH verdict, NO QED.

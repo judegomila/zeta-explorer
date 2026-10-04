@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import { IMP3084_OFFDIAGONAL_GAP_DEGREE_SWEEP } from '../data/imp-3084-offdiagonal-gap-degree-sweep.js';
 import { IMP3104_ORTHOGONALIZED_OPNORM_DEGREE_SWEEP } from '../data/imp-3104-orthogonalized-opnorm-degree-sweep.js';
+import { ED, alpha } from '../styles/tokens.js';
 
 // Section-26 Conditioning Artifact — the raw monomial-basis ||R|| diverges
 // (imp-3084) purely because the monomial basis becomes ill-conditioned at high
@@ -58,21 +59,21 @@ function ConditioningArtifactChart() {
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
       {/* panel backgrounds */}
-      <rect x={padL} y={p1Top} width={cW} height={p1H} fill="rgba(194,58,28,0.05)" rx={2} />
-      <rect x={padL} y={p2Top} width={cW} height={p2H} fill="rgba(76,122,74,0.05)" rx={2} />
+      <rect x={padL} y={p1Top} width={cW} height={p1H} fill={alpha(ED.series2, 0.05)} rx={2} />
+      <rect x={padL} y={p2Top} width={cW} height={p2H} fill={alpha(ED.series3, 0.05)} rx={2} />
 
       {/* panel labels */}
-      <text x={padL + 7} y={p1Top + 15} fill="#c23a1c" fontSize={11} fontWeight="700">
+      <text x={padL + 7} y={p1Top + 15} fill={ED.accent} fontSize={11} fontWeight="700">
         RAW monomial basis: &nbsp;&parallel;R&parallel; DIVERGES
       </text>
-      <text x={padL + 7} y={p2Top + 15} fill="#4c7a4a" fontSize={11} fontWeight="700">
+      <text x={padL + 7} y={p2Top + 15} fill={ED.series3} fontSize={11} fontWeight="700">
         Basis-invariant &parallel;R_orth&parallel; CONVERGES to tanh(aU)
       </text>
 
       {/* shared vertical gridlines */}
       {degs.map((deg) => (
         <line key={deg} x1={xScale(deg)} y1={p1Top} x2={xScale(deg)} y2={p2Top + p2H}
-          stroke="#e3d8c2" strokeWidth={1} />
+          stroke={ED.ruleSoft} strokeWidth={1} />
       ))}
 
       {/* raw y-axis gridlines and labels */}
@@ -81,8 +82,8 @@ function ConditioningArtifactChart() {
         if (y < p1Top - 1 || y > p1Top + p1H + 1) return null;
         return (
           <g key={v}>
-            <line x1={padL} y1={y} x2={padL + cW} y2={y} stroke="#e3d8c2" strokeWidth={1} />
-            <text x={padL - 5} y={y + 3.5} textAnchor="end" fill="#877b67" fontSize={10}>{v}</text>
+            <line x1={padL} y1={y} x2={padL + cW} y2={y} stroke={ED.ruleSoft} strokeWidth={1} />
+            <text x={padL - 5} y={y + 3.5} textAnchor="end" fill={ED.inkFaint} fontSize={10}>{v}</text>
           </g>
         );
       })}
@@ -93,36 +94,36 @@ function ConditioningArtifactChart() {
         if (y < p2Top - 1 || y > p2Top + p2H + 1) return null;
         return (
           <g key={v}>
-            <line x1={padL} y1={y} x2={padL + cW} y2={y} stroke="#e3d8c2" strokeWidth={1} />
-            <text x={padL - 5} y={y + 3.5} textAnchor="end" fill="#877b67" fontSize={10}>{v.toFixed(2)}</text>
+            <line x1={padL} y1={y} x2={padL + cW} y2={y} stroke={ED.ruleSoft} strokeWidth={1} />
+            <text x={padL - 5} y={y + 3.5} textAnchor="end" fill={ED.inkFaint} fontSize={10}>{v.toFixed(2)}</text>
           </g>
         );
       })}
 
       {/* analytic ceiling tanh(aU) */}
       <line x1={padL} y1={ceilY} x2={padL + cW} y2={ceilY}
-        stroke="#3f6b86" strokeWidth={1.5} strokeDasharray="5 3" />
-      <text x={padL + cW - 4} y={ceilY - 4} textAnchor="end" fill="#3f6b86" fontSize={9.5}>
+        stroke={ED.series1} strokeWidth={1.5} strokeDasharray="5 3" />
+      <text x={padL + cW - 4} y={ceilY - 4} textAnchor="end" fill={ED.series1} fontSize={9.5}>
         tanh(aU)={TANH_CEILING.toFixed(5)}
       </text>
 
       {/* raw diverging path and dots */}
-      <path d={rawPath} fill="none" stroke="#c23a1c" strokeWidth={2.5} />
+      <path d={rawPath} fill="none" stroke={ED.accent} strokeWidth={2.5} />
       {rawSweep.map((r) => (
-        <circle key={r.degree} cx={xScale(r.degree)} cy={rawY(r.operatorNorm)} r={3.5} fill="#c23a1c" />
+        <circle key={r.degree} cx={xScale(r.degree)} cy={rawY(r.operatorNorm)} r={3.5} fill={ED.series2} />
       ))}
       {/* raw value labels at start and end */}
-      <text x={xScale(2) + 5} y={rawY(rawSweep[0].operatorNorm) - 5} fill="#c23a1c" fontSize={9.5}>
+      <text x={xScale(2) + 5} y={rawY(rawSweep[0].operatorNorm) - 5} fill={ED.accent} fontSize={9.5}>
         {rawSweep[0].operatorNorm.toFixed(2)}
       </text>
-      <text x={xScale(12) - 4} y={rawY(rawSweep[rawSweep.length - 1].operatorNorm) - 5} textAnchor="end" fill="#c23a1c" fontSize={9.5}>
+      <text x={xScale(12) - 4} y={rawY(rawSweep[rawSweep.length - 1].operatorNorm) - 5} textAnchor="end" fill={ED.accent} fontSize={9.5}>
         {rawSweep[rawSweep.length - 1].operatorNorm.toFixed(2)}
       </text>
 
       {/* orthogonalized converging path and dots (valid) */}
-      <path d={orthPath} fill="none" stroke="#4c7a4a" strokeWidth={2.5} />
+      <path d={orthPath} fill="none" stroke={ED.series3} strokeWidth={2.5} />
       {validOrth.map((r) => (
-        <circle key={r.degree} cx={xScale(r.degree)} cy={orthY(r.operatorNormGS)} r={3.5} fill="#4c7a4a" />
+        <circle key={r.degree} cx={xScale(r.degree)} cy={orthY(r.operatorNormGS)} r={3.5} fill={ED.series3} />
       ))}
 
       {/* ill-conditioned ghost dots */}
@@ -130,8 +131,8 @@ function ConditioningArtifactChart() {
         const cy = Math.min(orthY(Math.max(r.operatorNormGS, yMinOrth)), p2Top + p2H);
         return (
           <g key={r.degree}>
-            <circle cx={xScale(r.degree)} cy={cy} r={4} fill="none" stroke="#877b67" strokeWidth={1.5} strokeDasharray="2 1.5" />
-            <text x={xScale(r.degree)} y={p2Top + p2H - 4} textAnchor="middle" fill="#877b67" fontSize={8.5}>
+            <circle cx={xScale(r.degree)} cy={cy} r={4} fill="none" stroke={ED.rule} strokeWidth={1.5} strokeDasharray="2 1.5" />
+            <text x={xScale(r.degree)} y={p2Top + p2H - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={8.5}>
               ill-cond.
             </text>
           </g>
@@ -141,11 +142,11 @@ function ConditioningArtifactChart() {
       {/* orth value labels at start and end (valid range) */}
       {validOrth.length > 0 && (
         <>
-          <text x={xScale(validOrth[0].degree) + 5} y={orthY(validOrth[0].operatorNormGS) - 5} fill="#4c7a4a" fontSize={9.5}>
+          <text x={xScale(validOrth[0].degree) + 5} y={orthY(validOrth[0].operatorNormGS) - 5} fill={ED.series3} fontSize={9.5}>
             {validOrth[0].operatorNormGS.toFixed(5)}
           </text>
           <text x={xScale(validOrth[validOrth.length - 1].degree) - 4}
-            y={orthY(validOrth[validOrth.length - 1].operatorNormGS) - 5} textAnchor="end" fill="#4c7a4a" fontSize={9.5}>
+            y={orthY(validOrth[validOrth.length - 1].operatorNormGS) - 5} textAnchor="end" fill={ED.series3} fontSize={9.5}>
             {validOrth[validOrth.length - 1].operatorNormGS.toFixed(5)}
           </text>
         </>
@@ -153,17 +154,17 @@ function ConditioningArtifactChart() {
 
       {/* x-axis tick labels */}
       {degs.map((deg) => (
-        <text key={deg} x={xScale(deg)} y={p2Top + p2H + 14} textAnchor="middle" fill="#877b67" fontSize={10}>
+        <text key={deg} x={xScale(deg)} y={p2Top + p2H + 14} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
           {deg}
         </text>
       ))}
-      <text x={padL + cW / 2} y={p2Top + p2H + 27} textAnchor="middle" fill="#877b67" fontSize={10}>
+      <text x={padL + cW / 2} y={p2Top + p2H + 27} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         Truncation degree DEG
       </text>
 
       {/* panel borders */}
-      <rect x={padL} y={p1Top} width={cW} height={p1H} fill="none" stroke="#d5c9b2" strokeWidth={1} />
-      <rect x={padL} y={p2Top} width={cW} height={p2H} fill="none" stroke="#d5c9b2" strokeWidth={1} />
+      <rect x={padL} y={p1Top} width={cW} height={p1H} fill="none" stroke={ED.rule} strokeWidth={1} />
+      <rect x={padL} y={p2Top} width={cW} height={p2H} fill="none" stroke={ED.rule} strokeWidth={1} />
     </svg>
   );
 }
@@ -248,7 +249,7 @@ export default function Section26ConditioningArtifactPage() {
             DEG&#x2265;11 rows break down due to near-singular P &mdash; measuring finite-precision
             failure, not the operator.
           </p>
-          <div style={{ background: 'rgba(76,122,74,0.08)', border: '1px solid rgba(76,122,74,0.28)', borderRadius: 6, padding: '8px 12px', marginTop: 10 }}>
+          <div style={{ background: 'color-mix(in srgb, var(--series-3) 8%, transparent)', border: '1px solid color-mix(in srgb, var(--series-3) 28%, transparent)', borderRadius: 6, padding: '8px 12px', marginTop: 10 }}>
             <span style={{ color: 'var(--green)', fontWeight: 700, fontSize: 11 }}>KEY RESULT:</span>
             <span style={{ color: 'var(--ink-soft)', fontSize: 12 }}>
               {' '}The scalar-cosh-core ceiling is tanh(aU) = tanh(3) &#x2248; {TANH_CEILING.toFixed(5)} &lt; 1.
@@ -269,7 +270,7 @@ export default function Section26ConditioningArtifactPage() {
             The gap peaks only near the golden-ratio cell (imp-3146 maximum &#x3c6;&#x207b;&#x2075;&#x2044;&#x00b2;).
             For the headline cell (s=3): tanh(3)&#x2212;tanh(1.5)&#x2248;{(Math.tanh(3) - Math.tanh(1.5)).toFixed(4)}.
           </p>
-          <div style={{ background: 'rgba(181,138,46,0.10)', border: '1px solid rgba(181,138,46,0.32)', borderRadius: 6, padding: '8px 12px', marginTop: 10 }}>
+          <div style={{ background: 'color-mix(in srgb, var(--brass-deco) 10%, transparent)', border: '1px solid color-mix(in srgb, var(--brass-deco) 32%, transparent)', borderRadius: 6, padding: '8px 12px', marginTop: 10 }}>
             <span style={{ color: 'var(--brass-dk)', fontWeight: 700, fontSize: 11 }}>CORRECTION:</span>
             <span style={{ color: 'var(--ink-soft)', fontSize: 12 }}>
               {' '}The raw-basis divergence (&#x2016;R&#x2016; growing 1.79&#x2192;10.8) creates a false impression

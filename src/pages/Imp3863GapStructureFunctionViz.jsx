@@ -8,6 +8,7 @@ import {
   IMP3863_C_RAW_1,
   IMP3863_C_UNFOLDED_1,
 } from '../data/imp-3863-gap-structure-function-s2-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 // log10(r) axis, r = 1 .. 131072; both profiles plotted normalized to their own
 // large-r plateau (S_2(r) / plateau) so the raw and unfolded shapes overlay cleanly.
@@ -44,41 +45,41 @@ function GapStructureFunctionChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
       {yTicks.map((v) => (
         <g key={v}>
-          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke="#1e293b" strokeWidth={0.7} />
-          <text x={padL - 4} y={yS(v) + 3.5} textAnchor="end" fill="#475569" fontSize={9}>
+          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke={ED.ruleSoft} strokeWidth={0.7} />
+          <text x={padL - 4} y={yS(v) + 3.5} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v.toFixed(1)}
           </text>
         </g>
       ))}
 
       {/* decorrelation plateau: S_2(r)/plateau -> 1 */}
-      <line x1={padL} y1={yS(1)} x2={padL + cW} y2={yS(1)} stroke="#f472b6" strokeWidth={1.2} strokeDasharray="4,3" />
-      <text x={padL + 4} y={yS(1) - 5} fill="#f9a8d4" fontSize={8.5}>
+      <line x1={padL} y1={yS(1)} x2={padL + cW} y2={yS(1)} stroke={ED.series7} strokeWidth={1.2} strokeDasharray="4,3" />
+      <text x={padL + 4} y={yS(1) - 5} fill={ED.series7} fontSize={8.5}>
         large-r plateau (S<tspan fontSize={6.5} dy={2}>2</tspan><tspan dy={-2}>(r)/plateau = 1)</tspan>
       </text>
 
-      <path d={unfPath} fill="none" stroke="#38bdf8" strokeWidth={2.4} />
-      <path d={rawPath} fill="none" stroke="#facc15" strokeWidth={2} strokeDasharray="1,0" opacity={0.9} />
+      <path d={unfPath} fill="none" stroke={ED.series1} strokeWidth={2.4} />
+      <path d={rawPath} fill="none" stroke={ED.brassDeco} strokeWidth={2} strokeDasharray="1,0" opacity={0.9} />
 
       {/* r = 1 level-repulsion markers */}
-      <circle cx={xS(1)} cy={yS(IMP3863_S2_RAW_POINTS[0].v / IMP3863_PLATEAU_RAW)} r={4} fill="#facc15" />
-      <circle cx={xS(1)} cy={yS(IMP3863_S2_UNFOLDED_POINTS[0].v / IMP3863_PLATEAU_UNFOLDED)} r={4} fill="#38bdf8" />
+      <circle cx={xS(1)} cy={yS(IMP3863_S2_RAW_POINTS[0].v / IMP3863_PLATEAU_RAW)} r={4} fill={ED.brassDeco} />
+      <circle cx={xS(1)} cy={yS(IMP3863_S2_UNFOLDED_POINTS[0].v / IMP3863_PLATEAU_UNFOLDED)} r={4} fill={ED.series1} />
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
 
       {xTicks.map((r) => (
         <g key={'x' + r}>
-          <line x1={xS(r)} y1={padT + cH} x2={xS(r)} y2={padT + cH + 5} stroke="#334155" strokeWidth={1} />
-          <text x={xS(r)} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={9}>
+          <line x1={xS(r)} y1={padT + cH} x2={xS(r)} y2={padT + cH + 5} stroke={ED.rule} strokeWidth={1} />
+          <text x={xS(r)} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
             {r}
           </text>
         </g>
       ))}
-      <text x={padL + cW / 2} y={padT + cH + 34} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={padT + cH + 34} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         separation r (log scale)
       </text>
 
@@ -86,7 +87,7 @@ function GapStructureFunctionChart() {
         x={12}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={'rotate(-90,12,' + (padT + cH / 2) + ')'}
       >
@@ -94,12 +95,12 @@ function GapStructureFunctionChart() {
       </text>
 
       <g>
-        <circle cx={padL + cW - 150} cy={padT + 14} r={4} fill="#38bdf8" />
-        <text x={padL + cW - 142} y={padT + 17} fill="#94a3b8" fontSize={9}>
+        <circle cx={padL + cW - 150} cy={padT + 14} r={4} fill={ED.series1} />
+        <text x={padL + cW - 142} y={padT + 17} fill={ED.inkSoft} fontSize={9}>
           unfolded (C_unf(1) = {IMP3863_C_UNFOLDED_1.toFixed(3)})
         </text>
-        <circle cx={padL + cW - 150} cy={padT + 28} r={4} fill="#facc15" />
-        <text x={padL + cW - 142} y={padT + 31} fill="#94a3b8" fontSize={9}>
+        <circle cx={padL + cW - 150} cy={padT + 28} r={4} fill={ED.brassDeco} />
+        <text x={padL + cW - 142} y={padT + 31} fill={ED.inkSoft} fontSize={9}>
           raw (C_raw(1) = {IMP3863_C_RAW_1.toFixed(3)})
         </text>
       </g>
@@ -112,7 +113,7 @@ export default function Imp3863GapStructureFunctionViz() {
     <div style={{ padding: '1.5rem', maxWidth: 940, margin: '0 auto' }}>
       <PageHeader title="Equal-Time Gap Structure Function S_2(r): Level-Repulsion then Decorrelation (imp-3734 / imp-3863)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-3734 measured the imp-3714 candidate-K3 equal-time two-point structure function
         S_2(r) = mean_k (g_{'{'}k+r{'}'} - g_k)^2 on the first 1,000,000 Riemann-zero gaps, for both
         the raw gap field and the drift-removed unfolded field. The chart below normalizes each
@@ -122,7 +123,7 @@ export default function Imp3863GapStructureFunctionViz() {
         where S_2(r) &asymp; 2*var as r grows.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         S_2(r) / plateau vs r (log scale), r = 1..131072: raw (gold) and unfolded (blue) profiles,
         both peaking at r=1 and relaxing to the plateau at 1.0
       </p>
@@ -132,14 +133,14 @@ export default function Imp3863GapStructureFunctionViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> at r = 1 both profiles sit
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> at r = 1 both profiles sit
         roughly 35% above their large-r plateau (raw 0.16218 vs plateau &asymp; 0.11991, unfolded
         0.44580 vs plateau &asymp; 0.33007). Via S_2(r) = 2 var [1 - C(r)] this is a NEGATIVE lag-1
         autocorrelation -- C_raw(1) = -0.258, C_unf(1) = -0.350 -- consecutive gaps repel rather
@@ -154,14 +155,14 @@ export default function Imp3863GapStructureFunctionViz() {
         style={{
           marginTop: '1rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement/visualization only
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> measurement/visualization only
         -- no proof, no reduction below RH. S_2(r) is a purely equal-time statistic: it clears
         REQ-i (a genuine two-point profile) but attaches no backward-flow depth s(y) and so fails
         REQ-ii, confirming the imp-3714 K3 near-miss classification empirically. imp-3066 off-diagonal

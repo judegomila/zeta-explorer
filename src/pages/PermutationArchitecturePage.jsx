@@ -21,6 +21,7 @@ import { PERM_ARCH_SIEVE_UNIVERSALITY } from '../data/perm-arch-sieve-universali
 import { IMP95519_LOCALIZED_BARRIER_SUM_NOGO } from '../data/imp-95519-localized-barrier-sum-prime-zero-nogo.js';
 import { IMP95564_EFFECTIVE_ABSCISSA_AUDIT } from '../data/imp-95564-effective-abscissa-provenance-audit.js';
 import { IMP95604_MEANSQUARE_POINTWISE_UPGRADE } from '../data/imp-95604-meansquare-pointwise-upgrade-foreclosure.js';
+import { ED } from '../styles/tokens.js';
 
 /* Permutation Architecture — the typed freeze calculus for the zeta twin ladder,
    the strict Λ ≤ 0.14 completion contract, and the one open family. Sourced
@@ -43,12 +44,12 @@ const COMPONENTS = [
 ];
 
 const STATUS_META = {
-  E: { color: '#4c7a4a', label: 'E — exact theorem / identity' },
-  'E-local': { color: '#4c7a4a', label: 'E locally; bounds open' },
-  A: { color: '#3f6b86', label: 'A — auxiliary abstraction' },
-  C: { color: '#b58a2e', label: 'C — proved implication, open antecedent' },
-  O: { color: '#6d55b8', label: 'O — unproved construction' },
-  irreversible: { color: '#c23a1c', label: 'irreversible' },
+  E: { color: ED.series3, label: 'E — exact theorem / identity' },
+  'E-local': { color: ED.series3, label: 'E locally; bounds open' },
+  A: { color: ED.series1, label: 'A — auxiliary abstraction' },
+  C: { color: ED.brass, label: 'C — proved implication, open antecedent' },
+  O: { color: ED.series5, label: 'O — unproved construction' },
+  irreversible: { color: ED.accent, label: 'irreversible' },
 };
 
 // The five alternative sufficient gates (§4.8) — different exact decompositions.
@@ -119,9 +120,9 @@ function EnvelopeComparisonChart() {
   const yS = (v) => padT + cH * (1 - (logT(v) - yMin) / (yMax - yMin));
 
   const series = [
-    { key: 'twoWindow', color: '#b58a2e', label: 'two-window (seventeenth)' },
-    { key: 'threeWindow', color: '#3f6b86', label: 'three-window (eighteenth)' },
-    { key: 'exact', color: '#c23a1c', label: 'exact closed form (nineteenth)' },
+    { key: 'twoWindow', color: ED.brass, label: 'two-window (seventeenth)' },
+    { key: 'threeWindow', color: ED.series1, label: 'three-window (eighteenth)' },
+    { key: 'exact', color: ED.accent, label: 'exact closed form (nineteenth)' },
   ];
 
   return (
@@ -182,8 +183,8 @@ function OscillationRegimeMapChart() {
   const BATCHING_L_KILL = 1e-2;
   const { smooth, raw } = IMP95011_GATE2_OSCILLATION_PROBE.regimeMap;
   const rows = [
-    { label: 'smooth (phase ~ √N)', L: smooth.surrogateMaxL, color: '#4c7a4a', survives: smooth.batchingSurvives },
-    { label: 'raw (phase ~ N)', L: raw.surrogateMaxL, color: '#c23a1c', survives: raw.batchingSurvives },
+    { label: 'smooth (phase ~ √N)', L: smooth.surrogateMaxL, color: ED.series3, survives: smooth.batchingSurvives },
+    { label: 'raw (phase ~ N)', L: raw.surrogateMaxL, color: ED.accent, survives: raw.batchingSurvives },
   ];
   const logMin = Math.log10(1e-5);
   const logMax = Math.log10(1.5);
@@ -282,9 +283,9 @@ function FarCeilingLeverScanChart() {
                   <text x={xS(p.breakX)} y={padT - 2} textAnchor="middle" fontFamily="var(--ed-mono)" fontSize="8.5" fill="var(--terra-dk)">s*</text>
                 </>
               )}
-              <polyline points={points} fill="none" stroke="#3f6b86" strokeWidth={1.75} />
+              <polyline points={points} fill="none" stroke={ED.series1} strokeWidth={1.75} />
               {xs.map((x, i) => (
-                <circle key={x} cx={xS(x)} cy={yS(ys[i])} r={p.modelX === x ? 3 : 1.6} fill={p.modelX === x ? '#c23a1c' : '#3f6b86'} />
+                <circle key={x} cx={xS(x)} cy={yS(ys[i])} r={p.modelX === x ? 3 : 1.6} fill={p.modelX === x ? ED.series2 : ED.series1} />
               ))}
               <text x={padL} y={padT + cH + 16} fontFamily="var(--ed-mono)" fontSize="9" fill="var(--faint)">{xMin.toFixed(2)}</text>
               <text x={padL + cW} y={padT + cH + 16} textAnchor="end" fontFamily="var(--ed-mono)" fontSize="9" fill="var(--faint)">{xMax.toFixed(2)}</text>
@@ -292,7 +293,7 @@ function FarCeilingLeverScanChart() {
               <text x={2} y={padT + cH} fontFamily="var(--ed-mono)" fontSize="8.5" fill="var(--faint)">0</text>
             </svg>
             <p style={{ fontSize: 11.5, color: 'var(--faint)', textAlign: 'center', margin: '2px 0 0' }}>
-              c<sub>Far</sub> vs {p.label} <span style={{ color: '#c23a1c' }}>● model point</span>
+              c<sub>Far</sub> vs {p.label} <span style={{ color: 'var(--accent)' }}>● model point</span>
             </p>
           </div>
         );
@@ -342,7 +343,7 @@ function FourLeverElasticityTornadoChart() {
         const barW = Math.abs(r.elasticity) * xScale;
         const neg = r.elasticity < 0;
         const x = neg ? cx - barW : cx;
-        const color = neg ? '#c23a1c' : '#3f6b86';
+        const color = neg ? ED.accent : ED.series1;
         return (
           <g key={r.lever}>
             <text x={cx} y={y + 12} textAnchor="middle" fontFamily="var(--ed-mono)" fontSize="11" fill="var(--ink)">
@@ -392,7 +393,7 @@ function TransferRegimeBandChart() {
             top: 0,
             bottom: 0,
             right: 0,
-            background: 'linear-gradient(90deg, #c98a2c 0%, #3f6b86 100%)',
+            background: 'linear-gradient(90deg, var(--brass-deco) 0%, var(--series-1) 100%)',
           }}
         />
         {rows.map((r) => (
@@ -412,8 +413,8 @@ function TransferRegimeBandChart() {
       </div>
       <div style={{ display: 'flex', gap: 18, flexWrap: 'wrap', fontSize: 12, color: 'var(--ink-soft)', margin: '10px 0 0' }}>
         <span><span style={{ display: 'inline-block', width: 10, height: 10, background: 'var(--terra-dk)', marginRight: 6, borderRadius: 2 }} />BREAKS (s &lt; s*): exact-substitution proof invalid, falls back to eighteenth-window envelope</span>
-        <span><span style={{ display: 'inline-block', width: 10, height: 10, background: '#c98a2c', marginRight: 6, borderRadius: 2 }} />DEGRADES (s near s*): ledger factor ~4.48x at s=3</span>
-        <span><span style={{ display: 'inline-block', width: 10, height: 10, background: '#3f6b86', marginRight: 6, borderRadius: 2 }} />TRANSFERS (s large): ledger factor up to ~14.72x at s=11</span>
+        <span><span style={{ display: 'inline-block', width: 10, height: 10, background: 'var(--brass-deco)', marginRight: 6, borderRadius: 2 }} />DEGRADES (s near s*): ledger factor ~4.48x at s=3</span>
+        <span><span style={{ display: 'inline-block', width: 10, height: 10, background: 'var(--series-1)', marginRight: 6, borderRadius: 2 }} />TRANSFERS (s large): ledger factor up to ~14.72x at s=11</span>
       </div>
     </div>
   );
@@ -451,23 +452,23 @@ function JointNearFarParetoChart() {
     >
       <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="var(--hairline)" strokeWidth={1} />
       {/* out-of-class region, alpha > 1 (cNear > 2) */}
-      <rect x={xS(aMin)} y={padT} width={cW} height={cH} fill="#c23a1c" opacity={0.08} />
+      <rect x={xS(aMin)} y={padT} width={cW} height={cH} fill={ED.series2} opacity={0.08} />
       <text x={xS(1.5)} y={padT + 14} textAnchor="middle" fontFamily="var(--ed-mono)" fontSize="9" fill="var(--terra-dk)">
         out-of-class (c&#8345;&#8360;&#8340;&#8342; &gt; 2)
       </text>
       {/* bracket-class boundary at alpha = 1 */}
       <line x1={xS(1)} y1={padT} x2={xS(1)} y2={padT + cH} stroke="var(--terra-dk)" strokeWidth={1.5} strokeDasharray="3,3" />
-      <polyline points={points} fill="none" stroke="#3f6b86" strokeWidth={1.75} />
+      <polyline points={points} fill="none" stroke={ED.series1} strokeWidth={1.75} />
       {paretoLine.map((p) => (
         <circle
           key={p.alpha}
           cx={xS(p.alpha)}
           cy={yS(p.beta)}
           r={p.alpha === 1 ? 3.5 : 1.8}
-          fill={p.alpha === 1 ? '#c23a1c' : '#3f6b86'}
+          fill={p.alpha === 1 ? ED.series2 : ED.series1}
         />
       ))}
-      <text x={xS(1)} y={padT - 6} textAnchor="middle" fontFamily="var(--ed-mono)" fontSize="9" fill="#c23a1c">
+      <text x={xS(1)} y={padT - 6} textAnchor="middle" fontFamily="var(--ed-mono)" fontSize="9" fill={ED.accent}>
         alpha=1, beta=lambda_max
       </text>
       {/* axis labels */}
@@ -534,17 +535,17 @@ function SlabGeometryChart() {
         {/* tail lane, u >= X+1 */}
         <rect x={boxX1} y={boxYTop} width={xU(uMax) - boxX1} height={boxYBot - boxYTop} fill="var(--paper2)" stroke="none" />
         {/* the box [X, X+1] x [y*, 1] */}
-        <rect x={boxX0} y={boxYTop} width={boxX1 - boxX0} height={boxYBot - boxYTop} fill="#3f6b86" opacity={0.16} stroke="#3f6b86" strokeWidth={1.5} />
+        <rect x={boxX0} y={boxYTop} width={boxX1 - boxX0} height={boxYBot - boxYTop} fill={ED.series1} opacity={0.16} stroke={ED.series1} strokeWidth={1.5} />
         {/* Lemma 4.4 wedge: interpolates from the box interior out to u = X+1, narrowing toward v = y* */}
         <polygon
           points={`${xU(0.55)},${boxYTop} ${boxX1},${boxYTop} ${boxX1},${boxYBot} ${xU(0.55)},${boxYBot}`}
-          fill="#b58a2e"
+          fill={ED.brassDeco}
           opacity={0.22}
         />
-        <line x1={xU(0.55)} y1={boxYTop} x2={boxX1} y2={boxYTop} stroke="#b58a2e" strokeWidth={1.5} strokeDasharray="4,3" />
-        <line x1={xU(0.55)} y1={boxYBot} x2={boxX1} y2={boxYBot} stroke="#b58a2e" strokeWidth={1.5} strokeDasharray="4,3" />
+        <line x1={xU(0.55)} y1={boxYTop} x2={boxX1} y2={boxYTop} stroke={ED.brassDeco} strokeWidth={1.5} strokeDasharray="4,3" />
+        <line x1={xU(0.55)} y1={boxYBot} x2={boxX1} y2={boxYBot} stroke={ED.brassDeco} strokeWidth={1.5} strokeDasharray="4,3" />
         {/* short final join: narrow seam strip right at u = X+1 */}
-        <rect x={boxX1 - 3} y={boxYTop} width={xU(1.18) - boxX1 + 3} height={boxYBot - boxYTop} fill="#c23a1c" opacity={0.3} />
+        <rect x={boxX1 - 3} y={boxYTop} width={xU(1.18) - boxX1 + 3} height={boxYBot - boxYTop} fill={ED.series2} opacity={0.3} />
         {/* y* boundary line, carried across the whole diagram */}
         <line x1={padL} y1={boxYBot} x2={xU(uMax)} y2={boxYBot} stroke="var(--faint)" strokeWidth={1} strokeDasharray="2,3" />
         <text x={padL - 4} y={boxYBot + 3} textAnchor="end" fontFamily="var(--ed-mono)" fontSize="9.5" fill="var(--faint)">y*</text>
@@ -553,9 +554,9 @@ function SlabGeometryChart() {
         <text x={boxX0} y={boxYBot + 16} textAnchor="middle" fontFamily="var(--ed-mono)" fontSize="9.5" fill="var(--ink-soft)">X</text>
         <text x={boxX1} y={boxYBot + 16} textAnchor="middle" fontFamily="var(--ed-mono)" fontSize="9.5" fill="var(--ink-soft)">X+1</text>
         {/* labels */}
-        <text x={xU(0.28)} y={boxYTop - 5} textAnchor="middle" fontFamily="var(--ed-mono)" fontSize="10" fill="#3f6b86">box: H_τ ≠ 0, τ∈[0,t*]</text>
-        <text x={xU(0.7)} y={boxYBot + 16} textAnchor="middle" fontFamily="var(--ed-mono)" fontSize="9.5" fill="#8a6a1c">Lemma 4.4 wedge → τ=t*</text>
-        <text x={xU(1.18)} y={boxYTop - 5} textAnchor="middle" fontFamily="var(--ed-mono)" fontSize="9.5" fill="#c23a1c">short join</text>
+        <text x={xU(0.28)} y={boxYTop - 5} textAnchor="middle" fontFamily="var(--ed-mono)" fontSize="10" fill={ED.series1}>box: H_τ ≠ 0, τ∈[0,t*]</text>
+        <text x={xU(0.7)} y={boxYBot + 16} textAnchor="middle" fontFamily="var(--ed-mono)" fontSize="9.5" fill={ED.brass}>Lemma 4.4 wedge → τ=t*</text>
+        <text x={xU(1.18)} y={boxYTop - 5} textAnchor="middle" fontFamily="var(--ed-mono)" fontSize="9.5" fill={ED.accent}>short join</text>
         <text x={xU(1.9)} y={(boxYTop + boxYBot) / 2 + 3} textAnchor="middle" fontFamily="var(--ed-mono)" fontSize="10" fill="var(--faint)">tail lane (imp-95047)</text>
       </svg>
       <p style={{ fontSize: 11.5, color: 'var(--faint)', textAlign: 'center', margin: '2px 0 0' }}>
@@ -1302,7 +1303,7 @@ export default function PermutationArchitecturePage() {
                               title={val ? `K(${b},${bp}) = ${val}` : `K(${b},${bp}) = 0 (diagonal)`}
                               style={{
                                 width: 88, height: 52, display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                fontSize: 10.5, color: val ? (c.t > 0.45 ? '#fdfaf3' : 'var(--ink)') : 'var(--faint)',
+                                fontSize: 10.5, color: val ? (c.t > 0.45 ? 'var(--paper)' : 'var(--ink)') : 'var(--faint)',
                                 background: val ? c.bg : 'var(--paper2)',
                                 border: isDominant ? '2px solid var(--terra-dk)' : '1px solid var(--hairline)',
                                 boxSizing: 'border-box',
@@ -1364,7 +1365,7 @@ export default function PermutationArchitecturePage() {
             <JointNearFarParetoChart />
             <p style={{ fontSize: 11.5, color: 'var(--faint)', textAlign: 'center', margin: '4px 0 0' }}>
               β(α) = K(0,2)(2 − α), two-block model{' '}
-              <span style={{ color: '#c23a1c' }}>● in-class endpoint (α=1)</span>
+              <span style={{ color: 'var(--accent)' }}>● in-class endpoint (α=1)</span>
             </p>
           </div>
         </div>
@@ -1426,7 +1427,7 @@ export default function PermutationArchitecturePage() {
                 <tr key={f} style={{ borderTop: '1px solid var(--hairline)', color: 'var(--ink-soft)' }}>
                   <td style={{ padding: '7px 12px', color: 'var(--ink)', fontWeight: 600 }}>{f}</td>
                   <td style={{ padding: '7px 12px' }}>{inv}</td>
-                  <td style={{ padding: '7px 12px', fontWeight: /POSSIBLE|FORBIDDEN/.test(c) ? 600 : 400, color: /POSSIBLE/.test(c) ? '#4c7a4a' : /FORBIDDEN/.test(c) ? '#c23a1c' : undefined }}>{c}</td>
+                  <td style={{ padding: '7px 12px', fontWeight: /POSSIBLE|FORBIDDEN/.test(c) ? 600 : 400, color: /POSSIBLE/.test(c) ? 'var(--series-3)' : /FORBIDDEN/.test(c) ? 'var(--accent)' : undefined }}>{c}</td>
                 </tr>
               ))}
             </tbody>

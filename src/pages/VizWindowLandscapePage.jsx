@@ -13,6 +13,7 @@ import {
   ZOOM_E97_S0,
 } from '../data/viz-window1-landscape-data.js';
 import { CERTIFIED_SLICE } from '../data/imp-95213-tier-certifier-build.js';
+import { ED } from '../styles/tokens.js';
 
 /* /viz-window-landscape — the REAL first-window landscape. ACCURACY RULE:
    every plotted sample is a real dd evaluation of the frozen Gate-2 spec
@@ -44,7 +45,7 @@ function envelopePaths(series) {
   };
 }
 
-const COLORS = { pilot: '#3f6b86', e97: '#c23a1c' };
+const COLORS = { pilot: ED.series1, e97: ED.series2 };
 
 export default function VizWindowLandscapePage() {
   const [side, setSide] = useState(0);
@@ -150,16 +151,16 @@ export default function VizWindowLandscapePage() {
               y={PAD.t}
               width={Math.max(2.5, xOfW(CERTIFIED_SLICE.wHi) - xOfW(CERTIFIED_SLICE.wLo))}
               height={CH}
-              fill="#4c7a4a"
+              fill={ED.series3}
               opacity="0.22"
             />
-            <text x={xOfW(CERTIFIED_SLICE.wHi) + 6} y={H - PAD.b - 10} style={{ font: '600 9.5px "IBM Plex Mono", monospace' }} fill="#4c7a4a" stroke="#fdfaf3" strokeWidth="3" paintOrder="stroke">
+            <text x={xOfW(CERTIFIED_SLICE.wHi) + 6} y={H - PAD.b - 10} style={{ font: '600 9.5px "IBM Plex Mono", monospace' }} fill={ED.series3} stroke={ED.paper} strokeWidth="3" paintOrder="stroke">
               ↑ interval-CERTIFIED slice u ∈ [{CERTIFIED_SLICE.uLo}, {CERTIFIED_SLICE.uHi}] — 0.058% of the window, both charts, 6.7e6 Taylor cells, 0 failures
             </text>
 
             {/* Rex line */}
             <line x1={PAD.l} y1={yOfV(rex)} x2={W - PAD.r} y2={yOfV(rex)} stroke="var(--ink)" strokeWidth="1.4" strokeDasharray="6 4" />
-            <text x={W - PAD.r - 4} y={yOfV(rex) - 5} textAnchor="end" style={{ font: '600 10.5px "IBM Plex Mono", monospace' }} fill="var(--ink)" stroke="#fdfaf3" strokeWidth="3" paintOrder="stroke">
+            <text x={W - PAD.r - 4} y={yOfV(rex) - 5} textAnchor="end" style={{ font: '600 10.5px "IBM Plex Mono", monospace' }} fill="var(--ink)" stroke={ED.paper} strokeWidth="3" paintOrder="stroke">
               Rex = {rex} (eq. 19 — the strict target every sample must stay below)
             </text>
 
@@ -172,17 +173,17 @@ export default function VizWindowLandscapePage() {
             {/* sup witnesses (zoom-refined literals from the pilot JSON) */}
             <g>
               <circle cx={xOfW(meta.supPilot.w)} cy={yOfV(meta.supPilot.value)} r="4" fill="none" stroke={COLORS.pilot} strokeWidth="2" />
-              <text x={xOfW(meta.supPilot.w) - 9} y={yOfV(meta.supPilot.value) - 18} textAnchor="end" style={{ font: '600 10px "IBM Plex Mono", monospace' }} fill={COLORS.pilot} stroke="#fdfaf3" strokeWidth="3" paintOrder="stroke">
+              <text x={xOfW(meta.supPilot.w) - 9} y={yOfV(meta.supPilot.value) - 18} textAnchor="end" style={{ font: '600 10px "IBM Plex Mono", monospace' }} fill={COLORS.pilot} stroke={ED.paper} strokeWidth="3" paintOrder="stroke">
                 sup Σ|D_j| = {meta.supPilot.value} — margin 12.8%
               </text>
-              <text x={xOfW(meta.supPilot.w) - 9} y={yOfV(meta.supPilot.value) - 6} textAnchor="end" style={{ font: '600 9.5px "IBM Plex Mono", monospace' }} fill={COLORS.pilot} stroke="#fdfaf3" strokeWidth="3" paintOrder="stroke">
+              <text x={xOfW(meta.supPilot.w) - 9} y={yOfV(meta.supPilot.value) - 6} textAnchor="end" style={{ font: '600 9.5px "IBM Plex Mono", monospace' }} fill={COLORS.pilot} stroke={ED.paper} strokeWidth="3" paintOrder="stroke">
                 (zoom-refined; w = {meta.supPilot.w}, side 0)
               </text>
               <circle cx={xOfW(meta.supE97.w)} cy={yOfV(meta.supE97.value)} r="4" fill="none" stroke={COLORS.e97} strokeWidth="2" />
-              <text x={xOfW(meta.supE97.w) + 10} y={yOfV(0.222)} style={{ font: '600 10px "IBM Plex Mono", monospace' }} fill={COLORS.e97} stroke="#fdfaf3" strokeWidth="3" paintOrder="stroke">
+              <text x={xOfW(meta.supE97.w) + 10} y={yOfV(0.222)} style={{ font: '600 10px "IBM Plex Mono", monospace' }} fill={COLORS.e97} stroke={ED.paper} strokeWidth="3" paintOrder="stroke">
                 sup |E97| = {meta.supE97.value} — margin 30.8%
               </text>
-              <text x={xOfW(meta.supE97.w) + 10} y={yOfV(0.222) + 12} style={{ font: '600 9.5px "IBM Plex Mono", monospace' }} fill={COLORS.e97} stroke="#fdfaf3" strokeWidth="3" paintOrder="stroke">
+              <text x={xOfW(meta.supE97.w) + 10} y={yOfV(0.222) + 12} style={{ font: '600 9.5px "IBM Plex Mono", monospace' }} fill={COLORS.e97} stroke={ED.paper} strokeWidth="3" paintOrder="stroke">
                 (zoom-refined; w = {meta.supE97.w}, side 1)
               </text>
             </g>
@@ -245,7 +246,7 @@ export default function VizWindowLandscapePage() {
             <strong>Sampled dd measurement</strong> (grade: measured), regenerated deterministically from the
             evaluator of the imp-95205 pilot and gated on bit-exact reproduction of the recorded grid sups before
             baking; the pilot verdicts are sampled-sup statements, and the zoom shows why a finer sampling can move a
-            recorded sup by ~10⁻⁵. The <span style={{ color: '#4c7a4a', fontWeight: 700 }}>green band</span> is the
+            recorded sup by ~10⁻⁵. The <span style={{ color: 'var(--series-3)', fontWeight: 700 }}>green band</span> is the
             only <em>certified</em> statement on this window (imp-95213: outward-rounded Taylor balls, both charts,
             0 failures on u ∈ [{CERTIFIED_SLICE.uLo}, {CERTIFIED_SLICE.uHi}]). The window-1 full continuum run
             (W1-CERT, tier-2) is in progress; 54,109,011 windows lie beyond window 1 either way. No bound is proved

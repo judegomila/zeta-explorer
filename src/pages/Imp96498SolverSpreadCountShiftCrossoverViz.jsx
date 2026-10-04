@@ -6,6 +6,7 @@ import {
   IMP96498_LANDMARKS,
   IMP96498_HONEST_BANNER,
 } from '../data/imp-96498-solver-spread-count-shift-crossover-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 function CrossoverChart() {
   const svgW = 720;
@@ -42,41 +43,41 @@ function CrossoverChart() {
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
       {yTicks.map((v) => (
         <g key={`y${v}`}>
-          <line x1={padL} y1={yOf(v)} x2={padL + plotW} y2={yOf(v)} stroke="#334155" strokeWidth={0.5} opacity={0.4} />
-          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={8.5}>{`1e${v}`}</text>
+          <line x1={padL} y1={yOf(v)} x2={padL + plotW} y2={yOf(v)} stroke={ED.rule} strokeWidth={0.5} opacity={0.4} />
+          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8.5}>{`1e${v}`}</text>
         </g>
       ))}
       {xTicks.map((v) => (
-        <text key={`x${v}`} x={xOf(v)} y={padT + plotH + 14} textAnchor="middle" fill="#64748b" fontSize={8.5}>
+        <text key={`x${v}`} x={xOf(v)} y={padT + plotH + 14} textAnchor="middle" fill={ED.inkFaint} fontSize={8.5}>
           {v}
         </text>
       ))}
 
       {/* crossover line */}
-      <line x1={crossX} y1={padT} x2={crossX} y2={padT + plotH} stroke="#a78bfa" strokeWidth={1} strokeDasharray="3 3" opacity={0.8} />
-      <text x={crossX + 4} y={padT + 10} fill="#a78bfa" fontSize={8}>
+      <line x1={crossX} y1={padT} x2={crossX} y2={padT + plotH} stroke={ED.series5} strokeWidth={1} strokeDasharray="3 3" opacity={0.8} />
+      <text x={crossX + 4} y={padT + 10} fill={ED.series5} fontSize={8}>
         crossover N=1e{IMP96498_LANDMARKS.ratioCrossLog10N}
       </text>
 
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
 
-      <path d={shiftD} fill="none" stroke="#fb923c" strokeWidth={1.5} strokeDasharray="5 3" opacity={0.9} />
-      <path d={spreadD} fill="none" stroke="#38bdf8" strokeWidth={2} opacity={0.95} />
+      <path d={shiftD} fill="none" stroke={ED.series4} strokeWidth={1.5} strokeDasharray="5 3" opacity={0.9} />
+      <path d={spreadD} fill="none" stroke={ED.series1} strokeWidth={2} opacity={0.95} />
 
       {IMP96498_SOLVER_SPREAD_SERIES.map((p) => (
-        <circle key={`s-${p.log10N}`} cx={xOf(p.log10N)} cy={yOf(p.log10Spread)} r={2} fill="#38bdf8" />
+        <circle key={`s-${p.log10N}`} cx={xOf(p.log10N)} cy={yOf(p.log10Spread)} r={2} fill={ED.series1} />
       ))}
 
-      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={9.5}>
+      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5}>
         log10 N (N = 1e2 .. 1e22)
       </text>
 
       <g transform={`translate(${padL + 8}, ${padT + 10})`}>
-        <line x1={0} y1={0} x2={18} y2={0} stroke="#38bdf8" strokeWidth={2} />
-        <text x={22} y={3} fill="#94a3b8" fontSize={8.5}>solver-path spread (flat, floating-point noise)</text>
-        <line x1={0} y1={14} x2={18} y2={14} stroke="#fb923c" strokeWidth={1.5} strokeDasharray="5 3" />
-        <text x={22} y={17} fill="#94a3b8" fontSize={8.5}>~1/N count-model shift (decays steadily)</text>
+        <line x1={0} y1={0} x2={18} y2={0} stroke={ED.series1} strokeWidth={2} />
+        <text x={22} y={3} fill={ED.inkSoft} fontSize={8.5}>solver-path spread (flat, floating-point noise)</text>
+        <line x1={0} y1={14} x2={18} y2={14} stroke={ED.series4} strokeWidth={1.5} strokeDasharray="5 3" />
+        <text x={22} y={17} fill={ED.inkSoft} fontSize={8.5}>~1/N count-model shift (decays steadily)</text>
       </g>
     </svg>
   );
@@ -93,18 +94,18 @@ export default function Imp96498SolverSpreadCountShiftCrossoverViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 760,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> {IMP96498_HONEST_BANNER}
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> {IMP96498_HONEST_BANNER}
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
         The Newton and Lambert-W paths both invert the identical Riemann&ndash;von Mangoldt
         main-term count N(T), so any spread between the two gamma_N values they produce is a
         pure solver-path residual with no count-model content. imp-96449 extended that
@@ -112,7 +113,7 @@ export default function Imp96498SolverSpreadCountShiftCrossoverViz() {
         whether the spread stays below the ~1/N count-model reference shift everywhere.
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         Solver spread (flat) vs count-model shift (decaying) on log-log, crossover marked
       </h3>
       <CrossoverChart />
@@ -121,14 +122,14 @@ export default function Imp96498SolverSpreadCountShiftCrossoverViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> the blue curve (solver
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> the blue curve (solver
         spread) stays pinned near the machine-epsilon band across all 21 decades &mdash; it
         peaks at ~{maxRelGammaSpread.toExponential(1)} at N = 1e{maxRelGammaSpreadLog10N} with
         no growth trend. The orange dashed curve (the ~1/N count-model shift) falls in an
@@ -142,14 +143,14 @@ export default function Imp96498SolverSpreadCountShiftCrossoverViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page consuming the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the
         imp-96449 baked rows verbatim (only the log10 axis reshaping is computed here). The
         crossing at N ~ 1e{ratioCrossLog10N} is benign, not a real divergence: past that height
         both the solver-path residual and the count-model reference shift are numerically

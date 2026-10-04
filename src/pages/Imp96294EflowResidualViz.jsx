@@ -6,6 +6,7 @@ import {
   IMP96294_PEAK_ANNOTATION,
   IMP96294_HONEST_BANNER,
 } from '../data/imp-96294-eflow-residual-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 function ResidualChart() {
   const svgW = 680;
@@ -38,40 +39,40 @@ function ResidualChart() {
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
       {yTicks.map((v) => (
         <g key={`y${v}`}>
-          <line x1={padL} y1={yOf(v)} x2={padL + plotW} y2={yOf(v)} stroke="#334155" strokeWidth={0.5} opacity={0.4} />
-          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={8.5}>{v.toFixed(2)}</text>
+          <line x1={padL} y1={yOf(v)} x2={padL + plotW} y2={yOf(v)} stroke={ED.rule} strokeWidth={0.5} opacity={0.4} />
+          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8.5}>{v.toFixed(2)}</text>
         </g>
       ))}
       {xTicks.map((v) => (
-        <text key={`x${v}`} x={xOf(v)} y={padT + plotH + 14} textAnchor="middle" fill="#64748b" fontSize={8.5}>
+        <text key={`x${v}`} x={xOf(v)} y={padT + plotH + 14} textAnchor="middle" fill={ED.inkFaint} fontSize={8.5}>
           {v}
         </text>
       ))}
 
       {/* zero reference line: residual is strictly negative below it */}
-      <line x1={padL} y1={yOf(0)} x2={padL + plotW} y2={yOf(0)} stroke="#94a3b8" strokeWidth={0.75} strokeDasharray="2 3" opacity={0.6} />
+      <line x1={padL} y1={yOf(0)} x2={padL + plotW} y2={yOf(0)} stroke={ED.rule} strokeWidth={0.75} strokeDasharray="2 3" opacity={0.6} />
 
       {/* peak-manufacturing region marker (N ~ 9.22e5) */}
-      <line x1={peakX} y1={padT} x2={peakX} y2={padT + plotH} stroke="#f87171" strokeWidth={1} strokeDasharray="3 3" opacity={0.55} />
-      <text x={peakX + 4} y={padT + 12} fill="#f87171" fontSize={8}>
+      <line x1={peakX} y1={padT} x2={peakX} y2={padT + plotH} stroke={ED.series2} strokeWidth={1} strokeDasharray="3 3" opacity={0.55} />
+      <text x={peakX + 4} y={padT + 12} fill={ED.series2} fontSize={8}>
         peak N&asymp;{IMP96294_PEAK_ANNOTATION.peakN.toExponential(2)}
       </text>
 
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
 
-      <path d={pathOf(IMP96294_RESIDUAL_SERIES, 'residual')} fill="none" stroke="#38bdf8" strokeWidth={2} opacity={0.95} />
+      <path d={pathOf(IMP96294_RESIDUAL_SERIES, 'residual')} fill="none" stroke={ED.series1} strokeWidth={2} opacity={0.95} />
       {IMP96294_RESIDUAL_SERIES.map((p) => (
-        <circle key={`r-${p.log10N}`} cx={xOf(p.log10N)} cy={yOf(p.residual)} r={2.6} fill="#38bdf8" />
+        <circle key={`r-${p.log10N}`} cx={xOf(p.log10N)} cy={yOf(p.residual)} r={2.6} fill={ED.series1} />
       ))}
 
-      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill="#64748b" fontSize={9.5}>
+      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5}>
         log10 N (ladder from 1e3 to 1e12; axis compressed past 9)
       </text>
 
       <g transform={`translate(${padL + 8}, ${padT + 8})`}>
-        <line x1={0} y1={0} x2={18} y2={0} stroke="#38bdf8" strokeWidth={2} />
-        <text x={22} y={3} fill="#94a3b8" fontSize={8.5}>R(N) = sigma_full - sigma_CF (strictly &lt; 0)</text>
+        <line x1={0} y1={0} x2={18} y2={0} stroke={ED.series1} strokeWidth={2} />
+        <text x={22} y={3} fill={ED.inkSoft} fontSize={8.5}>R(N) = sigma_full - sigma_CF (strictly &lt; 0)</text>
       </g>
     </svg>
   );
@@ -86,18 +87,18 @@ export default function Imp96294EflowResidualViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 760,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> {IMP96294_HONEST_BANNER}
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> {IMP96294_HONEST_BANNER}
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
         imp-96266 found the closed-form crossover share sigma_CF (which drops the E_flow term) is
         related to the full three-term share by the exact identity R(N) = sigma_full - sigma_CF ={' '}
         -sigma_full(N) &middot; E_flow(N) / (E_trunc + E_coll(N)), reproduced to ~1.5e-16 (an
@@ -107,7 +108,7 @@ export default function Imp96294EflowResidualViz() {
         suppression that manufactures the imp-3220 U-shape interior peak.
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         R(N) = sigma_full - sigma_CF vs log10 N (strictly negative, deepest near the peak region)
       </h3>
       <ResidualChart />
@@ -116,14 +117,14 @@ export default function Imp96294EflowResidualViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> the residual is most
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> the residual is most
         negative in the mid-decades and shrinks toward zero as N grows past the crossover, tracking
         the falling E_flow/E_N fraction (
         {IMP96294_EFLOW_FRAC_SERIES.map((p, i) => (
@@ -143,14 +144,14 @@ export default function Imp96294EflowResidualViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page consuming the imp-96266
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the imp-96266
         baked residual identity and peak/peak-recovery landmarks verbatim (only the chart-axis
         reshaping is computed here). The component model is the inherited
         imp-3220/imp-3406/imp-33723 extrapolation, not a rigorous asymptotic; the C_mb

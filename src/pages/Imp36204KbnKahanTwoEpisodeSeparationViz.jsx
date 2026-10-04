@@ -1,12 +1,13 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP36186_KBN_KAHAN_TWO_EPISODE_SEPARATION } from '../data/imp-36186-kbn-kahan-two-episode-separation-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 const EPISODE_COLOR = {
-  pre: '#64748b',
-  transient: '#f59e0b',
-  tiePlateau: '#38bdf8',
-  persistent: '#f472b6',
+  pre: ED.series8,
+  transient: ED.series4,
+  tiePlateau: ED.series1,
+  persistent: ED.series7,
 };
 
 const EPISODE_LABEL = {
@@ -44,34 +45,34 @@ function SeparationCurve() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
 
       {xTicks.map((v) => (
         <g key={`x${v}`}>
-          <line x1={xOf(v)} y1={padT + plotH} x2={xOf(v)} y2={padT + plotH + 4} stroke="#334155" strokeWidth={1} />
-          <text x={xOf(v)} y={padT + plotH + 16} textAnchor="middle" fill="#64748b" fontSize={8.5}>
+          <line x1={xOf(v)} y1={padT + plotH} x2={xOf(v)} y2={padT + plotH + 4} stroke={ED.rule} strokeWidth={1} />
+          <text x={xOf(v)} y={padT + plotH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={8.5}>
             {v}
           </text>
         </g>
       ))}
       {yTicks.map((v) => (
         <g key={`y${v}`}>
-          <line x1={padL - 4} y1={yOf(v)} x2={padL} y2={yOf(v)} stroke="#334155" strokeWidth={1} />
-          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={8.5}>
+          <line x1={padL - 4} y1={yOf(v)} x2={padL} y2={yOf(v)} stroke={ED.rule} strokeWidth={1} />
+          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8.5}>
             {v}x
           </text>
         </g>
       ))}
 
-      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill="#64748b" fontSize={9.5}>
+      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5}>
         log10 N
       </text>
       <text
         x={12}
         y={padT + plotH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={9.5}
         transform={`rotate(-90 12 ${padT + plotH / 2})`}
       >
@@ -81,7 +82,7 @@ function SeparationCurve() {
       <polyline
         points={points.map((p) => `${xOf(Math.log10(p.N))},${yOf(p.ratio)}`).join(' ')}
         fill="none"
-        stroke="#475569"
+        stroke={ED.rule}
         strokeWidth={1.5}
         opacity={0.7}
       />
@@ -93,7 +94,7 @@ function SeparationCurve() {
           cy={yOf(p.ratio)}
           r={5}
           fill={EPISODE_COLOR[p.episode]}
-          stroke="#0a0f1a"
+          stroke={ED.paper}
           strokeWidth={1.5}
         />
       ))}
@@ -112,7 +113,7 @@ export default function Imp36204KbnKahanTwoEpisodeSeparationViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="KBN vs Classic Kahan: Two-Episode Separation Record (imp-36112 / imp-36186 / imp-36204)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         The imp-36112 cross-reference note merges the imp-36062 and imp-36076 ladders into one
         N-ordered record of the Kahan/KBN compensated-summation error ratio. Rather than a single
         clean crossover, the merged record shows three regions in N order: a{' '}
@@ -126,7 +127,7 @@ export default function Imp36204KbnKahanTwoEpisodeSeparationViz() {
 
       <SeparationCurve />
 
-      <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginTop: '0.75rem', fontSize: '0.75rem', color: '#94a3b8' }}>
+      <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginTop: '0.75rem', fontSize: '0.75rem', color: 'var(--ink-soft)' }}>
         {Object.keys(EPISODE_LABEL).filter((k) => points.some((p) => p.episode === k)).map((k) => (
           <span key={k} style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
             <span style={{ width: 10, height: 10, borderRadius: '50%', background: EPISODE_COLOR[k], display: 'inline-block' }} />
@@ -139,14 +140,14 @@ export default function Imp36204KbnKahanTwoEpisodeSeparationViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation-only consumer of
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> presentation-only consumer of
         the baked imp-36186 viz-data (itself reusing the recorded imp-36062/imp-36076 per-rung
         literals verbatim, per imp-36112's reconciliation); no new derivation, no bound changed.
         The W1 A + B - C certificate at T_PT stays GREENFIELD (imp-35681 Part A) and the certified

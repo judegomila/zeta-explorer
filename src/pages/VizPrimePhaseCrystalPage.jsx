@@ -18,6 +18,7 @@ import { VIZ_PRIME_PHASE_CRYSTAL } from '../data/viz-prime-phase-crystal.js';
 import VizCeilingNote from '../components/VizCeilingNote.jsx';
 import ZeroStepper from '../components/ZeroStepper.jsx';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
+import { ED, alpha } from '../styles/tokens.js';
 
 const D = VIZ_PRIME_PHASE_CRYSTAL;
 const mono = 'var(--ed-mono)';
@@ -128,7 +129,7 @@ export default function VizPrimePhaseCrystalPage() {
 
     // Axis labels with units and tick marks within canvas bounds.
     ctx.font = '10px "JetBrains Mono", monospace';
-    ctx.fillStyle = 'rgba(246, 241, 231, 0.95)';
+    ctx.fillStyle = alpha(ED.paper2, 0.95);
     ctx.textAlign = 'left';
     ctx.fillText('j=' + 0, 6, 14);
     ctx.fillText('k=' + 0, 6, res - 6);
@@ -138,7 +139,7 @@ export default function VizPrimePhaseCrystalPage() {
     ctx.fillText('k=' + kMax.toFixed(0), 6, res - 22);
 
     // Axis tick marks (4 evenly-spaced ticks per axis, excluding edges).
-    ctx.strokeStyle = 'rgba(246, 241, 231, 0.5)';
+    ctx.strokeStyle = alpha(ED.paper2, 0.5);
     ctx.lineWidth = 1;
     for (let i = 1; i < 4; i++) {
       const x = (i / 4) * res;
@@ -157,7 +158,7 @@ export default function VizPrimePhaseCrystalPage() {
 
     // Legend text overlay (bottom-right corner).
     ctx.font = '8px "JetBrains Mono", monospace';
-    ctx.fillStyle = 'rgba(246, 241, 231, 0.85)';
+    ctx.fillStyle = alpha(ED.paper2, 0.85);
     ctx.textAlign = 'right';
     ctx.fillText(perturbEnabled ? ('F perturbed eps=' + perturbEps.toFixed(3)) : 'F = |sum_p cos(j*log p + k*t_0)|', res - 4, res - 9);
 
@@ -262,7 +263,7 @@ export default function VizPrimePhaseCrystalPage() {
           <div style={{ position: 'relative', display: 'inline-block' }}>
             <canvas ref={canvasRef}
                     style={{ width: '100%', maxWidth: W, height: 'auto',
-                             border: '1px solid #d5c9b2', borderRadius: 4,
+                             border: '1px solid var(--rule)', borderRadius: 4,
                              imageRendering: 'pixelated', display: 'block' }} />
           </div>
 
@@ -272,8 +273,8 @@ export default function VizPrimePhaseCrystalPage() {
             </div>
             <div style={{
               width: 24, height: W, background: 'linear-gradient(to top, '
-                + '#000000, #330000, #660000, #990000, #cc0000, #ff0000, #ff3300, #ff6600, #ff9900, #ffcc00, #ffff00, #ffffff)',
-              border: '1px solid #d5c9b2', borderRadius: 2,
+                + '#000000, #330000, #660000, #990000, #cc0000, #ff0000, #ff3300, var(--series-4), #ff9900, var(--series-4), #ffff00, #ffffff)',
+              border: '1px solid var(--rule)', borderRadius: 2,
             }} />
             <div style={{ fontSize: 9, color: 'var(--ink-soft)', textAlign: 'center', paddingTop: 4, fontFamily: mono }}>
               <div style={{ fontSize: 8, color: 'var(--ink)' }}>max</div>
@@ -301,7 +302,7 @@ export default function VizPrimePhaseCrystalPage() {
               padding: '7px 10px',
               borderRadius: 6,
               border: '1px solid ' + (pass ? 'var(--green)' : 'var(--terra-dk)'),
-              background: pass ? 'rgba(76, 122, 74, 0.12)' : 'rgba(194, 58, 28, 0.12)',
+              background: pass ? 'color-mix(in srgb, var(--series-3) 12%, transparent)' : 'color-mix(in srgb, var(--series-2) 12%, transparent)',
               color: pass ? 'var(--green)' : 'var(--terra-dk)',
               display: 'flex',
               gap: 12,

@@ -5,8 +5,9 @@ import {
   IMP97732_REL_SPAN_ROWS,
   IMP97732_SUMMARY,
 } from '../data/imp-97732-wlin-residual-halfdependence-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
-const NODE_COLORS = ['#f87171', '#facc15', '#34d399', '#60a5fa'];
+const NODE_COLORS = [ED.series2, ED.series4, ED.series3, ED.series1];
 
 // Line chart: residual VALUE at each x node across the three half-orders, showing the drift.
 function ValueDriftChart() {
@@ -30,12 +31,12 @@ function ValueDriftChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#334155" strokeWidth={1} />
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#334155" strokeWidth={1} />
-      <line x1={padL} y1={yOf(0)} x2={padL + plotW} y2={yOf(0)} stroke="#1e293b" strokeWidth={1} strokeDasharray="3,3" />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1} />
+      <line x1={padL} y1={yOf(0)} x2={padL + plotW} y2={yOf(0)} stroke={ED.ruleSoft} strokeWidth={1} strokeDasharray="3,3" />
 
       {halves.map((h) => (
-        <text key={h} x={xOf(h)} y={svgH - 22} textAnchor="middle" fill="#94a3b8" fontSize={9}>
+        <text key={h} x={xOf(h)} y={svgH - 22} textAnchor="middle" fill={ED.inkSoft} fontSize={9}>
           half={h}
         </text>
       ))}
@@ -68,32 +69,32 @@ export default function Imp97732WlinResidualHalfDependenceViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> a measurement/presentation-only
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a measurement/presentation-only
         page reshaping the frozen imp-97705 residual table verbatim (no re-derivation, no new
         computation). Conditional-share diagnostic, NOT an RH bound; Platt&ndash;Trudgian &Lambda;
         &le; 0.2 remains SOTA; RH open; NO QED.
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         {IMP97732_SUMMARY.reading}
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         residual value w(x)-w_lin(x) vs half-order, per x node (smooth denominator)
       </h3>
       <ValueDriftChart />
 
       <table style={{ width: '100%', marginTop: '1.25rem', borderCollapse: 'collapse', fontSize: '0.82rem' }}>
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'right' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'right' }}>
             <th style={{ textAlign: 'left', padding: '0.4rem 0.5rem' }}>x</th>
             <th style={{ padding: '0.4rem 0.5rem' }}>half=100</th>
             <th style={{ padding: '0.4rem 0.5rem' }}>half=200</th>
@@ -102,7 +103,7 @@ export default function Imp97732WlinResidualHalfDependenceViz() {
         </thead>
         <tbody>
           {IMP97732_VALUE_DRIFT_ROWS.map((row) => (
-            <tr key={row.x} style={{ color: '#cbd5e1', textAlign: 'right', borderTop: '1px solid #1e293b' }}>
+            <tr key={row.x} style={{ color: 'var(--ink)', textAlign: 'right', borderTop: '1px solid var(--rule-soft)' }}>
               <td style={{ textAlign: 'left', padding: '0.4rem 0.5rem' }}>{row.x}</td>
               {row.byHalf.map((v, j) => (
                 <td key={j} style={{ padding: '0.4rem 0.5rem' }}>{v.toExponential(4)}</td>
@@ -112,13 +113,13 @@ export default function Imp97732WlinResidualHalfDependenceViz() {
         </tbody>
       </table>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', margin: '1.5rem 0 0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', margin: '1.5rem 0 0.5rem' }}>
         factorization relative span (%) per x node, at each half (fixed point at x=0.12/0.25)
       </h3>
 
       <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.82rem' }}>
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'right' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'right' }}>
             <th style={{ textAlign: 'left', padding: '0.4rem 0.5rem' }}>half</th>
             <th style={{ padding: '0.4rem 0.5rem' }}>x=0.01</th>
             <th style={{ padding: '0.4rem 0.5rem' }}>x=0.05</th>
@@ -128,7 +129,7 @@ export default function Imp97732WlinResidualHalfDependenceViz() {
         </thead>
         <tbody>
           {IMP97732_REL_SPAN_ROWS.map((row) => (
-            <tr key={row.half} style={{ color: '#cbd5e1', textAlign: 'right', borderTop: '1px solid #1e293b' }}>
+            <tr key={row.half} style={{ color: 'var(--ink)', textAlign: 'right', borderTop: '1px solid var(--rule-soft)' }}>
               <td style={{ textAlign: 'left', padding: '0.4rem 0.5rem' }}>{row.half}</td>
               {row.spans.map((s) => (
                 <td key={s.x} style={{ padding: '0.4rem 0.5rem' }}>{s.rel.toFixed(3)}%</td>
@@ -142,14 +143,14 @@ export default function Imp97732WlinResidualHalfDependenceViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> {IMP97732_SUMMARY.verdict}
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> {IMP97732_SUMMARY.verdict}
       </div>
     </div>
   );

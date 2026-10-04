@@ -7,11 +7,12 @@ import {
   IMP35864_PRECISION_THRESHOLDS,
   IMP35864_TPT_EXTRAPOLATION,
 } from '../data/imp-35864-debruijn-digit-ladder-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
-const MEASURED_COLOR = '#38bdf8';
-const LAW_COLOR = '#facc15';
-const DOUBLE_COLOR = '#94a3b8';
-const QUAD_COLOR = '#f472b6';
+const MEASURED_COLOR = ED.series1;
+const LAW_COLOR = ED.series4;
+const DOUBLE_COLOR = ED.series8;
+const QUAD_COLOR = ED.series7;
 
 function DigitLadderChart() {
   const w = 680;
@@ -39,14 +40,14 @@ function DigitLadderChart() {
 
   return (
     <svg width={w} height={h} style={{ display: 'block', maxWidth: '100%' }}>
-      <text x={padL} y={padT - 8} fill="#94a3b8" fontSize={11} fontWeight={700}>
+      <text x={padL} y={padT - 8} fill={ED.inkSoft} fontSize={11} fontWeight={700}>
         working digits D*(x) vs x (measured, BigInt)
       </text>
 
       {[0, 40, 80, 120, 160].map((v) => (
         <g key={v}>
-          <line x1={padL} y1={yOf(v)} x2={padL + plotW} y2={yOf(v)} stroke="#1e293b" strokeWidth={0.7} />
-          <text x={padL - 6} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+          <line x1={padL} y1={yOf(v)} x2={padL + plotW} y2={yOf(v)} stroke={ED.ruleSoft} strokeWidth={0.7} />
+          <text x={padL - 6} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v}
           </text>
         </g>
@@ -115,7 +116,7 @@ function DigitLadderChart() {
               x={xOf(p.x)}
               y={yOf(p.Dstar) - 8}
               textAnchor="middle"
-              fill="#cbd5e1"
+              fill={ED.ink}
               fontSize={9}
               fontWeight={700}
             >
@@ -125,8 +126,8 @@ function DigitLadderChart() {
         </g>
       ))}
 
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <text x={padL + plotW / 2} y={h - 8} textAnchor="middle" fill="#64748b" fontSize={9}>
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <text x={padL + plotW / 2} y={h - 8} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
         x -- double edge (104) .. quad reach (~{IMP35864_PRECISION_THRESHOLDS.quadReachX.toFixed(0)}) .. 1000
       </text>
 
@@ -148,7 +149,7 @@ function LadderTable() {
   return (
     <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.8rem' }}>
       <thead>
-        <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+        <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
           <th style={{ padding: '0.4rem 0.6rem' }}>x</th>
           <th style={{ padding: '0.4rem 0.6rem' }}>gamma = x/2</th>
           <th style={{ padding: '0.4rem 0.6rem', color: MEASURED_COLOR }}>D*(x) measured</th>
@@ -158,7 +159,7 @@ function LadderTable() {
       </thead>
       <tbody>
         {IMP35864_DIGIT_LADDER.map((p) => (
-          <tr key={p.x} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+          <tr key={p.x} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{p.x}</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{p.gamma}</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace', color: MEASURED_COLOR }}>{p.Dstar}</td>
@@ -176,7 +177,7 @@ export default function Imp35864DebruijnDigitLadderViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Exact de Bruijn Working-Digit Ladder D*(x) (imp-35864 / imp-35811)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
         imp-35811 ran genuine ~520-digit BigInt arithmetic (Machin-series pi, range-reduced
         repeated-squaring exp) to MEASURE the minimum working-digit count D*(x) the exact de Bruijn
         evaluator needs to keep the exponentially-small signal |H&#8320;(x)|&nbsp;~&nbsp;exp(-&pi;x/8)
@@ -193,7 +194,7 @@ export default function Imp35864DebruijnDigitLadderViz() {
         <LadderTable />
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.8rem', marginTop: '1rem' }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.8rem', marginTop: '1rem' }}>
         Quad precision (IEEE binary128, ~{IMP35864_PRECISION_THRESHOLDS.quadDigits.toFixed(1)} decimal
         digits) is exhausted at x&nbsp;~&nbsp;{IMP35864_PRECISION_THRESHOLDS.quadReachX.toFixed(1)}
         &nbsp;(~doubling the double-precision reach). Extrapolating the MEASURED slope to the
@@ -208,14 +209,14 @@ export default function Imp35864DebruijnDigitLadderViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation only of the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> presentation only of the
         already-derived imp-35811 BigInt measurement (no new derivation, no heavy data-module import,
         no ~520-digit recomputation at page load); measures ONLY the exp(-&pi;x/8) underflow-driven
         mantissa-digit requirement off the imp-35781-measured accumulator scale K; evaluates no true

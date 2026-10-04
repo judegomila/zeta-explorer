@@ -14,13 +14,13 @@ function BelowEnvelopeDipTable({ rows }) {
         width: '100%',
         borderCollapse: 'collapse',
         fontSize: '0.85rem',
-        color: '#cbd5e1',
+        color: 'var(--ink)',
       }}
     >
       <thead>
-        <tr style={{ borderBottom: '2px solid #334155' }}>
+        <tr style={{ borderBottom: '2px solid var(--rule)' }}>
           {['T', 'n_w', 'chi-square crossover', 'z-score (sigma)', 'verdict'].map((h) => (
-            <th key={h} style={{ textAlign: 'right', padding: '0.4rem 0.6rem', color: '#94a3b8' }}>
+            <th key={h} style={{ textAlign: 'right', padding: '0.4rem 0.6rem', color: 'var(--ink-soft)' }}>
               {h}
             </th>
           ))}
@@ -28,7 +28,7 @@ function BelowEnvelopeDipTable({ rows }) {
       </thead>
       <tbody>
         {rows.map((r) => (
-          <tr key={r.Tc} style={{ borderBottom: '1px solid #1e293b' }}>
+          <tr key={r.Tc} style={{ borderBottom: '1px solid var(--rule-soft)' }}>
             <td style={{ textAlign: 'right', padding: '0.4rem 0.6rem' }}>{fmtT(r.Tc)}</td>
             <td style={{ textAlign: 'right', padding: '0.4rem 0.6rem' }}>{r.nWindows}</td>
             <td style={{ textAlign: 'right', padding: '0.4rem 0.6rem' }}>
@@ -39,7 +39,7 @@ function BelowEnvelopeDipTable({ rows }) {
               style={{
                 textAlign: 'right',
                 padding: '0.4rem 0.6rem',
-                color: r.verdict === 'SIGNIFICANT' ? '#f87171' : '#64748b',
+                color: r.verdict === 'SIGNIFICANT' ? 'var(--series-2)' : 'var(--ink-faint)',
                 fontWeight: r.verdict === 'SIGNIFICANT' ? 600 : 400,
               }}
             >
@@ -63,22 +63,22 @@ export default function Imp96115BelowEnvelopeDipSignificanceTableViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> a reader-facing table of the
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a reader-facing table of the
         imp-96089 measurement, deciding which of the three imp-96049 below-envelope mean-anchor
         dips is a real number-variance excursion versus sampling noise. It changes no Lambda bound
         and establishes no operator positivity. Platt&ndash;Trudgian &Lambda; &le; 0.2 remains state
         of the art. NO QED.
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         Each height&apos;s quasi-independent window count n_w(T) is recovered exactly from the
         imp-95562 non-overlapping tiling geometry (deterministic, no zeros bundle). The chi-square
         crossover is the window count below which the dip falls inside 1-sigma sampling noise; the
@@ -86,7 +86,7 @@ export default function Imp96115BelowEnvelopeDipSignificanceTableViz() {
         n_w&nbsp;=&nbsp;291 sits well above its crossover of 79, clears z&nbsp;&ge;&nbsp;1.
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         Significance verdict by height
       </h3>
       <BelowEnvelopeDipTable rows={data.belowEnvelopeVerdict} />
@@ -95,14 +95,14 @@ export default function Imp96115BelowEnvelopeDipSignificanceTableViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the table:</strong> T&nbsp;=&nbsp;1e4 and
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the table:</strong> T&nbsp;=&nbsp;1e4 and
         T&nbsp;=&nbsp;3e5 fall far short of their crossovers (0.37&sigma; and 0.08&sigma;) and are
         NOISE. T&nbsp;=&nbsp;1.5e5, the deepest of the three dips, is SIGNIFICANT at 1.92&sigma; --
         the same height where imp-96070 (LOO residual) and imp-96071 (binding uniform correction)
@@ -115,14 +115,14 @@ export default function Imp96115BelowEnvelopeDipSignificanceTableViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page consuming the imp-96089
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the imp-96089
         baked verdict verbatim (no re-derivation). Changes no bound, establishes no operator
         positivity, no RH claim; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. NO QED.
       </div>

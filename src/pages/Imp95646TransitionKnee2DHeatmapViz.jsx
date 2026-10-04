@@ -11,6 +11,7 @@ import {
   IMP95646_PINNED_DISTANCE_TO_CONTOUR,
   IMP95646_SUMMARY,
 } from '../data/imp-95646-transition-knee-2d-heatmap-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 // Diverging color: gap < 0 (ordering inverted) fades toward red; gap > 0 (transition still
 // precedes the knee) fades toward blue; both pivot from the same dark background at gap = 0.
@@ -66,7 +67,7 @@ function TransitionKneeHeatmap() {
             width={colW}
             height={rowH}
             fill={cellColor(IMP95646_HEATMAP_Z[i][j], IMP95646_MIN_GAP_POINT.gap, IMP95646_MAX_GAP)}
-            stroke="#0a0f1a"
+            stroke={ED.paper}
             strokeWidth={0.5}
           />
         )),
@@ -76,7 +77,7 @@ function TransitionKneeHeatmap() {
         <polyline
           points={offGridRun.map((p) => `${p.x},${p.y}`).join(' ')}
           fill="none"
-          stroke="#facc15"
+          stroke={ED.brassDeco}
           strokeWidth={2}
           strokeDasharray="3,3"
           opacity={0.7}
@@ -86,13 +87,13 @@ function TransitionKneeHeatmap() {
         <polyline
           points={onGrid.map((p) => `${p.x},${p.y}`).join(' ')}
           fill="none"
-          stroke="#facc15"
+          stroke={ED.brassDeco}
           strokeWidth={2.25}
         />
       )}
 
       {/* pinned point: C_C = C_C_PINNED, E_trunc = E_TRUNC_PT (multiplier 1x, 1x) */}
-      <circle cx={xOf(1)} cy={yOf(1)} r={5} fill="none" stroke="#38bdf8" strokeWidth={2} />
+      <circle cx={xOf(1)} cy={yOf(1)} r={5} fill="none" stroke={ED.series1} strokeWidth={2} />
 
       {/* box-corner minimum gap: low-C_C / high-E_trunc inversion wedge extremum */}
       <rect
@@ -101,21 +102,21 @@ function TransitionKneeHeatmap() {
         width={8}
         height={8}
         fill="none"
-        stroke="#fca5a5"
+        stroke={ED.series2}
         strokeWidth={2}
       />
 
       {IMP95646_HEATMAP_ETRUNC_LABELS.filter((_, j) => j % 2 === 0).map((me) => (
-        <text key={`xt-${me}`} x={xOf(me)} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={9}>
+        <text key={`xt-${me}`} x={xOf(me)} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
           {me.toFixed(2)}
         </text>
       ))}
-      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         E_trunc multiplier
       </text>
 
       {IMP95646_HEATMAP_CC_LABELS.filter((_, i) => i % 2 === 0).map((mc) => (
-        <text key={`yt-${mc}`} x={padL - 8} y={yOf(mc) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+        <text key={`yt-${mc}`} x={padL - 8} y={yOf(mc) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
           {mc.toFixed(2)}
         </text>
       ))}
@@ -123,20 +124,20 @@ function TransitionKneeHeatmap() {
         x={14}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={`rotate(-90 14 ${padT + cH / 2})`}
       >
         C_C multiplier
       </text>
 
-      <text x={padL + cW - 4} y={padT + 12} textAnchor="end" fill="#facc15" fontSize={9}>
+      <text x={padL + cW - 4} y={padT + 12} textAnchor="end" fill={ED.brass} fontSize={9}>
         gap = 0 inversion contour
       </text>
-      <text x={padL + cW - 4} y={padT + 24} textAnchor="end" fill="#38bdf8" fontSize={9}>
+      <text x={padL + cW - 4} y={padT + 24} textAnchor="end" fill={ED.series1} fontSize={9}>
         pinned point (C_C_PINNED, E_TRUNC_PT)
       </text>
-      <text x={padL + cW - 4} y={padT + 36} textAnchor="end" fill="#fca5a5" fontSize={9}>
+      <text x={padL + cW - 4} y={padT + 36} textAnchor="end" fill={ED.series2} fontSize={9}>
         box-corner minimum gap
       </text>
     </svg>
@@ -163,7 +164,7 @@ function ColorLegend() {
           x={(i / (stops.length - 1)) * w}
           y={h + 12}
           textAnchor="middle"
-          fill="#64748b"
+          fill={ED.inkFaint}
           fontSize={9}
         >
           {s.toFixed(4)}
@@ -183,21 +184,21 @@ export default function Imp95646TransitionKnee2DHeatmapViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> measurement/sensitivity only.
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> measurement/sensitivity only.
         It changes no Lambda bound and establishes no operator positivity. Platt&ndash;Trudgian
         &Lambda; &le; 0.2 remains state of the art. RH does not follow from anything on this page.
         NO QED.
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-95598 swept C_C and E_trunc one at a time and found the imp-95582 F3
         transition-before-knee ordering (gap = log10 N_knee &minus; log10 N_cross &gt; 0) survives
         each &plusmn;50% band on its own. Because the knee is not a pure function of A =
@@ -208,7 +209,7 @@ export default function Imp95646TransitionKnee2DHeatmapViz() {
         C_C_PINNED, E_trunc = E_TRUNC_PT); the pink square marks the box-corner minimum.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         gap heatmap, C_C &isin; [{IMP95646_HEATMAP_CC_LABELS[0]}x,{' '}
         {IMP95646_HEATMAP_CC_LABELS[IMP95646_HEATMAP_CC_LABELS.length - 1]}x], E_trunc &isin; [
         {IMP95646_HEATMAP_ETRUNC_LABELS[0]}x,{' '}
@@ -217,7 +218,7 @@ export default function Imp95646TransitionKnee2DHeatmapViz() {
       <TransitionKneeHeatmap />
 
       <div style={{ marginTop: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-        <span style={{ color: '#64748b', fontSize: '0.78rem' }}>gap (log10 N_knee &minus; log10 N_cross):</span>
+        <span style={{ color: 'var(--ink-faint)', fontSize: '0.78rem' }}>gap (log10 N_knee &minus; log10 N_cross):</span>
         <ColorLegend />
       </div>
 
@@ -230,31 +231,31 @@ export default function Imp95646TransitionKnee2DHeatmapViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>quantity</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>value</th>
           </tr>
         </thead>
         <tbody>
-          <tr style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+          <tr style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
             <td style={{ padding: '0.4rem 0.6rem' }}>grid scope</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{s.gridScope}</td>
           </tr>
-          <tr style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+          <tr style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
             <td style={{ padding: '0.4rem 0.6rem' }}>pinned-point gap (C_C_PINNED, E_TRUNC_PT)</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{s.pinnedGap}</td>
           </tr>
-          <tr style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+          <tr style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
             <td style={{ padding: '0.4rem 0.6rem' }}>box-corner minimum gap</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>
               {s.minGap} at (C_C {s.minGapAt.cC_mult}x, E_trunc {s.minGapAt.eTrunc_mult}x)
             </td>
           </tr>
-          <tr style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+          <tr style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
             <td style={{ padding: '0.4rem 0.6rem' }}>pinned-point distance to contour (multiplier space)</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{s.pinnedDistanceToContour}</td>
           </tr>
-          <tr style={{ color: '#cbd5e1' }}>
+          <tr style={{ color: 'var(--ink)' }}>
             <td style={{ padding: '0.4rem 0.6rem' }}>box-inversion onset (E_trunc multiplier)</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{s.boxInversionOnsetETruncMult}x</td>
           </tr>
@@ -265,14 +266,14 @@ export default function Imp95646TransitionKnee2DHeatmapViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> neither 1-D edge of the box
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> neither 1-D edge of the box
         inverts on its own (the E_trunc column at C_C = 1x and the C_C row at E_trunc = 1x both stay
         blue), yet the low-C_C / high-E_trunc corner does &mdash; the wedge is only visible once both
         axes move together. The pinned point sits roughly half a multiplier away from the contour
@@ -284,14 +285,14 @@ export default function Imp95646TransitionKnee2DHeatmapViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> {s.verdict}
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> {s.verdict}
       </div>
     </div>
   );

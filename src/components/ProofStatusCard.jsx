@@ -1,4 +1,5 @@
 import React, { useRef, useCallback, useEffect } from 'react';
+import { ED } from '../styles/tokens.js';
 
 /**
  * Shareable research status card — generates a canvas image
@@ -24,30 +25,30 @@ export default function ProofStatusCard() {
     ctx.fillRect(0, 0, w, h);
 
     // Border
-    ctx.strokeStyle = '#1e293b';
+    ctx.strokeStyle = ED.ruleSoft;
     ctx.lineWidth = 2;
     ctx.strokeRect(1, 1, w - 2, h - 2);
 
     // Title
     ctx.font = 'bold 22px "JetBrains Mono", monospace';
-    ctx.fillStyle = '#e2e8f0';
+    ctx.fillStyle = ED.ink;
     ctx.textAlign = 'center';
     ctx.fillText('RIEMANN HYPOTHESIS RESEARCH', w / 2, 36);
     ctx.font = '13px "JetBrains Mono", monospace';
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.fillText('Twin-Ladder Evidence & Open-Gap Report', w / 2, 56);
 
     // Evidence-graded sections. "Exact" applies only to the stated
     // mathematical identity/domain; it is not a claim that RH is proved.
     const sections = [
-      { id: 'S1', name: 'Euler Product', status: 'EXACT: RE S > 1', color: '#10b981' },
-      { id: 'S2', name: 'Zeta Ratio', status: 'EXACT / ALGEBRAIC', color: '#10b981' },
-      { id: 'S3', name: 'LC Cascade', status: 'MODEL ONLY', color: '#f59e0b' },
-      { id: 'S4', name: 'Continuation', status: 'CIRCUIT OPEN', color: '#f59e0b' },
-      { id: 'S5', name: 'Operator', status: 'OPEN', color: '#ef4444' },
-      { id: 'S6', name: 'Energy Proxy', status: 'FINITE ONLY', color: '#3b82f6' },
-      { id: 'S7', name: 'Realization', status: 'BLOCKED', color: '#ef4444' },
-      { id: 'S8', name: 'RH', status: 'OPEN', color: '#ef4444' },
+      { id: 'S1', name: 'Euler Product', status: 'EXACT: RE S > 1', color: ED.series3 },
+      { id: 'S2', name: 'Zeta Ratio', status: 'EXACT / ALGEBRAIC', color: ED.series3 },
+      { id: 'S3', name: 'LC Cascade', status: 'MODEL ONLY', color: ED.brass },
+      { id: 'S4', name: 'Continuation', status: 'CIRCUIT OPEN', color: ED.brass },
+      { id: 'S5', name: 'Operator', status: 'OPEN', color: ED.series2 },
+      { id: 'S6', name: 'Energy Proxy', status: 'FINITE ONLY', color: ED.series1 },
+      { id: 'S7', name: 'Realization', status: 'BLOCKED', color: ED.series2 },
+      { id: 'S8', name: 'RH', status: 'OPEN', color: ED.series2 },
     ];
 
     const startY = 75;
@@ -71,7 +72,7 @@ export default function ProofStatusCard() {
       ctx.textAlign = 'left';
       ctx.fillText(sec.id, x + 8, y + 18);
       ctx.font = '10px "JetBrains Mono", monospace';
-      ctx.fillStyle = '#94a3b8';
+      ctx.fillStyle = ED.series8;
       ctx.fillText(sec.name, x + 32, y + 18);
       ctx.fillStyle = sec.color;
       ctx.font = '9px "JetBrains Mono", monospace';
@@ -81,10 +82,10 @@ export default function ProofStatusCard() {
     // Stats
     const statsY = 195;
     const stats = [
-      { label: 'Accepted RH Proofs', value: '0', color: '#ef4444' },
-      { label: 'Peer-Reviewed Λ Cap', value: '0.2', color: '#10b981' },
-      { label: 'Public Λ Claim', value: '0.1875', color: '#f59e0b' },
-      { label: 'Private Candidate*', value: '0.1787854', color: '#22d3ee' },
+      { label: 'Accepted RH Proofs', value: '0', color: ED.series2 },
+      { label: 'Peer-Reviewed Λ Cap', value: '0.2', color: ED.series3 },
+      { label: 'Public Λ Claim', value: '0.1875', color: ED.brass },
+      { label: 'Private Candidate*', value: '0.1787854', color: ED.series6 },
     ];
 
     stats.forEach((s, i) => {
@@ -94,12 +95,12 @@ export default function ProofStatusCard() {
       ctx.textAlign = 'center';
       ctx.fillText(s.value, x + (w - 40) / 8, statsY + 20);
       ctx.font = '9px "JetBrains Mono", monospace';
-      ctx.fillStyle = '#64748b';
+      ctx.fillStyle = ED.series8;
       ctx.fillText(s.label, x + (w - 40) / 8, statsY + 36);
     });
 
     ctx.font = '9px "JetBrains Mono", monospace';
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.textAlign = 'right';
     ctx.fillText('* computer-assisted candidate; bound not established; not RH', w - 20, statsY + 52);
 
@@ -109,10 +110,10 @@ export default function ProofStatusCard() {
     ctx.roundRect(20, 248, w - 40, 40, 6);
     ctx.fill();
     ctx.font = '11px "JetBrains Mono", monospace';
-    ctx.fillStyle = '#f59e0b';
+    ctx.fillStyle = ED.series4;
     ctx.textAlign = 'center';
     ctx.fillText('ζ zeros are generic poles of ζ(2s)/ζ(s)', w / 2, 265);
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.font = '9px "JetBrains Mono", monospace';
     ctx.fillText('Realization + an exact divisor theorem remain open', w / 2, 280);
 
@@ -140,17 +141,17 @@ export default function ProofStatusCard() {
 
   return (
     <div>
-      <canvas ref={canvasRef} style={{ width: '100%', maxWidth: 600, borderRadius: 8, border: '1px solid #1e293b' }}
+      <canvas ref={canvasRef} style={{ width: '100%', maxWidth: 600, borderRadius: 8, border: '1px solid var(--rule-soft)' }}
         onClick={draw} />
       <div style={{ display: 'flex', gap: 8, marginTop: 8 }}>
         <button onClick={() => { draw(); handleSave(); }}
-          style={{ padding: '6px 14px', borderRadius: 6, background: 'rgba(59,130,246,0.15)',
-            color: '#93c5fd', border: '1px solid rgba(59,130,246,0.3)', cursor: 'pointer', fontSize: 12 }}>
+          style={{ padding: '6px 14px', borderRadius: 6, background: 'color-mix(in srgb, var(--series-1) 15%, transparent)',
+            color: 'var(--series-1)', border: '1px solid color-mix(in srgb, var(--series-1) 30%, transparent)', cursor: 'pointer', fontSize: 12 }}>
           Save as PNG
         </button>
         <button onClick={draw}
-          style={{ padding: '6px 14px', borderRadius: 6, background: 'rgba(16,185,129,0.15)',
-            color: '#6ee7b7', border: '1px solid rgba(16,185,129,0.3)', cursor: 'pointer', fontSize: 12 }}>
+          style={{ padding: '6px 14px', borderRadius: 6, background: 'color-mix(in srgb, var(--series-3) 15%, transparent)',
+            color: 'var(--series-3)', border: '1px solid color-mix(in srgb, var(--series-3) 30%, transparent)', cursor: 'pointer', fontSize: 12 }}>
           Refresh
         </button>
       </div>

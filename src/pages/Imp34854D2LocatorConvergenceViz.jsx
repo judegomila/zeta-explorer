@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP34820_SIGMOID_INFLECTION_D2_CLOSED_FORM_LOCATOR } from '../data/imp-34820-sigmoid-inflection-d2-closed-form-locator.js';
+import { ED } from '../styles/tokens.js';
 
 const D = IMP34820_SIGMOID_INFLECTION_D2_CLOSED_FORM_LOCATOR;
 
@@ -40,18 +41,18 @@ function LogLogResidualPanel({ table, meanHalvingRatio }) {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} x2={svgW - padR} y1={padT + plotH} y2={padT + plotH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} x2={padL} y1={padT} y2={padT + plotH} stroke="#334155" strokeWidth={1.5} />
-      <polyline points={refPoints} fill="none" stroke="#475569" strokeWidth={1.5} strokeDasharray="5,4" />
-      <polyline points={points} fill="none" stroke="#38bdf8" strokeWidth={2.25} />
+      <line x1={padL} x2={svgW - padR} y1={padT + plotH} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} x2={padL} y1={padT} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <polyline points={refPoints} fill="none" stroke={ED.rule} strokeWidth={1.5} strokeDasharray="5,4" />
+      <polyline points={points} fill="none" stroke={ED.series1} strokeWidth={2.25} />
       {table.map((r, i) => (
         <g key={r.h}>
-          <circle cx={xOf(logH[i])} cy={yOf(logR[i])} r={4.5} fill="#38bdf8" />
+          <circle cx={xOf(logH[i])} cy={yOf(logR[i])} r={4.5} fill={ED.series1} />
           <text
             x={xOf(logH[i])}
             y={yOf(logR[i]) - 10}
             textAnchor="middle"
-            fill="#38bdf8"
+            fill={ED.series1}
             fontSize={10}
             fontFamily="monospace"
           >
@@ -61,7 +62,7 @@ function LogLogResidualPanel({ table, meanHalvingRatio }) {
             x={xOf(logH[i])}
             y={padT + plotH + 16}
             textAnchor="middle"
-            fill="#94a3b8"
+            fill={ED.inkSoft}
             fontSize={11}
             fontFamily="monospace"
           >
@@ -69,7 +70,7 @@ function LogLogResidualPanel({ table, meanHalvingRatio }) {
           </text>
         </g>
       ))}
-      <text x={svgW / 2} y={svgH - 6} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={svgW / 2} y={svgH - 6} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         D2-identity relative residual vs step h, log-log -- dashed line is the O(h^2) reference slope (mean
         halving ratio {meanHalvingRatio.toFixed(2)})
       </text>
@@ -92,19 +93,19 @@ function LandmarkStrip({ inflection, knee, gapDex }) {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} x2={svgW - padR} y1={y} y2={y} stroke="#334155" strokeWidth={1.5} />
-      <circle cx={xOf(inflection.log10Nstar)} cy={y} r={6} fill="#a78bfa" />
-      <text x={xOf(inflection.log10Nstar)} y={y - 14} textAnchor="middle" fill="#a78bfa" fontSize={11} fontFamily="monospace">
+      <line x1={padL} x2={svgW - padR} y1={y} y2={y} stroke={ED.rule} strokeWidth={1.5} />
+      <circle cx={xOf(inflection.log10Nstar)} cy={y} r={6} fill={ED.series5} />
+      <text x={xOf(inflection.log10Nstar)} y={y - 14} textAnchor="middle" fill={ED.series5} fontSize={11} fontFamily="monospace">
         sigmoid inflection
       </text>
-      <text x={xOf(inflection.log10Nstar)} y={y + 24} textAnchor="middle" fill="#a78bfa" fontSize={10} fontFamily="monospace">
+      <text x={xOf(inflection.log10Nstar)} y={y + 24} textAnchor="middle" fill={ED.series5} fontSize={10} fontFamily="monospace">
         log10 N* = {inflection.log10Nstar.toFixed(5)}
       </text>
-      <circle cx={xOf(knee.log10Nstar)} cy={y} r={6} fill="#38bdf8" />
-      <text x={xOf(knee.log10Nstar)} y={y - 14} textAnchor="middle" fill="#38bdf8" fontSize={11} fontFamily="monospace">
+      <circle cx={xOf(knee.log10Nstar)} cy={y} r={6} fill={ED.series1} />
+      <text x={xOf(knee.log10Nstar)} y={y - 14} textAnchor="middle" fill={ED.series1} fontSize={11} fontFamily="monospace">
         sigma-KNEE
       </text>
-      <text x={xOf(knee.log10Nstar)} y={y + 24} textAnchor="middle" fill="#38bdf8" fontSize={10} fontFamily="monospace">
+      <text x={xOf(knee.log10Nstar)} y={y + 24} textAnchor="middle" fill={ED.series1} fontSize={10} fontFamily="monospace">
         log10 N* = {knee.log10Nstar.toFixed(5)}
       </text>
       <line
@@ -112,10 +113,10 @@ function LandmarkStrip({ inflection, knee, gapDex }) {
         x2={xOf(knee.log10Nstar)}
         y1={y + 40}
         y2={y + 40}
-        stroke="#64748b"
+        stroke={ED.rule}
         strokeWidth={1}
       />
-      <text x={(xOf(inflection.log10Nstar) + xOf(knee.log10Nstar)) / 2} y={y + 54} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={(xOf(inflection.log10Nstar) + xOf(knee.log10Nstar)) / 2} y={y + 54} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         ~{gapDex.toExponential(2)} dex separation -- distinct landmarks
       </text>
     </svg>
@@ -129,7 +130,7 @@ export default function Imp34854D2LocatorConvergenceViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Sibling Second-Order D2-Locator Convergence (imp-34854 / imp-34820)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-34820 found that the closed-form sigmoid-inflection condition (1-2S) u_prime^2 + u_secondDeriv = 0
         matches the independent finite-difference sigma_secondDeriv against the identity
         S(1-S)[(1-2S) u_prime^2 + u_secondDeriv] to {pointwiseIdentity.maxRelResid.toExponential(2)} relative at
@@ -137,12 +138,12 @@ export default function Imp34854D2LocatorConvergenceViz() {
         with no h-independent floor, confirming exact algebra rather than a fortuitous match.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         D2-identity residual vs step h (log-log)
       </p>
       <LogLogResidualPanel table={scaling.table} meanHalvingRatio={scaling.meanHalvingRatio} />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
         Landmark separation: sigmoid inflection vs sigma-KNEE
       </p>
       <LandmarkStrip
@@ -155,11 +156,11 @@ export default function Imp34854D2LocatorConvergenceViz() {
         style={{
           marginTop: '1rem',
           padding: '0.6rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
         }}
       >
         The closed-form D2 root lands on the independent finite-difference sigmoid inflection to{' '}
@@ -172,14 +173,14 @@ export default function Imp34854D2LocatorConvergenceViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page presenting the imp-34820
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-only page presenting the imp-34820
         literals verbatim (no new computation). Component model is the inherited imp-3220/imp-3406 surrogate
         crossover map, NOT a rigorous asymptotic; the imp-34796/imp-34820 E_flow-reinstatement sub-gap REMAINS
         OPEN. The C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator

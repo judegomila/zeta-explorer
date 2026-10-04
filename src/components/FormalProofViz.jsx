@@ -6,15 +6,16 @@ import {
 } from '../math/formal-proof.js';
 import { getPrimes } from '../math/primes.js';
 import { ZETA_ZEROS } from '../math/zeta.js';
+import { ED, STATUS, alpha } from '../styles/tokens.js';
 
 const TABS = ['Proof Map', 'Verification', 'Evidence', 'Gaps'];
-const TAB_COLORS = ['#10b981', '#3b82f6', '#f59e0b', '#ef4444'];
+const TAB_COLORS = [ED.series3, ED.series1, ED.series4, ED.series2];
 
 const STATUS_COLORS = {
-  proven: '#10b981',
-  conditional: '#f59e0b',
-  gap: '#f97316',
-  open: '#ef4444',
+  proven: STATUS.proved.fg,
+  conditional: STATUS.conditional.fg,
+  gap: STATUS.open.fg,
+  open: STATUS.open.fg,
 };
 
 const STATUS_LABELS = {
@@ -98,7 +99,7 @@ function ProofMapTab({ numPrimes }) {
           ref={svgRef}
           width={layout.svgWidth}
           height={layout.svgHeight}
-          style={{ background: '#0a0e1a', borderRadius: 8, border: '1px solid #1e293b', display: 'block', margin: '0 auto' }}
+          style={{ background: 'var(--paper)', borderRadius: 8, border: '1px solid var(--rule-soft)', display: 'block', margin: '0 auto' }}
         >
           {/* Marker definition for arrows */}
           <defs>
@@ -127,7 +128,7 @@ function ProofMapTab({ numPrimes }) {
                 y1={from.y + ny * r}
                 x2={to.x - nx * (r + 6)}
                 y2={to.y - ny * (r + 6)}
-                stroke="#475569"
+                stroke={ED.rule}
                 strokeWidth={1.5}
                 markerEnd="url(#arrowhead)"
                 opacity={0.6}
@@ -171,7 +172,7 @@ function ProofMapTab({ numPrimes }) {
                   x={pos.x}
                   y={pos.y + 36}
                   textAnchor="middle"
-                  fill="#94a3b8"
+                  fill={ED.inkSoft}
                   fontSize="9"
                   fontFamily="sans-serif"
                 >
@@ -185,7 +186,7 @@ function ProofMapTab({ numPrimes }) {
           {Object.entries(STATUS_COLORS).map(([status, color], i) => (
             <g key={status} transform={`translate(12, ${12 + i * 18})`}>
               <circle cx={6} cy={6} r={5} fill={color + '30'} stroke={color} strokeWidth={1.5} />
-              <text x={16} y={10} fill="#94a3b8" fontSize="10" fontFamily="sans-serif">
+              <text x={16} y={10} fill={ED.inkSoft} fontSize="10" fontFamily="sans-serif">
                 {STATUS_LABELS[status]}
               </text>
             </g>
@@ -206,26 +207,26 @@ function ProofMapTab({ numPrimes }) {
               color: STATUS_COLORS[selectedSection.status],
               textTransform: 'uppercase',
             }}>{STATUS_LABELS[selectedSection.status]}</span>
-            <strong style={{ fontSize: 13, color: '#e2e8f0' }}>
+            <strong style={{ fontSize: 13, color: 'var(--ink)' }}>
               {selectedSection.id}: {selectedSection.title}
             </strong>
           </div>
           <div style={{ margin: '8px 0' }}>
             <InlineMath tex={selectedSection.statement} />
           </div>
-          <div style={{ fontSize: 11, color: '#94a3b8', lineHeight: 1.7, marginTop: 8 }}>
-            <strong style={{ color: '#64748b' }}>Proof sketch:</strong>{' '}
+          <div style={{ fontSize: 11, color: 'var(--ink-soft)', lineHeight: 1.7, marginTop: 8 }}>
+            <strong style={{ color: 'var(--ink-faint)' }}>Proof sketch:</strong>{' '}
             {selectedSection.proof.slice(0, 400)}{selectedSection.proof.length > 400 ? '...' : ''}
           </div>
           {selectedSection.dependencies.length > 0 && (
-            <div style={{ marginTop: 8, fontSize: 11, color: '#64748b' }}>
+            <div style={{ marginTop: 8, fontSize: 11, color: 'var(--ink-faint)' }}>
               <strong>Depends on:</strong>{' '}
               {selectedSection.dependencies.map(d => (
                 <span
                   key={d}
                   style={{
                     display: 'inline-block', marginRight: 6, padding: '1px 6px',
-                    borderRadius: 3, background: '#1e293b', color: '#e2e8f0',
+                    borderRadius: 3, background: 'var(--paper-3)', color: 'var(--ink)',
                     cursor: d.startsWith('S') ? 'pointer' : 'default',
                     fontSize: 10, fontFamily: 'var(--font-mono)',
                   }}
@@ -238,8 +239,8 @@ function ProofMapTab({ numPrimes }) {
           )}
           <div style={{
             marginTop: 10, padding: '8px 12px', borderRadius: 6,
-            background: 'rgba(239,68,68,0.06)', border: '1px solid #ef444430',
-            fontSize: 11, color: '#f87171', lineHeight: 1.6,
+            background: 'color-mix(in srgb, var(--series-2) 6%, transparent)', border: '1px solid color-mix(in srgb, var(--series-2) 19%, transparent)',
+            fontSize: 11, color: 'var(--series-2)', lineHeight: 1.6,
           }}>
             <strong>Gap analysis:</strong> {selectedSection.gapAnalysis}
           </div>
@@ -247,7 +248,7 @@ function ProofMapTab({ numPrimes }) {
       )}
 
       {!selectedSection && (
-        <div style={{ textAlign: 'center', color: '#64748b', fontSize: 12, padding: 16 }}>
+        <div style={{ textAlign: 'center', color: 'var(--ink-faint)', fontSize: 12, padding: 16 }}>
           Click a node to view section details
         </div>
       )}
@@ -297,15 +298,15 @@ function VerificationTab({ numPrimes }) {
       </div>
 
       <div style={{ maxHeight: 600, overflow: 'auto' }}>
-        <table style={{ width: '100%', fontSize: 11, color: '#94a3b8', borderCollapse: 'collapse' }}>
+        <table style={{ width: '100%', fontSize: 11, color: 'var(--ink-soft)', borderCollapse: 'collapse' }}>
           <thead>
-            <tr style={{ borderBottom: '1px solid #334155', position: 'sticky', top: 0, background: '#0f172a' }}>
-              <th style={{ textAlign: 'left', padding: '6px 8px', color: '#e2e8f0' }}>Section</th>
-              <th style={{ textAlign: 'center', padding: '6px 8px', color: '#e2e8f0' }}>Status</th>
-              <th style={{ textAlign: 'center', padding: '6px 8px', color: '#e2e8f0' }}>Pass</th>
-              <th style={{ textAlign: 'center', padding: '6px 8px', color: '#e2e8f0' }}>Fail</th>
-              <th style={{ textAlign: 'center', padding: '6px 8px', color: '#e2e8f0' }}>N/A</th>
-              <th style={{ textAlign: 'center', padding: '6px 8px', color: '#e2e8f0' }}>Action</th>
+            <tr style={{ borderBottom: '1px solid var(--rule)', position: 'sticky', top: 0, background: 'var(--paper-2)' }}>
+              <th style={{ textAlign: 'left', padding: '6px 8px', color: 'var(--ink)' }}>Section</th>
+              <th style={{ textAlign: 'center', padding: '6px 8px', color: 'var(--ink)' }}>Status</th>
+              <th style={{ textAlign: 'center', padding: '6px 8px', color: 'var(--ink)' }}>Pass</th>
+              <th style={{ textAlign: 'center', padding: '6px 8px', color: 'var(--ink)' }}>Fail</th>
+              <th style={{ textAlign: 'center', padding: '6px 8px', color: 'var(--ink)' }}>N/A</th>
+              <th style={{ textAlign: 'center', padding: '6px 8px', color: 'var(--ink)' }}>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -313,7 +314,7 @@ function VerificationTab({ numPrimes }) {
               const r = results[section.id];
               const statusColor = STATUS_COLORS[section.status];
               return (
-                <tr key={section.id} style={{ borderBottom: '1px solid #1e293b' }}>
+                <tr key={section.id} style={{ borderBottom: '1px solid var(--rule-soft)' }}>
                   <td style={{ padding: '6px 8px' }}>
                     <span style={{ color: statusColor, fontWeight: 700, fontFamily: 'var(--font-mono)', marginRight: 6 }}>
                       {section.id}
@@ -327,13 +328,13 @@ function VerificationTab({ numPrimes }) {
                       textTransform: 'uppercase',
                     }}>{STATUS_LABELS[section.status]}</span>
                   </td>
-                  <td style={{ textAlign: 'center', padding: '6px 8px', color: '#10b981', fontFamily: 'var(--font-mono)' }}>
+                  <td style={{ textAlign: 'center', padding: '6px 8px', color: 'var(--series-3)', fontFamily: 'var(--font-mono)' }}>
                     {r ? r.summary.passCount : '-'}
                   </td>
-                  <td style={{ textAlign: 'center', padding: '6px 8px', color: '#ef4444', fontFamily: 'var(--font-mono)' }}>
+                  <td style={{ textAlign: 'center', padding: '6px 8px', color: 'var(--series-2)', fontFamily: 'var(--font-mono)' }}>
                     {r ? r.summary.failCount : '-'}
                   </td>
-                  <td style={{ textAlign: 'center', padding: '6px 8px', color: '#64748b', fontFamily: 'var(--font-mono)' }}>
+                  <td style={{ textAlign: 'center', padding: '6px 8px', color: 'var(--ink-faint)', fontFamily: 'var(--font-mono)' }}>
                     {r ? r.summary.naCount : '-'}
                   </td>
                   <td style={{ textAlign: 'center', padding: '6px 8px' }}>
@@ -360,26 +361,26 @@ function VerificationTab({ numPrimes }) {
         const r = results[lastId];
         if (!r || !r.tests) return null;
         return (
-          <div className="card" style={{ marginTop: 16, borderLeft: '3px solid #3b82f6' }}>
-            <h4 style={{ color: '#3b82f6', fontSize: 12, marginBottom: 8 }}>
+          <div className="card" style={{ marginTop: 16, borderLeft: '3px solid var(--series-1)' }}>
+            <h4 style={{ color: 'var(--series-1)', fontSize: 12, marginBottom: 8 }}>
               {r.sectionId}: {r.title} — Test Details
             </h4>
             <div style={{ maxHeight: 200, overflow: 'auto' }}>
-              <table style={{ width: '100%', fontSize: 10, color: '#94a3b8', borderCollapse: 'collapse' }}>
+              <table style={{ width: '100%', fontSize: 10, color: 'var(--ink-soft)', borderCollapse: 'collapse' }}>
                 <thead>
-                  <tr style={{ borderBottom: '1px solid #334155' }}>
+                  <tr style={{ borderBottom: '1px solid var(--rule)' }}>
                     <th style={{ textAlign: 'left', padding: '3px 6px' }}>Test</th>
                     <th style={{ textAlign: 'center', padding: '3px 6px' }}>Result</th>
                   </tr>
                 </thead>
                 <tbody>
                   {r.tests.slice(0, 20).map((t, i) => (
-                    <tr key={i} style={{ borderBottom: '1px solid #1e293b' }}>
+                    <tr key={i} style={{ borderBottom: '1px solid var(--rule-soft)' }}>
                       <td style={{ padding: '3px 6px', fontFamily: 'var(--font-mono)' }}>{t.test}</td>
                       <td style={{ textAlign: 'center', padding: '3px 6px' }}>
-                        {t.pass === true && <span style={{ color: '#10b981', fontWeight: 700 }}>PASS</span>}
-                        {t.pass === false && <span style={{ color: '#ef4444', fontWeight: 700 }}>FAIL</span>}
-                        {t.pass === null && <span style={{ color: '#64748b' }}>N/A</span>}
+                        {t.pass === true && <span style={{ color: 'var(--series-3)', fontWeight: 700 }}>PASS</span>}
+                        {t.pass === false && <span style={{ color: 'var(--series-2)', fontWeight: 700 }}>FAIL</span>}
+                        {t.pass === null && <span style={{ color: 'var(--ink-faint)' }}>N/A</span>}
                       </td>
                     </tr>
                   ))}
@@ -423,7 +424,7 @@ function EvidenceTab({ numPrimes, numZeros }) {
     const plotH = h - margin.top - margin.bottom;
 
     // Axes
-    ctx.strokeStyle = '#334155';
+    ctx.strokeStyle = ED.rule;
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.moveTo(margin.left, margin.top);
@@ -445,7 +446,7 @@ function EvidenceTab({ numPrimes, numZeros }) {
     ctx.setLineDash([3, 3]);
     ctx.moveTo(margin.left, zeroY);
     ctx.lineTo(w - margin.right, zeroY);
-    ctx.strokeStyle = '#ef444460';
+    ctx.strokeStyle = alpha(ED.series2, 0.38);
     ctx.stroke();
     ctx.setLineDash([]);
 
@@ -457,11 +458,11 @@ function EvidenceTab({ numPrimes, numZeros }) {
       const valY = h - margin.bottom - (logVal - minLog) / yRange * plotH;
       const barTop = Math.min(valY, zeroY);
       const barHeight = Math.abs(valY - zeroY);
-      ctx.fillStyle = l.positive ? '#10b981' : '#ef4444';
+      ctx.fillStyle = l.positive ? ED.series3 : ED.series2;
       ctx.fillRect(x - barW / 2, barTop, barW, barHeight);
 
       if (i % Math.max(1, Math.floor(lambdas.length / 10)) === 0) {
-        ctx.fillStyle = '#64748b';
+        ctx.fillStyle = ED.series8;
         ctx.font = '9px var(--font-mono)';
         ctx.textAlign = 'center';
         ctx.fillText(`${l.n}`, x, h - margin.bottom + 12);
@@ -469,13 +470,13 @@ function EvidenceTab({ numPrimes, numZeros }) {
     });
 
     // Title
-    ctx.fillStyle = '#10b981';
+    ctx.fillStyle = ED.series3;
     ctx.font = 'bold 11px sans-serif';
     ctx.textAlign = 'left';
     ctx.fillText('Li Coefficients log(lambda_n)', margin.left, margin.top - 8);
 
     // Y-axis labels
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.font = '8px var(--font-mono)';
     ctx.textAlign = 'right';
     for (let i = 0; i <= 4; i++) {
@@ -502,7 +503,7 @@ function EvidenceTab({ numPrimes, numZeros }) {
     const plotW = w - margin.left - margin.right;
     const plotH = h - margin.top - margin.bottom;
 
-    ctx.strokeStyle = '#334155';
+    ctx.strokeStyle = ED.rule;
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.moveTo(margin.left, margin.top);
@@ -525,7 +526,7 @@ function EvidenceTab({ numPrimes, numZeros }) {
     ctx.setLineDash([3, 3]);
     ctx.moveTo(margin.left, midY);
     ctx.lineTo(w - margin.right, midY);
-    ctx.strokeStyle = '#47556980';
+    ctx.strokeStyle = alpha(ED.rule, 0.5);
     ctx.stroke();
     ctx.setLineDash([]);
 
@@ -536,7 +537,7 @@ function EvidenceTab({ numPrimes, numZeros }) {
       const y = midY - (r.d2H_dSigma2 / maxD2) * plotH * 0.4;
       if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
     });
-    ctx.strokeStyle = '#3b82f6';
+    ctx.strokeStyle = ED.series1;
     ctx.lineWidth = 2;
     ctx.stroke();
 
@@ -546,18 +547,18 @@ function EvidenceTab({ numPrimes, numZeros }) {
       const y = midY - (r.d2H_dSigma2 / maxD2) * plotH * 0.4;
       ctx.beginPath();
       ctx.arc(x, y, 4, 0, Math.PI * 2);
-      ctx.fillStyle = r.isMinimum ? '#10b981' : '#f59e0b';
+      ctx.fillStyle = r.isMinimum ? ED.series3 : ED.series4;
       ctx.fill();
     });
 
     // Title
-    ctx.fillStyle = '#3b82f6';
+    ctx.fillStyle = ED.series1;
     ctx.font = 'bold 11px sans-serif';
     ctx.textAlign = 'left';
     ctx.fillText('Hamiltonian d^2H/dsigma^2 (convexity)', margin.left, margin.top - 8);
 
     // X label
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.font = '9px var(--font-mono)';
     ctx.textAlign = 'center';
     ctx.fillText('t (imaginary part)', w / 2, h - 4);
@@ -580,7 +581,7 @@ function EvidenceTab({ numPrimes, numZeros }) {
     const plotW = w - margin.left - margin.right;
     const plotH = h - margin.top - margin.bottom;
 
-    ctx.strokeStyle = '#334155';
+    ctx.strokeStyle = ED.rule;
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.moveTo(margin.left, margin.top);
@@ -603,10 +604,10 @@ function EvidenceTab({ numPrimes, numZeros }) {
     ctx.setLineDash([3, 3]);
     ctx.moveTo(margin.left, threshY);
     ctx.lineTo(w - margin.right, threshY);
-    ctx.strokeStyle = '#f59e0b60';
+    ctx.strokeStyle = alpha(ED.brassDeco, 0.38);
     ctx.stroke();
     ctx.setLineDash([]);
-    ctx.fillStyle = '#f59e0b';
+    ctx.fillStyle = ED.series4;
     ctx.font = '8px var(--font-mono)';
     ctx.textAlign = 'left';
     ctx.fillText('|zeta| = 0.5', margin.left + 4, threshY - 4);
@@ -617,18 +618,18 @@ function EvidenceTab({ numPrimes, numZeros }) {
       const y = h - margin.bottom - (z.zetaMag / maxMag) * plotH * 0.85;
       ctx.beginPath();
       ctx.arc(x, y, 3, 0, Math.PI * 2);
-      ctx.fillStyle = z.onLine ? '#10b981' : '#ef4444';
+      ctx.fillStyle = z.onLine ? ED.series3 : ED.series2;
       ctx.fill();
     });
 
     // Title
-    ctx.fillStyle = '#f59e0b';
+    ctx.fillStyle = ED.series4;
     ctx.font = 'bold 11px sans-serif';
     ctx.textAlign = 'left';
     ctx.fillText('|zeta(1/2 + i*gamma)| at known zeros', margin.left, margin.top - 8);
 
     // X label
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.font = '9px var(--font-mono)';
     ctx.textAlign = 'center';
     ctx.fillText('gamma (zero location)', w / 2, h - 4);
@@ -637,7 +638,7 @@ function EvidenceTab({ numPrimes, numZeros }) {
     const legendX = w - margin.right - 130;
     const legendY = margin.top + 2;
     ctx.fillStyle = 'rgba(10, 14, 26, 0.75)';
-    ctx.strokeStyle = '#334155';
+    ctx.strokeStyle = ED.rule;
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.roundRect(legendX, legendY, 122, 38, 4);
@@ -648,13 +649,13 @@ function EvidenceTab({ numPrimes, numZeros }) {
     // On-line entry
     ctx.beginPath();
     ctx.arc(legendX + 10, legendY + 12, 3, 0, Math.PI * 2);
-    ctx.fillStyle = '#10b981';
+    ctx.fillStyle = ED.series3;
     ctx.fill();
     ctx.fillText('on critical line', legendX + 18, legendY + 15);
     // Off-line entry
     ctx.beginPath();
     ctx.arc(legendX + 10, legendY + 27, 3, 0, Math.PI * 2);
-    ctx.fillStyle = '#ef4444';
+    ctx.fillStyle = ED.series2;
     ctx.fill();
     ctx.fillText('off critical line', legendX + 18, legendY + 30);
   }, [evidence]);
@@ -675,52 +676,52 @@ function EvidenceTab({ numPrimes, numZeros }) {
       {/* Summary stats */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 10, marginBottom: 16 }}>
         <div style={{
-          padding: '10px 12px', borderRadius: 8, background: '#0a0e1a',
-          border: `1px solid ${evidence.liCoefficients?.allPositive ? '#10b981' : '#ef4444'}40`,
+          padding: '10px 12px', borderRadius: 8, background: 'var(--paper)',
+          border: `1px solid ${evidence.liCoefficients?.allPositive ? ED.series3 : ED.series2}40`,
         }}>
           <div style={{
-            color: evidence.liCoefficients?.allPositive ? '#10b981' : '#ef4444',
+            color: evidence.liCoefficients?.allPositive ? 'var(--series-3)' : 'var(--series-2)',
             fontWeight: 700, fontSize: 14, fontFamily: 'var(--font-mono)',
           }}>
             {evidence.liCoefficients?.allPositive ? 'ALL > 0' : 'FAIL'}
           </div>
-          <div style={{ color: '#64748b', fontSize: 10 }}>Li Coefficients</div>
+          <div style={{ color: 'var(--ink-faint)', fontSize: 10 }}>Li Coefficients</div>
         </div>
         <div style={{
-          padding: '10px 12px', borderRadius: 8, background: '#0a0e1a',
-          border: `1px solid ${evidence.hamiltonianConvexity?.allMinima ? '#10b981' : '#f59e0b'}40`,
+          padding: '10px 12px', borderRadius: 8, background: 'var(--paper)',
+          border: `1px solid ${evidence.hamiltonianConvexity?.allMinima ? ED.series3 : ED.series4}40`,
         }}>
           <div style={{
-            color: evidence.hamiltonianConvexity?.allMinima ? '#10b981' : '#f59e0b',
+            color: evidence.hamiltonianConvexity?.allMinima ? 'var(--series-3)' : 'var(--brass)',
             fontWeight: 700, fontSize: 14, fontFamily: 'var(--font-mono)',
           }}>
             {evidence.hamiltonianConvexity?.allMinima ? 'CONVEX' : 'PARTIAL'}
           </div>
-          <div style={{ color: '#64748b', fontSize: 10 }}>H Convexity</div>
+          <div style={{ color: 'var(--ink-faint)', fontSize: 10 }}>H Convexity</div>
         </div>
         <div style={{
-          padding: '10px 12px', borderRadius: 8, background: '#0a0e1a',
-          border: `1px solid ${evidence.zeroDeviation?.allOnLine ? '#10b981' : '#ef4444'}40`,
+          padding: '10px 12px', borderRadius: 8, background: 'var(--paper)',
+          border: `1px solid ${evidence.zeroDeviation?.allOnLine ? ED.series3 : ED.series2}40`,
         }}>
           <div style={{
-            color: evidence.zeroDeviation?.allOnLine ? '#10b981' : '#ef4444',
+            color: evidence.zeroDeviation?.allOnLine ? 'var(--series-3)' : 'var(--series-2)',
             fontWeight: 700, fontSize: 14, fontFamily: 'var(--font-mono)',
           }}>
             {evidence.zeroDeviation?.onLineCount ?? 0}/{evidence.zeroDeviation?.count || 0}
           </div>
-          <div style={{ color: '#64748b', fontSize: 10 }}>Zeros on line</div>
+          <div style={{ color: 'var(--ink-faint)', fontSize: 10 }}>Zeros on line</div>
         </div>
         <div style={{
-          padding: '10px 12px', borderRadius: 8, background: '#0a0e1a',
-          border: `1px solid ${evidence.bridgeUnitarity?.allUnitary ? '#10b981' : '#f59e0b'}40`,
+          padding: '10px 12px', borderRadius: 8, background: 'var(--paper)',
+          border: `1px solid ${evidence.bridgeUnitarity?.allUnitary ? ED.series3 : ED.series4}40`,
         }}>
           <div style={{
-            color: evidence.bridgeUnitarity?.allUnitary ? '#10b981' : '#f59e0b',
+            color: evidence.bridgeUnitarity?.allUnitary ? 'var(--series-3)' : 'var(--brass)',
             fontWeight: 700, fontSize: 14, fontFamily: 'var(--font-mono)',
           }}>
             {evidence.bridgeUnitarity?.allUnitary ? '|chi|=1' : 'APPROX'}
           </div>
-          <div style={{ color: '#64748b', fontSize: 10 }}>Bridge unitarity</div>
+          <div style={{ color: 'var(--ink-faint)', fontSize: 10 }}>Bridge unitarity</div>
         </div>
       </div>
 
@@ -728,15 +729,15 @@ function EvidenceTab({ numPrimes, numZeros }) {
       <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: 12 }}>
         <canvas
           ref={liCanvasRef}
-          style={{ width: '100%', height: 200, borderRadius: 8, background: '#0a0e1a', border: '1px solid #1e293b' }}
+          style={{ width: '100%', height: 200, borderRadius: 8, background: 'var(--paper)', border: '1px solid var(--rule-soft)' }}
         />
         <canvas
           ref={hamiltonianCanvasRef}
-          style={{ width: '100%', height: 200, borderRadius: 8, background: '#0a0e1a', border: '1px solid #1e293b' }}
+          style={{ width: '100%', height: 200, borderRadius: 8, background: 'var(--paper)', border: '1px solid var(--rule-soft)' }}
         />
         <canvas
           ref={zeroCanvasRef}
-          style={{ width: '100%', height: 200, borderRadius: 8, background: '#0a0e1a', border: '1px solid #1e293b' }}
+          style={{ width: '100%', height: 200, borderRadius: 8, background: 'var(--paper)', border: '1px solid var(--rule-soft)' }}
         />
       </div>
     </div>
@@ -761,38 +762,38 @@ function GapsTab() {
         display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 10, marginBottom: 16,
       }}>
         <div style={{
-          padding: '12px 14px', borderRadius: 8, background: '#0a0e1a',
-          border: '1px solid #ef444440',
+          padding: '12px 14px', borderRadius: 8, background: 'var(--paper)',
+          border: '1px solid color-mix(in srgb, var(--series-2) 25%, transparent)',
         }}>
-          <div style={{ color: '#ef4444', fontWeight: 700, fontSize: 20, fontFamily: 'var(--font-mono)' }}>
+          <div style={{ color: 'var(--series-2)', fontWeight: 700, fontSize: 20, fontFamily: 'var(--font-mono)' }}>
             {PROOF_SECTIONS.filter(s => s.status === 'open').length}
           </div>
-          <div style={{ color: '#ef4444', fontSize: 11, fontWeight: 600 }}>Open Problems</div>
-          <div style={{ color: '#64748b', fontSize: 10, marginTop: 4 }}>
+          <div style={{ color: 'var(--series-2)', fontSize: 11, fontWeight: 600 }}>Open Problems</div>
+          <div style={{ color: 'var(--ink-faint)', fontSize: 10, marginTop: 4 }}>
             No known path to resolution
           </div>
         </div>
         <div style={{
-          padding: '12px 14px', borderRadius: 8, background: '#0a0e1a',
-          border: '1px solid #f9731640',
+          padding: '12px 14px', borderRadius: 8, background: 'var(--paper)',
+          border: '1px solid color-mix(in srgb, var(--series-4) 25%, transparent)',
         }}>
-          <div style={{ color: '#f97316', fontWeight: 700, fontSize: 20, fontFamily: 'var(--font-mono)' }}>
+          <div style={{ color: 'var(--series-4)', fontWeight: 700, fontSize: 20, fontFamily: 'var(--font-mono)' }}>
             {PROOF_SECTIONS.filter(s => s.status === 'gap').length}
           </div>
-          <div style={{ color: '#f97316', fontSize: 11, fontWeight: 600 }}>Critical Gaps</div>
-          <div style={{ color: '#64748b', fontSize: 10, marginTop: 4 }}>
+          <div style={{ color: 'var(--series-4)', fontSize: 11, fontWeight: 600 }}>Critical Gaps</div>
+          <div style={{ color: 'var(--ink-faint)', fontSize: 10, marginTop: 4 }}>
             Specific obstacles identified
           </div>
         </div>
         <div style={{
-          padding: '12px 14px', borderRadius: 8, background: '#0a0e1a',
-          border: '1px solid #f59e0b40',
+          padding: '12px 14px', borderRadius: 8, background: 'var(--paper)',
+          border: '1px solid color-mix(in srgb, var(--brass-deco) 25%, transparent)',
         }}>
-          <div style={{ color: '#f59e0b', fontWeight: 700, fontSize: 20, fontFamily: 'var(--font-mono)' }}>
+          <div style={{ color: 'var(--brass)', fontWeight: 700, fontSize: 20, fontFamily: 'var(--font-mono)' }}>
             {PROOF_SECTIONS.filter(s => s.status === 'conditional').length}
           </div>
-          <div style={{ color: '#f59e0b', fontSize: 11, fontWeight: 600 }}>Conditional Steps</div>
-          <div style={{ color: '#64748b', fontSize: 10, marginTop: 4 }}>
+          <div style={{ color: 'var(--brass)', fontSize: 11, fontWeight: 600 }}>Conditional Steps</div>
+          <div style={{ color: 'var(--ink-faint)', fontSize: 10, marginTop: 4 }}>
             Depend on unproven hypotheses
           </div>
         </div>
@@ -821,7 +822,7 @@ function GapsTab() {
                 background: color + '20', color,
                 textTransform: 'uppercase', fontFamily: 'var(--font-mono)',
               }}>{section.id}</span>
-              <strong style={{ fontSize: 12, color: '#e2e8f0' }}>{section.title}</strong>
+              <strong style={{ fontSize: 12, color: 'var(--ink)' }}>{section.title}</strong>
               <span style={{
                 marginLeft: 'auto', fontSize: 9, fontWeight: 600,
                 color, opacity: 0.8,
@@ -829,15 +830,15 @@ function GapsTab() {
             </div>
 
             <div style={{
-              fontSize: 11, color: '#f87171', lineHeight: 1.7,
+              fontSize: 11, color: 'var(--series-2)', lineHeight: 1.7,
               padding: '8px 12px', borderRadius: 6,
-              background: 'rgba(239,68,68,0.05)', border: '1px solid #ef444420',
+              background: 'color-mix(in srgb, var(--series-2) 5%, transparent)', border: '1px solid color-mix(in srgb, var(--series-2) 13%, transparent)',
             }}>
               {section.gapAnalysis}
             </div>
 
             {section.references.length > 0 && (
-              <div style={{ marginTop: 8, fontSize: 10, color: '#64748b' }}>
+              <div style={{ marginTop: 8, fontSize: 10, color: 'var(--ink-faint)' }}>
                 <strong>Key references:</strong>{' '}
                 {section.references.slice(0, 3).join(' | ')}
               </div>
@@ -847,27 +848,27 @@ function GapsTab() {
       })}
 
       {/* Critical path */}
-      <div className="card" style={{ marginTop: 16, borderColor: '#8b5cf6', borderWidth: 2 }}>
-        <h4 style={{ color: '#8b5cf6', fontSize: 13, marginBottom: 8 }}>
+      <div className="card" style={{ marginTop: 16, borderColor: 'var(--series-5)', borderWidth: 2 }}>
+        <h4 style={{ color: 'var(--series-5)', fontSize: 13, marginBottom: 8 }}>
           Critical Path to Completion
         </h4>
-        <ol style={{ marginLeft: 16, color: '#94a3b8', fontSize: 12, lineHeight: 2 }}>
+        <ol style={{ marginLeft: 16, color: 'var(--ink-soft)', fontSize: 12, lineHeight: 2 }}>
           <li>
-            <strong style={{ color: '#f97316' }}>S5 (Hilbert-Polya):</strong> Construct a self-adjoint
+            <strong style={{ color: 'var(--series-4)' }}>S5 (Hilbert-Polya):</strong> Construct a self-adjoint
             operator whose eigenvalues are the zeta zeros. This is the most direct route but
             requires new mathematics.
           </li>
           <li>
-            <strong style={{ color: '#f97316' }}>S7 (Darlington):</strong> Prove the Twin-Ladder Bridge twin-ladder
+            <strong style={{ color: 'var(--series-4)' }}>S7 (Darlington):</strong> Prove the Twin-Ladder Bridge twin-ladder
             is an exact Darlington synthesis for an infinite analytically-continued network.
             Requires extending classical circuit theory.
           </li>
           <li>
-            <strong style={{ color: '#ef4444' }}>S8 (Confinement):</strong> Either S5 or S7 would
+            <strong style={{ color: 'var(--series-2)' }}>S8 (Confinement):</strong> Either S5 or S7 would
             unlock this step, confining all zeros to Re(s) = 1/2.
           </li>
           <li>
-            <strong style={{ color: '#ef4444' }}>S10 (Completeness):</strong> Combining S8 with the
+            <strong style={{ color: 'var(--series-2)' }}>S10 (Completeness):</strong> Combining S8 with the
             known zero-free region would complete the proof.
           </li>
         </ol>
@@ -913,7 +914,7 @@ export default function FormalProofViz() {
             value={numPrimes}
             onChange={e => setNumPrimes(+e.target.value)}
           />
-          <span className="control-value">{numPrimes} <span style={{ color: '#64748b', fontSize: 11 }}>(up to p={getPrimes(numPrimes)[numPrimes - 1]})</span></span>
+          <span className="control-value">{numPrimes} <span style={{ color: 'var(--ink-faint)', fontSize: 11 }}>(up to p={getPrimes(numPrimes)[numPrimes - 1]})</span></span>
         </div>
         {(tab === 2 || tab === 1) && (
           <div className="control-group">
@@ -924,7 +925,7 @@ export default function FormalProofViz() {
               onChange={e => setNumZeros(+e.target.value)}
             />
             <span className="control-value">{numZeros}
-              <span style={{ color: '#64748b', fontSize: 11, marginLeft: 4, fontFamily: 'var(--font-mono)' }}>
+              <span style={{ color: 'var(--ink-faint)', fontSize: 11, marginLeft: 4, fontFamily: 'var(--font-mono)' }}>
                 (γ<sub>max</sub> ≈ {ZETA_ZEROS[Math.min(numZeros, ZETA_ZEROS.length) - 1]?.toFixed(1) ?? '?'})
               </span>
             </span>
@@ -936,8 +937,8 @@ export default function FormalProofViz() {
       {tab === 0 && (
         <div className="tab-explainer accent-green">
           <strong>Proof Map:</strong> Dependency graph of the Twin-Ladder Bridge proof sections. Each node is a proof step
-          (S1–S9) colored by status: <span style={{ color: '#10b981' }}>proven</span>, <span style={{ color: '#f59e0b' }}>conditional</span>,
-          or <span style={{ color: '#ef4444' }}>open</span>. Arrows show logical dependencies — a section
+          (S1–S9) colored by status: <span style={{ color: 'var(--series-3)' }}>proven</span>, <span style={{ color: 'var(--brass)' }}>conditional</span>,
+          or <span style={{ color: 'var(--series-2)' }}>open</span>. Arrows show logical dependencies — a section
           cannot be fully established until all its prerequisites are resolved.
           <strong> Click a node</strong> to see its description and dependencies.
         </div>

@@ -6,8 +6,9 @@ import {
   IMP33549_INTERIOR_MAX,
   IMP33549_OVERSHOOT,
 } from '../data/imp-33549-sigma-fartail-vs-interior-max-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
-const COLORS = { full: '#10b981', farTail: '#a855f7', peak: '#f472b6' };
+const COLORS = { full: ED.series3, farTail: ED.series5, peak: ED.series7 };
 
 function SigmaFarTailVsInteriorMaxChart() {
   const svgW = 660;
@@ -39,12 +40,12 @@ function SigmaFarTailVsInteriorMaxChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
       {yTicks.map((v) => (
         <g key={v}>
-          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke="#1e293b" strokeWidth={0.7} />
-          <text x={padL - 6} y={yS(v) + 3.5} textAnchor="end" fill="#475569" fontSize={9}>
+          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke={ED.ruleSoft} strokeWidth={0.7} />
+          <text x={padL - 6} y={yS(v) + 3.5} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v.toFixed(2)}
           </text>
         </g>
@@ -82,24 +83,24 @@ function SigmaFarTailVsInteriorMaxChart() {
         y1={yS(IMP33549_OVERSHOOT.sigma_full)}
         x2={xS(IMP33549_OVERSHOOT.N)}
         y2={yS(IMP33549_OVERSHOOT.sigma_farTail)}
-        stroke="#f9a8d4"
+        stroke={ED.series7}
         strokeWidth={1.5}
       />
-      <text x={xS(IMP33549_INTERIOR_MAX.N) + 6} y={yS(0.86)} fill="#f9a8d4" fontSize={9}>
+      <text x={xS(IMP33549_INTERIOR_MAX.N) + 6} y={yS(0.86)} fill={ED.series7} fontSize={9}>
         peak N~9.22e5, overshoot ~3.0e-2
       </text>
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
 
       {xTickNs.map((N) => (
         <g key={'x' + N}>
-          <line x1={xS(N)} y1={padT + cH} x2={xS(N)} y2={padT + cH + 5} stroke="#334155" strokeWidth={1} />
-          <text x={xS(N)} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={8}>
+          <line x1={xS(N)} y1={padT + cH} x2={xS(N)} y2={padT + cH + 5} stroke={ED.rule} strokeWidth={1} />
+          <text x={xS(N)} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={8}>
             {N.toExponential(0)}
           </text>
         </g>
       ))}
-      <text x={padL + cW / 2} y={padT + cH + 34} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={padT + cH + 34} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         N (log scale)
       </text>
 
@@ -107,7 +108,7 @@ function SigmaFarTailVsInteriorMaxChart() {
         x={12}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={'rotate(-90,12,' + (padT + cH / 2) + ')'}
       >
@@ -116,9 +117,9 @@ function SigmaFarTailVsInteriorMaxChart() {
 
       <g fontSize={9}>
         <line x1={padL + 2} y1={padT + 12} x2={padL + 10} y2={padT + 12} stroke={COLORS.full} strokeWidth={2} />
-        <text x={padL + 14} y={padT + 15} fill="#6ee7b7">sigma_full (imp-3406 U-shape)</text>
+        <text x={padL + 14} y={padT + 15} fill={ED.series3}>sigma_full (imp-3406 U-shape)</text>
         <line x1={padL + 2} y1={padT + 26} x2={padL + 10} y2={padT + 26} stroke={COLORS.farTail} strokeWidth={2} strokeDasharray="6,3" />
-        <text x={padL + 14} y={padT + 29} fill="#c084fc">sigma_ft (imp-33291 far-tail law)</text>
+        <text x={padL + 14} y={padT + 29} fill={ED.series5}>sigma_ft (imp-33291 far-tail law)</text>
       </g>
     </svg>
   );
@@ -129,7 +130,7 @@ export default function Imp33549SigmaFarTailVsInteriorMaxViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Sigma(N) Far-Tail Law vs Interior-Max Reconciliation (imp-33315 / imp-33549)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-33291 confirmed the far-tail conditional share sigma_ft(N) = E_coll/(E_trunc + E_coll)
         &sim; (C_C/E_trunc) sqrt(log T0/N) as a JOINT (-1/2, +1/2) power law in (ln N, ln log T0);
         imp-3406 separately pinned the full sigma(N) interior MAXIMUM at N &sim; 9.22e5
@@ -139,7 +140,7 @@ export default function Imp33549SigmaFarTailVsInteriorMaxViz() {
         drops, which at the peak exceeds the E_trunc floor.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         sigma_full (imp-3406 U-shape) vs sigma_ft (imp-33291 far-tail law) across N = 1e4 .. 1e12
       </p>
       <SigmaFarTailVsInteriorMaxChart />
@@ -148,14 +149,14 @@ export default function Imp33549SigmaFarTailVsInteriorMaxViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> the solid green curve is
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> the solid green curve is
         the full sigma(N), which rises from the far pre-crossover tail, peaks at N &sim; 9.22e5
         (sigma_max &sim; 0.9494, marked), then falls monotonically past the imp-3444 crossover
         N_cross &sim; 3.28e9. The dashed purple curve is the imp-33291 far-tail law sigma_ft(N),
@@ -169,14 +170,14 @@ export default function Imp33549SigmaFarTailVsInteriorMaxViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement/visualization only
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> measurement/visualization only
         &mdash; the component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous
         asymptotic. C_C is GUE-conditional per imp-486; changes no bound; imp-3066 K_a &ge; 0
         remains untouched; no positivity, no bridge closure, no RH claim. No RH verdict, NO QED.
@@ -186,14 +187,14 @@ export default function Imp33549SigmaFarTailVsInteriorMaxViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Precision certification:</strong> imp-35337 recomputed
+        <strong style={{ color: 'var(--ink-soft)' }}>Precision certification:</strong> imp-35337 recomputed
         both the interior peak (N_max &sim; 9.22e5, sigma_max &sim; 0.949429) and the imp-3444
         crossover (N_cross &sim; 3.280294352e9) in cancellation-free double-double arithmetic and
         found both GENUINE, not IEEE-754 rounding artifacts &mdash; the double-vs-dd agreement is
@@ -202,13 +203,13 @@ export default function Imp33549SigmaFarTailVsInteriorMaxViz() {
         not whether the imp-3220/imp-3406 surrogate map is a faithful proxy at these heights.
       </div>
 
-      <div style={{ marginTop: '1rem', fontSize: '0.85rem', color: '#64748b' }}>
+      <div style={{ marginTop: '1rem', fontSize: '0.85rem', color: 'var(--ink-faint)' }}>
         <strong>Related:</strong>{' '}
-        <Link to="/viz-imp33628-etrunc-ecoll-crossover" style={{ color: '#7c3aed' }}>
+        <Link to="/viz-imp33628-etrunc-ecoll-crossover" style={{ color: 'var(--series-5)' }}>
           E_trunc / E_coll Post-Peak Crossover Ladder (imp-33602 / imp-33628)
         </Link>
         {' | '}
-        <Link to="/viz-imp35026-sigma-decay-landmark-ladder" style={{ color: '#7c3aed' }}>
+        <Link to="/viz-imp35026-sigma-decay-landmark-ladder" style={{ color: 'var(--series-5)' }}>
           Sigma(N) Decay Landmark Ladder (imp-35026): the post-peak 0.9 / 0.5 / 0.1 threshold
           crossings and the S-shaped decay-exponent ramp continuing past this page&apos;s peak
         </Link>

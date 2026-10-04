@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP95445_TOTAL_OFFLATTICE_ONSET_BLASCHKE_COMPOSITION } from '../data/imp-95445-total-offlattice-onset-blaschke-composition.js';
+import { ED } from '../styles/tokens.js';
 
 const DATA = IMP95445_TOTAL_OFFLATTICE_ONSET_BLASCHKE_COMPOSITION;
 const ROWS = DATA.rows;
@@ -38,34 +39,34 @@ function OnsetLadderChart() {
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
       {yTicks.map((v) => (
-        <line key={`g${v}`} x1={padL} y1={yOf(v)} x2={padL + plotW} y2={yOf(v)} stroke="#1e293b" strokeWidth={1} />
+        <line key={`g${v}`} x1={padL} y1={yOf(v)} x2={padL + plotW} y2={yOf(v)} stroke={ED.ruleSoft} strokeWidth={1} />
       ))}
-      <path d={pathOf('rzpenTotalOnset')} fill="none" stroke="#f87171" strokeWidth={2} strokeDasharray="6 3" />
-      <path d={pathOf('combinedOnset')} fill="none" stroke="#fbbf24" strokeWidth={3.5} opacity={0.55} />
-      <path d={pathOf('splitLooOnset')} fill="none" stroke="#60a5fa" strokeWidth={2} />
+      <path d={pathOf('rzpenTotalOnset')} fill="none" stroke={ED.series2} strokeWidth={2} strokeDasharray="6 3" />
+      <path d={pathOf('combinedOnset')} fill="none" stroke={ED.brassDeco} strokeWidth={3.5} opacity={0.55} />
+      <path d={pathOf('splitLooOnset')} fill="none" stroke={ED.series1} strokeWidth={2} />
       {ROWS.map((r, i) => (
         <g key={r.delta}>
-          <circle cx={xOf(xVals[i])} cy={yOf(r.rzpenTotalOnset)} r={4} fill="#f87171" />
-          <circle cx={xOf(xVals[i])} cy={yOf(r.splitLooOnset)} r={4} fill="#60a5fa" />
-          <text x={xOf(xVals[i])} y={padT + plotH + 16} textAnchor="middle" fill="#64748b" fontSize={9.5}>
+          <circle cx={xOf(xVals[i])} cy={yOf(r.rzpenTotalOnset)} r={4} fill={ED.series2} />
+          <circle cx={xOf(xVals[i])} cy={yOf(r.splitLooOnset)} r={4} fill={ED.series1} />
+          <text x={xOf(xVals[i])} y={padT + plotH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5}>
             &plusmn;{DELTA_PCT[i].toFixed(2)}%
           </text>
         </g>
       ))}
       {yTicks.map((v) => (
-        <text key={`t${v}`} x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+        <text key={`t${v}`} x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
           {v}
         </text>
       ))}
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill="#64748b" fontSize={9.5}>
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5}>
         log-rate jitter magnitude delta (percent)
       </text>
       <text
         x={12}
         y={padT + plotH / 2}
         textAnchor="middle"
-        fill="#94a3b8"
+        fill={ED.inkSoft}
         fontSize={9.5}
         transform={`rotate(-90 12 ${padT + plotH / 2})`}
       >
@@ -99,25 +100,25 @@ function OverEstimateChart() {
         const h = plotH - (yOf(r.rzpenOverEstimate) - padT);
         return (
           <g key={r.delta}>
-            <rect x={cx - barW / 2} y={yOf(r.rzpenOverEstimate)} width={barW} height={h} fill="#f87171" />
-            <text x={cx} y={yOf(r.rzpenOverEstimate) - 6} textAnchor="middle" fill="#cbd5e1" fontSize={9}>
+            <rect x={cx - barW / 2} y={yOf(r.rzpenOverEstimate)} width={barW} height={h} fill={ED.series2} />
+            <text x={cx} y={yOf(r.rzpenOverEstimate) - 6} textAnchor="middle" fill={ED.ink} fontSize={9}>
               +{r.rzpenOverEstimate.toFixed(2)}
             </text>
-            <text x={cx} y={padT + plotH + 16} textAnchor="middle" fill="#64748b" fontSize={9.5}>
+            <text x={cx} y={padT + plotH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5}>
               &plusmn;{DELTA_PCT[i].toFixed(2)}%
             </text>
           </g>
         );
       })}
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill="#64748b" fontSize={9.5}>
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5}>
         log-rate jitter magnitude delta (percent)
       </text>
       <text
         x={12}
         y={padT + plotH / 2}
         textAnchor="middle"
-        fill="#94a3b8"
+        fill={ED.inkSoft}
         fontSize={9.5}
         transform={`rotate(-90 12 ${padT + plotH / 2})`}
       >
@@ -136,21 +137,21 @@ export default function Imp95491CombinedOfflatticeOnsetLadderViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> a measurement-only
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a measurement-only
         page tabulating the imp-95445 record. It compares two independent valid
         every-octave certificates on a common off-lattice draw and changes no bound.
         Platt&ndash;Trudgian &Lambda; &le; 0.2 remains state of the art. NO QED.
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         Two valid off-lattice every-octave certificates coexist on the same model
         &Lambda;: the imp-95374/imp-95429 RZ-PEN symbol-pencil floor, and the imp-95253
         SPLIT-LOO closed certificate priced through the leave-one-out Blaschke fence
@@ -160,20 +161,20 @@ export default function Imp95491CombinedOfflatticeOnsetLadderViz() {
         mulberry32 draw (seed 0xc0ffee, worst-of-400) used by imp-95429.
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         Firing-depth onset vs jitter magnitude &mdash; SPLIT-LOO Blaschke leg (blue),
         RZ-PEN total (red dashed), combined min (gold, overlapping SPLIT-LOO throughout)
       </h3>
       <OnsetLadderChart />
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', margin: '1.5rem 0 0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', margin: '1.5rem 0 0.5rem' }}>
         RZ-PEN over-estimate of the true combined onset (depth units)
       </h3>
       <OverEstimateChart />
 
-      <table style={{ width: '100%', fontSize: '0.78rem', color: '#cbd5e1', borderCollapse: 'collapse', marginTop: '1.25rem' }}>
+      <table style={{ width: '100%', fontSize: '0.78rem', color: 'var(--ink)', borderCollapse: 'collapse', marginTop: '1.25rem' }}>
         <thead>
-          <tr style={{ color: '#64748b' }}>
+          <tr style={{ color: 'var(--ink-faint)' }}>
             <th style={{ textAlign: 'left', paddingBottom: 4 }}>delta</th>
             <th style={{ textAlign: 'right', paddingBottom: 4 }}>SPLIT-LOO onset</th>
             <th style={{ textAlign: 'right', paddingBottom: 4 }}>RZ-PEN total onset</th>
@@ -184,13 +185,13 @@ export default function Imp95491CombinedOfflatticeOnsetLadderViz() {
         </thead>
         <tbody>
           {ROWS.map((r, i) => (
-            <tr key={r.delta} style={{ borderTop: '1px solid rgba(148,163,184,0.15)' }}>
+            <tr key={r.delta} style={{ borderTop: '1px solid color-mix(in srgb, var(--rule) 15%, transparent)' }}>
               <td style={{ padding: '3px 0' }}>&plusmn;{DELTA_PCT[i].toFixed(2)}%</td>
               <td style={{ textAlign: 'right' }}>{r.splitLooOnset.toFixed(4)}</td>
               <td style={{ textAlign: 'right' }}>{r.rzpenTotalOnset.toFixed(4)}</td>
               <td style={{ textAlign: 'right' }}>{r.combinedOnset.toFixed(4)}</td>
-              <td style={{ color: '#60a5fa' }}>{r.binds}</td>
-              <td style={{ textAlign: 'right', color: '#f87171' }}>+{r.rzpenOverEstimate.toFixed(4)}</td>
+              <td style={{ color: 'var(--series-1)' }}>{r.binds}</td>
+              <td style={{ textAlign: 'right', color: 'var(--series-2)' }}>+{r.rzpenOverEstimate.toFixed(4)}</td>
             </tr>
           ))}
         </tbody>
@@ -200,14 +201,14 @@ export default function Imp95491CombinedOfflatticeOnsetLadderViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> the SPLIT-LOO
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> the SPLIT-LOO
         Blaschke leg (blue) fires strictly shallower than the RZ-PEN total (red) at
         every jitter magnitude in this band, so the combined onset (gold) tracks
         SPLIT-LOO exactly and the RZ-PEN column is a genuine over-estimate throughout
@@ -221,14 +222,14 @@ export default function Imp95491CombinedOfflatticeOnsetLadderViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page consuming the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the
         frozen imp-95445 record (recomputed SPLIT-LOO column, baked imp-95429 RZ-PEN
         column; no re-derivation). Distinct from the imp-95435/imp-95455 pages, which
         chart the imp-95374 floor-degradation ladder alone (holding the numerator

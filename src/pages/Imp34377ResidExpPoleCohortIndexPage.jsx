@@ -82,7 +82,7 @@ export default function Imp34377ResidExpPoleCohortIndexPage() {
     <div style={{ padding: '1.5rem', maxWidth: 940, margin: '0 auto' }}>
       <PageHeader title="resid_exp Pole (k*~21.28) Family Cohort (imp-34377)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 780 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 780 }}>
         The imp-34169 resid_exp(k) surrogate zero at k* ~ {IMP34169_FIXED_BAND_PEAK_EXTENDED_DECADE_SURROGATE_ZERO.surrogateZero.continuousZeroKStar}{' '}
         is where the fixed-band peak's re-acceleration (imp-34237, imp-34268, imp-34196) meets its own
         surrogate boundary, and where the imp-34287 reconciliation shows that re-acceleration is a
@@ -99,16 +99,16 @@ export default function Imp34377ResidExpPoleCohortIndexPage() {
             style={{
               display: 'block',
               padding: '0.85rem 1rem',
-              background: 'rgba(148,163,184,0.04)',
-              borderLeft: '3px solid #334155',
+              background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+              borderLeft: '3px solid var(--rule)',
               borderRadius: '0 4px 4px 0',
               textDecoration: 'none',
             }}
           >
-            <div style={{ color: '#e2e8f0', fontWeight: 700, fontSize: '0.9rem' }}>
-              {entry.title} <span style={{ color: '#64748b', fontWeight: 400 }}>({entry.id})</span>
+            <div style={{ color: 'var(--ink)', fontWeight: 700, fontSize: '0.9rem' }}>
+              {entry.title} <span style={{ color: 'var(--ink-faint)', fontWeight: 400 }}>({entry.id})</span>
             </div>
-            <div style={{ color: '#94a3b8', fontSize: '0.82rem', marginTop: '0.25rem' }}>
+            <div style={{ color: 'var(--ink-soft)', fontSize: '0.82rem', marginTop: '0.25rem' }}>
               {entry.summary}
             </div>
           </Link>
@@ -119,14 +119,14 @@ export default function Imp34377ResidExpPoleCohortIndexPage() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>imp-34287 growth-class reconciliation (no dedicated viz page):</strong>{' '}
+        <strong style={{ color: 'var(--ink-soft)' }}>imp-34287 growth-class reconciliation (no dedicated viz page):</strong>{' '}
         far from the pole (kEnd &le; 18) the local log-derivative g DECLINES ({IMP34287_FIXED_BAND_PEAK_GROWTH_EXPONENT_POLE_RECONCILIATION.farBranch.slope} slope,
         R&sup2;&nbsp;{IMP34287_FIXED_BAND_PEAK_GROWTH_EXPONENT_POLE_RECONCILIATION.farBranch.r2}) -- sub-log-leaning, never super-log. The imp-34196
         re-acceleration is confined to the pole-approach branch and is explained by pole proximity
@@ -138,14 +138,14 @@ export default function Imp34377ResidExpPoleCohortIndexPage() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Later pole-cohort measurements (no dedicated viz pages):</strong>{' '}
+        <strong style={{ color: 'var(--ink-soft)' }}>Later pole-cohort measurements (no dedicated viz pages):</strong>{' '}
         imp-34309 leave-one-out over the three near-pole windows shows the imp-34233 linear-overtakes-log
         flip is FRAGILE -- it hinges entirely on the single closest-to-pole window kEnd=21.0, reversing
         back to log if that one window is deleted. imp-34310 measures the resid_exp zero at k* as a SIMPLE
@@ -160,14 +160,14 @@ export default function Imp34377ResidExpPoleCohortIndexPage() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Two-channel pole-residue summary (imp-34247 vs imp-34310):</strong>{' '}
+        <strong style={{ color: 'var(--ink-soft)' }}>Two-channel pole-residue summary (imp-34247 vs imp-34310):</strong>{' '}
         the SAME resid_exp zero at k* ~ {IMP34247_WIDENING_SLOPE_POLE_DIVERGENCE.poleLocation} reads as two
         DIFFERENT residues depending on channel. In the imp-34247 LOG-DERIVATIVE channel dy/dk = d/dk
         ln(eflow_over_resid), the residue is dimensionless and normalizes to exactly +1
@@ -178,7 +178,7 @@ export default function Imp34377ResidExpPoleCohortIndexPage() {
         confirmed SIMPLE (order-1) poles of the same underlying resid_exp zero -- the magnitude gap is expected,
         since a log-derivative residue always normalizes to 1 for a simple zero while the raw-ratio residue scales
         with the actual eflow_attr(k*) magnitude and local slope.{' '}
-        <strong style={{ color: '#94a3b8' }}>Estimator-invariance (imp-34333):</strong> the log-derivative residue
+        <strong style={{ color: 'var(--ink-soft)' }}>Estimator-invariance (imp-34333):</strong> the log-derivative residue
         +1 is the multiplicity of the resid_exp zero (residue of f&prime;/f = order of zero), so it is invariant to
         the estimator amplitude and the exact k* -- rescaling the zero amplitude by ~4.3e6 and shifting k* by ~6.28
         both leave it at {IMP34333_RESIDUE_PLUS_ONE_ESTIMATOR_INVARIANCE.residueDenominator.toFixed(3)} (to &lt;&nbsp;1e-9).
@@ -193,14 +193,14 @@ export default function Imp34377ResidExpPoleCohortIndexPage() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Widening-slope background reconciliation (imp-34326, no dedicated viz page):</strong>{' '}
+        <strong style={{ color: 'var(--ink-soft)' }}>Widening-slope background reconciliation (imp-34326, no dedicated viz page):</strong>{' '}
         imp-34247's pole-subtraction background B(k) = dy/dk &minus; 1/(k*&minus;k) and imp-34246's strict-derivative
         form &minus;ln10/2 + ln10&middot;(3/u) look like competing characterizations of the same raw local widening
         slope, but they RECONCILE rather than conflict: once the pole term cancels identically between the two
@@ -216,14 +216,14 @@ export default function Imp34377ResidExpPoleCohortIndexPage() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(217,119,6,0.06)',
-          borderLeft: '3px solid #b45309',
+          background: 'color-mix(in srgb, var(--brass-deco) 6%, transparent)',
+          borderLeft: '3px solid var(--brass-deco)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
         }}
       >
-        <strong style={{ color: '#f59e0b' }}>Fragility caveat (imp-34394, on imp-34309):</strong>{' '}
+        <strong style={{ color: 'var(--brass)' }}>Fragility caveat (imp-34394, on imp-34309):</strong>{' '}
         the imp-34233 "linear overtakes log" verdict is NOT a stable growth-form conclusion -- it is carried
         entirely by the single closest-to-pole window kEnd=21.0. On the full 15-window grid linear beats log
         by a log-minus-linear AIC gap of +{IMP34309_COMBINED_GRID_LOO_LINEAR_FLIP_ROBUSTNESS.fullGrid.aicGapLogMinusLin},
@@ -238,14 +238,14 @@ export default function Imp34377ResidExpPoleCohortIndexPage() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Sub-gap (SUB-GAP-imp-34287-asymptotic-class-undecidable):</strong>{' '}
+        <strong style={{ color: 'var(--ink-soft)' }}>Sub-gap (SUB-GAP-imp-34287-asymptotic-class-undecidable):</strong>{' '}
         the surrogate domain terminates at k* ~ {IMP34169_FIXED_BAND_PEAK_EXTENDED_DECADE_SURROGATE_ZERO.surrogateZero.continuousZeroKStar} before any pole-free window
         can separate a genuine super-log signature from pole contamination -- the whole re-acceleration
         branch sits inside the pole's influence radius. Whether the TRUE fixed-band-peak growth is
@@ -256,14 +256,14 @@ export default function Imp34377ResidExpPoleCohortIndexPage() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> this is a navigation aid over
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> this is a navigation aid over
         already-published measurements. k* ~ 21.28 is a real, reproducible surrogate boundary attached
         to one specific inherited extrapolation, not a derived mathematical ceiling. It changes no
         bound and patches no literal. C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a&ge;0

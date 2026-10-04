@@ -6,12 +6,7 @@
    ========================================================================== */
 
 .ed-root {
-  --paper:#fdfaf3; --paper2:#f6f1e7; --paper3:#efe7d6;
-  --ink:#1c1814; --ink-soft:#4a4238; --faint:#877b67;
-  --hairline:#d5c9b2; --hair2:#e3d8c2;
-  --brass:#8c6a1d; --brass-dk:#b58a2e;
-  --terra:#d9502e; --terra-dk:#c23a1c;
-  --green:#4c7a4a; --blue:#3f6b86;
+  /* colour tokens live in src/styles/tokens.css (.ed-root block) */
   --ed-display:"Fraunces",Georgia,serif;
   --ed-body:"Newsreader",Georgia,serif;
   --ed-mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,monospace;
@@ -24,18 +19,11 @@
 }
 .app-content.ed-active{ padding-top:0; }
 
-/* Harmonize LEGACY dark component chrome (.tab-explainer, .card, .controls, and
-   the HTML wrappers of the viz components) when rendered inside an editorial
-   page: remap the dark app tokens to the warm palette so their text/borders are
-   readable on cream. Plot/data colors live as hardcoded hexes inside the viz
-   SVGs, so the multi-colored animations keep their exact palette. --accent-* are
-   left vivid on purpose (some viz use them for data). */
-.ed-root{
-  --bg-primary:#fdfaf3; --bg-secondary:#f6f1e7; --bg-card:#f6f1e7; --bg-card-hover:#efe7d6;
-  --border:#d5c9b2; --text-primary:#1c1814; --text-secondary:#4a4238; --text-muted:#877b67;
-}
+/* Legacy dark component chrome (.tab-explainer, .card, .controls, viz HTML
+   wrappers) reads the classic names --bg-*, --border, --text-*, --accent-*.
+   tokens.css remaps those names to the cream palette inside .ed-root. */
 .ed-root *{ box-sizing:border-box; }
-.ed-root a{ color:var(--terra-dk); text-decoration:none; }
+.ed-root a{ color:var(--accent); text-decoration:none; }
 .ed-root a:hover{ text-decoration:underline; }
 .ed-root .ed-mono{ font-family:var(--ed-mono); }
 .ed-root .ed-full{ max-width:var(--ed-full); margin:0 auto; padding:0 clamp(16px, 3.2vw, 34px); }
@@ -43,36 +31,36 @@
 .ed-root .ed-col{ max-width:var(--ed-col); margin:0 auto; padding:0 clamp(16px, 3vw, 26px); }
 /* wide breakout inside a reading column (tables, figures, code) */
 .ed-root .ed-col .ed-breakout{ width:min(var(--ed-wide), calc(100vw - 32px)); margin-left:50%; transform:translateX(-50%); }
-.ed-root .ed-lbl{ font-family:var(--ed-mono); font-size:10.5px; letter-spacing:.15em; text-transform:uppercase; color:var(--faint); }
+.ed-root .ed-lbl{ font-family:var(--ed-mono); font-size:10.5px; letter-spacing:.15em; text-transform:uppercase; color:var(--ink-faint); }
 
 /* ---- in-page editorial header (rendered by EditorialShell) ---- */
-.ed-root .ed-head{ border-bottom:1px solid var(--hairline); background:var(--paper); }
+.ed-root .ed-head{ border-bottom:1px solid var(--rule); background:var(--paper); }
 .ed-headbar{ max-width:var(--ed-full); margin:0 auto; padding:11px 34px; display:flex; align-items:center; gap:18px; flex-wrap:wrap; }
 /* Desktop: the collapse wrapper is transparent (display:contents) so the nav and
    the right-hand group lay out as direct flex children of .ed-headbar exactly as
    before; the burger is hidden. The mobile breakpoint below flips this. */
-.ed-burger{ display:none; margin-left:auto; align-items:center; justify-content:center; width:38px; height:34px; background:transparent; border:1px solid var(--hairline); border-radius:8px; font-size:17px; line-height:1; color:var(--ink); cursor:pointer; }
+.ed-burger{ display:none; margin-left:auto; align-items:center; justify-content:center; width:38px; height:34px; background:transparent; border:1px solid var(--rule); border-radius:8px; font-size:17px; line-height:1; color:var(--ink); cursor:pointer; }
 .ed-headcollapse{ display:contents; }
 .ed-headright{ margin-left:auto; display:flex; gap:16px; align-items:center; }
 .ed-brand{ font-family:var(--ed-display); font-weight:600; font-size:19px; color:var(--ink); }
-.ed-brand i{ color:var(--terra-dk); font-style:italic; }
+.ed-brand i{ color:var(--accent); font-style:italic; }
 .ed-headnav{ font-family:var(--ed-mono); font-size:12px; display:flex; gap:16px; align-items:center; flex-wrap:wrap; }
 .ed-headnav > a{ color:var(--ink-soft); }
-.ed-headnav > a:hover{ color:var(--terra-dk); }
+.ed-headnav > a:hover{ color:var(--accent); }
 /* section dropdowns */
 .ed-ddwrap{ position:relative; }
 .ed-ddbtn{ font-family:var(--ed-mono); font-size:12px; color:var(--ink-soft); background:none; border:none; cursor:pointer; padding:2px 0; letter-spacing:.01em; }
-.ed-ddbtn:hover{ color:var(--terra-dk); }
+.ed-ddbtn:hover{ color:var(--accent); }
 .ed-ddcaret{ font-size:9px; opacity:.55; }
 /* top:100% keeps the panel contiguous with the button (no dead zone); the 8px
    visual gap is padding INSIDE the panel so the mouse never leaves the hover area. */
-.ed-ddpanel{ position:absolute; top:100%; left:0; background:var(--paper); border:1px solid var(--hairline); border-radius:9px; box-shadow:0 14px 36px rgba(28,24,20,.14); padding:8px; min-width:250px; max-height:66vh; overflow-y:auto; z-index:30; display:flex; flex-direction:column; }
+.ed-ddpanel{ position:absolute; top:100%; left:0; background:var(--paper); border:1px solid var(--rule); border-radius:9px; box-shadow:0 14px 36px color-mix(in srgb, var(--ink) 14%, transparent); padding:8px; min-width:250px; max-height:66vh; overflow-y:auto; z-index:30; display:flex; flex-direction:column; }
 /* search box in the top bar */
-.ed-search{ font-family:var(--ed-mono); font-size:11px; color:var(--faint); background:var(--paper2); border:1px solid var(--hairline); border-radius:999px; padding:3px 9px; cursor:pointer; display:inline-flex; align-items:center; gap:8px; }
+.ed-search{ font-family:var(--ed-mono); font-size:11px; color:var(--ink-faint); background:var(--paper-2); border:1px solid var(--rule); border-radius:999px; padding:3px 9px; cursor:pointer; display:inline-flex; align-items:center; gap:8px; }
 .ed-search:hover{ border-color:var(--brass); color:var(--ink-soft); }
-.ed-search kbd{ font-family:var(--ed-mono); font-size:10px; background:var(--paper3); border:1px solid var(--hairline); border-radius:4px; padding:1px 5px; color:var(--faint); }
+.ed-search kbd{ font-family:var(--ed-mono); font-size:10px; background:var(--paper-3); border:1px solid var(--rule); border-radius:4px; padding:1px 5px; color:var(--ink-faint); }
 .ed-ddpanel a{ font-family:var(--ed-body); font-size:14px; color:var(--ink); padding:6px 10px; border-radius:6px; line-height:1.35; }
-.ed-ddpanel a:hover{ background:var(--paper2); text-decoration:none; color:var(--terra-dk); }
+.ed-ddpanel a:hover{ background:var(--paper-2); text-decoration:none; color:var(--accent); }
 /* mid-width compression: keep the one-line bar from colliding before the burger */
 @media (max-width: 1360px){
   .ed-headnav{ gap:11px; }
@@ -80,111 +68,119 @@
   .ed-headbar{ gap:12px; }
 }
 .ed-tick{ font-family:var(--ed-mono); font-size:12px; color:var(--ink-soft); display:flex; gap:8px; align-items:center; }
-.ed-pulse{ width:7px; height:7px; border-radius:50%; background:var(--green); animation:ed-p 2s infinite; }
-@keyframes ed-p{ 0%{box-shadow:0 0 0 0 rgba(76,122,74,.5)} 70%{box-shadow:0 0 0 6px rgba(76,122,74,0)} }
+.ed-pulse{ width:7px; height:7px; border-radius:50%; background:var(--series-3); animation:ed-p 2s infinite; }
+@keyframes ed-p{ 0%{box-shadow:0 0 0 0 color-mix(in srgb, var(--series-3) 50%, transparent)} 70%{box-shadow:0 0 0 6px color-mix(in srgb, var(--series-3) 0%, transparent)} }
 
 /* ---- headings / prose ---- */
 .ed-root h1{ font-family:var(--ed-display); font-weight:400; letter-spacing:-.02em; margin:0; }
 .ed-root h2{ font-family:var(--ed-display); font-weight:500; font-size:25px; letter-spacing:-.015em; margin:2px 0 0; }
 .ed-root h3{ font-family:var(--ed-display); font-weight:500; letter-spacing:-.01em; }
 .ed-root em{ font-style:italic; }
-.ed-root .ed-terra{ color:var(--terra-dk); }
+.ed-root .ed-terra{ color:var(--accent); }
 .ed-prose p{ margin:0 0 22px; }
-.ed-prose .lead::first-letter{ font-family:var(--ed-display); font-weight:600; font-size:74px; line-height:.66; float:left; margin:9px 12px 0 0; color:var(--terra-dk); }
+.ed-prose .lead::first-letter{ font-family:var(--ed-display); font-weight:600; font-size:74px; line-height:.66; float:left; margin:9px 12px 0 0; color:var(--accent); }
 .ed-prose h2{ font-size:26px; margin:44px 0 14px; }
 .ed-root .katex-display{ margin:26px 0 !important; }
 
 /* ---- hero (battle station) ---- */
-.ed-hero{ border-bottom:1px solid var(--hairline); background:linear-gradient(180deg,var(--paper),var(--paper2)); }
+.ed-hero{ border-bottom:1px solid var(--rule); background:linear-gradient(180deg,var(--paper),var(--paper-2)); }
 .ed-herogrid{ display:grid; grid-template-columns:1.5fr 1fr; gap:40px; padding:38px 0 30px; align-items:center; }
 .ed-hero h1{ font-size:clamp(28px,4vw,44px); line-height:1.06; margin:12px 0 0; }
 .ed-stand{ margin-top:14px; font-size:17px; color:var(--ink-soft); max-width:52ch; }
-.ed-track{ position:relative; height:2px; background:var(--hairline); margin:30px 8px 0; }
+.ed-track{ position:relative; height:2px; background:var(--rule); margin:30px 8px 0; }
 .ed-mk{ position:absolute; top:-4px; width:9px; height:9px; border-radius:50%; transform:translateX(-50%); }
 .ed-mkcap{ position:absolute; top:12px; transform:translateX(-50%); font-family:var(--ed-mono); font-size:11px; white-space:nowrap; }
-.ed-mktop{ position:absolute; bottom:12px; transform:translateX(-50%); font-family:var(--ed-mono); font-size:11px; color:var(--faint); white-space:nowrap; }
-.ed-viz{ background:var(--paper); border:1px solid var(--hairline); border-radius:12px; padding:15px; }
+.ed-mktop{ position:absolute; bottom:12px; transform:translateX(-50%); font-family:var(--ed-mono); font-size:11px; color:var(--ink-faint); white-space:nowrap; }
+/* edge labels on the interval track: pin to the track ends so they never clip */
+.ed-mkedge-l{ left:0 !important; transform:none; text-align:left; }
+.ed-mkedge-r{ left:auto !important; right:0; transform:none; text-align:right; }
+.ed-viz{ background:var(--paper); border:1px solid var(--rule); border-radius:12px; padding:15px; }
 .ed-vizhead{ display:flex; justify-content:space-between; align-items:center; margin-bottom:6px; }
-.ed-badge{ font-family:var(--ed-mono); font-size:10px; color:var(--brass); background:#f4ead0; border-radius:999px; padding:2px 8px; }
+.ed-badge{ font-family:var(--ed-mono); font-size:10px; color:var(--brass); background:var(--tint-brass); border-radius:999px; padding:2px 8px; }
 
 /* ---- KPI strip ---- */
-.ed-kpis{ display:grid; grid-template-columns:repeat(4,1fr); border-bottom:1px solid var(--hairline); }
-.ed-kpi{ padding:16px 20px; border-right:1px solid var(--hairline); }
+.ed-kpis{ display:grid; grid-template-columns:repeat(5,1fr); border-bottom:1px solid var(--rule); }
+.ed-kpi{ padding:16px 20px; border-right:1px solid var(--rule); }
 .ed-kpi:last-child{ border-right:none; }
 .ed-kpi b{ font-family:var(--ed-mono); font-weight:600; font-size:23px; letter-spacing:-.02em; display:block; line-height:1; }
-.ed-kpi span{ font-family:var(--ed-mono); font-size:10px; color:var(--faint); letter-spacing:.06em; text-transform:uppercase; }
+.ed-kpi span{ font-family:var(--ed-mono); font-size:10px; color:var(--ink-faint); letter-spacing:.06em; text-transform:uppercase; }
 .ed-kpi-link{ color:inherit; text-decoration:none; transition:background .12s; }
-.ed-kpi-link:hover{ background:var(--paper2); text-decoration:none; }
-.ed-kpi-link:hover b{ color:var(--terra-dk); }
+.ed-kpi-link:hover{ background:var(--paper-2); text-decoration:none; }
+.ed-kpi-link:hover b{ color:var(--accent); }
 
 /* ---- sections ---- */
-.ed-sec{ padding:38px 0; border-bottom:1px solid var(--hairline); }
+.ed-sec{ padding:38px 0; border-bottom:1px solid var(--rule); }
 .ed-shead{ display:flex; align-items:baseline; justify-content:space-between; margin-bottom:18px; }
 .ed-shead p{ margin:2px 0 0; color:var(--ink-soft); font-size:14px; }
 
 /* ---- model steps ---- */
 .ed-steps{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
-.ed-step{ background:var(--paper2); border:1px solid var(--hairline); border-radius:11px; padding:17px; display:flex; flex-direction:column; }
+.ed-step{ background:var(--paper-2); border:1px solid var(--rule); border-radius:11px; padding:17px; display:flex; flex-direction:column; }
 .ed-step .num{ font-family:var(--ed-mono); font-size:11px; color:var(--brass); }
 .ed-step h3{ font-size:18px; margin:6px 0; }
-.ed-step .eq{ font-family:var(--ed-mono); font-size:12.5px; background:var(--paper); border:1px solid var(--hair2); border-radius:7px; padding:8px 10px; color:var(--terra-dk); margin:6px 0; }
+.ed-step .eq{ font-family:var(--ed-mono); font-size:12.5px; background:var(--paper); border:1px solid var(--rule-soft); border-radius:7px; padding:8px 10px; color:var(--accent); margin:6px 0; }
 .ed-step p{ margin:0 0 12px; font-size:14px; color:var(--ink-soft); }
 .ed-step a{ margin-top:auto; font-family:var(--ed-mono); font-size:12px; }
-.ed-stepfig{ border:1px solid var(--hair2); border-radius:8px; background:var(--paper); margin-bottom:10px; overflow:hidden; }
+.ed-stepfig{ border:1px solid var(--rule-soft); border-radius:8px; background:var(--paper); margin-bottom:10px; overflow:hidden; }
 
 /* ---- findings atlas ---- */
 .ed-map{ display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
-.ed-tile{ border:1px solid var(--hairline); border-radius:10px; padding:14px 15px; background:var(--paper); transition:.15s; display:block; color:inherit; }
+.ed-tile{ border:1px solid var(--rule); border-radius:10px; padding:14px 15px; background:var(--paper); transition:.15s; display:block; color:inherit; }
 .ed-tile:hover{ border-color:var(--brass); transform:translateY(-2px); text-decoration:none; }
-.ed-tmeta{ font-family:var(--ed-mono); font-size:9.5px; color:var(--faint); display:flex; gap:8px; margin-bottom:6px; align-items:center; }
+.ed-tmeta{ font-family:var(--ed-mono); font-size:9.5px; color:var(--ink-faint); display:flex; gap:8px; margin-bottom:6px; align-items:center; }
 .ed-tile h3{ font-size:16px; margin:0 0 3px; line-height:1.15; }
 .ed-tile p{ margin:0; font-size:13px; color:var(--ink-soft); }
-.ed-new{ width:6px; height:6px; border-radius:50%; background:var(--terra); display:inline-block; }
+.ed-new{ width:6px; height:6px; border-radius:50%; background:var(--accent-deco); display:inline-block; }
 
 /* ---- grade chips ---- */
 .ed-grade{ padding:1px 7px; border-radius:999px; font-size:9px; font-family:var(--ed-mono); letter-spacing:.04em; }
-.g-cand{ background:#f4ead0; color:var(--brass); }
-.g-thm{ background:#e7efe4; color:var(--green); }
-.g-nogo{ background:#f6e0d8; color:var(--terra-dk); }
-.g-map{ background:#e7e1d2; color:var(--faint); }
-.g-run{ background:#e3edf2; color:var(--blue); }
-.g-ver{ background:#e7efe4; color:var(--green); }
+/* text on tint; every pair passes WCAG AA (see tokens.css status table) */
+.g-cand{ background:var(--status-candidate-tint); color:var(--status-candidate); }
+.g-cond{ background:var(--status-conditional-tint); color:var(--status-conditional); }
+.g-thm{ background:var(--status-proved-tint); color:var(--status-proved); }
+.g-ver{ background:var(--status-certified-tint); color:var(--status-certified); }
+.g-nogo{ background:var(--status-nogo-tint); color:var(--status-nogo); }
+.g-ref{ background:var(--status-refuted-tint); color:var(--status-refuted); }
+.g-map{ background:var(--status-neutral-tint); color:var(--status-neutral); }
+.g-run{ background:var(--status-open-tint); color:var(--status-open); }
+.g-meas{ background:var(--status-measured-tint); color:var(--status-measured); }
+.g-rheq{ background:var(--status-rhequiv-tint); color:var(--status-rhequiv); }
 
 /* ---- a-dial control panel ---- */
-.ed-ctl{ display:grid; grid-template-columns:1fr 1.1fr; gap:24px; align-items:center; background:var(--paper2); border:1px solid var(--hairline); border-radius:12px; padding:20px; }
-.ed-slider{ -webkit-appearance:none; appearance:none; width:100%; height:2px; background:var(--hairline); margin:16px 0; }
-.ed-slider::-webkit-slider-thumb{ -webkit-appearance:none; width:16px; height:16px; border-radius:50%; background:var(--terra); box-shadow:0 0 0 4px rgba(217,80,46,.15); cursor:pointer; }
+.ed-ctl{ display:grid; grid-template-columns:1fr 1.1fr; gap:24px; align-items:center; background:var(--paper-2); border:1px solid var(--rule); border-radius:12px; padding:20px; }
+.ed-slider{ -webkit-appearance:none; appearance:none; width:100%; height:2px; background:var(--rule); margin:16px 0; }
+.ed-slider::-webkit-slider-thumb{ -webkit-appearance:none; width:16px; height:16px; border-radius:50%; background:var(--accent-deco); box-shadow:0 0 0 4px color-mix(in srgb, var(--accent-deco) 15%, transparent); cursor:pointer; }
 .ed-readout{ font-family:var(--ed-mono); font-size:13px; color:var(--ink-soft); display:grid; grid-template-columns:1fr auto; gap:6px 14px; }
 .ed-readout b{ color:var(--ink); }
 
 /* ---- simulators strip ---- */
 .ed-sims{ display:grid; grid-template-columns:repeat(6,1fr); gap:10px; }
-.ed-sim{ border:1px solid var(--hairline); border-radius:8px; padding:11px; color:inherit; background:var(--paper); font-size:13px; }
+.ed-sim{ border:1px solid var(--rule); border-radius:8px; padding:11px; color:inherit; background:var(--paper); font-size:13px; }
 .ed-sim:hover{ border-color:var(--brass); text-decoration:none; }
-.ed-sim .n{ font-family:var(--ed-mono); font-size:10px; color:var(--faint); }
+.ed-sim .n{ font-family:var(--ed-mono); font-size:10px; color:var(--ink-faint); }
 .ed-sim b{ font-family:var(--ed-display); font-weight:500; font-size:14px; display:block; margin-top:2px; }
 
 /* ---- verdict + cta ---- */
-.ed-verdict{ font-family:var(--ed-mono); font-size:14px; line-height:1.65; color:var(--ink-soft); border-left:2px solid var(--hairline); padding-left:20px; }
-.ed-cta{ background:var(--paper3); border:1px solid var(--hairline); border-radius:12px; padding:22px; display:flex; justify-content:space-between; align-items:center; gap:20px; }
+.ed-verdict{ font-family:var(--ed-mono); font-size:14px; line-height:1.65; color:var(--ink-soft); border-left:2px solid var(--rule); padding-left:20px; }
+.ed-cta{ background:var(--paper-3); border:1px solid var(--rule); border-radius:12px; padding:22px; display:flex; justify-content:space-between; align-items:center; gap:20px; }
 .ed-btn{ font-family:var(--ed-mono); font-size:13px; background:var(--ink); color:var(--paper); padding:9px 18px; border-radius:999px; white-space:nowrap; }
 .ed-btn:hover{ text-decoration:none; opacity:.9; }
-.ed-foot{ padding:30px 0 60px; color:var(--faint); font-family:var(--ed-mono); font-size:12px; text-align:center; }
+.ed-foot{ padding:30px 0 60px; color:var(--ink-faint); font-family:var(--ed-mono); font-size:12px; text-align:center; }
 
 /* ============================ POST reading view ============================ */
-.ed-artmeta{ font-family:var(--ed-mono); font-size:12px; letter-spacing:.06em; color:var(--faint); display:flex; gap:12px; align-items:center; flex-wrap:wrap; margin:44px 0 14px; }
+.ed-artmeta{ font-family:var(--ed-mono); font-size:12px; letter-spacing:.06em; color:var(--ink-faint); display:flex; gap:12px; align-items:center; flex-wrap:wrap; margin:44px 0 14px; }
 .ed-h1{ font-size:clamp(30px,4.6vw,44px); line-height:1.08; }
-.ed-h1 em{ color:var(--terra-dk); }
+.ed-h1 em{ color:var(--accent); }
 .ed-dek{ font-size:21px; color:var(--ink-soft); margin:18px 0 8px; line-height:1.44; }
-.ed-byline{ font-family:var(--ed-mono); font-size:12px; color:var(--faint); border-top:1px solid var(--hairline); border-bottom:1px solid var(--hairline); padding:12px 0; margin:22px 0 40px; display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+.ed-byline{ font-family:var(--ed-mono); font-size:12px; color:var(--ink-faint); border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); padding:12px 0; margin:22px 0 40px; display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; }
 .ed-figure{ margin:34px 0; text-align:center; }
-.ed-figure .frame{ background:var(--paper2); border:1px solid var(--hairline); border-radius:10px; padding:26px; }
-.ed-figcap{ font-size:16px; color:var(--faint); margin-top:12px; max-width:34rem; margin-left:auto; margin-right:auto; }
-.ed-thm{ background:#fbf6ec; border:1px solid var(--hair2); border-left:3px solid var(--brass); border-radius:8px; padding:20px 24px; margin:30px 0; }
+.ed-figure .frame{ background:var(--paper-2); border:1px solid var(--rule); border-radius:10px; padding:26px; }
+.ed-figcap{ font-size:16px; color:var(--ink-faint); margin-top:12px; max-width:34rem; margin-left:auto; margin-right:auto; }
+.ed-thm{ background:var(--paper); border:1px solid var(--rule-soft); border-left:3px solid var(--brass); border-radius:8px; padding:20px 24px; margin:30px 0; }
 .ed-thm .tlab{ font-family:var(--ed-mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--brass); margin-bottom:8px; }
 .ed-thm p{ margin:0; font-size:17px; }
-.ed-pull{ font-family:var(--ed-mono); font-size:15px; line-height:1.6; color:var(--ink-soft); border-left:2px solid var(--hairline); padding-left:20px; margin:34px 0; }
-.ed-postfoot{ border-top:1px solid var(--hairline); margin-top:50px; padding:26px 0 70px; font-family:var(--ed-mono); font-size:13px; color:var(--faint); }
+.ed-pull{ font-family:var(--ed-mono); font-size:15px; line-height:1.6; color:var(--ink-soft); border-left:2px solid var(--rule); padding-left:20px; margin:34px 0; }
+.ed-postfoot{ border-top:1px solid var(--rule); margin-top:50px; padding:26px 0 70px; font-family:var(--ed-mono); font-size:13px; color:var(--ink-faint); }
 
 /* responsive */
 @media (max-width:900px){
@@ -233,38 +229,44 @@
   margin-left:auto !important; margin-right:auto !important;
   padding:30px 32px 8px !important;
 }
-.ed-root.ed-viz-legacy .page-header{ max-width:none; margin:0 0 20px; padding:0 0 16px; border-bottom:1px solid var(--hair2); }
+.ed-root.ed-viz-legacy .page-header{ max-width:none; margin:0 0 20px; padding:0 0 16px; border-bottom:1px solid var(--rule-soft); }
 .ed-root.ed-viz-legacy .page-header h1{
   font-family:var(--ed-display); font-weight:560; color:var(--ink);
   font-size:31px; line-height:1.18; letter-spacing:-.01em; margin:0;
 }
 
-/* Auto-ported viz pages bake a dark palette into their SVG presentation
-   attributes (fill=/stroke=). CSS fill/stroke properties OVERRIDE presentation
-   attributes, so we remap the structural dark tokens to the warm palette for the
-   whole viz corpus at once (no per-page edits) — dark chart backgrounds -> paper,
-   dark grid/axis lines -> hairline, low-contrast light-slate text -> warm ink.
-   DATA colors (cyan/pink/green/red/purple/amber) are deliberately left untouched
-   so the plots keep their meaning; only the few that are too light on cream
-   (bright yellow) are nudged darker. Split fill vs stroke so tokens used as BOTH
-   a card background and a grid line (e.g. #1e293b, #334155) map correctly. */
-.ed-viz-legacy svg [fill="#0a0f1a"], .ed-viz-legacy svg [fill="#0f172a"],
-.ed-viz-legacy svg [fill="#020617"], .ed-viz-legacy svg [fill="#111827"],
-.ed-viz-legacy svg [fill="#0b1120"], .ed-viz-legacy svg [fill="#1e293b"],
-.ed-viz-legacy svg [fill="#0f1729"], .ed-viz-legacy svg [fill="#1a2332"]{ fill:var(--paper); }
-.ed-viz-legacy svg [fill="#334155"]{ fill:var(--paper3); }
-/* light-slate axis/label text used as fill -> warm readable ink */
-.ed-viz-legacy svg [fill="#94a3b8"], .ed-viz-legacy svg [fill="#cbd5e1"],
-.ed-viz-legacy svg [fill="#e2e8f0"], .ed-viz-legacy svg [fill="#9ca3af"],
-.ed-viz-legacy svg [fill="#64748b"], .ed-viz-legacy svg [fill="#475569"]{ fill:var(--ink-soft); }
-/* dark grid / axis / border lines used as stroke -> warm hairline */
-.ed-viz-legacy svg [stroke="#334155"], .ed-viz-legacy svg [stroke="#1e293b"],
-.ed-viz-legacy svg [stroke="#0a0f1a"], .ed-viz-legacy svg [stroke="#475569"],
-.ed-viz-legacy svg [stroke="#0f172a"], .ed-viz-legacy svg [stroke="#111827"]{ stroke:var(--hairline); }
-.ed-viz-legacy svg [stroke="#94a3b8"], .ed-viz-legacy svg [stroke="#cbd5e1"]{ stroke:var(--faint); }
-/* bright yellow line/point is low-contrast on cream -> brass */
-.ed-viz-legacy svg [fill="#facc15"], .ed-viz-legacy svg [fill="#fde047"]{ fill:var(--brass-dk); }
-.ed-viz-legacy svg [stroke="#facc15"], .ed-viz-legacy svg [stroke="#fde047"]{ stroke:var(--brass-dk); }
+/* Auto-ported viz pages bake the classic palette into SVG presentation
+   attributes (fill=/stroke=). CSS fill/stroke properties override presentation
+   attributes, so the classic literals are remapped here for the whole viz
+   corpus: dark backgrounds -> paper, dark grid/axis lines -> rule, slate text
+   -> ink / ink-soft / ink-faint (same order as on the dark app), and the classic
+   data hues -> the matching cream-legible --series-N. Fill and stroke are split
+   so literals used both as a card background and a grid line map correctly.
+   Safety net for files not yet migrated to src/styles/tokens.js. */
+.ed-viz-legacy svg [fill="#0a0f1a" i], .ed-viz-legacy svg [fill="#0a0e1a" i], .ed-viz-legacy svg [fill="#0f172a" i], .ed-viz-legacy svg [fill="#020617" i], .ed-viz-legacy svg [fill="#111827" i], .ed-viz-legacy svg [fill="#0b1120" i], .ed-viz-legacy svg [fill="#1e293b" i], .ed-viz-legacy svg [fill="#0f1729" i], .ed-viz-legacy svg [fill="#1a2332" i], .ed-viz-legacy svg [fill="#0f1225" i], .ed-viz-legacy svg [fill="#0d1117" i]{ fill:var(--paper); }
+.ed-viz-legacy svg [fill="#334155" i]{ fill:var(--paper-3); }
+/* slate text used as fill */
+.ed-viz-legacy svg [fill="#e2e8f0" i], .ed-viz-legacy svg [fill="#cbd5e1" i], .ed-viz-legacy svg [fill="#f1f5f9" i], .ed-viz-legacy svg [fill="#f8fafc" i]{ fill:var(--ink); }
+.ed-viz-legacy svg [fill="#94a3b8" i], .ed-viz-legacy svg [fill="#9ca3af" i]{ fill:var(--ink-soft); }
+.ed-viz-legacy svg [fill="#64748b" i], .ed-viz-legacy svg [fill="#475569" i]{ fill:var(--ink-faint); }
+/* dark grid / axis / border lines used as stroke */
+.ed-viz-legacy svg [stroke="#334155" i], .ed-viz-legacy svg [stroke="#1e293b" i], .ed-viz-legacy svg [stroke="#0a0f1a" i], .ed-viz-legacy svg [stroke="#475569" i], .ed-viz-legacy svg [stroke="#0f172a" i], .ed-viz-legacy svg [stroke="#111827" i], .ed-viz-legacy svg [stroke="#2a3050" i]{ stroke:var(--rule); }
+.ed-viz-legacy svg [stroke="#94a3b8" i], .ed-viz-legacy svg [stroke="#cbd5e1" i], .ed-viz-legacy svg [stroke="#64748b" i]{ stroke:var(--ink-faint); }
+/* translucent dark panels (legend boxes) */
+.ed-viz-legacy svg [fill^="rgba(10,15,26"], .ed-viz-legacy svg [fill^="rgba(10, 15, 26"], .ed-viz-legacy svg [fill^="rgba(10,14,26"], .ed-viz-legacy svg [fill^="rgba(10, 14, 26"], .ed-viz-legacy svg [fill^="rgba(15,23,42"], .ed-viz-legacy svg [fill^="rgba(15, 23, 42"], .ed-viz-legacy svg [fill^="rgba(2,6,23"], .ed-viz-legacy svg [fill^="rgba(2, 6, 23"], .ed-viz-legacy svg [fill^="rgba(17,24,39"], .ed-viz-legacy svg [fill^="rgba(17, 24, 39"], .ed-viz-legacy svg [fill^="rgba(30,41,59"], .ed-viz-legacy svg [fill^="rgba(30, 41, 59"], .ed-viz-legacy svg [fill^="rgba(15,18,37"], .ed-viz-legacy svg [fill^="rgba(15, 18, 37"], .ed-viz-legacy svg [fill^="rgba(11,17,32"], .ed-viz-legacy svg [fill^="rgba(11, 17, 32"]{ fill:var(--paper-2); }
+/* classic data hues -> cream series */
+.ed-viz-legacy svg [fill="#38bdf8" i], .ed-viz-legacy svg [fill="#60a5fa" i]{ fill:var(--series-1); }
+.ed-viz-legacy svg [stroke="#38bdf8" i], .ed-viz-legacy svg [stroke="#60a5fa" i]{ stroke:var(--series-1); }
+.ed-viz-legacy svg [fill="#f87171" i], .ed-viz-legacy svg [fill="#ef4444" i]{ fill:var(--series-2); }
+.ed-viz-legacy svg [stroke="#f87171" i], .ed-viz-legacy svg [stroke="#ef4444" i]{ stroke:var(--series-2); }
+.ed-viz-legacy svg [fill="#4ade80" i], .ed-viz-legacy svg [fill="#34d399" i], .ed-viz-legacy svg [fill="#10b981" i]{ fill:var(--series-3); }
+.ed-viz-legacy svg [stroke="#4ade80" i], .ed-viz-legacy svg [stroke="#34d399" i], .ed-viz-legacy svg [stroke="#10b981" i]{ stroke:var(--series-3); }
+.ed-viz-legacy svg [fill="#fbbf24" i], .ed-viz-legacy svg [fill="#facc15" i], .ed-viz-legacy svg [fill="#f59e0b" i], .ed-viz-legacy svg [fill="#fde047" i]{ fill:var(--series-4); }
+.ed-viz-legacy svg [stroke="#fbbf24" i], .ed-viz-legacy svg [stroke="#facc15" i], .ed-viz-legacy svg [stroke="#f59e0b" i], .ed-viz-legacy svg [stroke="#fde047" i]{ stroke:var(--series-4); }
+.ed-viz-legacy svg [fill="#a78bfa" i]{ fill:var(--series-5); }
+.ed-viz-legacy svg [stroke="#a78bfa" i]{ stroke:var(--series-5); }
+.ed-viz-legacy svg [fill="#f472b6" i]{ fill:var(--series-7); }
+.ed-viz-legacy svg [stroke="#f472b6" i]{ stroke:var(--series-7); }
 
 /* ---- viz-legacy shared typography rhythm ----
    Page copy bakes dark-app slate inline colors (#94a3b8/#64748b) and 0.8-0.9rem
@@ -292,7 +294,7 @@
 .ed-root.ed-viz-legacy h2{ font-size:22px !important; font-weight:600; line-height:1.25; margin:1.7em 0 .55em; }
 .ed-root.ed-viz-legacy h3{ font-size:18px !important; font-weight:600; line-height:1.3; margin:1.5em 0 .5em; }
 .ed-root.ed-viz-legacy h4{ font-size:15.5px !important; font-weight:600; margin:1.4em 0 .45em; }
-.ed-root.ed-viz-legacy hr{ border:none; border-top:1px solid var(--hair2); margin:26px 0; }
+.ed-root.ed-viz-legacy hr{ border:none; border-top:1px solid var(--rule-soft); margin:26px 0; }
 
 /* ---- viz-legacy tables ----
    Inline table styles carry only width/collapse/slate color; the chrome
@@ -303,7 +305,7 @@
 .ed-root.ed-viz-legacy table{
   width:100% !important;
   border-collapse:collapse !important;
-  border:1px solid var(--hairline);
+  border:1px solid var(--rule);
   background:var(--paper);
   font-variant-numeric:tabular-nums;
   margin:8px 0 20px;
@@ -311,28 +313,28 @@
 .ed-root.ed-viz-legacy thead th{
   font-family:var(--ed-mono); font-size:10.5px; font-weight:600;
   letter-spacing:.09em; text-transform:uppercase;
-  color:var(--faint); background:var(--paper2);
-  border-bottom:1px solid var(--hairline);
+  color:var(--ink-faint); background:var(--paper-2);
+  border-bottom:1px solid var(--rule);
   padding:8px 12px !important;
 }
 .ed-root.ed-viz-legacy tbody td{
   font-family:var(--ed-mono); font-size:12.5px;
   color:var(--ink-soft);
-  border-bottom:1px solid var(--hair2);
+  border-bottom:1px solid var(--rule-soft);
   padding:7px 12px !important;
 }
 .ed-root.ed-viz-legacy tbody tr:last-child td{ border-bottom:none; }
-.ed-root.ed-viz-legacy tbody tr:hover td{ background:var(--paper2); }
+.ed-root.ed-viz-legacy tbody tr:hover td{ background:var(--paper-2); }
 
 /* ---- viz-legacy code / pre ---- */
 .ed-root.ed-viz-legacy code{
   font-family:var(--ed-mono); font-size:.86em;
-  background:var(--paper2); border:1px solid var(--hair2); border-radius:4px;
+  background:var(--paper-2); border:1px solid var(--rule-soft); border-radius:4px;
   padding:1px 5px; color:var(--ink);
 }
 .ed-root.ed-viz-legacy pre{
   font-family:var(--ed-mono); font-size:12.5px; line-height:1.55;
-  background:var(--paper2); border:1px solid var(--hairline); border-radius:8px;
+  background:var(--paper-2); border:1px solid var(--rule); border-radius:8px;
   padding:14px 16px; overflow-x:auto; color:var(--ink-soft);
 }
 .ed-root.ed-viz-legacy pre code{ background:none; border:none; padding:0; }
@@ -345,10 +347,10 @@
    Boxes with tinted warning/accent backgrounds don't match and keep their
    semantics. */
 .ed-viz-legacy div[style*="rgba(148, 163, 184, 0.04)"]{
-  background:var(--paper2) !important;
-  border-top:1px solid var(--hair2) !important;
-  border-right:1px solid var(--hair2) !important;
-  border-bottom:1px solid var(--hair2) !important;
+  background:var(--paper-2) !important;
+  border-top:1px solid var(--rule-soft) !important;
+  border-right:1px solid var(--rule-soft) !important;
+  border-bottom:1px solid var(--rule-soft) !important;
   border-radius:0 8px 8px 0 !important;
   padding:13px 18px !important;
 }
@@ -356,27 +358,93 @@
   border-left-color:var(--brass) !important;
 }
 
-/* ---- viz-legacy inline HTML text-color remap ----
-   Same philosophy as the SVG fill/stroke remap above, for HTML inline styles:
-   the dark-app slate text tokens -> warm ink, and the data colors that are too
-   light on cream -> darker warm equivalents. Matches the serialized style
-   attribute ("color: rgb(r, g, b)"), so it covers spans/strong/td/divs without
-   touching layout or the boxes' backgrounds. */
-.ed-viz-legacy [style*="color: rgb(148, 163, 184)"]{ color:var(--ink-soft) !important; }
-.ed-viz-legacy [style*="color: rgb(100, 116, 139)"]{ color:var(--ink-soft) !important; }
-.ed-viz-legacy [style*="color: rgb(71, 85, 105)"]{ color:var(--ink-soft) !important; }
-.ed-viz-legacy [style*="color: rgb(203, 213, 225)"]{ color:var(--faint) !important; }
-.ed-viz-legacy [style*="color: rgb(226, 232, 240)"]{ color:var(--ink) !important; }
-.ed-viz-legacy [style*="color: rgb(56, 189, 248)"]{ color:var(--blue) !important; }
-.ed-viz-legacy [style*="color: rgb(125, 211, 252)"]{ color:var(--blue) !important; }
-.ed-viz-legacy [style*="color: rgb(96, 165, 250)"]{ color:var(--blue) !important; }
-.ed-viz-legacy [style*="color: rgb(74, 222, 128)"]{ color:var(--green) !important; }
-.ed-viz-legacy [style*="color: rgb(52, 211, 153)"]{ color:var(--green) !important; }
-.ed-viz-legacy [style*="color: rgb(250, 204, 21)"]{ color:var(--brass-dk) !important; }
-.ed-viz-legacy [style*="color: rgb(251, 191, 36)"]{ color:var(--brass-dk) !important; }
-.ed-viz-legacy [style*="color: rgb(253, 224, 71)"]{ color:var(--brass-dk) !important; }
-.ed-viz-legacy [style*="color: rgb(248, 113, 113)"]{ color:var(--terra-dk) !important; }
-.ed-viz-legacy [style*="color: rgb(252, 165, 165)"]{ color:var(--terra-dk) !important; }
+/* ---- viz-legacy inline HTML colour remap ----
+   Same approach as the SVG remap above, for HTML inline styles. Matches the
+   serialized style attribute ("color: rgb(r, g, b)") so it covers
+   spans/strong/td/divs without touching layout. Slate text keeps the classic
+   hierarchy (light slate = primary ink, darker slate = fainter); data hues map
+   to the cream series; dark box backgrounds map to paper-2. */
+.ed-viz-legacy [style^="color: rgb(226, 232, 240)"], .ed-viz-legacy [style*=" color: rgb(226, 232, 240)"], .ed-viz-legacy [style*=";color: rgb(226, 232, 240)"]{ color:var(--ink) !important; }
+.ed-viz-legacy [style^="color: rgb(203, 213, 225)"], .ed-viz-legacy [style*=" color: rgb(203, 213, 225)"], .ed-viz-legacy [style*=";color: rgb(203, 213, 225)"]{ color:var(--ink) !important; }
+.ed-viz-legacy [style^="color: rgb(241, 245, 249)"], .ed-viz-legacy [style*=" color: rgb(241, 245, 249)"], .ed-viz-legacy [style*=";color: rgb(241, 245, 249)"]{ color:var(--ink) !important; }
+.ed-viz-legacy [style^="color: rgb(148, 163, 184)"], .ed-viz-legacy [style*=" color: rgb(148, 163, 184)"], .ed-viz-legacy [style*=";color: rgb(148, 163, 184)"]{ color:var(--ink-soft) !important; }
+.ed-viz-legacy [style^="color: rgb(156, 163, 175)"], .ed-viz-legacy [style*=" color: rgb(156, 163, 175)"], .ed-viz-legacy [style*=";color: rgb(156, 163, 175)"]{ color:var(--ink-soft) !important; }
+.ed-viz-legacy [style^="color: rgb(100, 116, 139)"], .ed-viz-legacy [style*=" color: rgb(100, 116, 139)"], .ed-viz-legacy [style*=";color: rgb(100, 116, 139)"]{ color:var(--ink-faint) !important; }
+.ed-viz-legacy [style^="color: rgb(71, 85, 105)"], .ed-viz-legacy [style*=" color: rgb(71, 85, 105)"], .ed-viz-legacy [style*=";color: rgb(71, 85, 105)"]{ color:var(--ink-faint) !important; }
+.ed-viz-legacy [style^="color: rgb(56, 189, 248)"], .ed-viz-legacy [style*=" color: rgb(56, 189, 248)"], .ed-viz-legacy [style*=";color: rgb(56, 189, 248)"]{ color:var(--series-1) !important; }
+.ed-viz-legacy [style^="color: rgb(125, 211, 252)"], .ed-viz-legacy [style*=" color: rgb(125, 211, 252)"], .ed-viz-legacy [style*=";color: rgb(125, 211, 252)"]{ color:var(--series-1) !important; }
+.ed-viz-legacy [style^="color: rgb(96, 165, 250)"], .ed-viz-legacy [style*=" color: rgb(96, 165, 250)"], .ed-viz-legacy [style*=";color: rgb(96, 165, 250)"]{ color:var(--series-1) !important; }
+.ed-viz-legacy [style^="color: rgb(74, 222, 128)"], .ed-viz-legacy [style*=" color: rgb(74, 222, 128)"], .ed-viz-legacy [style*=";color: rgb(74, 222, 128)"]{ color:var(--series-3) !important; }
+.ed-viz-legacy [style^="color: rgb(52, 211, 153)"], .ed-viz-legacy [style*=" color: rgb(52, 211, 153)"], .ed-viz-legacy [style*=";color: rgb(52, 211, 153)"]{ color:var(--series-3) !important; }
+.ed-viz-legacy [style^="color: rgb(16, 185, 129)"], .ed-viz-legacy [style*=" color: rgb(16, 185, 129)"], .ed-viz-legacy [style*=";color: rgb(16, 185, 129)"]{ color:var(--series-3) !important; }
+.ed-viz-legacy [style^="color: rgb(250, 204, 21)"], .ed-viz-legacy [style*=" color: rgb(250, 204, 21)"], .ed-viz-legacy [style*=";color: rgb(250, 204, 21)"]{ color:var(--brass) !important; }
+.ed-viz-legacy [style^="color: rgb(251, 191, 36)"], .ed-viz-legacy [style*=" color: rgb(251, 191, 36)"], .ed-viz-legacy [style*=";color: rgb(251, 191, 36)"]{ color:var(--brass) !important; }
+.ed-viz-legacy [style^="color: rgb(253, 224, 71)"], .ed-viz-legacy [style*=" color: rgb(253, 224, 71)"], .ed-viz-legacy [style*=";color: rgb(253, 224, 71)"]{ color:var(--brass) !important; }
+.ed-viz-legacy [style^="color: rgb(245, 158, 11)"], .ed-viz-legacy [style*=" color: rgb(245, 158, 11)"], .ed-viz-legacy [style*=";color: rgb(245, 158, 11)"]{ color:var(--brass) !important; }
+.ed-viz-legacy [style^="color: rgb(248, 113, 113)"], .ed-viz-legacy [style*=" color: rgb(248, 113, 113)"], .ed-viz-legacy [style*=";color: rgb(248, 113, 113)"]{ color:var(--warn) !important; }
+.ed-viz-legacy [style^="color: rgb(252, 165, 165)"], .ed-viz-legacy [style*=" color: rgb(252, 165, 165)"], .ed-viz-legacy [style*=";color: rgb(252, 165, 165)"]{ color:var(--warn) !important; }
+.ed-viz-legacy [style^="color: rgb(239, 68, 68)"], .ed-viz-legacy [style*=" color: rgb(239, 68, 68)"], .ed-viz-legacy [style*=";color: rgb(239, 68, 68)"]{ color:var(--warn) !important; }
+.ed-viz-legacy [style^="color: rgb(167, 139, 250)"], .ed-viz-legacy [style*=" color: rgb(167, 139, 250)"], .ed-viz-legacy [style*=";color: rgb(167, 139, 250)"]{ color:var(--series-5) !important; }
+.ed-viz-legacy [style^="color: rgb(196, 181, 253)"], .ed-viz-legacy [style*=" color: rgb(196, 181, 253)"], .ed-viz-legacy [style*=";color: rgb(196, 181, 253)"]{ color:var(--series-5) !important; }
+.ed-viz-legacy [style^="color: rgb(244, 114, 182)"], .ed-viz-legacy [style*=" color: rgb(244, 114, 182)"], .ed-viz-legacy [style*=";color: rgb(244, 114, 182)"]{ color:var(--series-7) !important; }
+.ed-viz-legacy [style^="color: rgb(45, 212, 191)"], .ed-viz-legacy [style*=" color: rgb(45, 212, 191)"], .ed-viz-legacy [style*=";color: rgb(45, 212, 191)"]{ color:var(--series-6) !important; }
+.ed-viz-legacy [style^="color: rgb(34, 211, 238)"], .ed-viz-legacy [style*=" color: rgb(34, 211, 238)"], .ed-viz-legacy [style*=";color: rgb(34, 211, 238)"]{ color:var(--series-6) !important; }
+.ed-viz-legacy [style^="color: rgb(251, 146, 60)"], .ed-viz-legacy [style*=" color: rgb(251, 146, 60)"], .ed-viz-legacy [style*=";color: rgb(251, 146, 60)"]{ color:var(--status-candidate) !important; }
+.ed-viz-legacy [style*="background: rgb(10, 14, 26)"],
+.ed-viz-legacy [style*="background-color: rgb(10, 14, 26)"],
+.ed-viz-legacy [style*="background: rgb(10, 15, 26)"],
+.ed-viz-legacy [style*="background-color: rgb(10, 15, 26)"],
+.ed-viz-legacy [style*="background: rgb(15, 18, 37)"],
+.ed-viz-legacy [style*="background-color: rgb(15, 18, 37)"],
+.ed-viz-legacy [style*="background: rgb(30, 41, 59)"],
+.ed-viz-legacy [style*="background-color: rgb(30, 41, 59)"],
+.ed-viz-legacy [style*="background: rgb(15, 23, 42)"],
+.ed-viz-legacy [style*="background-color: rgb(15, 23, 42)"],
+.ed-viz-legacy [style*="background: rgb(17, 24, 39)"],
+.ed-viz-legacy [style*="background-color: rgb(17, 24, 39)"],
+.ed-viz-legacy [style*="background: rgb(2, 6, 23)"],
+.ed-viz-legacy [style*="background-color: rgb(2, 6, 23)"],
+.ed-viz-legacy [style*="background: rgb(11, 17, 32)"],
+.ed-viz-legacy [style*="background-color: rgb(11, 17, 32)"],
+.ed-viz-legacy [style*="background: rgb(13, 17, 23)"],
+.ed-viz-legacy [style*="background-color: rgb(13, 17, 23)"],
+.ed-viz-legacy [style*="background: rgba(10, 15, 26,"],
+.ed-viz-legacy [style*="background-color: rgba(10, 15, 26,"],
+.ed-viz-legacy [style*="background: rgba(10, 14, 26,"],
+.ed-viz-legacy [style*="background-color: rgba(10, 14, 26,"],
+.ed-viz-legacy [style*="background: rgba(15, 23, 42,"],
+.ed-viz-legacy [style*="background-color: rgba(15, 23, 42,"],
+.ed-viz-legacy [style*="background: rgba(2, 6, 23,"],
+.ed-viz-legacy [style*="background-color: rgba(2, 6, 23,"],
+.ed-viz-legacy [style*="background: rgba(17, 24, 39,"],
+.ed-viz-legacy [style*="background-color: rgba(17, 24, 39,"],
+.ed-viz-legacy [style*="background: rgba(30, 41, 59,"],
+.ed-viz-legacy [style*="background-color: rgba(30, 41, 59,"],
+.ed-viz-legacy [style*="background: rgba(15, 18, 37,"],
+.ed-viz-legacy [style*="background-color: rgba(15, 18, 37,"],
+.ed-viz-legacy [style*="background: rgba(11, 17, 32,"],
+.ed-viz-legacy [style*="background-color: rgba(11, 17, 32,"]{ background:var(--paper-2) !important; }
+/* dark 1px box borders -> rule */
+.ed-viz-legacy [style*="border: 1px solid rgb(51, 65, 85)"],
+.ed-viz-legacy [style*="border-top: 1px solid rgb(51, 65, 85)"],
+.ed-viz-legacy [style*="border-bottom: 1px solid rgb(51, 65, 85)"],
+.ed-viz-legacy [style*="border-left: 1px solid rgb(51, 65, 85)"],
+.ed-viz-legacy [style*="border-right: 1px solid rgb(51, 65, 85)"],
+.ed-viz-legacy [style*="border: 1px solid rgb(30, 41, 59)"],
+.ed-viz-legacy [style*="border-top: 1px solid rgb(30, 41, 59)"],
+.ed-viz-legacy [style*="border-bottom: 1px solid rgb(30, 41, 59)"],
+.ed-viz-legacy [style*="border-left: 1px solid rgb(30, 41, 59)"],
+.ed-viz-legacy [style*="border-right: 1px solid rgb(30, 41, 59)"],
+.ed-viz-legacy [style*="border: 1px solid rgb(71, 85, 105)"],
+.ed-viz-legacy [style*="border-top: 1px solid rgb(71, 85, 105)"],
+.ed-viz-legacy [style*="border-bottom: 1px solid rgb(71, 85, 105)"],
+.ed-viz-legacy [style*="border-left: 1px solid rgb(71, 85, 105)"],
+.ed-viz-legacy [style*="border-right: 1px solid rgb(71, 85, 105)"],
+.ed-viz-legacy [style*="border: 1px solid rgb(42, 48, 80)"],
+.ed-viz-legacy [style*="border-top: 1px solid rgb(42, 48, 80)"],
+.ed-viz-legacy [style*="border-bottom: 1px solid rgb(42, 48, 80)"],
+.ed-viz-legacy [style*="border-left: 1px solid rgb(42, 48, 80)"],
+.ed-viz-legacy [style*="border-right: 1px solid rgb(42, 48, 80)"]{ border-color:var(--rule) !important; }
 
 /* atlas breakout: stack the wireframe column on narrow screens */
 @media (max-width: 900px){
@@ -401,3 +469,10 @@
 }
 /* tables inside the reading column always scroll rather than overflow */
 .ed-root .ed-col table{ display:block; overflow-x:auto; }
+
+/* Form controls inherit the page font (browsers default buttons/inputs to system sans) */
+.ed-root button, .ed-root input, .ed-root select, .ed-root textarea{ font-family:inherit; }
+.ed-root.ed-viz-legacy [role=tab], .ed-root.ed-viz-legacy button{ font-family:var(--ed-mono); }
+/* PageHeader subtitles on cream pages read as a dek (serif), matching PostLayout deks;
+   !important beats the inline monospace fontFamily many legacy pages set. */
+.ed-root .page-header > p, .ed-root .page-subtitle{ font-family:var(--ed-body) !important; }

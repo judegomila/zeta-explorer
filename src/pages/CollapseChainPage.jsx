@@ -289,6 +289,7 @@ export default function CollapseChainPage() {
       <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
         <HonestCeilingBanner variant="RH-EQUIVALENT" />
         <h1 className="ed-h1" style={{ marginBottom: 10 }}>{'The imp-1258 Collapse Chain: ‖V_{a,Φ}‖ ≤ 1 ⇔ CDB-Exist'}</h1>
+        <p className="ed-lbl">Related: <Link to="/volterra-bound">Volterra norm bound ‖V‖ ≤ 1</Link></p>
         <p style={{ color: 'var(--ink-soft)', fontSize: 14, maxWidth: 720, marginBottom: 16, lineHeight: 1.6 }}>
           The entire §15-27 program (7+ named conjectures) is RH-equivalent to one operator-norm
           statement: <strong>‖V&#x200B;_{'{'}a,Φ{'}'}</strong> &le; 1 for every a &gt; 0.
@@ -297,7 +298,7 @@ export default function CollapseChainPage() {
 
         <AnimationEmbed id="collapse-chain" />
 
-        <div style={{ backgroundColor: 'rgba(194,58,28,0.08)', padding: '16px', borderRadius: '8px', marginBottom: '20px', border: '2px solid var(--terra-dk)' }}>
+        <div style={{ backgroundColor: 'color-mix(in srgb, var(--series-2) 8%, transparent)', padding: '16px', borderRadius: '8px', marginBottom: '20px', border: '2px solid var(--terra-dk)' }}>
           <p style={{ margin: '0 0 6px 0', fontSize: '15px', fontWeight: 'bold', color: 'var(--terra-dk)' }}>
             ⚠ REFUTED AS A REDUCTION (§26 verdict, {SECTION26_VERDICT.date})
           </p>

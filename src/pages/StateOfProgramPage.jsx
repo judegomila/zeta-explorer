@@ -8,6 +8,7 @@ import {
   STATE_OF_PROGRAM_TRUTHS,
 } from '../data/state-of-program-truths.js';
 import { CAUGHT_OVERCLAIMS, OVERCLAIM_COUNT } from '../data/overclaim-ledger.js';
+import { ED } from '../styles/tokens.js';
 
 // The, single canonical top-of-funnel summary. Facts are sourced from
 // the shared STATE_OF_PROGRAM_TRUTHS data module, reconciled against the route
@@ -152,7 +153,7 @@ export default function StateOfProgramPage() {
           { to: '/rh-dag', label: 'Proof DAG' },
           { to: '/lambda-bounds', label: 'Lambda Bounds' },
           { to: '/rigor-dashboard', label: 'Rigor Dashboard' },
-          { to: '/research-journal', label: 'Research Journal', color: '#22c55e' },
+          { to: '/research-journal', label: 'Research Journal', color: ED.series3 },
         ]} />
 
         <div className="card" style={{ marginTop: 16 }}>

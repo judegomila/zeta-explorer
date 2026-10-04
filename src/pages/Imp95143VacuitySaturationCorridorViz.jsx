@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP95225_SIGNED_COUNT_PRICED_SHIFT_CERTIFICATE } from '../data/imp-95225-signed-count-priced-shift-certificate.js';
+import { ED, alpha } from '../styles/tokens.js';
 
 const D = IMP95225_SIGNED_COUNT_PRICED_SHIFT_CERTIFICATE;
 const VAC_SLOPE = D.constants.vacuitySlope; // 1/ln2, per-x growth of the certificate (vacuity) frontier
@@ -39,29 +40,29 @@ function CorridorChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <text x={padL} y={padT - 14} fill="#94a3b8" fontSize={11} fontWeight={700}>
+      <text x={padL} y={padT - 14} fill={ED.inkSoft} fontSize={11} fontWeight={700}>
         N vs. x: SGN-C certificate frontier vs. SGN-SAT saturation frontier
       </text>
 
       {/* open corridor: 1.4427x < N-1 < 11.6893x, sup R unknown on both sides */}
-      <polygon points={corridorPoints} fill="rgba(250,204,21,0.10)" />
+      <polygon points={corridorPoints} fill={alpha(ED.brassDeco, 0.1)} />
 
       {nTicks.map((t) => (
         <g key={t}>
-          <line x1={padL} y1={yOf(t)} x2={padL + plotW} y2={yOf(t)} stroke="#1e293b" strokeWidth={1} />
-          <text x={padL - 6} y={yOf(t) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+          <line x1={padL} y1={yOf(t)} x2={padL + plotW} y2={yOf(t)} stroke={ED.ruleSoft} strokeWidth={1} />
+          <text x={padL - 6} y={yOf(t) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {t}
           </text>
         </g>
       ))}
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
       {xTicks.map((t) => (
-        <text key={t} x={xOf(t)} y={padT + plotH + 16} textAnchor="middle" fill="#64748b" fontSize={9}>
+        <text key={t} x={xOf(t)} y={padT + plotH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
           {t}
         </text>
       ))}
-      <text x={padL + plotW - 12} y={padT + plotH + 32} textAnchor="end" fill="#64748b" fontSize={9.5}>
+      <text x={padL + plotW - 12} y={padT + plotH + 32} textAnchor="end" fill={ED.inkFaint} fontSize={9.5}>
         x = m&middot;d (min rate &times; min depth)
       </text>
 
@@ -71,10 +72,10 @@ function CorridorChart() {
         y1={yOf(sat(0))}
         x2={xOf(xMax)}
         y2={yOf(sat(xMax))}
-        stroke="#f87171"
+        stroke={ED.series2}
         strokeWidth={2}
       />
-      <text x={xOf(xMax) - 180} y={yOf(sat(xMax * 0.86)) - 6} fill="#f87171" fontSize={9}>
+      <text x={xOf(xMax) - 180} y={yOf(sat(xMax * 0.86)) - 6} fill={ED.series2} fontSize={9}>
         saturation: N &asymp; {SAT_SLOPE}x (sup R = 1/2 known above)
       </text>
 
@@ -84,23 +85,23 @@ function CorridorChart() {
         y1={yOf(vac(0))}
         x2={xOf(xMax)}
         y2={yOf(vac(xMax))}
-        stroke="#38bdf8"
+        stroke={ED.series1}
         strokeWidth={2.25}
       />
-      <text x={xOf(xMax) - 210} y={yOf(vac(xMax)) + 16} fill="#38bdf8" fontSize={9}>
+      <text x={xOf(xMax) - 210} y={yOf(vac(xMax)) + 16} fill={ED.series1} fontSize={9}>
         certificate: N = 1 + {VAC_SLOPE.toFixed(4)}x (SGN-C bites below)
       </text>
 
       {/* N = 1 SGN-EQ sharp anchor point, on the vacuity line at x = 0 */}
-      <circle cx={xOf(0)} cy={yOf(1)} r={4} fill="#34d399" />
-      <text x={xOf(0) + 8} y={yOf(1) - 6} fill="#34d399" fontSize={9} fontWeight={700}>
+      <circle cx={xOf(0)} cy={yOf(1)} r={4} fill={ED.series3} />
+      <text x={xOf(0) + 8} y={yOf(1) - 6} fill={ED.series3} fontSize={9} fontWeight={700}>
         N = 1: SGN-EQ (sharp)
       </text>
 
-      <text x={xOf(6.2)} y={yOf(0.55 * (vac(6.2) + sat(6.2)))} fill="#facc15" fontSize={10} fontWeight={700}>
+      <text x={xOf(6.2)} y={yOf(0.55 * (vac(6.2) + sat(6.2)))} fill={ED.brass} fontSize={10} fontWeight={700}>
         open corridor (factor &asymp; 8.1)
       </text>
-      <text x={xOf(1.4)} y={yOf(vac(1.4)) + 26} fill="#64748b" fontSize={8.5}>
+      <text x={xOf(1.4)} y={yOf(vac(1.4)) + 26} fill={ED.inkFaint} fontSize={8.5}>
         width-law packets (N&sim;pD, x=&Theta;(1)): here, inside the vacuity zone
       </text>
     </svg>
@@ -112,7 +113,7 @@ export default function Imp95143VacuitySaturationCorridorViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="SGN-C Count-Vacuity vs. SGN-SAT Saturation Corridor (imp-95143 / imp-95225)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         {D.propCVAC} The chart plots the two straight-line frontiers in the (x, N) plane over the
         SGN-C model family: N = distinct rates, x = m&middot;d (min rate times min center depth).
         Below the certificate frontier the count-priced signed bound R &le; B(N,x,K)^2 is non-vacuous;
@@ -122,10 +123,10 @@ export default function Imp95143VacuitySaturationCorridorViz() {
 
       <CorridorChart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.25rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.25rem 0 0.5rem' }}>
         Anchor and scope
       </p>
-      <p style={{ color: '#94a3b8', fontSize: '0.85rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.85rem', maxWidth: 700 }}>
         The N = 1 point sits exactly on the certificate frontier and is proven sharp: {D.corollaryCEQ}
         The corridor factor (saturation slope / vacuity slope) is {(SAT_SLOPE / VAC_SLOPE).toFixed(2)},
         matching the "factor &asymp; 8.1" recorded in imp-95225 PROP C-VAC. The width-law paper packets
@@ -137,14 +138,14 @@ export default function Imp95143VacuitySaturationCorridorViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Qualitative viz-only page baking the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Qualitative viz-only page baking the
         imp-95225 IMP95225_SIGNED_COUNT_PRICED_SHIFT_CERTIFICATE constants.vacuitySlope /
         constants.satSlope literals verbatim (no new computation, no bound claim). The open corridor
         between the two frontiers is recorded, not resolved, on both sides; the weight-priced and

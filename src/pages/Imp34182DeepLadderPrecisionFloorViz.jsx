@@ -6,6 +6,7 @@ import {
   IMP34182_PRECISION_FLOOR,
 } from '../data/imp-34182-deep-ladder-precision-floor-viz-data.js';
 import { IMP34250_DEEP_LADDER_TIE_MARGIN_CLASSIFICATION } from '../data/imp-34250-deep-ladder-tie-margin-classification.js';
+import { ED, alpha } from '../styles/tokens.js';
 
 // Log-log chart: measured gap vs exponent, colored by realign (descent) vs freeze vs departure.
 function GapScheduleChart() {
@@ -35,9 +36,9 @@ function GapScheduleChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <polyline points={linePoints} fill="none" stroke="#38bdf8" strokeWidth={1.5} strokeDasharray="2,3" />
+      <polyline points={linePoints} fill="none" stroke={ED.series1} strokeWidth={1.5} strokeDasharray="2,3" />
       {rows.map((r, i) => {
-        const color = !r.matches ? '#f43f5e' : r.exponent === 16 || r.exponent === 20 ? '#4ade80' : '#f97316';
+        const color = !r.matches ? ED.series2 : r.exponent === 16 || r.exponent === 20 ? ED.series3 : ED.series4;
         return (
           <circle
             key={`pt-${r.exponent}`}
@@ -45,36 +46,36 @@ function GapScheduleChart() {
             cy={yAt(ys[i])}
             r={5}
             fill={color}
-            stroke="#0a0f1a"
+            stroke={ED.paper}
             strokeWidth={0.75}
           />
         );
       })}
       {rows.map((r, i) => (
-        <text key={`xt-${r.exponent}`} x={xAt(xs[i])} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={8.5}>
+        <text key={`xt-${r.exponent}`} x={xAt(xs[i])} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={8.5}>
           1/{Math.pow(2, r.exponent)}
         </text>
       ))}
-      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         dyadic step (exponent e = 15..20, step = 1/2^e)
       </text>
       <text
         x={16}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={`rotate(-90 16 ${padT + cH / 2})`}
       >
         log10(gap)
       </text>
-      <text x={padL + 4} y={padT + 12} fill="#4ade80" fontSize={9.5}>
+      <text x={padL + 4} y={padT + 12} fill={ED.series3} fontSize={9.5}>
         &#9679; descent (realignment: gap resumes)
       </text>
-      <text x={padL + 4} y={padT + 26} fill="#f97316" fontSize={9.5}>
+      <text x={padL + 4} y={padT + 26} fill={ED.series4} fontSize={9.5}>
         &#9679; freeze (gap unchanged)
       </text>
-      <text x={padL + 4} y={padT + 40} fill="#f43f5e" fontSize={9.5}>
+      <text x={padL + 4} y={padT + 40} fill={ED.series2} fontSize={9.5}>
         &#9679; DEPARTURE (e=19: predicted descent, observed freeze)
       </text>
     </svg>
@@ -107,35 +108,35 @@ function PhaseOrbitChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={bandTop} width={cW} height={bandBottom - bandTop} fill="rgba(74,222,128,0.1)" />
-      <text x={padL + 4} y={bandTop + 12} fill="#4ade80" fontSize={8.5}>
+      <rect x={padL} y={bandTop} width={cW} height={bandBottom - bandTop} fill={alpha(ED.series3, 0.1)} />
+      <text x={padL + 4} y={bandTop + 12} fill={ED.series3} fontSize={8.5}>
         reflection band (1/4, 3/4) -- next level descends (predicted)
       </text>
-      <polyline points={linePoints} fill="none" stroke="#a78bfa" strokeWidth={1.5} />
+      <polyline points={linePoints} fill="none" stroke={ED.series5} strokeWidth={1.5} />
       {rows.map((r, i) => (
         <circle
           key={`pt-${r.exponent}`}
           cx={xAt(xs[i])}
           cy={yAt(r.frac)}
           r={4}
-          fill={r.exponent === 19 ? '#f43f5e' : r.inReflectionBand ? '#4ade80' : '#f97316'}
-          stroke="#0a0f1a"
+          fill={r.exponent === 19 ? ED.series2 : r.inReflectionBand ? ED.series3 : ED.series4}
+          stroke={ED.paper}
           strokeWidth={0.75}
         />
       ))}
       {rows.map((r, i) => (
-        <text key={`xt-${r.exponent}`} x={xAt(xs[i])} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={8.5}>
+        <text key={`xt-${r.exponent}`} x={xAt(xs[i])} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={8.5}>
           e={r.exponent}
         </text>
       ))}
-      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         dyadic exponent e (doubling-map orbit of phase k*-6, deep ladder)
       </text>
       <text
         x={12}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={`rotate(-90 12 ${padT + cH / 2})`}
       >
@@ -152,7 +153,7 @@ export default function Imp34182DeepLadderPrecisionFloorViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Doubling-Map Deep Ladder: Precision-Floor Departure (imp-34106 / imp-34182)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-34044 characterized the sawtooth phase-realignment schedule across 1/128 .. 1/32768 as a
         closed-form Bernoulli doubling-map orbit of the continuum phase (k*-6). imp-34106 extended that
         ladder five rungs deeper, to 1/65536 .. 1/2^20, and found the closed form keeps predicting the
@@ -163,12 +164,12 @@ export default function Imp34182DeepLadderPrecisionFloorViz() {
         phase orbit against the reflection band that predicts each transition.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         log10(gap) vs dyadic step -- descent/freeze/departure schedule
       </p>
       <GapScheduleChart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
         doubling-map phase orbit frac_e vs reflection band
       </p>
       <PhaseOrbitChart />
@@ -177,14 +178,14 @@ export default function Imp34182DeepLadderPrecisionFloorViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Why it departs:</strong> the closed form phases the
+        <strong style={{ color: 'var(--ink-soft)' }}>Why it departs:</strong> the closed form phases the
         schedule on the stored 6-significant-figure continuum argmax k* = {pf.storedKStar}, while the
         discrete argmax tracks the true resid_exp peak k_true &#8776; {pf.trueContinuumPeak} (rounding
         offset &#8776; {pf.roundingOffset.toExponential ? pf.roundingOffset.toExponential(2) : pf.roundingOffset}).
@@ -200,15 +201,15 @@ export default function Imp34182DeepLadderPrecisionFloorViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>See also:</strong>{' '}
-        <Link to="/viz-imp34118-sawtooth-phase-realignment-schedule" style={{ color: '#38bdf8' }}>
+        <strong style={{ color: 'var(--ink-soft)' }}>See also:</strong>{' '}
+        <Link to="/viz-imp34118-sawtooth-phase-realignment-schedule" style={{ color: 'var(--series-1)' }}>
           imp-34118 (the shallow 1/128 .. 1/32768 schedule this ladder extends)
         </Link>
         .
@@ -218,14 +219,14 @@ export default function Imp34182DeepLadderPrecisionFloorViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Cross-validated (imp-34172):</strong> an independent
+        <strong style={{ color: 'var(--ink-soft)' }}>Cross-validated (imp-34172):</strong> an independent
         from-source second code path (own channels()/pSigma helpers, no shared imp-34106 parts()
         helper) reproduces this deep ladder BIT-FOR-BIT under stable-OLS arithmetic across all six
         rungs e = 15..20 -- including the e = 19 departure flagged above -- so the schedule is
@@ -235,7 +236,7 @@ export default function Imp34182DeepLadderPrecisionFloorViz() {
         raw-moment OLS reformulation flips the selection to the predicted descent. Nothing here
         changes the departure's cause (see "Why it departs" above) -- it sharpens imp-34106 E3's
         precision-floor diagnosis with a second, independent path. Elsewhere on the same cohort,{' '}
-        <Link to="/viz-imp34198-ecoll-residual-milestone-ladder" style={{ color: '#38bdf8' }}>
+        <Link to="/viz-imp34198-ecoll-residual-milestone-ladder" style={{ color: 'var(--series-1)' }}>
           imp-34130
         </Link>{' '}
         resolved a related open sub-question: the separated E_coll local-exponent residual to -1/2
@@ -247,14 +248,14 @@ export default function Imp34182DeepLadderPrecisionFloorViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Per-rung decidability profile (imp-34250):</strong> the
+        <strong style={{ color: 'var(--ink-soft)' }}>Per-rung decidability profile (imp-34250):</strong> the
         e=19 tie margin above is not an isolated reading -- imp-34250 tabulates the top-two resid_exp
         margin against the ~1.2e-14 raw-moment perturbation floor at every deep rung. The margin
         collapses monotonically as the step halves (ratio 158 &#8594; 301 &#8594; 65 &#8594; 11.3 at
@@ -271,14 +272,14 @@ export default function Imp34182DeepLadderPrecisionFloorViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement only, isRigorous false.
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> measurement only, isRigorous false.
         Component model is the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic; the
         surrogate resid_exp(k) is descriptive, not derived; C_mb GUE-conditional per imp-486 UNTOUCHED;
         C_C 1/8 ansatz (imp-2642/imp-2643) UNTOUCHED; imp-3066 K_a&gt;=0 UNTOUCHED; NO QED.

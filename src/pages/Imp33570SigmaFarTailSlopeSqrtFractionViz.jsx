@@ -5,8 +5,9 @@ import {
   IMP33570_FRACTION_SERIES,
   IMP33570_LANDMARKS,
 } from '../data/imp-33570-sigma-fartail-slope-sqrt-fraction-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
-const COLORS = { slope: '#10b981', sqrt: '#a855f7', peak: '#f472b6' };
+const COLORS = { slope: ED.series3, sqrt: ED.series5, peak: ED.series7 };
 
 function SlopeSqrtFractionChart() {
   const svgW = 660;
@@ -41,17 +42,17 @@ function SlopeSqrtFractionChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
       {yTicks.map((v) => (
         <g key={v}>
-          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke="#1e293b" strokeWidth={0.7} />
-          <text x={padL - 6} y={yS(v) + 3.5} textAnchor="end" fill="#475569" fontSize={9}>
+          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke={ED.ruleSoft} strokeWidth={0.7} />
+          <text x={padL - 6} y={yS(v) + 3.5} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {(v * 100).toFixed(0)}%
           </text>
         </g>
       ))}
-      <line x1={padL} y1={yS(0)} x2={padL + cW} y2={yS(0)} stroke="#334155" strokeWidth={1} />
+      <line x1={padL} y1={yS(0)} x2={padL + cW} y2={yS(0)} stroke={ED.rule} strokeWidth={1} />
 
       <line
         x1={xS(IMP33570_LANDMARKS.N_max)}
@@ -73,24 +74,24 @@ function SlopeSqrtFractionChart() {
         </g>
       ))}
 
-      <text x={xS(peak.N_ref) + 6} y={yS(1.12)} fill="#f9a8d4" fontSize={9}>
+      <text x={xS(peak.N_ref) + 6} y={yS(1.12)} fill={ED.series7} fontSize={9}>
         peak N~9.22e5, ~{peak.chord_ratio.toFixed(1)}:1
       </text>
-      <text x={xS(topRung.N_ref) - 6} y={yS(1.12)} textAnchor="end" fill="#f9a8d4" fontSize={9}>
+      <text x={xS(topRung.N_ref) - 6} y={yS(1.12)} textAnchor="end" fill={ED.series7} fontSize={9}>
         ~{topRung.chord_ratio.toFixed(1)}:1
       </text>
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
 
       {xTickNs.map((N) => (
         <g key={'x' + N}>
-          <line x1={xS(N)} y1={padT + cH} x2={xS(N)} y2={padT + cH + 5} stroke="#334155" strokeWidth={1} />
-          <text x={xS(N)} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={8}>
+          <line x1={xS(N)} y1={padT + cH} x2={xS(N)} y2={padT + cH + 5} stroke={ED.rule} strokeWidth={1} />
+          <text x={xS(N)} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={8}>
             {N.toExponential(0)}
           </text>
         </g>
       ))}
-      <text x={padL + cW / 2} y={padT + cH + 34} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={padT + cH + 34} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         N_ref (log scale, imp-3406 peak &rarr; imp-3444 crossover)
       </text>
 
@@ -98,7 +99,7 @@ function SlopeSqrtFractionChart() {
         x={12}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={'rotate(-90,12,' + (padT + cH / 2) + ')'}
       >
@@ -107,9 +108,9 @@ function SlopeSqrtFractionChart() {
 
       <g fontSize={9}>
         <line x1={padL + 2} y1={padT + 12} x2={padL + 10} y2={padT + 12} stroke={COLORS.slope} strokeWidth={2} />
-        <text x={padL + 14} y={padT + 15} fill="#6ee7b7">Delta S_slope fraction (-1/2 ln N power)</text>
+        <text x={padL + 14} y={padT + 15} fill={ED.series3}>Delta S_slope fraction (-1/2 ln N power)</text>
         <line x1={padL + 2} y1={padT + 26} x2={padL + 10} y2={padT + 26} stroke={COLORS.sqrt} strokeWidth={2} strokeDasharray="6,3" />
-        <text x={padL + 14} y={padT + 29} fill="#c084fc">Delta S_sqrt fraction (+1/2 sqrt(log T0) power)</text>
+        <text x={padL + 14} y={padT + 29} fill={ED.series5}>Delta S_sqrt fraction (+1/2 sqrt(log T0) power)</text>
       </g>
     </svg>
   );
@@ -120,7 +121,7 @@ export default function Imp33570SigmaFarTailSlopeSqrtFractionViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Sigma(N) Far-Tail Two-Power Fraction Split (imp-33540 / imp-33553 / imp-33570)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-33540 decomposed the imp-33291 far-tail two-power log-factor S(N) = -(1/2) ln N +
         (1/2) ln(log T0) across the 3.55-decade off-regime span from the imp-3444 crossover
         (N &sim; 3.28e9) back to the imp-3406 interior max (N &sim; 9.22e5), finding the -1/2
@@ -131,7 +132,7 @@ export default function Imp33570SigmaFarTailSlopeSqrtFractionViz() {
         rising to &sim;21.5:1. This page plots the two fractions across that ladder.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         Delta S_slope vs Delta S_sqrt as fractions of Delta S, across the off-regime span
       </p>
       <SlopeSqrtFractionChart />
@@ -140,14 +141,14 @@ export default function Imp33570SigmaFarTailSlopeSqrtFractionViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> the solid green curve is
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> the solid green curve is
         the -1/2 ln N slope&apos;s fraction of Delta S, which stays pinned just above 100% across
         the whole span (&sim;105.9% at the peak, marked, falling only to &sim;104.9% near the
         crossover). The dashed purple curve is the +1/2 sqrt(log T0) coefficient&apos;s fraction,
@@ -160,23 +161,23 @@ export default function Imp33570SigmaFarTailSlopeSqrtFractionViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement/visualization only
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> measurement/visualization only
         &mdash; the underlying component model is the inherited imp-3220/imp-3406 extrapolation,
         NOT a rigorous asymptotic. C_C is GUE-conditional per imp-486; changes no bound; imp-3066
         K_a &ge; 0 remains untouched; no positivity, no bridge closure, no RH claim. No RH verdict,
         NO QED.
       </div>
 
-      <div style={{ marginTop: '1rem', fontSize: '0.85rem', color: '#64748b' }}>
+      <div style={{ marginTop: '1rem', fontSize: '0.85rem', color: 'var(--ink-faint)' }}>
         <strong>Related:</strong>{' '}
-        <Link to="/viz-imp33549-sigma-fartail-vs-interior-max" style={{ color: '#7c3aed' }}>
+        <Link to="/viz-imp33549-sigma-fartail-vs-interior-max" style={{ color: 'var(--series-5)' }}>
           Sigma(N) Far-Tail Law vs Interior-Max Reconciliation (imp-33315 / imp-33549)
         </Link>
       </div>

@@ -8,11 +8,12 @@ import {
   IMP33326_C_MIN,
   IMP33326_C_MAX,
 } from '../data/imp-33326-genuine-eigenvector-fifth-pair-realized-c-ladder-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
-const BAR_COLOR = '#38bdf8';
-const POKE_COLOR = '#fb923c';
-const ENVELOPE_COLOR = '#f472b6';
-const SURROGATE_COLOR = '#a78bfa';
+const BAR_COLOR = ED.series1;
+const POKE_COLOR = ED.series4;
+const ENVELOPE_COLOR = ED.series7;
+const SURROGATE_COLOR = ED.series5;
 
 function RealizedCLadderChart() {
   const svgW = 600;
@@ -30,7 +31,7 @@ function RealizedCLadderChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
       <rect
         x={padL}
@@ -46,8 +47,8 @@ function RealizedCLadderChart() {
 
       {[0, 0.5, 1, 1.5].map((v) => (
         <g key={v}>
-          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke="#1e293b" strokeWidth={0.7} />
-          <text x={padL - 6} y={yS(v) + 3.5} textAnchor="end" fill="#475569" fontSize={9}>
+          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke={ED.ruleSoft} strokeWidth={0.7} />
+          <text x={padL - 6} y={yS(v) + 3.5} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v}
           </text>
         </g>
@@ -74,21 +75,21 @@ function RealizedCLadderChart() {
         return (
           <g key={r.N}>
             <rect x={x} y={y} width={barW} height={h} fill={isPoke ? POKE_COLOR : BAR_COLOR} rx={2} />
-            <text x={x + barW / 2} y={y - 6} textAnchor="middle" fill="#94a3b8" fontSize={9}>
+            <text x={x + barW / 2} y={y - 6} textAnchor="middle" fill={ED.inkSoft} fontSize={9}>
               {r.cRealized.toFixed(3)}
             </text>
-            <text x={x + barW / 2} y={padT + cH + 14} textAnchor="middle" fill="#64748b" fontSize={9}>
+            <text x={x + barW / 2} y={padT + cH + 14} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
               N={r.N}
             </text>
           </g>
         );
       })}
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
-      <text x={14} y={padT + cH / 2} textAnchor="middle" fill="#64748b" fontSize={10} transform={`rotate(-90,14,${padT + cH / 2})`}>
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
+      <text x={14} y={padT + cH / 2} textAnchor="middle" fill={ED.inkFaint} fontSize={10} transform={`rotate(-90,14,${padT + cH / 2})`}>
         c = worstPairSpread / (n &middot; kappa_pair &middot; u)
       </text>
-      <text x={padL + cW / 2} y={padT + cH + 34} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={padT + cH + 34} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         genuine-eigenvector rung N
       </text>
     </svg>
@@ -97,9 +98,9 @@ function RealizedCLadderChart() {
 
 function LadderTable() {
   return (
-    <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.8rem', color: '#94a3b8' }}>
+    <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.8rem', color: 'var(--ink-soft)' }}>
       <thead>
-        <tr style={{ borderBottom: '1px solid #334155' }}>
+        <tr style={{ borderBottom: '1px solid var(--rule)' }}>
           <th style={{ textAlign: 'left', padding: '0.35rem 0.5rem' }}>N</th>
           <th style={{ textAlign: 'right', padding: '0.35rem 0.5rem' }}>sigma_4</th>
           <th style={{ textAlign: 'right', padding: '0.35rem 0.5rem' }}>kappa_pair</th>
@@ -108,7 +109,7 @@ function LadderTable() {
       </thead>
       <tbody>
         {IMP33326_LADDER.map((r) => (
-          <tr key={r.N} style={{ borderBottom: '1px solid #1e293b' }}>
+          <tr key={r.N} style={{ borderBottom: '1px solid var(--rule-soft)' }}>
             <td style={{ padding: '0.35rem 0.5rem' }}>{r.N}</td>
             <td style={{ textAlign: 'right', padding: '0.35rem 0.5rem' }}>{r.sigma4.toFixed(6)}</td>
             <td style={{ textAlign: 'right', padding: '0.35rem 0.5rem' }}>{r.kappaPair.toFixed(6)}</td>
@@ -116,7 +117,7 @@ function LadderTable() {
               style={{
                 textAlign: 'right',
                 padding: '0.35rem 0.5rem',
-                color: IMP33326_ABOVE_ENVELOPE_NS.includes(r.N) ? POKE_COLOR : '#f472b6',
+                color: IMP33326_ABOVE_ENVELOPE_NS.includes(r.N) ? POKE_COLOR : 'var(--series-7)',
               }}
             >
               {r.cRealized.toFixed(6)}
@@ -133,7 +134,7 @@ export default function Imp33326GenuineEigenvectorFifthPairRealizedCLadderViz() 
     <div style={{ padding: '1.5rem', maxWidth: 940, margin: '0 auto' }}>
       <PageHeader title="Genuine-Eigenvector Fifth-Pair Realized-c Ladder (imp-33289)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
         imp-33289 measured the fifth-pair realized backward-error constant
         c = worstPairSpread / (n &middot; kappa_pair &middot; u) using the ACTUAL Gram
         eigenvectors of a genuine small-N skew-Toeplitz Gram, replacing the imp-33272
@@ -144,12 +145,12 @@ export default function Imp33326GenuineEigenvectorFifthPairRealizedCLadderViz() 
         c &le; 1 Wilkinson worst-case envelope.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         Realized c per rung, against the c &le; 1 envelope and the surrogate range
       </p>
       <RealizedCLadderChart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.75rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.75rem 0 0.5rem' }}>
         Fifth-pair amplitude sigma_4, condition number, and realized c per rung
       </p>
       <LadderTable />
@@ -158,14 +159,14 @@ export default function Imp33326GenuineEigenvectorFifthPairRealizedCLadderViz() 
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> each bar is the
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> each bar is the
         realized backward-error constant c at a dense rung, embedding the exactly-degenerate
         fifth pair via the double-double-orthonormalized ACTUAL Gram eigenvector orientation
         (not a surrogate). The two orange bars (N=320: 1.42, N=360: 1.06) sit modestly above
@@ -180,14 +181,14 @@ export default function Imp33326GenuineEigenvectorFifthPairRealizedCLadderViz() 
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement / cross-check
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> measurement / cross-check
         only. The rungs N in {'{'}160..400{'}'} are the small-N regime where the genuine fifth
         pair is not yet degenerate (sigma_4 = 0.83..0.97, a real gap); the exactly-degenerate
         premise is imposed to isolate the backward error of the actual eigenvector orientation.

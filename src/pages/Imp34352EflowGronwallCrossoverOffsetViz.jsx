@@ -10,6 +10,7 @@ import {
   IMP34352_DRIFT_SHARE,
   IMP34352_R_FLOW,
 } from '../data/imp-34352-eflow-gronwall-crossover-offset-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 // Two stacked bars side by side: the MEASURED offset (single segment) vs the
 // PREDICTED decomposition (leading 2r Gronwall term stacked under the deltaL
@@ -40,13 +41,13 @@ function OffsetDecompositionBars() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
 
       {yTicks.map((v) => (
         <g key={'y' + v}>
-          <line x1={padL - 4} y1={yAt(v)} x2={padL + cW} y2={yAt(v)} stroke="#1e293b" strokeWidth={1} />
-          <text x={padL - 8} y={yAt(v) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+          <line x1={padL - 4} y1={yAt(v)} x2={padL + cW} y2={yAt(v)} stroke={ED.ruleSoft} strokeWidth={1} />
+          <text x={padL - 8} y={yAt(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v.toExponential(1)}
           </text>
         </g>
@@ -58,14 +59,14 @@ function OffsetDecompositionBars() {
         y={measuredTop}
         width={barW}
         height={leadingBottom - measuredTop}
-        fill="#38bdf8"
-        stroke="#0a0f1a"
+        fill={ED.series1}
+        stroke={ED.paper}
         strokeWidth={0.75}
       />
-      <text x={xMeasured + barW / 2} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={9.5}>
+      <text x={xMeasured + barW / 2} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5}>
         measured
       </text>
-      <text x={xMeasured + barW / 2} y={padT + cH + 30} textAnchor="middle" fill="#64748b" fontSize={9.5}>
+      <text x={xMeasured + barW / 2} y={padT + cH + 30} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5}>
         offset
       </text>
 
@@ -75,8 +76,8 @@ function OffsetDecompositionBars() {
         y={leadingTop}
         width={barW}
         height={leadingBottom - leadingTop}
-        fill="#4ade80"
-        stroke="#0a0f1a"
+        fill={ED.series3}
+        stroke={ED.paper}
         strokeWidth={0.75}
       />
       <rect
@@ -84,14 +85,14 @@ function OffsetDecompositionBars() {
         y={driftTop}
         width={barW}
         height={leadingTop - driftTop}
-        fill="#facc15"
-        stroke="#0a0f1a"
+        fill={ED.brassDeco}
+        stroke={ED.paper}
         strokeWidth={0.75}
       />
-      <text x={xPredicted + barW / 2} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={9.5}>
+      <text x={xPredicted + barW / 2} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5}>
         predicted
       </text>
-      <text x={xPredicted + barW / 2} y={padT + cH + 30} textAnchor="middle" fill="#64748b" fontSize={9.5}>
+      <text x={xPredicted + barW / 2} y={padT + cH + 30} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5}>
         2r + deltaL
       </text>
 
@@ -99,7 +100,7 @@ function OffsetDecompositionBars() {
         x={14}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={`rotate(-90 14 ${padT + cH / 2})`}
       >
@@ -114,7 +115,7 @@ export default function Imp34352EflowGronwallCrossoverOffsetViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="E_flow-Gronwall Crossover-Offset Decomposition (imp-34352 / imp-34270)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-33723 pinned the imp-3444 E_coll=E_trunc crossover N_cross &asymp;{' '}
         {IMP34352_LANDMARKS.N_cross_closed_form.toExponential(6)} in closed form and attributed the
         residual ~0.4% offset from the sigma=1/2 halving landmark N_half &asymp;{' '}
@@ -125,7 +126,7 @@ export default function Imp34352EflowGronwallCrossoverOffsetViz() {
         a fractional collision-target bump into a DOUBLED fractional shift in the crossover N.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         measured offset vs the two-term decomposition (leading 2r Gronwall term + deltaL log-T0 drift)
       </p>
       <OffsetDecompositionBars />
@@ -139,14 +140,14 @@ export default function Imp34352EflowGronwallCrossoverOffsetViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>quantity</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>value</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>share of measured offset</th>
           </tr>
         </thead>
         <tbody>
-          <tr style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+          <tr style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
             <td style={{ padding: '0.4rem 0.6rem' }}>leading Gronwall term 2*E_flow/E_trunc</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>
               {IMP34352_LEADING_GRONWALL_TERM.toExponential(6)}
@@ -155,7 +156,7 @@ export default function Imp34352EflowGronwallCrossoverOffsetViz() {
               {(IMP34352_LEADING_SHARE * 100).toFixed(2)}%
             </td>
           </tr>
-          <tr style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+          <tr style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
             <td style={{ padding: '0.4rem 0.6rem' }}>log T0 drift deltaL (second order)</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>
               {IMP34352_LOGT0_DRIFT_TERM.toExponential(6)}
@@ -164,14 +165,14 @@ export default function Imp34352EflowGronwallCrossoverOffsetViz() {
               {(IMP34352_DRIFT_SHARE * 100).toFixed(2)}%
             </td>
           </tr>
-          <tr style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1', fontWeight: 700 }}>
+          <tr style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)', fontWeight: 700 }}>
             <td style={{ padding: '0.4rem 0.6rem' }}>predicted total (2r + deltaL, exact division identity)</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>
               {IMP34352_PREDICTED_EXACT.toExponential(6)}
             </td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>100.00%</td>
           </tr>
-          <tr style={{ color: '#cbd5e1' }}>
+          <tr style={{ color: 'var(--ink)' }}>
             <td style={{ padding: '0.4rem 0.6rem' }}>measured relative offset (N_cross vs N_half)</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>
               {IMP34352_MEASURED_OFFSET.toExponential(6)}
@@ -185,14 +186,14 @@ export default function Imp34352EflowGronwallCrossoverOffsetViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-data only, baked
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-data only, baked
         literals reproducing the imp-34270 measurement; no new derivation, no bound changed.
         Derivation/measurement only, conditional-share diagnostic, NOT a rigorous asymptotic;
         C_mb GUE-conditional per imp-486 UNTOUCHED; C_C 1/8 ansatz (imp-2642/imp-2643) UNTOUCHED;

@@ -13,9 +13,10 @@ import {
   IMP3563_TRAPEZOID_ABS_ERROR,
   IMP3563_GAUSS_LEGENDRE_ABS_ERROR,
 } from '../data/imp-3563-xistar-quadrature-straddle-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 const RUNG_COUNT = 5;
-const COLORS = { midpoint: '#3b82f6', trapezoid: '#dc2626', gl: '#10b981', limit: '#94a3b8' };
+const COLORS = { midpoint: ED.series1, trapezoid: ED.series2, gl: ED.series3, limit: ED.series8 };
 
 function StraddleChart() {
   const svgW = 620;
@@ -40,19 +41,19 @@ function StraddleChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
       {yTicks.map((v) => (
         <g key={v}>
-          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke="#1e293b" strokeWidth={0.7} />
-          <text x={padL - 4} y={yS(v) + 3.5} textAnchor="end" fill="#475569" fontSize={9}>
+          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke={ED.ruleSoft} strokeWidth={0.7} />
+          <text x={padL - 4} y={yS(v) + 3.5} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v.toFixed(2)}
           </text>
         </g>
       ))}
 
       <line x1={padL} y1={yLimit} x2={padL + cW} y2={yLimit} stroke={COLORS.limit} strokeWidth={1} strokeDasharray="3,3" />
-      <text x={padL + cW - 4} y={yLimit - 5} textAnchor="end" fill="#94a3b8" fontSize={8.5}>
+      <text x={padL + cW - 4} y={yLimit - 5} textAnchor="end" fill={ED.inkSoft} fontSize={8.5}>
         xi*_inf = {IMP3563_XISTAR_INF}
       </text>
 
@@ -71,30 +72,30 @@ function StraddleChart() {
         <circle key={'g' + i} cx={xS(i)} cy={yS(c.xiStar)} r={4} fill={COLORS.gl} />
       ))}
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
 
       {Array.from({ length: RUNG_COUNT }, (_, i) => (
         <g key={'x' + i}>
-          <line x1={xS(i)} y1={padT + cH} x2={xS(i)} y2={padT + cH + 5} stroke="#334155" strokeWidth={1} />
-          <text x={xS(i)} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={8.5}>
+          <line x1={xS(i)} y1={padT + cH} x2={xS(i)} y2={padT + cH + 5} stroke={ED.rule} strokeWidth={1} />
+          <text x={xS(i)} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={8.5}>
             {IMP3563_GAUSS_LEGENDRE_LADDER[i].N}
           </text>
-          <text x={xS(i)} y={padT + cH + 27} textAnchor="middle" fill="#475569" fontSize={7.5}>
+          <text x={xS(i)} y={padT + cH + 27} textAnchor="middle" fill={ED.inkFaint} fontSize={7.5}>
             ({IMP3563_MIDPOINT_LADDER[i].N})
           </text>
         </g>
       ))}
-      <text x={padL + cW / 2} y={padT + cH + 40} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={padT + cH + 40} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         rung: Gauss-Legendre N (midpoint/trapezoid N)
       </text>
 
       <g fontSize={9}>
         <circle cx={padL + 6} cy={padT + 12} r={4} fill={COLORS.midpoint} />
-        <text x={padL + 14} y={padT + 15} fill="#93c5fd">midpoint (imp-3523, falls from above)</text>
+        <text x={padL + 14} y={padT + 15} fill={ED.series1}>midpoint (imp-3523, falls from above)</text>
         <circle cx={padL + 6} cy={padT + 26} r={4} fill={COLORS.trapezoid} />
-        <text x={padL + 14} y={padT + 29} fill="#fca5a5">trapezoid (imp-3548, rises from below)</text>
+        <text x={padL + 14} y={padT + 29} fill={ED.series2}>trapezoid (imp-3548, rises from below)</text>
         <circle cx={padL + 6} cy={padT + 40} r={4} fill={COLORS.gl} />
-        <text x={padL + 14} y={padT + 43} fill="#6ee7b7">Gauss-Legendre (imp-3548, no extrapolation)</text>
+        <text x={padL + 14} y={padT + 43} fill={ED.series3}>Gauss-Legendre (imp-3548, no extrapolation)</text>
       </g>
     </svg>
   );
@@ -121,12 +122,12 @@ function ConvergenceChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
       {yTicks.map((v) => (
         <g key={v}>
-          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke="#1e293b" strokeWidth={0.7} />
-          <text x={padL - 4} y={yS(v) + 3.5} textAnchor="end" fill="#475569" fontSize={9}>
+          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke={ED.ruleSoft} strokeWidth={0.7} />
+          <text x={padL - 4} y={yS(v) + 3.5} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v.toExponential(0)}
           </text>
         </g>
@@ -147,17 +148,17 @@ function ConvergenceChart() {
         <circle key={'g' + i} cx={xS(i)} cy={yS(e)} r={4} fill={COLORS.gl} />
       ))}
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
 
       {Array.from({ length: RUNG_COUNT }, (_, i) => (
         <g key={'x' + i}>
-          <line x1={xS(i)} y1={padT + cH} x2={xS(i)} y2={padT + cH + 5} stroke="#334155" strokeWidth={1} />
-          <text x={xS(i)} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={9}>
+          <line x1={xS(i)} y1={padT + cH} x2={xS(i)} y2={padT + cH + 5} stroke={ED.rule} strokeWidth={1} />
+          <text x={xS(i)} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
             rung {i}
           </text>
         </g>
       ))}
-      <text x={padL + cW / 2} y={padT + cH + 34} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={padT + cH + 34} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         rung index (each ladder doubles its own N per rung)
       </text>
 
@@ -165,7 +166,7 @@ function ConvergenceChart() {
         x={12}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={'rotate(-90,12,' + (padT + cH / 2) + ')'}
       >
@@ -180,7 +181,7 @@ export default function Imp3563QuadratureStraddleViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Two-Sided Quadrature Straddle of xi*_inf (imp-3548 / imp-3563)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         Three independent quadrature rules locate the imp-3483/imp-3523 PSD peak-slope maximizer
         xi*_inf &sim; {IMP3563_XISTAR_INF} from three different angles. The imp-3523 MIDPOINT
         ladder falls to the limit from ABOVE (12.0870 &rarr; 12.0668) while the imp-3548 TRAPEZOID
@@ -191,12 +192,12 @@ export default function Imp3563QuadratureStraddleViz() {
         &lt; {IMP3563_GL_TAIL_SPREAD.toExponential(1)}) through N = 720.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         xi* ladder value per rung: midpoint falls, trapezoid rises, Gauss-Legendre is flat from the start
       </p>
       <StraddleChart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
         Convergence rate: |xiStar - xi*_inf| per rung (log scale)
       </p>
       <ConvergenceChart />
@@ -205,14 +206,14 @@ export default function Imp3563QuadratureStraddleViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement/visualization
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> measurement/visualization
         only -- no proof, no reduction below RH. The trapezoid Richardson extrapolant
         ({IMP3563_TRAPEZOID_RICHARDSON_LIMIT.toFixed(9)}) and the Gauss-Legendre limit agree to
         {' '}{IMP3563_CROSS_SCHEME_SPREAD.toExponential(1)}, and both agree with the imp-3523

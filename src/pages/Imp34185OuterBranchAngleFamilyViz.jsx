@@ -6,6 +6,7 @@ import {
   IMP34185_CURVE,
   IMP34185_TABLE_ROWS,
 } from '../data/imp-34185-outer-branch-angle-family-viz-data.js';
+import { ED, alpha as TK_ALPHA } from '../styles/tokens.js';
 
 // theta_k(alpha) for k = 0, 1, 2 plotted together: the fixed central zero (k=0), the
 // endpoint-collapsing family (k=1), and the persistently-outside family (k=2).
@@ -29,44 +30,44 @@ function BranchFamilyChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={yAt(180)} width={cW} height={yAt(0) - yAt(180)} fill="rgba(56,189,248,0.05)" />
+      <rect x={padL} y={yAt(180)} width={cW} height={yAt(0) - yAt(180)} fill={TK_ALPHA(ED.series1, 0.05)} />
       {[0, 180].map((deg) => (
-        <line key={`bnd-${deg}`} x1={padL} y1={yAt(deg)} x2={padL + cW} y2={yAt(deg)} stroke="#0ea5e9" strokeWidth={1} strokeDasharray="4,3" />
+        <line key={`bnd-${deg}`} x1={padL} y1={yAt(deg)} x2={padL + cW} y2={yAt(deg)} stroke={ED.series1} strokeWidth={1} strokeDasharray="4,3" />
       ))}
-      <text x={padL + cW - 4} y={yAt(180) - 4} textAnchor="end" fill="#0ea5e9" fontSize={9}>
+      <text x={padL + cW - 4} y={yAt(180) - 4} textAnchor="end" fill={ED.series1} fontSize={9}>
         interval boundary (0 / 180deg)
       </text>
 
       {/* k=0: fixed central zero, theta = pi/2 for every alpha */}
-      <line x1={padL} y1={yAt(90)} x2={padL + cW} y2={yAt(90)} stroke="#38bdf8" strokeWidth={2} />
+      <line x1={padL} y1={yAt(90)} x2={padL + cW} y2={yAt(90)} stroke={ED.series1} strokeWidth={2} />
 
       {/* k=1: endpoint-collapsing family (i), pi/2 -+ pi/p */}
-      <path d={path('k1LowerDeg')} fill="none" stroke="#f472b6" strokeWidth={2} />
-      <path d={path('k1UpperDeg')} fill="none" stroke="#f472b6" strokeWidth={2} />
+      <path d={path('k1LowerDeg')} fill="none" stroke={ED.series7} strokeWidth={2} />
+      <path d={path('k1UpperDeg')} fill="none" stroke={ED.series7} strokeWidth={2} />
 
       {/* k=2: persistent-gap family (ii), pi/2 -+ 2pi/p */}
-      <path d={path('k2LowerDeg')} fill="none" stroke="#facc15" strokeWidth={2} strokeDasharray="6,3" />
-      <path d={path('k2UpperDeg')} fill="none" stroke="#facc15" strokeWidth={2} strokeDasharray="6,3" />
+      <path d={path('k2LowerDeg')} fill="none" stroke={ED.brassDeco} strokeWidth={2} strokeDasharray="6,3" />
+      <path d={path('k2UpperDeg')} fill="none" stroke={ED.brassDeco} strokeWidth={2} strokeDasharray="6,3" />
 
       {[0, 0.25, 0.5, 0.75, 0.999].map((a) => (
-        <text key={`xt-${a}`} x={xAt(a)} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={8.5}>
+        <text key={`xt-${a}`} x={xAt(a)} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={8.5}>
           {a === 0.999 ? '1' : a}
         </text>
       ))}
-      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         alpha (cusp exponent, 0..1)
       </text>
-      <text x={12} y={padT + cH / 2} textAnchor="middle" fill="#64748b" fontSize={10} transform={`rotate(-90 12 ${padT + cH / 2})`}>
+      <text x={12} y={padT + cH / 2} textAnchor="middle" fill={ED.inkFaint} fontSize={10} transform={`rotate(-90 12 ${padT + cH / 2})`}>
         branch angle theta_k (degrees)
       </text>
 
-      <text x={padL + 6} y={padT + 12} fill="#38bdf8" fontSize={9.5}>
+      <text x={padL + 6} y={padT + 12} fill={ED.series1} fontSize={9.5}>
         k=0: theta = pi/2 (imp-33970 unique central zero, every alpha)
       </text>
-      <text x={padL + 6} y={padT + 26} fill="#f472b6" fontSize={9.5}>
+      <text x={padL + 6} y={padT + 26} fill={ED.series7} fontSize={9.5}>
         k=1: pi/2 -+ pi/p (imp-34045, collapses onto endpoints at alpha=1)
       </text>
-      <text x={padL + 6} y={padT + 40} fill="#facc15" fontSize={9.5}>
+      <text x={padL + 6} y={padT + 40} fill={ED.brass} fontSize={9.5}>
         k=2: pi/2 -+ 2pi/p (imp-34104, collapses onto endpoints at alpha=3)
       </text>
     </svg>
@@ -78,7 +79,7 @@ export default function Imp34185OuterBranchAngleFamilyViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Unified Outer-Branch Angle Family theta_k = pi/2 -+ k pi/p (imp-34104 / imp-34105 / imp-34185)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-34045 and imp-34104 characterised two flanking phase-zero branch families of the
         imp-33924 closed form -A(alpha, theta) as separate measurements. Both are special cases of
         one law theta_k(alpha) = pi/2 &plusmn; k pi/p (p = 1 + alpha): k=0 is the imp-33970 unique
@@ -91,18 +92,18 @@ export default function Imp34185OuterBranchAngleFamilyViz() {
         and table below carry that cross-validation.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         branch angle theta_k vs alpha -- all three families together
       </p>
       <BranchFamilyChart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.25rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.25rem 0 0.5rem' }}>
         per-family endpoint-onset ladder
       </p>
       <div style={{ overflowX: 'auto', marginBottom: '1.25rem' }}>
-        <table style={{ borderCollapse: 'collapse', fontSize: '0.76rem', color: '#94a3b8', width: '100%' }}>
+        <table style={{ borderCollapse: 'collapse', fontSize: '0.76rem', color: 'var(--ink-soft)', width: '100%' }}>
           <thead>
-            <tr style={{ color: '#64748b', textAlign: 'right' }}>
+            <tr style={{ color: 'var(--ink-faint)', textAlign: 'right' }}>
               <th style={{ textAlign: 'left', padding: '4px 8px' }}>family</th>
               <th style={{ padding: '4px 8px' }}>arg(-A) mod 2pi</th>
               <th style={{ padding: '4px 8px' }}>collapse alpha = 2k-1</th>
@@ -111,7 +112,7 @@ export default function Imp34185OuterBranchAngleFamilyViz() {
           </thead>
           <tbody>
             {IMP34185_FAMILY_META.map((f) => (
-              <tr key={f.k} style={{ borderTop: '1px solid #1e293b', textAlign: 'right' }}>
+              <tr key={f.k} style={{ borderTop: '1px solid var(--rule-soft)', textAlign: 'right' }}>
                 <td style={{ textAlign: 'left', padding: '4px 8px' }}>{f.label}</td>
                 <td style={{ padding: '4px 8px' }}>{(f.argMinusAMod2Pi / Math.PI).toFixed(0)}pi</td>
                 <td style={{ padding: '4px 8px' }}>{f.collapseAlpha === null ? 'n/a' : f.collapseAlpha}</td>
@@ -122,13 +123,13 @@ export default function Imp34185OuterBranchAngleFamilyViz() {
         </table>
       </div>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.25rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.25rem 0 0.5rem' }}>
         per-alpha table (rising toward alpha = 1)
       </p>
       <div style={{ overflowX: 'auto' }}>
-        <table style={{ borderCollapse: 'collapse', fontSize: '0.76rem', color: '#94a3b8', width: '100%' }}>
+        <table style={{ borderCollapse: 'collapse', fontSize: '0.76rem', color: 'var(--ink-soft)', width: '100%' }}>
           <thead>
-            <tr style={{ color: '#64748b', textAlign: 'right' }}>
+            <tr style={{ color: 'var(--ink-faint)', textAlign: 'right' }}>
               <th style={{ textAlign: 'left', padding: '4px 8px' }}>alpha</th>
               <th style={{ padding: '4px 8px' }}>k=1 lower/upper (deg)</th>
               <th style={{ padding: '4px 8px' }}>k=1 dist (deg)</th>
@@ -138,7 +139,7 @@ export default function Imp34185OuterBranchAngleFamilyViz() {
           </thead>
           <tbody>
             {IMP34185_TABLE_ROWS.map((r) => (
-              <tr key={r.alpha} style={{ borderTop: '1px solid #1e293b', textAlign: 'right' }}>
+              <tr key={r.alpha} style={{ borderTop: '1px solid var(--rule-soft)', textAlign: 'right' }}>
                 <td style={{ textAlign: 'left', padding: '4px 8px' }}>{r.alpha}</td>
                 <td style={{ padding: '4px 8px' }}>
                   {r.k1LowerDeg.toFixed(3)} / {r.k1UpperDeg.toFixed(3)}
@@ -158,15 +159,15 @@ export default function Imp34185OuterBranchAngleFamilyViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>See also:</strong>{' '}
-        <Link to="/viz-imp34119-phase-zero-branch-geometry" style={{ color: '#38bdf8' }}>
+        <strong style={{ color: 'var(--ink-soft)' }}>See also:</strong>{' '}
+        <Link to="/viz-imp34119-phase-zero-branch-geometry" style={{ color: 'var(--series-1)' }}>
           imp-34119 (the k=1,2 pair plotted from the imp-34045 source module directly)
         </Link>
         .
@@ -176,14 +177,14 @@ export default function Imp34185OuterBranchAngleFamilyViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation/re-expression only,
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> presentation/re-expression only,
         on the model cusp rho(x) = |x|^-alpha. Unifies the imp-34045/imp-34104 closed forms into one
         law; does not re-derive the m_prime &rarr; C_ren map off-axis/off-exponent. H4 (imp-33766) is
         NOT discharged; G6a_shock_lipschitz stays OPEN; C_mb GUE-conditional per imp-486 UNTOUCHED;

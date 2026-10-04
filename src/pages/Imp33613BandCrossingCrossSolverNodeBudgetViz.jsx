@@ -6,11 +6,12 @@ import {
   IMP33613_MODEST_BUDGET_NODES,
   IMP33613_MAX_GRADED_LADDER_NODES,
 } from '../data/imp-33613-band-crossing-cross-solver-node-budget-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
-const CC_COLOR = '#38bdf8';
-const GRADED_COLOR = '#f59e0b';
-const BAND_COLOR = '#f472b6';
-const FAIL_COLOR = '#ef4444';
+const CC_COLOR = ED.series1;
+const GRADED_COLOR = ED.series4;
+const BAND_COLOR = ED.series7;
+const FAIL_COLOR = ED.series2;
 
 function NodeBudgetChart() {
   const svgW = 720;
@@ -38,12 +39,12 @@ function NodeBudgetChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
       {gridNodes.map((v) => (
         <g key={v}>
-          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke="#1e293b" strokeWidth={0.7} />
-          <text x={padL - 6} y={yS(v) + 3.5} textAnchor="end" fill="#475569" fontSize={9}>
+          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke={ED.ruleSoft} strokeWidth={0.7} />
+          <text x={padL - 6} y={yS(v) + 3.5} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v}
           </text>
         </g>
@@ -101,10 +102,10 @@ function NodeBudgetChart() {
               </>
             )}
 
-            <text x={cx} y={padT + cH + 16} textAnchor="middle" fill="#94a3b8" fontSize={10}>
+            <text x={cx} y={padT + cH + 16} textAnchor="middle" fill={ED.inkSoft} fontSize={10}>
               n={row.n}
             </text>
-            <text x={cx} y={padT + cH + 30} textAnchor="middle" fill="#64748b" fontSize={9}>
+            <text x={cx} y={padT + cH + 30} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
               ({row.gradedBandStatus})
             </text>
           </g>
@@ -116,8 +117,8 @@ function NodeBudgetChart() {
         vs the imp-33316 &lt; {IMP33613_BAND_ULP} ULP A_log band
       </text>
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
-      <text x={14} y={padT + cH / 2} textAnchor="middle" fill="#64748b" fontSize={10} transform={`rotate(-90,14,${padT + cH / 2})`}>
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
+      <text x={14} y={padT + cH / 2} textAnchor="middle" fill={ED.inkFaint} fontSize={10} transform={`rotate(-90,14,${padT + cH / 2})`}>
         nodes to clear band (log scale)
       </text>
     </svg>
@@ -129,7 +130,7 @@ export default function Imp33613BandCrossingCrossSolverNodeBudgetViz() {
     <div style={{ padding: '1.5rem', maxWidth: 940, margin: '0 auto' }}>
       <PageHeader title="Band-Crossing Cross-Solver Node Budget (imp-33577)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 780 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 780 }}>
         imp-33557 found the graded-GL grade-4 minInBandNodes is band-conditional at the
         imp-33557/imp-33537 band-crossing rungs n in {'{'}495,510,596{'}'}: 200 nodes at n=495,
         ~500 at the edge n=510, and Infinity at n=596 -- no budget up to 4000 nodes clears the
@@ -139,12 +140,12 @@ export default function Imp33613BandCrossingCrossSolverNodeBudgetViz() {
         solvers' smallest clearing-grid node counts (log scale) per rung.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         Nodes to clear the &lt; {IMP33613_BAND_ULP} ULP band: Clenshaw-Curtis (blue) vs graded-GL grade-4 (amber)
       </p>
       <NodeBudgetChart />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.85rem', margin: '1rem 0 1.25rem' }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.85rem', margin: '1rem 0 1.25rem' }}>
         At n=<strong>495</strong> and n=<strong>510</strong> both solvers clear the band at a
         comparable few-hundred-node budget (CC 513/513 vs graded 200/~500). At n=
         <strong>596</strong> the graded ladder never clears it (red, marked &infin;) while CC clears
@@ -158,14 +159,14 @@ export default function Imp33613BandCrossingCrossSolverNodeBudgetViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> both the CC and graded
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> both the CC and graded
         integrals are direct-domain quadratures of the SAME A(tau*) = int_0^7 Phi(s)Phi(s+tau*) ds,
         scored against the identical imp-33213 log-domain target. Since the target is shared, the
         n=596 gap between the CC floor (~0.87 ULP) and the graded floor (~65 ULP) is attributable
@@ -179,14 +180,14 @@ export default function Imp33613BandCrossingCrossSolverNodeBudgetViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> accuracy/rule-design
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> accuracy/rule-design
         cross-solver measurement only, of an already-verified sweep (imp-33577). It changes no
         bound and patches no literal (imp-33213/imp-33316/imp-33557/imp-33577 intact). Both ladders
         are jittery near the arithmetic floor (imp-33249/imp-33277/imp-33295/imp-33557

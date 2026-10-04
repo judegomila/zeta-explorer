@@ -2,11 +2,12 @@ import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP33660_CLUSTER_PEAK_ENVELOPE_HEIGHT_GROWTH_FIT } from '../data/imp-33660-cluster-peak-envelope-height-growth-fit.js';
 import { IMP33679_CLUSTER_PEAK_ENVELOPE_HEIGHT_1200_1600 } from '../data/imp-33679-cluster-peak-envelope-height-1200-1600.js';
+import { ED } from '../styles/tokens.js';
 
-const BASE_COLOR = '#38bdf8';
-const EXT_COLOR = '#f472b6';
-const BASE_FIT_COLOR = '#f59e0b';
-const PLATEAU_COLOR = '#4ade80';
+const BASE_COLOR = ED.series1;
+const EXT_COLOR = ED.series7;
+const BASE_FIT_COLOR = ED.series4;
+const PLATEAU_COLOR = ED.series3;
 
 const base = IMP33660_CLUSTER_PEAK_ENVELOPE_HEIGHT_GROWTH_FIT.measured;
 const ext = IMP33679_CLUSTER_PEAK_ENVELOPE_HEIGHT_1200_1600.measured;
@@ -30,20 +31,20 @@ function EnvelopeChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
       {[0, 40, 80, 120, 160].map((v) => (
         <g key={v}>
-          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke="#1e293b" strokeWidth={0.7} />
-          <text x={padL - 6} y={yS(v) + 3.5} textAnchor="end" fill="#475569" fontSize={9}>
+          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke={ED.ruleSoft} strokeWidth={0.7} />
+          <text x={padL - 6} y={yS(v) + 3.5} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v}
           </text>
         </g>
       ))}
 
       {/* n=1200 sample-edge divider between the base fit and the fresh extension */}
-      <line x1={xS(1200)} y1={padT} x2={xS(1200)} y2={padT + cH} stroke="#334155" strokeWidth={1} strokeDasharray="3,3" />
-      <text x={xS(1200) + 4} y={padT + 10} fill="#64748b" fontSize={8}>
+      <line x1={xS(1200)} y1={padT} x2={xS(1200)} y2={padT + cH} stroke={ED.rule} strokeWidth={1} strokeDasharray="3,3" />
+      <text x={xS(1200) + 4} y={padT + 10} fill={ED.inkFaint} fontSize={8}>
         n=1200 sample edge
       </text>
 
@@ -99,16 +100,16 @@ function EnvelopeChart() {
       ))}
 
       {[400, 600, 800, 1000, 1200, 1400, 1600].map((n) => (
-        <text key={n} x={xS(n)} y={padT + cH + 14} textAnchor="middle" fill="#64748b" fontSize={9}>
+        <text key={n} x={xS(n)} y={padT + cH + 14} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
           {n}
         </text>
       ))}
-      <text x={padL + cW / 2} y={padT + cH + 30} textAnchor="middle" fill="#64748b" fontSize={9}>
+      <text x={padL + cW / 2} y={padT + cH + 30} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
         cluster-peak rung n
       </text>
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
-      <text x={12} y={padT + cH / 2} textAnchor="middle" fill="#64748b" fontSize={10} transform={`rotate(-90,12,${padT + cH / 2})`}>
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
+      <text x={12} y={padT + cH / 2} textAnchor="middle" fill={ED.inkFaint} fontSize={10} transform={`rotate(-90,12,${padT + cH / 2})`}>
         peak-envelope height (ULP)
       </text>
     </svg>
@@ -120,7 +121,7 @@ export default function Imp33717EnvelopeHeightExtensionViz() {
     <div style={{ padding: '1.5rem', maxWidth: 980, margin: '0 auto' }}>
       <PageHeader title="Cluster-Peak Envelope-Height Extension, n in [1200,1600] (imp-33679)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 820 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 820 }}>
         imp-33660 fit the sixteen [400,1200] band-clearing cluster-peak heights (blue dots) to four growth
         laws and returned GROWTH-CLASS-UNRESOLVED: a weak positive linear slope (amber line) carried almost
         entirely by the two tallest tail clusters near n~1126 and n~1198. imp-33679 extended the scan into a
@@ -130,12 +131,12 @@ export default function Imp33717EnvelopeHeightExtensionViz() {
         series on one axis.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         peak-envelope height vs cluster-peak rung, base [400,1200] + extension [1200,1600]
       </p>
       <EnvelopeChart />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.85rem', margin: '1rem 0 1.25rem' }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.85rem', margin: '1rem 0 1.25rem' }}>
         The imp-33660 base fit spans {base.peakNs.length} peaks ({base.heightMin.toFixed(1)}&ndash;
         {base.heightMax.toFixed(1)} ULP) with linear slope {base.linSlope >= 0 ? '+' : ''}
         {base.linSlope.toFixed(3)} ULP/rung (R&sup2; ~{base.linR2.toFixed(2)}). The imp-33679 extension adds{' '}
@@ -151,14 +152,14 @@ export default function Imp33717EnvelopeHeightExtensionViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> the extension peaks sit well above the
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> the extension peaks sit well above the
         dashed extrapolation of the base [400,1200] linear fit and well above the flat ~64&ndash;86 ULP early
         band the first fourteen base peaks occupy, yet are essentially flat among themselves (small sd, tiny
         within-window slope). That is a SATURATION signature, not persistent growth and not reversion: the two
@@ -172,14 +173,14 @@ export default function Imp33717EnvelopeHeightExtensionViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> accuracy/rule-design measurement only. It
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> accuracy/rule-design measurement only. It
         overlays two previously-measured series and changes no bound, patches no literal. Mass-feasibility is
         necessary-but-not-sufficient; the operator-level positivity (imp-3066 K_a &ge; 0) is UNTOUCHED.
         RH-equivalent, NO QED.

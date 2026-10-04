@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP34951_PLUS_ONE_IMPOSSIBILITY_MARGIN_BAND as D } from '../data/imp-34951-plus-one-impossibility-margin-band.js';
+import { ED } from '../styles/tokens.js';
 
 const EPS_FP = D.constants.eps_fp;
 const PENULT = D.summary.penultimate_rel_dist;
@@ -37,34 +38,34 @@ function MarginBandChart() {
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
       {/* margin shading between the EPS_FP floor and the measured penultimate distance */}
-      <rect x={padL} y={yEps} width={cW} height={yPenult - yEps} fill="#38bdf8" opacity={0.08} />
+      <rect x={padL} y={yEps} width={cW} height={yPenult - yEps} fill={ED.series1} opacity={0.08} />
 
-      <line x1={padL} y1={yEps} x2={padL + cW} y2={yEps} stroke="#fbbf24" strokeWidth={1.5} />
-      <text x={padL + cW + 4} y={yEps + 3} fill="#fbbf24" fontSize={9.5} fontWeight={700}>
+      <line x1={padL} y1={yEps} x2={padL + cW} y2={yEps} stroke={ED.brassDeco} strokeWidth={1.5} />
+      <text x={padL + cW + 4} y={yEps + 3} fill={ED.brass} fontSize={9.5} fontWeight={700}>
         EPS_FP
       </text>
 
-      <line x1={padL} y1={yPenult} x2={padL + cW} y2={yPenult} stroke="#38bdf8" strokeWidth={1.5} />
-      <text x={padL + cW + 4} y={yPenult + 3} fill="#38bdf8" fontSize={9.5} fontWeight={700}>
+      <line x1={padL} y1={yPenult} x2={padL + cW} y2={yPenult} stroke={ED.series1} strokeWidth={1.5} />
+      <text x={padL + cW + 4} y={yPenult + 3} fill={ED.series1} fontSize={9.5} fontWeight={700}>
         penult
       </text>
 
       {/* the 34 off-by-one rungs, all sharing the one bit-identical penultimate distance */}
       {ticks.map((logN, i) => (
-        <circle key={i} cx={xAt(logN)} cy={yPenult} r={2.6} fill="#38bdf8" stroke="#0f172a" strokeWidth={0.5} />
+        <circle key={i} cx={xAt(logN)} cy={yPenult} r={2.6} fill={ED.series1} stroke={ED.paper} strokeWidth={0.5} />
       ))}
 
       {[6, 7, 8, 9, 10, 11, 12].map((t) => (
         <g key={t}>
-          <line x1={xAt(t)} y1={svgH - padB} x2={xAt(t)} y2={svgH - padB + 4} stroke="#334155" strokeWidth={1} />
-          <text x={xAt(t)} y={svgH - padB + 16} textAnchor="middle" fill="#64748b" fontSize={9}>
+          <line x1={xAt(t)} y1={svgH - padB} x2={xAt(t)} y2={svgH - padB + 4} stroke={ED.rule} strokeWidth={1} />
+          <text x={xAt(t)} y={svgH - padB + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
             1e{t}
           </text>
         </g>
       ))}
-      <line x1={padL} y1={svgH - padB} x2={padL + cW} y2={svgH - padB} stroke="#334155" strokeWidth={1} />
+      <line x1={padL} y1={svgH - padB} x2={padL + cW} y2={svgH - padB} stroke={ED.rule} strokeWidth={1} />
 
-      <text x={padL + cW / 2} y={svgH - 6} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 6} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         {OFF_BY_ONE_TOTAL} off-by-one rungs across the localized [1e6,1e12] band (13 + 21); every rung sits at the
         SAME penultimate distance, a fixed margin below EPS_FP
       </text>
@@ -77,11 +78,11 @@ export default function Imp35001PlusOneImpossibilityMarginBandViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Plus-One Impossibility Margin Band (imp-35001 / imp-34951)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         {D.question}
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         All {OFF_BY_ONE_TOTAL} off-by-one rungs on [1e3,1e18] share ONE bit-identical penultimate relative
         distance, {PENULT.toExponential(4)}, so the impossibility margin EPS_FP &minus; penult is a single
         quantized constant {MARGIN.toExponential(4)} ({(D.summary.margin_over_eps_fp * 100).toFixed(2)}% of
@@ -93,14 +94,14 @@ export default function Imp35001PlusOneImpossibilityMarginBandViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> {D.verdict}
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> {D.verdict}
       </div>
     </div>
   );

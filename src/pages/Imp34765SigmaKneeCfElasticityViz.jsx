@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP34729_SIGMA_KNEE_CF_ELASTICITY } from '../data/imp-34729-sigma-knee-cf-elasticity.js';
+import { ED, alpha } from '../styles/tokens.js';
 
 const M = IMP34729_SIGMA_KNEE_CF_ELASTICITY;
 
@@ -40,15 +41,15 @@ function KneeVsCfScaleChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={plotW} height={plotH} fill="none" stroke="#334155" strokeWidth={1} />
-      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill="#94a3b8" fontSize={11}>
+      <rect x={padL} y={padT} width={plotW} height={plotH} fill="none" stroke={ED.rule} strokeWidth={1} />
+      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill={ED.inkSoft} fontSize={11}>
         cfScale (E_flow prefactor C_F multiplier; 0 = dropped, 1 = imp-398 pinned baseline)
       </text>
       <text
         x={16}
         y={padT + plotH / 2}
         textAnchor="middle"
-        fill="#94a3b8"
+        fill={ED.inkSoft}
         fontSize={11}
         transform={`rotate(-90 16 ${padT + plotH / 2})`}
       >
@@ -60,34 +61,34 @@ function KneeVsCfScaleChart() {
         y={padT}
         width={bandX1 - bandX0}
         height={plotH}
-        fill="rgba(245,158,11,0.10)"
+        fill={alpha(ED.brassDeco, 0.1)}
         stroke="none"
       />
-      <text x={bandX0 + 4} y={padT + 14} fill="#f59e0b" fontSize={10}>
+      <text x={bandX0 + 4} y={padT + 14} fill={ED.brass} fontSize={10}>
         +-10% C_F band: knee moves &le; {Math.abs(M.elasticity.shiftForCFplus10Log10).toExponential(2)} dex
       </text>
 
-      <path d={linePath} fill="none" stroke="#38bdf8" strokeWidth={1.5} />
+      <path d={linePath} fill="none" stroke={ED.series1} strokeWidth={1.5} />
       {GRID.map((g) => (
         <circle
           key={g.cfScale}
           cx={sx(g.cfScale)}
           cy={sy(g.log10Nstar)}
           r={3.6}
-          fill="#38bdf8"
-          stroke="#0f172a"
+          fill={ED.series1}
+          stroke={ED.paper}
           strokeWidth={0.5}
         />
       ))}
 
-      <text x={sx(0)} y={sy(GRID[0].log10Nstar) - 10} fill="#94a3b8" fontSize={10} textAnchor="middle">
+      <text x={sx(0)} y={sy(GRID[0].log10Nstar) - 10} fill={ED.inkSoft} fontSize={10} textAnchor="middle">
         {GRID[0].log10Nstar.toFixed(5)} (no E_flow)
       </text>
-      <text x={sx(1.0)} y={sy(M.kneeLocations.log10NstarBase) + 20} fill="#94a3b8" fontSize={10} textAnchor="middle">
+      <text x={sx(1.0)} y={sy(M.kneeLocations.log10NstarBase) + 20} fill={ED.inkSoft} fontSize={10} textAnchor="middle">
         {M.kneeLocations.log10NstarBase.toFixed(5)} (baseline)
       </text>
 
-      <text x={padL + 8} y={padT + 32} fill="#94a3b8" fontSize={11}>
+      <text x={padL + 8} y={padT + 32} fill={ED.inkSoft} fontSize={11}>
         near-linear local elasticity dX*/dC_F ~ {M.elasticity.dXstar_dCF_pm10pct.toExponential(3)} dex/unit
       </text>
     </svg>
@@ -99,7 +100,7 @@ export default function Imp34765SigmaKneeCfElasticityViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Sigma-Knee C_F Elasticity: Near-Linear Response, Tiny +-10% Sensitivity Band (imp-34765 / imp-34729)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-34710 found that ~99% of the imp-34694 sigma-exponent-knee residual (the ~7.4e-3 dex gap between
         the direct knee log10&nbsp;N*&nbsp;=&nbsp;{M.kneeLocations.log10NstarBase} and the no-E_flow knee
         ~{M.kneeLocations.log10NstarNoEflow}) is the dropped E_flow term, whose prefactor is the imp-398 pinned
@@ -110,7 +111,7 @@ export default function Imp34765SigmaKneeCfElasticityViz() {
         &plusmn;10% C_F uncertainty band &mdash; the knee is C_F-robust, not C_F-fragile.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         knee log10 N* vs cfScale, 0 (no E_flow) to 1.1 (+10% C_F), with the +-10% sensitivity band shaded
       </p>
       <KneeVsCfScaleChart />
@@ -124,7 +125,7 @@ export default function Imp34765SigmaKneeCfElasticityViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>cfScale</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>label</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>log10 N*</th>
@@ -133,7 +134,7 @@ export default function Imp34765SigmaKneeCfElasticityViz() {
         </thead>
         <tbody>
           {GRID.map((g) => (
-            <tr key={g.cfScale} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+            <tr key={g.cfScale} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{g.cfScale}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{g.label}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{g.log10Nstar.toFixed(6)}</td>
@@ -149,11 +150,11 @@ export default function Imp34765SigmaKneeCfElasticityViz() {
         style={{
           marginTop: '1rem',
           padding: '0.6rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
         }}
       >
         Local elasticity dX*/dC_F&nbsp;~&nbsp;{M.elasticity.dXstar_dCF_pm10pct.toExponential(4)} dex per unit
@@ -168,14 +169,14 @@ export default function Imp34765SigmaKneeCfElasticityViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page presenting the imp-34729
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-only page presenting the imp-34729
         C_F-elasticity measurement (imported literals, no new computation) for the INHERITED imp-3220/imp-3406
         surrogate crossover map. C_mb stays GUE-conditional (imp-486); far-tail exponent stays 1/2 (imp-3463);
         changes no bound; establishes no operator positivity; no RH verdict, NO QED.

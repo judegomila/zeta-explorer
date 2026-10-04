@@ -9,6 +9,7 @@ import {
   IMP33221_CROSSING_GAP,
   IMP33221_TILT_GRID,
 } from '../data/imp-33221-model-fidelity-crossing-gap-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 function LnCrossingChart() {
   const svgW = 640;
@@ -29,35 +30,35 @@ function LnCrossingChart() {
   const yS = (v) => padT + cH * (1 - (v - yMin) / (yMax - yMin));
 
   const series = [
-    { key: 'driftMeasured', color: '#f472b6', label: 'measured (real A(tau))' },
-    { key: 'driftModelExact', color: '#38bdf8', label: 'surrogate, exact resummation' },
-    { key: 'driftExtended', color: '#34d399', label: 'surrogate, +C1..C5 series' },
-    { key: 'driftC123', color: '#94a3b8', label: 'surrogate, imp-3848 +C1..C3' },
+    { key: 'driftMeasured', color: ED.series7, label: 'measured (real A(tau))' },
+    { key: 'driftModelExact', color: ED.series1, label: 'surrogate, exact resummation' },
+    { key: 'driftExtended', color: ED.series3, label: 'surrogate, +C1..C5 series' },
+    { key: 'driftC123', color: ED.inkSoft, label: 'surrogate, imp-3848 +C1..C3' },
   ];
 
   const yTicks = [0, 0.5, 1, 1.5, 2];
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
       {yTicks.map((v) => (
         <g key={v}>
-          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke="#1e293b" strokeWidth={0.7} />
-          <text x={padL - 4} y={yS(v) + 3.5} textAnchor="end" fill="#475569" fontSize={9}>
+          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke={ED.ruleSoft} strokeWidth={0.7} />
+          <text x={padL - 4} y={yS(v) + 3.5} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v.toFixed(1)}
           </text>
         </g>
       ))}
 
-      <line x1={padL} y1={yS(1)} x2={padL + cW} y2={yS(1)} stroke="#f59e0b" strokeWidth={1} strokeDasharray="5,3" />
-      <text x={padL + 4} y={yS(1) - 5} fill="#fbbf24" fontSize={8.5}>
+      <line x1={padL} y1={yS(1)} x2={padL + cW} y2={yS(1)} stroke={ED.brassDeco} strokeWidth={1} strokeDasharray="5,3" />
+      <text x={padL + 4} y={yS(1) - 5} fill={ED.brass} fontSize={8.5}>
         L_n = 1
       </text>
 
       {[
-        { n: IMP33221_CROSSING_MODEL_EXACT, color: '#38bdf8', label: 'n~18.38' },
-        { n: IMP33221_CROSSING_MEASURED, color: '#f472b6', label: 'n~48.58' },
+        { n: IMP33221_CROSSING_MODEL_EXACT, color: ED.series1, label: 'n~18.38' },
+        { n: IMP33221_CROSSING_MEASURED, color: ED.series7, label: 'n~48.58' },
       ].map((c) => (
         <g key={c.label}>
           <line x1={xS(c.n)} y1={padT} x2={xS(c.n)} y2={padT + cH} stroke={c.color} strokeWidth={1} strokeDasharray="2,3" opacity={0.7} />
@@ -74,17 +75,17 @@ function LnCrossingChart() {
         return <path key={s.key} d={path} fill="none" stroke={s.color} strokeWidth={2} />;
       })}
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
 
       {IMP33221_RUNGS.map((r) => (
         <g key={'x' + r.n}>
-          <line x1={xS(r.n)} y1={padT + cH} x2={xS(r.n)} y2={padT + cH + 5} stroke="#334155" strokeWidth={1} />
-          <text x={xS(r.n)} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={9}>
+          <line x1={xS(r.n)} y1={padT + cH} x2={xS(r.n)} y2={padT + cH + 5} stroke={ED.rule} strokeWidth={1} />
+          <text x={xS(r.n)} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
             {r.n}
           </text>
         </g>
       ))}
-      <text x={padL + cW / 2} y={padT + cH + 34} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={padT + cH + 34} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         n
       </text>
 
@@ -92,7 +93,7 @@ function LnCrossingChart() {
         {series.map((s, i) => (
           <g key={s.key} transform={`translate(0, ${i * 13})`}>
             <line x1={0} y1={0} x2={16} y2={0} stroke={s.color} strokeWidth={2} />
-            <text x={20} y={3.5} fill="#94a3b8" fontSize={8.5}>
+            <text x={20} y={3.5} fill={ED.inkSoft} fontSize={8.5}>
               {s.label}
             </text>
           </g>
@@ -124,19 +125,19 @@ function C4C5MagnitudeChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
       {yTicks.map((v) => (
         <g key={v}>
-          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke="#1e293b" strokeWidth={0.7} />
-          <text x={padL - 4} y={yS(v) + 3.5} textAnchor="end" fill="#475569" fontSize={9}>
+          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke={ED.ruleSoft} strokeWidth={0.7} />
+          <text x={padL - 4} y={yS(v) + 3.5} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v.toExponential(0)}
           </text>
         </g>
       ))}
 
       {['c4', 'c5'].map((key, si) => {
-        const color = key === 'c4' ? '#34d399' : '#a78bfa';
+        const color = key === 'c4' ? ED.series3 : ED.series5;
         const path = IMP33221_RUNGS.map((r, i) => {
           const v = Math.max(1e-5, Math.abs(r[key]));
           return (i === 0 ? 'M' : 'L') + xS(r.n).toFixed(1) + ',' + yS(v).toFixed(2);
@@ -154,17 +155,17 @@ function C4C5MagnitudeChart() {
         );
       })}
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
 
       {IMP33221_RUNGS.map((r) => (
         <g key={'x' + r.n}>
-          <line x1={xS(r.n)} y1={padT + cH} x2={xS(r.n)} y2={padT + cH + 5} stroke="#334155" strokeWidth={1} />
-          <text x={xS(r.n)} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={9}>
+          <line x1={xS(r.n)} y1={padT + cH} x2={xS(r.n)} y2={padT + cH + 5} stroke={ED.rule} strokeWidth={1} />
+          <text x={xS(r.n)} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
             {r.n}
           </text>
         </g>
       ))}
-      <text x={padL + cW / 2} y={padT + cH + 34} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={padT + cH + 34} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         n
       </text>
     </svg>
@@ -176,7 +177,7 @@ export default function Imp33221ModelFidelityCrossingGapViz() {
     <div style={{ padding: '1.5rem', maxWidth: 940, margin: '0 auto' }}>
       <PageHeader title="Model-Fidelity L_n = 1 Crossing Gap (imp-3871 / imp-3893)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         The reduced moment-ratio drift factor L_n = eps_n * n(1 + 4 tau*) predicted by the imp-3665
         super-exponential surrogate integrand tau^n exp(-pi e^{'{4 tau}'}) crosses L_n = 1 at
         n &asymp; {IMP33221_CROSSING_MODEL_EXACT.toFixed(2)} -- whether measured from the imp-3848
@@ -187,13 +188,13 @@ export default function Imp33221ModelFidelityCrossingGapViz() {
         &asymp; {IMP33221_CROSSING_GAP.toFixed(1)} units that no saddle order can close.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         L_n across n=10..80: three surrogate descriptions converge near n&asymp;18, the real-A(tau)
         measurement crosses far to the right near n&asymp;48.6
       </p>
       <LnCrossingChart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
         The imp-3871 fifth/sixth-derivative saddle corrections |C4|, |C5|: small and shrinking, not
         growing -- they cannot supply the ~30-unit shift needed to reach the measured crossing
       </p>
@@ -203,14 +204,14 @@ export default function Imp33221ModelFidelityCrossingGapViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the charts:</strong> the top chart shows that
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the charts:</strong> the top chart shows that
         adding the imp-3871 C4/C5 terms (green) to the imp-3848 truncation (grey) moves the
         predicted crossing only from n&asymp;17.1 to n&asymp;18.3, landing almost exactly on the
         fully-resummed surrogate crossing (blue, n&asymp;18.38) -- the asymptotic series has
@@ -232,14 +233,14 @@ export default function Imp33221ModelFidelityCrossingGapViz() {
         style={{
           marginTop: '1rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement/characterization
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> measurement/characterization
         only -- no proof, no reduction below RH. This localizes and quantifies a model-fidelity gap
         between the imp-3665 super-exponential surrogate A(tau) and the real Phi-autocorrelation
         A(tau); it establishes no operator positivity, mass-feasibility is

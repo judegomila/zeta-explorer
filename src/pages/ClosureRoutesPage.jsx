@@ -112,16 +112,17 @@ import { IMP3400_TTILDE_SPECTRAL_SLOPE_CLOSED_FORM } from '../data/imp-3400-Ttil
 import { IMP3407_C_INF_INDEPENDENT_EXTRAPOLATION_CERTIFICATION } from '../data/imp-3407-C-inf-independent-extrapolation-certification.js';
 import { IMP3402_LEFTMOST_ZERO_DRIFT_RATE_FIT } from '../data/imp-3402-leftmost-zero-drift-rate-fit.js';
 import AnimationEmbed from '../components/AnimationEmbed.jsx';
+import { ED, alpha as TK_ALPHA } from '../styles/tokens.js';
 
 const R = CLOSURE_ROUTES;
 const mono = 'var(--font-mono)';
 
 // Color theme per route -- consistent across diagram + cards.
 const ROUTE_COLORS = {
-  A: { fg: '#b58a2e', bg: 'rgba(181,138,46,0.10)', border: '#b58a2e' }, // amber
-  B: { fg: '#4c7a4a', bg: 'rgba(76,122,74,0.10)', border: '#4c7a4a' }, // emerald
-  C: { fg: '#3f6b86', bg: 'rgba(63,107,134,0.10)',  border: '#3f6b86' }, // cyan
-  D: { fg: '#6d55b8', bg: 'rgba(109,85,184,0.10)', border: '#6d55b8' }, // violet
+  A: { fg: ED.brass, bg: TK_ALPHA(ED.brassDeco, 0.1), border: ED.brassDeco }, // amber
+  B: { fg: ED.series3, bg: TK_ALPHA(ED.series3, 0.1), border: ED.series3 }, // emerald
+  C: { fg: ED.series1, bg: TK_ALPHA(ED.series1, 0.1),  border: ED.series1 }, // cyan
+  D: { fg: ED.series5, bg: TK_ALPHA(ED.series5, 0.1), border: ED.series5 }, // violet
 };
 
 // ── Equivalence diagram (inline SVG, no D3) ───────────────────────────────────
@@ -182,36 +183,36 @@ function EquivalenceDiagram() {
       {/* A <-> B (top edge) */}
       <line
         x1={cx('A')} y1={cy('A')} x2={cx('B')} y2={cy('B')}
-        stroke="#877b67" strokeWidth="1.4"
+        stroke={ED.rule} strokeWidth="1.4"
         markerStart="url(#arrow-end)" markerEnd="url(#arrow-end)"
       />
       {/* B <-> C (right edge) */}
       <line
         x1={cx('B')} y1={cy('B')} x2={cx('C')} y2={cy('C')}
-        stroke="#877b67" strokeWidth="1.4"
+        stroke={ED.rule} strokeWidth="1.4"
         markerStart="url(#arrow-end)" markerEnd="url(#arrow-end)"
       />
       {/* C <-> D (bottom edge) */}
       <line
         x1={cx('C')} y1={cy('C')} x2={cx('D')} y2={cy('D')}
-        stroke="#877b67" strokeWidth="1.4"
+        stroke={ED.rule} strokeWidth="1.4"
         markerStart="url(#arrow-end)" markerEnd="url(#arrow-end)"
       />
       {/* D <-> A (left edge) */}
       <line
         x1={cx('D')} y1={cy('D')} x2={cx('A')} y2={cy('A')}
-        stroke="#877b67" strokeWidth="1.4"
+        stroke={ED.rule} strokeWidth="1.4"
         markerStart="url(#arrow-end)" markerEnd="url(#arrow-end)"
       />
       {/* A <-> C diagonal */}
       <line
         x1={cx('A')} y1={cy('A')} x2={cx('C')} y2={cy('C')}
-        stroke="#d5c9b2" strokeWidth="1" strokeDasharray="3 4"
+        stroke={ED.rule} strokeWidth="1" strokeDasharray="3 4"
       />
       {/* B <-> D diagonal */}
       <line
         x1={cx('B')} y1={cy('B')} x2={cx('D')} y2={cy('D')}
-        stroke="#d5c9b2" strokeWidth="1" strokeDasharray="3 4"
+        stroke={ED.rule} strokeWidth="1" strokeDasharray="3 4"
       />
 
       {/* ─── Outer boxes A/B/C/D ─── */}
@@ -240,7 +241,7 @@ function EquivalenceDiagram() {
               textAnchor="middle"
               fontFamily="var(--font-mono)"
               fontSize="11"
-              fill="#4a4238"
+              fill={ED.inkSoft}
             >
               {route.name.split(' / ')[0].slice(0, 22)}
             </text>
@@ -250,7 +251,7 @@ function EquivalenceDiagram() {
                 textAnchor="middle"
                 fontFamily="var(--font-mono)"
                 fontSize="10"
-                fill="#877b67"
+                fill={ED.inkFaint}
               >
                 {route.name.split(' / ')[1].slice(0, 24)}
               </text>
@@ -266,8 +267,8 @@ function EquivalenceDiagram() {
         width={centre.w}
         height={centre.h}
         rx="10" ry="10"
-        fill="rgba(194,58,28,0.10)"
-        stroke="#c23a1c"
+        fill={TK_ALPHA(ED.series2, 0.1)}
+        stroke={ED.accent}
         strokeWidth="2.5"
         strokeDasharray="6 3"
       />
@@ -277,7 +278,7 @@ function EquivalenceDiagram() {
         fontFamily="var(--font-mono)"
         fontSize="15"
         fontWeight="700"
-        fill="#c23a1c"
+        fill={ED.accent}
       >
         Shared bottleneck
       </text>
@@ -286,7 +287,7 @@ function EquivalenceDiagram() {
         textAnchor="middle"
         fontFamily="var(--font-mono)"
         fontSize="12"
-        fill="#c23a1c"
+        fill={ED.accent}
       >
         Prove Delta = 0
       </text>
@@ -295,7 +296,7 @@ function EquivalenceDiagram() {
         textAnchor="middle"
         fontFamily="var(--font-mono)"
         fontSize="11"
-        fill="#1c1814"
+        fill={ED.ink}
       >
         non-circularly
       </text>
@@ -338,7 +339,7 @@ function RouteCard({ route }) {
         <h3 style={{ color: col.fg, margin: 0, fontSize: 20 }}>
           Route {route.letter}: {route.name}
         </h3>
-        <span style={{ fontFamily: mono, fontSize: 12, color: '#877b67' }}>
+        <span style={{ fontFamily: mono, fontSize: 12, color: 'var(--ink-faint)' }}>
           {route.sectionRef}
         </span>
       </div>
@@ -353,7 +354,7 @@ function RouteCard({ route }) {
       </p>
 
       <p style={{ marginTop: 12, color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75 }}>
-        <strong style={{ color: '#b58a2e' }}>Current status. </strong>
+        <strong style={{ color: 'var(--brass)' }}>Current status. </strong>
         {route.currentStatus}
       </p>
 
@@ -361,17 +362,17 @@ function RouteCard({ route }) {
         style={{
           marginTop: 12,
           padding: '10px 12px',
-          borderLeft: '2px solid #c23a1c',
-          background: '#f6f1e7',
+          borderLeft: '2px solid var(--accent)',
+          background: 'var(--paper-2)',
         }}
       >
-        <p style={{ color: '#4a4238', fontSize: 13, lineHeight: 1.7 }}>
-          <strong style={{ color: '#c23a1c' }}>Blocker. </strong>
+        <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.7 }}>
+          <strong style={{ color: 'var(--accent)' }}>Blocker. </strong>
           {route.blocker}
         </p>
       </div>
 
-      <p style={{ marginTop: 12, fontSize: 12, fontFamily: mono, color: '#877b67' }}>
+      <p style={{ marginTop: 12, fontSize: 12, fontFamily: mono, color: 'var(--ink-faint)' }}>
         <em>{route.principle}</em>
       </p>
     </div>
@@ -386,14 +387,14 @@ function ConjectureCard({ conj, accent }) {
       style={{
         marginTop: 16,
         borderLeft: `4px solid ${accent}`,
-        background: 'rgba(109,85,184,0.04)',
+        background: 'color-mix(in srgb, var(--series-5) 4%, transparent)',
       }}
     >
       <div style={{ display: 'flex', alignItems: 'baseline', gap: 12, flexWrap: 'wrap' }}>
         <h3 style={{ color: accent, margin: 0, fontSize: 18 }}>
           {conj.label}: {conj.name}
         </h3>
-        <span style={{ fontFamily: mono, fontSize: 12, color: '#877b67' }}>
+        <span style={{ fontFamily: mono, fontSize: 12, color: 'var(--ink-faint)' }}>
           {conj.sectionRef}
         </span>
         {conj.impliesRH && (
@@ -403,9 +404,9 @@ function ConjectureCard({ conj, accent }) {
               fontSize: 11,
               padding: '2px 8px',
               borderRadius: 4,
-              color: '#4c7a4a',
-              background: 'rgba(76,122,74,0.10)',
-              border: '1px solid #4c7a4a',
+              color: 'var(--series-3)',
+              background: 'color-mix(in srgb, var(--series-3) 10%, transparent)',
+              border: '1px solid var(--series-3)',
             }}
           >
             implies RH
@@ -421,7 +422,7 @@ function ConjectureCard({ conj, accent }) {
         {conj.statement}
       </p>
 
-      <p style={{ marginTop: 10, color: '#877b67', fontSize: 12, lineHeight: 1.7 }}>
+      <p style={{ marginTop: 10, color: 'var(--ink-faint)', fontSize: 12, lineHeight: 1.7 }}>
         <em>{conj.note}</em>
       </p>
     </div>
@@ -453,8 +454,8 @@ function OffDiagHankelObstructionPanel() {
   const yTicks = [0, 0.2, 0.4, 0.6, 0.8, 1.0];
 
   return (
-    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #c23a1c', background: 'rgba(194,58,28,0.04)' }}>
-      <h3 style={{ color: '#c23a1c', marginTop: 0 }}>
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid var(--accent)', background: 'color-mix(in srgb, var(--series-2) 4%, transparent)' }}>
+      <h3 style={{ color: 'var(--accent)', marginTop: 0 }}>
         Scalar cover pins diagonal below 1 — operator norm overshoots (DEG={deg} monomial truncation)
       </h3>
       <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75 }}>
@@ -467,21 +468,21 @@ function OffDiagHankelObstructionPanel() {
         the obstruction, quantified.
       </p>
       <div style={{ overflowX: 'auto' }}>
-        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'rgba(214,201,178,0.25)', borderRadius: 6 }}>
+        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'color-mix(in srgb, var(--rule) 25%, transparent)', borderRadius: 6 }}>
           {yTicks.map((v) => (
             <g key={`yt${v}`}>
-              <line x1={ML} y1={py(v)} x2={W - MR} y2={py(v)} stroke="#d5c9b2" strokeWidth="1" />
-              <text x={ML - 8} y={py(v) + 4} textAnchor="end" fontSize="11" fill="#877b67" fontFamily="var(--font-mono)">{v.toFixed(1)}</text>
+              <line x1={ML} y1={py(v)} x2={W - MR} y2={py(v)} stroke={ED.rule} strokeWidth="1" />
+              <text x={ML - 8} y={py(v) + 4} textAnchor="end" fontSize="11" fill={ED.inkFaint} fontFamily="var(--font-mono)">{v.toFixed(1)}</text>
             </g>
           ))}
-          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
           {/* ceiling = 1 dashed line */}
-          <line x1={ML} y1={py(1)} x2={W - MR} y2={py(1)} stroke="#d5c9b2" strokeWidth="1" strokeDasharray="4 3" />
-          <text x={W - MR - 4} y={py(1) - 5} textAnchor="end" fontSize="10" fill="#877b67" fontFamily="var(--font-mono)">ceiling = 1</text>
+          <line x1={ML} y1={py(1)} x2={W - MR} y2={py(1)} stroke={ED.rule} strokeWidth="1" strokeDasharray="4 3" />
+          <text x={W - MR - 4} y={py(1) - 5} textAnchor="end" fontSize="10" fill={ED.inkFaint} fontFamily="var(--font-mono)">ceiling = 1</text>
           {/* operator norm line */}
-          <line x1={ML} y1={py(opNorm)} x2={W - MR} y2={py(opNorm)} stroke="#c23a1c" strokeWidth="1.5" strokeDasharray="6 3" />
-          <text x={W - MR - 4} y={py(opNorm) - 5} textAnchor="end" fontSize="10" fill="#c23a1c" fontFamily="var(--font-mono)">&#x2016;R&#x2016; = {opNorm.toFixed(5)}</text>
+          <line x1={ML} y1={py(opNorm)} x2={W - MR} y2={py(opNorm)} stroke={ED.accent} strokeWidth="1.5" strokeDasharray="6 3" />
+          <text x={W - MR - 4} y={py(opNorm) - 5} textAnchor="end" fontSize="10" fill={ED.accent} fontFamily="var(--font-mono)">&#x2016;R&#x2016; = {opNorm.toFixed(5)}</text>
           {/* diagonal bars */}
           {diagR.map((d, j) => (
             <g key={`bar${j}`}>
@@ -490,57 +491,57 @@ function OffDiagHankelObstructionPanel() {
                 y={py(d)}
                 width={barW}
                 height={py(0) - py(d)}
-                fill="#4c7a4a"
+                fill={ED.series3}
                 fillOpacity="0.7"
               />
-              <text x={px(j + 0.5)} y={H - MB + 16} textAnchor="middle" fontSize="11" fill="#877b67" fontFamily="var(--font-mono)">j={j}</text>
+              <text x={px(j + 0.5)} y={H - MB + 16} textAnchor="middle" fontSize="11" fill={ED.inkFaint} fontFamily="var(--font-mono)">j={j}</text>
               <title>R_{j}{j} = {d.toFixed(6)}</title>
             </g>
           ))}
           {/* gap annotation arrow */}
-          <line x1={W - MR - 60} y1={py(rDiagMax)} x2={W - MR - 60} y2={py(opNorm)} stroke="#b58a2e" strokeWidth="1.5" markerEnd="url(#arrow-end)" markerStart="url(#arrow-end)" />
-          <text x={W - MR - 55} y={(py(rDiagMax) + py(opNorm)) / 2 + 4} fontSize="10" fill="#b58a2e" fontFamily="var(--font-mono)">gap {gap.toFixed(4)}</text>
+          <line x1={W - MR - 60} y1={py(rDiagMax)} x2={W - MR - 60} y2={py(opNorm)} stroke={ED.brassDeco} strokeWidth="1.5" markerEnd="url(#arrow-end)" markerStart="url(#arrow-end)" />
+          <text x={W - MR - 55} y={(py(rDiagMax) + py(opNorm)) / 2 + 4} fontSize="10" fill={ED.brass} fontFamily="var(--font-mono)">gap {gap.toFixed(4)}</text>
           <g transform={`translate(${ML + 12}, ${MT + 8})`}>
-            <rect x="0" y="-7" width="14" height="10" fill="#4c7a4a" fillOpacity="0.7" />
-            <text x="18" y="2" fontSize="11" fill="#4a4238" fontFamily="var(--font-mono)">R_jj (scalar cover, pinned &lt; 1)</text>
+            <rect x="0" y="-7" width="14" height="10" fill={ED.series3} fillOpacity="0.7" />
+            <text x="18" y="2" fontSize="11" fill={ED.inkSoft} fontFamily="var(--font-mono)">R_jj (scalar cover, pinned &lt; 1)</text>
           </g>
           <g transform={`translate(${ML + 12}, ${MT + 24})`}>
-            <line x1="0" y1="0" x2="14" y2="0" stroke="#c23a1c" strokeWidth="1.5" strokeDasharray="5 2" />
-            <text x="18" y="4" fontSize="11" fill="#4a4238" fontFamily="var(--font-mono)">&#x2016;R&#x2016; = Perron eigenvalue (overshoots)</text>
+            <line x1="0" y1="0" x2="14" y2="0" stroke={ED.accent} strokeWidth="1.5" strokeDasharray="5 2" />
+            <text x="18" y="4" fontSize="11" fill={ED.inkSoft} fontFamily="var(--font-mono)">&#x2016;R&#x2016; = Perron eigenvalue (overshoots)</text>
           </g>
         </svg>
       </div>
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 10, margin: '14px 0' }}>
-        <div style={{ padding: '8px 12px', borderRadius: 6, background: 'rgba(76,122,74,0.07)', border: '1px solid rgba(76,122,74,0.25)', fontSize: 12, color: '#877b67', lineHeight: 1.65 }}>
-          <div style={{ color: '#4c7a4a', fontWeight: 700, marginBottom: 3 }}>max diagonal R_jj</div>
-          <span style={{ fontFamily: 'var(--font-mono)', color: '#4c7a4a', fontSize: 13 }}>{rDiagMax.toFixed(6)}</span>
+        <div style={{ padding: '8px 12px', borderRadius: 6, background: 'color-mix(in srgb, var(--series-3) 7%, transparent)', border: '1px solid color-mix(in srgb, var(--series-3) 25%, transparent)', fontSize: 12, color: 'var(--ink-faint)', lineHeight: 1.65 }}>
+          <div style={{ color: 'var(--series-3)', fontWeight: 700, marginBottom: 3 }}>max diagonal R_jj</div>
+          <span style={{ fontFamily: 'var(--font-mono)', color: 'var(--series-3)', fontSize: 13 }}>{rDiagMax.toFixed(6)}</span>
           <div style={{ marginTop: 4, fontSize: 11 }}>Scalar cover holds — pinned below 1</div>
         </div>
-        <div style={{ padding: '8px 12px', borderRadius: 6, background: 'rgba(194,58,28,0.07)', border: '1px solid rgba(194,58,28,0.25)', fontSize: 12, color: '#877b67', lineHeight: 1.65 }}>
-          <div style={{ color: '#c23a1c', fontWeight: 700, marginBottom: 3 }}>operator norm &#x2016;R&#x2016;</div>
-          <span style={{ fontFamily: 'var(--font-mono)', color: '#c23a1c', fontSize: 13 }}>{opNorm.toFixed(6)}</span>
+        <div style={{ padding: '8px 12px', borderRadius: 6, background: 'color-mix(in srgb, var(--series-2) 7%, transparent)', border: '1px solid color-mix(in srgb, var(--accent) 25%, transparent)', fontSize: 12, color: 'var(--ink-faint)', lineHeight: 1.65 }}>
+          <div style={{ color: 'var(--accent)', fontWeight: 700, marginBottom: 3 }}>operator norm &#x2016;R&#x2016;</div>
+          <span style={{ fontFamily: 'var(--font-mono)', color: 'var(--accent)', fontSize: 13 }}>{opNorm.toFixed(6)}</span>
           <div style={{ marginTop: 4, fontSize: 11 }}>Perron eigenvalue &mdash; exceeds ceiling = 1</div>
         </div>
-        <div style={{ padding: '8px 12px', borderRadius: 6, background: 'rgba(181,138,46,0.07)', border: '1px solid rgba(181,138,46,0.25)', fontSize: 12, color: '#877b67', lineHeight: 1.65 }}>
-          <div style={{ color: '#b58a2e', fontWeight: 700, marginBottom: 3 }}>operator/diagonal gap</div>
-          <span style={{ fontFamily: 'var(--font-mono)', color: '#b58a2e', fontSize: 13 }}>{gap.toFixed(6)}</span>
+        <div style={{ padding: '8px 12px', borderRadius: 6, background: 'color-mix(in srgb, var(--brass-deco) 7%, transparent)', border: '1px solid color-mix(in srgb, var(--brass-deco) 25%, transparent)', fontSize: 12, color: 'var(--ink-faint)', lineHeight: 1.65 }}>
+          <div style={{ color: 'var(--brass)', fontWeight: 700, marginBottom: 3 }}>operator/diagonal gap</div>
+          <span style={{ fontFamily: 'var(--font-mono)', color: 'var(--brass)', fontSize: 13 }}>{gap.toFixed(6)}</span>
           <div style={{ marginTop: 4, fontSize: 11 }}>Off-diag contribution: the obstruction</div>
         </div>
       </div>
-      <div style={{ margin: '10px 0', padding: '10px 14px', borderRadius: 6, background: 'rgba(135,123,103,0.05)', border: '1px solid rgba(135,123,103,0.2)', fontSize: 12, color: '#877b67', lineHeight: 1.65 }}>
-        <span style={{ color: '#1c1814', fontWeight: 700 }}>Off-diagonal cross-terms (shear Hankel): </span>
-        min&thinsp;|H<sub>jk</sub>|&thinsp;=&thinsp;<span style={{ fontFamily: 'var(--font-mono)', color: '#b58a2e' }}>{M.minOffDiagonalHankelCrossTerm.toExponential(3)}</span>
+      <div style={{ margin: '10px 0', padding: '10px 14px', borderRadius: 6, background: 'color-mix(in srgb, var(--ink-faint) 5%, transparent)', border: '1px solid color-mix(in srgb, var(--rule) 20%, transparent)', fontSize: 12, color: 'var(--ink-faint)', lineHeight: 1.65 }}>
+        <span style={{ color: 'var(--ink)', fontWeight: 700 }}>Off-diagonal cross-terms (shear Hankel): </span>
+        min&thinsp;|H<sub>jk</sub>|&thinsp;=&thinsp;<span style={{ fontFamily: 'var(--font-mono)', color: 'var(--brass)' }}>{M.minOffDiagonalHankelCrossTerm.toExponential(3)}</span>
         &nbsp;&mdash;&nbsp;
-        max&thinsp;|H<sub>jk</sub>|&thinsp;=&thinsp;<span style={{ fontFamily: 'var(--font-mono)', color: '#b58a2e' }}>{M.maxOffDiagonalHankelCrossTerm.toExponential(3)}</span>
+        max&thinsp;|H<sub>jk</sub>|&thinsp;=&thinsp;<span style={{ fontFamily: 'var(--font-mono)', color: 'var(--brass)' }}>{M.maxOffDiagonalHankelCrossTerm.toExponential(3)}</span>
         &nbsp;&mdash;&nbsp;
-        min&thinsp;|R<sub>jk</sub>|&thinsp;(j&ne;k)&thinsp;=&thinsp;<span style={{ fontFamily: 'var(--font-mono)', color: '#b58a2e' }}>{M.minOffDiagonalR.toExponential(3)}</span>
+        min&thinsp;|R<sub>jk</sub>|&thinsp;(j&ne;k)&thinsp;=&thinsp;<span style={{ fontFamily: 'var(--font-mono)', color: 'var(--brass)' }}>{M.minOffDiagonalR.toExponential(3)}</span>
         &nbsp;&mdash;&nbsp;
-        off-diag Frobenius&thinsp;=&thinsp;<span style={{ fontFamily: 'var(--font-mono)', color: '#b58a2e' }}>{M.offDiagonalFrobeniusNormOfR.toExponential(3)}</span>.
+        off-diag Frobenius&thinsp;=&thinsp;<span style={{ fontFamily: 'var(--font-mono)', color: 'var(--brass)' }}>{M.offDiagonalFrobeniusNormOfR.toExponential(3)}</span>.
         Every off-diagonal entry is <strong>strictly positive</strong> (sinh &gt; 0 on (0, U]), so by
         Perron-Frobenius &#x2016;R&#x2016; strictly exceeds max&thinsp;R<sub>jj</sub>.
       </div>
-      <div style={{ padding: '10px 14px', borderRadius: 6, background: 'rgba(194,58,28,0.07)', border: '1px solid rgba(194,58,28,0.3)', fontSize: 12, color: '#4a4238', lineHeight: 1.65 }}>
-        <div style={{ fontSize: 11, fontWeight: 700, color: '#c23a1c', letterSpacing: '0.06em', marginBottom: 5 }}>
+      <div style={{ padding: '10px 14px', borderRadius: 6, background: 'color-mix(in srgb, var(--series-2) 7%, transparent)', border: '1px solid color-mix(in srgb, var(--accent) 30%, transparent)', fontSize: 12, color: 'var(--ink-soft)', lineHeight: 1.65 }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--accent)', letterSpacing: '0.06em', marginBottom: 5 }}>
           CAVEAT — REPRESENTATIVE TRUNCATION ONLY, NO RH VERDICT
         </div>
         This is a <strong>diagnostic measurement on a representative degree-{deg} monomial-moment
@@ -550,7 +551,7 @@ function OffDiagHankelObstructionPanel() {
         magnitude of the off-diagonal cross-terms and the strictly-positive operator/diagonal gap that
         scalar domination cannot reach. Positivity was <strong>not attempted</strong>.
       </div>
-      <p style={{ marginTop: 10, color: '#877b67', fontSize: 11, fontFamily: 'var(--font-mono)' }}>
+      <p style={{ marginTop: 10, color: 'var(--ink-faint)', fontSize: 11, fontFamily: 'var(--font-mono)' }}>
         Source: imp-3066-offdiagonal-hankel-obstruction.js &mdash; RH-EQUIVALENT; STRUCTURAL/DIAGNOSTIC; NOT a reduction.
       </p>
     </div>
@@ -582,53 +583,53 @@ function AnalyticCeilingConcentratingFamilyPanel() {
   const shadedPath = `${linePath} L ${px(n - 1)} ${py(ceiling)} L ${px(0)} ${py(ceiling)} Z`;
 
   return (
-    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #3f6b86', background: 'rgba(63,107,134,0.04)' }}>
-      <h3 style={{ color: '#3f6b86', marginTop: 0, fontSize: 14 }}>
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid var(--series-1)', background: 'color-mix(in srgb, var(--series-1) 4%, transparent)' }}>
+      <h3 style={{ color: 'var(--series-1)', marginTop: 0, fontSize: 14 }}>
         Concentrating family Q(f<sub>&delta;</sub>) climbs to the analytic ceiling tanh(a&middot;U)&thinsp;&lt;&thinsp;1 (imp-3288)
       </h3>
-      <p style={{ color: '#877b67', fontSize: 12, lineHeight: 1.7, marginBottom: 10 }}>
+      <p style={{ color: 'var(--ink-faint)', fontSize: 12, lineHeight: 1.7, marginBottom: 10 }}>
         f<sub>&delta;</sub> = 1<sub>[U-&delta;, U]</sub> concentrates all its mass toward &tau;=U as &delta;&rarr;0<sup>+</sup>.
         The Rayleigh quotient Q(f<sub>&delta;</sub>) rises monotonically toward the sharp, non-attained
         supremum sup Q = tanh(a&middot;U) = {ceiling.toFixed(5)} &mdash; strictly below the trivial ceiling 1,
         leaving a strictly positive margin 1&thinsp;&minus;&thinsp;tanh(a&middot;U) = {margin.toFixed(5)} (shaded).
       </p>
       <div style={{ overflowX: 'auto' }}>
-        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'rgba(214,201,178,0.25)', borderRadius: 6 }}>
+        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'color-mix(in srgb, var(--rule) 25%, transparent)', borderRadius: 6 }}>
           {yTicks.map((v) => (
             <g key={`yt${v.toFixed(5)}`}>
-              <line x1={ML} y1={py(v)} x2={W - MR} y2={py(v)} stroke="#d5c9b2" strokeWidth="1" />
-              <text x={ML - 8} y={py(v) + 4} textAnchor="end" fontSize="11" fill="#877b67" fontFamily="var(--font-mono)">{v.toFixed(3)}</text>
+              <line x1={ML} y1={py(v)} x2={W - MR} y2={py(v)} stroke={ED.rule} strokeWidth="1" />
+              <text x={ML - 8} y={py(v) + 4} textAnchor="end" fontSize="11" fill={ED.inkFaint} fontFamily="var(--font-mono)">{v.toFixed(3)}</text>
             </g>
           ))}
-          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
           {/* trivial ceiling = 1 dashed line */}
-          <line x1={ML} y1={py(1)} x2={W - MR} y2={py(1)} stroke="#d5c9b2" strokeWidth="1" strokeDasharray="4 3" />
-          <text x={W - MR - 4} y={py(1) - 5} textAnchor="end" fontSize="10" fill="#877b67" fontFamily="var(--font-mono)">1 (trivial)</text>
+          <line x1={ML} y1={py(1)} x2={W - MR} y2={py(1)} stroke={ED.rule} strokeWidth="1" strokeDasharray="4 3" />
+          <text x={W - MR - 4} y={py(1) - 5} textAnchor="end" fontSize="10" fill={ED.inkFaint} fontFamily="var(--font-mono)">1 (trivial)</text>
           {/* analytic ceiling tanh(a*U) dashed line */}
-          <line x1={ML} y1={py(ceiling)} x2={W - MR} y2={py(ceiling)} stroke="#3f6b86" strokeWidth="1.5" strokeDasharray="6 3" />
-          <text x={W - MR - 4} y={py(ceiling) - 5} textAnchor="end" fontSize="10" fill="#3f6b86" fontFamily="var(--font-mono)">tanh(a&middot;U) = {ceiling.toFixed(5)}</text>
+          <line x1={ML} y1={py(ceiling)} x2={W - MR} y2={py(ceiling)} stroke={ED.series1} strokeWidth="1.5" strokeDasharray="6 3" />
+          <text x={W - MR - 4} y={py(ceiling) - 5} textAnchor="end" fontSize="10" fill={ED.series1} fontFamily="var(--font-mono)">tanh(a&middot;U) = {ceiling.toFixed(5)}</text>
           {/* strictly-positive margin, shaded */}
-          <path d={shadedPath} fill="#3f6b86" fillOpacity="0.12" stroke="none" />
+          <path d={shadedPath} fill={ED.series1} fillOpacity="0.12" stroke="none" />
           {/* Q(f_delta) curve */}
-          <path d={linePath} fill="none" stroke="#3f6b86" strokeWidth="2" />
+          <path d={linePath} fill="none" stroke={ED.series1} strokeWidth="2" />
           {ladder.map((row, i) => (
             <g key={`pt${i}`}>
-              <circle cx={px(i)} cy={py(row.quotient)} r="3" fill="#3f6b86" />
+              <circle cx={px(i)} cy={py(row.quotient)} r="3" fill={ED.series1} />
               <title>&delta;={row.delta}, Q={row.quotient.toFixed(6)}</title>
             </g>
           ))}
-          <text x={px(0)} y={H - MB + 16} textAnchor="start" fontSize="10" fill="#877b67" fontFamily="var(--font-mono)">&delta;={ladder[0].delta} (spread out)</text>
-          <text x={px(n - 1)} y={H - MB + 16} textAnchor="end" fontSize="10" fill="#877b67" fontFamily="var(--font-mono)">&delta;={ladder[n - 1].delta} (&rarr;U)</text>
+          <text x={px(0)} y={H - MB + 16} textAnchor="start" fontSize="10" fill={ED.inkFaint} fontFamily="var(--font-mono)">&delta;={ladder[0].delta} (spread out)</text>
+          <text x={px(n - 1)} y={H - MB + 16} textAnchor="end" fontSize="10" fill={ED.inkFaint} fontFamily="var(--font-mono)">&delta;={ladder[n - 1].delta} (&rarr;U)</text>
         </svg>
       </div>
-      <div style={{ padding: '6px 10px', borderRadius: 4, background: 'rgba(194,58,28,0.07)', border: '1px solid rgba(194,58,28,0.22)', fontSize: 11, color: '#877b67', lineHeight: 1.65 }}>
-        <strong style={{ color: '#c23a1c' }}>Scope (imp-3288):</strong>{' '}
+      <div style={{ padding: '6px 10px', borderRadius: 4, background: 'color-mix(in srgb, var(--series-2) 7%, transparent)', border: '1px solid color-mix(in srgb, var(--accent) 22%, transparent)', fontSize: 11, color: 'var(--ink-faint)', lineHeight: 1.65 }}>
+        <strong style={{ color: 'var(--accent)' }}>Scope (imp-3288):</strong>{' '}
         Rigorous NEGATIVE result about the SCALAR cosh passive core ONLY, proved over the full
         L2([0,U]) span (not merely this trial family). Does NOT touch the operator-positivity
         residual K<sub>a</sub>&thinsp;&ge;&thinsp;0, makes NO claim the cover holds or fails, carries NO RH verdict.
       </div>
-      <p style={{ marginTop: 8, color: '#877b67', fontSize: 11, fontFamily: 'var(--font-mono)' }}>
+      <p style={{ marginTop: 8, color: 'var(--ink-faint)', fontSize: 11, fontFamily: 'var(--font-mono)' }}>
         Source: imp-3288-analytic-ceiling-lemma.js &mdash; a={L.a}, U={L.U}, concentrating ladder &delta;&isin;[{ladder[n - 1].delta},{ladder[0].delta}].
       </p>
     </div>
@@ -661,11 +662,11 @@ function ConditionalShareUShapePanel() {
   const maxIdx = table.findIndex((r) => r.N === F.widestGap.N);
 
   return (
-    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #6d55b8', background: 'rgba(109,85,184,0.04)' }}>
-      <h3 style={{ color: '#6d55b8', marginTop: 0, fontSize: 14 }}>
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid var(--series-5)', background: 'color-mix(in srgb, var(--series-5) 4%, transparent)' }}>
+      <h3 style={{ color: 'var(--series-5)', marginTop: 0, fontSize: 14 }}>
         GUE-conditional share &sigma;(N) is U-shaped across the assembly range, widest at N*=10<sup>6</sup> (imp-3220)
       </h3>
-      <p style={{ color: '#877b67', fontSize: 12, lineHeight: 1.7, marginBottom: 10 }}>
+      <p style={{ color: 'var(--ink-faint)', fontSize: 12, lineHeight: 1.7, marginBottom: 10 }}>
         &sigma;(N) = E<sub>coll</sub>(N)/E(N), the fraction of the bridge budget E(N) resting on the GUE-conditional
         C<sub>H</sub>, dips to a minimum &asymp;{F.narrowestGap.conditionalShare.toFixed(3)} near N&asymp;{F.narrowestGap.N} then
         rises monotonically to its widest value &asymp;{F.widestGap.conditionalShare.toFixed(3)} at the
@@ -674,70 +675,70 @@ function ConditionalShareUShapePanel() {
         &asymp;{Math.round(table[n - 1].E_coll_over_E_flow)}&times; toward that ceiling, the mechanism behind the rising right arm.
       </p>
       <div style={{ overflowX: 'auto' }}>
-        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'rgba(214,201,178,0.25)', borderRadius: 6 }}>
+        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'color-mix(in srgb, var(--rule) 25%, transparent)', borderRadius: 6 }}>
           {shareTicks.map((v) => (
             <g key={`ls${v}`}>
-              <line x1={ML} y1={pyShare(v)} x2={W - MR} y2={pyShare(v)} stroke="#d5c9b2" strokeWidth="1" />
-              <text x={ML - 8} y={pyShare(v) + 4} textAnchor="end" fontSize="11" fill="#6d55b8" fontFamily={mono}>{v.toFixed(2)}</text>
+              <line x1={ML} y1={pyShare(v)} x2={W - MR} y2={pyShare(v)} stroke={ED.rule} strokeWidth="1" />
+              <text x={ML - 8} y={pyShare(v) + 4} textAnchor="end" fontSize="11" fill={ED.series5} fontFamily={mono}>{v.toFixed(2)}</text>
             </g>
           ))}
           {ratioTicks.map((v) => (
-            <text key={`rs${v}`} x={W - MR + 10} y={pyRatio(v) + 4} textAnchor="start" fontSize="11" fill="#b58a2e" fontFamily={mono}>{v}</text>
+            <text key={`rs${v}`} x={W - MR + 10} y={pyRatio(v) + 4} textAnchor="start" fontSize="11" fill={ED.brass} fontFamily={mono}>{v}</text>
           ))}
-          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
           {/* sigma(N) U-curve, left axis */}
-          <path d={sharePath} fill="none" stroke="#6d55b8" strokeWidth="2.5" />
+          <path d={sharePath} fill="none" stroke={ED.series5} strokeWidth="2.5" />
           {table.map((row, i) => (
-            <circle key={`sp${i}`} cx={px(i)} cy={pyShare(row.conditionalShare)} r={i === minIdx || i === maxIdx ? 4.5 : 3} fill="#6d55b8">
+            <circle key={`sp${i}`} cx={px(i)} cy={pyShare(row.conditionalShare)} r={i === minIdx || i === maxIdx ? 4.5 : 3} fill={ED.series5}>
               <title>{`N=${row.N}, sigma=${row.conditionalShare}`}</title>
             </circle>
           ))}
           {/* E_coll/E_flow ratio, right axis, dashed */}
-          <path d={ratioPath} fill="none" stroke="#b58a2e" strokeWidth="1.5" strokeDasharray="5 3" />
+          <path d={ratioPath} fill="none" stroke={ED.brassDeco} strokeWidth="1.5" strokeDasharray="5 3" />
           {table.map((row, i) => (
-            <circle key={`rp${i}`} cx={px(i)} cy={pyRatio(row.E_coll_over_E_flow)} r="2.5" fill="#b58a2e">
+            <circle key={`rp${i}`} cx={px(i)} cy={pyRatio(row.E_coll_over_E_flow)} r="2.5" fill={ED.brassDeco}>
               <title>{`N=${row.N}, E_coll/E_flow=${row.E_coll_over_E_flow}`}</title>
             </circle>
           ))}
           {table.map((row, i) => (
-            <text key={`xl${i}`} x={px(i)} y={H - MB + 16} textAnchor="middle" fontSize="9" fill="#877b67" fontFamily={mono}>
+            <text key={`xl${i}`} x={px(i)} y={H - MB + 16} textAnchor="middle" fontSize="9" fill={ED.inkFaint} fontFamily={mono}>
               {row.N >= 1000 ? row.N.toExponential(0).replace('e+', 'e') : row.N}
             </text>
           ))}
-          <text x={ML} y={16} textAnchor="start" fontSize="10" fill="#6d55b8" fontFamily={mono}>&sigma;(N) (left)</text>
-          <text x={W - MR} y={16} textAnchor="end" fontSize="10" fill="#b58a2e" fontFamily={mono}>E_coll/E_flow (right)</text>
+          <text x={ML} y={16} textAnchor="start" fontSize="10" fill={ED.series5} fontFamily={mono}>&sigma;(N) (left)</text>
+          <text x={W - MR} y={16} textAnchor="end" fontSize="10" fill={ED.brass} fontFamily={mono}>E_coll/E_flow (right)</text>
         </svg>
       </div>
-      <div style={{ padding: '6px 10px', borderRadius: 4, background: 'rgba(194,58,28,0.07)', border: '1px solid rgba(194,58,28,0.22)', fontSize: 11, color: '#877b67', lineHeight: 1.65 }}>
-        <strong style={{ color: '#c23a1c' }}>Scope (imp-3220):</strong>{' '}
+      <div style={{ padding: '6px 10px', borderRadius: 4, background: 'color-mix(in srgb, var(--series-2) 7%, transparent)', border: '1px solid color-mix(in srgb, var(--accent) 22%, transparent)', fontSize: 11, color: 'var(--ink-faint)', lineHeight: 1.65 }}>
+        <strong style={{ color: 'var(--accent)' }}>Scope (imp-3220):</strong>{' '}
         ASSESSMENT ONLY: E<sub>coll</sub> is the sole GUE-conditional sub-term (C<sub>H</sub> = 1/8 ansatz, the
         C<sub>mb</sub>&thinsp;&le;&thinsp;1 conditional of imp-486); E<sub>flow</sub> and E<sub>trunc</sub> are already
         unconditionally rigorous. No positivity, no bridge closure, no RH claim, NO QED.
       </div>
-      <div style={{ marginTop: 6, padding: '6px 10px', borderRadius: 4, background: 'rgba(109,85,184,0.05)', border: '1px solid rgba(109,85,184,0.18)', fontSize: 11, color: '#877b67', lineHeight: 1.65 }}>
-        <strong style={{ color: '#6d55b8' }}>C<sub>H</sub> dependence note (imp-3324/imp-3392):</strong>{' '}
+      <div style={{ marginTop: 6, padding: '6px 10px', borderRadius: 4, background: 'color-mix(in srgb, var(--series-5) 5%, transparent)', border: '1px solid color-mix(in srgb, var(--series-5) 18%, transparent)', fontSize: 11, color: 'var(--ink-faint)', lineHeight: 1.65 }}>
+        <strong style={{ color: 'var(--series-5)' }}>C<sub>H</sub> dependence note (imp-3324/imp-3392):</strong>{' '}
         C<sub>H</sub> = 1/8 is essential for the <em>absolute</em> collision budget E<sub>coll</sub> (linear in
         C<sub>H</sub>, so a 16&times; bracket [0.0625,&thinsp;1.0] swings E<sub>coll</sub> 16&times;) but NOT for the
         <em> conditional share</em> &sigma;(N) plotted above, which saturates toward 1 and stays within
         [0.904,&thinsp;0.993] over that same bracket. The two roles must not be conflated.
       </div>
-      <div style={{ marginTop: 6, padding: '6px 10px', borderRadius: 4, background: 'rgba(63,107,134,0.05)', border: '1px solid rgba(63,107,134,0.18)', fontSize: 11, color: '#877b67', lineHeight: 1.65 }}>
-        <strong style={{ color: '#3f6b86' }}>E<sub>trunc</sub> name-collision caveat (imp-33772):</strong>{' '}
+      <div style={{ marginTop: 6, padding: '6px 10px', borderRadius: 4, background: 'color-mix(in srgb, var(--series-1) 5%, transparent)', border: '1px solid color-mix(in srgb, var(--series-1) 18%, transparent)', fontSize: 11, color: 'var(--ink-faint)', lineHeight: 1.65 }}>
+        <strong style={{ color: 'var(--series-1)' }}>E<sub>trunc</sub> name-collision caveat (imp-33772):</strong>{' '}
         Two DISTINCT quantities share the name &ldquo;E<sub>trunc</sub>&rdquo;: the fixed-strip
         truncation floor tabulated here (&asymp;{IMP_33772_ETRUNC_BASELINE_COHORT_PROVENANCE.baselineValue.toExponential(2)},
         rooted in {IMP_33772_ETRUNC_BASELINE_COHORT_PROVENANCE.provenanceRoot} and pinned identically across the
         sigma(N)-decay cohort) versus a SEPARATE &asymp;{IMP_33818_ETRUNC_NAME_COLLISION_CROSSCHECK.lambdaBoundValue.value} lambda-bound truncation contribution on a different
         route/height (imp-2625, gamma=10<sup>13</sup>). The &sigma;(N) surface above uses only the
         {' '}{IMP_33772_ETRUNC_BASELINE_COHORT_PROVENANCE.baselineValue.toExponential(2)} fixed-strip value; the two
-        must not be conflated. <strong style={{ color: '#3f6b86' }}>Executable guard (imp-33818):</strong>{' '}
+        must not be conflated. <strong style={{ color: 'var(--series-1)' }}>Executable guard (imp-33818):</strong>{' '}
         the two same-named quantities are pinned {IMP_33818_ETRUNC_NAME_COLLISION_CROSSCHECK.decadesApart} decades apart
         (ratio &asymp;{IMP_33818_ETRUNC_NAME_COLLISION_CROSSCHECK.ratio}&times;), and a build-time tripwire confirms all
         {' '}{IMP_33818_ETRUNC_NAME_COLLISION_CROSSCHECK.sigmaBridgeConsumers.length} sigma(N)-bridge consumers declare the
         fixed-strip value and none substitutes the lambda-bound one.
       </div>
-      <div style={{ marginTop: 6, padding: '6px 10px', borderRadius: 4, background: 'rgba(109,85,184,0.05)', border: '1px solid rgba(109,85,184,0.18)', fontSize: 11, color: '#877b67', lineHeight: 1.65 }}>
-        <strong style={{ color: '#6d55b8' }}>Landmark-offset closed forms (imp-34270/imp-34248/imp-33743):</strong>{' '}
+      <div style={{ marginTop: 6, padding: '6px 10px', borderRadius: 4, background: 'color-mix(in srgb, var(--series-5) 5%, transparent)', border: '1px solid color-mix(in srgb, var(--series-5) 18%, transparent)', fontSize: 11, color: 'var(--ink-faint)', lineHeight: 1.65 }}>
+        <strong style={{ color: 'var(--series-5)' }}>Landmark-offset closed forms (imp-34270/imp-34248/imp-33743):</strong>{' '}
         The ~0.4% gap between the closed-form E<sub>coll</sub>=E<sub>trunc</sub> crossover and the &sigma;=1/2
         halving landmark is now FORMED explicitly (imp-34270): the leading correction is
         {' '}2&times;E<sub>flow</sub>/E<sub>trunc</sub>&thinsp;&asymp;&thinsp;{IMP34270_EFLOW_GRONWALL_CROSSOVER_OFFSET_CORRECTION.correction.leading_gronwall_term_2r.toExponential(3)}
@@ -752,7 +753,7 @@ function ConditionalShareUShapePanel() {
         {' '}(deep-tail OLS) &mdash; strictly faster than thr, strictly slower than thr<sup>3</sup>. All three are
         derivation/measurement only on the inherited extrapolation component model; NO QED,.
       </div>
-      <p style={{ marginTop: 8, color: '#877b67', fontSize: 11, fontFamily: mono }}>
+      <p style={{ marginTop: 8, color: 'var(--ink-faint)', fontSize: 11, fontFamily: mono }}>
         Source: imp-3220-en-bridge-fidelity-frontier.js &mdash; N&isin;{'{2..10'}<sup>6</sup>{'}'}, dual-axis (&sigma;(N) left, E_coll/E_flow right).
       </p>
     </div>
@@ -791,11 +792,11 @@ function SigmaNShapeExtrapolationPanel() {
   const yTicks = [0, 0.25, 0.5, 0.75, 1.0];
 
   return (
-    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #c23a1c', background: 'rgba(194,58,28,0.04)' }}>
-      <h3 style={{ color: '#c23a1c', marginTop: 0, fontSize: 14 }}>
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid var(--accent)', background: 'color-mix(in srgb, var(--series-2) 4%, transparent)' }}>
+      <h3 style={{ color: 'var(--accent)', marginTop: 0, fontSize: 14 }}>
         Past the ceiling, &sigma;(N) TURNS OVER and decays to 0 &mdash; the full N-shape (imp-3406)
       </h3>
-      <p style={{ color: '#877b67', fontSize: 12, lineHeight: 1.7, marginBottom: 10 }}>
+      <p style={{ color: 'var(--ink-faint)', fontSize: 12, lineHeight: 1.7, marginBottom: 10 }}>
         Extrapolating the imp-3220 U-curve above, the right arm does not keep widening: &sigma;(N) attains an
         interior MAXIMUM N<sub>max</sub>&asymp;{tp.N_max.toExponential(3).replace('e+', 'e')} (&sigma;<sub>max</sub>&asymp;{tp.sigma_max.toFixed(6)}),
         only {tp.peak_above_ceiling.toExponential(1)} above the N=10<sup>6</sup> sample &mdash; a flat-cap sampling
@@ -805,58 +806,58 @@ function SigmaNShapeExtrapolationPanel() {
         GUE-conditional E<sub>coll</sub> falls through the constant E<sub>trunc</sub> floor.
       </p>
       <div style={{ overflowX: 'auto' }}>
-        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'rgba(214,201,178,0.25)', borderRadius: 6 }}>
+        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'color-mix(in srgb, var(--rule) 25%, transparent)', borderRadius: 6 }}>
           {yTicks.map((v) => (
             <g key={`yt${v}`}>
-              <line x1={ML} y1={py(v)} x2={W - MR} y2={py(v)} stroke="#d5c9b2" strokeWidth="1" />
-              <text x={ML - 8} y={py(v) + 4} textAnchor="end" fontSize="11" fill="#c23a1c" fontFamily={mono}>{v.toFixed(2)}</text>
+              <line x1={ML} y1={py(v)} x2={W - MR} y2={py(v)} stroke={ED.rule} strokeWidth="1" />
+              <text x={ML - 8} y={py(v) + 4} textAnchor="end" fontSize="11" fill={ED.accent} fontFamily={mono}>{v.toFixed(2)}</text>
             </g>
           ))}
           {xTicks.map((N) => (
             <g key={`xt${N}`}>
-              <line x1={px(N)} y1={MT} x2={px(N)} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-              <text x={px(N)} y={H - MB + 16} textAnchor="middle" fontSize="9" fill="#877b67" fontFamily={mono}>
+              <line x1={px(N)} y1={MT} x2={px(N)} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+              <text x={px(N)} y={H - MB + 16} textAnchor="middle" fontSize="9" fill={ED.inkFaint} fontFamily={mono}>
                 {N.toExponential(0).replace('e+', 'e')}
               </text>
             </g>
           ))}
-          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
 
           {/* the 1e6 flat-cap sampling ceiling */}
-          <line x1={px(1e6)} y1={MT} x2={px(1e6)} y2={H - MB} stroke="#3f6b86" strokeWidth="1.2" strokeDasharray="4 3" />
-          <text x={px(1e6) + 4} y={MT + 10} fontSize="9" fill="#3f6b86" fontFamily={mono}>10&sup6; ceiling</text>
+          <line x1={px(1e6)} y1={MT} x2={px(1e6)} y2={H - MB} stroke={ED.series1} strokeWidth="1.2" strokeDasharray="4 3" />
+          <text x={px(1e6) + 4} y={MT + 10} fontSize="9" fill={ED.series1} fontFamily={mono}>10&sup6; ceiling</text>
 
           {/* sigma=0.5 crossing */}
-          <line x1={px(dm.N_down_to_half)} y1={MT} x2={px(dm.N_down_to_half)} y2={H - MB} stroke="#877b67" strokeWidth="1" strokeDasharray="3 3" />
-          <text x={px(dm.N_down_to_half) + 4} y={H - MB - 6} fontSize="9" fill="#877b67" fontFamily={mono}>&sigma;=0.5</text>
+          <line x1={px(dm.N_down_to_half)} y1={MT} x2={px(dm.N_down_to_half)} y2={H - MB} stroke={ED.rule} strokeWidth="1" strokeDasharray="3 3" />
+          <text x={px(dm.N_down_to_half) + 4} y={H - MB - 6} fontSize="9" fill={ED.inkFaint} fontFamily={mono}>&sigma;=0.5</text>
 
-          <path d={curvePath} fill="none" stroke="#c23a1c" strokeWidth="2.5" />
+          <path d={curvePath} fill="none" stroke={ED.accent} strokeWidth="2.5" />
           {points.map((p, i) => (
-            <circle key={`np${i}`} cx={px(p.N)} cy={py(p.sigma)} r={p.N === tp.N_max ? 4.5 : 3} fill="#c23a1c">
+            <circle key={`np${i}`} cx={px(p.N)} cy={py(p.sigma)} r={p.N === tp.N_max ? 4.5 : 3} fill={ED.series2}>
               <title>{`N=${p.N.toExponential(3)}, sigma=${p.sigma}`}</title>
             </circle>
           ))}
-          <text x={px(tp.N_max)} y={py(tp.sigma_max) - 10} textAnchor="middle" fontSize="9" fill="#b58a2e" fontFamily={mono}>
+          <text x={px(tp.N_max)} y={py(tp.sigma_max) - 10} textAnchor="middle" fontSize="9" fill={ED.brass} fontFamily={mono}>
             N_max&asymp;{tp.N_max.toExponential(2).replace('e+', 'e')}
           </text>
         </svg>
       </div>
-      <div style={{ padding: '6px 10px', borderRadius: 4, background: 'rgba(194,58,28,0.07)', border: '1px solid rgba(194,58,28,0.22)', fontSize: 11, color: '#877b67', lineHeight: 1.65 }}>
-        <strong style={{ color: '#c23a1c' }}>Scope (imp-3406):</strong>{' '}
+      <div style={{ padding: '6px 10px', borderRadius: 4, background: 'color-mix(in srgb, var(--series-2) 7%, transparent)', border: '1px solid color-mix(in srgb, var(--accent) 22%, transparent)', fontSize: 11, color: 'var(--ink-faint)', lineHeight: 1.65 }}>
+        <strong style={{ color: 'var(--accent)' }}>Scope (imp-3406):</strong>{' '}
         ASSESSMENT/extrapolation only, reusing the identical imp-3220 sub-term formulas &mdash; no re-derivation.
         No positivity, no bridge closure, no RH claim, NO QED.
       </div>
-      <div style={{ marginTop: 6, padding: '6px 10px', borderRadius: 4, background: 'rgba(194,58,28,0.07)', border: '1px solid rgba(194,58,28,0.22)', fontSize: 11, color: '#877b67', lineHeight: 1.65 }}>
-        <strong style={{ color: '#c23a1c' }}>Component-model caveat (imp-33701):</strong>{' '}
+      <div style={{ marginTop: 6, padding: '6px 10px', borderRadius: 4, background: 'color-mix(in srgb, var(--series-2) 7%, transparent)', border: '1px solid color-mix(in srgb, var(--accent) 22%, transparent)', fontSize: 11, color: 'var(--ink-faint)', lineHeight: 1.65 }}>
+        <strong style={{ color: 'var(--accent)' }}>Component-model caveat (imp-33701):</strong>{' '}
         Every curvature/decay reading off this &sigma;(N) surface &mdash; including the
         post-peak ramp-curvature inflection at [1e10,1e11] &mdash; reuses the identical
         E<sub>coll</sub>/E<sub>flow</sub>/E<sub>trunc</sub> sub-terms inherited from the
         imp-3220/imp-3406 model. That model is an{' '}
         <strong>EXTRAPOLATION, not a rigorous asymptotic</strong>: {IMP33701_SIGMA_POSTPEAK_RAMP_CURVATURE_INFLECTION.verdict.match(/The component model[^.]*\./)?.[0]}
       </div>
-      <div style={{ marginTop: 6, padding: '6px 10px', borderRadius: 4, background: 'rgba(194,58,28,0.07)', border: '1px solid rgba(194,58,28,0.22)', fontSize: 11, color: '#877b67', lineHeight: 1.65 }}>
-        <strong style={{ color: '#c23a1c' }}>Asymptote approach rate (imp-33816):</strong>{' '}
+      <div style={{ marginTop: 6, padding: '6px 10px', borderRadius: 4, background: 'color-mix(in srgb, var(--series-2) 7%, transparent)', border: '1px solid color-mix(in srgb, var(--accent) 22%, transparent)', fontSize: 11, color: 'var(--ink-faint)', lineHeight: 1.65 }}>
+        <strong style={{ color: 'var(--accent)' }}>Asymptote approach rate (imp-33816):</strong>{' '}
         Reading a "1/2 decay exponent" off this &sigma;(N) surface glosses over how far out that asymptote
         actually is. The exact local-exponent shortfall gap(N)&nbsp;=&nbsp;&frac12;&thinsp;&minus;&thinsp;p(N)
         closes only as &sim;1/(2&thinsp;log&thinsp;T<sub>0</sub>) &mdash; logarithmically, not polynomially &mdash;
@@ -866,8 +867,8 @@ function SigmaNShapeExtrapolationPanel() {
         close: measurement/fit only, changes no bound, C<sub>mb</sub> stays GUE-conditional (imp-486), imp-3066
         K<sub>a</sub>&nbsp;&ge;&nbsp;0 untouched, NO QED.
       </div>
-      <p style={{ marginTop: 10, color: '#877b67', fontSize: 11.5, lineHeight: 1.65, padding: '6px 10px', borderRadius: 4, background: 'rgba(63,107,134,0.05)', border: '1px solid rgba(63,107,134,0.18)' }}>
-        <strong style={{ color: '#3f6b86' }}>Post-peak continuation (imp-3711):</strong>{' '}
+      <p style={{ marginTop: 10, color: 'var(--ink-faint)', fontSize: 11.5, lineHeight: 1.65, padding: '6px 10px', borderRadius: 4, background: 'color-mix(in srgb, var(--series-1) 5%, transparent)', border: '1px solid color-mix(in srgb, var(--series-1) 18%, transparent)' }}>
+        <strong style={{ color: 'var(--series-1)' }}>Post-peak continuation (imp-3711):</strong>{' '}
         evaluating the SAME model just past the peak at &#123;1.5, 2, 5, 10&#125;&times;10<sup>6</sup> (the
         5&times;10<sup>6</sup> rung is newly tabulated) gives {IMP3711_SIGMA_POSTPEAK_CONTINUATION.continuationLadder.map((r) => r.sigma).join(', ')} &mdash;
         strictly monotone decreasing, confirming the turnover. The decay is a slow power law: the log-log slope
@@ -876,7 +877,7 @@ function SigmaNShapeExtrapolationPanel() {
         lands near N&asymp;{IMP3711_SIGMA_POSTPEAK_CONTINUATION.halfLife.N_half_peak.toExponential(2).replace('e+', 'e')} (&asymp;{IMP3711_SIGMA_POSTPEAK_CONTINUATION.halfLife.decades_above_peak} decades above the peak).
         MODEL-ONLY: the empirical E<sub>coll</sub> is O(N&sup2;)-infeasible past &asymp;10<sup>5</sup> (imp-1082).
       </p>
-      <p style={{ marginTop: 8, color: '#877b67', fontSize: 11, fontFamily: mono }}>
+      <p style={{ marginTop: 8, color: 'var(--ink-faint)', fontSize: 11, fontFamily: mono }}>
         Source: imp-3406-sigma-highN-extrapolation.js &mdash; N&isin;[10<sup>5</sup>,10<sup>15</sup>], log<sub>10</sub>(N) x-axis,
         continuing the imp-3220 panel above past the 10<sup>6</sup> assembly ceiling.
       </p>
@@ -913,11 +914,11 @@ function NmaxEtruncSensitivityPanel() {
   const yTicks = [5.5, 5.75, 6.0, 6.25, 6.5].filter((v) => v >= yMin - 0.15 && v <= yMax + 0.15);
 
   return (
-    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #6d55b8', background: 'rgba(109,85,184,0.04)' }}>
-      <h3 style={{ color: '#6d55b8', marginTop: 0, fontSize: 14 }}>
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid var(--series-5)', background: 'color-mix(in srgb, var(--series-5) 4%, transparent)' }}>
+      <h3 style={{ color: 'var(--series-5)', marginTop: 0, fontSize: 14 }}>
         N<sub>max</sub> ~ (1/E<sub>trunc</sub>)<sup>{sens.power_exponent.toFixed(3)}</sup>, R&sup2;&asymp;{sens.power_fit_R2.toFixed(5)} &mdash; the imp-3406 turnover is a floor-sensitivity readout (imp-3443)
       </h3>
-      <p style={{ color: '#877b67', fontSize: 12, lineHeight: 1.7, marginBottom: 10 }}>
+      <p style={{ color: 'var(--ink-faint)', fontSize: 12, lineHeight: 1.7, marginBottom: 10 }}>
         Re-running the imp-3406 ternary search over the half-to-double imp-2631 floor grid, the peak location
         N<sub>max</sub> falls monotonically from {grid[0].N_max.toExponential(3).replace('e+', 'e')} (half floor)
         through the baseline {base.N_max.toExponential(3).replace('e+', 'e')} to{' '}
@@ -926,53 +927,53 @@ function NmaxEtruncSensitivityPanel() {
         elasticity &asymp;{sens.local_elasticity.toFixed(3)} at the baseline.
       </p>
       <div style={{ overflowX: 'auto' }}>
-        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'rgba(214,201,178,0.25)', borderRadius: 6 }}>
+        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'color-mix(in srgb, var(--rule) 25%, transparent)', borderRadius: 6 }}>
           {yTicks.map((v) => (
             <g key={`yt${v}`}>
-              <line x1={ML} y1={py(v)} x2={W - MR} y2={py(v)} stroke="#d5c9b2" strokeWidth="1" />
-              <text x={ML - 8} y={py(v) + 4} textAnchor="end" fontSize="11" fill="#6d55b8" fontFamily={mono}>{v.toFixed(2)}</text>
+              <line x1={ML} y1={py(v)} x2={W - MR} y2={py(v)} stroke={ED.rule} strokeWidth="1" />
+              <text x={ML - 8} y={py(v) + 4} textAnchor="end" fontSize="11" fill={ED.series5} fontFamily={mono}>{v.toFixed(2)}</text>
             </g>
           ))}
           {xTicks.map((v) => (
             <g key={`xt${v}`}>
-              <line x1={px(v)} y1={MT} x2={px(v)} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-              <text x={px(v)} y={H - MB + 16} textAnchor="middle" fontSize="9" fill="#877b67" fontFamily={mono}>{v.toFixed(2)}</text>
+              <line x1={px(v)} y1={MT} x2={px(v)} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+              <text x={px(v)} y={H - MB + 16} textAnchor="middle" fontSize="9" fill={ED.inkFaint} fontFamily={mono}>{v.toFixed(2)}</text>
             </g>
           ))}
-          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-          <text x={ML - 44} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="10" fill="#877b67" fontFamily={mono} transform={`rotate(-90 ${ML - 44} ${(MT + H - MB) / 2})`}>
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+          <text x={ML - 44} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="10" fill={ED.inkFaint} fontFamily={mono} transform={`rotate(-90 ${ML - 44} ${(MT + H - MB) / 2})`}>
             log&#8321;&#8320;(N_max)
           </text>
-          <text x={(ML + W - MR) / 2} y={H - 6} textAnchor="middle" fontSize="10" fill="#877b67" fontFamily={mono}>
+          <text x={(ML + W - MR) / 2} y={H - 6} textAnchor="middle" fontSize="10" fill={ED.inkFaint} fontFamily={mono}>
             log&#8321;&#8320;(E_trunc)
           </text>
 
           <path
             d={`M ${px(fitLine[0].x).toFixed(1)} ${py(fitLine[0].y).toFixed(1)} L ${px(fitLine[1].x).toFixed(1)} ${py(fitLine[1].y).toFixed(1)}`}
-            fill="none" stroke="#877b67" strokeWidth="1.4" strokeDasharray="5 3"
+            fill="none" stroke={ED.rule} strokeWidth="1.4" strokeDasharray="5 3"
           />
 
           {grid.map((r, i) => {
             const isBase = Math.abs(r.E_trunc - base.E_trunc) < 1e-12;
             return (
-              <circle key={`g${i}`} cx={px(logE[i])} cy={py(logN[i])} r={isBase ? 5 : 3.2} fill={isBase ? '#b58a2e' : '#6d55b8'}>
+              <circle key={`g${i}`} cx={px(logE[i])} cy={py(logN[i])} r={isBase ? 5 : 3.2} fill={isBase ? ED.brassDeco : ED.series5}>
                 <title>{`E_trunc=${r.E_trunc.toExponential(3)}, N_max=${r.N_max.toExponential(3)}, sigma_max=${r.sigma_max}`}</title>
               </circle>
             );
           })}
-          <text x={px(Math.log10(base.E_trunc))} y={py(Math.log10(base.N_max)) - 10} textAnchor="middle" fontSize="9" fill="#b58a2e" fontFamily={mono}>
+          <text x={px(Math.log10(base.E_trunc))} y={py(Math.log10(base.N_max)) - 10} textAnchor="middle" fontSize="9" fill={ED.brass} fontFamily={mono}>
             imp-2631 baseline
           </text>
         </svg>
       </div>
-      <div style={{ padding: '6px 10px', borderRadius: 4, background: 'rgba(109,85,184,0.07)', border: '1px solid rgba(109,85,184,0.22)', fontSize: 11, color: '#877b67', lineHeight: 1.65 }}>
-        <strong style={{ color: '#6d55b8' }}>Scope (imp-3443):</strong>{' '}
+      <div style={{ padding: '6px 10px', borderRadius: 4, background: 'color-mix(in srgb, var(--series-5) 7%, transparent)', border: '1px solid color-mix(in srgb, var(--series-5) 22%, transparent)', fontSize: 11, color: 'var(--ink-faint)', lineHeight: 1.65 }}>
+        <strong style={{ color: 'var(--series-5)' }}>Scope (imp-3443):</strong>{' '}
         Measurement/extrapolation only, reusing the identical imp-3406/imp-3220 sub-term formulas &mdash; no
         re-derivation. &sigma;<sub>max</sub> at the baseline &asymp;{grid.find((r) => Math.abs(r.E_trunc - base.E_trunc) < 1e-12)?.sigma_max ?? base.N_max}.
         No positivity, no bridge closure, no RH claim, NO QED.
       </div>
-      <p style={{ marginTop: 8, color: '#877b67', fontSize: 11, fontFamily: mono }}>
+      <p style={{ marginTop: 8, color: 'var(--ink-faint)', fontSize: 11, fontFamily: mono }}>
         Source: imp-3443-nmax-etrunc-sensitivity.js &mdash; E_trunc&isin;[0.5,2.0]&times;3.06e-5 (9-point grid),
         log-log axes, fit slope &asymp;{slope.toFixed(3)}, R&sup2;&asymp;{sens.power_fit_R2.toFixed(5)}.
       </p>
@@ -986,11 +987,11 @@ function NmaxEtruncSensitivityPanel() {
 // from the interior stationary point to the N=1e2 window boundary is visible on the curves
 // themselves rather than only in the imp-3486 scalar certificate.
 const IMP3520_K_LADDER = [
-  { k: 0, label: 'k=0 (fixed floor, imp-3406 control)', color: '#4c7a4a' },
-  { k: 0.1, label: 'k=0.1', color: '#6d55b8' },
-  { k: IMP3486_CRITICAL_DECAY_EXPONENT.criticalExponent.k_c, label: 'k=k_c≈0.1967', color: '#b58a2e' },
-  { k: 0.2, label: 'k=0.2', color: '#b58a2e' },
-  { k: 0.4, label: 'k=0.4 (Ingham sigma=3/4)', color: '#c23a1c' },
+  { k: 0, label: 'k=0 (fixed floor, imp-3406 control)', color: ED.series3 },
+  { k: 0.1, label: 'k=0.1', color: ED.series5 },
+  { k: IMP3486_CRITICAL_DECAY_EXPONENT.criticalExponent.k_c, label: 'k=k_c≈0.1967', color: ED.brass },
+  { k: 0.2, label: 'k=0.2', color: ED.brass },
+  { k: 0.4, label: 'k=0.4 (Ingham sigma=3/4)', color: ED.accent },
 ];
 const IMP3520_TWO_PI = 2 * Math.PI;
 const IMP3520_E_TRUNC_BASE = 3.06e-5; // imp-2631/imp-3220/imp-3406/imp-3486 fixed truncation floor
@@ -1044,11 +1045,11 @@ function GKFamilyHandoverPanel() {
   );
 
   return (
-    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #3f6b86', background: 'rgba(63,107,134,0.04)' }}>
-      <h3 style={{ color: '#3f6b86', marginTop: 0, fontSize: 14 }}>
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid var(--series-1)', background: 'color-mix(in srgb, var(--series-1) 4%, transparent)' }}>
+      <h3 style={{ color: 'var(--series-1)', marginTop: 0, fontSize: 14 }}>
         The imp-3486 g(N;k) family: global-min HANDOVER at k<sub>c</sub>&asymp;{kc.toFixed(4)} (imp-3520)
       </h3>
-      <p style={{ color: '#877b67', fontSize: 12, lineHeight: 1.7, marginBottom: 10 }}>
+      <p style={{ color: 'var(--ink-faint)', fontSize: 12, lineHeight: 1.7, marginBottom: 10 }}>
         Recomputing the identical imp-3486/imp-3465/imp-3406 g(N;k) = (E<sub>trunc</sub>+E<sub>flow</sub>)/E<sub>coll</sub>{' '}
         sub-terms directly for a small floor-exponent ladder, the interior stationary minimum (circle markers) seen at
         k=0 (N&asymp;9.2&times;10<sup>5</sup>) and k=0.1 shifts LEFT as k rises toward k<sub>c</sub>&asymp;{kc.toFixed(4)}, where
@@ -1058,34 +1059,34 @@ function GKFamilyHandoverPanel() {
         one, so g climbs away from N=10<sup>2</sup> for the rest of the plotted window.
       </p>
       <div style={{ overflowX: 'auto' }}>
-        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'rgba(214,201,178,0.25)', borderRadius: 6 }}>
+        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'color-mix(in srgb, var(--rule) 25%, transparent)', borderRadius: 6 }}>
           {yTicks.map((v) => (
             <g key={`yt${v}`}>
-              <line x1={ML} y1={py(v)} x2={W - MR} y2={py(v)} stroke="#d5c9b2" strokeWidth="1" />
-              <text x={ML - 8} y={py(v) + 4} textAnchor="end" fontSize="10" fill="#877b67" fontFamily={mono}>{v}</text>
+              <line x1={ML} y1={py(v)} x2={W - MR} y2={py(v)} stroke={ED.rule} strokeWidth="1" />
+              <text x={ML - 8} y={py(v) + 4} textAnchor="end" fontSize="10" fill={ED.inkFaint} fontFamily={mono}>{v}</text>
             </g>
           ))}
           {xTicks.map((N) => (
             <g key={`xt${N}`}>
-              <line x1={px(N)} y1={MT} x2={px(N)} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-              <text x={px(N)} y={H - MB + 16} textAnchor="middle" fontSize="9" fill="#877b67" fontFamily={mono}>
+              <line x1={px(N)} y1={MT} x2={px(N)} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+              <text x={px(N)} y={H - MB + 16} textAnchor="middle" fontSize="9" fill={ED.inkFaint} fontFamily={mono}>
                 {N.toExponential(0).replace('e+', 'e')}
               </text>
             </g>
           ))}
-          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-          <text x={ML - 42} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="10" fill="#877b67" fontFamily={mono} transform={`rotate(-90 ${ML - 42} ${(MT + H - MB) / 2})`}>
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+          <text x={ML - 42} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="10" fill={ED.inkFaint} fontFamily={mono} transform={`rotate(-90 ${ML - 42} ${(MT + H - MB) / 2})`}>
             g(N;k) (log)
           </text>
 
           {/* the N=1e2 window boundary shared by every curve */}
-          <line x1={px(IMP3520_LO_N)} y1={MT} x2={px(IMP3520_LO_N)} y2={H - MB} stroke="#877b67" strokeWidth="1" strokeDasharray="3 3" />
-          <text x={px(IMP3520_LO_N) + 4} y={MT + 10} fontSize="9" fill="#877b67" fontFamily={mono}>N=10&sup2; boundary</text>
+          <line x1={px(IMP3520_LO_N)} y1={MT} x2={px(IMP3520_LO_N)} y2={H - MB} stroke={ED.rule} strokeWidth="1" strokeDasharray="3 3" />
+          <text x={px(IMP3520_LO_N) + 4} y={MT + 10} fontSize="9" fill={ED.inkFaint} fontFamily={mono}>N=10&sup2; boundary</text>
 
           {/* the k_c interior stationary point, still present but about to hand over */}
-          <line x1={px(N_atKc)} y1={MT} x2={px(N_atKc)} y2={H - MB} stroke="#b58a2e" strokeWidth="1" strokeDasharray="2 3" />
-          <text x={px(N_atKc) + 4} y={H - MB - 6} fontSize="9" fill="#b58a2e" fontFamily={mono}>interior pt @ k_c</text>
+          <line x1={px(N_atKc)} y1={MT} x2={px(N_atKc)} y2={H - MB} stroke={ED.brassDeco} strokeWidth="1" strokeDasharray="2 3" />
+          <text x={px(N_atKc) + 4} y={H - MB - 6} fontSize="9" fill={ED.brass} fontFamily={mono}>interior pt @ k_c</text>
 
           {IMP3520_CURVES.map((c) => {
             const path = c.points
@@ -1118,13 +1119,13 @@ function GKFamilyHandoverPanel() {
           ))}
         </svg>
       </div>
-      <div style={{ padding: '6px 10px', borderRadius: 4, background: 'rgba(63,107,134,0.07)', border: '1px solid rgba(63,107,134,0.22)', fontSize: 11, color: '#877b67', lineHeight: 1.65 }}>
-        <strong style={{ color: '#3f6b86' }}>Scope (imp-3520):</strong>{' '}
+      <div style={{ padding: '6px 10px', borderRadius: 4, background: 'color-mix(in srgb, var(--series-1) 7%, transparent)', border: '1px solid color-mix(in srgb, var(--series-1) 22%, transparent)', fontSize: 11, color: 'var(--ink-faint)', lineHeight: 1.65 }}>
+        <strong style={{ color: 'var(--series-1)' }}>Scope (imp-3520):</strong>{' '}
         UX/visualization only, reusing the identical imp-3486/imp-3465/imp-3406 sub-term formulas &mdash; no
         re-derivation, frontier-direction. RH-EQUIVALENT, necessary-but-not-sufficient; operator positivity
         (imp-3066) untouched, no RH claim, NO QED.
       </div>
-      <p style={{ marginTop: 8, color: '#877b67', fontSize: 11, fontFamily: mono }}>
+      <p style={{ marginTop: 8, color: 'var(--ink-faint)', fontSize: 11, fontFamily: mono }}>
         Source: imp-3486-critical-decay-exponent.js formulas recomputed at N&isin;[10<sup>2</sup>,10<sup>7</sup>]
         (log-N, 48-step grid) for k&isin;{'{'}0, 0.1, k<sub>c</sub>&asymp;0.1967, 0.2, 0.4{'}'}.
       </p>
@@ -1161,11 +1162,11 @@ function CInfThirdExtrapolationLadderPanel() {
     .join(' ');
 
   return (
-    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #4c7a4a', background: 'rgba(76,122,74,0.04)' }}>
-      <h3 style={{ color: '#4c7a4a', marginTop: 0, fontSize: 14 }}>
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid var(--series-3)', background: 'color-mix(in srgb, var(--series-3) 4%, transparent)' }}>
+      <h3 style={{ color: 'var(--series-3)', marginTop: 0, fontSize: 14 }}>
         Four-point C<sub>inf</sub> extrapolation ladder: r&middot;U &rarr; {wynnTarget.toFixed(5)} (Wynn top triple), imp-3407 band shaded (imp-3445)
       </h3>
-      <p style={{ color: '#877b67', fontSize: 12, lineHeight: 1.7, marginBottom: 10 }}>
+      <p style={{ color: 'var(--ink-faint)', fontSize: 12, lineHeight: 1.7, marginBottom: 10 }}>
         Extending the imp-3407 geometric ladder by one rung (N up to {Math.max(...m.nLadder)}), the r&middot;U
         sequence still decreases monotonically from above: {rU.map((v) => v.toFixed(6)).join(' → ')}. At
         1/U=0 the Aitken accelerator lands at {bandLo.toFixed(7)}, the quadratic Richardson accelerator at{' '}
@@ -1174,61 +1175,61 @@ function CInfThirdExtrapolationLadderPanel() {
         } the shaded imp-3407 band.
       </p>
       <div style={{ overflowX: 'auto' }}>
-        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'rgba(214,201,178,0.25)', borderRadius: 6 }}>
+        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'color-mix(in srgb, var(--rule) 25%, transparent)', borderRadius: 6 }}>
           {yTicks.map((v) => (
             <g key={`yt${v}`}>
-              <line x1={ML} y1={py(v)} x2={W - MR} y2={py(v)} stroke="#d5c9b2" strokeWidth="1" />
-              <text x={ML - 8} y={py(v) + 4} textAnchor="end" fontSize="11" fill="#4c7a4a" fontFamily={mono}>{v.toFixed(4)}</text>
+              <line x1={ML} y1={py(v)} x2={W - MR} y2={py(v)} stroke={ED.rule} strokeWidth="1" />
+              <text x={ML - 8} y={py(v) + 4} textAnchor="end" fontSize="11" fill={ED.series3} fontFamily={mono}>{v.toFixed(4)}</text>
             </g>
           ))}
           {xTicks.map((v) => (
             <g key={`xt${v}`}>
-              <line x1={px(v)} y1={MT} x2={px(v)} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-              <text x={px(v)} y={H - MB + 16} textAnchor="middle" fontSize="9" fill="#877b67" fontFamily={mono}>{v.toFixed(3)}</text>
+              <line x1={px(v)} y1={MT} x2={px(v)} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+              <text x={px(v)} y={H - MB + 16} textAnchor="middle" fontSize="9" fill={ED.inkFaint} fontFamily={mono}>{v.toFixed(3)}</text>
             </g>
           ))}
-          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-          <text x={ML - 44} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="10" fill="#877b67" fontFamily={mono} transform={`rotate(-90 ${ML - 44} ${(MT + H - MB) / 2})`}>
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+          <text x={ML - 44} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="10" fill={ED.inkFaint} fontFamily={mono} transform={`rotate(-90 ${ML - 44} ${(MT + H - MB) / 2})`}>
             r&middot;U
           </text>
-          <text x={(ML + W - MR) / 2} y={H - 6} textAnchor="middle" fontSize="10" fill="#877b67" fontFamily={mono}>
+          <text x={(ML + W - MR) / 2} y={H - 6} textAnchor="middle" fontSize="10" fill={ED.inkFaint} fontFamily={mono}>
             1/U
           </text>
 
           {/* imp-3407 band shading, Aitken (low) to quadratic (high) */}
-          <rect x={ML} y={py(bandHi)} width={W - ML - MR} height={Math.max(1, py(bandLo) - py(bandHi))} fill="rgba(109,85,184,0.14)" />
+          <rect x={ML} y={py(bandHi)} width={W - ML - MR} height={Math.max(1, py(bandLo) - py(bandHi))} fill={TK_ALPHA(ED.series5, 0.14)} />
 
-          <path d={ladderPath} fill="none" stroke="#4c7a4a" strokeWidth="1.6" />
+          <path d={ladderPath} fill="none" stroke={ED.series3} strokeWidth="1.6" />
           {invU.map((x, i) => (
-            <circle key={`p${i}`} cx={px(x)} cy={py(rU[i])} r={3.2} fill="#4c7a4a">
+            <circle key={`p${i}`} cx={px(x)} cy={py(rU[i])} r={3.2} fill={ED.series3}>
               <title>{`U=${m.uLadder[i]}, N=${m.nLadder[i]}, r*U=${rU[i]}`}</title>
             </circle>
           ))}
 
           {/* three accelerator targets at 1/U = 0 */}
-          <circle cx={px(0)} cy={py(bandLo)} r={4} fill="#c23a1c">
+          <circle cx={px(0)} cy={py(bandLo)} r={4} fill={ED.series2}>
             <title>{`Aitken = ${bandLo}`}</title>
           </circle>
-          <circle cx={px(0)} cy={py(bandHi)} r={4} fill="#6d55b8">
+          <circle cx={px(0)} cy={py(bandHi)} r={4} fill={ED.series5}>
             <title>{`quadratic Richardson = ${bandHi}`}</title>
           </circle>
-          <circle cx={px(0)} cy={py(wynnTarget)} r={4} fill="#b58a2e">
+          <circle cx={px(0)} cy={py(wynnTarget)} r={4} fill={ED.brassDeco}>
             <title>{`Wynn top triple = ${wynnTarget}`}</title>
           </circle>
-          <text x={px(0) + 8} y={py(bandLo) + 3} fontSize="9" fill="#c23a1c" fontFamily={mono}>Aitken</text>
-          <text x={px(0) + 8} y={py(bandHi) + 3} fontSize="9" fill="#6d55b8" fontFamily={mono}>quadratic</text>
-          <text x={px(0) + 8} y={py(wynnTarget) - 6} fontSize="9" fill="#b58a2e" fontFamily={mono}>Wynn top triple</text>
+          <text x={px(0) + 8} y={py(bandLo) + 3} fontSize="9" fill={ED.accent} fontFamily={mono}>Aitken</text>
+          <text x={px(0) + 8} y={py(bandHi) + 3} fontSize="9" fill={ED.series5} fontFamily={mono}>quadratic</text>
+          <text x={px(0) + 8} y={py(wynnTarget) - 6} fontSize="9" fill={ED.brass} fontFamily={mono}>Wynn top triple</text>
         </svg>
       </div>
-      <div style={{ padding: '6px 10px', borderRadius: 4, background: 'rgba(76,122,74,0.07)', border: '1px solid rgba(76,122,74,0.22)', fontSize: 11, color: '#877b67', lineHeight: 1.65 }}>
-        <strong style={{ color: '#4c7a4a' }}>Scope (imp-3445):</strong>{' '}
+      <div style={{ padding: '6px 10px', borderRadius: 4, background: 'color-mix(in srgb, var(--series-3) 7%, transparent)', border: '1px solid color-mix(in srgb, var(--series-3) 22%, transparent)', fontSize: 11, color: 'var(--ink-faint)', lineHeight: 1.65 }}>
+        <strong style={{ color: 'var(--series-3)' }}>Scope (imp-3445):</strong>{' '}
         The Wynn top-triple estimate lands {m.gapAboveBand > 0 ? `${m.gapAboveBand.toExponential(2)} above` : 'inside'} the
         imp-3407 band top, so the three-route min-max span ({m.threeRouteSpan.toExponential(2)}) did NOT tighten versus
         the prior two-route spread ({m.priorSpread.toExponential(2)}). Certification only &mdash; no closed form, no
         positivity, no RH claim, NO QED.
       </div>
-      <p style={{ marginTop: 8, color: '#877b67', fontSize: 11, fontFamily: mono }}>
+      <p style={{ marginTop: 8, color: 'var(--ink-faint)', fontSize: 11, fontFamily: mono }}>
         Source: imp-3445-C-inf-third-extrapolation-wynn.js &mdash; U&isin;{'{'}10,15,22.5,33.75{'}'}, h=0.025,
         N&isin;{'{'}400,600,900,1350{'}'}, Wynn epsilon eps_2 on the top triple.
       </p>
@@ -1267,11 +1268,11 @@ function Degree0VsDegree2KLadderPanel() {
   const missPath = rows.map((r, i) => `${i === 0 ? 'M' : 'L'} ${px(r.k).toFixed(1)} ${py(r.missFactor).toFixed(1)}`).join(' ');
 
   return (
-    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #3f6b86', background: 'rgba(63,107,134,0.04)' }}>
-      <h3 style={{ color: '#3f6b86', marginTop: 0, fontSize: 14 }}>
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid var(--series-1)', background: 'color-mix(in srgb, var(--series-1) 4%, transparent)' }}>
+      <h3 style={{ color: 'var(--series-1)', marginTop: 0, fontSize: 14 }}>
         Degree-0 (p=1) vs degree-2 (p=2) k-ladder scaling contrast (imp-3469)
       </h3>
-      <p style={{ color: '#877b67', fontSize: 12, lineHeight: 1.7, marginBottom: 10 }}>
+      <p style={{ color: 'var(--ink-faint)', fontSize: 12, lineHeight: 1.7, marginBottom: 10 }}>
         Under the identical k-ladder a&rarr;a/k, U&rarr;kU, the imp-3405 degree-0 bridge mass grows
         EXACTLY linearly in k (B(a/k,kU)/B(a,U) = k), while the imp-3469 degree-2 (absolute) mass
         instead SHRINKS as 1/k&sup2; (B<sub>2</sub>(a/k,kU)/B<sub>2</sub>(a,U) &asymp;{' '}
@@ -1281,54 +1282,54 @@ function Degree0VsDegree2KLadderPanel() {
         {rows[rows.length - 1].k}), quantifying how badly the degree-0 law over-predicts the degree-2 mass.
       </p>
       <div style={{ overflowX: 'auto' }}>
-        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'rgba(214,201,178,0.25)', borderRadius: 6 }}>
+        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'color-mix(in srgb, var(--rule) 25%, transparent)', borderRadius: 6 }}>
           {yTicks.map((v) => (
             <g key={`yt${v}`}>
-              <line x1={ML} y1={py(v)} x2={W - MR} y2={py(v)} stroke="#d5c9b2" strokeWidth="1" />
-              <text x={ML - 8} y={py(v) + 4} textAnchor="end" fontSize="10" fill="#877b67" fontFamily={mono}>{v}</text>
+              <line x1={ML} y1={py(v)} x2={W - MR} y2={py(v)} stroke={ED.rule} strokeWidth="1" />
+              <text x={ML - 8} y={py(v) + 4} textAnchor="end" fontSize="10" fill={ED.inkFaint} fontFamily={mono}>{v}</text>
             </g>
           ))}
           {kTicks.map((k) => (
             <g key={`xt${k}`}>
-              <line x1={px(k)} y1={MT} x2={px(k)} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-              <text x={px(k)} y={H - MB + 16} textAnchor="middle" fontSize="10" fill="#877b67" fontFamily={mono}>k={k}</text>
+              <line x1={px(k)} y1={MT} x2={px(k)} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+              <text x={px(k)} y={H - MB + 16} textAnchor="middle" fontSize="10" fill={ED.inkFaint} fontFamily={mono}>k={k}</text>
             </g>
           ))}
-          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-          <text x={ML - 42} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="10" fill="#877b67" fontFamily={mono} transform={`rotate(-90 ${ML - 42} ${(MT + H - MB) / 2})`}>
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+          <text x={ML - 42} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="10" fill={ED.inkFaint} fontFamily={mono} transform={`rotate(-90 ${ML - 42} ${(MT + H - MB) / 2})`}>
             mass ratio (log)
           </text>
 
-          <path d={degree0Path} fill="none" stroke="#b58a2e" strokeWidth="1.6" />
-          <path d={degree2Path} fill="none" stroke="#3f6b86" strokeWidth="1.6" />
-          <path d={missPath} fill="none" stroke="#6d55b8" strokeWidth="1.4" strokeDasharray="4 3" />
+          <path d={degree0Path} fill="none" stroke={ED.brassDeco} strokeWidth="1.6" />
+          <path d={degree2Path} fill="none" stroke={ED.series1} strokeWidth="1.6" />
+          <path d={missPath} fill="none" stroke={ED.series5} strokeWidth="1.4" strokeDasharray="4 3" />
           {rows.map((r) => (
             <g key={`pt${r.k}`}>
-              <circle cx={px(r.k)} cy={py(r.degree0Ratio)} r={3} fill="#b58a2e">
+              <circle cx={px(r.k)} cy={py(r.degree0Ratio)} r={3} fill={ED.brassDeco}>
                 <title>{`k=${r.k}: degree-0 ratio = ${r.degree0Ratio} (exponent p=1)`}</title>
               </circle>
-              <circle cx={px(r.k)} cy={py(r.degree2Ratio)} r={3} fill="#3f6b86">
+              <circle cx={px(r.k)} cy={py(r.degree2Ratio)} r={3} fill={ED.series1}>
                 <title>{`k=${r.k}: degree-2 ratio = ${r.degree2Ratio.toExponential(4)} (exponent p=2)`}</title>
               </circle>
-              <circle cx={px(r.k)} cy={py(r.missFactor)} r={2.6} fill="#6d55b8">
+              <circle cx={px(r.k)} cy={py(r.missFactor)} r={2.6} fill={ED.series5}>
                 <title>{`k=${r.k}: closed miss 1-1/k^3 = ${r.missFactor.toFixed(6)}`}</title>
               </circle>
             </g>
           ))}
-          <text x={W - MR - 4} y={py(rows[0].degree0Ratio) - 8} textAnchor="end" fontSize="10" fill="#b58a2e" fontFamily={mono}>degree-0: ratio = k (p=1)</text>
-          <text x={W - MR - 4} y={py(rows[rows.length - 1].degree2Ratio) + 14} textAnchor="end" fontSize="10" fill="#3f6b86" fontFamily={mono}>degree-2: ratio = 1/k&sup2; (p=2)</text>
-          <text x={px(rows[0].k) + 6} y={py(rows[0].missFactor) - 8} fontSize="10" fill="#6d55b8" fontFamily={mono}>miss 1&minus;1/k&sup3;</text>
+          <text x={W - MR - 4} y={py(rows[0].degree0Ratio) - 8} textAnchor="end" fontSize="10" fill={ED.brass} fontFamily={mono}>degree-0: ratio = k (p=1)</text>
+          <text x={W - MR - 4} y={py(rows[rows.length - 1].degree2Ratio) + 14} textAnchor="end" fontSize="10" fill={ED.series1} fontFamily={mono}>degree-2: ratio = 1/k&sup2; (p=2)</text>
+          <text x={px(rows[0].k) + 6} y={py(rows[0].missFactor) - 8} fontSize="10" fill={ED.series5} fontFamily={mono}>miss 1&minus;1/k&sup3;</text>
         </svg>
       </div>
-      <div style={{ padding: '6px 10px', borderRadius: 4, background: 'rgba(63,107,134,0.07)', border: '1px solid rgba(63,107,134,0.22)', fontSize: 11, color: '#877b67', lineHeight: 1.65 }}>
-        <strong style={{ color: '#3f6b86' }}>Scope (imp-3469):</strong>{' '}
+      <div style={{ padding: '6px 10px', borderRadius: 4, background: 'color-mix(in srgb, var(--series-1) 7%, transparent)', border: '1px solid color-mix(in srgb, var(--series-1) 22%, transparent)', fontSize: 11, color: 'var(--ink-faint)', lineHeight: 1.65 }}>
+        <strong style={{ color: 'var(--series-1)' }}>Scope (imp-3469):</strong>{' '}
         Numerical scaling-law characterization only &mdash; the degree-0 law does not extend to the
         degree-2 (absolute) mass, which instead scales as a&sup2; (U-independent, fixed by the second
         genuine-Phi autocorrelation moment M<sub>2</sub>). RH-EQUIVALENT, necessary-but-not-sufficient;
         operator positivity (imp-3066) untouched, no RH verdict.
       </div>
-      <p style={{ marginTop: 8, color: '#877b67', fontSize: 11, fontFamily: mono }}>
+      <p style={{ marginTop: 8, color: 'var(--ink-faint)', fontSize: 11, fontFamily: mono }}>
         Source: imp-3469-degree2-bridge-mass-scaling.js &mdash; base cell (a,U)=(0.5,6), s=3, k&isin;{'{'}2,3,4,6,8{'}'}.
       </p>
     </div>
@@ -1354,11 +1355,11 @@ function AutocorrWeightSupportPanel() {
   const xTicks = [0, 0.5, 1, 1.5, 2, 2.5].filter((t) => t <= tauMax);
 
   return (
-    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #3f6b86', background: 'rgba(63,107,134,0.04)' }}>
-      <h3 style={{ color: '#3f6b86', marginTop: 0, fontSize: 14 }}>
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid var(--series-1)', background: 'color-mix(in srgb, var(--series-1) 4%, transparent)' }}>
+      <h3 style={{ color: 'var(--series-1)', marginTop: 0, fontSize: 14 }}>
         A(&tau;) finite support vs the degree-2 crossover tauStar (imp-3469)
       </h3>
-      <p style={{ color: '#877b67', fontSize: 12, lineHeight: 1.7, marginBottom: 10 }}>
+      <p style={{ color: 'var(--ink-faint)', fontSize: 12, lineHeight: 1.7, marginBottom: 10 }}>
         The genuine-Phi autocorrelation A(&tau;) = &int; &Phi;(s)&Phi;(s+&tau;) ds that weights the
         degree-2 (absolute) bridge mass decays to numerically negligible ( &lt;{' '}
         {(1e-3).toExponential(0)} of its peak) by &tau;&asymp;{P.supportEnd.toFixed(3)}, its
@@ -1368,42 +1369,42 @@ function AutocorrWeightSupportPanel() {
         D<sub>2</sub> = 0 identically (R4): the overflow tail [tauStar, U] never meets A(&tau;).
       </p>
       <div style={{ overflowX: 'auto' }}>
-        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'rgba(214,201,178,0.25)', borderRadius: 6 }}>
+        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'color-mix(in srgb, var(--rule) 25%, transparent)', borderRadius: 6 }}>
           {xTicks.map((t) => (
             <g key={`xt${t}`}>
-              <line x1={px(t)} y1={MT} x2={px(t)} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-              <text x={px(t)} y={H - MB + 16} textAnchor="middle" fontSize="10" fill="#877b67" fontFamily={mono}>{t}</text>
+              <line x1={px(t)} y1={MT} x2={px(t)} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+              <text x={px(t)} y={H - MB + 16} textAnchor="middle" fontSize="10" fill={ED.inkFaint} fontFamily={mono}>{t}</text>
             </g>
           ))}
-          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-          <text x={ML - 42} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="10" fill="#877b67" fontFamily={mono} transform={`rotate(-90 ${ML - 42} ${(MT + H - MB) / 2})`}>
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+          <text x={ML - 42} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="10" fill={ED.inkFaint} fontFamily={mono} transform={`rotate(-90 ${ML - 42} ${(MT + H - MB) / 2})`}>
             A(&tau;)
           </text>
-          <text x={(ML + W - MR) / 2} y={H - MB + 28} textAnchor="middle" fontSize="10" fill="#877b67" fontFamily={mono}>
+          <text x={(ML + W - MR) / 2} y={H - MB + 28} textAnchor="middle" fontSize="10" fill={ED.inkFaint} fontFamily={mono}>
             &tau;
           </text>
 
-          <path d={path} fill="none" stroke="#3f6b86" strokeWidth="1.6" />
+          <path d={path} fill="none" stroke={ED.series1} strokeWidth="1.6" />
 
-          <line x1={px(P.supportEnd)} y1={MT} x2={px(P.supportEnd)} y2={H - MB} stroke="#b58a2e" strokeWidth="1.4" strokeDasharray="4 3" />
-          <text x={px(P.supportEnd) + 4} y={MT + 10} fontSize="10" fill="#b58a2e" fontFamily={mono}>support edge</text>
+          <line x1={px(P.supportEnd)} y1={MT} x2={px(P.supportEnd)} y2={H - MB} stroke={ED.brassDeco} strokeWidth="1.4" strokeDasharray="4 3" />
+          <text x={px(P.supportEnd) + 4} y={MT + 10} fontSize="10" fill={ED.brass} fontFamily={mono}>support edge</text>
 
           {px(P.tauStarBaseS3) <= W - MR && (
             <g>
-              <line x1={px(P.tauStarBaseS3)} y1={MT} x2={px(P.tauStarBaseS3)} y2={H - MB} stroke="#6d55b8" strokeWidth="1.4" strokeDasharray="2 2" />
-              <text x={px(P.tauStarBaseS3) + 4} y={MT + 24} fontSize="10" fill="#6d55b8" fontFamily={mono}>tauStar(a=0.5)</text>
+              <line x1={px(P.tauStarBaseS3)} y1={MT} x2={px(P.tauStarBaseS3)} y2={H - MB} stroke={ED.series5} strokeWidth="1.4" strokeDasharray="2 2" />
+              <text x={px(P.tauStarBaseS3) + 4} y={MT + 24} fontSize="10" fill={ED.series5} fontFamily={mono}>tauStar(a=0.5)</text>
             </g>
           )}
         </svg>
       </div>
-      <div style={{ padding: '6px 10px', borderRadius: 4, background: 'rgba(63,107,134,0.07)', border: '1px solid rgba(63,107,134,0.22)', fontSize: 11, color: '#877b67', lineHeight: 1.65 }}>
-        <strong style={{ color: '#3f6b86' }}>Scope (imp-3469):</strong>{' '}
+      <div style={{ padding: '6px 10px', borderRadius: 4, background: 'color-mix(in srgb, var(--series-1) 7%, transparent)', border: '1px solid color-mix(in srgb, var(--series-1) 22%, transparent)', fontSize: 11, color: 'var(--ink-faint)', lineHeight: 1.65 }}>
+        <strong style={{ color: 'var(--series-1)' }}>Scope (imp-3469):</strong>{' '}
         Numerical characterization of the fixed A(&tau;) weight and its support only &mdash;
         establishes NO operator positivity. RH-EQUIVALENT, necessary-but-not-sufficient; operator
         positivity (imp-3066) untouched, no RH verdict.
       </div>
-      <p style={{ marginTop: 8, color: '#877b67', fontSize: 11, fontFamily: mono }}>
+      <p style={{ marginTop: 8, color: 'var(--ink-faint)', fontSize: 11, fontFamily: mono }}>
         Source: imp-3469-degree2-bridge-mass-scaling.js (AUTOCORR_WEIGHT_PROFILE) &mdash; NPHI=10,
         support threshold 1e-3&times;peak.
       </p>
@@ -1421,7 +1422,7 @@ function MomentLadderResidualPanel() {
   const F = IMP3481_AUTOCORRELATION_MOMENT_LADDER;
   const moments = F.measured.moments;
   const laddersByA = F.measured.laddersByA;
-  const N_COLORS = ['#b58a2e', '#3f6b86', '#4c7a4a', '#6d55b8', '#c23a1c'];
+  const N_COLORS = [ED.brassDeco, ED.series1, ED.series3, ED.series5, ED.series2];
 
   // -- Chart A: moment ladder M_0..M_4, log-y bar chart --------------------
   const momentRows = [0, 1, 2, 3, 4].map((n) => ({ n, value: moments[`M${n}`] }));
@@ -1448,11 +1449,11 @@ function MomentLadderResidualPanel() {
   });
 
   return (
-    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #3f6b86', background: 'rgba(63,107,134,0.04)' }}>
-      <h3 style={{ color: '#3f6b86', marginTop: 0, fontSize: 14 }}>
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid var(--series-1)', background: 'color-mix(in srgb, var(--series-1) 4%, transparent)' }}>
+      <h3 style={{ color: 'var(--series-1)', marginTop: 0, fontSize: 14 }}>
         Autocorrelation moment ladder M<sub>0</sub>..M<sub>4</sub> and Taylor-remainder residual convergence (imp-3481)
       </h3>
-      <p style={{ color: '#877b67', fontSize: 12, lineHeight: 1.7, marginBottom: 10 }}>
+      <p style={{ color: 'var(--ink-faint)', fontSize: 12, lineHeight: 1.7, marginBottom: 10 }}>
         The genuine-Phi autocorrelation moments M<sub>n</sub> = &int; &tau;<sup>n</sup> A(&tau;) d&tau;
         fall roughly geometrically from M<sub>0</sub>&asymp;{moments.M0.toExponential(3)} to
         M<sub>4</sub>&asymp;{moments.M4.toExponential(3)}, and each is the leading small-a
@@ -1462,19 +1463,19 @@ function MomentLadderResidualPanel() {
         (minimum ratio {F.measured.minConvergenceRatio.toFixed(2)}, order-a&sup2;), confirming the
         leading form is genuine rather than a coincidental fit.
       </p>
-      <p style={{ color: '#877b67', fontSize: 11, fontFamily: mono, marginBottom: 4 }}>
+      <p style={{ color: 'var(--ink-faint)', fontSize: 11, fontFamily: mono, marginBottom: 4 }}>
         Moment ladder M<sub>n</sub> (log scale)
       </p>
       <div style={{ overflowX: 'auto' }}>
-        <svg width={Wa} height={Ha} style={{ display: 'block', maxWidth: '100%', background: 'rgba(214,201,178,0.25)', borderRadius: 6 }}>
+        <svg width={Wa} height={Ha} style={{ display: 'block', maxWidth: '100%', background: 'color-mix(in srgb, var(--rule) 25%, transparent)', borderRadius: 6 }}>
           {yTicksA.map((v) => (
             <g key={`ya${v}`}>
-              <line x1={MLa} y1={pyA(v)} x2={Wa - MRa} y2={pyA(v)} stroke="#d5c9b2" strokeWidth="1" />
-              <text x={MLa - 8} y={pyA(v) + 4} textAnchor="end" fontSize="10" fill="#877b67" fontFamily={mono}>{v.toExponential(0)}</text>
+              <line x1={MLa} y1={pyA(v)} x2={Wa - MRa} y2={pyA(v)} stroke={ED.rule} strokeWidth="1" />
+              <text x={MLa - 8} y={pyA(v) + 4} textAnchor="end" fontSize="10" fill={ED.inkFaint} fontFamily={mono}>{v.toExponential(0)}</text>
             </g>
           ))}
-          <line x1={MLa} y1={MTa} x2={MLa} y2={Ha - MBa} stroke="#d5c9b2" strokeWidth="1" />
-          <line x1={MLa} y1={Ha - MBa} x2={Wa - MRa} y2={Ha - MBa} stroke="#d5c9b2" strokeWidth="1" />
+          <line x1={MLa} y1={MTa} x2={MLa} y2={Ha - MBa} stroke={ED.rule} strokeWidth="1" />
+          <line x1={MLa} y1={Ha - MBa} x2={Wa - MRa} y2={Ha - MBa} stroke={ED.rule} strokeWidth="1" />
           {momentRows.map((r, i) => (
             <g key={`mb${r.n}`}>
               <rect
@@ -1487,32 +1488,32 @@ function MomentLadderResidualPanel() {
               >
                 <title>{`M_${r.n} = ${r.value.toExponential(4)}`}</title>
               </rect>
-              <text x={pxA(i)} y={Ha - MBa + 16} textAnchor="middle" fontSize="10" fill="#877b67" fontFamily={mono}>
+              <text x={pxA(i)} y={Ha - MBa + 16} textAnchor="middle" fontSize="10" fill={ED.inkFaint} fontFamily={mono}>
                 M<tspan dy="2" fontSize="8">{r.n}</tspan>
               </text>
             </g>
           ))}
         </svg>
       </div>
-      <p style={{ color: '#877b67', fontSize: 11, fontFamily: mono, margin: '10px 0 4px' }}>
+      <p style={{ color: 'var(--ink-faint)', fontSize: 11, fontFamily: mono, margin: '10px 0 4px' }}>
         Per-moment relative residual |R<sub>n</sub>(a) &minus; (a<sup>n</sup>/n!)M<sub>n</sub>| / |R<sub>n</sub>(a)| vs a (log&ndash;log, halving ladder)
       </p>
       <div style={{ overflowX: 'auto' }}>
-        <svg width={Wb} height={Hb} style={{ display: 'block', maxWidth: '100%', background: 'rgba(214,201,178,0.25)', borderRadius: 6 }}>
+        <svg width={Wb} height={Hb} style={{ display: 'block', maxWidth: '100%', background: 'color-mix(in srgb, var(--rule) 25%, transparent)', borderRadius: 6 }}>
           {yTicksB.map((v) => (
             <g key={`yb${v}`}>
-              <line x1={MLb} y1={pyB(v)} x2={Wb - MRb} y2={pyB(v)} stroke="#d5c9b2" strokeWidth="1" />
-              <text x={MLb - 8} y={pyB(v) + 4} textAnchor="end" fontSize="10" fill="#877b67" fontFamily={mono}>{v.toExponential(0)}</text>
+              <line x1={MLb} y1={pyB(v)} x2={Wb - MRb} y2={pyB(v)} stroke={ED.rule} strokeWidth="1" />
+              <text x={MLb - 8} y={pyB(v) + 4} textAnchor="end" fontSize="10" fill={ED.inkFaint} fontFamily={mono}>{v.toExponential(0)}</text>
             </g>
           ))}
           {aVals.map((a) => (
             <g key={`xb${a}`}>
-              <line x1={pxB(a)} y1={MTb} x2={pxB(a)} y2={Hb - MBb} stroke="#d5c9b2" strokeWidth="1" />
-              <text x={pxB(a)} y={Hb - MBb + 16} textAnchor="middle" fontSize="10" fill="#877b67" fontFamily={mono}>a={a}</text>
+              <line x1={pxB(a)} y1={MTb} x2={pxB(a)} y2={Hb - MBb} stroke={ED.rule} strokeWidth="1" />
+              <text x={pxB(a)} y={Hb - MBb + 16} textAnchor="middle" fontSize="10" fill={ED.inkFaint} fontFamily={mono}>a={a}</text>
             </g>
           ))}
-          <line x1={MLb} y1={MTb} x2={MLb} y2={Hb - MBb} stroke="#d5c9b2" strokeWidth="1" />
-          <line x1={MLb} y1={Hb - MBb} x2={Wb - MRb} y2={Hb - MBb} stroke="#d5c9b2" strokeWidth="1" />
+          <line x1={MLb} y1={MTb} x2={MLb} y2={Hb - MBb} stroke={ED.rule} strokeWidth="1" />
+          <line x1={MLb} y1={Hb - MBb} x2={Wb - MRb} y2={Hb - MBb} stroke={ED.rule} strokeWidth="1" />
           {residualPaths.map(({ n, pts, path }) => (
             <g key={`rp${n}`}>
               <path d={path} fill="none" stroke={N_COLORS[n]} strokeWidth="1.6" />
@@ -1523,19 +1524,19 @@ function MomentLadderResidualPanel() {
               ))}
             </g>
           ))}
-          <text x={Wb - MRb - 4} y={MTb + 10} textAnchor="end" fontSize="10" fill="#877b67" fontFamily={mono}>
+          <text x={Wb - MRb - 4} y={MTb + 10} textAnchor="end" fontSize="10" fill={ED.inkFaint} fontFamily={mono}>
             n=0..4 (top&rarr;bottom at a=0.5)
           </text>
         </svg>
       </div>
-      <div style={{ padding: '6px 10px', borderRadius: 4, background: 'rgba(63,107,134,0.07)', border: '1px solid rgba(63,107,134,0.22)', fontSize: 11, color: '#877b67', lineHeight: 1.65 }}>
-        <strong style={{ color: '#3f6b86' }}>Scope (imp-3481):</strong>{' '}
+      <div style={{ padding: '6px 10px', borderRadius: 4, background: 'color-mix(in srgb, var(--series-1) 7%, transparent)', border: '1px solid color-mix(in srgb, var(--series-1) 22%, transparent)', fontSize: 11, color: 'var(--ink-faint)', lineHeight: 1.65 }}>
+        <strong style={{ color: 'var(--series-1)' }}>Scope (imp-3481):</strong>{' '}
         Moment/Taylor characterization only &mdash; establishes NO operator positivity. Mass-feasibility
         is necessary-but-not-sufficient and the degree-2 face carries no feasibility comparison at all
         (imp-3469: D<sub>2</sub>=0). The operator-level K<sub>a</sub>&nbsp;&ge;&nbsp;0 sign-positivity
         (imp-3066) is UNTOUCHED. No RH verdict.
       </div>
-      <p style={{ marginTop: 8, color: '#877b67', fontSize: 11, fontFamily: mono }}>
+      <p style={{ marginTop: 8, color: 'var(--ink-faint)', fontSize: 11, fontFamily: mono }}>
         Source: imp-3481-autocorrelation-moment-ladder.js &mdash; NPHI=10, T_A=6, a&isin;{'{'}0.5,0.25,0.125{'}'}.
       </p>
     </div>
@@ -1565,11 +1566,11 @@ function Degree2DeficitAThresholdPanel() {
   const yTicks = [1e6, 1e50, 1e100, 1e150, 1e200];
 
   return (
-    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #3f6b86', background: 'rgba(63,107,134,0.04)' }}>
-      <h3 style={{ color: '#3f6b86', marginTop: 0, fontSize: 14 }}>
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid var(--series-1)', background: 'color-mix(in srgb, var(--series-1) 4%, transparent)' }}>
+      <h3 style={{ color: 'var(--series-1)', marginTop: 0, fontSize: 14 }}>
         Degree-2 deficit a-threshold: B<sub>2</sub>/D<sub>2</sub> collapse from astronomic to ~3.4e+6 (imp-3487)
       </h3>
-      <p style={{ color: '#877b67', fontSize: 12, lineHeight: 1.7, marginBottom: 10 }}>
+      <p style={{ color: 'var(--ink-faint)', fontSize: 12, lineHeight: 1.7, marginBottom: 10 }}>
         Because tauStar = arcsinh(1)/a DECREASES as a rises, raising a eventually drags the degree-2
         overflow crossover back INSIDE the genuine-Phi autocorrelation support, switching the deficit
         D<sub>2</sub> on at a bisected threshold aStar&asymp;{m.aStar.toFixed(4)} (tauStar&asymp;{m.tauStarAtAStar.toFixed(3)},
@@ -1581,46 +1582,46 @@ function Degree2DeficitAThresholdPanel() {
         so D<sub>2</sub>=0 identically there and the ratio is undefined.
       </p>
       <div style={{ overflowX: 'auto' }}>
-        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'rgba(214,201,178,0.25)', borderRadius: 6 }}>
+        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'color-mix(in srgb, var(--rule) 25%, transparent)', borderRadius: 6 }}>
           {yTicks.map((v) => (
             <g key={`yt${v}`}>
-              <line x1={ML} y1={py(v)} x2={W - MR} y2={py(v)} stroke="#d5c9b2" strokeWidth="1" />
-              <text x={ML - 8} y={py(v) + 4} textAnchor="end" fontSize="10" fill="#877b67" fontFamily={mono}>{v.toExponential(0)}</text>
+              <line x1={ML} y1={py(v)} x2={W - MR} y2={py(v)} stroke={ED.rule} strokeWidth="1" />
+              <text x={ML - 8} y={py(v) + 4} textAnchor="end" fontSize="10" fill={ED.inkFaint} fontFamily={mono}>{v.toExponential(0)}</text>
             </g>
           ))}
-          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-          <text x={ML - 46} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="10" fill="#877b67" fontFamily={mono} transform={`rotate(-90 ${ML - 46} ${(MT + H - MB) / 2})`}>
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+          <text x={ML - 46} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="10" fill={ED.inkFaint} fontFamily={mono} transform={`rotate(-90 ${ML - 46} ${(MT + H - MB) / 2})`}>
             B<tspan dy="2" fontSize="8">2</tspan>/D<tspan dy="2" fontSize="8">2</tspan> (log)
           </text>
-          <text x={(ML + W - MR) / 2} y={H - MB + 28} textAnchor="middle" fontSize="10" fill="#877b67" fontFamily={mono}>a</text>
+          <text x={(ML + W - MR) / 2} y={H - MB + 28} textAnchor="middle" fontSize="10" fill={ED.inkFaint} fontFamily={mono}>a</text>
 
-          <path d={path} fill="none" stroke="#3f6b86" strokeWidth="1.6" />
+          <path d={path} fill="none" stroke={ED.series1} strokeWidth="1.6" />
           {definedRows.map((r) => (
             <g key={`pt${r.a}`}>
-              <circle cx={px(r.a)} cy={py(Math.max(r.ratio, yMin))} r={3} fill="#3f6b86">
+              <circle cx={px(r.a)} cy={py(Math.max(r.ratio, yMin))} r={3} fill={ED.series1}>
                 <title>{`a=${r.a.toFixed(4)}: B_2/D_2=${r.ratio.toExponential(3)}`}</title>
               </circle>
             </g>
           ))}
-          <line x1={px(m.aEff1e12)} y1={MT} x2={px(m.aEff1e12)} y2={H - MB} stroke="#b58a2e" strokeWidth="1.2" strokeDasharray="4 3" />
-          <text x={px(m.aEff1e12) + 4} y={MT + 12} fontSize="10" fill="#b58a2e" fontFamily={mono}>a_eff(1e-12)</text>
-          <line x1={px(m.aEff1e6)} y1={MT} x2={px(m.aEff1e6)} y2={H - MB} stroke="#c23a1c" strokeWidth="1.2" strokeDasharray="4 3" />
-          <text x={px(m.aEff1e6) + 4} y={MT + 26} fontSize="10" fill="#c23a1c" fontFamily={mono}>a_eff(1e-6)</text>
+          <line x1={px(m.aEff1e12)} y1={MT} x2={px(m.aEff1e12)} y2={H - MB} stroke={ED.brassDeco} strokeWidth="1.2" strokeDasharray="4 3" />
+          <text x={px(m.aEff1e12) + 4} y={MT + 12} fontSize="10" fill={ED.brass} fontFamily={mono}>a_eff(1e-12)</text>
+          <line x1={px(m.aEff1e6)} y1={MT} x2={px(m.aEff1e6)} y2={H - MB} stroke={ED.accent} strokeWidth="1.2" strokeDasharray="4 3" />
+          <text x={px(m.aEff1e6) + 4} y={MT + 26} fontSize="10" fill={ED.accent} fontFamily={mono}>a_eff(1e-6)</text>
           <circle cx={ML} cy={H - MB} r={3.4} fill="#877b67">
             <title>{`base cells a=0.4, 0.5 (below aStar=${m.aStar.toFixed(4)}): D_2=0 identically, ratio undefined`}</title>
           </circle>
-          <text x={ML + 6} y={H - MB - 6} fontSize="10" fill="#877b67" fontFamily={mono}>a=0.4,0.5 (out-of-band): D&#x2082;=0</text>
+          <text x={ML + 6} y={H - MB - 6} fontSize="10" fill={ED.inkFaint} fontFamily={mono}>a=0.4,0.5 (out-of-band): D&#x2082;=0</text>
         </svg>
       </div>
-      <div style={{ padding: '6px 10px', borderRadius: 4, background: 'rgba(63,107,134,0.07)', border: '1px solid rgba(63,107,134,0.22)', fontSize: 11, color: '#877b67', lineHeight: 1.65 }}>
-        <strong style={{ color: '#3f6b86' }}>Scope (imp-3487):</strong>{' '}
+      <div style={{ padding: '6px 10px', borderRadius: 4, background: 'color-mix(in srgb, var(--series-1) 7%, transparent)', border: '1px solid color-mix(in srgb, var(--series-1) 22%, transparent)', fontSize: 11, color: 'var(--ink-faint)', lineHeight: 1.65 }}>
+        <strong style={{ color: 'var(--series-1)' }}>Scope (imp-3487):</strong>{' '}
         Threshold-location assessment only &mdash; establishes NO operator positivity. Even where
         B<sub>2</sub>/D<sub>2</sub> is defined (a&gt;aStar) it is enormous, so no physically meaningful
         degree-2 feasibility ratio emerges within the small-a construction band; the imp-3469
         D<sub>2</sub>=0 conclusion stands. Operator positivity (imp-3066) UNTOUCHED, no RH verdict.
       </div>
-      <p style={{ marginTop: 8, color: '#877b67', fontSize: 11, fontFamily: mono }}>
+      <p style={{ marginTop: 8, color: 'var(--ink-faint)', fontSize: 11, fontFamily: mono }}>
         Source: imp-3487-degree2-deficit-a-threshold.js &mdash; NPHI=10, T_A=6, aStar bisected to 200 iters.
       </p>
     </div>
@@ -1660,11 +1661,11 @@ function CaptureConstantIndependentNormConvergencePanel() {
   const aTicks = [1e-4, 1e-3, 1e-2];
 
   return (
-    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #c23a1c', background: 'rgba(194,58,28,0.04)' }}>
-      <h3 style={{ color: '#c23a1c', marginTop: 0, fontSize: 14 }}>
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid var(--accent)', background: 'color-mix(in srgb, var(--series-2) 4%, transparent)' }}>
+      <h3 style={{ color: 'var(--accent)', marginTop: 0, fontSize: 14 }}>
         Independent-solver capture-constant convergence: C<sub>direct</sub>(U) &rarr; C={cClosed.toFixed(7)} (imp-3485)
       </h3>
-      <p style={{ color: '#877b67', fontSize: 12, lineHeight: 1.7, marginBottom: 10 }}>
+      <p style={{ color: 'var(--ink-faint)', fontSize: 12, lineHeight: 1.7, marginBottom: 10 }}>
         Recomputing the imp-3467 numerator operator norm with a structurally independent Lanczos/Jacobi
         eigensolver, the assembled capture constant C<sub>direct</sub> rises monotonically from{' '}
         {cDirect[0].toFixed(6)} (U={uGrid[0]}) to {cDirect[cDirect.length - 1].toFixed(6)} (U=
@@ -1675,71 +1676,71 @@ function CaptureConstantIndependentNormConvergencePanel() {
         {uGrid[uGrid.length - 1]}) in lockstep.
       </p>
       <div style={{ overflowX: 'auto' }}>
-        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'rgba(214,201,178,0.25)', borderRadius: 6 }}>
+        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'color-mix(in srgb, var(--rule) 25%, transparent)', borderRadius: 6 }}>
           {yTicks.map((v) => (
             <g key={`yt${v}`}>
-              <line x1={ML} y1={py(v)} x2={W - MR} y2={py(v)} stroke="#d5c9b2" strokeWidth="1" />
-              <text x={ML - 8} y={py(v) + 4} textAnchor="end" fontSize="10" fill="#877b67" fontFamily={mono}>{v.toFixed(4)}</text>
+              <line x1={ML} y1={py(v)} x2={W - MR} y2={py(v)} stroke={ED.rule} strokeWidth="1" />
+              <text x={ML - 8} y={py(v) + 4} textAnchor="end" fontSize="10" fill={ED.inkFaint} fontFamily={mono}>{v.toFixed(4)}</text>
             </g>
           ))}
           {uTicks.map((u) => (
             <g key={`xt${u}`}>
-              <line x1={px(u)} y1={MT} x2={px(u)} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-              <text x={px(u)} y={H - MB + 16} textAnchor="middle" fontSize="9" fill="#877b67" fontFamily={mono}>U={u}</text>
+              <line x1={px(u)} y1={MT} x2={px(u)} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+              <text x={px(u)} y={H - MB + 16} textAnchor="middle" fontSize="9" fill={ED.inkFaint} fontFamily={mono}>U={u}</text>
             </g>
           ))}
-          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-          <text x={ML - 48} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="10" fill="#877b67" fontFamily={mono} transform={`rotate(-90 ${ML - 48} ${(MT + H - MB) / 2})`}>
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+          <text x={ML - 48} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="10" fill={ED.inkFaint} fontFamily={mono} transform={`rotate(-90 ${ML - 48} ${(MT + H - MB) / 2})`}>
             C
           </text>
 
-          <line x1={ML} y1={py(cClosed)} x2={W - MR} y2={py(cClosed)} stroke="#b58a2e" strokeWidth="1.2" strokeDasharray="4 3" />
-          <text x={W - MR - 4} y={py(cClosed) - 6} textAnchor="end" fontSize="10" fill="#b58a2e" fontFamily={mono}>closed form C={cClosed.toFixed(7)}</text>
+          <line x1={ML} y1={py(cClosed)} x2={W - MR} y2={py(cClosed)} stroke={ED.brassDeco} strokeWidth="1.2" strokeDasharray="4 3" />
+          <text x={W - MR - 4} y={py(cClosed) - 6} textAnchor="end" fontSize="10" fill={ED.brass} fontFamily={mono}>closed form C={cClosed.toFixed(7)}</text>
 
-          <path d={ladderPath} fill="none" stroke="#c23a1c" strokeWidth="1.6" />
+          <path d={ladderPath} fill="none" stroke={ED.accent} strokeWidth="1.6" />
           {uGrid.map((u, i) => (
-            <circle key={`p${i}`} cx={px(u)} cy={py(cDirect[i])} r={3.2} fill="#c23a1c">
+            <circle key={`p${i}`} cx={px(u)} cy={py(cDirect[i])} r={3.2} fill={ED.series2}>
               <title>{`U=${u}: C_direct=${cDirect[i].toFixed(6)}, agreement=${(agreements[i] * 100).toFixed(3)}%`}</title>
             </circle>
           ))}
         </svg>
       </div>
       <div style={{ overflowX: 'auto', marginTop: 6 }}>
-        <svg width={Wb} height={Hb} style={{ display: 'block', maxWidth: '100%', background: 'rgba(214,201,178,0.25)', borderRadius: 6 }}>
+        <svg width={Wb} height={Hb} style={{ display: 'block', maxWidth: '100%', background: 'color-mix(in srgb, var(--rule) 25%, transparent)', borderRadius: 6 }}>
           {aTicks.map((v) => (
             <g key={`ybt${v}`}>
-              <line x1={MLb} y1={pyB(v)} x2={Wb - MRb} y2={pyB(v)} stroke="#d5c9b2" strokeWidth="1" />
-              <text x={MLb - 8} y={pyB(v) + 4} textAnchor="end" fontSize="10" fill="#877b67" fontFamily={mono}>{(v * 100).toFixed(2)}%</text>
+              <line x1={MLb} y1={pyB(v)} x2={Wb - MRb} y2={pyB(v)} stroke={ED.rule} strokeWidth="1" />
+              <text x={MLb - 8} y={pyB(v) + 4} textAnchor="end" fontSize="10" fill={ED.inkFaint} fontFamily={mono}>{(v * 100).toFixed(2)}%</text>
             </g>
           ))}
           {uTicks.map((u) => (
             <g key={`xbt${u}`}>
-              <line x1={pxB(u)} y1={MTb} x2={pxB(u)} y2={Hb - MBb} stroke="#d5c9b2" strokeWidth="1" />
-              <text x={pxB(u)} y={Hb - MBb + 16} textAnchor="middle" fontSize="9" fill="#877b67" fontFamily={mono}>U={u}</text>
+              <line x1={pxB(u)} y1={MTb} x2={pxB(u)} y2={Hb - MBb} stroke={ED.rule} strokeWidth="1" />
+              <text x={pxB(u)} y={Hb - MBb + 16} textAnchor="middle" fontSize="9" fill={ED.inkFaint} fontFamily={mono}>U={u}</text>
             </g>
           ))}
-          <line x1={MLb} y1={MTb} x2={MLb} y2={Hb - MBb} stroke="#d5c9b2" strokeWidth="1" />
-          <line x1={MLb} y1={Hb - MBb} x2={Wb - MRb} y2={Hb - MBb} stroke="#d5c9b2" strokeWidth="1" />
-          <text x={MLb - 48} y={(MTb + Hb - MBb) / 2} textAnchor="middle" fontSize="10" fill="#877b67" fontFamily={mono} transform={`rotate(-90 ${MLb - 48} ${(MTb + Hb - MBb) / 2})`}>
+          <line x1={MLb} y1={MTb} x2={MLb} y2={Hb - MBb} stroke={ED.rule} strokeWidth="1" />
+          <line x1={MLb} y1={Hb - MBb} x2={Wb - MRb} y2={Hb - MBb} stroke={ED.rule} strokeWidth="1" />
+          <text x={MLb - 48} y={(MTb + Hb - MBb) / 2} textAnchor="middle" fontSize="10" fill={ED.inkFaint} fontFamily={mono} transform={`rotate(-90 ${MLb - 48} ${(MTb + Hb - MBb) / 2})`}>
             agreement (log)
           </text>
-          <path d={agreementPath} fill="none" stroke="#6d55b8" strokeWidth="1.6" />
+          <path d={agreementPath} fill="none" stroke={ED.series5} strokeWidth="1.6" />
           {uGrid.map((u, i) => (
-            <circle key={`ap${i}`} cx={pxB(u)} cy={pyB(agreements[i])} r={3} fill="#6d55b8">
+            <circle key={`ap${i}`} cx={pxB(u)} cy={pyB(agreements[i])} r={3} fill={ED.series5}>
               <title>{`U=${u}: |C_direct/C_closed-1|=${(agreements[i] * 100).toFixed(3)}%`}</title>
             </circle>
           ))}
         </svg>
       </div>
-      <div style={{ padding: '6px 10px', borderRadius: 4, background: 'rgba(194,58,28,0.07)', border: '1px solid rgba(194,58,28,0.22)', fontSize: 11, color: '#877b67', lineHeight: 1.65 }}>
-        <strong style={{ color: '#c23a1c' }}>Scope (imp-3485):</strong>{' '}
+      <div style={{ padding: '6px 10px', borderRadius: 4, background: 'color-mix(in srgb, var(--series-2) 7%, transparent)', border: '1px solid color-mix(in srgb, var(--accent) 22%, transparent)', fontSize: 11, color: 'var(--ink-faint)', lineHeight: 1.65 }}>
+        <strong style={{ color: 'var(--accent)' }}>Scope (imp-3485):</strong>{' '}
         Cross-validation only &mdash; an independent Krylov/Jacobi operator-norm recomputation confirms the
         imp-3467 assembled C is not a power-iteration artifact. Does NOT construct the missing magnitude and
         does NOT attempt the imp-3066 K<sub>a</sub>&nbsp;&ge;&nbsp;0 positivity; RH-EQUIVALENT, no RH verdict,
         no QED.
       </div>
-      <p style={{ marginTop: 8, color: '#877b67', fontSize: 11, fontFamily: mono }}>
+      <p style={{ marginTop: 8, color: 'var(--ink-faint)', fontSize: 11, fontFamily: mono }}>
         Source: imp-3485-Ttilde-independent-operator-norm-crossval.js &mdash; U&isin;{'{'}4,6,8,10,12,16,20{'}'},
         H0=0.025, Lanczos dim 80.
       </p>
@@ -1794,11 +1795,11 @@ function PSDPeakSlopeStationarityPanel() {
   const xTicks = [10, 11, 12, 13, 14];
 
   return (
-    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #3f6b86', background: 'rgba(63,107,134,0.04)' }}>
-      <h3 style={{ color: '#3f6b86', marginTop: 0, fontSize: 14 }}>
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid var(--series-1)', background: 'color-mix(in srgb, var(--series-1) 4%, transparent)' }}>
+      <h3 style={{ color: 'var(--series-1)', marginTop: 0, fontSize: 14 }}>
         PSD peak-slope stationarity: P2(&xi;) crosses zero at &xi;*={xiStar.toFixed(7)} (imp-3470)
       </h3>
-      <p style={{ color: '#877b67', fontSize: 12, lineHeight: 1.7, marginBottom: 10 }}>
+      <p style={{ color: 'var(--ink-faint)', fontSize: 12, lineHeight: 1.7, marginBottom: 10 }}>
         The dBN power-spectrum slope P1(&xi;) = d/d&xi; |&Phi;hat(&xi;)|&sup2; peaks where its own
         curvature P2(&xi;) is stationary. Bisecting the exact P2(&xi;)=0 condition pins the maximizer at
         &xi;*={xiStar.toFixed(7)} (left panel, zero-crossing marked), where the peak-slope objective
@@ -1806,57 +1807,57 @@ function PSDPeakSlopeStationarityPanel() {
         transcendental root behind C<sub>&infin;</sub>&asymp;0.1751.
       </p>
       <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', alignItems: 'flex-start' }}>
-        <svg width={W} height={H} style={{ display: 'block', background: 'rgba(214,201,178,0.25)', borderRadius: 6 }}>
+        <svg width={W} height={H} style={{ display: 'block', background: 'color-mix(in srgb, var(--rule) 25%, transparent)', borderRadius: 6 }}>
           {xTicks.map((t) => (
             <g key={`xt${t}`}>
-              <line x1={px(t)} y1={MT} x2={px(t)} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-              <text x={px(t)} y={H - MB + 16} textAnchor="middle" fontSize="10" fill="#877b67" fontFamily={mono}>{t}</text>
+              <line x1={px(t)} y1={MT} x2={px(t)} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+              <text x={px(t)} y={H - MB + 16} textAnchor="middle" fontSize="10" fill={ED.inkFaint} fontFamily={mono}>{t}</text>
             </g>
           ))}
-          <line x1={ML} y1={py2(0)} x2={W - MR} y2={py2(0)} stroke="#d5c9b2" strokeWidth="1" strokeDasharray="3 2" />
-          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-          <text x={14} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="10" fill="#877b67" fontFamily={mono} transform={`rotate(-90 14 ${(MT + H - MB) / 2})`}>
+          <line x1={ML} y1={py2(0)} x2={W - MR} y2={py2(0)} stroke={ED.rule} strokeWidth="1" strokeDasharray="3 2" />
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+          <text x={14} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="10" fill={ED.inkFaint} fontFamily={mono} transform={`rotate(-90 14 ${(MT + H - MB) / 2})`}>
             P2(&xi;)
           </text>
-          <path d={p2Path} fill="none" stroke="#3f6b86" strokeWidth="1.6" />
-          <line x1={px(xiStar)} y1={MT} x2={px(xiStar)} y2={H - MB} stroke="#b58a2e" strokeWidth="1.4" strokeDasharray="4 3" />
-          <circle cx={px(xiStar)} cy={py2(0)} r={4} fill="#b58a2e">
+          <path d={p2Path} fill="none" stroke={ED.series1} strokeWidth="1.6" />
+          <line x1={px(xiStar)} y1={MT} x2={px(xiStar)} y2={H - MB} stroke={ED.brassDeco} strokeWidth="1.4" strokeDasharray="4 3" />
+          <circle cx={px(xiStar)} cy={py2(0)} r={4} fill={ED.brassDeco}>
             <title>{`P2(xi*) = 0 at xi* = ${xiStar}`}</title>
           </circle>
-          <text x={px(xiStar) + 4} y={MT + 10} fontSize="10" fill="#b58a2e" fontFamily={mono}>&xi;*={xiStar.toFixed(3)}</text>
-          <text x={(ML + W - MR) / 2} y={19} textAnchor="middle" fontSize="10" fill="#877b67" fontFamily={mono}>curvature P2(&xi;)</text>
+          <text x={px(xiStar) + 4} y={MT + 10} fontSize="10" fill={ED.brass} fontFamily={mono}>&xi;*={xiStar.toFixed(3)}</text>
+          <text x={(ML + W - MR) / 2} y={19} textAnchor="middle" fontSize="10" fill={ED.inkFaint} fontFamily={mono}>curvature P2(&xi;)</text>
         </svg>
 
-        <svg width={W} height={H} style={{ display: 'block', background: 'rgba(214,201,178,0.25)', borderRadius: 6 }}>
+        <svg width={W} height={H} style={{ display: 'block', background: 'color-mix(in srgb, var(--rule) 25%, transparent)', borderRadius: 6 }}>
           {xTicks.map((t) => (
             <g key={`xt2${t}`}>
-              <line x1={px(t)} y1={MT} x2={px(t)} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-              <text x={px(t)} y={H - MB + 16} textAnchor="middle" fontSize="10" fill="#877b67" fontFamily={mono}>{t}</text>
+              <line x1={px(t)} y1={MT} x2={px(t)} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+              <text x={px(t)} y={H - MB + 16} textAnchor="middle" fontSize="10" fill={ED.inkFaint} fontFamily={mono}>{t}</text>
             </g>
           ))}
-          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-          <text x={14} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="10" fill="#877b67" fontFamily={mono} transform={`rotate(-90 14 ${(MT + H - MB) / 2})`}>
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+          <text x={14} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="10" fill={ED.inkFaint} fontFamily={mono} transform={`rotate(-90 14 ${(MT + H - MB) / 2})`}>
             |P1(&xi;)|
           </text>
-          <path d={p1Path} fill="none" stroke="#6d55b8" strokeWidth="1.6" />
-          <line x1={px(xiStar)} y1={MT} x2={px(xiStar)} y2={H - MB} stroke="#b58a2e" strokeWidth="1.4" strokeDasharray="4 3" />
-          <circle cx={px(xiStar)} cy={py1(peakSlope)} r={4} fill="#b58a2e">
+          <path d={p1Path} fill="none" stroke={ED.series5} strokeWidth="1.6" />
+          <line x1={px(xiStar)} y1={MT} x2={px(xiStar)} y2={H - MB} stroke={ED.brassDeco} strokeWidth="1.4" strokeDasharray="4 3" />
+          <circle cx={px(xiStar)} cy={py1(peakSlope)} r={4} fill={ED.brassDeco}>
             <title>{`peak slope = ${peakSlope} at xi* = ${xiStar}`}</title>
           </circle>
-          <text x={px(xiStar) + 4} y={py1(peakSlope) - 8} fontSize="10" fill="#b58a2e" fontFamily={mono}>{peakSlope.toExponential(5)}</text>
-          <text x={(ML + W - MR) / 2} y={19} textAnchor="middle" fontSize="10" fill="#877b67" fontFamily={mono}>peak-slope objective |P1(&xi;)|</text>
+          <text x={px(xiStar) + 4} y={py1(peakSlope) - 8} fontSize="10" fill={ED.brass} fontFamily={mono}>{peakSlope.toExponential(5)}</text>
+          <text x={(ML + W - MR) / 2} y={19} textAnchor="middle" fontSize="10" fill={ED.inkFaint} fontFamily={mono}>peak-slope objective |P1(&xi;)|</text>
         </svg>
       </div>
-      <div style={{ padding: '6px 10px', borderRadius: 4, background: 'rgba(63,107,134,0.07)', border: '1px solid rgba(63,107,134,0.22)', fontSize: 11, color: '#877b67', lineHeight: 1.65 }}>
-        <strong style={{ color: '#3f6b86' }}>Scope (imp-3470):</strong>{' '}
+      <div style={{ padding: '6px 10px', borderRadius: 4, background: 'color-mix(in srgb, var(--series-1) 7%, transparent)', border: '1px solid color-mix(in srgb, var(--series-1) 22%, transparent)', fontSize: 11, color: 'var(--ink-faint)', lineHeight: 1.65 }}>
+        <strong style={{ color: 'var(--series-1)' }}>Scope (imp-3470):</strong>{' '}
         Locates the peak-slope maximizer to machine precision; does NOT give &xi;* or the sup an
         elementary closed form (P2(&xi;)=0 is transcendental). C<sub>&infin;</sub>&asymp;0.1751 stays a
         determined number. RH-EQUIVALENT, necessary-but-not-sufficient; operator positivity (imp-3066)
         untouched, no RH verdict.
       </div>
-      <p style={{ marginTop: 8, color: '#877b67', fontSize: 11, fontFamily: mono }}>
+      <p style={{ marginTop: 8, color: 'var(--ink-faint)', fontSize: 11, fontFamily: mono }}>
         Source: imp-3470-Ttilde-spectral-peak-xistar-obstruction.js &mdash; baked reference profile,
         U=6, N=360, NPHI=10, &xi;&isin;[10,14] step 0.1.
       </p>
@@ -1882,11 +1883,11 @@ function TtildeClosedFormAndCertificationPanel() {
   ];
 
   return (
-    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #b58a2e', background: 'rgba(181,138,46,0.04)' }}>
-      <h3 style={{ color: '#b58a2e', marginTop: 0, fontSize: 14 }}>
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid var(--brass-deco)', background: 'color-mix(in srgb, var(--brass-deco) 4%, transparent)' }}>
+      <h3 style={{ color: 'var(--brass)', marginTop: 0, fontSize: 14 }}>
         Numerator closed form &amp; independent C<sub>&infin;</sub> certification (imp-3400 / imp-3407)
       </h3>
-      <p style={{ color: '#877b67', fontSize: 12, lineHeight: 1.7, marginBottom: 10 }}>
+      <p style={{ color: 'var(--ink-faint)', fontSize: 12, lineHeight: 1.7, marginBottom: 10 }}>
         imp-3400 gives the imp-3346 numerator norm &#x2016;Ttilde&#x2016; a CLOSED symbolic form: a
         skew-Toeplitz convolution operator&apos;s norm equals its symbol&apos;s sup, so
         &#x2016;Ttilde&#x2016; = a&middot;sup<sub>&xi;</sub>|d/d&xi;|&Phi;hat(&xi;)|&sup2;| (a times the
@@ -1899,7 +1900,7 @@ function TtildeClosedFormAndCertificationPanel() {
       </p>
       <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 12, marginBottom: 8 }}>
         <thead>
-          <tr style={{ borderBottom: '1px solid #d5c9b2', color: '#877b67' }}>
+          <tr style={{ borderBottom: '1px solid var(--rule)', color: 'var(--ink-faint)' }}>
             <th style={{ padding: '4px 8px', fontFamily: mono, textAlign: 'left' }}>metric</th>
             <th style={{ padding: '4px 8px', fontFamily: mono, textAlign: 'right' }}>value</th>
             <th style={{ padding: '4px 8px', fontFamily: mono, textAlign: 'right' }}>note</th>
@@ -1907,23 +1908,23 @@ function TtildeClosedFormAndCertificationPanel() {
         </thead>
         <tbody>
           {rows.map((r, i) => (
-            <tr key={i} style={{ borderBottom: '1px solid #d5c9b2' }}>
-              <td style={{ padding: '3px 8px', fontFamily: mono, color: '#4a4238' }}>{r.label}</td>
-              <td style={{ padding: '3px 8px', fontFamily: mono, color: '#b58a2e', textAlign: 'right' }}>{r.value}</td>
-              <td style={{ padding: '3px 8px', fontFamily: mono, color: '#877b67', textAlign: 'right' }}>{r.note}</td>
+            <tr key={i} style={{ borderBottom: '1px solid var(--rule)' }}>
+              <td style={{ padding: '3px 8px', fontFamily: mono, color: 'var(--ink-soft)' }}>{r.label}</td>
+              <td style={{ padding: '3px 8px', fontFamily: mono, color: 'var(--brass)', textAlign: 'right' }}>{r.value}</td>
+              <td style={{ padding: '3px 8px', fontFamily: mono, color: 'var(--ink-faint)', textAlign: 'right' }}>{r.note}</td>
             </tr>
           ))}
         </tbody>
       </table>
-      <div style={{ padding: '6px 10px', borderRadius: 4, background: 'rgba(181,138,46,0.07)', border: '1px solid rgba(181,138,46,0.22)', fontSize: 11, color: '#877b67', lineHeight: 1.65 }}>
-        <strong style={{ color: '#b58a2e' }}>Scope (imp-3400/imp-3407):</strong>{' '}
+      <div style={{ padding: '6px 10px', borderRadius: 4, background: 'color-mix(in srgb, var(--brass-deco) 7%, transparent)', border: '1px solid color-mix(in srgb, var(--brass-deco) 22%, transparent)', fontSize: 11, color: 'var(--ink-faint)', lineHeight: 1.65 }}>
+        <strong style={{ color: 'var(--brass)' }}>Scope (imp-3400/imp-3407):</strong>{' '}
         The closed form is an exact operator identity but its VALUE stays transcendental (no elementary
         &xi;* or &Phi;hat), so C<sub>&infin;</sub>&asymp;0.1751 remains a determined number, not a closed
         constant; the certification cross-checks that number, it does not construct one. Neither module
         attempts the imp-3066 K<sub>a</sub>&nbsp;&ge;&nbsp;0 positivity. RH-EQUIVALENT,
         necessary-but-not-sufficient, no RH verdict, NO QED.
       </div>
-      <p style={{ marginTop: 8, color: '#877b67', fontSize: 11, fontFamily: mono }}>
+      <p style={{ marginTop: 8, color: 'var(--ink-faint)', fontSize: 11, fontFamily: mono }}>
         Source: imp-3400-Ttilde-spectral-slope-closed-form.js, imp-3407-C-inf-independent-extrapolation-certification.js
         &mdash; U&isin;&#123;10,15,22.5&#125; (imp-3407), U&isin;&#123;6,8&#125; (imp-3400), h=0.025, NPHI=10.
       </p>
@@ -1958,11 +1959,11 @@ function SigmaCHSaturationPanel() {
   const ansatzIdx = sweep.findIndex((r) => r.C_H === 0.125);
 
   return (
-    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #6d55b8', background: 'rgba(109,85,184,0.04)' }}>
-      <h3 style={{ color: '#6d55b8', marginTop: 0, fontSize: 14 }}>
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid var(--series-5)', background: 'color-mix(in srgb, var(--series-5) 4%, transparent)' }}>
+      <h3 style={{ color: 'var(--series-5)', marginTop: 0, fontSize: 14 }}>
         &sigma;(C<sub>H</sub>) saturates toward 1, so the semi-elasticity &sigma;(1&minus;&sigma;) shrinks toward 0 (imp-3324)
       </h3>
-      <p style={{ color: '#877b67', fontSize: 12, lineHeight: 1.7, marginBottom: 10 }}>
+      <p style={{ color: 'var(--ink-faint)', fontSize: 12, lineHeight: 1.7, marginBottom: 10 }}>
         At N*=10<sup>6</sup>, &sigma;(C<sub>H</sub>) (solid, left axis) rises from &asymp;{D.robustness.sigma_at_half_ansatz.toFixed(3)} at
         C<sub>H</sub>=0.0625 to &asymp;{D.robustness.sigma_at_placeholder.toFixed(3)} at C<sub>H</sub>=1.0 &mdash; a 16&times; C<sub>H</sub> range
         compressed into a &asymp;{(D.robustness.bracket_share_span * 100).toFixed(1)}-point share band. The semi-elasticity
@@ -1971,47 +1972,47 @@ function SigmaCHSaturationPanel() {
         same sweep, the saturation signature behind the imp-3324 robustness finding.
       </p>
       <div style={{ overflowX: 'auto' }}>
-        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'rgba(214,201,178,0.25)', borderRadius: 6 }}>
+        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'color-mix(in srgb, var(--rule) 25%, transparent)', borderRadius: 6 }}>
           {sigmaTicks.map((v) => (
             <g key={`ss${v}`}>
-              <line x1={ML} y1={pySigma(v)} x2={W - MR} y2={pySigma(v)} stroke="#d5c9b2" strokeWidth="1" />
-              <text x={ML - 8} y={pySigma(v) + 4} textAnchor="end" fontSize="11" fill="#6d55b8" fontFamily={mono}>{v.toFixed(2)}</text>
+              <line x1={ML} y1={pySigma(v)} x2={W - MR} y2={pySigma(v)} stroke={ED.rule} strokeWidth="1" />
+              <text x={ML - 8} y={pySigma(v) + 4} textAnchor="end" fontSize="11" fill={ED.series5} fontFamily={mono}>{v.toFixed(2)}</text>
             </g>
           ))}
           {elastTicks.map((v) => (
-            <text key={`es${v}`} x={W - MR + 10} y={pyElast(v) + 4} textAnchor="start" fontSize="11" fill="#b58a2e" fontFamily={mono}>{v.toFixed(2)}</text>
+            <text key={`es${v}`} x={W - MR + 10} y={pyElast(v) + 4} textAnchor="start" fontSize="11" fill={ED.brass} fontFamily={mono}>{v.toFixed(2)}</text>
           ))}
-          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
           {/* sigma(C_H) saturation curve, left axis */}
-          <path d={sigmaPath} fill="none" stroke="#6d55b8" strokeWidth="2.5" />
+          <path d={sigmaPath} fill="none" stroke={ED.series5} strokeWidth="2.5" />
           {sweep.map((row, i) => (
-            <circle key={`sc${i}`} cx={px(i)} cy={pySigma(row.sigma)} r={i === ansatzIdx ? 4.5 : 3} fill="#6d55b8">
+            <circle key={`sc${i}`} cx={px(i)} cy={pySigma(row.sigma)} r={i === ansatzIdx ? 4.5 : 3} fill={ED.series5}>
               <title>{`C_H=${row.C_H}, sigma=${row.sigma}`}</title>
             </circle>
           ))}
           {/* semi-elasticity sigma(1-sigma), right axis, dashed */}
-          <path d={elastPath} fill="none" stroke="#b58a2e" strokeWidth="1.5" strokeDasharray="5 3" />
+          <path d={elastPath} fill="none" stroke={ED.brassDeco} strokeWidth="1.5" strokeDasharray="5 3" />
           {sweep.map((row, i) => (
-            <circle key={`ec${i}`} cx={px(i)} cy={pyElast(row.sigma * (1 - row.sigma))} r="2.5" fill="#b58a2e">
+            <circle key={`ec${i}`} cx={px(i)} cy={pyElast(row.sigma * (1 - row.sigma))} r="2.5" fill={ED.brassDeco}>
               <title>{`C_H=${row.C_H}, sigma(1-sigma)=${(row.sigma * (1 - row.sigma)).toFixed(5)}`}</title>
             </circle>
           ))}
           {sweep.map((row, i) => (
-            <text key={`xl${i}`} x={px(i)} y={H - MB + 16} textAnchor="middle" fontSize="9" fill="#877b67" fontFamily={mono}>
+            <text key={`xl${i}`} x={px(i)} y={H - MB + 16} textAnchor="middle" fontSize="9" fill={ED.inkFaint} fontFamily={mono}>
               {row.C_H}
             </text>
           ))}
-          <text x={ML} y={16} textAnchor="start" fontSize="10" fill="#6d55b8" fontFamily={mono}>&sigma;(C_H) (left)</text>
-          <text x={W - MR} y={16} textAnchor="end" fontSize="10" fill="#b58a2e" fontFamily={mono}>&sigma;(1&minus;&sigma;) (right)</text>
+          <text x={ML} y={16} textAnchor="start" fontSize="10" fill={ED.series5} fontFamily={mono}>&sigma;(C_H) (left)</text>
+          <text x={W - MR} y={16} textAnchor="end" fontSize="10" fill={ED.brass} fontFamily={mono}>&sigma;(1&minus;&sigma;) (right)</text>
         </svg>
       </div>
-      <div style={{ padding: '6px 10px', borderRadius: 4, background: 'rgba(194,58,28,0.07)', border: '1px solid rgba(194,58,28,0.22)', fontSize: 11, color: '#877b67', lineHeight: 1.65 }}>
-        <strong style={{ color: '#c23a1c' }}>Scope (imp-3324):</strong>{' '}
+      <div style={{ padding: '6px 10px', borderRadius: 4, background: 'color-mix(in srgb, var(--series-2) 7%, transparent)', border: '1px solid color-mix(in srgb, var(--accent) 22%, transparent)', fontSize: 11, color: 'var(--ink-faint)', lineHeight: 1.65 }}>
+        <strong style={{ color: 'var(--accent)' }}>Scope (imp-3324):</strong>{' '}
         ASSESSMENT ONLY: C<sub>H</sub> is essential for the absolute E<sub>coll</sub> budget (linear) but NOT for the
         conditional share &sigma;, which saturates toward 1. No positivity, no bridge closure, no RH claim, NO QED.
       </div>
-      <p style={{ marginTop: 8, color: '#877b67', fontSize: 11, fontFamily: mono }}>
+      <p style={{ marginTop: 8, color: 'var(--ink-faint)', fontSize: 11, fontFamily: mono }}>
         Source: imp-3324-sigma-CH-sensitivity.js &mdash; N*=10<sup>6</sup>, C<sub>H</sub>&isin;[0.0625,&thinsp;1.0], dual-axis (&sigma;(C_H) left, &sigma;(1&minus;&sigma;) right).
       </p>
     </div>
@@ -2040,11 +2041,11 @@ function CaptureOvershootKneePanel() {
   const peakRow = table.find((r) => r.capture === M.overshootPeak);
 
   return (
-    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #4c7a4a', background: 'rgba(76,122,74,0.04)' }}>
-      <h3 style={{ color: '#4c7a4a', marginTop: 0, fontSize: 14 }}>
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid var(--series-3)', background: 'color-mix(in srgb, var(--series-3) 4%, transparent)' }}>
+      <h3 style={{ color: 'var(--series-3)', marginTop: 0, fontSize: 14 }}>
         Fine-grid capture(c) overshoots 1 by &lt;0.5%, peaking at c*&asymp;{M.cStar.toFixed(2)}, then relaxes monotonically (imp-3219)
       </h3>
-      <p style={{ color: '#877b67', fontSize: 12, lineHeight: 1.7, marginBottom: 10 }}>
+      <p style={{ color: 'var(--ink-faint)', fontSize: 12, lineHeight: 1.7, marginBottom: 10 }}>
         On the fine lag grid (one integer lag step per sample), the near-diagonal band-truncated capture
         first crosses 1 at the onset c&asymp;{M.onsetCutoff.toFixed(2)}, overshoots to a peak
         capture&asymp;{M.overshootPeak.toFixed(6)} ({M.overshootPercent.toFixed(3)}%) at c*&asymp;{M.cStar.toFixed(2)}, then
@@ -2053,43 +2054,43 @@ function CaptureOvershootKneePanel() {
         tail is indefinite and partially self-cancelling, not additive.
       </p>
       <div style={{ overflowX: 'auto' }}>
-        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'rgba(214,201,178,0.25)', borderRadius: 6 }}>
+        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'color-mix(in srgb, var(--rule) 25%, transparent)', borderRadius: 6 }}>
           {yTicks.map((v) => (
             <g key={`yt${v.toFixed(5)}`}>
-              <line x1={ML} y1={py(v)} x2={W - MR} y2={py(v)} stroke="#d5c9b2" strokeWidth="1" />
-              <text x={ML - 8} y={py(v) + 4} textAnchor="end" fontSize="10" fill="#877b67" fontFamily="var(--font-mono)">{v.toFixed(4)}</text>
+              <line x1={ML} y1={py(v)} x2={W - MR} y2={py(v)} stroke={ED.rule} strokeWidth="1" />
+              <text x={ML - 8} y={py(v) + 4} textAnchor="end" fontSize="10" fill={ED.inkFaint} fontFamily="var(--font-mono)">{v.toFixed(4)}</text>
             </g>
           ))}
-          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
           {/* capture = 1 reference line */}
-          <line x1={ML} y1={py(1)} x2={W - MR} y2={py(1)} stroke="#d5c9b2" strokeWidth="1" strokeDasharray="4 3" />
-          <text x={W - MR - 4} y={py(1) - 5} textAnchor="end" fontSize="10" fill="#877b67" fontFamily="var(--font-mono)">capture = 1</text>
+          <line x1={ML} y1={py(1)} x2={W - MR} y2={py(1)} stroke={ED.rule} strokeWidth="1" strokeDasharray="4 3" />
+          <text x={W - MR - 4} y={py(1) - 5} textAnchor="end" fontSize="10" fill={ED.inkFaint} fontFamily="var(--font-mono)">capture = 1</text>
           {/* capture(c) curve */}
-          <path d={linePath} fill="none" stroke="#4c7a4a" strokeWidth="2" />
+          <path d={linePath} fill="none" stroke={ED.series3} strokeWidth="2" />
           {onsetRow && (
             <g>
-              <circle cx={px(onsetRow.cutoff)} cy={py(onsetRow.capture)} r="4" fill="#b58a2e" />
-              <text x={px(onsetRow.cutoff)} y={py(onsetRow.capture) - 8} textAnchor="middle" fontSize="10" fill="#b58a2e" fontFamily="var(--font-mono)">onset c&asymp;{onsetRow.cutoff.toFixed(2)}</text>
+              <circle cx={px(onsetRow.cutoff)} cy={py(onsetRow.capture)} r="4" fill={ED.brassDeco} />
+              <text x={px(onsetRow.cutoff)} y={py(onsetRow.capture) - 8} textAnchor="middle" fontSize="10" fill={ED.brass} fontFamily="var(--font-mono)">onset c&asymp;{onsetRow.cutoff.toFixed(2)}</text>
             </g>
           )}
           {peakRow && (
             <g>
-              <circle cx={px(peakRow.cutoff)} cy={py(peakRow.capture)} r="4" fill="#c23a1c" />
-              <text x={px(peakRow.cutoff)} y={py(peakRow.capture) - 8} textAnchor="middle" fontSize="10" fill="#c23a1c" fontFamily="var(--font-mono)">peak c*&asymp;{peakRow.cutoff.toFixed(2)}</text>
+              <circle cx={px(peakRow.cutoff)} cy={py(peakRow.capture)} r="4" fill={ED.series2} />
+              <text x={px(peakRow.cutoff)} y={py(peakRow.capture) - 8} textAnchor="middle" fontSize="10" fill={ED.accent} fontFamily="var(--font-mono)">peak c*&asymp;{peakRow.cutoff.toFixed(2)}</text>
             </g>
           )}
-          <text x={px(xMax)} y={H - MB + 16} textAnchor="end" fontSize="10" fill="#877b67" fontFamily="var(--font-mono)">c&rarr;{xMax.toFixed(2)} (relaxed)</text>
-          <text x={ML} y={H - MB + 16} textAnchor="start" fontSize="10" fill="#877b67" fontFamily="var(--font-mono)">c=0</text>
+          <text x={px(xMax)} y={H - MB + 16} textAnchor="end" fontSize="10" fill={ED.inkFaint} fontFamily="var(--font-mono)">c&rarr;{xMax.toFixed(2)} (relaxed)</text>
+          <text x={ML} y={H - MB + 16} textAnchor="start" fontSize="10" fill={ED.inkFaint} fontFamily="var(--font-mono)">c=0</text>
         </svg>
       </div>
-      <div style={{ padding: '6px 10px', borderRadius: 4, background: 'rgba(194,58,28,0.07)', border: '1px solid rgba(194,58,28,0.22)', fontSize: 11, color: '#877b67', lineHeight: 1.65 }}>
-        <strong style={{ color: '#c23a1c' }}>Scope (imp-3219):</strong>{' '}
+      <div style={{ padding: '6px 10px', borderRadius: 4, background: 'color-mix(in srgb, var(--series-2) 7%, transparent)', border: '1px solid color-mix(in srgb, var(--accent) 22%, transparent)', fontSize: 11, color: 'var(--ink-faint)', lineHeight: 1.65 }}>
+        <strong style={{ color: 'var(--accent)' }}>Scope (imp-3219):</strong>{' '}
         RH-EQUIVALENT diagnostic only: locating the capture overshoot peak is a cutoff-localization
         measurement, NOT a construction of the missing operator-norm magnitude or the K<sub>a</sub>&thinsp;&ge;&thinsp;0
         positivity residual.
       </div>
-      <p style={{ marginTop: 8, color: '#877b67', fontSize: 11, fontFamily: 'var(--font-mono)' }}>
+      <p style={{ marginTop: 8, color: 'var(--ink-faint)', fontSize: 11, fontFamily: 'var(--font-mono)' }}>
         Source: imp-3219-mupass-bridge-overshoot-knee.js &mdash; a=0.5, U=6, N=200, fine lag-band sweep.
       </p>
     </div>
@@ -2124,8 +2125,8 @@ function RawBasisOpGapDegreeSweepViz() {
   const gapTicks = [0, 2, 4, 6, 8, 10, 12];
 
   return (
-    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #b58a2e', background: 'rgba(181,138,46,0.04)' }}>
-      <h3 style={{ color: '#b58a2e', marginTop: 0 }}>
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid var(--brass-deco)', background: 'color-mix(in srgb, var(--brass-deco) 4%, transparent)' }}>
+      <h3 style={{ color: 'var(--brass)', marginTop: 0 }}>
         Raw-basis operator/diagonal gap GROWS with truncation degree (imp-3084)
       </h3>
       <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75 }}>
@@ -2141,63 +2142,63 @@ function RawBasisOpGapDegreeSweepViz() {
         cross-term contribution diverges.
       </p>
       <div style={{ overflowX: 'auto' }}>
-        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'rgba(214,201,178,0.25)', borderRadius: 6 }}>
+        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'color-mix(in srgb, var(--rule) 25%, transparent)', borderRadius: 6 }}>
           {gapTicks.map((g) => (
             <g key={`gt${g}`}>
-              <line x1={ML} y1={py(g)} x2={W - MR} y2={py(g)} stroke="#d5c9b2" strokeWidth="1" />
-              <text x={ML - 8} y={py(g) + 4} textAnchor="end" fontSize="11" fill="#877b67" fontFamily={mono}>{g}</text>
+              <line x1={ML} y1={py(g)} x2={W - MR} y2={py(g)} stroke={ED.rule} strokeWidth="1" />
+              <text x={ML - 8} y={py(g) + 4} textAnchor="end" fontSize="11" fill={ED.inkFaint} fontFamily={mono}>{g}</text>
             </g>
           ))}
           {degTicks.map((d) => (
             <g key={`dt${d}`}>
-              <line x1={px(d)} y1={MT} x2={px(d)} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-              <text x={px(d)} y={H - MB + 18} textAnchor="middle" fontSize="11" fill="#877b67" fontFamily={mono}>{d}</text>
+              <line x1={px(d)} y1={MT} x2={px(d)} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+              <text x={px(d)} y={H - MB + 18} textAnchor="middle" fontSize="11" fill={ED.inkFaint} fontFamily={mono}>{d}</text>
             </g>
           ))}
-          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-          <line x1={ML} y1={py(1)} x2={W - MR} y2={py(1)} stroke="#d5c9b2" strokeWidth="1" strokeDasharray="3 3" />
-          <text x={W - MR - 4} y={py(1) - 4} textAnchor="end" fontSize="10" fill="#877b67" fontFamily={mono}>ceiling = 1</text>
-          <text x={(ML + W - MR) / 2} y={H - 8} textAnchor="middle" fontSize="12" fill="#877b67" fontFamily={mono}>truncation degree DEG</text>
-          <text x={16} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="12" fill="#877b67" fontFamily={mono}
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+          <line x1={ML} y1={py(1)} x2={W - MR} y2={py(1)} stroke={ED.rule} strokeWidth="1" strokeDasharray="3 3" />
+          <text x={W - MR - 4} y={py(1) - 4} textAnchor="end" fontSize="10" fill={ED.inkFaint} fontFamily={mono}>ceiling = 1</text>
+          <text x={(ML + W - MR) / 2} y={H - 8} textAnchor="middle" fontSize="12" fill={ED.inkFaint} fontFamily={mono}>truncation degree DEG</text>
+          <text x={16} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="12" fill={ED.inkFaint} fontFamily={mono}
             transform={`rotate(-90 16 ${(MT + H - MB) / 2})`}>magnitude</text>
-          <path d={gapPath} fill="none" stroke="#b58a2e" strokeWidth="2" />
-          <path d={diagPath} fill="none" stroke="#4c7a4a" strokeWidth="2" />
+          <path d={gapPath} fill="none" stroke={ED.brassDeco} strokeWidth="2" />
+          <path d={diagPath} fill="none" stroke={ED.series3} strokeWidth="2" />
           {sweep.map((row) => (
             <circle key={`g${row.degree}`} cx={px(row.degree)} cy={py(row.operatorDiagonalGap)} r="4"
-              fill="#b58a2e" fillOpacity="0.7" stroke="#b58a2e" strokeWidth="1">
+              fill={ED.brassDeco} fillOpacity="0.7" stroke={ED.brassDeco} strokeWidth="1">
               <title>{`DEG=${row.degree}: gap=${row.operatorDiagonalGap.toFixed(4)}, ||R||=${row.operatorNorm.toFixed(4)}`}</title>
             </circle>
           ))}
           {sweep.map((row) => (
             <circle key={`d${row.degree}`} cx={px(row.degree)} cy={py(row.rDiagMax)} r="4"
-              fill="#4c7a4a" fillOpacity="0.7" stroke="#4c7a4a" strokeWidth="1">
+              fill={ED.series3} fillOpacity="0.7" stroke={ED.series3} strokeWidth="1">
               <title>{`DEG=${row.degree}: max diag=${row.rDiagMax.toFixed(5)}`}</title>
             </circle>
           ))}
           <g transform={`translate(${ML + 16}, ${MT + 10})`}>
-            <line x1="0" y1="0" x2="18" y2="0" stroke="#b58a2e" strokeWidth="2" />
-            <circle cx="9" cy="0" r="4" fill="#b58a2e" fillOpacity="0.7" />
-            <text x="24" y="4" fontSize="11" fill="#4a4238" fontFamily={mono}>gap &#x2016;R&#x2016; &minus; max&#x2C7C; R&#x2C7C;&#x2C7C;</text>
+            <line x1="0" y1="0" x2="18" y2="0" stroke={ED.brassDeco} strokeWidth="2" />
+            <circle cx="9" cy="0" r="4" fill={ED.brassDeco} fillOpacity="0.7" />
+            <text x="24" y="4" fontSize="11" fill={ED.inkSoft} fontFamily={mono}>gap &#x2016;R&#x2016; &minus; max&#x2C7C; R&#x2C7C;&#x2C7C;</text>
           </g>
           <g transform={`translate(${ML + 16}, ${MT + 30})`}>
-            <line x1="0" y1="0" x2="18" y2="0" stroke="#4c7a4a" strokeWidth="2" />
-            <circle cx="9" cy="0" r="4" fill="#4c7a4a" fillOpacity="0.7" />
-            <text x="24" y="4" fontSize="11" fill="#4a4238" fontFamily={mono}>scalar ceiling max&#x2C7C; R&#x2C7C;&#x2C7C; (pinned &lt; 1)</text>
+            <line x1="0" y1="0" x2="18" y2="0" stroke={ED.series3} strokeWidth="2" />
+            <circle cx="9" cy="0" r="4" fill={ED.series3} fillOpacity="0.7" />
+            <text x="24" y="4" fontSize="11" fill={ED.inkSoft} fontFamily={mono}>scalar ceiling max&#x2C7C; R&#x2C7C;&#x2C7C; (pinned &lt; 1)</text>
           </g>
         </svg>
       </div>
-      <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 6, background: 'rgba(135,123,103,0.06)', border: '1px solid rgba(135,123,103,0.25)' }}>
-        <div style={{ fontSize: 11, fontWeight: 700, color: '#877b67', letterSpacing: '0.06em', marginBottom: 4 }}>
+      <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 6, background: 'color-mix(in srgb, var(--ink-faint) 6%, transparent)', border: '1px solid color-mix(in srgb, var(--rule) 25%, transparent)' }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--ink-faint)', letterSpacing: '0.06em', marginBottom: 4 }}>
           REPRESENTATIVE DIAGNOSTIC &mdash; NO RH VERDICT
         </div>
-        <p style={{ color: '#877b67', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
+        <p style={{ color: 'var(--ink-faint)', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
           Growing &#x2016;R&#x2016; in the raw monomial basis is NOT a claim that the cover fails &mdash; the
           basis is not the section-26 Gram and the divergence is a known monomial-conditioning effect.
           Orthogonalizing the basis DOES tame the gap: imp-3086 (see correction below) finds the gap collapses from ~3.63 to ~0.09 &mdash; largely a basis-conditioning artifact &mdash; while a smaller residual gap survives.
         </p>
       </div>
-      <p style={{ marginTop: 10, color: '#877b67', fontSize: 11, fontFamily: mono }}>
+      <p style={{ marginTop: 10, color: 'var(--ink-faint)', fontSize: 11, fontFamily: mono }}>
         Source: imp-3084-offdiagonal-gap-degree-sweep.js (same a=0.5, U=6 grid as imp-3066; only DEG varies).
       </p>
     </div>
@@ -2232,8 +2233,8 @@ function BasisConditioningCorrectionPanel() {
   ];
   const tdStyle = { padding: '9px 10px', fontFamily: mono, fontSize: 12, verticalAlign: 'middle' };
   return (
-    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #3f6b86', background: 'rgba(63,107,134,0.04)' }}>
-      <h3 style={{ color: '#3f6b86', marginTop: 0 }}>
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid var(--series-1)', background: 'color-mix(in srgb, var(--series-1) 4%, transparent)' }}>
+      <h3 style={{ color: 'var(--series-1)', marginTop: 0 }}>
         correction: raw-basis gap was largely a conditioning artifact (imp-3086)
       </h3>
       <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75 }}>
@@ -2250,36 +2251,36 @@ function BasisConditioningCorrectionPanel() {
       <div style={{ overflowX: 'auto', marginTop: 8 }}>
         <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 12 }}>
           <thead>
-            <tr style={{ borderBottom: '1px solid #d5c9b2', color: '#877b67', textAlign: 'left' }}>
+            <tr style={{ borderBottom: '1px solid var(--rule)', color: 'var(--ink-faint)', textAlign: 'left' }}>
               <th style={tdStyle}>Quantity</th>
-              <th style={{ ...tdStyle, color: '#b58a2e' }}>Raw basis (imp-3066)</th>
-              <th style={{ ...tdStyle, color: '#3f6b86' }}>Orthogonalized (imp-3086)</th>
+              <th style={{ ...tdStyle, color: 'var(--brass)' }}>Raw basis (imp-3066)</th>
+              <th style={{ ...tdStyle, color: 'var(--series-1)' }}>Orthogonalized (imp-3086)</th>
               <th style={tdStyle}>Interpretation</th>
             </tr>
           </thead>
           <tbody>
             {rows.map((row) => (
-              <tr key={row.label} style={{ borderBottom: '1px solid #d5c9b2' }}>
-                <td style={{ ...tdStyle, color: '#4a4238' }}>{row.label}</td>
-                <td style={{ ...tdStyle, color: '#b58a2e' }}>{row.raw.toFixed(3)}</td>
-                <td style={{ ...tdStyle, color: '#3f6b86' }}>{row.orth.toFixed(3)}</td>
-                <td style={{ ...tdStyle, color: '#877b67' }}>{row.verdict}</td>
+              <tr key={row.label} style={{ borderBottom: '1px solid var(--rule)' }}>
+                <td style={{ ...tdStyle, color: 'var(--ink-soft)' }}>{row.label}</td>
+                <td style={{ ...tdStyle, color: 'var(--brass)' }}>{row.raw.toFixed(3)}</td>
+                <td style={{ ...tdStyle, color: 'var(--series-1)' }}>{row.orth.toFixed(3)}</td>
+                <td style={{ ...tdStyle, color: 'var(--ink-faint)' }}>{row.verdict}</td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
-      <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 6, background: 'rgba(135,123,103,0.06)', border: '1px solid rgba(135,123,103,0.25)' }}>
-        <div style={{ fontSize: 11, fontWeight: 700, color: '#877b67', letterSpacing: '0.06em', marginBottom: 4 }}>
+      <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 6, background: 'color-mix(in srgb, var(--ink-faint) 6%, transparent)', border: '1px solid color-mix(in srgb, var(--rule) 25%, transparent)' }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--ink-faint)', letterSpacing: '0.06em', marginBottom: 4 }}>
           REPRESENTATIVE DIAGNOSTIC &mdash; NO RH VERDICT
         </div>
-        <p style={{ color: '#877b67', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
+        <p style={{ color: 'var(--ink-faint)', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
           Measured on the same representative degree-4 monomial-moment truncation as imp-3066
           (a=0.5, U=6); NOT the section-26 Gram. The orthogonalized operator norm (~{M.operatorNormGramSchmidt.toFixed(3)})
           carries no RH verdict. Positivity not attempted; bare-V pilot not re-run.
         </p>
       </div>
-      <p style={{ marginTop: 10, color: '#877b67', fontSize: 11, fontFamily: mono }}>
+      <p style={{ marginTop: 10, color: 'var(--ink-faint)', fontSize: 11, fontFamily: mono }}>
         Source: imp-3086-orthogonalized-basis-conditioning.js &mdash; a=0.5, U=6, DEG=4, NQ=4000.
       </p>
     </div>
@@ -2306,8 +2307,8 @@ function Section26GapExplainerPanel() {
   const tdBase = { padding: '9px 10px', fontSize: 12, verticalAlign: 'top', lineHeight: 1.6 };
 
   return (
-    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #c23a1c', background: 'rgba(194,58,28,0.04)' }}>
-      <h3 style={{ color: '#c23a1c', marginTop: 0 }}>
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid var(--accent)', background: 'color-mix(in srgb, var(--series-2) 4%, transparent)' }}>
+      <h3 style={{ color: 'var(--accent)', marginTop: 0 }}>
         Toy vs. genuine §26 Gram: four concrete differences (imp-3110)
       </h3>
       <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75 }}>
@@ -2322,20 +2323,20 @@ function Section26GapExplainerPanel() {
       <div style={{ overflowX: 'auto', marginTop: 12 }}>
         <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 12 }}>
           <thead>
-            <tr style={{ borderBottom: '1px solid #d5c9b2', color: '#877b67', textAlign: 'left' }}>
+            <tr style={{ borderBottom: '1px solid var(--rule)', color: 'var(--ink-faint)', textAlign: 'left' }}>
               <th style={{ ...tdBase, fontFamily: mono, width: '8%' }}>Axis</th>
-              <th style={{ ...tdBase, color: '#b58a2e', width: '28%' }}>Toy (imp-3066)</th>
-              <th style={{ ...tdBase, color: '#3f6b86', width: '28%' }}>Genuine §26 object</th>
-              <th style={{ ...tdBase, color: '#877b67', width: '36%' }}>Consequence of the gap</th>
+              <th style={{ ...tdBase, color: 'var(--brass)', width: '28%' }}>Toy (imp-3066)</th>
+              <th style={{ ...tdBase, color: 'var(--series-1)', width: '28%' }}>Genuine §26 object</th>
+              <th style={{ ...tdBase, color: 'var(--ink-faint)', width: '36%' }}>Consequence of the gap</th>
             </tr>
           </thead>
           <tbody>
             {diffRows.map((row) => (
-              <tr key={row.key} style={{ borderBottom: '1px solid #d5c9b2' }}>
-                <td style={{ ...tdBase, color: '#c23a1c', fontFamily: mono, fontWeight: 700 }}>{row.label}</td>
-                <td style={{ ...tdBase, color: '#b58a2e' }}>{row.toy}</td>
-                <td style={{ ...tdBase, color: '#3f6b86' }}>{row.genuine}</td>
-                <td style={{ ...tdBase, color: '#877b67' }}>{row.consequence}</td>
+              <tr key={row.key} style={{ borderBottom: '1px solid var(--rule)' }}>
+                <td style={{ ...tdBase, color: 'var(--accent)', fontFamily: mono, fontWeight: 700 }}>{row.label}</td>
+                <td style={{ ...tdBase, color: 'var(--brass)' }}>{row.toy}</td>
+                <td style={{ ...tdBase, color: 'var(--series-1)' }}>{row.genuine}</td>
+                <td style={{ ...tdBase, color: 'var(--ink-faint)' }}>{row.consequence}</td>
               </tr>
             ))}
           </tbody>
@@ -2344,35 +2345,35 @@ function Section26GapExplainerPanel() {
 
       {/* Survives vs Artifacts */}
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10, marginTop: 14 }}>
-        <div style={{ padding: '10px 12px', borderRadius: 6, background: 'rgba(76,122,74,0.07)', border: '1px solid rgba(76,122,74,0.3)' }}>
-          <div style={{ fontSize: 11, fontWeight: 700, color: '#4c7a4a', letterSpacing: '0.06em', marginBottom: 6 }}>
+        <div style={{ padding: '10px 12px', borderRadius: 6, background: 'color-mix(in srgb, var(--series-3) 7%, transparent)', border: '1px solid color-mix(in srgb, var(--series-3) 30%, transparent)' }}>
+          <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--series-3)', letterSpacing: '0.06em', marginBottom: 6 }}>
             SURVIVES THE SWAP (structural)
           </div>
           {S.survives.map((s, i) => (
-            <p key={i} style={{ color: '#4a4238', fontSize: 12, lineHeight: 1.65, margin: i > 0 ? '6px 0 0' : 0 }}>{s}</p>
+            <p key={i} style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.65, margin: i > 0 ? '6px 0 0' : 0 }}>{s}</p>
           ))}
         </div>
-        <div style={{ padding: '10px 12px', borderRadius: 6, background: 'rgba(194,58,28,0.07)', border: '1px solid rgba(194,58,28,0.3)' }}>
-          <div style={{ fontSize: 11, fontWeight: 700, color: '#c23a1c', letterSpacing: '0.06em', marginBottom: 6 }}>
+        <div style={{ padding: '10px 12px', borderRadius: 6, background: 'color-mix(in srgb, var(--series-2) 7%, transparent)', border: '1px solid color-mix(in srgb, var(--accent) 30%, transparent)' }}>
+          <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--accent)', letterSpacing: '0.06em', marginBottom: 6 }}>
             TRUNCATION ARTIFACTS (do not carry over)
           </div>
           {S.artifacts.map((a, i) => (
-            <p key={i} style={{ color: '#4a4238', fontSize: 12, lineHeight: 1.65, margin: i > 0 ? '6px 0 0' : 0 }}>{a}</p>
+            <p key={i} style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.65, margin: i > 0 ? '6px 0 0' : 0 }}>{a}</p>
           ))}
         </div>
       </div>
 
       {/* Open Conjecture 26.3 -- status obstruction banner */}
-      <div style={{ marginTop: 12, padding: '10px 12px', borderRadius: 6, background: 'rgba(109,85,184,0.10)', border: '2px solid rgba(109,85,184,0.55)' }}>
-        <div style={{ fontSize: 11, fontWeight: 700, color: '#6d55b8', letterSpacing: '0.06em', marginBottom: 6 }}>
+      <div style={{ marginTop: 12, padding: '10px 12px', borderRadius: 6, background: 'color-mix(in srgb, var(--series-5) 10%, transparent)', border: '2px solid color-mix(in srgb, var(--series-5) 55%, transparent)' }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--series-5)', letterSpacing: '0.06em', marginBottom: 6 }}>
           OPEN OBSTRUCTION — CONJECTURE 26.3: pointwise mu&#x1D40F;&#x207B;&#x1D40F; &#x2265; &#x03BD;
         </div>
         {S.neitherButOpenConjecture.map((s, i) => (
-          <p key={i} style={{ color: '#4a4238', fontSize: 12, lineHeight: 1.65, margin: 0 }}>{s}</p>
+          <p key={i} style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.65, margin: 0 }}>{s}</p>
         ))}
-        <div style={{ marginTop: 8, padding: '6px 10px', borderRadius: 4, background: 'rgba(109,85,184,0.12)', border: '1px solid rgba(109,85,184,0.4)' }}>
-          <span style={{ color: '#6d55b8', fontSize: 11, fontWeight: 700 }}>STATUS: </span>
-          <span style={{ color: '#877b67', fontSize: 12 }}>
+        <div style={{ marginTop: 8, padding: '6px 10px', borderRadius: 4, background: 'color-mix(in srgb, var(--series-5) 12%, transparent)', border: '1px solid color-mix(in srgb, var(--series-5) 40%, transparent)' }}>
+          <span style={{ color: 'var(--series-5)', fontSize: 11, fontWeight: 700 }}>STATUS: </span>
+          <span style={{ color: 'var(--ink-faint)', fontSize: 12 }}>
             Conjecture 26.3 (&#x03BC;<sup>pass</sup>(&#x03C4;) &#x2265; &#x03BD;(&#x03C4;) pointwise) is currently unresolved and governs
             whether the genuine §26 diagonal is dominated. Toy diagonal dominance is automatic
             (sinh &lt; cosh pointwise) but does NOT transfer to the genuine object until this
@@ -2382,15 +2383,15 @@ function Section26GapExplainerPanel() {
       </div>
 
       {/* Status banner */}
-      <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 6, background: 'rgba(135,123,103,0.06)', border: '1px solid rgba(135,123,103,0.25)' }}>
-        <div style={{ fontSize: 11, fontWeight: 700, color: '#877b67', letterSpacing: '0.06em', marginBottom: 4 }}>
+      <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 6, background: 'color-mix(in srgb, var(--ink-faint) 6%, transparent)', border: '1px solid color-mix(in srgb, var(--rule) 25%, transparent)' }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--ink-faint)', letterSpacing: '0.06em', marginBottom: 4 }}>
           ASSESSMENT ONLY — NO RH VERDICT
         </div>
-        <p style={{ color: '#877b67', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
+        <p style={{ color: 'var(--ink-faint)', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
           {M.honestCaveat.noRHVerdict}
         </p>
       </div>
-      <p style={{ marginTop: 10, color: '#877b67', fontSize: 11, fontFamily: mono }}>
+      <p style={{ marginTop: 10, color: 'var(--ink-faint)', fontSize: 11, fontFamily: mono }}>
         Source: imp-3110-section26-gram-vs-monomial-gap.js — self-computing witness included.
       </p>
     </div>
@@ -2404,10 +2405,10 @@ function Section26GapExplainerPanel() {
 // Hankel cross-term does NOT collapse. All values are READ from the imp-3085 module
 // export; no math is recomputed here.
 const A_COLORS = {
-  0.5: '#b58a2e', // amber
-  0.3: '#3f6b86', // cyan
-  0.2: '#6d55b8', // purple
-  0.1: '#4c7a4a', // emerald
+  0.5: ED.brassDeco, // amber
+  0.3: ED.series1, // cyan
+  0.2: ED.series5, // purple
+  0.1: ED.series3, // emerald
 };
 
 function OperatorGapCollapseViz() {
@@ -2433,8 +2434,8 @@ function OperatorGapCollapseViz() {
     .join(' ');
 
   return (
-    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #3f6b86', background: 'rgba(63,107,134,0.04)' }}>
-      <h3 style={{ color: '#3f6b86', marginTop: 0 }}>
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid var(--series-1)', background: 'color-mix(in srgb, var(--series-1) 4%, transparent)' }}>
+      <h3 style={{ color: 'var(--series-1)', marginTop: 0 }}>
         Operator/diagonal gap collapses onto s = a&middot;U (imp-3085)
       </h3>
       <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75 }}>
@@ -2450,24 +2451,24 @@ function OperatorGapCollapseViz() {
       </p>
 
       <div style={{ overflowX: 'auto' }}>
-        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'rgba(214,201,178,0.25)', borderRadius: 6 }}>
+        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'color-mix(in srgb, var(--rule) 25%, transparent)', borderRadius: 6 }}>
           {/* grid + axes */}
           {gTicks.map((g) => (
             <g key={`g${g}`}>
-              <line x1={ML} y1={py(g)} x2={W - MR} y2={py(g)} stroke="#d5c9b2" strokeWidth="1" />
-              <text x={ML - 8} y={py(g) + 4} textAnchor="end" fontSize="11" fill="#877b67" fontFamily={mono}>{g.toFixed(1)}</text>
+              <line x1={ML} y1={py(g)} x2={W - MR} y2={py(g)} stroke={ED.rule} strokeWidth="1" />
+              <text x={ML - 8} y={py(g) + 4} textAnchor="end" fontSize="11" fill={ED.inkFaint} fontFamily={mono}>{g.toFixed(1)}</text>
             </g>
           ))}
           {sTicks.map((s) => (
-            <text key={`s${s}`} x={px(s)} y={H - MB + 18} textAnchor="middle" fontSize="11" fill="#877b67" fontFamily={mono}>{s}</text>
+            <text key={`s${s}`} x={px(s)} y={H - MB + 18} textAnchor="middle" fontSize="11" fill={ED.inkFaint} fontFamily={mono}>{s}</text>
           ))}
-          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-          <text x={(ML + W - MR) / 2} y={H - 8} textAnchor="middle" fontSize="12" fill="#877b67" fontFamily={mono}>s = a&middot;U  (lag-window &times; shear product)</text>
-          <text x={16} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="12" fill="#877b67" fontFamily={mono} transform={`rotate(-90 16 ${(MT + H - MB) / 2})`}>operator/diagonal gap</text>
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+          <text x={(ML + W - MR) / 2} y={H - 8} textAnchor="middle" fontSize="12" fill={ED.inkFaint} fontFamily={mono}>s = a&middot;U  (lag-window &times; shear product)</text>
+          <text x={16} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="12" fill={ED.inkFaint} fontFamily={mono} transform={`rotate(-90 16 ${(MT + H - MB) / 2})`}>operator/diagonal gap</text>
 
           {/* collapsed trend curve */}
-          <path d={trendPath} fill="none" stroke="#d5c9b2" strokeWidth="1.5" strokeDasharray="4 3" />
+          <path d={trendPath} fill="none" stroke={ED.rule} strokeWidth="1.5" strokeDasharray="4 3" />
 
           {/* per-cell scatter, colored by a */}
           {grid.map((c, i) => (
@@ -2478,7 +2479,7 @@ function OperatorGapCollapseViz() {
               r="5"
               fill={A_COLORS[c.a] || '#877b67'}
               fillOpacity="0.55"
-              stroke={A_COLORS[c.a] || '#877b67'}
+              stroke={A_COLORS[c.a] || ED.rule}
               strokeWidth="1.2"
             >
               <title>{`a=${c.a}, U=${c.U}  ->  s=${c.s}, gap=${c.operatorDiagonalGap.toFixed(5)}, ||R||=${c.operatorNorm.toFixed(4)}`}</title>
@@ -2488,8 +2489,8 @@ function OperatorGapCollapseViz() {
           {/* headline coincidence annotation at s = 3 */}
           {headlinePair && (
             <g>
-              <line x1={px(3)} y1={py(headlinePair.cellA.operatorDiagonalGap) - 10} x2={px(3)} y2={MT + 8} stroke="#b58a2e" strokeWidth="1" strokeDasharray="2 2" />
-              <text x={px(3) + 6} y={MT + 16} fontSize="11" fill="#b58a2e" fontFamily={mono}>
+              <line x1={px(3)} y1={py(headlinePair.cellA.operatorDiagonalGap) - 10} x2={px(3)} y2={MT + 8} stroke={ED.brassDeco} strokeWidth="1" strokeDasharray="2 2" />
+              <text x={px(3) + 6} y={MT + 16} fontSize="11" fill={ED.brass} fontFamily={mono}>
                 (0.5,6) &amp; (0.3,10) &rarr; gap {headlinePair.cellA.operatorDiagonalGap.toFixed(4)}
               </text>
             </g>
@@ -2499,7 +2500,7 @@ function OperatorGapCollapseViz() {
           {aValues.map((a, i) => (
             <g key={`leg${a}`} transform={`translate(${W - MR - 92}, ${MT + 10 + i * 18})`}>
               <circle cx="0" cy="-4" r="5" fill={A_COLORS[a]} fillOpacity="0.55" stroke={A_COLORS[a]} strokeWidth="1.2" />
-              <text x="12" y="0" fontSize="11" fill="#4a4238" fontFamily={mono}>a = {a}</text>
+              <text x="12" y="0" fontSize="11" fill={ED.inkSoft} fontFamily={mono}>a = {a}</text>
             </g>
           ))}
         </svg>
@@ -2507,31 +2508,31 @@ function OperatorGapCollapseViz() {
 
       {/* contrast: the RAW Hankel cross-term does NOT collapse */}
       {headlinePair && (
-        <div style={{ marginTop: 12, padding: '10px 14px', borderRadius: 6, background: 'rgba(194,58,28,0.07)', border: '1px solid rgba(194,58,28,0.3)' }}>
-          <div style={{ fontSize: 11, fontWeight: 700, color: '#c23a1c', letterSpacing: '0.06em', marginBottom: 6 }}>
+        <div style={{ marginTop: 12, padding: '10px 14px', borderRadius: 6, background: 'color-mix(in srgb, var(--series-2) 7%, transparent)', border: '1px solid color-mix(in srgb, var(--accent) 30%, transparent)' }}>
+          <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--accent)', letterSpacing: '0.06em', marginBottom: 6 }}>
             THE RAW GRAM DOES NOT COLLAPSE
           </div>
-          <p style={{ color: '#4a4238', fontSize: 12.5, lineHeight: 1.7, margin: 0 }}>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 12.5, lineHeight: 1.7, margin: 0 }}>
             The scale invariance lives in the <em>de-homogenized</em> operator R, not the bare Gram.
             At the same s = 3 the two equal-product cells give identical gaps but the raw off-diagonal{' '}
             <span style={{ fontFamily: mono }}>min&#x2C7C;&#x2260;&#x2096; |H&#x2C7C;&#x2096;|</span> still
             carries the dimensionful U prefactor and differs by O(1):{' '}
-            <span style={{ fontFamily: mono, color: '#c23a1c' }}>
+            <span style={{ fontFamily: mono, color: 'var(--accent)' }}>
               {headlinePair.cellA.minOffDiagonalHankelCrossTerm.toFixed(2)} (a=0.5,U=6)
             </span>{' '}
             vs{' '}
-            <span style={{ fontFamily: mono, color: '#c23a1c' }}>
+            <span style={{ fontFamily: mono, color: 'var(--accent)' }}>
               {headlinePair.cellB.minOffDiagonalHankelCrossTerm.toFixed(2)} (a=0.3,U=10)
             </span>.
           </p>
         </div>
       )}
 
-      <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 6, background: 'rgba(135,123,103,0.06)', border: '1px solid rgba(135,123,103,0.25)' }}>
-        <div style={{ fontSize: 11, fontWeight: 700, color: '#877b67', letterSpacing: '0.06em', marginBottom: 4 }}>
+      <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 6, background: 'color-mix(in srgb, var(--ink-faint) 6%, transparent)', border: '1px solid color-mix(in srgb, var(--rule) 25%, transparent)' }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--ink-faint)', letterSpacing: '0.06em', marginBottom: 4 }}>
           DIAGNOSTIC — NO RH VERDICT
         </div>
-        <p style={{ color: '#877b67', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
+        <p style={{ color: 'var(--ink-faint)', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
           Measured on the SAME representative degree-4 monomial-moment truncation as imp-3066 (chosen to
           EXHIBIT the off-diagonal cross-terms), NOT the section-26 Gram. Only the a&middot;U scaling of the
           obstruction magnitude is asserted — the gap claims neither that the cover fails nor that it holds.
@@ -2539,7 +2540,7 @@ function OperatorGapCollapseViz() {
         </p>
       </div>
 
-      <p style={{ marginTop: 10, color: '#877b67', fontSize: 11, fontFamily: mono }}>
+      <p style={{ marginTop: 10, color: 'var(--ink-faint)', fontSize: 11, fontFamily: mono }}>
         Source: imp-3085-hankel-gap-aU-grid.js &mdash; operator companion to the imp-3095 scalar-phi collapse.
       </p>
     </div>
@@ -2575,8 +2576,8 @@ function DeHomogOffDiagSTrendViz() {
   const atS3 = trend7.find((t) => Math.abs(t.s - 3) < 1e-9);
 
   return (
-    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #4c7a4a', background: 'rgba(76,122,74,0.04)' }}>
-      <h3 style={{ color: '#4c7a4a', marginTop: 0 }}>
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid var(--series-3)', background: 'color-mix(in srgb, var(--series-3) 4%, transparent)' }}>
+      <h3 style={{ color: 'var(--series-3)', marginTop: 0 }}>
         Off-diagonal extremes monotonically saturate below Perron limit vs s = a&middot;U (imp-3107)
       </h3>
       <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75 }}>
@@ -2590,81 +2591,81 @@ function DeHomogOffDiagSTrendViz() {
         follows the same saturating trend.
       </p>
       <div style={{ overflowX: 'auto' }}>
-        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'rgba(214,201,178,0.25)', borderRadius: 6 }}>
+        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'color-mix(in srgb, var(--rule) 25%, transparent)', borderRadius: 6 }}>
           {rTicks.map((v) => (
             <g key={`rg${v}`}>
-              <line x1={ML} y1={pyL(v)} x2={W - MR} y2={pyL(v)} stroke="#d5c9b2" strokeWidth="1" />
-              <text x={ML - 8} y={pyL(v) + 4} textAnchor="end" fontSize="11" fill="#877b67" fontFamily={mono}>{v.toFixed(2)}</text>
+              <line x1={ML} y1={pyL(v)} x2={W - MR} y2={pyL(v)} stroke={ED.rule} strokeWidth="1" />
+              <text x={ML - 8} y={pyL(v) + 4} textAnchor="end" fontSize="11" fill={ED.inkFaint} fontFamily={mono}>{v.toFixed(2)}</text>
             </g>
           ))}
           {sTicks.map((s) => (
-            <text key={`st${s}`} x={px(s)} y={H - MB + 18} textAnchor="middle" fontSize="11" fill="#877b67" fontFamily={mono}>{s}</text>
+            <text key={`st${s}`} x={px(s)} y={H - MB + 18} textAnchor="middle" fontSize="11" fill={ED.inkFaint} fontFamily={mono}>{s}</text>
           ))}
           {gTicks.map((g) => (
-            <text key={`gt${g}`} x={W - MR + 8} y={pyR(g) + 4} textAnchor="start" fontSize="11" fill="#3f6b86" fontFamily={mono}>{g}</text>
+            <text key={`gt${g}`} x={W - MR + 8} y={pyR(g) + 4} textAnchor="start" fontSize="11" fill={ED.series1} fontFamily={mono}>{g}</text>
           ))}
-          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-          <line x1={W - MR} y1={MT} x2={W - MR} y2={H - MB} stroke="#3f6b86" strokeWidth="1" strokeDasharray="3 2" />
-          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-          <text x={(ML + W - MR) / 2} y={H - 8} textAnchor="middle" fontSize="12" fill="#877b67" fontFamily={mono}>s = a&middot;U  (shear weight &times; lag window)</text>
-          <text x={14} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="11" fill="#877b67" fontFamily={mono} transform={`rotate(-90 14 ${(MT + H - MB) / 2})`}>min/max R&#x2C7C;&#x2096;</text>
-          <text x={W - 10} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="11" fill="#3f6b86" fontFamily={mono} transform={`rotate(90 ${W - 10} ${(MT + H - MB) / 2})`}>gap (right)</text>
-          <line x1={ML} y1={pyL(1)} x2={W - MR} y2={pyL(1)} stroke="#b58a2e" strokeWidth="1" strokeDasharray="5 3" strokeOpacity="0.5" />
-          <text x={ML + 6} y={pyL(1) - 4} fontSize="10" fill="#b58a2e" fontFamily={mono} fillOpacity="0.75">Perron limit (every R&#x2C7C;&#x2096; &rarr; 1)</text>
-          <path d={gapPath} fill="none" stroke="#3f6b86" strokeWidth="1.5" strokeDasharray="4 3" opacity="0.7" />
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+          <line x1={W - MR} y1={MT} x2={W - MR} y2={H - MB} stroke={ED.series1} strokeWidth="1" strokeDasharray="3 2" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+          <text x={(ML + W - MR) / 2} y={H - 8} textAnchor="middle" fontSize="12" fill={ED.inkFaint} fontFamily={mono}>s = a&middot;U  (shear weight &times; lag window)</text>
+          <text x={14} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="11" fill={ED.inkFaint} fontFamily={mono} transform={`rotate(-90 14 ${(MT + H - MB) / 2})`}>min/max R&#x2C7C;&#x2096;</text>
+          <text x={W - 10} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="11" fill={ED.series1} fontFamily={mono} transform={`rotate(90 ${W - 10} ${(MT + H - MB) / 2})`}>gap (right)</text>
+          <line x1={ML} y1={pyL(1)} x2={W - MR} y2={pyL(1)} stroke={ED.brassDeco} strokeWidth="1" strokeDasharray="5 3" strokeOpacity="0.5" />
+          <text x={ML + 6} y={pyL(1) - 4} fontSize="10" fill={ED.brass} fontFamily={mono} fillOpacity="0.75">Perron limit (every R&#x2C7C;&#x2096; &rarr; 1)</text>
+          <path d={gapPath} fill="none" stroke={ED.series1} strokeWidth="1.5" strokeDasharray="4 3" opacity="0.7" />
           {gapPts.map((p, i) => (
-            <circle key={`gp${i}`} cx={p[0]} cy={p[1]} r="3.5" fill="#3f6b86" fillOpacity="0.5" stroke="#3f6b86" strokeWidth="1">
+            <circle key={`gp${i}`} cx={p[0]} cy={p[1]} r="3.5" fill={ED.series1} fillOpacity="0.5" stroke={ED.series1} strokeWidth="1">
               <title>{`s=${trend5[i].s}  gap=${trend5[i].operatorDiagonalGap.toFixed(4)}`}</title>
             </circle>
           ))}
-          <path d={maxPath} fill="none" stroke="#b58a2e" strokeWidth="2" />
+          <path d={maxPath} fill="none" stroke={ED.brassDeco} strokeWidth="2" />
           {trend7.map((t, i) => (
-            <circle key={`mxR${i}`} cx={px(t.s)} cy={pyL(t.maxOffDiagonalR)} r="4" fill="#b58a2e" fillOpacity="0.65" stroke="#b58a2e" strokeWidth="1.2">
+            <circle key={`mxR${i}`} cx={px(t.s)} cy={pyL(t.maxOffDiagonalR)} r="4" fill={ED.brassDeco} fillOpacity="0.65" stroke={ED.brassDeco} strokeWidth="1.2">
               <title>{`s=${t.s}  max R_jk=${t.maxOffDiagonalR.toFixed(5)}`}</title>
             </circle>
           ))}
-          <path d={minPath} fill="none" stroke="#4c7a4a" strokeWidth="2" />
+          <path d={minPath} fill="none" stroke={ED.series3} strokeWidth="2" />
           {trend7.map((t, i) => (
-            <circle key={`mnR${i}`} cx={px(t.s)} cy={pyL(t.minOffDiagonalR)} r="4" fill="#4c7a4a" fillOpacity="0.65" stroke="#4c7a4a" strokeWidth="1.2">
+            <circle key={`mnR${i}`} cx={px(t.s)} cy={pyL(t.minOffDiagonalR)} r="4" fill={ED.series3} fillOpacity="0.65" stroke={ED.series3} strokeWidth="1.2">
               <title>{`s=${t.s}  min R_jk=${t.minOffDiagonalR.toFixed(5)}`}</title>
             </circle>
           ))}
           {atS3 && (
             <g>
-              <line x1={px(3)} y1={pyL(atS3.maxOffDiagonalR) + 10} x2={px(3)} y2={H - MB - 18} stroke="#877b67" strokeWidth="0.8" strokeDasharray="2 2" />
-              <text x={px(3) + 5} y={H - MB - 20} fontSize="10" fill="#877b67" fontFamily={mono}>
+              <line x1={px(3)} y1={pyL(atS3.maxOffDiagonalR) + 10} x2={px(3)} y2={H - MB - 18} stroke={ED.rule} strokeWidth="0.8" strokeDasharray="2 2" />
+              <text x={px(3) + 5} y={H - MB - 20} fontSize="10" fill={ED.inkFaint} fontFamily={mono}>
                 s=3: min {atS3.minOffDiagonalR.toFixed(4)}, max {atS3.maxOffDiagonalR.toFixed(4)}
               </text>
             </g>
           )}
           <g transform={`translate(${ML + 10}, ${MT + 8})`}>
-            <line x1="0" y1="6" x2="18" y2="6" stroke="#4c7a4a" strokeWidth="2" />
-            <circle cx="9" cy="6" r="3.5" fill="#4c7a4a" fillOpacity="0.65" stroke="#4c7a4a" strokeWidth="1" />
-            <text x="22" y="10" fontSize="11" fill="#4c7a4a" fontFamily={mono}>min R&#x2C7C;&#x2096; (left axis)</text>
+            <line x1="0" y1="6" x2="18" y2="6" stroke={ED.series3} strokeWidth="2" />
+            <circle cx="9" cy="6" r="3.5" fill={ED.series3} fillOpacity="0.65" stroke={ED.series3} strokeWidth="1" />
+            <text x="22" y="10" fontSize="11" fill={ED.series3} fontFamily={mono}>min R&#x2C7C;&#x2096; (left axis)</text>
           </g>
           <g transform={`translate(${ML + 10}, ${MT + 26})`}>
-            <line x1="0" y1="6" x2="18" y2="6" stroke="#b58a2e" strokeWidth="2" />
-            <circle cx="9" cy="6" r="3.5" fill="#b58a2e" fillOpacity="0.65" stroke="#b58a2e" strokeWidth="1" />
-            <text x="22" y="10" fontSize="11" fill="#b58a2e" fontFamily={mono}>max R&#x2C7C;&#x2096; (left axis)</text>
+            <line x1="0" y1="6" x2="18" y2="6" stroke={ED.brassDeco} strokeWidth="2" />
+            <circle cx="9" cy="6" r="3.5" fill={ED.brassDeco} fillOpacity="0.65" stroke={ED.brassDeco} strokeWidth="1" />
+            <text x="22" y="10" fontSize="11" fill={ED.brass} fontFamily={mono}>max R&#x2C7C;&#x2096; (left axis)</text>
           </g>
           <g transform={`translate(${ML + 10}, ${MT + 44})`}>
-            <line x1="0" y1="6" x2="18" y2="6" stroke="#3f6b86" strokeWidth="1.5" strokeDasharray="4 3" />
-            <circle cx="9" cy="6" r="3" fill="#3f6b86" fillOpacity="0.5" stroke="#3f6b86" strokeWidth="1" />
-            <text x="22" y="10" fontSize="11" fill="#3f6b86" fontFamily={mono}>&#x2016;R&#x2016; - max R&#x2C7C;&#x2C7C; (right axis, imp-3085)</text>
+            <line x1="0" y1="6" x2="18" y2="6" stroke={ED.series1} strokeWidth="1.5" strokeDasharray="4 3" />
+            <circle cx="9" cy="6" r="3" fill={ED.series1} fillOpacity="0.5" stroke={ED.series1} strokeWidth="1" />
+            <text x="22" y="10" fontSize="11" fill={ED.series1} fontFamily={mono}>&#x2016;R&#x2016; - max R&#x2C7C;&#x2C7C; (right axis, imp-3085)</text>
           </g>
         </svg>
       </div>
-      <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 6, background: 'rgba(135,123,103,0.06)', border: '1px solid rgba(135,123,103,0.25)' }}>
-        <div style={{ fontSize: 11, fontWeight: 700, color: '#877b67', letterSpacing: '0.06em', marginBottom: 4 }}>
+      <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 6, background: 'color-mix(in srgb, var(--ink-faint) 6%, transparent)', border: '1px solid color-mix(in srgb, var(--rule) 25%, transparent)' }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--ink-faint)', letterSpacing: '0.06em', marginBottom: 4 }}>
           DIAGNOSTIC -- NO RH VERDICT
         </div>
-        <p style={{ color: '#877b67', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
+        <p style={{ color: 'var(--ink-faint)', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
           Measured on the same representative degree-4 monomial-moment truncation as imp-3066/3085, NOT the
           section-26 Gram. The scale invariance is a property of the de-homogenized R, not the bare Gram
           entries. Positivity was not attempted.
         </p>
       </div>
-      <p style={{ marginTop: 10, color: '#877b67', fontSize: 11, fontFamily: mono }}>
+      <p style={{ marginTop: 10, color: 'var(--ink-faint)', fontSize: 11, fontFamily: mono }}>
         Source: imp-3107-dehomogenized-offdiag-aU-grid.js + imp-3085-hankel-gap-aU-grid.js
       </p>
     </div>
@@ -2747,8 +2748,8 @@ function PhiProfileLogLogViz() {
   const slopeAnnotLy = Math.log10(C) - 2 * slopeAnnotLx;
 
   return (
-    <div className="card" style={{ marginTop: 16, borderLeft: "4px solid #6d55b8", background: "rgba(109,85,184,0.04)" }}>
-      <h3 style={{ color: "#6d55b8", marginTop: 0 }}>
+    <div className="card" style={{ marginTop: 16, borderLeft: "4px solid var(--series-5)", background: 'color-mix(in srgb, var(--series-5) 4%, transparent)' }}>
+      <h3 style={{ color: 'var(--series-5)', marginTop: 0 }}>
         phi(s) log-log profile: onset + decay + imp-3105 interior landmarks
       </h3>
       <p style={{ color: "var(--text-secondary)", fontSize: 13, lineHeight: 1.75 }}>
@@ -2756,76 +2757,76 @@ function PhiProfileLogLogViz() {
         <span style={{ fontFamily: mono }}>phi(s) = G(s)/F(s)</span> vs. offset{" "}
         <span style={{ fontFamily: mono }}>eps = s &minus; s0</span> from the overflow onset{" "}
         <span style={{ fontFamily: mono }}>s0 = arcsinh(1) &asymp; {S0.toFixed(5)}</span>.
-        Dashed <strong style={{ color: "#3f6b86" }}>cyan</strong>: onset quadratic-pole envelope{" "}
+        Dashed <strong style={{ color: 'var(--series-1)' }}>cyan</strong>: onset quadratic-pole envelope{" "}
         <span style={{ fontFamily: mono }}>C/(s&minus;s0)^2</span> (slope &minus;2, exact as s&rarr;s0+).
-        Dashed <strong style={{ color: "#b58a2e" }}>amber</strong>: large-s exponential envelope{" "}
+        Dashed <strong style={{ color: 'var(--brass)' }}>amber</strong>: large-s exponential envelope{" "}
         <span style={{ fontFamily: mono }}>K&sdot;e^(-s)</span>.
         The actual phi (white) tracks the slope &minus;2 line near the onset, then peels above both
         envelopes before following the exponential tail.{" "}
-        <strong style={{ color: "#4c7a4a" }}>Green</strong>: phi=1 at s*&asymp;1.489 (unique scale
+        <strong style={{ color: 'var(--series-3)' }}>Green</strong>: phi=1 at s*&asymp;1.489 (unique scale
         where the forced cosh-completion costs as much as the entire kinked cover; transcendental, no closed form).{" "}
-        <strong style={{ color: "#b58a2e" }}>Orange</strong>: envelope handoff s_c1&asymp;1.915
+        <strong style={{ color: 'var(--brass)' }}>Orange</strong>: envelope handoff s_c1&asymp;1.915
         (onset envelope drops below decay envelope); gap: exact phi&asymp;0.378 vs common
         envelope value&asymp;0.157 -- the orange segment shows this gap since neither asymptotic is exact here.{" "}
-        <strong style={{ color: "#6d55b8" }}>Purple</strong>: algebraic re-crossing s_c2&asymp;4.318
+        <strong style={{ color: 'var(--series-5)' }}>Purple</strong>: algebraic re-crossing s_c2&asymp;4.318
         (pole envelope tail rises back above exponential; comparison artifact, NOT a regime boundary). (imp-3105)
       </p>
       <div style={{ overflowX: "auto" }}>
-        <svg width={W} height={H} style={{ display: "block", maxWidth: "100%", background: "rgba(214,201,178,0.25)", borderRadius: 6 }}>
+        <svg width={W} height={H} style={{ display: "block", maxWidth: "100%", background: 'color-mix(in srgb, var(--rule) 25%, transparent)', borderRadius: 6 }}>
           {yTicks.map((y) => (
             <g key={"yt" + y}>
-              <line x1={ML} y1={pyFn(y)} x2={W - MR} y2={pyFn(y)} stroke="#d5c9b2" strokeWidth="1" />
-              <text x={ML - 6} y={pyFn(y) + 4} textAnchor="end" fontSize="10" fill="#877b67" fontFamily={mono}>{y}</text>
+              <line x1={ML} y1={pyFn(y)} x2={W - MR} y2={pyFn(y)} stroke={ED.rule} strokeWidth="1" />
+              <text x={ML - 6} y={pyFn(y) + 4} textAnchor="end" fontSize="10" fill={ED.inkFaint} fontFamily={mono}>{y}</text>
             </g>
           ))}
           {xTicks.map((x) => (
             <g key={"xt" + x}>
-              <line x1={pxFn(x)} y1={MT} x2={pxFn(x)} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-              <text x={pxFn(x)} y={H - MB + 15} textAnchor="middle" fontSize="10" fill="#877b67" fontFamily={mono}>{x}</text>
+              <line x1={pxFn(x)} y1={MT} x2={pxFn(x)} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+              <text x={pxFn(x)} y={H - MB + 15} textAnchor="middle" fontSize="10" fill={ED.inkFaint} fontFamily={mono}>{x}</text>
             </g>
           ))}
-          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-          <text x={(ML + W - MR) / 2} y={H - 8} textAnchor="middle" fontSize="11" fill="#877b67" fontFamily={mono}>
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+          <text x={(ML + W - MR) / 2} y={H - 8} textAnchor="middle" fontSize="11" fill={ED.inkFaint} fontFamily={mono}>
             log&#8321;&#8320;(s &minus; s0)
           </text>
-          <text x={12} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="11" fill="#877b67" fontFamily={mono}
+          <text x={12} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="11" fill={ED.inkFaint} fontFamily={mono}
             transform={`rotate(-90 12 ${(MT + H - MB) / 2})`}>
             log&#8321;&#8320;(phi)
           </text>
-          <path d={onsetPath} fill="none" stroke="#3f6b86" strokeWidth="1.5" strokeDasharray="5 3" />
-          <path d={decayPath} fill="none" stroke="#b58a2e" strokeWidth="1.5" strokeDasharray="5 3" />
-          <path d={phiPath} fill="none" stroke="#1c1814" strokeWidth="2" />
+          <path d={onsetPath} fill="none" stroke={ED.series1} strokeWidth="1.5" strokeDasharray="5 3" />
+          <path d={decayPath} fill="none" stroke={ED.brassDeco} strokeWidth="1.5" strokeDasharray="5 3" />
+          <path d={phiPath} fill="none" stroke={ED.ink} strokeWidth="2" />
           {/* imp-3105 landmark: phi=1 at s*~1.489 */}
-          <line x1={pxFn(lx_star)} y1={MT} x2={pxFn(lx_star)} y2={H - MB} stroke="#4c7a4a" strokeWidth="1" strokeDasharray="3 3" opacity="0.7" />
-          <circle cx={pxFn(lx_star)} cy={pyFn(ly_star)} r={4} fill="#4c7a4a" stroke="#1c1814" strokeWidth="1" />
-          <text x={pxFn(lx_star) - 38} y={pyFn(ly_star) - 8} fontSize="9" fill="#4c7a4a" fontFamily={mono}>s*~1.489</text>
-          <text x={pxFn(lx_star) - 28} y={pyFn(ly_star) + 2} fontSize="9" fill="#4c7a4a" fontFamily={mono}>phi=1</text>
+          <line x1={pxFn(lx_star)} y1={MT} x2={pxFn(lx_star)} y2={H - MB} stroke={ED.series3} strokeWidth="1" strokeDasharray="3 3" opacity="0.7" />
+          <circle cx={pxFn(lx_star)} cy={pyFn(ly_star)} r={4} fill={ED.series3} stroke={ED.ink} strokeWidth="1" />
+          <text x={pxFn(lx_star) - 38} y={pyFn(ly_star) - 8} fontSize="9" fill={ED.series3} fontFamily={mono}>s*~1.489</text>
+          <text x={pxFn(lx_star) - 28} y={pyFn(ly_star) + 2} fontSize="9" fill={ED.series3} fontFamily={mono}>phi=1</text>
           {/* imp-3105 landmark: envelope handoff s_c1~1.915 with env gap */}
-          <line x1={pxFn(lx_c1)} y1={MT} x2={pxFn(lx_c1)} y2={H - MB} stroke="#b58a2e" strokeWidth="1" strokeDasharray="3 3" opacity="0.7" />
-          <line x1={pxFn(lx_c1)} y1={pyFn(ly_c1)} x2={pxFn(lx_c1)} y2={pyFn(ly_env1)} stroke="#b58a2e" strokeWidth="2.5" opacity="0.6" />
-          <circle cx={pxFn(lx_c1)} cy={pyFn(ly_c1)} r={4} fill="#b58a2e" stroke="#1c1814" strokeWidth="1" />
-          <circle cx={pxFn(lx_c1)} cy={pyFn(ly_env1)} r={3} fill="none" stroke="#b58a2e" strokeWidth="1.5" strokeDasharray="2 2" />
-          <text x={pxFn(lx_c1) + 5} y={pyFn(ly_c1) - 8} fontSize="9" fill="#b58a2e" fontFamily={mono}>s_c1~1.915</text>
-          <text x={pxFn(lx_c1) + 5} y={pyFn(ly_c1) + 2} fontSize="9" fill="#b58a2e" fontFamily={mono}>handoff</text>
+          <line x1={pxFn(lx_c1)} y1={MT} x2={pxFn(lx_c1)} y2={H - MB} stroke={ED.brassDeco} strokeWidth="1" strokeDasharray="3 3" opacity="0.7" />
+          <line x1={pxFn(lx_c1)} y1={pyFn(ly_c1)} x2={pxFn(lx_c1)} y2={pyFn(ly_env1)} stroke={ED.brassDeco} strokeWidth="2.5" opacity="0.6" />
+          <circle cx={pxFn(lx_c1)} cy={pyFn(ly_c1)} r={4} fill={ED.brassDeco} stroke={ED.ink} strokeWidth="1" />
+          <circle cx={pxFn(lx_c1)} cy={pyFn(ly_env1)} r={3} fill="none" stroke={ED.brassDeco} strokeWidth="1.5" strokeDasharray="2 2" />
+          <text x={pxFn(lx_c1) + 5} y={pyFn(ly_c1) - 8} fontSize="9" fill={ED.brass} fontFamily={mono}>s_c1~1.915</text>
+          <text x={pxFn(lx_c1) + 5} y={pyFn(ly_c1) + 2} fontSize="9" fill={ED.brass} fontFamily={mono}>handoff</text>
           {/* imp-3105 landmark: algebraic re-crossing s_c2~4.318 */}
-          <line x1={pxFn(lx_c2)} y1={MT} x2={pxFn(lx_c2)} y2={H - MB} stroke="#6d55b8" strokeWidth="1" strokeDasharray="3 3" opacity="0.7" />
-          <circle cx={pxFn(lx_c2)} cy={pyFn(ly_c2)} r={4} fill="#6d55b8" stroke="#1c1814" strokeWidth="1" />
-          <text x={pxFn(lx_c2) + 5} y={pyFn(ly_c2) - 8} fontSize="9" fill="#6d55b8" fontFamily={mono}>s_c2~4.318</text>
-          <text x={pxFn(lx_c2) + 5} y={pyFn(ly_c2) + 2} fontSize="9" fill="#6d55b8" fontFamily={mono}>re-cross</text>
-          <text x={pxFn(slopeAnnotLx) + 4} y={pyFn(slopeAnnotLy) - 6} fontSize="10" fill="#3f6b86" fontFamily={mono}>
+          <line x1={pxFn(lx_c2)} y1={MT} x2={pxFn(lx_c2)} y2={H - MB} stroke={ED.series5} strokeWidth="1" strokeDasharray="3 3" opacity="0.7" />
+          <circle cx={pxFn(lx_c2)} cy={pyFn(ly_c2)} r={4} fill={ED.series5} stroke={ED.ink} strokeWidth="1" />
+          <text x={pxFn(lx_c2) + 5} y={pyFn(ly_c2) - 8} fontSize="9" fill={ED.series5} fontFamily={mono}>s_c2~4.318</text>
+          <text x={pxFn(lx_c2) + 5} y={pyFn(ly_c2) + 2} fontSize="9" fill={ED.series5} fontFamily={mono}>re-cross</text>
+          <text x={pxFn(slopeAnnotLx) + 4} y={pyFn(slopeAnnotLy) - 6} fontSize="10" fill={ED.series1} fontFamily={mono}>
             slope &minus;2
           </text>
-          <rect x={W - MR - 130} y={MT + 2} width={110} height={58} rx={4} fill="#f6f1e7" />
-          <line x1={W - MR - 122} y1={MT + 14} x2={W - MR - 106} y2={MT + 14} stroke="#1c1814" strokeWidth="2" />
-          <text x={W - MR - 102} y={MT + 18} fontSize="10" fill="#1c1814" fontFamily={mono}>phi(s)</text>
-          <line x1={W - MR - 122} y1={MT + 30} x2={W - MR - 106} y2={MT + 30} stroke="#3f6b86" strokeWidth="1.5" strokeDasharray="4 2" />
-          <text x={W - MR - 102} y={MT + 34} fontSize="10" fill="#3f6b86" fontFamily={mono}>C/(s-s0)^2</text>
-          <line x1={W - MR - 122} y1={MT + 46} x2={W - MR - 106} y2={MT + 46} stroke="#b58a2e" strokeWidth="1.5" strokeDasharray="4 2" />
-          <text x={W - MR - 102} y={MT + 50} fontSize="10" fill="#b58a2e" fontFamily={mono}>K&#x22c5;e^(-s)</text>
+          <rect x={W - MR - 130} y={MT + 2} width={110} height={58} rx={4} fill={ED.paper2} />
+          <line x1={W - MR - 122} y1={MT + 14} x2={W - MR - 106} y2={MT + 14} stroke={ED.ink} strokeWidth="2" />
+          <text x={W - MR - 102} y={MT + 18} fontSize="10" fill={ED.ink} fontFamily={mono}>phi(s)</text>
+          <line x1={W - MR - 122} y1={MT + 30} x2={W - MR - 106} y2={MT + 30} stroke={ED.series1} strokeWidth="1.5" strokeDasharray="4 2" />
+          <text x={W - MR - 102} y={MT + 34} fontSize="10" fill={ED.series1} fontFamily={mono}>C/(s-s0)^2</text>
+          <line x1={W - MR - 122} y1={MT + 46} x2={W - MR - 106} y2={MT + 46} stroke={ED.brassDeco} strokeWidth="1.5" strokeDasharray="4 2" />
+          <text x={W - MR - 102} y={MT + 50} fontSize="10" fill={ED.brass} fontFamily={mono}>K&#x22c5;e^(-s)</text>
         </svg>
       </div>
-      <p style={{ marginTop: 8, color: "#877b67", fontSize: 11, fontFamily: mono }}>
+      <p style={{ marginTop: 8, color: 'var(--ink-faint)', fontSize: 11, fontFamily: mono }}>
         C = sqrt(2)*(1 &minus; arcsinh(1)) &asymp; {C.toFixed(5)} (imp-3087 onset pole constant);{" "}
         K = 2*(sqrt(2) &minus; arcsinh(1)) &asymp; {K.toFixed(5)} (imp-3088 large-s decay constant).{" "}
         Convergence signatures (imp-3112): &phi;(s<sub>0</sub>+&epsilon;)&epsilon;<sup>2</sup>/C&rarr;1 as &epsilon;&rarr;0+
@@ -2855,12 +2856,12 @@ function DeficitExcessFractionGridPanel() {
   const isEqProduct = (a, U) => { const c = cellOf(a, U); return c && Math.abs(c.s - 3.0) < 1e-6; };
 
   const phiStyle = (phi) => {
-    if (phi === null) return { color: '#877b67', background: 'rgba(135,123,103,0.12)' };
-    if (phi > 5)   return { color: '#c23a1c', background: 'rgba(194,58,28,0.10)' };
-    if (phi > 1)   return { color: '#b58a2e', background: 'rgba(181,138,46,0.10)' };
-    if (phi > 0.3) return { color: '#b58a2e', background: 'rgba(181,138,46,0.10)' };
-    if (phi > 0.1) return { color: '#4c7a4a', background: 'rgba(76,122,74,0.07)' };
-    return { color: '#4c7a4a', background: 'rgba(76,122,74,0.08)' };
+    if (phi === null) return { color: ED.inkFaint, background: TK_ALPHA(ED.inkFaint, 0.12) };
+    if (phi > 5)   return { color: ED.accent, background: TK_ALPHA(ED.series2, 0.1) };
+    if (phi > 1)   return { color: ED.brass, background: TK_ALPHA(ED.brassDeco, 0.1) };
+    if (phi > 0.3) return { color: ED.brass, background: TK_ALPHA(ED.brassDeco, 0.1) };
+    if (phi > 0.1) return { color: ED.series3, background: TK_ALPHA(ED.series3, 0.07) };
+    return { color: ED.series3, background: TK_ALPHA(ED.series3, 0.08) };
   };
   const phiFmt = (phi) => {
     if (phi === null) return '—';
@@ -2870,12 +2871,12 @@ function DeficitExcessFractionGridPanel() {
 
   const tdBase = {
     padding: '8px 8px', fontFamily: mono, fontSize: 12,
-    textAlign: 'center', borderBottom: '1px solid #d5c9b2', verticalAlign: 'middle',
+    textAlign: 'center', borderBottom: '1px solid var(--rule)', verticalAlign: 'middle',
   };
 
   return (
-    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #6d55b8', background: 'rgba(109,85,184,0.04)' }}>
-      <h3 style={{ color: '#6d55b8', marginTop: 0 }}>
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid var(--series-5)', background: 'color-mix(in srgb, var(--series-5) 4%, transparent)' }}>
+      <h3 style={{ color: 'var(--series-5)', marginTop: 0 }}>
         Degree-0 excess-fraction grid: phi = E / D_raw depends only on s = a&middot;U (imp-3064)
       </h3>
       <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75 }}>
@@ -2897,17 +2898,17 @@ function DeficitExcessFractionGridPanel() {
       <div style={{ overflowX: 'auto', marginTop: 12 }}>
         <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 12 }}>
           <thead>
-            <tr style={{ borderBottom: '1px solid #d5c9b2', textAlign: 'center', color: '#877b67' }}>
-              <th style={{ ...tdBase, textAlign: 'left', color: '#877b67' }}>U \\ a</th>
+            <tr style={{ borderBottom: '1px solid var(--rule)', textAlign: 'center', color: 'var(--ink-faint)' }}>
+              <th style={{ ...tdBase, textAlign: 'left', color: 'var(--ink-faint)' }}>U \\ a</th>
               {aVals.map((a) => (
-                <th key={a} style={{ ...tdBase, color: '#6d55b8' }}>a={a}</th>
+                <th key={a} style={{ ...tdBase, color: 'var(--series-5)' }}>a={a}</th>
               ))}
             </tr>
           </thead>
           <tbody>
             {uVals.map((U) => (
               <tr key={U}>
-                <td style={{ ...tdBase, textAlign: 'left', color: '#877b67' }}>U={U}</td>
+                <td style={{ ...tdBase, textAlign: 'left', color: 'var(--ink-faint)' }}>U={U}</td>
                 {aVals.map((a) => {
                   const c = cellOf(a, U);
                   const phi = c ? c.excessFraction : null;
@@ -2921,10 +2922,10 @@ function DeficitExcessFractionGridPanel() {
                         ...tdBase,
                         color: st.color,
                         background: st.background,
-                        boxShadow: hilite ? 'inset 0 0 0 2px #b58a2e' : 'none',
+                        boxShadow: hilite ? 'inset 0 0 0 2px var(--brass-deco)' : 'none',
                       }}
                     >
-                      <div style={{ fontSize: 10, color: '#877b67', marginBottom: 2 }}>s={s.toFixed(1)}</div>
+                      <div style={{ fontSize: 10, color: 'var(--ink-faint)', marginBottom: 2 }}>s={s.toFixed(1)}</div>
                       <div style={{ fontWeight: 700 }}>{phiFmt(phi)}</div>
                     </td>
                   );
@@ -2935,22 +2936,22 @@ function DeficitExcessFractionGridPanel() {
         </table>
       </div>
 
-      <div style={{ marginTop: 10, padding: '8px 12px', borderRadius: 5, background: 'rgba(181,138,46,0.07)', border: '1px solid rgba(181,138,46,0.3)', fontSize: 12, color: '#4a4238', lineHeight: 1.65 }}>
-        <strong style={{ color: '#b58a2e', fontFamily: mono }}>SCALE INVARIANCE: </strong>
+      <div style={{ marginTop: 10, padding: '8px 12px', borderRadius: 5, background: 'color-mix(in srgb, var(--brass-deco) 7%, transparent)', border: '1px solid color-mix(in srgb, var(--brass-deco) 30%, transparent)', fontSize: 12, color: 'var(--ink-soft)', lineHeight: 1.65 }}>
+        <strong style={{ color: 'var(--brass)', fontFamily: mono }}>SCALE INVARIANCE: </strong>
         (a=0.5, U=6) and (a=0.3, U=10) both give s=3, phi&asymp;{(hl.excessFraction * 100).toFixed(2)}%
         (gold border). phi = G(s)/F(s) where F(s)=cosh(s)&minus;&radic;2&minus;s+arcsinh(1)
         and G(s)=&radic;2&minus;arcsinh(1)&minus;e^(&minus;s).
       </div>
 
-      <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 6, background: 'rgba(135,123,103,0.06)', border: '1px solid rgba(135,123,103,0.25)' }}>
-        <div style={{ fontSize: 11, fontWeight: 700, color: '#877b67', letterSpacing: '0.06em', marginBottom: 4 }}>
+      <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 6, background: 'color-mix(in srgb, var(--ink-faint) 6%, transparent)', border: '1px solid color-mix(in srgb, var(--rule) 25%, transparent)' }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--ink-faint)', letterSpacing: '0.06em', marginBottom: 4 }}>
           DEGREE-0 SCALAR ONLY &mdash; RH-EQUIVALENT &mdash; NO RH VERDICT
         </div>
-        <p style={{ color: '#877b67', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
+        <p style={{ color: 'var(--ink-faint)', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
           {M.honestCaveat.operatorStepUntouched}
         </p>
       </div>
-      <p style={{ marginTop: 10, color: '#877b67', fontSize: 11, fontFamily: mono }}>
+      <p style={{ marginTop: 10, color: 'var(--ink-faint)', fontSize: 11, fontFamily: mono }}>
         Source: imp-3064-deficit-excess-fraction-grid.js &mdash; self-computing;
         all 20 cells verified via closed-form + midpoint cross-check.
       </p>
@@ -3002,8 +3003,8 @@ function PhiCollapseViz() {
   const eqPhi   = phi(eqPairS);
 
   return (
-    <div className="card" style={{ marginTop: 16, borderLeft: "4px solid #b58a2e", background: "rgba(181,138,46,0.04)" }}>
-      <h3 style={{ color: "#b58a2e", marginTop: 0 }}>
+    <div className="card" style={{ marginTop: 16, borderLeft: "4px solid var(--brass-deco)", background: 'color-mix(in srgb, var(--brass-deco) 4%, transparent)' }}>
+      <h3 style={{ color: 'var(--brass)', marginTop: 0 }}>
         phi(s) = G(s)/F(s): all equal-product (a,U) cells collapse onto one curve (imp-3095)
       </h3>
       <p style={{ color: "var(--text-secondary)", fontSize: 13, lineHeight: 1.75 }}>
@@ -3019,46 +3020,46 @@ function PhiCollapseViz() {
         precisely where the overflow is large.
       </p>
       <div style={{ overflowX: "auto" }}>
-        <svg width={W} height={H} style={{ display: "block", maxWidth: "100%", background: "rgba(214,201,178,0.25)", borderRadius: 6 }}>
+        <svg width={W} height={H} style={{ display: "block", maxWidth: "100%", background: 'color-mix(in srgb, var(--rule) 25%, transparent)', borderRadius: 6 }}>
           {/* grid lines */}
           {phiTicks.map((v) => (
             <g key={"pt" + v}>
-              <line x1={ML} y1={py(v)} x2={W - MR} y2={py(v)} stroke="#d5c9b2" strokeWidth="1" />
-              <text x={ML - 8} y={py(v) + 4} textAnchor="end" fontSize="11" fill="#877b67" fontFamily={mono}>{v.toFixed(1)}</text>
+              <line x1={ML} y1={py(v)} x2={W - MR} y2={py(v)} stroke={ED.rule} strokeWidth="1" />
+              <text x={ML - 8} y={py(v) + 4} textAnchor="end" fontSize="11" fill={ED.inkFaint} fontFamily={mono}>{v.toFixed(1)}</text>
             </g>
           ))}
           {sTicks.map((s) => (
             <g key={"st" + s}>
-              <line x1={px(s)} y1={MT} x2={px(s)} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-              <text x={px(s)} y={H - MB + 18} textAnchor="middle" fontSize="11" fill="#877b67" fontFamily={mono}>{s}</text>
+              <line x1={px(s)} y1={MT} x2={px(s)} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+              <text x={px(s)} y={H - MB + 18} textAnchor="middle" fontSize="11" fill={ED.inkFaint} fontFamily={mono}>{s}</text>
             </g>
           ))}
           {/* axes */}
-          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
           {/* onset vertical at s0 */}
-          <line x1={px(ASINH1)} y1={MT} x2={px(ASINH1)} y2={H - MB} stroke="#c23a1c" strokeWidth="1" strokeDasharray="3 3" opacity="0.5" />
-          <text x={px(ASINH1) + 4} y={MT + 14} fontSize="10" fill="#c23a1c" fontFamily={mono}>s0=arcsinh(1)</text>
+          <line x1={px(ASINH1)} y1={MT} x2={px(ASINH1)} y2={H - MB} stroke={ED.accent} strokeWidth="1" strokeDasharray="3 3" opacity="0.5" />
+          <text x={px(ASINH1) + 4} y={MT + 14} fontSize="10" fill={ED.accent} fontFamily={mono}>s0=arcsinh(1)</text>
           {/* phi=0 reference */}
-          <line x1={ML} y1={py(0)} x2={W - MR} y2={py(0)} stroke="#d5c9b2" strokeWidth="1.5" />
+          <line x1={ML} y1={py(0)} x2={W - MR} y2={py(0)} stroke={ED.rule} strokeWidth="1.5" />
           {/* phi=1 reference */}
-          <line x1={ML} y1={py(1)} x2={W - MR} y2={py(1)} stroke="#877b67" strokeWidth="1" strokeDasharray="4 3" opacity="0.6" />
-          <text x={W - MR - 4} y={py(1) - 4} textAnchor="end" fontSize="10" fill="#877b67" fontFamily={mono}>phi=1</text>
+          <line x1={ML} y1={py(1)} x2={W - MR} y2={py(1)} stroke={ED.rule} strokeWidth="1" strokeDasharray="4 3" opacity="0.6" />
+          <text x={W - MR - 4} y={py(1) - 4} textAnchor="end" fontSize="10" fill={ED.inkFaint} fontFamily={mono}>phi=1</text>
           {/* axis labels */}
-          <text x={(ML + W - MR) / 2} y={H - 8} textAnchor="middle" fontSize="12" fill="#877b67" fontFamily={mono}>
+          <text x={(ML + W - MR) / 2} y={H - 8} textAnchor="middle" fontSize="12" fill={ED.inkFaint} fontFamily={mono}>
             s = a&middot;U
           </text>
-          <text x={14} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="12" fill="#877b67" fontFamily={mono}
+          <text x={14} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="12" fill={ED.inkFaint} fontFamily={mono}
             transform={`rotate(-90 14 ${(MT + H - MB) / 2})`}>
             phi(s) = G(s)/F(s)
           </text>
           {/* continuous phi(s) curve */}
-          <path d={curvePath} fill="none" stroke="#1c1814" strokeWidth="2" />
+          <path d={curvePath} fill="none" stroke={ED.ink} strokeWidth="2" />
           {/* grid dots colored by a */}
           {dotRows.map((r, i) => (
             <circle key={i} cx={px(r.s)} cy={py(r.excessFraction)} r="5"
               fill={A_COLORS[r.a] || "#877b67"} fillOpacity="0.65"
-              stroke={A_COLORS[r.a] || "#877b67"} strokeWidth="1.2">
+              stroke={A_COLORS[r.a] || ED.rule} strokeWidth="1.2">
               <title>{`a=${r.a}, U=${r.U}  s=${r.s.toFixed(2)}  phi=${r.excessFraction.toFixed(5)}`}</title>
             </circle>
           ))}
@@ -3066,11 +3067,11 @@ function PhiCollapseViz() {
           {eqPhi !== null && eqPhi <= PHI_MAX && (
             <g>
               <line x1={px(eqPairS)} y1={py(eqPhi) - 10} x2={px(eqPairS)} y2={MT + 6}
-                stroke="#b58a2e" strokeWidth="1" strokeDasharray="2 2" />
-              <text x={px(eqPairS) + 5} y={MT + 16} fontSize="10" fill="#b58a2e" fontFamily={mono}>
+                stroke={ED.brassDeco} strokeWidth="1" strokeDasharray="2 2" />
+              <text x={px(eqPairS) + 5} y={MT + 16} fontSize="10" fill={ED.brass} fontFamily={mono}>
                 s=3: (0.5,6)=(0.3,10)
               </text>
-              <text x={px(eqPairS) + 5} y={MT + 27} fontSize="10" fill="#b58a2e" fontFamily={mono}>
+              <text x={px(eqPairS) + 5} y={MT + 27} fontSize="10" fill={ED.brass} fontFamily={mono}>
                 phi={eqPhi.toFixed(4)}
               </text>
             </g>
@@ -3079,27 +3080,27 @@ function PhiCollapseViz() {
           {[0.5, 0.3, 0.2, 0.1].map((a, i) => (
             <g key={"leg" + a} transform={`translate(${W - MR - 90}, ${MT + 10 + i * 18})`}>
               <circle cx="0" cy="-4" r="5" fill={A_COLORS[a]} fillOpacity="0.65" stroke={A_COLORS[a]} strokeWidth="1.2" />
-              <text x="12" y="0" fontSize="11" fill="#4a4238" fontFamily={mono}>a = {a}</text>
+              <text x="12" y="0" fontSize="11" fill={ED.inkSoft} fontFamily={mono}>a = {a}</text>
             </g>
           ))}
         </svg>
       </div>
-      <div style={{ marginTop: 10, padding: "8px 12px", borderRadius: 5, background: "rgba(181,138,46,0.07)", border: "1px solid rgba(181,138,46,0.3)", fontSize: 12, color: "#4a4238", lineHeight: 1.65 }}>
-        <strong style={{ color: "#b58a2e", fontFamily: mono }}>SCALE INVARIANCE: </strong>
+      <div style={{ marginTop: 10, padding: "8px 12px", borderRadius: 5, background: 'color-mix(in srgb, var(--brass-deco) 7%, transparent)', border: "1px solid color-mix(in srgb, var(--brass-deco) 30%, transparent)", fontSize: 12, color: 'var(--ink-soft)', lineHeight: 1.65 }}>
+        <strong style={{ color: 'var(--brass)', fontFamily: mono }}>SCALE INVARIANCE: </strong>
         Every (a,U) dot lies on the smooth curve phi(s)=G(s)/F(s).
         The (0.5,6) and (0.3,10) dots are indistinguishable at s=3 (gold annotation).
         Cells below the onset s0=arcsinh(1) have no overflow and are omitted.
         F(s)=cosh(s)&minus;&radic;2&minus;s+arcsinh(1), G(s)=&radic;2&minus;arcsinh(1)&minus;e^(&minus;s).
       </div>
-      <div style={{ marginTop: 8, padding: "8px 12px", borderRadius: 6, background: "rgba(135,123,103,0.06)", border: "1px solid rgba(135,123,103,0.25)" }}>
-        <div style={{ fontSize: 11, fontWeight: 700, color: "#877b67", letterSpacing: "0.06em", marginBottom: 4 }}>
+      <div style={{ marginTop: 8, padding: "8px 12px", borderRadius: 6, background: 'color-mix(in srgb, var(--ink-faint) 6%, transparent)', border: "1px solid color-mix(in srgb, var(--rule) 25%, transparent)" }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--ink-faint)', letterSpacing: "0.06em", marginBottom: 4 }}>
           DEGREE-0 SCALAR ONLY &mdash; RH-EQUIVALENT &mdash; NO RH VERDICT
         </div>
-        <p style={{ color: "#877b67", fontSize: 12, lineHeight: 1.65, margin: 0 }}>
+        <p style={{ color: 'var(--ink-faint)', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
           {M.honestCaveat.operatorStepUntouched}
         </p>
       </div>
-      <p style={{ marginTop: 10, color: "#877b67", fontSize: 11, fontFamily: mono }}>
+      <p style={{ marginTop: 10, color: 'var(--ink-faint)', fontSize: 11, fontFamily: mono }}>
         Source: imp-3064-deficit-excess-fraction-grid.js &mdash; scalar companion to the imp-3085 operator-gap collapse viz.
         imp-3095.
       </p>
@@ -3146,8 +3147,8 @@ function BridgeMarginRatioCurvePanel() {
   const ratioGenuine = M.ratioExact;
 
   return (
-    <div className="card" style={{ marginTop: 16, borderLeft: "4px solid #3f6b86", background: "rgba(63,107,134,0.04)" }}>
-      <h3 style={{ color: "#3f6b86", marginTop: 0 }}>
+    <div className="card" style={{ marginTop: 16, borderLeft: "4px solid var(--series-1)", background: 'color-mix(in srgb, var(--series-1) 4%, transparent)' }}>
+      <h3 style={{ color: 'var(--series-1)', marginTop: 0 }}>
         Bridge-margin ratio B/D(s) as a curve over s=aU: diverges at the D&#x2080;=0 pole, &#x2192;1 as s&#x2192;&#x221E; (imp-3255 / imp-3353)
       </h3>
       <p style={{ color: "var(--text-secondary)", fontSize: 13, lineHeight: 1.75 }}>
@@ -3161,57 +3162,57 @@ function BridgeMarginRatioCurvePanel() {
         universal constant.
       </p>
       <div style={{ overflowX: "auto" }}>
-        <svg width={W} height={H} style={{ display: "block", maxWidth: "100%", background: "rgba(214,201,178,0.25)", borderRadius: 6 }}>
+        <svg width={W} height={H} style={{ display: "block", maxWidth: "100%", background: 'color-mix(in srgb, var(--rule) 25%, transparent)', borderRadius: 6 }}>
           {yTicks.map((v) => (
             <g key={`yt${v}`}>
-              <line x1={ML} y1={py(v)} x2={W - MR} y2={py(v)} stroke="#d5c9b2" strokeWidth="1" />
-              <text x={ML - 8} y={py(v) + 4} textAnchor="end" fontSize="11" fill="#877b67" fontFamily={mono}>{v.toFixed(1)}</text>
+              <line x1={ML} y1={py(v)} x2={W - MR} y2={py(v)} stroke={ED.rule} strokeWidth="1" />
+              <text x={ML - 8} y={py(v) + 4} textAnchor="end" fontSize="11" fill={ED.inkFaint} fontFamily={mono}>{v.toFixed(1)}</text>
             </g>
           ))}
           {sTicks.map((s) => (
             <g key={`st${s}`}>
-              <line x1={px(s)} y1={MT} x2={px(s)} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-              <text x={px(s)} y={H - MB + 18} textAnchor="middle" fontSize="11" fill="#877b67" fontFamily={mono}>{s}</text>
+              <line x1={px(s)} y1={MT} x2={px(s)} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+              <text x={px(s)} y={H - MB + 18} textAnchor="middle" fontSize="11" fill={ED.inkFaint} fontFamily={mono}>{s}</text>
             </g>
           ))}
-          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
           {/* D_0=0 pole at s0=arcsinh(1) */}
-          <line x1={px(ASINH1)} y1={MT} x2={px(ASINH1)} y2={H - MB} stroke="#c23a1c" strokeWidth="1" strokeDasharray="3 3" opacity="0.6" />
-          <text x={px(ASINH1) + 4} y={MT + 14} fontSize="10" fill="#c23a1c" fontFamily={mono}>s0=arcsinh(1)={ASINH1.toFixed(5)}</text>
+          <line x1={px(ASINH1)} y1={MT} x2={px(ASINH1)} y2={H - MB} stroke={ED.accent} strokeWidth="1" strokeDasharray="3 3" opacity="0.6" />
+          <text x={px(ASINH1) + 4} y={MT + 14} fontSize="10" fill={ED.accent} fontFamily={mono}>s0=arcsinh(1)={ASINH1.toFixed(5)}</text>
           {/* B/D -> 1 asymptote */}
-          <line x1={ML} y1={py(1)} x2={W - MR} y2={py(1)} stroke="#877b67" strokeWidth="1" strokeDasharray="4 3" opacity="0.6" />
-          <text x={W - MR - 4} y={py(1) - 5} textAnchor="end" fontSize="10" fill="#877b67" fontFamily={mono}>B/D&rarr;1</text>
-          <text x={(ML + W - MR) / 2} y={H - 8} textAnchor="middle" fontSize="12" fill="#877b67" fontFamily={mono}>s = a&middot;U</text>
-          <text x={14} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="12" fill="#877b67" fontFamily={mono}
+          <line x1={ML} y1={py(1)} x2={W - MR} y2={py(1)} stroke={ED.rule} strokeWidth="1" strokeDasharray="4 3" opacity="0.6" />
+          <text x={W - MR - 4} y={py(1) - 5} textAnchor="end" fontSize="10" fill={ED.inkFaint} fontFamily={mono}>B/D&rarr;1</text>
+          <text x={(ML + W - MR) / 2} y={H - 8} textAnchor="middle" fontSize="12" fill={ED.inkFaint} fontFamily={mono}>s = a&middot;U</text>
+          <text x={14} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="12" fill={ED.inkFaint} fontFamily={mono}
             transform={`rotate(-90 14 ${(MT + H - MB) / 2})`}>B/D(s)</text>
           {/* continuous B/D(s) curve */}
-          <path d={curvePath} fill="none" stroke="#1c1814" strokeWidth="2" />
+          <path d={curvePath} fill="none" stroke={ED.ink} strokeWidth="2" />
           {/* cross-check dots from the module's own s-sweep table */}
           {tableDots.map((r) => (
-            <circle key={`d${r.s}`} cx={px(r.s)} cy={py(r.ratio)} r="4" fill="#3f6b86" fillOpacity="0.7" stroke="#3f6b86" strokeWidth="1">
+            <circle key={`d${r.s}`} cx={px(r.s)} cy={py(r.ratio)} r="4" fill={ED.series1} fillOpacity="0.7" stroke={ED.series1} strokeWidth="1">
               <title>{`s=${r.s}: B/D=${r.ratio.toFixed(5)}`}</title>
             </circle>
           ))}
           {/* genuine cell s=3 */}
           <g>
-            <circle cx={px(sGenuine)} cy={py(ratioGenuine)} r="5" fill="#b58a2e" stroke="#b58a2e" strokeWidth="1.5" />
-            <text x={px(sGenuine) + 6} y={py(ratioGenuine) - 8} fontSize="10" fill="#b58a2e" fontFamily={mono}>
+            <circle cx={px(sGenuine)} cy={py(ratioGenuine)} r="5" fill={ED.brassDeco} stroke={ED.brassDeco} strokeWidth="1.5" />
+            <text x={px(sGenuine) + 6} y={py(ratioGenuine) - 8} fontSize="10" fill={ED.brass} fontFamily={mono}>
               genuine cell s={sGenuine}, B/D={ratioGenuine.toFixed(3)}
             </text>
           </g>
         </svg>
       </div>
-      <div style={{ marginTop: 10, padding: "8px 12px", borderRadius: 6, background: "rgba(135,123,103,0.06)", border: "1px solid rgba(135,123,103,0.25)" }}>
-        <div style={{ fontSize: 11, fontWeight: 700, color: "#877b67", letterSpacing: "0.06em", marginBottom: 4 }}>
+      <div style={{ marginTop: 10, padding: "8px 12px", borderRadius: 6, background: 'color-mix(in srgb, var(--ink-faint) 6%, transparent)', border: "1px solid color-mix(in srgb, var(--rule) 25%, transparent)" }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--ink-faint)', letterSpacing: "0.06em", marginBottom: 4 }}>
           DEGREE-0 SCALAR MASS-FEASIBILITY ONLY &mdash; RH-EQUIVALENT &mdash; NO RH VERDICT
         </div>
-        <p style={{ color: "#877b67", fontSize: 12, lineHeight: 1.65, margin: 0 }}>
+        <p style={{ color: 'var(--ink-faint)', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
           B/D &gt; 1 rules out the impossibility option but is necessary-but-not-sufficient; the operator-level
           K&#x2090;&thinsp;&#x2265;&thinsp;0 endpoint-Hankel obstruction (imp-3066) is untouched.
         </p>
       </div>
-      <p style={{ marginTop: 10, color: "#877b67", fontSize: 11, fontFamily: mono }}>
+      <p style={{ marginTop: 10, color: 'var(--ink-faint)', fontSize: 11, fontFamily: mono }}>
         Source: imp-3255-bridge-ratio-closed-form.js &mdash; genuine cell a=0.5, U=6, s=aU=3.
       </p>
     </div>
@@ -3257,8 +3258,8 @@ function AsymOnsetDerivativeViz() {
   const xTicks = [0.70, 0.75, 0.80, 0.85, 0.90, 0.95];
 
   return (
-    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #4c7a4a', background: 'rgba(76,122,74,0.04)' }}>
-      <h3 style={{ color: '#4c7a4a', marginTop: 0 }}>
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid var(--series-3)', background: 'color-mix(in srgb, var(--series-3) 4%, transparent)' }}>
+      <h3 style={{ color: 'var(--series-3)', marginTop: 0 }}>
         Onset derivative d&rho;/ds(g) = &psi;(g+1)+&gamma;+2g&minus;2/g&minus;1/(g+1):
         closed-form root c<sub>asym</sub>=0.90279 vs imp-3045 false onset at 0.9032364 (imp-3170)
       </h3>
@@ -3272,63 +3273,63 @@ function AsymOnsetDerivativeViz() {
         (cyan dashed) sits deep in the self-improving region: d&rho;/ds(0.72)&asymp;&minus;1.12.
       </p>
       <div style={{ overflowX: 'auto', marginTop: 10 }}>
-        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'rgba(214,201,178,0.25)', borderRadius: 6 }}>
+        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'color-mix(in srgb, var(--rule) 25%, transparent)', borderRadius: 6 }}>
           {/* y grid + labels */}
           {yTicks.map((v) => (
             <g key={"y" + v}>
-              <line x1={ML} y1={py(v)} x2={W - MR} y2={py(v)} stroke="#d5c9b2" strokeWidth="1" />
-              <text x={ML - 8} y={py(v) + 4} textAnchor="end" fontSize="11" fill="#877b67" fontFamily={mono}>{v.toFixed(1)}</text>
+              <line x1={ML} y1={py(v)} x2={W - MR} y2={py(v)} stroke={ED.rule} strokeWidth="1" />
+              <text x={ML - 8} y={py(v) + 4} textAnchor="end" fontSize="11" fill={ED.inkFaint} fontFamily={mono}>{v.toFixed(1)}</text>
             </g>
           ))}
           {/* x ticks */}
           {xTicks.map((g) => (
             <g key={"x" + g}>
-              <line x1={px(g)} y1={H - MB} x2={px(g)} y2={H - MB + 5} stroke="#d5c9b2" strokeWidth="1" />
-              <text x={px(g)} y={H - MB + 18} textAnchor="middle" fontSize="11" fill="#877b67" fontFamily={mono}>{g.toFixed(2)}</text>
+              <line x1={px(g)} y1={H - MB} x2={px(g)} y2={H - MB + 5} stroke={ED.rule} strokeWidth="1" />
+              <text x={px(g)} y={H - MB + 18} textAnchor="middle" fontSize="11" fill={ED.inkFaint} fontFamily={mono}>{g.toFixed(2)}</text>
             </g>
           ))}
           {/* axes */}
-          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
           {/* axis labels */}
-          <text x={(ML + W - MR) / 2} y={H - 6} textAnchor="middle" fontSize="12" fill="#877b67" fontFamily={mono}>g (isolation ratio)</text>
-          <text x={14} y={ycx} textAnchor="middle" fontSize="12" fill="#877b67" fontFamily={mono} transform={"rotate(-90 14 " + ycx + ")"}>{"drho/ds(g)"}</text>
+          <text x={(ML + W - MR) / 2} y={H - 6} textAnchor="middle" fontSize="12" fill={ED.inkFaint} fontFamily={mono}>g (isolation ratio)</text>
+          <text x={14} y={ycx} textAnchor="middle" fontSize="12" fill={ED.inkFaint} fontFamily={mono} transform={"rotate(-90 14 " + ycx + ")"}>{"drho/ds(g)"}</text>
           {/* zero line */}
-          <line x1={ML} y1={zeroY} x2={W - MR} y2={zeroY} stroke="#d5c9b2" strokeWidth="1.2" strokeDasharray="4 3" />
-          <text x={W - MR - 4} y={zeroY - 4} textAnchor="end" fontSize="10" fill="#877b67" fontFamily={mono}>0</text>
+          <line x1={ML} y1={zeroY} x2={W - MR} y2={zeroY} stroke={ED.rule} strokeWidth="1.2" strokeDasharray="4 3" />
+          <text x={W - MR - 4} y={zeroY - 4} textAnchor="end" fontSize="10" fill={ED.inkFaint} fontFamily={mono}>0</text>
           {/* basin boundary at 0.72 */}
-          <line x1={cx_basin} y1={MT} x2={cx_basin} y2={H - MB} stroke="#3f6b86" strokeWidth="1.2" strokeDasharray="4 3" />
-          <text x={cx_basin + 4} y={MT + 12} fontSize="10" fill="#3f6b86" fontFamily={mono}>basin=0.72</text>
+          <line x1={cx_basin} y1={MT} x2={cx_basin} y2={H - MB} stroke={ED.series1} strokeWidth="1.2" strokeDasharray="4 3" />
+          <text x={cx_basin + 4} y={MT + 12} fontSize="10" fill={ED.series1} fontFamily={mono}>basin=0.72</text>
           {/* curve */}
-          <path d={linePath} fill="none" stroke="#4c7a4a" strokeWidth="2.5" />
+          <path d={linePath} fill="none" stroke={ED.series3} strokeWidth="2.5" />
           {/* true root: c_asym circle on the zero line */}
-          <circle cx={cx_root} cy={zeroY} r={6} fill="#4c7a4a" stroke="#4c7a4a" strokeWidth="1.5">
+          <circle cx={cx_root} cy={zeroY} r={6} fill={ED.series3} stroke={ED.series3} strokeWidth="1.5">
             <title>{"c_asym=" + C_ASYM.toFixed(10) + "  drho/ds=0 (true root)"}</title>
           </circle>
-          <line x1={cx_root} y1={zeroY - 8} x2={cx_root + 4} y2={zeroY - 32} stroke="#4c7a4a" strokeWidth="1" strokeDasharray="3 2" />
-          <text x={cx_root + 8} y={zeroY - 32} fontSize="10" fill="#4c7a4a" fontFamily={mono}>{"c_asym=0.90279"}</text>
-          <text x={cx_root + 8} y={zeroY - 20} fontSize="10" fill="#877b67" fontFamily={mono}>{"drho/ds=0 (true root)"}</text>
+          <line x1={cx_root} y1={zeroY - 8} x2={cx_root + 4} y2={zeroY - 32} stroke={ED.series3} strokeWidth="1" strokeDasharray="3 2" />
+          <text x={cx_root + 8} y={zeroY - 32} fontSize="10" fill={ED.series3} fontFamily={mono}>{"c_asym=0.90279"}</text>
+          <text x={cx_root + 8} y={zeroY - 20} fontSize="10" fill={ED.inkFaint} fontFamily={mono}>{"drho/ds=0 (true root)"}</text>
           {/* false-onset: imp-3045 scan lock point */}
-          <circle cx={cx_false} cy={cy_false} r={6} fill="#b58a2e" stroke="#b58a2e" strokeWidth="1.5">
+          <circle cx={cx_false} cy={cy_false} r={6} fill={ED.brassDeco} stroke={ED.brassDeco} strokeWidth="1.5">
             <title>{"imp-3045 scan=0.9032364  drho/ds=+0.00242 > 0 (NOT the true zero)"}</title>
           </circle>
-          <line x1={cx_false} y1={cy_false + 8} x2={cx_false + 4} y2={cy_false + 32} stroke="#b58a2e" strokeWidth="1" strokeDasharray="3 2" />
-          <text x={cx_false + 8} y={cy_false + 42} fontSize="10" fill="#b58a2e" fontFamily={mono}>{"imp-3045: 0.9032364"}</text>
-          <text x={cx_false + 8} y={cy_false + 54} fontSize="10" fill="#877b67" fontFamily={mono}>{"drho/ds=+0.00242 (false onset)"}</text>
+          <line x1={cx_false} y1={cy_false + 8} x2={cx_false + 4} y2={cy_false + 32} stroke={ED.brassDeco} strokeWidth="1" strokeDasharray="3 2" />
+          <text x={cx_false + 8} y={cy_false + 42} fontSize="10" fill={ED.brass} fontFamily={mono}>{"imp-3045: 0.9032364"}</text>
+          <text x={cx_false + 8} y={cy_false + 54} fontSize="10" fill={ED.inkFaint} fontFamily={mono}>{"drho/ds=+0.00242 (false onset)"}</text>
         </svg>
       </div>
-      <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 6, background: 'rgba(135,123,103,0.06)', border: '1px solid rgba(135,123,103,0.25)' }}>
-        <div style={{ fontSize: 11, fontWeight: 700, color: '#877b67', letterSpacing: '0.06em', marginBottom: 4 }}>
+      <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 6, background: 'color-mix(in srgb, var(--ink-faint) 6%, transparent)', border: '1px solid color-mix(in srgb, var(--rule) 25%, transparent)' }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--ink-faint)', letterSpacing: '0.06em', marginBottom: 4 }}>
           TRANSCENDENTAL CLOSED FORM &mdash; NOT AN RH BEAT
         </div>
-        <p style={{ color: '#877b67', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
+        <p style={{ color: 'var(--ink-faint)', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
           The root is transcendental (digamma equation); the symmetric single-shell onset
           c*=0.93185 is algebraic. This closes the asymmetric multi-body class onset for the
           R&rarr;&infin; opposite-lattice configuration only; whether that class is the GLOBAL
           infimum remains an open sub-gap. The 0.72 basin is preserved (margin=0.1828).
         </p>
       </div>
-      <p style={{ marginTop: 10, color: '#877b67', fontSize: 11, fontFamily: mono }}>
+      <p style={{ marginTop: 10, color: 'var(--ink-faint)', fontSize: 11, fontFamily: mono }}>
         Source: sg1c-asym-isolation-closed-form-2026-06-30.js &mdash;
         c_asym={C_ASYM.toFixed(10)}, false-onset-drho={FALSE_DRHO.toExponential(3)}, basin-drho={CF.basinDrho.toFixed(4)}.
       </p>
@@ -3368,8 +3369,8 @@ function CShockMarginCurveViz() {
   const ycx = (MT + H - MB) / 2;
 
   return (
-    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #4c7a4a', background: 'rgba(76,122,74,0.04)' }}>
-      <h3 style={{ color: '#4c7a4a', marginTop: 0 }}>
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid var(--series-3)', background: 'color-mix(in srgb, var(--series-3) 4%, transparent)' }}>
+      <h3 style={{ color: 'var(--series-3)', marginTop: 0 }}>
         Margin 1/3 &minus; C<sub>shock</sub>(N) grows with N &mdash; worst case at smallest assembly (imp-3108)
       </h3>
       <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75 }}>
@@ -3381,52 +3382,52 @@ function CShockMarginCurveViz() {
         every assembly N, confirming C<sub>shock</sub> &lt; 1/3 throughout the physical range.
       </p>
       <div style={{ overflowX: 'auto', marginTop: 10 }}>
-        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'rgba(214,201,178,0.25)', borderRadius: 6 }}>
+        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'color-mix(in srgb, var(--rule) 25%, transparent)', borderRadius: 6 }}>
           {/* y grid lines + labels */}
           {yTicks.map((m) => (
             <g key={`y${m}`}>
-              <line x1={ML} y1={py(m)} x2={W - MR} y2={py(m)} stroke="#d5c9b2" strokeWidth="1" />
-              <text x={ML - 8} y={py(m) + 4} textAnchor="end" fontSize="11" fill="#877b67" fontFamily={mono}>{m.toFixed(2)}</text>
+              <line x1={ML} y1={py(m)} x2={W - MR} y2={py(m)} stroke={ED.rule} strokeWidth="1" />
+              <text x={ML - 8} y={py(m) + 4} textAnchor="end" fontSize="11" fill={ED.inkFaint} fontFamily={mono}>{m.toFixed(2)}</text>
             </g>
           ))}
           {/* x ticks */}
           {xTicks.map(({ N, label }) => (
             <g key={`x${N}`}>
-              <line x1={px(N)} y1={H - MB} x2={px(N)} y2={H - MB + 5} stroke="#d5c9b2" strokeWidth="1" />
-              <text x={px(N)} y={H - MB + 18} textAnchor="middle" fontSize="11" fill="#877b67" fontFamily={mono}>{label}</text>
+              <line x1={px(N)} y1={H - MB} x2={px(N)} y2={H - MB + 5} stroke={ED.rule} strokeWidth="1" />
+              <text x={px(N)} y={H - MB + 18} textAnchor="middle" fontSize="11" fill={ED.inkFaint} fontFamily={mono}>{label}</text>
             </g>
           ))}
           {/* axes */}
-          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
           {/* axis labels */}
-          <text x={(ML + W - MR) / 2} y={H - 6} textAnchor="middle" fontSize="12" fill="#877b67" fontFamily={mono}>N  (log scale)</text>
-          <text x={14} y={ycx} textAnchor="middle" fontSize="12" fill="#877b67" fontFamily={mono} transform={`rotate(-90 14 ${ycx})`}>1/3 &minus; C_shock</text>
+          <text x={(ML + W - MR) / 2} y={H - 6} textAnchor="middle" fontSize="12" fill={ED.inkFaint} fontFamily={mono}>N  (log scale)</text>
+          <text x={14} y={ycx} textAnchor="middle" fontSize="12" fill={ED.inkFaint} fontFamily={mono} transform={`rotate(-90 14 ${ycx})`}>1/3 &minus; C_shock</text>
           {/* margin curve */}
-          <path d={linePath} fill="none" stroke="#4c7a4a" strokeWidth="2.5" />
+          <path d={linePath} fill="none" stroke={ED.series3} strokeWidth="2.5" />
           {/* dots: worst-case N=2458 in amber, rest in green */}
           {rows.map((r, i) => (
             <circle key={i} cx={px(r.N)} cy={py(r.margin_to_cap)} r={i === 0 ? 5.5 : 3.5}
-              fill={i === 0 ? '#b58a2e' : '#4c7a4a'} stroke={i === 0 ? '#b58a2e' : '#4c7a4a'} strokeWidth="1.2">
+              fill={i === 0 ? ED.brassDeco : ED.series3} stroke={i === 0 ? ED.brassDeco : ED.series3} strokeWidth="1.2">
               <title>{`N=${r.N.toLocaleString()}  C_shock=${r.C_shock.toFixed(5)}  margin=${r.margin_to_cap.toFixed(5)}`}</title>
             </circle>
           ))}
           {/* worst-case annotation */}
-          <line x1={wxp} y1={wyp - 7} x2={wxp + 4} y2={wyp - 32} stroke="#b58a2e" strokeWidth="1" strokeDasharray="3 2" />
-          <text x={wxp + 8} y={wyp - 32} fontSize="11" fill="#b58a2e" fontFamily={mono}>worst case</text>
-          <text x={wxp + 8} y={wyp - 20} fontSize="10" fill="#877b67" fontFamily={mono}>N=2458, margin~{M.minMargin.toFixed(4)}</text>
+          <line x1={wxp} y1={wyp - 7} x2={wxp + 4} y2={wyp - 32} stroke={ED.brassDeco} strokeWidth="1" strokeDasharray="3 2" />
+          <text x={wxp + 8} y={wyp - 32} fontSize="11" fill={ED.brass} fontFamily={mono}>worst case</text>
+          <text x={wxp + 8} y={wyp - 20} fontSize="10" fill={ED.inkFaint} fontFamily={mono}>N=2458, margin~{M.minMargin.toFixed(4)}</text>
         </svg>
       </div>
-      <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 6, background: 'rgba(135,123,103,0.06)', border: '1px solid rgba(135,123,103,0.25)' }}>
-        <div style={{ fontSize: 11, fontWeight: 700, color: '#877b67', letterSpacing: '0.06em', marginBottom: 4 }}>
+      <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 6, background: 'color-mix(in srgb, var(--ink-faint) 6%, transparent)', border: '1px solid color-mix(in srgb, var(--rule) 25%, transparent)' }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--ink-faint)', letterSpacing: '0.06em', marginBottom: 4 }}>
           NUMERICAL CROSS-CHECK &mdash; NOT A NEW BOUND
         </div>
-        <p style={{ color: '#877b67', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
+        <p style={{ color: 'var(--ink-faint)', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
           Certifies an already-proven cap (imp-2786: C<sub>shock</sub> &lt; 1/3 in closed form). NOT a new
           bound, does NOT close C<sub>H</sub>.
         </p>
       </div>
-      <p style={{ marginTop: 10, color: '#877b67', fontSize: 11, fontFamily: mono }}>
+      <p style={{ marginTop: 10, color: 'var(--ink-faint)', fontSize: 11, fontFamily: mono }}>
         Source: imp-3108-c-shock-margin-cross-validation.js &mdash; marginIsIncreasing: {String(M.marginIsIncreasing)}, {rows.length} grid points.
       </p>
     </div>
@@ -3462,8 +3463,8 @@ function CShockSubMarginCurveViz() {
   const floorYp = py(physFloor);
 
   return (
-    <div className="card" style={{ marginTop: 16, borderLeft: "4px solid #b58a2e", background: "rgba(181,138,46,0.04)" }}>
-      <h3 style={{ color: "#b58a2e", marginTop: 0 }}>
+    <div className="card" style={{ marginTop: 16, borderLeft: "4px solid var(--brass-deco)", background: 'color-mix(in srgb, var(--brass-deco) 4%, transparent)' }}>
+      <h3 style={{ color: 'var(--brass)', marginTop: 0 }}>
         Margin 1/3 &minus; C<sub>shock</sub>(N) on descending sub-ladder: crosses zero at N<sub>*</sub>&asymp;203 (imp-3151)
       </h3>
       <p style={{ color: "var(--text-secondary)", fontSize: 13, lineHeight: 1.75 }}>
@@ -3476,15 +3477,15 @@ function CShockSubMarginCurveViz() {
         in count, confirming every realized assembly clears the e<sup>6</sup> threshold with margin &ge; 0.0447.
       </p>
       <div style={{ overflowX: "auto", marginTop: 10 }}>
-        <svg width={W} height={H} style={{ display: "block", maxWidth: "100%", background: "rgba(214,201,178,0.25)", borderRadius: 6 }}>
+        <svg width={W} height={H} style={{ display: "block", maxWidth: "100%", background: 'color-mix(in srgb, var(--rule) 25%, transparent)', borderRadius: 6 }}>
           {/* zero line */}
-          <line x1={ML} y1={py(0)} x2={W - MR} y2={py(0)} stroke="#c23a1c" strokeWidth="1" strokeDasharray="5 3" />
-          <text x={W - MR + 4} y={py(0) + 4} fontSize="10" fill="#c23a1c" fontFamily={mono}>0</text>
+          <line x1={ML} y1={py(0)} x2={W - MR} y2={py(0)} stroke={ED.accent} strokeWidth="1" strokeDasharray="5 3" />
+          <text x={W - MR + 4} y={py(0) + 4} fontSize="10" fill={ED.accent} fontFamily={mono}>0</text>
           {/* y grid lines */}
           {yTicks.map((m) => (
             <g key={"y" + m}>
-              <line x1={ML} y1={py(m)} x2={W - MR} y2={py(m)} stroke="#d5c9b2" strokeWidth="1" />
-              <text x={ML - 8} y={py(m) + 4} textAnchor="end" fontSize="11" fill="#877b67" fontFamily={mono}>
+              <line x1={ML} y1={py(m)} x2={W - MR} y2={py(m)} stroke={ED.rule} strokeWidth="1" />
+              <text x={ML - 8} y={py(m) + 4} textAnchor="end" fontSize="11" fill={ED.inkFaint} fontFamily={mono}>
                 {m === 0.0447 ? "0.0447" : m.toFixed(2)}
               </text>
             </g>
@@ -3492,50 +3493,50 @@ function CShockSubMarginCurveViz() {
           {/* x ticks */}
           {xTicks.map((N) => (
             <g key={"x" + N}>
-              <line x1={px(N)} y1={H - MB} x2={px(N)} y2={H - MB + 5} stroke="#d5c9b2" strokeWidth="1" />
-              <text x={px(N)} y={H - MB + 18} textAnchor="middle" fontSize="11" fill="#877b67" fontFamily={mono}>
+              <line x1={px(N)} y1={H - MB} x2={px(N)} y2={H - MB + 5} stroke={ED.rule} strokeWidth="1" />
+              <text x={px(N)} y={H - MB + 18} textAnchor="middle" fontSize="11" fill={ED.inkFaint} fontFamily={mono}>
                 {N === 0 ? "0" : N === 2458 ? "2458" : N.toString()}
               </text>
             </g>
           ))}
           {/* axes */}
-          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
           {/* axis labels */}
-          <text x={(ML + W - MR) / 2} y={H - 6} textAnchor="middle" fontSize="12" fill="#877b67" fontFamily={mono}>N  (sub-ladder count)</text>
-          <text x={14} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="12" fill="#877b67" fontFamily={mono}
+          <text x={(ML + W - MR) / 2} y={H - 6} textAnchor="middle" fontSize="12" fill={ED.inkFaint} fontFamily={mono}>N  (sub-ladder count)</text>
+          <text x={14} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="12" fill={ED.inkFaint} fontFamily={mono}
             transform={"rotate(-90 14 " + ((MT + H - MB) / 2) + ")"}>1/3 &minus; C_shock</text>
           {/* margin curve */}
-          <path d={linePath} fill="none" stroke="#b58a2e" strokeWidth="2.5" />
+          <path d={linePath} fill="none" stroke={ED.brassDeco} strokeWidth="2.5" />
           {/* data dots */}
           {rows.map((r, i) => (
             <circle key={i} cx={px(r.N)} cy={py(r.margin_to_cap)} r={i === 0 ? 5.5 : 3.5}
-              fill={i === 0 ? "#4c7a4a" : "#b58a2e"} stroke={i === 0 ? "#4c7a4a" : "#b58a2e"} strokeWidth="1.2">
+              fill={i === 0 ? ED.series3 : ED.brassDeco} stroke={i === 0 ? ED.series3 : ED.brassDeco} strokeWidth="1.2">
               <title>{"N=" + r.N + "  C_shock=" + r.C_shock.toFixed(5) + "  margin=" + r.margin_to_cap.toFixed(5)}</title>
             </circle>
           ))}
           {/* N_star zero crossing */}
-          <circle cx={nStarXp} cy={zeroYp} r={6} fill="none" stroke="#c23a1c" strokeWidth="2" />
-          <line x1={nStarXp} y1={zeroYp - 8} x2={nStarXp + 4} y2={zeroYp - 36} stroke="#c23a1c" strokeWidth="1" strokeDasharray="3 2" />
-          <text x={nStarXp + 8} y={zeroYp - 36} fontSize="11" fill="#c23a1c" fontFamily={mono}>N*&asymp;203 (&gamma;=e^6)</text>
-          <text x={nStarXp + 8} y={zeroYp - 24} fontSize="10" fill="#c23a1c" fontFamily={mono}>margin = 0</text>
+          <circle cx={nStarXp} cy={zeroYp} r={6} fill="none" stroke={ED.accent} strokeWidth="2" />
+          <line x1={nStarXp} y1={zeroYp - 8} x2={nStarXp + 4} y2={zeroYp - 36} stroke={ED.accent} strokeWidth="1" strokeDasharray="3 2" />
+          <text x={nStarXp + 8} y={zeroYp - 36} fontSize="11" fill={ED.accent} fontFamily={mono}>N*&asymp;203 (&gamma;=e^6)</text>
+          <text x={nStarXp + 8} y={zeroYp - 24} fontSize="10" fill={ED.accent} fontFamily={mono}>margin = 0</text>
           {/* physical floor annotation */}
-          <line x1={assemblyXp - 6} y1={floorYp} x2={assemblyXp - 36} y2={floorYp - 22} stroke="#4c7a4a" strokeWidth="1" strokeDasharray="3 2" />
-          <text x={assemblyXp - 42} y={floorYp - 30} fontSize="11" fill="#4c7a4a" fontFamily={mono} textAnchor="end">N=2458 (assembly floor)</text>
-          <text x={assemblyXp - 42} y={floorYp - 18} fontSize="10" fill="#4c7a4a" fontFamily={mono} textAnchor="end">margin&asymp;{physFloor.toFixed(4)}</text>
+          <line x1={assemblyXp - 6} y1={floorYp} x2={assemblyXp - 36} y2={floorYp - 22} stroke={ED.series3} strokeWidth="1" strokeDasharray="3 2" />
+          <text x={assemblyXp - 42} y={floorYp - 30} fontSize="11" fill={ED.series3} fontFamily={mono} textAnchor="end">N=2458 (assembly floor)</text>
+          <text x={assemblyXp - 42} y={floorYp - 18} fontSize="10" fill={ED.series3} fontFamily={mono} textAnchor="end">margin&asymp;{physFloor.toFixed(4)}</text>
         </svg>
       </div>
-      <div style={{ marginTop: 12, padding: "8px 12px", borderRadius: 6, background: "rgba(135,123,103,0.06)", border: "1px solid rgba(135,123,103,0.25)" }}>
-        <div style={{ fontSize: 11, fontWeight: 700, color: "#877b67", letterSpacing: "0.06em", marginBottom: 4 }}>
+      <div style={{ marginTop: 12, padding: "8px 12px", borderRadius: 6, background: 'color-mix(in srgb, var(--ink-faint) 6%, transparent)', border: "1px solid color-mix(in srgb, var(--rule) 25%, transparent)" }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--ink-faint)', letterSpacing: "0.06em", marginBottom: 4 }}>
           NUMERICAL PROFILE &mdash; NOT A NEW BOUND
         </div>
-        <p style={{ color: "#877b67", fontSize: 12, lineHeight: 1.65, margin: 0 }}>
+        <p style={{ color: 'var(--ink-faint)', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
           Diagnostic of the imp-2786 proven cap. The crossing N<sub>*</sub>&asymp;203 identifies where the closed form
           fails but physically realized assemblies (N&ge;2458) sit far above it with margin &ge; 0.0447 (imp-3132 floor
           (2&minus;&radic;3)/6). NOT a new bound; does NOT close C<sub>H</sub>.
         </p>
       </div>
-      <p style={{ marginTop: 10, color: "#877b67", fontSize: 11, fontFamily: mono }}>
+      <p style={{ marginTop: 10, color: 'var(--ink-faint)', fontSize: 11, fontFamily: mono }}>
         Source: imp-3151-c-shock-submargin-profile.js &mdash; subMarginIsDecreasing: {String(M.subMarginIsDecreasing)},{" "}
         N*&asymp;{M.nStarClosedForm.toFixed(2)}, safetyFactor&asymp;{M.safetyFactorN.toFixed(1)}x
       </p>
@@ -3578,8 +3579,8 @@ function ResidualGapLimitCurveViz() {
   const gridCells = M.grid.slice(0, 8);
 
   return (
-    <div className="card" style={{ marginTop: 16, borderLeft: "4px solid #6d55b8", background: "rgba(109,85,184,0.04)" }}>
-      <h3 style={{ color: "#6d55b8", marginTop: 0 }}>
+    <div className="card" style={{ marginTop: 16, borderLeft: "4px solid var(--series-5)", background: 'color-mix(in srgb, var(--series-5) 4%, transparent)' }}>
+      <h3 style={{ color: 'var(--series-5)', marginTop: 0 }}>
         Residual-gap limit G(s) = tanh(s)&minus;tanh(s/2): golden-ratio maximum
         &phi;<sup>&minus;5/2</sup>&asymp;0.30028 at cosh(s*)=&phi; (imp-3146)
       </h3>
@@ -3593,65 +3594,65 @@ function ResidualGapLimitCurveViz() {
         a=0.5, U=6 (s=3) sits on the saturating tail at G(3)&asymp;0.08991, well past the peak.
       </p>
       <div style={{ overflowX: "auto", marginTop: 10 }}>
-        <svg width={W} height={H} style={{ display: "block", maxWidth: "100%", background: "rgba(214,201,178,0.25)", borderRadius: 6 }}>
+        <svg width={W} height={H} style={{ display: "block", maxWidth: "100%", background: 'color-mix(in srgb, var(--rule) 25%, transparent)', borderRadius: 6 }}>
           {/* y grid + labels */}
           {yTicks.map((v) => (
             <g key={"y" + v}>
-              <line x1={ML} y1={py(v)} x2={W - MR} y2={py(v)} stroke="#d5c9b2" strokeWidth="1" />
-              <text x={ML - 8} y={py(v) + 4} textAnchor="end" fontSize="11" fill="#877b67" fontFamily={mono}>{v.toFixed(1)}</text>
+              <line x1={ML} y1={py(v)} x2={W - MR} y2={py(v)} stroke={ED.rule} strokeWidth="1" />
+              <text x={ML - 8} y={py(v) + 4} textAnchor="end" fontSize="11" fill={ED.inkFaint} fontFamily={mono}>{v.toFixed(1)}</text>
             </g>
           ))}
           {/* x ticks */}
           {xTicks.map((s) => (
             <g key={"x" + s}>
-              <line x1={px(s)} y1={H - MB} x2={px(s)} y2={H - MB + 5} stroke="#d5c9b2" strokeWidth="1" />
-              <text x={px(s)} y={H - MB + 18} textAnchor="middle" fontSize="11" fill="#877b67" fontFamily={mono}>{s}</text>
+              <line x1={px(s)} y1={H - MB} x2={px(s)} y2={H - MB + 5} stroke={ED.rule} strokeWidth="1" />
+              <text x={px(s)} y={H - MB + 18} textAnchor="middle" fontSize="11" fill={ED.inkFaint} fontFamily={mono}>{s}</text>
             </g>
           ))}
           {/* axes */}
-          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
           {/* axis labels */}
-          <text x={(ML + W - MR) / 2} y={H - 6} textAnchor="middle" fontSize="12" fill="#877b67" fontFamily={mono}>s = a&middot;U  (product invariant)</text>
-          <text x={14} y={ycx} textAnchor="middle" fontSize="12" fill="#877b67" fontFamily={mono} transform={"rotate(-90 14 " + ycx + ")"}>G(s)</text>
+          <text x={(ML + W - MR) / 2} y={H - 6} textAnchor="middle" fontSize="12" fill={ED.inkFaint} fontFamily={mono}>s = a&middot;U  (product invariant)</text>
+          <text x={14} y={ycx} textAnchor="middle" fontSize="12" fill={ED.inkFaint} fontFamily={mono} transform={"rotate(-90 14 " + ycx + ")"}>G(s)</text>
           {/* s->0 vanishing label */}
-          <text x={ML + 8} y={py(0.022)} fontSize="10" fill="#877b67" fontFamily={mono}>G(0)=0</text>
+          <text x={ML + 8} y={py(0.022)} fontSize="10" fill={ED.inkFaint} fontFamily={mono}>G(0)=0</text>
           {/* s->inf vanishing label */}
-          <text x={W - MR - 56} y={py(0.008)} fontSize="10" fill="#877b67" fontFamily={mono}>G(s)&rarr;0</text>
+          <text x={W - MR - 56} y={py(0.008)} fontSize="10" fill={ED.inkFaint} fontFamily={mono}>G(s)&rarr;0</text>
           {/* golden-ratio maximum vertical dashed */}
-          <line x1={cx_star} y1={cy_star} x2={cx_star} y2={H - MB} stroke="#b58a2e" strokeWidth="1.2" strokeDasharray="4 3" />
+          <line x1={cx_star} y1={cy_star} x2={cx_star} y2={H - MB} stroke={ED.brassDeco} strokeWidth="1.2" strokeDasharray="4 3" />
           {/* curve */}
-          <path d={linePath} fill="none" stroke="#6d55b8" strokeWidth="2.5" />
+          <path d={linePath} fill="none" stroke={ED.series5} strokeWidth="2.5" />
           {/* golden-ratio maximum dot */}
-          <circle cx={cx_star} cy={cy_star} r={7} fill="#b58a2e" stroke="#b58a2e" strokeWidth="1.5">
+          <circle cx={cx_star} cy={cy_star} r={7} fill={ED.brassDeco} stroke={ED.brassDeco} strokeWidth="1.5">
             <title>{"s*=arccosh(phi)~1.061  G(s*)=phi^(-5/2)~0.30028  cosh(s*)=phi"}</title>
           </circle>
-          <line x1={cx_star + 8} y1={cy_star - 4} x2={cx_star + 34} y2={cy_star - 26} stroke="#b58a2e" strokeWidth="1" strokeDasharray="3 2" />
-          <text x={cx_star + 37} y={cy_star - 32} fontSize="10" fill="#b58a2e" fontFamily={mono}>s*&asymp;1.061, cosh(s*)=&phi;</text>
-          <text x={cx_star + 37} y={cy_star - 20} fontSize="10" fill="#b58a2e" fontFamily={mono}>G(s*)=&phi;&#8315;&#8309;&#x2F;&#x2082;&asymp;0.30028</text>
+          <line x1={cx_star + 8} y1={cy_star - 4} x2={cx_star + 34} y2={cy_star - 26} stroke={ED.brassDeco} strokeWidth="1" strokeDasharray="3 2" />
+          <text x={cx_star + 37} y={cy_star - 32} fontSize="10" fill={ED.brass} fontFamily={mono}>s*&asymp;1.061, cosh(s*)=&phi;</text>
+          <text x={cx_star + 37} y={cy_star - 20} fontSize="10" fill={ED.brass} fontFamily={mono}>G(s*)=&phi;&#8315;&#8309;&#x2F;&#x2082;&asymp;0.30028</text>
           {/* grid cell dots */}
           {gridCells.map((cell, i) => (
-            <circle key={i} cx={px(cell.product)} cy={py(cell.analyticGapLimit)} r={4} fill="#6d55b8" stroke="#6d55b8" strokeWidth="1">
+            <circle key={i} cx={px(cell.product)} cy={py(cell.analyticGapLimit)} r={4} fill={ED.series5} stroke={ED.series5} strokeWidth="1">
               <title>{"a=" + cell.a + " U=" + cell.U + " s=" + cell.product.toFixed(2) + " G=" + cell.analyticGapLimit.toFixed(5)}</title>
             </circle>
           ))}
           {/* PHI label near top */}
-          <text x={cx_star} y={MT + 12} textAnchor="middle" fontSize="10" fill="#b58a2e" fontFamily={mono}>&phi;&#8315;&#8309;&#x2F;&#x2082;</text>
-          <text x={cx_star} y={MT + 24} textAnchor="middle" fontSize="10" fill="#b58a2e" fontFamily={mono}>&asymp;0.300</text>
+          <text x={cx_star} y={MT + 12} textAnchor="middle" fontSize="10" fill={ED.brass} fontFamily={mono}>&phi;&#8315;&#8309;&#x2F;&#x2082;</text>
+          <text x={cx_star} y={MT + 24} textAnchor="middle" fontSize="10" fill={ED.brass} fontFamily={mono}>&asymp;0.300</text>
         </svg>
       </div>
-      <div style={{ marginTop: 12, padding: "8px 12px", borderRadius: 6, background: "rgba(135,123,103,0.06)", border: "1px solid rgba(135,123,103,0.25)" }}>
-        <div style={{ fontSize: 11, fontWeight: 700, color: "#877b67", letterSpacing: "0.06em", marginBottom: 4 }}>
+      <div style={{ marginTop: 12, padding: "8px 12px", borderRadius: 6, background: 'color-mix(in srgb, var(--ink-faint) 6%, transparent)', border: "1px solid color-mix(in srgb, var(--rule) 25%, transparent)" }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--ink-faint)', letterSpacing: "0.06em", marginBottom: 4 }}>
           REPRESENTATIVE DIAGNOSTIC &mdash; NOT AN RH VERDICT
         </div>
-        <div style={{ fontSize: 12, color: "#877b67", lineHeight: 1.6 }}>
+        <div style={{ fontSize: 12, color: 'var(--ink-faint)', lineHeight: 1.6 }}>
           The limit curve G(s)=tanh(s)&minus;tanh(s/2) is on the same representative
           monomial-moment truncation as imp-3066/imp-3086/imp-3102/imp-3104/imp-3125; NOT the
           section-26 Gram. A strictly-positive surviving residual gap neither claims the cover
           holds nor that it fails.
         </div>
       </div>
-      <p style={{ marginTop: 8, color: "#877b67", fontSize: 11, fontFamily: mono }}>
+      <p style={{ marginTop: 8, color: 'var(--ink-faint)', fontSize: 11, fontFamily: mono }}>
         Source: imp-3146-residual-gap-limit-aU-grid.js &mdash; limitPositiveEverywhere:{" "}
         {String(M.limitPositiveEverywhere)}, scanMax&asymp;{M.scanMaxLimit.toFixed(5)},
         sStarClosedForm&asymp;{S_STAR.toFixed(5)}, &phi;&asymp;{PHI.toFixed(6)}
@@ -3679,8 +3680,8 @@ function EqualProductCellInvarianceViz() {
   const yTicks = [0.0, 0.1, 0.2, 0.3];
 
   return (
-    <div className="card" style={{ marginTop: 16, borderLeft: "4px solid #3f6b86", background: "rgba(63,107,134,0.04)" }}>
-      <h3 style={{ color: "#3f6b86", marginTop: 0 }}>
+    <div className="card" style={{ marginTop: 16, borderLeft: "4px solid var(--series-1)", background: 'color-mix(in srgb, var(--series-1) 4%, transparent)' }}>
+      <h3 style={{ color: 'var(--series-1)', marginTop: 0 }}>
         Equal-product cell invariance: both cells of each equal-s pair give the same saturating gap (imp-3177 / imp-3210)
       </h3>
       <p style={{ color: "var(--text-secondary)", fontSize: 13, lineHeight: 1.75 }}>
@@ -3692,15 +3693,15 @@ function EqualProductCellInvarianceViz() {
         Cross-module drift vs imp-3146: &lt;{lock.measured.maxDriftVsLiveGrid.toExponential(1)}.
       </p>
       <div style={{ overflowX: "auto", marginTop: 10 }}>
-        <svg width={W} height={H} style={{ display: "block", maxWidth: "100%", background: "rgba(214,201,178,0.25)", borderRadius: 6 }}>
+        <svg width={W} height={H} style={{ display: "block", maxWidth: "100%", background: 'color-mix(in srgb, var(--rule) 25%, transparent)', borderRadius: 6 }}>
           {yTicks.map((v) => (
             <g key={"yg" + v}>
-              <line x1={ML} y1={py(v)} x2={W - MR} y2={py(v)} stroke="#d5c9b2" strokeWidth="1" />
-              <text x={ML - 8} y={py(v) + 4} textAnchor="end" fontSize="10" fill="#877b67" fontFamily={mono}>{v.toFixed(1)}</text>
+              <line x1={ML} y1={py(v)} x2={W - MR} y2={py(v)} stroke={ED.rule} strokeWidth="1" />
+              <text x={ML - 8} y={py(v) + 4} textAnchor="end" fontSize="10" fill={ED.inkFaint} fontFamily={mono}>{v.toFixed(1)}</text>
             </g>
           ))}
-          <line x1={ML} y1={MT} x2={ML} y2={barBase} stroke="#d5c9b2" strokeWidth="1" />
-          <line x1={ML} y1={barBase} x2={W - MR} y2={barBase} stroke="#d5c9b2" strokeWidth="1" />
+          <line x1={ML} y1={MT} x2={ML} y2={barBase} stroke={ED.rule} strokeWidth="1" />
+          <line x1={ML} y1={barBase} x2={W - MR} y2={barBase} stroke={ED.rule} strokeWidth="1" />
           {pairs.map((pair, i) => {
             const cx = gx(i);
             const xA = cx - barW - barGap / 2;
@@ -3711,57 +3712,57 @@ function EqualProductCellInvarianceViz() {
             const dm = 6;
             return (
               <g key={"pg" + i}>
-                <rect x={xA} y={barBase - hA} width={barW} height={hA} fill="#3f6b86" opacity="0.82" rx="2">
+                <rect x={xA} y={barBase - hA} width={barW} height={hA} fill={ED.series1} opacity="0.82" rx="2">
                   <title>{"a=" + pair.cellA.a + " U=" + pair.cellA.U + " gap=" + pair.rebuiltGapA.toFixed(5)}</title>
                 </rect>
-                <rect x={xB} y={barBase - hB} width={barW} height={hB} fill="#4c7a4a" opacity="0.82" rx="2">
+                <rect x={xB} y={barBase - hB} width={barW} height={hB} fill={ED.series3} opacity="0.82" rx="2">
                   <title>{"a=" + pair.cellB.a + " U=" + pair.cellB.U + " gap=" + pair.rebuiltGapB.toFixed(5)}</title>
                 </rect>
                 <line x1={xA - 2} y1={barBase - hA} x2={xB + barW + 2} y2={barBase - hA}
                   stroke="rgba(255,255,255,0.18)" strokeWidth="1" strokeDasharray="3 2" />
-                <text x={cx} y={barBase - hA - 6} textAnchor="middle" fontSize="8.5" fill="#1c1814" fontFamily={mono}>
+                <text x={cx} y={barBase - hA - 6} textAnchor="middle" fontSize="8.5" fill={ED.ink} fontFamily={mono}>
                   {pair.rebuiltGapA.toFixed(4)}
                 </text>
                 <line x1={cx} y1={barBase - hA - 14} x2={cx} y2={yLim + dm + 2}
-                  stroke="#b58a2e" strokeWidth="0.8" strokeDasharray="3 2" opacity="0.5" />
+                  stroke={ED.brassDeco} strokeWidth="0.8" strokeDasharray="3 2" opacity="0.5" />
                 <polygon
                   points={cx + "," + (yLim - dm) + " " + (cx + dm) + "," + yLim + " " + cx + "," + (yLim + dm) + " " + (cx - dm) + "," + yLim}
-                  fill="#b58a2e" opacity="0.92"
+                  fill={ED.brassDeco} opacity="0.92"
                 >
                   <title>{"G(" + pair.product + ")=" + pair.gapLimit.toFixed(5)}</title>
                 </polygon>
-                <text x={cx} y={barBase + 13} textAnchor="middle" fontSize="10" fill="#877b67" fontFamily={mono}>
+                <text x={cx} y={barBase + 13} textAnchor="middle" fontSize="10" fill={ED.inkFaint} fontFamily={mono}>
                   s={pair.product}
                 </text>
-                <text x={xA + barW / 2} y={barBase + 24} textAnchor="middle" fontSize="8" fill="#3f6b86" fontFamily={mono}>
+                <text x={xA + barW / 2} y={barBase + 24} textAnchor="middle" fontSize="8" fill={ED.series1} fontFamily={mono}>
                   a={pair.cellA.a}
                 </text>
-                <text x={xA + barW / 2} y={barBase + 33} textAnchor="middle" fontSize="8" fill="#3f6b86" fontFamily={mono}>
+                <text x={xA + barW / 2} y={barBase + 33} textAnchor="middle" fontSize="8" fill={ED.series1} fontFamily={mono}>
                   U={pair.cellA.U}
                 </text>
-                <text x={xB + barW / 2} y={barBase + 24} textAnchor="middle" fontSize="8" fill="#4c7a4a" fontFamily={mono}>
+                <text x={xB + barW / 2} y={barBase + 24} textAnchor="middle" fontSize="8" fill={ED.series3} fontFamily={mono}>
                   a={pair.cellB.a}
                 </text>
-                <text x={xB + barW / 2} y={barBase + 33} textAnchor="middle" fontSize="8" fill="#4c7a4a" fontFamily={mono}>
+                <text x={xB + barW / 2} y={barBase + 33} textAnchor="middle" fontSize="8" fill={ED.series3} fontFamily={mono}>
                   U={pair.cellB.U}
                 </text>
               </g>
             );
           })}
-          <text x={13} y={(MT + barBase) / 2} textAnchor="middle" fontSize="11" fill="#877b67" fontFamily={mono}
+          <text x={13} y={(MT + barBase) / 2} textAnchor="middle" fontSize="11" fill={ED.inkFaint} fontFamily={mono}
             transform={"rotate(-90 13 " + ((MT + barBase) / 2) + ")"}>
             gap
           </text>
-          <text x={(ML + W - MR) / 2} y={H - 5} textAnchor="middle" fontSize="11" fill="#877b67" fontFamily={mono}>
+          <text x={(ML + W - MR) / 2} y={H - 5} textAnchor="middle" fontSize="11" fill={ED.inkFaint} fontFamily={mono}>
             s = a&middot;U (equal-product pairs)
           </text>
         </svg>
       </div>
-      <div style={{ display: "flex", gap: 16, flexWrap: "wrap", marginTop: 8, fontSize: 11, color: "#877b67" }}>
+      <div style={{ display: "flex", gap: 16, flexWrap: "wrap", marginTop: 8, fontSize: 11, color: 'var(--ink-faint)' }}>
         {[
-          { col: "#3f6b86", lbl: "Cell A rebuilt gap (higher a, lower U)" },
-          { col: "#4c7a4a", lbl: "Cell B rebuilt gap (lower a, higher U)" },
-          { col: "#b58a2e", lbl: "G(s) = tanh(s)−tanh(s/2) limit (diamond, bars saturate from below)" },
+          { col: ED.series1, lbl: "Cell A rebuilt gap (higher a, lower U)" },
+          { col: ED.series3, lbl: "Cell B rebuilt gap (lower a, higher U)" },
+          { col: ED.brassDeco, lbl: "G(s) = tanh(s)−tanh(s/2) limit (diamond, bars saturate from below)" },
         ].map(({ col, lbl }) => (
           <div key={lbl} style={{ display: "flex", alignItems: "center", gap: 5 }}>
             <div style={{ width: 12, height: 12, background: col, borderRadius: 2, flexShrink: 0 }} />
@@ -3769,7 +3770,7 @@ function EqualProductCellInvarianceViz() {
           </div>
         ))}
       </div>
-      <p style={{ marginTop: 6, color: "#877b67", fontSize: 11, fontFamily: mono }}>
+      <p style={{ marginTop: 6, color: 'var(--ink-faint)', fontSize: 11, fontFamily: mono }}>
         Source: imp-3177-equal-product-cell-invariance-lock.js &mdash; pairs={lock.measured.pairCount},
         maxSpread&lt;{lock.measured.maxPairSpread.toExponential(1)},
         maxDrift&lt;{lock.measured.maxDriftVsLiveGrid.toExponential(1)}
@@ -3801,8 +3802,8 @@ function ResidualGapDegreeSweepViz() {
   const ycx = (MT + H - MB) / 2;
 
   return (
-    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #6d55b8', background: 'rgba(109,85,184,0.04)' }}>
-      <h3 style={{ color: '#6d55b8', marginTop: 0 }}>
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid var(--series-5)', background: 'color-mix(in srgb, var(--series-5) 4%, transparent)' }}>
+      <h3 style={{ color: 'var(--series-5)', marginTop: 0 }}>
         Residual-gap DEG-saturation: ||R<sub>orth</sub>||&minus;max&thinsp;R<sub>orth,jj</sub> converges to tanh(3)&minus;tanh(1.5) (imp-3125)
       </h3>
       <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75 }}>
@@ -3816,46 +3817,46 @@ function ResidualGapDegreeSweepViz() {
         Measured values: 0.08471&rarr;0.08821&rarr;0.08906&rarr;0.08939&rarr;0.08959 (DEG&nbsp;2,4,6,8,10).
       </p>
       <div style={{ overflowX: 'auto', marginTop: 10 }}>
-        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'rgba(214,201,178,0.25)', borderRadius: 6 }}>
+        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'color-mix(in srgb, var(--rule) 25%, transparent)', borderRadius: 6 }}>
           {yTicks.map((g) => (
             <g key={"y" + g}>
-              <line x1={ML} y1={py(g)} x2={W - MR} y2={py(g)} stroke="#d5c9b2" strokeWidth="1" />
-              <text x={ML - 8} y={py(g) + 4} textAnchor="end" fontSize="11" fill="#877b67" fontFamily={mono}>{g.toFixed(3)}</text>
+              <line x1={ML} y1={py(g)} x2={W - MR} y2={py(g)} stroke={ED.rule} strokeWidth="1" />
+              <text x={ML - 8} y={py(g) + 4} textAnchor="end" fontSize="11" fill={ED.inkFaint} fontFamily={mono}>{g.toFixed(3)}</text>
             </g>
           ))}
           {sweep.map((r) => (
             <g key={"x" + r.degree}>
-              <line x1={px(r.degree)} y1={H - MB} x2={px(r.degree)} y2={H - MB + 5} stroke="#d5c9b2" strokeWidth="1" />
-              <text x={px(r.degree)} y={H - MB + 18} textAnchor="middle" fontSize="11" fill="#877b67" fontFamily={mono}>{r.degree}</text>
+              <line x1={px(r.degree)} y1={H - MB} x2={px(r.degree)} y2={H - MB + 5} stroke={ED.rule} strokeWidth="1" />
+              <text x={px(r.degree)} y={H - MB + 18} textAnchor="middle" fontSize="11" fill={ED.inkFaint} fontFamily={mono}>{r.degree}</text>
             </g>
           ))}
-          <text x={(ML + W - MR) / 2} y={H - 6} textAnchor="middle" fontSize="12" fill="#877b67" fontFamily={mono}>DEG (monomial truncation degree)</text>
-          <text x={14} y={ycx} textAnchor="middle" fontSize="12" fill="#877b67" fontFamily={mono} transform={"rotate(-90 14 " + ycx + ")"}>{"||R_orth|| - max diag"}</text>
-          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-          <line x1={ML} y1={limitY} x2={W - MR} y2={limitY} stroke="#b58a2e" strokeWidth="1.5" strokeDasharray="6 3" />
-          <text x={W - MR - 4} y={limitY - 5} textAnchor="end" fontSize="10" fill="#b58a2e" fontFamily={mono}>{"tanh(3)-tanh(1.5)~" + gapLimit.toFixed(5)}</text>
-          <path d={linePath} fill="none" stroke="#6d55b8" strokeWidth="2.5" />
+          <text x={(ML + W - MR) / 2} y={H - 6} textAnchor="middle" fontSize="12" fill={ED.inkFaint} fontFamily={mono}>DEG (monomial truncation degree)</text>
+          <text x={14} y={ycx} textAnchor="middle" fontSize="12" fill={ED.inkFaint} fontFamily={mono} transform={"rotate(-90 14 " + ycx + ")"}>{"||R_orth|| - max diag"}</text>
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+          <line x1={ML} y1={limitY} x2={W - MR} y2={limitY} stroke={ED.brassDeco} strokeWidth="1.5" strokeDasharray="6 3" />
+          <text x={W - MR - 4} y={limitY - 5} textAnchor="end" fontSize="10" fill={ED.brass} fontFamily={mono}>{"tanh(3)-tanh(1.5)~" + gapLimit.toFixed(5)}</text>
+          <path d={linePath} fill="none" stroke={ED.series5} strokeWidth="2.5" />
           {sweep.map((r) => (
-            <circle key={"pt" + r.degree} cx={px(r.degree)} cy={py(r.residualGap)} r={5} fill="#6d55b8" stroke="#6d55b8" strokeWidth="1.5">
+            <circle key={"pt" + r.degree} cx={px(r.degree)} cy={py(r.residualGap)} r={5} fill={ED.series5} stroke={ED.series5} strokeWidth="1.5">
               <title>{"DEG=" + r.degree + "  gap=" + r.residualGap.toFixed(5) + "  dist-to-limit=" + r.distanceToGapLimit.toExponential(2)}</title>
             </circle>
           ))}
           <line x1={ML} y1={py(floorDiag > yMin ? yMin : floorDiag)} x2={ML} y2={py(floorDiag > yMin ? yMin : floorDiag)} stroke="none" />
-          <text x={ML + 8} y={limitY + 16} fontSize="10" fill="#877b67" fontFamily={mono}>{"floor = tanh(1.5) ~ " + floorDiag.toFixed(5) + " (pinned, DEG-indep.)"}</text>
+          <text x={ML + 8} y={limitY + 16} fontSize="10" fill={ED.inkFaint} fontFamily={mono}>{"floor = tanh(1.5) ~ " + floorDiag.toFixed(5) + " (pinned, DEG-indep.)"}</text>
         </svg>
       </div>
-      <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 6, background: 'rgba(135,123,103,0.06)', border: '1px solid rgba(135,123,103,0.25)' }}>
-        <div style={{ fontSize: 11, fontWeight: 700, color: '#877b67', letterSpacing: '0.06em', marginBottom: 4 }}>
+      <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 6, background: 'color-mix(in srgb, var(--ink-faint) 6%, transparent)', border: '1px solid color-mix(in srgb, var(--rule) 25%, transparent)' }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--ink-faint)', letterSpacing: '0.06em', marginBottom: 4 }}>
           REPRESENTATIVE / DIAGNOSTIC &mdash; CARRIES NO RH VERDICT
         </div>
-        <p style={{ color: '#877b67', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
+        <p style={{ color: 'var(--ink-faint)', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
           Measured on the same monomial-moment truncation as imp-3086/3102/3104; NOT the section-26 Gram.
           Diagonal floor tanh(aU/2) = tanh(1.5)&asymp;{floorDiag.toFixed(5)} is pinned DEG-independent at
           the constant direction j=0. A saturating, strictly-positive survivor carries no cover claim.
         </p>
       </div>
-      <p style={{ marginTop: 10, color: '#877b67', fontSize: 11, fontFamily: mono }}>
+      <p style={{ marginTop: 10, color: 'var(--ink-faint)', fontSize: 11, fontFamily: mono }}>
         Source: imp-3125-orthogonalized-residual-gap-degree-sweep.js &mdash; a=0.5, U=6, NQ=4000, DEG&isin;&#123;2,4,6,8,10&#125;, trend: {M.measured.trend}, shrink&times;: {M.measured.gapDistanceShrinkFactor.toFixed(1)}.
       </p>
     </div>
@@ -3908,8 +3909,8 @@ function CoshMonomialConditioningViz() {
   const ycx = (MT + H - MB) / 2;
 
   return (
-    <div className="card" style={{ marginTop: 16, borderLeft: "4px solid #b58a2e", background: "rgba(181,138,46,0.04)" }}>
-      <h3 style={{ color: "#b58a2e", marginTop: 0 }}>
+    <div className="card" style={{ marginTop: 16, borderLeft: "4px solid var(--brass-deco)", background: 'color-mix(in srgb, var(--brass-deco) 4%, transparent)' }}>
+      <h3 style={{ color: 'var(--brass)', marginTop: 0 }}>
         Cosh-monomial conditioning ceiling: cond(P) and cond(H) vs DEG (~2 orders per +2DEG),
         trust boundary DEG={trustMax} / {firstUntrst} (imp-3153)
       </h3>
@@ -3925,93 +3926,93 @@ function CoshMonomialConditioningViz() {
         imp-3125 sweep &#123;2,4,6,8,10&#125; sits inside the trustworthy range.
       </p>
       <div style={{ overflowX: "auto", marginTop: 10 }}>
-        <svg width={W} height={H} style={{ display: "block", maxWidth: "100%", background: "rgba(214,201,178,0.25)", borderRadius: 6 }}>
+        <svg width={W} height={H} style={{ display: "block", maxWidth: "100%", background: 'color-mix(in srgb, var(--rule) 25%, transparent)', borderRadius: 6 }}>
           {logTicks.map((l) => (
             <g key={"lg" + l}>
-              <line x1={ML} y1={py(l)} x2={W - MR} y2={py(l)} stroke="#d5c9b2" strokeWidth="1" />
-              <text x={ML - 6} y={py(l) + 4} textAnchor="end" fontSize="10" fill="#877b67" fontFamily={mono}>{"1e" + l}</text>
+              <line x1={ML} y1={py(l)} x2={W - MR} y2={py(l)} stroke={ED.rule} strokeWidth="1" />
+              <text x={ML - 6} y={py(l) + 4} textAnchor="end" fontSize="10" fill={ED.inkFaint} fontFamily={mono}>{"1e" + l}</text>
             </g>
           ))}
           {degTicks.map((d) => (
             <g key={"dg" + d}>
-              <line x1={px(d)} y1={MT} x2={px(d)} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-              <text x={px(d)} y={H - MB + 18} textAnchor="middle" fontSize="11" fill="#877b67" fontFamily={mono}>{d}</text>
+              <line x1={px(d)} y1={MT} x2={px(d)} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+              <text x={px(d)} y={H - MB + 18} textAnchor="middle" fontSize="11" fill={ED.inkFaint} fontFamily={mono}>{d}</text>
             </g>
           ))}
-          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-          <text x={(ML + W - MR) / 2} y={H - 8} textAnchor="middle" fontSize="12" fill="#877b67" fontFamily={mono}>truncation degree DEG</text>
-          <text x={14} y={ycx} textAnchor="middle" fontSize="12" fill="#877b67" fontFamily={mono} transform={"rotate(-90 14 " + ycx + ")"}>log10 cond</text>
-          <line x1={ML} y1={py(recEpsLog)} x2={W - MR} y2={py(recEpsLog)} stroke="#c23a1c" strokeWidth="1.5" strokeDasharray="6 3" />
-          <text x={ML + 8} y={py(recEpsLog) - 5} fontSize="10" fill="#c23a1c" fontFamily={mono}>1/eps~4.5e15 (trust threshold)</text>
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+          <text x={(ML + W - MR) / 2} y={H - 8} textAnchor="middle" fontSize="12" fill={ED.inkFaint} fontFamily={mono}>truncation degree DEG</text>
+          <text x={14} y={ycx} textAnchor="middle" fontSize="12" fill={ED.inkFaint} fontFamily={mono} transform={"rotate(-90 14 " + ycx + ")"}>log10 cond</text>
+          <line x1={ML} y1={py(recEpsLog)} x2={W - MR} y2={py(recEpsLog)} stroke={ED.accent} strokeWidth="1.5" strokeDasharray="6 3" />
+          <text x={ML + 8} y={py(recEpsLog) - 5} fontSize="10" fill={ED.accent} fontFamily={mono}>1/eps~4.5e15 (trust threshold)</text>
           {trustMax !== null && (
             <g>
-              <line x1={px(trustMax)} y1={MT} x2={px(trustMax)} y2={H - MB} stroke="#4c7a4a" strokeWidth="1.5" strokeDasharray="5 3" />
-              <text x={px(trustMax) + 4} y={MT + 14} fontSize="10" fill="#4c7a4a" fontFamily={mono}>{"DEG=" + trustMax}</text>
-              <text x={px(trustMax) + 4} y={MT + 26} fontSize="9" fill="#4c7a4a" fontFamily={mono}>(max trusted)</text>
+              <line x1={px(trustMax)} y1={MT} x2={px(trustMax)} y2={H - MB} stroke={ED.series3} strokeWidth="1.5" strokeDasharray="5 3" />
+              <text x={px(trustMax) + 4} y={MT + 14} fontSize="10" fill={ED.series3} fontFamily={mono}>{"DEG=" + trustMax}</text>
+              <text x={px(trustMax) + 4} y={MT + 26} fontSize="9" fill={ED.series3} fontFamily={mono}>(max trusted)</text>
             </g>
           )}
           {firstUntrst !== null && (
             <g>
-              <line x1={px(firstUntrst)} y1={MT} x2={px(firstUntrst)} y2={H - MB} stroke="#c23a1c" strokeWidth="1.5" strokeDasharray="5 3" />
-              <text x={px(firstUntrst) + 4} y={MT + 42} fontSize="10" fill="#c23a1c" fontFamily={mono}>{"DEG=" + firstUntrst}</text>
-              <text x={px(firstUntrst) + 4} y={MT + 54} fontSize="9" fill="#c23a1c" fontFamily={mono}>(1st untrst)</text>
+              <line x1={px(firstUntrst)} y1={MT} x2={px(firstUntrst)} y2={H - MB} stroke={ED.accent} strokeWidth="1.5" strokeDasharray="5 3" />
+              <text x={px(firstUntrst) + 4} y={MT + 42} fontSize="10" fill={ED.accent} fontFamily={mono}>{"DEG=" + firstUntrst}</text>
+              <text x={px(firstUntrst) + 4} y={MT + 54} fontSize="9" fill={ED.accent} fontFamily={mono}>(1st untrst)</text>
             </g>
           )}
-          <path d={pathP} fill="none" stroke="#b58a2e" strokeWidth="2" />
+          <path d={pathP} fill="none" stroke={ED.brassDeco} strokeWidth="2" />
           {condPData.map((p) => (
             <circle
               key={"cp" + p.d}
               cx={px(p.d)} cy={py(p.l)} r="4"
-              fill={p.trust ? "#b58a2e" : "#877b67"}
+              fill={p.trust ? ED.brassDeco : "#877b67"}
               fillOpacity="0.85"
-              stroke={p.trust ? "#b58a2e" : "#c23a1c"}
+              stroke={p.trust ? ED.brassDeco : ED.accent}
               strokeWidth="1.5"
             >
               <title>{"DEG=" + p.d + " cond(P)=" + (p.finite ? Math.pow(10, p.l).toExponential(2) : "overflow")}</title>
             </circle>
           ))}
-          <path d={pathH} fill="none" stroke="#3f6b86" strokeWidth="2" />
+          <path d={pathH} fill="none" stroke={ED.series1} strokeWidth="2" />
           {condHData.map((p) => (
-            <circle key={"ch" + p.d} cx={px(p.d)} cy={py(p.l)} r="3" fill="#3f6b86" fillOpacity="0.75" stroke="#3f6b86">
+            <circle key={"ch" + p.d} cx={px(p.d)} cy={py(p.l)} r="3" fill={ED.series1} fillOpacity="0.75" stroke={ED.series1}>
               <title>{"DEG=" + p.d + " cond(H)=" + (p.finite ? Math.pow(10, p.l).toExponential(2) : "overflow")}</title>
             </circle>
           ))}
           <g transform={"translate(" + (ML + 16) + ", " + (H - MB - 56) + ")"}>
-            <line x1="0" y1="0" x2="18" y2="0" stroke="#b58a2e" strokeWidth="2" />
-            <circle cx="9" cy="0" r="4" fill="#b58a2e" fillOpacity="0.85" />
-            <text x="24" y="4" fontSize="11" fill="#4a4238" fontFamily={mono}>cond(P) passive cosh Gram</text>
+            <line x1="0" y1="0" x2="18" y2="0" stroke={ED.brassDeco} strokeWidth="2" />
+            <circle cx="9" cy="0" r="4" fill={ED.brassDeco} fillOpacity="0.85" />
+            <text x="24" y="4" fontSize="11" fill={ED.inkSoft} fontFamily={mono}>cond(P) passive cosh Gram</text>
           </g>
           <g transform={"translate(" + (ML + 16) + ", " + (H - MB - 36) + ")"}>
-            <line x1="0" y1="0" x2="18" y2="0" stroke="#3f6b86" strokeWidth="2" />
-            <circle cx="9" cy="0" r="3" fill="#3f6b86" fillOpacity="0.75" />
-            <text x="24" y="4" fontSize="11" fill="#4a4238" fontFamily={mono}>cond(H) shear sinh Hankel</text>
+            <line x1="0" y1="0" x2="18" y2="0" stroke={ED.series1} strokeWidth="2" />
+            <circle cx="9" cy="0" r="3" fill={ED.series1} fillOpacity="0.75" />
+            <text x="24" y="4" fontSize="11" fill={ED.inkSoft} fontFamily={mono}>cond(H) shear sinh Hankel</text>
           </g>
           <g transform={"translate(" + (ML + 16) + ", " + (H - MB - 16) + ")"}>
-            <line x1="0" y1="0" x2="18" y2="0" stroke="#c23a1c" strokeWidth="1.5" strokeDasharray="6 3" />
-            <text x="24" y="4" fontSize="11" fill="#4a4238" fontFamily={mono}>1/eps trust threshold</text>
+            <line x1="0" y1="0" x2="18" y2="0" stroke={ED.accent} strokeWidth="1.5" strokeDasharray="6 3" />
+            <text x="24" y="4" fontSize="11" fill={ED.inkSoft} fontFamily={mono}>1/eps trust threshold</text>
           </g>
         </svg>
       </div>
       <div style={{ marginTop: 12, display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 10 }}>
-        <div style={{ padding: "8px 12px", borderRadius: 6, background: "rgba(76,122,74,0.07)", border: "1px solid rgba(76,122,74,0.25)", fontSize: 12, color: "#877b67", lineHeight: 1.65 }}>
-          <div style={{ color: "#4c7a4a", fontWeight: 700, marginBottom: 3 }}>trustworthyMaxDegree</div>
-          <span style={{ fontFamily: mono, color: "#4c7a4a", fontSize: 14 }}>{trustMax}</span>
+        <div style={{ padding: "8px 12px", borderRadius: 6, background: 'color-mix(in srgb, var(--series-3) 7%, transparent)', border: "1px solid color-mix(in srgb, var(--series-3) 25%, transparent)", fontSize: 12, color: 'var(--ink-faint)', lineHeight: 1.65 }}>
+          <div style={{ color: 'var(--series-3)', fontWeight: 700, marginBottom: 3 }}>trustworthyMaxDegree</div>
+          <span style={{ fontFamily: mono, color: 'var(--series-3)', fontSize: 14 }}>{trustMax}</span>
           <div style={{ marginTop: 4, fontSize: 11 }}>Last DEG with &#x2016;R_orth&#x2016; below tanh(aU)</div>
         </div>
-        <div style={{ padding: "8px 12px", borderRadius: 6, background: "rgba(194,58,28,0.07)", border: "1px solid rgba(194,58,28,0.25)", fontSize: 12, color: "#877b67", lineHeight: 1.65 }}>
-          <div style={{ color: "#c23a1c", fontWeight: 700, marginBottom: 3 }}>firstUntrustworthyDegree</div>
-          <span style={{ fontFamily: mono, color: "#c23a1c", fontSize: 14 }}>{firstUntrst}</span>
+        <div style={{ padding: "8px 12px", borderRadius: 6, background: 'color-mix(in srgb, var(--series-2) 7%, transparent)', border: "1px solid color-mix(in srgb, var(--accent) 25%, transparent)", fontSize: 12, color: 'var(--ink-faint)', lineHeight: 1.65 }}>
+          <div style={{ color: 'var(--accent)', fontWeight: 700, marginBottom: 3 }}>firstUntrustworthyDegree</div>
+          <span style={{ fontFamily: mono, color: 'var(--accent)', fontSize: 14 }}>{firstUntrst}</span>
           <div style={{ marginTop: 4, fontSize: 11 }}>First DEG where ceiling is crossed</div>
         </div>
-        <div style={{ padding: "8px 12px", borderRadius: 6, background: "rgba(181,138,46,0.07)", border: "1px solid rgba(181,138,46,0.25)", fontSize: 12, color: "#877b67", lineHeight: 1.65 }}>
-          <div style={{ color: "#b58a2e", fontWeight: 700, marginBottom: 3 }}>analytic ceiling tanh(aU)</div>
-          <span style={{ fontFamily: mono, color: "#b58a2e", fontSize: 14 }}>{ceiling.toFixed(6)}</span>
+        <div style={{ padding: "8px 12px", borderRadius: 6, background: 'color-mix(in srgb, var(--brass-deco) 7%, transparent)', border: "1px solid color-mix(in srgb, var(--brass-deco) 25%, transparent)", fontSize: 12, color: 'var(--ink-faint)', lineHeight: 1.65 }}>
+          <div style={{ color: 'var(--brass)', fontWeight: 700, marginBottom: 3 }}>analytic ceiling tanh(aU)</div>
+          <span style={{ fontFamily: mono, color: 'var(--brass)', fontSize: 14 }}>{ceiling.toFixed(6)}</span>
           <div style={{ marginTop: 4, fontSize: 11 }}>&#x2016;R_orth&#x2016; must stay strictly below this</div>
         </div>
       </div>
-      <div style={{ marginTop: 12, padding: "10px 14px", borderRadius: 6, background: "rgba(194,58,28,0.07)", border: "1px solid rgba(194,58,28,0.3)", fontSize: 12, color: "#4a4238", lineHeight: 1.65 }}>
-        <div style={{ fontSize: 11, fontWeight: 700, color: "#c23a1c", letterSpacing: "0.06em", marginBottom: 5 }}>
+      <div style={{ marginTop: 12, padding: "10px 14px", borderRadius: 6, background: 'color-mix(in srgb, var(--series-2) 7%, transparent)', border: "1px solid color-mix(in srgb, var(--accent) 30%, transparent)", fontSize: 12, color: 'var(--ink-soft)', lineHeight: 1.65 }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--accent)', letterSpacing: "0.06em", marginBottom: 5 }}>
           CAVEAT &mdash; NUMERICAL-CONDITIONING DIAGNOSTIC, NO RH VERDICT
         </div>
         This quantifies WHERE the monomial-moment orthogonalizer can be trusted &mdash; NOT whether
@@ -4019,7 +4020,7 @@ function CoshMonomialConditioningViz() {
         midpoint panels, IEEE double). A higher-precision or better-conditioned basis would push
         it further.
       </div>
-      <p style={{ marginTop: 10, color: "#877b67", fontSize: 11, fontFamily: mono }}>
+      <p style={{ marginTop: 10, color: 'var(--ink-faint)', fontSize: 11, fontFamily: mono }}>
         Source: imp-3153-cosh-monomial-conditioning-ceiling.js &mdash; a=0.5, U=6, DEG&isin;&#123;2,4,6,8,10,12,14,16&#125;, 1/eps&asymp;{recEps.toExponential(2)}.
       </p>
     </div>
@@ -4087,8 +4088,8 @@ function NextOrderConvergenceCorrectionViz() {
   const sStar1pct = IMP3222_ONSET_DECAY_SECOND_ORDER_COEFFICIENT.accuracyRadius.decayS1pct;
 
   return (
-    <div className="card" style={{ marginTop: 16, borderLeft: "4px solid #3f6b86", background: "rgba(63,107,134,0.04)" }}>
-      <h3 style={{ color: "#3f6b86", marginTop: 0 }}>
+    <div className="card" style={{ marginTop: 16, borderLeft: "4px solid var(--series-1)", background: 'color-mix(in srgb, var(--series-1) 4%, transparent)' }}>
+      <h3 style={{ color: 'var(--series-1)', marginTop: 0 }}>
         imp-3155 next-order corrections: onset slope A<sub>1</sub>&asymp;{A1.toFixed(3)} (linear in &epsilon;)
         and decay correction (2s+D<sub>0</sub>)e<sup>&minus;s</sup>, D<sub>0</sub>&asymp;{D0.toFixed(3)}
       </h3>
@@ -4106,80 +4107,80 @@ function NextOrderConvergenceCorrectionViz() {
       </p>
       <div style={{ display: "flex", gap: 20, flexWrap: "wrap", marginTop: 10 }}>
         <div>
-          <div style={{ fontSize: 11, color: "#877b67", marginBottom: 4, fontFamily: mono, textAlign: "center" }}>
+          <div style={{ fontSize: 11, color: 'var(--ink-faint)', marginBottom: 4, fontFamily: mono, textAlign: "center" }}>
             Onset: &phi;(s<sub>0</sub>+&epsilon;)&epsilon;<sup>2</sup>/C vs &epsilon; (s<sub>0</sub>=arcsinh1&asymp;{S0.toFixed(4)}, C={C.toFixed(5)})
           </div>
-          <svg width={WA} height={HA} style={{ display: "block", background: "rgba(214,201,178,0.25)", borderRadius: 6 }}>
+          <svg width={WA} height={HA} style={{ display: "block", background: 'color-mix(in srgb, var(--rule) 25%, transparent)', borderRadius: 6 }}>
             {yTicksA.map((v) => (
               <g key={"ya" + v}>
-                <line x1={MLA} y1={pyA(v)} x2={WA - MRA} y2={pyA(v)} stroke="#d5c9b2" strokeWidth="1" />
-                <text x={MLA - 6} y={pyA(v) + 4} textAnchor="end" fontSize="10" fill="#877b67" fontFamily={mono}>{v.toFixed(1)}</text>
+                <line x1={MLA} y1={pyA(v)} x2={WA - MRA} y2={pyA(v)} stroke={ED.rule} strokeWidth="1" />
+                <text x={MLA - 6} y={pyA(v) + 4} textAnchor="end" fontSize="10" fill={ED.inkFaint} fontFamily={mono}>{v.toFixed(1)}</text>
               </g>
             ))}
             {xTicksA.map((eps) => (
               <g key={"xa" + eps}>
-                <line x1={pxA(eps)} y1={HA - MBA} x2={pxA(eps)} y2={HA - MBA + 4} stroke="#d5c9b2" strokeWidth="1" />
-                <text x={pxA(eps)} y={HA - MBA + 16} textAnchor="middle" fontSize="10" fill="#877b67" fontFamily={mono}>{eps.toFixed(1)}</text>
+                <line x1={pxA(eps)} y1={HA - MBA} x2={pxA(eps)} y2={HA - MBA + 4} stroke={ED.rule} strokeWidth="1" />
+                <text x={pxA(eps)} y={HA - MBA + 16} textAnchor="middle" fontSize="10" fill={ED.inkFaint} fontFamily={mono}>{eps.toFixed(1)}</text>
               </g>
             ))}
-            <line x1={MLA} y1={MTA} x2={MLA} y2={HA - MBA} stroke="#d5c9b2" strokeWidth="1" />
-            <line x1={MLA} y1={HA - MBA} x2={WA - MRA} y2={HA - MBA} stroke="#d5c9b2" strokeWidth="1" />
-            <rect x={MLA} y={MTA} width={pxA(epsStar1pct) - MLA} height={(HA - MBA) - MTA} fill="rgba(76,122,74,0.08)" />
-            <line x1={pxA(epsStar1pct)} y1={MTA} x2={pxA(epsStar1pct)} y2={HA - MBA} stroke="#4c7a4a" strokeWidth="1.5" strokeDasharray="4 2" />
-            <text x={pxA(epsStar1pct)} y={MTA - 8} textAnchor="middle" fontSize="9" fill="#4c7a4a" fontFamily={mono}>&epsilon;*&asymp;{epsStar1pct.toFixed(3)} (1% err)</text>
-            <line x1={MLA} y1={yA1} x2={WA - MRA} y2={yA1} stroke="#d5c9b2" strokeWidth="1" strokeDasharray="3 2" />
-            <text x={WA - MRA - 4} y={yA1 - 4} textAnchor="end" fontSize="9" fill="#877b67" fontFamily={mono}>1 (limit)</text>
-            <path d={pathLA} fill="none" stroke="#b58a2e" strokeWidth="1.5" strokeDasharray="6 3" />
-            <path d={pathA} fill="none" stroke="#3f6b86" strokeWidth="2.5" />
-            <text x={(MLA + WA - MRA) / 2} y={HA - 8} textAnchor="middle" fontSize="11" fill="#877b67" fontFamily={mono}>&epsilon; = s &minus; s<tspan baselineShift="sub" fontSize="9">0</tspan></text>
-            <text x={12} y={ycA} textAnchor="middle" fontSize="11" fill="#877b67" fontFamily={mono} transform={"rotate(-90 12 " + ycA + ")"}>ratio</text>
-            <line x1={MLA + 4} y1={HA - MBA - 28} x2={MLA + 18} y2={HA - MBA - 28} stroke="#3f6b86" strokeWidth="2.5" />
-            <text x={MLA + 22} y={HA - MBA - 24} fontSize="9" fill="#877b67" fontFamily={mono}>actual</text>
-            <line x1={MLA + 4} y1={HA - MBA - 16} x2={MLA + 18} y2={HA - MBA - 16} stroke="#b58a2e" strokeWidth="1.5" strokeDasharray="6 3" />
-            <text x={MLA + 22} y={HA - MBA - 12} fontSize="9" fill="#877b67" fontFamily={mono}>1+A1&epsilon;</text>
+            <line x1={MLA} y1={MTA} x2={MLA} y2={HA - MBA} stroke={ED.rule} strokeWidth="1" />
+            <line x1={MLA} y1={HA - MBA} x2={WA - MRA} y2={HA - MBA} stroke={ED.rule} strokeWidth="1" />
+            <rect x={MLA} y={MTA} width={pxA(epsStar1pct) - MLA} height={(HA - MBA) - MTA} fill={TK_ALPHA(ED.series3, 0.08)} />
+            <line x1={pxA(epsStar1pct)} y1={MTA} x2={pxA(epsStar1pct)} y2={HA - MBA} stroke={ED.series3} strokeWidth="1.5" strokeDasharray="4 2" />
+            <text x={pxA(epsStar1pct)} y={MTA - 8} textAnchor="middle" fontSize="9" fill={ED.series3} fontFamily={mono}>&epsilon;*&asymp;{epsStar1pct.toFixed(3)} (1% err)</text>
+            <line x1={MLA} y1={yA1} x2={WA - MRA} y2={yA1} stroke={ED.rule} strokeWidth="1" strokeDasharray="3 2" />
+            <text x={WA - MRA - 4} y={yA1 - 4} textAnchor="end" fontSize="9" fill={ED.inkFaint} fontFamily={mono}>1 (limit)</text>
+            <path d={pathLA} fill="none" stroke={ED.brassDeco} strokeWidth="1.5" strokeDasharray="6 3" />
+            <path d={pathA} fill="none" stroke={ED.series1} strokeWidth="2.5" />
+            <text x={(MLA + WA - MRA) / 2} y={HA - 8} textAnchor="middle" fontSize="11" fill={ED.inkFaint} fontFamily={mono}>&epsilon; = s &minus; s<tspan baselineShift="sub" fontSize="9">0</tspan></text>
+            <text x={12} y={ycA} textAnchor="middle" fontSize="11" fill={ED.inkFaint} fontFamily={mono} transform={"rotate(-90 12 " + ycA + ")"}>ratio</text>
+            <line x1={MLA + 4} y1={HA - MBA - 28} x2={MLA + 18} y2={HA - MBA - 28} stroke={ED.series1} strokeWidth="2.5" />
+            <text x={MLA + 22} y={HA - MBA - 24} fontSize="9" fill={ED.inkFaint} fontFamily={mono}>actual</text>
+            <line x1={MLA + 4} y1={HA - MBA - 16} x2={MLA + 18} y2={HA - MBA - 16} stroke={ED.brassDeco} strokeWidth="1.5" strokeDasharray="6 3" />
+            <text x={MLA + 22} y={HA - MBA - 12} fontSize="9" fill={ED.inkFaint} fontFamily={mono}>1+A1&epsilon;</text>
           </svg>
         </div>
         <div>
-          <div style={{ fontSize: 11, color: "#877b67", marginBottom: 4, fontFamily: mono, textAlign: "center" }}>
+          <div style={{ fontSize: 11, color: 'var(--ink-faint)', marginBottom: 4, fontFamily: mono, textAlign: "center" }}>
             Decay: &phi;(s)e<sup>s</sup>/K vs s (K={K.toFixed(5)}, D<sub>0</sub>={D0.toFixed(5)})
           </div>
-          <svg width={WB} height={HB} style={{ display: "block", background: "rgba(214,201,178,0.25)", borderRadius: 6 }}>
+          <svg width={WB} height={HB} style={{ display: "block", background: 'color-mix(in srgb, var(--rule) 25%, transparent)', borderRadius: 6 }}>
             {yTicksB.map((v) => (
               <g key={"yb" + v}>
-                <line x1={MLB} y1={pyB(v)} x2={WB - MRB} y2={pyB(v)} stroke="#d5c9b2" strokeWidth="1" />
-                <text x={MLB - 6} y={pyB(v) + 4} textAnchor="end" fontSize="10" fill="#877b67" fontFamily={mono}>{v.toFixed(1)}</text>
+                <line x1={MLB} y1={pyB(v)} x2={WB - MRB} y2={pyB(v)} stroke={ED.rule} strokeWidth="1" />
+                <text x={MLB - 6} y={pyB(v) + 4} textAnchor="end" fontSize="10" fill={ED.inkFaint} fontFamily={mono}>{v.toFixed(1)}</text>
               </g>
             ))}
             {xTicksB.map((s) => (
               <g key={"xb" + s}>
-                <line x1={pxB(s)} y1={HB - MBB} x2={pxB(s)} y2={HB - MBB + 4} stroke="#d5c9b2" strokeWidth="1" />
-                <text x={pxB(s)} y={HB - MBB + 16} textAnchor="middle" fontSize="10" fill="#877b67" fontFamily={mono}>{s}</text>
+                <line x1={pxB(s)} y1={HB - MBB} x2={pxB(s)} y2={HB - MBB + 4} stroke={ED.rule} strokeWidth="1" />
+                <text x={pxB(s)} y={HB - MBB + 16} textAnchor="middle" fontSize="10" fill={ED.inkFaint} fontFamily={mono}>{s}</text>
               </g>
             ))}
-            <line x1={MLB} y1={MTB} x2={MLB} y2={HB - MBB} stroke="#d5c9b2" strokeWidth="1" />
-            <line x1={MLB} y1={HB - MBB} x2={WB - MRB} y2={HB - MBB} stroke="#d5c9b2" strokeWidth="1" />
-            <rect x={pxB(sStar1pct)} y={MTB} width={(WB - MRB) - pxB(sStar1pct)} height={(HB - MBB) - MTB} fill="rgba(76,122,74,0.08)" />
-            <line x1={pxB(sStar1pct)} y1={MTB} x2={pxB(sStar1pct)} y2={HB - MBB} stroke="#4c7a4a" strokeWidth="1.5" strokeDasharray="4 2" />
-            <text x={pxB(sStar1pct)} y={MTB - 8} textAnchor="middle" fontSize="9" fill="#4c7a4a" fontFamily={mono}>s*&asymp;{sStar1pct.toFixed(2)} (1% err)</text>
-            <line x1={MLB} y1={yB1} x2={WB - MRB} y2={yB1} stroke="#d5c9b2" strokeWidth="1" strokeDasharray="3 2" />
-            <text x={WB - MRB - 4} y={yB1 - 4} textAnchor="end" fontSize="9" fill="#877b67" fontFamily={mono}>1 (limit)</text>
-            <path d={pathCB} fill="none" stroke="#b58a2e" strokeWidth="1.5" strokeDasharray="6 3" />
-            <path d={pathB} fill="none" stroke="#4c7a4a" strokeWidth="2.5" />
-            <text x={(MLB + WB - MRB) / 2} y={HB - 8} textAnchor="middle" fontSize="11" fill="#877b67" fontFamily={mono}>s = a&middot;U</text>
-            <text x={12} y={ycB} textAnchor="middle" fontSize="11" fill="#877b67" fontFamily={mono} transform={"rotate(-90 12 " + ycB + ")"}>ratio</text>
-            <line x1={MLB + 4} y1={HB - MBB - 28} x2={MLB + 18} y2={HB - MBB - 28} stroke="#4c7a4a" strokeWidth="2.5" />
-            <text x={MLB + 22} y={HB - MBB - 24} fontSize="9" fill="#877b67" fontFamily={mono}>actual</text>
-            <line x1={MLB + 4} y1={HB - MBB - 16} x2={MLB + 18} y2={HB - MBB - 16} stroke="#b58a2e" strokeWidth="1.5" strokeDasharray="6 3" />
-            <text x={MLB + 22} y={HB - MBB - 12} fontSize="9" fill="#877b67" fontFamily={mono}>1+(2s+D0)e^-s</text>
+            <line x1={MLB} y1={MTB} x2={MLB} y2={HB - MBB} stroke={ED.rule} strokeWidth="1" />
+            <line x1={MLB} y1={HB - MBB} x2={WB - MRB} y2={HB - MBB} stroke={ED.rule} strokeWidth="1" />
+            <rect x={pxB(sStar1pct)} y={MTB} width={(WB - MRB) - pxB(sStar1pct)} height={(HB - MBB) - MTB} fill={TK_ALPHA(ED.series3, 0.08)} />
+            <line x1={pxB(sStar1pct)} y1={MTB} x2={pxB(sStar1pct)} y2={HB - MBB} stroke={ED.series3} strokeWidth="1.5" strokeDasharray="4 2" />
+            <text x={pxB(sStar1pct)} y={MTB - 8} textAnchor="middle" fontSize="9" fill={ED.series3} fontFamily={mono}>s*&asymp;{sStar1pct.toFixed(2)} (1% err)</text>
+            <line x1={MLB} y1={yB1} x2={WB - MRB} y2={yB1} stroke={ED.rule} strokeWidth="1" strokeDasharray="3 2" />
+            <text x={WB - MRB - 4} y={yB1 - 4} textAnchor="end" fontSize="9" fill={ED.inkFaint} fontFamily={mono}>1 (limit)</text>
+            <path d={pathCB} fill="none" stroke={ED.brassDeco} strokeWidth="1.5" strokeDasharray="6 3" />
+            <path d={pathB} fill="none" stroke={ED.series3} strokeWidth="2.5" />
+            <text x={(MLB + WB - MRB) / 2} y={HB - 8} textAnchor="middle" fontSize="11" fill={ED.inkFaint} fontFamily={mono}>s = a&middot;U</text>
+            <text x={12} y={ycB} textAnchor="middle" fontSize="11" fill={ED.inkFaint} fontFamily={mono} transform={"rotate(-90 12 " + ycB + ")"}>ratio</text>
+            <line x1={MLB + 4} y1={HB - MBB - 28} x2={MLB + 18} y2={HB - MBB - 28} stroke={ED.series3} strokeWidth="2.5" />
+            <text x={MLB + 22} y={HB - MBB - 24} fontSize="9" fill={ED.inkFaint} fontFamily={mono}>actual</text>
+            <line x1={MLB + 4} y1={HB - MBB - 16} x2={MLB + 18} y2={HB - MBB - 16} stroke={ED.brassDeco} strokeWidth="1.5" strokeDasharray="6 3" />
+            <text x={MLB + 22} y={HB - MBB - 12} fontSize="9" fill={ED.inkFaint} fontFamily={mono}>1+(2s+D0)e^-s</text>
           </svg>
         </div>
       </div>
-      <p style={{ marginTop: 8, color: "#877b67", fontSize: 11, fontFamily: mono }}>
+      <p style={{ marginTop: 8, color: 'var(--ink-faint)', fontSize: 11, fontFamily: mono }}>
         Source: imp-3155-onset-decay-next-order-corrections.js &mdash;
         A1={_D.onsetCorrection.anchor.toFixed(6)}, D0={_D.decayCorrection.constAnchor.toFixed(6)},
         s0=arcsinh(1)={S0.toFixed(6)}, C={C.toFixed(6)}, K={K.toFixed(6)}.
       </p>
-      <p style={{ marginTop: 6, color: "#877b67", fontSize: 11, fontFamily: mono }}>
+      <p style={{ marginTop: 6, color: 'var(--ink-faint)', fontSize: 11, fontFamily: mono }}>
         imp-3222 second-order: onset A<sub>2</sub>=&minus;(2&#8730;2&minus;1)/(6(1&minus;arcsinh1))&minus;1/36
         ={IMP3222_ONSET_DECAY_SECOND_ORDER_COEFFICIENT.onsetSecondOrder.anchor.toFixed(6)} (negative, bends
         phi&epsilon;<sup>2</sup>/C back below); large-s B(s)=4s<sup>2</sup>+{IMP3222_ONSET_DECAY_SECOND_ORDER_COEFFICIENT.decaySecondOrder.coefS1.toFixed(5)}s
@@ -4230,7 +4231,7 @@ function OnsetPadeAccuracyRadiusViz() {
   const yMin = -4, yMax = 0; // log10(rel err) from 1e-4 to 1
   const py = (err) => H - MB - ((Math.log10(err) - yMin) / (yMax - yMin)) * (H - MT - MB);
 
-  const colors = { t2: "#c23a1c", t3: "#b58a2e", p11: "#3f6b86" };
+  const colors = { t2: ED.series2, t3: ED.brassDeco, p11: ED.series1 };
   const labels = { t2: "T2 (two-term)", t3: "T3 (three-term poly)", p11: "P11 ([1/1] Pade)" };
 
   const yTicks = [-4, -3, -2, -1, 0];
@@ -4240,8 +4241,8 @@ function OnsetPadeAccuracyRadiusViz() {
   const radii1pct = { t2: R.twoTermEps1pct, t3: R.threeTermEps1pct, p11: R.padeEps1pct };
 
   return (
-    <div className="card" style={{ marginTop: 16, borderLeft: "4px solid #3f6b86", background: "rgba(63,107,134,0.04)" }}>
-      <h3 style={{ color: "#3f6b86", marginTop: 0 }}>
+    <div className="card" style={{ marginTop: 16, borderLeft: "4px solid var(--series-1)", background: 'color-mix(in srgb, var(--series-1) 4%, transparent)' }}>
+      <h3 style={{ color: 'var(--series-1)', marginTop: 0 }}>
         imp-3325 accuracy radii: T2/T3/P11 relative error vs &epsilon;, and the T3&asymp;P11 overlap
       </h3>
       <p style={{ color: "var(--text-secondary)", fontSize: 13, lineHeight: 1.75 }}>
@@ -4254,27 +4255,27 @@ function OnsetPadeAccuracyRadiusViz() {
         &epsilon;&gt;~0.3, where P11 pulls slightly ahead &mdash; visual confirmation that the Pade
         rational structure adds almost nothing beyond simply keeping the A2 term.
       </p>
-      <svg width={W} height={H} style={{ display: "block", background: "rgba(214,201,178,0.25)", borderRadius: 6 }}>
+      <svg width={W} height={H} style={{ display: "block", background: 'color-mix(in srgb, var(--rule) 25%, transparent)', borderRadius: 6 }}>
         {yTicks.map((v) => (
           <g key={"y" + v}>
-            <line x1={ML} y1={py(Math.pow(10, v))} x2={W - MR} y2={py(Math.pow(10, v))} stroke="#d5c9b2" strokeWidth="1" />
-            <text x={ML - 6} y={py(Math.pow(10, v)) + 4} textAnchor="end" fontSize="10" fill="#877b67" fontFamily={mono}>
+            <line x1={ML} y1={py(Math.pow(10, v))} x2={W - MR} y2={py(Math.pow(10, v))} stroke={ED.rule} strokeWidth="1" />
+            <text x={ML - 6} y={py(Math.pow(10, v)) + 4} textAnchor="end" fontSize="10" fill={ED.inkFaint} fontFamily={mono}>
               {v === 0 ? "1" : "1e" + v}
             </text>
           </g>
         ))}
         {xTicks.map((eps) => (
           <g key={"x" + eps}>
-            <line x1={px(eps)} y1={H - MB} x2={px(eps)} y2={H - MB + 4} stroke="#d5c9b2" strokeWidth="1" />
-            <text x={px(eps)} y={H - MB + 16} textAnchor="middle" fontSize="10" fill="#877b67" fontFamily={mono}>{eps}</text>
+            <line x1={px(eps)} y1={H - MB} x2={px(eps)} y2={H - MB + 4} stroke={ED.rule} strokeWidth="1" />
+            <text x={px(eps)} y={H - MB + 16} textAnchor="middle" fontSize="10" fill={ED.inkFaint} fontFamily={mono}>{eps}</text>
           </g>
         ))}
-        <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-        <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-        <line x1={ML} y1={py(0.01)} x2={W - MR} y2={py(0.01)} stroke="#4c7a4a" strokeWidth="1" strokeDasharray="5 3" />
-        <text x={W - MR} y={py(0.01) - 4} textAnchor="end" fontSize="9" fill="#4c7a4a" fontFamily={mono}>1% tol</text>
-        <line x1={ML} y1={py(0.001)} x2={W - MR} y2={py(0.001)} stroke="#6d55b8" strokeWidth="1" strokeDasharray="5 3" />
-        <text x={W - MR} y={py(0.001) - 4} textAnchor="end" fontSize="9" fill="#6d55b8" fontFamily={mono}>0.1% tol</text>
+        <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+        <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+        <line x1={ML} y1={py(0.01)} x2={W - MR} y2={py(0.01)} stroke={ED.series3} strokeWidth="1" strokeDasharray="5 3" />
+        <text x={W - MR} y={py(0.01) - 4} textAnchor="end" fontSize="9" fill={ED.series3} fontFamily={mono}>1% tol</text>
+        <line x1={ML} y1={py(0.001)} x2={W - MR} y2={py(0.001)} stroke={ED.series5} strokeWidth="1" strokeDasharray="5 3" />
+        <text x={W - MR} y={py(0.001) - 4} textAnchor="end" fontSize="9" fill={ED.series5} fontFamily={mono}>0.1% tol</text>
         {["t2", "t3", "p11"].map((k) => (
           <line key={"vr" + k} x1={px(radii1pct[k])} y1={MT} x2={px(radii1pct[k])} y2={H - MB} stroke={colors[k]} strokeWidth="1" strokeDasharray="2 3" opacity="0.6" />
         ))}
@@ -4282,16 +4283,16 @@ function OnsetPadeAccuracyRadiusViz() {
           <path key={k} d={pts.map((p, i) => (i === 0 ? "M" : "L") + " " + px(p.eps).toFixed(1) + " " + py(p.err).toFixed(1)).join(" ")}
             fill="none" stroke={colors[k]} strokeWidth={k === "t2" ? 1.5 : 2} strokeDasharray={k === "t2" ? "6 3" : undefined} />
         ))}
-        <text x={(ML + W - MR) / 2} y={H - 6} textAnchor="middle" fontSize="11" fill="#877b67" fontFamily={mono}>&epsilon; (log scale)</text>
-        <text x={12} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="11" fill="#877b67" fontFamily={mono} transform={"rotate(-90 12 " + (MT + H - MB) / 2 + ")"}>rel. error (log)</text>
+        <text x={(ML + W - MR) / 2} y={H - 6} textAnchor="middle" fontSize="11" fill={ED.inkFaint} fontFamily={mono}>&epsilon; (log scale)</text>
+        <text x={12} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="11" fill={ED.inkFaint} fontFamily={mono} transform={"rotate(-90 12 " + (MT + H - MB) / 2 + ")"}>rel. error (log)</text>
         {["t2", "t3", "p11"].map((k, i) => (
           <g key={"leg" + k}>
             <line x1={ML + 4} y1={MT + 12 + i * 14} x2={ML + 18} y2={MT + 12 + i * 14} stroke={colors[k]} strokeWidth={k === "t2" ? 1.5 : 2} strokeDasharray={k === "t2" ? "6 3" : undefined} />
-            <text x={ML + 22} y={MT + 16 + i * 14} fontSize="9" fill="#877b67" fontFamily={mono}>{labels[k]}</text>
+            <text x={ML + 22} y={MT + 16 + i * 14} fontSize="9" fill={ED.inkFaint} fontFamily={mono}>{labels[k]}</text>
           </g>
         ))}
       </svg>
-      <p style={{ marginTop: 8, color: "#877b67", fontSize: 11, fontFamily: mono }}>
+      <p style={{ marginTop: 8, color: 'var(--ink-faint)', fontSize: 11, fontFamily: mono }}>
         Source: imp-3325-onset-pade-resummation.js &mdash; 1% radii T2&asymp;{radii1pct.t2.toFixed(5)},
         T3&asymp;{radii1pct.t3.toFixed(5)}, P11&asymp;{radii1pct.p11.toFixed(5)}. RH-equivalent, degree-0
         scalar diagnostic; imp-3066 lone obstruction untouched.
@@ -4304,18 +4305,18 @@ function OnsetPadeAccuracyRadiusViz() {
 function OnsetHigherOrderPadeRadiiLadderViz() {
   const M = IMP3383_ONSET_THIRD_ORDER_HIGHER_PADE;
   const rows = [
-    { k: "t3", label: "T3 (3-term poly)", color: "#b58a2e",
+    { k: "t3", label: "T3 (3-term poly)", color: ED.brass,
       eps1pct: M.higherPade.polynomialComparators.threeTermEps1pct, eps0p1pct: 0.11463 },
-    { k: "p11", label: "P11 ([1/1] Pade)", color: "#3f6b86",
+    { k: "p11", label: "P11 ([1/1] Pade)", color: ED.series1,
       eps1pct: M.higherPade.polynomialComparators.pade11Eps1pct, eps0p1pct: 0.10937 },
-    { k: "t4", label: "T4 (4-term poly)", color: "#b58a2e",
+    { k: "t4", label: "T4 (4-term poly)", color: ED.brass,
       eps1pct: M.higherPade.polynomialComparators.fourTermEps1pct,
       eps0p1pct: M.higherPade.polynomialComparators.fourTermEps0p1pct },
-    { k: "p12", label: "P12 ([1/2] Pade)", color: "#6d55b8",
+    { k: "p12", label: "P12 ([1/2] Pade)", color: ED.series5,
       eps1pct: M.higherPade.pade12.eps1pct, eps0p1pct: 0.31068 },
-    { k: "p21", label: "P21 ([2/1] Pade)", color: "#4c7a4a",
+    { k: "p21", label: "P21 ([2/1] Pade)", color: ED.series3,
       eps1pct: M.higherPade.pade21.eps1pct, eps0p1pct: M.higherPade.pade21.eps0p1pct },
-    { k: "p22", label: "P22 ([2/2] Pade)", color: "#c23a1c",
+    { k: "p22", label: "P22 ([2/2] Pade)", color: ED.accent,
       eps1pct: M.higherPade.pade22.eps1pct, eps0p1pct: M.higherPade.pade22.eps0p1pct },
   ].sort((a, b) => a.eps1pct - b.eps1pct);
 
@@ -4328,8 +4329,8 @@ function OnsetHigherOrderPadeRadiiLadderViz() {
   const xTicks = [0, 0.25, 0.5, 0.75, 1.0, 1.25];
 
   return (
-    <div className="card" style={{ marginTop: 16, borderLeft: "4px solid #4c7a4a", background: "rgba(76,122,74,0.04)" }}>
-      <h3 style={{ color: "#4c7a4a", marginTop: 0 }}>
+    <div className="card" style={{ marginTop: 16, borderLeft: "4px solid var(--series-3)", background: 'color-mix(in srgb, var(--series-3) 4%, transparent)' }}>
+      <h3 style={{ color: 'var(--series-3)', marginTop: 0 }}>
         imp-3383 higher-order Pade radii LADDER: [2/1] beats its same-order T4, [2/2] reaches &epsilon;&asymp;1.366
       </h3>
       <p style={{ color: "var(--text-secondary)", fontSize: 13, lineHeight: 1.75 }}>
@@ -4341,20 +4342,20 @@ function OnsetHigherOrderPadeRadiiLadderViz() {
         bottom, matching the imp-3325 finding that the [1/1] Pade adds almost nothing over its
         same-order polynomial.
       </p>
-      <svg width={W} height={H} style={{ display: "block", background: "rgba(214,201,178,0.25)", borderRadius: 6 }}>
+      <svg width={W} height={H} style={{ display: "block", background: 'color-mix(in srgb, var(--rule) 25%, transparent)', borderRadius: 6 }}>
         {xTicks.map((v) => (
           <g key={"x" + v}>
-            <line x1={px(v)} y1={MT} x2={px(v)} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-            <text x={px(v)} y={H - MB + 14} textAnchor="middle" fontSize="10" fill="#877b67" fontFamily={mono}>{v}</text>
+            <line x1={px(v)} y1={MT} x2={px(v)} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+            <text x={px(v)} y={H - MB + 14} textAnchor="middle" fontSize="10" fill={ED.inkFaint} fontFamily={mono}>{v}</text>
           </g>
         ))}
-        <line x1={px(t4Radius)} y1={MT} x2={px(t4Radius)} y2={H - MB} stroke="#b58a2e" strokeWidth="1.5" strokeDasharray="5 3" opacity="0.85" />
-        <text x={px(t4Radius) + 4} y={MT - 8} fontSize="9" fill="#b58a2e" fontFamily={mono}>T4 1% radius</text>
+        <line x1={px(t4Radius)} y1={MT} x2={px(t4Radius)} y2={H - MB} stroke={ED.brassDeco} strokeWidth="1.5" strokeDasharray="5 3" opacity="0.85" />
+        <text x={px(t4Radius) + 4} y={MT - 8} fontSize="9" fill={ED.brass} fontFamily={mono}>T4 1% radius</text>
         {rows.map((r, i) => {
           const rowY = MT + i * ROW_H;
           return (
             <g key={r.k}>
-              <text x={ML - 8} y={rowY + BAR_H + BAR_GAP / 2 + 3} textAnchor="end" fontSize="11" fill="#877b67" fontFamily={mono}>{r.label}</text>
+              <text x={ML - 8} y={rowY + BAR_H + BAR_GAP / 2 + 3} textAnchor="end" fontSize="11" fill={ED.inkFaint} fontFamily={mono}>{r.label}</text>
               <rect x={ML} y={rowY} width={px(r.eps1pct) - ML} height={BAR_H} fill={r.color} opacity="0.35" />
               <text x={px(r.eps1pct) + 4} y={rowY + BAR_H - 1} fontSize="9" fill={r.color} fontFamily={mono}>{r.eps1pct.toFixed(4)}</text>
               <rect x={ML} y={rowY + BAR_H + BAR_GAP} width={px(r.eps0p1pct) - ML} height={BAR_H} fill={r.color} opacity="0.9" />
@@ -4362,11 +4363,11 @@ function OnsetHigherOrderPadeRadiiLadderViz() {
             </g>
           );
         })}
-        <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-        <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-        <text x={(ML + W - MR) / 2} y={H - 6} textAnchor="middle" fontSize="11" fill="#877b67" fontFamily={mono}>&epsilon; radius (light=1% tol, solid=0.1% tol)</text>
+        <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+        <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+        <text x={(ML + W - MR) / 2} y={H - 6} textAnchor="middle" fontSize="11" fill={ED.inkFaint} fontFamily={mono}>&epsilon; radius (light=1% tol, solid=0.1% tol)</text>
       </svg>
-      <p style={{ marginTop: 8, color: "#877b67", fontSize: 11, fontFamily: mono }}>
+      <p style={{ marginTop: 8, color: 'var(--ink-faint)', fontSize: 11, fontFamily: mono }}>
         Source: imp-3383-onset-third-order-higher-pade.js &mdash; P21/T4 1% ratio&asymp;
         {M.verdict.pade21VsFourTermFactorAt1pct.toFixed(3)}x. RH-equivalent, degree-0 scalar diagnostic;
         [2/1] pole stays on the negative-&epsilon; axis (no onset-side singularity); imp-3066 lone
@@ -4401,13 +4402,13 @@ function BridgeLagCutoffCaptureViz() {
   const yTicks = [0, 0.2, 0.4, 0.6, 0.8, 1.0];
 
   return (
-    <div className="card" style={{ marginTop: 18, borderLeft: '3px solid #6d55b8', background: 'rgba(109,85,184,0.03)' }}>
-      <h3 style={{ color: '#6d55b8', marginTop: 0, fontSize: 15 }}>
+    <div className="card" style={{ marginTop: 18, borderLeft: '3px solid var(--series-5)', background: 'color-mix(in srgb, var(--series-5) 3%, transparent)' }}>
+      <h3 style={{ color: 'var(--series-5)', marginTop: 0, fontSize: 15 }}>
         Bridge Lag-Cutoff Capture Curve (imp-3202): capture(c) = ||T_c|| / ||T||
       </h3>
-      <p style={{ color: '#877b67', fontSize: 12, lineHeight: 1.65, marginBottom: 10 }}>
+      <p style={{ color: 'var(--ink-faint)', fontSize: 12, lineHeight: 1.65, marginBottom: 10 }}>
         The capture fraction rises steeply with the lag cutoff c and{' '}
-        <strong style={{ color: '#1c1814' }}>saturates at a finite minimal lag-support</strong>{' '}
+        <strong style={{ color: 'var(--ink)' }}>saturates at a finite minimal lag-support</strong>{' '}
         (knee at c&thinsp;=&thinsp;{knee}), locating where the bridge contraction mass stops
         accruing. A small (&lt;0.5%) overshoot above 1 appears near the knee: truncating the
         indefinite far-lag tail transiently raises the dominant singular value.
@@ -4417,68 +4418,68 @@ function BridgeLagCutoffCaptureViz() {
           {/* grid lines */}
           {yTicks.map((v) => (
             <line key={v} x1={padL} y1={yScale(v)} x2={svgW - padR} y2={yScale(v)}
-              stroke="#d5c9b2" strokeWidth={1} />
+              stroke={ED.rule} strokeWidth={1} />
           ))}
 
           {/* saturation band: y in [1-satTol, 1+satTol] */}
           <rect
             x={padL} y={yScale(1 + satTol)}
             width={chartW} height={yScale(1 - satTol) - yScale(1 + satTol)}
-            fill="rgba(109,85,184,0.07)"
+            fill={TK_ALPHA(ED.series5, 0.07)}
           />
           <line x1={padL} y1={yScale(1)} x2={svgW - padR} y2={yScale(1)}
-            stroke="#6d55b8" strokeWidth={1} strokeDasharray="5 3" />
-          <text x={padL + 4} y={yScale(1) - 3} fill="#6d55b8" fontSize={9}>capture = 1</text>
+            stroke={ED.series5} strokeWidth={1} strokeDasharray="5 3" />
+          <text x={padL + 4} y={yScale(1) - 3} fill={ED.series5} fontSize={9}>capture = 1</text>
 
           {/* verdict anchors: 0.20 and 0.40 with capture % annotations */}
           <line x1={xScale(0.2)} y1={padT} x2={xScale(0.2)} y2={padT + chartH}
-            stroke="#b58a2e" strokeWidth={1} strokeDasharray="4 3" />
-          <text x={xScale(0.2) + 2} y={padT + 10} fill="#b58a2e" fontSize={8}>c=0.20</text>
-          <text x={xScale(0.2) + 2} y={padT + 20} fill="#b58a2e" fontSize={8}>{(c020 * 100).toFixed(0)}%</text>
+            stroke={ED.brassDeco} strokeWidth={1} strokeDasharray="4 3" />
+          <text x={xScale(0.2) + 2} y={padT + 10} fill={ED.brass} fontSize={8}>c=0.20</text>
+          <text x={xScale(0.2) + 2} y={padT + 20} fill={ED.brass} fontSize={8}>{(c020 * 100).toFixed(0)}%</text>
           <line x1={xScale(0.4)} y1={padT} x2={xScale(0.4)} y2={padT + chartH}
-            stroke="#b58a2e" strokeWidth={1} strokeDasharray="4 3" />
-          <text x={xScale(0.4) + 2} y={padT + 10} fill="#b58a2e" fontSize={8}>c=0.40</text>
-          <text x={xScale(0.4) + 2} y={padT + 20} fill="#b58a2e" fontSize={8}>{(c040 * 100).toFixed(0)}%</text>
+            stroke={ED.brassDeco} strokeWidth={1} strokeDasharray="4 3" />
+          <text x={xScale(0.4) + 2} y={padT + 10} fill={ED.brass} fontSize={8}>c=0.40</text>
+          <text x={xScale(0.4) + 2} y={padT + 20} fill={ED.brass} fontSize={8}>{(c040 * 100).toFixed(0)}%</text>
 
           {/* knee marker */}
           {knee != null && (
             <>
               <line x1={xScale(knee)} y1={padT} x2={xScale(knee)} y2={padT + chartH}
-                stroke="#4c7a4a" strokeWidth={1.5} strokeDasharray="6 3" />
-              <text x={xScale(knee) + 3} y={padT + 22} fill="#4c7a4a" fontSize={8}>knee c={knee}</text>
+                stroke={ED.series3} strokeWidth={1.5} strokeDasharray="6 3" />
+              <text x={xScale(knee) + 3} y={padT + 22} fill={ED.series3} fontSize={8}>knee c={knee}</text>
             </>
           )}
 
           {/* capture curve */}
-          <polyline points={polyline} fill="none" stroke="#6d55b8" strokeWidth={2} />
+          <polyline points={polyline} fill="none" stroke={ED.series5} strokeWidth={2} />
           {table.map((r) => (
             <circle key={r.cutoff} cx={xScale(r.cutoff)} cy={yScale(r.capture)} r={3}
-              fill="#6d55b8" />
+              fill={ED.series5} />
           ))}
 
           {/* axes */}
-          <line x1={padL} y1={padT} x2={padL} y2={padT + chartH} stroke="#d5c9b2" strokeWidth={1.5} />
-          <line x1={padL} y1={padT + chartH} x2={svgW - padR} y2={padT + chartH} stroke="#d5c9b2" strokeWidth={1.5} />
+          <line x1={padL} y1={padT} x2={padL} y2={padT + chartH} stroke={ED.rule} strokeWidth={1.5} />
+          <line x1={padL} y1={padT + chartH} x2={svgW - padR} y2={padT + chartH} stroke={ED.rule} strokeWidth={1.5} />
 
           {/* y-axis ticks */}
           {yTicks.map((v) => (
-            <text key={v} x={padL - 4} y={yScale(v) + 3.5} fill="#877b67" fontSize={9} textAnchor="end">
+            <text key={v} x={padL - 4} y={yScale(v) + 3.5} fill={ED.inkFaint} fontSize={9} textAnchor="end">
               {v.toFixed(1)}
             </text>
           ))}
 
           {/* x-axis ticks */}
           {xTicks.map((v) => (
-            <text key={v} x={xScale(v)} y={padT + chartH + 12} fill="#877b67" fontSize={9} textAnchor="middle">
+            <text key={v} x={xScale(v)} y={padT + chartH + 12} fill={ED.inkFaint} fontSize={9} textAnchor="middle">
               {v}
             </text>
           ))}
 
           {/* axis labels */}
-          <text x={padL + chartW / 2} y={svgH - 2} fill="#877b67" fontSize={10} textAnchor="middle">
+          <text x={padL + chartW / 2} y={svgH - 2} fill={ED.inkFaint} fontSize={10} textAnchor="middle">
             lag cutoff c
           </text>
-          <text x={10} y={padT + chartH / 2} fill="#877b67" fontSize={10} textAnchor="middle"
+          <text x={10} y={padT + chartH / 2} fill={ED.inkFaint} fontSize={10} textAnchor="middle"
             transform={`rotate(-90 10 ${padT + chartH / 2})`}>
             capture(c)
           </text>
@@ -4486,24 +4487,24 @@ function BridgeLagCutoffCaptureViz() {
       </div>
       <div style={{
         marginTop: 10, padding: '10px 12px', borderRadius: 6,
-        background: 'rgba(181,138,46,0.08)', border: '2px solid rgba(181,138,46,0.4)',
-        fontSize: 12, color: '#877b67', lineHeight: 1.65,
+        background: 'color-mix(in srgb, var(--brass-deco) 8%, transparent)', border: '2px solid color-mix(in srgb, var(--brass-deco) 40%, transparent)',
+        fontSize: 12, color: 'var(--ink-faint)', lineHeight: 1.65,
       }}>
-        <div style={{ fontSize: 11, fontWeight: 700, color: '#b58a2e', letterSpacing: '0.06em', marginBottom: 6 }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--brass)', letterSpacing: '0.06em', marginBottom: 6 }}>
           OPEN SUB-GAP (imp-3202): TWO HALVES, ONE UN-PORTED
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8, marginBottom: 6 }}>
-          <div style={{ padding: '6px 10px', borderRadius: 4, background: 'rgba(76,122,74,0.08)', border: '1px solid rgba(76,122,74,0.35)' }}>
-            <div style={{ fontSize: 10, fontWeight: 700, color: '#4c7a4a', letterSpacing: '0.05em', marginBottom: 3 }}>HALF 1 &mdash; DONE (in-repo)</div>
-            <div style={{ fontSize: 11.5, color: '#4a4238' }}>
+          <div style={{ padding: '6px 10px', borderRadius: 4, background: 'color-mix(in srgb, var(--series-3) 8%, transparent)', border: '1px solid color-mix(in srgb, var(--series-3) 35%, transparent)' }}>
+            <div style={{ fontSize: 10, fontWeight: 700, color: 'var(--series-3)', letterSpacing: '0.05em', marginBottom: 3 }}>HALF 1 &mdash; DONE (in-repo)</div>
+            <div style={{ fontSize: 11.5, color: 'var(--ink-soft)' }}>
               Cutoff-localization: this chart measures capture(c)&thinsp;=&thinsp;||T_c||/||T||
               for the Toeplitz surrogate T(u,v)&thinsp;=&thinsp;sinh(a(v&minus;u))&thinsp;&times;&thinsp;Abar(|v&minus;u|).
               The knee locates where bridge contraction mass saturates.
             </div>
           </div>
-          <div style={{ padding: '6px 10px', borderRadius: 4, background: 'rgba(194,58,28,0.08)', border: '1px solid rgba(194,58,28,0.35)' }}>
-            <div style={{ fontSize: 10, fontWeight: 700, color: '#c23a1c', letterSpacing: '0.05em', marginBottom: 3 }}>HALF 2 &mdash; OPEN (un-ported)</div>
-            <div style={{ fontSize: 11.5, color: '#4a4238' }}>
+          <div style={{ padding: '6px 10px', borderRadius: 4, background: 'color-mix(in srgb, var(--series-2) 8%, transparent)', border: '1px solid color-mix(in srgb, var(--accent) 35%, transparent)' }}>
+            <div style={{ fontSize: 10, fontWeight: 700, color: 'var(--accent)', letterSpacing: '0.05em', marginBottom: 3 }}>HALF 2 &mdash; OPEN (un-ported)</div>
+            <div style={{ fontSize: 11.5, color: 'var(--ink-soft)' }}>
               Core-normalization: anchoring the exact verdict scalars ||R||&thinsp;=&thinsp;0.876
               (lag&thinsp;&le;&thinsp;0.20) and 0.711 (lag&thinsp;&le;&thinsp;0.40) requires the
               out-of-repo symmetric G<sub>pass</sub><sup>-1/2</sup> normalization, which has
@@ -4511,7 +4512,7 @@ function BridgeLagCutoffCaptureViz() {
             </div>
           </div>
         </div>
-        <div style={{ fontSize: 11, color: '#877b67' }}>
+        <div style={{ fontSize: 11, color: 'var(--ink-faint)' }}>
           Dashed yellow lines mark the verdict anchors c&thinsp;=&thinsp;0.20 and 0.40; green marks the minimal lag-support knee.
           The in-repo chart shows the correct capture SHAPE but cannot reproduce the verdict norm values until Half 2 is ported.
         </div>
@@ -4543,17 +4544,17 @@ function SmoothCoreLagContrastCeilingViz() {
   const yTicks = [1.0, 1.05, 1.1, 1.15, 1.2, 1.25, 1.3];
 
   return (
-    <div className="card" style={{ marginTop: 18, borderLeft: '3px solid #6d55b8', background: 'rgba(109,85,184,0.03)' }}>
-      <h3 style={{ color: '#6d55b8', marginTop: 0, fontSize: 15 }}>
+    <div className="card" style={{ marginTop: 18, borderLeft: '3px solid var(--series-5)', background: 'color-mix(in srgb, var(--series-5) 3%, transparent)' }}>
+      <h3 style={{ color: 'var(--series-5)', marginTop: 0, fontSize: 15 }}>
         Smooth-Core Lag-Contrast Ceiling vs Additive-Fejer Crossing (imp-3385)
       </h3>
-      <p style={{ color: '#877b67', fontSize: 12, lineHeight: 1.65, marginBottom: 10 }}>
+      <p style={{ color: 'var(--ink-faint)', fontSize: 12, lineHeight: 1.65, marginBottom: 10 }}>
         The additive-Fejer family (imp-3310, purple curve) sweeps its intrinsic
         lag&thinsp;&le;&thinsp;0.2 / lag&thinsp;&le;&thinsp;0.40 ratio through the section26-mupass verdict
         ratio 0.876/0.711&thinsp;=&thinsp;{verdictRatio.toFixed(4)} (dashed gold line) at
         w*&thinsp;&asymp;&thinsp;{wRatioMatch.toFixed(2)}. The smooth Gaussian and exponential
         near-diagonal families (imp-3385) never get that far: their ratio{' '}
-        <strong style={{ color: '#1c1814' }}>saturates below the verdict</strong> at flat
+        <strong style={{ color: 'var(--ink)' }}>saturates below the verdict</strong> at flat
         ceilings of {gaussCeiling.toFixed(4)} (Gaussian) and {expCeiling.toFixed(4)} (exponential),
         strictly worse than the additive-Fejer crossing.
       </p>
@@ -4561,59 +4562,59 @@ function SmoothCoreLagContrastCeilingViz() {
         <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
           {yTicks.map((v) => (
             <line key={v} x1={padL} y1={yScale(v)} x2={svgW - padR} y2={yScale(v)}
-              stroke="#d5c9b2" strokeWidth={1} />
+              stroke={ED.rule} strokeWidth={1} />
           ))}
 
           {/* verdict ratio line */}
           <line x1={padL} y1={yScale(verdictRatio)} x2={svgW - padR} y2={yScale(verdictRatio)}
-            stroke="#b58a2e" strokeWidth={1.5} strokeDasharray="5 3" />
-          <text x={padL + 4} y={yScale(verdictRatio) - 3} fill="#b58a2e" fontSize={9}>
+            stroke={ED.brassDeco} strokeWidth={1.5} strokeDasharray="5 3" />
+          <text x={padL + 4} y={yScale(verdictRatio) - 3} fill={ED.brass} fontSize={9}>
             verdict ratio {verdictRatio.toFixed(4)}
           </text>
 
           {/* smooth-family ceilings: flat lines, both below verdict */}
           <line x1={padL} y1={yScale(gaussCeiling)} x2={svgW - padR} y2={yScale(gaussCeiling)}
-            stroke="#4c7a4a" strokeWidth={1.5} strokeDasharray="3 3" />
-          <text x={svgW - padR - 4} y={yScale(gaussCeiling) - 3} fill="#4c7a4a" fontSize={8} textAnchor="end">
+            stroke={ED.series3} strokeWidth={1.5} strokeDasharray="3 3" />
+          <text x={svgW - padR - 4} y={yScale(gaussCeiling) - 3} fill={ED.series3} fontSize={8} textAnchor="end">
             Gaussian ceiling {gaussCeiling.toFixed(4)}
           </text>
           <line x1={padL} y1={yScale(expCeiling)} x2={svgW - padR} y2={yScale(expCeiling)}
-            stroke="#c23a1c" strokeWidth={1.5} strokeDasharray="3 3" />
-          <text x={svgW - padR - 4} y={yScale(expCeiling) + 11} fill="#c23a1c" fontSize={8} textAnchor="end">
+            stroke={ED.accent} strokeWidth={1.5} strokeDasharray="3 3" />
+          <text x={svgW - padR - 4} y={yScale(expCeiling) + 11} fill={ED.accent} fontSize={8} textAnchor="end">
             exponential ceiling {expCeiling.toFixed(4)}
           </text>
 
           {/* w* crossing marker */}
           <line x1={xScale(wRatioMatch)} y1={padT} x2={xScale(wRatioMatch)} y2={padT + chartH}
-            stroke="#6d55b8" strokeWidth={1.5} strokeDasharray="6 3" />
-          <text x={xScale(wRatioMatch) + 3} y={padT + 12} fill="#6d55b8" fontSize={8}>
+            stroke={ED.series5} strokeWidth={1.5} strokeDasharray="6 3" />
+          <text x={xScale(wRatioMatch) + 3} y={padT + 12} fill={ED.series5} fontSize={8}>
             w*&asymp;{wRatioMatch.toFixed(2)}
           </text>
 
           {/* additive-Fejer ratio curve */}
-          <polyline points={polyline} fill="none" stroke="#6d55b8" strokeWidth={2} />
+          <polyline points={polyline} fill="none" stroke={ED.series5} strokeWidth={2} />
           {sweep.map((r) => (
-            <circle key={r.w} cx={xScale(r.w)} cy={yScale(r.ratio)} r={3} fill="#6d55b8" />
+            <circle key={r.w} cx={xScale(r.w)} cy={yScale(r.ratio)} r={3} fill={ED.series5} />
           ))}
 
-          <line x1={padL} y1={padT} x2={padL} y2={padT + chartH} stroke="#d5c9b2" strokeWidth={1.5} />
-          <line x1={padL} y1={padT + chartH} x2={svgW - padR} y2={padT + chartH} stroke="#d5c9b2" strokeWidth={1.5} />
+          <line x1={padL} y1={padT} x2={padL} y2={padT + chartH} stroke={ED.rule} strokeWidth={1.5} />
+          <line x1={padL} y1={padT + chartH} x2={svgW - padR} y2={padT + chartH} stroke={ED.rule} strokeWidth={1.5} />
 
           {yTicks.map((v) => (
-            <text key={v} x={padL - 4} y={yScale(v) + 3.5} fill="#877b67" fontSize={9} textAnchor="end">
+            <text key={v} x={padL - 4} y={yScale(v) + 3.5} fill={ED.inkFaint} fontSize={9} textAnchor="end">
               {v.toFixed(2)}
             </text>
           ))}
           {xTicks.map((v) => (
-            <text key={v} x={xScale(v)} y={padT + chartH + 12} fill="#877b67" fontSize={9} textAnchor="middle">
+            <text key={v} x={xScale(v)} y={padT + chartH + 12} fill={ED.inkFaint} fontSize={9} textAnchor="middle">
               {v}
             </text>
           ))}
 
-          <text x={padL + chartW / 2} y={svgH - 2} fill="#877b67" fontSize={10} textAnchor="middle">
+          <text x={padL + chartW / 2} y={svgH - 2} fill={ED.inkFaint} fontSize={10} textAnchor="middle">
             bridge weight w (log scale)
           </text>
-          <text x={10} y={padT + chartH / 2} fill="#877b67" fontSize={10} textAnchor="middle"
+          <text x={10} y={padT + chartH / 2} fill={ED.inkFaint} fontSize={10} textAnchor="middle"
             transform={`rotate(-90 10 ${padT + chartH / 2})`}>
             lag-0.2 / lag-0.40 ratio
           </text>
@@ -4621,13 +4622,13 @@ function SmoothCoreLagContrastCeilingViz() {
       </div>
       <div style={{
         marginTop: 10, padding: '10px 12px', borderRadius: 6,
-        background: 'rgba(194,58,28,0.06)', border: '2px solid rgba(194,58,28,0.35)',
-        fontSize: 12, color: '#877b67', lineHeight: 1.65,
+        background: 'color-mix(in srgb, var(--series-2) 6%, transparent)', border: '2px solid color-mix(in srgb, var(--accent) 35%, transparent)',
+        fontSize: 12, color: 'var(--ink-faint)', lineHeight: 1.65,
       }}>
-        <div style={{ fontSize: 11, fontWeight: 700, color: '#c23a1c', letterSpacing: '0.06em', marginBottom: 6 }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--accent)', letterSpacing: '0.06em', marginBottom: 6 }}>
           RULED OUT (imp-3385): SMOOTH FAMILY CANNOT EVEN REACH THE ADDITIVE-FEJER CROSSING
         </div>
-        <div style={{ fontSize: 11.5, color: '#4a4238' }}>
+        <div style={{ fontSize: 11.5, color: 'var(--ink-soft)' }}>
           The additive-Fejer family (purple) at least sweeps through the verdict ratio at
           w*&thinsp;&asymp;&thinsp;{wRatioMatch.toFixed(2)}, though not at the verdict magnitudes. The smooth
           Gaussian/exponential family never gets that far: its lag-contrast ratio is capped
@@ -4658,44 +4659,44 @@ function MultiharmonicScalarCoreSaturationViz() {
   const yTicks = [0.98, 0.985, 0.99, 0.995, 1.0];
 
   return (
-    <div className="card" style={{ marginTop: 18, borderLeft: '3px solid #c23a1c', background: 'rgba(194,58,28,0.03)' }}>
-      <h3 style={{ color: '#c23a1c', marginTop: 0, fontSize: 15 }}>
+    <div className="card" style={{ marginTop: 18, borderLeft: '3px solid var(--accent)', background: 'color-mix(in srgb, var(--series-2) 3%, transparent)' }}>
+      <h3 style={{ color: 'var(--accent)', marginTop: 0, fontSize: 15 }}>
         Multi-Harmonic Scalar-Core Saturation vs Single-Cosh Baseline (imp-3386)
       </h3>
-      <p style={{ color: '#877b67', fontSize: 12, lineHeight: 1.65, marginBottom: 10 }}>
+      <p style={{ color: 'var(--ink-faint)', fontSize: 12, lineHeight: 1.65, marginBottom: 10 }}>
         Enriching the imp-2686 single-cosh scalar core with higher harmonics
         m<sub>K</sub>(t)&thinsp;=&thinsp;&sum;<sub>k=1..K</sub>&thinsp;cosh(k&thinsp;a&thinsp;t) barely moves the
         shape-normalized rank-2 norm &#8214;R&#8214;<sub>K</sub>&thinsp;/&thinsp;&#8214;R&#8214;<sub>1</sub> (imp-3310
         evaluator): it drifts monotonely from 1.000000 (K=1) to only {ratios[ratios.length - 1].toFixed(4)} (K={kMax}),
         a total shift of {(maxDev * 100).toFixed(2)}% across five added harmonics &mdash; the family{' '}
-        <strong style={{ color: '#1c1814' }}>saturates</strong> well short of the full-operator &#8214;R&#8214;=1.
+        <strong style={{ color: 'var(--ink)' }}>saturates</strong> well short of the full-operator &#8214;R&#8214;=1.
       </p>
       <div style={{ overflowX: 'auto' }}>
         <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
           {yTicks.map((v) => (
             <line key={v} x1={padL} y1={yScale(v)} x2={svgW - padR} y2={yScale(v)}
-              stroke="#d5c9b2" strokeWidth={1} />
+              stroke={ED.rule} strokeWidth={1} />
           ))}
-          <polyline points={polyline} fill="none" stroke="#c23a1c" strokeWidth={2} />
+          <polyline points={polyline} fill="none" stroke={ED.accent} strokeWidth={2} />
           {ratios.map((r, i) => (
-            <circle key={i} cx={xScale(i + 1)} cy={yScale(r)} r={3} fill="#c23a1c" />
+            <circle key={i} cx={xScale(i + 1)} cy={yScale(r)} r={3} fill={ED.series2} />
           ))}
-          <line x1={padL} y1={padT} x2={padL} y2={padT + chartH} stroke="#d5c9b2" strokeWidth={1.5} />
-          <line x1={padL} y1={padT + chartH} x2={svgW - padR} y2={padT + chartH} stroke="#d5c9b2" strokeWidth={1.5} />
+          <line x1={padL} y1={padT} x2={padL} y2={padT + chartH} stroke={ED.rule} strokeWidth={1.5} />
+          <line x1={padL} y1={padT + chartH} x2={svgW - padR} y2={padT + chartH} stroke={ED.rule} strokeWidth={1.5} />
           {yTicks.map((v) => (
-            <text key={v} x={padL - 4} y={yScale(v) + 3.5} fill="#877b67" fontSize={9} textAnchor="end">
+            <text key={v} x={padL - 4} y={yScale(v) + 3.5} fill={ED.inkFaint} fontSize={9} textAnchor="end">
               {v.toFixed(3)}
             </text>
           ))}
           {ratios.map((_, i) => (
-            <text key={i} x={xScale(i + 1)} y={padT + chartH + 12} fill="#877b67" fontSize={9} textAnchor="middle">
+            <text key={i} x={xScale(i + 1)} y={padT + chartH + 12} fill={ED.inkFaint} fontSize={9} textAnchor="middle">
               K={i + 1}
             </text>
           ))}
-          <text x={padL + chartW / 2} y={svgH - 2} fill="#877b67" fontSize={10} textAnchor="middle">
+          <text x={padL + chartW / 2} y={svgH - 2} fill={ED.inkFaint} fontSize={10} textAnchor="middle">
             harmonics K
           </text>
-          <text x={10} y={padT + chartH / 2} fill="#877b67" fontSize={10} textAnchor="middle"
+          <text x={10} y={padT + chartH / 2} fill={ED.inkFaint} fontSize={10} textAnchor="middle"
             transform={`rotate(-90 10 ${padT + chartH / 2})`}>
             &#8214;R&#8214;_K / &#8214;R&#8214;_1
           </text>
@@ -4703,13 +4704,13 @@ function MultiharmonicScalarCoreSaturationViz() {
       </div>
       <div style={{
         marginTop: 10, padding: '10px 12px', borderRadius: 6,
-        background: 'rgba(194,58,28,0.06)', border: '2px solid rgba(194,58,28,0.35)',
-        fontSize: 12, color: '#877b67', lineHeight: 1.65,
+        background: 'color-mix(in srgb, var(--series-2) 6%, transparent)', border: '2px solid color-mix(in srgb, var(--accent) 35%, transparent)',
+        fontSize: 12, color: 'var(--ink-faint)', lineHeight: 1.65,
       }}>
-        <div style={{ fontSize: 11, fontWeight: 700, color: '#c23a1c', letterSpacing: '0.06em', marginBottom: 6 }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--accent)', letterSpacing: '0.06em', marginBottom: 6 }}>
           SATURATES (imp-3386): WIDER SCALAR FAMILY STILL CANNOT BEAT SINGLE-COSH
         </div>
-        <div style={{ fontSize: 11.5, color: '#4a4238' }}>
+        <div style={{ fontSize: 11.5, color: 'var(--ink-soft)' }}>
           100% of the genuine-&Phi; autocorrelation mass sits below lag &asymp;&thinsp;0.435, where even
           cosh(2at)/cosh(at) exceeds 1 by only &asymp;&thinsp;7%, so every harmonic looks like the constant 1 on
           the support that controls the shear. Confirms the section26-mupass "no scalar core works" verdict from a
@@ -4749,13 +4750,13 @@ function OverflowFractionResolutionSweepViz() {
   const xTickNs = [100, 200, 400, 800, 1600, 3200, 6400, 204800];
 
   return (
-    <div className="card" style={{ marginTop: 18, borderLeft: '3px solid #3f6b86', background: 'rgba(63,107,134,0.03)' }}>
-      <h3 style={{ color: '#3f6b86', marginTop: 0, fontSize: 15 }}>
+    <div className="card" style={{ marginTop: 18, borderLeft: '3px solid var(--series-1)', background: 'color-mix(in srgb, var(--series-1) 3%, transparent)' }}>
+      <h3 style={{ color: 'var(--series-1)', marginTop: 0, fontSize: 15 }}>
         Overflow Fraction Resolution Sweep (imp-3175): Monotone Convergence to ~0.209
       </h3>
-      <p style={{ color: '#877b67', fontSize: 12, lineHeight: 1.65, marginBottom: 10 }}>
+      <p style={{ color: 'var(--ink-faint)', fontSize: 12, lineHeight: 1.65, marginBottom: 10 }}>
         Refining the tau-grid (N panels) moves the overflow fraction{' '}
-        <strong style={{ color: '#1c1814' }}>monotonically UP</strong>, converging to ~0.2092 at
+        <strong style={{ color: 'var(--ink)' }}>monotonically UP</strong>, converging to ~0.2092 at
         N&rarr;&infin; — not down to the coarse 0.194 anchor. Both recorded anchors (imp-3144: 0.194;
         imp-3154: 0.200) under-report the resolution-converged genuine fraction ~0.209.
       </p>
@@ -4764,38 +4765,38 @@ function OverflowFractionResolutionSweepViz() {
           {/* Grid lines */}
           {yTicks.map((v) => (
             <line key={v} x1={padL} y1={yScale(v)} x2={svgW - padR} y2={yScale(v)}
-              stroke="#d5c9b2" strokeWidth={1} />
+              stroke={ED.rule} strokeWidth={1} />
           ))}
 
           {/* Stale anchor: 0.194 */}
           <line x1={padL} y1={yScale(anchor194)} x2={svgW - padR} y2={yScale(anchor194)}
-            stroke="#c23a1c" strokeWidth={1.5} strokeDasharray="5 3" />
-          <text x={padL + 4} y={yScale(anchor194) - 3} fill="#c23a1c" fontSize={9}>
+            stroke={ED.accent} strokeWidth={1.5} strokeDasharray="5 3" />
+          <text x={padL + 4} y={yScale(anchor194) - 3} fill={ED.accent} fontSize={9}>
             stale 0.194 (imp-3144)
           </text>
 
           {/* Stale anchor: 0.200 */}
           <line x1={padL} y1={yScale(anchor200)} x2={svgW - padR} y2={yScale(anchor200)}
-            stroke="#b58a2e" strokeWidth={1.5} strokeDasharray="5 3" />
-          <text x={padL + 4} y={yScale(anchor200) - 3} fill="#b58a2e" fontSize={9}>
+            stroke={ED.brassDeco} strokeWidth={1.5} strokeDasharray="5 3" />
+          <text x={padL + 4} y={yScale(anchor200) - 3} fill={ED.brass} fontSize={9}>
             stale 0.200 (imp-3154 N=200)
           </text>
 
           {/* Converged asymptote ~0.2092 */}
           <line x1={padL} y1={yScale(asymptote)} x2={svgW - padR} y2={yScale(asymptote)}
-            stroke="#4c7a4a" strokeWidth={1.5} strokeDasharray="2 2" />
-          <text x={svgW - padR - 2} y={yScale(asymptote) - 3} fill="#4c7a4a" fontSize={9} textAnchor="end">
+            stroke={ED.series3} strokeWidth={1.5} strokeDasharray="2 2" />
+          <text x={svgW - padR - 2} y={yScale(asymptote) - 3} fill={ED.series3} fontSize={9} textAnchor="end">
             converged ~0.2092
           </text>
 
           {/* Main polyline */}
-          <polyline points={polyline} fill="none" stroke="#3f6b86" strokeWidth={2} />
+          <polyline points={polyline} fill="none" stroke={ED.series1} strokeWidth={2} />
 
           {/* Live N dots */}
           {sweep.map((r) => (
             <circle key={r.N}
               cx={xScale(r.N)} cy={yScale(r.overflowFraction)} r={4}
-              fill="#3f6b86" stroke="#3f6b86" strokeWidth={1} />
+              fill={ED.series1} stroke={ED.series1} strokeWidth={1} />
           ))}
 
           {/* Offline point (diamond) */}
@@ -4804,17 +4805,17 @@ function OverflowFractionResolutionSweepViz() {
             return (
               <polygon
                 points={`${cx},${cy - d} ${cx + d},${cy} ${cx},${cy + d} ${cx - d},${cy}`}
-                fill="#6d55b8" stroke="#6d55b8" strokeWidth={1}
+                fill={ED.series5} stroke={ED.series5} strokeWidth={1}
               />
             );
           })()}
-          <text x={xScale(offline.N)} y={yScale(offline.frac) - 8} fill="#6d55b8" fontSize={8} textAnchor="middle">
+          <text x={xScale(offline.N)} y={yScale(offline.frac) - 8} fill={ED.series5} fontSize={8} textAnchor="middle">
             offline
           </text>
 
           {/* Y-axis labels */}
           {yTicks.map((v) => (
-            <text key={v} x={padL - 3} y={yScale(v) + 3.5} fill="#877b67" fontSize={8} textAnchor="end">
+            <text key={v} x={padL - 3} y={yScale(v) + 3.5} fill={ED.inkFaint} fontSize={8} textAnchor="end">
               {v.toFixed(3)}
             </text>
           ))}
@@ -4825,8 +4826,8 @@ function OverflowFractionResolutionSweepViz() {
             const label = n >= 1000 ? `${(n / 1000).toFixed(0)}k` : `${n}`;
             return (
               <g key={n}>
-                <line x1={x} y1={svgH - padB} x2={x} y2={svgH - padB + 4} stroke="#d5c9b2" />
-                <text x={x} y={svgH - padB + 12} fill="#877b67" fontSize={7.5} textAnchor="middle">
+                <line x1={x} y1={svgH - padB} x2={x} y2={svgH - padB + 4} stroke={ED.rule} />
+                <text x={x} y={svgH - padB + 12} fill={ED.inkFaint} fontSize={7.5} textAnchor="middle">
                   {label}
                 </text>
               </g>
@@ -4834,25 +4835,25 @@ function OverflowFractionResolutionSweepViz() {
           })}
 
           {/* Axes */}
-          <line x1={padL} y1={padT} x2={padL} y2={svgH - padB} stroke="#d5c9b2" />
-          <line x1={padL} y1={svgH - padB} x2={svgW - padR} y2={svgH - padB} stroke="#d5c9b2" />
+          <line x1={padL} y1={padT} x2={padL} y2={svgH - padB} stroke={ED.rule} />
+          <line x1={padL} y1={svgH - padB} x2={svgW - padR} y2={svgH - padB} stroke={ED.rule} />
 
           {/* Axis labels */}
-          <text x={10} y={padT + chartH / 2} fill="#877b67" fontSize={9.5} textAnchor="middle"
+          <text x={10} y={padT + chartH / 2} fill={ED.inkFaint} fontSize={9.5} textAnchor="middle"
             transform={`rotate(-90, 10, ${padT + chartH / 2})`}>
             overflow fraction
           </text>
-          <text x={padL + chartW / 2} y={svgH - 2} fill="#877b67" fontSize={9.5} textAnchor="middle">
+          <text x={padL + chartW / 2} y={svgH - 2} fill={ED.inkFaint} fontSize={9.5} textAnchor="middle">
             N (tau-grid panels, log scale)
           </text>
         </svg>
       </div>
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10, marginTop: 10, fontSize: 11, color: '#877b67' }}>
-        <span><span style={{ color: '#3f6b86' }}>&#9679;</span> live N sweep (O(N) factorization)</span>
-        <span><span style={{ color: '#6d55b8' }}>&#9670;</span> offline N=204800</span>
-        <span><span style={{ color: '#c23a1c' }}>&#8212;&#8212;</span> stale 0.194 anchor</span>
-        <span><span style={{ color: '#b58a2e' }}>&#8212;&#8212;</span> stale 0.200 anchor</span>
-        <span><span style={{ color: '#4c7a4a' }}>&#8943;</span> converged ~0.2092</span>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10, marginTop: 10, fontSize: 11, color: 'var(--ink-faint)' }}>
+        <span><span style={{ color: 'var(--series-1)' }}>&#9679;</span> live N sweep (O(N) factorization)</span>
+        <span><span style={{ color: 'var(--series-5)' }}>&#9670;</span> offline N=204800</span>
+        <span><span style={{ color: 'var(--accent)' }}>&#8212;&#8212;</span> stale 0.194 anchor</span>
+        <span><span style={{ color: 'var(--brass)' }}>&#8212;&#8212;</span> stale 0.200 anchor</span>
+        <span><span style={{ color: 'var(--series-3)' }}>&#8943;</span> converged ~0.2092</span>
       </div>
     </div>
   );
@@ -4897,18 +4898,18 @@ function USweeOverflowFractionViz() {
   const mTicks = [1.245, 1.250, 1.255, 1.260];
 
   const dotColor = (r) => {
-    if (r.U === 5) return '#4c7a4a';
-    if (r.U === 8) return '#6d55b8';
-    if (r.U === 6 && r.a === 0.5 && r.NPHI === 10) return '#3f6b86';
-    return '#877b67';
+    if (r.U === 5) return ED.series3;
+    if (r.U === 8) return ED.series5;
+    if (r.U === 6 && r.a === 0.5 && r.NPHI === 10) return ED.series1;
+    return ED.inkFaint;
   };
 
   return (
-    <div className="card" style={{ marginTop: 14, borderLeft: '3px solid #3f6b86', background: 'rgba(63,107,134,0.03)' }}>
-      <h3 style={{ color: '#3f6b86', marginTop: 0, fontSize: 15 }}>
+    <div className="card" style={{ marginTop: 14, borderLeft: '3px solid var(--series-1)', background: 'color-mix(in srgb, var(--series-1) 3%, transparent)' }}>
+      <h3 style={{ color: 'var(--series-1)', marginTop: 0, fontSize: 15 }}>
         U-Sweep Collapse: overflow fraction &prop; 1/U, product frac&times;U &asymp; 1.2535 (imp-3199)
       </h3>
-      <p style={{ color: '#877b67', fontSize: 12, lineHeight: 1.65, marginBottom: 10 }}>
+      <p style={{ color: 'var(--ink-faint)', fontSize: 12, lineHeight: 1.65, marginBottom: 10 }}>
         The three U-varying cells (U&nbsp;=&nbsp;5,&nbsp;6,&nbsp;8; a&nbsp;=&nbsp;0.5 fixed) lie on
         the hyperbola frac&nbsp;=&nbsp;1.2535/U (amber dashes). The fraction drops from 0.251 at
         U&nbsp;=&nbsp;5 to 0.157 at U&nbsp;=&nbsp;8 — but the product frac&times;U stays
@@ -4920,94 +4921,94 @@ function USweeOverflowFractionViz() {
         <svg width={W1} height={H1} style={{ display: 'block' }}>
           {/* Grid */}
           {fTicks.map((f) => (
-            <line key={f} x1={p1.l} x2={p1.l + cW1} y1={yS1(f)} y2={yS1(f)} stroke="#d5c9b2" strokeWidth={1} />
+            <line key={f} x1={p1.l} x2={p1.l + cW1} y1={yS1(f)} y2={yS1(f)} stroke={ED.rule} strokeWidth={1} />
           ))}
           {uTicks.map((u) => (
-            <line key={u} x1={xS1(u)} x2={xS1(u)} y1={p1.t} y2={p1.t + cH1} stroke="#d5c9b2" strokeWidth={1} />
+            <line key={u} x1={xS1(u)} x2={xS1(u)} y1={p1.t} y2={p1.t + cH1} stroke={ED.rule} strokeWidth={1} />
           ))}
           {/* Hyperbola frac = inv/U */}
-          <path d={hypPath} fill="none" stroke="#b58a2e" strokeWidth={1.5} strokeDasharray="5,3" />
-          <text x={xS1(8.6)} y={yS1(inv / 8.6) - 7} fill="#b58a2e" fontSize={9} textAnchor="middle">
+          <path d={hypPath} fill="none" stroke={ED.brassDeco} strokeWidth={1.5} strokeDasharray="5,3" />
+          <text x={xS1(8.6)} y={yS1(inv / 8.6) - 7} fill={ED.brass} fontSize={9} textAnchor="middle">
             frac&times;U&asymp;{inv.toFixed(4)}
           </text>
           {/* U-varying data points */}
           {uCells.map((r) => (
             <g key={r.label}>
-              <circle cx={xS1(r.U)} cy={yS1(r.convergedFraction)} r={5.5} fill={dotColor(r)} stroke="#f6f1e7" strokeWidth={1} />
+              <circle cx={xS1(r.U)} cy={yS1(r.convergedFraction)} r={5.5} fill={dotColor(r)} stroke={ED.paper2} strokeWidth={1} />
               <text x={xS1(r.U) + 9} y={yS1(r.convergedFraction) + 4} fill={dotColor(r)} fontSize={9}>
                 {r.convergedFraction.toFixed(3)}
               </text>
-              <text x={xS1(r.U)} y={yS1(r.convergedFraction) - 9} fill="#877b67" fontSize={9} textAnchor="middle">
+              <text x={xS1(r.U)} y={yS1(r.convergedFraction) - 9} fill={ED.inkFaint} fontSize={9} textAnchor="middle">
                 U={r.U}
               </text>
             </g>
           ))}
           {/* Axes */}
-          <line x1={p1.l} x2={p1.l + cW1} y1={p1.t + cH1} y2={p1.t + cH1} stroke="#d5c9b2" strokeWidth={1} />
-          <line x1={p1.l} x2={p1.l} y1={p1.t} y2={p1.t + cH1} stroke="#d5c9b2" strokeWidth={1} />
+          <line x1={p1.l} x2={p1.l + cW1} y1={p1.t + cH1} y2={p1.t + cH1} stroke={ED.rule} strokeWidth={1} />
+          <line x1={p1.l} x2={p1.l} y1={p1.t} y2={p1.t + cH1} stroke={ED.rule} strokeWidth={1} />
           {uTicks.map((u) => (
             <g key={u}>
-              <line x1={xS1(u)} x2={xS1(u)} y1={p1.t + cH1} y2={p1.t + cH1 + 4} stroke="#d5c9b2" />
-              <text x={xS1(u)} y={p1.t + cH1 + 14} fill="#877b67" fontSize={9} textAnchor="middle">{u}</text>
+              <line x1={xS1(u)} x2={xS1(u)} y1={p1.t + cH1} y2={p1.t + cH1 + 4} stroke={ED.rule} />
+              <text x={xS1(u)} y={p1.t + cH1 + 14} fill={ED.inkFaint} fontSize={9} textAnchor="middle">{u}</text>
             </g>
           ))}
           {fTicks.map((f) => (
             <g key={f}>
-              <line x1={p1.l - 4} x2={p1.l} y1={yS1(f)} y2={yS1(f)} stroke="#d5c9b2" />
-              <text x={p1.l - 7} y={yS1(f) + 4} fill="#877b67" fontSize={9} textAnchor="end">{f.toFixed(1)}</text>
+              <line x1={p1.l - 4} x2={p1.l} y1={yS1(f)} y2={yS1(f)} stroke={ED.rule} />
+              <text x={p1.l - 7} y={yS1(f) + 4} fill={ED.inkFaint} fontSize={9} textAnchor="end">{f.toFixed(1)}</text>
             </g>
           ))}
-          <text x={p1.l + cW1 / 2} y={H1 - 5} fill="#877b67" fontSize={10} textAnchor="middle">lag cutoff U</text>
+          <text x={p1.l + cW1 / 2} y={H1 - 5} fill={ED.inkFaint} fontSize={10} textAnchor="middle">lag cutoff U</text>
           <text
-            x={11} y={p1.t + cH1 / 2} fill="#877b67" fontSize={10} textAnchor="middle"
+            x={11} y={p1.t + cH1 / 2} fill={ED.inkFaint} fontSize={10} textAnchor="middle"
             transform={`rotate(-90, 11, ${p1.t + cH1 / 2})`}
           >overflow fraction</text>
-          <text x={p1.l + cW1 / 2} y={19} fill="#877b67" fontSize={10} textAnchor="middle">frac vs U</text>
+          <text x={p1.l + cW1 / 2} y={19} fill={ED.inkFaint} fontSize={10} textAnchor="middle">frac vs U</text>
         </svg>
 
         {/* RIGHT: frac*U for all 7 cells */}
         <svg width={W2} height={H2} style={{ display: 'block' }}>
           {/* Y grid */}
           {mTicks.map((m) => (
-            <line key={m} x1={p2.l} x2={p2.l + cW2} y1={yS2(m)} y2={yS2(m)} stroke="#d5c9b2" strokeWidth={0.5} />
+            <line key={m} x1={p2.l} x2={p2.l + cW2} y1={yS2(m)} y2={yS2(m)} stroke={ED.rule} strokeWidth={0.5} />
           ))}
           {/* Mean line */}
-          <line x1={p2.l} x2={p2.l + cW2} y1={yS2(inv)} y2={yS2(inv)} stroke="#b58a2e" strokeWidth={1.5} strokeDasharray="4,2" />
-          <text x={p2.l + cW2 - 2} y={yS2(inv) - 4} fill="#b58a2e" fontSize={9} textAnchor="end">
+          <line x1={p2.l} x2={p2.l + cW2} y1={yS2(inv)} y2={yS2(inv)} stroke={ED.brassDeco} strokeWidth={1.5} strokeDasharray="4,2" />
+          <text x={p2.l + cW2 - 2} y={yS2(inv) - 4} fill={ED.brass} fontSize={9} textAnchor="end">
             mean&asymp;{inv.toFixed(4)}
           </text>
           {/* Dots for all 7 cells */}
           {cells.map((r, i) => (
             <circle key={r.label} cx={xS2(i)} cy={yS2(r.supportMeasure)} r={4.5}
-              fill={dotColor(r)} stroke="#f6f1e7" strokeWidth={1} />
+              fill={dotColor(r)} stroke={ED.paper2} strokeWidth={1} />
           ))}
           {/* Axes */}
-          <line x1={p2.l} x2={p2.l + cW2} y1={p2.t + cH2} y2={p2.t + cH2} stroke="#d5c9b2" strokeWidth={1} />
-          <line x1={p2.l} x2={p2.l} y1={p2.t} y2={p2.t + cH2} stroke="#d5c9b2" strokeWidth={1} />
+          <line x1={p2.l} x2={p2.l + cW2} y1={p2.t + cH2} y2={p2.t + cH2} stroke={ED.rule} strokeWidth={1} />
+          <line x1={p2.l} x2={p2.l} y1={p2.t} y2={p2.t + cH2} stroke={ED.rule} strokeWidth={1} />
           {mTicks.map((m) => (
             <g key={m}>
-              <line x1={p2.l - 4} x2={p2.l} y1={yS2(m)} y2={yS2(m)} stroke="#d5c9b2" />
-              <text x={p2.l - 7} y={yS2(m) + 4} fill="#877b67" fontSize={8} textAnchor="end">{m.toFixed(3)}</text>
+              <line x1={p2.l - 4} x2={p2.l} y1={yS2(m)} y2={yS2(m)} stroke={ED.rule} />
+              <text x={p2.l - 7} y={yS2(m) + 4} fill={ED.inkFaint} fontSize={8} textAnchor="end">{m.toFixed(3)}</text>
             </g>
           ))}
-          <text x={p2.l + cW2 / 2} y={H2 - 4} fill="#877b67" fontSize={10} textAnchor="middle">all 7 cells</text>
+          <text x={p2.l + cW2 / 2} y={H2 - 4} fill={ED.inkFaint} fontSize={10} textAnchor="middle">all 7 cells</text>
           <text
-            x={10} y={p2.t + cH2 / 2} fill="#877b67" fontSize={10} textAnchor="middle"
+            x={10} y={p2.t + cH2 / 2} fill={ED.inkFaint} fontSize={10} textAnchor="middle"
             transform={`rotate(-90, 10, ${p2.t + cH2 / 2})`}
           >frac&times;U</text>
-          <text x={p2.l + cW2 / 2} y={19} fill="#877b67" fontSize={10} textAnchor="middle">frac&times;U invariant</text>
+          <text x={p2.l + cW2 / 2} y={19} fill={ED.inkFaint} fontSize={10} textAnchor="middle">frac&times;U invariant</text>
         </svg>
       </div>
 
       {/* Legend */}
       <div style={{ display: 'flex', gap: 14, marginTop: 8, flexWrap: 'wrap' }}>
-        <span style={{ color: '#4c7a4a', fontSize: 11 }}>&#9679; U=5 (frac=0.251)</span>
-        <span style={{ color: '#3f6b86', fontSize: 11 }}>&#9679; U=6 base (frac=0.209)</span>
-        <span style={{ color: '#6d55b8', fontSize: 11 }}>&#9679; U=8 (frac=0.157)</span>
-        <span style={{ color: '#877b67', fontSize: 11 }}>&#9679; a- / NPHI-varying cells</span>
-        <span style={{ color: '#b58a2e', fontSize: 11 }}>&#8212; frac&times;U&asymp;1.2535 hyperbola / mean</span>
+        <span style={{ color: 'var(--series-3)', fontSize: 11 }}>&#9679; U=5 (frac=0.251)</span>
+        <span style={{ color: 'var(--series-1)', fontSize: 11 }}>&#9679; U=6 base (frac=0.209)</span>
+        <span style={{ color: 'var(--series-5)', fontSize: 11 }}>&#9679; U=8 (frac=0.157)</span>
+        <span style={{ color: 'var(--ink-faint)', fontSize: 11 }}>&#9679; a- / NPHI-varying cells</span>
+        <span style={{ color: 'var(--brass)', fontSize: 11 }}>&#8212; frac&times;U&asymp;1.2535 hyperbola / mean</span>
       </div>
-      <p style={{ marginTop: 8, color: '#877b67', fontSize: 11, fontFamily: mono }}>
+      <p style={{ marginTop: 8, color: 'var(--ink-faint)', fontSize: 11, fontFamily: mono }}>
         Source: imp-3199-overflow-fraction-cell-sweep.js &mdash; DIAGNOSTIC; overflow-support only;
         NOT a reduction.
       </p>
@@ -5048,11 +5049,11 @@ function UnderflowArtifactVsTrueFractionViz() {
   const fTicks = [0, 0.25, 0.5, 0.75, 1.0];
 
   return (
-    <div className="card" style={{ marginTop: 14, borderLeft: '3px solid #c23a1c', background: 'rgba(194,58,28,0.03)' }}>
-      <h3 style={{ color: '#c23a1c', marginTop: 0, fontSize: 15 }}>
+    <div className="card" style={{ marginTop: 14, borderLeft: '3px solid var(--accent)', background: 'color-mix(in srgb, var(--series-2) 3%, transparent)' }}>
+      <h3 style={{ color: 'var(--accent)', marginTop: 0, fontSize: 15 }}>
         Measured vs True Overflow Fraction: 1/U underflow artifact vs &rarr;1 (imp-3314 / imp-3216)
       </h3>
-      <p style={{ color: '#877b67', fontSize: 12, lineHeight: 1.65, marginBottom: 10 }}>
+      <p style={{ color: 'var(--ink-faint)', fontSize: 12, lineHeight: 1.65, marginBottom: 10 }}>
         The MEASURED fraction (&tau;<sub>2</sub>&nbsp;&minus;&nbsp;&tau;<sub>1</sub>)/U (red, falling)
         uses &tau;<sub>2</sub>&thinsp;&asymp;&thinsp;{tau2.toFixed(3)}, which is pinned at the IEEE-754
         kernel <strong>underflow horizon</strong> ({horizon.toFixed(3)}) rather than a genuine crossing, so it
@@ -5063,57 +5064,57 @@ function UnderflowArtifactVsTrueFractionViz() {
       </p>
       <svg width={W} height={H} style={{ display: 'block' }}>
         {fTicks.map((f) => (
-          <line key={f} x1={p.l} x2={p.l + cW} y1={yS(f)} y2={yS(f)} stroke="#d5c9b2" strokeWidth={1} />
+          <line key={f} x1={p.l} x2={p.l + cW} y1={yS(f)} y2={yS(f)} stroke={ED.rule} strokeWidth={1} />
         ))}
         {uTicks.map((u) => (
-          <line key={u} x1={xS(u)} x2={xS(u)} y1={p.t} y2={p.t + cH} stroke="#d5c9b2" strokeWidth={1} />
+          <line key={u} x1={xS(u)} x2={xS(u)} y1={p.t} y2={p.t + cH} stroke={ED.rule} strokeWidth={1} />
         ))}
         {/* Asymptote at f=1 */}
-        <line x1={p.l} x2={p.l + cW} y1={yS(1)} y2={yS(1)} stroke="#4c7a4a" strokeWidth={1} strokeDasharray="2,3" opacity={0.5} />
+        <line x1={p.l} x2={p.l + cW} y1={yS(1)} y2={yS(1)} stroke={ED.series3} strokeWidth={1} strokeDasharray="2,3" opacity={0.5} />
         {/* Curves */}
-        <path d={truePath} fill="none" stroke="#4c7a4a" strokeWidth={1.8} />
-        <path d={measuredPath} fill="none" stroke="#c23a1c" strokeWidth={1.8} strokeDasharray="5,3" />
+        <path d={truePath} fill="none" stroke={ED.series3} strokeWidth={1.8} />
+        <path d={measuredPath} fill="none" stroke={ED.accent} strokeWidth={1.8} strokeDasharray="5,3" />
         {/* Ladder data points */}
         {ladder.map((row) => (
           <g key={`m${row.U}`}>
-            <circle cx={xS(row.U)} cy={yS(row.measuredFraction)} r={3.5} fill="#c23a1c" stroke="#f6f1e7" strokeWidth={1} />
-            <circle cx={xS(row.U)} cy={yS(row.trueFraction)} r={3.5} fill="#4c7a4a" stroke="#f6f1e7" strokeWidth={1} />
+            <circle cx={xS(row.U)} cy={yS(row.measuredFraction)} r={3.5} fill={ED.series2} stroke={ED.paper2} strokeWidth={1} />
+            <circle cx={xS(row.U)} cy={yS(row.trueFraction)} r={3.5} fill={ED.series3} stroke={ED.paper2} strokeWidth={1} />
           </g>
         ))}
         {/* tau_1 annotation (asymptotic slope driver) */}
-        <text x={xS(11.5)} y={yS(1 - tau1 / 11.5) - 8} fill="#4c7a4a" fontSize={9} textAnchor="middle">
+        <text x={xS(11.5)} y={yS(1 - tau1 / 11.5) - 8} fill={ED.series3} fontSize={9} textAnchor="middle">
           &tau;<tspan dy="2" fontSize={7}>1</tspan><tspan dy="-2">&thinsp;&asymp;&thinsp;{tau1.toFixed(3)}</tspan>
         </text>
         {/* underflow horizon annotation */}
-        <text x={xS(9)} y={yS((tau2 - tau1) / 9) + 15} fill="#c23a1c" fontSize={9} textAnchor="middle">
+        <text x={xS(9)} y={yS((tau2 - tau1) / 9) + 15} fill={ED.accent} fontSize={9} textAnchor="middle">
           &tau;<tspan dy="2" fontSize={7}>2</tspan><tspan dy="-2">&thinsp;pinned&thinsp;&asymp;&thinsp;{horizon.toFixed(3)} (underflow horizon)</tspan>
         </text>
         {/* Axes */}
-        <line x1={p.l} x2={p.l + cW} y1={p.t + cH} y2={p.t + cH} stroke="#d5c9b2" strokeWidth={1} />
-        <line x1={p.l} x2={p.l} y1={p.t} y2={p.t + cH} stroke="#d5c9b2" strokeWidth={1} />
+        <line x1={p.l} x2={p.l + cW} y1={p.t + cH} y2={p.t + cH} stroke={ED.rule} strokeWidth={1} />
+        <line x1={p.l} x2={p.l} y1={p.t} y2={p.t + cH} stroke={ED.rule} strokeWidth={1} />
         {uTicks.map((u) => (
           <g key={u}>
-            <line x1={xS(u)} x2={xS(u)} y1={p.t + cH} y2={p.t + cH + 4} stroke="#d5c9b2" />
-            <text x={xS(u)} y={p.t + cH + 14} fill="#877b67" fontSize={9} textAnchor="middle">{u}</text>
+            <line x1={xS(u)} x2={xS(u)} y1={p.t + cH} y2={p.t + cH + 4} stroke={ED.rule} />
+            <text x={xS(u)} y={p.t + cH + 14} fill={ED.inkFaint} fontSize={9} textAnchor="middle">{u}</text>
           </g>
         ))}
         {fTicks.map((f) => (
           <g key={f}>
-            <line x1={p.l - 4} x2={p.l} y1={yS(f)} y2={yS(f)} stroke="#d5c9b2" />
-            <text x={p.l - 7} y={yS(f) + 4} fill="#877b67" fontSize={9} textAnchor="end">{f.toFixed(2)}</text>
+            <line x1={p.l - 4} x2={p.l} y1={yS(f)} y2={yS(f)} stroke={ED.rule} />
+            <text x={p.l - 7} y={yS(f) + 4} fill={ED.inkFaint} fontSize={9} textAnchor="end">{f.toFixed(2)}</text>
           </g>
         ))}
-        <text x={p.l + cW / 2} y={H - 5} fill="#877b67" fontSize={10} textAnchor="middle">lag cutoff U</text>
+        <text x={p.l + cW / 2} y={H - 5} fill={ED.inkFaint} fontSize={10} textAnchor="middle">lag cutoff U</text>
         <text
-          x={10} y={p.t + cH / 2} fill="#877b67" fontSize={10} textAnchor="middle"
+          x={10} y={p.t + cH / 2} fill={ED.inkFaint} fontSize={10} textAnchor="middle"
           transform={`rotate(-90, 10, ${p.t + cH / 2})`}
         >overflow fraction</text>
       </svg>
       <div style={{ display: 'flex', gap: 14, marginTop: 6, flexWrap: 'wrap' }}>
-        <span style={{ color: '#c23a1c', fontSize: 11 }}>&#8212;&#8212; measured (&tau;<sub>2</sub>&minus;&tau;<sub>1</sub>)/U &rarr; 0 as 1/U</span>
-        <span style={{ color: '#4c7a4a', fontSize: 11 }}>&#8212; true (U&minus;&tau;<sub>1</sub>)/U &rarr; 1</span>
+        <span style={{ color: 'var(--accent)', fontSize: 11 }}>&#8212;&#8212; measured (&tau;<sub>2</sub>&minus;&tau;<sub>1</sub>)/U &rarr; 0 as 1/U</span>
+        <span style={{ color: 'var(--series-3)', fontSize: 11 }}>&#8212; true (U&minus;&tau;<sub>1</sub>)/U &rarr; 1</span>
       </div>
-      <p style={{ marginTop: 8, color: '#877b67', fontSize: 11, fontFamily: mono }}>
+      <p style={{ marginTop: 8, color: 'var(--ink-faint)', fontSize: 11, fontFamily: mono }}>
         Source: imp-3216-overflow-support-length-closed-form.js (uLadder) &mdash; DIAGNOSTIC; overflow-support
         geometry only; NOT a reduction.
       </p>
@@ -5165,11 +5166,11 @@ function TruncationThresholdHorizonViz() {
   const eTicks = [100, 150, 200, 250, 300];
 
   return (
-    <div className="card" style={{ marginTop: 14, borderLeft: '3px solid #3f6b86', background: 'rgba(63,107,134,0.03)' }}>
-      <h3 style={{ color: '#3f6b86', marginTop: 0, fontSize: 15 }}>
+    <div className="card" style={{ marginTop: 14, borderLeft: '3px solid var(--series-1)', background: 'color-mix(in srgb, var(--series-1) 3%, transparent)' }}>
+      <h3 style={{ color: 'var(--series-1)', marginTop: 0, fontSize: 15 }}>
         Truncation-Threshold Sweep: Support Length Tracks the Closed-Form Horizon (imp-3394 / imp-3322)
       </h3>
-      <p style={{ color: '#877b67', fontSize: 12, lineHeight: 1.65, marginBottom: 10 }}>
+      <p style={{ color: 'var(--ink-faint)', fontSize: 12, lineHeight: 1.65, marginBottom: 10 }}>
         Raising the arithmetic truncation threshold <em>T</em> (zeroing kernel samples below <em>T</em>, from the
         native 2<sup>&minus;1074</sup> subnormal out to 1e&minus;100) moves the measured support length (gold dots)
         <strong> inward</strong>, tracking the dense closed-form horizon curve
@@ -5178,56 +5179,56 @@ function TruncationThresholdHorizonViz() {
       </p>
       <svg width={W} height={H} style={{ display: 'block' }}>
         {[0.9, 1.0, 1.1, 1.2, 1.3, 1.4].map((l) => (
-          <line key={l} x1={p.l} x2={p.l + cW} y1={yS(l)} y2={yS(l)} stroke="#d5c9b2" strokeWidth={1} />
+          <line key={l} x1={p.l} x2={p.l + cW} y1={yS(l)} y2={yS(l)} stroke={ED.rule} strokeWidth={1} />
         ))}
         {eTicks.map((e) => (
-          <line key={e} x1={xS(e)} x2={xS(e)} y1={p.t} y2={p.t + cH} stroke="#d5c9b2" strokeWidth={1} />
+          <line key={e} x1={xS(e)} x2={xS(e)} y1={p.t} y2={p.t + cH} stroke={ED.rule} strokeWidth={1} />
         ))}
-        <path d={curvePath} fill="none" stroke="#3f6b86" strokeWidth={1.8} />
+        <path d={curvePath} fill="none" stroke={ED.series1} strokeWidth={1.8} />
         {sweep.map((row) => (
           <circle
             key={row.threshold}
             cx={xS(expOf(row.effectiveThreshold))}
             cy={yS(row.measure)}
             r={3.5}
-            fill="#b58a2e"
-            stroke="#f6f1e7"
+            fill={ED.brassDeco}
+            stroke={ED.paper2}
             strokeWidth={1}
           />
         ))}
         {/* native anchor annotation */}
-        <text x={xS(nativeE) - 6} y={yS(sweep[0].measure) - 10} fill="#b58a2e" fontSize={9} textAnchor="end">
+        <text x={xS(nativeE) - 6} y={yS(sweep[0].measure) - 10} fill={ED.brass} fontSize={9} textAnchor="end">
           native &asymp; {sweep[0].measure.toFixed(3)}
         </text>
-        <text x={xS(100) + 6} y={yS(sweep[sweep.length - 1].measure) + 16} fill="#b58a2e" fontSize={9} textAnchor="start">
+        <text x={xS(100) + 6} y={yS(sweep[sweep.length - 1].measure) + 16} fill={ED.brass} fontSize={9} textAnchor="start">
           T=1e&minus;100 &asymp; {sweep[sweep.length - 1].measure.toFixed(3)}
         </text>
         {/* Axes */}
-        <line x1={p.l} x2={p.l + cW} y1={p.t + cH} y2={p.t + cH} stroke="#d5c9b2" strokeWidth={1} />
-        <line x1={p.l} x2={p.l} y1={p.t} y2={p.t + cH} stroke="#d5c9b2" strokeWidth={1} />
+        <line x1={p.l} x2={p.l + cW} y1={p.t + cH} y2={p.t + cH} stroke={ED.rule} strokeWidth={1} />
+        <line x1={p.l} x2={p.l} y1={p.t} y2={p.t + cH} stroke={ED.rule} strokeWidth={1} />
         {eTicks.map((e) => (
           <g key={e}>
-            <line x1={xS(e)} x2={xS(e)} y1={p.t + cH} y2={p.t + cH + 4} stroke="#d5c9b2" />
-            <text x={xS(e)} y={p.t + cH + 14} fill="#877b67" fontSize={9} textAnchor="middle">1e&minus;{e}</text>
+            <line x1={xS(e)} x2={xS(e)} y1={p.t + cH} y2={p.t + cH + 4} stroke={ED.rule} />
+            <text x={xS(e)} y={p.t + cH + 14} fill={ED.inkFaint} fontSize={9} textAnchor="middle">1e&minus;{e}</text>
           </g>
         ))}
         {[0.9, 1.0, 1.1, 1.2, 1.3, 1.4].map((l) => (
           <g key={l}>
-            <line x1={p.l - 4} x2={p.l} y1={yS(l)} y2={yS(l)} stroke="#d5c9b2" />
-            <text x={p.l - 7} y={yS(l) + 4} fill="#877b67" fontSize={9} textAnchor="end">{l.toFixed(1)}</text>
+            <line x1={p.l - 4} x2={p.l} y1={yS(l)} y2={yS(l)} stroke={ED.rule} />
+            <text x={p.l - 7} y={yS(l) + 4} fill={ED.inkFaint} fontSize={9} textAnchor="end">{l.toFixed(1)}</text>
           </g>
         ))}
-        <text x={p.l + cW / 2} y={H - 5} fill="#877b67" fontSize={10} textAnchor="middle">truncation threshold T (native at right edge)</text>
+        <text x={p.l + cW / 2} y={H - 5} fill={ED.inkFaint} fontSize={10} textAnchor="middle">truncation threshold T (native at right edge)</text>
         <text
-          x={10} y={p.t + cH / 2} fill="#877b67" fontSize={10} textAnchor="middle"
+          x={10} y={p.t + cH / 2} fill={ED.inkFaint} fontSize={10} textAnchor="middle"
           transform={`rotate(-90, 10, ${p.t + cH / 2})`}
         >support length</text>
       </svg>
       <div style={{ display: 'flex', gap: 14, marginTop: 6, flexWrap: 'wrap' }}>
-        <span style={{ color: '#3f6b86', fontSize: 11 }}>&#8212;&#8212; closed-form &tau;<sub>2</sub>(T)&minus;&tau;<sub>1</sub></span>
-        <span style={{ color: '#b58a2e', fontSize: 11 }}>&#9679; measured support length (frac&times;U)</span>
+        <span style={{ color: 'var(--series-1)', fontSize: 11 }}>&#8212;&#8212; closed-form &tau;<sub>2</sub>(T)&minus;&tau;<sub>1</sub></span>
+        <span style={{ color: 'var(--brass)', fontSize: 11 }}>&#9679; measured support length (frac&times;U)</span>
       </div>
-      <p style={{ marginTop: 8, color: '#877b67', fontSize: 11, fontFamily: mono }}>
+      <p style={{ marginTop: 8, color: 'var(--ink-faint)', fontSize: 11, fontFamily: mono }}>
         Source: imp-3322-spread-contraction-discriminator.js (d1ThresholdSweep) &mdash; DIAGNOSTIC; overflow-support
         geometry only; NOT a reduction.
       </p>
@@ -5277,11 +5278,11 @@ function TwoTailUnderflowHorizonsViz() {
   const dTicks = [0, 250, 500, 750];
 
   return (
-    <div className="card" style={{ marginTop: 14, borderLeft: '3px solid #4c7a4a', background: 'rgba(76,122,74,0.03)' }}>
-      <h3 style={{ color: '#4c7a4a', marginTop: 0, fontSize: 15 }}>
+    <div className="card" style={{ marginTop: 14, borderLeft: '3px solid var(--series-3)', background: 'color-mix(in srgb, var(--series-3) 3%, transparent)' }}>
+      <h3 style={{ color: 'var(--series-3)', marginTop: 0, fontSize: 15 }}>
         Two-Tail Underflow Horizons: Phi (single) vs Phi<sup>2</sup> Crossing the Subnormal Line (imp-3395 / imp-3309)
       </h3>
-      <p style={{ color: '#877b67', fontSize: 12, lineHeight: 1.65, marginBottom: 10 }}>
+      <p style={{ color: 'var(--ink-faint)', fontSize: 12, lineHeight: 1.65, marginBottom: 10 }}>
         Plotted is the exponent debt &minus;ln|magnitude| of each leading tail term against lag &tau; (X&thinsp;=&thinsp;e<sup>4&tau;</sup>):
         the single-Phi tail 2&pi;<sup>2</sup>X e<sup>&minus;&pi;X</sup> (teal, debt &pi;X&thinsp;&minus;&thinsp;ln(2&pi;<sup>2</sup>X)) and the
         Phi<sup>2</sup> tail 4&pi;<sup>4</sup>X<sup>2</sup> e<sup>&minus;2&pi;X</sup> (purple, debt 2&pi;X&thinsp;&minus;&thinsp;ln(4&pi;<sup>4</sup>X<sup>2</sup>)).
@@ -5292,55 +5293,55 @@ function TwoTailUnderflowHorizonsViz() {
       </p>
       <svg width={W} height={H} style={{ display: 'block' }}>
         {dTicks.map((d) => (
-          <line key={d} x1={p.l} x2={p.l + cW} y1={yS(d)} y2={yS(d)} stroke="#d5c9b2" strokeWidth={1} />
+          <line key={d} x1={p.l} x2={p.l + cW} y1={yS(d)} y2={yS(d)} stroke={ED.rule} strokeWidth={1} />
         ))}
         {tTicks.map((t) => (
-          <line key={t} x1={xS(t)} x2={xS(t)} y1={p.t} y2={p.t + cH} stroke="#d5c9b2" strokeWidth={1} />
+          <line key={t} x1={xS(t)} x2={xS(t)} y1={p.t} y2={p.t + cH} stroke={ED.rule} strokeWidth={1} />
         ))}
         {/* Subnormal threshold line L */}
-        <line x1={p.l} x2={p.l + cW} y1={yS(L)} y2={yS(L)} stroke="#c23a1c" strokeWidth={1.4} strokeDasharray="5,3" />
-        <text x={p.l + 4} y={yS(L) - 5} fill="#c23a1c" fontSize={9}>L&thinsp;=&thinsp;ln(2<tspan dy="-4" fontSize={7}>1074</tspan><tspan dy="4">)&thinsp;&asymp;&thinsp;{L.toFixed(1)}</tspan></text>
+        <line x1={p.l} x2={p.l + cW} y1={yS(L)} y2={yS(L)} stroke={ED.accent} strokeWidth={1.4} strokeDasharray="5,3" />
+        <text x={p.l + 4} y={yS(L) - 5} fill={ED.accent} fontSize={9}>L&thinsp;=&thinsp;ln(2<tspan dy="-4" fontSize={7}>1074</tspan><tspan dy="4">)&thinsp;&asymp;&thinsp;{L.toFixed(1)}</tspan></text>
         {/* Debt curves */}
-        <path d={muPath} fill="none" stroke="#6d55b8" strokeWidth={1.8} />
-        <path d={nuPath} fill="none" stroke="#4c7a4a" strokeWidth={1.8} />
+        <path d={muPath} fill="none" stroke={ED.series5} strokeWidth={1.8} />
+        <path d={nuPath} fill="none" stroke={ED.series3} strokeWidth={1.8} />
         {/* Horizon markers */}
-        <line x1={xS(tauMu)} x2={xS(tauMu)} y1={yS(L)} y2={p.t + cH} stroke="#6d55b8" strokeWidth={1} strokeDasharray="2,3" />
-        <circle cx={xS(tauMu)} cy={yS(L)} r={3.5} fill="#6d55b8" stroke="#f6f1e7" strokeWidth={1} />
-        <line x1={xS(tauNu)} x2={xS(tauNu)} y1={yS(L)} y2={p.t + cH} stroke="#4c7a4a" strokeWidth={1} strokeDasharray="2,3" />
-        <circle cx={xS(tauNu)} cy={yS(L)} r={3.5} fill="#4c7a4a" stroke="#f6f1e7" strokeWidth={1} />
-        <text x={xS(tauMu)} y={p.t + cH + 14} fill="#6d55b8" fontSize={9} textAnchor="middle">
+        <line x1={xS(tauMu)} x2={xS(tauMu)} y1={yS(L)} y2={p.t + cH} stroke={ED.series5} strokeWidth={1} strokeDasharray="2,3" />
+        <circle cx={xS(tauMu)} cy={yS(L)} r={3.5} fill={ED.series5} stroke={ED.paper2} strokeWidth={1} />
+        <line x1={xS(tauNu)} x2={xS(tauNu)} y1={yS(L)} y2={p.t + cH} stroke={ED.series3} strokeWidth={1} strokeDasharray="2,3" />
+        <circle cx={xS(tauNu)} cy={yS(L)} r={3.5} fill={ED.series3} stroke={ED.paper2} strokeWidth={1} />
+        <text x={xS(tauMu)} y={p.t + cH + 14} fill={ED.series5} fontSize={9} textAnchor="middle">
           &tau;<tspan dy="2" fontSize={7}>mu</tspan><tspan dy="-2">&thinsp;{tauMu.toFixed(3)}</tspan>
         </text>
-        <text x={xS(tauNu)} y={p.t + cH + 26} fill="#4c7a4a" fontSize={9} textAnchor="middle">
+        <text x={xS(tauNu)} y={p.t + cH + 26} fill={ED.series3} fontSize={9} textAnchor="middle">
           &tau;<tspan dy="2" fontSize={7}>nu</tspan><tspan dy="-2">&thinsp;{tauNu.toFixed(3)}</tspan>
         </text>
         {/* Axes */}
-        <line x1={p.l} x2={p.l + cW} y1={p.t + cH} y2={p.t + cH} stroke="#d5c9b2" strokeWidth={1} />
-        <line x1={p.l} x2={p.l} y1={p.t} y2={p.t + cH} stroke="#d5c9b2" strokeWidth={1} />
+        <line x1={p.l} x2={p.l + cW} y1={p.t + cH} y2={p.t + cH} stroke={ED.rule} strokeWidth={1} />
+        <line x1={p.l} x2={p.l} y1={p.t} y2={p.t + cH} stroke={ED.rule} strokeWidth={1} />
         {tTicks.map((t) => (
           <g key={t}>
-            <line x1={xS(t)} x2={xS(t)} y1={p.t + cH} y2={p.t + cH + 4} stroke="#d5c9b2" />
-            <text x={xS(t)} y={p.t + cH + 14} fill="#877b67" fontSize={9} textAnchor="middle">{t.toFixed(1)}</text>
+            <line x1={xS(t)} x2={xS(t)} y1={p.t + cH} y2={p.t + cH + 4} stroke={ED.rule} />
+            <text x={xS(t)} y={p.t + cH + 14} fill={ED.inkFaint} fontSize={9} textAnchor="middle">{t.toFixed(1)}</text>
           </g>
         ))}
         {dTicks.map((d) => (
           <g key={d}>
-            <line x1={p.l - 4} x2={p.l} y1={yS(d)} y2={yS(d)} stroke="#d5c9b2" />
-            <text x={p.l - 7} y={yS(d) + 4} fill="#877b67" fontSize={9} textAnchor="end">{d}</text>
+            <line x1={p.l - 4} x2={p.l} y1={yS(d)} y2={yS(d)} stroke={ED.rule} />
+            <text x={p.l - 7} y={yS(d) + 4} fill={ED.inkFaint} fontSize={9} textAnchor="end">{d}</text>
           </g>
         ))}
-        <text x={p.l + cW / 2} y={H - 5} fill="#877b67" fontSize={10} textAnchor="middle">lag &tau;</text>
+        <text x={p.l + cW / 2} y={H - 5} fill={ED.inkFaint} fontSize={10} textAnchor="middle">lag &tau;</text>
         <text
-          x={12} y={p.t + cH / 2} fill="#877b67" fontSize={10} textAnchor="middle"
+          x={12} y={p.t + cH / 2} fill={ED.inkFaint} fontSize={10} textAnchor="middle"
           transform={`rotate(-90, 12, ${p.t + cH / 2})`}
         >exponent debt &minus;ln|magnitude|</text>
       </svg>
       <div style={{ display: 'flex', gap: 14, marginTop: 6, flexWrap: 'wrap' }}>
-        <span style={{ color: '#6d55b8', fontSize: 11 }}>&#8212;&#8212; Phi<sup>2</sup> (mu) debt, crosses L first</span>
-        <span style={{ color: '#4c7a4a', fontSize: 11 }}>&#8212;&#8212; Phi (nu) debt, crosses L later</span>
-        <span style={{ color: '#c23a1c', fontSize: 11 }}>&#8212; &#8212; subnormal threshold L</span>
+        <span style={{ color: 'var(--series-5)', fontSize: 11 }}>&#8212;&#8212; Phi<sup>2</sup> (mu) debt, crosses L first</span>
+        <span style={{ color: 'var(--series-3)', fontSize: 11 }}>&#8212;&#8212; Phi (nu) debt, crosses L later</span>
+        <span style={{ color: 'var(--accent)', fontSize: 11 }}>&#8212; &#8212; subnormal threshold L</span>
       </div>
-      <p style={{ marginTop: 8, color: '#877b67', fontSize: 11, fontFamily: mono }}>
+      <p style={{ marginTop: 8, color: 'var(--ink-faint)', fontSize: 11, fontFamily: mono }}>
         Source: imp-3309-two-tail-underflow-horizons.js &mdash; closed-form horizons vs measured largest-representable-lag
         agree to &lt;3e-3; band width {M.bandWidthClosed.toFixed(5)}&thinsp;&asymp;&thinsp;(1/4)ln2. DIAGNOSTIC; confirms
         imp-3216 finding E2; NOT a reduction.
@@ -5433,11 +5434,11 @@ function NuMuRatioDivergenceViz() {
   for (let v = 0; v <= yMax; v += 50) yTicks.push(v);
 
   return (
-    <div className="card" style={{ marginTop: 14, borderLeft: '3px solid #b58a2e', background: 'rgba(181,138,46,0.03)' }}>
-      <h3 style={{ color: '#b58a2e', marginTop: 0, fontSize: 15 }}>
+    <div className="card" style={{ marginTop: 14, borderLeft: '3px solid var(--brass-deco)', background: 'color-mix(in srgb, var(--brass-deco) 3%, transparent)' }}>
+      <h3 style={{ color: 'var(--brass)', marginTop: 0, fontSize: 15 }}>
         nu/mu Ratio Divergence Toward the Section-26 Horizon (imp-3434 / imp-3384)
       </h3>
-      <p style={{ color: '#877b67', fontSize: 12, lineHeight: 1.65, marginBottom: 10 }}>
+      <p style={{ color: 'var(--ink-faint)', fontSize: 12, lineHeight: 1.65, marginBottom: 10 }}>
         Plotted is log<sub>10</sub>(nu/mu) at the base cell (a=0.5, U=6, NPHI=10, N=12800) against lag &tau;. Below
         the genuine lower crossover &tau;<sub>1</sub>&thinsp;&asymp;&thinsp;{tau1.toFixed(3)} (green dot, ratio=1) mu
         exceeds nu; just above it the ratio is already &asymp;&thinsp;{M.ratio.minRatio.toFixed(2)}, and it never
@@ -5450,60 +5451,60 @@ function NuMuRatioDivergenceViz() {
       </p>
       <svg width={W} height={VH} style={{ display: 'block' }}>
         {yTicks.map((v) => (
-          <line key={v} x1={p.l} x2={p.l + cW} y1={yS(v)} y2={yS(v)} stroke="#d5c9b2" strokeWidth={1} />
+          <line key={v} x1={p.l} x2={p.l + cW} y1={yS(v)} y2={yS(v)} stroke={ED.rule} strokeWidth={1} />
         ))}
         {tTicks.map((t) => (
-          <line key={t} x1={xS(t)} x2={xS(t)} y1={p.t} y2={p.t + cH} stroke="#d5c9b2" strokeWidth={1} />
+          <line key={t} x1={xS(t)} x2={xS(t)} y1={p.t} y2={p.t + cH} stroke={ED.rule} strokeWidth={1} />
         ))}
         {/* nu/mu ratio curve */}
-        <path d={path} fill="none" stroke="#b58a2e" strokeWidth={1.8} />
+        <path d={path} fill="none" stroke={ED.brassDeco} strokeWidth={1.8} />
         {/* ratio = 1 baseline */}
-        <line x1={p.l} x2={p.l + cW} y1={yS(0)} y2={yS(0)} stroke="#d5c9b2" strokeWidth={1} strokeDasharray="2,3" />
+        <line x1={p.l} x2={p.l + cW} y1={yS(0)} y2={yS(0)} stroke={ED.rule} strokeWidth={1} strokeDasharray="2,3" />
         {/* tau_1 lower crossover marker */}
-        <circle cx={xS(tau1)} cy={yS(0)} r={3.5} fill="#4c7a4a" stroke="#f6f1e7" strokeWidth={1} />
-        <text x={xS(tau1)} y={yS(0) - 8} fill="#4c7a4a" fontSize={9} textAnchor="middle">
+        <circle cx={xS(tau1)} cy={yS(0)} r={3.5} fill={ED.series3} stroke={ED.paper2} strokeWidth={1} />
+        <text x={xS(tau1)} y={yS(0) - 8} fill={ED.series3} fontSize={9} textAnchor="middle">
           &tau;<tspan dy="2" fontSize={7}>1</tspan><tspan dy="-2">&thinsp;{tau1.toFixed(3)}</tspan>
         </text>
         {/* tau_mu horizon */}
-        <line x1={xS(tauMu)} x2={xS(tauMu)} y1={p.t} y2={p.t + cH} stroke="#6d55b8" strokeWidth={1.2} strokeDasharray="5,3" />
-        <text x={xS(tauMu)} y={p.t + cH + 14} fill="#6d55b8" fontSize={9} textAnchor="middle">
+        <line x1={xS(tauMu)} x2={xS(tauMu)} y1={p.t} y2={p.t + cH} stroke={ED.series5} strokeWidth={1.2} strokeDasharray="5,3" />
+        <text x={xS(tauMu)} y={p.t + cH + 14} fill={ED.series5} fontSize={9} textAnchor="middle">
           &tau;<tspan dy="2" fontSize={7}>mu</tspan><tspan dy="-2">&thinsp;{tauMu.toFixed(3)}</tspan>
         </text>
         {/* tau_nu horizon */}
-        <line x1={xS(tauNu)} x2={xS(tauNu)} y1={p.t} y2={p.t + cH} stroke="#4c7a4a" strokeWidth={1.2} strokeDasharray="5,3" />
-        <text x={xS(tauNu)} y={p.t + cH + 26} fill="#4c7a4a" fontSize={9} textAnchor="middle">
+        <line x1={xS(tauNu)} x2={xS(tauNu)} y1={p.t} y2={p.t + cH} stroke={ED.series3} strokeWidth={1.2} strokeDasharray="5,3" />
+        <text x={xS(tauNu)} y={p.t + cH + 26} fill={ED.series3} fontSize={9} textAnchor="middle">
           &tau;<tspan dy="2" fontSize={7}>nu</tspan><tspan dy="-2">&thinsp;{tauNu.toFixed(3)}</tspan>
         </text>
         {/* mu-underflow band (mu = 0 exactly, ratio undefined) */}
-        <rect x={xS(tauMu)} y={p.t} width={xS(tauNu) - xS(tauMu)} height={cH} fill="#6d55b8" fillOpacity="0.05" />
+        <rect x={xS(tauMu)} y={p.t} width={xS(tauNu) - xS(tauMu)} height={cH} fill={ED.series5} fillOpacity="0.05" />
         {/* Axes */}
-        <line x1={p.l} x2={p.l + cW} y1={p.t + cH} y2={p.t + cH} stroke="#d5c9b2" strokeWidth={1} />
-        <line x1={p.l} x2={p.l} y1={p.t} y2={p.t + cH} stroke="#d5c9b2" strokeWidth={1} />
+        <line x1={p.l} x2={p.l + cW} y1={p.t + cH} y2={p.t + cH} stroke={ED.rule} strokeWidth={1} />
+        <line x1={p.l} x2={p.l} y1={p.t} y2={p.t + cH} stroke={ED.rule} strokeWidth={1} />
         {tTicks.map((t) => (
           <g key={t}>
-            <line x1={xS(t)} x2={xS(t)} y1={p.t + cH} y2={p.t + cH + 4} stroke="#d5c9b2" />
-            <text x={xS(t)} y={p.t + cH + 14} fill="#877b67" fontSize={9} textAnchor="middle">{t.toFixed(1)}</text>
+            <line x1={xS(t)} x2={xS(t)} y1={p.t + cH} y2={p.t + cH + 4} stroke={ED.rule} />
+            <text x={xS(t)} y={p.t + cH + 14} fill={ED.inkFaint} fontSize={9} textAnchor="middle">{t.toFixed(1)}</text>
           </g>
         ))}
         {yTicks.map((v) => (
           <g key={v}>
-            <line x1={p.l - 4} x2={p.l} y1={yS(v)} y2={yS(v)} stroke="#d5c9b2" />
-            <text x={p.l - 7} y={yS(v) + 4} fill="#877b67" fontSize={9} textAnchor="end">{v === 0 ? '1' : `1e${v}`}</text>
+            <line x1={p.l - 4} x2={p.l} y1={yS(v)} y2={yS(v)} stroke={ED.rule} />
+            <text x={p.l - 7} y={yS(v) + 4} fill={ED.inkFaint} fontSize={9} textAnchor="end">{v === 0 ? '1' : `1e${v}`}</text>
           </g>
         ))}
-        <text x={p.l + cW / 2} y={VH - 5} fill="#877b67" fontSize={10} textAnchor="middle">lag &tau;</text>
+        <text x={p.l + cW / 2} y={VH - 5} fill={ED.inkFaint} fontSize={10} textAnchor="middle">lag &tau;</text>
         <text
-          x={12} y={p.t + cH / 2} fill="#877b67" fontSize={10} textAnchor="middle"
+          x={12} y={p.t + cH / 2} fill={ED.inkFaint} fontSize={10} textAnchor="middle"
           transform={`rotate(-90, 12, ${p.t + cH / 2})`}
         >nu / mu</text>
       </svg>
       <div style={{ display: 'flex', gap: 14, marginTop: 6, flexWrap: 'wrap' }}>
-        <span style={{ color: '#b58a2e', fontSize: 11 }}>&#8212;&#8212; nu/mu (log scale)</span>
-        <span style={{ color: '#4c7a4a', fontSize: 11 }}>&#9679; &tau;<sub>1</sub> genuine lower crossover</span>
-        <span style={{ color: '#6d55b8', fontSize: 11 }}>&#8212; &#8212; &tau;<sub>mu</sub> mu-underflow horizon</span>
-        <span style={{ color: '#4c7a4a', fontSize: 11 }}>&#8212; &#8212; &tau;<sub>nu</sub> nu-underflow horizon</span>
+        <span style={{ color: 'var(--brass)', fontSize: 11 }}>&#8212;&#8212; nu/mu (log scale)</span>
+        <span style={{ color: 'var(--series-3)', fontSize: 11 }}>&#9679; &tau;<sub>1</sub> genuine lower crossover</span>
+        <span style={{ color: 'var(--series-5)', fontSize: 11 }}>&#8212; &#8212; &tau;<sub>mu</sub> mu-underflow horizon</span>
+        <span style={{ color: 'var(--series-3)', fontSize: 11 }}>&#8212; &#8212; &tau;<sub>nu</sub> nu-underflow horizon</span>
       </div>
-      <p style={{ marginTop: 8, color: '#877b67', fontSize: 11, fontFamily: mono }}>
+      <p style={{ marginTop: 8, color: 'var(--ink-faint)', fontSize: 11, fontFamily: mono }}>
         Source: imp-3384-interior-crossover-below-horizon.js &mdash; DIAGNOSTIC; overflow-support geometry only;
         NOT a reduction.
       </p>
@@ -5543,8 +5544,8 @@ function BridgeSignMagnitudeDecompositionViz() {
   const mismatchPct = (M.mismatchMassFraction * 100).toFixed(1);
 
   return (
-    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #b58a2e', background: 'rgba(181,138,46,0.04)' }}>
-      <h3 style={{ color: '#b58a2e', marginTop: 0 }}>
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid var(--brass-deco)', background: 'color-mix(in srgb, var(--brass-deco) 4%, transparent)' }}>
+      <h3 style={{ color: 'var(--brass)', marginTop: 0 }}>
         K&#x2090;&thinsp;&ge;&thinsp;0 sign-vs-magnitude split: SIGN is FREE (Phi-only), MAGNITUDE is the binding obstruction (imp-3197)
       </h3>
       <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75 }}>
@@ -5559,130 +5560,130 @@ function BridgeSignMagnitudeDecompositionViz() {
       <div style={{ overflowX: 'auto' }}>
         <svg
           width={W} height={H}
-          style={{ display: 'block', maxWidth: '100%', background: 'rgba(214,201,178,0.25)', borderRadius: 6 }}
+          style={{ display: 'block', maxWidth: '100%', background: 'color-mix(in srgb, var(--rule) 25%, transparent)', borderRadius: 6 }}
           role="img"
           aria-label="Sign vs magnitude decomposition: two vertical proportion bars"
         >
           {/* ── Panel 1: SIGN ── */}
           <text x={p1x + barW / 2} y={MT - 18} textAnchor="middle"
-            fontSize="13" fontWeight="700" fill="#4c7a4a" fontFamily={mono}>
+            fontSize="13" fontWeight="700" fill={ED.series3} fontFamily={mono}>
             SIGN HALF
           </text>
           <text x={p1x + barW / 2} y={MT - 5} textAnchor="middle"
-            fontSize="10" fill="#4c7a4a" fontFamily={mono}>
+            fontSize="10" fill={ED.series3} fontFamily={mono}>
             (Phi-only, FREE)
           </text>
 
           {/* mismatch sliver (essentially invisible —) */}
           {mismatchH > 0 && (
-            <rect x={p1x} y={MT} width={barW} height={mismatchH} fill="#c23a1c" fillOpacity="0.8" />
+            <rect x={p1x} y={MT} width={barW} height={mismatchH} fill={ED.series2} fillOpacity="0.8" />
           )}
           {/* match block */}
-          <rect x={p1x} y={matchY} width={barW} height={matchH} fill="#4c7a4a" fillOpacity="0.85" rx="3" />
+          <rect x={p1x} y={matchY} width={barW} height={matchH} fill={ED.series3} fillOpacity="0.85" rx="3" />
 
           {/* match label inside bar */}
           <text x={p1x + barW / 2} y={matchY + matchH / 2 + 5}
-            textAnchor="middle" fontSize="22" fontWeight="700" fill="#1c1814" fontFamily={mono}>
+            textAnchor="middle" fontSize="22" fontWeight="700" fill={ED.ink} fontFamily={mono}>
             {matchPct}%
           </text>
           <text x={p1x + barW / 2} y={matchY + matchH / 2 + 22}
-            textAnchor="middle" fontSize="10" fill="#1c1814" fontFamily={mono}>
+            textAnchor="middle" fontSize="10" fill={ED.ink} fontFamily={mono}>
             sign match
           </text>
 
           {/* mismatch annotation below */}
           <text x={p1x + barW / 2} y={H - MB + 16}
-            textAnchor="middle" fontSize="11" fill="#877b67" fontFamily={mono}>
+            textAnchor="middle" fontSize="11" fill={ED.inkFaint} fontFamily={mono}>
             mismatch: {mismatchPct}%
           </text>
           <text x={p1x + barW / 2} y={H - MB + 30}
-            textAnchor="middle" fontSize="10" fill="#4c7a4a" fontFamily={mono}>
+            textAnchor="middle" fontSize="10" fill={ED.series3} fontFamily={mono}>
             0 mismatch cells
           </text>
           <text x={p1x + barW / 2} y={H - MB + 44}
-            textAnchor="middle" fontSize="10" fill="#4c7a4a" fontFamily={mono}>
+            textAnchor="middle" fontSize="10" fill={ED.series3} fontFamily={mono}>
             zero gap
           </text>
 
           {/* ── Panel 2: MAGNITUDE ── */}
           <text x={p2x + barW / 2} y={MT - 18} textAnchor="middle"
-            fontSize="13" fontWeight="700" fill="#c23a1c" fontFamily={mono}>
+            fontSize="13" fontWeight="700" fill={ED.accent} fontFamily={mono}>
             MAGNITUDE HALF
           </text>
           <text x={p2x + barW / 2} y={MT - 5} textAnchor="middle"
-            fontSize="10" fill="#c23a1c" fontFamily={mono}>
+            fontSize="10" fill={ED.accent} fontFamily={mono}>
             (operator-level, BINDING)
           </text>
 
           {/* Toeplitz slice (amber, top ~3%) */}
-          <rect x={p2x} y={MT} width={barW} height={toeplitzH} fill="#b58a2e" fillOpacity="0.85" rx="3" />
+          <rect x={p2x} y={MT} width={barW} height={toeplitzH} fill={ED.brassDeco} fillOpacity="0.85" rx="3" />
 
           {/* position-concentration block (red, bottom ~97%) */}
-          <rect x={p2x} y={concY} width={barW} height={concentrationH} fill="#c23a1c" fillOpacity="0.82" rx="3" />
+          <rect x={p2x} y={concY} width={barW} height={concentrationH} fill={ED.series2} fillOpacity="0.82" rx="3" />
 
           {/* Toeplitz label (annotation arrow since it is tiny) */}
           <line x1={p2x + barW + 5} y1={MT + toeplitzH / 2} x2={p2x + barW + 55} y2={MT + toeplitzH / 2 + 12}
-            stroke="#b58a2e" strokeWidth="1.2" />
+            stroke={ED.brassDeco} strokeWidth="1.2" />
           <text x={p2x + barW + 57} y={MT + toeplitzH / 2 + 16}
-            fontSize="10" fill="#b58a2e" fontFamily={mono}>
+            fontSize="10" fill={ED.brass} fontFamily={mono}>
             Toeplitz {toeplitzPct}%
           </text>
 
           {/* concentration label inside bar */}
           <text x={p2x + barW / 2} y={concY + concentrationH / 2 + 5}
-            textAnchor="middle" fontSize="22" fontWeight="700" fill="#f6f1e7" fontFamily={mono}>
+            textAnchor="middle" fontSize="22" fontWeight="700" fill={ED.paper2} fontFamily={mono}>
             {concentrationPct}%
           </text>
           <text x={p2x + barW / 2} y={concY + concentrationH / 2 + 22}
-            textAnchor="middle" fontSize="10" fill="#c23a1c" fontFamily={mono}>
+            textAnchor="middle" fontSize="10" fill={ED.accent} fontFamily={mono}>
             position conc.
           </text>
 
           {/* annotations below magnitude panel */}
           <text x={p2x + barW / 2} y={H - MB + 16}
-            textAnchor="middle" fontSize="11" fill="#877b67" fontFamily={mono}>
+            textAnchor="middle" fontSize="11" fill={ED.inkFaint} fontFamily={mono}>
             ||T|| / ||Gshear|| = {M.lagStationaryNormRatio.toFixed(4)}
           </text>
           <text x={p2x + barW / 2} y={H - MB + 30}
-            textAnchor="middle" fontSize="10" fill="#c23a1c" fontFamily={mono}>
+            textAnchor="middle" fontSize="10" fill={ED.accent} fontFamily={mono}>
             surrogate under-reports ~33x
           </text>
           <text x={p2x + barW / 2} y={H - MB + 44}
-            textAnchor="middle" fontSize="10" fill="#c23a1c" fontFamily={mono}>
+            textAnchor="middle" fontSize="10" fill={ED.accent} fontFamily={mono}>
             RH-equivalent gap
           </text>
 
           {/* divider */}
           <line x1={W / 2} y1={MT - 22} x2={W / 2} y2={H - MB + 50}
-            stroke="#d5c9b2" strokeWidth="1.5" strokeDasharray="4 3" />
+            stroke={ED.rule} strokeWidth="1.5" strokeDasharray="4 3" />
         </svg>
       </div>
 
       {/* Two-cell stat summary */}
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10, marginTop: 12 }}>
-        <div style={{ padding: '10px 14px', borderRadius: 6, background: 'rgba(76,122,74,0.07)', border: '1px solid rgba(76,122,74,0.3)' }}>
-          <div style={{ fontSize: 11, fontWeight: 700, color: '#4c7a4a', letterSpacing: '0.06em', marginBottom: 6 }}>
+        <div style={{ padding: '10px 14px', borderRadius: 6, background: 'color-mix(in srgb, var(--series-3) 7%, transparent)', border: '1px solid color-mix(in srgb, var(--series-3) 30%, transparent)' }}>
+          <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--series-3)', letterSpacing: '0.06em', marginBottom: 6 }}>
             SIGN HALF &mdash; FREE (Phi-only)
           </div>
-          <p style={{ color: '#4a4238', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
             Phi is nonnegative on [0, U] (0 genuine sign changes; tail underflows, never negative),
             so its on-domain autocorrelation is &ge;0 at every lag. Therefore sign&thinsp;G&#x209B;(u,v)&thinsp;=&thinsp;sign(v&minus;u)
             &mdash; a pure antisymmetric sinh sign. The Phi-only predicted sign matches the
-            |G&#x209B;|-derived entry sign on <strong style={{ color: '#4c7a4a' }}>100%</strong> of
+            |G&#x209B;|-derived entry sign on <strong style={{ color: 'var(--series-3)' }}>100%</strong> of
             the off-diagonal mass, with <strong>0 mismatch cells</strong> and zero mismatch mass.
             This is the EASY half: it follows trivially from nonnegativity and does NOT advance K&#x2090;&thinsp;&ge;&thinsp;0.
           </p>
         </div>
-        <div style={{ padding: '10px 14px', borderRadius: 6, background: 'rgba(194,58,28,0.07)', border: '1px solid rgba(194,58,28,0.3)' }}>
-          <div style={{ fontSize: 11, fontWeight: 700, color: '#c23a1c', letterSpacing: '0.06em', marginBottom: 6 }}>
+        <div style={{ padding: '10px 14px', borderRadius: 6, background: 'color-mix(in srgb, var(--series-2) 7%, transparent)', border: '1px solid color-mix(in srgb, var(--accent) 30%, transparent)' }}>
+          <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--accent)', letterSpacing: '0.06em', marginBottom: 6 }}>
             MAGNITUDE HALF &mdash; BINDING OBSTRUCTION
           </div>
-          <p style={{ color: '#4a4238', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
             The lag-stationary Toeplitz surrogate carrying the exact Phi autocorrelation symbol
-            captures only <strong style={{ color: '#c23a1c' }}>~{toeplitzPct}%</strong> of
+            captures only <strong style={{ color: 'var(--accent)' }}>~{toeplitzPct}%</strong> of
             &#x2016;G&#x209B;&#x2095;&#x2091;&#x2090;&#x2072;&#x2016; (ratio {M.lagStationaryNormRatio.toFixed(4)},
             N-stable across N&thinsp;&isin;&thinsp;&#x7B;160,240,320&#x7D;).
-            The remaining <strong style={{ color: '#c23a1c' }}>~{concentrationPct}%</strong> comes from
+            The remaining <strong style={{ color: 'var(--accent)' }}>~{concentrationPct}%</strong> comes from
             Phi <em>position concentration</em> &mdash; the |G&#x209B;| spectrum &mdash;
             which the 1D autocorrelation does NOT determine. The surrogate under-reports the operator
             norm by ~33x. The magnitude at the correct lags is NOT Phi-autocorrelation-readable and
@@ -5691,16 +5692,16 @@ function BridgeSignMagnitudeDecompositionViz() {
         </div>
       </div>
 
-      <div style={{ marginTop: 10, padding: '8px 12px', borderRadius: 6, background: 'rgba(135,123,103,0.06)', border: '1px solid rgba(135,123,103,0.25)' }}>
-        <div style={{ fontSize: 11, fontWeight: 700, color: '#877b67', letterSpacing: '0.06em', marginBottom: 4 }}>
+      <div style={{ marginTop: 10, padding: '8px 12px', borderRadius: 6, background: 'color-mix(in srgb, var(--ink-faint) 6%, transparent)', border: '1px solid color-mix(in srgb, var(--rule) 25%, transparent)' }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--ink-faint)', letterSpacing: '0.06em', marginBottom: 4 }}>
           ASSESSMENT ONLY &mdash; NO RH VERDICT
         </div>
-        <p style={{ color: '#877b67', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
+        <p style={{ color: 'var(--ink-faint)', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
           Sign result is trivial (follows from Phi&thinsp;&ge;&thinsp;0) and does not advance K&#x2090;&thinsp;&ge;&thinsp;0.
           Positivity was not attempted.
         </p>
       </div>
-      <p style={{ marginTop: 10, color: '#877b67', fontSize: 11, fontFamily: mono }}>
+      <p style={{ marginTop: 10, color: 'var(--ink-faint)', fontSize: 11, fontFamily: mono }}>
         Source: imp-3197-mupass-bridge-sign-phi-only.js &mdash; NPHI=10, a=0.5, U=6, N=200.
       </p>
     </div>
@@ -5729,12 +5730,12 @@ function CaptureRatioVsUViz() {
   for (let u = 3; u <= uMax; u += 0.25) fitPts.push([px(u), py(C / u)]);
   const fitPath = fitPts.map((p, i) => `${i === 0 ? 'M' : 'L'} ${p[0].toFixed(1)} ${p[1].toFixed(1)}`).join(' ');
 
-  const A_COLORS_LOCAL = { 0.5: '#b58a2e', 0.3: '#3f6b86', 0.2: '#6d55b8', 0.1: '#4c7a4a' };
+  const A_COLORS_LOCAL = { 0.5: ED.brassDeco, 0.3: ED.series1, 0.2: ED.series5, 0.1: ED.series3 };
   const aValues = [0.5, 0.3, 0.2, 0.1];
 
   return (
-    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #b58a2e', background: 'rgba(181,138,46,0.04)' }}>
-      <h3 style={{ color: '#b58a2e', marginTop: 0 }}>
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid var(--brass-deco)', background: 'color-mix(in srgb, var(--brass-deco) 4%, transparent)' }}>
+      <h3 style={{ color: 'var(--brass)', marginTop: 0 }}>
         Capture ratio r = &#x2016;T&#x2016;/&#x2016;G&#x209B;&#x2095;&#x2091;&#x2090;&#x2072;&#x2016; falls off as C/U (imp-3240)
       </h3>
       <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75 }}>
@@ -5746,23 +5747,23 @@ function CaptureRatioVsUViz() {
         window widens, since the fixed-width Phi mass becomes an ever-smaller fraction of it.
       </p>
       <div style={{ overflowX: 'auto' }}>
-        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'rgba(214,201,178,0.25)', borderRadius: 6 }}>
+        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'color-mix(in srgb, var(--rule) 25%, transparent)', borderRadius: 6 }}>
           {rTicks.map((r) => (
             <g key={`r${r}`}>
-              <line x1={ML} y1={py(r)} x2={W - MR} y2={py(r)} stroke="#d5c9b2" strokeWidth="1" />
-              <text x={ML - 8} y={py(r) + 4} textAnchor="end" fontSize="11" fill="#877b67" fontFamily={mono}>{r.toFixed(2)}</text>
+              <line x1={ML} y1={py(r)} x2={W - MR} y2={py(r)} stroke={ED.rule} strokeWidth="1" />
+              <text x={ML - 8} y={py(r) + 4} textAnchor="end" fontSize="11" fill={ED.inkFaint} fontFamily={mono}>{r.toFixed(2)}</text>
             </g>
           ))}
           {uTicks.map((u) => (
-            <text key={`u${u}`} x={px(u)} y={H - MB + 18} textAnchor="middle" fontSize="11" fill="#877b67" fontFamily={mono}>{u}</text>
+            <text key={`u${u}`} x={px(u)} y={H - MB + 18} textAnchor="middle" fontSize="11" fill={ED.inkFaint} fontFamily={mono}>{u}</text>
           ))}
-          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-          <text x={(ML + W - MR) / 2} y={H - 8} textAnchor="middle" fontSize="12" fill="#877b67" fontFamily={mono}>lag cutoff U</text>
-          <text x={16} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="12" fill="#877b67" fontFamily={mono} transform={`rotate(-90 16 ${(MT + H - MB) / 2})`}>capture ratio r</text>
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+          <text x={(ML + W - MR) / 2} y={H - 8} textAnchor="middle" fontSize="12" fill={ED.inkFaint} fontFamily={mono}>lag cutoff U</text>
+          <text x={16} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="12" fill={ED.inkFaint} fontFamily={mono} transform={`rotate(-90 16 ${(MT + H - MB) / 2})`}>capture ratio r</text>
 
           {/* C/U fit curve */}
-          <path d={fitPath} fill="none" stroke="#d5c9b2" strokeWidth="1.5" strokeDasharray="4 3" />
+          <path d={fitPath} fill="none" stroke={ED.rule} strokeWidth="1.5" strokeDasharray="4 3" />
 
           {/* per-cell scatter, colored by a */}
           {grid.map((c, i) => (
@@ -5773,7 +5774,7 @@ function CaptureRatioVsUViz() {
               r="5"
               fill={A_COLORS_LOCAL[c.a] || '#877b67'}
               fillOpacity="0.6"
-              stroke={A_COLORS_LOCAL[c.a] || '#877b67'}
+              stroke={A_COLORS_LOCAL[c.a] || ED.rule}
               strokeWidth="1.2"
             >
               <title>{`a=${c.a}, U=${c.U}  ->  r=${c.ratio.toFixed(5)}, r*U=${c.ratioTimesU.toFixed(4)}, position share=${c.positionConcentrationFraction.toFixed(4)}`}</title>
@@ -5784,41 +5785,41 @@ function CaptureRatioVsUViz() {
           {aValues.map((a, i) => (
             <g key={`leg${a}`} transform={`translate(${W - MR - 92}, ${MT + 10 + i * 18})`}>
               <circle cx="0" cy="-4" r="5" fill={A_COLORS_LOCAL[a]} fillOpacity="0.6" stroke={A_COLORS_LOCAL[a]} strokeWidth="1.2" />
-              <text x="12" y="0" fontSize="11" fill="#4a4238" fontFamily={mono}>a = {a}</text>
+              <text x="12" y="0" fontSize="11" fill={ED.inkSoft} fontFamily={mono}>a = {a}</text>
             </g>
           ))}
-          <text x={px(9.3)} y={py(C / 9.3) - 10} fontSize="11" fill="#877b67" fontFamily={mono}>r &#8776; {C.toFixed(3)}/U</text>
+          <text x={px(9.3)} y={py(C / 9.3) - 10} fontSize="11" fill={ED.inkFaint} fontFamily={mono}>r &#8776; {C.toFixed(3)}/U</text>
         </svg>
       </div>
 
-      <div style={{ marginTop: 12, padding: '10px 14px', borderRadius: 6, background: 'rgba(76,122,74,0.06)', border: '1px solid rgba(76,122,74,0.25)' }}>
-        <div style={{ fontSize: 11, fontWeight: 700, color: '#4c7a4a', letterSpacing: '0.06em', marginBottom: 6 }}>
+      <div style={{ marginTop: 12, padding: '10px 14px', borderRadius: 6, background: 'color-mix(in srgb, var(--series-3) 6%, transparent)', border: '1px solid color-mix(in srgb, var(--series-3) 25%, transparent)' }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--series-3)', letterSpacing: '0.06em', marginBottom: 6 }}>
           POSITION-CONCENTRATION SHARE 1 &minus; r RISES TOWARD 1
         </div>
-        <p style={{ color: '#4a4238', fontSize: 12.5, lineHeight: 1.7, margin: 0 }}>
+        <p style={{ color: 'var(--ink-soft)', fontSize: 12.5, lineHeight: 1.7, margin: 0 }}>
           At U = 4 the share is already{' '}
-          <strong style={{ color: '#4c7a4a' }}>
+          <strong style={{ color: 'var(--series-3)' }}>
             {(1 - (grid.find((c) => c.a === 0.5 && c.U === 4)?.ratio ?? 0)).toFixed(4)}
           </strong>{' '}
           and it climbs to{' '}
-          <strong style={{ color: '#4c7a4a' }}>
+          <strong style={{ color: 'var(--series-3)' }}>
             {(1 - (grid.find((c) => c.a === 0.5 && c.U === 10)?.ratio ?? 0)).toFixed(4)}
           </strong>{' '}
           at U = 10, as the fixed-width Phi mass becomes an ever-smaller fraction of the widening window.
         </p>
       </div>
 
-      <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 6, background: 'rgba(135,123,103,0.06)', border: '1px solid rgba(135,123,103,0.25)' }}>
-        <div style={{ fontSize: 11, fontWeight: 700, color: '#877b67', letterSpacing: '0.06em', marginBottom: 4 }}>
+      <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 6, background: 'color-mix(in srgb, var(--ink-faint) 6%, transparent)', border: '1px solid color-mix(in srgb, var(--rule) 25%, transparent)' }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--ink-faint)', letterSpacing: '0.06em', marginBottom: 4 }}>
           ASSESSMENT ONLY &mdash; NO RH VERDICT
         </div>
-        <p style={{ color: '#877b67', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
+        <p style={{ color: 'var(--ink-faint)', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
           r &#8776; C/U is a leading-order fit (r&middot;U drifts {M.ratioTimesUMin.toFixed(3)}&ndash;{M.ratioTimesUMax.toFixed(3)}
           {' '}across the grid), not an exact identity, and the ratio is essentially a-independent at fixed U
           (unlike the imp-3085 gap, which tracks s = a&middot;U). Positivity was not attempted.
         </p>
       </div>
-      <p style={{ marginTop: 10, color: '#877b67', fontSize: 11, fontFamily: mono }}>
+      <p style={{ marginTop: 10, color: 'var(--ink-faint)', fontSize: 11, fontFamily: mono }}>
         Source: imp-3240-mupass-capture-ratio-aU-grid.js &mdash; parent: imp-3197.
       </p>
     </div>
@@ -5862,8 +5863,8 @@ function RawDiagonalRDegreeGrowthLawViz() {
     .join(' ');
 
   return (
-    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #c23a1c', background: 'rgba(194,58,28,0.04)' }}>
-      <h3 style={{ color: '#c23a1c', marginTop: 0 }}>
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid var(--accent)', background: 'color-mix(in srgb, var(--series-2) 4%, transparent)' }}>
+      <h3 style={{ color: 'var(--accent)', marginTop: 0 }}>
         Conditioning collapse of the raw diagonal Gpass(D) vs the well-posed ||R||(D) plateau (imp-3382)
       </h3>
       <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75 }}>
@@ -5878,49 +5879,49 @@ function RawDiagonalRDegreeGrowthLawViz() {
       </p>
       <div style={{ display: 'flex', gap: 18, flexWrap: 'wrap' }}>
         <div style={{ overflowX: 'auto' }}>
-          <div style={{ fontSize: 11, color: '#877b67', fontFamily: mono, marginBottom: 4 }}>log10 &#955;<sub>min</sub>(Gpass(D)) vs degree D</div>
-          <svg width={W / 2 + ML} height={H} style={{ display: 'block', background: 'rgba(214,201,178,0.25)', borderRadius: 6 }}>
+          <div style={{ fontSize: 11, color: 'var(--ink-faint)', fontFamily: mono, marginBottom: 4 }}>log10 &#955;<sub>min</sub>(Gpass(D)) vs degree D</div>
+          <svg width={W / 2 + ML} height={H} style={{ display: 'block', background: 'color-mix(in srgb, var(--rule) 25%, transparent)', borderRadius: 6 }}>
             {logTicks.map((v) => (
               <g key={`l${v}`}>
-                <line x1={ML} y1={py1(v)} x2={W / 2 + ML - MR} y2={py1(v)} stroke="#d5c9b2" strokeWidth="1" />
-                <text x={ML - 8} y={py1(v) + 4} textAnchor="end" fontSize="11" fill="#877b67" fontFamily={mono}>{v}</text>
+                <line x1={ML} y1={py1(v)} x2={W / 2 + ML - MR} y2={py1(v)} stroke={ED.rule} strokeWidth="1" />
+                <text x={ML - 8} y={py1(v) + 4} textAnchor="end" fontSize="11" fill={ED.inkFaint} fontFamily={mono}>{v}</text>
               </g>
             ))}
             {dTicks.filter((d) => d <= dMax / 2 + 2).map((d) => (
-              <text key={`d${d}`} x={px1(d)} y={H - MB + 18} textAnchor="middle" fontSize="11" fill="#877b67" fontFamily={mono}>{d}</text>
+              <text key={`d${d}`} x={px1(d)} y={H - MB + 18} textAnchor="middle" fontSize="11" fill={ED.inkFaint} fontFamily={mono}>{d}</text>
             ))}
-            <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-            <line x1={ML} y1={H - MB} x2={W / 2 + ML - MR} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-            <path d={fitPath1} fill="none" stroke="#d5c9b2" strokeWidth="1.5" strokeDasharray="4 3" />
+            <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+            <line x1={ML} y1={H - MB} x2={W / 2 + ML - MR} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+            <path d={fitPath1} fill="none" stroke={ED.rule} strokeWidth="1.5" strokeDasharray="4 3" />
             {reliableRows.map((r) => (
-              <circle key={`rel${r.degree}`} cx={px1(r.degree)} cy={py1(Math.log10(r.lambdaMinGpass))} r="5" fill="#c23a1c" fillOpacity="0.75" stroke="#c23a1c" strokeWidth="1.2">
+              <circle key={`rel${r.degree}`} cx={px1(r.degree)} cy={py1(Math.log10(r.lambdaMinGpass))} r="5" fill={ED.series2} fillOpacity="0.75" stroke={ED.accent} strokeWidth="1.2">
                 <title>{`D=${r.degree}: lambda_min=${r.lambdaMinGpass.toExponential(3)} (pre-floor, reliable)`}</title>
               </circle>
             ))}
             {floorRows.filter((r) => r.degree <= dMax / 2 + 2).map((r) => (
-              <circle key={`fl${r.degree}`} cx={px1(r.degree)} cy={py1(Math.log10(r.lambdaMinGpass))} r="4" fill="none" stroke="#877b67" strokeWidth="1.2" strokeDasharray="2 2">
+              <circle key={`fl${r.degree}`} cx={px1(r.degree)} cy={py1(Math.log10(r.lambdaMinGpass))} r="4" fill="none" stroke={ED.rule} strokeWidth="1.2" strokeDasharray="2 2">
                 <title>{`D=${r.degree}: lambda_min=${r.lambdaMinGpass.toExponential(3)} (precision-floored, NOT reliable)`}</title>
               </circle>
             ))}
           </svg>
         </div>
         <div style={{ overflowX: 'auto' }}>
-          <div style={{ fontSize: 11, color: '#877b67', fontFamily: mono, marginBottom: 4 }}>regularized well-posed ||R||(D) vs degree D</div>
-          <svg width={W / 2 + ML} height={H} style={{ display: 'block', background: 'rgba(214,201,178,0.25)', borderRadius: 6 }}>
+          <div style={{ fontSize: 11, color: 'var(--ink-faint)', fontFamily: mono, marginBottom: 4 }}>regularized well-posed ||R||(D) vs degree D</div>
+          <svg width={W / 2 + ML} height={H} style={{ display: 'block', background: 'color-mix(in srgb, var(--rule) 25%, transparent)', borderRadius: 6 }}>
             {rTicks.map((v) => (
               <g key={`r${v}`}>
-                <line x1={ML} y1={py2(v)} x2={W / 2 + ML - MR} y2={py2(v)} stroke="#d5c9b2" strokeWidth="1" />
-                <text x={ML - 8} y={py2(v) + 4} textAnchor="end" fontSize="11" fill="#877b67" fontFamily={mono}>{v.toFixed(1)}</text>
+                <line x1={ML} y1={py2(v)} x2={W / 2 + ML - MR} y2={py2(v)} stroke={ED.rule} strokeWidth="1" />
+                <text x={ML - 8} y={py2(v) + 4} textAnchor="end" fontSize="11" fill={ED.inkFaint} fontFamily={mono}>{v.toFixed(1)}</text>
               </g>
             ))}
             {dTicks.map((d) => (
-              <text key={`d2${d}`} x={px2(d)} y={H - MB + 18} textAnchor="middle" fontSize="11" fill="#877b67" fontFamily={mono}>{d}</text>
+              <text key={`d2${d}`} x={px2(d)} y={H - MB + 18} textAnchor="middle" fontSize="11" fill={ED.inkFaint} fontFamily={mono}>{d}</text>
             ))}
-            <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-            <line x1={ML} y1={H - MB} x2={W / 2 + ML - MR} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-            <path d={wellPosedPath} fill="none" stroke="#4c7a4a" strokeWidth="2" />
+            <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+            <line x1={ML} y1={H - MB} x2={W / 2 + ML - MR} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+            <path d={wellPosedPath} fill="none" stroke={ED.series3} strokeWidth="2" />
             {rows.map((r) => (
-              <circle key={`wp${r.degree}`} cx={px2(r.degree)} cy={py2(r.normRregularized)} r="4.5" fill="#4c7a4a" fillOpacity="0.8" stroke="#4c7a4a" strokeWidth="1.2">
+              <circle key={`wp${r.degree}`} cx={px2(r.degree)} cy={py2(r.normRregularized)} r="4.5" fill={ED.series3} fillOpacity="0.8" stroke={ED.series3} strokeWidth="1.2">
                 <title>{`D=${r.degree}: regularized ||R||=${r.normRregularized.toFixed(4)}`}</title>
               </circle>
             ))}
@@ -5928,18 +5929,18 @@ function RawDiagonalRDegreeGrowthLawViz() {
         </div>
       </div>
 
-      <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 6, background: 'rgba(135,123,103,0.06)', border: '1px solid rgba(135,123,103,0.25)' }}>
-        <div style={{ fontSize: 11, fontWeight: 700, color: '#877b67', letterSpacing: '0.06em', marginBottom: 4 }}>
+      <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 6, background: 'color-mix(in srgb, var(--ink-faint) 6%, transparent)', border: '1px solid color-mix(in srgb, var(--rule) 25%, transparent)' }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--ink-faint)', letterSpacing: '0.06em', marginBottom: 4 }}>
           MEASUREMENT / DIAGNOSTIC ONLY &mdash; NO RH VERDICT
         </div>
-        <p style={{ color: '#877b67', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
+        <p style={{ color: 'var(--ink-faint)', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
           The hollow degree markers (D&thinsp;&ge;&thinsp;4) are IEEE-754 double precision-floored, not
           reliable decay data &mdash; the geometric law is fit only on D&thinsp;&isin;&thinsp;{'{'}1,2,3{'}'}
           and extrapolated. RH-EQUIVALENT diagnostic; the off-diagonal endpoint-Hankel step (imp-3066)
           remains the lone obstruction, untouched.
         </p>
       </div>
-      <p style={{ marginTop: 10, color: '#877b67', fontSize: 11, fontFamily: mono }}>
+      <p style={{ marginTop: 10, color: 'var(--ink-faint)', fontSize: 11, fontFamily: mono }}>
         Source: imp-3382-rawdiagonal-R-degree-growth-law.js &mdash; a=0.5, U=6, NPHI=10.
       </p>
     </div>
@@ -5966,8 +5967,8 @@ function CInfFixedResolutionConvergenceViz() {
   const fitPath = fitPts.map((p, i) => `${i === 0 ? 'M' : 'L'} ${p[0].toFixed(1)} ${p[1].toFixed(1)}`).join(' ');
 
   return (
-    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #3f6b86', background: 'rgba(63,107,134,0.04)' }}>
-      <h3 style={{ color: '#3f6b86', marginTop: 0 }}>
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid var(--series-1)', background: 'color-mix(in srgb, var(--series-1) 4%, transparent)' }}>
+      <h3 style={{ color: 'var(--series-1)', marginTop: 0 }}>
         Fixed-resolution r&middot;U DECREASES to C&#8734; &#8776; {cInf.toFixed(4)} (imp-3346)
       </h3>
       <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75 }}>
@@ -5978,49 +5979,49 @@ function CInfFixedResolutionConvergenceViz() {
         imp-3240 apparent rise (0.178&rarr;0.181) was a resolution artifact, not drift.
       </p>
       <div style={{ overflowX: 'auto' }}>
-        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'rgba(214,201,178,0.25)', borderRadius: 6 }}>
+        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'color-mix(in srgb, var(--rule) 25%, transparent)', borderRadius: 6 }}>
           {rTicks.map((r) => (
             <g key={`r${r}`}>
-              <line x1={ML} y1={py(r)} x2={W - MR} y2={py(r)} stroke="#d5c9b2" strokeWidth="1" />
-              <text x={ML - 8} y={py(r) + 4} textAnchor="end" fontSize="11" fill="#877b67" fontFamily={mono}>{r.toFixed(3)}</text>
+              <line x1={ML} y1={py(r)} x2={W - MR} y2={py(r)} stroke={ED.rule} strokeWidth="1" />
+              <text x={ML - 8} y={py(r) + 4} textAnchor="end" fontSize="11" fill={ED.inkFaint} fontFamily={mono}>{r.toFixed(3)}</text>
             </g>
           ))}
           {uTicks.map((u) => (
-            <text key={`u${u}`} x={px(u)} y={H - MB + 18} textAnchor="middle" fontSize="11" fill="#877b67" fontFamily={mono}>{u}</text>
+            <text key={`u${u}`} x={px(u)} y={H - MB + 18} textAnchor="middle" fontSize="11" fill={ED.inkFaint} fontFamily={mono}>{u}</text>
           ))}
-          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-          <text x={(ML + W - MR) / 2} y={H - 8} textAnchor="middle" fontSize="12" fill="#877b67" fontFamily={mono}>lag cutoff U</text>
-          <text x={18} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="12" fill="#877b67" fontFamily={mono} transform={`rotate(-90 18 ${(MT + H - MB) / 2})`}>r&middot;U</text>
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+          <text x={(ML + W - MR) / 2} y={H - 8} textAnchor="middle" fontSize="12" fill={ED.inkFaint} fontFamily={mono}>lag cutoff U</text>
+          <text x={18} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="12" fill={ED.inkFaint} fontFamily={mono} transform={`rotate(-90 18 ${(MT + H - MB) / 2})`}>r&middot;U</text>
 
           {/* C_inf + b/U fit curve */}
-          <path d={fitPath} fill="none" stroke="#d5c9b2" strokeWidth="1.5" strokeDasharray="4 3" />
+          <path d={fitPath} fill="none" stroke={ED.rule} strokeWidth="1.5" strokeDasharray="4 3" />
           {/* C_inf asymptote */}
-          <line x1={ML} y1={py(cInf)} x2={W - MR} y2={py(cInf)} stroke="#3f6b86" strokeWidth="1" strokeDasharray="2 3" strokeOpacity="0.6" />
+          <line x1={ML} y1={py(cInf)} x2={W - MR} y2={py(cInf)} stroke={ED.series1} strokeWidth="1" strokeDasharray="2 3" strokeOpacity="0.6" />
 
           {/* fixed-resolution ladder points, decreasing toward C_inf */}
           {uLadder.map((u, i) => (
-            <circle key={i} cx={px(u)} cy={py(rU[i])} r="5" fill="#3f6b86" fillOpacity="0.7" stroke="#3f6b86" strokeWidth="1.2">
+            <circle key={i} cx={px(u)} cy={py(rU[i])} r="5" fill={ED.series1} fillOpacity="0.7" stroke={ED.series1} strokeWidth="1.2">
               <title>{`U=${u}  ->  r*U=${rU[i].toFixed(5)}`}</title>
             </circle>
           ))}
 
-          <text x={px(20.4)} y={py(cInf) - 8} textAnchor="end" fontSize="11" fill="#3f6b86" fontFamily={mono}>C&#8734; &#8776; {cInf.toFixed(4)}</text>
+          <text x={px(20.4)} y={py(cInf) - 8} textAnchor="end" fontSize="11" fill={ED.series1} fontFamily={mono}>C&#8734; &#8776; {cInf.toFixed(4)}</text>
         </svg>
       </div>
 
-      <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 6, background: 'rgba(135,123,103,0.06)', border: '1px solid rgba(135,123,103,0.25)' }}>
-        <div style={{ fontSize: 11, fontWeight: 700, color: '#877b67', letterSpacing: '0.06em', marginBottom: 4 }}>
+      <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 6, background: 'color-mix(in srgb, var(--ink-faint) 6%, transparent)', border: '1px solid color-mix(in srgb, var(--rule) 25%, transparent)' }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--ink-faint)', letterSpacing: '0.06em', marginBottom: 4 }}>
           ASSESSMENT ONLY &mdash; NO RH VERDICT
         </div>
-        <p style={{ color: '#877b67', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
+        <p style={{ color: 'var(--ink-faint)', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
           C&#8734; is a determined number fixed by Richardson extrapolation of the fixed-resolution
           ladder (two independent extrapolations agree to &#8776;1e&minus;4), not a closed-form
           identity; the imp-3066 off-diagonal endpoint-Hankel K&#8339;&thinsp;&ge;&thinsp;0 magnitude
           remains the lone obstruction.
         </p>
       </div>
-      <p style={{ marginTop: 10, color: '#877b67', fontSize: 11, fontFamily: mono }}>
+      <p style={{ marginTop: 10, color: 'var(--ink-faint)', fontSize: 11, fontFamily: mono }}>
         Source: imp-3346-capture-ratio-C-constant-derivation.js &mdash; parent: imp-3240.
       </p>
     </div>
@@ -6051,8 +6052,8 @@ function SinhToLinearShearLimitViz() {
     .join(' ');
 
   return (
-    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #4c7a4a', background: 'rgba(76,122,74,0.04)' }}>
-      <h3 style={{ color: '#4c7a4a', marginTop: 0 }}>
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid var(--series-3)', background: 'color-mix(in srgb, var(--series-3) 4%, transparent)' }}>
+      <h3 style={{ color: 'var(--series-3)', marginTop: 0 }}>
         sinh-shear capture ratio r(a) &#8594; exactly-linear-shear ratio as a&#8594;0, gap &lt; 5e&minus;15 (imp-3350)
       </h3>
       <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75 }}>
@@ -6061,52 +6062,52 @@ function SinhToLinearShearLimitViz() {
         O(a&sup2;) sinh-nonlinearity drift of only {M.ladderTotalDrift.toExponential(2)}. The a&sup2;-Richardson
         extrapolated limit equals the exactly-linear-shear ratio{' '}
         <span style={{ fontFamily: mono }}>r_lin = ||Tlin|| / ||Glin||</span> (dashed asymptote) to within{' '}
-        <strong style={{ color: '#4c7a4a' }}>{gap.toExponential(2)}</strong> &mdash; the same equality holds at U = 8
+        <strong style={{ color: 'var(--series-3)' }}>{gap.toExponential(2)}</strong> &mdash; the same equality holds at U = 8
         and U = 10 to below 5e&minus;15.
       </p>
       <div style={{ overflowX: 'auto' }}>
-        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'rgba(214,201,178,0.25)', borderRadius: 6 }}
+        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'color-mix(in srgb, var(--rule) 25%, transparent)', borderRadius: 6 }}
           role="img" aria-label="sinh a to 0 capture ratio ladder converging to the exactly-linear-shear ratio">
           {yTicks.map((r, i) => (
             <g key={`y${i}`}>
-              <line x1={ML} y1={py(r)} x2={W - MR} y2={py(r)} stroke="#d5c9b2" strokeWidth="1" />
-              <text x={ML - 8} y={py(r) + 4} textAnchor="end" fontSize="10" fill="#877b67" fontFamily={mono}>{r.toFixed(7)}</text>
+              <line x1={ML} y1={py(r)} x2={W - MR} y2={py(r)} stroke={ED.rule} strokeWidth="1" />
+              <text x={ML - 8} y={py(r) + 4} textAnchor="end" fontSize="10" fill={ED.inkFaint} fontFamily={mono}>{r.toFixed(7)}</text>
             </g>
           ))}
           {xTicks.map((a) => (
-            <text key={`x${a}`} x={px(a)} y={H - MB + 18} textAnchor="middle" fontSize="10" fill="#877b67" fontFamily={mono}>{a}</text>
+            <text key={`x${a}`} x={px(a)} y={H - MB + 18} textAnchor="middle" fontSize="10" fill={ED.inkFaint} fontFamily={mono}>{a}</text>
           ))}
-          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-          <text x={(ML + W - MR) / 2} y={H - 6} textAnchor="middle" fontSize="12" fill="#877b67" fontFamily={mono}>shear weight a (log scale)</text>
-          <text x={20} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="12" fill="#877b67" fontFamily={mono}
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+          <text x={(ML + W - MR) / 2} y={H - 6} textAnchor="middle" fontSize="12" fill={ED.inkFaint} fontFamily={mono}>shear weight a (log scale)</text>
+          <text x={20} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="12" fill={ED.inkFaint} fontFamily={mono}
             transform={`rotate(-90 20 ${(MT + H - MB) / 2})`}>r(a)</text>
 
           {/* exactly-linear-shear asymptote */}
-          <line x1={ML} y1={py(linearLimit)} x2={W - MR} y2={py(linearLimit)} stroke="#4c7a4a" strokeWidth="1" strokeDasharray="2 3" strokeOpacity="0.7" />
-          <text x={W - MR - 4} y={py(linearLimit) - 6} textAnchor="end" fontSize="10" fill="#4c7a4a" fontFamily={mono}>r_lin = {linearLimit.toFixed(7)}</text>
+          <line x1={ML} y1={py(linearLimit)} x2={W - MR} y2={py(linearLimit)} stroke={ED.series3} strokeWidth="1" strokeDasharray="2 3" strokeOpacity="0.7" />
+          <text x={W - MR - 4} y={py(linearLimit) - 6} textAnchor="end" fontSize="10" fill={ED.series3} fontFamily={mono}>r_lin = {linearLimit.toFixed(7)}</text>
 
           {/* sinh-shear a-ladder, decreasing toward r_lin */}
-          <path d={ladderPath} fill="none" stroke="#4c7a4a" strokeWidth="1.5" />
+          <path d={ladderPath} fill="none" stroke={ED.series3} strokeWidth="1.5" />
           {aLadder.map((a, i) => (
-            <circle key={i} cx={px(a)} cy={py(ratios[i])} r="4.5" fill="#4c7a4a" fillOpacity="0.75" stroke="#4c7a4a" strokeWidth="1">
+            <circle key={i} cx={px(a)} cy={py(ratios[i])} r="4.5" fill={ED.series3} fillOpacity="0.75" stroke={ED.series3} strokeWidth="1">
               <title>{`a=${a}  ->  r(a)=${ratios[i].toFixed(9)}`}</title>
             </circle>
           ))}
         </svg>
       </div>
-      <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 6, background: 'rgba(135,123,103,0.06)', border: '1px solid rgba(135,123,103,0.25)' }}>
-        <div style={{ fontSize: 11, fontWeight: 700, color: '#877b67', letterSpacing: '0.06em', marginBottom: 4 }}>
+      <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 6, background: 'color-mix(in srgb, var(--ink-faint) 6%, transparent)', border: '1px solid color-mix(in srgb, var(--rule) 25%, transparent)' }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--ink-faint)', letterSpacing: '0.06em', marginBottom: 4 }}>
           MEASUREMENT ONLY &mdash; NO RH VERDICT
         </div>
-        <p style={{ color: '#877b67', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
+        <p style={{ color: 'var(--ink-faint)', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
           The equality is certified numerically (Richardson extrapolation + power iteration), not by a symbolic
           proof that the O(a&sup2;) sinh-nonlinearity vanishes exactly in the norm ratio. The a&#8209;free
           linear-shear characterization is diagnostic; the imp-3066 off-diagonal endpoint-Hankel magnitude remains
           the lone obstruction.
         </p>
       </div>
-      <p style={{ marginTop: 10, color: '#877b67', fontSize: 11, fontFamily: mono }}>
+      <p style={{ marginTop: 10, color: 'var(--ink-faint)', fontSize: 11, fontFamily: mono }}>
         Source: imp-3350-capture-ratio-linear-shear-limit.js &mdash; parent: imp-3240; related: imp-3346.
       </p>
     </div>
@@ -6168,46 +6169,46 @@ function SinhResidualVanishingRateViz() {
     .join(' ');
 
   return (
-    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #b58a2e', background: 'rgba(181,138,46,0.04)' }}>
-      <h3 style={{ color: '#b58a2e', marginTop: 0 }}>
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid var(--brass-deco)', background: 'color-mix(in srgb, var(--brass-deco) 4%, transparent)' }}>
+      <h3 style={{ color: 'var(--brass)', marginTop: 0 }}>
         Sinh-Residual Vanishing RATE: e(a) = r(a) &minus; r_lin &#8764; c a&sup2; (imp-3409)
       </h3>
       <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75 }}>
         The imp-3350 residual between the sinh-shear ratio and the a&#8209;free linear-shear ratio,{' '}
         <span style={{ fontFamily: mono }}>e(a) = r(a) &minus; r_lin</span>, vanishes as{' '}
-        <strong style={{ color: '#b58a2e' }}>O(a&sup2;)</strong>: the full-grid log-log fit lands at slope{' '}
-        <strong style={{ color: '#b58a2e' }}>p = {fullFit.slope.toFixed(3)}</strong> (R&sup2; = {M.fullGridR2.toFixed(6)}),
+        <strong style={{ color: 'var(--brass)' }}>O(a&sup2;)</strong>: the full-grid log-log fit lands at slope{' '}
+        <strong style={{ color: 'var(--brass)' }}>p = {fullFit.slope.toFixed(3)}</strong> (R&sup2; = {M.fullGridR2.toFixed(6)}),
         and the small-a restricted fit (the {SMALL_A_WINDOW} smallest a) confirms the asymptotic rate at{' '}
-        <strong style={{ color: '#b58a2e' }}>p = {smallFit.slope.toFixed(3)}</strong> (R&sup2; = {M.asymptoticR2.toFixed(6)}), with fitted
+        <strong style={{ color: 'var(--brass)' }}>p = {smallFit.slope.toFixed(3)}</strong> (R&sup2; = {M.asymptoticR2.toFixed(6)}), with fitted
         leading coefficient c &#8776; {M.coefficientFromFit.toExponential(2)}.
       </p>
       <div style={{ overflowX: 'auto' }}>
-        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'rgba(214,201,178,0.25)', borderRadius: 6 }}
+        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'color-mix(in srgb, var(--rule) 25%, transparent)', borderRadius: 6 }}
           role="img" aria-label="log-log plot of the sinh-residual e(a) vs a with slope-2 fit lines">
           {[yLo, (yLo + yHi) / 2, yHi].map((y, i) => (
             <g key={`y${i}`}>
-              <line x1={ML} y1={py(y)} x2={W - MR} y2={py(y)} stroke="#d5c9b2" strokeWidth="1" />
-              <text x={ML - 8} y={py(y) + 4} textAnchor="end" fontSize="10" fill="#877b67" fontFamily={mono}>{y.toFixed(2)}</text>
+              <line x1={ML} y1={py(y)} x2={W - MR} y2={py(y)} stroke={ED.rule} strokeWidth="1" />
+              <text x={ML - 8} y={py(y) + 4} textAnchor="end" fontSize="10" fill={ED.inkFaint} fontFamily={mono}>{y.toFixed(2)}</text>
             </g>
           ))}
           {aLadder.map((a) => (
-            <text key={`x${a}`} x={px(Math.log(a))} y={H - MB + 18} textAnchor="middle" fontSize="9" fill="#877b67" fontFamily={mono}>{a.toFixed(4)}</text>
+            <text key={`x${a}`} x={px(Math.log(a))} y={H - MB + 18} textAnchor="middle" fontSize="9" fill={ED.inkFaint} fontFamily={mono}>{a.toFixed(4)}</text>
           ))}
-          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-          <text x={(ML + W - MR) / 2} y={H - 6} textAnchor="middle" fontSize="12" fill="#877b67" fontFamily={mono}>ln(a)</text>
-          <text x={20} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="12" fill="#877b67" fontFamily={mono}
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+          <text x={(ML + W - MR) / 2} y={H - 6} textAnchor="middle" fontSize="12" fill={ED.inkFaint} fontFamily={mono}>ln(a)</text>
+          <text x={20} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="12" fill={ED.inkFaint} fontFamily={mono}
             transform={`rotate(-90 20 ${(MT + H - MB) / 2})`}>ln e(a)</text>
 
-          <path d={fullLine} fill="none" stroke="#877b67" strokeWidth="1.25" strokeDasharray="1 3" />
-          <path d={smallLine} fill="none" stroke="#b58a2e" strokeWidth="2" />
-          <path d={dataPath} fill="none" stroke="#b58a2e" strokeWidth="1" strokeOpacity="0.4" />
+          <path d={fullLine} fill="none" stroke={ED.rule} strokeWidth="1.25" strokeDasharray="1 3" />
+          <path d={smallLine} fill="none" stroke={ED.brassDeco} strokeWidth="2" />
+          <path d={dataPath} fill="none" stroke={ED.brassDeco} strokeWidth="1" strokeOpacity="0.4" />
           {lnA.map((x, i) => (
-            <circle key={i} cx={px(x)} cy={py(lnE[i])} r="4.5" fill="#b58a2e" fillOpacity="0.8" stroke="#b58a2e" strokeWidth="1">
+            <circle key={i} cx={px(x)} cy={py(lnE[i])} r="4.5" fill={ED.brassDeco} fillOpacity="0.8" stroke={ED.brassDeco} strokeWidth="1">
               <title>{`a=${aLadder[i]}  e(a)=${residuals[i].toExponential(4)}`}</title>
             </circle>
           ))}
-          <text x={W - MR - 4} y={MT + 12} textAnchor="end" fontSize="10" fill="#877b67" fontFamily={mono}>
+          <text x={W - MR - 4} y={MT + 12} textAnchor="end" fontSize="10" fill={ED.inkFaint} fontFamily={mono}>
             &mdash; full-grid fit (p={fullFit.slope.toFixed(3)})  &#8212; small-a fit (p={smallFit.slope.toFixed(3)})
           </text>
         </svg>
@@ -6216,38 +6217,38 @@ function SinhResidualVanishingRateViz() {
         Point-to-point local exponents p_k = ln(e_k/e_{'{k+1}'}) / ln(a_k/a_{'{k+1}'}) descend monotonically toward 2 as a&#8594;0:
       </p>
       <div style={{ overflowX: 'auto' }}>
-        <svg width={W2} height={H2} style={{ display: 'block', maxWidth: '100%', background: 'rgba(214,201,178,0.25)', borderRadius: 6 }}
+        <svg width={W2} height={H2} style={{ display: 'block', maxWidth: '100%', background: 'color-mix(in srgb, var(--rule) 25%, transparent)', borderRadius: 6 }}
           role="img" aria-label="point-to-point local exponents of the sinh residual descending toward 2">
-          <line x1={ML2} y1={py2(2)} x2={W2 - MR2} y2={py2(2)} stroke="#4c7a4a" strokeWidth="1" strokeDasharray="2 3" strokeOpacity="0.7" />
-          <text x={W2 - MR2 - 4} y={py2(2) - 5} textAnchor="end" fontSize="9" fill="#4c7a4a" fontFamily={mono}>p = 2 (asymptotic target)</text>
+          <line x1={ML2} y1={py2(2)} x2={W2 - MR2} y2={py2(2)} stroke={ED.series3} strokeWidth="1" strokeDasharray="2 3" strokeOpacity="0.7" />
+          <text x={W2 - MR2 - 4} y={py2(2) - 5} textAnchor="end" fontSize="9" fill={ED.series3} fontFamily={mono}>p = 2 (asymptotic target)</text>
           {[eLo, eHi].map((y, i) => (
-            <text key={`y2${i}`} x={ML2 - 8} y={py2(y) + 4} textAnchor="end" fontSize="9" fill="#877b67" fontFamily={mono}>{y.toFixed(4)}</text>
+            <text key={`y2${i}`} x={ML2 - 8} y={py2(y) + 4} textAnchor="end" fontSize="9" fill={ED.inkFaint} fontFamily={mono}>{y.toFixed(4)}</text>
           ))}
-          <line x1={ML2} y1={MT2} x2={ML2} y2={H2 - MB2} stroke="#d5c9b2" strokeWidth="1" />
-          <line x1={ML2} y1={H2 - MB2} x2={W2 - MR2} y2={H2 - MB2} stroke="#d5c9b2" strokeWidth="1" />
+          <line x1={ML2} y1={MT2} x2={ML2} y2={H2 - MB2} stroke={ED.rule} strokeWidth="1" />
+          <line x1={ML2} y1={H2 - MB2} x2={W2 - MR2} y2={H2 - MB2} stroke={ED.rule} strokeWidth="1" />
           {aLadder.slice(1).map((a) => (
-            <text key={`x2${a}`} x={px2(Math.log(a))} y={H2 - MB2 + 14} textAnchor="middle" fontSize="9" fill="#877b67" fontFamily={mono}>{a.toFixed(4)}</text>
+            <text key={`x2${a}`} x={px2(Math.log(a))} y={H2 - MB2 + 14} textAnchor="middle" fontSize="9" fill={ED.inkFaint} fontFamily={mono}>{a.toFixed(4)}</text>
           ))}
-          <path d={localPath} fill="none" stroke="#b58a2e" strokeWidth="1.5" />
+          <path d={localPath} fill="none" stroke={ED.brassDeco} strokeWidth="1.5" />
           {localA.map((x, i) => (
-            <circle key={i} cx={px2(x)} cy={py2(localExponents[i])} r="3.5" fill="#b58a2e" fillOpacity="0.85" stroke="#b58a2e" strokeWidth="1">
+            <circle key={i} cx={px2(x)} cy={py2(localExponents[i])} r="3.5" fill={ED.brassDeco} fillOpacity="0.85" stroke={ED.brassDeco} strokeWidth="1">
               <title>{`p_${i} = ${localExponents[i].toFixed(6)}`}</title>
             </circle>
           ))}
         </svg>
       </div>
-      <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 6, background: 'rgba(135,123,103,0.06)', border: '1px solid rgba(135,123,103,0.25)' }}>
-        <div style={{ fontSize: 11, fontWeight: 700, color: '#877b67', letterSpacing: '0.06em', marginBottom: 4 }}>
+      <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 6, background: 'color-mix(in srgb, var(--ink-faint) 6%, transparent)', border: '1px solid color-mix(in srgb, var(--rule) 25%, transparent)' }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--ink-faint)', letterSpacing: '0.06em', marginBottom: 4 }}>
           MEASUREMENT ONLY &mdash; NO RH VERDICT
         </div>
-        <p style={{ color: '#877b67', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
+        <p style={{ color: 'var(--ink-faint)', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
           The O(a&sup2;) rate is certified numerically (log-log fit + point-to-point local exponents), matching the
           sinh(a&Delta;) = a&Delta;(1 + (a&Delta;)&sup2;/6 + &hellip;) expansion, not a symbolic proof that a&sup2; is the
           exact leading correction. Diagnostic only; the imp-3066 off-diagonal endpoint-Hankel magnitude remains the
           lone obstruction.
         </p>
       </div>
-      <p style={{ marginTop: 10, color: '#877b67', fontSize: 11, fontFamily: mono }}>
+      <p style={{ marginTop: 10, color: 'var(--ink-faint)', fontSize: 11, fontFamily: mono }}>
         Source: imp-3409-capture-ratio-sinh-residual-order.js &mdash; parent: imp-3350; related: imp-3412 (convergence ladder, this: vanishing rate).
       </p>
     </div>
@@ -6300,50 +6301,50 @@ function CofUScalingViz() {
   const cu2Path = uGrid.map((u, i) => `${i === 0 ? 'M' : 'L'} ${px2(u).toFixed(1)} ${py2(lnCU2[i]).toFixed(1)}`).join(' ');
 
   return (
-    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #b58a2e', background: 'rgba(181,138,46,0.04)' }}>
-      <h3 style={{ color: '#b58a2e', marginTop: 0 }}>
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid var(--brass-deco)', background: 'color-mix(in srgb, var(--brass-deco) 4%, transparent)' }}>
+      <h3 style={{ color: 'var(--brass)', marginTop: 0 }}>
         O(a&sup2;) Sinh-Coefficient c(U) Inherits the 1/U Capture Law (imp-3442)
       </h3>
       <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75 }}>
         Mapped across the extended imp-3240 U-grid {'{'}4,6,8,10,12,16,20{'}'}, the imp-3409 O(a&sup2;) sinh-drift
         coefficient <span style={{ fontFamily: mono }}>c(U)</span> decreases monotonically (
         {cOfU[0].toExponential(2)} at U={uGrid[0]} &rarr; {cOfU[cOfU.length - 1].toExponential(2)} at U={uGrid[uGrid.length - 1]})
-        and tracks a near-1/U power law: <strong style={{ color: '#b58a2e' }}>q = {q.toFixed(3)}</strong> (R&sup2; = {qR2.toFixed(4)}),
+        and tracks a near-1/U power law: <strong style={{ color: 'var(--brass)' }}>q = {q.toFixed(3)}</strong> (R&sup2; = {qR2.toFixed(4)}),
         essentially the same slope as the linear capture ratio <span style={{ fontFamily: mono }}>r_lin(U)</span>,{' '}
-        <strong style={{ color: '#b58a2e' }}>q_lin = {qLin.toFixed(3)}</strong> (R&sup2; = {qLinR2.toFixed(4)}).
+        <strong style={{ color: 'var(--brass)' }}>q_lin = {qLin.toFixed(3)}</strong> (R&sup2; = {qLinR2.toFixed(4)}).
       </p>
       <div style={{ overflowX: 'auto' }}>
-        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'rgba(214,201,178,0.25)', borderRadius: 6 }}
+        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'color-mix(in srgb, var(--rule) 25%, transparent)', borderRadius: 6 }}
           role="img" aria-label="log-log plot of c(U) and r_lin(U), both normalized to U=4, overlaid to compare their scaling exponents">
           {[yLo, (yLo + yHi) / 2, yHi].map((y, i) => (
             <g key={`y${i}`}>
-              <line x1={ML} y1={py(y)} x2={W - MR} y2={py(y)} stroke="#d5c9b2" strokeWidth="1" />
-              <text x={ML - 8} y={py(y) + 4} textAnchor="end" fontSize="10" fill="#877b67" fontFamily={mono}>{y.toFixed(2)}</text>
+              <line x1={ML} y1={py(y)} x2={W - MR} y2={py(y)} stroke={ED.rule} strokeWidth="1" />
+              <text x={ML - 8} y={py(y) + 4} textAnchor="end" fontSize="10" fill={ED.inkFaint} fontFamily={mono}>{y.toFixed(2)}</text>
             </g>
           ))}
           {uGrid.map((u, i) => (
-            <text key={`x${u}`} x={px(lnU[i])} y={H - MB + 18} textAnchor="middle" fontSize="9" fill="#877b67" fontFamily={mono}>{u}</text>
+            <text key={`x${u}`} x={px(lnU[i])} y={H - MB + 18} textAnchor="middle" fontSize="9" fill={ED.inkFaint} fontFamily={mono}>{u}</text>
           ))}
-          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-          <text x={(ML + W - MR) / 2} y={H - 6} textAnchor="middle" fontSize="12" fill="#877b67" fontFamily={mono}>ln(U / {uGrid[0]})</text>
-          <text x={20} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="12" fill="#877b67" fontFamily={mono}
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+          <text x={(ML + W - MR) / 2} y={H - 6} textAnchor="middle" fontSize="12" fill={ED.inkFaint} fontFamily={mono}>ln(U / {uGrid[0]})</text>
+          <text x={20} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="12" fill={ED.inkFaint} fontFamily={mono}
             transform={`rotate(-90 20 ${(MT + H - MB) / 2})`}>ln(value / value at U={uGrid[0]})</text>
 
-          <path d={qLine} fill="none" stroke="#877b67" strokeWidth="1.25" strokeDasharray="1 3" />
-          <path d={cPath} fill="none" stroke="#b58a2e" strokeWidth="2" />
-          <path d={rLinPath} fill="none" stroke="#3f6b86" strokeWidth="2" strokeDasharray="4 3" />
+          <path d={qLine} fill="none" stroke={ED.rule} strokeWidth="1.25" strokeDasharray="1 3" />
+          <path d={cPath} fill="none" stroke={ED.brassDeco} strokeWidth="2" />
+          <path d={rLinPath} fill="none" stroke={ED.series1} strokeWidth="2" strokeDasharray="4 3" />
           {lnU.map((x, i) => (
-            <circle key={`c${i}`} cx={px(x)} cy={py(lnC[i])} r="4" fill="#b58a2e" fillOpacity="0.85" stroke="#b58a2e" strokeWidth="1">
+            <circle key={`c${i}`} cx={px(x)} cy={py(lnC[i])} r="4" fill={ED.brassDeco} fillOpacity="0.85" stroke={ED.brassDeco} strokeWidth="1">
               <title>{`U=${uGrid[i]}  c(U)=${cOfU[i].toExponential(4)}`}</title>
             </circle>
           ))}
           {lnU.map((x, i) => (
-            <circle key={`r${i}`} cx={px(x)} cy={py(lnRLin[i])} r="4" fill="#3f6b86" fillOpacity="0.85" stroke="#3f6b86" strokeWidth="1">
+            <circle key={`r${i}`} cx={px(x)} cy={py(lnRLin[i])} r="4" fill={ED.series1} fillOpacity="0.85" stroke={ED.series1} strokeWidth="1">
               <title>{`U=${uGrid[i]}  r_lin(U)=${rLinOfU[i].toExponential(4)}`}</title>
             </circle>
           ))}
-          <text x={W - MR - 4} y={MT + 12} textAnchor="end" fontSize="10" fill="#877b67" fontFamily={mono}>
+          <text x={W - MR - 4} y={MT + 12} textAnchor="end" fontSize="10" fill={ED.inkFaint} fontFamily={mono}>
             &#9679; c(U) (q={q.toFixed(3)})  &#9675; r_lin(U) (q_lin={qLin.toFixed(3)})
           </text>
         </svg>
@@ -6353,44 +6354,44 @@ function CofUScalingViz() {
         c(U)&middot;U&sup2; grows monotonically, confirming the exponent sits near &minus;1, not &minus;2:
       </p>
       <div style={{ overflowX: 'auto' }}>
-        <svg width={W2} height={H2} style={{ display: 'block', maxWidth: '100%', background: 'rgba(214,201,178,0.25)', borderRadius: 6 }}
+        <svg width={W2} height={H2} style={{ display: 'block', maxWidth: '100%', background: 'color-mix(in srgb, var(--rule) 25%, transparent)', borderRadius: 6 }}
           role="img" aria-label="c(U) times U staying near-constant versus c(U) times U squared growing monotonically">
           {[yLo2 - yPad2, (yLo2 + yHi2) / 2, yHi2 + yPad2].map((y, i) => (
-            <text key={`y2${i}`} x={ML2 - 8} y={py2(y) + 4} textAnchor="end" fontSize="9" fill="#877b67" fontFamily={mono}>{Math.exp(y).toExponential(1)}</text>
+            <text key={`y2${i}`} x={ML2 - 8} y={py2(y) + 4} textAnchor="end" fontSize="9" fill={ED.inkFaint} fontFamily={mono}>{Math.exp(y).toExponential(1)}</text>
           ))}
-          <line x1={ML2} y1={MT2} x2={ML2} y2={H2 - MB2} stroke="#d5c9b2" strokeWidth="1" />
-          <line x1={ML2} y1={H2 - MB2} x2={W2 - MR2} y2={H2 - MB2} stroke="#d5c9b2" strokeWidth="1" />
+          <line x1={ML2} y1={MT2} x2={ML2} y2={H2 - MB2} stroke={ED.rule} strokeWidth="1" />
+          <line x1={ML2} y1={H2 - MB2} x2={W2 - MR2} y2={H2 - MB2} stroke={ED.rule} strokeWidth="1" />
           {uGrid.map((u) => (
-            <text key={`x2${u}`} x={px2(u)} y={H2 - MB2 + 14} textAnchor="middle" fontSize="9" fill="#877b67" fontFamily={mono}>{u}</text>
+            <text key={`x2${u}`} x={px2(u)} y={H2 - MB2 + 14} textAnchor="middle" fontSize="9" fill={ED.inkFaint} fontFamily={mono}>{u}</text>
           ))}
-          <path d={cuPath} fill="none" stroke="#b58a2e" strokeWidth="2" />
-          <path d={cu2Path} fill="none" stroke="#6d55b8" strokeWidth="2" strokeDasharray="4 3" />
+          <path d={cuPath} fill="none" stroke={ED.brassDeco} strokeWidth="2" />
+          <path d={cu2Path} fill="none" stroke={ED.series5} strokeWidth="2" strokeDasharray="4 3" />
           {uGrid.map((u, i) => (
-            <circle key={`cu${i}`} cx={px2(u)} cy={py2(lnCU[i])} r="3.5" fill="#b58a2e" fillOpacity="0.85" stroke="#b58a2e" strokeWidth="1">
+            <circle key={`cu${i}`} cx={px2(u)} cy={py2(lnCU[i])} r="3.5" fill={ED.brassDeco} fillOpacity="0.85" stroke={ED.brassDeco} strokeWidth="1">
               <title>{`U=${u}  c(U)*U=${cTimesU[i].toExponential(4)}`}</title>
             </circle>
           ))}
           {uGrid.map((u, i) => (
-            <circle key={`cu2${i}`} cx={px2(u)} cy={py2(lnCU2[i])} r="3.5" fill="#6d55b8" fillOpacity="0.85" stroke="#6d55b8" strokeWidth="1">
+            <circle key={`cu2${i}`} cx={px2(u)} cy={py2(lnCU2[i])} r="3.5" fill={ED.series5} fillOpacity="0.85" stroke={ED.series5} strokeWidth="1">
               <title>{`U=${u}  c(U)*U^2=${cTimesU2[i].toExponential(4)}`}</title>
             </circle>
           ))}
-          <text x={W2 - MR2 - 4} y={MT2 + 12} textAnchor="end" fontSize="10" fill="#877b67" fontFamily={mono}>
+          <text x={W2 - MR2 - 4} y={MT2 + 12} textAnchor="end" fontSize="10" fill={ED.inkFaint} fontFamily={mono}>
             &#9679; c(U)&middot;U (flat)  &#9675; c(U)&middot;U&sup2; (rising)
           </text>
         </svg>
       </div>
-      <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 6, background: 'rgba(135,123,103,0.06)', border: '1px solid rgba(135,123,103,0.25)' }}>
-        <div style={{ fontSize: 11, fontWeight: 700, color: '#877b67', letterSpacing: '0.06em', marginBottom: 4 }}>
+      <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 6, background: 'color-mix(in srgb, var(--ink-faint) 6%, transparent)', border: '1px solid color-mix(in srgb, var(--rule) 25%, transparent)' }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--ink-faint)', letterSpacing: '0.06em', marginBottom: 4 }}>
           MEASUREMENT ONLY &mdash; NO RH VERDICT
         </div>
-        <p style={{ color: '#877b67', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
+        <p style={{ color: 'var(--ink-faint)', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
           q &#8776; {q.toFixed(3)} and q_lin &#8776; {qLin.toFixed(3)} are fitted numerically over a 7-point U-grid, not
           derived symbolically; the O(a&sup2;) rate itself stays pinned (p(U) = 2.000 at every cutoff). Diagnostic
           only; the imp-3066 off-diagonal endpoint-Hankel magnitude remains the lone obstruction.
         </p>
       </div>
-      <p style={{ marginTop: 10, color: '#877b67', fontSize: 11, fontFamily: mono }}>
+      <p style={{ marginTop: 10, color: 'var(--ink-faint)', fontSize: 11, fontFamily: mono }}>
         Source: imp-3442-sinh-residual-coefficient-U-scaling.js &mdash; parent: imp-3409; capture-law source: imp-3240.
       </p>
     </div>
@@ -6460,8 +6461,8 @@ function CaptureRatioShearGramClusterSummaryPanel() {
   ];
 
   return (
-    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #6d55b8', background: 'rgba(109,85,184,0.04)' }}>
-      <h3 style={{ color: '#6d55b8', marginTop: 0 }}>
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid var(--series-5)', background: 'color-mix(in srgb, var(--series-5) 4%, transparent)' }}>
+      <h3 style={{ color: 'var(--series-5)', marginTop: 0 }}>
         Capture-Ratio &amp; Shear-Gram Cluster Roundup: nine diagnostics, one shared obstruction (imp-3413)
       </h3>
       <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75 }}>
@@ -6473,32 +6474,32 @@ function CaptureRatioShearGramClusterSummaryPanel() {
         <table style={{ borderCollapse: 'collapse', width: '100%', fontSize: 12 }}>
           <thead>
             <tr>
-              <th style={{ textAlign: 'left', padding: '4px 8px', color: '#6d55b8', borderBottom: '1px solid rgba(109,85,184,0.3)', fontFamily: mono }}>Ticket</th>
-              <th style={{ textAlign: 'left', padding: '4px 8px', color: '#6d55b8', borderBottom: '1px solid rgba(109,85,184,0.3)' }}>Verdict</th>
+              <th style={{ textAlign: 'left', padding: '4px 8px', color: 'var(--series-5)', borderBottom: '1px solid color-mix(in srgb, var(--series-5) 30%, transparent)', fontFamily: mono }}>Ticket</th>
+              <th style={{ textAlign: 'left', padding: '4px 8px', color: 'var(--series-5)', borderBottom: '1px solid color-mix(in srgb, var(--series-5) 30%, transparent)' }}>Verdict</th>
             </tr>
           </thead>
           <tbody>
             {rows.map((r) => (
               <tr key={r.id}>
-                <td style={{ padding: '5px 8px', color: '#6d55b8', fontFamily: mono, verticalAlign: 'top', whiteSpace: 'nowrap' }}>{r.id}</td>
+                <td style={{ padding: '5px 8px', color: 'var(--series-5)', fontFamily: mono, verticalAlign: 'top', whiteSpace: 'nowrap' }}>{r.id}</td>
                 <td style={{ padding: '5px 8px', color: 'var(--text-secondary)', lineHeight: 1.6 }}>{r.note}</td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
-      <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 6, background: 'rgba(194,58,28,0.07)', border: '1px solid rgba(194,58,28,0.3)' }}>
-        <div style={{ fontSize: 11, fontWeight: 700, color: '#c23a1c', letterSpacing: '0.06em', marginBottom: 4 }}>
+      <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 6, background: 'color-mix(in srgb, var(--series-2) 7%, transparent)', border: '1px solid color-mix(in srgb, var(--accent) 30%, transparent)' }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--accent)', letterSpacing: '0.06em', marginBottom: 4 }}>
           SHARED OBSTRUCTION &mdash; NO RH VERDICT
         </div>
-        <p style={{ color: '#4a4238', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
+        <p style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
           Every diagnostic above is a reconciliation, convergence check, or algebraic identity at the scalar /
           rank-2 level. None of them touch the off-diagonal endpoint-Hankel operator contraction
           K&#x2090;&thinsp;&#x2265;&thinsp;0 (imp-3066), which remains the single irreducible RH-equivalent
           residual across the entire cluster; NO QED.
         </p>
       </div>
-      <p style={{ marginTop: 10, color: '#877b67', fontSize: 11, fontFamily: mono }}>
+      <p style={{ marginTop: 10, color: 'var(--ink-faint)', fontSize: 11, fontFamily: mono }}>
         Sources: imp-3343/3344/3345/3346/3347/3350/3351/3399/3405; shared obstruction: imp-3066-offdiagonal-hankel-obstruction.js.
       </p>
     </div>
@@ -6566,8 +6567,8 @@ function MomentLadderClusterSummaryPanel() {
   ];
 
   return (
-    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #3f6b86', background: 'rgba(63,107,134,0.04)' }}>
-      <h3 style={{ color: '#3f6b86', marginTop: 0 }}>
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid var(--series-1)', background: 'color-mix(in srgb, var(--series-1) 4%, transparent)' }}>
+      <h3 style={{ color: 'var(--series-1)', marginTop: 0 }}>
         Autocorrelation Moment-Ladder Cluster Roundup: seven diagnostics, one shared obstruction (imp-3570)
       </h3>
       <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75 }}>
@@ -6580,25 +6581,25 @@ function MomentLadderClusterSummaryPanel() {
         <table style={{ borderCollapse: 'collapse', width: '100%', fontSize: 12 }}>
           <thead>
             <tr>
-              <th style={{ textAlign: 'left', padding: '4px 8px', color: '#3f6b86', borderBottom: '1px solid rgba(63,107,134,0.3)', fontFamily: mono }}>Ticket</th>
-              <th style={{ textAlign: 'left', padding: '4px 8px', color: '#3f6b86', borderBottom: '1px solid rgba(63,107,134,0.3)' }}>Verdict</th>
+              <th style={{ textAlign: 'left', padding: '4px 8px', color: 'var(--series-1)', borderBottom: '1px solid color-mix(in srgb, var(--series-1) 30%, transparent)', fontFamily: mono }}>Ticket</th>
+              <th style={{ textAlign: 'left', padding: '4px 8px', color: 'var(--series-1)', borderBottom: '1px solid color-mix(in srgb, var(--series-1) 30%, transparent)' }}>Verdict</th>
             </tr>
           </thead>
           <tbody>
             {rows.map((r) => (
               <tr key={r.id}>
-                <td style={{ padding: '5px 8px', color: '#3f6b86', fontFamily: mono, verticalAlign: 'top', whiteSpace: 'nowrap' }}>{r.id}</td>
+                <td style={{ padding: '5px 8px', color: 'var(--series-1)', fontFamily: mono, verticalAlign: 'top', whiteSpace: 'nowrap' }}>{r.id}</td>
                 <td style={{ padding: '5px 8px', color: 'var(--text-secondary)', lineHeight: 1.6 }}>{r.note}</td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
-      <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 6, background: 'rgba(194,58,28,0.07)', border: '1px solid rgba(194,58,28,0.3)' }}>
-        <div style={{ fontSize: 11, fontWeight: 700, color: '#c23a1c', letterSpacing: '0.06em', marginBottom: 4 }}>
+      <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 6, background: 'color-mix(in srgb, var(--series-2) 7%, transparent)', border: '1px solid color-mix(in srgb, var(--accent) 30%, transparent)' }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--accent)', letterSpacing: '0.06em', marginBottom: 4 }}>
           SHARED OBSTRUCTION &mdash; NO RH VERDICT
         </div>
-        <p style={{ color: '#4a4238', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
+        <p style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
           Every diagnostic above is a measurement, derivation, or quadrature cross-validation of the
           A-weighted degree-2 (absolute-measure) Taylor structure. None of them touch the off-diagonal
           endpoint-Hankel operator contraction K&#x2090;&thinsp;&#x2265;&thinsp;0 (imp-3066), which remains the
@@ -6606,7 +6607,7 @@ function MomentLadderClusterSummaryPanel() {
           necessary-but-not-sufficient and the degree-2 face carries no feasibility ratio at all; NO QED.
         </p>
       </div>
-      <p style={{ marginTop: 10, color: '#877b67', fontSize: 11, fontFamily: mono }}>
+      <p style={{ marginTop: 10, color: 'var(--ink-faint)', fontSize: 11, fontFamily: mono }}>
         Sources: imp-3481/3501/3502/3503/3526/3528/3532; shared obstruction: imp-3066-offdiagonal-hankel-obstruction.js.
       </p>
     </div>
@@ -6619,8 +6620,8 @@ function Imp3351CellIndependenceTable() {
   const m = IMP3351_SHEAR_GRAM_SYMMETRIC_SPECTRUM_AU_GRID.measured;
 
   return (
-    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #6d55b8', background: 'rgba(109,85,184,0.04)' }}>
-      <h3 style={{ color: '#6d55b8', marginTop: 0 }}>
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid var(--series-5)', background: 'color-mix(in srgb, var(--series-5) 4%, transparent)' }}>
+      <h3 style={{ color: 'var(--series-5)', marginTop: 0 }}>
         16-cell tabulation: min eig(i G<sub>shear</sub>) = &minus;||G<sub>shear</sub>|| across the imp-3085 (a, U) grid (imp-3415)
       </h3>
       <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75 }}>
@@ -6635,12 +6636,12 @@ function Imp3351CellIndependenceTable() {
         <table style={{ borderCollapse: 'collapse', width: '100%', fontSize: 12 }}>
           <thead>
             <tr>
-              <th style={{ textAlign: 'right', padding: '4px 8px', color: '#6d55b8', borderBottom: '1px solid rgba(109,85,184,0.3)', fontFamily: mono }}>a</th>
-              <th style={{ textAlign: 'right', padding: '4px 8px', color: '#6d55b8', borderBottom: '1px solid rgba(109,85,184,0.3)', fontFamily: mono }}>U</th>
-              <th style={{ textAlign: 'right', padding: '4px 8px', color: '#6d55b8', borderBottom: '1px solid rgba(109,85,184,0.3)', fontFamily: mono }}>&mu;</th>
-              <th style={{ textAlign: 'right', padding: '4px 8px', color: '#6d55b8', borderBottom: '1px solid rgba(109,85,184,0.3)', fontFamily: mono }}>||G<sub>shear</sub>||</th>
-              <th style={{ textAlign: 'right', padding: '4px 8px', color: '#6d55b8', borderBottom: '1px solid rgba(109,85,184,0.3)', fontFamily: mono }}>trace</th>
-              <th style={{ textAlign: 'right', padding: '4px 8px', color: '#6d55b8', borderBottom: '1px solid rgba(109,85,184,0.3)', fontFamily: mono }}>|ratio&minus;1|</th>
+              <th style={{ textAlign: 'right', padding: '4px 8px', color: 'var(--series-5)', borderBottom: '1px solid color-mix(in srgb, var(--series-5) 30%, transparent)', fontFamily: mono }}>a</th>
+              <th style={{ textAlign: 'right', padding: '4px 8px', color: 'var(--series-5)', borderBottom: '1px solid color-mix(in srgb, var(--series-5) 30%, transparent)', fontFamily: mono }}>U</th>
+              <th style={{ textAlign: 'right', padding: '4px 8px', color: 'var(--series-5)', borderBottom: '1px solid color-mix(in srgb, var(--series-5) 30%, transparent)', fontFamily: mono }}>&mu;</th>
+              <th style={{ textAlign: 'right', padding: '4px 8px', color: 'var(--series-5)', borderBottom: '1px solid color-mix(in srgb, var(--series-5) 30%, transparent)', fontFamily: mono }}>||G<sub>shear</sub>||</th>
+              <th style={{ textAlign: 'right', padding: '4px 8px', color: 'var(--series-5)', borderBottom: '1px solid color-mix(in srgb, var(--series-5) 30%, transparent)', fontFamily: mono }}>trace</th>
+              <th style={{ textAlign: 'right', padding: '4px 8px', color: 'var(--series-5)', borderBottom: '1px solid color-mix(in srgb, var(--series-5) 30%, transparent)', fontFamily: mono }}>|ratio&minus;1|</th>
             </tr>
           </thead>
           <tbody>
@@ -6651,7 +6652,7 @@ function Imp3351CellIndependenceTable() {
                 <td style={{ padding: '4px 8px', textAlign: 'right', color: 'var(--text-secondary)', fontFamily: mono }}>{c.mu.toExponential(6)}</td>
                 <td style={{ padding: '4px 8px', textAlign: 'right', color: 'var(--text-secondary)', fontFamily: mono }}>{c.normGshear.toExponential(6)}</td>
                 <td style={{ padding: '4px 8px', textAlign: 'right', color: 'var(--text-secondary)', fontFamily: mono }}>{c.reducedTrace}</td>
-                <td style={{ padding: '4px 8px', textAlign: 'right', color: c.ratioMinEigDev < 9e-16 ? '#4c7a4a' : '#c23a1c', fontFamily: mono }}>
+                <td style={{ padding: '4px 8px', textAlign: 'right', color: c.ratioMinEigDev < 9e-16 ? 'var(--series-3)' : 'var(--accent)', fontFamily: mono }}>
                   {c.ratioMinEigDev.toExponential(2)}
                 </td>
               </tr>
@@ -6659,11 +6660,11 @@ function Imp3351CellIndependenceTable() {
           </tbody>
         </table>
       </div>
-      <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 6, background: 'rgba(135,123,103,0.06)', border: '1px solid rgba(135,123,103,0.25)' }}>
-        <div style={{ fontSize: 11, fontWeight: 700, color: '#877b67', letterSpacing: '0.06em', marginBottom: 4 }}>
+      <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 6, background: 'color-mix(in srgb, var(--ink-faint) 6%, transparent)', border: '1px solid color-mix(in srgb, var(--rule) 25%, transparent)' }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--ink-faint)', letterSpacing: '0.06em', marginBottom: 4 }}>
           CELL-INDEPENDENT STRUCTURAL IDENTITY &mdash; NO RH VERDICT
         </div>
-        <p style={{ color: '#877b67', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
+        <p style={{ color: 'var(--ink-faint)', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
           Max |ratio&minus;1| over all {m.cells.length} cells is {m.maxRatioDev.toExponential(1)}, and the trace is 0 at
           every cell &mdash; the symmetric-about-0 spectrum is an algebraic consequence of the rank-2 hollow
           antisymmetry Gshear&nbsp;=&nbsp;pq<sup>T</sup>&thinsp;&minus;&thinsp;qp<sup>T</sup>, independent of (a, U, &Phi;).
@@ -6671,7 +6672,7 @@ function Imp3351CellIndependenceTable() {
           residual is untouched.
         </p>
       </div>
-      <p style={{ marginTop: 10, color: '#877b67', fontSize: 11, fontFamily: mono }}>
+      <p style={{ marginTop: 10, color: 'var(--ink-faint)', fontSize: 11, fontFamily: mono }}>
         Source: imp-3351-shear-gram-symmetric-spectrum-aU-grid.js; parent: imp-3252; same grid: imp-3103.
       </p>
     </div>
@@ -6718,8 +6719,8 @@ function Imp3404FullSpectrumViz() {
   const thresholdY = pyB(12); // the 1e-12 gate cited in the imp-3404 ticket
 
   return (
-    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #c23a1c', background: 'rgba(194,58,28,0.04)' }}>
-      <h3 style={{ color: '#c23a1c', marginTop: 0 }}>
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid var(--accent)', background: 'color-mix(in srgb, var(--series-2) 4%, transparent)' }}>
+      <h3 style={{ color: 'var(--accent)', marginTop: 0 }}>
         Degenerate rank-2 full spectrum: {'{'}+&mu;, -&mu;{'}'} carry ALL the Frobenius energy across 16 cells (imp-3455 / imp-3404)
       </h3>
       <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75 }}>
@@ -6731,26 +6732,26 @@ function Imp3404FullSpectrumViz() {
         the dashed 1e&minus;12 gate (pink).
       </p>
       <div style={{ overflowX: 'auto', marginTop: 10 }}>
-        <svg width={WA} height={HA} style={{ display: 'block', maxWidth: '100%', background: 'rgba(214,201,178,0.25)', borderRadius: 6 }}>
-          <line x1={MLA} y1={zeroLineA} x2={WA - MRA} y2={zeroLineA} stroke="#d5c9b2" strokeWidth="1" />
-          <text x={MLA - 6} y={pyA(1) + 4} textAnchor="end" fontSize="10" fill="#877b67" fontFamily={mono}>+1</text>
-          <text x={MLA - 6} y={zeroLineA + 4} textAnchor="end" fontSize="10" fill="#877b67" fontFamily={mono}>0</text>
-          <text x={MLA - 6} y={pyA(-1) + 4} textAnchor="end" fontSize="10" fill="#877b67" fontFamily={mono}>-1</text>
-          <line x1={pxA(0)} y1={zeroLineA} x2={pxA(0)} y2={pyA(1)} stroke="#4c7a4a" strokeWidth="3" />
-          <circle cx={pxA(0)} cy={pyA(1)} r="3.5" fill="#4c7a4a" />
-          <line x1={pxA(NSPEC - 1)} y1={zeroLineA} x2={pxA(NSPEC - 1)} y2={pyA(-1)} stroke="#c23a1c" strokeWidth="3" />
-          <circle cx={pxA(NSPEC - 1)} cy={pyA(-1)} r="3.5" fill="#c23a1c" />
-          <text x={(pxA(1) + pxA(NSPEC - 2)) / 2} y={zeroLineA - 8} textAnchor="middle" fontSize="10" fill="#877b67" fontFamily={mono}>
+        <svg width={WA} height={HA} style={{ display: 'block', maxWidth: '100%', background: 'color-mix(in srgb, var(--rule) 25%, transparent)', borderRadius: 6 }}>
+          <line x1={MLA} y1={zeroLineA} x2={WA - MRA} y2={zeroLineA} stroke={ED.rule} strokeWidth="1" />
+          <text x={MLA - 6} y={pyA(1) + 4} textAnchor="end" fontSize="10" fill={ED.inkFaint} fontFamily={mono}>+1</text>
+          <text x={MLA - 6} y={zeroLineA + 4} textAnchor="end" fontSize="10" fill={ED.inkFaint} fontFamily={mono}>0</text>
+          <text x={MLA - 6} y={pyA(-1) + 4} textAnchor="end" fontSize="10" fill={ED.inkFaint} fontFamily={mono}>-1</text>
+          <line x1={pxA(0)} y1={zeroLineA} x2={pxA(0)} y2={pyA(1)} stroke={ED.series3} strokeWidth="3" />
+          <circle cx={pxA(0)} cy={pyA(1)} r="3.5" fill={ED.series3} />
+          <line x1={pxA(NSPEC - 1)} y1={zeroLineA} x2={pxA(NSPEC - 1)} y2={pyA(-1)} stroke={ED.accent} strokeWidth="3" />
+          <circle cx={pxA(NSPEC - 1)} cy={pyA(-1)} r="3.5" fill={ED.series2} />
+          <text x={(pxA(1) + pxA(NSPEC - 2)) / 2} y={zeroLineA - 8} textAnchor="middle" fontSize="10" fill={ED.inkFaint} fontFamily={mono}>
             N&minus;2 = {NSPEC - 2} exact zeros
           </text>
         </svg>
       </div>
       <div style={{ overflowX: 'auto', marginTop: 14 }}>
-        <svg width={WB} height={HB} style={{ display: 'block', maxWidth: '100%', background: 'rgba(214,201,178,0.25)', borderRadius: 6 }}>
-          <line x1={MLB} y1={MTB} x2={MLB} y2={HB - MBB} stroke="#d5c9b2" strokeWidth="1" />
-          <line x1={MLB} y1={HB - MBB} x2={WB - MRB} y2={HB - MBB} stroke="#d5c9b2" strokeWidth="1" />
-          <line x1={MLB} y1={thresholdY} x2={WB - MRB} y2={thresholdY} stroke="#c23a1c" strokeWidth="1" strokeDasharray="4 3" opacity="0.7" />
-          <text x={WB - MRB} y={thresholdY - 4} textAnchor="end" fontSize="9" fill="#c23a1c" fontFamily={mono}>1e-12 gate</text>
+        <svg width={WB} height={HB} style={{ display: 'block', maxWidth: '100%', background: 'color-mix(in srgb, var(--rule) 25%, transparent)', borderRadius: 6 }}>
+          <line x1={MLB} y1={MTB} x2={MLB} y2={HB - MBB} stroke={ED.rule} strokeWidth="1" />
+          <line x1={MLB} y1={HB - MBB} x2={WB - MRB} y2={HB - MBB} stroke={ED.rule} strokeWidth="1" />
+          <line x1={MLB} y1={thresholdY} x2={WB - MRB} y2={thresholdY} stroke={ED.accent} strokeWidth="1" strokeDasharray="4 3" opacity="0.7" />
+          <text x={WB - MRB} y={thresholdY - 4} textAnchor="end" fontSize="9" fill={ED.accent} fontFamily={mono}>1e-12 gate</text>
           {cells.map((c, i) => {
             const d = digitsOf(c);
             const cx = MLB + (i + 0.5) * barGroupW;
@@ -6758,10 +6759,10 @@ function Imp3404FullSpectrumViz() {
             const h = (HB - MBB) - yTop;
             return (
               <g key={`c${c.a}-${c.U}`}>
-                <rect x={cx - barW / 2} y={yTop} width={barW} height={h} fill="#c23a1c" opacity="0.82" rx="2">
+                <rect x={cx - barW / 2} y={yTop} width={barW} height={h} fill={ED.series2} opacity="0.82" rx="2">
                   <title>{`a=${c.a} U=${c.U} rankTwoEnergyResidual=${c.rankTwoEnergyResidual.toExponential(2)} (${d.toFixed(1)} digits)`}</title>
                 </rect>
-                <text x={cx} y={HB - MBB + 12} textAnchor="middle" fontSize="8" fill="#877b67" fontFamily={mono} transform={`rotate(-40 ${cx} ${HB - MBB + 12})`}>
+                <text x={cx} y={HB - MBB + 12} textAnchor="middle" fontSize="8" fill={ED.inkFaint} fontFamily={mono} transform={`rotate(-40 ${cx} ${HB - MBB + 12})`}>
                   {c.a},{c.U}
                 </text>
               </g>
@@ -6769,11 +6770,11 @@ function Imp3404FullSpectrumViz() {
           })}
         </svg>
       </div>
-      <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 6, background: 'rgba(135,123,103,0.06)', border: '1px solid rgba(135,123,103,0.25)' }}>
-        <div style={{ fontSize: 11, fontWeight: 700, color: '#877b67', letterSpacing: '0.06em', marginBottom: 4 }}>
+      <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 6, background: 'color-mix(in srgb, var(--ink-faint) 6%, transparent)', border: '1px solid color-mix(in srgb, var(--rule) 25%, transparent)' }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--ink-faint)', letterSpacing: '0.06em', marginBottom: 4 }}>
           STRUCTURAL DIAGNOSTIC ONLY &mdash; NO RH VERDICT
         </div>
-        <p style={{ color: '#877b67', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
+        <p style={{ color: 'var(--ink-faint)', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
           Max rankTwoEnergyResidual over all {cells.length} cells is {m.maxRankTwoEnergyResidual.toExponential(1)}, and the extremal-energy
           fraction 2&mu;<sup>2</sup>/||G<sub>shear</sub>||<sub>F</sub><sup>2</sup> is 1 to within {m.maxExtremalEnergyFractionDev.toExponential(1)}
           at every cell &mdash; the two extremes carry the ENTIRE spectral energy, so there are no intermediate eigenvalues to vary
@@ -6781,7 +6782,7 @@ function Imp3404FullSpectrumViz() {
           binding imp-3066 off-diagonal endpoint-Hankel residual.
         </p>
       </div>
-      <p style={{ marginTop: 10, color: '#877b67', fontSize: 11, fontFamily: mono }}>
+      <p style={{ marginTop: 10, color: 'var(--ink-faint)', fontSize: 11, fontFamily: mono }}>
         Source: imp-3404-shear-gram-full-spectrum-cell-independence.js; extends: imp-3351; cross-validated: imp-3448.
       </p>
     </div>
@@ -6833,8 +6834,8 @@ function PhiTermwiseNonnegativityViz() {
   const u1Star = M.u1Star;
 
   return (
-    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #4c7a4a', background: 'rgba(76,122,74,0.04)' }}>
-      <h3 style={{ color: '#4c7a4a', marginTop: 0 }}>
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid var(--series-3)', background: 'color-mix(in srgb, var(--series-3) 4%, transparent)' }}>
+      <h3 style={{ color: 'var(--series-3)', marginTop: 0 }}>
         Termwise &Phi;&thinsp;&ge;&thinsp;0 structure: per-term sign-flip thresholds, all left of [0,U] (imp-3257)
       </h3>
       <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75 }}>
@@ -6850,64 +6851,64 @@ function PhiTermwiseNonnegativityViz() {
       <div style={{ overflowX: 'auto' }}>
         <svg
           width={W} height={H}
-          style={{ display: 'block', maxWidth: '100%', background: 'rgba(214,201,178,0.25)', borderRadius: 6 }}
+          style={{ display: 'block', maxWidth: '100%', background: 'color-mix(in srgb, var(--rule) 25%, transparent)', borderRadius: 6 }}
           role="img"
           aria-label="Phi_NPHI(u) on a log scale with per-term sign-flip thresholds marked"
         >
           {yTicks.map((v) => (
             <g key={`yt${v}`}>
-              <line x1={ML} y1={py(v)} x2={W - MR} y2={py(v)} stroke="#d5c9b2" strokeWidth="1" />
-              <text x={ML - 8} y={py(v) + 4} textAnchor="end" fontSize="10" fill="#877b67" fontFamily={mono}>
+              <line x1={ML} y1={py(v)} x2={W - MR} y2={py(v)} stroke={ED.rule} strokeWidth="1" />
+              <text x={ML - 8} y={py(v) + 4} textAnchor="end" fontSize="10" fill={ED.inkFaint} fontFamily={mono}>
                 {`1e${v}`}
               </text>
             </g>
           ))}
           {uTicks.map((u) => (
             <g key={`ut${u}`}>
-              <line x1={px(u)} y1={MT} x2={px(u)} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-              <text x={px(u)} y={H - MB + 16} textAnchor="middle" fontSize="10" fill="#877b67" fontFamily={mono}>{u}</text>
+              <line x1={px(u)} y1={MT} x2={px(u)} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+              <text x={px(u)} y={H - MB + 16} textAnchor="middle" fontSize="10" fill={ED.inkFaint} fontFamily={mono}>{u}</text>
             </g>
           ))}
-          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
 
           {/* termwise-positive region [u_1*, U_MAX], lightly shaded */}
           <rect x={px(u1Star)} y={MT} width={px(U_MAX) - px(u1Star)} height={H - MT - MB}
-            fill="#4c7a4a" fillOpacity="0.07" />
+            fill={ED.series3} fillOpacity="0.07" />
           {/* [0, U] headline domain, more distinct shading */}
           <rect x={px(0)} y={MT} width={px(U) - px(0)} height={H - MT - MB}
-            fill="#4c7a4a" fillOpacity="0.14" />
-          <text x={(px(0) + px(U)) / 2} y={MT + 14} textAnchor="middle" fontSize="10" fill="#4c7a4a" fontFamily={mono}>
+            fill={ED.series3} fillOpacity="0.14" />
+          <text x={(px(0) + px(U)) / 2} y={MT + 14} textAnchor="middle" fontSize="10" fill={ED.series3} fontFamily={mono}>
             [0, U] headline domain
           </text>
 
           {/* per-term thresholds u_n* */}
           {thresholds.map(({ n, u }) => (
             <g key={`th${n}`}>
-              <line x1={px(u)} y1={MT} x2={px(u)} y2={H - MB} stroke={n === 1 ? '#c23a1c' : '#b58a2e'}
+              <line x1={px(u)} y1={MT} x2={px(u)} y2={H - MB} stroke={n === 1 ? ED.accent : ED.brassDeco}
                 strokeWidth={n === 1 ? 1.6 : 1} strokeDasharray="3 3" opacity={n === 1 ? 0.9 : 0.5} />
               <text x={px(u)} y={n % 2 === 0 ? MT - 16 : MT - 4} textAnchor="middle" fontSize="9"
-                fill={n === 1 ? '#c23a1c' : '#b58a2e'} fontFamily={mono}>
+                fill={n === 1 ? ED.accent : ED.brass} fontFamily={mono}>
                 {`u_${n}*`}
               </text>
             </g>
           ))}
 
           {/* Phi_NPHI(u) curve */}
-          <path d={curvePath} fill="none" stroke="#1c1814" strokeWidth="2" />
+          <path d={curvePath} fill="none" stroke={ED.ink} strokeWidth="2" />
 
-          <text x={(ML + W - MR) / 2} y={H - 6} textAnchor="middle" fontSize="11" fill="#877b67" fontFamily={mono}>u</text>
-          <text x={16} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="11" fill="#877b67" fontFamily={mono}
+          <text x={(ML + W - MR) / 2} y={H - 6} textAnchor="middle" fontSize="11" fill={ED.inkFaint} fontFamily={mono}>u</text>
+          <text x={16} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="11" fill={ED.inkFaint} fontFamily={mono}
             transform={`rotate(-90 16 ${(MT + H - MB) / 2})`}>
             Phi_NPHI(u)
           </text>
         </svg>
       </div>
-      <div style={{ marginTop: 10, padding: '8px 12px', borderRadius: 6, background: 'rgba(135,123,103,0.06)', border: '1px solid rgba(135,123,103,0.25)' }}>
-        <div style={{ fontSize: 11, fontWeight: 700, color: '#877b67', letterSpacing: '0.06em', marginBottom: 4 }}>
+      <div style={{ marginTop: 10, padding: '8px 12px', borderRadius: 6, background: 'color-mix(in srgb, var(--ink-faint) 6%, transparent)', border: '1px solid color-mix(in srgb, var(--rule) 25%, transparent)' }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--ink-faint)', letterSpacing: '0.06em', marginBottom: 4 }}>
           STRUCTURAL, NOT MEASURED &mdash; NO U OR NPHI SWEEP CAN BREAK IT
         </div>
-        <p style={{ color: '#877b67', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
+        <p style={{ color: 'var(--ink-faint)', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
           u<sub>1</sub>*&thinsp;&lt;&thinsp;0 for every truncation, so [0, U] is right of the last per-term flip
           for ANY U&thinsp;&ge;&thinsp;0 and ANY NPHI &mdash; a {M.sweepCellCount}-cell sweep across
           U&thinsp;&isin;&thinsp;&#123;6,8,12,16,24&#125; &times; NPHI&thinsp;&isin;&thinsp;&#123;10,20,40,80&#125; finds
@@ -6915,7 +6916,7 @@ function PhiTermwiseNonnegativityViz() {
           structural; the operator-norm magnitude (imp-3197 magnitude half) remains untouched.
         </p>
       </div>
-      <p style={{ marginTop: 10, color: '#877b67', fontSize: 11, fontFamily: mono }}>
+      <p style={{ marginTop: 10, color: 'var(--ink-faint)', fontSize: 11, fontFamily: mono }}>
         Source: imp-3257-bridge-sign-phi-nonneg-structural.js &mdash; headline cell NPHI=10, U=6; curve on log&#8321;&#8320; scale, floor 1e-8.
       </p>
     </div>
@@ -6950,8 +6951,8 @@ function LeftmostZeroDriftVsLnNphiViz() {
     .join(' ');
 
   return (
-    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #c23a1c', background: 'rgba(194,58,28,0.04)' }}>
-      <h3 style={{ color: '#c23a1c', marginTop: 0 }}>
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid var(--accent)', background: 'color-mix(in srgb, var(--series-2) 4%, transparent)' }}>
+      <h3 style={{ color: 'var(--accent)', marginTop: 0 }}>
         Leftmost truncation zero u&#8320;(NPHI) recedes left, widening the margin below u&#8321;* (imp-3347 / imp-3411)
       </h3>
       <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75 }}>
@@ -6965,64 +6966,64 @@ function LeftmostZeroDriftVsLnNphiViz() {
         4.13 &mdash; the conservatism of the imp-3257 termwise bound below u<sub>1</sub>*.
       </p>
       <div style={{ overflowX: 'auto' }}>
-        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'rgba(214,201,178,0.25)', borderRadius: 6 }}
+        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'color-mix(in srgb, var(--rule) 25%, transparent)', borderRadius: 6 }}
           role="img" aria-label="Leftmost zero u0(NPHI) vs ln(NPHI) with the left-margin-below-u1-star overlay">
           {yTicks.map((v) => (
             <g key={`y${v}`}>
-              <line x1={ML} y1={py(v)} x2={W - MR} y2={py(v)} stroke="#d5c9b2" strokeWidth="1" />
-              <text x={ML - 8} y={py(v) + 4} textAnchor="end" fontSize="11" fill="#877b67" fontFamily={mono}>{v}</text>
+              <line x1={ML} y1={py(v)} x2={W - MR} y2={py(v)} stroke={ED.rule} strokeWidth="1" />
+              <text x={ML - 8} y={py(v) + 4} textAnchor="end" fontSize="11" fill={ED.inkFaint} fontFamily={mono}>{v}</text>
             </g>
           ))}
           {xTicks.map(({ nphi, x }) => (
-            <text key={`x${nphi}`} x={px(x)} y={H - MB + 18} textAnchor="middle" fontSize="11" fill="#877b67" fontFamily={mono}>
+            <text key={`x${nphi}`} x={px(x)} y={H - MB + 18} textAnchor="middle" fontSize="11" fill={ED.inkFaint} fontFamily={mono}>
               {`NPHI=${nphi}`}
             </text>
           ))}
-          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-          <text x={(ML + W - MR) / 2} y={H - 6} textAnchor="middle" fontSize="12" fill="#877b67" fontFamily={mono}>ln(NPHI)</text>
-          <text x={16} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="12" fill="#877b67" fontFamily={mono}
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+          <text x={(ML + W - MR) / 2} y={H - 6} textAnchor="middle" fontSize="12" fill={ED.inkFaint} fontFamily={mono}>ln(NPHI)</text>
+          <text x={16} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="12" fill={ED.inkFaint} fontFamily={mono}
             transform={`rotate(-90 16 ${(MT + H - MB) / 2})`}>u</text>
 
           {/* u_1* termwise threshold */}
-          <line x1={ML} y1={py(u1Star)} x2={W - MR} y2={py(u1Star)} stroke="#4c7a4a" strokeWidth="1.4" strokeDasharray="2 3" />
-          <text x={W - MR - 4} y={py(u1Star) - 6} textAnchor="end" fontSize="10" fill="#4c7a4a" fontFamily={mono}>u_1*</text>
+          <line x1={ML} y1={py(u1Star)} x2={W - MR} y2={py(u1Star)} stroke={ED.series3} strokeWidth="1.4" strokeDasharray="2 3" />
+          <text x={W - MR - 4} y={py(u1Star) - 6} textAnchor="end" fontSize="10" fill={ED.series3} fontFamily={mono}>u_1*</text>
 
           {/* left-margin-below-u1* overlay: shaded band per cell */}
           {cells.map((c) => (
             <line key={`m${c.nphi}`} x1={px(Math.log(c.nphi))} y1={py(u1Star)} x2={px(Math.log(c.nphi))} y2={py(c.leftmostZero)}
-              stroke="#c23a1c" strokeWidth="6" strokeOpacity="0.16" />
+              stroke={ED.accent} strokeWidth="6" strokeOpacity="0.16" />
           ))}
           {cells.map((c) => (
             <text key={`ml${c.nphi}`} x={px(Math.log(c.nphi)) + 8} y={(py(u1Star) + py(c.leftmostZero)) / 2 + 4}
-              fontSize="10" fill="#c23a1c" fontFamily={mono}>
+              fontSize="10" fill={ED.accent} fontFamily={mono}>
               {`margin ${c.leftMarginBelowU1Star.toFixed(2)}`}
             </text>
           ))}
 
           {/* leading-order closed-form fit */}
-          <path d={fitPath} fill="none" stroke="#877b67" strokeWidth="1.3" strokeDasharray="4 3" />
+          <path d={fitPath} fill="none" stroke={ED.rule} strokeWidth="1.3" strokeDasharray="4 3" />
 
           {/* measured leftmost zero u_0(NPHI) */}
-          <path d={zeroPath} fill="none" stroke="#c23a1c" strokeWidth="2" />
+          <path d={zeroPath} fill="none" stroke={ED.accent} strokeWidth="2" />
           {cells.map((c) => (
-            <circle key={`z${c.nphi}`} cx={px(Math.log(c.nphi))} cy={py(c.leftmostZero)} r="5" fill="#c23a1c" stroke="#c23a1c" strokeWidth="1.2">
+            <circle key={`z${c.nphi}`} cx={px(Math.log(c.nphi))} cy={py(c.leftmostZero)} r="5" fill={ED.series2} stroke={ED.accent} strokeWidth="1.2">
               <title>{`NPHI=${c.nphi}  ->  u_0=${c.leftmostZero.toFixed(4)}`}</title>
             </circle>
           ))}
         </svg>
       </div>
-      <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 6, background: 'rgba(135,123,103,0.06)', border: '1px solid rgba(135,123,103,0.25)' }}>
-        <div style={{ fontSize: 11, fontWeight: 700, color: '#877b67', letterSpacing: '0.06em', marginBottom: 4 }}>
+      <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 6, background: 'color-mix(in srgb, var(--ink-faint) 6%, transparent)', border: '1px solid color-mix(in srgb, var(--rule) 25%, transparent)' }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--ink-faint)', letterSpacing: '0.06em', marginBottom: 4 }}>
           DIAGNOSTIC MEASUREMENT &mdash; NO RH VERDICT
         </div>
-        <p style={{ color: '#877b67', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
+        <p style={{ color: 'var(--ink-faint)', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
           u<sub>0</sub>(NPHI) is a pure truncation artifact of the finite sum (the untruncated de&nbsp;Bruijn&ndash;Newman
           &Phi; is positive on all of R) and recedes to &minus;&infin; as NPHI grows; it never touches the
           imp-3197/imp-3257 [0,U] window and leaves the imp-3066 operator-norm magnitude obstruction untouched.
         </p>
       </div>
-      <p style={{ marginTop: 10, color: '#877b67', fontSize: 11, fontFamily: mono }}>
+      <p style={{ marginTop: 10, color: 'var(--ink-faint)', fontSize: 11, fontFamily: mono }}>
         Source: imp-3347-phi-leftmost-zero-vs-nphi.js.
       </p>
     </div>
@@ -7045,22 +7046,22 @@ function Imp3402DriftRateFitPanel() {
   ];
 
   return (
-    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #6d55b8', background: 'rgba(109,85,184,0.04)' }}>
-      <h3 style={{ color: '#6d55b8', marginTop: 0, fontSize: 14 }}>
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid var(--series-5)', background: 'color-mix(in srgb, var(--series-5) 4%, transparent)' }}>
+      <h3 style={{ color: 'var(--series-5)', marginTop: 0, fontSize: 14 }}>
         Leftmost-zero drift-rate coefficient fit (imp-3402)
       </h3>
-      <p style={{ color: '#877b67', fontSize: 12, lineHeight: 1.7, marginBottom: 10 }}>
+      <p style={{ color: 'var(--ink-faint)', fontSize: 12, lineHeight: 1.7, marginBottom: 10 }}>
         imp-3347 verified the leftmost genuine zero u<sub>0</sub>(NPHI) recedes to &minus;&infin; roughly like
         &minus;ln(NPHI) but never FIT the coefficient directly. This OLS fit of u<sub>0</sub> against
         ln(NPHI) over NPHI&isin;&#123;10,20,40,80&#125; measures the drift-rate slope at{' '}
-        <strong style={{ color: '#6d55b8' }}>{m402.driftSlope.toFixed(5)}</strong>, within{' '}
+        <strong style={{ color: 'var(--series-5)' }}>{m402.driftSlope.toFixed(5)}</strong>, within{' '}
         {m402.slopeDeviationFromMinusOne.toFixed(4)} of the elementary leading-order &minus;1, with R&sup2;&nbsp;=
         &nbsp;{m402.rSquared.toFixed(5)}. The refinement below (imp-3403) attributes this small deficit mostly to a
         neglected Faulhaber finite-N power-sum term rather than pure Gaussian curvature.
       </p>
       <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 12, marginBottom: 8 }}>
         <thead>
-          <tr style={{ borderBottom: '1px solid #d5c9b2', color: '#877b67' }}>
+          <tr style={{ borderBottom: '1px solid var(--rule)', color: 'var(--ink-faint)' }}>
             <th style={{ padding: '4px 8px', fontFamily: mono, textAlign: 'left' }}>metric</th>
             <th style={{ padding: '4px 8px', fontFamily: mono, textAlign: 'right' }}>value</th>
             <th style={{ padding: '4px 8px', fontFamily: mono, textAlign: 'right' }}>note</th>
@@ -7068,22 +7069,22 @@ function Imp3402DriftRateFitPanel() {
         </thead>
         <tbody>
           {rows.map((r, i) => (
-            <tr key={i} style={{ borderBottom: '1px solid #d5c9b2' }}>
-              <td style={{ padding: '3px 8px', fontFamily: mono, color: '#4a4238' }}>{r.label}</td>
-              <td style={{ padding: '3px 8px', fontFamily: mono, color: '#6d55b8', textAlign: 'right' }}>{r.value}</td>
-              <td style={{ padding: '3px 8px', fontFamily: mono, color: '#877b67', textAlign: 'right' }}>{r.note}</td>
+            <tr key={i} style={{ borderBottom: '1px solid var(--rule)' }}>
+              <td style={{ padding: '3px 8px', fontFamily: mono, color: 'var(--ink-soft)' }}>{r.label}</td>
+              <td style={{ padding: '3px 8px', fontFamily: mono, color: 'var(--series-5)', textAlign: 'right' }}>{r.value}</td>
+              <td style={{ padding: '3px 8px', fontFamily: mono, color: 'var(--ink-faint)', textAlign: 'right' }}>{r.note}</td>
             </tr>
           ))}
         </tbody>
       </table>
-      <div style={{ padding: '6px 10px', borderRadius: 4, background: 'rgba(109,85,184,0.07)', border: '1px solid rgba(109,85,184,0.22)', fontSize: 11, color: '#877b67', lineHeight: 1.65 }}>
-        <strong style={{ color: '#6d55b8' }}>Scope (imp-3402):</strong>{' '}
+      <div style={{ padding: '6px 10px', borderRadius: 4, background: 'color-mix(in srgb, var(--series-5) 7%, transparent)', border: '1px solid color-mix(in srgb, var(--series-5) 22%, transparent)', fontSize: 11, color: 'var(--ink-faint)', lineHeight: 1.65 }}>
+        <strong style={{ color: 'var(--series-5)' }}>Scope (imp-3402):</strong>{' '}
         Measurement only &mdash; the leftmost zero is a truncation artifact of the finite sum defining
         &Phi;<sub>NPHI</sub> (the untruncated de Bruijn&ndash;Newman &Phi; is positive on all of R); the
         imp-3197/imp-3257 [0,U] window and the binding imp-3066 operator-norm magnitude obstruction
         K<sub>a</sub>&nbsp;&ge;&nbsp;0 are entirely untouched. No new positivity, no reduction, NO QED.
       </div>
-      <p style={{ marginTop: 8, color: '#877b67', fontSize: 11, fontFamily: mono }}>
+      <p style={{ marginTop: 8, color: 'var(--ink-faint)', fontSize: 11, fontFamily: mono }}>
         Source: imp-3402-leftmost-zero-drift-rate-fit.js; parent: imp-3347; refined by: imp-3403.
       </p>
     </div>
@@ -7134,49 +7135,49 @@ function Imp3403ResidualShrinkLawViz() {
   const py3 = (y) => H3 - MB3 - ((y - yMin3) / (yMax3 - yMin3)) * (H3 - MT3 - MB3);
 
   return (
-    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #3f6b86', background: 'rgba(63,107,134,0.04)' }}>
-      <h3 style={{ color: '#3f6b86', marginTop: 0 }}>
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid var(--series-1)', background: 'color-mix(in srgb, var(--series-1) 4%, transparent)' }}>
+      <h3 style={{ color: 'var(--series-1)', marginTop: 0 }}>
         Leftmost-Zero Residual Shrink Law: O(1/NPHI), Faulhaber-Dominant Decomposition (imp-3403 / imp-3457)
       </h3>
       <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75 }}>
         The imp-3347 leadingOrderResidual (measured leftmost zero minus the elementary closed form) shrinks as an{' '}
-        <strong style={{ color: '#3f6b86' }}>O(1/NPHI)</strong> power law: the log-log slope is{' '}
-        <strong style={{ color: '#3f6b86' }}>{M.logLogSlope.toFixed(5)}</strong> (R&sup2; = {M.logLogRSquared.toFixed(5)}),
+        <strong style={{ color: 'var(--series-1)' }}>O(1/NPHI)</strong> power law: the log-log slope is{' '}
+        <strong style={{ color: 'var(--series-1)' }}>{M.logLogSlope.toFixed(5)}</strong> (R&sup2; = {M.logLogRSquared.toFixed(5)}),
         and the sharper diagnostic residual&times;NPHI climbs monotonically toward the clean limit{' '}
-        <strong style={{ color: '#3f6b86' }}>&minus;1/2</strong>, reaching {M.residualTimesNphiTailLimit.toFixed(5)} at
+        <strong style={{ color: 'var(--series-1)' }}>&minus;1/2</strong>, reaching {M.residualTimesNphiTailLimit.toFixed(5)} at
         NPHI&thinsp;=&thinsp;{cells[cells.length - 1].nphi}. Decomposing the residual shows the{' '}
-        <strong style={{ color: '#b58a2e' }}>Faulhaber finite-N power-sum correction</strong> alone reproduces{' '}
+        <strong style={{ color: 'var(--brass)' }}>Faulhaber finite-N power-sum correction</strong> alone reproduces{' '}
         {(M.faulhaberFractionAtN10 * 100).toFixed(1)}% of the full residual at N=10, while the genuine{' '}
-        <strong style={{ color: '#4c7a4a' }}>Gaussian-curvature</strong> piece is subdominant
+        <strong style={{ color: 'var(--series-3)' }}>Gaussian-curvature</strong> piece is subdominant
         (+O(1/NPHI&sup2;), only {(M.gaussianFractionAtN10 * 100).toFixed(1)}% at N=10, opposite sign).
       </p>
       <div style={{ overflowX: 'auto' }}>
-        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'rgba(214,201,178,0.25)', borderRadius: 6 }}
+        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'color-mix(in srgb, var(--rule) 25%, transparent)', borderRadius: 6 }}
           role="img" aria-label="log-log plot of the imp-3403 residual vs NPHI with the O(1/NPHI) fit line">
           {[yLo, (yLo + yHi) / 2, yHi].map((y, i) => (
             <g key={`y${i}`}>
-              <line x1={ML} y1={py(y)} x2={W - MR} y2={py(y)} stroke="#d5c9b2" strokeWidth="1" />
-              <text x={ML - 8} y={py(y) + 4} textAnchor="end" fontSize="10" fill="#877b67" fontFamily={mono}>{y.toFixed(2)}</text>
+              <line x1={ML} y1={py(y)} x2={W - MR} y2={py(y)} stroke={ED.rule} strokeWidth="1" />
+              <text x={ML - 8} y={py(y) + 4} textAnchor="end" fontSize="10" fill={ED.inkFaint} fontFamily={mono}>{y.toFixed(2)}</text>
             </g>
           ))}
           {cells.map((c) => (
-            <text key={`x${c.nphi}`} x={px(Math.log(c.nphi))} y={H - MB + 18} textAnchor="middle" fontSize="9" fill="#877b67" fontFamily={mono}>
+            <text key={`x${c.nphi}`} x={px(Math.log(c.nphi))} y={H - MB + 18} textAnchor="middle" fontSize="9" fill={ED.inkFaint} fontFamily={mono}>
               {c.nphi}
             </text>
           ))}
-          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-          <text x={(ML + W - MR) / 2} y={H - 4} textAnchor="middle" fontSize="12" fill="#877b67" fontFamily={mono}>ln(NPHI)</text>
-          <text x={20} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="12" fill="#877b67" fontFamily={mono}
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+          <text x={(ML + W - MR) / 2} y={H - 4} textAnchor="middle" fontSize="12" fill={ED.inkFaint} fontFamily={mono}>ln(NPHI)</text>
+          <text x={20} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="12" fill={ED.inkFaint} fontFamily={mono}
             transform={`rotate(-90 20 ${(MT + H - MB) / 2})`}>ln|residual|</text>
-          <path d={fitPath} fill="none" stroke="#3f6b86" strokeWidth="2" strokeDasharray="1 3" />
-          <path d={dataPath} fill="none" stroke="#3f6b86" strokeWidth="1" strokeOpacity="0.4" />
+          <path d={fitPath} fill="none" stroke={ED.series1} strokeWidth="2" strokeDasharray="1 3" />
+          <path d={dataPath} fill="none" stroke={ED.series1} strokeWidth="1" strokeOpacity="0.4" />
           {lnN.map((x, i) => (
-            <circle key={i} cx={px(x)} cy={py(lnR[i])} r="4.5" fill="#3f6b86" fillOpacity="0.85" stroke="#3f6b86" strokeWidth="1">
+            <circle key={i} cx={px(x)} cy={py(lnR[i])} r="4.5" fill={ED.series1} fillOpacity="0.85" stroke={ED.series1} strokeWidth="1">
               <title>{`NPHI=${cells[i].nphi}  residual=${cells[i].residual.toExponential(4)}`}</title>
             </circle>
           ))}
-          <text x={W - MR - 4} y={MT + 12} textAnchor="end" fontSize="10" fill="#877b67" fontFamily={mono}>
+          <text x={W - MR - 4} y={MT + 12} textAnchor="end" fontSize="10" fill={ED.inkFaint} fontFamily={mono}>
             &#8212; OLS fit (slope={M.logLogSlope.toFixed(3)})
           </text>
         </svg>
@@ -7185,23 +7186,23 @@ function Imp3403ResidualShrinkLawViz() {
         residual&times;NPHI converges monotonically to the clean limit &minus;1/2:
       </p>
       <div style={{ overflowX: 'auto' }}>
-        <svg width={W2} height={H2} style={{ display: 'block', maxWidth: '100%', background: 'rgba(214,201,178,0.25)', borderRadius: 6 }}
+        <svg width={W2} height={H2} style={{ display: 'block', maxWidth: '100%', background: 'color-mix(in srgb, var(--rule) 25%, transparent)', borderRadius: 6 }}
           role="img" aria-label="residual times NPHI converging monotonically to minus one half">
-          <line x1={ML2} y1={py2(-0.5)} x2={W2 - MR2} y2={py2(-0.5)} stroke="#4c7a4a" strokeWidth="1" strokeDasharray="2 3" strokeOpacity="0.7" />
-          <text x={W2 - MR2 - 4} y={py2(-0.5) - 5} textAnchor="end" fontSize="9" fill="#4c7a4a" fontFamily={mono}>&minus;1/2 (clean limit)</text>
+          <line x1={ML2} y1={py2(-0.5)} x2={W2 - MR2} y2={py2(-0.5)} stroke={ED.series3} strokeWidth="1" strokeDasharray="2 3" strokeOpacity="0.7" />
+          <text x={W2 - MR2 - 4} y={py2(-0.5) - 5} textAnchor="end" fontSize="9" fill={ED.series3} fontFamily={mono}>&minus;1/2 (clean limit)</text>
           {[yLo2, yHi2].map((y, i) => (
-            <text key={`y2${i}`} x={ML2 - 8} y={py2(y) + 4} textAnchor="end" fontSize="9" fill="#877b67" fontFamily={mono}>{y.toFixed(3)}</text>
+            <text key={`y2${i}`} x={ML2 - 8} y={py2(y) + 4} textAnchor="end" fontSize="9" fill={ED.inkFaint} fontFamily={mono}>{y.toFixed(3)}</text>
           ))}
-          <line x1={ML2} y1={MT2} x2={ML2} y2={H2 - MB2} stroke="#d5c9b2" strokeWidth="1" />
-          <line x1={ML2} y1={H2 - MB2} x2={W2 - MR2} y2={H2 - MB2} stroke="#d5c9b2" strokeWidth="1" />
+          <line x1={ML2} y1={MT2} x2={ML2} y2={H2 - MB2} stroke={ED.rule} strokeWidth="1" />
+          <line x1={ML2} y1={H2 - MB2} x2={W2 - MR2} y2={H2 - MB2} stroke={ED.rule} strokeWidth="1" />
           {cells.map((c) => (
-            <text key={`x2${c.nphi}`} x={px2(Math.log(c.nphi))} y={H2 - MB2 + 14} textAnchor="middle" fontSize="9" fill="#877b67" fontFamily={mono}>
+            <text key={`x2${c.nphi}`} x={px2(Math.log(c.nphi))} y={H2 - MB2 + 14} textAnchor="middle" fontSize="9" fill={ED.inkFaint} fontFamily={mono}>
               {c.nphi}
             </text>
           ))}
-          <path d={rtnPath} fill="none" stroke="#3f6b86" strokeWidth="1.5" />
+          <path d={rtnPath} fill="none" stroke={ED.series1} strokeWidth="1.5" />
           {lnN.map((x, i) => (
-            <circle key={i} cx={px2(x)} cy={py2(rtn[i])} r="3.5" fill="#3f6b86" fillOpacity="0.9" stroke="#3f6b86" strokeWidth="1">
+            <circle key={i} cx={px2(x)} cy={py2(rtn[i])} r="3.5" fill={ED.series1} fillOpacity="0.9" stroke={ED.series1} strokeWidth="1">
               <title>{`NPHI=${cells[i].nphi}  residual*NPHI=${rtn[i].toFixed(6)}`}</title>
             </circle>
           ))}
@@ -7211,16 +7212,16 @@ function Imp3403ResidualShrinkLawViz() {
         Faulhaber (dominant, ~1/N) vs Gaussian-curvature (subdominant, ~1/N&sup2;) magnitudes per NPHI, log&#8209;10 scale:
       </p>
       <div style={{ overflowX: 'auto' }}>
-        <svg width={W3} height={H3} style={{ display: 'block', maxWidth: '100%', background: 'rgba(214,201,178,0.25)', borderRadius: 6 }}
+        <svg width={W3} height={H3} style={{ display: 'block', maxWidth: '100%', background: 'color-mix(in srgb, var(--rule) 25%, transparent)', borderRadius: 6 }}
           role="img" aria-label="bar chart comparing the Faulhaber and Gaussian curvature magnitudes per NPHI on a log scale">
           {[yMin3, (yMin3 + yMax3) / 2, yMax3].map((y, i) => (
             <g key={`y3${i}`}>
-              <line x1={ML3} y1={py3(y)} x2={W3 - MR3} y2={py3(y)} stroke="#d5c9b2" strokeWidth="1" />
-              <text x={ML3 - 8} y={py3(y) + 4} textAnchor="end" fontSize="9" fill="#877b67" fontFamily={mono}>{`1e${y.toFixed(1)}`}</text>
+              <line x1={ML3} y1={py3(y)} x2={W3 - MR3} y2={py3(y)} stroke={ED.rule} strokeWidth="1" />
+              <text x={ML3 - 8} y={py3(y) + 4} textAnchor="end" fontSize="9" fill={ED.inkFaint} fontFamily={mono}>{`1e${y.toFixed(1)}`}</text>
             </g>
           ))}
-          <line x1={ML3} y1={MT3} x2={ML3} y2={H3 - MB3} stroke="#d5c9b2" strokeWidth="1" />
-          <line x1={ML3} y1={H3 - MB3} x2={W3 - MR3} y2={H3 - MB3} stroke="#d5c9b2" strokeWidth="1" />
+          <line x1={ML3} y1={MT3} x2={ML3} y2={H3 - MB3} stroke={ED.rule} strokeWidth="1" />
+          <line x1={ML3} y1={H3 - MB3} x2={W3 - MR3} y2={H3 - MB3} stroke={ED.rule} strokeWidth="1" />
           {cells.map((c, i) => {
             const bandX = ML3 + i * bandW;
             const barW = bandW * 0.32;
@@ -7228,26 +7229,26 @@ function Imp3403ResidualShrinkLawViz() {
             const gx = bandX + bandW * 0.54;
             return (
               <g key={c.nphi}>
-                <rect x={fx} y={py3(faulMag[i])} width={barW} height={H3 - MB3 - py3(faulMag[i])} fill="#b58a2e" fillOpacity="0.85">
+                <rect x={fx} y={py3(faulMag[i])} width={barW} height={H3 - MB3 - py3(faulMag[i])} fill={ED.brassDeco} fillOpacity="0.85">
                   <title>{`NPHI=${c.nphi}  faulhaberResidual=${c.faulhaberResidual.toExponential(4)}`}</title>
                 </rect>
-                <rect x={gx} y={py3(gaussMag[i])} width={barW} height={H3 - MB3 - py3(gaussMag[i])} fill="#4c7a4a" fillOpacity="0.85">
+                <rect x={gx} y={py3(gaussMag[i])} width={barW} height={H3 - MB3 - py3(gaussMag[i])} fill={ED.series3} fillOpacity="0.85">
                   <title>{`NPHI=${c.nphi}  gaussianCurvaturePiece=${c.gaussianCurvaturePiece.toExponential(4)}`}</title>
                 </rect>
-                <text x={bandX + bandW / 2} y={H3 - MB3 + 14} textAnchor="middle" fontSize="9" fill="#877b67" fontFamily={mono}>{c.nphi}</text>
+                <text x={bandX + bandW / 2} y={H3 - MB3 + 14} textAnchor="middle" fontSize="9" fill={ED.inkFaint} fontFamily={mono}>{c.nphi}</text>
               </g>
             );
           })}
-          <text x={(ML3 + W3 - MR3) / 2} y={H3 - 4} textAnchor="middle" fontSize="11" fill="#877b67" fontFamily={mono}>NPHI</text>
-          <text x={W3 - MR3 - 4} y={MT3 + 10} textAnchor="end" fontSize="10" fill="#b58a2e" fontFamily={mono}>&#9632; Faulhaber (dominant)</text>
-          <text x={W3 - MR3 - 4} y={MT3 + 22} textAnchor="end" fontSize="10" fill="#4c7a4a" fontFamily={mono}>&#9632; Gaussian curvature (subdominant)</text>
+          <text x={(ML3 + W3 - MR3) / 2} y={H3 - 4} textAnchor="middle" fontSize="11" fill={ED.inkFaint} fontFamily={mono}>NPHI</text>
+          <text x={W3 - MR3 - 4} y={MT3 + 10} textAnchor="end" fontSize="10" fill={ED.brass} fontFamily={mono}>&#9632; Faulhaber (dominant)</text>
+          <text x={W3 - MR3 - 4} y={MT3 + 22} textAnchor="end" fontSize="10" fill={ED.series3} fontFamily={mono}>&#9632; Gaussian curvature (subdominant)</text>
         </svg>
       </div>
-      <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 6, background: 'rgba(135,123,103,0.06)', border: '1px solid rgba(135,123,103,0.25)' }}>
-        <div style={{ fontSize: 11, fontWeight: 700, color: '#877b67', letterSpacing: '0.06em', marginBottom: 4 }}>
+      <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 6, background: 'color-mix(in srgb, var(--ink-faint) 6%, transparent)', border: '1px solid color-mix(in srgb, var(--rule) 25%, transparent)' }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--ink-faint)', letterSpacing: '0.06em', marginBottom: 4 }}>
           MEASUREMENT ONLY &mdash; NO RH VERDICT
         </div>
-        <p style={{ color: '#877b67', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
+        <p style={{ color: 'var(--ink-faint)', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
           This refines (does not overturn) the imp-3347/imp-3402 attribution of the leadingOrderResidual to
           &quot;Gaussian curvature&quot;: the leading O(1/N) shrink is the neglected Faulhaber finite-N power-sum
           correction, and the Gaussian curvature enters only at the subdominant +O(1/NPHI&sup2;) order. The
@@ -7255,7 +7256,7 @@ function Imp3403ResidualShrinkLawViz() {
           all of R); the imp-3066 off-diagonal endpoint-Hankel obstruction remains untouched.
         </p>
       </div>
-      <p style={{ marginTop: 10, color: '#877b67', fontSize: 11, fontFamily: mono }}>
+      <p style={{ marginTop: 10, color: 'var(--ink-faint)', fontSize: 11, fontFamily: mono }}>
         Source: imp-3403-leading-order-residual-nphi-scaling.js; parent: imp-3347; refines: imp-3402.
       </p>
     </div>
@@ -7282,7 +7283,7 @@ function ResidualGapConvergenceRateViz() {
   const px = (d) => ML + ((L10(d) - xMinLog) / (xMaxLog - xMinLog)) * chartW;
   const py = (r) => H - MB - ((L10(r) - yMinLog) / (yMaxLog - yMinLog)) * chartH;
 
-  const COLS = ['#b58a2e', '#4c7a4a', '#3f6b86', '#6d55b8'];
+  const COLS = [ED.brassDeco, ED.series3, ED.series1, ED.series5];
   const DEG_VALS = [2, 4, 6, 8, 10];
 
   function fitC(residuals, p) {
@@ -7297,8 +7298,8 @@ function ResidualGapConvergenceRateViz() {
   for (let e = yMinLog; e <= yMaxLog; e++) yTicks.push(Math.pow(10, e));
 
   return (
-    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #3f6b86', background: 'rgba(63,107,134,0.04)' }}>
-      <h3 style={{ color: '#3f6b86', marginTop: 0 }}>
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid var(--series-1)', background: 'color-mix(in srgb, var(--series-1) 4%, transparent)' }}>
+      <h3 style={{ color: 'var(--series-1)', marginTop: 0 }}>
         Residual-gap convergence RATE: algebraic power-law decay, exponent p
         &asymp;{M.measured.pMin.toFixed(2)}&rarr;{M.measured.pMax.toFixed(2)} rising with s (imp-3196)
       </h3>
@@ -7313,26 +7314,26 @@ function ResidualGapConvergenceRateViz() {
         the algebraic-tail signature distinguishing a power law from an exponential.
       </p>
       <div style={{ overflowX: 'auto', marginTop: 10 }}>
-        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'rgba(214,201,178,0.25)', borderRadius: 6 }}>
+        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'color-mix(in srgb, var(--rule) 25%, transparent)', borderRadius: 6 }}>
           {yTicks.map((r) => (
             <g key={"yg" + r}>
-              <line x1={ML} y1={py(r)} x2={W - MR} y2={py(r)} stroke="#d5c9b2" strokeWidth="1" />
-              <text x={ML - 8} y={py(r) + 4} textAnchor="end" fontSize="10" fill="#877b67" fontFamily={mono}>
+              <line x1={ML} y1={py(r)} x2={W - MR} y2={py(r)} stroke={ED.rule} strokeWidth="1" />
+              <text x={ML - 8} y={py(r) + 4} textAnchor="end" fontSize="10" fill={ED.inkFaint} fontFamily={mono}>
                 {r.toExponential(0)}
               </text>
             </g>
           ))}
           {DEG_VALS.map((d) => (
             <g key={"xg" + d}>
-              <line x1={px(d)} y1={MT} x2={px(d)} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-              <text x={px(d)} y={H - MB + 16} textAnchor="middle" fontSize="11" fill="#877b67" fontFamily={mono}>{d}</text>
+              <line x1={px(d)} y1={MT} x2={px(d)} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+              <text x={px(d)} y={H - MB + 16} textAnchor="middle" fontSize="11" fill={ED.inkFaint} fontFamily={mono}>{d}</text>
             </g>
           ))}
-          <text x={(ML + W - MR) / 2} y={H - 8} textAnchor="middle" fontSize="12" fill="#877b67" fontFamily={mono}>DEG (monomial truncation degree)</text>
-          <text x={14} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="12" fill="#877b67" fontFamily={mono}
+          <text x={(ML + W - MR) / 2} y={H - 8} textAnchor="middle" fontSize="12" fill={ED.inkFaint} fontFamily={mono}>DEG (monomial truncation degree)</text>
+          <text x={14} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="12" fill={ED.inkFaint} fontFamily={mono}
             transform={"rotate(-90 14 " + Math.round((MT + H - MB) / 2) + ")"}>resid(DEG) [log scale]</text>
-          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
 
           {cells.map((cell, ci) => {
             const col = COLS[ci];
@@ -7351,7 +7352,7 @@ function ResidualGapConvergenceRateViz() {
                 <path d={dotPath} fill="none" stroke={col} strokeWidth="2" />
                 {cell.sweep.map((row) => (
                   <circle key={"pt" + row.degree} cx={px(row.degree)} cy={py(row.residual)} r={4.5}
-                    fill={col} stroke="#f6f1e7" strokeWidth="1.5">
+                    fill={col} stroke={ED.paper2} strokeWidth="1.5">
                     <title>{"s=" + cell.s + "  DEG=" + row.degree + "  resid=" + row.residual.toExponential(3)}</title>
                   </circle>
                 ))}
@@ -7369,7 +7370,7 @@ function ResidualGapConvergenceRateViz() {
       <div style={{ overflowX: 'auto', marginTop: 12 }}>
         <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 12 }}>
           <thead>
-            <tr style={{ borderBottom: '1px solid #d5c9b2', color: '#877b67', textAlign: 'left' }}>
+            <tr style={{ borderBottom: '1px solid var(--rule)', color: 'var(--ink-faint)', textAlign: 'left' }}>
               <th style={{ padding: '6px 8px', fontFamily: mono }}>s = a&middot;U</th>
               <th style={{ padding: '6px 8px', fontFamily: mono }}>Exponent p</th>
               <th style={{ padding: '6px 8px', fontFamily: mono }}>Alg. R<sup>2</sup></th>
@@ -7379,37 +7380,37 @@ function ResidualGapConvergenceRateViz() {
           </thead>
           <tbody>
             {cells.map((cell, ci) => (
-              <tr key={"tr" + ci} style={{ borderBottom: '1px solid #d5c9b2' }}>
+              <tr key={"tr" + ci} style={{ borderBottom: '1px solid var(--rule)' }}>
                 <td style={{ padding: '6px 8px', color: COLS[ci], fontFamily: mono, fontWeight: 700 }}>
                   {cell.s.toFixed(1)}
                 </td>
-                <td style={{ padding: '6px 8px', color: '#1c1814', fontFamily: mono }}>
+                <td style={{ padding: '6px 8px', color: 'var(--ink)', fontFamily: mono }}>
                   {cell.algebraicExponentP.toFixed(3)}
                 </td>
-                <td style={{ padding: '6px 8px', color: '#4c7a4a', fontFamily: mono }}>
+                <td style={{ padding: '6px 8px', color: 'var(--series-3)', fontFamily: mono }}>
                   {cell.algebraicR2.toFixed(4)}
                 </td>
-                <td style={{ padding: '6px 8px', color: '#877b67', fontFamily: mono }}>
+                <td style={{ padding: '6px 8px', color: 'var(--ink-faint)', fontFamily: mono }}>
                   {cell.geometricR2.toFixed(4)}
                 </td>
-                <td style={{ padding: '6px 8px', color: '#4c7a4a', fontFamily: mono }}>ALGEBRAIC</td>
+                <td style={{ padding: '6px 8px', color: 'var(--series-3)', fontFamily: mono }}>ALGEBRAIC</td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
 
-      <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 6, background: 'rgba(135,123,103,0.06)', border: '1px solid rgba(135,123,103,0.25)' }}>
-        <div style={{ fontSize: 11, fontWeight: 700, color: '#877b67', letterSpacing: '0.06em', marginBottom: 4 }}>
+      <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 6, background: 'color-mix(in srgb, var(--ink-faint) 6%, transparent)', border: '1px solid color-mix(in srgb, var(--rule) 25%, transparent)' }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--ink-faint)', letterSpacing: '0.06em', marginBottom: 4 }}>
           REPRESENTATIVE / DIAGNOSTIC &mdash; CARRIES NO RH VERDICT
         </div>
-        <p style={{ color: '#877b67', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
+        <p style={{ color: 'var(--ink-faint)', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
           Empirical least-squares rate over DEG in &#123;2,4,6,8,10&#125; inside the imp-3104 numerically-trustworthy
           range; NOT a proved asymptotic order. The off-diagonal endpoint-Hankel operator step (imp-3066)
           remains the lone obstruction and is untouched.
         </p>
       </div>
-      <p style={{ marginTop: 10, color: '#877b67', fontSize: 11, fontFamily: mono }}>
+      <p style={{ marginTop: 10, color: 'var(--ink-faint)', fontSize: 11, fontFamily: mono }}>
         Source: imp-3196-residual-gap-convergence-rate.js &mdash; a=0.5, U=2s, NQ=4000,
         DEG&isin;&#123;2,4,6,8,10&#125;, cells: s&isin;&#123;0.8,1.2,2.0,3.0&#125;.
       </p>
@@ -7445,8 +7446,8 @@ function ResidualExponentSLimitViz() {
   const sTicks = [0, 1, 2, 3, 4, 5, 6];
 
   return (
-    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #c23a1c', background: 'rgba(194,58,28,0.04)' }}>
-      <h3 style={{ color: '#c23a1c', marginTop: 0 }}>
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid var(--accent)', background: 'color-mix(in srgb, var(--series-2) 4%, transparent)' }}>
+      <h3 style={{ color: 'var(--accent)', marginTop: 0 }}>
         Exponent p(s) rises past 2 &mdash; NO saturation to 2 within reach (imp-3217)
       </h3>
       <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75 }}>
@@ -7458,49 +7459,49 @@ function ResidualExponentSLimitViz() {
         asymptote sits BELOW the measured p<sub>max</sub>. So the natural p&nbsp;&rarr;&nbsp;2 conjecture is REFUTED as a ceiling.
       </p>
       <div style={{ overflowX: 'auto', marginTop: 10 }}>
-        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'rgba(214,201,178,0.25)', borderRadius: 6 }}>
+        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'color-mix(in srgb, var(--rule) 25%, transparent)', borderRadius: 6 }}>
           {pTicks.map((p) => (
             <g key={"pg" + p}>
-              <line x1={ML} y1={py(p)} x2={W - MR} y2={py(p)} stroke={p === 2.0 ? '#c23a1c' : '#d5c9b2'} strokeWidth={p === 2.0 ? 1.2 : 1} strokeDasharray={p === 2.0 ? '4 3' : undefined} />
-              <text x={ML - 8} y={py(p) + 4} textAnchor="end" fontSize="10" fill={p === 2.0 ? '#c23a1c' : '#877b67'} fontFamily={mono}>{p.toFixed(1)}</text>
+              <line x1={ML} y1={py(p)} x2={W - MR} y2={py(p)} stroke={p === 2.0 ? ED.accent : ED.rule} strokeWidth={p === 2.0 ? 1.2 : 1} strokeDasharray={p === 2.0 ? '4 3' : undefined} />
+              <text x={ML - 8} y={py(p) + 4} textAnchor="end" fontSize="10" fill={p === 2.0 ? ED.accent : ED.inkFaint} fontFamily={mono}>{p.toFixed(1)}</text>
             </g>
           ))}
           {sTicks.map((s) => (
             <g key={"sg" + s}>
-              <line x1={px(s)} y1={MT} x2={px(s)} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-              <text x={px(s)} y={H - MB + 16} textAnchor="middle" fontSize="11" fill="#877b67" fontFamily={mono}>{s}</text>
+              <line x1={px(s)} y1={MT} x2={px(s)} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+              <text x={px(s)} y={H - MB + 16} textAnchor="middle" fontSize="11" fill={ED.inkFaint} fontFamily={mono}>{s}</text>
             </g>
           ))}
-          <text x={(ML + W - MR) / 2} y={H - 6} textAnchor="middle" fontSize="12" fill="#877b67" fontFamily={mono}>s = a&middot;U</text>
-          <text x={13} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="12" fill="#877b67" fontFamily={mono}
+          <text x={(ML + W - MR) / 2} y={H - 6} textAnchor="middle" fontSize="12" fill={ED.inkFaint} fontFamily={mono}>s = a&middot;U</text>
+          <text x={13} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="12" fill={ED.inkFaint} fontFamily={mono}
             transform={"rotate(-90 13 " + Math.round((MT + H - MB) / 2) + ")"}>fitted exponent p</text>
-          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
-          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#d5c9b2" strokeWidth="1" />
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke={ED.rule} strokeWidth="1" />
 
-          <path d={satPath} fill="none" stroke="#877b67" strokeWidth="1.4" strokeDasharray="3 3" opacity={0.7} />
-          <path d={risingPath} fill="none" stroke="#3f6b86" strokeWidth="1.4" strokeDasharray="6 3" opacity={0.8} />
-          <path d={dataPath} fill="none" stroke="#c23a1c" strokeWidth="2" />
+          <path d={satPath} fill="none" stroke={ED.rule} strokeWidth="1.4" strokeDasharray="3 3" opacity={0.7} />
+          <path d={risingPath} fill="none" stroke={ED.series1} strokeWidth="1.4" strokeDasharray="6 3" opacity={0.8} />
+          <path d={dataPath} fill="none" stroke={ED.accent} strokeWidth="2" />
           {sVals.map((s, i) => (
-            <circle key={"pt" + i} cx={px(s)} cy={py(pVals[i])} r={4.5} fill="#c23a1c" stroke="#f6f1e7" strokeWidth="1.5">
+            <circle key={"pt" + i} cx={px(s)} cy={py(pVals[i])} r={4.5} fill={ED.series2} stroke={ED.paper2} strokeWidth="1.5">
               <title>{"s=" + s + "  p=" + pVals[i].toFixed(4)}</title>
             </circle>
           ))}
           <g>
-            <line x1={ML + 14} y1={MT + 8} x2={ML + 32} y2={MT + 8} stroke="#c23a1c" strokeWidth="2.5" />
-            <text x={ML + 38} y={MT + 12} fontSize="10" fill="#c23a1c" fontFamily={mono}>measured p(s)</text>
-            <line x1={ML + 14} y1={MT + 24} x2={ML + 32} y2={MT + 24} stroke="#3f6b86" strokeWidth="2" strokeDasharray="6 3" />
-            <text x={ML + 38} y={MT + 28} fontSize="10" fill="#3f6b86" fontFamily={mono}>rising &alpha;+&beta;s (R²={rf.r2.toFixed(3)})</text>
-            <line x1={ML + 14} y1={MT + 40} x2={ML + 32} y2={MT + 40} stroke="#877b67" strokeWidth="2" strokeDasharray="3 3" />
-            <text x={ML + 38} y={MT + 44} fontSize="10" fill="#877b67" fontFamily={mono}>saturating A&minus;B/s (R²={sf.r2.toFixed(3)})</text>
+            <line x1={ML + 14} y1={MT + 8} x2={ML + 32} y2={MT + 8} stroke={ED.accent} strokeWidth="2.5" />
+            <text x={ML + 38} y={MT + 12} fontSize="10" fill={ED.accent} fontFamily={mono}>measured p(s)</text>
+            <line x1={ML + 14} y1={MT + 24} x2={ML + 32} y2={MT + 24} stroke={ED.series1} strokeWidth="2" strokeDasharray="6 3" />
+            <text x={ML + 38} y={MT + 28} fontSize="10" fill={ED.series1} fontFamily={mono}>rising &alpha;+&beta;s (R²={rf.r2.toFixed(3)})</text>
+            <line x1={ML + 14} y1={MT + 40} x2={ML + 32} y2={MT + 40} stroke={ED.rule} strokeWidth="2" strokeDasharray="3 3" />
+            <text x={ML + 38} y={MT + 44} fontSize="10" fill={ED.inkFaint} fontFamily={mono}>saturating A&minus;B/s (R²={sf.r2.toFixed(3)})</text>
           </g>
         </svg>
       </div>
 
-      <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 6, background: 'rgba(135,123,103,0.06)', border: '1px solid rgba(135,123,103,0.25)' }}>
-        <div style={{ fontSize: 11, fontWeight: 700, color: '#877b67', letterSpacing: '0.06em', marginBottom: 4 }}>
+      <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 6, background: 'color-mix(in srgb, var(--ink-faint) 6%, transparent)', border: '1px solid color-mix(in srgb, var(--rule) 25%, transparent)' }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--ink-faint)', letterSpacing: '0.06em', marginBottom: 4 }}>
           REPRESENTATIVE / DIAGNOSTIC &mdash; CARRIES NO RH VERDICT
         </div>
-        <p style={{ color: '#877b67', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
+        <p style={{ color: 'var(--ink-faint)', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
           Empirical least-squares exponent trend over DEG in &#123;2,4,6,8,10&#125; inside the imp-3104
           numerically-trustworthy range; the s&nbsp;=&nbsp;4,&nbsp;6 cells sit near the resolution floor and are
           corroborating-only. The s&nbsp;&rarr;&nbsp;&infin; limit is UNRESOLVED &mdash; past s&nbsp;&asymp;&nbsp;6, G(s)&nbsp;&rarr;&nbsp;0
@@ -7509,15 +7510,15 @@ function ResidualExponentSLimitViz() {
           step (imp-3066) remains the lone obstruction and is untouched.
         </p>
       </div>
-      <p style={{ marginTop: 10, color: '#877b67', fontSize: 11, fontFamily: mono }}>
+      <p style={{ marginTop: 10, color: 'var(--ink-faint)', fontSize: 11, fontFamily: mono }}>
         Source: imp-3217-residual-exponent-s-limit.js &mdash; a=0.5, U=2s, NQ=4000,
         DEG&isin;&#123;2,4,6,8,10&#125;, cells: s&isin;&#123;0.8,1.2,1.6,2.0,3.0,4.0,6.0&#125;.
       </p>
-      <div style={{ marginTop: 8, padding: '8px 12px', borderRadius: 6, background: 'rgba(135,123,103,0.06)', border: '1px dashed rgba(135,123,103,0.3)' }}>
-        <div style={{ fontSize: 10, fontWeight: 700, color: '#877b67', letterSpacing: '0.06em', marginBottom: 4 }}>
+      <div style={{ marginTop: 8, padding: '8px 12px', borderRadius: 6, background: 'color-mix(in srgb, var(--ink-faint) 6%, transparent)', border: '1px dashed color-mix(in srgb, var(--rule) 30%, transparent)' }}>
+        <div style={{ fontSize: 10, fontWeight: 700, color: 'var(--ink-faint)', letterSpacing: '0.06em', marginBottom: 4 }}>
           WHAT REMAINS
         </div>
-        <p style={{ color: '#877b67', fontSize: 11, lineHeight: 1.6, margin: 0 }}>
+        <p style={{ color: 'var(--ink-faint)', fontSize: 11, lineHeight: 1.6, margin: 0 }}>
           {M.whatRemains.finiteLimitBeyondDoublePrecision} {M.whatRemains.extendedPrecisionFollowUp}
         </p>
       </div>
@@ -7534,7 +7535,7 @@ export default function ClosureRoutesPage() {
         <p className="page-subtitle" style={{ fontFamily: mono, color: 'var(--text-secondary)' }}>
           {R.title} — {R.paperRef}
         </p>
-        <p style={{ marginTop: 6, color: '#877b67', fontFamily: mono, fontSize: 11 }}>
+        <p style={{ marginTop: 6, color: 'var(--ink-faint)', fontFamily: mono, fontSize: 11 }}>
           Historic app-mapping source: {R.historicalPaperRef}
         </p>
       </div>
@@ -7554,7 +7555,7 @@ export default function ClosureRoutesPage() {
 
       {/* ─── Intro ─── */}
       <div className="card" style={{ marginTop: 12 }}>
-        <h3 style={{ color: '#3f6b86', marginBottom: 8 }}>The closure problem</h3>
+        <h3 style={{ color: 'var(--series-1)', marginBottom: 8 }}>The closure problem</h3>
         <p style={{ color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.75 }}>
           The shifted-bridge threshold theorem of §15 converts the informal
           "no-ghost" principle into a precise gap statement: the bridge thickness
@@ -7566,7 +7567,7 @@ export default function ClosureRoutesPage() {
           <BlockMath tex={R.setup.thresholdTheoremLaTeX} />
         </div>
         <p style={{ marginTop: 12, color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.75 }}>
-          Section 16 records <strong style={{ color: '#b58a2e' }}>four natural routes</strong> for
+          Section 16 records <strong style={{ color: 'var(--brass)' }}>four natural routes</strong> for
           closing this gap. They look different — Schur contractivity, de Branges
           positivity, hidden-square factorization, Weil / twin-ladder norm-square
           — but Theorem 16.1 proves they are <em>mathematically the same final
@@ -7577,7 +7578,7 @@ export default function ClosureRoutesPage() {
 
       {/* ─── Setup definitions ─── */}
       <div className="card" style={{ marginTop: 16 }}>
-        <h3 style={{ color: '#3f6b86', marginBottom: 8 }}>Setup</h3>
+        <h3 style={{ color: 'var(--series-1)', marginBottom: 8 }}>Setup</h3>
         <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.7 }}>
           Centered completed function and bridge thickness:
         </p>
@@ -7602,7 +7603,7 @@ export default function ClosureRoutesPage() {
 
       {/* ─── Equivalence diagram ─── */}
       <div className="card" style={{ marginTop: 16 }}>
-        <h3 style={{ color: '#6d55b8', marginBottom: 8 }}>
+        <h3 style={{ color: 'var(--series-5)', marginBottom: 8 }}>
           {R.equivalenceTheoremName}
         </h3>
         <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.7, marginBottom: 16 }}>
@@ -7612,14 +7613,14 @@ export default function ClosureRoutesPage() {
           at the centre.
         </p>
         <EquivalenceDiagram />
-        <p style={{ marginTop: 16, color: '#877b67', fontSize: 12, lineHeight: 1.7 }}>
-          <strong style={{ color: '#4a4238' }}>Proof sketch. </strong>
+        <p style={{ marginTop: 16, color: 'var(--ink-faint)', fontSize: 12, lineHeight: 1.7 }}>
+          <strong style={{ color: 'var(--ink-soft)' }}>Proof sketch. </strong>
           {R.equivalenceProofSketch}
         </p>
       </div>
 
       {/* ─── Per-route cards ─── */}
-      <h2 style={{ marginTop: 28, color: '#1c1814', fontSize: 22, fontFamily: mono }}>
+      <h2 style={{ marginTop: 28, color: 'var(--ink)', fontSize: 22, fontFamily: mono }}>
         The four routes
       </h2>
       <AnimationEmbed id="closure-routes" />
@@ -7628,18 +7629,18 @@ export default function ClosureRoutesPage() {
       ))}
 
       {/* ─── Shared bottleneck ─── */}
-      <h2 style={{ marginTop: 28, color: '#1c1814', fontSize: 22, fontFamily: mono }}>
+      <h2 style={{ marginTop: 28, color: 'var(--ink)', fontSize: 22, fontFamily: mono }}>
         The shared bottleneck (§16.6)
       </h2>
       <div
         className="card"
         style={{
           marginTop: 16,
-          borderLeft: '4px solid #c23a1c',
-          background: 'rgba(194,58,28,0.04)',
+          borderLeft: '4px solid var(--accent)',
+          background: 'color-mix(in srgb, var(--series-2) 4%, transparent)',
         }}
       >
-        <h3 style={{ color: '#c23a1c' }}>{R.sharedBottleneck.title}</h3>
+        <h3 style={{ color: 'var(--accent)' }}>{R.sharedBottleneck.title}</h3>
         <p style={{ marginTop: 10, color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.75 }}>
           {R.sharedBottleneck.statement}
         </p>
@@ -7652,7 +7653,7 @@ export default function ClosureRoutesPage() {
           />
         </div>
 
-        <h3 style={{ color: '#b58a2e', marginTop: 18, fontSize: 16 }}>
+        <h3 style={{ color: 'var(--brass)', marginTop: 18, fontSize: 16 }}>
           Godelian witness principle
         </h3>
         <p style={{ marginTop: 8, color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75 }}>
@@ -7662,30 +7663,30 @@ export default function ClosureRoutesPage() {
           <BlockMath tex={'z_\\rho(a) := -\\gamma + i(\\delta - a) \\in \\mathbb{C}_+, \\qquad E_a(z_\\rho(a)) = 0'} />
         </div>
 
-        <p style={{ marginTop: 12, color: '#877b67', fontSize: 12, lineHeight: 1.7 }}>
+        <p style={{ marginTop: 12, color: 'var(--ink-faint)', fontSize: 12, lineHeight: 1.7 }}>
           <em>{R.sharedBottleneck.why}</em>
         </p>
       </div>
 
       {/* ─── imp-3007: Scalar cover vs. operator positivity ─── */}
-      <h2 style={{ marginTop: 28, color: '#1c1814', fontSize: 22, fontFamily: mono }}>
+      <h2 style={{ marginTop: 28, color: 'var(--ink)', fontSize: 22, fontFamily: mono }}>
         Scalar Cover vs. Operator Positivity (imp-3007)
       </h2>
       <div
         className="card"
         style={{
           marginTop: 16,
-          borderLeft: '4px solid #b58a2e',
-          background: 'rgba(181,138,46,0.04)',
+          borderLeft: '4px solid var(--brass-deco)',
+          background: 'color-mix(in srgb, var(--brass-deco) 4%, transparent)',
         }}
       >
-        <h3 style={{ color: '#b58a2e', marginTop: 0 }}>What the mu-pass cover does — and what it leaves open</h3>
+        <h3 style={{ color: 'var(--brass)', marginTop: 0 }}>What the mu-pass cover does — and what it leaves open</h3>
         <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75 }}>
           The endpoint-bridge cosh-completion{' '}
-          <span style={{ fontFamily: mono, color: '#b58a2e' }}>w&#x207F;&#x1D552;&#x1D557;&#x1D560;(&#x03C4;) = cosh(a&#x03C4;)</span>{' '}
+          <span style={{ fontFamily: mono, color: 'var(--brass)' }}>w&#x207F;&#x1D552;&#x1D557;&#x1D560;(&#x03C4;) = cosh(a&#x03C4;)</span>{' '}
           (imp-2686) is a <em>scalar</em> (pointwise, lag-symbol) weight. Re-evaluating the
           degree-0 deficit functional from imp-2841 at this weight gives post-bridge residual
-          deficit <strong style={{ color: '#4c7a4a' }}>exactly 0</strong> — the bridge covers
+          deficit <strong style={{ color: 'var(--series-3)' }}>exactly 0</strong> — the bridge covers
           100% of the raw "~64% of lag" overflow on the whole axis [0, U]. This is a genuine,
           RH-equivalent closure step in the degree-0 (scale-invariant) measure.
         </p>
@@ -7694,11 +7695,11 @@ export default function ClosureRoutesPage() {
             margin: '14px 0',
             padding: '10px 14px',
             borderRadius: 6,
-            background: 'rgba(76,122,74,0.07)',
-            border: '1px solid rgba(76,122,74,0.3)',
+            background: 'color-mix(in srgb, var(--series-3) 7%, transparent)',
+            border: '1px solid color-mix(in srgb, var(--series-3) 30%, transparent)',
             fontFamily: mono,
             fontSize: 12.5,
-            color: '#4c7a4a',
+            color: 'var(--series-3)',
           }}
         >
           D_pass(a) = &#x222B;&#x2080;&#x1D41C; max(0, sinh(a&#x03C4;) &#x2212; cosh(a&#x03C4;)) d&#x03C4; = 0&nbsp;&nbsp;(exact)
@@ -7709,14 +7710,14 @@ export default function ClosureRoutesPage() {
             margin: '14px 0',
             padding: '10px 14px',
             borderRadius: 6,
-            background: 'rgba(194,58,28,0.07)',
-            border: '1px solid rgba(194,58,28,0.3)',
+            background: 'color-mix(in srgb, var(--series-2) 7%, transparent)',
+            border: '1px solid color-mix(in srgb, var(--accent) 30%, transparent)',
           }}
         >
-          <div style={{ fontSize: 11, fontWeight: 700, color: '#c23a1c', letterSpacing: '0.06em', marginBottom: 6 }}>
+          <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--accent)', letterSpacing: '0.06em', marginBottom: 6 }}>
             NECESSARY BUT NOT SUFFICIENT
           </div>
-          <p style={{ color: '#4a4238', fontSize: 13, lineHeight: 1.7, margin: 0 }}>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.7, margin: 0 }}>
             Pointwise weight domination{' '}
             <span style={{ fontFamily: mono }}>w&#x207F;&#x1D552;&#x1D557;&#x1D560; &ge; &#x03BD;</span>{' '}
             controls only the <em>diagonal</em> of the §26 Gram comparison. The RH-equivalent
@@ -7726,7 +7727,7 @@ export default function ClosureRoutesPage() {
             to satisfy &#x2016;R&#x2016; &le; 1. The shear Gram G&#x209B;&#x2095;&#x2091;&#x2090;&#x1D63 is an
             off-diagonal <strong>endpoint-Hankel form</strong>; its cross-terms are not bounded
             by scalar weight domination. The scalar cover is therefore a{' '}
-            <strong style={{ color: '#b58a2e' }}>necessary step</strong>, but the off-diagonal
+            <strong style={{ color: 'var(--brass)' }}>necessary step</strong>, but the off-diagonal
             endpoint-Hankel cross-terms — the one remaining obstruction — are precisely the
             RH-hard content.
           </p>
@@ -7737,20 +7738,20 @@ export default function ClosureRoutesPage() {
             margin: '10px 0 8px',
             padding: '9px 14px',
             borderRadius: 6,
-            background: 'rgba(181,138,46,0.06)',
-            border: '1px solid rgba(181,138,46,0.28)',
+            background: 'color-mix(in srgb, var(--brass-deco) 6%, transparent)',
+            border: '1px solid color-mix(in srgb, var(--brass-deco) 28%, transparent)',
             fontSize: 12,
-            color: '#877b67',
+            color: 'var(--ink-faint)',
             lineHeight: 1.7,
           }}
         >
-          <div style={{ color: '#b58a2e', fontWeight: 700, fontSize: 11, letterSpacing: '0.05em', marginBottom: 5 }}>
+          <div style={{ color: 'var(--brass)', fontWeight: 700, fontSize: 11, letterSpacing: '0.05em', marginBottom: 5 }}>
             STATUS (imp-3144): NECESSARY &ne; SUFFICIENT
           </div>
           The imp-3007 degree-0 scalar overflow cover drives the residual deficit to exactly 0
           (residual-0, necessary). However, the section26-mupass operator audit (imp-3144) measured
           the genuine deg-2 occupation deficit at{' '}
-          <span style={{ fontFamily: mono, color: '#b58a2e' }}>9.28e-9</span>{' '}
+          <span style={{ fontFamily: mono, color: 'var(--brass)' }}>9.28e-9</span>{' '}
           (overflow on 19.4% of tau — a coarse-grid N=200 snapshot; the resolution-converged genuine
           fraction is ~0.209 per imp-3175, not 0.194) — a tiny but strictly nonzero value that scalar domination
           never eliminates. This confirms the scalar cover is <em>not sufficient</em>: the
@@ -7758,54 +7759,54 @@ export default function ClosureRoutesPage() {
           (K&#x2090;&thinsp;&#x2265;&thinsp;0, RH-equivalent, untouched).
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10, marginTop: 4 }}>
-          <div style={{ padding: '8px 12px', borderRadius: 5, background: 'rgba(76,122,74,0.06)', border: '1px solid rgba(76,122,74,0.2)', fontSize: 12, color: '#877b67', lineHeight: 1.6 }}>
-            <div style={{ color: '#4c7a4a', fontWeight: 700, marginBottom: 3 }}>CLOSED (scalar step)</div>
+          <div style={{ padding: '8px 12px', borderRadius: 5, background: 'color-mix(in srgb, var(--series-3) 6%, transparent)', border: '1px solid color-mix(in srgb, var(--series-3) 20%, transparent)', fontSize: 12, color: 'var(--ink-faint)', lineHeight: 1.6 }}>
+            <div style={{ color: 'var(--series-3)', fontWeight: 700, marginBottom: 3 }}>CLOSED (scalar step)</div>
             Degree-0 overflow cover complete. Residual deficit = 0. Covers 100% of the raw
             64%-class overflow. Scalar cover is DONE.
           </div>
-          <div style={{ padding: '8px 12px', borderRadius: 5, background: 'rgba(194,58,28,0.06)', border: '1px solid rgba(194,58,28,0.2)', fontSize: 12, color: '#877b67', lineHeight: 1.6 }}>
-            <div style={{ color: '#c23a1c', fontWeight: 700, marginBottom: 3 }}>OPEN (operator step)</div>
+          <div style={{ padding: '8px 12px', borderRadius: 5, background: 'color-mix(in srgb, var(--series-2) 6%, transparent)', border: '1px solid color-mix(in srgb, var(--accent) 20%, transparent)', fontSize: 12, color: 'var(--ink-faint)', lineHeight: 1.6 }}>
+            <div style={{ color: 'var(--accent)', fontWeight: 700, marginBottom: 3 }}>OPEN (operator step)</div>
             Off-diagonal endpoint-Hankel cross-terms still need bounding. Scalar domination
             does not reach here. This is the lone remaining obstruction — and the RH-hard part.
           </div>
         </div>
         {/* imp-3208: MASS-FEASIBILITY table */}
         <div style={{ marginTop: 12, marginBottom: 4 }}>
-          <div style={{ fontSize: 11, fontWeight: 700, color: '#6d55b8', letterSpacing: '0.05em', marginBottom: 6 }}>
+          <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--series-5)', letterSpacing: '0.05em', marginBottom: 6 }}>
             MASS-FEASIBILITY (imp-3144 / imp-3208): deficit sits 2400&ndash;20000&times; below available budget
           </div>
           <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 11.5 }}>
             <thead>
-              <tr style={{ borderBottom: '1px solid #d5c9b2', color: '#877b67', textAlign: 'left' }}>
+              <tr style={{ borderBottom: '1px solid var(--rule)', color: 'var(--ink-faint)', textAlign: 'left' }}>
                 <th style={{ padding: '4px 8px' }}>Degree / Measure</th>
-                <th style={{ padding: '4px 8px', color: '#c23a1c' }}>Deficit</th>
-                <th style={{ padding: '4px 8px', color: '#4c7a4a' }}>Budget</th>
-                <th style={{ padding: '4px 8px', color: '#b58a2e' }}>Ratio (Budget/Deficit)</th>
+                <th style={{ padding: '4px 8px', color: 'var(--accent)' }}>Deficit</th>
+                <th style={{ padding: '4px 8px', color: 'var(--series-3)' }}>Budget</th>
+                <th style={{ padding: '4px 8px', color: 'var(--brass)' }}>Ratio (Budget/Deficit)</th>
               </tr>
             </thead>
             <tbody>
-              <tr style={{ borderBottom: '1px solid #d5c9b2' }}>
-                <td style={{ padding: '4px 8px', color: '#4a4238' }}>deg-2 vs L1 off-diagonal</td>
-                <td style={{ padding: '4px 8px', color: '#c23a1c', fontFamily: mono }}>9.28e-9</td>
-                <td style={{ padding: '4px 8px', color: '#4c7a4a', fontFamily: mono }}>2.26e-5</td>
-                <td style={{ padding: '4px 8px', color: '#b58a2e' }}>~2400&times;</td>
+              <tr style={{ borderBottom: '1px solid var(--rule)' }}>
+                <td style={{ padding: '4px 8px', color: 'var(--ink-soft)' }}>deg-2 vs L1 off-diagonal</td>
+                <td style={{ padding: '4px 8px', color: 'var(--accent)', fontFamily: mono }}>9.28e-9</td>
+                <td style={{ padding: '4px 8px', color: 'var(--series-3)', fontFamily: mono }}>2.26e-5</td>
+                <td style={{ padding: '4px 8px', color: 'var(--brass)' }}>~2400&times;</td>
               </tr>
-              <tr style={{ borderBottom: '1px solid #d5c9b2' }}>
-                <td style={{ padding: '4px 8px', color: '#4a4238' }}>deg-2 vs &#x2016;V&#x2016;<sub>HS</sub></td>
-                <td style={{ padding: '4px 8px', color: '#c23a1c', fontFamily: mono }}>9.28e-9</td>
-                <td style={{ padding: '4px 8px', color: '#4c7a4a', fontFamily: mono }}>{IMP3256_VHS_CROSSVAL.convergedValue_h_to_zero.toExponential(4)}</td>
-                <td style={{ padding: '4px 8px', color: '#b58a2e' }}>~20000&times;</td>
+              <tr style={{ borderBottom: '1px solid var(--rule)' }}>
+                <td style={{ padding: '4px 8px', color: 'var(--ink-soft)' }}>deg-2 vs &#x2016;V&#x2016;<sub>HS</sub></td>
+                <td style={{ padding: '4px 8px', color: 'var(--accent)', fontFamily: mono }}>9.28e-9</td>
+                <td style={{ padding: '4px 8px', color: 'var(--series-3)', fontFamily: mono }}>{IMP3256_VHS_CROSSVAL.convergedValue_h_to_zero.toExponential(4)}</td>
+                <td style={{ padding: '4px 8px', color: 'var(--brass)' }}>~20000&times;</td>
               </tr>
               <tr>
-                <td style={{ padding: '4px 8px', color: '#4a4238' }}>deg-0 cosh-completion B vs D&#x2080;</td>
-                <td style={{ padding: '4px 8px', color: '#c23a1c', fontFamily: mono }}>D&#x2080; = 13.07</td>
-                <td style={{ padding: '4px 8px', color: '#4c7a4a', fontFamily: mono }}>B = 14.04</td>
-                <td style={{ padding: '4px 8px', color: '#b58a2e' }}>B/D = 1.074</td>
+                <td style={{ padding: '4px 8px', color: 'var(--ink-soft)' }}>deg-0 cosh-completion B vs D&#x2080;</td>
+                <td style={{ padding: '4px 8px', color: 'var(--accent)', fontFamily: mono }}>D&#x2080; = 13.07</td>
+                <td style={{ padding: '4px 8px', color: 'var(--series-3)', fontFamily: mono }}>B = 14.04</td>
+                <td style={{ padding: '4px 8px', color: 'var(--brass)' }}>B/D = 1.074</td>
               </tr>
             </tbody>
           </table>
-          <div style={{ marginTop: 7, padding: '6px 10px', borderRadius: 4, background: 'rgba(194,58,28,0.07)', border: '1px solid rgba(194,58,28,0.22)', fontSize: 11.5, color: '#877b67', lineHeight: 1.65 }}>
-            <strong style={{ color: '#c23a1c' }}>Note:</strong>{' '}
+          <div style={{ marginTop: 7, padding: '6px 10px', borderRadius: 4, background: 'color-mix(in srgb, var(--series-2) 7%, transparent)', border: '1px solid color-mix(in srgb, var(--accent) 22%, transparent)', fontSize: 11.5, color: 'var(--ink-faint)', lineHeight: 1.65 }}>
+            <strong style={{ color: 'var(--accent)' }}>Note:</strong>{' '}
             Mass-feasibility rules out the impossibility option but does <strong>not</strong> close the
             operator-level K&#x2090;&thinsp;&#x2265;&thinsp;0 residual. The budget proxy &#x2016;V&#x2016;<sub>HS</sub> is
             itself the RH-equivalent quantity; the deg-0 B/D comparison is additionally circular.
@@ -7814,12 +7815,12 @@ export default function ClosureRoutesPage() {
             second independent measurement corroborating the verdict.
           </div>
           {/* imp-3234: normalization-convention reconciliation note */}
-          <div style={{ marginTop: 7, padding: '6px 10px', borderRadius: 4, background: 'rgba(181,138,46,0.06)', border: '1px solid rgba(181,138,46,0.22)', fontSize: 11, color: '#877b67', lineHeight: 1.65 }}>
-            <strong style={{ color: '#b58a2e' }}>Normalization note (imp-3234):</strong>{' '}
+          <div style={{ marginTop: 7, padding: '6px 10px', borderRadius: 4, background: 'color-mix(in srgb, var(--brass-deco) 6%, transparent)', border: '1px solid color-mix(in srgb, var(--brass-deco) 22%, transparent)', fontSize: 11, color: 'var(--ink-faint)', lineHeight: 1.65 }}>
+            <strong style={{ color: 'var(--brass)' }}>Normalization note (imp-3234):</strong>{' '}
             The imp-3154 diagnostic sweep records a genuine deg-2 deficit of{' '}
-            <span style={{ fontFamily: mono, color: '#b58a2e' }}>~1.19e-7</span>{' '}
+            <span style={{ fontFamily: mono, color: 'var(--brass)' }}>~1.19e-7</span>{' '}
             (at N=200) vs the section26 / imp-3144 recorded{' '}
-            <span style={{ fontFamily: mono, color: '#b58a2e' }}>9.28e-9</span>{' '}
+            <span style={{ fontFamily: mono, color: 'var(--brass)' }}>9.28e-9</span>{' '}
             above. Both measure the same occupation deficit with the same sign and order of magnitude
             — they differ <strong>only</strong> by the offline occupation-density normalization
             convention (imp-3154 uses shear = full past-future Phi factor; section26 uses the
@@ -7827,21 +7828,21 @@ export default function ClosureRoutesPage() {
             ~13x ratio is the imp-3218-derived connecting factor R&#x2009;&#x2248;&#x2009;4&pi;, with the
             1/2&pi; shear/passive normalization asymmetry named as the dominant source (see below) —
             not an unexplained computational disagreement.
-            <div style={{ marginTop: 5, paddingTop: 5, borderTop: '1px solid rgba(181,138,46,0.18)' }}>
-              <strong style={{ color: '#b58a2e' }}>Derived (imp-3218):</strong>{' '}
+            <div style={{ marginTop: 5, paddingTop: 5, borderTop: '1px solid color-mix(in srgb, var(--brass-deco) 18%, transparent)' }}>
+              <strong style={{ color: 'var(--brass)' }}>Derived (imp-3218):</strong>{' '}
               the connecting factor is{' '}
-              <span style={{ fontFamily: mono, color: '#b58a2e' }}>
+              <span style={{ fontFamily: mono, color: 'var(--brass)' }}>
                 R = {IMP3218_DEG2_DEFICIT_NORMALIZATION_FACTOR.measured.connectingFactorR.toFixed(4)}
               </span>
               , within{' '}
-              <span style={{ fontFamily: mono, color: '#b58a2e' }}>
+              <span style={{ fontFamily: mono, color: 'var(--brass)' }}>
                 {(IMP3218_DEG2_DEFICIT_NORMALIZATION_FACTOR.measured.fourPiRelativeResidual * 100).toFixed(2)}%
               </span>{' '}
               of{' '}
-              <span style={{ fontFamily: mono, color: '#b58a2e' }}>4&pi; = {IMP3218_DEG2_DEFICIT_NORMALIZATION_FACTOR.measured.fourPi.toFixed(4)}</span>{' '}
+              <span style={{ fontFamily: mono, color: 'var(--brass)' }}>4&pi; = {IMP3218_DEG2_DEFICIT_NORMALIZATION_FACTOR.measured.fourPi.toFixed(4)}</span>{' '}
               &mdash; the symmetric 2&#xB7;(2&pi;) angular normalization from the 1/2&pi; shear/passive
               asymmetry. D<sub>3154</sub>&#x2009;/&#x2009;4&pi; ={' '}
-              <span style={{ fontFamily: mono, color: '#b58a2e' }}>
+              <span style={{ fontFamily: mono, color: 'var(--brass)' }}>
                 {IMP3218_DEG2_DEFICIT_NORMALIZATION_FACTOR.measured.fourPiReconciledMagnitude.toExponential(2)}
               </span>{' '}
               vs the recorded 9.28e-9. <strong>Same quantity to leading order and sign</strong>; the
@@ -7856,36 +7857,36 @@ export default function ClosureRoutesPage() {
             marginTop: 10,
             padding: '9px 14px',
             borderRadius: 6,
-            background: 'rgba(194,58,28,0.07)',
-            border: '1px solid rgba(194,58,28,0.28)',
+            background: 'color-mix(in srgb, var(--series-2) 7%, transparent)',
+            border: '1px solid color-mix(in srgb, var(--accent) 28%, transparent)',
             fontSize: 12,
-            color: '#877b67',
+            color: 'var(--ink-faint)',
             lineHeight: 1.7,
           }}
         >
-          <div style={{ color: '#c23a1c', fontWeight: 700, fontSize: 11, letterSpacing: '0.05em', marginBottom: 5 }}>
+          <div style={{ color: 'var(--accent)', fontWeight: 700, fontSize: 11, letterSpacing: '0.05em', marginBottom: 5 }}>
             STATUS (imp-3209): NO SCALAR/DIAGONAL CORE WORKS AT OPERATOR ORDER
           </div>
           For <strong>every</strong> scalar or diagonal passive core &mu;, the contraction ratio{' '}
-          <span style={{ fontFamily: mono, color: '#b58a2e' }}>&#x2016;R&#x2016;</span>{' '}
+          <span style={{ fontFamily: mono, color: 'var(--brass)' }}>&#x2016;R&#x2016;</span>{' '}
           <strong>grows unboundedly with resolution</strong>: the raw physical diagonal{' '}
           <span style={{ fontFamily: mono }}>m(&tau;)</span>{' '}
           gives{' '}
-          <span style={{ fontFamily: mono, color: '#c23a1c' }}>&#x2016;R&#x2016;&thinsp;&#x223C;&thinsp;34&thinsp;&rarr;&thinsp;45</span>{' '}
+          <span style={{ fontFamily: mono, color: 'var(--accent)' }}>&#x2016;R&#x2016;&thinsp;&#x223C;&thinsp;34&thinsp;&rarr;&thinsp;45</span>{' '}
           (and reaches{' '}
-          <span style={{ fontFamily: mono, color: '#c23a1c' }}>&#x223C;10<sup>272</sup></span>{' '}
+          <span style={{ fontFamily: mono, color: 'var(--accent)' }}>&#x223C;10<sup>272</sup></span>{' '}
           in a degree-100 Legendre basis — the Sec.&thinsp;27 future-tail renormalization made
           quantitative). The cosh scalar enrichment (imp-2686) is ~5% better but still{' '}
           <span style={{ fontFamily: mono }}>&#x2016;R&#x2016;&thinsp;&#x223C;&thinsp;40</span>.{' '}
           The <strong>only</strong> core attaining{' '}
-          <span style={{ fontFamily: mono, color: '#4c7a4a' }}>&#x2016;R&#x2016;&thinsp;=&thinsp;1.0000</span>{' '}
+          <span style={{ fontFamily: mono, color: 'var(--series-3)' }}>&#x2016;R&#x2016;&thinsp;=&thinsp;1.0000</span>{' '}
           is the full operator{' '}
           <span style={{ fontFamily: mono }}>G<sub>pass</sub>&thinsp;=&thinsp;|G<sub>shear</sub>|</span>,{' '}
           which reads its answer off the operator it must dominate (tautological partial isometry —
           not an independent construction). Source:{' '}
-          <span style={{ fontFamily: mono, color: '#877b67' }}>SECTION26_MUPASS_OPERATOR_VERDICT.noScalarCore</span>.
+          <span style={{ fontFamily: mono, color: 'var(--ink-faint)' }}>SECTION26_MUPASS_OPERATOR_VERDICT.noScalarCore</span>.
         </div>
-        <p style={{ marginTop: 12, color: '#877b67', fontSize: 11, fontFamily: mono }}>
+        <p style={{ marginTop: 12, color: 'var(--ink-faint)', fontSize: 11, fontFamily: mono }}>
           Source: imp-3007-mupass-overflow-cover.js &mdash; RH-EQUIVALENT; STRUCTURAL/DIAGNOSTIC; NOT a reduction.
         </p>
       </div>
@@ -7898,38 +7899,38 @@ export default function ClosureRoutesPage() {
           marginTop: 14,
           padding: '9px 14px',
           borderRadius: 6,
-          background: 'rgba(63,107,134,0.07)',
-          border: '1px solid rgba(63,107,134,0.28)',
+          background: 'color-mix(in srgb, var(--series-1) 7%, transparent)',
+          border: '1px solid color-mix(in srgb, var(--series-1) 28%, transparent)',
           fontSize: 11.5,
-          color: '#877b67',
+          color: 'var(--ink-faint)',
           lineHeight: 1.7,
         }}
       >
-        <div style={{ color: '#3f6b86', fontWeight: 700, fontSize: 11, letterSpacing: '0.05em', marginBottom: 5 }}>
+        <div style={{ color: 'var(--series-1)', fontWeight: 700, fontSize: 11, letterSpacing: '0.05em', marginBottom: 5 }}>
           HEADLINE RECONCILIATION (imp-3266): ~64% vs ~0.209 ARE NOT A DISCREPANCY
         </div>
         A reader scanning this page encounters two overflow headlines that look contradictory:{' '}
-        <strong style={{ color: '#1c1814' }}>~64% of lag</strong>{' '}
+        <strong style={{ color: 'var(--ink)' }}>~64% of lag</strong>{' '}
         (the raw degree-0 scalar overflow on [0,&thinsp;U] covered by the cosh-completion above) and{' '}
-        <strong style={{ color: '#1c1814' }}>~0.209</strong>{' '}
+        <strong style={{ color: 'var(--ink)' }}>~0.209</strong>{' '}
         (the degree-2 resolution-converged genuine fraction from imp-3175 below). These are
         the <strong>same deficit measured at different completion degrees</strong>, not a
         contradiction:
         <ul style={{ margin: '6px 0 0 16px', padding: 0, lineHeight: 1.8 }}>
           <li>
-            <strong style={{ color: '#3f6b86' }}>~64%</strong>{' '}
+            <strong style={{ color: 'var(--series-1)' }}>~64%</strong>{' '}
             is the <em>degree-0 (scale-invariant) scalar measure</em>: the fraction of tau in [0,&thinsp;U]
             where sinh(a&tau;) &gt; 0, i.e. tau &gt; 0.  It counts raw positivity of the cosh-sinh gap before
             any occupation-density weighting.  The cosh-completion exactly eliminates this at degree-0 (residual = 0).
           </li>
           <li>
-            <strong style={{ color: '#3f6b86' }}>~0.209</strong>{' '}
+            <strong style={{ color: 'var(--series-1)' }}>~0.209</strong>{' '}
             is the <em>degree-2 (occupation-density weighted) genuine fraction</em> from imp-3175:
             the fraction of tau carrying strictly positive deficit under the genuine degree-2 occupation
             measure.  This is tiny (deficit 9.28e-9) but nonzero — scalar cover alone cannot close it.
           </li>
         </ul>
-        <div style={{ marginTop: 6, color: '#877b67', fontStyle: 'italic' }}>
+        <div style={{ marginTop: 6, color: 'var(--ink-faint)', fontStyle: 'italic' }}>
           Both numbers are correct.  The apparent size difference (&sim;64% vs &sim;21%) reflects the
           occupation-density weighting: most tau where cosh&nbsp;&gt;&nbsp;sinh still carry negligible
           density, so the density-weighted fraction is much smaller.
@@ -7937,7 +7938,7 @@ export default function ClosureRoutesPage() {
       </div>
 
       {/* ─── imp-3175: overflow fraction resolution sweep viz ─── */}
-      <h2 style={{ marginTop: 28, color: '#1c1814', fontSize: 22, fontFamily: mono }}>
+      <h2 style={{ marginTop: 28, color: 'var(--ink)', fontSize: 22, fontFamily: mono }}>
         Overflow Fraction Resolution Sweep (imp-3175)
       </h2>
       <OverflowFractionResolutionSweepViz />
@@ -7947,14 +7948,14 @@ export default function ClosureRoutesPage() {
         className="card"
         style={{
           marginTop: 14,
-          borderLeft: '4px solid #b58a2e',
-          background: 'rgba(181,138,46,0.04)',
+          borderLeft: '4px solid var(--brass-deco)',
+          background: 'color-mix(in srgb, var(--brass-deco) 4%, transparent)',
         }}
       >
-        <h3 style={{ color: '#b58a2e', marginTop: 0, fontSize: 14 }}>
+        <h3 style={{ color: 'var(--brass)', marginTop: 0, fontSize: 14 }}>
           imp-3199: ~0.209 is the U=6 reading of a cell-invariant absolute lag-length ~1.254 &mdash; NOT a universal fraction
         </h3>
-        <p style={{ color: '#877b67', fontSize: 12, lineHeight: 1.65, marginBottom: 10 }}>
+        <p style={{ color: 'var(--ink-faint)', fontSize: 12, lineHeight: 1.65, marginBottom: 10 }}>
           The multi-cell sweep (imp-3199) varies <em>a</em>, <em>U</em>, and <em>NPHI</em> around
           the base cell. The converged overflow <strong>fraction</strong> shifts with <em>U</em>
           (0.251 at U=5, 0.209 at U=6, 0.157 at U=8) but the absolute overflow-support
@@ -7965,26 +7966,26 @@ export default function ClosureRoutesPage() {
           NOT a universal fraction.
         </p>
         <div style={{ overflowX: 'auto' }}>
-          <table style={{ fontSize: 11, borderCollapse: 'collapse', color: '#877b67', width: '100%', maxWidth: 540 }}>
+          <table style={{ fontSize: 11, borderCollapse: 'collapse', color: 'var(--ink-faint)', width: '100%', maxWidth: 540 }}>
             <thead>
-              <tr style={{ color: '#877b67', borderBottom: '1px solid #d5c9b2' }}>
+              <tr style={{ color: 'var(--ink-faint)', borderBottom: '1px solid var(--rule)' }}>
                 <th style={{ textAlign: 'left', padding: '3px 8px', fontWeight: 500 }}>cell</th>
                 <th style={{ textAlign: 'right', padding: '3px 8px', fontWeight: 500 }}>a</th>
                 <th style={{ textAlign: 'right', padding: '3px 8px', fontWeight: 500 }}>U</th>
                 <th style={{ textAlign: 'right', padding: '3px 8px', fontWeight: 500 }}>NPHI</th>
                 <th style={{ textAlign: 'right', padding: '3px 8px', fontWeight: 500 }}>frac</th>
-                <th style={{ textAlign: 'right', padding: '3px 8px', fontWeight: 500, color: '#b58a2e' }}>frac&times;U</th>
+                <th style={{ textAlign: 'right', padding: '3px 8px', fontWeight: 500, color: 'var(--brass)' }}>frac&times;U</th>
               </tr>
             </thead>
             <tbody>
               {IMP3199_OVERFLOW_FRACTION_CELL_SWEEP.measured.perCell.map((row) => (
-                <tr key={row.label} style={{ borderBottom: '1px solid #f6f1e7' }}>
+                <tr key={row.label} style={{ borderBottom: '1px solid var(--paper-2)' }}>
                   <td style={{ padding: '3px 8px', fontFamily: mono, fontSize: 10.5 }}>{row.label}</td>
                   <td style={{ textAlign: 'right', padding: '3px 8px' }}>{row.a}</td>
                   <td style={{ textAlign: 'right', padding: '3px 8px' }}>{row.U}</td>
                   <td style={{ textAlign: 'right', padding: '3px 8px' }}>{row.NPHI}</td>
                   <td style={{ textAlign: 'right', padding: '3px 8px' }}>{row.convergedFraction.toFixed(6)}</td>
-                  <td style={{ textAlign: 'right', padding: '3px 8px', color: '#b58a2e', fontWeight: 600 }}>
+                  <td style={{ textAlign: 'right', padding: '3px 8px', color: 'var(--brass)', fontWeight: 600 }}>
                     {row.supportMeasure.toFixed(5)}
                   </td>
                 </tr>
@@ -7992,7 +7993,7 @@ export default function ClosureRoutesPage() {
             </tbody>
           </table>
         </div>
-        <p style={{ marginTop: 10, color: '#877b67', fontSize: 11, fontFamily: mono }}>
+        <p style={{ marginTop: 10, color: 'var(--ink-faint)', fontSize: 11, fontFamily: mono }}>
           Source: imp-3199-overflow-fraction-cell-sweep.js &mdash; DIAGNOSTIC; overflow-support only;
           NOT a reduction.
         </p>
@@ -8001,26 +8002,26 @@ export default function ClosureRoutesPage() {
             marginTop: 12,
             padding: '9px 14px',
             borderRadius: 6,
-            background: 'rgba(194,58,28,0.06)',
-            border: '1px solid rgba(194,58,28,0.28)',
+            background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+            border: '1px solid color-mix(in srgb, var(--accent) 28%, transparent)',
             fontSize: 11.5,
-            color: '#877b67',
+            color: 'var(--ink-faint)',
             lineHeight: 1.7,
           }}
         >
-          <div style={{ color: '#c23a1c', fontWeight: 700, fontSize: 11, letterSpacing: '0.05em', marginBottom: 5 }}>
+          <div style={{ color: 'var(--accent)', fontWeight: 700, fontSize: 11, letterSpacing: '0.05em', marginBottom: 5 }}>
             STATUS CORRECTION (imp-3216): the ~1.254 length above is a double-precision underflow artifact
           </div>
           Resolving the overflow interval to N&thinsp;=&thinsp;51200 shows the upper endpoint <span style={{ fontFamily: mono }}>&tau;<sub>2</sub>&thinsp;&asymp;&thinsp;1.366</span> above is{' '}
-          <strong style={{ color: '#1c1814' }}>not a genuine nu/mu down-crossing</strong> &mdash; it is the IEEE-754{' '}
-          <strong style={{ color: '#1c1814' }}>kernel underflow horizon</strong> where Phi(u) drops below the smallest
+          <strong style={{ color: 'var(--ink)' }}>not a genuine nu/mu down-crossing</strong> &mdash; it is the IEEE-754{' '}
+          <strong style={{ color: 'var(--ink)' }}>kernel underflow horizon</strong> where Phi(u) drops below the smallest
           representable double. The lower endpoint <span style={{ fontFamily: mono }}>&tau;<sub>1</sub>&thinsp;&asymp;&thinsp;0.111</span> is genuine, but past it{' '}
           <span style={{ fontFamily: mono }}>nu&thinsp;&gt;&thinsp;mu</span> holds all the way to <em>U</em>, with no
           further crossing &mdash; the mathematically correct overflow region is <span style={{ fontFamily: mono }}>[&tau;<sub>1</sub>, U]</span> and
           its fraction <span style={{ fontFamily: mono }}>(U&thinsp;&minus;&thinsp;&tau;<sub>1</sub>)/U&thinsp;&rarr;&thinsp;1</span> as{' '}
           <em>U</em> grows, not a fixed &sim;0.209. The <strong>~1.2535 / ~0.209 numbers above are kept as historical
           double-precision snapshots</strong>, not deleted, but should be read through this correction. See{' '}
-          <span style={{ fontFamily: mono, color: '#877b67' }}>imp-3216-overflow-support-length-closed-form.js</span>{' '}
+          <span style={{ fontFamily: mono, color: 'var(--ink-faint)' }}>imp-3216-overflow-support-length-closed-form.js</span>{' '}
           (verdict: {IMP3216_OVERFLOW_SUPPORT_LENGTH_CLOSED_FORM.measured.verdict}). DIAGNOSTIC correction; no new
           positivity.
         </div>
@@ -8039,74 +8040,74 @@ export default function ClosureRoutesPage() {
       <NuMuRatioDivergenceViz />
 
       {/* ─── imp-3250: U-sweep overflow fraction viz ─── */}
-      <h2 style={{ marginTop: 28, color: '#1c1814', fontSize: 22, fontFamily: mono }}>
+      <h2 style={{ marginTop: 28, color: 'var(--ink)', fontSize: 22, fontFamily: mono }}>
         U-Sweep: frac vs U Collapse onto frac&times;U &asymp; 1.2535 (imp-3199)
       </h2>
       <USweeOverflowFractionViz />
 
       {/* ─── imp-3202: bridge lag-cutoff capture curve viz ─── */}
-      <h2 style={{ marginTop: 28, color: '#1c1814', fontSize: 22, fontFamily: mono }}>
+      <h2 style={{ marginTop: 28, color: 'var(--ink)', fontSize: 22, fontFamily: mono }}>
         Bridge Lag-Cutoff Capture Curve (imp-3202)
       </h2>
       <BridgeLagCutoffCaptureViz />
 
       {/* ─── imp-3435: imp-3385 smooth-core lag-contrast ceiling vs additive-Fejer crossing ─── */}
-      <h2 style={{ marginTop: 28, color: '#1c1814', fontSize: 22, fontFamily: mono }}>
+      <h2 style={{ marginTop: 28, color: 'var(--ink)', fontSize: 22, fontFamily: mono }}>
         Smooth-Core Lag-Contrast Ceiling vs Additive-Fejer Crossing (imp-3385)
       </h2>
       <SmoothCoreLagContrastCeilingViz />
 
       {/* ─── imp-3458: surface the orphaned imp-3386 multi-harmonic scalar-core saturation ─── */}
-      <h2 style={{ marginTop: 28, color: '#1c1814', fontSize: 22, fontFamily: mono }}>
+      <h2 style={{ marginTop: 28, color: 'var(--ink)', fontSize: 22, fontFamily: mono }}>
         Multi-Harmonic Scalar-Core Saturation (imp-3386)
       </h2>
       <MultiharmonicScalarCoreSaturationViz />
 
       {/* ─── imp-3197: sign-vs-magnitude decomposition ─── */}
-      <h2 style={{ marginTop: 28, color: '#1c1814', fontSize: 22, fontFamily: mono }}>
+      <h2 style={{ marginTop: 28, color: 'var(--ink)', fontSize: 22, fontFamily: mono }}>
         K&#x2090;&thinsp;&ge;&thinsp;0 Sign-vs-Magnitude Split (imp-3197)
       </h2>
       <BridgeSignMagnitudeDecompositionViz />
 
       {/* ─── imp-3358: capture ratio vs U with the C/U fit ─── */}
-      <h2 style={{ marginTop: 28, color: '#1c1814', fontSize: 22, fontFamily: mono }}>
+      <h2 style={{ marginTop: 28, color: 'var(--ink)', fontSize: 22, fontFamily: mono }}>
         Capture Ratio vs Lag Window U (imp-3358)
       </h2>
       <CaptureRatioVsUViz />
 
       {/* ─── imp-3430: imp-3382 conditioning-vs-well-posed divergence ─── */}
-      <h2 style={{ marginTop: 28, color: '#1c1814', fontSize: 22, fontFamily: mono }}>
+      <h2 style={{ marginTop: 28, color: 'var(--ink)', fontSize: 22, fontFamily: mono }}>
         Raw-Diagonal Conditioning Collapse vs Well-Posed ||R|| Plateau (imp-3382)
       </h2>
       <RawDiagonalRDegreeGrowthLawViz />
 
       {/* ─── imp-3410: fixed-resolution r*U convergence to C_inf (imp-3346) ─── */}
-      <h2 style={{ marginTop: 28, color: '#1c1814', fontSize: 22, fontFamily: mono }}>
+      <h2 style={{ marginTop: 28, color: 'var(--ink)', fontSize: 22, fontFamily: mono }}>
         Fixed-Resolution Capture-Ratio Convergence to C&#8734; (imp-3346)
       </h2>
       <CInfFixedResolutionConvergenceViz />
 
       {/* ─── imp-3412: imp-3350 sinh a -> 0 capture ratio converging to the exactly-linear-shear ratio ─── */}
-      <h2 style={{ marginTop: 28, color: '#1c1814', fontSize: 22, fontFamily: mono }}>
+      <h2 style={{ marginTop: 28, color: 'var(--ink)', fontSize: 22, fontFamily: mono }}>
         Sinh-Shear a&#8594;0 Capture-Ratio Limit Equals the Linear-Shear Ratio (imp-3350)
       </h2>
       <SinhToLinearShearLimitViz />
       <PhiTermwiseNonnegativityViz />
 
       {/* ─── imp-3456: imp-3409 sinh-residual vanishing RATE (slope-2 log-log fit + local exponents) ─── */}
-      <h2 style={{ marginTop: 28, color: '#1c1814', fontSize: 22, fontFamily: mono }}>
+      <h2 style={{ marginTop: 28, color: 'var(--ink)', fontSize: 22, fontFamily: mono }}>
         Sinh-Residual Vanishing Rate: e(a) = r(a) &minus; r_lin &#8764; O(a&sup2;) (imp-3409)
       </h2>
       <SinhResidualVanishingRateViz />
 
       {/* ─── imp-3476: imp-3442 O(a^2) sinh-coefficient c(U) U-scaling vs the r_lin(U) capture law ─── */}
-      <h2 style={{ marginTop: 28, color: '#1c1814', fontSize: 22, fontFamily: mono }}>
+      <h2 style={{ marginTop: 28, color: 'var(--ink)', fontSize: 22, fontFamily: mono }}>
         O(a&sup2;) Sinh-Coefficient c(U) Inherits the 1/U Capture Law (imp-3442)
       </h2>
       <CofUScalingViz />
 
       {/* ─── imp-3411: imp-3347 leftmost-zero drift vs ln(NPHI), left-margin-below-u1* overlay ─── */}
-      <h2 style={{ marginTop: 28, color: '#1c1814', fontSize: 22, fontFamily: mono }}>
+      <h2 style={{ marginTop: 28, color: 'var(--ink)', fontSize: 22, fontFamily: mono }}>
         Leftmost Truncation-Zero Drift vs ln(NPHI) (imp-3347)
       </h2>
       <LeftmostZeroDriftVsLnNphiViz />
@@ -8115,24 +8116,24 @@ export default function ClosureRoutesPage() {
       <Imp3402DriftRateFitPanel />
 
       {/* ─── imp-3457: imp-3403 residual shrink law (O(1/NPHI)) + Faulhaber-vs-Gaussian decomposition ─── */}
-      <h2 style={{ marginTop: 28, color: '#1c1814', fontSize: 22, fontFamily: mono }}>
+      <h2 style={{ marginTop: 28, color: 'var(--ink)', fontSize: 22, fontFamily: mono }}>
         Leftmost-Zero Residual Shrink Law &amp; Faulhaber-Dominant Decomposition (imp-3403)
       </h2>
       <Imp3403ResidualShrinkLawViz />
 
       {/* ─── imp-3065: independent quadrature cross-check ─── */}
-      <h2 style={{ marginTop: 28, color: '#1c1814', fontSize: 22, fontFamily: mono }}>
+      <h2 style={{ marginTop: 28, color: 'var(--ink)', fontSize: 22, fontFamily: mono }}>
         Independent Quadrature Cross-Check of Scalar Cover (imp-3065)
       </h2>
       <div
         className="card"
         style={{
           marginTop: 16,
-          borderLeft: '4px solid #4c7a4a',
-          background: 'rgba(76,122,74,0.04)',
+          borderLeft: '4px solid var(--series-3)',
+          background: 'color-mix(in srgb, var(--series-3) 4%, transparent)',
         }}
       >
-        <h3 style={{ color: '#4c7a4a', marginTop: 0 }}>
+        <h3 style={{ color: 'var(--series-3)', marginTop: 0 }}>
           Composite Simpson confirms D_pass = 0 across 28 cells — independent of imp-3007
         </h3>
         <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75 }}>
@@ -8142,14 +8143,14 @@ export default function ClosureRoutesPage() {
           imp-3065 removes that worry by two independent checks:
         </p>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10, margin: '12px 0' }}>
-          <div style={{ padding: '10px 14px', borderRadius: 6, background: 'rgba(76,122,74,0.07)', border: '1px solid rgba(76,122,74,0.25)', fontSize: 12, color: '#877b67', lineHeight: 1.65 }}>
-            <div style={{ color: '#4c7a4a', fontWeight: 700, marginBottom: 4, fontSize: 12.5 }}>(A) Different rule, denser grid</div>
+          <div style={{ padding: '10px 14px', borderRadius: 6, background: 'color-mix(in srgb, var(--series-3) 7%, transparent)', border: '1px solid color-mix(in srgb, var(--series-3) 25%, transparent)', fontSize: 12, color: 'var(--ink-faint)', lineHeight: 1.65 }}>
+            <div style={{ color: 'var(--series-3)', fontWeight: 700, marginBottom: 4, fontSize: 12.5 }}>(A) Different rule, denser grid</div>
             Composite Simpson (M&thinsp;=&thinsp;1000 panels) over a-grid
             &#x7B;1, 0.5, 0.25, 0.2, 0.1, 0.05, 0.02&#x7D; × U-range &#x7B;4, 6, 8, 10&#x7D; — {IMP3065_RESIDUAL_DEFICIT_QUADRATURE.method.cellCount} cells.
-            Residual deficit = <strong style={{ color: '#4c7a4a' }}>0 exactly</strong> in every cell.
+            Residual deficit = <strong style={{ color: 'var(--series-3)' }}>0 exactly</strong> in every cell.
           </div>
-          <div style={{ padding: '10px 14px', borderRadius: 6, background: 'rgba(76,122,74,0.07)', border: '1px solid rgba(76,122,74,0.25)', fontSize: 12, color: '#877b67', lineHeight: 1.65 }}>
-            <div style={{ color: '#4c7a4a', fontWeight: 700, marginBottom: 4, fontSize: 12.5 }}>(B) Integrator validated on non-zero companion</div>
+          <div style={{ padding: '10px 14px', borderRadius: 6, background: 'color-mix(in srgb, var(--series-3) 7%, transparent)', border: '1px solid color-mix(in srgb, var(--series-3) 25%, transparent)', fontSize: 12, color: 'var(--ink-faint)', lineHeight: 1.65 }}>
+            <div style={{ color: 'var(--series-3)', fontWeight: 700, marginBottom: 4, fontSize: 12.5 }}>(B) Integrator validated on non-zero companion</div>
             Same Simpson rule on the <em>signed</em> (un-clamped) integrand sinh&thinsp;&minus;&thinsp;cosh
             = &minus;e<sup>&minus;a&tau;</sup> reproduces the closed form &minus;(1&thinsp;&minus;&thinsp;e<sup>&minus;aU</sup>)/a to &lt;&thinsp;10<sup>&minus;6</sup> relative.
             Worst error across all cells: {IMP3065_RESIDUAL_DEFICIT_QUADRATURE.worstIntegratorRelError.toExponential(2)}.
@@ -8160,11 +8161,11 @@ export default function ClosureRoutesPage() {
             margin: '14px 0',
             padding: '10px 14px',
             borderRadius: 6,
-            background: 'rgba(76,122,74,0.07)',
-            border: '1px solid rgba(76,122,74,0.3)',
+            background: 'color-mix(in srgb, var(--series-3) 7%, transparent)',
+            border: '1px solid color-mix(in srgb, var(--series-3) 30%, transparent)',
             fontFamily: mono,
             fontSize: 12.5,
-            color: '#4c7a4a',
+            color: 'var(--series-3)',
           }}
         >
           D_pass(a, U) = &#x222B;&#x2080;&#x1D41C; max(0, sinh(a&#x03C4;) &#x2212; cosh(a&#x03C4;)) d&#x03C4; = 0&nbsp;&nbsp;(Simpson, 28 cells)
@@ -8174,30 +8175,30 @@ export default function ClosureRoutesPage() {
           style={{
             padding: '10px 14px',
             borderRadius: 6,
-            background: 'rgba(194,58,28,0.07)',
-            border: '1px solid rgba(194,58,28,0.3)',
+            background: 'color-mix(in srgb, var(--series-2) 7%, transparent)',
+            border: '1px solid color-mix(in srgb, var(--accent) 30%, transparent)',
             fontSize: 12,
-            color: '#4a4238',
+            color: 'var(--ink-soft)',
             lineHeight: 1.65,
           }}
         >
-          <div style={{ fontSize: 11, fontWeight: 700, color: '#c23a1c', letterSpacing: '0.06em', marginBottom: 5 }}>
+          <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--accent)', letterSpacing: '0.06em', marginBottom: 5 }}>
             SCOPE — SCALAR COVER ONLY
           </div>
           This certifies the <em>degree-0 pointwise/diagonal</em> residual deficit is zero — the
           same SCALAR statement as imp-3007, now independently cross-checked by a different rule
           over a wider grid. The <strong>operator step</strong> (off-diagonal endpoint-Hankel
           R&thinsp;=&thinsp;G<sub>pass</sub><sup>&minus;&frac12;</sup> G<sub>shear</sub> G<sub>pass</sub><sup>&minus;&frac12;</sup> contraction)
-          is explicitly <strong style={{ color: '#c23a1c' }}>out of scope and untouched</strong>.
+          is explicitly <strong style={{ color: 'var(--accent)' }}>out of scope and untouched</strong>.
           RH-EQUIVALENT; STRUCTURAL/DIAGNOSTIC; NOT a reduction; NOT a proof.
         </div>
-        <p style={{ marginTop: 10, color: '#877b67', fontSize: 11, fontFamily: mono }}>
+        <p style={{ marginTop: 10, color: 'var(--ink-faint)', fontSize: 11, fontFamily: mono }}>
           Source: imp-3065-residual-deficit-quadrature-2026-06-30.js
         </p>
       </div>
 
       {/* ─── imp-3413: capture-ratio & shear-Gram cluster roundup ─── */}
-      <h2 style={{ marginTop: 28, color: '#1c1814', fontSize: 22, fontFamily: mono }}>
+      <h2 style={{ marginTop: 28, color: 'var(--ink)', fontSize: 22, fontFamily: mono }}>
         Capture-Ratio &amp; Shear-Gram Cluster Roundup (imp-3413)
       </h2>
       <CaptureRatioShearGramClusterSummaryPanel />
@@ -8205,55 +8206,55 @@ export default function ClosureRoutesPage() {
       <Imp3404FullSpectrumViz />
 
       {/* ─── imp-3066: off-diagonal endpoint-Hankel obstruction ─── */}
-      <h2 style={{ marginTop: 28, color: '#1c1814', fontSize: 22, fontFamily: mono }}>
+      <h2 style={{ marginTop: 28, color: 'var(--ink)', fontSize: 22, fontFamily: mono }}>
         Off-Diagonal Endpoint-Hankel Obstruction: operator/diagonal gap (imp-3066)
       </h2>
       <OffDiagHankelObstructionPanel />
 
       {/* ─── imp-3064: degree-0 excess-fraction grid ─── */}
-      <h2 style={{ marginTop: 28, color: '#1c1814', fontSize: 22, fontFamily: mono }}>
+      <h2 style={{ marginTop: 28, color: 'var(--ink)', fontSize: 22, fontFamily: mono }}>
         Scalar cover price: degree-0 excess-fraction grid, phi = E / D_raw (imp-3064)
       </h2>
       <DeficitExcessFractionGridPanel />
 
       {/* ─── imp-3095: scalar-phi collapse curve ─── */}
-      <h2 style={{ marginTop: 28, color: '#1c1814', fontSize: 22, fontFamily: mono }}>
+      <h2 style={{ marginTop: 28, color: 'var(--ink)', fontSize: 22, fontFamily: mono }}>
         Scalar-phi collapse: phi(s) single curve with all (a,U) grid cells (imp-3095)
       </h2>
       <PhiCollapseViz />
 
       {/* ─── imp-3084: raw-basis gap grows with DEG ─── */}
-      <h2 style={{ marginTop: 28, color: '#1c1814', fontSize: 22, fontFamily: mono }}>
+      <h2 style={{ marginTop: 28, color: 'var(--ink)', fontSize: 22, fontFamily: mono }}>
         Raw-basis off-diagonal gap grows with truncation degree (imp-3084)
       </h2>
       <RawBasisOpGapDegreeSweepViz />
 
       {/* ─── imp-3086: basis-conditioning correction ─── */}
-      <h2 style={{ marginTop: 28, color: '#1c1814', fontSize: 22, fontFamily: mono }}>
+      <h2 style={{ marginTop: 28, color: 'var(--ink)', fontSize: 22, fontFamily: mono }}>
         Orthogonalized basis: gap largely a conditioning artifact, residual survives (imp-3086)
       </h2>
       <BasisConditioningCorrectionPanel />
 
       {/* ─── imp-3085: operator-gap a*U collapse viz ─── */}
-      <h2 style={{ marginTop: 28, color: '#1c1814', fontSize: 22, fontFamily: mono }}>
+      <h2 style={{ marginTop: 28, color: 'var(--ink)', fontSize: 22, fontFamily: mono }}>
         The operator obstruction tracks one scale (imp-3085)
       </h2>
       <OperatorGapCollapseViz />
 
       {/* ─── imp-3107: de-homogenized off-diagonal s-trend ─── */}
-      <h2 style={{ marginTop: 28, color: '#1c1814', fontSize: 22, fontFamily: mono }}>
+      <h2 style={{ marginTop: 28, color: 'var(--ink)', fontSize: 22, fontFamily: mono }}>
         De-homogenized off-diagonal min/max R&#x2C7C;&#x2096; vs s: monotone rise to Perron limit (imp-3107)
       </h2>
       <DeHomogOffDiagSTrendViz />
 
       {/* ─── imp-3110: toy vs genuine §26 Gram explainer ─── */}
-      <h2 style={{ marginTop: 28, color: '#1c1814', fontSize: 22, fontFamily: mono }}>
+      <h2 style={{ marginTop: 28, color: 'var(--ink)', fontSize: 22, fontFamily: mono }}>
         Why monomial measurements carry no RH verdict: toy vs. genuine §26 Gram (imp-3110)
       </h2>
       <Section26GapExplainerPanel />
 
       {/* ─── imp-3087+3088: phi(s) log-log profile ─── */}
-      <h2 style={{ marginTop: 28, color: '#1c1814', fontSize: 22, fontFamily: mono }}>
+      <h2 style={{ marginTop: 28, color: 'var(--ink)', fontSize: 22, fontFamily: mono }}>
         The excess fraction phi(s): onset pole to exponential tail (imp-3087 + imp-3088)
       </h2>
       <PhiProfileLogLogViz />
@@ -8262,15 +8263,15 @@ export default function ClosureRoutesPage() {
       <div style={{
         marginTop: 12,
         padding: '10px 14px',
-        background: 'rgba(181,138,46,0.18)',
-        border: '1px solid #b58a2e',
+        background: 'color-mix(in srgb, var(--brass-deco) 18%, transparent)',
+        border: '1px solid var(--brass-deco)',
         borderRadius: 6,
-        color: '#b58a2e',
+        color: 'var(--brass)',
         fontSize: 13,
         fontFamily: mono,
         lineHeight: 1.6,
       }}>
-        <strong style={{ color: '#b58a2e' }}>STATUS (imp-3106):</strong>{' '}
+        <strong style={{ color: 'var(--brass)' }}>STATUS (imp-3106):</strong>{' '}
         The area-weighted MEAN price of the forced even cosh-completion is{' '}
         <strong>UNBOUNDED</strong> -- the integral{' '}
         &int;<sub>s0+&epsilon;</sub><sup>&infin;</sup> &phi;(s) ds diverges as &epsilon;&#8594;0.
@@ -8282,56 +8283,56 @@ export default function ClosureRoutesPage() {
       </div>
 
       {/* ─── imp-3136: C_shock margin grows with N (imp-3108) ─── */}
-      <h2 style={{ marginTop: 28, color: '#1c1814', fontSize: 22, fontFamily: mono }}>
+      <h2 style={{ marginTop: 28, color: 'var(--ink)', fontSize: 22, fontFamily: mono }}>
         Margin to the 1/3 cap grows with N &mdash; worst case at smallest assembly (imp-3108)
       </h2>
       <CShockMarginCurveViz />
 
       {/* ─── imp-3179: sub-ladder margin curve below N=2458 (imp-3151) ─── */}
-      <h2 style={{ marginTop: 28, color: "#1c1814", fontSize: 22, fontFamily: mono }}>
+      <h2 style={{ marginTop: 28, color: 'var(--ink)', fontSize: 22, fontFamily: mono }}>
         Descending sub-ladder: margin crosses zero at N<sub>*</sub>&asymp;203 (&gamma;<sub>N</sub>=e<sup>6</sup>) (imp-3151)
       </h2>
       <CShockSubMarginCurveViz />
 
       {/* ─── imp-3180: onset derivative drho/ds showing c_asym root vs imp-3045 false onset ─── */}
-      <h2 style={{ marginTop: 28, color: '#1c1814', fontSize: 22, fontFamily: mono }}>
+      <h2 style={{ marginTop: 28, color: 'var(--ink)', fontSize: 22, fontFamily: mono }}>
         Asymmetric onset derivative: closed-form root c<sub>asym</sub>=0.90279 corrects imp-3045 false onset (imp-3170)
       </h2>
       <AsymOnsetDerivativeViz />
 
       {/* ─── imp-3181: residual-gap limit G(s)=tanh(s)-tanh(s/2) golden-ratio maximum ─── */}
-      <h2 style={{ marginTop: 28, color: '#1c1814', fontSize: 22, fontFamily: mono }}>
+      <h2 style={{ marginTop: 28, color: 'var(--ink)', fontSize: 22, fontFamily: mono }}>
         Residual-gap limit G(s)=tanh(s)&minus;tanh(s/2): maximum &phi;<sup>&minus;5/2</sup>&asymp;0.300 at cosh(s*)=&phi; (imp-3146)
       </h2>
       <ResidualGapLimitCurveViz />
 
       {/* ─── imp-3210: equal-product cell invariance bar viz (imp-3177) ─── */}
-      <h2 style={{ marginTop: 24, color: '#1c1814', fontSize: 20, fontFamily: mono }}>
+      <h2 style={{ marginTop: 24, color: 'var(--ink)', fontSize: 20, fontFamily: mono }}>
         Equal-product cell invariance: both cells of each equal-s pair coincide (imp-3146/imp-3177)
       </h2>
       <EqualProductCellInvarianceViz />
 
       {/* ─── imp-3126: regular-mass vs C_shock near-miss is a NUMERICAL COINCIDENCE ─── */}
-      <h2 style={{ marginTop: 28, color: '#1c1814', fontSize: 22, fontFamily: mono }}>
+      <h2 style={{ marginTop: 28, color: 'var(--ink)', fontSize: 22, fontFamily: mono }}>
         Regular tail mass ~0.2690 vs C<sub>shock</sub>(N*=10<sup>4</sup>) ~0.2692: NUMERICAL COINCIDENCE, not structural (imp-3126)
       </h2>
-      <div className="card" style={{ marginTop: 14, borderLeft: '4px solid #b58a2e', background: 'rgba(181,138,46,0.06)' }}>
-        <h3 style={{ color: '#b58a2e', marginTop: 0, fontSize: 14 }}>
+      <div className="card" style={{ marginTop: 14, borderLeft: '4px solid var(--brass-deco)', background: 'color-mix(in srgb, var(--brass-deco) 6%, transparent)' }}>
+        <h3 style={{ color: 'var(--brass)', marginTop: 0, fontSize: 14 }}>
           N-ladder cross-check: regular mass fixed at {REGULAR_MASS_VS_C_SHOCK_COINCIDENCE_IMP3126.regularMass.toFixed(6)}, C<sub>shock</sub>(N) decays monotonically (imp-3126)
         </h3>
-        <p style={{ color: '#877b67', fontSize: 12, lineHeight: 1.7, marginBottom: 10 }}>
+        <p style={{ color: 'var(--ink-faint)', fontSize: 12, lineHeight: 1.7, marginBottom: 10 }}>
           imp-3106 measured the convergent regular tail mass int<sub>s0+1</sub><sup>&infin;</sup>&phi;&thinsp;ds &asymp;{' '}
-          <span style={{ fontFamily: mono, color: '#b58a2e' }}>{REGULAR_MASS_VS_C_SHOCK_COINCIDENCE_IMP3126.regularMass.toFixed(8)}</span>{' '}
+          <span style={{ fontFamily: mono, color: 'var(--brass)' }}>{REGULAR_MASS_VS_C_SHOCK_COINCIDENCE_IMP3126.regularMass.toFixed(8)}</span>{' '}
           (FIXED, N-independent). The imp-3026/imp-3070 cusp constant C<sub>shock</sub>(N)=&radic;(2/(3&thinsp;log&thinsp;&gamma;<sub>N</sub>)) evaluates to{' '}
-          <span style={{ fontFamily: mono, color: '#b58a2e' }}>{REGULAR_MASS_VS_C_SHOCK_COINCIDENCE_IMP3126.cShockStar.toFixed(8)}</span>{' '}
+          <span style={{ fontFamily: mono, color: 'var(--brass)' }}>{REGULAR_MASS_VS_C_SHOCK_COINCIDENCE_IMP3126.cShockStar.toFixed(8)}</span>{' '}
           at N*=10<sup>4</sup>, agreeing to ~2e-4. The decisive test is N-dependence: C<sub>shock</sub>(N) DECAYS
           while the regular mass is fixed; the abs diff{' '}
-          <strong style={{ color: '#b58a2e' }}>grows ~{Math.round(REGULAR_MASS_VS_C_SHOCK_COINCIDENCE_IMP3126.absDiffBlowupOverLadder)}&times;</strong>{' '}
+          <strong style={{ color: 'var(--brass)' }}>grows ~{Math.round(REGULAR_MASS_VS_C_SHOCK_COINCIDENCE_IMP3126.absDiffBlowupOverLadder)}&times;</strong>{' '}
           over two decades. Agreement is confined to one ladder point. <strong>VERDICT: COINCIDENCE.</strong>
         </p>
         <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 12, marginBottom: 8 }}>
           <thead>
-            <tr style={{ borderBottom: '1px solid #d5c9b2', color: '#877b67' }}>
+            <tr style={{ borderBottom: '1px solid var(--rule)', color: 'var(--ink-faint)' }}>
               <th style={{ padding: '4px 8px', fontFamily: mono, textAlign: 'left' }}>N</th>
               <th style={{ padding: '4px 8px', fontFamily: mono, textAlign: 'right' }}>regular mass (A, fixed)</th>
               <th style={{ padding: '4px 8px', fontFamily: mono, textAlign: 'right' }}>C<sub>shock</sub>(N) (B, decaying)</th>
@@ -8340,11 +8341,11 @@ export default function ClosureRoutesPage() {
           </thead>
           <tbody>
             {REGULAR_MASS_VS_C_SHOCK_COINCIDENCE_IMP3126.ladder.map((row) => (
-              <tr key={row.N} style={{ borderBottom: '1px solid #d5c9b2' }}>
-                <td style={{ padding: '3px 8px', fontFamily: mono, color: '#4a4238' }}>{row.N.toExponential(0)}</td>
-                <td style={{ padding: '3px 8px', fontFamily: mono, color: '#877b67', textAlign: 'right' }}>{row.regularMass.toFixed(8)}</td>
-                <td style={{ padding: '3px 8px', fontFamily: mono, color: '#b58a2e', textAlign: 'right' }}>{row.cShock.toFixed(8)}</td>
-                <td style={{ padding: '3px 8px', fontFamily: mono, color: row.N === REGULAR_MASS_VS_C_SHOCK_COINCIDENCE_IMP3126.nStar ? '#4c7a4a' : '#c23a1c', textAlign: 'right' }}>
+              <tr key={row.N} style={{ borderBottom: '1px solid var(--rule)' }}>
+                <td style={{ padding: '3px 8px', fontFamily: mono, color: 'var(--ink-soft)' }}>{row.N.toExponential(0)}</td>
+                <td style={{ padding: '3px 8px', fontFamily: mono, color: 'var(--ink-faint)', textAlign: 'right' }}>{row.regularMass.toFixed(8)}</td>
+                <td style={{ padding: '3px 8px', fontFamily: mono, color: 'var(--brass)', textAlign: 'right' }}>{row.cShock.toFixed(8)}</td>
+                <td style={{ padding: '3px 8px', fontFamily: mono, color: row.N === REGULAR_MASS_VS_C_SHOCK_COINCIDENCE_IMP3126.nStar ? 'var(--series-3)' : 'var(--accent)', textAlign: 'right' }}>
                   {row.absDiff.toExponential(2)}
                   {row.N === REGULAR_MASS_VS_C_SHOCK_COINCIDENCE_IMP3126.nStar ? ' ← near-miss' : ''}
                 </td>
@@ -8352,78 +8353,78 @@ export default function ClosureRoutesPage() {
             ))}
           </tbody>
         </table>
-        <div style={{ padding: '6px 10px', borderRadius: 4, background: 'rgba(194,58,28,0.07)', border: '1px solid rgba(194,58,28,0.22)', fontSize: 11, color: '#877b67', lineHeight: 1.65 }}>
-          <strong style={{ color: '#c23a1c' }}>Scope (imp-3126):</strong>{' '}
+        <div style={{ padding: '6px 10px', borderRadius: 4, background: 'color-mix(in srgb, var(--series-2) 7%, transparent)', border: '1px solid color-mix(in srgb, var(--accent) 22%, transparent)', fontSize: 11, color: 'var(--ink-faint)', lineHeight: 1.65 }}>
+          <strong style={{ color: 'var(--accent)' }}>Scope (imp-3126):</strong>{' '}
           {REGULAR_MASS_VS_C_SHOCK_COINCIDENCE_IMP3126.honestCaveat.operatorStepUntouched}
         </div>
-        <p style={{ marginTop: 8, color: '#877b67', fontSize: 11, fontFamily: mono }}>
+        <p style={{ marginTop: 8, color: 'var(--ink-faint)', fontSize: 11, fontFamily: mono }}>
           Source: imp-3126-regular-mass-vs-c-shock-coincidence.js &mdash; N&isin;&#123;10<sup>4</sup>,10<sup>5</sup>,10<sup>6</sup>&#125;, absDiffBlowup&asymp;{Math.round(REGULAR_MASS_VS_C_SHOCK_COINCIDENCE_IMP3126.absDiffBlowupOverLadder)}&times;.
         </p>
       </div>
 
       {/* ─── imp-3125: residual-gap DEG-saturation curve ─── */}
-      <h2 style={{ marginTop: 28, color: '#1c1814', fontSize: 22, fontFamily: mono }}>
+      <h2 style={{ marginTop: 28, color: 'var(--ink)', fontSize: 22, fontFamily: mono }}>
         Residual-gap DEG-saturation: survives orthogonalization, converges to tanh(3)&minus;tanh(1.5) (imp-3125)
       </h2>
       <ResidualGapDegreeSweepViz />
 
       {/* ─── imp-3196: residual-gap convergence RATE (log-log, power-law vs geometric) ─── */}
-      <h2 style={{ marginTop: 28, color: '#1c1814', fontSize: 22, fontFamily: mono }}>
+      <h2 style={{ marginTop: 28, color: 'var(--ink)', fontSize: 22, fontFamily: mono }}>
         Residual-gap convergence RATE: algebraic power-law decay, exponent p rising 1.49&rarr;1.72 with s (imp-3196)
       </h2>
       <ResidualGapConvergenceRateViz />
 
       {/* ─── imp-3217: does the fitted exponent p(s) saturate (to 2) as s -> inf? ─── */}
-      <h2 style={{ marginTop: 28, color: '#1c1814', fontSize: 22, fontFamily: mono }}>
+      <h2 style={{ marginTop: 28, color: 'var(--ink)', fontSize: 22, fontFamily: mono }}>
         Exponent p(s) rises past 2 as s grows: the p&rarr;2 conjecture is refuted, s&rarr;&infin; limit unresolved (imp-3217)
       </h2>
       <ResidualExponentSLimitViz />
 
       {/* ─── imp-3182: cosh-monomial conditioning ceiling cond(P)/cond(H) vs DEG (imp-3153) ─── */}
-      <h2 style={{ marginTop: 28, color: '#1c1814', fontSize: 22, fontFamily: mono }}>
+      <h2 style={{ marginTop: 28, color: 'var(--ink)', fontSize: 22, fontFamily: mono }}>
         Cosh-monomial conditioning ceiling: geometric cond(P)/cond(H) growth, trust boundary pinned numerically (imp-3153)
       </h2>
       <CoshMonomialConditioningViz />
 
       {/* ─── imp-3183: next-order convergence corrections (imp-3155) ─── */}
-      <h2 style={{ marginTop: 28, color: '#1c1814', fontSize: 22, fontFamily: mono }}>
+      <h2 style={{ marginTop: 28, color: 'var(--ink)', fontSize: 22, fontFamily: mono }}>
         Next-order convergence corrections: onset slope A<sub>1</sub>&asymp;3.256 and decay (2s+D<sub>0</sub>)e<sup>&minus;s</sup> (imp-3155)
       </h2>
       <NextOrderConvergenceCorrectionViz />
 
       {/* ─── imp-3396: imp-3325 T2/T3/P11 accuracy radii viz ─── */}
-      <h2 style={{ marginTop: 28, color: '#1c1814', fontSize: 22, fontFamily: mono }}>
+      <h2 style={{ marginTop: 28, color: 'var(--ink)', fontSize: 22, fontFamily: mono }}>
         Onset-signature accuracy radii: T2/T3/P11 relative error vs &epsilon;, ~4x extension and T3&asymp;P11 overlap (imp-3325)
       </h2>
       <OnsetPadeAccuracyRadiusViz />
 
       {/* ─── imp-3431: imp-3383 higher-order Pade radii ladder (T3/P11/T4/P21/P12/P22) ─── */}
-      <h2 style={{ marginTop: 28, color: '#1c1814', fontSize: 22, fontFamily: mono }}>
+      <h2 style={{ marginTop: 28, color: 'var(--ink)', fontSize: 22, fontFamily: mono }}>
         Higher-order Pade radii ladder: [2/1] beats T4 by ~22%, [2/2] reaches &epsilon;&asymp;1.366 (imp-3383)
       </h2>
       <OnsetHigherOrderPadeRadiiLadderViz />
 
       {/* ─── imp-3154: genuine deg-2 deficit degree sweep ─── */}
-      <h2 style={{ marginTop: 28, color: '#1c1814', fontSize: 22, fontFamily: mono }}>
+      <h2 style={{ marginTop: 28, color: 'var(--ink)', fontSize: 22, fontFamily: mono }}>
         Genuine deg-2 occupation deficit: DEG-independent (FIXED), strictly positive (imp-3154)
       </h2>
-      <div className="card" style={{ marginTop: 14, borderLeft: '4px solid #6d55b8', background: 'rgba(109,85,184,0.04)' }}>
-        <h3 style={{ color: '#6d55b8', marginTop: 0, fontSize: 14 }}>
+      <div className="card" style={{ marginTop: 14, borderLeft: '4px solid var(--series-5)', background: 'color-mix(in srgb, var(--series-5) 4%, transparent)' }}>
+        <h3 style={{ color: 'var(--series-5)', marginTop: 0, fontSize: 14 }}>
           Genuine degree-2 (absolute) occupation deficit &mdash; sweep over monomial truncation degree DEG&isin;&#123;2,4,6,8,10&#125; (imp-3154)
         </h3>
-        <p style={{ color: '#877b67', fontSize: 12, lineHeight: 1.7, marginBottom: 10 }}>
+        <p style={{ color: 'var(--ink-faint)', fontSize: 12, lineHeight: 1.7, marginBottom: 10 }}>
           The imp-3144 section26-mupass verdict recorded a genuine nonzero degree-2 deficit
           (9.28e-9, overflow on ~19.4% of the lag grid). This sweep asks whether that deficit
           is a monomial-basis truncation artifact that enrichment removes. Trend:{' '}
-          <strong style={{ color: '#6d55b8' }}>{IMP3154_GENUINE_DEG2_DEFICIT_DEGREE_SWEEP.measured.trend}</strong>
+          <strong style={{ color: 'var(--series-5)' }}>{IMP3154_GENUINE_DEG2_DEFICIT_DEGREE_SWEEP.measured.trend}</strong>
           {' '}&mdash; the deficit converges within ~0.42% by DEG=2 and is flat from DEG=6,
           overflow fraction pinned at{' '}
-          <span style={{ fontFamily: mono, color: '#6d55b8' }}>{IMP3154_GENUINE_DEG2_DEFICIT_DEGREE_SWEEP.measured.overflowFraction.toFixed(3)}</span>{' '}
+          <span style={{ fontFamily: mono, color: 'var(--series-5)' }}>{IMP3154_GENUINE_DEG2_DEFICIT_DEGREE_SWEEP.measured.overflowFraction.toFixed(3)}</span>{' '}
           at every degree.
         </p>
         <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 12, marginBottom: 8 }}>
           <thead>
-            <tr style={{ borderBottom: '1px solid #d5c9b2', color: '#877b67' }}>
+            <tr style={{ borderBottom: '1px solid var(--rule)', color: 'var(--ink-faint)' }}>
               <th style={{ padding: '4px 8px', fontFamily: mono, textAlign: 'left' }}>DEG</th>
               <th style={{ padding: '4px 8px', fontFamily: mono, textAlign: 'right' }}>deficit</th>
               <th style={{ padding: '4px 8px', fontFamily: mono, textAlign: 'right' }}>overflow frac of tau</th>
@@ -8431,36 +8432,36 @@ export default function ClosureRoutesPage() {
           </thead>
           <tbody>
             {IMP3154_GENUINE_DEG2_DEFICIT_DEGREE_SWEEP.measured.sweep.map((row) => (
-              <tr key={row.degree} style={{ borderBottom: '1px solid #d5c9b2' }}>
-                <td style={{ padding: '3px 8px', fontFamily: mono, color: '#4a4238' }}>{row.degree}</td>
-                <td style={{ padding: '3px 8px', fontFamily: mono, color: '#6d55b8', textAlign: 'right' }}>{row.deficit.toExponential(4)}</td>
-                <td style={{ padding: '3px 8px', fontFamily: mono, color: '#877b67', textAlign: 'right' }}>{row.overflowFractionOfTau.toFixed(3)}</td>
+              <tr key={row.degree} style={{ borderBottom: '1px solid var(--rule)' }}>
+                <td style={{ padding: '3px 8px', fontFamily: mono, color: 'var(--ink-soft)' }}>{row.degree}</td>
+                <td style={{ padding: '3px 8px', fontFamily: mono, color: 'var(--series-5)', textAlign: 'right' }}>{row.deficit.toExponential(4)}</td>
+                <td style={{ padding: '3px 8px', fontFamily: mono, color: 'var(--ink-faint)', textAlign: 'right' }}>{row.overflowFractionOfTau.toFixed(3)}</td>
               </tr>
             ))}
           </tbody>
         </table>
-        <div style={{ padding: '6px 10px', borderRadius: 4, background: 'rgba(194,58,28,0.07)', border: '1px solid rgba(194,58,28,0.22)', fontSize: 11, color: '#877b67', lineHeight: 1.65 }}>
-          <strong style={{ color: '#c23a1c' }}>Scope (imp-3154):</strong>{' '}
+        <div style={{ padding: '6px 10px', borderRadius: 4, background: 'color-mix(in srgb, var(--series-2) 7%, transparent)', border: '1px solid color-mix(in srgb, var(--accent) 22%, transparent)', fontSize: 11, color: 'var(--ink-faint)', lineHeight: 1.65 }}>
+          <strong style={{ color: 'var(--accent)' }}>Scope (imp-3154):</strong>{' '}
           REPRESENTATIVE / DIAGNOSTIC at the genuine Phi (NPHI=10). The absolute deficit
           (~1.19e-7) carries this module&apos;s density normalization convention; only the
           DEG-trend (FIXED, strictly positive) and the reproduced ~19.4-20% overflow fraction
           are the deliverables. Necessary-but-NOT-sufficient: a nonzero deg-2 deficit neither
           proves nor disproves the operator cover. No RH verdict.
         </div>
-        <p style={{ marginTop: 8, color: '#877b67', fontSize: 11, fontFamily: mono }}>
+        <p style={{ marginTop: 8, color: 'var(--ink-faint)', fontSize: 11, fontFamily: mono }}>
           Source: imp-3154-genuine-deg2-deficit-degree-sweep.js &mdash; a=0.5, U=6, N=200, DEG&isin;&#123;2,4,6,8,10&#125;.
         </p>
       </div>
 
       {/* ─── imp-3102: orthogonalized gap a*U grid ─── */}
-      <h2 style={{ marginTop: 28, color: '#1c1814', fontSize: 22, fontFamily: mono }}>
+      <h2 style={{ marginTop: 28, color: 'var(--ink)', fontSize: 22, fontFamily: mono }}>
         Orthogonalized residual gap sweeps the full a&times;U grid; survivor tracks s=a&middot;U (imp-3102)
       </h2>
-      <div className="card" style={{ marginTop: 14, borderLeft: '4px solid #6d55b8', background: 'rgba(109,85,184,0.04)' }}>
-        <h3 style={{ color: '#6d55b8', marginTop: 0, fontSize: 14 }}>
+      <div className="card" style={{ marginTop: 14, borderLeft: '4px solid var(--series-5)', background: 'color-mix(in srgb, var(--series-5) 4%, transparent)' }}>
+        <h3 style={{ color: 'var(--series-5)', marginTop: 0, fontSize: 14 }}>
           Basis-invariant residual gap &#x2016;R<sub>orth</sub>&#x2016;&minus;max&#x2C7C;&thinsp;R<sub>orth,jj</sub> on the Cartesian a&times;U grid (imp-3102)
         </h3>
-        <p style={{ color: '#877b67', fontSize: 12, lineHeight: 1.7, marginBottom: 10 }}>
+        <p style={{ color: 'var(--ink-faint)', fontSize: 12, lineHeight: 1.7, marginBottom: 10 }}>
           imp-3086 orthogonalized the full passive cosh Gram at one cell (a=0.5, U=6) and found the
           raw gap 3.63 collapses to ~0.09; a strictly-positive residual obstruction survives. This
           module extends that single-cell measurement to the full Cartesian a&times;U grid and tests
@@ -8471,7 +8472,7 @@ export default function ClosureRoutesPage() {
         </p>
         <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 12, marginBottom: 8 }}>
           <thead>
-            <tr style={{ borderBottom: '1px solid #d5c9b2', color: '#877b67' }}>
+            <tr style={{ borderBottom: '1px solid var(--rule)', color: 'var(--ink-faint)' }}>
               <th style={{ padding: '4px 8px', fontFamily: mono, textAlign: 'left' }}>a</th>
               <th style={{ padding: '4px 8px', fontFamily: mono, textAlign: 'right' }}>U</th>
               <th style={{ padding: '4px 8px', fontFamily: mono, textAlign: 'right' }}>s=a&middot;U</th>
@@ -8481,38 +8482,38 @@ export default function ClosureRoutesPage() {
           </thead>
           <tbody>
             {IMP3102_ORTHOGONALIZED_GAP_AU_GRID.measured.grid.map((c, i) => (
-              <tr key={i} style={{ borderBottom: '1px solid #d5c9b2' }}>
-                <td style={{ padding: '3px 8px', fontFamily: mono, color: '#4a4238' }}>{c.a}</td>
-                <td style={{ padding: '3px 8px', fontFamily: mono, color: '#4a4238', textAlign: 'right' }}>{c.U}</td>
-                <td style={{ padding: '3px 8px', fontFamily: mono, color: '#6d55b8', textAlign: 'right' }}>{c.s.toFixed(2)}</td>
-                <td style={{ padding: '3px 8px', fontFamily: mono, color: '#6d55b8', textAlign: 'right' }}>{c.operatorNorm.toFixed(5)}</td>
-                <td style={{ padding: '3px 8px', fontFamily: mono, color: '#6d55b8', textAlign: 'right' }}>{c.residualGap.toFixed(5)}</td>
+              <tr key={i} style={{ borderBottom: '1px solid var(--rule)' }}>
+                <td style={{ padding: '3px 8px', fontFamily: mono, color: 'var(--ink-soft)' }}>{c.a}</td>
+                <td style={{ padding: '3px 8px', fontFamily: mono, color: 'var(--ink-soft)', textAlign: 'right' }}>{c.U}</td>
+                <td style={{ padding: '3px 8px', fontFamily: mono, color: 'var(--series-5)', textAlign: 'right' }}>{c.s.toFixed(2)}</td>
+                <td style={{ padding: '3px 8px', fontFamily: mono, color: 'var(--series-5)', textAlign: 'right' }}>{c.operatorNorm.toFixed(5)}</td>
+                <td style={{ padding: '3px 8px', fontFamily: mono, color: 'var(--series-5)', textAlign: 'right' }}>{c.residualGap.toFixed(5)}</td>
               </tr>
             ))}
           </tbody>
         </table>
-        <div style={{ padding: '6px 10px', borderRadius: 4, background: 'rgba(194,58,28,0.07)', border: '1px solid rgba(194,58,28,0.22)', fontSize: 11, color: '#877b67', lineHeight: 1.65 }}>
-          <strong style={{ color: '#c23a1c' }}>Scope (imp-3102):</strong>{' '}
+        <div style={{ padding: '6px 10px', borderRadius: 4, background: 'color-mix(in srgb, var(--series-2) 7%, transparent)', border: '1px solid color-mix(in srgb, var(--accent) 22%, transparent)', fontSize: 11, color: 'var(--ink-faint)', lineHeight: 1.65 }}>
+          <strong style={{ color: 'var(--accent)' }}>Scope (imp-3102):</strong>{' '}
           REPRESENTATIVE / DIAGNOSTIC on the SAME monomial-moment truncation as imp-3066/imp-3086 --
           NOT the section-26 Gram. The measured &#x2016;R<sub>orth</sub>&#x2016; and residual gaps carry
           NO RH verdict: they neither claim the cover holds nor that it fails. Only the a&middot;U
           scaling of the basis-invariant survivor is asserted. Positivity was not attempted;
           the bare-V pilot (imp-1240) is not re-run.
         </div>
-        <p style={{ marginTop: 8, color: '#877b67', fontSize: 11, fontFamily: mono }}>
+        <p style={{ marginTop: 8, color: 'var(--ink-faint)', fontSize: 11, fontFamily: mono }}>
           Source: imp-3102-orthogonalized-gap-aU-grid.js &mdash; a&isin;&#123;0.5,0.3,0.2,0.1&#125;, U&isin;&#123;4,6,8,10&#125;, DEG=4, NQ=4000.
         </p>
       </div>
 
       {/* ─── imp-3104: orthogonalized operator-norm degree sweep ─── */}
-      <h2 style={{ marginTop: 28, color: '#1c1814', fontSize: 22, fontFamily: mono }}>
+      <h2 style={{ marginTop: 28, color: 'var(--ink)', fontSize: 22, fontFamily: mono }}>
         Orthogonalized operator norm converges to tanh(a&middot;U); raw divergence is a conditioning artifact (imp-3104)
       </h2>
-      <div className="card" style={{ marginTop: 14, borderLeft: '4px solid #6d55b8', background: 'rgba(109,85,184,0.04)' }}>
-        <h3 style={{ color: '#6d55b8', marginTop: 0, fontSize: 14 }}>
+      <div className="card" style={{ marginTop: 14, borderLeft: '4px solid var(--series-5)', background: 'color-mix(in srgb, var(--series-5) 4%, transparent)' }}>
+        <h3 style={{ color: 'var(--series-5)', marginTop: 0, fontSize: 14 }}>
           &#x2016;R<sub>orth</sub>&#x2016; vs DEG sweep at a=0.5, U=6 &mdash; basis-invariant, bounded below tanh(3)&asymp;{IMP3104_ORTHOGONALIZED_OPNORM_DEGREE_SWEEP.measured.analyticCeilingTanhAU.toFixed(5)} (imp-3104)
         </h3>
-        <p style={{ color: '#877b67', fontSize: 12, lineHeight: 1.7, marginBottom: 10 }}>
+        <p style={{ color: 'var(--ink-faint)', fontSize: 12, lineHeight: 1.7, marginBottom: 10 }}>
           imp-3084 swept the RAW-monomial operator norm and found it DIVERGES (~1.79&rarr;10.8); imp-3086
           orthogonalized at a single cell (DEG=4) and found the intrinsic norm stays bounded. This module
           runs the FULL degree sweep on the ORTHOGONALIZED basis across DEG&isin;[2,12]. On the numerically
@@ -8525,7 +8526,7 @@ export default function ClosureRoutesPage() {
         </p>
         <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 12, marginBottom: 8 }}>
           <thead>
-            <tr style={{ borderBottom: '1px solid #d5c9b2', color: '#877b67' }}>
+            <tr style={{ borderBottom: '1px solid var(--rule)', color: 'var(--ink-faint)' }}>
               <th style={{ padding: '4px 8px', fontFamily: mono, textAlign: 'left' }}>DEG</th>
               <th style={{ padding: '4px 8px', fontFamily: mono, textAlign: 'right' }}>&#x2016;R<sub>orth</sub>&#x2016; (GS)</th>
               <th style={{ padding: '4px 8px', fontFamily: mono, textAlign: 'right' }}>&#x2016;R<sub>sym</sub>&#x2016; (Loewdin)</th>
@@ -8535,26 +8536,26 @@ export default function ClosureRoutesPage() {
           </thead>
           <tbody>
             {IMP3104_ORTHOGONALIZED_OPNORM_DEGREE_SWEEP.measured.sweep.map((row, i) => (
-              <tr key={i} style={{ borderBottom: '1px solid #d5c9b2', opacity: row.orthogonalizerTrustworthy ? 1 : 0.5 }}>
-                <td style={{ padding: '3px 8px', fontFamily: mono, color: '#4a4238' }}>{row.degree}</td>
-                <td style={{ padding: '3px 8px', fontFamily: mono, color: '#6d55b8', textAlign: 'right' }}>{row.operatorNormGS.toFixed(5)}</td>
-                <td style={{ padding: '3px 8px', fontFamily: mono, color: '#6d55b8', textAlign: 'right' }}>{row.operatorNormLoewdin.toFixed(5)}</td>
-                <td style={{ padding: '3px 8px', fontFamily: mono, color: '#6d55b8', textAlign: 'right' }}>{row.distanceToCeiling.toExponential(2)}</td>
-                <td style={{ padding: '3px 8px', fontFamily: mono, color: row.orthogonalizerTrustworthy ? '#4c7a4a' : '#c23a1c', textAlign: 'right' }}>
+              <tr key={i} style={{ borderBottom: '1px solid var(--rule)', opacity: row.orthogonalizerTrustworthy ? 1 : 0.5 }}>
+                <td style={{ padding: '3px 8px', fontFamily: mono, color: 'var(--ink-soft)' }}>{row.degree}</td>
+                <td style={{ padding: '3px 8px', fontFamily: mono, color: 'var(--series-5)', textAlign: 'right' }}>{row.operatorNormGS.toFixed(5)}</td>
+                <td style={{ padding: '3px 8px', fontFamily: mono, color: 'var(--series-5)', textAlign: 'right' }}>{row.operatorNormLoewdin.toFixed(5)}</td>
+                <td style={{ padding: '3px 8px', fontFamily: mono, color: 'var(--series-5)', textAlign: 'right' }}>{row.distanceToCeiling.toExponential(2)}</td>
+                <td style={{ padding: '3px 8px', fontFamily: mono, color: row.orthogonalizerTrustworthy ? 'var(--series-3)' : 'var(--accent)', textAlign: 'right' }}>
                   {row.orthogonalizerTrustworthy ? 'valid' : 'ill-cond'}
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
-        <div style={{ padding: '6px 10px', borderRadius: 4, background: 'rgba(194,58,28,0.07)', border: '1px solid rgba(194,58,28,0.22)', fontSize: 11, color: '#877b67', lineHeight: 1.65 }}>
-          <strong style={{ color: '#c23a1c' }}>Scope (imp-3104):</strong>{' '}
+        <div style={{ padding: '6px 10px', borderRadius: 4, background: 'color-mix(in srgb, var(--series-2) 7%, transparent)', border: '1px solid color-mix(in srgb, var(--accent) 22%, transparent)', fontSize: 11, color: 'var(--ink-faint)', lineHeight: 1.65 }}>
+          <strong style={{ color: 'var(--accent)' }}>Scope (imp-3104):</strong>{' '}
           REPRESENTATIVE / DIAGNOSTIC on the SAME monomial-moment truncation as imp-3084/imp-3086 --
           NOT the section-26 Gram. The measured &#x2016;R<sub>orth</sub>&#x2016; and DEG-trend carry
           NO RH verdict: a converging bounded norm neither claims the cover holds nor that it fails.
           Positivity not attempted; bare-V pilot (imp-1240) not re-run.
         </div>
-        <p style={{ marginTop: 8, color: '#877b67', fontSize: 11, fontFamily: mono }}>
+        <p style={{ marginTop: 8, color: 'var(--ink-faint)', fontSize: 11, fontFamily: mono }}>
           Source: imp-3104-orthogonalized-opnorm-degree-sweep.js &mdash; a=0.5, U=6, DEG&isin;[2,12], NQ=4000.
         </p>
       </div>
@@ -8592,14 +8593,14 @@ export default function ClosureRoutesPage() {
       <CaptureOvershootKneePanel />
 
       {/* ─── imp-3106: excess fraction integrability ─── */}
-      <h2 style={{ marginTop: 28, color: '#1c1814', fontSize: 22, fontFamily: mono }}>
+      <h2 style={{ marginTop: 28, color: 'var(--ink)', fontSize: 22, fontFamily: mono }}>
         Excess fraction &phi;(s) is non-integrable at overflow onset; mean cosh-completion price is unbounded (imp-3106)
       </h2>
-      <div className="card" style={{ marginTop: 14, borderLeft: '4px solid #b58a2e', background: 'rgba(181,138,46,0.04)' }}>
-        <h3 style={{ color: '#b58a2e', marginTop: 0, fontSize: 14 }}>
+      <div className="card" style={{ marginTop: 14, borderLeft: '4px solid var(--brass-deco)', background: 'color-mix(in srgb, var(--brass-deco) 4%, transparent)' }}>
+        <h3 style={{ color: 'var(--brass)', marginTop: 0, fontSize: 14 }}>
           Onset divergence ladder: I(&epsilon;) ~ C/&epsilon;, C&asymp;{IMP3106_EXCESS_FRACTION_INTEGRABILITY.onsetDivergence.onsetConstant.toFixed(5)}; regular mass &asymp;{IMP3106_EXCESS_FRACTION_INTEGRABILITY.convergentTail.regularMass.toFixed(4)} (imp-3106)
         </h3>
-        <p style={{ color: '#877b67', fontSize: 12, lineHeight: 1.7, marginBottom: 10 }}>
+        <p style={{ color: 'var(--ink-faint)', fontSize: 12, lineHeight: 1.7, marginBottom: 10 }}>
           imp-3087 measured the onset pole &phi;(s) ~ C/(s&minus;s<sub>0</sub>)&sup2; and imp-3088 measured the
           tail &phi; ~ K e<sup>&minus;s</sup>, but the TOTAL area was never assessed. This module closes the gap:
           the integral of the imp-3064 excess fraction over the overflow range DIVERGES at s<sub>0</sub> = arcsinh(1).
@@ -8610,7 +8611,7 @@ export default function ClosureRoutesPage() {
         </p>
         <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 12, marginBottom: 8 }}>
           <thead>
-            <tr style={{ borderBottom: '1px solid #d5c9b2', color: '#877b67' }}>
+            <tr style={{ borderBottom: '1px solid var(--rule)', color: 'var(--ink-faint)' }}>
               <th style={{ padding: '4px 8px', fontFamily: mono, textAlign: 'left' }}>&epsilon;</th>
               <th style={{ padding: '4px 8px', fontFamily: mono, textAlign: 'right' }}>I(&epsilon;)</th>
               <th style={{ padding: '4px 8px', fontFamily: mono, textAlign: 'right' }}>&epsilon;&middot;I(&epsilon;)</th>
@@ -8619,40 +8620,40 @@ export default function ClosureRoutesPage() {
           </thead>
           <tbody>
             {IMP3106_EXCESS_FRACTION_INTEGRABILITY.onsetRungs.map((row, i) => (
-              <tr key={i} style={{ borderBottom: '1px solid #d5c9b2' }}>
-                <td style={{ padding: '3px 8px', fontFamily: mono, color: '#4a4238' }}>{row.eps.toExponential(0)}</td>
-                <td style={{ padding: '3px 8px', fontFamily: mono, color: '#b58a2e', textAlign: 'right' }}>{row.mass.toFixed(3)}</td>
-                <td style={{ padding: '3px 8px', fontFamily: mono, color: '#b58a2e', textAlign: 'right' }}>{row.epsTimesMass.toFixed(5)}</td>
-                <td style={{ padding: '3px 8px', fontFamily: mono, color: '#b58a2e', textAlign: 'right' }}>{row.ratioToPrincipal.toFixed(4)}</td>
+              <tr key={i} style={{ borderBottom: '1px solid var(--rule)' }}>
+                <td style={{ padding: '3px 8px', fontFamily: mono, color: 'var(--ink-soft)' }}>{row.eps.toExponential(0)}</td>
+                <td style={{ padding: '3px 8px', fontFamily: mono, color: 'var(--brass)', textAlign: 'right' }}>{row.mass.toFixed(3)}</td>
+                <td style={{ padding: '3px 8px', fontFamily: mono, color: 'var(--brass)', textAlign: 'right' }}>{row.epsTimesMass.toFixed(5)}</td>
+                <td style={{ padding: '3px 8px', fontFamily: mono, color: 'var(--brass)', textAlign: 'right' }}>{row.ratioToPrincipal.toFixed(4)}</td>
               </tr>
             ))}
           </tbody>
         </table>
-        <div style={{ padding: '6px 10px', borderRadius: 4, background: 'rgba(194,58,28,0.07)', border: '1px solid rgba(194,58,28,0.22)', fontSize: 11, color: '#877b67', lineHeight: 1.65 }}>
-          <strong style={{ color: '#c23a1c' }}>Scope (imp-3106):</strong>{' '}
+        <div style={{ padding: '6px 10px', borderRadius: 4, background: 'color-mix(in srgb, var(--series-2) 7%, transparent)', border: '1px solid color-mix(in srgb, var(--accent) 22%, transparent)', fontSize: 11, color: 'var(--ink-faint)', lineHeight: 1.65 }}>
+          <strong style={{ color: 'var(--accent)' }}>Scope (imp-3106):</strong>{' '}
           DIVERGENCE CHARACTERIZATION, NOT A VALUE. Degree-0 scalar measure only (RH-equivalent).
           The integrability result for the imp-3064 scalar ratio &phi;(s) neither proves nor weakens RH;
           the off-diagonal endpoint-Hankel operator step (imp-3066) remains the lone obstruction and
           is untouched. No finite mean to report.
         </div>
-        <p style={{ marginTop: 8, color: '#877b67', fontSize: 11, fontFamily: mono }}>
+        <p style={{ marginTop: 8, color: 'var(--ink-faint)', fontSize: 11, fontFamily: mono }}>
           Source: imp-3106-excess-fraction-integrability.js &mdash; s0=arcsinh(1)&asymp;0.88137, C&asymp;{IMP3106_EXCESS_FRACTION_INTEGRABILITY.onsetDivergence.onsetConstant.toFixed(5)}, K&asymp;{IMP3106_EXCESS_FRACTION_INTEGRABILITY.convergentTail.tailConstant.toFixed(5)}.
         </p>
       </div>
 
       {/* ─── Conjectures ─── */}
-      <h2 style={{ marginTop: 28, color: '#1c1814', fontSize: 22, fontFamily: mono }}>
+      <h2 style={{ marginTop: 28, color: 'var(--ink)', fontSize: 22, fontFamily: mono }}>
         Concrete next targets
       </h2>
-      <ConjectureCard conj={R.conjecture16_4} accent="#3f6b86" />
-      <ConjectureCard conj={R.conjecture16_6} accent="#6d55b8" />
+      <ConjectureCard conj={R.conjecture16_4} accent={ED.series1} />
+      <ConjectureCard conj={R.conjecture16_6} accent={ED.series5} />
 
       {/* ─── At-a-glance status table ─── */}
       <div className="card" style={{ marginTop: 28 }}>
-        <h3 style={{ color: '#3f6b86', marginBottom: 12 }}>At a glance</h3>
+        <h3 style={{ color: 'var(--series-1)', marginBottom: 12 }}>At a glance</h3>
         <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 13 }}>
           <thead>
-            <tr style={{ borderBottom: '1px solid #d5c9b2', color: '#877b67', textAlign: 'left' }}>
+            <tr style={{ borderBottom: '1px solid var(--rule)', color: 'var(--ink-faint)', textAlign: 'left' }}>
               <th style={{ padding: '8px 6px', fontFamily: mono }}>Route</th>
               <th style={{ padding: '8px 6px', fontFamily: mono }}>Name</th>
               <th style={{ padding: '8px 6px', fontFamily: mono }}>§</th>
@@ -8663,17 +8664,17 @@ export default function ClosureRoutesPage() {
             {R.routes.map((route) => {
               const col = ROUTE_COLORS[route.letter];
               return (
-                <tr key={route.letter} style={{ borderBottom: '1px solid #d5c9b2' }}>
+                <tr key={route.letter} style={{ borderBottom: '1px solid var(--rule)' }}>
                   <td style={{ padding: '10px 6px', color: col.fg, fontFamily: mono, fontWeight: 700 }}>
                     {route.letter}
                   </td>
-                  <td style={{ padding: '10px 6px', color: '#4a4238' }}>
+                  <td style={{ padding: '10px 6px', color: 'var(--ink-soft)' }}>
                     {route.name}
                   </td>
-                  <td style={{ padding: '10px 6px', color: '#877b67', fontFamily: mono }}>
+                  <td style={{ padding: '10px 6px', color: 'var(--ink-faint)', fontFamily: mono }}>
                     {route.sectionRef}
                   </td>
-                  <td style={{ padding: '10px 6px', color: '#4c7a4a', fontFamily: mono }}>
+                  <td style={{ padding: '10px 6px', color: 'var(--series-3)', fontFamily: mono }}>
                     yes
                     {route.lastReviewed && (
                       <span style={{
@@ -8681,9 +8682,9 @@ export default function ClosureRoutesPage() {
                         fontSize: 10,
                         padding: '1px 6px',
                         borderRadius: 3,
-                        color: '#4c7a4a',
-                        background: 'rgba(76,122,74,0.08)',
-                        border: '1px solid rgba(76,122,74,0.25)',
+                        color: 'var(--series-3)',
+                        background: 'color-mix(in srgb, var(--series-3) 8%, transparent)',
+                        border: '1px solid color-mix(in srgb, var(--series-3) 25%, transparent)',
                         whiteSpace: 'nowrap',
                       }}>
                         rev. {route.lastReviewed}
@@ -8695,41 +8696,41 @@ export default function ClosureRoutesPage() {
             })}
           </tbody>
         </table>
-        <p style={{ marginTop: 10, color: '#877b67', fontSize: 12, fontFamily: mono }}>
+        <p style={{ marginTop: 10, color: 'var(--ink-faint)', fontSize: 12, fontFamily: mono }}>
           findRoute('C') ={' '}
-          <span style={{ color: '#3f6b86' }}>{findRoute('C').name}</span>{' '}— helper smoke test.
+          <span style={{ color: 'var(--series-1)' }}>{findRoute('C').name}</span>{' '}— helper smoke test.
         </p>
       </div>
 
       {/* ─── Related pages ─── */}
-      <div className="card" style={{ marginTop: 24, background: 'rgba(63,107,134,0.04)' }}>
-        <h3 style={{ color: '#877b67', fontSize: 13, marginBottom: 10 }}>Related pages</h3>
+      <div className="card" style={{ marginTop: 24, background: 'color-mix(in srgb, var(--series-1) 4%, transparent)' }}>
+        <h3 style={{ color: 'var(--ink-faint)', fontSize: 13, marginBottom: 10 }}>Related pages</h3>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
-          <Link to="/twin-ladder" style={{ color: '#6d55b8', fontSize: 13 }}>
+          <Link to="/twin-ladder" style={{ color: 'var(--series-5)', fontSize: 13 }}>
             Twin Ladder
           </Link>
-          <span style={{ color: '#4a4238' }}>|</span>
-          <Link to="/rh-equivalents" style={{ color: '#c23a1c', fontSize: 13 }}>
+          <span style={{ color: 'var(--ink-soft)' }}>|</span>
+          <Link to="/rh-equivalents" style={{ color: 'var(--accent)', fontSize: 13 }}>
             RH Equivalents
           </Link>
-          <span style={{ color: '#4a4238' }}>|</span>
-          <Link to="/rh-attack" style={{ color: '#b58a2e', fontSize: 13 }}>
+          <span style={{ color: 'var(--ink-soft)' }}>|</span>
+          <Link to="/rh-attack" style={{ color: 'var(--brass)', fontSize: 13 }}>
             RH Approach
           </Link>
-          <span style={{ color: '#4a4238' }}>|</span>
-          <Link to="/proof-overview" style={{ color: '#4c7a4a', fontSize: 13 }}>
+          <span style={{ color: 'var(--ink-soft)' }}>|</span>
+          <Link to="/proof-overview" style={{ color: 'var(--series-3)', fontSize: 13 }}>
             Proof Overview
           </Link>
-          <span style={{ color: '#4a4238' }}>|</span>
-          <Link to="/lambda-bounds" style={{ color: '#3f6b86', fontSize: 13 }}>
+          <span style={{ color: 'var(--ink-soft)' }}>|</span>
+          <Link to="/lambda-bounds" style={{ color: 'var(--series-1)', fontSize: 13 }}>
             Λ Bounds &amp; RH Roadmap
           </Link>
-          <span style={{ color: '#4a4238' }}>|</span>
-          <Link to="/literature" style={{ color: '#3f6b86', fontSize: 13 }}>
+          <span style={{ color: 'var(--ink-soft)' }}>|</span>
+          <Link to="/literature" style={{ color: 'var(--series-1)', fontSize: 13 }}>
             Literature
           </Link>
-          <span style={{ color: '#4a4238' }}>|</span>
-          <Link to="/paper" style={{ color: '#b58a2e', fontSize: 13 }}>
+          <span style={{ color: 'var(--ink-soft)' }}>|</span>
+          <Link to="/paper" style={{ color: 'var(--brass)', fontSize: 13 }}>
             Paper
           </Link>
         </div>

@@ -11,11 +11,12 @@ import {
   IMP95772_REACH_ANNOTATION,
   IMP95772_CAVEAT_BANNER,
 } from '../data/imp-95772-deadzone-ceiling-reach-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 const LANDMARK_COLOR = {
-  conservatism_top: '#38bdf8',
-  crossover: '#f59e0b',
-  window_bottom: '#a78bfa',
+  conservatism_top: ED.series1,
+  crossover: ED.series4,
+  window_bottom: ED.series5,
 };
 
 function CrossoverAxis() {
@@ -32,7 +33,7 @@ function CrossoverAxis() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={axisY} x2={padL + axisW} y2={axisY} stroke="#334155" strokeWidth={2} />
+      <line x1={padL} y1={axisY} x2={padL + axisW} y2={axisY} stroke={ED.rule} strokeWidth={2} />
 
       {IMP95753_AXIS_LANDMARKS.map((m) => {
         const x = xOf(m.log10T);
@@ -44,7 +45,7 @@ function CrossoverAxis() {
             <text x={x} y={axisY - 30} textAnchor="middle" fill={color} fontSize={10.5} fontWeight={700}>
               {`log10 T = ${m.log10T}`}
             </text>
-            <text x={x} y={axisY + 40} textAnchor="middle" fill="#94a3b8" fontSize={9.5}>
+            <text x={x} y={axisY + 40} textAnchor="middle" fill={ED.inkSoft} fontSize={9.5}>
               {m.label}
             </text>
           </g>
@@ -61,11 +62,11 @@ function CrossoverAxis() {
               y1={axisY - 14}
               x2={x}
               y2={axisY + 14}
-              stroke="#f59e0b"
+              stroke={ED.brassDeco}
               strokeWidth={1.5}
               strokeDasharray="3,2"
             />
-            <text x={x} y={axisY + 52} textAnchor="middle" fill="#f59e0b" fontSize={8.5}>
+            <text x={x} y={axisY + 52} textAnchor="middle" fill={ED.brass} fontSize={8.5}>
               gamma_1e6 ceiling
             </text>
           </g>
@@ -81,8 +82,8 @@ function CrossoverAxis() {
         const decades = i === 0 ? IMP95753_GAP_DECADES.belowCrossover : IMP95753_GAP_DECADES.aboveCrossover;
         return (
           <g key={`gap-${i}`}>
-            <line x1={xa} y1={axisY + 60} x2={xb} y2={axisY + 60} stroke="#64748b" strokeWidth={1} />
-            <text x={(xa + xb) / 2} y={axisY + 74} textAnchor="middle" fill="#64748b" fontSize={9.5}>
+            <line x1={xa} y1={axisY + 60} x2={xb} y2={axisY + 60} stroke={ED.rule} strokeWidth={1} />
+            <text x={(xa + xb) / 2} y={axisY + 74} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5}>
               {`~${decades.toFixed(2)} decades`}
             </text>
           </g>
@@ -97,7 +98,7 @@ export default function Imp95753CrossoverHeightWindowViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Common-RvM-Height Dead Zone (imp-95729 / imp-95753)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-95729 placed three frontier landmarks on a single log-T (Riemann-von Mangoldt height)
         axis: the imp-95710 measured number-variance conservatism top, the imp-3444
         E_coll = E_trunc crossover, and the imp-95519 verified-height window bottom. The crossover
@@ -118,7 +119,7 @@ export default function Imp95753CrossoverHeightWindowViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>landmark</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>T</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>log10 T</th>
@@ -126,7 +127,7 @@ export default function Imp95753CrossoverHeightWindowViz() {
         </thead>
         <tbody>
           {IMP95753_AXIS_LANDMARKS.map((m) => (
-            <tr key={m.name} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+            <tr key={m.name} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
               <td style={{ padding: '0.4rem 0.6rem' }}>{m.label}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{m.T.toExponential(4)}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{m.log10T}</td>
@@ -135,7 +136,7 @@ export default function Imp95753CrossoverHeightWindowViz() {
         </tbody>
       </table>
 
-      <p style={{ color: '#64748b', fontSize: '0.8rem', marginTop: '1rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontSize: '0.8rem', marginTop: '1rem' }}>
         Geometric mean of the outer two landmarks (5e5, 3e12):{' '}
         <span style={{ fontFamily: 'monospace' }}>{IMP95753_GEOMETRIC_MEAN_GAP_T.toExponential(4)}</span> --
         within {IMP95753_GAP_DECADES.logMidpointOffset.toFixed(2)} decades of the measured
@@ -146,42 +147,42 @@ export default function Imp95753CrossoverHeightWindowViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(245,158,11,0.06)',
-          borderLeft: '3px solid #f59e0b',
+          background: 'color-mix(in srgb, var(--brass-deco) 6%, transparent)',
+          borderLeft: '3px solid var(--brass-deco)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#cbd5e1',
+          color: 'var(--ink)',
         }}
       >
-        <strong style={{ color: '#f59e0b' }}>imp-95772 measurement-reach:</strong> {IMP95772_REACH_ANNOTATION.text}
+        <strong style={{ color: 'var(--brass)' }}>imp-95772 measurement-reach:</strong> {IMP95772_REACH_ANNOTATION.text}
       </div>
 
       <div
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> {IMP95753_CAVEAT_BANNER}
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> {IMP95753_CAVEAT_BANNER}
       </div>
 
       <div
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status (imp-95772):</strong> {IMP95772_CAVEAT_BANNER}
+        <strong style={{ color: 'var(--ink-soft)' }}>Status (imp-95772):</strong> {IMP95772_CAVEAT_BANNER}
       </div>
     </div>
   );

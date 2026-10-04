@@ -19,6 +19,7 @@ import { CH_LIP_THREE_PROOFS } from '../data/ch-lip-three-proofs-table-2026-06-3
 import { CH_LIP_BASIN_CONDITIONAL, CH_LIP_DIVERGENCE_DECOMPOSITION } from '../data/ch-lip-basin-conditional-2026-06-30.js';
 import { IMP3110_SECTION26_GRAM_VS_MONOMIAL_GAP } from '../data/imp-3110-section26-gram-vs-monomial-gap.js';
 import { NEWMAN_LAMBDA_01787854_CANDIDATE } from '../data/newman-lambda-01787854-candidate.js';
+import { ED } from '../styles/tokens.js';
 
 // Editorial (warm) re-theme: same structure/data/logic as the original dark
 // dashboard, just re-skinned. Every claim/number/status/caveat kept verbatim.
@@ -46,10 +47,10 @@ const ROSE_A = PURPLE_A;
 // Literal hex twins of GREEN/RED/AMBER/ORANGE — needed anywhere the code
 // appends an alpha-hex suffix (e.g. `${color}40`), which only works with a
 // real hex string, not a CSS var() reference.
-const GREEN_HEX = '#4c7a4a';
-const RED_HEX = '#c23a1c';
-const AMBER_HEX = '#b58a2e';
-const ORANGE_HEX = '#8c6a1d';
+const GREEN_HEX = ED.series3;
+const RED_HEX = ED.series2;
+const AMBER_HEX = ED.brassDeco;
+const ORANGE_HEX = ED.brass;
 
 const MONO = 'var(--ed-mono, var(--font-mono))';
 
@@ -240,7 +241,7 @@ function StepCard({ step, expanded, onToggle }) {
           width="14" height="14" viewBox="0 0 14 14" fill="none"
           style={{ transform: expanded ? 'rotate(180deg)' : 'none', transition: '0.15s', flexShrink: 0 }}
         >
-          <path d="M2 4l5 5 5-5" stroke="#877b67" strokeWidth="1.5" strokeLinecap="round" />
+          <path d="M2 4l5 5 5-5" stroke={ED.rule} strokeWidth="1.5" strokeLinecap="round" />
         </svg>
       </div>
       {/* Status line (always visible) */}
@@ -1044,7 +1045,7 @@ export default function RigorDashboardPage() {
             </div>
             <div style={{ fontSize: 13, color: 'var(--ink-soft)', marginBottom: 6 }}>
               Revised mollifier + extended finite lane; four independent gates machine-checked in
-              Arb interval arithmetic; reduction Lean-checked.
+              Arb interval arithmetic; y-transfer reduction and Lemma B3 Lean-checked.
             </div>
             <div style={{ fontSize: 12, color: AMBER, fontFamily: MONO }}>
               UNREFEREED COMPUTER-ASSISTED CANDIDATE · BOUND NOT ESTABLISHED · NOT RH

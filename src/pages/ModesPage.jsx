@@ -71,11 +71,11 @@ function Caveat({ children }) {
       style={{
         marginTop: 12,
         padding: '12px 15px',
-        border: '1px solid rgba(181,138,46,0.40)',
+        border: '1px solid color-mix(in srgb, var(--brass-deco) 40%, transparent)',
         borderLeft: '3px solid var(--brass)',
         borderRadius: 8,
         color: 'var(--brass-dk)',
-        background: 'rgba(181,138,46,0.08)',
+        background: 'color-mix(in srgb, var(--brass-deco) 8%, transparent)',
         fontSize: 12.5,
         lineHeight: 1.65,
       }}

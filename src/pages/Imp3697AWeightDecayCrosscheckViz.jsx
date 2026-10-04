@@ -7,11 +7,12 @@ import {
   IMP3697_RATIO_LAST,
   IMP3697_UNDERFLOW_THRESHOLD_TAU,
 } from '../data/imp-3697-a-weight-decay-crosscheck-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
-const RATIO_COLOR = '#38bdf8';
-const REF_COLOR = '#64748b';
-const LOG_DOMAIN_COLOR = '#34d399';
-const UNDERFLOW_COLOR = '#f87171';
+const RATIO_COLOR = ED.series1;
+const REF_COLOR = ED.series8;
+const LOG_DOMAIN_COLOR = ED.series3;
+const UNDERFLOW_COLOR = ED.series2;
 
 function RatioConvergenceChart() {
   const svgW = 620;
@@ -35,12 +36,12 @@ function RatioConvergenceChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
       {[0.99, 1.0, 1.01, 1.02, 1.03, 1.04].map((v) => (
         <g key={v}>
-          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke="#1e293b" strokeWidth={0.7} />
-          <text x={padL - 6} y={yS(v) + 3.5} textAnchor="end" fill="#475569" fontSize={9}>
+          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke={ED.ruleSoft} strokeWidth={0.7} />
+          <text x={padL - 6} y={yS(v) + 3.5} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v.toFixed(2)}
           </text>
         </g>
@@ -57,20 +58,20 @@ function RatioConvergenceChart() {
         <circle key={r.tau} cx={xS(r.tau)} cy={yS(r.ratio)} r={5} fill={RATIO_COLOR} stroke="#052e1f" strokeWidth={1.25} />
       ))}
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
 
       {[0.5, 1.0, 1.5, 2.0].map((tau) => (
         <g key={'x' + tau}>
-          <line x1={xS(tau)} y1={padT + cH} x2={xS(tau)} y2={padT + cH + 5} stroke="#334155" strokeWidth={1} />
-          <text x={xS(tau)} y={padT + cH + 17} textAnchor="middle" fill="#64748b" fontSize={9}>
+          <line x1={xS(tau)} y1={padT + cH} x2={xS(tau)} y2={padT + cH + 5} stroke={ED.rule} strokeWidth={1} />
+          <text x={xS(tau)} y={padT + cH + 17} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
             {tau}
           </text>
         </g>
       ))}
-      <text x={padL + cW / 2} y={padT + cH + 36} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={padT + cH + 36} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         tau
       </text>
-      <text x={14} y={padT + cH / 2} textAnchor="middle" fill="#64748b" fontSize={10} transform={`rotate(-90,14,${padT + cH / 2})`}>
+      <text x={14} y={padT + cH / 2} textAnchor="middle" fill={ED.inkFaint} fontSize={10} transform={`rotate(-90,14,${padT + cH / 2})`}>
         -ln A(tau) / (pi e^4tau)
       </text>
     </svg>
@@ -92,7 +93,7 @@ function MagnitudeBarChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
       {IMP3697_RUNGS.map((r, i) => {
         const digits = -r.aExponentLog10;
         const h = (Math.log10(digits) / Math.log10(maxDigits)) * cH;
@@ -102,10 +103,10 @@ function MagnitudeBarChart() {
         return (
           <g key={r.tau}>
             <rect x={x} y={y} width={barW} height={h} fill={color} rx={2} />
-            <text x={x + barW / 2} y={y - 6} textAnchor="middle" fill="#94a3b8" fontSize={9}>
+            <text x={x + barW / 2} y={y - 6} textAnchor="middle" fill={ED.inkSoft} fontSize={9}>
               1e{r.aExponentLog10}
             </text>
-            <text x={x + barW / 2} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={9}>
+            <text x={x + barW / 2} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
               tau={r.tau}
             </text>
             {r.directDoubleUnderflowed && (
@@ -116,8 +117,8 @@ function MagnitudeBarChart() {
           </g>
         );
       })}
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
-      <text x={padL + cW / 2} y={padT + cH + 30} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
+      <text x={padL + cW / 2} y={padT + cH + 30} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         A(tau) magnitude (log domain, exact at every rung)
       </text>
     </svg>
@@ -126,9 +127,9 @@ function MagnitudeBarChart() {
 
 function RungTable() {
   return (
-    <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.8rem', color: '#94a3b8' }}>
+    <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.8rem', color: 'var(--ink-soft)' }}>
       <thead>
-        <tr style={{ borderBottom: '1px solid #334155' }}>
+        <tr style={{ borderBottom: '1px solid var(--rule)' }}>
           <th style={{ textAlign: 'left', padding: '0.35rem 0.5rem' }}>tau</th>
           <th style={{ textAlign: 'right', padding: '0.35rem 0.5rem' }}>-ln A(tau)</th>
           <th style={{ textAlign: 'right', padding: '0.35rem 0.5rem' }}>pi e^4tau</th>
@@ -138,12 +139,12 @@ function RungTable() {
       </thead>
       <tbody>
         {IMP3697_RUNGS.map((r) => (
-          <tr key={r.tau} style={{ borderBottom: '1px solid #1e293b' }}>
+          <tr key={r.tau} style={{ borderBottom: '1px solid var(--rule-soft)' }}>
             <td style={{ padding: '0.35rem 0.5rem' }}>{r.tau}</td>
             <td style={{ textAlign: 'right', padding: '0.35rem 0.5rem', color: RATIO_COLOR }}>{r.negLnA}</td>
             <td style={{ textAlign: 'right', padding: '0.35rem 0.5rem' }}>{r.lawNegLn}</td>
             <td style={{ textAlign: 'right', padding: '0.35rem 0.5rem' }}>{r.ratio}</td>
-            <td style={{ textAlign: 'right', padding: '0.35rem 0.5rem', color: r.directDoubleUnderflowed ? UNDERFLOW_COLOR : '#94a3b8' }}>
+            <td style={{ textAlign: 'right', padding: '0.35rem 0.5rem', color: r.directDoubleUnderflowed ? UNDERFLOW_COLOR : 'var(--ink-soft)' }}>
               {r.directDoubleUnderflowed ? 'underflows to 0' : 'ok'}
             </td>
           </tr>
@@ -158,7 +159,7 @@ export default function Imp3697AWeightDecayCrosscheckViz() {
     <div style={{ padding: '1.5rem', maxWidth: 940, margin: '0 auto' }}>
       <PageHeader title="A-Weight Super-Exponential Decay Cross-Check (imp-3665)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
         imp-3665 independently cross-checked the imp-3646 claim that the autocorrelation
         weight A(tau) = int Phi(s) Phi(s + tau) ds decays as exp(-pi e^4tau), by recomputing
         -ln A(tau) on a refined grid at tau in {'{'}0.5, 1, 1.5, 2{'}'}. The ratio -ln A(tau) /
@@ -166,17 +167,17 @@ export default function Imp3697AWeightDecayCrosscheckViz() {
         {IMP3697_RATIO_LAST} at tau=2), confirming the leading-order law is asymptotic.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         Ratio -ln A(tau) / (pi e^4tau), converging to 1 from above
       </p>
       <RatioConvergenceChart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.75rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.75rem 0 0.5rem' }}>
         A(tau) magnitude by log-domain evaluation vs direct-double underflow past tau &gt; {IMP3697_UNDERFLOW_THRESHOLD_TAU}
       </p>
       <MagnitudeBarChart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.75rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.75rem 0 0.5rem' }}>
         Measured rungs
       </p>
       <RungTable />
@@ -185,14 +186,14 @@ export default function Imp3697AWeightDecayCrosscheckViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> the ratio (top chart)
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> the ratio (top chart)
         starts 2.7% above 1 at tau=0.5 and settles within 0.03% of 1 by tau=2, showing the
         exp(-pi e^4tau) law is the correct leading order with a shrinking subleading
         correction. The bar chart shows why a naive direct-double Simpson sum cannot reach
@@ -206,14 +207,14 @@ export default function Imp3697AWeightDecayCrosscheckViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
         }}
       >
-        <strong style={{ color: '#f87171' }}>Re-bake (imp-3853, supersedes imp-3739):</strong>{' '}
+        <strong style={{ color: 'var(--series-2)' }}>Re-bake (imp-3853, supersedes imp-3739):</strong>{' '}
         the tau=1.5 and tau=2.0 rungs above previously read ratio &lt; 1 (0.99977 and 0.99976)
         off the imp-3665 N=12000 Simpson grid, corrected only in prose by imp-3739. imp-3716
         showed that reading is a DISCRETIZATION ARTIFACT, so the rungs are now RE-BAKED to the
@@ -227,14 +228,14 @@ export default function Imp3697AWeightDecayCrosscheckViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement/cross-check
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> measurement/cross-check
         only -- this visualizes the imp-3665 numeric confirmation of a decay-rate premise used
         inside a mass-feasibility diagnostic. It establishes NO operator positivity. RH-equivalent,
         necessary-but-not-sufficient. The imp-3066 K_a &ge; 0 sign-positivity obstruction remains

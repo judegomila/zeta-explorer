@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { enclosureUpper, IMP97337_ENCLOSURE, IMP97337_VERDICT } from '../data/imp-97337-krein-routeb-certified-bessel-enclosure.js';
+import { ED, alpha } from '../styles/tokens.js';
 
 // imp-97369: first consumer of the imp-97337 certified Route B per-panel |g| enclosure.
 // Panel 1 traces g(z) against the certified per-panel enclosure U(zL,zR) over a short
@@ -56,13 +57,13 @@ function PanelEnclosure() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={plotW} height={plotH} fill="rgba(56,189,248,0.03)" />
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <rect x={padL} y={padT} width={plotW} height={plotH} fill={alpha(ED.series1, 0.03)} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
       {[0, maxY / 2, maxY].map((v) => (
         <g key={`y${v}`}>
-          <line x1={padL - 4} y1={yOf(v)} x2={padL} y2={yOf(v)} stroke="#334155" strokeWidth={1} />
-          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={8.5}>
+          <line x1={padL - 4} y1={yOf(v)} x2={padL} y2={yOf(v)} stroke={ED.rule} strokeWidth={1} />
+          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8.5}>
             {v.toExponential(1)}
           </text>
         </g>
@@ -76,7 +77,7 @@ function PanelEnclosure() {
             y1={yOf(u)}
             x2={xOf(zR)}
             y2={yOf(u)}
-            stroke="#facc15"
+            stroke={ED.brassDeco}
             strokeWidth={2}
           />
         );
@@ -84,10 +85,10 @@ function PanelEnclosure() {
       <polyline
         points={curvePts.map(([z, v]) => `${xOf(z)},${yOf(v)}`).join(' ')}
         fill="none"
-        stroke="#38bdf8"
+        stroke={ED.series1}
         strokeWidth={1.6}
       />
-      <text x={padL + plotW / 2} y={padT + plotH + 30} textAnchor="middle" fill="#94a3b8" fontSize={9}>
+      <text x={padL + plotW / 2} y={padT + plotH + 30} textAnchor="middle" fill={ED.inkSoft} fontSize={9}>
         z = a t near the T-truncation rung (blue = |g(z)|, gold steps = certified U(zL,zR) per panel)
       </text>
     </svg>
@@ -129,13 +130,13 @@ function PanelRatioLadder() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={yOf(1)} x2={padL + plotW} y2={yOf(1)} stroke="#334155" strokeWidth={1} strokeDasharray="3 3" />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={yOf(1)} x2={padL + plotW} y2={yOf(1)} stroke={ED.rule} strokeWidth={1} strokeDasharray="3 3" />
       {[minY, WORST, 1].map((v) => (
         <g key={`y${v}`}>
-          <line x1={padL - 4} y1={yOf(v)} x2={padL} y2={yOf(v)} stroke="#334155" strokeWidth={1} />
-          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={8.5}>
+          <line x1={padL - 4} y1={yOf(v)} x2={padL} y2={yOf(v)} stroke={ED.rule} strokeWidth={1} />
+          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8.5}>
             {v.toFixed(3)}
           </text>
         </g>
@@ -143,7 +144,7 @@ function PanelRatioLadder() {
       <polyline
         points={ratios.map((r, i) => `${xOf(i)},${yOf(r)}`).join(' ')}
         fill="none"
-        stroke="#4ade80"
+        stroke={ED.series3}
         strokeWidth={1.6}
       />
       <line
@@ -151,14 +152,14 @@ function PanelRatioLadder() {
         y1={yOf(WORST)}
         x2={padL + plotW}
         y2={yOf(WORST)}
-        stroke="#f87171"
+        stroke={ED.series2}
         strokeWidth={1}
         strokeDasharray="4 3"
       />
-      <text x={padL + 6} y={yOf(WORST) - 4} fill="#f87171" fontSize={8.5}>
+      <text x={padL + 6} y={yOf(WORST) - 4} fill={ED.series2} fontSize={8.5}>
         certified worst = {WORST.toFixed(4)}
       </text>
-      <text x={padL + plotW / 2} y={padT + plotH + 20} textAnchor="middle" fill="#94a3b8" fontSize={9}>
+      <text x={padL + plotW / 2} y={padT + plotH + 20} textAnchor="middle" fill={ED.inkSoft} fontSize={9}>
         panel index over z in [T a, T a + 400] ({IMP97337_ENCLOSURE.panelsChecked} panels): true sup / certified upper
       </text>
     </svg>
@@ -190,12 +191,12 @@ function PanelRouteCFarTail() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
       {[0, maxY / 2, maxY].map((v) => (
         <g key={`y${v}`}>
-          <line x1={padL - 4} y1={yOf(v)} x2={padL} y2={yOf(v)} stroke="#334155" strokeWidth={1} />
-          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={8.5}>
+          <line x1={padL - 4} y1={yOf(v)} x2={padL} y2={yOf(v)} stroke={ED.rule} strokeWidth={1} />
+          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8.5}>
             {v.toFixed(0)}
           </text>
         </g>
@@ -205,20 +206,20 @@ function PanelRouteCFarTail() {
         y1={yOf(C_FAR)}
         x2={padL + plotW}
         y2={yOf(C_FAR)}
-        stroke="#facc15"
+        stroke={ED.brassDeco}
         strokeWidth={1.4}
         strokeDasharray="4 3"
       />
-      <text x={padL + 6} y={yOf(C_FAR) - 4} fill="#facc15" fontSize={8.5}>
+      <text x={padL + 6} y={yOf(C_FAR) - 4} fill={ED.brass} fontSize={8.5}>
         C_far = {C_FAR.toFixed(1)}
       </text>
       <polyline
         points={pts.map(([z, v]) => `${xOf(z)},${yOf(v)}`).join(' ')}
         fill="none"
-        stroke="#f472b6"
+        stroke={ED.series7}
         strokeWidth={1.6}
       />
-      <text x={padL + plotW / 2} y={padT + plotH + 20} textAnchor="middle" fill="#94a3b8" fontSize={9}>
+      <text x={padL + plotW / 2} y={padT + plotH + 20} textAnchor="middle" fill={ED.inkSoft} fontSize={9}>
         z &ge; Zfar = a Tfar: |g(z)| z&#8308; (pink) stays under the closed-form constant C_far (gold)
       </text>
     </svg>
@@ -234,21 +235,21 @@ export default function Imp97369RouteBEnclosureViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(56,189,248,0.06)',
-          borderLeft: '3px solid #38bdf8',
+          background: 'color-mix(in srgb, var(--series-1) 6%, transparent)',
+          borderLeft: '3px solid var(--series-1)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#38bdf8' }}>Honest status:</strong> derivation/execution only.
+        <strong style={{ color: 'var(--series-1)' }}>Honest status:</strong> derivation/execution only.
         No bound on Lambda moves; no operator positivity established; interval-rigorous reach
         stays 2a&le;{IMP97337_VERDICT.intervalRigorousReachUnchanged}; Platt-Trudgian
         Lambda&le;0.2 remains SOTA; RH open; NO QED.
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         g(t) = v0&middot;&Phi;(t) is bounded per panel [zL, zR] (z = a t) by the certified,
         interval-Bessel-library-free enclosure U(zL, zR) = (sinSup&middot;Sbar(zL) +
         cosSup&middot;Cbar(zL)) / zL, built from the exact-integer assembled polynomials S(z),
@@ -257,17 +258,17 @@ export default function Imp97369RouteBEnclosureViz() {
         {WORST.toFixed(4)}.
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         |g(z)| against the certified step enclosure, near the T-truncation rung
       </h3>
       <PanelEnclosure />
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginTop: '1.5rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginTop: '1.5rem', marginBottom: '0.5rem' }}>
         True/enclosure ratio across all {IMP97337_ENCLOSURE.panelsChecked} certified panels
       </h3>
       <PanelRatioLadder />
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginTop: '1.5rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginTop: '1.5rem', marginBottom: '0.5rem' }}>
         Route C far-tail majorant: |g(z)| z&#8308; &le; C_far beyond Zfar
       </h3>
       <PanelRouteCFarTail />
@@ -276,14 +277,14 @@ export default function Imp97369RouteBEnclosureViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the charts:</strong> panel 1 shows the
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the charts:</strong> panel 1 shows the
         certified step enclosure (gold) always sitting above the oscillating |g(z)| (blue) it
         brackets. Panel 2 shows the true/enclosure ratio staying in (0.9, 1) across all panels,
         never touching or exceeding the dashed 1.0 line -- a valid, tight (~1.3% conservative)
@@ -296,14 +297,14 @@ export default function Imp97369RouteBEnclosureViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page consuming the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the
         imp-97337 certified enclosure and Route C constant verbatim (via the exported
         enclosureUpper primitive and sPoly/cPoly); no re-derivation of the bounding argument, no
         new numerics. Residuals R1 (actual ground-state v0) and R2 (full sigma_2-weighted

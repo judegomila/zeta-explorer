@@ -2,6 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import lmfdbCrossReference, { assertIntegrity, DATA_AS_OF, lmfdbUrl } from '../data/lmfdb-l-function-cross-reference.js';
+import { ED, alpha } from '../styles/tokens.js';
 
 const SORT_KEYS = [
   { key: 'degree', label: 'Degree' },
@@ -12,14 +13,14 @@ const SORT_KEYS = [
 ];
 
 const DEGREE_COLORS = {
-  1: { bg: 'rgba(63,107,134,0.12)', border: 'rgba(63,107,134,0.4)', text: 'var(--blue)' },
-  2: { bg: 'rgba(76,122,74,0.12)', border: 'rgba(76,122,74,0.4)', text: 'var(--green)' },
-  3: { bg: 'rgba(181,138,46,0.14)', border: 'rgba(181,138,46,0.42)', text: 'var(--brass-dk)' },
-  4: { bg: 'rgba(194,58,28,0.12)', border: 'rgba(194,58,28,0.4)', text: 'var(--terra-dk)' },
+  1: { bg: alpha(ED.series1, 0.12), border: alpha(ED.series1, 0.4), text: 'var(--blue)' },
+  2: { bg: alpha(ED.series3, 0.12), border: alpha(ED.series3, 0.4), text: 'var(--green)' },
+  3: { bg: alpha(ED.brassDeco, 0.14), border: alpha(ED.brassDeco, 0.42), text: 'var(--brass-dk)' },
+  4: { bg: alpha(ED.series2, 0.12), border: alpha(ED.accent, 0.4), text: 'var(--terra-dk)' },
 };
 
 function degreeColor(d) {
-  return DEGREE_COLORS[d] || { bg: 'rgba(135,123,103,0.12)', border: 'rgba(135,123,103,0.4)', text: 'var(--faint)' };
+  return DEGREE_COLORS[d] || { bg: alpha(ED.inkFaint, 0.12), border: alpha(ED.rule, 0.4), text: 'var(--faint)' };
 }
 
 function DegreeBadge({ degree }) {
@@ -41,9 +42,9 @@ function SignBadge({ sign }) {
     <span style={{
       display: 'inline-block', padding: '2px 8px', borderRadius: 6,
       fontSize: 11, fontFamily: 'var(--ed-mono, var(--font-mono))', fontWeight: 700,
-      background: isPos ? 'rgba(76,122,74,0.14)' : 'rgba(194,58,28,0.14)',
+      background: isPos ? 'color-mix(in srgb, var(--series-3) 14%, transparent)' : 'color-mix(in srgb, var(--series-2) 14%, transparent)',
       color: isPos ? 'var(--green)' : 'var(--terra-dk)',
-      border: `1px solid ${isPos ? 'rgba(76,122,74,0.40)' : 'rgba(194,58,28,0.40)'}`,
+      border: `1px solid ${isPos ? alpha(ED.series3, 0.4) : alpha(ED.series2, 0.4)}`,
     }}>
       {isPos ? '+1' : '-1'}
     </span>
@@ -92,7 +93,7 @@ function DetailCard({ entry, onClose }) {
             target="_blank"
             rel="noopener noreferrer"
             style={{
-              border: '1px solid rgba(63,107,134,0.4)', borderRadius: 6,
+              border: '1px solid color-mix(in srgb, var(--series-1) 40%, transparent)', borderRadius: 6,
               color: 'var(--blue)', textDecoration: 'none', padding: '4px 10px',
               fontFamily: 'var(--ed-mono, var(--font-mono))', fontSize: 11,
             }}
@@ -131,12 +132,12 @@ function DetailCard({ entry, onClose }) {
         <ZerosList zeros={entry.firstFiveZeros} />
       </div>
 
-      <div style={{ padding: 12, borderRadius: 8, background: 'rgba(140,106,29,0.06)', border: '1px solid rgba(140,106,29,0.25)', marginBottom: 12 }}>
+      <div style={{ padding: 12, borderRadius: 8, background: 'color-mix(in srgb, var(--brass) 6%, transparent)', border: '1px solid color-mix(in srgb, var(--brass) 25%, transparent)', marginBottom: 12 }}>
         <div style={{ fontSize: 10, textTransform: 'uppercase', letterSpacing: 0.5, color: 'var(--brass-dk)', marginBottom: 4 }}>GRH Note</div>
         <div style={{ fontSize: 13, lineHeight: 1.5, color: 'var(--ink-soft)' }}>{entry.grhNote}</div>
       </div>
 
-      <div style={{ padding: 12, borderRadius: 8, background: 'rgba(63,107,134,0.06)', border: '1px solid rgba(63,107,134,0.22)' }}>
+      <div style={{ padding: 12, borderRadius: 8, background: 'color-mix(in srgb, var(--series-1) 6%, transparent)', border: '1px solid color-mix(in srgb, var(--series-1) 22%, transparent)' }}>
         <div style={{ fontSize: 10, textTransform: 'uppercase', letterSpacing: 0.5, color: 'var(--blue)', marginBottom: 4 }}>Twin-Ladder Bridge Connection</div>
         <div style={{ fontSize: 13, lineHeight: 1.5, color: 'var(--ink-soft)' }}>{entry.zpoConnection}</div>
       </div>
@@ -156,8 +157,8 @@ function IntegrityPanel() {
   return (
     <div style={{
       padding: 12, borderRadius: 8, marginBottom: 24,
-      background: result.ok ? 'rgba(76,122,74,0.10)' : 'rgba(194,58,28,0.10)',
-      border: `1px solid ${result.ok ? 'rgba(76,122,74,0.35)' : 'rgba(194,58,28,0.35)'}`,
+      background: result.ok ? 'color-mix(in srgb, var(--series-3) 10%, transparent)' : 'color-mix(in srgb, var(--series-2) 10%, transparent)',
+      border: `1px solid ${result.ok ? alpha(ED.series3, 0.35) : alpha(ED.series2, 0.35)}`,
       display: 'flex', alignItems: 'center', gap: 10,
     }}>
       <span style={{ fontSize: 14 }}>{result.ok ? '✓' : '✗'}</span>
@@ -244,9 +245,9 @@ export default function LmfdbCrossReferencePage() {
             style={{
               padding: '4px 14px', borderRadius: 8, cursor: 'pointer',
               fontFamily: 'var(--ed-mono, var(--font-mono))', fontSize: 12, fontWeight: 600,
-              background: filterDegree === null ? 'rgba(140,106,29,0.18)' : 'var(--paper2)',
+              background: filterDegree === null ? 'color-mix(in srgb, var(--brass) 18%, transparent)' : 'var(--paper2)',
               color: filterDegree === null ? 'var(--brass-dk)' : 'var(--faint)',
-              border: `1px solid ${filterDegree === null ? 'rgba(140,106,29,0.4)' : 'var(--hairline)'}`,
+              border: `1px solid ${filterDegree === null ? alpha(ED.brass, 0.4) : 'var(--hairline)'}`,
             }}
           >
             All ({lmfdbCrossReference.length})
@@ -285,9 +286,9 @@ export default function LmfdbCrossReferencePage() {
               style={{
                 padding: '3px 10px', borderRadius: 6, cursor: 'pointer',
                 fontFamily: 'var(--ed-mono, var(--font-mono))', fontSize: 11,
-                background: sortKey === key ? 'rgba(63,107,134,0.15)' : 'var(--paper2)',
+                background: sortKey === key ? 'color-mix(in srgb, var(--series-1) 15%, transparent)' : 'var(--paper2)',
                 color: sortKey === key ? 'var(--blue)' : 'var(--faint)',
-                border: `1px solid ${sortKey === key ? 'rgba(63,107,134,0.35)' : 'var(--hairline)'}`,
+                border: `1px solid ${sortKey === key ? alpha(ED.series1, 0.35) : 'var(--hairline)'}`,
               }}
             >
               {label} {sortKey === key ? (sortAsc ? '↑' : '↓') : ''}
@@ -306,7 +307,7 @@ export default function LmfdbCrossReferencePage() {
                   style={{
                     padding: '12px 16px', borderRadius: 10, cursor: 'pointer',
                     background: isExpanded ? 'var(--paper2)' : 'var(--paper)',
-                    border: `1px solid ${isExpanded ? 'rgba(140,106,29,0.35)' : 'var(--hairline)'}`,
+                    border: `1px solid ${isExpanded ? alpha(ED.brass, 0.35) : 'var(--hairline)'}`,
                     display: 'grid',
                     gridTemplateColumns: '60px 1fr auto',
                     alignItems: 'center', gap: 16,

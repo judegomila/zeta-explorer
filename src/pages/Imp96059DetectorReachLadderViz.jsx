@@ -12,10 +12,11 @@ import { IMP96149_DETECTOR_FIT, IMP96149_EXTRAPOLATION } from '../data/imp-96149
 import { IMP96287_REACH_BAND } from '../data/imp-96287-route-l-reach-band-reconciliation.js';
 import { IMP96273_MEASURED_LOWER_BOUND } from '../data/imp-96273-detector-zero40-extrapolation.js';
 import { IMP96347_CURVATURE_CORRECTION } from '../data/imp-96347-detector-reach-curvature-correction.js';
+import { ED } from '../styles/tokens.js';
 
-const BAR_COLOR = '#38bdf8';
-const UNDETECTED_COLOR = '#f87171';
-const RESOLVED_COLOR = '#34d399';
+const BAR_COLOR = ED.series1;
+const UNDETECTED_COLOR = ED.series2;
+const RESOLVED_COLOR = ED.series3;
 
 function DetectorReachChart() {
   const svgW = 680;
@@ -39,20 +40,20 @@ function DetectorReachChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
       {yTicks.map((v) => (
         <g key={v}>
-          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke="#1e293b" strokeWidth={0.7} />
-          <text x={padL - 6} y={yS(v) + 3.5} textAnchor="end" fill="#475569" fontSize={9}>
+          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke={ED.ruleSoft} strokeWidth={0.7} />
+          <text x={padL - 6} y={yS(v) + 3.5} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v}
           </text>
         </g>
       ))}
 
       {/* NMAX = 400 horizontal reference (the height of the detector run) */}
-      <line x1={padL} y1={yS(IMP96059_NMAX)} x2={padL + cW} y2={yS(IMP96059_NMAX)} stroke="#64748b" strokeWidth={1} strokeDasharray="2,2" />
-      <text x={padL + cW - 4} y={yS(IMP96059_NMAX) - 6} textAnchor="end" fill="#64748b" fontSize={9}>
+      <line x1={padL} y1={yS(IMP96059_NMAX)} x2={padL + cW} y2={yS(IMP96059_NMAX)} stroke={ED.rule} strokeWidth={1} strokeDasharray="2,2" />
+      <text x={padL + cW - 4} y={yS(IMP96059_NMAX) - 6} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
         NMAX = {IMP96059_NMAX}
       </text>
 
@@ -66,7 +67,7 @@ function DetectorReachChart() {
               <line x1={x} y1={yTop} x2={x} y2={yBot} stroke={BAR_COLOR} strokeWidth={3} />
               <circle cx={x} cy={yTop} r={3} fill={BAR_COLOR} />
               <circle cx={x} cy={yBot} r={3} fill={BAR_COLOR} />
-              <text x={x} y={yBot + 13} textAnchor="middle" fill="#94a3b8" fontSize={9}>
+              <text x={x} y={yBot + 13} textAnchor="middle" fill={ED.inkSoft} fontSize={9}>
                 k={z.k}
               </text>
             </g>
@@ -85,20 +86,20 @@ function DetectorReachChart() {
         );
       })}
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
 
       {[0, 20, 40, 60, 80, 100, 120].map((g) => (
         <g key={'x' + g}>
-          <line x1={xS(g)} y1={padT + cH} x2={xS(g)} y2={padT + cH + 5} stroke="#334155" strokeWidth={1} />
-          <text x={xS(g)} y={padT + cH + 17} textAnchor="middle" fill="#64748b" fontSize={9}>
+          <line x1={xS(g)} y1={padT + cH} x2={xS(g)} y2={padT + cH + 5} stroke={ED.rule} strokeWidth={1} />
+          <text x={xS(g)} y={padT + cH + 17} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
             {g}
           </text>
         </g>
       ))}
-      <text x={padL + cW / 2} y={padT + cH + 36} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={padT + cH + 36} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         zero height gamma_0
       </text>
-      <text x={14} y={padT + cH / 2} textAnchor="middle" fill="#64748b" fontSize={10} transform={`rotate(-90,14,${padT + cH / 2})`}>
+      <text x={14} y={padT + cH / 2} textAnchor="middle" fill={ED.inkFaint} fontSize={10} transform={`rotate(-90,14,${padT + cH / 2})`}>
         N_det (log scale)
       </text>
     </svg>
@@ -107,9 +108,9 @@ function DetectorReachChart() {
 
 function DetectorRangeTable() {
   return (
-    <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.8rem', color: '#94a3b8' }}>
+    <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.8rem', color: 'var(--ink-soft)' }}>
       <thead>
-        <tr style={{ borderBottom: '1px solid #334155' }}>
+        <tr style={{ borderBottom: '1px solid var(--rule)' }}>
           <th style={{ textAlign: 'left', padding: '0.35rem 0.5rem' }}>zero k</th>
           <th style={{ textAlign: 'right', padding: '0.35rem 0.5rem' }}>gamma_0</th>
           <th style={{ textAlign: 'right', padding: '0.35rem 0.5rem' }}>N_det range (delta = 0.4 .. 0.025)</th>
@@ -117,7 +118,7 @@ function DetectorRangeTable() {
       </thead>
       <tbody>
         {IMP96059_NDET_RANGE_BY_ZERO.map((z) => (
-          <tr key={z.k} style={{ borderBottom: '1px solid #1e293b' }}>
+          <tr key={z.k} style={{ borderBottom: '1px solid var(--rule-soft)' }}>
             <td style={{ padding: '0.35rem 0.5rem' }}>{z.k}</td>
             <td style={{ textAlign: 'right', padding: '0.35rem 0.5rem' }}>{z.gamma0}</td>
             <td style={{ textAlign: 'right', padding: '0.35rem 0.5rem', color: z.detected ? BAR_COLOR : UNDETECTED_COLOR }}>
@@ -132,9 +133,9 @@ function DetectorRangeTable() {
 
 function ResolvedCountTable() {
   return (
-    <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.8rem', color: '#94a3b8' }}>
+    <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.8rem', color: 'var(--ink-soft)' }}>
       <thead>
-        <tr style={{ borderBottom: '1px solid #334155' }}>
+        <tr style={{ borderBottom: '1px solid var(--rule)' }}>
           <th style={{ textAlign: 'left', padding: '0.35rem 0.5rem' }}>CMV order N</th>
           <th style={{ textAlign: 'right', padding: '0.35rem 0.5rem' }}>resolved (of first 40)</th>
           <th style={{ textAlign: 'right', padding: '0.35rem 0.5rem' }}>resolved / N</th>
@@ -142,7 +143,7 @@ function ResolvedCountTable() {
       </thead>
       <tbody>
         {IMP96059_RESOLVED_FIRST_40.map(([n, resolved]) => (
-          <tr key={n} style={{ borderBottom: '1px solid #1e293b' }}>
+          <tr key={n} style={{ borderBottom: '1px solid var(--rule-soft)' }}>
             <td style={{ padding: '0.35rem 0.5rem' }}>{n}</td>
             <td style={{ textAlign: 'right', padding: '0.35rem 0.5rem', color: RESOLVED_COLOR }}>{resolved}</td>
             <td style={{ textAlign: 'right', padding: '0.35rem 0.5rem' }}>{(resolved / n).toFixed(4)}</td>
@@ -161,9 +162,9 @@ function PowerLawComparisonTable() {
     return Math.exp(a0 + a1 * L + a2 * L * L);
   };
   return (
-    <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.8rem', color: '#94a3b8' }}>
+    <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.8rem', color: 'var(--ink-soft)' }}>
       <thead>
-        <tr style={{ borderBottom: '1px solid #334155' }}>
+        <tr style={{ borderBottom: '1px solid var(--rule)' }}>
           <th style={{ textAlign: 'left', padding: '0.35rem 0.5rem' }}>zero k</th>
           <th style={{ textAlign: 'right', padding: '0.35rem 0.5rem' }}>gamma_0</th>
           <th style={{ textAlign: 'right', padding: '0.35rem 0.5rem' }}>measured N_det range</th>
@@ -178,7 +179,7 @@ function PowerLawComparisonTable() {
           const quadPred = quadPredicted(z.gamma0);
           const inRange = z.detected && predicted >= z.nDetMin && predicted <= z.nDetMax;
           return (
-            <tr key={z.k} style={{ borderBottom: '1px solid #1e293b' }}>
+            <tr key={z.k} style={{ borderBottom: '1px solid var(--rule-soft)' }}>
               <td style={{ padding: '0.35rem 0.5rem' }}>{z.k}</td>
               <td style={{ textAlign: 'right', padding: '0.35rem 0.5rem' }}>{z.gamma0}</td>
               <td style={{ textAlign: 'right', padding: '0.35rem 0.5rem', color: z.detected ? BAR_COLOR : UNDETECTED_COLOR }}>
@@ -202,7 +203,7 @@ export default function Imp96059DetectorReachLadderViz() {
     <div style={{ padding: '1.5rem', maxWidth: 940, margin: '0 auto' }}>
       <PageHeader title="Route L CMV Detector Reach Law (imp-96059)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
         The Route L a = {IMP96059_A} CMV truncation is probed with a displaced off-line quadruple
         1/2 &plusmn; delta &plusmn; i*gamma_0 spliced into the exact Herglotz moments in place of a
         true on-line pair. N_det is the first Levinson order at which the finite Toeplitz form goes
@@ -212,17 +213,17 @@ export default function Imp96059DetectorReachLadderViz() {
         run ceiling N = {IMP96059_NMAX}.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         N_det vs zero height gamma_0, range bars over delta = 0.4 .. 0.025
       </p>
       <DetectorReachChart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.75rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.75rem 0 0.5rem' }}>
         Per-zero detection range (verbatim from ROUTE_L.detector.rows)
       </p>
       <DetectorRangeTable />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.75rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.75rem 0 0.5rem' }}>
         Measured N_det range vs the imp-96149 canonical (delta = 0.1) power-law fit N_det = A *
         gamma_0^b, alongside the imp-96347 quadratic-in-log-gamma curvature correction. At zero 40
         (gamma_0 = 122.95) the curvature correction lifts the reach estimate from 165.6 (power law)
@@ -231,7 +232,7 @@ export default function Imp96059DetectorReachLadderViz() {
       </p>
       <PowerLawComparisonTable />
 
-      <p style={{ color: '#64748b', fontSize: '0.78rem', margin: '0.5rem 0 0' }}>
+      <p style={{ color: 'var(--ink-faint)', fontSize: '0.78rem', margin: '0.5rem 0 0' }}>
         Honest status (imp-96273): this power law under-predicts the first-detection order for
         zero {IMP96273_MEASURED_LOWER_BOUND.zeroIndex} -- it forecasts N_det ~ 144-166 but the zero
         is measured UNDETECTED through N = {IMP96273_MEASURED_LOWER_BOUND.nDetLowerBound} (&ge;
@@ -239,38 +240,38 @@ export default function Imp96059DetectorReachLadderViz() {
         The reach law is super-power at this height; the verified-zero route stays cheaper.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.75rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.75rem 0 0.5rem' }}>
         The linear-in-N reach: resolved count among the first 40 zeros vs CMV order N
         (ROUTE_L.a20.resolvedFirst40)
       </p>
       <ResolvedCountTable />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.75rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.75rem 0 0.5rem' }}>
         Extrapolated N needed at the Platt-Trudgian height T0 = {IMP96149_EXTRAPOLATION.T0.toExponential(4)}
         (imp-96149 power-law point estimate) alongside the imp-96287 covariance-propagated
         statistical reach band
       </p>
-      <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.8rem', color: '#94a3b8' }}>
+      <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.8rem', color: 'var(--ink-soft)' }}>
         <thead>
-          <tr style={{ borderBottom: '1px solid #334155' }}>
+          <tr style={{ borderBottom: '1px solid var(--rule)' }}>
             <th style={{ textAlign: 'left', padding: '0.35rem 0.5rem' }}>estimate</th>
             <th style={{ textAlign: 'right', padding: '0.35rem 0.5rem' }}>N range</th>
           </tr>
         </thead>
         <tbody>
-          <tr style={{ borderBottom: '1px solid #1e293b' }}>
+          <tr style={{ borderBottom: '1px solid var(--rule-soft)' }}>
             <td style={{ padding: '0.35rem 0.5rem' }}>point extrapolation (detector power law)</td>
             <td style={{ textAlign: 'right', padding: '0.35rem 0.5rem', color: BAR_COLOR }}>
               {IMP96149_EXTRAPOLATION.nNeeded.detectorPowerLaw.toExponential(4)}
             </td>
           </tr>
-          <tr style={{ borderBottom: '1px solid #1e293b' }}>
+          <tr style={{ borderBottom: '1px solid var(--rule-soft)' }}>
             <td style={{ padding: '0.35rem 0.5rem' }}>1-sigma covariance-propagated band</td>
             <td style={{ textAlign: 'right', padding: '0.35rem 0.5rem' }}>
               [{IMP96287_REACH_BAND.band1sigma.detector.lo.toExponential(2)}, {IMP96287_REACH_BAND.band1sigma.detector.hi.toExponential(2)}]
             </td>
           </tr>
-          <tr style={{ borderBottom: '1px solid #1e293b' }}>
+          <tr style={{ borderBottom: '1px solid var(--rule-soft)' }}>
             <td style={{ padding: '0.35rem 0.5rem' }}>95% covariance-propagated band</td>
             <td style={{ textAlign: 'right', padding: '0.35rem 0.5rem' }}>
               [{IMP96287_REACH_BAND.band95.detector.lo.toExponential(2)}, {IMP96287_REACH_BAND.band95.detector.hi.toExponential(2)}]
@@ -278,7 +279,7 @@ export default function Imp96059DetectorReachLadderViz() {
           </tr>
         </tbody>
       </table>
-      <p style={{ color: '#64748b', fontSize: '0.78rem', margin: '0.5rem 0 0' }}>
+      <p style={{ color: 'var(--ink-faint)', fontSize: '0.78rem', margin: '0.5rem 0 0' }}>
         The band widens ~14-16 orders of magnitude around the point estimate because the fit
         extrapolates ~10.4 decades of gamma from only n = 5 measured points (imp-96287); the full
         multi-column reconciliation and chart live on the imp-96320 reach-band page.
@@ -288,18 +289,18 @@ export default function Imp96059DetectorReachLadderViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Law:</strong> {IMP96059_LAW}
+        <strong style={{ color: 'var(--ink-soft)' }}>Law:</strong> {IMP96059_LAW}
         <br />
-        <strong style={{ color: '#94a3b8' }}>Reach:</strong> {IMP96059_REACH}
+        <strong style={{ color: 'var(--ink-soft)' }}>Reach:</strong> {IMP96059_REACH}
         <br />
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation only -- charts the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> presentation only -- charts the
         ROUTE_L.detector rows already baked in
         rh-routes-jkl-non-statmech-external-input-hunt-2026-09-23.js. Changes no bound; Route L
         stays NOT-A-LEVER (RH content = resolved zeros, completeness = Weil positivity, no

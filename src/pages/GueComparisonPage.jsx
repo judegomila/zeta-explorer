@@ -27,6 +27,7 @@ import { Link } from 'react-router-dom';
 import { scaleLinear } from 'd3-scale';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import AnimationEmbed from '../components/AnimationEmbed.jsx';
+import { ED, alpha } from '../styles/tokens.js';
 
 // Browser-light snapshot of the offline first-10000-zero sweep. Keeping the
 // 50 sufficient-statistic bins here avoids importing the 16.7 MB zero corpus;
@@ -105,13 +106,13 @@ const RIH = RH - RM.top - RM.bottom;
 const labelStyle = {
   fontFamily: 'IBM Plex Mono, ui-monospace, SFMono-Regular, monospace',
   fontSize: 11,
-  fill: '#4a4238',
+  fill: ED.inkSoft,
 };
 
 const tickStyle = {
   fontFamily: 'IBM Plex Mono, ui-monospace, SFMono-Regular, monospace',
   fontSize: 9,
-  fill: '#877b67',
+  fill: ED.inkFaint,
 };
 
 // Editorial card: warm paper background + hairline border, colored left rule.
@@ -269,8 +270,8 @@ export default function GueComparisonPage() {
                     y={yTop}
                     width={Math.max(xHi - xLo - 1, 0.5)}
                     height={Math.max(h, 0)}
-                    fill="rgba(63,107,134,0.35)"
-                    stroke="rgba(63,107,134,0.9)"
+                    fill={alpha(ED.series1, 0.35)}
+                    stroke={alpha(ED.series1, 0.9)}
                     strokeWidth={0.7}
                   >
                     <title>
@@ -287,23 +288,23 @@ export default function GueComparisonPage() {
               <polyline
                 points={gueCurvePoints}
                 fill="none"
-                stroke="#d9502e"
+                stroke={ED.accentDeco}
                 strokeWidth={2}
                 strokeLinejoin="round"
                 strokeLinecap="round"
               />
 
               {/* Mean-spacing reference line at s = 1. */}
-              <line x1={x(1)} x2={x(1)} y1={0} y2={IH} stroke="#b58a2e" strokeWidth={1} strokeDasharray="4,4" />
-              <text x={x(1) + 4} y={12} style={{ ...labelStyle, fill: '#b58a2e' }}>
+              <line x1={x(1)} x2={x(1)} y1={0} y2={IH} stroke={ED.brassDeco} strokeWidth={1} strokeDasharray="4,4" />
+              <text x={x(1) + 4} y={12} style={{ ...labelStyle, fill: 'var(--brass-deco)' }}>
                 mean spacing = 1
               </text>
 
               {/* x axis. */}
-              <line x1={0} x2={IW} y1={IH} y2={IH} stroke="#4a4238" />
+              <line x1={0} x2={IW} y1={IH} y2={IH} stroke={ED.inkSoft} />
               {xTicks.map((t) => (
                 <g key={'xt-' + t} transform={'translate(' + x(t) + ',' + IH + ')'}>
-                  <line y1={0} y2={5} stroke="#4a4238" />
+                  <line y1={0} y2={5} stroke={ED.inkSoft} />
                   <text y={18} textAnchor="middle" style={tickStyle}>{t.toFixed(1)}</text>
                 </g>
               ))}
@@ -312,10 +313,10 @@ export default function GueComparisonPage() {
               </text>
 
               {/* y axis. */}
-              <line x1={0} x2={0} y1={0} y2={IH} stroke="#4a4238" />
+              <line x1={0} x2={0} y1={0} y2={IH} stroke={ED.inkSoft} />
               {yTicks.map((t) => (
                 <g key={'yt-' + t.toFixed(2)} transform={'translate(0,' + y(t) + ')'}>
-                  <line x1={-5} x2={0} stroke="#4a4238" />
+                  <line x1={-5} x2={0} stroke={ED.inkSoft} />
                   <text x={-8} y={3} textAnchor="end" style={tickStyle}>{t.toFixed(2)}</text>
                 </g>
               ))}
@@ -325,13 +326,13 @@ export default function GueComparisonPage() {
 
               {/* Legend. */}
               <g transform={'translate(' + (IW - 230) + ',6)'}>
-                <rect x={-6} y={-4} width={236} height={42} rx={6} fill="rgba(253,250,243,0.9)" stroke="rgba(213,201,178,0.8)" />
-                <rect x={0} y={4} width={14} height={10} fill="rgba(63,107,134,0.35)" stroke="rgba(63,107,134,0.9)" strokeWidth={0.7} />
-                <text x={20} y={13} style={{ ...labelStyle, fontSize: 10, fill: '#4a4238' }}>
+                <rect x={-6} y={-4} width={236} height={42} rx={6} fill={alpha(ED.paper, 0.9)} stroke={alpha(ED.rule, 0.8)} />
+                <rect x={0} y={4} width={14} height={10} fill={alpha(ED.series1, 0.35)} stroke={alpha(ED.series1, 0.9)} strokeWidth={0.7} />
+                <text x={20} y={13} style={{ ...labelStyle, fontSize: 10, fill: 'var(--ink-soft)' }}>
                   empirical histogram (10000 zeros)
                 </text>
-                <line x1={0} x2={14} y1={26} y2={26} stroke="#d9502e" strokeWidth={2} />
-                <text x={20} y={30} style={{ ...labelStyle, fontSize: 10, fill: '#4a4238' }}>
+                <line x1={0} x2={14} y1={26} y2={26} stroke={ED.accentDeco} strokeWidth={2} />
+                <text x={20} y={30} style={{ ...labelStyle, fontSize: 10, fill: 'var(--ink-soft)' }}>
                   GUE Wigner surmise
                 </text>
               </g>
@@ -356,7 +357,7 @@ export default function GueComparisonPage() {
           <svg width={RW} height={RH} role="img" aria-label="per-bin residuals">
             <g transform={'translate(' + RM.left + ',' + RM.top + ')'}>
               {/* Zero line. */}
-              <line x1={0} x2={RIW} y1={yR(0)} y2={yR(0)} stroke="#4a4238" />
+              <line x1={0} x2={RIW} y1={yR(0)} y2={yR(0)} stroke={ED.inkSoft} />
 
               {/* Residual bars. */}
               {residuals.map((r, i) => {
@@ -373,8 +374,8 @@ export default function GueComparisonPage() {
                     y={yTop}
                     width={Math.max(xHi - xLo - 1, 0.5)}
                     height={Math.max(h, 0)}
-                    fill={positive ? 'rgba(76,122,74,0.55)' : 'rgba(217,80,46,0.55)'}
-                    stroke={positive ? 'rgba(76,122,74,0.95)' : 'rgba(217,80,46,0.95)'}
+                    fill={positive ? alpha(ED.series3, 0.55) : alpha(ED.accentDeco, 0.55)}
+                    stroke={positive ? alpha(ED.series3, 0.95) : alpha(ED.accentDeco, 0.95)}
                     strokeWidth={0.7}
                   >
                     <title>
@@ -386,10 +387,10 @@ export default function GueComparisonPage() {
               })}
 
               {/* x axis. */}
-              <line x1={0} x2={RIW} y1={RIH} y2={RIH} stroke="#4a4238" />
+              <line x1={0} x2={RIW} y1={RIH} y2={RIH} stroke={ED.inkSoft} />
               {xTicks.map((t) => (
                 <g key={'rxt-' + t} transform={'translate(' + xR(t) + ',' + RIH + ')'}>
-                  <line y1={0} y2={5} stroke="#4a4238" />
+                  <line y1={0} y2={5} stroke={ED.inkSoft} />
                   <text y={16} textAnchor="middle" style={tickStyle}>{t.toFixed(1)}</text>
                 </g>
               ))}
@@ -398,10 +399,10 @@ export default function GueComparisonPage() {
               </text>
 
               {/* y axis. */}
-              <line x1={0} x2={0} y1={0} y2={RIH} stroke="#4a4238" />
+              <line x1={0} x2={0} y1={0} y2={RIH} stroke={ED.inkSoft} />
               {[-rCap, -rCap / 2, 0, rCap / 2, rCap].map((t, i) => (
                 <g key={'ryt-' + i} transform={'translate(0,' + yR(t) + ')'}>
-                  <line x1={-5} x2={0} stroke="#4a4238" />
+                  <line x1={-5} x2={0} stroke={ED.inkSoft} />
                   <text x={-8} y={3} textAnchor="end" style={tickStyle}>{t.toFixed(3)}</text>
                 </g>
               ))}

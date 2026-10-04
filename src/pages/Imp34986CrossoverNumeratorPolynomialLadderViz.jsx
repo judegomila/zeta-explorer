@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP34957_CROSSOVER_DERIV_P11_P12_EXTENSION } from '../data/imp-34957-crossover-deriv-p11-p12-extension.js';
+import { ED } from '../styles/tokens.js';
 
 // Reconstruct the same P_2..P_12 crossover-map numerator-polynomial table verbatim via the
 // imp-34957 operator recurrence P_(n+1) = n (u P_n) + (2n-1) P_n - u (dP_n/du), P_2 = u + 1.
@@ -71,9 +72,9 @@ function GrowthChart() {
   const cH = svgH - padT - padB;
 
   const series = [
-    { key: 'leading', label: '(n-1)! leading coefficient', color: '#60a5fa' },
-    { key: 'constant', label: '(2n-3)!! constant coefficient', color: '#f472b6' },
-    { key: 'largest', label: 'largest coefficient in P_n', color: '#34d399' },
+    { key: 'leading', label: '(n-1)! leading coefficient', color: ED.series1 },
+    { key: 'constant', label: '(2n-3)!! constant coefficient', color: ED.series7 },
+    { key: 'largest', label: 'largest coefficient in P_n', color: ED.series3 },
   ];
 
   const allVals = ROWS.flatMap((r) => [r.leading, r.constant, r.largest]).concat([CEILING_2_53]);
@@ -87,24 +88,24 @@ function GrowthChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke="#334155" strokeWidth={1} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke={ED.rule} strokeWidth={1} />
 
       {Array.from({ length: yMax - yMin + 1 }, (_, i) => yMin + i).map((t) => (
         <g key={t}>
-          <line x1={padL - 4} y1={yAt(t)} x2={padL + cW} y2={yAt(t)} stroke="#1e293b" strokeWidth={1} />
-          <text x={padL - 8} y={yAt(t) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+          <line x1={padL - 4} y1={yAt(t)} x2={padL + cW} y2={yAt(t)} stroke={ED.ruleSoft} strokeWidth={1} />
+          <text x={padL - 8} y={yAt(t) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {`1e${t}`}
           </text>
         </g>
       ))}
 
       {ORDERS.map((n) => (
-        <text key={n} x={xAt(n)} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={9}>
+        <text key={n} x={xAt(n)} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
           {n}
         </text>
       ))}
-      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         order n (P_2 .. P_12)
       </text>
 
@@ -113,11 +114,11 @@ function GrowthChart() {
         y1={ceilY}
         x2={padL + cW}
         y2={ceilY}
-        stroke="#f87171"
+        stroke={ED.series2}
         strokeWidth={1}
         strokeDasharray="4,3"
       />
-      <text x={padL + cW - 4} y={ceilY - 5} textAnchor="end" fill="#f87171" fontSize={9}>
+      <text x={padL + cW - 4} y={ceilY - 5} textAnchor="end" fill={ED.series2} fontSize={9}>
         2^53 exact-integer ceiling
       </text>
 
@@ -139,7 +140,7 @@ function GrowthChart() {
       {series.map((s, i) => (
         <g key={s.key}>
           <rect x={padL + 8} y={padT + 8 + i * 14} width={10} height={10} fill={s.color} />
-          <text x={padL + 22} y={padT + 17 + i * 14} fill="#94a3b8" fontSize={10}>
+          <text x={padL + 22} y={padT + 17 + i * 14} fill={ED.inkSoft} fontSize={10}>
             {s.label}
           </text>
         </g>
@@ -151,26 +152,26 @@ function GrowthChart() {
 function CoefficientTable() {
   return (
     <div style={{ overflowX: 'auto' }}>
-      <table style={{ borderCollapse: 'collapse', fontSize: '0.78rem', color: '#94a3b8', minWidth: 640 }}>
+      <table style={{ borderCollapse: 'collapse', fontSize: '0.78rem', color: 'var(--ink-soft)', minWidth: 640 }}>
         <thead>
           <tr>
-            <th style={{ textAlign: 'left', padding: '4px 8px', borderBottom: '1px solid #334155' }}>n</th>
-            <th style={{ textAlign: 'right', padding: '4px 8px', borderBottom: '1px solid #334155' }}>
+            <th style={{ textAlign: 'left', padding: '4px 8px', borderBottom: '1px solid var(--rule)' }}>n</th>
+            <th style={{ textAlign: 'right', padding: '4px 8px', borderBottom: '1px solid var(--rule)' }}>
               leading a_(n-1)^(n)
             </th>
-            <th style={{ textAlign: 'right', padding: '4px 8px', borderBottom: '1px solid #334155' }}>
+            <th style={{ textAlign: 'right', padding: '4px 8px', borderBottom: '1px solid var(--rule)' }}>
               (n-1)!
             </th>
-            <th style={{ textAlign: 'right', padding: '4px 8px', borderBottom: '1px solid #334155' }}>
+            <th style={{ textAlign: 'right', padding: '4px 8px', borderBottom: '1px solid var(--rule)' }}>
               constant a_0^(n)
             </th>
-            <th style={{ textAlign: 'right', padding: '4px 8px', borderBottom: '1px solid #334155' }}>
+            <th style={{ textAlign: 'right', padding: '4px 8px', borderBottom: '1px solid var(--rule)' }}>
               (2n-3)!!
             </th>
-            <th style={{ textAlign: 'right', padding: '4px 8px', borderBottom: '1px solid #334155' }}>
+            <th style={{ textAlign: 'right', padding: '4px 8px', borderBottom: '1px solid var(--rule)' }}>
               largest coeff.
             </th>
-            <th style={{ textAlign: 'center', padding: '4px 8px', borderBottom: '1px solid #334155' }}>
+            <th style={{ textAlign: 'center', padding: '4px 8px', borderBottom: '1px solid var(--rule)' }}>
               all positive
             </th>
           </tr>
@@ -188,7 +189,7 @@ function CoefficientTable() {
                 {r.constantClosed}
               </td>
               <td style={{ padding: '3px 8px', textAlign: 'right', fontFamily: 'monospace' }}>{r.largest}</td>
-              <td style={{ padding: '3px 8px', textAlign: 'center', color: r.allPositive ? '#34d399' : '#f87171' }}>
+              <td style={{ padding: '3px 8px', textAlign: 'center', color: r.allPositive ? 'var(--series-3)' : 'var(--series-2)' }}>
                 {r.allPositive ? 'yes' : 'no'}
               </td>
             </tr>
@@ -204,7 +205,7 @@ export default function Imp34986CrossoverNumeratorPolynomialLadderViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Crossover-Map Numerator Polynomial Ladder P_2..P_12 (imp-34986 / imp-34957)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         The inherited crossover-map derivative g^(n)(N) = (-1)^(n+1) 2^n pi^n K P_n(u) / (T^n
         u^(2n-1)) has an all-positive-coefficient numerator polynomial P_n at every order n = 2..12,
         with leading coefficient (n-1)! and constant coefficient (2n-3)!!. Strict positivity of every
@@ -214,7 +215,7 @@ export default function Imp34986CrossoverNumeratorPolynomialLadderViz() {
 
       <GrowthChart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.25rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.25rem 0 0.5rem' }}>
         Extreme coefficients and largest coefficient per order, all far below the 2^53 exact-integer
         ceiling (largest coefficient through P_12 is {maxCoeff.toExponential(3)}).
       </p>
@@ -224,14 +225,14 @@ export default function Imp34986CrossoverNumeratorPolynomialLadderViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page reconstructing the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-only page reconstructing the
         imp-34957/imp-34922/imp-34905/imp-34880 P_n coefficient tables from the same operator
         recurrence (no new computation beyond re-deriving the verbatim table for the plot); leading
         (n-1)! and constant (2n-3)!! match through n=12 (leadingOK={String(allLeadingMatch)},

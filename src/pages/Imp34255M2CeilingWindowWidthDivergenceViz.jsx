@@ -8,6 +8,7 @@ import {
   IMP34255_E_AT_CROSSING,
   IMP34255_ED_AT_CROSSING,
 } from '../data/imp-34255-m2-ceiling-window-width-divergence-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 // The bisected kEnd*(w) ladder DIVERGES as the fitting window narrows -- no w -> 0 limit.
 function WindowLadderChart() {
@@ -34,33 +35,33 @@ function WindowLadderChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
 
       {yTicks.map((v) => (
         <g key={'y' + v}>
-          <line x1={padL - 4} y1={yAt(v)} x2={padL + cW} y2={yAt(v)} stroke="#1e293b" strokeWidth={1} />
-          <text x={padL - 8} y={yAt(v) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+          <line x1={padL - 4} y1={yAt(v)} x2={padL + cW} y2={yAt(v)} stroke={ED.ruleSoft} strokeWidth={1} />
+          <text x={padL - 8} y={yAt(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v.toFixed(1)}
           </text>
         </g>
       ))}
       {xTicks.map((w) => (
         <g key={'x' + w}>
-          <line x1={xAt(w)} y1={padT + cH - 4} x2={xAt(w)} y2={padT + cH + 4} stroke="#334155" strokeWidth={1} />
-          <text x={xAt(w)} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={9}>
+          <line x1={xAt(w)} y1={padT + cH - 4} x2={xAt(w)} y2={padT + cH + 4} stroke={ED.rule} strokeWidth={1} />
+          <text x={xAt(w)} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
             {w}
           </text>
         </g>
       ))}
-      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         w (window width, decades)
       </text>
       <text
         x={14}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={`rotate(-90 14 ${padT + cH / 2})`}
       >
@@ -72,15 +73,15 @@ function WindowLadderChart() {
         y1={yAt(IMP34255_KEND_LEADING_CLOSED_FORM)}
         x2={padL + cW}
         y2={yAt(IMP34255_KEND_LEADING_CLOSED_FORM)}
-        stroke="#f87171"
+        stroke={ED.series2}
         strokeWidth={1.25}
         strokeDasharray="5,3"
       />
-      <text x={padL + cW - 4} y={yAt(IMP34255_KEND_LEADING_CLOSED_FORM) - 5} textAnchor="end" fill="#f87171" fontSize={9}>
+      <text x={padL + cW - 4} y={yAt(IMP34255_KEND_LEADING_CLOSED_FORM) - 5} textAnchor="end" fill={ED.series2} fontSize={9}>
         leading closed form 21.00 (full decade)
       </text>
 
-      <polyline points={path} fill="none" stroke="#38bdf8" strokeWidth={2} />
+      <polyline points={path} fill="none" stroke={ED.series1} strokeWidth={2} />
       {IMP34255_WINDOW_LADDER_ROWS.map((r) => (
         <circle
           key={'pt' + r.wDecades}
@@ -88,7 +89,7 @@ function WindowLadderChart() {
           cy={yAt(r.kEndStar)}
           r={3.5}
           fill="#c4b5fd"
-          stroke="#0a0f1a"
+          stroke={ED.paper}
           strokeWidth={0.75}
         />
       ))}
@@ -101,7 +102,7 @@ export default function Imp34255M2CeilingWindowWidthDivergenceViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="M2-Ceiling Window-Width Divergence Ladder (imp-34255 / imp-34189)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-34189 showed that the bisected imp-34023 M2-residual sign-change crossing kEnd*(w) has
         NO w &rarr; 0 limit: it rises monotonically as the fitting window narrows, from{' '}
         {IMP34255_WINDOW_LADDER_ROWS[0].kEndStar.toFixed(3)} at a full decade (w=1) up to{' '}
@@ -117,15 +118,15 @@ export default function Imp34255M2CeilingWindowWidthDivergenceViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(56,189,248,0.05)',
-          borderLeft: '3px solid #38bdf8',
+          background: 'color-mix(in srgb, var(--series-1) 5%, transparent)',
+          borderLeft: '3px solid var(--series-1)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#e2e8f0' }}>imp-34189 finding:</strong> because e&middot;D &asymp;{' '}
+        <strong style={{ color: 'var(--ink)' }}>imp-34189 finding:</strong> because e&middot;D &asymp;{' '}
         {IMP34255_ED_AT_CROSSING.toFixed(2)} is O(1) rather than small, the imp-34127 closed form is
         only QUALITATIVE at a full decade -- it is not a converged asymptotic, and no finite-order
         correction to it closes the gap to the bisected value. The kEnd* ceiling is therefore best
@@ -133,7 +134,7 @@ export default function Imp34255M2CeilingWindowWidthDivergenceViz() {
         from the closed form.
       </div>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         bisected kEnd*(w) diverging as the fitting window narrows -- no continuous w &rarr; 0 limit
       </p>
       <WindowLadderChart />
@@ -147,14 +148,14 @@ export default function Imp34255M2CeilingWindowWidthDivergenceViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>w (decades)</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>bisected kEnd*(w)</th>
           </tr>
         </thead>
         <tbody>
           {IMP34255_WINDOW_LADDER_ROWS.map((r) => (
-            <tr key={r.wDecades} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+            <tr key={r.wDecades} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.wDecades}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.kEndStar.toFixed(3)}</td>
             </tr>
@@ -166,14 +167,14 @@ export default function Imp34255M2CeilingWindowWidthDivergenceViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-data only, baked literals
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-data only, baked literals
         reproducing the imp-34189 measurement; no new derivation, no bound changed. The canonical
         bisected ceiling remains kEnd*&asymp;{IMP34255_KEND_BISECTED_W1.toFixed(3)} (imp-34023, w=1
         full decade) -- this page's w-narrowing ladder is a diagnostic showing that ceiling has no

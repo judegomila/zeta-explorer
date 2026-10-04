@@ -8,11 +8,12 @@ import {
   IMP95752_HEATMAP_D,
   IMP95752_CAVEAT_BANNER,
 } from '../data/imp-95752-finite80-bias-heatmap-viz-data.js';
+import { ED, alpha } from '../styles/tokens.js';
 
 // Sequential log-scale color: bias% near 0 fades toward background, larger bias fades toward amber.
 function cellColor(biasPct) {
   const bg = { r: 15, g: 23, b: 42 };
-  if (biasPct == null) return 'rgba(100,116,139,0.12)';
+  if (biasPct == null) return alpha(ED.series8, 0.12);
   const logZ = Math.log10(Math.max(biasPct, 1e-4));
   const t = Math.max(0, Math.min(1, (logZ + 4) / 5));
   const hi = { r: 245, g: 158, b: 11 };
@@ -47,7 +48,7 @@ function Finite80BiasHeatmap() {
                 width={colW}
                 height={rowH}
                 fill={cellColor(bias)}
-                stroke="#0a0f1a"
+                stroke={ED.paper}
                 strokeWidth={1}
               />
               {!resolved && (
@@ -56,7 +57,7 @@ function Finite80BiasHeatmap() {
                   y1={padT + j * rowH + 4}
                   x2={padL + (i + 1) * colW - 4}
                   y2={padT + (j + 1) * rowH - 4}
-                  stroke="#f87171"
+                  stroke={ED.series2}
                   strokeWidth={1.5}
                 />
               )}
@@ -71,13 +72,13 @@ function Finite80BiasHeatmap() {
           x={padL + (i + 0.5) * colW}
           y={padT + cH + 16}
           textAnchor="middle"
-          fill="#64748b"
+          fill={ED.inkFaint}
           fontSize={9.5}
         >
           {label}
         </text>
       ))}
-      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         in-pair gap delta
       </text>
 
@@ -87,7 +88,7 @@ function Finite80BiasHeatmap() {
           x={padL - 8}
           y={padT + (j + 0.5) * rowH + 3}
           textAnchor="end"
-          fill="#64748b"
+          fill={ED.inkFaint}
           fontSize={9.5}
         >
           {rho}
@@ -97,7 +98,7 @@ function Finite80BiasHeatmap() {
         x={14}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={`rotate(-90 14 ${padT + cH / 2})`}
       >
@@ -120,7 +121,7 @@ function ColorLegend() {
         return <rect key={s} x={x0} y={0} width={x1 - x0} height={h} fill={cellColor(mid)} />;
       })}
       {stops.map((s) => (
-        <text key={`lbl-${s}`} x={((s + 4) / 5) * w} y={h + 12} textAnchor="middle" fill="#64748b" fontSize={9}>
+        <text key={`lbl-${s}`} x={((s + 4) / 5) * w} y={h + 12} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
           {`10^${s}`}
         </text>
       ))}
@@ -146,7 +147,7 @@ export default function Imp95752Finite80BiasHeatmapViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Finite-80 Block-Toeplitz Bias Heatmap (imp-95723 / imp-95752)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-95723 tabulated the finite-80 twin-pair block-floor bias F_finite80&#47;F_inf - 1 across
         the full imp-95693 (delta, rho) grid. This heatmap shows the bias percent falling from
         ~7.27% at the smallest measured cross-pair gap (delta = ln1.2, rho = 3) down toward 0% as
@@ -155,13 +156,13 @@ export default function Imp95752Finite80BiasHeatmapViz() {
         Jacobi eigensolver both lose every significant figure there.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         bias% = 100*(F_finite80&#47;F_inf - 1), log-color scale, hatched = below float64 precision
       </p>
       <Finite80BiasHeatmap />
 
       <div style={{ marginTop: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-        <span style={{ color: '#64748b', fontSize: '0.78rem' }}>bias% color scale (log10):</span>
+        <span style={{ color: 'var(--ink-faint)', fontSize: '0.78rem' }}>bias% color scale (log10):</span>
         <ColorLegend />
       </div>
 
@@ -174,7 +175,7 @@ export default function Imp95752Finite80BiasHeatmapViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>delta</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>rho</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>D = rho*delta</th>
@@ -183,7 +184,7 @@ export default function Imp95752Finite80BiasHeatmapViz() {
         </thead>
         <tbody>
           {flatCells.map((c) => (
-            <tr key={`${c.delta}-${c.rho}`} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+            <tr key={`${c.delta}-${c.rho}`} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{c.delta}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{c.rho}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{c.D.toFixed(3)}</td>
@@ -199,14 +200,14 @@ export default function Imp95752Finite80BiasHeatmapViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> {IMP95752_CAVEAT_BANNER}
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> {IMP95752_CAVEAT_BANNER}
       </div>
     </div>
   );

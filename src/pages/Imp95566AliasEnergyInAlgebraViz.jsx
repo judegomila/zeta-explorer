@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP_95539_ALIAS_ENERGY_IN_ALGEBRA } from '../data/imp-95539-alias-energy-in-algebra-table.js';
+import { ED } from '../styles/tokens.js';
 
 const DATA = IMP_95539_ALIAS_ENERGY_IN_ALGEBRA;
 const ROWS = DATA.table;
@@ -34,12 +35,12 @@ function StackedEnergyBarChart() {
           y1={yOf(v)}
           x2={padL + plotW}
           y2={yOf(v)}
-          stroke="#1e293b"
+          stroke={ED.ruleSoft}
           strokeWidth={1}
         />
       ))}
       {yTicks.map((v) => (
-        <text key={`t${v}`} x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+        <text key={`t${v}`} x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
           {Math.round(v * 100)}%
         </text>
       ))}
@@ -54,7 +55,7 @@ function StackedEnergyBarChart() {
               y={inTop}
               width={barW}
               height={Math.max(inH, 0.5)}
-              fill="#60a5fa"
+              fill={ED.series1}
             />
             <rect
               x={cx - barW / 2}
@@ -67,7 +68,7 @@ function StackedEnergyBarChart() {
               x={cx}
               y={padT + plotH + 14}
               textAnchor="middle"
-              fill="#64748b"
+              fill={ED.inkFaint}
               fontSize={8.5}
               transform={`rotate(-45 ${cx} ${padT + plotH + 14})`}
             >
@@ -77,7 +78,7 @@ function StackedEnergyBarChart() {
               x={cx}
               y={padT + plotH + 27}
               textAnchor="middle"
-              fill="#475569"
+              fill={ED.inkFaint}
               fontSize={8}
               transform={`rotate(-45 ${cx} ${padT + plotH + 27})`}
             >
@@ -86,15 +87,15 @@ function StackedEnergyBarChart() {
           </g>
         );
       })}
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={9.5}>
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5}>
         alias a (increasing gcd(a,P), decreasing q)
       </text>
       <text
         x={12}
         y={padT + plotH / 2}
         textAnchor="middle"
-        fill="#94a3b8"
+        fill={ED.inkSoft}
         fontSize={9.5}
         transform={`rotate(-90 12 ${padT + plotH / 2})`}
       >
@@ -113,21 +114,21 @@ export default function Imp95566AliasEnergyInAlgebraViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> a numeric
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a numeric
         verification page tabulating the imp-95539 record (Theorem U, perm-arch
         line 44). Not a bound. Platt&ndash;Trudgian &Lambda; &le; 0.2 remains state
         of the art. RH open. NO QED.
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         A single alias e(an/P) with P = {DATA.P} (= 2&middot;3&middot;5&middot;7&middot;11&middot;13)
         has energy fraction 1/&phi;(q) inside the sieve algebra S = span{'{c_q : q|P}'},
         q = P/gcd(a,P), verified numerically to &lt; 1e-9 for every row below. The
@@ -137,14 +138,14 @@ export default function Imp95566AliasEnergyInAlgebraViz() {
         1.0 (q = 2, where e(n/2) = (&minus;1)^n is itself c_2).
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         In-algebra energy (blue) vs leak-outside (gray) by alias a
       </h3>
       <StackedEnergyBarChart />
 
-      <table style={{ width: '100%', fontSize: '0.75rem', color: '#cbd5e1', borderCollapse: 'collapse', marginTop: '1.25rem' }}>
+      <table style={{ width: '100%', fontSize: '0.75rem', color: 'var(--ink)', borderCollapse: 'collapse', marginTop: '1.25rem' }}>
         <thead>
-          <tr style={{ color: '#64748b' }}>
+          <tr style={{ color: 'var(--ink-faint)' }}>
             <th style={{ textAlign: 'left', paddingBottom: 4 }}>a</th>
             <th style={{ textAlign: 'right', paddingBottom: 4 }}>gcd(a,P)</th>
             <th style={{ textAlign: 'right', paddingBottom: 4 }}>q = P/gcd</th>
@@ -155,13 +156,13 @@ export default function Imp95566AliasEnergyInAlgebraViz() {
         </thead>
         <tbody>
           {ROWS.map((r) => (
-            <tr key={r.a} style={{ borderTop: '1px solid rgba(148,163,184,0.15)' }}>
+            <tr key={r.a} style={{ borderTop: '1px solid color-mix(in srgb, var(--rule) 15%, transparent)' }}>
               <td style={{ padding: '2px 0' }}>{r.a}</td>
               <td style={{ textAlign: 'right' }}>{r.g}</td>
               <td style={{ textAlign: 'right' }}>{r.q}</td>
               <td style={{ textAlign: 'right' }}>{r.phiQ}</td>
-              <td style={{ textAlign: 'right', color: '#60a5fa' }}>{(r.inEnergy * 100).toPrecision(4)}%</td>
-              <td style={{ textAlign: 'right', color: '#94a3b8' }}>{(r.leakOutside * 100).toPrecision(4)}%</td>
+              <td style={{ textAlign: 'right', color: 'var(--series-1)' }}>{(r.inEnergy * 100).toPrecision(4)}%</td>
+              <td style={{ textAlign: 'right', color: 'var(--ink-soft)' }}>{(r.leakOutside * 100).toPrecision(4)}%</td>
             </tr>
           ))}
         </tbody>
@@ -171,28 +172,28 @@ export default function Imp95566AliasEnergyInAlgebraViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> {DATA.reading}
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> {DATA.reading}
       </div>
 
       <div
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page consuming the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the
         frozen imp-95539 record (import-light, no zeros bundle, no re-derivation of the
         Ramanujan-sum projection). Changes no bound, establishes no operator positivity,
         no RH claim. Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. NO QED.

@@ -7,6 +7,7 @@ import {
   IMP97628_RCORR_SATURATION,
   IMP97628_SUMMARY,
 } from '../data/imp-97628-mcm-surrogate-vs-fullh-onset-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 // Two-line chart: the smooth surrogate iterDiff(H,p_omega#,1) (dashed) and the full-h value
 // T(p_omega#) = surrogate + Rcorr (solid), vs omega. The gap between the two lines is the near-flat
@@ -40,26 +41,26 @@ function SurrogateVsFullChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#334155" strokeWidth={1} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#334155" strokeWidth={1} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1} />
 
       {/* zero-margin reference line */}
-      <line x1={padL} y1={zeroY} x2={padL + plotW} y2={zeroY} stroke="#475569" strokeDasharray="3 3" strokeWidth={1} />
+      <line x1={padL} y1={zeroY} x2={padL + plotW} y2={zeroY} stroke={ED.rule} strokeDasharray="3 3" strokeWidth={1} />
 
       {/* surrogate onset omega=10 marker */}
-      <line x1={surrOnsetX} y1={padT} x2={surrOnsetX} y2={padT + plotH} stroke="#f59e0b" strokeDasharray="4 3" strokeWidth={1} />
-      <text x={surrOnsetX} y={padT - 4} textAnchor="middle" fill="#f59e0b" fontSize={9}>
+      <line x1={surrOnsetX} y1={padT} x2={surrOnsetX} y2={padT + plotH} stroke={ED.brassDeco} strokeDasharray="4 3" strokeWidth={1} />
+      <text x={surrOnsetX} y={padT - 4} textAnchor="middle" fill={ED.brass} fontSize={9}>
         surrogate onset omega={IMP97628_SURROGATE_ONSET_OMEGA}
       </text>
 
       {/* full-h onset omega=11 marker */}
-      <line x1={fullOnsetX} y1={padT} x2={fullOnsetX} y2={padT + plotH} stroke="#f87171" strokeDasharray="4 3" strokeWidth={1} />
-      <text x={fullOnsetX} y={padT + 10} textAnchor="middle" fill="#f87171" fontSize={9}>
+      <line x1={fullOnsetX} y1={padT} x2={fullOnsetX} y2={padT + plotH} stroke={ED.series2} strokeDasharray="4 3" strokeWidth={1} />
+      <text x={fullOnsetX} y={padT + 10} textAnchor="middle" fill={ED.series2} fontSize={9}>
         full-h onset omega={IMP97628_FULL_ONSET_OMEGA}
       </text>
 
-      <polyline points={surrLinePts} fill="none" stroke="#a855f7" strokeWidth={2} strokeDasharray="5 3" />
-      <polyline points={fullLinePts} fill="none" stroke="#60a5fa" strokeWidth={2} />
+      <polyline points={surrLinePts} fill="none" stroke={ED.series5} strokeWidth={2} strokeDasharray="5 3" />
+      <polyline points={fullLinePts} fill="none" stroke={ED.series1} strokeWidth={2} />
 
       {rows.map((r) => (
         <circle
@@ -67,7 +68,7 @@ function SurrogateVsFullChart() {
           cx={xOf(r.omega)}
           cy={yOf(r.surrogate)}
           r={r.isSurrogateOnset ? 4 : 3}
-          fill="#a855f7"
+          fill={ED.series5}
         />
       ))}
       {rows.map((r) => (
@@ -76,18 +77,18 @@ function SurrogateVsFullChart() {
           cx={xOf(r.omega)}
           cy={yOf(r.T)}
           r={r.isFullOnset ? 4 : 3}
-          fill="#60a5fa"
+          fill={ED.series1}
         />
       ))}
 
-      <text x={padL + plotW / 2} y={svgH - 2} textAnchor="middle" fill="#94a3b8" fontSize={9.5}>
+      <text x={padL + plotW / 2} y={svgH - 2} textAnchor="middle" fill={ED.inkSoft} fontSize={9.5}>
         omega (prime-set size)
       </text>
       <text
         x={14}
         y={padT + plotH / 2}
         textAnchor="middle"
-        fill="#94a3b8"
+        fill={ED.inkSoft}
         fontSize={9}
         transform={`rotate(-90 14 ${padT + plotH / 2})`}
       >
@@ -106,25 +107,25 @@ export default function Imp97628McmSurrogateVsFullhOnsetViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> a measurement/presentation-only
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a measurement/presentation-only
         page reshaping the frozen imp-97583 ladder literals verbatim (no re-derivation, no new
         computation). Changes no bound; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA; RH open;
         NO QED.
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         {IMP97628_SUMMARY.reading}
       </p>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.85rem', margin: '0 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.85rem', margin: '0 0 0.5rem' }}>
         The smooth surrogate (purple, dashed) crosses zero one order before the full-h value T(p_omega#)
         (blue, solid) does. The near-flat gap between the two curves is the saturated R-correction
         (~{IMP97628_RCORR_SATURATION.toExponential(4)}), which lifts the full-h curve positive through
@@ -132,9 +133,9 @@ export default function Imp97628McmSurrogateVsFullhOnsetViz() {
       </p>
       <SurrogateVsFullChart />
 
-      <table style={{ width: '100%', fontSize: '0.78rem', color: '#cbd5e1', borderCollapse: 'collapse', marginTop: '1.25rem' }}>
+      <table style={{ width: '100%', fontSize: '0.78rem', color: 'var(--ink)', borderCollapse: 'collapse', marginTop: '1.25rem' }}>
         <thead>
-          <tr style={{ color: '#64748b' }}>
+          <tr style={{ color: 'var(--ink-faint)' }}>
             <th style={{ textAlign: 'left', paddingBottom: 4 }}>omega</th>
             <th style={{ textAlign: 'right', paddingBottom: 4 }}>surrogate</th>
             <th style={{ textAlign: 'right', paddingBottom: 4 }}>Rcorr</th>
@@ -144,7 +145,7 @@ export default function Imp97628McmSurrogateVsFullhOnsetViz() {
         </thead>
         <tbody>
           {IMP97628_ROWS.map((r) => (
-            <tr key={r.omega} style={{ borderTop: '1px solid rgba(148,163,184,0.15)' }}>
+            <tr key={r.omega} style={{ borderTop: '1px solid color-mix(in srgb, var(--rule) 15%, transparent)' }}>
               <td style={{ padding: '3px 0' }}>{r.omega}</td>
               <td style={{ textAlign: 'right' }}>{r.surrogate.toExponential(3)}</td>
               <td style={{ textAlign: 'right' }}>{r.rcorr.toExponential(4)}</td>
@@ -161,14 +162,14 @@ export default function Imp97628McmSurrogateVsFullhOnsetViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> {IMP97628_SUMMARY.verdict}
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> {IMP97628_SUMMARY.verdict}
       </div>
     </div>
   );

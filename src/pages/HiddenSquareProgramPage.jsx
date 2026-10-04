@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 import { HIDDEN_SQUARE_PROGRAM_SECTION } from '../data/hidden-square-program-section.js';
+import { ED } from '../styles/tokens.js';
 
 /**
  * HiddenSquareProgramPage — renders §25 + §26 + §27 of the v52 paper as a
@@ -81,10 +82,10 @@ function ChainDiagram() {
           <g key={step.id}>
             <rect x="100" y={y - 22} width="500" height="44" rx="6" fill={step.color} fillOpacity="0.14" stroke={step.color} strokeWidth="1.5" />
             <text x="350" y={y - 4} fill={step.color} textAnchor="middle" fontSize="14" fontWeight="700">{step.label}</text>
-            <text x="350" y={y + 14} fill="#4a4238" textAnchor="middle" fontSize="11" fontFamily="monospace">{step.sub}</text>
+            <text x="350" y={y + 14} fill={ED.inkSoft} textAnchor="middle" fontSize="11" fontFamily="monospace">{step.sub}</text>
             {i < steps.length - 1 && (
               <g>
-                <line x1="350" y1={y + 22} x2="350" y2={y + 43} stroke="#877b67" strokeWidth="1.5" />
+                <line x1="350" y1={y + 22} x2="350" y2={y + 43} stroke={ED.rule} strokeWidth="1.5" />
                 <polygon points={`345,${y + 38} 350,${y + 45} 355,${y + 38}`} fill="#877b67" />
               </g>
             )}
@@ -109,7 +110,7 @@ export default function HiddenSquareProgramPage() {
         </header>
 
         {/* Synthesis diagram up top */}
-        <Card accent="#3f6b86">
+        <Card accent={ED.series1}>
           <h3 style={{ color: 'var(--blue)', fontSize: 18, margin: '0 0 12px 0' }}>The chain of reductions</h3>
           <ChainDiagram />
           <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.6, marginTop: 12 }}>
@@ -188,7 +189,7 @@ export default function HiddenSquareProgramPage() {
         </Card>
 
         {/* §27 Endpoint-Hankel */}
-        <Card accent="#4c7a4a">
+        <Card accent={ED.series3}>
           <h3 style={{ color: 'var(--green)', fontSize: 18, margin: '0 0 12px 0' }}>{S.endpointHankel.sectionId} {S.endpointHankel.title}</h3>
           <p style={{ color: 'var(--ink-soft)', fontSize: 14, lineHeight: 1.6 }}>
             The shear measure density is exact:
@@ -207,7 +208,7 @@ export default function HiddenSquareProgramPage() {
             {S.endpointHankel.keyConjecture27_2}
           </Conjecture>
 
-          <div style={{ marginTop: 14, padding: 12, background: 'rgba(76,122,74,0.08)', border: '1px solid rgba(76,122,74,0.30)', borderRadius: 6 }}>
+          <div style={{ marginTop: 14, padding: 12, background: 'color-mix(in srgb, var(--series-3) 8%, transparent)', border: '1px solid color-mix(in srgb, var(--series-3) 30%, transparent)', borderRadius: 6 }}>
             <div style={{ color: 'var(--green)', fontSize: 11, fontWeight: 700, fontFamily: 'var(--ed-mono, var(--font-mono))', marginBottom: 6 }}>CONCRETE TARGET</div>
             <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.6, margin: 0 }}>
               {S.endpointHankel.finiteWindowDiagnostic}
@@ -216,7 +217,7 @@ export default function HiddenSquareProgramPage() {
 
           {/* §27 verdict: refuted-as-reduction / RH-equivalent surviving target */}
           <div style={{ marginTop: 14, display: 'grid', gap: 10 }}>
-            <div style={{ padding: 12, background: 'rgba(194,58,28,0.08)', border: '1px solid rgba(194,58,28,0.40)', borderLeft: '3px solid var(--terra-dk)', borderRadius: 6 }}>
+            <div style={{ padding: 12, background: 'color-mix(in srgb, var(--series-2) 8%, transparent)', border: '1px solid color-mix(in srgb, var(--accent) 40%, transparent)', borderLeft: '3px solid var(--terra-dk)', borderRadius: 6 }}>
               <div style={{ color: 'var(--terra-dk)', fontSize: 11, fontWeight: 700, fontFamily: 'var(--ed-mono, var(--font-mono))', marginBottom: 6 }}>§27 VERDICT: REFUTED AS A REDUCTION</div>
               <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.6, margin: 0 }}>
                 The claimed biconditional <InlineMath math="\|V_{a,\Phi}\| \le 1 \iff K_a \succeq 0" /> is{' '}
@@ -225,7 +226,7 @@ export default function HiddenSquareProgramPage() {
                 by any scalar normalization. So <InlineMath math="\|V\| \le 1" /> is not the entire content of no-ghost = RH.
               </p>
             </div>
-            <div style={{ padding: 12, background: 'rgba(76,122,74,0.08)', border: '1px solid rgba(76,122,74,0.40)', borderLeft: '3px solid var(--green)', borderRadius: 6 }}>
+            <div style={{ padding: 12, background: 'color-mix(in srgb, var(--series-3) 8%, transparent)', border: '1px solid color-mix(in srgb, var(--series-3) 40%, transparent)', borderLeft: '3px solid var(--green)', borderRadius: 6 }}>
               <div style={{ color: 'var(--green)', fontSize: 11, fontWeight: 700, fontFamily: 'var(--ed-mono, var(--font-mono))', marginBottom: 6 }}>SURVIVING TARGET: RH-EQUIVALENT</div>
               <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.6, margin: 0 }}>
                 The degree-0 scale-invariant relative bound{' '}
@@ -240,7 +241,7 @@ export default function HiddenSquareProgramPage() {
         </Card>
 
         {/* Implications */}
-        <Card accent="#c23a1c">
+        <Card accent={ED.series2}>
           <h3 style={{ color: 'var(--terra-dk)', fontSize: 18, margin: '0 0 12px 0' }}>Implications for the wider proof program</h3>
           <div style={{ display: 'grid', gap: 12 }}>
             {Object.entries(S.implicationsForRH).map(([k, v]) => (

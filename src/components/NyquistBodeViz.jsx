@@ -12,8 +12,8 @@ import { BlockMath, InlineMath } from './KaTeXMath.jsx';
  */
 export default function NyquistBodeViz() {
   return (
-    <div className="card" style={{ borderLeft: '3px solid #ef4444' }}>
-      <h3 style={{ color: '#fca5a5', marginTop: 0 }}>Nyquist construction withdrawn</h3>
+    <div className="card" style={{ borderLeft: '3px solid var(--series-2)' }}>
+      <h3 style={{ color: 'var(--series-2)', marginTop: 0 }}>Nyquist construction withdrawn</h3>
       <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75 }}>
         The former visualization used
         <InlineMath tex="L(s)=\chi(s)\zeta(1-s)/\zeta(s)" />. The functional equation

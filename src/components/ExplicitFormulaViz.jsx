@@ -3,6 +3,7 @@ import { InlineMath, BlockMath } from './KaTeXMath.jsx';
 import * as d3 from 'd3';
 import { vonMangoldt, explicitFormulaTerms } from '../math/primes.js';
 import { ZETA_ZEROS } from '../math/zeta.js';
+import { ED, alpha } from '../styles/tokens.js';
 
 export default function ExplicitFormulaViz() {
   const svgRef = useRef();
@@ -69,17 +70,17 @@ export default function ExplicitFormulaViz() {
     g.append('g')
       .attr('class', 'grid')
       .call(d3.axisLeft(yScale).ticks(8).tickSize(-w).tickFormat(''))
-      .selectAll('line').attr('stroke', '#1e293b').attr('stroke-dasharray', '3,3');
+      .selectAll('line').attr('stroke', ED.ruleSoft).attr('stroke-dasharray', '3,3');
     g.select('.grid .domain').remove();
 
     // Axes
     g.append('g').attr('transform', `translate(0,${h})`)
       .call(d3.axisBottom(xScale).ticks(10))
-      .selectAll('text').attr('fill', '#64748b').attr('font-size', 10);
+      .selectAll('text').attr('fill', ED.inkFaint).attr('font-size', 10);
     g.append('g')
       .call(d3.axisLeft(yScale).ticks(8))
-      .selectAll('text').attr('fill', '#64748b').attr('font-size', 10);
-    g.selectAll('.domain, .tick line').attr('stroke', '#2a3050');
+      .selectAll('text').attr('fill', ED.inkFaint).attr('font-size', 10);
+    g.selectAll('.domain, .tick line').attr('stroke', ED.rule);
 
     // Shaded area between PNT (y=x) and spectral approximation highlighting zero correction
     g.append('path')
@@ -89,13 +90,13 @@ export default function ExplicitFormulaViz() {
         .y0(d => yScale(d.x))
         .y1(d => yScale(d.y))
         .curve(d3.curveBasis))
-      .attr('fill', 'rgba(245, 158, 11, 0.15)');
+      .attr('fill', alpha(ED.brassDeco, 0.15));
 
     // x line (trivial approximation)
     g.append('path')
       .datum(actualData)
       .attr('d', d3.line().x(d => xScale(d.x)).y(d => yScale(d.x)).curve(d3.curveLinear))
-      .attr('fill', 'none').attr('stroke', '#64748b').attr('stroke-width', 1)
+      .attr('fill', 'none').attr('stroke', ED.rule).attr('stroke-width', 1)
       .attr('stroke-dasharray', '4,4');
 
     // Actual psi(x) - staircase
@@ -107,57 +108,57 @@ export default function ExplicitFormulaViz() {
     g.append('path')
       .datum(actualData)
       .attr('d', stairLine)
-      .attr('fill', 'none').attr('stroke', '#3b82f6').attr('stroke-width', 2);
+      .attr('fill', 'none').attr('stroke', ED.series1).attr('stroke-width', 2);
 
     // Spectral approximation
     g.append('path')
       .datum(approxData)
       .attr('d', d3.line().x(d => xScale(d.x)).y(d => yScale(d.y)).curve(d3.curveBasis))
-      .attr('fill', 'none').attr('stroke', '#f59e0b').attr('stroke-width', 1.5)
+      .attr('fill', 'none').attr('stroke', ED.brassDeco).attr('stroke-width', 1.5)
       .attr('opacity', 0.8);
 
     // Legend
     const legend = svg.append('g').attr('transform', `translate(${margin.left + 10}, ${margin.top + 10})`);
     legend.append('rect')
       .attr('x', -8).attr('y', -10).attr('width', 240).attr('height', 78)
-      .attr('rx', 6).attr('fill', 'rgba(13,17,23,0.85)').attr('stroke', '#1e293b');
+      .attr('rx', 6).attr('fill', alpha(ED.paper, 0.85)).attr('stroke', ED.ruleSoft);
 
     // ψ(x) staircase: draw a small step pattern to match curveStepAfter
     const stairY = 0;
     legend.append('path')
       .attr('d', `M0,${stairY + 3} H7 V${stairY - 3} H14 V${stairY + 1} H20`)
-      .attr('fill', 'none').attr('stroke', '#3b82f6').attr('stroke-width', 2);
+      .attr('fill', 'none').attr('stroke', ED.series1).attr('stroke-width', 2);
     legend.append('text').attr('x', 26).attr('y', stairY + 4)
-      .attr('fill', '#94a3b8').attr('font-size', 11).text('ψ(x) actual (staircase)');
+      .attr('fill', ED.inkSoft).attr('font-size', 11).text('ψ(x) actual (staircase)');
 
     // Explicit formula: solid smooth line
     legend.append('line').attr('x1', 0).attr('y1', 18).attr('x2', 20).attr('y2', 18)
-      .attr('stroke', '#f59e0b').attr('stroke-width', 2);
+      .attr('stroke', ED.brassDeco).attr('stroke-width', 2);
     legend.append('text').attr('x', 26).attr('y', 22)
-      .attr('fill', '#94a3b8').attr('font-size', 11).text(`Explicit formula (${numZeros} zeros)`);
+      .attr('fill', ED.inkSoft).attr('font-size', 11).text(`Explicit formula (${numZeros} zeros)`);
 
     // PNT approximation: dashed line to match stroke-dasharray '4,4' in the plot
     legend.append('line').attr('x1', 0).attr('y1', 36).attr('x2', 20).attr('y2', 36)
-      .attr('stroke', '#64748b').attr('stroke-width', 2)
+      .attr('stroke', ED.rule).attr('stroke-width', 2)
       .attr('stroke-dasharray', '4,4');
     legend.append('text').attr('x', 26).attr('y', 40)
-      .attr('fill', '#94a3b8').attr('font-size', 11).text('x (PNT approximation)');
+      .attr('fill', ED.inkSoft).attr('font-size', 11).text('x (PNT approximation)');
 
     // Zero correction shaded area
     legend.append('rect').attr('x', 0).attr('y', 48).attr('width', 20).attr('height', 10)
-      .attr('fill', 'rgba(245, 158, 11, 0.15)').attr('stroke', '#f59e0b').attr('stroke-width', 0.5);
+      .attr('fill', alpha(ED.brassDeco, 0.15)).attr('stroke', ED.brassDeco).attr('stroke-width', 0.5);
     legend.append('text').attr('x', 26).attr('y', 58)
-      .attr('fill', '#94a3b8').attr('font-size', 11).text('Zero correction (x − spectral)');
+      .attr('fill', ED.inkSoft).attr('font-size', 11).text('Zero correction (x − spectral)');
 
     // Axis labels
     svg.append('text')
       .attr('x', width / 2).attr('y', height - 6)
-      .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12)
+      .attr('text-anchor', 'middle').attr('fill', ED.inkSoft).attr('font-size', 12)
       .text('x');
 
     svg.append('text')
       .attr('transform', `translate(14, ${margin.top + h / 2}) rotate(-90)`)
-      .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12)
+      .attr('text-anchor', 'middle').attr('fill', ED.inkSoft).attr('font-size', 12)
       .text('ψ(x)');
 
     // Hover interaction
@@ -168,14 +169,14 @@ export default function ExplicitFormulaViz() {
 
     const hoverLine = g.append('line')
       .attr('y1', 0).attr('y2', h)
-      .attr('stroke', '#e2e8f0').attr('stroke-width', 0.5)
+      .attr('stroke', ED.inkSoft).attr('stroke-width', 0.5)
       .attr('opacity', 0);
 
     const hoverDotActual = g.append('circle')
-      .attr('r', 4).attr('fill', '#3b82f6').attr('stroke', '#0a0e1a').attr('stroke-width', 2)
+      .attr('r', 4).attr('fill', ED.series1).attr('stroke', ED.paper).attr('stroke-width', 2)
       .attr('opacity', 0);
     const hoverDotApprox = g.append('circle')
-      .attr('r', 4).attr('fill', '#f59e0b').attr('stroke', '#0a0e1a').attr('stroke-width', 2)
+      .attr('r', 4).attr('fill', ED.brassDeco).attr('stroke', ED.paper).attr('stroke-width', 2)
       .attr('opacity', 0);
 
     const dx = maxX / Math.min(maxX, 200);
@@ -214,7 +215,7 @@ export default function ExplicitFormulaViz() {
           <InlineMath tex={"\\psi(x) = \\sum_{n \\le x} \\Lambda(n)"} /> into zeta-zero oscillations:
         </p>
         <BlockMath tex={"\\psi_0(x) = x - \\sum_{\\rho} \\frac{x^{\\rho}}{\\rho} - \\log 2\\pi - \\tfrac{1}{2}\\log(1 - x^{-2})"} />
-        <p style={{ margin: '8px 0 6px', fontSize: 11, color: '#94a3b8' }}>
+        <p style={{ margin: '8px 0 6px', fontSize: 11, color: 'var(--ink-soft)' }}>
           The identity holds for the symmetrized <InlineMath tex={"\\psi_0(x) = \\tfrac{1}{2}[\\psi(x^-)+\\psi(x^+)]"} />,
           which equals <InlineMath tex={"\\psi(x)"} /> everywhere except at prime-power points <InlineMath tex={"x = p^k"} />,
           where it drops by <InlineMath tex={"\\tfrac{1}{2}\\Lambda(x)"} /> to take the midpoint of the jump.
@@ -249,17 +250,17 @@ export default function ExplicitFormulaViz() {
             title="Number of zeta zeros in the explicit formula sum — more zeros give a closer fit to the true prime-counting function ψ(x)."
             onChange={e => setNumZeros(+e.target.value)} />
           <span className="control-value">{numZeros}</span>
-          <span style={{ marginLeft: 6, fontSize: 11, fontFamily: 'var(--font-mono)', color: '#64748b' }}>
+          <span style={{ marginLeft: 6, fontSize: 11, fontFamily: 'var(--font-mono)', color: 'var(--ink-faint)' }}>
             (γ_max ≈ {ZETA_ZEROS[Math.min(numZeros, ZETA_ZEROS.length) - 1]?.toFixed(1) ?? '?'})
           </span>
         </div>
         {hoverPoint ? (
-          <div style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: 12, color: '#06b6d4' }}>
-            x={hoverPoint.x.toFixed(1)} | <span style={{ color: '#3b82f6' }}>ψ={hoverPoint.psi.toFixed(1)}</span> | <span style={{ color: '#f59e0b' }}>approx={hoverPoint.approx.toFixed(1)}</span> | <span style={{ color: Math.abs(hoverPoint.psi - hoverPoint.approx) < 1 ? '#10b981' : Math.abs(hoverPoint.psi - hoverPoint.approx) < 5 ? '#f59e0b' : '#ef4444' }}>err={Math.abs(hoverPoint.psi - hoverPoint.approx).toFixed(2)}</span>
+          <div style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: 12, color: 'var(--series-6)' }}>
+            x={hoverPoint.x.toFixed(1)} | <span style={{ color: 'var(--series-1)' }}>ψ={hoverPoint.psi.toFixed(1)}</span> | <span style={{ color: 'var(--brass)' }}>approx={hoverPoint.approx.toFixed(1)}</span> | <span style={{ color: Math.abs(hoverPoint.psi - hoverPoint.approx) < 1 ? 'var(--series-3)' : Math.abs(hoverPoint.psi - hoverPoint.approx) < 5 ? 'var(--brass)' : 'var(--series-2)' }}>err={Math.abs(hoverPoint.psi - hoverPoint.approx).toFixed(2)}</span>
           </div>
         ) : (
-          <div style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: 12, color: rmsError < 1 ? '#10b981' : rmsError < 5 ? '#f59e0b' : '#ef4444' }}>
-            RMS error: {rmsError.toFixed(2)} <span style={{ color: '#475569', fontSize: 11, fontStyle: 'italic', marginLeft: 8 }}>Hover to inspect</span>
+          <div style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: 12, color: rmsError < 1 ? 'var(--series-3)' : rmsError < 5 ? 'var(--brass)' : 'var(--series-2)' }}>
+            RMS error: {rmsError.toFixed(2)} <span style={{ color: 'var(--ink-faint)', fontSize: 11, fontStyle: 'italic', marginLeft: 8 }}>Hover to inspect</span>
           </div>
         )}
       </div>

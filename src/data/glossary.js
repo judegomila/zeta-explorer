@@ -57,6 +57,20 @@ export const glossary = [
     relatedTerms: ['functional equation', 'lossless', 'twin ladder'],
   },
   {
+    term: 'Davenport–Heilbronn twin (same-bridge, no-cascade)',
+    category: 'framework',
+    definition:
+      'A twin ladder whose bridge equals that of a genuine L-function but whose direct arm has no Euler product. ' +
+      'F_DH = ((1−iκ)/2)L(s,χ) + ((1+iκ)/2)L(s,χ̄) (χ odd quartic mod 5, κ = (√(10−2√5)−2)/(√5−1)) shares the bridge ' +
+      '(5/π)^{s/2}Γ((s+1)/2) of L(s,χ), lossless on σ=½ with root number 1, yet has off-line zeros (first 0.8085+85.699i). ' +
+      'The bridge fixes the archimedean part of the Weil form; only the coefficients of −F′/F differ. DH-BLIND (2026-09-28): ' +
+      'its Weil form is proved positive for 2a ≤ 0.783, measured positive at 2a = ln 3 (λ_min 0.21) and in finite bases up to ' +
+      'half-support a ≈ 1.70, and certified negative at a = 1.72 (driven by the off-line zero). So Weil positivity at Route I ' +
+      'supports is Euler-blind at conductor 5: proved to 2a ≤ 0.783, measured to 2a ≤ ln 3. No bound moves; NO QED.',
+    firstUsed: 'tlb-dh-blind-2026-09-28 (DH-BLIND)',
+    relatedTerms: ['twin ladder', 'bridge', 'Skeptical Testing', 'Weil positivity', 'Route I'],
+  },
+  {
     term: 'Transfer Matrix T_p',
     category: 'framework',
     definition:

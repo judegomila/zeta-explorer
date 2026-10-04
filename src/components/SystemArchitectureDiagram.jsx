@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import * as d3 from 'd3';
 import { InlineMath } from './KaTeXMath.jsx';
+import { ED, alpha as TK_ALPHA } from '../styles/tokens.js';
 
 /**
  * PhD-review quality system architecture diagram showing:
@@ -17,7 +18,7 @@ const LAYERS = [
   {
     id: 'foundations',
     label: 'Number-Theoretic Foundations',
-    color: '#3b82f6',
+    color: ED.series1,
     y: 0,
     nodes: [
       { id: 'primes', label: 'Primes p', tex: 'p \\in \\mathbb{P}', x: 0.12 },
@@ -29,7 +30,7 @@ const LAYERS = [
   {
     id: 'analytic',
     label: 'Analytic Structure',
-    color: '#8b5cf6',
+    color: ED.series5,
     y: 1,
     nodes: [
       { id: 'func-eq', label: 'Functional Equation', tex: '\\xi(s)=\\xi(1-s)', x: 0.15 },
@@ -41,7 +42,7 @@ const LAYERS = [
   {
     id: 'physical',
     label: 'Physical Model (ZPO)',
-    color: '#10b981',
+    color: ED.series3,
     y: 2,
     nodes: [
       { id: 'lc-stage', label: 'LC Oscillator Stage', tex: 'L_p=\\log p,\\; C_p=1/\\log p', x: 0.08 },
@@ -54,7 +55,7 @@ const LAYERS = [
   {
     id: 'analysis',
     label: 'Analysis Frameworks',
-    color: '#f59e0b',
+    color: ED.brass,
     y: 3,
     nodes: [
       { id: 'control', label: 'Control Theory', tex: '\\text{Nyquist, Bode, } H_\\infty', x: 0.08 },
@@ -68,7 +69,7 @@ const LAYERS = [
   {
     id: 'computation',
     label: 'Computational Layer',
-    color: '#ef4444',
+    color: ED.series2,
     y: 4,
     nodes: [
       { id: 'mod-zeta', label: 'zeta.js', tex: '\\text{R-S } Z(t),\\; \\text{Borwein}', x: 0.08 },
@@ -184,7 +185,7 @@ export default function SystemArchitectureDiagram() {
       g.append('path')
         .attr('d', `M${from.x},${from.y} C${from.x},${midY + controlOffset} ${to.x},${midY - controlOffset} ${to.x},${to.y}`)
         .attr('fill', 'none')
-        .attr('stroke', isHighlighted ? '#e2e8f0' : '#475569')
+        .attr('stroke', isHighlighted ? ED.inkSoft : ED.rule)
         .attr('stroke-width', isHighlighted ? 1.5 : 0.8)
         .attr('opacity', opacity)
         .attr('marker-end', 'url(#arrowhead)');
@@ -195,7 +196,7 @@ export default function SystemArchitectureDiagram() {
           .attr('x', (from.x + to.x) / 2)
           .attr('y', midY - 4)
           .attr('text-anchor', 'middle')
-          .attr('fill', '#94a3b8')
+          .attr('fill', ED.inkSoft)
           .attr('font-size', 8)
           .attr('font-style', 'italic')
           .text(edge.label);
@@ -236,7 +237,7 @@ export default function SystemArchitectureDiagram() {
         // Node circle
         nodeG.append('circle')
           .attr('r', isHovered ? 22 : 18)
-          .attr('fill', isHovered ? layer.color : 'rgba(15,18,37,0.9)')
+          .attr('fill', isHovered ? layer.color : TK_ALPHA(ED.paper2, 0.9))
           .attr('stroke', layer.color)
           .attr('stroke-width', isHovered ? 2.5 : 1.5)
           .attr('opacity', dimmed ? 0.2 : 1)
@@ -246,7 +247,7 @@ export default function SystemArchitectureDiagram() {
         nodeG.append('text')
           .attr('y', 30)
           .attr('text-anchor', 'middle')
-          .attr('fill', dimmed ? '#334155' : '#cbd5e1')
+          .attr('fill', dimmed ? ED.inkSoft : ED.ink)
           .attr('font-size', 9)
           .attr('font-weight', 500)
           .text(node.label);
@@ -257,7 +258,7 @@ export default function SystemArchitectureDiagram() {
         nodeG.append('text')
           .attr('y', 3)
           .attr('text-anchor', 'middle')
-          .attr('fill', isHovered ? '#fff' : layer.color)
+          .attr('fill', isHovered ? ED.ink : layer.color)
           .attr('font-size', 8)
           .attr('font-weight', 700)
           .attr('font-family', 'var(--font-mono)')
@@ -294,15 +295,15 @@ export default function SystemArchitectureDiagram() {
           position: 'absolute',
           left: Math.min(tooltip.x, (svgRef.current?.clientWidth || 800) - 200),
           top: tooltip.y - 60,
-          background: 'rgba(15, 18, 37, 0.95)',
-          border: '1px solid rgba(99, 102, 241, 0.4)',
+          background: 'color-mix(in srgb, var(--paper-2) 95%, transparent)',
+          border: '1px solid color-mix(in srgb, var(--series-5) 40%, transparent)',
           borderRadius: 8,
           padding: '8px 14px',
           zIndex: 10,
           pointerEvents: 'none',
           maxWidth: 280,
         }}>
-          <div style={{ fontSize: 11, fontWeight: 600, color: '#e2e8f0', marginBottom: 4 }}>{tooltip.label}</div>
+          <div style={{ fontSize: 11, fontWeight: 600, color: 'var(--ink)', marginBottom: 4 }}>{tooltip.label}</div>
           <div style={{ fontSize: 12 }}>
             <InlineMath tex={tooltip.tex} />
           </div>

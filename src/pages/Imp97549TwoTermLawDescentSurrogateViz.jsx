@@ -4,6 +4,7 @@ import {
   IMP97549_SERIES,
   IMP97549_TARGET_LINE,
 } from '../data/imp-97549-two-term-law-descent-surrogate-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 // imp-97549: visualizes the imp-97500 two-term law
 // surrogate([P0,Y]) = L(P0) + A(P0)/log Y for several min-primes P0 vs
@@ -11,13 +12,13 @@ import {
 // baked exact crossing points where each curve first dips below it.
 
 const COLORS = {
-  2: '#64748b',
-  101: '#38bdf8',
-  379: '#4ade80',
-  1009: '#facc15',
-  10007: '#f472b6',
+  2: ED.series8,
+  101: ED.series1,
+  379: ED.series3,
+  1009: ED.series4,
+  10007: ED.series7,
 };
-const COLOR_TARGET = '#f87171';
+const COLOR_TARGET = ED.series2;
 
 function DescentPanel() {
   const svgW = 720;
@@ -60,7 +61,7 @@ function DescentPanel() {
           key={`curve-${s.P0}`}
           points={s.curve.map((pt) => `${xOf(pt.logY)},${yOf(pt.value)}`).join(' ')}
           fill="none"
-          stroke={COLORS[s.P0] || '#94a3b8'}
+          stroke={COLORS[s.P0] || ED.rule}
           strokeWidth={1.8}
         />
       ))}
@@ -76,27 +77,27 @@ function DescentPanel() {
             cy={yOf(value)}
             r={4.5}
             fill={COLORS[s.P0] || '#94a3b8'}
-            stroke="#0f172a"
+            stroke={ED.paper}
             strokeWidth={1}
           />
         );
       })}
 
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
 
       {[3, 4, 5, 6, 7, 8, 9].map((exp) => (
-        <text key={`xt${exp}`} x={xOf(exp * Math.LN10)} y={padT + plotH + 16} textAnchor="middle" fill="#64748b" fontSize={8}>
+        <text key={`xt${exp}`} x={xOf(exp * Math.LN10)} y={padT + plotH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={8}>
           1e{exp}
         </text>
       ))}
       {[0.5, 0, -0.25, -0.5, -0.75].map((v) => (
-        <text key={`yv${v}`} x={padL - 6} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={8}>
+        <text key={`yv${v}`} x={padL - 6} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8}>
           {v.toFixed(2)}
         </text>
       ))}
 
-      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={9}>
+      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
         Y (log scale) &mdash; surrogate([P0,Y]) = L(P0) + A(P0)/log Y
       </text>
     </svg>
@@ -112,15 +113,15 @@ export default function Imp97549TwoTermLawDescentSurrogateViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(56,189,248,0.06)',
-          borderLeft: '3px solid #38bdf8',
+          background: 'color-mix(in srgb, var(--series-1) 6%, transparent)',
+          borderLeft: '3px solid var(--series-1)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#38bdf8' }}>Honest status:</strong> every
+        <strong style={{ color: 'var(--series-1)' }}>Honest status:</strong> every
         curve below is the imp-97500 two-term law evaluated verbatim from
         the baked descent-rate table; every marker is a baked exact
         crossing point. Measurement only &mdash; no operator positivity, no
@@ -129,7 +130,7 @@ export default function Imp97549TwoTermLawDescentSurrogateViz() {
         Lambda&le;0.2 remains SOTA; RH open; NO QED.
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-97500 measured that the imp-97481 window-set surrogate
         approaches its exact Mertens limit L(P0) purely logarithmically:
         surrogate([P0,Y]) = L(P0) + A(P0)/log Y, with gap*log Y flat to
@@ -141,21 +142,21 @@ export default function Imp97549TwoTermLawDescentSurrogateViz() {
         Y=42,333,157, P0=10007 at Y=75,415,303).
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         surrogate([P0,Y]) = L(P0) + A(P0)/log Y vs log Y, several P0
       </h3>
       <DescentPanel />
 
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', marginTop: '0.75rem' }}>
         {IMP97549_SERIES.map((s) => (
-          <div key={`legend-${s.P0}`} style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', fontSize: '0.75rem', color: '#94a3b8' }}>
+          <div key={`legend-${s.P0}`} style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', fontSize: '0.75rem', color: 'var(--ink-soft)' }}>
             <span style={{ width: 12, height: 3, background: COLORS[s.P0] || '#94a3b8', display: 'inline-block' }} />
             P0={s.P0} (A={s.A}, L={s.L})
           </div>
         ))}
       </div>
 
-      <p style={{ color: '#64748b', fontSize: '0.8rem', marginTop: '1rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-faint)', fontSize: '0.8rem', marginTop: '1rem', maxWidth: 700 }}>
         P0=2 and P0=101 never dip below the threshold within the charted
         window (P0=101 stays in the Rosser-Schoenfeld effective-Mertens
         regime, crossing only past Y~2.63e9). The two-term law reproduces
@@ -168,14 +169,14 @@ export default function Imp97549TwoTermLawDescentSurrogateViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> presentation
         only, consuming the imp-97500 two-term law and baked crossings
         verbatim. Establishes no operator positivity; changes no bound; the
         b/4-ceiling lower edge is a dead route; kappa_arith unchanged;

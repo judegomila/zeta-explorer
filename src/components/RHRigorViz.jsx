@@ -3,6 +3,7 @@ import { InlineMath } from './KaTeXMath.jsx';
 import { systemHamiltonian, hamiltonianSigmaScan, losslessBridge, directLadder, dualLadder } from '../math/oscillators.js';
 import { cAbs, cSub, zetaCriticalStrip, ZETA_ZEROS } from '../math/zeta.js';
 import { getPrimes } from '../math/primes.js';
+import { ED, alpha } from '../styles/tokens.js';
 
 /** Binary search for nearest zeta zero to a given t value. O(log n) vs O(n) linear scan. */
 function findNearestZetaZero(t) {
@@ -178,7 +179,7 @@ export default function RHRigorViz() {
     ctx.translate(margin.left, margin.top);
 
     // Grid
-    ctx.strokeStyle = '#1e293b';
+    ctx.strokeStyle = ED.ruleSoft;
     ctx.lineWidth = 0.5;
     for (let i = 0; i <= 5; i++) {
       const y = (i / 5) * ph;
@@ -200,7 +201,7 @@ export default function RHRigorViz() {
     ctx.restore();
 
     // Axes labels
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.font = '12px Inter, sans-serif';
     ctx.textAlign = 'center';
 
@@ -234,7 +235,7 @@ export default function RHRigorViz() {
     const yScale = (sigma) => ph - ((sigma - 0.1) / 0.8) * ph;
 
     // Reference line at σ = 0.5
-    ctx.strokeStyle = '#10b981';
+    ctx.strokeStyle = ED.series3;
     ctx.lineWidth = 2;
     ctx.setLineDash([6, 4]);
     ctx.beginPath();
@@ -243,7 +244,7 @@ export default function RHRigorViz() {
     ctx.stroke();
     ctx.setLineDash([]);
 
-    ctx.fillStyle = '#10b981';
+    ctx.fillStyle = ED.series3;
     ctx.font = '11px Inter, sans-serif';
     ctx.textAlign = 'right';
     ctx.fillText('σ = 0.5 (RH prediction)', pw - 4, yScale(0.5) - 8);
@@ -252,7 +253,7 @@ export default function RHRigorViz() {
     for (const g of ZETA_ZEROS) {
       if (g < tRange[0] || g > tRange[1]) continue;
       const x = xScale(g);
-      ctx.fillStyle = 'rgba(16, 185, 129, 0.08)';
+      ctx.fillStyle = alpha(ED.series3, 0.08);
       ctx.fillRect(x - 3, 0, 6, ph);
     }
 
@@ -272,7 +273,7 @@ export default function RHRigorViz() {
 
       // Outline near-zero points
       if (pt.nearZero) {
-        ctx.strokeStyle = '#10b981';
+        ctx.strokeStyle = ED.series3;
         ctx.lineWidth = 2;
         ctx.beginPath();
         ctx.arc(x, y, 8, 0, Math.PI * 2);
@@ -281,7 +282,7 @@ export default function RHRigorViz() {
     });
 
     // Connect with line
-    ctx.strokeStyle = '#3b82f6';
+    ctx.strokeStyle = ED.series1;
     ctx.lineWidth = 1.5;
     ctx.beginPath();
     data.forEach((pt, i) => {
@@ -293,7 +294,7 @@ export default function RHRigorViz() {
     ctx.stroke();
 
     // Axis ticks
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.font = '10px "JetBrains Mono", monospace';
     ctx.textAlign = 'center';
     for (let t = Math.ceil(tRange[0]); t <= tRange[1]; t += Math.ceil((tRange[1] - tRange[0]) / 8)) {
@@ -305,21 +306,21 @@ export default function RHRigorViz() {
     }
 
     // Title
-    ctx.fillStyle = '#e2e8f0';
+    ctx.fillStyle = ED.ink;
     ctx.font = 'bold 13px Inter, sans-serif';
     ctx.textAlign = 'left';
     ctx.fillText('Test: Does H(σ,t) minimize at σ = 0.5 for all t?', 4, -14);
 
     // Verdict (stats pre-computed via useMemo)
     ctx.font = '11px "JetBrains Mono", monospace';
-    ctx.fillStyle = stats.maxDev < 0.05 ? '#10b981' : stats.maxDev < 0.15 ? '#f59e0b' : '#ef4444';
+    ctx.fillStyle = stats.maxDev < 0.05 ? ED.series3 : stats.maxDev < 0.15 ? ED.series4 : ED.series2;
     ctx.textAlign = 'right';
     ctx.fillText(`Max deviation: ${stats.maxDev.toFixed(4)} | Avg: ${stats.avgDev.toFixed(4)}`, pw, -14);
 
     // Legend
     const lx = pw - 170, ly = ph - 90;
     ctx.fillStyle = 'rgba(13, 17, 23, 0.85)';
-    ctx.strokeStyle = '#1e293b';
+    ctx.strokeStyle = ED.ruleSoft;
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.roundRect(lx, ly, 170, 88, 4);
@@ -327,11 +328,11 @@ export default function RHRigorViz() {
     ctx.stroke();
 
     const items = [
-      { type: 'dash', color: '#10b981', label: 'σ = ½ (RH prediction)' },
-      { type: 'line', color: '#3b82f6', label: 'σ* trajectory' },
+      { type: 'dash', color: ED.series3, label: 'σ = ½ (RH prediction)' },
+      { type: 'line', color: ED.series1, label: 'σ* trajectory' },
       { type: 'dot',  color: 'rgb(0, 255, 100)', label: 'Low deviation' },
       { type: 'dot',  color: 'rgb(255, 0, 100)', label: 'High deviation' },
-      { type: 'band', color: 'rgba(16, 185, 129, 0.08)', label: 'ζ zero location' },
+      { type: 'band', color: alpha(ED.series3, 0.08), label: 'ζ zero location' },
     ];
     items.forEach((item, i) => {
       const iy = ly + 12 + i * 15;
@@ -346,10 +347,10 @@ export default function RHRigorViz() {
         ctx.fillStyle = item.color;
         ctx.beginPath(); ctx.arc(lx + 14, iy, 4, 0, Math.PI * 2); ctx.fill();
       } else if (item.type === 'band') {
-        ctx.fillStyle = 'rgba(16, 185, 129, 0.25)';
+        ctx.fillStyle = alpha(ED.series3, 0.25);
         ctx.fillRect(lx + 6, iy - 6, 16, 12);
       }
-      ctx.fillStyle = '#94a3b8'; ctx.font = '10px Inter, sans-serif'; ctx.textAlign = 'left';
+      ctx.fillStyle = ED.series8; ctx.font = '10px Inter, sans-serif'; ctx.textAlign = 'left';
       ctx.fillText(item.label, lx + 28, iy + 4);
     });
   }
@@ -396,7 +397,7 @@ export default function RHRigorViz() {
     ctx.fillText('σ = ½', critX, -6);
 
     // Axis ticks
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = ED.series8;
     ctx.font = '10px "JetBrains Mono", monospace';
     ctx.textAlign = 'center';
     for (let s = 0.1; s <= 0.9; s += 0.2) {
@@ -411,7 +412,7 @@ export default function RHRigorViz() {
     }
 
     // Title
-    ctx.fillStyle = '#e2e8f0';
+    ctx.fillStyle = ED.ink;
     ctx.font = 'bold 13px Inter, sans-serif';
     ctx.textAlign = 'left';
     ctx.fillText('Test: |χ(s)| deviation from 1 (green = unitary)', 4, -14);
@@ -427,7 +428,7 @@ export default function RHRigorViz() {
       ctx.fillStyle = `rgb(${r}, ${g}, ${b})`;
       ctx.fillRect(barX, i, barW, 1);
     }
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = ED.series8;
     ctx.font = '9px "JetBrains Mono", monospace';
     ctx.textAlign = 'left';
     ctx.fillText('|χ|=1', barX + barW + 4, 10);
@@ -447,9 +448,9 @@ export default function RHRigorViz() {
     for (const g of ZETA_ZEROS) {
       if (g < tRange[0] || g > tRange[1]) continue;
       const x = xScale(g);
-      ctx.fillStyle = 'rgba(16, 185, 129, 0.1)';
+      ctx.fillStyle = alpha(ED.series3, 0.1);
       ctx.fillRect(x - 2, 0, 4, ph);
-      ctx.strokeStyle = '#10b981';
+      ctx.strokeStyle = ED.series3;
       ctx.lineWidth = 0.5;
       ctx.setLineDash([2, 3]);
       ctx.beginPath();
@@ -460,7 +461,7 @@ export default function RHRigorViz() {
     }
 
     // |ζ(½+it)| line
-    ctx.strokeStyle = '#3b82f6';
+    ctx.strokeStyle = ED.series1;
     ctx.lineWidth = 2;
     ctx.beginPath();
     data.forEach((pt, i) => {
@@ -472,7 +473,7 @@ export default function RHRigorViz() {
     ctx.stroke();
 
     // Impedance mismatch at σ = 0.5
-    ctx.strokeStyle = '#f59e0b';
+    ctx.strokeStyle = ED.brassDeco;
     ctx.lineWidth = 1.5;
     ctx.setLineDash([4, 2]);
     ctx.beginPath();
@@ -486,7 +487,7 @@ export default function RHRigorViz() {
     ctx.setLineDash([]);
 
     // Impedance mismatch at σ = 0.6 (off-line)
-    ctx.strokeStyle = '#ef4444';
+    ctx.strokeStyle = ED.series2;
     ctx.lineWidth = 1;
     ctx.setLineDash([2, 2]);
     const yMismatchOff = (v) => ph - (v / maxMismatchBoth) * ph * 0.9;
@@ -502,15 +503,15 @@ export default function RHRigorViz() {
 
     // Legend with background box
     const legendItems = [
-      { color: '#3b82f6', label: '|ζ(½+it)| (true zeta)', dash: false },
-      { color: '#f59e0b', label: '|Z_dir - Z_dual| at σ=0.5', dash: true },
-      { color: '#ef4444', label: '|Z_dir - Z_dual| at σ=0.6', dash: true },
-      { color: '#10b981', label: 'Known zeros', dash: [2, 3] },
+      { color: ED.series1, label: '|ζ(½+it)| (true zeta)', dash: false },
+      { color: ED.brass, label: '|Z_dir - Z_dual| at σ=0.5', dash: true },
+      { color: ED.series2, label: '|Z_dir - Z_dual| at σ=0.6', dash: true },
+      { color: ED.series3, label: 'Known zeros', dash: [2, 3] },
     ];
     const lx = pw - 230, legendY = 4;
     const legendW = 230, legendH = legendItems.length * 16 + 10;
     ctx.fillStyle = 'rgba(13, 17, 23, 0.85)';
-    ctx.strokeStyle = '#1e293b';
+    ctx.strokeStyle = ED.ruleSoft;
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.roundRect(lx, legendY, legendW, legendH, 4);
@@ -535,7 +536,7 @@ export default function RHRigorViz() {
     });
 
     // Axis ticks
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.font = '10px "JetBrains Mono", monospace';
     ctx.textAlign = 'center';
     for (let t = Math.ceil(tRange[0]); t <= tRange[1]; t += Math.ceil((tRange[1] - tRange[0]) / 8)) {
@@ -546,20 +547,20 @@ export default function RHRigorViz() {
     for (let frac = 0; frac <= 1.0; frac += 0.25) {
       const y = ph - frac * ph * 0.9;
       ctx.fillText(frac.toFixed(2), -6, y + 4);
-      ctx.strokeStyle = '#1e293b';
+      ctx.strokeStyle = ED.ruleSoft;
       ctx.lineWidth = 0.5;
       ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(4, y); ctx.stroke();
     }
 
     // Title
-    ctx.fillStyle = '#e2e8f0';
+    ctx.fillStyle = ED.ink;
     ctx.font = 'bold 13px Inter, sans-serif';
     ctx.textAlign = 'left';
     ctx.fillText('Test: Does impedance mismatch correlate with |ζ| zeros?', 4, -14);
 
     // Correlation display (computed in memoized mismatchStats)
     ctx.font = '11px "JetBrains Mono", monospace';
-    ctx.fillStyle = Math.abs(correlation) > 0.5 ? '#10b981' : '#f59e0b';
+    ctx.fillStyle = Math.abs(correlation) > 0.5 ? ED.series3 : ED.series4;
     ctx.textAlign = 'right';
     ctx.fillText(`Pearson r = ${correlation.toFixed(3)}`, pw, -14);
   }
@@ -626,7 +627,7 @@ export default function RHRigorViz() {
           <input type="range" min="5" max="40" step="1" value={numPrimes}
             disabled={activeTest === 'bridge'}
             onChange={e => setNumPrimes(+e.target.value)} />
-          <span className="control-value">{numPrimes} <span style={{ color: '#64748b', fontSize: 11 }}>
+          <span className="control-value">{numPrimes} <span style={{ color: 'var(--ink-faint)', fontSize: 11 }}>
             {activeTest === 'bridge' ? '(not used by bridge test)' : `(up to p=${getPrimes(numPrimes)[numPrimes - 1]})`}
           </span></span>
         </div>
@@ -643,7 +644,7 @@ export default function RHRigorViz() {
           <span className="control-value">{tRange[1]}</span>
         </div>
         <div className="control-group">
-          <span style={{ color: '#64748b', fontSize: 11 }}>
+          <span style={{ color: 'var(--ink-faint)', fontSize: 11 }}>
             ({ZETA_ZEROS.filter(g => g >= tRange[0] && g <= tRange[1]).length} zeros in range)
           </span>
         </div>
@@ -658,14 +659,14 @@ export default function RHRigorViz() {
       <div className="card" style={{ marginTop: 16 }}>
         {activeTest === 'hamiltonian' && (
           <>
-            <h4 style={{ color: '#f59e0b', margin: '0 0 8px' }}>Interpretation: Hamiltonian Minimization Test</h4>
-            <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.7 }}>
+            <h4 style={{ color: 'var(--brass)', margin: '0 0 8px' }}>Interpretation: Hamiltonian Minimization Test</h4>
+            <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.7 }}>
               For each value of <InlineMath tex="t" />, we scan <InlineMath tex={"\\sigma \\in [0.1, 0.9]"} /> and find
-              where <InlineMath tex={"H(\\sigma, t)"} /> is minimized. <strong style={{ color: '#e2e8f0' }}>If the Twin-Ladder Bridge model's claim
+              where <InlineMath tex={"H(\\sigma, t)"} /> is minimized. <strong style={{ color: 'var(--ink)' }}>If the Twin-Ladder Bridge model's claim
               is correct</strong>, all points should lie exactly on the green dashed
               line at <InlineMath tex={"\\sigma = 0.5"} />.
             </p>
-            <p style={{ color: '#ef4444', fontSize: 13, lineHeight: 1.7, marginTop: 8 }}>
+            <p style={{ color: 'var(--series-2)', fontSize: 13, lineHeight: 1.7, marginTop: 8 }}>
               <strong>Criticism (crit-001):</strong> The Hamiltonian is <em>constructed</em> to be symmetric
               about <InlineMath tex={"\\sigma = 0.5"} /> — the bridge term <InlineMath tex={"100(1-|\\chi|)^2"} /> dominates
               and is minimized there by design. This is a tautology, not a prediction. The deviations visible
@@ -675,13 +676,13 @@ export default function RHRigorViz() {
         )}
         {activeTest === 'bridge' && (
           <>
-            <h4 style={{ color: '#8b5cf6', margin: '0 0 8px' }}>Interpretation: Bridge Unitarity Heatmap</h4>
-            <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.7 }}>
+            <h4 style={{ color: 'var(--series-5)', margin: '0 0 8px' }}>Interpretation: Bridge Unitarity Heatmap</h4>
+            <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.7 }}>
               The heatmap shows <InlineMath tex={"||\\chi(\\sigma+it)| - 1|"} /> across the <InlineMath tex={"(\\sigma, t)"} /> plane.
               The green vertical band at <InlineMath tex={"\\sigma = 0.5"} /> confirms that <InlineMath tex={"|\\chi| = 1"} /> on the
               critical line.
             </p>
-            <p style={{ color: '#ef4444', fontSize: 13, lineHeight: 1.7, marginTop: 8 }}>
+            <p style={{ color: 'var(--series-2)', fontSize: 13, lineHeight: 1.7, marginTop: 8 }}>
               <strong>Criticism (crit-003):</strong> This is just the functional equation —
               a proven identity, not new information. The fact that <InlineMath tex={"|\\chi(1/2+it)| = 1"} /> was known
               to Riemann in 1859. It tells us about the symmetry of <InlineMath tex={"\\zeta"} />, not about where
@@ -691,13 +692,13 @@ export default function RHRigorViz() {
         )}
         {activeTest === 'mismatch' && (
           <>
-            <h4 style={{ color: '#06b6d4', margin: '0 0 8px' }}>Interpretation: Mismatch vs Zero Correlation</h4>
-            <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.7 }}>
+            <h4 style={{ color: 'var(--series-6)', margin: '0 0 8px' }}>Interpretation: Mismatch vs Zero Correlation</h4>
+            <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.7 }}>
               We plot <InlineMath tex={"|\\zeta(1/2+it)|"} /> (blue) against the impedance
               mismatch <InlineMath tex={"|Z_{\\rm dir} - Z_{\\rm dual}|"} /> (orange/red). If the mismatch predicted
               zeros, the orange curve would dip to zero at the same places as the blue curve.
             </p>
-            <p style={{ color: '#ef4444', fontSize: 13, lineHeight: 1.7, marginTop: 8 }}>
+            <p style={{ color: 'var(--series-2)', fontSize: 13, lineHeight: 1.7, marginTop: 8 }}>
               <strong>Criticism (crit-005):</strong> The mismatch is computed from a <em>divergent</em> Euler
               product truncation (crit-002). Its behavior with {numPrimes} primes does not reliably
               predict the true <InlineMath tex={"\\zeta"} /> zeros. The Pearson correlation shown is between

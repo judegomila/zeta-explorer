@@ -1,10 +1,11 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP33661_CLUSTER_PEAK_SPACING_PERIODICITY_EXTENDED } from '../data/imp-33661-cluster-peak-spacing-periodicity-extended-n400-1200.js';
+import { ED } from '../styles/tokens.js';
 
-const BAR_COLOR = '#38bdf8';
-const HIGHLIGHT_COLOR = '#f59e0b';
-const MEAN_COLOR = '#64748b';
+const BAR_COLOR = ED.series1;
+const HIGHLIGHT_COLOR = ED.series4;
+const MEAN_COLOR = ED.series8;
 
 const { measured } = IMP33661_CLUSTER_PEAK_SPACING_PERIODICITY_EXTENDED;
 const gaps = measured.gaps;
@@ -36,7 +37,7 @@ function GapBarChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
       <line
         x1={padL}
@@ -72,17 +73,17 @@ function GapBarChart() {
       {gaps.map((g, i) => {
         const x = padL + i * slot + slot / 2;
         return (
-          <text key={`lbl-${peakNs[i]}`} x={x} y={padT + cH + 14} textAnchor="middle" fill="#64748b" fontSize={8}>
+          <text key={`lbl-${peakNs[i]}`} x={x} y={padT + cH + 14} textAnchor="middle" fill={ED.inkFaint} fontSize={8}>
             {peakNs[i]}
           </text>
         );
       })}
-      <text x={padL + cW / 2} y={padT + cH + 32} textAnchor="middle" fill="#64748b" fontSize={9}>
+      <text x={padL + cW / 2} y={padT + cH + 32} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
         gap start rung n (peak-to-peak)
       </text>
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
-      <text x={10} y={padT + cH / 2} textAnchor="middle" fill="#64748b" fontSize={10} transform={`rotate(-90,10,${padT + cH / 2})`}>
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
+      <text x={10} y={padT + cH / 2} textAnchor="middle" fill={ED.inkFaint} fontSize={10} transform={`rotate(-90,10,${padT + cH / 2})`}>
         inter-peak gap (rungs)
       </text>
     </svg>
@@ -94,7 +95,7 @@ export default function Imp33718InterPeakGapSequenceViz() {
     <div style={{ padding: '1.5rem', maxWidth: 980, margin: '0 auto' }}>
       <PageHeader title="Inter-Peak Gap Sequence, n in [400,1200] (imp-33661)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 820 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 820 }}>
         imp-33661 re-fit the imp-33639 cluster-peak SPACING periodicity across the extended sixteen-peak
         set over [400,1200], finding the inter-peak gap coefficient of variation persists at CV ~
         {measured.gapCV.toFixed(2)} (mean ~{measured.gapMean.toFixed(1)}, sd ~{measured.gapSd.toFixed(1)}).
@@ -103,12 +104,12 @@ export default function Imp33718InterPeakGapSequenceViz() {
         cluster peak.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         fifteen inter-peak gaps (rungs), [{gaps.join(', ')}]
       </p>
       <GapBarChart />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.85rem', margin: '1rem 0 1.25rem' }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.85rem', margin: '1rem 0 1.25rem' }}>
         The tallest cluster peak (n ~{tallestN}, envelope ~{tallestHeight.toFixed(1)} ULP) sits at an
         inbound gap of only {inboundGap} rungs -- well below the ~{measured.gapMean.toFixed(1)}-rung mean
         and among the narrowest of the fifteen gaps (min ~{measured.gapMin}, max ~{measured.gapMax}). The
@@ -119,14 +120,14 @@ export default function Imp33718InterPeakGapSequenceViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> the ragged bar heights (range ~
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> the ragged bar heights (range ~
         {measured.gapMin}..{measured.gapMax} rungs) illustrate the imp-33661 SPACING-IRREGULAR-CV-PERSISTS
         verdict -- no visible periodic pattern, and the narrowest-gap bar (highlighted) precedes the
         tallest peak rather than a wider one, consistent with the imp-33682 gap-vs-height independence
@@ -137,14 +138,14 @@ export default function Imp33718InterPeakGapSequenceViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> accuracy/rule-design measurement only. It
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> accuracy/rule-design measurement only. It
         changes no bound and patches no literal. Mass-feasibility is necessary-but-not-sufficient; the
         operator-level positivity (imp-3066 K_a &ge; 0) is UNTOUCHED. RH-equivalent, NO QED.
       </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP33942_HUMP_ARGMAX_GAP_STEP_PROPORTIONALITY } from '../data/imp-33942-hump-argmax-gap-step-proportionality.js';
+import { ED } from '../styles/tokens.js';
 
 const { rungs, continuumArgmax, finding } = IMP33942_HUMP_ARGMAX_GAP_STEP_PROPORTIONALITY;
 
@@ -36,37 +37,37 @@ function GapVsStepChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <polyline points={envelopePoints} fill="none" stroke="#facc15" strokeWidth={1.5} strokeDasharray="6,3" />
-      <polyline points={sawtoothPoints} fill="none" stroke="#a78bfa" strokeWidth={1.5} strokeDasharray="2,3" />
-      <polyline points={gapPoints} fill="none" stroke="#38bdf8" strokeWidth={2} />
+      <polyline points={envelopePoints} fill="none" stroke={ED.brassDeco} strokeWidth={1.5} strokeDasharray="6,3" />
+      <polyline points={sawtoothPoints} fill="none" stroke={ED.series5} strokeWidth={1.5} strokeDasharray="2,3" />
+      <polyline points={gapPoints} fill="none" stroke={ED.series1} strokeWidth={2} />
       {rungs.map((r, i) => (
-        <circle key={`pt-${r.step}`} cx={xAt(xs[i])} cy={yAt(gapYs[i])} r={3.5} fill="#38bdf8" stroke="#0a0f1a" strokeWidth={0.75} />
+        <circle key={`pt-${r.step}`} cx={xAt(xs[i])} cy={yAt(gapYs[i])} r={3.5} fill={ED.series1} stroke={ED.paper} strokeWidth={0.75} />
       ))}
       {rungs.map((r, i) => (
-        <text key={`xt-${r.step}`} x={xAt(xs[i])} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={8.5}>
+        <text key={`xt-${r.step}`} x={xAt(xs[i])} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={8.5}>
           {r.step < 0.01 ? r.step.toExponential(2) : r.step}
         </text>
       ))}
-      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         step (log10 scale, grid steps 0.25..1/128)
       </text>
       <text
         x={16}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={`rotate(-90 16 ${padT + cH / 2})`}
       >
         log10(distance)
       </text>
-      <text x={padL + 4} y={padT + 12} fill="#38bdf8" fontSize={9.5}>
+      <text x={padL + 4} y={padT + 12} fill={ED.series1} fontSize={9.5}>
         measured gap |argmaxK - k*|
       </text>
-      <text x={padL + 4} y={padT + 26} fill="#facc15" fontSize={9.5}>
+      <text x={padL + 4} y={padT + 26} fill={ED.brass} fontSize={9.5}>
         step/2 envelope
       </text>
-      <text x={padL + 4} y={padT + 40} fill="#a78bfa" fontSize={9.5}>
+      <text x={padL + 4} y={padT + 40} fill={ED.series5} fontSize={9.5}>
         sawtooth prediction min(frac,1-frac)*step
       </text>
     </svg>
@@ -78,7 +79,7 @@ export default function Imp33994SawtoothGapVsStepViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Hump-Argmax Sawtooth Gap vs Grid Step (imp-33942 / imp-33994)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-33942 tested whether the imp-33878 hump-argmax grid-vs-continuum gap
         |argmaxK - k*| (k* = {continuumArgmax}) shrinks proportionally to the grid step,
         finding instead that it is a sawtooth residue: bounded by step/2 at every rung but not
@@ -89,7 +90,7 @@ export default function Imp33994SawtoothGapVsStepViz() {
         (step 0.25 down to 1/128).
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         log10(gap) vs log10(step) -- measured gap, step/2 envelope, sawtooth prediction
       </p>
       <GapVsStepChart />
@@ -98,14 +99,14 @@ export default function Imp33994SawtoothGapVsStepViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement/reconciliation
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> measurement/reconciliation
         only, no proof, no fresh derivation. {finding.P1_gap_bounded_by_half_step}{' '}
         {finding.P2_gap_not_proportional_to_step} The sawtooth prediction reproduces the measured
         gap at every rung to less than 1e-3. imp-33878/imp-33905 untouched; C_mb GUE-conditional

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
+import { ED } from '../styles/tokens.js';
 
 /*
  * Engine Room — live "are we working?" ops view.
@@ -27,8 +28,8 @@ import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
  */
 
 const CAT_COLOR = {
-  proof: '#8c6a1d', accuracy: '#b58a2e', content: '#4c7a4a', ux: '#3f6b86',
-  numerical: '#3f6b86', meta: '#d9502e', bug: '#c23a1c', performance: '#b58a2e', visual: '#d9502e',
+  proof: ED.brass, accuracy: ED.brassDeco, content: ED.series3, ux: ED.series1,
+  numerical: ED.series1, meta: ED.accentDeco, bug: ED.series2, performance: ED.brassDeco, visual: ED.accentDeco,
 };
 
 function ago(iso) {
@@ -86,7 +87,7 @@ export default function EngineRoomPage() {
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 8 }}>
           <h1 className="ed-h1" style={{ margin: 0 }}>Engine Room</h1>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-            <span style={{ width: 10, height: 10, borderRadius: '50%', background: live ? 'var(--green)' : 'var(--faint)', boxShadow: live ? '0 0 8px #4c7a4a' : 'none', display: 'inline-block' }} />
+            <span style={{ width: 10, height: 10, borderRadius: '50%', background: live ? 'var(--green)' : 'var(--faint)', boxShadow: live ? '0 0 8px var(--series-3)' : 'none', display: 'inline-block' }} />
             <span style={{ fontSize: 12, fontWeight: 700, color: live ? 'var(--green)' : 'var(--faint)', fontFamily: 'var(--ed-mono, var(--font-mono))' }}>
               {live ? 'LIVE — engines working' : 'IDLE / no recent check-in'}
             </span>
@@ -110,10 +111,10 @@ export default function EngineRoomPage() {
             {/* 1. CHECKING INTO GITHUB */}
             <h2 className="ed-h2" style={{ fontSize: 16, marginTop: 18, marginBottom: 10 }}>① Checking into GitHub</h2>
             <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginBottom: 8 }}>
-              <Stat label="commits / hour" value={g.commitsLastHour ?? '—'} color="#4c7a4a" />
-              <Stat label="commits / 24h" value={g.commits24h ?? '—'} color="#4c7a4a" />
+              <Stat label="commits / hour" value={g.commitsLastHour ?? '—'} color={ED.series3} />
+              <Stat label="commits / 24h" value={g.commits24h ?? '—'} color={ED.series3} />
               <Stat label="origin sync" value={g.synced ? '✓' : (g.unpushed ? `+${g.unpushed}` : '—')} sub={g.synced ? 'in sync' : 'push pending'} color={g.synced ? 'var(--green)' : 'var(--brass-dk)'} />
-              <Stat label="last check-in" value={ago(g.lastCommitAt)} color="#1c1814" />
+              <Stat label="last check-in" value={ago(g.lastCommitAt)} color={ED.ink} />
             </div>
             <div className="card" style={{ fontSize: 12.5 }}>
               <div style={{ color: 'var(--faint)', fontSize: 10, textTransform: 'uppercase', marginBottom: 4 }}>Latest commit</div>
@@ -126,10 +127,10 @@ export default function EngineRoomPage() {
             {/* 2. MAXIMUM CAPACITY */}
             <h2 className="ed-h2" style={{ fontSize: 16, marginTop: 22, marginBottom: 10 }}>② Working at maximum capacity</h2>
             <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginBottom: 10 }}>
-              <Stat label="active workers" value={f.totalWorkers ?? '—'} sub="across channels" color="#3f6b86" />
-              <Stat label="live agents now" value={f.liveAgentsNow ?? '—'} color="#3f6b86" />
-              <Stat label="queue pending" value={q.pending ?? '—'} sub="tickets left" color="#8c6a1d" />
-              <Stat label="done / 24h" value={q.completed24h ?? '—'} color="#4c7a4a" />
+              <Stat label="active workers" value={f.totalWorkers ?? '—'} sub="across channels" color={ED.series1} />
+              <Stat label="live agents now" value={f.liveAgentsNow ?? '—'} color={ED.series1} />
+              <Stat label="queue pending" value={q.pending ?? '—'} sub="tickets left" color={ED.brass} />
+              <Stat label="done / 24h" value={q.completed24h ?? '—'} color={ED.series3} />
             </div>
             <div className="card">
               <div style={{ color: 'var(--faint)', fontSize: 10, textTransform: 'uppercase', marginBottom: 8 }}>Engine fleet (separate quota channels)</div>
@@ -159,7 +160,7 @@ export default function EngineRoomPage() {
               {recent.length === 0 && <div style={{ padding: 12, fontSize: 12, color: 'var(--faint)' }}>(feed populates as tickets land)</div>}
               {recent.map((r, i) => (
                 <div key={i} style={{ display: 'flex', gap: 10, alignItems: 'baseline', padding: '8px 12px', borderTop: i ? '1px solid var(--hairline)' : 'none' }}>
-                  <span style={{ fontSize: 10, fontFamily: 'var(--ed-mono, var(--font-mono))', fontWeight: 700, padding: '1px 6px', borderRadius: 4, background: (CAT_COLOR[r.category] || '#877b67') + '22', color: CAT_COLOR[r.category] || '#877b67', whiteSpace: 'nowrap' }}>{r.category}</span>
+                  <span style={{ fontSize: 10, fontFamily: 'var(--ed-mono, var(--font-mono))', fontWeight: 700, padding: '1px 6px', borderRadius: 4, background: (CAT_COLOR[r.category] || '#877b67') + '22', color: CAT_COLOR[r.category] || 'var(--ink-faint)', whiteSpace: 'nowrap' }}>{r.category}</span>
                   <span style={{ fontSize: 12.5, color: 'var(--ink-soft)', flex: 1, lineHeight: 1.4 }}>{r.summary}</span>
                   <span style={{ fontSize: 10, color: 'var(--faint)', fontFamily: 'var(--ed-mono, var(--font-mono))', whiteSpace: 'nowrap' }}>{ago(r.at)}</span>
                 </div>

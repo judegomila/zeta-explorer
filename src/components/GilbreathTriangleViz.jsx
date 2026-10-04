@@ -3,6 +3,7 @@ import * as d3 from 'd3';
 import { InlineMath, BlockMath } from './KaTeXMath.jsx';
 import { getPrimes } from '../math/primes.js';
 import { buildTriangle, mod2Triangle, lockCertificate } from '../math/gilbreath.js';
+import { ED, alpha } from '../styles/tokens.js';
 
 /**
  * Gilbreath's conjecture explorer.
@@ -84,13 +85,13 @@ export default function GilbreathTriangleViz({ onCertUpdate }) {
     const maxV = Math.max(2, d3.max(rows.flat()));
     const colorForVal = (v) => {
       if (v === 0) return '#0b1220';
-      if (v === 1) return '#fbbf24';
+      if (v === 1) return ED.series4;
       if (v === 2) return '#1e40af';
       const t = Math.min((v - 2) / Math.max(maxV - 2, 1), 1);
       return d3.interpolateInferno(0.35 + 0.6 * t);
     };
     const grid = showMod2 ? mod2 : rows;
-    const colorFor = showMod2 ? (b) => (b === 1 ? '#fbbf24' : '#0b1220') : colorForVal;
+    const colorFor = showMod2 ? (b) => (b === 1 ? ED.series4 : '#0b1220') : colorForVal;
 
     grid.forEach((row, k) => {
       row.forEach((v, i) => {
@@ -117,9 +118,9 @@ export default function GilbreathTriangleViz({ onCertUpdate }) {
       const y = cert.firstCleanRow * cell;
       g.append('line').attr('x1', 0).attr('x2', grid[cert.firstCleanRow].length * cell)
         .attr('y1', y - 0.5).attr('y2', y - 0.5)
-        .attr('stroke', '#22d3ee').attr('stroke-width', 1.5).attr('stroke-dasharray', '4,3').attr('opacity', 0.85);
+        .attr('stroke', ED.series6).attr('stroke-width', 1.5).attr('stroke-dasharray', '4,3').attr('opacity', 0.85);
       g.append('text').attr('x', 2).attr('y', Math.max(y - 3, 10))
-        .attr('fill', '#22d3ee').attr('font-size', 9)
+        .attr('fill', ED.series6).attr('font-size', 9)
         .text(`row ${cert.firstCleanRow}: 1,(0|2)* lock engages ↓`);
     }
 
@@ -128,16 +129,16 @@ export default function GilbreathTriangleViz({ onCertUpdate }) {
       .attr('x', -2).attr('y', -2)
       .attr('width', cell + 2).attr('height', rows.length * cell + 2)
       .attr('fill', 'none')
-      .attr('stroke', leadingAllOne ? '#22c55e' : '#ef4444')
+      .attr('stroke', leadingAllOne ? ED.series3 : ED.series2)
       .attr('stroke-width', 2)
       .attr('rx', 3)
       .attr('opacity', 0.9);
 
     svg.append('text').attr('x', margin.left).attr('y', 18)
-      .attr('fill', '#e2e8f0').attr('font-size', 13).attr('font-weight', 600)
+      .attr('fill', ED.ink).attr('font-size', 13).attr('font-weight', 600)
       .text(`Iterated absolute-difference triangle — ${rows.length} rows${showMod2 ? '  ·  mod 2 (odd = gold)' : ''}`);
     svg.append('text').attr('x', margin.left).attr('y', 33)
-      .attr('fill', leadingAllOne ? '#22c55e' : '#ef4444').attr('font-size', 11)
+      .attr('fill', leadingAllOne ? ED.series3 : ED.series2).attr('font-size', 11)
       .text(showMod2
         ? 'Parity invariant (Lemma A): the leading column is ALL gold — a_k[0] ≡ 1 (mod 2), rigorously'
         : leadingAllOne
@@ -170,7 +171,7 @@ export default function GilbreathTriangleViz({ onCertUpdate }) {
         <BlockMath tex={"a^{(0)}_i = \\text{term}_i, \\qquad a^{(k)}_i = \\bigl| a^{(k-1)}_{i+1} - a^{(k-1)}_{i} \\bigr|"} />
         <p style={{ margin: '8px 0 0' }}>
           Gilbreath's observation: <InlineMath tex={"a^{(k)}_0 = 1"} /> for every <InlineMath tex={"k \\ge 1"} />.
-          The boxed leading column should be all <strong style={{ color: '#fbbf24' }}>gold (=1)</strong>.
+          The boxed leading column should be all <strong style={{ color: 'var(--brass)' }}>gold (=1)</strong>.
           <strong> Look for:</strong> after a few rows the table fills with 0s (dark) and 2s (blue),
           yet the leftmost entry stays 1.
         </p>
@@ -181,10 +182,10 @@ export default function GilbreathTriangleViz({ onCertUpdate }) {
           <label>Number of terms</label>
           <input type="range" min="10" max="80" step="1" value={numTerms}
             onChange={e => setNumTerms(+e.target.value)} />
-          <span className="control-value">{numTerms} <span style={{ color: '#64748b', fontSize: 11 }}>
+          <span className="control-value">{numTerms} <span style={{ color: 'var(--ink-faint)', fontSize: 11 }}>
             (start {rows[0][0]}…{rows[0][rows[0].length - 1]})</span></span>
         </div>
-        <label style={{ display: 'flex', alignItems: 'center', gap: 6, color: '#94a3b8', fontSize: 12, cursor: 'pointer' }}>
+        <label style={{ display: 'flex', alignItems: 'center', gap: 6, color: 'var(--ink-soft)', fontSize: 12, cursor: 'pointer' }}>
           <input type="checkbox" checked={showMod2} onChange={e => setShowMod2(e.target.checked)} />
           Show mod 2 (parity)
         </label>
@@ -193,39 +194,39 @@ export default function GilbreathTriangleViz({ onCertUpdate }) {
       {/* Rigorous lock certificate — no appeal to the conjecture. */}
       <div style={{
         margin: '4px 0 12px', padding: '10px 14px', borderRadius: 8,
-        background: leadingAllOne ? 'rgba(34,197,94,0.08)' : 'rgba(239,68,68,0.12)',
-        border: `1px solid ${leadingAllOne ? 'rgba(34,197,94,0.35)' : 'rgba(239,68,68,0.5)'}`,
-        color: '#cbd5e1', fontSize: 12.5, fontFamily: 'var(--font-mono, monospace)', lineHeight: 1.7,
+        background: leadingAllOne ? 'color-mix(in srgb, var(--series-3) 8%, transparent)' : 'color-mix(in srgb, var(--series-2) 12%, transparent)',
+        border: `1px solid ${leadingAllOne ? alpha(ED.series3, 0.35) : alpha(ED.series2, 0.5)}`,
+        color: 'var(--ink)', fontSize: 12.5, fontFamily: 'var(--font-mono, monospace)', lineHeight: 1.7,
       }}>
         {leadingAllOne ? (
           <>
             <div>
-              <span style={{ color: '#22c55e' }}>✓ verified by exact computation:</span>{' '}
-              a_k[0] = 1 for all 1 ≤ k ≤ <strong style={{ color: '#e2e8f0' }}>{cert.verifiedThrough}</strong>
+              <span style={{ color: 'var(--series-3)' }}>✓ verified by exact computation:</span>{' '}
+              a_k[0] = 1 for all 1 ≤ k ≤ <strong style={{ color: 'var(--ink)' }}>{cert.verifiedThrough}</strong>
               {' '}(each is a finite arithmetic theorem, Lemma C).
             </div>
             <div>
-              <span style={{ color: '#fbbf24' }}>parity (Lemma A):</span>{' '}
+              <span style={{ color: 'var(--brass)' }}>parity (Lemma A):</span>{' '}
               every leading entry is <strong>odd</strong> — unconditionally{' '}
-              <span style={{ color: '#64748b' }}>{cert.leadingAllOdd ? '(holds)' : '(VIOLATED?!)'}</span>.
+              <span style={{ color: 'var(--ink-faint)' }}>{cert.leadingAllOdd ? '(holds)' : '(VIOLATED?!)'}</span>.
             </div>
             {cert.firstCleanRow !== null && (
               <div>
-                <span style={{ color: '#22d3ee' }}>lock (Lemmas B+C):</span>{' '}
-                row <strong style={{ color: '#e2e8f0' }}>{cert.firstCleanRow}</strong> reaches the{' '}
+                <span style={{ color: 'var(--series-6)' }}>lock (Lemmas B+C):</span>{' '}
+                row <strong style={{ color: 'var(--ink)' }}>{cert.firstCleanRow}</strong> reaches the{' '}
                 <strong>1,(0|2)*</strong> form; the leading 1 is then a structural fixed point,
-                pinning rows {cert.firstCleanRow}…<strong style={{ color: '#e2e8f0' }}>{cert.guaranteedThrough}</strong>{' '}
+                pinning rows {cert.firstCleanRow}…<strong style={{ color: 'var(--ink)' }}>{cert.guaranteedThrough}</strong>{' '}
                 with no further arithmetic.
               </div>
             )}
-            <div style={{ color: '#94a3b8', marginTop: 4 }}>
-              <span style={{ color: '#f59e0b' }}>still open:</span> certifying the{' '}
+            <div style={{ color: 'var(--ink-soft)', marginTop: 4 }}>
+              <span style={{ color: 'var(--brass)' }}>still open:</span> certifying the{' '}
               <em>infinite</em> tail — that some row is entirely {'{0,2}'} forever, despite
               unbounded prime gaps. No finite computation reaches it.
             </div>
           </>
         ) : (
-          <div style={{ color: '#fca5a5' }}>Leading-1 pattern fails at row {firstViolation}.</div>
+          <div style={{ color: 'var(--series-2)' }}>Leading-1 pattern fails at row {firstViolation}.</div>
         )}
       </div>
 
@@ -234,18 +235,18 @@ export default function GilbreathTriangleViz({ onCertUpdate }) {
       </div>
 
       <div style={{ marginTop: 12, overflowX: 'auto' }}>
-        <div style={{ fontSize: 12, color: '#64748b', marginBottom: 6 }}>First rows (numeric):</div>
+        <div style={{ fontSize: 12, color: 'var(--ink-faint)', marginBottom: 6 }}>First rows (numeric):</div>
         {top.map((row, k) => (
-          <div key={k} style={{ fontFamily: 'var(--font-mono, monospace)', fontSize: 12, color: '#94a3b8', whiteSpace: 'nowrap' }}>
-            <span style={{ color: '#475569', marginRight: 8 }}>r{k}</span>
+          <div key={k} style={{ fontFamily: 'var(--font-mono, monospace)', fontSize: 12, color: 'var(--ink-soft)', whiteSpace: 'nowrap' }}>
+            <span style={{ color: 'var(--ink-faint)', marginRight: 8 }}>r{k}</span>
             {row.slice(0, 22).map((v, i) => (
               <span key={i} style={{
                 display: 'inline-block', width: 22, textAlign: 'right',
-                color: k >= 1 && i === 0 ? '#fbbf24' : v === 0 ? '#334155' : '#94a3b8',
+                color: k >= 1 && i === 0 ? 'var(--brass)' : v === 0 ? 'var(--ink-soft)' : 'var(--ink-soft)',
                 fontWeight: k >= 1 && i === 0 ? 700 : 400,
               }}>{v}</span>
             ))}
-            {row.length > 22 && <span style={{ color: '#475569' }}> …</span>}
+            {row.length > 22 && <span style={{ color: 'var(--ink-faint)' }}> …</span>}
           </div>
         ))}
       </div>

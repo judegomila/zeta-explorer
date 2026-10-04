@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP34712_SECOND_FOOTING_COLLAPSE_LADDER_CROSSVALIDATION } from '../data/imp-34712-second-footing-collapse-ladder-crossvalidation.js';
+import { ED } from '../styles/tokens.js';
 
 const M = IMP34712_SECOND_FOOTING_COLLAPSE_LADDER_CROSSVALIDATION;
 
@@ -44,18 +45,18 @@ function CollapseLadderChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
+      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
 
-      <path d={predPath} fill="none" stroke="#64748b" strokeWidth={1.5} strokeDasharray="5 4" />
-      <path d={f1Path} fill="none" stroke="#38bdf8" strokeWidth={2} />
-      <path d={f2Path} fill="none" stroke="#f472b6" strokeWidth={2} />
+      <path d={predPath} fill="none" stroke={ED.rule} strokeWidth={1.5} strokeDasharray="5 4" />
+      <path d={f1Path} fill="none" stroke={ED.series1} strokeWidth={2} />
+      <path d={f2Path} fill="none" stroke={ED.series7} strokeWidth={2} />
 
       {K_VALS.map((k, i) => (
-        <circle key={`pred-${k}`} cx={xAt(k)} cy={yAt(Math.log(PREDICTED[i]))} r={4} fill="none" stroke="#94a3b8" strokeWidth={1.5} />
+        <circle key={`pred-${k}`} cx={xAt(k)} cy={yAt(Math.log(PREDICTED[i]))} r={4} fill="none" stroke={ED.rule} strokeWidth={1.5} />
       ))}
       {K_VALS.map((k, i) => (
-        <circle key={`f1-${k}`} cx={xAt(k)} cy={yAt(Math.log(R_FOOTING_1[i]))} r={5} fill="#38bdf8" stroke="#0a0f1a" strokeWidth={1} />
+        <circle key={`f1-${k}`} cx={xAt(k)} cy={yAt(Math.log(R_FOOTING_1[i]))} r={5} fill={ED.series1} stroke={ED.paper} strokeWidth={1} />
       ))}
       {K_VALS.map((k, i) => (
         <circle
@@ -63,36 +64,36 @@ function CollapseLadderChart() {
           cx={xAt(k)}
           cy={yAt(Math.log(R_FOOTING_2[i]))}
           r={5}
-          fill="#f472b6"
-          stroke={SIGN_FLIPS[i] ? '#facc15' : '#0a0f1a'}
+          fill={ED.series7}
+          stroke={SIGN_FLIPS[i] ? ED.brassDeco : ED.paper}
           strokeWidth={SIGN_FLIPS[i] ? 2.5 : 1}
         />
       ))}
       {K_VALS.map((k, i) => (
-        <text key={`lbl-${k}`} x={xAt(k) + 8} y={yAt(Math.log(PREDICTED[i])) - 8} fill="#cbd5e1" fontSize={10}>
+        <text key={`lbl-${k}`} x={xAt(k) + 8} y={yAt(Math.log(PREDICTED[i])) - 8} fill={ED.ink} fontSize={10}>
           {LABELS[i]}
           {SIGN_FLIPS[i] ? ' (sign flip)' : ''}
         </text>
       ))}
 
-      <text x={padL} y={16} fill="#38bdf8" fontSize={10}>
+      <text x={padL} y={16} fill={ED.series1} fontSize={10}>
         footing 1 (imp-34689): r_k &asymp; {R_FOOTING_1.map((r) => r.toFixed(2)).join(', ')}
       </text>
-      <text x={padL} y={30} fill="#f472b6" fontSize={10}>
+      <text x={padL} y={30} fill={ED.series7} fontSize={10}>
         footing 2 (imp-34712): r_k &asymp; {R_FOOTING_2.map((r) => r.toFixed(2)).join(', ')}
       </text>
-      <text x={padL} y={svgH - padB + 16} fill="#64748b" fontSize={10}>
+      <text x={padL} y={svgH - padB + 16} fill={ED.inkFaint} fontSize={10}>
         predicted 2&#7509; line (grey dashed): {PREDICTED.join(', ')} -- gold-ringed markers show the F3 sign-flip rungs
       </text>
 
-      <text x={padL + cW / 2} y={svgH - 6} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 6} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         finite-difference order k (q2=2, q3=3, q4=4)
       </text>
       <text
         x={14}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={`rotate(-90, 14, ${padT + cH / 2})`}
       >
@@ -107,7 +108,7 @@ export default function Imp34747SecondFootingCollapseLadderViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Second-Footing Collapse Ladder: Sign-Flip Cross-Validation (imp-34747 / imp-34712)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-34689 recovered a resolution-matched collapse ladder r_k &asymp;{' '}
         {'{'}{R_FOOTING_1.map((r) => r.toFixed(2)).join(', ')}{'}'} landing on the predicted 2&#7509;
         ladder {'{'}{PREDICTED.join(', ')}{'}'}, but its q3/q4 rungs sat slightly off the exact line.
@@ -119,7 +120,7 @@ export default function Imp34747SecondFootingCollapseLadderViz() {
         the exact {'{4, 8, 16}'} line.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         ln(collapse_k) vs k: footing 1 (blue) vs footing 2 (pink) vs predicted 2&#7509; (grey dashed);
         gold-ringed markers flag the sign-flip rungs
       </p>
@@ -127,7 +128,7 @@ export default function Imp34747SecondFootingCollapseLadderViz() {
 
       <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.8rem', marginTop: '1.5rem' }}>
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>channel</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>predicted 2^k</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>r_k footing 1</th>
@@ -139,14 +140,14 @@ export default function Imp34747SecondFootingCollapseLadderViz() {
         </thead>
         <tbody>
           {LABELS.map((label, i) => (
-            <tr key={label} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+            <tr key={label} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
               <td style={{ padding: '0.4rem 0.6rem' }}>{label}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{PREDICTED[i]}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{R_FOOTING_1[i]}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{R_FOOTING_2[i]}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{M.dev_from_2pow_k_footing1[i]}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{M.dev_from_2pow_k_footing2[i]}</td>
-              <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace', color: SIGN_FLIPS[i] ? '#facc15' : '#64748b' }}>
+              <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace', color: SIGN_FLIPS[i] ? 'var(--brass)' : 'var(--ink-faint)' }}>
                 {SIGN_FLIPS[i] ? 'YES' : 'n/a (pinned)'}
               </td>
             </tr>
@@ -158,11 +159,11 @@ export default function Imp34747SecondFootingCollapseLadderViz() {
         style={{
           marginTop: '1rem',
           padding: '0.6rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
         }}
       >
         Per-channel log-log slopes m_k round to exactly {'{'}
@@ -178,14 +179,14 @@ export default function Imp34747SecondFootingCollapseLadderViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-data only, plotting the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-data only, plotting the
         already-certified imp-34712 second-footing cross-validation against the imp-34689 first footing and
         the imp-34606/imp-34633 1/dp&#7509; prediction; establishes no new numerical claim. q1..q4 are
         inherited central differences, NOT fresh analytic closed forms, so the sigma&nbsp;-&gt;&nbsp;1

@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP97471_LADDERS } from '../data/imp-97471-mcm-tower-per-level-margin-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 // imp-97471: visualizes the imp-97442 MCM tower per-level margin at
 // omega=5,6: the LEVEL-1 base term (~1.4e-6, largest x) is where the
@@ -31,14 +32,14 @@ function LevelBarPanel({ ladder }) {
   return (
     <div style={{ marginBottom: '1rem' }}>
       <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-        <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#334155" strokeWidth={1} />
-        <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#334155" strokeWidth={1} />
+        <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1} />
+        <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1} />
 
         {/* log-scale y ticks (decades) */}
         {Array.from({ length: Math.floor(hi) - Math.ceil(lo) + 1 }, (_, i) => Math.ceil(lo) + i).map((dec) => (
           <g key={`y${dec}`}>
-            <line x1={padL - 4} y1={yOf(10 ** dec)} x2={padL + plotW} y2={yOf(10 ** dec)} stroke="#1e293b" strokeWidth={1} />
-            <text x={padL - 8} y={yOf(10 ** dec) + 3} textAnchor="end" fill="#64748b" fontSize={8.5}>
+            <line x1={padL - 4} y1={yOf(10 ** dec)} x2={padL + plotW} y2={yOf(10 ** dec)} stroke={ED.ruleSoft} strokeWidth={1} />
+            <text x={padL - 8} y={yOf(10 ** dec) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8.5}>
               1e{dec}
             </text>
           </g>
@@ -48,27 +49,27 @@ function LevelBarPanel({ ladder }) {
           const x = padL + i * (barW + barGap);
           const y = yOf(p.minDiff);
           const h = padT + plotH - y;
-          const color = p.isBase ? '#f87171' : p.isTop ? '#4ade80' : '#64748b';
+          const color = p.isBase ? ED.series2 : p.isTop ? ED.series3 : ED.inkFaint;
           return (
             <g key={p.level}>
               <rect x={x} y={y} width={barW} height={h} fill={color} opacity={0.85} />
-              <text x={x + barW / 2} y={padT + plotH + 14} textAnchor="middle" fill="#94a3b8" fontSize={9}>
+              <text x={x + barW / 2} y={padT + plotH + 14} textAnchor="middle" fill={ED.inkSoft} fontSize={9}>
                 L{p.level}
               </text>
-              <text x={x + barW / 2} y={y - 5} textAnchor="middle" fill="#e2e8f0" fontSize={8}>
+              <text x={x + barW / 2} y={y - 5} textAnchor="middle" fill={ED.ink} fontSize={8}>
                 {p.minDiff.toExponential(2)}
               </text>
             </g>
           );
         })}
 
-        <text x={padL} y={padT - 4} fill="#e2e8f0" fontSize={10} fontWeight="bold">
+        <text x={padL} y={padT - 4} fill={ED.ink} fontSize={10} fontWeight="bold">
           omega = {ladder.omega} per-level minimum tower difference (log scale)
         </text>
       </svg>
-      <div style={{ paddingLeft: padL, fontSize: '0.72rem', color: '#64748b' }}>
-        <span style={{ color: '#f87171' }}>red = level 1 base</span> (h(x)-h(2x) at large x) &mdash;{' '}
-        <span style={{ color: '#4ade80' }}>green = top induction term T(b)</span> (level = omega, x = 1) &mdash; gap{' '}
+      <div style={{ paddingLeft: padL, fontSize: '0.72rem', color: 'var(--ink-faint)' }}>
+        <span style={{ color: 'var(--series-2)' }}>red = level 1 base</span> (h(x)-h(2x) at large x) &mdash;{' '}
+        <span style={{ color: 'var(--series-3)' }}>green = top induction term T(b)</span> (level = omega, x = 1) &mdash; gap{' '}
         {ladder.ordersOfMagnitudeGap.toFixed(2)} orders of magnitude.
       </div>
     </div>
@@ -84,15 +85,15 @@ export default function Imp97471McmTowerPerLevelMarginViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> measurement
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> measurement
         only. MCM (non-negativity of every iterated multiplicative difference
         of h = g/m) is VERIFIED, not proved, on the omega=5,6 squarefree
         classes in (2e5, 1e6]. This chart establishes no operator positivity
@@ -100,7 +101,7 @@ export default function Imp97471McmTowerPerLevelMarginViz() {
         Lambda&le;0.2 remains SOTA; RH open; NO QED.
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         Each panel bars the minimum difference found at every level of the
         iterated multiplicative-difference tower (log scale), for one omega.
         The minimum keeps shrinking level by level as x grows toward the top
@@ -119,14 +120,14 @@ export default function Imp97471McmTowerPerLevelMarginViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page
         consuming the imp-97442 per-level minima verbatim; no re-solve.
         Establishes no operator positivity; changes no bound; the margin
         narrows only at high omega (MCM refuted first at omega=11, imp-97432);

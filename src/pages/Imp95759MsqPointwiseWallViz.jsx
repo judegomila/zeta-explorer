@@ -7,6 +7,7 @@ import {
   IMP95759_EXCESS_DECAY,
   IMP95759_CAVEAT_BANNER,
 } from '../data/imp-95759-msq-pointwise-wall-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 function VarianceRatioPanel() {
   const svgW = 640;
@@ -35,36 +36,36 @@ function VarianceRatioPanel() {
         y={yOf(IMP95759_RATIO_BAND.max)}
         width={plotW}
         height={yOf(IMP95759_RATIO_BAND.min) - yOf(IMP95759_RATIO_BAND.max)}
-        fill="#38bdf8"
+        fill={ED.series1}
         opacity={0.12}
       />
-      <line x1={padL} y1={yOf(IMP95759_RATIO_BAND.mean)} x2={padL + plotW} y2={yOf(IMP95759_RATIO_BAND.mean)} stroke="#38bdf8" strokeDasharray="4 3" strokeWidth={1} />
-      <text x={padL + plotW - 4} y={yOf(IMP95759_RATIO_BAND.mean) - 6} textAnchor="end" fill="#38bdf8" fontSize={9.5}>
+      <line x1={padL} y1={yOf(IMP95759_RATIO_BAND.mean)} x2={padL + plotW} y2={yOf(IMP95759_RATIO_BAND.mean)} stroke={ED.series1} strokeDasharray="4 3" strokeWidth={1} />
+      <text x={padL + plotW - 4} y={yOf(IMP95759_RATIO_BAND.mean) - 6} textAnchor="end" fill={ED.series1} fontSize={9.5}>
         {`mean ratio ${IMP95759_RATIO_BAND.mean}`}
       </text>
 
       {/* GUE = 1 reference */}
-      <line x1={padL} y1={yOf(1)} x2={padL + plotW} y2={yOf(1)} stroke="#64748b" strokeWidth={1} />
-      <text x={padL + 4} y={yOf(1) - 6} fill="#64748b" fontSize={9.5}>GUE asymptote r = 1</text>
+      <line x1={padL} y1={yOf(1)} x2={padL + plotW} y2={yOf(1)} stroke={ED.rule} strokeWidth={1} />
+      <text x={padL + 4} y={yOf(1) - 6} fill={ED.inkFaint} fontSize={9.5}>GUE asymptote r = 1</text>
 
       {/* axes */}
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#334155" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
 
-      <polyline points={points} fill="none" stroke="#f59e0b" strokeWidth={2} />
+      <polyline points={points} fill="none" stroke={ED.brassDeco} strokeWidth={2} />
       {IMP95759_RATIO_SERIES.map((p) => (
-        <circle key={p.Tc} cx={xOf(p.log10T)} cy={yOf(p.varRatio)} r={4} fill="#f59e0b" />
+        <circle key={p.Tc} cx={xOf(p.log10T)} cy={yOf(p.varRatio)} r={4} fill={ED.brassDeco} />
       ))}
 
       {IMP95759_RATIO_SERIES.map((p) => (
-        <text key={`lbl-${p.Tc}`} x={xOf(p.log10T)} y={padT + plotH + 16} textAnchor="middle" fill="#94a3b8" fontSize={9}>
+        <text key={`lbl-${p.Tc}`} x={xOf(p.log10T)} y={padT + plotH + 16} textAnchor="middle" fill={ED.inkSoft} fontSize={9}>
           {p.log10T}
         </text>
       ))}
-      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={9.5}>
+      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5}>
         log10 T
       </text>
-      <text x={12} y={padT + plotH / 2} transform={`rotate(-90 12 ${padT + plotH / 2})`} textAnchor="middle" fill="#64748b" fontSize={9.5}>
+      <text x={12} y={padT + plotH / 2} transform={`rotate(-90 12 ${padT + plotH / 2})`} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5}>
         r(T)
       </text>
     </svg>
@@ -99,26 +100,26 @@ function WorstExcessDecayPanel() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={refX1} y1={refY1} x2={refX2} y2={refY2} stroke="#64748b" strokeDasharray="4 3" strokeWidth={1} />
-      <text x={refX2 - 4} y={refY2 - 6} textAnchor="end" fill="#64748b" fontSize={9.5}>slope -1 (additive)</text>
+      <line x1={refX1} y1={refY1} x2={refX2} y2={refY2} stroke={ED.rule} strokeDasharray="4 3" strokeWidth={1} />
+      <text x={refX2 - 4} y={refY2 - 6} textAnchor="end" fill={ED.inkFaint} fontSize={9.5}>slope -1 (additive)</text>
 
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#334155" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
 
-      <polyline points={points} fill="none" stroke="#a78bfa" strokeWidth={2} />
+      <polyline points={points} fill="none" stroke={ED.series5} strokeWidth={2} />
       {IMP95759_EXCESS_SERIES.map((p) => (
-        <circle key={p.Tc} cx={xOf(p.log10L)} cy={yOf(p.log10WorstRelExcess)} r={4} fill="#a78bfa" />
+        <circle key={p.Tc} cx={xOf(p.log10L)} cy={yOf(p.log10WorstRelExcess)} r={4} fill={ED.series5} />
       ))}
 
       {IMP95759_EXCESS_SERIES.map((p) => (
-        <text key={`lbl-${p.Tc}`} x={xOf(p.log10L)} y={padT + plotH + 16} textAnchor="middle" fill="#94a3b8" fontSize={9}>
+        <text key={`lbl-${p.Tc}`} x={xOf(p.log10L)} y={padT + plotH + 16} textAnchor="middle" fill={ED.inkSoft} fontSize={9}>
           {p.log10L}
         </text>
       ))}
-      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={9.5}>
+      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5}>
         log10 L (envelope count)
       </text>
-      <text x={12} y={padT + plotH / 2} transform={`rotate(-90 12 ${padT + plotH / 2})`} textAnchor="middle" fill="#64748b" fontSize={9.5}>
+      <text x={12} y={padT + plotH / 2} transform={`rotate(-90 12 ${padT + plotH / 2})`} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5}>
         log10(maxExcess / L)
       </text>
     </svg>
@@ -130,7 +131,7 @@ export default function Imp95759MsqPointwiseWallViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Mean-Square-vs-Pointwise Wall: Two Faces of One Object (imp-95728 / imp-95759)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         The imp-95728 wall assembly measured the mean-square-vs-pointwise gap on actual zeta zeros
         two ways. The variance ratio r(T) = sd(C-E)^2 / Sigma^2(L) stays FLAT near{' '}
         {IMP95759_RATIO_BAND.mean} (band [{IMP95759_RATIO_BAND.min}, {IMP95759_RATIO_BAND.max}])
@@ -142,12 +143,12 @@ export default function Imp95759MsqPointwiseWallViz() {
         normalised terms, decaying in absolute-relative terms.
       </p>
 
-      <h3 style={{ color: '#cbd5e1', fontSize: '0.85rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.85rem', marginBottom: '0.5rem' }}>
         Variance ratio r(T) vs height -- flat, no GUE-closure trend
       </h3>
       <VarianceRatioPanel />
 
-      <h3 style={{ color: '#cbd5e1', fontSize: '0.85rem', marginTop: '1.5rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.85rem', marginTop: '1.5rem', marginBottom: '0.5rem' }}>
         Worst relative excess maxExcess/L vs envelope count L -- decays ~1/L (log-log)
       </h3>
       <WorstExcessDecayPanel />
@@ -156,14 +157,14 @@ export default function Imp95759MsqPointwiseWallViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> {IMP95759_CAVEAT_BANNER}
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> {IMP95759_CAVEAT_BANNER}
       </div>
     </div>
   );

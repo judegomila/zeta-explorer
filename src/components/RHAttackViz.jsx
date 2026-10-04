@@ -7,6 +7,7 @@ import {
 } from '../math/rh-attack.js';
 import { ZETA_ZEROS } from '../math/zeta.js';
 import { getPrimes } from '../math/primes.js';
+import { ED, alpha } from '../styles/tokens.js';
 
 const TABS = ['Li Coefficients', 'Hamiltonian', 'S-Matrix', 'Heat Flow', 'Berry-Keating', 'Proof Map'];
 
@@ -36,7 +37,7 @@ function LiCoefficientsTab() {
     const plotH = h - margin.top - margin.bottom;
 
     // Axes
-    ctx.strokeStyle = '#334155';
+    ctx.strokeStyle = ED.rule;
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.moveTo(margin.left, margin.top);
@@ -59,11 +60,11 @@ function LiCoefficientsTab() {
     ctx.setLineDash([4, 3]);
     ctx.moveTo(margin.left, zeroY);
     ctx.lineTo(w - margin.right, zeroY);
-    ctx.strokeStyle = '#ef4444';
+    ctx.strokeStyle = ED.series2;
     ctx.lineWidth = 1;
     ctx.stroke();
     ctx.setLineDash([]);
-    ctx.fillStyle = '#ef4444';
+    ctx.fillStyle = ED.series2;
     ctx.font = '9px var(--font-mono)';
     ctx.textAlign = 'left';
     ctx.fillText('λ = 1 (log₁₀ λ = 0)', margin.left + 4, zeroY - 4);
@@ -77,12 +78,12 @@ function LiCoefficientsTab() {
       const barTop = Math.min(valueY, zeroY);
       const barHeight = Math.abs(valueY - zeroY);
 
-      ctx.fillStyle = l.positive ? '#10b981' : '#ef4444';
+      ctx.fillStyle = l.positive ? ED.series3 : ED.series2;
       ctx.fillRect(x - barW / 2, barTop, barW, barHeight);
 
       // Label every few bars
       if (i % Math.max(1, Math.floor(lambdas.length / 15)) === 0) {
-        ctx.fillStyle = '#64748b';
+        ctx.fillStyle = ED.series8;
         ctx.font = '9px var(--font-mono)';
         ctx.textAlign = 'center';
         ctx.fillText(`${l.n}`, x, h - margin.bottom + 12);
@@ -90,7 +91,7 @@ function LiCoefficientsTab() {
     });
 
     // Y-axis labels
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.font = '9px var(--font-mono)';
     ctx.textAlign = 'right';
     const yTicks = 5;
@@ -101,7 +102,7 @@ function LiCoefficientsTab() {
       ctx.beginPath();
       ctx.moveTo(margin.left, y);
       ctx.lineTo(margin.left + plotW, y);
-      ctx.strokeStyle = '#1e293b';
+      ctx.strokeStyle = ED.ruleSoft;
       ctx.lineWidth = 0.5;
       ctx.setLineDash([3, 3]);
       ctx.stroke();
@@ -109,7 +110,7 @@ function LiCoefficientsTab() {
     }
 
     // Axis labels
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = ED.series8;
     ctx.font = '10px sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText('n', w / 2, h - 4);
@@ -156,25 +157,25 @@ function LiCoefficientsTab() {
           <input type="range" min="20" max="650" step="10" value={numZeros}
             onChange={e => setNumZeros(+e.target.value)} />
           <span className="control-value">{numZeros}</span>
-          <span style={{ color: '#64748b', fontSize: 11, marginLeft: 4, fontFamily: 'var(--font-mono)' }}>
+          <span style={{ color: 'var(--ink-faint)', fontSize: 11, marginLeft: 4, fontFamily: 'var(--font-mono)' }}>
             (γ<sub>max</sub> ≈ {ZETA_ZEROS[Math.min(numZeros, ZETA_ZEROS.length) - 1]?.toFixed(1) ?? '?'})
           </span>
         </div>
       </div>
       <canvas
         ref={canvasRef}
-        style={{ width: '100%', height: 280, borderRadius: 8, background: '#0a0e1a', border: '1px solid #1e293b' }}
+        style={{ width: '100%', height: 280, borderRadius: 8, background: 'var(--paper)', border: '1px solid var(--rule-soft)' }}
       />
       <div style={{
         marginTop: 12, padding: '10px 14px', borderRadius: 6,
-        background: data.allPositive ? 'rgba(16,185,129,0.08)' : 'rgba(239,68,68,0.08)',
-        border: `1px solid ${data.allPositive ? '#10b981' : '#ef4444'}40`,
+        background: data.allPositive ? 'color-mix(in srgb, var(--series-3) 8%, transparent)' : 'color-mix(in srgb, var(--series-2) 8%, transparent)',
+        border: `1px solid ${data.allPositive ? ED.series3 : ED.series2}40`,
         fontSize: 12,
       }}>
-        <strong style={{ color: data.allPositive ? '#10b981' : '#ef4444' }}>
+        <strong style={{ color: data.allPositive ? 'var(--series-3)' : 'var(--series-2)' }}>
           {data.verdict}
         </strong>
-        <div style={{ color: '#94a3b8', marginTop: 4, fontSize: 11 }}>
+        <div style={{ color: 'var(--ink-soft)', marginTop: 4, fontSize: 11 }}>
           Using {data.numZerosUsed} known zeros. Li's criterion: λ_n {'>'} 0 for all n ≥ 1 ⟺ RH.
           Computing from finitely many zeros only verifies consistency, not proof.
         </div>
@@ -226,7 +227,7 @@ function HamiltonianTab() {
     const results = data.results;
 
     // Axes
-    ctx.strokeStyle = '#334155';
+    ctx.strokeStyle = ED.rule;
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.moveTo(margin.left, margin.top);
@@ -243,7 +244,7 @@ function HamiltonianTab() {
     ctx.setLineDash([4, 3]);
     ctx.moveTo(margin.left, zeroY);
     ctx.lineTo(w - margin.right, zeroY);
-    ctx.strokeStyle = '#475569';
+    ctx.strokeStyle = ED.rule;
     ctx.stroke();
     ctx.setLineDash([]);
 
@@ -254,7 +255,7 @@ function HamiltonianTab() {
       const y = zeroY - (r.d2H_dSigma2 / maxD2H) * plotH * 0.4;
       if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
     });
-    ctx.strokeStyle = '#3b82f6';
+    ctx.strokeStyle = ED.series1;
     ctx.lineWidth = 2;
     ctx.stroke();
 
@@ -264,9 +265,9 @@ function HamiltonianTab() {
       const y = zeroY - (r.d2H_dSigma2 / maxD2H) * plotH * 0.4;
       ctx.beginPath();
       ctx.arc(x, y, 5, 0, Math.PI * 2);
-      ctx.fillStyle = r.isMinimum ? '#10b981' : r.isConvex ? '#f59e0b' : '#ef4444';
+      ctx.fillStyle = r.isMinimum ? ED.series3 : r.isConvex ? ED.series4 : ED.series2;
       ctx.fill();
-      ctx.strokeStyle = '#0a0e1a';
+      ctx.strokeStyle = ED.paper;
       ctx.lineWidth = 1;
       ctx.stroke();
     });
@@ -278,7 +279,7 @@ function HamiltonianTab() {
       const y = zeroY - (r.dH_dSigma / maxDH) * plotH * 0.15;
       if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
     });
-    ctx.strokeStyle = '#f59e0b';
+    ctx.strokeStyle = ED.brassDeco;
     ctx.lineWidth = 1.5;
     ctx.stroke();
 
@@ -291,7 +292,7 @@ function HamiltonianTab() {
         ctx.setLineDash([2, 2]);
         ctx.moveTo(x, margin.top);
         ctx.lineTo(x, h - margin.bottom);
-        ctx.strokeStyle = '#ef444440';
+        ctx.strokeStyle = alpha(ED.series2, 0.25);
         ctx.lineWidth = 1;
         ctx.stroke();
         ctx.setLineDash([]);
@@ -299,7 +300,7 @@ function HamiltonianTab() {
     }
 
     // Y-axis tick labels for ∂²H/∂σ²
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.font = '9px var(--font-mono)';
     ctx.textAlign = 'right';
     const yTickCount = 4;
@@ -313,33 +314,33 @@ function HamiltonianTab() {
         ctx.beginPath();
         ctx.moveTo(margin.left, y);
         ctx.lineTo(margin.left + 4, y);
-        ctx.strokeStyle = '#334155';
+        ctx.strokeStyle = ED.rule;
         ctx.lineWidth = 1;
         ctx.stroke();
       }
     }
 
     // Labels
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.font = '10px var(--font-mono)';
     ctx.textAlign = 'center';
     ctx.fillText('t', w / 2, h - 4);
     ctx.save();
     ctx.translate(12, margin.top + plotH / 2);
     ctx.rotate(-Math.PI / 2);
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = ED.series8;
     ctx.font = '10px sans-serif';
     ctx.fillText('∂²H/∂σ²', 0, 0);
     ctx.restore();
 
     // Legend — curves
     [
-      { color: '#3b82f6', label: '∂²H/∂σ² (convexity)' },
-      { color: '#f59e0b', label: '∂H/∂σ (stationarity)' },
+      { color: ED.series1, label: '∂²H/∂σ² (convexity)' },
+      { color: ED.brass, label: '∂H/∂σ (stationarity)' },
     ].forEach((item, i) => {
       ctx.fillStyle = item.color;
       ctx.fillRect(margin.left + 8, margin.top + 4 + i * 14, 12, 3);
-      ctx.fillStyle = '#94a3b8';
+      ctx.fillStyle = ED.series8;
       ctx.font = '9px sans-serif';
       ctx.textAlign = 'left';
       ctx.fillText(item.label, margin.left + 24, margin.top + 8 + i * 14);
@@ -348,16 +349,16 @@ function HamiltonianTab() {
     // Legend — dot classification
     const dotLegendTop = margin.top + 4 + 2 * 14 + 4;
     [
-      { color: '#10b981', label: 'Minimum (convex + stationary)' },
-      { color: '#f59e0b', label: 'Convex but not stationary' },
-      { color: '#ef4444', label: 'Not convex' },
+      { color: ED.series3, label: 'Minimum (convex + stationary)' },
+      { color: ED.brass, label: 'Convex but not stationary' },
+      { color: ED.series2, label: 'Not convex' },
     ].forEach((item, i) => {
       const y = dotLegendTop + i * 14;
       ctx.beginPath();
       ctx.arc(margin.left + 14, y + 1, 4, 0, Math.PI * 2);
       ctx.fillStyle = item.color;
       ctx.fill();
-      ctx.fillStyle = '#94a3b8';
+      ctx.fillStyle = ED.series8;
       ctx.font = '9px sans-serif';
       ctx.textAlign = 'left';
       ctx.fillText(item.label, margin.left + 24, y + 4);
@@ -387,30 +388,30 @@ function HamiltonianTab() {
         <label>Primes</label>
         <input type="range" min="4" max="20" step="1" value={numPrimes}
           onChange={e => setNumPrimes(+e.target.value)} />
-        <span className="control-value">{numPrimes} <span style={{ color: '#64748b', fontSize: 11 }}>(up to p={getPrimes(numPrimes)[numPrimes - 1]})</span></span>
+        <span className="control-value">{numPrimes} <span style={{ color: 'var(--ink-faint)', fontSize: 11 }}>(up to p={getPrimes(numPrimes)[numPrimes - 1]})</span></span>
       </div>
       <canvas
         ref={canvasRef}
-        style={{ width: '100%', height: 280, borderRadius: 8, background: '#0a0e1a', border: '1px solid #1e293b' }}
+        style={{ width: '100%', height: 280, borderRadius: 8, background: 'var(--paper)', border: '1px solid var(--rule-soft)' }}
       />
       <div style={{
         marginTop: 12, padding: '10px 14px', borderRadius: 6,
-        background: data.allMinima ? 'rgba(16,185,129,0.08)' : 'rgba(245,158,11,0.08)',
-        border: `1px solid ${data.allMinima ? '#10b981' : '#f59e0b'}40`,
+        background: data.allMinima ? 'color-mix(in srgb, var(--series-3) 8%, transparent)' : 'color-mix(in srgb, var(--brass-deco) 8%, transparent)',
+        border: `1px solid ${data.allMinima ? ED.series3 : ED.series4}40`,
         fontSize: 12,
       }}>
-        <strong style={{ color: data.allMinima ? '#10b981' : '#f59e0b' }}>
+        <strong style={{ color: data.allMinima ? 'var(--series-3)' : 'var(--brass)' }}>
           {data.verdict}
         </strong>
-        <div style={{ color: '#ef4444', marginTop: 6, fontSize: 11, fontWeight: 600 }}>
+        <div style={{ color: 'var(--series-2)', marginTop: 6, fontSize: 11, fontWeight: 600 }}>
           GAP: {data.gap}
         </div>
       </div>
       {/* Results table */}
       <div style={{ maxHeight: 200, overflow: 'auto', marginTop: 12 }}>
-        <table style={{ width: '100%', fontSize: 11, color: '#94a3b8', borderCollapse: 'collapse' }}>
+        <table style={{ width: '100%', fontSize: 11, color: 'var(--ink-soft)', borderCollapse: 'collapse' }}>
           <thead>
-            <tr style={{ borderBottom: '1px solid #334155' }}>
+            <tr style={{ borderBottom: '1px solid var(--rule)' }}>
               <th style={{ textAlign: 'left', padding: '4px 8px' }}>t</th>
               <th style={{ textAlign: 'right', padding: '4px 8px' }}>∂H/∂σ</th>
               <th style={{ textAlign: 'right', padding: '4px 8px' }}>∂²H/∂σ²</th>
@@ -419,20 +420,20 @@ function HamiltonianTab() {
           </thead>
           <tbody>
             {data.results.map(r => (
-              <tr key={r.t} style={{ borderBottom: '1px solid #1e293b' }}>
+              <tr key={r.t} style={{ borderBottom: '1px solid var(--rule-soft)' }}>
                 <td style={{ padding: '4px 8px', fontFamily: 'var(--font-mono)' }}>{r.t.toFixed(2)}</td>
                 <td style={{ padding: '4px 8px', fontFamily: 'var(--font-mono)', textAlign: 'right',
-                  color: Math.abs(r.dH_dSigma) < 0.1 ? '#10b981' : '#f59e0b' }}>
+                  color: Math.abs(r.dH_dSigma) < 0.1 ? 'var(--series-3)' : 'var(--brass)' }}>
                   {r.dH_dSigma.toFixed(4)}
                 </td>
                 <td style={{ padding: '4px 8px', fontFamily: 'var(--font-mono)', textAlign: 'right',
-                  color: r.isConvex ? '#10b981' : '#ef4444' }}>
+                  color: r.isConvex ? 'var(--series-3)' : 'var(--series-2)' }}>
                   {r.d2H_dSigma2.toFixed(2)}
                 </td>
                 <td style={{ padding: '4px 8px', textAlign: 'center' }}>
                   {r.isMinimum
-                    ? <span style={{ color: '#10b981' }}>Yes</span>
-                    : <span style={{ color: '#ef4444' }}>No</span>}
+                    ? <span style={{ color: 'var(--series-3)' }}>Yes</span>
+                    : <span style={{ color: 'var(--series-2)' }}>No</span>}
                 </td>
               </tr>
             ))}
@@ -483,7 +484,7 @@ function SMatrixTab() {
     const plotH = h - margin.top - margin.bottom;
 
     // Axes
-    ctx.strokeStyle = '#334155';
+    ctx.strokeStyle = ED.rule;
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.moveTo(margin.left, margin.top);
@@ -502,29 +503,29 @@ function SMatrixTab() {
       const barY = h - margin.bottom - barH;
 
       // Transmission bar
-      ctx.fillStyle = r.nearZero ? '#ef4444' : '#3b82f6';
+      ctx.fillStyle = r.nearZero ? ED.series2 : ED.series1;
       ctx.fillRect(x - barW / 2, barY, barW * 0.5, barH);
 
       // Bridge magnitude indicator
       const bridgeH = (r.bridgeMagnitude / 2) * plotH * 0.8;
-      ctx.fillStyle = r.bridgeUnitary ? '#10b98180' : '#f59e0b80';
+      ctx.fillStyle = r.bridgeUnitary ? alpha(ED.series3, 0.5) : alpha(ED.series4, 0.5);
       ctx.fillRect(x + 2, h - margin.bottom - bridgeH, barW * 0.3, bridgeH);
 
       // Label
-      ctx.fillStyle = '#64748b';
+      ctx.fillStyle = ED.series8;
       ctx.font = '8px var(--font-mono)';
       ctx.textAlign = 'center';
       ctx.fillText(r.t.toFixed(1), x, h - margin.bottom + 12);
 
       if (r.nearZero) {
-        ctx.fillStyle = '#ef4444';
+        ctx.fillStyle = ED.series2;
         ctx.font = 'bold 9px sans-serif';
         ctx.fillText('ZERO', x, barY - 4);
       }
     });
 
     // Y-axis tick labels
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.font = '9px var(--font-mono)';
     ctx.textAlign = 'right';
     const yTicks = 5;
@@ -537,7 +538,7 @@ function SMatrixTab() {
         ctx.setLineDash([3, 3]);
         ctx.moveTo(margin.left, y);
         ctx.lineTo(w - margin.right, y);
-        ctx.strokeStyle = '#1e293b';
+        ctx.strokeStyle = ED.ruleSoft;
         ctx.lineWidth = 0.5;
         ctx.stroke();
         ctx.setLineDash([]);
@@ -545,7 +546,7 @@ function SMatrixTab() {
     }
 
     // Axis labels
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = ED.series8;
     ctx.font = '10px sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText('t (imaginary part)', w / 2, h - 4);
@@ -556,16 +557,16 @@ function SMatrixTab() {
     ctx.restore();
 
     // Legend
-    ctx.fillStyle = '#3b82f6';
+    ctx.fillStyle = ED.series1;
     ctx.fillRect(margin.left + 8, margin.top + 4, 12, 8);
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = ED.series8;
     ctx.font = '9px sans-serif';
     ctx.textAlign = 'left';
     ctx.fillText('|ζ(½+it)| (scalar zero diagnostic)', margin.left + 24, margin.top + 12);
 
-    ctx.fillStyle = '#10b981';
+    ctx.fillStyle = ED.series3;
     ctx.fillRect(margin.left + 8, margin.top + 18, 12, 8);
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = ED.series8;
     ctx.fillText('|χ| (bridge unitarity)', margin.left + 24, margin.top + 26);
 
   }, [data, sMatrixScales]);
@@ -591,30 +592,30 @@ function SMatrixTab() {
       </div>
       <canvas
         ref={canvasRef}
-        style={{ width: '100%', height: 280, borderRadius: 8, background: '#0a0e1a', border: '1px solid #1e293b' }}
+        style={{ width: '100%', height: 280, borderRadius: 8, background: 'var(--paper)', border: '1px solid var(--rule-soft)' }}
       />
       <div style={{
         marginTop: 12, padding: '10px 14px', borderRadius: 6,
-        background: 'rgba(59,130,246,0.08)',
-        border: '1px solid #3b82f640',
+        background: 'color-mix(in srgb, var(--series-1) 8%, transparent)',
+        border: '1px solid color-mix(in srgb, var(--series-1) 25%, transparent)',
         fontSize: 12,
       }}>
-        <strong style={{ color: '#3b82f6' }}>Zero/pole bookkeeping</strong>
-        <div style={{ color: '#94a3b8', marginTop: 4, fontSize: 11 }}>
+        <strong style={{ color: 'var(--series-1)' }}>Zero/pole bookkeeping</strong>
+        <div style={{ color: 'var(--ink-soft)', marginTop: 4, fontSize: 11 }}>
           At known zeros, |ζ(½+it)| vanishes while the bridge factor retains unit modulus.
           This is a zero/symmetry diagnostic, not Darlington transmission-zero confinement.
         </div>
-        <div style={{ color: '#ef4444', marginTop: 6, fontSize: 11, fontWeight: 600 }}>
+        <div style={{ color: 'var(--series-2)', marginTop: 6, fontSize: 11, fontWeight: 600 }}>
           GAP: {data.gap}
         </div>
       </div>
       {/* Zero deviation table */}
       <div style={{ marginTop: 12 }}>
-        <h4 style={{ fontSize: 12, color: '#f59e0b', marginBottom: 8 }}>Zero Consistency Check</h4>
+        <h4 style={{ fontSize: 12, color: 'var(--brass)', marginBottom: 8 }}>Zero Consistency Check</h4>
         <div style={{ maxHeight: 180, overflow: 'auto' }}>
-          <table style={{ width: '100%', fontSize: 10, color: '#94a3b8', borderCollapse: 'collapse' }}>
+          <table style={{ width: '100%', fontSize: 10, color: 'var(--ink-soft)', borderCollapse: 'collapse' }}>
             <thead>
-              <tr style={{ borderBottom: '1px solid #334155' }}>
+              <tr style={{ borderBottom: '1px solid var(--rule)' }}>
                 <th style={{ textAlign: 'left', padding: '3px 6px' }}>γ</th>
                 <th style={{ textAlign: 'right', padding: '3px 6px' }}>|ζ|</th>
                 <th style={{ textAlign: 'right', padding: '3px 6px' }}>|χ|</th>
@@ -624,21 +625,21 @@ function SMatrixTab() {
             </thead>
             <tbody>
               {zeroData.slice(0, 15).map(r => (
-                <tr key={r.gamma} style={{ borderBottom: '1px solid #1e293b' }}>
+                <tr key={r.gamma} style={{ borderBottom: '1px solid var(--rule-soft)' }}>
                   <td style={{ padding: '3px 6px', fontFamily: 'var(--font-mono)' }}>{r.gamma.toFixed(2)}</td>
                   <td style={{ padding: '3px 6px', fontFamily: 'var(--font-mono)', textAlign: 'right',
-                    color: r.zetaMagnitude < 0.1 ? '#10b981' : '#f59e0b' }}>
+                    color: r.zetaMagnitude < 0.1 ? 'var(--series-3)' : 'var(--brass)' }}>
                     {r.zetaMagnitude.toFixed(4)}
                   </td>
                   <td style={{ padding: '3px 6px', fontFamily: 'var(--font-mono)', textAlign: 'right',
-                    color: r.bridgeUnitary ? '#10b981' : '#f59e0b' }}>
+                    color: r.bridgeUnitary ? 'var(--series-3)' : 'var(--brass)' }}>
                     {r.bridgeMagnitude.toFixed(4)}
                   </td>
                   <td style={{ padding: '3px 6px', fontFamily: 'var(--font-mono)', textAlign: 'right' }}>
                     {r.impedanceMismatch.toFixed(4)}
                   </td>
                   <td style={{ padding: '3px 6px', fontFamily: 'var(--font-mono)', textAlign: 'right',
-                    color: r.energyBalance < 0.01 ? '#10b981' : '#f59e0b' }}>
+                    color: r.energyBalance < 0.01 ? 'var(--series-3)' : 'var(--brass)' }}>
                     {r.energyBalance.toFixed(4)}
                   </td>
                 </tr>
@@ -677,7 +678,7 @@ function HeatFlowTab() {
     const plotH = h - margin.top - margin.bottom;
 
     // Axes
-    ctx.strokeStyle = '#334155';
+    ctx.strokeStyle = ED.rule;
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.moveTo(margin.left, margin.top);
@@ -685,7 +686,7 @@ function HeatFlowTab() {
     ctx.lineTo(w - margin.right, h - margin.bottom);
     ctx.stroke();
 
-    const tauColors = ['#ef4444', '#f59e0b', '#10b981', '#3b82f6', '#8b5cf6'];
+    const tauColors = [ED.series2, ED.series4, ED.series3, ED.series1, ED.series5];
 
     // Compute shared y-scale across all tau curves so amplitude differences are visible
     let globalMaxVal = 1;
@@ -726,7 +727,7 @@ function HeatFlowTab() {
     ctx.setLineDash([4, 3]);
     ctx.moveTo(margin.left, midY);
     ctx.lineTo(w - margin.right, midY);
-    ctx.strokeStyle = '#475569';
+    ctx.strokeStyle = ED.rule;
     ctx.lineWidth = 1;
     ctx.stroke();
     ctx.setLineDash([]);
@@ -741,7 +742,7 @@ function HeatFlowTab() {
           const x = margin.left + ((gamma - tMin) / (tMax - tMin)) * plotW;
           ctx.beginPath();
           ctx.arc(x, midY, 3, 0, Math.PI * 2);
-          ctx.fillStyle = '#ef4444';
+          ctx.fillStyle = ED.series2;
           ctx.fill();
         }
       });
@@ -752,14 +753,14 @@ function HeatFlowTab() {
       const y = margin.top + 4 + i * 14;
       ctx.fillStyle = tauColors[i];
       ctx.fillRect(w - margin.right - 140, y, 12, 3);
-      ctx.fillStyle = i === tauIdx ? '#e2e8f0' : '#64748b';
+      ctx.fillStyle = i === tauIdx ? ED.ink : ED.series8;
       ctx.font = `${i === tauIdx ? 'bold ' : ''}9px var(--font-mono)`;
       ctx.textAlign = 'left';
       ctx.fillText(`τ = ${tau}`, w - margin.right - 124, y + 4);
     });
 
     // Y-axis tick labels
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.font = '9px var(--font-mono)';
     ctx.textAlign = 'right';
     const yTicks = 5;
@@ -774,7 +775,7 @@ function HeatFlowTab() {
         ctx.setLineDash([3, 3]);
         ctx.moveTo(margin.left, y);
         ctx.lineTo(w - margin.right, y);
-        ctx.strokeStyle = '#1e293b';
+        ctx.strokeStyle = ED.ruleSoft;
         ctx.lineWidth = 0.5;
         ctx.stroke();
         ctx.setLineDash([]);
@@ -785,7 +786,7 @@ function HeatFlowTab() {
     ctx.save();
     ctx.translate(12, margin.top + plotH / 2);
     ctx.rotate(-Math.PI / 2);
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = ED.series8;
     ctx.font = '10px sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText('Hτ(t)', 0, 0);
@@ -799,7 +800,7 @@ function HeatFlowTab() {
       for (let i = 0; i <= xTicks; i++) {
         const tVal = tMin + (i / xTicks) * (tMax - tMin);
         const x = margin.left + (i / xTicks) * plotW;
-        ctx.fillStyle = '#64748b';
+        ctx.fillStyle = ED.series8;
         ctx.font = '9px var(--font-mono)';
         ctx.textAlign = 'center';
         ctx.fillText(tVal.toFixed(0), x, h - margin.bottom + 14);
@@ -807,7 +808,7 @@ function HeatFlowTab() {
     }
 
     // X-axis label
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.font = '10px var(--font-mono)';
     ctx.textAlign = 'center';
     ctx.fillText('t', w / 2, h - 4);
@@ -843,37 +844,37 @@ function HeatFlowTab() {
             onClick={() => setTauIdx(i)}
             style={{
               fontSize: 11,
-              borderColor: tauIdx === i ? ['#ef4444', '#f59e0b', '#10b981', '#3b82f6', '#8b5cf6'][i] : undefined,
+              borderColor: tauIdx === i ? [ED.series2, ED.series4, ED.series3, ED.series1, ED.series5][i] : undefined,
             }}
           >τ = {tau}</button>
         ))}
       </div>
       <canvas
         ref={canvasRef}
-        style={{ width: '100%', height: 280, borderRadius: 8, background: '#0a0e1a', border: '1px solid #1e293b' }}
+        style={{ width: '100%', height: 280, borderRadius: 8, background: 'var(--paper)', border: '1px solid var(--rule-soft)' }}
       />
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8, marginTop: 12 }}>
         <div className="stat-box" style={{ padding: '8px 12px' }}>
-          <div style={{ color: '#10b981', fontWeight: 700, fontSize: 14, fontFamily: 'var(--font-mono)' }}>
+          <div style={{ color: 'var(--series-3)', fontWeight: 700, fontSize: 14, fontFamily: 'var(--font-mono)' }}>
             {activeData?.zeroCrossings || 0}
           </div>
-          <div style={{ color: '#64748b', fontSize: 10 }}>Zero crossings (τ = {activeTau})</div>
+          <div style={{ color: 'var(--ink-faint)', fontSize: 10 }}>Zero crossings (τ = {activeTau})</div>
         </div>
         <div className="stat-box" style={{ padding: '8px 12px' }}>
-          <div style={{ color: '#3b82f6', fontWeight: 700, fontSize: 14, fontFamily: 'var(--font-mono)' }}>
+          <div style={{ color: 'var(--series-1)', fontWeight: 700, fontSize: 14, fontFamily: 'var(--font-mono)' }}>
             {activeData?.expectedZeros || 0}
           </div>
-          <div style={{ color: '#64748b', fontSize: 10 }}>Expected zeros (Riemann–von Mangoldt)</div>
+          <div style={{ color: 'var(--ink-faint)', fontSize: 10 }}>Expected zeros (Riemann–von Mangoldt)</div>
         </div>
       </div>
       <div style={{
         marginTop: 12, padding: '10px 14px', borderRadius: 6,
-        background: 'rgba(16,185,129,0.08)',
-        border: '1px solid #10b98140',
+        background: 'color-mix(in srgb, var(--series-3) 8%, transparent)',
+        border: '1px solid color-mix(in srgb, var(--series-3) 25%, transparent)',
         fontSize: 12,
       }}>
-        <strong style={{ color: '#10b981' }}>Λ ≥ 0 (Rodgers–Tao, 2020)</strong>
-        <div style={{ color: '#94a3b8', marginTop: 4, fontSize: 11 }}>
+        <strong style={{ color: 'var(--series-3)' }}>Λ ≥ 0 (Rodgers–Tao, 2020)</strong>
+        <div style={{ color: 'var(--ink-soft)', marginTop: 4, fontSize: 11 }}>
           {data.gap}
         </div>
       </div>
@@ -909,7 +910,7 @@ function BerryKeatingTab() {
     const plotH = h - margin.top - margin.bottom;
 
     // Axes
-    ctx.strokeStyle = '#334155';
+    ctx.strokeStyle = ED.rule;
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.moveTo(margin.left, margin.top);
@@ -931,7 +932,7 @@ function BerryKeatingTab() {
     const range = maxVal - minVal || 1;
 
     // Perfect match line (diagonal)
-    ctx.strokeStyle = '#334155';
+    ctx.strokeStyle = ED.rule;
     ctx.lineWidth = 1;
     ctx.setLineDash([4, 3]);
     ctx.beginPath();
@@ -959,13 +960,13 @@ function BerryKeatingTab() {
 
     // Labels
     ctx.font = '11px "JetBrains Mono", monospace';
-    ctx.fillStyle = '#3b82f6';
+    ctx.fillStyle = ED.series1;
     ctx.textAlign = 'left';
     ctx.fillText(`BK+Twin-Ladder Bridge eigenvalues (n=${matrixSize})`, margin.left + 8, margin.top + 14);
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.fillText('— perfect match line', margin.left + 8, margin.top + 30);
 
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.textAlign = 'center';
     ctx.fillText('ζ zeros (actual)', w / 2, h - 6);
     ctx.save();
@@ -1003,25 +1004,25 @@ function BerryKeatingTab() {
       </div>
 
       <canvas ref={canvasRef}
-        style={{ width: '100%', height: 280, borderRadius: 8, background: '#0a0e1a',
-                 border: '1px solid #1e293b' }} />
+        style={{ width: '100%', height: 280, borderRadius: 8, background: 'var(--paper)',
+                 border: '1px solid var(--rule-soft)' }} />
 
       <div style={{ marginTop: 12, padding: '10px 14px', borderRadius: 6,
-                    background: 'rgba(139, 92, 246, 0.08)', border: '1px solid rgba(139, 92, 246, 0.2)' }}>
-        <strong style={{ color: '#c4b5fd' }}>{mainResult.verdict}</strong>
-        <div style={{ color: '#94a3b8', marginTop: 4, fontSize: 12 }}>
+                    background: 'color-mix(in srgb, var(--series-5) 8%, transparent)', border: '1px solid color-mix(in srgb, var(--series-5) 20%, transparent)' }}>
+        <strong style={{ color: 'var(--series-5)' }}>{mainResult.verdict}</strong>
+        <div style={{ color: 'var(--ink-soft)', marginTop: 4, fontSize: 12 }}>
           Scale: γ ≈ {mainResult.scaleFactor.toFixed(3)}·λ + {mainResult.shiftFactor.toFixed(3)}
         </div>
       </div>
 
       {/* Comparison table */}
       <div style={{ marginTop: 16 }}>
-        <div style={{ color: '#94a3b8', fontSize: 13, fontWeight: 600, marginBottom: 8 }}>
+        <div style={{ color: 'var(--ink-soft)', fontSize: 13, fontWeight: 600, marginBottom: 8 }}>
           Twin-Ladder Bridge Correction Impact
         </div>
         <table style={{ width: '100%', fontSize: 12, borderCollapse: 'collapse' }}>
           <thead>
-            <tr style={{ color: '#64748b', borderBottom: '1px solid #1e293b' }}>
+            <tr style={{ color: 'var(--ink-faint)', borderBottom: '1px solid var(--rule-soft)' }}>
               <th style={{ textAlign: 'left', padding: 4 }}>n</th>
               <th style={{ textAlign: 'right', padding: 4 }}>Bare BK avg err</th>
               <th style={{ textAlign: 'right', padding: 4 }}>+Twin-Ladder Bridge avg err</th>
@@ -1030,17 +1031,17 @@ function BerryKeatingTab() {
           </thead>
           <tbody>
             {comparison.results.map(r => (
-              <tr key={r.n} style={{ color: '#94a3b8', borderBottom: '1px solid #0f172a' }}>
+              <tr key={r.n} style={{ color: 'var(--ink-soft)', borderBottom: '1px solid var(--paper)' }}>
                 <td style={{ padding: 4 }}>{r.n}</td>
                 <td style={{ padding: 4, textAlign: 'right', fontFamily: 'var(--font-mono)' }}>
                   {r.bareAvgError.toFixed(4)}
                 </td>
                 <td style={{ padding: 4, textAlign: 'right', fontFamily: 'var(--font-mono)',
-                             color: r.correctedAvgError < r.bareAvgError ? '#10b981' : '#ef4444' }}>
+                             color: r.correctedAvgError < r.bareAvgError ? 'var(--series-3)' : 'var(--series-2)' }}>
                   {r.correctedAvgError.toFixed(4)}
                 </td>
                 <td style={{ padding: 4, textAlign: 'right', fontFamily: 'var(--font-mono)',
-                             color: r.improvement > 0 ? '#10b981' : '#ef4444' }}>
+                             color: r.improvement > 0 ? 'var(--series-3)' : 'var(--series-2)' }}>
                   {r.improvement > 0 ? '+' : ''}{r.improvement.toFixed(1)}%
                 </td>
               </tr>
@@ -1053,7 +1054,7 @@ function BerryKeatingTab() {
       <div style={{ marginTop: 16, maxHeight: 200, overflow: 'auto' }}>
         <table style={{ width: '100%', fontSize: 11, borderCollapse: 'collapse' }}>
           <thead>
-            <tr style={{ color: '#64748b', borderBottom: '1px solid #1e293b' }}>
+            <tr style={{ color: 'var(--ink-faint)', borderBottom: '1px solid var(--rule-soft)' }}>
               <th style={{ textAlign: 'left', padding: 3 }}>#</th>
               <th style={{ textAlign: 'right', padding: 3 }}>BK+Twin-Ladder Bridge eigenvalue</th>
               <th style={{ textAlign: 'right', padding: 3 }}>ζ zero</th>
@@ -1062,7 +1063,7 @@ function BerryKeatingTab() {
           </thead>
           <tbody>
             {mainResult.errors.slice(0, 20).map(e => (
-              <tr key={e.index} style={{ color: '#94a3b8', borderBottom: '1px solid #0f172a' }}>
+              <tr key={e.index} style={{ color: 'var(--ink-soft)', borderBottom: '1px solid var(--paper)' }}>
                 <td style={{ padding: 3 }}>{e.index}</td>
                 <td style={{ padding: 3, textAlign: 'right', fontFamily: 'var(--font-mono)' }}>
                   {e.eigenvalue.toFixed(4)}
@@ -1071,7 +1072,7 @@ function BerryKeatingTab() {
                   {e.zetaZero.toFixed(4)}
                 </td>
                 <td style={{ padding: 3, textAlign: 'right', fontFamily: 'var(--font-mono)',
-                             color: e.error < 1 ? '#10b981' : e.error < 3 ? '#f59e0b' : '#ef4444' }}>
+                             color: e.error < 1 ? 'var(--series-3)' : e.error < 3 ? 'var(--brass)' : 'var(--series-2)' }}>
                   {e.error.toFixed(4)}
                 </td>
               </tr>
@@ -1099,58 +1100,58 @@ function ProofMapTab() {
         <strong> Look for:</strong> which claims are rigorous vs. which have critical gaps; any "KNOWN FALSE" flags.
       </div>
       {/* Established */}
-      <h4 style={{ color: '#10b981', fontSize: 13, marginBottom: 12 }}>What Is Established</h4>
+      <h4 style={{ color: 'var(--series-3)', fontSize: 13, marginBottom: 12 }}>What Is Established</h4>
       {gaps.established.map((item, i) => (
         <div key={i} className="card" style={{
           marginBottom: 8, padding: '10px 14px', borderLeftWidth: 3,
-          borderLeftColor: item.status === 'rigorous' ? '#10b981' : item.status === 'theorem' ? '#3b82f6' : '#f59e0b',
+          borderLeftColor: item.status === 'rigorous' ? 'var(--series-3)' : item.status === 'theorem' ? 'var(--series-1)' : 'var(--brass-deco)',
         }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
             <span style={{
               fontSize: 9, fontWeight: 700, padding: '2px 6px', borderRadius: 3,
-              background: item.status === 'rigorous' ? '#10b98120' : item.status === 'theorem' ? '#3b82f620' : '#f59e0b20',
-              color: item.status === 'rigorous' ? '#10b981' : item.status === 'theorem' ? '#3b82f6' : '#f59e0b',
+              background: item.status === 'rigorous' ? 'color-mix(in srgb, var(--series-3) 13%, transparent)' : item.status === 'theorem' ? 'color-mix(in srgb, var(--series-1) 13%, transparent)' : 'color-mix(in srgb, var(--brass-deco) 13%, transparent)',
+              color: item.status === 'rigorous' ? 'var(--series-3)' : item.status === 'theorem' ? 'var(--series-1)' : 'var(--brass)',
               textTransform: 'uppercase',
             }}>{item.status}</span>
-            <strong style={{ fontSize: 12, color: '#e2e8f0' }}>{item.claim}</strong>
+            <strong style={{ fontSize: 12, color: 'var(--ink)' }}>{item.claim}</strong>
           </div>
-          <div style={{ fontSize: 11, color: '#94a3b8', lineHeight: 1.6 }}>{item.detail}</div>
+          <div style={{ fontSize: 11, color: 'var(--ink-soft)', lineHeight: 1.6 }}>{item.detail}</div>
         </div>
       ))}
 
       {/* Gaps */}
-      <h4 style={{ color: '#ef4444', fontSize: 13, marginTop: 24, marginBottom: 12 }}>Critical Gaps</h4>
+      <h4 style={{ color: 'var(--series-2)', fontSize: 13, marginTop: 24, marginBottom: 12 }}>Critical Gaps</h4>
       {gaps.gaps.map((item, i) => (
         <div key={i} className="card" style={{
           marginBottom: 8, padding: '10px 14px', borderLeftWidth: 3,
-          borderLeftColor: item.severity === 'critical' ? '#ef4444' : item.severity === 'known-false' ? '#dc2626' : '#f59e0b',
+          borderLeftColor: item.severity === 'critical' ? 'var(--series-2)' : item.severity === 'known-false' ? 'var(--series-2)' : 'var(--brass-deco)',
         }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
             <span style={{
               fontSize: 9, fontWeight: 700, padding: '2px 6px', borderRadius: 3,
-              background: item.severity === 'critical' ? '#ef444420' : item.severity === 'known-false' ? '#dc262620' : '#f59e0b20',
-              color: item.severity === 'critical' ? '#ef4444' : item.severity === 'known-false' ? '#dc2626' : '#f59e0b',
+              background: item.severity === 'critical' ? 'color-mix(in srgb, var(--series-2) 13%, transparent)' : item.severity === 'known-false' ? 'color-mix(in srgb, var(--series-2) 13%, transparent)' : 'color-mix(in srgb, var(--brass-deco) 13%, transparent)',
+              color: item.severity === 'critical' ? 'var(--series-2)' : item.severity === 'known-false' ? 'var(--series-2)' : 'var(--brass)',
               textTransform: 'uppercase',
             }}>{item.status}</span>
             {item.severity === 'known-false' && (
               <span style={{ fontSize: 9, fontWeight: 700, padding: '2px 6px', borderRadius: 3,
-                background: '#dc262620', color: '#dc2626' }}>KNOWN FALSE</span>
+                background: 'color-mix(in srgb, var(--series-2) 13%, transparent)', color: 'var(--series-2)' }}>KNOWN FALSE</span>
             )}
-            <strong style={{ fontSize: 12, color: '#e2e8f0' }}>{item.claim}</strong>
+            <strong style={{ fontSize: 12, color: 'var(--ink)' }}>{item.claim}</strong>
           </div>
-          <div style={{ fontSize: 11, color: '#94a3b8', lineHeight: 1.6 }}>{item.detail}</div>
+          <div style={{ fontSize: 11, color: 'var(--ink-soft)', lineHeight: 1.6 }}>{item.detail}</div>
         </div>
       ))}
 
       {/* Most promising approach */}
-      <div className="card" style={{ marginTop: 24, borderColor: '#8b5cf6', borderWidth: 2 }}>
-        <h4 style={{ color: '#8b5cf6', fontSize: 14, marginBottom: 8 }}>
+      <div className="card" style={{ marginTop: 24, borderColor: 'var(--series-5)', borderWidth: 2 }}>
+        <h4 style={{ color: 'var(--series-5)', fontSize: 14, marginBottom: 8 }}>
           Most Promising Approach Vector: {gaps.mostPromisingAttack.name}
         </h4>
-        <p style={{ fontSize: 12, color: '#94a3b8', lineHeight: 1.7 }}>
+        <p style={{ fontSize: 12, color: 'var(--ink-soft)', lineHeight: 1.7 }}>
           {gaps.mostPromisingAttack.reason}
         </p>
-        <div style={{ marginTop: 8, fontSize: 11, color: '#64748b' }}>
+        <div style={{ marginTop: 8, fontSize: 11, color: 'var(--ink-faint)' }}>
           Key references: {gaps.mostPromisingAttack.references.join(', ')}
         </div>
       </div>

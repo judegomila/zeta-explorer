@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP35114_BERNSTEIN_INGREDIENTS_EXTRACTION } from '../data/imp-35114-bernstein-ingredients-extraction.js';
+import { ED, alpha } from '../styles/tokens.js';
 
 const DATA = IMP35114_BERNSTEIN_INGREDIENTS_EXTRACTION;
 const CM_TABLE = DATA.cmTable;
@@ -24,20 +25,20 @@ function SignLadderStrip() {
             width={cellW - 8}
             height={36}
             rx={4}
-            fill={LADDER_SIGNS[i] > 0 ? 'rgba(52,211,153,0.15)' : 'rgba(248,113,113,0.15)'}
-            stroke={LADDER_SIGNS[i] > 0 ? '#34d399' : '#f87171'}
+            fill={LADDER_SIGNS[i] > 0 ? alpha(ED.series3, 0.15) : alpha(ED.series2, 0.15)}
+            stroke={LADDER_SIGNS[i] > 0 ? ED.series3 : ED.series2}
           />
           <text
             x={cellW / 2}
             y={32}
             textAnchor="middle"
-            fill={LADDER_SIGNS[i] > 0 ? '#34d399' : '#f87171'}
+            fill={LADDER_SIGNS[i] > 0 ? ED.series3 : ED.series2}
             fontSize={16}
             fontFamily="monospace"
           >
             {LADDER_SIGNS[i] > 0 ? '+' : '-'}
           </text>
-          <text x={cellW / 2} y={58} textAnchor="middle" fill="#64748b" fontSize={10}>
+          <text x={cellW / 2} y={58} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
             g^({n})
           </text>
         </g>
@@ -52,42 +53,42 @@ function IngredientTriple() {
     flex: '1 1 220px',
     minWidth: 200,
     padding: '0.9rem 1rem',
-    background: 'rgba(148,163,184,0.04)',
+    background: alpha(ED.inkSoft, 0.04),
     borderRadius: 6,
-    border: '1px solid #1e293b',
+    border: '1px solid var(--rule-soft)',
   };
   return (
     <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', margin: '1rem 0' }}>
       <div style={panelStyle}>
-        <div style={{ color: '#94a3b8', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: 0.5 }}>
+        <div style={{ color: 'var(--ink-soft)', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: 0.5 }}>
           Killing term a = g(0+)
         </div>
-        <div style={{ color: '#f0abfc', fontFamily: 'monospace', fontSize: '1.1rem', marginTop: 4 }}>
+        <div style={{ color: 'var(--series-7)', fontFamily: 'monospace', fontSize: '1.1rem', marginTop: 4 }}>
           {DATA.ingredients.a_killing_from_height_floor.toExponential(3)}
         </div>
-        <div style={{ color: '#64748b', fontSize: '0.72rem', marginTop: 4 }}>
+        <div style={{ color: 'var(--ink-faint)', fontSize: '0.72rem', marginTop: 4 }}>
           finite, &ge;0 (height-floor T0&nbsp;~17.08)
         </div>
       </div>
       <div style={panelStyle}>
-        <div style={{ color: '#94a3b8', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: 0.5 }}>
+        <div style={{ color: 'var(--ink-soft)', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: 0.5 }}>
           Drift b = lim g_prime(N)
         </div>
-        <div style={{ color: '#60a5fa', fontFamily: 'monospace', fontSize: '1.1rem', marginTop: 4 }}>
+        <div style={{ color: 'var(--series-1)', fontFamily: 'monospace', fontSize: '1.1rem', marginTop: 4 }}>
           0 (zero drift)
         </div>
-        <div style={{ color: '#64748b', fontSize: '0.72rem', marginTop: 4 }}>
+        <div style={{ color: 'var(--ink-faint)', fontSize: '0.72rem', marginTop: 4 }}>
           far-tail g_prime &amp; g(N)/N both &rarr; 0
         </div>
       </div>
       <div style={panelStyle}>
-        <div style={{ color: '#94a3b8', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: 0.5 }}>
+        <div style={{ color: 'var(--ink-soft)', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: 0.5 }}>
           L&eacute;vy integral (all growth)
         </div>
-        <div style={{ color: '#34d399', fontFamily: 'monospace', fontSize: '1.1rem', marginTop: 4 }}>
+        <div style={{ color: 'var(--series-3)', fontFamily: 'monospace', fontSize: '1.1rem', marginTop: 4 }}>
           &int;(1&minus;e<sup>&minus;Nt</sup>)d&mu;(t)
         </div>
-        <div style={{ color: '#64748b', fontSize: '0.72rem', marginTop: 4 }}>
+        <div style={{ color: 'var(--ink-faint)', fontSize: '0.72rem', marginTop: 4 }}>
           carries 100% of g's growth (b = 0)
         </div>
       </div>
@@ -100,7 +101,7 @@ export default function Imp35184BernsteinIngredientsTripleViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Bernstein / Lévy-Khintchine Ingredient Triple (imp-35184 / imp-35114)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-35114 extracted the Bernstein/L&eacute;vy-Khintchine ingredients of the inherited surrogate
         crossover map g(N) = K&nbsp;log&nbsp;T0(N): a finite killing term a = g(0+), a ZERO drift b (all
         growth lives in the L&eacute;vy integral), and a completely-monotone g_prime confirmed by the
@@ -109,32 +110,32 @@ export default function Imp35184BernsteinIngredientsTripleViz() {
 
       <IngredientTriple />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.25rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.25rem 0 0.5rem' }}>
         Sign ladder sign(g^(n)) = (-1)^(n+1), n = 1..6 (g_prime nonnegative, decreasing, convex, ... at
         every order &mdash; the Bernstein-required signature, gPrimeCompletelyMonotone=
         {String(DATA.gPrimeCompletelyMonotone)}):
       </p>
       <SignLadderStrip />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.25rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.25rem 0 0.5rem' }}>
         From-source central differences confirming complete monotonicity (g_prime &gt; 0, g_pp &lt; 0,
         g_ppp &gt; 0) across the ramp:
       </p>
       <div style={{ overflowX: 'auto' }}>
-        <table style={{ borderCollapse: 'collapse', fontSize: '0.78rem', color: '#94a3b8', minWidth: 560 }}>
+        <table style={{ borderCollapse: 'collapse', fontSize: '0.78rem', color: 'var(--ink-soft)', minWidth: 560 }}>
           <thead>
             <tr>
-              <th style={{ textAlign: 'left', padding: '4px 8px', borderBottom: '1px solid #334155' }}>N</th>
-              <th style={{ textAlign: 'center', padding: '4px 8px', borderBottom: '1px solid #334155' }}>
+              <th style={{ textAlign: 'left', padding: '4px 8px', borderBottom: '1px solid var(--rule)' }}>N</th>
+              <th style={{ textAlign: 'center', padding: '4px 8px', borderBottom: '1px solid var(--rule)' }}>
                 g_prime
               </th>
-              <th style={{ textAlign: 'center', padding: '4px 8px', borderBottom: '1px solid #334155' }}>
+              <th style={{ textAlign: 'center', padding: '4px 8px', borderBottom: '1px solid var(--rule)' }}>
                 g_pp
               </th>
-              <th style={{ textAlign: 'center', padding: '4px 8px', borderBottom: '1px solid #334155' }}>
+              <th style={{ textAlign: 'center', padding: '4px 8px', borderBottom: '1px solid var(--rule)' }}>
                 g_ppp
               </th>
-              <th style={{ textAlign: 'center', padding: '4px 8px', borderBottom: '1px solid #334155' }}>
+              <th style={{ textAlign: 'center', padding: '4px 8px', borderBottom: '1px solid var(--rule)' }}>
                 CM ok?
               </th>
             </tr>
@@ -143,16 +144,16 @@ export default function Imp35184BernsteinIngredientsTripleViz() {
             {CM_TABLE.map((r) => (
               <tr key={r.N}>
                 <td style={{ padding: '3px 8px', fontFamily: 'monospace' }}>{r.N}</td>
-                <td style={{ padding: '3px 8px', textAlign: 'center', fontFamily: 'monospace', color: '#34d399' }}>
+                <td style={{ padding: '3px 8px', textAlign: 'center', fontFamily: 'monospace', color: 'var(--series-3)' }}>
                   {r.gPrime}
                 </td>
-                <td style={{ padding: '3px 8px', textAlign: 'center', fontFamily: 'monospace', color: '#f87171' }}>
+                <td style={{ padding: '3px 8px', textAlign: 'center', fontFamily: 'monospace', color: 'var(--series-2)' }}>
                   {r.gPrimePrime}
                 </td>
-                <td style={{ padding: '3px 8px', textAlign: 'center', fontFamily: 'monospace', color: '#34d399' }}>
+                <td style={{ padding: '3px 8px', textAlign: 'center', fontFamily: 'monospace', color: 'var(--series-3)' }}>
                   {r.gPrimePrimePrime}
                 </td>
-                <td style={{ padding: '3px 8px', textAlign: 'center', color: r.cmOk ? '#34d399' : '#f87171' }}>
+                <td style={{ padding: '3px 8px', textAlign: 'center', color: r.cmOk ? 'var(--series-3)' : 'var(--series-2)' }}>
                   {r.cmOk ? 'yes' : 'no'}
                 </td>
               </tr>
@@ -161,19 +162,19 @@ export default function Imp35184BernsteinIngredientsTripleViz() {
         </table>
       </div>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.25rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.25rem 0 0.5rem' }}>
         Drift decaying to zero across the far tail (g_prime and g(N)/N both collapse toward 0,
         driftDecaysToZero={String(DATA.ingredients.b_drift_is_zero)}):
       </p>
       <div style={{ overflowX: 'auto' }}>
-        <table style={{ borderCollapse: 'collapse', fontSize: '0.78rem', color: '#94a3b8', minWidth: 420 }}>
+        <table style={{ borderCollapse: 'collapse', fontSize: '0.78rem', color: 'var(--ink-soft)', minWidth: 420 }}>
           <thead>
             <tr>
-              <th style={{ textAlign: 'left', padding: '4px 8px', borderBottom: '1px solid #334155' }}>N</th>
-              <th style={{ textAlign: 'center', padding: '4px 8px', borderBottom: '1px solid #334155' }}>
+              <th style={{ textAlign: 'left', padding: '4px 8px', borderBottom: '1px solid var(--rule)' }}>N</th>
+              <th style={{ textAlign: 'center', padding: '4px 8px', borderBottom: '1px solid var(--rule)' }}>
                 g_prime
               </th>
-              <th style={{ textAlign: 'center', padding: '4px 8px', borderBottom: '1px solid #334155' }}>
+              <th style={{ textAlign: 'center', padding: '4px 8px', borderBottom: '1px solid var(--rule)' }}>
                 g(N)/N
               </th>
             </tr>
@@ -182,10 +183,10 @@ export default function Imp35184BernsteinIngredientsTripleViz() {
             {DRIFT_TABLE.map((r) => (
               <tr key={r.N}>
                 <td style={{ padding: '3px 8px', fontFamily: 'monospace' }}>{r.N}</td>
-                <td style={{ padding: '3px 8px', textAlign: 'center', fontFamily: 'monospace', color: '#60a5fa' }}>
+                <td style={{ padding: '3px 8px', textAlign: 'center', fontFamily: 'monospace', color: 'var(--series-1)' }}>
                   {r.gPrime}
                 </td>
-                <td style={{ padding: '3px 8px', textAlign: 'center', fontFamily: 'monospace', color: '#60a5fa' }}>
+                <td style={{ padding: '3px 8px', textAlign: 'center', fontFamily: 'monospace', color: 'var(--series-1)' }}>
                   {r.gOverN}
                 </td>
               </tr>
@@ -198,14 +199,14 @@ export default function Imp35184BernsteinIngredientsTripleViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page rendering the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-only page rendering the
         imp-35114 measurement (isRigorous={String(DATA.isRigorous)}, changesBound=
         {String(DATA.changesBound)}) on the INHERITED imp-3220/imp-3406/imp-33723 SURROGATE crossover map
         g. The Bernstein ingredients (killing term a, drift b, L&eacute;vy measure d&mu;) are structural

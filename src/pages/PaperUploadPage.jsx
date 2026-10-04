@@ -4,6 +4,7 @@ import { parseLatex } from '../math/latex-parser.js';
 import { savePaper, exportPaperAsModule, generateId } from '../data/papers.js';
 import PaperRenderer from '../components/PaperRenderer.jsx';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
+import { ED, alpha } from '../styles/tokens.js';
 
 // ── PDF.js CDN loader ──────────────────────────────────────────────────────────
 
@@ -112,7 +113,7 @@ function extractClaims(text) {
 
 const cardStyle = {
   background: 'var(--paper2)',
-  border: '1px solid rgba(140,106,29,0.25)',
+  border: '1px solid color-mix(in srgb, var(--brass) 25%, transparent)',
   borderRadius: 12,
   padding: 20,
   marginBottom: 20,
@@ -303,7 +304,7 @@ export default function PaperUploadPage() {
   // ── Render ───────────────────────────────────────────────────────────────
 
   const tabBtnStyle = (active) => ({
-    background: active ? 'rgba(140,106,29,0.2)' : 'transparent',
+    background: active ? alpha(ED.brass, 0.2) : 'transparent',
     border: `1px solid ${active ? 'var(--brass)' : 'var(--hairline)'}`,
     color: active ? 'var(--brass)' : 'var(--faint)',
     padding: '10px 28px',
@@ -362,8 +363,8 @@ export default function PaperUploadPage() {
               aria-label={pdfLoading ? 'Processing PDF, please wait' : 'PDF upload drop zone'}
               style={{
                 ...cardStyle,
-                border: dragOver ? '2px dashed var(--brass)' : '2px dashed rgba(140,106,29,0.3)',
-                background: dragOver ? 'rgba(140,106,29,0.08)' : 'var(--paper3)',
+                border: dragOver ? '2px dashed var(--brass)' : '2px dashed color-mix(in srgb, var(--brass) 30%, transparent)',
+                background: dragOver ? 'color-mix(in srgb, var(--brass) 8%, transparent)' : 'var(--paper3)',
                 textAlign: 'center',
                 padding: '48px 20px',
                 cursor: pdfLoading ? 'not-allowed' : 'pointer',
@@ -407,8 +408,8 @@ export default function PaperUploadPage() {
                 <div style={{
                   display: 'flex', gap: 24, flexWrap: 'wrap',
                   padding: '10px 18px',
-                  background: 'rgba(140,106,29,0.07)',
-                  border: '1px solid rgba(140,106,29,0.2)',
+                  background: 'color-mix(in srgb, var(--brass) 7%, transparent)',
+                  border: '1px solid color-mix(in srgb, var(--brass) 20%, transparent)',
                   borderRadius: 8,
                   marginBottom: 16,
                   fontSize: 13,
@@ -434,7 +435,7 @@ export default function PaperUploadPage() {
 
                 {/* Detected metadata */}
                 {pdfMeta && (
-                  <div style={{ ...cardStyle, borderColor: 'rgba(76,122,74,0.3)' }}>
+                  <div style={{ ...cardStyle, borderColor: 'color-mix(in srgb, var(--series-3) 30%, transparent)' }}>
                     <div style={{ ...labelStyle, marginBottom: 14, color: 'var(--green)' }}>Detected Metadata</div>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
                       <div>
@@ -485,7 +486,7 @@ export default function PaperUploadPage() {
 
                 {/* Key claims */}
                 {pdfClaims.length > 0 && (
-                  <div style={{ ...cardStyle, borderColor: 'rgba(181,138,46,0.35)' }}>
+                  <div style={{ ...cardStyle, borderColor: 'color-mix(in srgb, var(--brass-deco) 35%, transparent)' }}>
                     <div style={{ ...labelStyle, marginBottom: 14, color: 'var(--brass-dk)' }}>
                       Key Claims ({pdfClaims.length})
                     </div>
@@ -493,7 +494,7 @@ export default function PaperUploadPage() {
                       {pdfClaims.map((claim, i) => (
                         <div key={i} style={{
                           background: 'var(--paper)',
-                          border: '1px solid rgba(181,138,46,0.15)',
+                          border: '1px solid color-mix(in srgb, var(--brass-deco) 15%, transparent)',
                           borderRadius: 8,
                           padding: '10px 14px',
                           fontSize: 13,
@@ -501,7 +502,7 @@ export default function PaperUploadPage() {
                         }}>
                           <span style={{
                             display: 'inline-block',
-                            background: 'rgba(181,138,46,0.15)',
+                            background: 'color-mix(in srgb, var(--brass-deco) 15%, transparent)',
                             color: 'var(--brass-dk)',
                             padding: '2px 8px',
                             borderRadius: 4,
@@ -548,8 +549,8 @@ export default function PaperUploadPage() {
                   <button
                     onClick={handleSavePdf}
                     style={{
-                      background: pdfSaved ? 'rgba(76,122,74,0.15)' : 'rgba(63,107,134,0.15)',
-                      border: `1px solid ${pdfSaved ? 'var(--green)' : 'rgba(63,107,134,0.3)'}`,
+                      background: pdfSaved ? 'color-mix(in srgb, var(--series-3) 15%, transparent)' : 'color-mix(in srgb, var(--series-1) 15%, transparent)',
+                      border: `1px solid ${pdfSaved ? 'var(--green)' : alpha(ED.series1, 0.3)}`,
                       color: pdfSaved ? 'var(--green)' : 'var(--blue)',
                       padding: '8px 20px',
                       borderRadius: 8,
@@ -654,8 +655,8 @@ export default function PaperUploadPage() {
                 onClick={handleSave}
                 disabled={!parsed.nodes.length}
                 style={{
-                  background: saved ? 'rgba(76,122,74,0.15)' : 'rgba(63,107,134,0.15)',
-                  border: `1px solid ${saved ? 'var(--green)' : 'rgba(63,107,134,0.3)'}`,
+                  background: saved ? 'color-mix(in srgb, var(--series-3) 15%, transparent)' : 'color-mix(in srgb, var(--series-1) 15%, transparent)',
+                  border: `1px solid ${saved ? 'var(--green)' : alpha(ED.series1, 0.3)}`,
                   color: saved ? 'var(--green)' : 'var(--blue)',
                   padding: '8px 20px',
                   borderRadius: 8,
@@ -672,8 +673,8 @@ export default function PaperUploadPage() {
                 onClick={handleExport}
                 disabled={!parsed.nodes.length}
                 style={{
-                  background: 'rgba(140,106,29,0.15)',
-                  border: '1px solid rgba(140,106,29,0.3)',
+                  background: 'color-mix(in srgb, var(--brass) 15%, transparent)',
+                  border: '1px solid color-mix(in srgb, var(--brass) 30%, transparent)',
                   color: 'var(--brass)',
                   padding: '8px 20px',
                   borderRadius: 8,

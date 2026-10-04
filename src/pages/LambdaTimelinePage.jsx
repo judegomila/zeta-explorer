@@ -4,6 +4,7 @@ import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import { LAMBDA_TIMELINE } from '../data/lambda-historical-timeline.js';
 import { personFor } from '../data/lambda-timeline-people.js';
 import FaceAvatar from '../components/FaceAvatar.jsx';
+import { ED, alpha } from '../styles/tokens.js';
 
 // Λ Timeline — chronological, evidence-graded ledger of de Bruijn-Newman bounds.
 // Editorial (warm) re-theme: full-width dashboard, identical structure/data.
@@ -12,26 +13,26 @@ const GRADE = {
   'peer-reviewed': {
     label: 'peer reviewed',
     fg: 'var(--green)',
-    bg: 'rgba(76,122,74,0.12)',
-    border: 'rgba(76,122,74,0.40)',
+    bg: alpha(ED.series3, 0.12),
+    border: alpha(ED.series3, 0.4),
   },
   'public-unrefereed': {
     label: 'public · unrefereed',
     fg: 'var(--brass-dk)',
-    bg: 'rgba(181,138,46,0.14)',
-    border: 'rgba(181,138,46,0.45)',
+    bg: alpha(ED.brassDeco, 0.14),
+    border: alpha(ED.brassDeco, 0.45),
   },
   'public-unrefereed-local-repair': {
     label: 'public · local repair · unrefereed',
     fg: 'var(--brass-dk)',
-    bg: 'rgba(181,138,46,0.14)',
-    border: 'rgba(181,138,46,0.45)',
+    bg: alpha(ED.brassDeco, 0.14),
+    border: alpha(ED.brassDeco, 0.45),
   },
   'computer-assisted candidate': {
     label: 'candidate · unrefereed',
     fg: 'var(--blue)',
-    bg: 'rgba(63,107,134,0.14)',
-    border: 'rgba(63,107,134,0.45)',
+    bg: alpha(ED.series1, 0.14),
+    border: alpha(ED.series1, 0.45),
   },
 };
 
@@ -207,27 +208,27 @@ export default function LambdaTimelinePage() {
             label="accepted upper benchmark"
             value="Λ ≤ 0.2"
             detail="Platt–Trudgian 2021; peer reviewed."
-            color="#4c7a4a"
+            color={ED.series3}
           />
           <EvidenceCard
             label="public package claim"
             value="Λ ≤ 0.1875"
             detail="Unrefereed. A local audit reconstructed an omitted finite tile; that repair is not peer review."
-            color="#b58a2e"
+            color={ED.brass}
             href="https://doi.org/10.5281/zenodo.21175533"
           />
           <EvidenceCard
             label="private proof candidate · Romik-reviewed · unrefereed"
             value="Λ ≤ 0.1787854"
             detail="Candidate for an unconditional computer-assisted proof; reviewed by Dan Romik and being prepared for public release; unrefereed, not established or accepted. Private review-01787854-v3 at commit 2e9976c4becbf97e31c56fe75fce07cdff5dd4ea."
-            color="#3f6b86"
+            color={ED.series1}
             route="/newman-lambda-01787854-candidate"
           />
           <EvidenceCard
             label="sharper proof candidate · unrefereed"
             value="Λ ≤ 0.1758354"
             detail="Four independent gates machine-checked in Arb interval arithmetic, with the reduction to the gates Lean-checked; unrefereed, not established. The lowest value the barrier method currently reaches."
-            color="#3f6b86"
+            color={ED.series1}
             route="/lambda-01758354-candidate"
           />
         </div>
@@ -340,10 +341,10 @@ export default function LambdaTimelinePage() {
           style={{
             marginTop: 22,
             padding: 14,
-            border: '1px solid rgba(181,138,46,0.45)',
+            border: '1px solid color-mix(in srgb, var(--brass-deco) 45%, transparent)',
             borderRadius: 9,
             color: 'var(--brass-dk)',
-            background: 'rgba(181,138,46,0.08)',
+            background: 'color-mix(in srgb, var(--brass-deco) 8%, transparent)',
             fontSize: 12.5,
             lineHeight: 1.65,
           }}

@@ -251,7 +251,7 @@ export const LAMBDA_TIMELINE = [
     relation: '≤',
     status: 'computer-assisted candidate',
     accepted: false,
-    method: 'Sharper computer-assisted candidate: a revised mollifier and an extended finite lane certify four gates (each machine-checked in Arb interval arithmetic; the reduction Lean-checked). Below the 0.1787854 candidate.',
+    method: 'Sharper computer-assisted candidate: a revised mollifier and an extended finite lane certify four gates (each machine-checked in Arb interval arithmetic; the y-transfer reduction and Lemma B3 Lean-checked). Below the 0.1787854 candidate.',
     citation: 'mathexplorer / zetaexplorer four-gate barrier certificate (2026).',
     notes: 'Candidate, unrefereed. Platt–Trudgian Λ ≤ 0.2 remains SOTA; RH remains open.',
   },

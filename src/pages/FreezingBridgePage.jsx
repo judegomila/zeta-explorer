@@ -192,7 +192,7 @@ export default function FreezingBridgePage() {
           style={{
             marginTop: 16,
             ...cardBaseLeft(verdictColor),
-            background: 'rgba(194,58,28,0.05)',
+            background: 'color-mix(in srgb, var(--series-2) 5%, transparent)',
           }}
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: 14, flexWrap: 'wrap' }}>
@@ -238,7 +238,7 @@ export default function FreezingBridgePage() {
         {/* ─── Practical next-experiment callout box ─── */}
         <div
           className="card"
-          style={{ marginTop: 24, ...cardBaseLeft('var(--brass)'), background: 'rgba(140,106,29,0.05)' }}
+          style={{ marginTop: 24, ...cardBaseLeft('var(--brass)'), background: 'color-mix(in srgb, var(--brass) 5%, transparent)' }}
         >
           <h3 style={{ color: 'var(--brass)', fontFamily: mono, fontSize: 14 }}>
             Practical next experiment (§23.6 protocol)

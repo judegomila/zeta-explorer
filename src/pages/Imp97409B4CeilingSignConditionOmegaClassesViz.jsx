@@ -6,18 +6,19 @@ import {
   IMP97409_OMEGA_CLASS_SUMMARY,
   IMP97409_VERDICT,
 } from '../data/imp-97409-b4-ceiling-sign-condition-omega-classes-viz-data.js';
+import { STATUS, ED } from '../styles/tokens.js';
 
 // imp-97409: renders the imp-97290/imp-97393 b/4-ceiling sign+magnitude condition across omega
 // classes -- proved through omega<=2 (primes, semiprimes), open for omega>=3, with the primorial
 // ladder showing the magnitude ratio |Delta(b)|/(b/2) climbing slowly toward 1/2 from below.
 
 const STATUS_COLOR = {
-  proved: '#4ade80',
-  open: '#f87171',
+  proved: STATUS.proved.fg,
+  open: STATUS.open.fg,
 };
 
 function magRatioColor(status) {
-  return status === 'proved' ? '#4ade80' : '#f87171';
+  return status === 'proved' ? ED.series3 : ED.series2;
 }
 
 function MagRatioChart({ rows }) {
@@ -38,10 +39,10 @@ function MagRatioChart({ rows }) {
         const fill = magRatioColor(row.status);
         return (
           <g key={`${row.omega}-${row.b}`}>
-            <text x={padL - 10} y={y + rowH / 2 + 4} textAnchor="end" fill="#e2e8f0" fontSize={11} fontFamily="monospace">
+            <text x={padL - 10} y={y + rowH / 2 + 4} textAnchor="end" fill={ED.ink} fontSize={11} fontFamily="monospace">
               &omega;={row.omega} (b={row.b})
             </text>
-            <rect x={barX} y={y + 8} width={barMaxW} height={rowH - 20} fill="#1e293b" rx={3} />
+            <rect x={barX} y={y + 8} width={barMaxW} height={rowH - 20} fill={ED.paper3} rx={3} />
             <rect x={barX} y={y + 8} width={barW} height={rowH - 20} fill={fill} rx={2} opacity={0.85} />
             {/* 1/2 reference tick */}
             <line
@@ -49,17 +50,17 @@ function MagRatioChart({ rows }) {
               y1={y + 4}
               x2={barX + barMaxW / 2}
               y2={y + rowH - 6}
-              stroke="#facc15"
+              stroke={ED.brassDeco}
               strokeWidth={1}
               strokeDasharray="2,2"
             />
-            <text x={barX + barMaxW + 10} y={y + rowH / 2 + 4} fill="#94a3b8" fontSize={10.5} fontFamily="monospace">
+            <text x={barX + barMaxW + 10} y={y + rowH / 2 + 4} fill={ED.inkSoft} fontSize={10.5} fontFamily="monospace">
               {row.magRatio.toFixed(6)}
             </text>
           </g>
         );
       })}
-      <text x={barX + barMaxW / 2} y={padT - 4} fill="#facc15" fontSize={9} textAnchor="middle" fontFamily="monospace">
+      <text x={barX + barMaxW / 2} y={padT - 4} fill={ED.brass} fontSize={9} textAnchor="middle" fontFamily="monospace">
         1/2
       </text>
     </svg>
@@ -79,15 +80,15 @@ export default function Imp97409B4CeilingSignConditionOmegaClassesViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.06)',
-          borderLeft: '3px solid #64748b',
+          background: 'color-mix(in srgb, var(--ink-soft) 6%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#e2e8f0' }}>Honest status:</strong> {IMP97409_VERDICT.ceilingReduction}.
+        <strong style={{ color: 'var(--ink)' }}>Honest status:</strong> {IMP97409_VERDICT.ceilingReduction}.
         PROVED through &omega;&le;{IMP97409_VERDICT.provedThrough} (primes: imp-97265, semiprimes:
         imp-97290). OPEN from &omega;={IMP97409_VERDICT.firstOpenOmega} (imp-97393): no violation of
         either condition was found in a full squarefree sweep over [2, 300000], and{' '}
@@ -96,16 +97,16 @@ export default function Imp97409B4CeilingSignConditionOmegaClassesViz() {
         remains SOTA; RH open; NO QED.
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '0.5rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '0.5rem', maxWidth: 700 }}>
         Magnitude ratio |&Delta;(b)|/(b/2) per representative b, green = proved omega class (primes,
         semiprimes), red = open omega class (primorial ladder, the imp-97393 magnitude-worst family).
         The dashed line marks the ceiling value 1/2: every measured bar stays strictly below it.
       </p>
       <MagRatioChart rows={allRows} />
 
-      <table style={{ width: '100%', marginTop: '1.5rem', borderCollapse: 'collapse', fontSize: '0.8rem', color: '#cbd5e1' }}>
+      <table style={{ width: '100%', marginTop: '1.5rem', borderCollapse: 'collapse', fontSize: '0.8rem', color: 'var(--ink)' }}>
         <thead>
-          <tr style={{ borderBottom: '1px solid #334155', textAlign: 'left' }}>
+          <tr style={{ borderBottom: '1px solid var(--rule)', textAlign: 'left' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>&omega;</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>class</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>status</th>
@@ -114,7 +115,7 @@ export default function Imp97409B4CeilingSignConditionOmegaClassesViz() {
         </thead>
         <tbody>
           {IMP97409_OMEGA_CLASS_SUMMARY.map((row) => (
-            <tr key={`${row.omega}`} style={{ borderBottom: '1px solid #1e293b' }}>
+            <tr key={`${row.omega}`} style={{ borderBottom: '1px solid var(--rule-soft)' }}>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{row.omega}</td>
               <td style={{ padding: '0.4rem 0.6rem' }}>{row.label}</td>
               <td style={{ padding: '0.4rem 0.6rem', color: row.status.startsWith('proved') ? STATUS_COLOR.proved : STATUS_COLOR.open }}>
@@ -130,14 +131,14 @@ export default function Imp97409B4CeilingSignConditionOmegaClassesViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page consuming the imp-97409
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the imp-97409
         viz-data leaf (semiprime magRatio column derived by exact algebra from the imp-97290 ratio
         field; primorial ladder reused verbatim from imp-97393; no re-derivation). Changes no bound,
         establishes no operator positivity; Platt-Trudgian &Lambda;&le;0.2 remains SOTA; RH open; NO QED.

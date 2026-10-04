@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
+import { ED } from '../styles/tokens.js';
 
 function Panel({ color, title, children }) {
   return (
@@ -34,8 +35,8 @@ export default function ControlTheoryPage() {
           style={{
             marginTop: 18,
             padding: 18,
-            border: '1px solid rgba(194,58,28,0.35)',
-            background: 'rgba(194,58,28,0.06)',
+            border: '1px solid color-mix(in srgb, var(--accent) 35%, transparent)',
+            background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
           }}
         >
           <h2 style={{ color: 'var(--terra-dk)', fontSize: 18, marginTop: 0 }}>The former loop function is identically trivial</h2>
@@ -63,18 +64,18 @@ export default function ControlTheoryPage() {
               gap: 14,
             }}
           >
-            <Panel color="#3f6b86" title="Functional-equation factor">
+            <Panel color={ED.series1} title="Functional-equation factor">
               <BlockMath tex="|\chi(\tfrac12+it)|=1\qquad(t\in\mathbb R)." />
               This is a linewise boundary-modulus identity. Isolated off-line points may also have
               unit modulus. The identity alone does not construct a causal passive two-port.
             </Panel>
-            <Panel color="#8c6a1d" title="Algebraic Euler embedding">
+            <Panel color={ED.brass} title="Algebraic Euler embedding">
               <BlockMath tex="S_{21}^{(A)}(s)=\frac{\zeta(2s)}{\zeta(s)}." />
               This exact Euler-product ratio comes from the separate symmetric algebraic matrices.
               Generic zeta zeros are poles, while uncancelled <InlineMath tex="\zeta(2s)" /> zeros are
               transmission zeros. No physical realization is supplied by the identity.
             </Panel>
-            <Panel color="#b58a2e" title="Physical LC proxy">
+            <Panel color={ED.brass} title="Physical LC proxy">
               A physical series/shunt or undamped LC cascade has its own ABCD transmission function.
               It is not <InlineMath tex="\zeta(2s)/\zeta(s)" />. Circuit language is an analogy until
               an exact realization theorem proves otherwise.
@@ -105,7 +106,7 @@ export default function ControlTheoryPage() {
         <section style={{ marginTop: 34 }}>
           <h2 className="ed-h2" style={{ marginBottom: 12 }}>Why generic losslessness is insufficient</h2>
           <div style={{ display: 'grid', gap: 14 }}>
-            <Panel color="#c23a1c" title="Counterexample pattern">
+            <Panel color={ED.accent} title="Counterexample pattern">
               A reciprocal matrix
               <BlockMath tex="S(s)=\begin{pmatrix}0&h(s)\\h(s)&0\end{pmatrix},\qquad h(s)=\frac{s-a}{s+a},\quad a>0," />
               is unitary on the imaginary axis wherever defined, yet
@@ -114,7 +115,7 @@ export default function ControlTheoryPage() {
               that boundary. Any Darlington invocation must state the full synthesis class, stability,
               minimality, normalization, and divisor-identification hypotheses.
             </Panel>
-            <Panel color="#b58a2e" title="Davenport–Heilbronn warning">
+            <Panel color={ED.brass} title="Davenport–Heilbronn warning">
               Functional-equation symmetry and a unit-modulus boundary factor also occur for
               Davenport–Heilbronn-type functions with off-line zeros. A valid zeta argument must use
               additional arithmetic structure—most notably the Euler product—without silently replacing

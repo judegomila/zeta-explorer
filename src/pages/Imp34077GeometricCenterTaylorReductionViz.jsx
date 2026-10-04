@@ -2,6 +2,7 @@ import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP34000_GEOMETRIC_CENTER_FOURTH_ORDER_TAYLOR_TAIL } from '../data/imp-34000-geometric-center-fourth-order-taylor-tail.js';
 import { IMP34001_GEOMETRIC_CENTER_TAYLOR_RATIO_FIT } from '../data/imp-34001-geometric-center-taylor-ratio-fit.js';
+import { ED } from '../styles/tokens.js';
 
 const RES_TABLE = IMP34000_GEOMETRIC_CENTER_FOURTH_ORDER_TAYLOR_TAIL.table;
 const RATIO_TABLE = IMP34001_GEOMETRIC_CENTER_TAYLOR_RATIO_FIT.table;
@@ -38,41 +39,41 @@ function ResidualReductionChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <polyline points={lineOf(res3)} fill="none" stroke="#a78bfa" strokeWidth={1.5} strokeDasharray="6,3" />
-      <polyline points={lineOf(res4)} fill="none" stroke="#38bdf8" strokeWidth={1.5} />
+      <polyline points={lineOf(res3)} fill="none" stroke={ED.series5} strokeWidth={1.5} strokeDasharray="6,3" />
+      <polyline points={lineOf(res4)} fill="none" stroke={ED.series1} strokeWidth={1.5} />
       {xs.map((x, i) => (
-        <circle key={`r3-${x}`} cx={xAt(x)} cy={yAt(res3[i])} r={3.5} fill="#a78bfa" stroke="#0a0f1a" strokeWidth={0.75} />
+        <circle key={`r3-${x}`} cx={xAt(x)} cy={yAt(res3[i])} r={3.5} fill={ED.series5} stroke={ED.paper} strokeWidth={0.75} />
       ))}
       {xs.map((x, i) => (
-        <circle key={`r4-${x}`} cx={xAt(x)} cy={yAt(res4[i])} r={3.5} fill="#38bdf8" stroke="#0a0f1a" strokeWidth={0.75} />
+        <circle key={`r4-${x}`} cx={xAt(x)} cy={yAt(res4[i])} r={3.5} fill={ED.series1} stroke={ED.paper} strokeWidth={0.75} />
       ))}
       {xs.map((x, i) => (
-        <text key={`cut-${x}`} x={xAt(x)} y={(yAt(res3[i]) + yAt(res4[i])) / 2} textAnchor="middle" fill="#facc15" fontSize={8.5}>
+        <text key={`cut-${x}`} x={xAt(x)} y={(yAt(res3[i]) + yAt(res4[i])) / 2} textAnchor="middle" fill={ED.brass} fontSize={8.5}>
           {`~${RES_TABLE[i].perOrderCut_res3_to_res4.toFixed(1)}x`}
         </text>
       ))}
       {xs.map((x) => (
-        <text key={`xt-${x}`} x={xAt(x)} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={8.5}>
+        <text key={`xt-${x}`} x={xAt(x)} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={8.5}>
           {`1e${x}`}
         </text>
       ))}
-      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         N (decade ladder)
       </text>
       <text
         x={16}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={`rotate(-90 16 ${padT + cH / 2})`}
       >
         relative residual (log scale, %)
       </text>
-      <text x={padL + 4} y={padT + 12} fill="#a78bfa" fontSize={9.5}>
+      <text x={padL + 4} y={padT + 12} fill={ED.series5} fontSize={9.5}>
         residual after S1+S2+S3 (imp-33947 tail): ~0.0035%..0.0065%
       </text>
-      <text x={padL + 4} y={padT + 26} fill="#38bdf8" fontSize={9.5}>
+      <text x={padL + 4} y={padT + 26} fill={ED.series1} fontSize={9.5}>
         residual after S1+S2+S3+S4 (imp-34000 tail): ~0.00011%..0.00026%
       </text>
     </svg>
@@ -109,37 +110,37 @@ function RatioDriftCollapseChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} x2={padL + cW} y1={yAt(0)} y2={yAt(0)} stroke="#334155" strokeWidth={1} strokeDasharray="2,3" />
-      <polyline points={lineOf(bareDev)} fill="none" stroke="#f87171" strokeWidth={1.5} strokeDasharray="6,3" />
-      <polyline points={lineOf(rescaledDev)} fill="none" stroke="#4ade80" strokeWidth={1.5} />
+      <line x1={padL} x2={padL + cW} y1={yAt(0)} y2={yAt(0)} stroke={ED.rule} strokeWidth={1} strokeDasharray="2,3" />
+      <polyline points={lineOf(bareDev)} fill="none" stroke={ED.series2} strokeWidth={1.5} strokeDasharray="6,3" />
+      <polyline points={lineOf(rescaledDev)} fill="none" stroke={ED.series3} strokeWidth={1.5} />
       {xs.map((x, i) => (
-        <circle key={`bare-${x}`} cx={xAt(x)} cy={yAt(bareDev[i])} r={3.5} fill="#f87171" stroke="#0a0f1a" strokeWidth={0.75} />
+        <circle key={`bare-${x}`} cx={xAt(x)} cy={yAt(bareDev[i])} r={3.5} fill={ED.series2} stroke={ED.paper} strokeWidth={0.75} />
       ))}
       {xs.map((x, i) => (
-        <circle key={`res-${x}`} cx={xAt(x)} cy={yAt(rescaledDev[i])} r={3.5} fill="#4ade80" stroke="#0a0f1a" strokeWidth={0.75} />
+        <circle key={`res-${x}`} cx={xAt(x)} cy={yAt(rescaledDev[i])} r={3.5} fill={ED.series3} stroke={ED.paper} strokeWidth={0.75} />
       ))}
       {xs.map((x) => (
-        <text key={`xt2-${x}`} x={xAt(x)} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={8.5}>
+        <text key={`xt2-${x}`} x={xAt(x)} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={8.5}>
           {`1e${x}`}
         </text>
       ))}
-      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         N (decade ladder)
       </text>
       <text
         x={16}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={`rotate(-90 16 ${padT + cH / 2})`}
       >
         deviation from mean (%)
       </text>
-      <text x={padL + 4} y={padT + 12} fill="#f87171" fontSize={9.5}>
+      <text x={padL + 4} y={padT + 12} fill={ED.series2} fontSize={9.5}>
         {`bare ratio rbar (spread ~${RATIO_FIT.constant_fit_rel_spread_pct.toFixed(1)}%)`}
       </text>
-      <text x={padL + 4} y={padT + 26} fill="#4ade80" fontSize={9.5}>
+      <text x={padL + 4} y={padT + 26} fill={ED.series3} fontSize={9.5}>
         {`L-rescaled ratio rbar*L (spread ~${RATIO_FIT.cL_fit_rbarL_rel_spread_pct.toFixed(2)}%)`}
       </text>
     </svg>
@@ -151,7 +152,7 @@ export default function Imp34077GeometricCenterTaylorReductionViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Geometric-Center Half-Log-Decade Taylor Reduction (imp-34000/imp-34001)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         The imp-33879/imp-33900/imp-33947 geometric-center correction offset expands as a half-log-decade
         Taylor series in 1/log T0. imp-34000 wrote out the fourth-order term S4 and confirmed the relative
         residual keeps shrinking by roughly one order of magnitude per Taylor order added; imp-34001 fit the
@@ -160,12 +161,12 @@ export default function Imp34077GeometricCenterTaylorReductionViz() {
         measurements visual, complementing the existing imp-33900/imp-33903 geometric-center writeups.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         per-order residual reduction -- residual after S3 vs after S4, log scale, across 1e12..1e15
       </p>
       <ResidualReductionChart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
         rbar~1/log T0 ratio-drift collapse -- bare per-order ratio vs L-rescaled ratio, deviation from mean
       </p>
       <RatioDriftCollapseChart />
@@ -174,14 +175,14 @@ export default function Imp34077GeometricCenterTaylorReductionViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement/fit only, no proof, no
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> measurement/fit only, no proof, no
         fresh derivation. The component model is the inherited imp-3220/imp-3406 extrapolation; L1..L4 are
         finite-difference measurements; the per-order ratio ramping ~c/log T0 is a fit, not a derived law;
         C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a&gt;=0 untouched; NO QED.

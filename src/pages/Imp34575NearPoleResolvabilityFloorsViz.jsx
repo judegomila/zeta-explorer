@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP34405_RESID_EXP_NEAR_POLE_DIGIT_LOSS } from '../data/imp-34405-resid-exp-near-pole-digit-loss.js';
+import { ED } from '../styles/tokens.js';
 
 const {
   kStar,
@@ -50,19 +51,19 @@ function ResolvabilityFloorChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
 
       {yTicks.map((t, ti) => (
         <g key={'yt' + ti}>
-          <line x1={padL - 4} y1={yS(t)} x2={padL + cW} y2={yS(t)} stroke="#1e293b" strokeWidth={1} />
-          <text x={padL - 8} y={yS(t) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+          <line x1={padL - 4} y1={yS(t)} x2={padL + cW} y2={yS(t)} stroke={ED.ruleSoft} strokeWidth={1} />
+          <text x={padL - 8} y={yS(t) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {t.toFixed(2)}
           </text>
         </g>
       ))}
       {xTicks.map((t, ti) => (
-        <text key={'xt' + ti} x={xS(t)} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={9}>
+        <text key={'xt' + ti} x={xS(t)} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
           {t.toFixed(2)}
         </text>
       ))}
@@ -73,11 +74,11 @@ function ResolvabilityFloorChart() {
         y1={padT}
         x2={xS(logKStarUlp)}
         y2={padT + cH}
-        stroke="#f87171"
+        stroke={ED.series2}
         strokeWidth={1.5}
         strokeDasharray="6 3"
       />
-      <text x={xS(logKStarUlp) + 6} y={padT + 12} fill="#f87171" fontSize={9}>
+      <text x={xS(logKStarUlp) + 6} y={padT + 12} fill={ED.series2} fontSize={9}>
         dk_star = {kStarUlp.toExponential(1)} (sig=0)
       </text>
 
@@ -87,25 +88,25 @@ function ResolvabilityFloorChart() {
         y1={padT}
         x2={xS(logDStore)}
         y2={padT + cH}
-        stroke="#34d399"
+        stroke={ED.series3}
         strokeWidth={1.5}
         strokeDasharray="3 3"
       />
-      <text x={xS(logDStore) + 6} y={padT + cH - 8} fill="#34d399" fontSize={9}>
+      <text x={xS(logDStore) + 6} y={padT + cH - 8} fill={ED.series3} fontSize={9}>
         d_store = {dStore.toExponential(2)}
       </text>
 
       {/* sig(d) = log10(d / dk_star) */}
-      <polyline points={linePts} fill="none" stroke="#60a5fa" strokeWidth={2} />
+      <polyline points={linePts} fill="none" stroke={ED.series1} strokeWidth={2} />
 
       {approach.map((r, i) => (
         <g key={'pt' + i}>
-          <circle cx={xS(Math.log10(r.distanceToPole))} cy={yS(r.sigDigits)} r={4.5} fill="#60a5fa" />
+          <circle cx={xS(Math.log10(r.distanceToPole))} cy={yS(r.sigDigits)} r={4.5} fill={ED.series1} />
           <text
             x={xS(Math.log10(r.distanceToPole))}
             y={yS(r.sigDigits) - 10}
             textAnchor="middle"
-            fill="#93c5fd"
+            fill={ED.series1}
             fontSize={9}
           >
             k={r.k.toFixed(2)}: {r.sigDigits.toFixed(2)}
@@ -113,14 +114,14 @@ function ResolvabilityFloorChart() {
         </g>
       ))}
 
-      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         log10(endpoint distance d = k* - kEnd), k* = {kStar.toFixed(5)}
       </text>
       <text
         x={16}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={`rotate(-90 16 ${padT + cH / 2})`}
       >
@@ -135,7 +136,7 @@ export default function Imp34575NearPoleResolvabilityFloorsViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Near-Pole resid_exp Resolvability Floors (imp-34405)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         As the fixed-band endpoint kEnd approaches the surrogate pole k* ~ {kStar.toFixed(5)}, the
         significant-digit count of resid_exp -- sig(d) = log10(d / dk_star) -- falls linearly in
         log10(d) and hits zero at the POLE-LOCATION floor d = dk_star = {kStarUlp.toExponential(1)}
@@ -144,7 +145,7 @@ export default function Imp34575NearPoleResolvabilityFloorsViz() {
         below it, so the binding wall on resolvability is the {bindingFloor} floor, not storage.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         sig(d) vs log10(endpoint distance) -- zero-crossing at dk_star, storage floor d_store marked
       </p>
       <ResolvabilityFloorChart />
@@ -158,7 +159,7 @@ export default function Imp34575NearPoleResolvabilityFloorsViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>kEnd</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>distance to k*</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>resid_exp</th>
@@ -167,7 +168,7 @@ export default function Imp34575NearPoleResolvabilityFloorsViz() {
         </thead>
         <tbody>
           {approach.map((r, i) => (
-            <tr key={i} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+            <tr key={i} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
               <td style={{ padding: '0.4rem 0.6rem' }}>{r.k.toFixed(2)}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.distanceToPole.toExponential(4)}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.residExp.toExponential(3)}</td>
@@ -181,14 +182,14 @@ export default function Imp34575NearPoleResolvabilityFloorsViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement only -- a
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> measurement only -- a
         precision-budget read of the inherited surrogate resid_exp near the inherited pole
         k* ~ {kStar.toFixed(5)}, reusing the imp-34310 linear near-pole model. The component model
         is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb

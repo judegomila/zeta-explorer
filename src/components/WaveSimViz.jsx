@@ -5,6 +5,7 @@ import { getPrimes, primeFrequency } from '../math/primes.js';
 import { oscillatorStage, directLadder, dualLadder, losslessBridge, systemHamiltonian, accuracyMetrics } from '../math/oscillators.js';
 import { cAbs, zetaCriticalStrip, ZETA_ZEROS } from '../math/zeta.js';
 import { thermodynamicState } from '../math/supercritical.js';
+import { ED, alpha } from '../styles/tokens.js';
 
 const TABS = [
   { id: 'signal', label: 'Signal Flow' },
@@ -81,16 +82,16 @@ function SignalFlowTab({ sigma, t, numPrimes, playing, phase }) {
     // Column labels
     ctx.font = 'bold 12px Inter, sans-serif';
     ctx.textAlign = 'center';
-    ctx.fillStyle = '#3b82f6';
+    ctx.fillStyle = ED.series1;
     ctx.fillText('DIRECT ζ(s)', xDir, 18);
-    ctx.fillStyle = '#8b5cf6';
+    ctx.fillStyle = ED.series5;
     ctx.fillText('BRIDGE χ(s)', xBridge, 18);
-    ctx.fillStyle = '#f59e0b';
+    ctx.fillStyle = ED.series4;
     ctx.fillText('DUAL ζ(1−s)', xDual, 18);
 
     // Bridge status
     ctx.font = 'bold 10px Inter, sans-serif';
-    ctx.fillStyle = bridge.isUnitary ? '#10b981' : '#ef4444';
+    ctx.fillStyle = bridge.isUnitary ? ED.series3 : ED.series2;
     ctx.fillText(bridge.isUnitary ? 'LOSSLESS' : `LOSSY |χ|=${bridge.magnitude.toFixed(3)}`, xBridge, 33);
 
     // Phase-aware speed multiplier
@@ -121,7 +122,7 @@ function SignalFlowTab({ sigma, t, numPrimes, playing, phase }) {
     const netFlow = sigma < 0.5 ? 'direct → dual' : sigma > 0.5 ? 'dual → direct' : 'equilibrium';
     ctx.font = '10px Inter, sans-serif';
     ctx.textAlign = 'center';
-    const eqColor = Math.abs(sigma - 0.5) < 0.02 ? '#10b981' : '#94a3b8';
+    const eqColor = Math.abs(sigma - 0.5) < 0.02 ? ED.series3 : ED.series8;
     ctx.fillStyle = eqColor;
     ctx.fillText(
       Math.abs(sigma - 0.5) < 0.02
@@ -131,14 +132,14 @@ function SignalFlowTab({ sigma, t, numPrimes, playing, phase }) {
     );
 
     // Draw vertical wires
-    ctx.strokeStyle = 'rgba(59,130,246,0.3)';
+    ctx.strokeStyle = alpha(ED.series1, 0.3);
     ctx.lineWidth = 2;
     ctx.beginPath();
     ctx.moveTo(xDir, yTop);
     ctx.lineTo(xDir, yBot);
     ctx.stroke();
 
-    ctx.strokeStyle = 'rgba(245,158,11,0.3)';
+    ctx.strokeStyle = alpha(ED.brassDeco, 0.3);
     ctx.beginPath();
     ctx.moveTo(xDual, yTop);
     ctx.lineTo(xDual, yBot);
@@ -178,7 +179,7 @@ function SignalFlowTab({ sigma, t, numPrimes, playing, phase }) {
       // Impedance mismatch ratio per stage (how well this stage is matched)
       const Zmag = cAbs(stageD.impedance);
       const mismatchRatio = Math.abs(Zmag - Z0) / (Z0 + 0.001);
-      const matchColor = mismatchRatio < 0.3 ? '#10b981' : mismatchRatio < 1 ? '#f59e0b' : '#ef4444';
+      const matchColor = mismatchRatio < 0.3 ? ED.series3 : mismatchRatio < 1 ? ED.series4 : ED.series2;
 
       // Phase of propagating wave at this stage
       const phaseD = time * omega * 0.5 * phaseSpeed;
@@ -341,7 +342,7 @@ function SignalFlowTab({ sigma, t, numPrimes, playing, phase }) {
     ctx.beginPath();
     ctx.roundRect(6, lgY - 14, W - 12, 46, 6);
     ctx.fill();
-    ctx.strokeStyle = '#1e293b';
+    ctx.strokeStyle = ED.ruleSoft;
     ctx.lineWidth = 1;
     ctx.stroke();
 
@@ -349,33 +350,33 @@ function SignalFlowTab({ sigma, t, numPrimes, playing, phase }) {
 
     // Row 1: flow + reflection + |ζ(s)|
     ctx.textAlign = 'left';
-    ctx.fillStyle = '#10b981';
+    ctx.fillStyle = ED.series3;
     ctx.fillRect(14, lgY - 4, 12, 3);
     ctx.beginPath(); ctx.arc(26, lgY - 2.5, 2.5, 0, Math.PI * 2); ctx.fill();
     ctx.fillText(`Forward: ${(fwdStrength * 100).toFixed(0)}%`, 34, lgY);
 
-    ctx.fillStyle = '#ef4444';
+    ctx.fillStyle = ED.series2;
     ctx.fillText(`Γ² = ${(reflPower * 100).toFixed(1)}%`, W * 0.38, lgY);
 
     ctx.font = '10px JetBrains Mono, monospace';
     ctx.textAlign = 'right';
-    ctx.fillStyle = '#3b82f6';
+    ctx.fillStyle = ED.series1;
     ctx.fillText(`|ζ(s)| ≈ ${isFinite(dirMag) ? dirMag.toFixed(3) : '—'}`, W - 14, lgY);
 
     // Row 2: reverse + transmitted + |ζ(1−s)|
     ctx.font = '10px Inter, sans-serif';
     ctx.textAlign = 'left';
-    ctx.fillStyle = '#06b6d4';
+    ctx.fillStyle = ED.series6;
     ctx.fillRect(14, lgY + 14, 12, 3);
     ctx.beginPath(); ctx.arc(26, lgY + 15.5, 2.5, 0, Math.PI * 2); ctx.fill();
     ctx.fillText(`Reverse: ${(revStrength * 100).toFixed(0)}%`, 34, lgY + 18);
 
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.fillText(`T² = ${((1 - reflPower) * 100).toFixed(1)}%`, W * 0.38, lgY + 18);
 
     ctx.font = '10px JetBrains Mono, monospace';
     ctx.textAlign = 'right';
-    ctx.fillStyle = '#f59e0b';
+    ctx.fillStyle = ED.series4;
     ctx.fillText(`|ζ(1−s)| ≈ ${isFinite(dualMag) ? dualMag.toFixed(3) : '—'}`, W - 14, lgY + 18);
 
   }, [flowData, nearZeroData, numPrimes, phase]);
@@ -425,13 +426,13 @@ function PerPrimeWavesTab({ sigma, t, numPrimes }) {
 
     // Header
     svg.append('text').attr('x', (colLeft + colMid) / 2 - 20).attr('y', 20)
-      .attr('text-anchor', 'middle').attr('fill', '#3b82f6').attr('font-size', 11).attr('font-weight', 600)
+      .attr('text-anchor', 'middle').attr('fill', ED.series1).attr('font-size', 11).attr('font-weight', 600)
       .text('Direct Wave');
     svg.append('text').attr('x', colMid).attr('y', 20)
-      .attr('text-anchor', 'middle').attr('fill', '#8b5cf6').attr('font-size', 11).attr('font-weight', 600)
+      .attr('text-anchor', 'middle').attr('fill', ED.series5).attr('font-size', 11).attr('font-weight', 600)
       .text('Match');
     svg.append('text').attr('x', (colMid + colRight) / 2 + 20).attr('y', 20)
-      .attr('text-anchor', 'middle').attr('fill', '#f59e0b').attr('font-size', 11).attr('font-weight', 600)
+      .attr('text-anchor', 'middle').attr('fill', ED.brass).attr('font-size', 11).attr('font-weight', 600)
       .text('Dual Wave');
 
     primes.forEach((p, i) => {
@@ -441,7 +442,7 @@ function PerPrimeWavesTab({ sigma, t, numPrimes }) {
 
       // Prime label
       svg.append('text').attr('x', 16).attr('y', yCenter + 4)
-        .attr('fill', '#94a3b8').attr('font-size', 10).attr('font-weight', 600)
+        .attr('fill', ED.inkSoft).attr('font-size', 10).attr('font-weight', 600)
         .attr('font-family', 'JetBrains Mono, monospace')
         .text(`p=${p}`);
 
@@ -463,7 +464,7 @@ function PerPrimeWavesTab({ sigma, t, numPrimes }) {
       svg.append('path')
         .datum(directWave)
         .attr('d', d3.line().x(d => d.x).y(d => d.y).curve(d3.curveBasis))
-        .attr('fill', 'none').attr('stroke', '#3b82f6').attr('stroke-width', 1.5)
+        .attr('fill', 'none').attr('stroke', ED.series1).attr('stroke-width', 1.5)
         .attr('opacity', 0.8);
 
       // Dual wave
@@ -477,12 +478,12 @@ function PerPrimeWavesTab({ sigma, t, numPrimes }) {
       svg.append('path')
         .datum(dualWave)
         .attr('d', d3.line().x(d => d.x).y(d => d.y).curve(d3.curveBasis))
-        .attr('fill', 'none').attr('stroke', '#f59e0b').attr('stroke-width', 1.5)
+        .attr('fill', 'none').attr('stroke', ED.brassDeco).attr('stroke-width', 1.5)
         .attr('opacity', 0.8);
 
       // Amplitude match indicator in center
       const matchRatio = Math.min(stageD.magnitude, stageU.magnitude) / Math.max(stageD.magnitude, stageU.magnitude, 0.001);
-      const matchColor = d3.interpolateRgb('#ef4444', '#10b981')(matchRatio);
+      const matchColor = d3.interpolateRgb(ED.series2, ED.series3)(matchRatio);
       const barH = matchRatio * (rowH * 0.6);
 
       svg.append('rect')
@@ -492,12 +493,12 @@ function PerPrimeWavesTab({ sigma, t, numPrimes }) {
 
       // Amplitude labels
       svg.append('text').attr('x', colLeft).attr('y', yCenter + rowH / 2 - 4)
-        .attr('fill', '#3b82f6').attr('font-size', 8).attr('font-family', 'JetBrains Mono, monospace')
+        .attr('fill', ED.series1).attr('font-size', 8).attr('font-family', 'JetBrains Mono, monospace')
         .text(`A=${stageD.magnitude.toFixed(2)}`);
 
       svg.append('text').attr('x', colRight).attr('y', yCenter + rowH / 2 - 4)
         .attr('text-anchor', 'end')
-        .attr('fill', '#f59e0b').attr('font-size', 8).attr('font-family', 'JetBrains Mono, monospace')
+        .attr('fill', ED.brass).attr('font-size', 8).attr('font-family', 'JetBrains Mono, monospace')
         .text(`A=${stageU.magnitude.toFixed(2)}`);
     });
 
@@ -556,9 +557,9 @@ function WaveInterferenceTab({ sigma, t, numPrimes, playing }) {
 
     // Three panels: Direct, Dual, Difference
     const panels = [
-      { label: 'Direct Ladder Superposition', color: '#3b82f6', y: 20 },
-      { label: 'Dual Ladder Superposition', color: '#f59e0b', y: 20 + panelH + 10 },
-      { label: '|Direct − Dual| Difference', color: '#10b981', y: 20 + (panelH + 10) * 2 },
+      { label: 'Direct Ladder Superposition', color: ED.series1, y: 20 },
+      { label: 'Dual Ladder Superposition', color: ED.brass, y: 20 + panelH + 10 },
+      { label: '|Direct − Dual| Difference', color: ED.series3, y: 20 + (panelH + 10) * 2 },
     ];
 
     const xPoints = 400;
@@ -592,7 +593,7 @@ function WaveInterferenceTab({ sigma, t, numPrimes, playing }) {
       ctx.fillRect(margin, py, W - margin * 2, panelH);
 
       // Zero line
-      ctx.strokeStyle = 'rgba(100,116,139,0.5)';
+      ctx.strokeStyle = alpha(ED.rule, 0.5);
       ctx.lineWidth = 1;
       ctx.setLineDash([4, 4]);
       ctx.beginPath();
@@ -606,12 +607,12 @@ function WaveInterferenceTab({ sigma, t, numPrimes, playing }) {
       const tickLabels = pi === 2 ? ['+1', '0'] : ['+1', '0', '−1'];
       const tickYs = pi === 2 ? [mid - ampScale, mid] : [mid - ampScale, mid, mid + ampScale];
       ctx.font = '9px JetBrains Mono, monospace';
-      ctx.fillStyle = 'rgba(148,163,184,0.7)';
+      ctx.fillStyle = alpha(ED.series8, 0.7);
       ctx.textAlign = 'right';
       tickLabels.forEach((lbl, ti) => {
         const ty = tickYs[ti];
         // Small tick mark
-        ctx.strokeStyle = 'rgba(100,116,139,0.4)';
+        ctx.strokeStyle = alpha(ED.rule, 0.4);
         ctx.lineWidth = 1;
         ctx.beginPath();
         ctx.moveTo(margin - 4, ty);
@@ -645,7 +646,7 @@ function WaveInterferenceTab({ sigma, t, numPrimes, playing }) {
 
       // For difference panel, fill area
       if (pi === 2) {
-        ctx.fillStyle = 'rgba(16,185,129,0.1)';
+        ctx.fillStyle = alpha(ED.series3, 0.1);
         ctx.beginPath();
         ctx.moveTo(margin, mid);
         for (let j = 0; j < xPoints; j++) {
@@ -662,7 +663,7 @@ function WaveInterferenceTab({ sigma, t, numPrimes, playing }) {
         for (let j = 0; j < xPoints; j++) rms += (directWave[j] - dualWave[j]) ** 2;
         rms = Math.sqrt(rms / xPoints);
         ctx.font = 'bold 10px JetBrains Mono, monospace';
-        ctx.fillStyle = rms < 0.01 ? '#10b981' : '#ef4444';
+        ctx.fillStyle = rms < 0.01 ? ED.series3 : ED.series2;
         ctx.textAlign = 'right';
         ctx.fillText(`RMS diff: ${rms.toFixed(4)}`, W - margin - 8, py + 16);
       }
@@ -761,17 +762,17 @@ function PhaseDelayTab({ sigma, t, numPrimes }) {
     // Axes
     g.append('g').attr('transform', `translate(0,${chartH})`)
       .call(d3.axisBottom(x).tickFormat(d => `p=${d}`))
-      .selectAll('text').attr('fill', '#64748b').attr('font-size', 9);
+      .selectAll('text').attr('fill', ED.inkFaint).attr('font-size', 9);
     g.append('g')
       .call(d3.axisLeft(y).ticks(6).tickFormat(d3.format('.3f')))
-      .selectAll('text').attr('fill', '#64748b');
+      .selectAll('text').attr('fill', ED.inkFaint);
 
-    g.selectAll('.domain, .tick line').attr('stroke', '#2a3050');
+    g.selectAll('.domain, .tick line').attr('stroke', ED.rule);
 
     // Y-axis label
     svg.append('text').attr('x', 14).attr('y', margin.top + chartH / 2)
       .attr('text-anchor', 'middle').attr('transform', `rotate(-90,14,${margin.top + chartH / 2})`)
-      .attr('fill', '#64748b').attr('font-size', 10)
+      .attr('fill', ED.inkFaint).attr('font-size', 10)
       .text('Group Delay τ_g = −dφ/dt');
 
     // Bar width
@@ -783,7 +784,7 @@ function PhaseDelayTab({ sigma, t, numPrimes }) {
       const bar = g.append('rect')
         .attr('x', bx).attr('y', y(d.delayDirect))
         .attr('width', barW).attr('height', chartH - y(d.delayDirect))
-        .attr('rx', 2).attr('fill', '#3b82f6').attr('opacity', 0.8)
+        .attr('rx', 2).attr('fill', ED.series1).attr('opacity', 0.8)
         .style('cursor', 'crosshair');
       bar.append('title').text(`p=${d.prime}, Direct τ_g = ${d.delayDirect.toFixed(4)}`);
     });
@@ -794,7 +795,7 @@ function PhaseDelayTab({ sigma, t, numPrimes }) {
       const bar = g.append('rect')
         .attr('x', bx).attr('y', y(d.delayDual))
         .attr('width', barW).attr('height', chartH - y(d.delayDual))
-        .attr('rx', 2).attr('fill', '#f59e0b').attr('opacity', 0.8)
+        .attr('rx', 2).attr('fill', ED.brassDeco).attr('opacity', 0.8)
         .style('cursor', 'crosshair');
       bar.append('title').text(`p=${d.prime}, Dual τ_g = ${d.delayDual.toFixed(4)}`);
     });
@@ -819,47 +820,47 @@ function PhaseDelayTab({ sigma, t, numPrimes }) {
 
     g.append('path').datum(cumDirectPts)
       .attr('d', lineGen)
-      .attr('fill', 'none').attr('stroke', '#3b82f6').attr('stroke-width', 2)
+      .attr('fill', 'none').attr('stroke', ED.series1).attr('stroke-width', 2)
       .attr('stroke-dasharray', '4,3');
 
     g.append('path').datum(cumDualPts)
       .attr('d', lineGen)
-      .attr('fill', 'none').attr('stroke', '#f59e0b').attr('stroke-width', 2)
+      .attr('fill', 'none').attr('stroke', ED.brassDeco).attr('stroke-width', 2)
       .attr('stroke-dasharray', '4,3');
 
     // Right y-axis for cumulative delay
     const rightAxis = g.append('g').attr('transform', `translate(${chartW},0)`)
       .call(d3.axisRight(yCum).ticks(5).tickFormat(d3.format('.2f')));
-    rightAxis.selectAll('text').attr('fill', '#94a3b8').attr('font-size', 9);
-    rightAxis.selectAll('.domain, .tick line').attr('stroke', '#2a3050');
+    rightAxis.selectAll('text').attr('fill', ED.inkSoft).attr('font-size', 9);
+    rightAxis.selectAll('.domain, .tick line').attr('stroke', ED.rule);
 
     svg.append('text').attr('x', width - 10).attr('y', margin.top + chartH / 2)
       .attr('text-anchor', 'middle').attr('transform', `rotate(90,${width - 10},${margin.top + chartH / 2})`)
-      .attr('fill', '#94a3b8').attr('font-size', 10)
+      .attr('fill', ED.inkSoft).attr('font-size', 10)
       .text('Cumulative Delay (dashed)');
 
     // Legend
     const lgX = width - margin.right - 220;
     // Bar swatches for per-prime delays
-    [[0, '#3b82f6', 'Direct (per-prime)'], [1, '#f59e0b', 'Dual (per-prime)']].forEach(([i, c, l]) => {
+    [[0, ED.series1, 'Direct (per-prime)'], [1, ED.series4, 'Dual (per-prime)']].forEach(([i, c, l]) => {
       svg.append('rect').attr('x', lgX).attr('y', 12 + i * 16).attr('width', 12).attr('height', 10)
         .attr('rx', 2).attr('fill', c).attr('opacity', 0.8);
       svg.append('text').attr('x', lgX + 18).attr('y', 20 + i * 16)
-        .attr('fill', '#94a3b8').attr('font-size', 10).text(l);
+        .attr('fill', ED.inkSoft).attr('font-size', 10).text(l);
     });
     // Dashed line swatches for cumulative delays
-    [[2, '#3b82f6', 'Direct (cumulative)'], [3, '#f59e0b', 'Dual (cumulative)']].forEach(([i, c, l]) => {
+    [[2, ED.series1, 'Direct (cumulative)'], [3, ED.series4, 'Dual (cumulative)']].forEach(([i, c, l]) => {
       svg.append('line').attr('x1', lgX).attr('y1', 17 + i * 16).attr('x2', lgX + 12).attr('y2', 17 + i * 16)
         .attr('stroke', c).attr('stroke-width', 2).attr('stroke-dasharray', '4,3');
       svg.append('text').attr('x', lgX + 18).attr('y', 20 + i * 16)
-        .attr('fill', '#94a3b8').attr('font-size', 10).text(l);
+        .attr('fill', ED.inkSoft).attr('font-size', 10).text(l);
     });
 
     // Symmetry indicator
     const asymmetry = Math.abs(cumD - cumU) / Math.max(cumD, cumU, 0.001);
     svg.append('text').attr('x', width / 2).attr('y', height - 8)
       .attr('text-anchor', 'middle')
-      .attr('fill', asymmetry < 0.05 ? '#10b981' : '#ef4444')
+      .attr('fill', asymmetry < 0.05 ? ED.series3 : ED.series2)
       .attr('font-size', 11).attr('font-weight', 600)
       .text(`Delay asymmetry: ${(asymmetry * 100).toFixed(1)}% ${asymmetry < 0.05 ? '(symmetric at σ=½)' : '(asymmetric — σ≠½)'}`);
 
@@ -901,61 +902,61 @@ function ComponentDiagramTab({ sigma, t, numPrimes }) {
 
       // Title
       svg.append('text').attr('x', cx).attr('y', 30)
-        .attr('text-anchor', 'middle').attr('fill', '#e2e8f0')
+        .attr('text-anchor', 'middle').attr('fill', ED.ink)
         .attr('font-size', 14).attr('font-weight', 600)
         .text(`Single Prime Oscillator: p = ${p}`);
 
       // Input terminal
       svg.append('line').attr('x1', cx - 200).attr('y1', cy).attr('x2', cx - 120).attr('y2', cy)
-        .attr('stroke', '#3b82f6').attr('stroke-width', 2);
+        .attr('stroke', ED.series1).attr('stroke-width', 2);
       svg.append('text').attr('x', cx - 210).attr('y', cy + 4)
-        .attr('text-anchor', 'end').attr('fill', '#3b82f6').attr('font-size', 11).text('IN');
+        .attr('text-anchor', 'end').attr('fill', ED.series1).attr('font-size', 11).text('IN');
 
       // Inductor (coil symbol)
       const coilY = cy;
       const coilX = cx - 60;
       svg.append('path')
         .attr('d', `M${cx - 120},${coilY} Q${cx - 110},${coilY - 20} ${cx - 100},${coilY} Q${cx - 90},${coilY + 20} ${cx - 80},${coilY} Q${cx - 70},${coilY - 20} ${cx - 60},${coilY}`)
-        .attr('fill', 'none').attr('stroke', '#06b6d4').attr('stroke-width', 2);
+        .attr('fill', 'none').attr('stroke', ED.series6).attr('stroke-width', 2);
 
       svg.append('text').attr('x', cx - 90).attr('y', cy - 28)
-        .attr('text-anchor', 'middle').attr('fill', '#06b6d4').attr('font-size', 11)
+        .attr('text-anchor', 'middle').attr('fill', ED.series6).attr('font-size', 11)
         .text(`L = log(${p}) = ${stage.inductance.toFixed(3)}`);
 
       // Wire between L and C
       svg.append('line').attr('x1', cx - 60).attr('y1', cy).attr('x2', cx + 60).attr('y2', cy)
-        .attr('stroke', '#64748b').attr('stroke-width', 1);
+        .attr('stroke', ED.rule).attr('stroke-width', 1);
 
       // Capacitor (two parallel lines)
       svg.append('line').attr('x1', cx + 60).attr('y1', cy).attr('x2', cx + 60).attr('y2', cy - 30)
-        .attr('stroke', '#64748b').attr('stroke-width', 1);
+        .attr('stroke', ED.rule).attr('stroke-width', 1);
       svg.append('line').attr('x1', cx + 48).attr('y1', cy - 30).attr('x2', cx + 72).attr('y2', cy - 30)
-        .attr('stroke', '#f59e0b').attr('stroke-width', 3);
+        .attr('stroke', ED.brassDeco).attr('stroke-width', 3);
       svg.append('line').attr('x1', cx + 48).attr('y1', cy - 38).attr('x2', cx + 72).attr('y2', cy - 38)
-        .attr('stroke', '#f59e0b').attr('stroke-width', 3);
+        .attr('stroke', ED.brassDeco).attr('stroke-width', 3);
       svg.append('line').attr('x1', cx + 60).attr('y1', cy - 38).attr('x2', cx + 60).attr('y2', cy - 60)
-        .attr('stroke', '#64748b').attr('stroke-width', 1);
+        .attr('stroke', ED.rule).attr('stroke-width', 1);
 
       svg.append('text').attr('x', cx + 85).attr('y', cy - 32)
-        .attr('fill', '#f59e0b').attr('font-size', 11)
+        .attr('fill', ED.brass).attr('font-size', 11)
         .text(`C = 1/log(${p}) = ${stage.capacitance.toFixed(3)}`);
 
       // Ground
       svg.append('line').attr('x1', cx + 50).attr('y1', cy - 60).attr('x2', cx + 70).attr('y2', cy - 60)
-        .attr('stroke', '#64748b').attr('stroke-width', 2);
+        .attr('stroke', ED.rule).attr('stroke-width', 2);
       svg.append('line').attr('x1', cx + 54).attr('y1', cy - 64).attr('x2', cx + 66).attr('y2', cy - 64)
-        .attr('stroke', '#64748b').attr('stroke-width', 1.5);
+        .attr('stroke', ED.rule).attr('stroke-width', 1.5);
       svg.append('line').attr('x1', cx + 57).attr('y1', cy - 68).attr('x2', cx + 63).attr('y2', cy - 68)
-        .attr('stroke', '#64748b').attr('stroke-width', 1);
+        .attr('stroke', ED.rule).attr('stroke-width', 1);
 
       // Output terminal
       svg.append('line').attr('x1', cx + 120).attr('y1', cy).attr('x2', cx + 200).attr('y2', cy)
-        .attr('stroke', '#3b82f6').attr('stroke-width', 2);
+        .attr('stroke', ED.series1).attr('stroke-width', 2);
       // continue wire from capacitor node
       svg.append('line').attr('x1', cx + 60).attr('y1', cy).attr('x2', cx + 120).attr('y2', cy)
-        .attr('stroke', '#64748b').attr('stroke-width', 1);
+        .attr('stroke', ED.rule).attr('stroke-width', 1);
       svg.append('text').attr('x', cx + 210).attr('y', cy + 4)
-        .attr('fill', '#3b82f6').attr('font-size', 11).text('OUT');
+        .attr('fill', ED.series1).attr('font-size', 11).text('OUT');
 
       // Stats box
       const stats = [
@@ -967,7 +968,7 @@ function ComponentDiagramTab({ sigma, t, numPrimes }) {
       ];
       stats.forEach((txt, j) => {
         svg.append('text').attr('x', cx - 160).attr('y', cy + 80 + j * 18)
-          .attr('fill', '#94a3b8').attr('font-size', 11)
+          .attr('fill', ED.inkSoft).attr('font-size', 11)
           .attr('font-family', 'JetBrains Mono, monospace')
           .text(txt);
       });
@@ -978,7 +979,7 @@ function ComponentDiagramTab({ sigma, t, numPrimes }) {
       const stageW = Math.min(90, (width - 120) / Math.min(numPrimes, 8));
 
       svg.append('text').attr('x', width / 2).attr('y', 24)
-        .attr('text-anchor', 'middle').attr('fill', '#e2e8f0')
+        .attr('text-anchor', 'middle').attr('fill', ED.ink)
         .attr('font-size', 14).attr('font-weight', 600)
         .text('Direct Ladder: Series LC Cascade');
 
@@ -987,7 +988,7 @@ function ComponentDiagramTab({ sigma, t, numPrimes }) {
 
       // Input
       svg.append('text').attr('x', xStart - 10).attr('y', cy + 4)
-        .attr('text-anchor', 'end').attr('fill', '#3b82f6').attr('font-size', 11).text('IN');
+        .attr('text-anchor', 'end').attr('fill', ED.series1).attr('font-size', 11).text('IN');
 
       direct.stages.slice(0, 8).forEach((stage, i) => {
         const bx = xStart + i * stageW;
@@ -997,12 +998,12 @@ function ComponentDiagramTab({ sigma, t, numPrimes }) {
         svg.append('rect')
           .attr('x', bx + 5).attr('y', cy - 35).attr('width', bw).attr('height', 70)
           .attr('rx', 6)
-          .attr('fill', 'rgba(59,130,246,0.08)')
-          .attr('stroke', '#3b82f6').attr('stroke-width', 1);
+          .attr('fill', alpha(ED.series1, 0.08))
+          .attr('stroke', ED.series1).attr('stroke-width', 1);
 
         // Prime label
         svg.append('text').attr('x', bx + 5 + bw / 2).attr('y', cy - 18)
-          .attr('text-anchor', 'middle').attr('fill', '#3b82f6')
+          .attr('text-anchor', 'middle').attr('fill', ED.series1)
           .attr('font-size', 12).attr('font-weight', 700)
           .text(`p=${stage.prime}`);
 
@@ -1011,27 +1012,27 @@ function ComponentDiagramTab({ sigma, t, numPrimes }) {
           svg.append('line')
             .attr('x1', bx).attr('y1', cy)
             .attr('x2', bx + 5).attr('y2', cy)
-            .attr('stroke', '#3b82f6').attr('stroke-width', 1.5);
+            .attr('stroke', ED.series1).attr('stroke-width', 1.5);
         } else {
           svg.append('line')
             .attr('x1', xStart - 5).attr('y1', cy)
             .attr('x2', bx + 5).attr('y2', cy)
-            .attr('stroke', '#3b82f6').attr('stroke-width', 1.5);
+            .attr('stroke', ED.series1).attr('stroke-width', 1.5);
         }
 
         // Values inside box
         svg.append('text').attr('x', bx + 5 + bw / 2).attr('y', cy)
-          .attr('text-anchor', 'middle').attr('fill', '#06b6d4').attr('font-size', 8)
+          .attr('text-anchor', 'middle').attr('fill', ED.series6).attr('font-size', 8)
           .attr('font-family', 'JetBrains Mono, monospace')
           .text(`L=${stage.inductance.toFixed(2)}`);
         svg.append('text').attr('x', bx + 5 + bw / 2).attr('y', cy + 14)
-          .attr('text-anchor', 'middle').attr('fill', '#f59e0b').attr('font-size', 8)
+          .attr('text-anchor', 'middle').attr('fill', ED.brass).attr('font-size', 8)
           .attr('font-family', 'JetBrains Mono, monospace')
           .text(`C=${stage.capacitance.toFixed(2)}`);
 
         // Magnitude below
         svg.append('text').attr('x', bx + 5 + bw / 2).attr('y', cy + 52)
-          .attr('text-anchor', 'middle').attr('fill', '#64748b').attr('font-size', 8)
+          .attr('text-anchor', 'middle').attr('fill', ED.inkFaint).attr('font-size', 8)
           .text(`|H|=${stage.cumulativeMagnitude.toFixed(2)}`);
       });
 
@@ -1040,19 +1041,19 @@ function ComponentDiagramTab({ sigma, t, numPrimes }) {
       svg.append('line')
         .attr('x1', lastX - stageW * 0.3 + 5).attr('y1', cy)
         .attr('x2', lastX + 20).attr('y2', cy)
-        .attr('stroke', '#3b82f6').attr('stroke-width', 1.5);
+        .attr('stroke', ED.series1).attr('stroke-width', 1.5);
       svg.append('text').attr('x', lastX + 30).attr('y', cy + 4)
-        .attr('fill', '#3b82f6').attr('font-size', 11).text('OUT');
+        .attr('fill', ED.series1).attr('font-size', 11).text('OUT');
 
       // Total magnitude
       svg.append('text').attr('x', width / 2).attr('y', height - 20)
-        .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12)
+        .attr('text-anchor', 'middle').attr('fill', ED.inkSoft).attr('font-size', 12)
         .text(`Total |ζ(s)| = ${direct.totalMagnitude.toFixed(4)} (${Math.min(numPrimes, 8)} primes)`);
 
     } else {
       // Full system: twin ladders + bridge
       svg.append('text').attr('x', width / 2).attr('y', 24)
-        .attr('text-anchor', 'middle').attr('fill', '#e2e8f0')
+        .attr('text-anchor', 'middle').attr('fill', ED.ink)
         .attr('font-size', 14).attr('font-weight', 600)
         .text('Full System: Twin Ladders + Bridge');
 
@@ -1067,27 +1068,27 @@ function ComponentDiagramTab({ sigma, t, numPrimes }) {
       svg.append('rect')
         .attr('x', xL).attr('y', cy - 50).attr('width', ladderW).attr('height', 100)
         .attr('rx', 8)
-        .attr('fill', 'rgba(59,130,246,0.08)')
-        .attr('stroke', '#3b82f6').attr('stroke-width', 2);
+        .attr('fill', alpha(ED.series1, 0.08))
+        .attr('stroke', ED.series1).attr('stroke-width', 2);
       svg.append('text').attr('x', xL + ladderW / 2).attr('y', cy - 20)
-        .attr('text-anchor', 'middle').attr('fill', '#3b82f6')
+        .attr('text-anchor', 'middle').attr('fill', ED.series1)
         .attr('font-size', 13).attr('font-weight', 700)
         .text('DIRECT LADDER');
       svg.append('text').attr('x', xL + ladderW / 2).attr('y', cy + 2)
-        .attr('text-anchor', 'middle').attr('fill', '#3b82f6')
+        .attr('text-anchor', 'middle').attr('fill', ED.series1)
         .attr('font-size', 11)
         .text('ζ(s) = ∏ₚ (1−p⁻ˢ)⁻¹');
       svg.append('text').attr('x', xL + ladderW / 2).attr('y', cy + 22)
-        .attr('text-anchor', 'middle').attr('fill', '#64748b')
+        .attr('text-anchor', 'middle').attr('fill', ED.inkFaint)
         .attr('font-size', 10).attr('font-family', 'JetBrains Mono, monospace')
         .text(`${numPrimes} prime stages`);
 
       // Bridge box
-      const bridgeColor = bridge.isUnitary ? '#8b5cf6' : '#ef4444';
+      const bridgeColor = bridge.isUnitary ? ED.series5 : ED.series2;
       svg.append('rect')
         .attr('x', xB).attr('y', cy - 50).attr('width', bridgeW).attr('height', 100)
         .attr('rx', 8)
-        .attr('fill', bridge.isUnitary ? 'rgba(139,92,246,0.1)' : 'rgba(239,68,68,0.1)')
+        .attr('fill', bridge.isUnitary ? alpha(ED.series5, 0.1) : alpha(ED.series2, 0.1))
         .attr('stroke', bridgeColor).attr('stroke-width', 2);
       svg.append('text').attr('x', xB + bridgeW / 2).attr('y', cy - 20)
         .attr('text-anchor', 'middle').attr('fill', bridgeColor)
@@ -1099,11 +1100,11 @@ function ComponentDiagramTab({ sigma, t, numPrimes }) {
         .text('χ(s)');
       svg.append('text').attr('x', xB + bridgeW / 2).attr('y', cy + 20)
         .attr('text-anchor', 'middle')
-        .attr('fill', bridge.isUnitary ? '#10b981' : '#ef4444')
+        .attr('fill', bridge.isUnitary ? ED.series3 : ED.series2)
         .attr('font-size', 10).attr('font-weight', 600)
         .text(bridge.isUnitary ? 'LOSSLESS' : `LOSSY`);
       svg.append('text').attr('x', xB + bridgeW / 2).attr('y', cy + 35)
-        .attr('text-anchor', 'middle').attr('fill', '#64748b')
+        .attr('text-anchor', 'middle').attr('fill', ED.inkFaint)
         .attr('font-size', 9).attr('font-family', 'JetBrains Mono, monospace')
         .text(`|χ|=${bridge.magnitude.toFixed(3)}, Γ=${((1 - bridge.magnitude) / (1 + bridge.magnitude)).toFixed(3)}`);
 
@@ -1111,18 +1112,18 @@ function ComponentDiagramTab({ sigma, t, numPrimes }) {
       svg.append('rect')
         .attr('x', xR).attr('y', cy - 50).attr('width', ladderW).attr('height', 100)
         .attr('rx', 8)
-        .attr('fill', 'rgba(245,158,11,0.08)')
-        .attr('stroke', '#f59e0b').attr('stroke-width', 2);
+        .attr('fill', alpha(ED.brassDeco, 0.08))
+        .attr('stroke', ED.brassDeco).attr('stroke-width', 2);
       svg.append('text').attr('x', xR + ladderW / 2).attr('y', cy - 20)
-        .attr('text-anchor', 'middle').attr('fill', '#f59e0b')
+        .attr('text-anchor', 'middle').attr('fill', ED.brass)
         .attr('font-size', 13).attr('font-weight', 700)
         .text('DUAL LADDER');
       svg.append('text').attr('x', xR + ladderW / 2).attr('y', cy + 2)
-        .attr('text-anchor', 'middle').attr('fill', '#f59e0b')
+        .attr('text-anchor', 'middle').attr('fill', ED.brass)
         .attr('font-size', 11)
         .text('ζ(1−s) = ∏ₚ (1−p^(s−1))⁻¹');
       svg.append('text').attr('x', xR + ladderW / 2).attr('y', cy + 22)
-        .attr('text-anchor', 'middle').attr('fill', '#64748b')
+        .attr('text-anchor', 'middle').attr('fill', ED.inkFaint)
         .attr('font-size', 10).attr('font-family', 'JetBrains Mono, monospace')
         .text(`${numPrimes} prime stages`);
 
@@ -1132,12 +1133,12 @@ function ComponentDiagramTab({ sigma, t, numPrimes }) {
       svg.append('line')
         .attr('x1', xL + ladderW).attr('y1', fwdY)
         .attr('x2', xB).attr('y2', fwdY)
-        .attr('stroke', '#10b981').attr('stroke-width', 2)
+        .attr('stroke', ED.series3).attr('stroke-width', 2)
         .attr('marker-end', 'url(#arrowGreen)');
       svg.append('line')
         .attr('x1', xB + bridgeW).attr('y1', fwdY)
         .attr('x2', xR).attr('y2', fwdY)
-        .attr('stroke', '#10b981').attr('stroke-width', 2)
+        .attr('stroke', ED.series3).attr('stroke-width', 2)
         .attr('marker-end', 'url(#arrowGreen)');
 
       // Reverse (Dual → Bridge → Direct) — bottom track
@@ -1145,25 +1146,25 @@ function ComponentDiagramTab({ sigma, t, numPrimes }) {
       svg.append('line')
         .attr('x1', xR).attr('y1', revY)
         .attr('x2', xB + bridgeW).attr('y2', revY)
-        .attr('stroke', '#06b6d4').attr('stroke-width', 2)
+        .attr('stroke', ED.series6).attr('stroke-width', 2)
         .attr('marker-end', 'url(#arrowCyan)');
       svg.append('line')
         .attr('x1', xB).attr('y1', revY)
         .attr('x2', xL + ladderW).attr('y2', revY)
-        .attr('stroke', '#06b6d4').attr('stroke-width', 2)
+        .attr('stroke', ED.series6).attr('stroke-width', 2)
         .attr('marker-end', 'url(#arrowCyan)');
 
       // Flow labels
       svg.append('text').attr('x', (xL + ladderW + xB) / 2).attr('y', fwdY - 6)
-        .attr('text-anchor', 'middle').attr('fill', '#10b981').attr('font-size', 8)
+        .attr('text-anchor', 'middle').attr('fill', ED.series3).attr('font-size', 8)
         .text('forward →');
       svg.append('text').attr('x', (xL + ladderW + xB) / 2).attr('y', revY + 14)
-        .attr('text-anchor', 'middle').attr('fill', '#06b6d4').attr('font-size', 8)
+        .attr('text-anchor', 'middle').attr('fill', ED.series6).attr('font-size', 8)
         .text('← reverse');
 
       // Arrow markers
       const defs = svg.append('defs');
-      [['arrowGreen', '#10b981'], ['arrowCyan', '#06b6d4']].forEach(([id, color]) => {
+      [['arrowGreen', ED.series3], ['arrowCyan', ED.series6]].forEach(([id, color]) => {
         defs.append('marker').attr('id', id)
           .attr('viewBox', '0 0 10 6').attr('refX', 10).attr('refY', 3)
           .attr('markerWidth', 8).attr('markerHeight', 6).attr('orient', 'auto')
@@ -1173,9 +1174,9 @@ function ComponentDiagramTab({ sigma, t, numPrimes }) {
       // Impedance mismatch indicator
       const ham = systemHamiltonian(s, numPrimes);
       const sf = (v, d = 3) => isFinite(v) ? v.toFixed(d) : '—';
-      const mismatchColor = ham.bridgeCoupling < 1 ? '#10b981' : '#ef4444';
+      const mismatchColor = ham.bridgeCoupling < 1 ? ED.series3 : ED.series2;
       svg.append('text').attr('x', width / 2).attr('y', cy + 80)
-        .attr('text-anchor', 'middle').attr('fill', '#64748b').attr('font-size', 11)
+        .attr('text-anchor', 'middle').attr('fill', ED.inkFaint).attr('font-size', 11)
         .text(`Hamiltonian: H = ${sf(ham.total, 4)}`);
       svg.append('text').attr('x', width / 2).attr('y', cy + 96)
         .attr('text-anchor', 'middle').attr('fill', mismatchColor).attr('font-size', 10)
@@ -1183,7 +1184,7 @@ function ComponentDiagramTab({ sigma, t, numPrimes }) {
 
       // Functional equation
       svg.append('text').attr('x', width / 2).attr('y', height - 20)
-        .attr('text-anchor', 'middle').attr('fill', '#8b5cf6').attr('font-size', 12)
+        .attr('text-anchor', 'middle').attr('fill', ED.series5).attr('font-size', 12)
         .text('ζ(s) = χ(s) · ζ(1−s)');
     }
 
@@ -1210,10 +1211,10 @@ function ComponentDiagramTab({ sigma, t, numPrimes }) {
 function AccuracyBadge({ sigma, t, numPrimes }) {
   const metrics = useMemo(() => accuracyMetrics([sigma, t], numPrimes), [sigma, t, numPrimes]);
 
-  const color = metrics.level === 'good' ? '#10b981'
-    : metrics.level === 'moderate' ? '#f59e0b' : '#ef4444';
-  const bgColor = metrics.level === 'good' ? 'rgba(16,185,129,0.12)'
-    : metrics.level === 'moderate' ? 'rgba(245,158,11,0.12)' : 'rgba(239,68,68,0.12)';
+  const color = metrics.level === 'good' ? ED.series3
+    : metrics.level === 'moderate' ? ED.brass : ED.series2;
+  const bgColor = metrics.level === 'good' ? alpha(ED.series3, 0.12)
+    : metrics.level === 'moderate' ? alpha(ED.brassDeco, 0.12) : alpha(ED.series2, 0.12);
 
   const pctError = (metrics.relativeError * 100).toFixed(1);
 
@@ -1236,7 +1237,7 @@ function AccuracyBadge({ sigma, t, numPrimes }) {
         <span style={{ color, fontWeight: 600 }}>
           {pctError}% err
         </span>
-        <span style={{ color: '#64748b', fontSize: 10 }}>
+        <span style={{ color: 'var(--ink-faint)', fontSize: 10 }}>
           vs <InlineMath tex={"\\zeta_{\\text{exact}}"} />
         </span>
       </div>
@@ -1246,8 +1247,8 @@ function AccuracyBadge({ sigma, t, numPrimes }) {
         <div style={{
           display: 'inline-flex', alignItems: 'center', gap: 4,
           padding: '3px 8px', borderRadius: 6,
-          background: 'rgba(99,102,241,0.1)', border: '1px solid rgba(99,102,241,0.3)',
-          fontSize: 10, color: '#818cf8',
+          background: 'color-mix(in srgb, var(--series-5) 10%, transparent)', border: '1px solid color-mix(in srgb, var(--series-5) 30%, transparent)',
+          fontSize: 10, color: 'var(--series-5)',
         }}>
           +{metrics.convergenceEstimate} primes for {'<'}1%
         </div>
@@ -1258,8 +1259,8 @@ function AccuracyBadge({ sigma, t, numPrimes }) {
         <div style={{
           display: 'inline-flex', alignItems: 'center', gap: 4,
           padding: '3px 8px', borderRadius: 6,
-          background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.3)',
-          fontSize: 10, color: '#ef4444', fontWeight: 600,
+          background: 'color-mix(in srgb, var(--series-2) 10%, transparent)', border: '1px solid color-mix(in srgb, var(--series-2) 30%, transparent)',
+          fontSize: 10, color: 'var(--series-2)', fontWeight: 600,
         }}>
           Euler product diverges near {sigma < 0.2 ? '\u03C3 \u2192 0' : '\u03C3 \u2192 1'}
         </div>
@@ -1276,10 +1277,10 @@ function safeNum(v, decimals = 3) {
 
 // ─── Phase State Helpers ──────────────────────────────────────────────
 const PHASE_META = {
-  'supercritical': { label: 'FROZEN', icon: '\u2744\uFE0F', color: '#60a5fa', bg: 'rgba(96,165,250,0.12)', desc: 'Supercritical region — zeros suppressed, series converges absolutely' },
-  'critical-line': { label: 'EQUILIBRIUM', icon: '\u2696\uFE0F', color: '#10b981', bg: 'rgba(16,185,129,0.12)', desc: 'Critical line — bridge is lossless, conjugate impedance match' },
-  'critical-strip': { label: 'LIQUID', icon: '\uD83C\uDF0A', color: '#f59e0b', bg: 'rgba(245,158,11,0.12)', desc: 'Critical strip — zeros are active, analytic continuation required' },
-  'sub-zero': { label: 'VAPORIZED', icon: '\uD83D\uDD25', color: '#ef4444', bg: 'rgba(239,68,68,0.12)', desc: 'Sub-zero region — trivial zeros, functional equation dominates' },
+  'supercritical': { label: 'FROZEN', icon: '\u2744\uFE0F', color: ED.series1, bg: alpha(ED.series1, 0.12), desc: 'Supercritical region — zeros suppressed, series converges absolutely' },
+  'critical-line': { label: 'EQUILIBRIUM', icon: '\u2696\uFE0F', color: ED.series3, bg: alpha(ED.series3, 0.12), desc: 'Critical line — bridge is lossless, conjugate impedance match' },
+  'critical-strip': { label: 'LIQUID', icon: '\uD83C\uDF0A', color: ED.brass, bg: alpha(ED.brassDeco, 0.12), desc: 'Critical strip — zeros are active, analytic continuation required' },
+  'sub-zero': { label: 'VAPORIZED', icon: '\uD83D\uDD25', color: ED.series2, bg: alpha(ED.series2, 0.12), desc: 'Sub-zero region — trivial zeros, functional equation dominates' },
 };
 
 // ─── Semicircular Gauge Component (interactive when onChange provided) ──
@@ -1341,7 +1342,7 @@ function GaugeDial({ value, min, max, label, unit, color, size = 64, onChange })
     ctx.beginPath();
     ctx.arc(cx, cy, r, startAngle, 0);
     ctx.lineWidth = interactive ? 6 : 4;
-    ctx.strokeStyle = '#1e293b';
+    ctx.strokeStyle = ED.ruleSoft;
     ctx.stroke();
 
     // Colored arc (filled portion)
@@ -1360,7 +1361,7 @@ function GaugeDial({ value, min, max, label, unit, color, size = 64, onChange })
       ctx.beginPath();
       ctx.moveTo(cx + Math.cos(a) * inner, cy - Math.sin(a) * inner);
       ctx.lineTo(cx + Math.cos(a) * outer, cy - Math.sin(a) * outer);
-      ctx.strokeStyle = '#475569';
+      ctx.strokeStyle = ED.rule;
       ctx.lineWidth = 1;
       ctx.lineCap = 'butt';
       ctx.stroke();
@@ -1370,7 +1371,7 @@ function GaugeDial({ value, min, max, label, unit, color, size = 64, onChange })
     ctx.beginPath();
     ctx.moveTo(cx, cy);
     ctx.lineTo(cx + Math.cos(needleAngle) * (r - 3), cy - Math.sin(needleAngle) * (r - 3));
-    ctx.strokeStyle = interactive ? '#f8fafc' : '#e2e8f0';
+    ctx.strokeStyle = interactive ? ED.inkSoft : ED.inkSoft;
     ctx.lineWidth = interactive ? 2 : 1.5;
     ctx.lineCap = 'round';
     ctx.stroke();
@@ -1390,7 +1391,7 @@ function GaugeDial({ value, min, max, label, unit, color, size = 64, onChange })
     // Interactive hint
     if (interactive) {
       ctx.font = '7px Inter, sans-serif';
-      ctx.fillStyle = '#64748b';
+      ctx.fillStyle = ED.series8;
       ctx.fillText('drag', cx, cy + 20);
     }
   }, [value, min, max, color, label, size, fraction, interactive]);
@@ -1408,7 +1409,7 @@ function GaugeDial({ value, min, max, label, unit, color, size = 64, onChange })
       <div style={{ fontSize: 12, fontWeight: 700, color, fontFamily: 'JetBrains Mono, monospace', marginTop: -2 }}>
         {!isFinite(value) ? '∞' : value.toFixed(2)}
       </div>
-      <div style={{ fontSize: 8, color: '#475569' }}>{unit}</div>
+      <div style={{ fontSize: 8, color: 'var(--ink-faint)' }}>{unit}</div>
     </div>
   );
 }
@@ -1459,9 +1460,9 @@ function ThermoPanel({ sigma, t, numPrimes, onSigmaChange }) {
   }, [t, numPrimes]);
 
   const smallMetrics = [
-    { label: 'F', value: safeNum(thermo.freeEnergy, 3), unit: 'free energy', color: '#06b6d4' },
-    { label: 'S', value: safeNum(thermo.entropy, 3), unit: 'entropy', color: '#10b981' },
-    { label: 'C\u1D65', value: safeNum(thermo.specificHeat, 3), unit: 'specific heat', color: '#ec4899' },
+    { label: 'F', value: safeNum(thermo.freeEnergy, 3), unit: 'free energy', color: ED.series6 },
+    { label: 'S', value: safeNum(thermo.entropy, 3), unit: 'entropy', color: ED.series3 },
+    { label: 'C\u1D65', value: safeNum(thermo.specificHeat, 3), unit: 'specific heat', color: ED.series7 },
   ];
 
   return (
@@ -1485,7 +1486,7 @@ function ThermoPanel({ sigma, t, numPrimes, onSigmaChange }) {
       <GaugeDial
         value={thermo.temperature}
         min={0.5} max={20}
-        label="T" unit="= 1/σ" color="#f59e0b" size={76}
+        label="T" unit="= 1/σ" color={ED.brass} size={76}
         onChange={onSigmaChange ? handleTempChange : undefined}
       />
 
@@ -1493,7 +1494,7 @@ function ThermoPanel({ sigma, t, numPrimes, onSigmaChange }) {
       <GaugeDial
         value={thermo.pressure}
         min={pRange[0]} max={pRange[1]}
-        label="P" unit="pressure" color="#8b5cf6" size={76}
+        label="P" unit="pressure" color={ED.series5} size={76}
         onChange={onSigmaChange ? handlePressureChange : undefined}
       />
 
@@ -1501,12 +1502,12 @@ function ThermoPanel({ sigma, t, numPrimes, onSigmaChange }) {
       {smallMetrics.map(m => (
         <div key={m.label} style={{
           padding: '3px 10px', borderRadius: 6,
-          background: 'rgba(15,23,42,0.5)', border: '1px solid #1e293b',
+          background: 'color-mix(in srgb, var(--paper-2) 50%, transparent)', border: '1px solid var(--rule-soft)',
           textAlign: 'center', minWidth: 52,
         }}>
-          <div style={{ fontSize: 10, color: '#64748b', fontWeight: 600 }}>{m.label}</div>
+          <div style={{ fontSize: 10, color: 'var(--ink-faint)', fontWeight: 600 }}>{m.label}</div>
           <div style={{ fontSize: 13, color: m.color, fontWeight: 700, fontFamily: 'JetBrains Mono, monospace' }}>{m.value}</div>
-          <div style={{ fontSize: 8, color: '#475569' }}>{m.unit}</div>
+          <div style={{ fontSize: 8, color: 'var(--ink-faint)' }}>{m.unit}</div>
         </div>
       ))}
 
@@ -1539,8 +1540,8 @@ export default function WaveSimViz() {
   }, []);
 
   // Color the sigma slider based on phase region
-  const sigmaColor = sigma > 1 ? '#60a5fa' : sigma < 0 ? '#ef4444'
-    : Math.abs(sigma - 0.5) < 0.05 ? '#10b981' : '#f59e0b';
+  const sigmaColor = sigma > 1 ? ED.series1 : sigma < 0 ? ED.series2
+    : Math.abs(sigma - 0.5) < 0.05 ? ED.series3 : ED.series4;
 
   return (
     <div>
@@ -1576,7 +1577,7 @@ export default function WaveSimViz() {
             return bestDist < 1 ? (
               <span style={{
                 marginLeft: 6, fontSize: 11, fontFamily: 'var(--font-mono)',
-                color: bestDist < 0.3 ? '#10b981' : '#64748b',
+                color: bestDist < 0.3 ? 'var(--series-3)' : 'var(--ink-faint)',
                 cursor: 'pointer', borderBottom: '1px dashed currentColor',
               }}
                 title={`Click to snap t to γ${bestIdx + 1} = ${ZETA_ZEROS[bestIdx].toFixed(6)}`}
@@ -1591,7 +1592,7 @@ export default function WaveSimViz() {
           <label>Primes</label>
           <input type="range" min="3" max="20" step="1" value={numPrimes}
             onChange={e => setNumPrimes(+e.target.value)} />
-          <span className="control-value">{numPrimes} <span style={{ color: '#64748b', fontSize: 11 }}>(up to p={getPrimes(numPrimes)[numPrimes - 1]})</span></span>
+          <span className="control-value">{numPrimes} <span style={{ color: 'var(--ink-faint)', fontSize: 11 }}>(up to p={getPrimes(numPrimes)[numPrimes - 1]})</span></span>
         </div>
         <div className="control-group">
           <button
@@ -1602,11 +1603,11 @@ export default function WaveSimViz() {
           >
             {playing ? 'Pause' : 'Play'}
           </button>
-          <span style={{ color: '#475569', fontSize: 10, marginLeft: 6, fontFamily: 'var(--font-mono)' }}>
-            <kbd style={{ padding: '1px 5px', borderRadius: 3, border: '1px solid #334155', background: '#1e293b', fontSize: 10 }}>Space</kbd>
+          <span style={{ color: 'var(--ink-faint)', fontSize: 10, marginLeft: 6, fontFamily: 'var(--font-mono)' }}>
+            <kbd style={{ padding: '1px 5px', borderRadius: 3, border: '1px solid var(--rule)', background: 'var(--paper-3)', fontSize: 10 }}>Space</kbd>
           </span>
           {tab !== 'signal' && tab !== 'interference' && playing && (
-            <span style={{ fontSize: 11, color: '#f59e0b', marginLeft: 6 }}>animating</span>
+            <span style={{ fontSize: 11, color: 'var(--brass)', marginLeft: 6 }}>animating</span>
           )}
         </div>
       </div>
@@ -1636,9 +1637,9 @@ export default function WaveSimViz() {
             <div className="tab-explainer accent-green">
               <strong>Signal Flow:</strong> Propagating wavefronts travel bidirectionally through the LC ladder.
               Green (top) = Direct&#x2192;Dual; cyan (bottom) = Dual&#x2192;Direct.
-              Node rings show <strong>impedance matching</strong>: <span style={{ color: '#10b981' }}>green</span> = matched,{' '}
-              <span style={{ color: '#f59e0b' }}>yellow</span> = moderate mismatch,{' '}
-              <span style={{ color: '#ef4444' }}>red</span> = severe.
+              Node rings show <strong>impedance matching</strong>: <span style={{ color: 'var(--series-3)' }}>green</span> = matched,{' '}
+              <span style={{ color: 'var(--brass)' }}>yellow</span> = moderate mismatch,{' '}
+              <span style={{ color: 'var(--series-2)' }}>red</span> = severe.
               At <InlineMath tex={"\\sigma = 0.5"} /> flows balance and impedances match.
               Near zeta zeros, <strong>standing waves</strong> form. Red dots = reflected energy from lossy bridge.
             </div>

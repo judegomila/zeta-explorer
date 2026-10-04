@@ -16,9 +16,10 @@ import {
 import { ZETA_ZEROS, eulerFactor, cAbs } from '../math/zeta.js';
 import { getPrimes } from '../math/primes.js';
 import { thermodynamicState } from '../math/supercritical.js';
+import { ED, alpha } from '../styles/tokens.js';
 
 const TABS = ['Efficiency Matrix', '\u03c3 Sweep', 'Combined Score'];
-const TAB_COLORS = ['#8b5cf6', '#3b82f6', '#10b981'];
+const TAB_COLORS = [ED.series5, ED.series1, ED.series3];
 
 // Approach names used across all tabs
 const ATTACK_NAMES = [
@@ -222,7 +223,7 @@ function EfficiencyMatrixTab({ t, numPrimes }) {
     // Column headers (rotated)
     ctx.save();
     ctx.font = '10px var(--font-mono, monospace)';
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = ED.series8;
     ctx.textAlign = 'right';
     for (let j = 0; j < n; j++) {
       const x = margin.left + (j + 0.5) * cellW;
@@ -237,7 +238,7 @@ function EfficiencyMatrixTab({ t, numPrimes }) {
 
     // Row headers
     ctx.font = '10px var(--font-mono, monospace)';
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = ED.series8;
     ctx.textAlign = 'right';
     ctx.textBaseline = 'middle';
     for (let i = 0; i < n; i++) {
@@ -270,7 +271,7 @@ function EfficiencyMatrixTab({ t, numPrimes }) {
         ctx.fillRect(x + 1, y + 1, cellW - 2, cellH - 2);
 
         // Value text
-        ctx.fillStyle = absVal > 0.6 ? '#fff' : '#e2e8f0';
+        ctx.fillStyle = absVal > 0.6 ? '#fff' : ED.ink;
         ctx.font = '9px var(--font-mono, monospace)';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
@@ -297,7 +298,7 @@ function EfficiencyMatrixTab({ t, numPrimes }) {
       ctx.fillStyle = `rgb(${r2}, ${g2}, ${b2})`;
       ctx.fillRect(legX + i, legY, 1, 10);
     }
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = ED.series8;
     ctx.font = '9px var(--font-mono, monospace)';
     ctx.textAlign = 'left';
     ctx.fillText('Independent', legX, legY - 3);
@@ -335,8 +336,8 @@ function EfficiencyMatrixTab({ t, numPrimes }) {
             position: 'absolute',
             left: tooltip.x + 14,
             top: Math.max(tooltip.y - 10, 0),
-            background: '#1e293b',
-            border: '1px solid #334155',
+            background: 'var(--paper-3)',
+            border: '1px solid var(--rule)',
             borderRadius: 6,
             padding: '8px 12px',
             fontSize: 11,
@@ -346,15 +347,15 @@ function EfficiencyMatrixTab({ t, numPrimes }) {
           }}>
             <div style={{ color: ATTACK_COLORS[tooltip.col], fontWeight: 600 }}>{ATTACK_NAMES[tooltip.col]}</div>
             <div style={{ color: ATTACK_COLORS[tooltip.row], fontWeight: 600, marginBottom: 4 }}>{ATTACK_NAMES[tooltip.row]}</div>
-            <div style={{ color: '#94a3b8' }}>
-              r = <strong style={{ color: '#e2e8f0' }}>{matrix[tooltip.row][tooltip.col].toFixed(3)}</strong>
+            <div style={{ color: 'var(--ink-soft)' }}>
+              r = <strong style={{ color: 'var(--ink)' }}>{matrix[tooltip.row][tooltip.col].toFixed(3)}</strong>
             </div>
             {tooltip.row !== tooltip.col && (
               <div style={{
                 marginTop: 3,
                 fontSize: 10,
-                color: Math.abs(matrix[tooltip.row][tooltip.col]) < 0.3 ? '#10b981' :
-                       Math.abs(matrix[tooltip.row][tooltip.col]) > 0.7 ? '#ef4444' : '#f59e0b',
+                color: Math.abs(matrix[tooltip.row][tooltip.col]) < 0.3 ? 'var(--series-3)' :
+                       Math.abs(matrix[tooltip.row][tooltip.col]) > 0.7 ? 'var(--series-2)' : 'var(--brass)',
               }}>
                 {Math.abs(matrix[tooltip.row][tooltip.col]) < 0.3 ? 'Independent' :
                  Math.abs(matrix[tooltip.row][tooltip.col]) > 0.7 ? 'Redundant' : 'Moderate'}
@@ -364,13 +365,13 @@ function EfficiencyMatrixTab({ t, numPrimes }) {
         )}
       </div>
       <div style={{ display: 'flex', gap: 16, marginTop: 12, flexWrap: 'wrap' }}>
-        <div style={{ background: '#0f172a', padding: '8px 14px', borderRadius: 8, fontSize: 12 }}>
-          <span style={{ color: '#10b981' }}>Independent pairs (|r| &lt; 0.3):</span>{' '}
-          <strong style={{ color: '#fff' }}>{indepCount} / 36</strong>
+        <div style={{ background: 'var(--paper-2)', padding: '8px 14px', borderRadius: 8, fontSize: 12 }}>
+          <span style={{ color: 'var(--series-3)' }}>Independent pairs (|r| &lt; 0.3):</span>{' '}
+          <strong style={{ color: 'var(--ink)' }}>{indepCount} / 36</strong>
         </div>
-        <div style={{ background: '#0f172a', padding: '8px 14px', borderRadius: 8, fontSize: 12 }}>
-          <span style={{ color: '#ef4444' }}>Redundant pairs (|r| &gt; 0.7):</span>{' '}
-          <strong style={{ color: '#fff' }}>
+        <div style={{ background: 'var(--paper-2)', padding: '8px 14px', borderRadius: 8, fontSize: 12 }}>
+          <span style={{ color: 'var(--series-2)' }}>Redundant pairs (|r| &gt; 0.7):</span>{' '}
+          <strong style={{ color: 'var(--ink)' }}>
             {(() => {
               let c = 0;
               for (let i = 0; i < 9; i++) for (let j = i + 1; j < 9; j++) if (Math.abs(matrix[i][j]) > 0.7) c++;
@@ -425,7 +426,7 @@ function SigmaSweepTab({ t, numPrimes, sigmaMin, sigmaMax }) {
     maxScore *= 1.1;
 
     // Axes
-    ctx.strokeStyle = '#334155';
+    ctx.strokeStyle = ED.rule;
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.moveTo(margin.left, margin.top);
@@ -435,7 +436,7 @@ function SigmaSweepTab({ t, numPrimes, sigmaMin, sigmaMax }) {
 
     // Grid
     ctx.setLineDash([3, 4]);
-    ctx.strokeStyle = '#1e293b';
+    ctx.strokeStyle = ED.ruleSoft;
     for (let i = 1; i <= 4; i++) {
       const y = h - margin.bottom - (i / 4) * plotH;
       ctx.beginPath();
@@ -447,7 +448,7 @@ function SigmaSweepTab({ t, numPrimes, sigmaMin, sigmaMax }) {
 
     // Vertical line at sigma=0.5
     const xHalf = margin.left + ((0.5 - sigmaMin) / (sigmaMax - sigmaMin)) * plotW;
-    ctx.strokeStyle = '#f59e0b44';
+    ctx.strokeStyle = alpha(ED.brassDeco, 0.27);
     ctx.lineWidth = 2;
     ctx.setLineDash([6, 4]);
     ctx.beginPath();
@@ -457,7 +458,7 @@ function SigmaSweepTab({ t, numPrimes, sigmaMin, sigmaMax }) {
     ctx.setLineDash([]);
 
     // Label
-    ctx.fillStyle = '#f59e0b';
+    ctx.fillStyle = ED.series4;
     ctx.font = '11px var(--font-mono, monospace)';
     ctx.textAlign = 'center';
     ctx.fillText('\u03c3 = 1/2', xHalf, margin.top - 8);
@@ -477,7 +478,7 @@ function SigmaSweepTab({ t, numPrimes, sigmaMin, sigmaMax }) {
     }
 
     // X-axis labels
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = ED.series8;
     ctx.font = '10px var(--font-mono, monospace)';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'top';
@@ -573,7 +574,7 @@ function CombinedScoreTab({ t, numPrimes, sigmaMin, sigmaMax, weights }) {
     maxVal *= 1.15;
 
     // Axes
-    ctx.strokeStyle = '#334155';
+    ctx.strokeStyle = ED.rule;
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.moveTo(margin.left, margin.top);
@@ -583,7 +584,7 @@ function CombinedScoreTab({ t, numPrimes, sigmaMin, sigmaMax, weights }) {
 
     // Grid
     ctx.setLineDash([3, 4]);
-    ctx.strokeStyle = '#1e293b';
+    ctx.strokeStyle = ED.ruleSoft;
     for (let i = 1; i <= 4; i++) {
       const y = h - margin.bottom - (i / 4) * plotH;
       ctx.beginPath();
@@ -595,7 +596,7 @@ function CombinedScoreTab({ t, numPrimes, sigmaMin, sigmaMax, weights }) {
 
     // Vertical line at sigma=0.5
     const xHalf = margin.left + ((0.5 - sigmaMin) / (sigmaMax - sigmaMin)) * plotW;
-    ctx.strokeStyle = '#f59e0b44';
+    ctx.strokeStyle = alpha(ED.brassDeco, 0.27);
     ctx.lineWidth = 2;
     ctx.setLineDash([6, 4]);
     ctx.beginPath();
@@ -604,7 +605,7 @@ function CombinedScoreTab({ t, numPrimes, sigmaMin, sigmaMax, weights }) {
     ctx.stroke();
     ctx.setLineDash([]);
 
-    ctx.fillStyle = '#f59e0b';
+    ctx.fillStyle = ED.series4;
     ctx.font = '11px var(--font-mono, monospace)';
     ctx.textAlign = 'center';
     ctx.fillText('\u03c3 = 1/2', xHalf, margin.top - 8);
@@ -620,11 +621,11 @@ function CombinedScoreTab({ t, numPrimes, sigmaMin, sigmaMax, weights }) {
     ctx.lineTo(margin.left + plotW, h - margin.bottom);
     ctx.lineTo(margin.left, h - margin.bottom);
     ctx.closePath();
-    ctx.fillStyle = 'rgba(16, 185, 129, 0.12)';
+    ctx.fillStyle = alpha(ED.series3, 0.12);
     ctx.fill();
 
     // Draw best-individual line (dashed)
-    ctx.strokeStyle = '#64748b';
+    ctx.strokeStyle = ED.rule;
     ctx.lineWidth = 1.5;
     ctx.setLineDash([5, 5]);
     ctx.beginPath();
@@ -638,7 +639,7 @@ function CombinedScoreTab({ t, numPrimes, sigmaMin, sigmaMax, weights }) {
     ctx.setLineDash([]);
 
     // Draw combined line (thick)
-    ctx.strokeStyle = '#10b981';
+    ctx.strokeStyle = ED.series3;
     ctx.lineWidth = 2.5;
     ctx.beginPath();
     for (let i = 0; i < data.length; i++) {
@@ -655,7 +656,7 @@ function CombinedScoreTab({ t, numPrimes, sigmaMin, sigmaMax, weights }) {
     const peakY = h - margin.bottom - (peak.combined / maxVal) * plotH;
     ctx.beginPath();
     ctx.arc(peakX, peakY, 5, 0, Math.PI * 2);
-    ctx.fillStyle = '#10b981';
+    ctx.fillStyle = ED.series3;
     ctx.fill();
     ctx.fillStyle = '#fff';
     ctx.font = '10px var(--font-mono, monospace)';
@@ -663,7 +664,7 @@ function CombinedScoreTab({ t, numPrimes, sigmaMin, sigmaMax, weights }) {
     ctx.fillText(`peak: \u03c3=${peak.sigma.toFixed(3)}`, peakX + 10, peakY - 4);
 
     // X-axis labels
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = ED.series8;
     ctx.font = '10px var(--font-mono, monospace)';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'top';
@@ -703,16 +704,16 @@ function CombinedScoreTab({ t, numPrimes, sigmaMin, sigmaMax, weights }) {
       <canvas ref={canvasRef} style={{ width: '100%', height: 380, display: 'block' }} />
       <div style={{ display: 'flex', gap: 16, marginTop: 12, flexWrap: 'wrap' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 11 }}>
-          <span style={{ width: 20, height: 3, background: '#10b981', display: 'inline-block', borderRadius: 2 }} />
-          <span style={{ color: '#10b981' }}>Combined (weighted)</span>
+          <span style={{ width: 20, height: 3, background: 'var(--series-3)', display: 'inline-block', borderRadius: 2 }} />
+          <span style={{ color: 'var(--series-3)' }}>Combined (weighted)</span>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 11 }}>
-          <span style={{ width: 20, height: 3, background: '#64748b', display: 'inline-block', borderRadius: 2, borderTop: '1px dashed #64748b' }} />
-          <span style={{ color: '#64748b' }}>Best individual</span>
+          <span style={{ width: 20, height: 3, background: '#64748b', display: 'inline-block', borderRadius: 2, borderTop: '1px dashed var(--rule)' }} />
+          <span style={{ color: 'var(--ink-faint)' }}>Best individual</span>
         </div>
-        <div style={{ background: '#0f172a', padding: '6px 12px', borderRadius: 8, fontSize: 12, marginLeft: 'auto' }}>
-          <span style={{ color: '#94a3b8' }}>Combined / Best ratio:</span>{' '}
-          <strong style={{ color: improvement > 1 ? '#10b981' : '#ef4444' }}>{improvement.toFixed(2)}x</strong>
+        <div style={{ background: 'var(--paper-2)', padding: '6px 12px', borderRadius: 8, fontSize: 12, marginLeft: 'auto' }}>
+          <span style={{ color: 'var(--ink-soft)' }}>Combined / Best ratio:</span>{' '}
+          <strong style={{ color: improvement > 1 ? 'var(--series-3)' : 'var(--series-2)' }}>{improvement.toFixed(2)}x</strong>
         </div>
       </div>
     </div>
@@ -740,15 +741,15 @@ export default function CrossAttackViz() {
   return (
     <div className="card" style={{ marginTop: 20, marginBottom: 20, padding: 24 }}>
       {/* Tab bar */}
-      <div style={{ display: 'flex', gap: 0, marginBottom: 16, borderBottom: '1px solid #1e293b' }}>
+      <div style={{ display: 'flex', gap: 0, marginBottom: 16, borderBottom: '1px solid var(--rule-soft)' }}>
         {TABS.map((label, i) => (
           <button
             key={label}
             onClick={() => setTab(i)}
             style={{
               padding: '8px 18px',
-              background: tab === i ? '#1e293b' : 'transparent',
-              color: tab === i ? TAB_COLORS[i] : '#64748b',
+              background: tab === i ? 'var(--paper-3)' : 'transparent',
+              color: tab === i ? TAB_COLORS[i] : 'var(--ink-faint)',
               border: 'none',
               borderBottom: tab === i ? `2px solid ${TAB_COLORS[i]}` : '2px solid transparent',
               cursor: 'pointer',
@@ -765,49 +766,49 @@ export default function CrossAttackViz() {
 
       {/* Controls */}
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, marginBottom: 16, alignItems: 'center' }}>
-        <label style={{ fontSize: 12, color: '#94a3b8' }}>
+        <label style={{ fontSize: 12, color: 'var(--ink-soft)' }}>
           t ={' '}
           <select
             value={t}
             onChange={e => setT(Number(e.target.value))}
-            style={{ background: '#0f172a', color: '#e2e8f0', border: '1px solid #334155', borderRadius: 4, padding: '3px 6px', fontSize: 12 }}
+            style={{ background: 'var(--paper-2)', color: 'var(--ink)', border: '1px solid var(--rule)', borderRadius: 4, padding: '3px 6px', fontSize: 12 }}
           >
             {ZETA_ZEROS.slice(0, 10).map(gamma => (
               <option key={gamma} value={gamma}>{gamma.toFixed(2)}</option>
             ))}
           </select>
         </label>
-        <label style={{ fontSize: 12, color: '#94a3b8' }}>
+        <label style={{ fontSize: 12, color: 'var(--ink-soft)' }}>
           Primes:{' '}
           <input
             type="range" min={5} max={25} value={numPrimes}
             onChange={e => setNumPrimes(Number(e.target.value))}
             style={{ width: 80, verticalAlign: 'middle' }}
           />
-          <span style={{ color: '#e2e8f0', marginLeft: 4 }}>{numPrimes}</span>
+          <span style={{ color: 'var(--ink)', marginLeft: 4 }}>{numPrimes}</span>
         </label>
-        <label style={{ fontSize: 12, color: '#94a3b8' }}>
+        <label style={{ fontSize: 12, color: 'var(--ink-soft)' }}>
           <InlineMath tex={String.raw`\sigma`} /> range:{' '}
           <input
             type="number" step={0.05} min={0.01} max={0.45}
             value={sigmaMin}
             onChange={e => setSigmaMin(Number(e.target.value))}
-            style={{ width: 50, background: '#0f172a', color: '#e2e8f0', border: '1px solid #334155', borderRadius: 4, padding: '3px 6px', fontSize: 12 }}
+            style={{ width: 50, background: 'var(--paper-2)', color: 'var(--ink)', border: '1px solid var(--rule)', borderRadius: 4, padding: '3px 6px', fontSize: 12 }}
           />
           {' - '}
           <input
             type="number" step={0.05} min={0.55} max={0.99}
             value={sigmaMax}
             onChange={e => setSigmaMax(Number(e.target.value))}
-            style={{ width: 50, background: '#0f172a', color: '#e2e8f0', border: '1px solid #334155', borderRadius: 4, padding: '3px 6px', fontSize: 12 }}
+            style={{ width: 50, background: 'var(--paper-2)', color: 'var(--ink)', border: '1px solid var(--rule)', borderRadius: 4, padding: '3px 6px', fontSize: 12 }}
           />
         </label>
       </div>
 
       {/* Weight sliders (show on Combined Score tab) */}
       {tab === 2 && (
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: 8, marginBottom: 16, padding: 12, background: '#0f172a', borderRadius: 8 }}>
-          <div style={{ gridColumn: '1 / -1', fontSize: 11, color: '#64748b', fontWeight: 600, marginBottom: 4 }}>Approach Weights</div>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: 8, marginBottom: 16, padding: 12, background: 'var(--paper-2)', borderRadius: 8 }}>
+          <div style={{ gridColumn: '1 / -1', fontSize: 11, color: 'var(--ink-faint)', fontWeight: 600, marginBottom: 4 }}>Approach Weights</div>
           {ATTACK_NAMES.map((name, i) => (
             <label key={name} style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 11 }}>
               <span style={{ color: ATTACK_COLORS[i], width: 85, flexShrink: 0 }}>{name}</span>
@@ -817,7 +818,7 @@ export default function CrossAttackViz() {
                 onChange={e => setWeight(i, Number(e.target.value))}
                 style={{ flex: 1, maxWidth: 80 }}
               />
-              <span style={{ color: '#e2e8f0', width: 28, textAlign: 'right' }}>{weights[i].toFixed(1)}</span>
+              <span style={{ color: 'var(--ink)', width: 28, textAlign: 'right' }}>{weights[i].toFixed(1)}</span>
             </label>
           ))}
         </div>

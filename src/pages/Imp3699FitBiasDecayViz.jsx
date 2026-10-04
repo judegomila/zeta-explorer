@@ -9,11 +9,12 @@ import {
   IMP3699_SADDLE_RATIO_FIRST,
   IMP3699_SADDLE_RATIO_LAST,
 } from '../data/imp-3699-fit-bias-decay-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
-const BIAS_COLOR = '#38bdf8';
-const RATIO_COLOR = '#f59e0b';
-const SADDLE_COLOR = '#34d399';
-const REF_COLOR = '#64748b';
+const BIAS_COLOR = ED.series1;
+const RATIO_COLOR = ED.series4;
+const SADDLE_COLOR = ED.series3;
+const REF_COLOR = ED.series8;
 
 function FitBiasDecayChart() {
   const svgW = 620;
@@ -37,12 +38,12 @@ function FitBiasDecayChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
       {[3, 6, 9, 12, 15, 18].map((n) => (
         <g key={n}>
-          <line x1={xS(n)} y1={padT} x2={xS(n)} y2={padT + cH} stroke="#1e293b" strokeWidth={0.7} />
-          <text x={xS(n)} y={padT + cH + 15} textAnchor="middle" fill="#64748b" fontSize={9}>
+          <line x1={xS(n)} y1={padT} x2={xS(n)} y2={padT + cH} stroke={ED.ruleSoft} strokeWidth={0.7} />
+          <text x={xS(n)} y={padT + cH + 15} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
             {n}
           </text>
         </g>
@@ -54,12 +55,12 @@ function FitBiasDecayChart() {
         <circle key={r.n} cx={xS(r.n)} cy={yS(r.fitBias)} r={3.5} fill={BIAS_COLOR} stroke="#052e1f" strokeWidth={1} />
       ))}
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
 
-      <text x={padL + cW / 2} y={padT + cH + 30} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={padT + cH + 30} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         n
       </text>
-      <text x={14} y={padT + cH / 2} textAnchor="middle" fill="#64748b" fontSize={10} transform={`rotate(-90,14,${padT + cH / 2})`}>
+      <text x={14} y={padT + cH / 2} textAnchor="middle" fill={ED.inkFaint} fontSize={10} transform={`rotate(-90,14,${padT + cH / 2})`}>
         |p_fit - 2| (log scale)
       </text>
     </svg>
@@ -92,12 +93,12 @@ function RatioDriftChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
       {[3, 6, 9, 12, 15, 18].map((n) => (
         <g key={n}>
-          <line x1={xS(n)} y1={padT} x2={xS(n)} y2={padT + cH} stroke="#1e293b" strokeWidth={0.7} />
-          <text x={xS(n)} y={padT + cH + 15} textAnchor="middle" fill="#64748b" fontSize={9}>
+          <line x1={xS(n)} y1={padT} x2={xS(n)} y2={padT + cH} stroke={ED.ruleSoft} strokeWidth={0.7} />
+          <text x={xS(n)} y={padT + cH + 15} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
             {n}
           </text>
         </g>
@@ -126,9 +127,9 @@ function RatioDriftChart() {
         />
       ))}
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
 
-      <text x={padL + cW / 2} y={padT + cH + 30} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={padT + cH + 30} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         n
       </text>
       <text x={padL + 8} y={padT + 14} fill={SADDLE_COLOR} fontSize={9}>
@@ -143,9 +144,9 @@ function RatioDriftChart() {
 
 function RungTable() {
   return (
-    <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.8rem', color: '#94a3b8' }}>
+    <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.8rem', color: 'var(--ink-soft)' }}>
       <thead>
-        <tr style={{ borderBottom: '1px solid #334155' }}>
+        <tr style={{ borderBottom: '1px solid var(--rule)' }}>
           <th style={{ textAlign: 'left', padding: '0.35rem 0.5rem' }}>n</th>
           <th style={{ textAlign: 'right', padding: '0.35rem 0.5rem' }}>|p_fit-2|</th>
           <th style={{ textAlign: 'right', padding: '0.35rem 0.5rem' }}>ratio to (ln n)^2/n^3</th>
@@ -154,7 +155,7 @@ function RungTable() {
       </thead>
       <tbody>
         {IMP3699_RUNGS.map((r) => (
-          <tr key={r.n} style={{ borderBottom: '1px solid #1e293b' }}>
+          <tr key={r.n} style={{ borderBottom: '1px solid var(--rule-soft)' }}>
             <td style={{ padding: '0.35rem 0.5rem' }}>{r.n}</td>
             <td style={{ textAlign: 'right', padding: '0.35rem 0.5rem', color: BIAS_COLOR }}>{r.fitBias.toExponential(4)}</td>
             <td style={{ textAlign: 'right', padding: '0.35rem 0.5rem', color: RATIO_COLOR }}>{r.ratioToLnRate.toExponential(4)}</td>
@@ -171,7 +172,7 @@ export default function Imp3699FitBiasDecayViz() {
     <div style={{ padding: '1.5rem', maxWidth: 940, margin: '0 auto' }}>
       <PageHeader title="Observable Fit-Bias Decay Rate (imp-3670)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
         imp-3670 measured the observable fit-bias |p_fit - 2| across the rung ladder n=3..18 and
         compared it against the imp-3646-derived slowly-varying rate (ln n)^2/n^3. The observable
         law |p_fit-2| = |D_n| cov(a^2,ln a)/var(ln a) holds to &le; 2e-9 at every rung, and
@@ -179,17 +180,17 @@ export default function Imp3699FitBiasDecayViz() {
         {IMP3699_FIT_BIAS_LAST.toExponential(4)} (n=18).
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         Observable fit-bias |p_fit - 2| decaying monotonically over n=3..18
       </p>
       <FitBiasDecayChart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.75rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.75rem 0 0.5rem' }}>
         Naive (ln n)^2/n^3 ratio drifting up (orange) vs the exact-saddle ratio converging to 1 (green)
       </p>
       <RatioDriftChart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.75rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.75rem 0 0.5rem' }}>
         Measured rungs
       </p>
       <RungTable />
@@ -198,14 +199,14 @@ export default function Imp3699FitBiasDecayViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> the top chart shows the
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> the top chart shows the
         observable |p_fit-2| falling monotonically (log scale) across the ladder. The bottom chart
         shows why the naive (ln n)^2/n^3 rate is misleading at these finite rungs: the ratio
         |p_fit-2| / ((ln n)^2/n^3) (orange) is still strictly climbing at n=18
@@ -220,14 +221,14 @@ export default function Imp3699FitBiasDecayViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement only -- this
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> measurement only -- this
         visualizes the imp-3670 observable decay-rate readout used inside a mass-feasibility
         diagnostic. It establishes NO operator positivity. RH-equivalent, necessary-but-not-sufficient.
         The imp-3066 K_a &ge; 0 sign-positivity obstruction remains untouched. Named residual sg-3670-lnn-saddle-not-asymptotic-at-n18.

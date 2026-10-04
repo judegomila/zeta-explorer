@@ -8,8 +8,9 @@ import {
   IMP3586_LOGISTIC_CAP,
   IMP3586_CROSSOVER,
 } from '../data/imp-3586-sigma-crossing-logistic-drop-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
-const COLORS = { curve: '#10b981', threshold: '#a855f7', drop: '#38bdf8', peak: '#f472b6', cap: '#f59e0b', crossover: '#facc15' };
+const COLORS = { curve: ED.series3, threshold: ED.series5, drop: ED.series1, peak: ED.series7, cap: ED.series4, crossover: ED.series4 };
 
 const LOG10N_MIN = 7.0;
 const LOG10N_MAX = 14.5;
@@ -34,12 +35,12 @@ function SigmaCrossingsChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
       {[0.01, 0.1, 0.5, 1].map((v) => (
         <g key={v}>
-          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke="#1e293b" strokeWidth={0.7} />
-          <text x={padL - 4} y={yS(v) + 3.5} textAnchor="end" fill="#475569" fontSize={9}>
+          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke={ED.ruleSoft} strokeWidth={0.7} />
+          <text x={padL - 4} y={yS(v) + 3.5} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v}
           </text>
         </g>
@@ -62,19 +63,19 @@ function SigmaCrossingsChart() {
       <path d={curvePath} fill="none" stroke={COLORS.curve} strokeWidth={2} />
 
       {IMP3586_CROSSINGS.map((c) => (
-        <circle key={c.sigma_below} cx={xS(c.log10N)} cy={yS(c.sigma_below)} r={4} fill={COLORS.threshold} stroke="#0a0f1a" strokeWidth={1} />
+        <circle key={c.sigma_below} cx={xS(c.log10N)} cy={yS(c.sigma_below)} r={4} fill={COLORS.threshold} stroke={ED.paper} strokeWidth={1} />
       ))}
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
 
       {IMP3586_CROSSINGS.map((c) => (
         <g key={'x' + c.sigma_below}>
-          <line x1={xS(c.log10N)} y1={padT + cH} x2={xS(c.log10N)} y2={padT + cH + 5} stroke="#334155" strokeWidth={1} />
+          <line x1={xS(c.log10N)} y1={padT + cH} x2={xS(c.log10N)} y2={padT + cH + 5} stroke={ED.rule} strokeWidth={1} />
           <text
             x={xS(c.log10N)}
             y={padT + cH + 16}
             textAnchor="middle"
-            fill="#64748b"
+            fill={ED.inkFaint}
             fontSize={7.5}
             transform={'rotate(-40,' + xS(c.log10N) + ',' + (padT + cH + 16) + ')'}
           >
@@ -82,19 +83,19 @@ function SigmaCrossingsChart() {
           </text>
         </g>
       ))}
-      <text x={padL + cW / 2} y={padT + cH + 40} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={padT + cH + 40} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         log10 N at threshold crossing
       </text>
 
-      <text x={12} y={padT + cH / 2} textAnchor="middle" fill="#64748b" fontSize={10} transform={'rotate(-90,12,' + (padT + cH / 2) + ')'}>
+      <text x={12} y={padT + cH / 2} textAnchor="middle" fill={ED.inkFaint} fontSize={10} transform={'rotate(-90,12,' + (padT + cH / 2) + ')'}>
         sigma(N) (log scale)
       </text>
 
       <g fontSize={9}>
         <line x1={padL + 2} y1={padT + 12} x2={padL + 10} y2={padT + 12} stroke={COLORS.curve} strokeWidth={2} />
-        <text x={padL + 14} y={padT + 15} fill="#6ee7b7">sigma(N) post-peak curve</text>
+        <text x={padL + 14} y={padT + 15} fill={ED.series3}>sigma(N) post-peak curve</text>
         <circle cx={padL + 6} cy={padT + 26} r={4} fill={COLORS.threshold} />
-        <text x={padL + 14} y={padT + 29} fill="#d8b4fe">root-solved crossings (0.9, 0.75, 0.5, 0.25, 0.1, 0.01)</text>
+        <text x={padL + 14} y={padT + 29} fill={ED.series5}>root-solved crossings (0.9, 0.75, 0.5, 0.25, 0.1, 0.01)</text>
       </g>
     </svg>
   );
@@ -120,24 +121,24 @@ function LogisticDropChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
       {[0, 0.1, 0.2, 0.3].map((v) => (
         <g key={v}>
-          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke="#1e293b" strokeWidth={0.7} />
-          <text x={padL - 4} y={yS(v) + 3.5} textAnchor="end" fill="#475569" fontSize={9}>
+          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke={ED.ruleSoft} strokeWidth={0.7} />
+          <text x={padL - 4} y={yS(v) + 3.5} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v.toFixed(1)}
           </text>
         </g>
       ))}
 
       <line x1={padL} y1={yS(IMP3586_LOGISTIC_CAP)} x2={padL + cW} y2={yS(IMP3586_LOGISTIC_CAP)} stroke={COLORS.cap} strokeWidth={1.4} strokeDasharray="5,3" />
-      <text x={padL + cW - 4} y={yS(IMP3586_LOGISTIC_CAP) - 6} textAnchor="end" fill="#fbbf24" fontSize={9}>
+      <text x={padL + cW - 4} y={yS(IMP3586_LOGISTIC_CAP) - 6} textAnchor="end" fill={ED.brass} fontSize={9}>
         untrimmed logistic cap ln10/8 = {IMP3586_LOGISTIC_CAP.toFixed(5)}
       </text>
 
       <line x1={xS(IMP3586_CROSSOVER.log10N_sigma_half)} y1={padT} x2={xS(IMP3586_CROSSOVER.log10N_sigma_half)} y2={padT + cH} stroke={COLORS.crossover} strokeWidth={1} strokeDasharray="3,3" />
-      <text x={xS(IMP3586_CROSSOVER.log10N_sigma_half) + 4} y={padT + 12} fill="#fde047" fontSize={8.5}>
+      <text x={xS(IMP3586_CROSSOVER.log10N_sigma_half) + 4} y={padT + 12} fill={ED.brass} fontSize={8.5}>
         E_coll=E_trunc crossover
       </text>
 
@@ -148,31 +149,31 @@ function LogisticDropChart() {
       ))}
 
       <circle cx={xS(IMP3586_PEAK.log10N)} cy={yS(IMP3586_PEAK.drop)} r={5.5} fill="none" stroke={COLORS.peak} strokeWidth={2} />
-      <text x={xS(IMP3586_PEAK.log10N) + 6} y={yS(IMP3586_PEAK.drop) - 8} fill="#f9a8d4" fontSize={9}>
+      <text x={xS(IMP3586_PEAK.log10N) + 6} y={yS(IMP3586_PEAK.drop) - 8} fill={ED.series7} fontSize={9}>
         peak {IMP3586_PEAK.drop.toFixed(4)}/decade, sigma&asymp;{IMP3586_PEAK.sigma.toFixed(4)}
       </text>
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
 
       {[7, 8, 9, 10, 11, 12, 13, 14].map((v) => (
         <g key={'x' + v}>
-          <line x1={xS(v)} y1={padT + cH} x2={xS(v)} y2={padT + cH + 5} stroke="#334155" strokeWidth={1} />
-          <text x={xS(v)} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={8.5}>
+          <line x1={xS(v)} y1={padT + cH} x2={xS(v)} y2={padT + cH + 5} stroke={ED.rule} strokeWidth={1} />
+          <text x={xS(v)} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={8.5}>
             {v}
           </text>
         </g>
       ))}
-      <text x={padL + cW / 2} y={padT + cH + 34} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={padT + cH + 34} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         log10 N
       </text>
 
-      <text x={12} y={padT + cH / 2} textAnchor="middle" fill="#64748b" fontSize={10} transform={'rotate(-90,12,' + (padT + cH / 2) + ')'}>
+      <text x={12} y={padT + cH / 2} textAnchor="middle" fill={ED.inkFaint} fontSize={10} transform={'rotate(-90,12,' + (padT + cH / 2) + ')'}>
         -d sigma / d log10 N
       </text>
 
       <g fontSize={9}>
         <line x1={padL + 2} y1={padT + 12} x2={padL + 10} y2={padT + 12} stroke={COLORS.drop} strokeWidth={2} />
-        <text x={padL + 14} y={padT + 15} fill="#7dd3fc">logistic sigma-drop profile</text>
+        <text x={padL + 14} y={padT + 15} fill={ED.series1}>logistic sigma-drop profile</text>
       </g>
     </svg>
   );
@@ -183,7 +184,7 @@ export default function Imp3586SigmaCrossingLogisticDropViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Sigma(N) Crossings and Logistic Drop Profile (imp-3556 / imp-3586)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         The imp-3556 root-solved post-peak crossings (residual &lt; 1e-9) mark where the
         conditional share sigma(N) = E_coll/E(N) falls below 0.9, 0.75, 0.5, 0.25, 0.1, and
         0.01, spanning log10 N &asymp; {IMP3586_CROSSINGS[0].log10N.toFixed(2)} to{' '}
@@ -194,12 +195,12 @@ export default function Imp3586SigmaCrossingLogisticDropViz() {
         cap ln(10)/8 = {IMP3586_LOGISTIC_CAP.toFixed(5)}.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         sigma(N) post-peak curve with the six root-solved threshold crossings
       </p>
       <SigmaCrossingsChart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
         Logistic sigma-drop profile -d sigma/d log10 N, peak and ln10/8 cap marked
       </p>
       <LogisticDropChart />
@@ -208,23 +209,23 @@ export default function Imp3586SigmaCrossingLogisticDropViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement/visualization
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> measurement/visualization
         only -- no proof, no reduction below RH. The crossings are certified roots on the exact
         imp-3220/imp-3406/imp-3463 sub-terms, and the drop profile is a central-difference
         reading of the same sigma(N), not a fresh derivation. The imp-3066 K_a &ge; 0
         sign-positivity residual remains untouched.
       </div>
 
-      <div style={{ marginTop: '1rem', fontSize: '0.85rem', color: '#64748b' }}>
+      <div style={{ marginTop: '1rem', fontSize: '0.85rem', color: 'var(--ink-faint)' }}>
         <strong>Related:</strong>{' '}
-        <Link to="/viz-imp3565-sigma-postpeak-decay-exponent" style={{ color: '#7c3aed' }}>
+        <Link to="/viz-imp3565-sigma-postpeak-decay-exponent" style={{ color: 'var(--series-5)' }}>
           Sigma(N) Post-Peak Decay Exponent (imp-3565)
         </Link>
       </div>

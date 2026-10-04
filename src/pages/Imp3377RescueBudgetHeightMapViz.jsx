@@ -7,9 +7,10 @@ import {
   IMP3377_ANCHOR_K_CERTIFIED,
   IMP3377_ANCHOR_K_ASSEMBLY,
 } from '../data/imp-3377-rescue-budget-height-map-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 const ANCHORS = [IMP3377_ANCHOR_K1, IMP3377_ANCHOR_K_CERTIFIED, IMP3377_ANCHOR_K_ASSEMBLY];
-const ANCHOR_COLORS = ['#f59e0b', '#38bdf8', '#a78bfa'];
+const ANCHOR_COLORS = [ED.series4, ED.series1, ED.series5];
 
 function KMaxChart() {
   const svgW = 680;
@@ -37,18 +38,18 @@ function KMaxChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
       {yTicks.map((v) => (
         <g key={v}>
-          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke="#1e293b" strokeWidth={0.7} />
-          <text x={padL - 6} y={yS(v) + 3.5} textAnchor="end" fill="#475569" fontSize={9}>
+          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke={ED.ruleSoft} strokeWidth={0.7} />
+          <text x={padL - 6} y={yS(v) + 3.5} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v}
           </text>
         </g>
       ))}
 
-      <path d={path} fill="none" stroke="#38bdf8" strokeWidth={2} />
+      <path d={path} fill="none" stroke={ED.series1} strokeWidth={2} />
 
       {ANCHORS.map((a, i) => (
         <g key={a.label}>
@@ -57,20 +58,20 @@ function KMaxChart() {
         </g>
       ))}
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
 
       {xTicks.map((N) => (
         <g key={'x' + N}>
-          <line x1={xS(N)} y1={padT + cH} x2={xS(N)} y2={padT + cH + 5} stroke="#334155" strokeWidth={1} />
-          <text x={xS(N)} y={padT + cH + 17} textAnchor="middle" fill="#64748b" fontSize={8.5}>
+          <line x1={xS(N)} y1={padT + cH} x2={xS(N)} y2={padT + cH + 5} stroke={ED.rule} strokeWidth={1} />
+          <text x={xS(N)} y={padT + cH + 17} textAnchor="middle" fill={ED.inkFaint} fontSize={8.5}>
             {N.toExponential(0)}
           </text>
         </g>
       ))}
-      <text x={padL + cW / 2} y={padT + cH + 36} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={padT + cH + 36} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         N, height (log scale)
       </text>
-      <text x={16} y={padT + cH / 2} textAnchor="middle" fill="#64748b" fontSize={10} transform={'rotate(-90,16,' + (padT + cH / 2) + ')'}>
+      <text x={16} y={padT + cH / 2} textAnchor="middle" fill={ED.inkFaint} fontSize={10} transform={'rotate(-90,16,' + (padT + cH / 2) + ')'}>
         K_max(N) (log scale)
       </text>
     </svg>
@@ -103,37 +104,37 @@ function InverseChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
       {yTicks.map((v) => (
         <g key={v}>
-          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke="#1e293b" strokeWidth={0.7} />
-          <text x={padL - 6} y={yS(v) + 3.5} textAnchor="end" fill="#475569" fontSize={9}>
+          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke={ED.ruleSoft} strokeWidth={0.7} />
+          <text x={padL - 6} y={yS(v) + 3.5} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v.toExponential(0)}
           </text>
         </g>
       ))}
 
-      <path d={path} fill="none" stroke="#34d399" strokeWidth={2} />
+      <path d={path} fill="none" stroke={ED.series3} strokeWidth={2} />
 
       {ANCHORS.map((a, i) => (
         <circle key={a.label} cx={xS(a.K)} cy={yS(a.N)} r={3.8} fill={ANCHOR_COLORS[i]} />
       ))}
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
 
       {xTicks.map((K) => (
         <g key={'x' + K}>
-          <line x1={xS(K)} y1={padT + cH} x2={xS(K)} y2={padT + cH + 5} stroke="#334155" strokeWidth={1} />
-          <text x={xS(K)} y={padT + cH + 17} textAnchor="middle" fill="#64748b" fontSize={8.5}>
+          <line x1={xS(K)} y1={padT + cH} x2={xS(K)} y2={padT + cH + 5} stroke={ED.rule} strokeWidth={1} />
+          <text x={xS(K)} y={padT + cH + 17} textAnchor="middle" fill={ED.inkFaint} fontSize={8.5}>
             {K}
           </text>
         </g>
       ))}
-      <text x={padL + cW / 2} y={padT + cH + 36} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={padT + cH + 36} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         K, tolerated C_mb bound (log scale)
       </text>
-      <text x={16} y={padT + cH / 2} textAnchor="middle" fill="#64748b" fontSize={10} transform={'rotate(-90,16,' + (padT + cH / 2) + ')'}>
+      <text x={16} y={padT + cH / 2} textAnchor="middle" fill={ED.inkFaint} fontSize={10} transform={'rotate(-90,16,' + (padT + cH / 2) + ')'}>
         N_min(K) (log scale)
       </text>
     </svg>
@@ -145,7 +146,7 @@ export default function Imp3377RescueBudgetHeightMapViz() {
     <div style={{ padding: '1.5rem', maxWidth: 940, margin: '0 auto' }}>
       <PageHeader title="Rescue-Budget K-to-Height Map (imp-3275)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
         The imp-486 rescue gate K &middot; log(N)/sqrt(N) &lt; {IMP3377_RESCUE_THRESHOLD} tolerates
         a weaker unconditional many-body-correction bound C_mb &le; K only above a K-dependent
         entry height. The rescue budget K_max(N) = {IMP3377_RESCUE_THRESHOLD} &middot; sqrt(N) /
@@ -154,17 +155,17 @@ export default function Imp3377RescueBudgetHeightMapViz() {
         in the beat value.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         K_max(N) vs N: the rescue budget rising across the recorded assembly
       </p>
       <KMaxChart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.75rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.75rem 0 0.5rem' }}>
         Inverse map N_min(K) vs K: smallest height clearing the gate for a given tolerated K
       </p>
       <InverseChart />
 
-      <div style={{ marginTop: '0.75rem', fontSize: '0.78rem', color: '#64748b', display: 'flex', gap: '1.25rem', flexWrap: 'wrap' }}>
+      <div style={{ marginTop: '0.75rem', fontSize: '0.78rem', color: 'var(--ink-faint)', display: 'flex', gap: '1.25rem', flexWrap: 'wrap' }}>
         <span><span style={{ color: ANCHOR_COLORS[0] }}>&#9679;</span> {IMP3377_ANCHOR_K1.label}, N={IMP3377_ANCHOR_K1.N}</span>
         <span><span style={{ color: ANCHOR_COLORS[1] }}>&#9679;</span> {IMP3377_ANCHOR_K_CERTIFIED.label}</span>
         <span><span style={{ color: ANCHOR_COLORS[2] }}>&#9679;</span> {IMP3377_ANCHOR_K_ASSEMBLY.label}</span>
@@ -174,14 +175,14 @@ export default function Imp3377RescueBudgetHeightMapViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> this chart is a
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> this chart is a
         measure/assess-only map of the imp-3275 rescue-budget formula; it does not extend the
         imp-963 interval-RK4 sweep or the imp-452 L_pt assembly. K &le; ~1.384 is unconditional
         TODAY (imp-963 reach [100, 10^4]); K up to ~9.23 needs the imp-962 sweep extended to

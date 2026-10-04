@@ -12,6 +12,7 @@ import {
 } from '../math/rh-attack.js';
 import { getPrimes } from '../math/primes.js';
 import { ZETA_ZEROS } from '../math/zeta.js';
+import { ED, alpha as TK_ALPHA } from '../styles/tokens.js';
 
 const TABS = ['Regularization', 'Hilbert-Polya', 'Darlington', 'S7 Convergence', 'Off-Line Contradiction', 'Confinement'];
 
@@ -71,7 +72,7 @@ function RegularizationTab({ numPrimes, t }) {
     const toY = (logVal) => margin.top + plotH - ((logVal - yMin) / yRange) * plotH;
 
     // Axes
-    ctx.strokeStyle = '#334155';
+    ctx.strokeStyle = ED.rule;
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.moveTo(margin.left, margin.top);
@@ -80,7 +81,7 @@ function RegularizationTab({ numPrimes, t }) {
     ctx.stroke();
 
     // Gridlines
-    ctx.strokeStyle = '#1e293b';
+    ctx.strokeStyle = ED.ruleSoft;
     ctx.lineWidth = 0.5;
     ctx.setLineDash([3, 3]);
     const yTicks = 6;
@@ -98,13 +99,13 @@ function RegularizationTab({ numPrimes, t }) {
     ctx.setLineDash([6, 4]);
     ctx.lineWidth = 1.2;
     // sigma = 0.5
-    ctx.strokeStyle = '#ef444480';
+    ctx.strokeStyle = TK_ALPHA(ED.series2, 0.5);
     ctx.beginPath();
     ctx.moveTo(toX(0.5), margin.top);
     ctx.lineTo(toX(0.5), h - margin.bottom);
     ctx.stroke();
     // sigma = 1
-    ctx.strokeStyle = '#f59e0b80';
+    ctx.strokeStyle = TK_ALPHA(ED.brassDeco, 0.5);
     ctx.beginPath();
     ctx.moveTo(toX(1.0), margin.top);
     ctx.lineTo(toX(1.0), h - margin.bottom);
@@ -113,10 +114,10 @@ function RegularizationTab({ numPrimes, t }) {
 
     // Phase boundary labels
     ctx.font = '9px var(--font-mono)';
-    ctx.fillStyle = '#ef4444';
+    ctx.fillStyle = ED.series2;
     ctx.textAlign = 'center';
     ctx.fillText('\u03C3 = \u00BD', toX(0.5), margin.top - 4);
-    ctx.fillStyle = '#f59e0b';
+    ctx.fillStyle = ED.series4;
     ctx.fillText('\u03C3 = 1', toX(1.0), margin.top - 4);
 
     // Draw raw Euler product (red)
@@ -126,7 +127,7 @@ function RegularizationTab({ numPrimes, t }) {
       const y = toY(Math.max(eulerLog[i], yMin));
       if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
     });
-    ctx.strokeStyle = '#ef4444';
+    ctx.strokeStyle = ED.series2;
     ctx.lineWidth = 2;
     ctx.stroke();
 
@@ -137,7 +138,7 @@ function RegularizationTab({ numPrimes, t }) {
       const y = toY(Math.max(regLog[i], yMin));
       if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
     });
-    ctx.strokeStyle = '#10b981';
+    ctx.strokeStyle = ED.series3;
     ctx.lineWidth = 2;
     ctx.stroke();
 
@@ -149,23 +150,23 @@ function RegularizationTab({ numPrimes, t }) {
       const y = toY(Math.max(trueLog[i], yMin));
       if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
     });
-    ctx.strokeStyle = '#3b82f6';
+    ctx.strokeStyle = ED.series1;
     ctx.lineWidth = 2;
     ctx.stroke();
     ctx.setLineDash([]);
 
     // Convergence region label
-    ctx.fillStyle = '#10b98180';
+    ctx.fillStyle = TK_ALPHA(ED.series3, 0.5);
     ctx.font = '10px var(--font-mono)';
     ctx.textAlign = 'left';
     ctx.fillText('Convergence region (\u03C3 > 1)', toX(1.05), margin.top + 16);
 
-    ctx.fillStyle = '#ef444480';
+    ctx.fillStyle = TK_ALPHA(ED.series2, 0.5);
     ctx.textAlign = 'right';
     ctx.fillText('Critical strip', toX(0.95), margin.top + 16);
 
     // Y-axis labels
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.font = '9px var(--font-mono)';
     ctx.textAlign = 'right';
     for (let i = 0; i <= yTicks; i++) {
@@ -184,7 +185,7 @@ function RegularizationTab({ numPrimes, t }) {
     }
 
     // Axis labels
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = ED.series8;
     ctx.font = '10px sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText('\u03C3 = Re(s)', w / 2, h - 4);
@@ -196,16 +197,16 @@ function RegularizationTab({ numPrimes, t }) {
 
     // Legend with background box
     const legendItems = [
-      { color: '#ef4444', label: 'Raw Euler product', dash: false },
-      { color: '#10b981', label: 'Regularized (eta)', dash: false },
-      { color: '#3b82f6', label: 'True \u03B6(s)', dash: true },
+      { color: ED.series2, label: 'Raw Euler product', dash: false },
+      { color: ED.series3, label: 'Regularized (eta)', dash: false },
+      { color: ED.series1, label: 'True \u03B6(s)', dash: true },
     ];
     const legendX = w - margin.right - 168;
     const legendY0 = margin.top + 2;
     const legendW = 164;
     const legendH = legendItems.length * 16 + 6;
     ctx.fillStyle = 'rgba(10, 14, 26, 0.85)';
-    ctx.strokeStyle = '#1e293b';
+    ctx.strokeStyle = ED.ruleSoft;
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.roundRect(legendX, legendY0, legendW, legendH, 4);
@@ -222,7 +223,7 @@ function RegularizationTab({ numPrimes, t }) {
       ctx.lineWidth = 2;
       ctx.stroke();
       ctx.setLineDash([]);
-      ctx.fillStyle = '#94a3b8';
+      ctx.fillStyle = ED.series8;
       ctx.font = '9px var(--font-mono)';
       ctx.textAlign = 'left';
       ctx.fillText(item.label, lx + 20, ly + 3);
@@ -247,7 +248,7 @@ function RegularizationTab({ numPrimes, t }) {
       </div>
       <canvas
         ref={canvasRef}
-        style={{ width: '100%', height: 300, background: '#0a0e1a', borderRadius: 8, border: '1px solid #1e293b' }}
+        style={{ width: '100%', height: 300, background: 'var(--paper)', borderRadius: 8, border: '1px solid var(--rule-soft)' }}
       />
     </div>
   );
@@ -287,7 +288,7 @@ function HilbertPolyaTab({ numPrimes }) {
     ctx.clearRect(0, 0, w, h);
 
     if (data.length === 0) {
-      ctx.fillStyle = '#94a3b8';
+      ctx.fillStyle = ED.series8;
       ctx.font = '14px sans-serif';
       ctx.textAlign = 'center';
       ctx.fillText('No data (increase numPrimes)', w / 2, h / 2);
@@ -314,7 +315,7 @@ function HilbertPolyaTab({ numPrimes }) {
     const toY = (val) => margin.top + plotTopH - ((val - yMin) / yRange) * plotTopH;
 
     // Top: Axes
-    ctx.strokeStyle = '#334155';
+    ctx.strokeStyle = ED.rule;
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.moveTo(margin.left, margin.top);
@@ -324,7 +325,7 @@ function HilbertPolyaTab({ numPrimes }) {
 
     // Target zeros as red horizontal lines (use last entry's targetZeros which has the most)
     const lastTargets = data[data.length - 1].targetZeros;
-    ctx.strokeStyle = '#ef444440';
+    ctx.strokeStyle = TK_ALPHA(ED.series2, 0.25);
     ctx.lineWidth = 1;
     ctx.setLineDash([4, 3]);
     lastTargets.forEach(z => {
@@ -346,14 +347,14 @@ function HilbertPolyaTab({ numPrimes }) {
         if (y >= margin.top && y <= topH - margin.bottom) {
           ctx.beginPath();
           ctx.arc(x, y, 3, 0, Math.PI * 2);
-          ctx.fillStyle = '#3b82f6';
+          ctx.fillStyle = ED.series1;
           ctx.fill();
         }
       });
     });
 
     // Y-axis labels (top)
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.font = '9px var(--font-mono)';
     ctx.textAlign = 'right';
     const yTicks = 6;
@@ -369,7 +370,7 @@ function HilbertPolyaTab({ numPrimes }) {
     const legendW = 136;
     const legendH = 2 * 16 + 6;
     ctx.fillStyle = 'rgba(10, 14, 26, 0.85)';
-    ctx.strokeStyle = '#1e293b';
+    ctx.strokeStyle = ED.ruleSoft;
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.roundRect(legendX, legendY0, legendW, legendH, 4);
@@ -379,11 +380,11 @@ function HilbertPolyaTab({ numPrimes }) {
     // Eigenvalues entry (dot marker)
     const lx = legendX + 8;
     const ly1 = legendY0 + 14;
-    ctx.fillStyle = '#3b82f6';
+    ctx.fillStyle = ED.series1;
     ctx.beginPath();
     ctx.arc(lx + 7, ly1, 3, 0, Math.PI * 2);
     ctx.fill();
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = ED.series8;
     ctx.font = '9px var(--font-mono)';
     ctx.textAlign = 'left';
     ctx.fillText('Eigenvalues', lx + 18, ly1 + 3);
@@ -394,11 +395,11 @@ function HilbertPolyaTab({ numPrimes }) {
     ctx.setLineDash([4, 3]);
     ctx.moveTo(lx, ly2);
     ctx.lineTo(lx + 14, ly2);
-    ctx.strokeStyle = '#ef4444';
+    ctx.strokeStyle = ED.series2;
     ctx.lineWidth = 1;
     ctx.stroke();
     ctx.setLineDash([]);
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = ED.series8;
     ctx.fillText('Target zeros', lx + 18, ly2 + 3);
 
     // Bottom panel: spectral error convergence
@@ -408,7 +409,7 @@ function HilbertPolyaTab({ numPrimes }) {
     const toBotY = (err) => topH + marginBot.top + plotBotH - (err / errMax) * plotBotH;
 
     // Bottom axes
-    ctx.strokeStyle = '#334155';
+    ctx.strokeStyle = ED.rule;
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.moveTo(marginBot.left, topH + marginBot.top);
@@ -423,7 +424,7 @@ function HilbertPolyaTab({ numPrimes }) {
       const y = toBotY(d.avgError);
       if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
     });
-    ctx.strokeStyle = '#f59e0b';
+    ctx.strokeStyle = ED.brassDeco;
     ctx.lineWidth = 2;
     ctx.stroke();
 
@@ -433,15 +434,15 @@ function HilbertPolyaTab({ numPrimes }) {
       const y = toBotY(d.avgError);
       ctx.beginPath();
       ctx.arc(x, y, 4, 0, Math.PI * 2);
-      ctx.fillStyle = d.converging ? '#10b981' : '#ef4444';
+      ctx.fillStyle = d.converging ? ED.series3 : ED.series2;
       ctx.fill();
-      ctx.strokeStyle = '#0a0e1a';
+      ctx.strokeStyle = ED.paper;
       ctx.lineWidth = 1;
       ctx.stroke();
     });
 
     // X-axis labels for both panels
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.font = '9px var(--font-mono)';
     ctx.textAlign = 'center';
     data.forEach(d => {
@@ -457,7 +458,7 @@ function HilbertPolyaTab({ numPrimes }) {
     }
 
     // Bottom label
-    ctx.fillStyle = '#f59e0b';
+    ctx.fillStyle = ED.series4;
     ctx.font = '9px var(--font-mono)';
     ctx.textAlign = 'left';
     ctx.fillText('Avg spectral error', marginBot.left + 4, topH + marginBot.top + 12);
@@ -468,7 +469,7 @@ function HilbertPolyaTab({ numPrimes }) {
     const botLegendW = 144;
     const botLegendH = 2 * 16 + 6;
     ctx.fillStyle = 'rgba(10, 14, 26, 0.85)';
-    ctx.strokeStyle = '#1e293b';
+    ctx.strokeStyle = ED.ruleSoft;
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.roundRect(botLegendX, botLegendY, botLegendW, botLegendH, 4);
@@ -479,9 +480,9 @@ function HilbertPolyaTab({ numPrimes }) {
     const bly1 = botLegendY + 14;
     ctx.beginPath();
     ctx.arc(blx + 4, bly1, 3, 0, Math.PI * 2);
-    ctx.fillStyle = '#10b981';
+    ctx.fillStyle = ED.series3;
     ctx.fill();
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = ED.series8;
     ctx.font = '9px var(--font-mono)';
     ctx.textAlign = 'left';
     ctx.fillText('Converging', blx + 14, bly1 + 3);
@@ -489,13 +490,13 @@ function HilbertPolyaTab({ numPrimes }) {
     const bly2 = botLegendY + 14 + 16;
     ctx.beginPath();
     ctx.arc(blx + 4, bly2, 3, 0, Math.PI * 2);
-    ctx.fillStyle = '#ef4444';
+    ctx.fillStyle = ED.series2;
     ctx.fill();
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = ED.series8;
     ctx.fillText('Not converging', blx + 14, bly2 + 3);
 
     // X-axis label
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = ED.series8;
     ctx.font = '10px sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText('Matrix size K', w / 2, h - 4);
@@ -504,7 +505,7 @@ function HilbertPolyaTab({ numPrimes }) {
     ctx.save();
     ctx.translate(12, margin.top + plotTopH / 2);
     ctx.rotate(-Math.PI / 2);
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = ED.series8;
     ctx.font = '10px sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText('Eigenvalue / Zero', 0, 0);
@@ -513,7 +514,7 @@ function HilbertPolyaTab({ numPrimes }) {
     ctx.save();
     ctx.translate(12, topH + marginBot.top + plotBotH / 2);
     ctx.rotate(-Math.PI / 2);
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = ED.series8;
     ctx.font = '10px sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText('Avg Error', 0, 0);
@@ -543,7 +544,7 @@ function HilbertPolyaTab({ numPrimes }) {
       </div>
       <canvas
         ref={canvasRef}
-        style={{ width: '100%', height: 300, background: '#0a0e1a', borderRadius: 8, border: '1px solid #1e293b' }}
+        style={{ width: '100%', height: 300, background: 'var(--paper)', borderRadius: 8, border: '1px solid var(--rule-soft)' }}
       />
     </div>
   );
@@ -589,7 +590,7 @@ function DarlingtonTab({ numPrimes, t }) {
     const toYErr = (val) => margin.top + plotH - (val / errMax) * plotH * 0.3;
 
     // Axes
-    ctx.strokeStyle = '#334155';
+    ctx.strokeStyle = ED.rule;
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.moveTo(margin.left, margin.top);
@@ -599,21 +600,21 @@ function DarlingtonTab({ numPrimes, t }) {
 
     // Horizontal dashed line at 1.0 (unitarity reference)
     ctx.setLineDash([6, 4]);
-    ctx.strokeStyle = '#64748b';
+    ctx.strokeStyle = ED.rule;
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.moveTo(margin.left, toY(1.0));
     ctx.lineTo(w - margin.right, toY(1.0));
     ctx.stroke();
     ctx.setLineDash([]);
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.font = '9px var(--font-mono)';
     ctx.textAlign = 'left';
     ctx.fillText('1.0', margin.left + 4, toY(1.0) - 4);
 
     // Vertical line at sigma=0.5
     ctx.setLineDash([6, 4]);
-    ctx.strokeStyle = '#ef444480';
+    ctx.strokeStyle = TK_ALPHA(ED.series2, 0.5);
     ctx.lineWidth = 1.2;
     ctx.beginPath();
     ctx.moveTo(toX(0.5), margin.top);
@@ -621,7 +622,7 @@ function DarlingtonTab({ numPrimes, t }) {
     ctx.stroke();
     ctx.setLineDash([]);
 
-    ctx.fillStyle = '#ef4444';
+    ctx.fillStyle = ED.series2;
     ctx.font = '9px var(--font-mono)';
     ctx.textAlign = 'center';
     ctx.fillText('\u03C3 = \u00BD', toX(0.5), margin.top - 4);
@@ -633,7 +634,7 @@ function DarlingtonTab({ numPrimes, t }) {
       const y = toY(Math.min(d.S11mag, magMax));
       if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
     });
-    ctx.strokeStyle = '#f59e0b';
+    ctx.strokeStyle = ED.brassDeco;
     ctx.lineWidth = 2;
     ctx.stroke();
 
@@ -644,7 +645,7 @@ function DarlingtonTab({ numPrimes, t }) {
       const y = toY(Math.min(d.S21mag, magMax));
       if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
     });
-    ctx.strokeStyle = '#06b6d4';
+    ctx.strokeStyle = ED.series6;
     ctx.lineWidth = 2;
     ctx.stroke();
 
@@ -655,12 +656,12 @@ function DarlingtonTab({ numPrimes, t }) {
       const y = toYErr(Math.min(d.unitarityError, errMax));
       if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
     });
-    ctx.strokeStyle = '#ef4444';
+    ctx.strokeStyle = ED.series2;
     ctx.lineWidth = 1.5;
     ctx.stroke();
 
     // Y-axis labels
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.font = '9px var(--font-mono)';
     ctx.textAlign = 'right';
     const yTicks = 5;
@@ -680,13 +681,13 @@ function DarlingtonTab({ numPrimes, t }) {
     }
 
     // Right-side y-axis for unitarity error (red scale)
-    ctx.strokeStyle = '#ef444460';
+    ctx.strokeStyle = TK_ALPHA(ED.series2, 0.38);
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.moveTo(w - margin.right, margin.top);
     ctx.lineTo(w - margin.right, h - margin.bottom);
     ctx.stroke();
-    ctx.fillStyle = '#ef4444';
+    ctx.fillStyle = ED.series2;
     ctx.font = '9px var(--font-mono)';
     ctx.textAlign = 'left';
     const errTicks = 3;
@@ -696,14 +697,14 @@ function DarlingtonTab({ numPrimes, t }) {
       ctx.beginPath();
       ctx.moveTo(w - margin.right, y);
       ctx.lineTo(w - margin.right + 4, y);
-      ctx.strokeStyle = '#ef444460';
+      ctx.strokeStyle = TK_ALPHA(ED.series2, 0.38);
       ctx.stroke();
-      ctx.fillStyle = '#ef4444';
+      ctx.fillStyle = ED.series2;
       ctx.fillText(val < 0.01 ? val.toExponential(0) : val.toFixed(2), w - margin.right + 6, y + 3);
     }
 
     // Axis labels
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = ED.series8;
     ctx.font = '10px sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText('\u03C3 = Re(s)', w / 2, h - 4);
@@ -717,7 +718,7 @@ function DarlingtonTab({ numPrimes, t }) {
     ctx.save();
     ctx.translate(w - 4, margin.top + plotH * 0.15);
     ctx.rotate(-Math.PI / 2);
-    ctx.fillStyle = '#ef4444';
+    ctx.fillStyle = ED.series2;
     ctx.font = '10px sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText('Unitarity Error', 0, 0);
@@ -725,16 +726,16 @@ function DarlingtonTab({ numPrimes, t }) {
 
     // Legend with background box
     const legendItems = [
-      { color: '#f59e0b', label: '|S\u2081\u2081| (reflection)' },
-      { color: '#06b6d4', label: '|S\u2082\u2081| (transmission)' },
-      { color: '#ef4444', label: '|S\u2020S - I| (unitarity err)' },
+      { color: ED.brass, label: '|S\u2081\u2081| (reflection)' },
+      { color: ED.series6, label: '|S\u2082\u2081| (transmission)' },
+      { color: ED.series2, label: '|S\u2020S - I| (unitarity err)' },
     ];
     const legendX = w - margin.right - 184;
     const legendY0 = margin.top + 2;
     const legendW = 180;
     const legendH = legendItems.length * 16 + 6;
     ctx.fillStyle = 'rgba(10, 14, 26, 0.85)';
-    ctx.strokeStyle = '#1e293b';
+    ctx.strokeStyle = ED.ruleSoft;
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.roundRect(legendX, legendY0, legendW, legendH, 4);
@@ -749,7 +750,7 @@ function DarlingtonTab({ numPrimes, t }) {
       ctx.strokeStyle = item.color;
       ctx.lineWidth = 2;
       ctx.stroke();
-      ctx.fillStyle = '#94a3b8';
+      ctx.fillStyle = ED.series8;
       ctx.font = '9px var(--font-mono)';
       ctx.textAlign = 'left';
       ctx.fillText(item.label, lx + 20, ly + 3);
@@ -776,7 +777,7 @@ function DarlingtonTab({ numPrimes, t }) {
       </div>
       <canvas
         ref={canvasRef}
-        style={{ width: '100%', height: 300, background: '#0a0e1a', borderRadius: 8, border: '1px solid #1e293b' }}
+        style={{ width: '100%', height: 300, background: 'var(--paper)', borderRadius: 8, border: '1px solid var(--rule-soft)' }}
       />
     </div>
   );
@@ -832,7 +833,7 @@ function S7ConvergenceTab({ numPrimes, t }) {
     const toY = (logD) => margin.top + plotH - ((logD - logDMin) / yRange) * plotH;
 
     // Background grid
-    ctx.strokeStyle = '#1e293b';
+    ctx.strokeStyle = ED.ruleSoft;
     ctx.lineWidth = 0.5;
     ctx.setLineDash([3, 3]);
     for (let i = 0; i <= 5; i++) {
@@ -848,7 +849,7 @@ function S7ConvergenceTab({ numPrimes, t }) {
     ctx.setLineDash([]);
 
     // Axes
-    ctx.strokeStyle = '#334155';
+    ctx.strokeStyle = ED.rule;
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.moveTo(margin.left, margin.top);
@@ -857,7 +858,7 @@ function S7ConvergenceTab({ numPrimes, t }) {
     ctx.stroke();
 
     // Draw curves for each t value
-    const colors = ['#06b6d4', '#f59e0b', '#a855f7'];
+    const colors = [ED.series6, ED.series4, ED.series5];
     convergenceData.curves.forEach((curve, ci) => {
       const color = colors[ci % colors.length];
       const pts = curve.points.filter(p => p.logDeficit > -18);
@@ -896,7 +897,7 @@ function S7ConvergenceTab({ numPrimes, t }) {
         const y2 = (fit.exponent * Math.log(Math.pow(10, x2)) + fit.intercept) / Math.LN10;
         ctx.moveTo(toX(x1), toY(Math.max(Math.min(y1, logDMax), logDMin)));
         ctx.lineTo(toX(x2), toY(Math.max(Math.min(y2, logDMax), logDMin)));
-        ctx.strokeStyle = '#ef444480';
+        ctx.strokeStyle = TK_ALPHA(ED.series2, 0.5);
         ctx.lineWidth = 1.5;
         ctx.stroke();
         ctx.setLineDash([]);
@@ -908,14 +909,14 @@ function S7ConvergenceTab({ numPrimes, t }) {
       const tailLogD = Math.log10(tailBound.tailEstimate);
       if (tailLogD >= logDMin && tailLogD <= logDMax) {
         ctx.setLineDash([4, 4]);
-        ctx.strokeStyle = '#10b98180';
+        ctx.strokeStyle = TK_ALPHA(ED.series3, 0.5);
         ctx.lineWidth = 1;
         ctx.beginPath();
         ctx.moveTo(margin.left, toY(tailLogD));
         ctx.lineTo(w - margin.right, toY(tailLogD));
         ctx.stroke();
         ctx.setLineDash([]);
-        ctx.fillStyle = '#10b981';
+        ctx.fillStyle = ED.series3;
         ctx.font = '9px var(--font-mono)';
         ctx.textAlign = 'left';
         ctx.fillText(`Tail bound: ${tailBound.tailEstimate.toExponential(1)}`, margin.left + 4, toY(tailLogD) - 4);
@@ -923,7 +924,7 @@ function S7ConvergenceTab({ numPrimes, t }) {
     }
 
     // Y-axis labels
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.font = '9px var(--font-mono)';
     ctx.textAlign = 'right';
     for (let i = 0; i <= 5; i++) {
@@ -939,7 +940,7 @@ function S7ConvergenceTab({ numPrimes, t }) {
     }
 
     // Axis labels
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = ED.series8;
     ctx.font = '10px sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText('Number of primes (log scale)', w / 2, h - 4);
@@ -950,7 +951,7 @@ function S7ConvergenceTab({ numPrimes, t }) {
     ctx.restore();
 
     // Title
-    ctx.fillStyle = '#e2e8f0';
+    ctx.fillStyle = ED.ink;
     ctx.font = 'bold 11px sans-serif';
     ctx.textAlign = 'left';
     ctx.fillText('S7 Convergence: Unitarity Deficit vs. Prime Count', margin.left, margin.top - 12);
@@ -959,7 +960,7 @@ function S7ConvergenceTab({ numPrimes, t }) {
     const legendX = w - margin.right - 190;
     const legendY0 = margin.top + 2;
     ctx.fillStyle = 'rgba(10, 14, 26, 0.85)';
-    ctx.strokeStyle = '#1e293b';
+    ctx.strokeStyle = ED.ruleSoft;
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.roundRect(legendX, legendY0, 186, convergenceData.curves.length * 16 + 22, 4);
@@ -970,16 +971,16 @@ function S7ConvergenceTab({ numPrimes, t }) {
       const ly = legendY0 + 14 + ci * 16;
       ctx.beginPath(); ctx.moveTo(lx, ly); ctx.lineTo(lx + 16, ly);
       ctx.strokeStyle = colors[ci % colors.length]; ctx.lineWidth = 2; ctx.stroke();
-      ctx.fillStyle = '#94a3b8'; ctx.font = '9px var(--font-mono)'; ctx.textAlign = 'left';
+      ctx.fillStyle = ED.series8; ctx.font = '9px var(--font-mono)'; ctx.textAlign = 'left';
       ctx.fillText(`t = ${curve.t.toFixed(2)}`, lx + 20, ly + 3);
     });
     // Fit line legend entry
     const fitLy = legendY0 + 14 + convergenceData.curves.length * 16;
     ctx.setLineDash([6, 4]);
     ctx.beginPath(); ctx.moveTo(legendX + 8, fitLy); ctx.lineTo(legendX + 24, fitLy);
-    ctx.strokeStyle = '#ef444480'; ctx.lineWidth = 1.5; ctx.stroke();
+    ctx.strokeStyle = TK_ALPHA(ED.series2, 0.5); ctx.lineWidth = 1.5; ctx.stroke();
     ctx.setLineDash([]);
-    ctx.fillStyle = '#94a3b8'; ctx.font = '9px var(--font-mono)'; ctx.textAlign = 'left';
+    ctx.fillStyle = ED.series8; ctx.font = '9px var(--font-mono)'; ctx.textAlign = 'left';
     const avgExp = convergenceData.averageExponent;
     ctx.fillText(`Fit: N^{${avgExp.toFixed(2)}}`, legendX + 28, fitLy + 3);
 
@@ -1002,17 +1003,17 @@ function S7ConvergenceTab({ numPrimes, t }) {
 
       <canvas
         ref={canvasRef}
-        style={{ width: '100%', height: 320, background: '#0a0e1a', borderRadius: 8, border: '1px solid #1e293b' }}
+        style={{ width: '100%', height: 320, background: 'var(--paper)', borderRadius: 8, border: '1px solid var(--rule-soft)' }}
       />
 
       {/* Fitted exponent and tail bound */}
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, marginTop: 12 }}>
-        <div style={{ padding: 12, background: '#0f172a', borderRadius: 8, border: '1px solid #1e293b' }}>
-          <div style={{ fontSize: 11, color: '#64748b', marginBottom: 4 }}>Fitted Power Law Exponent</div>
-          <div style={{ fontSize: 20, fontWeight: 700, color: '#06b6d4', fontFamily: 'var(--font-mono)' }}>
+        <div style={{ padding: 12, background: 'var(--paper-2)', borderRadius: 8, border: '1px solid var(--rule-soft)' }}>
+          <div style={{ fontSize: 11, color: 'var(--ink-faint)', marginBottom: 4 }}>Fitted Power Law Exponent</div>
+          <div style={{ fontSize: 20, fontWeight: 700, color: 'var(--series-6)', fontFamily: 'var(--font-mono)' }}>
             N<sup style={{ fontSize: 12 }}>{convergenceData.averageExponent.toFixed(3)}</sup>
           </div>
-          <div style={{ fontSize: 11, color: '#94a3b8', marginTop: 4 }}>
+          <div style={{ fontSize: 11, color: 'var(--ink-soft)', marginTop: 4 }}>
             {convergenceData.averageExponent < -0.5
               ? 'Strong convergence (faster than 1/sqrt(N))'
               : convergenceData.averageExponent < -0.1
@@ -1020,20 +1021,20 @@ function S7ConvergenceTab({ numPrimes, t }) {
                 : 'Convergence rate is slow or inconclusive'}
           </div>
         </div>
-        <div style={{ padding: 12, background: '#0f172a', borderRadius: 8, border: '1px solid #1e293b' }}>
-          <div style={{ fontSize: 11, color: '#64748b', marginBottom: 4 }}>PNT Tail Bound</div>
-          <div style={{ fontSize: 16, fontWeight: 700, color: '#10b981', fontFamily: 'var(--font-mono)' }}>
+        <div style={{ padding: 12, background: 'var(--paper-2)', borderRadius: 8, border: '1px solid var(--rule-soft)' }}>
+          <div style={{ fontSize: 11, color: 'var(--ink-faint)', marginBottom: 4 }}>PNT Tail Bound</div>
+          <div style={{ fontSize: 16, fontWeight: 700, color: 'var(--series-3)', fontFamily: 'var(--font-mono)' }}>
             {tailBound.tailEstimate.toExponential(3)}
           </div>
-          <div style={{ fontSize: 11, color: '#94a3b8', marginTop: 4 }}>
+          <div style={{ fontSize: 11, color: 'var(--ink-soft)', marginTop: 4 }}>
             {tailBound.theoreticalRate}
           </div>
         </div>
       </div>
 
       {/* Darlington conditions checkboxes */}
-      <div style={{ marginTop: 16, padding: 14, background: '#0f172a', borderRadius: 8, border: '1px solid #1e293b' }}>
-        <div style={{ fontSize: 13, fontWeight: 700, color: '#e2e8f0', marginBottom: 10 }}>
+      <div style={{ marginTop: 16, padding: 14, background: 'var(--paper-2)', borderRadius: 8, border: '1px solid var(--rule-soft)' }}>
+        <div style={{ fontSize: 13, fontWeight: 700, color: 'var(--ink)', marginBottom: 10 }}>
           Darlington Realization Conditions
         </div>
         {[
@@ -1056,21 +1057,21 @@ function S7ConvergenceTab({ numPrimes, t }) {
           <div key={i} style={{
             display: 'flex', alignItems: 'flex-start', gap: 10, marginBottom: 8,
             padding: '6px 8px', borderRadius: 6,
-            background: cond.pass ? 'rgba(16,185,129,0.06)' : 'rgba(239,68,68,0.06)',
+            background: cond.pass ? 'color-mix(in srgb, var(--series-3) 6%, transparent)' : 'color-mix(in srgb, var(--series-2) 6%, transparent)',
           }}>
             <div style={{
               width: 18, height: 18, borderRadius: 4, flexShrink: 0, marginTop: 1,
               display: 'flex', alignItems: 'center', justifyContent: 'center',
-              background: cond.pass ? '#10b981' : '#ef4444',
+              background: cond.pass ? 'var(--series-3)' : 'var(--series-2)',
               color: '#fff', fontSize: 12, fontWeight: 700,
             }}>
               {cond.pass ? '\u2713' : '\u2717'}
             </div>
             <div>
-              <div style={{ fontSize: 12, fontWeight: 600, color: cond.pass ? '#10b981' : '#ef4444' }}>
+              <div style={{ fontSize: 12, fontWeight: 600, color: cond.pass ? 'var(--series-3)' : 'var(--series-2)' }}>
                 {cond.label}
               </div>
-              <div style={{ fontSize: 11, color: '#94a3b8', marginTop: 2 }}>
+              <div style={{ fontSize: 11, color: 'var(--ink-soft)', marginTop: 2 }}>
                 {cond.detail}
               </div>
             </div>
@@ -1081,45 +1082,45 @@ function S7ConvergenceTab({ numPrimes, t }) {
       {/* S7 Gap Score */}
       <div style={{
         marginTop: 16, padding: 16, borderRadius: 8,
-        background: 'linear-gradient(135deg, rgba(249,115,22,0.08), rgba(6,182,212,0.08))',
-        border: '1px solid rgba(249,115,22,0.3)',
+        background: 'linear-gradient(135deg, color-mix(in srgb, var(--series-4) 8%, transparent), color-mix(in srgb, var(--series-6) 8%, transparent))',
+        border: '1px solid color-mix(in srgb, var(--series-4) 30%, transparent)',
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
           <div style={{ textAlign: 'center' }}>
             <div style={{
               fontSize: 36, fontWeight: 800,
-              color: realizability.score >= 80 ? '#10b981' : realizability.score >= 50 ? '#f59e0b' : '#ef4444',
+              color: realizability.score >= 80 ? 'var(--series-3)' : realizability.score >= 50 ? 'var(--brass)' : 'var(--series-2)',
             }}>
               {realizability.score}%
             </div>
-            <div style={{ fontSize: 10, color: '#94a3b8', fontWeight: 600 }}>S7 GAP SCORE</div>
+            <div style={{ fontSize: 10, color: 'var(--ink-soft)', fontWeight: 600 }}>S7 GAP SCORE</div>
           </div>
           <div style={{ flex: 1 }}>
-            <div style={{ fontSize: 13, color: '#e2e8f0', fontWeight: 600, marginBottom: 6 }}>
+            <div style={{ fontSize: 13, color: 'var(--ink)', fontWeight: 600, marginBottom: 6 }}>
               Gap S7 Resolution Status
             </div>
-            <div style={{ fontSize: 11, color: '#94a3b8', lineHeight: 1.6 }}>
+            <div style={{ fontSize: 11, color: 'var(--ink-soft)', lineHeight: 1.6 }}>
               {realizability.verdict}
-              {' '}Convergence rate: <span style={{ color: '#06b6d4', fontFamily: 'var(--font-mono)' }}>
+              {' '}Convergence rate: <span style={{ color: 'var(--series-6)', fontFamily: 'var(--font-mono)' }}>
                 N<sup>{convergenceData.averageExponent.toFixed(2)}</sup>
               </span>.
-              {' '}Tail bound: <span style={{ color: '#10b981', fontFamily: 'var(--font-mono)' }}>
+              {' '}Tail bound: <span style={{ color: 'var(--series-3)', fontFamily: 'var(--font-mono)' }}>
                 {tailBound.tailEstimate.toExponential(2)}
               </span>.
             </div>
             {/* Progress bar */}
             <div style={{
               marginTop: 8, height: 6, borderRadius: 3,
-              background: 'rgba(255,255,255,0.1)',
+              background: 'color-mix(in srgb, var(--ink) 10%, transparent)',
               overflow: 'hidden',
             }}>
               <div style={{
                 width: `${realizability.score}%`, height: '100%', borderRadius: 3,
                 background: realizability.score >= 80
-                  ? 'linear-gradient(90deg, #10b981, #06b6d4)'
+                  ? 'linear-gradient(90deg, var(--series-3), var(--series-6))'
                   : realizability.score >= 50
-                    ? 'linear-gradient(90deg, #f59e0b, #f97316)'
-                    : 'linear-gradient(90deg, #ef4444, #f97316)',
+                    ? 'linear-gradient(90deg, var(--brass-deco), var(--series-4))'
+                    : 'linear-gradient(90deg, var(--series-2), var(--series-4))',
               }} />
             </div>
           </div>
@@ -1164,7 +1165,7 @@ function OffLineContradictionTab() {
     const plotH = h - margin.top - margin.bottom;
 
     // Axes
-    ctx.strokeStyle = '#334155';
+    ctx.strokeStyle = ED.rule;
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.moveTo(margin.left, margin.top);
@@ -1188,7 +1189,7 @@ function OffLineContradictionTab() {
     const toY = logy => h - margin.bottom - ((logy - minLogY) / rangeLogY) * plotH;
 
     // Grid lines
-    ctx.strokeStyle = '#1e293b';
+    ctx.strokeStyle = ED.ruleSoft;
     ctx.lineWidth = 0.5;
     for (let ly = minLogY; ly <= maxLogY; ly += 2) {
       const y = toY(ly);
@@ -1199,7 +1200,7 @@ function OffLineContradictionTab() {
     }
 
     // Schoenfeld bound (green line — the allowed region)
-    ctx.strokeStyle = '#10b981';
+    ctx.strokeStyle = ED.series3;
     ctx.lineWidth = 2;
     ctx.beginPath();
     valid.forEach((r, i) => {
@@ -1210,7 +1211,7 @@ function OffLineContradictionTab() {
     ctx.stroke();
 
     // Off-line zero distortion (red line — the violation)
-    ctx.strokeStyle = '#ef4444';
+    ctx.strokeStyle = ED.series2;
     ctx.lineWidth = 2;
     ctx.beginPath();
     valid.forEach((r, i) => {
@@ -1223,7 +1224,7 @@ function OffLineContradictionTab() {
     // Contradiction zone (shade where red > green)
     const crossIdx = valid.findIndex(r => r.contradicts);
     if (crossIdx >= 0) {
-      ctx.fillStyle = 'rgba(239, 68, 68, 0.08)';
+      ctx.fillStyle = TK_ALPHA(ED.series2, 0.08);
       ctx.beginPath();
       ctx.moveTo(toX(Math.log10(valid[crossIdx].x)), h - margin.bottom);
       ctx.lineTo(toX(Math.log10(valid[crossIdx].x)), margin.top);
@@ -1233,7 +1234,7 @@ function OffLineContradictionTab() {
       ctx.fill();
 
       // Contradiction label
-      ctx.fillStyle = '#ef4444';
+      ctx.fillStyle = ED.series2;
       ctx.font = 'bold 11px "JetBrains Mono", monospace';
       ctx.textAlign = 'center';
       ctx.fillText('CONTRADICTION', (toX(Math.log10(valid[crossIdx].x)) + w - margin.right) / 2, margin.top + 16);
@@ -1242,13 +1243,13 @@ function OffLineContradictionTab() {
     // Legend
     ctx.font = '11px "JetBrains Mono", monospace';
     ctx.textAlign = 'left';
-    ctx.fillStyle = '#ef4444';
+    ctx.fillStyle = ED.series2;
     ctx.fillText(`Off-line zero distortion (σ₀=${sigmaOff})`, margin.left + 8, margin.top + 14);
-    ctx.fillStyle = '#10b981';
+    ctx.fillStyle = ED.series3;
     ctx.fillText('Schoenfeld bound (RH-consistent)', margin.left + 8, margin.top + 30);
 
     // Axis labels
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.textAlign = 'center';
     ctx.fillText('log₁₀(x)', w / 2, h - 6);
     ctx.save();
@@ -1262,7 +1263,7 @@ function OffLineContradictionTab() {
     ctx.textAlign = 'center';
     for (let lx = Math.ceil(minLogX); lx <= maxLogX; lx += 2) {
       const x = toX(lx);
-      ctx.fillStyle = '#475569';
+      ctx.fillStyle = ED.series8;
       ctx.fillText(`10^${lx}`, x, h - margin.bottom + 14);
     }
   }, [data, sigmaOff]);
@@ -1301,13 +1302,13 @@ function OffLineContradictionTab() {
       </div>
 
       <canvas ref={canvasRef}
-        style={{ width: '100%', height: 300, borderRadius: 8, background: '#0a0e1a',
-                 border: '1px solid #1e293b' }} />
+        style={{ width: '100%', height: 300, borderRadius: 8, background: 'var(--paper)',
+                 border: '1px solid var(--rule-soft)' }} />
 
       <div style={{ marginTop: 12, padding: '10px 14px', borderRadius: 6,
-                    background: data.firstContradiction ? 'rgba(239,68,68,0.08)' : 'rgba(245,158,11,0.08)',
-                    border: `1px solid ${data.firstContradiction ? 'rgba(239,68,68,0.2)' : 'rgba(245,158,11,0.2)'}` }}>
-        <strong style={{ color: data.firstContradiction ? '#ef4444' : '#f59e0b' }}>
+                    background: data.firstContradiction ? 'color-mix(in srgb, var(--series-2) 8%, transparent)' : 'color-mix(in srgb, var(--brass-deco) 8%, transparent)',
+                    border: `1px solid ${data.firstContradiction ? TK_ALPHA(ED.series2, 0.2) : TK_ALPHA(ED.series4, 0.2)}` }}>
+        <strong style={{ color: data.firstContradiction ? 'var(--series-2)' : 'var(--brass)' }}>
           {data.verdict}
         </strong>
       </div>
@@ -1316,7 +1317,7 @@ function OffLineContradictionTab() {
       <div style={{ marginTop: 16, maxHeight: 200, overflow: 'auto' }}>
         <table style={{ width: '100%', fontSize: 12, borderCollapse: 'collapse' }}>
           <thead>
-            <tr style={{ color: '#64748b', borderBottom: '1px solid #1e293b' }}>
+            <tr style={{ color: 'var(--ink-faint)', borderBottom: '1px solid var(--rule-soft)' }}>
               <th style={{ textAlign: 'left', padding: 4 }}>σ₀</th>
               <th style={{ textAlign: 'right', padding: 4 }}>Crossover x</th>
               <th style={{ textAlign: 'right', padding: 4 }}>Max ratio</th>
@@ -1325,16 +1326,16 @@ function OffLineContradictionTab() {
           </thead>
           <tbody>
             {sweep.sweep.map(({ sigma, crossoverX, crossoverLog10, maxRatio }) => (
-              <tr key={sigma} style={{ color: '#94a3b8', borderBottom: '1px solid #0f172a' }}>
+              <tr key={sigma} style={{ color: 'var(--ink-soft)', borderBottom: '1px solid var(--paper)' }}>
                 <td style={{ padding: 4, fontFamily: 'var(--font-mono)' }}>{sigma.toFixed(2)}</td>
                 <td style={{ padding: 4, textAlign: 'right', fontFamily: 'var(--font-mono)' }}>
                   {crossoverX ? `10^${crossoverLog10.toFixed(0)}` : '> 10^30'}
                 </td>
                 <td style={{ padding: 4, textAlign: 'right', fontFamily: 'var(--font-mono)',
-                             color: maxRatio > 1 ? '#ef4444' : '#f59e0b' }}>
+                             color: maxRatio > 1 ? 'var(--series-2)' : 'var(--brass)' }}>
                   {maxRatio.toFixed(1)}×
                 </td>
-                <td style={{ padding: 4, color: maxRatio > 1 ? '#ef4444' : '#f59e0b' }}>
+                <td style={{ padding: 4, color: maxRatio > 1 ? 'var(--series-2)' : 'var(--brass)' }}>
                   {maxRatio > 1 ? '✗ Contradicts' : '⚠ Grows'}
                 </td>
               </tr>
@@ -1395,7 +1396,7 @@ function ConfinementTab({ numPrimes, t, report }) {
     const toY = (val) => margin.top + plotH - (Math.min(val, yMax) / yMax) * plotH;
 
     // Axes
-    ctx.strokeStyle = '#334155';
+    ctx.strokeStyle = ED.rule;
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.moveTo(margin.left, margin.top);
@@ -1404,7 +1405,7 @@ function ConfinementTab({ numPrimes, t, report }) {
     ctx.stroke();
 
     // Gridlines
-    ctx.strokeStyle = '#1e293b';
+    ctx.strokeStyle = ED.ruleSoft;
     ctx.lineWidth = 0.5;
     ctx.setLineDash([3, 3]);
     const yTicks = 5;
@@ -1420,7 +1421,7 @@ function ConfinementTab({ numPrimes, t, report }) {
 
     // Vertical dashed line at sigma=0.5
     ctx.setLineDash([6, 4]);
-    ctx.strokeStyle = '#ef444480';
+    ctx.strokeStyle = TK_ALPHA(ED.series2, 0.5);
     ctx.lineWidth = 1.2;
     ctx.beginPath();
     ctx.moveTo(toX(0.5), margin.top);
@@ -1443,13 +1444,13 @@ function ConfinementTab({ numPrimes, t, report }) {
       if (dash) ctx.setLineDash([]);
     };
 
-    drawCurve(klVals, '#10b981', 1.2, []);            // KL: green, solid
-    drawCurve(twistorVals, '#3b82f6', 1.2, [6, 3]);   // twistor: blue, dashed
-    drawCurve(bridgeVals, '#f59e0b', 1.2, [2, 3]);    // bridge: yellow, dotted
-    drawCurve(hamiltonianVals, '#ec4899', 1.2, [8, 3, 2, 3]); // Hamiltonian: pink, dash-dot
+    drawCurve(klVals, ED.series3, 1.2, []);            // KL: green, solid
+    drawCurve(twistorVals, ED.series1, 1.2, [6, 3]);   // twistor: blue, dashed
+    drawCurve(bridgeVals, ED.series4, 1.2, [2, 3]);    // bridge: yellow, dotted
+    drawCurve(hamiltonianVals, ED.series7, 1.2, [8, 3, 2, 3]); // Hamiltonian: pink, dash-dot
 
     // Total confinement potential (thick purple)
-    drawCurve(potentials, '#8b5cf6', 3, []);
+    drawCurve(potentials, ED.series5, 3, []);
 
     // Mark minimum
     let minIdx = 0;
@@ -1460,19 +1461,19 @@ function ConfinementTab({ numPrimes, t, report }) {
     const minY = toY(potentials[minIdx]);
     ctx.beginPath();
     ctx.arc(minX, minY, 5, 0, Math.PI * 2);
-    ctx.fillStyle = '#8b5cf6';
+    ctx.fillStyle = ED.series5;
     ctx.fill();
-    ctx.strokeStyle = '#0a0e1a';
+    ctx.strokeStyle = ED.paper;
     ctx.lineWidth = 2;
     ctx.stroke();
 
-    ctx.fillStyle = '#8b5cf6';
+    ctx.fillStyle = ED.series5;
     ctx.font = '10px var(--font-mono)';
     ctx.textAlign = 'left';
     ctx.fillText(`min at \u03C3=${data[minIdx].sigma.toFixed(2)}`, minX + 8, minY - 4);
 
     // Y-axis labels
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.font = '9px var(--font-mono)';
     ctx.textAlign = 'right';
     for (let i = 0; i <= yTicks; i++) {
@@ -1491,7 +1492,7 @@ function ConfinementTab({ numPrimes, t, report }) {
     }
 
     // Axis labels
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = ED.series8;
     ctx.font = '10px sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText('\u03C3 = Re(s)', w / 2, h - 4);
@@ -1503,18 +1504,18 @@ function ConfinementTab({ numPrimes, t, report }) {
 
     // Legend with background box
     const legendItems = [
-      { color: '#8b5cf6', label: 'Total \u03A6(\u03C3)', width: 3, dash: [] },
-      { color: '#10b981', label: 'KL divergence', width: 1.2, dash: [] },
-      { color: '#3b82f6', label: 'Twistor', width: 1.2, dash: [6, 3] },
-      { color: '#f59e0b', label: 'Bridge', width: 1.2, dash: [2, 3] },
-      { color: '#ec4899', label: 'Hamiltonian', width: 1.2, dash: [8, 3, 2, 3] },
+      { color: ED.series5, label: 'Total \u03A6(\u03C3)', width: 3, dash: [] },
+      { color: ED.series3, label: 'KL divergence', width: 1.2, dash: [] },
+      { color: ED.series1, label: 'Twistor', width: 1.2, dash: [6, 3] },
+      { color: ED.brass, label: 'Bridge', width: 1.2, dash: [2, 3] },
+      { color: ED.series7, label: 'Hamiltonian', width: 1.2, dash: [8, 3, 2, 3] },
     ];
     const legendX = w - margin.right - 148;
     const legendY0 = margin.top + 2;
     const legendW = 144;
     const legendH = legendItems.length * 14 + 6;
     ctx.fillStyle = 'rgba(10, 14, 26, 0.85)';
-    ctx.strokeStyle = '#1e293b';
+    ctx.strokeStyle = ED.ruleSoft;
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.roundRect(legendX, legendY0, legendW, legendH, 4);
@@ -1531,7 +1532,7 @@ function ConfinementTab({ numPrimes, t, report }) {
       ctx.lineWidth = item.width;
       ctx.stroke();
       ctx.setLineDash([]);
-      ctx.fillStyle = '#94a3b8';
+      ctx.fillStyle = ED.series8;
       ctx.font = '9px var(--font-mono)';
       ctx.textAlign = 'left';
       ctx.fillText(item.label, lx + 18, ly + 3);
@@ -1547,7 +1548,7 @@ function ConfinementTab({ numPrimes, t, report }) {
   }, [draw]);
 
   const statusColor = (status) =>
-    status === 'partially-closed' ? '#10b981' : status === 'open' ? '#ef4444' : '#f59e0b';
+    status === 'partially-closed' ? ED.series3 : status === 'open' ? ED.series2 : ED.series4;
 
   return (
     <div>
@@ -1562,7 +1563,7 @@ function ConfinementTab({ numPrimes, t, report }) {
       </div>
       <canvas
         ref={canvasRef}
-        style={{ width: '100%', height: 300, background: '#0a0e1a', borderRadius: 8, border: '1px solid #1e293b' }}
+        style={{ width: '100%', height: 300, background: 'var(--paper)', borderRadius: 8, border: '1px solid var(--rule-soft)' }}
       />
       {/* Gap closing status badges */}
       <div style={{ display: 'flex', gap: 8, marginTop: 12, flexWrap: 'wrap' }}>
@@ -1600,7 +1601,7 @@ export default function GapClosingViz() {
   );
 
   const statusColor = (status) =>
-    status === 'partially-closed' ? '#10b981' : status === 'open' ? '#ef4444' : '#f59e0b';
+    status === 'partially-closed' ? ED.series3 : status === 'open' ? ED.series2 : ED.series4;
 
   return (
     <div>
@@ -1610,7 +1611,7 @@ export default function GapClosingViz() {
           <label>Primes</label>
           <input type="range" min="4" max="20" step="1" value={numPrimes}
             onChange={e => setNumPrimes(+e.target.value)} />
-          <span className="control-value">{numPrimes} <span style={{ color: '#64748b', fontSize: 11 }}>(up to p={getPrimes(numPrimes)[numPrimes - 1]})</span></span>
+          <span className="control-value">{numPrimes} <span style={{ color: 'var(--ink-faint)', fontSize: 11 }}>(up to p={getPrimes(numPrimes)[numPrimes - 1]})</span></span>
         </div>
         <div className="control-group">
           <label><InlineMath tex={"t = \\operatorname{Im}(s)"} /></label>
@@ -1642,13 +1643,13 @@ export default function GapClosingViz() {
       {/* Summary panel */}
       <div style={{
         marginTop: 20, padding: '14px 18px', borderRadius: 8,
-        background: '#0f172a', border: '1px solid #1e293b',
+        background: 'var(--paper-2)', border: '1px solid var(--rule-soft)',
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 12 }}>
-          <h4 style={{ color: '#e2e8f0', fontSize: 13, margin: 0 }}>Gap Closing Summary</h4>
+          <h4 style={{ color: 'var(--ink)', fontSize: 13, margin: 0 }}>Gap Closing Summary</h4>
           <span style={{
             fontSize: 10, fontFamily: 'var(--font-mono)', padding: '2px 8px',
-            borderRadius: 4, background: '#3b82f620', color: '#3b82f6',
+            borderRadius: 4, background: 'color-mix(in srgb, var(--series-1) 13%, transparent)', color: 'var(--series-1)',
           }}>{report.overallProgress}</span>
         </div>
 
@@ -1659,7 +1660,7 @@ export default function GapClosingViz() {
         ].map(({ key, label, data: gapData }) => (
           <div key={key} style={{
             display: 'flex', alignItems: 'center', gap: 10,
-            padding: '6px 0', borderBottom: '1px solid #1e293b',
+            padding: '6px 0', borderBottom: '1px solid var(--rule-soft)',
           }}>
             <span style={{
               fontSize: 9, fontWeight: 700, padding: '2px 8px', borderRadius: 3,
@@ -1667,12 +1668,12 @@ export default function GapClosingViz() {
               background: statusColor(gapData.status) + '20',
               color: statusColor(gapData.status),
             }}>{gapData.status}</span>
-            <span style={{ fontSize: 12, color: '#e2e8f0', fontWeight: 600, minWidth: 200 }}>{label}</span>
-            <span style={{ fontSize: 11, color: '#94a3b8', flex: 1 }}>{gapData.gapRemaining}</span>
+            <span style={{ fontSize: 12, color: 'var(--ink)', fontWeight: 600, minWidth: 200 }}>{label}</span>
+            <span style={{ fontSize: 11, color: 'var(--ink-soft)', flex: 1 }}>{gapData.gapRemaining}</span>
           </div>
         ))}
 
-        <div style={{ marginTop: 10, fontSize: 11, color: '#64748b', fontStyle: 'italic' }}>
+        <div style={{ marginTop: 10, fontSize: 11, color: 'var(--ink-faint)', fontStyle: 'italic' }}>
           {report.criticalNext}
         </div>
       </div>

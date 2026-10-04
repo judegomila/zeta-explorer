@@ -61,10 +61,10 @@ export default function GuthMaynardScopingPage() {
 
         <h2 style={{ color: 'var(--ink)' }}>Feasibility</h2>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 8, maxWidth: 840 }}>
-          <div style={{ border: '1px solid #c23a1c55', background: 'rgba(194,58,28,0.06)', borderRadius: 8, padding: '10px 14px' }}>
+          <div style={{ border: '1px solid color-mix(in srgb, var(--accent) 33%, transparent)', background: 'color-mix(in srgb, var(--series-2) 6%, transparent)', borderRadius: 8, padding: '10px 14px' }}>
             <strong style={{ color: 'var(--terra-dk)' }}>Core (α=1/2):</strong> <span style={{ color: 'var(--ink-soft)' }}>{feasibility.core}</span>
           </div>
-          <div style={{ border: '1px solid #b58a2e55', background: 'rgba(181,138,46,0.07)', borderRadius: 8, padding: '10px 14px' }}>
+          <div style={{ border: '1px solid color-mix(in srgb, var(--brass-deco) 33%, transparent)', background: 'color-mix(in srgb, var(--brass-deco) 7%, transparent)', borderRadius: 8, padding: '10px 14px' }}>
             <strong style={{ color: 'var(--brass-dk)' }}>Periphery:</strong> <span style={{ color: 'var(--ink-soft)' }}>{feasibility.periphery}</span>
           </div>
         </div>

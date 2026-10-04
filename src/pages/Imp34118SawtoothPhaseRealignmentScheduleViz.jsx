@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP34044_SAWTOOTH_PHASE_REALIGNMENT_SCHEDULE } from '../data/imp-34044-sawtooth-phase-realignment-schedule.js';
+import { ED, alpha } from '../styles/tokens.js';
 
 const { ladderRungs, continuumArgmax, continuumPhase, realignmentLevels, frozenLevels, finding } =
   IMP34044_SAWTOOTH_PHASE_REALIGNMENT_SCHEDULE;
@@ -33,7 +34,7 @@ function GapScheduleChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <polyline points={linePoints} fill="none" stroke="#38bdf8" strokeWidth={1.5} strokeDasharray="2,3" />
+      <polyline points={linePoints} fill="none" stroke={ED.series1} strokeWidth={1.5} strokeDasharray="2,3" />
       {ladderRungs.map((r, i) => {
         const isDescent = realignmentLevels.includes(r.exponent);
         return (
@@ -42,34 +43,34 @@ function GapScheduleChart() {
             cx={xAt(xs[i])}
             cy={yAt(ys[i])}
             r={4.5}
-            fill={isDescent ? '#4ade80' : '#f97316'}
-            stroke="#0a0f1a"
+            fill={isDescent ? ED.series3 : ED.series4}
+            stroke={ED.paper}
             strokeWidth={0.75}
           />
         );
       })}
       {ladderRungs.map((r, i) => (
-        <text key={`xt-${r.exponent}`} x={xAt(xs[i])} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={8.5}>
+        <text key={`xt-${r.exponent}`} x={xAt(xs[i])} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={8.5}>
           1/{Math.pow(2, r.exponent)}
         </text>
       ))}
-      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         dyadic step (exponent e = 7..15, step = 1/2^e)
       </text>
       <text
         x={16}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={`rotate(-90 16 ${padT + cH / 2})`}
       >
         log10(gap)
       </text>
-      <text x={padL + 4} y={padT + 12} fill="#4ade80" fontSize={9.5}>
+      <text x={padL + 4} y={padT + 12} fill={ED.series3} fontSize={9.5}>
         &#9679; descent (realignment: gap resumes)
       </text>
-      <text x={padL + 4} y={padT + 26} fill="#f97316" fontSize={9.5}>
+      <text x={padL + 4} y={padT + 26} fill={ED.series4} fontSize={9.5}>
         &#9679; freeze (gap unchanged)
       </text>
     </svg>
@@ -100,35 +101,35 @@ function PhaseOrbitChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={bandTop} width={cW} height={bandBottom - bandTop} fill="rgba(74,222,128,0.1)" />
-      <text x={padL + 4} y={bandTop + 12} fill="#4ade80" fontSize={8.5}>
+      <rect x={padL} y={bandTop} width={cW} height={bandBottom - bandTop} fill={alpha(ED.series3, 0.1)} />
+      <text x={padL + 4} y={bandTop + 12} fill={ED.series3} fontSize={8.5}>
         reflection band (1/4, 3/4) -- next level descends
       </text>
-      <polyline points={linePoints} fill="none" stroke="#a78bfa" strokeWidth={1.5} />
+      <polyline points={linePoints} fill="none" stroke={ED.series5} strokeWidth={1.5} />
       {ladderRungs.map((r, i) => (
         <circle
           key={`pt-${r.exponent}`}
           cx={xAt(xs[i])}
           cy={yAt(r.frac)}
           r={3.5}
-          fill={r.inReflectionBand ? '#4ade80' : '#f97316'}
-          stroke="#0a0f1a"
+          fill={r.inReflectionBand ? ED.series3 : ED.series4}
+          stroke={ED.paper}
           strokeWidth={0.75}
         />
       ))}
       {ladderRungs.map((r, i) => (
-        <text key={`xt-${r.exponent}`} x={xAt(xs[i])} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={8.5}>
+        <text key={`xt-${r.exponent}`} x={xAt(xs[i])} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={8.5}>
           e={r.exponent}
         </text>
       ))}
-      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         dyadic exponent e (doubling-map orbit of phase k*-6)
       </text>
       <text
         x={12}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={`rotate(-90 12 ${padT + cH / 2})`}
       >
@@ -143,7 +144,7 @@ export default function Imp34118SawtoothPhaseRealignmentScheduleViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Sawtooth Phase-Realignment Schedule (imp-34044 / imp-34118)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-34044 extended the imp-33983 sawtooth-residue check across the full dyadic ladder
         1/128 .. 1/32768 (k* = {continuumArgmax}) and found the frozen-gap resumption schedule is a
         closed-form Bernoulli doubling-map orbit of the fixed continuum phase (k*-6) &#8776; {continuumPhase}.
@@ -154,12 +155,12 @@ export default function Imp34118SawtoothPhaseRealignmentScheduleViz() {
         transition.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         log10(gap) vs dyadic step -- descent/freeze schedule
       </p>
       <GapScheduleChart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
         doubling-map phase orbit frac_e vs reflection band
       </p>
       <PhaseOrbitChart />
@@ -168,14 +169,14 @@ export default function Imp34118SawtoothPhaseRealignmentScheduleViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement/schedule only, no
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> measurement/schedule only, no
         fresh derivation. {finding.V2_phase_is_a_doubling_map_orbit}{' '}
         Realignments occur at exponents {realignmentLevels.join(', ')} (steps 1/1024, 1/4096,
         1/16384); freezes at {frozenLevels.join(', ')}. {finding.V4_first_descent_at_1024_corrects_imp33983}{' '}
@@ -188,15 +189,15 @@ export default function Imp34118SawtoothPhaseRealignmentScheduleViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>See also:</strong>{' '}
-        <Link to="/viz-imp34182-deep-ladder-precision-floor" style={{ color: '#38bdf8' }}>
+        <strong style={{ color: 'var(--ink-soft)' }}>See also:</strong>{' '}
+        <Link to="/viz-imp34182-deep-ladder-precision-floor" style={{ color: 'var(--series-1)' }}>
           imp-34182 (the deep ladder extension 1/65536 .. 1/2^20 and its precision-floor departure)
         </Link>
         .

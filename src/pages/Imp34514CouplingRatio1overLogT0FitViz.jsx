@@ -4,6 +4,7 @@ import {
   IMP34514_LANDMARKS,
   IMP34514_LIMIT_FITS,
 } from '../data/imp-34514-coupling-ratio-1overlogT0-fit-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 // Scatter-with-fit-lines chart: excess-above-2 vs 1/logT0, with the three fit windows drawn
 // as reference lines converging toward the origin (limit = 2 as 1/logT0 -> 0).
@@ -25,36 +26,36 @@ function ExcessVsInvLogT0Chart() {
   const xTicks = [0, 0.01, 0.02, 0.03, 0.04, 0.05];
   const yTicks = [0, 0.02, 0.04, 0.06, 0.08, 0.1];
 
-  const fitColors = ['#f472b6', '#facc15', '#34d399'];
+  const fitColors = [ED.series7, ED.series4, ED.series3];
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
 
       {yTicks.map((v) => (
         <g key={'y' + v}>
-          <line x1={padL - 4} y1={yAt(v)} x2={padL + cW} y2={yAt(v)} stroke="#1e293b" strokeWidth={1} />
-          <text x={padL - 8} y={yAt(v) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+          <line x1={padL - 4} y1={yAt(v)} x2={padL + cW} y2={yAt(v)} stroke={ED.ruleSoft} strokeWidth={1} />
+          <text x={padL - 8} y={yAt(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v.toFixed(2)}
           </text>
         </g>
       ))}
       {xTicks.map((v) => (
         <g key={'x' + v}>
-          <text x={xAt(v)} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={9}>
+          <text x={xAt(v)} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
             {v.toFixed(2)}
           </text>
         </g>
       ))}
-      <text x={padL + cW / 2} y={padT + cH + 34} textAnchor="middle" fill="#94a3b8" fontSize={9.5}>
+      <text x={padL + cW / 2} y={padT + cH + 34} textAnchor="middle" fill={ED.inkSoft} fontSize={9.5}>
         1 / log T0
       </text>
       <text
         x={14}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#94a3b8"
+        fill={ED.inkSoft}
         fontSize={9.5}
         transform={`rotate(-90 14 ${padT + cH / 2})`}
       >
@@ -62,8 +63,8 @@ function ExcessVsInvLogT0Chart() {
       </text>
 
       {/* origin marker: limit = 2 as 1/logT0 -> 0 */}
-      <circle cx={xAt(0)} cy={yAt(0)} r={3.5} fill="none" stroke="#f472b6" strokeWidth={1.5} />
-      <text x={xAt(0) + 8} y={yAt(0) - 6} fill="#f472b6" fontSize={9}>
+      <circle cx={xAt(0)} cy={yAt(0)} r={3.5} fill="none" stroke={ED.series7} strokeWidth={1.5} />
+      <text x={xAt(0) + 8} y={yAt(0) - 6} fill={ED.series7} fontSize={9}>
         limit = 2
       </text>
 
@@ -89,12 +90,12 @@ function ExcessVsInvLogT0Chart() {
 
       {IMP34514_LANDMARKS.map((r) => (
         <g key={r.landmark}>
-          <circle cx={xAt(r.inv_logT0)} cy={yAt(r.excess_above_two)} r={4.5} fill="#38bdf8" stroke="#0a0f1a" strokeWidth={1} />
+          <circle cx={xAt(r.inv_logT0)} cy={yAt(r.excess_above_two)} r={4.5} fill={ED.series1} stroke={ED.paper} strokeWidth={1} />
           <text
             x={xAt(r.inv_logT0)}
             y={yAt(r.excess_above_two) - 10}
             textAnchor="middle"
-            fill="#94a3b8"
+            fill={ED.inkSoft}
             fontSize={8.5}
             fontFamily="monospace"
           >
@@ -107,7 +108,7 @@ function ExcessVsInvLogT0Chart() {
         {IMP34514_LIMIT_FITS.map((fit, i) => (
           <g key={'legend' + fit.window}>
             <rect x={padL + cW - 190} y={padT + i * 14} width={10} height={10} fill={fitColors[i]} />
-            <text x={padL + cW - 175} y={padT + i * 14 + 9} fill="#94a3b8" fontSize={8.5}>
+            <text x={padL + cW - 175} y={padT + i * 14 + 9} fill={ED.inkSoft} fontSize={8.5}>
               {fit.window}: limit {fit.limit.toFixed(4)}
             </text>
           </g>
@@ -125,7 +126,7 @@ export default function Imp34514CouplingRatio1overLogT0FitViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Coupling-Ratio 1/log T0 Fit (imp-34487)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-34447 found the coupling ratio residual/(E_flow/E_trunc) drift turns over across four
         landmarks, concluding qualitatively that it converges to a finite limit &ldquo;~2.05&rdquo;.
         imp-34487 added a fifth, hyper-deep landmark (thr={last.thr}, log T0={last.logT0.toFixed(4)},
@@ -136,7 +137,7 @@ export default function Imp34514CouplingRatio1overLogT0FitViz() {
         the true finite limit is the LEADING value 2, not ~2.05.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         Excess above 2 vs 1/log T0 &mdash; the fit lines converge toward the origin (limit = 2) as
         shallow landmarks are dropped
       </p>
@@ -151,7 +152,7 @@ export default function Imp34514CouplingRatio1overLogT0FitViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>landmark</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>thr</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>log T0</th>
@@ -161,7 +162,7 @@ export default function Imp34514CouplingRatio1overLogT0FitViz() {
         </thead>
         <tbody>
           {IMP34514_LANDMARKS.map((row) => (
-            <tr key={row.landmark} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+            <tr key={row.landmark} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
               <td style={{ padding: '0.4rem 0.6rem' }}>{row.landmark}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{row.thr}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{row.logT0.toFixed(4)}</td>
@@ -181,7 +182,7 @@ export default function Imp34514CouplingRatio1overLogT0FitViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>fit window</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>n</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>c0 (intercept)</th>
@@ -192,7 +193,7 @@ export default function Imp34514CouplingRatio1overLogT0FitViz() {
         </thead>
         <tbody>
           {IMP34514_LIMIT_FITS.map((row) => (
-            <tr key={row.window} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+            <tr key={row.window} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
               <td style={{ padding: '0.4rem 0.6rem' }}>{row.window}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{row.n}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{row.c0.toFixed(6)}</td>
@@ -208,14 +209,14 @@ export default function Imp34514CouplingRatio1overLogT0FitViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Summary:</strong> dropping shallow landmarks from the
+        <strong style={{ color: 'var(--ink-soft)' }}>Summary:</strong> dropping shallow landmarks from the
         fit collapses the intercept toward zero and tightens the slope toward 2, the signature of
         an exact leading correction coupling ~ 2 + 2/log T0. The limit band across the three fit
         windows is [2.0001, 2.0081], midpoint 2.0041 &mdash; the imp-34447 qualitative &ldquo;~2.05&rdquo;
@@ -226,14 +227,14 @@ export default function Imp34514CouplingRatio1overLogT0FitViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-data only, baked literals
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-data only, baked literals
         reproducing the imp-34487 measurement; no new derivation, no bound changed. Component
         model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; C_mb
         GUE-conditional per imp-486 UNTOUCHED; C_C 1/8 ansatz untouched; imp-3066 K_a&ge;0

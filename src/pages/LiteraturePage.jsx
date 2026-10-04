@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import { InlineMath } from '../components/KaTeXMath.jsx';
 import { getAllReferences, getCategories, searchReferences } from '../data/literature.js';
+import { ED, alpha } from '../styles/tokens.js';
 
 const categoryLabels = {
   'hamiltonian': { label: 'Hamiltonian / Hilbert-Pólya', color: 'tag-green' },
@@ -240,8 +241,8 @@ export default function LiteraturePage() {
                           gap: 6,
                           marginTop: 10,
                           padding: '5px 12px',
-                          background: 'rgba(194, 58, 28, 0.08)',
-                          border: '1px solid rgba(194, 58, 28, 0.30)',
+                          background: 'color-mix(in srgb, var(--series-2) 8%, transparent)',
+                          border: '1px solid color-mix(in srgb, var(--accent) 30%, transparent)',
                           borderRadius: 6,
                           color: 'var(--terra-dk)',
                           fontSize: 12,
@@ -250,8 +251,8 @@ export default function LiteraturePage() {
                           transition: 'background 0.2s, border-color 0.2s',
                           cursor: 'pointer',
                         }}
-                        onMouseEnter={e => { e.currentTarget.style.background = 'rgba(194, 58, 28, 0.16)'; e.currentTarget.style.borderColor = 'rgba(194, 58, 28, 0.5)'; }}
-                        onMouseLeave={e => { e.currentTarget.style.background = 'rgba(194, 58, 28, 0.08)'; e.currentTarget.style.borderColor = 'rgba(194, 58, 28, 0.30)'; }}
+                        onMouseEnter={e => { e.currentTarget.style.background = alpha(ED.series2, 0.16); e.currentTarget.style.borderColor = alpha(ED.accent, 0.5); }}
+                        onMouseLeave={e => { e.currentTarget.style.background = alpha(ED.series2, 0.08); e.currentTarget.style.borderColor = alpha(ED.accent, 0.3); }}
                       >
                         Open Paper ↗
                       </a>

@@ -60,6 +60,7 @@ import {
   riemannSiegelTheta,
   cMul, cAdd, cSub, cDiv, cLog, cAbs, ZETA_ZEROS,
 } from '../math/zeta.js';
+import { ED, TINT } from '../styles/tokens.js';
 
 const TWO_PI = Math.PI * 2;
 const mono = 'var(--ed-mono, "IBM Plex Mono", monospace)';
@@ -68,8 +69,8 @@ const mono = 'var(--ed-mono, "IBM Plex Mono", monospace)';
 const AMBER = new THREE.Color('#ffb454'); // Z(t) > 0  (warm family)
 const BLUE = new THREE.Color('#5b8cff');  // Z(t) < 0  (cool family)
 const WHITE = new THREE.Color('#ffffff');
-const LEFT_AXIS = '#c9a05a';   // brass — marks PT
-const RIGHT_AXIS = '#a58ae0';  // violet — marks PT*
+const LEFT_AXIS = ED.brassDeco;   // brass — marks PT
+const RIGHT_AXIS = ED.series5;  // violet — marks PT*
 
 // ── zeta helpers (all light; no data bundles) ──────────────────────────────
 
@@ -452,7 +453,7 @@ function CongruenceScene({
   const proxyMat = useMemo(() => new THREE.MeshBasicMaterial({ visible: false }), []);
   // soft additive sheath drawn over frozen fibers (reuses the proxy tube)
   const sheathMat = useMemo(() => new THREE.MeshBasicMaterial({
-    color: '#fff3d0', transparent: true, opacity: 0.05,
+    color: TINT.brass, transparent: true, opacity: 0.05,
     blending: THREE.AdditiveBlending, depthWrite: false, side: THREE.DoubleSide,
   }), []);
   useEffect(() => () => { proxyMat.dispose(); sheathMat.dispose(); }, [proxyMat, sheathMat]);
@@ -681,7 +682,7 @@ function CongruenceScene({
         </Html>
         {showStrands && (
           <Html position={[0, 3.05, 0]} center style={{ pointerEvents: 'none' }}>
-            <div style={{ color: '#e8e2d5', fontFamily: mono, fontSize: 12, whiteSpace: 'nowrap', textAlign: 'center', textShadow: '0 0 8px rgba(0,0,0,0.9)' }}>
+            <div style={{ color: 'var(--paper-3)', fontFamily: mono, fontSize: 12, whiteSpace: 'nowrap', textAlign: 'center', textShadow: '0 0 8px rgba(0,0,0,0.9)' }}>
               Q = {'{'}([Z],[W]) : W·Z = 0{'}'}
               <div style={{ fontSize: 10, opacity: 0.7, marginTop: 2 }}>
                 I<sub>K</sub> F₊ = F₋ ∘ R &nbsp;(design requirement — O-status)
@@ -691,7 +692,7 @@ function CongruenceScene({
         )}
         {ribbon && ribbon.geoms.length > 0 && (
           <Html position={[0, -2.75, 0]} center style={{ pointerEvents: 'none' }}>
-            <div style={{ color: '#fff3cf', fontFamily: mono, fontSize: 11, whiteSpace: 'nowrap', textShadow: '0 0 8px rgba(0,0,0,0.9)', opacity: 0.85 }}>
+            <div style={{ color: 'var(--tint-brass)', fontFamily: mono, fontSize: 11, whiteSpace: 'nowrap', textShadow: '0 0 8px rgba(0,0,0,0.9)', opacity: 0.85 }}>
               any two distinct Hopf fibers link exactly once
             </div>
           </Html>
@@ -870,7 +871,7 @@ export default function TwistorDualIntertwinerViz() {
         <Ctl label={onLine ? 'σ = 0.500 (critical line)' : `σ = ${sigma.toFixed(2)} (off-line)`}>
           <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
             <input type="range" min="0.1" max="0.9" step="0.01" value={sigma}
-              onChange={(e) => setSigma(+e.target.value)} style={{ width: 150, accentColor: onLine ? '#2e7d4f' : '#b05a2a' }} />
+              onChange={(e) => setSigma(+e.target.value)} style={{ width: 150, accentColor: onLine ? 'var(--series-3)' : 'var(--status-candidate)' }} />
             <button onClick={() => setSigma(0.5)}
               style={{ fontSize: 10, fontFamily: mono, padding: '3px 7px', borderRadius: 5, border: '1px solid var(--hairline, #d5c9b2)', background: 'var(--paper2, #f6f1e7)', color: 'var(--ink-soft, #4a4238)', cursor: 'pointer' }}>
               ½
@@ -914,7 +915,7 @@ export default function TwistorDualIntertwinerViz() {
       </div>
 
       {/* canvas + overlays (tooltip, frozen-fiber readout) */}
-      <div style={{ position: 'relative', width: '100%', height: 580, borderRadius: 12, overflow: 'hidden', background: '#0b0e14', border: '1px solid var(--hairline, #d5c9b2)' }}>
+      <div style={{ position: 'relative', width: '100%', height: 580, borderRadius: 12, overflow: 'hidden', background: 'var(--paper)', border: '1px solid var(--hairline, #d5c9b2)' }}>
         <SafeCanvas camera={{ position: [0, 6.4, 7.6], fov: 42 }} dpr={[1, 2]} gl={{ antialias: true }}>
           <color attach="background" args={['#0b0e14']} />
           <fog attach="fog" args={['#0b0e14', 14, 30]} />
@@ -930,8 +931,8 @@ export default function TwistorDualIntertwinerViz() {
         {hover && hoverReadout && (
           <div style={{
             position: 'absolute', left: Math.min(hover.x + 14, 1050), top: hover.y + 10,
-            pointerEvents: 'none', background: 'rgba(12,15,22,0.92)', border: '1px solid rgba(220,205,170,0.35)',
-            borderRadius: 6, padding: '6px 9px', fontFamily: mono, fontSize: 11, color: '#e8e2d5', whiteSpace: 'nowrap', zIndex: 5,
+            pointerEvents: 'none', background: 'color-mix(in srgb, var(--paper) 92%, transparent)', border: '1px solid color-mix(in srgb, var(--rule) 35%, transparent)',
+            borderRadius: 6, padding: '6px 9px', fontFamily: mono, fontSize: 11, color: 'var(--paper-3)', whiteSpace: 'nowrap', zIndex: 5,
           }}>
             <div>t = {hover.t.toFixed(4)}{hover.isZero ? ' (zeta zero)' : ''}</div>
             <div>s = {sigma.toFixed(3)} + {hover.t.toFixed(3)}i</div>
@@ -943,7 +944,7 @@ export default function TwistorDualIntertwinerViz() {
         {/* frozen-fiber readout panel */}
         <div style={{
           position: 'absolute', top: 10, right: 10, width: 292, maxHeight: 420, overflowY: 'auto',
-          background: 'rgba(246,241,231,0.94)', border: '1px solid var(--hairline, #d5c9b2)',
+          background: 'color-mix(in srgb, var(--paper-2) 94%, transparent)', border: '1px solid var(--hairline, #d5c9b2)',
           borderRadius: 8, padding: '8px 10px', zIndex: 4,
         }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: frozenList.length ? 6 : 0 }}>
@@ -970,7 +971,7 @@ export default function TwistorDualIntertwinerViz() {
           {frozenList.map((m) => {
             const r = frozenReadout(m, sigma, onLine);
             return (
-              <div key={m.key} style={{ display: 'flex', gap: 8, alignItems: 'flex-start', padding: '5px 0', borderTop: '1px solid rgba(140,125,100,0.22)' }}>
+              <div key={m.key} style={{ display: 'flex', gap: 8, alignItems: 'flex-start', padding: '5px 0', borderTop: '1px solid color-mix(in srgb, var(--rule) 22%, transparent)' }}>
                 <div style={{ flex: 1, fontFamily: mono, fontSize: 10.5, lineHeight: 1.5, color: 'var(--ink-soft, #4a4238)' }}>
                   <div style={{ fontWeight: 700 }}>
                     t = {m.t.toFixed(4)}{m.isZero ? ' · zeta zero' : ''}
@@ -999,7 +1000,7 @@ export default function TwistorDualIntertwinerViz() {
           {onLine ? (
             <>
               <Swatch color="#ffb454" label="Z(t) > 0" />
-              <Swatch color="#5b8cff" label="Z(t) < 0" />
+              <Swatch color={ED.series1} label="Z(t) < 0" />
               <Swatch color="#ffffff" label={`zeta zero (${zerosInWindow.length} in window)`} />
             </>
           ) : (

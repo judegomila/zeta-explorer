@@ -3,6 +3,7 @@ import PageHeader from '../components/PageHeader.jsx';
 import { effectiveHeightForN } from '../data/lambda-rh-height-mapping.js';
 import { C_C_PINNED } from '../data/polymath15-constant-C-C.js';
 import { IMP34886_EFLOW_STRENGTH_KNEE_INFLECTION_CROSSING } from '../data/imp-34886-eflow-strength-knee-inflection-crossing.js';
+import { ED } from '../styles/tokens.js';
 
 const D = IMP34886_EFLOW_STRENGTH_KNEE_INFLECTION_CROSSING;
 
@@ -109,14 +110,14 @@ function GapCrossingChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={yAt(0)} x2={padL + cW} y2={yAt(0)} stroke="#334155" strokeWidth={1} strokeDasharray="4 3" />
-      <text x={padL - 8} y={yAt(0) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={yAt(0)} x2={padL + cW} y2={yAt(0)} stroke={ED.rule} strokeWidth={1} strokeDasharray="4 3" />
+      <text x={padL - 8} y={yAt(0) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
         0
       </text>
 
       {[0, 0.25, 0.5, 0.75, 1].map((f) => (
-        <text key={'x' + f} x={xAt(f)} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={9}>
+        <text key={'x' + f} x={xAt(f)} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
           {f}
         </text>
       ))}
@@ -124,32 +125,32 @@ function GapCrossingChart() {
       <polyline
         points={S_GRID.map((s, i) => `${xAt(s)},${yAt(GAP_TRACE[i])}`).join(' ')}
         fill="none"
-        stroke="#38bdf8"
+        stroke={ED.series1}
         strokeWidth={2}
       />
 
       {/* the bisected crossing s* */}
-      <line x1={xAt(D.crossing.sStar)} y1={padT} x2={xAt(D.crossing.sStar)} y2={padT + cH} stroke="#fbbf24" strokeWidth={1} strokeDasharray="4 3" />
-      <circle cx={xAt(D.crossing.sStar)} cy={yAt(0)} r={4.5} fill="#fbbf24" />
-      <text x={xAt(D.crossing.sStar) + 6} y={padT + 12} fill="#fbbf24" fontSize={10} fontFamily="monospace">
+      <line x1={xAt(D.crossing.sStar)} y1={padT} x2={xAt(D.crossing.sStar)} y2={padT + cH} stroke={ED.brassDeco} strokeWidth={1} strokeDasharray="4 3" />
+      <circle cx={xAt(D.crossing.sStar)} cy={yAt(0)} r={4.5} fill={ED.brassDeco} />
+      <text x={xAt(D.crossing.sStar) + 6} y={padT + 12} fill={ED.brass} fontSize={10} fontFamily="monospace">
         s* = {D.crossing.sStar}
       </text>
 
-      <text x={padL + 6} y={padT + 12} fill="#94a3b8" fontSize={10} fontFamily="monospace">
+      <text x={padL + 6} y={padT + 12} fill={ED.inkSoft} fontSize={10} fontFamily="monospace">
         Gap(0) = {D.endpoints.gapS0Log10} (knee above)
       </text>
-      <text x={padL + cW - 6} y={padT + cH - 8} textAnchor="end" fill="#94a3b8" fontSize={10} fontFamily="monospace">
+      <text x={padL + cW - 6} y={padT + cH - 8} textAnchor="end" fill={ED.inkSoft} fontSize={10} fontFamily="monospace">
         Gap(1) = {D.endpoints.gapS1Log10}
       </text>
 
-      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         E_flow strength s (0 = dropped, 1 = carried)
       </text>
       <text
         x={14}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={`rotate(-90 14 ${padT + cH / 2})`}
       >
@@ -164,11 +165,11 @@ export default function Imp34914EflowKneeInflectionCrossingViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="E_flow Strength Knee-vs-Inflection Crossing (imp-34914 / imp-34886)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         {D.question}
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         Gap(s) = X*_knee(s) - X*_infl(s) starts POSITIVE at s=0 ({D.endpoints.gapS0Log10} dex, knee above the
         inflection) and ends NEGATIVE at s=1 ({D.endpoints.gapS1Log10} dex, flipped), so bisection locates an
         interior crossing at s* = {D.crossing.sStar}, well inside [0,1], where the two landmarks coincide at
@@ -176,7 +177,7 @@ export default function Imp34914EflowKneeInflectionCrossingViz() {
       </p>
       <GapCrossingChart />
 
-      <p style={{ color: '#64748b', fontSize: '0.78rem', marginTop: '0.75rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontSize: '0.78rem', marginTop: '0.75rem' }}>
         The crossing is transversal: dGap/ds = {D.sensitivity.dGap_ds} dex per unit strength (the sum of the
         imp-34858 knee slope {D.sensitivity.dKnee_ds0_log10} and the imp-34837 inflection slope{' '}
         {D.sensitivity.dInfl_ds0_log10}, entering with a minus sign), so the linear estimate s* ~
@@ -187,14 +188,14 @@ export default function Imp34914EflowKneeInflectionCrossingViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page resampling the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-only page resampling the
         imp-34886/34837/34858/34820/34749 closed forms verbatim across a dense s grid (no new computation).
         Measurement/derivation on the INHERITED imp-3220/imp-3406 surrogate crossover map; the C_mb
         GUE-conditional per imp-486 and the C_C 1/8 ansatz (imp-2642/imp-2643) are UNTOUCHED; changes no

@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP34752_KRAWCZYK_OUTWARD_ULP_SLACK_N } from '../data/imp-34752-krawczyk-outward-ulp-slack-N.js';
+import { ED } from '../styles/tokens.js';
 
 const DATA = IMP34752_KRAWCZYK_OUTWARD_ULP_SLACK_N;
 const M = DATA.measurement;
@@ -50,31 +51,31 @@ function SlackLadderChart() {
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
       {/* top panel: k*(N), essentially flat */}
-      <rect x={padL} y={padT} width={plotW} height={panelH} fill="none" stroke="#334155" strokeWidth={1} />
-      <text x={padL} y={padT - 4} fill="#38bdf8" fontSize={11} fontWeight={700}>
+      <rect x={padL} y={padT} width={plotW} height={panelH} fill="none" stroke={ED.rule} strokeWidth={1} />
+      <text x={padL} y={padT - 4} fill={ED.series1} fontSize={11} fontWeight={700}>
         k*(N): outward-ULP budget (flat)
       </text>
-      <path d={kPath} fill="none" stroke="#38bdf8" strokeWidth={1.5} />
+      <path d={kPath} fill="none" stroke={ED.series1} strokeWidth={1.5} />
       {N_LADDER.map((n, i) => (
-        <circle key={`k-${n}`} cx={sx(xs[i])} cy={syK(K_STAR[i])} r={3.6} fill={i === crossoverIdx ? '#facc15' : '#38bdf8'} stroke="#0f172a" strokeWidth={0.5} />
+        <circle key={`k-${n}`} cx={sx(xs[i])} cy={syK(K_STAR[i])} r={3.6} fill={i === crossoverIdx ? ED.brassDeco : ED.series1} stroke={ED.paper} strokeWidth={0.5} />
       ))}
-      <text x={padL + 6} y={padT + 16} fill="#64748b" fontSize={9}>
+      <text x={padL + 6} y={padT + 16} fill={ED.inkFaint} fontSize={9}>
         ~{(kMid / 1e11).toFixed(4)}e11 ULP at every rung (relative widening ~delta/2)
       </text>
 
       {/* bottom panel: nominal margin, rising ~9x */}
-      <rect x={padL} y={panelTopB} width={plotW} height={panelH} fill="none" stroke="#334155" strokeWidth={1} />
-      <text x={padL} y={panelTopB - 4} fill="#f87171" fontSize={11} fontWeight={700}>
+      <rect x={padL} y={panelTopB} width={plotW} height={panelH} fill="none" stroke={ED.rule} strokeWidth={1} />
+      <text x={padL} y={panelTopB - 4} fill={ED.series2} fontSize={11} fontWeight={700}>
         strict-inclusion margin N_lo &minus; T_lo (rising ~9x)
       </text>
-      <path d={mPath} fill="none" stroke="#f87171" strokeWidth={1.5} />
+      <path d={mPath} fill="none" stroke={ED.series2} strokeWidth={1.5} />
       {N_LADDER.map((n, i) => (
-        <circle key={`m-${n}`} cx={sx(xs[i])} cy={syM(MARGIN_LO[i])} r={3.6} fill={i === crossoverIdx ? '#facc15' : '#f87171'} stroke="#0f172a" strokeWidth={0.5} />
+        <circle key={`m-${n}`} cx={sx(xs[i])} cy={syM(MARGIN_LO[i])} r={3.6} fill={i === crossoverIdx ? ED.brassDeco : ED.series2} stroke={ED.paper} strokeWidth={0.5} />
       ))}
 
       {/* shared x labels along the bottom */}
       {N_LADDER.map((n, i) => (
-        <text key={`lbl-${n}`} x={sx(xs[i])} y={svgH - 8} textAnchor="middle" fill="#64748b" fontSize={9}>
+        <text key={`lbl-${n}`} x={sx(xs[i])} y={svgH - 8} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
           {n.toExponential(2).replace('+', '')}
         </text>
       ))}
@@ -87,7 +88,7 @@ export default function Imp34784KrawczykOutwardUlpSlackNViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Krawczyk Outward-ULP Slack vs N (imp-34784 / imp-34752)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-34752 recomputed the imp-34726 outward-ULP Krawczyk budget k* &mdash; the largest relative
         widening under which (H1) 0&nbsp;&notin;&nbsp;[f&prime;] and (H2) N([T])&nbsp;&sube;&nbsp;int([T])
         both survive &mdash; across the imp-3444 crossover ladder N&nbsp;=&nbsp;1e9&hellip;1e10 (yellow
@@ -110,7 +111,7 @@ export default function Imp34784KrawczykOutwardUlpSlackNViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>N</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>margin_lo (N_lo &minus; T_lo)</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>k*(N) (ULP)</th>
@@ -121,8 +122,8 @@ export default function Imp34784KrawczykOutwardUlpSlackNViz() {
             <tr
               key={n}
               style={{
-                borderBottom: '1px solid #1e293b',
-                color: i === crossoverIndexSafe(N_LADDER, CROSSOVER_N) ? '#facc15' : '#cbd5e1',
+                borderBottom: '1px solid var(--rule-soft)',
+                color: i === crossoverIndexSafe(N_LADDER, CROSSOVER_N) ? 'var(--brass)' : 'var(--ink)',
               }}
             >
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{n.toExponential(2)}</td>
@@ -137,11 +138,11 @@ export default function Imp34784KrawczykOutwardUlpSlackNViz() {
         style={{
           marginTop: '1rem',
           padding: '0.6rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
         }}
       >
         Relative spread of k*(N) across the whole ladder: {M.k_star_relative_spread.toExponential(4)}
@@ -153,14 +154,14 @@ export default function Imp34784KrawczykOutwardUlpSlackNViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page rendering the imp-34752
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-only page rendering the imp-34752
         table (imported literals, no new computation); establishes no new numerical claim. Double-precision
         surrogate for the imp-34687a directed-rounding layer; does NOT close the imp-34714a machine
         certificate, which REMAINS OPEN. Inherited imp-3220/imp-3406 surrogate crossover map; C_C&nbsp;=

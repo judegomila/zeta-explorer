@@ -6,16 +6,17 @@ import {
   IMP97588_RESIDUAL_SAMPLES,
   IMP97588_VERDICT,
 } from '../data/imp-97588-mcm-baseterm-K0-approach-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 // imp-97588: charts the imp-97519 Route M MCM level-1 base-term scaled
 // quantity c(x)*x/ln x = K0 + M0/ln x approaching K0 = 1/24 across
 // x = 1e6..1e40, marking the 0.045 and 0.043 crossings, plus the residual
 // (scaled - K0) tracking 1/ln x on a log-log panel.
 
-const COLOR_CURVE = '#38bdf8';
-const COLOR_LIMIT = '#f97316';
-const COLOR_CROSS = '#4ade80';
-const COLOR_RESID = '#a78bfa';
+const COLOR_CURVE = ED.series1;
+const COLOR_LIMIT = ED.series4;
+const COLOR_CROSS = ED.series3;
+const COLOR_RESID = ED.series5;
 
 function ApproachPanel() {
   const svgW = 680;
@@ -51,11 +52,11 @@ function ApproachPanel() {
         </g>
       ))}
 
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
 
       {[6, 10, 14, 20, 25, 31, 40].map((logX) => (
-        <text key={`xt${logX}`} x={xOf(logX)} y={padT + plotH + 16} textAnchor="middle" fill="#64748b" fontSize={9}>
+        <text key={`xt${logX}`} x={xOf(logX)} y={padT + plotH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
           1e{logX}
         </text>
       ))}
@@ -64,7 +65,7 @@ function ApproachPanel() {
         K0 = 1/24
       </text>
 
-      <text x={padL + plotW / 2} y={svgH - 2} textAnchor="middle" fill="#64748b" fontSize={9}>
+      <text x={padL + plotW / 2} y={svgH - 2} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
         x (log) &mdash; <tspan fill={COLOR_CURVE}>c(x)*x/ln x</tspan> approaching{' '}
         <tspan fill={COLOR_LIMIT}>K0=1/24</tspan>, crossing{' '}
         <tspan fill={COLOR_CROSS}>0.045 / 0.043</tspan>
@@ -102,10 +103,10 @@ function ResidualPanel() {
         <circle key={p.x} cx={xOf(p.invLnX)} cy={yOf(p.residual)} r={3} fill={COLOR_RESID} />
       ))}
 
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
 
-      <text x={padL + plotW / 2} y={svgH - 2} textAnchor="middle" fill="#64748b" fontSize={9}>
+      <text x={padL + plotW / 2} y={svgH - 2} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
         1/ln x (log) &mdash; <tspan fill={COLOR_RESID}>residual = scaled(x) - K0</tspan> tracks M0/ln x exactly
       </text>
     </svg>
@@ -121,22 +122,22 @@ export default function Imp97588McmBaseTermK0ApproachViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(56,189,248,0.06)',
-          borderLeft: '3px solid #38bdf8',
+          background: 'color-mix(in srgb, var(--series-1) 6%, transparent)',
+          borderLeft: '3px solid var(--series-1)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#38bdf8' }}>Honest status:</strong> presentation
+        <strong style={{ color: 'var(--series-1)' }}>Honest status:</strong> presentation
         only, charting the already-measured imp-97499/imp-97519 closed-form
         law verbatim. No bound moves; MCM stays VERIFIED at omega&le;6 and
         FALSE from omega=11 (imp-97432); Platt-Trudgian Lambda&le;0.2 remains
         SOTA; RH open; NO QED.
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         The Route M MCM level-1 base term c(x) = h(x) - h(2x), scaled as
         c(x)*x/ln x, follows the closed-form law K0 + M0/ln x with K0 = 1/24
         and M0 = {IMP97588_VERDICT.driftConstantM0.toFixed(6)}. imp-97519
@@ -147,17 +148,17 @@ export default function Imp97588McmBaseTermK0ApproachViz() {
         confirmed logarithmic (1/ln x) rather than power-law.
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         c(x)*x/ln x approaching K0=1/24 across x=1e6..1e40
       </h3>
       <ApproachPanel />
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', margin: '1.5rem 0 0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', margin: '1.5rem 0 0.5rem' }}>
         residual = scaled(x) - K0 vs 1/ln x (log-log)
       </h3>
       <ResidualPanel />
 
-      <p style={{ color: '#64748b', fontSize: '0.8rem', marginTop: '1rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-faint)', fontSize: '0.8rem', marginTop: '1rem', maxWidth: 700 }}>
         The residual sits exactly on the M0/ln x line at every sampled point
         (baked ladder x=1e14..1e40 plus the 0.043 crossing at
         x&nbsp;&asymp;&nbsp;1.2737e31), confirming the approach to K0 is
@@ -170,14 +171,14 @@ export default function Imp97588McmBaseTermK0ApproachViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page
         consuming the imp-97519 closed-form law and baked crossing values
         verbatim; no re-solve. Establishes no bound; MCM stays verified
         omega&le;6 / refuted from omega=11; RH open; NO QED.

@@ -6,11 +6,12 @@ import {
   IMP33609_MAX_MAP_SAVING_FACTOR,
   IMP33609_RUNG_TABLE,
 } from '../data/imp-33609-graded-mapped-cc-abscissa-artifact-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
-const UNMAPPED_COLOR = '#38bdf8';
-const MAPPED_COLOR = '#4ade80';
-const PLATEAU_COLOR = '#f59e0b';
-const BAND_COLOR = '#f472b6';
+const UNMAPPED_COLOR = ED.series1;
+const MAPPED_COLOR = ED.series3;
+const PLATEAU_COLOR = ED.series4;
+const BAND_COLOR = ED.series7;
 
 function log10(v) {
   return Math.log(v) / Math.LN10;
@@ -37,12 +38,12 @@ function NodeBudgetChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
       {yTicks.map((v) => (
         <g key={v}>
-          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke="#1e293b" strokeWidth={0.7} />
-          <text x={padL - 6} y={yS(v) + 3.5} textAnchor="end" fill="#475569" fontSize={9}>
+          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke={ED.ruleSoft} strokeWidth={0.7} />
+          <text x={padL - 6} y={yS(v) + 3.5} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v}
           </text>
         </g>
@@ -91,16 +92,16 @@ function NodeBudgetChart() {
       </text>
 
       {IMP33609_RUNG_TABLE.map((r, i) => (
-        <text key={r.n} x={xS(i)} y={padT + cH + 14} textAnchor="middle" fill="#64748b" fontSize={9}>
+        <text key={r.n} x={xS(i)} y={padT + cH + 14} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
           n={r.n}
         </text>
       ))}
-      <text x={padL + cW / 2} y={padT + cH + 30} textAnchor="middle" fill="#64748b" fontSize={9}>
+      <text x={padL + cW / 2} y={padT + cH + 30} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
         deeper deep-tail rung n (tau* = saddleTau(n))
       </text>
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
-      <text x={16} y={padT + cH / 2} textAnchor="middle" fill="#64748b" fontSize={10} transform={`rotate(-90,16,${padT + cH / 2})`}>
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
+      <text x={16} y={padT + cH / 2} textAnchor="middle" fill={ED.inkFaint} fontSize={10} transform={`rotate(-90,16,${padT + cH / 2})`}>
         min-node CC budget (log scale)
       </text>
     </svg>
@@ -124,12 +125,12 @@ function WorstUlpChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
       {[0, 20, 40, 60, 80].map((v) => (
         <g key={v}>
-          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke="#1e293b" strokeWidth={0.7} />
-          <text x={padL - 6} y={yS(v) + 3.5} textAnchor="end" fill="#475569" fontSize={9}>
+          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke={ED.ruleSoft} strokeWidth={0.7} />
+          <text x={padL - 6} y={yS(v) + 3.5} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v}
           </text>
         </g>
@@ -163,16 +164,16 @@ function WorstUlpChart() {
       )}
 
       {IMP33609_RUNG_TABLE.map((r, i) => (
-        <text key={r.n} x={xS(i)} y={padT + cH + 14} textAnchor="middle" fill="#64748b" fontSize={9}>
+        <text key={r.n} x={xS(i)} y={padT + cH + 14} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
           n={r.n}
         </text>
       ))}
-      <text x={padL + cW / 2} y={padT + cH + 30} textAnchor="middle" fill="#64748b" fontSize={9}>
+      <text x={padL + cW / 2} y={padT + cH + 30} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
         deeper deep-tail rung n
       </text>
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
-      <text x={16} y={padT + cH / 2} textAnchor="middle" fill="#64748b" fontSize={10} transform={`rotate(-90,16,${padT + cH / 2})`}>
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
+      <text x={16} y={padT + cH / 2} textAnchor="middle" fill={ED.inkFaint} fontSize={10} transform={`rotate(-90,16,${padT + cH / 2})`}>
         residual at min-node grid (ULP)
       </text>
     </svg>
@@ -184,7 +185,7 @@ export default function Imp33609GradedMappedCcAbscissaArtifactViz() {
     <div style={{ padding: '1.5rem', maxWidth: 940, margin: '0 auto' }}>
       <PageHeader title="Graded-Mapped Clenshaw-Curtis Flat-Budget Artifact (imp-33580)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
         imp-33560 found that a single Clenshaw-Curtis inner grid against the deep-tail weight
         A(tau) needs a CLIMBING node budget at the deeper deep-tail rungs n in {'{350,375,400}'}
         (257 nodes at n=350/375, rising to 513 at n=400), and attributed the climb to its fixed
@@ -197,19 +198,19 @@ export default function Imp33609GradedMappedCcAbscissaArtifactViz() {
         imp-33316 &lt; 64 ULP band (pink, dashed).
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         min-node CC budget to clear the &lt; 64 ULP band, by deeper deep-tail rung
       </p>
       <NodeBudgetChart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.25rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.25rem 0 0.5rem' }}>
         worst-window ULP reached at the min-node grid, by deeper deep-tail rung
       </p>
       <WorstUlpChart />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.85rem', margin: '1rem 0 1.25rem' }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.85rem', margin: '1rem 0 1.25rem' }}>
         At the deepest rung n=400 the graded map cuts the budget{' '}
-        <strong style={{ color: '#4ade80' }}>~{IMP33609_MAX_MAP_SAVING_FACTOR.toFixed(2)}x</strong>{' '}
+        <strong style={{ color: 'var(--series-3)' }}>~{IMP33609_MAX_MAP_SAVING_FACTOR.toFixed(2)}x</strong>{' '}
         (513 -&gt; 129 nodes); the worst graded-mapped budget (129) sits below the unmapped floor
         (257) at every rung. Because the ONLY change between control and test is the abscissa
         placement, the imp-33560 depth-climb is confirmed to be a UNIFORM-ABSCISSA ARTIFACT, not
@@ -220,14 +221,14 @@ export default function Imp33609GradedMappedCcAbscissaArtifactViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> the amber line is flat
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> the amber line is flat
         because the imp-33539 graded-GL reference uses a fixed rule (200 nodes) at every rung; the
         blue unmapped-CC line climbs with depth as the saddle sharpens; the green graded-mapped-CC
         line stays flat and below it. The exact node counts (97/129/257/513) are jittery
@@ -240,14 +241,14 @@ export default function Imp33609GradedMappedCcAbscissaArtifactViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> accuracy/rule-design
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> accuracy/rule-design
         cross-solver measurement only, of an already-verified table (imp-33580). It changes no
         bound and patches no literal (imp-33213/imp-33316/imp-33539/imp-33560 intact); the imp-33316
         &lt; 64 ULP band is known to fail at deeper rungs n &ge; 510 (imp-33537/imp-33557), but the

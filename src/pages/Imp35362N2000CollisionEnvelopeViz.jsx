@@ -1,5 +1,6 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
+import { ED } from '../styles/tokens.js';
 
 // Import-light: literals baked verbatim from
 // src/data/imp-35324-r2-n2000-finer-grid-reference.js (the finer tauC/4000
@@ -32,19 +33,19 @@ function EnvelopeChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <text x={padL} y={padT - 14} fill="#94a3b8" fontSize={11} fontWeight={700}>
+      <text x={padL} y={padT - 14} fill={ED.inkSoft} fontSize={11} fontWeight={700}>
         N=2000 collision envelope: slack = t_c_hi - t_c per reference (log scale)
       </text>
 
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#334155" strokeWidth={1} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1} />
 
       {REFERENCES.map((r, i) => {
         const y = padT + i * rowH + rowH / 2;
         const x = xOf(r.slack);
-        const color = r.worstCase ? '#fb923c' : '#4ade80';
+        const color = r.worstCase ? ED.series4 : ED.series3;
         return (
           <g key={r.label}>
-            <text x={padL - 10} y={y + 4} textAnchor="end" fill="#cbd5e1" fontSize={10.5}>
+            <text x={padL - 10} y={y + 4} textAnchor="end" fill={ED.ink} fontSize={10.5}>
               {r.label}
             </text>
             <line x1={padL} y1={y} x2={x} y2={y} stroke={color} strokeWidth={2} strokeOpacity={0.55} />
@@ -61,15 +62,15 @@ function EnvelopeChart() {
         y1={padT + plotH}
         x2={padL + plotW}
         y2={padT + plotH}
-        stroke="#64748b"
+        stroke={ED.rule}
         strokeWidth={1.25}
       />
       {[3e-8, 1e-7, 1e-6, 1e-5].map((v) => (
-        <text key={v} x={xOf(v)} y={padT + plotH + 16} textAnchor="middle" fill="#64748b" fontSize={9}>
+        <text key={v} x={xOf(v)} y={padT + plotH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
           {v.toExponential(0)}
         </text>
       ))}
-      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={9.5}>
+      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5}>
         slack below t_c_hi = 1.2e-3 (log scale)
       </text>
     </svg>
@@ -81,7 +82,7 @@ export default function Imp35362N2000CollisionEnvelopeViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="N=2000 Collision-Envelope Bracket: Four Finer-Grid References vs t_c_hi (imp-35362 / imp-35324)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-35324 re-ran the imp-35235 R2 order-robust flow test at N=2000 on a base grid four times
         finer (dt&nbsp;=&nbsp;tauC_est/4000), resolving the imp-35235 DP45 dt/2 gate-skip. All four
         cross-family, cross-grid references (RK4 and DP45, each at dt and dt/2) now land below the
@@ -102,7 +103,7 @@ export default function Imp35362N2000CollisionEnvelopeViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>reference</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>t_c</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>slack (t_c_hi &minus; t_c)</th>
@@ -110,7 +111,7 @@ export default function Imp35362N2000CollisionEnvelopeViz() {
         </thead>
         <tbody>
           {REFERENCES.map((r) => (
-            <tr key={r.label} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+            <tr key={r.label} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
               <td style={{ padding: '0.4rem 0.6rem' }}>
                 {r.label}
                 {r.worstCase ? ' (worst case)' : ''}
@@ -120,7 +121,7 @@ export default function Imp35362N2000CollisionEnvelopeViz() {
                 style={{
                   padding: '0.4rem 0.6rem',
                   fontFamily: 'monospace',
-                  color: r.worstCase ? '#fb923c' : '#4ade80',
+                  color: r.worstCase ? 'var(--series-4)' : 'var(--series-3)',
                 }}
               >
                 {r.slack.toExponential(3)}
@@ -134,14 +135,14 @@ export default function Imp35362N2000CollisionEnvelopeViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page baking the imp-35324
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-only page baking the imp-35324
         finer-grid literals verbatim (no new computation, no data-module import). The clearance is
         marginal, not full-precision (the dt/2 cross-family gap is nonzero, unlike the exact tie at
         dt); per imp-35324 the R2 ladder largest-N-robustly-certified stays at 1000, NOT advanced to

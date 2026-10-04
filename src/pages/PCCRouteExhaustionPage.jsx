@@ -14,6 +14,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
+import { ED, alpha as TK_ALPHA } from '../styles/tokens.js';
 
 const mono = 'var(--ed-mono, var(--font-mono))';
 
@@ -21,10 +22,10 @@ const mono = 'var(--ed-mono, var(--font-mono))';
 // (editorial.css defines the vars as hex, so alpha-blended fills are spelled
 // out here rather than composed via rgba(var(...))).
 const FAMILY_ACCENT = {
-  'moment-method': { fg: 'var(--brass-dk)', border: 'var(--brass-dk)', bg: 'rgba(181,138,46,0.08)', bgSoft: 'rgba(181,138,46,0.05)' },
-  'new-input': { fg: 'var(--blue)', border: 'var(--blue)', bg: 'rgba(63,107,134,0.08)', bgSoft: 'rgba(63,107,134,0.05)' },
-  'rh-equivalent': { fg: 'var(--brass)', border: 'var(--brass)', bg: 'rgba(140,106,29,0.08)', bgSoft: 'rgba(140,106,29,0.05)' },
-  'sieve': { fg: 'var(--green)', border: 'var(--green)', bg: 'rgba(76,122,74,0.08)', bgSoft: 'rgba(76,122,74,0.05)' },
+  'moment-method': { fg: 'var(--brass-dk)', border: 'var(--brass-dk)', bg: TK_ALPHA(ED.brassDeco, 0.08), bgSoft: TK_ALPHA(ED.brassDeco, 0.05) },
+  'new-input': { fg: 'var(--blue)', border: 'var(--blue)', bg: TK_ALPHA(ED.series1, 0.08), bgSoft: TK_ALPHA(ED.series1, 0.05) },
+  'rh-equivalent': { fg: 'var(--brass)', border: 'var(--brass)', bg: TK_ALPHA(ED.brass, 0.08), bgSoft: TK_ALPHA(ED.brass, 0.05) },
+  'sieve': { fg: 'var(--green)', border: 'var(--green)', bg: TK_ALPHA(ED.series3, 0.08), bgSoft: TK_ALPHA(ED.series3, 0.05) },
 };
 
 const FAMILIES = {
@@ -182,7 +183,7 @@ function AggregateVerdictSection() {
       style={{
         ...cardBaseLeft('var(--terra-dk)'),
         marginBottom: 32,
-        background: 'rgba(194,58,28,0.06)',
+        background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
         padding: '20px 24px',
       }}
     >

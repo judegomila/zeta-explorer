@@ -1,4 +1,5 @@
 import React from 'react';
+import { ED, alpha } from '../styles/tokens.js';
 
 // DeBruijnDepartureViz
 // ---------------------------------------------------------------------------
@@ -173,12 +174,12 @@ export default function DeBruijnDepartureViz() {
     ctx.fillRect(0, 0, W, H);
 
     // imaginary-axis band shading (off-line = departed)
-    ctx.fillStyle = 'rgba(239,68,68,0.05)';
+    ctx.fillStyle = alpha(ED.series2, 0.05);
     ctx.fillRect(0, 0, W, oy - 3);
     ctx.fillRect(0, oy + 3, W, H - oy - 3);
 
     // grid
-    ctx.strokeStyle = 'rgba(148,163,184,0.12)';
+    ctx.strokeStyle = alpha(ED.rule, 0.12);
     ctx.lineWidth = 1;
     for (let g = -6; g <= 6; g++) {
       const [gx] = toPx(g, 0);
@@ -188,15 +189,15 @@ export default function DeBruijnDepartureViz() {
     }
 
     // real axis ("critical line" analogue) — bright
-    ctx.strokeStyle = 'rgba(56,189,248,0.55)';
+    ctx.strokeStyle = alpha(ED.series1, 0.55);
     ctx.lineWidth = 2;
     ctx.beginPath(); ctx.moveTo(0, oy); ctx.lineTo(W, oy); ctx.stroke();
-    ctx.fillStyle = 'rgba(56,189,248,0.7)';
+    ctx.fillStyle = alpha(ED.series1, 0.7);
     ctx.font = '11px ui-monospace, monospace';
     ctx.fillText('Im = 0  (real axis)', 8, oy - 8);
 
     // ghost markers: original t=0 real roots
-    ctx.fillStyle = 'rgba(148,163,184,0.35)';
+    ctx.fillStyle = alpha(ED.series8, 0.35);
     for (const r of originalRoots) {
       const [px, py] = toPx(r, 0);
       ctx.beginPath(); ctx.moveTo(px, py - 5); ctx.lineTo(px, py + 5); ctx.stroke();
@@ -210,12 +211,12 @@ export default function DeBruijnDepartureViz() {
       ctx.beginPath();
       ctx.arc(px, py, departed ? 6 : 5, 0, Math.PI * 2);
       if (departed) {
-        ctx.fillStyle = 'rgba(239,68,68,0.9)';
-        ctx.shadowColor = 'rgba(239,68,68,0.8)';
+        ctx.fillStyle = alpha(ED.series2, 0.9);
+        ctx.shadowColor = alpha(ED.series2, 0.8);
         ctx.shadowBlur = 14;
       } else {
-        ctx.fillStyle = 'rgba(56,189,248,0.95)';
-        ctx.shadowColor = 'rgba(56,189,248,0.7)';
+        ctx.fillStyle = alpha(ED.series1, 0.95);
+        ctx.shadowColor = alpha(ED.series1, 0.7);
         ctx.shadowBlur = 10;
       }
       ctx.fill();
@@ -223,7 +224,7 @@ export default function DeBruijnDepartureViz() {
       // connect a complex root to its conjugate with a faint vertical thread
       if (departed && im > 0) {
         const [, py2] = toPx(re, -im);
-        ctx.strokeStyle = 'rgba(239,68,68,0.3)';
+        ctx.strokeStyle = alpha(ED.series2, 0.3);
         ctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(px, py2); ctx.stroke();
       }
     }
@@ -232,12 +233,12 @@ export default function DeBruijnDepartureViz() {
   const pct = ((t - T_MIN) / (T_MAX - T_MIN)) * 100;
 
   return (
-    <div style={{ background: '#0b1120', borderRadius: 12, padding: 16, border: '1px solid #1e293b' }}>
+    <div style={{ background: 'var(--paper)', borderRadius: 12, padding: 16, border: '1px solid var(--rule-soft)' }}>
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'center', marginBottom: 12 }}>
         <select
           value={presetKey}
           onChange={(e) => setPresetKey(e.target.value)}
-          style={{ background: '#1e293b', color: '#e2e8f0', border: '1px solid #334155', borderRadius: 6, padding: '6px 10px', fontSize: 13 }}
+          style={{ background: 'var(--paper-3)', color: 'var(--ink)', border: '1px solid var(--rule)', borderRadius: 6, padding: '6px 10px', fontSize: 13 }}
         >
           {Object.entries(PRESETS).map(([k, v]) => (
             <option key={k} value={k}>{v.label} (deg {PRESETS[k].roots.length})</option>
@@ -245,12 +246,12 @@ export default function DeBruijnDepartureViz() {
         </select>
         <button
           onClick={() => setPlaying((p) => !p)}
-          style={{ background: playing ? '#7f1d1d' : '#166534', color: '#fff', border: 'none', borderRadius: 6, padding: '6px 14px', fontSize: 13, cursor: 'pointer' }}
+          style={{ background: playing ? 'var(--tint-terra)' : 'var(--tint-green)', color: '#fff', border: 'none', borderRadius: 6, padding: '6px 14px', fontSize: 13, cursor: 'pointer' }}
         >
           {playing ? '❚❚ Pause' : '▶ Play'}
         </button>
-        <div style={{ color: '#94a3b8', fontSize: 13, fontFamily: 'ui-monospace, monospace' }}>
-          t = <span style={{ color: t < 0 ? '#f87171' : '#38bdf8' }}>{t.toFixed(3)}</span>
+        <div style={{ color: 'var(--ink-soft)', fontSize: 13, fontFamily: 'ui-monospace, monospace' }}>
+          t = <span style={{ color: t < 0 ? 'var(--series-2)' : 'var(--series-1)' }}>{t.toFixed(3)}</span>
           {t < 0 ? '  (smoothing / departure direction)' : t > 0 ? '  (anti-diffusive / more-real)' : ''}
         </div>
       </div>
@@ -260,7 +261,7 @@ export default function DeBruijnDepartureViz() {
         onChange={(e) => { setPlaying(false); setT(parseFloat(e.target.value)); }}
         style={{ width: '100%', marginBottom: 4 }}
       />
-      <div style={{ display: 'flex', justifyContent: 'space-between', color: '#64748b', fontSize: 11, marginBottom: 12, fontFamily: 'ui-monospace, monospace' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', color: 'var(--ink-faint)', fontSize: 11, marginBottom: 12, fontFamily: 'ui-monospace, monospace' }}>
         <span>t = {T_MIN} (deep negative time)</span>
         <span>t = 0 (real-rooted proxy)</span>
         <span>t = {T_MAX}</span>
@@ -272,13 +273,13 @@ export default function DeBruijnDepartureViz() {
       />
 
       <div style={{ display: 'flex', gap: 20, marginTop: 12, fontSize: 13, fontFamily: 'ui-monospace, monospace', flexWrap: 'wrap' }}>
-        <span style={{ color: '#38bdf8' }}>● real zeros: {nReal}</span>
-        <span style={{ color: '#f87171' }}>● departed (complex pairs): {nPairs}</span>
-        <span style={{ color: '#94a3b8' }}>│ ghosts = t=0 root positions</span>
+        <span style={{ color: 'var(--series-1)' }}>● real zeros: {nReal}</span>
+        <span style={{ color: 'var(--series-2)' }}>● departed (complex pairs): {nPairs}</span>
+        <span style={{ color: 'var(--ink-soft)' }}>│ ghosts = t=0 root positions</span>
       </div>
-      <p style={{ color: '#64748b', fontSize: 12, marginTop: 10, lineHeight: 1.6 }}>
+      <p style={{ color: 'var(--ink-faint)', fontSize: 12, marginTop: 10, lineHeight: 1.6 }}>
         Sweep <span style={{ fontFamily: 'monospace' }}>t</span> toward negative time: adjacent real zeros
-        collide on the axis and <span style={{ color: '#f87171' }}>depart</span> into conjugate pairs — the
+        collide on the axis and <span style={{ color: 'var(--series-2)' }}>depart</span> into conjugate pairs — the
         exact same real→complex bifurcation the parabolic flow undergoes, computed here in closed form
         (<span style={{ fontFamily: 'monospace' }}>c_k(t)=Σ_j (−t)^j/j! · a_{'{k+2j}'} · (k+2j)!/k!</span>),
         stable in both directions. Increasing <span style={{ fontFamily: 'monospace' }}>t</span> recombines them

@@ -3,6 +3,7 @@ import PageHeader from '../components/PageHeader.jsx';
 import { effectiveHeightForN } from '../data/lambda-rh-height-mapping.js';
 import { C_C_PINNED } from '../data/polymath15-constant-C-C.js';
 import { IMP34949_KRAWCZYK_MARGIN_INFIMUM_BAND_ENDPOINT as D } from '../data/imp-34949-krawczyk-margin-infimum-band-endpoint.js';
+import { ED } from '../styles/tokens.js';
 
 // Reproduces the imp-34949 closed forms verbatim (same K_AMPL/DELTA constants, same a(N)/a-prime(N)
 // kernels) purely to resample the exact margin m(N) and its delta -> 0 closed form m_0(N) on a dense
@@ -70,26 +71,26 @@ function MarginChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
       {yTicks.map((t) => (
         <g key={t}>
-          <line x1={padL - 4} y1={yAt(t)} x2={padL + cW} y2={yAt(t)} stroke="#1e293b" strokeWidth={1} />
-          <text x={padL - 8} y={yAt(t) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+          <line x1={padL - 4} y1={yAt(t)} x2={padL + cW} y2={yAt(t)} stroke={ED.ruleSoft} strokeWidth={1} />
+          <text x={padL - 8} y={yAt(t) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {t.toFixed(4)}
           </text>
         </g>
       ))}
-      <line x1={padL} y1={yAt(INFIMUM)} x2={padL + cW} y2={yAt(INFIMUM)} stroke="#fbbf24" strokeWidth={1} strokeDasharray="4 3" />
-      <path d={path} fill="none" stroke="#38bdf8" strokeWidth={2} />
-      <circle cx={xAt(BAND_LO)} cy={yAt(CURVE[0].m)} r={4} fill="#fbbf24" stroke="#0f172a" strokeWidth={1} />
-      <circle cx={xAt(N_CROSS)} cy={yAt(marginExact(N_CROSS))} r={4} fill="#38bdf8" stroke="#0f172a" strokeWidth={1} />
-      <text x={xAt(BAND_LO) + 6} y={yAt(CURVE[0].m) + 14} fill="#fbbf24" fontSize={9.5} fontWeight={700}>
+      <line x1={padL} y1={yAt(INFIMUM)} x2={padL + cW} y2={yAt(INFIMUM)} stroke={ED.brassDeco} strokeWidth={1} strokeDasharray="4 3" />
+      <path d={path} fill="none" stroke={ED.series1} strokeWidth={2} />
+      <circle cx={xAt(BAND_LO)} cy={yAt(CURVE[0].m)} r={4} fill={ED.brassDeco} stroke={ED.paper} strokeWidth={1} />
+      <circle cx={xAt(N_CROSS)} cy={yAt(marginExact(N_CROSS))} r={4} fill={ED.series1} stroke={ED.paper} strokeWidth={1} />
+      <text x={xAt(BAND_LO) + 6} y={yAt(CURVE[0].m) + 14} fill={ED.brass} fontSize={9.5} fontWeight={700}>
         infimum {INFIMUM.toFixed(7)} (band-lo)
       </text>
-      <text x={xAt(N_CROSS)} y={yAt(marginExact(N_CROSS)) - 8} textAnchor="middle" fill="#38bdf8" fontSize={9}>
+      <text x={xAt(N_CROSS)} y={yAt(marginExact(N_CROSS)) - 8} textAnchor="middle" fill={ED.series1} fontSize={9}>
         N_cross
       </text>
-      <text x={padL + cW / 2} y={svgH - 6} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 6} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         exact margin m(N) across the widest imp-34693 k={D.constants.widest_band_k} band -- strictly
         increasing, boundary infimum at band-lo
       </text>
@@ -118,18 +119,18 @@ function PerturbationChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke="#334155" strokeWidth={1} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke={ED.rule} strokeWidth={1} />
       {yTicks.map((t) => (
         <g key={t}>
-          <line x1={padL - 4} y1={yAt(t)} x2={padL} y2={yAt(t)} stroke="#334155" strokeWidth={1} />
-          <text x={padL - 8} y={yAt(t) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+          <line x1={padL - 4} y1={yAt(t)} x2={padL} y2={yAt(t)} stroke={ED.rule} strokeWidth={1} />
+          <text x={padL - 8} y={yAt(t) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {t.toFixed(2)}
           </text>
         </g>
       ))}
-      <path d={path} fill="none" stroke="#f87171" strokeWidth={2} />
-      <text x={padL + cW / 2} y={svgH - 6} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <path d={path} fill="none" stroke={ED.series2} strokeWidth={2} />
+      <text x={padL + cW / 2} y={svgH - 6} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         |m(N) - m&#8320;(N)| across the band, units of 1e-4 -- peaks at{' '}
         {D.measurement.max_abs_delta_perturbation}, three orders below the ~0.488 margin
       </text>
@@ -142,11 +143,11 @@ export default function Imp34999KrawczykMarginInfimumBandEndpointViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Krawczyk Monotonicity-Margin Infimum (imp-34999 / imp-34949)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         {D.question}
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         The exact closed-form margin m(N) = 1 - a&prime;(N)(1-a(M)) / [a&prime;(M)(1-&delta;)
         (1-a(N))(2-a(N))], M = N(1-&delta;), resampled across the widest imp-34693 k=
         {D.constants.widest_band_k} band: strictly increasing, with the boundary-attained worst-case
@@ -154,7 +155,7 @@ export default function Imp34999KrawczykMarginInfimumBandEndpointViz() {
       </p>
       <MarginChart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.25rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.25rem 0 0.5rem' }}>
         The O(&delta; &asymp; 2e-4) correction between the exact margin m(N) and the &delta; &rarr; 0
         closed form m&#8320;(N) = (1-a)/(2-a) = V/(1+V) stays roughly three orders of magnitude below
         the margin itself, so it cannot close the gap to a sign flip.
@@ -165,14 +166,14 @@ export default function Imp34999KrawczykMarginInfimumBandEndpointViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page resampling the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-only page resampling the
         imp-34949 closed-form exact margin m(N) and its &delta; &rarr; 0 limit m&#8320;(N) on a dense
         grid (no new math; band bounds and infimum baked from imp-34949). Derivation/measurement only
         on the inherited imp-3220/imp-3406 surrogate crossover map; the headroom rests on the

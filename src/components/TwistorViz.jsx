@@ -9,6 +9,7 @@ import {
   incidenceRelation, twistorCorrespondence, penroseTransformScan,
 } from '../math/twistor.js';
 import ThermoBar from './ThermoBar.jsx';
+import { ED, alpha as TK_ALPHA } from '../styles/tokens.js';
 
 const TABS = [
   { id: 'correspondence', label: 'Correspondence' },
@@ -49,28 +50,28 @@ function CorrespondenceTab({ sigma, t, numPrimes }) {
 
     // s-plane circle
     svg.append('circle').attr('cx', sPlaneX).attr('cy', sPlaneY).attr('r', sPlaneR)
-      .attr('fill', 'rgba(15,23,42,0.6)').attr('stroke', '#334155').attr('stroke-width', 1);
+      .attr('fill', TK_ALPHA(ED.paper2, 0.6)).attr('stroke', ED.rule).attr('stroke-width', 1);
 
     // Critical line at σ=0.5
     const critX = sPlaneX + ((0.5 - 0.5) / 1.0) * sPlaneR; // centered at σ=0.5
     svg.append('line')
       .attr('x1', sPlaneX).attr('y1', sPlaneY - sPlaneR)
       .attr('x2', sPlaneX).attr('y2', sPlaneY + sPlaneR)
-      .attr('stroke', '#10b981').attr('stroke-width', 1.5).attr('stroke-dasharray', '4,3')
+      .attr('stroke', ED.series3).attr('stroke-width', 1.5).attr('stroke-dasharray', '4,3')
       .attr('opacity', 0.6);
 
     svg.append('text').attr('x', sPlaneX + 4).attr('y', sPlaneY - sPlaneR - 6)
-      .attr('fill', '#10b981').attr('font-size', 9).text('σ = ½');
+      .attr('fill', ED.series3).attr('font-size', 9).text('σ = ½');
 
     // Axes
     svg.append('line')
       .attr('x1', sPlaneX - sPlaneR).attr('y1', sPlaneY)
       .attr('x2', sPlaneX + sPlaneR).attr('y2', sPlaneY)
-      .attr('stroke', '#475569').attr('stroke-width', 0.5);
+      .attr('stroke', ED.rule).attr('stroke-width', 0.5);
     svg.append('text').attr('x', sPlaneX + sPlaneR + 4).attr('y', sPlaneY + 4)
-      .attr('fill', '#64748b').attr('font-size', 9).text('σ');
+      .attr('fill', ED.inkFaint).attr('font-size', 9).text('σ');
     svg.append('text').attr('x', sPlaneX - 12).attr('y', sPlaneY - sPlaneR - 6)
-      .attr('fill', '#64748b').attr('font-size', 9).text('t');
+      .attr('fill', ED.inkFaint).attr('font-size', 9).text('t');
 
     // Plot s point
     const sNormSig = Math.max(-1, Math.min(1, (sigma - 0.5) / 0.5));
@@ -78,9 +79,9 @@ function CorrespondenceTab({ sigma, t, numPrimes }) {
     const sPx = sPlaneX + sNormSig * sPlaneR;
     const sPy = sPlaneY - sNormT * sPlaneR;
     svg.append('circle').attr('cx', sPx).attr('cy', sPy).attr('r', 6)
-      .attr('fill', '#3b82f6').attr('stroke', '#fff').attr('stroke-width', 1.5);
+      .attr('fill', ED.series1).attr('stroke', '#fff').attr('stroke-width', 1.5);
     svg.append('text').attr('x', sPx + 10).attr('y', sPy + 4)
-      .attr('fill', '#3b82f6').attr('font-size', 10).attr('font-weight', 600)
+      .attr('fill', ED.series1).attr('font-size', 10).attr('font-weight', 600)
       .text(`s = ${sigma.toFixed(2)} + ${t.toFixed(1)}i`);
 
     // Plot 1-s point
@@ -89,14 +90,14 @@ function CorrespondenceTab({ sigma, t, numPrimes }) {
     const dPx = sPlaneX + dualSig * sPlaneR;
     const dPy = sPlaneY - dualT * sPlaneR;
     svg.append('circle').attr('cx', dPx).attr('cy', dPy).attr('r', 5)
-      .attr('fill', '#f59e0b').attr('stroke', '#fff').attr('stroke-width', 1.5);
+      .attr('fill', ED.brassDeco).attr('stroke', '#fff').attr('stroke-width', 1.5);
     svg.append('text').attr('x', dPx + 10).attr('y', dPy + 4)
-      .attr('fill', '#f59e0b').attr('font-size', 10).attr('font-weight', 600)
+      .attr('fill', ED.brass).attr('font-size', 10).attr('font-weight', 600)
       .text(`1−s`);
 
     // Title
     svg.append('text').attr('x', sPlaneX).attr('y', 24)
-      .attr('text-anchor', 'middle').attr('fill', '#e2e8f0')
+      .attr('text-anchor', 'middle').attr('fill', ED.ink)
       .attr('font-size', 13).attr('font-weight', 600).text('s-Plane');
 
     // ── Right Panel: Twistor Space ──
@@ -105,12 +106,12 @@ function CorrespondenceTab({ sigma, t, numPrimes }) {
     const twistR = Math.min(width * 0.2, 160);
 
     svg.append('text').attr('x', twistX).attr('y', 24)
-      .attr('text-anchor', 'middle').attr('fill', '#e2e8f0')
+      .attr('text-anchor', 'middle').attr('fill', ED.ink)
       .attr('font-size', 13).attr('font-weight', 600).text('Twistor Space');
 
     // Background
     svg.append('circle').attr('cx', twistX).attr('cy', twistY).attr('r', twistR)
-      .attr('fill', 'rgba(15,23,42,0.6)').attr('stroke', '#334155').attr('stroke-width', 1);
+      .attr('fill', TK_ALPHA(ED.paper2, 0.6)).attr('stroke', ED.rule).attr('stroke-width', 1);
 
     // Twistor Z as vector
     const zScale = Math.min(twistR * 0.8, twistR * 0.8 / Math.max(Z.norm, 0.5));
@@ -121,13 +122,13 @@ function CorrespondenceTab({ sigma, t, numPrimes }) {
     svg.append('line')
       .attr('x1', twistX).attr('y1', twistY)
       .attr('x2', zOmegaX).attr('y2', zOmegaY)
-      .attr('stroke', '#3b82f6').attr('stroke-width', 2.5)
+      .attr('stroke', ED.series1).attr('stroke-width', 2.5)
       .attr('marker-end', 'url(#arrowBlue)');
     svg.append('circle').attr('cx', zOmegaX).attr('cy', zOmegaY).attr('r', 4)
-      .attr('fill', '#3b82f6');
+      .attr('fill', ED.series1);
     svg.append('text')
       .attr('x', zOmegaX + 8).attr('y', zOmegaY - 6)
-      .attr('fill', '#3b82f6').attr('font-size', 11).attr('font-weight', 700)
+      .attr('fill', ED.series1).attr('font-size', 11).attr('font-weight', 700)
       .text('Z');
 
     // Dual twistor W as vector
@@ -137,17 +138,17 @@ function CorrespondenceTab({ sigma, t, numPrimes }) {
     svg.append('line')
       .attr('x1', twistX).attr('y1', twistY)
       .attr('x2', wOmegaX).attr('y2', wOmegaY)
-      .attr('stroke', '#f59e0b').attr('stroke-width', 2.5)
+      .attr('stroke', ED.brassDeco).attr('stroke-width', 2.5)
       .attr('marker-end', 'url(#arrowGold)');
     svg.append('circle').attr('cx', wOmegaX).attr('cy', wOmegaY).attr('r', 4)
-      .attr('fill', '#f59e0b');
+      .attr('fill', ED.brassDeco);
     svg.append('text')
       .attr('x', wOmegaX + 8).attr('y', wOmegaY - 6)
-      .attr('fill', '#f59e0b').attr('font-size', 11).attr('font-weight', 700)
+      .attr('fill', ED.brass).attr('font-size', 11).attr('font-weight', 700)
       .text('W');
 
     // Intertwiner arc between Z and W endpoints
-    const arcColor = inc.satisfied ? '#10b981' : '#ef4444';
+    const arcColor = inc.satisfied ? ED.series3 : ED.series2;
     const arcMidX = (zOmegaX + wOmegaX) / 2;
     const arcMidY = (zOmegaY + wOmegaY) / 2 - 20;
     svg.append('path')
@@ -164,18 +165,18 @@ function CorrespondenceTab({ sigma, t, numPrimes }) {
     // ── Connecting arrow s-plane → twistor ──
     svg.append('path')
       .attr('d', `M${sPlaneX + sPlaneR + 15},${sPlaneY} Q${midX},${sPlaneY - 30} ${twistX - twistR - 15},${twistY}`)
-      .attr('fill', 'none').attr('stroke', '#8b5cf6').attr('stroke-width', 1.5)
+      .attr('fill', 'none').attr('stroke', ED.series5).attr('stroke-width', 1.5)
       .attr('stroke-dasharray', '6,4')
       .attr('marker-end', 'url(#arrowPurple)');
 
     svg.append('text').attr('x', midX).attr('y', sPlaneY - 36)
-      .attr('text-anchor', 'middle').attr('fill', '#8b5cf6')
+      .attr('text-anchor', 'middle').attr('fill', ED.series5)
       .attr('font-size', 10).attr('font-weight', 600)
       .text('Twistor Map');
 
     // ── Arrow markers ──
     const defs = svg.append('defs');
-    [['arrowBlue', '#3b82f6'], ['arrowGold', '#f59e0b'], ['arrowPurple', '#8b5cf6']].forEach(([id, color]) => {
+    [['arrowBlue', ED.series1], ['arrowGold', ED.series4], ['arrowPurple', ED.series5]].forEach(([id, color]) => {
       defs.append('marker').attr('id', id)
         .attr('viewBox', '0 0 10 6').attr('refX', 10).attr('refY', 3)
         .attr('markerWidth', 8).attr('markerHeight', 6).attr('orient', 'auto')
@@ -185,12 +186,12 @@ function CorrespondenceTab({ sigma, t, numPrimes }) {
     // ── Stats panel at bottom ──
     const statsY = height - 60;
     const stats = [
-      [`||Z|| = ${Z.norm.toFixed(3)}`, '#3b82f6'],
-      [`||W|| = ${W.norm.toFixed(3)}`, '#f59e0b'],
-      [`|χ(s)| = ${bridge.magnitude.toFixed(3)}`, '#8b5cf6'],
+      [`||Z|| = ${Z.norm.toFixed(3)}`, ED.series1],
+      [`||W|| = ${W.norm.toFixed(3)}`, ED.series4],
+      [`|χ(s)| = ${bridge.magnitude.toFixed(3)}`, ED.series5],
       [`|Z·W| = ${inc.magnitude.toFixed(4)}`, arcColor],
-      [`h_Z = ${Z.helicity.toFixed(3)}`, '#06b6d4'],
-      [`h_W = ${W.helicity.toFixed(3)}`, '#ec4899'],
+      [`h_Z = ${Z.helicity.toFixed(3)}`, ED.series6],
+      [`h_W = ${W.helicity.toFixed(3)}`, ED.series7],
     ];
 
     stats.forEach(([txt, color], i) => {
@@ -261,15 +262,15 @@ function PenroseTransformTab({ sigma, t, numPrimes }) {
     ctx.fillRect(margin.left, topY, chartW, panelH);
 
     ctx.font = '11px Inter, sans-serif';
-    ctx.fillStyle = '#06b6d4';
+    ctx.fillStyle = ED.series6;
     ctx.textAlign = 'left';
     ctx.fillText('Penrose Transform Field (twistor-weighted Euler product)', margin.left + 8, topY + 16);
 
     // Y-axis ticks for top panel
     ctx.font = '9px JetBrains Mono, monospace';
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.textAlign = 'right';
-    ctx.strokeStyle = 'rgba(100,116,139,0.2)';
+    ctx.strokeStyle = TK_ALPHA(ED.rule, 0.2);
     ctx.lineWidth = 0.5;
     for (let frac = 0; frac <= 1; frac += 0.25) {
       const val = maxField * frac;
@@ -281,7 +282,7 @@ function PenroseTransformTab({ sigma, t, numPrimes }) {
       ctx.stroke();
     }
 
-    ctx.strokeStyle = '#06b6d4';
+    ctx.strokeStyle = ED.series6;
     ctx.lineWidth = 2;
     ctx.beginPath();
     for (let i = 0; i < n; i++) {
@@ -295,7 +296,7 @@ function PenroseTransformTab({ sigma, t, numPrimes }) {
     ctx.save();
     ctx.translate(14, topY + panelH / 2);
     ctx.rotate(-Math.PI / 2);
-    ctx.fillStyle = '#06b6d4';
+    ctx.fillStyle = ED.series6;
     ctx.font = '10px Inter, sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText('Field amplitude', 0, 0);
@@ -306,15 +307,15 @@ function PenroseTransformTab({ sigma, t, numPrimes }) {
     ctx.fillStyle = 'rgba(26,31,54,0.4)';
     ctx.fillRect(margin.left, botY, chartW, panelH);
 
-    ctx.fillStyle = '#8b5cf6';
+    ctx.fillStyle = ED.series5;
     ctx.textAlign = 'left';
     ctx.fillText('|ζ(s)| (Euler product magnitude)', margin.left + 8, botY + 16);
 
     // Y-axis ticks for bottom panel
     ctx.font = '9px JetBrains Mono, monospace';
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.textAlign = 'right';
-    ctx.strokeStyle = 'rgba(100,116,139,0.2)';
+    ctx.strokeStyle = TK_ALPHA(ED.rule, 0.2);
     ctx.lineWidth = 0.5;
     for (let frac = 0; frac <= 1; frac += 0.25) {
       const val = maxZeta * frac;
@@ -326,7 +327,7 @@ function PenroseTransformTab({ sigma, t, numPrimes }) {
       ctx.stroke();
     }
 
-    ctx.strokeStyle = '#8b5cf6';
+    ctx.strokeStyle = ED.series5;
     ctx.lineWidth = 2;
     ctx.beginPath();
     for (let i = 0; i < n; i++) {
@@ -340,7 +341,7 @@ function PenroseTransformTab({ sigma, t, numPrimes }) {
     ctx.save();
     ctx.translate(14, botY + panelH / 2);
     ctx.rotate(-Math.PI / 2);
-    ctx.fillStyle = '#8b5cf6';
+    ctx.fillStyle = ED.series5;
     ctx.font = '10px Inter, sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText('|ζ(s)|', 0, 0);
@@ -360,7 +361,7 @@ function PenroseTransformTab({ sigma, t, numPrimes }) {
       ctx.setLineDash([]);
 
       ctx.font = '10px JetBrains Mono, monospace';
-      ctx.fillStyle = '#e2e8f0';
+      ctx.fillStyle = ED.ink;
       ctx.textAlign = 'center';
       ctx.fillText(`σ = ${sigma.toFixed(2)}`, lx, topY - 6);
     }
@@ -368,7 +369,7 @@ function PenroseTransformTab({ sigma, t, numPrimes }) {
     // Critical line marker at σ=0.5
     const critFrac = (0.5 - 0.1) / (2.0 - 0.1);
     const critLx = margin.left + critFrac * chartW;
-    ctx.strokeStyle = 'rgba(16,185,129,0.4)';
+    ctx.strokeStyle = TK_ALPHA(ED.series3, 0.4);
     ctx.lineWidth = 1;
     ctx.setLineDash([2, 4]);
     ctx.beginPath();
@@ -379,7 +380,7 @@ function PenroseTransformTab({ sigma, t, numPrimes }) {
 
     // σ axis labels
     ctx.font = '9px JetBrains Mono, monospace';
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.textAlign = 'center';
     [0.2, 0.5, 1.0, 1.5, 2.0].forEach(s => {
       const frac = (s - 0.1) / (2.0 - 0.1);
@@ -391,7 +392,7 @@ function PenroseTransformTab({ sigma, t, numPrimes }) {
     // Correlation badge
     ctx.font = 'bold 12px Inter, sans-serif';
     ctx.textAlign = 'right';
-    ctx.fillStyle = correlation > 0.8 ? '#10b981' : correlation > 0.5 ? '#f59e0b' : '#ef4444';
+    ctx.fillStyle = correlation > 0.8 ? ED.series3 : correlation > 0.5 ? ED.series4 : ED.series2;
     ctx.fillText(`Correlation: ${correlation.toFixed(3)}`, W - margin.right, topY + 16);
 
   }, [scanData, sigma]);
@@ -508,7 +509,7 @@ function IncidenceRelationTab({ sigma, t }) {
       // Green filled marker
       ctx.beginPath();
       ctx.arc(zx, zy, 5, 0, Math.PI * 2);
-      ctx.fillStyle = '#10b981';
+      ctx.fillStyle = ED.series3;
       ctx.fill();
       ctx.strokeStyle = '#fff';
       ctx.lineWidth = 1.5;
@@ -534,7 +535,7 @@ function IncidenceRelationTab({ sigma, t }) {
 
     // Axis labels
     ctx.font = '10px JetBrains Mono, monospace';
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = ED.series8;
     ctx.textAlign = 'center';
     [0, 0.25, 0.5, 0.75, 1.0].forEach(s => {
       const x = margin.left + s * chartW;
@@ -556,11 +557,11 @@ function IncidenceRelationTab({ sigma, t }) {
 
     // Title
     ctx.font = 'bold 13px Inter, sans-serif';
-    ctx.fillStyle = '#e2e8f0';
+    ctx.fillStyle = ED.ink;
     ctx.textAlign = 'center';
     ctx.fillText('Incidence Relation |Z · W| over (σ, t)', W / 2, 20);
     ctx.font = '10px Inter, sans-serif';
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.fillText('Dark = incidence satisfied (Z·W ≈ 0), green dots = known zeta zeros', W / 2, 36);
 
     // Color bar (low at bottom, high at top — standard scientific convention)
@@ -575,7 +576,7 @@ function IncidenceRelationTab({ sigma, t }) {
       ctx.fillRect(cbX, margin.top + y, cbW, 1);
     }
     ctx.font = '8px JetBrains Mono, monospace';
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = ED.series8;
     ctx.textAlign = 'left';
     ctx.fillText(`${maxVal.toFixed(2)}`, cbX + cbW + 4, margin.top + 8);
     ctx.fillText('0', cbX + cbW + 4, margin.top + chartH);
@@ -639,7 +640,7 @@ function DualPairTab({ sigma, t, numPrimes, playing }) {
     const zCy = centerY;
     const radius = Math.min(panelW * 0.4, 120);
 
-    ctx.strokeStyle = '#334155';
+    ctx.strokeStyle = ED.rule;
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.arc(zCx, zCy, radius, 0, Math.PI * 2);
@@ -651,7 +652,7 @@ function DualPairTab({ sigma, t, numPrimes, playing }) {
     const zEndX = zCx + Math.cos(zAngle) * zLen;
     const zEndY = zCy + Math.sin(zAngle) * zLen;
 
-    ctx.strokeStyle = '#3b82f6';
+    ctx.strokeStyle = ED.series1;
     ctx.lineWidth = 3;
     ctx.beginPath();
     ctx.moveTo(zCx, zCy);
@@ -660,23 +661,23 @@ function DualPairTab({ sigma, t, numPrimes, playing }) {
 
     ctx.beginPath();
     ctx.arc(zEndX, zEndY, 5, 0, Math.PI * 2);
-    ctx.fillStyle = '#3b82f6';
+    ctx.fillStyle = ED.series1;
     ctx.fill();
 
     // Trace arc (last rotation)
-    ctx.strokeStyle = 'rgba(59,130,246,0.15)';
+    ctx.strokeStyle = TK_ALPHA(ED.series1, 0.15);
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.arc(zCx, zCy, zLen, 0, Math.PI * 2);
     ctx.stroke();
 
     ctx.font = 'bold 14px Inter, sans-serif';
-    ctx.fillStyle = '#3b82f6';
+    ctx.fillStyle = ED.series1;
     ctx.textAlign = 'center';
     ctx.fillText('Twistor Z', zCx, 30);
 
     ctx.font = '10px JetBrains Mono, monospace';
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = ED.series8;
     ctx.fillText(`||Z|| = ${Z.norm.toFixed(3)}`, zCx, H - 50);
     ctx.fillText(`h = ${Z.helicity.toFixed(3)}`, zCx, H - 34);
 
@@ -684,7 +685,7 @@ function DualPairTab({ sigma, t, numPrimes, playing }) {
     const wCx = W - panelW / 2 - 20;
     const wCy = centerY;
 
-    ctx.strokeStyle = '#334155';
+    ctx.strokeStyle = ED.rule;
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.arc(wCx, wCy, radius, 0, Math.PI * 2);
@@ -695,7 +696,7 @@ function DualPairTab({ sigma, t, numPrimes, playing }) {
     const wEndX = wCx + Math.cos(wAngle) * wLen;
     const wEndY = wCy + Math.sin(wAngle) * wLen;
 
-    ctx.strokeStyle = '#f59e0b';
+    ctx.strokeStyle = ED.brassDeco;
     ctx.lineWidth = 3;
     ctx.beginPath();
     ctx.moveTo(wCx, wCy);
@@ -704,22 +705,22 @@ function DualPairTab({ sigma, t, numPrimes, playing }) {
 
     ctx.beginPath();
     ctx.arc(wEndX, wEndY, 5, 0, Math.PI * 2);
-    ctx.fillStyle = '#f59e0b';
+    ctx.fillStyle = ED.series4;
     ctx.fill();
 
-    ctx.strokeStyle = 'rgba(245,158,11,0.15)';
+    ctx.strokeStyle = TK_ALPHA(ED.brassDeco, 0.15);
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.arc(wCx, wCy, wLen, 0, Math.PI * 2);
     ctx.stroke();
 
     ctx.font = 'bold 14px Inter, sans-serif';
-    ctx.fillStyle = '#f59e0b';
+    ctx.fillStyle = ED.series4;
     ctx.textAlign = 'center';
     ctx.fillText('Dual Twistor W', wCx, 30);
 
     ctx.font = '10px JetBrains Mono, monospace';
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = ED.series8;
     ctx.fillText(`||W|| = ${W2.norm.toFixed(3)}`, wCx, H - 50);
     ctx.fillText(`h = ${W2.helicity.toFixed(3)}`, wCx, H - 34);
 
@@ -729,31 +730,31 @@ function DualPairTab({ sigma, t, numPrimes, playing }) {
     // Coupling strength ring
     ctx.beginPath();
     ctx.arc(centerX, centerY, couplingR, 0, Math.PI * 2);
-    ctx.strokeStyle = bridge.isUnitary ? '#10b981' : '#ef4444';
+    ctx.strokeStyle = bridge.isUnitary ? ED.series3 : ED.series2;
     ctx.lineWidth = 3;
     ctx.stroke();
 
-    ctx.fillStyle = bridge.isUnitary ? 'rgba(16,185,129,0.15)' : 'rgba(239,68,68,0.15)';
+    ctx.fillStyle = bridge.isUnitary ? TK_ALPHA(ED.series3, 0.15) : TK_ALPHA(ED.series2, 0.15);
     ctx.fill();
 
     ctx.font = 'bold 12px Inter, sans-serif';
-    ctx.fillStyle = bridge.isUnitary ? '#10b981' : '#ef4444';
+    ctx.fillStyle = bridge.isUnitary ? ED.series3 : ED.series2;
     ctx.textAlign = 'center';
     ctx.fillText('I', centerX, centerY + 4);
 
     ctx.font = '10px JetBrains Mono, monospace';
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = ED.series8;
     ctx.fillText(`|χ| = ${bridge.magnitude.toFixed(3)}`, centerX, centerY + couplingR + 16);
 
     // Phase lock indicator
     const phaseDiff = Math.abs(Z.helicity - W2.helicity);
     const locked = phaseDiff < 0.1;
     ctx.font = 'bold 10px Inter, sans-serif';
-    ctx.fillStyle = locked ? '#10b981' : '#f59e0b';
+    ctx.fillStyle = locked ? ED.series3 : ED.series4;
     ctx.fillText(locked ? 'PHASE-LOCKED' : `Δh = ${phaseDiff.toFixed(3)}`, centerX, centerY + couplingR + 32);
 
     // Connecting lines Z → I → W
-    ctx.strokeStyle = 'rgba(139,92,246,0.4)';
+    ctx.strokeStyle = TK_ALPHA(ED.series5, 0.4);
     ctx.lineWidth = 1.5;
     ctx.setLineDash([4, 4]);
     ctx.beginPath();
@@ -768,13 +769,13 @@ function DualPairTab({ sigma, t, numPrimes, playing }) {
 
     // Animated t value
     ctx.font = '11px JetBrains Mono, monospace';
-    ctx.fillStyle = '#e2e8f0';
+    ctx.fillStyle = ED.ink;
     ctx.textAlign = 'center';
     ctx.fillText(`t = ${tAnimated.toFixed(1)}`, centerX, 30);
 
     // Incidence
     ctx.font = 'bold 11px Inter, sans-serif';
-    ctx.fillStyle = inc.satisfied ? '#10b981' : '#ef4444';
+    ctx.fillStyle = inc.satisfied ? ED.series3 : ED.series2;
     ctx.fillText(
       inc.satisfied ? 'Z · W ≈ 0 (incident)' : `|Z · W| = ${inc.magnitude.toFixed(3)}`,
       centerX, H - 18
@@ -814,8 +815,8 @@ export default function TwistorViz() {
   const [numPrimes, setNumPrimes] = useState(8);
   const [playing, setPlaying] = useState(true);
 
-  const sigmaColor = Math.abs(sigma - 0.5) < 0.02 ? '#10b981'
-    : Math.abs(sigma - 0.5) < 0.15 ? '#f59e0b' : '#ef4444';
+  const sigmaColor = Math.abs(sigma - 0.5) < 0.02 ? ED.series3
+    : Math.abs(sigma - 0.5) < 0.15 ? ED.series4 : ED.series2;
 
   const incidenceStatus = useMemo(() => {
     const Z = twistorFromS([sigma, t]);
@@ -856,7 +857,7 @@ export default function TwistorViz() {
             return bestDist < 1 ? (
               <span style={{
                 marginLeft: 6, fontSize: 11, fontFamily: 'var(--font-mono)',
-                color: bestDist < 0.3 ? '#10b981' : '#64748b',
+                color: bestDist < 0.3 ? 'var(--series-3)' : 'var(--ink-faint)',
                 cursor: 'pointer', borderBottom: '1px dashed currentColor',
               }}
                 title={`Click to snap t to γ${bestIdx + 1} = ${ZETA_ZEROS[bestIdx].toFixed(6)}`}
@@ -871,7 +872,7 @@ export default function TwistorViz() {
           <label>Primes</label>
           <input type="range" min="3" max="20" step="1" value={numPrimes}
             onChange={e => setNumPrimes(+e.target.value)} />
-          <span className="control-value">{numPrimes} <span style={{ color: '#64748b', fontSize: 11 }}>(up to p={getPrimes(numPrimes)[numPrimes - 1]})</span></span>
+          <span className="control-value">{numPrimes} <span style={{ color: 'var(--ink-faint)', fontSize: 11 }}>(up to p={getPrimes(numPrimes)[numPrimes - 1]})</span></span>
         </div>
         <div className="control-group">
           <button
@@ -887,9 +888,9 @@ export default function TwistorViz() {
       {/* Incidence status */}
       <div style={{
         padding: '6px 14px', marginBottom: 12, borderRadius: 8,
-        background: incidenceStatus.satisfied ? 'rgba(16,185,129,0.1)' : 'rgba(239,68,68,0.1)',
-        border: `1px solid ${incidenceStatus.satisfied ? '#10b981' : '#ef4444'}33`,
-        fontSize: 12, color: incidenceStatus.satisfied ? '#10b981' : '#ef4444', fontWeight: 500,
+        background: incidenceStatus.satisfied ? 'color-mix(in srgb, var(--series-3) 10%, transparent)' : 'color-mix(in srgb, var(--series-2) 10%, transparent)',
+        border: `1px solid ${incidenceStatus.satisfied ? ED.series3 : ED.series2}33`,
+        fontSize: 12, color: incidenceStatus.satisfied ? 'var(--series-3)' : 'var(--series-2)', fontWeight: 500,
         textAlign: 'center',
       }}>
         {incidenceStatus.satisfied

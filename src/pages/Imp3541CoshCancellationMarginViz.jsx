@@ -8,6 +8,7 @@ import {
   IMP3541_K_STAR_S4,
   IMP3541_MAX_TESTED_K,
 } from '../data/imp-3541-cosh-cancellation-margin-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 const K_MIN = 2;
 const K_MAX = 2000;
@@ -42,38 +43,38 @@ function RhoTailChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
       {yTicks.map((v) => (
         <g key={v}>
-          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke="#1e293b" strokeWidth={0.7} />
-          <text x={padL - 4} y={yS(v) + 3.5} textAnchor="end" fill="#475569" fontSize={9}>
+          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke={ED.ruleSoft} strokeWidth={0.7} />
+          <text x={padL - 4} y={yS(v) + 3.5} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v.toExponential(0)}
           </text>
         </g>
       ))}
 
-      <path d={tailPath} fill="none" stroke="#f59e0b" strokeWidth={2.4} />
+      <path d={tailPath} fill="none" stroke={ED.brassDeco} strokeWidth={2.4} />
       {measuredS3.map((r) => (
-        <circle key={'tail' + r.k} cx={xS(r.k)} cy={yS(r.tail)} r={3.5} fill="#f59e0b" />
+        <circle key={'tail' + r.k} cx={xS(r.k)} cy={yS(r.tail)} r={3.5} fill={ED.brassDeco} />
       ))}
 
-      <path d={rhoPath} fill="none" stroke="#ef4444" strokeWidth={2.4} />
+      <path d={rhoPath} fill="none" stroke={ED.series2} strokeWidth={2.4} />
       {measuredS3.map((r) => (
-        <circle key={'rho' + r.k} cx={xS(r.k)} cy={yS(r.rho)} r={3.5} fill="#ef4444" />
+        <circle key={'rho' + r.k} cx={xS(r.k)} cy={yS(r.rho)} r={3.5} fill={ED.series2} />
       ))}
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
 
       {[2, 4, 8, 16, 24].map((k) => (
         <g key={'x' + k}>
-          <line x1={xS(k)} y1={padT + cH} x2={xS(k)} y2={padT + cH + 5} stroke="#334155" strokeWidth={1} />
-          <text x={xS(k)} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={9}>
+          <line x1={xS(k)} y1={padT + cH} x2={xS(k)} y2={padT + cH + 5} stroke={ED.rule} strokeWidth={1} />
+          <text x={xS(k)} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
             {k}
           </text>
         </g>
       ))}
-      <text x={padL + cW / 2} y={padT + cH + 34} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={padT + cH + 34} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         ladder index k (log scale, S3 cell)
       </text>
 
@@ -81,7 +82,7 @@ function RhoTailChart() {
         x={12}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={'rotate(-90,12,' + (padT + cH / 2) + ')'}
       >
@@ -89,12 +90,12 @@ function RhoTailChart() {
       </text>
 
       <g>
-        <circle cx={padL + 14} cy={padT + 14} r={4} fill="#ef4444" />
-        <text x={padL + 22} y={padT + 17} fill="#fca5a5" fontSize={9}>
+        <circle cx={padL + 14} cy={padT + 14} r={4} fill={ED.series2} />
+        <text x={padL + 22} y={padT + 17} fill={ED.series2} fontSize={9}>
           rho(k) cancellation error (~k^2, grows)
         </text>
-        <circle cx={padL + 14} cy={padT + 30} r={4} fill="#f59e0b" />
-        <text x={padL + 22} y={padT + 33} fill="#fcd34d" fontSize={9}>
+        <circle cx={padL + 14} cy={padT + 30} r={4} fill={ED.brassDeco} />
+        <text x={padL + 22} y={padT + 33} fill={ED.brass} fontSize={9}>
           tail(k) O(a^2) miss (~1/k^2, shrinks)
         </text>
       </g>
@@ -128,57 +129,57 @@ function MarginChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
       {yTicks.map((v) => (
         <g key={v}>
-          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke="#1e293b" strokeWidth={0.7} />
-          <text x={padL - 4} y={yS(v) + 3.5} textAnchor="end" fill="#475569" fontSize={9}>
+          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke={ED.ruleSoft} strokeWidth={0.7} />
+          <text x={padL - 4} y={yS(v) + 3.5} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v >= 1000 ? v.toExponential(0) : v}
           </text>
         </g>
       ))}
 
       {/* margin = 1 reference line: below this the cancellation error would overtake the tail */}
-      <line x1={padL} y1={yS(1)} x2={padL + cW} y2={yS(1)} stroke="#475569" strokeWidth={1} strokeDasharray="4 3" />
+      <line x1={padL} y1={yS(1)} x2={padL + cW} y2={yS(1)} stroke={ED.rule} strokeWidth={1} strokeDasharray="4 3" />
 
-      <path d={extPath4} fill="none" stroke="#6ee7b7" strokeWidth={1.6} strokeDasharray="5 4" />
-      <path d={measuredPath4} fill="none" stroke="#10b981" strokeWidth={2.2} />
+      <path d={extPath4} fill="none" stroke={ED.series3} strokeWidth={1.6} strokeDasharray="5 4" />
+      <path d={measuredPath4} fill="none" stroke={ED.series3} strokeWidth={2.2} />
 
-      <path d={extPath3} fill="none" stroke="#c4b5fd" strokeWidth={1.6} strokeDasharray="5 4" />
-      <path d={measuredPath3} fill="none" stroke="#7c3aed" strokeWidth={2.2} />
+      <path d={extPath3} fill="none" stroke={ED.series5} strokeWidth={1.6} strokeDasharray="5 4" />
+      <path d={measuredPath3} fill="none" stroke={ED.series5} strokeWidth={2.2} />
 
       {IMP3541_S3_RUNGS.filter((r) => r.measured).map((r) => (
-        <circle key={'m3' + r.k} cx={xS(r.k)} cy={yS(r.margin)} r={3.5} fill="#7c3aed" />
+        <circle key={'m3' + r.k} cx={xS(r.k)} cy={yS(r.margin)} r={3.5} fill={ED.series5} />
       ))}
       {IMP3541_S4_RUNGS.filter((r) => r.measured).map((r) => (
-        <circle key={'m4' + r.k} cx={xS(r.k)} cy={yS(r.margin)} r={3.5} fill="#10b981" />
+        <circle key={'m4' + r.k} cx={xS(r.k)} cy={yS(r.margin)} r={3.5} fill={ED.series3} />
       ))}
 
       {/* crossover markers k* (closed form, margin = 1) */}
-      <line x1={xS(IMP3541_K_STAR_S4)} y1={padT} x2={xS(IMP3541_K_STAR_S4)} y2={padT + cH} stroke="#10b981" strokeWidth={1} strokeDasharray="2 3" opacity={0.6} />
-      <line x1={xS(IMP3541_K_STAR_S3)} y1={padT} x2={xS(IMP3541_K_STAR_S3)} y2={padT + cH} stroke="#7c3aed" strokeWidth={1} strokeDasharray="2 3" opacity={0.6} />
-      <circle cx={xS(IMP3541_K_STAR_S3)} cy={yS(1)} r={4} fill="none" stroke="#c4b5fd" strokeWidth={1.5} />
-      <circle cx={xS(IMP3541_K_STAR_S4)} cy={yS(1)} r={4} fill="none" stroke="#6ee7b7" strokeWidth={1.5} />
+      <line x1={xS(IMP3541_K_STAR_S4)} y1={padT} x2={xS(IMP3541_K_STAR_S4)} y2={padT + cH} stroke={ED.series3} strokeWidth={1} strokeDasharray="2 3" opacity={0.6} />
+      <line x1={xS(IMP3541_K_STAR_S3)} y1={padT} x2={xS(IMP3541_K_STAR_S3)} y2={padT + cH} stroke={ED.series5} strokeWidth={1} strokeDasharray="2 3" opacity={0.6} />
+      <circle cx={xS(IMP3541_K_STAR_S3)} cy={yS(1)} r={4} fill="none" stroke={ED.series5} strokeWidth={1.5} />
+      <circle cx={xS(IMP3541_K_STAR_S4)} cy={yS(1)} r={4} fill="none" stroke={ED.series3} strokeWidth={1.5} />
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
 
       {xTicks.map((k) => (
         <g key={'x' + k}>
-          <line x1={xS(k)} y1={padT + cH} x2={xS(k)} y2={padT + cH + 5} stroke="#334155" strokeWidth={1} />
-          <text x={xS(k)} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={9}>
+          <line x1={xS(k)} y1={padT + cH} x2={xS(k)} y2={padT + cH + 5} stroke={ED.rule} strokeWidth={1} />
+          <text x={xS(k)} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
             {k}
           </text>
         </g>
       ))}
-      <text x={xS(IMP3541_K_STAR_S4) - 4} y={padT + 12} textAnchor="end" fill="#6ee7b7" fontSize={8.5}>
+      <text x={xS(IMP3541_K_STAR_S4) - 4} y={padT + 12} textAnchor="end" fill={ED.series3} fontSize={8.5}>
         k*S4&#8776;1384
       </text>
-      <text x={xS(IMP3541_K_STAR_S3) + 4} y={padT + 24} textAnchor="start" fill="#c4b5fd" fontSize={8.5}>
+      <text x={xS(IMP3541_K_STAR_S3) + 4} y={padT + 24} textAnchor="start" fill={ED.series5} fontSize={8.5}>
         k*S3&#8776;1730
       </text>
 
-      <text x={padL + cW / 2} y={padT + cH + 34} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={padT + cH + 34} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         ladder index k (log scale)
       </text>
 
@@ -186,7 +187,7 @@ function MarginChart() {
         x={12}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={'rotate(-90,12,' + (padT + cH / 2) + ')'}
       >
@@ -194,12 +195,12 @@ function MarginChart() {
       </text>
 
       <g>
-        <circle cx={padL + 14} cy={padT + 14} r={4} fill="#7c3aed" />
-        <text x={padL + 22} y={padT + 17} fill="#c4b5fd" fontSize={9}>
+        <circle cx={padL + 14} cy={padT + 14} r={4} fill={ED.series5} />
+        <text x={padL + 22} y={padT + 17} fill={ED.series5} fontSize={9}>
           S3 cell (a0=0.5): solid=measured k&le;24, dashed=closed-form extrapolation
         </text>
-        <circle cx={padL + 14} cy={padT + 30} r={4} fill="#10b981" />
-        <text x={padL + 22} y={padT + 33} fill="#6ee7b7" fontSize={9}>
+        <circle cx={padL + 14} cy={padT + 30} r={4} fill={ED.series3} />
+        <text x={padL + 22} y={padT + 33} fill={ED.series3} fontSize={9}>
           S4 cell (a0=0.4): solid=measured k&le;24, dashed=closed-form extrapolation
         </text>
       </g>
@@ -212,7 +213,7 @@ export default function Imp3541CoshCancellationMarginViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Cosh Cancellation-Safety Margin vs. Ladder Index k (imp-3509 / imp-3541)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-3509 certified the imp-3490 catastrophic-cancellation safety of the near-cancelling
         cosh(a&thinsp;tau)&minus;1 term as a closed function of the ladder index k. The relative
         cancellation error rho(k) grows like k<sup>2</sup> while the competing O(a<sup>2</sup>)
@@ -222,12 +223,12 @@ export default function Imp3541CoshCancellationMarginViz() {
         k* &asymp; 1384&ndash;1730, roughly 60&ndash;70&times; beyond any tested rung.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         rho(k) (cancellation error, grows) vs. tail(k) (O(a&sup2;) miss, shrinks) &mdash; S3 cell
       </p>
       <RhoTailChart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
         Safety margin tail(k)/rho(k), collapsing like k<sup>&minus;4</sup>, with the closed-form
         crossover k* marked on both base cells
       </p>
@@ -237,14 +238,14 @@ export default function Imp3541CoshCancellationMarginViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement/visualization
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> measurement/visualization
         only &mdash; no proof, no reduction below RH. This certifies floating-point
         cancellation-safety of a degree-2 integrand term across k; it establishes no operator
         positivity. Mass-feasibility is necessary-but-not-sufficient and the degree-2 face carries
@@ -252,9 +253,9 @@ export default function Imp3541CoshCancellationMarginViz() {
         residual (imp-3066) remains untouched.
       </div>
 
-      <div style={{ marginTop: '1rem', fontSize: '0.85rem', color: '#64748b' }}>
+      <div style={{ marginTop: '1rem', fontSize: '0.85rem', color: 'var(--ink-faint)' }}>
         <strong>Related:</strong>{' '}
-        <Link to="/viz-imp3540-power-iteration-budget" style={{ color: '#7c3aed' }}>
+        <Link to="/viz-imp3540-power-iteration-budget" style={{ color: 'var(--series-5)' }}>
           Power-Iteration Budget-to-1e-9 Growth (imp-3540)
         </Link>
       </div>

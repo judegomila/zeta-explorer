@@ -8,6 +8,7 @@ import {
   IMP97390_PLATEAU_STD,
   IMP97390_TIGHTEST_BRACKET,
 } from '../data/imp-97390-krein-csharp-upperbrackets-sidebyside-viz-data.js';
+import { ED, alpha } from '../styles/tokens.js';
 
 // imp-97390: side-by-side visualization of the imp-97355 reconciliation of the
 // two independent c_sharp upper-bracket extrapolations at 2a=ln3. Panel 1 shows
@@ -42,38 +43,38 @@ function TSweepPanel() {
         y1={yOf(IMP97390_TSWEEP_LIMIT)}
         x2={padL + plotW}
         y2={yOf(IMP97390_TSWEEP_LIMIT)}
-        stroke="#facc15"
+        stroke={ED.brassDeco}
         strokeWidth={1}
         strokeDasharray="4 3"
       />
-      <text x={padL + plotW - 4} y={yOf(IMP97390_TSWEEP_LIMIT) - 6} textAnchor="end" fill="#facc15" fontSize={9}>
+      <text x={padL + plotW - 4} y={yOf(IMP97390_TSWEEP_LIMIT) - 6} textAnchor="end" fill={ED.brass} fontSize={9}>
         T&rarr;&infin; limit {IMP97390_TSWEEP_LIMIT.toFixed(4)}
       </text>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
       {[minY, (minY + maxY) / 2, maxY].map((v) => (
         <g key={`y${v}`}>
-          <line x1={padL - 4} y1={yOf(v)} x2={padL} y2={yOf(v)} stroke="#334155" strokeWidth={1} />
-          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={8.5}>
+          <line x1={padL - 4} y1={yOf(v)} x2={padL} y2={yOf(v)} stroke={ED.rule} strokeWidth={1} />
+          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8.5}>
             {v.toFixed(3)}
           </text>
         </g>
       ))}
       {rows.map((r) => (
-        <text key={`x${r.T}`} x={xOf(r.T)} y={padT + plotH + 14} textAnchor="middle" fill="#64748b" fontSize={8}>
+        <text key={`x${r.T}`} x={xOf(r.T)} y={padT + plotH + 14} textAnchor="middle" fill={ED.inkFaint} fontSize={8}>
           {r.T}
         </text>
       ))}
       <polyline
         points={rows.map((r) => `${xOf(r.T)},${yOf(r.lamMin)}`).join(' ')}
         fill="none"
-        stroke="#f87171"
+        stroke={ED.series2}
         strokeWidth={1.9}
       />
       {rows.map((r) => (
-        <circle key={r.T} cx={xOf(r.T)} cy={yOf(r.lamMin)} r={3} fill="#f87171" />
+        <circle key={r.T} cx={xOf(r.T)} cy={yOf(r.lamMin)} r={3} fill={ED.series2} />
       ))}
-      <text x={padL + plotW / 2} y={padT + plotH + 30} textAnchor="middle" fill="#94a3b8" fontSize={9}>
+      <text x={padL + plotW / 2} y={padT + plotH + 30} textAnchor="middle" fill={ED.inkSoft} fontSize={9}>
         T (t-truncation, fixed N=100)
       </text>
     </svg>
@@ -102,16 +103,16 @@ function BracketBarsPanel() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={yOf(band.hi)} width={plotW} height={yOf(band.lo) - yOf(band.hi)} fill="rgba(74,222,128,0.10)" />
-      <text x={padL + plotW - 4} y={yOf(band.hi) - 6} textAnchor="end" fill="#4ade80" fontSize={8.5}>
+      <rect x={padL} y={yOf(band.hi)} width={plotW} height={yOf(band.lo) - yOf(band.hi)} fill={alpha(ED.series3, 0.1)} />
+      <text x={padL + plotW - 4} y={yOf(band.hi) - 6} textAnchor="end" fill={ED.series3} fontSize={8.5}>
         imp-97206 joint range [{band.lo}, {band.hi}]
       </text>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
       {[minY, (minY + maxY) / 2, maxY].map((v) => (
         <g key={`y${v}`}>
-          <line x1={padL - 4} y1={yOf(v)} x2={padL} y2={yOf(v)} stroke="#334155" strokeWidth={1} />
-          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={8.5}>
+          <line x1={padL - 4} y1={yOf(v)} x2={padL} y2={yOf(v)} stroke={ED.rule} strokeWidth={1} />
+          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8.5}>
             {v.toFixed(4)}
           </text>
         </g>
@@ -127,7 +128,7 @@ function BracketBarsPanel() {
               {b.value.toFixed(6)}
             </text>
             <foreignObject x={cx - gap / 2 + 6} y={padT + plotH + 6} width={gap - 12} height={44}>
-              <div style={{ color: '#94a3b8', fontSize: '8px', textAlign: 'center', lineHeight: 1.25 }}>
+              <div style={{ color: 'var(--ink-soft)', fontSize: '8px', textAlign: 'center', lineHeight: 1.25 }}>
                 {b.label}
               </div>
             </foreignObject>
@@ -147,33 +148,33 @@ export default function Imp97390KreinCsharpUpperBracketsSideBySideViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> measurement only. Both
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> measurement only. Both
         figures below are Rayleigh-Ritz UPPER bounds on c_sharp = lambda_min(P_a M_sigma2 P_a)
         at 2a=ln3, not a certified floor. No operator positivity established; interval-rigorous
         certificate reach stays 2a&le;0.96; RH open; NO QED.
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-97355 reconciled two independently-produced extrapolations of c_sharp: imp-97335's
         fixed-N=100 T-sweep extrapolated to a measured T&rarr;&infin; limit, and imp-97206's
         coupled N,T grid extrapolated (T first, then N) to a flat plateau. They agree to ~0.0011
         (&lt;0.2%).
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         imp-97335: fixed-N=100 T-sweep converging to its extrapolated limit
       </h3>
       <TSweepPanel />
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', margin: '1.5rem 0 0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', margin: '1.5rem 0 0.5rem' }}>
         Both measured upper brackets against the imp-97206 joint range
       </h3>
       <BracketBarsPanel />
@@ -182,14 +183,14 @@ export default function Imp97390KreinCsharpUpperBracketsSideBySideViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the charts:</strong> the imp-97335 T-sweep
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the charts:</strong> the imp-97335 T-sweep
         (top) rises toward its fitted 1/T&sup2; limit {IMP97390_TSWEEP_LIMIT.toFixed(4)} at fixed
         N=100. In the bar comparison (bottom), all three readings fall inside or at the edge of
         the imp-97206 joint range [{IMP97390_JOINT_BAND.lo}, {IMP97390_JOINT_BAND.hi}] (plateau
@@ -203,14 +204,14 @@ export default function Imp97390KreinCsharpUpperBracketsSideBySideViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page consuming the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the
         imp-97335 / imp-97206 / imp-97355 committed values verbatim (no re-solve, no new
         numerics). Rayleigh-Ritz upper bounds only; establishes no operator positivity; changes
         no bound; Platt-Trudgian Lambda&le;0.2 remains SOTA; RH open; NO QED.

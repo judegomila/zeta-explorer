@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP34734_SIGMA_PEAK_CMB_ELASTICITY } from '../data/imp-34734-sigma-peak-cmb-elasticity.js';
+import { ED } from '../styles/tokens.js';
 
 const M = IMP34734_SIGMA_PEAK_CMB_ELASTICITY;
 
@@ -41,15 +42,15 @@ function SigmaMaxVsCmbChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={plotW} height={plotH} fill="none" stroke="#334155" strokeWidth={1} />
-      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill="#94a3b8" fontSize={11}>
+      <rect x={padL} y={padT} width={plotW} height={plotH} fill="none" stroke={ED.rule} strokeWidth={1} />
+      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill={ED.inkSoft} fontSize={11}>
         C_mb (GUE-conditional, bounded &le; 1 per imp-486)
       </text>
       <text
         x={16}
         y={padT + plotH / 2}
         textAnchor="middle"
-        fill="#94a3b8"
+        fill={ED.inkSoft}
         fontSize={11}
         transform={`rotate(-90 16 ${padT + plotH / 2})`}
       >
@@ -61,31 +62,31 @@ function SigmaMaxVsCmbChart() {
         y1={sy(tanY0)}
         x2={sx(tanX1)}
         y2={sy(tanY1)}
-        stroke="#f59e0b"
+        stroke={ED.brassDeco}
         strokeWidth={1.5}
         strokeDasharray="4 3"
       />
-      <text x={sx(tanX0)} y={sy(tanY0) - 8} fill="#f59e0b" fontSize={11}>
+      <text x={sx(tanX0)} y={sy(tanY0) - 8} fill={ED.brass} fontSize={11}>
         tangent at C_mb=1, slope ~ {slope.toFixed(4)}/unit
       </text>
 
-      <path d={gridPath} fill="none" stroke="#38bdf8" strokeWidth={1.5} />
+      <path d={gridPath} fill="none" stroke={ED.series1} strokeWidth={1.5} />
       {grid.map((g) => (
         <circle
           key={g.C_mb}
           cx={sx(g.C_mb)}
           cy={sy(g.sigma_max)}
           r={3.4}
-          fill="#38bdf8"
-          stroke="#0f172a"
+          fill={ED.series1}
+          stroke={ED.paper}
           strokeWidth={0.5}
         />
       ))}
 
-      <text x={padL + 8} y={padT + 16} fill="#38bdf8" fontSize={11}>
+      <text x={padL + 8} y={padT + 16} fill={ED.series1} fontSize={11}>
         re-run grid: sigma_max(C_mb) = C_mb r* / (1 + C_mb r*), r* ~ {M.baseline.r_star.toFixed(3)}
       </text>
-      <text x={padL + 8} y={padT + 32} fill="#94a3b8" fontSize={11}>
+      <text x={padL + 8} y={padT + 32} fill={ED.inkSoft} fontSize={11}>
         peak LOCATION N* ~ {M.baseline.N_max.toExponential(3)} is C_mb-invariant at every grid point
       </text>
     </svg>
@@ -97,7 +98,7 @@ export default function Imp34763CmbElasticitySigmaPeakViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="C_mb Elasticity at the Sigma Peak: ~0.048/unit Linear Response, C_mb-Invariant Location (imp-34763 / imp-34734)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-34734 inserts the GUE-conditional many-body constant C_mb (imp-486, bounded &le; 1) as a
         multiplicative factor on the collision term E_coll in the imp-3220/imp-3406 conditional share
         sigma(N)&nbsp;=&nbsp;E_coll/(E_trunc+E_flow+E_coll), then re-runs the imp-3406 ternary argmax over
@@ -109,7 +110,7 @@ export default function Imp34763CmbElasticitySigmaPeakViz() {
         enters only as a constant multiplier.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         sigma_max vs C_mb: the re-run grid, the closed-form curve, and the C_mb=1 tangent slope
       </p>
       <SigmaMaxVsCmbChart />
@@ -123,7 +124,7 @@ export default function Imp34763CmbElasticitySigmaPeakViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>C_mb</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>N* (grid)</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>log10 N*</th>
@@ -133,7 +134,7 @@ export default function Imp34763CmbElasticitySigmaPeakViz() {
         </thead>
         <tbody>
           {M.grid.map((g) => (
-            <tr key={g.C_mb} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+            <tr key={g.C_mb} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{g.C_mb}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{g.N_star.toExponential ? g.N_star.toExponential(5) : g.N_star}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{g.log10_N_star}</td>
@@ -148,11 +149,11 @@ export default function Imp34763CmbElasticitySigmaPeakViz() {
         style={{
           marginTop: '1rem',
           padding: '0.6rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
         }}
       >
         Baseline (C_mb&nbsp;=&nbsp;1) reproduces the imp-3406 peak: sigma_max&nbsp;~&nbsp;{M.baseline.sigma_max},
@@ -166,14 +167,14 @@ export default function Imp34763CmbElasticitySigmaPeakViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page presenting the imp-34734
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-only page presenting the imp-34734
         C_mb-leverage measurement (imported literals, no new computation) for the INHERITED imp-3220/imp-3406
         surrogate crossover map. This does NOT discharge the GUE conditional on C_mb (imp-486) &mdash; C_mb is
         treated as a free knob to quantify leverage, not tightened. Even the GUE saturation C_mb&nbsp;=&nbsp;1

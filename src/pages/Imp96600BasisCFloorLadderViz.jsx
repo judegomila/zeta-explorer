@@ -6,6 +6,7 @@ import {
   IMP96600_REGIME_SPLIT,
   IMP96600_HONEST_BANNER,
 } from '../data/imp-96600-basis-c-floor-ladder-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 // log-log scatter of the imp-96568 floor(L) ladder: point color marks the
 // ppp-collapsed (cancellation-set) vs ppp-pinned (truncation-set) regime,
@@ -32,24 +33,24 @@ function FloorLadderPanel() {
   const xOf = (v) => padL + ((v - minX) / (maxX - minX)) * plotW;
   const yOf = (v) => padT + plotH - ((v - minY) / (maxY - minY)) * plotH;
 
-  const colorOf = (row) => (row.pppPinned ? '#f87171' : '#38bdf8');
+  const colorOf = (row) => (row.pppPinned ? ED.series2 : ED.series1);
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
       {[Math.ceil(minY), Math.floor((minY + maxY) / 2), Math.floor(maxY)].map((v) => (
         <g key={`y${v}`}>
-          <line x1={padL - 4} y1={yOf(v)} x2={padL} y2={yOf(v)} stroke="#334155" strokeWidth={1} />
-          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={8.5}>
+          <line x1={padL - 4} y1={yOf(v)} x2={padL} y2={yOf(v)} stroke={ED.rule} strokeWidth={1} />
+          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8.5}>
             1e{v}
           </text>
         </g>
       ))}
       {rows.map((r) => (
         <g key={`x${r.L}`}>
-          <line x1={xOf(r.logL)} y1={padT + plotH} x2={xOf(r.logL)} y2={padT + plotH + 4} stroke="#334155" strokeWidth={1} />
-          <text x={xOf(r.logL)} y={padT + plotH + 15} textAnchor="middle" fill="#64748b" fontSize={8}>
+          <line x1={xOf(r.logL)} y1={padT + plotH} x2={xOf(r.logL)} y2={padT + plotH + 4} stroke={ED.rule} strokeWidth={1} />
+          <text x={xOf(r.logL)} y={padT + plotH + 15} textAnchor="middle" fill={ED.inkFaint} fontSize={8}>
             1e{r.logL.toFixed(0)}
           </text>
         </g>
@@ -60,14 +61,14 @@ function FloorLadderPanel() {
         y1={yOf(IMP96600_FIT_LINE.from.logFloor)}
         x2={xOf(IMP96600_FIT_LINE.to.logL)}
         y2={yOf(IMP96600_FIT_LINE.to.logFloor)}
-        stroke="#facc15"
+        stroke={ED.brassDeco}
         strokeWidth={1.4}
         strokeDasharray="4 3"
       />
       <text
         x={(xOf(IMP96600_FIT_LINE.from.logL) + xOf(IMP96600_FIT_LINE.to.logL)) / 2 + 6}
         y={(yOf(IMP96600_FIT_LINE.from.logFloor) + yOf(IMP96600_FIT_LINE.to.logFloor)) / 2 - 6}
-        fill="#facc15"
+        fill={ED.brass}
         fontSize={8.5}
       >
         p&asymp;{IMP96600_FIT_LINE.exponent.toFixed(2)}
@@ -75,7 +76,7 @@ function FloorLadderPanel() {
       <polyline
         points={rows.map((r) => `${xOf(r.logL)},${yOf(r.logFloor)}`).join(' ')}
         fill="none"
-        stroke="#475569"
+        stroke={ED.rule}
         strokeWidth={1}
         strokeDasharray="2 2"
       />
@@ -87,10 +88,10 @@ function FloorLadderPanel() {
           </text>
         </g>
       ))}
-      <text x={padL + plotW / 2} y={padT + plotH + 34} textAnchor="middle" fill="#94a3b8" fontSize={9}>
+      <text x={padL + plotW / 2} y={padT + plotH + 34} textAnchor="middle" fill={ED.inkSoft} fontSize={9}>
         L (log scale)
       </text>
-      <text x={16} y={padT + plotH / 2} fill="#94a3b8" fontSize={9} transform={`rotate(-90 16 ${padT + plotH / 2})`}>
+      <text x={16} y={padT + plotH / 2} fill={ED.inkSoft} fontSize={9} transform={`rotate(-90 16 ${padT + plotH / 2})`}>
         floor (log scale)
       </text>
     </svg>
@@ -106,18 +107,18 @@ export default function Imp96600BasisCFloorLadderViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> {IMP96600_HONEST_BANNER}
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> {IMP96600_HONEST_BANNER}
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-96568 measured the basis-C direct-integral floor at five L rungs, sweeping panels-per-period
         (ppp) to find the best-achievable floor at each. The optimum ppp collapses monotonically
         (blue points, {IMP96600_REGIME_SPLIT.cancellationSetOptPpp} &rarr; 48 &rarr; 6 &rarr; red points,
@@ -126,7 +127,7 @@ export default function Imp96600BasisCFloorLadderViz() {
         resolution floor). {IMP96600_REGIME_SPLIT.note}
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         floor(L) on log-log axes, colored by regime
       </h3>
       <FloorLadderPanel />
@@ -135,14 +136,14 @@ export default function Imp96600BasisCFloorLadderViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> blue points are
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> blue points are
         cancellation-set/crossover rungs (optimum ppp still falling); red points are Simpson
         truncation-set rungs (optimum ppp pinned at 3, the PT anchor L={IMP96600_REGIME_SPLIT.ptAnchorL.toExponential(1)}
         &nbsp;and L=1e7). The yellow dashed line is the above-anchor power-law fit through the two
@@ -155,14 +156,14 @@ export default function Imp96600BasisCFloorLadderViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page consuming the imp-96600
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the imp-96600
         viz-data (ladder reshaped verbatim from imp-96568). {IMP96600_HONEST_BANNER}
       </div>
     </div>

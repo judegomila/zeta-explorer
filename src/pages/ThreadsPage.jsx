@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import WireframeAnim from '../components/editorial/WireframeAnim.jsx';
 import { THREADS, THREADS_META } from '../data/research-threads.js';
+import { ED, STATUS } from '../styles/tokens.js';
 
 /* /threads — the research-thread narrative layer: a curated index of the
    program's major lines of work, each with a dated timeline, its open
@@ -10,9 +11,9 @@ import { THREADS, THREADS_META } from '../data/research-threads.js';
    Grades verbatim; nothing here promotes a bound. */
 
 const STATUS_COLOR = (status) =>
-  /in progress/i.test(status) ? '#b58a2e'
-  : /killed|refuted/i.test(status) ? '#a04545'
-  : '#4c7a4a';
+  /in progress/i.test(status) ? ED.brassDeco
+  : /killed|refuted/i.test(status) ? STATUS.refuted.fg
+  : ED.series3;
 
 function StatusChip({ status }) {
   const c = STATUS_COLOR(status);

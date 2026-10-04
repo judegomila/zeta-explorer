@@ -16,6 +16,7 @@ import { SG1C_ASYM_ISOLATION_CLOSED_FORM } from '../data/sg1c-asym-isolation-clo
 import { CH_LIP_THREE_PROOFS } from '../data/ch-lip-three-proofs-table-2026-06-30.js';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import WireframeAnim from '../components/editorial/WireframeAnim.jsx';
+import { ED, alpha } from '../styles/tokens.js';
 
 const CLUSTER_TITLES = {
   lambdaUpper: 'Λ Upper-Bound Routes',
@@ -72,7 +73,7 @@ function CShockDecayViz() {
       {/* y grid + labels */}
       {yTicks.map((t, i) => (
         <g key={`y${i}`}>
-          <line x1={padL} y1={yOf(t)} x2={W - padR} y2={yOf(t)} stroke="rgba(135,123,103,0.18)" strokeWidth="1" />
+          <line x1={padL} y1={yOf(t)} x2={W - padR} y2={yOf(t)} stroke={alpha(ED.rule, 0.18)} strokeWidth="1" />
           <text x={padL - 8} y={yOf(t) + 3} textAnchor="end" fontSize="10"
             fill={Math.abs(t - cap) < 1e-9 ? 'var(--terra-dk)' : 'var(--ink-soft)'} fontFamily="var(--font-mono, monospace)">
             {Math.abs(t - cap) < 1e-9 ? '1/3' : t.toFixed(2)}
@@ -82,28 +83,28 @@ function CShockDecayViz() {
       {/* x labels */}
       {xTicks.map((t, i) => (
         <text key={`x${i}`} x={xOf(t)} y={H - padB + 16} textAnchor="middle" fontSize="10"
-          fill="#4a4238" fontFamily="var(--font-mono, monospace)">
+          fill={ED.inkSoft} fontFamily="var(--font-mono, monospace)">
           {t >= 1e4 ? `${(t / 1000).toFixed(0)}k` : t}
         </text>
       ))}
-      <text x={padL + plotW / 2} y={H - 6} textAnchor="middle" fontSize="11" fill="#1c1814">
+      <text x={padL + plotW / 2} y={H - 6} textAnchor="middle" fontSize="11" fill={ED.ink}>
         assembly level N (log scale)
       </text>
       {/* margin band */}
-      <polygon points={bandPts} fill="rgba(181,138,46,0.14)" stroke="none" />
+      <polygon points={bandPts} fill={alpha(ED.brassDeco, 0.14)} stroke="none" />
       {/* cap line */}
-      <line x1={padL} y1={yOf(cap)} x2={W - padR} y2={yOf(cap)} stroke="#c23a1c" strokeWidth="1.6" strokeDasharray="6 4" />
-      <text x={W - padR} y={yOf(cap) - 5} textAnchor="end" fontSize="10.5" fill="#c23a1c">
+      <line x1={padL} y1={yOf(cap)} x2={W - padR} y2={yOf(cap)} stroke={ED.accent} strokeWidth="1.6" strokeDasharray="6 4" />
+      <text x={W - padR} y={yOf(cap) - 5} textAnchor="end" fontSize="10.5" fill={ED.accent}>
         imp-2786 cap C_shock &lt; 1/3
       </text>
       {/* C_shock(N) curve */}
-      <polyline points={curve} fill="none" stroke="#b58a2e" strokeWidth="2" />
+      <polyline points={curve} fill="none" stroke={ED.brassDeco} strokeWidth="2" />
       {rows.map((r, i) => (
-        <circle key={`p${i}`} cx={xOf(r.N)} cy={yOf(r.C_shock)} r="2.6" fill="#b58a2e" />
+        <circle key={`p${i}`} cx={xOf(r.N)} cy={yOf(r.C_shock)} r="2.6" fill={ED.brassDeco} />
       ))}
       {/* worst-case marker */}
-      <circle cx={xOf(worst.N)} cy={yOf(worst.C_shock)} r="5.5" fill="none" stroke="#b58a2e" strokeWidth="2" />
-      <text x={xOf(worst.N) + 10} y={yOf(worst.C_shock) - 8} fontSize="10.5" fill="#b58a2e"
+      <circle cx={xOf(worst.N)} cy={yOf(worst.C_shock)} r="5.5" fill="none" stroke={ED.brassDeco} strokeWidth="2" />
+      <text x={xOf(worst.N) + 10} y={yOf(worst.C_shock) - 8} fontSize="10.5" fill={ED.brass}
         fontFamily="var(--font-mono, monospace)">
         worst N={worst.N}: C_shock={worst.C_shock.toFixed(4)} (margin {worst.margin_to_cap.toFixed(4)})
       </text>
@@ -145,9 +146,9 @@ export default function RouteMapPage() {
         </div>
 
         {/* Foreclosure notice — top-of-page anchor */}
-        <div style={{ ...edCard, marginBottom: 20, borderColor: 'rgba(194,58,28,0.5)', background: 'rgba(194,58,28,0.05)' }}>
+        <div style={{ ...edCard, marginBottom: 20, borderColor: 'color-mix(in srgb, var(--accent) 50%, transparent)', background: 'color-mix(in srgb, var(--series-2) 5%, transparent)' }}>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
-            <div style={{ padding: '10px 12px', borderRadius: 6, background: 'rgba(194,58,28,0.08)', border: '1px solid rgba(194,58,28,0.35)' }}>
+            <div style={{ padding: '10px 12px', borderRadius: 6, background: 'color-mix(in srgb, var(--series-2) 8%, transparent)', border: '1px solid color-mix(in srgb, var(--accent) 35%, transparent)' }}>
               <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--terra-dk)', letterSpacing: '0.06em', marginBottom: 5 }}>
                 FORECLOSED — IMPOSSIBILITY
               </div>
@@ -164,7 +165,7 @@ export default function RouteMapPage() {
                 the multi-body isolation D_rest — so swapping the norm relocates the obstruction without removing it.
               </div>
             </div>
-            <div style={{ padding: '10px 12px', borderRadius: 6, background: 'rgba(76,122,74,0.08)', border: '1px solid rgba(76,122,74,0.35)' }}>
+            <div style={{ padding: '10px 12px', borderRadius: 6, background: 'color-mix(in srgb, var(--series-3) 8%, transparent)', border: '1px solid color-mix(in srgb, var(--series-3) 35%, transparent)' }}>
               <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--green)', letterSpacing: '0.06em', marginBottom: 5 }}>
                 SOLE DETERMINISTIC FORWARD MOVE
               </div>
@@ -186,7 +187,7 @@ export default function RouteMapPage() {
         </div>
 
         {/* Ranked opportunities — the actionable part */}
-        <div style={{ ...edCard, marginBottom: 24, borderColor: 'rgba(181,138,46,0.4)' }}>
+        <div style={{ ...edCard, marginBottom: 24, borderColor: 'color-mix(in srgb, var(--brass-deco) 40%, transparent)' }}>
           <h3 style={{ color: 'var(--brass-dk)', marginTop: 0 }}>Ranked Genuine Opportunities</h3>
           <p style={{ fontSize: 12.5, color: 'var(--ink-soft)', marginTop: 0 }}>
             Scored by upside that is <em>not</em> just another RH reformulation.
@@ -225,14 +226,14 @@ export default function RouteMapPage() {
         ))}
 
         {/* Frontier residuals: deterministic vs RH-hard */}
-        <div style={{ ...edCard, marginBottom: 18, borderColor: 'rgba(194,58,28,0.35)' }}>
+        <div style={{ ...edCard, marginBottom: 18, borderColor: 'color-mix(in srgb, var(--accent) 35%, transparent)' }}>
           <h3 style={{ color: 'var(--terra-dk)', marginTop: 0 }}>Frontier Push Verdict ({CH_WALL_FRONTIER.date})</h3>
           <p style={{ fontSize: 12.5, color: 'var(--ink-soft)', marginTop: 0, marginBottom: 14 }}>
             Status: <strong style={{ color: 'var(--terra-dk)' }}>{CH_WALL_FRONTIER.verdict}</strong> — the Lipschitz route is{' '}
             provably closed three independent ways. The only remaining forward move is deterministic.
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
-            <div style={{ padding: '10px 12px', borderRadius: 6, background: 'rgba(76,122,74,0.08)', border: '1px solid rgba(76,122,74,0.3)' }}>
+            <div style={{ padding: '10px 12px', borderRadius: 6, background: 'color-mix(in srgb, var(--series-3) 8%, transparent)', border: '1px solid color-mix(in srgb, var(--series-3) 30%, transparent)' }}>
               <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--green)', marginBottom: 6, letterSpacing: '0.04em' }}>DETERMINISTIC RESIDUAL</div>
               <div style={{ fontSize: 12, color: 'var(--ink)', lineHeight: 1.6 }}>
                 sg1c R2-T isolation constant: symmetric single-shell{' '}
@@ -246,7 +247,7 @@ export default function RouteMapPage() {
                 <strong style={{ color: 'var(--green)' }}> NOT RH-hard — a concrete analytic gap.</strong>
               </div>
             </div>
-            <div style={{ padding: '10px 12px', borderRadius: 6, background: 'rgba(194,58,28,0.06)', border: '1px solid rgba(194,58,28,0.25)' }}>
+            <div style={{ padding: '10px 12px', borderRadius: 6, background: 'color-mix(in srgb, var(--series-2) 6%, transparent)', border: '1px solid color-mix(in srgb, var(--accent) 25%, transparent)' }}>
               <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--terra-dk)', marginBottom: 6, letterSpacing: '0.04em' }}>RH-HARD WALLS (FORECLOSED)</div>
               <div style={{ fontSize: 12, color: 'var(--ink)', lineHeight: 1.6 }}>
                 <strong>Global-W_1 C_Lip:</strong> {CH_LIP_THREE_PROOFS.proofs.length} independent proofs it is foreclosed
@@ -260,7 +261,7 @@ export default function RouteMapPage() {
           <div style={{ marginTop: 10, fontSize: 12, color: 'var(--faint)' }}>
             Sharpest diagnosis: {CH_WALL_FRONTIER.sharpestDiagnosis}
           </div>
-          <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 5, background: 'rgba(63,107,134,0.08)', border: '1px solid rgba(63,107,134,0.3)', fontSize: 12, color: 'var(--blue)', lineHeight: 1.6 }}>
+          <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 5, background: 'color-mix(in srgb, var(--series-1) 8%, transparent)', border: '1px solid color-mix(in srgb, var(--series-1) 30%, transparent)', fontSize: 12, color: 'var(--blue)', lineHeight: 1.6 }}>
             <strong style={{ color: 'var(--blue)', letterSpacing: '0.04em' }}>TWO INDEPENDENT PUSHES — SAME TARGET.</strong>{' '}
             The C_H frontier ({CH_WALL_FRONTIER.date}) and the econn-metric rearchitecture ({ECONN_METRIC_REARCH.date})
             converge on the <em>same named deterministic target</em>:{' '}
@@ -269,7 +270,7 @@ export default function RouteMapPage() {
         </div>
 
         {/* imp-3026 — C_shock dual-appearance cross-validation (consistency, NOT a bound) */}
-        <div style={{ ...edCard, marginBottom: 18, borderColor: 'rgba(181,138,46,0.35)' }}>
+        <div style={{ ...edCard, marginBottom: 18, borderColor: 'color-mix(in srgb, var(--brass-deco) 35%, transparent)' }}>
           <h3 style={{ color: 'var(--brass-dk)', marginTop: 0 }}>
             C_shock dual-appearance identity (imp-3026 cross-validation)
           </h3>
@@ -281,7 +282,7 @@ export default function RouteMapPage() {
             number, confirming they are one constant rather than two independently-fitted values.
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, marginBottom: 12 }}>
-            <div style={{ padding: '10px 12px', borderRadius: 6, background: 'rgba(181,138,46,0.07)', border: '1px solid rgba(181,138,46,0.3)' }}>
+            <div style={{ padding: '10px 12px', borderRadius: 6, background: 'color-mix(in srgb, var(--brass-deco) 7%, transparent)', border: '1px solid color-mix(in srgb, var(--brass-deco) 30%, transparent)' }}>
               <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--brass-dk)', marginBottom: 6, letterSpacing: '0.04em' }}>
                 ROUTE A — cusp law (log-log fit)
               </div>
@@ -289,7 +290,7 @@ export default function RouteMapPage() {
                 C_shock = {C_SHOCK_CROSS_VALIDATION_IMP3026.cShockRouteA_star.toFixed(6)}
               </div>
             </div>
-            <div style={{ padding: '10px 12px', borderRadius: 6, background: 'rgba(181,138,46,0.07)', border: '1px solid rgba(181,138,46,0.3)' }}>
+            <div style={{ padding: '10px 12px', borderRadius: 6, background: 'color-mix(in srgb, var(--brass-deco) 7%, transparent)', border: '1px solid color-mix(in srgb, var(--brass-deco) 30%, transparent)' }}>
               <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--brass-dk)', marginBottom: 6, letterSpacing: '0.04em' }}>
                 ROUTE B — √(8·C_shock²/8) from squared gap
               </div>
@@ -304,7 +305,7 @@ export default function RouteMapPage() {
             constant C_shock²/8 ≈ {C_SHOCK_CROSS_VALIDATION_IMP3026.squaredGapBoundedConst_star.toFixed(5)}),
             both safely under the imp-2786 cap of 1/3.
           </div>
-          <div style={{ padding: '9px 11px', borderRadius: 6, background: 'rgba(194,58,28,0.06)', border: '1px solid rgba(194,58,28,0.3)' }}>
+          <div style={{ padding: '9px 11px', borderRadius: 6, background: 'color-mix(in srgb, var(--series-2) 6%, transparent)', border: '1px solid color-mix(in srgb, var(--accent) 30%, transparent)' }}>
             <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--terra-dk)', marginBottom: 5, letterSpacing: '0.04em' }}>
               SCOPE — NOT A BOUND
             </div>
@@ -315,7 +316,7 @@ export default function RouteMapPage() {
         </div>
 
         {/* imp-3118 — viz of the imp-3070 C_shock(N) monotone decay vs the 1/3 cap */}
-        <div style={{ ...edCard, marginBottom: 18, borderColor: 'rgba(181,138,46,0.35)' }}>
+        <div style={{ ...edCard, marginBottom: 18, borderColor: 'color-mix(in srgb, var(--brass-deco) 35%, transparent)' }}>
           <h3 style={{ color: 'var(--brass-dk)', marginTop: 0 }}>
             C_shock(N) decay vs the 1/3 cap (imp-3070 uniformity, imp-3118 viz)
           </h3>
@@ -335,7 +336,7 @@ export default function RouteMapPage() {
             (1/3 − C_shock), widening monotonically as N grows. Ringed marker: the worst-case N=
             {C_SHOCK_N_DEPENDENCE_IMP3070.worstN.toLocaleString()} point.
           </div>
-          <div style={{ padding: '9px 11px', borderRadius: 6, background: 'rgba(194,58,28,0.06)', border: '1px solid rgba(194,58,28,0.3)' }}>
+          <div style={{ padding: '9px 11px', borderRadius: 6, background: 'color-mix(in srgb, var(--series-2) 6%, transparent)', border: '1px solid color-mix(in srgb, var(--accent) 30%, transparent)' }}>
             <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--terra-dk)', marginBottom: 5, letterSpacing: '0.04em' }}>
               SCOPE — NOT A NEW BOUND
             </div>
@@ -348,13 +349,13 @@ export default function RouteMapPage() {
         </div>
 
         {/* imp-3093 / imp-3066 — lone operator-positivity obstruction the scalar cover leaves untouched */}
-        <div style={{ ...edCard, marginBottom: 18, borderColor: 'rgba(181,138,46,0.45)' }}>
+        <div style={{ ...edCard, marginBottom: 18, borderColor: 'color-mix(in srgb, var(--brass-deco) 45%, transparent)' }}>
           <h3 style={{ color: 'var(--brass-dk)', marginTop: 0 }}>
             Scalar Cover Route: Operator/Diagonal Gap — the Lone Open Obstruction (imp-3066)
           </h3>
           {/* imp-3101 — explicit route-step status annotation */}
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10, marginBottom: 14 }}>
-            <div style={{ padding: '8px 12px', borderRadius: 6, background: 'rgba(76,122,74,0.08)', border: '1px solid rgba(76,122,74,0.4)' }}>
+            <div style={{ padding: '8px 12px', borderRadius: 6, background: 'color-mix(in srgb, var(--series-3) 8%, transparent)', border: '1px solid color-mix(in srgb, var(--series-3) 40%, transparent)' }}>
               <div style={{ fontSize: 10.5, fontWeight: 700, color: 'var(--green)', letterSpacing: '0.07em', marginBottom: 4 }}>
                 NECESSARY STEP — CLOSED
               </div>
@@ -363,7 +364,7 @@ export default function RouteMapPage() {
                 The scalar domination condition is fully satisfied.
               </div>
             </div>
-            <div style={{ padding: '8px 12px', borderRadius: 6, background: 'rgba(181,138,46,0.08)', border: '1px solid rgba(181,138,46,0.45)' }}>
+            <div style={{ padding: '8px 12px', borderRadius: 6, background: 'color-mix(in srgb, var(--brass-deco) 8%, transparent)', border: '1px solid color-mix(in srgb, var(--brass-deco) 45%, transparent)' }}>
               <div style={{ fontSize: 10.5, fontWeight: 700, color: 'var(--brass-dk)', letterSpacing: '0.07em', marginBottom: 4 }}>
                 SUFFICIENCY STEP — OPEN
               </div>
@@ -384,7 +385,7 @@ export default function RouteMapPage() {
             sees. imp-3066 measures this gap on a degree-{IMP3066_OFFDIAGONAL_HANKEL_OBSTRUCTION.construction.degree} representative truncation:
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 10, marginBottom: 14 }}>
-            <div style={{ padding: '10px 12px', borderRadius: 6, background: 'rgba(76,122,74,0.08)', border: '1px solid rgba(76,122,74,0.3)' }}>
+            <div style={{ padding: '10px 12px', borderRadius: 6, background: 'color-mix(in srgb, var(--series-3) 8%, transparent)', border: '1px solid color-mix(in srgb, var(--series-3) 30%, transparent)' }}>
               <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--green)', marginBottom: 4, letterSpacing: '0.05em' }}>
                 DIAGONAL max R_jj (scalar cover)
               </div>
@@ -395,7 +396,7 @@ export default function RouteMapPage() {
                 every diag &lt; 1 &rarr; scalar cover holds
               </div>
             </div>
-            <div style={{ padding: '10px 12px', borderRadius: 6, background: 'rgba(194,58,28,0.06)', border: '1px solid rgba(194,58,28,0.3)' }}>
+            <div style={{ padding: '10px 12px', borderRadius: 6, background: 'color-mix(in srgb, var(--series-2) 6%, transparent)', border: '1px solid color-mix(in srgb, var(--accent) 30%, transparent)' }}>
               <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--terra-dk)', marginBottom: 4, letterSpacing: '0.05em' }}>
                 OPERATOR NORM &#x2016;R&#x2016; (Perron)
               </div>
@@ -406,7 +407,7 @@ export default function RouteMapPage() {
                 strictly exceeds diagonal max
               </div>
             </div>
-            <div style={{ padding: '10px 12px', borderRadius: 6, background: 'rgba(181,138,46,0.08)', border: '1px solid rgba(181,138,46,0.35)' }}>
+            <div style={{ padding: '10px 12px', borderRadius: 6, background: 'color-mix(in srgb, var(--brass-deco) 8%, transparent)', border: '1px solid color-mix(in srgb, var(--brass-deco) 35%, transparent)' }}>
               <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--brass-dk)', marginBottom: 4, letterSpacing: '0.05em' }}>
                 OPERATOR/DIAGONAL GAP (Perron-Frobenius)
               </div>
@@ -429,7 +430,7 @@ export default function RouteMapPage() {
             scalar cover route one must additionally show &#x2016;R&#x2016; &le; 1, which requires
             bounding precisely these cross-terms.
           </div>
-          <div style={{ padding: '9px 11px', borderRadius: 6, background: 'rgba(194,58,28,0.06)', border: '1px solid rgba(194,58,28,0.28)' }}>
+          <div style={{ padding: '9px 11px', borderRadius: 6, background: 'color-mix(in srgb, var(--series-2) 6%, transparent)', border: '1px solid color-mix(in srgb, var(--accent) 28%, transparent)' }}>
             <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--terra-dk)', marginBottom: 4, letterSpacing: '0.05em' }}>
               SCOPE — REPRESENTATIVE TRUNCATION, NO RH VERDICT
             </div>
@@ -440,7 +441,7 @@ export default function RouteMapPage() {
         </div>
 
         {/* Next move */}
-        <div style={{ ...edCard, marginTop: 8, borderColor: 'rgba(140,106,29,0.4)' }}>
+        <div style={{ ...edCard, marginTop: 8, borderColor: 'color-mix(in srgb, var(--brass) 40%, transparent)' }}>
           <h3 style={{ color: 'var(--brass)', marginTop: 0 }}>Highest-Value Next Move</h3>
           <p style={{ fontSize: 13, color: 'var(--ink)', lineHeight: 1.6 }}>
             <strong style={{ color: 'var(--brass)' }}>Primary:</strong> {FULL_ROUTE_MAP_NEXT_MOVE.primary}
@@ -454,19 +455,19 @@ export default function RouteMapPage() {
         </div>
 
         {/* Cross-check against the DAG and roadmap */}
-        <div style={{ ...edCard, marginTop: 18, borderColor: 'rgba(181,138,46,0.4)' }}>
+        <div style={{ ...edCard, marginTop: 18, borderColor: 'color-mix(in srgb, var(--brass-deco) 40%, transparent)' }}>
           <h3 style={{ color: 'var(--brass-dk)', marginTop: 0 }}>Consistency Cross-Check (vs the DAG & roadmap)</h3>
           <p style={{ fontSize: 12.5, color: 'var(--ink-soft)', marginTop: 0 }}>{ROUTE_MAP_CROSS_CHECK.netVerdict}</p>
           {ROUTE_MAP_CROSS_CHECK.inconsistencies.map((x, i) => (
-            <div key={i} style={{ marginTop: 10, padding: '8px 10px', borderRadius: 6, background: 'rgba(181,138,46,0.06)', border: '1px solid rgba(181,138,46,0.2)' }}>
+            <div key={i} style={{ marginTop: 10, padding: '8px 10px', borderRadius: 6, background: 'color-mix(in srgb, var(--brass-deco) 6%, transparent)', border: '1px solid color-mix(in srgb, var(--brass-deco) 20%, transparent)' }}>
               <div style={{ fontSize: 12.5, color: 'var(--brass-dk)', fontWeight: 600, display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: 6 }}>
                 <span>{x.view}</span>
                 <StatusTag status={x.severity === 'high' ? 'DEAD-END-FORNOW' : 'CONDITIONAL'} />
                 <span style={{
                   display: 'inline-block', padding: '2px 7px', borderRadius: 4, fontSize: 10.5, fontWeight: 700,
                   fontFamily: 'var(--font-mono, monospace)', letterSpacing: '0.02em', whiteSpace: 'nowrap',
-                  background: x.resolution === 'reconciled' ? 'rgba(76,122,74,0.14)' : 'rgba(194,58,28,0.12)',
-                  border: x.resolution === 'reconciled' ? '1px solid rgba(76,122,74,0.45)' : '1px solid rgba(194,58,28,0.35)',
+                  background: x.resolution === 'reconciled' ? 'color-mix(in srgb, var(--series-3) 14%, transparent)' : 'color-mix(in srgb, var(--series-2) 12%, transparent)',
+                  border: x.resolution === 'reconciled' ? '1px solid color-mix(in srgb, var(--series-3) 45%, transparent)' : '1px solid color-mix(in srgb, var(--accent) 35%, transparent)',
                   color: x.resolution === 'reconciled' ? 'var(--green)' : 'var(--terra-dk)',
                 }}>{x.resolution === 'reconciled' ? 'RECONCILED' : 'OPEN'}</span>
               </div>
@@ -483,7 +484,7 @@ export default function RouteMapPage() {
           </details>
         </div>
 
-        <div style={{ ...edCard, marginTop: 18, background: 'rgba(63,107,134,0.06)' }}>
+        <div style={{ ...edCard, marginTop: 18, background: 'color-mix(in srgb, var(--series-1) 6%, transparent)' }}>
           <h3 style={{ color: 'var(--faint)', fontSize: 13, marginBottom: 10, marginTop: 0 }}>Related Views</h3>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
             <Link to="/rh-proof-state" style={{ color: 'var(--brass-dk)', fontSize: 13 }}>RH Proof State</Link>

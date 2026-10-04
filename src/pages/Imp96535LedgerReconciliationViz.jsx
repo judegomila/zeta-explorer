@@ -5,6 +5,7 @@ import {
   IMP96535_OVERLAP_SUMMARY,
   IMP96535_HONEST_BANNER,
 } from '../data/imp-96535-ledger-reconciliation-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 const MEMBERSHIP_LABEL = {
   both: 'both ledgers',
@@ -13,15 +14,15 @@ const MEMBERSHIP_LABEL = {
 };
 
 const MEMBERSHIP_COLOR = {
-  both: '#facc15',
-  'dip-only': '#94a3b8',
-  'scan-only': '#38bdf8',
+  both: ED.series4,
+  'dip-only': ED.series8,
+  'scan-only': ED.series1,
 };
 
 function LedgerRow({ row }) {
   return (
     <tr>
-      <td style={{ padding: '0.4rem 0.6rem', color: '#e2e8f0', fontFamily: 'monospace' }}>
+      <td style={{ padding: '0.4rem 0.6rem', color: 'var(--ink)', fontFamily: 'monospace' }}>
         {row.Tc.toExponential(3)}
       </td>
       <td style={{ padding: '0.4rem 0.6rem' }}>
@@ -35,16 +36,16 @@ function LedgerRow({ row }) {
           {MEMBERSHIP_LABEL[row.membership]}
         </span>
       </td>
-      <td style={{ padding: '0.4rem 0.6rem', color: '#94a3b8', fontFamily: 'monospace', textAlign: 'right' }}>
+      <td style={{ padding: '0.4rem 0.6rem', color: 'var(--ink-soft)', fontFamily: 'monospace', textAlign: 'right' }}>
         {row.nW}
       </td>
-      <td style={{ padding: '0.4rem 0.6rem', color: '#94a3b8', fontFamily: 'monospace', textAlign: 'right' }}>
+      <td style={{ padding: '0.4rem 0.6rem', color: 'var(--ink-soft)', fontFamily: 'monospace', textAlign: 'right' }}>
         {row.z.toFixed(4)}
       </td>
-      <td style={{ padding: '0.4rem 0.6rem', color: row.belowClip ? '#4ade80' : '#f87171', fontSize: '0.78rem' }}>
+      <td style={{ padding: '0.4rem 0.6rem', color: row.belowClip ? 'var(--series-3)' : 'var(--series-2)', fontSize: '0.78rem' }}>
         {row.belowClip ? 'interior' : 'clipped'}
       </td>
-      <td style={{ padding: '0.4rem 0.6rem', color: '#94a3b8', fontSize: '0.78rem' }}>
+      <td style={{ padding: '0.4rem 0.6rem', color: 'var(--ink-soft)', fontSize: '0.78rem' }}>
         {row.membership === 'both' ? (row.agree ? 'AGREE (Δz=0)' : 'DISAGREE') : '—'}
       </td>
     </tr>
@@ -64,18 +65,18 @@ export default function Imp96535LedgerReconciliationViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 760,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> {IMP96535_HONEST_BANNER}
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> {IMP96535_HONEST_BANNER}
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
         Two independent significance ledgers over the same 10^6 Odlyzko ordinates were built
         separately: the imp-96089 below-envelope dip table (three heights) and the imp-96493
         interior z-score scan (ten heights). This card reconciles them height-by-height, showing
@@ -102,29 +103,29 @@ export default function Imp96535LedgerReconciliationViz() {
             key={s.label}
             style={{
               padding: '0.6rem 0.75rem',
-              background: 'rgba(148,163,184,0.05)',
+              background: 'color-mix(in srgb, var(--ink-soft) 5%, transparent)',
               borderRadius: 6,
-              border: '1px solid #1e293b',
+              border: '1px solid var(--rule-soft)',
             }}
           >
-            <div style={{ fontSize: '0.68rem', color: '#64748b', marginBottom: '0.2rem' }}>{s.label}</div>
-            <div style={{ fontSize: '0.9rem', color: '#e2e8f0', fontFamily: 'monospace' }}>{s.value}</div>
+            <div style={{ fontSize: '0.68rem', color: 'var(--ink-faint)', marginBottom: '0.2rem' }}>{s.label}</div>
+            <div style={{ fontSize: '0.9rem', color: 'var(--ink)', fontFamily: 'monospace' }}>{s.value}</div>
           </div>
         ))}
       </div>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         Height-by-height ledger membership and agreement
       </h3>
       <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.82rem' }}>
         <thead>
-          <tr style={{ borderBottom: '1px solid #334155' }}>
-            <th style={{ padding: '0.4rem 0.6rem', textAlign: 'left', color: '#64748b' }}>T_c</th>
-            <th style={{ padding: '0.4rem 0.6rem', textAlign: 'left', color: '#64748b' }}>Ledger</th>
-            <th style={{ padding: '0.4rem 0.6rem', textAlign: 'right', color: '#64748b' }}>n_w</th>
-            <th style={{ padding: '0.4rem 0.6rem', textAlign: 'right', color: '#64748b' }}>z</th>
-            <th style={{ padding: '0.4rem 0.6rem', textAlign: 'left', color: '#64748b' }}>Clip status</th>
-            <th style={{ padding: '0.4rem 0.6rem', textAlign: 'left', color: '#64748b' }}>Cross-check</th>
+          <tr style={{ borderBottom: '1px solid var(--rule)' }}>
+            <th style={{ padding: '0.4rem 0.6rem', textAlign: 'left', color: 'var(--ink-faint)' }}>T_c</th>
+            <th style={{ padding: '0.4rem 0.6rem', textAlign: 'left', color: 'var(--ink-faint)' }}>Ledger</th>
+            <th style={{ padding: '0.4rem 0.6rem', textAlign: 'right', color: 'var(--ink-faint)' }}>n_w</th>
+            <th style={{ padding: '0.4rem 0.6rem', textAlign: 'right', color: 'var(--ink-faint)' }}>z</th>
+            <th style={{ padding: '0.4rem 0.6rem', textAlign: 'left', color: 'var(--ink-faint)' }}>Clip status</th>
+            <th style={{ padding: '0.4rem 0.6rem', textAlign: 'left', color: 'var(--ink-faint)' }}>Cross-check</th>
           </tr>
         </thead>
         <tbody>
@@ -138,14 +139,14 @@ export default function Imp96535LedgerReconciliationViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page consuming the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the
         imp-96512 baked height-by-height comparison verbatim (the only new step is picking a
         display n_w/z per row and a membership category). Cross-validation only: changes no
         bound, establishes no operator positivity; RH open; NO QED; Platt&ndash;Trudgian

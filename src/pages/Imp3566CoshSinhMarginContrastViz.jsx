@@ -10,6 +10,7 @@ import {
   IMP3566_MIN_MARGIN_COSH,
   IMP3566_MIN_MARGIN_SINH,
 } from '../data/imp-3566-cosh-sinh-margin-contrast-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 const K_MIN = 2;
 const K_MAX = 2000;
@@ -48,57 +49,57 @@ function MarginContrastChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
       {yTicks.map((v) => (
         <g key={v}>
-          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke="#1e293b" strokeWidth={0.7} />
-          <text x={padL - 4} y={yS(v) + 3.5} textAnchor="end" fill="#475569" fontSize={9}>
+          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke={ED.ruleSoft} strokeWidth={0.7} />
+          <text x={padL - 4} y={yS(v) + 3.5} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v >= 1000 ? v.toExponential(0) : v}
           </text>
         </g>
       ))}
 
       {/* margin = 1 reference line: below this the cancellation error would overtake the tail */}
-      <line x1={padL} y1={yS(1)} x2={padL + cW} y2={yS(1)} stroke="#475569" strokeWidth={1} strokeDasharray="4 3" />
+      <line x1={padL} y1={yS(1)} x2={padL + cW} y2={yS(1)} stroke={ED.rule} strokeWidth={1} strokeDasharray="4 3" />
 
-      <path d={extCosh} fill="none" stroke="#c4b5fd" strokeWidth={1.6} strokeDasharray="5 4" />
-      <path d={measuredCosh} fill="none" stroke="#7c3aed" strokeWidth={2.2} />
+      <path d={extCosh} fill="none" stroke={ED.series5} strokeWidth={1.6} strokeDasharray="5 4" />
+      <path d={measuredCosh} fill="none" stroke={ED.series5} strokeWidth={2.2} />
 
-      <path d={extSinh} fill="none" stroke="#fca5a5" strokeWidth={1.6} strokeDasharray="5 4" />
-      <path d={measuredSinh} fill="none" stroke="#ef4444" strokeWidth={2.2} />
+      <path d={extSinh} fill="none" stroke={ED.series2} strokeWidth={1.6} strokeDasharray="5 4" />
+      <path d={measuredSinh} fill="none" stroke={ED.series2} strokeWidth={2.2} />
 
       {IMP3566_COSH_RUNGS.filter((r) => r.measured).map((r) => (
-        <circle key={'cosh' + r.k} cx={xS(r.k)} cy={yS(r.margin)} r={3.5} fill="#7c3aed" />
+        <circle key={'cosh' + r.k} cx={xS(r.k)} cy={yS(r.margin)} r={3.5} fill={ED.series5} />
       ))}
       {IMP3566_SINH_RUNGS.filter((r) => r.measured).map((r) => (
-        <circle key={'sinh' + r.k} cx={xS(r.k)} cy={yS(r.margin)} r={3.5} fill="#ef4444" />
+        <circle key={'sinh' + r.k} cx={xS(r.k)} cy={yS(r.margin)} r={3.5} fill={ED.series2} />
       ))}
 
       {/* crossover markers k* (closed form, margin = 1) */}
-      <line x1={xS(IMP3566_K_STAR_SINH)} y1={padT} x2={xS(IMP3566_K_STAR_SINH)} y2={padT + cH} stroke="#ef4444" strokeWidth={1} strokeDasharray="2 3" opacity={0.6} />
-      <line x1={xS(IMP3566_K_STAR_COSH)} y1={padT} x2={xS(IMP3566_K_STAR_COSH)} y2={padT + cH} stroke="#7c3aed" strokeWidth={1} strokeDasharray="2 3" opacity={0.6} />
-      <circle cx={xS(IMP3566_K_STAR_SINH)} cy={yS(1)} r={4} fill="none" stroke="#fca5a5" strokeWidth={1.5} />
-      <circle cx={xS(IMP3566_K_STAR_COSH)} cy={yS(1)} r={4} fill="none" stroke="#c4b5fd" strokeWidth={1.5} />
+      <line x1={xS(IMP3566_K_STAR_SINH)} y1={padT} x2={xS(IMP3566_K_STAR_SINH)} y2={padT + cH} stroke={ED.series2} strokeWidth={1} strokeDasharray="2 3" opacity={0.6} />
+      <line x1={xS(IMP3566_K_STAR_COSH)} y1={padT} x2={xS(IMP3566_K_STAR_COSH)} y2={padT + cH} stroke={ED.series5} strokeWidth={1} strokeDasharray="2 3" opacity={0.6} />
+      <circle cx={xS(IMP3566_K_STAR_SINH)} cy={yS(1)} r={4} fill="none" stroke={ED.series2} strokeWidth={1.5} />
+      <circle cx={xS(IMP3566_K_STAR_COSH)} cy={yS(1)} r={4} fill="none" stroke={ED.series5} strokeWidth={1.5} />
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
 
       {xTicks.map((k) => (
         <g key={'x' + k}>
-          <line x1={xS(k)} y1={padT + cH} x2={xS(k)} y2={padT + cH + 5} stroke="#334155" strokeWidth={1} />
-          <text x={xS(k)} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={9}>
+          <line x1={xS(k)} y1={padT + cH} x2={xS(k)} y2={padT + cH + 5} stroke={ED.rule} strokeWidth={1} />
+          <text x={xS(k)} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
             {k}
           </text>
         </g>
       ))}
-      <text x={xS(IMP3566_K_STAR_SINH) - 4} y={padT + 12} textAnchor="end" fill="#fca5a5" fontSize={8.5}>
+      <text x={xS(IMP3566_K_STAR_SINH) - 4} y={padT + 12} textAnchor="end" fill={ED.series2} fontSize={8.5}>
         k*sinh&#8776;1253
       </text>
-      <text x={xS(IMP3566_K_STAR_COSH) + 4} y={padT + 24} textAnchor="start" fill="#c4b5fd" fontSize={8.5}>
+      <text x={xS(IMP3566_K_STAR_COSH) + 4} y={padT + 24} textAnchor="start" fill={ED.series5} fontSize={8.5}>
         k*cosh&#8776;1730
       </text>
 
-      <text x={padL + cW / 2} y={padT + cH + 34} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={padT + cH + 34} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         ladder index k (log scale, S3 cell)
       </text>
 
@@ -106,7 +107,7 @@ function MarginContrastChart() {
         x={12}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={'rotate(-90,12,' + (padT + cH / 2) + ')'}
       >
@@ -114,12 +115,12 @@ function MarginContrastChart() {
       </text>
 
       <g>
-        <circle cx={padL + 14} cy={padT + 14} r={4} fill="#7c3aed" />
-        <text x={padL + 22} y={padT + 17} fill="#c4b5fd" fontSize={9}>
+        <circle cx={padL + 14} cy={padT + 14} r={4} fill={ED.series5} />
+        <text x={padL + 22} y={padT + 17} fill={ED.series5} fontSize={9}>
           cosh (imp-3509, even, degree-2): solid=measured k&le;24, dashed=closed-form extrapolation
         </text>
-        <circle cx={padL + 14} cy={padT + 30} r={4} fill="#ef4444" />
-        <text x={padL + 22} y={padT + 33} fill="#fca5a5" fontSize={9}>
+        <circle cx={padL + 14} cy={padT + 30} r={4} fill={ED.series2} />
+        <text x={padL + 22} y={padT + 33} fill={ED.series2} fontSize={9}>
           sinh (imp-3527, odd, degree-3): solid=measured k&le;24, dashed=closed-form extrapolation
         </text>
       </g>
@@ -132,7 +133,7 @@ export default function Imp3566CoshSinhMarginContrastViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Even vs. Odd Cancellation-Safety Margins vs. Ladder Index k (imp-3509 / imp-3527 / imp-3566)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-3509 certified the EVEN (cosh, degree-2) catastrophic-cancellation safety margin
         tail(k)/rho(k) as a closed function of the ladder index k; imp-3527 supplied the missing
         ODD (sinh, degree-3) counterpart. Both margins collapse like k<sup>&minus;4</sup> (rho(k)
@@ -145,7 +146,7 @@ export default function Imp3566CoshSinhMarginContrastViz() {
         k*&#8776;1730 (cosh), both far beyond any tested rung.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         Safety margin tail(k)/rho(k) for cosh (imp-3509) vs. sinh (imp-3527), with the closed-form
         crossovers k* marked
       </p>
@@ -155,14 +156,14 @@ export default function Imp3566CoshSinhMarginContrastViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement/visualization
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> measurement/visualization
         only &mdash; no proof, no reduction below RH. This certifies floating-point
         cancellation-safety of the degree-2 and degree-3 integrand terms across k; it establishes
         no operator positivity. Mass-feasibility is necessary-but-not-sufficient. The
@@ -170,9 +171,9 @@ export default function Imp3566CoshSinhMarginContrastViz() {
         cosh {IMP3566_MIN_MARGIN_COSH.toExponential(2)}, sinh {IMP3566_MIN_MARGIN_SINH.toExponential(2)}.)
       </div>
 
-      <div style={{ marginTop: '1rem', fontSize: '0.85rem', color: '#64748b' }}>
+      <div style={{ marginTop: '1rem', fontSize: '0.85rem', color: 'var(--ink-faint)' }}>
         <strong>Related:</strong>{' '}
-        <Link to="/viz-imp3541-cosh-cancellation-margin" style={{ color: '#7c3aed' }}>
+        <Link to="/viz-imp3541-cosh-cancellation-margin" style={{ color: 'var(--series-5)' }}>
           Cosh Cancellation-Safety Margin (imp-3509 / imp-3541)
         </Link>
       </div>

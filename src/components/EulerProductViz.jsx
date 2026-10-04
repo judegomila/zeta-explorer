@@ -3,6 +3,7 @@ import { InlineMath, BlockMath } from './KaTeXMath.jsx';
 import * as d3 from 'd3';
 import { partialEulerProduct, cAbs, zetaCriticalStrip, ZETA_ZEROS } from '../math/zeta.js';
 import { getPrimes } from '../math/primes.js';
+import { ED, alpha } from '../styles/tokens.js';
 
 export default function EulerProductViz() {
   const svgRef = useRef();
@@ -11,7 +12,7 @@ export default function EulerProductViz() {
   const [maxPrimes, setMaxPrimes] = useState(30);
 
   const sigmaDeviation = Math.abs(sigma - 0.5);
-  const sigmaColor = sigmaDeviation < 0.02 ? '#10b981' : sigmaDeviation < 0.15 ? '#f59e0b' : '#ef4444';
+  const sigmaColor = sigmaDeviation < 0.02 ? ED.series3 : sigmaDeviation < 0.15 ? ED.series4 : ED.series2;
 
   // Memoize expensive Euler product and true zeta computations so they don't rerun on resize
   const eulerData = useMemo(() => {
@@ -45,18 +46,18 @@ export default function EulerProductViz() {
     // Axes
     g.append('g').attr('transform', `translate(0,${h})`)
       .call(d3.axisBottom(x).ticks(Math.min(data.length, 15)).tickFormat(i => data[i]?.prime || ''))
-      .selectAll('text').attr('fill', '#64748b').attr('font-size', 9);
+      .selectAll('text').attr('fill', ED.inkFaint).attr('font-size', 9);
     g.append('g')
       .call(d3.axisLeft(yMag).ticks(6))
-      .selectAll('text').attr('fill', '#64748b').attr('font-size', 10);
-    g.selectAll('.domain, .tick line').attr('stroke', '#2a3050');
+      .selectAll('text').attr('fill', ED.inkFaint).attr('font-size', 10);
+    g.selectAll('.domain, .tick line').attr('stroke', ED.rule);
 
     // Horizontal gridlines for magnitude axis
     const gridG = g.append('g')
       .call(d3.axisLeft(yMag).ticks(6).tickSize(-w).tickFormat(''));
     gridG.select('.domain').remove();
     gridG.selectAll('.tick line')
-      .attr('stroke', '#1e293b').attr('stroke-dasharray', '3,3').attr('stroke-width', 0.8);
+      .attr('stroke', ED.ruleSoft).attr('stroke-dasharray', '3,3').attr('stroke-width', 0.8);
 
     // Cumulative magnitude curve
     const magLine = d3.line()
@@ -68,7 +69,7 @@ export default function EulerProductViz() {
       .datum(data)
       .attr('d', magLine)
       .attr('fill', 'none')
-      .attr('stroke', '#3b82f6')
+      .attr('stroke', ED.series1)
       .attr('stroke-width', 2);
 
     // Individual factor magnitudes as bars
@@ -87,7 +88,7 @@ export default function EulerProductViz() {
         .attr('width', barW)
         .attr('height', Math.max(1, barH))
         .attr('rx', 1)
-        .attr('fill', isAmplifying ? 'rgba(59,130,246,0.4)' : 'rgba(245,158,11,0.4)')
+        .attr('fill', isAmplifying ? alpha(ED.series1, 0.4) : alpha(ED.brass, 0.4))
         .style('cursor', 'crosshair')
         .append('title').text(`p=${d.prime}: |1−p⁻ˢ|⁻¹ = ${factorMag.toFixed(4)}, cumulative |ζ| = ${cumMag.toFixed(4)}`);
 
@@ -96,8 +97,8 @@ export default function EulerProductViz() {
         .attr('cx', x(i))
         .attr('cy', yMag(cumMag))
         .attr('r', 3)
-        .attr('fill', '#3b82f6')
-        .attr('stroke', '#0a0e1a')
+        .attr('fill', ED.series1)
+        .attr('stroke', ED.paper)
         .attr('stroke-width', 1)
         .style('cursor', 'crosshair')
         .append('title').text(`p=${d.prime}: cumulative |ζ| = ${cumMag.toFixed(4)}, phase = ${(phase * 180 / Math.PI).toFixed(1)}°`);
@@ -106,11 +107,11 @@ export default function EulerProductViz() {
     // Reference line at magnitude = 1 (boundary between amplifying and attenuating factors)
     g.append('line')
       .attr('x1', 0).attr('y1', yMag(1)).attr('x2', w).attr('y2', yMag(1))
-      .attr('stroke', '#64748b').attr('stroke-dasharray', '4,4').attr('stroke-width', 0.8);
+      .attr('stroke', ED.rule).attr('stroke-dasharray', '4,4').attr('stroke-width', 0.8);
 
     g.append('text')
       .attr('x', w - 4).attr('y', yMag(1) - 6)
-      .attr('text-anchor', 'end').attr('fill', '#64748b').attr('font-size', 10)
+      .attr('text-anchor', 'end').attr('fill', ED.inkFaint).attr('font-size', 10)
       .text('|factor| = 1');
 
     // Phase plot (secondary axis)
@@ -134,7 +135,7 @@ export default function EulerProductViz() {
         .datum(segment)
         .attr('d', d3.line().x(d => x(d.i)).y(d => yPhase(d.phase)).curve(d3.curveLinear))
         .attr('fill', 'none')
-        .attr('stroke', '#8b5cf6')
+        .attr('stroke', ED.series5)
         .attr('stroke-width', 1.5)
         .attr('opacity', 0.7);
     }
@@ -155,24 +156,24 @@ export default function EulerProductViz() {
     const phaseAxisG = g.append('g')
       .attr('transform', `translate(${w},0)`)
       .call(phaseAxis);
-    phaseAxisG.selectAll('text').attr('fill', '#8b5cf6').attr('font-size', 10);
-    phaseAxisG.selectAll('.domain, .tick line').attr('stroke', '#8b5cf640');
+    phaseAxisG.selectAll('text').attr('fill', ED.series5).attr('font-size', 10);
+    phaseAxisG.selectAll('.domain, .tick line').attr('stroke', alpha(ED.series5, 0.25));
 
     // Labels
     svg.append('text')
       .attr('x', width / 2).attr('y', height - 6)
-      .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12)
+      .attr('text-anchor', 'middle').attr('fill', ED.inkSoft).attr('font-size', 12)
       .text('Prime (increasing)');
 
     svg.append('text')
       .attr('x', margin.left - 8).attr('y', 14)
-      .attr('fill', '#3b82f6').attr('font-size', 11).attr('font-weight', 600)
+      .attr('fill', ED.series1).attr('font-size', 11).attr('font-weight', 600)
       .text('← Cumulative |ζ|');
 
     svg.append('text')
       .attr('x', width - margin.right).attr('y', 14)
       .attr('text-anchor', 'end')
-      .attr('fill', '#8b5cf6').attr('font-size', 11).attr('font-weight', 600)
+      .attr('fill', ED.series5).attr('font-size', 11).attr('font-weight', 600)
       .text('Phase arg(ζ) →');
 
     // True zeta value (Borwein-accelerated) as reference line
@@ -181,25 +182,25 @@ export default function EulerProductViz() {
     if (trueY >= 0 && trueY <= h) {
       g.append('line')
         .attr('x1', 0).attr('y1', trueY).attr('x2', w).attr('y2', trueY)
-        .attr('stroke', '#10b981').attr('stroke-width', 1.5).attr('stroke-dasharray', '6,3');
+        .attr('stroke', ED.series3).attr('stroke-width', 1.5).attr('stroke-dasharray', '6,3');
       g.append('text')
         .attr('x', w - 4).attr('y', trueY - 6)
-        .attr('text-anchor', 'end').attr('fill', '#10b981').attr('font-size', 10)
+        .attr('text-anchor', 'end').attr('fill', ED.series3).attr('font-size', 10)
         .text(`True |ζ| = ${trueZeta.toFixed(4)}`);
     }
 
     // Legend box
     const legend = svg.append('g').attr('transform', `translate(${margin.left + 10}, ${margin.top + 8})`);
     const legendItems = [
-      { label: 'Cumulative |ζ|', color: '#3b82f6', type: 'line' },
-      { label: 'arg(ζ) phase', color: '#8b5cf6', type: 'line' },
-      { label: 'True |ζ| (Borwein)', color: '#10b981', type: 'dash' },
-      { label: '|factor| > 1', color: 'rgba(59,130,246,0.4)', type: 'rect' },
-      { label: '|factor| < 1', color: 'rgba(245,158,11,0.4)', type: 'rect' },
+      { label: 'Cumulative |ζ|', color: ED.series1, type: 'line' },
+      { label: 'arg(ζ) phase', color: ED.series5, type: 'line' },
+      { label: 'True |ζ| (Borwein)', color: ED.series3, type: 'dash' },
+      { label: '|factor| > 1', color: alpha(ED.series1, 0.4), type: 'rect' },
+      { label: '|factor| < 1', color: alpha(ED.brass, 0.4), type: 'rect' },
     ];
     legend.append('rect')
       .attr('x', -6).attr('y', -10).attr('width', 150).attr('height', legendItems.length * 18 + 8)
-      .attr('rx', 4).attr('fill', 'rgba(13,17,23,0.85)').attr('stroke', '#1e293b');
+      .attr('rx', 4).attr('fill', alpha(ED.paper, 0.85)).attr('stroke', ED.ruleSoft);
     legendItems.forEach(({ label, color, type }, i) => {
       const ly = i * 18;
       if (type === 'line') {
@@ -213,7 +214,7 @@ export default function EulerProductViz() {
           .attr('rx', 1).attr('fill', color);
       }
       legend.append('text').attr('x', 22).attr('y', ly + 4)
-        .attr('fill', '#94a3b8').attr('font-size', 10).text(label);
+        .attr('fill', ED.inkSoft).attr('font-size', 10).text(label);
     });
 
     // Final value
@@ -221,7 +222,7 @@ export default function EulerProductViz() {
     svg.append('text')
       .attr('x', width - margin.right).attr('y', 30)
       .attr('text-anchor', 'end')
-      .attr('fill', '#06b6d4').attr('font-size', 12).attr('font-family', 'var(--font-mono)')
+      .attr('fill', ED.series6).attr('font-size', 12).attr('font-family', 'var(--font-mono)')
       .text(`|ζ(${sigma.toFixed(2)}+${t.toFixed(1)}i)| ≈ ${finalMag.toFixed(4)}`);
 
   }, [sigma, t, eulerData, trueZetaMag]);
@@ -261,7 +262,7 @@ export default function EulerProductViz() {
             onChange={e => setSigma(+e.target.value)}
             style={{ accentColor: sigmaColor }} />
           <span className="control-value" style={{ color: sigmaColor, fontWeight: 700 }}>{sigma.toFixed(2)}</span>
-          <span style={{ fontSize: 10, color: sigma > 1 ? '#60a5fa' : sigmaColor, opacity: 0.8, marginLeft: 4, fontFamily: 'var(--font-mono)' }}
+          <span style={{ fontSize: 10, color: sigma > 1 ? 'var(--series-1)' : sigmaColor, opacity: 0.8, marginLeft: 4, fontFamily: 'var(--font-mono)' }}
             title={sigma > 1 ? 'Euler product ∏(1−p⁻ˢ)⁻¹ converges absolutely for σ > 1'
               : Math.abs(sigma - 0.5) < 0.03 ? 'Critical line Re(s) = ½ — Euler product diverges, use analytic continuation'
               : 'Critical strip 0 < σ < 1 — Euler product diverges, partial products oscillate'}
@@ -283,7 +284,7 @@ export default function EulerProductViz() {
               <span
                 style={{
                   marginLeft: 6, fontSize: 11, fontFamily: 'var(--font-mono)',
-                  color: bestDist < 0.3 ? '#10b981' : '#64748b',
+                  color: bestDist < 0.3 ? 'var(--series-3)' : 'var(--ink-faint)',
                   cursor: 'pointer', borderBottom: '1px dashed currentColor',
                 }}
                 title={`Click to snap t to γ${bestIdx + 1} = ${ZETA_ZEROS[bestIdx].toFixed(6)}`}
@@ -298,7 +299,7 @@ export default function EulerProductViz() {
           <label>Max Primes</label>
           <input type="range" min="5" max="100" step="1" value={maxPrimes}
             onChange={e => setMaxPrimes(+e.target.value)} />
-          <span className="control-value">{maxPrimes} <span style={{ color: '#64748b', fontSize: 11 }}>(up to p={getPrimes(maxPrimes)[maxPrimes - 1]})</span></span>
+          <span className="control-value">{maxPrimes} <span style={{ color: 'var(--ink-faint)', fontSize: 11 }}>(up to p={getPrimes(maxPrimes)[maxPrimes - 1]})</span></span>
         </div>
       </div>
       <div className="viz-container">

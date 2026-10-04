@@ -6,6 +6,7 @@ import {
   IMP97106_MAX_COUNT,
   IMP97106_VERDICT,
 } from '../data/imp-97106-palm-mirror-surplus-comparison-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 // imp-97106: the imp-97080 measurement compares six mirror-count baselines against the
 // required p_req = 4.3743, but shipped as literals inside a docstring/JSDoc table with no
@@ -30,12 +31,12 @@ function SurplusBarChart({ bars, preq, maxCount }) {
         const w = xAt(b.count);
         return (
           <g key={b.key}>
-            <text x={padL - 8} y={y + rowH / 2 + 4} textAnchor="end" fill="#94a3b8" fontSize={10} fontFamily="monospace">
+            <text x={padL - 8} y={y + rowH / 2 + 4} textAnchor="end" fill={ED.inkSoft} fontSize={10} fontFamily="monospace">
               {b.label}
             </text>
-            <rect x={padL} y={y + 5} width={cW} height={rowH - 14} fill="#1e293b" rx={3} />
+            <rect x={padL} y={y + 5} width={cW} height={rowH - 14} fill={ED.paper3} rx={3} />
             <rect x={padL} y={y + 5} width={w} height={rowH - 14} fill={b.color} rx={3} />
-            <text x={padL + w + 6} y={y + rowH / 2 + 4} fill="#e2e8f0" fontSize={9.5} fontFamily="monospace">
+            <text x={padL + w + 6} y={y + rowH / 2 + 4} fill={ED.ink} fontSize={9.5} fontFamily="monospace">
               {b.count.toFixed(3)} ({b.surplus.toFixed(3)}x)
             </text>
           </g>
@@ -46,11 +47,11 @@ function SurplusBarChart({ bars, preq, maxCount }) {
         y1={padT - 4}
         x2={padL + preqX}
         y2={padT + bars.length * rowH}
-        stroke="#f87171"
+        stroke={ED.series2}
         strokeWidth={1.4}
         strokeDasharray="5,3"
       />
-      <text x={padL + preqX} y={padT - 8} textAnchor="middle" fill="#f87171" fontSize={9.5}>
+      <text x={padL + preqX} y={padT - 8} textAnchor="middle" fill={ED.series2} fontSize={9.5}>
         p_req = {preq.toFixed(4)}
       </text>
     </svg>
@@ -66,22 +67,22 @@ export default function Imp97106PalmMirrorSurplusComparisonViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> H_desc-mirror(p_req)
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> H_desc-mirror(p_req)
         needs a measured mirror count &ge; p_req at the working row. Every baseline below is
         a finite-height / rigid-lattice / t = 0-proxy measurement (imp-97080); it supplies no
         uniform-in-t, all-x lower bound. Changes no &Lambda; bound; Platt&ndash;Trudgian
         &Lambda; &le; 0.2 remains SOTA; RH open; NO QED.
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1rem', maxWidth: 700 }}>
         Six baseline mirror-count measurements at the working row (t0 = 0.1314, y0 = 0.165),
         each compared against the required constant pull p_req = {IMP97106_PREQ.toFixed(4)}
         &nbsp;(dashed line). The surplus factor p_req / count is annotated next to each bar --
@@ -90,7 +91,7 @@ export default function Imp97106PalmMirrorSurplusComparisonViz() {
 
       <SurplusBarChart bars={IMP97106_SURPLUS_BARS} preq={IMP97106_PREQ} maxCount={IMP97106_MAX_COUNT} />
 
-      <p style={{ color: '#64748b', fontSize: '0.78rem', marginTop: '1rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-faint)', fontSize: '0.78rem', marginTop: '1rem', maxWidth: 700 }}>
         {IMP97106_VERDICT.note}
       </p>
 
@@ -98,14 +99,14 @@ export default function Imp97106PalmMirrorSurplusComparisonViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page consuming the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the
         imp-97106 viz-data leaf (every value reused verbatim from imp-97080, no
         re-derivation). Changes no bound, establishes no operator positivity; Platt-Trudgian
         &Lambda;&le;0.2 remains SOTA; RH open; NO QED.

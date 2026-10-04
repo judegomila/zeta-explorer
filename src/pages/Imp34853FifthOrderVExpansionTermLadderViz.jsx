@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP34821_SIGMA_KNEE_FIFTH_ORDER_V_EXPANSION } from '../data/imp-34821-sigma-knee-fifth-order-v-expansion.js';
+import { ED } from '../styles/tokens.js';
 
 const D = IMP34821_SIGMA_KNEE_FIFTH_ORDER_V_EXPANSION;
 
@@ -22,8 +23,8 @@ function MagnitudeLadder({ magnitudes }) {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} x2={svgW - padR} y1={padT} y2={padT} stroke="#1e293b" strokeWidth={1} />
-      <line x1={padL} x2={padL} y1={padT} y2={padT + plotH} stroke="#334155" strokeWidth={1.5} />
+      <line x1={padL} x2={svgW - padR} y1={padT} y2={padT} stroke={ED.ruleSoft} strokeWidth={1} />
+      <line x1={padL} x2={padL} y1={padT} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
       {magnitudes.map((m, i) => {
         const x = padL + colW * i + colW / 2;
         const y = yOf(logs[i]);
@@ -31,17 +32,17 @@ function MagnitudeLadder({ magnitudes }) {
         const barH = padT + plotH - y;
         return (
           <g key={m.label}>
-            <rect x={x - 18} y={barY} width={36} height={barH} fill="#38bdf8" opacity={0.75} rx={3} />
-            <text x={x} y={padT + plotH + 16} textAnchor="middle" fill="#94a3b8" fontSize={11} fontFamily="monospace">
+            <rect x={x - 18} y={barY} width={36} height={barH} fill={ED.series1} opacity={0.75} rx={3} />
+            <text x={x} y={padT + plotH + 16} textAnchor="middle" fill={ED.inkSoft} fontSize={11} fontFamily="monospace">
               {m.label}
             </text>
-            <text x={x} y={barY - 6} textAnchor="middle" fill="#38bdf8" fontSize={10} fontFamily="monospace">
+            <text x={x} y={barY - 6} textAnchor="middle" fill={ED.series1} fontSize={10} fontFamily="monospace">
               {m.value.toExponential(2)}
             </text>
           </g>
         );
       })}
-      <text x={svgW / 2} y={svgH - 6} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={svgW / 2} y={svgH - 6} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         |delta_k| at the crossover, log10 scale -- monotonically decreasing across five orders
       </text>
     </svg>
@@ -67,20 +68,20 @@ function RatioLadder({ ratios }) {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} x2={svgW - padR} y1={yOf(0)} y2={yOf(0)} stroke="#1e293b" strokeWidth={1} />
-      <polyline points={points} fill="none" stroke="#a78bfa" strokeWidth={2} />
+      <line x1={padL} x2={svgW - padR} y1={yOf(0)} y2={yOf(0)} stroke={ED.ruleSoft} strokeWidth={1} />
+      <polyline points={points} fill="none" stroke={ED.series5} strokeWidth={2} />
       {ratios.map((r, i) => (
         <g key={r.label}>
-          <circle cx={xOf(i)} cy={yOf(r.value)} r={4} fill="#a78bfa" />
-          <text x={xOf(i)} y={yOf(r.value) - 10} textAnchor="middle" fill="#a78bfa" fontSize={10} fontFamily="monospace">
+          <circle cx={xOf(i)} cy={yOf(r.value)} r={4} fill={ED.series5} />
+          <text x={xOf(i)} y={yOf(r.value) - 10} textAnchor="middle" fill={ED.series5} fontSize={10} fontFamily="monospace">
             {r.value.toExponential(2)}
           </text>
-          <text x={xOf(i)} y={padT + plotH + 16} textAnchor="middle" fill="#94a3b8" fontSize={11} fontFamily="monospace">
+          <text x={xOf(i)} y={padT + plotH + 16} textAnchor="middle" fill={ED.inkSoft} fontSize={11} fontFamily="monospace">
             {r.label}
           </text>
         </g>
       ))}
-      <text x={svgW / 2} y={svgH - 6} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={svgW / 2} y={svgH - 6} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         successive-term ratios |delta_(k+1)/delta_k| -- all sub-unity, last ratio DECREASING (no divergence turn-up)
       </text>
     </svg>
@@ -109,7 +110,7 @@ export default function Imp34853FifthOrderVExpansionTermLadderViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Fifth-Order v-Expansion Term Ladder (imp-34853 / imp-34821)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-34821 restored the fifth-order term delta_5 of the slowly-varying-v expansion of the logistic
         exponent-knee condition. The ordered magnitudes {'{'}
         {magnitudes.map((m) => Math.abs(m.value).toExponential(2)).join(', ')}
@@ -117,12 +118,12 @@ export default function Imp34853FifthOrderVExpansionTermLadderViz() {
         and the last ratio decreasing -- no divergence turn-up across the five orders computed.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         |delta_k| magnitude ladder (log scale)
       </p>
       <MagnitudeLadder magnitudes={magnitudes} />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
         Successive ratio ladder
       </p>
       <RatioLadder ratios={ratios} />
@@ -131,11 +132,11 @@ export default function Imp34853FifthOrderVExpansionTermLadderViz() {
         style={{
           marginTop: '1rem',
           padding: '0.6rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
         }}
       >
         The self-consistent SC-to-exactF residual stays on the same flat +{residualBudget.fifthOrderSelfConsistentToExactFLog10.toExponential(2)}
@@ -149,14 +150,14 @@ export default function Imp34853FifthOrderVExpansionTermLadderViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page presenting the imp-34821
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-only page presenting the imp-34821
         literals verbatim (no new computation). Component model is the inherited imp-3220/imp-3406 surrogate
         crossover map, NOT a rigorous asymptotic; sub-gap imp-34756/imp-34770/imp-34797 REMAINS OPEN (a
         Richardson/higher-precision resolution of the FD-discretization floor below the milli-dex scale is

@@ -8,11 +8,12 @@ import {
   IMP35936_FLATTEST_POINT,
   IMP35936_FLOOR_APPROACH,
 } from '../data/imp-35936-req4-height-multiple-sigma-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
-const CURVE_COLOR = '#38bdf8';
-const KNEE_COLOR = '#f59e0b';
-const FLAT_COLOR = '#4ade80';
-const PT_COLOR = '#f87171';
+const CURVE_COLOR = ED.series1;
+const KNEE_COLOR = ED.series4;
+const FLAT_COLOR = ED.series3;
+const PT_COLOR = ED.series2;
 
 function HeightMultipleChart() {
   const w = 680;
@@ -41,14 +42,14 @@ function HeightMultipleChart() {
 
   return (
     <svg width={w} height={h} style={{ display: 'block', maxWidth: '100%' }}>
-      <text x={padL} y={padT - 8} fill="#94a3b8" fontSize={11} fontWeight={700}>
+      <text x={padL} y={padT - 8} fill={ED.inkSoft} fontSize={11} fontWeight={700}>
         required-height multiple (200 / log T0) vs sigma
       </text>
 
       {yTicks.map((v) => (
         <g key={v}>
-          <line x1={padL} y1={yOf(v)} x2={padL + plotW} y2={yOf(v)} stroke="#1e293b" strokeWidth={0.7} />
-          <text x={padL - 6} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+          <line x1={padL} y1={yOf(v)} x2={padL + plotW} y2={yOf(v)} stroke={ED.ruleSoft} strokeWidth={0.7} />
+          <text x={padL - 6} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v}x
           </text>
         </g>
@@ -67,8 +68,8 @@ function HeightMultipleChart() {
       {/* PT anchor marker */}
       <circle cx={xOf(IMP35936_PT_ANCHOR.sigma)} cy={yOf(IMP35936_PT_ANCHOR.multiple)} r={5} fill="none" stroke={PT_COLOR} strokeWidth={2} />
 
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <text x={padL + plotW / 2} y={h - 8} textAnchor="middle" fill="#64748b" fontSize={9}>
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <text x={padL + plotW / 2} y={h - 8} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
         sigma -- peak ~0.94 (left) down to the PT-anchor sigma ~0.019 (right)
       </text>
 
@@ -98,7 +99,7 @@ function CurveTable() {
   return (
     <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.8rem' }}>
       <thead>
-        <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+        <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
           <th style={{ padding: '0.4rem 0.6rem' }}>sigma</th>
           <th style={{ padding: '0.4rem 0.6rem' }}>log T0</th>
           <th style={{ padding: '0.4rem 0.6rem', color: CURVE_COLOR }}>multiple (200/log T0)</th>
@@ -106,7 +107,7 @@ function CurveTable() {
       </thead>
       <tbody>
         {IMP35936_DISPLAY_CURVE.map((p) => (
-          <tr key={p.sigma} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+          <tr key={p.sigma} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>
               {p.sigma}
               {p.ptAnchor ? ' (PT anchor)' : ''}
@@ -125,7 +126,7 @@ export default function Imp35936ReqHeightMultipleSigmaViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="REQ-4 Required-Height Multiple vs Sigma (imp-35936 / imp-35853)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
         imp-35853 tabulated the imp-35813 REQ-4 required-height multiple 200&nbsp;/&nbsp;log&nbsp;T0
         CONTINUOUSLY versus sigma along the full peak-to-PT downslope, interpolating between the
         discrete imp-35813 sigma landmark rungs. The chart below plots the resulting curve and marks
@@ -139,7 +140,7 @@ export default function Imp35936ReqHeightMultipleSigmaViz() {
         <CurveTable />
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.8rem', marginTop: '1rem' }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.8rem', marginTop: '1rem' }}>
         The multiple descends monotonically from ~13.6x (sigma&nbsp;~&nbsp;0.94) to the
         ~{IMP35936_PT_ANCHOR.multiple.toFixed(2)}x value at the PT anchor (log&nbsp;T0&nbsp;~&nbsp;
         {IMP35936_PT_ANCHOR.logT0.toFixed(2)}, sigma&nbsp;~&nbsp;{IMP35936_PT_ANCHOR.sigma}), but it does
@@ -158,14 +159,14 @@ export default function Imp35936ReqHeightMultipleSigmaViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation only of the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> presentation only of the
         already-derived imp-35853 measurement (no new derivation, no heavy data-module import, no
         re-running the bisection sweep at page load); measurement only; the ~
         {IMP35936_PT_ANCHOR.multiple.toFixed(2)}x figure is the multiple AT the PT-verified height, not

@@ -5,11 +5,12 @@ import {
   IMP33302_HALF,
   IMP33302_P_EFF_RANGE,
 } from '../data/imp-33302-sliding-start-exponent-ladder-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
-const P_EFF_COLOR = '#38bdf8';
-const HALF_COLOR = '#f472b6';
-const R2_COLOR = '#facc15';
-const ENDPOINT_COLOR = '#34d399';
+const P_EFF_COLOR = ED.series1;
+const HALF_COLOR = ED.series7;
+const R2_COLOR = ED.series4;
+const ENDPOINT_COLOR = ED.series3;
 
 function SlidingStartLadderChart() {
   const svgW = 720;
@@ -39,19 +40,19 @@ function SlidingStartLadderChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
       {[0.46, 0.47, 0.48, 0.49, 0.5].map((v) => (
         <g key={v}>
-          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke="#1e293b" strokeWidth={0.7} />
-          <text x={padL - 6} y={yS(v) + 3.5} textAnchor="end" fill="#475569" fontSize={9}>
+          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke={ED.ruleSoft} strokeWidth={0.7} />
+          <text x={padL - 6} y={yS(v) + 3.5} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v.toFixed(2)}
           </text>
         </g>
       ))}
 
       {[0.998, 0.9985, 0.999, 0.9995, 1.0].map((v) => (
-        <text key={v} x={padL + cW + 6} y={yR2(v) + 3.5} textAnchor="start" fill="#a3813f" fontSize={9}>
+        <text key={v} x={padL + cW + 6} y={yR2(v) + 3.5} textAnchor="start" fill={ED.brass} fontSize={9}>
           {v.toFixed(4)}
         </text>
       ))}
@@ -98,21 +99,21 @@ function SlidingStartLadderChart() {
                 {r.p_eff.toFixed(4)}
               </text>
             )}
-            <text x={xAt(i)} y={padT + cH + 14} textAnchor="middle" fill="#64748b" fontSize={8.5}>
+            <text x={xAt(i)} y={padT + cH + 14} textAnchor="middle" fill={ED.inkFaint} fontSize={8.5}>
               +{r.startOffsetDecades}d
             </text>
           </g>
         );
       })}
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
-      <text x={16} y={padT + cH / 2} textAnchor="middle" fill="#64748b" fontSize={10} transform={`rotate(-90,16,${padT + cH / 2})`}>
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
+      <text x={16} y={padT + cH / 2} textAnchor="middle" fill={ED.inkFaint} fontSize={10} transform={`rotate(-90,16,${padT + cH / 2})`}>
         p_eff
       </text>
-      <text x={svgW - 12} y={padT + cH / 2} textAnchor="middle" fill="#a3813f" fontSize={10} transform={`rotate(-90,${svgW - 12},${padT + cH / 2})`}>
+      <text x={svgW - 12} y={padT + cH / 2} textAnchor="middle" fill={ED.brass} fontSize={10} transform={`rotate(-90,${svgW - 12},${padT + cH / 2})`}>
         R^2
       </text>
-      <text x={padL + cW / 2} y={padT + cH + 36} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={padT + cH + 36} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         window-start offset s past the imp-3444 crossover (fixed 12-decade span)
       </text>
     </svg>
@@ -124,7 +125,7 @@ export default function Imp33302SlidingStartExponentLadderViz() {
     <div style={{ padding: '1.5rem', maxWidth: 940, margin: '0 auto' }}>
       <PageHeader title="Sliding-Start Sigma Decay-Exponent Ladder: p_eff(s) -> 1/2 (imp-33274)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
         imp-33255 fit a single crossover-anchored window and found the OLS effective decay
         exponent p_eff of sigma(N) = E_coll/E(N) window-dependent, climbing ~0.39&ndash;0.49 as
         the window span grew. imp-33274 holds the span fixed (12 decades) and instead slides the
@@ -135,7 +136,7 @@ export default function Imp33302SlidingStartExponentLadderViz() {
         endpoint (s = +48d, p_eff = 0.4965) is outlined in green.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         p_eff(s) and R^2(s), six sliding-start rungs
       </p>
       <SlidingStartLadderChart />
@@ -144,14 +145,14 @@ export default function Imp33302SlidingStartExponentLadderViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> at s = 0 (window
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> at s = 0 (window
         anchored at the crossover, reproducing imp-33255) p_eff = {IMP33302_P_EFF_RANGE[0].toFixed(4)}
         {' '}and R^2 = 0.99894. Sliding the same-span window later monotonely lifts p_eff toward
         1/2 -- reaching {IMP33302_P_EFF_RANGE[1].toFixed(4)} at s = +48d, a gap of only 3.475e-3 --
@@ -164,14 +165,14 @@ export default function Imp33302SlidingStartExponentLadderViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation of the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> presentation of the
         imp-33274 sliding-start measurement only -- a finite six-rung OLS fit ladder, not a
         certified N-uniform statement. Adds no new Lambda bound, does not tighten imp-3910's
         certified C &le; 54.56, and does not touch imp-3066's K_a &ge; 0 positivity.

@@ -6,9 +6,10 @@ import {
   IMP33594_REFERENCE_ENVELOPE_ULP,
   IMP33594_BINDING_TAU,
 } from '../data/imp-33594-envelope-under-reference-libm-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
-const FP64_COLOR = '#38bdf8';
-const DD_COLOR = '#4ade80';
+const FP64_COLOR = ED.series1;
+const DD_COLOR = ED.series3;
 
 function BandCeilingChart() {
   const svgW = 640;
@@ -28,12 +29,12 @@ function BandCeilingChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
       {yTicks.map((v) => (
         <g key={v}>
-          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke="#1e293b" strokeWidth={0.7} />
-          <text x={padL - 6} y={yS(v) + 3.5} textAnchor="end" fill="#475569" fontSize={9}>
+          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke={ED.ruleSoft} strokeWidth={0.7} />
+          <text x={padL - 6} y={yS(v) + 3.5} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v}
           </text>
         </g>
@@ -98,19 +99,19 @@ function BandCeilingChart() {
           x={xS(i)}
           y={padT + cH + 14}
           textAnchor="middle"
-          fill={r.tau === IMP33594_BINDING_TAU ? '#f472b6' : '#64748b'}
+          fill={r.tau === IMP33594_BINDING_TAU ? ED.series7 : ED.inkFaint}
           fontSize={9}
           fontWeight={r.tau === IMP33594_BINDING_TAU ? 700 : 400}
         >
           tau={r.tau}
         </text>
       ))}
-      <text x={padL + cW / 2} y={padT + cH + 30} textAnchor="middle" fill="#64748b" fontSize={9}>
+      <text x={padL + cW / 2} y={padT + cH + 30} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
         height tau (binding height tau={IMP33594_BINDING_TAU} highlighted)
       </text>
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
-      <text x={16} y={padT + cH / 2} textAnchor="middle" fill="#64748b" fontSize={10} transform={`rotate(-90,16,${padT + cH / 2})`}>
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
+      <text x={16} y={padT + cH / 2} textAnchor="middle" fill={ED.inkFaint} fontSize={10} transform={`rotate(-90,16,${padT + cH / 2})`}>
         per-height band ceiling (ULP)
       </text>
     </svg>
@@ -122,7 +123,7 @@ export default function Imp33594EnvelopeUnderReferenceLibmViz() {
     <div style={{ padding: '1.5rem', maxWidth: 940, margin: '0 auto' }}>
       <PageHeader title="Reference-Libm Envelope Downward Shift (imp-33559)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
         imp-33559 recomputed the imp-33312 per-height band ceiling (tau in{' '}
         {'{7..10}'}) under a ~106-bit double-double reference-precision libm,
         to test whether the imp-33538 named ~10.78 ULP tau-uniform envelope
@@ -134,12 +135,12 @@ export default function Imp33594EnvelopeUnderReferenceLibmViz() {
         unchanged.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         per-height band ceiling, fp64 vs reference-precision libm
       </p>
       <BandCeilingChart />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.85rem', margin: '1rem 0 1.25rem' }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.85rem', margin: '1rem 0 1.25rem' }}>
         The binding height stays at tau={IMP33594_BINDING_TAU} under both
         libms, so the imp-33538 &quot;binding at tau=8&quot; structural
         reading is robust. But the named ~10.78 ULP constant is not exact: the
@@ -156,14 +157,14 @@ export default function Imp33594EnvelopeUnderReferenceLibmViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> both
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> both
         bars per height come from the same imp-33312 fixed neighbourhood
         [245,325] band; only the libm evaluating exp/log inside the kernel
         changes (fp64 vs ~106-bit double-double). The reference-libm bar is
@@ -176,14 +177,14 @@ export default function Imp33594EnvelopeUnderReferenceLibmViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong>{' '}
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong>{' '}
         accuracy measurement only, of an already-verified table (imp-33559).
         The double-double libm is a reference-precision surrogate, not a
         platform survey; it changes no bound and patches no literal. Mass-

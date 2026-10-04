@@ -3,6 +3,7 @@ import { InlineMath } from './KaTeXMath.jsx';
 import { getPrimes } from '../math/primes.js';
 import { oscillatorStage, directLadder, dualLadder, losslessBridge } from '../math/oscillators.js';
 import { zetaCriticalStrip, cMul, cAdd, cSub, cDiv, cAbs, cExp, cLog, eulerFactor, partialEulerProduct, ZETA_ZEROS } from '../math/zeta.js';
+import { ED, alpha } from '../styles/tokens.js';
 
 // ─── Shared color helpers ────────────────────────────────────────────────────
 
@@ -14,12 +15,12 @@ const PRIME_COLORS = [
 ];
 
 const MEASURE_COLORS = {
-  entropy: '#10b981',
-  capacity: '#3b82f6',
-  fisher: '#f59e0b',
-  kl: '#ef4444',
-  mutual: '#8b5cf6',
-  confinement: '#06b6d4',
+  entropy: ED.series3,
+  capacity: ED.series1,
+  fisher: ED.series4,
+  kl: ED.series2,
+  mutual: ED.series5,
+  confinement: ED.series6,
 };
 
 const MEASURE_LABELS = {
@@ -33,9 +34,9 @@ const MEASURE_LABELS = {
 
 function sigmaStatusColor(sigma) {
   const d = Math.abs(sigma - 0.5);
-  if (d < 0.03) return '#10b981';
-  if (d < 0.15) return '#f59e0b';
-  return '#ef4444';
+  if (d < 0.03) return ED.series3;
+  if (d < 0.15) return ED.series4;
+  return ED.series2;
 }
 
 // ─── Core computation functions ──────────────────────────────────────────────
@@ -142,7 +143,7 @@ function computeAllMeasures(sigma, t, numPrimes, precomputedWeightsHalf) {
 // ─── Tab Components ──────────────────────────────────────────────────────────
 
 const TABS = ['Efficiency Dashboard', 'Prime Contributions', 'Landscape Scan', 'Compression Experiment'];
-const TAB_COLORS = ['#10b981', '#8b5cf6', '#3b82f6', '#06b6d4'];
+const TAB_COLORS = [ED.series3, ED.series5, ED.series1, ED.series6];
 
 // ─── Tab 1: Efficiency Dashboard ─────────────────────────────────────────────
 
@@ -183,9 +184,9 @@ function EfficiencyDashboard({ sigma, t, numPrimes }) {
 
       // Determine color based on how optimal (close to 1)
       let barColor;
-      if (val > 0.85) barColor = '#10b981';
-      else if (val > 0.6) barColor = '#f59e0b';
-      else barColor = '#ef4444';
+      if (val > 0.85) barColor = ED.series3;
+      else if (val > 0.6) barColor = ED.series4;
+      else barColor = ED.series2;
 
       // Background bar
       ctx.fillStyle = '#1e293b';
@@ -212,14 +213,14 @@ function EfficiencyDashboard({ sigma, t, numPrimes }) {
       }
 
       // Label (left side)
-      ctx.fillStyle = MEASURE_COLORS[bar.key] || '#94a3b8';
+      ctx.fillStyle = MEASURE_COLORS[bar.key] || ED.series8;
       ctx.font = '11px sans-serif';
       ctx.textAlign = 'right';
       ctx.textBaseline = 'middle';
       ctx.fillText(bar.label, margin.left - 8, y + barH / 2);
 
       // Value readout (inside or right of bar)
-      ctx.fillStyle = '#e2e8f0';
+      ctx.fillStyle = ED.ink;
       ctx.font = 'bold 11px var(--font-mono)';
       ctx.textAlign = 'left';
       const textX = barW > 120 ? margin.left + barW - 90 : margin.left + barW + 8;
@@ -239,25 +240,25 @@ function EfficiencyDashboard({ sigma, t, numPrimes }) {
   return (
     <div>
       <canvas ref={canvasRef}
-        style={{ width: '100%', height: 280, borderRadius: 8, background: '#0a0e1a', border: '1px solid #1e293b' }} />
+        style={{ width: '100%', height: 280, borderRadius: 8, background: 'var(--paper)', border: '1px solid var(--rule-soft)' }} />
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 8, marginTop: 12 }}>
         {[
           { label: 'Entropy Efficiency', value: (measures.entropyNorm * 100).toFixed(1) + '%', color: sigmaStatusColor(sigma) },
           { label: 'Channel Cap', value: measures.capacity.toFixed(2) + ' bits', color: MEASURE_COLORS.capacity },
-          { label: 'D_KL from half', value: measures.kl.toFixed(4), color: measures.kl < 0.01 ? '#10b981' : '#ef4444' },
+          { label: 'D_KL from half', value: measures.kl.toFixed(4), color: measures.kl < 0.01 ? ED.series3 : ED.series2 },
           { label: 'Fisher I_F', value: measures.fisher.toFixed(2), color: MEASURE_COLORS.fisher },
           { label: 'Mutual Info', value: measures.mutual.toFixed(3), color: MEASURE_COLORS.mutual },
           { label: 'Confinement', value: measures.confinement.toFixed(3), color: MEASURE_COLORS.confinement },
         ].map(m => (
           <div key={m.label} className="stat-box" style={{ padding: '8px 10px' }}>
             <div style={{ color: m.color, fontWeight: 700, fontSize: 14, fontFamily: 'var(--font-mono)' }}>{m.value}</div>
-            <div style={{ color: '#64748b', fontSize: 10, marginTop: 2 }}>{m.label}</div>
+            <div style={{ color: 'var(--ink-faint)', fontSize: 10, marginTop: 2 }}>{m.label}</div>
           </div>
         ))}
       </div>
-      <div style={{ marginTop: 12, padding: '10px 14px', background: '#0f1225', borderRadius: 6, fontSize: 11, color: '#94a3b8' }}>
+      <div style={{ marginTop: 12, padding: '10px 14px', background: 'var(--paper-2)', borderRadius: 6, fontSize: 11, color: 'var(--ink-soft)' }}>
         All six bars reach their maximum simultaneously at{' '}
-        <strong style={{ color: '#10b981' }}><InlineMath tex={"\\sigma = \\tfrac{1}{2}"} /></strong>.
+        <strong style={{ color: 'var(--series-3)' }}><InlineMath tex={"\\sigma = \\tfrac{1}{2}"} /></strong>.
         The green/yellow/red coloring indicates proximity to the optimum. When all bars turn green,
         the twin ladder is operating at maximum efficiency on the critical line.
       </div>
@@ -341,9 +342,9 @@ function PrimeContributions({ sigma, t, numPrimes }) {
 
     // 3 groups: Entropy, Capacity, Fisher
     const groups = [
-      { label: 'Entropy', key: 'entropyContrib', total: data.totalEntropy, color: '#10b981' },
-      { label: 'Capacity', key: 'capContrib', total: data.totalCap, color: '#3b82f6' },
-      { label: 'Fisher', key: 'fisherContrib', total: data.totalFisher, color: '#f59e0b' },
+      { label: 'Entropy', key: 'entropyContrib', total: data.totalEntropy, color: ED.series3 },
+      { label: 'Capacity', key: 'capContrib', total: data.totalCap, color: ED.series1 },
+      { label: 'Fisher', key: 'fisherContrib', total: data.totalFisher, color: ED.brass },
     ];
 
     const groupW = plotW / groups.length;
@@ -377,7 +378,7 @@ function PrimeContributions({ sigma, t, numPrimes }) {
         if (data.contribs.length <= 12) {
           const pct = total > 0 ? (c[group.key] / total * 100) : 0;
           if (pct > 3) {
-            ctx.fillStyle = '#e2e8f0';
+            ctx.fillStyle = ED.ink;
             ctx.font = '8px var(--font-mono)';
             ctx.textAlign = 'center';
             ctx.fillText(pct.toFixed(0) + '%', x + barW / 2, y - 4);
@@ -387,7 +388,7 @@ function PrimeContributions({ sigma, t, numPrimes }) {
     }
 
     // X-axis prime labels
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.font = '9px var(--font-mono)';
     ctx.textAlign = 'center';
     for (let i = 0; i < data.contribs.length; i++) {
@@ -406,7 +407,7 @@ function PrimeContributions({ sigma, t, numPrimes }) {
     }
 
     // Axes
-    ctx.strokeStyle = '#334155';
+    ctx.strokeStyle = ED.rule;
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.moveTo(margin.left, margin.top);
@@ -427,7 +428,7 @@ function PrimeContributions({ sigma, t, numPrimes }) {
   return (
     <div>
       <canvas ref={canvasRef}
-        style={{ width: '100%', height: 300, borderRadius: 8, background: '#0a0e1a', border: '1px solid #1e293b' }} />
+        style={{ width: '100%', height: 300, borderRadius: 8, background: 'var(--paper)', border: '1px solid var(--rule-soft)' }} />
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginTop: 12 }}>
         {data.contribs.slice(0, 12).map((c, i) => (
           <div key={c.prime} style={{
@@ -439,9 +440,9 @@ function PrimeContributions({ sigma, t, numPrimes }) {
           </div>
         ))}
       </div>
-      <div style={{ marginTop: 12, padding: '10px 14px', background: '#0f1225', borderRadius: 6, fontSize: 11, color: '#94a3b8' }}>
+      <div style={{ marginTop: 12, padding: '10px 14px', background: 'var(--paper-2)', borderRadius: 6, fontSize: 11, color: 'var(--ink-soft)' }}>
         {isUniform ? (
-          <>At <strong style={{ color: '#10b981' }}><InlineMath tex={"\\sigma = \\tfrac{1}{2}"} /></strong>,
+          <>At <strong style={{ color: 'var(--series-3)' }}><InlineMath tex={"\\sigma = \\tfrac{1}{2}"} /></strong>,
           the direct and dual ladders share the same weight distribution (functional equation symmetry
           maps <InlineMath tex={"s \\leftrightarrow 1-\\bar{s}"} />). This minimizes KL divergence and maximizes mutual information —
           the information-theoretic signature of the critical line. Small primes still contribute more than large ones,
@@ -452,7 +453,7 @@ function PrimeContributions({ sigma, t, numPrimes }) {
           At <strong style={{ color: sigmaStatusColor(sigma) }}><InlineMath tex={"\\sigma"} /> = {sigma.toFixed(2)}</strong>,
           the KL divergence between direct and dual distributions is nonzero, reducing channel efficiency.</>
         )}
-        {' '}<span style={{ color: '#64748b' }}>Weight uniformity index: <strong style={{ color: uniformity > 0.85 ? '#10b981' : uniformity > 0.6 ? '#f59e0b' : '#ef4444', fontFamily: 'var(--font-mono)' }}>{(uniformity * 100).toFixed(1)}%</strong> (1 − max + min over per-prime weights; 100% = perfectly flat).</span>
+        {' '}<span style={{ color: 'var(--ink-faint)' }}>Weight uniformity index: <strong style={{ color: uniformity > 0.85 ? 'var(--series-3)' : uniformity > 0.6 ? 'var(--brass)' : 'var(--series-2)', fontFamily: 'var(--font-mono)' }}>{(uniformity * 100).toFixed(1)}%</strong> (1 − max + min over per-prime weights; 100% = perfectly flat).</span>
       </div>
     </div>
   );
@@ -490,7 +491,7 @@ function LandscapeScan({ sigma, t, numPrimes }) {
     const plotH = h - margin.top - margin.bottom;
 
     // Axes
-    ctx.strokeStyle = '#334155';
+    ctx.strokeStyle = ED.rule;
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.moveTo(margin.left, margin.top);
@@ -502,13 +503,13 @@ function LandscapeScan({ sigma, t, numPrimes }) {
     const halfX = margin.left + ((0.5 - 0.1) / 0.8) * plotW;
     ctx.beginPath();
     ctx.setLineDash([5, 4]);
-    ctx.strokeStyle = '#10b981aa';
+    ctx.strokeStyle = alpha(ED.series3, 0.67);
     ctx.lineWidth = 2;
     ctx.moveTo(halfX, margin.top);
     ctx.lineTo(halfX, h - margin.bottom);
     ctx.stroke();
     ctx.setLineDash([]);
-    ctx.fillStyle = '#10b981';
+    ctx.fillStyle = ED.series3;
     ctx.font = 'bold 10px var(--font-mono)';
     ctx.textAlign = 'center';
     ctx.fillText('\u03C3 = 1/2', halfX, margin.top - 8);
@@ -518,7 +519,7 @@ function LandscapeScan({ sigma, t, numPrimes }) {
       const curX = margin.left + ((sigma - 0.1) / 0.8) * plotW;
       ctx.beginPath();
       ctx.setLineDash([2, 2]);
-      ctx.strokeStyle = '#e2e8f060';
+      ctx.strokeStyle = alpha(ED.inkSoft, 0.38);
       ctx.lineWidth = 1;
       ctx.moveTo(curX, margin.top);
       ctx.lineTo(curX, h - margin.bottom);
@@ -561,13 +562,13 @@ function LandscapeScan({ sigma, t, numPrimes }) {
     for (const curve of curves) {
       ctx.fillStyle = curve.color;
       ctx.fillRect(legendX, legendY - 4, 12, 3);
-      ctx.fillStyle = '#94a3b8';
+      ctx.fillStyle = ED.series8;
       ctx.fillText(curve.label, legendX + 16, legendY);
       legendY += 16;
     }
 
     // X-axis labels
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.font = '10px var(--font-mono)';
     ctx.textAlign = 'center';
     for (let s = 0.1; s <= 0.9; s += 0.1) {
@@ -580,14 +581,14 @@ function LandscapeScan({ sigma, t, numPrimes }) {
     ctx.save();
     ctx.translate(12, margin.top + plotH / 2);
     ctx.rotate(-Math.PI / 2);
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.font = '10px sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText('Normalized value (0 to 1)', 0, 0);
     ctx.restore();
 
     // Title
-    ctx.fillStyle = '#e2e8f0';
+    ctx.fillStyle = ED.ink;
     ctx.font = 'bold 12px sans-serif';
     ctx.textAlign = 'left';
     ctx.fillText('All 6 Measures vs \u03C3 (fixed t = ' + t.toFixed(1) + ')', margin.left + 8, margin.top - 12);
@@ -599,11 +600,11 @@ function LandscapeScan({ sigma, t, numPrimes }) {
   return (
     <div>
       <canvas ref={canvasRef}
-        style={{ width: '100%', height: 320, borderRadius: 8, background: '#0a0e1a', border: '1px solid #1e293b' }} />
-      <div style={{ marginTop: 12, padding: '10px 14px', background: '#0f1225', borderRadius: 6, fontSize: 11, color: '#94a3b8' }}>
-        <strong style={{ color: '#e2e8f0' }}>Key observation:</strong> All six independent measures achieve
+        style={{ width: '100%', height: 320, borderRadius: 8, background: 'var(--paper)', border: '1px solid var(--rule-soft)' }} />
+      <div style={{ marginTop: 12, padding: '10px 14px', background: 'var(--paper-2)', borderRadius: 6, fontSize: 11, color: 'var(--ink-soft)' }}>
+        <strong style={{ color: 'var(--ink)' }}>Key observation:</strong> All six independent measures achieve
         their optimum (peak or trough, depending on the measure) at{' '}
-        <strong style={{ color: '#10b981' }}><InlineMath tex={"\\sigma = \\tfrac{1}{2}"} /></strong>.
+        <strong style={{ color: 'var(--series-3)' }}><InlineMath tex={"\\sigma = \\tfrac{1}{2}"} /></strong>.
         The vertical dashed green line marks the critical line. Entropy, capacity, mutual info, and the
         confinement potential are all maximized there; KL divergence reaches its minimum (zero) there.
         Six different lenses, one answer.
@@ -660,7 +661,7 @@ function CompressionExperiment({ sigma, t }) {
     const plotH = h - margin.top - margin.bottom;
 
     // Axes
-    ctx.strokeStyle = '#334155';
+    ctx.strokeStyle = ED.rule;
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.moveTo(margin.left, margin.top);
@@ -668,7 +669,7 @@ function CompressionExperiment({ sigma, t }) {
     ctx.lineTo(w - margin.right, h - margin.bottom);
     ctx.stroke();
 
-    const curveColors = { '0.3': '#ef4444', '0.5': '#10b981', '0.7': '#3b82f6' };
+    const curveColors = { '0.3': ED.series2, '0.5': ED.series3, '0.7': ED.series1 };
     const curveLabels = { '0.3': '\u03C3 = 0.3', '0.5': '\u03C3 = 0.5', '0.7': '\u03C3 = 0.7' };
 
     // Get global max for log scale
@@ -714,13 +715,13 @@ function CompressionExperiment({ sigma, t }) {
     const connesX = margin.left + (4 / 19) * plotW;
     ctx.beginPath();
     ctx.setLineDash([4, 3]);
-    ctx.strokeStyle = '#f59e0baa';
+    ctx.strokeStyle = alpha(ED.brassDeco, 0.67);
     ctx.lineWidth = 1.5;
     ctx.moveTo(connesX, margin.top);
     ctx.lineTo(connesX, h - margin.bottom);
     ctx.stroke();
     ctx.setLineDash([]);
-    ctx.fillStyle = '#f59e0b';
+    ctx.fillStyle = ED.series4;
     ctx.font = '9px sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText('5 primes', connesX, margin.top - 6);
@@ -735,13 +736,13 @@ function CompressionExperiment({ sigma, t }) {
       const color = curveColors[sig.toString()];
       ctx.fillStyle = color;
       ctx.fillRect(legendX, legendY - 4, 12, 3);
-      ctx.fillStyle = '#94a3b8';
+      ctx.fillStyle = ED.series8;
       ctx.fillText(curveLabels[sig.toString()], legendX + 16, legendY);
       legendY += 16;
     }
 
     // X-axis labels
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.font = '9px var(--font-mono)';
     ctx.textAlign = 'center';
     const primes = getPrimes(20);
@@ -756,28 +757,28 @@ function CompressionExperiment({ sigma, t }) {
     ctx.save();
     ctx.translate(12, margin.top + plotH / 2);
     ctx.rotate(-Math.PI / 2);
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.font = '10px sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText('log10(relative error)', 0, 0);
     ctx.restore();
 
     // Y ticks
-    ctx.fillStyle = '#475569';
+    ctx.fillStyle = ED.series8;
     ctx.font = '9px var(--font-mono)';
     ctx.textAlign = 'right';
     for (let v = Math.ceil(minLog); v <= Math.floor(maxLog); v++) {
       const y = h - margin.bottom - ((v - minLog) / logRange) * plotH * 0.9;
       ctx.fillText('1e' + v, margin.left - 6, y + 3);
       ctx.beginPath();
-      ctx.strokeStyle = '#1e293b';
+      ctx.strokeStyle = ED.ruleSoft;
       ctx.moveTo(margin.left, y);
       ctx.lineTo(w - margin.right, y);
       ctx.stroke();
     }
 
     // Title
-    ctx.fillStyle = '#06b6d4';
+    ctx.fillStyle = ED.series6;
     ctx.font = 'bold 11px sans-serif';
     ctx.textAlign = 'left';
     ctx.fillText('Compression: Primes needed for accuracy (t = ' + t.toFixed(1) + ')', margin.left + 8, margin.top - 10);
@@ -796,25 +797,25 @@ function CompressionExperiment({ sigma, t }) {
   return (
     <div>
       <canvas ref={canvasRef}
-        style={{ width: '100%', height: 320, borderRadius: 8, background: '#0a0e1a', border: '1px solid #1e293b' }} />
+        style={{ width: '100%', height: 320, borderRadius: 8, background: 'var(--paper)', border: '1px solid var(--rule-soft)' }} />
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 8, marginTop: 12 }}>
         {[
-          { label: 'Err@5 (\u03C3=0.3)', value: err5[0.3] ? err5[0.3].toExponential(2) : '-', color: '#ef4444' },
-          { label: 'Err@5 (\u03C3=0.5)', value: err5[0.5] ? err5[0.5].toExponential(2) : '-', color: '#10b981' },
-          { label: 'Err@5 (\u03C3=0.7)', value: err5[0.7] ? err5[0.7].toExponential(2) : '-', color: '#3b82f6' },
+          { label: 'Err@5 (\u03C3=0.3)', value: err5[0.3] ? err5[0.3].toExponential(2) : '-', color: ED.series2 },
+          { label: 'Err@5 (\u03C3=0.5)', value: err5[0.5] ? err5[0.5].toExponential(2) : '-', color: ED.series3 },
+          { label: 'Err@5 (\u03C3=0.7)', value: err5[0.7] ? err5[0.7].toExponential(2) : '-', color: ED.series1 },
         ].map(m => (
           <div key={m.label} className="stat-box" style={{ padding: '8px 10px' }}>
             <div style={{ color: m.color, fontWeight: 700, fontSize: 14, fontFamily: 'var(--font-mono)' }}>{m.value}</div>
-            <div style={{ color: '#64748b', fontSize: 10, marginTop: 2 }}>{m.label}</div>
+            <div style={{ color: 'var(--ink-faint)', fontSize: 10, marginTop: 2 }}>{m.label}</div>
           </div>
         ))}
       </div>
-      <div style={{ marginTop: 12, padding: '10px 14px', background: '#0f1225', borderRadius: 6, fontSize: 11, color: '#94a3b8' }}>
+      <div style={{ marginTop: 12, padding: '10px 14px', background: 'var(--paper-2)', borderRadius: 6, fontSize: 11, color: 'var(--ink-soft)' }}>
         <strong>Caveat:</strong> The Euler product <InlineMath tex={"\\prod_p(1-p^{-s})^{-1}"} /> only converges
         for <InlineMath tex={"\\text{Re}(s) > 1"} />. At all three <InlineMath tex={"\\sigma"} /> values shown
         (0.3, 0.5, 0.7) it formally diverges; the chart measures how close the first 20 partial products come
         to the analytically continued <InlineMath tex={"\\zeta(s)"} />, not true convergence.
-        The yellow vertical marks the <strong style={{ color: '#f59e0b' }}>Connes threshold</strong> (5 primes, up to p=11).
+        The yellow vertical marks the <strong style={{ color: 'var(--brass)' }}>Connes threshold</strong> (5 primes, up to p=11).
       </div>
     </div>
   );
@@ -855,7 +856,7 @@ export default function InfoTheoryExperimentsViz() {
               <span
                 style={{
                   marginLeft: 6, fontSize: 11, fontFamily: 'var(--font-mono)',
-                  color: bestDist < 0.3 ? '#10b981' : '#64748b',
+                  color: bestDist < 0.3 ? 'var(--series-3)' : 'var(--ink-faint)',
                   cursor: 'pointer', borderBottom: '1px dashed currentColor',
                 }}
                 title={`Click to snap t to γ${bestIdx + 1} = ${ZETA_ZEROS[bestIdx].toFixed(6)}`}
@@ -870,16 +871,16 @@ export default function InfoTheoryExperimentsViz() {
           <label>Primes</label>
           <input type="range" min="3" max="20" step="1" value={numPrimes}
             onChange={e => setNumPrimes(+e.target.value)} />
-          <span className="control-value">{numPrimes} <span style={{ color: '#64748b', fontSize: 11 }}>(up to p={getPrimes(numPrimes)[numPrimes - 1]})</span></span>
+          <span className="control-value">{numPrimes} <span style={{ color: 'var(--ink-faint)', fontSize: 11 }}>(up to p={getPrimes(numPrimes)[numPrimes - 1]})</span></span>
         </div>
         <button
           onClick={() => setSigma(0.5)}
           style={{
             padding: '6px 14px',
             borderRadius: 6,
-            border: '1px solid #10b981',
-            background: Math.abs(sigma - 0.5) < 0.01 ? '#10b98130' : '#10b98118',
-            color: '#10b981',
+            border: '1px solid var(--series-3)',
+            background: Math.abs(sigma - 0.5) < 0.01 ? 'color-mix(in srgb, var(--series-3) 19%, transparent)' : 'color-mix(in srgb, var(--series-3) 9%, transparent)',
+            color: 'var(--series-3)',
             fontSize: 11,
             fontWeight: 600,
             cursor: 'pointer',

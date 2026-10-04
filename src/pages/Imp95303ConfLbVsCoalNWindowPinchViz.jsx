@@ -5,38 +5,39 @@ import {
   IMP95303_ONSETS,
   IMP95303_WINDOW_RATIO,
 } from '../data/imp-95303-conf-lb-vs-coaln-window-pinch-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 function AxisFrame({ children, svgW, svgH, padL, padR, padT, padB, xTicks, yTicks, xOf, yOf, xLabel, yLabel }) {
   const plotW = svgW - padL - padR;
   const plotH = svgH - padT - padB;
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
       {xTicks.map((v) => (
         <g key={`x${v}`}>
-          <line x1={xOf(v)} y1={padT + plotH} x2={xOf(v)} y2={padT + plotH + 4} stroke="#334155" strokeWidth={1} />
-          <text x={xOf(v)} y={padT + plotH + 16} textAnchor="middle" fill="#64748b" fontSize={8.5}>
+          <line x1={xOf(v)} y1={padT + plotH} x2={xOf(v)} y2={padT + plotH + 4} stroke={ED.rule} strokeWidth={1} />
+          <text x={xOf(v)} y={padT + plotH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={8.5}>
             {v}
           </text>
         </g>
       ))}
       {yTicks.map((v) => (
         <g key={`y${v}`}>
-          <line x1={padL - 4} y1={yOf(v)} x2={padL} y2={yOf(v)} stroke="#334155" strokeWidth={1} />
-          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={8.5}>
+          <line x1={padL - 4} y1={yOf(v)} x2={padL} y2={yOf(v)} stroke={ED.rule} strokeWidth={1} />
+          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8.5}>
             {v}
           </text>
         </g>
       ))}
-      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill="#64748b" fontSize={9.5}>
+      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5}>
         {xLabel}
       </text>
       <text
         x={14}
         y={padT + plotH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={9.5}
         transform={`rotate(-90 14 ${padT + plotH / 2})`}
       >
@@ -48,7 +49,7 @@ function AxisFrame({ children, svgW, svgH, padL, padR, padT, padB, xTicks, yTick
 }
 
 const N_KEYS = [3, 4, 5];
-const N_COLORS = ['#34d399', '#38bdf8', '#fb923c'];
+const N_COLORS = [ED.series3, ED.series1, ED.series4];
 
 // log10(sqrt(T(N,x))) floor vs log10(coalN(N,1.3,x)) ceiling, N = 3, 4, 5,
 // with the coalN = 1 firing-onset markers (imp-95286 overpricingCapAtOnsets).
@@ -93,11 +94,11 @@ function ConfLbVsCoalNPanel() {
         y1={yOf(zeroLog)}
         x2={padL + plotW}
         y2={yOf(zeroLog)}
-        stroke="#94a3b8"
+        stroke={ED.rule}
         strokeWidth={1}
         strokeDasharray="4 4"
       />
-      <text x={padL + plotW - 4} y={yOf(zeroLog) - 5} textAnchor="end" fill="#94a3b8" fontSize={8.5}>
+      <text x={padL + plotW - 4} y={yOf(zeroLog) - 5} textAnchor="end" fill={ED.inkSoft} fontSize={8.5}>
         coalN(N, 1.3, x) = 1 (firing onset)
       </text>
       {N_KEYS.map((N, i) => {
@@ -119,7 +120,7 @@ function ConfLbVsCoalNPanel() {
               strokeDasharray="6 3"
               opacity={0.7}
             />
-            <circle cx={xOf(onset.x)} cy={yOf(zeroLog)} r={3.5} fill={N_COLORS[i]} stroke="#0a0f1a" strokeWidth={1} />
+            <circle cx={xOf(onset.x)} cy={yOf(zeroLog)} r={3.5} fill={N_COLORS[i]} stroke={ED.paper} strokeWidth={1} />
           </g>
         );
       })}
@@ -141,21 +142,21 @@ export default function Imp95303ConfLbVsCoalNWindowPinchViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> a model-family numeric
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a model-family numeric
         illustration, not a new theorem. It changes no Lambda bound and establishes no operator
         positivity. Platt&ndash;Trudgian &Lambda; &le; 0.2 remains state of the art. RH does not
         follow from anything on this page. NO QED.
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-95286 THEOREM CONF-LB supplies a closed-form floor sqrt(T(N,x)) for the confluent span
         value Lambda_conf(N,x), and imp-95251 THEOREM COAL-N supplies the ceiling coalN(N,R,x) for
         the true window sup over at-most-N-rate configurations confined to a ratio-R window. The
@@ -165,7 +166,7 @@ export default function Imp95303ConfLbVsCoalNWindowPinchViz() {
         threshold line).
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         sqrt(T(N,x)) floor vs coalN(N, {IMP95303_WINDOW_RATIO}, x) ceiling
       </h3>
       <ConfLbVsCoalNPanel />
@@ -174,14 +175,14 @@ export default function Imp95303ConfLbVsCoalNWindowPinchViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> at each firing onset
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> at each firing onset
         (filled dot, where the solid ceiling curve crosses the coalN = 1 threshold), the vertical
         gap between the solid ceiling and the dashed floor at the same x is exactly log10(rho),
         the imp-95286 overpricing cap: rho = 3.460619 (N=3, x=4.930455), 6.151212 (N=4,
@@ -195,14 +196,14 @@ export default function Imp95303ConfLbVsCoalNWindowPinchViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page consuming the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the
         imp-95303 baked viz-data (curves recomputed independently from the imp-95286 / imp-95251
         documented closed forms). Changes no bound, establishes no operator positivity, no RH
         claim; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. NO QED.

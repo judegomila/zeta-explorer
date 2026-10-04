@@ -189,7 +189,7 @@ export default function ExplorationsPage() {
                   )}
 
                   {exp.mathContent && exp.mathContent.length > 0 && (
-                    <div style={{ marginTop: 16, padding: '12px 16px', background: 'rgba(63,107,134,0.06)', borderRadius: 8, border: '1px solid rgba(63,107,134,0.15)' }}>
+                    <div style={{ marginTop: 16, padding: '12px 16px', background: 'color-mix(in srgb, var(--series-1) 6%, transparent)', borderRadius: 8, border: '1px solid color-mix(in srgb, var(--series-1) 15%, transparent)' }}>
                       <h4 style={{ fontSize: 12, fontWeight: 600, color: 'var(--blue)', marginBottom: 8, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
                         Twin-Ladder Bridge Correspondence
                       </h4>

@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP97158_RATIOS, IMP97158_VERDICT } from '../data/imp-97158-route-m-theorem1-remainder-sharpness.js';
+import { ED } from '../styles/tokens.js';
 
 // imp-97216: first visualization for the imp-97158 per-b-class saturation-ratio measurement.
 // Renders the three classes on one log-b axis: primes climbing toward the 1/4 asymptote (the
@@ -26,9 +27,9 @@ function ClassLadderChart({ primes, primePowers, primorials }) {
   const yAt = (r0) => padT + cH - (r0 / QUARTER) * cH;
 
   const series = [
-    { rows: primes, color: '#4ade80', label: 'primes -> 1/4' },
-    { rows: primePowers, color: '#38bdf8', label: 'prime powers -> 0' },
-    { rows: primorials, color: '#f87171', label: 'primorials -> 0 (orders faster)' },
+    { rows: primes, color: ED.series3, label: 'primes -> 1/4' },
+    { rows: primePowers, color: ED.series1, label: 'prime powers -> 0' },
+    { rows: primorials, color: ED.series2, label: 'primorials -> 0 (orders faster)' },
   ];
 
   return (
@@ -38,23 +39,23 @@ function ClassLadderChart({ primes, primePowers, primorials }) {
         y1={yAt(QUARTER)}
         x2={svgW - padR}
         y2={yAt(QUARTER)}
-        stroke="#fbbf24"
+        stroke={ED.brassDeco}
         strokeWidth={1}
         strokeDasharray="4 3"
       />
-      <text x={svgW - padR} y={yAt(QUARTER) - 6} textAnchor="end" fill="#fbbf24" fontSize={9.5} fontFamily="monospace">
+      <text x={svgW - padR} y={yAt(QUARTER) - 6} textAnchor="end" fill={ED.brass} fontSize={9.5} fontFamily="monospace">
         r0 = 1/4 (asymptotic limit)
       </text>
-      <line x1={padL} y1={padT + cH} x2={svgW - padR} y2={padT + cH} stroke="#475569" strokeWidth={1} />
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#475569" strokeWidth={1} />
-      <text x={svgW - padR} y={svgH - 12} textAnchor="end" fill="#64748b" fontSize={9.5} fontFamily="monospace">
+      <line x1={padL} y1={padT + cH} x2={svgW - padR} y2={padT + cH} stroke={ED.rule} strokeWidth={1} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.rule} strokeWidth={1} />
+      <text x={svgW - padR} y={svgH - 12} textAnchor="end" fill={ED.inkFaint} fontSize={9.5} fontFamily="monospace">
         b (log scale) &rarr;
       </text>
       <text
         x={16}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={9.5}
         fontFamily="monospace"
         transform={`rotate(-90 16 ${padT + cH / 2})`}
@@ -77,7 +78,7 @@ function ClassLadderChart({ primes, primePowers, primorials }) {
       {series.map((s, idx) => (
         <g key={s.label}>
           <rect x={padL + 10} y={padT + 10 + idx * 16} width={10} height={10} fill={s.color} />
-          <text x={padL + 26} y={padT + 19 + idx * 16} fill="#e2e8f0" fontSize={9.5} fontFamily="monospace">
+          <text x={padL + 26} y={padT + 19 + idx * 16} fill={ED.ink} fontSize={9.5} fontFamily="monospace">
             {s.label}
           </text>
         </g>
@@ -102,15 +103,15 @@ export default function Imp97216RouteMPerClassSaturationRatioViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.06)',
-          borderLeft: '3px solid #64748b',
+          background: 'color-mix(in srgb, var(--ink-soft) 6%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#e2e8f0' }}>Honest status:</strong> the imp-97133 Theorem-1
+        <strong style={{ color: 'var(--ink)' }}>Honest status:</strong> the imp-97133 Theorem-1
         remainder constant 2<sup>&omega;(b)</sup>(log b + 2) is sharp only along the{' '}
         <strong>primes</strong>, where the saturation ratio r0(b) = |E0(b)|/bound climbs toward the
         exact limit {e0AsymptoticSaturationRatioLabel} (a finite factor-4 overhead). On prime powers
@@ -119,14 +120,14 @@ export default function Imp97216RouteMPerClassSaturationRatioViz() {
         &Lambda; &le; 0.2 remains SOTA; RH open; NO QED.
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '0.5rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '0.5rem', maxWidth: 700 }}>
         r0(b) per b-class on a log-b axis. Green (primes) rises monotonically toward the 1/4 dashed
         line; blue (prime powers, fixed &omega;=1) decays with the exponent; red (primorials) falls
         away by orders of magnitude as &omega;(b) grows.
       </p>
       <ClassLadderChart primes={primes} primePowers={primePowers} primorials={primorials} />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.85rem', margin: '1rem 0 0.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.85rem', margin: '1rem 0 0.25rem', maxWidth: 700 }}>
         Primorial collapse (linear r0, note the scale): b=2 &rarr; r0=0.0570; b=30030 &rarr;
         r0=1.80e-5, a &gt;1000&times; collapse over six primes.
       </p>
@@ -135,14 +136,14 @@ export default function Imp97216RouteMPerClassSaturationRatioViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page consuming the imp-97158
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the imp-97158
         measurement module (every value reused verbatim, no re-derivation). {IMP97158_VERDICT.conclusion}
       </div>
     </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP34592_Q4_SHARE_ROUNDOFF_FLOOR_VS_DP } from '../data/imp-34592-q4-share-roundoff-floor-vs-dp.js';
+import { ED } from '../styles/tokens.js';
 
 const M = IMP34592_Q4_SHARE_ROUNDOFF_FLOOR_VS_DP;
 const ROWS = [...M.dp_sweep_rows].sort((a, b) => a.dp - b.dp);
@@ -39,14 +40,14 @@ function LogLogChart() {
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
       {/* physical plateau reference line */}
-      <line x1={padL} y1={floorY} x2={padL + cW} y2={floorY} stroke="#4ade80" strokeWidth={1} strokeDasharray="2,3" />
-      <text x={padL + 4} y={floorY - 5} fill="#4ade80" fontSize={9}>
+      <line x1={padL} y1={floorY} x2={padL + cW} y2={floorY} stroke={ED.series3} strokeWidth={1} strokeDasharray="2,3" />
+      <text x={padL + 4} y={floorY - 5} fill={ED.series3} fontSize={9}>
         physical plateau {M.physical_q4_h4_share.toExponential(2)}
       </text>
 
       {/* 0.4% residual floor reference line */}
-      <line x1={padL} y1={residualY} x2={padL + cW} y2={residualY} stroke="#a78bfa" strokeWidth={1} strokeDasharray="2,3" />
-      <text x={padL + 4} y={residualY - 5} fill="#a78bfa" fontSize={9}>
+      <line x1={padL} y1={residualY} x2={padL + cW} y2={residualY} stroke={ED.series5} strokeWidth={1} strokeDasharray="2,3" />
+      <text x={padL + 4} y={residualY - 5} fill={ED.series5} fontSize={9}>
         ~0.4% residual floor {M.residual_floor.toExponential(2)}
       </text>
 
@@ -56,11 +57,11 @@ function LogLogChart() {
         y1={padT}
         x2={xAt(M.dp_estimate_untrustworthy)}
         y2={padT + cH}
-        stroke="#fbbf24"
+        stroke={ED.brassDeco}
         strokeWidth={1}
         strokeDasharray="3,3"
       />
-      <text x={xAt(M.dp_estimate_untrustworthy) + 4} y={padT + 10} fill="#fbbf24" fontSize={9}>
+      <text x={xAt(M.dp_estimate_untrustworthy) + 4} y={padT + 10} fill={ED.brass} fontSize={9}>
         untrustworthy {M.dp_estimate_untrustworthy.toExponential(2)}
       </text>
 
@@ -70,35 +71,35 @@ function LogLogChart() {
         y1={padT}
         x2={xAt(M.dp_false_breakdown)}
         y2={padT + cH}
-        stroke="#f87171"
+        stroke={ED.series2}
         strokeWidth={1}
         strokeDasharray="3,3"
       />
-      <text x={xAt(M.dp_false_breakdown) + 4} y={padT + 22} fill="#f87171" fontSize={9}>
+      <text x={xAt(M.dp_false_breakdown) + 4} y={padT + 22} fill={ED.series2} fontSize={9}>
         false-breakdown {M.dp_false_breakdown.toExponential(2)}
       </text>
 
-      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
+      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
 
       {/* measured deep-group max apparent q4_h4_rel share */}
-      <path d={dataPath} fill="none" stroke="#38bdf8" strokeWidth={2} />
+      <path d={dataPath} fill="none" stroke={ED.series1} strokeWidth={2} />
       {ROWS.map((r) => (
         <circle
           key={r.dp}
           cx={xAt(r.dp)}
           cy={yAt(r.deep_max_q4_h4_rel)}
           r={3.5}
-          fill="#38bdf8"
-          stroke="#0a0f1a"
+          fill={ED.series1}
+          stroke={ED.paper}
           strokeWidth={1}
         />
       ))}
 
-      <text x={padL} y={16} fill="#38bdf8" fontSize={10}>
+      <text x={padL} y={16} fill={ED.series1} fontSize={10}>
         apparent deep-group max |q4_h4_rel| share
       </text>
-      <text x={padL + cW / 2} y={svgH - 6} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 6} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         q-derivative step dp (log scale, {dpMin.toExponential(0)} .. {dpMax.toExponential(0)})
       </text>
     </svg>
@@ -110,7 +111,7 @@ export default function Imp34620Q4ShareRoundoffFloorVsDpViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="q4-Share Roundoff Amplification vs Finite-Difference Step dp (imp-34620 / imp-34592)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-34592 stress-tested the imp-34573/imp-34566 claim that the q4-bearing O(h&sup4;)
         drift-residual term stays negligible (&sim;1e-6 of the O(h&sup2;) term) in the sigma&nbsp;
         -&gt;&nbsp;1 deep tail, which was measured at a single fixed q-derivative step dp&nbsp;=&nbsp;1e-3.
@@ -120,7 +121,7 @@ export default function Imp34620Q4ShareRoundoffFloorVsDpViz() {
         sweep.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         apparent q4-share vs dp (log-log): flat physical plateau at large dp, rising 1/dp&sup4;
         roundoff tail at small dp, the two located thresholds marked
       </p>
@@ -135,7 +136,7 @@ export default function Imp34620Q4ShareRoundoffFloorVsDpViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>dp</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>apparent |q4_h4_rel| share</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>inflation vs physical</th>
@@ -147,13 +148,13 @@ export default function Imp34620Q4ShareRoundoffFloorVsDpViz() {
             <tr
               key={r.dp}
               style={{
-                borderBottom: '1px solid #1e293b',
+                borderBottom: '1px solid var(--rule-soft)',
                 color:
                   r.dp === M.dp_estimate_untrustworthy
-                    ? '#fbbf24'
+                    ? 'var(--brass)'
                     : r.dp === M.dp_false_breakdown
-                    ? '#f87171'
-                    : '#cbd5e1',
+                    ? 'var(--series-2)'
+                    : 'var(--ink)',
               }}
             >
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>
@@ -180,19 +181,19 @@ export default function Imp34620Q4ShareRoundoffFloorVsDpViz() {
         }}
       >
         <tbody>
-          <tr style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+          <tr style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
             <td style={{ padding: '0.4rem 0.6rem' }}>physical q4-share (well-conditioned dp = {M.dp_physical_reference})</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{M.physical_q4_h4_share}</td>
           </tr>
-          <tr style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+          <tr style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
             <td style={{ padding: '0.4rem 0.6rem' }}>q4-share at parents operating dp = {M.dp_operating}</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{M.q4_h4_share_at_operating}</td>
           </tr>
-          <tr style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+          <tr style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
             <td style={{ padding: '0.4rem 0.6rem' }}>dp estimate-untrustworthy threshold (&gt;10x inflation)</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{M.dp_estimate_untrustworthy.toExponential(2)}</td>
           </tr>
-          <tr style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+          <tr style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
             <td style={{ padding: '0.4rem 0.6rem' }}>dp false-breakdown threshold (crosses ~0.4% residual)</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{M.dp_false_breakdown.toExponential(2)}</td>
           </tr>
@@ -203,14 +204,14 @@ export default function Imp34620Q4ShareRoundoffFloorVsDpViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-data only, reusing the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-data only, reusing the
         imp-34592 sweep literals verbatim (dp sweep rows, physical share, both thresholds). q1..q4
         are inherited central differences, NOT fresh analytic closed forms, so the sigma&nbsp;
         -&gt;&nbsp;1 deep-tail regime (imp-3220/imp-3406 component model least trustworthy) is

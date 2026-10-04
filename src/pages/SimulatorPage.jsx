@@ -66,8 +66,8 @@ export default function SimulatorPage() {
             <div style={{ textAlign: 'center', marginTop: 6 }}>
               <span style={{
                 display: 'inline-block', padding: '4px 12px', borderRadius: 999,
-                background: 'rgba(181,138,46,0.14)', color: 'var(--brass-dk)', fontSize: 12,
-                fontWeight: 600, border: '1px solid rgba(181,138,46,0.45)',
+                background: 'color-mix(in srgb, var(--brass-deco) 14%, transparent)', color: 'var(--brass-dk)', fontSize: 12,
+                fontWeight: 600, border: '1px solid color-mix(in srgb, var(--brass-deco) 45%, transparent)',
                 fontFamily: 'var(--ed-mono, var(--font-mono))',
               }}>
                 by construction, not a proof of RH — see caveat below

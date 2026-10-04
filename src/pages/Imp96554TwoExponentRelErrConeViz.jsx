@@ -6,6 +6,7 @@ import {
   IMP96554_LANDMARKS,
   IMP96554_HONEST_BANNER,
 } from '../data/imp-96554-two-exponent-relerr-cone-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 function ConeChart() {
   const svgW = 720;
@@ -50,49 +51,49 @@ function ConeChart() {
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
       {yTicks.map((v) => (
         <g key={`y${v}`}>
-          <line x1={padL} y1={yOf(v)} x2={padL + plotW} y2={yOf(v)} stroke="#334155" strokeWidth={0.5} opacity={0.4} />
-          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={8.5}>
+          <line x1={padL} y1={yOf(v)} x2={padL + plotW} y2={yOf(v)} stroke={ED.rule} strokeWidth={0.5} opacity={0.4} />
+          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8.5}>
             {`1e${v}`}
           </text>
         </g>
       ))}
       {xTicks.map((v) => (
-        <text key={`x${v}`} x={xOf(v)} y={padT + plotH + 14} textAnchor="middle" fill="#64748b" fontSize={8.5}>
+        <text key={`x${v}`} x={xOf(v)} y={padT + plotH + 14} textAnchor="middle" fill={ED.inkFaint} fontSize={8.5}>
           {v.toFixed(1)}
         </text>
       ))}
 
-      <path d={coneAreaD} fill="#a78bfa" opacity={0.12} stroke="none" />
+      <path d={coneAreaD} fill={ED.series5} opacity={0.12} stroke="none" />
 
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
 
-      <path d={systematicD} fill="none" stroke="#38bdf8" strokeWidth={2} opacity={0.95} />
-      <path d={samplingD} fill="none" stroke="#fb923c" strokeWidth={1.5} strokeDasharray="5 3" opacity={0.9} />
+      <path d={systematicD} fill="none" stroke={ED.series1} strokeWidth={2} opacity={0.95} />
+      <path d={samplingD} fill="none" stroke={ED.series4} strokeWidth={1.5} strokeDasharray="5 3" opacity={0.9} />
 
       {/* anchors */}
-      <circle cx={xOf(anchor1.log10T)} cy={yOf(Math.log10(anchor1.relErr))} r={3.5} fill="#facc15" stroke="#0f172a" strokeWidth={1} />
-      <circle cx={xOf(anchor2.log10T)} cy={yOf(Math.log10(anchor2.relErr))} r={3.5} fill="#facc15" stroke="#0f172a" strokeWidth={1} />
-      <text x={xOf(anchor1.log10T) + 6} y={yOf(Math.log10(anchor1.relErr)) - 6} fill="#facc15" fontSize={8}>
+      <circle cx={xOf(anchor1.log10T)} cy={yOf(Math.log10(anchor1.relErr))} r={3.5} fill={ED.brassDeco} stroke={ED.paper} strokeWidth={1} />
+      <circle cx={xOf(anchor2.log10T)} cy={yOf(Math.log10(anchor2.relErr))} r={3.5} fill={ED.brassDeco} stroke={ED.paper} strokeWidth={1} />
+      <text x={xOf(anchor1.log10T) + 6} y={yOf(Math.log10(anchor1.relErr)) - 6} fill={ED.brass} fontSize={8}>
         T=1.5e5
       </text>
-      <text x={xOf(anchor2.log10T) + 6} y={yOf(Math.log10(anchor2.relErr)) - 6} fill="#facc15" fontSize={8}>
+      <text x={xOf(anchor2.log10T) + 6} y={yOf(Math.log10(anchor2.relErr)) - 6} fill={ED.brass} fontSize={8}>
         T=3.879e5
       </text>
 
-      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={9.5}>
+      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5}>
         log10 T
       </text>
 
       <g transform={`translate(${padL + 8}, ${padT + 10})`}>
-        <line x1={0} y1={0} x2={18} y2={0} stroke="#38bdf8" strokeWidth={2} />
-        <text x={22} y={3} fill="#94a3b8" fontSize={8.5}>systematic (p=0, flat)</text>
-        <line x1={0} y1={14} x2={18} y2={14} stroke="#fb923c" strokeWidth={1.5} strokeDasharray="5 3" />
-        <text x={22} y={17} fill="#94a3b8" fontSize={8.5}>sampling-noise (p=-1/4)</text>
-        <circle cx={9} cy={28} r={3} fill="#facc15" stroke="#0f172a" strokeWidth={1} />
-        <text x={22} y={31} fill="#94a3b8" fontSize={8.5}>imp-96493 measured anchor</text>
-        <rect x={0} y={38} width={18} height={8} fill="#a78bfa" opacity={0.3} />
-        <text x={22} y={45} fill="#94a3b8" fontSize={8.5}>SE(p)~0.21 error cone</text>
+        <line x1={0} y1={0} x2={18} y2={0} stroke={ED.series1} strokeWidth={2} />
+        <text x={22} y={3} fill={ED.inkSoft} fontSize={8.5}>systematic (p=0, flat)</text>
+        <line x1={0} y1={14} x2={18} y2={14} stroke={ED.series4} strokeWidth={1.5} strokeDasharray="5 3" />
+        <text x={22} y={17} fill={ED.inkSoft} fontSize={8.5}>sampling-noise (p=-1/4)</text>
+        <circle cx={9} cy={28} r={3} fill={ED.brassDeco} stroke={ED.paper} strokeWidth={1} />
+        <text x={22} y={31} fill={ED.inkSoft} fontSize={8.5}>imp-96493 measured anchor</text>
+        <rect x={0} y={38} width={18} height={8} fill={ED.series5} opacity={0.3} />
+        <text x={22} y={45} fill={ED.inkSoft} fontSize={8.5}>SE(p)~0.21 error cone</text>
       </g>
     </svg>
   );
@@ -110,18 +111,18 @@ export default function Imp96554TwoExponentRelErrConeViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 760,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> {IMP96554_HONEST_BANNER}
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> {IMP96554_HONEST_BANNER}
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
         The imp-96510 systematic-vs-noise sub-gap reduces to distinguishing two power laws for the
         below-envelope dip depth relErr(T) ~ C&middot;T^p: systematic (p={exponentSystematic}, flat)
         vs sampling-noise (p={exponentSamplingNoise}), a separation of only &Delta;p={deltaP}. Both
@@ -130,7 +131,7 @@ export default function Imp96554TwoExponentRelErrConeViz() {
         {SE_p.toFixed(3)} error cone the fixed 10^6 Odlyzko set can reach at best.
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         log-log relErr(T): two candidate exponents, SE(p) cone, and the two measured anchors
       </h3>
       <ConeChart />
@@ -139,14 +140,14 @@ export default function Imp96554TwoExponentRelErrConeViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> the blue flat line is the
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> the blue flat line is the
         systematic reading (relErr fixed at the T=1.5e5 depth); the orange dashed curve is the
         sampling-noise reading (relErr ~ T^(-1/4)) from the same anchor. Both predict a value at
         T=3.879e5 above the actual measurement ({anchor2.relErr.toFixed(4)} vs{' '}
@@ -162,14 +163,14 @@ export default function Imp96554TwoExponentRelErrConeViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page consuming the imp-96528
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the imp-96528
         exponent-fit-reach verdict and the imp-96493 anchor measurements verbatim (the only new
         computation is evaluating the two power laws and the cone bounds over a plotting grid).
         Presentation / measurement diagnostic only; changes no bound; establishes no operator

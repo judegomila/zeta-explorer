@@ -1,12 +1,13 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP33681_PEAK_MINUS_TROUGH_AMPLITUDE_SERIES } from '../data/imp-33681-peak-minus-trough-amplitude-series-n400-1200.js';
+import { ED } from '../styles/tokens.js';
 
-const AMP_COLOR = '#38bdf8';
-const FIT_COLOR = '#f59e0b';
-const MEAN_COLOR = '#4ade80';
-const PEAK_BAR_COLOR = '#f472b6';
-const FLOOR_BAR_COLOR = '#94a3b8';
+const AMP_COLOR = ED.series1;
+const FIT_COLOR = ED.series4;
+const MEAN_COLOR = ED.series3;
+const PEAK_BAR_COLOR = ED.series7;
+const FLOOR_BAR_COLOR = ED.series8;
 
 const { measured } = IMP33681_PEAK_MINUS_TROUGH_AMPLITUDE_SERIES;
 const rows = measured.rows;
@@ -30,12 +31,12 @@ function AmplitudeChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
       {[0, 25, 50, 75, 100].map((v) => (
         <g key={v}>
-          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke="#1e293b" strokeWidth={0.7} />
-          <text x={padL - 6} y={yS(v) + 3.5} textAnchor="end" fill="#475569" fontSize={9}>
+          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke={ED.ruleSoft} strokeWidth={0.7} />
+          <text x={padL - 6} y={yS(v) + 3.5} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v}
           </text>
         </g>
@@ -76,16 +77,16 @@ function AmplitudeChart() {
       ))}
 
       {[400, 500, 600, 700, 800, 900, 1000, 1100, 1200].map((n) => (
-        <text key={n} x={xS(n)} y={padT + cH + 14} textAnchor="middle" fill="#64748b" fontSize={9}>
+        <text key={n} x={xS(n)} y={padT + cH + 14} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
           {n}
         </text>
       ))}
-      <text x={padL + cW / 2} y={padT + cH + 30} textAnchor="middle" fill="#64748b" fontSize={9}>
+      <text x={padL + cW / 2} y={padT + cH + 30} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
         cluster-peak rung n
       </text>
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
-      <text x={12} y={padT + cH / 2} textAnchor="middle" fill="#64748b" fontSize={10} transform={`rotate(-90,12,${padT + cH / 2})`}>
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
+      <text x={12} y={padT + cH / 2} textAnchor="middle" fill={ED.inkFaint} fontSize={10} transform={`rotate(-90,12,${padT + cH / 2})`}>
         peak-minus-trough amplitude (ULP)
       </text>
     </svg>
@@ -117,7 +118,7 @@ function DecompositionBars() {
         const x0 = padL + cW / 2;
         return (
           <g key={r.label}>
-            <text x={padL - 10} y={y + barH / 2 + 4} textAnchor="end" fill="#94a3b8" fontSize={10}>
+            <text x={padL - 10} y={y + barH / 2 + 4} textAnchor="end" fill={ED.inkSoft} fontSize={10}>
               {r.label}
             </text>
             <rect
@@ -142,7 +143,7 @@ function DecompositionBars() {
           </g>
         );
       })}
-      <line x1={padL + cW / 2} y1={padT - 4} x2={padL + cW / 2} y2={svgH - padT + 4} stroke="#334155" strokeWidth={1} />
+      <line x1={padL + cW / 2} y1={padT - 4} x2={padL + cW / 2} y2={svgH - padT + 4} stroke={ED.rule} strokeWidth={1} />
     </svg>
   );
 }
@@ -152,7 +153,7 @@ export default function Imp33716PeakMinusTroughAmplitudeViz() {
     <div style={{ padding: '1.5rem', maxWidth: 980, margin: '0 auto' }}>
       <PageHeader title="Peak-Minus-Trough Amplitude Series, n in [400,1200] (imp-33681)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 820 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 820 }}>
         Neither the imp-33660 cluster-peak HEIGHT fit nor the imp-33662 inter-cluster TROUGH floor fit ever
         differenced the two into a peak-to-trough amplitude. imp-33681 pairs each of the sixteen peaks with
         its bracketing troughs (amp = peak height &minus; mean bracketing trough floor) and tests whether the
@@ -161,12 +162,12 @@ export default function Imp33716PeakMinusTroughAmplitudeViz() {
         (amber line), and the overall amplitude mean (green, dashed).
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         amp(n) at the sixteen cluster-peak rungs: amplitudes, linear fit, and mean
       </p>
       <AmplitudeChart />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.85rem', margin: '1rem 0 1.25rem' }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.85rem', margin: '1rem 0 1.25rem' }}>
         The sixteen amplitudes range {measured.ampMin.toFixed(1)}..{measured.ampMax.toFixed(1)} ULP (mean{' '}
         {measured.ampMean.toFixed(1)}, sd {measured.ampSd.toFixed(1)}), with the minimum at n~
         {rows[measured.amplitudes.indexOf(measured.ampMin)].n} and the maximum at n~{measured.ampArgMaxN}. The
@@ -176,7 +177,7 @@ export default function Imp33716PeakMinusTroughAmplitudeViz() {
         ~{(measured.ampResidualReduction * 100).toFixed(0)}% reduction.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         growth decomposition: b_amp &asymp; b_peak &minus; b_floor
       </p>
       <DecompositionBars />
@@ -185,14 +186,14 @@ export default function Imp33716PeakMinusTroughAmplitudeViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> the amplitude DOES grow (slope{' '}
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> the amplitude DOES grow (slope{' '}
         {measured.ampSlope.toFixed(3)} ULP/rung, positive and below-null residual RMS), but that slope sits
         BELOW the imp-33660 peak-height slope ({measured.peakHeightSlope.toFixed(3)} ULP/rung) by almost
         exactly the imp-33662 trough-floor slope ({measured.troughFloorSlope.toFixed(3)} ULP/rung) -- the
@@ -210,14 +211,14 @@ export default function Imp33716PeakMinusTroughAmplitudeViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> accuracy/rule-design measurement only. It
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> accuracy/rule-design measurement only. It
         differences two previously-measured series and changes no bound, patches no literal. Mass-feasibility
         is necessary-but-not-sufficient; the operator-level positivity (imp-3066 K_a &ge; 0) is UNTOUCHED.
         RH-equivalent, NO QED.

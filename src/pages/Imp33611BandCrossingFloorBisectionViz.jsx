@@ -9,12 +9,13 @@ import {
   IMP33611_DIP_NS,
   IMP33611_SCAN,
 } from '../data/imp-33611-band-crossing-floor-bisection-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
-const FLOOR_COLOR = '#38bdf8';
-const ENVELOPE_COLOR = '#4ade80';
-const BAND_COLOR = '#f472b6';
-const SPIKE_COLOR = '#f59e0b';
-const DIP_COLOR = '#a78bfa';
+const FLOOR_COLOR = ED.series1;
+const ENVELOPE_COLOR = ED.series3;
+const BAND_COLOR = ED.series7;
+const SPIKE_COLOR = ED.series4;
+const DIP_COLOR = ED.series5;
 
 function FloorScanChart() {
   const svgW = 720;
@@ -38,12 +39,12 @@ function FloorScanChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
       {[0, 20, 40, 60, 80].map((v) => (
         <g key={v}>
-          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke="#1e293b" strokeWidth={0.7} />
-          <text x={padL - 6} y={yS(v) + 3.5} textAnchor="end" fill="#475569" fontSize={9}>
+          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke={ED.ruleSoft} strokeWidth={0.7} />
+          <text x={padL - 6} y={yS(v) + 3.5} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v}
           </text>
         </g>
@@ -98,20 +99,20 @@ function FloorScanChart() {
 
       {/* first envelope over-band rung */}
       {firstEnv && (
-        <circle cx={xS(firstEnv.n)} cy={yS(Math.min(firstEnv.envelope, yMax))} r={4} fill={ENVELOPE_COLOR} stroke="#0a0f1a" strokeWidth={1} />
+        <circle cx={xS(firstEnv.n)} cy={yS(Math.min(firstEnv.envelope, yMax))} r={4} fill={ENVELOPE_COLOR} stroke={ED.paper} strokeWidth={1} />
       )}
 
       {[510, 526, 531, 552, 596].map((n) => (
-        <text key={n} x={xS(n)} y={padT + cH + 14} textAnchor="middle" fill="#64748b" fontSize={9}>
+        <text key={n} x={xS(n)} y={padT + cH + 14} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
           {n}
         </text>
       ))}
-      <text x={padL + cW / 2} y={padT + cH + 30} textAnchor="middle" fill="#64748b" fontSize={9}>
+      <text x={padL + cW / 2} y={padT + cH + 30} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
         depth rung n (tau* = saddleTau(n))
       </text>
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
-      <text x={12} y={padT + cH / 2} textAnchor="middle" fill="#64748b" fontSize={10} transform={`rotate(-90,12,${padT + cH / 2})`}>
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
+      <text x={12} y={padT + cH / 2} textAnchor="middle" fill={ED.inkFaint} fontSize={10} transform={`rotate(-90,12,${padT + cH / 2})`}>
         floorUlp(n)
       </text>
     </svg>
@@ -123,7 +124,7 @@ export default function Imp33611BandCrossingFloorBisectionViz() {
     <div style={{ padding: '1.5rem', maxWidth: 940, margin: '0 auto' }}>
       <PageHeader title="Band-Crossing Floor Bisection (imp-33579)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 780 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 780 }}>
         imp-33557 bracketed the imp-33316 &lt; 64 ULP deep-tail band crossing between n=
         {IMP33611_BRACKET_LO} (~61.4 ULP, edge) and n={IMP33611_BRACKET_HI} (~65.3 ULP, fails), but
         never located a crossing rung. imp-33579 bisected the depth axis with a dense every-integer
@@ -133,12 +134,12 @@ export default function Imp33611BandCrossingFloorBisectionViz() {
         envelope (green), and the imp-33316 band line (pink, dashed).
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         floorUlp(n) over n in [{IMP33611_BRACKET_LO}, {IMP33611_BRACKET_HI}]: raw scan vs rolling-max envelope
       </p>
       <FloorScanChart />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.85rem', margin: '1rem 0 1.25rem' }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.85rem', margin: '1rem 0 1.25rem' }}>
         The first raw rung clearing 64 ULP is n=<strong style={{ color: SPIKE_COLOR }}>{IMP33611_FIRST_RAW_OVER_BAND_N}</strong>{' '}
         (amber marker), but it is an isolated spike -- the floor dips back to ~0 ULP at n=
         {IMP33611_DIP_NS.join(', ')} (violet markers), all ABOVE it. The robust +/-5 rolling-max
@@ -151,14 +152,14 @@ export default function Imp33611BandCrossingFloorBisectionViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> the blue line is the raw,
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> the blue line is the raw,
         per-rung arithmetic floor -- it bounces between near-0 and over-80 ULP from one integer rung
         to the next. The green line is the +/-5 rolling-max envelope, the jitter-tolerant reading
         imp-33579 uses. No single rung n* separates an all-in-band region from an all-out-of-band
@@ -173,14 +174,14 @@ export default function Imp33611BandCrossingFloorBisectionViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> accuracy/rule-design
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> accuracy/rule-design
         measurement only, of an already-verified scan (imp-33579). It changes no bound and patches
         no literal (imp-33213/imp-33316/imp-33557/imp-33579 intact). Mass-feasibility is
         necessary-but-not-sufficient; the operator-level positivity (imp-3066 K_a &ge; 0) is

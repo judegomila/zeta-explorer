@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP35506_ENDPOINT_MAP, IMP35506_SUMMARY } from '../data/imp-35506-endpoint-positivity-map-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 const GRIDS = ['dt', 'dt/2', 'dt/4'];
 const FAMILIES = ['DP45', 'RK4', 'BS3'];
@@ -25,7 +26,7 @@ function EndpointPositivityHeatmap() {
           x={labelW + gi * cellW + cellW / 2}
           y={labelH - 8}
           textAnchor="middle"
-          fill="#94a3b8"
+          fill={ED.inkSoft}
           fontSize={11}
           fontFamily="monospace"
         >
@@ -38,7 +39,7 @@ function EndpointPositivityHeatmap() {
             x={labelW - 10}
             y={labelH + fi * cellH + cellH / 2 + 4}
             textAnchor="end"
-            fill="#94a3b8"
+            fill={ED.inkSoft}
             fontSize={11}
           >
             {family}
@@ -53,8 +54,8 @@ function EndpointPositivityHeatmap() {
                   y={labelH + fi * cellH}
                   width={cellW - 4}
                   height={cellH - 4}
-                  fill={isPositive ? '#facc15' : '#1e293b'}
-                  stroke={isPositive ? '#fde047' : '#334155'}
+                  fill={isPositive ? ED.brassDeco : ED.paper3}
+                  stroke={isPositive ? ED.brassDeco : ED.rule}
                   strokeWidth={isPositive ? 2 : 1}
                   rx={4}
                 />
@@ -72,7 +73,7 @@ function EndpointPositivityHeatmap() {
                   x={labelW + gi * cellW + (cellW - 4) / 2}
                   y={labelH + fi * cellH + (cellH - 4) / 2 + 14}
                   textAnchor="middle"
-                  fill={isPositive ? '#0a0f1a' : '#94a3b8'}
+                  fill={isPositive ? ED.paper : ED.inkSoft}
                   fontSize={9.5}
                   fontFamily="monospace"
                 >
@@ -93,7 +94,7 @@ export default function Imp35506EndpointPositivityMapViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="N=2000 Pair-1495 Endpoint-Positivity Map: DP45/RK4/BS3 x dt, dt/2, dt/4 (imp-35506)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-35452 mapped the N=2000 pair-1495 step-endpoint signed gap g_end&nbsp;=&nbsp;y1[i+1]-y1[i]
         across RK4 and DP45 at three grids (dt, dt/2, dt/4); imp-35477 added a third integrator family
         (BS3, order 3) at dt and dt/2; imp-35573 filled the last cell, BS3 at dt/4 (endpoint NEGATIVE).
@@ -113,7 +114,7 @@ export default function Imp35506EndpointPositivityMapViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>family (order)</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>grid</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>endpoint gap g_end</th>
@@ -125,8 +126,8 @@ export default function Imp35506EndpointPositivityMapViz() {
             <tr
               key={`${row.family}-${row.grid}`}
               style={{
-                borderBottom: '1px solid #1e293b',
-                color: row.positive ? '#facc15' : '#cbd5e1',
+                borderBottom: '1px solid var(--rule-soft)',
+                color: row.positive ? 'var(--brass)' : 'var(--ink)',
               }}
             >
               <td style={{ padding: '0.4rem 0.6rem' }}>
@@ -145,7 +146,7 @@ export default function Imp35506EndpointPositivityMapViz() {
         </tbody>
       </table>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.8rem', marginTop: '1rem' }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.8rem', marginTop: '1rem' }}>
         Of the {IMP35506_SUMMARY.totalCells} cells in the family-x-grid matrix, only{' '}
         {IMP35506_SUMMARY.lonePositiveCell} stays endpoint-positive; the other{' '}
         {IMP35506_SUMMARY.negativeCount} cells all have the endpoint see the crossing directly
@@ -159,14 +160,14 @@ export default function Imp35506EndpointPositivityMapViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-data only, baked literals
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-data only, baked literals
         reproducing the imp-35452/imp-35477 measurements verbatim; no new derivation, no bound
         changed. Measurement only on the inherited imp-3220/imp-3406 surrogate; does NOT advance
         the R2 ladder past N=1000 (imp-35221/imp-35324/imp-35412); does NOT change the imp-35412
@@ -175,7 +176,7 @@ export default function Imp35506EndpointPositivityMapViz() {
         NO QED.
       </div>
 
-      <p style={{ color: '#475569', fontSize: '0.75rem', marginTop: '0.75rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontSize: '0.75rem', marginTop: '0.75rem' }}>
         Ticket provenance: this page and its data module were built directly under imp-35506 itself;
         imp-35567&apos;s later request for &quot;an import-light viz-data module + page&quot; for the
         same matrix duplicates this artifact and is closed as already-satisfied, not built again.

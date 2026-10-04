@@ -26,25 +26,26 @@ import {
 import HonestCeilingBanner from '../components/HonestCeilingBanner.jsx';
 import FreshnessStamp from '../components/FreshnessStamp.jsx';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
+import { ED, alpha } from '../styles/tokens.js';
 
 const R = PAPER_ROADMAP;
 const mono = 'var(--ed-mono, var(--font-mono))';
 
 // ── Coverage status -> color theme ──────────────────────────────────────
 const COVERAGE_THEME = {
-  'has-page':    { fg: 'var(--green)',    bg: 'rgba(76,122,74,0.12)',   border: 'var(--green)',    label: 'live'     },
-  'planned':     { fg: 'var(--brass-dk)', bg: 'rgba(181,138,46,0.14)',  border: 'var(--brass-dk)', label: 'planned'  },
-  'not-covered': { fg: 'var(--faint)',    bg: 'rgba(120,113,108,0.10)', border: 'var(--faint)',    label: 'not yet' },
+  'has-page':    { fg: 'var(--green)',    bg: alpha(ED.series3, 0.12),   border: 'var(--green)',    label: 'live'     },
+  'planned':     { fg: 'var(--brass-dk)', bg: alpha(ED.brassDeco, 0.14),  border: 'var(--brass-dk)', label: 'planned'  },
+  'not-covered': { fg: 'var(--faint)',    bg: alpha(ED.inkFaint, 0.1), border: 'var(--faint)',    label: 'not yet' },
 };
 
 const AUDIT_THEME = {
-  'audited-subsumed':    { fg: '#8b5fbf', bg: 'rgba(139,95,191,0.14)' },
-  'audited-partial':     { fg: 'var(--blue)', bg: 'rgba(63,107,134,0.14)' },
-  'audited-independent': { fg: 'var(--green)', bg: 'rgba(76,122,74,0.14)' },
-  'literature-audited':  { fg: 'var(--blue)', bg: 'rgba(63,107,134,0.14)' },
-  'numerical-pilot':     { fg: 'var(--brass-dk)', bg: 'rgba(181,138,46,0.14)' },
-  'reference-only':      { fg: 'var(--ink-soft)', bg: 'rgba(120,113,108,0.10)' },
-  'unaudited':           { fg: 'var(--faint)', bg: 'rgba(120,113,108,0.06)' },
+  'audited-subsumed':    { fg: ED.series5, bg: alpha(ED.series5, 0.14) },
+  'audited-partial':     { fg: 'var(--blue)', bg: alpha(ED.series1, 0.14) },
+  'audited-independent': { fg: 'var(--green)', bg: alpha(ED.series3, 0.14) },
+  'literature-audited':  { fg: 'var(--blue)', bg: alpha(ED.series1, 0.14) },
+  'numerical-pilot':     { fg: 'var(--brass-dk)', bg: alpha(ED.brassDeco, 0.14) },
+  'reference-only':      { fg: 'var(--ink-soft)', bg: alpha(ED.inkFaint, 0.1) },
+  'unaudited':           { fg: 'var(--faint)', bg: alpha(ED.inkFaint, 0.06) },
 };
 
 function classifyCoverage(status) {
@@ -349,7 +350,7 @@ export default function TwinLadderPaperRoadmapPage() {
             <StatTile
               label="total entries"
               value={total}
-              fg="#4a4238" bg="#fdfaf3" border="#d5c9b2"
+              fg={ED.inkSoft} bg={ED.paper} border={ED.rule}
             />
             <StatTile
               label="live app pages"
@@ -375,7 +376,7 @@ export default function TwinLadderPaperRoadmapPage() {
           </div>
 
           {/* ─── Audit breakdown ─── */}
-          <h3 style={{ color: '#8b5fbf', marginTop: 24, marginBottom: 12, fontSize: 16 }}>
+          <h3 style={{ color: 'var(--series-5)', marginTop: 24, marginBottom: 12, fontSize: 16 }}>
             Audit-status breakdown
           </h3>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
@@ -415,7 +416,7 @@ export default function TwinLadderPaperRoadmapPage() {
         <div className="card" style={{ marginTop: 16 }}>
           <h3 style={{ color: 'var(--blue)', marginBottom: 8 }}>How to read this page</h3>
           <p style={{ color: 'var(--ink-soft)', fontSize: 14, lineHeight: 1.75 }}>
-            The user paper (<code style={{ color: '#8b5fbf' }}>{R.paperSourcePath}</code>) runs to{' '}
+            The user paper (<code style={{ color: 'var(--series-5)' }}>{R.paperSourcePath}</code>) runs to{' '}
             {R.paperTotalPages} pages across {R.paperMainSectionCount} numbered sections and three
             appendix runs. The table below indexes every entry and links to the app page that covers
             it, when one exists.
@@ -464,7 +465,7 @@ export default function TwinLadderPaperRoadmapPage() {
               Four Closure Routes (§16)
             </Link>
             <span style={{ color: 'var(--hairline)' }}>|</span>
-            <Link to="/blaschke-ghosts" style={{ color: '#8b5fbf', fontSize: 13 }}>
+            <Link to="/blaschke-ghosts" style={{ color: 'var(--series-5)', fontSize: 13 }}>
               Blaschke Ghosts (§17)
             </Link>
             <span style={{ color: 'var(--hairline)' }}>|</span>
@@ -476,7 +477,7 @@ export default function TwinLadderPaperRoadmapPage() {
               KYP / Bounded-Real (M-O)
             </Link>
             <span style={{ color: 'var(--hairline)' }}>|</span>
-            <Link to="/twin-ladder" style={{ color: '#8b5fbf', fontSize: 13 }}>
+            <Link to="/twin-ladder" style={{ color: 'var(--series-5)', fontSize: 13 }}>
               Twin Ladder
             </Link>
             <span style={{ color: 'var(--hairline)' }}>|</span>

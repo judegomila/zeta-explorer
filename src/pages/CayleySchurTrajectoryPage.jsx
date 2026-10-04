@@ -21,6 +21,7 @@ import { Link } from 'react-router-dom';
 import { BlockMath, InlineMath } from '../components/KaTeXMath.jsx';
 import { zetaCriticalStrip, cAbs, cDiv, cSub, cAdd, cMul, cLog, cExp } from '../math/zeta.js';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
+import { ED } from '../styles/tokens.js';
 
 // Editorial (warm) re-theme: identical math/canvas logic, warm chrome.
 // Canvas colors are literal warm hex (canvas fill/stroke can't use CSS vars):
@@ -170,18 +171,18 @@ export default function CayleySchurTrajectoryPage() {
     const scale = Math.min(w, h) / 2.5; // Leave margin
 
     // Clear canvas
-    ctx.fillStyle = '#f6f1e7';
+    ctx.fillStyle = ED.paper2;
     ctx.fillRect(0, 0, w, h);
 
     // Draw unit circle (Schur class boundary)
-    ctx.strokeStyle = '#1c1814';
+    ctx.strokeStyle = ED.ink;
     ctx.lineWidth = 2;
     ctx.beginPath();
     ctx.arc(center, center, scale, 0, 2 * Math.PI);
     ctx.stroke();
 
     // Draw real and imaginary axes
-    ctx.strokeStyle = '#d5c9b2';
+    ctx.strokeStyle = ED.rule;
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.moveTo(0, center);
@@ -193,7 +194,7 @@ export default function CayleySchurTrajectoryPage() {
     ctx.stroke();
 
     // Draw trajectory up to current frame
-    ctx.strokeStyle = '#3f6b86';
+    ctx.strokeStyle = ED.series1;
     ctx.lineWidth = 2;
     ctx.beginPath();
     const firstSample = samples[0];
@@ -211,13 +212,13 @@ export default function CayleySchurTrajectoryPage() {
       const s = samples[frame];
       const x = center + s.x * scale;
       const y = center - s.y * scale;
-      ctx.fillStyle = s.inSchur ? '#4c7a4a' : '#c23a1c';
+      ctx.fillStyle = s.inSchur ? ED.series3 : ED.series2;
       ctx.beginPath();
       ctx.arc(x, y, 4, 0, 2 * Math.PI);
       ctx.fill();
 
       // Draw info text
-      ctx.fillStyle = '#1c1814';
+      ctx.fillStyle = ED.ink;
       ctx.font = '12px sans-serif';
       ctx.fillText(`t = ${s.t.toFixed(2)}, |Θ| = ${s.abs.toFixed(4)}`, 10, 20);
     }

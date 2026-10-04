@@ -6,10 +6,11 @@ import {
   IMP35935_CEILINGS,
   IMP35935_SUMMARY,
 } from '../data/imp-35935-adversarial-ordering-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
-const NAIVE_COLOR = '#f87171';
-const PAIRWISE_COLOR = '#38bdf8';
-const KAHAN_COLOR = '#4ade80';
+const NAIVE_COLOR = ED.series2;
+const PAIRWISE_COLOR = ED.series1;
+const KAHAN_COLOR = ED.series3;
 
 function OrderingBarChart() {
   const w = 680;
@@ -34,14 +35,14 @@ function OrderingBarChart() {
 
   return (
     <svg width={w} height={h} style={{ display: 'block', maxWidth: '100%' }}>
-      <text x={padL} y={padT - 8} fill="#94a3b8" fontSize={11} fontWeight={700}>
+      <text x={padL} y={padT - 8} fill={ED.inkSoft} fontSize={11} fontWeight={700}>
         normalized summation error by worst-case ordering (log scale)
       </text>
 
       {yTicks.map((v) => (
         <g key={v}>
-          <line x1={padL} y1={yOf(10 ** v)} x2={padL + plotW} y2={yOf(10 ** v)} stroke="#1e293b" strokeWidth={0.7} />
-          <text x={padL - 6} y={yOf(10 ** v) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+          <line x1={padL} y1={yOf(10 ** v)} x2={padL + plotW} y2={yOf(10 ** v)} stroke={ED.ruleSoft} strokeWidth={0.7} />
+          <text x={padL - 6} y={yOf(10 ** v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             1e{v}
           </text>
         </g>
@@ -74,11 +75,11 @@ function OrderingBarChart() {
             <rect x={cx - barW * 1.5 - 4} y={yOf(r.naiveNormErr)} width={barW} height={padT + plotH - yOf(r.naiveNormErr)} fill={NAIVE_COLOR} opacity={0.9} />
             <rect x={cx - barW / 2} y={yOf(r.pairwiseNormErr)} width={barW} height={padT + plotH - yOf(r.pairwiseNormErr)} fill={PAIRWISE_COLOR} opacity={0.9} />
             <rect x={cx + barW * 0.5 + 4} y={yOf(r.kahanNormErr)} width={barW} height={padT + plotH - yOf(r.kahanNormErr)} fill={KAHAN_COLOR} opacity={0.9} />
-            <text x={cx} y={padT + plotH + 16} textAnchor="middle" fill="#94a3b8" fontSize={9.5}>
+            <text x={cx} y={padT + plotH + 16} textAnchor="middle" fill={ED.inkSoft} fontSize={9.5}>
               {r.ordering}
             </text>
             {r.label && (
-              <text x={cx} y={padT + plotH + 28} textAnchor="middle" fill="#64748b" fontSize={8}>
+              <text x={cx} y={padT + plotH + 28} textAnchor="middle" fill={ED.inkFaint} fontSize={8}>
                 ({r.label})
               </text>
             )}
@@ -86,7 +87,7 @@ function OrderingBarChart() {
         );
       })}
 
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
 
       <g>
         <rect x={padL + 4} y={padT + 2} width={9} height={9} fill={NAIVE_COLOR} />
@@ -110,7 +111,7 @@ function OrderingTable() {
   return (
     <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.8rem' }}>
       <thead>
-        <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+        <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
           <th style={{ padding: '0.4rem 0.6rem' }}>ordering</th>
           <th style={{ padding: '0.4rem 0.6rem', color: NAIVE_COLOR }}>naive norm err</th>
           <th style={{ padding: '0.4rem 0.6rem', color: PAIRWISE_COLOR }}>pairwise norm err</th>
@@ -120,7 +121,7 @@ function OrderingTable() {
       </thead>
       <tbody>
         {IMP35935_ORDERINGS.map((r) => (
-          <tr key={r.ordering} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+          <tr key={r.ordering} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>
               {r.ordering}
               {r.label ? ` (${r.label})` : ''}
@@ -141,7 +142,7 @@ export default function Imp35935AdversarialOrderingViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Summation-Scheme Error Under Worst-case Orderings (imp-35935 / imp-35852)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
         imp-35852 re-summed the imp-35812 fixed N&nbsp;~&nbsp;4.886e5-term oscillatory sum under
         five term orderings (original, signed-ascending, magnitude-ascending, magnitude-descending,
         clustered same-sign runs) at T_PT&nbsp;=&nbsp;3e12, measuring naive recursive, pairwise
@@ -155,7 +156,7 @@ export default function Imp35935AdversarialOrderingViz() {
         <OrderingTable />
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.8rem', marginTop: '1rem' }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.8rem', marginTop: '1rem' }}>
         The worst worst-case ordering ({IMP35935_SUMMARY.worstOrdering}, two long same-sign runs)
         raises the naive error ~{IMP35935_SUMMARY.naiveWorstOverOriginal.toFixed(0)}x above the
         oscillatory baseline -- yet it still stays &gt;1e4x
@@ -169,14 +170,14 @@ export default function Imp35935AdversarialOrderingViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation only of the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> presentation only of the
         already-derived imp-35852 exact-BigInt-referenced adversarial-ordering measurement (no new
         derivation, no heavy data-module import, no re-running the summation schemes at page load);
         measurement only; certifies no W1 bound; evaluates no true H&#8320;; instantiates no

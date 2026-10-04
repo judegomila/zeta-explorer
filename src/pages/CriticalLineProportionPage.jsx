@@ -70,7 +70,7 @@ export default function CriticalLineProportionPage() {
           </thead>
           <tbody>
             {RECORDS.map((r, i) => (
-              <tr key={i} style={{ background: r.current ? 'rgba(140,106,29,0.06)' : 'transparent' }}>
+              <tr key={i} style={{ background: r.current ? 'color-mix(in srgb, var(--brass) 6%, transparent)' : 'transparent' }}>
                 <td style={{ padding: '10px', borderBottom: '1px solid var(--hairline)', fontFamily: 'var(--ed-mono)', color: 'var(--ink-soft)', verticalAlign: 'top' }}>{r.year}</td>
                 <td style={{ padding: '10px', borderBottom: '1px solid var(--hairline)', fontFamily: 'var(--ed-mono)', color: r.current ? 'var(--brass-dk)' : 'var(--ink)', fontWeight: 600, verticalAlign: 'top', whiteSpace: 'nowrap' }}>{r.label}</td>
                 <td style={{ padding: '10px', borderBottom: '1px solid var(--hairline)', color: 'var(--ink)', verticalAlign: 'top' }}>{r.authors.join(', ')}</td>
@@ -80,7 +80,7 @@ export default function CriticalLineProportionPage() {
                 </td>
               </tr>
             ))}
-            <tr style={{ background: 'rgba(217,80,46,0.05)' }}>
+            <tr style={{ background: 'color-mix(in srgb, var(--accent-deco) 5%, transparent)' }}>
               <td style={{ padding: '10px', fontFamily: 'var(--ed-mono)', color: 'var(--terra-dk)', fontWeight: 600 }}>goal</td>
               <td style={{ padding: '10px', fontFamily: 'var(--ed-mono)', color: 'var(--terra-dk)', fontWeight: 600, whiteSpace: 'nowrap' }}>{RH_TARGET.label}</td>
               <td style={{ padding: '10px', color: 'var(--ink-soft)' }} colSpan={2}>κ = 100% is the Riemann Hypothesis. The gap above the peer-reviewed record (100% − {pct(peerRecord.proportion).toFixed(2)}%) — and above even the unrefereed external ≥ {pct(aiExternal.proportion).toFixed(2)}% claim — is what remains open on this axis.</td>

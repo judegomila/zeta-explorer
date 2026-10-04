@@ -6,9 +6,10 @@ import {
   IMP95931_LOOSER_THAN_LN13_FACTOR,
   IMP95931_CAVEAT_BANNER,
 } from '../data/imp-95931-ln12-descent-ladder-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
-const DOT_COLOR = '#60a5fa';
-const TARGET_COLOR = '#a78bfa';
+const DOT_COLOR = ED.series1;
+const TARGET_COLOR = ED.series5;
 
 // log-x scatter+line: reach vs u_fit_rel%, descending toward the ln1.3 target line
 function DescentLadderChart() {
@@ -45,18 +46,18 @@ function DescentLadderChart() {
       {IMP95931_DESCENT_LADDER.map((r) => (
         <g key={r.ticket}>
           <circle cx={xOf(r.reach)} cy={yOf(r.uFitRelPct)} r={5} fill={DOT_COLOR} />
-          <text x={xOf(r.reach)} y={yOf(r.uFitRelPct) - 10} textAnchor="middle" fill="#cbd5e1" fontSize={11}>
+          <text x={xOf(r.reach)} y={yOf(r.uFitRelPct) - 10} textAnchor="middle" fill={ED.ink} fontSize={11}>
             {`${r.uFitRelPct.toFixed(3)}%`}
           </text>
-          <text x={xOf(r.reach)} y={svgH - padB + 16} textAnchor="middle" fill="#64748b" fontSize={10}>
+          <text x={xOf(r.reach)} y={svgH - padB + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
             {`reach ${r.reach.toFixed(0)}`}
           </text>
         </g>
       ))}
 
-      <line x1={padL} y1={padT} x2={padL} y2={svgH - padB} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={svgH - padB} x2={svgW - padR} y2={svgH - padB} stroke="#64748b" strokeWidth={1.5} />
-      <text x={12} y={padT + 4} fill="#64748b" fontSize={10}>u_fit_rel %</text>
+      <line x1={padL} y1={padT} x2={padL} y2={svgH - padB} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={svgH - padB} x2={svgW - padR} y2={svgH - padB} stroke={ED.rule} strokeWidth={1.5} />
+      <text x={12} y={padT + 4} fill={ED.inkFaint} fontSize={10}>u_fit_rel %</text>
     </svg>
   );
 }
@@ -70,32 +71,32 @@ export default function Imp95931Ln12DescentLadderViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> {IMP95931_CAVEAT_BANNER}
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> {IMP95931_CAVEAT_BANNER}
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         Three successive tickets (imp-95860, imp-95881, imp-95896) each extended the ln&nbsp;1.2
         DD Jacobi grid further and re-ran the same primal A_fit envelope, tightening the per-delta
         u_fit certified interval every time. This panel plots that three-rung descent against the
         frozen ln&nbsp;1.3 direct interval (0.23%) that it approaches but has not yet crossed.
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         u_fit_rel vs reach (log-x)
       </h3>
       <DescentLadderChart />
 
-      <table style={{ width: '100%', fontSize: '0.78rem', color: '#cbd5e1', borderCollapse: 'collapse', marginTop: '1.25rem' }}>
+      <table style={{ width: '100%', fontSize: '0.78rem', color: 'var(--ink)', borderCollapse: 'collapse', marginTop: '1.25rem' }}>
         <thead>
-          <tr style={{ color: '#64748b' }}>
+          <tr style={{ color: 'var(--ink-faint)' }}>
             <th style={{ textAlign: 'left', paddingBottom: 4 }}>ticket</th>
             <th style={{ textAlign: 'left', paddingBottom: 4 }}>grid</th>
             <th style={{ textAlign: 'right', paddingBottom: 4 }}>reach</th>
@@ -104,14 +105,14 @@ export default function Imp95931Ln12DescentLadderViz() {
         </thead>
         <tbody>
           {IMP95931_DESCENT_LADDER.map((r) => (
-            <tr key={r.ticket} style={{ borderTop: '1px solid rgba(148,163,184,0.15)' }}>
+            <tr key={r.ticket} style={{ borderTop: '1px solid color-mix(in srgb, var(--rule) 15%, transparent)' }}>
               <td style={{ padding: '3px 0' }}>{r.ticket}</td>
               <td>{r.gridLabel}</td>
               <td style={{ textAlign: 'right' }}>{r.reach.toFixed(2)}</td>
               <td style={{ textAlign: 'right', color: DOT_COLOR }}>{r.uFitRelPct.toFixed(4)}%</td>
             </tr>
           ))}
-          <tr style={{ borderTop: '1px solid rgba(148,163,184,0.15)' }}>
+          <tr style={{ borderTop: '1px solid color-mix(in srgb, var(--rule) 15%, transparent)' }}>
             <td style={{ padding: '3px 0' }}>&mdash;</td>
             <td>ln 1.3 direct (target)</td>
             <td style={{ textAlign: 'right' }}>&mdash;</td>
@@ -126,14 +127,14 @@ export default function Imp95931Ln12DescentLadderViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page rendering three frozen
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page rendering three frozen
         measurements verbatim (no re-derivation). The final rung (0.247%) is
         {` ${IMP95931_LOOSER_THAN_LN13_FACTOR.toFixed(2)}x`} looser than the ln&nbsp;1.3 direct
         interval, not yet crossed. Supplies no new bound, establishes no operator positivity, no

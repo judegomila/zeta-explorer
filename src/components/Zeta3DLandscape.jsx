@@ -4,6 +4,7 @@ import { OrbitControls } from '@react-three/drei';
 import SafeCanvas from './SafeCanvas.jsx';
 import * as THREE from 'three';
 import { zetaCriticalStrip, ZETA_ZEROS } from '../math/zeta.js';
+import { ED } from '../styles/tokens.js';
 
 /**
  * 3D height-field of |ζ(σ+it)| over the critical strip.
@@ -101,7 +102,7 @@ function CriticalLine({ tRange }) {
 
   return (
     <line geometry={geo}>
-      <lineBasicMaterial color="#10b981" linewidth={2} />
+      <lineBasicMaterial color={ED.series3} linewidth={2} />
     </line>
   );
 }
@@ -117,7 +118,7 @@ function ZeroMarkers({ tRange }) {
         return (
           <mesh key={i} position={[0, 0.05, (v - 0.5) * 10]}>
             <sphereGeometry args={[0.08, 8, 8]} />
-            <meshStandardMaterial color="#ffffff" emissive="#10b981" emissiveIntensity={0.5} />
+            <meshStandardMaterial color="#ffffff" emissive={ED.series3} emissiveIntensity={0.5} />
           </mesh>
         );
       })}
@@ -183,11 +184,11 @@ export default function Zeta3DLandscape() {
             onChange={e => setResolution(+e.target.value)} />
           <span className="control-value">{resolution}</span>
         </div>
-        <label style={{ display: 'flex', alignItems: 'center', gap: 4, color: '#94a3b8', fontSize: 12, cursor: 'pointer' }}>
+        <label style={{ display: 'flex', alignItems: 'center', gap: 4, color: 'var(--ink-soft)', fontSize: 12, cursor: 'pointer' }}>
           <input type="checkbox" checked={showCritLine} onChange={e => setShowCritLine(e.target.checked)} />
           Critical line
         </label>
-        <label style={{ display: 'flex', alignItems: 'center', gap: 4, color: '#94a3b8', fontSize: 12, cursor: 'pointer' }}>
+        <label style={{ display: 'flex', alignItems: 'center', gap: 4, color: 'var(--ink-soft)', fontSize: 12, cursor: 'pointer' }}>
           <input type="checkbox" checked={showZeros} onChange={e => setShowZeros(e.target.checked)} />
           Zero markers
         </label>
@@ -195,13 +196,13 @@ export default function Zeta3DLandscape() {
 
       <div style={{
         width: '100%', height: 450, borderRadius: 12,
-        border: '1px solid #1e293b', overflow: 'hidden',
-        background: '#060a14',
+        border: '1px solid var(--rule-soft)', overflow: 'hidden',
+        background: 'var(--paper)',
       }}>
         <SafeCanvas
           camera={{ position: [8, 6, 8], fov: 50 }}
           gl={{ antialias: true }}
-          style={{ background: '#060a14' }}
+          style={{ background: 'var(--paper)' }}
         >
           <Scene
             sigmaRange={sigmaRange}
@@ -215,19 +216,19 @@ export default function Zeta3DLandscape() {
 
       <div style={{ display: 'flex', gap: 12, marginTop: 12, flexWrap: 'wrap' }}>
         <div style={{ padding: '8px 12px', borderRadius: 6, fontSize: 12,
-                      background: 'rgba(139, 92, 246, 0.08)', border: '1px solid rgba(139, 92, 246, 0.2)',
-                      color: '#94a3b8' }}>
-          <strong style={{ color: '#c4b5fd' }}>Height</strong> = log(1 + |ζ(s)|) — zeros are valleys at floor level
+                      background: 'color-mix(in srgb, var(--series-5) 8%, transparent)', border: '1px solid color-mix(in srgb, var(--series-5) 20%, transparent)',
+                      color: 'var(--ink-soft)' }}>
+          <strong style={{ color: 'var(--series-5)' }}>Height</strong> = log(1 + |ζ(s)|) — zeros are valleys at floor level
         </div>
         <div style={{ padding: '8px 12px', borderRadius: 6, fontSize: 12,
-                      background: 'rgba(59, 130, 246, 0.08)', border: '1px solid rgba(59, 130, 246, 0.2)',
-                      color: '#94a3b8' }}>
-          <strong style={{ color: '#93c5fd' }}>Color</strong> = arg(ζ(s)) — phase singularities at zeros
+                      background: 'color-mix(in srgb, var(--series-1) 8%, transparent)', border: '1px solid color-mix(in srgb, var(--series-1) 20%, transparent)',
+                      color: 'var(--ink-soft)' }}>
+          <strong style={{ color: 'var(--series-1)' }}>Color</strong> = arg(ζ(s)) — phase singularities at zeros
         </div>
         <div style={{ padding: '8px 12px', borderRadius: 6, fontSize: 12,
-                      background: 'rgba(16, 185, 129, 0.08)', border: '1px solid rgba(16, 185, 129, 0.2)',
-                      color: '#94a3b8' }}>
-          <strong style={{ color: '#6ee7b7' }}>Green line</strong> = critical line σ = ½ — drag to rotate
+                      background: 'color-mix(in srgb, var(--series-3) 8%, transparent)', border: '1px solid color-mix(in srgb, var(--series-3) 20%, transparent)',
+                      color: 'var(--ink-soft)' }}>
+          <strong style={{ color: 'var(--series-3)' }}>Green line</strong> = critical line σ = ½ — drag to rotate
         </div>
       </div>
     </div>

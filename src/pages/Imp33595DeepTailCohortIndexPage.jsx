@@ -35,7 +35,7 @@ export default function Imp33595DeepTailCohortIndexPage() {
     <div style={{ padding: '1.5rem', maxWidth: 940, margin: '0 auto' }}>
       <PageHeader title="Deep-Tail Node-Budget & Envelope Cohort (imp-33595)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 780 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 780 }}>
         The imp-33557/imp-33558/imp-33559/imp-33560 measurements were shipped as four separate viz
         pages with no shared landing page. This index groups them so the deep-tail node-budget and
         envelope cohort is navigable from one place.
@@ -49,16 +49,16 @@ export default function Imp33595DeepTailCohortIndexPage() {
             style={{
               display: 'block',
               padding: '0.85rem 1rem',
-              background: 'rgba(148,163,184,0.04)',
-              borderLeft: '3px solid #334155',
+              background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+              borderLeft: '3px solid var(--rule)',
               borderRadius: '0 4px 4px 0',
               textDecoration: 'none',
             }}
           >
-            <div style={{ color: '#e2e8f0', fontWeight: 700, fontSize: '0.9rem' }}>
-              {entry.title} <span style={{ color: '#64748b', fontWeight: 400 }}>({entry.id})</span>
+            <div style={{ color: 'var(--ink)', fontWeight: 700, fontSize: '0.9rem' }}>
+              {entry.title} <span style={{ color: 'var(--ink-faint)', fontWeight: 400 }}>({entry.id})</span>
             </div>
-            <div style={{ color: '#94a3b8', fontSize: '0.82rem', marginTop: '0.25rem' }}>
+            <div style={{ color: 'var(--ink-soft)', fontSize: '0.82rem', marginTop: '0.25rem' }}>
               {entry.summary}
             </div>
           </Link>
@@ -69,14 +69,14 @@ export default function Imp33595DeepTailCohortIndexPage() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> this is a navigation aid over
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> this is a navigation aid over
         already-published measurements. It changes no bound and patches no literal. RH-equivalent,
         NO QED.
       </div>

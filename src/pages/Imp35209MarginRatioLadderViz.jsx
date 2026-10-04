@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP35076_H3_A_FORTIORI_DISCHARGES_H4_VERIFICATION } from '../data/imp-35076-h3-a-fortiori-discharges-h4-numerical-verification.js';
+import { ED } from '../styles/tokens.js';
 
 const D = IMP35076_H3_A_FORTIORI_DISCHARGES_H4_VERIFICATION;
 const LADDER = D.sharedFoldLadder;
@@ -35,13 +36,13 @@ function MarginRatioLadderChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <text x={padL} y={padT - 22} fill="#94a3b8" fontSize={11} fontWeight={700}>
+      <text x={padL} y={padT - 22} fill={ED.inkSoft} fontSize={11} fontWeight={700}>
         Margin ratio &rho;(eps) = C_ren / C_curv across the nine eps = y_N&#8593; rungs (imp-35076 / imp-35152)
       </text>
       {yTicks.map((v) => (
         <g key={v}>
-          <line x1={padL} y1={yOf(v)} x2={padL + plotW} y2={yOf(v)} stroke="#1e293b" strokeWidth={1} />
-          <text x={padL - 6} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+          <line x1={padL} y1={yOf(v)} x2={padL + plotW} y2={yOf(v)} stroke={ED.ruleSoft} strokeWidth={1} />
+          <text x={padL - 6} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v.toFixed(1)}
           </text>
         </g>
@@ -53,11 +54,11 @@ function MarginRatioLadderChart() {
         y1={yOf(1)}
         x2={padL + plotW}
         y2={yOf(1)}
-        stroke="#f87171"
+        stroke={ED.series2}
         strokeWidth={1}
         strokeDasharray="3 3"
       />
-      <text x={padL + plotW - 4} y={yOf(1) - 4} textAnchor="end" fill="#f87171" fontSize={8.5}>
+      <text x={padL + plotW - 4} y={yOf(1) - 4} textAnchor="end" fill={ED.series2} fontSize={8.5}>
         rho = 1 (excursion floor, not yet excluded between rungs)
       </text>
 
@@ -72,7 +73,7 @@ function MarginRatioLadderChart() {
             y={padT}
             width={xA - xB}
             height={plotH}
-            fill="#f87171"
+            fill={ED.series2}
             opacity={0.045}
           />
         );
@@ -84,47 +85,47 @@ function MarginRatioLadderChart() {
         y1={yOf(LIMIT)}
         x2={padL + plotW}
         y2={yOf(LIMIT)}
-        stroke="#facc15"
+        stroke={ED.brassDeco}
         strokeWidth={2}
         strokeDasharray="6 3"
       />
-      <text x={padL + 4} y={yOf(LIMIT) - 6} fill="#facc15" fontSize={8.5}>
+      <text x={padL + 4} y={yOf(LIMIT) - 6} fill={ED.brass} fontSize={8.5}>
         2/3 = 0.6667 asymptote (A_1 / A_2)
       </text>
 
-      <path d={rhoPath} fill="none" stroke="#a78bfa" strokeWidth={2.25} />
+      <path d={rhoPath} fill="none" stroke={ED.series5} strokeWidth={2.25} />
       {LADDER.map((r) => (
         <circle
           key={r.N}
           cx={xOf(Math.log10(r.y_N_sharp))}
           cy={yOf(r.marginRatio)}
           r={r.N === HEAD.N ? 4.5 : 3}
-          fill={r.N === HEAD.N ? '#f87171' : '#a78bfa'}
+          fill={r.N === HEAD.N ? ED.series2 : ED.series5}
         />
       ))}
       <text
         x={xOf(Math.log10(HEAD.y_N_sharp)) + 6}
         y={yOf(HEAD.marginRatio) - 8}
-        fill="#f87171"
+        fill={ED.series2}
         fontSize={8.5}
       >
         head-worst rho&asymp;{D.maxMarginRatioOverLadder.toFixed(4)} (N={HEAD.N})
       </text>
 
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
       {LADDER.map((r) => (
         <text
           key={r.N}
           x={xOf(Math.log10(r.y_N_sharp))}
           y={padT + plotH + 14}
           textAnchor="middle"
-          fill="#64748b"
+          fill={ED.inkFaint}
           fontSize={7.5}
         >
           {r.N.toExponential(0).replace('+', '')}
         </text>
       ))}
-      <text x={padL + plotW / 2} y={padT + plotH + 28} textAnchor="middle" fill="#64748b" fontSize={9}>
+      <text x={padL + plotW / 2} y={padT + plotH + 28} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
         N (eps = y_N&#8593; = sqrt(2&pi;/N), decreasing left to right)
       </text>
     </svg>
@@ -136,7 +137,7 @@ export default function Imp35209MarginRatioLadderViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Margin-Ratio Ladder: &rho;(eps) = C_ren / C_curv (imp-35209 / imp-35076 / imp-35152)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-35076 measured the margin ratio &rho;(eps)&nbsp;=&nbsp;C_ren&nbsp;/&nbsp;C_curv between the
         H4 renormalized fold-reading derivative and the H3-derived curvature value on the shared
         quadratic fold, at nine eps&nbsp;=&nbsp;y_N&#8593; rungs (N&nbsp;=&nbsp;10&sup3;..10&#8311;). It
@@ -158,7 +159,7 @@ export default function Imp35209MarginRatioLadderViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>N</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>eps = y_N&#8593;</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>C_ren (H4)</th>
@@ -168,7 +169,7 @@ export default function Imp35209MarginRatioLadderViz() {
         </thead>
         <tbody>
           {LADDER.map((r) => (
-            <tr key={r.N} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+            <tr key={r.N} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.N.toExponential(0)}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.y_N_sharp}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.cRen_H4}</td>
@@ -182,7 +183,7 @@ export default function Imp35209MarginRatioLadderViz() {
         </tbody>
       </table>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.8rem', marginTop: '1rem' }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.8rem', marginTop: '1rem' }}>
         &rho; stays strictly below 1 at all nine sampled rungs and tightens toward
         2/3&nbsp;=&nbsp;0.6667 as N grows, confirming the imp-33766 a-fortiori direction on the
         sampled points. But the ladder is nine points on a continuum: gap G-a (imp-35152) notes that
@@ -195,14 +196,14 @@ export default function Imp35209MarginRatioLadderViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page rendering the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-only page rendering the
         imp-35076 nine-rung margin-ratio ladder verbatim (no new computation) with the imp-35152 G-a
         between-rung gap shown schematically as shaded bands. Verification only, on the inherited
         model-cusp surrogate; does not discharge H3, H4, or gap G-a; establishes no operator

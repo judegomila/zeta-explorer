@@ -33,6 +33,7 @@ import { BlockMath, InlineMath } from '../components/KaTeXMath.jsx';
 import { CONNES_ADELIC_LAMBDA } from '../data/connes-adelic-lambda-2026-05.js';
 import RelatedLinks from '../components/RelatedLinks.jsx';
 import AnimationEmbed from '../components/AnimationEmbed.jsx';
+import { ED } from '../styles/tokens.js';
 
 // ── Style helpers (editorial warm palette). ────────────────────────────
 
@@ -118,15 +119,15 @@ function HeatFlowSweep() {
   return (
     <svg width={SW_W} height={SW_H} role="img" aria-label="truncated trace vs heat time">
       <g transform={'translate(' + SW_PAD.left + ',' + SW_PAD.top + ')'}>
-        <rect x={0} y={0} width={SW_IW} height={SW_IH} fill="#fdfaf3" stroke="#d5c9b2" />
+        <rect x={0} y={0} width={SW_IW} height={SW_IH} fill={ED.paper} stroke={ED.rule} />
 
         {/* Horizontal grid lines and y-axis ticks. */}
         {[0, 0.25, 0.5, 0.75, 1.0].map((frac) => {
           const yv = yMin + frac * (yMax - yMin);
           return (
             <g key={'yt-' + frac}>
-              <line x1={0} y1={y(yv)} x2={SW_IW} y2={y(yv)} stroke="#e3d8c2" strokeWidth={1} />
-              <text x={-6} y={y(yv) + 3} fontSize={10} fill="#877b67" textAnchor="end"
+              <line x1={0} y1={y(yv)} x2={SW_IW} y2={y(yv)} stroke={ED.ruleSoft} strokeWidth={1} />
+              <text x={-6} y={y(yv) + 3} fontSize={10} fill={ED.inkFaint} textAnchor="end"
                     fontFamily="var(--ed-mono, monospace)">{yv.toFixed(2)}</text>
             </g>
           );
@@ -135,37 +136,37 @@ function HeatFlowSweep() {
         {/* x-axis ticks. */}
         {[0, 0.05, 0.10, 0.15, 0.20].map((tv) => (
           <g key={'xt-' + tv}>
-            <line x1={x(tv)} y1={SW_IH} x2={x(tv)} y2={SW_IH + 4} stroke="#877b67" />
-            <text x={x(tv)} y={SW_IH + 16} fontSize={10} fill="#877b67" textAnchor="middle"
+            <line x1={x(tv)} y1={SW_IH} x2={x(tv)} y2={SW_IH + 4} stroke={ED.rule} />
+            <text x={x(tv)} y={SW_IH + 16} fontSize={10} fill={ED.inkFaint} textAnchor="middle"
                   fontFamily="var(--ed-mono, monospace)">{tv.toFixed(2)}</text>
           </g>
         ))}
 
         {/* x-axis label. */}
-        <text x={SW_IW / 2} y={SW_IH + 34} fontSize={11} fill="#4a4238"
+        <text x={SW_IW / 2} y={SW_IH + 34} fontSize={11} fill={ED.inkSoft}
               textAnchor="middle" fontFamily="var(--ed-mono, monospace)">heat time t</text>
 
         {/* y-axis label. */}
-        <text x={-46} y={SW_IH / 2} fontSize={11} fill="#4a4238" textAnchor="middle"
+        <text x={-46} y={SW_IH / 2} fontSize={11} fill={ED.inkSoft} textAnchor="middle"
               transform={'rotate(-90,-46,' + (SW_IH / 2) + ')'}
               fontFamily="var(--ed-mono, monospace)">Tr_p,k(t)</text>
 
         {/* Zero baseline. */}
-        <line x1={0} y1={y(0)} x2={SW_IW} y2={y(0)} stroke="#c23a1c" strokeWidth={1} strokeDasharray="3,3" />
-        <text x={SW_IW - 6} y={y(0) - 4} fontSize={10} fill="#c23a1c" textAnchor="end"
+        <line x1={0} y1={y(0)} x2={SW_IW} y2={y(0)} stroke={ED.accent} strokeWidth={1} strokeDasharray="3,3" />
+        <text x={SW_IW - 6} y={y(0) - 4} fontSize={10} fill={ED.accent} textAnchor="end"
               fontFamily="var(--ed-mono, monospace)">positivity floor</text>
 
         {/* Vertical guide at t = 0.02 (imp-440 regime). */}
-        <line x1={x(tHeat)} y1={0} x2={x(tHeat)} y2={SW_IH} stroke="#4c7a4a" strokeWidth={1} strokeDasharray="4,3" />
-        <text x={x(tHeat) + 4} y={12} fontSize={10} fill="#4c7a4a"
+        <line x1={x(tHeat)} y1={0} x2={x(tHeat)} y2={SW_IH} stroke={ED.series3} strokeWidth={1} strokeDasharray="4,3" />
+        <text x={x(tHeat) + 4} y={12} fontSize={10} fill={ED.series3}
               fontFamily="var(--ed-mono, monospace)">t = 0.02</text>
 
         {/* Trace polyline. */}
-        <polyline points={polyline} fill="none" stroke="#b58a2e" strokeWidth={2} />
+        <polyline points={polyline} fill="none" stroke={ED.brassDeco} strokeWidth={2} />
 
         {/* Marker at (tHeat, tHeatTrace). */}
-        <circle cx={x(tHeat)} cy={y(tHeatTrace)} r={4} fill="#4c7a4a" stroke="#fdfaf3" strokeWidth={1} />
-        <text x={x(tHeat) + 10} y={y(tHeatTrace) - 8} fontSize={11} fill="#4c7a4a"
+        <circle cx={x(tHeat)} cy={y(tHeatTrace)} r={4} fill={ED.series3} stroke={ED.paper} strokeWidth={1} />
+        <text x={x(tHeat) + 10} y={y(tHeatTrace) - 8} fontSize={11} fill={ED.series3}
               fontFamily="var(--ed-mono, monospace)">{tHeatTrace.toFixed(4)}</text>
       </g>
     </svg>

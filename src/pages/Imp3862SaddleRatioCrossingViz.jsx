@@ -6,6 +6,7 @@ import {
   IMP3862_UNDERSHOOT_MIN_N,
   IMP3862_UNDERSHOOT_MIN_R,
 } from '../data/imp-3862-saddle-ratio-crossing-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 const N_MIN = 150;
 const N_MAX = 280;
@@ -37,20 +38,20 @@ function SaddleRatioCrossingChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
       {yTicks.map((v) => (
         <g key={v}>
-          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke="#1e293b" strokeWidth={0.7} />
-          <text x={padL - 4} y={yS(v) + 3.5} textAnchor="end" fill="#475569" fontSize={9}>
+          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke={ED.ruleSoft} strokeWidth={0.7} />
+          <text x={padL - 4} y={yS(v) + 3.5} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v.toExponential(1)}
           </text>
         </g>
       ))}
 
       {/* zero line: R_n = 1 */}
-      <line x1={padL} y1={yS(0)} x2={padL + cW} y2={yS(0)} stroke="#f472b6" strokeWidth={1.2} strokeDasharray="4,3" />
-      <text x={padL + cW - 4} y={yS(0) - 5} textAnchor="end" fill="#f9a8d4" fontSize={8.5}>
+      <line x1={padL} y1={yS(0)} x2={padL + cW} y2={yS(0)} stroke={ED.series7} strokeWidth={1.2} strokeDasharray="4,3" />
+      <text x={padL + cW - 4} y={yS(0) - 5} textAnchor="end" fill={ED.series7} fontSize={8.5}>
         R_n = 1 (r_n = 0)
       </text>
 
@@ -60,39 +61,39 @@ function SaddleRatioCrossingChart() {
         y1={padT}
         x2={xS(IMP3862_CROSSING_N_STAR)}
         y2={padT + cH}
-        stroke="#facc15"
+        stroke={ED.brassDeco}
         strokeWidth={1}
         strokeDasharray="2,3"
       />
-      <text x={xS(IMP3862_CROSSING_N_STAR) + 4} y={padT + 12} fill="#fde68a" fontSize={8.5}>
+      <text x={xS(IMP3862_CROSSING_N_STAR) + 4} y={padT + 12} fill={ED.brass} fontSize={8.5}>
         n* = {IMP3862_CROSSING_N_STAR.toFixed(2)}
       </text>
 
-      <path d={path} fill="none" stroke="#38bdf8" strokeWidth={2.4} />
+      <path d={path} fill="none" stroke={ED.series1} strokeWidth={2.4} />
       {IMP3862_RUNGS.map((r) => (
         <circle
           key={r.n}
           cx={xS(r.n)}
           cy={yS(r.r)}
           r={r.n === 225 || r.n === 226 ? 3.6 : 2.4}
-          fill={r.n === 225 || r.n === 226 ? '#facc15' : '#38bdf8'}
+          fill={r.n === 225 || r.n === 226 ? ED.brassDeco : ED.series1}
         />
       ))}
 
       {/* undershoot minimum marker at n=276 */}
-      <circle cx={xS(IMP3862_UNDERSHOOT_MIN_N)} cy={yS(IMP3862_UNDERSHOOT_MIN_R)} r={4.5} fill="none" stroke="#f472b6" strokeWidth={1.6} />
+      <circle cx={xS(IMP3862_UNDERSHOOT_MIN_N)} cy={yS(IMP3862_UNDERSHOOT_MIN_R)} r={4.5} fill="none" stroke={ED.series7} strokeWidth={1.6} />
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
 
       {xTicks.map((n) => (
         <g key={'x' + n}>
-          <line x1={xS(n)} y1={padT + cH} x2={xS(n)} y2={padT + cH + 5} stroke="#334155" strokeWidth={1} />
-          <text x={xS(n)} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={9}>
+          <line x1={xS(n)} y1={padT + cH} x2={xS(n)} y2={padT + cH + 5} stroke={ED.rule} strokeWidth={1} />
+          <text x={xS(n)} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
             {n}
           </text>
         </g>
       ))}
-      <text x={padL + cW / 2} y={padT + cH + 34} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={padT + cH + 34} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         n
       </text>
 
@@ -100,7 +101,7 @@ function SaddleRatioCrossingChart() {
         x={12}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={'rotate(-90,12,' + (padT + cH / 2) + ')'}
       >
@@ -115,7 +116,7 @@ export default function Imp3862SaddleRatioCrossingViz() {
     <div style={{ padding: '1.5rem', maxWidth: 940, margin: '0 auto' }}>
       <PageHeader title="Exact-Saddle Ratio Crossing r_n = R_n - 1 at n* ~ 225.54 (imp-3731 / imp-3862)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-3731 pinned the imp-3713 exact-Laplace-saddle ratio R_n = |D_n|/|D_n<sup>saddle</sup>|
         crossing of unity to a grid-stable n* = 225.5427323 (compensated Neumaier moment solve,
         baseline vs finer grid differ by only 1.35e-9), and traced the sub-unity undershoot beyond
@@ -125,7 +126,7 @@ export default function Imp3862SaddleRatioCrossingViz() {
         at n=276 (pink ring) before beginning to recover toward zero.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         r_n = R_n - 1 vs n, n=150..280: the unity crossing at n*=225.54 (yellow dashed line),
         the r_225/r_226 sign-flip bracket (gold points), and the undershoot minimum at n=276
       </p>
@@ -135,14 +136,14 @@ export default function Imp3862SaddleRatioCrossingViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> the ratio does not
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> the ratio does not
         asymptote to 1 from above -- it OVERSHOOTS past unity at a finite n, dips into a shallow
         sub-unity well bottoming out at n=276 (R_n &asymp; 0.99989), then slowly recovers back
         toward 1 for n &gt; 276. This crossing-then-recovery shape, not a monotone approach, is
@@ -153,14 +154,14 @@ export default function Imp3862SaddleRatioCrossingViz() {
         style={{
           marginTop: '1rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(250,204,21,0.06)',
-          borderLeft: '3px solid #ca8a04',
+          background: 'color-mix(in srgb, var(--brass-deco) 6%, transparent)',
+          borderLeft: '3px solid var(--brass-deco)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
         }}
       >
-        <strong style={{ color: '#fde68a' }}>Superseded by imp-3849:</strong> this n* = 225.54
+        <strong style={{ color: 'var(--brass)' }}>Superseded by imp-3849:</strong> this n* = 225.54
         crossing and its ~1.13e-4-deep well are grid-stable against the OUTER moment-solve grid,
         but both imp-3713 and imp-3731 fix the INNER A(tau) autocorrelation quadrature at a
         coarse inner=1200 panel count. imp-3849 later showed that converging that inner
@@ -174,14 +175,14 @@ export default function Imp3862SaddleRatioCrossingViz() {
         style={{
           marginTop: '1rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement/visualization
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> measurement/visualization
         only -- no proof, no reduction below RH. This pins the convergence-diagnostic crossing of
         a moment-ratio ladder; mass-feasibility is necessary-but-not-sufficient and the
         operator-level K_a &ge; 0 sign-positivity residual (imp-3066) remains untouched.

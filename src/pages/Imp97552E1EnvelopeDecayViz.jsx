@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP97552_LOG_POINTS, IMP97552_ANCHORS } from '../data/imp-97552-e1-envelope-decay-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 // imp-97552: visualizes the imp-97539 tabulation of ratio(b) = |E1(b)|/(phi(b) b)
 // (the imp-97516 STEP 3 sub-leading L1 remainder decay) against the analytic
@@ -8,9 +9,9 @@ import { IMP97552_LOG_POINTS, IMP97552_ANCHORS } from '../data/imp-97552-e1-enve
 // 12-point b-ladder. ratio(b) sits under env(b) at every point.
 
 const FAMILY_COLOR = {
-  primorial: '#38bdf8',
-  prime: '#facc15',
-  squarefree: '#a78bfa',
+  primorial: ED.series1,
+  prime: ED.series4,
+  squarefree: ED.series5,
 };
 
 function DecayPanel() {
@@ -44,7 +45,7 @@ function DecayPanel() {
       <polyline
         points={sorted.map((p) => `${xOf(p.logB)},${yOf(p.logEnv)}`).join(' ')}
         fill="none"
-        stroke="#f87171"
+        stroke={ED.series2}
         strokeWidth={1.8}
         strokeDasharray="5 3"
       />
@@ -53,7 +54,7 @@ function DecayPanel() {
       <polyline
         points={sorted.map((p) => `${xOf(p.logB)},${yOf(p.logRatio)}`).join(' ')}
         fill="none"
-        stroke="#4ade80"
+        stroke={ED.series3}
         strokeWidth={1.6}
       />
 
@@ -68,21 +69,21 @@ function DecayPanel() {
         />
       ))}
 
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
 
       {sorted.map((p) => (
-        <text key={`x${p.b}`} x={xOf(p.logB)} y={padT + plotH + 16} textAnchor="middle" fill="#64748b" fontSize={7.5}>
+        <text key={`x${p.b}`} x={xOf(p.logB)} y={padT + plotH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={7.5}>
           {p.b}
         </text>
       ))}
       {[yMax, (yMax + yMin) / 2, yMin].map((v, i) => (
-        <text key={`y${i}`} x={padL - 6} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={8}>
+        <text key={`y${i}`} x={padL - 6} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8}>
           {v.toFixed(1)}
         </text>
       ))}
 
-      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={9}>
+      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
         log10(b) &mdash; green: log10 ratio(b)=|E1|/(phi b); red dashed: log10 env(b)=log b log log b / b; dots: primorial / prime / squarefree families
       </text>
     </svg>
@@ -98,15 +99,15 @@ export default function Imp97552E1EnvelopeDecayViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(74,222,128,0.06)',
-          borderLeft: '3px solid #4ade80',
+          background: 'color-mix(in srgb, var(--series-3) 6%, transparent)',
+          borderLeft: '3px solid var(--series-3)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#4ade80' }}>Honest status:</strong> this
+        <strong style={{ color: 'var(--series-3)' }}>Honest status:</strong> this
         chart reuses the imp-97539 12-point tabulation verbatim (log-log
         transform only, no new measurement). Presentation only; establishes
         no operator positivity; changes no bound; kappa_arith =
@@ -114,7 +115,7 @@ export default function Imp97552E1EnvelopeDecayViz() {
         NO QED.
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         E1(b) = L1(b) &minus; phi(b) b((1/2) log b &minus; 1/4) is the
         sub-leading remainder of the coprime sum L1(b) (imp-97290). The
         ratio(b) = |E1(b)| / (phi(b) b) decays from{' '}
@@ -126,7 +127,7 @@ export default function Imp97552E1EnvelopeDecayViz() {
         |E1(b)| = o(phi(b) b) quantitatively.
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         log-log: ratio(b) vs env(b)
       </h3>
       <DecayPanel />
@@ -135,14 +136,14 @@ export default function Imp97552E1EnvelopeDecayViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> presentation
         only, consuming the imp-97539 ladder verbatim. Establishes no
         operator positivity; changes no bound; cotangent first moment
         (imp-97097) stays the separate open leaf; PT Lambda&le;0.2 remains

@@ -3,6 +3,7 @@ import PageHeader from '../components/PageHeader.jsx';
 import { effectiveHeightForN } from '../data/lambda-rh-height-mapping.js';
 import { C_C_PINNED } from '../data/polymath15-constant-C-C.js';
 import { IMP34929_KRAWCZYK_HEADROOM_MONOTONICITY_DERIVATIVE as D } from '../data/imp-34929-krawczyk-headroom-monotonicity-derivative.js';
+import { ED } from '../styles/tokens.js';
 
 // Reproduces the imp-34929 closed forms verbatim (same K_AMPL/DELTA constants, same a(N)/a-prime(N)
 // kernels) purely to resample d(log S)/dN and its two competing terms on a dense N grid for plotting;
@@ -66,22 +67,22 @@ function LogDerivativeChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={yAt(0)} x2={padL + cW} y2={yAt(0)} stroke="#475569" strokeWidth={1} strokeDasharray="3 3" />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={yAt(0)} x2={padL + cW} y2={yAt(0)} stroke={ED.rule} strokeWidth={1} strokeDasharray="3 3" />
       {yTicks.map((t) => (
         <g key={t}>
-          <line x1={padL - 4} y1={yAt(t)} x2={padL} y2={yAt(t)} stroke="#334155" strokeWidth={1} />
-          <text x={padL - 8} y={yAt(t) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+          <line x1={padL - 4} y1={yAt(t)} x2={padL} y2={yAt(t)} stroke={ED.rule} strokeWidth={1} />
+          <text x={padL - 8} y={yAt(t) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {t.toFixed(1)}
           </text>
         </g>
       ))}
-      <path d={path} fill="none" stroke="#f87171" strokeWidth={2} />
-      <circle cx={xAt(N_CROSS)} cy={yAt(logDerivAt(N_CROSS).dLnS * 1e12)} r={4} fill="#38bdf8" stroke="#0f172a" strokeWidth={1} />
-      <text x={xAt(N_CROSS)} y={yAt(logDerivAt(N_CROSS).dLnS * 1e12) - 8} textAnchor="middle" fill="#38bdf8" fontSize={9}>
+      <path d={path} fill="none" stroke={ED.series2} strokeWidth={2} />
+      <circle cx={xAt(N_CROSS)} cy={yAt(logDerivAt(N_CROSS).dLnS * 1e12)} r={4} fill={ED.series1} stroke={ED.paper} strokeWidth={1} />
+      <text x={xAt(N_CROSS)} y={yAt(logDerivAt(N_CROSS).dLnS * 1e12) - 8} textAnchor="middle" fill={ED.series1} fontSize={9}>
         N_cross
       </text>
-      <text x={padL + cW / 2} y={svgH - 6} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 6} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         N across the widest imp-34693 k={D.constants.widest_band_k} band -- d(log S)/dN, units of 1e-12 (stays below zero)
       </text>
     </svg>
@@ -113,25 +114,25 @@ function CompetingTermsChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke="#334155" strokeWidth={1} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke={ED.rule} strokeWidth={1} />
       {yTicks.map((t) => (
         <g key={t}>
-          <line x1={padL - 4} y1={yAt(t)} x2={padL} y2={yAt(t)} stroke="#334155" strokeWidth={1} />
-          <text x={padL - 8} y={yAt(t) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+          <line x1={padL - 4} y1={yAt(t)} x2={padL} y2={yAt(t)} stroke={ED.rule} strokeWidth={1} />
+          <text x={padL - 8} y={yAt(t) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {t.toFixed(1)}
           </text>
         </g>
       ))}
-      <path d={downPath} fill="none" stroke="#f87171" strokeWidth={2} />
-      <path d={upPath} fill="none" stroke="#34d399" strokeWidth={2} />
-      <text x={padL + 6} y={yAt(downScaled[0]) - 6} fill="#f87171" fontSize={9.5} fontWeight={700}>
+      <path d={downPath} fill="none" stroke={ED.series2} strokeWidth={2} />
+      <path d={upPath} fill="none" stroke={ED.series3} strokeWidth={2} />
+      <text x={padL + 6} y={yAt(downScaled[0]) - 6} fill={ED.series2} fontSize={9.5} fontWeight={700}>
         DOWN-push: FP_LO&prime;/FP_LO
       </text>
-      <text x={padL + 6} y={yAt(upScaled[0]) + 14} fill="#34d399" fontSize={9.5} fontWeight={700}>
+      <text x={padL + 6} y={yAt(upScaled[0]) + 14} fill={ED.series3} fontSize={9.5} fontWeight={700}>
         UP-push: G&prime;/(G(1+G))
       </text>
-      <text x={padL + cW / 2} y={svgH - 6} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 6} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         N across the band -- both terms, units of 1e-12 (DOWN stays strictly above UP everywhere)
       </text>
     </svg>
@@ -160,21 +161,21 @@ function RelativeMarginChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
       {yTicks.map((t) => (
         <g key={t}>
-          <line x1={padL - 4} y1={yAt(t)} x2={padL + cW} y2={yAt(t)} stroke="#1e293b" strokeWidth={1} />
-          <text x={padL - 8} y={yAt(t) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+          <line x1={padL - 4} y1={yAt(t)} x2={padL + cW} y2={yAt(t)} stroke={ED.ruleSoft} strokeWidth={1} />
+          <text x={padL - 8} y={yAt(t) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {t.toFixed(4)}
           </text>
         </g>
       ))}
-      <line x1={padL} y1={yAt(WORST_REL_MARGIN)} x2={padL + cW} y2={yAt(WORST_REL_MARGIN)} stroke="#fbbf24" strokeWidth={1} strokeDasharray="4 3" />
-      <path d={path} fill="none" stroke="#38bdf8" strokeWidth={2} />
-      <text x={padL + cW - 4} y={yAt(WORST_REL_MARGIN) - 6} textAnchor="end" fill="#fbbf24" fontSize={9.5} fontWeight={700}>
+      <line x1={padL} y1={yAt(WORST_REL_MARGIN)} x2={padL + cW} y2={yAt(WORST_REL_MARGIN)} stroke={ED.brassDeco} strokeWidth={1} strokeDasharray="4 3" />
+      <path d={path} fill="none" stroke={ED.series1} strokeWidth={2} />
+      <text x={padL + cW - 4} y={yAt(WORST_REL_MARGIN) - 6} textAnchor="end" fill={ED.brass} fontSize={9.5} fontWeight={700}>
         worst-case {WORST_REL_MARGIN.toFixed(6)}
       </text>
-      <text x={padL + cW / 2} y={svgH - 6} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 6} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         relative margin 1 - up/down across the band (bounded away from zero, no sign flip)
       </text>
     </svg>
@@ -186,25 +187,25 @@ export default function Imp34962KrawczykHeadroomMonotonicityDerivativeViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Krawczyk Headroom Monotonicity Derivative (imp-34962 / imp-34929)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         {D.question}
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         d(log S)/dN, resampled from the closed form across the widest imp-34693 k=
         {D.constants.widest_band_k} band, stays strictly negative throughout -- no interior turning
         point, matching the {D.sweep.sweep_points}-point sweep baked into imp-34929.
       </p>
       <LogDerivativeChart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.25rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.25rem 0 0.5rem' }}>
         The two competing terms: the DOWN-push FP_LO&prime;/FP_LO stays strictly above the UP-push
         G&prime;/(G(1+G)) everywhere -- the 1/(1+G) damping factor keeps the UP-push weaker, forcing
         S = star_over_H2 to decrease across the whole band.
       </p>
       <CompetingTermsChart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.25rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.25rem 0 0.5rem' }}>
         The relative margin 1 - up/down (&asymp; V/(1+V)) stays bounded in a narrow band around{' '}
         {WORST_REL_MARGIN.toFixed(4)}, far from the zero that would signal a sign flip -- reproducing
         the {D.constants.sweep_points}-point imp-34929 sweep worst case verbatim.
@@ -215,14 +216,14 @@ export default function Imp34962KrawczykHeadroomMonotonicityDerivativeViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page resampling the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-only page resampling the
         imp-34929 closed-form d(log S)/dN and its two competing terms on a dense grid (no new math;
         band bounds and worst-case margin baked from imp-34929). Derivation/measurement only on the
         inherited imp-3220/imp-3406 surrogate crossover map; star_over_H2 rests on the gamma(n)/k eps

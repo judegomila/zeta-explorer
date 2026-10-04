@@ -5,6 +5,7 @@ import {
   IMP96534_LANDMARKS,
   IMP96534_CORRELATIONS,
 } from '../data/imp-96534-ar-effective-count-ladder-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 // Renders the imp-96489/imp-96509 AR effective-count ladder verbatim (no new computation):
 // n_eff and z_eff climbing AR-0 (naive) -> AR-1 -> AR-2 -> AR-3 as successive negative
@@ -32,12 +33,12 @@ function ZEffLadderChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
       {[0, zMax / 2, zMax].map((t) => (
         <g key={t}>
-          <line x1={padL - 4} y1={yAt(t)} x2={padL} y2={yAt(t)} stroke="#334155" strokeWidth={1} />
-          <text x={padL - 8} y={yAt(t) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+          <line x1={padL - 4} y1={yAt(t)} x2={padL} y2={yAt(t)} stroke={ED.rule} strokeWidth={1} />
+          <text x={padL - 8} y={yAt(t) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {t.toFixed(2)}
           </text>
         </g>
@@ -49,11 +50,11 @@ function ZEffLadderChart() {
         y1={yAt(Z_CONS)}
         x2={padL + cW}
         y2={yAt(Z_CONS)}
-        stroke="#f59e0b"
+        stroke={ED.brassDeco}
         strokeWidth={1.4}
         strokeDasharray="5 3"
       />
-      <text x={padL + cW - 4} y={yAt(Z_CONS) - 5} textAnchor="end" fill="#f59e0b" fontSize={9} fontWeight={700}>
+      <text x={padL + cW - 4} y={yAt(Z_CONS) - 5} textAnchor="end" fill={ED.brass} fontSize={9} fontWeight={700}>
         z_cons = {Z_CONS.toFixed(4)} (conservative floor, strict lower bound)
       </text>
 
@@ -63,11 +64,11 @@ function ZEffLadderChart() {
         y1={yAt(Z_TARGET)}
         x2={padL + cW}
         y2={yAt(Z_TARGET)}
-        stroke="#64748b"
+        stroke={ED.rule}
         strokeWidth={1}
         strokeDasharray="2 3"
       />
-      <text x={padL + 4} y={yAt(Z_TARGET) - 5} textAnchor="start" fill="#94a3b8" fontSize={9}>
+      <text x={padL + 4} y={yAt(Z_TARGET) - 5} textAnchor="start" fill={ED.inkSoft} fontSize={9}>
         2-sigma target
       </text>
 
@@ -75,14 +76,14 @@ function ZEffLadderChart() {
         const x = padL + gap + i * (barW + gap);
         return (
           <g key={r.stage}>
-            <rect x={x} y={yAt(r.zEff)} width={barW} height={cH - (yAt(r.zEff) - padT)} fill="#38bdf8" opacity={0.85} />
-            <text x={x + barW / 2} y={yAt(r.zEff) - 6} textAnchor="middle" fill="#e2e8f0" fontSize={10} fontWeight={700}>
+            <rect x={x} y={yAt(r.zEff)} width={barW} height={cH - (yAt(r.zEff) - padT)} fill={ED.series1} opacity={0.85} />
+            <text x={x + barW / 2} y={yAt(r.zEff) - 6} textAnchor="middle" fill={ED.ink} fontSize={10} fontWeight={700}>
               {r.zEff.toFixed(3)}
             </text>
-            <text x={x + barW / 2} y={padT + cH + 16} textAnchor="middle" fill="#94a3b8" fontSize={10} fontWeight={700}>
+            <text x={x + barW / 2} y={padT + cH + 16} textAnchor="middle" fill={ED.inkSoft} fontSize={10} fontWeight={700}>
               {r.stage}
             </text>
-            <text x={x + barW / 2} y={padT + cH + 29} textAnchor="middle" fill="#64748b" fontSize={8.5}>
+            <text x={x + barW / 2} y={padT + cH + 29} textAnchor="middle" fill={ED.inkFaint} fontSize={8.5}>
               n_eff={r.nEff.toFixed(1)}
             </text>
           </g>
@@ -112,8 +113,8 @@ function CorrelationSignChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={zeroY} x2={padL + cW} y2={zeroY} stroke="#334155" strokeWidth={1} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={zeroY} x2={padL + cW} y2={zeroY} stroke={ED.rule} strokeWidth={1} />
 
       {/* rho_crit positive flip threshold */}
       <line
@@ -121,11 +122,11 @@ function CorrelationSignChart() {
         y1={yAt(RHO_CRIT)}
         x2={padL + cW}
         y2={yAt(RHO_CRIT)}
-        stroke="#f87171"
+        stroke={ED.series2}
         strokeWidth={1.4}
         strokeDasharray="5 3"
       />
-      <text x={padL + cW - 4} y={yAt(RHO_CRIT) - 5} textAnchor="end" fill="#f87171" fontSize={9} fontWeight={700}>
+      <text x={padL + cW - 4} y={yAt(RHO_CRIT) - 5} textAnchor="end" fill={ED.series2} fontSize={9} fontWeight={700}>
         rho_crit = +{RHO_CRIT.toFixed(4)} (flip threshold)
       </text>
 
@@ -135,11 +136,11 @@ function CorrelationSignChart() {
         const h = Math.abs(yAt(c.rho) - zeroY);
         return (
           <g key={c.lag}>
-            <rect x={x} y={top} width={barW} height={h} fill="#a78bfa" opacity={0.85} />
-            <text x={x + barW / 2} y={yAt(c.rho) + (c.rho < 0 ? 14 : -6)} textAnchor="middle" fill="#e2e8f0" fontSize={9.5} fontWeight={700}>
+            <rect x={x} y={top} width={barW} height={h} fill={ED.series5} opacity={0.85} />
+            <text x={x + barW / 2} y={yAt(c.rho) + (c.rho < 0 ? 14 : -6)} textAnchor="middle" fill={ED.ink} fontSize={9.5} fontWeight={700}>
               {c.rho.toFixed(4)}
             </text>
-            <text x={x + barW / 2} y={padT + cH + 16} textAnchor="middle" fill="#94a3b8" fontSize={10} fontWeight={700}>
+            <text x={x + barW / 2} y={padT + cH + 16} textAnchor="middle" fill={ED.inkSoft} fontSize={10} fontWeight={700}>
               rho_{c.lag}
             </text>
           </g>
@@ -154,7 +155,7 @@ export default function Imp96534ArEffectiveCountLadderViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="AR Effective-Count Ladder (imp-96489 / imp-96509)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         The excursion effective significance z_eff climbs AR-0 (naive, no correlation credit) &rarr;
         AR-1 (imp-96489, lag-1 only) &rarr; AR-2 &rarr; AR-3 (imp-96509, folding in the small
         negative higher-lag sine-process box correlations). The dashed amber line marks the
@@ -163,7 +164,7 @@ export default function Imp96534ArEffectiveCountLadderViz() {
       </p>
       <ZEffLadderChart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.25rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.25rem 0 0.5rem' }}>
         Every fitted lag correlation feeding the ladder is negative, sign-forbidden from the
         rho_crit = +{RHO_CRIT.toFixed(4)} threshold that would flip the dip to noise.
       </p>
@@ -173,14 +174,14 @@ export default function Imp96534ArEffectiveCountLadderViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page rendering the imp-96509
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-only page rendering the imp-96509
         AR(p) resummation literals verbatim (no new computation). The lag-2/lag-3 inputs are
         theoretical GUE sine-process box correlations, not empirical zero covariances, so the
         AR-2/AR-3 figures are indicative, not precise; the headline z_cons floor is untouched.

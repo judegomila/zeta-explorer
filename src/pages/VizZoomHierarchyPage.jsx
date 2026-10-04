@@ -30,6 +30,7 @@ import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { BlockMath, InlineMath } from '../components/KaTeXMath.jsx';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
+import { ED } from '../styles/tokens.js';
 
 // Editorial (warm) re-theme: identical math/canvas logic, warm chrome.
 // Canvas colors are literal warm hex (canvas fill/stroke can't use CSS vars):
@@ -151,7 +152,7 @@ export default function VizZoomHierarchyPage() {
       const ctx = canvas.getContext('2d');
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
-      ctx.fillStyle = '#f6f1e7';
+      ctx.fillStyle = ED.paper2;
       ctx.fillRect(0, 0, W, H);
 
       const cx = W / 2;
@@ -160,7 +161,7 @@ export default function VizZoomHierarchyPage() {
       const rPx = Math.min(W, H) / 2 - pad;
 
       // Faint unit-disk boundary + spokes for the shared frame.
-      ctx.strokeStyle = '#d5c9b2';
+      ctx.strokeStyle = ED.rule;
       ctx.lineWidth = 1;
       ctx.beginPath();
       ctx.arc(cx, cy, rPx, 0, Math.PI * 2);
@@ -195,7 +196,7 @@ export default function VizZoomHierarchyPage() {
       }
 
       // Panel caption.
-      ctx.fillStyle = '#877b67';
+      ctx.fillStyle = ED.inkFaint;
       ctx.font = '11px "JetBrains Mono", monospace';
       ctx.textAlign = 'center';
       ctx.fillText('p ∈ ' + win.label, cx, H - 7);
@@ -348,7 +349,7 @@ export default function VizZoomHierarchyPage() {
               height: PANEL,
               maxWidth: '100%',
               display: 'block',
-              background: '#f6f1e7',
+              background: 'var(--paper-2)',
               borderRadius: 6,
             }}
             role="img"

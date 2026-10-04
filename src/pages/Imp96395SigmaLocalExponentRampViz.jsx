@@ -9,6 +9,7 @@ import {
   IMP96395_SUMMARY,
   IMP96395_HONEST_BANNER,
 } from '../data/imp-96395-sigma-local-exponent-ramp-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 function RampChart() {
   const svgW = 680;
@@ -40,36 +41,36 @@ function RampChart() {
           y1={padT}
           x2={xOf(v)}
           y2={padT + plotH}
-          stroke="#334155"
+          stroke={ED.rule}
           strokeWidth={0.5}
           opacity={0.25}
         />
       ))}
-      <path d={path} fill="none" stroke="#22d3ee" strokeWidth={2} />
+      <path d={path} fill="none" stroke={ED.series6} strokeWidth={2} />
       <line
         x1={xOf(IMP96395_KNEE.log10N)}
         y1={padT}
         x2={xOf(IMP96395_KNEE.log10N)}
         y2={padT + plotH}
-        stroke="#facc15"
+        stroke={ED.brassDeco}
         strokeWidth={1.25}
         strokeDasharray="3,3"
       />
-      <circle cx={xOf(IMP96395_KNEE.log10N)} cy={yOf(IMP96395_KNEE.exponent)} r={5} fill="#a78bfa" />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <circle cx={xOf(IMP96395_KNEE.log10N)} cy={yOf(IMP96395_KNEE.exponent)} r={5} fill={ED.series5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
       {xTicks.map((v) => (
-        <text key={`tx${v}`} x={xOf(v)} y={padT + plotH + 14} textAnchor="middle" fill="#64748b" fontSize={8}>
+        <text key={`tx${v}`} x={xOf(v)} y={padT + plotH + 14} textAnchor="middle" fill={ED.inkFaint} fontSize={8}>
           {v}
         </text>
       ))}
-      <text x={padL - 8} y={yOf(IMP96395_RAMP_AXIS.exponentMax) + 3} textAnchor="end" fill="#64748b" fontSize={8}>
+      <text x={padL - 8} y={yOf(IMP96395_RAMP_AXIS.exponentMax) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8}>
         {IMP96395_RAMP_AXIS.exponentMax.toFixed(3)}
       </text>
-      <text x={padL - 8} y={yOf(IMP96395_RAMP_AXIS.exponentMin) + 3} textAnchor="end" fill="#64748b" fontSize={8}>
+      <text x={padL - 8} y={yOf(IMP96395_RAMP_AXIS.exponentMin) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8}>
         {IMP96395_RAMP_AXIS.exponentMin.toFixed(3)}
       </text>
-      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={9}>
+      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
         log10 N (tenth-decade brackets, [1e9,1e12])
       </text>
     </svg>
@@ -99,21 +100,21 @@ function D2Chart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={zeroY} x2={padL + plotW} y2={zeroY} stroke="#475569" strokeWidth={0.75} strokeDasharray="2,2" />
-      <path d={path} fill="none" stroke="#f472b6" strokeWidth={2} />
+      <line x1={padL} y1={zeroY} x2={padL + plotW} y2={zeroY} stroke={ED.rule} strokeWidth={0.75} strokeDasharray="2,2" />
+      <path d={path} fill="none" stroke={ED.series7} strokeWidth={2} />
       <line
         x1={xOf(IMP96395_KNEE.log10N)}
         y1={padT}
         x2={xOf(IMP96395_KNEE.log10N)}
         y2={padT + plotH}
-        stroke="#facc15"
+        stroke={ED.brassDeco}
         strokeWidth={1.25}
         strokeDasharray="3,3"
       />
-      <circle cx={xOf(IMP96395_KNEE.log10N)} cy={zeroY} r={4} fill="#facc15" />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={9}>
+      <circle cx={xOf(IMP96395_KNEE.log10N)} cy={zeroY} r={4} fill={ED.brassDeco} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
         D2 (ramp acceleration) vs log10 N; dashed horizontal line = zero-crossing level
       </text>
     </svg>
@@ -129,18 +130,18 @@ export default function Imp96395SigmaLocalExponentRampViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 760,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> {IMP96395_HONEST_BANNER}
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> {IMP96395_HONEST_BANNER}
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
         imp-96351 differenced the sigma(N) = E_coll/(E_trunc+E_flow+E_coll) local decay
         exponent on a tenth-decade grid ({IMP96395_SUMMARY.primaryNumSubBrackets} sub-brackets,
         {' '}{IMP96395_SUMMARY.ptsPerDecade} pts/decade) across the wider window
@@ -149,12 +150,12 @@ export default function Imp96395SigmaLocalExponentRampViz() {
         {' '}time, at log10 N* = {IMP96395_KNEE.log10N.toFixed(4)} (N* ~ {IMP96395_KNEE.N}).
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         local-exponent ramp p_dec(N)
       </h3>
       <RampChart />
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', margin: '1.25rem 0 0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', margin: '1.25rem 0 0.5rem' }}>
         second difference D2 (ramp acceleration)
       </h3>
       <D2Chart />
@@ -163,14 +164,14 @@ export default function Imp96395SigmaLocalExponentRampViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> the cyan curve is
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> the cyan curve is
         the OLS local exponent p_dec on each tenth-decade sub-bracket; the pink curve below
         is its second difference D2. The dashed yellow line in both marks the single knee at
         log10 N* = {IMP96395_KNEE.log10N.toFixed(4)}, where D2 crosses zero (purple dot on the
@@ -182,14 +183,14 @@ export default function Imp96395SigmaLocalExponentRampViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page; the sigma(N)/OLS
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page; the sigma(N)/OLS
         exponent/D2 logic is copied verbatim from imp-96351 (no fresh model, no re-fit), only
         re-run here to expose the per-bracket series for charting. Measurement/fit only;
         inherited component model, not a rigorous asymptotic; changes no bound; RH open;

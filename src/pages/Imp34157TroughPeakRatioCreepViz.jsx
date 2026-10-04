@@ -4,6 +4,7 @@ import SurrogateDiagnosticCohortNote from '../components/SurrogateDiagnosticCoho
 import { IMP34085_TROUGH_PEAK_RATIO_CONVERGENCE } from '../data/imp-34085-trough-peak-ratio-convergence.js';
 import { IMP34214_TROUGH_PEAK_RATIO_LIMIT_FIT } from '../data/imp-34214-trough-peak-ratio-limit-fit.js';
 import { IMP34234_TROUGH_PEAK_PERSTEP_CROSSOVER_TENTH_DECADE } from '../data/imp-34234-trough-peak-perstep-crossover-tenth-decade.js';
+import { ED } from '../styles/tokens.js';
 
 const {
   ratioSequence: RATIO,
@@ -38,14 +39,14 @@ function RatioChart() {
       <polyline
         points={RATIO.map((w, i) => `${xAt(i)},${yAt(w.ratio)}`).join(' ')}
         fill="none"
-        stroke="#f472b6"
+        stroke={ED.series7}
         strokeWidth={1.75}
       />
       {RATIO.map((w, i) => (
-        <circle key={w.window} cx={xAt(i)} cy={yAt(w.ratio)} r={4} fill="#f472b6" stroke="#0a0f1a" strokeWidth={1} />
+        <circle key={w.window} cx={xAt(i)} cy={yAt(w.ratio)} r={4} fill={ED.series7} stroke={ED.paper} strokeWidth={1} />
       ))}
       {RATIO.map((w, i) => (
-        <text key={`lbl-${w.window}`} x={xAt(i)} y={yAt(w.ratio) - 10} textAnchor="middle" fill="#94a3b8" fontSize={9.5}>
+        <text key={`lbl-${w.window}`} x={xAt(i)} y={yAt(w.ratio) - 10} textAnchor="middle" fill={ED.inkSoft} fontSize={9.5}>
           {w.ratio.toFixed(4)}
         </text>
       ))}
@@ -55,25 +56,25 @@ function RatioChart() {
           x={(xAt(i) + xAt(i + 1)) / 2}
           y={(yAt(RATIO[i].ratio) + yAt(RATIO[i + 1].ratio)) / 2 - 10}
           textAnchor="middle"
-          fill="#38bdf8"
+          fill={ED.series1}
           fontSize={9}
         >
           +{step.toFixed(4)}
         </text>
       ))}
       {RATIO.map((w, i) => (
-        <text key={`win-${w.window}`} x={xAt(i)} y={svgH - padB + 16} textAnchor="middle" fill="#64748b" fontSize={9.5}>
+        <text key={`win-${w.window}`} x={xAt(i)} y={svgH - padB + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5}>
           {w.window}
         </text>
       ))}
-      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         ladder window (fit boundary receding BASE k=11 .. EXT13 k=13)
       </text>
       <text
         x={16}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={`rotate(-90 16 ${padT + cH / 2})`}
       >
@@ -103,13 +104,13 @@ function AmplitudeChart() {
   const yZero = yAt(0);
 
   const series = [
-    { data: PEAK, key: 'resid', color: '#facc15', label: 'endpoint peak (+), growth decelerating' },
-    { data: TROUGH, key: 'resid', color: '#38bdf8', label: 'interior trough (-), deepening near-steady' },
+    { data: PEAK, key: 'resid', color: ED.brass, label: 'endpoint peak (+), growth decelerating' },
+    { data: TROUGH, key: 'resid', color: ED.series1, label: 'interior trough (-), deepening near-steady' },
   ];
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={yZero} x2={padL + cW} y2={yZero} stroke="#334155" strokeWidth={1} strokeDasharray="3,3" />
+      <line x1={padL} y1={yZero} x2={padL + cW} y2={yZero} stroke={ED.rule} strokeWidth={1} strokeDasharray="3,3" />
       {series.map((s) => (
         <polyline
           key={s.label}
@@ -125,18 +126,18 @@ function AmplitudeChart() {
         ))
       )}
       {PEAK.map((w, i) => (
-        <text key={`win-${w.window}`} x={xAt(i)} y={svgH - padB + 16} textAnchor="middle" fill="#64748b" fontSize={9.5}>
+        <text key={`win-${w.window}`} x={xAt(i)} y={svgH - padB + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5}>
           {w.window}
         </text>
       ))}
-      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         ladder window (fit boundary receding BASE k=11 .. EXT13 k=13)
       </text>
       <text
         x={16}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={`rotate(-90 16 ${padT + cH / 2})`}
       >
@@ -156,7 +157,7 @@ export default function Imp34157TroughPeakRatioCreepViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Trough/Peak Amplitude-Ratio Non-Convergence Creep (imp-34085 / imp-34157)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-34022 found the endpoint-peak / negative-trough amplitude ratio |trough|/|peak| of the
         imp-33843 log-linear re-fit near-constant (~0.6151 → 0.6293 → 0.6492) across the three imp-33810
         ladder windows BASE/EXT115/EXT12, only ~5.5% drift. imp-34085 extended the ladder two further
@@ -166,12 +167,12 @@ export default function Imp34157TroughPeakRatioCreepViz() {
         the imp-34022 near-constant reading as a short-window artifact.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         amplitude ratio across the five windows, with per-step increments annotated
       </p>
       <RatioChart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.25rem 0 0.25rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.25rem 0 0.25rem' }}>
         the mechanism: endpoint-locked peak decelerates while the interior trough deepens near-steadily
       </p>
       <AmplitudeChart />
@@ -180,14 +181,14 @@ export default function Imp34157TroughPeakRatioCreepViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> {FINDING.R1_ratio_keeps_creeping_no_limit_visible}{' '}
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> {FINDING.R1_ratio_keeps_creeping_no_limit_visible}{' '}
         {FINDING.R2_mechanism_peak_decelerates_trough_near_steady} On an extended inherited ladder.{' '}
         {LIMIT_FIT_FINDING.R2_extrapolated_limits_non_physical}{' '}
         <SurrogateDiagnosticCohortNote />
@@ -197,14 +198,14 @@ export default function Imp34157TroughPeakRatioCreepViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>imp-34234 per-step crossover (refines imp-34153):</strong> on a
+        <strong style={{ color: 'var(--ink-soft)' }}>imp-34234 per-step crossover (refines imp-34153):</strong> on a
         tenth-decade receding-endpoint grid, the interior-trough per-step increment first (and permanently)
         overtakes the endpoint-peak per-step increment at window-step (12.30 → 12.40), interpolated crossover
         midpoint kEnd* ≈ {IMP34234_TROUGH_PEAK_PERSTEP_CROSSOVER_TENTH_DECADE.interpolatedCrossoverKEnd} —

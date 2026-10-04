@@ -6,6 +6,7 @@ import {
   IMP97630_FULL_SPREAD,
   IMP97630_SUMMARY,
 } from '../data/imp-97630-lambda2-floor-spread-waterfall-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 // Floating-bar waterfall: the rigorous upper edge steps down through two descents (honest geometric
 // tail, then the dominant tail-model disagreement) to the power-refit deep end. Bar height encodes
@@ -31,14 +32,14 @@ function FloorWaterfallChart() {
   const yOf = (v) => padT + ((top - v) / span) * plotH;
 
   const colorFor = (row) => {
-    if (row.kind === 'anchor') return '#94a3b8';
-    return row.key === 'extrapolationModel' ? '#f87171' : '#60a5fa';
+    if (row.kind === 'anchor') return ED.series8;
+    return row.key === 'extrapolationModel' ? ED.series2 : ED.series1;
   };
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#334155" strokeWidth={1} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#334155" strokeWidth={1} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1} />
 
       {rows.map((r, i) => {
         const x = padL + i * slot + (slot - barW) / 2;
@@ -49,15 +50,15 @@ function FloorWaterfallChart() {
         return (
           <g key={r.key}>
             <rect x={x} y={y} width={barW} height={h || 3} fill={colorFor(r)} opacity={0.85} />
-            <text x={x + barW / 2} y={y - 6} textAnchor="middle" fill="#cbd5e1" fontSize={9}>
+            <text x={x + barW / 2} y={y - 6} textAnchor="middle" fill={ED.ink} fontSize={9}>
               {r.kind === 'anchor' ? r.value.toFixed(3) : `-${r.magnitude.toFixed(4)}`}
             </text>
             {r.kind === 'descent' && (
-              <text x={x + barW / 2} y={y + h / 2 + 3} textAnchor="middle" fill="#0f172a" fontSize={9} fontWeight="bold">
+              <text x={x + barW / 2} y={y + h / 2 + 3} textAnchor="middle" fill={ED.paper} fontSize={9} fontWeight="bold">
                 {r.sharePct.toFixed(1)}%
               </text>
             )}
-            <text x={x + barW / 2} y={padT + plotH + 14} textAnchor="middle" fill="#94a3b8" fontSize={8.5}>
+            <text x={x + barW / 2} y={padT + plotH + 14} textAnchor="middle" fill={ED.inkSoft} fontSize={8.5}>
               {r.label}
             </text>
           </g>
@@ -68,7 +69,7 @@ function FloorWaterfallChart() {
         x={14}
         y={padT + plotH / 2}
         textAnchor="middle"
-        fill="#94a3b8"
+        fill={ED.inkSoft}
         fontSize={9}
         transform={`rotate(-90 14 ${padT + plotH / 2})`}
       >
@@ -87,35 +88,35 @@ export default function Imp97630Lambda2FloorSpreadWaterfallViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> a measurement/presentation-only
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a measurement/presentation-only
         page reshaping the frozen imp-97600 spread-decomposition literals verbatim (no re-derivation, no
         new computation). No rigorous lower bound on lambda_2 is produced; the floor stays four orders
         below the required 0.581059; interval-rigorous reach stays 2a&le;0.96; Platt&ndash;Trudgian
         &Lambda; &le; 0.2 remains SOTA; RH open; NO QED.
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         {IMP97630_SUMMARY.reading}
       </p>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.85rem', margin: '0 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.85rem', margin: '0 0 0.5rem' }}>
         The rigorous upper edge (grey) descends through the honest geometric K-truncation tail (blue,
         5.6%) then the dominant tail-model disagreement on nu_max (red, 94.4%) down to the power-refit
         deep end (grey):
       </p>
       <FloorWaterfallChart />
 
-      <table style={{ width: '100%', fontSize: '0.78rem', color: '#cbd5e1', borderCollapse: 'collapse', marginTop: '1.25rem' }}>
+      <table style={{ width: '100%', fontSize: '0.78rem', color: 'var(--ink)', borderCollapse: 'collapse', marginTop: '1.25rem' }}>
         <thead>
-          <tr style={{ color: '#64748b' }}>
+          <tr style={{ color: 'var(--ink-faint)' }}>
             <th style={{ textAlign: 'left', paddingBottom: 4 }}>step</th>
             <th style={{ textAlign: 'right', paddingBottom: 4 }}>start</th>
             <th style={{ textAlign: 'right', paddingBottom: 4 }}>end</th>
@@ -124,7 +125,7 @@ export default function Imp97630Lambda2FloorSpreadWaterfallViz() {
         </thead>
         <tbody>
           {IMP97630_WATERFALL_ROWS.map((r) => (
-            <tr key={r.key} style={{ borderTop: '1px solid rgba(148,163,184,0.15)' }}>
+            <tr key={r.key} style={{ borderTop: '1px solid color-mix(in srgb, var(--rule) 15%, transparent)' }}>
               <td style={{ padding: '3px 0' }}>{r.label}</td>
               <td style={{ textAlign: 'right' }}>{r.start.toFixed(6)}</td>
               <td style={{ textAlign: 'right' }}>{r.end.toFixed(6)}</td>
@@ -132,15 +133,15 @@ export default function Imp97630Lambda2FloorSpreadWaterfallViz() {
             </tr>
           ))}
           {IMP97630_ZERO_SOURCES.map((s) => (
-            <tr key={s.key} style={{ borderTop: '1px solid rgba(148,163,184,0.15)' }}>
-              <td style={{ padding: '3px 0', color: '#64748b' }}>{s.label}</td>
-              <td style={{ textAlign: 'right', color: '#64748b' }} colSpan={2}>{s.note}</td>
-              <td style={{ textAlign: 'right', color: '#64748b' }}>{s.sharePct.toFixed(0)}%</td>
+            <tr key={s.key} style={{ borderTop: '1px solid color-mix(in srgb, var(--rule) 15%, transparent)' }}>
+              <td style={{ padding: '3px 0', color: 'var(--ink-faint)' }}>{s.label}</td>
+              <td style={{ textAlign: 'right', color: 'var(--ink-faint)' }} colSpan={2}>{s.note}</td>
+              <td style={{ textAlign: 'right', color: 'var(--ink-faint)' }}>{s.sharePct.toFixed(0)}%</td>
             </tr>
           ))}
         </tbody>
       </table>
-      <p style={{ color: '#64748b', fontSize: '0.78rem', marginTop: '0.4rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontSize: '0.78rem', marginTop: '0.4rem' }}>
         full spread = {IMP97630_FULL_SPREAD.toFixed(6)} (upper edge &minus; power-refit deep end).
       </p>
 
@@ -148,14 +149,14 @@ export default function Imp97630Lambda2FloorSpreadWaterfallViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> {IMP97630_SUMMARY.verdict}
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> {IMP97630_SUMMARY.verdict}
       </div>
     </div>
   );

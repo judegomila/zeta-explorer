@@ -7,6 +7,7 @@ import {
   IMP96318_HONEST_BANNER,
 } from '../data/imp-96318-confident-span-crossing-viz-data.js';
 import { IMP96309_VERDICT } from '../data/imp-96309-route-m-confident-span-dip-seed-ensemble.js';
+import { ED } from '../styles/tokens.js';
 
 function CrossingChart() {
   const svgW = 680;
@@ -39,22 +40,22 @@ function CrossingChart() {
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
       {/* near-equal plateau band */}
-      <rect x={plateauX1} y={padT} width={plateauX2 - plateauX1} height={plotH} fill="#f472b6" opacity={0.08} />
+      <rect x={plateauX1} y={padT} width={plateauX2 - plateauX1} height={plotH} fill={ED.series7} opacity={0.08} />
 
       {yTicks.map((v) => (
         <g key={`y${v}`}>
-          <line x1={padL} y1={yOf(v)} x2={padL + plotW} y2={yOf(v)} stroke="#334155" strokeWidth={0.5} opacity={0.4} />
-          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={8.5}>{v.toFixed(1)}</text>
+          <line x1={padL} y1={yOf(v)} x2={padL + plotW} y2={yOf(v)} stroke={ED.rule} strokeWidth={0.5} opacity={0.4} />
+          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8.5}>{v.toFixed(1)}</text>
         </g>
       ))}
 
       {/* Rayleigh span reference line */}
-      <line x1={padL} y1={yOf(IMP96318_ANCHORS.rayleighSpan)} x2={padL + plotW} y2={yOf(IMP96318_ANCHORS.rayleighSpan)} stroke="#94a3b8" strokeWidth={0.75} strokeDasharray="2 3" opacity={0.6} />
+      <line x1={padL} y1={yOf(IMP96318_ANCHORS.rayleighSpan)} x2={padL + plotW} y2={yOf(IMP96318_ANCHORS.rayleighSpan)} stroke={ED.rule} strokeWidth={0.75} strokeDasharray="2 3" opacity={0.6} />
 
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
 
-      <path d={pathOf(IMP96318_CROSSING_SERIES)} fill="none" stroke="#f472b6" strokeWidth={1.75} opacity={0.95} />
+      <path d={pathOf(IMP96318_CROSSING_SERIES)} fill="none" stroke={ED.series7} strokeWidth={1.75} opacity={0.95} />
 
       {IMP96318_CROSSING_SERIES.map((p) => (
         <circle
@@ -62,35 +63,35 @@ function CrossingChart() {
           cx={xOf(p.logRho)}
           cy={yOf(p.crossSpan)}
           r={p.isGlobalMin ? 3.6 : p.isEqualAmplitude ? 3.2 : 2.2}
-          fill={p.isGlobalMin ? '#facc15' : p.isEqualAmplitude ? '#38bdf8' : '#f472b6'}
+          fill={p.isGlobalMin ? ED.brassDeco : p.isEqualAmplitude ? ED.series1 : ED.series7}
         />
       ))}
 
       {xTickRhos.map((v) => (
-        <text key={`x${v}`} x={xOf(Math.log(v))} y={padT + plotH + 14} textAnchor="middle" fill="#64748b" fontSize={7.5}>
+        <text key={`x${v}`} x={xOf(Math.log(v))} y={padT + plotH + 14} textAnchor="middle" fill={ED.inkFaint} fontSize={7.5}>
           {v}
         </text>
       ))}
 
-      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill="#64748b" fontSize={9.5}>
+      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5}>
         amplitude ratio rho = A4/A5 (log scale, fine grid)
       </text>
 
       <g transform={`translate(${padL + 8}, ${padT + 8})`}>
-        <line x1={0} y1={0} x2={18} y2={0} stroke="#f472b6" strokeWidth={1.75} />
-        <text x={22} y={3} fill="#94a3b8" fontSize={8.5}>
+        <line x1={0} y1={0} x2={18} y2={0} stroke={ED.series7} strokeWidth={1.75} />
+        <text x={22} y={3} fill={ED.inkSoft} fontSize={8.5}>
           confident-separation crossing span L(rho) (AICc &gt; 0.90, fine grid)
         </text>
-        <circle cx={9} cy={16} r={3.2} fill="#38bdf8" />
-        <text x={22} y={19} fill="#94a3b8" fontSize={8.5}>
+        <circle cx={9} cy={16} r={3.2} fill={ED.series1} />
+        <text x={22} y={19} fill={ED.inkSoft} fontSize={8.5}>
           equal-amplitude rho = 1 (L = {IMP96318_ANCHORS.eqSpanRho1.toFixed(3)})
         </text>
-        <circle cx={9} cy={32} r={3.6} fill="#facc15" />
-        <text x={22} y={35} fill="#94a3b8" fontSize={8.5}>
+        <circle cx={9} cy={32} r={3.6} fill={ED.brassDeco} />
+        <text x={22} y={35} fill={ED.inkSoft} fontSize={8.5}>
           global minimum, rho = {IMP96318_ANCHORS.minSpanRho} (L = {IMP96318_ANCHORS.minSpan.toFixed(3)})
         </text>
-        <line x1={0} y1={46} x2={18} y2={46} stroke="#94a3b8" strokeWidth={0.75} strokeDasharray="2 3" />
-        <text x={22} y={49} fill="#94a3b8" fontSize={8.5}>Rayleigh span ({IMP96318_ANCHORS.rayleighSpan.toFixed(3)})</text>
+        <line x1={0} y1={46} x2={18} y2={46} stroke={ED.rule} strokeWidth={0.75} strokeDasharray="2 3" />
+        <text x={22} y={49} fill={ED.inkSoft} fontSize={8.5}>Rayleigh span ({IMP96318_ANCHORS.rayleighSpan.toFixed(3)})</text>
       </g>
     </svg>
   );
@@ -105,18 +106,18 @@ export default function Imp96318ConfidentSpanCrossingViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 760,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> {IMP96318_HONEST_BANNER}
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> {IMP96318_HONEST_BANNER}
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
         imp-96264 read the confident (AICc &gt; 0.90) two-tone separation span as strictly
         minimized at the equal-amplitude ratio rho = 1, exactly at the Rayleigh span. imp-96288
         re-ran the same pipeline at fine rho/span resolution and found that was a coarse-grid
@@ -127,7 +128,7 @@ export default function Imp96318ConfidentSpanCrossingViz() {
         the equal-amplitude value.
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         L(rho) vs amplitude ratio rho (flat plateau near rho = 1, rising with imbalance)
       </h3>
       <CrossingChart />
@@ -136,14 +137,14 @@ export default function Imp96318ConfidentSpanCrossingViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> the shaded band marks the
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> the shaded band marks the
         near-equal-amplitude window (rho in [{IMP96318_PLATEAU.rhoLow}, {IMP96318_PLATEAU.rhoHigh}])
         where the crossing span stays inside a flat plateau ({IMP96318_PLATEAU.label}), all just
         below the dashed Rayleigh reference line. The blue dot (rho = 1) and yellow dot (the global
@@ -156,14 +157,14 @@ export default function Imp96318ConfidentSpanCrossingViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>imp-96309 update:</strong> the yellow dot above (the
+        <strong style={{ color: 'var(--ink-soft)' }}>imp-96309 update:</strong> the yellow dot above (the
         rho = {IMP96318_ANCHORS.minSpanRho} "global minimum", {IMP96318_ANCHORS.marginVsEqual.toFixed(3)}{' '}
         below the equal-amplitude value) is the single-seed dip that imp-96309 re-ran at 10x draws
         (span reverts to rho = 1, with 0.94 now {Math.abs(IMP96309_VERDICT.highDrawDipEqMinus094).toFixed(3)}{' '}
@@ -179,14 +180,14 @@ export default function Imp96318ConfidentSpanCrossingViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page consuming the imp-96288
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the imp-96288
         baked fine-grid crossing curve verbatim (only the log(rho) axis reshaping is computed here).
         Synthetic q4+q5 two-tone Monte-Carlo simulation, not a measurement of the real conductor
         content or its amplitude ratio. Changes no bound, establishes no operator positivity, no RH

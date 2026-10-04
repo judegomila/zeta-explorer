@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import PostLayout, { TheoremBox, Pull } from '../components/editorial/PostLayout.jsx';
 import { FROZEN_RUNG_PT_EQUIVALENCE } from '../data/frozen-rung-pt-equivalence-2026-07-31.js';
 import AnimationEmbed from '../components/AnimationEmbed.jsx';
+import { ED } from '../styles/tokens.js';
 
 /* Editorial (post reading-view) presentation of the frozen-rung ⟺ Platt–Trudgian
    proposition. All mathematical text is sourced verbatim from
@@ -27,7 +28,7 @@ export default function FrozenRungPTEquivalencePage() {
       meta={['operator-language reformulation', '2026-07-31']}
       title="Freezing the Rungs = Platt–Trudgian in Operator Language"
       dek="A proposition from the twin-ladder freeze investigation (2026-07-31): the Platt–Trudgian verified-height Λ bound is the winding-form frozen-rung index certificate of the kernel bridge — and by inertia-preservation it can never beat it."
-      byline={['twin-ladder freeze · mathexplorer', 'inertia half unconditional']}
+      byline={['twin-ladder freeze · zetaexplorer', 'inertia half unconditional']}
       ticker={<span>reformulation · not a new bound · not RH</span>}
       footer={<>
         <a href={paperPdf} target="_blank" rel="noreferrer">Full rigorous write-up (13pp, PDF)</a>
@@ -71,14 +72,14 @@ export default function FrozenRungPTEquivalencePage() {
 
       <h2>The proposition</h2>
 
-      <Part tag="A · inertia half" status={proposition.provenInertiaHalf.status} accent="#8c6a1d">
+      <Part tag="A · inertia half" status={proposition.provenInertiaHalf.status} accent={ED.brass}>
         {proposition.provenInertiaHalf.statement}
         <div style={{ fontSize: 13, color: 'var(--faint)', marginTop: 6 }}>
           cites: {proposition.provenInertiaHalf.cites.join(' · ')}
         </div>
       </Part>
 
-      <Part tag="B · winding-form identity" status={proposition.windingFormIdentity.status} accent="#4a4238">
+      <Part tag="B · winding-form identity" status={proposition.windingFormIdentity.status} accent={ED.inkSoft}>
         {proposition.windingFormIdentity.statement}
       </Part>
 
@@ -96,7 +97,7 @@ export default function FrozenRungPTEquivalencePage() {
         </div>
       </Part>
 
-      <Part tag="D · consequence" status={proposition.consequence.status} accent="#8c6a1d">
+      <Part tag="D · consequence" status={proposition.consequence.status} accent={ED.brass}>
         {proposition.consequence.statement}
         <div style={{ fontSize: 14, color: 'var(--ink-soft)', marginTop: 8 }}>
           {proposition.consequence.ptRemainsSOTA}

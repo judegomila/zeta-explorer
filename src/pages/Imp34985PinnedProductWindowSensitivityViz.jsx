@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP34956_PINNED_PRODUCT_WINDOW_SENSITIVITY as D } from '../data/imp-34956-pinned-product-window-sensitivity.js';
+import { ED } from '../styles/tokens.js';
 
 const SWEEP = D.dexSweep; // 11-point dense sample of P = g* r0 across the full [1e9,1e11] bracket
 const NOMINAL_DEX = D.nominalWindow.dex; // 9.53
@@ -37,42 +38,42 @@ function WindowSensitivityChart() {
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
       {/* axes */}
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
       {yTickVals.map((v) => (
         <g key={v}>
-          <line x1={padL - 4} y1={yAt(v)} x2={padL + cW} y2={yAt(v)} stroke="#1e293b" strokeWidth={1} />
-          <text x={padL - 8} y={yAt(v) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+          <line x1={padL - 4} y1={yAt(v)} x2={padL + cW} y2={yAt(v)} stroke={ED.ruleSoft} strokeWidth={1} />
+          <text x={padL - 8} y={yAt(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v.toExponential(0)}
           </text>
         </g>
       ))}
       {xTicks.map((v) => (
         <g key={v}>
-          <line x1={xAt(v)} y1={padT + cH} x2={xAt(v)} y2={padT + cH + 4} stroke="#334155" strokeWidth={1} />
-          <text x={xAt(v)} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={9}>
+          <line x1={xAt(v)} y1={padT + cH} x2={xAt(v)} y2={padT + cH + 4} stroke={ED.rule} strokeWidth={1} />
+          <text x={xAt(v)} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
             {v.toFixed(1)}
           </text>
         </g>
       ))}
 
       {/* P(X_CROSS) curve across the full bracket -- 52.8x swing, log-scaled y axis */}
-      <path d={path} fill="none" stroke="#38bdf8" strokeWidth={2} />
+      <path d={path} fill="none" stroke={ED.series1} strokeWidth={2} />
       {SWEEP.map((s) => (
-        <circle key={s.dex} cx={xAt(s.dex)} cy={yAt(s.product)} r={2.5} fill="#38bdf8" />
+        <circle key={s.dex} cx={xAt(s.dex)} cy={yAt(s.product)} r={2.5} fill={ED.series1} />
       ))}
 
       {/* nominal window / physical crossing landmark -- coincide to < 1e-3 dex, marked as one point */}
-      <line x1={xAt(NOMINAL_DEX)} y1={padT} x2={xAt(NOMINAL_DEX)} y2={padT + cH} stroke="#fbbf24" strokeWidth={1} strokeDasharray="4 3" />
-      <circle cx={xAt(NOMINAL_DEX)} cy={yAt(P_NOMINAL)} r={4} fill="#fbbf24" stroke="#0f172a" strokeWidth={1} />
-      <text x={xAt(NOMINAL_DEX) + 6} y={yAt(P_NOMINAL) - 8} fill="#fbbf24" fontSize={9}>
+      <line x1={xAt(NOMINAL_DEX)} y1={padT} x2={xAt(NOMINAL_DEX)} y2={padT + cH} stroke={ED.brassDeco} strokeWidth={1} strokeDasharray="4 3" />
+      <circle cx={xAt(NOMINAL_DEX)} cy={yAt(P_NOMINAL)} r={4} fill={ED.brassDeco} stroke={ED.paper} strokeWidth={1} />
+      <text x={xAt(NOMINAL_DEX) + 6} y={yAt(P_NOMINAL) - 8} fill={ED.brass} fontSize={9}>
         nominal 10^{NOMINAL_DEX} = physical landmark ({LANDMARK_DEX.toFixed(3)})
       </text>
 
-      <text x={padL + cW / 2} y={svgH - 6} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 6} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         X_CROSS window (log10 N); y = P = g* r0, log scale
       </text>
-      <text x={16} y={padT + cH / 2} fill="#64748b" fontSize={10} transform={`rotate(-90 16 ${padT + cH / 2})`}>
+      <text x={16} y={padT + cH / 2} fill={ED.inkFaint} fontSize={10} transform={`rotate(-90 16 ${padT + cH / 2})`}>
         P (log scale)
       </text>
     </svg>
@@ -84,11 +85,11 @@ export default function Imp34985PinnedProductWindowSensitivityViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Pinned-Product Window Sensitivity (imp-34985 / imp-34956)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         {D.question}
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         P = g* r0 falls monotonically by a factor of {MAX_OVER_MIN}x ({D.fullBracket.productLo}&nbsp;
         &rarr;&nbsp;{D.fullBracket.productHi}) as the X_CROSS window is swept across the full
         [10^9,&nbsp;10^11] bracket. The nominal window 10^{NOMINAL_DEX} (amber) sits on the physical
@@ -101,14 +102,14 @@ export default function Imp34985PinnedProductWindowSensitivityViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> The {MAX_OVER_MIN}x swing shown
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> The {MAX_OVER_MIN}x swing shown
         here is an uncertainty on the ABSOLUTE VALUE of P from a free window choice -- it contributes
         EXACTLY ZERO to the ~{RESIDUAL.toExponential(1)} m-ramp-invariance residual (imp-34924), because
         that residual is measured with X_CROSS held FIXED across every m. Pinned to the physical

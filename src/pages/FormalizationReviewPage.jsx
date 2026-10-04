@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import HonestCeilingBanner from '../components/HonestCeilingBanner.jsx';
 import { FORMALIZATION_REVIEW } from '../data/formalization-review-2026-07-20.js';
+import { ED, alpha } from '../styles/tokens.js';
 
 const { meta, results, unlocks, significance, verify, openQuestions } = FORMALIZATION_REVIEW;
 
@@ -55,12 +56,12 @@ export default function FormalizationReviewPage() {
 
         <h2>Links</h2>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 8, maxWidth: 820 }}>
-          <div className="card" style={{ border: '1px solid var(--blue)', background: 'rgba(63,107,134,0.06)', borderRadius: 8, padding: '10px 14px' }}>
+          <div className="card" style={{ border: '1px solid var(--blue)', background: 'color-mix(in srgb, var(--series-1) 6%, transparent)', borderRadius: 8, padding: '10px 14px' }}>
             <div style={{ fontSize: 12, color: 'var(--faint)', marginBottom: 3 }}>Shareable code (unlisted gist — no repo access needed)</div>
             <a href={meta.gist} target="_blank" rel="noreferrer" style={{ color: 'var(--blue)', fontFamily: 'var(--ed-mono)', fontSize: 13, wordBreak: 'break-all' }}>{meta.gist}</a>
           </div>
           {meta.paperPdf && (
-            <div className="card" style={{ border: '1px solid var(--brass-dk)', background: 'rgba(181,138,46,0.06)', borderRadius: 8, padding: '10px 14px' }}>
+            <div className="card" style={{ border: '1px solid var(--brass-dk)', background: 'color-mix(in srgb, var(--brass-deco) 6%, transparent)', borderRadius: 8, padding: '10px 14px' }}>
               <div style={{ fontSize: 12, color: 'var(--faint)', marginBottom: 3 }}>Formalization note (PDF)</div>
               <a href={meta.paperPdf} target="_blank" rel="noreferrer" style={{ color: 'var(--brass-dk)', fontFamily: 'var(--ed-mono)', fontSize: 13 }}>{meta.paperPdf}</a>
             </div>
@@ -74,7 +75,7 @@ export default function FormalizationReviewPage() {
         <h2>What is proved (30 declarations, all sorry-free)</h2>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
           {results.map((r) => (
-            <div key={r.name} className="card" style={{ border: '1px solid var(--green)', background: 'rgba(76,122,74,0.06)', borderRadius: 8, padding: '10px 14px' }}>
+            <div key={r.name} className="card" style={{ border: '1px solid var(--green)', background: 'color-mix(in srgb, var(--series-3) 6%, transparent)', borderRadius: 8, padding: '10px 14px' }}>
               <div style={{ fontFamily: 'var(--ed-mono)', fontSize: 13, color: 'var(--green)' }}>{r.name}</div>
               <div style={{ fontSize: 12.5, color: 'var(--ink-soft)', marginTop: 3 }}>{r.desc}</div>
             </div>
@@ -86,7 +87,7 @@ export default function FormalizationReviewPage() {
           {unlocks.map((u) => {
             const proved = u.status === 'proved';
             const col = proved ? 'var(--green)' : 'var(--brass-dk)';
-            const bg = proved ? 'rgba(76,122,74,0.06)' : 'rgba(181,138,46,0.06)';
+            const bg = proved ? alpha(ED.series3, 0.06) : alpha(ED.brassDeco, 0.06);
             return (
               <div key={u.name} className="card" style={{ border: `1px solid ${col}`, background: bg, borderRadius: 8, padding: '10px 14px' }}>
                 <div style={{ fontSize: 13.5, fontWeight: 600, color: col }}>

@@ -5,6 +5,7 @@ import TwistorViz from '../components/TwistorViz.jsx';
 import TwistorDiagram3D from '../components/TwistorDiagram3D.jsx';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 import AnimationEmbed from '../components/AnimationEmbed.jsx';
+import { ED } from '../styles/tokens.js';
 
 // Editorial (warm) re-theme: full-width column, identical structure/content.
 // Interactive visualizations (TwistorDiagram3D, TwistorViz) kept exactly as-is.
@@ -72,8 +73,8 @@ export default function TwistorPage() {
           <TwistorViz />
         </div>
 
-        <div className="card" style={{ ...cardBaseLeft('#f59e0b'), marginTop: 32 }}>
-          <h3 style={{ color: '#f59e0b' }}>What to Explore in Each Tab</h3>
+        <div className="card" style={{ ...cardBaseLeft(ED.series4), marginTop: 32 }}>
+          <h3 style={{ color: 'var(--brass)' }}>What to Explore in Each Tab</h3>
           <p style={{ marginTop: 12, color: 'var(--ink-soft)', fontSize: 14, lineHeight: 1.8 }}>
             <strong style={{ color: 'var(--blue)' }}>Correspondence</strong> — the s-plane (left) maps to twistor space
             (right). Drag <InlineMath tex={"\\sigma"} /> across the critical line and watch the twistor <InlineMath tex="Z" /> (blue)
@@ -88,20 +89,20 @@ export default function TwistorPage() {
             <InlineMath tex={"|Z \\cdot W|"} /> over the <InlineMath tex={"(\\sigma, t)"} /> plane. Look for the dark band
             along <InlineMath tex={"\\sigma = 0.5"} /> where incidence is satisfied. Green dots mark known zeta zeros —
             they should sit on the dark locus. Widen the t-range to see more zeros and confirm the band persists.
-            <strong style={{ color: '#8b5cf6' }}> Dual Pair</strong> — animated spinor rotation showing twistor{' '}
+            <strong style={{ color: 'var(--series-5)' }}> Dual Pair</strong> — animated spinor rotation showing twistor{' '}
             <InlineMath tex="Z" /> (blue) and dual <InlineMath tex="W" /> (gold) evolving as t sweeps forward. The
             central intertwiner shows coupling strength. At <InlineMath tex={"\\sigma = 0.5"} /> the pair is phase-locked
             with matched helicities; off the critical line, the rotation rates diverge.
           </p>
         </div>
 
-        <div className="card" style={{ ...cardBaseLeft('#8b5cf6'), marginTop: 32 }}>
-          <h3 style={{ color: '#8b5cf6' }}>Twin-Ladder Bridge / Twistor Correspondence Table</h3>
+        <div className="card" style={{ ...cardBaseLeft(ED.series5), marginTop: 32 }}>
+          <h3 style={{ color: 'var(--series-5)' }}>Twin-Ladder Bridge / Twistor Correspondence Table</h3>
           <table style={{ width: '100%', marginTop: 12, fontSize: 13, color: 'var(--ink-soft)', borderCollapse: 'collapse' }}>
             <thead>
               <tr style={{ borderBottom: '1px solid var(--hairline)' }}>
                 <th style={{ textAlign: 'left', padding: '8px 12px', color: 'var(--blue)' }}>Twin-Ladder Bridge Model</th>
-                <th style={{ textAlign: 'left', padding: '8px 12px', color: '#f59e0b' }}>Twistor Theory</th>
+                <th style={{ textAlign: 'left', padding: '8px 12px', color: 'var(--brass)' }}>Twistor Theory</th>
                 <th style={{ textAlign: 'left', padding: '8px 12px', color: 'var(--faint)' }}>Connection</th>
               </tr>
             </thead>
@@ -116,7 +117,7 @@ export default function TwistorPage() {
               ].map(([zpo, twistor, note], i) => (
                 <tr key={i} style={{ borderBottom: '1px solid var(--hair2)' }}>
                   <td style={{ padding: '8px 12px', color: 'var(--blue)' }}>{zpo}</td>
-                  <td style={{ padding: '8px 12px', color: '#f59e0b' }}>{twistor}</td>
+                  <td style={{ padding: '8px 12px', color: 'var(--brass)' }}>{twistor}</td>
                   <td style={{ padding: '8px 12px', color: 'var(--faint)', fontSize: 12 }}>{note}</td>
                 </tr>
               ))}
@@ -125,8 +126,8 @@ export default function TwistorPage() {
         </div>
 
         {/* ─── Why Twistors? The Geometric Origin of σ = 1/2 ─── */}
-        <div className="card" style={{ ...cardBaseLeft('#ec4899'), marginTop: 32 }}>
-          <h3 style={{ color: '#ec4899', fontSize: 16, marginBottom: 16 }}>
+        <div className="card" style={{ ...cardBaseLeft(ED.series7), marginTop: 32 }}>
+          <h3 style={{ color: 'var(--series-7)', fontSize: 16, marginBottom: 16 }}>
             Why Twistors? The Geometric Origin of <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} />
           </h3>
 
@@ -137,7 +138,7 @@ export default function TwistorPage() {
           </p>
 
           <div style={{ marginBottom: 20 }}>
-            <h4 style={{ color: '#f59e0b', fontSize: 13, marginBottom: 8 }}>
+            <h4 style={{ color: 'var(--brass)', fontSize: 13, marginBottom: 8 }}>
               Points become lines
             </h4>
             <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.8 }}>
@@ -179,21 +180,21 @@ export default function TwistorPage() {
           </div>
 
           <div style={{ marginBottom: 20 }}>
-            <h4 style={{ color: '#8b5cf6', fontSize: 13, marginBottom: 8 }}>
+            <h4 style={{ color: 'var(--series-5)', fontSize: 13, marginBottom: 8 }}>
               The critical line as a geometric locus
             </h4>
             <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.8 }}>
               The key realization: the critical line <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} /> is{' '}
               <strong style={{ color: 'var(--ink)' }}>not</strong> just an arithmetic condition on the real part
-              of <InlineMath tex={"s"} />. It is the <strong style={{ color: '#ec4899' }}>incidence locus</strong>{' '}
+              of <InlineMath tex={"s"} />. It is the <strong style={{ color: 'var(--series-7)' }}>incidence locus</strong>{' '}
               in twistor space — the geometric surface where the twistor and its dual meet. The Riemann
               Hypothesis, in this language, asserts that all nontrivial zeros of{' '}
               <InlineMath tex={"\\zeta"} /> live on this incidence locus.
             </p>
           </div>
 
-          <div style={{ padding: '16px 20px', background: 'rgba(236, 72, 153, 0.08)', borderRadius: 8 }}>
-            <h4 style={{ color: '#ec4899', fontSize: 13, marginBottom: 10 }}>
+          <div style={{ padding: '16px 20px', background: 'color-mix(in srgb, var(--series-7) 8%, transparent)', borderRadius: 8 }}>
+            <h4 style={{ color: 'var(--series-7)', fontSize: 13, marginBottom: 10 }}>
               Rank drop and geometric degeneracy
             </h4>
             <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.8, marginBottom: 8 }}>
@@ -211,7 +212,7 @@ export default function TwistorPage() {
               determinant condition captures this:
             </p>
             <BlockMath tex={"\\det M(s) = 0 \\;\\Longleftrightarrow\\; Z \\cdot W = 0 \\;\\Longleftrightarrow\\; \\sigma = \\tfrac{1}{2}"} />
-            <p style={{ color: '#ec4899', fontSize: 12, marginTop: 10, fontStyle: 'italic' }}>
+            <p style={{ color: 'var(--series-7)', fontSize: 12, marginTop: 10, fontStyle: 'italic' }}>
               The beauty of the twistor picture: the "critical line" transforms from an opaque analytic
               condition into a transparent geometric one — it is where the twistor correspondence degenerates.
             </p>
@@ -219,8 +220,8 @@ export default function TwistorPage() {
         </div>
 
         {/* ─── Step-by-Step Mathematical Derivation ─── */}
-        <div className="card" style={{ ...cardBaseLeft('#06b6d4'), marginTop: 32 }}>
-          <h3 style={{ color: '#06b6d4', fontSize: 16, marginBottom: 16 }}>
+        <div className="card" style={{ ...cardBaseLeft(ED.series6), marginTop: 32 }}>
+          <h3 style={{ color: 'var(--series-6)', fontSize: 16, marginBottom: 16 }}>
             Step-by-Step: From s-Plane to Twistor Space
           </h3>
 
@@ -258,7 +259,7 @@ export default function TwistorPage() {
           </div>
 
           <div style={{ marginBottom: 24 }}>
-            <h4 style={{ color: '#f59e0b', fontSize: 13, marginBottom: 8 }}>
+            <h4 style={{ color: 'var(--brass)', fontSize: 13, marginBottom: 8 }}>
               Step 3: The Dual Twistor (Functional Equation Mirror)
             </h4>
             <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.8, marginBottom: 8 }}>
@@ -297,7 +298,7 @@ export default function TwistorPage() {
               The critical line is the incidence locus.
             </p>
             <p style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.8, marginTop: 6 }}>
-              <strong style={{ color: '#f59e0b' }}>Caveat:</strong> the factor <InlineMath tex={"\\cos(t\\log 2)"} /> also
+              <strong style={{ color: 'var(--brass)' }}>Caveat:</strong> the factor <InlineMath tex={"\\cos(t\\log 2)"} /> also
               vanishes at isolated values <InlineMath tex={"t = (2k+1)\\pi/(2\\log 2)"} />, making{' '}
               <InlineMath tex={"Z \\cdot W = 0"} /> for <em>any</em> <InlineMath tex={"\\sigma"} /> at those heights.
               These are artifacts of using only prime <InlineMath tex={"p = 2"} /> in the spinor encoding — a
@@ -307,7 +308,7 @@ export default function TwistorPage() {
           </div>
 
           <div style={{ marginBottom: 24 }}>
-            <h4 style={{ color: '#8b5cf6', fontSize: 13, marginBottom: 8 }}>
+            <h4 style={{ color: 'var(--series-5)', fontSize: 13, marginBottom: 8 }}>
               Step 5: The Intertwiner (Bridge as Twistor Map)
             </h4>
             <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.8, marginBottom: 8 }}>
@@ -327,7 +328,7 @@ export default function TwistorPage() {
           </div>
 
           <div>
-            <h4 style={{ color: '#ef4444', fontSize: 13, marginBottom: 8 }}>
+            <h4 style={{ color: 'var(--series-2)', fontSize: 13, marginBottom: 8 }}>
               Step 6: The Penrose Transform (Euler Product as Contour Integral)
             </h4>
             <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.8, marginBottom: 8 }}>
@@ -345,8 +346,8 @@ export default function TwistorPage() {
         </div>
 
         {/* ─── Why This Framework Matters for RH ─── */}
-        <div className="card" style={{ ...cardBaseLeft('#ef4444'), marginTop: 24 }}>
-          <h3 style={{ color: '#ef4444', fontSize: 14, marginBottom: 12 }}>
+        <div className="card" style={{ ...cardBaseLeft(ED.series2), marginTop: 24 }}>
+          <h3 style={{ color: 'var(--series-2)', fontSize: 14, marginBottom: 12 }}>
             What the Twistor Framework Does and Does Not Prove
           </h3>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
@@ -360,7 +361,7 @@ export default function TwistorPage() {
               </ul>
             </div>
             <div>
-              <h4 style={{ color: '#ef4444', fontSize: 12, marginBottom: 8 }}>What Remains Unproven</h4>
+              <h4 style={{ color: 'var(--series-2)', fontSize: 12, marginBottom: 8 }}>What Remains Unproven</h4>
               <ul style={{ marginLeft: 14, color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.8 }}>
                 <li>That zeta zeros <em>must</em> lie on the incidence locus (we show incidence is special, not that zeros are confined to it)</li>
                 <li>That the Penrose transform is <em>exact</em> (not just an analogy)</li>
@@ -369,7 +370,7 @@ export default function TwistorPage() {
               </ul>
             </div>
           </div>
-          <p style={{ color: '#f59e0b', fontSize: 12, marginTop: 12, fontStyle: 'italic' }}>
+          <p style={{ color: 'var(--brass)', fontSize: 12, marginTop: 12, fontStyle: 'italic' }}>
             The Davenport-Heilbronn function (see Proof Checker) also has a functional equation and
             therefore a similar twistor structure, but its zeros are NOT all on the critical line.
             This means the twistor framework alone cannot prove RH — it must be combined with the
@@ -378,8 +379,8 @@ export default function TwistorPage() {
         </div>
 
         <div className="two-col" style={{ marginTop: 24 }}>
-          <div className="card" style={cardBaseLeft('#06b6d4')}>
-            <h3 style={{ color: '#06b6d4' }}>Incidence & the Critical Line</h3>
+          <div className="card" style={cardBaseLeft(ED.series6)}>
+            <h3 style={{ color: 'var(--series-6)' }}>Incidence & the Critical Line</h3>
             <p style={{ marginBottom: 12, color: 'var(--ink-soft)' }}>
               In Penrose twistor theory, two twistors <InlineMath tex="Z" /> and <InlineMath tex="W" /> are
               <em> incident</em> when <InlineMath tex={"Z^{\\alpha} W_{\\alpha} = 0"} />. This null condition defines
@@ -397,15 +398,15 @@ export default function TwistorPage() {
               precisely on this locus.
             </p>
           </div>
-          <div className="card" style={cardBaseLeft('#ec4899')}>
-            <h3 style={{ color: '#ec4899' }}>Key Insights</h3>
+          <div className="card" style={cardBaseLeft(ED.series7)}>
+            <h3 style={{ color: 'var(--series-7)' }}>Key Insights</h3>
             <ul style={{ marginLeft: 16, color: 'var(--ink-soft)', fontSize: 13, lineHeight: 2 }}>
               <li>
                 <strong style={{ color: 'var(--blue)' }}>Twistor norm</strong> <InlineMath tex={"\\|Z\\|"} /> measures
                 displacement from the critical line — it vanishes when the direct ladder is "on-shell."
               </li>
               <li>
-                <strong style={{ color: '#f59e0b' }}>Helicity</strong> <InlineMath tex={"h = \\text{Im}(\\omega \\cdot \\bar\\pi)"} />
+                <strong style={{ color: 'var(--brass)' }}>Helicity</strong> <InlineMath tex={"h = \\text{Im}(\\omega \\cdot \\bar\\pi)"} />
                 encodes the angular momentum of each ladder's oscillation pattern.
               </li>
               <li>
@@ -413,7 +414,7 @@ export default function TwistorPage() {
                 match — the dual pair rotates in sync, analogous to the standing-wave equilibrium.
               </li>
               <li>
-                <strong style={{ color: '#8b5cf6' }}>Penrose transform</strong> reconstructs the zeta field from
+                <strong style={{ color: 'var(--series-5)' }}>Penrose transform</strong> reconstructs the zeta field from
                 twistor data, analogous to recovering ζ(s) from its Euler product factors.
               </li>
             </ul>
@@ -426,13 +427,13 @@ export default function TwistorPage() {
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
             <Link to="/waves" style={{ color: 'var(--blue)', fontSize: 13 }}>Waves</Link>
             <span style={{ color: 'var(--hairline)' }}>|</span>
-            <Link to="/hamiltonian" style={{ color: '#8b5cf6', fontSize: 13 }}>Hamiltonian</Link>
+            <Link to="/hamiltonian" style={{ color: 'var(--series-5)', fontSize: 13 }}>Hamiltonian</Link>
             <span style={{ color: 'var(--hairline)' }}>|</span>
             <Link to="/oscillators" style={{ color: 'var(--green)', fontSize: 13 }}>Oscillators</Link>
             <span style={{ color: 'var(--hairline)' }}>|</span>
-            <Link to="/zx-calculus" style={{ color: '#f59e0b', fontSize: 13 }}>ZX-Calculus</Link>
+            <Link to="/zx-calculus" style={{ color: 'var(--brass)', fontSize: 13 }}>ZX-Calculus</Link>
             <span style={{ color: 'var(--hairline)' }}>|</span>
-            <Link to="/spectral-attack" style={{ color: '#06b6d4', fontSize: 13 }}>Spectral Approach</Link>
+            <Link to="/spectral-attack" style={{ color: 'var(--series-6)', fontSize: 13 }}>Spectral Approach</Link>
             <span style={{ color: 'var(--hairline)' }}>|</span>
             <Link to="/">&larr; the atlas</Link>
           </div>

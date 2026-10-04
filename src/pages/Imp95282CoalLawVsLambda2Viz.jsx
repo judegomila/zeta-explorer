@@ -1,38 +1,39 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP95282_CURVES, IMP95282_RATES } from '../data/imp-95282-coallaw-vs-lambda2-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 function AxisFrame({ children, svgW, svgH, padL, padR, padT, padB, xTicks, yTicks, xOf, yOf, xLabel, yLabel }) {
   const plotW = svgW - padL - padR;
   const plotH = svgH - padT - padB;
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
       {xTicks.map((v) => (
         <g key={`x${v}`}>
-          <line x1={xOf(v)} y1={padT + plotH} x2={xOf(v)} y2={padT + plotH + 4} stroke="#334155" strokeWidth={1} />
-          <text x={xOf(v)} y={padT + plotH + 16} textAnchor="middle" fill="#64748b" fontSize={8.5}>
+          <line x1={xOf(v)} y1={padT + plotH} x2={xOf(v)} y2={padT + plotH + 4} stroke={ED.rule} strokeWidth={1} />
+          <text x={xOf(v)} y={padT + plotH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={8.5}>
             {v}
           </text>
         </g>
       ))}
       {yTicks.map((v) => (
         <g key={`y${v}`}>
-          <line x1={padL - 4} y1={yOf(v)} x2={padL} y2={yOf(v)} stroke="#334155" strokeWidth={1} />
-          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={8.5}>
+          <line x1={padL - 4} y1={yOf(v)} x2={padL} y2={yOf(v)} stroke={ED.rule} strokeWidth={1} />
+          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8.5}>
             {v}
           </text>
         </g>
       ))}
-      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill="#64748b" fontSize={9.5}>
+      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5}>
         {xLabel}
       </text>
       <text
         x={14}
         y={padT + plotH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={9.5}
         transform={`rotate(-90 14 ${padT + plotH / 2})`}
       >
@@ -44,7 +45,7 @@ function AxisFrame({ children, svgW, svgH, padL, padR, padT, padB, xTicks, yTick
 }
 
 const RATE_KEYS = ['r1_01', 'r1_1', 'r1_5', 'r2_0'];
-const RATE_COLORS = ['#34d399', '#38bdf8', '#fb923c', '#f87171'];
+const RATE_COLORS = [ED.series3, ED.series1, ED.series4, ED.series2];
 
 // coalLaw(x) confluent-span curve vs Lambda_2(x, r) at r = 1.01, 1.1, 1.5, 2.0,
 // showing the imp-95231 COAL-DESC / imp-95227 dominance: coalLaw(x) sits
@@ -97,8 +98,8 @@ function CoalLawPanel() {
           />
         );
       })}
-      <polyline points={coalLine} fill="none" stroke="#e2e8f0" strokeWidth={2.5} strokeDasharray="6 3" opacity={0.95} />
-      <text x={padL + 8} y={padT + 14} fill="#e2e8f0" fontSize={9}>
+      <polyline points={coalLine} fill="none" stroke={ED.inkSoft} strokeWidth={2.5} strokeDasharray="6 3" opacity={0.95} />
+      <text x={padL + 8} y={padT + 14} fill={ED.ink} fontSize={9}>
         coalLaw(x) = e^(-2x)(1+2x^2+2x sqrt(1+x^2))  [confluent span, r -&gt; 1]
       </text>
       {RATE_KEYS.map((key, i) => (
@@ -119,21 +120,21 @@ export default function Imp95282CoalLawVsLambda2Viz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> a model-family numeric
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a model-family numeric
         illustration, not a new theorem. It changes no Lambda bound and establishes no operator
         positivity. Platt&ndash;Trudgian &Lambda; &le; 0.2 remains state of the art. RH does not
         follow from anything on this page. NO QED.
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         For the exact signed N = 2 constant Lambda_2(x, r) at fixed depth x = nu_1 d and rate
         ratio r = nu_2/nu_1 &ge; 1, imp-95231 THEOREM COAL-DESC (and the imp-95227 two-rate
         coalescence dominance theorem) show the confluent-span value
@@ -144,7 +145,7 @@ export default function Imp95282CoalLawVsLambda2Viz() {
         from coalescence (r = 1).
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         coalLaw(x) vs Lambda_2(x, r) at r = 1.01, 1.1, 1.5, 2.0
       </h3>
       <CoalLawPanel />
@@ -153,14 +154,14 @@ export default function Imp95282CoalLawVsLambda2Viz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> the r = 1.01 curve
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> the r = 1.01 curve
         (green) tracks closest to the coalLaw(x) confluent span (dashed), since it is nearest
         coalescence; the r = 2.0 curve (red) sits furthest below it. This is the numeric picture
         behind imp-95231's analytic result dLambda_2/dr &le; 0 at r &rarr; 1+ for every x &gt; 0
@@ -173,14 +174,14 @@ export default function Imp95282CoalLawVsLambda2Viz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page consuming the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the
         imp-95282 baked viz-data (curves recomputed independently from the imp-95231 / imp-95227
         documented closed forms). Changes no bound, establishes no operator positivity, no RH
         claim; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. NO QED.

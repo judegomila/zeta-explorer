@@ -5,8 +5,9 @@ import {
   IMP35121_LADDER,
   IMP35121_LANDMARKS,
 } from '../data/imp-35121-ecoll-etrunc-eflow-decomposition-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
-const COLORS = { coll: '#10b981', trunc: '#a855f7', flow: '#f59e0b', landmark: '#f472b6' };
+const COLORS = { coll: ED.series3, trunc: ED.series5, flow: ED.series4, landmark: ED.series7 };
 
 function EcollEtruncEflowChart() {
   const svgW = 680;
@@ -40,12 +41,12 @@ function EcollEtruncEflowChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
       {yTicks.map((v) => (
         <g key={v}>
-          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke="#1e293b" strokeWidth={0.7} />
-          <text x={padL - 6} y={yS(v) + 3.5} textAnchor="end" fill="#475569" fontSize={9}>
+          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke={ED.ruleSoft} strokeWidth={0.7} />
+          <text x={padL - 6} y={yS(v) + 3.5} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v.toExponential(0)}
           </text>
         </g>
@@ -85,24 +86,24 @@ function EcollEtruncEflowChart() {
           x={xS(l.N)}
           y={padT + 12 + i * 11}
           textAnchor="middle"
-          fill="#f9a8d4"
+          fill={ED.series7}
           fontSize={7.5}
         >
           {l.key}
         </text>
       ))}
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
 
       {xTickNs.map((N) => (
         <g key={'x' + N}>
-          <line x1={xS(N)} y1={padT + cH} x2={xS(N)} y2={padT + cH + 5} stroke="#334155" strokeWidth={1} />
-          <text x={xS(N)} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={8}>
+          <line x1={xS(N)} y1={padT + cH} x2={xS(N)} y2={padT + cH + 5} stroke={ED.rule} strokeWidth={1} />
+          <text x={xS(N)} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={8}>
             {N.toExponential(0)}
           </text>
         </g>
       ))}
-      <text x={padL + cW / 2} y={padT + cH + 34} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={padT + cH + 34} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         N (log scale)
       </text>
 
@@ -110,7 +111,7 @@ function EcollEtruncEflowChart() {
         x={12}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={'rotate(-90,12,' + (padT + cH / 2) + ')'}
       >
@@ -119,11 +120,11 @@ function EcollEtruncEflowChart() {
 
       <g fontSize={9}>
         <line x1={padL + 2} y1={padT + 12} x2={padL + 10} y2={padT + 12} stroke={COLORS.coll} strokeWidth={2} />
-        <text x={padL + 14} y={padT + 15} fill="#6ee7b7">E_coll ~ sqrt(log T0 / N)</text>
+        <text x={padL + 14} y={padT + 15} fill={ED.series3}>E_coll ~ sqrt(log T0 / N)</text>
         <line x1={padL + 2} y1={padT + 26} x2={padL + 10} y2={padT + 26} stroke={COLORS.trunc} strokeWidth={2} strokeDasharray="6,3" />
-        <text x={padL + 14} y={padT + 29} fill="#c084fc">E_trunc (flat floor, 3.06e-5)</text>
+        <text x={padL + 14} y={padT + 29} fill={ED.series5}>E_trunc (flat floor, 3.06e-5)</text>
         <line x1={padL + 2} y1={padT + 40} x2={padL + 10} y2={padT + 40} stroke={COLORS.flow} strokeWidth={2} strokeDasharray="1,2" />
-        <text x={padL + 14} y={padT + 43} fill="#fbbf24">E_flow ~ (log T0 / T0) Gronwall</text>
+        <text x={padL + 14} y={padT + 43} fill={ED.brass}>E_flow ~ (log T0 / T0) Gronwall</text>
       </g>
     </svg>
   );
@@ -134,7 +135,7 @@ export default function Imp35121EcollEtruncEflowDecompositionViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="E_coll / E_trunc / E_flow Component Decomposition of E(N) (imp-33601 / imp-35121)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         The imp-33601 surrogate E(N) = E_coll(N) + E_trunc + E_flow(N) splits into three terms:
         the decaying GUE-conditional E_coll(N) &sim; sqrt(log T0 / N), the flat N-independent
         E_trunc floor (imp-2631, exactly 3.06e-5), and the small Gronwall flow term E_flow(N).
@@ -145,15 +146,15 @@ export default function Imp35121EcollEtruncEflowDecompositionViz() {
         inflection N_star (N &sim; 3.38e9, E_trunc just overtaking E_coll).
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         E_coll / E_trunc / E_flow across N = 1e6 .. 1e13, four landmarks annotated
       </p>
       <EcollEtruncEflowChart />
 
       <div style={{ marginTop: '1rem', overflowX: 'auto' }}>
-        <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.78rem', color: '#94a3b8' }}>
+        <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.78rem', color: 'var(--ink-soft)' }}>
           <thead>
-            <tr style={{ borderBottom: '1px solid #334155' }}>
+            <tr style={{ borderBottom: '1px solid var(--rule)' }}>
               <th style={{ textAlign: 'left', padding: '4px 8px' }}>Landmark</th>
               <th style={{ textAlign: 'right', padding: '4px 8px' }}>N</th>
               <th style={{ textAlign: 'right', padding: '4px 8px' }}>E_coll</th>
@@ -164,7 +165,7 @@ export default function Imp35121EcollEtruncEflowDecompositionViz() {
           </thead>
           <tbody>
             {IMP35121_LANDMARKS.map((l) => (
-              <tr key={l.key} style={{ borderBottom: '1px solid #1e293b' }}>
+              <tr key={l.key} style={{ borderBottom: '1px solid var(--rule-soft)' }}>
                 <td style={{ padding: '4px 8px' }}>{l.label}</td>
                 <td style={{ textAlign: 'right', padding: '4px 8px' }}>{l.N.toExponential(3)}</td>
                 <td style={{ textAlign: 'right', padding: '4px 8px' }}>{l.E_coll.toExponential(3)}</td>
@@ -181,14 +182,14 @@ export default function Imp35121EcollEtruncEflowDecompositionViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> E_coll (solid green) falls
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> E_coll (solid green) falls
         roughly as N<sup>-1/2</sup> and dominates the low-N regime (sigma &sim; 0.95 at the imp-3406
         peak); E_trunc (dashed purple) is exactly flat at 3.06e-5; E_flow (dotted amber) is always
         the smallest term but decays fastest, so it never dominates -- it only matters through the
@@ -200,14 +201,14 @@ export default function Imp35121EcollEtruncEflowDecompositionViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
         }}
       >
-        <strong style={{ color: '#f87171' }}>Step-4 status -- E(N) does NOT vanish here:</strong>{' '}
+        <strong style={{ color: 'var(--series-2)' }}>Step-4 status -- E(N) does NOT vanish here:</strong>{' '}
         this chart's own E_trunc curve is the flat purple line, not a decaying one: E(N) = E_coll
         + E_trunc + E_flow FLOORS at the constant E_trunc = 3.06e-5 (imp-35100) instead of tending
         to 0, so the fixed-strip surrogate as written provably CANNOT supply the LAMBDA_CHAIN_STEPS
@@ -222,23 +223,23 @@ export default function Imp35121EcollEtruncEflowDecompositionViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> visualization only -- the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> visualization only -- the
         component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous
         asymptotic. The C_mb GUE-conditional per imp-486 is untouched; changes no bound;
         establishes no operator positivity; imp-3066 K_a &ge; 0 remains untouched. No RH verdict,
         NO QED.
       </div>
 
-      <div style={{ marginTop: '1rem', fontSize: '0.85rem', color: '#64748b' }}>
+      <div style={{ marginTop: '1rem', fontSize: '0.85rem', color: 'var(--ink-faint)' }}>
         <strong>Related:</strong>{' '}
-        <Link to="/viz-imp33628-etrunc-ecoll-crossover" style={{ color: '#7c3aed' }}>
+        <Link to="/viz-imp33628-etrunc-ecoll-crossover" style={{ color: 'var(--series-5)' }}>
           E_trunc / E_coll Post-Peak Crossover Ladder (imp-33602 / imp-33628)
         </Link>
       </div>

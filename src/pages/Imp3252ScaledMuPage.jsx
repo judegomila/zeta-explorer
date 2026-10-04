@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PageHeader from '../components/PageHeader.jsx';
 import IMP3252_SHEAR_GRAM_MINEIG_SYMMETRIC_SPECTRUM_N_SCALING from '../data/imp-3252-shear-gram-mineig-symmetric-spectrum-n-scaling.js';
+import { ED } from '../styles/tokens.js';
 
 const RUNGS = IMP3252_SHEAR_GRAM_MINEIG_SYMMETRIC_SPECTRUM_N_SCALING.measured.rungs;
 const CONTINUUM_LIMIT = IMP3252_SHEAR_GRAM_MINEIG_SYMMETRIC_SPECTRUM_N_SCALING.measured.scaledContinuumLimit;
@@ -30,12 +31,12 @@ function ScaledMuChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
       {[1.8e-4, 1.84e-4, 1.88e-4, 1.92e-4].map((v) => (
         <g key={v}>
-          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke="#1e293b" strokeWidth={0.7} />
-          <text x={padL - 4} y={yS(v) + 3.5} textAnchor="end" fill="#475569" fontSize={9}>
+          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke={ED.ruleSoft} strokeWidth={0.7} />
+          <text x={padL - 4} y={yS(v) + 3.5} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v.toExponential(2)}
           </text>
         </g>
@@ -46,30 +47,30 @@ function ScaledMuChart() {
         y1={limitY}
         x2={padL + cW}
         y2={limitY}
-        stroke="#7c3aed"
+        stroke={ED.series5}
         strokeWidth={1}
         strokeDasharray="4 3"
       />
-      <text x={padL + cW - 4} y={limitY - 5} textAnchor="end" fill="#7c3aed" fontSize={9}>
+      <text x={padL + cW - 4} y={limitY - 5} textAnchor="end" fill={ED.series5} fontSize={9}>
         Richardson limit ~{CONTINUUM_LIMIT.toExponential(3)}
       </text>
 
-      <path d={path} fill="none" stroke="#10b981" strokeWidth={2.4} />
+      <path d={path} fill="none" stroke={ED.series3} strokeWidth={2.4} />
       {RUNGS.map((r) => (
-        <circle key={r.N} cx={xS(r.N)} cy={yS(r.scaledMu)} r={4} fill="#10b981" />
+        <circle key={r.N} cx={xS(r.N)} cy={yS(r.scaledMu)} r={4} fill={ED.series3} />
       ))}
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
 
       {RUNGS.map((r) => (
         <g key={r.N}>
-          <line x1={xS(r.N)} y1={padT + cH} x2={xS(r.N)} y2={padT + cH + 5} stroke="#334155" strokeWidth={1} />
-          <text x={xS(r.N)} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={9.5}>
+          <line x1={xS(r.N)} y1={padT + cH} x2={xS(r.N)} y2={padT + cH + 5} stroke={ED.rule} strokeWidth={1} />
+          <text x={xS(r.N)} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5}>
             {r.N}
           </text>
         </g>
       ))}
-      <text x={padL + cW / 2} y={padT + cH + 34} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={padT + cH + 34} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         N (grid resolution)
       </text>
 
@@ -77,7 +78,7 @@ function ScaledMuChart() {
         x={12}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={'rotate(-90,12,' + (padT + cH / 2) + ')'}
       >
@@ -107,38 +108,38 @@ function RatioDevChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
       {[1e-16, 3e-16, 1e-15, 3e-15].map((v) => (
         <g key={v}>
-          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke="#1e293b" strokeWidth={0.7} />
-          <text x={padL - 4} y={yS(v) + 3.5} textAnchor="end" fill="#475569" fontSize={9}>
+          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke={ED.ruleSoft} strokeWidth={0.7} />
+          <text x={padL - 4} y={yS(v) + 3.5} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v.toExponential(0)}
           </text>
         </g>
       ))}
 
-      <line x1={padL} y1={yS(2e-15)} x2={padL + cW} y2={yS(2e-15)} stroke="#ef4444" strokeWidth={1} strokeDasharray="4 3" />
-      <text x={padL + 4} y={yS(2e-15) - 5} fill="#ef4444" fontSize={9}>
+      <line x1={padL} y1={yS(2e-15)} x2={padL + cW} y2={yS(2e-15)} stroke={ED.series2} strokeWidth={1} strokeDasharray="4 3" />
+      <text x={padL + 4} y={yS(2e-15) - 5} fill={ED.series2} fontSize={9}>
         ~2e-15 verdict-cited ceiling
       </text>
 
-      <path d={path} fill="none" stroke="#60a5fa" strokeWidth={2.4} />
+      <path d={path} fill="none" stroke={ED.series1} strokeWidth={2.4} />
       {RUNGS.map((r) => (
-        <circle key={r.N} cx={xS(r.N)} cy={yS(r.ratioMinEigDev)} r={4} fill="#60a5fa" />
+        <circle key={r.N} cx={xS(r.N)} cy={yS(r.ratioMinEigDev)} r={4} fill={ED.series1} />
       ))}
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
 
       {RUNGS.map((r) => (
         <g key={r.N}>
-          <line x1={xS(r.N)} y1={padT + cH} x2={xS(r.N)} y2={padT + cH + 5} stroke="#334155" strokeWidth={1} />
-          <text x={xS(r.N)} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={9.5}>
+          <line x1={xS(r.N)} y1={padT + cH} x2={xS(r.N)} y2={padT + cH + 5} stroke={ED.rule} strokeWidth={1} />
+          <text x={xS(r.N)} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5}>
             {r.N}
           </text>
         </g>
       ))}
-      <text x={padL + cW / 2} y={padT + cH + 34} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={padT + cH + 34} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         N (grid resolution)
       </text>
 
@@ -146,7 +147,7 @@ function RatioDevChart() {
         x={12}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={'rotate(-90,12,' + (padT + cH / 2) + ')'}
       >
@@ -161,26 +162,26 @@ export default function Imp3252ScaledMuPage() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Shear-Gram Continuum Magnitude &amp; Symmetric-Spectrum Identity (imp-3252)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-3252 checks the section26-mupass verdict's shear-Gram Wronskian Gshear(u,v) =
         &Phi;(u)&Phi;(v)&middot;sinh(a(v-u)) across the imp-3215 resolution ladder N &isin;{' '}
         {'{160, 240, 320, 480, 640, 800}'} at the genuine de Bruijn-Newman &Phi; cell (a = 0.5, U = 6).
-        The <strong style={{ color: '#10b981' }}>quadrature-scaled continuum magnitude</strong> H&middot;mu(N)
+        The <strong style={{ color: 'var(--series-3)' }}>quadrature-scaled continuum magnitude</strong> H&middot;mu(N)
         converges monotonically from {RUNGS[0].scaledMu.toExponential(3)} at N=160 to{' '}
         {RUNGS[RUNGS.length - 1].scaledMu.toExponential(3)} at N=800, toward a finite Richardson limit
         of ~{CONTINUUM_LIMIT.toExponential(3)}. Independently, the{' '}
-        <strong style={{ color: '#60a5fa' }}>symmetric-spectrum identity</strong> min eig(Gshear) =
+        <strong style={{ color: 'var(--series-1)' }}>symmetric-spectrum identity</strong> min eig(Gshear) =
         -&Vert;Gshear&Vert; holds to within {Math.max(...RUNGS.map((r) => r.ratioMinEigDev)).toExponential(1)}{' '}
         at every rung — an exact structural consequence of the hollow rank-2 antisymmetry, not a
         resolution-dependent convergence.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         Convergence of the continuum-scaled magnitude H&middot;mu(N)
       </p>
       <ScaledMuChart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.25rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.25rem 0 0.5rem' }}>
         Symmetric-spectrum deviation |min eig / (-&Vert;Gshear&Vert;) - 1|
       </p>
       <RatioDevChart />
@@ -189,14 +190,14 @@ export default function Imp3252ScaledMuPage() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> assessment only — no proof, no
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> assessment only — no proof, no
         reduction below RH. The two curves measure different things: the top panel is a genuine
         finite-N-resolution convergence (the continuum operator norm), while the bottom panel is a
         floating-point residual around an identity that holds exactly at every N by construction (the
@@ -204,13 +205,13 @@ export default function Imp3252ScaledMuPage() {
         RH-equivalent K_a &ge; 0 sign-positivity residual (imp-3066) is untouched.
       </div>
 
-      <div style={{ marginTop: '1rem', fontSize: '0.85rem', color: '#64748b' }}>
+      <div style={{ marginTop: '1rem', fontSize: '0.85rem', color: 'var(--ink-faint)' }}>
         <strong>Related:</strong>{' '}
-        <Link to="/section26-conditioning-artifact" style={{ color: '#7c3aed' }}>
+        <Link to="/section26-conditioning-artifact" style={{ color: 'var(--series-5)' }}>
           Section-26 Conditioning Artifact
         </Link>
         {', '}
-        <Link to="/viz-imp3256-vhs-crossval" style={{ color: '#7c3aed' }}>
+        <Link to="/viz-imp3256-vhs-crossval" style={{ color: 'var(--series-5)' }}>
           Volterra-HS Cross-Validation (imp-3256)
         </Link>
       </div>

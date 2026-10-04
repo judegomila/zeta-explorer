@@ -514,8 +514,8 @@ export default function InsightDAG() {
           onClick={() => setShowFull((v) => !v)}
           style={{
             padding: '5px 12px', fontSize: 11, fontFamily: 'var(--font-mono)', cursor: 'pointer',
-            background: showFull ? 'rgba(139,92,246,0.15)' : 'rgba(16,185,129,0.15)',
-            color: showFull ? '#a78bfa' : '#10b981',
+            background: showFull ? 'color-mix(in srgb, var(--series-5) 15%, transparent)' : 'color-mix(in srgb, var(--series-3) 15%, transparent)',
+            color: showFull ? 'var(--series-5)' : 'var(--series-3)',
             border: `1px solid ${showFull ? 'rgba(139,92,246,0.4)' : 'rgba(16,185,129,0.4)'}`,
             borderRadius: 6,
           }}
@@ -531,9 +531,9 @@ export default function InsightDAG() {
           height: 'auto',
           minHeight: 400,
           display: 'block',
-          background: 'rgba(15,23,42,0.3)',
+          background: 'color-mix(in srgb, var(--paper-2) 30%, transparent)',
           borderRadius: 12,
-          border: '1px solid rgba(100,116,139,0.15)',
+          border: '1px solid color-mix(in srgb, var(--rule) 15%, transparent)',
         }}
       >
         <MarkerDefs />

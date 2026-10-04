@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP34728_Q3_FAR_TAIL_STENCIL_CROSSVALIDATION } from '../data/imp-34728-q3-far-tail-stencil-crossvalidation.js';
+import { ED } from '../styles/tokens.js';
 
 const M = IMP34728_Q3_FAR_TAIL_STENCIL_CROSSVALIDATION;
 
@@ -46,35 +47,35 @@ function TwoStencilLadderChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={plotW} height={plotH} fill="none" stroke="#334155" strokeWidth={1} />
-      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill="#94a3b8" fontSize={11}>
+      <rect x={padL} y={padT} width={plotW} height={plotH} fill="none" stroke={ED.rule} strokeWidth={1} />
+      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill={ED.inkSoft} fontSize={11}>
         log10(p), p = log N
       </text>
       <text
         x={16}
         y={padT + plotH / 2}
         textAnchor="middle"
-        fill="#94a3b8"
+        fill={ED.inkSoft}
         fontSize={11}
         transform={`rotate(-90 16 ${padT + plotH / 2})`}
       >
         log10(dp*)
       </text>
 
-      <path d={pathOf(pts9)} fill="none" stroke="#38bdf8" strokeWidth={1.5} />
+      <path d={pathOf(pts9)} fill="none" stroke={ED.series1} strokeWidth={1.5} />
       {pts9.map((pt) => (
-        <circle key={`9-${pt.N}`} cx={sx(xOf(pt.N))} cy={sy(yOf(pt.dp_star))} r={3.5} fill="#38bdf8" stroke="#0f172a" strokeWidth={0.5} />
+        <circle key={`9-${pt.N}`} cx={sx(xOf(pt.N))} cy={sy(yOf(pt.dp_star))} r={3.5} fill={ED.series1} stroke={ED.paper} strokeWidth={0.5} />
       ))}
 
-      <path d={pathOf(pts7)} fill="none" stroke="#f87171" strokeWidth={1.5} strokeDasharray="6 4" />
+      <path d={pathOf(pts7)} fill="none" stroke={ED.series2} strokeWidth={1.5} strokeDasharray="6 4" />
       {pts7.map((pt) => (
-        <circle key={`7-${pt.N}`} cx={sx(xOf(pt.N))} cy={sy(yOf(pt.dp_star))} r={3.5} fill="#f87171" stroke="#0f172a" strokeWidth={0.5} />
+        <circle key={`7-${pt.N}`} cx={sx(xOf(pt.N))} cy={sy(yOf(pt.dp_star))} r={3.5} fill={ED.series2} stroke={ED.paper} strokeWidth={0.5} />
       ))}
 
-      <text x={padL + 8} y={padT + 16} fill="#38bdf8" fontSize={11}>
+      <text x={padL + 8} y={padT + 16} fill={ED.series1} fontSize={11}>
         {M.stencil_9pt.stencil} : beta ~ {M.stencil_9pt.fitted_exponent_beta}
       </text>
-      <text x={padL + 8} y={padT + 32} fill="#f87171" fontSize={11}>
+      <text x={padL + 8} y={padT + 32} fill={ED.series2} fontSize={11}>
         {M.stencil_7pt.stencil} : beta ~ {M.stencil_7pt.fitted_exponent_beta}
       </text>
     </svg>
@@ -94,9 +95,9 @@ function ExponentBars() {
   const scaleMax = 4 / 3 + 0.01;
 
   const rows = [
-    { label: `${M.stencil_9pt.stencil}`, beta: M.stencil_9pt.fitted_exponent_beta, color: '#38bdf8' },
-    { label: `${M.stencil_7pt.stencil}`, beta: M.stencil_7pt.fitted_exponent_beta, color: '#f87171' },
-    { label: 'exact target 4/3', beta: M.target_exponent_4over3, color: '#94a3b8' },
+    { label: `${M.stencil_9pt.stencil}`, beta: M.stencil_9pt.fitted_exponent_beta, color: ED.series1 },
+    { label: `${M.stencil_7pt.stencil}`, beta: M.stencil_7pt.fitted_exponent_beta, color: ED.series2 },
+    { label: 'exact target 4/3', beta: M.target_exponent_4over3, color: ED.inkSoft },
   ];
 
   const cW = svgW - padL - padR;
@@ -108,10 +109,10 @@ function ExponentBars() {
         const y = 8 + i * (barH + gap);
         return (
           <g key={r.label}>
-            <text x={padL - 10} y={y + barH / 2 + 4} textAnchor="end" fill="#94a3b8" fontSize={11}>
+            <text x={padL - 10} y={y + barH / 2 + 4} textAnchor="end" fill={ED.inkSoft} fontSize={11}>
               {r.label}
             </text>
-            <rect x={padL} y={y} width={cW} height={barH} fill="none" stroke="#334155" strokeWidth={1} />
+            <rect x={padL} y={y} width={cW} height={barH} fill="none" stroke={ED.rule} strokeWidth={1} />
             <rect x={padL} y={y} width={Math.max(xOf(r.beta), 2)} height={barH} fill={r.color} />
             <text x={padL + xOf(r.beta) + 8} y={y + barH / 2 + 4} fill={r.color} fontSize={11} fontWeight={700}>
               {r.beta}
@@ -128,7 +129,7 @@ export default function Imp34767FarTailTwoStencilCrossvalidationViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Far-Tail Two-Stencil Cross-Validation of dp*(N) (imp-34767 / imp-34728)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-34728 re-ran the imp-34711 smallest-usable-step ladder dp*(N) on an INDEPENDENT 4th-order
         7-point antisymmetric q3 stencil, cross-validating it against the inherited 6th-order 9-point
         stencil on the identical q(p) = log&nbsp;E_coll footing. The fitted (log&nbsp;N)^(4/3) growth
@@ -140,12 +141,12 @@ export default function Imp34767FarTailTwoStencilCrossvalidationViz() {
         {M.floor_scale_7_over_9_cbrt}&times; (7.2% lower) copy of the 9-point ladder.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         dp*(N) ladder, both stencils, identical q(p) footing
       </p>
       <TwoStencilLadderChart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginTop: '1.5rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginTop: '1.5rem', marginBottom: '0.5rem' }}>
         Fitted growth exponent beta vs the exact 4/3 target
       </p>
       <ExponentBars />
@@ -159,7 +160,7 @@ export default function Imp34767FarTailTwoStencilCrossvalidationViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>stencil</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>W_max/denom</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>beta</th>
@@ -171,7 +172,7 @@ export default function Imp34767FarTailTwoStencilCrossvalidationViz() {
         </thead>
         <tbody>
           {[M.stencil_9pt, M.stencil_7pt].map((row) => (
-            <tr key={row.stencil} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+            <tr key={row.stencil} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
               <td style={{ padding: '0.4rem 0.6rem' }}>{row.stencil}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{row.wMax}/{row.denom}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{row.fitted_exponent_beta}</td>
@@ -188,11 +189,11 @@ export default function Imp34767FarTailTwoStencilCrossvalidationViz() {
         style={{
           marginTop: '1rem',
           padding: '0.6rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
         }}
       >
         Exponent delta between stencils: {M.fitted_exponent_delta} (stencil-invariant:{' '}
@@ -206,14 +207,14 @@ export default function Imp34767FarTailTwoStencilCrossvalidationViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page presenting the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-only page presenting the
         imp-34728 two-stencil cross-validation (imported literals, no new computation). q1..q3 remain
         inherited central differences, not fresh analytic closed forms, so the far-tail ladder is a
         property of the inherited imp-3220/imp-3406 component model, not an independent physical claim.

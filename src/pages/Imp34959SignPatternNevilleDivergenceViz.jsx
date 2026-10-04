@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP34932_SIGMA_KNEE_EXTENDED_ORDER_DOMB_SYKES as D } from '../data/imp-34932-sigma-knee-extended-order-domb-sykes.js';
+import { ED } from '../styles/tokens.js';
 
 const RUN_LENGTHS = D.signPattern.runLengths; // [1,5,4,5,4,5,4,2] -- interior +5/-4 repeating
 const FIRST_SIGN = Math.sign(D.extendedLadder.delta_1); // delta_1 ~ -5.6522e-3 -> starts negative
@@ -43,13 +44,13 @@ function SignPatternChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={midY} x2={padL + cW} y2={midY} stroke="#334155" strokeWidth={1.5} />
-      <text x={padL - 6} y={midY + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+      <line x1={padL} y1={midY} x2={padL + cW} y2={midY} stroke={ED.rule} strokeWidth={1.5} />
+      <text x={padL - 6} y={midY + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
         0
       </text>
       {SIGNS.map((sgn, i) => {
         const k = i + 1;
-        const color = sgn > 0 ? '#34d399' : '#f87171';
+        const color = sgn > 0 ? ED.series3 : ED.series2;
         const y = sgn > 0 ? midY - barH : midY;
         return (
           <rect
@@ -64,11 +65,11 @@ function SignPatternChart() {
         );
       })}
       {[1, 5, 10, 15, 20, 25, 30].map((k) => (
-        <text key={k} x={xAt(k - 1)} y={svgH - 6} textAnchor="middle" fill="#64748b" fontSize={9}>
+        <text key={k} x={xAt(k - 1)} y={svgH - 6} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
           {k}
         </text>
       ))}
-      <text x={padL + cW / 2} y={svgH - padB + 22} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - padB + 22} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         k (delta_k index, k=1..30); green = positive, red = negative -- periodic +5/-4 interior runs
       </text>
     </svg>
@@ -88,9 +89,9 @@ function NevilleDivergenceChart() {
   const cH = svgH - padT - padB;
 
   const rows = [
-    { label: 'linear/median |1/R| (robust, R~78)', v: LINEAR_MEDIAN_INVR, color: '#38bdf8' },
-    { label: '4-pt Neville |1/R|', v: Math.abs(NEVILLE_4PT), color: '#fbbf24' },
-    { label: '30-pt Neville |1/R| (diverged)', v: Math.abs(NEVILLE_30PT), color: '#f87171' },
+    { label: 'linear/median |1/R| (robust, R~78)', v: LINEAR_MEDIAN_INVR, color: ED.series1 },
+    { label: '4-pt Neville |1/R|', v: Math.abs(NEVILLE_4PT), color: ED.brass },
+    { label: '30-pt Neville |1/R| (diverged)', v: Math.abs(NEVILLE_30PT), color: ED.series2 },
   ];
   const xMin = -3; // log10(1e-3)
   const xMax = 12; // log10(1e12)
@@ -105,7 +106,7 @@ function NevilleDivergenceChart() {
             x={padL - 6}
             y={padT + i * rowH + rowH / 2 + 3}
             textAnchor="end"
-            fill="#94a3b8"
+            fill={ED.inkSoft}
             fontSize={9}
             fontFamily="monospace"
           >
@@ -122,8 +123,8 @@ function NevilleDivergenceChart() {
           />
         </g>
       ))}
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
-      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
+      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         log10 scale -- the tail-window Neville read blows up ~1e10x as the window lengthens 4pt -&gt; 30pt
       </text>
     </svg>
@@ -135,11 +136,11 @@ export default function Imp34959SignPatternNevilleDivergenceViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Sigma-Knee Sign-Cycle &amp; Neville Divergence (imp-34959 / imp-34932)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         {D.question}
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         The delta_k signs are PERIODIC over the extended 30-term ladder: interior runs alternate
         +5, -4, +5, -4, +5, -4 (full cycle P &asymp; {SIGN_PERIOD} in k), the fingerprint of a
         complex-conjugate dominant singularity pair &asymp;{ARG_DEG}&deg; off the positive real axis
@@ -147,7 +148,7 @@ export default function Imp34959SignPatternNevilleDivergenceViz() {
       </p>
       <SignPatternChart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.25rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.25rem 0 0.5rem' }}>
         Because the singularity pair is complex, a real-axis Domb-Sykes/Neville intercept cannot
         converge on the oscillatory root sequence: the tail-window Neville read WORSENS as the
         window lengthens, from |1/R| &asymp; {Math.abs(NEVILLE_4PT).toExponential(2)} at 4 points to
@@ -161,14 +162,14 @@ export default function Imp34959SignPatternNevilleDivergenceViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page rendering the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-only page rendering the
         imp-34932 extended-order sign-pattern and Neville-window literals verbatim (sign sequence
         reconstructed from the exported run-length encoding, no new computation). Measurement on the
         INHERITED imp-3220/imp-3406 surrogate crossover map, NOT a rigorous asymptotic; C_mb

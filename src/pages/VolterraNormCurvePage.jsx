@@ -17,6 +17,7 @@ import { Link } from 'react-router-dom';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import { BlockMath, InlineMath } from '../components/KaTeXMath.jsx';
 import * as d3 from 'd3';
+import { ED } from '../styles/tokens.js';
 
 // ── Precomputed data from imp-1267 script (U, a pairs) ──────────────────────
 const VOLTERRA_NORM_DATA = [
@@ -91,7 +92,7 @@ export default function VolterraNormCurvePage() {
       .append('text')
       .attr('x', width / 2)
       .attr('y', 40)
-      .attr('fill', '#1c1814')
+      .attr('fill', ED.ink)
       .attr('text-anchor', 'middle')
       .style('font-size', '14px')
       .text('Parameter a');
@@ -103,15 +104,15 @@ export default function VolterraNormCurvePage() {
       .attr('y', 0 - margin.left)
       .attr('x', 0 - height / 2)
       .attr('dy', '1em')
-      .attr('fill', '#1c1814')
+      .attr('fill', ED.ink)
       .attr('text-anchor', 'middle')
       .style('font-size', '14px')
       .text('||V_{a,Φ}||');
 
     // Force explicit warm colors on d3-generated axis chrome (domain path + tick lines/text)
-    svg.selectAll('.domain').attr('stroke', '#1c1814');
-    svg.selectAll('.tick line').attr('stroke', '#877b67');
-    svg.selectAll('.tick text').attr('fill', '#4a4238');
+    svg.selectAll('.domain').attr('stroke', ED.ink);
+    svg.selectAll('.tick line').attr('stroke', ED.rule);
+    svg.selectAll('.tick text').attr('fill', ED.inkSoft);
 
     // Horizontal line at y=1 (Conj 27.2 threshold)
     svg.append('line')
@@ -119,7 +120,7 @@ export default function VolterraNormCurvePage() {
       .attr('x2', width)
       .attr('y1', yScale(1))
       .attr('y2', yScale(1))
-      .attr('stroke', '#877b67')
+      .attr('stroke', ED.rule)
       .attr('stroke-dasharray', '4,4')
       .attr('stroke-width', 1.5)
       .append('title')
@@ -137,7 +138,7 @@ export default function VolterraNormCurvePage() {
     svg.append('path')
       .datum(filteredData)
       .attr('fill', 'none')
-      .attr('stroke', '#3f6b86')
+      .attr('stroke', ED.series1)
       .attr('stroke-width', 2.5)
       .attr('d', opNormLine)
       .append('title')
@@ -151,7 +152,7 @@ export default function VolterraNormCurvePage() {
     svg.append('path')
       .datum(filteredData)
       .attr('fill', 'none')
-      .attr('stroke', '#c23a1c')
+      .attr('stroke', ED.accent)
       .attr('stroke-width', 2.5)
       .attr('stroke-dasharray', '6,3')
       .attr('d', hsBoundLine)
@@ -167,7 +168,7 @@ export default function VolterraNormCurvePage() {
       .attr('cx', d => xScale(d.a))
       .attr('cy', d => yScale(d.op_norm))
       .attr('r', 3)
-      .attr('fill', '#3f6b86');
+      .attr('fill', ED.series1);
 
     // Data points for HS bound
     svg.selectAll('.dot-hs')
@@ -178,7 +179,7 @@ export default function VolterraNormCurvePage() {
       .attr('cx', d => xScale(d.a))
       .attr('cy', d => yScale(d.hs_bound))
       .attr('r', 3)
-      .attr('fill', '#c23a1c');
+      .attr('fill', ED.series2);
 
   }, [filteredData]);
 
@@ -222,7 +223,7 @@ export default function VolterraNormCurvePage() {
           </select>
         </p>
 
-        <svg ref={svgRef} style={{ border: '1px solid #d5c9b2', marginTop: '20px', background: '#f6f1e7' }} />
+        <svg ref={svgRef} style={{ border: '1px solid var(--rule)', marginTop: '20px', background: 'var(--paper-2)' }} />
 
         <div className="card" style={{
           marginTop: '20px',
@@ -233,10 +234,10 @@ export default function VolterraNormCurvePage() {
           fontSize: '13px',
         }}>
           <p style={{ color: 'var(--ink-soft)' }}>
-            <strong style={{ color: '#3f6b86' }}>●</strong> Empirical op-norm (blue solid line, from imp-1240/1248/1262 grid)
+            <strong style={{ color: 'var(--series-1)' }}>●</strong> Empirical op-norm (blue solid line, from imp-1240/1248/1262 grid)
           </p>
           <p style={{ color: 'var(--ink-soft)' }}>
-            <strong style={{ color: '#c23a1c' }}>- - -</strong> HS bound (red dashed line, from imp-1267)
+            <strong style={{ color: 'var(--accent)' }}>- - -</strong> HS bound (red dashed line, from imp-1267)
           </p>
           <p style={{ color: 'var(--faint)' }}>
             - - - Conj 27.2 threshold = 1 (horizontal line)

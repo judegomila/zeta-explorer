@@ -39,7 +39,7 @@ export default function GilbreathObservationPage() {
         {liveCert && (
           <div style={{
             margin: '8px 0 0', padding: '8px 14px', borderRadius: 6,
-            background: 'rgba(76,122,74,0.08)', border: '1px solid rgba(76,122,74,0.35)',
+            background: 'color-mix(in srgb, var(--series-3) 8%, transparent)', border: '1px solid color-mix(in srgb, var(--series-3) 35%, transparent)',
             fontSize: 12, fontFamily: 'var(--ed-mono, var(--font-mono))', color: 'var(--ink-soft)', lineHeight: 1.9,
           }}>
             <strong style={{ color: 'var(--green)' }}>Live verification</strong>
@@ -151,7 +151,7 @@ export default function GilbreathObservationPage() {
           </div>
 
           <p style={{ marginTop: 16, padding: '10px 12px', borderRadius: 6,
-                      background: 'rgba(194,58,28,0.07)', border: '1px solid rgba(194,58,28,0.30)',
+                      background: 'color-mix(in srgb, var(--series-2) 7%, transparent)', border: '1px solid color-mix(in srgb, var(--accent) 30%, transparent)',
                       color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.7 }}>
             <strong style={{ color: 'var(--terra-dk)' }}>Status.</strong> Lemmas A and B are proved here;
             the certificate above verifies the leading 1 by exact computation over the displayed range
@@ -177,7 +177,7 @@ export default function GilbreathObservationPage() {
         </div>
 
         {/* Related Pages */}
-        <div className="card" style={{ marginTop: 24, background: 'rgba(63,107,134,0.05)' }}>
+        <div className="card" style={{ marginTop: 24, background: 'color-mix(in srgb, var(--series-1) 5%, transparent)' }}>
           <h3 style={{ color: 'var(--faint)', fontSize: 13, marginBottom: 10 }}>Related Pages</h3>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
             <Link to="/twin-ladder" style={{ color: 'var(--brass)', fontSize: 13 }}>Twin Ladder</Link>

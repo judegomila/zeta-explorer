@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP34845_ITERS_TO_FLOOR_INTERVAL_CEIL } from '../data/imp-34845-iters-to-floor-interval-ceil.js';
+import { ED } from '../styles/tokens.js';
 
 const D = IMP34845_ITERS_TO_FLOOR_INTERVAL_CEIL;
 const BANDS = [
@@ -38,8 +39,8 @@ function MarginChart() {
         .filter((e) => e >= logMin && e <= logMax)
         .map((e) => (
           <g key={e}>
-            <line x1={padL} y1={yOf(10 ** e)} x2={padL + plotW} y2={yOf(10 ** e)} stroke="#1e293b" strokeWidth={1} />
-            <text x={padL - 8} y={yOf(10 ** e) + 3} textAnchor="end" fill="#64748b" fontSize={9} fontFamily="monospace">
+            <line x1={padL} y1={yOf(10 ** e)} x2={padL + plotW} y2={yOf(10 ** e)} stroke={ED.ruleSoft} strokeWidth={1} />
+            <text x={padL - 8} y={yOf(10 ** e) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9} fontFamily="monospace">
               1e{e}
             </text>
           </g>
@@ -52,29 +53,29 @@ function MarginChart() {
         const yGap = yOf(b.minGapToInteger);
         return (
           <g key={b.key}>
-            <rect x={xHw} y={yHw} width={barW} height={padT + plotH - yHw} fill="#38bdf8" />
-            <text x={xHw + barW / 2} y={yHw - 8} textAnchor="middle" fill="#38bdf8" fontSize={10} fontFamily="monospace">
+            <rect x={xHw} y={yHw} width={barW} height={padT + plotH - yHw} fill={ED.series1} />
+            <text x={xHw + barW / 2} y={yHw - 8} textAnchor="middle" fill={ED.series1} fontSize={10} fontFamily="monospace">
               {b.halfWidth.toExponential(2)}
             </text>
-            <rect x={xGap} y={yGap} width={barW} height={padT + plotH - yGap} fill="#fbbf24" />
-            <text x={xGap + barW / 2} y={yGap - 8} textAnchor="middle" fill="#fbbf24" fontSize={10} fontFamily="monospace">
+            <rect x={xGap} y={yGap} width={barW} height={padT + plotH - yGap} fill={ED.brassDeco} />
+            <text x={xGap + barW / 2} y={yGap - 8} textAnchor="middle" fill={ED.brass} fontSize={10} fontFamily="monospace">
               {b.minGapToInteger.toExponential(2)}
             </text>
-            <text x={cx} y={svgH - padB + 18} textAnchor="middle" fill="#94a3b8" fontSize={10}>
+            <text x={cx} y={svgH - padB + 18} textAnchor="middle" fill={ED.inkSoft} fontSize={10}>
               {b.label}
             </text>
-            <text x={cx} y={svgH - padB + 32} textAnchor="middle" fill="#64748b" fontSize={9} fontFamily="monospace">
+            <text x={cx} y={svgH - padB + 32} textAnchor="middle" fill={ED.inkFaint} fontSize={9} fontFamily="monospace">
               margin &asymp; {b.margin.toFixed(1)}x
             </text>
           </g>
         );
       })}
-      <rect x={padL} y={padT - 20} width={10} height={10} fill="#38bdf8" />
-      <text x={padL + 16} y={padT - 11} fill="#94a3b8" fontSize={10}>
+      <rect x={padL} y={padT - 20} width={10} height={10} fill={ED.series1} />
+      <text x={padL + 16} y={padT - 11} fill={ED.inkSoft} fontSize={10}>
         interval half-width (x)
       </text>
-      <rect x={padL + 190} y={padT - 20} width={10} height={10} fill="#fbbf24" />
-      <text x={padL + 206} y={padT - 11} fill="#94a3b8" fontSize={10}>
+      <rect x={padL + 190} y={padT - 20} width={10} height={10} fill={ED.brassDeco} />
+      <text x={padL + 206} y={padT - 11} fill={ED.inkSoft} fontSize={10}>
         distance to nearest integer
       </text>
     </svg>
@@ -86,7 +87,7 @@ export default function Imp34875IntervalCeilMarginViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Interval-Ceil Margin: Half-Width vs Nearest-Integer Gap (imp-34875 / imp-34845)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-34798 found the closed-form iters-to-floor count off by exactly one at some seeds. imp-34845 tested
         whether that +/-1 is a genuine ceil-rounding ambiguity by wrapping the ceil argument x(seed) in an
         enclosing interval [x_lo, x_hi] (propagating the r truncation half-width and a few-ULP delta_0 floor).
@@ -97,7 +98,7 @@ export default function Imp34875IntervalCeilMarginViz() {
 
       <MarginChart />
 
-      <p style={{ color: '#64748b', fontSize: '0.78rem', marginTop: '0.75rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontSize: '0.78rem', marginTop: '0.75rem' }}>
         In both the {BANDS[0].offByOne}-of-31 and {BANDS[1].offByOne}-of-61 off-by-one cohorts, the
         numerical interval (blue) sits two decades below the nearest integer boundary (amber): zero of the{' '}
         {D.summary.total_off_by_one_seeds} off-by-one seeds across either band have a straddling
@@ -111,14 +112,14 @@ export default function Imp34875IntervalCeilMarginViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page rendering the imp-34845
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-only page rendering the imp-34845
         interval_bands/constants literals verbatim (no new computation). Interval-ceil margin diagnostic of a
         surrogate iters-to-floor count on the inherited imp-3220/imp-3406 map, IEEE-754 double precision; the
         C_C&nbsp;1/8 ansatz (imp-2642/imp-2643) and the C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066

@@ -5,10 +5,11 @@ import {
   IMP96515_LANDMARKS,
   IMP96515_HONEST_BANNER,
 } from '../data/imp-96515-ppp-collapse-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 const BRANCH_COLOR = {
-  cancellation: '#38bdf8',
-  truncation: '#fb923c',
+  cancellation: ED.series1,
+  truncation: ED.series4,
 };
 
 function LogLogChart({ points, yKey, yMin, yMax, yTicks, yLabel, yFormat }) {
@@ -38,24 +39,24 @@ function LogLogChart({ points, yKey, yMin, yMax, yTicks, yLabel, yFormat }) {
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
       {yTicks.map((v) => (
         <g key={`y${v}`}>
-          <line x1={padL} y1={yOf(v)} x2={padL + plotW} y2={yOf(v)} stroke="#334155" strokeWidth={0.5} opacity={0.4} />
-          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={8.5}>{yFormat(v)}</text>
+          <line x1={padL} y1={yOf(v)} x2={padL + plotW} y2={yOf(v)} stroke={ED.rule} strokeWidth={0.5} opacity={0.4} />
+          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8.5}>{yFormat(v)}</text>
         </g>
       ))}
       {xTicks.map((v) => (
-        <text key={`x${v}`} x={xOf(v)} y={padT + plotH + 14} textAnchor="middle" fill="#64748b" fontSize={8.5}>
+        <text key={`x${v}`} x={xOf(v)} y={padT + plotH + 14} textAnchor="middle" fill={ED.inkFaint} fontSize={8.5}>
           {v.toExponential(0).replace('+', '')}
         </text>
       ))}
 
       {/* cancellation/truncation branch boundary */}
-      <line x1={truncX} y1={padT} x2={truncX} y2={padT + plotH} stroke="#a78bfa" strokeWidth={1} strokeDasharray="2 3" opacity={0.7} />
-      <text x={truncX + 4} y={padT + 10} fill="#a78bfa" fontSize={8}>truncation onset L~3e5</text>
+      <line x1={truncX} y1={padT} x2={truncX} y2={padT + plotH} stroke={ED.series5} strokeWidth={1} strokeDasharray="2 3" opacity={0.7} />
+      <text x={truncX + 4} y={padT + 10} fill={ED.series5} fontSize={8}>truncation onset L~3e5</text>
 
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
 
-      <path d={lineD} fill="none" stroke="#475569" strokeWidth={1} opacity={0.6} />
+      <path d={lineD} fill="none" stroke={ED.rule} strokeWidth={1} opacity={0.6} />
 
       {points.map((p) => (
         <circle
@@ -67,10 +68,10 @@ function LogLogChart({ points, yKey, yMin, yMax, yTicks, yLabel, yFormat }) {
         />
       ))}
 
-      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={9.5}>
+      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5}>
         L (unfolded box length, log scale, 960 .. 5.9e6)
       </text>
-      <text x={14} y={padT + plotH / 2} textAnchor="middle" fill="#64748b" fontSize={9.5} transform={`rotate(-90 14 ${padT + plotH / 2})`}>
+      <text x={14} y={padT + plotH / 2} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5} transform={`rotate(-90 14 ${padT + plotH / 2})`}>
         {yLabel}
       </text>
     </svg>
@@ -88,18 +89,18 @@ export default function Imp96515PppCollapseViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 760,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> {IMP96515_HONEST_BANNER}
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> {IMP96515_HONEST_BANNER}
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
         imp-96486 swept the direct basis-C floor across nine L rungs from 960 to the PT
         anchor 5.9e6. The optimal panels-per-period (ppp) collapses monotonically from 640
         down to 3, and the achievable floor tracks the imp-96430 L-linear cancellation model
@@ -108,7 +109,7 @@ export default function Imp96515PppCollapseViz() {
         at the anchor. Both charts below mark the same crossover.
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         Optimal ppp vs L (log-log)
       </h3>
       <LogLogChart
@@ -121,7 +122,7 @@ export default function Imp96515PppCollapseViz() {
         yFormat={(v) => String(v)}
       />
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', margin: '1.5rem 0 0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', margin: '1.5rem 0 0.5rem' }}>
         Floor-over-model ratio vs L (log-log)
       </h3>
       <LogLogChart
@@ -134,7 +135,7 @@ export default function Imp96515PppCollapseViz() {
         yFormat={(v) => (v >= 1 ? String(v) : v.toFixed(2))}
       />
 
-      <div style={{ marginTop: '0.75rem', display: 'flex', gap: '1.25rem', fontSize: '0.8rem', color: '#94a3b8' }}>
+      <div style={{ marginTop: '0.75rem', display: 'flex', gap: '1.25rem', fontSize: '0.8rem', color: 'var(--ink-soft)' }}>
         <span><span style={{ display: 'inline-block', width: 9, height: 9, borderRadius: '50%', background: BRANCH_COLOR.cancellation, marginRight: 6 }} />cancellation branch (L &le; {truncationOnsetL.toExponential(0)})</span>
         <span><span style={{ display: 'inline-block', width: 9, height: 9, borderRadius: '50%', background: BRANCH_COLOR.truncation, marginRight: 6 }} />truncation branch (L &gt; {truncationOnsetL.toExponential(0)})</span>
       </div>
@@ -143,14 +144,14 @@ export default function Imp96515PppCollapseViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> the top panel shows
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> the top panel shows
         the true U-shape optimum -- ppp is already sub-640 by L={lastCancellationOptimalL === 960 ? '3e3' : lastCancellationOptimalL}, and
         falls to {truncationOnsetOptPpp} by the truncation onset near L={truncationOnsetL.toExponential(0)},
         then to 3 at the anchor. The bottom panel shows the achievable floor tracking the
@@ -162,14 +163,14 @@ export default function Imp96515PppCollapseViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page consuming the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the
         imp-96486 baked nine-rung map verbatim (the only new step is the cancellation /
         truncation branch label). Feasibility / cross-validation numerics only: theoretical
         GUE quantity, not real zeros; changes no bound, establishes no operator positivity;

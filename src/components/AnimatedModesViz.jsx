@@ -2,6 +2,7 @@ import { InlineMath, BlockMath } from './KaTeXMath.jsx';
 import React, { useRef, useEffect, useState, useCallback, useMemo } from 'react';
 import { ZETA_ZEROS } from '../math/zeta.js';
 import { getPrimes, primeFrequency } from '../math/primes.js';
+import { ED, alpha } from '../styles/tokens.js';
 
 // Precompute x-step constants at module level — these depend only on the
 // hardcoded xSteps=200 and never change, saving 200 Math.exp calls + 3
@@ -102,11 +103,11 @@ export default function AnimatedModesViz() {
     const waveW = dw - xPad - 20;
 
     // Title
-    ctx.fillStyle = '#e2e8f0';
+    ctx.fillStyle = ED.ink;
     ctx.font = '600 14px sans-serif';
     const subIdx = String(zeroIndex + 1).split('').map(c => String.fromCharCode(0x2080 + +c)).join('');
     ctx.fillText(`Oscillator Modes at Zeta Zero γ${subIdx} = ${gamma.toFixed(3)}`, 12, 22);
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.font = '11px sans-serif';
     ctx.fillText('Each row: one prime oscillator. Right: superposition of all modes.', 12, 40);
 
@@ -130,10 +131,10 @@ export default function AnimatedModesViz() {
       const yCenter = 60 + idx * rowH;
 
       // Label
-      ctx.fillStyle = '#64748b';
+      ctx.fillStyle = ED.series8;
       ctx.font = '11px monospace';
       ctx.fillText(`p=${p}`, 6, yCenter + 4);
-      ctx.fillStyle = '#3b82f6';
+      ctx.fillStyle = ED.series1;
       ctx.font = '9px monospace';
       ctx.fillText(`ω=${omega.toFixed(2)}`, 6, yCenter + 16);
 
@@ -161,7 +162,7 @@ export default function AnimatedModesViz() {
       ctx.stroke();
 
       // Center line
-      ctx.strokeStyle = '#334155';
+      ctx.strokeStyle = ED.rule;
       ctx.lineWidth = 0.5;
       ctx.setLineDash([3, 4]);
       ctx.beginPath();
@@ -184,7 +185,7 @@ export default function AnimatedModesViz() {
     const superH = dh - superY - 20;
     const superMid = superY + superH / 2;
 
-    ctx.strokeStyle = '#334155';
+    ctx.strokeStyle = ED.rule;
     ctx.lineWidth = 0.5;
     ctx.setLineDash([3, 4]);
     ctx.beginPath();
@@ -193,7 +194,7 @@ export default function AnimatedModesViz() {
     ctx.stroke();
     ctx.setLineDash([]);
 
-    ctx.fillStyle = '#10b981';
+    ctx.fillStyle = ED.series3;
     ctx.font = '600 12px sans-serif';
     ctx.fillText('Σ all modes', 6, superMid + 4);
 
@@ -210,7 +211,7 @@ export default function AnimatedModesViz() {
       if (i === 0) ctx.moveTo(xPos[i], y);
       else ctx.lineTo(xPos[i], y);
     }
-    ctx.strokeStyle = '#10b981';
+    ctx.strokeStyle = ED.series3;
     ctx.lineWidth = 2.5;
     ctx.stroke();
 
@@ -223,12 +224,12 @@ export default function AnimatedModesViz() {
     }
     ctx.lineTo(xPos[xSteps - 1], superMid);
     ctx.closePath();
-    ctx.fillStyle = 'rgba(16, 185, 129, 0.08)';
+    ctx.fillStyle = alpha(ED.series3, 0.08);
     ctx.fill();
 
     // X-axis with tick marks and labels
     const axisY = superY + superH;
-    ctx.strokeStyle = '#334155';
+    ctx.strokeStyle = ED.rule;
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.moveTo(xPad, axisY);
@@ -243,12 +244,12 @@ export default function AnimatedModesViz() {
       ctx.moveTo(tickX, axisY);
       ctx.lineTo(tickX, axisY + 4);
       ctx.stroke();
-      ctx.fillStyle = '#64748b';
+      ctx.fillStyle = ED.series8;
       ctx.fillText(logVal.toString(), tickX, axisY + 14);
     }
 
     // Y-axis for superposition panel
-    ctx.strokeStyle = '#334155';
+    ctx.strokeStyle = ED.rule;
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.moveTo(xPad, superY);
@@ -272,7 +273,7 @@ export default function AnimatedModesViz() {
       ctx.moveTo(xPad - 3, tick.y);
       ctx.lineTo(xPad, tick.y);
       ctx.stroke();
-      ctx.fillStyle = '#64748b';
+      ctx.fillStyle = ED.series8;
       ctx.fillText(tick.label, xPad - 5, tick.y + 3);
     }
 
@@ -280,21 +281,21 @@ export default function AnimatedModesViz() {
     ctx.save();
     ctx.translate(xPad - 18, superMid);
     ctx.rotate(-Math.PI / 2);
-    ctx.fillStyle = '#475569';
+    ctx.fillStyle = ED.series8;
     ctx.font = '10px sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText('Amplitude', 0, 0);
     ctx.restore();
 
     // Axis label
-    ctx.fillStyle = '#475569';
+    ctx.fillStyle = ED.series8;
     ctx.font = '10px sans-serif';
     ctx.textAlign = 'right';
     ctx.fillText('log x', xPad - 6, axisY + 14);
     ctx.textAlign = 'left';
 
     // Time indicator (top-right)
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.font = '11px monospace';
     ctx.textAlign = 'right';
     ctx.fillText(`t = ${t.toFixed(2)}`, dw - 8, 22);
@@ -306,7 +307,7 @@ export default function AnimatedModesViz() {
     const legendItems = Math.min(primeData.length, 5);
     const legendH = (legendItems + 1) * 16 + 10;
     ctx.fillStyle = 'rgba(10, 14, 26, 0.85)';
-    ctx.strokeStyle = '#334155';
+    ctx.strokeStyle = ED.rule;
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.roundRect(legendX - 8, legendY - 4, 168, legendH, 4);
@@ -323,21 +324,21 @@ export default function AnimatedModesViz() {
       ctx.moveTo(legendX, ly);
       ctx.lineTo(legendX + 20, ly);
       ctx.stroke();
-      ctx.fillStyle = '#cbd5e1';
+      ctx.fillStyle = ED.ink;
       ctx.fillText(`p = ${pd.p}  (ω = ${pd.omega.toFixed(2)})`, legendX + 26, ly + 3);
     }
     // Superposition entry
     const superLegY = legendY + 10 + legendItems * 16;
-    ctx.strokeStyle = '#10b981';
+    ctx.strokeStyle = ED.series3;
     ctx.lineWidth = 2.5;
     ctx.beginPath();
     ctx.moveTo(legendX, superLegY);
     ctx.lineTo(legendX + 20, superLegY);
     ctx.stroke();
-    ctx.fillStyle = '#10b981';
+    ctx.fillStyle = ED.series3;
     ctx.fillText('Σ all modes', legendX + 26, superLegY + 3);
     if (primeData.length > 5) {
-      ctx.fillStyle = '#64748b';
+      ctx.fillStyle = ED.series8;
       ctx.font = '9px sans-serif';
       ctx.fillText(`… + ${primeData.length - 5} more primes`, legendX + 26, superLegY + 16);
     }
@@ -415,7 +416,7 @@ export default function AnimatedModesViz() {
           <label>Primes</label>
           <input type="range" min="4" max="50" step="1" value={numPrimes}
             onChange={e => setNumPrimes(+e.target.value)} />
-          <span className="control-value">{numPrimes} <span style={{ color: '#64748b', fontSize: 11 }}>(up to p={getPrimes(numPrimes)[numPrimes - 1]})</span></span>
+          <span className="control-value">{numPrimes} <span style={{ color: 'var(--ink-faint)', fontSize: 11 }}>(up to p={getPrimes(numPrimes)[numPrimes - 1]})</span></span>
         </div>
         <div className="control-group">
           <label>Speed</label>
@@ -428,8 +429,8 @@ export default function AnimatedModesViz() {
           title="Toggle animation (Space)"
           style={{
             padding: '6px 16px', borderRadius: 6, border: '1px solid var(--border)',
-            background: isPlaying ? 'rgba(239,68,68,0.15)' : 'rgba(16,185,129,0.15)',
-            color: isPlaying ? '#ef4444' : '#10b981', cursor: 'pointer', fontSize: 13,
+            background: isPlaying ? 'color-mix(in srgb, var(--series-2) 15%, transparent)' : 'color-mix(in srgb, var(--series-3) 15%, transparent)',
+            color: isPlaying ? 'var(--series-2)' : 'var(--series-3)', cursor: 'pointer', fontSize: 13,
           }}
         >
           {isPlaying ? 'Pause' : 'Play'}
@@ -439,14 +440,14 @@ export default function AnimatedModesViz() {
           title="Reset animation to t = 0"
           style={{
             padding: '6px 16px', borderRadius: 6, border: '1px solid var(--border)',
-            background: 'rgba(100,116,139,0.15)',
-            color: '#94a3b8', cursor: 'pointer', fontSize: 13, marginLeft: 4,
+            background: 'color-mix(in srgb, var(--ink-faint) 15%, transparent)',
+            color: 'var(--ink-soft)', cursor: 'pointer', fontSize: 13, marginLeft: 4,
           }}
         >
           Reset
         </button>
-        <span style={{ color: '#475569', fontSize: 10, marginLeft: 6, fontFamily: 'var(--font-mono)' }}>
-          <kbd style={{ padding: '1px 5px', borderRadius: 3, border: '1px solid #334155', background: '#1e293b', fontSize: 10 }}>Space</kbd>
+        <span style={{ color: 'var(--ink-faint)', fontSize: 10, marginLeft: 6, fontFamily: 'var(--font-mono)' }}>
+          <kbd style={{ padding: '1px 5px', borderRadius: 3, border: '1px solid var(--rule)', background: 'var(--paper-3)', fontSize: 10 }}>Space</kbd>
         </span>
       </div>
       <div className="viz-container">

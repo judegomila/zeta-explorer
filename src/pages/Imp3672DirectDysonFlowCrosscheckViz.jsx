@@ -6,11 +6,12 @@ import {
   IMP3672_SHRINK_COMPARISON,
   IMP3672_FLOW_FACTOR_COMPARISON,
 } from '../data/imp-3672-direct-dyson-flow-crosscheck-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
-const V0_COLOR = '#38bdf8';
-const FIT_COLOR = '#f59e0b';
-const DIRECT_COLOR = '#34d399';
-const IMP398_COLOR = '#f87171';
+const V0_COLOR = ED.series1;
+const FIT_COLOR = ED.series4;
+const DIRECT_COLOR = ED.series3;
+const IMP398_COLOR = ED.series2;
 
 function V0FitChart() {
   const svgW = 620;
@@ -34,20 +35,20 @@ function V0FitChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
       {[0, 5, 10, 15, 20].map((x) => (
         <g key={x}>
-          <line x1={xS(x)} y1={padT} x2={xS(x)} y2={padT + cH} stroke="#1e293b" strokeWidth={0.7} />
-          <text x={xS(x)} y={padT + cH + 15} textAnchor="middle" fill="#64748b" fontSize={9}>
+          <line x1={xS(x)} y1={padT} x2={xS(x)} y2={padT + cH} stroke={ED.ruleSoft} strokeWidth={0.7} />
+          <text x={xS(x)} y={padT + cH + 15} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
             {x}
           </text>
         </g>
       ))}
       {[0, 2.5, 5, 7.5, 10].map((y) => (
         <g key={y}>
-          <line x1={padL} y1={yS(y)} x2={padL + cW} y2={yS(y)} stroke="#1e293b" strokeWidth={0.7} />
-          <text x={padL - 8} y={yS(y) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+          <line x1={padL} y1={yS(y)} x2={padL + cW} y2={yS(y)} stroke={ED.ruleSoft} strokeWidth={0.7} />
+          <text x={padL - 8} y={yS(y) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {y}
           </text>
         </g>
@@ -59,12 +60,12 @@ function V0FitChart() {
         <circle key={r.logGamma} cx={xS(r.logDensity)} cy={yS(r.V0)} r={4} fill={V0_COLOR} stroke="#052e1f" strokeWidth={1} />
       ))}
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
 
-      <text x={padL + cW / 2} y={padT + cH + 30} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={padT + cH + 30} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         log(gamma / 2 pi) (local density)
       </text>
-      <text x={14} y={padT + cH / 2} textAnchor="middle" fill="#64748b" fontSize={10} transform={`rotate(-90,14,${padT + cH / 2})`}>
+      <text x={14} y={padT + cH / 2} textAnchor="middle" fill={ED.inkFaint} fontSize={10} transform={`rotate(-90,14,${padT + cH / 2})`}>
         V0(gamma) (measured mesoscopic density floor)
       </text>
       <text x={padL + 8} y={padT + 18} fill={FIT_COLOR} fontSize={9}>
@@ -94,7 +95,7 @@ function ShrinkBarChart() {
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
       {bars.map((b, i) => (
         <g key={b.label} transform={`translate(0, ${padT + i * rowH})`}>
-          <text x={padL - 10} y={rowH / 2 + 4} textAnchor="end" fill="#94a3b8" fontSize={10}>
+          <text x={padL - 10} y={rowH / 2 + 4} textAnchor="end" fill={ED.inkSoft} fontSize={10}>
             {b.label}
           </text>
           <rect x={padL} y={rowH / 2 - 10} width={xS(b.value)} height={20} fill={b.color} rx={2} />
@@ -109,9 +110,9 @@ function ShrinkBarChart() {
 
 function FitTable() {
   return (
-    <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.8rem', color: '#94a3b8' }}>
+    <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.8rem', color: 'var(--ink-soft)' }}>
       <thead>
-        <tr style={{ borderBottom: '1px solid #334155' }}>
+        <tr style={{ borderBottom: '1px solid var(--rule)' }}>
           <th style={{ textAlign: 'left', padding: '0.35rem 0.5rem' }}>log gamma</th>
           <th style={{ textAlign: 'right', padding: '0.35rem 0.5rem' }}>log(gamma / 2 pi)</th>
           <th style={{ textAlign: 'right', padding: '0.35rem 0.5rem' }}>V0(gamma)</th>
@@ -119,7 +120,7 @@ function FitTable() {
       </thead>
       <tbody>
         {IMP3672_V0_FIT_TABLE.map((r) => (
-          <tr key={r.logGamma} style={{ borderBottom: '1px solid #1e293b' }}>
+          <tr key={r.logGamma} style={{ borderBottom: '1px solid var(--rule-soft)' }}>
             <td style={{ padding: '0.35rem 0.5rem' }}>{r.logGamma}</td>
             <td style={{ textAlign: 'right', padding: '0.35rem 0.5rem' }}>{r.logDensity}</td>
             <td style={{ textAlign: 'right', padding: '0.35rem 0.5rem', color: V0_COLOR }}>{r.V0}</td>
@@ -135,7 +136,7 @@ export default function Imp3672DirectDysonFlowCrosscheckViz() {
     <div style={{ padding: '1.5rem', maxWidth: 940, margin: '0 auto' }}>
       <PageHeader title="Direct-Dyson-Flow Crosscheck (imp-3642)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
         imp-3642 ran a direct RK4 integration of the attractive backward-Dyson flow and measured the
         mesoscopic density floor V0(gamma) across a ladder of heights spanning the imp-398 anchor (log
         gamma = 9.1981) to the imp-3620 crossover (log gamma = 20.8576). V0 turns out to be exactly linear
@@ -143,17 +144,17 @@ export default function Imp3672DirectDysonFlowCrosscheckViz() {
         log(gamma / 2 pi) = {IMP3672_INVARIANT_SLOPE} is constant across the whole ladder.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         V0(gamma) vs. local density log(gamma / 2 pi): linear fit
       </p>
       <V0FitChart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.75rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.75rem 0 0.5rem' }}>
         Measured ladder
       </p>
       <FitTable />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.75rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.75rem 0 0.5rem' }}>
         Anchor-to-crossover shrink factor: density-corrected vs. bare-log
       </p>
       <ShrinkBarChart />
@@ -162,14 +163,14 @@ export default function Imp3672DirectDysonFlowCrosscheckViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the charts:</strong> the top chart confirms the direct
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the charts:</strong> the top chart confirms the direct
         flow reproduces the imp-398 1/log SHAPE -- every measured V0(gamma) point falls exactly on the fitted
         line through the origin, slope {IMP3672_INVARIANT_SLOPE}. But the anchor-to-crossover SHRINK the flow
         actually measures is r = {IMP3672_SHRINK_COMPARISON.rDirect} (green bar), not the imp-398 / imp-3620
@@ -185,14 +186,14 @@ export default function Imp3672DirectDysonFlowCrosscheckViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> visualization only -- this charts the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> visualization only -- this charts the
         imp-3642 measurement/derivation result (frontier-direction, not rigorous). RH-equivalent,
         necessary-but-not-sufficient. The imp-3066 K_a &ge; 0 sign-positivity obstruction remains untouched.
       </div>

@@ -1,0 +1,30 @@
+diff --git a/SHA256SUMS b/SHA256SUMS
+index 4ce44a0..ccc9e1c 100644
+--- a/SHA256SUMS
++++ b/SHA256SUMS
+@@ -22,7 +22,7 @@ bebc540fb5aef3fc31cc25c09b95f8259eb5c4a0aaeba124b241451f0b47285b  ./lean/YTransf
+ 7b947f55a60857b6831c7ac1559358601125bcdd1752bc618442318c26656666  ./PROOF_NOTE.md
+ e322e7c27e4ff1bc058f12ace7c4a9d18b43e5695a34ac221856bbec451939ce  ./provenance/Y_TRANSFER_GENMOLL_THEOREM.md
+ da8ff2d859c0e5174edbfca4ad652433fcbaaab0c4d9a1a0f755d8e66b383b46  ./README.md
+-da50a93cd11c80896d810815d9ecedb1a1c4577c189e4f0390fee10b547f62ca  ./run_all.sh
++764903edb1f58b62b18e19da43ebeb9352fe7eff00141385e79f44002ee38c19  ./run_all.sh
+ 561d59bfd66130fdc0f6897af013e94ef751e185789d22c566478c6815e44677  ./src/lemma_sweep_genmoll.c
+ a05f16ef483c9bc4c04871582a93a10c8c232622ad5558e32378d1401eec8a5c  ./src/mollifier_p17_t0_15830.txt
+ 394e2cc2ad24db7a14add609eb08336f3ec222db87edd2ff9b7cb63b4cc9923d  ./verifiers/verify_tail_genmoll.c
+diff --git a/run_all.sh b/run_all.sh
+index af7c79f..659614c 100755
+--- a/run_all.sh
++++ b/run_all.sh
+@@ -32,7 +32,9 @@ MOLL_FILE="$MOLL" TAIL_N1=6000000 TAIL_TNUM=15830 TAIL_TDEN=100000 \
+   | grep -E "decisive|D upper|flow lower|SC[123]|GN-|YM:"
+ 
+ echo "== GATE 4: y-transfer (expect RESULT: YDINI PASS B < 1.7e-3) =="
+-( cd "$ROOT/src" && ln -sf "$MOLL" moll_0.15830.txt 2>/dev/null || true )
+-( cd "$BIN" && ln -sf "$MOLL" moll_0.15830.txt 2>/dev/null || true )
+-YDINI_THREADS=${YDINI_THREADS:-8} "$BIN/ydini" 256 | grep -E "RESULT|budget B|LEG D:"
++# The mollifier path is passed explicitly. Without it, verify_ydini_genmoll probes
++# tmp/moll_0.15830.txt and then moll_0.15830.txt relative to the CURRENT directory,
++# not $ROOT/src or $BIN; the symlinks formerly created there were read only when
++# run_all.sh was started from one of those two directories.
++YDINI_THREADS=${YDINI_THREADS:-8} "$BIN/ydini" 256 "$MOLL" | grep -E "^mollifier:|RESULT|budget B|LEG D:"
+ echo "== done. GATE 3 (barrier) is reused from the base candidate unchanged. =="

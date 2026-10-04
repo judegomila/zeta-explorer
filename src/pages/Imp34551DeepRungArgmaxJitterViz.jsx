@@ -2,6 +2,7 @@ import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP34551_BIGNUM_RESID_ARGMAX_EXTENDED_PRECISION } from '../data/imp-34551-bignum-resid-argmax-extended-precision.js';
 import { IMP34524_CONTINUUM_MARGIN_BELOW_ULP_FLOOR } from '../data/imp-34524-continuum-margin-below-ulp-floor.js';
+import { ED } from '../styles/tokens.js';
 
 const {
   kStarDd,
@@ -47,19 +48,19 @@ function ArgmaxJitterChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
 
       {yTicks.map((t, ti) => (
         <g key={'yt' + ti}>
-          <line x1={padL - 4} y1={yS(t)} x2={padL + cW} y2={yS(t)} stroke="#1e293b" strokeWidth={1} />
-          <text x={padL - 8} y={yS(t) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+          <line x1={padL - 4} y1={yS(t)} x2={padL + cW} y2={yS(t)} stroke={ED.ruleSoft} strokeWidth={1} />
+          <text x={padL - 8} y={yS(t) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {Math.pow(10, t).toPrecision(2)}
           </text>
         </g>
       ))}
       {exponents.map((e, i) => (
-        <text key={'xt' + i} x={xS(e)} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={9}>
+        <text key={'xt' + i} x={xS(e)} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
           e={e}
         </text>
       ))}
@@ -70,16 +71,16 @@ function ArgmaxJitterChart() {
         y1={yS(0)}
         x2={padL + cW}
         y2={yS(0)}
-        stroke="#f87171"
+        stroke={ED.series2}
         strokeWidth={1.5}
         strokeDasharray="6 3"
       />
-      <text x={padL + 6} y={yS(0) - 6} fill="#f87171" fontSize={9}>
+      <text x={padL + 6} y={yS(0) - 6} fill={ED.series2} fontSize={9}>
         1 storage ULP (native-double resolvability floor)
       </text>
 
       {/* dd-measured top-two margin across rungs */}
-      <polyline points={linePts} fill="none" stroke="#60a5fa" strokeWidth={2} />
+      <polyline points={linePts} fill="none" stroke={ED.series1} strokeWidth={2} />
       {rungs.map((r, i) => {
         const belowFloor = r.marginUlps < 1;
         return (
@@ -88,13 +89,13 @@ function ArgmaxJitterChart() {
               cx={xS(r.exponent)}
               cy={yS(Math.log10(r.marginUlps))}
               r={4.5}
-              fill={belowFloor ? '#f87171' : '#60a5fa'}
+              fill={belowFloor ? ED.series2 : ED.series1}
             />
             <text
               x={xS(r.exponent)}
               y={yS(Math.log10(r.marginUlps)) - 10}
               textAnchor="middle"
-              fill={belowFloor ? '#f87171' : '#93c5fd'}
+              fill={belowFloor ? ED.series2 : ED.series1}
               fontSize={9}
             >
               {r.marginUlps.toFixed(3)}
@@ -112,20 +113,20 @@ function ArgmaxJitterChart() {
           width={8}
           height={8}
           fill="none"
-          stroke="#94a3b8"
+          stroke={ED.rule}
           strokeWidth={1.5}
           transform={`rotate(45 ${xS(Number(e))} ${yS(Math.log10(v))})`}
         />
       ))}
 
-      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         refinement rung e (dyadic step 2^-e)
       </text>
       <text
         x={16}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={`rotate(-90 16 ${padT + cH / 2})`}
       >
@@ -140,7 +141,7 @@ export default function Imp34551DeepRungArgmaxJitterViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Deep-Rung Argmax Jitter, dd-Resolved (imp-34551)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-34551 recomputed the resid_exp(k) doubling-map argmax in double-double (106-bit) arithmetic
         at rungs e=23..27, resolving the top-two dyadic-node margin (blue) well below the native-double
         storage floor of one ULP (red dashed line). At e=25/26/27 the dd-measured margin sits at 0.480,
@@ -151,7 +152,7 @@ export default function Imp34551DeepRungArgmaxJitterViz() {
         {argmaxNeverLocks ? ', confirmed never settling on a fixed value' : ''}).
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         top-two resid_exp margin vs rung e -- dd-measured (blue) vs curvature-bound estimate (grey), 1 ULP floor
       </p>
       <ArgmaxJitterChart />
@@ -165,7 +166,7 @@ export default function Imp34551DeepRungArgmaxJitterViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>rung e</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>dd argmax</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>dd margin (ULPs)</th>
@@ -175,14 +176,14 @@ export default function Imp34551DeepRungArgmaxJitterViz() {
         </thead>
         <tbody>
           {rungs.map((r, i) => (
-            <tr key={i} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+            <tr key={i} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
               <td style={{ padding: '0.4rem 0.6rem' }}>{r.exponent}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.ddArgmax.toFixed(12)}</td>
               <td
                 style={{
                   padding: '0.4rem 0.6rem',
                   fontFamily: 'monospace',
-                  color: r.marginUlps < 1 ? '#f87171' : '#34d399',
+                  color: r.marginUlps < 1 ? 'var(--series-2)' : 'var(--series-3)',
                 }}
               >
                 {r.marginUlps.toFixed(3)}
@@ -190,7 +191,7 @@ export default function Imp34551DeepRungArgmaxJitterViz() {
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>
                 {NATIVE_BOUND_ULPS[r.exponent] !== undefined ? NATIVE_BOUND_ULPS[r.exponent].toFixed(3) : '—'}
               </td>
-              <td style={{ padding: '0.4rem 0.6rem', color: r.marginUlps < 1 ? '#f87171' : '#34d399' }}>
+              <td style={{ padding: '0.4rem 0.6rem', color: r.marginUlps < 1 ? 'var(--series-2)' : 'var(--series-3)' }}>
                 {r.marginUlps < 1 ? 'no' : 'yes'}
               </td>
             </tr>
@@ -202,14 +203,14 @@ export default function Imp34551DeepRungArgmaxJitterViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> extended-precision measurement/
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> extended-precision measurement/
         cross-check only -- answers SUB-GAP-imp-34533-deep-rung-argmax-noise-dominated by observing the
         deep-rung argmax jitter in double-double (106-bit) arithmetic that native double cannot resolve.
         The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic;

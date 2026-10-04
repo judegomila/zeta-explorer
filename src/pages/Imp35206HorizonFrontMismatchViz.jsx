@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP35195_HORIZON_FRONT_MISMATCH_RATIO } from '../data/imp-35195-horizon-front-mismatch-ratio.js';
+import { ED } from '../styles/tokens.js';
 
 const D = IMP35195_HORIZON_FRONT_MISMATCH_RATIO;
 const ROWS = D.ladder;
@@ -38,13 +39,13 @@ function HorizonFrontChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <text x={padL} y={padT - 38} fill="#94a3b8" fontSize={11} fontWeight={700}>
+      <text x={padL} y={padT - 38} fill={ED.inkSoft} fontSize={11} fontWeight={700}>
         T_minus(g,beta) certified window vs. t_c(N) collision front, log-log (imp-35195 / imp-35167 M5)
       </text>
       {yTicks.map((v) => (
         <g key={v}>
-          <line x1={padL} y1={yOf(v)} x2={padL + plotW} y2={yOf(v)} stroke="#1e293b" strokeWidth={1} />
-          <text x={padL - 6} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+          <line x1={padL} y1={yOf(v)} x2={padL + plotW} y2={yOf(v)} stroke={ED.ruleSoft} strokeWidth={1} />
+          <text x={padL - 6} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v.toExponential(0)}
           </text>
         </g>
@@ -55,11 +56,11 @@ function HorizonFrontChart() {
         y1={padT}
         x2={xOf(TOP.N)}
         y2={padT + plotH}
-        stroke="#f87171"
+        stroke={ED.series2}
         strokeWidth={1.25}
         strokeDasharray="2 3"
       />
-      <text x={xOf(TOP.N) + 4} y={padT + 10} fill="#f87171" fontSize={8.5}>
+      <text x={xOf(TOP.N) + 4} y={padT + 10} fill={ED.series2} fontSize={8.5}>
         N=870 (ratio first &lt; 1/2)
       </text>
       {/* asymptotic anchor marker (imp-2762 verified g_min(1e4)) */}
@@ -68,28 +69,28 @@ function HorizonFrontChart() {
         y1={padT}
         x2={xOf(ANCHOR.N)}
         y2={padT + plotH}
-        stroke="#38bdf8"
+        stroke={ED.series1}
         strokeWidth={1.25}
         strokeDasharray="4 3"
       />
-      <text x={xOf(ANCHOR.N) - 4} y={padT + 22} textAnchor="end" fill="#38bdf8" fontSize={8.5}>
+      <text x={xOf(ANCHOR.N) - 4} y={padT + 22} textAnchor="end" fill={ED.series1} fontSize={8.5}>
         N=1e4 anchor (ratio ~{ANCHOR.ratio.toFixed(3)})
       </text>
-      <path d={tcPath} fill="none" stroke="#facc15" strokeWidth={2} strokeDasharray="6 3" />
-      <path d={tMinusPath} fill="none" stroke="#a78bfa" strokeWidth={2.25} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <path d={tcPath} fill="none" stroke={ED.brassDeco} strokeWidth={2} strokeDasharray="6 3" />
+      <path d={tMinusPath} fill="none" stroke={ED.series5} strokeWidth={2.25} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
       {xTicks.map((N) => (
-        <text key={N} x={xOf(N)} y={padT + plotH + 16} textAnchor="middle" fill="#64748b" fontSize={9}>
+        <text key={N} x={xOf(N)} y={padT + plotH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
           N={N}
         </text>
       ))}
       <g>
-        <circle cx={padL + 4} cy={padT - 10} r={3} fill="#a78bfa" />
-        <text x={padL + 12} y={padT - 6} fill="#a78bfa" fontSize={8.5}>
+        <circle cx={padL + 4} cy={padT - 10} r={3} fill={ED.series5} />
+        <text x={padL + 12} y={padT - 6} fill={ED.series5} fontSize={8.5}>
           T_minus(g,beta) &asymp; g_min(0,N)^2/8
         </text>
-        <circle cx={padL + 220} cy={padT - 10} r={3} fill="#facc15" />
-        <text x={padL + 228} y={padT - 6} fill="#facc15" fontSize={8.5}>
+        <circle cx={padL + 220} cy={padT - 10} r={3} fill={ED.brassDeco} />
+        <text x={padL + 228} y={padT - 6} fill={ED.brass} fontSize={8.5}>
           t_c(N) &asymp; 0.0066 + 4.91/N
         </text>
       </g>
@@ -102,7 +103,7 @@ export default function Imp35206HorizonFrontMismatchViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Horizon-Front Mismatch: T_minus(g,beta) vs. t_c(N) (imp-35206 / imp-35195 / imp-35167 M5)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-35167 identified M5 (horizon-reaches-front) as the structural binding obstruction to a
         certified non-collision g_min(t)&nbsp;&gt;&nbsp;0 along the whole backward Dyson trajectory:
         the certified non-collision window T_minus(g,beta) collapses toward the O(1) collision front
@@ -124,7 +125,7 @@ export default function Imp35206HorizonFrontMismatchViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>N</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>g_min(0,N)</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>T_minus</th>
@@ -134,7 +135,7 @@ export default function Imp35206HorizonFrontMismatchViz() {
         </thead>
         <tbody>
           {ROWS.map((r) => (
-            <tr key={r.N} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+            <tr key={r.N} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.N}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.gMin}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.Tminus}</td>
@@ -142,7 +143,7 @@ export default function Imp35206HorizonFrontMismatchViz() {
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.ratio}</td>
             </tr>
           ))}
-          <tr style={{ borderBottom: '1px solid #1e293b', color: '#38bdf8' }}>
+          <tr style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--series-1)' }}>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{ANCHOR.N} (anchor)</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{ANCHOR.gMin1e4}</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{ANCHOR.tMinusLeading}</td>
@@ -152,7 +153,7 @@ export default function Imp35206HorizonFrontMismatchViz() {
         </tbody>
       </table>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.8rem', marginTop: '1rem' }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.8rem', marginTop: '1rem' }}>
         Across the accessible zero range the ratio T_minus/t_c stays O(1) (&asymp;&nbsp;
         {D.accessibleRange.ratioMin.toFixed(3)}..{D.accessibleRange.ratioMax.toFixed(3)}), even
         crossing 1 near N&nbsp;=&nbsp;100. The collapse only becomes visible once g_min drops below
@@ -167,14 +168,14 @@ export default function Imp35206HorizonFrontMismatchViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page rendering the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-only page rendering the
         imp-35195 T_minus/t_c literals verbatim (no new computation). T_minus uses the imp-2563
         certified window AS-IS; beta(N) is the RvM density MODEL, not a certified sup over the true
         backward flow; t_c(N) is an empirical OLS fit. Confirms the imp-35167 M5 mismatch is real but

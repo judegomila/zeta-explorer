@@ -7,6 +7,7 @@ import {
   IMP34383_NUM_CONFIGS,
   IMP34383_NUM_UNDERCOUNT_ZERO,
 } from '../data/imp-34383-d2-signchange-grid-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 // Narrow-domain [1e9,1e11] width sweep: signChanges (0 or 1) vs bracket width W. The two coarsest
 // widths (0.4, 0.5) drop to zero -- too few sub-brackets to resolve the D2 curvature -- highlighted
@@ -31,33 +32,33 @@ function WidthSweepChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
 
       {[0, 1].map((v) => (
         <g key={'y' + v}>
-          <line x1={padL - 4} y1={yAt(v)} x2={padL + cW} y2={yAt(v)} stroke="#1e293b" strokeWidth={1} />
-          <text x={padL - 8} y={yAt(v) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+          <line x1={padL - 4} y1={yAt(v)} x2={padL + cW} y2={yAt(v)} stroke={ED.ruleSoft} strokeWidth={1} />
+          <text x={padL - 8} y={yAt(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v}
           </text>
         </g>
       ))}
       {xTicks.map((w) => (
         <g key={'x' + w}>
-          <line x1={xAt(w)} y1={padT + cH - 4} x2={xAt(w)} y2={padT + cH + 4} stroke="#334155" strokeWidth={1} />
-          <text x={xAt(w)} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={9}>
+          <line x1={xAt(w)} y1={padT + cH - 4} x2={xAt(w)} y2={padT + cH + 4} stroke={ED.rule} strokeWidth={1} />
+          <text x={xAt(w)} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
             {w}
           </text>
         </g>
       ))}
-      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         bracket width W (decades)
       </text>
       <text
         x={16}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={`rotate(-90 16 ${padT + cH / 2})`}
       >
@@ -72,8 +73,8 @@ function WidthSweepChart() {
             cx={xAt(w)}
             cy={yAt(s)}
             r={s === 0 ? 5 : 3.5}
-            fill={s === 0 ? '#fbbf24' : '#38bdf8'}
-            stroke="#0a0f1a"
+            fill={s === 0 ? ED.brassDeco : ED.series1}
+            stroke={ED.paper}
             strokeWidth={0.75}
           />
         );
@@ -94,7 +95,7 @@ export default function Imp34383D2SignChangeGridViz() {
     <div style={{ padding: '1.5rem', maxWidth: 940, margin: '0 auto' }}>
       <PageHeader title="D2 Sign-Change Grid: Uniqueness Robustness Across 39 Configurations (imp-34383 / imp-34291)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 740 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 740 }}>
         imp-33701 read the sigma(N) local-exponent ramp as a single sigmoid knee: its discrete
         second difference D2 changes sign exactly once. imp-33721 pinned the knee's LOCATION and
         showed it is robust across a handful of bracket widths, but never tested whether the
@@ -106,7 +107,7 @@ export default function Imp34383D2SignChangeGridViz() {
         curvature), never to two.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         Narrow-domain [1e9,1e11] width sweep -- signChanges vs. bracket width W (amber = under-resolved to zero)
       </p>
       <WidthSweepChart />
@@ -115,14 +116,14 @@ export default function Imp34383D2SignChangeGridViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Coarse narrow-domain under-count, never over-count:</strong>{' '}
+        <strong style={{ color: 'var(--ink-soft)' }}>Coarse narrow-domain under-count, never over-count:</strong>{' '}
         the configurations that drop to zero are {undercountConfigs.join('; ')}. Widening the domain
         to [1e8,1e12] or [1e8.5,1e11.5] lets every one of these coarse widths (up to W=0.5) resolve
         enough sub-brackets to recover exactly one crossing -- all {IMP34383_WIDE_DOMAIN_SWEEP.length}
@@ -134,14 +135,14 @@ export default function Imp34383D2SignChangeGridViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-data only, baked literals
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-data only, baked literals
         reproducing the imp-34291 measurement; no new derivation, no bound changed. Robustness
         diagnostic, NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066
         K_a&ge;0 untouched; NO QED. The coarse

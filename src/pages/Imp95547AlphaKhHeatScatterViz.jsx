@@ -10,6 +10,7 @@ import {
   IMP95547_N_LO,
   IMP95547_N_HI,
 } from '../data/imp-95547-alpha-kh-heat-scatter-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 // Diverging color: alpha < 1 (in Montgomery on-RH range) fades toward blue,
 // alpha > 1 (PCC-gated, out of range) fades toward red, centered at alpha = 1.
@@ -48,7 +49,7 @@ function AlphaHeatmap() {
             width={colW}
             height={rowH}
             fill={cellColor(IMP95547_ALPHA_GRID_LO[ki][hi])}
-            stroke="#0a0f1a"
+            stroke={ED.paper}
             strokeWidth={0.3}
           />
         )),
@@ -59,11 +60,11 @@ function AlphaHeatmap() {
         y1={padT}
         x2={boundaryX}
         y2={padT + rowH * IMP95547_K_VALUES.length}
-        stroke="#facc15"
+        stroke={ED.brassDeco}
         strokeWidth={1.75}
         strokeDasharray="4,3"
       />
-      <text x={boundaryX} y={padT - 4} textAnchor="middle" fill="#facc15" fontSize={9.5}>
+      <text x={boundaryX} y={padT - 4} textAnchor="middle" fill={ED.brass} fontSize={9.5}>
         h* = {IMP95547_ALPHA_ONE_BOUNDARY_H.toFixed(2)} (alpha = 1, k = 1 only)
       </text>
 
@@ -73,7 +74,7 @@ function AlphaHeatmap() {
           x={padL - 8}
           y={padT + ki * rowH + rowH / 2 + 3}
           textAnchor="end"
-          fill="#94a3b8"
+          fill={ED.inkSoft}
           fontSize={10}
         >
           k={k}
@@ -86,7 +87,7 @@ function AlphaHeatmap() {
           x={padL + (h - 1) * colW + colW / 2}
           y={padT + rowH * IMP95547_K_VALUES.length + 14}
           textAnchor="middle"
-          fill="#64748b"
+          fill={ED.inkFaint}
           fontSize={9.5}
         >
           {h}
@@ -96,16 +97,16 @@ function AlphaHeatmap() {
         x={padL + cW / 2}
         y={svgH - 30}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
       >
         h (alias index, p = 97)
       </text>
 
-      <text x={padL + cW - 4} y={svgH - 14} textAnchor="end" fill="#dc2626" fontSize={9}>
+      <text x={padL + cW - 4} y={svgH - 14} textAnchor="end" fill={ED.series2} fontSize={9}>
         alpha &gt; 1: PCC-gated (h in 82..96, k = 1)
       </text>
-      <text x={padL + cW - 4} y={svgH - 2} textAnchor="end" fill="#3b82f6" fontSize={9}>
+      <text x={padL + cW - 4} y={svgH - 2} textAnchor="end" fill={ED.series1} fontSize={9}>
         alpha &lt; 1: Montgomery on-RH range
       </text>
     </svg>
@@ -136,15 +137,15 @@ function WeightBar() {
             y={padT + cH - barH}
             width={Math.max(colW - 0.5, 0.5)}
             height={barH}
-            fill={gated ? '#dc2626' : '#3b82f6'}
+            fill={gated ? ED.series2 : ED.series1}
             opacity={0.8}
           />
         );
       })}
-      <text x={padL} y={svgH - 6} textAnchor="start" fill="#64748b" fontSize={9.5}>
+      <text x={padL} y={svgH - 6} textAnchor="start" fill={ED.inkFaint} fontSize={9.5}>
         h = 1
       </text>
-      <text x={padL + cW} y={svgH - 6} textAnchor="end" fill="#64748b" fontSize={9.5}>
+      <text x={padL + cW} y={svgH - 6} textAnchor="end" fill={ED.inkFaint} fontSize={9.5}>
         h = 96
       </text>
     </svg>
@@ -161,20 +162,20 @@ export default function Imp95547AlphaKhHeatScatterViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> presentation only. It changes
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> presentation only. It changes
         no Lambda bound and establishes no operator positivity. Platt&ndash;Trudgian &Lambda;
         &le; 0.2 remains state of the art. RH does not follow from anything on this page. NO QED.
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-95519 section 4 gives the Montgomery frequency of the (k, h) Fresnel-Airy packet as
         alpha_&#123;k,h&#125; = 1 + log(1/(2&pi;(k &minus; h/p)))/log&nbsp;T, and finds
         alpha_&#123;k,h&#125; &gt; 1 exactly when k = 1 and h &gt; p(1 &minus; 1/(2&pi;)) &asymp;{' '}
@@ -190,14 +191,14 @@ export default function Imp95547AlphaKhHeatScatterViz() {
         ever reaches alpha &gt; 1.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         alpha_&#123;k,h&#125; heatmap, k = 1..6, h = 1..96, N = {IMP95547_N_LO.toLocaleString()}
       </p>
       <AlphaHeatmap />
 
       <p
         style={{
-          color: '#64748b',
+          color: 'var(--ink-faint)',
           fontWeight: 700,
           fontSize: '0.82rem',
           marginTop: '1.5rem',
@@ -218,35 +219,35 @@ export default function Imp95547AlphaKhHeatScatterViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>quantity</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>value</th>
           </tr>
         </thead>
         <tbody>
-          <tr style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+          <tr style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
             <td style={{ padding: '0.4rem 0.6rem' }}>alpha = 1 boundary h* (k = 1, N-independent)</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>
               {s.alphaOneBoundaryH.toFixed(4)}
             </td>
           </tr>
-          <tr style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+          <tr style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
             <td style={{ padding: '0.4rem 0.6rem' }}>gated aliases (p = 97)</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>
               {s.gatedCount} of 96, h &isin; &#123;{s.gatedHRange}&#125;
             </td>
           </tr>
-          <tr style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+          <tr style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
             <td style={{ padding: '0.4rem 0.6rem' }}>gated share of majorant mass</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>
               {(s.gatedShare * 100).toFixed(2)}%
             </td>
           </tr>
-          <tr style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+          <tr style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
             <td style={{ padding: '0.4rem 0.6rem' }}>alpha_max (N = {IMP95547_N_LO.toLocaleString()})</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{s.alphaMaxLo.toFixed(4)}</td>
           </tr>
-          <tr style={{ color: '#cbd5e1' }}>
+          <tr style={{ color: 'var(--ink)' }}>
             <td style={{ padding: '0.4rem 0.6rem' }}>alpha_max (N = {IMP95547_N_HI.toLocaleString()})</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{s.alphaMaxHi.toFixed(4)}</td>
           </tr>
@@ -257,14 +258,14 @@ export default function Imp95547AlphaKhHeatScatterViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> every row k &ge; 2 stays
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> every row k &ge; 2 stays
         blue (alpha &lt; 1, in Montgomery&rsquo;s on-RH range) across the whole h range; only the
         k = 1 row crosses the yellow boundary into red for h &gt; h*, the PCC-gated aliases
         imp-95519 identifies as carrying the majority of the majorant mass yet sitting outside the
@@ -275,14 +276,14 @@ export default function Imp95547AlphaKhHeatScatterViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> {s.verdict}
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> {s.verdict}
       </div>
     </div>
   );

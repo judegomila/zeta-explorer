@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP34349_EFLOW_RATIO_R_EXPONENT_LIMIT } from '../data/imp-34349-eflow-ratio-r-exponent-limit.js';
+import { ED } from '../styles/tokens.js';
 
 // Align the analytic point-exponent (indexed by thr) with the measured local secant
 // (indexed by the window's lower thr) on a shared -log10(thr) x-axis.
@@ -43,19 +44,19 @@ function RExponentLadderChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
 
       {[1.75, 1.8, 1.85, 1.9, 1.95, 2].map((v) => (
         <g key={v}>
-          <line x1={padL - 4} y1={yAt(v)} x2={padL + cW} y2={yAt(v)} stroke="#1e293b" strokeWidth={1} />
-          <text x={padL - 8} y={yAt(v) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+          <line x1={padL - 4} y1={yAt(v)} x2={padL + cW} y2={yAt(v)} stroke={ED.ruleSoft} strokeWidth={1} />
+          <text x={padL - 8} y={yAt(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v}
           </text>
         </g>
       ))}
       {[0, 1, 2, 3, 4].map((v) => (
-        <text key={'x' + v} x={xAt(v)} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={9}>
+        <text key={'x' + v} x={xAt(v)} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
           {v}
         </text>
       ))}
@@ -66,19 +67,19 @@ function RExponentLadderChart() {
         y1={yAt(2)}
         x2={padL + cW}
         y2={yAt(2)}
-        stroke="#f59e0b"
+        stroke={ED.brassDeco}
         strokeWidth={1.25}
         strokeDasharray="5,3"
       />
-      <text x={padL + cW - 4} y={yAt(2) - 5} textAnchor="end" fill="#f59e0b" fontSize={9.5}>
+      <text x={padL + cW - 4} y={yAt(2) - 5} textAnchor="end" fill={ED.brass} fontSize={9.5}>
         limiting exponent (r-exponent&nbsp;&rarr;&nbsp;2)
       </text>
 
-      <polyline points={pointPts} fill="none" stroke="#38bdf8" strokeWidth={2} />
-      <polyline points={measuredPts} fill="none" stroke="#f472b6" strokeWidth={2} />
+      <polyline points={pointPts} fill="none" stroke={ED.series1} strokeWidth={2} />
+      <polyline points={measuredPts} fill="none" stroke={ED.series7} strokeWidth={2} />
 
       {POINT_SERIES.map((row) => (
-        <circle key={'p' + row.negLogThr} cx={xAt(row.negLogThr)} cy={yAt(row.value)} r={3} fill="#38bdf8" />
+        <circle key={'p' + row.negLogThr} cx={xAt(row.negLogThr)} cy={yAt(row.value)} r={3} fill={ED.series1} />
       ))}
       {MEASURED_SERIES.map((row, i) => (
         <circle
@@ -86,7 +87,7 @@ function RExponentLadderChart() {
           cx={xAt(row.negLogThr)}
           cy={yAt(row.value)}
           r={i === MIN_INDEX ? 5 : 3}
-          fill="#f472b6"
+          fill={ED.series7}
         />
       ))}
 
@@ -96,11 +97,11 @@ function RExponentLadderChart() {
         y1={padT}
         x2={xAt(minRow.negLogThr)}
         y2={padT + cH}
-        stroke="#a3e635"
+        stroke={ED.series3}
         strokeWidth={1}
         strokeDasharray="2,3"
       />
-      <text x={xAt(minRow.negLogThr)} y={padT - 6} textAnchor="middle" fill="#a3e635" fontSize={9.5}>
+      <text x={xAt(minRow.negLogThr)} y={padT - 6} textAnchor="middle" fill={ED.series3} fontSize={9.5}>
         shallow min&nbsp;{minRow.value.toFixed(4)}
       </text>
 
@@ -108,23 +109,23 @@ function RExponentLadderChart() {
         x={12}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={`rotate(-90 12 ${padT + cH / 2})`}
       >
         r-exponent
       </text>
-      <text x={padL + cW / 2} y={svgH - 6} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 6} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         &minus;log10(thr)
       </text>
 
       <g>
-        <rect x={padL + 8} y={padT} width={10} height={10} fill="#38bdf8" />
-        <text x={padL + 22} y={padT + 9} fill="#94a3b8" fontSize={10}>
+        <rect x={padL + 8} y={padT} width={10} height={10} fill={ED.series1} />
+        <text x={padL + 22} y={padT + 9} fill={ED.inkSoft} fontSize={10}>
           analytic e_pt(thr) = 2 &minus; 4/logT0
         </text>
-        <rect x={padL + 8} y={padT + 16} width={10} height={10} fill="#f472b6" />
-        <text x={padL + 22} y={padT + 25} fill="#94a3b8" fontSize={10}>
+        <rect x={padL + 8} y={padT + 16} width={10} height={10} fill={ED.series7} />
+        <text x={padL + 22} y={padT + 25} fill={ED.inkSoft} fontSize={10}>
           measured local d&nbsp;log&nbsp;r / d&nbsp;log&nbsp;thr
         </text>
       </g>
@@ -141,7 +142,7 @@ export default function Imp34438EflowRatioRExponentLadderViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Isolated E_flow-Ratio r-Exponent: Approach to 2 From Below (imp-34438 / imp-34349)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-34248 factorised the crossover surplus and measured the isolated E_flow-ratio
         r(thr) log-log slope DROPPING below 2 across its ladder, down to a deep-tail OLS
         reading of ~1.917, without deriving whether it settles at a sub-2 limit or approaches
@@ -152,7 +153,7 @@ export default function Imp34438EflowRatioRExponentLadderViz() {
         confirming the approach is from below rather than a settled sub-2 constant.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         analytic point-exponent vs measured local secant, both vs &minus;log10(thr): the shallow minimum and the asymptote at 2
       </p>
       <RExponentLadderChart />
@@ -166,7 +167,7 @@ export default function Imp34438EflowRatioRExponentLadderViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>window</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>measured r-exponent</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>point exponent at lower thr</th>
@@ -175,7 +176,7 @@ export default function Imp34438EflowRatioRExponentLadderViz() {
         </thead>
         <tbody>
           {localExponents.map((row) => (
-            <tr key={row.window} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+            <tr key={row.window} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
               <td style={{ padding: '0.4rem 0.6rem' }}>{row.window}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{row.measured_r_exponent.toFixed(4)}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{row.point_exponent_at_lower_thr.toFixed(4)}</td>
@@ -189,28 +190,28 @@ export default function Imp34438EflowRatioRExponentLadderViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the minimum:</strong> {finding.M2_measured_non_monotone_climbs_back}
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the minimum:</strong> {finding.M2_measured_non_monotone_climbs_back}
       </div>
 
       <div
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Derivation/measurement only within the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Derivation/measurement only within the
         inherited imp-34174/imp-33743 extrapolation component model, which is NOT a rigorous asymptotic. E_flow
         is the benign mesoscopic-Gronwall term (imp-2845) and its vanishing here does NOT touch the divergent
         C_Lip collision-Gronwall; the C_mb GUE-conditional per imp-486 is UNTOUCHED (E_coll untouched); the C_C

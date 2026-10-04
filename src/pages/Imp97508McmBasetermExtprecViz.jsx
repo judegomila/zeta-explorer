@@ -6,16 +6,17 @@ import {
   IMP97508_WINDOW_TOP,
   IMP97508_BLIP,
 } from '../data/imp-97508-mcm-baseterm-extprec-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 // imp-97508: visualizes the imp-97478 extended-precision (40 dps) level-1
 // MCM base term c(x)=h(x)-h(2x) against its closed-form two-term law, and
 // the scaled c*x/ln x drifting down toward K0=1/24, with the corrected
 // window-top point and the refuted x=5e5 "blip" annotated.
 
-const COLOR_CURVE = '#38bdf8';
-const COLOR_ASYMPTOTE = '#f87171';
-const COLOR_WINDOWTOP = '#4ade80';
-const COLOR_BLIP = '#fbbf24';
+const COLOR_CURVE = ED.series1;
+const COLOR_ASYMPTOTE = ED.series2;
+const COLOR_WINDOWTOP = ED.series3;
+const COLOR_BLIP = ED.series4;
 
 function LogLogPanel() {
   const svgW = 720;
@@ -65,7 +66,7 @@ function LogLogPanel() {
       {/* window-top point (corrected) */}
       {windowTopPt && (
         <>
-          <circle cx={xOf(windowTopPt.x)} cy={yOf(windowTopPt.c)} r={5} fill={COLOR_WINDOWTOP} stroke="#0f172a" strokeWidth={1} />
+          <circle cx={xOf(windowTopPt.x)} cy={yOf(windowTopPt.c)} r={5} fill={COLOR_WINDOWTOP} stroke={ED.paper} strokeWidth={1} />
           <text x={xOf(windowTopPt.x) + 8} y={yOf(windowTopPt.c) - 6} fill={COLOR_WINDOWTOP} fontSize={9}>
             window top x=457015: c=1.397144e-6 (corrected, was 1.431333e-6)
           </text>
@@ -75,23 +76,23 @@ function LogLogPanel() {
       {/* refuted blip region */}
       {blipPt && (
         <>
-          <circle cx={xOf(blipPt.x)} cy={yOf(blipPt.c)} r={5} fill={COLOR_BLIP} stroke="#0f172a" strokeWidth={1} />
+          <circle cx={xOf(blipPt.x)} cy={yOf(blipPt.c)} r={5} fill={COLOR_BLIP} stroke={ED.paper} strokeWidth={1} />
           <text x={xOf(blipPt.x) - 8} y={yOf(blipPt.c) + 16} textAnchor="end" fill={COLOR_BLIP} fontSize={9}>
             x=5e5: c=1.284522e-6 (no rise -- double-precision blip to 1.449e-6 refuted)
           </text>
         </>
       )}
 
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
 
       {[5000, 50000, 500000, 2000000].map((x) => (
-        <text key={`xt${x}`} x={xOf(x)} y={padT + plotH + 16} textAnchor="middle" fill="#64748b" fontSize={8}>
+        <text key={`xt${x}`} x={xOf(x)} y={padT + plotH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={8}>
           {x.toExponential(0)}
         </text>
       ))}
 
-      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={9}>
+      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
         x (log scale) &mdash; c(x) = h(x) - h(2x), solid; two-term law (1/24)(ln x)/x + M0/x, dashed
       </text>
     </svg>
@@ -142,16 +143,16 @@ function ScaledPanel() {
         strokeWidth={1.8}
       />
 
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
 
       {[5000, 50000, 500000, 2000000].map((x) => (
-        <text key={`sxt${x}`} x={xOf(x)} y={padT + plotH + 16} textAnchor="middle" fill="#64748b" fontSize={8}>
+        <text key={`sxt${x}`} x={xOf(x)} y={padT + plotH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={8}>
           {x.toExponential(0)}
         </text>
       ))}
 
-      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={9}>
+      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
         x (log scale) &mdash; scaled c(x)*x/ln x = K0 + M0/ln x, drifting down toward K0
       </text>
     </svg>
@@ -167,15 +168,15 @@ export default function Imp97508McmBasetermExtprecViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(56,189,248,0.06)',
-          borderLeft: '3px solid #38bdf8',
+          background: 'color-mix(in srgb, var(--series-1) 6%, transparent)',
+          borderLeft: '3px solid var(--series-1)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#38bdf8' }}>Honest status:</strong> every
+        <strong style={{ color: 'var(--series-1)' }}>Honest status:</strong> every
         point below is the imp-97478 baked extended-precision (40 dps)
         ladder evaluated verbatim. Measurement only &mdash; no operator
         positivity, no bound moves; MCM stays VERIFIED not proved (and
@@ -183,7 +184,7 @@ export default function Imp97508McmBasetermExtprecViz() {
         Platt-Trudgian Lambda&le;0.2 remains SOTA; RH open; NO QED.
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-97463 fit the level-1 MCM base term c(x) = h(x) - h(2x) to the
         two-term law (1/24)(ln x)/x + M0/x in double precision, but flagged
         catastrophic-cancellation degradation past x ~ 2e5 and an unverified
@@ -195,17 +196,17 @@ export default function Imp97508McmBasetermExtprecViz() {
         1.08e-10.
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         c(x) vs the closed-form two-term law (log-log), with the corrected window-top point and refuted blip
       </h3>
       <LogLogPanel />
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', margin: '1.5rem 0 0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', margin: '1.5rem 0 0.5rem' }}>
         scaled c(x)*x/ln x approaching K0 = 1/24
       </h3>
       <ScaledPanel />
 
-      <p style={{ color: '#64748b', fontSize: '0.8rem', marginTop: '1rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-faint)', fontSize: '0.8rem', marginTop: '1rem', maxWidth: 700 }}>
         The scaled quantity c(x)*x/ln x = K0 + M0/ln x drifts monotonically
         down toward K0 = 1/24 = 0.041667 from above (0.04825 at x = 2e6),
         consistent with the sub-leading M0/ln x term vanishing slowly. The
@@ -217,14 +218,14 @@ export default function Imp97508McmBasetermExtprecViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> presentation
         only, consuming the imp-97478 baked extended-precision ladder
         verbatim. Establishes no operator positivity; changes no bound;
         kappa_arith unchanged; Platt-Trudgian Lambda&le;0.2 remains SOTA;

@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP33985_LOO_MODEL_SELECTION_SENSITIVITY } from '../data/imp-33985-loo-model-selection-sensitivity.js';
+import { ED } from '../styles/tokens.js';
 
 const { folds: FOLDS, summary: SUM, fullSample: FULL } = IMP33985_LOO_MODEL_SELECTION_SENSITIVITY;
 
@@ -37,8 +38,8 @@ function EvidenceRatioStrip() {
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
       {yTicks.map((t) => (
         <g key={`grid-${t}`}>
-          <line x1={padL} y1={yOf(t)} x2={svgW - padR} y2={yOf(t)} stroke="#1e293b" strokeWidth={1} />
-          <text x={padL - 8} y={yOf(t) + 3} textAnchor="end" fill="#64748b" fontSize={9.5}>
+          <line x1={padL} y1={yOf(t)} x2={svgW - padR} y2={yOf(t)} stroke={ED.ruleSoft} strokeWidth={1} />
+          <text x={padL - 8} y={yOf(t) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9.5}>
             {t.toFixed(1)}
           </text>
         </g>
@@ -49,11 +50,11 @@ function EvidenceRatioStrip() {
         y1={yOf(FULL.evidenceRatio)}
         x2={svgW - padR}
         y2={yOf(FULL.evidenceRatio)}
-        stroke="#facc15"
+        stroke={ED.brassDeco}
         strokeWidth={1.25}
         strokeDasharray="5,4"
       />
-      <text x={svgW - padR} y={yOf(FULL.evidenceRatio) - 6} textAnchor="end" fill="#facc15" fontSize={9.5}>
+      <text x={svgW - padR} y={yOf(FULL.evidenceRatio) - 6} textAnchor="end" fill={ED.brass} fontSize={9.5}>
         full-sample {FULL.evidenceRatio.toFixed(2)} : 1
       </text>
 
@@ -63,7 +64,7 @@ function EvidenceRatioStrip() {
         const yBase = yOf(yMin);
         const isMost = f.droppedKEnd === MOST_INFLUENTIAL.droppedKEnd;
         const isLeast = f.droppedKEnd === LEAST_INFLUENTIAL.droppedKEnd;
-        const color = isMost ? '#f87171' : isLeast ? '#4ade80' : '#94a3b8';
+        const color = isMost ? ED.series2 : isLeast ? ED.series3 : ED.inkSoft;
         return (
           <g key={`fold-${f.droppedKEnd}`}>
             <line x1={x} y1={yBase} x2={x} y2={yTop} stroke={color} strokeWidth={1.5} opacity={0.65} />
@@ -73,14 +74,14 @@ function EvidenceRatioStrip() {
                 {f.evidenceRatio.toFixed(2)} : 1
               </text>
             )}
-            <text x={x} y={svgH - padB + 16} textAnchor="middle" fill="#64748b" fontSize={9}>
+            <text x={x} y={svgH - padB + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
               {f.droppedKEnd.toFixed(2)}
             </text>
           </g>
         );
       })}
 
-      <text x={padL} y={svgH - 6} fill="#475569" fontSize={9.5}>
+      <text x={padL} y={svgH - 6} fill={ED.inkFaint} fontSize={9.5}>
         dropped kEnd (leave-one-out fold)
       </text>
     </svg>
@@ -92,7 +93,7 @@ export default function Imp34051LooEvidenceRatioStripViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Leave-One-Out Evidence-Ratio Strip (imp-33985)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-33941 favored the concave log form over the line for the imp-33917 endpoint peak by an
         Akaike evidence ratio of {FULL.evidenceRatio.toFixed(2)} : 1 on all 9 boundary windows. imp-33985
         re-scores that contrast in 9 leave-one-out folds -- dropping each window in turn and refitting
@@ -104,7 +105,7 @@ export default function Imp34051LooEvidenceRatioStripViz() {
         {LEAST_INFLUENTIAL.evidenceRatio.toFixed(2)} : 1, green).
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         Akaike evidence ratio (log over linear) per leave-one-out fold, vs the full-sample {FULL.evidenceRatio.toFixed(2)} : 1 line
       </p>
       <EvidenceRatioStrip />
@@ -113,14 +114,14 @@ export default function Imp34051LooEvidenceRatioStripViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> leave-one-out sensitivity measurement
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> leave-one-out sensitivity measurement
         only, no proof, no fresh derivation. {IMP33985_LOO_MODEL_SELECTION_SENSITIVITY.finding.R3_low_boundary_rung_most_influential}{' '}
         Both forms are descriptive, not derived; the imp-33843 log-linear-vs-power-law FORM verdict is
         UNTOUCHED; C_mb GUE-conditional per imp-486 untouched; NO QED.

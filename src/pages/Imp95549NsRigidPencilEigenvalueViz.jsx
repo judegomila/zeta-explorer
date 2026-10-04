@@ -4,6 +4,7 @@ import {
   NS_RIGID_PENCIL_EIGENVALUE_ROWS,
   NS_RIGID_PENCIL_EIGENVALUE_SUMMARY,
 } from '../data/imp-95549-ns-rigid-pencil-eigenvalue-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 function NsRigidPencilEigenvalueChart() {
   const rows = NS_RIGID_PENCIL_EIGENVALUE_ROWS;
@@ -38,36 +39,36 @@ function NsRigidPencilEigenvalueChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
       <line
         x1={padL}
         y1={padT + plotH}
         x2={padL + plotW}
         y2={padT + plotH}
-        stroke="#64748b"
+        stroke={ED.rule}
         strokeWidth={1.5}
       />
       {yTicks.map((v) => (
         <g key={`y${v}`}>
-          <line x1={padL - 4} y1={yOf(Math.pow(10, v))} x2={padL} y2={yOf(Math.pow(10, v))} stroke="#334155" strokeWidth={1} />
+          <line x1={padL - 4} y1={yOf(Math.pow(10, v))} x2={padL} y2={yOf(Math.pow(10, v))} stroke={ED.rule} strokeWidth={1} />
           <line
             x1={padL}
             y1={yOf(Math.pow(10, v))}
             x2={padL + plotW}
             y2={yOf(Math.pow(10, v))}
-            stroke="#1e293b"
+            stroke={ED.ruleSoft}
             strokeWidth={1}
             strokeDasharray="2 4"
           />
-          <text x={padL - 8} y={yOf(Math.pow(10, v)) + 3} textAnchor="end" fill="#64748b" fontSize={8}>
+          <text x={padL - 8} y={yOf(Math.pow(10, v)) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8}>
             {`1e${v}`}
           </text>
         </g>
       ))}
       {xTicks.map((v) => (
         <g key={`x${v}`}>
-          <line x1={xOf(Math.pow(10, v))} y1={padT + plotH} x2={xOf(Math.pow(10, v))} y2={padT + plotH + 4} stroke="#334155" strokeWidth={1} />
-          <text x={xOf(Math.pow(10, v))} y={padT + plotH + 16} textAnchor="middle" fill="#64748b" fontSize={8}>
+          <line x1={xOf(Math.pow(10, v))} y1={padT + plotH} x2={xOf(Math.pow(10, v))} y2={padT + plotH + 4} stroke={ED.rule} strokeWidth={1} />
+          <text x={xOf(Math.pow(10, v))} y={padT + plotH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={8}>
             {`1e${v}`}
           </text>
         </g>
@@ -79,32 +80,32 @@ function NsRigidPencilEigenvalueChart() {
         y1={padT}
         x2={lehmerX}
         y2={padT + plotH}
-        stroke="#f87171"
+        stroke={ED.series2}
         strokeWidth={1.75}
         strokeDasharray="6 3"
       />
-      <text x={lehmerX + 4} y={padT + 10} fill="#f87171" fontSize={9}>
+      <text x={lehmerX + 4} y={padT + 10} fill={ED.series2} fontSize={9}>
         eps = 1.15e-11 (Lehmer collision)
       </text>
 
       {/* lam_min(P_S(eps); G) curve */}
-      <path d={linePath} fill="none" stroke="#38bdf8" strokeWidth={2} />
+      <path d={linePath} fill="none" stroke={ED.series1} strokeWidth={2} />
       {rows.map((r, i) => (
-        <circle key={`pt-${i}`} cx={xOf(r.eps)} cy={yOf(r.lam)} r={2} fill="#38bdf8" />
+        <circle key={`pt-${i}`} cx={xOf(r.eps)} cy={yOf(r.lam)} r={2} fill={ED.series1} />
       ))}
 
-      <text x={padL + plotW - 4} y={padT + 10} textAnchor="end" fill="#38bdf8" fontSize={9}>
+      <text x={padL + plotW - 4} y={padT + 10} textAnchor="end" fill={ED.series1} fontSize={9}>
         lam_min(P_S(eps); G), S = {'{'}1.5,2.5,4.5{'}'}
       </text>
 
-      <text x={(padL + padL + plotW) / 2} y={svgH - 4} textAnchor="middle" fill="#94a3b8" fontSize={9}>
+      <text x={(padL + padL + plotW) / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkSoft} fontSize={9}>
         eps (backward-flow time, log scale)
       </text>
       <text
         x={14}
         y={(padT + padT + plotH) / 2}
         textAnchor="middle"
-        fill="#94a3b8"
+        fill={ED.inkSoft}
         fontSize={9}
         transform={`rotate(-90 14 ${(padT + padT + plotH) / 2})`}
       >
@@ -124,22 +125,22 @@ export default function Imp95549NsRigidPencilEigenvalueViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> a reader-facing chart of the
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a reader-facing chart of the
         imp-95530 THEOREM NS-RIGID (A4)(i) witness on one finite node set, not a new theorem. It
         changes no Lambda bound and establishes no operator positivity beyond what imp-95530
         already recorded. Platt&ndash;Trudgian &Lambda; &le; 0.2 remains state of the art. RH does
         not follow from anything on this page. NO QED.
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         The blue curve is the smallest generalized eigenvalue of the Caratheodory&ndash;Pick pencil
         P<sub>S</sub>(eps) against the Cauchy Gram G, for the backward-flowed function
         Xi<sub>eps</sub> = H<sub>&minus;eps</sub> on the node set S = {'{'}1.5, 2.5, 4.5{'}'}
@@ -151,7 +152,7 @@ export default function Imp95549NsRigidPencilEigenvalueViz() {
         (Rodgers&ndash;Tao) for every eps &gt; 0.
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         lam_min(P_S(eps); G) vs eps (log&ndash;log)
       </h3>
       <NsRigidPencilEigenvalueChart />
@@ -160,14 +161,14 @@ export default function Imp95549NsRigidPencilEigenvalueViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> the curve stays strictly
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> the curve stays strictly
         positive across the entire measured grid, from eps = 1e&minus;12 up to eps = 100 &mdash;
         {' '}{s.ordersOfMagnitudePastThreshold.toFixed(1)} orders of magnitude past the Lehmer
         collision threshold. So on this node set the PD-persistence window eps<sub>0</sub>(S) is
@@ -183,14 +184,14 @@ export default function Imp95549NsRigidPencilEigenvalueViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page recomputing
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page recomputing
         flowedPickPencilMin from src/data/imp-95530-native-span-arithmetic-input-rigidity.js on a
         log-spaced eps grid and baking the result as literals
         (src/data/imp-95549-ns-rigid-pencil-eigenvalue-viz-data.js). Changes no bound, establishes

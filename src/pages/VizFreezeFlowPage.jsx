@@ -10,6 +10,7 @@ import {
   E97_COMPLEX,
   ORDER_RATIO,
 } from '../data/viz-freeze-flow-phasors.js';
+import { ED } from '../styles/tokens.js';
 
 /* /viz-freeze-flow — the eq-42 normal form of the permutation architecture
    rendered as accurate flow geometry. ACCURACY RULE: the 25 phasors are the
@@ -31,7 +32,7 @@ const STAGES = [
   { key: 'schur', label: 'Schur closure', type: 'C' },
   { key: 'modulus', label: 'ONE modulus', type: 'irreversible' },
 ];
-const TYPE_COLOR = { E: '#4c7a4a', C: '#b58a2e', irreversible: '#c23a1c' };
+const TYPE_COLOR = { E: ED.series3, C: ED.brassDeco, irreversible: ED.series2 };
 
 // packet magnitudes/phases (derived once from the real literals)
 const PACKETS = DEFECT_PACKETS.map(([re, im], i) => ({
@@ -120,7 +121,7 @@ export default function VizFreezeFlowPage() {
       const ang = collapsed ? 0 : q.arg + carrier;
       const dx = len * Math.cos(ang);
       const dy = -len * Math.sin(ang);
-      const color = collapsed ? '#c23a1c' : '#3f6b86';
+      const color = collapsed ? ED.accent : ED.series1;
       return (
         <g key={`${collapsed}-${i}`}>
           <title>{`D_${i + 1} (p = ${q.p}): |D| = ${q.mag.toExponential(3)}, arg = ${q.arg.toFixed(3)} rad${collapsed ? ' — phase DISCARDED by the early modulus' : ''}`}</title>
@@ -185,7 +186,7 @@ export default function VizFreezeFlowPage() {
 
             {/* ── lane 0: the FORBIDDEN order (modulus first) ── */}
             <rect x={16} y={54} width={W - 32} height={LANE_H - 12} rx="8" fill="var(--paper2)" opacity="0.55" />
-            <text x={30} y={76} style={{ font: '700 11px "IBM Plex Mono", monospace', letterSpacing: 1 }} fill="#c23a1c">
+            <text x={30} y={76} style={{ font: '700 11px "IBM Plex Mono", monospace', letterSpacing: 1 }} fill={ED.accent}>
               FORBIDDEN ORDER — modulus hits the packets first (early |·|)
             </text>
             <text x={30} y={92} style={{ font: '10.5px "IBM Plex Mono", monospace' }} fill="var(--faint)">
@@ -193,11 +194,11 @@ export default function VizFreezeFlowPage() {
             </text>
             {renderPhasorGrid(54, true)}
             {/* magnitude chain: a straight line (true scale) */}
-            <path d={chainPath(wrongChainPts)} fill="none" stroke="#c23a1c" strokeWidth="2.4" strokeLinecap="round" />
+            <path d={chainPath(wrongChainPts)} fill="none" stroke={ED.accent} strokeWidth="2.4" strokeLinecap="round" />
             {wrongChainPts.length > 1 && (
               <g>
-                <circle cx={wrongChainPts[wrongChainPts.length - 1][0]} cy={wrongChainPts[wrongChainPts.length - 1][1]} r="3" fill="#c23a1c" />
-                <text x={CHAIN_X0} y={LANE_H * 0.5 + 127} style={{ font: '600 10.5px "IBM Plex Mono", monospace' }} fill="#c23a1c">
+                <circle cx={wrongChainPts[wrongChainPts.length - 1][0]} cy={wrongChainPts[wrongChainPts.length - 1][1]} r="3" fill={ED.series2} />
+                <text x={CHAIN_X0} y={LANE_H * 0.5 + 127} style={{ font: '600 10.5px "IBM Plex Mono", monospace' }} fill={ED.accent}>
                   Σ|D_j| = {MODULUS_FIRST.toFixed(9)} — the triangle-inequality ceiling
                 </text>
               </g>
@@ -205,7 +206,7 @@ export default function VizFreezeFlowPage() {
 
             {/* ── lane 1: the NORMAL FORM (recombine first, modulus last) ── */}
             <rect x={16} y={LANE_H + 54} width={W - 32} height={LANE_H - 12} rx="8" fill="var(--paper2)" opacity="0.55" />
-            <text x={30} y={LANE_H + 76} style={{ font: '700 11px "IBM Plex Mono", monospace', letterSpacing: 1 }} fill="#4c7a4a">
+            <text x={30} y={LANE_H + 76} style={{ font: '700 11px "IBM Plex Mono", monospace', letterSpacing: 1 }} fill={ED.series3}>
               NORMAL FORM (eq. 42) — recombine the complex packets first, ONE modulus last
             </text>
             <text x={30} y={LANE_H + 92} style={{ font: '10.5px "IBM Plex Mono", monospace' }} fill="var(--faint)">
@@ -213,15 +214,15 @@ export default function VizFreezeFlowPage() {
             </text>
             {renderPhasorGrid(LANE_H + 54, false)}
             {/* head-to-tail complex sum chain (true scale): visible cancellation */}
-            <path d={chainPath(sumChainPts)} fill="none" stroke="#3f6b86" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" opacity="0.9" />
+            <path d={chainPath(sumChainPts)} fill="none" stroke={ED.series1} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" opacity="0.9" />
             {/* resultant E97 */}
             {nDrawn >= 25 && (
               <g>
-                <line x1={sumChainPts[0][0]} y1={sumChainPts[0][1]} x2={sumChainPts[25][0]} y2={sumChainPts[25][1]} stroke="#4c7a4a" strokeWidth="2.6" />
-                <circle cx={sumChainPts[25][0]} cy={sumChainPts[25][1]} r="3.2" fill="#4c7a4a" />
+                <line x1={sumChainPts[0][0]} y1={sumChainPts[0][1]} x2={sumChainPts[25][0]} y2={sumChainPts[25][1]} stroke={ED.series3} strokeWidth="2.6" />
+                <circle cx={sumChainPts[25][0]} cy={sumChainPts[25][1]} r="3.2" fill={ED.series3} />
               </g>
             )}
-            <text x={CHAIN_X0} y={LANE_H * 1.5 + 92} style={{ font: '600 10.5px "IBM Plex Mono", monospace' }} fill="#4c7a4a">
+            <text x={CHAIN_X0} y={LANE_H * 1.5 + 92} style={{ font: '600 10.5px "IBM Plex Mono", monospace' }} fill={ED.series3}>
               |Σ D_j| = |E97| = {MODULUS_LAST.toFixed(9)}  (E97 = {E97_COMPLEX.re.toFixed(6)} + {E97_COMPLEX.im.toFixed(6)}i)
             </text>
             <text x={CHAIN_X0} y={LANE_H * 1.5 + 108} style={{ font: '10px "IBM Plex Mono", monospace' }} fill="var(--faint)">
@@ -232,12 +233,12 @@ export default function VizFreezeFlowPage() {
             <text x={barX0} y={barY0 - 6} style={{ font: '700 11px "IBM Plex Mono", monospace', letterSpacing: 1 }} fill="var(--ink-soft)">
               THE ONE-MODULUS STAGE — both lanes collapsed to a magnitude (same scale)
             </text>
-            <rect x={barX0} y={barY0 + 4} width={MODULUS_FIRST * CHAIN_SCALE} height="17" rx="3" fill="#c23a1c" opacity="0.85" />
-            <text x={barX0 + MODULUS_FIRST * CHAIN_SCALE + 8} y={barY0 + 17} style={{ font: '600 10.5px "IBM Plex Mono", monospace' }} fill="#c23a1c">
+            <rect x={barX0} y={barY0 + 4} width={MODULUS_FIRST * CHAIN_SCALE} height="17" rx="3" fill={ED.series2} opacity="0.85" />
+            <text x={barX0 + MODULUS_FIRST * CHAIN_SCALE + 8} y={barY0 + 17} style={{ font: '600 10.5px "IBM Plex Mono", monospace' }} fill={ED.accent}>
               {MODULUS_FIRST.toFixed(9)} (modulus first)
             </text>
-            <rect x={barX0} y={barY0 + 27} width={MODULUS_LAST * CHAIN_SCALE} height="17" rx="3" fill="#4c7a4a" opacity="0.9" />
-            <text x={barX0 + MODULUS_LAST * CHAIN_SCALE + 8} y={barY0 + 40} style={{ font: '600 10.5px "IBM Plex Mono", monospace' }} fill="#4c7a4a">
+            <rect x={barX0} y={barY0 + 27} width={MODULUS_LAST * CHAIN_SCALE} height="17" rx="3" fill={ED.series3} opacity="0.9" />
+            <text x={barX0 + MODULUS_LAST * CHAIN_SCALE + 8} y={barY0 + 40} style={{ font: '600 10.5px "IBM Plex Mono", monospace' }} fill={ED.series3}>
               {MODULUS_LAST.toFixed(9)} (modulus last)
             </text>
             {/* Rex marker */}

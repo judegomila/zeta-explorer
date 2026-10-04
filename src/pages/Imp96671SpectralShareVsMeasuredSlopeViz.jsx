@@ -5,6 +5,7 @@ import {
   IMP96671_MEASURED_FRACTION,
   IMP96671_EXACT_SHARE_N3000,
 } from '../data/imp-96671-spectral-share-vs-measured-slope-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 // two-scale closed-form: s_r = 1 / (1 + exp(-(r-r0)/k))
 function twoScaleShare(r, r0, k) {
@@ -42,51 +43,51 @@ function CurvePanel() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
 
       {yTicks.map((v) => (
         <g key={`y${v}`}>
-          <line x1={padL} y1={yOf(v)} x2={padL + plotW} y2={yOf(v)} stroke="#1e293b" strokeWidth={1} />
-          <text x={padL - 6} y={yOf(v) + 3} textAnchor="end" fill="#94a3b8" fontSize={8.5}>
+          <line x1={padL} y1={yOf(v)} x2={padL + plotW} y2={yOf(v)} stroke={ED.ruleSoft} strokeWidth={1} />
+          <text x={padL - 6} y={yOf(v) + 3} textAnchor="end" fill={ED.inkSoft} fontSize={8.5}>
             {v}
           </text>
         </g>
       ))}
       {xTicks.map((r) => (
         <g key={`x${r}`}>
-          <line x1={xOf(r)} y1={padT} x2={xOf(r)} y2={padT + plotH} stroke="#1e293b" strokeWidth={1} />
-          <text x={xOf(r)} y={padT + plotH + 14} textAnchor="middle" fill="#94a3b8" fontSize={8.5}>
+          <line x1={xOf(r)} y1={padT} x2={xOf(r)} y2={padT + plotH} stroke={ED.ruleSoft} strokeWidth={1} />
+          <text x={xOf(r)} y={padT + plotH + 14} textAnchor="middle" fill={ED.inkSoft} fontSize={8.5}>
             {r}
           </text>
         </g>
       ))}
 
       {/* exact top-share s_r at N=3000, full eigendecomposition (not the two-scale idealization) */}
-      <path d={exactPath} fill="none" stroke="#a78bfa" strokeWidth={1.2} strokeDasharray="2 3" />
+      <path d={exactPath} fill="none" stroke={ED.series5} strokeWidth={1.2} strokeDasharray="2 3" />
 
       {/* two-scale closed-form s_r = 1/(1+exp(-(r-r0)/k)) */}
-      <path d={twoScalePath} fill="none" stroke="#38bdf8" strokeWidth={1.6} />
+      <path d={twoScalePath} fill="none" stroke={ED.series1} strokeWidth={1.6} />
 
       {/* measured rank-r Rayleigh slope fraction b_r/L */}
       {IMP96671_MEASURED_FRACTION.map(([r, v]) => (
-        <circle key={`m${r}`} cx={xOf(r)} cy={yOf(v)} r={3.2} fill="#facc15" stroke="#1e293b" strokeWidth={0.5} />
+        <circle key={`m${r}`} cx={xOf(r)} cy={yOf(v)} r={3.2} fill={ED.brassDeco} stroke={ED.ruleSoft} strokeWidth={0.5} />
       ))}
 
       {/* half-saturation marker r0 on the two-scale curve */}
-      <circle cx={xOf(r0)} cy={yOf(0.5)} r={4.5} fill="none" stroke="#38bdf8" strokeWidth={1.5} />
-      <text x={xOf(r0)} y={yOf(0.5) - 10} textAnchor="middle" fill="#38bdf8" fontSize={8.5}>
+      <circle cx={xOf(r0)} cy={yOf(0.5)} r={4.5} fill="none" stroke={ED.series1} strokeWidth={1.5} />
+      <text x={xOf(r0)} y={yOf(0.5) - 10} textAnchor="middle" fill={ED.series1} fontSize={8.5}>
         r0 = {r0.toFixed(2)}
       </text>
 
-      <text x={padL + plotW / 2} y={padT + plotH + 30} textAnchor="middle" fill="#94a3b8" fontSize={9}>
+      <text x={padL + plotW / 2} y={padT + plotH + 30} textAnchor="middle" fill={ED.inkSoft} fontSize={9}>
         rank r
       </text>
       <text
         x={12}
         y={padT + plotH / 2}
         textAnchor="middle"
-        fill="#94a3b8"
+        fill={ED.inkSoft}
         fontSize={9}
         transform={`rotate(-90 12 ${padT + plotH / 2})`}
       >
@@ -102,7 +103,7 @@ export default function Imp96671SpectralShareVsMeasuredSlopeViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Route M Sigmoid Onset: Two-Scale Weight Share vs Measured Slope Fraction" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         The imp-96636 sigmoidal onset of the rank-r Rayleigh log-slopes b_r (yellow points, shown
         as the fraction b_r/L) is a top-eigenpair weight-share effect: imp-96652 shows the exact
         share s_r = w1 lam1^r / sum_i w_i lam_i^r is a logistic in the two-scale (top + bulk-edge)
@@ -119,14 +120,14 @@ export default function Imp96671SpectralShareVsMeasuredSlopeViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> the two-scale closed form
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> the two-scale closed form
         (blue) reproduces the delayed, S-shaped rise of the measured slope fraction (yellow) using
         only two measured spectral quantities -- the top overlap w1 and the top gap ratio
         lam1/lam2 -- with no free fit parameters. Its half-saturation r0 = {r0.toFixed(2)} sits
@@ -138,14 +139,14 @@ export default function Imp96671SpectralShareVsMeasuredSlopeViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page. The two-scale curve is
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page. The two-scale curve is
         computed at render time from the baked closed-form parameters (r0, k) already reported in
         imp-96652-route-m-lammax-sigmoid-onset-spectral-derivation.js; the measured points and the
         exact-share reference curve are baked literals reused verbatim from the same module (no

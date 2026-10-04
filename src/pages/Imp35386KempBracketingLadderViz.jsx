@@ -6,10 +6,11 @@ import {
   IMP35386_COARSEST_NOTE,
   IMP35386_FINEST_NOTE,
 } from '../data/imp-35386-kemp-bracketing-ladder-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
-const POINT_COLOR = '#38bdf8';
-const K_COLOR = '#f472b6';
-const END_COLOR = '#facc15';
+const POINT_COLOR = ED.series1;
+const K_COLOR = ED.series7;
+const END_COLOR = ED.series4;
 
 function KEmpChart() {
   const svgW = 620;
@@ -37,19 +38,19 @@ function KEmpChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
       {yTicks.map((v) => (
         <g key={v}>
-          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke="#1e293b" strokeWidth={0.7} />
-          <text x={padL - 6} y={yS(v) + 3.5} textAnchor="end" fill="#475569" fontSize={9}>
+          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke={ED.ruleSoft} strokeWidth={0.7} />
+          <text x={padL - 6} y={yS(v) + 3.5} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v.toFixed(3)}
           </text>
         </g>
       ))}
 
       {xTicks.map((v) => (
-        <text key={v} x={xS(v)} y={padT + cH + 14} textAnchor="middle" fill="#64748b" fontSize={9}>
+        <text key={v} x={xS(v)} y={padT + cH + 14} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
           {v}
         </text>
       ))}
@@ -80,11 +81,11 @@ function KEmpChart() {
         );
       })}
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
-      <text x={14} y={padT + cH / 2} textAnchor="middle" fill="#64748b" fontSize={10} transform={`rotate(-90,14,${padT + cH / 2})`}>
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
+      <text x={14} y={padT + cH / 2} textAnchor="middle" fill={ED.inkFaint} fontSize={10} transform={`rotate(-90,14,${padT + cH / 2})`}>
         kEmpirical
       </text>
-      <text x={padL + cW / 2} y={padT + cH + 34} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={padT + cH + 34} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         log10(eps)
       </text>
     </svg>
@@ -99,7 +100,7 @@ export default function Imp35386KempBracketingLadderViz() {
     <div style={{ padding: '1.5rem', maxWidth: 940, margin: '0 auto' }}>
       <PageHeader title="Empirical Prefactor kEmp Across the imp-35076 Ladder (imp-35264)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
         imp-35264 tabulated the empirical prefactor kEmp(eps) = (rho_meas - 2/3) / eps^{'{3/2}'}
         implied by each imp-35076 finite-ladder margin rung, and cross-checked it against the
         imp-35240 confirmed closed form K = 8 sqrt(2)/(9 pi) = {IMP35386_K_CLOSED_FORM.toFixed(6)}.
@@ -107,7 +108,7 @@ export default function Imp35386KempBracketingLadderViz() {
         the ladder depart for understood reasons, annotated below.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         kEmp(eps) vs log10(eps), against the K reference line
       </p>
       <KEmpChart />
@@ -116,14 +117,14 @@ export default function Imp35386KempBracketingLadderViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Two-end departures (both understood, neither a
+        <strong style={{ color: 'var(--ink-soft)' }}>Two-end departures (both understood, neither a
         prefactor conflict):</strong>
         <ul style={{ marginTop: '0.4rem', marginBottom: 0, paddingLeft: '1.1rem' }}>
           <li>
@@ -139,14 +140,14 @@ export default function Imp35386KempBracketingLadderViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation only over the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> presentation only over the
         inherited imp-35264 numbers -- adds a chart, no new measurement. Changes no bound, does
         NOT discharge O3 / H3 / H4 / G6a, imp-3066 off-diagonal endpoint-Hankel K_a &ge; 0
         UNTOUCHED, C_mb remains GUE-conditional (imp-486). RH-equivalent, NO QED.

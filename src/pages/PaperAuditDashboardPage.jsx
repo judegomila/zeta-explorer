@@ -12,6 +12,7 @@ import React, { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import { PAPER_AUDIT_DASHBOARD } from '../data/paper-audit-dashboard.js';
+import { ED, alpha } from '../styles/tokens.js';
 
 const D = PAPER_AUDIT_DASHBOARD;
 const mono = 'var(--ed-mono, var(--font-mono))';
@@ -19,11 +20,11 @@ const mono = 'var(--ed-mono, var(--font-mono))';
 // Color theme per verdict status -- consistent across chips + row badges.
 // Warm-palette mapping of the original dark-theme hues (kept 1:1 by role).
 const STATUS_COLORS = {
-  'SUBSUMED-BY-RH':         { fg: 'var(--terra-dk)', bg: 'rgba(194,58,28,0.10)', border: 'rgba(194,58,28,0.45)' },
-  'SUBSUMED-BY-LITERATURE': { fg: 'var(--terra)',    bg: 'rgba(217,80,46,0.10)', border: 'rgba(217,80,46,0.45)' },
-  'PARTIALLY-RELATED':      { fg: 'var(--brass-dk)', bg: 'rgba(181,138,46,0.12)', border: 'rgba(181,138,46,0.45)' },
-  'INDEPENDENT-NOVEL':      { fg: 'var(--green)',    bg: 'rgba(76,122,74,0.10)', border: 'rgba(76,122,74,0.45)' },
-  UNAUDITED:                { fg: 'var(--faint)',    bg: 'rgba(135,123,103,0.10)', border: 'rgba(135,123,103,0.45)' },
+  'SUBSUMED-BY-RH':         { fg: 'var(--terra-dk)', bg: alpha(ED.series2, 0.1), border: alpha(ED.accent, 0.45) },
+  'SUBSUMED-BY-LITERATURE': { fg: 'var(--terra)',    bg: alpha(ED.accentDeco, 0.1), border: alpha(ED.accentDeco, 0.45) },
+  'PARTIALLY-RELATED':      { fg: 'var(--brass-dk)', bg: alpha(ED.brassDeco, 0.12), border: alpha(ED.brassDeco, 0.45) },
+  'INDEPENDENT-NOVEL':      { fg: 'var(--green)',    bg: alpha(ED.series3, 0.1), border: alpha(ED.series3, 0.45) },
+  UNAUDITED:                { fg: 'var(--faint)',    bg: alpha(ED.inkFaint, 0.1), border: alpha(ED.rule, 0.45) },
 };
 
 const STATUS_LABELS = {
@@ -83,7 +84,7 @@ function StatusChip({ status, count, active, onClick }) {
         style={{
           padding: '1px 7px',
           borderRadius: 10,
-          background: 'rgba(28,24,20,0.08)',
+          background: 'color-mix(in srgb, var(--ink) 8%, transparent)',
           color: c.fg,
           fontWeight: 700,
         }}
@@ -334,8 +335,8 @@ export default function PaperAuditDashboardPage() {
           style={{
             marginBottom: 20,
             padding: '14px 18px',
-            background: 'rgba(63,107,134,0.08)',
-            border: '1px solid rgba(63,107,134,0.35)',
+            background: 'color-mix(in srgb, var(--series-1) 8%, transparent)',
+            border: '1px solid color-mix(in srgb, var(--series-1) 35%, transparent)',
             borderRadius: 8,
           }}
         >
@@ -369,8 +370,8 @@ export default function PaperAuditDashboardPage() {
           style={{
             marginBottom: 20,
             padding: '14px 18px',
-            background: 'rgba(181,138,46,0.10)',
-            border: '1px solid rgba(181,138,46,0.40)',
+            background: 'color-mix(in srgb, var(--brass-deco) 10%, transparent)',
+            border: '1px solid color-mix(in srgb, var(--brass-deco) 40%, transparent)',
             borderRadius: 8,
             display: 'grid',
             gap: 10,

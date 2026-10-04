@@ -25,13 +25,13 @@ export default class ErrorBoundary extends React.Component {
           role="alert"
           style={{
             padding: '24px',
-            border: '1px solid #ef4444',
+            border: '1px solid var(--series-2)',
             borderRadius: 8,
-            background: 'rgba(239,68,68,0.08)',
+            background: 'color-mix(in srgb, var(--series-2) 8%, transparent)',
             marginTop: 16,
           }}
         >
-          <h3 style={{ color: '#ef4444', marginBottom: 8 }}>
+          <h3 style={{ color: 'var(--series-2)', marginBottom: 8 }}>
             {this.props.title || 'Visualization Error'}
           </h3>
           <p style={{ color: 'var(--text-secondary)', fontSize: 14, marginBottom: 16 }}>
@@ -42,8 +42,8 @@ export default class ErrorBoundary extends React.Component {
             <pre
               style={{
                 fontSize: 12,
-                color: '#fca5a5',
-                background: 'rgba(0,0,0,0.3)',
+                color: 'var(--series-2)',
+                background: 'color-mix(in srgb, var(--paper) 30%, transparent)',
                 padding: '8px 12px',
                 borderRadius: 4,
                 overflowX: 'auto',

@@ -1,12 +1,13 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP33641_GRADE6_NODE_BUDGET_NON_MONOTONICITY } from '../data/imp-33641-grade6-node-budget-non-monotonicity.js';
+import { ED } from '../styles/tokens.js';
 
-const LINE_COLOR = '#38bdf8';
-const FLOOR_COLOR = '#4ade80';
-const SPIKE_COLOR = '#f87171';
-const NEIGHBOR_COLOR = '#f59e0b';
-const BAND_COLOR = '#64748b';
+const LINE_COLOR = ED.series1;
+const FLOOR_COLOR = ED.series3;
+const SPIKE_COLOR = ED.series2;
+const NEIGHBOR_COLOR = ED.series4;
+const BAND_COLOR = ED.series8;
 
 const { measured } = IMP33641_GRADE6_NODE_BUDGET_NON_MONOTONICITY;
 const ladder = measured.denseLadder;
@@ -37,12 +38,12 @@ function NodeBudgetChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
       {[0, 20, 40, 60, 80, 100, 120].filter((v) => v <= yMax).map((v) => (
         <g key={v}>
-          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke="#1e293b" strokeWidth={0.7} />
-          <text x={padL - 6} y={yS(v) + 3.5} textAnchor="end" fill="#475569" fontSize={9}>
+          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke={ED.ruleSoft} strokeWidth={0.7} />
+          <text x={padL - 6} y={yS(v) + 3.5} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v}
           </text>
         </g>
@@ -91,16 +92,16 @@ function NodeBudgetChart() {
       )}
 
       {[150, 200, 300, 400, 500, 600].map((n) => (
-        <text key={n} x={xS(n)} y={padT + cH + 14} textAnchor="middle" fill="#64748b" fontSize={9}>
+        <text key={n} x={xS(n)} y={padT + cH + 14} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
           {n}
         </text>
       ))}
-      <text x={padL + cW / 2} y={padT + cH + 32} textAnchor="middle" fill="#64748b" fontSize={9}>
+      <text x={padL + cW / 2} y={padT + cH + 32} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
         inner GL-10 nodes (10 &times; panels, panels 15..60)
       </text>
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
-      <text x={10} y={padT + cH / 2} textAnchor="middle" fill="#64748b" fontSize={10} transform={`rotate(-90,10,${padT + cH / 2})`}>
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
+      <text x={10} y={padT + cH / 2} textAnchor="middle" fill={ED.inkFaint} fontSize={10} transform={`rotate(-90,10,${padT + cH / 2})`}>
         ULP vs A_log target
       </text>
     </svg>
@@ -112,7 +113,7 @@ export default function Imp33675DenseNodeBudgetJitterViz() {
     <div style={{ padding: '1.5rem', maxWidth: 980, margin: '0 auto' }}>
       <PageHeader title="Dense Node-Budget Ladder, Grade 6, n=596 (imp-33641)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 820 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 820 }}>
         imp-33630 flagged a grade-6 n=596 node-budget non-monotonicity: the coarse {'{200,300,500,...}'}
         ladder DROPS to ~{measured.coarse200Ulp.toFixed(1)} ULP at 200 nodes then BOUNCES back OUT to ~
         {measured.coarse300Ulp.toFixed(1)} ULP at 300 nodes. imp-33641 re-ran the identical direct
@@ -124,7 +125,7 @@ export default function Imp33675DenseNodeBudgetJitterViz() {
 
       <NodeBudgetChart />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.85rem', margin: '1rem 0 1.25rem' }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.85rem', margin: '1rem 0 1.25rem' }}>
         The true floor sits at just {measured.globalFloorNodes} nodes (~{measured.globalFloorUlp.toFixed(1)}
         {' '}ULP, green), well inside the imp-33316 &lt; {measured.deepFloorBandUlp} ULP band and BELOW the
         coarse 200-node sample. The 300-node value the coarse ladder flagged (~
@@ -139,14 +140,14 @@ export default function Imp33675DenseNodeBudgetJitterViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> the jagged blue trace is high-frequency
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> the jagged blue trace is high-frequency
         lattice jitter (Pearson r ~ {measured.pearsonR.toFixed(2)} vs node count, r&sup2; ~
         {measured.rSquared.toFixed(2)}), not a smooth curve. A coarse two-point {'{200,300}'} sample sees only
         the drop and the spike; the dense ladder shows both are local features of a jittery ~50-100 ULP band
@@ -158,14 +159,14 @@ export default function Imp33675DenseNodeBudgetJitterViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> accuracy/rule-design measurement only. It
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> accuracy/rule-design measurement only. It
         changes no bound and patches no literal. Mass-feasibility is necessary-but-not-sufficient; the
         operator-level positivity (imp-3066 K_a &ge; 0) is UNTOUCHED. RH-equivalent, NO QED.
       </div>

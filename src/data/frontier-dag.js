@@ -214,14 +214,14 @@ export const NODES = [
   // ── Route I Krein Toeplitz certificate ─────────────────────────────────
   {
     id: 'route-i-uniform-n-gap',
-    name: 'IMP96749_UNIFORM_N_GAP_UNSETTLED — uniform-in-N spectral gap for T_a[σ₂]',
-    kind: 'open-object',
-    status: 'open — Rayleigh-Ritz floors (Legendre N≤52, Gegenbauer diagonal-Gram N≤124) measure λ_min(T_a[σ₂]) firmly positive and flat (~8.34/~2.16/~0.577 at 2a=1.00/1.05/ln3) with no sign of collapse, but the uniform-in-N gap is EXACTLY the strict positivity of the lowest eigenvalue λ₁(a), which no finite-N measurement can settle; the de Branges realisation route is blocked (σ₂ is sign-indefinite, not a de Branges weight) and reduces to the same uncertainty/concentration inequality',
-    statusKind: 'open',
+    name: 'IMP96749_UNIFORM_N_GAP — uniform-in-N spectral gap for T_a[σ₂] (settled on 2a ≤ ln 3 by ARB-LEGE)',
+    kind: 'candidate',
+    status: 'PROVED (computer-assisted, Arb; two internal adversarial referee passes, one quadrature constant corrected with the conclusion unchanged; not externally refereed) on 2a ≤ ln 3 — ARB-LEGE (tlb-arb-lege-2026-09-28) executes leg (E) of the pole-free one-prime certificate in Arb: W(h) ≥ 8.2045368e-4‖h‖² (T=200, N=240; 9.0434717e-4 at T=400, N=320) for every pole-free h in L²(−a,a), 2a ≤ ln 3. Double rebuilds agree with the Arb balls to 3e-15; the W normalisation was checked four ways including the zero sum; independent Ritz upper bounds put the certificate within ~5% of tight. Via h = φ/4 − φ″ (φ ∈ H²₀) and Dirichlet Poincaré, λ₁(T_a[σ₂]) ≥ 8.2045e-4·(1/4+(π/2a)²)² ≥ 0.0583 > 0 (replaces the c♯ cohort best rigorous floor −3065). Ritz plateau ~0.56–0.59. The repo’s interval-rigorous reach moves from 2a ≤ 0.96 to 2a ≤ ln 3 (novelty vs the small-support literature not checked). Pole-free form only; past ln 3 the p = 3 term enters and nothing is claimed. Sibling DH-BLIND (tlb-dh-blind-2026-09-28): at conductor 5 the RH-false same-bridge Davenport–Heilbronn twin also passes positivity at these supports (proved to 2a ≤ 0.783, measured to ln 3), so this positivity does not encode the Euler product.',
+    statusKind: 'candidate',
     route: '/viz-imp96777-krein-lammin-n-trend',
-    source: 'imp-96749 / imp-96768 / imp-96769',
+    source: 'tlb-arb-lege-2026-09-28 (ARB-LEGE) / imp-96544 / imp-96749 / imp-96768 / imp-96769',
     closesIf:
-      'Either pushing the interval Krein certificate past the LP wall (double-double / exact-rational cutting planes) or a quantitative concentration inequality bounding the concentrable dip fraction strictly below 1 would deliver a rigorous c > 0 on 0.96 < 2a < ln 3. Rigorous reach stays 2a ≤ 0.96 either way this closes; Platt–Trudgian Λ ≤ 0.2 remains SOTA.',
+      'Settled for 2a ≤ ln 3 once an external referee checks the Arb run (scripts tmp/tlb-1-ref0-arb-lege-fixed.py [corrected Gauss exponent], tmp/tlb-1-normalisation-check.py, tmp/tlb-1-sigma2-reduction-check.py). Open sub-gaps: (i) a sharper certified σ₂ floor, e.g. via the clamped-beam constant (~0.285 vs Ritz ~0.57); (ii) 2a > ln 3, where the p = 3 term enters (one-prime reach 1.1286 is double-only). Fixed-window positivity localises no zero and moves no Λ bound; Platt–Trudgian Λ ≤ 0.2 remains the accepted benchmark.',
   },
   {
     id: 'verified-height',

@@ -19,6 +19,7 @@ import { Link } from 'react-router-dom';
 import { getPrimes } from '../math/primes.js';
 import VizCeilingNote from '../components/VizCeilingNote.jsx';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
+import { ED, alpha } from '../styles/tokens.js';
 
 const TWO_PI = 2 * Math.PI;
 const CANVAS_W = 640;
@@ -103,7 +104,7 @@ function drawStrip(ctx, logP, tMin, tMax, folded, showCaustics) {
   ctx.setLineDash([3, 3]);
   for (let i = 0; i < N; i++) {
     const px = (logP[i] - xMin) / xSpan * W;
-    ctx.strokeStyle = 'rgba(246,241,231,0.45)';
+    ctx.strokeStyle = alpha(ED.paper2, 0.45);
     ctx.beginPath();
     ctx.moveTo(px, 0);
     ctx.lineTo(px, H);
@@ -113,7 +114,7 @@ function drawStrip(ctx, logP, tMin, tMax, folded, showCaustics) {
 
   // Caustic-crossing marks: t = 2*pi*k / log(p_j/p_i) for adjacent pairs
   if (showCaustics) {
-    ctx.strokeStyle = 'rgba(140,106,29,0.92)';
+    ctx.strokeStyle = alpha(ED.brass, 0.92);
     ctx.lineWidth = 1.5;
     for (let i = 0; i < N - 1; i++) {
       const dLogP = logP[i + 1] - logP[i];
@@ -138,13 +139,13 @@ function drawStrip(ctx, logP, tMin, tMax, folded, showCaustics) {
   const labelStep = N <= 20 ? 1 : N <= 40 ? 2 : 4;
   for (let i = 0; i < N; i += labelStep) {
     const px = (logP[i] - xMin) / xSpan * W;
-    ctx.fillStyle = 'rgba(246,241,231,0.85)';
+    ctx.fillStyle = alpha(ED.paper2, 0.85);
     ctx.fillText(String(ALL_PRIMES[i]), px, 10);
   }
 
   // Axis annotations
   ctx.font = '10px "JetBrains Mono", monospace';
-  ctx.fillStyle = 'rgba(135,123,103,0.95)';
+  ctx.fillStyle = alpha(ED.inkFaint, 0.95);
   ctx.textAlign = 'left';
   ctx.fillText('log p →', 4, H - 5);
   ctx.textAlign = 'right';
@@ -177,6 +178,7 @@ export default function VizUnwrappedRaysPage() {
       <EditorialHeader ticker={<span>viz &middot; unwrapped rays</span>} />
       <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
         <h1 className="ed-h1" style={{ marginBottom: 6 }}>Unwrapped Prime Phase Rays (imp-2914)</h1>
+        <p className="ed-lbl">Related: <Link to="/viz-phase-cylinder">Phase cylinder</Link></p>
         <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.55, maxWidth: 760 }}>
           Each prime p sits at x&thinsp;=&thinsp;log&thinsp;p on the horizontal axis.
           The color at height t encodes the phase &theta;&thinsp;=&thinsp;t&thinsp;&middot;&thinsp;log&thinsp;p{' '}

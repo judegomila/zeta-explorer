@@ -5,10 +5,11 @@ import {
   IMP97745_CROSSINGS,
   IMP97745_SUMMARY,
 } from '../data/imp-97745-fartail-diagnostic-asymptote-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
-const DIAG_COLOR = '#60a5fa';
-const OVERLAY_COLOR = '#facc15';
-const CROSSING_COLOR = '#f87171';
+const DIAG_COLOR = ED.series1;
+const OVERLAY_COLOR = ED.series4;
+const CROSSING_COLOR = ED.series2;
 
 // Line chart of the measured diagnostic against the exact RvM-slope overlay across the
 // log10(N) = 18..300 baked ladder, with the 0.99/0.995 crossing heights marked.
@@ -35,12 +36,12 @@ function DiagnosticAsymptoteChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#334155" strokeWidth={1} />
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#334155" strokeWidth={1} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1} />
 
       {/* asymptote = 1 reference line */}
-      <line x1={padL} y1={yOf(1)} x2={padL + plotW} y2={yOf(1)} stroke="#475569" strokeWidth={1} strokeDasharray="2 3" />
-      <text x={padL + 4} y={yOf(1) - 4} fill="#64748b" fontSize={9}>
+      <line x1={padL} y1={yOf(1)} x2={padL + plotW} y2={yOf(1)} stroke={ED.rule} strokeWidth={1} strokeDasharray="2 3" />
+      <text x={padL + 4} y={yOf(1) - 4} fill={ED.inkFaint} fontSize={9}>
         limit = 1
       </text>
 
@@ -77,7 +78,7 @@ function DiagnosticAsymptoteChart() {
       {IMP97745_DIAGNOSTIC_ROWS.map((r) => (
         <g key={r.key}>
           <circle cx={xOf(r.logN)} cy={yOf(r.diag)} r={3} fill={DIAG_COLOR} />
-          <text x={xOf(r.logN)} y={svgH - 24} textAnchor="middle" fill="#94a3b8" fontSize={9}>
+          <text x={xOf(r.logN)} y={svgH - 24} textAnchor="middle" fill={ED.inkSoft} fontSize={9}>
             1e{r.logN}
           </text>
         </g>
@@ -102,32 +103,32 @@ export default function Imp97745FarTailDiagnosticAsymptoteViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> a measurement/presentation-only
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a measurement/presentation-only
         page reshaping the frozen imp-97723 diagnostic ladder verbatim (no re-derivation, no new
         computation). Conditional-share diagnostic, NOT an RH bound; Platt&ndash;Trudgian &Lambda;
         &le; 0.2 remains SOTA; RH open; NO QED.
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         {IMP97745_SUMMARY.reading}
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         (1/2 - p) * 2 log T0 vs the exact RvM slope 1 - 1/log(T0/2pi), N = 1e18..1e300
       </h3>
       <DiagnosticAsymptoteChart />
 
       <table style={{ width: '100%', marginTop: '1.25rem', borderCollapse: 'collapse', fontSize: '0.82rem' }}>
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'right' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'right' }}>
             <th style={{ textAlign: 'left', padding: '0.4rem 0.5rem' }}>N</th>
             <th style={{ padding: '0.4rem 0.5rem' }}>diag (measured)</th>
             <th style={{ padding: '0.4rem 0.5rem' }}>1 - 1/log(T0/2pi)</th>
@@ -135,7 +136,7 @@ export default function Imp97745FarTailDiagnosticAsymptoteViz() {
         </thead>
         <tbody>
           {IMP97745_DIAGNOSTIC_ROWS.map((row) => (
-            <tr key={row.key} style={{ color: '#cbd5e1', textAlign: 'right', borderTop: '1px solid #1e293b' }}>
+            <tr key={row.key} style={{ color: 'var(--ink)', textAlign: 'right', borderTop: '1px solid var(--rule-soft)' }}>
               <td style={{ textAlign: 'left', padding: '0.4rem 0.5rem' }}>1e{row.logN}</td>
               <td style={{ padding: '0.4rem 0.5rem' }}>{row.diag.toFixed(4)}</td>
               <td style={{ padding: '0.4rem 0.5rem' }}>{row.slopeRvM.toFixed(4)}</td>
@@ -148,14 +149,14 @@ export default function Imp97745FarTailDiagnosticAsymptoteViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> {IMP97745_SUMMARY.verdict}
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> {IMP97745_SUMMARY.verdict}
       </div>
     </div>
   );

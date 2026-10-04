@@ -7,15 +7,16 @@ import {
 } from '../data/imp-95682-twin-pair-block-floor-rho-viz-data.js';
 import { IMP95707_TWIN_PAIR_BLOCK_TOEPLITZ_INTERIOR_LIMIT } from '../data/imp-95707-twin-pair-block-toeplitz-interior-limit.js';
 import { IMP95807_FINF_DUAL_INDEPENDENT_RECOMPUTE } from '../data/imp-95807-finf-dual-independent-recompute.js';
+import { ED } from '../styles/tokens.js';
 
 const ROWS = IMP95682_ROWS;
 const BIAS_TABLE = IMP95707_TWIN_PAIR_BLOCK_TOEPLITZ_INTERIOR_LIMIT.table;
 const FINF_RECOMPUTE_CELLS = IMP95807_FINF_DUAL_INDEPENDENT_RECOMPUTE.cells;
 
 const SERIES = [
-  { key: 'log10F', label: 'F = lambda_min(seam Gram)', color: '#38bdf8' },
-  { key: 'log10FoverAopt', label: 'F / A_opt (block advantage)', color: '#f59e0b' },
-  { key: 'log10FoverBlock', label: 'F / blockIso (retained fraction)', color: '#a78bfa' },
+  { key: 'log10F', label: 'F = lambda_min(seam Gram)', color: ED.series1 },
+  { key: 'log10FoverAopt', label: 'F / A_opt (block advantage)', color: ED.brass },
+  { key: 'log10FoverBlock', label: 'F / blockIso (retained fraction)', color: ED.series5 },
 ];
 
 // Semilog-x (rho), log10-y (all three curves) chart spanning the full
@@ -55,10 +56,10 @@ function BlockFloorRhoChart() {
             x2={padL + plotW}
             y1={yOf(t)}
             y2={yOf(t)}
-            stroke="#1e293b"
+            stroke={ED.ruleSoft}
             strokeWidth={1}
           />
-          <text x={padL - 8} y={yOf(t) + 3} textAnchor="end" fill="#64748b" fontSize={9.5}>
+          <text x={padL - 8} y={yOf(t) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9.5}>
             {`10^${t}`}
           </text>
         </g>
@@ -70,13 +71,13 @@ function BlockFloorRhoChart() {
           x={xOf(r.log10Rho)}
           y={padT + plotH + 16}
           textAnchor="middle"
-          fill="#64748b"
+          fill={ED.inkFaint}
           fontSize={9}
         >
           {r.rho}
         </text>
       ))}
-      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         rho = D / delta (log scale)
       </text>
 
@@ -86,11 +87,11 @@ function BlockFloorRhoChart() {
         x2={rho1X}
         y1={padT}
         y2={padT + plotH}
-        stroke="#475569"
+        stroke={ED.rule}
         strokeWidth={1}
         strokeDasharray="3,3"
       />
-      <text x={rho1X + 4} y={padT + 10} fill="#94a3b8" fontSize={9}>
+      <text x={rho1X + 4} y={padT + 10} fill={ED.inkSoft} fontSize={9}>
         rho=1 (scalar A_opt)
       </text>
 
@@ -100,13 +101,13 @@ function BlockFloorRhoChart() {
         x2={padL + plotW}
         y1={halfRetentionY}
         y2={halfRetentionY}
-        stroke="#a78bfa"
+        stroke={ED.series5}
         strokeWidth={1}
         strokeDasharray="2,4"
         opacity={0.6}
       />
-      <circle cx={halfRetentionX} cy={halfRetentionY} r={3.5} fill="#a78bfa" />
-      <text x={halfRetentionX + 6} y={halfRetentionY - 6} fill="#a78bfa" fontSize={9}>
+      <circle cx={halfRetentionX} cy={halfRetentionY} r={3.5} fill={ED.series5} />
+      <text x={halfRetentionX + 6} y={halfRetentionY - 6} fill={ED.series5} fontSize={9}>
         {`~1/2 retention, rho~${IMP95682_HALF_RETENTION_RHO}`}
       </text>
 
@@ -142,7 +143,7 @@ function Legend() {
           <span
             style={{ width: 12, height: 3, background: s.color, display: 'inline-block' }}
           />
-          <span style={{ color: '#94a3b8', fontSize: '0.78rem' }}>{s.label}</span>
+          <span style={{ color: 'var(--ink-soft)', fontSize: '0.78rem' }}>{s.label}</span>
         </div>
       ))}
     </div>
@@ -154,7 +155,7 @@ export default function Imp95682TwinPairBlockFloorRhoViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Twin-Pair Block Floor F(delta, rho) Monotone Interpolation (imp-95659 / imp-95682)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-95659 tabulated the per-pair block floor F(delta, rho) = lambda_min(seam
         Gram) across the cross/in-pair ratio rho = D&#47;delta. This chart shows all
         three measured curves on one log10-y axis: F itself (sweeping ~12 orders of
@@ -176,7 +177,7 @@ export default function Imp95682TwinPairBlockFloorRhoViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>rho</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>F</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>F / A_opt</th>
@@ -185,7 +186,7 @@ export default function Imp95682TwinPairBlockFloorRhoViz() {
         </thead>
         <tbody>
           {ROWS.map((r) => (
-            <tr key={r.rho} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+            <tr key={r.rho} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.rho}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>
                 {r.F.toExponential(4)}
@@ -201,7 +202,7 @@ export default function Imp95682TwinPairBlockFloorRhoViz() {
         </tbody>
       </table>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', margin: '1.5rem 0 0.75rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', margin: '1.5rem 0 0.75rem', maxWidth: 700 }}>
         The finite-80 table above is a proxy: imp-95707 quantified how far it sits from the true
         infinite-lattice infimum F_inf (block-Toeplitz Szego, cancellation-free at delta = ln 1.5).
         The interior finite-size overestimate runs from +5.65% at the rho = 1 endpoint down to
@@ -217,7 +218,7 @@ export default function Imp95682TwinPairBlockFloorRhoViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>rho</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>F_inf (dual, imp-95707)</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>F (finite-80 proxy)</th>
@@ -226,7 +227,7 @@ export default function Imp95682TwinPairBlockFloorRhoViz() {
         </thead>
         <tbody>
           {BIAS_TABLE.map((r) => (
-            <tr key={`bias-${r.rho}`} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+            <tr key={`bias-${r.rho}`} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.rho}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>
                 {r.Finf.toExponential(4)}
@@ -242,7 +243,7 @@ export default function Imp95682TwinPairBlockFloorRhoViz() {
         </tbody>
       </table>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', margin: '1.5rem 0 0.75rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', margin: '1.5rem 0 0.75rem', maxWidth: 700 }}>
         imp-95807 independently re-derived F_inf via the cancellation-free theta = 0
         Poisson dual at all 13 cells of the union grid above and checked each one
         against its baked literal. Every cell reproduces to relative error &lt; 1e-6;
@@ -259,7 +260,7 @@ export default function Imp95682TwinPairBlockFloorRhoViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>delta</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>rho</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>F_inf (baked)</th>
@@ -272,7 +273,7 @@ export default function Imp95682TwinPairBlockFloorRhoViz() {
           {FINF_RECOMPUTE_CELLS.map((c) => (
             <tr
               key={`finf-${c.delta}-${c.rho}`}
-              style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}
+              style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}
             >
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{c.delta}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{c.rho}</td>
@@ -295,14 +296,14 @@ export default function Imp95682TwinPairBlockFloorRhoViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> {IMP95682_CAVEAT_BANNER}
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> {IMP95682_CAVEAT_BANNER}
       </div>
     </div>
   );

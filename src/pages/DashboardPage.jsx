@@ -13,6 +13,7 @@ import {
   STATE_OF_PROGRAM_SUMMARY_DATE,
   STATE_OF_PROGRAM_TRUTHS,
 } from '../data/state-of-program-truths.js';
+import { ED, alpha } from '../styles/tokens.js';
 
 const ProofStatusCard = lazy(() => import('../components/ProofStatusCard.jsx'));
 
@@ -45,12 +46,12 @@ function EmpiricalFloorCard() {
   const e1 = r.empiricalPredicates.E1_rhoNonDecreasing.holds;
   const e2 = r.empiricalPredicates.E2_tauEstNonIncreasing.holds;
   const ok = e1 && e2;
-  const color = ok ? '#4c7a4a' : '#c23a1c';
+  const color = ok ? ED.series3 : ED.accent;
 
   return (
     <div className="card" style={{ marginBottom: 24, borderLeft: `4px solid ${color}` }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', flexWrap: 'wrap', gap: 12, marginBottom: 8 }}>
-        <h3 style={{ margin: 0, fontSize: 14, color: '#1c1814', fontFamily: 'var(--ed-mono, var(--font-mono))' }}>
+        <h3 style={{ margin: 0, fontSize: 14, color: 'var(--ink)', fontFamily: 'var(--ed-mono, var(--font-mono))' }}>
           Empirical-Λ Floor (UNCOND-Λ PATH 1)
         </h3>
         <span style={{
@@ -62,24 +63,24 @@ function EmpiricalFloorCard() {
           N ≤ {N_max.toLocaleString()}
         </span>
       </div>
-      <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', fontSize: 12, color: '#4a4238', fontFamily: 'var(--ed-mono, var(--font-mono))', marginBottom: 6 }}>
+      <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', fontSize: 12, color: 'var(--ink-soft)', fontFamily: 'var(--ed-mono, var(--font-mono))', marginBottom: 6 }}>
         <span>
           E1 (ρ non-decreasing):{' '}
-          <strong style={{ color: e1 ? '#4c7a4a' : '#c23a1c' }}>{e1 ? '✓' : '✗'}</strong>
+          <strong style={{ color: e1 ? 'var(--series-3)' : 'var(--accent)' }}>{e1 ? '✓' : '✗'}</strong>
         </span>
         <span>
           E2 (τ_c_est non-increasing):{' '}
-          <strong style={{ color: e2 ? '#4c7a4a' : '#c23a1c' }}>{e2 ? '✓' : '✗'}</strong>
+          <strong style={{ color: e2 ? 'var(--series-3)' : 'var(--accent)' }}>{e2 ? '✓' : '✗'}</strong>
         </span>
         <span>
           violations: <strong>{r.empiricalPredicates.E1_rhoNonDecreasing.violations + r.empiricalPredicates.E2_tauEstNonIncreasing.violations}</strong>
         </span>
       </div>
-      <div style={{ fontSize: 12, color: '#877b67', lineHeight: 1.6 }}>
+      <div style={{ fontSize: 12, color: 'var(--ink-faint)', lineHeight: 1.6 }}>
         Direct sweep on Odlyzko zeros; both predicates verified — no C_mb, no GUE on this range.
         Widening from the original 870-zero floor:{' '}
-        <strong style={{ color: '#3f6b86' }}>{Math.round(N_max / r.previousEmpiricalFloor.N_max)}×</strong>.{' '}
-        <Link to="/full-story#uncond" style={{ color: '#b58a2e' }}>Improving Bounds on Λ →</Link>
+        <strong style={{ color: 'var(--series-1)' }}>{Math.round(N_max / r.previousEmpiricalFloor.N_max)}×</strong>.{' '}
+        <Link to="/full-story#uncond" style={{ color: 'var(--brass)' }}>Improving Bounds on Λ →</Link>
       </div>
     </div>
   );
@@ -90,8 +91,8 @@ function Spinner() {
     <div style={{
       display: 'inline-block',
       width: 20, height: 20,
-      border: '2px solid #d5c9b2',
-      borderTop: '2px solid #b58a2e',
+      border: '2px solid var(--rule)',
+      borderTop: '2px solid var(--brass-deco)',
       borderRadius: '50%',
       animation: 'dashboard-spin 0.8s linear infinite',
     }} />
@@ -99,9 +100,9 @@ function Spinner() {
 }
 
 const STATUS_COLORS = {
-  green: { border: '#4c7a4a', bg: 'rgba(76,122,74,0.08)', badge: '#4c7a4a', text: 'PASS' },
-  red: { border: '#c23a1c', bg: 'rgba(194,58,28,0.08)', badge: '#c23a1c', text: 'FAIL' },
-  yellow: { border: '#b58a2e', bg: 'rgba(181,138,46,0.08)', badge: '#b58a2e', text: 'COND' },
+  green: { border: ED.series3, bg: alpha(ED.series3, 0.08), badge: ED.series3, text: 'PASS' },
+  red: { border: ED.accent, bg: alpha(ED.series2, 0.08), badge: ED.series2, text: 'FAIL' },
+  yellow: { border: ED.brassDeco, bg: alpha(ED.brassDeco, 0.08), badge: ED.brassDeco, text: 'COND' },
 };
 
 function MetricCard({ title, subtitle, status, value, detail, loading, error }) {
@@ -109,8 +110,8 @@ function MetricCard({ title, subtitle, status, value, detail, loading, error }) 
 
   return (
     <div style={{
-      background: loading ? '#f6f1e7' : colors.bg,
-      border: `1.5px solid ${loading ? '#d5c9b2' : colors.border}`,
+      background: loading ? 'var(--paper-2)' : colors.bg,
+      border: `1.5px solid ${loading ? ED.rule : colors.border}`,
       borderRadius: 10,
       padding: '18px 20px',
       display: 'flex',
@@ -120,11 +121,11 @@ function MetricCard({ title, subtitle, status, value, detail, loading, error }) 
       transition: 'all 0.3s ease',
     }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <h3 style={{ margin: 0, fontSize: 14, color: '#1c1814', fontWeight: 600 }}>{title}</h3>
+        <h3 style={{ margin: 0, fontSize: 14, color: 'var(--ink)', fontWeight: 600 }}>{title}</h3>
         {!loading && !error && (
           <span style={{
             background: colors.badge,
-            color: '#fdfaf3',
+            color: 'var(--paper)',
             fontSize: 10,
             fontWeight: 700,
             padding: '2px 8px',
@@ -137,13 +138,13 @@ function MetricCard({ title, subtitle, status, value, detail, loading, error }) 
         )}
       </div>
       {subtitle && (
-        <div style={{ color: '#877b67', fontSize: 11, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>{subtitle}</div>
+        <div style={{ color: 'var(--ink-faint)', fontSize: 11, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>{subtitle}</div>
       )}
       <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         {loading ? (
           <Spinner />
         ) : error ? (
-          <div style={{ color: '#c23a1c', fontSize: 12 }}>Error: {error}</div>
+          <div style={{ color: 'var(--accent)', fontSize: 12 }}>Error: {error}</div>
         ) : (
           <div style={{
             fontFamily: 'var(--ed-mono, var(--font-mono))',
@@ -157,7 +158,7 @@ function MetricCard({ title, subtitle, status, value, detail, loading, error }) 
         )}
       </div>
       {!loading && !error && detail && (
-        <div style={{ color: '#4a4238', fontSize: 11, lineHeight: 1.5 }}>{detail}</div>
+        <div style={{ color: 'var(--ink-soft)', fontSize: 11, lineHeight: 1.5 }}>{detail}</div>
       )}
     </div>
   );
@@ -345,6 +346,7 @@ export default function DashboardPage() {
 
         <div style={{ marginBottom: 24 }}>
           <h1 className="ed-h1" style={{ marginBottom: 10 }}>RH Proof Dashboard — Live Metrics</h1>
+          <p className="ed-lbl">Related: <Link to="/health">Model metrics (live)</Link> · <Link to="/gap-closing">Unitarity-deficit gap analysis</Link></p>
           <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.55, maxWidth: 760 }}>
             Real-time computation of key Riemann Hypothesis proof metrics from the ZPO
             oscillator framework. Each card runs an independent computation and reports
@@ -359,13 +361,13 @@ export default function DashboardPage() {
             /state-of-program) so the top-line status cannot drift. */}
         <div
           className="card"
-          style={{ marginBottom: 24, borderLeft: '3px solid #877b67' }}
+          style={{ marginBottom: 24, borderLeft: '3px solid var(--rule)' }}
         >
           <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: 12, flexWrap: 'wrap', marginBottom: 10 }}>
-            <strong style={{ color: '#1c1814', fontSize: 15 }}>state of the program</strong>
+            <strong style={{ color: 'var(--ink)', fontSize: 15 }}>state of the program</strong>
             <Link to="/state-of-program" style={{ fontSize: 12.5 }}>Full state of the program →</Link>
           </div>
-          <p style={{ fontSize: 12.5, color: '#4a4238', lineHeight: 1.55, margin: '0 0 12px' }}>
+          <p style={{ fontSize: 12.5, color: 'var(--ink-soft)', lineHeight: 1.55, margin: '0 0 12px' }}>
             Top-line status before reading any single metric below: there is no shortcut below RH anywhere in the map.
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 10 }}>
@@ -382,7 +384,7 @@ export default function DashboardPage() {
                 >
                   {t.badge}
                 </span>
-                <div style={{ fontSize: 12, color: '#4a4238', lineHeight: 1.45, marginTop: 4 }}>{t.title}</div>
+                <div style={{ fontSize: 12, color: 'var(--ink-soft)', lineHeight: 1.45, marginTop: 4 }}>{t.title}</div>
               </div>
             ))}
           </div>
@@ -457,11 +459,11 @@ export default function DashboardPage() {
         {/* Proof Status bar */}
         <div className="card" style={{ marginBottom: 24 }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
-            <h3 style={{ margin: 0, fontSize: 14, color: '#1c1814' }}>Overall Proof Status</h3>
+            <h3 style={{ margin: 0, fontSize: 14, color: 'var(--ink)' }}>Overall Proof Status</h3>
             <span style={{
               fontFamily: 'var(--ed-mono, var(--font-mono))',
               fontSize: 14,
-              color: completeness >= 0.8 ? '#4c7a4a' : completeness >= 0.5 ? '#b58a2e' : '#c23a1c',
+              color: completeness >= 0.8 ? 'var(--series-3)' : completeness >= 0.5 ? 'var(--brass)' : 'var(--accent)',
               fontWeight: 700,
             }}>
               {proof.loading ? '...' : `${(completeness * 100).toFixed(0)}%`}
@@ -469,7 +471,7 @@ export default function DashboardPage() {
           </div>
           <div style={{
             height: 12,
-            background: '#efe7d6',
+            background: 'var(--paper-3)',
             borderRadius: 6,
             overflow: 'hidden',
           }}>
@@ -477,17 +479,17 @@ export default function DashboardPage() {
               height: '100%',
               width: proof.loading ? '0%' : `${completeness * 100}%`,
               background: completeness >= 0.8
-                ? 'linear-gradient(90deg, #4c7a4a, #7fae7c)'
+                ? 'linear-gradient(90deg, var(--series-3), var(--series-3))'
                 : completeness >= 0.5
-                  ? 'linear-gradient(90deg, #b58a2e, #d1a852)'
-                  : 'linear-gradient(90deg, #c23a1c, #dd6b4a)',
+                  ? 'linear-gradient(90deg, var(--brass-deco), var(--brass-deco))'
+                  : 'linear-gradient(90deg, var(--series-2), var(--accent-deco))',
               borderRadius: 6,
               transition: 'width 0.6s ease',
             }} />
           </div>
           <div style={{
             display: 'flex', justifyContent: 'space-between',
-            marginTop: 8, fontSize: 11, color: '#877b67', fontFamily: 'var(--ed-mono, var(--font-mono))',
+            marginTop: 8, fontSize: 11, color: 'var(--ink-faint)', fontFamily: 'var(--ed-mono, var(--font-mono))',
           }}>
             <span>S1 -- S8 proof sections</span>
             <span>{passingCards}/5 metric checks passing</span>
@@ -502,7 +504,7 @@ export default function DashboardPage() {
           flexWrap: 'wrap',
           gap: 12,
         }}>
-          <div style={{ color: '#877b67', fontSize: 12, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>
+          <div style={{ color: 'var(--ink-faint)', fontSize: 12, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>
             Last verified: {lastVerified
               ? new Date(lastVerified).toLocaleString()
               : (allDone ? new Date().toLocaleString() : 'Computing...')}
@@ -510,15 +512,15 @@ export default function DashboardPage() {
         </div>
 
         {/* Navigation links */}
-        <div className="card" style={{ marginTop: 24, borderLeft: '3px solid #3f6b86' }}>
-          <h3 style={{ color: '#3f6b86', fontSize: 14, marginBottom: 8 }}>Related Pages</h3>
+        <div className="card" style={{ marginTop: 24, borderLeft: '3px solid var(--series-1)' }}>
+          <h3 style={{ color: 'var(--series-1)', fontSize: 14, marginBottom: 8 }}>Related Pages</h3>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
-            <Link to="/rh-attack" style={{ color: '#b58a2e', fontSize: 12 }}>RH Approach</Link>
-            <Link to="/proof-checker" style={{ color: '#b58a2e', fontSize: 12 }}>Proof Checker</Link>
-            <Link to="/proof-overview" style={{ color: '#b58a2e', fontSize: 12 }}>Proof Overview</Link>
-            <Link to="/proof-planner" style={{ color: '#b58a2e', fontSize: 12 }}>Proof Planner</Link>
-            <Link to="/statistics" style={{ color: '#b58a2e', fontSize: 12 }}>Statistics</Link>
-            <Link to="/gap-closing" style={{ color: '#b58a2e', fontSize: 12 }}>Gap Closing</Link>
+            <Link to="/rh-attack" style={{ color: 'var(--brass)', fontSize: 12 }}>RH Approach</Link>
+            <Link to="/proof-checker" style={{ color: 'var(--brass)', fontSize: 12 }}>Proof Checker</Link>
+            <Link to="/proof-overview" style={{ color: 'var(--brass)', fontSize: 12 }}>Proof Overview</Link>
+            <Link to="/proof-planner" style={{ color: 'var(--brass)', fontSize: 12 }}>Proof Planner</Link>
+            <Link to="/statistics" style={{ color: 'var(--brass)', fontSize: 12 }}>Statistics</Link>
+            <Link to="/gap-closing" style={{ color: 'var(--brass)', fontSize: 12 }}>Gap Closing</Link>
           </div>
           <p style={{ margin: '14px 0 0' }}>
             <Link to="/">← the atlas</Link>

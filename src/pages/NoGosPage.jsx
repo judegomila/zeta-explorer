@@ -2,11 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import { ZETAEXPLORER_NO_GOS, FIELD_NO_GOS } from '../data/rh-no-go-theorems.js';
+import { STATUS } from '../styles/tokens.js';
 
 /* No-go index — the standalone index of the no-go landscape (also rendered in
    context on /what-we-know §④). Linked from the home KPI. */
 
-const KIND_COLOR = { theorem: '#4c7a4a', barrier: '#b58a2e', equivalence: '#6d55b8' };
+const KIND_COLOR = { theorem: STATUS.proved.fg, barrier: STATUS.nogo.fg, equivalence: STATUS.rhequiv.fg };
 
 function NoGoCard({ n }) {
   return (

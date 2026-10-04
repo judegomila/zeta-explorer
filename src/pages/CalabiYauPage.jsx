@@ -258,7 +258,7 @@ export default function CalabiYauPage() {
           </p>
 
           <div style={{ marginTop: 16, padding: '12px 16px', borderRadius: 8,
-                        background: 'rgba(217,80,46,0.08)', border: '1px solid rgba(217,80,46,0.25)' }}>
+                        background: 'color-mix(in srgb, var(--accent-deco) 8%, transparent)', border: '1px solid color-mix(in srgb, var(--accent-deco) 25%, transparent)' }}>
             <strong style={{ color: 'var(--terra)', fontSize: 13 }}>Why This Fails (Three Fundamental Obstructions)</strong>
             <ol style={{ marginLeft: 16, color: 'var(--ink-soft)', fontSize: 13, lineHeight: 2, marginTop: 8 }}>
               <li>
@@ -290,7 +290,7 @@ export default function CalabiYauPage() {
           </div>
 
           <div style={{ marginTop: 16, padding: '12px 16px', borderRadius: 8,
-                        background: 'rgba(63,107,134,0.08)', border: '1px solid rgba(63,107,134,0.25)' }}>
+                        background: 'color-mix(in srgb, var(--series-1) 8%, transparent)', border: '1px solid color-mix(in srgb, var(--series-1) 25%, transparent)' }}>
             <strong style={{ color: 'var(--blue)', fontSize: 13 }}>Partial Results & Analogies</strong>
             <ul style={{ marginLeft: 16, color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.8, marginTop: 8 }}>
               <li>
@@ -544,7 +544,7 @@ export default function CalabiYauPage() {
           </ul>
 
           <div style={{ marginTop: 16, padding: '12px 16px', borderRadius: 8,
-                        background: 'rgba(140,106,29,0.08)', border: '1px solid rgba(140,106,29,0.25)' }}>
+                        background: 'color-mix(in srgb, var(--brass) 8%, transparent)', border: '1px solid color-mix(in srgb, var(--brass) 25%, transparent)' }}>
             <strong style={{ color: 'var(--brass)', fontSize: 13 }}>
               The Langlands-CY Vision
             </strong>
@@ -611,8 +611,8 @@ export default function CalabiYauPage() {
             ].map(([to, label]) => (
               <Link key={to} to={to} style={{
                 padding: '6px 14px', borderRadius: 6, fontSize: 13,
-                background: 'rgba(63,107,134,0.1)', color: 'var(--blue)',
-                textDecoration: 'none', border: '1px solid rgba(63,107,134,0.25)',
+                background: 'color-mix(in srgb, var(--series-1) 10%, transparent)', color: 'var(--blue)',
+                textDecoration: 'none', border: '1px solid color-mix(in srgb, var(--series-1) 25%, transparent)',
               }}>{label}</Link>
             ))}
           </div>

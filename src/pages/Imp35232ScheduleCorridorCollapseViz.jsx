@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP35220_NCRIT_CORRIDOR_ENDPOINT_TABULATION } from '../data/imp-35220-ncrit-corridor-endpoint-tabulation.js';
+import { ED, alpha } from '../styles/tokens.js';
 
 const D = IMP35220_NCRIT_CORRIDOR_ENDPOINT_TABULATION;
 const BASELINE = D.triples[0];
@@ -35,7 +36,7 @@ function CorridorChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <text x={padL} y={padT - 14} fill="#94a3b8" fontSize={11} fontWeight={700}>
+      <text x={padL} y={padT - 14} fill={ED.inkSoft} fontSize={11} fontWeight={700}>
         y_floor(N) vs. flat y_ceil ({BASELINE.label}), log-log axes
       </text>
 
@@ -45,7 +46,7 @@ function CorridorChart() {
         y={yOf(BASELINE.y_ceil)}
         width={xOf(nCrit) - xOf(BASELINE.rows[0].N)}
         height={padT + plotH - yOf(BASELINE.y_ceil)}
-        fill="rgba(52,211,153,0.08)"
+        fill={alpha(ED.series3, 0.08)}
       />
 
       {/* empty-corridor region N > N_crit: y_floor has risen past y_ceil, corridor is EMPTY here */}
@@ -54,24 +55,24 @@ function CorridorChart() {
         y={padT}
         width={padL + plotW - xOf(nCrit)}
         height={plotH}
-        fill="rgba(248,113,113,0.06)"
+        fill={alpha(ED.series2, 0.06)}
       />
-      <text x={xOf(nCrit) + 8} y={padT + plotH - 10} fill="#f87171" fontSize={9}>
+      <text x={xOf(nCrit) + 8} y={padT + plotH - 10} fill={ED.series2} fontSize={9}>
         corridor empty (N &gt; N_crit)
       </text>
 
       {yTicks.map((t) => (
         <g key={t}>
-          <line x1={padL} y1={yOf(t)} x2={padL + plotW} y2={yOf(t)} stroke="#1e293b" strokeWidth={1} />
-          <text x={padL - 6} y={yOf(t) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+          <line x1={padL} y1={yOf(t)} x2={padL + plotW} y2={yOf(t)} stroke={ED.ruleSoft} strokeWidth={1} />
+          <text x={padL - 6} y={yOf(t) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {t}
           </text>
         </g>
       ))}
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
       {xTicks.map((t) => (
-        <text key={t} x={xOf(t)} y={padT + plotH + 16} textAnchor="middle" fill="#64748b" fontSize={9}>
+        <text key={t} x={xOf(t)} y={padT + plotH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
           {t.toExponential(0)}
         </text>
       ))}
@@ -82,18 +83,18 @@ function CorridorChart() {
         y1={yOf(BASELINE.y_ceil)}
         x2={padL + plotW}
         y2={yOf(BASELINE.y_ceil)}
-        stroke="#f87171"
+        stroke={ED.series2}
         strokeWidth={1.75}
         strokeDasharray="5 3"
       />
-      <text x={padL + plotW - 150} y={yOf(BASELINE.y_ceil) - 6} fill="#f87171" fontSize={9}>
+      <text x={padL + plotW - 150} y={yOf(BASELINE.y_ceil) - 6} fill={ED.series2} fontSize={9}>
         y_ceil = {BASELINE.y_ceil} (flat)
       </text>
 
       {/* rising y_floor accumulation floor */}
-      <path d={floorPath} fill="none" stroke="#38bdf8" strokeWidth={2.25} />
+      <path d={floorPath} fill="none" stroke={ED.series1} strokeWidth={2.25} />
       {BASELINE.rows.map((r) => (
-        <circle key={r.N} cx={xOf(r.N)} cy={yOf(r.y_floor)} r={2.75} fill="#38bdf8" />
+        <circle key={r.N} cx={xOf(r.N)} cy={yOf(r.y_floor)} r={2.75} fill={ED.series1} />
       ))}
 
       {/* N_crit crossing marker */}
@@ -102,15 +103,15 @@ function CorridorChart() {
         y1={padT}
         x2={xOf(nCrit)}
         y2={padT + plotH}
-        stroke="#facc15"
+        stroke={ED.brassDeco}
         strokeWidth={1.25}
         strokeDasharray="3 3"
       />
-      <text x={xOf(nCrit) + 5} y={padT + 12} fill="#facc15" fontSize={9.5} fontWeight={700}>
+      <text x={xOf(nCrit) + 5} y={padT + 12} fill={ED.brass} fontSize={9.5} fontWeight={700}>
         N_crit &asymp; {nCrit.toFixed(2)}
       </text>
 
-      <text x={padL + 10} y={padT + plotH - 10} fill="#34d399" fontSize={9}>
+      <text x={padL + 10} y={padT + plotH - 10} fill={ED.series3} fontSize={9}>
         corridor (feasible)
       </text>
     </svg>
@@ -122,7 +123,7 @@ export default function Imp35232ScheduleCorridorCollapseViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="I3 Schedule-Corridor Collapse (imp-35232 / imp-35220)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         {D.endpoints.accumulationFloor}. {D.endpoints.nearFrontCeiling}. {D.endpoints.crossover} This
         page plots both endpoints for the baseline ({BASELINE.label}) triple across the imp-35220
         N-sweep, marking the crossing N_crit where the strip corridor y_floor(N)&nbsp;&le;&nbsp;y_star(N)
@@ -140,7 +141,7 @@ export default function Imp35232ScheduleCorridorCollapseViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>N</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>y_floor(N)</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>y_ceil</th>
@@ -149,11 +150,11 @@ export default function Imp35232ScheduleCorridorCollapseViz() {
         </thead>
         <tbody>
           {BASELINE.rows.map((r) => (
-            <tr key={r.N} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+            <tr key={r.N} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.N.toExponential(0)}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.y_floor}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.y_ceil}</td>
-              <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace', color: r.feasible ? '#34d399' : '#f87171' }}>
+              <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace', color: r.feasible ? 'var(--series-3)' : 'var(--series-2)' }}>
                 {r.feasible ? 'yes' : 'no'}
               </td>
             </tr>
@@ -161,7 +162,7 @@ export default function Imp35232ScheduleCorridorCollapseViz() {
         </tbody>
       </table>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.25rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.25rem 0 0.5rem' }}>
         Robustness: N_crit stays a modest O(1)-to-O(100) number across every plausible (S, E_acc, y_ceil)
         triple (range [{D.nCritSpread.min}, {D.nCritSpread.max}]), far below the roadmap flow anchors
         N&nbsp;&sim;&nbsp;1e6 and beyond.
@@ -174,14 +175,14 @@ export default function Imp35232ScheduleCorridorCollapseViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.35rem 0.6rem' }}>triple</th>
             <th style={{ padding: '0.35rem 0.6rem' }}>N_crit</th>
           </tr>
         </thead>
         <tbody>
           {D.triples.map((t) => (
-            <tr key={t.label} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+            <tr key={t.label} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
               <td style={{ padding: '0.35rem 0.6rem' }}>{t.label}</td>
               <td style={{ padding: '0.35rem 0.6rem', fontFamily: 'monospace' }}>{t.N_crit}</td>
             </tr>
@@ -193,14 +194,14 @@ export default function Imp35232ScheduleCorridorCollapseViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page rendering the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-only page rendering the
         imp-35220 tabulation literals verbatim (no new computation). Measurement on the inherited
         imp-3220/imp-3406 surrogate; imp-35127 I3 field-Lipschitz requirement stays OPEN (localized to
         the N poles at y=0, per imp-35196); C_mb GUE-conditional per imp-486 untouched; changes no

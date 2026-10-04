@@ -7,6 +7,7 @@ import {
 } from '../math/zxcalculus.js';
 import { ZETA_ZEROS } from '../math/zeta.js';
 import { getPrimes } from '../math/primes.js';
+import { ED, alpha } from '../styles/tokens.js';
 
 const TABS = ['Spider Chain', 'Twin Ladder', 'Rewrite Rules', 'Symmetry'];
 
@@ -14,9 +15,9 @@ const TABS = ['Spider Chain', 'Twin Ladder', 'Rewrite Rules', 'Symmetry'];
 
 function drawSpider(ctx, x, y, r, type, phase, magnitude, label, highlight) {
   const colors = {
-    Z: { fill: '#10b981', stroke: '#34d399', glow: 'rgba(16,185,129,0.3)' },
-    X: { fill: '#ef4444', stroke: '#f87171', glow: 'rgba(239,68,68,0.3)' },
-    H: { fill: '#f59e0b', stroke: '#fbbf24', glow: 'rgba(245,158,11,0.3)' },
+    Z: { fill: ED.series3, stroke: ED.series3, glow: alpha(ED.series3, 0.3) },
+    X: { fill: ED.series2, stroke: ED.series2, glow: alpha(ED.series2, 0.3) },
+    H: { fill: ED.series4, stroke: ED.brassDeco, glow: alpha(ED.series4, 0.3) },
   };
   const c = colors[type] || colors.Z;
 
@@ -62,7 +63,7 @@ function drawSpider(ctx, x, y, r, type, phase, magnitude, label, highlight) {
   }
 }
 
-function drawWire(ctx, x1, y1, x2, y2, color = '#475569', width = 1, dashed = false) {
+function drawWire(ctx, x1, y1, x2, y2, color = ED.inkFaint, width = 1, dashed = false) {
   ctx.beginPath();
   if (dashed) ctx.setLineDash([4, 3]);
   ctx.moveTo(x1, y1);
@@ -125,11 +126,11 @@ function SpiderChainTab({ sigma, t, numPrimes }) {
         `∏${n}p`, true);
 
       // Input/output wires
-      drawWire(ctx, margin, cy, cx - 40, cy, '#475569', 1.5);
-      drawWire(ctx, cx + 40, cy, w - margin, cy, '#475569', 1.5);
+      drawWire(ctx, margin, cy, cx - 40, cy, ED.series8, 1.5);
+      drawWire(ctx, cx + 40, cy, w - margin, cy, ED.series8, 1.5);
 
       // Labels
-      ctx.fillStyle = '#94a3b8';
+      ctx.fillStyle = ED.series8;
       ctx.font = '11px var(--font-mono)';
       ctx.textAlign = 'center';
       ctx.fillText(`|ζ| = ${data.totalMagnitude.toFixed(4)}`, cx, cy + 55);
@@ -141,7 +142,7 @@ function SpiderChainTab({ sigma, t, numPrimes }) {
       const cy = h * 0.4;
 
       // Input wire
-      drawWire(ctx, margin - 10, cy, margin + spacing - spiderR - 4, cy, '#475569', 1.5);
+      drawWire(ctx, margin - 10, cy, margin + spacing - spiderR - 4, cy, ED.series8, 1.5);
 
       for (let i = 0; i < n; i++) {
         const sp = data.spiders[i];
@@ -158,7 +159,7 @@ function SpiderChainTab({ sigma, t, numPrimes }) {
           `p=${sp.prime}`, isHov);
 
         // Phase label below
-        ctx.fillStyle = isHov ? '#e2e8f0' : '#64748b';
+        ctx.fillStyle = isHov ? ED.ink : ED.series8;
         ctx.font = '9px var(--font-mono)';
         ctx.textAlign = 'center';
         ctx.fillText(`α=${sp.phase.toFixed(2)}`, cx, cy + spiderR + 14);
@@ -166,14 +167,14 @@ function SpiderChainTab({ sigma, t, numPrimes }) {
 
       // Output wire
       const lastX = margin + spacing * n;
-      drawWire(ctx, lastX + spiderR + 2, cy, w - margin + 10, cy, '#475569', 1.5);
+      drawWire(ctx, lastX + spiderR + 2, cy, w - margin + 10, cy, ED.series8, 1.5);
 
       // Phase accumulation graph below
       const graphY = h * 0.7;
       const graphH = h * 0.22;
       ctx.fillStyle = '#1e293b';
       ctx.fillRect(margin, graphY - graphH / 2, w - 2 * margin, graphH);
-      ctx.strokeStyle = '#334155';
+      ctx.strokeStyle = ED.rule;
       ctx.strokeRect(margin, graphY - graphH / 2, w - 2 * margin, graphH);
 
       // Plot cumulative phase
@@ -184,13 +185,13 @@ function SpiderChainTab({ sigma, t, numPrimes }) {
       ctx.setLineDash([4, 3]);
       ctx.moveTo(margin, graphY);
       ctx.lineTo(w - margin, graphY);
-      ctx.strokeStyle = '#47556960';
+      ctx.strokeStyle = alpha(ED.rule, 0.38);
       ctx.lineWidth = 1;
       ctx.stroke();
       ctx.setLineDash([]);
 
       // Y-axis tick labels (±maxPhase)
-      ctx.fillStyle = '#64748b';
+      ctx.fillStyle = ED.series8;
       ctx.font = '8px var(--font-mono)';
       ctx.textAlign = 'right';
       const topPhaseY = graphY - graphH * 0.4;
@@ -206,7 +207,7 @@ function SpiderChainTab({ sigma, t, numPrimes }) {
         if (i === 0) ctx.moveTo(px, py);
         else ctx.lineTo(px, py);
       }
-      ctx.strokeStyle = '#10b981';
+      ctx.strokeStyle = ED.series3;
       ctx.lineWidth = 2;
       ctx.stroke();
 
@@ -216,11 +217,11 @@ function SpiderChainTab({ sigma, t, numPrimes }) {
         const py = graphY - (phases[i].cumulativePhase / maxPhase) * graphH * 0.4;
         ctx.beginPath();
         ctx.arc(px, py, 3, 0, Math.PI * 2);
-        ctx.fillStyle = '#10b981';
+        ctx.fillStyle = ED.series3;
         ctx.fill();
       }
 
-      ctx.fillStyle = '#64748b';
+      ctx.fillStyle = ED.series8;
       ctx.font = '10px sans-serif';
       ctx.textAlign = 'left';
       ctx.fillText('Cumulative phase (rad)', margin + 4, graphY - graphH / 2 - 4);
@@ -266,26 +267,26 @@ function SpiderChainTab({ sigma, t, numPrimes }) {
           className={`filter-btn ${showFused ? 'active' : ''}`}
           onClick={() => setShowFused(true)}
         >Fused</button>
-        <span style={{ fontSize: 11, color: '#64748b', marginLeft: 8 }}>
+        <span style={{ fontSize: 11, color: 'var(--ink-faint)', marginLeft: 8 }}>
           {showFused ? 'Spider fusion: all phases added, factors multiplied' : `${numPrimes} Z-spiders in cascade`}
         </span>
       </div>
       <canvas
         ref={canvasRef}
-        style={{ width: '100%', height: 320, borderRadius: 8, background: '#0a0e1a', border: '1px solid #1e293b', cursor: 'crosshair' }}
+        style={{ width: '100%', height: 320, borderRadius: 8, background: 'var(--paper)', border: '1px solid var(--rule-soft)', cursor: 'crosshair' }}
         onMouseMove={handleMouseMove}
         onMouseLeave={() => setHovered(null)}
       />
       {hovered !== null && (
-        <div style={{ marginTop: 8, padding: '8px 12px', background: '#0f1225', borderRadius: 6, border: '1px solid #334155', fontSize: 12 }}>
-          <span style={{ color: '#10b981', fontWeight: 700 }}>Z-spider p={data.spiders[hovered].prime}</span>
-          <span style={{ color: '#64748b', marginLeft: 12 }}>
+        <div style={{ marginTop: 8, padding: '8px 12px', background: 'var(--paper-2)', borderRadius: 6, border: '1px solid var(--rule)', fontSize: 12 }}>
+          <span style={{ color: 'var(--series-3)', fontWeight: 700 }}>Z-spider p={data.spiders[hovered].prime}</span>
+          <span style={{ color: 'var(--ink-faint)', marginLeft: 12 }}>
             |H<sub>p</sub>| = {data.spiders[hovered].magnitude.toFixed(4)}
           </span>
-          <span style={{ color: '#64748b', marginLeft: 12 }}>
+          <span style={{ color: 'var(--ink-faint)', marginLeft: 12 }}>
             α = {data.spiders[hovered].phase.toFixed(4)} rad
           </span>
-          <span style={{ color: '#64748b', marginLeft: 12 }}>
+          <span style={{ color: 'var(--ink-faint)', marginLeft: 12 }}>
             Z₀ = log({data.spiders[hovered].prime}) = {data.spiders[hovered].frequency.toFixed(3)}
           </span>
         </div>
@@ -323,7 +324,7 @@ function TwinLadderTab({ sigma, t, numPrimes }) {
     const spiderR = 16;
 
     // Direct ladder (top, green)
-    ctx.fillStyle = '#10b981';
+    ctx.fillStyle = ED.series3;
     ctx.font = 'bold 11px sans-serif';
     ctx.textAlign = 'left';
     ctx.fillText('Direct Ladder ζ(s)', margin, topY - 30);
@@ -343,7 +344,7 @@ function TwinLadderTab({ sigma, t, numPrimes }) {
     }
 
     // Dual ladder (bottom, red)
-    ctx.fillStyle = '#ef4444';
+    ctx.fillStyle = ED.series2;
     ctx.textAlign = 'left';
     ctx.fillText('Dual Ladder ζ(1−s)', margin, botY - 30);
 
@@ -365,14 +366,14 @@ function TwinLadderTab({ sigma, t, numPrimes }) {
     const firstDualX = margin + spacing;
 
     // Bridge connection wires
-    drawWire(ctx, lastDirectX + spiderR, topY, bridgeX, bridgeY - 16, '#f59e0b80', 1.5);
-    drawWire(ctx, bridgeX, bridgeY + 16, firstDualX - spiderR, botY, '#f59e0b80', 1.5);
+    drawWire(ctx, lastDirectX + spiderR, topY, bridgeX, bridgeY - 16, alpha(ED.series4, 0.5), 1.5);
+    drawWire(ctx, bridgeX, bridgeY + 16, firstDualX - spiderR, botY, alpha(ED.series4, 0.5), 1.5);
 
     // Hadamard box
     drawSpider(ctx, bridgeX, bridgeY, 22, 'H', null, diagram.bridge.magnitude, 'χ(s)', true);
 
     // Bridge status
-    const bridgeColor = diagram.bridge.isUnitary ? '#10b981' : '#ef4444';
+    const bridgeColor = diagram.bridge.isUnitary ? ED.series3 : ED.series2;
     ctx.fillStyle = bridgeColor;
     ctx.font = 'bold 10px var(--font-mono)';
     ctx.textAlign = 'center';
@@ -380,16 +381,16 @@ function TwinLadderTab({ sigma, t, numPrimes }) {
 
     // Symmetry indicator
     if (Math.abs(sigma - 0.5) < 0.03) {
-      ctx.fillStyle = 'rgba(16,185,129,0.1)';
+      ctx.fillStyle = alpha(ED.series3, 0.1);
       ctx.fillRect(0, 0, w, h);
-      ctx.fillStyle = '#10b981';
+      ctx.fillStyle = ED.series3;
       ctx.font = 'bold 12px sans-serif';
       ctx.textAlign = 'center';
       ctx.fillText('COLOR SYMMETRY: Z ↔ X (σ = ½)', w / 2, h - 16);
     }
 
     // Labels
-    ctx.fillStyle = '#475569';
+    ctx.fillStyle = ED.series8;
     ctx.font = '10px var(--font-mono)';
     ctx.textAlign = 'right';
     ctx.fillText(`|∏ Z| = ${diagram.direct.totalMagnitude.toFixed(4)}`, w - margin, topY + 30);
@@ -400,14 +401,14 @@ function TwinLadderTab({ sigma, t, numPrimes }) {
     const legendY = 12;
     ctx.fillStyle = 'rgba(10,14,26,0.85)';
     ctx.fillRect(legendX - 6, legendY - 4, 148, 52);
-    ctx.strokeStyle = '#334155';
+    ctx.strokeStyle = ED.rule;
     ctx.lineWidth = 1;
     ctx.strokeRect(legendX - 6, legendY - 4, 148, 52);
 
     const legendItems = [
-      { color: '#10b981', shape: 'circle', label: 'Z-spider (direct)' },
-      { color: '#ef4444', shape: 'circle', label: 'X-spider (dual)' },
-      { color: '#f59e0b', shape: 'square', label: 'H-box (bridge χ)' },
+      { color: ED.series3, shape: 'circle', label: 'Z-spider (direct)' },
+      { color: ED.series2, shape: 'circle', label: 'X-spider (dual)' },
+      { color: ED.brass, shape: 'square', label: 'H-box (bridge χ)' },
     ];
     legendItems.forEach((item, i) => {
       const ly = legendY + 6 + i * 15;
@@ -422,7 +423,7 @@ function TwinLadderTab({ sigma, t, numPrimes }) {
         ctx.lineWidth = 1.5;
         ctx.strokeRect(legendX + 1, ly - 4, 8, 8);
       }
-      ctx.fillStyle = '#94a3b8';
+      ctx.fillStyle = ED.series8;
       ctx.font = '9px sans-serif';
       ctx.textAlign = 'left';
       ctx.fillText(item.label, legendX + 14, ly + 3);
@@ -441,26 +442,26 @@ function TwinLadderTab({ sigma, t, numPrimes }) {
     <div>
       <canvas
         ref={canvasRef}
-        style={{ width: '100%', height: 360, borderRadius: 8, background: '#0a0e1a', border: '1px solid #1e293b' }}
+        style={{ width: '100%', height: 360, borderRadius: 8, background: 'var(--paper)', border: '1px solid var(--rule-soft)' }}
       />
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 8, marginTop: 12 }}>
         <div className="stat-box" style={{ padding: '8px 12px' }}>
-          <div style={{ color: '#10b981', fontWeight: 700, fontSize: 14, fontFamily: 'var(--font-mono)' }}>
+          <div style={{ color: 'var(--series-3)', fontWeight: 700, fontSize: 14, fontFamily: 'var(--font-mono)' }}>
             {diagram.direct.totalMagnitude.toFixed(4)}
           </div>
-          <div style={{ color: '#64748b', fontSize: 10 }}>|Direct| = |ζ(s)|</div>
+          <div style={{ color: 'var(--ink-faint)', fontSize: 10 }}>|Direct| = |ζ(s)|</div>
         </div>
         <div className="stat-box" style={{ padding: '8px 12px' }}>
-          <div style={{ color: '#f59e0b', fontWeight: 700, fontSize: 14, fontFamily: 'var(--font-mono)' }}>
+          <div style={{ color: 'var(--brass)', fontWeight: 700, fontSize: 14, fontFamily: 'var(--font-mono)' }}>
             {diagram.bridge.magnitude.toFixed(4)}
           </div>
-          <div style={{ color: '#64748b', fontSize: 10 }}>|χ(s)| bridge</div>
+          <div style={{ color: 'var(--ink-faint)', fontSize: 10 }}>|χ(s)| bridge</div>
         </div>
         <div className="stat-box" style={{ padding: '8px 12px' }}>
-          <div style={{ color: '#ef4444', fontWeight: 700, fontSize: 14, fontFamily: 'var(--font-mono)' }}>
+          <div style={{ color: 'var(--series-2)', fontWeight: 700, fontSize: 14, fontFamily: 'var(--font-mono)' }}>
             {diagram.dual.totalMagnitude.toFixed(4)}
           </div>
-          <div style={{ color: '#64748b', fontSize: 10 }}>|Dual| = |ζ(1−s)|</div>
+          <div style={{ color: 'var(--ink-faint)', fontSize: 10 }}>|Dual| = |ζ(1−s)|</div>
         </div>
       </div>
     </div>
@@ -490,9 +491,9 @@ function RewriteRulesTab({ sigma, t, numPrimes }) {
   const bialgebra = useMemo(() => bialgebraExpansion(s, Math.min(numPrimes, 6), 20), [s, numPrimes]);
 
   const rules = [
-    { id: 'fusion', label: 'Spider Fusion', color: '#10b981' },
-    { id: 'color', label: 'Color Change', color: '#8b5cf6' },
-    { id: 'bialgebra', label: 'Bialgebra', color: '#06b6d4' },
+    { id: 'fusion', label: 'Spider Fusion', color: ED.series3 },
+    { id: 'color', label: 'Color Change', color: ED.series5 },
+    { id: 'bialgebra', label: 'Bialgebra', color: ED.series6 },
   ];
 
   return (
@@ -508,55 +509,55 @@ function RewriteRulesTab({ sigma, t, numPrimes }) {
       </div>
 
       {activeRule === 'fusion' && fusionData && (
-        <div className="card" style={{ background: '#0a0e1a' }}>
-          <h4 style={{ color: '#10b981', fontSize: 13, marginBottom: 12 }}>
+        <div className="card" style={{ background: 'var(--paper)' }}>
+          <h4 style={{ color: 'var(--series-3)', fontSize: 13, marginBottom: 12 }}>
             Spider Fusion: merge adjacent same-color spiders (phases add)
           </h4>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr auto 1fr', gap: 16, alignItems: 'center' }}>
             {/* Before */}
             <div style={{ textAlign: 'center' }}>
-              <div style={{ fontSize: 11, color: '#64748b', marginBottom: 8 }}>BEFORE</div>
+              <div style={{ fontSize: 11, color: 'var(--ink-faint)', marginBottom: 8 }}>BEFORE</div>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8 }}>
                 <div style={{
-                  width: 48, height: 48, borderRadius: '50%', border: '2px solid #10b981',
+                  width: 48, height: 48, borderRadius: '50%', border: '2px solid var(--series-3)',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  background: '#0f2922', fontSize: 11, color: '#10b981', fontWeight: 700,
+                  background: 'var(--tint-green)', fontSize: 11, color: 'var(--series-3)', fontWeight: 700,
                 }}>
                   p={fusionData.before[0].prime}
                 </div>
-                <span style={{ color: '#334155' }}>—</span>
+                <span style={{ color: 'var(--ink-soft)' }}>—</span>
                 <div style={{
-                  width: 48, height: 48, borderRadius: '50%', border: '2px solid #10b981',
+                  width: 48, height: 48, borderRadius: '50%', border: '2px solid var(--series-3)',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  background: '#0f2922', fontSize: 11, color: '#10b981', fontWeight: 700,
+                  background: 'var(--tint-green)', fontSize: 11, color: 'var(--series-3)', fontWeight: 700,
                 }}>
                   p={fusionData.before[1].prime}
                 </div>
               </div>
-              <div style={{ fontSize: 10, color: '#64748b', marginTop: 6 }}>
+              <div style={{ fontSize: 10, color: 'var(--ink-faint)', marginTop: 6 }}>
                 α₁ = {fusionData.before[0].phase.toFixed(3)}, α₂ = {fusionData.before[1].phase.toFixed(3)}
               </div>
             </div>
             {/* Arrow */}
-            <div style={{ fontSize: 24, color: '#10b981' }}>→</div>
+            <div style={{ fontSize: 24, color: 'var(--series-3)' }}>→</div>
             {/* After */}
             <div style={{ textAlign: 'center' }}>
-              <div style={{ fontSize: 11, color: '#64748b', marginBottom: 8 }}>AFTER</div>
+              <div style={{ fontSize: 11, color: 'var(--ink-faint)', marginBottom: 8 }}>AFTER</div>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <div style={{
-                  width: 60, height: 60, borderRadius: '50%', border: '3px solid #10b981',
+                  width: 60, height: 60, borderRadius: '50%', border: '3px solid var(--series-3)',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  background: '#10b981', fontSize: 10, color: '#fff', fontWeight: 700,
+                  background: 'var(--series-3)', fontSize: 10, color: '#fff', fontWeight: 700,
                 }}>
                   {fusionData.before[0].prime}·{fusionData.before[1].prime}
                 </div>
               </div>
-              <div style={{ fontSize: 10, color: '#10b981', marginTop: 6 }}>
+              <div style={{ fontSize: 10, color: 'var(--series-3)', marginTop: 6 }}>
                 α = {fusionData.after.phase.toFixed(3)} (= α₁ + α₂)
               </div>
             </div>
           </div>
-          <div style={{ marginTop: 12, padding: '8px 12px', background: '#0f1225', borderRadius: 6, fontSize: 11, color: '#94a3b8' }}>
+          <div style={{ marginTop: 12, padding: '8px 12px', background: 'var(--paper-2)', borderRadius: 6, fontSize: 11, color: 'var(--ink-soft)' }}>
             <InlineMath tex={"H_{" + fusionData.before[0].prime + "} \\cdot H_{" + fusionData.before[1].prime + "} = H_{\\text{fused}}"} />
             <span style={{ marginLeft: 8 }}>
               |{fusionData.before[0].magnitude.toFixed(3)}| · |{fusionData.before[1].magnitude.toFixed(3)}| = |{fusionData.after.magnitude.toFixed(3)}|
@@ -566,19 +567,19 @@ function RewriteRulesTab({ sigma, t, numPrimes }) {
       )}
 
       {activeRule === 'color' && colorChangeData && (
-        <div className="card" style={{ background: '#0a0e1a' }}>
-          <h4 style={{ color: '#8b5cf6', fontSize: 13, marginBottom: 12 }}>
+        <div className="card" style={{ background: 'var(--paper)' }}>
+          <h4 style={{ color: 'var(--series-5)', fontSize: 13, marginBottom: 12 }}>
             Color Change: Hadamard on every leg converts Z ↔ X (functional equation)
           </h4>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr auto 1fr', gap: 16, alignItems: 'center' }}>
             <div style={{ textAlign: 'center' }}>
-              <div style={{ fontSize: 11, color: '#64748b', marginBottom: 8 }}>DIRECT (Z-spiders)</div>
+              <div style={{ fontSize: 11, color: 'var(--ink-faint)', marginBottom: 8 }}>DIRECT (Z-spiders)</div>
               <div style={{ display: 'flex', gap: 6, justifyContent: 'center' }}>
                 {colorChangeData.before.map((sp, i) => (
                   <div key={i} style={{
-                    width: 40, height: 40, borderRadius: '50%', border: '2px solid #10b981',
+                    width: 40, height: 40, borderRadius: '50%', border: '2px solid var(--series-3)',
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    background: '#0f2922', fontSize: 10, color: '#10b981', fontWeight: 600,
+                    background: 'var(--tint-green)', fontSize: 10, color: 'var(--series-3)', fontWeight: 600,
                   }}>
                     {sp.prime}
                   </div>
@@ -587,21 +588,21 @@ function RewriteRulesTab({ sigma, t, numPrimes }) {
             </div>
             <div style={{ textAlign: 'center' }}>
               <div style={{
-                width: 36, height: 36, border: '2px solid #f59e0b', borderRadius: 4,
+                width: 36, height: 36, border: '2px solid var(--brass-deco)', borderRadius: 4,
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                background: '#f59e0b20', fontSize: 10, color: '#f59e0b', fontWeight: 700,
+                background: 'color-mix(in srgb, var(--brass-deco) 13%, transparent)', fontSize: 10, color: 'var(--brass)', fontWeight: 700,
                 margin: '0 auto',
               }}>H</div>
-              <div style={{ fontSize: 9, color: '#f59e0b', marginTop: 4 }}>χ(s)</div>
+              <div style={{ fontSize: 9, color: 'var(--brass)', marginTop: 4 }}>χ(s)</div>
             </div>
             <div style={{ textAlign: 'center' }}>
-              <div style={{ fontSize: 11, color: '#64748b', marginBottom: 8 }}>DUAL (X-spiders)</div>
+              <div style={{ fontSize: 11, color: 'var(--ink-faint)', marginBottom: 8 }}>DUAL (X-spiders)</div>
               <div style={{ display: 'flex', gap: 6, justifyContent: 'center' }}>
                 {colorChangeData.after.map((sp, i) => (
                   <div key={i} style={{
-                    width: 40, height: 40, borderRadius: '50%', border: '2px solid #ef4444',
+                    width: 40, height: 40, borderRadius: '50%', border: '2px solid var(--series-2)',
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    background: '#2a0f0f', fontSize: 10, color: '#ef4444', fontWeight: 600,
+                    background: 'var(--tint-terra)', fontSize: 10, color: 'var(--series-2)', fontWeight: 600,
                   }}>
                     {colorChangeData.before[i].prime}
                   </div>
@@ -609,54 +610,54 @@ function RewriteRulesTab({ sigma, t, numPrimes }) {
               </div>
             </div>
           </div>
-          <div style={{ marginTop: 12, padding: '8px 12px', background: '#0f1225', borderRadius: 6, fontSize: 11, color: '#94a3b8' }}>
+          <div style={{ marginTop: 12, padding: '8px 12px', background: 'var(--paper-2)', borderRadius: 6, fontSize: 11, color: 'var(--ink-soft)' }}>
             At σ = {sigma.toFixed(2)}: |χ(s)| = {createHadamardBox([sigma, t]).magnitude.toFixed(4)}
-            {Math.abs(sigma - 0.5) < 0.03 && <span style={{ color: '#10b981', marginLeft: 8 }}>≈ 1 (unitary — lossless color change)</span>}
+            {Math.abs(sigma - 0.5) < 0.03 && <span style={{ color: 'var(--series-3)', marginLeft: 8 }}>≈ 1 (unitary — lossless color change)</span>}
           </div>
         </div>
       )}
 
       {activeRule === 'bialgebra' && (
-        <div className="card" style={{ background: '#0a0e1a' }}>
-          <h4 style={{ color: '#06b6d4', fontSize: 13, marginBottom: 12 }}>
+        <div className="card" style={{ background: 'var(--paper)' }}>
+          <h4 style={{ color: 'var(--series-6)', fontSize: 13, marginBottom: 12 }}>
             Bialgebra: Euler product ↔ Dirichlet series expansion
           </h4>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
             <div>
-              <div style={{ fontSize: 11, color: '#10b981', fontWeight: 600, marginBottom: 8 }}>
+              <div style={{ fontSize: 11, color: 'var(--series-3)', fontWeight: 600, marginBottom: 8 }}>
                 Product form (Z-spider chain)
               </div>
               {bialgebra.productSteps.map((step, i) => (
                 <div key={i} style={{ display: 'flex', gap: 8, alignItems: 'center', marginBottom: 4 }}>
                   <span style={{
                     display: 'inline-block', width: 20, height: 20, borderRadius: '50%',
-                    border: '1.5px solid #10b981', background: '#0f2922', textAlign: 'center',
-                    lineHeight: '20px', fontSize: 8, color: '#10b981', fontWeight: 700,
+                    border: '1.5px solid var(--series-3)', background: 'var(--tint-green)', textAlign: 'center',
+                    lineHeight: '20px', fontSize: 8, color: 'var(--series-3)', fontWeight: 700,
                   }}>{step.prime}</span>
-                  <span style={{ color: '#64748b', fontSize: 10, fontFamily: 'var(--font-mono)' }}>
+                  <span style={{ color: 'var(--ink-faint)', fontSize: 10, fontFamily: 'var(--font-mono)' }}>
                     |∏| = {step.cumulativeMag.toFixed(4)}
                   </span>
                 </div>
               ))}
             </div>
             <div>
-              <div style={{ fontSize: 11, color: '#06b6d4', fontWeight: 600, marginBottom: 8 }}>
+              <div style={{ fontSize: 11, color: 'var(--series-6)', fontWeight: 600, marginBottom: 8 }}>
                 Sum form (expanded terms)
               </div>
               <div style={{ maxHeight: 200, overflow: 'auto' }}>
                 {bialgebra.sumTerms.slice(0, 15).map((term, i) => (
-                  <div key={i} style={{ fontSize: 10, color: '#64748b', fontFamily: 'var(--font-mono)', marginBottom: 2 }}>
+                  <div key={i} style={{ fontSize: 10, color: 'var(--ink-faint)', fontFamily: 'var(--font-mono)', marginBottom: 2 }}>
                     n={term.n}: |n<sup>-s</sup>| = {term.magnitude.toFixed(6)}
                   </div>
                 ))}
               </div>
             </div>
           </div>
-          <div style={{ marginTop: 12, padding: '8px 12px', background: '#0f1225', borderRadius: 6, fontSize: 11 }}>
-            <span style={{ color: '#10b981' }}>Product: {bialgebra.productMag.toFixed(6)}</span>
-            <span style={{ color: '#64748b', margin: '0 8px' }}>vs</span>
-            <span style={{ color: '#06b6d4' }}>Sum: {bialgebra.sumMag.toFixed(6)}</span>
-            <span style={{ color: '#64748b', margin: '0 8px' }}>|Δ| = {bialgebra.agreement.toFixed(6)}</span>
+          <div style={{ marginTop: 12, padding: '8px 12px', background: 'var(--paper-2)', borderRadius: 6, fontSize: 11 }}>
+            <span style={{ color: 'var(--series-3)' }}>Product: {bialgebra.productMag.toFixed(6)}</span>
+            <span style={{ color: 'var(--ink-faint)', margin: '0 8px' }}>vs</span>
+            <span style={{ color: 'var(--series-6)' }}>Sum: {bialgebra.sumMag.toFixed(6)}</span>
+            <span style={{ color: 'var(--ink-faint)', margin: '0 8px' }}>|Δ| = {bialgebra.agreement.toFixed(6)}</span>
           </div>
         </div>
       )}
@@ -692,7 +693,7 @@ function SymmetryTab({ sigma, t, numPrimes }) {
     ctx.fillRect(0, 0, w, h);
 
     // Axes
-    ctx.strokeStyle = '#334155';
+    ctx.strokeStyle = ED.rule;
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.moveTo(margin.left, margin.top);
@@ -706,12 +707,12 @@ function SymmetryTab({ sigma, t, numPrimes }) {
     ctx.setLineDash([4, 3]);
     ctx.moveTo(halfX, margin.top);
     ctx.lineTo(halfX, h - margin.bottom);
-    ctx.strokeStyle = '#10b981';
+    ctx.strokeStyle = ED.series3;
     ctx.lineWidth = 1;
     ctx.stroke();
     ctx.setLineDash([]);
 
-    ctx.fillStyle = '#10b981';
+    ctx.fillStyle = ED.series3;
     ctx.font = '9px var(--font-mono)';
     ctx.textAlign = 'center';
     ctx.fillText('σ = ½', halfX, margin.top - 6);
@@ -728,7 +729,7 @@ function SymmetryTab({ sigma, t, numPrimes }) {
       const y = h - margin.bottom - (d.directMag / maxMag) * plotH;
       if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
     });
-    ctx.strokeStyle = '#10b981';
+    ctx.strokeStyle = ED.series3;
     ctx.lineWidth = 2;
     ctx.stroke();
 
@@ -739,7 +740,7 @@ function SymmetryTab({ sigma, t, numPrimes }) {
       const y = h - margin.bottom - (d.dualMag / maxMag) * plotH;
       if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
     });
-    ctx.strokeStyle = '#ef4444';
+    ctx.strokeStyle = ED.series2;
     ctx.lineWidth = 2;
     ctx.stroke();
 
@@ -751,7 +752,7 @@ function SymmetryTab({ sigma, t, numPrimes }) {
       const y = h - margin.bottom - (d.asymmetry / maxAsym) * plotH * 0.5;
       if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
     });
-    ctx.strokeStyle = '#f59e0b';
+    ctx.strokeStyle = ED.brassDeco;
     ctx.lineWidth = 1.5;
     ctx.stroke();
 
@@ -761,13 +762,13 @@ function SymmetryTab({ sigma, t, numPrimes }) {
     ctx.setLineDash([2, 2]);
     ctx.moveTo(curX, margin.top);
     ctx.lineTo(curX, h - margin.bottom);
-    ctx.strokeStyle = '#e2e8f0';
+    ctx.strokeStyle = ED.inkSoft;
     ctx.lineWidth = 1;
     ctx.stroke();
     ctx.setLineDash([]);
 
     // Y-axis tick labels and gridlines
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.font = '9px var(--font-mono)';
     ctx.textAlign = 'right';
     const yTicks = 5;
@@ -779,17 +780,17 @@ function SymmetryTab({ sigma, t, numPrimes }) {
       ctx.setLineDash([3, 3]);
       ctx.moveTo(margin.left, y);
       ctx.lineTo(w - margin.right, y);
-      ctx.strokeStyle = '#1e293b';
+      ctx.strokeStyle = ED.ruleSoft;
       ctx.lineWidth = 0.5;
       ctx.stroke();
       ctx.setLineDash([]);
       // Label
-      ctx.fillStyle = '#64748b';
+      ctx.fillStyle = ED.series8;
       ctx.fillText(val.toFixed(1), margin.left - 6, y + 3);
     }
 
     // X-axis labels
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.font = '10px var(--font-mono)';
     ctx.textAlign = 'center';
     for (let s = 0.1; s <= 0.91; s += 0.1) {
@@ -802,7 +803,7 @@ function SymmetryTab({ sigma, t, numPrimes }) {
     ctx.save();
     ctx.translate(12, margin.top + plotH / 2);
     ctx.rotate(-Math.PI / 2);
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = ED.series8;
     ctx.font = '10px sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText('|Euler product|', 0, 0);
@@ -812,13 +813,13 @@ function SymmetryTab({ sigma, t, numPrimes }) {
     const legendX = margin.left + 8;
     const legendY = margin.top + 10;
     [
-      { color: '#10b981', label: '|Direct| (Z-chain)' },
-      { color: '#ef4444', label: '|Dual| (X-chain)' },
-      { color: '#f59e0b', label: 'Asymmetry' },
+      { color: ED.series3, label: '|Direct| (Z-chain)' },
+      { color: ED.series2, label: '|Dual| (X-chain)' },
+      { color: ED.brass, label: 'Asymmetry' },
     ].forEach((item, i) => {
       ctx.fillStyle = item.color;
       ctx.fillRect(legendX, legendY + i * 14, 12, 3);
-      ctx.fillStyle = '#94a3b8';
+      ctx.fillStyle = ED.series8;
       ctx.font = '9px sans-serif';
       ctx.textAlign = 'left';
       ctx.fillText(item.label, legendX + 16, legendY + i * 14 + 4);
@@ -840,20 +841,20 @@ function SymmetryTab({ sigma, t, numPrimes }) {
     <div>
       <canvas
         ref={canvasRef}
-        style={{ width: '100%', height: 320, borderRadius: 8, border: '1px solid #1e293b' }}
+        style={{ width: '100%', height: 320, borderRadius: 8, border: '1px solid var(--rule-soft)' }}
       />
-      <div className="card" style={{ marginTop: 12, padding: '12px 16px', fontSize: 12, color: '#94a3b8' }}>
+      <div className="card" style={{ marginTop: 12, padding: '12px 16px', fontSize: 12, color: 'var(--ink-soft)' }}>
         <p>
-          At <strong style={{ color: '#10b981' }}>σ = ½</strong>, the Z-chain (green) and X-chain (red) magnitudes
+          At <strong style={{ color: 'var(--series-3)' }}>σ = ½</strong>, the Z-chain (green) and X-chain (red) magnitudes
           should converge — this is the <strong>color symmetry</strong> fixed point where the diagram has perfect
-          Z ↔ X reflection symmetry. The <strong style={{ color: '#f59e0b' }}>asymmetry</strong> (gold) measures
+          Z ↔ X reflection symmetry. The <strong style={{ color: 'var(--brass)' }}>asymmetry</strong> (gold) measures
           how far the diagram is from this symmetric state.
         </p>
         {criticalPoint && (
           <p style={{ marginTop: 8, fontSize: 11, fontFamily: 'var(--font-mono)' }}>
             At σ = 0.5: |Z| = {criticalPoint.directMag.toFixed(4)}, |X| = {criticalPoint.dualMag.toFixed(4)},
             asymmetry = {criticalPoint.asymmetry.toFixed(4)}, |χ| = {criticalPoint.bridgeMag.toFixed(4)}
-            {criticalPoint.bridgeUnitary && <span style={{ color: '#10b981' }}> (unitary)</span>}
+            {criticalPoint.bridgeUnitary && <span style={{ color: 'var(--series-3)' }}> (unitary)</span>}
           </p>
         )}
       </div>
@@ -869,8 +870,8 @@ export default function ZXCalculusViz() {
   const [t, setT] = useState(14.13);
   const [numPrimes, setNumPrimes] = useState(8);
 
-  const sigmaColor = Math.abs(sigma - 0.5) < 0.02 ? '#10b981'
-    : Math.abs(sigma - 0.5) < 0.15 ? '#f59e0b' : '#ef4444';
+  const sigmaColor = Math.abs(sigma - 0.5) < 0.02 ? ED.series3
+    : Math.abs(sigma - 0.5) < 0.15 ? ED.series4 : ED.series2;
 
   return (
     <div>
@@ -898,7 +899,7 @@ export default function ZXCalculusViz() {
               <span
                 style={{
                   marginLeft: 6, fontSize: 11, fontFamily: 'var(--font-mono)',
-                  color: bestDist < 0.3 ? '#10b981' : '#64748b',
+                  color: bestDist < 0.3 ? 'var(--series-3)' : 'var(--ink-faint)',
                   cursor: 'pointer', borderBottom: '1px dashed currentColor',
                 }}
                 title={`Click to snap t to γ${bestIdx + 1} = ${ZETA_ZEROS[bestIdx].toFixed(6)}`}
@@ -913,7 +914,7 @@ export default function ZXCalculusViz() {
           <label>Primes</label>
           <input type="range" min="3" max="15" step="1" value={numPrimes}
             onChange={e => setNumPrimes(+e.target.value)} />
-          <span className="control-value">{numPrimes} <span style={{ color: '#64748b', fontSize: 11 }}>(up to p={getPrimes(numPrimes)[numPrimes - 1]})</span></span>
+          <span className="control-value">{numPrimes} <span style={{ color: 'var(--ink-faint)', fontSize: 11 }}>(up to p={getPrimes(numPrimes)[numPrimes - 1]})</span></span>
         </div>
       </div>
 

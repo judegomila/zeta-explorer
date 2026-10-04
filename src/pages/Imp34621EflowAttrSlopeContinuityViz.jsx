@@ -11,6 +11,7 @@ import {
   IMP34589_FAR_POWER_LAW_EXPONENT,
   IMP34589_EFLOW_ATTR_FAR_SIDE_SLOPE_CONTINUITY as M,
 } from '../data/imp-34589-eflow-attr-far-side-power-law-slope-continuity.js';
+import { ED } from '../styles/tokens.js';
 
 const KSTAR = M.kStar; // 21.28095
 const KSTAR_RUNG = IMP34406_EFLOW_ATTR_RUNGS.find((r) => r.k === KSTAR);
@@ -68,46 +69,46 @@ function SlopeContinuityChart() {
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
       {/* pole k* */}
-      <line x1={xAt(KSTAR)} y1={padT} x2={xAt(KSTAR)} y2={padT + cH} stroke="#f87171" strokeWidth={1} strokeDasharray="3,3" />
-      <text x={xAt(KSTAR) + 4} y={padT + 10} fill="#f87171" fontSize={9}>
+      <line x1={xAt(KSTAR)} y1={padT} x2={xAt(KSTAR)} y2={padT + cH} stroke={ED.series2} strokeWidth={1} strokeDasharray="3,3" />
+      <text x={xAt(KSTAR) + 4} y={padT + 10} fill={ED.series2} fontSize={9}>
         k* {KSTAR}
       </text>
 
-      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
+      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
 
       {/* analytic E_flow slope reference, through the pole rung */}
-      <path d={analyticPath} fill="none" stroke="#a78bfa" strokeWidth={2} />
+      <path d={analyticPath} fill="none" stroke={ED.series5} strokeWidth={2} />
 
       {/* near-side (imp-34570) and far-side (imp-34589) power-law fit lines */}
-      <path d={nearFitPath} fill="none" stroke="#fbbf24" strokeWidth={1.5} strokeDasharray="6,3" />
-      <path d={farFitPath} fill="none" stroke="#38bdf8" strokeWidth={1.5} strokeDasharray="6,3" />
+      <path d={nearFitPath} fill="none" stroke={ED.brassDeco} strokeWidth={1.5} strokeDasharray="6,3" />
+      <path d={farFitPath} fill="none" stroke={ED.series1} strokeWidth={1.5} strokeDasharray="6,3" />
 
       {/* near-side rungs (imp-34406) */}
       {IMP34406_EFLOW_ATTR_RUNGS.map((r) => (
-        <circle key={`near-${r.k}`} cx={xAt(r.k)} cy={yAt(Math.log10(r.eflowAttr))} r={3.5} fill="#fbbf24" stroke="#0a0f1a" strokeWidth={1} />
+        <circle key={`near-${r.k}`} cx={xAt(r.k)} cy={yAt(Math.log10(r.eflowAttr))} r={3.5} fill={ED.brassDeco} stroke={ED.paper} strokeWidth={1} />
       ))}
       {/* far-only new rungs (imp-34572) */}
       {FAR_ONLY_RUNGS.map((r) => (
-        <circle key={`far-${r.k}`} cx={xAt(r.k)} cy={yAt(Math.log10(r.eflowAttr))} r={3.5} fill="#38bdf8" stroke="#0a0f1a" strokeWidth={1} />
+        <circle key={`far-${r.k}`} cx={xAt(r.k)} cy={yAt(Math.log10(r.eflowAttr))} r={3.5} fill={ED.series1} stroke={ED.paper} strokeWidth={1} />
       ))}
 
-      <text x={padL} y={16} fill="#fbbf24" fontSize={10}>
+      <text x={padL} y={16} fill={ED.brass} fontSize={10}>
         near fit (p*ln10={M.nearPerKSlope})
       </text>
-      <text x={padL + 195} y={16} fill="#38bdf8" fontSize={10}>
+      <text x={padL + 195} y={16} fill={ED.series1} fontSize={10}>
         far fit ({M.farFit.perKSlope})
       </text>
-      <text x={padL + 340} y={16} fill="#a78bfa" fontSize={10}>
+      <text x={padL + 340} y={16} fill={ED.series5} fontSize={10}>
         analytic E_flow ({M.eflowAnalyticSlopePerK})
       </text>
-      <text x={padL + cW / 2} y={svgH - 6} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 6} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         k (log10 N = k+1)
       </text>
       <text
         x={14}
         y={padT + cH / 2}
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         textAnchor="middle"
         transform={`rotate(-90 14 ${padT + cH / 2})`}
@@ -131,9 +132,9 @@ function SlopeBracketChart() {
   const cW = svgW - padL - padR;
 
   const rows = [
-    { label: 'near (imp-34570)', slope: M.nearPerKSlope, se: M.nearPerKSlopeSE, color: '#fbbf24', y: 40 },
-    { label: 'far (imp-34589)', slope: M.farFit.perKSlope, se: M.farFit.perKSlopeSE, color: '#38bdf8', y: 78 },
-    { label: 'analytic E_flow', slope: M.eflowAnalyticSlopePerK, se: 0, color: '#a78bfa', y: 116 },
+    { label: 'near (imp-34570)', slope: M.nearPerKSlope, se: M.nearPerKSlopeSE, color: ED.brass, y: 40 },
+    { label: 'far (imp-34589)', slope: M.farFit.perKSlope, se: M.farFit.perKSlopeSE, color: ED.series1, y: 78 },
+    { label: 'analytic E_flow', slope: M.eflowAnalyticSlopePerK, se: 0, color: ED.series5, y: 116 },
   ];
 
   const xMin = -2.1665;
@@ -142,20 +143,20 @@ function SlopeBracketChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT + 130} x2={padL + cW} y2={padT + 130} stroke="#334155" strokeWidth={1} />
+      <line x1={padL} y1={padT + 130} x2={padL + cW} y2={padT + 130} stroke={ED.rule} strokeWidth={1} />
       {rows.map((r) => (
         <g key={r.label}>
           {r.se > 0 && (
             <line x1={xAt(r.slope - r.se)} y1={r.y} x2={xAt(r.slope + r.se)} y2={r.y} stroke={r.color} strokeWidth={2} />
           )}
-          <circle cx={xAt(r.slope)} cy={r.y} r={4.5} fill={r.color} stroke="#0a0f1a" strokeWidth={1} />
+          <circle cx={xAt(r.slope)} cy={r.y} r={4.5} fill={r.color} stroke={ED.paper} strokeWidth={1} />
           <text x={padL} y={r.y - 8} fill={r.color} fontSize={9.5}>
             {r.label}: {r.slope.toFixed(6)}
             {r.se > 0 ? ` (SE ${r.se.toExponential(2)})` : ' (exact reference)'}
           </text>
         </g>
       ))}
-      <text x={padL + cW / 2} y={padT + 148} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={padT + 148} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         per-k log-slope d ln(eflow_attr) / dk (more negative &rarr;)
       </text>
     </svg>
@@ -167,7 +168,7 @@ export default function Imp34621EflowAttrSlopeContinuityViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="eflow_attr Slope Continuity Through the Pole k* (imp-34621 / imp-34589)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-34570 fit the near-side eflow_attr bracket (k = 21.00..21.50) to a power law with
         per-k slope {M.nearPerKSlope}. imp-34589 fit the imp-34572 far-side ladder
         (k = 21.30..21.60, all above the pole k* = {KSTAR}) to the same power law and found its
@@ -177,13 +178,13 @@ export default function Imp34621EflowAttrSlopeContinuityViz() {
         drift, not a kink. No viz existed for this fit pair.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         log10(eflow_attr) vs k: near-side (imp-34406/34570) and far-side (imp-34572/34589) rungs
         and fits, plus the analytic E_flow slope through the pole
       </p>
       <SlopeContinuityChart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
         per-k slope bracket: near and far fits straddle the analytic E_flow asymptote
       </p>
       <SlopeBracketChart />
@@ -197,25 +198,25 @@ export default function Imp34621EflowAttrSlopeContinuityViz() {
         }}
       >
         <tbody>
-          <tr style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+          <tr style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
             <td style={{ padding: '0.4rem 0.6rem' }}>near-side per-k slope (imp-34570, 8 rungs)</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{M.nearPerKSlope}</td>
           </tr>
-          <tr style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+          <tr style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
             <td style={{ padding: '0.4rem 0.6rem' }}>far-side per-k slope (imp-34589, 7 rungs)</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{M.farFit.perKSlope}</td>
           </tr>
-          <tr style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+          <tr style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
             <td style={{ padding: '0.4rem 0.6rem' }}>analytic E_flow per-k slope</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{M.eflowAnalyticSlopePerK}</td>
           </tr>
-          <tr style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+          <tr style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
             <td style={{ padding: '0.4rem 0.6rem' }}>far - near difference (% / sigma)</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>
               {M.farMinusNearSlope} ({M.farMinusNearSlopePct}%, ~{M.farMinusNearSigma}&sigma;)
             </td>
           </tr>
-          <tr style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+          <tr style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
             <td style={{ padding: '0.4rem 0.6rem' }}>far-side fit quality</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>
               R&sup2; = {M.farFit.R2}, RMS log-resid {M.farFit.rmsLogResid}
@@ -228,14 +229,14 @@ export default function Imp34621EflowAttrSlopeContinuityViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-data only, reusing the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-data only, reusing the
         imp-34570/imp-34572/imp-34589 fit literals verbatim (rungs, power-law amplitude/exponent,
         per-k slopes and SEs, analytic E_flow slope). The near/far difference is resolved at
         ~5.1 combined-sigma but is fully explained by the two overlapping OLS windows having

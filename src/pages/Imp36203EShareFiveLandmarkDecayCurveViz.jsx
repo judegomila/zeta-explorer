@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP36185_E_SHARE_FIVE_LANDMARK_TAIL_DECAY } from '../data/imp-36185-e-share-five-landmark-tail-decay-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 // Single-series line chart of shareColl vs log10 N across the imp-36111 five
 // landmarks -- the one monotonically decaying arm past the roadmap sigma(N)
@@ -27,34 +28,34 @@ function DecayCurve() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
 
       {xTicks.map((v) => (
         <g key={`x${v}`}>
-          <line x1={xOf(v)} y1={padT + plotH} x2={xOf(v)} y2={padT + plotH + 4} stroke="#334155" strokeWidth={1} />
-          <text x={xOf(v)} y={padT + plotH + 16} textAnchor="middle" fill="#64748b" fontSize={8.5}>
+          <line x1={xOf(v)} y1={padT + plotH} x2={xOf(v)} y2={padT + plotH + 4} stroke={ED.rule} strokeWidth={1} />
+          <text x={xOf(v)} y={padT + plotH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={8.5}>
             {v}
           </text>
         </g>
       ))}
       {yTicks.map((v) => (
         <g key={`y${v}`}>
-          <line x1={padL - 4} y1={yOf(v)} x2={padL} y2={yOf(v)} stroke="#334155" strokeWidth={1} />
-          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={8.5}>
+          <line x1={padL - 4} y1={yOf(v)} x2={padL} y2={yOf(v)} stroke={ED.rule} strokeWidth={1} />
+          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8.5}>
             {v.toFixed(2)}
           </text>
         </g>
       ))}
 
-      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill="#64748b" fontSize={9.5}>
+      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5}>
         log10 N
       </text>
       <text
         x={12}
         y={padT + plotH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={9.5}
         transform={`rotate(-90 12 ${padT + plotH / 2})`}
       >
@@ -64,19 +65,19 @@ function DecayCurve() {
       <polyline
         points={points.map((p) => `${xOf(p.log10_N)},${yOf(p.shareColl)}`).join(' ')}
         fill="none"
-        stroke="#f472b6"
+        stroke={ED.series7}
         strokeWidth={2.25}
         opacity={0.9}
       />
 
       {points.map((p) => (
         <g key={p.label}>
-          <circle cx={xOf(p.log10_N)} cy={yOf(p.shareColl)} r={4.5} fill="#f472b6" stroke="#0a0f1a" strokeWidth={1.5} />
+          <circle cx={xOf(p.log10_N)} cy={yOf(p.shareColl)} r={4.5} fill={ED.series7} stroke={ED.paper} strokeWidth={1.5} />
           <text
             x={xOf(p.log10_N)}
             y={yOf(p.shareColl) - 10}
             textAnchor="middle"
-            fill="#94a3b8"
+            fill={ED.inkSoft}
             fontSize={8}
           >
             {p.label}
@@ -96,7 +97,7 @@ export default function Imp36203EShareFiveLandmarkDecayCurveViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Post-Peak shareColl Decay Curve (imp-36111 / imp-36185 / imp-36203)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         The imp-36111 cross-reference note merges the imp-35977 two-knee bars and the imp-36046
         tail bars into a single N-ordered sequence, reporting the imp-35889 collision-share
         shareColl = E_coll / (E_trunc + E_flow + E_coll) as five successive samples of one
@@ -112,14 +113,14 @@ export default function Imp36203EShareFiveLandmarkDecayCurveViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation-only consumer of
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> presentation-only consumer of
         the baked imp-36185 viz-data (itself reusing the recorded imp-36111 combined-sequence
         literals verbatim); no new derivation, no bound changed. C_C GUE-conditional (imp-2642 /
         imp-2643 / imp-486) untouched; no RH verdict, NO QED.

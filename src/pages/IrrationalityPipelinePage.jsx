@@ -15,7 +15,7 @@ export default function IrrationalityPipelinePage() {
       meta={[D.status]}
       title={D.title}
       dek={D.oneLine}
-      byline={['irrationality workstream · mathexplorer', 'method, not a theorem']}
+      byline={['irrationality workstream · zetaexplorer', 'method, not a theorem']}
       ticker={<span>encode → predict → generate → measure → cancel → test</span>}
       footer={<>
         Related: <Link to="/catalan-signed-ladder">The signed ladder &amp; Catalan</Link>
@@ -76,7 +76,7 @@ export default function IrrationalityPipelinePage() {
               <td className="ed-mono" style={{ padding: '6px 8px' }}>{t.target}</td>
               <td className="ed-mono" style={{ padding: '6px 8px', fontSize: 12.5 }}>{t.enc}</td>
               <td className="ed-mono" style={{ padding: '6px 8px' }}>{t.predDim}</td>
-              <td style={{ padding: '6px 8px', color: /PROVEN|closed/.test(t.verdict) ? '#4c7a4a' : '#b58a2e' }}>{t.verdict}</td>
+              <td style={{ padding: '6px 8px', color: /PROVEN|closed/.test(t.verdict) ? 'var(--series-3)' : 'var(--brass)' }}>{t.verdict}</td>
             </tr>
           ))}
         </tbody>

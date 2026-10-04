@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP36139_ETRUNC_COLL_CROSSOVER_SENSITIVITY } from '../data/imp-36139-etrunc-coll-crossover-sensitivity.js';
+import { ED } from '../styles/tokens.js';
 
 const {
   grid,
@@ -54,24 +55,24 @@ function CrossoverSensitivityChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#334155" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
       <line
         x1={padL}
         y1={padT + plotH}
         x2={padL + plotW}
         y2={padT + plotH}
-        stroke="#334155"
+        stroke={ED.rule}
         strokeWidth={1.5}
       />
 
-      <path d={pathD} fill="none" stroke="#38bdf8" strokeWidth={2} />
+      <path d={pathD} fill="none" stroke={ED.series1} strokeWidth={2} />
       {POINTS.map((p, i) => (
         <circle
           key={p.ratio}
           cx={px(p.log10_E_trunc)}
           cy={py(p.log10_N_cross)}
           r={i === baselineIdx ? 5.5 : 4}
-          fill={i === baselineIdx ? '#f472b6' : '#38bdf8'}
+          fill={i === baselineIdx ? ED.series7 : ED.series1}
         />
       ))}
 
@@ -79,21 +80,21 @@ function CrossoverSensitivityChart() {
         <text
           x={px(POINTS[baselineIdx].log10_E_trunc) + 8}
           y={py(POINTS[baselineIdx].log10_N_cross) - 8}
-          fill="#f472b6"
+          fill={ED.series7}
           fontSize={9}
         >
           1.0x nominal (imp-35968)
         </text>
       )}
 
-      <text x={padL + plotW / 2} y={svgH - 8} textAnchor="middle" fill="#94a3b8" fontSize={9.5}>
+      <text x={padL + plotW / 2} y={svgH - 8} textAnchor="middle" fill={ED.inkSoft} fontSize={9.5}>
         log&#8321;&#8320; E_trunc
       </text>
       <text
         x={14}
         y={padT + plotH / 2}
         textAnchor="middle"
-        fill="#94a3b8"
+        fill={ED.inkSoft}
         fontSize={9.5}
         transform={`rotate(-90 14 ${padT + plotH / 2})`}
       >
@@ -108,7 +109,7 @@ export default function Imp36267CrossoverSensitivityViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="E_trunc = E_coll Crossover Height Power Law (imp-36267 / imp-36139)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-36139 swept the pinned E_trunc = 3.06e-5 (imp-2631) fixed-strip floor over a 9-point
         half-to-double grid and re-located the imp-35968 E_trunc = E_coll crossover N_cross at each
         rung. The crossover height obeys a clean log-log power law N_cross &sim; E_trunc
@@ -118,7 +119,7 @@ export default function Imp36267CrossoverSensitivityViz() {
         decades) across the 4x floor uncertainty range.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         log&#8321;&#8320; N_cross vs log&#8321;&#8320; E_trunc across the imp-36139 9-point floor grid
       </p>
       <CrossoverSensitivityChart />
@@ -132,7 +133,7 @@ export default function Imp36267CrossoverSensitivityViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>floor ratio</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>E_trunc</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>N_cross</th>
@@ -142,7 +143,7 @@ export default function Imp36267CrossoverSensitivityViz() {
         </thead>
         <tbody>
           {POINTS.map((p) => (
-            <tr key={p.ratio} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+            <tr key={p.ratio} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{p.ratio.toFixed(3)}x</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{p.E_trunc}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{p.N_cross}</td>
@@ -153,7 +154,7 @@ export default function Imp36267CrossoverSensitivityViz() {
         </tbody>
       </table>
 
-      <p style={{ color: '#64748b', fontSize: '0.8rem', marginTop: '1rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontSize: '0.8rem', marginTop: '1rem' }}>
         The local endpoint slopes ({localSlope_halfFloorEdge.toFixed(3)} at the half-floor edge,{' '}
         {localSlope_doubleFloorEdge.toFixed(3)} at the double-floor edge) bracket the OLS mean
         slope tightly, confirming the near-perfect power law. sigma at the crossover stays &asymp;{' '}
@@ -168,14 +169,14 @@ export default function Imp36267CrossoverSensitivityViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation only, reusing the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> presentation only, reusing the
         imp-36139 sensitivity sweep and the imp-35968 crossover bisector unchanged (only E_trunc is
         varied). The imp-35968 quote N_cross &asymp; 3.28e9 is a floor-sensitivity readout of the
         specific imp-2631 value, not an intrinsic landmark. C_C = (1/8) sqrt(3&nbsp;pi)

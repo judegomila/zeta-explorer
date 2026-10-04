@@ -4,6 +4,7 @@ import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import TwinLadderViz from '../components/TwinLadderViz.jsx';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 import FreshnessStamp from '../components/FreshnessStamp.jsx';
+import ConceptTerm from '../components/ConceptTerm.jsx';
 
 // Twin Ladder Explorer — editorial (warm) re-theme.
 // Full-width dashboard. TwinLadderViz (the interactive 5-tab dashboard)
@@ -77,12 +78,20 @@ export default function TwinLadderPage() {
             Twin Ladder Explorer <FreshnessStamp date="2026-07-23" note="twin-ladder review" />
           </h1>
           <p style={sectionLead}>
-            Each prime <InlineMath tex="p" /> generates a <strong>ladder</strong> of rungs{' '}
+            Each <ConceptTerm slug="prime-number">prime</ConceptTerm> <InlineMath tex="p" /> generates a <strong>ladder</strong> of rungs{' '}
             <InlineMath tex={"m = 0, 1, 2, \\ldots"} /> with amplitude <InlineMath tex="p^{-m/2}" /> and
             oscillating phase <InlineMath tex={"m \\cdot T \\cdot \\log p"} />. By introducing thermodynamic
             weights controlled by inverse temperature <InlineMath tex={"\\beta"} /> and pressure{' '}
             <InlineMath tex="P" />, we can deform the ladder, freeze individual rungs via Gaussian proxies,
             and watch ground-state collapse as <InlineMath tex={"\\beta \\to \\infty"} />.
+          </p>
+          <p style={{ ...bodyText, fontSize: 14, marginTop: 8 }}>
+            This explorer is a teaching model. The project's analytic objects of the same name are described on
+            the concept pages: <ConceptTerm slug="twin-ladder">twin ladder</ConceptTerm>,{' '}
+            <ConceptTerm slug="euler-factor">Euler factor (one rung)</ConceptTerm>,{' '}
+            <ConceptTerm slug="bridge-chi">bridge χ(s)</ConceptTerm>,{' '}
+            <ConceptTerm slug="frozen-rung">frozen rung</ConceptTerm> and{' '}
+            <ConceptTerm slug="volterra-bound">Volterra bound</ConceptTerm>.
           </p>
         </div>
 
@@ -92,14 +101,14 @@ export default function TwinLadderPage() {
           <p style={{ ...bodyText, fontSize: 14, marginTop: 8 }}>
             <InlineMath tex="Z_{TL}" /> is an <em>engineered</em> deformation of a <strong>finite</strong> prime
             sum — capped at <InlineMath tex="M" /> rungs over a finite set of <InlineMath tex="N" /> primes — not
-            a genuine analytic continuation of <InlineMath tex={"\\zeta"} />. Its zero structure is a{' '}
+            a genuine <ConceptTerm slug="analytic-continuation">analytic continuation</ConceptTerm> of <InlineMath tex={"\\zeta"} />. Its zero structure is a{' '}
             <strong>model artifact</strong> of the chosen weights and truncation; it does <strong>not</strong> track
-            the nontrivial zeros of the Riemann zeta function, and nothing on this page constrains where those zeros lie.
+            the <ConceptTerm slug="nontrivial-zeros">nontrivial zeros</ConceptTerm> of the Riemann zeta function, and nothing on this page constrains where those zeros lie.
             The page is a pedagogical tool for visualizing how thermodynamic weighting reshapes a prime-ladder phasor sum.
           </p>
           <p style={{ ...bodyText, fontSize: 14, marginTop: 8 }}>
             The <InlineMath tex={"\\lVert V_{a,\\Phi}\\rVert \\le 1"} /> collapse this construction gestures toward
-            is <strong>RH-equivalent</strong>, not a reduction: proving it would be exactly as hard as proving the
+            is <strong><ConceptTerm slug="rh-equivalent-statement">RH-equivalent</ConceptTerm></strong>, not a reduction: proving it would be exactly as hard as proving the
             Riemann Hypothesis, so the deformation reformulates the problem rather than making progress on it.
           </p>
         </div>

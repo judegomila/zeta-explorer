@@ -8,6 +8,7 @@ import {
 import { IMP95767_DUAL_PRIMAL_AGREEMENT_INTERVAL } from '../data/imp-95767-dual-primal-agreement-interval.js';
 import { IMP95825_FINITE_SECTION_POSITIVITY_CERTIFICATE } from '../data/imp-95825-finite-section-positivity-certificate.js';
 import { IMP95823_RHO1_SZEGO_DIRECT_DD_EIGENSOLVE } from '../data/imp-95823-rho1-szego-direct-dd-eigensolve.js';
+import { ED } from '../styles/tokens.js';
 
 const ROWS = IMP95697_ROWS;
 
@@ -46,10 +47,10 @@ function FiniteSizeDecayChart() {
             x2={padL + plotW}
             y1={yOf(t)}
             y2={yOf(t)}
-            stroke="#1e293b"
+            stroke={ED.ruleSoft}
             strokeWidth={1}
           />
-          <text x={padL - 8} y={yOf(t) + 3} textAnchor="end" fill="#64748b" fontSize={9.5}>
+          <text x={padL - 8} y={yOf(t) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9.5}>
             {t.toFixed(2)}
           </text>
         </g>
@@ -61,13 +62,13 @@ function FiniteSizeDecayChart() {
           x={xOf(r.log2NPts)}
           y={padT + plotH + 16}
           textAnchor="middle"
-          fill="#64748b"
+          fill={ED.inkFaint}
           fontSize={9}
         >
           {r.nPts}
         </text>
       ))}
-      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         point count nPts (log2 scale)
       </text>
 
@@ -83,7 +84,7 @@ function FiniteSizeDecayChart() {
             y={yOf(1 + bandHalfWidth)}
             width={28}
             height={yOf(1 - bandHalfWidth) - yOf(1 + bandHalfWidth)}
-            fill="#f59e0b"
+            fill={ED.brassDeco}
             opacity={0.12}
           />
         );
@@ -95,22 +96,22 @@ function FiniteSizeDecayChart() {
         x2={padL + plotW}
         y1={unityY}
         y2={unityY}
-        stroke="#38bdf8"
+        stroke={ED.series1}
         strokeWidth={1.5}
         strokeDasharray="4,3"
       />
-      <text x={padL + plotW - 4} y={unityY - 6} textAnchor="end" fill="#38bdf8" fontSize={9}>
+      <text x={padL + plotW - 4} y={unityY - 6} textAnchor="end" fill={ED.series1} fontSize={9}>
         infinite-lattice limit F/A_opt = 1
       </text>
 
       <polyline
         fill="none"
-        stroke="#a78bfa"
+        stroke={ED.series5}
         strokeWidth={2}
         points={ROWS.map((r) => `${xOf(r.log2NPts)},${yOf(r.ratio)}`).join(' ')}
       />
       {ROWS.map((r) => (
-        <circle key={`pt-${r.nPts}`} cx={xOf(r.log2NPts)} cy={yOf(r.ratio)} r={3.5} fill="#a78bfa" />
+        <circle key={`pt-${r.nPts}`} cx={xOf(r.log2NPts)} cy={yOf(r.ratio)} r={3.5} fill={ED.series5} />
       ))}
     </svg>
   );
@@ -121,7 +122,7 @@ export default function Imp95697SzegoFiniteSizeDecayViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Rho=1 Finite-Size Szego Decay: F/A_opt vs Point Count (imp-95677 / imp-95697)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-95677 measured the rho = 1 uniform-lattice ratio F&#47;A_opt = lambda_min
         &#47; symbol-infimum across growing section sizes. The ratio falls
         monotonically 1.143 -&gt; 1.101 -&gt; 1.010 -&gt; 0.909 as the point count
@@ -139,16 +140,16 @@ export default function Imp95697SzegoFiniteSizeDecayViz() {
         style={{
           margin: '0.75rem 0 1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(245,158,11,0.08)',
-          border: '1px solid rgba(245,158,11,0.35)',
+          background: 'color-mix(in srgb, var(--brass-deco) 8%, transparent)',
+          border: '1px solid color-mix(in srgb, var(--brass-deco) 35%, transparent)',
           borderRadius: '4px',
           fontSize: '0.82rem',
-          color: '#fbbf24',
+          color: 'var(--brass)',
         }}
       >
         <strong>Not a real dip below the symbol infimum:</strong>{' '}
-        <span style={{ color: '#fcd34d' }}>{IMP95697_CAVEAT_BANNER}</span>{' '}
-        <span style={{ color: '#fcd34d' }}>
+        <span style={{ color: 'var(--brass)' }}>{IMP95697_CAVEAT_BANNER}</span>{' '}
+        <span style={{ color: 'var(--brass)' }}>
           Confirmed by the imp-95825 finite-section positivity certificate
           (lambda_min(G_n) &#8805; ess-inf f = A_opt for every section size, a
           standard Grenander-Szego bound) and the imp-95823 direct double-double
@@ -161,14 +162,14 @@ export default function Imp95697SzegoFiniteSizeDecayViz() {
         style={{
           margin: '0 0 1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(56,189,248,0.06)',
-          border: '1px solid rgba(56,189,248,0.22)',
+          background: 'color-mix(in srgb, var(--series-1) 6%, transparent)',
+          border: '1px solid color-mix(in srgb, var(--series-1) 22%, transparent)',
           borderRadius: '4px',
           fontSize: '0.82rem',
-          color: '#cbd5e1',
+          color: 'var(--ink)',
         }}
       >
-        <strong style={{ color: '#38bdf8' }}>
+        <strong style={{ color: 'var(--series-1)' }}>
           imp-95767 dual-vs-primal consistency interval (delta = ln 1.3):
         </strong>{' '}
         the single-run 1.68e-2% agreement between the DD primal extrapolation
@@ -201,7 +202,7 @@ export default function Imp95697SzegoFiniteSizeDecayViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>nPairs</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>nPts</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>F</th>
@@ -211,7 +212,7 @@ export default function Imp95697SzegoFiniteSizeDecayViz() {
         </thead>
         <tbody>
           {ROWS.map((r) => (
-            <tr key={r.nPairs} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+            <tr key={r.nPairs} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.nPairs}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.nPts}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>
@@ -232,14 +233,14 @@ export default function Imp95697SzegoFiniteSizeDecayViz() {
         style={{
           margin: '1.5rem 0 0',
           padding: '0.75rem 1rem',
-          background: 'rgba(167,139,250,0.06)',
-          border: '1px solid rgba(167,139,250,0.22)',
+          background: 'color-mix(in srgb, var(--series-5) 6%, transparent)',
+          border: '1px solid color-mix(in srgb, var(--series-5) 22%, transparent)',
           borderRadius: '4px',
           fontSize: '0.82rem',
-          color: '#cbd5e1',
+          color: 'var(--ink)',
         }}
       >
-        <strong style={{ color: '#a78bfa' }}>
+        <strong style={{ color: 'var(--series-5)' }}>
           Same nPts, cancellation-free route (imp-95823 direct double-double
           eigensolve):
         </strong>{' '}
@@ -257,7 +258,7 @@ export default function Imp95697SzegoFiniteSizeDecayViz() {
           }}
         >
           <thead>
-            <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+            <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
               <th style={{ padding: '0.4rem 0.6rem' }}>nPts</th>
               <th style={{ padding: '0.4rem 0.6rem' }}>float64 F / A_opt</th>
               <th style={{ padding: '0.4rem 0.6rem' }}>direct-DD F / A_opt</th>
@@ -267,12 +268,12 @@ export default function Imp95697SzegoFiniteSizeDecayViz() {
             {IMP95823_RHO1_SZEGO_DIRECT_DD_EIGENSOLVE.table.map((ddRow) => {
               const float64Row = ROWS.find((r) => r.nPts === ddRow.nPts);
               return (
-                <tr key={ddRow.nPts} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+                <tr key={ddRow.nPts} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
                   <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{ddRow.nPts}</td>
                   <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>
                     {float64Row ? float64Row.ratio.toFixed(6) : '--'}
                   </td>
-                  <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace', color: '#a78bfa' }}>
+                  <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace', color: 'var(--series-5)' }}>
                     {ddRow.ratio.toFixed(6)}
                   </td>
                 </tr>

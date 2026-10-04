@@ -4,14 +4,15 @@ import {
   IMP95737_HALF_RETENTION_SCALE_ROWS,
   IMP95737_CAPTION,
 } from '../data/imp-95737-half-retention-scale-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 const ROWS = IMP95737_HALF_RETENTION_SCALE_ROWS;
 
 const SERIES = [
-  { key: 'DpredFull', label: 'Full-sum closed form (root of S(delta,D)=blockIso/2)', color: '#38bdf8' },
-  { key: 'Dlog', label: 'Leading-log closed form (explicit)', color: '#f59e0b' },
-  { key: 'Dtrue40', label: 'True 40-pair crossover', color: '#a78bfa' },
-  { key: 'tabulated', label: 'imp-95693 tabulated', color: '#34d399' },
+  { key: 'DpredFull', label: 'Full-sum closed form (root of S(delta,D)=blockIso/2)', color: ED.series1 },
+  { key: 'Dlog', label: 'Leading-log closed form (explicit)', color: ED.brass },
+  { key: 'Dtrue40', label: 'True 40-pair crossover', color: ED.series5 },
+  { key: 'tabulated', label: 'imp-95693 tabulated', color: ED.series3 },
 ];
 
 // Small delta-axis chart: four deltas (ln1.2..ln2.0), each carrying the
@@ -44,19 +45,19 @@ function HalfRetentionChart() {
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
       {yTicks.map((t) => (
         <g key={`yt-${t}`}>
-          <line x1={padL} x2={padL + plotW} y1={yOf(t)} y2={yOf(t)} stroke="#1e293b" strokeWidth={1} />
-          <text x={padL - 8} y={yOf(t) + 3} textAnchor="end" fill="#64748b" fontSize={9.5}>
+          <line x1={padL} x2={padL + plotW} y1={yOf(t)} y2={yOf(t)} stroke={ED.ruleSoft} strokeWidth={1} />
+          <text x={padL - 8} y={yOf(t) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9.5}>
             {t.toFixed(2)}
           </text>
         </g>
       ))}
 
       {ROWS.map((r) => (
-        <text key={`xt-${r.label}`} x={xOf(r.delta)} y={padT + plotH + 16} textAnchor="middle" fill="#64748b" fontSize={9}>
+        <text key={`xt-${r.label}`} x={xOf(r.delta)} y={padT + plotH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
           {r.label}
         </text>
       ))}
-      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         delta (in-pair gap)
       </text>
 
@@ -84,7 +85,7 @@ function Legend() {
       {SERIES.map((s) => (
         <div key={s.key} style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
           <span style={{ width: 12, height: 3, background: s.color, display: 'inline-block' }} />
-          <span style={{ color: '#94a3b8', fontSize: '0.78rem' }}>{s.label}</span>
+          <span style={{ color: 'var(--ink-soft)', fontSize: '0.78rem' }}>{s.label}</span>
         </div>
       ))}
     </div>
@@ -96,7 +97,7 @@ export default function Imp95737HalfRetentionScaleViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Half-Retention Gap D_cross(delta): Closed Form vs Tabulated (imp-95703 / imp-95737)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-95693 tabulated a near-fixed absolute half-retention gap D_cross ~ 3.6-4.0
         of the twin-pair block floor across a 3.8x delta range, without deriving it.
         imp-95703 derives D_cross as the root of a single-sum seam-symbol equation
@@ -110,7 +111,7 @@ export default function Imp95737HalfRetentionScaleViz() {
 
       <table style={{ width: '100%', marginTop: '1.5rem', borderCollapse: 'collapse', fontSize: '0.78rem' }}>
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>delta</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>blockIso</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>D_pred (full sum)</th>
@@ -121,7 +122,7 @@ export default function Imp95737HalfRetentionScaleViz() {
         </thead>
         <tbody>
           {ROWS.map((r) => (
-            <tr key={r.label} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+            <tr key={r.label} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.label}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.blockIso.toExponential(4)}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.DpredFull.toFixed(4)}</td>
@@ -137,14 +138,14 @@ export default function Imp95737HalfRetentionScaleViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> {IMP95737_CAPTION} Derivation of
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> {IMP95737_CAPTION} Derivation of
         an already-observed constant of the imp-95659&#47;imp-95693 twin-pair mechanism; model
         seam family only; changes no Lambda bound; NO QED; Platt-Trudgian Lambda &lt;= 0.2
         remains SOTA.

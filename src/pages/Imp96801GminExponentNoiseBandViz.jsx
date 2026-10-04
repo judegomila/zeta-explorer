@@ -6,10 +6,11 @@ import {
   IMP96801_MOST_SIGNIFICANT,
   IMP96801_HONEST_BANNER,
 } from '../data/imp-96801-gmin-exponent-noise-band-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
-const BAND_COLOR = '#38bdf8';
-const NULL_LINE_COLOR = '#f87171';
-const OBS_COLOR = '#4ade80';
+const BAND_COLOR = ED.series1;
+const NULL_LINE_COLOR = ED.series2;
+const OBS_COLOR = ED.series3;
 
 // Horizontal error-bar chart: eleven imp-96755 estimator rows, each showing
 // its 95% Monte-Carlo null band (whisker) and observed fit (dot), against a
@@ -36,8 +37,8 @@ function NoiseBandPanel() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
 
       <line
         x1={xOf(IMP96801_NULL_EXPONENT)}
@@ -60,7 +61,7 @@ function NoiseBandPanel() {
             <line x1={xOf(r.band95.lo)} y1={cy - 4} x2={xOf(r.band95.lo)} y2={cy + 4} stroke={BAND_COLOR} strokeWidth={1.3} />
             <line x1={xOf(r.band95.hi)} y1={cy - 4} x2={xOf(r.band95.hi)} y2={cy + 4} stroke={BAND_COLOR} strokeWidth={1.3} />
             <circle cx={xOf(r.obs)} cy={cy} r={3.4} fill={OBS_COLOR} />
-            <text x={padL - 8} y={cy + 3} textAnchor="end" fill="#94a3b8" fontSize={9}>
+            <text x={padL - 8} y={cy + 3} textAnchor="end" fill={ED.inkSoft} fontSize={9}>
               {r.label}
             </text>
           </g>
@@ -68,11 +69,11 @@ function NoiseBandPanel() {
       })}
 
       {[minX, (minX + maxX) / 2, maxX].map((v) => (
-        <text key={`x${v.toFixed(2)}`} x={xOf(v)} y={padT + plotH + 16} textAnchor="middle" fill="#64748b" fontSize={8.5}>
+        <text key={`x${v.toFixed(2)}`} x={xOf(v)} y={padT + plotH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={8.5}>
           {v.toFixed(2)}
         </text>
       ))}
-      <text x={padL + plotW / 2} y={padT + plotH + 30} textAnchor="middle" fill="#94a3b8" fontSize={9}>
+      <text x={padL + plotW / 2} y={padT + plotH + 30} textAnchor="middle" fill={ED.inkSoft} fontSize={9}>
         fitted exponent b -- whisker = 95% Monte-Carlo null band, dot = observed fit
       </text>
     </svg>
@@ -88,18 +89,18 @@ export default function Imp96801GminExponentNoiseBandViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> {IMP96801_HONEST_BANNER}
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> {IMP96801_HONEST_BANNER}
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-96755 ran a 200,000-trial Monte Carlo of the exact GUE cube-root
         null (Weibull-3 block-extreme minima with median fixed to the
         measured envelope) to build a sampling-noise band for every
@@ -112,15 +113,15 @@ export default function Imp96801GminExponentNoiseBandViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#e2e8f0' }}>Reconciling imp-96616, imp-96734, and imp-96755:</strong>{' '}
+        <strong style={{ color: 'var(--ink)' }}>Reconciling imp-96616, imp-96734, and imp-96755:</strong>{' '}
         these three results measure different things, not competing verdicts.
         imp-96616 is a single POINT ESTIMATE -- the running-min exponent
         b = -0.3953 over N = 50..1e6, slightly steeper than GUE -1/3.
@@ -137,7 +138,7 @@ export default function Imp96801GminExponentNoiseBandViz() {
         persistent-but-not-significant, not a contradiction.
       </div>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         Eleven estimators: 95% null band vs observed fit, against GUE -1/3
       </h3>
       <NoiseBandPanel />
@@ -152,14 +153,14 @@ export default function Imp96801GminExponentNoiseBandViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> the
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> the
         most significant single deviation is the {IMP96801_MOST_SIGNIFICANT.estimator}-range
         estimator (z = {IMP96801_MOST_SIGNIFICANT.z}, one-sided p ~ {IMP96801_MOST_SIGNIFICANT.oneSidedP}),
         but its dot still sits inside its own whisker -- {IMP96801_MOST_SIGNIFICANT.verdict}.
@@ -172,14 +173,14 @@ export default function Imp96801GminExponentNoiseBandViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page consuming the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the
         imp-96801 viz-data leaf (every band edge reused verbatim from imp-96755).{' '}
         {IMP96801_HONEST_BANNER}
       </div>

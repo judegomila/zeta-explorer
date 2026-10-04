@@ -5,6 +5,7 @@ import {
   IMP96983_LN3_MARKER,
   IMP96983_VERDICT,
 } from '../data/imp-96983-ritz-vs-rigorous-crossval-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 // imp-97082: the imp-96983 leaf bakes two chart-ready range bands (log10
 // coordinates included) but had no confirmed consumer (grep of src/pages and
@@ -13,8 +14,8 @@ import {
 // inside the interval-rigorous flanking bracket, both ~22x above the binding
 // 2a=(ln3)/2 margin.
 const BAND_COLOR = Object.freeze({
-  'Ritz UPPER estimate (imp-96938)': '#38bdf8',
-  'Rigorous flanking bracket (certificate)': '#fb923c',
+  'Ritz UPPER estimate (imp-96938)': ED.series1,
+  'Rigorous flanking bracket (certificate)': ED.series4,
 });
 
 function RangeBandPanel() {
@@ -41,7 +42,7 @@ function RangeBandPanel() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#334155" strokeWidth={1} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1} />
       {ticks.map((v) => (
         <g key={`t${v}`}>
           <line
@@ -49,10 +50,10 @@ function RangeBandPanel() {
             y1={padT}
             x2={xOf(Math.log10(v))}
             y2={padT + plotH}
-            stroke="#1e293b"
+            stroke={ED.ruleSoft}
             strokeWidth={1}
           />
-          <text x={xOf(Math.log10(v))} y={padT + plotH + 14} textAnchor="middle" fill="#64748b" fontSize={8}>
+          <text x={xOf(Math.log10(v))} y={padT + plotH + 14} textAnchor="middle" fill={ED.inkFaint} fontSize={8}>
             {v < 1 ? v.toFixed(3) : v.toFixed(v < 10 ? 2 : 1)}
           </text>
         </g>
@@ -62,18 +63,18 @@ function RangeBandPanel() {
         y1={padT - 6}
         x2={xOf(marker.logValue)}
         y2={padT + plotH}
-        stroke="#f87171"
+        stroke={ED.series2}
         strokeWidth={1.4}
         strokeDasharray="3,2"
       />
-      <text x={xOf(marker.logValue)} y={padT - 10} textAnchor="middle" fill="#f87171" fontSize={8}>
+      <text x={xOf(marker.logValue)} y={padT - 10} textAnchor="middle" fill={ED.series2} fontSize={8}>
         binding 2a=(ln3)/2 margin ({marker.value.toFixed(4)})
       </text>
       {bands.map((b, i) => {
         const y = padT + i * rowH + rowH / 2;
         return (
           <g key={b.label}>
-            <text x={padL - 10} y={y + 3} textAnchor="end" fill="#94a3b8" fontSize={9.5}>
+            <text x={padL - 10} y={y + 3} textAnchor="end" fill={ED.inkSoft} fontSize={9.5}>
               {b.label}
             </text>
             <line
@@ -85,22 +86,22 @@ function RangeBandPanel() {
               strokeWidth={6}
               strokeLinecap="round"
             />
-            <circle cx={xOf(b.logMid)} cy={y} r={3.2} fill="#0f172a" stroke={BAND_COLOR[b.label]} strokeWidth={2} />
-            <text x={xOf(b.logLo)} y={y - 10} textAnchor="middle" fill="#64748b" fontSize={8}>
+            <circle cx={xOf(b.logMid)} cy={y} r={3.2} fill={ED.paper2} stroke={BAND_COLOR[b.label]} strokeWidth={2} />
+            <text x={xOf(b.logLo)} y={y - 10} textAnchor="middle" fill={ED.inkFaint} fontSize={8}>
               {b.lo.toFixed(3)}
             </text>
-            <text x={xOf(b.logHi)} y={y - 10} textAnchor="middle" fill="#64748b" fontSize={8}>
+            <text x={xOf(b.logHi)} y={y - 10} textAnchor="middle" fill={ED.inkFaint} fontSize={8}>
               {b.hi.toFixed(2)}
             </text>
             {!b.isCertified && (
-              <text x={xOf(b.logHi) + 8} y={y + 3} fill="#64748b" fontSize={8}>
+              <text x={xOf(b.logHi) + 8} y={y + 3} fill={ED.inkFaint} fontSize={8}>
                 upper est.
               </text>
             )}
           </g>
         );
       })}
-      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={8.5}>
+      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={8.5}>
         lambda_min(T_0.48[sigma_2]) estimate (log10 scale)
       </text>
     </svg>
@@ -116,15 +117,15 @@ export default function Imp97082RitzVsRigorousCrossvalRangeViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> the Ritz band is an{' '}
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> the Ritz band is an{' '}
         <strong>UPPER estimate</strong>, not a certified lower bound. No operator positivity
         is established here; the interval-rigorous certificate reach stays 2a&le;
         {IMP96983_VERDICT.intervalRigorousReachUnchanged}, and operator positivity for
@@ -135,7 +136,7 @@ export default function Imp97082RitzVsRigorousCrossvalRangeViz() {
         failure</strong>. RH open; NO QED.
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-96958 cross-validated two independent estimators of lambda_min(T_0.48[sigma_2]) at
         2a=0.96 (a=0.48): a Ritz UPPER-estimate band and the interval-rigorous flanking bracket
         read off the certificate at the neighboring a=0.45/a=0.50 rungs. The Ritz band sits
@@ -144,7 +145,7 @@ export default function Imp97082RitzVsRigorousCrossvalRangeViz() {
         above the binding 2a=(ln3)/2 margin.
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         Estimator range bands (log10 scale)
       </h3>
       <RangeBandPanel />
@@ -153,14 +154,14 @@ export default function Imp97082RitzVsRigorousCrossvalRangeViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page consuming the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the
         imp-96983 viz-data leaf (every band value reused verbatim from imp-96958). Changes no
         bound, establishes no operator positivity; Platt-Trudgian Lambda&le;0.2 remains SOTA; RH
         open; NO QED.

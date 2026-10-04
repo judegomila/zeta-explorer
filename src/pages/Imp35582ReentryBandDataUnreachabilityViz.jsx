@@ -4,6 +4,7 @@ import {
   IMP35582_LOG10_N_MARKERS,
   IMP35582_SUMMARY,
 } from '../data/imp-35582-reentry-band-data-unreachability-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 function Log10NMarkerChart() {
   const w = 720;
@@ -23,11 +24,11 @@ function Log10NMarkerChart() {
 
   return (
     <svg width={w} height={h} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} x2={w - padR} y1={h - padB} y2={h - padB} stroke="#334155" strokeWidth={1} />
+      <line x1={padL} x2={w - padR} y1={h - padB} y2={h - padB} stroke={ED.rule} strokeWidth={1} />
       {xTicks.map((t) => (
         <g key={t}>
-          <line x1={xPix(t)} x2={xPix(t)} y1={padT} y2={h - padB} stroke="#1e293b" strokeWidth={1} />
-          <text x={xPix(t)} y={h - padB + 16} textAnchor="middle" fill="#64748b" fontSize={10}>
+          <line x1={xPix(t)} x2={xPix(t)} y1={padT} y2={h - padB} stroke={ED.ruleSoft} strokeWidth={1} />
+          <text x={xPix(t)} y={h - padB + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
             {t}
           </text>
         </g>
@@ -38,22 +39,22 @@ function Log10NMarkerChart() {
         x2={xPix(IMP35582_LOG10_N_MARKERS[2].log10N)}
         y1={padT + 18}
         y2={padT + 18}
-        stroke="#f97316"
+        stroke={ED.series4}
         strokeWidth={4}
       />
       {IMP35582_LOG10_N_MARKERS.map((m) => {
-        const color = m.key === 'pt' ? '#38bdf8' : '#f97316';
+        const color = m.key === 'pt' ? ED.series1 : ED.series4;
         return (
           <g key={m.key}>
             <line x1={xPix(m.log10N)} x2={xPix(m.log10N)} y1={padT} y2={h - padB} stroke={color} strokeWidth={2} />
             <circle cx={xPix(m.log10N)} cy={padT + 18} r={4} fill={color} />
-            <text x={xPix(m.log10N)} y={padT + 8} textAnchor="middle" fill="#cbd5e1" fontSize={10}>
+            <text x={xPix(m.log10N)} y={padT + 8} textAnchor="middle" fill={ED.ink} fontSize={10}>
               {m.log10N.toFixed(2)}
             </text>
           </g>
         );
       })}
-      <text x={padL + plotW / 2} y={h - 6} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + plotW / 2} y={h - 6} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         log10(N)
       </text>
     </svg>
@@ -65,7 +66,7 @@ export default function Imp35582ReentryBandDataUnreachabilityViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Reentry-Band Data Unreachability: log10(N) vs the Verified Frontier (imp-35582)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-35537 Part D scoped what closing the OPEN R1t true-dynamic residue (certificate
         imp-35243a) requires, and found that route&nbsp;(ii) -- a direct data-anchored fidelity
         check at the reentry-band heights -- is INFEASIBLE: the band N-range
@@ -86,14 +87,14 @@ export default function Imp35582ReentryBandDataUnreachabilityViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>landmark</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>log10(N)</th>
           </tr>
         </thead>
         <tbody>
           {IMP35582_LOG10_N_MARKERS.map((m) => (
-            <tr key={m.key} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+            <tr key={m.key} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
               <td style={{ padding: '0.4rem 0.6rem' }}>{m.label}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>
                 {m.log10N.toFixed(6)}
@@ -103,7 +104,7 @@ export default function Imp35582ReentryBandDataUnreachabilityViz() {
         </tbody>
       </table>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.8rem', marginTop: '1rem' }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.8rem', marginTop: '1rem' }}>
         The reentry edge sits ~{IMP35582_SUMMARY.reentryDecadesAboveT_PT} decades, and the exit
         edge ~{IMP35582_SUMMARY.exitDecadesAboveT_PT} decades, above the Platt-Trudgian verified
         frontier (T=3e12) -- so no verified zero exists anywhere near the band, and route&nbsp;(ii)
@@ -115,14 +116,14 @@ export default function Imp35582ReentryBandDataUnreachabilityViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Presentation only of the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Presentation only of the
         imp-35537 Part D / imp-35243 D2 data-unreachability figures (no fresh derivation, no
         heavy data-module import); the reentry band is a diagnostic of a surrogate
         iterate-COUNT, not a Lambda input, so even a perfect R1t closure would move no bound;

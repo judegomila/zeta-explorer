@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import HonestCeilingBanner from '../components/HonestCeilingBanner.jsx';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
+import { ED } from '../styles/tokens.js';
 
 // Editorial (warm) re-theme: full-width ed-root/ed-full shell, identical
 // structure/data/grades. Every evidence grade, RH-not-proved caveat, and the
@@ -78,11 +79,11 @@ const STEPS = [
 // Literal warm hex (not var()) so the pill background can use the "border+55"
 // alpha-suffix trick below — CSS var() references can't be alpha-suffixed.
 const STYLE = {
-  established: { fg: '#4c7a4a', border: '#4c7a4a', label: 'established' },
-  'established-with-caveat': { fg: '#4c7a4a', border: '#4c7a4a', label: 'established · caveat' },
-  corrected: { fg: '#3f6b86', border: '#3f6b86', label: 'corrected identity' },
-  'finite-model': { fg: '#b58a2e', border: '#b58a2e', label: 'finite model only' },
-  open: { fg: '#c23a1c', border: '#c23a1c', label: 'open' },
+  established: { fg: ED.series3, border: ED.series3, label: 'established' },
+  'established-with-caveat': { fg: ED.series3, border: ED.series3, label: 'established · caveat' },
+  corrected: { fg: ED.series1, border: ED.series1, label: 'corrected identity' },
+  'finite-model': { fg: ED.brass, border: ED.brassDeco, label: 'finite model only' },
+  open: { fg: ED.accent, border: ED.accent, label: 'open' },
 };
 
 function Step({ step }) {
@@ -96,10 +97,10 @@ function Step({ step }) {
       }}
     >
       <div style={{ display: 'flex', gap: 10, alignItems: 'center', flexWrap: 'wrap' }}>
-        <span style={{ color: '#877b67', fontFamily: 'var(--ed-mono, var(--font-mono))', fontSize: 12 }}>
+        <span style={{ color: 'var(--ink-faint)', fontFamily: 'var(--ed-mono, var(--font-mono))', fontSize: 12 }}>
           S{step.n}
         </span>
-        <strong style={{ color: '#1c1814' }}>{step.title}</strong>
+        <strong style={{ color: 'var(--ink)' }}>{step.title}</strong>
         <span
           style={{
             color: style.fg,
@@ -113,7 +114,7 @@ function Step({ step }) {
           {style.label}
         </span>
       </div>
-      <p style={{ color: '#4a4238', fontSize: 13.5, lineHeight: 1.7 }}>{step.statement}</p>
+      <p style={{ color: 'var(--ink-soft)', fontSize: 13.5, lineHeight: 1.7 }}>{step.statement}</p>
       <BlockMath tex={step.math} />
     </div>
   );
@@ -151,30 +152,30 @@ export default function ProofOverviewPage() {
               gap: 14,
             }}
           >
-            <div className="card" style={{ borderLeft: '3px solid #4c7a4a', padding: 16 }}>
-              <h3 style={{ color: '#4c7a4a', marginTop: 0 }}>Exact</h3>
-              <ul style={{ color: '#4a4238', fontSize: 13, lineHeight: 1.75, paddingLeft: 18 }}>
+            <div className="card" style={{ borderLeft: '3px solid var(--series-3)', padding: 16 }}>
+              <h3 style={{ color: 'var(--series-3)', marginTop: 0 }}>Exact</h3>
+              <ul style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.75, paddingLeft: 18 }}>
                 <li>Euler product in <InlineMath tex="\Re s>1" />.</li>
                 <li>Functional equation and critical-line boundary modulus.</li>
                 <li>Finite induction for the separate algebraic zeta ratio.</li>
                 <li>Correct zero/pole divisor of that ratio.</li>
               </ul>
             </div>
-            <div className="card" style={{ borderLeft: '3px solid #b58a2e', padding: 16 }}>
-              <h3 style={{ color: '#b58a2e', marginTop: 0 }}>Evidence, not proof</h3>
-              <ul style={{ color: '#4a4238', fontSize: 13, lineHeight: 1.75, paddingLeft: 18 }}>
+            <div className="card" style={{ borderLeft: '3px solid var(--brass-deco)', padding: 16 }}>
+              <h3 style={{ color: 'var(--brass)', marginTop: 0 }}>Evidence, not proof</h3>
+              <ul style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.75, paddingLeft: 18 }}>
                 <li>Computer-assisted candidate <InlineMath tex="\Lambda\le0.1787854" /> (reviewed by Dan Romik; unrefereed; bound not established).</li>
-                <li>Computer-assisted candidate <InlineMath tex="\Lambda\le0.1758354" /> (four Arb gates, Lean-checked reduction; unrefereed) — <Link to="/lambda-01758354-candidate" style={{ color: '#3f6b86' }}>candidate page</Link>.</li>
-                <li>The <InlineMath tex="\Lambda\le0.14" /> completion contract — a conditional contract, not a bound; one open family remains — <Link to="/permutation-architecture" style={{ color: '#3f6b86' }}>permutation architecture</Link>.</li>
+                <li>Computer-assisted candidate <InlineMath tex="\Lambda\le0.1758354" /> (four Arb gates, Lean-checked y-transfer reduction and Lemma B3; unrefereed) — <Link to="/lambda-01758354-candidate" style={{ color: 'var(--series-1)' }}>candidate page</Link>.</li>
+                <li>The <InlineMath tex="\Lambda\le0.14" /> completion contract — a conditional contract, not a bound; one open family remains — <Link to="/permutation-architecture" style={{ color: 'var(--series-1)' }}>permutation architecture</Link>.</li>
                 <li>Finite energy and curvature plots.</li>
                 <li>GUE-like numerical statistics for computed zeros.</li>
                 <li>Li coefficients checked over finite ranges.</li>
                 <li>Sampled shift-ratio contractivity.</li>
               </ul>
             </div>
-            <div className="card" style={{ borderLeft: '3px solid #c23a1c', padding: 16 }}>
-              <h3 style={{ color: '#c23a1c', marginTop: 0 }}>Still open</h3>
-              <ul style={{ color: '#4a4238', fontSize: 13, lineHeight: 1.75, paddingLeft: 18 }}>
+            <div className="card" style={{ borderLeft: '3px solid var(--accent)', padding: 16 }}>
+              <h3 style={{ color: 'var(--accent)', marginTop: 0 }}>Still open</h3>
+              <ul style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.75, paddingLeft: 18 }}>
                 <li>Physical realization of the arithmetic ratio.</li>
                 <li>Self-adjoint spectral identification.</li>
                 <li>All-shifts Schur/de Branges positivity.</li>
@@ -187,29 +188,29 @@ export default function ProofOverviewPage() {
         <div
           className="card"
           style={{
-            border: '1px solid rgba(194,58,28,0.35)',
-            background: 'rgba(194,58,28,0.06)',
+            border: '1px solid color-mix(in srgb, var(--accent) 35%, transparent)',
+            background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
             padding: 18,
           }}
         >
-          <h2 style={{ color: '#c23a1c', fontFamily: 'var(--ed-display)', fontWeight: 500, fontSize: 18, marginTop: 0 }}>Verdict</h2>
-          <p style={{ color: '#4a4238', fontSize: 14, lineHeight: 1.75 }}>
+          <h2 style={{ color: 'var(--accent)', fontFamily: 'var(--ed-display)', fontWeight: 500, fontSize: 18, marginTop: 0 }}>Verdict</h2>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 14, lineHeight: 1.75 }}>
             The old eight-step chain does not prove RH. Its most important self-correction is the
             separation between the exact algebraic Euler embedding and the physical LC analogy. The
             twin-ladder shift-bridge formulation supplies a cleaner RH-equivalent target. Separately, the
             standalone repository presents the positive bound <InlineMath tex="\Lambda\le0.1787854" /> as
             a computer-assisted candidate for an unconditional proof (reviewed by Dan Romik; unrefereed;
             bound not established). A sharper candidate <InlineMath tex="\Lambda\le0.1758354" /> (four
-            Arb gates, Lean-checked reduction, unrefereed) and the <InlineMath tex="\Lambda\le0.14" />{' '}
+            Arb gates, Lean-checked y-transfer reduction and Lemma B3, unrefereed) and the <InlineMath tex="\Lambda\le0.14" />{' '}
             completion contract — a conditional contract, not a bound — sit alongside it. None of these is RH.
           </p>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 14 }}>
-            <Link to="/full-story" style={{ color: '#3f6b86' }}>Corrected full story</Link>
-            <Link to="/control" style={{ color: '#3f6b86' }}>Control-theory correction</Link>
-            <Link to="/paper-audit-dashboard" style={{ color: '#3f6b86' }}>twin-ladder audit</Link>
-            <Link to="/newman-lambda-01787854-candidate" style={{ color: '#3f6b86' }}>Candidate package</Link>
-            <Link to="/lambda-01758354-candidate" style={{ color: '#3f6b86' }}>0.1758354 candidate</Link>
-            <Link to="/permutation-architecture" style={{ color: '#3f6b86' }}>0.14 contract</Link>
+            <Link to="/full-story" style={{ color: 'var(--series-1)' }}>Corrected full story</Link>
+            <Link to="/control" style={{ color: 'var(--series-1)' }}>Control-theory correction</Link>
+            <Link to="/paper-audit-dashboard" style={{ color: 'var(--series-1)' }}>twin-ladder audit</Link>
+            <Link to="/newman-lambda-01787854-candidate" style={{ color: 'var(--series-1)' }}>Candidate package</Link>
+            <Link to="/lambda-01758354-candidate" style={{ color: 'var(--series-1)' }}>0.1758354 candidate</Link>
+            <Link to="/permutation-architecture" style={{ color: 'var(--series-1)' }}>0.14 contract</Link>
           </div>
         </div>
 
@@ -218,16 +219,16 @@ export default function ProofOverviewPage() {
             Related pages
           </div>
           <div style={{ display: 'flex', gap: 12, marginTop: 8, flexWrap: 'wrap' }}>
-            <Link to="/full-story" style={{ fontSize: 12, color: '#3f6b86', textDecoration: 'none' }}>
+            <Link to="/full-story" style={{ fontSize: 12, color: 'var(--series-1)', textDecoration: 'none' }}>
               → Corrected full story
             </Link>
-            <Link to="/control" style={{ fontSize: 12, color: '#b58a2e', textDecoration: 'none' }}>
+            <Link to="/control" style={{ fontSize: 12, color: 'var(--brass)', textDecoration: 'none' }}>
               → Control-theory correction
             </Link>
-            <Link to="/paper-audit-dashboard" style={{ fontSize: 12, color: '#8c6a1d', textDecoration: 'none' }}>
+            <Link to="/paper-audit-dashboard" style={{ fontSize: 12, color: 'var(--brass)', textDecoration: 'none' }}>
               → twin-ladder audit dashboard
             </Link>
-            <Link to="/newman-lambda-01787854-candidate" style={{ fontSize: 12, color: '#c23a1c', textDecoration: 'none' }}>
+            <Link to="/newman-lambda-01787854-candidate" style={{ fontSize: 12, color: 'var(--accent)', textDecoration: 'none' }}>
               → Λ ≤ 0.1787854 candidate package
             </Link>
             <Link to="/" style={{ fontSize: 12, color: 'var(--ink-soft)', textDecoration: 'none' }}>

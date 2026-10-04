@@ -7,6 +7,7 @@ import {
   IMP96238_ANCHORS,
   IMP96238_HONEST_BANNER,
 } from '../data/imp-96238-joint-leak-region-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 function JointLeakRegionChart() {
   const svgW = 680;
@@ -40,60 +41,60 @@ function JointLeakRegionChart() {
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
       {yTicks.map((v) => (
         <g key={`y${v}`}>
-          <line x1={padL} y1={yOf(v / SCALE)} x2={padL + plotW} y2={yOf(v / SCALE)} stroke="#334155" strokeWidth={0.5} opacity={0.4} />
-          <text x={padL - 8} y={yOf(v / SCALE) + 3} textAnchor="end" fill="#64748b" fontSize={8.5}>{`${v}e-3`}</text>
+          <line x1={padL} y1={yOf(v / SCALE)} x2={padL + plotW} y2={yOf(v / SCALE)} stroke={ED.rule} strokeWidth={0.5} opacity={0.4} />
+          <text x={padL - 8} y={yOf(v / SCALE) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8.5}>{`${v}e-3`}</text>
         </g>
       ))}
       {xTicks.map((v) => (
         <g key={`x${v}`}>
-          <line x1={xOf(v / SCALE)} y1={padT} x2={xOf(v / SCALE)} y2={padT + plotH} stroke="#334155" strokeWidth={0.5} opacity={0.3} />
-          <text x={xOf(v / SCALE)} y={padT + plotH + 14} textAnchor="middle" fill="#64748b" fontSize={8.5}>{`${v}e-3`}</text>
+          <line x1={xOf(v / SCALE)} y1={padT} x2={xOf(v / SCALE)} y2={padT + plotH} stroke={ED.rule} strokeWidth={0.5} opacity={0.3} />
+          <text x={xOf(v / SCALE)} y={padT + plotH + 14} textAnchor="middle" fill={ED.inkFaint} fontSize={8.5}>{`${v}e-3`}</text>
         </g>
       ))}
 
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
 
       {/* shaded admissible (certified U < 1) region */}
-      <path d={shadedPath} fill="#38bdf8" opacity={0.14} stroke="none" />
-      <path d={boundaryPath} fill="none" stroke="#38bdf8" strokeWidth={1.5} opacity={0.9} />
+      <path d={shadedPath} fill={ED.series1} opacity={0.14} stroke="none" />
+      <path d={boundaryPath} fill="none" stroke={ED.series1} strokeWidth={1.5} opacity={0.9} />
 
       {/* equal-split diagonal ray for reference */}
       <line
         x1={xOf(0)} y1={yOf(0)}
         x2={xOf(IMP96238_ANCHORS.equalSplitPerChannelEps * 1.5)} y2={yOf(IMP96238_ANCHORS.equalSplitPerChannelEps * 1.5)}
-        stroke="#64748b" strokeWidth={0.75} strokeDasharray="3 3" opacity={0.6}
+        stroke={ED.rule} strokeWidth={0.75} strokeDasharray="3 3" opacity={0.6}
       />
 
       {IMP96238_SLICE_POINTS.map((p) => (
         <circle key={`slice-${p.epsA}`} cx={xOf(p.epsA)} cy={yOf(p.epsB)} r={2.4} fill="#94a3b8" />
       ))}
 
-      <circle cx={xOf(IMP96238_MARKERS.pureBottom.epsA)} cy={yOf(IMP96238_MARKERS.pureBottom.epsB)} r={3.6} fill="#4ade80" />
-      <text x={xOf(IMP96238_MARKERS.pureBottom.epsA) + 6} y={yOf(IMP96238_MARKERS.pureBottom.epsB) - 4} fill="#4ade80" fontSize={8.5}>
+      <circle cx={xOf(IMP96238_MARKERS.pureBottom.epsA)} cy={yOf(IMP96238_MARKERS.pureBottom.epsB)} r={3.6} fill={ED.series3} />
+      <text x={xOf(IMP96238_MARKERS.pureBottom.epsA) + 6} y={yOf(IMP96238_MARKERS.pureBottom.epsB) - 4} fill={ED.series3} fontSize={8.5}>
         pure-bottom worst case (1.192e-3)
       </text>
 
-      <circle cx={xOf(IMP96238_MARKERS.equalSplit.epsA)} cy={yOf(IMP96238_MARKERS.equalSplit.epsB)} r={3.6} fill="#facc15" />
-      <text x={xOf(IMP96238_MARKERS.equalSplit.epsA) + 6} y={yOf(IMP96238_MARKERS.equalSplit.epsB) + 12} fill="#facc15" fontSize={8.5}>
+      <circle cx={xOf(IMP96238_MARKERS.equalSplit.epsA)} cy={yOf(IMP96238_MARKERS.equalSplit.epsB)} r={3.6} fill={ED.brassDeco} />
+      <text x={xOf(IMP96238_MARKERS.equalSplit.epsA) + 6} y={yOf(IMP96238_MARKERS.equalSplit.epsB) + 12} fill={ED.brass} fontSize={8.5}>
         equal-split (1.180627e-3/channel)
       </text>
 
-      <circle cx={xOf(IMP96238_MARKERS.fullAdjacent.epsA)} cy={yOf(IMP96238_MARKERS.fullAdjacent.epsB)} r={3.6} fill="#f87171" />
-      <text x={xOf(IMP96238_MARKERS.fullAdjacent.epsA) - 6} y={yOf(IMP96238_MARKERS.fullAdjacent.epsB) - 8} textAnchor="end" fill="#f87171" fontSize={8.5}>
+      <circle cx={xOf(IMP96238_MARKERS.fullAdjacent.epsA)} cy={yOf(IMP96238_MARKERS.fullAdjacent.epsB)} r={3.6} fill={ED.series2} />
+      <text x={xOf(IMP96238_MARKERS.fullAdjacent.epsA) - 6} y={yOf(IMP96238_MARKERS.fullAdjacent.epsB) - 8} textAnchor="end" fill={ED.series2} fontSize={8.5}>
         full adjacent (bottom collapses)
       </text>
 
-      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill="#64748b" fontSize={9.5}>
+      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5}>
         adjacent leak eps_a (into lam_2)
       </text>
-      <text x={20} y={padT + plotH / 2} textAnchor="middle" fill="#64748b" fontSize={9.5} transform={`rotate(-90 20 ${padT + plotH / 2})`}>
+      <text x={20} y={padT + plotH / 2} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5} transform={`rotate(-90 20 ${padT + plotH / 2})`}>
         tolerable bottom leak eps_b (into lam_S(1))
       </text>
 
       <g transform={`translate(${padL + 8}, ${padT + 8})`}>
-        <rect x={0} y={-6} width={10} height={10} fill="#38bdf8" opacity={0.14} />
-        <text x={14} y={2} fill="#94a3b8" fontSize={8.5}>certified region U &lt; 1 (below boundary)</text>
+        <rect x={0} y={-6} width={10} height={10} fill={ED.series1} opacity={0.14} />
+        <text x={14} y={2} fill={ED.inkSoft} fontSize={8.5}>certified region U &lt; 1 (below boundary)</text>
       </g>
     </svg>
   );
@@ -108,18 +109,18 @@ export default function Imp96238JointLeakRegionViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 760,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> {IMP96238_HONEST_BANNER}
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> {IMP96238_HONEST_BANNER}
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
         The imp-96206 3-level test function [1, eps_a, eps_b] opens both leak channels at once:
         eps_a leaks into the cheap adjacent eigenvalue lam_2, eps_b leaks into the expensive
         bottom-twin eigenvalue lam_S(1). The shaded region is the set of (eps_a, eps_b) pairs for
@@ -128,7 +129,7 @@ export default function Imp96238JointLeakRegionViz() {
         adjacent leak strictly tightens the tolerable bottom overlap.
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         Non-rectangular admissible region (grey dots: the five imp-96206 baked coupled slices)
       </h3>
       <JointLeakRegionChart />
@@ -137,14 +138,14 @@ export default function Imp96238JointLeakRegionViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> the worst-case
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> the worst-case
         total-magnitude threshold (green, 1.192e-3) sits at eps_a = 0 &mdash; the pure-bottom
         direction &mdash; because the adjacent channel costs ~7&times; less sigma&sup2; per unit
         overlap&sup2;. Moving right along the boundary trades bottom tolerance for adjacent
@@ -158,14 +159,14 @@ export default function Imp96238JointLeakRegionViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page consuming the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the
         imp-96206 baked boundary function and literals verbatim (only the plot-resolution
         sampling is computed here). Changes no bound, establishes no operator positivity, no RH
         claim; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. NO QED.

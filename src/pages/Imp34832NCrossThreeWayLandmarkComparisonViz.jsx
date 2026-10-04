@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP34800_NCROSS_THREE_WAY_CROSSVALIDATION_BANACH_KRAWCZYK_INFLECTION } from '../data/imp-34800-ncross-three-way-crossvalidation-banach-krawczyk-inflection.js';
+import { ED } from '../styles/tokens.js';
 
 const D = IMP34800_NCROSS_THREE_WAY_CROSSVALIDATION_BANACH_KRAWCZYK_INFLECTION;
 
@@ -20,9 +21,9 @@ function LandmarkDots({ banach, krawczykLo, krawczykHi, inflection }) {
   const xOf = (v) => padL + ((v - vMin) / (vMax - vMin)) * plotW;
 
   const rows = [
-    { label: 'R1 Banach', kind: 'dot', v: banach, color: '#38bdf8' },
-    { label: 'R2 Krawczyk', kind: 'band', lo: krawczykLo, hi: krawczykHi, color: '#34d399' },
-    { label: 'R3 Inflection', kind: 'dot', v: inflection, color: '#f87171' },
+    { label: 'R1 Banach', kind: 'dot', v: banach, color: ED.series1 },
+    { label: 'R2 Krawczyk', kind: 'band', lo: krawczykLo, hi: krawczykHi, color: ED.series3 },
+    { label: 'R3 Inflection', kind: 'dot', v: inflection, color: ED.series2 },
   ];
 
   return (
@@ -31,10 +32,10 @@ function LandmarkDots({ banach, krawczykLo, krawczykHi, inflection }) {
         const y = padT + rowH * i + rowH / 2;
         return (
           <g key={row.label}>
-            <text x={padL - 10} y={y + 4} textAnchor="end" fill="#94a3b8" fontSize={12}>
+            <text x={padL - 10} y={y + 4} textAnchor="end" fill={ED.inkSoft} fontSize={12}>
               {row.label}
             </text>
-            <line x1={padL} x2={svgW - padR} y1={y} y2={y} stroke="#1e293b" strokeWidth={1} />
+            <line x1={padL} x2={svgW - padR} y1={y} y2={y} stroke={ED.ruleSoft} strokeWidth={1} />
             {row.kind === 'dot' ? (
               <>
                 <circle cx={xOf(row.v)} cy={y} r={5} fill={row.color} />
@@ -54,7 +55,7 @@ function LandmarkDots({ banach, krawczykLo, krawczykHi, inflection }) {
           </g>
         );
       })}
-      <text x={svgW / 2} y={svgH - 6} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={svgW / 2} y={svgH - 6} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         N (billions) -- shared axis, not to scale near the R1/R2 overlap
       </text>
     </svg>
@@ -72,14 +73,14 @@ export default function Imp34832NCrossThreeWayLandmarkComparisonViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="N_cross Three-Way Landmark Comparison (imp-34832 / imp-34800)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         Three independent routes locate the N_cross ~3.28e9 region: the imp-33723 Banach closed-form fixed
         point (R1), the imp-34774 Krawczyk enclosure of that same fixed point (R2), and the imp-33721
         sigmoid-inflection knee (R3). R1 and R2 agree to floating point; R3 sits ~
         {(gapR3vR1 * 100).toFixed(2)}% above them -- a landmark-definition residual, not a disagreement.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         Landmark values on one N axis
       </p>
       <LandmarkDots banach={banach} krawczykLo={krawczykLo} krawczykHi={krawczykHi} inflection={inflection} />
@@ -88,11 +89,11 @@ export default function Imp34832NCrossThreeWayLandmarkComparisonViz() {
         style={{
           marginTop: '1rem',
           padding: '0.6rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
         }}
       >
         R1 vs R2 gap: {(gapR1vR2 * 100).toExponential(2)}% (point-identical; the enclosure is centred on the
@@ -106,14 +107,14 @@ export default function Imp34832NCrossThreeWayLandmarkComparisonViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page presenting the imp-34800
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-only page presenting the imp-34800
         literals verbatim (no new computation). The Krawczyk enclosure is the imp-34774 double-precision
         SURROGATE; sub-gap imp-34714a REMAINS OPEN (no machine certificate). The C_C&nbsp;=&nbsp;(1/8)&radic;(3&pi;)
         ansatz (imp-2642/imp-2643) is UNTOUCHED; the C_mb GUE-conditional share per imp-486 is UNTOUCHED;

@@ -5,9 +5,10 @@ import {
   IMP35823_LADDER_GRID,
   IMP35823_LOG_T0_NEEDED,
 } from '../data/imp-35823-required-height-ladder-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
-const MULTIPLE_COLOR = '#f472b6';
-const GAP_COLOR = '#38bdf8';
+const MULTIPLE_COLOR = ED.series7;
+const GAP_COLOR = ED.series1;
 
 function LadderChart({ rows }) {
   const w = 720;
@@ -32,7 +33,7 @@ function LadderChart({ rows }) {
 
   return (
     <svg width={w} height={h} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={plotW} height={plotH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={plotW} height={plotH} fill={ED.paper} rx={2} />
 
       {[0, 0.25, 0.5, 0.75, 1].map((v) => (
         <g key={v}>
@@ -41,10 +42,10 @@ function LadderChart({ rows }) {
             x2={padL + plotW}
             y1={padT + plotH - v * plotH}
             y2={padT + plotH - v * plotH}
-            stroke="#1e293b"
+            stroke={ED.ruleSoft}
             strokeWidth={0.7}
           />
-          <text x={padL - 8} y={padT + plotH - v * plotH + 3.5} textAnchor="end" fill="#64748b" fontSize={10}>
+          <text x={padL - 8} y={padT + plotH - v * plotH + 3.5} textAnchor="end" fill={ED.inkFaint} fontSize={10}>
             {(v * yMax).toFixed(1)}x
           </text>
         </g>
@@ -58,7 +59,7 @@ function LadderChart({ rows }) {
             x={xPix(r.logT0)}
             y={padT + plotH + 16}
             textAnchor="middle"
-            fill="#64748b"
+            fill={ED.inkFaint}
             fontSize={9}
             transform={`rotate(-30,${xPix(r.logT0)},${padT + plotH + 16})`}
           >
@@ -67,18 +68,18 @@ function LadderChart({ rows }) {
         </g>
       ))}
 
-      <rect x={padL} y={padT} width={plotW} height={plotH} fill="none" stroke="#334155" strokeWidth={1} />
+      <rect x={padL} y={padT} width={plotW} height={plotH} fill="none" stroke={ED.rule} strokeWidth={1} />
       <text
         x={14}
         y={padT + plotH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={`rotate(-90,14,${padT + plotH / 2})`}
       >
         required multiple 200 / log T0
       </text>
-      <text x={padL + plotW / 2} y={h - 4} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + plotW / 2} y={h - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         log T0 (landmark log-height, rising &rarr;)
       </text>
     </svg>
@@ -89,7 +90,7 @@ function LadderTable({ rows }) {
   return (
     <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.8rem' }}>
       <thead>
-        <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+        <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
           <th style={{ padding: '0.4rem 0.6rem' }}>rung</th>
           <th style={{ padding: '0.4rem 0.6rem' }}>log T0</th>
           <th style={{ padding: '0.4rem 0.6rem' }}>required multiple (200/log T0)</th>
@@ -98,7 +99,7 @@ function LadderTable({ rows }) {
       </thead>
       <tbody>
         {rows.map((r) => (
-          <tr key={r.key} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+          <tr key={r.key} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
             <td style={{ padding: '0.4rem 0.6rem' }}>{r.label}</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.logT0.toFixed(2)}</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace', color: MULTIPLE_COLOR }}>
@@ -119,7 +120,7 @@ export default function Imp35823RequiredHeightLadderViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Merged Required-Height Ladder Across Peak / Sigma / PT Rungs (imp-35823 / imp-35763)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
         imp-35763 filled the interior of the imp-35722 three-rung REQ-4
         required-height ladder with the imp-33582 sigma-decay downslope
         landmarks (sigma &lt; 0.9 / 0.5 / 0.1), producing a six-rung ladder
@@ -130,7 +131,7 @@ export default function Imp35823RequiredHeightLadderViz() {
         {IMP35823_LOG_T0_NEEDED} (T0 &ge; e^200 ~ 7.23e86).
       </p>
 
-      <h3 style={{ color: '#cbd5e1', fontSize: '0.9rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.9rem', marginBottom: '0.5rem' }}>
         Required-height multiple (200/log T0) across the six-rung ladder
       </h3>
       <LadderChart rows={IMP35823_LADDER_GRID} />
@@ -139,7 +140,7 @@ export default function Imp35823RequiredHeightLadderViz() {
         <LadderTable rows={IMP35823_LADDER_GRID} />
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.8rem', marginTop: '1rem' }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.8rem', marginTop: '1rem' }}>
         The multiple descends monotonically as log T0 rises, but even the
         deepest rung (the PT anchor, log T0 ~ 28.73) still needs ~7x more
         log-height than it has -- no reachable landmark on this ladder binds
@@ -150,14 +151,14 @@ export default function Imp35823RequiredHeightLadderViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation only of
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> presentation only of
         the already-derived imp-35763/imp-35722 required-height ladder (no new
         derivation, no heavy data-module import); C_mb GUE-conditional
         (imp-486) UNTOUCHED; imp-35337a stays OPEN; changes no bound,

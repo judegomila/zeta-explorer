@@ -4,6 +4,7 @@ import { SESSIONS } from '../data/sessions.js';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import { LAMBDA_INTERCEPT_UNCONDITIONAL } from '../data/lambda-intercept-unconditional.js';
 import { RANKED_OPPORTUNITIES } from '../data/full-route-map-2026-06-19.js';
+import { ED, alpha } from '../styles/tokens.js';
 // imp-1013: improvement-queue.js (~1.8 MB) and improvements.js (~3.3 MB) are
 // dynamic-imported below so opening this page does not block on a 5 MB chunk
 // download. Both files are also dynamic-imported by their primary pages
@@ -186,9 +187,9 @@ const statusChip = (bg, fg, border) => ({
   border: `1px solid ${border}`,
 });
 
-const openChip = statusChip('rgba(194,58,28,0.14)', 'var(--terra-dk)', 'rgba(194,58,28,0.40)');
-const closedChip = statusChip('rgba(76,122,74,0.14)', 'var(--green)', 'rgba(76,122,74,0.40)');
-const newChip = statusChip('rgba(181,138,46,0.16)', 'var(--brass-dk)', 'rgba(181,138,46,0.45)');
+const openChip = statusChip(alpha(ED.series2, 0.14), 'var(--terra-dk)', alpha(ED.series2, 0.4));
+const closedChip = statusChip(alpha(ED.series3, 0.14), 'var(--green)', alpha(ED.series3, 0.4));
+const newChip = statusChip(alpha(ED.brassDeco, 0.16), 'var(--brass-dk)', alpha(ED.brassDeco, 0.45));
 
 // ── The page ───────────────────────────────────────────────────────────────
 
@@ -289,7 +290,7 @@ export default function MetaAccelerationPage() {
             <Link to="/lambda-01758354-candidate" style={{ color: 'var(--blue)' }}>
               Λ ≤ 0.1758354
             </Link>{' '}
-            (four Arb gates, Lean-checked reduction). The{' '}
+            (four Arb gates, Lean-checked y-transfer reduction and Lemma B3). The{' '}
             <Link to="/permutation-architecture" style={{ color: 'var(--blue)' }}>
               Λ ≤ 0.14 completion contract
             </Link>{' '}
@@ -556,9 +557,9 @@ git log --oneline -10                    # engine commits`}
                       fontWeight: 700,
                       padding: '1px 6px',
                       borderRadius: 4,
-                      background: 'rgba(140,106,29,0.12)',
+                      background: 'color-mix(in srgb, var(--brass) 12%, transparent)',
                       color: 'var(--brass)',
-                      border: '1px solid rgba(140,106,29,0.3)',
+                      border: '1px solid color-mix(in srgb, var(--brass) 30%, transparent)',
                     }}
                   >
                     #{opp.rank}
@@ -1022,6 +1023,6 @@ function metaStatusColor(status) {
 function metaStatusChip(status) {
   if (status === 'completed') return closedChip;
   if (status === 'pending') return newChip;
-  if (status === 'superseded') return statusChip('rgba(135,123,103,0.12)', 'var(--faint)', 'rgba(135,123,103,0.35)');
+  if (status === 'superseded') return statusChip(alpha(ED.inkFaint, 0.12), 'var(--faint)', alpha(ED.inkFaint, 0.35));
   return openChip;
 }

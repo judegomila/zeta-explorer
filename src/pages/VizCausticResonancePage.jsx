@@ -13,6 +13,7 @@ import { Link } from 'react-router-dom';
 import { getPrimes } from '../math/primes.js';
 import VizCeilingNote from '../components/VizCeilingNote.jsx';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
+import { ED, alpha } from '../styles/tokens.js';
 
 const TWO_PI = 2 * Math.PI;
 const mono = 'var(--font-mono)';
@@ -105,7 +106,7 @@ export default function VizCausticResonancePage() {
     }
     ctx.lineTo(CANVAS_W, CANVAS_H);
     ctx.closePath();
-    ctx.fillStyle = 'rgba(99,102,241,0.35)';
+    ctx.fillStyle = alpha(ED.series5, 0.35);
     ctx.fill();
 
     ctx.beginPath();
@@ -113,7 +114,7 @@ export default function VizCausticResonancePage() {
       const y = CANVAS_H - (profile[px] / maxCount) * (CANVAS_H - 20);
       if (px === 0) ctx.moveTo(px, y); else ctx.lineTo(px, y);
     }
-    ctx.strokeStyle = '#818cf8';
+    ctx.strokeStyle = ED.series5;
     ctx.lineWidth = 1.5;
     ctx.stroke();
 
@@ -121,9 +122,9 @@ export default function VizCausticResonancePage() {
     if (showResonance) {
       for (const tick of ticks) {
         const x = toX(tick.t);
-        ctx.strokeStyle = tick.k === 1 ? 'rgba(251,191,36,0.70)' :
-                          tick.k === 2 ? 'rgba(251,146,60,0.45)' :
-                                         'rgba(248,113,113,0.30)';
+        ctx.strokeStyle = tick.k === 1 ? alpha(ED.brassDeco, 0.7) :
+                          tick.k === 2 ? alpha(ED.series4, 0.45) :
+                                         alpha(ED.series2, 0.3);
         ctx.lineWidth = tick.k === 1 ? 1.5 : 1;
         ctx.setLineDash(tick.k === 1 ? [] : [3, 3]);
         ctx.beginPath();
@@ -137,7 +138,7 @@ export default function VizCausticResonancePage() {
     // Hovered resonance tick highlight.
     if (hovered) {
       const x = toX(hovered.t);
-      ctx.strokeStyle = '#f0abfc';
+      ctx.strokeStyle = ED.series7;
       ctx.lineWidth = 2;
       ctx.beginPath();
       ctx.moveTo(x, 0);
@@ -147,7 +148,7 @@ export default function VizCausticResonancePage() {
 
     // Axis labels.
     ctx.font = '10px "JetBrains Mono", monospace';
-    ctx.fillStyle = 'rgba(148,163,184,0.8)';
+    ctx.fillStyle = alpha(ED.series8, 0.8);
     ctx.textAlign = 'left';
     ctx.fillText('t = ' + tMin, 4, CANVAS_H - 4);
     ctx.textAlign = 'right';

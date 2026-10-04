@@ -3,13 +3,14 @@ import { IMP2643_HONEST_ASSEMBLED_EN } from '../data/imp-2643-honest-assembled-E
 import { IMP2641_C_SELBERG_TRUDGIAN_DISCHARGE } from '../data/imp-2641-c-selberg-trudgian-discharge.js';
 import { C_H_QUADRATIC_TANGENCY_UPPER_BOUND_CHECK_IMP2642 } from '../data/polymath15-lemma52-shock-holder.js';
 import { IMP2715_WORST_CASE_EN_HEADROOM } from '../data/imp-2715-worst-case-EN-headroom-audit.js';
+import { ED } from '../styles/tokens.js';
 
 function statusColor(status) {
   const s = status.toLowerCase();
-  if (s.includes('rigorous') && !s.includes('not rigorous')) return '#4c7a4a';
-  if (s.includes('placeholder') || s.includes('ansatz')) return '#b58a2e';
-  if (s.includes('in-progress')) return '#3f6b86';
-  return '#877b67';
+  if (s.includes('rigorous') && !s.includes('not rigorous')) return ED.series3;
+  if (s.includes('placeholder') || s.includes('ansatz')) return ED.brassDeco;
+  if (s.includes('in-progress')) return ED.series1;
+  return ED.inkFaint;
 }
 
 function statusLabel(status) {
@@ -34,7 +35,7 @@ export default function ConstantDischargeTracker() {
       value: C_Selberg_data?.C_Selberg?.discharged ?? '2.622',
       status: 'Discharged (2.622)',
       description: 'Trudgian 2014 coefficient; conservative placeholder verified',
-      color: '#4c7a4a',
+      color: ED.series3,
       ticket: 'imp-2641',
     },
     {
@@ -43,7 +44,7 @@ export default function ConstantDischargeTracker() {
       value: '1/8',
       status: C_H_data?.isRigorousUpperBound ? 'Rigorous' : 'Blocked',
       description: 'Leading-order coefficient; NOT a rigorous upper bound on Holder-1/2 modulus',
-      color: C_H_data?.isRigorousUpperBound ? '#4c7a4a' : '#c23a1c',
+      color: C_H_data?.isRigorousUpperBound ? ED.series3 : ED.accent,
       ticket: 'imp-2642',
     },
     {
@@ -52,7 +53,7 @@ export default function ConstantDischargeTracker() {
       value: data.subterms.E_flow.C_F.toFixed(6),
       status: 'Rigorous',
       description: 'Analytically pinned from boundary identity; unconditional',
-      color: '#4c7a4a',
+      color: ED.series3,
       ticket: 'imp-398',
     },
     {
@@ -61,7 +62,7 @@ export default function ConstantDischargeTracker() {
       value: '1.0',
       status: 'Non-binding',
       description: 'Placeholder; A1 trap shows |t_c| microscopic, so amplification <= 0.24%',
-      color: '#3f6b86',
+      color: ED.series1,
       ticket: 'imp-2644',
     },
     {
@@ -70,7 +71,7 @@ export default function ConstantDischargeTracker() {
       value: '3π',
       status: 'Rigorous',
       description: 'π × C_Selberg uniformity; Selberg coefficient proven',
-      color: '#4c7a4a',
+      color: ED.series3,
       ticket: 'imp-341/imp-366',
     },
     {
@@ -79,22 +80,22 @@ export default function ConstantDischargeTracker() {
       value: (3.1e-5).toExponential(2),
       status: 'Rigorous (mod C_T)',
       description: 'Ingham 1940 + Guth-Maynard 2024 exponents; numerically negligible (~0.24% of E(N))',
-      color: '#4c7a4a',
+      color: ED.series3,
       ticket: 'imp-2625',
     },
   ];
 
   return (
     <div style={{
-      background: '#f6f1e7',
-      border: '1px solid #d5c9b2',
+      background: 'var(--paper-2)',
+      border: '1px solid var(--rule)',
       borderRadius: 10,
       padding: '16px 20px',
       marginBottom: 24,
     }}>
       <div style={{
         fontSize: 12,
-        color: '#877b67',
+        color: 'var(--ink-faint)',
         fontFamily: 'var(--font-mono)',
         marginBottom: 12,
         fontWeight: 600,
@@ -110,64 +111,64 @@ export default function ConstantDischargeTracker() {
         marginBottom: 16,
       }}>
         <div style={{
-          background: 'rgba(76,122,74,0.10)',
-          border: '1px solid #4c7a4a55',
+          background: 'color-mix(in srgb, var(--series-3) 10%, transparent)',
+          border: '1px solid color-mix(in srgb, var(--series-3) 33%, transparent)',
           borderRadius: 7,
           padding: '10px 12px',
         }}>
-          <div style={{ fontSize: 11, color: '#877b67', fontFamily: 'var(--font-mono)' }}>
+          <div style={{ fontSize: 11, color: 'var(--ink-faint)', fontFamily: 'var(--font-mono)' }}>
             E(N) VALUE
           </div>
           <div style={{
             fontSize: 16,
             fontWeight: 700,
-            color: '#1c1814',
+            color: 'var(--ink)',
             fontFamily: 'var(--font-mono)',
             marginTop: 4,
           }}>
             {data.E_N}
           </div>
-          <div style={{ fontSize: 10, color: '#877b67', marginTop: 2 }}>
+          <div style={{ fontSize: 10, color: 'var(--ink-faint)', marginTop: 2 }}>
             {data.clearsPTNumerically ? `~${data.numericMarginFactor}× below PT` : 'Exceeds PT bound'}
           </div>
         </div>
 
         <div style={{
-          background: data.rigorousBeat ? 'rgba(76,122,74,0.10)' : 'rgba(194,58,28,0.10)',
-          border: data.rigorousBeat ? '1px solid #4c7a4a55' : '1px solid #c23a1c55',
+          background: data.rigorousBeat ? 'color-mix(in srgb, var(--series-3) 10%, transparent)' : 'color-mix(in srgb, var(--series-2) 10%, transparent)',
+          border: data.rigorousBeat ? '1px solid color-mix(in srgb, var(--series-3) 33%, transparent)' : '1px solid color-mix(in srgb, var(--accent) 33%, transparent)',
           borderRadius: 7,
           padding: '10px 12px',
         }}>
-          <div style={{ fontSize: 11, color: '#877b67', fontFamily: 'var(--font-mono)' }}>
+          <div style={{ fontSize: 11, color: 'var(--ink-faint)', fontFamily: 'var(--font-mono)' }}>
             RIGOROUS BEAT
           </div>
           <div style={{
             fontSize: 16,
             fontWeight: 700,
-            color: data.rigorousBeat ? '#4c7a4a' : '#c23a1c',
+            color: data.rigorousBeat ? 'var(--series-3)' : 'var(--accent)',
             fontFamily: 'var(--font-mono)',
             marginTop: 4,
           }}>
             {data.rigorousBeat ? 'PASS' : 'NO-GO'}
           </div>
-          <div style={{ fontSize: 10, color: '#877b67', marginTop: 2 }}>
+          <div style={{ fontSize: 10, color: 'var(--ink-faint)', marginTop: 2 }}>
             {data.blockingConstant.substring(0, 25)}...
           </div>
         </div>
 
         <div style={{
-          background: 'rgba(245,158,11,0.08)',
-          border: '1px solid #b58a2e55',
+          background: 'color-mix(in srgb, var(--brass-deco) 8%, transparent)',
+          border: '1px solid color-mix(in srgb, var(--brass-deco) 33%, transparent)',
           borderRadius: 7,
           padding: '10px 12px',
         }}>
-          <div style={{ fontSize: 11, color: '#877b67', fontFamily: 'var(--font-mono)' }}>
+          <div style={{ fontSize: 11, color: 'var(--ink-faint)', fontFamily: 'var(--font-mono)' }}>
             BLOCKER
           </div>
           <div style={{
             fontSize: 13,
             fontWeight: 700,
-            color: '#b58a2e',
+            color: 'var(--brass)',
             fontFamily: 'var(--font-mono)',
             marginTop: 4,
             lineHeight: 1.3,
@@ -221,7 +222,7 @@ export default function ConstantDischargeTracker() {
             <div style={{
               fontSize: 13,
               fontWeight: 700,
-              color: '#1c1814',
+              color: 'var(--ink)',
               fontFamily: 'var(--font-mono)',
               marginBottom: 4,
             }}>
@@ -237,7 +238,7 @@ export default function ConstantDischargeTracker() {
             </div>
             <div style={{
               fontSize: 10,
-              color: '#877b67',
+              color: 'var(--ink-faint)',
               lineHeight: 1.3,
               marginBottom: 6,
             }}>
@@ -245,7 +246,7 @@ export default function ConstantDischargeTracker() {
             </div>
             <div style={{
               fontSize: 9,
-              color: '#877b67',
+              color: 'var(--ink-faint)',
               fontFamily: 'var(--font-mono)',
             }}>
               {c.ticket}
@@ -257,11 +258,11 @@ export default function ConstantDischargeTracker() {
       {/* Subterm breakdown */}
       <div style={{
         fontSize: 11,
-        color: '#877b67',
+        color: 'var(--ink-faint)',
         fontFamily: 'var(--font-mono)',
         marginTop: 12,
         paddingTop: 12,
-        borderTop: '1px solid #d5c9b2',
+        borderTop: '1px solid var(--rule)',
       }}>
         <div style={{ marginBottom: 6, fontWeight: 600 }}>SUBTERM COMPOSITION</div>
         <div style={{
@@ -270,20 +271,20 @@ export default function ConstantDischargeTracker() {
           gap: 8,
         }}>
           <div>
-            <span style={{ color: '#877b67' }}>E_trunc:</span>{' '}
-            <span style={{ color: '#1c1814' }}>
+            <span style={{ color: 'var(--ink-faint)' }}>E_trunc:</span>{' '}
+            <span style={{ color: 'var(--ink)' }}>
               {(data.subterms.E_trunc_pt.shareOfEN * 100).toFixed(1)}%
             </span>
           </div>
           <div>
-            <span style={{ color: '#877b67' }}>E_flow:</span>{' '}
-            <span style={{ color: '#1c1814' }}>
+            <span style={{ color: 'var(--ink-faint)' }}>E_flow:</span>{' '}
+            <span style={{ color: 'var(--ink)' }}>
               {(data.subterms.E_flow.shareOfEN * 100).toFixed(1)}%
             </span>
           </div>
           <div>
-            <span style={{ color: '#877b67' }}>E_coll:</span>{' '}
-            <span style={{ color: '#b58a2e', fontWeight: 700 }}>
+            <span style={{ color: 'var(--ink-faint)' }}>E_coll:</span>{' '}
+            <span style={{ color: 'var(--brass)', fontWeight: 700 }}>
               {(data.subterms.E_coll.shareOfEN * 100).toFixed(1)}%
             </span>
           </div>
@@ -293,11 +294,11 @@ export default function ConstantDischargeTracker() {
       {/* Worst-case constant-bracket robustness (imp-2715, numerical headroom NOT rigorous) */}
       <div style={{
         fontSize: 11,
-        color: '#877b67',
+        color: 'var(--ink-faint)',
         fontFamily: 'var(--font-mono)',
         marginTop: 12,
         paddingTop: 12,
-        borderTop: '1px solid #d5c9b2',
+        borderTop: '1px solid var(--rule)',
       }}>
         <div style={{ marginBottom: 6, fontWeight: 600 }}>
           WORST-CASE BRACKET ROBUSTNESS (imp-2715, numerical headroom — not rigorous)
@@ -308,21 +309,21 @@ export default function ConstantDischargeTracker() {
           gap: 8,
         }}>
           <div>
-            <span style={{ color: '#877b67' }}>E(N) worst:</span>{' '}
-            <span style={{ color: '#1c1814', fontWeight: 700 }}>{worst.E_N_worst}</span>
+            <span style={{ color: 'var(--ink-faint)' }}>E(N) worst:</span>{' '}
+            <span style={{ color: 'var(--ink)', fontWeight: 700 }}>{worst.E_N_worst}</span>
           </div>
           <div>
-            <span style={{ color: '#877b67' }}>vs central:</span>{' '}
-            <span style={{ color: '#1c1814' }}>{worst.E_N_central}</span>
+            <span style={{ color: 'var(--ink-faint)' }}>vs central:</span>{' '}
+            <span style={{ color: 'var(--ink)' }}>{worst.E_N_central}</span>
           </div>
           <div>
-            <span style={{ color: '#877b67' }}>margin:</span>{' '}
-            <span style={{ color: worst.clearsPTNumerically ? '#4c7a4a' : '#c23a1c', fontWeight: 700 }}>
+            <span style={{ color: 'var(--ink-faint)' }}>margin:</span>{' '}
+            <span style={{ color: worst.clearsPTNumerically ? 'var(--series-3)' : 'var(--accent)', fontWeight: 700 }}>
               ~{worst.worstMarginFactor}× below PT
             </span>
           </div>
         </div>
-        <div style={{ fontSize: 10, color: '#877b67', lineHeight: 1.3, marginTop: 6 }}>
+        <div style={{ fontSize: 10, color: 'var(--ink-faint)', lineHeight: 1.3, marginTop: 6 }}>
           C_H = {worst.worstCaseBrackets.E_coll.C_H_worst}, C_Selberg = {worst.worstCaseBrackets.E_coll.C_Selberg_worst},
           {' '}C_G = {worst.worstCaseBrackets.E_flow.C_G_worst} pessimized at N* = {worst.N_star}; the ~15× clearance
           survives because E_coll dominates and inflates only ~{((worst.E_coll_inflation_factor - 1) * 100).toFixed(1)}%.

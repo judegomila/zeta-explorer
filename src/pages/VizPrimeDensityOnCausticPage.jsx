@@ -25,6 +25,7 @@ import React, { useRef, useEffect, useState, useMemo, useCallback } from 'react'
 import { Link } from 'react-router-dom';
 import { getPrimes } from '../math/primes.js';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
+import { ED, alpha } from '../styles/tokens.js';
 
 const TWO_PI = 2 * Math.PI;
 const mono = 'var(--font-mono)';
@@ -244,18 +245,18 @@ export default function VizPrimeDensityOnCausticPage() {
 
     // Baseline (PNT expected fraction).
     const baseY = 80 - Math.min(79, Math.round(pntBaseline * 3 * 80));
-    ctx.strokeStyle = 'rgba(148,163,184,0.4)';
+    ctx.strokeStyle = alpha(ED.rule, 0.4);
     ctx.setLineDash([3, 3]);
     ctx.beginPath();
     ctx.moveTo(0, baseY); ctx.lineTo(GRID_W, baseY);
     ctx.stroke();
     ctx.setLineDash([]);
     ctx.font = '9px monospace';
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = ED.series8;
     ctx.fillText('PNT baseline', 3, baseY - 2);
 
     // Profile bars (purple).
-    ctx.fillStyle = '#a855f7';
+    ctx.fillStyle = ED.series5;
     for (let px = 0; px < GRID_W; px++) {
       const h = Math.round((profile[px] / maxFrac) * 78);
       if (h > 0) ctx.fillRect(px, 80 - h, 1, h);
@@ -264,7 +265,7 @@ export default function VizPrimeDensityOnCausticPage() {
     // PNT difference curve: clamp(profile[px] - pntBaseline, 0, inf) as orange polyline.
     // y=79 = zero excess; excess rises proportionally to maxFrac over 78 pixels.
     const diffScale = maxFrac > 0 ? 78 / maxFrac : 0;
-    ctx.strokeStyle = '#f97316';
+    ctx.strokeStyle = ED.series4;
     ctx.lineWidth = 1.5;
     ctx.beginPath();
     for (let px = 0; px < GRID_W; px++) {
@@ -276,7 +277,7 @@ export default function VizPrimeDensityOnCausticPage() {
     ctx.lineWidth = 1;
 
     ctx.font = '9px monospace';
-    ctx.fillStyle = '#f97316';
+    ctx.fillStyle = ED.series4;
     ctx.textAlign = 'right';
     ctx.fillText('excess (orange)', GRID_W - 3, 78);
     ctx.textAlign = 'left';
@@ -346,7 +347,7 @@ export default function VizPrimeDensityOnCausticPage() {
           <Stat label="eps (rad)"        value={eps.toFixed(2)} />
           <Stat label="sigma"            value={sigma.toFixed(2)} />
           <Stat label="PNT baseline"     value={(pntBaseline * 100).toFixed(1) + '%'} accent="var(--faint)" />
-          <Stat label="cols > baseline"  value={String(aboveBaseline) + ' / ' + GRID_W} accent="#a855f7" />
+          <Stat label="cols > baseline"  value={String(aboveBaseline) + ' / ' + GRID_W} accent={ED.series5} />
           <Stat label="render (ms)"      value={String(renderMs)} />
         </div>
 

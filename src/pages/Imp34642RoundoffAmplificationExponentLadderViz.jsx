@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP34606_ROUNDOFF_AMPLIFICATION_EXPONENT_LADDER } from '../data/imp-34606-roundoff-amplification-exponent-ladder.js';
+import { ED } from '../styles/tokens.js';
 
 const M = IMP34606_ROUNDOFF_AMPLIFICATION_EXPONENT_LADDER;
 
@@ -60,9 +61,9 @@ const WINDOW_Q3 = [1e-4, 5e-5, 3e-5, 2e-5, 1e-5];
 const WINDOW_Q4 = [2e-3, 1.4e-3, 1e-3];
 
 const CHANNELS = [
-  { k: 2, color: '#38bdf8', label: 'q2 (predicted 1/dp²)', window: WINDOW_Q2, m: M.m_q2, r2: M.r2_q2 },
-  { k: 3, color: '#facc15', label: 'q3 (predicted 1/dp³)', window: WINDOW_Q3, m: M.m_q3, r2: M.r2_q3 },
-  { k: 4, color: '#f87171', label: 'q4 (predicted 1/dp⁴)', window: WINDOW_Q4, m: M.m_q4, r2: M.r2_q4 },
+  { k: 2, color: ED.series1, label: 'q2 (predicted 1/dp²)', window: WINDOW_Q2, m: M.m_q2, r2: M.r2_q2 },
+  { k: 3, color: ED.brass, label: 'q3 (predicted 1/dp³)', window: WINDOW_Q3, m: M.m_q3, r2: M.r2_q3 },
+  { k: 4, color: ED.series2, label: 'q4 (predicted 1/dp⁴)', window: WINDOW_Q4, m: M.m_q4, r2: M.r2_q4 },
 ];
 
 const SERIES = CHANNELS.map((c) => ({
@@ -92,8 +93,8 @@ function LadderChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
+      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
 
       {SERIES.map((s) => {
         const path = s.points.map((p, i) => `${i === 0 ? 'M' : 'L'}${xAt(p.dp)},${yAt(p.share)}`).join(' ');
@@ -101,7 +102,7 @@ function LadderChart() {
           <g key={s.k}>
             <path d={path} fill="none" stroke={s.color} strokeWidth={2} />
             {s.points.map((p) => (
-              <circle key={p.dp} cx={xAt(p.dp)} cy={yAt(p.share)} r={3.5} fill={s.color} stroke="#0a0f1a" strokeWidth={1} />
+              <circle key={p.dp} cx={xAt(p.dp)} cy={yAt(p.share)} r={3.5} fill={s.color} stroke={ED.paper} strokeWidth={1} />
             ))}
           </g>
         );
@@ -113,7 +114,7 @@ function LadderChart() {
         </text>
       ))}
 
-      <text x={padL + cW / 2} y={svgH - 6} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 6} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         q-derivative step dp (log scale) -- per-channel roundoff-dominated window
       </text>
     </svg>
@@ -125,7 +126,7 @@ export default function Imp34642RoundoffAmplificationExponentLadderViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="q2/q3/q4 Roundoff-Amplification Exponent Ladder vs dp (imp-34642 / imp-34606)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-34606 measured, on one common deep-tail footing (N &ge; N* &asymp;{' '}
         {M.deep_tail_boundary_N.toExponential(2)}), the log-log growth exponent of each of the q2 /
         q3 / q4 finite-difference channel shares against the q-derivative step dp, unifying the
@@ -136,7 +137,7 @@ export default function Imp34642RoundoffAmplificationExponentLadderViz() {
         primitives.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         deep-group max apparent channel share vs dp (log-log): three roundoff-amplification lines,
         one per channel
       </p>
@@ -151,7 +152,7 @@ export default function Imp34642RoundoffAmplificationExponentLadderViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>channel</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>predicted k</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>measured m</th>
@@ -161,7 +162,7 @@ export default function Imp34642RoundoffAmplificationExponentLadderViz() {
         </thead>
         <tbody>
           {M.ladder_rows.map((r) => (
-            <tr key={r.channel} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+            <tr key={r.channel} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
               <td style={{ padding: '0.4rem 0.6rem' }}>{r.channel}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.k_predicted}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.m_measured}</td>
@@ -178,11 +179,11 @@ export default function Imp34642RoundoffAmplificationExponentLadderViz() {
         style={{
           marginTop: '1rem',
           padding: '0.6rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
         }}
       >
         Ladder clean and strictly increasing (m2 &lt; m3 &lt; m4, all rounding to the predicted
@@ -196,14 +197,14 @@ export default function Imp34642RoundoffAmplificationExponentLadderViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-data only, recomputing the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-data only, recomputing the
         imp-34606 q-derivative sweep independently over its published roundoff-dominated windows;
         the fitted m/R&sup2; annotations are the imp-34606 baked values. q1..q4 are inherited
         central differences, NOT fresh analytic closed forms, so the sigma&nbsp;-&gt;&nbsp;1

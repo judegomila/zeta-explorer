@@ -11,6 +11,7 @@ import {
   OPEN_GAPS,
 } from '../data/lambda-roadmap.js';
 import { IMP_33828_SIGMA_DECAY_LANDMARK_LADDER_REFERENCE } from '../data/imp-33828-sigma-decay-landmark-ladder-reference.js';
+import { ED, alpha } from '../styles/tokens.js';
 
 // Lambda Bounds & RH Roadmap — the plan, the status, the verification.
 // Read interface for src/data/lambda-roadmap.js.
@@ -33,19 +34,19 @@ const chip = (bg, fg, border) => ({
 });
 
 const CHIPS = {
-  rigorous: chip('rgba(76,122,74,0.14)', 'var(--green)', 'rgba(76,122,74,0.40)'),
-  'cross-verified': chip('rgba(63,107,134,0.14)', 'var(--blue)', 'rgba(63,107,134,0.40)'),
-  numerical: chip('rgba(181,138,46,0.16)', 'var(--brass-dk)', 'rgba(181,138,46,0.45)'),
-  unverified: chip('rgba(194,58,28,0.14)', 'var(--terra-dk)', 'rgba(194,58,28,0.40)'),
-  closed: chip('rgba(76,122,74,0.14)', 'var(--green)', 'rgba(76,122,74,0.40)'),
-  open: chip('rgba(194,58,28,0.14)', 'var(--terra-dk)', 'rgba(194,58,28,0.40)'),
-  partial: chip('rgba(181,138,46,0.16)', 'var(--brass-dk)', 'rgba(181,138,46,0.45)'),
-  'public-preprint-review-open': chip('rgba(63,107,134,0.16)', 'var(--blue)', 'rgba(63,107,134,0.45)'),
-  'unreviewed-proof-candidate': chip('rgba(63,107,134,0.16)', 'var(--blue)', 'rgba(63,107,134,0.45)'),
-  'conditional-g6a-open': chip('rgba(194,58,28,0.14)', 'var(--terra-dk)', 'rgba(194,58,28,0.40)'),
-  'estimate-c-h-open': chip('rgba(181,138,46,0.16)', 'var(--brass-dk)', 'rgba(181,138,46,0.45)'),
-  critical: chip('rgba(194,58,28,0.20)', 'var(--terra-dk)', 'rgba(194,58,28,0.55)'),
-  high: chip('rgba(181,138,46,0.16)', 'var(--brass-dk)', 'rgba(181,138,46,0.45)'),
+  rigorous: chip(alpha(ED.series3, 0.14), 'var(--green)', alpha(ED.series3, 0.4)),
+  'cross-verified': chip(alpha(ED.series1, 0.14), 'var(--blue)', alpha(ED.series1, 0.4)),
+  numerical: chip(alpha(ED.brassDeco, 0.16), 'var(--brass-dk)', alpha(ED.brassDeco, 0.45)),
+  unverified: chip(alpha(ED.series2, 0.14), 'var(--terra-dk)', alpha(ED.series2, 0.4)),
+  closed: chip(alpha(ED.series3, 0.14), 'var(--green)', alpha(ED.series3, 0.4)),
+  open: chip(alpha(ED.series2, 0.14), 'var(--terra-dk)', alpha(ED.series2, 0.4)),
+  partial: chip(alpha(ED.brassDeco, 0.16), 'var(--brass-dk)', alpha(ED.brassDeco, 0.45)),
+  'public-preprint-review-open': chip(alpha(ED.series1, 0.16), 'var(--blue)', alpha(ED.series1, 0.45)),
+  'unreviewed-proof-candidate': chip(alpha(ED.series1, 0.16), 'var(--blue)', alpha(ED.series1, 0.45)),
+  'conditional-g6a-open': chip(alpha(ED.series2, 0.14), 'var(--terra-dk)', alpha(ED.series2, 0.4)),
+  'estimate-c-h-open': chip(alpha(ED.brassDeco, 0.16), 'var(--brass-dk)', alpha(ED.brassDeco, 0.45)),
+  critical: chip(alpha(ED.series2, 0.2), 'var(--terra-dk)', alpha(ED.series2, 0.55)),
+  high: chip(alpha(ED.brassDeco, 0.16), 'var(--brass-dk)', alpha(ED.brassDeco, 0.45)),
 };
 
 function statusChip(status) {
@@ -112,7 +113,7 @@ function displayTLDR(tldr) {
       'A separate private v3 package proposes Lambda <= 0.1787854 as a computer-assisted proof ' +
       'candidate for an unconditional bound — reviewed by Dan Romik and being prepared for public ' +
       'release, but unrefereed and not established. A sharper four-gate candidate reaches ' +
-      'Lambda <= 0.1758354 (four Arb-checked gates, Lean-checked reduction; unrefereed, not ' +
+      'Lambda <= 0.1758354 (four Arb-checked gates, Lean-checked y-transfer reduction and Lemma B3; unrefereed, not ' +
       'established). The strict Lambda <= 0.14 statement is a conditional completion contract ' +
       'reduced to one open family, not a bound. RH still requires Lambda <= 0.',
     );
@@ -228,9 +229,9 @@ export default function LambdaBoundsPage() {
               fontFamily: 'var(--ed-mono, var(--font-mono))',
               fontSize: 11,
               padding: '4px 10px',
-              border: '1px solid rgba(194,58,28,0.45)',
+              border: '1px solid color-mix(in srgb, var(--accent) 45%, transparent)',
               borderRadius: 6,
-              background: 'rgba(194,58,28,0.08)',
+              background: 'color-mix(in srgb, var(--series-2) 8%, transparent)',
             }}>
               The internal finite-height “beat” draft was never published: C_H is undischarged, so it stays an estimate
             </span>
@@ -729,8 +730,8 @@ export default function LambdaBoundsPage() {
                     marginBottom: 10,
                     padding: '8px 10px',
                     borderRadius: 6,
-                    background: 'rgba(181,138,46,0.08)',
-                    border: '1px solid rgba(181,138,46,0.30)',
+                    background: 'color-mix(in srgb, var(--brass-deco) 8%, transparent)',
+                    border: '1px solid color-mix(in srgb, var(--brass-deco) 30%, transparent)',
                   }}
                 >
                   <div style={{ marginBottom: 6 }}>
@@ -760,8 +761,8 @@ export default function LambdaBoundsPage() {
                     marginBottom: 10,
                     padding: '8px 10px',
                     borderRadius: 6,
-                    background: 'rgba(181,46,46,0.06)',
-                    border: '1px solid rgba(181,46,46,0.25)',
+                    background: 'color-mix(in srgb, var(--status-refuted) 6%, transparent)',
+                    border: '1px solid color-mix(in srgb, var(--status-refuted) 25%, transparent)',
                   }}
                 >
                   <div style={{ marginBottom: 6 }}>
@@ -985,7 +986,7 @@ function resolutionColor(status) {
 }
 
 function resolutionBg(status) {
-  if (status === 'not-met-conditional-negative') return 'rgba(194,58,28,0.08)';
-  if (status === 'met-partial-positive') return 'rgba(181,138,46,0.08)';
-  return 'rgba(76,122,74,0.08)';
+  if (status === 'not-met-conditional-negative') return alpha(ED.series2, 0.08);
+  if (status === 'met-partial-positive') return alpha(ED.brassDeco, 0.08);
+  return alpha(ED.series3, 0.08);
 }

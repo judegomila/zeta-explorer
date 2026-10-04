@@ -192,7 +192,7 @@ export default function NotFoundPage() {
   }, []);
 
   return (
-    <div style={{ position: 'relative', minHeight: 'calc(100vh - 56px)', overflow: 'hidden', background: '#08090e' }}>
+    <div style={{ position: 'relative', minHeight: 'calc(100vh - 56px)', overflow: 'hidden', background: 'var(--paper)' }}>
       <canvas
         ref={canvasRef}
         style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', display: 'block' }}
@@ -205,11 +205,11 @@ export default function NotFoundPage() {
       }}>
         <h1 style={{
           fontSize: 96, fontWeight: 800, margin: 0, lineHeight: 1,
-          fontFamily: 'var(--font-mono, monospace)', color: '#fff',
+          fontFamily: 'var(--font-mono, monospace)', color: 'var(--ink)',
           textShadow: '0 2px 30px rgba(0,0,0,0.9), 0 0 3px rgba(0,0,0,0.9)',
         }}>404</h1>
         <p style={{
-          fontSize: 17, color: '#fff', margin: '14px 0 22px', maxWidth: 560,
+          fontSize: 17, color: 'var(--ink)', margin: '14px 0 22px', maxWidth: 560,
           textShadow: '0 1px 14px rgba(0,0,0,0.95), 0 0 3px rgba(0,0,0,0.95)',
         }}>
           Not found — you've wandered off every mapped route. Behind this page:
@@ -231,7 +231,7 @@ export default function NotFoundPage() {
         </div>
         <p style={{
           position: 'absolute', bottom: 34, left: 0, right: 0, margin: '0 auto', maxWidth: 720,
-          fontSize: 11, color: 'rgba(255,255,255,0.75)', fontFamily: 'var(--font-mono, monospace)',
+          fontSize: 11, color: 'color-mix(in srgb, var(--ink) 75%, transparent)', fontFamily: 'var(--font-mono, monospace)',
           textShadow: '0 1px 8px rgba(0,0,0,0.9)', pointerEvents: 'none', padding: '0 16px',
         }}>
           domain coloring of ζ(σ+it), σ∈[0.02,1.65], t∈[1,36.5] · Borwein-accelerated η —

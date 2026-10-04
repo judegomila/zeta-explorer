@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP95374_RZPEN_OFFLATTICE_DEGRADATION } from '../data/imp-95374-rzpen-offlattice-degradation.js';
+import { ED } from '../styles/tokens.js';
 
 const DATA = IMP95374_RZPEN_OFFLATTICE_DEGRADATION;
 const WORST = DATA.offLatticeWorst;
@@ -42,45 +43,45 @@ function FloorDegradationChart() {
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
       {yTicks.map((v) => (
-        <line key={`g${v}`} x1={padL} y1={yOf(v)} x2={padL + plotW} y2={yOf(v)} stroke="#1e293b" strokeWidth={1} />
+        <line key={`g${v}`} x1={padL} y1={yOf(v)} x2={padL + plotW} y2={yOf(v)} stroke={ED.ruleSoft} strokeWidth={1} />
       ))}
       <line
         x1={padL}
         y1={yOf(aUnifLog)}
         x2={padL + plotW}
         y2={yOf(aUnifLog)}
-        stroke="#f87171"
+        stroke={ED.series2}
         strokeWidth={1.5}
         strokeDasharray="4 3"
       />
-      <text x={padL + plotW - 4} y={yOf(aUnifLog) - 5} textAnchor="end" fill="#f87171" fontSize={9}>
+      <text x={padL + plotW - 4} y={yOf(aUnifLog) - 5} textAnchor="end" fill={ED.series2} fontSize={9}>
         proven A_unif4 = {A_UNIF4.toExponential(3)}
       </text>
-      <path d={meanPath} fill="none" stroke="#34d399" strokeWidth={2} strokeDasharray="6 3" />
-      <path d={worstPath} fill="none" stroke="#60a5fa" strokeWidth={2} />
+      <path d={meanPath} fill="none" stroke={ED.series3} strokeWidth={2} strokeDasharray="6 3" />
+      <path d={worstPath} fill="none" stroke={ED.series1} strokeWidth={2} />
       {WORST.map((r, i) => (
         <g key={r.delta}>
-          <circle cx={xOf(xVals[i])} cy={yOf(worstLog[i])} r={4} fill="#60a5fa" />
-          <circle cx={xOf(xVals[i])} cy={yOf(meanLog[i])} r={4} fill="#34d399" />
-          <text x={xOf(xVals[i])} y={padT + plotH + 16} textAnchor="middle" fill="#64748b" fontSize={9.5}>
+          <circle cx={xOf(xVals[i])} cy={yOf(worstLog[i])} r={4} fill={ED.series1} />
+          <circle cx={xOf(xVals[i])} cy={yOf(meanLog[i])} r={4} fill={ED.series3} />
+          <text x={xOf(xVals[i])} y={padT + plotH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5}>
             &plusmn;{DELTA_PCT[i].toFixed(2)}%
           </text>
         </g>
       ))}
       {yTicks.map((v) => (
-        <text key={`t${v}`} x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+        <text key={`t${v}`} x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
           {v}
         </text>
       ))}
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill="#64748b" fontSize={9.5}>
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5}>
         log-rate jitter magnitude delta (percent)
       </text>
       <text
         x={14}
         y={padT + plotH / 2}
         textAnchor="middle"
-        fill="#94a3b8"
+        fill={ED.inkSoft}
         fontSize={9.5}
         transform={`rotate(-90 14 ${padT + plotH / 2})`}
       >
@@ -120,26 +121,26 @@ function OnsetShiftChart() {
               y={yOf(r.onsetShift)}
               width={barW}
               height={h}
-              fill={r.breach ? '#f87171' : '#60a5fa'}
+              fill={r.breach ? ED.series2 : ED.series1}
             />
-            <text x={cx} y={yOf(r.onsetShift) - 6} textAnchor="middle" fill="#cbd5e1" fontSize={9}>
+            <text x={cx} y={yOf(r.onsetShift) - 6} textAnchor="middle" fill={ED.ink} fontSize={9}>
               +{r.onsetShift.toFixed(2)}
             </text>
-            <text x={cx} y={padT + plotH + 16} textAnchor="middle" fill="#64748b" fontSize={9.5}>
+            <text x={cx} y={padT + plotH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5}>
               &plusmn;{DELTA_PCT[i].toFixed(2)}%
             </text>
           </g>
         );
       })}
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill="#64748b" fontSize={9.5}>
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5}>
         log-rate jitter magnitude delta (percent)
       </text>
       <text
         x={12}
         y={padT + plotH / 2}
         textAnchor="middle"
-        fill="#94a3b8"
+        fill={ED.inkSoft}
         fontSize={9.5}
         transform={`rotate(-90 12 ${padT + plotH / 2})`}
       >
@@ -158,21 +159,21 @@ export default function Imp95435RzpenOfflatticeDegradationLadderViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> a measurement-only
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a measurement-only
         page tabulating the imp-95374 record. It quantifies the imp-95330/imp-95331
         off-lattice residual and changes no bound. Platt&ndash;Trudgian &Lambda; &le; 0.2
         remains state of the art. NO QED.
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         The imp-95330 THEOREM RZ-PEN4 floor is a Toeplitz-symbol construct pinned to the
         exact dyadic rate lattice nu_k = 2^k; off the lattice the symbol does not exist, so
         imp-95374 instead measures the finite generalized pencil floor lam_min(Gtilde,
@@ -180,21 +181,21 @@ export default function Imp95435RzpenOfflatticeDegradationLadderViz() {
         octave-twin blocks, 400 trials per magnitude.
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         Pencil floor vs jitter magnitude &mdash; worst-of-400 (blue) vs mean-of-400 (green),
         proven A_unif4 floor (red dashed)
       </h3>
       <FloorDegradationChart />
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', margin: '1.5rem 0 0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', margin: '1.5rem 0 0.5rem' }}>
         Worst-of-400 onset shift vs the m = 8 measured baseline (red bars breach the
         proven floor)
       </h3>
       <OnsetShiftChart />
 
-      <table style={{ width: '100%', fontSize: '0.78rem', color: '#cbd5e1', borderCollapse: 'collapse', marginTop: '1.25rem' }}>
+      <table style={{ width: '100%', fontSize: '0.78rem', color: 'var(--ink)', borderCollapse: 'collapse', marginTop: '1.25rem' }}>
         <thead>
-          <tr style={{ color: '#64748b' }}>
+          <tr style={{ color: 'var(--ink-faint)' }}>
             <th style={{ textAlign: 'left', paddingBottom: 4 }}>delta</th>
             <th style={{ textAlign: 'right', paddingBottom: 4 }}>worst floor</th>
             <th style={{ textAlign: 'right', paddingBottom: 4 }}>degrade</th>
@@ -206,14 +207,14 @@ export default function Imp95435RzpenOfflatticeDegradationLadderViz() {
         </thead>
         <tbody>
           {WORST.map((r, i) => (
-            <tr key={r.delta} style={{ borderTop: '1px solid rgba(148,163,184,0.15)' }}>
+            <tr key={r.delta} style={{ borderTop: '1px solid color-mix(in srgb, var(--rule) 15%, transparent)' }}>
               <td style={{ padding: '3px 0' }}>&plusmn;{DELTA_PCT[i].toFixed(2)}%</td>
               <td style={{ textAlign: 'right' }}>{r.minFloor.toExponential(4)}</td>
               <td style={{ textAlign: 'right' }}>{r.degrade.toExponential(3)}x</td>
               <td style={{ textAlign: 'right' }}>{MEAN[i].meanFloor.toExponential(4)}</td>
               <td style={{ textAlign: 'right' }}>{r.onset.toFixed(4)}</td>
               <td style={{ textAlign: 'right' }}>+{r.onsetShift.toFixed(4)}</td>
-              <td style={{ textAlign: 'right', color: r.breach ? '#f87171' : '#34d399' }}>{r.breach ? 'yes' : 'no'}</td>
+              <td style={{ textAlign: 'right', color: r.breach ? 'var(--series-2)' : 'var(--series-3)' }}>{r.breach ? 'yes' : 'no'}</td>
             </tr>
           ))}
         </tbody>
@@ -223,14 +224,14 @@ export default function Imp95435RzpenOfflatticeDegradationLadderViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> the worst-of-400
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> the worst-of-400
         floor degrades gracefully to about &plusmn;6.25% jitter (onset shift under 1 depth
         unit, still above the proven A_unif4 line), then a near-collision draw at
         &plusmn;12.5% collapses it below A_unif4 and the onset shift jumps past 2 depth
@@ -244,14 +245,14 @@ export default function Imp95435RzpenOfflatticeDegradationLadderViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page consuming the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the
         frozen imp-95374 record (finite-m Jacobi-eigenvalue pencil measurement, no
         re-derivation). Supplies no off-lattice floor theorem (that is the separate,
         looser imp-95335 Ingham route); onset shift isolates the floor degradation only,

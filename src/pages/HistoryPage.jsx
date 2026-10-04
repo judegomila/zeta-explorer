@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 import FreshnessBanner from '../components/FreshnessBanner.jsx';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
+import { ED, alpha as TK_ALPHA } from '../styles/tokens.js';
 
 // Editorial (warm) re-theme: full-width shell, identical structure/data/timeline.
 // The 40+ per-person / per-era / per-result accent hexes below are KEPT literal
@@ -20,10 +21,10 @@ import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 
 // ─── Era definitions for people grouping ───
 const PEOPLE_ERAS = [
-  { id: 'foundational', label: 'Foundational (1700s-1850s)', color: '#f59e0b' },
-  { id: 'classical',    label: 'Classical Era (1860s-1930s)', color: '#3b82f6' },
-  { id: 'mid20th',      label: 'Mid-20th Century (1930s-1970s)', color: '#10b981' },
-  { id: 'modern',       label: 'Modern Era (1970s-Present)', color: '#8b5cf6' },
+  { id: 'foundational', label: 'Foundational (1700s-1850s)', color: ED.brass },
+  { id: 'classical',    label: 'Classical Era (1860s-1930s)', color: ED.series1 },
+  { id: 'mid20th',      label: 'Mid-20th Century (1930s-1970s)', color: ED.series3 },
+  { id: 'modern',       label: 'Modern Era (1970s-Present)', color: ED.series5 },
 ];
 
 const PEOPLE = [
@@ -35,7 +36,7 @@ const PEOPLE = [
     years: '1707-1783',
     era: 'foundational',
     initials: 'LE',
-    color: '#f59e0b',
+    color: ED.brass,
     wiki: 'https://en.wikipedia.org/wiki/Leonhard_Euler',
     bio: 'Discovered the Euler product formula connecting the zeta function to primes (1737) and solved the Basel Problem, computing the first nontrivial zeta value. Founded analytic number theory.',
   },
@@ -44,7 +45,7 @@ const PEOPLE = [
     years: '1777-1855',
     era: 'foundational',
     initials: 'CG',
-    color: '#e2a308',
+    color: ED.brass,
     wiki: 'https://en.wikipedia.org/wiki/Carl_Friedrich_Gauss',
     bio: 'Conjectured as a teenager that the number of primes up to x is approximately x/ln(x), the Prime Counting Conjecture. His insight launched the quantitative study of prime distribution.',
   },
@@ -53,7 +54,7 @@ const PEOPLE = [
     years: '1805-1859',
     era: 'foundational',
     initials: 'PD',
-    color: '#d97706',
+    color: ED.brass,
     wiki: 'https://en.wikipedia.org/wiki/Peter_Gustav_Lejeune_Dirichlet',
     bio: 'Introduced Dirichlet series and L-functions, proving that every arithmetic progression with coprime modulus and residue contains infinitely many primes. His L-functions generalize the zeta function.',
   },
@@ -62,7 +63,7 @@ const PEOPLE = [
     years: '1821-1894',
     era: 'foundational',
     initials: 'PC',
-    color: '#b45309',
+    color: ED.brass,
     wiki: 'https://en.wikipedia.org/wiki/Pafnuty_Chebyshev',
     bio: 'Established the first rigorous bounds on the prime counting function, proving that pi(x) is asymptotically of order x/ln(x). His estimates were the strongest results before the proof of PNT.',
   },
@@ -71,7 +72,7 @@ const PEOPLE = [
     years: '1826-1866',
     era: 'foundational',
     initials: 'BR',
-    color: '#3b82f6',
+    color: ED.series1,
     wiki: 'https://en.wikipedia.org/wiki/Bernhard_Riemann',
     bio: 'In a single 8-page paper (1859), extended the zeta function to all complex numbers, derived the functional equation, and stated the Hypothesis that all nontrivial zeros have real part 1/2.',
   },
@@ -84,7 +85,7 @@ const PEOPLE = [
     years: '1862-1943',
     era: 'classical',
     initials: 'DH',
-    color: '#2563eb',
+    color: ED.series1,
     wiki: 'https://en.wikipedia.org/wiki/David_Hilbert',
     bio: 'Listed the Riemann Hypothesis as the 8th problem on his famous list of 23 unsolved problems (1900). Co-originator of the Hilbert-Polya conjecture that zeta zeros are eigenvalues of a self-adjoint operator.',
   },
@@ -93,7 +94,7 @@ const PEOPLE = [
     years: '1865-1963',
     era: 'classical',
     initials: 'JH',
-    color: '#10b981',
+    color: ED.series3,
     wiki: 'https://en.wikipedia.org/wiki/Jacques_Hadamard',
     bio: 'Proved the Prime Number Theorem independently in 1896 by showing zeta(s) has no zeros on Re(s)=1. Also proved the product formula for the xi function over its zeros.',
   },
@@ -102,7 +103,7 @@ const PEOPLE = [
     years: '1866-1962',
     era: 'classical',
     initials: 'CV',
-    color: '#059669',
+    color: ED.series3,
     wiki: 'https://en.wikipedia.org/wiki/Charles_Jean_de_la_Vall%C3%A9e_Poussin',
     bio: 'Proved the Prime Number Theorem independently of Hadamard in 1896. Established the first zero-free region for zeta, showing no zeros exist near the line Re(s)=1.',
   },
@@ -111,7 +112,7 @@ const PEOPLE = [
     years: '1877-1947',
     era: 'classical',
     initials: 'GH',
-    color: '#8b5cf6',
+    color: ED.series5,
     wiki: 'https://en.wikipedia.org/wiki/G._H._Hardy',
     bio: 'Proved in 1914 that infinitely many zeros of the zeta function lie on the critical line Re(s)=1/2, providing the first concrete evidence for RH. Pioneer of analytic number theory in England.',
   },
@@ -120,7 +121,7 @@ const PEOPLE = [
     years: '1877-1938',
     era: 'classical',
     initials: 'EL',
-    color: '#7c3aed',
+    color: ED.series5,
     wiki: 'https://en.wikipedia.org/wiki/Edmund_Landau',
     bio: 'Posed his four problems, described as out of reach, at the 1912 ICM. Made fundamental contributions to the distribution of primes and the theory of the zeta function, establishing many classical estimates.',
   },
@@ -129,7 +130,7 @@ const PEOPLE = [
     years: '1885-1977',
     era: 'classical',
     initials: 'JL',
-    color: '#6d28d9',
+    color: ED.series5,
     wiki: 'https://en.wikipedia.org/wiki/John_Edensor_Littlewood',
     bio: 'Collaborator of Hardy who proved that pi(x) - Li(x) changes sign infinitely often, and established key zero density estimates for the zeta function that constrain the distribution of zeros off the critical line.',
   },
@@ -138,7 +139,7 @@ const PEOPLE = [
     years: '1887-1951',
     era: 'classical',
     initials: 'HB',
-    color: '#4f46e5',
+    color: ED.series5,
     wiki: 'https://en.wikipedia.org/wiki/Harald_Bohr',
     bio: 'Developed the theory of almost periodic functions and applied it to the Riemann zeta function. Co-proved with Landau that zeros cluster near the critical line, establishing the Bohr-Landau theorem.',
   },
@@ -147,7 +148,7 @@ const PEOPLE = [
     years: '1887-1985',
     era: 'classical',
     initials: 'GP',
-    color: '#4338ca',
+    color: ED.series5,
     wiki: 'https://en.wikipedia.org/wiki/George_P%C3%B3lya',
     bio: 'Co-originator of the Hilbert-Polya conjecture: that zeta zeros are eigenvalues of a self-adjoint operator. This spectral philosophy has guided the field for a century and underlies the Berry-Keating approach.',
   },
@@ -169,7 +170,7 @@ const PEOPLE = [
     years: '1896-1981',
     era: 'mid20th',
     initials: 'CS',
-    color: '#0891b2',
+    color: ED.series6,
     wiki: 'https://en.wikipedia.org/wiki/Carl_Ludwig_Siegel',
     bio: 'Discovered the Riemann-Siegel formula in Riemann\'s unpublished notes, providing an efficient asymptotic expansion for computing zeta on the critical line. This formula underpins all large-scale numerical verification.',
   },
@@ -178,7 +179,7 @@ const PEOPLE = [
     years: '1912-1954',
     era: 'mid20th',
     initials: 'AT',
-    color: '#ec4899',
+    color: ED.series7,
     wiki: 'https://en.wikipedia.org/wiki/Alan_Turing',
     bio: 'Designed a gear-based analog computer for computing zeta zeros (1939), developed a new method for calculating the zeta function (1943), and used the Manchester Mark I to verify 1,104 zeros (1950).',
   },
@@ -187,7 +188,7 @@ const PEOPLE = [
     years: '1910-1976',
     era: 'mid20th',
     initials: 'PT',
-    color: '#06b6d4',
+    color: ED.series6,
     wiki: 'https://en.wikipedia.org/wiki/Paul_Tur%C3%A1n',
     bio: 'Developed power sum methods in analytic number theory and proved that the Riemann Hypothesis is equivalent to certain bounds on power sums over zeta zeros. Pioneered probabilistic number theory.',
   },
@@ -196,7 +197,7 @@ const PEOPLE = [
     years: '1912-1975',
     era: 'mid20th',
     initials: 'NL',
-    color: '#14b8a6',
+    color: ED.series6,
     wiki: 'https://en.wikipedia.org/wiki/Norman_Levinson',
     bio: 'Proved in 1974 that at least one-third of the nontrivial zeros of zeta lie on the critical line. His method, using mollifiers, remains the foundation for all subsequent improvements on this proportion.',
   },
@@ -205,7 +206,7 @@ const PEOPLE = [
     years: '1916-1994',
     era: 'mid20th',
     initials: 'RA',
-    color: '#0d9488',
+    color: ED.series6,
     wiki: 'https://en.wikipedia.org/wiki/Roger_Ap%C3%A9ry',
     bio: 'Stunned the mathematical world in 1979 by proving that zeta(3) is irrational, using a miraculous recurrence relation. The proof was so unexpected that it was initially met with disbelief.',
   },
@@ -214,7 +215,7 @@ const PEOPLE = [
     years: '1917-2007',
     era: 'mid20th',
     initials: 'AS',
-    color: '#0e7490',
+    color: ED.series6,
     wiki: 'https://en.wikipedia.org/wiki/Atle_Selberg',
     bio: 'Proved that a positive proportion of zeta zeros lie on the critical line (1942). Developed the Selberg trace formula connecting spectral theory to geometry, and gave an elementary proof of PNT. Fields Medal 1950.',
   },
@@ -232,7 +233,7 @@ const PEOPLE = [
     years: '1931-',
     era: 'mid20th',
     initials: 'RP',
-    color: '#1d4ed8',
+    color: ED.series1,
     wiki: 'https://en.wikipedia.org/wiki/Roger_Penrose',
     bio: 'Developed twistor theory (1967), providing a geometric framework connecting complex analysis and physics. Twistor variables offer a novel perspective on the analytic structure of the zeta function.',
   },
@@ -245,7 +246,7 @@ const PEOPLE = [
     years: '1941-',
     era: 'modern',
     initials: 'MB',
-    color: '#10b981',
+    color: ED.series3,
     wiki: 'https://en.wikipedia.org/wiki/Michael_Berry_(physicist)',
     bio: 'Co-proposed the Berry-Keating conjecture (1999) that zeta zeros are eigenvalues of the quantized Hamiltonian H=xp, providing the most concrete realization of the Hilbert-Polya spectral approach.',
   },
@@ -254,7 +255,7 @@ const PEOPLE = [
     years: '1944-',
     era: 'modern',
     initials: 'HM',
-    color: '#f59e0b',
+    color: ED.brass,
     wiki: 'https://en.wikipedia.org/wiki/Hugh_Montgomery_(mathematician)',
     bio: 'Discovered the pair correlation conjecture (1973), revealing that the spacing of zeta zeros matches the GUE distribution from random matrix theory. Freeman Dyson recognized the formula at a tea break.',
   },
@@ -263,7 +264,7 @@ const PEOPLE = [
     years: '1946-2020',
     era: 'modern',
     initials: 'CN',
-    color: '#ef4444',
+    color: ED.series2,
     wiki: 'https://en.wikipedia.org/wiki/Charles_M._Newman',
     bio: 'Conjectured in 1976 that the de Bruijn-Newman constant Lambda >= 0, meaning RH sits at the exact threshold of the heat flow. This conjecture was proved 44 years later by Rodgers and Tao.',
   },
@@ -272,7 +273,7 @@ const PEOPLE = [
     years: '1947-',
     era: 'modern',
     initials: 'AC',
-    color: '#8b5cf6',
+    color: ED.series5,
     wiki: 'https://en.wikipedia.org/wiki/Alain_Connes',
     bio: 'Fields Medalist who developed a noncommutative geometry approach to RH. Co-constructed the Bost-Connes system (1995), a C*-dynamical system whose partition function is zeta. Developed trace formula and Weil quadratic form approaches (2024-2026).',
   },
@@ -281,7 +282,7 @@ const PEOPLE = [
     years: '1947-',
     era: 'modern',
     initials: 'GC',
-    color: '#f43f5e',
+    color: ED.series2,
     wiki: 'https://en.wikipedia.org/wiki/Gregory_Chaitin',
     bio: 'Defined Chaitin\'s Omega, a halting probability that is algorithmically random. His work on algorithmic information theory reveals deep connections between randomness, incompleteness, and the complexity of mathematical truths like RH.',
   },
@@ -290,7 +291,7 @@ const PEOPLE = [
     years: '1949-',
     era: 'modern',
     initials: 'AO',
-    color: '#3b82f6',
+    color: ED.series1,
     wiki: 'https://en.wikipedia.org/wiki/Andrew_Odlyzko',
     bio: 'Performed massive computational verification of zeta zeros near the 10^20-th zero (1987), confirming GUE statistics to extraordinary precision. His computations remain the most compelling numerical evidence for RH.',
   },
@@ -299,7 +300,7 @@ const PEOPLE = [
     years: '1953-',
     era: 'modern',
     initials: 'PS',
-    color: '#a855f7',
+    color: ED.series5,
     wiki: 'https://en.wikipedia.org/wiki/Peter_Sarnak',
     bio: 'Advocated for the Grand Riemann Hypothesis encompassing all automorphic L-functions. Established deep connections between spectral theory, arithmetic quantum chaos, and the distribution of zeta zeros.',
   },
@@ -308,7 +309,7 @@ const PEOPLE = [
     years: '1955-',
     era: 'modern',
     initials: 'BC',
-    color: '#6366f1',
+    color: ED.series5,
     wiki: 'https://en.wikipedia.org/wiki/Brian_Conrey',
     bio: 'Improved Levinson\'s result to show that at least 40% of zeta zeros lie on the critical line (1989), using refined mollifier techniques. Directs the American Institute of Mathematics.',
   },
@@ -317,7 +318,7 @@ const PEOPLE = [
     years: '1958-',
     era: 'modern',
     initials: 'XL',
-    color: '#f97316',
+    color: ED.series4,
     wiki: 'https://en.wikipedia.org/wiki/Li%27s_criterion',
     bio: 'Proved Li\'s criterion (1997): RH is equivalent to the positivity of a sequence of real numbers lambda_n defined from the zeros. This elegant reformulation connects RH to passivity in signal processing.',
   },
@@ -326,7 +327,7 @@ const PEOPLE = [
     years: '1965-',
     era: 'modern',
     initials: 'JK',
-    color: '#22c55e',
+    color: ED.series3,
     wiki: 'https://en.wikipedia.org/wiki/Jon_Keating',
     bio: 'Co-proposed the Berry-Keating conjecture (H=xp Hamiltonian) and, with Snaith, used random matrix theory to predict exact moment formulae for zeta on the critical line (2000).',
   },
@@ -335,7 +336,7 @@ const PEOPLE = [
     years: '',
     era: 'modern',
     initials: 'GS',
-    color: '#e11d48',
+    color: ED.series2,
     wiki: 'https://en.wikipedia.org/wiki/Germ%C3%A1n_Sierra',
     bio: 'Proposed a physical realization of the Berry-Keating Hamiltonian using Landau levels in a magnetic field, connecting the Riemann zeros to the quantum Hall effect and condensed matter physics.',
   },
@@ -344,7 +345,7 @@ const PEOPLE = [
     years: '1975-',
     era: 'modern',
     initials: 'TT',
-    color: '#06b6d4',
+    color: ED.series6,
     wiki: 'https://en.wikipedia.org/wiki/Terence_Tao',
     bio: 'Fields Medalist who co-proved with Brad Rodgers that the de Bruijn-Newman constant Lambda >= 0 (2020), establishing that RH, if true, is true by the slimmest possible margin.',
   },
@@ -353,7 +354,7 @@ const PEOPLE = [
     years: '',
     era: 'modern',
     initials: 'BRo',
-    color: '#0ea5e9',
+    color: ED.series1,
     wiki: 'https://en.wikipedia.org/wiki/Brad_Rodgers_(mathematician)',
     bio: 'Co-proved with Terence Tao that the de Bruijn-Newman constant Lambda >= 0, confirming Newman\'s 1976 conjecture. The proof used a barrier argument analyzing the heat flow evolution of zeros.',
   },
@@ -362,7 +363,7 @@ const PEOPLE = [
     years: '1987-',
     era: 'modern',
     initials: 'JM',
-    color: '#84cc16',
+    color: ED.series3,
     wiki: 'https://en.wikipedia.org/wiki/James_Maynard_(mathematician)',
     bio: 'Achieved the first improvement to zero density estimates in over 80 years with Guth (2024), breaking the Ingham bound. Also proved landmark results on primes in short intervals. Fields Medal 2022.',
   },
@@ -380,7 +381,7 @@ const PEOPLE = [
     years: '',
     era: 'modern',
     initials: 'DP',
-    color: '#0284c7',
+    color: ED.series1,
     wiki: 'https://en.wikipedia.org/wiki/David_Platt_(mathematician)',
     bio: 'With Trudgian, performed the most rigorous certified numerical verification of RH, confirming all zeros up to height 3 x 10^12 lie on the critical line using interval arithmetic (2021).',
   },
@@ -444,12 +445,12 @@ const PORTRAIT_KEYS = new Set([
 ]);
 
 const ERAS = [
-  { id: 'origins', label: 'Origins', color: '#f59e0b' },
-  { id: 'classical', label: 'Classical', color: '#3b82f6' },
-  { id: 'pnt', label: 'PNT Era', color: '#10b981' },
-  { id: 'modern', label: 'Modern', color: '#8b5cf6' },
-  { id: 'computational', label: 'Computational', color: '#06b6d4' },
-  { id: 'recent', label: 'Recent', color: '#ec4899' },
+  { id: 'origins', label: 'Origins', color: ED.brass },
+  { id: 'classical', label: 'Classical', color: ED.series1 },
+  { id: 'pnt', label: 'PNT Era', color: ED.series3 },
+  { id: 'modern', label: 'Modern', color: ED.series5 },
+  { id: 'computational', label: 'Computational', color: ED.series6 },
+  { id: 'recent', label: 'Recent', color: ED.series7 },
 ];
 
 const TIMELINE = [
@@ -735,7 +736,7 @@ const TIMELINE = [
     year: 2026,
     era: 'recent',
     title: 'AI fleet + human work — computer-assisted Lambda candidates',
-    content: "Running the twin-ladder barrier method, an autonomous AI fleet (Claude, Codex, and ChatGPT) together with human work produces computer-assisted candidates Lambda <= 0.1787854 (reviewed by Dan Romik, being prepared for public release) and a sharper Lambda <= 0.1758354, each certified in interval arithmetic with the reduction Lean-checked. These are candidates, not peer-reviewed theorems: RH remains open and Platt-Trudgian Lambda <= 0.2 remains the rigorous benchmark. The program also establishes no-go theorems (flow-blindness; frozen-rung = Platt-Trudgian) showing the route caps at verified zero height.",
+    content: "Running the twin-ladder barrier method, an autonomous AI fleet (Claude, Codex, and ChatGPT) together with human work produces computer-assisted candidates Lambda <= 0.1787854 (reviewed by Dan Romik, being prepared for public release) and a sharper Lambda <= 0.1758354, each certified in interval arithmetic with parts of the reduction Lean-checked. These are candidates, not peer-reviewed theorems: RH remains open and Platt-Trudgian Lambda <= 0.2 remains the rigorous benchmark. The program also establishes no-go theorems (flow-blindness; frozen-rung = Platt-Trudgian) showing the route caps at verified zero height.",
     math: '\\Lambda \\le 0.1758354 \\quad \\text{(computer-assisted candidate.)}',
     highlight: true,
   },
@@ -771,8 +772,8 @@ function PersonCard({ person }) {
             width: 22,
             height: 22,
             borderRadius: 4,
-            background: 'rgba(135,123,103,0.15)',
-            border: '1px solid rgba(135,123,103,0.25)',
+            background: 'color-mix(in srgb, var(--ink-faint) 15%, transparent)',
+            border: '1px solid color-mix(in srgb, var(--rule) 25%, transparent)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -787,12 +788,12 @@ function PersonCard({ person }) {
           onMouseEnter={e => {
             e.currentTarget.style.background = 'rgba(135,123,103,0.3)';
             e.currentTarget.style.color = 'var(--ink)';
-            e.currentTarget.style.borderColor = 'rgba(135,123,103,0.5)';
+            e.currentTarget.style.borderColor = TK_ALPHA(ED.rule, 0.5);
           }}
           onMouseLeave={e => {
-            e.currentTarget.style.background = 'rgba(135,123,103,0.15)';
+            e.currentTarget.style.background = TK_ALPHA(ED.inkFaint, 0.15);
             e.currentTarget.style.color = 'var(--faint)';
-            e.currentTarget.style.borderColor = 'rgba(135,123,103,0.25)';
+            e.currentTarget.style.borderColor = TK_ALPHA(ED.rule, 0.25);
           }}
         >
           W
@@ -926,7 +927,7 @@ function ResultExplainer({ title, author, color, tldr, math, explanation, whyItM
           {zpoConnection && (
             <div style={{
               padding: '10px 14px', borderRadius: 6,
-              background: 'rgba(217,80,46,0.08)', border: '1px solid rgba(217,80,46,0.25)',
+              background: 'color-mix(in srgb, var(--accent-deco) 8%, transparent)', border: '1px solid color-mix(in srgb, var(--accent-deco) 25%, transparent)',
             }}>
               <h4 style={{ color: 'var(--terra)', fontSize: 12, marginBottom: 4 }}>Twin-Ladder Bridge Connection</h4>
               <p style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.6, margin: 0 }}>
@@ -1000,7 +1001,7 @@ export default function HistoryPage() {
         {/* Timeline line */}
         <div style={{
           position: 'absolute', left: 80, top: 0, bottom: 0, width: 2,
-          background: 'linear-gradient(to bottom, #f59e0b, #3b82f6, #10b981, #8b5cf6, #06b6d4, #ec4899)',
+          background: 'linear-gradient(to bottom, var(--brass-deco), var(--series-1), var(--series-3), var(--series-5), var(--series-6), var(--series-7))',
           opacity: 0.3,
         }} />
 
@@ -1123,7 +1124,7 @@ export default function HistoryPage() {
           <ResultExplainer
             title="Euler Product Formula (1737)"
             author="Euler"
-            color="#f59e0b"
+            color={ED.brass}
             tldr="The sum over all integers equals the product over all primes. This is because every integer factors uniquely into primes."
             math={"\\sum_{n=1}^{\\infty} \\frac{1}{n^s} = \\prod_{p \\text{ prime}} \\frac{1}{1 - p^{-s}}, \\quad \\text{Re}(s) > 1"}
             explanation="Expand each factor 1/(1-p^{-s}) = 1 + p^{-s} + p^{-2s} + ... as a geometric series. When you multiply all these series together, each term in the product picks one power of each prime. By the fundamental theorem of arithmetic, every positive integer n has a unique prime factorization, so every 1/n^s appears exactly once."
@@ -1135,7 +1136,7 @@ export default function HistoryPage() {
           <ResultExplainer
             title="Functional Equation (1859)"
             author="Riemann"
-            color="#3b82f6"
+            color={ED.series1}
             tldr="ζ(s) and ζ(1-s) are related by a known factor χ(s). This symmetry around σ = ½ is the deepest structural property of ζ."
             math={"\\zeta(s) = \\chi(s) \\cdot \\zeta(1-s), \\quad \\chi(s) = \\pi^{s-1/2} \\frac{\\Gamma((1-s)/2)}{\\Gamma(s/2)}"}
             explanation="Riemann derived this by applying the Poisson summation formula to the theta function θ(t) = Σ exp(-πn²t). The key step is the identity θ(1/t) = √t · θ(t), which encodes modular symmetry. Applying the Mellin transform to this identity produces the functional equation."
@@ -1147,7 +1148,7 @@ export default function HistoryPage() {
           <ResultExplainer
             title="Analytic Continuation (1859)"
             author="Riemann"
-            color="#10b981"
+            color={ED.series3}
             tldr="The zeta function, originally defined for Re(s) > 1, can be extended to the entire complex plane (except s = 1) while preserving all its analytic properties."
             math={"\\zeta(s) = \\frac{\\eta(s)}{1 - 2^{1-s}}, \\quad \\eta(s) = \\sum_{n=1}^{\\infty} \\frac{(-1)^{n-1}}{n^s} \\text{ converges for Re}(s) > 0"}
             explanation="The Dirichlet series Σ 1/n^s converges only for Re(s) > 1. But the alternating series η(s) = Σ (-1)^{n-1}/n^s converges for Re(s) > 0 by the alternating series test. Since ζ(s) = η(s)/(1-2^{1-s}), this extends ζ into the critical strip. The functional equation then extends it to Re(s) < 0."
@@ -1159,7 +1160,7 @@ export default function HistoryPage() {
           <ResultExplainer
             title="Prime Number Theorem (1896)"
             author="Hadamard & de la Vallée-Poussin"
-            color="#8b5cf6"
+            color={ED.series5}
             tldr="The number of primes up to x is approximately x/ln(x). Equivalently: the n-th prime is roughly n·ln(n)."
             math={"\\pi(x) \\sim \\frac{x}{\\ln x} \\quad \\text{as } x \\to \\infty"}
             explanation="The proof shows ζ(s) has no zeros on the line Re(s) = 1. Since the error in π(x) ~ x/ln(x) is controlled by how close zeros get to Re(s) = 1, proving they stay away gives PNT. RH (zeros at Re(s) = ½) would give the strongest possible error bound: |π(x) - Li(x)| = O(√x · log x)."
@@ -1171,7 +1172,7 @@ export default function HistoryPage() {
           <ResultExplainer
             title="Infinitely Many Zeros on the Critical Line (1914)"
             author="Hardy"
-            color="#ec4899"
+            color={ED.series7}
             tldr="ζ(½ + it) has infinitely many real zeros. That is, the Z-function Z(t) changes sign infinitely often."
             math={"\\#\\{t \\in [0, T] : \\zeta(\\tfrac{1}{2} + it) = 0\\} \\to \\infty \\text{ as } T \\to \\infty"}
             explanation="Hardy used the integral ∫₀ᵀ Z(t)² dt and showed it grows like T log T, while if Z(t) had only finitely many sign changes, the integral would grow differently. The argument uses the self-dual property of ζ on the critical line."
@@ -1183,7 +1184,7 @@ export default function HistoryPage() {
           <ResultExplainer
             title="Li's Criterion (1997)"
             author="Li"
-            color="#f97316"
+            color={ED.series4}
             tldr="RH is true if and only if a specific sequence of numbers λ₁, λ₂, λ₃, ... are all positive."
             math={"\\text{RH} \\iff \\lambda_n = \\sum_{\\rho} \\left[1 - \\left(1 - \\frac{1}{\\rho}\\right)^n\\right] > 0 \\quad \\forall n \\geq 1"}
             explanation="Li showed this by relating λ_n to the sum of n-th powers of 1 - 1/ρ over nontrivial zeros. If all zeros have Re(ρ) = ½, then |1 - 1/ρ| < 1 and the powers decay, giving positive λ_n. A zero off the critical line would eventually make some λ_n negative."
@@ -1195,7 +1196,7 @@ export default function HistoryPage() {
           <ResultExplainer
             title="Irrationality of ζ(3) (1979)"
             author="Apéry"
-            color="#06b6d4"
+            color={ED.series6}
             tldr="ζ(3) = 1 + 1/8 + 1/27 + 1/64 + ... ≈ 1.202 is irrational. It cannot be expressed as a fraction a/b."
             math={"\\zeta(3) = \\frac{5}{2} \\sum_{n=1}^{\\infty} \\frac{(-1)^{n-1}}{n^3 \\binom{2n}{n}} \\notin \\mathbb{Q}"}
             explanation="Apéry constructed sequences a_n, b_n satisfying the recurrence (n+1)³a_{n+1} = (2n+1)(17n²+17n+5)a_n - n³a_{n-1}, with a_n integers and b_n·ζ(3) - a_n → 0 faster than any geometric sequence. If ζ(3) = p/q, then q·b_n·ζ(3) - q·a_n would be a nonzero integer smaller than 1 for large n — contradiction."
@@ -1207,7 +1208,7 @@ export default function HistoryPage() {
           <ResultExplainer
             title="de Bruijn–Newman Constant Λ ≥ 0 (Rodgers–Tao 2020)"
             author="Rodgers & Tao"
-            color="#ec4899"
+            color={ED.series7}
             tldr="Rodgers and Tao proved Λ ≥ 0: if RH is true, it is true 'by the narrowest possible margin.' The heat parameter Λ at which zeros first leave the critical line equals 0 exactly if RH holds — Λ = 0 is open."
             math={"\\Lambda \\geq 0 \\quad \\text{(proved)}, \\quad \\text{RH} \\iff \\Lambda \\leq 0 \\implies \\Lambda = 0 \\text{ if RH is true}"}
             explanation="De Bruijn showed that if you 'heat-flow' the xi function (Gaussian smoothing), zeros stay real for sufficiently large flow time τ ≥ Λ. Newman conjectured Λ ≥ 0. Rodgers and Tao proved this using a barrier argument: if Λ < 0, then running the heat flow backward by |Λ| would push zeros off the real axis, contradicting the structure of the xi function."
@@ -1219,7 +1220,7 @@ export default function HistoryPage() {
           <ResultExplainer
             title="Pair Correlation Conjecture (1973)"
             author="Montgomery"
-            color="#f59e0b"
+            color={ED.brass}
             tldr="The spacing between consecutive zeta zeros follows the same statistics as eigenvalues of random unitary matrices (GUE). Primes 'repel' like eigenvalues."
             math={"\\lim_{T \\to \\infty} \\frac{1}{N(T)} \\#\\left\\{j \\neq k : \\frac{(\\gamma_j - \\gamma_k)\\log T}{2\\pi} \\in [\\alpha, \\beta]\\right\\} = \\int_\\alpha^\\beta \\left(1 - \\left(\\frac{\\sin \\pi u}{\\pi u}\\right)^2\\right) du"}
             explanation="Montgomery was computing the pair correlation of zeta zeros when Freeman Dyson recognized the formula at a tea break: 'That's the pair correlation of eigenvalues of random Hermitian matrices!' This unexpected connection links number theory to quantum mechanics and statistical physics."
@@ -1231,7 +1232,7 @@ export default function HistoryPage() {
           <ResultExplainer
             title="Zero Density Breakthrough (2024)"
             author="Guth & Maynard"
-            color="#10b981"
+            color={ED.series3}
             tldr="The first improvement in 80+ years to how many zeros can exist off the critical line. Fewer off-line zeros means primes are better behaved."
             math={"N(\\sigma, T) \\ll T^{A(\\sigma)(1-\\sigma)+\\varepsilon}, \\quad A(\\sigma) \\text{ improved over Ingham (1940)}"}
             explanation="Zero density estimates bound how many zeros can exist with Re(ρ) = σ ≠ ½. The classical Ingham bound (1940) gives N(σ,T) ≪ T^{3(1-σ)/(2-σ)}. Guth and Maynard improved the exponent using new techniques from decoupling and harmonic analysis. Fewer off-line zeros means better estimates for primes in short intervals."

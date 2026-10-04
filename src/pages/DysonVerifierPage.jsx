@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import { ZETA_ZEROS } from '../math/zeta.js';
 import AnimationEmbed from '../components/AnimationEmbed.jsx';
+import { ED, alpha } from '../styles/tokens.js';
 
 /**
  * DysonVerifierPage (imp-589)
@@ -140,73 +141,73 @@ async function runBackwardCollision({ N, dt, maxSteps, onProgress }) {
 
 // ── Styles (editorial warm palette, literal hex — no var()) ────────────────
 const S = {
-  subtitle: { color: '#877b67', fontSize: 14, marginBottom: 28, lineHeight: 1.6 },
+  subtitle: { color: ED.inkFaint, fontSize: 14, marginBottom: 28, lineHeight: 1.6 },
   card: {
-    background: '#f6f1e7',
-    border: '1px solid #d5c9b2',
+    background: ED.paper2,
+    border: '1px solid var(--rule)',
     borderRadius: 10,
     padding: '20px 24px',
     marginBottom: 20,
   },
   row: { display: 'flex', gap: 16, alignItems: 'center', flexWrap: 'wrap', marginBottom: 12 },
-  label: { color: '#877b67', fontSize: 13, minWidth: 90 },
-  val: { color: '#1c1814', fontSize: 13 },
+  label: { color: ED.inkFaint, fontSize: 13, minWidth: 90 },
+  val: { color: ED.ink, fontSize: 13 },
   btn: {
-    background: '#b58a2e',
+    background: ED.brassDeco,
     border: 'none',
     borderRadius: 6,
-    color: '#fdfaf3',
+    color: ED.paper,
     fontFamily: 'var(--ed-mono, var(--font-mono))',
     fontSize: 14,
     padding: '8px 20px',
     cursor: 'pointer',
   },
   btnStop: {
-    background: '#c23a1c',
+    background: ED.series2,
     border: 'none',
     borderRadius: 6,
-    color: '#fdfaf3',
+    color: ED.paper,
     fontFamily: 'var(--ed-mono, var(--font-mono))',
     fontSize: 14,
     padding: '8px 20px',
     cursor: 'pointer',
   },
   progress: {
-    background: '#efe7d6',
-    border: '1px solid #e3d8c2',
+    background: ED.paper3,
+    border: '1px solid var(--rule-soft)',
     borderRadius: 6,
     padding: '12px 16px',
     fontSize: 13,
     lineHeight: 1.8,
-    color: '#4a4238',
+    color: ED.inkSoft,
   },
   collision: {
-    background: 'rgba(76,122,74,0.10)',
-    border: '1px solid #4c7a4a',
+    background: alpha(ED.series3, 0.1),
+    border: '1px solid var(--series-3)',
     borderRadius: 8,
     padding: '16px 20px',
   },
   noCollision: {
-    background: 'rgba(181,138,46,0.10)',
-    border: '1px solid #b58a2e',
+    background: alpha(ED.brassDeco, 0.1),
+    border: '1px solid var(--brass-deco)',
     borderRadius: 8,
     padding: '16px 20px',
   },
-  sectionTitle: { color: '#b58a2e', fontSize: 14, fontWeight: 600, marginBottom: 10 },
+  sectionTitle: { color: ED.brass, fontSize: 14, fontWeight: 600, marginBottom: 10 },
   note: {
-    background: 'rgba(135,123,103,0.08)',
-    border: '1px solid #d5c9b2',
+    background: alpha(ED.inkFaint, 0.08),
+    border: '1px solid var(--rule)',
     borderRadius: 6,
     padding: '12px 16px',
     fontSize: 12,
-    color: '#877b67',
+    color: ED.inkFaint,
     lineHeight: 1.7,
   },
   select: {
-    background: '#fdfaf3',
-    border: '1px solid #d5c9b2',
+    background: ED.paper,
+    border: '1px solid var(--rule)',
     borderRadius: 6,
-    color: '#1c1814',
+    color: ED.ink,
     fontSize: 13,
     padding: '5px 10px',
     fontFamily: 'var(--ed-mono, var(--font-mono))',
@@ -274,7 +275,7 @@ export default function DysonVerifierPage() {
           In-browser RK4 integration of the backward Dyson ODE — explores the finite-N Dyson collision
           mechanism related to the Polymath 15 / PT 2021 Lambda bound (the collision-time diagnostic used
           in the older Dyson lane, not the bound's proof). Runs entirely in your browser (pure JavaScript).
-          &nbsp;<Link to="/rh-attack" style={{ color: '#c23a1c' }}>RH Approach page</Link> has context.
+          &nbsp;<Link to="/rh-attack" style={{ color: 'var(--accent)' }}>RH Approach page</Link> has context.
         </p>
 
         <AnimationEmbed id="colliding-zeros" />
@@ -282,21 +283,21 @@ export default function DysonVerifierPage() {
         {/* Theory card */}
         <div style={S.card}>
           <div style={S.sectionTitle}>Theory: How collisions relate to Lambda</div>
-          <p style={{ color: '#4a4238', fontSize: 13, lineHeight: 1.75, margin: 0 }}>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.75, margin: 0 }}>
             The de Bruijn-Newman constant Lambda is defined as the infimum of all t for which
             H&#x209C;(z) = 0 implies Im(z) &gt;= 0. Under backward heat flow (t decreasing),
             the zeros of H&#x209C; evolve by the <em>deterministic Dyson ODE</em>:
           </p>
-          <pre style={{ background: '#efe7d6', border: '1px solid #e3d8c2', padding: '10px 14px', borderRadius: 6,
-            fontSize: 13, color: '#8c6a1d', margin: '12px 0 8px', overflowX: 'auto' }}>
+          <pre style={{ background: 'var(--paper-3)', border: '1px solid var(--rule-soft)', padding: '10px 14px', borderRadius: 6,
+            fontSize: 13, color: 'var(--brass)', margin: '12px 0 8px', overflowX: 'auto' }}>
 {`dγ_n/dt = -2 · Σ_{k≠n} 1/(γ_n - γ_k)   [backward: attraction]`}
           </pre>
-          <p style={{ color: '#4a4238', fontSize: 13, lineHeight: 1.75, margin: 0 }}>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.75, margin: 0 }}>
             Zeros attract until a pair <em>collides</em> at time t&#x2099;. A finite-N collision at
             t&#x2099; &lt; 0 does <em>not</em> by itself give a rigorous upper bound on Lambda: the
             bracket is Lambda &lt;= -t&#x2099; + E(N), where E(N) is a truncation/coupling error whose
             constant (C_H) remains undischarged — see{' '}
-            <Link to="/rh-proof-state" style={{ color: '#c23a1c' }}>RH Proof State</Link>.
+            <Link to="/rh-proof-state" style={{ color: 'var(--accent)' }}>RH Proof State</Link>.
             The Platt-Trudgian 2021 theorem Lambda &lt;= 0.2 is an independent barrier argument that
             binds on the verified zero height, not on this simulation; this page illustrates the
             collision mechanism but does not reproduce or confirm that bound.
@@ -346,7 +347,7 @@ export default function DysonVerifierPage() {
           </div>
           <div style={S.row}>
             <span style={S.label}></span>
-            <span style={{ color: '#877b67', fontSize: 12 }}>
+            <span style={{ color: 'var(--ink-faint)', fontSize: 12 }}>
               N={N}, dt={dtKey}, max t = {maxT} — O(N^2 * steps) = ~{(N * N * maxSteps / 1e6).toFixed(1)}M ops
             </span>
           </div>
@@ -364,33 +365,33 @@ export default function DysonVerifierPage() {
           <div style={S.card}>
             <div style={S.sectionTitle}>Live Progress</div>
             <div style={S.progress}>
-              <div>Step: <span style={{ color: '#b58a2e' }}>{progress.step.toLocaleString()}</span>
+              <div>Step: <span style={{ color: 'var(--brass)' }}>{progress.step.toLocaleString()}</span>
                 {' / '}{maxSteps.toLocaleString()} &nbsp;|&nbsp;
-                t = <span style={{ color: '#b58a2e' }}>{progress.t}</span>
+                t = <span style={{ color: 'var(--brass)' }}>{progress.t}</span>
               </div>
               {progress.spacing != null && (
                 <div>Min spacing: <span style={{
-                  color: progress.spacing < 0.01 ? '#c23a1c' : progress.spacing < 0.1 ? '#b58a2e' : '#4c7a4a',
+                  color: progress.spacing < 0.01 ? 'var(--accent)' : progress.spacing < 0.1 ? 'var(--brass)' : 'var(--series-3)',
                   fontWeight: 600,
                 }}>{progress.spacing}</span>
                 {' '}&nbsp;(pair index {progress.pair_index})
                 {progress.initSpacing != null && progress.initSpacing > 0 && (
-                  <span style={{ color: '#3f6b86', marginLeft: 10 }}>
+                  <span style={{ color: 'var(--series-1)', marginLeft: 10 }}>
                     — {Math.max(0, (1 - progress.spacing / progress.initSpacing) * 100).toFixed(1)}% closed
-                    <span style={{ color: '#877b67' }}> (init: {progress.initSpacing})</span>
+                    <span style={{ color: 'var(--ink-faint)' }}> (init: {progress.initSpacing})</span>
                   </span>
                 )}
                 </div>
               )}
               {running && (
-                <div style={{ color: '#877b67', marginTop: 4 }}>
+                <div style={{ color: 'var(--ink-faint)', marginTop: 4 }}>
                   {progress.spacing != null && progress.spacing < 0.1
                     ? 'Zeros closing in — collision imminent...'
                     : 'Integrating backward...'}
                 </div>
               )}
               {progress.done && !result && (
-                <div style={{ color: '#877b67' }}>Computation stopped.</div>
+                <div style={{ color: 'var(--ink-faint)' }}>Computation stopped.</div>
               )}
             </div>
           </div>
@@ -402,19 +403,19 @@ export default function DysonVerifierPage() {
             <div style={S.sectionTitle}>Result</div>
             {result.collision ? (
               <div style={S.collision}>
-                <div style={{ color: '#4c7a4a', fontSize: 15, fontWeight: 700, marginBottom: 10 }}>
+                <div style={{ color: 'var(--series-3)', fontSize: 15, fontWeight: 700, marginBottom: 10 }}>
                   Collision detected!
                 </div>
                 <div style={S.row}>
                   <span style={S.label}>t&#x2099; =</span>
-                  <span style={{ ...S.val, color: '#4c7a4a', fontSize: 15 }}>{result.collision.t_c}</span>
+                  <span style={{ ...S.val, color: 'var(--series-3)', fontSize: 15 }}>{result.collision.t_c}</span>
                 </div>
                 <div style={S.row}>
                   <span style={S.label}>|t&#x2099;| =</span>
-                  <span style={{ ...S.val, color: '#4c7a4a', fontSize: 15 }}>
+                  <span style={{ ...S.val, color: 'var(--series-3)', fontSize: 15 }}>
                     {Math.abs(parseFloat(result.collision.t_c)).toFixed(4)}
                   </span>
-                  <span style={{ color: '#877b67', fontSize: 12 }}>
+                  <span style={{ color: 'var(--ink-faint)', fontSize: 12 }}>
                     (bracket Lambda &lt;= |t&#x2099;| + E(N); not rigorous — C_H undischarged)
                   </span>
                 </div>
@@ -437,10 +438,10 @@ export default function DysonVerifierPage() {
               </div>
             ) : (
               <div style={S.noCollision}>
-                <div style={{ color: '#b58a2e', fontSize: 14, fontWeight: 700, marginBottom: 8 }}>
+                <div style={{ color: 'var(--brass)', fontSize: 14, fontWeight: 700, marginBottom: 8 }}>
                   No collision found in t in [0, {result.finalT}]
                 </div>
-                <p style={{ color: '#4a4238', fontSize: 13, margin: 0, lineHeight: 1.6 }}>
+                <p style={{ color: 'var(--ink-soft)', fontSize: 13, margin: 0, lineHeight: 1.6 }}>
                   Increase max steps, decrease dt, or increase N to search further backward.
                   The tightest Lehmer pair (around zero index 453) typically collides at
                   t around 0.9 for N=50, requiring t &lt;= 2.
@@ -448,7 +449,7 @@ export default function DysonVerifierPage() {
               </div>
             )}
 
-            <div style={{ marginTop: 14, color: '#877b67', fontSize: 12 }}>
+            <div style={{ marginTop: 14, color: 'var(--ink-faint)', fontSize: 12 }}>
               Initial conditions: N={N} lowest zeros of zeta, initial min spacing = {result.initSpacing}
               (pair {result.initIdx}).
             </div>
@@ -457,7 +458,7 @@ export default function DysonVerifierPage() {
 
         {/* WASM note */}
         <div style={S.note}>
-          <strong style={{ color: '#877b67' }}>WASM sub-gap (imp-589):</strong>{' '}
+          <strong style={{ color: 'var(--ink-faint)' }}>WASM sub-gap (imp-589):</strong>{' '}
           This page uses pure JavaScript (RK4 + Kahan-compensated summation from{' '}
           <code>src/math/dyson-ode-integrator.js</code>). A WebAssembly port would
           run ~5-10x faster and allow verification at N up to 500+ without noticeable lag.
@@ -465,26 +466,26 @@ export default function DysonVerifierPage() {
           <code>src/wasm/dyson-rk4/dyson_rk4.wat</code> (to be added).
           Compile with: <code>wat2wasm src/wasm/dyson-rk4/dyson_rk4.wat -o public/dyson_rk4.wasm</code>
           (requires{' '}
-          <a href="https://github.com/WebAssembly/wabt" style={{ color: '#3f6b86' }}
+          <a href="https://github.com/WebAssembly/wabt" style={{ color: 'var(--series-1)' }}
             target="_blank" rel="noreferrer">wabt toolchain</a>).
         </div>
 
         {/* Related pages */}
         <div className="card" style={{ ...S.card, marginTop: 24 }}>
-          <div style={{ fontSize: 10, textTransform: 'uppercase', letterSpacing: 0.5, color: '#877b67', marginBottom: 8 }}>
+          <div style={{ fontSize: 10, textTransform: 'uppercase', letterSpacing: 0.5, color: 'var(--ink-faint)', marginBottom: 8 }}>
             Related pages
           </div>
           <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap', alignItems: 'center' }}>
-            <Link to="/rh-attack" style={{ fontSize: 12, color: '#c23a1c', textDecoration: 'none' }}>
+            <Link to="/rh-attack" style={{ fontSize: 12, color: 'var(--accent)', textDecoration: 'none' }}>
               → RH Approach
             </Link>
-            <Link to="/lambda-bounds" style={{ fontSize: 12, color: '#b58a2e', textDecoration: 'none' }}>
+            <Link to="/lambda-bounds" style={{ fontSize: 12, color: 'var(--brass)', textDecoration: 'none' }}>
               → Λ Bounds &amp; RH Roadmap
             </Link>
-            <Link to="/viz-winding-dyson-flow" style={{ fontSize: 12, color: '#3f6b86', textDecoration: 'none' }}>
+            <Link to="/viz-winding-dyson-flow" style={{ fontSize: 12, color: 'var(--series-1)', textDecoration: 'none' }}>
               → Winding / Dyson-flow visualization
             </Link>
-            <Link to="/" style={{ fontSize: 12, color: '#4a4238', textDecoration: 'none' }}>
+            <Link to="/" style={{ fontSize: 12, color: 'var(--ink-soft)', textDecoration: 'none' }}>
               ← the atlas
             </Link>
           </div>

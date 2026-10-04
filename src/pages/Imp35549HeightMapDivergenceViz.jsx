@@ -4,6 +4,7 @@ import {
   IMP35549_HEIGHT_DIVERGENCE_ROWS,
   IMP35549_SUMMARY,
 } from '../data/imp-35549-height-map-divergence-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 function DivergenceLineChart() {
   const w = 720;
@@ -42,10 +43,10 @@ function DivergenceLineChart() {
             x2={w - padR}
             y1={yPix(t)}
             y2={yPix(t)}
-            stroke="#1e293b"
+            stroke={ED.ruleSoft}
             strokeWidth={1}
           />
-          <text x={padL - 8} y={yPix(t) + 4} textAnchor="end" fill="#64748b" fontSize={10}>
+          <text x={padL - 8} y={yPix(t) + 4} textAnchor="end" fill={ED.inkFaint} fontSize={10}>
             {t}%
           </text>
         </g>
@@ -55,7 +56,7 @@ function DivergenceLineChart() {
         x2={w - padR}
         y1={padT + plotH}
         y2={padT + plotH}
-        stroke="#334155"
+        stroke={ED.rule}
         strokeWidth={1}
       />
       {[6, 50, 100, 150, 200].map((tick) => (
@@ -64,20 +65,20 @@ function DivergenceLineChart() {
           x={xPix(tick)}
           y={h - 10}
           textAnchor="middle"
-          fill="#64748b"
+          fill={ED.inkFaint}
           fontSize={10}
         >
           10^{tick}
         </text>
       ))}
-      <path d={pathD} fill="none" stroke="#38bdf8" strokeWidth={2} />
+      <path d={pathD} fill="none" stroke={ED.series1} strokeWidth={2} />
       {IMP35549_HEIGHT_DIVERGENCE_ROWS.map((r) => (
         <circle
           key={r.log10N}
           cx={xPix(r.log10N)}
           cy={yPix(r.relativeDivergence * 100)}
           r={3}
-          fill="#38bdf8"
+          fill={ED.series1}
         />
       ))}
     </svg>
@@ -89,7 +90,7 @@ export default function Imp35549HeightMapDivergenceViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Height-Map Divergence: effectiveHeightForN vs Closed Surrogate T0=2piN/logN (imp-35549)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         Two far-tail height maps are used across this ticket cohort to convert an ordinal count N
         into a corresponding zeta-zero height T0: <code>effectiveHeightForN</code> (imp-35476), a
         Newton-iterated inverse of the Riemann-von Mangoldt counting function N(T), and the closed
@@ -109,7 +110,7 @@ export default function Imp35549HeightMapDivergenceViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>N</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>T0_effective</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>T0_surrogate</th>
@@ -118,7 +119,7 @@ export default function Imp35549HeightMapDivergenceViz() {
         </thead>
         <tbody>
           {IMP35549_HEIGHT_DIVERGENCE_ROWS.map((row) => (
-            <tr key={row.log10N} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+            <tr key={row.log10N} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>
                 10^{row.log10N}
               </td>
@@ -136,7 +137,7 @@ export default function Imp35549HeightMapDivergenceViz() {
         </tbody>
       </table>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.8rem', marginTop: '1rem' }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.8rem', marginTop: '1rem' }}>
         The relative divergence T0_effective/T0_surrogate&nbsp;-&nbsp;1 falls monotonically across
         all {IMP35549_SUMMARY.rungCount} rungs, from{' '}
         {(IMP35549_SUMMARY.firstRelativeDivergence * 100).toFixed(2)}% at N=1e6 down to{' '}
@@ -152,14 +153,14 @@ export default function Imp35549HeightMapDivergenceViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-data only, computing both
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-data only, computing both
         height maps live from their existing formulas (no fresh derivation, no heavy data-module
         import); pure diagnostic re-plot measuring how far apart two already-existing height-map
         conventions land, does NOT establish which map (if either) is more accurate; measurement

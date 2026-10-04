@@ -6,11 +6,12 @@ import {
   IMP97746_THEORY_LINE,
   IMP97746_SUMMARY,
 } from '../data/imp-97746-mcm-dps-cap-scaling-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
-const SNR1_COLOR = '#60a5fa';
-const SNR10_COLOR = '#a78bfa';
-const FIT_COLOR = '#facc15';
-const THEORY_COLOR = '#f87171';
+const SNR1_COLOR = ED.series1;
+const SNR10_COLOR = ED.series5;
+const FIT_COLOR = ED.series4;
+const THEORY_COLOR = ED.series2;
 
 // Log-log chart of the trustworthy cap d*(dps) vs dps (= log10(1/eps)), with SNR=1 and SNR>=10
 // point series plus the OLS-fitted and theoretical eps^{-1/4} lines overlaid.
@@ -44,8 +45,8 @@ function DpsCapScalingChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#334155" strokeWidth={1} />
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#334155" strokeWidth={1} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1} />
 
       <path d={theoryPath} fill="none" stroke={THEORY_COLOR} strokeWidth={1.5} strokeDasharray="2 3" />
       <path d={fitPath} fill="none" stroke={FIT_COLOR} strokeWidth={1.5} strokeDasharray="5 3" />
@@ -56,7 +57,7 @@ function DpsCapScalingChart() {
         <g key={r.dps}>
           <circle cx={xOf(r.dps)} cy={yOf(r.log10CapSnr1)} r={3.5} fill={SNR1_COLOR} />
           <circle cx={xOf(r.dps)} cy={yOf(r.log10CapSnr10)} r={3} fill={SNR10_COLOR} />
-          <text x={xOf(r.dps)} y={svgH - 20} textAnchor="middle" fill="#94a3b8" fontSize={9}>
+          <text x={xOf(r.dps)} y={svgH - 20} textAnchor="middle" fill={ED.inkSoft} fontSize={9}>
             dps={r.dps}
           </text>
         </g>
@@ -77,7 +78,7 @@ function DpsCapScalingChart() {
       <text
         transform={`translate(14, ${padT + plotH / 2}) rotate(-90)`}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={9}
       >
         log10(d*)
@@ -95,32 +96,32 @@ export default function Imp97746McmDpsCapScalingViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> a measurement/presentation-only
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a measurement/presentation-only
         page reshaping the frozen imp-97724 dps-cap fit verbatim (no re-derivation, no new
         computation). Changes no bound; MCM stays refuted from omega=11; Platt&ndash;Trudgian
         &Lambda; &le; 0.2 remains SOTA; RH open; NO QED.
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         {IMP97746_SUMMARY.reading}
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         d*(dps) vs dps = log10(1/eps), with the eps^{'{-1/4}'} fit and theory lines
       </h3>
       <DpsCapScalingChart />
 
       <table style={{ width: '100%', marginTop: '1.25rem', borderCollapse: 'collapse', fontSize: '0.82rem' }}>
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'right' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'right' }}>
             <th style={{ textAlign: 'left', padding: '0.4rem 0.5rem' }}>dps</th>
             <th style={{ padding: '0.4rem 0.5rem' }}>d* (SNR=1)</th>
             <th style={{ padding: '0.4rem 0.5rem' }}>d* (SNR&ge;10)</th>
@@ -128,7 +129,7 @@ export default function Imp97746McmDpsCapScalingViz() {
         </thead>
         <tbody>
           {IMP97746_ROWS.map((row) => (
-            <tr key={row.dps} style={{ color: '#cbd5e1', textAlign: 'right', borderTop: '1px solid #1e293b' }}>
+            <tr key={row.dps} style={{ color: 'var(--ink)', textAlign: 'right', borderTop: '1px solid var(--rule-soft)' }}>
               <td style={{ textAlign: 'left', padding: '0.4rem 0.5rem' }}>{row.dps}</td>
               <td style={{ padding: '0.4rem 0.5rem' }}>{row.capSnr1.toLocaleString()}</td>
               <td style={{ padding: '0.4rem 0.5rem' }}>{row.capSnr10.toLocaleString()}</td>
@@ -141,14 +142,14 @@ export default function Imp97746McmDpsCapScalingViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> {IMP97746_SUMMARY.verdict}
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> {IMP97746_SUMMARY.verdict}
       </div>
     </div>
   );

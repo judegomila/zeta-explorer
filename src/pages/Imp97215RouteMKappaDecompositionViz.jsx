@@ -6,6 +6,7 @@ import {
   IMP97130_VERDICT,
 } from '../data/imp-97130-route-m-kappa-decomposition-viz-data.js';
 import { IMP97218_TWO_OPEN_HALVES } from '../data/imp-97218-route-m-first-moment-two-open-halves-banner.js';
+import { ED } from '../styles/tokens.js';
 
 // imp-97215: the imp-97130 viz-data leaf (kappa = kappa_arith + kappa_cot decomposition) had no
 // chart consumer yet. This page renders the two component convergence ladders (arithmetic part
@@ -13,8 +14,8 @@ import { IMP97218_TWO_OPEN_HALVES } from '../data/imp-97218-route-m-first-moment
 // side, plus the final three-bar stacked decomposition (arith EXACT + cot MEASURED = total).
 
 const COMPONENT_COLOR = {
-  arith: '#4ade80',
-  cot: '#38bdf8',
+  arith: ED.series3,
+  cot: ED.series1,
 };
 
 function LadderChart({ rows }) {
@@ -39,14 +40,14 @@ function LadderChart({ rows }) {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <text x={svgW - padR} y={svgH - padB + 28} textAnchor="end" fill="#64748b" fontSize={9.5} fontFamily="monospace">
+      <text x={svgW - padR} y={svgH - padB + 28} textAnchor="end" fill={ED.inkFaint} fontSize={9.5} fontFamily="monospace">
         log10 b &rarr;
       </text>
       <text
         x={14}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={9.5}
         fontFamily="monospace"
         transform={`rotate(-90 14 ${padT + cH / 2})`}
@@ -69,7 +70,7 @@ function LadderChart({ rows }) {
                   x={xAt(r.b)}
                   y={yAt(r.value) - 9}
                   textAnchor="middle"
-                  fill="#94a3b8"
+                  fill={ED.inkSoft}
                   fontSize={8.5}
                   fontFamily="monospace"
                 >
@@ -82,11 +83,11 @@ function LadderChart({ rows }) {
       })}
       <g transform={`translate(${padL + 10}, ${padT + 4})`}>
         <circle cx={0} cy={0} r={5} fill={COMPONENT_COLOR.arith} />
-        <text x={10} y={4} fill="#e2e8f0" fontSize={9.5} fontFamily="monospace">
+        <text x={10} y={4} fill={ED.ink} fontSize={9.5} fontFamily="monospace">
           arith (a&gt;=2, drifts down to exact)
         </text>
         <circle cx={0} cy={16} r={5} fill={COMPONENT_COLOR.cot} />
-        <text x={10} y={20} fill="#e2e8f0" fontSize={9.5} fontFamily="monospace">
+        <text x={10} y={20} fill={ED.ink} fontSize={9.5} fontFamily="monospace">
           cot (varying-modulus, climbs up to measured)
         </text>
       </g>
@@ -112,12 +113,12 @@ function DecompositionBars({ bars }) {
         const w = Math.max(4, xAt(bar.value));
         return (
           <g key={bar.key}>
-            <text x={padL - 8} y={y + rowH / 2 + 4} textAnchor="end" fill="#94a3b8" fontSize={10} fontFamily="monospace">
+            <text x={padL - 8} y={y + rowH / 2 + 4} textAnchor="end" fill={ED.inkSoft} fontSize={10} fontFamily="monospace">
               {bar.label}
             </text>
-            <rect x={padL} y={y + 8} width={cW} height={rowH - 20} fill="#1e293b" rx={3} />
+            <rect x={padL} y={y + 8} width={cW} height={rowH - 20} fill={ED.paper3} rx={3} />
             <rect x={padL} y={y + 8} width={w} height={rowH - 20} fill={bar.color} rx={3} />
-            <text x={padL + w + 6} y={y + rowH / 2 + 4} fill="#e2e8f0" fontSize={9.5} fontFamily="monospace">
+            <text x={padL + w + 6} y={y + rowH / 2 + 4} fill={ED.ink} fontSize={9.5} fontFamily="monospace">
               {bar.value.toFixed(6)} ({bar.flag})
             </text>
           </g>
@@ -136,25 +137,25 @@ export default function Imp97215RouteMKappaDecompositionViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.06)',
-          borderLeft: '3px solid #64748b',
+          background: 'color-mix(in srgb, var(--ink-soft) 6%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#e2e8f0' }}>Honest status:</strong> {IMP97130_VERDICT.note}
+        <strong style={{ color: 'var(--ink)' }}>Honest status:</strong> {IMP97130_VERDICT.note}
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '0.5rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '0.5rem', maxWidth: 700 }}>
         Convergence ladders for the two kappa components against b (log axis). The arithmetic
         part (green) is EXACT in the limit and drifts monotonically down toward it; the
         cotangent part (blue) is MEASURED and climbs monotonically up toward its own limit.
       </p>
       <LadderChart rows={IMP97130_LADDER_ROWS} />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', margin: '1.25rem 0 0.5rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', margin: '1.25rem 0 0.5rem', maxWidth: 700 }}>
         Final three-bar decomposition: exact arithmetic part + measured cotangent part = measured
         total kappa.
       </p>
@@ -164,14 +165,14 @@ export default function Imp97215RouteMKappaDecompositionViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> kappa_total &asymp;{' '}
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> kappa_total &asymp;{' '}
         {IMP97130_VERDICT.kappaTotal.toFixed(4)}, positive but MEASURED not proved. Platt&ndash;Trudgian
         &Lambda; &le; 0.2 remains SOTA; RH open; NO QED.
       </div>
@@ -180,21 +181,21 @@ export default function Imp97215RouteMKappaDecompositionViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Two distinct open sub-gaps</strong> (not one): the
+        <strong style={{ color: 'var(--ink-soft)' }}>Two distinct open sub-gaps</strong> (not one): the
         "EXACT" arithmetic bar above still carries its own unclosed remainder estimate, separate
         from the cotangent bar's own unclosed mean-value estimate.
         <ul style={{ margin: '0.4rem 0 0', paddingLeft: '1.1rem' }}>
           {IMP97218_TWO_OPEN_HALVES.halves.map((half) => (
             <li key={half.id} style={{ marginBottom: '0.3rem' }}>
-              <span style={{ color: '#94a3b8' }}>{half.label}</span> ({half.leaf}): {half.status}
+              <span style={{ color: 'var(--ink-soft)' }}>{half.label}</span> ({half.leaf}): {half.status}
             </li>
           ))}
         </ul>

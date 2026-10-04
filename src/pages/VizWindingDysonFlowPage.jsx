@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import VizCeilingNote from '../components/VizCeilingNote.jsx';
+import { ED, alpha } from '../styles/tokens.js';
 
 /*
  * Winding under Dyson/Newman flow.
@@ -108,7 +109,7 @@ function PhaseCanvas({ centerIdx, tau }) {
 
     // Critical line -- literal warm off-white (paper2 #f6f1e7) for contrast
     // against the (unmodified) phase colormap. ctx.strokeStyle can't read var().
-    ctx.strokeStyle = 'rgba(246, 241, 231, 0.6)';
+    ctx.strokeStyle = alpha(ED.paper2, 0.6);
     ctx.setLineDash([6, 5]);
     ctx.lineWidth = 1.5;
     const [lx] = toPx(0.5, 0);
@@ -122,7 +123,7 @@ function PhaseCanvas({ centerIdx, tau }) {
     const cTHi = gc + HALF_T - CONTOUR_T_INSET;
     const [rx0, ry0] = toPx(cSigLo, cTHi); // top-left in canvas coords
     const [rx1, ry1] = toPx(cSigHi, cTLo); // bottom-right in canvas coords
-    ctx.strokeStyle = 'rgba(140, 106, 29, 0.92)';
+    ctx.strokeStyle = alpha(ED.brass, 0.92);
     ctx.setLineDash([9, 4]);
     ctx.lineWidth = 2;
     ctx.beginPath();
@@ -137,8 +138,8 @@ function PhaseCanvas({ centerIdx, tau }) {
       ctx.beginPath();
       ctx.arc(vx, vy, z.off ? 7.5 : 5.5, 0, 2 * Math.PI);
       ctx.lineWidth = 2.5;
-      ctx.strokeStyle = z.off ? '#c23a1c' : '#b58a2e';
-      ctx.fillStyle = 'rgba(28, 24, 20, 0.55)';
+      ctx.strokeStyle = z.off ? ED.accent : ED.brassDeco;
+      ctx.fillStyle = alpha(ED.ink, 0.55);
       ctx.fill();
       ctx.stroke();
     });
@@ -147,7 +148,7 @@ function PhaseCanvas({ centerIdx, tau }) {
     const W = countEnclosed(zeros, cSigLo, cSigHi, cTLo, cTHi);
     const [wx, wy] = toPx(cSigLo + 0.1, cTHi - 0.4);
     ctx.font = 'bold 13px monospace';
-    ctx.fillStyle = 'rgba(140, 106, 29, 0.95)';
+    ctx.fillStyle = alpha(ED.brass, 0.95);
     ctx.fillText('W = ' + W, wx, wy + 16);
   }, [centerIdx, tau, zeros]);
 
@@ -172,7 +173,7 @@ function WindingChart({ centerIdx }) {
     const CW = 400, CH = 180;
     ctx.clearRect(0, 0, CW, CH);
     // Literal warm paper2 background -- ctx.fillStyle can't read var().
-    ctx.fillStyle = '#f6f1e7';
+    ctx.fillStyle = ED.paper2;
     ctx.fillRect(0, 0, CW, CH);
 
     const cSigLo = 0.5 - HALF_SIG + CONTOUR_SIG_INSET;
@@ -200,7 +201,7 @@ function WindingChart({ centerIdx }) {
     const toY = (w)   => TPAD + plotH - ((w - wMin) / wRange) * plotH;
 
     // Grid -- literal warm hairline (#d5c9b2).
-    ctx.strokeStyle = '#d5c9b2';
+    ctx.strokeStyle = ED.rule;
     ctx.lineWidth = 1;
     for (let w = wMin; w <= wMax + 1; w++) {
       const y = toY(w);
@@ -212,14 +213,14 @@ function WindingChart({ centerIdx }) {
     }
 
     // Axes -- literal warm ink-soft (#4a4238).
-    ctx.strokeStyle = '#4a4238';
+    ctx.strokeStyle = ED.inkSoft;
     ctx.lineWidth = 1.5;
     ctx.beginPath();
     ctx.moveTo(LPAD, TPAD); ctx.lineTo(LPAD, CH - BPAD); ctx.lineTo(CW - RPAD, CH - BPAD);
     ctx.stroke();
 
     // Axis labels -- literal warm faint (#877b67).
-    ctx.fillStyle = '#877b67';
+    ctx.fillStyle = ED.inkFaint;
     ctx.font = '10px monospace';
     ctx.textAlign = 'center';
     for (let tau = -6; tau <= 0; tau += 1) {
@@ -232,20 +233,20 @@ function WindingChart({ centerIdx }) {
     }
 
     // tau = 0 marker -- literal warm blue (#3f6b86).
-    ctx.strokeStyle = 'rgba(63, 107, 134, 0.55)';
+    ctx.strokeStyle = alpha(ED.series1, 0.55);
     ctx.setLineDash([4, 3]);
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.moveTo(toX(0), TPAD); ctx.lineTo(toX(0), CH - BPAD);
     ctx.stroke();
     ctx.setLineDash([]);
-    ctx.fillStyle = '#3f6b86';
+    ctx.fillStyle = ED.series1;
     ctx.font = '9px monospace';
     ctx.textAlign = 'left';
     ctx.fillText('tau=0', toX(0) + 2, TPAD + 9);
 
     // Winding curve -- literal warm brass-dk (#b58a2e).
-    ctx.strokeStyle = '#b58a2e';
+    ctx.strokeStyle = ED.brassDeco;
     ctx.lineWidth = 2.5;
     ctx.lineJoin = 'round';
     ctx.beginPath();
@@ -256,7 +257,7 @@ function WindingChart({ centerIdx }) {
     ctx.stroke();
 
     // Axis title -- literal warm faint (#877b67).
-    ctx.fillStyle = '#877b67';
+    ctx.fillStyle = ED.inkFaint;
     ctx.font = '10px monospace';
     ctx.textAlign = 'left';
     ctx.fillText('W(tau)', LPAD + 4, TPAD + 11);
@@ -338,7 +339,7 @@ export default function VizWindingDysonFlowPage() {
             <div
               className="card"
               style={{
-                background: offAxis ? 'rgba(194,58,28,0.08)' : 'rgba(181,138,46,0.08)',
+                background: offAxis ? 'color-mix(in srgb, var(--series-2) 8%, transparent)' : 'color-mix(in srgb, var(--brass-deco) 8%, transparent)',
                 borderLeft: '3px solid ' + (offAxis ? 'var(--terra-dk)' : 'var(--brass-dk)'),
               }}
             >
@@ -402,18 +403,18 @@ export default function VizWindingDysonFlowPage() {
               </label>
             </div>
 
-            <div className="card" style={{ background: 'rgba(63,107,134,0.08)', borderLeft: '3px solid var(--blue)', fontSize: 12 }}>
+            <div className="card" style={{ background: 'color-mix(in srgb, var(--series-1) 8%, transparent)', borderLeft: '3px solid var(--blue)', fontSize: 12 }}>
               <strong style={{ color: 'var(--ink)' }}>Legend</strong>
               <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginTop: 8 }}>
-                <div style={{ width: 14, height: 14, borderRadius: '50%', border: '2.5px solid #b58a2e', background: 'rgba(28,24,20,0.5)', flexShrink: 0 }} />
+                <div style={{ width: 14, height: 14, borderRadius: '50%', border: '2.5px solid var(--brass-deco)', background: 'color-mix(in srgb, var(--ink) 50%, transparent)', flexShrink: 0 }} />
                 <span style={{ color: 'var(--ink-soft)' }}>On-axis zero (sigma = ½)</span>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginTop: 6 }}>
-                <div style={{ width: 14, height: 14, borderRadius: '50%', border: '2.5px solid #c23a1c', background: 'rgba(28,24,20,0.5)', flexShrink: 0 }} />
+                <div style={{ width: 14, height: 14, borderRadius: '50%', border: '2.5px solid var(--accent)', background: 'color-mix(in srgb, var(--ink) 50%, transparent)', flexShrink: 0 }} />
                 <span style={{ color: 'var(--ink-soft)' }}>Off-axis zero (tau &lt; 0)</span>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginTop: 6 }}>
-                <div style={{ width: 20, height: 2, background: 'rgba(140,106,29,0.9)', flexShrink: 0, borderTop: '2px dashed rgba(140,106,29,0.9)' }} />
+                <div style={{ width: 20, height: 2, background: 'color-mix(in srgb, var(--brass) 90%, transparent)', flexShrink: 0, borderTop: '2px dashed color-mix(in srgb, var(--brass) 90%, transparent)' }} />
                 <span style={{ color: 'var(--ink-soft)' }}>Integration contour gamma</span>
               </div>
             </div>
@@ -440,7 +441,7 @@ export default function VizWindingDysonFlowPage() {
               <PhaseCanvas centerIdx={centerIdx} tau={tau} />
             </div>
           </div>
-          <div className="card" style={{ marginTop: 12, background: 'rgba(63,107,134,0.08)', borderLeft: '3px solid var(--blue)', fontSize: 12 }}>
+          <div className="card" style={{ marginTop: 12, background: 'color-mix(in srgb, var(--series-1) 8%, transparent)', borderLeft: '3px solid var(--blue)', fontSize: 12 }}>
             <strong style={{ color: 'var(--ink)' }}>What the comparison shows:</strong>{' '}
             <span style={{ color: 'var(--ink-soft)' }}>
               At τ=0 (left) all zeros sit on Re s=½ — one vortex swirl per zero, centred on the critical line.

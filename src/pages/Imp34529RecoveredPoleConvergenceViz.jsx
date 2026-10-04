@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP34529_RECOVERED_POLE_CONVERGENCE_VS_INHERITED } from '../data/imp-34529-recovered-pole-convergence-vs-inherited.js';
+import { ED } from '../styles/tokens.js';
 
 const {
   poleLocation,
@@ -34,49 +35,49 @@ function RecoveredPoleClimbChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
 
       <line
         x1={padL}
         y1={poleY}
         x2={padL + cW}
         y2={poleY}
-        stroke="#ef4444"
+        stroke={ED.series2}
         strokeWidth={1.5}
         strokeDasharray="4 3"
       />
-      <text x={padL + cW - 4} y={poleY - 6} textAnchor="end" fill="#ef4444" fontSize={9}>
+      <text x={padL + cW - 4} y={poleY - 6} textAnchor="end" fill={ED.series2} fontSize={9}>
         inherited k* = {poleLocation.toFixed(5)}
       </text>
 
-      <polyline points={climbPoints} fill="none" stroke="#60a5fa" strokeWidth={2} />
+      <polyline points={climbPoints} fill="none" stroke={ED.series1} strokeWidth={2} />
       {recoveredPoles.map((p, i) => (
         <g key={'rp' + i}>
-          <circle cx={xS(i)} cy={yS(p)} r={4} fill="#60a5fa" />
-          <text x={xS(i)} y={yS(p) - 10} textAnchor="middle" fill="#60a5fa" fontSize={8.5}>
+          <circle cx={xS(i)} cy={yS(p)} r={4} fill={ED.series1} />
+          <text x={xS(i)} y={yS(p) - 10} textAnchor="middle" fill={ED.series1} fontSize={8.5}>
             {p.toFixed(3)}
           </text>
-          <text x={xS(i)} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={9}>
+          <text x={xS(i)} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
             {i + 1}
           </text>
         </g>
       ))}
 
       {[yMin, poleLocation, yMax].map((t, ti) => (
-        <text key={'yt' + ti} x={padL - 8} y={yS(t) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+        <text key={'yt' + ti} x={padL - 8} y={yS(t) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
           {t.toFixed(2)}
         </text>
       ))}
 
-      <text x={padL + cW / 2} y={svgH - 2} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 2} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         rung (window tightens left to right)
       </text>
       <text
         x={16}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={`rotate(-90 16 ${padT + cH / 2})`}
       >
@@ -108,36 +109,36 @@ function ResidualDecayChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
 
-      <polyline points={decayPoints} fill="none" stroke="#34d399" strokeWidth={2} />
+      <polyline points={decayPoints} fill="none" stroke={ED.series3} strokeWidth={2} />
       {logResid.map((v, i) => (
         <g key={'res' + i}>
-          <circle cx={xS(i)} cy={yS(v)} r={4} fill="#34d399" />
-          <text x={xS(i)} y={yS(v) - 10} textAnchor="middle" fill="#34d399" fontSize={8.5}>
+          <circle cx={xS(i)} cy={yS(v)} r={4} fill={ED.series3} />
+          <text x={xS(i)} y={yS(v) - 10} textAnchor="middle" fill={ED.series3} fontSize={8.5}>
             {residuals[i].toFixed(5)}
           </text>
-          <text x={xS(i)} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={9}>
+          <text x={xS(i)} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
             {i + 1}
           </text>
         </g>
       ))}
 
       {[yMin, (yMin + yMax) / 2, yMax].map((t, ti) => (
-        <text key={'yt' + ti} x={padL - 8} y={yS(t) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+        <text key={'yt' + ti} x={padL - 8} y={yS(t) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
           {t.toFixed(2)}
         </text>
       ))}
 
-      <text x={padL + cW / 2} y={svgH - 2} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 2} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         rung (window tightens left to right)
       </text>
       <text
         x={16}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={`rotate(-90 16 ${padT + cH / 2})`}
       >
@@ -152,7 +153,7 @@ export default function Imp34529RecoveredPoleConvergenceViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Recovered-Pole Convergence: 1/leak-Root Ladder onto k* (imp-34529)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-34529 tabulated the imp-34512 naive 1/leak-linear-root pole estimator over a graded
         seven-rung ladder of tightening OLS windows, reusing the imp-34247 metric, imp-34188 y(k)
         surrogate, and imp-34023 pole verbatim. The recovered pole climbs monotonically toward the
@@ -161,12 +162,12 @@ export default function Imp34529RecoveredPoleConvergenceViz() {
         ending &asymp;{residualLastPctOfKStar.toFixed(4)}% of k* away.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         recovered pole climbing toward the inherited k* across the seven-rung ladder
       </p>
       <RecoveredPoleClimbChart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginTop: '1.5rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginTop: '1.5rem', marginBottom: '0.5rem' }}>
         residual |k*_recovered - k*| shrinking geometrically (&asymp;1/3 per rung, log scale)
       </p>
       <ResidualDecayChart />
@@ -180,7 +181,7 @@ export default function Imp34529RecoveredPoleConvergenceViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>rung</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>window</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>recovered pole</th>
@@ -190,7 +191,7 @@ export default function Imp34529RecoveredPoleConvergenceViz() {
         </thead>
         <tbody>
           {ladder.map((r, i) => (
-            <tr key={i} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+            <tr key={i} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
               <td style={{ padding: '0.4rem 0.6rem' }}>{i + 1}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>
                 [{r.window[0]}, {r.window[1]}]
@@ -209,14 +210,14 @@ export default function Imp34529RecoveredPoleConvergenceViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> cross-validation / measurement
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> cross-validation / measurement
         only -- reuses the imp-34247 metric, imp-34188 y(k) surrogate, imp-34023 pole, and imp-34512
         invLeakRoot estimator verbatim; the component model is the inherited imp-3220/imp-3406
         extrapolation, NOT a rigorous asymptotic; the residExp simple-zero structure is a

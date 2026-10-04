@@ -10,6 +10,7 @@ import {
   IMP95809_LOG_BIAS_MAX,
   IMP95809_CAVEAT_BANNER,
 } from '../data/imp-95809-deep-corner-bias-convergence-ladder-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 // Log-log chart of biasPct vs N: the monotone super-linear descent of the
 // finite-size bias toward zero as the finite-80 truncation is extended.
@@ -38,17 +39,17 @@ function BiasLadderChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#334155" strokeWidth={1} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1} />
       <line
         x1={padL}
         y1={padT + plotH}
         x2={padL + plotW}
         y2={padT + plotH}
-        stroke="#64748b"
+        stroke={ED.rule}
         strokeWidth={1.5}
       />
 
-      <polyline points={points} fill="none" stroke="#38bdf8" strokeWidth={2} />
+      <polyline points={points} fill="none" stroke={ED.series1} strokeWidth={2} />
 
       {IMP95809_LOG_ROWS.map((r, i) => (
         <g key={r.nPoints}>
@@ -56,13 +57,13 @@ function BiasLadderChart() {
             cx={xOf(r.logN)}
             cy={yOf(r.logBias)}
             r={4.5}
-            fill={i === 0 ? '#f87171' : '#38bdf8'}
+            fill={i === 0 ? ED.series2 : ED.series1}
           />
           <text
             x={xOf(r.logN)}
             y={yOf(r.logBias) - 10}
             textAnchor="middle"
-            fill={i === 0 ? '#f87171' : '#94a3b8'}
+            fill={i === 0 ? ED.series2 : ED.inkSoft}
             fontSize={9.5}
             fontFamily="monospace"
           >
@@ -72,7 +73,7 @@ function BiasLadderChart() {
             x={xOf(r.logN)}
             y={yOf(r.logBias) + 18}
             textAnchor="middle"
-            fill="#64748b"
+            fill={ED.inkFaint}
             fontSize={9}
             fontFamily="monospace"
           >
@@ -81,14 +82,14 @@ function BiasLadderChart() {
         </g>
       ))}
 
-      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         N (lattice points), log scale
       </text>
       <text
         x={16}
         y={padT + plotH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={`rotate(-90 16 ${padT + plotH / 2})`}
       >
@@ -106,7 +107,7 @@ export default function Imp95809DeepCornerBiasConvergenceLadderViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Deep-Corner Finite-N Bias Convergence Ladder (imp-95788)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         At the deepest twin-pair block-Toeplitz cell (delta&nbsp;=&nbsp;{IMP95809_CELL.delta},
         rho&nbsp;=&nbsp;{IMP95809_CELL.rho}), imp-95788 re-ran the imp-95762 double-double
         eigensolver at N&nbsp;=&nbsp;80,&nbsp;120,&nbsp;160,&nbsp;200 lattice points against the
@@ -129,7 +130,7 @@ export default function Imp95809DeepCornerBiasConvergenceLadderViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>N (points)</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>lambda_min (DD)</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>biasPct</th>
@@ -137,7 +138,7 @@ export default function Imp95809DeepCornerBiasConvergenceLadderViz() {
         </thead>
         <tbody>
           {IMP95809_LOG_ROWS.map((r) => (
-            <tr key={r.nPoints} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+            <tr key={r.nPoints} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.nPoints}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>
                 {r.lminDD.toExponential(6)}
@@ -154,14 +155,14 @@ export default function Imp95809DeepCornerBiasConvergenceLadderViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> {IMP95809_CAVEAT_BANNER}
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> {IMP95809_CAVEAT_BANNER}
       </div>
     </div>
   );

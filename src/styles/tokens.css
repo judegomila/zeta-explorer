@@ -1,0 +1,201 @@
+/* ============================================================================
+   Shared colour tokens for both themes.
+   :root   = classic dark app values.
+   .ed-root = editorial (cream) values. .ed-root is more specific than :root,
+   so import order does not matter. The same names exist in both blocks.
+   Hex values are mirrored in src/styles/tokens.js; keep them in sync with
+   `node scripts/check-tokens-sync.mjs`.
+   ========================================================================== */
+
+:root {
+  /* core */
+  --paper: #0a0e1a;
+  --paper-2: #111827;
+  --paper-3: #1a1f36;
+  --paper-4: #222845;
+  --ink: #e2e8f0;
+  --ink-soft: #94a3b8;
+  --ink-faint: #8290a3;
+  --rule: #334155;
+  --rule-soft: #1e293b;
+  --accent: #38bdf8;
+  --accent-deco: #3b82f6;
+  --brass: #facc15;
+  --brass-deco: #f59e0b;
+  --warn: #f87171;
+  --focus-ring: #38bdf8;
+
+  /* status foregrounds */
+  --status-proved: #4ade80;
+  --status-certified: #2dd4bf;
+  --status-measured: #94a3b8;
+  --status-candidate: #fb923c;
+  --status-conditional: #facc15;
+  --status-open: #38bdf8;
+  --status-nogo: #fb7185;
+  --status-refuted: #f87171;
+  --status-rhequiv: #a78bfa;
+  --status-neutral: #94a3b8;
+
+  /* status tints */
+  --status-proved-tint: color-mix(in srgb, var(--status-proved) 14%, transparent);
+  --status-certified-tint: color-mix(in srgb, var(--status-certified) 14%, transparent);
+  --status-measured-tint: color-mix(in srgb, var(--status-measured) 14%, transparent);
+  --status-candidate-tint: color-mix(in srgb, var(--status-candidate) 14%, transparent);
+  --status-conditional-tint: color-mix(in srgb, var(--status-conditional) 14%, transparent);
+  --status-open-tint: color-mix(in srgb, var(--status-open) 14%, transparent);
+  --status-nogo-tint: color-mix(in srgb, var(--status-nogo) 14%, transparent);
+  --status-refuted-tint: color-mix(in srgb, var(--status-refuted) 14%, transparent);
+  --status-rhequiv-tint: color-mix(in srgb, var(--status-rhequiv) 14%, transparent);
+  --status-neutral-tint: color-mix(in srgb, var(--status-neutral) 14%, transparent);
+
+  /* chart series */
+  --series-1: #38bdf8;
+  --series-2: #f87171;
+  --series-3: #4ade80;
+  --series-4: #facc15;
+  --series-5: #a78bfa;
+  --series-6: #2dd4bf;
+  --series-7: #f472b6;
+  --series-8: #94a3b8;
+  --div-lo: var(--series-1);
+  --div-mid: var(--paper);
+  --div-hi: var(--series-2);
+
+  /* generic tints */
+  --tint-green: color-mix(in srgb, var(--series-3) 12%, transparent);
+  --tint-brass: color-mix(in srgb, var(--brass) 12%, transparent);
+  --tint-amber: color-mix(in srgb, var(--status-candidate) 12%, transparent);
+  --tint-terra: color-mix(in srgb, var(--series-2) 12%, transparent);
+  --tint-rose: color-mix(in srgb, var(--status-nogo) 12%, transparent);
+  --tint-blue: color-mix(in srgb, var(--series-1) 12%, transparent);
+  --tint-purple: color-mix(in srgb, var(--series-5) 12%, transparent);
+  --tint-teal: color-mix(in srgb, var(--series-6) 12%, transparent);
+  --tint-slate: color-mix(in srgb, var(--status-measured) 12%, transparent);
+  --tint-neutral: color-mix(in srgb, var(--status-neutral) 12%, transparent);
+
+  /* legacy aliases (existing references keep working) */
+  --bg-primary: var(--paper);
+  --bg-secondary: var(--paper-2);
+  --bg-card: var(--paper-3);
+  --bg-card-hover: var(--paper-4);
+  --border: var(--rule);
+  --border-glow: #4f46e5;
+  --text-primary: var(--ink);
+  --text-secondary: var(--ink-soft);
+  --text-muted: var(--ink-faint);
+  --accent-blue: #3b82f6;
+  --accent-purple: #8b5cf6;
+  --accent-cyan: #06b6d4;
+  --accent-green: #10b981;
+  --accent-orange: #f59e0b;
+  --accent-red: #ef4444;
+  --accent-pink: #ec4899;
+  --gradient-primary: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  --gradient-warm: linear-gradient(135deg, #f59e0b, #ef4444);
+  --gradient-cool: linear-gradient(135deg, #06b6d4, #10b981);
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --shadow-glow: 0 0 20px rgba(79, 70, 229, 0.15);
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.3);
+}
+
+.ed-root {
+  /* core */
+  --paper: #fdfaf3;
+  --paper-2: #f6f1e7;
+  --paper-3: #efe7d6;
+  --paper-4: #e8dfcb;
+  --ink: #1c1814;
+  --ink-soft: #4a4238;
+  --ink-faint: #71665a;
+  --rule: #d5c9b2;
+  --rule-soft: #e3d8c2;
+  --accent: #c23a1c;
+  --accent-deco: #d9502e;
+  --brass: #8c6a1d;
+  --brass-deco: #b58a2e;
+  --warn: #c23a1c;
+  --focus-ring: #c23a1c;
+
+  /* status foregrounds */
+  --status-proved: #467044;
+  --status-certified: #2f6f6a;
+  --status-measured: #5c6875;
+  --status-candidate: #8f5a28;
+  --status-conditional: #7d5f1a;
+  --status-open: #3f6b86;
+  --status-nogo: #a14a35;
+  --status-refuted: #8a3b2e;
+  --status-rhequiv: #6d55b8;
+  --status-neutral: #6b6151;
+
+  /* status tints */
+  --status-proved-tint: #e7efe4;
+  --status-certified-tint: #e1eeec;
+  --status-measured-tint: #e7ecef;
+  --status-candidate-tint: #f4e6d4;
+  --status-conditional-tint: #f4ead0;
+  --status-open-tint: #e3edf2;
+  --status-nogo-tint: #f6e0d8;
+  --status-refuted-tint: #f1dcd6;
+  --status-rhequiv-tint: #ebe6f5;
+  --status-neutral-tint: #e7e1d2;
+
+  /* chart series */
+  --series-1: #3f6b86;
+  --series-2: #c23a1c;
+  --series-3: #4c7a4a;
+  --series-4: #8c6a1d;
+  --series-5: #6d55b8;
+  --series-6: #2f6f6a;
+  --series-7: #9b4a7a;
+  --series-8: #63707d;
+  --div-lo: var(--series-1);
+  --div-mid: var(--paper);
+  --div-hi: var(--series-2);
+
+  /* generic tints */
+  --tint-green: #e7efe4;
+  --tint-brass: #f4ead0;
+  --tint-amber: #f4e6d4;
+  --tint-terra: #f6e0d8;
+  --tint-rose: #f1dcd6;
+  --tint-blue: #e3edf2;
+  --tint-purple: #ebe6f5;
+  --tint-teal: #e1eeec;
+  --tint-slate: #e7ecef;
+  --tint-neutral: #e7e1d2;
+
+  /* editorial short names (existing references keep working) */
+  --paper2: var(--paper-2);
+  --paper3: var(--paper-3);
+  --faint: var(--ink-faint);
+  --hairline: var(--rule);
+  --hair2: var(--rule-soft);
+  --brass-dk: var(--brass-deco);
+  --terra: var(--accent-deco);
+  --terra-dk: var(--accent);
+  --green: var(--series-3);
+  --blue: var(--series-1);
+  --purple: var(--series-5);
+  --teal: var(--series-6);
+
+  /* classic names remapped to the cream palette */
+  --bg-primary: var(--paper);
+  --bg-secondary: var(--paper-2);
+  --bg-card: var(--paper-2);
+  --bg-card-hover: var(--paper-3);
+  --border: var(--rule);
+  --text-primary: var(--ink);
+  --text-secondary: var(--ink-soft);
+  --text-muted: var(--ink-faint);
+  --accent-blue: var(--series-1);
+  --accent-purple: var(--series-5);
+  --accent-cyan: var(--series-6);
+  --accent-green: var(--series-3);
+  --accent-orange: var(--brass-deco);
+  --accent-red: var(--series-2);
+  --accent-pink: var(--series-7);
+  --font-mono: var(--ed-mono, "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace);
+}

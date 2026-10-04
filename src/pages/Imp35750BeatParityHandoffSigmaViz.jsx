@@ -6,9 +6,10 @@ import {
   IMP35750_SIGMA_LADDER,
   IMP35750_MATHEMATICAL_CROSSOVER_SIGMA,
 } from '../data/imp-35750-beat-parity-handoff-sigma-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
-const BEAT_COLOR = '#f472b6';
-const BARRIER_COLOR = '#38bdf8';
+const BEAT_COLOR = ED.series7;
+const BARRIER_COLOR = ED.series1;
 
 function HandoffChart({ rows }) {
   const w = 720;
@@ -31,12 +32,12 @@ function HandoffChart({ rows }) {
 
   return (
     <svg width={w} height={h} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={plotW} height={plotH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={plotW} height={plotH} fill={ED.paper} rx={2} />
 
       {[0, 0.25, 0.5, 0.75, 1].map((v) => (
         <g key={v}>
-          <line x1={padL} x2={padL + plotW} y1={yPix(v)} y2={yPix(v)} stroke="#1e293b" strokeWidth={0.7} />
-          <text x={padL - 8} y={yPix(v) + 3.5} textAnchor="end" fill="#64748b" fontSize={10}>
+          <line x1={padL} x2={padL + plotW} y1={yPix(v)} y2={yPix(v)} stroke={ED.ruleSoft} strokeWidth={0.7} />
+          <text x={padL - 8} y={yPix(v) + 3.5} textAnchor="end" fill={ED.inkFaint} fontSize={10}>
             {v}
           </text>
         </g>
@@ -48,17 +49,17 @@ function HandoffChart({ rows }) {
         <g key={r.sigma}>
           <circle cx={xPix(r.sigma)} cy={yPix(r.ctBarrierShare)} r={3.5} fill={BARRIER_COLOR} />
           <circle cx={xPix(r.sigma)} cy={yPix(r.beatCarrierShare)} r={3.5} fill={BEAT_COLOR} />
-          <text x={xPix(r.sigma)} y={padT + plotH + 16} textAnchor="middle" fill="#64748b" fontSize={9.5}>
+          <text x={xPix(r.sigma)} y={padT + plotH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5}>
             {r.sigma.toExponential(0)}
           </text>
         </g>
       ))}
 
-      <rect x={padL} y={padT} width={plotW} height={plotH} fill="none" stroke="#334155" strokeWidth={1} />
-      <text x={14} y={padT + plotH / 2} textAnchor="middle" fill="#64748b" fontSize={10} transform={`rotate(-90,14,${padT + plotH / 2})`}>
+      <rect x={padL} y={padT} width={plotW} height={plotH} fill="none" stroke={ED.rule} strokeWidth={1} />
+      <text x={14} y={padT + plotH / 2} textAnchor="middle" fill={ED.inkFaint} fontSize={10} transform={`rotate(-90,14,${padT + plotH / 2})`}>
         share of E
       </text>
-      <text x={padL + plotW / 2} y={h - 6} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + plotW / 2} y={h - 6} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         sigma (log scale, falling far-tail depth &rarr;)
       </text>
     </svg>
@@ -69,7 +70,7 @@ function HandoffTable({ rows }) {
   return (
     <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.8rem' }}>
       <thead>
-        <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+        <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
           <th style={{ padding: '0.4rem 0.6rem' }}>sigma</th>
           <th style={{ padding: '0.4rem 0.6rem' }}>beat-carrier share (E_coll)</th>
           <th style={{ padding: '0.4rem 0.6rem' }}>C_T-barrier share (E_trunc)</th>
@@ -77,7 +78,7 @@ function HandoffTable({ rows }) {
       </thead>
       <tbody>
         {rows.map((r) => (
-          <tr key={r.sigma} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+          <tr key={r.sigma} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.sigma.toExponential(0)}</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace', color: BEAT_COLOR }}>
               {r.beatCarrierShare.toExponential(3)}
@@ -97,7 +98,7 @@ export default function Imp35750BeatParityHandoffSigmaViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Beat &rarr; Parity Handoff Along the Sigma-Axis (imp-35750 / imp-35678)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
         imp-35678 identified the beat-carrier-to-parity handoff: the GUE-conditional
         beat carrier (E_coll) has far-tail share exactly sigma (imp-486), while the
         surviving C_T-barrier term (E_trunc) has share 1 &minus; sigma &minus;
@@ -109,7 +110,7 @@ export default function Imp35750BeatParityHandoffSigmaViz() {
         C_T-barrier share is already dominant (&gt;99.9%).
       </p>
 
-      <h3 style={{ color: '#cbd5e1', fontSize: '0.9rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.9rem', marginBottom: '0.5rem' }}>
         Beat-carrier share (falling) vs C_T-barrier share (rising) across the sigma ladder
       </h3>
       <HandoffChart rows={IMP35750_HANDOFF_GRID} />
@@ -118,7 +119,7 @@ export default function Imp35750BeatParityHandoffSigmaViz() {
         <HandoffTable rows={IMP35750_HANDOFF_GRID} />
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.8rem', marginTop: '1rem' }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.8rem', marginTop: '1rem' }}>
         The ladder illustrates the CONTINUATION of the handoff deep into asymptotic
         parity, not the crossing point itself: the beat-carrier share falls
         monotonically toward zero while the C_T-barrier share rises monotonically
@@ -130,14 +131,14 @@ export default function Imp35750BeatParityHandoffSigmaViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation only of
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> presentation only of
         the already-derived imp-35677/imp-35678 sigma-share model (no new derivation, no
         heavy data-module import); C_mb GUE-conditional (imp-486) UNTOUCHED; changes no
         bound, establishes no operator positivity, no RH verdict. NO QED.

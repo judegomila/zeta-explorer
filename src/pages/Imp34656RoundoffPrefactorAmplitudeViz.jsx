@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP34633_ROUNDOFF_PREFACTOR_AMPLITUDE_VS_EPSMACH } from '../data/imp-34633-roundoff-prefactor-amplitude-vs-epsmach.js';
+import { ED } from '../styles/tokens.js';
 
 const M = IMP34633_ROUNDOFF_PREFACTOR_AMPLITUDE_VS_EPSMACH;
 
@@ -60,9 +61,9 @@ const WINDOW_Q3 = [1e-4, 5e-5, 3e-5, 2e-5, 1e-5];
 const WINDOW_Q4 = [2e-3, 1.4e-3, 1e-3];
 
 const CHANNELS = [
-  { k: 2, color: '#38bdf8', label: 'q2 (2nd diff / dp²)', window: WINDOW_Q2, m: M.m_q2, ratio: M.ratio_q2, Bmeas: M.B2_measured, Bpred: M.B2_predicted },
-  { k: 3, color: '#facc15', label: 'q3 (3rd diff / (2 dp³))', window: WINDOW_Q3, m: M.m_q3, ratio: M.ratio_q3, Bmeas: M.B3_measured, Bpred: M.B3_predicted },
-  { k: 4, color: '#f87171', label: 'q4 (4th diff / dp⁴)', window: WINDOW_Q4, m: M.m_q4, ratio: M.ratio_q4, Bmeas: M.B4_measured, Bpred: M.B4_predicted },
+  { k: 2, color: ED.series1, label: 'q2 (2nd diff / dp²)', window: WINDOW_Q2, m: M.m_q2, ratio: M.ratio_q2, Bmeas: M.B2_measured, Bpred: M.B2_predicted },
+  { k: 3, color: ED.brass, label: 'q3 (3rd diff / (2 dp³))', window: WINDOW_Q3, m: M.m_q3, ratio: M.ratio_q3, Bmeas: M.B3_measured, Bpred: M.B3_predicted },
+  { k: 4, color: ED.series2, label: 'q4 (4th diff / dp⁴)', window: WINDOW_Q4, m: M.m_q4, ratio: M.ratio_q4, Bmeas: M.B4_measured, Bpred: M.B4_predicted },
 ];
 
 // Measured floor line = the genuinely recomputed deep-group-max share at each window anchor. The
@@ -98,8 +99,8 @@ function AmplitudeChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
+      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
 
       {SERIES.map((s) => {
         const measPath = s.points.map((p, i) => `${i === 0 ? 'M' : 'L'}${xAt(p.dp)},${yAt(p.measured)}`).join(' ');
@@ -109,7 +110,7 @@ function AmplitudeChart() {
             <path d={predPath} fill="none" stroke={s.color} strokeWidth={1.5} strokeDasharray="4,3" opacity={0.6} />
             <path d={measPath} fill="none" stroke={s.color} strokeWidth={2} />
             {s.points.map((p) => (
-              <circle key={`m-${p.dp}`} cx={xAt(p.dp)} cy={yAt(p.measured)} r={3.5} fill={s.color} stroke="#0a0f1a" strokeWidth={1} />
+              <circle key={`m-${p.dp}`} cx={xAt(p.dp)} cy={yAt(p.measured)} r={3.5} fill={s.color} stroke={ED.paper} strokeWidth={1} />
             ))}
           </g>
         );
@@ -121,7 +122,7 @@ function AmplitudeChart() {
         </text>
       ))}
 
-      <text x={padL + cW / 2} y={svgH - 6} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 6} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         q-derivative step dp (log scale) -- solid = measured floor, dashed = eps_mach*|q| prediction
       </text>
     </svg>
@@ -133,7 +134,7 @@ export default function Imp34656RoundoffPrefactorAmplitudeViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="q2/q3/q4 Roundoff-Floor Amplitude vs eps_mach Prediction (imp-34656 / imp-34633)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-34633 fit the INTERCEPT prefactor of each imp-34606 deep-tail q2/q3/q4 log-log
         roundoff line and compared it to a parameter-free double-precision prediction
         (~eps_mach&nbsp;&times;&nbsp;|q|). This tab plots the three deep-group-max apparent-share
@@ -142,7 +143,7 @@ export default function Imp34656RoundoffPrefactorAmplitudeViz() {
         intercept and its predicted counterpart are visible as a single vertical gap per line.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         deep-group max apparent channel share vs dp (log-log): measured floor (solid) vs eps_mach*|q|
         prediction (dashed), one pair per channel
       </p>
@@ -150,7 +151,7 @@ export default function Imp34656RoundoffPrefactorAmplitudeViz() {
 
       <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.8rem', marginTop: '1.5rem' }}>
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>channel</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>B measured</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>B predicted</th>
@@ -160,7 +161,7 @@ export default function Imp34656RoundoffPrefactorAmplitudeViz() {
         </thead>
         <tbody>
           {M.amplitude_rows.map((r) => (
-            <tr key={r.channel} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+            <tr key={r.channel} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
               <td style={{ padding: '0.4rem 0.6rem' }}>{r.channel}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.B_measured}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.B_predicted}</td>
@@ -175,11 +176,11 @@ export default function Imp34656RoundoffPrefactorAmplitudeViz() {
         style={{
           marginTop: '1rem',
           padding: '0.6rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
         }}
       >
         All three channels land within a factor of &sim;3.5 of the parameter-free eps_mach
@@ -195,14 +196,14 @@ export default function Imp34656RoundoffPrefactorAmplitudeViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-data only, recomputing the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-data only, recomputing the
         imp-34606/imp-34633 q-derivative sweep independently over the published roundoff-dominated
         windows; the predicted-amplitude lines and ratio annotations are the imp-34633 baked values.
         This is a conditioning diagnostic on the finite-difference measurement, not a rehabilitation

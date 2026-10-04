@@ -6,6 +6,7 @@ import {
   IMP96314_ANCHORS,
   IMP96314_HONEST_BANNER,
 } from '../data/imp-96314-covariance-deviation-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 function DeviationChart() {
   const svgW = 680;
@@ -38,18 +39,18 @@ function DeviationChart() {
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
       {yTicks.map((v) => (
         <g key={`y${v}`}>
-          <line x1={padL} y1={yOf(v)} x2={padL + plotW} y2={yOf(v)} stroke="#334155" strokeWidth={0.5} opacity={0.4} />
-          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={8.5}>{v.toFixed(2)}</text>
+          <line x1={padL} y1={yOf(v)} x2={padL + plotW} y2={yOf(v)} stroke={ED.rule} strokeWidth={0.5} opacity={0.4} />
+          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8.5}>{v.toFixed(2)}</text>
         </g>
       ))}
 
       {/* epsilon = 1e-2 target reference line (not reached on this ladder) */}
-      <line x1={padL} y1={yOf(0.01)} x2={padL + plotW} y2={yOf(0.01)} stroke="#94a3b8" strokeWidth={0.75} strokeDasharray="2 3" opacity={0.6} />
+      <line x1={padL} y1={yOf(0.01)} x2={padL + plotW} y2={yOf(0.01)} stroke={ED.rule} strokeWidth={0.75} strokeDasharray="2 3" opacity={0.6} />
 
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
 
-      <path d={pathOf(IMP96314_DEVIATION_SERIES)} fill="none" stroke="#f472b6" strokeWidth={1.75} opacity={0.95} />
+      <path d={pathOf(IMP96314_DEVIATION_SERIES)} fill="none" stroke={ED.series7} strokeWidth={1.75} opacity={0.95} />
 
       {IMP96314_DEVIATION_SERIES.map((p) => (
         <circle
@@ -57,31 +58,31 @@ function DeviationChart() {
           cx={xOf(p.log10T)}
           cy={yOf(p.deviation)}
           r={p.isPlattTrudgianAnchor ? 3.4 : 2.4}
-          fill={p.isPlattTrudgianAnchor ? '#facc15' : '#f472b6'}
+          fill={p.isPlattTrudgianAnchor ? ED.brassDeco : ED.series7}
         />
       ))}
 
       {xTicks.map((v) => (
-        <text key={`x${v}`} x={xOf(v)} y={padT + plotH + 14} textAnchor="middle" fill="#64748b" fontSize={7.5}>
+        <text key={`x${v}`} x={xOf(v)} y={padT + plotH + 14} textAnchor="middle" fill={ED.inkFaint} fontSize={7.5}>
           {v === IMP96314_ANCHORS.plattTrudgianLog10T ? '12.48(PT)' : v}
         </text>
       ))}
 
-      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill="#64748b" fontSize={9.5}>
+      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5}>
         log10 T (decade ladder 1e4..1e12, plus the Platt&ndash;Trudgian verified anchor 3e12)
       </text>
 
       <g transform={`translate(${padL + 8}, ${padT + 8})`}>
-        <line x1={0} y1={0} x2={18} y2={0} stroke="#f472b6" strokeWidth={1.75} />
-        <text x={22} y={3} fill="#94a3b8" fontSize={8.5}>
+        <line x1={0} y1={0} x2={18} y2={0} stroke={ED.series7} strokeWidth={1.75} />
+        <text x={22} y={3} fill={ED.inkSoft} fontSize={8.5}>
           |rho_exact + 1/2| (deviation from the GUE-rigidity limit, decade ladder)
         </text>
-        <circle cx={9} cy={16} r={3.4} fill="#facc15" />
-        <text x={22} y={19} fill="#94a3b8" fontSize={8.5}>
+        <circle cx={9} cy={16} r={3.4} fill={ED.brassDeco} />
+        <text x={22} y={19} fill={ED.inkSoft} fontSize={8.5}>
           Platt&ndash;Trudgian verified anchor (T = 3e12, deviation {plattRow ? plattRow.deviation.toFixed(4) : ''})
         </text>
-        <line x1={0} y1={30} x2={18} y2={30} stroke="#94a3b8" strokeWidth={0.75} strokeDasharray="2 3" />
-        <text x={22} y={33} fill="#94a3b8" fontSize={8.5}>epsilon = 1e-2 target (not reached on this ladder)</text>
+        <line x1={0} y1={30} x2={18} y2={30} stroke={ED.rule} strokeWidth={0.75} strokeDasharray="2 3" />
+        <text x={22} y={33} fill={ED.inkSoft} fontSize={8.5}>epsilon = 1e-2 target (not reached on this ladder)</text>
       </g>
     </svg>
   );
@@ -101,18 +102,18 @@ export default function Imp96314CovarianceDeviationViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 760,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> {IMP96314_HONEST_BANNER}
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> {IMP96314_HONEST_BANNER}
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
         imp-96150/imp-96177 found the exact GUE two-interval correlation rho_exact drifts
         monotonically toward the rigidity limit -1/2 across five held-out heights, without
         quantifying how slowly. imp-96267 computed the deviation |rho_exact + 1/2| on a decade
@@ -121,7 +122,7 @@ export default function Imp96314CovarianceDeviationViz() {
         {' '}across nine decades &mdash; a 1/log T crawl, not a real convergence at any accessible height.
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         |rho_exact + 1/2| vs log10 T (decade ladder, logarithmically slow approach to 0)
       </h3>
       <DeviationChart />
@@ -130,14 +131,14 @@ export default function Imp96314CovarianceDeviationViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> the pink curve is nowhere
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> the pink curve is nowhere
         near flat but its descent is glacial: even at the Platt&ndash;Trudgian verified height
         T = 3e12 (yellow dot), the deviation is still {plattRow ? plattRow.deviation.toFixed(4) : ''}
         {' '}&mdash; well above the epsilon = 1e-2 target line (dashed). Extrapolating the same 1/log T
@@ -151,14 +152,14 @@ export default function Imp96314CovarianceDeviationViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page consuming the imp-96267
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the imp-96267
         baked decade ladder and crossing literals verbatim (only the log10 T axis reshaping is
         computed here). rho_exact is the theoretical GUE (sine-kernel, universality) two-interval
         correlation, not a measurement of the actual Riemann zeros. Changes no bound, establishes

@@ -1,15 +1,16 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP35138_SIGMA_DEEP_TAIL_THRESHOLD_LADDER_VIZ_DATA } from '../data/imp-35138-sigma-deep-tail-threshold-ladder-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 const D = IMP35138_SIGMA_DEEP_TAIL_THRESHOLD_LADDER_VIZ_DATA;
 const GRID = D.grid;
 
 const LANDMARKS = [
-  { log10N: Math.log10(D.thresholdCrossings.sigma_below_0_5_at_N), label: 'σ=0.5 (N~3.27e9)', color: '#38bdf8' },
-  { log10N: Math.log10(D.thresholdCrossings.sigma_below_0_1_at_N), label: 'σ=0.1 (N~3.21e11)', color: '#facc15' },
-  { log10N: Math.log10(D.thresholdCrossings.sigma_below_0_01_at_N), label: 'σ=0.01 (N~4.62e13)', color: '#fb923c' },
-  { log10N: Math.log10(D.thresholdCrossings.sigma_below_0_001_at_N), label: 'σ=0.001 (N~5.43e15)', color: '#f87171' },
+  { log10N: Math.log10(D.thresholdCrossings.sigma_below_0_5_at_N), label: 'σ=0.5 (N~3.27e9)', color: ED.series1 },
+  { log10N: Math.log10(D.thresholdCrossings.sigma_below_0_1_at_N), label: 'σ=0.1 (N~3.21e11)', color: ED.brass },
+  { log10N: Math.log10(D.thresholdCrossings.sigma_below_0_01_at_N), label: 'σ=0.01 (N~4.62e13)', color: ED.series4 },
+  { log10N: Math.log10(D.thresholdCrossings.sigma_below_0_001_at_N), label: 'σ=0.001 (N~5.43e15)', color: ED.series2 },
 ];
 
 // sigma(N) on a log10(N) x-axis, log10(sigma) y-axis, spanning the full deep-tail range with
@@ -35,13 +36,13 @@ function SigmaDeepTailChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <text x={padL} y={padT - 26} fill="#94a3b8" fontSize={11} fontWeight={700}>
+      <text x={padL} y={padT - 26} fill={ED.inkSoft} fontSize={11} fontWeight={700}>
         Conditional share &sigma;(N) = E_coll/E(N), log-log, N in [1e6, 1e16] (imp-35041)
       </text>
       {[0.5, 0.1, 0.01, 0.001, 0.0001].map((v) => (
         <g key={v}>
-          <line x1={padL} y1={yOf(v)} x2={padL + plotW} y2={yOf(v)} stroke="#1e293b" strokeWidth={1} />
-          <text x={padL - 6} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+          <line x1={padL} y1={yOf(v)} x2={padL + plotW} y2={yOf(v)} stroke={ED.ruleSoft} strokeWidth={1} />
+          <text x={padL - 6} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v}
           </text>
         </g>
@@ -58,10 +59,10 @@ function SigmaDeepTailChart() {
           strokeDasharray="4 3"
         />
       ))}
-      <path d={path} fill="none" stroke="#a78bfa" strokeWidth={2.25} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <path d={path} fill="none" stroke={ED.series5} strokeWidth={2.25} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
       {[6, 8, 10, 12, 14, 16].map((dec) => (
-        <text key={dec} x={xOf(dec)} y={padT + plotH + 16} textAnchor="middle" fill="#64748b" fontSize={9}>
+        <text key={dec} x={xOf(dec)} y={padT + plotH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
           1e{dec}
         </text>
       ))}
@@ -99,7 +100,7 @@ function DecadeSpacingChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <text x={padL} y={padT - 10} fill="#94a3b8" fontSize={11} fontWeight={700}>
+      <text x={padL} y={padT - 10} fill={ED.inkSoft} fontSize={11} fontWeight={700}>
         Decade spacing per factor-10 drop in &sigma;, converging on the far-tail sqrt(1/N) signature
       </text>
       <line
@@ -107,11 +108,11 @@ function DecadeSpacingChart() {
         y1={yOf(2)}
         x2={padL + plotW}
         y2={yOf(2)}
-        stroke="#f87171"
+        stroke={ED.series2}
         strokeWidth={1.25}
         strokeDasharray="4 3"
       />
-      <text x={padL + plotW - 150} y={yOf(2) - 4} fill="#f87171" fontSize={9}>
+      <text x={padL + plotW - 150} y={yOf(2) - 4} fill={ED.series2} fontSize={9}>
         sqrt(1/N) asymptote: 2 decades
       </text>
       {bars.map((b, i) => (
@@ -121,16 +122,16 @@ function DecadeSpacingChart() {
             y={yOf(b.value)}
             width={barW * 0.6}
             height={padT + plotH - yOf(b.value)}
-            fill="#a78bfa"
+            fill={ED.series5}
             fillOpacity={0.55}
-            stroke="#a78bfa"
+            stroke={ED.series5}
             strokeWidth={1}
           />
           <text
             x={padL + i * barW + barW / 2}
             y={yOf(b.value) - 6}
             textAnchor="middle"
-            fill="#cbd5e1"
+            fill={ED.ink}
             fontSize={10}
           >
             {b.value.toFixed(2)}
@@ -139,14 +140,14 @@ function DecadeSpacingChart() {
             x={padL + i * barW + barW / 2}
             y={padT + plotH + 16}
             textAnchor="middle"
-            fill="#64748b"
+            fill={ED.inkFaint}
             fontSize={9}
           >
             {b.key}
           </text>
         </g>
       ))}
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
     </svg>
   );
 }
@@ -156,7 +157,7 @@ export default function Imp35138SigmaDeepTailThresholdLadderViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Sigma(N) Deep-Tail Threshold Ladder (imp-35138 / imp-35041)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-33582 mapped the E(N)-bridge conditional share &sigma;(N) = E_coll/E(N) down to
         &sigma;&nbsp;&lt;&nbsp;0.1 at N&nbsp;&sim;&nbsp;3.21e11. imp-35041 extended the same threshold map
         two decades deeper: &sigma; first drops below 0.01 at N&nbsp;&sim;&nbsp;4.62e13 and below 0.001 at
@@ -180,31 +181,31 @@ export default function Imp35138SigmaDeepTailThresholdLadderViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>threshold</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>N</th>
           </tr>
         </thead>
         <tbody>
-          <tr style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+          <tr style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
             <td style={{ padding: '0.4rem 0.6rem' }}>&sigma; &lt; 0.5</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>
               {D.thresholdCrossings.sigma_below_0_5_at_N.toExponential(4)}
             </td>
           </tr>
-          <tr style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+          <tr style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
             <td style={{ padding: '0.4rem 0.6rem' }}>&sigma; &lt; 0.1</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>
               {D.thresholdCrossings.sigma_below_0_1_at_N.toExponential(4)}
             </td>
           </tr>
-          <tr style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+          <tr style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
             <td style={{ padding: '0.4rem 0.6rem' }}>&sigma; &lt; 0.01</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>
               {D.thresholdCrossings.sigma_below_0_01_at_N.toExponential(4)}
             </td>
           </tr>
-          <tr style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+          <tr style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
             <td style={{ padding: '0.4rem 0.6rem' }}>&sigma; &lt; 0.001</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>
               {D.thresholdCrossings.sigma_below_0_001_at_N.toExponential(4)}
@@ -213,7 +214,7 @@ export default function Imp35138SigmaDeepTailThresholdLadderViz() {
         </tbody>
       </table>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.8rem', marginTop: '1rem' }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.8rem', marginTop: '1rem' }}>
         E_flow stays negligible throughout the deep tail: E_flow/E_coll &asymp;{' '}
         {D.eflowNegligibility.eflow_over_ecoll_at_0_01.toExponential(2)} at the 0.01 crossing and &asymp;{' '}
         {D.eflowNegligibility.eflow_over_ecoll_at_0_001.toExponential(2)} at the 0.001 crossing, so both new
@@ -224,14 +225,14 @@ export default function Imp35138SigmaDeepTailThresholdLadderViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page rendering the imp-35041
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-only page rendering the imp-35041
         deep-tail threshold-crossing literals verbatim via the shared sigma-n-subterms.js helper (no new
         computation). Measurement on the inherited imp-3220/imp-3406 surrogate, NOT a rigorous asymptotic;
         C_mb GUE-conditional per imp-486 untouched; establishes no operator positivity; imp-3066
@@ -242,14 +243,14 @@ export default function Imp35138SigmaDeepTailThresholdLadderViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(251,191,36,0.06)',
-          borderLeft: '3px solid #d97706',
+          background: 'color-mix(in srgb, var(--brass-deco) 6%, transparent)',
+          borderLeft: '3px solid var(--brass-deco)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
         }}
       >
-        <strong style={{ color: '#fbbf24' }}>Not effectively unconditional (imp-35334):</strong> at the
+        <strong style={{ color: 'var(--brass)' }}>Not effectively unconditional (imp-35334):</strong> at the
         &sigma;&nbsp;&lt;&nbsp;0.001 landmark shown above, &ge;99.9% of the surviving E(N) bridge is the
         constant E_trunc floor -- and E_trunc is only rigorous-modulo-C_T (imp-34791: an unported
         barrier-lemma conditionality, NOT GUE). So the far tail does not become unconditional; it trades

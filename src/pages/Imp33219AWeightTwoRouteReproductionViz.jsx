@@ -9,6 +9,7 @@ import {
   IMP33219_B_LADDER,
   IMP33219_B_FINITE_DIFF,
 } from '../data/imp-33219-a-weight-two-route-reproduction-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 function NphiConvergenceChart() {
   const svgW = 620;
@@ -32,12 +33,12 @@ function NphiConvergenceChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
       {yTicks.map((v) => (
         <g key={v}>
-          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke="#1e293b" strokeWidth={0.7} />
-          <text x={padL - 4} y={yS(v) + 3.5} textAnchor="end" fill="#475569" fontSize={9}>
+          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke={ED.ruleSoft} strokeWidth={0.7} />
+          <text x={padL - 4} y={yS(v) + 3.5} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v.toExponential(0)}
           </text>
         </g>
@@ -50,21 +51,21 @@ function NphiConvergenceChart() {
           y={yS(r.deltaFromNphi10)}
           width={barW}
           height={padT + cH - yS(r.deltaFromNphi10)}
-          fill="#38bdf8"
+          fill={ED.series1}
         />
       ))}
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
 
       {rows.map((r, i) => (
         <g key={'x' + r.N}>
-          <line x1={xS(i)} y1={padT + cH} x2={xS(i)} y2={padT + cH + 5} stroke="#334155" strokeWidth={1} />
-          <text x={xS(i)} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={9}>
+          <line x1={xS(i)} y1={padT + cH} x2={xS(i)} y2={padT + cH + 5} stroke={ED.rule} strokeWidth={1} />
+          <text x={xS(i)} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
             N={r.N}
           </text>
         </g>
       ))}
-      <text x={padL + cW / 2} y={padT + cH + 34} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={padT + cH + 34} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         NPHI truncation N
       </text>
 
@@ -72,7 +73,7 @@ function NphiConvergenceChart() {
         x={12}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={'rotate(-90,12,' + (padT + cH / 2) + ')'}
       >
@@ -108,12 +109,12 @@ function BLadderChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
       {yTicks.map((v) => (
         <g key={v}>
-          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke="#1e293b" strokeWidth={0.7} />
-          <text x={padL - 4} y={yS(v) + 3.5} textAnchor="end" fill="#475569" fontSize={9}>
+          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke={ED.ruleSoft} strokeWidth={0.7} />
+          <text x={padL - 4} y={yS(v) + 3.5} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v.toFixed(4)}
           </text>
         </g>
@@ -124,30 +125,30 @@ function BLadderChart() {
         y1={yS(IMP33219_B_CLOSED)}
         x2={padL + cW}
         y2={yS(IMP33219_B_CLOSED)}
-        stroke="#f472b6"
+        stroke={ED.series7}
         strokeWidth={1.2}
         strokeDasharray="4,3"
       />
-      <text x={padL + cW - 4} y={yS(IMP33219_B_CLOSED) - 5} textAnchor="end" fill="#f9a8d4" fontSize={8.5}>
+      <text x={padL + cW - 4} y={yS(IMP33219_B_CLOSED) - 5} textAnchor="end" fill={ED.series7} fontSize={8.5}>
         B = 3/(2 pi) = {IMP33219_B_CLOSED.toFixed(6)}
       </text>
 
-      <path d={path} fill="none" stroke="#34d399" strokeWidth={2.4} />
+      <path d={path} fill="none" stroke={ED.series3} strokeWidth={2.4} />
       {IMP33219_B_LADDER.map((r) => (
-        <circle key={r.tau} cx={xS(r.tau)} cy={yS(r.bEmp)} r={4} fill="#34d399" />
+        <circle key={r.tau} cx={xS(r.tau)} cy={yS(r.bEmp)} r={4} fill={ED.series3} />
       ))}
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
 
       {IMP33219_B_LADDER.map((r) => (
         <g key={'x' + r.tau}>
-          <line x1={xS(r.tau)} y1={padT + cH} x2={xS(r.tau)} y2={padT + cH + 5} stroke="#334155" strokeWidth={1} />
-          <text x={xS(r.tau)} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={9}>
+          <line x1={xS(r.tau)} y1={padT + cH} x2={xS(r.tau)} y2={padT + cH + 5} stroke={ED.rule} strokeWidth={1} />
+          <text x={xS(r.tau)} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
             {r.tau}
           </text>
         </g>
       ))}
-      <text x={padL + cW / 2} y={padT + cH + 34} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={padT + cH + 34} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         tau
       </text>
 
@@ -155,7 +156,7 @@ function BLadderChart() {
         x={12}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={'rotate(-90,12,' + (padT + cH / 2) + ')'}
       >
@@ -170,7 +171,7 @@ export default function Imp33219AWeightTwoRouteReproductionViz() {
     <div style={{ padding: '1.5rem', maxWidth: 940, margin: '0 auto' }}>
       <PageHeader title="A-Weight Closed-Form Two-Route Reproduction (imp-3867 / imp-33219)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-3844 derived closed forms for the A-weight subleading correction limit
         c_inf = -ln((pi/2) Phi(0)) = {IMP33219_CINF_FACTORED.toFixed(11)} and the approach
         coefficient B = 3/(2 pi) &asymp; {IMP33219_B_CLOSED.toFixed(6)}, both via a single
@@ -182,12 +183,12 @@ export default function Imp33219AWeightTwoRouteReproductionViz() {
         numerical artifacts.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         Route (1): direct-series Phi(0) truncation error |Phi0(N) - Phi0(N=10)|, converged by N=3
       </p>
       <NphiConvergenceChart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
         Route (2): Gauss-Laguerre approach coefficient bEmp(tau) converging monotonically to the
         closed-form B = 3/(2 pi) (dashed)
       </p>
@@ -197,14 +198,14 @@ export default function Imp33219AWeightTwoRouteReproductionViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the charts:</strong> the top chart shows the
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the charts:</strong> the top chart shows the
         direct completed-Riemann series' truncation error collapsing to machine zero by N=3 (only
         N=1,2 are visible on the log axis), so c_inf = -ln((pi/2) Phi(0)) &asymp;{' '}
         {IMP33219_CINF_DIRECT.toFixed(11)} from this route does not depend on the NPHI=10 choice,
@@ -221,14 +222,14 @@ export default function Imp33219AWeightTwoRouteReproductionViz() {
         style={{
           marginTop: '1rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> reproduction/cross-check
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> reproduction/cross-check
         only -- no proof, no reduction below RH. Route (2) still relies on the imp-3844 analytic
         collapse (the n=1-tail approximation and the t = e<sup>4s</sup>-1 substitution) and does
         NOT bound the O(e<sup>-4 tau</sup>) Watson tail (sg-3844-watson-tail); this establishes no

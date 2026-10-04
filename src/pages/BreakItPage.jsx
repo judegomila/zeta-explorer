@@ -6,6 +6,7 @@ import { liCoefficients } from '../math/rh-attack.js';
 import { ZETA_ZEROS, zetaCriticalStrip, cAbs } from '../math/zeta.js';
 import { getPrimes } from '../math/primes.js';
 import { directLadder, dualLadder } from '../math/oscillators.js';
+import { ED, alpha } from '../styles/tokens.js';
 
 // Try to Break the Model — editorial (warm) re-theme.
 // Same interactive challenges/math as before (see src/math/rh-attack.js,
@@ -18,11 +19,11 @@ import { directLadder, dualLadder } from '../math/oscillators.js';
 // --brass-dk/--terra-dk. Kept as literal hex (not var(...)) because the
 // Challenge number-badge below does `color + '20'` to derive a translucent
 // fill, which only works on a hex string.
-const HUE_BLUE = '#3f6b86';
-const HUE_GREEN = '#4c7a4a';
-const HUE_BRASS = '#8c6a1d';
-const HUE_BRASS_DK = '#b58a2e';
-const HUE_TERRA_DK = '#c23a1c';
+const HUE_BLUE = ED.series1;
+const HUE_GREEN = ED.series3;
+const HUE_BRASS = ED.brass;
+const HUE_BRASS_DK = ED.brassDeco;
+const HUE_TERRA_DK = ED.series2;
 
 function Challenge({ number, title, color, claim, test, children }) {
   const [expanded, setExpanded] = useState(false);
@@ -99,8 +100,8 @@ function UnitarityChallenge() {
         </div>
       </div>
       <div style={{ padding: '10px 14px', borderRadius: 6,
-        background: result.deficit < 0.01 ? 'rgba(76,122,74,0.08)' : 'rgba(194,58,28,0.08)',
-        border: `1px solid ${result.deficit < 0.01 ? 'rgba(76,122,74,0.25)' : 'rgba(194,58,28,0.25)'}` }}>
+        background: result.deficit < 0.01 ? 'color-mix(in srgb, var(--series-3) 8%, transparent)' : 'color-mix(in srgb, var(--series-2) 8%, transparent)',
+        border: `1px solid ${result.deficit < 0.01 ? alpha(ED.series3, 0.25) : alpha(ED.series2, 0.25)}` }}>
         <strong style={{ color: result.deficit < 0.01 ? 'var(--green)' : 'var(--terra-dk)', fontFamily: 'var(--ed-mono, var(--font-mono))' }}>
           δ = {result.deficit?.toExponential(4) || 'NaN'} {result.deficit < 0.01 ? '✓ PASSES' : '✗ FAILED'}
         </strong>
@@ -142,8 +143,8 @@ function LiChallenge() {
         </div>
       </div>
       <div style={{ padding: '10px 14px', borderRadius: 6,
-        background: firstNegative ? 'rgba(194,58,28,0.08)' : 'rgba(76,122,74,0.08)',
-        border: `1px solid ${firstNegative ? 'rgba(194,58,28,0.25)' : 'rgba(76,122,74,0.25)'}` }}>
+        background: firstNegative ? 'color-mix(in srgb, var(--series-2) 8%, transparent)' : 'color-mix(in srgb, var(--series-3) 8%, transparent)',
+        border: `1px solid ${firstNegative ? alpha(ED.series2, 0.25) : alpha(ED.series3, 0.25)}` }}>
         <strong style={{ color: firstNegative ? 'var(--terra-dk)' : 'var(--green)' }}>
           {firstNegative ? `✗ λ_${firstNegative.n} = ${firstNegative.lambda.toExponential(4)} < 0` : `✓ All ${maxN} Li coefficients positive`}
         </strong>
@@ -210,8 +211,8 @@ function ConvexityChallenge() {
         </div>
       </div>
       <div style={{ padding: '10px 14px', borderRadius: 6,
-        background: isMinimum ? 'rgba(76,122,74,0.08)' : 'rgba(194,58,28,0.08)',
-        border: `1px solid ${isMinimum ? 'rgba(76,122,74,0.25)' : 'rgba(194,58,28,0.25)'}` }}>
+        background: isMinimum ? 'color-mix(in srgb, var(--series-3) 8%, transparent)' : 'color-mix(in srgb, var(--series-2) 8%, transparent)',
+        border: `1px solid ${isMinimum ? alpha(ED.series3, 0.25) : alpha(ED.series2, 0.25)}` }}>
         <strong style={{ color: isMinimum ? 'var(--green)' : 'var(--terra-dk)', fontFamily: 'var(--ed-mono, var(--font-mono))' }}>
           H({sigma.toFixed(2)}, {t.toFixed(1)}) = {h.toFixed(2)} | H(½, {t.toFixed(1)}) = {hHalf.toFixed(2)}
           {isMinimum ? ' ✓ σ=½ is minimum' : ' ✗ FOUND LOWER ENERGY'}
@@ -236,7 +237,7 @@ export default function BreakItPage() {
           </p>
         </div>
 
-        <div className="card" style={{ marginBottom: 24, borderLeft: '3px solid var(--brass-dk)', background: 'rgba(181,138,46,0.06)' }}>
+        <div className="card" style={{ marginBottom: 24, borderLeft: '3px solid var(--brass-dk)', background: 'color-mix(in srgb, var(--brass-deco) 6%, transparent)' }}>
           <p style={{ color: 'var(--brass-dk)', fontSize: 13, fontWeight: 600, margin: 0 }}>
             Rules: Drag sliders to extreme values. Use very few primes. Try large t.
             Try σ far from ½. If any metric turns red — you've found something worth investigating.
@@ -264,8 +265,8 @@ export default function BreakItPage() {
             <p>This is a mathematical identity: <InlineMath tex="|\chi(\tfrac{1}{2}+it)| = 1" /> for all real t.
             It follows from the functional equation and cannot be broken computationally — it's PROVEN.
             The only objection is to question whether the bridge interpretation is physically meaningful.</p>
-            <div style={{ padding: '8px 12px', borderRadius: 6, background: 'rgba(76,122,74,0.08)',
-              border: '1px solid rgba(76,122,74,0.25)', marginTop: 8 }}>
+            <div style={{ padding: '8px 12px', borderRadius: 6, background: 'color-mix(in srgb, var(--series-3) 8%, transparent)',
+              border: '1px solid color-mix(in srgb, var(--series-3) 25%, transparent)', marginTop: 8 }}>
               <strong style={{ color: 'var(--green)' }}>✓ UNBREAKABLE — mathematical identity</strong>
             </div>
           </div>

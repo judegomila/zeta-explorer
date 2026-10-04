@@ -25,6 +25,7 @@ import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import { RIGOROUS_NUMERICS_STAGES, findStage } from '../data/rigorous-numerics-stages.js';
 import { StatusTag } from '../components/StatusLegend.jsx';
 import AnimationEmbed from '../components/AnimationEmbed.jsx';
+import { ED, alpha } from '../styles/tokens.js';
 
 const R = RIGOROUS_NUMERICS_STAGES;
 const mono = 'var(--ed-mono, var(--font-mono))';
@@ -38,18 +39,18 @@ const RIGOR_TIER_STATUS = {
 // Color theme per stage -- I = green (classical baseline), II = blue
 // (exploration), III = brass (certification).
 const STAGE_COLORS = {
-  I:   { fg: 'var(--green)',    bg: 'rgba(76,122,74,0.10)',   border: 'var(--green)' },
-  II:  { fg: 'var(--blue)',     bg: 'rgba(63,107,134,0.10)',  border: 'var(--blue)' },
-  III: { fg: 'var(--brass-dk)', bg: 'rgba(181,138,46,0.10)',  border: 'var(--brass-dk)' },
+  I:   { fg: 'var(--green)',    bg: alpha(ED.series3, 0.1),   border: 'var(--green)' },
+  II:  { fg: 'var(--blue)',     bg: alpha(ED.series1, 0.1),  border: 'var(--blue)' },
+  III: { fg: 'var(--brass-dk)', bg: alpha(ED.brassDeco, 0.1),  border: 'var(--brass-dk)' },
 };
 
 // Status badge colors -- green for implemented, brass for partial, terra for
 // not-started. Pure presentation; the canonical status string lives in the
 // data module.
 const STATUS_COLORS = {
-  'stage-implemented': { fg: 'var(--green)',    bg: 'rgba(76,122,74,0.10)',  border: 'var(--green)',    label: 'implemented' },
-  'stage-partial':     { fg: 'var(--brass-dk)', bg: 'rgba(181,138,46,0.12)', border: 'var(--brass-dk)', label: 'partial' },
-  'stage-not-started': { fg: 'var(--terra-dk)', bg: 'rgba(194,58,28,0.10)',  border: 'var(--terra-dk)', label: 'not started' },
+  'stage-implemented': { fg: 'var(--green)',    bg: alpha(ED.series3, 0.1),  border: 'var(--green)',    label: 'implemented' },
+  'stage-partial':     { fg: 'var(--brass-dk)', bg: alpha(ED.brassDeco, 0.12), border: 'var(--brass-dk)', label: 'partial' },
+  'stage-not-started': { fg: 'var(--terra-dk)', bg: alpha(ED.series2, 0.1),  border: 'var(--terra-dk)', label: 'not started' },
 };
 
 // ── Status badge ────────────────────────────────────────────────────────────
@@ -212,7 +213,7 @@ function StageCard({ stage }) {
           marginTop: 14,
           padding: '10px 14px',
           borderLeft: '3px solid var(--brass-dk)',
-          background: 'rgba(181,138,46,0.08)',
+          background: 'color-mix(in srgb, var(--brass-deco) 8%, transparent)',
           fontSize: 13,
           color: 'var(--brass-dk)',
           lineHeight: 1.65,
@@ -425,7 +426,7 @@ export default function RigorousNumericsStagesPage() {
                             fontFamily: mono,
                             fontSize: 10,
                             color: 'var(--brass-dk)',
-                            background: 'rgba(181,138,46,0.08)',
+                            background: 'color-mix(in srgb, var(--brass-deco) 8%, transparent)',
                             border: '1px solid var(--brass-dk)',
                             borderRadius: 3,
                             padding: '1px 6px',

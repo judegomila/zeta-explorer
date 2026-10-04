@@ -10,6 +10,7 @@ import {
 import { losslessBridge } from '../math/oscillators.js';
 import { ZETA_ZEROS } from '../math/zeta.js';
 import { InlineMath } from './KaTeXMath.jsx';
+import { ED } from '../styles/tokens.js';
 
 // ─── Twistor Arrow (spinor component as 3D arrow) ───────────────────────────
 
@@ -36,7 +37,7 @@ function CriticalLinePlane() {
   return (
     <mesh rotation={[0, 0, 0]} position={[0, 0, 0]}>
       <planeGeometry args={[0.02, 6]} />
-      <meshBasicMaterial color="#10b981" transparent opacity={0.3} side={THREE.DoubleSide} />
+      <meshBasicMaterial color={ED.series3} transparent opacity={0.3} side={THREE.DoubleSide} />
     </mesh>
   );
 }
@@ -47,7 +48,7 @@ function IncidencePlane() {
   return (
     <mesh rotation={[Math.PI / 2, 0, 0]} position={[0, 0, 0]}>
       <planeGeometry args={[0.04, 8]} />
-      <meshBasicMaterial color="#10b981" transparent opacity={0.15} side={THREE.DoubleSide} />
+      <meshBasicMaterial color={ED.series3} transparent opacity={0.15} side={THREE.DoubleSide} />
     </mesh>
   );
 }
@@ -95,7 +96,7 @@ function TwistorPair({ sigma, t, animate }) {
     return pts;
   }, [bridge.magnitude]);
 
-  const bridgeColor = incidence.satisfied ? '#10b981' : '#ef4444';
+  const bridgeColor = incidence.satisfied ? ED.series3 : ED.series2;
   const bridgeOpacity = incidence.satisfied ? 0.8 : 0.4;
 
   return (
@@ -106,7 +107,7 @@ function TwistorPair({ sigma, t, animate }) {
         <SpinorArrow
           origin={[0, 0, 0]}
           direction={[Z.omega[0] * scale, Z.omega[1] * scale, 0]}
-          color="#3b82f6"
+          color={ED.series1}
           label="ω^A"
           scale={1}
         />
@@ -114,16 +115,16 @@ function TwistorPair({ sigma, t, animate }) {
         <SpinorArrow
           origin={[0, 0, 0]}
           direction={[0, Z.pi[0] * scale, Z.pi[1] * scale]}
-          color="#60a5fa"
+          color={ED.series1}
           label="π_{A'}"
           scale={1}
         />
         {/* Z sphere */}
         <mesh>
           <sphereGeometry args={[0.12, 16, 16]} />
-          <meshStandardMaterial color="#3b82f6" emissive="#3b82f6" emissiveIntensity={0.3} transparent opacity={0.7} />
+          <meshStandardMaterial color={ED.series1} emissive={ED.series1} emissiveIntensity={0.3} transparent opacity={0.7} />
         </mesh>
-        <Html position={[0, -0.4, 0]} style={{ color: '#3b82f6', fontSize: 13, fontWeight: 700, pointerEvents: 'none' }}>
+        <Html position={[0, -0.4, 0]} style={{ color: 'var(--series-1)', fontSize: 13, fontWeight: 700, pointerEvents: 'none' }}>
           Z<sup>α</sup>
         </Html>
       </group>
@@ -134,7 +135,7 @@ function TwistorPair({ sigma, t, animate }) {
         <SpinorArrow
           origin={[0, 0, 0]}
           direction={[W.omega[0] * scale, W.omega[1] * scale, 0]}
-          color="#f59e0b"
+          color={ED.brass}
           label="ω̃"
           scale={1}
         />
@@ -142,16 +143,16 @@ function TwistorPair({ sigma, t, animate }) {
         <SpinorArrow
           origin={[0, 0, 0]}
           direction={[0, W.pi[0] * scale, W.pi[1] * scale]}
-          color="#fbbf24"
+          color={ED.brass}
           label="π̃"
           scale={1}
         />
         {/* W sphere */}
         <mesh>
           <sphereGeometry args={[0.12, 16, 16]} />
-          <meshStandardMaterial color="#f59e0b" emissive="#f59e0b" emissiveIntensity={0.3} transparent opacity={0.7} />
+          <meshStandardMaterial color={ED.brass} emissive={ED.series4} emissiveIntensity={0.3} transparent opacity={0.7} />
         </mesh>
-        <Html position={[0, -0.4, 0]} style={{ color: '#f59e0b', fontSize: 13, fontWeight: 700, pointerEvents: 'none' }}>
+        <Html position={[0, -0.4, 0]} style={{ color: 'var(--brass)', fontSize: 13, fontWeight: 700, pointerEvents: 'none' }}>
           W<sub>α</sub>
         </Html>
       </group>
@@ -169,7 +170,7 @@ function TwistorPair({ sigma, t, animate }) {
       <Html position={[0, Math.sin(Math.PI / 2) * (0.5 + bridge.magnitude * 0.3) + 0.25, 0]}
         style={{ pointerEvents: 'none', textAlign: 'center' }}>
         <div style={{
-          background: incidence.satisfied ? 'rgba(16,185,129,0.15)' : 'rgba(239,68,68,0.15)',
+          background: incidence.satisfied ? 'color-mix(in srgb, var(--series-3) 15%, transparent)' : 'color-mix(in srgb, var(--series-2) 15%, transparent)',
           border: `1px solid ${bridgeColor}`,
           borderRadius: 6,
           padding: '3px 8px',
@@ -200,7 +201,7 @@ function CorrespondenceCurve({ t, sigmaRange = [0.1, 0.9] }) {
   }, [t, sigmaRange]);
 
   return (
-    <Line points={points} color="#8b5cf6" lineWidth={1.5} transparent opacity={0.6} />
+    <Line points={points} color={ED.series5} lineWidth={1.5} transparent opacity={0.6} />
   );
 }
 
@@ -212,7 +213,7 @@ function ZetaZeroMarkers({ zeros }) {
       {zeros.map((gamma, i) => (
         <mesh key={i} position={[0, -1.5, (gamma / 60 - 0.5) * 4]}>
           <sphereGeometry args={[0.04, 8, 8]} />
-          <meshStandardMaterial color="#ef4444" emissive="#ef4444" emissiveIntensity={0.5} />
+          <meshStandardMaterial color={ED.series2} emissive={ED.series2} emissiveIntensity={0.5} />
         </mesh>
       ))}
     </group>
@@ -225,22 +226,22 @@ function Axes() {
   return (
     <group>
       {/* σ axis */}
-      <Line points={[[-2.5, 0, 0], [2.5, 0, 0]]} color="#475569" lineWidth={1} />
-      <Html position={[2.7, 0, 0]} style={{ color: '#64748b', fontSize: 10, pointerEvents: 'none' }}>σ</Html>
+      <Line points={[[-2.5, 0, 0], [2.5, 0, 0]]} color={ED.inkFaint} lineWidth={1} />
+      <Html position={[2.7, 0, 0]} style={{ color: 'var(--ink-faint)', fontSize: 10, pointerEvents: 'none' }}>σ</Html>
 
       {/* t axis */}
-      <Line points={[[0, 0, -3], [0, 0, 3]]} color="#475569" lineWidth={1} />
-      <Html position={[0, 0, 3.3]} style={{ color: '#64748b', fontSize: 10, pointerEvents: 'none' }}>t</Html>
+      <Line points={[[0, 0, -3], [0, 0, 3]]} color={ED.inkFaint} lineWidth={1} />
+      <Html position={[0, 0, 3.3]} style={{ color: 'var(--ink-faint)', fontSize: 10, pointerEvents: 'none' }}>t</Html>
 
       {/* vertical */}
-      <Line points={[[0, -2.5, 0], [0, 2, 0]]} color="#475569" lineWidth={1} />
+      <Line points={[[0, -2.5, 0], [0, 2, 0]]} color={ED.inkFaint} lineWidth={1} />
 
       {/* σ = ½ plane indicator */}
       <mesh rotation={[0, Math.PI / 2, 0]} position={[0, -0.5, 0]}>
         <planeGeometry args={[6, 3]} />
-        <meshBasicMaterial color="#10b981" transparent opacity={0.03} side={THREE.DoubleSide} />
+        <meshBasicMaterial color={ED.series3} transparent opacity={0.03} side={THREE.DoubleSide} />
       </mesh>
-      <Html position={[0.15, 1.5, 0]} style={{ color: '#10b981', fontSize: 9, pointerEvents: 'none' }}>
+      <Html position={[0.15, 1.5, 0]} style={{ color: 'var(--series-3)', fontSize: 9, pointerEvents: 'none' }}>
         σ = ½
       </Html>
     </group>
@@ -290,8 +291,8 @@ export default function TwistorDiagram3D() {
     return { Z, W, inc, bridge };
   }, [sigma, t]);
 
-  const sigmaColor = Math.abs(sigma - 0.5) < 0.02 ? '#10b981'
-    : Math.abs(sigma - 0.5) < 0.15 ? '#f59e0b' : '#ef4444';
+  const sigmaColor = Math.abs(sigma - 0.5) < 0.02 ? ED.series3
+    : Math.abs(sigma - 0.5) < 0.15 ? ED.series4 : ED.series2;
 
   return (
     <div>
@@ -318,14 +319,14 @@ export default function TwistorDiagram3D() {
       {/* Metrics bar */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 8, margin: '12px 0' }}>
         {[
-          { label: '|χ(s)|', value: data.bridge.magnitude.toFixed(4), color: data.bridge.isUnitary ? '#10b981' : '#f59e0b' },
-          { label: 'Z·W', value: data.inc.magnitude.toFixed(4), color: data.inc.satisfied ? '#10b981' : '#ef4444' },
-          { label: '‖Z‖', value: data.Z.norm.toFixed(3), color: '#3b82f6' },
-          { label: '‖W‖', value: data.W.norm.toFixed(3), color: '#f59e0b' },
+          { label: '|χ(s)|', value: data.bridge.magnitude.toFixed(4), color: data.bridge.isUnitary ? ED.series3 : ED.brass },
+          { label: 'Z·W', value: data.inc.magnitude.toFixed(4), color: data.inc.satisfied ? ED.series3 : ED.series2 },
+          { label: '‖Z‖', value: data.Z.norm.toFixed(3), color: ED.series1 },
+          { label: '‖W‖', value: data.W.norm.toFixed(3), color: ED.brass },
         ].map(m => (
           <div key={m.label} className="stat-box" style={{ padding: '8px 12px' }}>
             <div style={{ color: m.color, fontWeight: 700, fontSize: 16, fontFamily: 'var(--font-mono)' }}>{m.value}</div>
-            <div style={{ color: '#64748b', fontSize: 11, marginTop: 2 }}>{m.label}</div>
+            <div style={{ color: 'var(--ink-faint)', fontSize: 11, marginTop: 2 }}>{m.label}</div>
           </div>
         ))}
       </div>
@@ -336,24 +337,24 @@ export default function TwistorDiagram3D() {
         height: 480,
         borderRadius: 12,
         overflow: 'hidden',
-        background: '#080b1a',
-        border: '1px solid rgba(99,102,241,0.2)',
+        background: 'var(--paper)',
+        border: '1px solid color-mix(in srgb, var(--series-5) 20%, transparent)',
       }}>
         <SafeCanvas camera={{ position: [3, 2, 3], fov: 50 }} dpr={[1, 2]}>
           <TwistorScene sigma={sigma} t={t} animate={animate} />
         </SafeCanvas>
       </div>
 
-      <div className="card" style={{ marginTop: 16, padding: '14px 18px', fontSize: 13, color: '#94a3b8' }}>
+      <div className="card" style={{ marginTop: 16, padding: '14px 18px', fontSize: 13, color: 'var(--ink-soft)' }}>
         <p style={{ marginBottom: 6 }}>
-          <strong style={{ color: '#3b82f6' }}>Blue (Z<sup>α</sup>)</strong>: Direct twistor encoding{' '}
+          <strong style={{ color: 'var(--series-1)' }}>Blue (Z<sup>α</sup>)</strong>: Direct twistor encoding{' '}
           <InlineMath tex={"\\zeta(s)"} />.{' '}
-          <strong style={{ color: '#f59e0b' }}>Gold (W<sub>α</sub>)</strong>: Dual twistor encoding{' '}
+          <strong style={{ color: 'var(--brass)' }}>Gold (W<sub>α</sub>)</strong>: Dual twistor encoding{' '}
           <InlineMath tex={"\\zeta(1-s)"} />.{' '}
           Arrows show spinor components <InlineMath tex={"\\omega^A"} /> and <InlineMath tex={"\\pi_{A'}"} />.
         </p>
         <p>
-          The <strong style={{ color: '#10b981' }}>green arc</strong> is the intertwiner (bridge){' '}
+          The <strong style={{ color: 'var(--series-3)' }}>green arc</strong> is the intertwiner (bridge){' '}
           <InlineMath tex={"\\chi(s)"} />.
           At <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} />, the incidence relation{' '}
           <InlineMath tex={"Z^{\\alpha} W_{\\alpha} = 0"} /> is satisfied (bridge is lossless, <InlineMath tex={"|\\chi|=1"} />).

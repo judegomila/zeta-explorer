@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
+import ConceptText from '../components/ConceptText.jsx';
 import { NODES, EDGES, FRONTIER_DAG } from '../data/frontier-dag.js';
+import { STATUS, ED } from '../styles/tokens.js';
 
 /* The frontier DAG — the live dependency graph of named open objects: what
    closes what, what gates what, what promotes what, as of the data module's
@@ -14,17 +16,17 @@ const NODE_BY_ID = Object.fromEntries(NODES.map((n) => [n.id, n]));
 
 // Node color by statusKind (warm palette, mirrors the atlas/status legend).
 const STATUS_COLOR = {
-  open: '#3f6b86',
-  progress: '#b58a2e',
-  aristotle: '#6d55b8',
-  result: '#4c7a4a',
-  candidate: '#a3652e',
-  contract: '#877b67',
-  nogo: '#b5563f',
-  external: '#2f6f6a',
+  open: STATUS.open.fg,
+  progress: ED.brassDeco,
+  aristotle: STATUS.certified.fg,
+  result: STATUS.proved.fg,
+  candidate: STATUS.candidate.fg,
+  contract: STATUS.neutral.fg,
+  nogo: STATUS.nogo.fg,
+  external: STATUS.neutral.fg,
 };
 
-const EDGE_COLOR = { closes: '#4c7a4a', gates: '#b58a2e', promotes: '#6d55b8' };
+const EDGE_COLOR = { closes: ED.series3, gates: ED.brassDeco, promotes: ED.series5 };
 
 // Short in-box tag per node (the full grade text lives in the list below).
 const TAG = {
@@ -46,6 +48,7 @@ const TAG = {
   't0-program-floor': 'no-go below U ≈ 0.145–0.150',
   'verified-height': 'external HPC',
   'pt-02-floor': 'refereed-sound',
+  'route-i-uniform-n-gap': 'Arb · pending referee',
 };
 
 // Hand layout: fixed positions + explicit name-line wrapping (~18 nodes).
@@ -70,6 +73,7 @@ const LAYOUT = {
   't0-program-floor': { x: 278, y: 684, lines: ['t↓0 diagonal', 'program floor'] },
   'verified-height': { x: 24, y: 800, lines: ['Verified zero height', '(external HPC)'] },
   'pt-02-floor': { x: 278, y: 800, lines: ['Λ ≤ 0.2 floor', '(Platt–Trudgian 2021)'] },
+  'route-i-uniform-n-gap': { x: 786, y: 800, lines: ['Route I uniform-N gap', 'T_a[σ₂] on 2a ≤ ln 3'] },
 };
 
 const CLUSTER_LABELS = [
@@ -78,6 +82,7 @@ const CLUSTER_LABELS = [
   { y: 552, text: 'frozen-rung ⟺ pt · the promotion lane' },
   { y: 668, text: 'route vii · the t↓0 diagonal' },
   { y: 784, text: 'the unconditional floor' },
+  { y: 784, x: 786, text: 'route i · krein toeplitz certificate' },
 ];
 
 function edgePath(from, to) {
@@ -106,12 +111,13 @@ function DagSvg() {
         </defs>
 
         {CLUSTER_LABELS.map((c) => (
-          <text key={c.y} x={24} y={c.y} style={{ font: '600 10px "IBM Plex Mono", monospace', letterSpacing: 1.5, textTransform: 'uppercase' }} fill="var(--faint)">
+          <text key={c.text} x={c.x ?? 24} y={c.y} style={{ font: '600 10px "IBM Plex Mono", monospace', letterSpacing: 1.5, textTransform: 'uppercase' }} fill="var(--faint)">
             {c.text}
           </text>
         ))}
 
         {EDGES.map((e, i) => {
+          if (!LAYOUT[e.from] || !LAYOUT[e.to]) return null;
           const p = edgePath(e.from, e.to);
           const c = EDGE_COLOR[e.meaning];
           return (
@@ -126,6 +132,7 @@ function DagSvg() {
 
         {NODES.map((n) => {
           const L = LAYOUT[n.id];
+          if (!L) return null; // node added to frontier-dag.js without a hand position
           const c = STATUS_COLOR[n.statusKind] || 'var(--ink-soft)';
           return (
             <g key={n.id}>
@@ -188,16 +195,16 @@ function ClosesIfCard({ n }) {
         </span>
         <span className="ed-mono" style={{ fontSize: 10.5, color: 'var(--faint)' }}>{n.source}</span>
       </div>
-      <div style={{ fontSize: 13, color: 'var(--ink-soft)', lineHeight: 1.55 }}>{n.status}</div>
+      <div style={{ fontSize: 13, color: 'var(--ink-soft)', lineHeight: 1.55 }}><ConceptText text={n.status} max={4} /></div>
       {n.closesIf && (
         <div style={{ marginTop: 8, fontSize: 13.5, color: 'var(--ink)', lineHeight: 1.55 }}>
-          <span className="ed-mono" style={{ fontSize: 9.5, fontWeight: 700, letterSpacing: 0.8, color: '#4c7a4a' }}>IF THIS LANDS </span>
-          {n.closesIf}
+          <span className="ed-mono" style={{ fontSize: 9.5, fontWeight: 700, letterSpacing: 0.8, color: 'var(--series-3)' }}>IF THIS LANDS </span>
+          <ConceptText text={n.closesIf} max={4} />
         </div>
       )}
       {n.externalCorroboration && (
-        <div style={{ marginTop: 8, fontSize: 13, color: 'var(--ink)', lineHeight: 1.55, borderLeft: '3px solid #3f6f8a', paddingLeft: 10 }}>
-          <span className="ed-mono" style={{ fontSize: 9.5, fontWeight: 700, letterSpacing: 0.8, color: '#3f6f8a' }}>EXTERNAL CORROBORATION </span>
+        <div style={{ marginTop: 8, fontSize: 13, color: 'var(--ink)', lineHeight: 1.55, borderLeft: '3px solid var(--series-1)', paddingLeft: 10 }}>
+          <span className="ed-mono" style={{ fontSize: 9.5, fontWeight: 700, letterSpacing: 0.8, color: 'var(--series-1)' }}>EXTERNAL CORROBORATION </span>
           {n.externalCorroboration}
         </div>
       )}

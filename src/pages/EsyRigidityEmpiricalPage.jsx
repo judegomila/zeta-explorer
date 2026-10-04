@@ -27,6 +27,7 @@ import { scaleLinear } from 'd3-scale';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import { ESY_RIGIDITY_EMPIRICAL } from '../data/esy-rigidity-empirical-2026-05.js';
 import AnimationEmbed from '../components/AnimationEmbed.jsx';
+import { ED } from '../styles/tokens.js';
 
 // -- SVG geometry ---------------------------------------------------------
 
@@ -150,10 +151,10 @@ function LogLogScatter({ title, rows, fit, color }) {
         <g transform={'translate(' + M.left + ',' + M.top + ')'}>
           {/* Background grid. */}
           {xTicks.map((t) => (
-            <line key={'xg-' + t} x1={x(t)} x2={x(t)} y1={0} y2={IH} stroke="#d5c9b2" strokeDasharray="2,4" />
+            <line key={'xg-' + t} x1={x(t)} x2={x(t)} y1={0} y2={IH} stroke={ED.rule} strokeDasharray="2,4" />
           ))}
           {yTicks.map((t) => (
-            <line key={'yg-' + t} x1={0} x2={IW} y1={y(t)} y2={y(t)} stroke="#d5c9b2" strokeDasharray="2,4" />
+            <line key={'yg-' + t} x1={0} x2={IW} y1={y(t)} y2={y(t)} stroke={ED.rule} strokeDasharray="2,4" />
           ))}
 
           {/* ESY target slope = -1 reference line. */}
@@ -162,7 +163,7 @@ function LogLogScatter({ title, rows, fit, color }) {
             x2={x(fitX2)}
             y1={y(targetY1)}
             y2={y(targetY2)}
-            stroke="#4c7a4a"
+            stroke={ED.series3}
             strokeWidth={1.5}
             strokeDasharray="6,4"
           />
@@ -185,7 +186,7 @@ function LogLogScatter({ title, rows, fit, color }) {
                 cy={y(logPsis[i])}
                 r={5}
                 fill={color}
-                stroke="#fdfaf3"
+                stroke={ED.paper}
                 strokeWidth={1.2}
               >
                 <title>
@@ -196,10 +197,10 @@ function LogLogScatter({ title, rows, fit, color }) {
           ))}
 
           {/* x axis. */}
-          <line x1={0} x2={IW} y1={IH} y2={IH} stroke="#4a4238" />
+          <line x1={0} x2={IW} y1={IH} y2={IH} stroke={ED.inkSoft} />
           {xTicks.map((t) => (
             <g key={'xt-' + t} transform={'translate(' + x(t) + ',' + IH + ')'}>
-              <line y1={0} y2={5} stroke="#4a4238" />
+              <line y1={0} y2={5} stroke={ED.inkSoft} />
               <text y={18} textAnchor="middle" style={tickStyle}>
                 {'10^' + t}
               </text>
@@ -210,10 +211,10 @@ function LogLogScatter({ title, rows, fit, color }) {
           </text>
 
           {/* y axis. */}
-          <line x1={0} x2={0} y1={0} y2={IH} stroke="#4a4238" />
+          <line x1={0} x2={0} y1={0} y2={IH} stroke={ED.inkSoft} />
           {yTicks.map((t) => (
             <g key={'yt-' + t} transform={'translate(0,' + y(t) + ')'}>
-              <line x1={-5} x2={0} stroke="#4a4238" />
+              <line x1={-5} x2={0} stroke={ED.inkSoft} />
               <text x={-8} y={3} textAnchor="end" style={tickStyle}>
                 {'10^' + t}
               </text>
@@ -229,8 +230,8 @@ function LogLogScatter({ title, rows, fit, color }) {
 
           {/* Legend. */}
           <g transform={'translate(' + (IW - 230) + ',6)'}>
-            <rect x={-6} y={-4} width={236} height={56} rx={6} fill="#fdfaf3" stroke="#d5c9b2" />
-            <circle cx={6} cy={8} r={4} fill={color} stroke="#fdfaf3" strokeWidth={1.2} />
+            <rect x={-6} y={-4} width={236} height={56} rx={6} fill={ED.paper} stroke={ED.rule} />
+            <circle cx={6} cy={8} r={4} fill={color} stroke={ED.paper} strokeWidth={1.2} />
             <text x={20} y={12} style={{ ...labelStyle, fontSize: 10, fill: 'var(--ink-soft)' }}>
               measured (slope = {fit.slope.toFixed(3)})
             </text>
@@ -238,7 +239,7 @@ function LogLogScatter({ title, rows, fit, color }) {
             <text x={20} y={28} style={{ ...labelStyle, fontSize: 10, fill: 'var(--ink-soft)' }}>
               OLS fit (R^2 = {fit.R2.toFixed(3)})
             </text>
-            <line x1={0} x2={14} y1={40} y2={40} stroke="#4c7a4a" strokeWidth={1.5} strokeDasharray="6,4" />
+            <line x1={0} x2={14} y1={40} y2={40} stroke={ED.series3} strokeWidth={1.5} strokeDasharray="6,4" />
             <text x={20} y={44} style={{ ...labelStyle, fontSize: 10, fill: 'var(--ink-soft)' }}>
               ESY target slope = -1
             </text>
@@ -263,6 +264,7 @@ export default function EsyRigidityEmpiricalPage() {
       <div className="ed-full" style={{ maxWidth: '70rem', padding: '28px 34px 70px' }}>
         <div style={{ marginBottom: 24 }}>
           <h1 className="ed-h1" style={{ marginBottom: 10 }}>ESY Rigidity, Measured Empirically (imp-1108)</h1>
+          <p className="ed-lbl">Related: <Link to="/edge-rigidity">ESY rigidity (edge)</Link></p>
           <AnimationEmbed id="esy-rigidity" />
           <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.55, maxWidth: 760 }}>
             We measure the Erdos-Schlein-Yau local-law fluctuation quantity{' '}
@@ -296,19 +298,19 @@ export default function EsyRigidityEmpiricalPage() {
         <div className="card" style={{ ...cardBaseLeft('var(--hairline)'), marginBottom: 16 }}>
           <div style={cardLabel}>Status legend — what is proven vs. measured</div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 8, marginTop: 8 }}>
-            <div style={{ borderLeft: '3px solid var(--green)', padding: '6px 10px', background: 'rgba(76,122,74,0.06)', borderRadius: 4 }}>
+            <div style={{ borderLeft: '3px solid var(--green)', padding: '6px 10px', background: 'color-mix(in srgb, var(--series-3) 6%, transparent)', borderRadius: 4 }}>
               <div style={{ fontSize: 11, fontFamily: 'var(--ed-mono, var(--font-mono))', color: 'var(--green)', fontWeight: 700 }}>RIGOROUS-UNCONDITIONAL</div>
               <div style={{ fontSize: 11, color: 'var(--ink-soft)', marginTop: 3, lineHeight: 1.4 }}>
                 Theorems proven with no hypothesis, e.g. the Rodgers-Tao result <code>Lambda &gt;= 0</code>.
               </div>
             </div>
-            <div style={{ borderLeft: '3px solid var(--brass-dk)', padding: '6px 10px', background: 'rgba(181,138,46,0.06)', borderRadius: 4 }}>
+            <div style={{ borderLeft: '3px solid var(--brass-dk)', padding: '6px 10px', background: 'color-mix(in srgb, var(--brass-deco) 6%, transparent)', borderRadius: 4 }}>
               <div style={{ fontSize: 11, fontFamily: 'var(--ed-mono, var(--font-mono))', color: 'var(--brass-dk)', fontWeight: 700 }}>GUE-CONDITIONAL</div>
               <div style={{ fontSize: 11, color: 'var(--ink-soft)', marginTop: 3, lineHeight: 1.4 }}>
                 ESY-style rigidity statements that <em>assume</em> GUE / Montgomery pair-correlation. True only if the conjectured statistics hold.
               </div>
             </div>
-            <div style={{ borderLeft: '3px solid var(--blue)', padding: '6px 10px', background: 'rgba(63,107,134,0.06)', borderRadius: 4 }}>
+            <div style={{ borderLeft: '3px solid var(--blue)', padding: '6px 10px', background: 'color-mix(in srgb, var(--series-1) 6%, transparent)', borderRadius: 4 }}>
               <div style={{ fontSize: 11, fontFamily: 'var(--ed-mono, var(--font-mono))', color: 'var(--blue)', fontWeight: 700 }}>EMPIRICAL / NUMERICAL</div>
               <div style={{ fontSize: 11, color: 'var(--ink-soft)', marginTop: 3, lineHeight: 1.4 }}>
                 The finite-N rigidity measurements shown on this page. Evidence at fixed truncation only — it does <strong>not</strong> discharge the ESY closure or prove RH.
@@ -332,7 +334,7 @@ export default function EsyRigidityEmpiricalPage() {
         </div>
 
         {/* Status caveat. What this measurement is and is NOT. */}
-        <div className="card" style={{ ...cardBaseLeft('var(--brass-dk)'), background: 'rgba(181,138,46,0.06)', marginBottom: 16 }}>
+        <div className="card" style={{ ...cardBaseLeft('var(--brass-dk)'), background: 'color-mix(in srgb, var(--brass-deco) 6%, transparent)', marginBottom: 16 }}>
           <div style={{ fontSize: 11, color: 'var(--brass-dk)', textTransform: 'uppercase', letterSpacing: 0.5, fontWeight: 700 }}>
             Status — what this verdict is and is NOT
           </div>
@@ -392,13 +394,13 @@ export default function EsyRigidityEmpiricalPage() {
           <SummaryCard
             label="N values measured"
             value={D.measuredPsiN.length}
-            tone="#3f6b86"
+            tone={ED.series1}
             hint="datapoints used for the OLS fit"
           />
           <SummaryCard
             label="c parameter"
             value={D.cParam.toFixed(1)}
-            tone="#8c6a1d"
+            tone={ED.brass}
             hint="eta = c / N (micro) and eta = c (macro)"
           />
         </div>
@@ -408,7 +410,7 @@ export default function EsyRigidityEmpiricalPage() {
           title={'(A) macroscopic scale eta = c -- well-posed ESY local-law regime where polylog(N)/N is predicted'}
           rows={D.measuredPsiNMacro}
           fit={D.fittedRate}
-          color="#3f6b86"
+          color={ED.series1}
         />
 
         {/* Microscopic scatter (ticket-literal). */}
@@ -416,7 +418,7 @@ export default function EsyRigidityEmpiricalPage() {
           title={'(B) microscopic scale eta = c/N -- ticket-literal operational definition; ESY local law predicts BOUNDED (slope approximately 0)'}
           rows={D.measuredPsiN}
           fit={D.fittedRateMicro}
-          color="#b58a2e"
+          color={ED.brass}
         />
 
         {/* Per-N data table. */}
@@ -426,7 +428,7 @@ export default function EsyRigidityEmpiricalPage() {
           </div>
           <table style={{ width: '100%', fontFamily: 'var(--ed-mono, var(--font-mono))', fontSize: 12, borderCollapse: 'collapse' }}>
             <thead>
-              <tr style={{ background: 'rgba(63,107,134,0.08)', color: 'var(--ink)' }}>
+              <tr style={{ background: 'color-mix(in srgb, var(--series-1) 8%, transparent)', color: 'var(--ink)' }}>
                 <th style={{ padding: '8px 10px', textAlign: 'right' }}>N</th>
                 <th style={{ padding: '8px 10px', textAlign: 'right' }}>eta_micro</th>
                 <th style={{ padding: '8px 10px', textAlign: 'right' }}>psi_micro (RMS)</th>

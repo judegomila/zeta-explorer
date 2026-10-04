@@ -356,8 +356,8 @@ export default function RHRigorPage() {
                   {/* Patch note if patched */}
                   {crit.patch && (
                     <div style={{
-                      background: 'rgba(76, 122, 74, 0.08)', borderRadius: 8, padding: 12,
-                      border: '1px solid rgba(76, 122, 74, 0.2)', marginBottom: 16,
+                      background: 'color-mix(in srgb, var(--series-3) 8%, transparent)', borderRadius: 8, padding: 12,
+                      border: '1px solid color-mix(in srgb, var(--series-3) 20%, transparent)', marginBottom: 16,
                     }}>
                       <span style={{ color: 'var(--green)', fontWeight: 600, fontSize: 12 }}>PATCH: </span>
                       <span style={{ color: 'var(--ink-soft)', fontSize: 13 }}>{crit.patch}</span>
@@ -479,7 +479,7 @@ export default function RHRigorPage() {
 
           <div className="card" style={{
             borderLeft: '3px solid var(--terra)',
-            background: 'rgba(217, 80, 46, 0.06)',
+            background: 'color-mix(in srgb, var(--accent-deco) 6%, transparent)',
           }}>
             <h4 style={{ color: 'var(--terra)', margin: '0 0 8px', fontSize: 12, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
               Key Insight
@@ -494,7 +494,7 @@ export default function RHRigorPage() {
         </div>
 
         {/* Related Pages */}
-        <div className="card" style={{ marginTop: 24, background: 'rgba(63, 107, 134, 0.04)' }}>
+        <div className="card" style={{ marginTop: 24, background: 'color-mix(in srgb, var(--series-1) 4%, transparent)' }}>
           <h3 style={{ color: 'var(--faint)', fontSize: 13, marginBottom: 10 }}>Related Pages</h3>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, alignItems: 'center' }}>
             <Link to="/proof-checker" style={{ color: 'var(--terra-dk)', fontSize: 13 }}>Proof Checker</Link>

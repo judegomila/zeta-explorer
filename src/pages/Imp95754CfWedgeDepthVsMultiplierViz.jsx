@@ -5,12 +5,13 @@ import {
   IMP95754_WEDGE_CORNER,
   IMP95754_CAVEAT_BANNER,
 } from '../data/imp-95754-cf-wedge-depth-vs-multiplier-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 const SOURCE_COLOR = {
-  'imp-95617': '#38bdf8',
-  'imp-95691': '#f59e0b',
-  'imp-95721': '#f87171',
-  'imp-95747': '#c084fc',
+  'imp-95617': ED.series1,
+  'imp-95691': ED.series4,
+  'imp-95721': ED.series2,
+  'imp-95747': ED.series5,
 };
 
 function WedgeDepthCurve() {
@@ -41,35 +42,35 @@ function WedgeDepthCurve() {
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
       {yTicks.map((g) => (
         <g key={`yt-${g}`}>
-          <line x1={padL} y1={yOf(g)} x2={padL + cW} y2={yOf(g)} stroke="#1e293b" strokeWidth={1} />
-          <text x={padL - 8} y={yOf(g) + 3} textAnchor="end" fill="#64748b" fontSize={9.5}>
+          <line x1={padL} y1={yOf(g)} x2={padL + cW} y2={yOf(g)} stroke={ED.ruleSoft} strokeWidth={1} />
+          <text x={padL - 8} y={yOf(g) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9.5}>
             {g.toFixed(2)}
           </text>
         </g>
       ))}
       {xTicks.map((cf) => (
         <g key={`xt-${cf}`}>
-          <line x1={xOf(cf)} y1={padT} x2={xOf(cf)} y2={padT + cH} stroke="#1e293b" strokeWidth={1} />
-          <text x={xOf(cf)} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={9.5}>
+          <line x1={xOf(cf)} y1={padT} x2={xOf(cf)} y2={padT + cH} stroke={ED.ruleSoft} strokeWidth={1} />
+          <text x={xOf(cf)} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5}>
             {`${cf}x`}
           </text>
         </g>
       ))}
 
-      <path d={path} fill="none" stroke="#94a3b8" strokeWidth={1.5} />
+      <path d={path} fill="none" stroke={ED.rule} strokeWidth={1.5} />
 
       {pts.map((p) => (
-        <circle key={p.cf} cx={xOf(p.cf)} cy={yOf(p.minGap)} r={5} fill={SOURCE_COLOR[p.source]} stroke="#0a0f1a" strokeWidth={1} />
+        <circle key={p.cf} cx={xOf(p.cf)} cy={yOf(p.minGap)} r={5} fill={SOURCE_COLOR[p.source]} stroke={ED.paper} strokeWidth={1} />
       ))}
 
-      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         C_F multiplier cf (log scale)
       </text>
       <text
         x={16}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={`rotate(-90 16 ${padT + cH / 2})`}
       >
@@ -84,7 +85,7 @@ export default function Imp95754CfWedgeDepthVsMultiplierViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Transition-Before-Knee Wedge Depth vs the C_F Multiplier (imp-95617/95691/95721/95747/95754)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-95617 found the imp-95582 transition-before-knee ordering inverts inside the nominal
         +/-50% (C_C, E_trunc) box, with a box-min gap of -0.004682 at the nominal C_F multiplier
         cf=1. imp-95691 pinned the honest upper C_F provenance edge to a geometric mean cf=1.29615,
@@ -99,7 +100,7 @@ export default function Imp95754CfWedgeDepthVsMultiplierViz() {
 
       <WedgeDepthCurve />
 
-      <div style={{ marginTop: '0.75rem', display: 'flex', gap: '1.25rem', fontSize: '0.78rem', color: '#94a3b8' }}>
+      <div style={{ marginTop: '0.75rem', display: 'flex', gap: '1.25rem', fontSize: '0.78rem', color: 'var(--ink-soft)' }}>
         {Object.entries(SOURCE_COLOR).map(([source, color]) => (
           <span key={source} style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
             <span style={{ width: 10, height: 10, borderRadius: '50%', background: color, display: 'inline-block' }} />
@@ -117,7 +118,7 @@ export default function Imp95754CfWedgeDepthVsMultiplierViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>cf</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>label</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>minGap</th>
@@ -127,7 +128,7 @@ export default function Imp95754CfWedgeDepthVsMultiplierViz() {
         </thead>
         <tbody>
           {IMP95754_DEEPEN_FACTORS.map((p) => (
-            <tr key={p.cf} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+            <tr key={p.cf} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{p.cf}</td>
               <td style={{ padding: '0.4rem 0.6rem' }}>{p.label}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{p.minGap}</td>
@@ -142,14 +143,14 @@ export default function Imp95754CfWedgeDepthVsMultiplierViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> {IMP95754_CAVEAT_BANNER}
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> {IMP95754_CAVEAT_BANNER}
       </div>
     </div>
   );

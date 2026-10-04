@@ -7,6 +7,7 @@ import {
   IMP33822_CONTOUR_OVERLAY,
   IMP33822_CAVEAT_BANNER,
 } from '../data/imp-33822-decoupled-rate-grid-heatmap-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 // Diverging log-scale color: below ||R|| = 1 fades toward blue, above fades toward red.
 function cellColor(z) {
@@ -66,7 +67,7 @@ function DecoupledRateHeatmap() {
             width={colW}
             height={rowH}
             fill={cellColor(z)}
-            stroke="#0a0f1a"
+            stroke={ED.paper}
             strokeWidth={1}
           />
         )),
@@ -75,12 +76,12 @@ function DecoupledRateHeatmap() {
       <polyline
         points={contourPoints.map((p) => `${p.x},${p.y}`).join(' ')}
         fill="none"
-        stroke="#facc15"
+        stroke={ED.brassDeco}
         strokeWidth={2}
         strokeDasharray="6,3"
       />
       {contourPoints.map((p, i) => (
-        <circle key={`ct-${i}`} cx={p.x} cy={p.y} r={3.25} fill="#facc15" stroke="#0a0f1a" strokeWidth={0.75} />
+        <circle key={`ct-${i}`} cx={p.x} cy={p.y} r={3.25} fill={ED.brassDeco} stroke={ED.paper} strokeWidth={0.75} />
       ))}
 
       {IMP33822_HEATMAP_X_LABELS.map((sa, i) => (
@@ -89,13 +90,13 @@ function DecoupledRateHeatmap() {
           x={padL + (i + 0.5) * colW}
           y={padT + cH + 16}
           textAnchor="middle"
-          fill="#64748b"
+          fill={ED.inkFaint}
           fontSize={9.5}
         >
           {sa}
         </text>
       ))}
-      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         shear rate s_a
       </text>
 
@@ -105,7 +106,7 @@ function DecoupledRateHeatmap() {
           x={padL - 8}
           y={padT + (j + 0.5) * rowH + 3}
           textAnchor="end"
-          fill="#64748b"
+          fill={ED.inkFaint}
           fontSize={9.5}
         >
           {ratio}
@@ -115,14 +116,14 @@ function DecoupledRateHeatmap() {
         x={14}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={`rotate(-90 14 ${padT + cH / 2})`}
       >
         pass/shear ratio s_b / s_a
       </text>
 
-      <text x={padL + cW - 4} y={padT + 12} textAnchor="end" fill="#facc15" fontSize={9}>
+      <text x={padL + cW - 4} y={padT + 12} textAnchor="end" fill={ED.brass} fontSize={9}>
         ||R|| = 1 crossing contour
       </text>
     </svg>
@@ -142,7 +143,7 @@ function ColorLegend() {
         return <rect key={s} x={x0} y={0} width={x1 - x0} height={h} fill={cellColor(mid)} />;
       })}
       {stops.map((s) => (
-        <text key={`lbl-${s}`} x={(((s + 3) / 6) * w)} y={h + 12} textAnchor="middle" fill="#64748b" fontSize={9}>
+        <text key={`lbl-${s}`} x={(((s + 3) / 6) * w)} y={h + 12} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
           {`10^${s}`}
         </text>
       ))}
@@ -155,7 +156,7 @@ export default function Imp33833DecoupledRateHeatmapViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Decoupled Pass/Shear-Rate ||R|| Heatmap (imp-33789 / imp-33822 / imp-33833)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-33822 reshaped the imp-33789 two-parameter decoupled-rate grid into a heatmap-ready
         form: shear rate s_a on the x-axis, pass/shear ratio s_b&#47;s_a on the y-axis, and the
         Perron norm ||R|| as the cell color. This page is the first consumer of that module. The
@@ -164,13 +165,13 @@ export default function Imp33833DecoupledRateHeatmapViz() {
         that overshoot cost shrinks as the shear stiffens.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         ||R||(s_a, s_b&#47;s_a) heatmap, log-color scale, s_a in {'{1,2,3,4,6,8}'}
       </p>
       <DecoupledRateHeatmap />
 
       <div style={{ marginTop: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-        <span style={{ color: '#64748b', fontSize: '0.78rem' }}>||R|| color scale (log10):</span>
+        <span style={{ color: 'var(--ink-faint)', fontSize: '0.78rem' }}>||R|| color scale (log10):</span>
         <ColorLegend />
       </div>
 
@@ -183,7 +184,7 @@ export default function Imp33833DecoupledRateHeatmapViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>s_a</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>crossing ratio s_b*&#47;s_a</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>crossing pass rate s_b*</th>
@@ -191,7 +192,7 @@ export default function Imp33833DecoupledRateHeatmapViz() {
         </thead>
         <tbody>
           {IMP33822_CONTOUR_OVERLAY.map((c) => (
-            <tr key={c.sShear} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+            <tr key={c.sShear} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{c.sShear}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{c.ratio.toFixed(4)}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{c.sPassStar.toFixed(4)}</td>
@@ -204,14 +205,14 @@ export default function Imp33833DecoupledRateHeatmapViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> {IMP33822_CAVEAT_BANNER}
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> {IMP33822_CAVEAT_BANNER}
       </div>
     </div>
   );

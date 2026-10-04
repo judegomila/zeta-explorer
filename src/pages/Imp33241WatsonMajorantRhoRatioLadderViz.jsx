@@ -7,10 +7,11 @@ import {
   IMP33241_SWAMPED_GRID,
   IMP33241_ALL_GRID,
 } from '../data/imp-33241-watson-majorant-rho-ratio-ladder-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
-const MEASURED_COLOR = '#38bdf8';
-const MODEL_COLOR = '#f472b6';
-const K0_COLOR = '#f59e0b';
+const MEASURED_COLOR = ED.series1;
+const MODEL_COLOR = ED.series7;
+const K0_COLOR = ED.series4;
 
 function scaleY(v, min, max, cH) {
   return cH * (1 - (v - min) / (max - min));
@@ -33,14 +34,14 @@ function RhoRatioLadderChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
       {[3.25, 3.3, 3.35, 3.4, 3.45, 3.5].map((v) => {
         const y = padT + scaleY(v, min, max, cH);
         return (
           <g key={v}>
-            <line x1={padL} y1={y} x2={padL + cW} y2={y} stroke="#1e293b" strokeWidth={0.7} />
-            <text x={padL - 6} y={y + 3.5} textAnchor="end" fill="#475569" fontSize={9}>
+            <line x1={padL} y1={y} x2={padL + cW} y2={y} stroke={ED.ruleSoft} strokeWidth={0.7} />
+            <text x={padL - 6} y={y + 3.5} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
               {v.toFixed(2)}
             </text>
           </g>
@@ -67,11 +68,11 @@ function RhoRatioLadderChart() {
         y1={padT + scaleY(-IMP33241_K_LEAD, min, max, cH)}
         x2={padL + cW}
         y2={padT + scaleY(-IMP33241_K_LEAD, min, max, cH)}
-        stroke="#94a3b8"
+        stroke={ED.rule}
         strokeWidth={1}
         strokeDasharray="2,3"
       />
-      <text x={padL + 4} y={padT + scaleY(-IMP33241_K_LEAD, min, max, cH) - 6} fill="#94a3b8" fontSize={9}>
+      <text x={padL + 4} y={padT + scaleY(-IMP33241_K_LEAD, min, max, cH) - 6} fill={ED.inkSoft} fontSize={9}>
         |K_lead| = 3.412
       </text>
 
@@ -107,14 +108,14 @@ function RhoRatioLadderChart() {
       {IMP33241_RELIABILITY_GRID.map((p, i) => {
         const x = padL + i * step + step / 2;
         return (
-          <text key={p.tau} x={x} y={padT + cH + 14} textAnchor="middle" fill="#64748b" fontSize={9}>
+          <text key={p.tau} x={x} y={padT + cH + 14} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
             tau={p.tau}
           </text>
         );
       })}
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
-      <text x={16} y={padT + cH / 2} textAnchor="middle" fill="#64748b" fontSize={10} transform={`rotate(-90,16,${padT + cH / 2})`}>
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
+      <text x={16} y={padT + cH / 2} textAnchor="middle" fill={ED.inkFaint} fontSize={10} transform={`rotate(-90,16,${padT + cH / 2})`}>
         |rhoRatio(tau)|
       </text>
     </svg>
@@ -123,9 +124,9 @@ function RhoRatioLadderChart() {
 
 function LadderTable() {
   return (
-    <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.8rem', color: '#94a3b8' }}>
+    <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.8rem', color: 'var(--ink-soft)' }}>
       <thead>
-        <tr style={{ borderBottom: '1px solid #334155' }}>
+        <tr style={{ borderBottom: '1px solid var(--rule)' }}>
           <th style={{ textAlign: 'left', padding: '0.35rem 0.5rem' }}>tau</th>
           <th style={{ textAlign: 'right', padding: '0.35rem 0.5rem' }}>rhoRatio (measured)</th>
           <th style={{ textAlign: 'right', padding: '0.35rem 0.5rem' }}>model (K_lead + K6 e^-2tau)</th>
@@ -137,7 +138,7 @@ function LadderTable() {
         {IMP33241_ALL_GRID.map((p) => {
           const isSwamped = IMP33241_SWAMPED_GRID.includes(p);
           return (
-            <tr key={p.tau} style={{ borderBottom: '1px solid #1e293b' }}>
+            <tr key={p.tau} style={{ borderBottom: '1px solid var(--rule-soft)' }}>
               <td style={{ padding: '0.35rem 0.5rem' }}>{p.tau}</td>
               <td style={{ textAlign: 'right', padding: '0.35rem 0.5rem', color: MEASURED_COLOR }}>
                 {p.rhoRatio.toPrecision(7)}
@@ -146,7 +147,7 @@ function LadderTable() {
                 {p.modelRatio.toPrecision(7)}
               </td>
               <td style={{ textAlign: 'right', padding: '0.35rem 0.5rem' }}>{p.floorNoise.toExponential(2)}</td>
-              <td style={{ padding: '0.35rem 0.5rem', color: isSwamped ? '#f87171' : '#4ade80' }}>
+              <td style={{ padding: '0.35rem 0.5rem', color: isSwamped ? 'var(--series-2)' : 'var(--series-3)' }}>
                 {isSwamped ? 'floor-swamped' : 'reliable'}
               </td>
             </tr>
@@ -162,7 +163,7 @@ export default function Imp33241WatsonMajorantRhoRatioLadderViz() {
     <div style={{ padding: '1.5rem', maxWidth: 940, margin: '0 auto' }}>
       <PageHeader title="Watson-Majorant rhoRatio Ladder (imp-33208)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
         imp-33208 measures the realised bracket remainder ratio
         rhoRatio(tau) = rho(tau) / e^-4tau directly against the imp-3850/imp-3873
         reconciled -ln A(tau) ladder, extending the imp-3866 spot-check to the
@@ -173,12 +174,12 @@ export default function Imp33241WatsonMajorantRhoRatioLadderViz() {
         K_lead + K6 e^-2tau.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         |rhoRatio(tau)| (measured, solid) vs closed two-term model (dashed pink) -- reliability window only
       </p>
       <RhoRatioLadderChart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.75rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.75rem 0 0.5rem' }}>
         Full grid, including the floor-swamped window
       </p>
       <LadderTable />
@@ -187,14 +188,14 @@ export default function Imp33241WatsonMajorantRhoRatioLadderViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> the
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> the
         chart shows only tau in [1.5, 3.5], where the direct reconstruction
         sits far above its own additive cancellation floor and the measurement
         is a genuine signal. Beyond tau ~ 3.5 (table rows below the chart) the
@@ -210,14 +211,14 @@ export default function Imp33241WatsonMajorantRhoRatioLadderViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> presentation
         only, of an already-verified table (imp-33208). Verification/measurement
         only, not a proof; mass-feasibility is necessary-but-not-sufficient;
         operator positivity (imp-3066 K_a &ge; 0) is UNTOUCHED. RH-equivalent, NO

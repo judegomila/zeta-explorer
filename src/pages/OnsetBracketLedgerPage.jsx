@@ -4,6 +4,7 @@ import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import { SG1C_ASYM_ONSET_BRACKET_LEDGER } from '../data/sg1c-asym-onset-bracket-ledger-2026-06-30.js';
 import { SG1C_CGLO_LOWER_BOUND } from '../data/sg1c-cglo-lower-bound-2026-07-02.js';
 import { SG1C_CGLO_CLOSURE } from '../data/sg1c-cglo-closure-2026-08-28.js';
+import { ED, alpha } from '../styles/tokens.js';
 
 // sg1c Asymmetric Onset Bracket Ledger — imp-3198.
 // Editorial (warm) re-theme: full-width dashboard, identical structure/data.
@@ -21,10 +22,10 @@ const chip = (bg, fg, border) => ({
 });
 
 const STATUS_COLOR = {
-  'closed-form-exact':       { style: chip('rgba(76,122,74,0.14)', 'var(--green)', 'rgba(76,122,74,0.40)'), badge: 'exact' },
-  'certified-numerical-inf': { style: chip('rgba(63,107,134,0.14)', 'var(--blue)', 'rgba(63,107,134,0.40)'), badge: 'certified' },
-  'random-scan':             { style: chip('rgba(181,138,46,0.16)', 'var(--brass-dk)', 'rgba(181,138,46,0.45)'), badge: 'random scan' },
-  'selector-artifact':       { style: chip('rgba(194,58,28,0.14)', 'var(--terra-dk)', 'rgba(194,58,28,0.40)'), badge: 'ARTIFACT' },
+  'closed-form-exact':       { style: chip(alpha(ED.series3, 0.14), 'var(--green)', alpha(ED.series3, 0.4)), badge: 'exact' },
+  'certified-numerical-inf': { style: chip(alpha(ED.series1, 0.14), 'var(--blue)', alpha(ED.series1, 0.4)), badge: 'certified' },
+  'random-scan':             { style: chip(alpha(ED.brassDeco, 0.16), 'var(--brass-dk)', alpha(ED.brassDeco, 0.45)), badge: 'random scan' },
+  'selector-artifact':       { style: chip(alpha(ED.series2, 0.14), 'var(--terra-dk)', alpha(ED.series2, 0.4)), badge: 'ARTIFACT' },
 };
 
 function cardBaseLeft(color) {

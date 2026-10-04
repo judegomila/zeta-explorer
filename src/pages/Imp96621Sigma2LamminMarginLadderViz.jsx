@@ -7,6 +7,7 @@ import {
   IMP96621_SIGMA1_AMBIGUOUS_POINT,
   IMP96621_HONEST_BANNER,
 } from '../data/imp-96621-sigma2-lammin-margin-ladder-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 // lambda_min(T_a[sigma_2]) vs 2a: falls from 56 at 2a=0.9 through 0.552 at
 // (ln 3)/2 and crosses zero between 2a=1.12 and 1.1316. Linear y-axis with a
@@ -34,34 +35,34 @@ function Sigma2Panel() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
 
       {/* zero line */}
-      <line x1={padL} y1={yOf(0)} x2={padL + plotW} y2={yOf(0)} stroke="#f87171" strokeWidth={1} strokeDasharray="3 3" />
-      <text x={padL + plotW - 4} y={yOf(0) - 5} textAnchor="end" fill="#f87171" fontSize={8}>
+      <line x1={padL} y1={yOf(0)} x2={padL + plotW} y2={yOf(0)} stroke={ED.series2} strokeWidth={1} strokeDasharray="3 3" />
+      <text x={padL + plotW - 4} y={yOf(0) - 5} textAnchor="end" fill={ED.series2} fontSize={8}>
         lambda_min = 0
       </text>
 
       {/* theorem-range boundary at 2a = 0.96 */}
-      <line x1={xOf(0.96)} y1={padT} x2={xOf(0.96)} y2={padT + plotH} stroke="#34d399" strokeWidth={1} strokeDasharray="4 3" />
-      <text x={xOf(0.96)} y={padT - 6} textAnchor="middle" fill="#34d399" fontSize={8}>
+      <line x1={xOf(0.96)} y1={padT} x2={xOf(0.96)} y2={padT + plotH} stroke={ED.series3} strokeWidth={1} strokeDasharray="4 3" />
+      <text x={xOf(0.96)} y={padT - 6} textAnchor="middle" fill={ED.series3} fontSize={8}>
         theorem wall 2a=0.96
       </text>
 
       {/* ln 3 boundary */}
-      <line x1={xOf(Math.log(3))} y1={padT} x2={xOf(Math.log(3))} y2={padT + plotH} stroke="#a78bfa" strokeWidth={1} strokeDasharray="4 3" />
-      <text x={xOf(Math.log(3))} y={padT + plotH + 34} textAnchor="middle" fill="#a78bfa" fontSize={8}>
+      <line x1={xOf(Math.log(3))} y1={padT} x2={xOf(Math.log(3))} y2={padT + plotH} stroke={ED.series5} strokeWidth={1} strokeDasharray="4 3" />
+      <text x={xOf(Math.log(3))} y={padT + plotH + 34} textAnchor="middle" fill={ED.series5} fontSize={8}>
         ln 3
       </text>
 
       {[minY, 0, maxY].map((v) => (
-        <text key={`y${v.toFixed(1)}`} x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={8.5}>
+        <text key={`y${v.toFixed(1)}`} x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8.5}>
           {v.toFixed(0)}
         </text>
       ))}
       {rows.map((r) => (
-        <text key={`x${r.twoA}`} x={xOf(r.twoA)} y={padT + plotH + 15} textAnchor="middle" fill="#64748b" fontSize={7.5}>
+        <text key={`x${r.twoA}`} x={xOf(r.twoA)} y={padT + plotH + 15} textAnchor="middle" fill={ED.inkFaint} fontSize={7.5}>
           {r.twoA.toFixed(2)}
         </text>
       ))}
@@ -69,7 +70,7 @@ function Sigma2Panel() {
       <polyline
         points={rows.map((r) => `${xOf(r.twoA)},${yOf(r.lambdaMinN36)}`).join(' ')}
         fill="none"
-        stroke="#38bdf8"
+        stroke={ED.series1}
         strokeWidth={1.4}
       />
       {rows.map((r) => (
@@ -78,14 +79,14 @@ function Sigma2Panel() {
           cx={xOf(r.twoA)}
           cy={yOf(r.lambdaMinN36)}
           r={3.5}
-          fill={r.lambdaMinN36 >= 0 ? '#38bdf8' : '#f87171'}
+          fill={r.lambdaMinN36 >= 0 ? ED.series1 : ED.series2}
         />
       ))}
 
-      <text x={padL + plotW / 2} y={padT + plotH + 34} textAnchor="middle" fill="#94a3b8" fontSize={9}>
+      <text x={padL + plotW / 2} y={padT + plotH + 34} textAnchor="middle" fill={ED.inkSoft} fontSize={9}>
         2a
       </text>
-      <text x={16} y={padT + plotH / 2} fill="#94a3b8" fontSize={9} transform={`rotate(-90 16 ${padT + plotH / 2})`}>
+      <text x={16} y={padT + plotH / 2} fill={ED.inkSoft} fontSize={9} transform={`rotate(-90 16 ${padT + plotH / 2})`}>
         lambda_min(T_a[sigma_2])
       </text>
     </svg>
@@ -118,32 +119,32 @@ function Sigma1Panel() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={yOf(0)} x2={padL + plotW} y2={yOf(0)} stroke="#f87171" strokeWidth={1} strokeDasharray="3 3" />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={yOf(0)} x2={padL + plotW} y2={yOf(0)} stroke={ED.series2} strokeWidth={1} strokeDasharray="3 3" />
 
       {[minY, 0, maxY].map((v) => (
-        <text key={`y${v.toFixed(4)}`} x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={8}>
+        <text key={`y${v.toFixed(4)}`} x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8}>
           {v.toFixed(3)}
         </text>
       ))}
       {rows.map((r) => (
-        <text key={`x${r.twoA}`} x={xOf(r.twoA)} y={padT + plotH + 15} textAnchor="middle" fill="#64748b" fontSize={7.5}>
+        <text key={`x${r.twoA}`} x={xOf(r.twoA)} y={padT + plotH + 15} textAnchor="middle" fill={ED.inkFaint} fontSize={7.5}>
           {r.twoA.toFixed(2)}
         </text>
       ))}
-      <text x={xOf(amb.twoA)} y={padT + plotH + 15} textAnchor="middle" fill="#a78bfa" fontSize={7.5}>
+      <text x={xOf(amb.twoA)} y={padT + plotH + 15} textAnchor="middle" fill={ED.series5} fontSize={7.5}>
         ln3
       </text>
 
       <polyline
         points={rows.map((r) => `${xOf(r.twoA)},${yOf(r.lambdaMin)}`).join(' ')}
         fill="none"
-        stroke="#facc15"
+        stroke={ED.brassDeco}
         strokeWidth={1.4}
       />
       {rows.map((r) => (
-        <circle key={`p${r.twoA}`} cx={xOf(r.twoA)} cy={yOf(r.lambdaMin)} r={3.5} fill="#facc15" />
+        <circle key={`p${r.twoA}`} cx={xOf(r.twoA)} cy={yOf(r.lambdaMin)} r={3.5} fill={ED.brassDeco} />
       ))}
 
       {/* ambiguous point: error bar spanning the raw tcut300/tcut800 straddle, resolved value marked */}
@@ -152,15 +153,15 @@ function Sigma1Panel() {
         y1={yOf(amb.rawTcut300)}
         x2={xOf(amb.twoA)}
         y2={yOf(amb.rawTcut800)}
-        stroke="#a78bfa"
+        stroke={ED.series5}
         strokeWidth={1.5}
       />
-      <circle cx={xOf(amb.twoA)} cy={yOf(amb.resolvedConverged)} r={4} fill="#a78bfa" stroke="#e2e8f0" strokeWidth={1} />
+      <circle cx={xOf(amb.twoA)} cy={yOf(amb.resolvedConverged)} r={4} fill={ED.series5} stroke={ED.inkSoft} strokeWidth={1} />
 
-      <text x={padL + plotW / 2} y={padT + plotH + 34} textAnchor="middle" fill="#94a3b8" fontSize={9}>
+      <text x={padL + plotW / 2} y={padT + plotH + 34} textAnchor="middle" fill={ED.inkSoft} fontSize={9}>
         2a
       </text>
-      <text x={16} y={padT + plotH / 2} fill="#94a3b8" fontSize={9} transform={`rotate(-90 16 ${padT + plotH / 2})`}>
+      <text x={16} y={padT + plotH / 2} fill={ED.inkSoft} fontSize={9} transform={`rotate(-90 16 ${padT + plotH / 2})`}>
         lambda_min(T_a[sigma_1])
       </text>
     </svg>
@@ -180,18 +181,18 @@ export default function Imp96621Sigma2LamminMarginLadderViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> {IMP96621_HONEST_BANNER}
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> {IMP96621_HONEST_BANNER}
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         The pole-free Route I Weil-positivity target is T_a[sigma_2] &gt;= 0, sigma_2 = (t^2+1/4)^2 w_1.
         Its measured Rayleigh-Ritz floor lambda_min(T_a[sigma_2]) falls from 56.05 at 2a=0.90 through
         0.552 at (ln 3)/2 = {(Math.log(3) / 2).toFixed(4)}, staying positive through the interval-verified
@@ -200,15 +201,15 @@ export default function Imp96621Sigma2LamminMarginLadderViz() {
         {' '}(lambda_min={crossHi.lambdaMin.toFixed(2)}).
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         lambda_min(T_a[sigma_2]) vs 2a
       </h3>
       <Sigma2Panel />
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', margin: '1.5rem 0 0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', margin: '1.5rem 0 0.5rem' }}>
         lambda_min(T_a[sigma_1]) vs 2a (CC Q-trick, half-pole-free symbol)
       </h3>
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '0.5rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '0.5rem', maxWidth: 700 }}>
         The half-pole-free symbol sigma_1 = (t^2+1/4) w_1 gives a margin that also falls, by two orders
         of magnitude, from 0.0400 at a=0.45 to 2.1e-4 at a=0.54. At exactly (ln 3)/2 the raw finite
         t-cutoff estimates straddle zero (tcut300={amb.rawTcut300.toExponential(2)}, tcut800=
@@ -221,14 +222,14 @@ export default function Imp96621Sigma2LamminMarginLadderViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> the sky-blue curve is
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> the sky-blue curve is
         lambda_min(T_a[sigma_2]) descending through the red zero line, with the green dashed marker at
         the interval-verified theorem wall 2a=0.96 and the violet dashed marker at ln 3. The crossing
         (red-filled point) sits well past both, so it has no bearing on the proved range. In the lower
@@ -241,14 +242,14 @@ export default function Imp96621Sigma2LamminMarginLadderViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page consuming the imp-96621
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the imp-96621
         viz-data (ladders reshaped verbatim from the Route I Toeplitz/Krein certificate literals).
         {' '}{IMP96621_HONEST_BANNER}
       </div>

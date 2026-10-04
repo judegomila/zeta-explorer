@@ -5,35 +5,36 @@ import {
   IMP95546_CUMULATIVE_GAINS,
   IMP95546_LOOSENESS_LADDER,
 } from '../data/imp-95546-rzpen7-8-gain-ladder-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 function AxisFrame({ children, svgW, svgH, padL, padR, padT, padB, xTicks, yTicks, xOf, yOf, xLabel, yLabel }) {
   const plotW = svgW - padL - padR;
   const plotH = svgH - padT - padB;
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
       {xTicks.map((v) => (
         <g key={`x${v}`}>
-          <line x1={xOf(v)} y1={padT + plotH} x2={xOf(v)} y2={padT + plotH + 4} stroke="#334155" strokeWidth={1} />
+          <line x1={xOf(v)} y1={padT + plotH} x2={xOf(v)} y2={padT + plotH + 4} stroke={ED.rule} strokeWidth={1} />
         </g>
       ))}
       {yTicks.map((v) => (
         <g key={`y${v}`}>
-          <line x1={padL - 4} y1={yOf(v)} x2={padL} y2={yOf(v)} stroke="#334155" strokeWidth={1} />
-          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={8.5}>
+          <line x1={padL - 4} y1={yOf(v)} x2={padL} y2={yOf(v)} stroke={ED.rule} strokeWidth={1} />
+          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8.5}>
             {v}
           </text>
         </g>
       ))}
-      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill="#64748b" fontSize={9.5}>
+      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5}>
         {xLabel}
       </text>
       <text
         x={14}
         y={padT + plotH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={9.5}
         transform={`rotate(-90 14 ${padT + plotH / 2})`}
       >
@@ -75,7 +76,7 @@ function LegGainBarsPanel() {
       xLabel="chain leg"
       yLabel="floor gain factor (A_pen_k / A_pen_{k-1})"
     >
-      <line x1={padL} y1={yOf(1)} x2={padL + plotW} y2={yOf(1)} stroke="#475569" strokeWidth={1} strokeDasharray="4 3" />
+      <line x1={padL} y1={yOf(1)} x2={padL + plotW} y2={yOf(1)} stroke={ED.rule} strokeWidth={1} strokeDasharray="4 3" />
       {rows.map((r, i) => (
         <g key={r.leg}>
           <rect
@@ -83,16 +84,16 @@ function LegGainBarsPanel() {
             y={yOf(r.gain)}
             width={barW}
             height={yOf(0) - yOf(r.gain)}
-            fill="#38bdf8"
+            fill={ED.series1}
             opacity={0.85}
           />
-          <text x={xOf(i)} y={yOf(r.gain) - 6} textAnchor="middle" fill="#e2e8f0" fontSize={9.5}>
+          <text x={xOf(i)} y={yOf(r.gain) - 6} textAnchor="middle" fill={ED.ink} fontSize={9.5}>
             {r.gain.toFixed(4)}x
           </text>
-          <text x={xOf(i)} y={padT + plotH + 16} textAnchor="middle" fill="#64748b" fontSize={9}>
+          <text x={xOf(i)} y={padT + plotH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
             {r.leg}
           </text>
-          <text x={xOf(i)} y={padT + plotH + 28} textAnchor="middle" fill="#475569" fontSize={7.5}>
+          <text x={xOf(i)} y={padT + plotH + 28} textAnchor="middle" fill={ED.inkFaint} fontSize={7.5}>
             {r.module}
           </text>
         </g>
@@ -141,18 +142,18 @@ function CumulativeAndLoosenessPanel() {
       xLabel="chain leg (RZ-PEN6 .. RZ-PEN8)"
       yLabel="cumulative gain (left) / looseness (right)"
     >
-      <polyline points={cumLine} fill="none" stroke="#38bdf8" strokeWidth={2} opacity={0.9} />
+      <polyline points={cumLine} fill="none" stroke={ED.series1} strokeWidth={2} opacity={0.9} />
       {cum.map((r, i) => (
-        <circle key={r.leg} cx={xOf(i)} cy={yOfCum(r.cumulativeGain)} r={2.5} fill="#38bdf8" />
+        <circle key={r.leg} cx={xOf(i)} cy={yOfCum(r.cumulativeGain)} r={2.5} fill={ED.series1} />
       ))}
-      <polyline points={looseLine} fill="none" stroke="#fb923c" strokeWidth={2} strokeDasharray="6 3" opacity={0.9} />
+      <polyline points={looseLine} fill="none" stroke={ED.series4} strokeWidth={2} strokeDasharray="6 3" opacity={0.9} />
       {loose.map((r, i) => (
-        <circle key={r.leg} cx={xOf(i)} cy={yOfLoose(r.looseness)} r={3} fill="#fb923c" />
+        <circle key={r.leg} cx={xOf(i)} cy={yOfLoose(r.looseness)} r={3} fill={ED.series4} />
       ))}
-      <text x={padL + 8} y={padT + 14} fill="#38bdf8" fontSize={9}>
+      <text x={padL + 8} y={padT + 14} fill={ED.series1} fontSize={9}>
         cumulative floor gain vs RZ-PEN6 (left axis)
       </text>
-      <text x={padL + 8} y={padT + 27} fill="#fb923c" fontSize={9}>
+      <text x={padL + 8} y={padT + 27} fill={ED.series4} fontSize={9}>
         looseness inf / A_pen at rho=e^6, r=2 (right axis)
       </text>
     </AxisFrame>
@@ -170,21 +171,21 @@ export default function Imp95546RzPen78GainLadderViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> a floor-only measurement
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a floor-only measurement
         summary of already-proven per-leg gains, not a new theorem. It changes no Lambda bound and
         establishes no operator positivity. Platt&ndash;Trudgian &Lambda; &le; 0.2 remains state of
         the art. RH does not follow from anything on this page. NO QED.
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         The imp-95349 gain-ladder page ends at RZ-PEN6 (imp-95332). This page continues the same
         chain two legs further: imp-95333 (RZ-PEN7, pair-extended kept-pair numerator floor over
         distance-1 and distance-2 shell pairs) and imp-95334 (RZ-PEN8, b-exact pointwise trace
@@ -197,12 +198,12 @@ export default function Imp95546RzPen78GainLadderViz() {
         this page surfaces them.
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         Per-leg floor gain factor, rho = e^6, r = 2
       </h3>
       <LegGainBarsPanel />
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', margin: '1.25rem 0 0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', margin: '1.25rem 0 0.5rem' }}>
         Cumulative gain vs RZ-PEN6, and residual looseness
       </h3>
       <CumulativeAndLoosenessPanel />
@@ -211,14 +212,14 @@ export default function Imp95546RzPen78GainLadderViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> each bar is the
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> each bar is the
         immediate-predecessor gain measured and baked in its own module (imp-95333's
         gainRhoE6R2, imp-95334's gainRhoE6R2); the line chart composes them into a running floor
         level relative to RZ-PEN6. The dashed looseness line shows the gap to the exact
@@ -232,14 +233,14 @@ export default function Imp95546RzPen78GainLadderViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page consuming the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the
         imp-95546 baked viz-data (values copied verbatim from the imp-95333 / imp-95334 records,
         no re-derivation). Changes no bound, establishes no operator positivity, no RH claim;
         Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. NO QED.

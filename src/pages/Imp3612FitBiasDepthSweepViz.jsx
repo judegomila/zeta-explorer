@@ -7,10 +7,11 @@ import {
   IMP3612_NINE_RUNG_DEV,
   IMP3612_MAX_MODEL_REL_ERR,
 } from '../data/imp-3612-fit-bias-depth-sweep-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
-const ACTUAL_COLOR = '#38bdf8';
-const PREDICTED_COLOR = '#10b981';
-const MARK_COLOR = '#f472b6';
+const ACTUAL_COLOR = ED.series1;
+const PREDICTED_COLOR = ED.series3;
+const MARK_COLOR = ED.series7;
 
 function DepthSweepChart() {
   const svgW = 640;
@@ -42,12 +43,12 @@ function DepthSweepChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
       {[2e-6, 5e-6, 1e-5, 2e-5, 5e-5, 1e-4].map((v) => (
         <g key={v}>
-          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke="#1e293b" strokeWidth={0.7} />
-          <text x={padL - 6} y={yS(v) + 3.5} textAnchor="end" fill="#475569" fontSize={9}>
+          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke={ED.ruleSoft} strokeWidth={0.7} />
+          <text x={padL - 6} y={yS(v) + 3.5} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v.toExponential(0)}
           </text>
         </g>
@@ -69,30 +70,30 @@ function DepthSweepChart() {
         />
       ))}
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
 
       {depths.map((depth) => (
         <g key={'x' + depth}>
-          <line x1={xS(depth)} y1={padT + cH} x2={xS(depth)} y2={padT + cH + 5} stroke="#334155" strokeWidth={1} />
-          <text x={xS(depth)} y={padT + cH + 17} textAnchor="middle" fill="#64748b" fontSize={9}>
+          <line x1={xS(depth)} y1={padT + cH} x2={xS(depth)} y2={padT + cH + 5} stroke={ED.rule} strokeWidth={1} />
+          <text x={xS(depth)} y={padT + cH + 17} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
             {depth}
           </text>
         </g>
       ))}
-      <text x={padL + cW / 2} y={padT + cH + 36} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={padT + cH + 36} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         ladder depth (rungs)
       </text>
-      <text x={16} y={padT + cH / 2} textAnchor="middle" fill="#64748b" fontSize={10} transform={'rotate(-90,16,' + (padT + cH / 2) + ')'}>
+      <text x={16} y={padT + cH / 2} textAnchor="middle" fill={ED.inkFaint} fontSize={10} transform={'rotate(-90,16,' + (padT + cH / 2) + ')'}>
         |p_fit - 2| (log scale)
       </text>
 
       <g fontSize={9}>
         <circle cx={padL + 8} cy={padT + 12} r={3.6} fill={MARK_COLOR} />
-        <text x={padL + 16} y={padT + 15} fill="#f9a8d4">imp-3553 nine-rung point ({nineRung.actualDev.toExponential(2)})</text>
+        <text x={padL + 16} y={padT + 15} fill={ED.series7}>imp-3553 nine-rung point ({nineRung.actualDev.toExponential(2)})</text>
         <line x1={padL + 2} y1={padT + 26} x2={padL + 10} y2={padT + 26} stroke={ACTUAL_COLOR} strokeWidth={2} />
-        <text x={padL + 14} y={padT + 29} fill="#7dd3fc">Actual least-squares |p_fit - 2|</text>
+        <text x={padL + 14} y={padT + 29} fill={ED.series1}>Actual least-squares |p_fit - 2|</text>
         <line x1={padL + 2} y1={padT + 40} x2={padL + 10} y2={padT + 40} stroke={PREDICTED_COLOR} strokeWidth={1.6} strokeDasharray="4,2" />
-        <text x={padL + 14} y={padT + 43} fill="#6ee7b7">Predicted p_fit = 2 + D_3 cov(a^2,ln a)/var(ln a)</text>
+        <text x={padL + 14} y={padT + 43} fill={ED.series3}>Predicted p_fit = 2 + D_3 cov(a^2,ln a)/var(ln a)</text>
       </g>
     </svg>
   );
@@ -103,7 +104,7 @@ export default function Imp3612FitBiasDepthSweepViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Remainder-Tail Fit-Bias Depth Sweep (imp-3581 / imp-3612)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-3581 derived the moment-remainder tail exponent p = 2 in closed form and showed that
         the fitted least-squares slope reads slightly below 2 purely because of an O(a^2) log-log
         curvature bias, p_fit = 2 + D_3 cov(a^2, ln a)/var(ln a). Deepening the odd R_3 ladder
@@ -116,7 +117,7 @@ export default function Imp3612FitBiasDepthSweepViz() {
         at every depth.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         |p_fit - 2| vs deepest clean rung: actual fit vs the D_3-driven predicted curve
       </p>
       <DepthSweepChart />
@@ -125,14 +126,14 @@ export default function Imp3612FitBiasDepthSweepViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> the solid line is the
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> the solid line is the
         actual least-squares slope deviation measured on each depth-k geometric ladder; the dashed
         line is the closed prediction 2 + D_3 cov(a^2, ln a)/var(ln a) from the same derivation.
         The two curves are visually indistinguishable because the model error is ~1e-9 in absolute
@@ -145,23 +146,23 @@ export default function Imp3612FitBiasDepthSweepViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement/derivation only --
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> measurement/derivation only --
         this certifies the decay ORDER (p=2) of a fixed-weight Taylor remainder and explains a
         fit-bias artifact; it establishes NO operator positivity. RH-equivalent,
         necessary-but-not-sufficient; the imp-3066 K_a &ge; 0 sign-positivity obstruction is
         UNTOUCHED. No RH verdict, no QED.
       </div>
 
-      <div style={{ marginTop: '1rem', fontSize: '0.85rem', color: '#64748b' }}>
+      <div style={{ marginTop: '1rem', fontSize: '0.85rem', color: 'var(--ink-faint)' }}>
         <strong>Related:</strong>{' '}
-        <Link to="/viz-imp3611-skew-toeplitz-krylov-gap-ladder" style={{ color: '#7c3aed' }}>
+        <Link to="/viz-imp3611-skew-toeplitz-krylov-gap-ladder" style={{ color: 'var(--series-5)' }}>
           Corrected-Krylov Skew-Toeplitz Gap Ladder (imp-3611)
         </Link>
       </div>

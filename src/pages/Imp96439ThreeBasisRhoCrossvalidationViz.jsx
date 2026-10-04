@@ -6,6 +6,7 @@ import {
   IMP96439_LANDMARKS,
   IMP96439_HONEST_BANNER,
 } from '../data/imp-96439-three-basis-rho-crossvalidation-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 function RhoChart() {
   const svgW = 680;
@@ -39,44 +40,44 @@ function RhoChart() {
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
       {yTicks.map((v) => (
         <g key={`y${v}`}>
-          <line x1={padL} y1={yOf(v)} x2={padL + plotW} y2={yOf(v)} stroke="#334155" strokeWidth={0.5} opacity={0.4} />
-          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={8.5}>{v.toFixed(2)}</text>
+          <line x1={padL} y1={yOf(v)} x2={padL + plotW} y2={yOf(v)} stroke={ED.rule} strokeWidth={0.5} opacity={0.4} />
+          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8.5}>{v.toFixed(2)}</text>
         </g>
       ))}
       {xTicks.map((v) => (
-        <text key={`x${v}`} x={xOf(v)} y={padT + plotH + 14} textAnchor="middle" fill="#64748b" fontSize={8.5}>
+        <text key={`x${v}`} x={xOf(v)} y={padT + plotH + 14} textAnchor="middle" fill={ED.inkFaint} fontSize={8.5}>
           {v}
         </text>
       ))}
 
       {/* rigidity limit -1/2 */}
-      <line x1={padL} y1={rigidityY} x2={padL + plotW} y2={rigidityY} stroke="#fbbf24" strokeWidth={1} strokeDasharray="3 3" opacity={0.55} />
-      <text x={padL + plotW - 4} y={rigidityY - 4} textAnchor="end" fill="#fbbf24" fontSize={8}>
+      <line x1={padL} y1={rigidityY} x2={padL + plotW} y2={rigidityY} stroke={ED.brassDeco} strokeWidth={1} strokeDasharray="3 3" opacity={0.55} />
+      <text x={padL + plotW - 4} y={rigidityY - 4} textAnchor="end" fill={ED.brass} fontSize={8}>
         rigidity limit -1/2
       </text>
 
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
 
-      <path d={lineD('rhoExact')} fill="none" stroke="#38bdf8" strokeWidth={2.5} opacity={0.9} />
-      <path d={lineD('rhoAsymp')} fill="none" stroke="#f87171" strokeWidth={1.5} strokeDasharray="5 3" opacity={0.9} />
-      <path d={lineD('rhoDirect')} fill="none" stroke="#4ade80" strokeWidth={1} strokeDasharray="1 3" opacity={0.9} />
+      <path d={lineD('rhoExact')} fill="none" stroke={ED.series1} strokeWidth={2.5} opacity={0.9} />
+      <path d={lineD('rhoAsymp')} fill="none" stroke={ED.series2} strokeWidth={1.5} strokeDasharray="5 3" opacity={0.9} />
+      <path d={lineD('rhoDirect')} fill="none" stroke={ED.series3} strokeWidth={1} strokeDasharray="1 3" opacity={0.9} />
 
       {IMP96439_RHO_SERIES.map((p) => (
-        <circle key={`r-${p.L}`} cx={xOf(p.log10L)} cy={yOf(p.rhoExact)} r={2.4} fill="#38bdf8" />
+        <circle key={`r-${p.L}`} cx={xOf(p.log10L)} cy={yOf(p.rhoExact)} r={2.4} fill={ED.series1} />
       ))}
 
-      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={9.5}>
+      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5}>
         log10 L (L = 30..480)
       </text>
 
       <g transform={`translate(${padL + 8}, ${padT + 8})`}>
-        <line x1={0} y1={0} x2={18} y2={0} stroke="#38bdf8" strokeWidth={2.5} />
-        <text x={22} y={3} fill="#94a3b8" fontSize={8.5}>basis A (exact Dyson-Mehta)</text>
-        <line x1={0} y1={14} x2={18} y2={14} stroke="#f87171" strokeWidth={1.5} strokeDasharray="5 3" />
-        <text x={22} y={17} fill="#94a3b8" fontSize={8.5}>basis B (asymptotic)</text>
-        <line x1={0} y1={28} x2={18} y2={28} stroke="#4ade80" strokeWidth={1} strokeDasharray="1 3" />
-        <text x={22} y={31} fill="#94a3b8" fontSize={8.5}>basis C (direct integral)</text>
+        <line x1={0} y1={0} x2={18} y2={0} stroke={ED.series1} strokeWidth={2.5} />
+        <text x={22} y={3} fill={ED.inkSoft} fontSize={8.5}>basis A (exact Dyson-Mehta)</text>
+        <line x1={0} y1={14} x2={18} y2={14} stroke={ED.series2} strokeWidth={1.5} strokeDasharray="5 3" />
+        <text x={22} y={17} fill={ED.inkSoft} fontSize={8.5}>basis B (asymptotic)</text>
+        <line x1={0} y1={28} x2={18} y2={28} stroke={ED.series3} strokeWidth={1} strokeDasharray="1 3" />
+        <text x={22} y={31} fill={ED.inkSoft} fontSize={8.5}>basis C (direct integral)</text>
       </g>
     </svg>
   );
@@ -112,38 +113,38 @@ function AgreementChart() {
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
       {yTicks.map((v) => (
         <g key={`y${v}`}>
-          <line x1={padL} y1={yOf(v)} x2={padL + plotW} y2={yOf(v)} stroke="#334155" strokeWidth={0.5} opacity={0.4} />
-          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={8.5}>{`1e${v}`}</text>
+          <line x1={padL} y1={yOf(v)} x2={padL + plotW} y2={yOf(v)} stroke={ED.rule} strokeWidth={0.5} opacity={0.4} />
+          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8.5}>{`1e${v}`}</text>
         </g>
       ))}
       {xTicks.map((v) => (
-        <text key={`x${v}`} x={xOf(v)} y={padT + plotH + 14} textAnchor="middle" fill="#64748b" fontSize={8.5}>
+        <text key={`x${v}`} x={xOf(v)} y={padT + plotH + 14} textAnchor="middle" fill={ED.inkFaint} fontSize={8.5}>
           {v}
         </text>
       ))}
 
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
 
-      <path d={lineD('log10AgreeAB')} fill="none" stroke="#f87171" strokeWidth={2} opacity={0.9} />
-      <path d={lineD('log10AgreeAC')} fill="none" stroke="#38bdf8" strokeWidth={1.5} strokeDasharray="5 3" opacity={0.9} />
-      <path d={lineD('log10DirectFloor')} fill="none" stroke="#fbbf24" strokeWidth={1.5} strokeDasharray="1 3" opacity={0.9} />
+      <path d={lineD('log10AgreeAB')} fill="none" stroke={ED.series2} strokeWidth={2} opacity={0.9} />
+      <path d={lineD('log10AgreeAC')} fill="none" stroke={ED.series1} strokeWidth={1.5} strokeDasharray="5 3" opacity={0.9} />
+      <path d={lineD('log10DirectFloor')} fill="none" stroke={ED.brassDeco} strokeWidth={1.5} strokeDasharray="1 3" opacity={0.9} />
 
       {IMP96439_AGREEMENT_SERIES.map((p) => (
-        <circle key={`a-${p.L}`} cx={xOf(p.log10L)} cy={yOf(p.log10AgreeAB)} r={2.4} fill="#f87171" />
+        <circle key={`a-${p.L}`} cx={xOf(p.log10L)} cy={yOf(p.log10AgreeAB)} r={2.4} fill={ED.series2} />
       ))}
 
-      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={9.5}>
+      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5}>
         log10 L (L = 30..480)
       </text>
 
       <g transform={`translate(${padL + 8}, ${padT + 8})`}>
-        <line x1={0} y1={0} x2={18} y2={0} stroke="#f87171" strokeWidth={2} />
-        <text x={22} y={3} fill="#94a3b8" fontSize={8.5}>|A-B| analytic truncation (shrinks)</text>
-        <line x1={0} y1={14} x2={18} y2={14} stroke="#38bdf8" strokeWidth={1.5} strokeDasharray="5 3" />
-        <text x={22} y={17} fill="#94a3b8" fontSize={8.5}>|A-C| quadrature roundoff (flat, ~1e-11)</text>
-        <line x1={0} y1={28} x2={18} y2={28} stroke="#fbbf24" strokeWidth={1.5} strokeDasharray="1 3" />
-        <text x={22} y={31} fill="#94a3b8" fontSize={8.5}>basis-C direct floor (grows with L)</text>
+        <line x1={0} y1={0} x2={18} y2={0} stroke={ED.series2} strokeWidth={2} />
+        <text x={22} y={3} fill={ED.inkSoft} fontSize={8.5}>|A-B| analytic truncation (shrinks)</text>
+        <line x1={0} y1={14} x2={18} y2={14} stroke={ED.series1} strokeWidth={1.5} strokeDasharray="5 3" />
+        <text x={22} y={17} fill={ED.inkSoft} fontSize={8.5}>|A-C| quadrature roundoff (flat, ~1e-11)</text>
+        <line x1={0} y1={28} x2={18} y2={28} stroke={ED.brassDeco} strokeWidth={1.5} strokeDasharray="1 3" />
+        <text x={22} y={31} fill={ED.inkSoft} fontSize={8.5}>basis-C direct floor (grows with L)</text>
       </g>
     </svg>
   );
@@ -158,18 +159,18 @@ export default function Imp96439ThreeBasisRhoCrossvalidationViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 760,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> {IMP96439_HONEST_BANNER}
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> {IMP96439_HONEST_BANNER}
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
         imp-96389 assembled three independent evaluations of the GUE two-interval correlation rho(L)
         into one per-L table: the exact Dyson&ndash;Mehta number variance (basis A), the asymptotic
         module that drops the oscillatory Ci/Si terms (basis B), and a direct pair-correlation
@@ -179,12 +180,12 @@ export default function Imp96439ThreeBasisRhoCrossvalidationViz() {
         |A-B| is a genuine analytic truncation of the dropped oscillatory terms.
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         rho vs log10 L (all three bases overlap, drifting toward the -0.5 rigidity limit)
       </h3>
       <RhoChart />
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', margin: '1.5rem 0 0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', margin: '1.5rem 0 0.5rem' }}>
         Pairwise agreement and basis-C roundoff floor vs log10 L (log scale)
       </h3>
       <AgreementChart />
@@ -193,14 +194,14 @@ export default function Imp96439ThreeBasisRhoCrossvalidationViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the charts:</strong> in the top chart the three
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the charts:</strong> in the top chart the three
         rho curves are visually indistinguishable because they agree to &ge; 6 figures at every
         rung. The bottom chart separates the two disagreement mechanisms the top chart hides: |A-B|
         (red) shrinks steadily from {IMP96439_LANDMARKS.worstPairwiseGap.agreeAB.toExponential(2)}{' '}
@@ -215,14 +216,14 @@ export default function Imp96439ThreeBasisRhoCrossvalidationViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page consuming the imp-96389
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the imp-96389
         baked three-basis table verbatim (only the chart-axis reshaping is computed here). rho is
         the theoretical GUE (sine-kernel, universality) two-interval correlation for boxes of
         unfolded length L; these are theoretical envelope values with no computed Riemann zeros

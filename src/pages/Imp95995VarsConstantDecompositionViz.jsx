@@ -7,8 +7,9 @@ import {
   IMP95995_REQUIRED_ACCURACY,
   IMP95995_K_OVER_TOLERANCE,
 } from '../data/imp-95995-varS-constant-decomposition-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
-const SEGMENT_COLOR = { M: '#38bdf8', P2: '#34d399', K: '#f87171' };
+const SEGMENT_COLOR = { M: ED.series1, P2: ED.series3, K: ED.series2 };
 
 // horizontal stacked bar: b = M + P2 (solid, pinned) + K (hatched, unresolved)
 function DecompositionBarPanel() {
@@ -46,7 +47,7 @@ function DecompositionBarPanel() {
             width={seg.w}
             height={barH}
             fill={seg.resolved ? SEGMENT_COLOR[seg.key] : 'url(#imp95995-hatch)'}
-            stroke={seg.resolved ? 'none' : '#f87171'}
+            stroke={seg.resolved ? 'none' : ED.series2}
             strokeWidth={seg.resolved ? 0 : 1.5}
           />
           {seg.w > 40 && (
@@ -54,7 +55,7 @@ function DecompositionBarPanel() {
               x={seg.x + seg.w / 2}
               y={barY + barH / 2 + 4}
               textAnchor="middle"
-              fill={seg.resolved ? '#0f172a' : '#fecaca'}
+              fill={seg.resolved ? ED.paper : ED.series2}
               fontSize={11}
               fontWeight={600}
             >
@@ -63,19 +64,19 @@ function DecompositionBarPanel() {
           )}
         </g>
       ))}
-      <text x={padL} y={barY - 10} fill="#64748b" fontSize={10}>
+      <text x={padL} y={barY - 10} fill={ED.inkFaint} fontSize={10}>
         0
       </text>
-      <text x={padL + plotW} y={barY - 10} textAnchor="end" fill="#64748b" fontSize={10}>
+      <text x={padL + plotW} y={barY - 10} textAnchor="end" fill={ED.inkFaint} fontSize={10}>
         b &asymp; {IMP95995_B_EMPIRICAL.toFixed(4)}
       </text>
-      <text x={padL} y={barY + barH + 20} fill="#38bdf8" fontSize={9}>
+      <text x={padL} y={barY + barH + 20} fill={ED.series1} fontSize={9}>
         &#9632; M (pinned, O(1e-12))
       </text>
-      <text x={padL + 150} y={barY + barH + 20} fill="#34d399" fontSize={9}>
+      <text x={padL + 150} y={barY + barH + 20} fill={ED.series3} fontSize={9}>
         &#9632; P2 (pinned, O(1e-12))
       </text>
-      <text x={padL + 340} y={barY + barH + 20} fill="#f87171" fontSize={9}>
+      <text x={padL + 340} y={barY + barH + 20} fill={ED.series2} fontSize={9}>
         &#9632; K (unresolved, O(1))
       </text>
     </svg>
@@ -92,22 +93,22 @@ export default function Imp95995VarsConstantDecompositionViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> a measurement-only plot of an
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a measurement-only plot of an
         already-computed constant decomposition. It changes no Lambda bound and establishes no
         operator positivity. Platt&ndash;Trudgian &Lambda; &le; 0.2 remains state of the art.
         Catalan G irrationality stays OPEN; Sun arXiv:2609.04176 is single-author and unrefereed.
         RH does not follow from anything on this page. NO QED.
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-95964 reconstructed the Selberg&ndash;Goldston&ndash;Fujii Var S(T) additive constant
         as b = M + P2 + K from the diagonal explicit-formula second moment. The Mertens constant
         M = {IMP95995_VARS_DECOMPOSITION_SEGMENTS[0].value.toFixed(4)} and the convergent
@@ -120,7 +121,7 @@ export default function Imp95995VarsConstantDecompositionViz() {
         hatched segment is the unresolved obstruction.
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         b = M + P2 + K, pinned vs unresolved segments
       </h3>
       <DecompositionBarPanel />
@@ -129,14 +130,14 @@ export default function Imp95995VarsConstantDecompositionViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> the blue and green
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> the blue and green
         segments (M and P2) are the diagonal explicit-formula arithmetic core, reproducible to
         O(1e-12) by direct prime summation. The red hatched segment (K) is not derived here &mdash;
         it is backed out from the imp-95940 empirical six-height mean and stands in for whatever
@@ -149,14 +150,14 @@ export default function Imp95995VarsConstantDecompositionViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page consuming the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the
         imp-95995 baked viz-data (values copied verbatim from the imp-95964 decomposition, no
         re-derivation). Changes no bound, establishes no operator positivity, no RH claim;
         Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. NO QED.

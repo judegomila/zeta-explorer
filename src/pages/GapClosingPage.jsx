@@ -9,6 +9,7 @@ import {
   hamiltonianMonotonicity,
   mertensAnalyticalBound,
 } from '../math/rh-attack.js';
+import { ED, alpha as TK_ALPHA } from '../styles/tokens.js';
 
 // ─── S7 Mertens Analytical Proof Section ─────────────────────────────────────
 function MertensProofSection() {
@@ -37,12 +38,12 @@ function MertensProofSection() {
         {data.proofSteps.map(step => (
           <div key={step.step} style={{
             display: 'flex', gap: 10, marginBottom: 8, padding: '8px 12px',
-            borderRadius: 6, background: step.status.startsWith('rigorous') ? 'rgba(76,122,74,0.08)' : 'rgba(181,138,46,0.08)',
-            border: `1px solid ${step.status.startsWith('rigorous') ? 'rgba(76,122,74,0.30)' : 'rgba(181,138,46,0.30)'}`,
+            borderRadius: 6, background: step.status.startsWith('rigorous') ? 'color-mix(in srgb, var(--series-3) 8%, transparent)' : 'color-mix(in srgb, var(--brass-deco) 8%, transparent)',
+            border: `1px solid ${step.status.startsWith('rigorous') ? TK_ALPHA(ED.series3, 0.3) : TK_ALPHA(ED.brassDeco, 0.3)}`,
           }}>
             <span style={{
               flexShrink: 0, width: 22, height: 22, borderRadius: '50%',
-              background: step.status.startsWith('rigorous') ? 'rgba(76,122,74,0.20)' : 'rgba(181,138,46,0.20)',
+              background: step.status.startsWith('rigorous') ? 'color-mix(in srgb, var(--series-3) 20%, transparent)' : 'color-mix(in srgb, var(--brass-deco) 20%, transparent)',
               color: step.status.startsWith('rigorous') ? 'var(--green)' : 'var(--brass-dk)',
               display: 'flex', alignItems: 'center', justifyContent: 'center',
               fontSize: 11, fontWeight: 700,
@@ -98,7 +99,7 @@ function MertensProofSection() {
       </div>
 
       <div style={{ marginTop: 12, padding: '10px 14px', borderRadius: 6,
-                    background: 'rgba(76,122,74,0.10)', border: '1px solid rgba(76,122,74,0.30)' }}>
+                    background: 'color-mix(in srgb, var(--series-3) 10%, transparent)', border: '1px solid color-mix(in srgb, var(--series-3) 30%, transparent)' }}>
         <strong style={{ color: 'var(--green)' }}>{data.verdict}</strong>
       </div>
     </div>
@@ -356,7 +357,7 @@ function S6StrengtheningSection() {
         <p style={{ color: 'var(--faint)', fontSize: 11, marginTop: 8 }}>{monoData.verdict}</p>
 
         {monoData.violations.length > 0 && (
-          <div style={{ marginTop: 8, padding: 8, background: 'rgba(194,58,28,0.08)', borderRadius: 6, border: '1px solid rgba(194,58,28,0.30)' }}>
+          <div style={{ marginTop: 8, padding: 8, background: 'color-mix(in srgb, var(--series-2) 8%, transparent)', borderRadius: 6, border: '1px solid color-mix(in srgb, var(--accent) 30%, transparent)' }}>
             <div style={{ fontSize: 11, color: 'var(--terra-dk)', fontWeight: 600, marginBottom: 4 }}>Violations:</div>
             {monoData.violations.slice(0, 5).map((v, i) => (
               <div key={i} style={{ fontSize: 10, color: 'var(--terra)', marginBottom: 2 }}>{v.detail}</div>
@@ -396,6 +397,7 @@ export default function GapClosingPage() {
       <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
         <div style={{ marginBottom: 24 }}>
           <h1 className="ed-h1" style={{ marginBottom: 10 }}>Gap Analysis &amp; Closing</h1>
+          <p className="ed-lbl">Related: <Link to="/health">Model metrics (live)</Link> · <Link to="/dashboard">Model metrics dashboard</Link></p>
           <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.55, maxWidth: 760 }}>
             The Twin-Ladder Bridge framework has three open interfaces, each RH-hard: closing any
             one of them is not a partially-completed proof step but a wall of the same difficulty
@@ -461,7 +463,7 @@ export default function GapClosingPage() {
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 12 }}>
-            <div style={{ padding: '8px 12px', borderRadius: 6, background: 'rgba(76,122,74,0.12)', border: '1px solid rgba(76,122,74,0.30)' }}>
+            <div style={{ padding: '8px 12px', borderRadius: 6, background: 'color-mix(in srgb, var(--series-3) 12%, transparent)', border: '1px solid color-mix(in srgb, var(--series-3) 30%, transparent)' }}>
               <div style={{ fontSize: 12, fontWeight: 600, color: 'var(--green)' }}>S4: Analytic Continuation</div>
               <div style={{ fontSize: 11, color: 'var(--ink-soft)', marginTop: 2 }}>
                 The eta relation <InlineMath tex={"\\zeta(s)=\\eta(s)/(1-2^{1-s})"} /> continues
@@ -469,13 +471,13 @@ export default function GapClosingPage() {
                 physical lossless network.
               </div>
             </div>
-            <div style={{ padding: '8px 12px', borderRadius: 6, background: 'rgba(194,58,28,0.12)', border: '1px solid rgba(194,58,28,0.30)' }}>
+            <div style={{ padding: '8px 12px', borderRadius: 6, background: 'color-mix(in srgb, var(--series-2) 12%, transparent)', border: '1px solid color-mix(in srgb, var(--accent) 30%, transparent)' }}>
               <div style={{ fontSize: 12, fontWeight: 600, color: 'var(--terra-dk)' }}>S5: Hilbert-Polya Operator</div>
               <div style={{ fontSize: 11, color: 'var(--ink-soft)', marginTop: 2 }}>
                 Deep open problem. Candidate matrix is self-adjoint but spectral equivalence <InlineMath tex={"\\text{Spec}(M) = \\{\\gamma_n\\}"} /> unproven.
               </div>
             </div>
-            <div style={{ padding: '8px 12px', borderRadius: 6, background: 'rgba(217,80,46,0.12)', border: '1px solid rgba(217,80,46,0.30)' }}>
+            <div style={{ padding: '8px 12px', borderRadius: 6, background: 'color-mix(in srgb, var(--accent-deco) 12%, transparent)', border: '1px solid color-mix(in srgb, var(--accent-deco) 30%, transparent)' }}>
               <div style={{ fontSize: 12, fontWeight: 600, color: 'var(--terra)' }}>S7: Darlington Synthesis</div>
               <div style={{ fontSize: 11, color: 'var(--ink-soft)', marginTop: 2 }}>
                 Finite-model unitarity is suggestive, but the infinite realization and a theorem
@@ -971,7 +973,7 @@ export default function GapClosingPage() {
         <div className="card" style={{ marginTop: 24, borderLeft: '3px solid var(--blue)' }}>
           <h3 style={{ color: 'var(--blue)', fontSize: 14 }}>What Would Close Each Gap?</h3>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 12, marginTop: 12 }}>
-            <div style={{ padding: '12px', background: 'rgba(76,122,74,0.08)', borderRadius: 8, border: '1px solid rgba(76,122,74,0.25)' }}>
+            <div style={{ padding: '12px', background: 'color-mix(in srgb, var(--series-3) 8%, transparent)', borderRadius: 8, border: '1px solid color-mix(in srgb, var(--series-3) 25%, transparent)' }}>
               <div style={{ color: 'var(--green)', fontSize: 13, fontWeight: 700, marginBottom: 6 }}>S4: Regularization</div>
               <p style={{ color: 'var(--ink-soft)', fontSize: 11, lineHeight: 1.6, marginBottom: 8 }}>
                 <strong>Needed:</strong> Show that the eta-regularized Euler product preserves the
@@ -982,7 +984,7 @@ export default function GapClosingPage() {
                 The Bost-Connes system provides an independent regularization path.
               </p>
             </div>
-            <div style={{ padding: '12px', background: 'rgba(194,58,28,0.08)', borderRadius: 8, border: '1px solid rgba(194,58,28,0.25)' }}>
+            <div style={{ padding: '12px', background: 'color-mix(in srgb, var(--series-2) 8%, transparent)', borderRadius: 8, border: '1px solid color-mix(in srgb, var(--accent) 25%, transparent)' }}>
               <div style={{ color: 'var(--terra-dk)', fontSize: 13, fontWeight: 700, marginBottom: 6 }}>S5: Hilbert-Polya</div>
               <p style={{ color: 'var(--ink-soft)', fontSize: 11, lineHeight: 1.6, marginBottom: 8 }}>
                 <strong>Needed:</strong> Construct a self-adjoint operator <InlineMath tex={"\\hat{H}"} /> on a
@@ -993,7 +995,7 @@ export default function GapClosingPage() {
                 Sierra-Townsend Hamiltonian. None fully rigorous.
               </p>
             </div>
-            <div style={{ padding: '12px', background: 'rgba(217,80,46,0.08)', borderRadius: 8, border: '1px solid rgba(217,80,46,0.25)' }}>
+            <div style={{ padding: '12px', background: 'color-mix(in srgb, var(--accent-deco) 8%, transparent)', borderRadius: 8, border: '1px solid color-mix(in srgb, var(--accent-deco) 25%, transparent)' }}>
               <div style={{ color: 'var(--terra)', fontSize: 13, fontWeight: 700, marginBottom: 6 }}>S7: Darlington</div>
               <p style={{ color: 'var(--ink-soft)', fontSize: 11, lineHeight: 1.6, marginBottom: 8 }}>
                 <strong>Needed:</strong> Prove the infinite twin-ladder is exactly lossless,
@@ -1059,8 +1061,8 @@ export default function GapClosingPage() {
 
           <div style={{
             marginTop: 16, padding: '12px 16px',
-            background: 'rgba(63,107,134,0.06)', borderRadius: 8,
-            border: '1px solid rgba(63,107,134,0.20)',
+            background: 'color-mix(in srgb, var(--series-1) 6%, transparent)', borderRadius: 8,
+            border: '1px solid color-mix(in srgb, var(--series-1) 20%, transparent)',
           }}>
             <p style={{ color: 'var(--blue)', fontSize: 13, fontWeight: 600, marginBottom: 6 }}>
               Combined Status

@@ -5,6 +5,7 @@ import {
   IMP34354_LOCAL_EXPONENTS,
   IMP34354_OLS_FITS,
 } from '../data/imp-34354-crossover-surplus-small-thr-factorisation-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 // F1: bar chart of surplus/(thr.r) climbing monotonically toward 1 across the threshold family
 // -- shows the prefactor P(thr) contributes exactly one power of thr.
@@ -25,13 +26,13 @@ function PrefactorLinearityBars() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
 
       {[0, 0.25, 0.5, 0.75, 1].map((v) => (
         <g key={v}>
-          <line x1={padL - 4} y1={yAt(v)} x2={padL + cW} y2={yAt(v)} stroke="#1e293b" strokeWidth={1} />
-          <text x={padL - 8} y={yAt(v) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+          <line x1={padL - 4} y1={yAt(v)} x2={padL + cW} y2={yAt(v)} stroke={ED.ruleSoft} strokeWidth={1} />
+          <text x={padL - 8} y={yAt(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v.toFixed(2)}
           </text>
         </g>
@@ -44,11 +45,11 @@ function PrefactorLinearityBars() {
         const bottom = padT + cH;
         return (
           <g key={row.thr}>
-            <rect x={x} y={top} width={barW} height={bottom - top} fill="#34d399" stroke="#0a0f1a" strokeWidth={0.75} />
-            <text x={xCenter} y={top - 6} textAnchor="middle" fill="#94a3b8" fontSize={9} fontFamily="monospace">
+            <rect x={x} y={top} width={barW} height={bottom - top} fill={ED.series3} stroke={ED.paper} strokeWidth={0.75} />
+            <text x={xCenter} y={top - 6} textAnchor="middle" fill={ED.inkSoft} fontSize={9} fontFamily="monospace">
               {row.surplus_over_thr_r.toFixed(4)}
             </text>
-            <text x={xCenter} y={padT + cH + 16} textAnchor="middle" fill="#cbd5e1" fontSize={10}>
+            <text x={xCenter} y={padT + cH + 16} textAnchor="middle" fill={ED.ink} fontSize={10}>
               thr={row.thr}
             </text>
           </g>
@@ -59,7 +60,7 @@ function PrefactorLinearityBars() {
         x={12}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={`rotate(-90 12 ${padT + cH / 2})`}
       >
@@ -95,13 +96,13 @@ function ExponentConvergenceLines() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
 
       {[1.5, 2, 2.5, 3, 3.5].map((v) => (
         <g key={v}>
-          <line x1={padL - 4} y1={yAt(v)} x2={padL + cW} y2={yAt(v)} stroke="#1e293b" strokeWidth={1} />
-          <text x={padL - 8} y={yAt(v) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+          <line x1={padL - 4} y1={yAt(v)} x2={padL + cW} y2={yAt(v)} stroke={ED.ruleSoft} strokeWidth={1} />
+          <text x={padL - 8} y={yAt(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v}
           </text>
         </g>
@@ -114,32 +115,32 @@ function ExponentConvergenceLines() {
           y1={yAt(v)}
           x2={padL + cW}
           y2={yAt(v)}
-          stroke="#475569"
+          stroke={ED.rule}
           strokeWidth={1}
           strokeDasharray="4,3"
         />
       ))}
 
-      <polyline points={compositePts} fill="none" stroke="#38bdf8" strokeWidth={2} />
-      <polyline points={rPts} fill="none" stroke="#f472b6" strokeWidth={2} />
+      <polyline points={compositePts} fill="none" stroke={ED.series1} strokeWidth={2} />
+      <polyline points={rPts} fill="none" stroke={ED.series7} strokeWidth={2} />
 
       {IMP34354_LOCAL_EXPONENTS.map((row, i) => (
         <g key={row.window}>
-          <circle cx={xAt(i)} cy={yAt(row.composite)} r={3.5} fill="#38bdf8" />
-          <circle cx={xAt(i)} cy={yAt(row.r_exponent)} r={3.5} fill="#f472b6" />
-          <text x={xAt(i)} y={padT + cH + 16} textAnchor="middle" fill="#cbd5e1" fontSize={9.5}>
+          <circle cx={xAt(i)} cy={yAt(row.composite)} r={3.5} fill={ED.series1} />
+          <circle cx={xAt(i)} cy={yAt(row.r_exponent)} r={3.5} fill={ED.series7} />
+          <text x={xAt(i)} y={padT + cH + 16} textAnchor="middle" fill={ED.ink} fontSize={9.5}>
             {row.window}
           </text>
         </g>
       ))}
 
       <g>
-        <rect x={padL + cW - 150} y={padT} width={10} height={10} fill="#38bdf8" />
-        <text x={padL + cW - 136} y={padT + 9} fill="#94a3b8" fontSize={10}>
+        <rect x={padL + cW - 150} y={padT} width={10} height={10} fill={ED.series1} />
+        <text x={padL + cW - 136} y={padT + 9} fill={ED.inkSoft} fontSize={10}>
           composite (surplus)
         </text>
-        <rect x={padL + cW - 150} y={padT + 16} width={10} height={10} fill="#f472b6" />
-        <text x={padL + cW - 136} y={padT + 25} fill="#94a3b8" fontSize={10}>
+        <rect x={padL + cW - 150} y={padT + 16} width={10} height={10} fill={ED.series7} />
+        <text x={padL + cW - 136} y={padT + 25} fill={ED.inkSoft} fontSize={10}>
           r-exponent
         </text>
       </g>
@@ -156,7 +157,7 @@ export default function Imp34354CrossoverSurplusSmallThrFactorisationViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Crossover-Surplus Small-thr Factorisation (imp-34354 / imp-34248)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-34174 gave the crossover surplus in closed form, surplus(thr) = thr(1&minus;thr)r/(1+(1&minus;thr)r)
         with r = E_flow(N_cross)/E_trunc, collapsing {first.surplus.toExponential(4)} (thr={first.thr}) to{' '}
         {last.surplus.toExponential(4)} (thr={last.thr}) &mdash; but never separated the two vanishing factors.
@@ -168,12 +169,12 @@ export default function Imp34354CrossoverSurplusSmallThrFactorisationViz() {
         than thr, strictly slower than the naive thr<sup>3</sup>.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         F1: surplus/(thr&middot;r) climbs monotonically toward 1 &mdash; the prefactor contributes exactly one power of thr
       </p>
       <PrefactorLinearityBars />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginTop: '1.5rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginTop: '1.5rem', marginBottom: '0.5rem' }}>
         F2/F3: local composite exponent (d log surplus / d log thr) vs r-exponent (d log r / d log thr), per window
       </p>
       <ExponentConvergenceLines />
@@ -187,7 +188,7 @@ export default function Imp34354CrossoverSurplusSmallThrFactorisationViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>thr</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>N_cross(thr)</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>r = E_flow/E_trunc</th>
@@ -198,7 +199,7 @@ export default function Imp34354CrossoverSurplusSmallThrFactorisationViz() {
         </thead>
         <tbody>
           {IMP34354_FACTORISED_LADDER.map((row) => (
-            <tr key={row.thr} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+            <tr key={row.thr} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
               <td style={{ padding: '0.4rem 0.6rem' }}>{row.thr}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{row.N_cross.toExponential(4)}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{row.r.toExponential(4)}</td>
@@ -219,7 +220,7 @@ export default function Imp34354CrossoverSurplusSmallThrFactorisationViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>window</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>composite exponent</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>r-exponent</th>
@@ -228,7 +229,7 @@ export default function Imp34354CrossoverSurplusSmallThrFactorisationViz() {
         </thead>
         <tbody>
           {IMP34354_LOCAL_EXPONENTS.map((row) => (
-            <tr key={row.window} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+            <tr key={row.window} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
               <td style={{ padding: '0.4rem 0.6rem' }}>{row.window}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{row.composite.toFixed(4)}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{row.r_exponent.toFixed(4)}</td>
@@ -242,14 +243,14 @@ export default function Imp34354CrossoverSurplusSmallThrFactorisationViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>OLS fits:</strong> deep-tail (thr&isin;{'{'}0.1,0.05,0.01{'}'}) composite
+        <strong style={{ color: 'var(--ink-soft)' }}>OLS fits:</strong> deep-tail (thr&isin;{'{'}0.1,0.05,0.01{'}'}) composite
         slope {IMP34354_OLS_FITS.deep_tail_composite_slope} = 1 (linear prefactor) +{' '}
         {IMP34354_OLS_FITS.deep_tail_r_slope} (log-softened r-exponent); the deepest window ({deepest.window})
         prefactor share is {deepest.prefactor_share.toFixed(4)}, within ~0.03 of 1. All-rung composite slope{' '}
@@ -260,14 +261,14 @@ export default function Imp34354CrossoverSurplusSmallThrFactorisationViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-data only, baked literals
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-data only, baked literals
         reproducing the imp-34248 measurement; no new derivation, no bound changed. Derivation/measurement
         only within the inherited imp-34174/imp-33743 extrapolation component model, which is NOT a rigorous
         asymptotic; E_flow is the benign mesoscopic-Gronwall term (imp-2845) and its vanishing here does NOT

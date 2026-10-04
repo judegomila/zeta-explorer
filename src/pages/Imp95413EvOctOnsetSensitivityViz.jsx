@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP95258_EVOCT_ONSET_SENSITIVITY } from '../data/imp-95258-evoct-onset-sensitivity.js';
+import { ED } from '../styles/tokens.js';
 
 function SweepChart({ data, xKey, xLabel, xTicks, color, extraLine, logX }) {
   const svgW = 640;
@@ -32,7 +33,7 @@ function SweepChart({ data, xKey, xLabel, xTicks, color, extraLine, logX }) {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" stroke="#1e293b" />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} stroke={ED.ruleSoft} />
 
       {extraLine && (
         <>
@@ -41,11 +42,11 @@ function SweepChart({ data, xKey, xLabel, xTicks, color, extraLine, logX }) {
             y1={yOf(extraLine.y)}
             x2={padL + cW}
             y2={yOf(extraLine.y)}
-            stroke={extraLine.color || '#facc15'}
+            stroke={extraLine.color || ED.brassDeco}
             strokeWidth={1.5}
             strokeDasharray="4,3"
           />
-          <text x={padL + 4} y={yOf(extraLine.y) - 4} fill={extraLine.color || '#facc15'} fontSize={9.5}>
+          <text x={padL + 4} y={yOf(extraLine.y) - 4} fill={extraLine.color || ED.brass} fontSize={9.5}>
             {extraLine.label}
           </text>
         </>
@@ -58,26 +59,26 @@ function SweepChart({ data, xKey, xLabel, xTicks, color, extraLine, logX }) {
 
       {[yMin, (yMin + yMax) / 2, yMax].map((v) => (
         <g key={`gy-${v}`}>
-          <line x1={padL} y1={yOf(v)} x2={padL + cW} y2={yOf(v)} stroke="#1e293b" strokeWidth={0.5} />
-          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={9.5}>
+          <line x1={padL} y1={yOf(v)} x2={padL + cW} y2={yOf(v)} stroke={ED.ruleSoft} strokeWidth={0.5} />
+          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9.5}>
             {v.toFixed(1)}
           </text>
         </g>
       ))}
       {xTicks.map((v) => (
-        <text key={`xt-${v}`} x={xOf(v)} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={9.5}>
+        <text key={`xt-${v}`} x={xOf(v)} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5}>
           {v}
         </text>
       ))}
 
-      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill="#94a3b8" fontSize={11}>
+      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkSoft} fontSize={11}>
         {xLabel}
       </text>
       <text
         x={12}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#94a3b8"
+        fill={ED.inkSoft}
         fontSize={11}
         transform={`rotate(-90 12 ${padT + cH / 2})`}
       >
@@ -99,29 +100,29 @@ export default function Imp95413EvOctOnsetSensitivityViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> measures the
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> measures the
         closed-form COROLLARY EV-OCT certificate only (the same object imp-95250
         bisected), not the exact pencil Lambda; changes no bound. Platt&ndash;Trudgian
         &Lambda; &le; 0.2 remains state of the art. RH does not follow from anything
         on this page. NO QED.
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1rem', maxWidth: 700 }}>
         The imp-95250 every-octave onset xStarEvOct = 11.31664319 was measured at a
         single point: m = 6 octaves, dyadic spacing rho = 2, coalescent ratio r &rarr; 1.
         The three sweeps below vary each parameter in turn to show whether that point
         is representative of the wider family.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         (A) vs octave count m &mdash; {sensitivityM.fixed}: monotone, saturates at{' '}
         {sensitivityM.saturation}. For contrast, the crude m-and-r-uniform threshold
         xStarUnif = 27.04 sits far above the saturated onset (off-chart, not drawn to
@@ -132,11 +133,11 @@ export default function Imp95413EvOctOnsetSensitivityViz() {
         xKey="m"
         xLabel="m (octave count)"
         xTicks={[2, 3, 4, 6, 8, 10, 24]}
-        color="#38bdf8"
-        extraLine={{ y: sensitivityM.saturation, label: `saturation ${sensitivityM.saturation}`, color: '#facc15' }}
+        color={ED.series1}
+        extraLine={{ y: sensitivityM.saturation, label: `saturation ${sensitivityM.saturation}`, color: ED.brass }}
       />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
         (B) vs lattice ratio rho &mdash; {sensitivityRho.fixed}: dominant, steeply decreasing
       </p>
       <SweepChart
@@ -144,10 +145,10 @@ export default function Imp95413EvOctOnsetSensitivityViz() {
         xKey="rho"
         xLabel="rho (octave spacing)"
         xTicks={[1.5, 1.8, 2, 2.5, 3, 4]}
-        color="#f87171"
+        color={ED.series2}
       />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
         (C) vs intra-pair ratio r &mdash; {sensitivityR.fixed}: weak, spread {'<'} 0.27
       </p>
       <SweepChart
@@ -155,7 +156,7 @@ export default function Imp95413EvOctOnsetSensitivityViz() {
         xKey="r"
         xLabel="r (intra-pair ratio, log scale)"
         xTicks={[1.001, 1.01, 1.05, 1.1, 1.2, 1.3]}
-        color="#4ade80"
+        color={ED.series3}
         logX
       />
 
@@ -168,7 +169,7 @@ export default function Imp95413EvOctOnsetSensitivityViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>axis</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>fixed</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>finding</th>
@@ -180,7 +181,7 @@ export default function Imp95413EvOctOnsetSensitivityViz() {
             ['rho', sensitivityRho.fixed, sensitivityRho.finding],
             ['r', sensitivityR.fixed, sensitivityR.finding],
           ].map(([axis, fixed, finding], i) => (
-            <tr key={axis} style={{ borderBottom: i < 2 ? '1px solid #1e293b' : 'none', color: '#cbd5e1' }}>
+            <tr key={axis} style={{ borderBottom: i < 2 ? '1px solid var(--rule-soft)' : 'none', color: 'var(--ink)' }}>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{axis}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{fixed}</td>
               <td style={{ padding: '0.4rem 0.6rem' }}>{finding}</td>
@@ -193,14 +194,14 @@ export default function Imp95413EvOctOnsetSensitivityViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> {rec.summary}
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> {rec.summary}
       </div>
     </div>
   );

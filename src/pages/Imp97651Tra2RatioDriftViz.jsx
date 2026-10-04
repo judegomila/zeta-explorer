@@ -5,6 +5,7 @@ import {
   IMP97651_EXTRAPOLATOR_ROWS,
   IMP97651_SUMMARY,
 } from '../data/imp-97651-tra2-ratio-drift-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 // Bar chart: two successive 80-step ratios climbing toward 1 (algebraic-tail signature).
 function RatioDriftChart() {
@@ -22,12 +23,12 @@ function RatioDriftChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#334155" strokeWidth={1} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#334155" strokeWidth={1} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1} />
 
       {/* ratio = 1 reference line */}
-      <line x1={padL} y1={yOf(1)} x2={padL + plotW} y2={yOf(1)} stroke="#64748b" strokeDasharray="4 3" strokeWidth={1} />
-      <text x={padL + plotW} y={yOf(1) - 4} textAnchor="end" fill="#64748b" fontSize={9}>
+      <line x1={padL} y1={yOf(1)} x2={padL + plotW} y2={yOf(1)} stroke={ED.rule} strokeDasharray="4 3" strokeWidth={1} />
+      <text x={padL + plotW} y={yOf(1) - 4} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
         ratio = 1
       </text>
 
@@ -41,13 +42,13 @@ function RatioDriftChart() {
               y={barY}
               width={barW}
               height={padT + plotH - barY}
-              fill={i === 0 ? '#60a5fa' : '#f59e0b'}
+              fill={i === 0 ? ED.series1 : ED.brassDeco}
               opacity={0.85}
             />
-            <text x={cx} y={barY - 6} textAnchor="middle" fill="#cbd5e1" fontSize={10.5}>
+            <text x={cx} y={barY - 6} textAnchor="middle" fill={ED.ink} fontSize={10.5}>
               {row.ratio.toFixed(6)}
             </text>
-            <text x={cx} y={padT + plotH + 16} textAnchor="middle" fill="#94a3b8" fontSize={9}>
+            <text x={cx} y={padT + plotH + 16} textAnchor="middle" fill={ED.inkSoft} fontSize={9}>
               {row.label}
             </text>
           </g>
@@ -79,7 +80,7 @@ function ExtrapolatorClusterChart() {
         const isNamed = i === IMP97651_EXTRAPOLATOR_ROWS.length - 1;
         return (
           <g key={row.label}>
-            <text x={padL - 10} y={y + rowH / 2 + 4} textAnchor="end" fill="#94a3b8" fontSize={10}>
+            <text x={padL - 10} y={y + rowH / 2 + 4} textAnchor="end" fill={ED.inkSoft} fontSize={10}>
               {row.label}
             </text>
             <line
@@ -87,14 +88,14 @@ function ExtrapolatorClusterChart() {
               y1={y + rowH / 2}
               x2={xOf(row.valueM)}
               y2={y + rowH / 2}
-              stroke={isNamed ? '#f87171' : '#60a5fa'}
+              stroke={isNamed ? ED.series2 : ED.series1}
               strokeWidth={6}
               strokeLinecap="round"
             />
             <text
               x={xOf(row.valueM) + 8}
               y={y + rowH / 2 + 4}
-              fill="#cbd5e1"
+              fill={ED.ink}
               fontSize={10}
             >
               {row.valueM.toFixed(3)}M
@@ -115,31 +116,31 @@ export default function Imp97651Tra2RatioDriftViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> a measurement/presentation-only
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a measurement/presentation-only
         page reshaping the frozen imp-97599 tr(A2) ladder literals verbatim (no re-derivation, no new
         computation). Decides only the tail MODEL (algebraic, not geometric); no constant is pinned as
         rigorous. Changes no bound; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA; RH open; NO QED.
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         {IMP97651_SUMMARY.reading}
       </p>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.85rem', margin: '0 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.85rem', margin: '0 0 0.5rem' }}>
         The successive 80-step ratio climbs toward 1 rather than staying constant -- the algebraic-tail
         signature:
       </p>
       <RatioDriftChart />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.85rem', margin: '1.25rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.85rem', margin: '1.25rem 0 0.5rem' }}>
         Yet the geometric, Aitken, and algebraic extrapolators still cluster tightly, sitting below the
         imp-97482 named ~4819.1M line:
       </p>
@@ -149,14 +150,14 @@ export default function Imp97651Tra2RatioDriftViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> {IMP97651_SUMMARY.verdict}
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> {IMP97651_SUMMARY.verdict}
       </div>
     </div>
   );

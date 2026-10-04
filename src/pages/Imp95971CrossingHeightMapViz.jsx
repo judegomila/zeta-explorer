@@ -9,11 +9,12 @@ import {
   IMP95971_SUBGAP,
   IMP95971_CAVEAT_BANNER,
 } from '../data/imp-95971-crossing-height-map-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 const ANCHOR_COLOR = {
-  'a_0 min': '#f87171',
-  'a_0 mean': '#38bdf8',
-  'a_0 max': '#34d399',
+  'a_0 min': ED.series2,
+  'a_0 mean': ED.series1,
+  'a_0 max': ED.series3,
 };
 
 // log10(T_x) vs a_0 line chart. T_x is a DOUBLE exponential in a_0, so even
@@ -45,24 +46,24 @@ function CrossingChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#334155" strokeWidth={1} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1} />
       <line
         x1={padL}
         y1={padT + plotH}
         x2={padL + plotW}
         y2={padT + plotH}
-        stroke="#64748b"
+        stroke={ED.rule}
         strokeWidth={1.5}
       />
 
-      <polyline points={points} fill="none" stroke="#a78bfa" strokeWidth={2} />
+      <polyline points={points} fill="none" stroke={ED.series5} strokeWidth={2} />
 
       <line
         x1={padL}
         y1={yOf(IMP95971_VERIFIED_HEIGHT.log10T)}
         x2={padL + plotW}
         y2={yOf(IMP95971_VERIFIED_HEIGHT.log10T)}
-        stroke="#f59e0b"
+        stroke={ED.brassDeco}
         strokeWidth={1}
         strokeDasharray="5 3"
       />
@@ -70,7 +71,7 @@ function CrossingChart() {
         x={padL + plotW - 4}
         y={yOf(IMP95971_VERIFIED_HEIGHT.log10T) - 5}
         textAnchor="end"
-        fill="#f59e0b"
+        fill={ED.brass}
         fontSize={9}
         fontFamily="monospace"
       >
@@ -84,7 +85,7 @@ function CrossingChart() {
           cy={yOf(Math.log10(r.Tx))}
           r={3}
           fill="none"
-          stroke="#94a3b8"
+          stroke={ED.rule}
           strokeWidth={1.5}
         />
       ))}
@@ -96,7 +97,7 @@ function CrossingChart() {
             cy={yOf(Math.log10(a.Tx))}
             r={5}
             fill={ANCHOR_COLOR[a.label]}
-            stroke="#0f172a"
+            stroke={ED.paper}
             strokeWidth={1.5}
           />
           <line
@@ -111,24 +112,24 @@ function CrossingChart() {
         </g>
       ))}
 
-      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         arithmetic intercept a_0
       </text>
       <text
         x={16}
         y={padT + plotH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={`rotate(-90 16 ${padT + plotH / 2})`}
       >
         log10(T_x)
       </text>
 
-      <text x={padL + 6} y={padT + 14} fill="#94a3b8" fontSize={9} fontFamily="monospace">
+      <text x={padL + 6} y={padT + 14} fill={ED.inkSoft} fontSize={9} fontFamily="monospace">
         {yHi.toFixed(0)}
       </text>
-      <text x={padL + 6} y={padT + plotH - 4} fill="#94a3b8" fontSize={9} fontFamily="monospace">
+      <text x={padL + 6} y={padT + plotH - 4} fill={ED.inkSoft} fontSize={9} fontFamily="monospace">
         {yLo.toFixed(0)}
       </text>
     </svg>
@@ -140,7 +141,7 @@ export default function Imp95971CrossingHeightMapViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Crossing-Height Map T_x(a_0) (imp-95940)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         The imp-95921 C0 offset-crossing height obeys the closed form
         T_x(a_0)&nbsp;=&nbsp;2&pi;&nbsp;exp(exp(2&pi;<sup>2</sup>&nbsp;C0&nbsp;&minus;&nbsp;2(&gamma;&nbsp;+&nbsp;1&nbsp;+&nbsp;a_0)))
         in the unpinned O(1) arithmetic intercept a_0. Because T_x is a
@@ -164,7 +165,7 @@ export default function Imp95971CrossingHeightMapViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>anchor</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>a_0</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>T_x</th>
@@ -172,7 +173,7 @@ export default function Imp95971CrossingHeightMapViz() {
         </thead>
         <tbody>
           {IMP95971_ANCHORS.map((a) => (
-            <tr key={a.label} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+            <tr key={a.label} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
               <td style={{ padding: '0.4rem 0.6rem' }}>
                 <span
                   style={{
@@ -197,14 +198,14 @@ export default function Imp95971CrossingHeightMapViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(180,131,46,0.06)',
-          borderLeft: '3px solid #b58a2e',
+          background: 'color-mix(in srgb, var(--brass-deco) 6%, transparent)',
+          borderLeft: '3px solid var(--brass-deco)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#cbd5e1',
+          color: 'var(--ink)',
         }}
       >
-        <strong style={{ color: '#e2b566' }}>Named sub-gap:</strong> {IMP95971_SUBGAP} &mdash; a_0 must be
+        <strong style={{ color: 'var(--brass)' }}>Named sub-gap:</strong> {IMP95971_SUBGAP} &mdash; a_0 must be
         pinned to O({IMP95971_SENSITIVITY.a0AccuracyForOneDecade.toFixed(2)}) (importing the
         Selberg-Goldston-Fujii Var&nbsp;S(T) constant b) to fix T_x within a single order of
         magnitude.
@@ -214,14 +215,14 @@ export default function Imp95971CrossingHeightMapViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> {IMP95971_CAVEAT_BANNER}
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> {IMP95971_CAVEAT_BANNER}
       </div>
     </div>
   );

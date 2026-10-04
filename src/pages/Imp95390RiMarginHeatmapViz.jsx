@@ -7,6 +7,7 @@ import {
   IMP95390_RSTAR_BOUNDARY,
   IMP95390_SUMMARY,
 } from '../data/imp-95390-ri-margin-heatmap-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 // Sequential color: 0 (outside the bump, RI free) stays background-dark,
 // rising toward 1 (tightest, near-saturating RI) fades toward amber/red.
@@ -59,7 +60,7 @@ function RiMarginHeatmap() {
             width={colW}
             height={rowH}
             fill={cellColor(IMP95390_HEATMAP_Z[i][j])}
-            stroke="#0a0f1a"
+            stroke={ED.paper}
             strokeWidth={0.5}
           />
         )),
@@ -69,7 +70,7 @@ function RiMarginHeatmap() {
         <polyline
           points={offGridRun.map((p) => `${p.x},${p.y}`).join(' ')}
           fill="none"
-          stroke="#facc15"
+          stroke={ED.brassDeco}
           strokeWidth={2}
           strokeDasharray="3,3"
           opacity={0.7}
@@ -79,7 +80,7 @@ function RiMarginHeatmap() {
         <polyline
           points={onGrid.map((p) => `${p.x},${p.y}`).join(' ')}
           fill="none"
-          stroke="#facc15"
+          stroke={ED.brassDeco}
           strokeWidth={2.25}
         />
       )}
@@ -90,7 +91,7 @@ function RiMarginHeatmap() {
         cy={yOf(IMP95390_HEATMAP_R_LABELS[0])}
         r={5}
         fill="none"
-        stroke="#38bdf8"
+        stroke={ED.series1}
         strokeWidth={2}
       />
 
@@ -100,13 +101,13 @@ function RiMarginHeatmap() {
           x={xOf(x)}
           y={padT + cH + 16}
           textAnchor="middle"
-          fill="#64748b"
+          fill={ED.inkFaint}
           fontSize={9.5}
         >
           {x}
         </text>
       ))}
-      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         x (log scale)
       </text>
 
@@ -116,7 +117,7 @@ function RiMarginHeatmap() {
           x={padL - 8}
           y={yOf(r) + 3}
           textAnchor="end"
-          fill="#64748b"
+          fill={ED.inkFaint}
           fontSize={9.5}
         >
           {r}
@@ -126,17 +127,17 @@ function RiMarginHeatmap() {
         x={14}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={`rotate(-90 14 ${padT + cH / 2})`}
       >
         r (log scale)
       </text>
 
-      <text x={padL + cW - 4} y={padT + 12} textAnchor="end" fill="#facc15" fontSize={9}>
+      <text x={padL + cW - 4} y={padT + 12} textAnchor="end" fill={ED.brass} fontSize={9}>
         r_star(x) bump-wedge boundary
       </text>
-      <text x={padL + cW - 4} y={padT + 24} textAnchor="end" fill="#38bdf8" fontSize={9}>
+      <text x={padL + cW - 4} y={padT + 24} textAnchor="end" fill={ED.series1} fontSize={9}>
         corner extremum (ratio -&gt; 0.99998744)
       </text>
     </svg>
@@ -156,7 +157,7 @@ function ColorLegend() {
         return <rect key={s} x={x0} y={0} width={x1 - x0} height={h} fill={cellColor(mid)} />;
       })}
       {stops.map((s) => (
-        <text key={`lbl-${s}`} x={s * w} y={h + 12} textAnchor="middle" fill="#64748b" fontSize={9}>
+        <text key={`lbl-${s}`} x={s * w} y={h + 12} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
           {s.toFixed(2)}
         </text>
       ))}
@@ -174,20 +175,20 @@ export default function Imp95390RiMarginHeatmapViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> measurement only. It changes
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> measurement only. It changes
         no Lambda bound and establishes no operator positivity. Platt&ndash;Trudgian &Lambda;
         &le; 0.2 remains state of the art. RH does not follow from anything on this page. NO QED.
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         The imp-95231 LEMMA RI reduces ratio-monotonicity of Lambda_2 in r to the sign of a margin
         M(x, r) = RHS &minus; LHS, and imp-95271 swept it densely over a 171,600-cell (x, r) grid
         with zero sign changes. This page re-renders that map at a coarser, render-friendly
@@ -197,7 +198,7 @@ export default function Imp95390RiMarginHeatmapViz() {
         where it runs off the visible r-range (it diverges to +infinity as x &rarr; 0).
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         RI tightness ratio LHS/RHS heatmap, x &isin; [{IMP95390_HEATMAP_X_LABELS[0]},{' '}
         {IMP95390_HEATMAP_X_LABELS[IMP95390_HEATMAP_X_LABELS.length - 1]}], r &isin; [
         {IMP95390_HEATMAP_R_LABELS[0]}, {IMP95390_HEATMAP_R_LABELS[IMP95390_HEATMAP_R_LABELS.length - 1]}]
@@ -205,7 +206,7 @@ export default function Imp95390RiMarginHeatmapViz() {
       <RiMarginHeatmap />
 
       <div style={{ marginTop: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-        <span style={{ color: '#64748b', fontSize: '0.78rem' }}>tightness ratio LHS/RHS:</span>
+        <span style={{ color: 'var(--ink-faint)', fontSize: '0.78rem' }}>tightness ratio LHS/RHS:</span>
         <ColorLegend />
       </div>
 
@@ -218,31 +219,31 @@ export default function Imp95390RiMarginHeatmapViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>quantity</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>value</th>
           </tr>
         </thead>
         <tbody>
-          <tr style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+          <tr style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
             <td style={{ padding: '0.4rem 0.6rem' }}>grid scope (imp-95271 full sweep)</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{s.gridScope}</td>
           </tr>
-          <tr style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+          <tr style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
             <td style={{ padding: '0.4rem 0.6rem' }}>max tightness ratio LHS/RHS</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>
               {s.maxRatioLHSoverRHS} at {s.maxRatioLocation}
             </td>
           </tr>
-          <tr style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+          <tr style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
             <td style={{ padding: '0.4rem 0.6rem' }}>deep-interior max ratio (x&isin;[0.3,0.9])</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{s.deepInteriorMaxRatio}</td>
           </tr>
-          <tr style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+          <tr style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
             <td style={{ padding: '0.4rem 0.6rem' }}>bump-wedge cell fraction</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{s.bumpCellFraction}</td>
           </tr>
-          <tr style={{ color: '#cbd5e1' }}>
+          <tr style={{ color: 'var(--ink)' }}>
             <td style={{ padding: '0.4rem 0.6rem' }}>counterexamples (M &lt; 0)</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{s.counterexamples}</td>
           </tr>
@@ -253,14 +254,14 @@ export default function Imp95390RiMarginHeatmapViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> the wedge { '{' } x &lt;
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> the wedge { '{' } x &lt;
         1, 1 &lt; r &lt; r_star(x) { '}' } is the only region where RI is non-trivial; everywhere
         else the bound is free and the cell is left dark. Inside the wedge, tightness rises
         sharply toward the (x &rarr; 0, r &rarr; 1) corner (circled), matching the imp-95271
@@ -273,14 +274,14 @@ export default function Imp95390RiMarginHeatmapViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> {s.verdict}
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> {s.verdict}
       </div>
     </div>
   );

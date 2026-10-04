@@ -2,10 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP3629_COEFF_LADDER } from '../data/imp-3629-remainder-tail-coeff-ladder-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
-const CN_COLOR = '#38bdf8';
-const DN_COLOR = '#f472b6';
-const DEV_COLOR = '#10b981';
+const CN_COLOR = ED.series1;
+const DN_COLOR = ED.series7;
+const DEV_COLOR = ED.series3;
 
 function CoeffLadderChart() {
   const svgW = 640;
@@ -38,12 +39,12 @@ function CoeffLadderChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
       {[5e-6, 1e-5, 5e-5, 1e-4, 5e-4, 1e-3, 2e-3].map((v) => (
         <g key={v}>
-          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke="#1e293b" strokeWidth={0.7} />
-          <text x={padL - 6} y={yS(v) + 3.5} textAnchor="end" fill="#475569" fontSize={9}>
+          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke={ED.ruleSoft} strokeWidth={0.7} />
+          <text x={padL - 6} y={yS(v) + 3.5} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v.toExponential(0)}
           </text>
         </g>
@@ -64,30 +65,30 @@ function CoeffLadderChart() {
         <circle key={'e' + d.n} cx={xS(d.n)} cy={yS(d.fittedExponentDev)} r={2.4} fill={DEV_COLOR} />
       ))}
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
 
       {ns.map((n) => (
         <g key={'x' + n}>
-          <line x1={xS(n)} y1={padT + cH} x2={xS(n)} y2={padT + cH + 5} stroke="#334155" strokeWidth={1} />
-          <text x={xS(n)} y={padT + cH + 17} textAnchor="middle" fill="#64748b" fontSize={9}>
+          <line x1={xS(n)} y1={padT + cH} x2={xS(n)} y2={padT + cH + 5} stroke={ED.rule} strokeWidth={1} />
+          <text x={xS(n)} y={padT + cH + 17} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
             n={n}
           </text>
         </g>
       ))}
-      <text x={padL + cW / 2} y={padT + cH + 36} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={padT + cH + 36} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         rung n (parity alternates odd/even)
       </text>
-      <text x={16} y={padT + cH / 2} textAnchor="middle" fill="#64748b" fontSize={10} transform={'rotate(-90,16,' + (padT + cH / 2) + ')'}>
+      <text x={16} y={padT + cH / 2} textAnchor="middle" fill={ED.inkFaint} fontSize={10} transform={'rotate(-90,16,' + (padT + cH / 2) + ')'}>
         magnitude (log scale)
       </text>
 
       <g fontSize={9}>
         <line x1={padL + 2} y1={padT + 12} x2={padL + 10} y2={padT + 12} stroke={CN_COLOR} strokeWidth={2} />
-        <text x={padL + 14} y={padT + 15} fill="#7dd3fc">C_n = M_(n+2)/((n+1)(n+2)M_n) (leading coefficient)</text>
+        <text x={padL + 14} y={padT + 15} fill={ED.series1}>C_n = M_(n+2)/((n+1)(n+2)M_n) (leading coefficient)</text>
         <line x1={padL + 2} y1={padT + 26} x2={padL + 10} y2={padT + 26} stroke={DN_COLOR} strokeWidth={1.6} strokeDasharray="4,2" />
-        <text x={padL + 14} y={padT + 29} fill="#f9a8d4">|D_n| (next-order coefficient, always negative)</text>
+        <text x={padL + 14} y={padT + 29} fill={ED.series7}>|D_n| (next-order coefficient, always negative)</text>
         <line x1={padL + 2} y1={padT + 40} x2={padL + 10} y2={padT + 40} stroke={DEV_COLOR} strokeWidth={1.6} strokeDasharray="1,2" />
-        <text x={padL + 14} y={padT + 43} fill="#6ee7b7">|p_fit - 2| (actual least-squares fit-bias deviation)</text>
+        <text x={padL + 14} y={padT + 43} fill={ED.series3}>|p_fit - 2| (actual least-squares fit-bias deviation)</text>
       </g>
     </svg>
   );
@@ -101,7 +102,7 @@ export default function Imp3629RemainderTailCoeffLadderViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Remainder-Tail Coefficient Ladder C_n / D_n (imp-3581 / imp-3600)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-3581 derived the closed leading coefficient C_n = M_(n+2)/((n+1)(n+2)M_n) and next-order
         coefficient D_n for the moment-remainder tail exponent p=2 at rungs n=3 (odd sinh) and n=4
         (even cosh); imp-3600 extended the same closed forms to n=5,6. Across all four rungs, C_n
@@ -111,7 +112,7 @@ export default function Imp3629RemainderTailCoeffLadderViz() {
         law at every rung -- the tail exponent is EXACTLY 2 throughout, not just at n=3,4.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         C_n, |D_n|, and |p_fit - 2| across rungs n=3..6
       </p>
       <CoeffLadderChart />
@@ -120,14 +121,14 @@ export default function Imp3629RemainderTailCoeffLadderViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> the solid line is the closed
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> the solid line is the closed
         leading coefficient C_n, confirmed independently by r_n(a)/a^2 -&gt; C_n at the deepest rung of
         each ladder; the dashed line is |D_n|, the next-order coefficient (always negative, so the
         fitted slope always reads slightly below 2); the dotted line is the actual measured
@@ -140,22 +141,22 @@ export default function Imp3629RemainderTailCoeffLadderViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement/derivation only --
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> measurement/derivation only --
         this certifies the decay ORDER (p=2) of a fixed-weight Taylor remainder across four rungs; it
         establishes NO operator positivity. RH-equivalent, necessary-but-not-sufficient; the imp-3066
         K_a &ge; 0 sign-positivity obstruction is UNTOUCHED. No RH verdict, no QED.
       </div>
 
-      <div style={{ marginTop: '1rem', fontSize: '0.85rem', color: '#64748b' }}>
+      <div style={{ marginTop: '1rem', fontSize: '0.85rem', color: 'var(--ink-faint)' }}>
         <strong>Related:</strong>{' '}
-        <Link to="/viz-imp3612-fit-bias-depth-sweep" style={{ color: '#7c3aed' }}>
+        <Link to="/viz-imp3612-fit-bias-depth-sweep" style={{ color: 'var(--series-5)' }}>
           Remainder-Tail Fit-Bias Depth Sweep (imp-3581 / imp-3612)
         </Link>
       </div>

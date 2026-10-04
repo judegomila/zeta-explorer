@@ -9,6 +9,7 @@ import {
   IMP34244_DEEP_INTERIOR_TO_HEAD_RATIO,
 } from '../data/imp-34244-kpss-l0-flip-shift-ranking-viz-data.js';
 import { IMP34231_KPSS_L0_MULTI_RUNG_JOINT_SHIFT as MULTI } from '../data/imp-34231-kpss-l0-multi-rung-joint-shift.js';
+import { ED } from '../styles/tokens.js';
 
 function isHighlighted(k) {
   return IMP34244_HEAD_CLUSTER_KS.includes(k) || k === IMP34244_FAR_TAIL_K;
@@ -33,14 +34,14 @@ function FlipShiftBarChart() {
         const y = 10 + i * rowH;
         const w = xAt(r.flipShift);
         const highlighted = isHighlighted(r.k);
-        const color = highlighted ? (r.k === IMP34244_FAR_TAIL_K ? '#facc15' : '#f472b6') : '#334155';
+        const color = highlighted ? (r.k === IMP34244_FAR_TAIL_K ? ED.brass : ED.series7) : ED.inkSoft;
         return (
           <g key={r.k}>
-            <text x={padL - 6} y={y + rowH * 0.7} textAnchor="end" fill={highlighted ? '#e2e8f0' : '#64748b'} fontSize={9.5}>
+            <text x={padL - 6} y={y + rowH * 0.7} textAnchor="end" fill={highlighted ? ED.ink : ED.inkFaint} fontSize={9.5}>
               k={r.k.toFixed(2)}
             </text>
             <rect x={padL} y={y} width={Math.max(w, 1)} height={rowH - 4} fill={color} opacity={highlighted ? 0.95 : 0.6} />
-            <text x={padL + w + 4} y={y + rowH * 0.7} fill={highlighted ? '#e2e8f0' : '#64748b'} fontSize={9}>
+            <text x={padL + w + 4} y={y + rowH * 0.7} fill={highlighted ? ED.ink : ED.inkFaint} fontSize={9}>
               {Math.abs(r.flipShift).toFixed(6)}
             </text>
           </g>
@@ -55,7 +56,7 @@ export default function Imp34244KpssL0FlipShiftRankingViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="imp-34155 Per-Rung KPSS l=0 Flip-Shift Ranking (imp-34244)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-34155 measured how fragile the un-HAC l=0 level KPSS borderline (eta_mu &#126;0.3483 vs
         the 10% critical value {IMP34244_CRIT10}) is on the 21 signed imp-33858 residuals, by
         computing the smallest single-rung residual shift that drops eta_mu below{' '}
@@ -67,19 +68,19 @@ export default function Imp34244KpssL0FlipShiftRankingViz() {
         endpoint-driven, mirroring the imp-33858 head/far-tail residual localization.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         |flip shift| by rung, ascending (cheapest to flip first) &mdash; pink = head cluster (k=6.00,
         6.25), yellow = far-tail endpoint (k=11.00), grey = deep interior
       </p>
       <FlipShiftBarChart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.25rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.25rem 0 0.5rem' }}>
         full 21-rung table (sorted by |flip shift| ascending)
       </p>
       <div style={{ overflowX: 'auto', marginBottom: '1.25rem' }}>
-        <table style={{ borderCollapse: 'collapse', fontSize: '0.76rem', color: '#94a3b8', width: '100%' }}>
+        <table style={{ borderCollapse: 'collapse', fontSize: '0.76rem', color: 'var(--ink-soft)', width: '100%' }}>
           <thead>
-            <tr style={{ color: '#64748b', textAlign: 'right' }}>
+            <tr style={{ color: 'var(--ink-faint)', textAlign: 'right' }}>
               <th style={{ textAlign: 'left', padding: '4px 8px' }}>rank</th>
               <th style={{ padding: '4px 8px' }}>k</th>
               <th style={{ padding: '4px 8px' }}>residual e_k</th>
@@ -92,9 +93,9 @@ export default function Imp34244KpssL0FlipShiftRankingViz() {
               <tr
                 key={r.k}
                 style={{
-                  borderTop: '1px solid #1e293b',
+                  borderTop: '1px solid var(--rule-soft)',
                   textAlign: 'right',
-                  background: isHighlighted(r.k) ? 'rgba(244,114,182,0.06)' : 'transparent',
+                  background: isHighlighted(r.k) ? 'color-mix(in srgb, var(--series-7) 6%, transparent)' : 'transparent',
                 }}
               >
                 <td style={{ textAlign: 'left', padding: '4px 8px' }}>{r.rank}</td>
@@ -108,10 +109,10 @@ export default function Imp34244KpssL0FlipShiftRankingViz() {
         </table>
       </div>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
         imp-34231: does a MULTI-rung joint shift erase the borderline more cheaply?
       </p>
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '0.75rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '0.75rem', maxWidth: 700 }}>
         The single-rung ranking above asks each rung alone; imp-34231 asks the joint question &mdash;
         the minimal L2-norm shift spread across the head cluster (k=6.00, 6.25) AND the far-tail
         endpoint (k={IMP34244_FAR_TAIL_K.toFixed(2)}) together. That joint least-norm
@@ -131,14 +132,14 @@ export default function Imp34244KpssL0FlipShiftRankingViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation of the imp-34155
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> presentation of the imp-34155
         sensitivity measurement only; no new computation. The l=0 un-HAC borderline being dissected
         is FRAGILE and endpoint-driven; the HAC-corrected (l&ge;1) non-rejection eta_mu &#126;0.149 is
         UNCHANGED and remains the primary reading. C_mb GUE-conditional per imp-486 UNTOUCHED;

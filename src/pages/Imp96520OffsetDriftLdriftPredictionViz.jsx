@@ -4,6 +4,7 @@ import {
   IMP96520_OFFSET_LADDER_ROWS,
   IMP96520_SLOPES,
 } from '../data/imp-96520-offset-drift-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 // Renders the imp-96467 measured-vs-analytic offset-drift comparison verbatim (no new computation):
 // the imp-96431 measured offset (blue points) against the analytic leading L-drift prediction (green
@@ -42,41 +43,41 @@ function OffsetLadderChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
       {yTicks.map((t) => (
         <g key={t}>
-          <line x1={padL - 4} y1={yAt(t)} x2={padL} y2={yAt(t)} stroke="#334155" strokeWidth={1} />
-          <text x={padL - 8} y={yAt(t) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+          <line x1={padL - 4} y1={yAt(t)} x2={padL} y2={yAt(t)} stroke={ED.rule} strokeWidth={1} />
+          <text x={padL - 8} y={yAt(t) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {t.toFixed(4)}
           </text>
         </g>
       ))}
       {xs.map((x) => (
         <g key={x}>
-          <line x1={xAt(x)} y1={padT + cH} x2={xAt(x)} y2={padT + cH + 4} stroke="#334155" strokeWidth={1} />
+          <line x1={xAt(x)} y1={padT + cH} x2={xAt(x)} y2={padT + cH + 4} stroke={ED.rule} strokeWidth={1} />
         </g>
       ))}
-      <text x={padL} y={padT + cH + 30} textAnchor="start" fill="#64748b" fontSize={9}>
+      <text x={padL} y={padT + cH + 30} textAnchor="start" fill={ED.inkFaint} fontSize={9}>
         {xMin.toFixed(2)}
       </text>
-      <text x={padL + cW} y={padT + cH + 30} textAnchor="end" fill="#64748b" fontSize={9}>
+      <text x={padL + cW} y={padT + cH + 30} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
         {xMax.toFixed(2)}
       </text>
 
-      <path d={anaPath} fill="none" stroke="#34d399" strokeWidth={2} />
-      <path d={measPath} fill="none" stroke="#38bdf8" strokeWidth={1.3} strokeDasharray="3 3" />
+      <path d={anaPath} fill="none" stroke={ED.series3} strokeWidth={2} />
+      <path d={measPath} fill="none" stroke={ED.series1} strokeWidth={1.3} strokeDasharray="3 3" />
       {ROWS.map((r) => (
-        <circle key={r.crossoverLog10} cx={xAt(r.crossoverLog10)} cy={yAt(r.measuredOffsetLog10)} r={2.8} fill="#38bdf8" stroke="#0f172a" strokeWidth={0.5} />
+        <circle key={r.crossoverLog10} cx={xAt(r.crossoverLog10)} cy={yAt(r.measuredOffsetLog10)} r={2.8} fill={ED.series1} stroke={ED.paper} strokeWidth={0.5} />
       ))}
 
-      <text x={padL + 6} y={padT + 12} fill="#34d399" fontSize={9.5} fontWeight={700}>
+      <text x={padL + 6} y={padT + 12} fill={ED.series3} fontSize={9.5} fontWeight={700}>
         analytic L-drift offset(t) = 8t/((t-1)^3 ln10) (fitted slope {ANA_SLOPE.toFixed(5)}/decade)
       </text>
-      <text x={padL + 6} y={padT + 26} fill="#38bdf8" fontSize={9.5} fontWeight={700}>
+      <text x={padL + 6} y={padT + 26} fill={ED.series1} fontSize={9.5} fontWeight={700}>
         imp-96431 measured offset (fitted slope {MEAS_SLOPE.toFixed(5)}/decade)
       </text>
-      <text x={padL + cW / 2} y={svgH - 6} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 6} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         (sigma-inflection minus crossover) offset vs log10(N_cross) across the imp-96431 ladder
       </text>
     </svg>
@@ -105,34 +106,34 @@ function SlopeResidualBars() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
+      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
       {[0, yMax / 2, yMax].map((t) => (
         <g key={t}>
-          <line x1={padL - 4} y1={yAt(t)} x2={padL} y2={yAt(t)} stroke="#334155" strokeWidth={1} />
-          <text x={padL - 8} y={yAt(t) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+          <line x1={padL - 4} y1={yAt(t)} x2={padL} y2={yAt(t)} stroke={ED.rule} strokeWidth={1} />
+          <text x={padL - 8} y={yAt(t) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {t.toFixed(5)}
           </text>
         </g>
       ))}
 
       {/* measured bar */}
-      <rect x={xMeas} y={yAt(measAbs)} width={barW} height={cH - (yAt(measAbs) - padT)} fill="#38bdf8" opacity={0.85} />
-      <text x={xMeas + barW / 2} y={padT + cH + 18} textAnchor="middle" fill="#38bdf8" fontSize={9.5} fontWeight={700}>
+      <rect x={xMeas} y={yAt(measAbs)} width={barW} height={cH - (yAt(measAbs) - padT)} fill={ED.series1} opacity={0.85} />
+      <text x={xMeas + barW / 2} y={padT + cH + 18} textAnchor="middle" fill={ED.series1} fontSize={9.5} fontWeight={700}>
         measured
       </text>
-      <text x={xMeas + barW / 2} y={padT + cH + 31} textAnchor="middle" fill="#64748b" fontSize={9}>
+      <text x={xMeas + barW / 2} y={padT + cH + 31} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
         (imp-96431)
       </text>
 
       {/* analytic bar, with the residual (measured-to-analytic gap) shaded on top of the measured height */}
-      <rect x={xAna} y={yAt(anaAbs)} width={barW} height={cH - (yAt(anaAbs) - padT)} fill="#34d399" opacity={0.35} />
-      <rect x={xAna} y={yAt(anaAbs)} width={barW} height={yAt(measAbs) - yAt(anaAbs)} fill="#f59e0b" opacity={0.55} />
-      <rect x={xAna} y={yAt(measAbs)} width={barW} height={cH - (yAt(measAbs) - padT)} fill="#34d399" opacity={0.85} />
-      <text x={xAna + barW / 2} y={padT + cH + 18} textAnchor="middle" fill="#34d399" fontSize={9.5} fontWeight={700}>
+      <rect x={xAna} y={yAt(anaAbs)} width={barW} height={cH - (yAt(anaAbs) - padT)} fill={ED.series3} opacity={0.35} />
+      <rect x={xAna} y={yAt(anaAbs)} width={barW} height={yAt(measAbs) - yAt(anaAbs)} fill={ED.brassDeco} opacity={0.55} />
+      <rect x={xAna} y={yAt(measAbs)} width={barW} height={cH - (yAt(measAbs) - padT)} fill={ED.series3} opacity={0.85} />
+      <text x={xAna + barW / 2} y={padT + cH + 18} textAnchor="middle" fill={ED.series3} fontSize={9.5} fontWeight={700}>
         analytic L-drift
       </text>
-      <text x={xAna + barW / 2} y={padT + cH + 31} textAnchor="middle" fill="#64748b" fontSize={9}>
+      <text x={xAna + barW / 2} y={padT + cH + 31} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
         (imp-96467)
       </text>
 
@@ -140,7 +141,7 @@ function SlopeResidualBars() {
         x={xAna + barW + 14}
         y={(yAt(measAbs) + yAt(anaAbs)) / 2 + 4}
         textAnchor="start"
-        fill="#f59e0b"
+        fill={ED.brass}
         fontSize={9.5}
         fontWeight={700}
       >
@@ -158,7 +159,7 @@ export default function Imp96520OffsetDriftLdriftPredictionViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Offset-Drift L-Drift Prediction vs Measured (imp-96467 / imp-96431)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         The imp-96431 measured (sigma-inflection minus crossover) offset drift across the ~5.24-decade
         crossover ladder (dashed blue), against the imp-96467 analytic leading L(N)-drift prediction
         offset(t)&nbsp;=&nbsp;8t/((t-1)^3 ln10) (solid green). The analytic curve reproduces the sign
@@ -167,7 +168,7 @@ export default function Imp96520OffsetDriftLdriftPredictionViz() {
       </p>
       <OffsetLadderChart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.25rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.25rem 0 0.5rem' }}>
         Fitted slope magnitude: measured {Math.abs(MEAS_SLOPE).toFixed(5)}/decade vs analytic{' '}
         {Math.abs(ANA_SLOPE).toFixed(5)}/decade (ratio predicted/measured ~{RATIO.toFixed(2)}). The
         L-drift term is the dominant, correctly-signed driver but over-predicts the slope; the shaded
@@ -180,14 +181,14 @@ export default function Imp96520OffsetDriftLdriftPredictionViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page rendering the imp-96467
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-only page rendering the imp-96467
         fit literals verbatim (no new computation). Derivation + measurement only on the inherited
         imp-3220/imp-3406 extrapolation; the C_mb GUE-conditional per imp-486 is untouched; changes no
         bound; establishes no operator positivity; imp-3066 K_a&nbsp;&ge;&nbsp;0 untouched; no RH

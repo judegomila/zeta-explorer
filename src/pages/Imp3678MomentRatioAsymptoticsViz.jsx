@@ -9,11 +9,12 @@ import {
   IMP3678_SADDLE_RATIO_FIRST,
   IMP3678_SADDLE_RATIO_LAST,
 } from '../data/imp-3678-moment-ratio-asymptotics-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
-const Q_COLOR = '#38bdf8';
-const N2C_COLOR = '#f59e0b';
-const SADDLE_COLOR = '#34d399';
-const REF_COLOR = '#64748b';
+const Q_COLOR = ED.series1;
+const N2C_COLOR = ED.series4;
+const SADDLE_COLOR = ED.series3;
+const REF_COLOR = ED.series8;
 
 function GrowthChart() {
   const svgW = 620;
@@ -38,12 +39,12 @@ function GrowthChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
       {[3, 6, 9, 12, 15, 18].map((n) => (
         <g key={n}>
-          <line x1={xS(n)} y1={padT} x2={xS(n)} y2={padT + cH} stroke="#1e293b" strokeWidth={0.7} />
-          <text x={xS(n)} y={padT + cH + 15} textAnchor="middle" fill="#64748b" fontSize={9}>
+          <line x1={xS(n)} y1={padT} x2={xS(n)} y2={padT + cH} stroke={ED.ruleSoft} strokeWidth={0.7} />
+          <text x={xS(n)} y={padT + cH + 15} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
             {n}
           </text>
         </g>
@@ -59,9 +60,9 @@ function GrowthChart() {
         <circle key={'q' + r.n} cx={xS(r.n)} cy={yS(r.momentRatio)} r={3.5} fill={Q_COLOR} stroke="#052e1f" strokeWidth={1} />
       ))}
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
 
-      <text x={padL + cW / 2} y={padT + cH + 30} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={padT + cH + 30} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         n
       </text>
       <text x={padL + 8} y={padT + 14} fill={Q_COLOR} fontSize={9}>
@@ -96,12 +97,12 @@ function SaddleRatioChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
       {[3, 6, 9, 12, 15, 18].map((n) => (
         <g key={n}>
-          <line x1={xS(n)} y1={padT} x2={xS(n)} y2={padT + cH} stroke="#1e293b" strokeWidth={0.7} />
-          <text x={xS(n)} y={padT + cH + 15} textAnchor="middle" fill="#64748b" fontSize={9}>
+          <line x1={xS(n)} y1={padT} x2={xS(n)} y2={padT + cH} stroke={ED.ruleSoft} strokeWidth={0.7} />
+          <text x={xS(n)} y={padT + cH + 15} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
             {n}
           </text>
         </g>
@@ -117,12 +118,12 @@ function SaddleRatioChart() {
         <circle key={r.n} cx={xS(r.n)} cy={yS(r.qOverSaddleQ)} r={3.5} fill={SADDLE_COLOR} stroke="#052e1f" strokeWidth={1} />
       ))}
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
 
-      <text x={padL + cW / 2} y={padT + cH + 30} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={padT + cH + 30} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         n
       </text>
-      <text x={14} y={padT + cH / 2} textAnchor="middle" fill="#64748b" fontSize={10} transform={`rotate(-90,14,${padT + cH / 2})`}>
+      <text x={14} y={padT + cH / 2} textAnchor="middle" fill={ED.inkFaint} fontSize={10} transform={`rotate(-90,14,${padT + cH / 2})`}>
         Q_n / tau*(n)^2
       </text>
     </svg>
@@ -131,9 +132,9 @@ function SaddleRatioChart() {
 
 function RungTable() {
   return (
-    <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.8rem', color: '#94a3b8' }}>
+    <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.8rem', color: 'var(--ink-soft)' }}>
       <thead>
-        <tr style={{ borderBottom: '1px solid #334155' }}>
+        <tr style={{ borderBottom: '1px solid var(--rule)' }}>
           <th style={{ textAlign: 'left', padding: '0.35rem 0.5rem' }}>n</th>
           <th style={{ textAlign: 'right', padding: '0.35rem 0.5rem' }}>Q_n</th>
           <th style={{ textAlign: 'right', padding: '0.35rem 0.5rem' }}>n^2 C_n</th>
@@ -142,7 +143,7 @@ function RungTable() {
       </thead>
       <tbody>
         {IMP3678_RUNGS.map((r) => (
-          <tr key={r.n} style={{ borderBottom: '1px solid #1e293b' }}>
+          <tr key={r.n} style={{ borderBottom: '1px solid var(--rule-soft)' }}>
             <td style={{ padding: '0.35rem 0.5rem' }}>{r.n}</td>
             <td style={{ textAlign: 'right', padding: '0.35rem 0.5rem', color: Q_COLOR }}>{r.momentRatio.toFixed(5)}</td>
             <td style={{ textAlign: 'right', padding: '0.35rem 0.5rem', color: N2C_COLOR }}>{r.n2LeadingCoeff.toFixed(5)}</td>
@@ -159,7 +160,7 @@ export default function Imp3678MomentRatioAsymptoticsViz() {
     <div style={{ padding: '1.5rem', maxWidth: 940, margin: '0 auto' }}>
       <PageHeader title="Remainder-Tail Moment-Ratio Asymptotics (imp-3646)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
         imp-3646 measured the driving moment ratio Q_n = M_(n+2)/M_n across the rung ladder
         n=3..18. A natural guess was that Q_n saturates to a fixed A-scale ceiling b^2, giving
         C_n ~ b^2/n^2 with a constant prefactor. The guess is REFUTED: the A-weight decays
@@ -168,17 +169,17 @@ export default function Imp3678MomentRatioAsymptoticsViz() {
         alongside it from {IMP3678_N2C_FIRST.toFixed(5)} to {IMP3678_N2C_LAST.toFixed(5)}.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         Q_n and n^2 C_n both climbing without a ceiling over n=3..18
       </p>
       <GrowthChart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.75rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.75rem 0 0.5rem' }}>
         Laplace saddle ratio Q_n / tau*(n)^2 falling monotonically toward 1 from above
       </p>
       <SaddleRatioChart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.75rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.75rem 0 0.5rem' }}>
         Measured rungs
       </p>
       <RungTable />
@@ -187,14 +188,14 @@ export default function Imp3678MomentRatioAsymptoticsViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> the top chart shows
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> the top chart shows
         neither Q_n (blue) nor n^2 C_n (amber) leveling off across the ladder -- both keep
         climbing, refuting a fixed-constant b^2/n^2 law for C_n. The bottom chart shows why:
         the growth is governed by the Laplace saddle tau*(n) of the moment integrand
@@ -209,14 +210,14 @@ export default function Imp3678MomentRatioAsymptoticsViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement/derivation
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> measurement/derivation
         only -- this visualizes the imp-3646 large-n asymptotics of a fixed-weight Taylor
         remainder coefficient family. It establishes NO operator positivity. RH-equivalent,
         necessary-but-not-sufficient. The imp-3066 K_a &ge; 0 sign-positivity obstruction

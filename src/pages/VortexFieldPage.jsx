@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import VizCeilingNote from '../components/VizCeilingNote.jsx';
+import { ED, alpha } from '../styles/tokens.js';
 
 /*
  * Prime-Log Vortex Field Near a Zeta Zero.
@@ -201,7 +202,7 @@ function VortexCanvas({ centerIdx, tau, magContours, showStreamlines, onHoverDat
         return [vx, vy];
       };
       // literal warm paper2 (#f6f1e7) for contrast against the (unmodified) phase colormap
-      ctx.strokeStyle = 'rgba(246,241,231,0.45)';
+      ctx.strokeStyle = alpha(ED.paper2, 0.45);
       ctx.lineWidth = 1;
       const SEED = 13, STEPS = 22, hstep = 0.5;
       for (let i = 1; i < SEED; i++) {
@@ -224,7 +225,7 @@ function VortexCanvas({ centerIdx, tau, magContours, showStreamlines, onHoverDat
     }
 
     // critical line Re s = 1/2 -- literal warm paper2 (#f6f1e7)
-    ctx.strokeStyle = 'rgba(246,241,231,0.65)';
+    ctx.strokeStyle = alpha(ED.paper2, 0.65);
     ctx.setLineDash([6, 5]);
     ctx.lineWidth = 1.5;
     const [lx] = toPx(0.5, 0);
@@ -241,8 +242,8 @@ function VortexCanvas({ centerIdx, tau, magContours, showStreamlines, onHoverDat
       ctx.arc(vx, vy, central || off ? 7.5 : 5.5, 0, 2 * Math.PI);
       ctx.lineWidth = central || off ? 3 : 2;
       // literal warm terra-dk (off-axis) / brass (central pair) / paper2 (spectator)
-      ctx.strokeStyle = off ? '#c23a1c' : central ? '#8c6a1d' : '#f6f1e7';
-      ctx.fillStyle = 'rgba(28,24,20,0.55)';
+      ctx.strokeStyle = off ? ED.accent : central ? ED.brass : ED.paper2;
+      ctx.fillStyle = alpha(ED.ink, 0.55);
       ctx.fill(); ctx.stroke();
     });
   }, [centerIdx, tau, magContours, showStreamlines, zeros]);
@@ -351,7 +352,7 @@ function VortexTrajectoryMap({ centerIdx, tau }) {
     const toY = (s) => MT + ((tMax - s) / (tMax - tMin)) * pH;
 
     // literal warm paper2 background -- ctx.fillStyle can't read var()
-    ctx.fillStyle = '#f6f1e7'; ctx.fillRect(0, 0, W, H);
+    ctx.fillStyle = ED.paper2; ctx.fillRect(0, 0, W, H);
 
     // Draw one path per zero (sorted index stable: Dyson repulsion prevents crossings)
     // literal warm brass-dk (central pair) / blue (spectators)
@@ -364,20 +365,20 @@ function VortexTrajectoryMap({ centerIdx, tau }) {
         const x = toX(snap.tv), y = toY(z.gamma);
         if (!moved) { ctx.moveTo(x, y); moved = true; } else ctx.lineTo(x, y);
       }
-      ctx.strokeStyle = isCentral ? '#b58a2e' : '#3f6b86';
+      ctx.strokeStyle = isCentral ? ED.brassDeco : ED.series1;
       ctx.lineWidth = isCentral ? 2 : 1;
       ctx.globalAlpha = isCentral ? 0.9 : 0.45;
       ctx.stroke(); ctx.globalAlpha = 1;
     }
 
     // tau=0 dashed reference -- literal warm hairline (#d5c9b2)
-    ctx.strokeStyle = 'rgba(213,201,178,0.6)'; ctx.setLineDash([3, 4]); ctx.lineWidth = 1;
+    ctx.strokeStyle = alpha(ED.rule, 0.6); ctx.setLineDash([3, 4]); ctx.lineWidth = 1;
     ctx.beginPath(); ctx.moveTo(toX(0), MT); ctx.lineTo(toX(0), MT + pH); ctx.stroke();
     ctx.setLineDash([]);
 
     // Current tau cursor -- literal warm ink (#1c1814)
     const cx = Math.max(ML, Math.min(ML + pW, toX(tau)));
-    ctx.strokeStyle = 'rgba(28,24,20,0.7)'; ctx.lineWidth = 1.5;
+    ctx.strokeStyle = alpha(ED.ink, 0.7); ctx.lineWidth = 1.5;
     ctx.beginPath(); ctx.moveTo(cx, MT); ctx.lineTo(cx, MT + pH); ctx.stroke();
 
     // Dots marking current zero positions on the cursor
@@ -390,25 +391,25 @@ function VortexTrajectoryMap({ centerIdx, tau }) {
         const isOff = z.role === 'off';
         ctx.beginPath();
         ctx.arc(cx, toY(z.gamma), isOff ? 4.5 : isCentral ? 3.5 : 2.5, 0, 2 * Math.PI);
-        ctx.fillStyle = isOff ? '#c23a1c' : isCentral ? '#b58a2e' : '#3f6b86';
+        ctx.fillStyle = isOff ? ED.series2 : isCentral ? ED.brassDeco : ED.series1;
         ctx.fill();
       });
     }
 
     // Axes -- literal warm ink-soft (#4a4238)
-    ctx.strokeStyle = '#4a4238'; ctx.lineWidth = 1;
+    ctx.strokeStyle = ED.inkSoft; ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.moveTo(ML, MT); ctx.lineTo(ML, MT + pH);
     ctx.moveTo(ML, MT + pH); ctx.lineTo(ML + pW, MT + pH);
     ctx.stroke();
 
     // X tick labels -- literal warm faint (#877b67)
-    ctx.fillStyle = '#877b67'; ctx.font = '9px monospace'; ctx.textAlign = 'center';
+    ctx.fillStyle = ED.inkFaint; ctx.font = '9px monospace'; ctx.textAlign = 'center';
     [-4, -2, 0, 2, 4].forEach((tv) => ctx.fillText(String(tv), toX(tv), MT + pH + 13));
-    ctx.fillStyle = '#877b67'; ctx.fillText('heat-time t', ML + pW / 2, H - 3);
+    ctx.fillStyle = ED.inkFaint; ctx.fillText('heat-time t', ML + pW / 2, H - 3);
 
     // Y tick labels -- literal warm faint (#877b67)
-    ctx.fillStyle = '#877b67'; ctx.textAlign = 'right';
+    ctx.fillStyle = ED.inkFaint; ctx.textAlign = 'right';
     [tMin + 2, gc, tMax - 2].forEach((s) => ctx.fillText(s.toFixed(1), ML - 4, toY(s) + 3));
   }, [traj, tau, centerIdx]);
 
@@ -480,7 +481,7 @@ export default function VortexFieldPage() {
             </div>
             <div style={{ height: 22, marginTop: 4 }}>
               {hoverData ? (
-                <div style={{ fontSize: 11, color: 'var(--ink-soft)', fontFamily: 'var(--ed-mono, var(--font-mono))', background: 'rgba(246,241,231,0.9)', border: '1px solid var(--hairline)', padding: '3px 8px', borderRadius: 4, display: 'inline-block' }}>
+                <div style={{ fontSize: 11, color: 'var(--ink-soft)', fontFamily: 'var(--ed-mono, var(--font-mono))', background: 'color-mix(in srgb, var(--paper-2) 90%, transparent)', border: '1px solid var(--hairline)', padding: '3px 8px', borderRadius: 4, display: 'inline-block' }}>
                   σ = {hoverData.sig.toFixed(4)} · Im s = {hoverData.t.toFixed(4)} · arg H = {((hoverData.phase / (2 * Math.PI)) * 360).toFixed(1)}°
                   {' '}·{' '}
                   <span style={{ color: hoverData.windingNum > 0 ? 'var(--brass-dk)' : 'var(--faint)' }}>

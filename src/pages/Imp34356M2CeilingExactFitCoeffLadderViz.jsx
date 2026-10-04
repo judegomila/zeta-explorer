@@ -9,6 +9,7 @@ import {
   IMP34356_E_AT_CROSSING,
   IMP34356_ED_AT_CROSSING,
 } from '../data/imp-34356-m2-ceiling-exactfit-coeff-ladder-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 // Bar chart of c_eff(M) vs endpoint-truncation order M, with the +90 exact-fit reference line.
 function CeffLadderChart() {
@@ -34,13 +35,13 @@ function CeffLadderChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={zeroY} x2={padL + cW} y2={zeroY} stroke="#334155" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={zeroY} x2={padL + cW} y2={zeroY} stroke={ED.rule} strokeWidth={1.5} />
 
       {yTicks.map((v) => (
         <g key={'y' + v}>
-          <line x1={padL - 4} y1={yAt(v)} x2={padL + cW} y2={yAt(v)} stroke="#1e293b" strokeWidth={1} />
-          <text x={padL - 8} y={yAt(v) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+          <line x1={padL - 4} y1={yAt(v)} x2={padL + cW} y2={yAt(v)} stroke={ED.ruleSoft} strokeWidth={1} />
+          <text x={padL - 8} y={yAt(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v}
           </text>
         </g>
@@ -51,11 +52,11 @@ function CeffLadderChart() {
         y1={yAt(IMP34356_EXACT_FIT_COEFF)}
         x2={padL + cW}
         y2={yAt(IMP34356_EXACT_FIT_COEFF)}
-        stroke="#f87171"
+        stroke={ED.series2}
         strokeWidth={1.25}
         strokeDasharray="5,3"
       />
-      <text x={padL + cW - 4} y={yAt(IMP34356_EXACT_FIT_COEFF) - 5} textAnchor="end" fill="#f87171" fontSize={9}>
+      <text x={padL + cW - 4} y={yAt(IMP34356_EXACT_FIT_COEFF) - 5} textAnchor="end" fill={ED.series2} fontSize={9}>
         exact-fit coefficient {IMP34356_EXACT_FIT_COEFF}
       </text>
 
@@ -73,7 +74,7 @@ function CeffLadderChart() {
               y={barY}
               width={barW}
               height={barH}
-              fill={positive ? '#38bdf8' : '#fb7185'}
+              fill={positive ? ED.series1 : ED.series2}
               opacity={0.85}
               rx={2}
             />
@@ -81,27 +82,27 @@ function CeffLadderChart() {
               x={bx + barW / 2}
               y={positive ? barY - 6 : barY + barH + 14}
               textAnchor="middle"
-              fill="#cbd5e1"
+              fill={ED.ink}
               fontSize={9}
               fontFamily="monospace"
             >
               {r.cEff.toFixed(1)}
             </text>
-            <text x={bx + barW / 2} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={9}>
+            <text x={bx + barW / 2} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
               M={r.order}
             </text>
           </g>
         );
       })}
 
-      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         endpoint-curvature truncation order M
       </text>
       <text
         x={14}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={`rotate(-90 14 ${padT + cH / 2})`}
       >
@@ -116,7 +117,7 @@ export default function Imp34356M2CeilingExactFitCoeffLadderViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="M2-Ceiling Exact-Fit Coefficient Ladder (imp-34356 / imp-34267)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-34267 decomposed the imp-34189 exact-fit e^3 D^2 coefficient (&asymp;{' '}
         {IMP34356_EXACT_FIT_COEFF}, reproducing the bisected kEnd* = {IMP34356_KEND_EXACT.toFixed(3)}{' '}
         exactly) through the isolated endpoint-curvature Taylor channel. Truncating sigma_hi at
@@ -130,15 +131,15 @@ export default function Imp34356M2CeilingExactFitCoeffLadderViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(56,189,248,0.05)',
-          borderLeft: '3px solid #38bdf8',
+          background: 'color-mix(in srgb, var(--series-1) 5%, transparent)',
+          borderLeft: '3px solid var(--series-1)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#e2e8f0' }}>imp-34267 finding:</strong> the endpoint Taylor terms
+        <strong style={{ color: 'var(--ink)' }}>imp-34267 finding:</strong> the endpoint Taylor terms
         shrink with the exact ratio term_{'{m+1}'}/term_m = -(eD/2)/(m+1) (
         {IMP34356_ENDPOINT_TERM_RATIOS.map((r) => r.ratio).join(', ')}) -- factorial-dominated, so
         the endpoint series CONVERGES. eD at the crossing &asymp;{' '}
@@ -146,7 +147,7 @@ export default function Imp34356M2CeilingExactFitCoeffLadderViz() {
         O(1), which is why the low-order truncations swing so far before settling.
       </div>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         c_eff(M): sign flip at M=0, overshoot at M=1/M=2, lock onto the exact-fit by M=4
       </p>
       <CeffLadderChart />
@@ -160,7 +161,7 @@ export default function Imp34356M2CeilingExactFitCoeffLadderViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>order M</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>kEnd*(M)</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>c_eff(M)</th>
@@ -171,7 +172,7 @@ export default function Imp34356M2CeilingExactFitCoeffLadderViz() {
           {IMP34356_COEFF_LADDER.map((r, i) => {
             const contrib = IMP34356_CONTRIB_BEYOND_LINEAR.find((c) => c.order === r.order);
             return (
-              <tr key={r.order} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+              <tr key={r.order} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
                 <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.order}</td>
                 <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.kEndStar.toFixed(4)}</td>
                 <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.cEff.toFixed(3)}</td>
@@ -188,14 +189,14 @@ export default function Imp34356M2CeilingExactFitCoeffLadderViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-data only, baked literals
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-data only, baked literals
         reproducing the imp-34267 measurement; no new derivation, no bound changed. Descriptive
         surrogate/fit, NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED;
         imp-3066 K_a&ge;0 untouched; NO QED.

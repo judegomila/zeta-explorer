@@ -6,6 +6,7 @@ import {
   IMP97388_QCROSS_OVER_B,
   IMP97388_HONEST_BANNER,
 } from '../data/imp-97388-route-m-interior-second-moment-decomposition-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 // Full-width stacked bar per b: Qhat (green, ~99.6%) dwarfing Qcross (yellow) and Qrr (red).
 function DominancePanel() {
@@ -27,13 +28,13 @@ function DominancePanel() {
         const qrrW = row.qrrFrac * plotW;
         return (
           <g key={row.b}>
-            <text x={padL - 8} y={y + barH / 2 + 4} textAnchor="end" fill="#94a3b8" fontSize={11}>
+            <text x={padL - 8} y={y + barH / 2 + 4} textAnchor="end" fill={ED.inkSoft} fontSize={11}>
               b = {row.b}
             </text>
-            <rect x={padL} y={y} width={qhatW} height={barH} fill="#4ade80" opacity={0.85} />
-            <rect x={padL + qhatW} y={y} width={qcrossW} height={barH} fill="#facc15" opacity={0.95} />
-            <rect x={padL + qhatW + qcrossW} y={y} width={qrrW} height={barH} fill="#f87171" opacity={0.95} />
-            <text x={padL + plotW + 8} y={y + barH / 2 + 4} fill="#e2e8f0" fontSize={10}>
+            <rect x={padL} y={y} width={qhatW} height={barH} fill={ED.series3} opacity={0.85} />
+            <rect x={padL + qhatW} y={y} width={qcrossW} height={barH} fill={ED.brassDeco} opacity={0.95} />
+            <rect x={padL + qhatW + qcrossW} y={y} width={qrrW} height={barH} fill={ED.series2} opacity={0.95} />
+            <text x={padL + plotW + 8} y={y + barH / 2 + 4} fill={ED.ink} fontSize={10}>
               {(row.qhatFrac * 100).toFixed(1)}%
             </text>
           </g>
@@ -65,11 +66,11 @@ function ZoomedSliverPanel() {
         const y = 8 + i * (groupH + rowSpacing);
         return (
           <g key={row.b}>
-            <text x={padL - 8} y={y + groupH / 2 + 4} textAnchor="end" fill="#94a3b8" fontSize={11}>
+            <text x={padL - 8} y={y + groupH / 2 + 4} textAnchor="end" fill={ED.inkSoft} fontSize={11}>
               b = {row.b}
             </text>
-            <rect x={padL} y={y} width={xOf(row.qcrossFrac)} height={barH} fill="#facc15" opacity={0.95} />
-            <text x={padL + xOf(row.qcrossFrac) + 6} y={y + barH - 2} fill="#e2e8f0" fontSize={9}>
+            <rect x={padL} y={y} width={xOf(row.qcrossFrac)} height={barH} fill={ED.brassDeco} opacity={0.95} />
+            <text x={padL + xOf(row.qcrossFrac) + 6} y={y + barH - 2} fill={ED.ink} fontSize={9}>
               Qcross {(row.qcrossFrac * 100).toFixed(3)}%
             </text>
             <rect
@@ -77,10 +78,10 @@ function ZoomedSliverPanel() {
               y={y + barH + rowGap}
               width={xOf(row.qrrFrac)}
               height={barH}
-              fill="#f87171"
+              fill={ED.series2}
               opacity={0.95}
             />
-            <text x={padL + xOf(row.qrrFrac) + 6} y={y + 2 * barH + rowGap - 2} fill="#e2e8f0" fontSize={9}>
+            <text x={padL + xOf(row.qrrFrac) + 6} y={y + 2 * barH + rowGap - 2} fill={ED.ink} fontSize={9}>
               Qrr {(row.qrrFrac * 100).toFixed(3)}%
             </text>
           </g>
@@ -99,18 +100,18 @@ export default function Imp97388SecondMomentDecompositionViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> {IMP97388_HONEST_BANNER}
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> {IMP97388_HONEST_BANNER}
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-97349 splits the exact Vasyunin coefficient I(a,b) into the elementary diagonal
         skeleton Ihat(a,b) = (a/2)log(b/a) + a(C+1/2) plus an arithmetic cotangent residual
         r(a,b) = I - Ihat, giving the interior second moment Q(b) = Qhat(b) + Qcross(b) + Qrr(b)
@@ -121,12 +122,12 @@ export default function Imp97388SecondMomentDecompositionViz() {
         against the leading slope s0 &asymp; {IMP97388_S0.toFixed(3)}.
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         Qhat dominance per b (green = Qhat, yellow = Qcross, red = Qrr)
       </h3>
       <DominancePanel />
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', margin: '1.5rem 0 0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', margin: '1.5rem 0 0.5rem' }}>
         the two arithmetic slivers, zoomed (% of Q(b))
       </h3>
       <ZoomedSliverPanel />
@@ -135,14 +136,14 @@ export default function Imp97388SecondMomentDecompositionViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> the top panel is
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> the top panel is
         visually all-green at every b because Qhat genuinely carries ~99.6% of the total -- the
         zoomed panel below rescales just the Qcross/Qrr slivers so their relative size (Qcross
         consistently larger than Qrr) and their near-constant fraction across b (both feed the
@@ -155,14 +156,14 @@ export default function Imp97388SecondMomentDecompositionViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page consuming the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the
         imp-97388 viz-data (figures reused verbatim from imp-97349). {IMP97388_HONEST_BANNER}
       </div>
     </div>

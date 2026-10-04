@@ -2,6 +2,7 @@ import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP34606_ROUNDOFF_AMPLIFICATION_EXPONENT_LADDER } from '../data/imp-34606-roundoff-amplification-exponent-ladder.js';
 import { IMP34646_Q1_FIRST_DIFFERENCE_ROUNDOFF_FLOOR } from '../data/imp-34646-q1-first-difference-roundoff-floor.js';
+import { ED } from '../styles/tokens.js';
 
 const M234 = IMP34606_ROUNDOFF_AMPLIFICATION_EXPONENT_LADDER;
 const M1 = IMP34646_Q1_FIRST_DIFFERENCE_ROUNDOFF_FLOOR;
@@ -72,10 +73,10 @@ const WINDOW_Q3 = [1e-4, 5e-5, 3e-5, 2e-5, 1e-5];
 const WINDOW_Q4 = [2e-3, 1.4e-3, 1e-3];
 
 const CHANNELS = [
-  { k: 1, color: '#a78bfa', label: 'q1 (predicted 1/dp¹, ABSOLUTE error)', window: WINDOW_Q1, m: M1.m_q1, r2: M1.r2_q1 },
-  { k: 2, color: '#38bdf8', label: 'q2 (predicted 1/dp², share)', window: WINDOW_Q2, m: M234.m_q2, r2: M234.r2_q2 },
-  { k: 3, color: '#facc15', label: 'q3 (predicted 1/dp³, share)', window: WINDOW_Q3, m: M234.m_q3, r2: M234.r2_q3 },
-  { k: 4, color: '#f87171', label: 'q4 (predicted 1/dp⁴, share)', window: WINDOW_Q4, m: M234.m_q4, r2: M234.r2_q4 },
+  { k: 1, color: ED.series5, label: 'q1 (predicted 1/dp¹, ABSOLUTE error)', window: WINDOW_Q1, m: M1.m_q1, r2: M1.r2_q1 },
+  { k: 2, color: ED.series1, label: 'q2 (predicted 1/dp², share)', window: WINDOW_Q2, m: M234.m_q2, r2: M234.r2_q2 },
+  { k: 3, color: ED.brass, label: 'q3 (predicted 1/dp³, share)', window: WINDOW_Q3, m: M234.m_q3, r2: M234.r2_q3 },
+  { k: 4, color: ED.series2, label: 'q4 (predicted 1/dp⁴, share)', window: WINDOW_Q4, m: M234.m_q4, r2: M234.r2_q4 },
 ];
 
 const SERIES = CHANNELS.map((c) => ({
@@ -105,8 +106,8 @@ function LadderChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
+      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
 
       {SERIES.map((s) => {
         const path = s.points.map((p, i) => `${i === 0 ? 'M' : 'L'}${xAt(p.dp)},${yAt(p.mag)}`).join(' ');
@@ -114,7 +115,7 @@ function LadderChart() {
           <g key={s.k}>
             <path d={path} fill="none" stroke={s.color} strokeWidth={2} />
             {s.points.map((p) => (
-              <circle key={p.dp} cx={xAt(p.dp)} cy={yAt(p.mag)} r={3.5} fill={s.color} stroke="#0a0f1a" strokeWidth={1} />
+              <circle key={p.dp} cx={xAt(p.dp)} cy={yAt(p.mag)} r={3.5} fill={s.color} stroke={ED.paper} strokeWidth={1} />
             ))}
           </g>
         );
@@ -126,7 +127,7 @@ function LadderChart() {
         </text>
       ))}
 
-      <text x={padL + cW / 2} y={svgH - 6} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 6} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         q-derivative step dp (log scale) -- per-channel roundoff-dominated window
       </text>
     </svg>
@@ -154,26 +155,26 @@ function SlopeVsOrderChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
-      <path d={refPath} stroke="#475569" strokeWidth={1} strokeDasharray="4 3" fill="none" />
+      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
+      <path d={refPath} stroke={ED.rule} strokeWidth={1} strokeDasharray="4 3" fill="none" />
       {CHANNELS.map((c) => (
-        <circle key={c.k} cx={xAt(c.k)} cy={yAt(c.m)} r={5} fill={c.color} stroke="#0a0f1a" strokeWidth={1} />
+        <circle key={c.k} cx={xAt(c.k)} cy={yAt(c.m)} r={5} fill={c.color} stroke={ED.paper} strokeWidth={1} />
       ))}
       {[1, 2, 3, 4].map((k) => (
-        <text key={k} x={xAt(k)} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={10}>
+        <text key={k} x={xAt(k)} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
           {k}
         </text>
       ))}
       {[1, 2, 3, 4].map((m) => (
-        <text key={m} x={padL - 8} y={yAt(m) + 3} textAnchor="end" fill="#64748b" fontSize={10}>
+        <text key={m} x={padL - 8} y={yAt(m) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={10}>
           {m}
         </text>
       ))}
-      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         stencil order k
       </text>
-      <text x={12} y={padT - 6} fill="#64748b" fontSize={10}>
+      <text x={12} y={padT - 6} fill={ED.inkFaint} fontSize={10}>
         m_measured
       </text>
     </svg>
@@ -185,7 +186,7 @@ export default function Imp34667FourRungRoundoffFloorLadderViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Completed q1/q2/q3/q4 Roundoff-Floor Exponent Ladder (imp-34667 / imp-34646 / imp-34606)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-34606 fit the deep-tail log-log growth exponent of the q2 / q3 / q4 finite-difference
         channels against the q-derivative step dp, landing cleanly on the integer ladder {'{'}2, 3,
         4{'}'}. imp-34646 filled the missing k&nbsp;=&nbsp;1 rung below it: q1, the well-conditioned
@@ -196,7 +197,7 @@ export default function Imp34667FourRungRoundoffFloorLadderViz() {
         panel confirming the measured slopes land on the predicted integers 1/2/3/4.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         deep-group max apparent channel magnitude vs dp (log-log): four roundoff-floor lines, one per
         channel (q1 is an absolute error, q2/q3/q4 are shares -- only the SLOPE is comparable across
         channels, not the vertical offset)
@@ -205,7 +206,7 @@ export default function Imp34667FourRungRoundoffFloorLadderViz() {
 
       <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap', alignItems: 'flex-start', marginTop: '1.5rem' }}>
         <div style={{ flex: '1 1 320px' }}>
-          <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+          <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
             measured slope m vs stencil order k (dashed: predicted m&nbsp;=&nbsp;k)
           </p>
           <SlopeVsOrderChart />
@@ -219,7 +220,7 @@ export default function Imp34667FourRungRoundoffFloorLadderViz() {
           }}
         >
           <thead>
-            <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+            <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
               <th style={{ padding: '0.4rem 0.6rem' }}>channel</th>
               <th style={{ padding: '0.4rem 0.6rem' }}>predicted k</th>
               <th style={{ padding: '0.4rem 0.6rem' }}>measured m</th>
@@ -228,7 +229,7 @@ export default function Imp34667FourRungRoundoffFloorLadderViz() {
           </thead>
           <tbody>
             {CHANNELS.map((c) => (
-              <tr key={c.k} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+              <tr key={c.k} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
                 <td style={{ padding: '0.4rem 0.6rem' }}>q{c.k}</td>
                 <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{c.k}</td>
                 <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{c.m.toFixed(4)}</td>
@@ -243,11 +244,11 @@ export default function Imp34667FourRungRoundoffFloorLadderViz() {
         style={{
           marginTop: '1.5rem',
           padding: '0.6rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
         }}
       >
         Ladder complete and strictly increasing (m1 &lt; m2 &lt; m3 &lt; m4, all rounding to the
@@ -263,14 +264,14 @@ export default function Imp34667FourRungRoundoffFloorLadderViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-data only, recomputing the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-data only, recomputing the
         imp-34606/imp-34646 q-derivative sweep independently over their published roundoff-dominated
         windows; the fitted m/R&sup2; annotations are the imp-34606/imp-34646 baked values. q1..q4
         are inherited central differences, NOT fresh analytic closed forms, so the sigma&nbsp;-&gt;

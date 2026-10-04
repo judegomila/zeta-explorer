@@ -4,6 +4,7 @@ import {
   IMP34947_CONJUGATE_PAIR_ARGUMENT_THETA_CROSS_CHECK as D,
   IMP34947_RECURRENCE_WINDOWS as WINDOWS,
 } from '../data/imp-34947-conjugate-pair-argument-theta-cross-check.js';
+import { ED } from '../styles/tokens.js';
 
 const THETA_SIGN_CYCLE = D.crossCheck.theta_signCycle_deg; // 40.000
 const THETA_DEEP_MEDIAN = D.recurrenceRead.theta_median_deg; // ~39.043
@@ -35,30 +36,30 @@ function ThetaVsDepthChart() {
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
       {yTicks.map((t) => (
         <g key={t}>
-          <line x1={padL} y1={yAt(t)} x2={padL + cW} y2={yAt(t)} stroke="#1e293b" strokeWidth={1} />
-          <text x={padL - 8} y={yAt(t) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+          <line x1={padL} y1={yAt(t)} x2={padL + cW} y2={yAt(t)} stroke={ED.ruleSoft} strokeWidth={1} />
+          <text x={padL - 8} y={yAt(t) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {t}&deg;
           </text>
         </g>
       ))}
 
-      <line x1={padL} y1={yAt(THETA_SIGN_CYCLE)} x2={padL + cW} y2={yAt(THETA_SIGN_CYCLE)} stroke="#f472b6" strokeWidth={1.5} strokeDasharray="4 3" />
-      <text x={padL + cW - 4} y={yAt(THETA_SIGN_CYCLE) - 4} textAnchor="end" fill="#f472b6" fontSize={9}>
+      <line x1={padL} y1={yAt(THETA_SIGN_CYCLE)} x2={padL + cW} y2={yAt(THETA_SIGN_CYCLE)} stroke={ED.series7} strokeWidth={1.5} strokeDasharray="4 3" />
+      <text x={padL + cW - 4} y={yAt(THETA_SIGN_CYCLE) - 4} textAnchor="end" fill={ED.series7} fontSize={9}>
         sign-cycle 40&deg;
       </text>
 
-      <line x1={padL} y1={yAt(THETA_DEEP_MEDIAN)} x2={padL + cW} y2={yAt(THETA_DEEP_MEDIAN)} stroke="#34d399" strokeWidth={1.5} strokeDasharray="2 3" />
-      <text x={padL + 4} y={yAt(THETA_DEEP_MEDIAN) + 12} fill="#34d399" fontSize={9}>
+      <line x1={padL} y1={yAt(THETA_DEEP_MEDIAN)} x2={padL + cW} y2={yAt(THETA_DEEP_MEDIAN)} stroke={ED.series3} strokeWidth={1.5} strokeDasharray="2 3" />
+      <text x={padL + 4} y={yAt(THETA_DEEP_MEDIAN) + 12} fill={ED.series3} fontSize={9}>
         deep-band median {THETA_DEEP_MEDIAN.toFixed(2)}&deg;
       </text>
 
-      <path d={path} fill="none" stroke="#38bdf8" strokeWidth={2} />
+      <path d={path} fill="none" stroke={ED.series1} strokeWidth={2} />
       {WINDOWS.map((w) => (
-        <circle key={w.k} cx={xAt(w.k)} cy={yAt(w.theta_deg)} r={w.deep ? 3 : 2.2} fill={w.deep ? '#38bdf8' : '#475569'} />
+        <circle key={w.k} cx={xAt(w.k)} cy={yAt(w.theta_deg)} r={w.deep ? 3 : 2.2} fill={w.deep ? ED.series1 : '#475569'} />
       ))}
 
-      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
-      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
+      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         window depth k (recurrence solved on delta_(k-3)..delta_k)
       </text>
     </svg>
@@ -83,8 +84,8 @@ function PolarTrajectoryChart() {
 
   const rings = [40, 78, 89.6, 110].map((r) => ({ r, label: r === 78 ? 'imp-34932 R~78' : r === 89.6 ? 'imp-34900 R~89.6' : null }));
   const angleGuides = [
-    { deg: THETA_SIGN_CYCLE, color: '#f472b6', label: 'sign-cycle 40°' },
-    { deg: THETA_DEEP_MEDIAN, color: '#34d399', label: `median ${THETA_DEEP_MEDIAN.toFixed(1)}°` },
+    { deg: THETA_SIGN_CYCLE, color: ED.series7, label: 'sign-cycle 40°' },
+    { deg: THETA_DEEP_MEDIAN, color: ED.series3, label: `median ${THETA_DEEP_MEDIAN.toFixed(1)}°` },
   ];
 
   const upper = WINDOWS.map((w) => ({ ...toXY(w.R, w.theta_deg), w }));
@@ -92,14 +93,14 @@ function PolarTrajectoryChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={cx - px - 10} y1={cy} x2={cx + px + 10} y2={cy} stroke="#334155" strokeWidth={1} />
-      <line x1={cx} y1={cy - px - 10} x2={cx} y2={cy + px + 10} stroke="#334155" strokeWidth={1} />
+      <line x1={cx - px - 10} y1={cy} x2={cx + px + 10} y2={cy} stroke={ED.rule} strokeWidth={1} />
+      <line x1={cx} y1={cy - px - 10} x2={cx} y2={cy + px + 10} stroke={ED.rule} strokeWidth={1} />
 
       {rings.map((ring) => (
         <g key={ring.r}>
-          <circle cx={cx} cy={cy} r={ring.r * scale} fill="none" stroke={ring.r === 78 || ring.r === 89.6 ? '#94a3b8' : '#1e293b'} strokeWidth={ring.r === 78 || ring.r === 89.6 ? 1.3 : 1} strokeDasharray={ring.r === 78 || ring.r === 89.6 ? '5 3' : undefined} />
+          <circle cx={cx} cy={cy} r={ring.r * scale} fill="none" stroke={ring.r === 78 || ring.r === 89.6 ? ED.rule : ED.ruleSoft} strokeWidth={ring.r === 78 || ring.r === 89.6 ? 1.3 : 1} strokeDasharray={ring.r === 78 || ring.r === 89.6 ? '5 3' : undefined} />
           {ring.label && (
-            <text x={cx + ring.r * scale + 3} y={cy - 3} fill="#94a3b8" fontSize={8}>
+            <text x={cx + ring.r * scale + 3} y={cy - 3} fill={ED.inkSoft} fontSize={8}>
               {ring.label}
             </text>
           )}
@@ -123,13 +124,13 @@ function PolarTrajectoryChart() {
       })}
 
       {upper.map((p) => (
-        <circle key={`u${p.w.k}`} cx={p.x} cy={p.y} r={p.w.deep ? 3 : 2} fill={p.w.deep ? '#38bdf8' : '#475569'} />
+        <circle key={`u${p.w.k}`} cx={p.x} cy={p.y} r={p.w.deep ? 3 : 2} fill={p.w.deep ? ED.series1 : '#475569'} />
       ))}
       {lower.map((p) => (
-        <circle key={`l${p.w.k}`} cx={p.x} cy={p.y} r={p.w.deep ? 3 : 2} fill={p.w.deep ? '#38bdf8' : '#475569'} fillOpacity={0.55} />
+        <circle key={`l${p.w.k}`} cx={p.x} cy={p.y} r={p.w.deep ? 3 : 2} fill={p.w.deep ? ED.series1 : '#475569'} fillOpacity={0.55} />
       ))}
 
-      <text x={cx} y={16} textAnchor="middle" fill="#64748b" fontSize={9}>
+      <text x={cx} y={16} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
         R_k e^(&plusmn;i theta_k), window depth k = {K_LO}..{K_HI}
       </text>
     </svg>
@@ -141,7 +142,7 @@ export default function Imp35077ConjugatePairDarbouxTrajectoryViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Conjugate-Pair Darboux Trajectory theta_k / R_k vs Depth (imp-35077 / imp-34947)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         The imp-34947 local 2-step linear-recurrence (Darboux) read solves the window (delta_(k-3)..delta_k)
         for a conjugate pole pair R_k e^(&plusmn;i theta_k) at every depth k = {K_LO}..{K_HI}. The early windows
         (k&nbsp;&lt;&nbsp;8, grey) are transient; the deep band (k&nbsp;&ge;&nbsp;8, blue) locks onto
@@ -150,12 +151,12 @@ export default function Imp35077ConjugatePairDarbouxTrajectoryViz() {
         sign-cycle grid value of {THETA_SIGN_CYCLE.toFixed(1)}&deg;.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.25rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.25rem' }}>
         theta_k versus window depth k
       </p>
       <ThetaVsDepthChart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.25rem 0 0.25rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.25rem 0 0.25rem' }}>
         Polar / complex-plane view of R_k e^(&plusmn;i theta_k)
       </p>
       <div style={{ display: 'flex', justifyContent: 'center' }}>
@@ -166,14 +167,14 @@ export default function Imp35077ConjugatePairDarbouxTrajectoryViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page rendering the imp-34947
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-only page rendering the imp-34947
         per-window {'{k, theta_k, R_k}'} literals verbatim (baked via IMP34947_RECURRENCE_WINDOWS, no
         recomputation on this page). Measurement only on the inherited imp-3220/imp-3406 extrapolation
         surrogate; C_mb GUE-conditional per imp-486 untouched; changes no bound; establishes no operator

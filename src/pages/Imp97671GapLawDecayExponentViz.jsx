@@ -5,11 +5,12 @@ import {
   IMP97671_FIXED_POWER_REFERENCES,
   IMP97671_SUMMARY,
 } from '../data/imp-97671-gap-law-decay-exponent-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
-const RUNG_COLOR = '#60a5fa';
-const RUNG_COLOR_LIMITED = '#f87171';
-const REF_COLOR_Q2 = '#94a3b8';
-const REF_COLOR_Q3 = '#facc15';
+const RUNG_COLOR = ED.series1;
+const RUNG_COLOR_LIMITED = ED.series2;
+const REF_COLOR_Q2 = ED.series8;
+const REF_COLOR_Q3 = ED.series4;
 
 // Bar chart of the three local exponent rungs against the fixed q=2, q=3 reference lines.
 function ExponentLadderChart() {
@@ -29,8 +30,8 @@ function ExponentLadderChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#334155" strokeWidth={1} />
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#334155" strokeWidth={1} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1} />
 
       {/* fixed-power reference lines */}
       <line
@@ -72,10 +73,10 @@ function ExponentLadderChart() {
               height={h}
               fill={row.precisionLimited ? RUNG_COLOR_LIMITED : RUNG_COLOR}
             />
-            <text x={x + barW / 2} y={y - 6} textAnchor="middle" fill="#cbd5e1" fontSize={11}>
+            <text x={x + barW / 2} y={y - 6} textAnchor="middle" fill={ED.ink} fontSize={11}>
               {row.qLocal.toFixed(3)}
             </text>
-            <text x={x + barW / 2} y={svgH - 30} textAnchor="middle" fill="#94a3b8" fontSize={9}>
+            <text x={x + barW / 2} y={svgH - 30} textAnchor="middle" fill={ED.inkSoft} fontSize={9}>
               {row.label}
             </text>
             {row.precisionLimited && (
@@ -99,33 +100,33 @@ export default function Imp97671GapLawDecayExponentViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> a measurement/presentation-only
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a measurement/presentation-only
         page reshaping the frozen imp-97640 local-exponent ladder verbatim (no re-derivation, no new
         computation). The third rung is precision-limited by 7-sig-fig catastrophic cancellation and is
         flagged, not resolved. Changes no bound; MCM stays refuted from omega=11; Platt&ndash;Trudgian
         &Lambda; &le; 0.2 remains SOTA; RH open; NO QED.
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         {IMP97671_SUMMARY.reading}
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         Local decay exponent q per rung vs the q=2, q=3 fixed-power references
       </h3>
       <ExponentLadderChart />
 
       <table style={{ width: '100%', marginTop: '1.25rem', borderCollapse: 'collapse', fontSize: '0.82rem' }}>
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'right' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'right' }}>
             <th style={{ textAlign: 'left', padding: '0.4rem 0.5rem' }}>Rung</th>
             <th style={{ padding: '0.4rem 0.5rem' }}>q (local exponent)</th>
             <th style={{ padding: '0.4rem 0.5rem' }}>Residual ratio</th>
@@ -134,11 +135,11 @@ export default function Imp97671GapLawDecayExponentViz() {
         </thead>
         <tbody>
           {IMP97671_EXPONENT_ROWS.map((row) => (
-            <tr key={row.key} style={{ color: '#cbd5e1', textAlign: 'right', borderTop: '1px solid #1e293b' }}>
+            <tr key={row.key} style={{ color: 'var(--ink)', textAlign: 'right', borderTop: '1px solid var(--rule-soft)' }}>
               <td style={{ textAlign: 'left', padding: '0.4rem 0.5rem' }}>{row.label}</td>
               <td style={{ padding: '0.4rem 0.5rem' }}>{row.qLocal.toFixed(3)}</td>
               <td style={{ padding: '0.4rem 0.5rem' }}>{row.residualRatio.toFixed(2)}</td>
-              <td style={{ padding: '0.4rem 0.5rem', color: row.precisionLimited ? '#f87171' : '#34d399' }}>
+              <td style={{ padding: '0.4rem 0.5rem', color: row.precisionLimited ? 'var(--series-2)' : 'var(--series-3)' }}>
                 {row.precisionLimited ? 'precision-limited' : 'precision-clean'}
               </td>
             </tr>
@@ -150,14 +151,14 @@ export default function Imp97671GapLawDecayExponentViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> {IMP97671_SUMMARY.verdict}
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> {IMP97671_SUMMARY.verdict}
       </div>
     </div>
   );

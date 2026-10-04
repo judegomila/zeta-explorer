@@ -5,6 +5,7 @@ import {
   IMP97553_ANCHORS,
 } from '../data/imp-97553-route-m-kappa-decomposition-viz-data.js';
 import { KAPPA_ARITH, KAPPA_COT_LIMIT, KAPPA_LIMIT } from '../data/imp-97541-route-m-kappa-cot-extended-measurement.js';
+import { ED, alpha } from '../styles/tokens.js';
 
 // imp-97553: visualizes the imp-97541 kappa decomposition kappa(b) =
 // kappa_arith + kappa_cot(b) as a stacked area across the 11-point
@@ -43,7 +44,7 @@ function StackPanel() {
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
       {/* kappa_cot(b) contribution band, between kappa_arith base and kappa(b) top */}
-      <polygon points={bandPoints} fill="rgba(56,189,248,0.18)" stroke="none" />
+      <polygon points={bandPoints} fill={alpha(ED.series1, 0.18)} stroke="none" />
 
       {/* KAPPA_LIMIT reference line */}
       <line
@@ -51,39 +52,39 @@ function StackPanel() {
         y1={yOf(KAPPA_LIMIT)}
         x2={padL + plotW}
         y2={yOf(KAPPA_LIMIT)}
-        stroke="#f87171"
+        stroke={ED.series2}
         strokeWidth={1.2}
         strokeDasharray="4 3"
       />
-      <text x={padL + plotW - 4} y={yOf(KAPPA_LIMIT) - 4} textAnchor="end" fill="#f87171" fontSize={8}>
+      <text x={padL + plotW - 4} y={yOf(KAPPA_LIMIT) - 4} textAnchor="end" fill={ED.series2} fontSize={8}>
         kappa limit ~ {KAPPA_LIMIT.toFixed(4)}
       </text>
 
       {/* kappa_arith constant base */}
-      <polyline points={arithPath} fill="none" stroke="#a78bfa" strokeWidth={1.6} strokeDasharray="2 2" />
+      <polyline points={arithPath} fill="none" stroke={ED.series5} strokeWidth={1.6} strokeDasharray="2 2" />
 
       {/* combined kappa(b) top curve */}
-      <polyline points={kappaPath} fill="none" stroke="#4ade80" strokeWidth={1.8} />
+      <polyline points={kappaPath} fill="none" stroke={ED.series3} strokeWidth={1.8} />
 
       {sorted.map((p) => (
-        <circle key={`pt-${p.b}`} cx={xOf(p.logB)} cy={yOf(p.kappa)} r={3.2} fill="#4ade80" />
+        <circle key={`pt-${p.b}`} cx={xOf(p.logB)} cy={yOf(p.kappa)} r={3.2} fill={ED.series3} />
       ))}
 
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
 
       {sorted.map((p) => (
-        <text key={`x${p.b}`} x={xOf(p.logB)} y={padT + plotH + 16} textAnchor="middle" fill="#64748b" fontSize={7.5}>
+        <text key={`x${p.b}`} x={xOf(p.logB)} y={padT + plotH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={7.5}>
           {p.b}
         </text>
       ))}
       {[yMax, yMax / 2, 0].map((v, i) => (
-        <text key={`y${i}`} x={padL - 6} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={8}>
+        <text key={`y${i}`} x={padL - 6} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8}>
           {v.toFixed(2)}
         </text>
       ))}
 
-      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={9}>
+      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
         b (log scale); purple dashed: kappa_arith=0.5705 (constant); green: kappa(b)=kappa_arith+kappa_cot(b); blue band: kappa_cot(b) contribution
       </text>
     </svg>
@@ -99,15 +100,15 @@ export default function Imp97553KappaDecompositionViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(74,222,128,0.06)',
-          borderLeft: '3px solid #4ade80',
+          background: 'color-mix(in srgb, var(--series-3) 6%, transparent)',
+          borderLeft: '3px solid var(--series-3)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#4ade80' }}>Honest status:</strong> this
+        <strong style={{ color: 'var(--series-3)' }}>Honest status:</strong> this
         chart reuses the imp-97541 11-point tabulation verbatim (stacked
         decomposition only, no new measurement). Presentation only;
         establishes no operator positivity; changes no bound; kappa stays
@@ -115,7 +116,7 @@ export default function Imp97553KappaDecompositionViz() {
         NO QED.
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         The Route M first-moment coefficient kappa(b) decomposes exactly as
         kappa(b) = kappa_arith + kappa_cot(b), with kappa_arith ={' '}
         {KAPPA_ARITH.toFixed(10)} (exact, imp-97096) constant across b, and
@@ -129,7 +130,7 @@ export default function Imp97553KappaDecompositionViz() {
         part.
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         stacked decomposition: kappa_arith (base) + kappa_cot(b) (band) = kappa(b)
       </h3>
       <StackPanel />
@@ -138,14 +139,14 @@ export default function Imp97553KappaDecompositionViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> presentation
         only, consuming the imp-97541 ladder verbatim. Establishes no
         operator positivity; changes no bound; the varying-modulus
         Bettin-Conrey mean-value limit stays the separate open sub-gap; PT

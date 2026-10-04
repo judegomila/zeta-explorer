@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP97554_POINTS, IMP97554_MIN_WITNESS } from '../data/imp-97554-b4-ceiling-minb-p0-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 // imp-97554: visualizes the imp-97500 RESULT 3 counterexample-size curve
 // log10(b) = Prod_{P0<=p<=Ycross} p vs the window floor P0, showing the
@@ -35,7 +36,7 @@ function MinBPanel() {
       <polyline
         points={sorted.map((p) => `${xOf(Math.log10(p.P0))},${yOf(p.log10b)}`).join(' ')}
         fill="none"
-        stroke="#4ade80"
+        stroke={ED.series3}
         strokeWidth={1.6}
       />
 
@@ -45,25 +46,25 @@ function MinBPanel() {
           cx={xOf(Math.log10(p.P0))}
           cy={yOf(p.log10b)}
           r={p.P0 === IMP97554_MIN_WITNESS.P0 ? 5.5 : 3.4}
-          fill={p.P0 === IMP97554_MIN_WITNESS.P0 ? '#facc15' : '#38bdf8'}
+          fill={p.P0 === IMP97554_MIN_WITNESS.P0 ? ED.brassDeco : ED.series1}
         />
       ))}
 
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
 
       {sorted.map((p) => (
-        <text key={`x${p.P0}`} x={xOf(Math.log10(p.P0))} y={padT + plotH + 16} textAnchor="middle" fill="#64748b" fontSize={7.5}>
+        <text key={`x${p.P0}`} x={xOf(Math.log10(p.P0))} y={padT + plotH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={7.5}>
           {p.P0}
         </text>
       ))}
       {[yMax, (yMax + yMin) / 2, yMin].map((v, i) => (
-        <text key={`y${i}`} x={padL - 6} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={8}>
+        <text key={`y${i}`} x={padL - 6} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8}>
           {(v / 1e6).toFixed(1)}M
         </text>
       ))}
 
-      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={9}>
+      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
         P0 (window floor prime, log scale) &mdash; green: log10(b) counterexample-size digits; yellow dot: interior minimum at P0=1409
       </text>
     </svg>
@@ -79,15 +80,15 @@ export default function Imp97554B4CeilingMinBP0Viz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(74,222,128,0.06)',
-          borderLeft: '3px solid #4ade80',
+          background: 'color-mix(in srgb, var(--series-3) 6%, transparent)',
+          borderLeft: '3px solid var(--series-3)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#4ade80' }}>Honest status:</strong> this
+        <strong style={{ color: 'var(--series-3)' }}>Honest status:</strong> this
         chart reuses the imp-97500 CROSSINGS table verbatim (no new
         measurement). The b/4-ceiling lower edge was already REFUTED
         (imp-97481) and is a dead route; this only visualizes the
@@ -96,7 +97,7 @@ export default function Imp97554B4CeilingMinBP0Viz() {
         Lambda&le;0.2 remains SOTA; RH open; NO QED.
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         For each window floor P0, b = Prod_{'{P0<=p<=Ycross}'} p is the
         smallest counterexample crossing the (already-refuted) b/4-ceiling
         surrogate threshold. Raising P0 deepens the exact limit L(P0) so
@@ -110,7 +111,7 @@ export default function Imp97554B4CeilingMinBP0Viz() {
         {IMP97554_MIN_WITNESS.vsImp97496P0379Log10b.toLocaleString()} digits).
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         log10(b) vs P0 (log scale)
       </h3>
       <MinBPanel />
@@ -119,14 +120,14 @@ export default function Imp97554B4CeilingMinBP0Viz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> presentation
         only, consuming the imp-97500 CROSSINGS table verbatim. A finer prime
         sweep (imp-97540) later pinned the true optimum at P0=1429, only
         ~0.004% smaller than this P0=1409 estimate &mdash; the coarse grid

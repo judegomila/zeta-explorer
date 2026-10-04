@@ -7,7 +7,7 @@ import { ANIMATIONS_INDEX } from '../data/animations-index.js';
  * in context, without duplicating the video markup or the honesty grade.
  *
  * Pass the film's `id` (from ANIMATIONS_INDEX). The component looks the film up,
- * renders a compact cream-themed player (poster -> click-to-play, metadata-only
+ * renders a compact player in a cream frame (poster -> click-to-play, metadata-only
  * preload so it never blocks the page), the film's honesty-grade badge verbatim,
  * and a link to the full walkthrough + scene list on /animations#id. Renders
  * nothing if the id is unknown, so a page can never crash on a missing film.
@@ -24,19 +24,19 @@ export default function AnimationEmbed({ id, caption }) {
       style={{
         margin: '26px 0',
         padding: 0,
-        border: '1px solid var(--hairline, #d5c9b2)',
+        border: '1px solid var(--rule)',
         borderRadius: 8,
         overflow: 'hidden',
-        background: 'var(--paper2, #f6f1e7)',
+        background: 'var(--paper-2)',
       }}
     >
-      <div style={{ background: '#0b0e14' }}>
+      <div style={{ padding: '10px 10px 0' }}>
         <video
           controls
           playsInline
           preload="metadata"
           poster={anim.posterSrc}
-          style={{ width: '100%', height: 'auto', display: 'block' }}
+          style={{ width: '100%', height: 'auto', display: 'block', borderRadius: 4, border: '1px solid var(--rule)' }}
         >
           <source src={anim.videoSrc} type="video/mp4" />
           Your browser doesn&rsquo;t support embedded video.{' '}
@@ -45,10 +45,10 @@ export default function AnimationEmbed({ id, caption }) {
       </div>
       <figcaption style={{ padding: '12px 14px' }}>
         <div style={{ display: 'flex', alignItems: 'baseline', gap: 10, flexWrap: 'wrap' }}>
-          <strong style={{ color: 'var(--ink, #1c1814)', fontSize: 15 }}>{anim.title}</strong>
+          <strong style={{ color: 'var(--ink)', fontSize: 15 }}>{anim.title}</strong>
           <span
             className="ed-mono"
-            style={{ color: 'var(--faint, #877b67)', fontSize: 11 }}
+            style={{ color: 'var(--ink-faint)', fontSize: 11 }}
           >
             {anim.durationLabel}
           </span>
@@ -57,7 +57,7 @@ export default function AnimationEmbed({ id, caption }) {
           style={{
             marginTop: 6,
             fontSize: 12,
-            color: 'var(--ink-soft, #4a4238)',
+            color: 'var(--ink-soft)',
             lineHeight: 1.5,
           }}
         >

@@ -14,7 +14,7 @@ export const FLOW_BLINDNESS_NO_GO = Object.freeze({
   status: 'THEOREM (unconditional, rests on Rodgers–Tao Λ ≥ 0)',
   paperPdf: '/flow-blindness-no-go.pdf',
   oneLine:
-    'The backward de Bruijn heat flow Φ↦e^{-εu²}Φ keeps Φ inside every soft ' +
+    'The backward de Bruijn heat flow Φ ↦ exp(−εu²)Φ keeps Φ inside every soft ' +
     'analytic class yet produces a non-real zero for every ε>0 (Rodgers–Tao ' +
     'Λ≥0). So no flow-stable hypothesis can force "all zeros real": a proof of ' +
     'RH must use arithmetic (Euler-product) input the twin-ladder/de-Branges ' +

@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP33802_PERRON_NORM_CURVE_VIZ_DATA } from '../data/imp-33802-perron-norm-curve-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 const {
   perronCeiling,
@@ -39,25 +40,25 @@ function PerronNormCurveChart() {
         y1={yAt(perronCeiling)}
         x2={padL + cW}
         y2={yAt(perronCeiling)}
-        stroke="#f87171"
+        stroke={ED.series2}
         strokeWidth={1.5}
         strokeDasharray="6,3"
       />
-      <text x={padL + cW - 4} y={yAt(perronCeiling) - 6} textAnchor="end" fill="#f87171" fontSize={9.5}>
+      <text x={padL + cW - 4} y={yAt(perronCeiling) - 6} textAnchor="end" fill={ED.series2} fontSize={9.5}>
         {`Perron ceiling (DEG+1 = ${perronCeiling})`}
       </text>
 
-      <polyline points={linePoints} fill="none" stroke="#38bdf8" strokeWidth={2} />
+      <polyline points={linePoints} fill="none" stroke={ED.series1} strokeWidth={2} />
       {perronNormCurve.map((p) => (
-        <circle key={`pt-${p.s}`} cx={xAt(p.s)} cy={yAt(p.operatorNorm)} r={3} fill="#38bdf8" stroke="#0a0f1a" strokeWidth={0.75} />
+        <circle key={`pt-${p.s}`} cx={xAt(p.s)} cy={yAt(p.operatorNorm)} r={3} fill={ED.series1} stroke={ED.paper} strokeWidth={0.75} />
       ))}
 
       {perronNormCurve.map((p) => (
-        <text key={`xt-${p.s}`} x={xAt(p.s)} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={8.5}>
+        <text key={`xt-${p.s}`} x={xAt(p.s)} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={8.5}>
           {p.s}
         </text>
       ))}
-      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         shear rate s (coupled, log-spaced ladder)
       </text>
 
@@ -65,7 +66,7 @@ function PerronNormCurveChart() {
         x={14}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={`rotate(-90 14 ${padT + cH / 2})`}
       >
@@ -103,25 +104,25 @@ function SofteningSeriesChart() {
         y1={yAt(unityLine)}
         x2={padL + cW}
         y2={yAt(unityLine)}
-        stroke="#facc15"
+        stroke={ED.brassDeco}
         strokeWidth={1.5}
         strokeDasharray="6,3"
       />
-      <text x={padL + cW - 4} y={yAt(unityLine) - 6} textAnchor="end" fill="#facc15" fontSize={9.5}>
+      <text x={padL + cW - 4} y={yAt(unityLine) - 6} textAnchor="end" fill={ED.brass} fontSize={9.5}>
         ||R|| = 1
       </text>
 
-      <polyline points={linePoints} fill="none" stroke="#a78bfa" strokeWidth={2} />
+      <polyline points={linePoints} fill="none" stroke={ED.series5} strokeWidth={2} />
       {decoupledSofteningSeries.map((p) => (
-        <circle key={`pt-${p.sPass}`} cx={xAt(p.sPass)} cy={yAt(p.operatorNorm)} r={3} fill="#a78bfa" stroke="#0a0f1a" strokeWidth={0.75} />
+        <circle key={`pt-${p.sPass}`} cx={xAt(p.sPass)} cy={yAt(p.operatorNorm)} r={3} fill={ED.series5} stroke={ED.paper} strokeWidth={0.75} />
       ))}
 
       {decoupledSofteningSeries.map((p) => (
-        <text key={`xt-${p.sPass}`} x={xAt(p.sPass)} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={8.5}>
+        <text key={`xt-${p.sPass}`} x={xAt(p.sPass)} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={8.5}>
           {p.sPass}
         </text>
       ))}
-      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         {`pass rate s_b (shear fixed at s_a = ${decoupledSofteningAnchorShear})`}
       </text>
 
@@ -129,7 +130,7 @@ function SofteningSeriesChart() {
         x={14}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={`rotate(-90 14 ${padT + cH / 2})`}
       >
@@ -144,7 +145,7 @@ export default function Imp33950PerronNormCurveViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="G7 Perron-Norm Curve + Decoupled Softening Probe (imp-33802 / imp-33950)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-33802 packaged the imp-33765 coupled ||R||(s) curve and the fixed-shear decoupled
         softening series into self-computing viz-data. This page is the first UI consumer. The
         top chart shows ||R||(s) rising monotonically with the shear/pass rate s, saturating below
@@ -154,12 +155,12 @@ export default function Imp33950PerronNormCurveViz() {
         line between s_b = 2 and s_b = 4.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         Coupled ||R||(s), s in {'{0.25 .. 32}'}
       </p>
       <PerronNormCurveChart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
         Decoupled softening series ||R||(s_b) at fixed s_a = {decoupledSofteningAnchorShear}
       </p>
       <SofteningSeriesChart />
@@ -168,14 +169,14 @@ export default function Imp33950PerronNormCurveViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> structural diagnostic only, not
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> structural diagnostic only, not
         a proof and not a reduction below RH; the decoupled probe is diagnostic (not an admissible
         imp-3066 modification); imp-3066 / imp-33765 / imp-33789 are untouched; positivity was not
         attempted; {honestCaveat.sota}

@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP34711_Q3_TRUST_BOUNDARY_FAR_TAIL_EXTENSION } from '../data/imp-34711-q3-trust-boundary-far-tail-extension.js';
+import { ED } from '../styles/tokens.js';
 
 const M = IMP34711_Q3_TRUST_BOUNDARY_FAR_TAIL_EXTENSION;
 
@@ -50,15 +51,15 @@ function DpStarLadderChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={plotW} height={plotH} fill="none" stroke="#334155" strokeWidth={1} />
-      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill="#94a3b8" fontSize={11}>
+      <rect x={padL} y={padT} width={plotW} height={plotH} fill="none" stroke={ED.rule} strokeWidth={1} />
+      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill={ED.inkSoft} fontSize={11}>
         log10(p), p = log N
       </text>
       <text
         x={16}
         y={padT + plotH / 2}
         textAnchor="middle"
-        fill="#94a3b8"
+        fill={ED.inkSoft}
         fontSize={11}
         transform={`rotate(-90 16 ${padT + plotH / 2})`}
       >
@@ -71,29 +72,29 @@ function DpStarLadderChart() {
         y1={sy(closedY1)}
         x2={sx(closedX2)}
         y2={sy(closedY2)}
-        stroke="#38bdf8"
+        stroke={ED.series1}
         strokeWidth={2}
         strokeDasharray="6 4"
       />
 
       {/* measured ladder */}
-      <path d={pathD} fill="none" stroke="#f87171" strokeWidth={1.5} />
+      <path d={pathD} fill="none" stroke={ED.series2} strokeWidth={1.5} />
       {points.map((pt) => (
         <circle
           key={pt.N}
           cx={sx(xOf(pt.N))}
           cy={sy(yOf(pt.dp_star))}
           r={3.5}
-          fill="#f87171"
-          stroke="#0f172a"
+          fill={ED.series2}
+          stroke={ED.paper}
           strokeWidth={0.5}
         />
       ))}
 
-      <text x={padL + 8} y={padT + 16} fill="#f87171" fontSize={11}>
+      <text x={padL + 8} y={padT + 16} fill={ED.series2} fontSize={11}>
         measured dp*(N), N = 1e13..1e100
       </text>
-      <text x={padL + 8} y={padT + 32} fill="#38bdf8" fontSize={11}>
+      <text x={padL + 8} y={padT + 32} fill={ED.series1} fontSize={11}>
         closed form: (W_max*eps/480)^(1/3) (log N)^(4/3), slope 4/3
       </text>
     </svg>
@@ -111,8 +112,8 @@ function RiseDecelerationBars() {
   const scaleMax = 25; // percent, axis ceiling
 
   const rows = [
-    { label: '1e13 -> 1e15 (first window)', pct: M.rise_pct_first_window, color: '#f87171' },
-    { label: '1e27 -> 1e29 (last window)', pct: M.rise_pct_last_window, color: '#38bdf8' },
+    { label: '1e13 -> 1e15 (first window)', pct: M.rise_pct_first_window, color: ED.series2 },
+    { label: '1e27 -> 1e29 (last window)', pct: M.rise_pct_last_window, color: ED.series1 },
   ];
 
   const cW = svgW - padL - padR;
@@ -124,10 +125,10 @@ function RiseDecelerationBars() {
         const y = 8 + i * (barH + gap);
         return (
           <g key={r.label}>
-            <text x={padL - 10} y={y + barH / 2 + 4} textAnchor="end" fill="#94a3b8" fontSize={11}>
+            <text x={padL - 10} y={y + barH / 2 + 4} textAnchor="end" fill={ED.inkSoft} fontSize={11}>
               {r.label}
             </text>
-            <rect x={padL} y={y} width={cW} height={barH} fill="none" stroke="#334155" strokeWidth={1} />
+            <rect x={padL} y={y} width={cW} height={barH} fill="none" stroke={ED.rule} strokeWidth={1} />
             <rect x={padL} y={y} width={Math.max(xOf(r.pct), 2)} height={barH} fill={r.color} />
             <text x={padL + xOf(r.pct) + 8} y={y + barH / 2 + 4} fill={r.color} fontSize={11} fontWeight={700}>
               {r.pct}%
@@ -144,7 +145,7 @@ export default function Imp34737DpStarFarTailLadderViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="dp* Far-Tail Ladder, N = 1e13..1e100 (imp-34737 / imp-34711)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-34711 extended the smallest-usable q-derivative step dp*(N) = (W_max&middot;eps&middot;|q| /
         (240&middot;|q3|))^(1/3) past N&nbsp;=&nbsp;1e15 to a 1e100 sentinel and found it keeps rising
         with no saturation and no turnover (F1), while the fractional per-two-decade rise decelerates
@@ -153,12 +154,12 @@ export default function Imp34737DpStarFarTailLadderViz() {
         (slope 4/3) to within {M.asymp_max_rel_err_1e15_to_1e100} relative error over 1e15..1e100 (F3).
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         dp*(N) ladder vs the (log N)^(4/3) closed-form overlay
       </p>
       <DpStarLadderChart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginTop: '1.5rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginTop: '1.5rem', marginBottom: '0.5rem' }}>
         Fractional rise decelerates like 1/log N
       </p>
       <RiseDecelerationBars />
@@ -172,26 +173,26 @@ export default function Imp34737DpStarFarTailLadderViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>N</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>dp*(N)</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>rise / two decades</th>
           </tr>
         </thead>
         <tbody>
-          <tr style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+          <tr style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{M.reference_foot.N.toExponential(0)}</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{M.reference_foot.dp_star}</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>&mdash;</td>
           </tr>
           {M.far_tail_table.map((r) => (
-            <tr key={r.N} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+            <tr key={r.N} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.N.toExponential(0)}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.dp_star}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.rise_pct_per_two_decades}%</td>
             </tr>
           ))}
-          <tr style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+          <tr style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>1e+100 (sentinel)</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{M.dp_star_at_1e100_sentinel}</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>&mdash;</td>
@@ -203,11 +204,11 @@ export default function Imp34737DpStarFarTailLadderViz() {
         style={{
           marginTop: '1rem',
           padding: '0.6rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
         }}
       >
         dp*(N) rises without bound (~{M.dp_star_at_1e29} at 1e29, ~{M.dp_star_at_1e100_sentinel} at
@@ -221,14 +222,14 @@ export default function Imp34737DpStarFarTailLadderViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page presenting the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-only page presenting the
         imp-34711 far-tail ladder (imported literals, no new computation); establishes no new numerical
         claim. q1..q3 are inherited central differences on the imp-3220/imp-3406 component model, not
         fresh closed forms, so the ladder is a property of that inherited model, not an independent

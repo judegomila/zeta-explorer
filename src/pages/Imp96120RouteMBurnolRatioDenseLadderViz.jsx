@@ -30,22 +30,23 @@ import {
   IMP96352_REACH_MODEL,
   IMP96352_HONEST_BANNER,
 } from '../data/imp-96352-route-m-vasyunin-solve-cost-model.js';
+import { ED } from '../styles/tokens.js';
 
 function AxisFrame({ children, svgW, svgH, padL, padR, padT, padB, xLabel, yLabel }) {
   const plotW = svgW - padL - padR;
   const plotH = svgH - padT - padB;
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill="#64748b" fontSize={9.5}>
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5}>
         {xLabel}
       </text>
       <text
         x={14}
         y={padT + plotH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={9.5}
         transform={`rotate(-90 14 ${padT + plotH / 2})`}
       >
@@ -93,17 +94,17 @@ function DenseLadderPanel() {
         y={yOf(IMP96120_BAND.hi)}
         width={plotW}
         height={yOf(IMP96120_BAND.lo) - yOf(IMP96120_BAND.hi)}
-        fill="#38bdf8"
+        fill={ED.series1}
         opacity={0.06}
       />
-      <line x1={padL} y1={yOf(1)} x2={padL + plotW} y2={yOf(1)} stroke="#f87171" strokeWidth={1} strokeDasharray="4 3" opacity={0.7} />
-      <text x={padL + plotW - 4} y={yOf(1) - 5} textAnchor="end" fill="#f87171" fontSize={9}>
+      <line x1={padL} y1={yOf(1)} x2={padL + plotW} y2={yOf(1)} stroke={ED.series2} strokeWidth={1} strokeDasharray="4 3" opacity={0.7} />
+      <text x={padL + plotW - 4} y={yOf(1) - 5} textAnchor="end" fill={ED.series2} fontSize={9}>
         ratio = 1 (RH + simple zeros)
       </text>
       {yTicks.map((v) => (
         <g key={`y${v}`}>
-          <line x1={padL - 4} y1={yOf(v)} x2={padL} y2={yOf(v)} stroke="#334155" strokeWidth={1} />
-          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={8.5}>
+          <line x1={padL - 4} y1={yOf(v)} x2={padL} y2={yOf(v)} stroke={ED.rule} strokeWidth={1} />
+          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8.5}>
             {v.toFixed(2)}
           </text>
         </g>
@@ -111,7 +112,7 @@ function DenseLadderPanel() {
       <polyline
         points={rows.map((r) => `${xOf(r.N)},${yOf(r.ratio)}`).join(' ')}
         fill="none"
-        stroke="#38bdf8"
+        stroke={ED.series1}
         strokeWidth={2}
         opacity={0.9}
       />
@@ -121,11 +122,11 @@ function DenseLadderPanel() {
           cx={xOf(r.N)}
           cy={yOf(r.ratio)}
           r={r.N === IMP96120_BAND.loN || r.N === IMP96120_BAND.hiN ? 4 : 2.5}
-          fill={r.N === IMP96120_BAND.loN || r.N === IMP96120_BAND.hiN ? '#fbbf24' : '#38bdf8'}
+          fill={r.N === IMP96120_BAND.loN || r.N === IMP96120_BAND.hiN ? ED.brassDeco : ED.series1}
         />
       ))}
       {[250, 1000, 1750, 2600].map((N) => (
-        <text key={N} x={xOf(N)} y={padT + plotH + 16} textAnchor="middle" fill="#64748b" fontSize={9}>
+        <text key={N} x={xOf(N)} y={padT + plotH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
           {N}
         </text>
       ))}
@@ -146,18 +147,18 @@ export default function Imp96120RouteMBurnolRatioDenseLadderViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> {IMP96120_HONEST_BANNER}
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> {IMP96120_HONEST_BANNER}
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         The Route M Nyman-Beurling distance ratio(N) = d_N&sup2; log N / &Sigma;_&rho; 1/|&rho;|&sup2;
         (the Burnol-normalized quantity, which RH + simple zeros predicts approaches 1) was measured
         on a dense ten-rung ladder from N={first.N} to N={last.N} against three overlapping coarser
@@ -167,7 +168,7 @@ export default function Imp96120RouteMBurnolRatioDenseLadderViz() {
         accessible range.
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         ratio(N) across the dense ladder vs the ratio=1 target
       </h3>
       <DenseLadderPanel />
@@ -176,14 +177,14 @@ export default function Imp96120RouteMBurnolRatioDenseLadderViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> the shaded band marks the
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> the shaded band marks the
         ten-rung range [{IMP96120_BAND.lo.toFixed(4)}, {IMP96120_BAND.hi.toFixed(4)}]; the highlighted
         points are the low point at N={IMP96120_BAND.loN} and the high point at N={IMP96120_BAND.hiN}.
         {' '}{IMP96120_VERDICT_SUMMARY.conclusion}
@@ -193,40 +194,40 @@ export default function Imp96120RouteMBurnolRatioDenseLadderViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page consuming the imp-96120
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the imp-96120
         baked viz-data (every value copied verbatim from imp-96094's own IMP96094_ROWS, no
         re-derivation of the underlying Gram / Cholesky numerics). {IMP96120_HONEST_BANNER}
       </div>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginTop: '1.75rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginTop: '1.75rem', marginBottom: '0.5rem' }}>
         Extension ladder N=3000..6000 (imp-96105) and the SPD lam_min descent
       </h3>
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '0.75rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '0.75rem', maxWidth: 700 }}>
         The exact Vasyunin Gram was rebuilt once to N=6000, extending the dense ladder above past
         its N=2600 cap. Every extension rung sits below the N=2600 peak of{' '}
         {IMP96105_BANDS.full.hi.toFixed(4)} and re-crosses below 1, continuing the oscillation
         rather than tightening toward it: worst deviation {IMP96105_BANDS.extOnly.worstDev.toFixed(4)}{' '}
         (N=3500), matching the pre-extension worst in magnitude.
       </p>
-      <table style={{ width: '100%', maxWidth: 560, borderCollapse: 'collapse', fontSize: '0.82rem', color: '#94a3b8', marginBottom: '0.75rem' }}>
+      <table style={{ width: '100%', maxWidth: 560, borderCollapse: 'collapse', fontSize: '0.82rem', color: 'var(--ink-soft)', marginBottom: '0.75rem' }}>
         <thead>
-          <tr style={{ borderBottom: '1px solid #334155' }}>
-            <th style={{ textAlign: 'right', padding: '0.3rem 0.6rem', color: '#64748b' }}>N</th>
-            <th style={{ textAlign: 'right', padding: '0.3rem 0.6rem', color: '#64748b' }}>d_N&sup2;</th>
-            <th style={{ textAlign: 'right', padding: '0.3rem 0.6rem', color: '#64748b' }}>ratio(N)</th>
-            <th style={{ textAlign: 'right', padding: '0.3rem 0.6rem', color: '#64748b' }}>lam_min</th>
+          <tr style={{ borderBottom: '1px solid var(--rule)' }}>
+            <th style={{ textAlign: 'right', padding: '0.3rem 0.6rem', color: 'var(--ink-faint)' }}>N</th>
+            <th style={{ textAlign: 'right', padding: '0.3rem 0.6rem', color: 'var(--ink-faint)' }}>d_N&sup2;</th>
+            <th style={{ textAlign: 'right', padding: '0.3rem 0.6rem', color: 'var(--ink-faint)' }}>ratio(N)</th>
+            <th style={{ textAlign: 'right', padding: '0.3rem 0.6rem', color: 'var(--ink-faint)' }}>lam_min</th>
           </tr>
         </thead>
         <tbody>
           {IMP96105_EXT_ROWS.map((r) => (
-            <tr key={r.N} style={{ borderBottom: '1px solid rgba(51,65,85,0.4)' }}>
+            <tr key={r.N} style={{ borderBottom: '1px solid color-mix(in srgb, var(--rule) 40%, transparent)' }}>
               <td style={{ textAlign: 'right', padding: '0.3rem 0.6rem' }}>{r.N}</td>
               <td style={{ textAlign: 'right', padding: '0.3rem 0.6rem' }}>{r.dN2.toFixed(6)}</td>
               <td style={{ textAlign: 'right', padding: '0.3rem 0.6rem' }}>{r.ratio.toFixed(4)}</td>
@@ -238,15 +239,15 @@ export default function Imp96120RouteMBurnolRatioDenseLadderViz() {
       <div
         style={{
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
           marginBottom: '0.75rem',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>lam_min descent:</strong> across the full N=250..6000
+        <strong style={{ color: 'var(--ink-soft)' }}>lam_min descent:</strong> across the full N=250..6000
         ladder (imp-96094 rungs plus this extension) lam_min falls smoothly and monotonically from
         2.06e-5 (N=250) to {IMP96105_EXT_ROWS[IMP96105_EXT_ROWS.length - 1].lamMin.toExponential(2)}{' '}
         (N=6000): the Gram stays symmetric positive-definite throughout, so the ratio(N) oscillation
@@ -257,33 +258,33 @@ export default function Imp96120RouteMBurnolRatioDenseLadderViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status (imp-96105):</strong> {IMP96105_HONEST_BANNER}
+        <strong style={{ color: 'var(--series-2)' }}>Honest status (imp-96105):</strong> {IMP96105_HONEST_BANNER}
       </div>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginTop: '1.75rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginTop: '1.75rem', marginBottom: '0.5rem' }}>
         w&nbsp;~&nbsp;4.08 swing attribution (imp-96189): variance-explained R&sup2; per candidate
       </h3>
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '0.75rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '0.75rem', maxWidth: 700 }}>
         The imp-96147 residual (ratio(N) with the c0 + c1/logN smooth term removed) carries a
         genuine period-1.5 (w&nbsp;~&nbsp;4.08) swing that imp-96163 showed is not a gamma_1
         aliasing artifact. Four candidate sources were fit by ordinary least squares against the
         17-point residual and scored by variance explained (R&sup2;):
       </p>
-      <table style={{ width: '100%', maxWidth: 560, borderCollapse: 'collapse', fontSize: '0.82rem', color: '#94a3b8', marginBottom: '0.75rem' }}>
+      <table style={{ width: '100%', maxWidth: 560, borderCollapse: 'collapse', fontSize: '0.82rem', color: 'var(--ink-soft)', marginBottom: '0.75rem' }}>
         <thead>
-          <tr style={{ borderBottom: '1px solid #334155' }}>
-            <th style={{ textAlign: 'left', padding: '0.3rem 0.6rem', color: '#64748b' }}>Candidate</th>
-            <th style={{ textAlign: 'right', padding: '0.3rem 0.6rem', color: '#64748b' }}>w</th>
-            <th style={{ textAlign: 'right', padding: '0.3rem 0.6rem', color: '#64748b' }}>R&sup2;</th>
-            <th style={{ textAlign: 'left', padding: '0.3rem 0.6rem', color: '#64748b' }}>Verdict</th>
+          <tr style={{ borderBottom: '1px solid var(--rule)' }}>
+            <th style={{ textAlign: 'left', padding: '0.3rem 0.6rem', color: 'var(--ink-faint)' }}>Candidate</th>
+            <th style={{ textAlign: 'right', padding: '0.3rem 0.6rem', color: 'var(--ink-faint)' }}>w</th>
+            <th style={{ textAlign: 'right', padding: '0.3rem 0.6rem', color: 'var(--ink-faint)' }}>R&sup2;</th>
+            <th style={{ textAlign: 'left', padding: '0.3rem 0.6rem', color: 'var(--ink-faint)' }}>Verdict</th>
           </tr>
         </thead>
         <tbody>
@@ -302,11 +303,11 @@ export default function Imp96120RouteMBurnolRatioDenseLadderViz() {
             { label: 'q3..q6 fixed band', w: null, r2: IMP96189_BAND.q3_q4_q5_q6_R2, verdict: 'captures 89.7%' },
             { label: 'gamma_1 zero-tone (control)', w: IMP96189_GAMMA1, r2: IMP96189_GAMMA1_TONE.R2, verdict: 'negligible' },
           ].map((row) => (
-            <tr key={row.label} style={{ borderBottom: '1px solid rgba(51,65,85,0.4)' }}>
+            <tr key={row.label} style={{ borderBottom: '1px solid color-mix(in srgb, var(--rule) 40%, transparent)' }}>
               <td style={{ textAlign: 'left', padding: '0.3rem 0.6rem' }}>{row.label}</td>
               <td style={{ textAlign: 'right', padding: '0.3rem 0.6rem' }}>{row.w == null ? '—' : row.w.toFixed(3)}</td>
               <td style={{ textAlign: 'right', padding: '0.3rem 0.6rem' }}>{row.r2.toFixed(4)}</td>
-              <td style={{ textAlign: 'left', padding: '0.3rem 0.6rem', color: row.verdict === 'dominant' || row.verdict === 'ruled out' ? '#64748b' : '#94a3b8' }}>{row.verdict}</td>
+              <td style={{ textAlign: 'left', padding: '0.3rem 0.6rem', color: row.verdict === 'dominant' || row.verdict === 'ruled out' ? 'var(--ink-faint)' : 'var(--ink-soft)' }}>{row.verdict}</td>
             </tr>
           ))}
         </tbody>
@@ -314,15 +315,15 @@ export default function Imp96120RouteMBurnolRatioDenseLadderViz() {
       <div
         style={{
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
           marginBottom: '0.75rem',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>lam_min (not in the table, ruled out as a source):</strong>{' '}
+        <strong style={{ color: 'var(--ink-soft)' }}>lam_min (not in the table, ruled out as a source):</strong>{' '}
         Pearson r against the residual is {IMP96189_LAMMIN.corrResidLamMin.toFixed(4)} (raw) and{' '}
         {IMP96189_LAMMIN.corrResidLogLamMin.toFixed(4)} (log), but lam_min is strictly monotone-decreasing
         ({IMP96189_LAMMIN.lamMinUpwardSteps} upward steps) over the tail where the residual only changes
@@ -333,35 +334,35 @@ export default function Imp96120RouteMBurnolRatioDenseLadderViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Verdict (imp-96189):</strong> {IMP96189_VERDICT.conclusion}
+        <strong style={{ color: 'var(--series-2)' }}>Verdict (imp-96189):</strong> {IMP96189_VERDICT.conclusion}
         <br />
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> {IMP96189_HONEST_BANNER}
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> {IMP96189_HONEST_BANNER}
       </div>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginTop: '1.75rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginTop: '1.75rem', marginBottom: '0.5rem' }}>
         Ladder run to N={IMP96325_RUN.NMAX.toLocaleString()} (imp-96325): accessible range only
       </h3>
       <div
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status (imp-96325):</strong> the ladder above was
+        <strong style={{ color: 'var(--series-2)' }}>Honest status (imp-96325):</strong> the ladder above was
         extended to N={IMP96325_RUN.NMAX.toLocaleString()} as a single dedicated run. That run answers
         Q1 (does ratio(N) approach the Burnol constant?) for the accessible range only: NO, the
         finite-N plateau/oscillation seen above persists to N={IMP96325_RUN.NMAX.toLocaleString()} with
@@ -370,26 +371,26 @@ export default function Imp96120RouteMBurnolRatioDenseLadderViz() {
         {' '}{IMP96325_HONEST_BANNER}
       </div>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginTop: '1.75rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginTop: '1.75rem', marginBottom: '0.5rem' }}>
         Reach cost model reprice (imp-96352): BUILD-only vs the actual N={IMP96325_RUN.NMAX.toLocaleString()} run
       </h3>
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '0.75rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '0.75rem', maxWidth: 700 }}>
         The imp-96230 BUILD-only budget ({IMP96352_BUILD_ONLY_ESTIMATE.totalWallSeconds} s: Gram build,
         one dense eigvalsh, and 25 rung Cholesky factorizations) omitted the per-rung inverse-power
         lam_min solve. The imp-96325 run above actually took {IMP96352_BUILD_ONLY_ESTIMATE.underCountFactor.toFixed(2)}&times;{' '}
         that estimate, so a wall-clock budget reaches a much smaller N than the BUILD-only figure implied:
       </p>
-      <table style={{ width: '100%', maxWidth: 700, borderCollapse: 'collapse', fontSize: '0.82rem', color: '#94a3b8', marginBottom: '0.75rem' }}>
+      <table style={{ width: '100%', maxWidth: 700, borderCollapse: 'collapse', fontSize: '0.82rem', color: 'var(--ink-soft)', marginBottom: '0.75rem' }}>
         <thead>
-          <tr style={{ borderBottom: '1px solid #334155' }}>
-            <th style={{ textAlign: 'left', padding: '0.3rem 0.6rem', color: '#64748b' }}>Budget</th>
-            <th style={{ textAlign: 'right', padding: '0.3rem 0.6rem', color: '#64748b' }}>Reachable N</th>
-            <th style={{ textAlign: 'left', padding: '0.3rem 0.6rem', color: '#64748b' }}>Note</th>
+          <tr style={{ borderBottom: '1px solid var(--rule)' }}>
+            <th style={{ textAlign: 'left', padding: '0.3rem 0.6rem', color: 'var(--ink-faint)' }}>Budget</th>
+            <th style={{ textAlign: 'right', padding: '0.3rem 0.6rem', color: 'var(--ink-faint)' }}>Reachable N</th>
+            <th style={{ textAlign: 'left', padding: '0.3rem 0.6rem', color: 'var(--ink-faint)' }}>Note</th>
           </tr>
         </thead>
         <tbody>
           {IMP96352_REACH.map((row) => (
-            <tr key={row.budgetSeconds} style={{ borderBottom: '1px solid rgba(51,65,85,0.4)' }}>
+            <tr key={row.budgetSeconds} style={{ borderBottom: '1px solid color-mix(in srgb, var(--rule) 40%, transparent)' }}>
               <td style={{ textAlign: 'left', padding: '0.3rem 0.6rem' }}>{row.budgetLabel}</td>
               <td style={{ textAlign: 'right', padding: '0.3rem 0.6rem' }}>{row.reachN.toLocaleString()}</td>
               <td style={{ textAlign: 'left', padding: '0.3rem 0.6rem' }}>{row.note}</td>
@@ -401,15 +402,15 @@ export default function Imp96120RouteMBurnolRatioDenseLadderViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Binding constraint:</strong> {IMP96352_REACH_MODEL.bindingConstraint}
+        <strong style={{ color: 'var(--ink-soft)' }}>Binding constraint:</strong> {IMP96352_REACH_MODEL.bindingConstraint}
         {' '}Reference only (imp-96352); no new value derived here. {IMP96352_HONEST_BANNER}
       </div>
     </div>

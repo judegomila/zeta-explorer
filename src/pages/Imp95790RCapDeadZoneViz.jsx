@@ -8,11 +8,12 @@ import {
 import { IMP95801_ORDINATE_SOURCE_REACH_AUDIT } from '../data/imp-95801-ordinate-source-reach-audit.js';
 import { IMP95783_RTRUE_VS_RCAP_GAP_DEADZONE } from '../data/imp-95783-rtrue-vs-rcap-gap-deadzone.js';
 import { IMP95805_SLACK_EXCLUDE_C0_ARTIFACT_MONOTONICITY } from '../data/imp-95805-slack-exclude-c0-artifact-monotonicity.js';
+import { ED, alpha } from '../styles/tokens.js';
 
 const LANDMARK_COLOR = {
-  ceiling: '#38bdf8',
-  crossover: '#f59e0b',
-  window_bottom: '#a78bfa',
+  ceiling: ED.series1,
+  crossover: ED.series4,
+  window_bottom: ED.series5,
 };
 
 // r_cap(T) vs log10 T: the seven measured envelope points, the three named
@@ -72,33 +73,33 @@ function RCapChart() {
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
       {/* measurable regime (below ceiling, imp-95783) vs dead zone (above ceiling, imp-95766) */}
-      <rect x={xOf(xMin)} y={padT} width={xOf(ceilingLog10T) - xOf(xMin)} height={plotH} fill="rgba(52,211,153,0.05)" />
-      <rect x={xOf(ceilingLog10T)} y={padT} width={xOf(xMax) - xOf(ceilingLog10T)} height={plotH} fill="rgba(248,113,113,0.04)" />
-      <text x={xOf(xMin) + 4} y={padT - 6} textAnchor="start" fill="#34d399" fontSize={9}>
+      <rect x={xOf(xMin)} y={padT} width={xOf(ceilingLog10T) - xOf(xMin)} height={plotH} fill={alpha(ED.series3, 0.05)} />
+      <rect x={xOf(ceilingLog10T)} y={padT} width={xOf(xMax) - xOf(ceilingLog10T)} height={plotH} fill={alpha(ED.series2, 0.04)} />
+      <text x={xOf(xMin) + 4} y={padT - 6} textAnchor="start" fill={ED.series3} fontSize={9}>
         measurable regime (imp-95783)
       </text>
-      <text x={xOf(xMax) - 4} y={padT - 6} textAnchor="end" fill="#f87171" fontSize={9}>
+      <text x={xOf(xMax) - 4} y={padT - 6} textAnchor="end" fill={ED.series2} fontSize={9}>
         dead zone (imp-95766)
       </text>
 
       {yTicks.map((t) => (
-        <line key={`gy${t}`} x1={padL} y1={yOf(t)} x2={padL + plotW} y2={yOf(t)} stroke="#1e293b" strokeWidth={1} />
+        <line key={`gy${t}`} x1={padL} y1={yOf(t)} x2={padL + plotW} y2={yOf(t)} stroke={ED.ruleSoft} strokeWidth={1} />
       ))}
 
       {/* (1 - r_cap) margin-below-one band */}
-      <path d={bandPath} fill="rgba(96,165,250,0.10)" />
+      <path d={bandPath} fill={alpha(ED.series1, 0.1)} />
 
       {/* imp-95783 sub-ceiling slack band s(T) = rTrue/rCap between the true ratio and the envelope */}
-      <path d={slackBandPath} fill="rgba(52,211,153,0.18)" />
-      <path d={rCapSubPath} fill="none" stroke="#60a5fa" strokeWidth={1.5} strokeDasharray="2 3" />
-      <path d={rTrueSubPath} fill="none" stroke="#34d399" strokeWidth={2} />
+      <path d={slackBandPath} fill={alpha(ED.series3, 0.18)} />
+      <path d={rCapSubPath} fill="none" stroke={ED.series1} strokeWidth={1.5} strokeDasharray="2 3" />
+      <path d={rTrueSubPath} fill="none" stroke={ED.series3} strokeWidth={2} />
       {measuredRows.map((r) => (
-        <circle key={`rtrue-${r.Tc}`} cx={xOf(r.log10Tc)} cy={yOf(r.rTrue)} r={2.5} fill="#34d399" />
+        <circle key={`rtrue-${r.Tc}`} cx={xOf(r.log10Tc)} cy={yOf(r.rTrue)} r={2.5} fill={ED.series3} />
       ))}
 
       {/* GUE / margin-top asymptote r_cap = 1 */}
-      <line x1={padL} y1={gueY} x2={padL + plotW} y2={gueY} stroke="#94a3b8" strokeWidth={1} strokeDasharray="4 4" />
-      <text x={padL + plotW - 4} y={gueY - 5} textAnchor="end" fill="#94a3b8" fontSize={9}>
+      <line x1={padL} y1={gueY} x2={padL + plotW} y2={gueY} stroke={ED.rule} strokeWidth={1} strokeDasharray="4 4" />
+      <text x={padL + plotW - 4} y={gueY - 5} textAnchor="end" fill={ED.inkSoft} fontSize={9}>
         conservatism ceiling r_cap=1
       </text>
 
@@ -113,9 +114,9 @@ function RCapChart() {
         );
       })}
 
-      <path d={curvePath} fill="none" stroke="#60a5fa" strokeWidth={2} />
+      <path d={curvePath} fill="none" stroke={ED.series1} strokeWidth={2} />
       {IMP95790_CURVE_POINTS.map((p) => (
-        <circle key={p.T} cx={xOf(p.log10T)} cy={yOf(p.rCap)} r={2.5} fill="#60a5fa" />
+        <circle key={p.T} cx={xOf(p.log10T)} cy={yOf(p.rCap)} r={2.5} fill={ED.series1} />
       ))}
 
       {IMP95790_LANDMARKS.map((m, i) => {
@@ -130,25 +131,25 @@ function RCapChart() {
       })}
 
       {IMP95790_CURVE_POINTS.map((p) => (
-        <text key={`tx${p.T}`} x={xOf(p.log10T)} y={padT + plotH + 16} textAnchor="middle" fill="#64748b" fontSize={8.5}>
+        <text key={`tx${p.T}`} x={xOf(p.log10T)} y={padT + plotH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={8.5}>
           {p.log10T.toFixed(1)}
         </text>
       ))}
       {yTicks.map((t) => (
-        <text key={`ty${t}`} x={padL - 8} y={yOf(t) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+        <text key={`ty${t}`} x={padL - 8} y={yOf(t) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
           {t.toFixed(1)}
         </text>
       ))}
 
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={9.5}>
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5}>
         log10 T
       </text>
       <text
         x={12}
         y={padT + plotH / 2}
         textAnchor="middle"
-        fill="#94a3b8"
+        fill={ED.inkSoft}
         fontSize={9.5}
         transform={`rotate(-90 12 ${padT + plotH / 2})`}
       >
@@ -171,18 +172,18 @@ export default function Imp95790RCapDeadZoneViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> {IMP95790_CAVEAT_BANNER}
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> {IMP95790_CAVEAT_BANNER}
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-95766 measured the imp-95722 derived envelope r_cap(T) across the ~3.28-decade
         dead zone that the imp-95750 direct sd(C&minus;E) measurement cannot reach: it falls
         monotonically from {ceiling.rCap.toFixed(4)} at the direct-measurement ceiling
@@ -198,15 +199,15 @@ export default function Imp95790RCapDeadZoneViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(56,189,248,0.06)',
-          borderLeft: '3px solid #38bdf8',
+          background: 'color-mix(in srgb, var(--series-1) 6%, transparent)',
+          borderLeft: '3px solid var(--series-1)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#38bdf8' }}>Verified-ordinate reach ceiling (imp-95801 audit):</strong>{' '}
+        <strong style={{ color: 'var(--series-1)' }}>Verified-ordinate reach ceiling (imp-95801 audit):</strong>{' '}
         the top verified Odlyzko ordinate anywhere in the repo is{' '}
         gamma_1e6&nbsp;=&nbsp;{IMP95801_ORDINATE_SOURCE_REACH_AUDIT.reachCeiling.value.toExponential(6)}{' '}
         ({IMP95801_ORDINATE_SOURCE_REACH_AUDIT.reachCeiling.source}). No other in-repo ordinate
@@ -223,15 +224,15 @@ export default function Imp95790RCapDeadZoneViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.05)',
-          borderLeft: '3px solid #94a3b8',
+          background: 'color-mix(in srgb, var(--ink-soft) 5%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#cbd5e1' }}>Honest status (imp-95805):</strong> the sixth
+        <strong style={{ color: 'var(--ink)' }}>Honest status (imp-95805):</strong> the sixth
         measured-regime slack point above, T&nbsp;=&nbsp;1.5e5, sits at s&nbsp;=&nbsp;1.0000
         only because it is the anchor pinning the imp-95766 offset C0 &mdash; a known artifact.
         Excluding that anchor point does NOT restore monotonicity in the remaining five heights:
@@ -244,10 +245,10 @@ export default function Imp95790RCapDeadZoneViz() {
         changes no bound; NO QED.
       </div>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         r_cap(T) vs height (log scale), margin-below-one shaded
       </h3>
-      <p style={{ color: '#64748b', fontSize: '0.78rem', marginBottom: '0.5rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-faint)', fontSize: '0.78rem', marginBottom: '0.5rem', maxWidth: 700 }}>
         Green shading (below the ceiling) overlays the imp-95783 measured-regime slack band:
         the solid green line is the true ratio r(T), the dashed blue line the envelope r_cap(T)
         recomputed at the same six heights, and the gap between them is the slack s(T) = r/r_cap
@@ -256,9 +257,9 @@ export default function Imp95790RCapDeadZoneViz() {
       </p>
       <RCapChart />
 
-      <table style={{ width: '100%', fontSize: '0.78rem', color: '#cbd5e1', borderCollapse: 'collapse', marginTop: '1.25rem' }}>
+      <table style={{ width: '100%', fontSize: '0.78rem', color: 'var(--ink)', borderCollapse: 'collapse', marginTop: '1.25rem' }}>
         <thead>
-          <tr style={{ color: '#64748b' }}>
+          <tr style={{ color: 'var(--ink-faint)' }}>
             <th style={{ textAlign: 'left', paddingBottom: 4 }}>T</th>
             <th style={{ textAlign: 'right', paddingBottom: 4 }}>log10 T</th>
             <th style={{ textAlign: 'right', paddingBottom: 4 }}>r_cap(T)</th>
@@ -267,10 +268,10 @@ export default function Imp95790RCapDeadZoneViz() {
         </thead>
         <tbody>
           {IMP95790_CURVE_POINTS.map((p) => (
-            <tr key={p.T} style={{ borderTop: '1px solid rgba(148,163,184,0.15)' }}>
+            <tr key={p.T} style={{ borderTop: '1px solid color-mix(in srgb, var(--rule) 15%, transparent)' }}>
               <td style={{ padding: '3px 0' }}>{p.T.toExponential(3)}</td>
               <td style={{ textAlign: 'right' }}>{p.log10T.toFixed(2)}</td>
-              <td style={{ textAlign: 'right', color: '#60a5fa' }}>{p.rCap.toFixed(4)}</td>
+              <td style={{ textAlign: 'right', color: 'var(--series-1)' }}>{p.rCap.toFixed(4)}</td>
               <td style={{ textAlign: 'right' }}>{p.marginBelowOne.toFixed(4)}</td>
             </tr>
           ))}
@@ -281,14 +282,14 @@ export default function Imp95790RCapDeadZoneViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page rendering the frozen
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page rendering the frozen
         imp-95766 dead-zone measurement (no re-derivation). Supplies no new bound, establishes no
         operator positivity, no RH claim; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. NO QED.
       </div>

@@ -4,6 +4,7 @@ import { getPrimes, primeFrequency } from '../math/primes.js';
 import { oscillatorStage, systemHamiltonian, hamiltonianSigmaScan, losslessBridge } from '../math/oscillators.js';
 import { ZETA_ZEROS } from '../math/zeta.js';
 import { InlineMath, BlockMath } from './KaTeXMath.jsx';
+import { ED, alpha } from '../styles/tokens.js';
 
 const TABS = [
   { id: 'per-prime', label: 'Per-Prime Energy' },
@@ -104,22 +105,22 @@ function PerPrimeTab() {
 
     // Axes
     g.append('g').attr('transform', `translate(0,${h})`).call(d3.axisBottom(x).ticks(10).tickFormat(d => d.toFixed(1)))
-      .selectAll('text').attr('fill', '#64748b').attr('font-size', 10);
+      .selectAll('text').attr('fill', ED.inkFaint).attr('font-size', 10);
     g.append('g').call(d3.axisLeft(y).ticks(6).tickFormat(d => d.toFixed(1)))
-      .selectAll('text').attr('fill', '#64748b').attr('font-size', 10);
-    g.selectAll('.domain, .tick line').attr('stroke', '#2a3050');
+      .selectAll('text').attr('fill', ED.inkFaint).attr('font-size', 10);
+    g.selectAll('.domain, .tick line').attr('stroke', ED.rule);
 
     // Horizontal gridlines
     const gridG = g.append('g').call(d3.axisLeft(y).ticks(6).tickSize(-w).tickFormat(''));
     gridG.select('.domain').remove();
-    gridG.selectAll('.tick line').attr('stroke', '#1e293b').attr('stroke-dasharray', '4,4').attr('stroke-width', 0.8);
+    gridG.selectAll('.tick line').attr('stroke', ED.ruleSoft).attr('stroke-dasharray', '4,4').attr('stroke-width', 0.8);
 
     // Critical line
     g.append('line')
       .attr('x1', x(0.5)).attr('y1', 0).attr('x2', x(0.5)).attr('y2', h)
-      .attr('stroke', '#ef4444').attr('stroke-width', 1.5).attr('stroke-dasharray', '6,4').attr('opacity', 0.7);
+      .attr('stroke', ED.series2).attr('stroke-width', 1.5).attr('stroke-dasharray', '6,4').attr('opacity', 0.7);
     g.append('text').attr('x', x(0.5) + 6).attr('y', 14)
-      .attr('fill', '#ef4444').attr('font-size', 11).attr('font-weight', 600).text('σ = \u00BD');
+      .attr('fill', ED.series2).attr('font-size', 11).attr('font-weight', 600).text('σ = \u00BD');
 
     // Draw curves
     const line = d3.line().x(d => x(d.sigma)).y(d => y(d.energy)).curve(d3.curveBasis);
@@ -134,7 +135,7 @@ function PerPrimeTab() {
       const color = PRIME_COLORS[i % PRIME_COLORS.length];
       g.append('circle')
         .attr('cx', x(m.sigma)).attr('cy', y(m.energy)).attr('r', 5)
-        .attr('fill', color).attr('stroke', '#0a0e1a').attr('stroke-width', 2);
+        .attr('fill', color).attr('stroke', ED.paper).attr('stroke-width', 2);
     });
 
     // Legend
@@ -142,7 +143,7 @@ function PerPrimeTab() {
     legend.append('rect')
       .attr('x', -8).attr('y', -10)
       .attr('width', 90).attr('height', curves.length * 17 + 8)
-      .attr('rx', 4).attr('fill', 'rgba(13,17,23,0.85)').attr('stroke', '#1e293b');
+      .attr('rx', 4).attr('fill', alpha(ED.paper, 0.85)).attr('stroke', ED.ruleSoft);
     curves.forEach((c, i) => {
       const color = PRIME_COLORS[i % PRIME_COLORS.length];
       legend.append('line').attr('x1', 0).attr('y1', i * 17).attr('x2', 16).attr('y2', i * 17)
@@ -153,9 +154,9 @@ function PerPrimeTab() {
 
     // Axis labels
     svg.append('text').attr('x', width / 2).attr('y', height - 6)
-      .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12).text('σ = Re(s)');
+      .attr('text-anchor', 'middle').attr('fill', ED.inkSoft).attr('font-size', 12).text('σ = Re(s)');
     svg.append('text').attr('transform', `translate(16, ${margin.top + h / 2}) rotate(-90)`)
-      .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12).text('E_p(σ)');
+      .attr('text-anchor', 'middle').attr('fill', ED.inkSoft).attr('font-size', 12).text('E_p(σ)');
 
   }, [curves, minima]);
 
@@ -211,7 +212,7 @@ function PerPrimeTab() {
             return bestDist < 1 ? (
               <span style={{
                 marginLeft: 6, fontSize: 11, fontFamily: 'var(--font-mono)',
-                color: bestDist < 0.3 ? '#10b981' : '#64748b',
+                color: bestDist < 0.3 ? 'var(--series-3)' : 'var(--ink-faint)',
                 cursor: 'pointer', borderBottom: '1px dashed currentColor',
               }}
                 title={`Click to snap t to γ${bestIdx + 1} = ${ZETA_ZEROS[bestIdx].toFixed(3)}`}
@@ -226,7 +227,7 @@ function PerPrimeTab() {
           <label>Primes</label>
           <input type="range" min="3" max="30" step="1" value={numPrimes}
             onChange={e => setNumPrimes(+e.target.value)} />
-          <span className="control-value">{numPrimes} <span style={{ color: '#64748b', fontSize: 11 }}>(up to p={getPrimes(numPrimes)[numPrimes - 1]})</span></span>
+          <span className="control-value">{numPrimes} <span style={{ color: 'var(--ink-faint)', fontSize: 11 }}>(up to p={getPrimes(numPrimes)[numPrimes - 1]})</span></span>
         </div>
       </div>
       <div className="viz-container">
@@ -239,7 +240,7 @@ function PerPrimeTab() {
             <div style={{ fontFamily: 'var(--font-mono)', fontSize: 12, marginTop: 4 }}>
               <InlineMath tex={"\\sigma_{\\min} = " + s.minSigma.toFixed(3)} />
             </div>
-            <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: '#64748b' }}>
+            <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--ink-faint)' }}>
               <InlineMath tex={"E_{\\min} = " + s.minE.toFixed(3)} />
             </div>
           </div>
@@ -310,7 +311,7 @@ function GradientDescentTab() {
     const yScale = val => pad.t + th - (val / hMax) * th;
 
     // Grid lines
-    ctx.strokeStyle = '#1e293b';
+    ctx.strokeStyle = ED.ruleSoft;
     ctx.lineWidth = 0.5;
     for (let i = 0; i <= 5; i++) {
       const gy = pad.t + (i / 5) * th;
@@ -318,7 +319,7 @@ function GradientDescentTab() {
     }
 
     // H(sigma) curve
-    ctx.strokeStyle = '#10b981';
+    ctx.strokeStyle = ED.series3;
     ctx.lineWidth = 2;
     ctx.beginPath();
     curve.forEach((d, i) => {
@@ -328,7 +329,7 @@ function GradientDescentTab() {
     ctx.stroke();
 
     // Critical line
-    ctx.strokeStyle = '#ef4444';
+    ctx.strokeStyle = ED.series2;
     ctx.lineWidth = 1.5;
     ctx.setLineDash([6, 4]);
     ctx.beginPath();
@@ -339,7 +340,7 @@ function GradientDescentTab() {
 
     // Draw path trace
     if (currentStep > 0 && pathData.length > 0) {
-      ctx.strokeStyle = 'rgba(245, 158, 11, 0.5)';
+      ctx.strokeStyle = alpha(ED.brassDeco, 0.5);
       ctx.lineWidth = 1.5;
       ctx.beginPath();
       const visPath = pathData.slice(0, currentStep + 1);
@@ -353,14 +354,14 @@ function GradientDescentTab() {
       const cur = pathData[Math.min(currentStep, pathData.length - 1)];
       ctx.beginPath();
       ctx.arc(xScale(cur.sigma), yScale(cur.H), 8, 0, Math.PI * 2);
-      ctx.fillStyle = '#f59e0b';
+      ctx.fillStyle = ED.series4;
       ctx.fill();
-      ctx.strokeStyle = '#0a0e1a';
+      ctx.strokeStyle = ED.paper;
       ctx.lineWidth = 2;
       ctx.stroke();
 
       // Label
-      ctx.fillStyle = '#f59e0b';
+      ctx.fillStyle = ED.series4;
       ctx.font = '12px "JetBrains Mono", monospace';
       ctx.textAlign = 'center';
       ctx.fillText(`σ=${cur.sigma.toFixed(4)}`, xScale(cur.sigma), yScale(cur.H) - 14);
@@ -370,7 +371,7 @@ function GradientDescentTab() {
     const legendX = pad.l + tw - 145;
     const legendY = pad.t + 6;
     ctx.fillStyle = 'rgba(10, 14, 26, 0.85)';
-    ctx.strokeStyle = '#334155';
+    ctx.strokeStyle = ED.rule;
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.roundRect(legendX, legendY, 140, 68, 4);
@@ -380,26 +381,26 @@ function GradientDescentTab() {
     ctx.font = '10px Inter, sans-serif';
     ctx.textAlign = 'left';
     // H(σ) curve
-    ctx.strokeStyle = '#10b981'; ctx.lineWidth = 2; ctx.setLineDash([]);
+    ctx.strokeStyle = ED.series3; ctx.lineWidth = 2; ctx.setLineDash([]);
     ctx.beginPath(); ctx.moveTo(legendX + 8, legendY + 14); ctx.lineTo(legendX + 28, legendY + 14); ctx.stroke();
-    ctx.fillStyle = '#cbd5e1'; ctx.fillText('H(σ) landscape', legendX + 34, legendY + 18);
+    ctx.fillStyle = ED.ink; ctx.fillText('H(σ) landscape', legendX + 34, legendY + 18);
     // Descent path
-    ctx.strokeStyle = '#f59e0b'; ctx.lineWidth = 1.5;
+    ctx.strokeStyle = ED.brassDeco; ctx.lineWidth = 1.5;
     ctx.beginPath(); ctx.moveTo(legendX + 8, legendY + 30); ctx.lineTo(legendX + 22, legendY + 30); ctx.stroke();
-    ctx.beginPath(); ctx.arc(legendX + 25, legendY + 30, 3.5, 0, Math.PI * 2); ctx.fillStyle = '#f59e0b'; ctx.fill();
-    ctx.fillStyle = '#cbd5e1'; ctx.fillText('Descent path', legendX + 34, legendY + 34);
+    ctx.beginPath(); ctx.arc(legendX + 25, legendY + 30, 3.5, 0, Math.PI * 2); ctx.fillStyle = ED.series4; ctx.fill();
+    ctx.fillStyle = ED.ink; ctx.fillText('Descent path', legendX + 34, legendY + 34);
     // Critical line
-    ctx.strokeStyle = '#ef4444'; ctx.lineWidth = 1.5; ctx.setLineDash([4, 3]);
+    ctx.strokeStyle = ED.series2; ctx.lineWidth = 1.5; ctx.setLineDash([4, 3]);
     ctx.beginPath(); ctx.moveTo(legendX + 8, legendY + 46); ctx.lineTo(legendX + 28, legendY + 46); ctx.stroke();
     ctx.setLineDash([]);
-    ctx.fillStyle = '#cbd5e1'; ctx.fillText('σ = ½ critical line', legendX + 34, legendY + 50);
+    ctx.fillStyle = ED.ink; ctx.fillText('σ = ½ critical line', legendX + 34, legendY + 50);
     // Convergence curve
-    ctx.strokeStyle = '#06b6d4'; ctx.lineWidth = 2;
+    ctx.strokeStyle = ED.series6; ctx.lineWidth = 2;
     ctx.beginPath(); ctx.moveTo(legendX + 8, legendY + 62); ctx.lineTo(legendX + 28, legendY + 62); ctx.stroke();
-    ctx.fillStyle = '#cbd5e1'; ctx.fillText('σ convergence', legendX + 34, legendY + 66);
+    ctx.fillStyle = ED.ink; ctx.fillText('σ convergence', legendX + 34, legendY + 66);
 
     // Top axis labels
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = ED.series8;
     ctx.font = '12px Inter, sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText('σ = Re(s)', W / 2, topH - 3);
@@ -410,7 +411,7 @@ function GradientDescentTab() {
     ctx.restore();
 
     // Tick labels
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.font = '10px "JetBrains Mono", monospace';
     ctx.textAlign = 'center';
     for (let v = 0.1; v <= 0.9; v += 0.1) {
@@ -428,7 +429,7 @@ function GradientDescentTab() {
       const byScale = sig => byStart + bh - ((sig - 0.05) / 0.9) * bh;
 
       // 0.5 reference line
-      ctx.strokeStyle = '#ef4444';
+      ctx.strokeStyle = ED.series2;
       ctx.lineWidth = 1;
       ctx.setLineDash([4, 3]);
       ctx.beginPath();
@@ -438,7 +439,7 @@ function GradientDescentTab() {
       ctx.setLineDash([]);
 
       // Convergence curve
-      ctx.strokeStyle = '#06b6d4';
+      ctx.strokeStyle = ED.series6;
       ctx.lineWidth = 2;
       ctx.beginPath();
       visPath.forEach((d, i) => {
@@ -447,7 +448,7 @@ function GradientDescentTab() {
       });
       ctx.stroke();
 
-      ctx.fillStyle = '#94a3b8';
+      ctx.fillStyle = ED.series8;
       ctx.font = '11px Inter, sans-serif';
       ctx.textAlign = 'center';
       ctx.fillText('Step', W / 2, botY + botH - 2);
@@ -457,7 +458,7 @@ function GradientDescentTab() {
       ctx.fillText('σ', 0, 0);
       ctx.restore();
 
-      ctx.fillStyle = '#64748b';
+      ctx.fillStyle = ED.series8;
       ctx.font = '10px "JetBrains Mono", monospace';
       ctx.textAlign = 'right';
       ctx.fillText('0.5', pad.l - 5, byScale(0.5) + 4);
@@ -527,11 +528,11 @@ function GradientDescentTab() {
       </div>
       <div className="controls">
         <div className="control-group">
-          <label style={{ color: Math.abs(startSigma - 0.5) < 0.02 ? '#10b981' : Math.abs(startSigma - 0.5) < 0.15 ? '#f59e0b' : '#ef4444', fontWeight: 600 }}>Start <InlineMath tex={"\\sigma"} /></label>
+          <label style={{ color: Math.abs(startSigma - 0.5) < 0.02 ? 'var(--series-3)' : Math.abs(startSigma - 0.5) < 0.15 ? 'var(--brass)' : 'var(--series-2)', fontWeight: 600 }}>Start <InlineMath tex={"\\sigma"} /></label>
           <input type="range" min="0.1" max="0.9" step="0.01" value={startSigma}
             onChange={e => { setStartSigma(+e.target.value); handleReset(); }} disabled={isRunning}
-            style={{ accentColor: Math.abs(startSigma - 0.5) < 0.02 ? '#10b981' : Math.abs(startSigma - 0.5) < 0.15 ? '#f59e0b' : '#ef4444' }} />
-          <span className="control-value" style={{ color: Math.abs(startSigma - 0.5) < 0.02 ? '#10b981' : Math.abs(startSigma - 0.5) < 0.15 ? '#f59e0b' : '#ef4444', fontWeight: 700 }}>{startSigma.toFixed(2)}</span>
+            style={{ accentColor: Math.abs(startSigma - 0.5) < 0.02 ? 'var(--series-3)' : Math.abs(startSigma - 0.5) < 0.15 ? 'var(--series-4)' : 'var(--series-2)' }} />
+          <span className="control-value" style={{ color: Math.abs(startSigma - 0.5) < 0.02 ? 'var(--series-3)' : Math.abs(startSigma - 0.5) < 0.15 ? 'var(--brass)' : 'var(--series-2)', fontWeight: 700 }}>{startSigma.toFixed(2)}</span>
         </div>
         <div className="control-group">
           <label>Learning Rate</label>
@@ -554,7 +555,7 @@ function GradientDescentTab() {
             return bestDist < 1 ? (
               <span style={{
                 marginLeft: 6, fontSize: 11, fontFamily: 'var(--font-mono)',
-                color: bestDist < 0.3 ? '#10b981' : '#64748b',
+                color: bestDist < 0.3 ? 'var(--series-3)' : 'var(--ink-faint)',
                 cursor: isRunning ? 'default' : 'pointer', borderBottom: isRunning ? 'none' : '1px dashed currentColor',
               }}
                 title={isRunning ? undefined : `Click to snap t to γ${bestIdx + 1} = ${ZETA_ZEROS[bestIdx].toFixed(3)}`}
@@ -569,7 +570,7 @@ function GradientDescentTab() {
           <label>Primes</label>
           <input type="range" min="4" max="30" step="1" value={numPrimes}
             onChange={e => { setNumPrimes(+e.target.value); handleReset(); }} disabled={isRunning} />
-          <span className="control-value">{numPrimes} <span style={{ color: '#64748b', fontSize: 11 }}>(up to p={getPrimes(numPrimes)[numPrimes - 1]})</span></span>
+          <span className="control-value">{numPrimes} <span style={{ color: 'var(--ink-faint)', fontSize: 11 }}>(up to p={getPrimes(numPrimes)[numPrimes - 1]})</span></span>
         </div>
         <button className="filter-btn active" onClick={handleRun} disabled={isRunning}
           style={{ marginLeft: 'auto' }}>
@@ -582,21 +583,21 @@ function GradientDescentTab() {
       </div>
       {currentPoint && (
         <div style={{ display: 'flex', gap: 16, marginTop: 12, flexWrap: 'wrap' }}>
-          <div className="stat-box" style={{ borderColor: '#f59e0b' }}>
-            <div style={{ color: '#64748b', fontSize: 11 }}>Step</div>
-            <div style={{ fontFamily: 'var(--font-mono)', fontSize: 14, color: '#f59e0b' }}>{currentPoint.step}</div>
+          <div className="stat-box" style={{ borderColor: 'var(--brass-deco)' }}>
+            <div style={{ color: 'var(--ink-faint)', fontSize: 11 }}>Step</div>
+            <div style={{ fontFamily: 'var(--font-mono)', fontSize: 14, color: 'var(--brass)' }}>{currentPoint.step}</div>
           </div>
-          <div className="stat-box" style={{ borderColor: '#06b6d4' }}>
-            <div style={{ color: '#64748b', fontSize: 11 }}><InlineMath tex={"\\sigma"} /></div>
-            <div style={{ fontFamily: 'var(--font-mono)', fontSize: 14, color: '#06b6d4' }}>{currentPoint.sigma.toFixed(6)}</div>
+          <div className="stat-box" style={{ borderColor: 'var(--series-6)' }}>
+            <div style={{ color: 'var(--ink-faint)', fontSize: 11 }}><InlineMath tex={"\\sigma"} /></div>
+            <div style={{ fontFamily: 'var(--font-mono)', fontSize: 14, color: 'var(--series-6)' }}>{currentPoint.sigma.toFixed(6)}</div>
           </div>
-          <div className="stat-box" style={{ borderColor: '#10b981' }}>
-            <div style={{ color: '#64748b', fontSize: 11 }}><InlineMath tex={"\\mathcal{H}(\\sigma)"} /></div>
-            <div style={{ fontFamily: 'var(--font-mono)', fontSize: 14, color: '#10b981' }}>{currentPoint.H.toFixed(4)}</div>
+          <div className="stat-box" style={{ borderColor: 'var(--series-3)' }}>
+            <div style={{ color: 'var(--ink-faint)', fontSize: 11 }}><InlineMath tex={"\\mathcal{H}(\\sigma)"} /></div>
+            <div style={{ fontFamily: 'var(--font-mono)', fontSize: 14, color: 'var(--series-3)' }}>{currentPoint.H.toFixed(4)}</div>
           </div>
-          <div className="stat-box" style={{ borderColor: '#8b5cf6' }}>
-            <div style={{ color: '#64748b', fontSize: 11 }}><InlineMath tex={"|\\nabla|"} /></div>
-            <div style={{ fontFamily: 'var(--font-mono)', fontSize: 14, color: '#8b5cf6' }}>{Math.abs(currentPoint.gradient).toFixed(4)}</div>
+          <div className="stat-box" style={{ borderColor: 'var(--series-5)' }}>
+            <div style={{ color: 'var(--ink-faint)', fontSize: 11 }}><InlineMath tex={"|\\nabla|"} /></div>
+            <div style={{ fontFamily: 'var(--font-mono)', fontSize: 14, color: 'var(--series-5)' }}>{Math.abs(currentPoint.gradient).toFixed(4)}</div>
           </div>
         </div>
       )}
@@ -611,7 +612,7 @@ function ConvergenceTab() {
   const [tValue, setTValue] = useState(14.13);
 
   const primeCounts = [3, 5, 8, 12, 16, 20];
-  const curveColors = ['#3b82f6', '#06b6d4', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6'];
+  const curveColors = [ED.series1, ED.series6, ED.series3, ED.series4, ED.series2, ED.series5];
 
   // Memoize expensive curve data to avoid recomputing on window resize.
   // Each prime count triggers hamiltonianSigmaScan (60 steps) + 3 systemHamiltonian
@@ -659,19 +660,19 @@ function ConvergenceTab() {
       const y = d3.scaleLinear().domain([0, yMax]).range([h, 0]);
 
       g.append('g').attr('transform', `translate(0,${h})`).call(d3.axisBottom(x).ticks(8).tickFormat(d => d.toFixed(1)))
-        .selectAll('text').attr('fill', '#64748b').attr('font-size', 9);
+        .selectAll('text').attr('fill', ED.inkFaint).attr('font-size', 9);
       g.append('g').call(d3.axisLeft(y).ticks(5).tickFormat(d => d.toFixed(0)))
-        .selectAll('text').attr('fill', '#64748b').attr('font-size', 9);
-      g.selectAll('.domain, .tick line').attr('stroke', '#2a3050');
+        .selectAll('text').attr('fill', ED.inkFaint).attr('font-size', 9);
+      g.selectAll('.domain, .tick line').attr('stroke', ED.rule);
 
       // Horizontal gridlines
       g.append('g').call(d3.axisLeft(y).ticks(5).tickSize(-w).tickFormat(''))
-        .selectAll('.tick line').attr('stroke', '#1e293b').attr('stroke-dasharray', '3,3');
+        .selectAll('.tick line').attr('stroke', ED.ruleSoft).attr('stroke-dasharray', '3,3');
       g.select('.domain').remove();
 
       // Critical line
       g.append('line').attr('x1', x(0.5)).attr('y1', 0).attr('x2', x(0.5)).attr('y2', h)
-        .attr('stroke', '#ef4444').attr('stroke-width', 1).attr('stroke-dasharray', '4,3').attr('opacity', 0.6);
+        .attr('stroke', ED.series2).attr('stroke-width', 1).attr('stroke-dasharray', '4,3').attr('opacity', 0.6);
 
       const line = d3.line().x(d => x(d.sigma)).y(d => y(d.total)).curve(d3.curveBasis);
       allCurves.forEach(c => {
@@ -681,16 +682,16 @@ function ConvergenceTab() {
 
       // Title
       svg.append('text').attr('x', margin.left).attr('y', yOff + 16)
-        .attr('fill', '#e2e8f0').attr('font-size', 12).attr('font-weight', 600)
+        .attr('fill', ED.ink).attr('font-size', 12).attr('font-weight', 600)
         .text('H(σ) curves \u2014 valley sharpens with more primes');
 
       // Axis labels
       svg.append('text').attr('x', margin.left + w / 2).attr('y', yOff + margin.top + h + 32)
-        .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 11)
+        .attr('text-anchor', 'middle').attr('fill', ED.inkSoft).attr('font-size', 11)
         .text('σ = Re(s)');
       svg.append('text')
         .attr('transform', `translate(${margin.left - 48}, ${yOff + margin.top + h / 2}) rotate(-90)`)
-        .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 11)
+        .attr('text-anchor', 'middle').attr('fill', ED.inkSoft).attr('font-size', 11)
         .text('H(σ)');
 
       // Legend
@@ -716,42 +717,42 @@ function ConvergenceTab() {
 
       g.append('g').attr('transform', `translate(0,${h})`)
         .call(d3.axisBottom(x).ticks(primeCounts.length).tickFormat(i => primeCounts[i] || ''))
-        .selectAll('text').attr('fill', '#64748b').attr('font-size', 9);
+        .selectAll('text').attr('fill', ED.inkFaint).attr('font-size', 9);
       g.append('g').call(d3.axisLeft(y).ticks(5).tickFormat(d => d.toExponential(1)))
-        .selectAll('text').attr('fill', '#64748b').attr('font-size', 9);
-      g.selectAll('.domain, .tick line').attr('stroke', '#2a3050');
+        .selectAll('text').attr('fill', ED.inkFaint).attr('font-size', 9);
+      g.selectAll('.domain, .tick line').attr('stroke', ED.rule);
 
       // Horizontal gridlines
       g.append('g').call(d3.axisLeft(y).ticks(5).tickSize(-w).tickFormat(''))
-        .selectAll('.tick line').attr('stroke', '#1e293b').attr('stroke-dasharray', '3,3');
+        .selectAll('.tick line').attr('stroke', ED.ruleSoft).attr('stroke-dasharray', '3,3');
       g.select('.domain').remove();
 
       // Zero reference
       g.append('line').attr('x1', 0).attr('y1', y(0)).attr('x2', w).attr('y2', y(0))
-        .attr('stroke', '#10b981').attr('stroke-width', 1).attr('stroke-dasharray', '4,3').attr('opacity', 0.5);
+        .attr('stroke', ED.series3).attr('stroke-width', 1).attr('stroke-dasharray', '4,3').attr('opacity', 0.5);
 
       // Points + line
       const line = d3.line().x((d, i) => x(i)).y(d => y(d.gradient)).curve(d3.curveMonotoneX);
       g.append('path').datum(allCurves).attr('d', line)
-        .attr('fill', 'none').attr('stroke', '#f59e0b').attr('stroke-width', 2);
+        .attr('fill', 'none').attr('stroke', ED.brassDeco).attr('stroke-width', 2);
       allCurves.forEach((c, i) => {
         g.append('circle').attr('cx', x(i)).attr('cy', y(c.gradient)).attr('r', 5)
-          .attr('fill', c.color).attr('stroke', '#0a0e1a').attr('stroke-width', 2);
+          .attr('fill', c.color).attr('stroke', ED.paper).attr('stroke-width', 2);
       });
 
       svg.append('text').attr('x', margin.left).attr('y', yOff + 16)
-        .attr('fill', '#e2e8f0').attr('font-size', 12).attr('font-weight', 600)
+        .attr('fill', ED.ink).attr('font-size', 12).attr('font-weight', 600)
         .text('|\u2207H| at σ = 0.5 vs number of primes (should stay \u22480)');
 
       // X-axis label
       svg.append('text').attr('x', margin.left + w / 2).attr('y', yOff + margin.top + h + 32)
-        .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 11)
+        .attr('text-anchor', 'middle').attr('fill', ED.inkSoft).attr('font-size', 11)
         .text('Number of primes');
 
       // Y-axis label
       svg.append('text')
         .attr('transform', `translate(${margin.left - 48}, ${yOff + margin.top + h / 2}) rotate(-90)`)
-        .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 11)
+        .attr('text-anchor', 'middle').attr('fill', ED.inkSoft).attr('font-size', 11)
         .text('|∂H/∂σ|');
     }
 
@@ -768,38 +769,38 @@ function ConvergenceTab() {
 
       g.append('g').attr('transform', `translate(0,${h})`)
         .call(d3.axisBottom(x).ticks(primeCounts.length).tickFormat(i => primeCounts[i] || ''))
-        .selectAll('text').attr('fill', '#64748b').attr('font-size', 9);
+        .selectAll('text').attr('fill', ED.inkFaint).attr('font-size', 9);
       g.append('g').call(d3.axisLeft(y).ticks(5).tickFormat(d => d.toFixed(0)))
-        .selectAll('text').attr('fill', '#64748b').attr('font-size', 9);
-      g.selectAll('.domain, .tick line').attr('stroke', '#2a3050');
+        .selectAll('text').attr('fill', ED.inkFaint).attr('font-size', 9);
+      g.selectAll('.domain, .tick line').attr('stroke', ED.rule);
 
       // Horizontal gridlines
       g.append('g').call(d3.axisLeft(y).ticks(5).tickSize(-w).tickFormat(''))
-        .selectAll('.tick line').attr('stroke', '#1e293b').attr('stroke-dasharray', '3,3');
+        .selectAll('.tick line').attr('stroke', ED.ruleSoft).attr('stroke-dasharray', '3,3');
       g.select('.domain').remove();
 
       // Points + line
       const line = d3.line().x((d, i) => x(i)).y(d => y(d.curvature)).curve(d3.curveMonotoneX);
       g.append('path').datum(allCurves).attr('d', line)
-        .attr('fill', 'none').attr('stroke', '#8b5cf6').attr('stroke-width', 2);
+        .attr('fill', 'none').attr('stroke', ED.series5).attr('stroke-width', 2);
       allCurves.forEach((c, i) => {
         g.append('circle').attr('cx', x(i)).attr('cy', y(c.curvature)).attr('r', 5)
-          .attr('fill', c.color).attr('stroke', '#0a0e1a').attr('stroke-width', 2);
+          .attr('fill', c.color).attr('stroke', ED.paper).attr('stroke-width', 2);
       });
 
       svg.append('text').attr('x', margin.left).attr('y', yOff + 16)
-        .attr('fill', '#e2e8f0').attr('font-size', 12).attr('font-weight', 600)
+        .attr('fill', ED.ink).attr('font-size', 12).attr('font-weight', 600)
         .text('Curvature \u2202\u00B2H/\u2202σ\u00B2 at σ = 0.5 (should increase with primes)');
 
       // X-axis label
       svg.append('text').attr('x', margin.left + w / 2).attr('y', yOff + margin.top + h + 32)
-        .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 11)
+        .attr('text-anchor', 'middle').attr('fill', ED.inkSoft).attr('font-size', 11)
         .text('Number of primes');
 
       // Y-axis label
       svg.append('text')
         .attr('transform', `translate(${margin.left - 48}, ${yOff + margin.top + h / 2}) rotate(-90)`)
-        .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 11)
+        .attr('text-anchor', 'middle').attr('fill', ED.inkSoft).attr('font-size', 11)
         .text('∂²H/∂σ²');
     }
   }, [allCurves]);
@@ -837,7 +838,7 @@ function ConvergenceTab() {
             return bestDist < 1 ? (
               <span style={{
                 marginLeft: 6, fontSize: 11, fontFamily: 'var(--font-mono)',
-                color: bestDist < 0.3 ? '#10b981' : '#64748b',
+                color: bestDist < 0.3 ? 'var(--series-3)' : 'var(--ink-faint)',
                 cursor: 'pointer', borderBottom: '1px dashed currentColor',
               }}
                 title={`Click to snap t to γ${bestIdx + 1} = ${ZETA_ZEROS[bestIdx].toFixed(3)}`}
@@ -895,19 +896,19 @@ function BridgeTab() {
       const y = d3.scaleLinear().domain([0, yMax]).range([h, 0]);
 
       g.append('g').attr('transform', `translate(0,${h})`).call(d3.axisBottom(x).ticks(6).tickFormat(d => d.toFixed(1)))
-        .selectAll('text').attr('fill', '#64748b').attr('font-size', 10);
+        .selectAll('text').attr('fill', ED.inkFaint).attr('font-size', 10);
       g.append('g').call(d3.axisLeft(y).ticks(6).tickFormat(d => d.toFixed(1)))
-        .selectAll('text').attr('fill', '#64748b').attr('font-size', 10);
-      g.selectAll('.domain, .tick line').attr('stroke', '#2a3050');
+        .selectAll('text').attr('fill', ED.inkFaint).attr('font-size', 10);
+      g.selectAll('.domain, .tick line').attr('stroke', ED.rule);
 
       // Horizontal gridlines
       const gridL = g.append('g').call(d3.axisLeft(y).ticks(6).tickSize(-halfW).tickFormat(''));
       gridL.select('.domain').remove();
-      gridL.selectAll('.tick line').attr('stroke', '#1e293b').attr('stroke-dasharray', '4,4').attr('stroke-width', 0.8);
+      gridL.selectAll('.tick line').attr('stroke', ED.ruleSoft).attr('stroke-dasharray', '4,4').attr('stroke-width', 0.8);
 
       // Reference line at |chi| = 1
       g.append('line').attr('x1', 0).attr('y1', y(1)).attr('x2', halfW).attr('y2', y(1))
-        .attr('stroke', '#10b981').attr('stroke-width', 1).attr('stroke-dasharray', '6,3').attr('opacity', 0.7);
+        .attr('stroke', ED.series3).attr('stroke-width', 1).attr('stroke-dasharray', '6,3').attr('opacity', 0.7);
 
       // Fill region between curve and |chi|=1 reference
       {
@@ -917,7 +918,7 @@ function BridgeTab() {
             .y0(y(1))
             .y1(d => y(Math.min(d.chiMag, yMax)))
             .curve(d3.curveBasis))
-          .attr('fill', 'rgba(16, 185, 129, 0.1)');
+          .attr('fill', alpha(ED.series3, 0.1));
       }
 
 
@@ -925,30 +926,30 @@ function BridgeTab() {
       const clampedData = data.map(d => ({ ...d, chiMag: Math.min(d.chiMag, yMax) }));
       const line = d3.line().x(d => x(d.sigma)).y(d => y(d.chiMag)).curve(d3.curveBasis);
       g.append('path').datum(clampedData).attr('d', line)
-        .attr('fill', 'none').attr('stroke', '#06b6d4').attr('stroke-width', 2.5);
+        .attr('fill', 'none').attr('stroke', ED.series6).attr('stroke-width', 2.5);
 
       // Critical line
       g.append('line').attr('x1', x(0.5)).attr('y1', 0).attr('x2', x(0.5)).attr('y2', h)
-        .attr('stroke', '#ef4444').attr('stroke-width', 1).attr('stroke-dasharray', '4,3').attr('opacity', 0.6);
+        .attr('stroke', ED.series2).attr('stroke-width', 1).attr('stroke-dasharray', '4,3').attr('opacity', 0.6);
 
       // Dot at sigma=0.5
       const atHalf = data.find(d => Math.abs(d.sigma - 0.5) < 0.01);
       if (atHalf) {
         g.append('circle').attr('cx', x(atHalf.sigma)).attr('cy', y(Math.min(atHalf.chiMag, yMax))).attr('r', 6)
-          .attr('fill', '#10b981').attr('stroke', '#0a0e1a').attr('stroke-width', 2);
+          .attr('fill', ED.series3).attr('stroke', ED.paper).attr('stroke-width', 2);
         g.append('text').attr('x', x(atHalf.sigma) + 10).attr('y', y(Math.min(atHalf.chiMag, yMax)) + 4)
-          .attr('fill', '#10b981').attr('font-size', 11).attr('font-weight', 600)
+          .attr('fill', ED.series3).attr('font-size', 11).attr('font-weight', 600)
           .text(`|χ| = ${atHalf.chiMag.toFixed(3)}`);
       }
 
       // Title
       g.append('text').attr('x', halfW / 2).attr('y', -10)
-        .attr('text-anchor', 'middle').attr('fill', '#e2e8f0').attr('font-size', 12).attr('font-weight', 600)
+        .attr('text-anchor', 'middle').attr('fill', ED.ink).attr('font-size', 12).attr('font-weight', 600)
         .text('|χ(s)| vs σ');
 
       // Y-axis label
       g.append('text').attr('transform', `translate(-42, ${h / 2}) rotate(-90)`)
-        .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 11).text('|χ(s)|');
+        .attr('text-anchor', 'middle').attr('fill', ED.inkSoft).attr('font-size', 11).text('|χ(s)|');
     }
 
     // ── Right chart: Reflection coefficient vs sigma ──
@@ -960,19 +961,19 @@ function BridgeTab() {
       const y = d3.scaleLinear().domain([0, yMax]).range([h, 0]);
 
       g.append('g').attr('transform', `translate(0,${h})`).call(d3.axisBottom(x).ticks(6).tickFormat(d => d.toFixed(1)))
-        .selectAll('text').attr('fill', '#64748b').attr('font-size', 10);
+        .selectAll('text').attr('fill', ED.inkFaint).attr('font-size', 10);
       g.append('g').call(d3.axisLeft(y).ticks(6).tickFormat(d => d.toFixed(2)))
-        .selectAll('text').attr('fill', '#64748b').attr('font-size', 10);
-      g.selectAll('.domain, .tick line').attr('stroke', '#2a3050');
+        .selectAll('text').attr('fill', ED.inkFaint).attr('font-size', 10);
+      g.selectAll('.domain, .tick line').attr('stroke', ED.rule);
 
       // Horizontal gridlines
       const gridR = g.append('g').call(d3.axisLeft(y).ticks(6).tickSize(-halfW).tickFormat(''));
       gridR.select('.domain').remove();
-      gridR.selectAll('.tick line').attr('stroke', '#1e293b').attr('stroke-dasharray', '4,4').attr('stroke-width', 0.8);
+      gridR.selectAll('.tick line').attr('stroke', ED.ruleSoft).attr('stroke-dasharray', '4,4').attr('stroke-width', 0.8);
 
       // Zero reference
       g.append('line').attr('x1', 0).attr('y1', y(0)).attr('x2', halfW).attr('y2', y(0))
-        .attr('stroke', '#10b981').attr('stroke-width', 1).attr('stroke-dasharray', '6,3').attr('opacity', 0.7);
+        .attr('stroke', ED.series3).attr('stroke-width', 1).attr('stroke-dasharray', '6,3').attr('opacity', 0.7);
 
       // Fill: green near 0, red far from 0
       g.append('path').datum(data)
@@ -981,7 +982,7 @@ function BridgeTab() {
           .y0(y(0))
           .y1(d => y(Math.min(d.reflection, yMax)))
           .curve(d3.curveBasis))
-        .attr('fill', 'rgba(239, 68, 68, 0.08)');
+        .attr('fill', alpha(ED.series2, 0.08));
 
       // Near-zero region green overlay
       const nearZero = data.filter(d => d.reflection < 0.1);
@@ -992,42 +993,42 @@ function BridgeTab() {
             .y0(y(0))
             .y1(d => y(Math.min(d.reflection, yMax)))
             .curve(d3.curveBasis))
-          .attr('fill', 'rgba(16, 185, 129, 0.12)');
+          .attr('fill', alpha(ED.series3, 0.12));
       }
 
       // Main curve
       const clampedData = data.map(d => ({ ...d, reflection: Math.min(d.reflection, yMax) }));
       const line = d3.line().x(d => x(d.sigma)).y(d => y(d.reflection)).curve(d3.curveBasis);
       g.append('path').datum(clampedData).attr('d', line)
-        .attr('fill', 'none').attr('stroke', '#f59e0b').attr('stroke-width', 2.5);
+        .attr('fill', 'none').attr('stroke', ED.brassDeco).attr('stroke-width', 2.5);
 
       // Critical line
       g.append('line').attr('x1', x(0.5)).attr('y1', 0).attr('x2', x(0.5)).attr('y2', h)
-        .attr('stroke', '#ef4444').attr('stroke-width', 1).attr('stroke-dasharray', '4,3').attr('opacity', 0.6);
+        .attr('stroke', ED.series2).attr('stroke-width', 1).attr('stroke-dasharray', '4,3').attr('opacity', 0.6);
 
       // Dot at sigma=0.5
       const atHalf2 = data.find(d => Math.abs(d.sigma - 0.5) < 0.01);
       if (atHalf2) {
         g.append('circle').attr('cx', x(atHalf2.sigma)).attr('cy', y(Math.min(atHalf2.reflection, yMax))).attr('r', 6)
-          .attr('fill', '#10b981').attr('stroke', '#0a0e1a').attr('stroke-width', 2);
+          .attr('fill', ED.series3).attr('stroke', ED.paper).attr('stroke-width', 2);
         g.append('text').attr('x', x(atHalf2.sigma) + 10).attr('y', y(Math.min(atHalf2.reflection, yMax)) + 4)
-          .attr('fill', '#10b981').attr('font-size', 11).attr('font-weight', 600)
+          .attr('fill', ED.series3).attr('font-size', 11).attr('font-weight', 600)
           .text(`R = ${atHalf2.reflection.toFixed(4)}`);
       }
 
       // Title
       g.append('text').attr('x', halfW / 2).attr('y', -10)
-        .attr('text-anchor', 'middle').attr('fill', '#e2e8f0').attr('font-size', 12).attr('font-weight', 600)
+        .attr('text-anchor', 'middle').attr('fill', ED.ink).attr('font-size', 12).attr('font-weight', 600)
         .text('Reflection Coefficient vs σ');
 
       // Y-axis label
       g.append('text').attr('transform', `translate(-42, ${h / 2}) rotate(-90)`)
-        .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 11).text('R');
+        .attr('text-anchor', 'middle').attr('fill', ED.inkSoft).attr('font-size', 11).text('R');
     }
 
     // Axis label
     svg.append('text').attr('x', width / 2).attr('y', height - 6)
-      .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12).text('σ = Re(s)');
+      .attr('text-anchor', 'middle').attr('fill', ED.inkSoft).attr('font-size', 12).text('σ = Re(s)');
 
   }, [bridgeData]);
 
@@ -1064,7 +1065,7 @@ function BridgeTab() {
             return bestDist < 1 ? (
               <span style={{
                 marginLeft: 6, fontSize: 11, fontFamily: 'var(--font-mono)',
-                color: bestDist < 0.3 ? '#10b981' : '#64748b',
+                color: bestDist < 0.3 ? 'var(--series-3)' : 'var(--ink-faint)',
                 cursor: 'pointer', borderBottom: '1px dashed currentColor',
               }}
                 title={`Click to snap t to γ${bestIdx + 1} = ${ZETA_ZEROS[bestIdx].toFixed(3)}`}
@@ -1157,50 +1158,50 @@ function MultiZeroTab() {
     const y = d3.scaleLinear().domain([0.3, 0.7]).range([h, 0]);
 
     g.append('g').attr('transform', `translate(0,${h})`).call(d3.axisBottom(x).ticks(Math.min(results.length, 15)))
-      .selectAll('text').attr('fill', '#64748b').attr('font-size', 9);
+      .selectAll('text').attr('fill', ED.inkFaint).attr('font-size', 9);
     g.append('g').call(d3.axisLeft(y).ticks(5).tickFormat(d => d.toFixed(2)))
-      .selectAll('text').attr('fill', '#64748b').attr('font-size', 9);
-    g.selectAll('.domain, .tick line').attr('stroke', '#2a3050');
+      .selectAll('text').attr('fill', ED.inkFaint).attr('font-size', 9);
+    g.selectAll('.domain, .tick line').attr('stroke', ED.rule);
 
     // Horizontal gridlines for easier σ_min reading
     y.ticks(5).forEach(tick => {
       g.append('line')
         .attr('x1', 0).attr('y1', y(tick)).attr('x2', w).attr('y2', y(tick))
-        .attr('stroke', '#1e293b').attr('stroke-width', 0.5);
+        .attr('stroke', ED.ruleSoft).attr('stroke-width', 0.5);
     });
 
     // Reference line at 0.5
     g.append('line').attr('x1', 0).attr('y1', y(0.5)).attr('x2', w).attr('y2', y(0.5))
-      .attr('stroke', '#ef4444').attr('stroke-width', 1.5).attr('stroke-dasharray', '6,4').attr('opacity', 0.7);
+      .attr('stroke', ED.series2).attr('stroke-width', 1.5).attr('stroke-dasharray', '6,4').attr('opacity', 0.7);
     g.append('text').attr('x', w + 5).attr('y', y(0.5) + 4)
-      .attr('fill', '#ef4444').attr('font-size', 10).text('σ = \u00BD');
+      .attr('fill', ED.series2).attr('font-size', 10).text('σ = \u00BD');
 
     // Scatter dots
     results.forEach(r => {
       g.append('circle')
         .attr('cx', x(r.index)).attr('cy', y(Math.max(0.3, Math.min(0.7, r.sigmaMin)))).attr('r', 5)
-        .attr('fill', r.pass ? '#10b981' : '#ef4444')
-        .attr('stroke', '#0a0e1a').attr('stroke-width', 1.5)
+        .attr('fill', r.pass ? ED.series3 : ED.series2)
+        .attr('stroke', ED.paper).attr('stroke-width', 1.5)
         .attr('opacity', 0.9);
     });
 
     // Legend
     const legend = g.append('g').attr('transform', `translate(${w - 165}, 0)`);
     legend.append('rect').attr('x', -8).attr('y', -6).attr('width', 170).attr('height', 38)
-      .attr('rx', 4).attr('fill', 'rgba(10,14,26,0.75)').attr('stroke', '#2a3050').attr('stroke-width', 0.5);
-    [{ label: 'Pass (|σ*−½| < 0.01)', color: '#10b981', dy: 8 },
-     { label: 'Fail', color: '#ef4444', dy: 24 }].forEach(item => {
+      .attr('rx', 4).attr('fill', alpha(ED.paper, 0.75)).attr('stroke', ED.rule).attr('stroke-width', 0.5);
+    [{ label: 'Pass (|σ*−½| < 0.01)', color: ED.series3, dy: 8 },
+     { label: 'Fail', color: ED.series2, dy: 24 }].forEach(item => {
       legend.append('circle').attr('cx', 6).attr('cy', item.dy).attr('r', 4)
-        .attr('fill', item.color).attr('stroke', '#0a0e1a').attr('stroke-width', 1);
+        .attr('fill', item.color).attr('stroke', ED.paper).attr('stroke-width', 1);
       legend.append('text').attr('x', 16).attr('y', item.dy + 3.5)
-        .attr('fill', '#94a3b8').attr('font-size', 10).text(item.label);
+        .attr('fill', ED.inkSoft).attr('font-size', 10).text(item.label);
     });
 
     // Axis labels
     svg.append('text').attr('x', width / 2).attr('y', height - 4)
-      .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 11).text('Zero index');
+      .attr('text-anchor', 'middle').attr('fill', ED.inkSoft).attr('font-size', 11).text('Zero index');
     svg.append('text').attr('transform', `translate(16, ${margin.top + h / 2}) rotate(-90)`)
-      .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 11).text('σ_min');
+      .attr('text-anchor', 'middle').attr('fill', ED.inkSoft).attr('font-size', 11).text('σ_min');
 
   }, [results]);
 
@@ -1230,7 +1231,7 @@ function MultiZeroTab() {
           <label>Primes</label>
           <input type="range" min="5" max="50" step="1" value={numPrimes}
             onChange={e => setNumPrimes(+e.target.value)} disabled={running} />
-          <span className="control-value">{numPrimes} <span style={{ color: '#64748b', fontSize: 11 }}>(up to p={getPrimes(numPrimes)[numPrimes - 1]})</span></span>
+          <span className="control-value">{numPrimes} <span style={{ color: 'var(--ink-faint)', fontSize: 11 }}>(up to p={getPrimes(numPrimes)[numPrimes - 1]})</span></span>
         </div>
         <button className="filter-btn active" onClick={runTest} disabled={running}
           style={{ marginLeft: 'auto' }}>
@@ -1243,10 +1244,10 @@ function MultiZeroTab() {
           {/* Summary bar */}
           <div style={{
             marginTop: 16, padding: '12px 20px', borderRadius: 8,
-            background: passCount === results.length ? 'rgba(16,185,129,0.1)' : 'rgba(239,68,68,0.1)',
-            border: `1px solid ${passCount === results.length ? '#10b981' : '#ef4444'}`,
+            background: passCount === results.length ? 'color-mix(in srgb, var(--series-3) 10%, transparent)' : 'color-mix(in srgb, var(--series-2) 10%, transparent)',
+            border: `1px solid ${passCount === results.length ? ED.series3 : ED.series2}`,
             fontFamily: 'var(--font-mono)', fontSize: 14, fontWeight: 600,
-            color: passCount === results.length ? '#10b981' : '#ef4444',
+            color: passCount === results.length ? 'var(--series-3)' : 'var(--series-2)',
           }}>
             {passCount}/{results.length} zeros passed ({((passCount / results.length) * 100).toFixed(0)}%)
             {passCount === results.length ? ' \u2014 All minima on critical line!' : ''}
@@ -1263,29 +1264,29 @@ function MultiZeroTab() {
               width: '100%', borderCollapse: 'collapse', fontFamily: 'var(--font-mono)', fontSize: 12,
             }}>
               <thead>
-                <tr style={{ borderBottom: '1px solid #2a3050' }}>
+                <tr style={{ borderBottom: '1px solid var(--rule)' }}>
                   {['#', <InlineMath tex={"\\gamma"} />, <InlineMath tex={"\\sigma_{\\min}"} />, <InlineMath tex={"H_{\\min}"} />, <InlineMath tex={"|\\nabla|"} />, <InlineMath tex={"|\\chi|"} />, 'Pass'].map((h, idx) => (
-                    <th key={idx} style={{ padding: '8px 10px', textAlign: 'left', color: '#64748b', fontWeight: 600, fontSize: 11 }}>{h}</th>
+                    <th key={idx} style={{ padding: '8px 10px', textAlign: 'left', color: 'var(--ink-faint)', fontWeight: 600, fontSize: 11 }}>{h}</th>
                   ))}
                 </tr>
               </thead>
               <tbody>
                 {results.map(r => (
                   <tr key={r.index} style={{ borderBottom: '1px solid #1a1f36' }}>
-                    <td style={{ padding: '6px 10px', color: '#94a3b8' }}>{r.index}</td>
-                    <td style={{ padding: '6px 10px', color: '#06b6d4' }}>{r.gamma.toFixed(6)}</td>
-                    <td style={{ padding: '6px 10px', color: Math.abs(r.sigmaMin - 0.5) < 0.02 ? '#10b981' : '#f59e0b' }}>
+                    <td style={{ padding: '6px 10px', color: 'var(--ink-soft)' }}>{r.index}</td>
+                    <td style={{ padding: '6px 10px', color: 'var(--series-6)' }}>{r.gamma.toFixed(6)}</td>
+                    <td style={{ padding: '6px 10px', color: Math.abs(r.sigmaMin - 0.5) < 0.02 ? 'var(--series-3)' : 'var(--brass)' }}>
                       {r.sigmaMin.toFixed(4)}
                     </td>
-                    <td style={{ padding: '6px 10px', color: '#e2e8f0' }}>{r.Hmin.toFixed(2)}</td>
-                    <td style={{ padding: '6px 10px', color: '#8b5cf6' }}>{r.gradient.toExponential(2)}</td>
-                    <td style={{ padding: '6px 10px', color: Math.abs(r.chiMag - 1) < 0.01 ? '#10b981' : '#f59e0b' }}>
+                    <td style={{ padding: '6px 10px', color: 'var(--ink)' }}>{r.Hmin.toFixed(2)}</td>
+                    <td style={{ padding: '6px 10px', color: 'var(--series-5)' }}>{r.gradient.toExponential(2)}</td>
+                    <td style={{ padding: '6px 10px', color: Math.abs(r.chiMag - 1) < 0.01 ? 'var(--series-3)' : 'var(--brass)' }}>
                       {r.chiMag.toFixed(4)}
                     </td>
                     <td style={{ padding: '6px 10px' }}>
                       <span style={{
                         display: 'inline-block', width: 8, height: 8, borderRadius: '50%',
-                        background: r.pass ? '#10b981' : '#ef4444', marginRight: 6,
+                        background: r.pass ? 'var(--series-3)' : 'var(--series-2)', marginRight: 6,
                       }} />
                       {r.pass ? 'PASS' : 'FAIL'}
                     </td>

@@ -379,6 +379,14 @@ const DATA_MODULES = [
   // 2a = 1.1286 vs true crossing 1.1315. Sept-2026 external certified-window preprints cited as UNVERIFIED. Fixed-window
   // positivity implies nothing about zeros; RH open; NO QED. Import-light (Route I identity exports only). Assertions ~3 s.
   '/src/data/rh-route-i-uncertainty-concentration-certificate-2026-09-24.js',
+  // tlb-arb-lege (2026-09-28, twin-ladder+bridge pick 1, ARB-LEGE): leg (E) of the above certificate executed in Arb
+  // (python-flint 0.9.0, 256-bit). Galerkin entries by Gauss-Legendre (Q=24) + Bernstein-ellipse bound rho^{-2(Q-1)}
+  // (referee fix of the draft's rho^{-2Q}; r_max ~1e-18), pole-free compression via Weyl + Arb LDL^T of the midpoint
+  // matrix, own Hilbert-Schmidt tail. Arb lower endpoints: W(h) >= 8.2045368e-4 ||h||^2 (T=200,N=240) / 9.0434717e-4
+  // (T=400,N=320) / 9.1897354e-4 (single-cosine floor) on pole-free h, all 2a <= ln3 (repo reach 0.96 -> ln3; literature
+  // novelty unchecked). Corollary lambda_1(T_a[sigma_2]) >= 0.0583. PROVED (computer-assisted, 2 internal referee passes;
+  // not externally refereed); nothing about Lambda or RH; NO QED. Import-light (floorBeyond/M2MAX only); < 0.1 s.
+  '/src/data/tlb-arb-lege-2026-09-28.js',
   // rh-route-i-direct-sonine-trace-certificate (2026-09-24): the DIRECT attack on D_S <= L_S keeping the full Sonine trace.
   // Symbol level: the retained trace is 1/9.11 of the remainder at t_1 (no pointwise domination); form level on the pole-free
   // extremal: 89% of L_S is the shared positive part Z, S_S exceeds E_S by 2.8% at (ln3)/2, operator-norm separation fails past
@@ -414,6 +422,108 @@ const DATA_MODULES = [
   // Exact H_t on [0,100]: first collision t = -0.881077 (two-body -0.743334, many-body delay 1.17-1.40), staircase phi.
   // Import-free, self-contained polynomial-heat-flow checks + baked literals; assertions < 0.1 s. No bound moves; NO QED.
   '/src/data/rh-supercritical-fluid-bridge-2026-09-24.js',
+  // tlb-dh-blind (2026-09-28, twin-ladder+bridge pick 2, DH-BLIND): Euler-blindness radius of the Davenport-Heilbronn twin
+  // (same bridge as L(s,chi_5), no Euler product). Explicit formula validated on the computed zero set (71 on-line + 2
+  // off-line pairs below t=130) to <=1.2e-13; PROVED W_DH>=0 for 2a<=0.783; CERTIFIED (Arb, rational g0) W_DH<0 at a=1.72;
+  // MEASURED lambda_min 0.21 at 2a=ln3 (so a*_DH>(ln3)/2 on measured evidence); onset lower end basis-limited (positive
+  // through a=1.70, N<=122). Quantifies the NS-RIGID (d)/Route C DH remark. Import-free; recomputes kappa, c(n), B(a).
+  // No bound moves; NO QED.
+  '/src/data/tlb-dh-blind-2026-09-28.js',
+  // dag3 synthesis (2026-09-28), three referee-surviving tracks; import-free, assertions < 0.1 s each; NO QED.
+  // dag3-audit01758: composition/interface audit of the Lambda<=0.1758354 candidate: exact identity 879177/5000000,
+  // barrier by containment, eps_cap <= 2.668232e-7 re-derived, tail D=0.8801, binding rows replayed bit-identically,
+  // tightened gate L12_min - B_max - eps_cap = 1.622504e-3 > 0. Candidate stays unreviewed; PT Lambda<=0.2 stands.
+  '/src/data/dag3-audit01758-2026-09-28.js',
+  // dag3-dhblindln3: Arb Legendre-Galerkin certificate: W_DH >= 0.2080723937, W_chi = Q >= 0.2923087034 (real h, 2a<=ln3),
+  // positive definite through 2a<=ln11; beta_2 in [-5/2, 22/25] certified. Tier upgrade of tlb-dh-blind, not a sharp no-go.
+  '/src/data/dag3-dhblindln3-2026-09-28.js',
+  // dag3-levbridge: Levinson method in ladder language; primorial Euler-product mollifiers below the length-truncated
+  // reference in a fixed-Q main-term proxy (not a proportion statement); recomputes Levinson kappa 0.342762 and the Mertens identity.
+  '/src/data/dag3-levbridge-2026-09-28.js',
+  // ns3 synthesis (2026-09-29), two referee-surviving tracks; import-light (dag3-levbridge only), assertions < 0.1 s; NO QED.
+  // ns3-eulermoll: no tested Euler-product replacement (range-truncated, RS blocks, primorial, GHK hybrid) reaches the
+  // length-weighted Mobius mollifier at T^{1/2}, T=1e4..1e16 (fixed-Q0 main-term proxy); small-prime tilt decays with T.
+  // Recomputes the gcd/Mobius identity, tilt identity, literal-RS empty interval, Q(1e8), asymptotic kappa with Q0.
+  '/src/data/ns3-eulermoll-2026-09-29.js',
+  // ns3-locallev: window Levinson certificates vs the H_desc-mirror window: analytic tiers >= 1.8 (positivity) / 3.8
+  // (proportion) orders above 8.6 spacings; N_0 <= N cannot supply the model-based 1.73x surplus; close-pair density 1.005x.
+  '/src/data/ns3-locallev-2026-09-29.js',
+  // s145 synthesis (2026-09-30), import-free, assertions < 0.1 s; NO QED; PT Lambda <= 0.2 stands.
+  // s145-requirements-map: floor-assumption table (fixed-t0 vs decreasing-barrier), Raymond verdict, literature heights,
+  // pricing rescaled to PT's recorded 7.5e6 core-h (MAP 4 model ~109x low). Recomputes Route VII anchors, N0, Λ·lnT constants.
+  '/src/data/s145-requirements-map-2026-09-30.js',
+  // s145-raymond-height-contract: Raymond chain regenerated; Λ ≤ 0.14496 CONDITIONAL on RH to T* = 7.8e12 (2.6x PT) + his
+  // unrefereed chain; G0 referee gate open; band contract (6.0e12) heuristic. Recomputes rationals, T*, N0, crossings, prices.
+  '/src/data/s145-raymond-height-contract-2026-09-30.js',
+  // s145-zero-conditioned-floor: S-procedure floor worth ΔΛ ≈ −0.0008..−0.0009; no model-consistent pass of the 0.1435 gate;
+  // R_1000 = exact torus (sieve check). Outcome (c), measured.
+  '/src/data/s145-zero-conditioned-floor-2026-09-30.js',
+  // b145 synthesis (2026-10-01), import-free, assertions < 0.1 s; NO QED; PT Lambda <= 0.2 stands.
+  // b145-floor: Track A surplus selection, Λ ≤ 0.148963469500858 at PT height CONDITIONAL (Raymond G0 + Lemma R + C_g lemma).
+  '/src/data/b145-floor-2026-10-01.js',
+  // b145-stack: all certified levers; PT 0.147273668782792; < 0.145 only with RH to 5.10e12 (band) / 6.90e12 (no band), unverified.
+  '/src/data/b145-stack-2026-10-01.js',
+  // b145-raymond-referee: internal referee of Raymond AF §§2–5, §§10–12, Part II — SOUND, no ERROR; G0 narrowed, not closed.
+  '/src/data/b145-raymond-referee-2026-10-01.js',
+  // b145-verification-pilot: FLINT Platt isolation 88 units/core-s; N(T_PT) reproduced; campaign priced, not run.
+  '/src/data/b145-verification-pilot-2026-10-01.js',
+  // r2 synthesis (2026-10-02), import-free, assertions < 0.1 s; NO QED; PT Lambda <= 0.2 stands.
+  // r2-structured-floor: adaptive-S structured floor (slope-AR fix applied), PT-height band 0.144505784802732 CONDITIONAL on the outer lemma.
+  '/src/data/r2-structured-floor-2026-10-02.js',
+  // r2-height-reduction: Track A route needs RH to 4.80e12 (1.6X, 5.681e6 core-h) for Λ < 0.145; 1.55X fails (0.145101483).
+  '/src/data/r2-height-reduction-2026-10-02.js',
+  // r2-lemma-b-status: B.1–B.3 + Theorem B written (unrefereed); BB1/BB2 not proved; referee fixes 1/4/5 absorbed, 2/3 deferred.
+  '/src/data/r2-lemma-b-status-2026-10-02.js',
+  // r2-flint-audit: FLINT 3.6.0 Platt/Turing audit (A.3 ERROR harmless at σ=25; wrap GAP patched); 1.65X window rerun with patch.
+  '/src/data/r2-flint-audit-2026-10-02.js',
+  // r2-second-referee: Lemma R / C_g / consumer / coupling SOUND, Lemma B GAP; conditional-input ledger and open decision.
+  '/src/data/r2-second-referee-2026-10-02.js',
+  // r3 synthesis (2026-10-03), import-free, assertions < 0.1 s; NO QED; PT Lambda <= 0.2 stands.
+  // r3-outer: weak outer lemma (WOL-C) NOT PROVED; 9 single-entry certificates; certified-only route-P value 0.147541569979886.
+  '/src/data/r3-outer-2026-10-03.js',
+  // r3-bb: BB1/BB2 proved as written (Theorem BB, Lemma C, Lemma H2), one internal referee pass; 7 band runs replayed, 0 failures.
+  '/src/data/r3-bb-2026-10-03.js',
+  // r3-cg: Lemma CG (c_n >= 0 nondecreasing, every n; G0-a closed) and Theorem 4' (joint pairs at any shift interval, given (OP)).
+  '/src/data/r3-cg-2026-10-03.js',
+  // r3-flint2: FLINT second audit; Gram-block Turing criterion GAP; 7.8e12 window certified by RS signs + direct-integral Turing.
+  '/src/data/r3-flint2-2026-10-03.js',
+  // r3-synthesis: route-P value with certified margins, 23-input ledger by status, remaining steps for a candidate.
+  '/src/data/r3-synthesis-2026-10-03.js',
+  // r4 synthesis (2026-10-04), import-free, assertions < 0.1 s; NO QED; PT Lambda <= 0.2 stands.
+  // r4-wol-pd: positive-definite Fourier majorant, WOL-C for 257/630 band-path entries; padded certified-only route P 0.146843097785455.
+  '/src/data/r4-wol-pd-2026-10-04.js',
+  // r4-wol-sym: per-prime block reduction; reach REFUTED (omitted tail term); no WOL-C certificate.
+  '/src/data/r4-wol-sym-2026-10-04.js',
+  // r4-wol-adapt: centred branch-and-bound, WOL-C for 164 band-path entries; route P 0.147157850303694.
+  '/src/data/r4-wol-adapt-2026-10-04.js',
+  // r4-g0d: AF Part I §§6–9 re-derived, 11 one-point producer families recomputed, 0 failures (G0-d closed internally).
+  '/src/data/r4-g0d-2026-10-04.js',
+  // r4-g0dprime: Theorem XT (X-transfer to 2.6X) written, premises certified at X' (G0-d' closed internally for U2 only).
+  '/src/data/r4-g0dprime-2026-10-04.js',
+  // r4-packet: persistent replay packet formalization/review-packet-sub0145 (25/25 + 7/7; 44/44 deep, sandboxed).
+  '/src/data/r4-packet-2026-10-04.js',
+  // r4-synthesis: merged certified WOL-C margins, route P 0.146808080767225 (certified-only), 0.14477683171425 (WOL-C for 380), 26-input ledger.
+  '/src/data/r4-synthesis-2026-10-04.js',
+  // r5-p47-mixed: Lemma MS (matrix-stiffness decoupling) proved; P47 0/372; P29 x4 + P31 x3 certified (superseded).
+  '/src/data/r5-p47-mixed-2026-10-05.js',
+  // r5-p47-far: global separable cone majorant, 198 P47 floors at finite margin 0.075-0.88; WOL-C at P47 for none.
+  '/src/data/r5-p47-far-2026-10-05.js',
+  // r5-p29-43: WOL-C for all P29/P31/P43 hybrid-path floors + P47 231/232; r4 wol-pd block-suffix rounding gap found by the referee.
+  '/src/data/r5-p29-43-2026-10-05.js',
+  // r5-core-audit: r3core4.c audit REFUTED (fatal, F3 stale pair table); no NL=2 r3core4.c floor certified.
+  '/src/data/r5-core-audit-2026-10-05.js',
+  // r5-l1l5: wol-pd lemmas L1-L5 + Theorem 6.1 written (formalization/paper/wol-pd-lemmas.md), internal referee minor.
+  '/src/data/r5-l1l5-2026-10-05.js',
+  // r5-synthesis: refereed r4+r5 margins with referee corrections; route P 0.146660921819602 (certified-only), 0.144797589508376 (WOL-C for 369 P47).
+  '/src/data/r5-synthesis-2026-10-05.js',
+  // r6-falsify: targeted WOL-C falsification at the 369 P47 floors; no violation (max excess 1.98e-6, sup Phi - K0* <= -0.00156); MEASURED.
+  '/src/data/r6-falsify-2026-10-06.js',
+  // r6-fiber: factorized-fiber WOL-C engine; lemmas proved; the 12 certificates REFUTED (tails_defect drops -c_r w_mu terms).
+  '/src/data/r6-fiber-2026-10-06.js',
+  // r6-suffix: wol-pd rounding slacks fixed at source; 425 path certificates re-run; certified route P 0.146660920737233.
+  '/src/data/r6-suffix-2026-10-06.js',
+  // r6-synthesis: route-P decision (b), certified 0.146660920737233, conditional 0.144797588795775 (WOL-C for 369 P47), Route H comparison.
+  '/src/data/r6-synthesis-2026-10-06.js',
   // imp-96066 (2026-09-23): ASSESSMENT of the P_3-adjoined Route I pencil D_S + P_3 <= L_S vs the dense
   // 2^a 3^b resonance. Answer: the pencil uses the DISCRETE Weil term P_3 (support {k ln 3}, identically zero
   // for 2a < ln 3, single boundary point v = ln 3 at 2a = ln 3), NOT the dense S={oo,2,3} Sonine remainder
@@ -21208,6 +21318,16 @@ const DATA_MODULES = [
   // at sigma < 1 (NS-RIGID class); t > 0 model composite 0.19 sits on P15 Table 1. Import-free,
   // 12 holds() assertions. No new bound; PT Lambda <= 0.2 stands; NO QED.
   '/src/data/rh-bridge-mirror-descent-2026-09-25.js',
+  // rh-landscape-dag (2026-09-28): general literature-level RH dependency graph (equivalents,
+  // partial results, records, analogues, walls; every node cited). Import-free; asserts unique ids,
+  // no dangling/duplicate edges, rh + project anchor ids exist, every node sourced, acyclic, honest
+  // status (PT Λ≤0.2 accepted benchmark; project 0.1758354 unreviewed candidate). NO QED.
+  '/src/data/rh-landscape-dag.js',
+  // project-attempts-dag (2026-09-28): detailed project attempts graph merged from three clusters
+  // (Λ barrier lineage, twin ladder + bridge models, novel routes + Route I) with ALIAS dedupe;
+  // imports only rh-landscape-dag.js; asserts no dangling edges, landscape refs resolve, every node
+  // sourced/grouped/connected, honest status. Documentation only; no bound moved; NO QED.
+  '/src/data/project-attempts-dag.js',
   // imp-97069 registration fix: the two modules below carry self-executing
   // assertion tripwires but were never wired into this DATA_MODULES sweep
   // (orphaned, --since-changed untracked/unregistered trap).

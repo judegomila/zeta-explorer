@@ -1,13 +1,14 @@
 import React, { useRef, useEffect, useState, useCallback } from 'react';
 import { PROOF_SECTIONS } from '../math/formal-proof.js';
+import { STATUS, ED, alpha } from '../styles/tokens.js';
 
 // ── Node layout & data ──────────────────────────────────────────────────────
 
 const STATUS_COLORS = {
-  proven:      '#10b981',
-  conditional: '#f59e0b',
-  gap:         '#f97316',
-  open:        '#ef4444',
+  proven:      STATUS.proved.fg,
+  conditional: STATUS.conditional.fg,
+  gap:         STATUS.open.fg,
+  open:        STATUS.open.fg,
 };
 
 const STATUS_LABELS = {
@@ -270,7 +271,7 @@ export default function ProofPlannerViz({ onNodeClick }) {
 
       // Draw path labels
       ctx.font = '11px var(--font-mono, monospace)';
-      ctx.fillStyle = 'rgba(99,102,241,0.6)';
+      ctx.fillStyle = alpha(ED.series5, 0.6);
       ctx.textAlign = 'center';
       const pathAMid = getCanvasPos('S5', w, h);
       ctx.fillText('Path A (Spectral)', pathAMid.x, pathAMid.y - nodeRadius('S5', w) - 10);
@@ -353,7 +354,7 @@ export default function ProofPlannerViz({ onNodeClick }) {
           ctx.lineTo(dmX, dmY + 3);
           ctx.lineTo(dmX - 3, dmY);
           ctx.closePath();
-          ctx.fillStyle = 'rgba(165,180,252,0.9)';
+          ctx.fillStyle = alpha(ED.series5, 0.9);
           ctx.fill();
         }
 
@@ -361,7 +362,7 @@ export default function ProofPlannerViz({ onNodeClick }) {
         if (isOnCriticalPath(sec.id) && !isBest) {
           ctx.beginPath();
           ctx.arc(pos.x, pos.y, r + 3, 0, Math.PI * 2);
-          ctx.strokeStyle = 'rgba(99,102,241,0.25)';
+          ctx.strokeStyle = alpha(ED.series5, 0.25);
           ctx.lineWidth = 2;
           ctx.stroke();
         }
@@ -415,16 +416,16 @@ export default function ProofPlannerViz({ onNodeClick }) {
         ctx.fillStyle = lgGrad;
         ctx.fill();
 
-        ctx.fillStyle = '#94a3b8';
+        ctx.fillStyle = ED.series8;
         ctx.fillText(STATUS_LABELS[status], lx + 16, ly);
         ly += 16;
       }
       // Extra legend entries for animations
       ly += 4;
-      ctx.fillStyle = 'rgba(245,158,11,0.7)';
+      ctx.fillStyle = alpha(ED.series4, 0.7);
       ctx.fillText('\u2192 flowing = proof progress', lx + 4, ly);
       ly += 14;
-      ctx.fillStyle = 'rgba(129,140,248,0.7)';
+      ctx.fillStyle = alpha(ED.series5, 0.7);
       ctx.fillText('\u25C7 spinning = next best step', lx + 4, ly);
 
       frame = requestAnimationFrame(draw);
@@ -474,7 +475,7 @@ export default function ProofPlannerViz({ onNodeClick }) {
           position: 'fixed',
           left: mousePos.x + 16,
           top: mousePos.y - 10,
-          background: '#1e293b',
+          background: 'var(--paper-3)',
           border: '1px solid ' + STATUS_COLORS[hoveredSection.status],
           borderRadius: 8,
           padding: '10px 14px',
@@ -483,23 +484,23 @@ export default function ProofPlannerViz({ onNodeClick }) {
           pointerEvents: 'none',
           fontSize: 12,
           fontFamily: 'var(--font-mono, monospace)',
-          color: '#e2e8f0',
+          color: 'var(--ink)',
           boxShadow: '0 4px 20px rgba(0,0,0,0.5)',
         }}>
           <div style={{ fontWeight: 700, marginBottom: 4, color: STATUS_COLORS[hoveredSection.status] }}>
             {hoveredSection.id}: {hoveredSection.title}
           </div>
           <div style={{ marginBottom: 4 }}>
-            <span style={{ color: '#64748b' }}>Status: </span>
+            <span style={{ color: 'var(--ink-faint)' }}>Status: </span>
             <span style={{ color: STATUS_COLORS[hoveredSection.status] }}>{STATUS_LABELS[hoveredSection.status]}</span>
-            <span style={{ color: '#64748b' }}> | Tractability: </span>
-            <span style={{ color: '#93c5fd' }}>{Math.round(TRACTABILITY[hoveredSection.id] * 100)}%</span>
+            <span style={{ color: 'var(--ink-faint)' }}> | Tractability: </span>
+            <span style={{ color: 'var(--series-1)' }}>{Math.round(TRACTABILITY[hoveredSection.id] * 100)}%</span>
           </div>
-          <div style={{ color: '#94a3b8', lineHeight: 1.5 }}>
+          <div style={{ color: 'var(--ink-soft)', lineHeight: 1.5 }}>
             {KEY_OBSTACLES[hoveredSection.id]}
           </div>
           {bestStep === hoveredSection.id && (
-            <div style={{ marginTop: 6, color: '#818cf8', fontWeight: 600 }}>
+            <div style={{ marginTop: 6, color: 'var(--series-5)', fontWeight: 600 }}>
               Recommended next step
             </div>
           )}

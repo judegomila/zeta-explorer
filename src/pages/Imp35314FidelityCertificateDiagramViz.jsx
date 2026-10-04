@@ -1,14 +1,15 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP35243_REENTRY_BAND_SURROGATE_FIDELITY_ASSESSMENT } from '../data/imp-35243-reentry-band-surrogate-fidelity-assessment.js';
+import { ED, alpha } from '../styles/tokens.js';
 
 // Baked literals imported verbatim from the imp-35243 data module; no new
 // computation is performed here (viz/UX only).
 const REQUIREMENTS = IMP35243_REENTRY_BAND_SURROGATE_FIDELITY_ASSESSMENT.fidelity_certificate_requirements;
 
 function requirementColor(status) {
-  if (/BINDING/.test(status)) return { fill: 'rgba(248,113,113,0.12)', stroke: '#f87171', text: '#f87171' };
-  return { fill: 'rgba(250,204,21,0.10)', stroke: '#facc15', text: '#facc15' };
+  if (/BINDING/.test(status)) return { fill: alpha(ED.series2, 0.12), stroke: ED.series2, text: ED.series2 };
+  return { fill: alpha(ED.series4, 0.1), stroke: ED.brassDeco, text: ED.brass };
 }
 
 function CertificateDiagram() {
@@ -28,17 +29,17 @@ function CertificateDiagram() {
             <text x={cardW / 2} y={26} textAnchor="middle" fill={c.text} fontSize={16} fontWeight={700} fontFamily="monospace">
               {r.id}
             </text>
-            <text x={cardW / 2} y={46} textAnchor="middle" fill="#94a3b8" fontSize={11} fontWeight={700}>
+            <text x={cardW / 2} y={46} textAnchor="middle" fill={ED.inkSoft} fontSize={11} fontWeight={700}>
               {r.name}
             </text>
             <foreignObject x={12} y={56} width={cardW - 24} height={100}>
-              <div style={{ color: '#64748b', fontSize: '10.5px', lineHeight: 1.4 }}>{r.need}</div>
+              <div style={{ color: 'var(--ink-faint)', fontSize: '10.5px', lineHeight: 1.4 }}>{r.need}</div>
             </foreignObject>
-            <rect x={12} y={svgH - 46} width={cardW - 24} height={32} rx={5} fill="rgba(148,163,184,0.04)" stroke={c.stroke} strokeWidth={1} />
+            <rect x={12} y={svgH - 46} width={cardW - 24} height={32} rx={5} fill={alpha(ED.inkSoft, 0.04)} stroke={c.stroke} strokeWidth={1} />
             <text x={cardW / 2} y={svgH - 29} textAnchor="middle" fill={c.text} fontSize={10.5} fontWeight={700}>
               {binding ? 'BINDING' : 'OPEN'}
             </text>
-            <text x={cardW / 2} y={svgH - 17} textAnchor="middle" fill="#64748b" fontSize={8.5}>
+            <text x={cardW / 2} y={svgH - 17} textAnchor="middle" fill={ED.inkFaint} fontSize={8.5}>
               {binding ? 'presently unreachable' : 'not binding'}
             </text>
           </g>
@@ -50,7 +51,7 @@ function CertificateDiagram() {
 
 function RequirementsTable() {
   return (
-    <table style={{ borderCollapse: 'collapse', fontSize: '0.8rem', color: '#94a3b8' }}>
+    <table style={{ borderCollapse: 'collapse', fontSize: '0.8rem', color: 'var(--ink-soft)' }}>
       <thead>
         <tr>
           <th style={{ textAlign: 'left', padding: '0.35rem 0.5rem' }}>req</th>
@@ -64,10 +65,10 @@ function RequirementsTable() {
           const binding = /BINDING/.test(r.status);
           return (
             <tr key={r.id}>
-              <td style={{ fontWeight: 700, color: binding ? '#f87171' : '#facc15' }}>{r.id}</td>
+              <td style={{ fontWeight: 700, color: binding ? 'var(--series-2)' : 'var(--brass)' }}>{r.id}</td>
               <td>{r.name}</td>
               <td style={{ fontFamily: 'inherit' }}>{r.need}</td>
-              <td style={{ color: binding ? '#f87171' : '#94a3b8' }}>{r.status}</td>
+              <td style={{ color: binding ? 'var(--series-2)' : 'var(--ink-soft)' }}>{r.status}</td>
             </tr>
           );
         })}
@@ -81,7 +82,7 @@ export default function Imp35314FidelityCertificateDiagramViz() {
     <div style={{ padding: '1.5rem', maxWidth: 960, margin: '0 auto' }}>
       <PageHeader title="Surrogate-Fidelity Certificate: R1-R4 Structural Diagram (imp-35314)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem' }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem' }}>
         imp-35243 enumerated four requirements (R1&ndash;R4) a proof that the imp-34997/imp-35111
         iters-to-floor REENTRY band is real in the true collapse dynamic &mdash; not merely an artifact
         of the analytic surrogate &mdash; would need to discharge. imp-35277 recorded the checklist as a
@@ -90,7 +91,7 @@ export default function Imp35314FidelityCertificateDiagramViz() {
       </p>
 
       <h2>Requirement diagram</h2>
-      <p style={{ color: '#64748b', fontSize: '0.85rem', marginBottom: '1rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontSize: '0.85rem', marginBottom: '1rem' }}>
         Red cards are the binding requirements; amber cards are open but not binding. Text is quoted
         verbatim from the imp-35243 <code>fidelity_certificate_requirements</code> literals.
       </p>
@@ -105,14 +106,14 @@ export default function Imp35314FidelityCertificateDiagramViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page reusing the imp-35243
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-only page reusing the imp-35243
         fidelity_certificate_requirements literals verbatim (no new computation). A certificate needs all
         four of R1&ndash;R4 discharged together; none are discharged here. The reentry band remains NOT
         established as a feature of the true collapse dynamic (imp-35243); changes no bound; establishes

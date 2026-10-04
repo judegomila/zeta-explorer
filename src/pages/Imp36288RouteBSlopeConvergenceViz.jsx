@@ -4,6 +4,7 @@ import {
   ROUTE_B_LEADING_EXPONENT,
   SLOPE_LADDER,
 } from '../data/imp-36288-routeB-slope-convergence-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 const POINTS = SLOPE_LADDER.map((row, i) => ({ ...row, idx: i }));
 
@@ -38,13 +39,13 @@ function SlopeConvergenceChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#334155" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
       <line
         x1={padL}
         y1={padT + plotH}
         x2={padL + plotW}
         y2={padT + plotH}
-        stroke="#334155"
+        stroke={ED.rule}
         strokeWidth={1.5}
       />
 
@@ -53,27 +54,27 @@ function SlopeConvergenceChart() {
         y1={limitY}
         x2={padL + plotW}
         y2={limitY}
-        stroke="#f472b6"
+        stroke={ED.series7}
         strokeWidth={1.25}
         strokeDasharray="4 3"
       />
-      <text x={padL + plotW - 4} y={limitY - 6} textAnchor="end" fill="#f472b6" fontSize={9}>
+      <text x={padL + plotW - 4} y={limitY - 6} textAnchor="end" fill={ED.series7} fontSize={9}>
         limit -1/4
       </text>
 
-      <path d={pathD} fill="none" stroke="#38bdf8" strokeWidth={2} />
+      <path d={pathD} fill="none" stroke={ED.series1} strokeWidth={2} />
       {POINTS.map((p) => (
-        <circle key={p.window} cx={px(p.idx)} cy={py(p.slope)} r={4} fill="#38bdf8" />
+        <circle key={p.window} cx={px(p.idx)} cy={py(p.slope)} r={4} fill={ED.series1} />
       ))}
 
-      <text x={padL + plotW / 2} y={svgH - 8} textAnchor="middle" fill="#94a3b8" fontSize={9.5}>
+      <text x={padL + plotW / 2} y={svgH - 8} textAnchor="middle" fill={ED.inkSoft} fontSize={9.5}>
         ladder window (N growing left to right, 1e2 &rarr; 1e300)
       </text>
       <text
         x={14}
         y={padT + plotH / 2}
         textAnchor="middle"
-        fill="#94a3b8"
+        fill={ED.inkSoft}
         fontSize={9.5}
         transform={`rotate(-90 14 ${padT + plotH / 2})`}
       >
@@ -88,7 +89,7 @@ export default function Imp36288RouteBSlopeConvergenceViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Route-B Rate Slope Convergence to -1/4 (imp-36288 / imp-36151)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-36082 derived the explicit, unconditional Route-B per-N rate r_B(N) = C&prime;
         &radic;(log &gamma;<sub>N</sub>) N<sup>-1/4</sup>, with pinned leading exponent -1/4.
         Because the sqrt(log &gamma;<sub>N</sub>) dressing is slowly varying, the local (finite-window)
@@ -99,7 +100,7 @@ export default function Imp36288RouteBSlopeConvergenceViz() {
         crossing it.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         local log-log slope of r_B(N) per ladder window, approaching the -1/4 limit from above
       </p>
       <SlopeConvergenceChart />
@@ -113,7 +114,7 @@ export default function Imp36288RouteBSlopeConvergenceViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>window</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>local slope</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>gap to -1/4</th>
@@ -121,7 +122,7 @@ export default function Imp36288RouteBSlopeConvergenceViz() {
         </thead>
         <tbody>
           {POINTS.map((p) => (
-            <tr key={p.window} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+            <tr key={p.window} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{p.window}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>
                 {p.slope.toFixed(6)}
@@ -138,14 +139,14 @@ export default function Imp36288RouteBSlopeConvergenceViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation only, baking the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> presentation only, baking the
         imp-36082 r_B(N) rate formula and the imp-36151 slope-convergence witness unchanged across a
         wider ladder. r_B(N) bounds a shock-time DEVIATION, not |t_c(N)| absolutely (imp-36082
         CONSUMABLE-MODULO-ANCHOR); per imp-36151, Route-B owning the only pinned per-N exponent does

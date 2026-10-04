@@ -93,7 +93,7 @@ export default function HtCorridorCertificatesPage() {
         <div className="card" style={{ background: 'var(--paper2)', border: '1px solid var(--hairline)', borderRadius: 8, padding: 12, marginBottom: 12, overflowX: 'auto' }}>
           <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 12, fontFamily: mono }}>
             <thead>
-              <tr style={{ background: 'rgba(181,138,46,0.10)', color: 'var(--ink)' }}>
+              <tr style={{ background: 'color-mix(in srgb, var(--brass-deco) 10%, transparent)', color: 'var(--ink)' }}>
                 <th style={{ padding: '8px 10px', textAlign: 'left' }}>cell</th>
                 <th style={{ padding: '8px 10px', textAlign: 'right' }}>xₙ(t)</th>
                 <th style={{ padding: '8px 10px', textAlign: 'right' }}>u-mesh</th>
@@ -121,8 +121,8 @@ export default function HtCorridorCertificatesPage() {
                     <span style={{
                       fontFamily: mono, fontSize: 10, fontWeight: 700, letterSpacing: 0.5,
                       textTransform: 'uppercase', padding: '2px 8px', borderRadius: 10,
-                      background: 'rgba(76,122,74,0.14)', color: 'var(--green)',
-                      border: '1px solid rgba(76,122,74,0.40)',
+                      background: 'color-mix(in srgb, var(--series-3) 14%, transparent)', color: 'var(--green)',
+                      border: '1px solid color-mix(in srgb, var(--series-3) 40%, transparent)',
                     }}>
                       {c.status}
                     </span>

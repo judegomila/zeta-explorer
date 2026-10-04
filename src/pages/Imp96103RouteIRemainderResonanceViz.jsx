@@ -7,22 +7,23 @@ import {
   IMP96103_SPIKE_LAW,
   IMP96103_HONEST_BANNER,
 } from '../data/imp-96103-route-i-remainder-resonance-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 function AxisFrame({ children, svgW, svgH, padL, padR, padT, padB, xLabel, yLabel }) {
   const plotW = svgW - padL - padR;
   const plotH = svgH - padT - padB;
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill="#64748b" fontSize={9.5}>
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5}>
         {xLabel}
       </text>
       <text
         x={14}
         y={padT + plotH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={9.5}
         transform={`rotate(-90 14 ${padT + plotH / 2})`}
       >
@@ -56,12 +57,12 @@ function RemainderPanel() {
   return (
     <AxisFrame svgW={svgW} svgH={svgH} padL={padL} padR={padR} padT={padT} padB={padB} xLabel="rho" yLabel="delta_S(rho)">
       {[1, 2, 4, 8].map((rho) => (
-        <rect key={rho} x={xOf(rho) - 3} y={padT} width={6} height={plotH} fill="#38bdf8" opacity={0.14} />
+        <rect key={rho} x={xOf(rho) - 3} y={padT} width={6} height={plotH} fill={ED.series1} opacity={0.14} />
       ))}
       {yTicks.map((v) => (
         <g key={`y${v}`}>
-          <line x1={padL - 4} y1={yOf(v)} x2={padL} y2={yOf(v)} stroke="#334155" strokeWidth={1} />
-          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={8.5}>
+          <line x1={padL - 4} y1={yOf(v)} x2={padL} y2={yOf(v)} stroke={ED.rule} strokeWidth={1} />
+          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8.5}>
             {v}
           </text>
         </g>
@@ -69,15 +70,15 @@ function RemainderPanel() {
       <polyline
         points={rows.map((r) => `${xOf(r.rho)},${yOf(Math.min(maxY, r.value))}`).join(' ')}
         fill="none"
-        stroke="#facc15"
+        stroke={ED.brassDeco}
         strokeWidth={1.5}
       />
-      <circle cx={xOf(IMP96103_REGULAR_POINT.rho)} cy={yOf(IMP96103_REGULAR_POINT.value)} r={4} fill="#4ade80" stroke="#0f172a" strokeWidth={1} />
-      <text x={xOf(IMP96103_REGULAR_POINT.rho) + 6} y={yOf(IMP96103_REGULAR_POINT.value) - 6} fill="#4ade80" fontSize={9}>
+      <circle cx={xOf(IMP96103_REGULAR_POINT.rho)} cy={yOf(IMP96103_REGULAR_POINT.value)} r={4} fill={ED.series3} stroke={ED.paper} strokeWidth={1} />
+      <text x={xOf(IMP96103_REGULAR_POINT.rho) + 6} y={yOf(IMP96103_REGULAR_POINT.value) - 6} fill={ED.series3} fontSize={9}>
         rho=3: {IMP96103_REGULAR_POINT.value.toFixed(3)}
       </text>
       {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((rho) => (
-        <text key={rho} x={xOf(rho)} y={padT + plotH + 14} textAnchor="middle" fill="#64748b" fontSize={8.5}>
+        <text key={rho} x={xOf(rho)} y={padT + plotH + 14} textAnchor="middle" fill={ED.inkFaint} fontSize={8.5}>
           {rho}
         </text>
       ))}
@@ -88,8 +89,8 @@ function RemainderPanel() {
 // bar chart of the four baked near-dyadic spike values vs the regular rho=3 value.
 function SpikeBarPanel() {
   const bars = [
-    ...IMP96103_SPIKE_POINTS.map((p) => ({ label: `2^${p.k}`, value: p.value, color: '#38bdf8' })),
-    { label: '3', value: IMP96103_REGULAR_POINT.value, color: '#4ade80' },
+    ...IMP96103_SPIKE_POINTS.map((p) => ({ label: `2^${p.k}`, value: p.value, color: ED.series1 })),
+    { label: '3', value: IMP96103_REGULAR_POINT.value, color: ED.series3 },
   ];
   const svgW = 420;
   const padL = 46;
@@ -107,8 +108,8 @@ function SpikeBarPanel() {
     <AxisFrame svgW={svgW} svgH={svgH} padL={padL} padR={padR} padT={padT} padB={padB} xLabel="rho" yLabel="delta_S(rho)">
       {[0, 10, 20, 30].map((v) => (
         <g key={`y${v}`}>
-          <line x1={padL - 4} y1={yOf(v)} x2={padL} y2={yOf(v)} stroke="#334155" strokeWidth={1} />
-          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={8.5}>
+          <line x1={padL - 4} y1={yOf(v)} x2={padL} y2={yOf(v)} stroke={ED.rule} strokeWidth={1} />
+          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8.5}>
             {v}
           </text>
         </g>
@@ -119,10 +120,10 @@ function SpikeBarPanel() {
         return (
           <g key={b.label}>
             <rect x={x} y={yOf(b.value)} width={barW} height={h} fill={b.color} opacity={0.85} />
-            <text x={x + barW / 2} y={yOf(b.value) - 5} textAnchor="middle" fill="#e2e8f0" fontSize={8.5}>
+            <text x={x + barW / 2} y={yOf(b.value) - 5} textAnchor="middle" fill={ED.ink} fontSize={8.5}>
               {b.value.toFixed(2)}
             </text>
-            <text x={x + barW / 2} y={padT + plotH + 14} textAnchor="middle" fill="#64748b" fontSize={8.5}>
+            <text x={x + barW / 2} y={padT + plotH + 14} textAnchor="middle" fill={ED.inkFaint} fontSize={8.5}>
               {b.label}
             </text>
           </g>
@@ -141,18 +142,18 @@ export default function Imp96103RouteIRemainderResonanceViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> {IMP96103_HONEST_BANNER}
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> {IMP96103_HONEST_BANNER}
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         The Route I semilocal S = {'{'}&infin;, 2{'}'} trace remainder delta_S(rho) has a log
         spike at every near-dyadic rho = 2<sup>k</sup> + &epsilon; ({IMP96103_SPIKE_LAW}), shaded
         blue below, versus a regular value at the non-dyadic rho = 3 (shaded green) &mdash; the
@@ -161,12 +162,12 @@ export default function Imp96103RouteIRemainderResonanceViz() {
         with k.
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         delta_S(rho) over rho in [0.8, 9.2]: near-dyadic spikes vs regular rho = 3
       </h3>
       <RemainderPanel />
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', margin: '1.25rem 0 0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', margin: '1.25rem 0 0.5rem' }}>
         Baked near-dyadic spikes (&epsilon; = 1e-7) vs the regular rho = 3 value
       </h3>
       <SpikeBarPanel />
@@ -175,14 +176,14 @@ export default function Imp96103RouteIRemainderResonanceViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> the continuous curve
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> the continuous curve
         (clamped at 14 for legibility) rises toward each near-dyadic rho and dips back down
         away from them, reaching only ~0.4 near the non-dyadic rho = 3. The four baked
         spike points ({IMP96103_SPIKE_POINTS.map((p) => p.value.toFixed(2)).join(' / ')}) are
@@ -195,14 +196,14 @@ export default function Imp96103RouteIRemainderResonanceViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page consuming the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the
         imp-96103 baked viz-data (delta_S(rho) evaluated directly from the source module&rsquo;s
         exact closed-form deltaS function; the spike and regular points cross-checked against
         ROUTE_I_LITERALS.deltaS). {IMP96103_HONEST_BANNER}

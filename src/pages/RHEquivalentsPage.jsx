@@ -15,13 +15,14 @@ import { RH_EQUIVALENTS } from '../data/rh-equivalents-reference.js';
 import HonestCeilingBanner from '../components/HonestCeilingBanner.jsx';
 import EquivalenceVsReductionCallout from '../components/EquivalenceVsReductionCallout.jsx';
 import AnimationEmbed from '../components/AnimationEmbed.jsx';
+import { ED, alpha } from '../styles/tokens.js';
 
 const mono = 'var(--ed-mono, var(--font-mono))';
 
 const DIRECTION_BADGE = {
-  'both': { label: 'iff RH', color: 'var(--green)', bg: 'rgba(76,122,74,0.12)' },
-  'S=>RH': { label: 'S => RH', color: 'var(--blue)', bg: 'rgba(63,107,134,0.12)' },
-  'RH=>S': { label: 'RH => S', color: 'var(--brass-dk)', bg: 'rgba(181,138,46,0.14)' },
+  'both': { label: 'iff RH', color: 'var(--green)', bg: alpha(ED.series3, 0.12) },
+  'S=>RH': { label: 'S => RH', color: 'var(--blue)', bg: alpha(ED.series1, 0.12) },
+  'RH=>S': { label: 'RH => S', color: 'var(--brass-dk)', bg: alpha(ED.brassDeco, 0.14) },
 };
 
 export default function RHEquivalentsPage() {
@@ -172,7 +173,7 @@ export default function RHEquivalentsPage() {
               DIRECTION_BADGE[eq.direction] || {
                 label: eq.direction,
                 color: 'var(--faint)',
-                bg: 'rgba(135,123,103,0.12)',
+                bg: alpha(ED.inkFaint, 0.12),
               };
             return (
               <div key={eq.name} className="ref-card">

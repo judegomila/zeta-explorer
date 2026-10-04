@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState, useCallback, useMemo } from 'react';
 import { InlineMath } from './KaTeXMath.jsx';
 import { zetaCriticalStrip, cAbs, ZETA_ZEROS } from '../math/zeta.js';
+import { ED, alpha } from '../styles/tokens.js';
 
 /**
  * Phase portrait of ζ(s) in the critical strip using domain coloring.
@@ -85,7 +86,7 @@ export default function ZetaPhasePortrait() {
 
     // Mark known zeros
     ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
-    ctx.strokeStyle = 'rgba(0, 0, 0, 0.5)';
+    ctx.strokeStyle = alpha(ED.paper, 0.5);
     ctx.lineWidth = 1;
     for (const gamma of ZETA_ZEROS) {
       if (gamma < tMin || gamma > tMax) continue;
@@ -165,20 +166,20 @@ export default function ZetaPhasePortrait() {
 
       <canvas ref={canvasRef}
         style={{ width: '100%', height: 400, borderRadius: 8,
-                 border: '1px solid #1e293b', cursor: 'crosshair' }} />
+                 border: '1px solid var(--rule-soft)', cursor: 'crosshair' }} />
 
       <div style={{ display: 'flex', gap: 12, marginTop: 12, flexWrap: 'wrap' }}>
         <div style={{ padding: '8px 12px', borderRadius: 6, fontSize: 12,
-                      background: 'rgba(139, 92, 246, 0.08)', border: '1px solid rgba(139, 92, 246, 0.2)',
-                      color: '#94a3b8' }}>
-          <strong style={{ color: '#c4b5fd' }}>Phase singularities</strong> — zeros are points
+                      background: 'color-mix(in srgb, var(--series-5) 8%, transparent)', border: '1px solid color-mix(in srgb, var(--series-5) 20%, transparent)',
+                      color: 'var(--ink-soft)' }}>
+          <strong style={{ color: 'var(--series-5)' }}>Phase singularities</strong> — zeros are points
           where all hues meet, creating a characteristic "pinwheel" pattern.
           Only found on σ = ½ (critical line) if RH is true.
         </div>
         <div style={{ padding: '8px 12px', borderRadius: 6, fontSize: 12,
-                      background: 'rgba(59, 130, 246, 0.08)', border: '1px solid rgba(59, 130, 246, 0.2)',
-                      color: '#94a3b8' }}>
-          <strong style={{ color: '#93c5fd' }}>Color key</strong> —
+                      background: 'color-mix(in srgb, var(--series-1) 8%, transparent)', border: '1px solid color-mix(in srgb, var(--series-1) 20%, transparent)',
+                      color: 'var(--ink-soft)' }}>
+          <strong style={{ color: 'var(--series-1)' }}>Color key</strong> —
           Red → Yellow → Green → Cyan → Blue → Magenta = arg(ζ) from 0 to 2π.
           Dark = |ζ| small (near zeros). Bright = |ζ| large.
         </div>

@@ -4,6 +4,7 @@ import { energyLandscape } from '../math/oscillators.js';
 import { ZETA_ZEROS } from '../math/zeta.js';
 import { getPrimes } from '../math/primes.js';
 import ThermoBar from './ThermoBar.jsx';
+import { ED } from '../styles/tokens.js';
 
 /**
  * 2D heatmap of the system energy landscape in the (σ, t) plane.
@@ -136,7 +137,7 @@ export default function EnergyLandscapeViz() {
     }
 
     // Axis labels
-    ctx.fillStyle = '#e2e8f0';
+    ctx.fillStyle = ED.ink;
     ctx.font = '600 13px sans-serif';
     const titles = {
       energy: 'System Energy Landscape H(σ, t)',
@@ -146,7 +147,7 @@ export default function EnergyLandscapeViz() {
     };
     ctx.fillText(titles[metric], 10, 18);
 
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = ED.series8;
     ctx.font = '11px sans-serif';
     ctx.fillText('Dashed line: σ = ½  |  Circles: zeta zeros', 10, 36);
 
@@ -163,7 +164,7 @@ export default function EnergyLandscapeViz() {
       ctx.beginPath(); ctx.moveTo(tx, dh - 17); ctx.lineTo(tx, dh - 13); ctx.stroke();
       ctx.fillStyle = 'rgba(17,24,39,0.75)';
       ctx.fillRect(tx - 12, dh - 30, 24, 13);
-      ctx.fillStyle = '#cbd5e1';
+      ctx.fillStyle = ED.ink;
       ctx.fillText(s.toFixed(1), tx, dh - 19);
     }
 
@@ -180,13 +181,13 @@ export default function EnergyLandscapeViz() {
       const lbl = tVal.toFixed(0);
       ctx.fillStyle = 'rgba(17,24,39,0.75)';
       ctx.fillRect(5, ty - 6, lbl.length * 7 + 4, 12);
-      ctx.fillStyle = '#cbd5e1';
+      ctx.fillStyle = ED.ink;
       ctx.fillText(lbl, 7, ty + 4);
     }
     ctx.textAlign = 'start';
 
     // Axis name labels
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = ED.series8;
     ctx.font = '600 11px sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText('σ (Re s)', dw / 2, dh - 4);
@@ -218,7 +219,7 @@ export default function EnergyLandscapeViz() {
       ctx.fillStyle = `rgb(${r|0},${g|0},${b|0})`;
       ctx.fillRect(barX, barH - i + 10, 16, 1);
     }
-    ctx.fillStyle = '#94a3b8'; ctx.font = '9px monospace';
+    ctx.fillStyle = ED.series8; ctx.font = '9px monospace';
     ctx.textAlign = 'right';
     ctx.fillText(vMax.toFixed(1), barX - 2, 18);
     ctx.fillText(vMin.toFixed(1), barX - 2, barH + 12);
@@ -232,7 +233,7 @@ export default function EnergyLandscapeViz() {
       dualMag: '|ζ(1−s)|',
     };
     ctx.save();
-    ctx.fillStyle = '#cbd5e1';
+    ctx.fillStyle = ED.ink;
     ctx.font = '600 10px sans-serif';
     ctx.translate(barX + 20, (barH + 10) / 2 + 5);
     ctx.rotate(-Math.PI / 2);
@@ -301,7 +302,7 @@ export default function EnergyLandscapeViz() {
           <input type="range" min="10" max="80" step="5" value={tMax}
             title="Upper bound for the imaginary axis — controls how many zeta zeros fall within the visible heatmap region."
             onChange={e => setTMax(+e.target.value)} />
-          <span className="control-value">{tMax} <span style={{ color: '#64748b', fontSize: 11 }}>({ZETA_ZEROS.filter(g => g <= tMax).length} zeros visible)</span></span>
+          <span className="control-value">{tMax} <span style={{ color: 'var(--ink-faint)', fontSize: 11 }}>({ZETA_ZEROS.filter(g => g <= tMax).length} zeros visible)</span></span>
         </div>
         <div className="control-group">
           <label>Primes</label>
@@ -313,19 +314,19 @@ export default function EnergyLandscapeViz() {
               clearTimeout(debounceRef.current);
               debounceRef.current = setTimeout(() => setNumPrimes(v), 200);
             }} />
-          <span className="control-value">{numPrimesDisplay} <span style={{ color: '#64748b', fontSize: 11 }}>(up to p={getPrimes(numPrimesDisplay)[numPrimesDisplay - 1]})</span></span>
+          <span className="control-value">{numPrimesDisplay} <span style={{ color: 'var(--ink-faint)', fontSize: 11 }}>(up to p={getPrimes(numPrimesDisplay)[numPrimesDisplay - 1]})</span></span>
         </div>
         {hoverInfo ? (
-          <div style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: 12, color: '#06b6d4' }}>
+          <div style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: 12, color: 'var(--series-6)' }}>
             <InlineMath tex={"\\sigma"} />={hoverInfo.sigma} <InlineMath tex="t" />={hoverInfo.t}
             {hoverInfo.value != null && (
-              <span style={{ marginLeft: 8, color: '#f59e0b' }}>
+              <span style={{ marginLeft: 8, color: 'var(--brass)' }}>
                 {metric === 'energy' ? 'H' : metric === 'mismatch' ? '|Z₁−Z₂|' : metric === 'directMag' ? '|ζ(s)|' : '|ζ(1−s)|'}={hoverInfo.value}
               </span>
             )}
           </div>
         ) : (
-          <div style={{ marginLeft: 'auto', fontSize: 11, color: '#64748b', fontStyle: 'italic' }}>
+          <div style={{ marginLeft: 'auto', fontSize: 11, color: 'var(--ink-faint)', fontStyle: 'italic' }}>
             Hover over heatmap to inspect values
           </div>
         )}

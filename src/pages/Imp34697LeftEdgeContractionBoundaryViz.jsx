@@ -2,6 +2,7 @@ import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { effectiveHeightForN } from '../data/lambda-rh-height-mapping.js';
 import { IMP34675_CROSSOVER_CONTRACTION_LEFT_EDGE } from '../data/imp-34675-crossover-contraction-left-edge.js';
+import { ED, alpha } from '../styles/tokens.js';
 
 const EDGE = IMP34675_CROSSOVER_CONTRACTION_LEFT_EDGE;
 const K_AMPL = EDGE.closedForm.K; // ~1.572709e8, reused verbatim from imp-34675
@@ -45,9 +46,9 @@ function GPrimeDescentChart() {
   const oneLineY = yAt(1);
 
   const MARKS = [
-    { label: 'N_star', n: N_STAR, gp: 1, color: '#f472b6' },
-    { label: 'a = 1e9', n: A, gp: L, color: '#38bdf8' },
-    { label: 'N_cross', n: N_CROSS, gp: gPrime(N_CROSS), color: '#a78bfa' },
+    { label: 'N_star', n: N_STAR, gp: 1, color: ED.series7 },
+    { label: 'a = 1e9', n: A, gp: L, color: ED.series1 },
+    { label: 'N_cross', n: N_CROSS, gp: gPrime(N_CROSS), color: ED.series5 },
   ];
 
   return (
@@ -57,28 +58,28 @@ function GPrimeDescentChart() {
         y={padT}
         width={Math.max(xAt(A) - xAt(N_STAR), 0)}
         height={cH}
-        fill="rgba(244,114,182,0.08)"
+        fill={alpha(ED.series7, 0.08)}
       />
-      <line x1={padL} y1={oneLineY} x2={padL + cW} y2={oneLineY} stroke="#f472b6" strokeWidth={1} strokeDasharray="4,3" />
-      <text x={padL + 4} y={oneLineY - 6} fill="#f472b6" fontSize={9.5}>
+      <line x1={padL} y1={oneLineY} x2={padL + cW} y2={oneLineY} stroke={ED.series7} strokeWidth={1} strokeDasharray="4,3" />
+      <text x={padL + 4} y={oneLineY - 6} fill={ED.series7} fontSize={9.5}>
         g_prime = 1 (contraction boundary)
       </text>
-      <polyline points={curvePath} fill="none" stroke="#38bdf8" strokeWidth={1.5} />
+      <polyline points={curvePath} fill="none" stroke={ED.series1} strokeWidth={1.5} />
       {MARKS.map((m) => (
         <g key={m.label}>
-          <circle cx={xAt(m.n)} cy={yAt(m.gp)} r={5} fill={m.color} stroke="#0a0f1a" strokeWidth={0.75} />
-          <text x={xAt(m.n)} y={yAt(m.gp) - 10} textAnchor="middle" fill="#94a3b8" fontSize={9.5}>
+          <circle cx={xAt(m.n)} cy={yAt(m.gp)} r={5} fill={m.color} stroke={ED.paper} strokeWidth={0.75} />
+          <text x={xAt(m.n)} y={yAt(m.gp) - 10} textAnchor="middle" fill={ED.inkSoft} fontSize={9.5}>
             {m.gp.toFixed(4)}
           </text>
-          <text x={xAt(m.n)} y={svgH - padB + 16} textAnchor="middle" fill="#94a3b8" fontSize={10}>
+          <text x={xAt(m.n)} y={svgH - padB + 16} textAnchor="middle" fill={ED.inkSoft} fontSize={10}>
             {m.label}
           </text>
         </g>
       ))}
-      <text x={16} y={padT + cH / 2} textAnchor="middle" fill="#64748b" fontSize={9.5} transform={`rotate(-90 16 ${padT + cH / 2})`}>
+      <text x={16} y={padT + cH / 2} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5} transform={`rotate(-90 16 ${padT + cH / 2})`}>
         g_prime(N)
       </text>
-      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         N (log scale, N_star &asymp; 1.475e8 to N_cross &asymp; 3.28e9)
       </text>
     </svg>
@@ -90,7 +91,7 @@ export default function Imp34697LeftEdgeContractionBoundaryViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Left Edge of the Crossover Contraction Region (imp-34675)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-34650 certified the imp-33723 crossover map g(N) = K log T0(N) a Banach L-contraction on
         the deep-tail interval I = [{A.toExponential(0)}, 1e10], with L = g_prime(a) &asymp; {L}. imp-34675
         located the exact LEFT edge of the wider contraction region in closed form via the Lambert W
@@ -102,7 +103,7 @@ export default function Imp34697LeftEdgeContractionBoundaryViz() {
         which the imp-34650 certificate edge a = 1e9 was conservative.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         g_prime(N) crossing 1 at the Lambert-W closed form N_star, easing to L at a = 1e9
       </p>
       <GPrimeDescentChart />
@@ -111,14 +112,14 @@ export default function Imp34697LeftEdgeContractionBoundaryViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Finding:</strong> g_prime(N) = K&middot;2pi/(T0
+        <strong style={{ color: 'var(--ink-soft)' }}>Finding:</strong> g_prime(N) = K&middot;2pi/(T0
         log(T0/2pi)) is positive and strictly decreasing in N, crossing the contraction boundary
         g_prime = 1 exactly at N_star = K(1 &minus; 1/W(K)) &asymp; {N_STAR.toExponential(4)} (Lambert
         W closed form, imp-34675). Below N_star the map is not a contraction; above it, g_prime falls
@@ -133,14 +134,14 @@ export default function Imp34697LeftEdgeContractionBoundaryViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> visualization of an existing
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> visualization of an existing
         derivation, isRigorous false. N_star is a double-precision root of the Riemann-von Mangoldt
         asymptotic (Lambert W by Halley iteration), not an interval-arithmetic enclosure (imp-34675a
         sub-gap open). Locates a boundary of a property of the inherited imp-3220/imp-3406 surrogate

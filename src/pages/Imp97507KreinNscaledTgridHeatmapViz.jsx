@@ -7,6 +7,7 @@ import {
   IMP97507_VALUE_RANGE,
   IMP97507_BEST_CELL,
 } from '../data/imp-97507-krein-nscaled-tgrid-heatmap-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 // imp-97507: visualizes the imp-97484 extended well-resolved lam_min(N,T)
 // table (N=84..164, T=4800..8000) as a heatmap / column-family grid --
@@ -41,7 +42,7 @@ function HeatmapGrid() {
           x={labelColW + ci * cellW + cellW / 2}
           y={labelRowH - 8}
           textAnchor="middle"
-          fill="#94a3b8"
+          fill={ED.inkSoft}
           fontSize={11}
         >
           T={T}
@@ -54,7 +55,7 @@ function HeatmapGrid() {
           x={labelColW - 8}
           y={labelRowH + ri * cellH + cellH / 2 + 4}
           textAnchor="end"
-          fill="#94a3b8"
+          fill={ED.inkSoft}
           fontSize={11}
         >
           N={N}
@@ -73,14 +74,14 @@ function HeatmapGrid() {
                 width={cellW - 2}
                 height={cellH - 2}
                 fill={colorFor(cell.value)}
-                stroke={isBest ? '#f8fafc' : 'none'}
+                stroke={isBest ? ED.inkSoft : 'none'}
                 strokeWidth={isBest ? 2 : 0}
               />
               <text
                 x={labelColW + ci * cellW + (cellW - 2) / 2}
                 y={labelRowH + ri * cellH + (cellH - 2) / 2 + 4}
                 textAnchor="middle"
-                fill="#0f172a"
+                fill={ED.paper}
                 fontSize={10}
                 fontWeight={isBest ? 700 : 400}
               >
@@ -103,15 +104,15 @@ export default function Imp97507KreinNscaledTgridHeatmapViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(56,189,248,0.06)',
-          borderLeft: '3px solid #38bdf8',
+          background: 'color-mix(in srgb, var(--series-1) 6%, transparent)',
+          borderLeft: '3px solid var(--series-1)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 760,
         }}
       >
-        <strong style={{ color: '#38bdf8' }}>Honest status:</strong> every
+        <strong style={{ color: 'var(--series-1)' }}>Honest status:</strong> every
         cell below is the imp-97484 Rayleigh-Ritz UPPER bracket lam_min(N,T)
         reused verbatim. Measurement only &mdash; establishes no operator
         positivity, no lower bound, no bound moves; interval-rigorous reach
@@ -119,7 +120,7 @@ export default function Imp97507KreinNscaledTgridHeatmapViz() {
         NO QED.
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
         Each row is a subspace dimension N; each column is a cumulative-T
         checkpoint of the quadrature int_0^T sigma2 R_n R_m dt. Reading
         left-to-right, every row lightens (increases) as T resolves the
@@ -129,12 +130,12 @@ export default function Imp97507KreinNscaledTgridHeatmapViz() {
         best directly-read bracket c_sharp &le; {IMP97507_BEST_CELL.value.toFixed(6)}.
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         lam_min(N,T) column-family grid
       </h3>
       <HeatmapGrid />
 
-      <p style={{ color: '#64748b', fontSize: '0.8rem', marginTop: '1rem', maxWidth: 760 }}>
+      <p style={{ color: 'var(--ink-faint)', fontSize: '0.8rem', marginTop: '1rem', maxWidth: 760 }}>
         The lightest cell (N=164, T=4800) is the LEAST resolved reading in
         the table, not a valid tighter bracket: because every column
         increases in T, small-T cells read spuriously low. The correct
@@ -146,14 +147,14 @@ export default function Imp97507KreinNscaledTgridHeatmapViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> presentation
         only, consuming the imp-97484 table verbatim. Establishes no operator
         positivity; changes no bound; interval-rigorous reach stays
         2a&le;0.96; Platt-Trudgian Lambda&le;0.2 remains SOTA; RH open; NO

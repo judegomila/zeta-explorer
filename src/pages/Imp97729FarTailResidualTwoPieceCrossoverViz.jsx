@@ -6,11 +6,12 @@ import {
   IMP97729_ASYMPTOTE_ROWS,
   IMP97729_SUMMARY,
 } from '../data/imp-97729-fartail-residual-twopiece-crossover-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
-const POWER_COLOR = '#60a5fa';
-const LOG_COLOR = '#facc15';
-const CROSSOVER_COLOR = '#f87171';
-const ASYMPTOTE_COLOR = '#34d399';
+const POWER_COLOR = ED.series1;
+const LOG_COLOR = ED.series4;
+const CROSSOVER_COLOR = ED.series2;
+const ASYMPTOTE_COLOR = ED.series3;
 
 // Log-y line chart of the two residual pieces across log10 N = 12..15, with the crossover
 // marked as a vertical dashed line (the power-law piece falls ~1/sqrt(10)/decade while the
@@ -43,8 +44,8 @@ function TwoPieceCrossoverChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#334155" strokeWidth={1} />
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#334155" strokeWidth={1} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1} />
 
       {/* crossover marker */}
       <line
@@ -67,7 +68,7 @@ function TwoPieceCrossoverChart() {
         <g key={r.key}>
           <circle cx={xOf(r.logN)} cy={yOf(r.powerLawPiece)} r={3} fill={POWER_COLOR} />
           <circle cx={xOf(r.logN)} cy={yOf(r.logPiece)} r={3} fill={LOG_COLOR} />
-          <text x={xOf(r.logN)} y={svgH - 24} textAnchor="middle" fill="#94a3b8" fontSize={9}>
+          <text x={xOf(r.logN)} y={svgH - 24} textAnchor="middle" fill={ED.inkSoft} fontSize={9}>
             1e{r.logN}
           </text>
         </g>
@@ -108,11 +109,11 @@ function AsymptoteSettleChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#334155" strokeWidth={1} />
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#334155" strokeWidth={1} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1} />
 
-      <line x1={padL} y1={yOf(1)} x2={padL + plotW} y2={yOf(1)} stroke="#475569" strokeWidth={1} strokeDasharray="2 3" />
-      <text x={padL + 4} y={yOf(1) - 4} fill="#64748b" fontSize={9}>
+      <line x1={padL} y1={yOf(1)} x2={padL + plotW} y2={yOf(1)} stroke={ED.rule} strokeWidth={1} strokeDasharray="2 3" />
+      <text x={padL + 4} y={yOf(1) - 4} fill={ED.inkFaint} fontSize={9}>
         1/(2 log T0) ratio = 1
       </text>
 
@@ -120,7 +121,7 @@ function AsymptoteSettleChart() {
       {IMP97729_ASYMPTOTE_ROWS.map((r) => (
         <g key={r.key}>
           <circle cx={xOf(r.logN)} cy={yOf(r.value)} r={3.5} fill={ASYMPTOTE_COLOR} />
-          <text x={xOf(r.logN)} y={svgH - 20} textAnchor="middle" fill="#94a3b8" fontSize={9}>
+          <text x={xOf(r.logN)} y={svgH - 20} textAnchor="middle" fill={ED.inkSoft} fontSize={9}>
             1e{r.logN}
           </text>
           <text x={xOf(r.logN)} y={yOf(r.value) - 8} textAnchor="middle" fill={ASYMPTOTE_COLOR} fontSize={9}>
@@ -141,32 +142,32 @@ export default function Imp97729FarTailResidualTwoPieceCrossoverViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> a measurement/presentation-only
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a measurement/presentation-only
         page reshaping the frozen imp-97702 ladder verbatim (no re-derivation, no new computation).
         Conditional-share diagnostic, NOT an RH bound; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains
         SOTA; RH open; NO QED.
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         {IMP97729_SUMMARY.reading}
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         (1/2) sigma vs a (1 - sigma), N = 1e12..1e15 (log-y axis)
       </h3>
       <TwoPieceCrossoverChart />
 
       <table style={{ width: '100%', marginTop: '1.25rem', borderCollapse: 'collapse', fontSize: '0.82rem' }}>
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'right' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'right' }}>
             <th style={{ textAlign: 'left', padding: '0.4rem 0.5rem' }}>N</th>
             <th style={{ padding: '0.4rem 0.5rem' }}>power-law piece (1/2)sigma</th>
             <th style={{ padding: '0.4rem 0.5rem' }}>log piece a(1-sigma)</th>
@@ -174,7 +175,7 @@ export default function Imp97729FarTailResidualTwoPieceCrossoverViz() {
         </thead>
         <tbody>
           {IMP97729_PIECE_ROWS.map((row) => (
-            <tr key={row.key} style={{ color: '#cbd5e1', textAlign: 'right', borderTop: '1px solid #1e293b' }}>
+            <tr key={row.key} style={{ color: 'var(--ink)', textAlign: 'right', borderTop: '1px solid var(--rule-soft)' }}>
               <td style={{ textAlign: 'left', padding: '0.4rem 0.5rem' }}>1e{row.logN}</td>
               <td style={{ padding: '0.4rem 0.5rem' }}>{row.powerLawPiece}</td>
               <td style={{ padding: '0.4rem 0.5rem' }}>{row.logPiece}</td>
@@ -183,7 +184,7 @@ export default function Imp97729FarTailResidualTwoPieceCrossoverViz() {
         </tbody>
       </table>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', margin: '1.5rem 0 0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', margin: '1.5rem 0 0.5rem' }}>
         deep-tail diagnostic (1/2 - p) * 2 log T0, N = 1e15..1e24
       </h3>
       <AsymptoteSettleChart />
@@ -192,14 +193,14 @@ export default function Imp97729FarTailResidualTwoPieceCrossoverViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> {IMP97729_SUMMARY.verdict}
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> {IMP97729_SUMMARY.verdict}
       </div>
     </div>
   );

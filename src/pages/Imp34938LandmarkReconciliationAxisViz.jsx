@@ -1,16 +1,17 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP34904_LANDMARK_3P3E9_RECONCILIATION_TABLE } from '../data/imp-34904-landmark-3p3e9-reconciliation-table.js';
+import { ED } from '../styles/tokens.js';
 
 const D = IMP34904_LANDMARK_3P3E9_RECONCILIATION_TABLE;
 const LANDMARKS = D.landmarks;
 const GAPS = D.pairwiseGaps;
 
 const CAUSE_COLOR = {
-  'root-finding / floating-point residual': '#f87171',
-  'Gronwall E_flow term (imp-33601/imp-33848)': '#38bdf8',
-  'definitional inflection-vs-crossover offset (imp-33744)': '#a78bfa',
-  'definitional inflection-vs-halving offset (imp-33744)': '#a78bfa',
+  'root-finding / floating-point residual': ED.series2,
+  'Gronwall E_flow term (imp-33601/imp-33848)': ED.series1,
+  'definitional inflection-vs-crossover offset (imp-33744)': ED.series5,
+  'definitional inflection-vs-halving offset (imp-33744)': ED.series5,
 };
 
 // Shared-axis strip: the four landmarks plotted on a single N-axis (log-scaled around the
@@ -34,12 +35,12 @@ function LandmarkAxis() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={yMid} x2={padL + cW} y2={yMid} stroke="#334155" strokeWidth={1.5} />
+      <line x1={padL} y1={yMid} x2={padL + cW} y2={yMid} stroke={ED.rule} strokeWidth={1.5} />
 
       {ticks.map((t) => (
         <g key={t}>
-          <line x1={xAt(t)} y1={yMid - 4} x2={xAt(t)} y2={yMid + 4} stroke="#334155" strokeWidth={1} />
-          <text x={xAt(t)} y={yMid + 20} textAnchor="middle" fill="#64748b" fontSize={9}>
+          <line x1={xAt(t)} y1={yMid - 4} x2={xAt(t)} y2={yMid + 4} stroke={ED.rule} strokeWidth={1} />
+          <text x={xAt(t)} y={yMid + 20} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
             {(t / 1e9).toFixed(2)}e9
           </text>
         </g>
@@ -51,13 +52,13 @@ function LandmarkAxis() {
         const labelY = yMid + dy * (26 + (i * 4));
         return (
           <g key={lm.key}>
-            <line x1={x} y1={yMid} x2={x} y2={labelY} stroke="#475569" strokeWidth={1} strokeDasharray="2,2" />
-            <circle cx={x} cy={yMid} r={5} fill="#fbbf24" stroke="#0f172a" strokeWidth={1} />
+            <line x1={x} y1={yMid} x2={x} y2={labelY} stroke={ED.rule} strokeWidth={1} strokeDasharray="2,2" />
+            <circle cx={x} cy={yMid} r={5} fill={ED.brassDeco} stroke={ED.paper} strokeWidth={1} />
             <text
               x={x}
               y={labelY + (dy > 0 ? 12 : -8)}
               textAnchor="middle"
-              fill="#94a3b8"
+              fill={ED.inkSoft}
               fontSize={9.5}
               fontWeight={700}
             >
@@ -67,7 +68,7 @@ function LandmarkAxis() {
         );
       })}
 
-      <text x={padL + cW / 2} y={svgH - 6} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 6} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         four landmarks on a shared N-axis -- L1/L2 overlap at N_cross ~3.2803e9 (imp-33723/imp-3444);
         strict ordering N_half {'<'} N_cross {'<'} N_knee holds
       </text>
@@ -94,13 +95,13 @@ function PairwiseGapBars() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke="#334155" strokeWidth={1} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke={ED.rule} strokeWidth={1} />
 
       {[-16, -12, -8, -4, -2, 0].map((t) => (
         <g key={t}>
-          <line x1={padL - 4} y1={yAt(t)} x2={padL + cW} y2={yAt(t)} stroke="#1e293b" strokeWidth={1} />
-          <text x={padL - 8} y={yAt(t) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+          <line x1={padL - 4} y1={yAt(t)} x2={padL + cW} y2={yAt(t)} stroke={ED.ruleSoft} strokeWidth={1} />
+          <text x={padL - 8} y={yAt(t) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             1e{t}
           </text>
         </g>
@@ -118,17 +119,17 @@ function PairwiseGapBars() {
               height={yAt(yMin) - yAt(yLog)}
               fill={CAUSE_COLOR[g.cause] || '#64748b'}
             />
-            <text x={cx} y={yAt(yLog) - 6} textAnchor="middle" fill="#94a3b8" fontSize={8.5}>
+            <text x={cx} y={yAt(yLog) - 6} textAnchor="middle" fill={ED.inkSoft} fontSize={8.5}>
               {g.pct < 0.001 ? g.relGap.toExponential(1) : `${g.pct.toFixed(2)}%`}
             </text>
-            <text x={cx} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={9.5} fontWeight={700}>
+            <text x={cx} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5} fontWeight={700}>
               {g.pair}
             </text>
           </g>
         );
       })}
 
-      <text x={padL + cW / 2} y={svgH - 6} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 6} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         six pairwise relative gaps (log10 scale) -- red = root-finding/FP residual (~1.7e-15), blue = Gronwall
         E_flow term (~0.41%), purple = definitional log-factor running offset (~3.06-3.48%)
       </text>
@@ -141,16 +142,16 @@ export default function Imp34938LandmarkReconciliationAxisViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Four-Landmark ~3.3e9 Reconciliation Axis (imp-34938 / imp-34904)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         {D.question}
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         The four independent landmarks -- {D.summary.ordering} -- plotted on a single shared N-axis.
       </p>
       <LandmarkAxis />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.25rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.25rem 0 0.5rem' }}>
         The six pairwise relative gaps collapse to three cause families spanning fourteen orders of
         magnitude: {D.summary.tightestGap}; {D.summary.eFlowGap}; {D.summary.definitionalGap}.
       </p>
@@ -160,14 +161,14 @@ export default function Imp34938LandmarkReconciliationAxisViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> {D.clarity}
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> {D.clarity}
       </div>
     </div>
   );

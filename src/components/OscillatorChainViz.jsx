@@ -5,6 +5,7 @@ import { getPrimes, primeFrequency } from '../math/primes.js';
 import { directLadder, dualLadder, losslessBridge } from '../math/oscillators.js';
 import { ZETA_ZEROS } from '../math/zeta.js';
 import ThermoBar from './ThermoBar.jsx';
+import { ED, alpha } from '../styles/tokens.js';
 
 export default function OscillatorChainViz() {
   const svgRef = useRef();
@@ -17,7 +18,7 @@ export default function OscillatorChainViz() {
 
   // Color the sigma slider based on distance from critical line
   const sigmaDeviation = Math.abs(sigma - 0.5);
-  const sigmaColor = sigmaDeviation < 0.02 ? '#10b981' : sigmaDeviation < 0.15 ? '#f59e0b' : '#ef4444';
+  const sigmaColor = sigmaDeviation < 0.02 ? ED.series3 : sigmaDeviation < 0.15 ? ED.series4 : ED.series2;
 
   // Memoize ladder/bridge data so resize and selectedStage clicks skip recomputation
   const chainData = useMemo(() => {
@@ -58,22 +59,22 @@ export default function OscillatorChainViz() {
 
     // Column labels at top
     svg.append('text').attr('x', xDirect).attr('y', 24)
-      .attr('text-anchor', 'middle').attr('fill', '#3b82f6')
+      .attr('text-anchor', 'middle').attr('fill', ED.series1)
       .attr('font-size', 12).attr('font-weight', 600)
       .text('DIRECT ζ(s)');
     svg.append('text').attr('x', xDual).attr('y', 24)
-      .attr('text-anchor', 'middle').attr('fill', '#f59e0b')
+      .attr('text-anchor', 'middle').attr('fill', ED.brass)
       .attr('font-size', 12).attr('font-weight', 600)
       .text('DUAL ζ(1−s)');
     svg.append('text').attr('x', xBridge).attr('y', 24)
-      .attr('text-anchor', 'middle').attr('fill', '#8b5cf6')
+      .attr('text-anchor', 'middle').attr('fill', ED.series5)
       .attr('font-size', 11).attr('font-weight', 600)
       .text(`BRIDGE χ(s)  |χ|=${bridge.magnitude.toFixed(3)}`);
 
     // Status indicator below bridge label
     svg.append('text').attr('x', xBridge).attr('y', 40)
       .attr('text-anchor', 'middle')
-      .attr('fill', bridge.isUnitary ? '#10b981' : '#ef4444')
+      .attr('fill', bridge.isUnitary ? ED.series3 : ED.series2)
       .attr('font-size', 10).attr('font-weight', 600)
       .text(bridge.isUnitary ? 'LOSSLESS' : 'LOSSY');
 
@@ -88,7 +89,7 @@ export default function OscillatorChainViz() {
     svg.append('path')
       .datum([{ x: xDirect, y: yStart }, ...directPoints, { x: xDirect, y: yEnd }])
       .attr('d', vertLine)
-      .attr('fill', 'none').attr('stroke', '#3b82f6').attr('stroke-width', 1.5)
+      .attr('fill', 'none').attr('stroke', ED.series1).attr('stroke-width', 1.5)
       .attr('opacity', 0.4);
 
     // Dual ladder wire (vertical)
@@ -99,7 +100,7 @@ export default function OscillatorChainViz() {
     svg.append('path')
       .datum([{ x: xDual, y: yStart }, ...dualPoints, { x: xDual, y: yEnd }])
       .attr('d', vertLine)
-      .attr('fill', 'none').attr('stroke', '#f59e0b').attr('stroke-width', 1.5)
+      .attr('fill', 'none').attr('stroke', ED.brassDeco).attr('stroke-width', 1.5)
       .attr('opacity', 0.4);
 
     // Bridge column (vertical rectangle)
@@ -108,8 +109,8 @@ export default function OscillatorChainViz() {
       .attr('x', xBridge - bridgeWidth / 2).attr('y', yStart)
       .attr('width', bridgeWidth).attr('height', yEnd - yStart)
       .attr('rx', 12)
-      .attr('fill', bridge.isUnitary ? 'rgba(139,92,246,0.1)' : 'rgba(239,68,68,0.1)')
-      .attr('stroke', bridge.isUnitary ? '#8b5cf6' : '#ef4444')
+      .attr('fill', bridge.isUnitary ? alpha(ED.series5, 0.1) : alpha(ED.series2, 0.1))
+      .attr('stroke', bridge.isUnitary ? ED.series5 : ED.series2)
       .attr('stroke-width', 1.5);
 
     // Horizontal connectors and nodes for each prime
@@ -126,21 +127,21 @@ export default function OscillatorChainViz() {
       svg.append('line')
         .attr('x1', xDirect + 22).attr('y1', y)
         .attr('x2', xBridge - bridgeWidth / 2 - 2).attr('y2', y)
-        .attr('stroke', '#8b5cf6').attr('stroke-width', 0.6 + directStrength * 1.4)
+        .attr('stroke', ED.series5).attr('stroke-width', 0.6 + directStrength * 1.4)
         .attr('opacity', 0.12 + directStrength * 0.38).attr('stroke-dasharray', '3,3');
 
       // Bridge to dual connector — opacity/width scales with stage magnitude
       svg.append('line')
         .attr('x1', xBridge + bridgeWidth / 2 + 2).attr('y1', y)
         .attr('x2', xDual - 22).attr('y2', y)
-        .attr('stroke', '#8b5cf6').attr('stroke-width', 0.6 + dualStrength * 1.4)
+        .attr('stroke', ED.series5).attr('stroke-width', 0.6 + dualStrength * 1.4)
         .attr('opacity', 0.12 + dualStrength * 0.38).attr('stroke-dasharray', '3,3');
 
       // Small bridge node at center
       const bridgeNodeR = 4;
       svg.append('circle')
         .attr('cx', xBridge).attr('cy', y).attr('r', bridgeNodeR)
-        .attr('fill', bridge.isUnitary ? '#8b5cf6' : '#ef4444')
+        .attr('fill', bridge.isUnitary ? ED.series5 : ED.series2)
         .attr('opacity', 0.5);
     });
 
@@ -180,7 +181,7 @@ export default function OscillatorChainViz() {
       group.append('text')
         .attr('x', xDirect - radius - 8).attr('y', y + 1)
         .attr('text-anchor', 'end').attr('dominant-baseline', 'middle')
-        .attr('fill', '#64748b').attr('font-size', 8)
+        .attr('fill', ED.inkFaint).attr('font-size', 8)
         .text(`Z₀=${primeFrequency(stage.prime).toFixed(2)}`);
 
       // Magnitude bar extending left
@@ -224,7 +225,7 @@ export default function OscillatorChainViz() {
       group.append('text')
         .attr('x', xDual + radius + 8).attr('y', y + 1)
         .attr('text-anchor', 'start').attr('dominant-baseline', 'middle')
-        .attr('fill', '#64748b').attr('font-size', 8)
+        .attr('fill', ED.inkFaint).attr('font-size', 8)
         .text(`Z₀=${primeFrequency(stage.prime).toFixed(2)}`);
 
       // Magnitude bar extending right, offset past Z₀ label to avoid overlap
@@ -239,12 +240,12 @@ export default function OscillatorChainViz() {
     const infoG = svg.append('g').attr('transform', `translate(${width - 16}, 52)`);
     infoG.append('rect')
       .attr('x', -200).attr('y', -8).attr('width', 208).attr('height', 4 * 20 + 4)
-      .attr('rx', 6).attr('fill', 'rgba(13,17,23,0.85)').attr('stroke', '#1e293b');
+      .attr('rx', 6).attr('fill', alpha(ED.paper, 0.85)).attr('stroke', ED.ruleSoft);
     [
-      { text: `s = ${sigma.toFixed(2)} + ${t.toFixed(2)}i`, color: '#94a3b8' },
-      { text: `|ζ(s)| ≈ ${direct.totalMagnitude.toFixed(4)}`, color: '#3b82f6' },
-      { text: `|ζ(1−s)| ≈ ${dual.totalMagnitude.toFixed(4)}`, color: '#f59e0b' },
-      { text: `|χ| = ${bridge.magnitude.toFixed(3)},  Γ = ${((1 - bridge.magnitude) / (1 + bridge.magnitude)).toFixed(3)}`, color: bridge.isUnitary ? '#10b981' : '#ef4444' },
+      { text: `s = ${sigma.toFixed(2)} + ${t.toFixed(2)}i`, color: ED.inkSoft },
+      { text: `|ζ(s)| ≈ ${direct.totalMagnitude.toFixed(4)}`, color: ED.series1 },
+      { text: `|ζ(1−s)| ≈ ${dual.totalMagnitude.toFixed(4)}`, color: ED.brass },
+      { text: `|χ| = ${bridge.magnitude.toFixed(3)},  Γ = ${((1 - bridge.magnitude) / (1 + bridge.magnitude)).toFixed(3)}`, color: bridge.isUnitary ? ED.series3 : ED.series2 },
     ].forEach(({ text, color }, i) => {
       infoG.append('text')
         .attr('x', 0).attr('y', i * 20)
@@ -318,7 +319,7 @@ export default function OscillatorChainViz() {
               <span
                 style={{
                   marginLeft: 6, fontSize: 11, fontFamily: 'var(--font-mono)',
-                  color: bestDist < 0.3 ? '#10b981' : '#64748b',
+                  color: bestDist < 0.3 ? 'var(--series-3)' : 'var(--ink-faint)',
                   cursor: 'pointer', borderBottom: '1px dashed currentColor',
                 }}
                 title={`Click to snap t to γ${bestIdx + 1} = ${ZETA_ZEROS[bestIdx].toFixed(6)}`}
@@ -333,7 +334,7 @@ export default function OscillatorChainViz() {
           <label>Primes</label>
           <input type="range" min="4" max="50" step="1" value={numPrimes}
             onChange={e => setNumPrimes(+e.target.value)} />
-          <span className="control-value">{numPrimes} <span style={{ color: '#64748b', fontSize: 11 }}>(up to p={chainData.primes[numPrimes - 1]})</span></span>
+          <span className="control-value">{numPrimes} <span style={{ color: 'var(--ink-faint)', fontSize: 11 }}>(up to p={chainData.primes[numPrimes - 1]})</span></span>
         </div>
       </div>
       <ThermoBar sigma={sigma} t={t} numPrimes={numPrimes} />
@@ -346,22 +347,22 @@ export default function OscillatorChainViz() {
             {selectedStage.ladder === 'direct' ? 'Direct' : 'Dual'} Ladder — Prime {selectedStage.prime}
           </h3>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', gap: 12, marginTop: 12 }}>
-            <div><span style={{ color: '#64748b', fontSize: 11 }}>Inductance <InlineMath tex={"L_p = \\log p"} /></span><br/>
-              <span style={{ fontFamily: 'var(--font-mono)', color: '#06b6d4' }}>{selectedStage.frequency.toFixed(4)}</span></div>
-            <div><span style={{ color: '#64748b', fontSize: 11 }}>Capacitance <InlineMath tex={"C_p = 1/\\log p"} /></span><br/>
-              <span style={{ fontFamily: 'var(--font-mono)', color: '#06b6d4' }}>{(1 / selectedStage.frequency).toFixed(4)}</span></div>
-            <div><span style={{ color: '#64748b', fontSize: 11 }}>Impedance <InlineMath tex={"Z_0 = \\log p"} /></span><br/>
-              <span style={{ fontFamily: 'var(--font-mono)', color: '#06b6d4' }}>{selectedStage.frequency.toFixed(4)}</span></div>
-            <div><span style={{ color: '#64748b', fontSize: 11 }}>|H(s)|</span><br/>
-              <span style={{ fontFamily: 'var(--font-mono)', color: '#06b6d4' }}>{selectedStage.magnitude.toFixed(4)}</span></div>
-            <div><span style={{ color: '#64748b', fontSize: 11 }}>Phase</span><br/>
-              <span style={{ fontFamily: 'var(--font-mono)', color: '#06b6d4' }}>{(selectedStage.phase * 180 / Math.PI).toFixed(1)}°</span></div>
-            <div><span style={{ color: '#64748b', fontSize: 11 }}>Q Factor</span><br/>
-              <span style={{ fontFamily: 'var(--font-mono)', color: '#06b6d4' }}>{selectedStage.Q.toFixed(2)}</span></div>
-            <div><span style={{ color: '#64748b', fontSize: 11 }}>Energy</span><br/>
-              <span style={{ fontFamily: 'var(--font-mono)', color: '#06b6d4' }}>{selectedStage.energy.toFixed(4)}</span></div>
-            <div><span style={{ color: '#64748b', fontSize: 11 }}>Cumulative |H|</span><br/>
-              <span style={{ fontFamily: 'var(--font-mono)', color: '#06b6d4' }}>{selectedStage.cumulativeMagnitude.toFixed(4)}</span></div>
+            <div><span style={{ color: 'var(--ink-faint)', fontSize: 11 }}>Inductance <InlineMath tex={"L_p = \\log p"} /></span><br/>
+              <span style={{ fontFamily: 'var(--font-mono)', color: 'var(--series-6)' }}>{selectedStage.frequency.toFixed(4)}</span></div>
+            <div><span style={{ color: 'var(--ink-faint)', fontSize: 11 }}>Capacitance <InlineMath tex={"C_p = 1/\\log p"} /></span><br/>
+              <span style={{ fontFamily: 'var(--font-mono)', color: 'var(--series-6)' }}>{(1 / selectedStage.frequency).toFixed(4)}</span></div>
+            <div><span style={{ color: 'var(--ink-faint)', fontSize: 11 }}>Impedance <InlineMath tex={"Z_0 = \\log p"} /></span><br/>
+              <span style={{ fontFamily: 'var(--font-mono)', color: 'var(--series-6)' }}>{selectedStage.frequency.toFixed(4)}</span></div>
+            <div><span style={{ color: 'var(--ink-faint)', fontSize: 11 }}>|H(s)|</span><br/>
+              <span style={{ fontFamily: 'var(--font-mono)', color: 'var(--series-6)' }}>{selectedStage.magnitude.toFixed(4)}</span></div>
+            <div><span style={{ color: 'var(--ink-faint)', fontSize: 11 }}>Phase</span><br/>
+              <span style={{ fontFamily: 'var(--font-mono)', color: 'var(--series-6)' }}>{(selectedStage.phase * 180 / Math.PI).toFixed(1)}°</span></div>
+            <div><span style={{ color: 'var(--ink-faint)', fontSize: 11 }}>Q Factor</span><br/>
+              <span style={{ fontFamily: 'var(--font-mono)', color: 'var(--series-6)' }}>{selectedStage.Q.toFixed(2)}</span></div>
+            <div><span style={{ color: 'var(--ink-faint)', fontSize: 11 }}>Energy</span><br/>
+              <span style={{ fontFamily: 'var(--font-mono)', color: 'var(--series-6)' }}>{selectedStage.energy.toFixed(4)}</span></div>
+            <div><span style={{ color: 'var(--ink-faint)', fontSize: 11 }}>Cumulative |H|</span><br/>
+              <span style={{ fontFamily: 'var(--font-mono)', color: 'var(--series-6)' }}>{selectedStage.cumulativeMagnitude.toFixed(4)}</span></div>
           </div>
         </div>
       )}

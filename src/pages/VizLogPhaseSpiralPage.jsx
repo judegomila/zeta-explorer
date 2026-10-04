@@ -23,6 +23,7 @@ import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import { VIZ_LOG_PHASE_SPIRAL } from '../data/viz-log-phase-spiral.js';
 import { zetaCriticalStrip, cAbs } from '../math/zeta.js';
 import { getPrimes } from '../math/primes.js';
+import { ED, alpha } from '../styles/tokens.js';
 
 // Editorial (warm) re-theme: identical math/canvas logic, warm chrome.
 // Canvas colors are literal warm hex (canvas fill/stroke can't use CSS vars):
@@ -206,7 +207,7 @@ export default function VizLogPhaseSpiralPage() {
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
     // Background.
-    ctx.fillStyle = '#f6f1e7';
+    ctx.fillStyle = ED.paper2;
     ctx.fillRect(0, 0, W, H);
 
     // Geometry — disk centred in canvas, padded.
@@ -223,10 +224,10 @@ export default function VizLogPhaseSpiralPage() {
     ctx.translate(-cx, -cy);
 
     // Radial reference circles (every integer log(t+e)).
-    ctx.strokeStyle = '#d5c9b2';
+    ctx.strokeStyle = ED.rule;
     ctx.lineWidth = 1;
     ctx.font = '10px "JetBrains Mono", monospace';
-    ctx.fillStyle = '#877b67';
+    ctx.fillStyle = ED.inkFaint;
     ctx.textAlign = 'left';
     ctx.textBaseline = 'middle';
     for (let k = 1; k <= Math.floor(rMax); k++) {
@@ -243,7 +244,7 @@ export default function VizLogPhaseSpiralPage() {
     }
 
     // Centre cross (theta = 0 axis = positive x).
-    ctx.strokeStyle = '#d5c9b2';
+    ctx.strokeStyle = ED.rule;
     ctx.beginPath();
     ctx.moveTo(cx - (Math.min(W, H) / 2 - padPx), cy);
     ctx.lineTo(cx + (Math.min(W, H) / 2 - padPx), cy);
@@ -303,15 +304,15 @@ export default function VizLogPhaseSpiralPage() {
         const x = cx + rG * Math.cos(thetaG);
         const y = cy - rG * Math.sin(thetaG);
         // Outer halo + inner solid dot.
-        ctx.fillStyle = 'rgba(194,58,28,0.18)';
+        ctx.fillStyle = alpha(ED.series2, 0.18);
         ctx.beginPath();
         ctx.arc(x, y, 7, 0, Math.PI * 2);
         ctx.fill();
-        ctx.fillStyle = '#c23a1c';
+        ctx.fillStyle = ED.series2;
         ctx.beginPath();
         ctx.arc(x, y, 3, 0, Math.PI * 2);
         ctx.fill();
-        ctx.fillStyle = '#c23a1c';
+        ctx.fillStyle = ED.series2;
         ctx.fillText('γ' + (n + 1), x + 8, y);
       }
     }
@@ -336,7 +337,7 @@ export default function VizLogPhaseSpiralPage() {
         const rR = Math.log(tRes + Math.E) * scale;
         const xR = cx + rR * Math.cos(thetaR);
         const yR = cy - rR * Math.sin(thetaR);
-        ctx.fillStyle = 'rgba(63,107,134,0.55)';
+        ctx.fillStyle = alpha(ED.series1, 0.55);
         ctx.beginPath();
         ctx.arc(xR, yR, 2.5, 0, Math.PI * 2);
         ctx.fill();
@@ -346,7 +347,7 @@ export default function VizLogPhaseSpiralPage() {
     ctx.restore();
 
     // Footer label — drawn in screen space, outside zoom+pan transform.
-    ctx.fillStyle = '#877b67';
+    ctx.fillStyle = ED.inkFaint;
     ctx.font = '11px "JetBrains Mono", monospace';
     ctx.textAlign = 'left';
     ctx.fillText('r = log(t+e) · θ = arg ζ(½+it)', 12, H - 12);

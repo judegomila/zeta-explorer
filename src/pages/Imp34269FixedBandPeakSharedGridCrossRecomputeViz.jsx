@@ -7,6 +7,7 @@ import {
   IMP34269_CROSS_ROWS,
   IMP34269_MAX_RAW_DIFF,
 } from '../data/imp-34269-fixed-band-peak-shared-grid-cross-recompute-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 // Panel 1: the six shared-boundary peaks -- independent recompute overlaid on both stored modules
 // (they coincide exactly at plotted precision, which is the point of the cross-recompute).
@@ -34,48 +35,48 @@ function SharedPeakChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
 
       {yTicks.map((v) => (
         <g key={'y' + v}>
-          <line x1={padL - 4} y1={yAt(v)} x2={padL + cW} y2={yAt(v)} stroke="#1e293b" strokeWidth={1} />
-          <text x={padL - 8} y={yAt(v) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+          <line x1={padL - 4} y1={yAt(v)} x2={padL + cW} y2={yAt(v)} stroke={ED.ruleSoft} strokeWidth={1} />
+          <text x={padL - 8} y={yAt(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v.toFixed(2)}
           </text>
         </g>
       ))}
       {xTicks.map((k) => (
         <g key={'x' + k}>
-          <line x1={xAt(k)} y1={padT + cH - 4} x2={xAt(k)} y2={padT + cH + 4} stroke="#334155" strokeWidth={1} />
-          <text x={xAt(k)} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={9}>
+          <line x1={xAt(k)} y1={padT + cH - 4} x2={xAt(k)} y2={padT + cH + 4} stroke={ED.rule} strokeWidth={1} />
+          <text x={xAt(k)} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
             {k.toFixed(2)}
           </text>
         </g>
       ))}
-      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         kEnd (shared boundary)
       </text>
       <text
         x={16}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={`rotate(-90 16 ${padT + cH / 2})`}
       >
         fixed-band peak (independent recompute)
       </text>
 
-      <polyline points={path} fill="none" stroke="#38bdf8" strokeWidth={2} />
+      <polyline points={path} fill="none" stroke={ED.series1} strokeWidth={2} />
       {IMP34269_CROSS_ROWS.map((r) => (
         <circle
           key={'pt' + r.kEnd}
           cx={xAt(r.kEnd)}
           cy={yAt(r.recomputedPeak)}
           r={4}
-          fill={r.recomputedAtK === 6.5 ? '#c4b5fd' : '#facc15'}
-          stroke="#0a0f1a"
+          fill={r.recomputedAtK === 6.5 ? '#c4b5fd' : ED.brassDeco}
+          stroke={ED.paper}
           strokeWidth={0.75}
         />
       ))}
@@ -109,43 +110,43 @@ function RawDiffChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
 
       {yTicks.map((v) => (
         <g key={'y' + v}>
-          <line x1={padL - 4} y1={yAt(v)} x2={padL + cW} y2={yAt(v)} stroke="#1e293b" strokeWidth={1} />
-          <text x={padL - 8} y={yAt(v) + 3} textAnchor="end" fill="#64748b" fontSize={8}>
+          <line x1={padL - 4} y1={yAt(v)} x2={padL + cW} y2={yAt(v)} stroke={ED.ruleSoft} strokeWidth={1} />
+          <text x={padL - 8} y={yAt(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8}>
             {v.toExponential(0)}
           </text>
         </g>
       ))}
       {xTicks.map((k) => (
         <g key={'x' + k}>
-          <line x1={xAt(k)} y1={padT + cH - 4} x2={xAt(k)} y2={padT + cH + 4} stroke="#334155" strokeWidth={1} />
-          <text x={xAt(k)} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={9}>
+          <line x1={xAt(k)} y1={padT + cH - 4} x2={xAt(k)} y2={padT + cH + 4} stroke={ED.rule} strokeWidth={1} />
+          <text x={xAt(k)} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
             {k.toFixed(2)}
           </text>
         </g>
       ))}
-      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         kEnd (shared boundary)
       </text>
       <text
         x={16}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={`rotate(-90 16 ${padT + cH / 2})`}
       >
         raw diff vs. imp-34196 (pre-rounding)
       </text>
 
-      <line x1={padL} y1={yAt(0)} x2={padL + cW} y2={yAt(0)} stroke="#1e293b" strokeWidth={1} strokeDasharray="3,3" />
-      <polyline points={path} fill="none" stroke="#4ade80" strokeWidth={2} />
+      <line x1={padL} y1={yAt(0)} x2={padL + cW} y2={yAt(0)} stroke={ED.ruleSoft} strokeWidth={1} strokeDasharray="3,3" />
+      <polyline points={path} fill="none" stroke={ED.series3} strokeWidth={2} />
       {IMP34269_CROSS_ROWS.map((r) => (
-        <circle key={'pt' + r.kEnd} cx={xAt(r.kEnd)} cy={yAt(r.rawDiff)} r={3.5} fill="#4ade80" stroke="#0a0f1a" strokeWidth={0.75} />
+        <circle key={'pt' + r.kEnd} cx={xAt(r.kEnd)} cy={yAt(r.rawDiff)} r={3.5} fill={ED.series3} stroke={ED.paper} strokeWidth={0.75} />
       ))}
     </svg>
   );
@@ -156,13 +157,13 @@ export default function Imp34269FixedBandPeakSharedGridCrossRecomputeViz() {
     <div style={{ padding: '1.5rem', maxWidth: 940, margin: '0 auto' }}>
       <PageHeader title="Fixed-Band Peak Shared-Grid Cross-Recompute (imp-34269 / imp-34196 / imp-34109)" />
 
-      <p style={{ color: '#64748b', fontSize: '0.8rem', marginBottom: '0.75rem' }}>
-        <Link to="/viz-imp34281-m2-ceiling-cohort-index" style={{ color: '#64748b' }}>
+      <p style={{ color: 'var(--ink-faint)', fontSize: '0.8rem', marginBottom: '0.75rem' }}>
+        <Link to="/viz-imp34281-m2-ceiling-cohort-index" style={{ color: 'var(--ink-faint)' }}>
           &larr; back to the M2-ceiling cohort index
         </Link>
       </p>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 740 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 740 }}>
         imp-34196 (a 0.25 kEnd grid) asserts it measures the SAME thing as imp-34109 (a 0.5 kEnd grid),
         but never tabulated the shared-kEnd peaks side by side -- its reuse gate checked only a single
         anchor. imp-34269 cross-recomputes the fixed-band (k&le;10) peak at the six shared boundaries
@@ -175,13 +176,13 @@ export default function Imp34269FixedBandPeakSharedGridCrossRecomputeViz() {
         step-function-flat at sub-rung resolution.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         independently recomputed fixed-band peak at the six shared kEnd boundaries (violet = argmax rung
         6.50, gold = argmax rung 6.25 -- the un-lock at kEnd = 19.0)
       </p>
       <SharedPeakChart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
         raw (pre-rounding) diff between the independent recompute and the stored imp-34196 value -- all
         six points sit well inside &plusmn;1e-6
       </p>
@@ -196,7 +197,7 @@ export default function Imp34269FixedBandPeakSharedGridCrossRecomputeViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>kEnd</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>recomputed peak</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>argmax k</th>
@@ -208,13 +209,13 @@ export default function Imp34269FixedBandPeakSharedGridCrossRecomputeViz() {
         </thead>
         <tbody>
           {IMP34269_CROSS_ROWS.map((r) => (
-            <tr key={r.kEnd} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+            <tr key={r.kEnd} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.kEnd.toFixed(2)}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.recomputedPeak.toFixed(6)}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.recomputedAtK.toFixed(2)}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.imp34196Peak.toFixed(6)}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.imp34109Peak.toFixed(6)}</td>
-              <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace', color: '#4ade80' }}>
+              <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace', color: 'var(--series-3)' }}>
                 {r.rawDiff.toExponential(3)}
               </td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.subRungIncrement}</td>
@@ -227,14 +228,14 @@ export default function Imp34269FixedBandPeakSharedGridCrossRecomputeViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-data only, baked
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-data only, baked
         literals reproducing the imp-34269 measurement; no new derivation, no bound changed.
         Verification/cross-recompute only -- neither imp-34196 nor imp-34109 is strengthened or
         overturned, this only certifies they measure the same thing. Descriptive OLS surrogate,
@@ -246,20 +247,20 @@ export default function Imp34269FixedBandPeakSharedGridCrossRecomputeViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Same fixed-band-peak cohort:</strong> this cross-recompute
+        <strong style={{ color: 'var(--ink-soft)' }}>Same fixed-band-peak cohort:</strong> this cross-recompute
         sits alongside the{' '}
-        <Link to="/viz-imp34268-fixed-band-peak-reaccel-convexity-stitch" style={{ color: '#94a3b8' }}>
+        <Link to="/viz-imp34268-fixed-band-peak-reaccel-convexity-stitch" style={{ color: 'var(--ink-soft)' }}>
           re-acceleration convexity stitch
         </Link>{' '}
         (imp-34268) in the same fixed-band peak family. See the{' '}
-        <Link to="/viz-imp34281-m2-ceiling-cohort-index" style={{ color: '#94a3b8' }}>
+        <Link to="/viz-imp34281-m2-ceiling-cohort-index" style={{ color: 'var(--ink-soft)' }}>
           full M2-ceiling cohort index
         </Link>{' '}
         for the other viz surfaces sharing this ceiling.

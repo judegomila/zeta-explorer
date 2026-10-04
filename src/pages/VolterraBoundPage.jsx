@@ -88,6 +88,7 @@ export default function VolterraBoundPage() {
         <h1 className="ed-h1" style={{ marginBottom: 10 }}>
           The Volterra Norm Bound: One Statement for §15-27
         </h1>
+        <p className="ed-lbl">Related: <Link to="/collapse-chain">Collapse chain: ‖V‖ ≤ 1 ⇔ CDB-Exist</Link></p>
 
         <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.6, maxWidth: 760 }}>
           The §15-27 program collapses (imp-1258) to a single inequality on the operator

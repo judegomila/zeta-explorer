@@ -6,6 +6,7 @@ import {
   IMP97570_STEP,
   IMP97570_B_LADDER,
 } from '../data/imp-97570-crossover-crest-combined-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 // imp-97570: merges the imp-97441 four-tolerance x*(eps) table with the
 // imp-97459 crest amplitude table on the SAME b-ladder axis, so the eps=1%
@@ -35,28 +36,28 @@ function CrestPanel() {
   return (
     <div style={{ marginBottom: '1rem' }}>
       <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-        <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#334155" strokeWidth={1} />
-        <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#334155" strokeWidth={1} />
+        <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1} />
+        <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1} />
 
         {/* 1% threshold line */}
-        <line x1={padL} y1={yOf(1.0)} x2={padL + plotW} y2={yOf(1.0)} stroke="#f87171" strokeWidth={1} strokeDasharray="4 3" />
-        <text x={padL + plotW} y={yOf(1.0) - 3} textAnchor="end" fill="#f87171" fontSize={9}>1% level</text>
+        <line x1={padL} y1={yOf(1.0)} x2={padL + plotW} y2={yOf(1.0)} stroke={ED.series2} strokeWidth={1} strokeDasharray="4 3" />
+        <text x={padL + plotW} y={yOf(1.0) - 3} textAnchor="end" fill={ED.series2} fontSize={9}>1% level</text>
 
         {/* continuum tips as horizontal guides */}
-        <line x1={padL} y1={yOf(IMP97570_CRESTS.lower.continuumTipPct)} x2={padL + plotW} y2={yOf(IMP97570_CRESTS.lower.continuumTipPct)} stroke="#60a5fa" strokeWidth={0.75} strokeDasharray="2 4" opacity={0.6} />
-        <line x1={padL} y1={yOf(IMP97570_CRESTS.upper.continuumTipPct)} x2={padL + plotW} y2={yOf(IMP97570_CRESTS.upper.continuumTipPct)} stroke="#a78bfa" strokeWidth={0.75} strokeDasharray="2 4" opacity={0.6} />
+        <line x1={padL} y1={yOf(IMP97570_CRESTS.lower.continuumTipPct)} x2={padL + plotW} y2={yOf(IMP97570_CRESTS.lower.continuumTipPct)} stroke={ED.series1} strokeWidth={0.75} strokeDasharray="2 4" opacity={0.6} />
+        <line x1={padL} y1={yOf(IMP97570_CRESTS.upper.continuumTipPct)} x2={padL + plotW} y2={yOf(IMP97570_CRESTS.upper.continuumTipPct)} stroke={ED.series5} strokeWidth={0.75} strokeDasharray="2 4" opacity={0.6} />
 
         {[0.7, 0.9, 1.0, 1.1, 1.3, 1.5].map((v) => (
           <g key={`y${v}`}>
-            <line x1={padL - 4} y1={yOf(v)} x2={padL} y2={yOf(v)} stroke="#334155" strokeWidth={1} />
-            <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={8.5}>
+            <line x1={padL - 4} y1={yOf(v)} x2={padL} y2={yOf(v)} stroke={ED.rule} strokeWidth={1} />
+            <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8.5}>
               {v.toFixed(1)}%
             </text>
           </g>
         ))}
 
         {IMP97570_B_LADDER.map((b) => (
-          <text key={`x${b}`} x={xOf(b)} y={padT + plotH + 16} textAnchor="middle" fill="#64748b" fontSize={8}>
+          <text key={`x${b}`} x={xOf(b)} y={padT + plotH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={8}>
             {b}
           </text>
         ))}
@@ -65,22 +66,22 @@ function CrestPanel() {
         <polyline
           points={IMP97570_MERGED_ROWS.map((r) => `${xOf(r.b)},${yOf(r.ampLowerPct)}`).join(' ')}
           fill="none"
-          stroke="#60a5fa"
+          stroke={ED.series1}
           strokeWidth={2}
         />
         {IMP97570_MERGED_ROWS.map((r) => (
-          <circle key={`lo${r.b}`} cx={xOf(r.b)} cy={yOf(r.ampLowerPct)} r={3} fill={r.lowerOver1 ? '#60a5fa' : '#1e293b'} stroke="#60a5fa" strokeWidth={1.5} />
+          <circle key={`lo${r.b}`} cx={xOf(r.b)} cy={yOf(r.ampLowerPct)} r={3} fill={r.lowerOver1 ? ED.series1 : ED.paper3} stroke={ED.series1} strokeWidth={1.5} />
         ))}
 
         {/* upper crest (1/5) -- dead flat, always above 1% */}
         <polyline
           points={IMP97570_MERGED_ROWS.map((r) => `${xOf(r.b)},${yOf(r.ampUpperPct)}`).join(' ')}
           fill="none"
-          stroke="#a78bfa"
+          stroke={ED.series5}
           strokeWidth={2}
         />
         {IMP97570_MERGED_ROWS.map((r) => (
-          <circle key={`up${r.b}`} cx={xOf(r.b)} cy={yOf(r.ampUpperPct)} r={3} fill="#a78bfa" />
+          <circle key={`up${r.b}`} cx={xOf(r.b)} cy={yOf(r.ampUpperPct)} r={3} fill={ED.series5} />
         ))}
 
         {/* step-point marker: the row where the branch flips */}
@@ -89,17 +90,17 @@ function CrestPanel() {
           y1={padT}
           x2={(xOf(IMP97570_STEP.ladderStepLoB) + xOf(IMP97570_STEP.ladderStepHiB)) / 2}
           y2={padT + plotH}
-          stroke="#facc15"
+          stroke={ED.brassDeco}
           strokeWidth={1}
           strokeDasharray="2 2"
           opacity={0.7}
         />
 
-        <text x={padL} y={padT - 6} fill="#e2e8f0" fontSize={10} fontWeight="bold">
+        <text x={padL} y={padT - 6} fill={ED.ink} fontSize={10} fontWeight="bold">
           Crest amplitudes vs b: lower (1/6, blue) crosses 1%; upper (1/5, purple) stays above it
         </text>
       </svg>
-      <div style={{ paddingLeft: padL, fontSize: '0.72rem', color: '#64748b' }}>
+      <div style={{ paddingLeft: padL, fontSize: '0.72rem', color: 'var(--ink-faint)' }}>
         Yellow dashed line: the branch-flip step point between b={IMP97570_STEP.ladderStepLoB} and b={IMP97570_STEP.ladderStepHiB}.
         Filled blue dots: lower-crest amplitude &gt; 1% (branch active). Open dots: &le; 1%.
       </div>
@@ -112,7 +113,7 @@ function MergedTable() {
   return (
     <table style={{ borderCollapse: 'collapse', width: '100%', fontSize: '0.78rem', marginBottom: '1rem' }}>
       <thead>
-        <tr style={{ color: '#94a3b8', borderBottom: '1px solid #334155' }}>
+        <tr style={{ color: 'var(--ink-soft)', borderBottom: '1px solid var(--rule)' }}>
           <th style={{ textAlign: 'right', padding: '4px 8px' }}>b</th>
           {epsList.map((e) => (
             <th key={e} style={{ textAlign: 'right', padding: '4px 8px' }}>
@@ -126,7 +127,7 @@ function MergedTable() {
       </thead>
       <tbody>
         {IMP97570_MERGED_ROWS.map((r) => (
-          <tr key={r.b} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+          <tr key={r.b} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
             <td style={{ textAlign: 'right', padding: '4px 8px' }}>{r.b}</td>
             {epsList.map((e) => (
               <td
@@ -134,17 +135,17 @@ function MergedTable() {
                 style={{
                   textAlign: 'right',
                   padding: '4px 8px',
-                  color: e === 0.01 ? '#f87171' : '#cbd5e1',
+                  color: e === 0.01 ? 'var(--series-2)' : 'var(--ink)',
                   fontWeight: e === 0.01 ? 'bold' : 'normal',
                 }}
               >
                 {r.xStar[e].toFixed(5)}
               </td>
             ))}
-            <td style={{ textAlign: 'right', padding: '4px 8px', color: r.lowerOver1 ? '#60a5fa' : '#64748b' }}>
+            <td style={{ textAlign: 'right', padding: '4px 8px', color: r.lowerOver1 ? 'var(--series-1)' : 'var(--ink-faint)' }}>
               {r.ampLowerPct.toFixed(4)}%
             </td>
-            <td style={{ textAlign: 'right', padding: '4px 8px', color: '#a78bfa' }}>{r.ampUpperPct.toFixed(4)}%</td>
+            <td style={{ textAlign: 'right', padding: '4px 8px', color: 'var(--series-5)' }}>{r.ampUpperPct.toFixed(4)}%</td>
             <td style={{ textAlign: 'left', padding: '4px 8px' }}>{r.branch}</td>
           </tr>
         ))}
@@ -162,22 +163,22 @@ export default function Imp97570CrossoverCrestCombinedViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> measurement
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> measurement
         only, reusing two upstream measurements verbatim (no re-derivation).
         Establishes no operator positivity; changes no bound. The rigorous
         anchor stays T = 2.594e7; PT Lambda&le;0.2 remains SOTA; RH open; NO
         QED.
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-97441 tabulated the crossover fraction x*(eps) = A(b)/b across four
         tolerances on the same b-ladder {'{'}1000,2000,4000,8000,16000{'}'}, and
         flagged the eps=1% row as BIMODAL (0.199 &rarr; 0.1665). imp-97459
@@ -197,14 +198,14 @@ export default function Imp97570CrossoverCrestCombinedViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the merged view:</strong>{' '}
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the merged view:</strong>{' '}
         the 1% column (red, bold) is the only tolerance column that changes
         value down the table; it flips from 0.199 to 0.1665 exactly at the row
         where amp(1/6) crosses from an open dot (&le;1%, b=2000, 0.9964%) to a
@@ -219,14 +220,14 @@ export default function Imp97570CrossoverCrestCombinedViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page
         consuming the imp-97441 and imp-97459 tables verbatim; no re-solve.
         Establishes no operator positivity; changes no bound; PT Lambda&le;0.2
         remains SOTA; RH open; NO QED.

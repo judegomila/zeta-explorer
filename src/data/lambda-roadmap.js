@@ -147,7 +147,7 @@ export const LAMBDA_BOUNDS = [
     note:
       'A sharper computer-assisted candidate below 0.1787854: a revised mollifier and an ' +
       'extended finite lane certify four independent gates, each machine-checked in Arb interval ' +
-      'arithmetic with the reduction Lean-checked. Not established, not peer-reviewed, not RH; ' +
+      'arithmetic; the y-transfer reduction and Lemma B3 are Lean-checked. Not established, not peer-reviewed, not RH; ' +
       'Platt–Trudgian Λ ≤ 0.2 remains the benchmark.',
   },
   {

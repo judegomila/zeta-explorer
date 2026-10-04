@@ -5,6 +5,7 @@ import {
   IMP34078_CROSSINGS,
   IMP34078_SPAN_BOUND,
 } from '../data/imp-34078-pointwise-vs-window-exponent-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 function EstimatorChart() {
   const svgW = 680;
@@ -35,39 +36,39 @@ function EstimatorChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={asymptoteY} x2={padL + cW} y2={asymptoteY} stroke="#334155" strokeWidth={1} strokeDasharray="2,3" />
-      <line x1={padL} y1={thresholdY} x2={padL + cW} y2={thresholdY} stroke="#64748b" strokeWidth={1.25} strokeDasharray="5,3" />
+      <line x1={padL} y1={asymptoteY} x2={padL + cW} y2={asymptoteY} stroke={ED.rule} strokeWidth={1} strokeDasharray="2,3" />
+      <line x1={padL} y1={thresholdY} x2={padL + cW} y2={thresholdY} stroke={ED.rule} strokeWidth={1.25} strokeDasharray="5,3" />
 
-      <line x1={windowX} y1={padT} x2={windowX} y2={padT + cH} stroke="#facc15" strokeWidth={1.25} strokeDasharray="3,3" />
-      <line x1={pointX} y1={padT} x2={pointX} y2={padT + cH} stroke="#38bdf8" strokeWidth={1.25} strokeDasharray="3,3" />
+      <line x1={windowX} y1={padT} x2={windowX} y2={padT + cH} stroke={ED.brassDeco} strokeWidth={1.25} strokeDasharray="3,3" />
+      <line x1={pointX} y1={padT} x2={pointX} y2={padT + cH} stroke={ED.series1} strokeWidth={1.25} strokeDasharray="3,3" />
 
-      <polyline points={windowPath} fill="none" stroke="#facc15" strokeWidth={2} />
-      <polyline points={pointPath} fill="none" stroke="#38bdf8" strokeWidth={2} />
+      <polyline points={windowPath} fill="none" stroke={ED.brassDeco} strokeWidth={2} />
+      <polyline points={pointPath} fill="none" stroke={ED.series1} strokeWidth={2} />
 
       {[10, 20, 30, 40, 50, 60, 70].map((t) => (
-        <text key={`xt-${t}`} x={xAt(t)} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={8.5}>
+        <text key={`xt-${t}`} x={xAt(t)} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={8.5}>
           {t}
         </text>
       ))}
       {[0.3, 0.35, 0.4, 0.45, 0.5].map((y) => (
-        <text key={`yt-${y}`} x={padL - 8} y={yAt(y) + 3} textAnchor="end" fill="#64748b" fontSize={8.5}>
+        <text key={`yt-${y}`} x={padL - 8} y={yAt(y) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8.5}>
           {y}
         </text>
       ))}
-      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         log10(N)
       </text>
 
-      <text x={padL + 6} y={padT + 12} fill="#facc15" fontSize={9.5}>
+      <text x={padL + 6} y={padT + 12} fill={ED.brass} fontSize={9.5}>
         windowed p_eff(N), 12-decade OLS (leads pointwise)
       </text>
-      <text x={padL + 6} y={padT + 24} fill="#38bdf8" fontSize={9.5}>
+      <text x={padL + 6} y={padT + 24} fill={ED.series1} fontSize={9.5}>
         pointwise p(N)
       </text>
-      <text x={windowX - 4} y={padT + cH - 6} fill="#facc15" fontSize={8.5} textAnchor="end">
+      <text x={windowX - 4} y={padT + cH - 6} fill={ED.brass} fontSize={8.5} textAnchor="end">
         window ~{IMP34078_CROSSINGS.within1pct.window_start_log10N}
       </text>
-      <text x={pointX + 4} y={padT + cH - 18} fill="#38bdf8" fontSize={8.5}>
+      <text x={pointX + 4} y={padT + cH - 18} fill={ED.series1} fontSize={8.5}>
         pointwise ~{IMP34078_CROSSINGS.within1pct.point_log10N}
       </text>
     </svg>
@@ -101,26 +102,26 @@ function DeltaDecayChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={boundY} x2={padL + cW} y2={boundY} stroke="#f472b6" strokeWidth={1.25} strokeDasharray="5,3" />
-      <polyline points={path} fill="none" stroke="#34d399" strokeWidth={2} />
+      <line x1={padL} y1={boundY} x2={padL + cW} y2={boundY} stroke={ED.series7} strokeWidth={1.25} strokeDasharray="5,3" />
+      <polyline points={path} fill="none" stroke={ED.series3} strokeWidth={2} />
 
       {[10, 20, 30, 40, 50, 60, 70].map((t) => (
-        <text key={`xt-${t}`} x={xAt(t)} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={8.5}>
+        <text key={`xt-${t}`} x={xAt(t)} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={8.5}>
           {t}
         </text>
       ))}
       {[0, 2, 4, 6, 8, 10].map((y) => (
-        <text key={`yt-${y}`} x={padL - 8} y={yAt(y) + 3} textAnchor="end" fill="#64748b" fontSize={8.5}>
+        <text key={`yt-${y}`} x={padL - 8} y={yAt(y) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8.5}>
           {y}
         </text>
       ))}
-      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         log10(N)
       </text>
-      <text x={padL + 6} y={padT + 12} fill="#34d399" fontSize={9.5}>
+      <text x={padL + 6} y={padT + 12} fill={ED.series3} fontSize={9.5}>
         delta(N) * (log T0)^2, delta = p_eff - p
       </text>
-      <text x={padL + cW - 4} y={boundY - 4} fill="#f472b6" fontSize={9.5} textAnchor="end">
+      <text x={padL + cW - 4} y={boundY - 4} fill={ED.series7} fontSize={9.5} textAnchor="end">
         analytic S/4 = {IMP34078_SPAN_BOUND.analyticSOverFour.toFixed(3)} (S = 12 ln10)
       </text>
     </svg>
@@ -134,7 +135,7 @@ export default function Imp34078PointwiseVsWindowExponentViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Pointwise vs Windowed Exponent Estimators (imp-34006)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-34006 co-tabulated two estimators of the imp-3463 far-tail decay
         exponent on a shared N ladder: the imp-33816 POINTWISE local exponent
         p(N) (cyan) and the imp-33274 WINDOWED effective exponent p_eff(N)
@@ -146,16 +147,16 @@ export default function Imp34078PointwiseVsWindowExponentViz() {
         dashed grey) roughly {c1.leadDecades} decades earlier.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         p(N) and p_eff(N) vs log10(N), within-1% crossings marked
       </p>
       <EstimatorChart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginTop: '1.5rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginTop: '1.5rem', marginBottom: '0.5rem' }}>
         delta(N) * (log T0)^2 vs log10(N) -- the offset decay, one log-power faster than the shared gap
       </p>
       <DeltaDecayChart />
-      <p style={{ color: '#94a3b8', fontSize: '0.85rem', marginTop: '0.5rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.85rem', marginTop: '0.5rem', maxWidth: 700 }}>
         The pointwise gap 1/2 - p(N) decays as ~1/(2 log T0), but the offset
         delta(N) = p_eff(N) - p(N) decays one log-power faster, as
         ~const/(log T0)^2: the product delta(N)*(log T0)^2 stays O(1)-bounded
@@ -169,14 +170,14 @@ export default function Imp34078PointwiseVsWindowExponentViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>The two thresholds:</strong> within-1%
+        <strong style={{ color: 'var(--ink-soft)' }}>The two thresholds:</strong> within-1%
         (p &gt;= 0.495) the pointwise crossing sits at log10(N) ~ {c1.point_log10N}
         {' '}while the window-START crossing leads by {c1.leadDecades} decades, at
         {' '}~{c1.window_start_log10N}. One threshold deeper, within-0.1%
@@ -191,14 +192,14 @@ export default function Imp34078PointwiseVsWindowExponentViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> measurement
         only, co-tabulating two inherited exponent estimators on a shared N
         ladder. The component model is the inherited imp-3220/imp-3406
         extrapolation, NOT a rigorous asymptotic; changes no bound; imp-3066

@@ -4,6 +4,7 @@ import {
   IMP34456_LADDER,
   IMP34456_DRIFT_INTERVALS,
 } from '../data/imp-34456-coupling-ratio-drift-ladder-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 // Line-with-points chart: coupling ratio residual/(E_flow/E_trunc) at each landmark, pinned
 // near the leading value 2 (dashed reference line), drifting monotonically DOWN.
@@ -30,13 +31,13 @@ function CouplingRatioLadderLine() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
 
       {yTicks.map((v) => (
         <g key={'y' + v}>
-          <line x1={padL - 4} y1={yAt(v)} x2={padL + cW} y2={yAt(v)} stroke="#1e293b" strokeWidth={1} />
-          <text x={padL - 8} y={yAt(v) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+          <line x1={padL - 4} y1={yAt(v)} x2={padL + cW} y2={yAt(v)} stroke={ED.ruleSoft} strokeWidth={1} />
+          <text x={padL - 8} y={yAt(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v.toFixed(2)}
           </text>
         </g>
@@ -47,33 +48,33 @@ function CouplingRatioLadderLine() {
         y1={yAt(2)}
         x2={padL + cW}
         y2={yAt(2)}
-        stroke="#f472b6"
+        stroke={ED.series7}
         strokeWidth={1.25}
         strokeDasharray="5,4"
       />
-      <text x={padL + cW - 4} y={yAt(2) - 6} textAnchor="end" fill="#f472b6" fontSize={9.5}>
+      <text x={padL + cW - 4} y={yAt(2) - 6} textAnchor="end" fill={ED.series7} fontSize={9.5}>
         leading value = 2
       </text>
 
-      <polyline points={points} fill="none" stroke="#38bdf8" strokeWidth={2} />
+      <polyline points={points} fill="none" stroke={ED.series1} strokeWidth={2} />
 
       {IMP34456_LADDER.map((r, i) => (
         <g key={r.landmark}>
-          <circle cx={xAt(i)} cy={yAt(r.coupling_ratio)} r={4} fill="#38bdf8" stroke="#0a0f1a" strokeWidth={1} />
+          <circle cx={xAt(i)} cy={yAt(r.coupling_ratio)} r={4} fill={ED.series1} stroke={ED.paper} strokeWidth={1} />
           <text
             x={xAt(i)}
             y={yAt(r.coupling_ratio) - 10}
             textAnchor="middle"
-            fill="#94a3b8"
+            fill={ED.inkSoft}
             fontSize={9}
             fontFamily="monospace"
           >
             {r.coupling_ratio.toFixed(4)}
           </text>
-          <text x={xAt(i)} y={padT + cH + 18} textAnchor="middle" fill="#cbd5e1" fontSize={9.5}>
+          <text x={xAt(i)} y={padT + cH + 18} textAnchor="middle" fill={ED.ink} fontSize={9.5}>
             {r.landmark}
           </text>
-          <text x={xAt(i)} y={padT + cH + 32} textAnchor="middle" fill="#64748b" fontSize={8.5} fontFamily="monospace">
+          <text x={xAt(i)} y={padT + cH + 32} textAnchor="middle" fill={ED.inkFaint} fontSize={8.5} fontFamily="monospace">
             thr={r.thr}
           </text>
         </g>
@@ -105,13 +106,13 @@ function DriftIntervalBars() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
 
       {yTicks.map((v) => (
         <g key={'y' + v}>
-          <line x1={padL - 4} y1={yAt(v)} x2={padL + cW} y2={yAt(v)} stroke="#1e293b" strokeWidth={1} />
-          <text x={padL - 8} y={yAt(v) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+          <line x1={padL - 4} y1={yAt(v)} x2={padL + cW} y2={yAt(v)} stroke={ED.ruleSoft} strokeWidth={1} />
+          <text x={padL - 8} y={yAt(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v.toFixed(1) + '%'}
           </text>
         </g>
@@ -130,14 +131,14 @@ function DriftIntervalBars() {
               y={top}
               width={barW}
               height={bottom - top}
-              fill={isSmallest ? '#34d399' : '#f472b6'}
-              stroke="#0a0f1a"
+              fill={isSmallest ? ED.series3 : ED.series7}
+              stroke={ED.paper}
               strokeWidth={0.75}
             />
-            <text x={xCenter} y={top - 6} textAnchor="middle" fill="#94a3b8" fontSize={9} fontFamily="monospace">
+            <text x={xCenter} y={top - 6} textAnchor="middle" fill={ED.inkSoft} fontSize={9} fontFamily="monospace">
               {r.drift_pct.toFixed(4) + '%'}
             </text>
-            <text x={xCenter} y={padT + cH + 16} textAnchor="middle" fill="#cbd5e1" fontSize={8.5}>
+            <text x={xCenter} y={padT + cH + 16} textAnchor="middle" fill={ED.ink} fontSize={8.5}>
               {r.step}
             </text>
           </g>
@@ -154,7 +155,7 @@ export default function Imp34456CouplingRatioDriftLadderViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Coupling Ratio Drift Ladder (imp-34372 / imp-34447)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-34372 measured the coupling ratio residual/(E_flow/E_trunc) at three closed-form
         crossover landmarks and found it pinned near the leading value 2 (N proportional to
         E_coll^-2), drifting monotonically down by a small amount per landmark. imp-34447 added a
@@ -163,12 +164,12 @@ export default function Imp34456CouplingRatioDriftLadderViz() {
         is {last.coupling_ratio.toFixed(4)} &mdash; still comfortably above 2.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         Coupling ratio stays pinned near 2 across all four landmarks, drifting monotonically down
       </p>
       <CouplingRatioLadderLine />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginTop: '1.5rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginTop: '1.5rem', marginBottom: '0.5rem' }}>
         Per-landmark-step drift rises to a mild peak then TURNS OVER (green bar) &mdash; not a
         constant rate
       </p>
@@ -183,7 +184,7 @@ export default function Imp34456CouplingRatioDriftLadderViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>landmark</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>thr</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>coupling ratio</th>
@@ -192,7 +193,7 @@ export default function Imp34456CouplingRatioDriftLadderViz() {
         </thead>
         <tbody>
           {IMP34456_LADDER.map((row) => (
-            <tr key={row.landmark} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+            <tr key={row.landmark} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
               <td style={{ padding: '0.4rem 0.6rem' }}>{row.landmark}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{row.thr}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{row.coupling_ratio.toFixed(6)}</td>
@@ -206,14 +207,14 @@ export default function Imp34456CouplingRatioDriftLadderViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Summary:</strong> the per-landmark-step drift is
+        <strong style={{ color: 'var(--ink-soft)' }}>Summary:</strong> the per-landmark-step drift is
         {' '}
         {IMP34456_DRIFT_INTERVALS.map((d) => d.drift_pct.toFixed(4) + '%').join(', ')}
         {' '}&mdash; unequal, rising to a mild peak at the far-tail-to-deep-tail step then turning
@@ -225,14 +226,14 @@ export default function Imp34456CouplingRatioDriftLadderViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-data only, baked literals
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-data only, baked literals
         reproducing the imp-34372/imp-34447 measurements; no new derivation, no bound changed.
         Component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous
         asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED; C_C 1/8 ansatz untouched; imp-3066

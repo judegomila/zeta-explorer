@@ -1,12 +1,13 @@
 import React from 'react';
+import { ED, alpha, TINT } from '../styles/tokens.js';
 
 const LEVEL_COLORS = {
-  rigorous:    { bg: 'rgba(16,185,129,0.15)',  border: 'rgba(16,185,129,0.35)',  text: '#10b981',  label: 'RIGOROUS' },
-  conditional: { bg: 'rgba(245,158,11,0.15)',  border: 'rgba(245,158,11,0.35)',  text: '#f59e0b',  label: 'CONDITIONAL' },
-  estimate:    { bg: 'rgba(59,130,246,0.15)',   border: 'rgba(59,130,246,0.35)',  text: '#60a5fa',  label: 'ESTIMATE' },
-  'dead-end-fornow':  { bg: 'rgba(239,68,68,0.12)',    border: 'rgba(239,68,68,0.35)',   text: '#f87171',  label: 'DEAD-END-FORNOW' },
-  refuted:     { bg: 'rgba(127,29,29,0.25)',    border: 'rgba(239,68,68,0.5)',    text: '#fca5a5',  label: 'REFUTED' },
-  rh_equiv:    { bg: 'rgba(148,163,184,0.12)',  border: 'rgba(148,163,184,0.35)', text: '#94a3b8',  label: 'RH-EQUIVALENT' },
+  rigorous:    { bg: alpha(ED.series3, 0.15),  border: alpha(ED.series3, 0.35),  text: ED.series3,  label: 'RIGOROUS' },
+  conditional: { bg: alpha(ED.brassDeco, 0.15),  border: alpha(ED.brassDeco, 0.35),  text: ED.brass,  label: 'CONDITIONAL' },
+  estimate:    { bg: alpha(ED.series1, 0.15),   border: alpha(ED.series1, 0.35),  text: ED.series1,  label: 'ESTIMATE' },
+  'dead-end-fornow':  { bg: alpha(ED.series2, 0.12),    border: alpha(ED.series2, 0.35),   text: ED.series2,  label: 'DEAD-END-FORNOW' },
+  refuted:     { bg: alpha(TINT.terra, 0.25),    border: alpha(ED.series2, 0.5),    text: ED.series2,  label: 'REFUTED' },
+  rh_equiv:    { bg: alpha(ED.inkSoft, 0.12),  border: alpha(ED.rule, 0.35), text: ED.inkSoft,  label: 'RH-EQUIVALENT' },
 };
 
 /**
@@ -52,7 +53,7 @@ export function HonestCallout({ level, title, children }) {
           {title}
         </div>
       )}
-      <div style={{ fontSize: 13, color: '#94a3b8', lineHeight: 1.55 }}>
+      <div style={{ fontSize: 13, color: 'var(--ink-soft)', lineHeight: 1.55 }}>
         {children}
       </div>
     </div>

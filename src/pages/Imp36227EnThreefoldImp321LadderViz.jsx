@@ -6,6 +6,7 @@ import {
   IMP36227_CROSSOVER,
   IMP36227_EN_THREEFOLD_VIZ_DATA,
 } from '../data/imp-36227-en-threefold-imp321-ladder-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 function EThreefoldChart() {
   const svgW = 680;
@@ -36,12 +37,12 @@ function EThreefoldChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
       {yTicks.map((v) => (
         <g key={v}>
-          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke="#1e293b" strokeWidth={0.7} />
-          <text x={padL - 4} y={yS(v) + 3.5} textAnchor="end" fill="#475569" fontSize={9}>
+          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke={ED.ruleSoft} strokeWidth={0.7} />
+          <text x={padL - 4} y={yS(v) + 3.5} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v.toExponential(0)}
           </text>
         </g>
@@ -53,11 +54,11 @@ function EThreefoldChart() {
         y1={yS(IMP36227_E_TRUNC_FLOOR)}
         x2={padL + cW}
         y2={yS(IMP36227_E_TRUNC_FLOOR)}
-        stroke="#f472b6"
+        stroke={ED.series7}
         strokeWidth={1.4}
         strokeDasharray="4,3"
       />
-      <text x={padL + 4} y={yS(IMP36227_E_TRUNC_FLOOR) - 5} fill="#f9a8d4" fontSize={8.5}>
+      <text x={padL + 4} y={yS(IMP36227_E_TRUNC_FLOOR) - 5} fill={ED.series7} fontSize={8.5}>
         E_trunc floor = {IMP36227_E_TRUNC_FLOOR.toExponential(2)} (imp-2631)
       </text>
 
@@ -67,7 +68,7 @@ function EThreefoldChart() {
         y1={padT}
         x2={xS(IMP36227_CROSSOVER.log10_N_cross)}
         y2={padT + cH}
-        stroke="#facc15"
+        stroke={ED.brassDeco}
         strokeWidth={1.2}
         strokeDasharray="2,3"
       />
@@ -75,33 +76,33 @@ function EThreefoldChart() {
         x={xS(IMP36227_CROSSOVER.log10_N_cross) - 4}
         y={padT + 12}
         textAnchor="end"
-        fill="#fde68a"
+        fill={ED.brass}
         fontSize={8.5}
       >
         N_cross ~ 3.28e9 (imp-35968)
       </text>
 
-      {pathFor('E_coll', '#38bdf8')}
-      {pathFor('E_flow', '#34d399')}
+      {pathFor('E_coll', ED.series1)}
+      {pathFor('E_flow', ED.series3)}
 
       {rows.map((r) => (
         <g key={r.N}>
-          <circle cx={xS(Math.log10(r.N))} cy={yS(r.E_coll)} r={3.2} fill="#38bdf8" />
-          <circle cx={xS(Math.log10(r.N))} cy={yS(r.E_flow)} r={3.2} fill="#34d399" />
+          <circle cx={xS(Math.log10(r.N))} cy={yS(r.E_coll)} r={3.2} fill={ED.series1} />
+          <circle cx={xS(Math.log10(r.N))} cy={yS(r.E_flow)} r={3.2} fill={ED.series3} />
         </g>
       ))}
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
 
       {xTicks.map((t) => (
         <g key={t}>
-          <line x1={xS(t)} y1={padT + cH} x2={xS(t)} y2={padT + cH + 5} stroke="#334155" strokeWidth={1} />
-          <text x={xS(t)} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={9}>
+          <line x1={xS(t)} y1={padT + cH} x2={xS(t)} y2={padT + cH + 5} stroke={ED.rule} strokeWidth={1} />
+          <text x={xS(t)} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
             {t === 9.5159 ? '9.52*' : t}
           </text>
         </g>
       ))}
-      <text x={padL + cW / 2} y={padT + cH + 34} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={padT + cH + 34} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         log10 N (imp-321 ladder, * = crossover)
       </text>
 
@@ -109,7 +110,7 @@ function EThreefoldChart() {
         x={12}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={'rotate(-90,12,' + (padT + cH / 2) + ')'}
       >
@@ -146,33 +147,33 @@ function ShareTruncChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
       {yTicks.map((v) => (
         <g key={v}>
-          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke="#1e293b" strokeWidth={0.7} />
-          <text x={padL - 4} y={yS(v) + 3.5} textAnchor="end" fill="#475569" fontSize={9}>
+          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke={ED.ruleSoft} strokeWidth={0.7} />
+          <text x={padL - 4} y={yS(v) + 3.5} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {(v * 100).toFixed(0)}%
           </text>
         </g>
       ))}
 
-      <path d={path} fill="none" stroke="#f472b6" strokeWidth={2.2} />
+      <path d={path} fill="none" stroke={ED.series7} strokeWidth={2.2} />
       {rows.map((r) => (
-        <circle key={r.N} cx={xS(Math.log10(r.N))} cy={yS(r.shareTrunc)} r={3.2} fill="#f472b6" />
+        <circle key={r.N} cx={xS(Math.log10(r.N))} cy={yS(r.shareTrunc)} r={3.2} fill={ED.series7} />
       ))}
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
 
       {rows.map((r) => (
         <g key={'x' + r.N}>
-          <line x1={xS(Math.log10(r.N))} y1={padT + cH} x2={xS(Math.log10(r.N))} y2={padT + cH + 5} stroke="#334155" strokeWidth={1} />
-          <text x={xS(Math.log10(r.N))} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={9}>
+          <line x1={xS(Math.log10(r.N))} y1={padT + cH} x2={xS(Math.log10(r.N))} y2={padT + cH + 5} stroke={ED.rule} strokeWidth={1} />
+          <text x={xS(Math.log10(r.N))} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
             N={r.N >= 1e6 ? r.N.toExponential(0) : r.N}
           </text>
         </g>
       ))}
-      <text x={padL + cW / 2} y={padT + cH + 34} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={padT + cH + 34} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         imp-321 ladder N
       </text>
 
@@ -180,7 +181,7 @@ function ShareTruncChart() {
         x={12}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={'rotate(-90,12,' + (padT + cH / 2) + ')'}
       >
@@ -195,7 +196,7 @@ export default function Imp36227EnThreefoldImp321LadderViz() {
     <div style={{ padding: '1.5rem', maxWidth: 940, margin: '0 auto' }}>
       <PageHeader title="E(N) Threefold Across the imp-321 Ladder (imp-36227)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         The pinned-constants surrogate E(N) = E_trunc + E_flow + E_coll (imp-35889 / imp-35968 sub-terms)
         evaluated at the seven imp-321 ladder rungs (N = 2458 through N = 1e8). E_trunc = 3.06e-5
         (imp-2631, imp-35164) is a fixed floor that never moves; E_coll and E_flow both shrink with N.
@@ -203,12 +204,12 @@ export default function Imp36227EnThreefoldImp321LadderViz() {
         above the ladder's top rung.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         E_coll and E_flow decaying across the ladder, against the fixed E_trunc floor and the crossover
       </p>
       <EThreefoldChart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
         shareTrunc = E_trunc / E(N) rising across the ladder as the floor's relative weight grows
       </p>
       <ShareTruncChart />
@@ -217,14 +218,14 @@ export default function Imp36227EnThreefoldImp321LadderViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the charts:</strong> E_coll (blue) dominates
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the charts:</strong> E_coll (blue) dominates
         E(N) at every imp-321 ladder rung -- its share never drops below ~0.84 -- but it decays
         with N faster than E_flow decays, and both decay against a floor (E_trunc, dashed pink)
         that is completely flat. The bottom chart makes that floor's rising relative weight
@@ -238,14 +239,14 @@ export default function Imp36227EnThreefoldImp321LadderViz() {
         style={{
           marginTop: '1rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> {IMP36227_EN_THREEFOLD_VIZ_DATA.honest}
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> {IMP36227_EN_THREEFOLD_VIZ_DATA.honest}
       </div>
     </div>
   );

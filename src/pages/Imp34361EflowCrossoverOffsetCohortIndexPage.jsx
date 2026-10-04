@@ -51,7 +51,7 @@ export default function Imp34361EflowCrossoverOffsetCohortIndexPage() {
     <div style={{ padding: '1.5rem', maxWidth: 940, margin: '0 auto' }}>
       <PageHeader title="E_flow Crossover-Offset / Threshold-Family Cohort (imp-34361)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 780 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 780 }}>
         The imp-33601 identity chain -- imp-33601 (sigma = 1/2 &lt;=&gt; E_coll = E_trunc + E_flow),
         imp-33723 (closed-form N_cross), imp-33743 (far-tail generalisation), imp-34174/imp-34248
         (surplus tabulation and small-thr asymptotic), and imp-34270 (explicit E_flow correction) --
@@ -68,16 +68,16 @@ export default function Imp34361EflowCrossoverOffsetCohortIndexPage() {
             style={{
               display: 'block',
               padding: '0.85rem 1rem',
-              background: 'rgba(148,163,184,0.04)',
-              borderLeft: '3px solid #334155',
+              background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+              borderLeft: '3px solid var(--rule)',
               borderRadius: '0 4px 4px 0',
               textDecoration: 'none',
             }}
           >
-            <div style={{ color: '#e2e8f0', fontWeight: 700, fontSize: '0.9rem' }}>
-              {entry.title} <span style={{ color: '#64748b', fontWeight: 400 }}>({entry.id})</span>
+            <div style={{ color: 'var(--ink)', fontWeight: 700, fontSize: '0.9rem' }}>
+              {entry.title} <span style={{ color: 'var(--ink-faint)', fontWeight: 400 }}>({entry.id})</span>
             </div>
-            <div style={{ color: '#94a3b8', fontSize: '0.82rem', marginTop: '0.25rem' }}>
+            <div style={{ color: 'var(--ink-soft)', fontSize: '0.82rem', marginTop: '0.25rem' }}>
               {entry.summary}
             </div>
           </Link>
@@ -88,14 +88,14 @@ export default function Imp34361EflowCrossoverOffsetCohortIndexPage() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>imp-33601 founding identity (no dedicated viz page):</strong>{' '}
+        <strong style={{ color: 'var(--ink-soft)' }}>imp-33601 founding identity (no dedicated viz page):</strong>{' '}
         {IMP33601_SIGMA_HALF_VS_CROSSOVER_EFLOW_OFFSET.exactRelation} -- the sigma-halving point sits
         BELOW the imp-3444 crossover (N_half ~{' '}
         {IMP33601_SIGMA_HALF_VS_CROSSOVER_EFLOW_OFFSET.landmarks.N_half_sigma_eq_half} vs N_cross ~{' '}
@@ -108,21 +108,21 @@ export default function Imp34361EflowCrossoverOffsetCohortIndexPage() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>imp-34328 sigma-vs-product gap complement (not identical laws):</strong>{' '}
+        <strong style={{ color: 'var(--ink-soft)' }}>imp-34328 sigma-vs-product gap complement (not identical laws):</strong>{' '}
         The sigma-exponent gap 1/2 - p (imp-33816) and the imp-34197 E_coll product gap 1/(2u) look like
         "the same law" at a glance, but imp-34328 shows they are EXACT COMPLEMENTS on the log T0 axis
         instead: gapSigma * log T0 + gapProduct = 1/2 at every rung, not gapSigma = gapProduct. The
         product cancels the log(2 pi) shift between u = log(T0/2 pi) and log T0 by multiplying through
         log T0; the bare sigma-exponent gap keeps that shift, so it approaches 1/2 * u only slowly
         (0.446 to 0.500) rather than sitting on it exactly. See the{' '}
-        <Link to="/viz-imp34417-sigma-vs-product-gap-complement" style={{ color: '#7dd3fc' }}>
+        <Link to="/viz-imp34417-sigma-vs-product-gap-complement" style={{ color: 'var(--series-1)' }}>
           side-by-side complement chart (imp-34417)
         </Link>{' '}
         for the full ladder. Cross-check/tabulation only, NOT an RH bound.
@@ -132,14 +132,14 @@ export default function Imp34361EflowCrossoverOffsetCohortIndexPage() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> this is a navigation aid over
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> this is a navigation aid over
         already-published measurements. The offset and its E_flow attribution are real, reproducible
         readings under the inherited imp-3220/imp-3406 conditional-share extrapolation -- not a
         derived mathematical bound. It changes no bound and patches no literal. C_mb GUE-conditional

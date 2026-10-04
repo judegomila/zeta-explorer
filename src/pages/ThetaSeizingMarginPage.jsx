@@ -2,6 +2,7 @@ import React, { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
+import { ED } from '../styles/tokens.js';
 
 // Lemma R1-T3 (imp-2628): asymmetric minimal-gap 4-tie {-1, 0, 1, 1+b}, b >= 1
 // Theta_central(b) = 1/4 + 1/(2 b (b+1))
@@ -47,44 +48,44 @@ function SeizingMarginChart() {
       {/* grid */}
       {yTicks.map((v) => (
         <line key={v} x1={padL} y1={yScale(v)} x2={svgW - padR} y2={yScale(v)}
-          stroke="#d5c9b2" strokeWidth={1} />
+          stroke={ED.rule} strokeWidth={1} />
       ))}
 
       {/* Theorem-A trap line */}
       <line x1={padL} y1={yScale(TRAP_A)} x2={svgW - padR} y2={yScale(TRAP_A)}
-        stroke="#c23a1c" strokeWidth={1.5} strokeDasharray="5 3" />
-      <text x={svgW - padR - 2} y={yScale(TRAP_A) - 4} fill="#c23a1c" fontSize={9} textAnchor="end">
+        stroke={ED.accent} strokeWidth={1.5} strokeDasharray="5 3" />
+      <text x={svgW - padR - 2} y={yScale(TRAP_A) - 4} fill={ED.accent} fontSize={9} textAnchor="end">
         Thm-A trap 1/4
       </text>
 
       {/* b=1 symmetric point annotation */}
       <line x1={xScale(1)} y1={padT} x2={xScale(1)} y2={padT + cH}
-        stroke="#877b67" strokeWidth={1} strokeDasharray="3 2" />
-      <text x={xScale(1) + 3} y={padT + 10} fill="#877b67" fontSize={8}>b=1 (symm)</text>
+        stroke={ED.rule} strokeWidth={1} strokeDasharray="3 2" />
+      <text x={xScale(1) + 3} y={padT + 10} fill={ED.inkFaint} fontSize={8}>b=1 (symm)</text>
 
       {/* curves */}
-      <path d={yCentral} fill="none" stroke="#b58a2e" strokeWidth={2} />
-      <path d={ySeize} fill="none" stroke="#4c7a4a" strokeWidth={2} />
-      <path d={yMargin} fill="none" stroke="#3f6b86" strokeWidth={1.5} strokeDasharray="6 2" />
+      <path d={yCentral} fill="none" stroke={ED.brassDeco} strokeWidth={2} />
+      <path d={ySeize} fill="none" stroke={ED.series3} strokeWidth={2} />
+      <path d={yMargin} fill="none" stroke={ED.series1} strokeWidth={1.5} strokeDasharray="6 2" />
 
       {/* special point b=1: Theta_central = 1/2 */}
-      <circle cx={xScale(1)} cy={yScale(thetaCentral(1))} r={4} fill="#b58a2e" />
-      <text x={xScale(1) + 5} y={yScale(thetaCentral(1)) - 4} fill="#b58a2e" fontSize={9}>1/2</text>
+      <circle cx={xScale(1)} cy={yScale(thetaCentral(1))} r={4} fill={ED.brassDeco} />
+      <text x={xScale(1) + 5} y={yScale(thetaCentral(1)) - 4} fill={ED.brass} fontSize={9}>1/2</text>
 
       {/* axes */}
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#4a4238" />
-      <line x1={padL} y1={padT + cH} x2={svgW - padR} y2={padT + cH} stroke="#4a4238" />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.inkSoft} />
+      <line x1={padL} y1={padT + cH} x2={svgW - padR} y2={padT + cH} stroke={ED.inkSoft} />
 
       {/* y axis labels */}
       {yTicks.map((v) => (
         <g key={v}>
-          <text x={padL - 4} y={yScale(v) + 3} fill="#877b67" fontSize={8} textAnchor="end">
+          <text x={padL - 4} y={yScale(v) + 3} fill={ED.inkFaint} fontSize={8} textAnchor="end">
             {v.toFixed(1)}
           </text>
-          <line x1={padL - 2} y1={yScale(v)} x2={padL} y2={yScale(v)} stroke="#4a4238" />
+          <line x1={padL - 2} y1={yScale(v)} x2={padL} y2={yScale(v)} stroke={ED.inkSoft} />
         </g>
       ))}
-      <text x={12} y={padT + cH / 2} fill="#877b67" fontSize={9} textAnchor="middle"
+      <text x={12} y={padT + cH / 2} fill={ED.inkFaint} fontSize={9} textAnchor="middle"
         transform={`rotate(-90, 12, ${padT + cH / 2})`}>
         Theta / margin
       </text>
@@ -92,20 +93,20 @@ function SeizingMarginChart() {
       {/* x axis labels */}
       {xTicks.map((v) => (
         <g key={v}>
-          <text x={xScale(v)} y={svgH - 8} fill="#877b67" fontSize={8} textAnchor="middle">{v}</text>
-          <line x1={xScale(v)} y1={padT + cH} x2={xScale(v)} y2={padT + cH + 3} stroke="#4a4238" />
+          <text x={xScale(v)} y={svgH - 8} fill={ED.inkFaint} fontSize={8} textAnchor="middle">{v}</text>
+          <line x1={xScale(v)} y1={padT + cH} x2={xScale(v)} y2={padT + cH + 3} stroke={ED.inkSoft} />
         </g>
       ))}
-      <text x={padL + cW / 2} y={svgH - 1} fill="#877b67" fontSize={9} textAnchor="middle">b</text>
+      <text x={padL + cW / 2} y={svgH - 1} fill={ED.inkFaint} fontSize={9} textAnchor="middle">b</text>
 
       {/* legend */}
       <g>
-        <line x1={padL + 8} y1={padT + 6} x2={padL + 24} y2={padT + 6} stroke="#b58a2e" strokeWidth={2} />
-        <text x={padL + 27} y={padT + 9} fill="#b58a2e" fontSize={8}>Theta_central</text>
-        <line x1={padL + 90} y1={padT + 6} x2={padL + 106} y2={padT + 6} stroke="#4c7a4a" strokeWidth={2} />
-        <text x={padL + 109} y={padT + 9} fill="#4c7a4a" fontSize={8}>Theta_seize</text>
-        <line x1={padL + 168} y1={padT + 6} x2={padL + 184} y2={padT + 6} stroke="#3f6b86" strokeWidth={1.5} strokeDasharray="4 2" />
-        <text x={padL + 187} y={padT + 9} fill="#3f6b86" fontSize={8}>margin (x10)</text>
+        <line x1={padL + 8} y1={padT + 6} x2={padL + 24} y2={padT + 6} stroke={ED.brassDeco} strokeWidth={2} />
+        <text x={padL + 27} y={padT + 9} fill={ED.brass} fontSize={8}>Theta_central</text>
+        <line x1={padL + 90} y1={padT + 6} x2={padL + 106} y2={padT + 6} stroke={ED.series3} strokeWidth={2} />
+        <text x={padL + 109} y={padT + 9} fill={ED.series3} fontSize={8}>Theta_seize</text>
+        <line x1={padL + 168} y1={padT + 6} x2={padL + 184} y2={padT + 6} stroke={ED.series1} strokeWidth={1.5} strokeDasharray="4 2" />
+        <text x={padL + 187} y={padT + 9} fill={ED.series1} fontSize={8}>margin (x10)</text>
       </g>
     </svg>
   );

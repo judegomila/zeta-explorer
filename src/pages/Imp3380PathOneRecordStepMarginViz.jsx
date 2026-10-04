@@ -1,10 +1,11 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP3276_E1_E2_MARGIN_QUANTIFICATION } from '../data/imp-3276-e1-e2-margin-quantification.js';
+import { ED } from '../styles/tokens.js';
 
-const RHO_COLOR = '#38bdf8';
-const TAU_COLOR = '#f59e0b';
-const REF_COLOR = '#64748b';
+const RHO_COLOR = ED.series1;
+const TAU_COLOR = ED.series4;
+const REF_COLOR = ED.series8;
 
 const PER_DECADE = IMP3276_E1_E2_MARGIN_QUANTIFICATION.perDecadeRecordMargin;
 
@@ -37,19 +38,19 @@ function RecordMarginChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
       {gridExponents.map((e) => (
         <g key={e}>
-          <line x1={padL} y1={yS(Math.pow(10, e))} x2={padL + cW} y2={yS(Math.pow(10, e))} stroke="#1e293b" strokeWidth={0.6} />
-          <text x={padL - 8} y={yS(Math.pow(10, e)) + 3} textAnchor="end" fill="#64748b" fontSize={8.5}>
+          <line x1={padL} y1={yS(Math.pow(10, e))} x2={padL + cW} y2={yS(Math.pow(10, e))} stroke={ED.ruleSoft} strokeWidth={0.6} />
+          <text x={padL - 8} y={yS(Math.pow(10, e)) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8.5}>
             1e{e}
           </text>
         </g>
       ))}
 
       {PER_DECADE.map((d, i) => (
-        <line key={i} x1={xS(i)} y1={padT} x2={xS(i)} y2={padT + cH} stroke="#1e293b" strokeWidth={0.6} />
+        <line key={i} x1={xS(i)} y1={padT} x2={xS(i)} y2={padT + cH} stroke={ED.ruleSoft} strokeWidth={0.6} />
       ))}
 
       <path d={tauPath} fill="none" stroke={TAU_COLOR} strokeWidth={1.75} />
@@ -62,17 +63,17 @@ function RecordMarginChart() {
         </g>
       ))}
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
 
       {PER_DECADE.map((d, i) => (
-        <text key={`lbl-${i}`} x={xS(i)} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={8.5}>
+        <text key={`lbl-${i}`} x={xS(i)} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={8.5}>
           {decadeLabel(d)}
         </text>
       ))}
-      <text x={padL + cW / 2} y={padT + cH + 34} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={padT + cH + 34} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         decade of N (record-step count shown per bin)
       </text>
-      <text x={14} y={padT + cH / 2} textAnchor="middle" fill="#64748b" fontSize={10} transform={`rotate(-90,14,${padT + cH / 2})`}>
+      <text x={14} y={padT + cH / 2} textAnchor="middle" fill={ED.inkFaint} fontSize={10} transform={`rotate(-90,14,${padT + cH / 2})`}>
         smallest strict record-step jump (log scale)
       </text>
 
@@ -90,9 +91,9 @@ function RecordMarginChart() {
 
 function RecordTable() {
   return (
-    <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.8rem', color: '#94a3b8' }}>
+    <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.8rem', color: 'var(--ink-soft)' }}>
       <thead>
-        <tr style={{ borderBottom: '1px solid #334155' }}>
+        <tr style={{ borderBottom: '1px solid var(--rule)' }}>
           <th style={{ textAlign: 'left', padding: '0.35rem 0.5rem' }}>decade N</th>
           <th style={{ textAlign: 'right', padding: '0.35rem 0.5rem' }}>records</th>
           <th style={{ textAlign: 'right', padding: '0.35rem 0.5rem' }}>min E1 rho jump</th>
@@ -101,7 +102,7 @@ function RecordTable() {
       </thead>
       <tbody>
         {PER_DECADE.map((d) => (
-          <tr key={decadeLabel(d)} style={{ borderBottom: '1px solid #1e293b' }}>
+          <tr key={decadeLabel(d)} style={{ borderBottom: '1px solid var(--rule-soft)' }}>
             <td style={{ padding: '0.35rem 0.5rem' }}>{decadeLabel(d)}</td>
             <td style={{ textAlign: 'right', padding: '0.35rem 0.5rem' }}>{d.records}</td>
             <td style={{ textAlign: 'right', padding: '0.35rem 0.5rem', color: RHO_COLOR }}>{d.minRhoJump.toExponential(3)}</td>
@@ -122,7 +123,7 @@ export default function Imp3380PathOneRecordStepMarginViz() {
     <div style={{ padding: '1.5rem', maxWidth: 940, margin: '0 auto' }}>
       <PageHeader title="PATH-1 Record-Step Safety Margin (imp-3276)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
         imp-3276 upgraded the roadmap PATH-1 (imp-833/imp-858) "zero violations" binary into a signed margin.
         Over the full N in {'{2,...,10^6}'} Odlyzko sweep, the prefix-min argmin jStar(N) moves only at{' '}
         {totalRecords} record-breaking steps; between records the naive per-step margin is an exact
@@ -130,12 +131,12 @@ export default function Imp3380PathOneRecordStepMarginViz() {
         record steps, binned per decade of N.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         Smallest per-decade record-step jump: E1 rho (robust floor) vs E2 tau_c drop (decaying but positive)
       </p>
       <RecordMarginChart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.75rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.75rem 0 0.5rem' }}>
         Measured per-decade rungs
       </p>
       <RecordTable />
@@ -144,14 +145,14 @@ export default function Imp3380PathOneRecordStepMarginViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> the E1 rho-jump floor (blue) stays
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> the E1 rho-jump floor (blue) stays
         bounded away from 0 in every decade -- smallest {firstDecade.minRhoJump.toExponential(2)} near N~10,
         still {topDecade.minRhoJump.toExponential(2)} in the top decade N in [1e5,1e6) -- a ROBUST floor that
         does not drift toward 0 as N grows. The E2 tau_c-drop (orange) shrinks by roughly six decades across
@@ -164,14 +165,14 @@ export default function Imp3380PathOneRecordStepMarginViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> visualization only -- measurement, not
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> visualization only -- measurement, not
         proof, and no positivity claim is attempted; PATH-1's leading-order predicates stay GUE-conditional at the analytic-bridge step
         (imp-486/imp-583).
       </div>

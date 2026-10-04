@@ -6,10 +6,11 @@ import {
   IMP33550_ENDPOINT,
   IMP33550_BEST_FIT,
 } from '../data/imp-33550-max-bj-realised-elasticity-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
-const LINE_COLOR = '#38bdf8';
-const PEAK_COLOR = '#f472b6';
-const ENDPOINT_COLOR = '#f59e0b';
+const LINE_COLOR = ED.series1;
+const PEAK_COLOR = ED.series7;
+const ENDPOINT_COLOR = ED.series4;
 
 function MaxBjPlateauChart() {
   const svgW = 700;
@@ -30,12 +31,12 @@ function MaxBjPlateauChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
       {[0, 1, 2, 3, 4, 5, 6, 7].map((v) => (
         <g key={v}>
-          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke="#1e293b" strokeWidth={0.7} />
-          <text x={padL - 6} y={yS(v) + 3.5} textAnchor="end" fill="#475569" fontSize={9}>
+          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke={ED.ruleSoft} strokeWidth={0.7} />
+          <text x={padL - 6} y={yS(v) + 3.5} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v}
           </text>
         </g>
@@ -88,21 +89,21 @@ function MaxBjPlateauChart() {
         endpoint {IMP33550_ENDPOINT.maxBj.toFixed(4)} (N=1e6)
       </text>
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
 
       {[1e4, 1e5, 1e6].map((n) => (
         <g key={n}>
-          <line x1={xS(n)} y1={padT + cH} x2={xS(n)} y2={padT + cH + 5} stroke="#334155" strokeWidth={1} />
-          <text x={xS(n)} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={9}>
+          <line x1={xS(n)} y1={padT + cH} x2={xS(n)} y2={padT + cH + 5} stroke={ED.rule} strokeWidth={1} />
+          <text x={xS(n)} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
             {n.toExponential(0)}
           </text>
         </g>
       ))}
-      <text x={padL + cW / 2} y={padT + cH + 34} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={padT + cH + 34} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         plateau endN (log scale)
       </text>
 
-      <text x={12} y={padT + cH / 2} textAnchor="middle" fill="#64748b" fontSize={10} transform={`rotate(-90,12,${padT + cH / 2})`}>
+      <text x={12} y={padT + cH / 2} textAnchor="middle" fill={ED.inkFaint} fontSize={10} transform={`rotate(-90,12,${padT + cH / 2})`}>
         max_j B_j
       </text>
     </svg>
@@ -114,7 +115,7 @@ export default function Imp33550MaxBjRealisedElasticityViz() {
     <div style={{ padding: '1.5rem', maxWidth: 940, margin: '0 auto' }}>
       <PageHeader title="Realised-Elasticity sup_j B_j Growth Fit (imp-33309)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 780 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 780 }}>
         imp-33290 proved the swap 8/s_min(j)^2 -&gt; 8*B_j (B_j = P_j/D_j) is still a valid upper
         bound and collapses the certified ratio onto the flat K_real floor, but it relocates the
         imp-33250 N-uniformity residual dg2 onto sup_{'{'}N,j{'}'} B_j. imp-33309 tabulated and fit
@@ -122,12 +123,12 @@ export default function Imp33550MaxBjRealisedElasticityViz() {
         series against the plateau's endN (log scale).
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         max_j B_j per plateau over N in [1e4, 1e6]
       </p>
       <MaxBjPlateauChart />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.85rem', margin: '1rem 0 1.25rem' }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.85rem', margin: '1rem 0 1.25rem' }}>
         The global maximum, {IMP33550_GLOBAL_MAX.maxBj.toFixed(4)}, sits at the interior plateau 5
         (endN &sim; {IMP33550_GLOBAL_MAX.endN.toLocaleString()}), NOT at the N=1e6 endpoint (
         {IMP33550_ENDPOINT.maxBj.toFixed(4)}). A genuine monotone-in-N growth law forbids this dip
@@ -141,14 +142,14 @@ export default function Imp33550MaxBjRealisedElasticityViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> the blue line is the raw
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> the blue line is the raw
         per-plateau max_j B_j series. The pink-ringed marker is the global interior maximum at
         plateau 5; the amber marker is the N=1e6 endpoint, which retracts below that peak. Over
         &sim;1.72 decades of N the sequence rises then dips rather than following a clean growth
@@ -160,14 +161,14 @@ export default function Imp33550MaxBjRealisedElasticityViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> fit-only feasibility, NOT
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> fit-only feasibility, NOT
         certification. sup_{'{'}N,j{'}'} B_j (the imp-33250 dg2 residual) is neither certified
         bounded nor demonstrated unbounded -- the obstruction stays OPEN both ways. Changes no
         bound; imp-3910 C &le; 54.56 stands; imp-3066 K_a &ge; 0 UNTOUCHED. RH-equivalent, NO QED.

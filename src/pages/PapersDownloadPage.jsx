@@ -4,6 +4,7 @@ import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import {
   PAPERS_RELEASE_MANIFEST,
 } from '../data/papers-release-manifest.js';
+import { ED, alpha } from '../styles/tokens.js';
 
 /**
  * PapersDownloadPage — ordered index of releasable papers from this project.
@@ -18,11 +19,11 @@ import {
  */
 
 const STATUS_PALETTE = {
-  ready:                { fg: 'var(--green)',    bg: 'rgba(76,122,74,0.10)',  border: 'rgba(76,122,74,0.40)',  label: 'READY' },
-  draft:                { fg: 'var(--brass-dk)', bg: 'rgba(181,138,46,0.12)', border: 'rgba(181,138,46,0.45)', label: 'DRAFT' },
-  withdrawn:            { fg: 'var(--terra-dk)', bg: 'rgba(194,58,28,0.10)',  border: 'rgba(194,58,28,0.40)',  label: 'SUPERSEDED — NEVER PUBLISHED' },
-  planned:              { fg: 'var(--blue)',     bg: 'rgba(63,107,134,0.10)', border: 'rgba(63,107,134,0.40)', label: 'PLANNED' },
-  'research-grade-open':{ fg: 'var(--terra-dk)', bg: 'rgba(194,58,28,0.10)',  border: 'rgba(194,58,28,0.40)',  label: 'RESEARCH OPEN' },
+  ready:                { fg: 'var(--green)',    bg: alpha(ED.series3, 0.1),  border: alpha(ED.series3, 0.4),  label: 'READY' },
+  draft:                { fg: 'var(--brass-dk)', bg: alpha(ED.brassDeco, 0.12), border: alpha(ED.brassDeco, 0.45), label: 'DRAFT' },
+  withdrawn:            { fg: 'var(--terra-dk)', bg: alpha(ED.series2, 0.1),  border: alpha(ED.accent, 0.4),  label: 'SUPERSEDED — NEVER PUBLISHED' },
+  planned:              { fg: 'var(--blue)',     bg: alpha(ED.series1, 0.1), border: alpha(ED.series1, 0.4), label: 'PLANNED' },
+  'research-grade-open':{ fg: 'var(--terra-dk)', bg: alpha(ED.series2, 0.1),  border: alpha(ED.accent, 0.4),  label: 'RESEARCH OPEN' },
 };
 
 function StatusChip({ status }) {
@@ -104,8 +105,8 @@ function PaperRow({ paper }) {
               fontSize: 14,
               fontWeight: 700,
               color: 'var(--brass-dk)',
-              background: 'rgba(181,138,46,0.12)',
-              border: '1px solid rgba(181,138,46,0.45)',
+              background: 'color-mix(in srgb, var(--brass-deco) 12%, transparent)',
+              border: '1px solid color-mix(in srgb, var(--brass-deco) 45%, transparent)',
               borderRadius: 8,
               textDecoration: 'none',
               fontFamily: 'var(--ed-mono, var(--font-mono))',

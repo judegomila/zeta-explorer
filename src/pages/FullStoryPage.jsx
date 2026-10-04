@@ -175,7 +175,7 @@ function CurrentStatus() {
           tone="repository"
           label="computer-assisted candidate"
           value="Candidate: Λ ≤ 0.1758354"
-          detail="A sharper candidate below 0.1787854: four independent gates machine-checked in Arb interval arithmetic, with the reduction Lean-checked. Unrefereed; the bound is not established; not RH."
+          detail="A sharper candidate below 0.1787854: four independent gates machine-checked in Arb interval arithmetic, with the y-transfer reduction and Lemma B3 Lean-checked. Unrefereed; the bound is not established; not RH."
           route={sharperCandidateEntry?.route || '/lambda-01758354-candidate'}
         />
         <StatusCard
@@ -420,7 +420,7 @@ export default function FullStoryPage() {
       meta={['evidence-graded research narrative', 'Twin-Ladder / Λ program']}
       title="The Twin-Ladder / Λ Program"
       dek="A corrected account of what is classical, what twin-ladder derives inside a research draft, what the certificate packages compute, and which logical welds remain open."
-      byline={['twin-ladder · mathexplorer', 'no new bound · not RH']}
+      byline={['twin-ladder · zetaexplorer', 'no new bound · not RH']}
       ticker={<span>Λ candidates unrefereed · no QED</span>}
       footer={<>
         Related: <Link to="/lambda-bounds">Bounds and evidence ledger</Link>

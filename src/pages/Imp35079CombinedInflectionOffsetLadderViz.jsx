@@ -2,6 +2,7 @@ import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP34933_INFLECTION_OFFSET_RUNNING_VS_FIXED_LADDER } from '../data/imp-34933-inflection-offset-running-vs-fixed-ladder.js';
 import { IMP34948_INFLECTION_OFFSET_FAR_TAIL_LADDER_EXTENSION } from '../data/imp-34948-inflection-offset-far-tail-ladder-extension.js';
+import { ED } from '../styles/tokens.js';
 
 // Combined near-tail (1e6..1e13) + far-tail (1e14..1e18) rungs, baked locators
 // reused verbatim from the imp-34933 / imp-34948 data modules (no new computation).
@@ -40,29 +41,29 @@ function OffsetDecayChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <text x={padL} y={padT - 10} fill="#94a3b8" fontSize={11} fontWeight={700}>
+      <text x={padL} y={padT - 10} fill={ED.inkSoft} fontSize={11} fontWeight={700}>
         Inflection-vs-halving offset (%) across the combined N_half ladder 1e6&hellip;1e18
       </text>
       {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].filter((v) => v <= yMax).map((v) => (
         <g key={v}>
-          <line x1={padL} y1={yOf(v)} x2={padL + plotW} y2={yOf(v)} stroke="#1e293b" strokeWidth={1} />
-          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={10}>
+          <line x1={padL} y1={yOf(v)} x2={padL + plotW} y2={yOf(v)} stroke={ED.ruleSoft} strokeWidth={1} />
+          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={10}>
             {v}%
           </text>
         </g>
       ))}
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
 
       <line
         x1={xOf(seamLog10)}
         y1={padT}
         x2={xOf(seamLog10)}
         y2={padT + plotH}
-        stroke="#475569"
+        stroke={ED.rule}
         strokeWidth={1}
         strokeDasharray="3 3"
       />
-      <text x={xOf(seamLog10) + 4} y={padT + 10} fill="#475569" fontSize={8}>
+      <text x={xOf(seamLog10) + 4} y={padT + 10} fill={ED.inkFaint} fontSize={8}>
         near-tail (imp-34933) &rarr; far-tail (imp-34948)
       </text>
 
@@ -72,28 +73,28 @@ function OffsetDecayChart() {
           x={xOf(Math.log10(r.targetScale))}
           y={padT + plotH + 16}
           textAnchor="middle"
-          fill="#64748b"
+          fill={ED.inkFaint}
           fontSize={8}
         >
           1e{Math.log10(r.targetScale).toFixed(0)}
         </text>
       ))}
 
-      <path d={pathFor('offsetRampPct')} fill="none" stroke="#38bdf8" strokeWidth={2} />
-      <path d={pathFor('offsetSigmoidPct')} fill="none" stroke="#4ade80" strokeWidth={2} />
+      <path d={pathFor('offsetRampPct')} fill="none" stroke={ED.series1} strokeWidth={2} />
+      <path d={pathFor('offsetSigmoidPct')} fill="none" stroke={ED.series3} strokeWidth={2} />
       {COMBINED.map((r) => (
         <g key={`pts-${r.targetScale}`}>
-          <circle cx={xOf(Math.log10(r.targetScale))} cy={yOf(r.offsetRampPct)} r={3} fill="#38bdf8" />
-          <circle cx={xOf(Math.log10(r.targetScale))} cy={yOf(r.offsetSigmoidPct)} r={3} fill="#4ade80" />
+          <circle cx={xOf(Math.log10(r.targetScale))} cy={yOf(r.offsetRampPct)} r={3} fill={ED.series1} />
+          <circle cx={xOf(Math.log10(r.targetScale))} cy={yOf(r.offsetSigmoidPct)} r={3} fill={ED.series3} />
         </g>
       ))}
 
-      <circle cx={padL + plotW - 175} cy={padT + 6} r={4} fill="#38bdf8" />
-      <text x={padL + plotW - 165} y={padT + 10} fill="#38bdf8" fontSize={10}>
+      <circle cx={padL + plotW - 175} cy={padT + 6} r={4} fill={ED.series1} />
+      <text x={padL + plotW - 165} y={padT + 10} fill={ED.series1} fontSize={10}>
         ramp knee ({COMBINED[0].offsetRampPct}% &rarr; {COMBINED[COMBINED.length - 1].offsetRampPct}%)
       </text>
-      <circle cx={padL + plotW - 175} cy={padT + 22} r={4} fill="#4ade80" />
-      <text x={padL + plotW - 165} y={padT + 26} fill="#4ade80" fontSize={10}>
+      <circle cx={padL + plotW - 175} cy={padT + 22} r={4} fill={ED.series3} />
+      <text x={padL + plotW - 165} y={padT + 26} fill={ED.series3} fontSize={10}>
         sigmoid ({COMBINED[0].offsetSigmoidPct}% &rarr; {COMBINED[COMBINED.length - 1].offsetSigmoidPct}%)
       </text>
     </svg>
@@ -132,7 +133,7 @@ function BandChart({ dataKey, nearTailBandTop, label, color }) {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <text x={padL} y={padT - 8} fill="#94a3b8" fontSize={10} fontWeight={700}>
+      <text x={padL} y={padT - 8} fill={ED.inkSoft} fontSize={10} fontWeight={700}>
         {label}: 1e6&hellip;1e18, imp-33744 1/(t-1)&sup2; law band
       </text>
       <line
@@ -140,25 +141,25 @@ function BandChart({ dataKey, nearTailBandTop, label, color }) {
         y1={yOf(nearTailBandTop)}
         x2={padL + plotW}
         y2={yOf(nearTailBandTop)}
-        stroke="#f87171"
+        stroke={ED.series2}
         strokeWidth={1.25}
         strokeDasharray="4 3"
       />
-      <text x={padL + 2} y={yOf(nearTailBandTop) - 4} fill="#f87171" fontSize={8}>
+      <text x={padL + 2} y={yOf(nearTailBandTop) - 4} fill={ED.series2} fontSize={8}>
         near-tail band top ({nearTailBandTop})
       </text>
       <path d={path} fill="none" stroke={color} strokeWidth={2} />
       {COMBINED.map((r) => (
         <circle key={r.targetScale} cx={xOf(Math.log10(r.targetScale))} cy={yOf(r[dataKey])} r={2.5} fill={color} />
       ))}
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1} />
       {COMBINED.map((r) => (
         <text
           key={`lab-${r.targetScale}`}
           x={xOf(Math.log10(r.targetScale))}
           y={padT + plotH + 14}
           textAnchor="middle"
-          fill="#64748b"
+          fill={ED.inkFaint}
           fontSize={8}
         >
           1e{Math.log10(r.targetScale).toFixed(0)}
@@ -173,7 +174,7 @@ export default function Imp35079CombinedInflectionOffsetLadderViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Combined Inflection-Offset Ladder, 1e6&ndash;1e18 (imp-35079 / imp-34933 / imp-34948)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-34933 measured the sigmoid-inflection and exponent-ramp-knee offsets from the
         sigma&nbsp;=&nbsp;1/2 halving landmark across the near-tail ladder 1e6&hellip;1e13, finding a decay
         toward the imp-33744-predicted offsetN&nbsp;&sim;&nbsp;const/(t-1)&sup2; law (t&nbsp;=&nbsp;ln&nbsp;N).
@@ -188,17 +189,17 @@ export default function Imp35079CombinedInflectionOffsetLadderViz() {
           dataKey="sigmoidOffsetTimesTm1Sq"
           nearTailBandTop={NEAR_TAIL_SIGMOID_BAND_TOP}
           label="sigmoid: offsetN&middot;(t-1)&sup2;"
-          color="#4ade80"
+          color={ED.series3}
         />
         <BandChart
           dataKey="rampOffsetTimesTm1Sq"
           nearTailBandTop={NEAR_TAIL_RAMP_BAND_TOP}
           label="ramp: offsetN&middot;(t-1)&sup2;"
-          color="#38bdf8"
+          color={ED.series1}
         />
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.85rem', marginTop: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.85rem', marginTop: '1.25rem', maxWidth: 700 }}>
         Across the full 1e6&hellip;1e18 span the offset falls monotonically for both notions (sigmoid
         {' '}{COMBINED[0].offsetSigmoidPct}% &rarr; {COMBINED[COMBINED.length - 1].offsetSigmoidPct}%; ramp
         {' '}{COMBINED[0].offsetRampPct}% &rarr; {COMBINED[COMBINED.length - 1].offsetRampPct}%), while
@@ -217,7 +218,7 @@ export default function Imp35079CombinedInflectionOffsetLadderViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.5rem' }}>N_half target</th>
             <th style={{ padding: '0.4rem 0.5rem' }}>t = ln N</th>
             <th style={{ padding: '0.4rem 0.5rem' }}>sigmoid offset</th>
@@ -228,7 +229,7 @@ export default function Imp35079CombinedInflectionOffsetLadderViz() {
         </thead>
         <tbody>
           {COMBINED.map((r) => (
-            <tr key={r.targetScale} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+            <tr key={r.targetScale} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
               <td style={{ padding: '0.4rem 0.5rem', fontFamily: 'monospace' }}>{r.targetScale.toExponential(0)}</td>
               <td style={{ padding: '0.4rem 0.5rem', fontFamily: 'monospace' }}>{r.t}</td>
               <td style={{ padding: '0.4rem 0.5rem', fontFamily: 'monospace' }}>{r.offsetSigmoidPct}%</td>
@@ -244,14 +245,14 @@ export default function Imp35079CombinedInflectionOffsetLadderViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page stitching the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-only page stitching the
         imp-34933 and imp-34948 ladder literals verbatim (no new computation). Measurement on the
         inherited imp-3220/imp-3406 surrogate, NOT a rigorous asymptotic; C_mb GUE-conditional per
         imp-486 untouched; establishes no operator positivity; imp-3066 K_a&nbsp;&ge;&nbsp;0 untouched;

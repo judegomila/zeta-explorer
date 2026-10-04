@@ -12,24 +12,24 @@ function PinskerTable() {
   return (
     <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.85rem', fontFamily: 'monospace' }}>
       <thead>
-        <tr style={{ borderBottom: '1px solid #334155' }}>
-          <th style={{ textAlign: 'left', padding: '0.4rem 0.6rem', color: '#94a3b8' }}>KL fit</th>
-          <th style={{ textAlign: 'right', padding: '0.4rem 0.6rem', color: '#94a3b8' }}>KL (g_true)</th>
-          <th style={{ textAlign: 'right', padding: '0.4rem 0.6rem', color: '#94a3b8' }}>TV &le; sqrt(KL/2)</th>
-          <th style={{ textAlign: 'right', padding: '0.4rem 0.6rem', color: '#94a3b8' }}>TV upper bound / E_coll</th>
+        <tr style={{ borderBottom: '1px solid var(--rule)' }}>
+          <th style={{ textAlign: 'left', padding: '0.4rem 0.6rem', color: 'var(--ink-soft)' }}>KL fit</th>
+          <th style={{ textAlign: 'right', padding: '0.4rem 0.6rem', color: 'var(--ink-soft)' }}>KL (g_true)</th>
+          <th style={{ textAlign: 'right', padding: '0.4rem 0.6rem', color: 'var(--ink-soft)' }}>TV &le; sqrt(KL/2)</th>
+          <th style={{ textAlign: 'right', padding: '0.4rem 0.6rem', color: 'var(--ink-soft)' }}>TV upper bound / E_coll</th>
         </tr>
       </thead>
       <tbody>
         {IMP35665_ROWS.map((row) => (
-          <tr key={row.key} style={{ borderBottom: '1px solid rgba(51,65,85,0.5)' }}>
-            <td style={{ padding: '0.4rem 0.6rem', color: '#38bdf8' }}>{row.label}</td>
-            <td style={{ padding: '0.4rem 0.6rem', textAlign: 'right', color: '#cbd5e1' }}>
+          <tr key={row.key} style={{ borderBottom: '1px solid color-mix(in srgb, var(--rule) 50%, transparent)' }}>
+            <td style={{ padding: '0.4rem 0.6rem', color: 'var(--series-1)' }}>{row.label}</td>
+            <td style={{ padding: '0.4rem 0.6rem', textAlign: 'right', color: 'var(--ink)' }}>
               {row.kl.toExponential(4)}
             </td>
-            <td style={{ padding: '0.4rem 0.6rem', textAlign: 'right', color: '#cbd5e1' }}>
+            <td style={{ padding: '0.4rem 0.6rem', textAlign: 'right', color: 'var(--ink)' }}>
               {row.tvUpperBound.toExponential(4)}
             </td>
-            <td style={{ padding: '0.4rem 0.6rem', textAlign: 'right', color: '#f87171' }}>
+            <td style={{ padding: '0.4rem 0.6rem', textAlign: 'right', color: 'var(--series-2)' }}>
               {row.tvUbOverEcoll.toFixed(1)}x
             </td>
           </tr>
@@ -44,7 +44,7 @@ export default function Imp35665PinskerBridgeViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Pinsker Common-Functional Bridge: an Upper Bound Only (imp-35665 / imp-35556)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-35556 assessed whether the imp-35530 g_true (a KL divergence, second-order in the
         spacing-pdf deviation) and the surrogate E_coll (a first-order amplitude, E_coll ={' '}
         {IMP35665_ECOLL_CROSS.toExponential(3)} at the crossover) are dimensionally comparable. The
@@ -55,7 +55,7 @@ export default function Imp35665PinskerBridgeViz() {
 
       <PinskerTable />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.85rem', marginTop: '1.25rem' }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.85rem', marginTop: '1.25rem' }}>
         The raw KL/E_coll ratio at the crossover is {IMP35665_RAW_RATIO.toFixed(2)}x (the imp-35530
         figure). Under the Pinsker reduction that multiplier changes completely -- to{' '}
         {IMP35665_ROWS[0].tvUbOverEcoll.toFixed(1)}x, {IMP35665_ROWS[1].tvUbOverEcoll.toFixed(1)}x,
@@ -67,14 +67,14 @@ export default function Imp35665PinskerBridgeViz() {
         style={{
           marginTop: '1rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(217,119,6,0.06)',
-          borderLeft: '3px solid #d97706',
+          background: 'color-mix(in srgb, var(--brass-deco) 6%, transparent)',
+          borderLeft: '3px solid var(--brass-deco)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
         }}
       >
-        <strong style={{ color: '#d97706' }}>UPPER BOUND ONLY:</strong> sqrt(KL/2) upper-bounds the
+        <strong style={{ color: 'var(--brass)' }}>UPPER BOUND ONLY:</strong> sqrt(KL/2) upper-bounds the
         total-variation deviation TV; it does NOT lower-bound the true deviation. So this bridge
         cannot certify the direction g_true &gt; E_coll, let alone the ~10.5x gap magnitude. The
         only dimension-robust reading is that E_coll sits well inside the admissible band{' '}
@@ -87,14 +87,14 @@ export default function Imp35665PinskerBridgeViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Measurement only:</strong> viz-data only, re-exporting
+        <strong style={{ color: 'var(--ink-soft)' }}>Measurement only:</strong> viz-data only, re-exporting
         the imp-35556 Pinsker-bridge literals verbatim; no new derivation, no bound changed.
         Discharges nothing: imp-35556a (no in-repo common functional lower-bounding E_coll from KL)
         and imp-35337a stay OPEN; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound;

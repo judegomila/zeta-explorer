@@ -18,6 +18,7 @@ import { IMP_96130_CROSSING_UNIFORMITY } from '../data/imp-96130-route-i-crossin
 import { RH_CROSS_ROUTE_WALL_MAP } from '../data/rh-novel-routes-sweep-synthesis-2026-09-23.js';
 import HonestCeilingBanner from '../components/HonestCeilingBanner.jsx';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
+import { ED, alpha } from '../styles/tokens.js';
 
 const R = RH_NOVEL_ROUTES;
 const mono = 'var(--ed-mono, var(--font-mono))';
@@ -57,7 +58,7 @@ function RouteIConstraintLadderTable() {
               <tr key={row.k} style={{ borderBottom: '1px solid var(--hairline)' }}>
                 <td style={{ padding: '6px 8px', fontFamily: mono, color: 'var(--faint)' }}>{row.k}</td>
                 <td style={{ padding: '6px 8px', fontFamily: mono, color: 'var(--ink-soft)' }}>{row.muMax.toFixed(5)}</td>
-                <td style={{ padding: '6px 8px', fontFamily: mono, color: row.muMax < 1 ? 'var(--ink-soft)' : '#c23a1c' }}>
+                <td style={{ padding: '6px 8px', fontFamily: mono, color: row.muMax < 1 ? 'var(--ink-soft)' : 'var(--accent)' }}>
                   {(1 - row.muMax).toFixed(5)}
                 </td>
               </tr>
@@ -115,7 +116,7 @@ function RouteIWindowDecompositionTable() {
                 <td style={{ padding: '6px 8px', fontFamily: mono, color: 'var(--ink-soft)' }}>{row.archPart.toFixed(5)}</td>
                 <td style={{ padding: '6px 8px', fontFamily: mono, color: 'var(--ink-soft)' }}>{row.i1Part.toFixed(5)}</td>
                 <td style={{ padding: '6px 8px', fontFamily: mono, color: 'var(--ink-soft)' }}>{(row.archOverLS * 100).toFixed(2)}%</td>
-                <td style={{ padding: '6px 8px', fontFamily: mono, color: row.i1OverLS < -1 ? '#c23a1c' : 'var(--ink-soft)' }}>
+                <td style={{ padding: '6px 8px', fontFamily: mono, color: row.i1OverLS < -1 ? 'var(--accent)' : 'var(--ink-soft)' }}>
                   {(row.i1OverLS * 100).toFixed(1)}%
                 </td>
               </tr>
@@ -162,8 +163,8 @@ function RouteICrossingLadderTable() {
             {ROUTE_I_CROSSING_GRID.map(([a, twoA, k0, k1, k2, k3]) => (
               <tr key={a} style={{ borderBottom: '1px solid var(--hairline)' }}>
                 <td style={{ padding: '6px 8px', fontFamily: mono, color: 'var(--faint)' }}>{twoA.toFixed(2)}</td>
-                <td style={{ padding: '6px 8px', fontFamily: mono, color: k0 < 1 ? 'var(--ink-soft)' : '#c23a1c' }}>{k0.toFixed(5)}</td>
-                <td style={{ padding: '6px 8px', fontFamily: mono, color: k1 < 1 ? 'var(--ink-soft)' : '#c23a1c' }}>{k1.toFixed(5)}</td>
+                <td style={{ padding: '6px 8px', fontFamily: mono, color: k0 < 1 ? 'var(--ink-soft)' : 'var(--accent)' }}>{k0.toFixed(5)}</td>
+                <td style={{ padding: '6px 8px', fontFamily: mono, color: k1 < 1 ? 'var(--ink-soft)' : 'var(--accent)' }}>{k1.toFixed(5)}</td>
                 <td style={{ padding: '6px 8px', fontFamily: mono, color: 'var(--ink-soft)' }}>{k2.toFixed(5)}</td>
                 <td style={{ padding: '6px 8px', fontFamily: mono, color: 'var(--ink-soft)' }}>{k3.toFixed(5)}</td>
                 <td style={{ padding: '6px 8px', fontFamily: mono, color: 'var(--ink-soft)' }}>{(1 - k2).toFixed(3)}</td>
@@ -192,15 +193,15 @@ const NON_STAT_MECH_ROUTE_KEYS = ['J', 'K', 'L', 'M'];
 
 function statusTheme(status) {
   if (/^to-test$/.test(status)) {
-    return { fg: 'var(--faint)', bg: 'rgba(120,113,108,0.10)', border: 'var(--faint)', label: 'to test' };
+    return { fg: 'var(--faint)', bg: alpha(ED.inkFaint, 0.1), border: 'var(--faint)', label: 'to test' };
   }
   if (/^refuted-as-lever/.test(status)) {
-    return { fg: '#c23a1c', bg: 'rgba(194,58,28,0.10)', border: '#c23a1c', label: 'refuted as lever' };
+    return { fg: ED.accent, bg: alpha(ED.series2, 0.1), border: ED.accent, label: 'refuted as lever' };
   }
   if (/^first-test-done/.test(status)) {
-    return { fg: 'var(--brass-dk)', bg: 'rgba(181,138,46,0.14)', border: 'var(--brass-dk)', label: 'first test done' };
+    return { fg: 'var(--brass-dk)', bg: alpha(ED.brassDeco, 0.14), border: 'var(--brass-dk)', label: 'first test done' };
   }
-  return { fg: 'var(--blue)', bg: 'rgba(63,107,134,0.10)', border: 'var(--blue)', label: 'status' };
+  return { fg: 'var(--blue)', bg: alpha(ED.series1, 0.1), border: 'var(--blue)', label: 'status' };
 }
 
 function StatusBadge({ status }) {
@@ -227,15 +228,15 @@ function StatusBadge({ status }) {
 
 function classifyRouteStatus(status) {
   if (/NOT-A-LEVER|no lever|REFUTED|refuted|NO-GO|VERDICT NEGATIVE/i.test(status)) {
-    return { label: 'refuted / no lever', fg: '#c23a1c', bg: 'rgba(194,58,28,0.10)', border: '#c23a1c' };
+    return { label: 'refuted / no lever', fg: ED.accent, bg: alpha(ED.series2, 0.1), border: ED.accent };
   }
   if (/^first-test-done/.test(status)) {
-    return { label: 'first test done', fg: 'var(--brass-dk)', bg: 'rgba(181,138,46,0.14)', border: 'var(--brass-dk)' };
+    return { label: 'first test done', fg: 'var(--brass-dk)', bg: alpha(ED.brassDeco, 0.14), border: 'var(--brass-dk)' };
   }
   if (/^to-test$/.test(status)) {
-    return { label: 'to test', fg: 'var(--faint)', bg: 'rgba(120,113,108,0.10)', border: 'var(--faint)' };
+    return { label: 'to test', fg: 'var(--faint)', bg: alpha(ED.inkFaint, 0.1), border: 'var(--faint)' };
   }
-  return { label: 'tested — see detail', fg: 'var(--blue)', bg: 'rgba(63,107,134,0.10)', border: 'var(--blue)' };
+  return { label: 'tested — see detail', fg: 'var(--blue)', bg: alpha(ED.series1, 0.1), border: 'var(--blue)' };
 }
 
 function RouteStatusDashboard({ routes, extraRows = [] }) {
@@ -317,7 +318,7 @@ function RouteStatusDashboard({ routes, extraRows = [] }) {
         </table>
       </div>
       <p style={{ fontFamily: mono, fontSize: 11, color: 'var(--faint)', marginTop: 10, lineHeight: 1.6 }}>
-        Legend: <strong style={{ color: '#c23a1c' }}>refuted / no lever</strong> — a test (first pass or a later pass) closed
+        Legend: <strong style={{ color: 'var(--accent)' }}>refuted / no lever</strong> — a test (first pass or a later pass) closed
         the route as an RH lever; <strong style={{ color: 'var(--brass-dk)' }}>first test done</strong> — a concrete test
         ran with an open follow-on; <strong style={{ color: 'var(--faint)' }}>to test</strong> — no test run yet;{' '}
         <strong style={{ color: 'var(--blue)' }}>tested — see detail</strong> — tested with a nuanced finding, read the

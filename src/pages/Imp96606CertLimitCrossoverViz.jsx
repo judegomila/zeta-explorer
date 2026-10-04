@@ -6,6 +6,7 @@ import {
   IMP96606_SUMMARY,
   IMP96606_HONEST_BANNER,
 } from '../data/imp-96606-cert-limit-crossover-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 // log10(N) x-axis, two log10(y) series -- delta(N) (rising, rose) and the
 // lam_min(N) fit (falling, sky-blue) -- with three vertical marker lines:
@@ -35,32 +36,32 @@ function CrossoverPanel() {
   const yTicks = [minY, (minY + maxY) / 2, maxY];
 
   const markers = [
-    { logN: IMP96606_MARKERS.logComputeCeilingN, label: `compute ${IMP96606_MARKERS.computeCeilingN}`, color: '#4ade80' },
-    { logN: IMP96606_MARKERS.logCrossoverN, label: `crossover ${IMP96606_MARKERS.crossoverN.toExponential(3)}`, color: '#f87171' },
-    { logN: IMP96606_MARKERS.logRigorousLamMaxCeilingN, label: `cond. ceiling ${IMP96606_MARKERS.rigorousLamMaxCeilingN.toExponential(2)}`, color: '#facc15' },
+    { logN: IMP96606_MARKERS.logComputeCeilingN, label: `compute ${IMP96606_MARKERS.computeCeilingN}`, color: ED.series3 },
+    { logN: IMP96606_MARKERS.logCrossoverN, label: `crossover ${IMP96606_MARKERS.crossoverN.toExponential(3)}`, color: ED.series2 },
+    { logN: IMP96606_MARKERS.logRigorousLamMaxCeilingN, label: `cond. ceiling ${IMP96606_MARKERS.rigorousLamMaxCeilingN.toExponential(2)}`, color: ED.brass },
   ];
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
       {yTicks.map((v) => (
         <g key={`y${v.toFixed(2)}`}>
-          <line x1={padL - 4} y1={yOf(v)} x2={padL} y2={yOf(v)} stroke="#334155" strokeWidth={1} />
-          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={8.5}>
+          <line x1={padL - 4} y1={yOf(v)} x2={padL} y2={yOf(v)} stroke={ED.rule} strokeWidth={1} />
+          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8.5}>
             1e{v.toFixed(1)}
           </text>
         </g>
       ))}
       {rows.map((r) => (
         <g key={`x${r.N}`}>
-          <line x1={xOf(r.logN)} y1={padT + plotH} x2={xOf(r.logN)} y2={padT + plotH + 4} stroke="#334155" strokeWidth={1} />
+          <line x1={xOf(r.logN)} y1={padT + plotH} x2={xOf(r.logN)} y2={padT + plotH + 4} stroke={ED.rule} strokeWidth={1} />
         </g>
       ))}
-      <text x={padL} y={padT + plotH + 15} textAnchor="start" fill="#64748b" fontSize={8}>
+      <text x={padL} y={padT + plotH + 15} textAnchor="start" fill={ED.inkFaint} fontSize={8}>
         1e4
       </text>
-      <text x={padL + plotW} y={padT + plotH + 15} textAnchor="end" fill="#64748b" fontSize={8}>
+      <text x={padL + plotW} y={padT + plotH + 15} textAnchor="end" fill={ED.inkFaint} fontSize={8}>
         2.59e7
       </text>
 
@@ -92,28 +93,28 @@ function CrossoverPanel() {
       <polyline
         points={rows.map((r) => `${xOf(r.logN)},${yOf(r.logDelta)}`).join(' ')}
         fill="none"
-        stroke="#fb7185"
+        stroke={ED.series2}
         strokeWidth={1.4}
       />
       {rows.map((r) => (
-        <circle key={`d${r.N}`} cx={xOf(r.logN)} cy={yOf(r.logDelta)} r={3} fill="#fb7185" />
+        <circle key={`d${r.N}`} cx={xOf(r.logN)} cy={yOf(r.logDelta)} r={3} fill={ED.series2} />
       ))}
 
       {/* lam_min(N) fit series -- falling */}
       <polyline
         points={rows.map((r) => `${xOf(r.logN)},${yOf(r.logLamMinFit)}`).join(' ')}
         fill="none"
-        stroke="#38bdf8"
+        stroke={ED.series1}
         strokeWidth={1.4}
       />
       {rows.map((r) => (
-        <circle key={`l${r.N}`} cx={xOf(r.logN)} cy={yOf(r.logLamMinFit)} r={3} fill="#38bdf8" />
+        <circle key={`l${r.N}`} cx={xOf(r.logN)} cy={yOf(r.logLamMinFit)} r={3} fill={ED.series1} />
       ))}
 
-      <text x={padL + plotW / 2} y={padT + plotH + 34} textAnchor="middle" fill="#94a3b8" fontSize={9}>
+      <text x={padL + plotW / 2} y={padT + plotH + 34} textAnchor="middle" fill={ED.inkSoft} fontSize={9}>
         N (log scale)
       </text>
-      <text x={16} y={padT + plotH / 2} fill="#94a3b8" fontSize={9} transform={`rotate(-90 16 ${padT + plotH / 2})`}>
+      <text x={16} y={padT + plotH / 2} fill={ED.inkSoft} fontSize={9} transform={`rotate(-90 16 ${padT + plotH / 2})`}>
         value (log scale)
       </text>
     </svg>
@@ -129,18 +130,18 @@ export default function Imp96606CertLimitCrossoverViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> {IMP96606_HONEST_BANNER}
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> {IMP96606_HONEST_BANNER}
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-96563 showed that verified-Cholesky certification of lam_min(G_N) &gt; 0 in double
         precision needs the rounding shift delta(N) = g_(n+1) I(1,1) H_N to stay below the
         imp-96428 fit lam_min(N) ~ A N^-p. Because delta(N) grows like n&nbsp;u&nbsp;log&nbsp;n
@@ -151,7 +152,7 @@ export default function Imp96606CertLimitCrossoverViz() {
         ceiling.
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         delta(N) (rose, rising) vs lam_min(N) fit (sky-blue, falling), log-log
       </h3>
       <CrossoverPanel />
@@ -160,14 +161,14 @@ export default function Imp96606CertLimitCrossoverViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> the rose curve is the
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> the rose curve is the
         verified-Cholesky rounding shift delta(N), climbing as N grows; the sky-blue curve is the
         imp-96428 lam_min(N) fit, falling as N grows. The green dashed line marks the imp-96352
         compute ceiling N=9916 (double-precision certification is safe there); the red dashed
@@ -181,14 +182,14 @@ export default function Imp96606CertLimitCrossoverViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page consuming the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the
         imp-96606 viz-data (ladder reshaped verbatim from imp-96591 / imp-96563).
         {' '}{IMP96606_HONEST_BANNER}
       </div>

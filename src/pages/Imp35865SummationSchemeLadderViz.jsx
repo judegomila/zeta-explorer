@@ -6,11 +6,12 @@ import {
   IMP35865_ORDERS_BELOW_CEILING,
   IMP35865_BARRIER_MARGIN_HEADROOM,
 } from '../data/imp-35865-summation-scheme-ladder-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
-const NAIVE_COLOR = '#f87171';
-const PAIRWISE_COLOR = '#38bdf8';
-const KAHAN_COLOR = '#4ade80';
-const CEIL_COLOR = '#94a3b8';
+const NAIVE_COLOR = ED.series2;
+const PAIRWISE_COLOR = ED.series1;
+const KAHAN_COLOR = ED.series3;
+const CEIL_COLOR = ED.series8;
 
 function SummationLadderChart() {
   const w = 680;
@@ -39,14 +40,14 @@ function SummationLadderChart() {
 
   return (
     <svg width={w} height={h} style={{ display: 'block', maxWidth: '100%' }}>
-      <text x={padL} y={padT - 8} fill="#94a3b8" fontSize={11} fontWeight={700}>
+      <text x={padL} y={padT - 8} fill={ED.inkSoft} fontSize={11} fontWeight={700}>
         normalized summation error vs N (log-log)
       </text>
 
       {yTicks.map((v) => (
         <g key={v}>
-          <line x1={padL} y1={yOf(10 ** v)} x2={padL + plotW} y2={yOf(10 ** v)} stroke="#1e293b" strokeWidth={0.7} />
-          <text x={padL - 6} y={yOf(10 ** v) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+          <line x1={padL} y1={yOf(10 ** v)} x2={padL + plotW} y2={yOf(10 ** v)} stroke={ED.ruleSoft} strokeWidth={0.7} />
+          <text x={padL - 6} y={yOf(10 ** v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             1e{v}
           </text>
         </g>
@@ -67,8 +68,8 @@ function SummationLadderChart() {
         </g>
       ))}
 
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <text x={padL + plotW / 2} y={h - 8} textAnchor="middle" fill="#64748b" fontSize={9}>
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <text x={padL + plotW / 2} y={h - 8} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
         N -- 1e3 .. N at T_PT (~4.886e5)
       </text>
 
@@ -98,7 +99,7 @@ function LadderTable() {
   return (
     <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.8rem' }}>
       <thead>
-        <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+        <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
           <th style={{ padding: '0.4rem 0.6rem' }}>N</th>
           <th style={{ padding: '0.4rem 0.6rem', color: NAIVE_COLOR }}>naive</th>
           <th style={{ padding: '0.4rem 0.6rem', color: PAIRWISE_COLOR }}>pairwise</th>
@@ -108,7 +109,7 @@ function LadderTable() {
       </thead>
       <tbody>
         {IMP35865_SUMMATION_LADDER.map((p) => (
-          <tr key={p.N} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+          <tr key={p.N} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>
               {p.N.toLocaleString()}
               {p.label ? ` (${p.label})` : ''}
@@ -129,7 +130,7 @@ export default function Imp35865SummationSchemeLadderViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Summation-Scheme Error Ladder (imp-35865 / imp-35812)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
         imp-35812 ran naive recursive, pairwise divide-and-conquer, and Kahan-Babuska compensated
         summation on a representative N&nbsp;~&nbsp;4.886e5-term oscillatory sum (mimicking the
         Polymath15 A_t&nbsp;+&nbsp;B_t&nbsp;-&nbsp;C_t structure at T_PT&nbsp;=&nbsp;3e12), measuring
@@ -145,7 +146,7 @@ export default function Imp35865SummationSchemeLadderViz() {
         <LadderTable />
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.8rem', marginTop: '1rem' }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.8rem', marginTop: '1rem' }}>
         Pairwise tracks O(log2(N)&nbsp;.&nbsp;u), sitting&nbsp;~
         {IMP35865_ORDERS_BELOW_CEILING.pairwiseVsCeilingOrders.toFixed(1)}&nbsp;orders below its own
         ceiling; Kahan-Babuska is flat at the unit-roundoff floor with no measurable growth in N,
@@ -157,14 +158,14 @@ export default function Imp35865SummationSchemeLadderViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status (measurement only):</strong> presentation
+        <strong style={{ color: 'var(--ink-soft)' }}>Status (measurement only):</strong> presentation
         only of the already-derived imp-35812 exact-BigInt-referenced measurement (no new derivation,
         no heavy data-module import, no re-running the summation schemes at page load). All three
         schemes -- naive, pairwise, Kahan-Babuska -- certify NO W1 bound and, together with their

@@ -1,13 +1,14 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP33988_F3_LANDMARK_LAW_RECOMPUTE_NEWTON_CROSSCHECK } from '../data/imp-33988-f3-landmark-law-recompute-newton-crosscheck.js';
+import { ED } from '../styles/tokens.js';
 
 const { marks: MARKS } = IMP33988_F3_LANDMARK_LAW_RECOMPUTE_NEWTON_CROSSCHECK;
 
 const ESTIMATES = [
-  { key: 'e1_f2_closedform_log10N', label: 'E1 F2 closed-form', color: '#f87171' },
-  { key: 'e3_newton_actual_exponent_log10N', label: 'E3 Newton (actual)', color: '#4ade80' },
-  { key: 'e2_law_direct_full_inversion_log10N', label: 'E2 law-direct (full RvM)', color: '#60a5fa' },
+  { key: 'e1_f2_closedform_log10N', label: 'E1 F2 closed-form', color: ED.series2 },
+  { key: 'e3_newton_actual_exponent_log10N', label: 'E3 Newton (actual)', color: ED.series3 },
+  { key: 'e2_law_direct_full_inversion_log10N', label: 'E2 law-direct (full RvM)', color: ED.series1 },
 ];
 
 // One row per landmark (1% / 0.1%), three dots on a shared log10 N axis marking E1/E3/E2 with a
@@ -33,10 +34,10 @@ function LandmarkSpreadRows() {
 
         return (
           <g key={m.landmark}>
-            <text x={padL} y={rowY} fill="#94a3b8" fontSize={11} fontWeight={700}>
+            <text x={padL} y={rowY} fill={ED.inkSoft} fontSize={11} fontWeight={700}>
               {m.landmark}
             </text>
-            <line x1={padL} y1={lineY} x2={svgW - padR} y2={lineY} stroke="#334155" strokeWidth={1.5} />
+            <line x1={padL} y1={lineY} x2={svgW - padR} y2={lineY} stroke={ED.rule} strokeWidth={1.5} />
             {ESTIMATES.map((e) => {
               const v = m[e.key];
               const x = xOf(v);
@@ -47,13 +48,13 @@ function LandmarkSpreadRows() {
                   <text x={x} y={lineY - 16} textAnchor="middle" fill={e.color} fontSize={9.5} fontWeight={700}>
                     {v.toFixed(2)}
                   </text>
-                  <text x={x} y={lineY + 24} textAnchor="middle" fill="#64748b" fontSize={8.5}>
+                  <text x={x} y={lineY + 24} textAnchor="middle" fill={ED.inkFaint} fontSize={8.5}>
                     {e.label}
                   </text>
                 </g>
               );
             })}
-            <text x={padL} y={rowY + rowH - 24} fill="#475569" fontSize={9}>
+            <text x={padL} y={rowY + rowH - 24} fill={ED.inkFaint} fontSize={9}>
               log10 N axis (span {span.toFixed(2)} decades, log T0 target = {m.logT0_target})
             </text>
           </g>
@@ -71,7 +72,7 @@ export default function Imp34052F3LandmarkThreeWaySpreadViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="F3 Three-Way Landmark Spread (imp-33988)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         The imp-33816 sigma(N) post-peak local exponent p(N) approaches the imp-3463 far-tail 1/2 from
         below. Its "within 1%" and "within 0.1%" near-asymptote landmarks (in log10 N) are located three
         independent ways: (E1) the F2 closed-form ln N ~ log T0 collapse; (E2) the same leading law with
@@ -80,7 +81,7 @@ export default function Imp34052F3LandmarkThreeWaySpreadViz() {
         log10 N, confirming the imp-33816 "1e44 / 1e434" quote.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         E1 / E3 / E2 landmark positions on a per-row log10 N axis
       </p>
       <LandmarkSpreadRows />
@@ -89,14 +90,14 @@ export default function Imp34052F3LandmarkThreeWaySpreadViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement / cross-check only, not a
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> measurement / cross-check only, not a
         rigorous asymptotic. The E1-&gt;E2 spread ({m1.e2_vs_e1_decades.toFixed(2)} decades at 1%,{' '}
         {m2.e2_vs_e1_decades.toFixed(2)} at 0.1%) is the restored RvM sub-leading terms; the E2-&gt;E3
         offset ({m1.e3_vs_e2_decades.toFixed(2)} / {m2.e3_vs_e2_decades.toFixed(2)} decades) is the

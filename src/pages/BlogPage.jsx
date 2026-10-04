@@ -21,7 +21,7 @@ export default function BlogPage() {
 
         <div style={{
           marginBottom: 24, padding: '14px 16px', borderRadius: 8,
-          color: 'var(--terra-dk)', background: 'rgba(194,58,28,0.08)', border: '1px solid rgba(194,58,28,0.35)',
+          color: 'var(--terra-dk)', background: 'color-mix(in srgb, var(--series-2) 8%, transparent)', border: '1px solid color-mix(in srgb, var(--accent) 35%, transparent)',
           lineHeight: 1.7,
         }}>
           <strong>Historical proof attempt — abandoned (an internal exploration, never published).</strong> The exact cascade audit gives
@@ -329,7 +329,7 @@ function Quote({ children }) {
     <blockquote style={{
       margin: '16px 0', padding: '12px 20px',
       borderLeft: '3px solid var(--brass-dk)',
-      background: 'rgba(181,138,46,0.08)',
+      background: 'color-mix(in srgb, var(--brass-deco) 8%, transparent)',
       color: 'var(--brass-dk)', fontStyle: 'italic',
       fontSize: 14, lineHeight: 1.8,
     }}>

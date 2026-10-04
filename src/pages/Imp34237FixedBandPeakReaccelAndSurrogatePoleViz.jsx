@@ -19,6 +19,7 @@ import {
   IMP34237_TOTAL_WINDOW_COUNT,
 } from '../data/imp-34237-fixed-band-peak-reaccel-and-surrogate-pole-viz-data.js';
 import { IMP34247_WIDENING_SLOPE_POLE_DIVERGENCE } from '../data/imp-34247-widening-slope-pole-divergence.js';
+import { ED } from '../styles/tokens.js';
 
 // Panel 1: the fixed-band (k<=10) peak over the three computable windows,
 // climbing +0.865303 -> +0.915942 -> +0.996333 with re-accelerating increments.
@@ -46,42 +47,42 @@ function PeakReaccelChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
 
       {yTicks.map((v) => (
         <g key={'y' + v}>
-          <line x1={padL - 4} y1={yAt(v)} x2={padL + cW} y2={yAt(v)} stroke="#1e293b" strokeWidth={1} />
-          <text x={padL - 8} y={yAt(v) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+          <line x1={padL - 4} y1={yAt(v)} x2={padL + cW} y2={yAt(v)} stroke={ED.ruleSoft} strokeWidth={1} />
+          <text x={padL - 8} y={yAt(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v.toFixed(2)}
           </text>
         </g>
       ))}
       {xTicks.map((k) => (
         <g key={'x' + k}>
-          <line x1={xAt(k)} y1={padT + cH - 4} x2={xAt(k)} y2={padT + cH + 4} stroke="#334155" strokeWidth={1} />
-          <text x={xAt(k)} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={9}>
+          <line x1={xAt(k)} y1={padT + cH - 4} x2={xAt(k)} y2={padT + cH + 4} stroke={ED.rule} strokeWidth={1} />
+          <text x={xAt(k)} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
             {k.toFixed(1)}
           </text>
         </g>
       ))}
-      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         kEnd (window right edge)
       </text>
       <text
         x={16}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={`rotate(-90 16 ${padT + cH / 2})`}
       >
         fixed-band (k&le;10) peak
       </text>
 
-      <polyline points={path} fill="none" stroke="#38bdf8" strokeWidth={2} />
+      <polyline points={path} fill="none" stroke={ED.series1} strokeWidth={2} />
       {IMP34237_FIXED_BAND_PEAK_ROWS.map((r) => (
-        <circle key={'pt' + r.kEnd} cx={xAt(r.kEnd)} cy={yAt(r.peak)} r={3.5} fill="#c4b5fd" stroke="#0a0f1a" strokeWidth={0.75} />
+        <circle key={'pt' + r.kEnd} cx={xAt(r.kEnd)} cy={yAt(r.peak)} r={3.5} fill="#c4b5fd" stroke={ED.paper} strokeWidth={0.75} />
       ))}
     </svg>
   );
@@ -117,48 +118,48 @@ function ResidExpZeroCrossingChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={zeroY} x2={padL + cW} y2={zeroY} stroke="#334155" strokeWidth={1} strokeDasharray="2,3" />
-      <text x={padL + cW - 4} y={zeroY - 4} textAnchor="end" fill="#64748b" fontSize={9}>
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={zeroY} x2={padL + cW} y2={zeroY} stroke={ED.rule} strokeWidth={1} strokeDasharray="2,3" />
+      <text x={padL + cW - 4} y={zeroY - 4} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
         resid_exp = 0
       </text>
 
       {xTicks.map((k) => (
         <g key={'x' + k}>
-          <line x1={xAt(k)} y1={padT} x2={xAt(k)} y2={padT + cH} stroke="#1e293b" strokeWidth={1} />
-          <text x={xAt(k)} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={9}>
+          <line x1={xAt(k)} y1={padT} x2={xAt(k)} y2={padT + cH} stroke={ED.ruleSoft} strokeWidth={1} />
+          <text x={xAt(k)} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
             {k}
           </text>
         </g>
       ))}
-      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         k
       </text>
       <text
         x={14}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={`rotate(-90 14 ${padT + cH / 2})`}
       >
         resid_exp(k) (signed-log scale)
       </text>
 
-      <line x1={xAt(IMP34237_RESID_ZERO_KSTAR)} y1={padT} x2={xAt(IMP34237_RESID_ZERO_KSTAR)} y2={padT + cH} stroke="#f87171" strokeWidth={1.25} strokeDasharray="5,3" />
-      <text x={xAt(IMP34237_RESID_ZERO_KSTAR) + 4} y={padT + 12} fill="#f87171" fontSize={9}>
+      <line x1={xAt(IMP34237_RESID_ZERO_KSTAR)} y1={padT} x2={xAt(IMP34237_RESID_ZERO_KSTAR)} y2={padT + cH} stroke={ED.series2} strokeWidth={1.25} strokeDasharray="5,3" />
+      <text x={xAt(IMP34237_RESID_ZERO_KSTAR) + 4} y={padT + 12} fill={ED.series2} fontSize={9}>
         k* &asymp; {IMP34237_RESID_ZERO_KSTAR.toFixed(5)} (pole)
       </text>
 
-      <polyline points={path} fill="none" stroke="#4ade80" strokeWidth={1.75} />
+      <polyline points={path} fill="none" stroke={ED.series3} strokeWidth={1.75} />
       {IMP34237_RESID_EXP_ROWS.map((r) => (
         <circle
           key={'pt' + r.k}
           cx={xAt(r.k)}
           cy={yAt(r.residExp)}
           r={3}
-          fill={r.residExp > 0 ? '#4ade80' : '#f87171'}
-          stroke="#0a0f1a"
+          fill={r.residExp > 0 ? ED.series3 : ED.series2}
+          stroke={ED.paper}
           strokeWidth={0.75}
         />
       ))}
@@ -190,38 +191,38 @@ function EflowOverResidPoleChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={zeroY} x2={padL + cW} y2={zeroY} stroke="#334155" strokeWidth={1} strokeDasharray="2,3" />
-      <text x={padL + cW - 4} y={zeroY - 4} textAnchor="end" fill="#64748b" fontSize={9}>
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={zeroY} x2={padL + cW} y2={zeroY} stroke={ED.rule} strokeWidth={1} strokeDasharray="2,3" />
+      <text x={padL + cW - 4} y={zeroY - 4} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
         eflow_over_resid = 0
       </text>
 
-      <line x1={xAt(IMP34237_RESID_ZERO_KSTAR)} y1={padT} x2={xAt(IMP34237_RESID_ZERO_KSTAR)} y2={padT + cH} stroke="#f87171" strokeWidth={1.25} strokeDasharray="5,3" />
-      <text x={xAt(IMP34237_RESID_ZERO_KSTAR) + 4} y={padT + 12} fill="#f87171" fontSize={9}>
+      <line x1={xAt(IMP34237_RESID_ZERO_KSTAR)} y1={padT} x2={xAt(IMP34237_RESID_ZERO_KSTAR)} y2={padT + cH} stroke={ED.series2} strokeWidth={1.25} strokeDasharray="5,3" />
+      <text x={xAt(IMP34237_RESID_ZERO_KSTAR) + 4} y={padT + 12} fill={ED.series2} fontSize={9}>
         k* &asymp; {IMP34237_RESID_ZERO_KSTAR.toFixed(5)} (pole)
       </text>
 
       {IMP34237_EFLOW_OVER_RESID_ROWS.map((r) => (
         <g key={'bar' + r.k}>
-          <line x1={xAt(r.k)} y1={zeroY} x2={xAt(r.k)} y2={yAt(r.ratio)} stroke={r.ratio > 0 ? '#4ade80' : '#f87171'} strokeWidth={4} />
-          <circle cx={xAt(r.k)} cy={yAt(r.ratio)} r={3.5} fill={r.ratio > 0 ? '#4ade80' : '#f87171'} stroke="#0a0f1a" strokeWidth={0.75} />
-          <text x={xAt(r.k)} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={9}>
+          <line x1={xAt(r.k)} y1={zeroY} x2={xAt(r.k)} y2={yAt(r.ratio)} stroke={r.ratio > 0 ? ED.series3 : ED.series2} strokeWidth={4} />
+          <circle cx={xAt(r.k)} cy={yAt(r.ratio)} r={3.5} fill={r.ratio > 0 ? ED.series3 : ED.series2} stroke={ED.paper} strokeWidth={0.75} />
+          <text x={xAt(r.k)} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
             {r.k}
           </text>
-          <text x={xAt(r.k)} y={yAt(r.ratio) + (r.ratio > 0 ? -8 : 14)} textAnchor="middle" fill="#94a3b8" fontSize={9} fontFamily="monospace">
+          <text x={xAt(r.k)} y={yAt(r.ratio) + (r.ratio > 0 ? -8 : 14)} textAnchor="middle" fill={ED.inkSoft} fontSize={9} fontFamily="monospace">
             {r.ratio.toExponential(2)}
           </text>
         </g>
       ))}
 
-      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         k
       </text>
       <text
         x={14}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={`rotate(-90 14 ${padT + cH / 2})`}
       >
@@ -257,18 +258,18 @@ function CoverageIndicator() {
                 width={cellSize}
                 height={cellSize}
                 rx={3}
-                fill={isComputable ? '#4ade80' : '#1e293b'}
-                stroke={isComputable ? '#166534' : '#334155'}
+                fill={isComputable ? ED.series3 : ED.paper3}
+                stroke={isComputable ? '#166534' : ED.rule}
                 strokeWidth={1}
               />
-              <text x={x + cellSize / 2} y={cellSize + 13} textAnchor="middle" fill="#64748b" fontSize={8}>
+              <text x={x + cellSize / 2} y={cellSize + 13} textAnchor="middle" fill={ED.inkFaint} fontSize={8}>
                 {kEnd.toFixed(1)}
               </text>
             </g>
           );
         })}
       </svg>
-      <p style={{ color: '#64748b', fontSize: '0.75rem', marginTop: '0.35rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontSize: '0.75rem', marginTop: '0.35rem' }}>
         kEnd window coverage: {computable} of {n} defined (green). The remaining{' '}
         {n - computable} sit past the k* &asymp; {IMP34237_RESID_ZERO_KSTAR.toFixed(5)} pole
         and are UNDEFINED, not merely unswept.
@@ -282,13 +283,13 @@ export default function Imp34237FixedBandPeakReaccelAndSurrogatePoleViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Fixed-Band Peak Re-Acceleration & Surrogate Pole (imp-34237 / imp-34169)" />
 
-      <p style={{ color: '#64748b', fontSize: '0.8rem', marginBottom: '0.75rem' }}>
-        <Link to="/viz-imp34281-m2-ceiling-cohort-index" style={{ color: '#64748b' }}>
+      <p style={{ color: 'var(--ink-faint)', fontSize: '0.8rem', marginBottom: '0.75rem' }}>
+        <Link to="/viz-imp34281-m2-ceiling-cohort-index" style={{ color: 'var(--ink-faint)' }}>
           &larr; back to the M2-ceiling cohort index
         </Link>
       </p>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-34169 pushed the imp-34109 fixed-band (k&le;10) peak sweep one further decade.
         Over the three windows that stay computable (kEnd = 20.0, 20.5, 21.0) the peak keeps
         climbing {IMP34237_FIXED_BAND_PEAK_ROWS[0].peak.toFixed(6)} &rarr;{' '}
@@ -302,17 +303,17 @@ export default function Imp34237FixedBandPeakReaccelAndSurrogatePoleViz() {
         {IMP34237_COMPUTABLE_WINDOW_COUNT} of the ticket's {IMP34237_TOTAL_WINDOW_COUNT} windows compute.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         fixed-band (k&le;10) peak over the three computable windows -- climbing, not settling
       </p>
       <PeakReaccelChart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
         surrogate resid_exp(k) decaying through the deep tail and crossing zero at k* (the hard right edge)
       </p>
       <ResidExpZeroCrossingChart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
         eflow_over_resid = eflow_attr / resid_exp -- the log argument the fit takes -- flips sign across the pole
       </p>
       <CoverageIndicator />
@@ -327,14 +328,14 @@ export default function Imp34237FixedBandPeakReaccelAndSurrogatePoleViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>kEnd</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>fixed-band peak</th>
           </tr>
         </thead>
         <tbody>
           {IMP34237_FIXED_BAND_PEAK_ROWS.map((r) => (
-            <tr key={r.kEnd} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+            <tr key={r.kEnd} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.kEnd.toFixed(2)}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.peak.toFixed(6)}</td>
             </tr>
@@ -346,14 +347,14 @@ export default function Imp34237FixedBandPeakReaccelAndSurrogatePoleViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-data only, baked
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-data only, baked
         literals reproducing the imp-34169 measurement; no new derivation, no bound changed.
         Only {IMP34237_COMPUTABLE_WINDOW_COUNT} of the ticket's {IMP34237_TOTAL_WINDOW_COUNT} kEnd
         windows compute -- the surrogate resid_exp(k) hits a pole at k* &asymp;{' '}
@@ -367,14 +368,14 @@ export default function Imp34237FixedBandPeakReaccelAndSurrogatePoleViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Same ceiling, closed-form cohort:</strong> this k*
+        <strong style={{ color: 'var(--ink-soft)' }}>Same ceiling, closed-form cohort:</strong> this k*
         &asymp; {IMP34237_RESID_ZERO_KSTAR.toFixed(5)} pole is the imp-34023 M2-residual
         sign-change ceiling. imp-34127 derived it in closed form and found the CONTINUOUS
         residual vanishes identically -- the crossing is a pure 2-point-secant-vs-5-point-OLS
@@ -384,7 +385,7 @@ export default function Imp34237FixedBandPeakReaccelAndSurrogatePoleViz() {
         e&middot;D is O(1) at a full-decade window, so the Taylor-in-D series does not converge and
         the true crossing has no window-width limit. Cross-linked here for context only; no bound
         or claim on this page changes. See the{' '}
-        <Link to="/viz-imp34281-m2-ceiling-cohort-index" style={{ color: '#94a3b8' }}>
+        <Link to="/viz-imp34281-m2-ceiling-cohort-index" style={{ color: 'var(--ink-soft)' }}>
           full M2-ceiling cohort index
         </Link>{' '}
         for the other viz surfaces sharing this ceiling.
@@ -394,14 +395,14 @@ export default function Imp34237FixedBandPeakReaccelAndSurrogatePoleViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Same k*, a fitted local slope pole (imp-34247):</strong>{' '}
+        <strong style={{ color: 'var(--ink-soft)' }}>Same k*, a fitted local slope pole (imp-34247):</strong>{' '}
         the eflow_over_resid pole plotted above also drives a divergence in the imp-34188 local tail
         slope dy/dk of y(k) = ln(eflow_over_resid_k): imp-34247 fits it as a SIMPLE POLE dy/dk ={' '}
         B(k) + 1/(k* - k) with residue exactly{' '}

@@ -7,6 +7,7 @@ import {
   IMP35210_DECADE_GAPS,
   IMP35210_NCROSS_OFFSETS,
 } from '../data/imp-35210-four-e-component-landmarks-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 // One shared log-N axis: the four E-component crossover/threshold landmarks as ticks, ordered
 // L1 (E_flow=E_trunc) < L2 (E_flow<1%) < L3 (E_coll=E_trunc, N_cross) < L4 (E_flow<0.1%).
@@ -37,25 +38,25 @@ function FourLandmarkLogAxis() {
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
       {/* shared axis */}
-      <line x1={padL} y1={axisY} x2={padL + cW} y2={axisY} stroke="#334155" strokeWidth={1.5} />
+      <line x1={padL} y1={axisY} x2={padL + cW} y2={axisY} stroke={ED.rule} strokeWidth={1.5} />
 
       {/* landmark ticks */}
       {points.map((p) => (
         <g key={p.key}>
-          <line x1={p.x} y1={axisY - 6} x2={p.x} y2={axisY + 6} stroke="#e2e8f0" strokeWidth={1.5} />
+          <line x1={p.x} y1={axisY - 6} x2={p.x} y2={axisY + 6} stroke={ED.inkSoft} strokeWidth={1.5} />
           <circle
             cx={p.x}
             cy={axisY}
             r={4}
-            fill={p.key === 'L3' ? '#f87171' : '#facc15'}
-            stroke="#0a0f1a"
+            fill={p.key === 'L3' ? ED.series2 : ED.brassDeco}
+            stroke={ED.paper}
             strokeWidth={1}
           />
           <text
             x={p.x}
             y={p.labelUp ? axisY - 26 : axisY + 46}
             textAnchor="middle"
-            fill="#cbd5e1"
+            fill={ED.ink}
             fontSize={9.5}
             dominantBaseline={p.labelUp ? 'auto' : 'hanging'}
           >
@@ -65,7 +66,7 @@ function FourLandmarkLogAxis() {
             x={p.x}
             y={p.labelUp ? axisY - 14 : axisY + 58}
             textAnchor="middle"
-            fill="#64748b"
+            fill={ED.inkFaint}
             fontSize={8}
             dominantBaseline={p.labelUp ? 'auto' : 'hanging'}
           >
@@ -82,7 +83,7 @@ export default function Imp35210FourEComponentLandmarksViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Four E-Component Landmarks on One Shared Log-N Axis (imp-35210)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-35153 pinned the E_flow = E_trunc crossover in closed form (N &asymp; 1.597752e6) and
         imp-35154 pinned the two E_flow negligibility thresholds (1% and 0.1% share of the
         above-floor residual) relative to the imp-33723 E_coll = E_trunc crossover N_cross &asymp;
@@ -90,7 +91,7 @@ export default function Imp35210FourEComponentLandmarksViz() {
         the N_cross landmark highlighted in red.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         shared log-N axis: E_flow=E_trunc, E_flow&lt;1%, E_coll=E_trunc (N_cross), E_flow&lt;0.1%
       </p>
       <FourLandmarkLogAxis />
@@ -104,7 +105,7 @@ export default function Imp35210FourEComponentLandmarksViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>landmark</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>N</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>source</th>
@@ -112,7 +113,7 @@ export default function Imp35210FourEComponentLandmarksViz() {
         </thead>
         <tbody>
           {IMP35210_LANDMARKS.map((l) => (
-            <tr key={l.key} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+            <tr key={l.key} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
               <td style={{ padding: '0.4rem 0.6rem' }}>{l.label}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{l.N.toExponential(6)}</td>
               <td style={{ padding: '0.4rem 0.6rem' }}>{l.source}</td>
@@ -121,7 +122,7 @@ export default function Imp35210FourEComponentLandmarksViz() {
         </tbody>
       </table>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.8rem', marginTop: '1rem' }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.8rem', marginTop: '1rem' }}>
         Consecutive decade gaps:{' '}
         {IMP35210_DECADE_GAPS.map((g) => `${g.from}→${g.to} ≈ ${g.decades}`).join(', ')}.
         The E_flow&lt;1% threshold sits &asymp;{IMP35210_NCROSS_OFFSETS.L2_decades_below_Ncross} decades
@@ -134,14 +135,14 @@ export default function Imp35210FourEComponentLandmarksViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-data only, every landmark
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-data only, every landmark
         (L1-L4) reused verbatim from imp-35153 / imp-35154 / imp-33723 -- all inherited from the
         imp-3220/imp-3406 single-rate log-law SURROGATE, no recomputation. Reader-facing diagnostic,
         NOT a rigorous asymptotic. The L3 landmark is the sigma(N) = E_coll/E(N) = 1/2 crossover

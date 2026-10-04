@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP33809_SATURATION_CURVATURE_HUMP_VS_K } from '../data/imp-33809-saturation-curvature-hump-vs-k.js';
+import { ED } from '../styles/tokens.js';
 
 const { humpLadder, humpArgmaxK, humpPeak, crossoverDecadeK } = IMP33809_SATURATION_CURVATURE_HUMP_VS_K;
 
@@ -29,13 +30,13 @@ function HumpVsKChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
 
       {yTicks.map((t) => (
         <g key={'yt' + t}>
-          <line x1={padL - 4} y1={yS(t)} x2={padL + cW} y2={yS(t)} stroke="#1e293b" strokeWidth={1} />
-          <text x={padL - 8} y={yS(t) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+          <line x1={padL - 4} y1={yS(t)} x2={padL + cW} y2={yS(t)} stroke={ED.ruleSoft} strokeWidth={1} />
+          <text x={padL - 8} y={yS(t) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {t.toFixed(2)}
           </text>
         </g>
@@ -47,50 +48,50 @@ function HumpVsKChart() {
         y1={padT}
         x2={xS(humpArgmaxK)}
         y2={padT + cH}
-        stroke="#f87171"
+        stroke={ED.series2}
         strokeWidth={1.25}
         strokeDasharray="5,3"
       />
-      <text x={xS(humpArgmaxK) + 4} y={padT + 10} fill="#f87171" fontSize={9}>
+      <text x={xS(humpArgmaxK) + 4} y={padT + 10} fill={ED.series2} fontSize={9}>
         k={humpArgmaxK} crossover (E_coll = E_trunc)
       </text>
 
       {xTicks.map((k) => (
         <g key={'xt' + k}>
-          <line x1={xS(k)} y1={padT + cH - 4} x2={xS(k)} y2={padT + cH + 4} stroke="#334155" strokeWidth={1} />
-          <text x={xS(k)} y={padT + cH + 18} textAnchor="middle" fill="#64748b" fontSize={9}>
+          <line x1={xS(k)} y1={padT + cH - 4} x2={xS(k)} y2={padT + cH + 4} stroke={ED.rule} strokeWidth={1} />
+          <text x={xS(k)} y={padT + cH + 18} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
             {'10^' + k}
           </text>
         </g>
       ))}
-      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         decade index k ([10^k, 10^(k+1)])
       </text>
       <text
         x={14}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={`rotate(-90 14 ${padT + cH / 2})`}
       >
         hump(k) amplitude
       </text>
 
-      <polyline points={points} fill="none" stroke="#a78bfa" strokeWidth={1.75} />
+      <polyline points={points} fill="none" stroke={ED.series5} strokeWidth={1.75} />
       {humpLadder.map((r) => (
         <circle
           key={'pt' + r.k}
           cx={xS(r.k)}
           cy={yS(r.hump)}
           r={r.k === humpArgmaxK ? 4.5 : 2.75}
-          fill={r.k === humpArgmaxK ? '#f87171' : '#c4b5fd'}
-          stroke="#0a0f1a"
+          fill={r.k === humpArgmaxK ? ED.series2 : '#c4b5fd'}
+          stroke={ED.paper}
           strokeWidth={0.75}
         />
       ))}
       {peakRow && (
-        <text x={xS(peakRow.k)} y={yS(peakRow.hump) - 10} textAnchor="middle" fill="#f87171" fontSize={9}>
+        <text x={xS(peakRow.k)} y={yS(peakRow.hump) - 10} textAnchor="middle" fill={ED.series2} fontSize={9}>
           peak {humpPeak.toExponential(4)}
         </text>
       )}
@@ -103,7 +104,7 @@ export default function Imp33832SaturationCurvatureHumpVsKViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Intra-Decade Saturation-Curvature Hump vs k (imp-33809 / imp-33832)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-33809 tabulated the imp-33773 M3 intra-decade curvature-hump amplitude
         hump(k) = p_ecoll*(1&nbsp;-&nbsp;sigma_hi)&nbsp;-&nbsp;p_sigma across an extended decade
         ladder k = 6..13, confirming the global maximum lands at k = {humpArgmaxK}, the E_coll = E_trunc
@@ -112,7 +113,7 @@ export default function Imp33832SaturationCurvatureHumpVsKViz() {
         peak-sits-at-crossover verdict is legible at a glance.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         hump(k) vs decade index k, k = 6..13, linear axes
       </p>
       <HumpVsKChart />
@@ -126,7 +127,7 @@ export default function Imp33832SaturationCurvatureHumpVsKViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>k</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>decade</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>hump(k)</th>
@@ -139,8 +140,8 @@ export default function Imp33832SaturationCurvatureHumpVsKViz() {
             <tr
               key={r.k}
               style={{
-                borderBottom: '1px solid #1e293b',
-                color: r.k === humpArgmaxK ? '#f87171' : '#cbd5e1',
+                borderBottom: '1px solid var(--rule-soft)',
+                color: r.k === humpArgmaxK ? 'var(--series-2)' : 'var(--ink)',
               }}
             >
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.k}</td>
@@ -157,14 +158,14 @@ export default function Imp33832SaturationCurvatureHumpVsKViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement/attribution only
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> measurement/attribution only
         -- imp-33809 changes no value and derives nothing new, and this page adds no new
         derivation either. It gives the k = 6..13 hump ladder a visual surface confirming the
         global argmax sits at the k = {humpArgmaxK} crossover decade, an interior maximum rather

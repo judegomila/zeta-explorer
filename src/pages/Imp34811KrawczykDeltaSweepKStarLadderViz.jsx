@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP34776_KRAWCZYK_DELTA_SWEEP } from '../data/imp-34776-krawczyk-delta-sweep.js';
+import { ED } from '../styles/tokens.js';
 
 const DATA = IMP34776_KRAWCZYK_DELTA_SWEEP;
 const M = DATA.measurement;
@@ -38,36 +39,36 @@ function DeltaSweepChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={plotW} height={plotH} fill="none" stroke="#334155" strokeWidth={1} />
-      <text x={padL} y={padT - 8} fill="#94a3b8" fontSize={11} fontWeight={700}>
+      <rect x={padL} y={padT} width={plotW} height={plotH} fill="none" stroke={ED.rule} strokeWidth={1} />
+      <text x={padL} y={padT - 8} fill={ED.inkSoft} fontSize={11} fontWeight={700}>
         log10 k*(delta) vs log10 delta &mdash; measured ladder vs predicted k* = delta/(2 eps)
       </text>
 
       {/* predicted slope overlay: dashed line k* = delta/(2 eps) */}
-      <path d={predictedPath} fill="none" stroke="#facc15" strokeWidth={2} strokeDasharray="6 4" />
+      <path d={predictedPath} fill="none" stroke={ED.brassDeco} strokeWidth={2} strokeDasharray="6 4" />
       {/* measured k*(delta) ladder */}
-      <path d={measuredPath} fill="none" stroke="#38bdf8" strokeWidth={1.8} />
+      <path d={measuredPath} fill="none" stroke={ED.series1} strokeWidth={1.8} />
       {xs.map((x, i) => (
-        <circle key={`pt-${i}`} cx={sx(x)} cy={sy(ysMeasured[i])} r={3.6} fill="#38bdf8" stroke="#0f172a" strokeWidth={0.5} />
+        <circle key={`pt-${i}`} cx={sx(x)} cy={sy(ysMeasured[i])} r={3.6} fill={ED.series1} stroke={ED.paper} strokeWidth={0.5} />
       ))}
 
       {/* x-axis labels: delta values */}
       {xs.map((x, i) => (
-        <text key={`xlbl-${i}`} x={sx(x)} y={svgH - padB + 16} textAnchor="middle" fill="#64748b" fontSize={9}>
+        <text key={`xlbl-${i}`} x={sx(x)} y={svgH - padB + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
           {DELTA[i].toExponential(0)}
         </text>
       ))}
-      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill="#94a3b8" fontSize={10}>
+      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkSoft} fontSize={10}>
         bracket half-width delta
       </text>
 
       {/* legend */}
-      <rect x={padL + 12} y={padT + 10} width={12} height={2.5} fill="#38bdf8" />
-      <text x={padL + 30} y={padT + 15} fill="#38bdf8" fontSize={10}>
+      <rect x={padL + 12} y={padT + 10} width={12} height={2.5} fill={ED.series1} />
+      <text x={padL + 30} y={padT + 15} fill={ED.series1} fontSize={10}>
         measured k*(delta)
       </text>
-      <rect x={padL + 12} y={padT + 26} width={12} height={2.5} fill="#facc15" />
-      <text x={padL + 30} y={padT + 31} fill="#facc15" fontSize={10}>
+      <rect x={padL + 12} y={padT + 26} width={12} height={2.5} fill={ED.brassDeco} />
+      <text x={padL + 30} y={padT + 31} fill={ED.brass} fontSize={10}>
         predicted delta/(2 eps)
       </text>
     </svg>
@@ -79,7 +80,7 @@ export default function Imp34811KrawczykDeltaSweepKStarLadderViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Krawczyk Delta-Sweep k*(delta) Ladder (imp-34811 / imp-34776)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-34752 found the outward-ULP Krawczyk budget k* is N-independent at a single fixed bracket
         half-width delta&nbsp;=&nbsp;2e-4, and attributed the flatness to the break condition
         2&middot;k&middot;eps&nbsp;~&nbsp;delta, predicting k*&nbsp;~&nbsp;delta/(2&nbsp;eps). imp-34776
@@ -101,7 +102,7 @@ export default function Imp34811KrawczykDeltaSweepKStarLadderViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>delta</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>k*(delta)</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>k*/delta</th>
@@ -110,7 +111,7 @@ export default function Imp34811KrawczykDeltaSweepKStarLadderViz() {
         </thead>
         <tbody>
           {DELTA.map((d, i) => (
-            <tr key={d} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+            <tr key={d} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{d.toExponential(1)}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{K_STAR[i].toExponential(4)}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{M.slope_k_star_over_delta[i].toExponential(6)}</td>
@@ -124,11 +125,11 @@ export default function Imp34811KrawczykDeltaSweepKStarLadderViz() {
         style={{
           marginTop: '1rem',
           padding: '0.6rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
         }}
       >
         Predicted slope 1/(2&nbsp;eps) &asymp; {PREDICTED_SLOPE.toExponential(6)}; measured log-log slope
@@ -141,14 +142,14 @@ export default function Imp34811KrawczykDeltaSweepKStarLadderViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page rendering the imp-34776
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-only page rendering the imp-34776
         table (imported literals, no new computation); establishes no new numerical claim. Double-precision
         surrogate for the imp-34687a directed-rounding layer; does NOT close the imp-34714a machine
         certificate, which REMAINS OPEN. Inherited imp-3220/imp-3406 surrogate crossover map; C_C&nbsp;=

@@ -4,6 +4,7 @@ import {
   IMP97467_LADDERS,
   IMP97467_B_LADDER,
 } from '../data/imp-97467-route-m-crossover-fraction-tolerance-ladder-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 // imp-97467: visualizes the imp-97441 measurement of the boundary-to-bulk
 // crossover fraction x*(eps) = A(b)/b across eps in {0.5%,1%,2%,5%} on the
@@ -34,19 +35,19 @@ function TolerancePanel({ ladder }) {
   const xOf = (b) => padL + ((Math.log2(b) - minLogB) / (maxLogB - minLogB)) * plotW;
   const yOf = (v) => padT + plotH - ((v - lo) / (hi - lo)) * plotH;
 
-  const color = ladder.bIndependent ? '#4ade80' : '#f87171';
+  const color = ladder.bIndependent ? ED.series3 : ED.series2;
 
   return (
     <div style={{ marginBottom: '0.75rem' }}>
       <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-        <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#334155" strokeWidth={1} />
-        <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#334155" strokeWidth={1} />
+        <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1} />
+        <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1} />
 
         {/* y ticks: min/max of this row */}
         {[yMin, yMax].map((v) => (
           <g key={`y${v}`}>
-            <line x1={padL - 4} y1={yOf(v)} x2={padL} y2={yOf(v)} stroke="#334155" strokeWidth={1} />
-            <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={8.5}>
+            <line x1={padL - 4} y1={yOf(v)} x2={padL} y2={yOf(v)} stroke={ED.rule} strokeWidth={1} />
+            <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8.5}>
               {v.toFixed(5)}
             </text>
           </g>
@@ -54,7 +55,7 @@ function TolerancePanel({ ladder }) {
 
         {/* x ticks: the b-ladder */}
         {IMP97467_B_LADDER.map((b) => (
-          <text key={`x${b}`} x={xOf(b)} y={padT + plotH + 16} textAnchor="middle" fill="#64748b" fontSize={8}>
+          <text key={`x${b}`} x={xOf(b)} y={padT + plotH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={8}>
             {b}
           </text>
         ))}
@@ -70,11 +71,11 @@ function TolerancePanel({ ladder }) {
           <circle key={p.b} cx={xOf(p.b)} cy={yOf(p.x)} r={3} fill={color} />
         ))}
 
-        <text x={padL} y={padT - 2} fill="#e2e8f0" fontSize={10} fontWeight="bold">
+        <text x={padL} y={padT - 2} fill={ED.ink} fontSize={10} fontWeight="bold">
           eps = {ladder.label} {ladder.bIndependent ? '(flat)' : '(BIMODAL)'}
         </text>
       </svg>
-      <div style={{ paddingLeft: padL, fontSize: '0.72rem', color: '#64748b' }}>
+      <div style={{ paddingLeft: padL, fontSize: '0.72rem', color: 'var(--ink-faint)' }}>
         {ladder.note} &mdash; ladder spread {ladder.ladderSpread.toExponential(1)}
       </div>
     </div>
@@ -90,15 +91,15 @@ export default function Imp97467CrossoverFractionToleranceLadderViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> measurement
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> measurement
         only. The crossover fraction x*(eps) = A(b)/b (largest a/b with the
         linearized Vasyunin profile accurate to eps) is tabulated across the
         b-ladder at four tolerances; it establishes no operator positivity and
@@ -106,7 +107,7 @@ export default function Imp97467CrossoverFractionToleranceLadderViz() {
         Lambda&le;0.2 remains SOTA; RH open; NO QED.
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         Each panel plots x*(eps) against b (log-spaced) at one tolerance. At
         eps = 0.5%, 2%, 5% the fraction is flat to 3-4 digits across the whole
         b-ladder (green, solid). At eps = 1% it instead STEPS from 0.199
@@ -125,14 +126,14 @@ export default function Imp97467CrossoverFractionToleranceLadderViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> each
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> each
         panel has its OWN y-axis scale (the four fractions span roughly 0.10
         to 0.94), so compare shape (flat vs stepped), not absolute height,
         across panels. The 1% panel's y-range is deliberately widened to show
@@ -144,14 +145,14 @@ export default function Imp97467CrossoverFractionToleranceLadderViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page
         consuming the imp-97441 x*(eps) table verbatim; no re-solve.
         Establishes no operator positivity; changes no bound; the imp-97437
         effective-curvature fixed point (kappa_eff = 0.0995) fits this table

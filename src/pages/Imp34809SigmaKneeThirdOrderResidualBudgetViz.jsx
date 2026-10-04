@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP34770_SIGMA_KNEE_THIRD_ORDER_V_EXPANSION } from '../data/imp-34770-sigma-knee-third-order-v-expansion.js';
+import { ED } from '../styles/tokens.js';
 
 const DATA = IMP34770_SIGMA_KNEE_THIRD_ORDER_V_EXPANSION;
 const RB = DATA.residualBudget;
@@ -40,8 +41,8 @@ function ResidualBudgetChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={plotW} height={panelH} fill="none" stroke="#334155" strokeWidth={1} />
-      <text x={padL} y={padT - 10} fill="#94a3b8" fontSize={11} fontWeight={700}>
+      <rect x={padL} y={padT} width={plotW} height={panelH} fill="none" stroke={ED.rule} strokeWidth={1} />
+      <text x={padL} y={padT - 10} fill={ED.inkSoft} fontSize={11} fontWeight={700}>
         Self-consistent-to-exactF residual (dex) &mdash; 2nd vs 3rd order, against the &plusmn;FD floor band
       </text>
 
@@ -51,21 +52,21 @@ function ResidualBudgetChart() {
         y={Math.min(yFloorPos, yFloorNeg)}
         width={plotW}
         height={Math.abs(yFloorNeg - yFloorPos)}
-        fill="#facc15"
+        fill={ED.brassDeco}
         opacity={0.08}
       />
-      <line x1={padL} y1={yFloorPos} x2={padL + plotW} y2={yFloorPos} stroke="#facc15" strokeWidth={1} strokeDasharray="4 3" />
-      <line x1={padL} y1={yFloorNeg} x2={padL + plotW} y2={yFloorNeg} stroke="#facc15" strokeWidth={1} strokeDasharray="4 3" />
-      <text x={padL + plotW - 4} y={yFloorPos - 4} textAnchor="end" fill="#facc15" fontSize={9}>
+      <line x1={padL} y1={yFloorPos} x2={padL + plotW} y2={yFloorPos} stroke={ED.brassDeco} strokeWidth={1} strokeDasharray="4 3" />
+      <line x1={padL} y1={yFloorNeg} x2={padL + plotW} y2={yFloorNeg} stroke={ED.brassDeco} strokeWidth={1} strokeDasharray="4 3" />
+      <text x={padL + plotW - 4} y={yFloorPos - 4} textAnchor="end" fill={ED.brass} fontSize={9}>
         +FD floor &asymp; {FD_FLOOR.toExponential(2)}
       </text>
-      <text x={padL + plotW - 4} y={yFloorNeg + 12} textAnchor="end" fill="#facc15" fontSize={9}>
+      <text x={padL + plotW - 4} y={yFloorNeg + 12} textAnchor="end" fill={ED.brass} fontSize={9}>
         -FD floor
       </text>
 
       {/* zero line */}
-      <line x1={padL} y1={zeroY} x2={padL + plotW} y2={zeroY} stroke="#64748b" strokeWidth={1.5} />
-      <text x={padL - 8} y={zeroY + 4} textAnchor="end" fill="#64748b" fontSize={10}>
+      <line x1={padL} y1={zeroY} x2={padL + plotW} y2={zeroY} stroke={ED.rule} strokeWidth={1.5} />
+      <text x={padL - 8} y={zeroY + 4} textAnchor="end" fill={ED.inkFaint} fontSize={10}>
         0
       </text>
 
@@ -75,13 +76,13 @@ function ResidualBudgetChart() {
         y={Math.min(y0Second, ySecond)}
         width={barW}
         height={Math.abs(ySecond - y0Second) || 1.5}
-        fill="#38bdf8"
+        fill={ED.series1}
         opacity={0.85}
       />
-      <text x={x1} y={SECOND >= 0 ? ySecond - 8 : ySecond + 16} textAnchor="middle" fill="#38bdf8" fontSize={11} fontWeight={700}>
+      <text x={x1} y={SECOND >= 0 ? ySecond - 8 : ySecond + 16} textAnchor="middle" fill={ED.series1} fontSize={11} fontWeight={700}>
         {SECOND.toExponential(2)}
       </text>
-      <text x={x1} y={padT + panelH + 18} textAnchor="middle" fill="#94a3b8" fontSize={10}>
+      <text x={x1} y={padT + panelH + 18} textAnchor="middle" fill={ED.inkSoft} fontSize={10}>
         2nd order (imp-34756)
       </text>
 
@@ -91,17 +92,17 @@ function ResidualBudgetChart() {
         y={Math.min(y0Third, yThird)}
         width={barW}
         height={Math.abs(yThird - y0Third) || 1.5}
-        fill="#f87171"
+        fill={ED.series2}
         opacity={0.85}
       />
-      <text x={x2} y={THIRD >= 0 ? yThird - 8 : yThird + 16} textAnchor="middle" fill="#f87171" fontSize={11} fontWeight={700}>
+      <text x={x2} y={THIRD >= 0 ? yThird - 8 : yThird + 16} textAnchor="middle" fill={ED.series2} fontSize={11} fontWeight={700}>
         {THIRD.toExponential(2)}
       </text>
-      <text x={x2} y={padT + panelH + 18} textAnchor="middle" fill="#94a3b8" fontSize={10}>
+      <text x={x2} y={padT + panelH + 18} textAnchor="middle" fill={ED.inkSoft} fontSize={10}>
         3rd order (imp-34770, this data)
       </text>
 
-      <text x={(x1 + x2) / 2} y={padT + 14} textAnchor="middle" fill="#fbbf24" fontSize={10} fontWeight={700}>
+      <text x={(x1 + x2) / 2} y={padT + 14} textAnchor="middle" fill={ED.brass} fontSize={10} fontWeight={700}>
         delta_3 OVERSHOOTS the match &mdash; both stay inside the &plusmn;FD-floor band
       </text>
     </svg>
@@ -113,7 +114,7 @@ export default function Imp34809SigmaKneeThirdOrderResidualBudgetViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Sigma-Knee Third-Order Residual Budget (imp-34809 / imp-34770)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-34770 restored the THIRD-order term delta_3 of the slowly-varying-v sigma-knee expansion
         and tracked how the self-consistent knee's residual against the all-orders analytic
         exactF knee moves order by order. The second-order residual is
@@ -136,7 +137,7 @@ export default function Imp34809SigmaKneeThirdOrderResidualBudgetViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>quantity</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>value (dex)</th>
           </tr>
@@ -149,7 +150,7 @@ export default function Imp34809SigmaKneeThirdOrderResidualBudgetViz() {
             ['source finite-difference floor (imp-34756 F3)', RB.thirdSourceFiniteDifferenceLog10],
             ['FD floor magnitude bound against', FD_FLOOR],
           ].map(([label, value]) => (
-            <tr key={label} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+            <tr key={label} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
               <td style={{ padding: '0.4rem 0.6rem' }}>{label}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{value}</td>
             </tr>
@@ -161,14 +162,14 @@ export default function Imp34809SigmaKneeThirdOrderResidualBudgetViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page rendering the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-only page rendering the
         imp-34770 residualBudget table (imported literals, no new computation); establishes no new
         numerical claim. Conditional-share diagnostic on the inherited imp-3220/imp-3406
         extrapolation, NOT an RH bound. C_mb GUE-conditional per imp-486 untouched; imp-3066

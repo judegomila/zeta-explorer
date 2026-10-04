@@ -4,6 +4,7 @@ import InformationTheoryViz from '../components/InformationTheoryViz.jsx';
 import InfoTheoryExperimentsViz from '../components/InfoTheoryExperimentsViz.jsx';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
+import { ED } from '../styles/tokens.js';
 
 // Information Theory of the Twin Ladder — editorial (warm) re-theme.
 // Same content, same math, same two protected visualizations; dark-theme
@@ -50,29 +51,29 @@ function KLDivergenceSlider() {
   const cx = toX(sigma), cy = toY(currentKL);
 
   return (
-    <div style={{ marginTop: 16, padding: 12, background: "rgba(194,58,28,0.05)", borderRadius: 8, border: "1px solid rgba(194,58,28,0.25)" }}>
+    <div style={{ marginTop: 16, padding: 12, background: 'color-mix(in srgb, var(--series-2) 5%, transparent)', borderRadius: 8, border: "1px solid color-mix(in srgb, var(--accent) 25%, transparent)" }}>
       <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10 }}>
-        <span style={{ color: "#4a4238", fontSize: 12 }}>σ =</span>
+        <span style={{ color: 'var(--ink-soft)', fontSize: 12 }}>σ =</span>
         <input
           type="range" min="0.01" max="0.99" step="0.01"
           value={sigma}
           onChange={e => setSigma(parseFloat(e.target.value))}
           style={{ flex: 1 }}
         />
-        <span style={{ color: "#c23a1c", fontSize: 13, fontWeight: 600, minWidth: 36 }}>{sigma.toFixed(2)}</span>
+        <span style={{ color: 'var(--accent)', fontSize: 13, fontWeight: 600, minWidth: 36 }}>{sigma.toFixed(2)}</span>
       </div>
       <svg width="100%" viewBox={"0 0 " + W + " " + H} style={{ display: "block", marginBottom: 6 }}>
-        <line x1="0" y1={H - 3} x2={W} y2={H - 3} stroke="#d5c9b2" strokeWidth="1" />
-        <line x1="0" y1="0" x2="0" y2={H - 3} stroke="#d5c9b2" strokeWidth="1" />
-        <line x1={toX(0.5)} y1="0" x2={toX(0.5)} y2={H - 3} stroke="#4c7a4a" strokeWidth="1" strokeDasharray="4,3" />
-        <path d={pathD} fill="none" stroke="#c23a1c" strokeWidth="1.5" />
-        <circle cx={cx} cy={cy} r="4" fill="#c23a1c" />
-        <text x={toX(0.5) + 3} y="12" fill="#4c7a4a" fontSize="9">σ=1/2 (zero)</text>
+        <line x1="0" y1={H - 3} x2={W} y2={H - 3} stroke={ED.rule} strokeWidth="1" />
+        <line x1="0" y1="0" x2="0" y2={H - 3} stroke={ED.rule} strokeWidth="1" />
+        <line x1={toX(0.5)} y1="0" x2={toX(0.5)} y2={H - 3} stroke={ED.series3} strokeWidth="1" strokeDasharray="4,3" />
+        <path d={pathD} fill="none" stroke={ED.accent} strokeWidth="1.5" />
+        <circle cx={cx} cy={cy} r="4" fill={ED.series2} />
+        <text x={toX(0.5) + 3} y="12" fill={ED.series3} fontSize="9">σ=1/2 (zero)</text>
       </svg>
-      <div style={{ color: "#c23a1c", fontSize: 13, textAlign: "center" }}>
+      <div style={{ color: 'var(--accent)', fontSize: 13, textAlign: "center" }}>
         D<sub>KL</sub>(P<sub>{sigma.toFixed(2)}</sub> &#x2016; P<sub>1/2</sub>) = <strong>{currentKL.toFixed(4)}</strong> bits
       </div>
-      <p style={{ fontSize: 11, color: "#877b67", marginTop: 8, lineHeight: 1.6 }}>
+      <p style={{ fontSize: 11, color: 'var(--ink-faint)', marginTop: 8, lineHeight: 1.6 }}>
         Model divergence computed over the first 20 primes with weights p<sup>-σ</sup>. This is a divergence on the
         model prime-oscillator weight distribution, not a metric on the actual Riemann zeros. Zero at σ=1/2 by symmetry.
       </p>
@@ -255,7 +256,7 @@ export default function InformationTheoryPage() {
               Full coupling between the twin ladders means maximum information transfer.
             </li>
           </ul>
-          <div style={{ marginTop: 16, padding: 12, background: 'rgba(76,122,74,0.08)', borderRadius: 8 }}>
+          <div style={{ marginTop: 16, padding: 12, background: 'color-mix(in srgb, var(--series-3) 8%, transparent)', borderRadius: 8 }}>
             <p style={{ fontSize: 13, color: 'var(--green)' }}>
               <strong>Connes 2026 connection:</strong> The Weil positivity form <InlineMath tex={"W(g * \\tilde{g}) \\geq 0"} /> captures
               ALL of these measures in a single quadratic form. The key insight
@@ -265,7 +266,7 @@ export default function InformationTheoryPage() {
             </p>
           </div>
           <BlockMath tex={"W(g * \\tilde{g}) \\geq 0 \\;\\Longleftrightarrow\\; \\text{RH} \\;\\Longleftrightarrow\\; \\max_\\sigma H(\\sigma) \\text{ at } \\sigma = \\tfrac{1}{2} \\;\\Longleftrightarrow\\; D_{\\text{KL}} = 0 \\text{ only at } \\sigma = \\tfrac{1}{2}"} />
-          <div style={{ marginTop: 16, padding: 12, background: 'rgba(181,138,46,0.08)', border: '1px solid rgba(181,138,46,0.35)', borderRadius: 8 }}>
+          <div style={{ marginTop: 16, padding: 12, background: 'color-mix(in srgb, var(--brass-deco) 8%, transparent)', border: '1px solid color-mix(in srgb, var(--brass-deco) 35%, transparent)', borderRadius: 8 }}>
             <p style={{ fontSize: 12.5, color: 'var(--brass-dk)', lineHeight: 1.7, margin: 0 }}>
               <strong>Status:</strong> The phrase "master inequality" and the iff-chain above are
               illustrative, not a theorem. The six measures all peaking at <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} /> are
@@ -297,7 +298,7 @@ export default function InformationTheoryPage() {
             <Link to="/odd-zeta" style={{ color: 'var(--blue)' }}>the odd-zeta page</Link>.
           </p>
           <div className="two-col" style={{ marginTop: 12, gap: 16 }}>
-            <div style={{ padding: 12, background: 'rgba(181,138,46,0.08)', borderRadius: 8 }}>
+            <div style={{ padding: 12, background: 'color-mix(in srgb, var(--brass-deco) 8%, transparent)', borderRadius: 8 }}>
               <p style={{ fontSize: 13, color: 'var(--brass-dk)' }}>
                 <strong>Incompressibility implies irrationality:</strong> If <InlineMath tex={"K(\\zeta(2n+1) \\,|\\, N)"} /> grows
                 like <InlineMath tex={"N^\\alpha"} /> for any <InlineMath tex={"\\alpha > 0"} />, then the number must be
@@ -305,7 +306,7 @@ export default function InformationTheoryPage() {
                 to <InlineMath tex={"O(\\log N)"} /> bits. The Euler product structure prevents this compression.
               </p>
             </div>
-            <div style={{ padding: 12, background: 'rgba(63,107,134,0.08)', borderRadius: 8 }}>
+            <div style={{ padding: 12, background: 'color-mix(in srgb, var(--series-1) 8%, transparent)', borderRadius: 8 }}>
               <p style={{ fontSize: 13, color: 'var(--blue)' }}>
                 <strong>Connection to channel capacity:</strong> The critical line maximizes information
                 throughput in the twin-ladder channel. At <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} />,
@@ -358,7 +359,7 @@ export default function InformationTheoryPage() {
             </li>
           </ul>
           <div className="two-col" style={{ marginTop: 16, gap: 16 }}>
-            <div style={{ padding: 12, background: 'rgba(63,107,134,0.08)', borderRadius: 8 }}>
+            <div style={{ padding: 12, background: 'color-mix(in srgb, var(--series-1) 8%, transparent)', borderRadius: 8 }}>
               <p style={{ fontSize: 13, color: 'var(--blue)' }}>
                 <strong>Error term under RH:</strong> The error in the prime counting function is
                 bounded by
@@ -369,7 +370,7 @@ export default function InformationTheoryPage() {
                 "noise floor" of the prime channel.
               </p>
             </div>
-            <div style={{ padding: 12, background: 'rgba(140,106,29,0.08)', borderRadius: 8 }}>
+            <div style={{ padding: 12, background: 'color-mix(in srgb, var(--brass) 8%, transparent)', borderRadius: 8 }}>
               <p style={{ fontSize: 13, color: 'var(--brass)' }}>
                 <strong>Gaussian noise interpretation:</strong> RH implies that the "noise" in the
                 prime channel is Gaussian with variance{' '}
@@ -424,7 +425,7 @@ export default function InformationTheoryPage() {
               the asymmetry.
             </li>
           </ul>
-          <div style={{ marginTop: 16, padding: 12, background: 'rgba(194,58,28,0.08)', borderRadius: 8 }}>
+          <div style={{ marginTop: 16, padding: 12, background: 'color-mix(in srgb, var(--series-2) 8%, transparent)', borderRadius: 8 }}>
             <p style={{ fontSize: 13, color: 'var(--terra-dk)' }}>
               <strong>Information-theoretic bridge unitarity:</strong> The condition{' '}
               <InlineMath tex={"D_{\\text{KL}}(P \\| Q) = 0"} /> is exactly the information-theoretic

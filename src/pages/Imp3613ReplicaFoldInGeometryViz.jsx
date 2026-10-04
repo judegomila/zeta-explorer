@@ -12,11 +12,12 @@ import {
   IMP3613_LINE_WIDE,
   IMP3613_LADDER,
 } from '../data/imp-3613-replica-fold-in-geometry-viz-data.js';
+import { ED, alpha } from '../styles/tokens.js';
 
-const LINE_COLORS = { xiMax: '#f87171', xiPeakMax: '#fbbf24', xiStar: '#38bdf8' };
-const BAND_FILL = 'rgba(16,185,129,0.08)';
-const WIDE_COLOR = '#f87171';
-const RUNG_COLOR = '#10b981';
+const LINE_COLORS = { xiMax: ED.series2, xiPeakMax: ED.series4, xiStar: ED.series1 };
+const BAND_FILL = alpha(ED.series3, 0.08);
+const WIDE_COLOR = ED.series2;
+const RUNG_COLOR = ED.series3;
 
 function ZoomChart() {
   const svgW = 640;
@@ -38,22 +39,22 @@ function ZoomChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
       {/* Observable band (0, xi_max] shaded */}
       <rect x={padL} y={yS(IMP3613_XI_MAX)} width={cW} height={yS(0) - yS(IMP3613_XI_MAX)} fill={BAND_FILL} />
 
       {[-400, -200, 0, 200, 400, 600].map((v) => (
         <g key={v}>
-          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke="#1e293b" strokeWidth={0.7} />
-          <text x={padL - 6} y={yS(v) + 3.5} textAnchor="end" fill="#475569" fontSize={9}>
+          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke={ED.ruleSoft} strokeWidth={0.7} />
+          <text x={padL - 6} y={yS(v) + 3.5} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v}
           </text>
         </g>
       ))}
 
       {/* xi_max ceiling line */}
-      <line x1={padL} y1={yS(IMP3613_XI_MAX)} x2={padL + cW} y2={yS(IMP3613_XI_MAX)} stroke="#64748b" strokeWidth={1} strokeDasharray="2,2" />
+      <line x1={padL} y1={yS(IMP3613_XI_MAX)} x2={padL + cW} y2={yS(IMP3613_XI_MAX)} stroke={ED.rule} strokeWidth={1} strokeDasharray="2,2" />
 
       {IMP3613_LINES_ZOOM.map((line) => {
         const d = line.points.map((p, i) => (i === 0 ? 'M' : 'L') + xS(p.N).toFixed(1) + ',' + yS(p.L).toFixed(1)).join(' ');
@@ -71,30 +72,30 @@ function ZoomChart() {
         );
       })}
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
 
       {[0, 200, 394, 688, 764, 1000].map((N) => (
         <g key={'x' + N}>
-          <line x1={xS(N)} y1={padT + cH} x2={xS(N)} y2={padT + cH + 5} stroke="#334155" strokeWidth={1} />
-          <text x={xS(N)} y={padT + cH + 17} textAnchor="middle" fill="#64748b" fontSize={9}>
+          <line x1={xS(N)} y1={padT + cH} x2={xS(N)} y2={padT + cH + 5} stroke={ED.rule} strokeWidth={1} />
+          <text x={xS(N)} y={padT + cH + 17} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
             {N}
           </text>
         </g>
       ))}
-      <text x={padL + cW / 2} y={padT + cH + 36} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={padT + cH + 36} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         grid size N
       </text>
-      <text x={14} y={padT + cH / 2} textAnchor="middle" fill="#64748b" fontSize={10} transform={'rotate(-90,14,' + (padT + cH / 2) + ')'}>
+      <text x={14} y={padT + cH / 2} textAnchor="middle" fill={ED.inkFaint} fontSize={10} transform={'rotate(-90,14,' + (padT + cH / 2) + ')'}>
         replica location L = 2 xi_Nyq - xi_true
       </text>
 
       <g fontSize={9}>
         <line x1={padL + 2} y1={padT + 12} x2={padL + 10} y2={padT + 12} stroke={LINE_COLORS.xiMax} strokeWidth={2} />
-        <text x={padL + 14} y={padT + 15} fill="#fca5a5">xi_true=400: crosses ceiling at N_replica=764</text>
+        <text x={padL + 14} y={padT + 15} fill={ED.series2}>xi_true=400: crosses ceiling at N_replica=764</text>
         <line x1={padL + 2} y1={padT + 26} x2={padL + 10} y2={padT + 26} stroke={LINE_COLORS.xiPeakMax} strokeWidth={2} />
-        <text x={padL + 14} y={padT + 29} fill="#fde68a">xi_true=320.01: crosses at N_colocate=688</text>
+        <text x={padL + 14} y={padT + 29} fill={ED.brass}>xi_true=320.01: crosses at N_colocate=688</text>
         <line x1={padL + 2} y1={padT + 40} x2={padL + 10} y2={padT + 40} stroke={LINE_COLORS.xiStar} strokeWidth={2} />
-        <text x={padL + 14} y={padT + 43} fill="#7dd3fc">xi_true=xi_star=12.087: crosses at N~394</text>
+        <text x={padL + 14} y={padT + 43} fill={ED.series1}>xi_true=xi_star=12.087: crosses at N~394</text>
       </g>
     </svg>
   );
@@ -122,48 +123,48 @@ function WideChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
       <rect x={padL} y={yS(IMP3613_XI_MAX)} width={cW} height={yS(0) - yS(IMP3613_XI_MAX)} fill={BAND_FILL} />
 
       {[0, 400, 2000, 4000, 6000, 8000, 10000].map((v) => (
         <g key={v}>
-          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke="#1e293b" strokeWidth={0.7} />
-          <text x={padL - 6} y={yS(v) + 3.5} textAnchor="end" fill="#475569" fontSize={9}>
+          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke={ED.ruleSoft} strokeWidth={0.7} />
+          <text x={padL - 6} y={yS(v) + 3.5} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v}
           </text>
         </g>
       ))}
 
-      <line x1={padL} y1={yS(IMP3613_XI_MAX)} x2={padL + cW} y2={yS(IMP3613_XI_MAX)} stroke="#64748b" strokeWidth={1} strokeDasharray="2,2" />
+      <line x1={padL} y1={yS(IMP3613_XI_MAX)} x2={padL + cW} y2={yS(IMP3613_XI_MAX)} stroke={ED.rule} strokeWidth={1} strokeDasharray="2,2" />
       <path d={d} fill="none" stroke={WIDE_COLOR} strokeWidth={2} />
 
       {IMP3613_LADDER.map((r) => (
         <circle key={r.N} cx={xS(r.N)} cy={yS(r.L)} r={4} fill={RUNG_COLOR} stroke="#052e1f" strokeWidth={1} />
       ))}
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
 
       {[100, 764, 1200, 2400, 4800, 9600].map((N) => (
         <g key={'x' + N}>
-          <line x1={xS(N)} y1={padT + cH} x2={xS(N)} y2={padT + cH + 5} stroke="#334155" strokeWidth={1} />
-          <text x={xS(N)} y={padT + cH + 17} textAnchor="middle" fill="#64748b" fontSize={9}>
+          <line x1={xS(N)} y1={padT + cH} x2={xS(N)} y2={padT + cH + 5} stroke={ED.rule} strokeWidth={1} />
+          <text x={xS(N)} y={padT + cH + 17} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
             {N}
           </text>
         </g>
       ))}
-      <text x={padL + cW / 2} y={padT + cH + 36} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={padT + cH + 36} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         grid size N (log scale)
       </text>
-      <text x={14} y={padT + cH / 2} textAnchor="middle" fill="#64748b" fontSize={10} transform={'rotate(-90,14,' + (padT + cH / 2) + ')'}>
+      <text x={14} y={padT + cH / 2} textAnchor="middle" fill={ED.inkFaint} fontSize={10} transform={'rotate(-90,14,' + (padT + cH / 2) + ')'}>
         L(400, N)
       </text>
 
       <g fontSize={9}>
         <line x1={padL + 2} y1={padT + 12} x2={padL + 10} y2={padT + 12} stroke={WIDE_COLOR} strokeWidth={2} />
-        <text x={padL + 14} y={padT + 15} fill="#fca5a5">band-top replica location, extended to N=9600</text>
+        <text x={padL + 14} y={padT + 15} fill={ED.series2}>band-top replica location, extended to N=9600</text>
         <circle cx={padL + 6} cy={padT + 26} r={3.6} fill={RUNG_COLOR} />
-        <text x={padL + 14} y={padT + 29} fill="#6ee7b7">imp-3558 rungs (all replica-free, L &gt;&gt; 400)</text>
+        <text x={padL + 14} y={padT + 29} fill={ED.series3}>imp-3558 rungs (all replica-free, L &gt;&gt; 400)</text>
       </g>
     </svg>
   );
@@ -174,7 +175,7 @@ export default function Imp3613ReplicaFoldInGeometryViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Aliasing Fold-In Geometry (imp-3582 / imp-3613)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         Midpoint quadrature with N panels on [0, U] samples at Nyquist frequency
         xi_Nyq = pi N/U; a genuine spectral source at xi_true produces its first
         positive-baseband aliasing replica at L(xi_true, N) = 2 xi_Nyq - xi_true.
@@ -189,12 +190,12 @@ export default function Imp3613ReplicaFoldInGeometryViz() {
         further to N~{IMP3613_N_STAR_FLOOR.toFixed(1)}.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         Zoomed view: three fold-in floors, N in [0, 1000]
       </p>
       <ZoomChart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
         Wide view: band-top replica location extended to the imp-3558 ladder, N in {'{'}1200, 2400, 4800, 9600{'}'}
       </p>
       <WideChart />
@@ -203,14 +204,14 @@ export default function Imp3613ReplicaFoldInGeometryViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the charts:</strong> the
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the charts:</strong> the
         shaded band is the scanned window (0, 400]. All three replica-location
         lines climb with N and cross the band ceiling at N=394, 688, and 764 in
         that order, so N &gt; 764 (the largest crossing) certifies every
@@ -225,14 +226,14 @@ export default function Imp3613ReplicaFoldInGeometryViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong>{' '}
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong>{' '}
         derivation/certification only -- this supplies the analytic aliasing
         floor for the imp-3558 argmax-drift-0 discriminator; it does NOT give
         xi* or the sup a closed form (the imp-3470 stationarity equation stays
@@ -241,9 +242,9 @@ export default function Imp3613ReplicaFoldInGeometryViz() {
         K_a &ge; 0 positivity remains the lone obstruction, untouched.
       </div>
 
-      <div style={{ marginTop: '1rem', fontSize: '0.85rem', color: '#64748b' }}>
+      <div style={{ marginTop: '1rem', fontSize: '0.85rem', color: 'var(--ink-faint)' }}>
         <strong>Related:</strong>{' '}
-        <Link to="/viz-imp3611-skew-toeplitz-krylov-gap-ladder" style={{ color: '#7c3aed' }}>
+        <Link to="/viz-imp3611-skew-toeplitz-krylov-gap-ladder" style={{ color: 'var(--series-5)' }}>
           Corrected-Krylov Skew-Toeplitz Gap Ladder (imp-3611)
         </Link>
       </div>

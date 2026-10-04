@@ -9,13 +9,13 @@ function OffsetLedgerTable({ rows }) {
         width: '100%',
         borderCollapse: 'collapse',
         fontSize: '0.85rem',
-        color: '#cbd5e1',
+        color: 'var(--ink)',
       }}
     >
       <thead>
-        <tr style={{ borderBottom: '2px solid #334155' }}>
+        <tr style={{ borderBottom: '2px solid var(--rule)' }}>
           {['T', 'sample', 'offset(T)', 'gap below C0_max', 'd_reach (%)'].map((h) => (
-            <th key={h} style={{ textAlign: 'right', padding: '0.4rem 0.6rem', color: '#94a3b8' }}>
+            <th key={h} style={{ textAlign: 'right', padding: '0.4rem 0.6rem', color: 'var(--ink-soft)' }}>
               {h}
             </th>
           ))}
@@ -23,8 +23,8 @@ function OffsetLedgerTable({ rows }) {
       </thead>
       <tbody>
         {rows.map((r) => (
-          <tr key={r.Tc} style={{ borderBottom: '1px solid #1e293b' }}>
-            <td style={{ textAlign: 'right', padding: '0.4rem 0.6rem', color: '#e2e8f0' }}>
+          <tr key={r.Tc} style={{ borderBottom: '1px solid var(--rule-soft)' }}>
+            <td style={{ textAlign: 'right', padding: '0.4rem 0.6rem', color: 'var(--ink)' }}>
               {r.Tc.toExponential(1)}
             </td>
             <td style={{ textAlign: 'right', padding: '0.4rem 0.6rem' }}>
@@ -35,7 +35,7 @@ function OffsetLedgerTable({ rows }) {
               style={{
                 textAlign: 'right',
                 padding: '0.4rem 0.6rem',
-                color: r.offsetGapBelowMax < 0.02 ? '#facc15' : '#64748b',
+                color: r.offsetGapBelowMax < 0.02 ? 'var(--brass)' : 'var(--ink-faint)',
                 fontWeight: r.offsetGapBelowMax < 0.02 ? 600 : 400,
               }}
             >
@@ -63,22 +63,22 @@ export default function Imp96141ExcursionDepthOffsetLedgerTableViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 760,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> a reader-facing table of the
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a reader-facing table of the
         imp-96108 offset-space ledger, tabulating per-height offset(T), the offset headroom below the
         max anchor C0_max, and the excursion depth d_reach(T) needed to lift the mean cap up to the max
         cap at that height. It changes no Lambda bound and establishes no operator positivity.
         Platt&ndash;Trudgian &Lambda; &le; 0.2 remains state of the art. NO QED.
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
         The max offset anchor C0_max&nbsp;=&nbsp;{anchors.C0_max.toFixed(6)} is the offset AT
         T&nbsp;=&nbsp;{anchors.maxAnchorHeight.toExponential(1)}, so that row saturates the cap (gap
         0) by construction. The nearest unmeasured (held-out) approach is T&nbsp;=
@@ -87,7 +87,7 @@ export default function Imp96141ExcursionDepthOffsetLedgerTableViz() {
         +{nearestUnmeasuredApproach.maxCapMarginRelPct.toFixed(2)}% margin.
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         Per-height offset ledger (6 fit + 5 held-out)
       </h3>
       <OffsetLedgerTable rows={measuredRows} />
@@ -96,14 +96,14 @@ export default function Imp96141ExcursionDepthOffsetLedgerTableViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Window-bottom dead-zone (T = {deadZoneBottom.Tc.toExponential(1)}):</strong> the
+        <strong style={{ color: 'var(--ink-soft)' }}>Window-bottom dead-zone (T = {deadZoneBottom.Tc.toExponential(1)}):</strong> the
         max-cap ratio r_cap<sup>max</sup>&nbsp;=&nbsp;{deadZoneBottom.rCapMax.toFixed(5)}, a margin of{' '}
         {deadZoneBottom.marginBelowOne.toFixed(3)} below 1. Reaching r&nbsp;=&nbsp;1 there would need an
         offset of {deadZoneBottom.offsetToReachOne.toFixed(4)}&nbsp;=&nbsp;
@@ -119,14 +119,14 @@ export default function Imp96141ExcursionDepthOffsetLedgerTableViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page consuming the imp-96108
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the imp-96108
         baked ledger verbatim (no re-derivation of the Selberg-subtracted offset or the Odlyzko-fitted
         sd(C&nbsp;&minus;&nbsp;E) literals). Changes no bound, establishes no operator positivity, no
         RH claim; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. NO QED.

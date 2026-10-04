@@ -19,7 +19,7 @@ export default function StatisticsPage() {
           </p>
         </div>
 
-        <div className="card" style={{ marginTop: 24, borderColor: 'var(--brass)', background: 'rgba(181,138,46,0.06)' }}>
+        <div className="card" style={{ marginTop: 24, borderColor: 'var(--brass)', background: 'color-mix(in srgb, var(--brass-deco) 6%, transparent)' }}>
           <h3 style={{ color: 'var(--brass-dk)' }}>Proven vs. Conditional vs. Conjectural — read this first</h3>
           <p style={{ marginTop: 8, color: 'var(--ink-soft)', fontSize: 14, lineHeight: 1.7 }}>
             This page blends results of very different logical status. To keep the framing:
@@ -137,7 +137,7 @@ export default function StatisticsPage() {
             This was a stunning surprise — why should the zeros of a number-theoretic function
             behave like eigenvalues of random matrices?
           </p>
-          <div style={{ marginTop: 16, padding: 16, background: 'rgba(63,107,134,0.08)', borderRadius: 8, borderLeft: '3px solid var(--blue)' }}>
+          <div style={{ marginTop: 16, padding: 16, background: 'color-mix(in srgb, var(--series-1) 8%, transparent)', borderRadius: 8, borderLeft: '3px solid var(--blue)' }}>
             <p style={{ fontSize: 14, color: 'var(--blue)' }}>
               <strong>The Hilbert-Polya Dream:</strong> This striking match suggests that there exists
               a self-adjoint (Hermitian) operator whose eigenvalues are the imaginary parts of the
@@ -160,7 +160,7 @@ export default function StatisticsPage() {
             The nearest-neighbor spacings, pair correlations, number variance, and higher-order
             statistics all align with GUE to many decimal places. As Odlyzko himself noted:
           </p>
-          <div style={{ marginTop: 16, padding: 16, background: 'rgba(194,58,28,0.08)', borderRadius: 8, borderLeft: '3px solid var(--terra-dk)' }}>
+          <div style={{ marginTop: 16, padding: 16, background: 'color-mix(in srgb, var(--series-2) 8%, transparent)', borderRadius: 8, borderLeft: '3px solid var(--terra-dk)' }}>
             <p style={{ fontSize: 14, color: 'var(--terra-dk)', fontStyle: 'italic' }}>
               "The agreement is to within the accuracy of the data."
             </p>
@@ -217,7 +217,7 @@ export default function StatisticsPage() {
             not an equivalent step in Li's theorem. The Keiper-Li growth shown here is a separate
             zero-density diagnostic.
           </p>
-          <div style={{ marginTop: 16, padding: 16, background: 'rgba(181,138,46,0.08)', borderRadius: 8, borderLeft: '3px solid var(--brass-dk)' }}>
+          <div style={{ marginTop: 16, padding: 16, background: 'color-mix(in srgb, var(--brass-deco) 8%, transparent)', borderRadius: 8, borderLeft: '3px solid var(--brass-dk)' }}>
             <p style={{ fontSize: 14, color: 'var(--brass-dk)' }}>
               <strong>de Bruijn-Newman (Rodgers-Tao 2020):</strong> <InlineMath tex={"\\Lambda \\geq 0"} /> means the zeros cannot be pushed
               further onto the critical line by backward heat flow. RH is equivalent to the stronger statement

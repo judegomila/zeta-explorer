@@ -23,6 +23,7 @@ import { scaleLinear } from 'd3-scale';
 import {
   RIEMANN_SIEGEL_Z_EXPLORER,
 } from '../data/riemann-siegel-z-explorer.js';
+import { ED, alpha } from '../styles/tokens.js';
 
 // SVG geometry — main panel.
 const W = 960;
@@ -36,13 +37,13 @@ const IH_BOT = H_BOT - M.top - M.bottom;
 const labelStyle = {
   fontFamily: 'var(--font-mono)',
   fontSize: 10,
-  fill: '#94a3b8',
+  fill: ED.series8,
 };
 
 const tickStyle = {
   fontFamily: 'var(--font-mono)',
   fontSize: 9,
-  fill: '#94a3b8',
+  fill: ED.series8,
 };
 
 function buildPath(tGrid, values, xScale, yScale) {
@@ -133,6 +134,7 @@ export default function RiemannSiegelZPage() {
       <EditorialHeader />
       <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
         <h1 className="ed-h1" style={{ marginBottom: 10 }}>Riemann-Siegel Z(t) Explorer (imp-1097)</h1>
+        <p className="ed-lbl">Related: <Link to="/hardy-z">Hardy Z(t) asymptotics</Link></p>
         <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.65, maxWidth: 760 }}>
           The Hardy / Riemann-Siegel Z function Z(t) = e^{'{i theta(t)}'}
           {' '}* zeta(1/2 + i t) is REAL for real t and its sign changes
@@ -212,15 +214,15 @@ export default function RiemannSiegelZPage() {
               y={0}
               width={Math.max(0, xMain(Math.min(R.tFloor, tMaxView)) - xMain(0))}
               height={IH_TOP}
-              fill="rgba(239,68,68,0.08)"
+              fill={alpha(ED.series2, 0.08)}
               stroke="none"
             />
-            <text x={xMain(R.tFloor / 2)} y={14} textAnchor="middle" style={{ ...labelStyle, fill: '#fca5a5' }}>
+            <text x={xMain(R.tFloor / 2)} y={14} textAnchor="middle" style={{ ...labelStyle, fill: 'var(--series-2)' }}>
               t &lt; 2 pi (invalid)
             </text>
 
             {/* Zero baseline. */}
-            <line x1={0} x2={IW} y1={yMain(0)} y2={yMain(0)} stroke="#475569" strokeDasharray="3,3" />
+            <line x1={0} x2={IW} y1={yMain(0)} y2={yMain(0)} stroke={ED.rule} strokeDasharray="3,3" />
 
             {/* Known Odlyzko zero markers (orange ticks on the baseline). */}
             {visibleKnown.map((k, idx) => (
@@ -230,36 +232,36 @@ export default function RiemannSiegelZPage() {
                 x2={xMain(k)}
                 y1={yMain(0) - 6}
                 y2={yMain(0) + 6}
-                stroke="#f59e0b"
+                stroke={ED.brassDeco}
                 strokeWidth={1.5}
               />
             ))}
 
             {/* Enhanced overlay (yellow). */}
             {showEnhanced && (
-              <path d={zEnhPath} fill="none" stroke="#facc15" strokeWidth={1} strokeOpacity={0.5} />
+              <path d={zEnhPath} fill="none" stroke={ED.brassDeco} strokeWidth={1} strokeOpacity={0.5} />
             )}
 
             {/* Primary Z curve (cyan). */}
-            <path d={zPath} fill="none" stroke="#06b6d4" strokeWidth={1.5} />
+            <path d={zPath} fill="none" stroke={ED.series6} strokeWidth={1.5} />
 
             {/* Detected zero dots. */}
             {visibleDetected.map((z, idx) => (
-              <circle key={'det-' + idx} cx={xMain(z)} cy={yMain(0)} r={3.5} fill="#22c55e" stroke="#0f172a" strokeWidth={1} />
+              <circle key={'det-' + idx} cx={xMain(z)} cy={yMain(0)} r={3.5} fill={ED.series3} stroke={ED.paper} strokeWidth={1} />
             ))}
 
             {/* Axes. */}
-            <line x1={0} x2={IW} y1={IH_TOP} y2={IH_TOP} stroke="#475569" />
+            <line x1={0} x2={IW} y1={IH_TOP} y2={IH_TOP} stroke={ED.rule} />
             {xTicks.map((t) => (
               <g key={'xt-' + t} transform={'translate(' + xMain(t) + ',' + IH_TOP + ')'}>
-                <line y1={0} y2={5} stroke="#475569" />
+                <line y1={0} y2={5} stroke={ED.rule} />
                 <text y={18} textAnchor="middle" style={tickStyle}>{t}</text>
               </g>
             ))}
-            <line x1={0} x2={0} y1={0} y2={IH_TOP} stroke="#475569" />
+            <line x1={0} x2={0} y1={0} y2={IH_TOP} stroke={ED.rule} />
             {[-zAbsMax, -zAbsMax / 2, 0, zAbsMax / 2, zAbsMax].map((v) => (
               <g key={'yt-' + v} transform={'translate(0,' + yMain(v) + ')'}>
-                <line x1={-5} x2={0} stroke="#475569" />
+                <line x1={-5} x2={0} stroke={ED.rule} />
                 <text x={-8} y={3} textAnchor="end" style={tickStyle}>{v.toFixed(1)}</text>
               </g>
             ))}
@@ -272,10 +274,10 @@ export default function RiemannSiegelZPage() {
 
         {/* Legend. */}
         <div style={{ marginTop: 8, fontSize: 10, fontFamily: 'var(--font-mono)', color: 'var(--ink-soft)', display: 'flex', gap: 16, flexWrap: 'wrap' }}>
-          <span><span style={{ color: '#06b6d4' }}>—</span> Z(t) basic (C_0)</span>
-          {showEnhanced && (<span><span style={{ color: '#facc15' }}>—</span> Z(t) enhanced (C_0+C_1+C_2)</span>)}
-          <span><span style={{ color: '#22c55e' }}>&#9679;</span> detected sign change</span>
-          <span><span style={{ color: '#f59e0b' }}>|</span> Odlyzko reference zero</span>
+          <span><span style={{ color: 'var(--series-6)' }}>—</span> Z(t) basic (C_0)</span>
+          {showEnhanced && (<span><span style={{ color: 'var(--brass)' }}>—</span> Z(t) enhanced (C_0+C_1+C_2)</span>)}
+          <span><span style={{ color: 'var(--series-3)' }}>&#9679;</span> detected sign change</span>
+          <span><span style={{ color: 'var(--brass)' }}>|</span> Odlyzko reference zero</span>
         </div>
       </div>
 
@@ -286,23 +288,23 @@ export default function RiemannSiegelZPage() {
         </div>
         <svg width={W} height={H_BOT} role="img" aria-label="theta(t)">
           <g transform={'translate(' + M.left + ',' + M.top + ')'}>
-            <line x1={0} x2={IW} y1={yTheta(0)} y2={yTheta(0)} stroke="#475569" strokeDasharray="3,3" />
-            <path d={thetaPath} fill="none" stroke="#a855f7" strokeWidth={1.5} />
-            <line x1={0} x2={IW} y1={IH_BOT} y2={IH_BOT} stroke="#475569" />
+            <line x1={0} x2={IW} y1={yTheta(0)} y2={yTheta(0)} stroke={ED.rule} strokeDasharray="3,3" />
+            <path d={thetaPath} fill="none" stroke={ED.series5} strokeWidth={1.5} />
+            <line x1={0} x2={IW} y1={IH_BOT} y2={IH_BOT} stroke={ED.rule} />
             {xTicks.map((t) => (
               <g key={'xtheta-' + t} transform={'translate(' + xMain(t) + ',' + IH_BOT + ')'}>
-                <line y1={0} y2={5} stroke="#475569" />
+                <line y1={0} y2={5} stroke={ED.rule} />
                 <text y={18} textAnchor="middle" style={tickStyle}>{t}</text>
               </g>
             ))}
-            <line x1={0} x2={0} y1={0} y2={IH_BOT} stroke="#475569" />
+            <line x1={0} x2={0} y1={0} y2={IH_BOT} stroke={ED.rule} />
             {[thetaMin, (thetaMin + thetaMax) / 2, thetaMax].map((v, idx) => (
               <g key={'ytheta-' + idx} transform={'translate(0,' + yTheta(v) + ')'}>
-                <line x1={-5} x2={0} stroke="#475569" />
+                <line x1={-5} x2={0} stroke={ED.rule} />
                 <text x={-8} y={3} textAnchor="end" style={tickStyle}>{v.toFixed(1)}</text>
               </g>
             ))}
-            <text transform={'translate(-44,' + IH_BOT / 2 + ') rotate(-90)'} textAnchor="middle" style={{ ...labelStyle, fontSize: 11, fill: '#a855f7' }}>
+            <text transform={'translate(-44,' + IH_BOT / 2 + ') rotate(-90)'} textAnchor="middle" style={{ ...labelStyle, fontSize: 11, fill: 'var(--series-5)' }}>
               theta(t)
             </text>
           </g>

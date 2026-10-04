@@ -3,6 +3,7 @@ import PageHeader from '../components/PageHeader.jsx';
 import { IMP35242_ECOLL_EXPONENT_RESIDUAL_0005_TOLERANCE_LOCATE } from '../data/imp-35242-ecoll-exponent-residual-0005-tolerance-locate.js';
 import { IMP35198_EFLOW_FARTAIL_EXPONENT_LOGN_CORRECTION } from '../data/imp-35198-eflow-fartail-exponent-logn-correction.js';
 import { IMP35183_SIGMA_FARTAIL_EXPONENT_LADDER_VIZ_DATA } from '../data/imp-35183-sigma-fartail-exponent-ladder-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 const ECOLL = IMP35242_ECOLL_EXPONENT_RESIDUAL_0005_TOLERANCE_LOCATE;
 const EFLOW = IMP35198_EFLOW_FARTAIL_EXPONENT_LOGN_CORRECTION;
@@ -25,9 +26,9 @@ const SIGMA_POINTS = SIGMA.ladder.map((r) => ({
 }));
 
 const SERIES = [
-  { name: 'E_coll -> -1/2', law: '1/(2 log T0)', factor: '×2', color: '#38bdf8', points: ECOLL_POINTS },
-  { name: 'E_flow -> -1', law: '3/log N', factor: '÷3', color: '#f472b6', points: EFLOW_POINTS },
-  { name: 'sigma-share -> +1/2', law: '1/(2 ln N)', factor: '×2', color: '#a78bfa', points: SIGMA_POINTS },
+  { name: 'E_coll -> -1/2', law: '1/(2 log T0)', factor: '×2', color: ED.series1, points: ECOLL_POINTS },
+  { name: 'E_flow -> -1', law: '3/log N', factor: '÷3', color: ED.series7, points: EFLOW_POINTS },
+  { name: 'sigma-share -> +1/2', law: '1/(2 ln N)', factor: '×2', color: ED.series5, points: SIGMA_POINTS },
 ];
 
 function ClosingComparisonChart() {
@@ -63,10 +64,10 @@ function ClosingComparisonChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
+      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
 
-      <path d={refPath} fill="none" stroke="#64748b" strokeWidth={1.5} strokeDasharray="5 4" />
+      <path d={refPath} fill="none" stroke={ED.rule} strokeWidth={1.5} strokeDasharray="5 4" />
 
       {seriesPaths.map((d, si) => (
         <path key={`s-${si}`} d={d} fill="none" stroke={SERIES[si].color} strokeWidth={2} />
@@ -79,7 +80,7 @@ function ClosingComparisonChart() {
             cy={yOf(Math.log10(p.normResidual))}
             r={3.5}
             fill={s.color}
-            stroke="#0a0f1a"
+            stroke={ED.paper}
             strokeWidth={1}
           />
         )),
@@ -90,18 +91,18 @@ function ClosingComparisonChart() {
           {s.name} ({s.law}, rescale {s.factor})
         </text>
       ))}
-      <text x={padL} y={svgH - padB + 16} fill="#64748b" fontSize={10}>
+      <text x={padL} y={svgH - padB + 16} fill={ED.inkFaint} fontSize={10}>
         dashed grey: shared 1/ln(argument) reference envelope
       </text>
 
-      <text x={padL + cW / 2} y={svgH - 6} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 6} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         ln(argument): log T0(N) for E_coll, log N for E_flow, log N_mid for sigma-share
       </text>
       <text
         x={14}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={`rotate(-90, 14, ${padT + cH / 2})`}
       >
@@ -116,7 +117,7 @@ export default function Imp35329ExponentDriftClosingComparisonViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Three Logarithmically-Closing Exponent-Drift Ladders: Shared 1/log Envelope (imp-35329)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         Three unrelated frontier-direction ladders each measure a local-decay-exponent residual
         closing toward a different asymptote -- E_coll toward -1/2 (imp-35274/imp-35242), E_flow
         toward -1 (imp-35231/imp-35198), and the GUE-conditional share sigma toward +1/2
@@ -126,7 +127,7 @@ export default function Imp35329ExponentDriftClosingComparisonViz() {
         visible on one chart instead of three separate single-series pages.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         log10(rescaled residual) vs ln(argument): E_coll (blue), E_flow (pink), sigma-share
         (violet) vs the shared 1/ln(argument) reference (grey dashed)
       </p>
@@ -134,7 +135,7 @@ export default function Imp35329ExponentDriftClosingComparisonViz() {
 
       <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.8rem', marginTop: '1.5rem' }}>
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>series</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>closing law</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>rescale</th>
@@ -149,7 +150,7 @@ export default function Imp35329ExponentDriftClosingComparisonViz() {
             const rMin = Math.min(...s.points.map((p) => p.normResidual));
             const rMax = Math.max(...s.points.map((p) => p.normResidual));
             return (
-              <tr key={s.name} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+              <tr key={s.name} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
                 <td style={{ padding: '0.4rem 0.6rem' }}>{s.name}</td>
                 <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{s.law}</td>
                 <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{s.factor}</td>
@@ -169,11 +170,11 @@ export default function Imp35329ExponentDriftClosingComparisonViz() {
         style={{
           marginTop: '1rem',
           padding: '0.6rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
         }}
       >
         All three residuals are already-established closing laws from their own tickets
@@ -189,14 +190,14 @@ export default function Imp35329ExponentDriftClosingComparisonViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only consolidation of
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-only consolidation of
         three already-certified conditional-share diagnostics on the inherited imp-3220/imp-3406
         component model; establishes no new numerical claim, no re-derivation, no operator
         positivity. C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; no RH verdict,

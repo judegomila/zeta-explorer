@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { BlockMath, InlineMath } from '../components/KaTeXMath.jsx';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import AnimationEmbed from '../components/AnimationEmbed.jsx';
+import { ED, alpha } from '../styles/tokens.js';
 
 // Three Closure Attempts: Corrected Audit — editorial (warm) re-theme.
 // Structure, data, and every claim/number/caveat are unchanged from the
@@ -121,9 +122,9 @@ const ATTACKS = [
 ];
 
 const STATUS_STYLE = {
-  rejected: { color: 'var(--terra-dk)', bg: 'rgba(194,58,28,0.10)', border: 'rgba(194,58,28,0.40)' },
-  numerical: { color: 'var(--blue)', bg: 'rgba(63,107,134,0.10)', border: 'rgba(63,107,134,0.40)' },
-  open: { color: 'var(--brass-dk)', bg: 'rgba(181,138,46,0.12)', border: 'rgba(181,138,46,0.40)' },
+  rejected: { color: 'var(--terra-dk)', bg: alpha(ED.series2, 0.1), border: alpha(ED.accent, 0.4) },
+  numerical: { color: 'var(--blue)', bg: alpha(ED.series1, 0.1), border: alpha(ED.series1, 0.4) },
+  open: { color: 'var(--brass-dk)', bg: alpha(ED.brassDeco, 0.12), border: alpha(ED.brassDeco, 0.4) },
 };
 
 function StatusChip({ status, label }) {
@@ -203,7 +204,7 @@ function AttackCard({ attack, open, onToggle }) {
             marginTop: 12,
             padding: '10px 12px',
             borderLeft: '3px solid var(--brass-dk)',
-            background: 'rgba(181,138,46,0.08)',
+            background: 'color-mix(in srgb, var(--brass-deco) 8%, transparent)',
             color: 'var(--ink-soft)',
             fontSize: 12.5,
             lineHeight: 1.65,

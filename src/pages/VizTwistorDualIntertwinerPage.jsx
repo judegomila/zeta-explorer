@@ -46,7 +46,7 @@ export default function VizTwistorDualIntertwinerPage() {
 
       <Suspense
         fallback={
-          <div style={{ height: 580, display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--faint, #8a7f6d)', fontFamily: mono, fontSize: 13, border: '1px solid var(--hairline, #d5c9b2)', borderRadius: 12, background: '#0b0e14' }}>
+          <div style={{ height: 580, display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--faint, #8a7f6d)', fontFamily: mono, fontSize: 13, border: '1px solid var(--hairline, #d5c9b2)', borderRadius: 12, background: 'var(--paper)' }}>
             Loading 3D congruence…
           </div>
         }

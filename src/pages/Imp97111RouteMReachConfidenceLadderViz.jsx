@@ -5,6 +5,7 @@ import {
   IMP97111_RESIDUAL_BARS,
   IMP97111_VERDICT,
 } from '../data/imp-97111-route-m-reach-confidence-ladder-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 // imp-97111: the imp-97060 confidence table (10/5/1 percent target spread -> N_top) and the
 // anchor back-check (law-vs-exact residual at 9 truncation rungs) shipped as literals inside a
@@ -28,15 +29,15 @@ function ConfidenceLadderChart({ rungs }) {
       {rungs.map((r, idx) => {
         const y = padT + idx * rowH;
         const w = xAt(r.log10NTop);
-        const color = r.aboveCurrentTopRung ? '#f87171' : r.insideExactWindow ? '#4ade80' : '#38bdf8';
+        const color = r.aboveCurrentTopRung ? ED.series2 : r.insideExactWindow ? ED.series3 : ED.series1;
         return (
           <g key={r.targetSpreadPct}>
-            <text x={padL - 8} y={y + rowH / 2 + 4} textAnchor="end" fill="#94a3b8" fontSize={10.5} fontFamily="monospace">
+            <text x={padL - 8} y={y + rowH / 2 + 4} textAnchor="end" fill={ED.inkSoft} fontSize={10.5} fontFamily="monospace">
               S* = {r.label}
             </text>
-            <rect x={padL} y={y + 6} width={cW} height={rowH - 16} fill="#1e293b" rx={3} />
+            <rect x={padL} y={y + 6} width={cW} height={rowH - 16} fill={ED.paper3} rx={3} />
             <rect x={padL} y={y + 6} width={w} height={rowH - 16} fill={color} rx={3} />
-            <text x={padL + w + 6} y={y + rowH / 2 + 4} fill="#e2e8f0" fontSize={9.5} fontFamily="monospace">
+            <text x={padL + w + 6} y={y + rowH / 2 + 4} fill={ED.ink} fontSize={9.5} fontFamily="monospace">
               N_top &asymp; {r.nTopRequired.toExponential(2)}
             </text>
           </g>
@@ -60,14 +61,14 @@ function ResidualBarChart({ bars }) {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={mid} y1={padT - 4} x2={mid} y2={padT + bars.length * rowH} stroke="#475569" strokeWidth={1} />
+      <line x1={mid} y1={padT - 4} x2={mid} y2={padT + bars.length * rowH} stroke={ED.rule} strokeWidth={1} />
       {bars.map((b, idx) => {
         const y = padT + idx * rowH;
         const w = xAt(b.residualPct);
-        const color = b.isImp96912Anchor ? '#fbbf24' : b.inFitWindow ? '#4ade80' : '#94a3b8';
+        const color = b.isImp96912Anchor ? ED.brass : b.inFitWindow ? ED.series3 : ED.inkSoft;
         return (
           <g key={b.nTop}>
-            <text x={padL - 8} y={y + rowH / 2 + 4} textAnchor="end" fill="#94a3b8" fontSize={9.5} fontFamily="monospace">
+            <text x={padL - 8} y={y + rowH / 2 + 4} textAnchor="end" fill={ED.inkSoft} fontSize={9.5} fontFamily="monospace">
               N={b.nTop}
             </text>
             <rect
@@ -82,7 +83,7 @@ function ResidualBarChart({ bars }) {
               x={w >= 0 ? mid + w + 6 : mid - Math.abs(w) - 6}
               y={y + rowH / 2 + 4}
               textAnchor={w >= 0 ? 'start' : 'end'}
-              fill="#e2e8f0"
+              fill={ED.ink}
               fontSize={9}
               fontFamily="monospace"
             >
@@ -105,34 +106,34 @@ export default function Imp97111RouteMReachConfidenceLadderViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> only the trace ceiling
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> only the trace ceiling
         T &asymp; 2.594e7 is rigorous; F, M inherit non-rigorous extrapolations. The 1-percent
         rung (N_top &asymp; 2.01e7) reaches &asymp;49% of N* -- a downward extrapolation. Changes
         no &Lambda; bound; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA; RH open; NO QED.
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '0.5rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '0.5rem', maxWidth: 700 }}>
         Confidence ladder: the imp-97033 log-decay law inverted at each target ceiling spread
         S*, giving the top exact rung N_top needed. Green = inside the exact ladder window
         (8000..24000); blue = above the current top rung; red = a downward extrapolation below it.
       </p>
       <ConfidenceLadderChart rungs={IMP97111_CONFIDENCE_LADDER} />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', margin: '1.25rem 0 0.5rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', margin: '1.25rem 0 0.5rem', maxWidth: 700 }}>
         Anchor back-check: signed residual (law minus exact spread, percentage points) at each of
         the 9 imp-97033 truncation rungs. Amber = the two imp-96912 anchor rungs (N=16000, 24000).
       </p>
       <ResidualBarChart bars={IMP97111_RESIDUAL_BARS} />
 
-      <p style={{ color: '#64748b', fontSize: '0.78rem', marginTop: '1rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-faint)', fontSize: '0.78rem', marginTop: '1rem', maxWidth: 700 }}>
         {IMP97111_VERDICT.note}
       </p>
 
@@ -140,14 +141,14 @@ export default function Imp97111RouteMReachConfidenceLadderViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page consuming the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the
         imp-97111 viz-data leaf (every value reused verbatim from imp-97060, no re-derivation).
         Changes no bound, establishes no operator positivity; Platt-Trudgian &Lambda;&le;0.2
         remains SOTA; RH open; NO QED.

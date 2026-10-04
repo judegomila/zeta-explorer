@@ -14,20 +14,21 @@ import { Link } from 'react-router-dom';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import { VISUALIZATIONS_INDEX } from '../data/visualizations-index.js';
 import AnimationEmbed from '../components/AnimationEmbed.jsx';
+import { ED } from '../styles/tokens.js';
 
 // ── Per-bucket accent colors ────────────────────────────────────────────
 // Each math bucket gets one accent so the cards are visually distinct.
 // Keep these in sync with VIZ_MATH_BUCKETS in the data module.
 const BUCKET_ACCENTS = Object.freeze({
-  'phase-spiral': '#a855f7', // purple
-  'tomography':   '#06b6d4', // cyan
-  'flow-field':   '#22c55e', // green
-  'caustic':      '#f59e0b', // amber
-  'hyperbolic':   '#ec4899', // pink
-  'crystal':      '#3b82f6', // blue
-  'schur':        '#8b5cf6', // violet
-  'kernel':       '#6366f1', // indigo
-  'bound':        '#10b981', // emerald
+  'phase-spiral': ED.series5, // purple
+  'tomography':   ED.series6, // cyan
+  'flow-field':   ED.series3, // green
+  'caustic':      ED.series4, // amber
+  'hyperbolic':   ED.series7, // pink
+  'crystal':      ED.series1, // blue
+  'schur':        ED.series5, // violet
+  'kernel':       ED.series5, // indigo
+  'bound':        ED.series3, // emerald
 });
 
 // ── Tiny inline-SVG previews ────────────────────────────────────────────
@@ -70,7 +71,7 @@ function PreviewTomography({ stroke }) {
   return (
     <svg viewBox="0 0 100 100" width="100%" height="100%" aria-hidden="true">
       {cells}
-      <line x1="10" y1="80" x2="80" y2="10" stroke="#1c1814" strokeWidth="0.8" strokeDasharray="2 2" />
+      <line x1="10" y1="80" x2="80" y2="10" stroke={ED.ink} strokeWidth="0.8" strokeDasharray="2 2" />
     </svg>
   );
 }
@@ -199,7 +200,7 @@ function PreviewKernel({ stroke }) {
   return (
     <svg viewBox="0 0 100 100" width="100%" height="100%" aria-hidden="true">
       {cells}
-      <line x1="10" y1="80" x2="80" y2="10" stroke="#1c1814" strokeWidth="0.8" />
+      <line x1="10" y1="80" x2="80" y2="10" stroke={ED.ink} strokeWidth="0.8" />
     </svg>
   );
 }
@@ -257,8 +258,8 @@ function makeRng(seed) {
 // Secondary accent palette for sub-elements (reference lines, markers). Picked
 // by seed so cards sharing a bucket accent still differ in their sub-colors.
 const SUB_COLORS = Object.freeze([
-  '#f472b6', '#38bdf8', '#facc15', '#4ade80',
-  '#c084fc', '#fb923c', '#2dd4bf', '#f87171',
+  ED.series7, ED.series1, ED.series4, ED.series3,
+  ED.series5, ED.series8, ED.series6, ED.series2,
 ]);
 function subColor(seed) {
   return SUB_COLORS[seed % SUB_COLORS.length];
@@ -368,7 +369,7 @@ function ShapeCrossing({ stroke, seed }) {
       <polyline points={a.join(' ')} fill="none" stroke={stroke} strokeWidth="1.4" />
       <polyline points={b.join(' ')} fill="none" stroke={c2} strokeWidth="1.3" />
       <circle cx={(8 + (cross / 100) * 84).toFixed(1)} cy={cy.toFixed(1)} r="2.2"
-              fill="none" stroke="#1c1814" strokeWidth="0.9" />
+              fill="none" stroke={ED.ink} strokeWidth="0.9" />
     </svg>
   );
 }
@@ -462,7 +463,7 @@ function ShapeStacked({ stroke, seed }) {
     const s3 = total - s1 - s2;
     const x = 10 + i * (bw + gap);
     let y = 84;
-    const segs = [[s1, stroke, 0.85], [s2, c2, 0.85], [s3, '#1c1814', 0.35]];
+    const segs = [[s1, stroke, 0.85], [s2, c2, 0.85], [s3, ED.ink, 0.35]];
     segs.forEach(([h, fill, op], si) => {
       y -= h;
       bars.push(
@@ -597,8 +598,8 @@ function ShapeSignLadder({ stroke, seed }) {
             fill={pos ? stroke : c2} opacity="0.9" />
     );
     // sign glyph
-    marks.push(<line key={`h${i}`} x1={(x - 1.6).toFixed(1)} y1={y} x2={(x + 1.6).toFixed(1)} y2={y} stroke="#0a0e1a" strokeWidth="0.9" />);
-    if (pos) marks.push(<line key={`v${i}`} x1={x.toFixed(1)} y1={(y - 1.6).toFixed(1)} x2={x.toFixed(1)} y2={(y + 1.6).toFixed(1)} stroke="#0a0e1a" strokeWidth="0.9" />);
+    marks.push(<line key={`h${i}`} x1={(x - 1.6).toFixed(1)} y1={y} x2={(x + 1.6).toFixed(1)} y2={y} stroke={ED.paper} strokeWidth="0.9" />);
+    if (pos) marks.push(<line key={`v${i}`} x1={x.toFixed(1)} y1={(y - 1.6).toFixed(1)} x2={x.toFixed(1)} y2={(y + 1.6).toFixed(1)} stroke={ED.paper} strokeWidth="0.9" />);
   }
   return (
     <svg {...SVG_PROPS}>
@@ -779,15 +780,15 @@ function PreviewNormCurve({ stroke }) {
     <svg {...SVG_PROPS}>
       <line x1="10" y1="84" x2="92" y2="84" stroke={stroke} strokeWidth="0.6" opacity="0.3" />
       <line x1="10" y1="8" x2="10" y2="84" stroke={stroke} strokeWidth="0.6" opacity="0.3" />
-      <line x1="66" y1="8" x2="66" y2="84" stroke="#f472b6" strokeWidth="0.8" strokeDasharray="2 2" opacity="0.7" />
-      <polyline points={bnd.join(' ')} fill="none" stroke="#f472b6" strokeWidth="1.1" />
+      <line x1="66" y1="8" x2="66" y2="84" stroke={ED.series7} strokeWidth="0.8" strokeDasharray="2 2" opacity="0.7" />
+      <polyline points={bnd.join(' ')} fill="none" stroke={ED.series7} strokeWidth="1.1" />
       <polyline points={emp.join(' ')} fill="none" stroke={stroke} strokeWidth="1.5" />
     </svg>
   );
 }
 
 function PreviewVortexField({ stroke }) {
-  const c2 = '#38bdf8';
+  const c2 = ED.series1;
   const swirl = (cx, cy) =>
     [1, 2, 3].map((kk) => (
       <circle key={`${cx}-${cy}-${kk}`} cx={cx} cy={cy} r={4 + kk * 5} fill="none"
@@ -801,9 +802,9 @@ function PreviewVortexField({ stroke }) {
       <circle cx="50" cy="32" r="1.6" fill={stroke} />
       <circle cx="50" cy="68" r="1.6" fill={stroke} />
       {/* winding +1 near top, -1 near bottom */}
-      <line x1="66" y1="32" x2="72" y2="32" stroke="#1c1814" strokeWidth="1" />
-      <line x1="69" y1="29" x2="69" y2="35" stroke="#1c1814" strokeWidth="1" />
-      <line x1="66" y1="68" x2="72" y2="68" stroke="#1c1814" strokeWidth="1" />
+      <line x1="66" y1="32" x2="72" y2="32" stroke={ED.ink} strokeWidth="1" />
+      <line x1="69" y1="29" x2="69" y2="35" stroke={ED.ink} strokeWidth="1" />
+      <line x1="66" y1="68" x2="72" y2="68" stroke={ED.ink} strokeWidth="1" />
       <path d="M28,26 A20,20 0 0 1 38,20" fill="none" stroke={stroke} strokeWidth="0.9" opacity="0.6" />
       <path d="M62,74 A20,20 0 0 1 72,80" fill="none" stroke={stroke} strokeWidth="0.9" opacity="0.6" />
     </svg>
@@ -836,7 +837,7 @@ function PreviewPrimeRigidity({ stroke, seed }) {
 }
 
 function PreviewGallery({ stroke }) {
-  const c2 = '#f472b6';
+  const c2 = ED.series7;
   const spiral = [];
   for (let i = 0; i <= 16; i++) {
     const t = i / 16;
@@ -878,7 +879,7 @@ function PreviewGallery({ stroke }) {
 }
 
 function PreviewNearZero({ stroke }) {
-  const c2 = '#38bdf8';
+  const c2 = ED.series1;
   return (
     <svg {...SVG_PROPS}>
       {[10, 18, 26, 34].map((r, i) => (
@@ -893,7 +894,7 @@ function PreviewNearZero({ stroke }) {
 }
 
 function PreviewEulerProduct({ stroke }) {
-  const c2 = '#f59e0b';
+  const c2 = ED.series4;
   const truePts = [];
   const pert = [];
   for (let i = 0; i <= 60; i++) {
@@ -939,13 +940,13 @@ function PreviewPrimeDensityCaustic({ stroke }) {
   return (
     <svg {...SVG_PROPS}>
       {cells}
-      <polyline points={prof.join(' ')} fill="none" stroke="#1c1814" strokeWidth="0.8" opacity="0.7" />
+      <polyline points={prof.join(' ')} fill="none" stroke={ED.ink} strokeWidth="0.8" opacity="0.7" />
     </svg>
   );
 }
 
 function PreviewCausticResonance({ stroke }) {
-  const c2 = '#3b82f6';
+  const c2 = ED.series1;
   const wave = [];
   for (let i = 0; i <= 80; i++) {
     const t = i / 80;
@@ -969,7 +970,7 @@ function PreviewCausticResonance({ stroke }) {
 }
 
 function PreviewWindingDyson({ stroke }) {
-  const c2 = '#f472b6';
+  const c2 = ED.series7;
   const arrows = [];
   for (let k = 0; k < 8; k++) {
     const a = (k / 8) * Math.PI * 2;
@@ -993,7 +994,7 @@ function PreviewWindingDyson({ stroke }) {
 }
 
 function PreviewPhaseCylinder({ stroke }) {
-  const c2 = '#a855f7';
+  const c2 = ED.series5;
   const rays = [];
   for (let k = 0; k < 6; k++) {
     const y0 = 22 + k * 10;
@@ -1013,7 +1014,7 @@ function PreviewPhaseCylinder({ stroke }) {
 }
 
 function PreviewUnwrappedRays({ stroke }) {
-  const c2 = '#f59e0b';
+  const c2 = ED.series4;
   const rays = [];
   const slopes = [0.15, 0.35, 0.55, 0.78, 1.05];
   slopes.forEach((m, k) => {
@@ -1086,7 +1087,7 @@ const PREVIEWS = Object.freeze({
 
 // ── Card component ─────────────────────────────────────────────────────
 function VizCard({ entry }) {
-  const accent = BUCKET_ACCENTS[entry.mathBucket] || '#94a3b8';
+  const accent = BUCKET_ACCENTS[entry.mathBucket] || ED.series8;
   const Preview = PREVIEWS_BY_ROUTE[entry.route] || PREVIEWS[entry.mathBucket] || null;
   return (
     <Link
@@ -1120,8 +1121,8 @@ function VizCard({ entry }) {
             width: 60,
             height: 60,
             flexShrink: 0,
-            background: '#f6f1e7',
-            border: '1px solid #d5c9b2',
+            background: 'var(--paper-2)',
+            border: '1px solid var(--rule)',
             borderRadius: 6,
             color: accent,
           }}

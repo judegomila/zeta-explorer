@@ -6,6 +6,7 @@ import {
   IMP96577_BRACKET,
   IMP96577_HONEST_BANNER,
 } from '../data/imp-96577-route-i-certificate-constant-ladder-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 // dot-plus-line chart: the five rigorous from-below ladder points on a 1/T
 // x-axis (so the 1/T -> 0 limit sits at the left edge), the from-above Ritz
@@ -37,36 +38,36 @@ function LadderPanel() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={bandTop} width={plotW} height={Math.max(bandBot - bandTop, 1)} fill="#38bdf8" opacity={0.1} />
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <rect x={padL} y={bandTop} width={plotW} height={Math.max(bandBot - bandTop, 1)} fill={ED.series1} opacity={0.1} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
       {[minY, (minY + maxY) / 2, maxY].map((v) => (
         <g key={`y${v}`}>
-          <line x1={padL - 4} y1={yOf(v)} x2={padL} y2={yOf(v)} stroke="#334155" strokeWidth={1} />
-          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={8.5}>
+          <line x1={padL - 4} y1={yOf(v)} x2={padL} y2={yOf(v)} stroke={ED.rule} strokeWidth={1} />
+          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8.5}>
             {(v * 1e4).toFixed(3)}e-4
           </text>
         </g>
       ))}
-      <line x1={padL} y1={ritzY} x2={padL + plotW} y2={ritzY} stroke="#facc15" strokeWidth={1.4} strokeDasharray="5 3" />
-      <text x={padL + plotW - 4} y={ritzY - 6} textAnchor="end" fill="#facc15" fontSize={9}>
+      <line x1={padL} y1={ritzY} x2={padL + plotW} y2={ritzY} stroke={ED.brassDeco} strokeWidth={1.4} strokeDasharray="5 3" />
+      <text x={padL + plotW - 4} y={ritzY - 6} textAnchor="end" fill={ED.brass} fontSize={9}>
         Ritz (from above) {IMP96577_EXTRAPOLATION.ritzFromAbove.toExponential(3)}
       </text>
       <polyline
         points={rows.map((r) => `${xOf(1 / r.T)},${yOf(r.value)}`).join(' ')}
         fill="none"
-        stroke="#38bdf8"
+        stroke={ED.series1}
         strokeWidth={1.6}
       />
       {rows.map((r) => (
         <g key={r.T}>
-          <circle cx={xOf(1 / r.T)} cy={yOf(r.value)} r={4} fill="#38bdf8" />
-          <text x={xOf(1 / r.T)} y={yOf(r.value) - 10} textAnchor="middle" fill="#e2e8f0" fontSize={8.5}>
+          <circle cx={xOf(1 / r.T)} cy={yOf(r.value)} r={4} fill={ED.series1} />
+          <text x={xOf(1 / r.T)} y={yOf(r.value) - 10} textAnchor="middle" fill={ED.ink} fontSize={8.5}>
             T={r.T}
           </text>
         </g>
       ))}
-      <text x={padL + plotW / 2} y={padT + plotH + 38} textAnchor="middle" fill="#94a3b8" fontSize={9}>
+      <text x={padL + plotW / 2} y={padT + plotH + 38} textAnchor="middle" fill={ED.inkSoft} fontSize={9}>
         1/T (decreasing right to left; T -&gt; infinity at the left edge)
       </text>
     </svg>
@@ -82,18 +83,18 @@ export default function Imp96577RouteICertificateConstantLadderViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> {IMP96577_HONEST_BANNER}
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> {IMP96577_HONEST_BANNER}
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         The Route I certificate proves a rigorous lower bound c(T) = m_T + &lambda;<sub>min</sub>(K<sub>N</sub>|V<sub>N</sub>)
         on the true D<sub>S</sub> &le; L<sub>S</sub> constant C* for every finite truncation T, rising with T because the
         certified minimizer&apos;s Fourier tail decays like 1/t<sup>2</sup>. Two independent estimates bracket C*: the
@@ -102,7 +103,7 @@ export default function Imp96577RouteICertificateConstantLadderViz() {
         &lt; 0.05%.
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         Finite-T certificate ladder c(T) vs. 1/T, bracketed by the from-above Ritz value
       </h3>
       <LadderPanel />
@@ -111,14 +112,14 @@ export default function Imp96577RouteICertificateConstantLadderViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> the blue dots are the five rigorous
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> the blue dots are the five rigorous
         (double-precision, non-interval) finite-T certificate values c(200)&hellip;c(800), each a proved lower bound on
         C* at that T. A naive two-point 1/T extrapolation from later T-pairs actually DECREASES toward the Ritz line
         ({IMP96577_EXTRAPOLATION.pure1overT.map((p) => `${p.pair}: ${(p.value * 1e4).toFixed(3)}e-4`).join(', ')}) &mdash;
@@ -130,14 +131,14 @@ export default function Imp96577RouteICertificateConstantLadderViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page consuming the imp-96577 baked viz-data
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the imp-96577 baked viz-data
         (ladder, extrapolants, and bracket copied verbatim from the certificate module&apos;s own constantReconciliation
         literal). {IMP96577_HONEST_BANNER}
       </div>

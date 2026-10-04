@@ -2,6 +2,7 @@ import React, { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
+import { ED } from '../styles/tokens.js';
 
 // Editorial (warm) re-theme: full-width shell, identical structure/data/math.
 // Color mapping from the dark-theme accents (kept consistent with other
@@ -103,63 +104,63 @@ function BasinChart({ isolatedTraj, lattTraj }) {
       {/* grid */}
       {yTicks.map((v) => (
         <line key={v} x1={padL} y1={yScale(v)} x2={svgW - padR} y2={yScale(v)}
-          stroke="#e3d8c2" strokeWidth={1} />
+          stroke={ED.ruleSoft} strokeWidth={1} />
       ))}
 
       {/* Theta = 1 ceiling */}
       <line x1={padL} y1={yScale(1)} x2={svgW - padR} y2={yScale(1)}
-        stroke="#c23a1c" strokeWidth={1.5} strokeDasharray="5 3" />
-      <text x={svgW - padR - 2} y={yScale(1) - 4} fill="#c23a1c" fontSize={9} textAnchor="end">
+        stroke={ED.accent} strokeWidth={1.5} strokeDasharray="5 3" />
+      <text x={svgW - padR - 2} y={yScale(1) - 4} fill={ED.accent} fontSize={9} textAnchor="end">
         Theta = 1
       </text>
 
       {/* Theorem-A trap at 1/4 */}
       <line x1={padL} y1={yScale(0.25)} x2={svgW - padR} y2={yScale(0.25)}
-        stroke="#b58a2e" strokeWidth={1.2} strokeDasharray="5 3" />
-      <text x={padL + 4} y={yScale(0.25) - 4} fill="#b58a2e" fontSize={8}>
+        stroke={ED.brassDeco} strokeWidth={1.2} strokeDasharray="5 3" />
+      <text x={padL + 4} y={yScale(0.25) - 4} fill={ED.brass} fontSize={8}>
         Thm-A trap 1/4
       </text>
 
       {/* near-uniform trajectory */}
-      <path d={lPath} fill="none" stroke="#d9502e" strokeWidth={2.5} />
+      <path d={lPath} fill="none" stroke={ED.accentDeco} strokeWidth={2.5} />
 
       {/* isolated trajectory */}
-      <path d={iPath} fill="none" stroke="#4c7a4a" strokeWidth={2} />
+      <path d={iPath} fill="none" stroke={ED.series3} strokeWidth={2} />
 
       {/* start-point dots */}
-      <circle cx={xScale(isolatedTraj[0].s)} cy={yScale(isolatedTraj[0].theta)} r={4} fill="#4c7a4a" />
-      <circle cx={xScale(lattTraj[0].s)} cy={yScale(lattTraj[0].theta)} r={4} fill="#d9502e" />
+      <circle cx={xScale(isolatedTraj[0].s)} cy={yScale(isolatedTraj[0].theta)} r={4} fill={ED.series3} />
+      <circle cx={xScale(lattTraj[0].s)} cy={yScale(lattTraj[0].theta)} r={4} fill={ED.accentDeco} />
 
       {/* annotations */}
       <text x={xScale(lattTraj[0].s) + 6} y={yScale(lattTraj[0].theta) - 5}
-        fill="#d9502e" fontSize={9}>
+        fill={ED.accentDeco} fontSize={9}>
         near-uniform (~{lattTraj[0].theta.toFixed(2)})
       </text>
       <text x={xScale(isolatedTraj[0].s) + 6} y={yScale(isolatedTraj[0].theta) + 12}
-        fill="#4c7a4a" fontSize={9}>
+        fill={ED.series3} fontSize={9}>
         isolated (~{isolatedTraj[0].theta.toFixed(3)})
       </text>
 
       {/* basin label */}
-      <text x={padL + cW / 2} y={yScale(0.12)} fill="#4c7a4a" fontSize={8}
+      <text x={padL + cW / 2} y={yScale(0.12)} fill={ED.series3} fontSize={8}
         textAnchor="middle" opacity={0.7}>
         Theorem-A basin (Theta stays ≤ 1/4)
       </text>
 
       {/* axes */}
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#4a4238" />
-      <line x1={padL} y1={padT + cH} x2={svgW - padR} y2={padT + cH} stroke="#4a4238" />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.inkSoft} />
+      <line x1={padL} y1={padT + cH} x2={svgW - padR} y2={padT + cH} stroke={ED.inkSoft} />
 
       {/* y axis labels */}
       {yTicks.map((v) => (
         <g key={v}>
-          <text x={padL - 4} y={yScale(v) + 3} fill="#877b67" fontSize={8} textAnchor="end">
+          <text x={padL - 4} y={yScale(v) + 3} fill={ED.inkFaint} fontSize={8} textAnchor="end">
             {v.toFixed(2)}
           </text>
-          <line x1={padL - 2} y1={yScale(v)} x2={padL} y2={yScale(v)} stroke="#4a4238" />
+          <line x1={padL - 2} y1={yScale(v)} x2={padL} y2={yScale(v)} stroke={ED.inkSoft} />
         </g>
       ))}
-      <text x={12} y={padT + cH / 2} fill="#4a4238" fontSize={9} textAnchor="middle"
+      <text x={12} y={padT + cH / 2} fill={ED.inkSoft} fontSize={9} textAnchor="middle"
         transform={`rotate(-90, 12, ${padT + cH / 2})`}>
         Theta
       </text>
@@ -167,24 +168,24 @@ function BasinChart({ isolatedTraj, lattTraj }) {
       {/* x axis labels */}
       {xTicks.map((v, idx) => (
         <g key={idx}>
-          <text x={xScale(v)} y={svgH - 14} fill="#877b67" fontSize={8} textAnchor="middle">
+          <text x={xScale(v)} y={svgH - 14} fill={ED.inkFaint} fontSize={8} textAnchor="middle">
             {v.toFixed(3)}
           </text>
-          <line x1={xScale(v)} y1={padT + cH} x2={xScale(v)} y2={padT + cH + 3} stroke="#4a4238" />
+          <line x1={xScale(v)} y1={padT + cH} x2={xScale(v)} y2={padT + cH + 3} stroke={ED.inkSoft} />
         </g>
       ))}
-      <text x={padL + cW / 2} y={svgH - 3} fill="#4a4238" fontSize={9} textAnchor="middle">
+      <text x={padL + cW / 2} y={svgH - 3} fill={ED.inkSoft} fontSize={9} textAnchor="middle">
         s (CM-flow parameter)
       </text>
 
       {/* legend */}
       <g>
-        <line x1={padL + 8} y1={padT + 6} x2={padL + 24} y2={padT + 6} stroke="#4c7a4a" strokeWidth={2} />
-        <text x={padL + 27} y={padT + 9} fill="#4c7a4a" fontSize={8}>
+        <line x1={padL + 8} y1={padT + 6} x2={padL + 24} y2={padT + 6} stroke={ED.series3} strokeWidth={2} />
+        <text x={padL + 27} y={padT + 9} fill={ED.series3} fontSize={8}>
           isolated (rho {"<"} 1, Theta(0) {"<"} 1/4) — zero excursion
         </text>
-        <line x1={padL + 8} y1={padT + 18} x2={padL + 24} y2={padT + 18} stroke="#d9502e" strokeWidth={2.5} />
-        <text x={padL + 27} y={padT + 21} fill="#d9502e" fontSize={8}>
+        <line x1={padL + 8} y1={padT + 18} x2={padL + 24} y2={padT + 18} stroke={ED.accentDeco} strokeWidth={2.5} />
+        <text x={padL + 27} y={padT + 21} fill={ED.accentDeco} fontSize={8}>
           near-uniform lattice (rho ~ 1) — stays near 0.8
         </text>
       </g>
@@ -304,7 +305,7 @@ export default function ThetaBasinClosurePage() {
             <strong style={{ color: 'var(--terra-dk)' }}>unstable repelling threshold</strong> that
             cannot be reached from <InlineMath tex={"\\rho < 1"} />.
           </p>
-          <div style={{ background: 'rgba(217,80,46,0.10)', border: '1px solid rgba(217,80,46,0.35)', borderRadius: 6, padding: '8px 12px', marginTop: 10 }}>
+          <div style={{ background: 'color-mix(in srgb, var(--accent-deco) 10%, transparent)', border: '1px solid color-mix(in srgb, var(--accent-deco) 35%, transparent)', borderRadius: 6, padding: '8px 12px', marginTop: 10 }}>
             <span style={{ color: 'var(--terra)', fontWeight: 700, fontSize: 11 }}>KEY CONSEQUENCE:</span>
             <span style={{ color: 'var(--ink-soft)', fontSize: 12 }}> the excursion cap{' '}
               <InlineMath tex={"\\Theta_{\\rm exc} < 1"} /> and the Corollary-A1 hypothesis
@@ -317,7 +318,7 @@ export default function ThetaBasinClosurePage() {
 
         <div className="card" style={{ ...cardBaseLeft('var(--terra-dk)'), padding: '16px 18px' }}>
           <h3 style={{ color: 'var(--terra-dk)', fontSize: 16, marginBottom: 8 }}>Status</h3>
-          <div style={{ background: 'rgba(194,58,28,0.10)', border: '1px solid rgba(194,58,28,0.45)', borderRadius: 6, padding: '8px 12px', marginBottom: 12 }}>
+          <div style={{ background: 'color-mix(in srgb, var(--series-2) 10%, transparent)', border: '1px solid color-mix(in srgb, var(--accent) 45%, transparent)', borderRadius: 6, padding: '8px 12px', marginBottom: 12 }}>
             <span style={{ color: 'var(--terra-dk)', fontWeight: 700, fontSize: 12, letterSpacing: '0.04em' }}>BASIN CONDITIONAL: NOT UNCONDITIONAL</span>
             <span style={{ color: 'var(--ink-soft)', fontSize: 12 }}> &mdash; the cap holds on the isolated-pair basin (
               <InlineMath tex={"\\rho < 1"} />). The R2-T isolation sign law is proven exactly only for the single nearest neighbour; the multi-body onset is scanned to <InlineMath tex={"\\inf \\approx 0.943"} />, not closed in form.

@@ -4,17 +4,18 @@ import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 import HonestCeilingBanner from '../components/HonestCeilingBanner.jsx';
 import { NEWMAN_LAMBDA_01787854_CANDIDATE } from '../data/newman-lambda-01787854-candidate.js';
+import { ED, alpha } from '../styles/tokens.js';
 
 // The Twin-Ladder Bridge Programme — expository note + twin-ladder review overlay.
 // Editorial (warm) re-theme: full-width ed-root/ed-full shell, identical
 // structure, claims, and every InlineMath/BlockMath expression verbatim.
 
 const TONE = {
-  brass: { c: 'var(--brass)', bg: 'rgba(140,106,29,0.08)' },
-  brassDk: { c: 'var(--brass-dk)', bg: 'rgba(181,138,46,0.10)' },
-  blue: { c: 'var(--blue)', bg: 'rgba(63,107,134,0.10)' },
-  green: { c: 'var(--green)', bg: 'rgba(76,122,74,0.10)' },
-  terra: { c: 'var(--terra-dk)', bg: 'rgba(194,58,28,0.10)' },
+  brass: { c: 'var(--brass)', bg: alpha(ED.brass, 0.08) },
+  brassDk: { c: 'var(--brass-dk)', bg: alpha(ED.brassDeco, 0.1) },
+  blue: { c: 'var(--blue)', bg: alpha(ED.series1, 0.1) },
+  green: { c: 'var(--green)', bg: alpha(ED.series3, 0.1) },
+  terra: { c: 'var(--terra-dk)', bg: alpha(ED.series2, 0.1) },
 };
 
 function Section({ number, title, children }) {
@@ -115,6 +116,7 @@ export default function PaperPage() {
           <h1 className="ed-h1" style={{ margin: '12px 0' }}>
             The Twin-Ladder Bridge Programme
           </h1>
+          <p className="ed-lbl">Related: <Link to="/papers">Saved papers</Link></p>
           <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.7, margin: '0 auto', maxWidth: 760 }}>
             Exact arithmetic identities, model interpretations, audited reductions, and the boundary
             between reproducible computation and theorem.
@@ -268,7 +270,7 @@ export default function PaperPage() {
             <StatusRow
               label="candidate"
               value="Λ ≤ 0.1758354"
-              status={<>Four Arb interval gates; Lean-checked reduction. Unrefereed; bound not established; not RH. See the <Link to="/lambda-01758354-candidate" style={{ color: 'var(--blue)' }}>candidate page</Link>.</>}
+              status={<>Four Arb interval gates; Lean-checked y-transfer reduction and Lemma B3. Unrefereed; bound not established; not RH. See the <Link to="/lambda-01758354-candidate" style={{ color: 'var(--blue)' }}>candidate page</Link>.</>}
               color="var(--blue)"
             />
             <StatusRow
@@ -292,7 +294,7 @@ export default function PaperPage() {
             <InlineMath tex="PF_5" /> obstruction, and a computer-assisted candidate for an
             unconditional proof of <InlineMath tex="\Lambda\le0.1787854" />. That candidate bound is not
             established, has been reviewed by Dan Romik, and is not RH. A sharper candidate{' '}
-            <InlineMath tex="\Lambda\le0.1758354" /> (four Arb gates, Lean-checked reduction, unrefereed)
+            <InlineMath tex="\Lambda\le0.1758354" /> (four Arb gates, Lean-checked y-transfer reduction and Lemma B3, unrefereed)
             and the conditional <InlineMath tex="\Lambda\le0.14" /> completion contract — a contract,
             not a bound, with one open family — extend the same ledger. The program has
             not supplied the non-circular all-shifts positivity theorem or the complete

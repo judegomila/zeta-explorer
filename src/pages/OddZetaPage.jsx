@@ -166,7 +166,7 @@ export default function OddZetaPage() {
                 <div style={{ display: 'flex', alignItems: 'baseline', gap: 8, marginBottom: 4 }}>
                   <span style={{
                     fontSize: 11, fontFamily: 'var(--font-mono)', color: 'var(--brass-dk)',
-                    background: 'rgba(181,138,46,0.12)', padding: '2px 6px', borderRadius: 4,
+                    background: 'color-mix(in srgb, var(--brass-deco) 12%, transparent)', padding: '2px 6px', borderRadius: 4,
                   }}>
                     {result.year}
                   </span>
@@ -534,7 +534,7 @@ export default function OddZetaPage() {
             Chaitin's Constant &amp; Algorithmic Information Theory
           </h2>
 
-          <div style={{ marginBottom: 16, padding: 12, background: 'rgba(194,58,28,0.08)', borderRadius: 6, border: '1px solid rgba(194,58,28,0.35)' }}>
+          <div style={{ marginBottom: 16, padding: 12, background: 'color-mix(in srgb, var(--series-2) 8%, transparent)', borderRadius: 6, border: '1px solid color-mix(in srgb, var(--accent) 35%, transparent)' }}>
             <h4 style={{ color: 'var(--terra-dk)', fontSize: 12, marginBottom: 6 }}>
               Heuristic analogy &mdash; not a theorem
             </h4>
@@ -590,7 +590,7 @@ export default function OddZetaPage() {
             </div>
           </div>
 
-          <div style={{ marginTop: 16, padding: 12, background: 'rgba(63,107,134,0.08)', borderRadius: 6, border: '1px solid rgba(63,107,134,0.20)' }}>
+          <div style={{ marginTop: 16, padding: 12, background: 'color-mix(in srgb, var(--series-1) 8%, transparent)', borderRadius: 6, border: '1px solid color-mix(in srgb, var(--series-1) 20%, transparent)' }}>
             <h4 style={{ color: 'var(--blue)', fontSize: 12, marginBottom: 8 }}>Proof Strategy via Kolmogorov Complexity</h4>
             <ol style={{ marginLeft: 16, color: 'var(--ink-soft)', fontSize: 12, lineHeight: 2 }}>
               <li><strong>Step 1:</strong> Show computing N digits of <InlineMath tex={"\\zeta(2n+1)"} /> requires primes up to <InlineMath tex={"\\sim 10^{N/(2n+1)}"} /> <span style={{ color: 'var(--terra-dk)' }}>[Gap]</span></li>
@@ -694,7 +694,7 @@ export default function OddZetaPage() {
             </p>
           </div>
 
-          <div style={{ padding: 16, background: 'rgba(140,106,29,0.08)', borderRadius: 8, border: '1px solid rgba(140,106,29,0.20)' }}>
+          <div style={{ padding: 16, background: 'color-mix(in srgb, var(--brass) 8%, transparent)', borderRadius: 8, border: '1px solid color-mix(in srgb, var(--brass) 20%, transparent)' }}>
             <h3 style={{ color: 'var(--brass)', fontSize: 14, marginBottom: 8 }}>
               Complexity vs. Closed Forms: The Fundamental Obstruction
             </h3>

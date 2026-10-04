@@ -7,6 +7,7 @@ import {
   IMP96256_ANCHORS,
   IMP96256_HONEST_BANNER,
 } from '../data/imp-96256-joint-anchor-sweep-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 function ThresholdSweepChart() {
   const svgW = 680;
@@ -41,39 +42,39 @@ function ThresholdSweepChart() {
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
       {yTicks.map((v) => (
         <g key={`y${v}`}>
-          <line x1={padL} y1={yOf(v / SCALE)} x2={padL + plotW} y2={yOf(v / SCALE)} stroke="#334155" strokeWidth={0.5} opacity={0.4} />
-          <text x={padL - 8} y={yOf(v / SCALE) + 3} textAnchor="end" fill="#64748b" fontSize={8.5}>{`${v}e-3`}</text>
+          <line x1={padL} y1={yOf(v / SCALE)} x2={padL + plotW} y2={yOf(v / SCALE)} stroke={ED.rule} strokeWidth={0.5} opacity={0.4} />
+          <text x={padL - 8} y={yOf(v / SCALE) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8.5}>{`${v}e-3`}</text>
         </g>
       ))}
       {xTicks.map((v) => (
         <g key={`x${v}`}>
-          <line x1={xOf(v)} y1={padT} x2={xOf(v)} y2={padT + plotH} stroke="#334155" strokeWidth={0.5} opacity={0.3} />
-          <text x={xOf(v)} y={padT + plotH + 14} textAnchor="middle" fill="#64748b" fontSize={8.5}>{v}</text>
+          <line x1={xOf(v)} y1={padT} x2={xOf(v)} y2={padT + plotH} stroke={ED.rule} strokeWidth={0.5} opacity={0.3} />
+          <text x={xOf(v)} y={padT + plotH + 14} textAnchor="middle" fill={ED.inkFaint} fontSize={8.5}>{v}</text>
         </g>
       ))}
 
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
 
-      <path d={worstPath} fill="none" stroke="#4ade80" strokeWidth={1.75} opacity={0.95} />
-      <path d={equalPath} fill="none" stroke="#facc15" strokeWidth={1.5} strokeDasharray="4 3" opacity={0.9} />
+      <path d={worstPath} fill="none" stroke={ED.series3} strokeWidth={1.75} opacity={0.95} />
+      <path d={equalPath} fill="none" stroke={ED.brassDeco} strokeWidth={1.5} strokeDasharray="4 3" opacity={0.9} />
 
       {IMP96256_WORST_MAG_SERIES.map((p) => (
-        <circle key={`wm-${p.alpha}`} cx={xOf(p.alpha)} cy={yOf(p.worstMag)} r={2.6} fill="#4ade80" />
+        <circle key={`wm-${p.alpha}`} cx={xOf(p.alpha)} cy={yOf(p.worstMag)} r={2.6} fill={ED.series3} />
       ))}
 
-      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill="#64748b" fontSize={9.5}>
+      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5}>
         Kato-Temple gap anchor alpha (lam_2 = {lamSecondSigned.toFixed(4)} to lam_top = {lamTop.toFixed(4)})
       </text>
-      <text x={20} y={padT + plotH / 2} textAnchor="middle" fill="#64748b" fontSize={9.5} transform={`rotate(-90 20 ${padT + plotH / 2})`}>
+      <text x={20} y={padT + plotH / 2} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5} transform={`rotate(-90 20 ${padT + plotH / 2})`}>
         certify threshold (units of 1e-3)
       </text>
 
       <g transform={`translate(${padL + 8}, ${padT + 8})`}>
-        <line x1={0} y1={0} x2={18} y2={0} stroke="#4ade80" strokeWidth={1.75} />
-        <text x={22} y={3} fill="#94a3b8" fontSize={8.5}>pure-bottom worst-case (= joint total-magnitude threshold)</text>
-        <line x1={0} y1={14} x2={18} y2={14} stroke="#facc15" strokeWidth={1.5} strokeDasharray="4 3" />
-        <text x={22} y={17} fill="#94a3b8" fontSize={8.5}>equal-split per-channel boundary</text>
+        <line x1={0} y1={0} x2={18} y2={0} stroke={ED.series3} strokeWidth={1.75} />
+        <text x={22} y={3} fill={ED.inkSoft} fontSize={8.5}>pure-bottom worst-case (= joint total-magnitude threshold)</text>
+        <line x1={0} y1={14} x2={18} y2={14} stroke={ED.brassDeco} strokeWidth={1.5} strokeDasharray="4 3" />
+        <text x={22} y={17} fill={ED.inkSoft} fontSize={8.5}>equal-split per-channel boundary</text>
       </g>
     </svg>
   );
@@ -104,16 +105,16 @@ function CouplingLineChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <text x={padL - 8} y={yOf(couplingTightenRatio) + 3} textAnchor="end" fill="#64748b" fontSize={8.5}>
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <text x={padL - 8} y={yOf(couplingTightenRatio) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8.5}>
         {couplingTightenRatio.toFixed(4)}
       </text>
-      <path d={linePath} fill="none" stroke="#38bdf8" strokeWidth={2} opacity={0.95} />
+      <path d={linePath} fill="none" stroke={ED.series1} strokeWidth={2} opacity={0.95} />
       {IMP96256_COUPLING_LINE.map((p) => (
-        <circle key={`c-${p.alpha}`} cx={xOf(p.alpha)} cy={yOf(p.tighten)} r={2.6} fill="#38bdf8" />
+        <circle key={`c-${p.alpha}`} cx={xOf(p.alpha)} cy={yOf(p.tighten)} r={2.6} fill={ED.series1} />
       ))}
-      <text x={padL + plotW - 6} y={padT + 12} textAnchor="end" fill="#38bdf8" fontSize={8.5}>
+      <text x={padL + plotW - 6} y={padT + 12} textAnchor="end" fill={ED.series1} fontSize={8.5}>
         sqrt(3)/2 ~ 0.8660254 (flat at every anchor)
       </text>
     </svg>
@@ -129,18 +130,18 @@ export default function Imp96256JointAnchorSweepViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 760,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> {IMP96256_HONEST_BANNER}
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> {IMP96256_HONEST_BANNER}
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
         imp-96238 charted the imp-96206 joint (eps_a, eps_b) certify region at only the
         gap-midpoint anchor. imp-96227 swept the same geometry across every admissible anchor
         alpha in (lam_2, lam_top): the pure-bottom worst-case threshold and the equal-split
@@ -148,12 +149,12 @@ export default function Imp96256JointAnchorSweepViz() {
         stays exactly flat at sqrt(3)/2 &mdash; anchor-invariant even as the absolute thresholds move.
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         Worst-case and equal-split thresholds vs. anchor (monotone decreasing, never off O(1e-3))
       </h3>
       <ThresholdSweepChart />
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', margin: '1.25rem 0 0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', margin: '1.25rem 0 0.5rem' }}>
         Per-channel coupling strength vs. anchor (anchor-invariant, flat at sqrt(3)/2)
       </h3>
       <CouplingLineChart />
@@ -162,14 +163,14 @@ export default function Imp96256JointAnchorSweepViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the charts:</strong> the top chart shows the
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the charts:</strong> the top chart shows the
         joint worst-case direction stays pure-bottom (theta = 90&deg;) at every anchor, so the
         green curve equals the separate bottom-twin threshold at every alpha (sup ~1.7828e-3 at
         the low edge, ~1.192e-3 at the imp-96206 midpoint, ~5.893e-4 near lam_top); the equal-split
@@ -184,14 +185,14 @@ export default function Imp96256JointAnchorSweepViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page consuming the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the
         imp-96227 baked anchor-sweep table and literals verbatim (only the chart-axis reshaping is
         computed here). Changes no bound, establishes no operator positivity, no RH claim;
         Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. NO QED.

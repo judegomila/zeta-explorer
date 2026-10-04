@@ -6,10 +6,11 @@ import {
   IMP33264_LOCAL_EXPONENTS,
   IMP33264_DIP_FACTOR_2400_TO_2800,
 } from '../data/imp-33264-fifth-pair-spread-ladder-n2800-extended-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
-const BAR_COLOR = '#38bdf8';
-const DIP_BAR_COLOR = '#facc15';
-const FLOOR_COLOR = '#f472b6';
+const BAR_COLOR = ED.series1;
+const DIP_BAR_COLOR = ED.series4;
+const FLOOR_COLOR = ED.series7;
 
 function ExtendedLadderChart() {
   const svgW = 640;
@@ -27,12 +28,12 @@ function ExtendedLadderChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
       {[0, 2, 4, 6, 8, 10].map((v) => (
         <g key={v}>
-          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke="#1e293b" strokeWidth={0.7} />
-          <text x={padL - 6} y={yS(v) + 3.5} textAnchor="end" fill="#475569" fontSize={9}>
+          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke={ED.ruleSoft} strokeWidth={0.7} />
+          <text x={padL - 6} y={yS(v) + 3.5} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v}
           </text>
         </g>
@@ -51,21 +52,21 @@ function ExtendedLadderChart() {
         return (
           <g key={r.N}>
             <rect x={x} y={y} width={barW} height={h} fill={isDipRung ? DIP_BAR_COLOR : BAR_COLOR} rx={2} />
-            <text x={x + barW / 2} y={y - 6} textAnchor="middle" fill="#94a3b8" fontSize={9}>
+            <text x={x + barW / 2} y={y - 6} textAnchor="middle" fill={ED.inkSoft} fontSize={9}>
               {r.ulps.toFixed(2)}
             </text>
-            <text x={x + barW / 2} y={padT + cH + 14} textAnchor="middle" fill="#64748b" fontSize={9}>
+            <text x={x + barW / 2} y={padT + cH + 14} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
               N={r.N}
             </text>
           </g>
         );
       })}
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
-      <text x={14} y={padT + cH / 2} textAnchor="middle" fill="#64748b" fontSize={10} transform={`rotate(-90,14,${padT + cH / 2})`}>
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
+      <text x={14} y={padT + cH / 2} textAnchor="middle" fill={ED.inkFaint} fontSize={10} transform={`rotate(-90,14,${padT + cH / 2})`}>
         worstPairSpread (ULP)
       </text>
-      <text x={padL + cW / 2} y={padT + cH + 34} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={padT + cH + 34} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         dense full-spectrum rung N
       </text>
     </svg>
@@ -74,22 +75,22 @@ function ExtendedLadderChart() {
 
 function ExponentTable() {
   return (
-    <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.8rem', color: '#94a3b8' }}>
+    <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.8rem', color: 'var(--ink-soft)' }}>
       <thead>
-        <tr style={{ borderBottom: '1px solid #334155' }}>
+        <tr style={{ borderBottom: '1px solid var(--rule)' }}>
           <th style={{ textAlign: 'left', padding: '0.35rem 0.5rem' }}>rung pair</th>
           <th style={{ textAlign: 'right', padding: '0.35rem 0.5rem' }}>local exponent p</th>
         </tr>
       </thead>
       <tbody>
         {IMP33264_LOCAL_EXPONENTS.map((e) => (
-          <tr key={e.fromN + '-' + e.toN} style={{ borderBottom: '1px solid #1e293b' }}>
+          <tr key={e.fromN + '-' + e.toN} style={{ borderBottom: '1px solid var(--rule-soft)' }}>
             <td style={{ padding: '0.35rem 0.5rem' }}>N={e.fromN} &rarr; N={e.toN}</td>
             <td
               style={{
                 textAlign: 'right',
                 padding: '0.35rem 0.5rem',
-                color: e.exponent < 0 ? '#facc15' : '#f472b6',
+                color: e.exponent < 0 ? 'var(--brass)' : 'var(--series-7)',
               }}
             >
               {e.exponent.toFixed(2)}
@@ -106,7 +107,7 @@ export default function Imp33264FifthPairSpreadLadderN2800ExtendedViz() {
     <div style={{ padding: '1.5rem', maxWidth: 940, margin: '0 auto' }}>
       <PageHeader title="Fifth-Pair Gram-Degeneracy Spread Ladder, Extended Through N=2800 (imp-33231)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
         imp-33231 resolved a FIFTH nonzero rung (N=2800) of the imp-3733/imp-3851/imp-33209
         fifth-pair Gram degeneracy spread worstPairSpread(N) = |lambda_9 - lambda_10| / lambda_9,
         turning four nonzero points into five: 0, 0, 0.885, 6.195, 8.848, 8.846, 0.884 ULP
@@ -117,12 +118,12 @@ export default function Imp33264FifthPairSpreadLadderN2800ExtendedViz() {
         few-ULP floor.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         worstPairSpread(N) in ULP, against the 10-ULP floor line
       </p>
       <ExtendedLadderChart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.75rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.75rem 0 0.5rem' }}>
         Successive local power-law exponents (span +18.47 to -14.94)
       </p>
       <ExponentTable />
@@ -131,14 +132,14 @@ export default function Imp33264FifthPairSpreadLadderN2800ExtendedViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> the bars show
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> the bars show
         worstPairSpread(N) in ULP at each dense-solved rung -- the first two rungs are
         exactly zero to all printed digits, and all five resolved nonzero rungs (N=1800,
         2000, 2200, 2400, 2800) sit below the dashed 10-ULP floor line. The highlighted
@@ -154,14 +155,14 @@ export default function Imp33264FifthPairSpreadLadderN2800ExtendedViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement only --
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> measurement only --
         adds one resolved nonzero rung to a still-floor-level five-nonzero-point sample.
         Rules out a coherent power law but does NOT pin a resolved growth exponent, does
         NOT re-certify the pairing (imp-3668), does NOT establish the fifth-pair amplitude

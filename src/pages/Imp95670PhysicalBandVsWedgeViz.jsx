@@ -10,6 +10,7 @@ import {
   IMP95646_PINNED_POINT,
 } from '../data/imp-95646-transition-knee-2d-heatmap-viz-data.js';
 import { IMP95635_PHYSICAL_BANDS_VS_INVERSION_WEDGE as W } from '../data/imp-95635-physical-bands-vs-inversion-wedge.js';
+import { ED, alpha } from '../styles/tokens.js';
 
 // Same diverging color scale as the imp-95646 heatmap (red = inverted, blue = ordering holds).
 function cellColor(g, minG, maxG) {
@@ -69,7 +70,7 @@ function BandVsWedgeChart() {
             width={colW}
             height={rowH}
             fill={cellColor(IMP95646_HEATMAP_Z[i][j], IMP95646_MIN_GAP_POINT.gap, IMP95646_MAX_GAP)}
-            stroke="#0a0f1a"
+            stroke={ED.paper}
             strokeWidth={0.5}
           />
         )),
@@ -79,7 +80,7 @@ function BandVsWedgeChart() {
         <polyline
           points={offGridRun.map((p) => `${p.x},${p.y}`).join(' ')}
           fill="none"
-          stroke="#facc15"
+          stroke={ED.brassDeco}
           strokeWidth={2}
           strokeDasharray="3,3"
           opacity={0.7}
@@ -89,7 +90,7 @@ function BandVsWedgeChart() {
         <polyline
           points={onGrid.map((p) => `${p.x},${p.y}`).join(' ')}
           fill="none"
-          stroke="#facc15"
+          stroke={ED.brassDeco}
           strokeWidth={2.25}
         />
       )}
@@ -100,13 +101,13 @@ function BandVsWedgeChart() {
         y={bandY0}
         width={bandX1 - bandX0}
         height={bandY1 - bandY0}
-        fill="rgba(74,222,128,0.12)"
-        stroke="#4ade80"
+        fill={alpha(ED.series3, 0.12)}
+        stroke={ED.series3}
         strokeWidth={2}
       />
 
       {/* pinned point */}
-      <circle cx={xOf(1)} cy={yOf(1)} r={5} fill="none" stroke="#38bdf8" strokeWidth={2} />
+      <circle cx={xOf(1)} cy={yOf(1)} r={5} fill="none" stroke={ED.series1} strokeWidth={2} />
 
       {/* box-corner minimum gap (arbitrary box wedge extremum) */}
       <rect
@@ -115,7 +116,7 @@ function BandVsWedgeChart() {
         width={8}
         height={8}
         fill="none"
-        stroke="#fca5a5"
+        stroke={ED.series2}
         strokeWidth={2}
       />
 
@@ -124,22 +125,22 @@ function BandVsWedgeChart() {
         cx={xOf(W.physicalCorner.at.E_trunc_mult)}
         cy={yOf(W.physicalCorner.at.C_C_mult)}
         r={5}
-        fill="#4ade80"
-        stroke="#0a0f1a"
+        fill={ED.series3}
+        stroke={ED.paper}
         strokeWidth={1}
       />
 
       {IMP95646_HEATMAP_ETRUNC_LABELS.filter((_, j) => j % 2 === 0).map((me) => (
-        <text key={`xt-${me}`} x={xOf(me)} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={9}>
+        <text key={`xt-${me}`} x={xOf(me)} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
           {me.toFixed(2)}
         </text>
       ))}
-      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         E_trunc multiplier
       </text>
 
       {IMP95646_HEATMAP_CC_LABELS.filter((_, i) => i % 2 === 0).map((mc) => (
-        <text key={`yt-${mc}`} x={padL - 8} y={yOf(mc) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+        <text key={`yt-${mc}`} x={padL - 8} y={yOf(mc) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
           {mc.toFixed(2)}
         </text>
       ))}
@@ -147,23 +148,23 @@ function BandVsWedgeChart() {
         x={14}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={`rotate(-90 14 ${padT + cH / 2})`}
       >
         C_C multiplier
       </text>
 
-      <text x={padL + cW - 4} y={padT + 12} textAnchor="end" fill="#facc15" fontSize={9}>
+      <text x={padL + cW - 4} y={padT + 12} textAnchor="end" fill={ED.brass} fontSize={9}>
         gap = 0 inversion contour
       </text>
-      <text x={padL + cW - 4} y={padT + 24} textAnchor="end" fill="#4ade80" fontSize={9}>
+      <text x={padL + cW - 4} y={padT + 24} textAnchor="end" fill={ED.series3} fontSize={9}>
         imp-95635 physical band
       </text>
-      <text x={padL + cW - 4} y={padT + 36} textAnchor="end" fill="#38bdf8" fontSize={9}>
+      <text x={padL + cW - 4} y={padT + 36} textAnchor="end" fill={ED.series1} fontSize={9}>
         pinned point
       </text>
-      <text x={padL + cW - 4} y={padT + 48} textAnchor="end" fill="#fca5a5" fontSize={9}>
+      <text x={padL + cW - 4} y={padT + 48} textAnchor="end" fill={ED.series2} fontSize={9}>
         arbitrary box-corner minimum
       </text>
     </svg>
@@ -179,21 +180,21 @@ export default function Imp95670PhysicalBandVsWedgeViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> measurement/sensitivity only.
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> measurement/sensitivity only.
         It changes no Lambda bound and establishes no operator positivity. Platt&ndash;Trudgian
         &Lambda; &le; 0.2 remains state of the art. RH does not follow from anything on this page.
         NO QED.
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         The imp-95617 sweep found the transition-before-knee ordering inverts (gap &lt; 0, red) in
         the low-C_C / high-E_trunc corner of an <em>arbitrary</em> [0.5x, 1.5x] &times; [0.5x, 1.5x]
         multiplier box. The green rectangle is the imp-95635 provenance-grounded physical band
@@ -205,7 +206,7 @@ export default function Imp95670PhysicalBandVsWedgeViz() {
         most-adverse physical corner (best-case C_C, generous E_trunc), and its gap stays positive.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         gap heatmap with physical band overlay, C_C &isin; [{IMP95646_HEATMAP_CC_LABELS[0]}x,{' '}
         {IMP95646_HEATMAP_CC_LABELS[IMP95646_HEATMAP_CC_LABELS.length - 1]}x], E_trunc &isin; [
         {IMP95646_HEATMAP_ETRUNC_LABELS[0]}x,{' '}
@@ -222,42 +223,42 @@ export default function Imp95670PhysicalBandVsWedgeViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>quantity</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>value</th>
           </tr>
         </thead>
         <tbody>
-          <tr style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+          <tr style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
             <td style={{ padding: '0.4rem 0.6rem' }}>pinned-point gap</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{IMP95646_PINNED_POINT.gap}</td>
           </tr>
-          <tr style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+          <tr style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
             <td style={{ padding: '0.4rem 0.6rem' }}>arbitrary box-corner minimum gap</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>
               {IMP95646_MIN_GAP_POINT.gap} at (C_C {IMP95646_MIN_GAP_POINT.cC_mult}x, E_trunc{' '}
               {IMP95646_MIN_GAP_POINT.eTrunc_mult}x)
             </td>
           </tr>
-          <tr style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+          <tr style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
             <td style={{ padding: '0.4rem 0.6rem' }}>physical C_C band</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>
               [{W.physicalBands.C_C_mult.down}x, {W.physicalBands.C_C_mult.up}x]
             </td>
           </tr>
-          <tr style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+          <tr style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
             <td style={{ padding: '0.4rem 0.6rem' }}>physical E_trunc band</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>
               [{W.physicalBands.E_trunc_mult.down}x, {W.physicalBands.E_trunc_mult.up}x] (one-sided down)
             </td>
           </tr>
-          <tr style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+          <tr style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
             <td style={{ padding: '0.4rem 0.6rem' }}>gap at most-adverse physical corner</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>
               {W.physicalCorner.gap} (inverts: {String(W.physicalCorner.inverts)})
             </td>
           </tr>
-          <tr style={{ color: '#cbd5e1' }}>
+          <tr style={{ color: 'var(--ink)' }}>
             <td style={{ padding: '0.4rem 0.6rem' }}>C_C shrink needed to invert vs. physically available</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>
               {W.contourShortfall.shrink_needed_to_invert}x needed &gt;{' '}
@@ -271,14 +272,14 @@ export default function Imp95670PhysicalBandVsWedgeViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> the green physical band is a
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> the green physical band is a
         small sliver of the full grey/colored box, sitting on the blue (gap &gt; 0) side of the
         yellow contour throughout. Its worst corner (filled green dot) still falls short of the
         contour by a C_C shrink of about 1.95x needed vs. only about 1.73x physically available
@@ -291,14 +292,14 @@ export default function Imp95670PhysicalBandVsWedgeViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> {W.verdict}
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> {W.verdict}
       </div>
     </div>
   );

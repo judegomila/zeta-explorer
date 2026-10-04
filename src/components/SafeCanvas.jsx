@@ -24,13 +24,13 @@ function Fallback() {
     <div style={{
       width: '100%', height: '100%', display: 'flex',
       alignItems: 'center', justifyContent: 'center',
-      color: '#64748b', fontSize: 13, textAlign: 'center', padding: 24,
+      color: 'var(--ink-faint)', fontSize: 13, textAlign: 'center', padding: 24,
     }}>
       <div style={{ maxWidth: 360, lineHeight: 1.6 }}>
         <div style={{ fontSize: 26, marginBottom: 10, opacity: 0.6 }}>⬡</div>
         3D view unavailable — this browser or device couldn't create a WebGL
         context (hardware acceleration may be off, or WebGL is disabled).
-        <div style={{ marginTop: 8, color: '#475569' }}>
+        <div style={{ marginTop: 8, color: 'var(--ink-faint)' }}>
           The controls and data below still work.
         </div>
       </div>

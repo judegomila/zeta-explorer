@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP35148_G7_TRUNCATION_DEG_LEVER_PROBE } from '../data/imp-35148-g7-truncation-deg-lever-probe.js';
+import { ED } from '../styles/tokens.js';
 
 const D = IMP35148_G7_TRUNCATION_DEG_LEVER_PROBE;
 const LADDER = D.measured.degLadder;
@@ -41,13 +42,13 @@ function DegLadderChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <text x={padL} y={padT - 22} fill="#94a3b8" fontSize={11} fontWeight={700}>
+      <text x={padL} y={padT - 22} fill={ED.inkSoft} fontSize={11} fontWeight={700}>
         ||R||(DEG) vs. all-ones ceiling DEG+1, DEG=1..12 (imp-35148 / imp-3066 anchor)
       </text>
       {topYTicks.map((v) => (
         <g key={v}>
-          <line x1={padL} y1={topYOf(v)} x2={padL + plotW} y2={topYOf(v)} stroke="#1e293b" strokeWidth={1} />
-          <text x={padL - 6} y={topYOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+          <line x1={padL} y1={topYOf(v)} x2={padL + plotW} y2={topYOf(v)} stroke={ED.ruleSoft} strokeWidth={1} />
+          <text x={padL - 6} y={topYOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v}
           </text>
         </g>
@@ -58,36 +59,36 @@ function DegLadderChart() {
         y1={padT}
         x2={xOf(ANCHOR_DEG)}
         y2={padT + topH}
-        stroke="#f87171"
+        stroke={ED.series2}
         strokeWidth={1.25}
         strokeDasharray="2 3"
       />
-      <text x={xOf(ANCHOR_DEG) + 4} y={padT + 12} fill="#f87171" fontSize={8.5}>
+      <text x={xOf(ANCHOR_DEG) + 4} y={padT + 12} fill={ED.series2} fontSize={8.5}>
         DEG=4 anchor (||R||&asymp;{D.measured.anchorDeg4OperatorNorm.toFixed(4)})
       </text>
-      <path d={ceilingPath} fill="none" stroke="#facc15" strokeWidth={2} strokeDasharray="6 3" />
-      <path d={opNormPath} fill="none" stroke="#a78bfa" strokeWidth={2.25} />
-      <line x1={padL} y1={padT + topH} x2={padL + plotW} y2={padT + topH} stroke="#64748b" strokeWidth={1.5} />
+      <path d={ceilingPath} fill="none" stroke={ED.brassDeco} strokeWidth={2} strokeDasharray="6 3" />
+      <path d={opNormPath} fill="none" stroke={ED.series5} strokeWidth={2.25} />
+      <line x1={padL} y1={padT + topH} x2={padL + plotW} y2={padT + topH} stroke={ED.rule} strokeWidth={1.5} />
       {LADDER.map((r) => (
-        <text key={r.deg} x={xOf(r.deg)} y={padT + topH + 14} textAnchor="middle" fill="#64748b" fontSize={8.5}>
+        <text key={r.deg} x={xOf(r.deg)} y={padT + topH + 14} textAnchor="middle" fill={ED.inkFaint} fontSize={8.5}>
           {r.deg}
         </text>
       ))}
       <g>
-        <circle cx={padL + 4} cy={padT - 8} r={3} fill="#a78bfa" />
-        <text x={padL + 12} y={padT - 4} fill="#a78bfa" fontSize={8.5}>
+        <circle cx={padL + 4} cy={padT - 8} r={3} fill={ED.series5} />
+        <text x={padL + 12} y={padT - 4} fill={ED.series5} fontSize={8.5}>
           ||R||(DEG) (Perron norm)
         </text>
-        <circle cx={padL + 190} cy={padT - 8} r={3} fill="#facc15" />
-        <text x={padL + 198} y={padT - 4} fill="#facc15" fontSize={8.5}>
+        <circle cx={padL + 190} cy={padT - 8} r={3} fill={ED.brassDeco} />
+        <text x={padL + 198} y={padT - 4} fill={ED.brass} fontSize={8.5}>
           ceiling DEG+1
         </text>
       </g>
 
-      <text x={padL} y={botTop - 8} fill="#94a3b8" fontSize={11} fontWeight={700}>
+      <text x={padL} y={botTop - 8} fill={ED.inkSoft} fontSize={11} fontWeight={700}>
         Forward difference &Delta;||R||(DEG) &mdash; every step strictly positive
       </text>
-      <line x1={padL} y1={botTop + botH} x2={padL + plotW} y2={botTop + botH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={botTop + botH} x2={padL + plotW} y2={botTop + botH} stroke={ED.rule} strokeWidth={1.5} />
       {DIFFS.map((d) => {
         const cx = xOf((d.fromDeg + d.toDeg) / 2);
         const barH = botH - (botYOf(d.delta) - botTop);
@@ -98,7 +99,7 @@ function DegLadderChart() {
               y={botYOf(d.delta)}
               width={barW}
               height={barH}
-              fill="#34d399"
+              fill={ED.series3}
               opacity={0.85}
             />
           </g>
@@ -106,14 +107,14 @@ function DegLadderChart() {
       })}
       {[0, D.measured.minForwardDiff, D.measured.maxForwardDiff].map((v) => (
         <g key={v}>
-          <line x1={padL} y1={botYOf(v)} x2={padL + plotW} y2={botYOf(v)} stroke="#1e293b" strokeWidth={1} />
-          <text x={padL - 6} y={botYOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+          <line x1={padL} y1={botYOf(v)} x2={padL + plotW} y2={botYOf(v)} stroke={ED.ruleSoft} strokeWidth={1} />
+          <text x={padL - 6} y={botYOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v.toFixed(2)}
           </text>
         </g>
       ))}
       {LADDER.slice(0, -1).map((r) => (
-        <text key={r.deg} x={xOf(r.deg + 0.5)} y={botTop + botH + 14} textAnchor="middle" fill="#64748b" fontSize={8.5}>
+        <text key={r.deg} x={xOf(r.deg + 0.5)} y={botTop + botH + 14} textAnchor="middle" fill={ED.inkFaint} fontSize={8.5}>
           {r.deg}&rarr;{r.deg + 1}
         </text>
       ))}
@@ -126,7 +127,7 @@ export default function Imp35208DegLadderViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Discrete DEG Ladder: ||R||(DEG) Monotone Inflation (imp-35208 / imp-35148)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-35075 exhausted the two continuous off-orbit parameters (decoupled pass rate, shear
         coefficient) at the imp-3066 admissible anchor, leaving the discrete truncation-size DEG
         axis as the last un-probed direction. imp-35148 stepped DEG&nbsp;=&nbsp;1..12 at the anchor
@@ -146,7 +147,7 @@ export default function Imp35208DegLadderViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>DEG</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>size (DEG+1)</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>||R||(DEG)</th>
@@ -156,7 +157,7 @@ export default function Imp35208DegLadderViz() {
         </thead>
         <tbody>
           {LADDER.map((r, i) => (
-            <tr key={r.deg} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+            <tr key={r.deg} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>
                 {r.deg}
                 {r.deg === ANCHOR_DEG ? ' (anchor)' : ''}
@@ -172,7 +173,7 @@ export default function Imp35208DegLadderViz() {
         </tbody>
       </table>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.8rem', marginTop: '1rem' }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.8rem', marginTop: '1rem' }}>
         Every forward difference lies between&nbsp;
         {D.measured.minForwardDiff.toFixed(4)} and&nbsp;{D.measured.maxForwardDiff.toFixed(4)}
         &nbsp;&mdash; strictly positive across the whole ladder, so ||R||(DEG) is monotone
@@ -185,14 +186,14 @@ export default function Imp35208DegLadderViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page rendering the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-only page rendering the
         imp-35148 ||R||(DEG) ladder and forward-difference literals verbatim (no new computation).
         Confirms the discrete truncation-size DEG axis does NOT act as a softening mechanism on the
         imp-3066 exponential-shear metric-pair family; this is scoped to that family, not other

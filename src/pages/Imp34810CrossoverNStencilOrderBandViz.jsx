@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP34773_CROSSOVER_N_STENCIL_ORDER_SPREAD } from '../data/imp-34773-crossover-N-stencil-order-spread.js';
+import { ED, alpha } from '../styles/tokens.js';
 
 const DATA = IMP34773_CROSSOVER_N_STENCIL_ORDER_SPREAD;
 const ROWS = [DATA.stencil_4th_7pt, DATA.stencil_6th_9pt, DATA.stencil_8th_11pt];
@@ -27,12 +28,12 @@ function StencilOrderBandChart() {
   const sx = (x) => padL + ((x - lo) / (hi - lo)) * plotW;
   const midY = padT + plotH / 2;
 
-  const colorByOrder = { 4: '#38bdf8', 6: '#facc15', 8: '#f87171' };
+  const colorByOrder = { 4: ED.series1, 6: ED.series4, 8: ED.series2 };
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={plotW} height={plotH} fill="none" stroke="#334155" strokeWidth={1} />
-      <text x={padL + plotW / 2} y={svgH - 8} textAnchor="middle" fill="#94a3b8" fontSize={11}>
+      <rect x={padL} y={padT} width={plotW} height={plotH} fill="none" stroke={ED.rule} strokeWidth={1} />
+      <text x={padL + plotW / 2} y={svgH - 8} textAnchor="middle" fill={ED.inkSoft} fontSize={11}>
         log10(N) -- finer-edge (dp = 0.05) closed-form crossover
       </text>
 
@@ -42,11 +43,11 @@ function StencilOrderBandChart() {
         y={padT + 8}
         width={sx(xMax) - sx(xMin)}
         height={plotH - 16}
-        fill="rgba(148,163,184,0.10)"
+        fill={alpha(ED.inkSoft, 0.1)}
         stroke="none"
       />
 
-      <line x1={padL} y1={midY} x2={padL + plotW} y2={midY} stroke="#334155" strokeWidth={1} strokeDasharray="4 4" />
+      <line x1={padL} y1={midY} x2={padL + plotW} y2={midY} stroke={ED.rule} strokeWidth={1} strokeDasharray="4 4" />
 
       {ROWS.map((r) => (
         <g key={r.order}>
@@ -63,7 +64,7 @@ function StencilOrderBandChart() {
             cy={midY}
             r={r.order === 6 ? 6 : 4.5}
             fill={colorByOrder[r.order]}
-            stroke="#0f172a"
+            stroke={ED.paper}
             strokeWidth={0.75}
           />
           <text
@@ -90,7 +91,7 @@ export default function Imp34810CrossoverNStencilOrderBandViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Crossover-N Stencil-Order Band, Finer Edge (imp-34810 / imp-34773)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-34754 located the dp*(N)/probe-band finer-edge crossover landmark at log10&nbsp;N&nbsp;~&nbsp;
         {row6.crossover_log10N_finer_0p05} using the 9-point (6th-order) stencil alone. Because the roundoff
         amplitude W_max/denom enters dp*(N) cubically, imp-34773 re-measured the same crossover on the
@@ -102,7 +103,7 @@ export default function Imp34810CrossoverNStencilOrderBandViz() {
         that no single stencil choice pushes it outside the band the other orders bracket.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         Finer-edge crossover across the three stencil orders
       </p>
       <StencilOrderBandChart />
@@ -116,7 +117,7 @@ export default function Imp34810CrossoverNStencilOrderBandViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>Stencil</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>Order</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>W_max/denom</th>
@@ -129,8 +130,8 @@ export default function Imp34810CrossoverNStencilOrderBandViz() {
             <tr
               key={r.order}
               style={{
-                borderBottom: '1px solid #1e293b',
-                color: r.order === 6 ? '#facc15' : '#cbd5e1',
+                borderBottom: '1px solid var(--rule-soft)',
+                color: r.order === 6 ? 'var(--brass)' : 'var(--ink)',
                 fontWeight: r.order === 6 ? 700 : 400,
               }}
             >
@@ -148,11 +149,11 @@ export default function Imp34810CrossoverNStencilOrderBandViz() {
         style={{
           marginTop: '1rem',
           padding: '0.6rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
         }}
       >
         The shift is an exact (W_max/denom)^(-1/4) power law: the 11-point/7-point crossover ratio
@@ -167,14 +168,14 @@ export default function Imp34810CrossoverNStencilOrderBandViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page rendering the imp-34773
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-only page rendering the imp-34773
         stencil-order sweep (imported literal, no new computation); establishes no new numerical claim.
         q1..q3 are inherited central differences on the imp-3220/imp-3406 component model, not fresh
         analytic closed forms, and the crossover N is an asymptotic extrapolation hundreds of decades past

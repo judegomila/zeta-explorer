@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { STATUS, ED } from '../../styles/tokens.js';
 
 /**
  * Provenance — the standard click-through for headline numbers (diagnosis #4:
@@ -21,15 +22,15 @@ import { Link } from 'react-router-dom';
  */
 
 const GRADE_COLOR = {
-  'kernel-verified': '#6d55b8',
-  'refereed-sound': '#4c7a4a',
-  'prose-proof': '#4c7a4a',
-  'arb-certified': '#3f6b86',
-  measured: '#b58a2e',
-  'candidate-unrefereed': '#b58a2e',
-  'contract-not-a-bound': '#c23a1c',
-  'no-go': '#c23a1c',
-  killed: '#877b67',
+  'kernel-verified': STATUS.certified.fg,
+  'refereed-sound': ED.series3,
+  'prose-proof': STATUS.proved.fg,
+  'arb-certified': STATUS.certified.fg,
+  measured: STATUS.measured.fg,
+  'candidate-unrefereed': ED.brassDeco,
+  'contract-not-a-bound': ED.series2,
+  'no-go': STATUS.nogo.fg,
+  killed: STATUS.refuted.fg,
 };
 
 export default function Num({ v, p }) {
@@ -56,7 +57,7 @@ export default function Num({ v, p }) {
             position: 'absolute', zIndex: 40, top: '1.6em', left: 0,
             minWidth: 300, maxWidth: 420, display: 'block',
             background: 'var(--paper, #fdfaf3)', border: '1px solid var(--hairline, #d5c9b2)',
-            borderRadius: 8, boxShadow: '0 10px 30px rgba(28,24,20,.16)',
+            borderRadius: 8, boxShadow: '0 10px 30px color-mix(in srgb, var(--ink) 16%, transparent)',
             padding: '10px 12px', fontSize: 12, lineHeight: 1.5, textAlign: 'left',
             fontFamily: 'var(--ed-body, Georgia, serif)', color: 'var(--ink-soft, #4a4238)',
           }}

@@ -2,6 +2,7 @@ import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP34650_CROSSOVER_BANACH_CONTRACTION_CERTIFICATE } from '../data/imp-34650-crossover-banach-contraction-certificate.js';
 import { IMP34675_CROSSOVER_CONTRACTION_LEFT_EDGE } from '../data/imp-34675-crossover-contraction-left-edge.js';
+import { ED } from '../styles/tokens.js';
 
 const CERT = IMP34650_CROSSOVER_BANACH_CONTRACTION_CERTIFICATE;
 const EDGE = IMP34675_CROSSOVER_CONTRACTION_LEFT_EDGE;
@@ -44,26 +45,26 @@ function GPrimeCrossingChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={oneLineY} x2={padL + cW} y2={oneLineY} stroke="#f472b6" strokeWidth={1} strokeDasharray="4,3" />
-      <text x={padL + 4} y={oneLineY - 6} fill="#f472b6" fontSize={9.5}>
+      <line x1={padL} y1={oneLineY} x2={padL + cW} y2={oneLineY} stroke={ED.series7} strokeWidth={1} strokeDasharray="4,3" />
+      <text x={padL + 4} y={oneLineY - 6} fill={ED.series7} fontSize={9.5}>
         g_prime = 1 (contraction boundary)
       </text>
-      <polyline points={linePoints} fill="none" stroke="#38bdf8" strokeWidth={1.5} strokeDasharray="3,3" />
+      <polyline points={linePoints} fill="none" stroke={ED.series1} strokeWidth={1.5} strokeDasharray="3,3" />
       {GPRIME_POINTS.map((p) => (
         <g key={p.label}>
-          <circle cx={xAt(p.n)} cy={yAt(p.gp)} r={5} fill="#a78bfa" stroke="#0a0f1a" strokeWidth={0.75} />
-          <text x={xAt(p.n)} y={yAt(p.gp) - 12} textAnchor="middle" fill="#94a3b8" fontSize={9.5}>
+          <circle cx={xAt(p.n)} cy={yAt(p.gp)} r={5} fill={ED.series5} stroke={ED.paper} strokeWidth={0.75} />
+          <text x={xAt(p.n)} y={yAt(p.gp) - 12} textAnchor="middle" fill={ED.inkSoft} fontSize={9.5}>
             {p.gp.toFixed(6)}
           </text>
-          <text x={xAt(p.n)} y={svgH - padB + 16} textAnchor="middle" fill="#94a3b8" fontSize={10}>
+          <text x={xAt(p.n)} y={svgH - padB + 16} textAnchor="middle" fill={ED.inkSoft} fontSize={10}>
             {p.label}
           </text>
         </g>
       ))}
-      <text x={14} y={padT + cH / 2} textAnchor="middle" fill="#64748b" fontSize={9.5} transform={`rotate(-90 14 ${padT + cH / 2})`}>
+      <text x={14} y={padT + cH / 2} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5} transform={`rotate(-90 14 ${padT + cH / 2})`}>
         g_prime(N)
       </text>
-      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         N (log scale, N_star ~ 1.475e8 to a = 1e9)
       </text>
     </svg>
@@ -89,27 +90,27 @@ function SelfMapChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={xAt(A)} y1={yI} x2={xAt(B)} y2={yI} stroke="#94a3b8" strokeWidth={4} />
-      <text x={xAt(A)} y={yI - 10} textAnchor="middle" fill="#94a3b8" fontSize={9.5}>
+      <line x1={xAt(A)} y1={yI} x2={xAt(B)} y2={yI} stroke={ED.rule} strokeWidth={4} />
+      <text x={xAt(A)} y={yI - 10} textAnchor="middle" fill={ED.inkSoft} fontSize={9.5}>
         I = [{A.toExponential(0)}
       </text>
-      <text x={xAt(B)} y={yI - 10} textAnchor="middle" fill="#94a3b8" fontSize={9.5}>
+      <text x={xAt(B)} y={yI - 10} textAnchor="middle" fill={ED.inkSoft} fontSize={9.5}>
         {B.toExponential(0)}]
       </text>
 
-      <line x1={xAt(G_A)} y1={yGI} x2={xAt(G_B)} y2={yGI} stroke="#38bdf8" strokeWidth={4} />
-      <text x={xAt(G_A)} y={yGI + 18} textAnchor="middle" fill="#38bdf8" fontSize={9.5}>
+      <line x1={xAt(G_A)} y1={yGI} x2={xAt(G_B)} y2={yGI} stroke={ED.series1} strokeWidth={4} />
+      <text x={xAt(G_A)} y={yGI + 18} textAnchor="middle" fill={ED.series1} fontSize={9.5}>
         g(a) = {G_A.toExponential(4)}
       </text>
-      <text x={xAt(G_B)} y={yGI + 18} textAnchor="middle" fill="#38bdf8" fontSize={9.5}>
+      <text x={xAt(G_B)} y={yGI + 18} textAnchor="middle" fill={ED.series1} fontSize={9.5}>
         g(b) = {G_B.toExponential(4)}
       </text>
-      <text x={(xAt(G_A) + xAt(G_B)) / 2} y={yGI - 8} textAnchor="middle" fill="#38bdf8" fontSize={10} fontWeight={700}>
+      <text x={(xAt(G_A) + xAt(G_B)) / 2} y={yGI - 8} textAnchor="middle" fill={ED.series1} fontSize={10} fontWeight={700}>
         g(I) &sub; I
       </text>
 
-      <circle cx={xAt(N_CROSS)} cy={(yI + yGI) / 2} r={5} fill="#f472b6" stroke="#0a0f1a" strokeWidth={0.75} />
-      <text x={xAt(N_CROSS)} y={(yI + yGI) / 2 - 10} textAnchor="middle" fill="#f472b6" fontSize={9.5} fontWeight={700}>
+      <circle cx={xAt(N_CROSS)} cy={(yI + yGI) / 2} r={5} fill={ED.series7} stroke={ED.paper} strokeWidth={0.75} />
+      <text x={xAt(N_CROSS)} y={(yI + yGI) / 2 - 10} textAnchor="middle" fill={ED.series7} fontSize={9.5} fontWeight={700}>
         N_cross &asymp; {N_CROSS.toExponential(4)}
       </text>
     </svg>
@@ -145,25 +146,25 @@ function PicardConvergenceChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <polyline points={linePoints} fill="none" stroke="#a78bfa" strokeWidth={1.5} />
+      <polyline points={linePoints} fill="none" stroke={ED.series5} strokeWidth={1.5} />
       {[0, 5, CERT.certificate.iters_from_b_to_floating_point].map((k) => (
-        <circle key={k} cx={xAt(k)} cy={yAt(Math.log10(Math.max(PICARD_BOUND[k], 1e-6)))} r={4.5} fill="#f472b6" stroke="#0a0f1a" strokeWidth={0.75} />
+        <circle key={k} cx={xAt(k)} cy={yAt(Math.log10(Math.max(PICARD_BOUND[k], 1e-6)))} r={4.5} fill={ED.series7} stroke={ED.paper} strokeWidth={0.75} />
       ))}
-      <text x={xAt(5) + 6} y={yAt(Math.log10(PICARD_BOUND[5])) - 8} fill="#94a3b8" fontSize={9.5}>
+      <text x={xAt(5) + 6} y={yAt(Math.log10(PICARD_BOUND[5])) - 8} fill={ED.inkSoft} fontSize={9.5}>
         k=5: rel {CERT.certificate.a_priori_error_k5_rel}
       </text>
       <text
         x={xAt(CERT.certificate.iters_from_b_to_floating_point) + 6}
         y={yAt(Math.log10(Math.max(PICARD_BOUND[CERT.certificate.iters_from_b_to_floating_point], 1e-6))) + 14}
-        fill="#94a3b8"
+        fill={ED.inkSoft}
         fontSize={9.5}
       >
         k={CERT.certificate.iters_from_b_to_floating_point}: floating point
       </text>
-      <text x={16} y={padT + cH / 2} textAnchor="middle" fill="#64748b" fontSize={9.5} transform={`rotate(-90 16 ${padT + cH / 2})`}>
+      <text x={16} y={padT + cH / 2} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5} transform={`rotate(-90 16 ${padT + cH / 2})`}>
         log10 a-priori bound |N_k &minus; N_cross|
       </text>
-      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         Picard iteration k, seed N_0 = b = {B.toExponential(0)}
       </text>
     </svg>
@@ -175,7 +176,7 @@ export default function Imp34677BanachContractionCertificateViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Banach Contraction Certificate for the Crossover Fixed Point (imp-34650)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-34650 upgraded the imp-33723 pointwise slope |g_prime(N_cross)| &asymp; 0.045 into a full
         Banach existence/uniqueness certificate: a uniform Lipschitz constant L &lt; 1 over an explicit
         deep-tail interval I = [{A.toExponential(0)}, {B.toExponential(0)}], the self-map g(I) &sub; I, and
@@ -185,17 +186,17 @@ export default function Imp34677BanachContractionCertificateViz() {
         floating point.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         g_prime(N) crossing 1 near N &asymp; 1e8 (contraction boundary at N_star)
       </p>
       <GPrimeCrossingChart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
         Self-map: g(I) &sub; I on I = [{A.toExponential(0)}, {B.toExponential(0)}], N_cross bracketed
       </p>
       <SelfMapChart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
         Picard a-priori bound |N_k &minus; N_cross|, geometric convergence (L &asymp; {L})
       </p>
       <PicardConvergenceChart />
@@ -204,14 +205,14 @@ export default function Imp34677BanachContractionCertificateViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Finding:</strong> g_prime is positive and strictly
+        <strong style={{ color: 'var(--ink-soft)' }}>Finding:</strong> g_prime is positive and strictly
         decreasing, crossing 1 exactly at the imp-34675 closed-form edge N_star &asymp;{' '}
         {N_STAR.toExponential(4)} (below that, e.g. at N=1e8, g_prime &asymp; {EDGE.verification.g_prime_1e8}{' '}
         &gt; 1 and the map is not a contraction). On the certificate interval I the uniform constant is
@@ -225,14 +226,14 @@ export default function Imp34677BanachContractionCertificateViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> visualization of an existing
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> visualization of an existing
         certificate, isRigorous false. Endpoint evaluations are IEEE-754 double precision, not
         interval-arithmetic (imp-34650a sub-gap open). Certifies a property of the inherited
         imp-3220/imp-3406 surrogate crossover map; C_C 1/8 ansatz untouched; C_mb GUE-conditional per

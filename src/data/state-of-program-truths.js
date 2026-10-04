@@ -11,8 +11,8 @@
 //                       an unconditional proof; reviewed by Dan Romik and being
 //                       prepared for public release; bound not established,
 //                       not refereed, and not RH
-//   SHARPER CANDIDATE = Lambda <= 0.1758354 (four Arb gates + Lean-checked
-//                       reduction), below 0.1787854; unrefereed, not established,
+//   SHARPER CANDIDATE = Lambda <= 0.1758354 (four Arb gates; y-transfer
+//                       reduction and Lemma B3 Lean-checked), below 0.1787854; unrefereed, not established,
 //                       does not displace PT, not RH
 //   CONTRACT      = Lambda <= 0.14 completion contract (fail-closed; a contract,
 //                   not a bound), reduced to one open family on /permutation-architecture
@@ -63,9 +63,9 @@ export const STATE_OF_PROGRAM_TRUTHS = [
     title: 'A sharper computer-assisted candidate reaches Λ ≤ 0.1758354, below the 0.1787854 candidate',
     body:
       'A revised mollifier and an extended finite lane certify four independent gates — each machine-checked in Arb interval ' +
-      'arithmetic, with the reduction to the gates Lean-checked — for a de Bruijn–Newman bound Λ ≤ 0.1758354, below the earlier ' +
-      '0.1787854 candidate. It is the lowest value the barrier method currently reaches. Neither the Arb gates nor the Lean ' +
-      'reduction is a referee: the pipeline has not been independently audited end to end, the bound is not established, and it ' +
+      'arithmetic, with the y-transfer reduction and Lemma B3 Lean-checked — for a de Bruijn–Newman bound Λ ≤ 0.1758354, below the earlier ' +
+      '0.1787854 candidate. It is the lowest value the barrier method currently reaches. Neither the Arb gates nor the Lean-checked ' +
+      'components are a referee: the pipeline has not been independently audited end to end, the bound is not established, and it ' +
       'does not displace Platt-Trudgian Λ ≤ 0.2. It is not a proof of RH, which requires Λ ≤ 0.',
   },
   {

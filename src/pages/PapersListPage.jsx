@@ -39,6 +39,7 @@ export default function PapersListPage() {
       <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
         <div style={{ marginBottom: 24 }}>
           <h1 className="ed-h1" style={{ marginBottom: 10 }}>Papers</h1>
+          <p className="ed-lbl">Related: <Link to="/paper">The twin-ladder paper</Link></p>
           <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.55 }}>
             Browse saved papers.{' '}
             <Link to="/paper-upload" style={{ color: 'var(--blue)', textDecoration: 'none' }}>
@@ -57,8 +58,8 @@ export default function PapersListPage() {
           style={{
             margin: '0 0 24px',
             padding: '14px 18px',
-            border: '1px solid rgba(194,58,28,0.40)',
-            background: 'rgba(194,58,28,0.07)',
+            border: '1px solid color-mix(in srgb, var(--accent) 40%, transparent)',
+            background: 'color-mix(in srgb, var(--series-2) 7%, transparent)',
             borderRadius: 10,
           }}
         >
@@ -91,8 +92,8 @@ export default function PapersListPage() {
               to="/paper-upload"
               style={{
                 display: 'inline-block',
-                background: 'rgba(63,107,134,0.12)',
-                border: '1px solid rgba(63,107,134,0.35)',
+                background: 'color-mix(in srgb, var(--series-1) 12%, transparent)',
+                border: '1px solid color-mix(in srgb, var(--series-1) 35%, transparent)',
                 color: 'var(--blue)',
                 padding: '8px 20px',
                 borderRadius: 8,
@@ -188,7 +189,7 @@ export default function PapersListPage() {
                           onClick={(e) => { e.stopPropagation(); handleDelete(paper.id); }}
                           style={{
                             background: 'transparent',
-                            border: '1px solid rgba(194,58,28,0.35)',
+                            border: '1px solid color-mix(in srgb, var(--accent) 35%, transparent)',
                             color: 'var(--terra-dk)',
                             padding: '4px 12px',
                             borderRadius: 6,

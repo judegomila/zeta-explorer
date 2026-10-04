@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import { NODES, EDGES, PROGRAM_DAG } from '../data/program-dag.js';
+import { ED, STATUS } from '../styles/tokens.js';
 
 /* The program DAG — the complete retrospective graph of the freeze/
    permutation-calculus program: every attempt, result, merge and pivot,
@@ -15,21 +16,21 @@ const NODE_BY_ID = Object.fromEntries(NODES.map((n) => [n.id, n]));
 // Node color by outcome (green won, red ruled-out, purple merged,
 // amber open/in-progress, grey pivoted).
 const OUTCOME_COLOR = {
-  won: '#4c7a4a',
-  'ruled-out': '#b5563f',
-  merged: '#6d55b8',
-  open: '#b58a2e',
-  'in-progress': '#a3652e',
-  pivoted: '#877b67',
+  won: ED.series3,
+  'ruled-out': STATUS.nogo.fg,
+  merged: ED.series5,
+  open: STATUS.open.fg,
+  'in-progress': STATUS.candidate.fg,
+  pivoted: ED.inkFaint,
 };
 
 const EDGE_COLOR = {
-  'led-to': '#3f6b86',
-  'refuted-by': '#b5563f',
-  'pivoted-to': '#877b67',
-  'merged-into': '#6d55b8',
-  closes: '#4c7a4a',
-  gates: '#b58a2e',
+  'led-to': ED.series1,
+  'refuted-by': STATUS.nogo.fg,
+  'pivoted-to': ED.inkFaint,
+  'merged-into': ED.series5,
+  closes: ED.series3,
+  gates: ED.brassDeco,
 };
 
 // Hand layout: fixed positions + explicit name-line wrapping (45 nodes).

@@ -2,6 +2,7 @@ import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP33810_EFLOW_RESID_RATIO_N_LADDER } from '../data/imp-33810-eflow-resid-ratio-N-ladder.js';
 import { IMP33878_HUMP_ARGMAX_GRID_REFINEMENT } from '../data/imp-33878-hump-argmax-grid-refinement.js';
+import { ED } from '../styles/tokens.js';
 
 const LADDER = IMP33810_EFLOW_RESID_RATIO_N_LADDER.ladder;
 const { kStar: K_STAR } = IMP33878_HUMP_ARGMAX_GRID_REFINEMENT.continuumArgmax;
@@ -33,25 +34,25 @@ function ResidExpHumpChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={yAt(0)} x2={padL + cW} y2={yAt(0)} stroke="#334155" strokeWidth={1} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={yAt(0)} x2={padL + cW} y2={yAt(0)} stroke={ED.rule} strokeWidth={1} />
 
       {[6, 7, 8, 9, 10, 11].map((k) => (
         <g key={'xt' + k}>
-          <line x1={xAt(k)} y1={padT + cH} x2={xAt(k)} y2={padT + cH + 4} stroke="#334155" strokeWidth={1} />
-          <text x={xAt(k)} y={padT + cH + 18} textAnchor="middle" fill="#64748b" fontSize={9}>
+          <line x1={xAt(k)} y1={padT + cH} x2={xAt(k)} y2={padT + cH + 4} stroke={ED.rule} strokeWidth={1} />
+          <text x={xAt(k)} y={padT + cH + 18} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
             {k}
           </text>
         </g>
       ))}
-      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         k (ladder rung, N = 10^k)
       </text>
       <text
         x={14}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={`rotate(-90 14 ${padT + cH / 2})`}
       >
@@ -61,7 +62,7 @@ function ResidExpHumpChart() {
       <polyline
         points={LADDER.map((r) => `${xAt(r.k)},${yAt(r.resid_exp)}`).join(' ')}
         fill="none"
-        stroke="#38bdf8"
+        stroke={ED.series1}
         strokeWidth={1.75}
       />
       {LADDER.map((r) => (
@@ -70,8 +71,8 @@ function ResidExpHumpChart() {
           cx={xAt(r.k)}
           cy={yAt(r.resid_exp)}
           r={r.k === GRID_ARGMAX.k ? 4 : 2.25}
-          fill={r.k === GRID_ARGMAX.k ? '#4ade80' : '#38bdf8'}
-          stroke="#0a0f1a"
+          fill={r.k === GRID_ARGMAX.k ? ED.series3 : ED.series1}
+          stroke={ED.paper}
           strokeWidth={0.5}
         />
       ))}
@@ -81,11 +82,11 @@ function ResidExpHumpChart() {
         y1={padT}
         x2={xAt(K_STAR)}
         y2={padT + cH}
-        stroke="#4ade80"
+        stroke={ED.series3}
         strokeWidth={1.25}
         strokeDasharray="5,3"
       />
-      <text x={xAt(K_STAR)} y={padT - 6} textAnchor="middle" fill="#4ade80" fontSize={9.5}>
+      <text x={xAt(K_STAR)} y={padT - 6} textAnchor="middle" fill={ED.series3} fontSize={9.5}>
         k*&sim;{K_STAR}
       </text>
 
@@ -94,11 +95,11 @@ function ResidExpHumpChart() {
         y1={padT}
         x2={xAt(K_CROSS)}
         y2={padT + cH}
-        stroke="#f87171"
+        stroke={ED.series2}
         strokeWidth={1.25}
         strokeDasharray="5,3"
       />
-      <text x={xAt(K_CROSS)} y={padT - 6} textAnchor="middle" fill="#f87171" fontSize={9.5}>
+      <text x={xAt(K_CROSS)} y={padT - 6} textAnchor="middle" fill={ED.series2} fontSize={9.5}>
         k_cross&sim;{K_CROSS}
       </text>
     </svg>
@@ -110,7 +111,7 @@ export default function Imp33953ResidExpHumpArgmaxCrossoverViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="resid_exp(k) Hump, Continuum Argmax & Crossover (imp-33810 / imp-33878 / imp-33905 / imp-33953)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         The imp-33810 ladder tracks resid_exp(k) = p_ecoll(1 - sigma_hi) - p_sigma over 21
         quarter-decade rungs k=6.00..11.00, but had no visual surface of the shape itself. The
         curve below is a single broad quadratic hump, peaking on the discrete grid at k=
@@ -123,7 +124,7 @@ export default function Imp33953ResidExpHumpArgmaxCrossoverViz() {
         window-lag between the decade-integrated hump and the pointwise sigma=1/2 crossover.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         resid_exp(k) across the imp-33810 21-rung ladder, k = 6.00 .. 11.00
       </p>
       <ResidExpHumpChart />
@@ -132,14 +133,14 @@ export default function Imp33953ResidExpHumpArgmaxCrossoverViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement/visualization only.
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> measurement/visualization only.
         The discrete-grid hump argmax (k={GRID_ARGMAX.k.toFixed(2)}) and the continuum argmax
         (k*&sim;{K_STAR}) are two readings of the SAME resid_exp(k) surrogate, not two features; the
         crossover k_cross&sim;{K_CROSS} is a distinct pointwise quantity. The component model is the

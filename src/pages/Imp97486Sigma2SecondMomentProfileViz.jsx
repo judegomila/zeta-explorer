@@ -5,6 +5,7 @@ import {
   IMP97486_REGION_BOUNDARIES,
   IMP97486_FAR_TAIL_LADDER,
 } from '../data/imp-97486-sigma2-second-moment-profile-viz-data.js';
+import { ED, alpha } from '../styles/tokens.js';
 
 // imp-97486: visualizes the imp-97458 sigma_2(t) second-moment profile at
 // 2a=ln3 -- two negative wells straddling a finite positive island, then an
@@ -43,40 +44,40 @@ function ProfilePanel() {
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
       {/* region shading, mirrored about t=0 */}
-      {band(innerWell[0], innerWell[1], 'rgba(248,113,113,0.14)')}
-      {band(innerIslandPositive[0], innerIslandPositive[1], 'rgba(52,211,153,0.16)')}
-      {band(-innerIslandPositive[1], -innerIslandPositive[0], 'rgba(52,211,153,0.16)')}
-      {band(outerWell[0], outerWell[1], 'rgba(248,113,113,0.14)')}
-      {band(-outerWell[1], -outerWell[0], 'rgba(248,113,113,0.14)')}
-      {band(farTailOnset, maxT, 'rgba(251,191,36,0.14)')}
-      {band(minT, -farTailOnset, 'rgba(251,191,36,0.14)')}
+      {band(innerWell[0], innerWell[1], alpha(ED.series2, 0.14))}
+      {band(innerIslandPositive[0], innerIslandPositive[1], alpha(ED.series3, 0.16))}
+      {band(-innerIslandPositive[1], -innerIslandPositive[0], alpha(ED.series3, 0.16))}
+      {band(outerWell[0], outerWell[1], alpha(ED.series2, 0.14))}
+      {band(-outerWell[1], -outerWell[0], alpha(ED.series2, 0.14))}
+      {band(farTailOnset, maxT, alpha(ED.series4, 0.14))}
+      {band(minT, -farTailOnset, alpha(ED.series4, 0.14))}
 
       {/* zero line */}
-      <line x1={padL} y1={y0} x2={padL + plotW} y2={y0} stroke="#475569" strokeWidth={1} strokeDasharray="3 3" />
+      <line x1={padL} y1={y0} x2={padL + plotW} y2={y0} stroke={ED.rule} strokeWidth={1} strokeDasharray="3 3" />
 
       {/* sigma_2(t) curve */}
       <polyline
         points={IMP97486_SIGMA2_PROFILE.map((p) => `${xOf(p.t)},${yOf(p.value)}`).join(' ')}
         fill="none"
-        stroke="#38bdf8"
+        stroke={ED.series1}
         strokeWidth={1.6}
       />
 
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
 
       {[minT, -farTailOnset, 0, farTailOnset, maxT].map((v) => (
-        <text key={`x${v}`} x={xOf(v)} y={padT + plotH + 16} textAnchor="middle" fill="#64748b" fontSize={8}>
+        <text key={`x${v}`} x={xOf(v)} y={padT + plotH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={8}>
           {v}
         </text>
       ))}
       {[yMax, 0, yMin].map((v, i) => (
-        <text key={`y${i}`} x={padL - 6} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={8}>
+        <text key={`y${i}`} x={padL - 6} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8}>
           {Math.round(v)}
         </text>
       ))}
 
-      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={9}>
+      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
         t &mdash; red: negative wells; green: inner positive island; yellow: unbounded far-tail onset (|t|&gt;{farTailOnset})
       </text>
     </svg>
@@ -109,28 +110,28 @@ function FarTailPanel() {
       <polyline
         points={L.map((p) => `${xOf(Math.log10(p.T))},${yOf(Math.log10(p.area))}`).join(' ')}
         fill="none"
-        stroke="#fbbf24"
+        stroke={ED.brassDeco}
         strokeWidth={2}
       />
       {L.map((p, i) => (
-        <circle key={i} cx={xOf(Math.log10(p.T))} cy={yOf(Math.log10(p.area))} r={3} fill="#fbbf24" />
+        <circle key={i} cx={xOf(Math.log10(p.T))} cy={yOf(Math.log10(p.area))} r={3} fill={ED.brassDeco} />
       ))}
 
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
 
       {L.map((p, i) => (
-        <text key={`xt${i}`} x={xOf(Math.log10(p.T))} y={padT + plotH + 16} textAnchor="middle" fill="#64748b" fontSize={8}>
+        <text key={`xt${i}`} x={xOf(Math.log10(p.T))} y={padT + plotH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={8}>
           {p.T}
         </text>
       ))}
       {[minLogA, (minLogA + maxLogA) / 2, maxLogA].map((v, i) => (
-        <text key={`ya${i}`} x={padL - 6} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={8}>
+        <text key={`ya${i}`} x={padL - 6} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8}>
           1e{v.toFixed(0)}
         </text>
       ))}
 
-      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={9}>
+      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
         T (log scale) vs cumulative one-sided far-tail area int_{'{10.532}'}^T sigma_2 dt (log scale) &mdash; unbounded, exponent &rarr; 5
       </text>
     </svg>
@@ -146,15 +147,15 @@ export default function Imp97486Sigma2SecondMomentProfileViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> the top
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> the top
         panel is an exact recomputation of sigma_2(t) = (t^2+1/4)^2 w_1(t) on a
         dense grid (h=0.03); the region boundaries (gap [3.306,6.945],
         far-tail onset 10.532) and the bottom panel&apos;s far-tail area table
@@ -164,19 +165,19 @@ export default function Imp97486Sigma2SecondMomentProfileViz() {
         NO QED.
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         At the binding half-width 2a=ln3, imp-97458 quantified the discarded
         positive far field named by imp-97416: sigma_2(t) alternates sign
         across two negative wells straddling a finite positive island, then
         turns positive for good beyond |t|=10.532 and grows without bound.
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         sigma_2(t): two wells, one island, an unbounded tail
       </h3>
       <ProfilePanel />
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', margin: '1.5rem 0 0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', margin: '1.5rem 0 0.5rem' }}>
         Far-tail cumulative positive area (log-log, unbounded growth)
       </h3>
       <FarTailPanel />
@@ -185,14 +186,14 @@ export default function Imp97486Sigma2SecondMomentProfileViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> presentation
         only, consuming the imp-97458 measured region boundaries and far-tail
         table verbatim; the sigma_2(t) samples are an exact recompute, not new
         data. Establishes no operator positivity; changes no bound;

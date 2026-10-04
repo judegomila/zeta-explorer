@@ -14,12 +14,13 @@ import {
   IMP33548_N300_COMPARISON,
   IMP33548_SCAN,
 } from '../data/imp-33548-graded-plateau-deep-tail-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
-const PLATEAU_COLOR = '#38bdf8';
-const BAND_COLOR = '#f472b6';
-const STRICT_COLOR = '#a78bfa';
-const SPIKE_COLOR = '#f59e0b';
-const NEIGHBOUR_COLOR = '#4ade80';
+const PLATEAU_COLOR = ED.series1;
+const BAND_COLOR = ED.series7;
+const STRICT_COLOR = ED.series5;
+const SPIKE_COLOR = ED.series4;
+const NEIGHBOUR_COLOR = ED.series3;
 
 function RungUlpChart() {
   const svgW = 720;
@@ -41,12 +42,12 @@ function RungUlpChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
       {[0, 10, 20, 30, 40, 50].map((v) => (
         <g key={v}>
-          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke="#1e293b" strokeWidth={0.7} />
-          <text x={padL - 6} y={yS(v) + 3.5} textAnchor="end" fill="#475569" fontSize={9}>
+          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke={ED.ruleSoft} strokeWidth={0.7} />
+          <text x={padL - 6} y={yS(v) + 3.5} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v}
           </text>
         </g>
@@ -95,23 +96,23 @@ function RungUlpChart() {
 
       {/* the fine n=295/n=305 neighbours sitting deep inside the band */}
       {neighbourLo && (
-        <circle cx={xS(neighbourLo.n)} cy={yS(neighbourLo.ulp)} r={3.5} fill={NEIGHBOUR_COLOR} stroke="#0a0f1a" strokeWidth={1} />
+        <circle cx={xS(neighbourLo.n)} cy={yS(neighbourLo.ulp)} r={3.5} fill={NEIGHBOUR_COLOR} stroke={ED.paper} strokeWidth={1} />
       )}
       {neighbourHi && (
-        <circle cx={xS(neighbourHi.n)} cy={yS(neighbourHi.ulp)} r={3.5} fill={NEIGHBOUR_COLOR} stroke="#0a0f1a" strokeWidth={1} />
+        <circle cx={xS(neighbourHi.n)} cy={yS(neighbourHi.ulp)} r={3.5} fill={NEIGHBOUR_COLOR} stroke={ED.paper} strokeWidth={1} />
       )}
 
       {[285, 290, 295, 300, 305, 310, 315].map((n) => (
-        <text key={n} x={xS(n)} y={padT + cH + 14} textAnchor="middle" fill="#64748b" fontSize={9}>
+        <text key={n} x={xS(n)} y={padT + cH + 14} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
           {n}
         </text>
       ))}
-      <text x={padL + cW / 2} y={padT + cH + 30} textAnchor="middle" fill="#64748b" fontSize={9}>
+      <text x={padL + cW / 2} y={padT + cH + 30} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
         depth rung n (tau* = saddleTau(n))
       </text>
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
-      <text x={12} y={padT + cH / 2} textAnchor="middle" fill="#64748b" fontSize={10} transform={`rotate(-90,12,${padT + cH / 2})`}>
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
+      <text x={12} y={padT + cH / 2} textAnchor="middle" fill={ED.inkFaint} fontSize={10} transform={`rotate(-90,12,${padT + cH / 2})`}>
         plateau residual (ULP)
       </text>
     </svg>
@@ -123,7 +124,7 @@ export default function Imp33548GradedPlateauDeepTailNodeBudgetViz() {
     <div style={{ padding: '1.5rem', maxWidth: 940, margin: '0 auto' }}>
       <PageHeader title="Graded-Plateau Deep-Tail Node Budget (imp-33316)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 780 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 780 }}>
         imp-33316 carried the imp-33295 CONSERVATIVE fixed graded-GL plateau rule (grade 4, 400
         panels = {IMP33548_PLATEAU_NODES} inner Gauss-Legendre nodes) into the deep saddle tail
         n in {'{'}90..500{'}'} and found it PLATEAU-HOLDS the imp-33275 A_log double-precision floor
@@ -134,12 +135,12 @@ export default function Imp33548GradedPlateauDeepTailNodeBudgetViz() {
         {IMP33548_SPIKE_N}, where the plateau exceeds the strict {IMP33548_STRICT_BAND_ULP}-ULP bar.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         graded-plateau residual (ULP) over n in [{IMP33548_WINDOW_LO}, {IMP33548_WINDOW_HI}]
       </p>
       <RungUlpChart />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.85rem', margin: '1rem 0 1.25rem' }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.85rem', margin: '1rem 0 1.25rem' }}>
         The n={IMP33548_SPIKE_N} spike (amber marker, ~{IMP33548_N300_COMPARISON.gradedPlateauUlp.toFixed(1)}{' '}
         ULP) is a jittery arithmetic-floor lattice event, not a systematic breakdown: its fine
         neighbours n={IMP33548_NEIGHBOUR_LO_N} and n={IMP33548_NEIGHBOUR_HI_N} (green markers) sit
@@ -154,14 +155,14 @@ export default function Imp33548GradedPlateauDeepTailNodeBudgetViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> the blue line is the raw,
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> the blue line is the raw,
         per-integer-rung graded-plateau residual against the imp-33213 independent log-domain
         A_log target. The violet dashed line is the imp-33295 strict 30-ULP floor bar; the widened
         imp-33316 64-ULP deep-tail band sits above the visible chart top. Only n=300 (amber) crosses
@@ -176,14 +177,14 @@ export default function Imp33548GradedPlateauDeepTailNodeBudgetViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> accuracy/rule-design
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> accuracy/rule-design
         measurement only, of an already-verified scan (imp-33316/imp-33537). It changes no bound and
         patches no literal. Mass-feasibility is necessary-but-not-sufficient; the operator-level
         positivity (imp-3066 K_a &ge; 0) is UNTOUCHED. RH-equivalent, NO QED.

@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP34844_INFLECTION_CROSSOVER_GAP_CMB_CURVATURE } from '../data/imp-34844-inflection-crossover-gap-cmb-curvature.js';
+import { ED } from '../styles/tokens.js';
 
 const D = IMP34844_INFLECTION_CROSSOVER_GAP_CMB_CURVATURE;
 const GRID = D.curveGrid; // C_mb descending 1.00 -> 0.30, with dRelGap_dCmb and d2RelGap_dCmb2 at each node
@@ -34,11 +35,11 @@ function LadderChart({ title, unit, color, valueKey, formatValue, note }) {
 
   return (
     <div style={{ marginTop: '1.5rem' }}>
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>{title}</p>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>{title}</p>
       <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-        <line x1={padL} y1={yZero} x2={padL + plotW} y2={yZero} stroke="#334155" strokeWidth={1} />
-        <line x1={xStar} y1={padT} x2={xStar} y2={padT + plotH} stroke="#fbbf24" strokeWidth={1.5} strokeDasharray="4 3" />
-        <text x={xStar} y={padT - 12} textAnchor="middle" fill="#fbbf24" fontSize={10} fontWeight={700}>
+        <line x1={padL} y1={yZero} x2={padL + plotW} y2={yZero} stroke={ED.rule} strokeWidth={1} />
+        <line x1={xStar} y1={padT} x2={xStar} y2={padT + plotH} stroke={ED.brassDeco} strokeWidth={1.5} strokeDasharray="4 3" />
+        <text x={xStar} y={padT - 12} textAnchor="middle" fill={ED.brass} fontSize={10} fontWeight={700}>
           C_mb* &asymp; {CMB_STAR.toFixed(4)}
         </text>
         <path d={pathD} fill="none" stroke={color} strokeWidth={2} />
@@ -58,17 +59,17 @@ function LadderChart({ title, unit, color, valueKey, formatValue, note }) {
             {formatValue(g[valueKey])}
           </text>
         ))}
-        <text x={padL} y={svgH - 10} fill="#94a3b8" fontSize={10} fontFamily="monospace">
+        <text x={padL} y={svgH - 10} fill={ED.inkSoft} fontSize={10} fontFamily="monospace">
           C_mb = {cmbMax.toFixed(2)}
         </text>
-        <text x={padL + plotW} y={svgH - 10} textAnchor="end" fill="#94a3b8" fontSize={10} fontFamily="monospace">
+        <text x={padL + plotW} y={svgH - 10} textAnchor="end" fill={ED.inkSoft} fontSize={10} fontFamily="monospace">
           C_mb = {cmbMin.toFixed(2)}
         </text>
-        <text x={padL - 10} y={padT + 4} textAnchor="end" fill="#64748b" fontSize={10}>
+        <text x={padL - 10} y={padT + 4} textAnchor="end" fill={ED.inkFaint} fontSize={10}>
           {unit}
         </text>
       </svg>
-      <p style={{ color: '#64748b', fontSize: '0.78rem', marginTop: '0.25rem' }}>{note}</p>
+      <p style={{ color: 'var(--ink-faint)', fontSize: '0.78rem', marginTop: '0.25rem' }}>{note}</p>
     </div>
   );
 }
@@ -78,7 +79,7 @@ export default function Imp34874CmbElasticityCurvatureLadderViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="C_mb Elasticity + Curvature Ladder (imp-34874 / imp-34844)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-34824 quoted the inflection-vs-crossover gap elasticity d(relGap)/dC_mb&nbsp;~&nbsp;
         {D.slopeSpan.dRelGap_dCmb_at_gue} ONLY at the GUE bound C_mb&nbsp;=&nbsp;1. imp-34844 measured the
         same first and second derivatives on a dense C_mb grid: the elasticity rises MONOTONICALLY&nbsp;
@@ -92,7 +93,7 @@ export default function Imp34874CmbElasticityCurvatureLadderViz() {
       <LadderChart
         title={`First derivative d(relGap)/dC_mb (per unit C_mb) — rises ~${D.slopeSpan.spanRatio}x`}
         unit="d(relGap)/dC_mb"
-        color="#38bdf8"
+        color={ED.series1}
         valueKey="dRelGap_dCmb"
         formatValue={(v) => v.toExponential(2)}
         note={`Monotonically increasing at every node from ${D.slopeSpan.dRelGap_dCmb_at_gue} at the GUE bound to ${D.slopeSpan.dRelGap_dCmb_at_low} at C_mb=0.30 — the +2.15e-2/unit imp-34824 value is a boundary plateau, not the elasticity across the sweep.`}
@@ -101,7 +102,7 @@ export default function Imp34874CmbElasticityCurvatureLadderViz() {
       <LadderChart
         title={`Second derivative d2(relGap)/dC_mb2 (per unit^2 C_mb) — strengthens ~${D.curvatureSpan.strengthenRatio}x`}
         unit="d2(relGap)/dC_mb2"
-        color="#f87171"
+        color={ED.series2}
         valueKey="d2RelGap_dCmb2"
         formatValue={(v) => v.toExponential(2)}
         note={`Negative at every node (all ${GRID.length} nodes below zero), from ${D.curvatureSpan.d2RelGap_dCmb2_at_gue} at the GUE bound to ${D.curvatureSpan.d2RelGap_dCmb2_at_low} at C_mb=0.30 — Richardson-stable across h in {0.01,0.02,0.04} (${D.curvatureSpan.richardsonHStability.toExponential(1)} agreement), a genuine accelerating concavity.`}
@@ -111,14 +112,14 @@ export default function Imp34874CmbElasticityCurvatureLadderViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page rendering the imp-34844
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-only page rendering the imp-34844
         curveGrid/slopeSpan/curvatureSpan literals verbatim (no new computation). Second-order diagnostic of
         an imp-34824 landmark on the inherited imp-3220/imp-3406 surrogate crossover map; treats C_mb as a
         free knob; does NOT tighten or discharge the GUE conditional (imp-486); the C_C&nbsp;1/8 ansatz

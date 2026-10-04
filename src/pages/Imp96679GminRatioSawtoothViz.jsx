@@ -8,6 +8,7 @@ import {
   IMP96679_OSCILLATION,
   IMP96679_READING,
 } from '../data/imp-96679-gmin-ratio-sawtooth-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 // log-log chart: N (50..1e6) on the x-axis, ratioOverGue = g_min(N)/(0.8582 N^-1/3)
 // on the y-axis. Yellow points continue an argmin-freeze plateau (rise as
@@ -39,8 +40,8 @@ function RatioSawtoothPanel() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
 
       {yTicks.map((v) => (
         <g key={`y${v}`}>
@@ -49,49 +50,49 @@ function RatioSawtoothPanel() {
             y1={yOf(v)}
             x2={padL + plotW}
             y2={yOf(v)}
-            stroke={v === 1 ? '#f87171' : '#1e293b'}
+            stroke={v === 1 ? ED.series2 : ED.ruleSoft}
             strokeWidth={1}
             strokeDasharray={v === 1 ? '5 3' : undefined}
           />
-          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={8.5}>
+          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8.5}>
             {v}
           </text>
         </g>
       ))}
       {xTicks.map((N) => (
         <g key={`x${N}`}>
-          <line x1={xOf(N)} y1={padT} x2={xOf(N)} y2={padT + plotH} stroke="#1e293b" strokeWidth={1} />
-          <text x={xOf(N)} y={padT + plotH + 14} textAnchor="middle" fill="#94a3b8" fontSize={8.5}>
+          <line x1={xOf(N)} y1={padT} x2={xOf(N)} y2={padT + plotH} stroke={ED.ruleSoft} strokeWidth={1} />
+          <text x={xOf(N)} y={padT + plotH + 14} textAnchor="middle" fill={ED.inkSoft} fontSize={8.5}>
             {N >= 1000 ? `${N / 1000}k` : N}
           </text>
         </g>
       ))}
 
-      <text x={padL + 6} y={yOf(1) - 5} fill="#f87171" fontSize={8.5}>
+      <text x={padL + 6} y={yOf(1) - 5} fill={ED.series2} fontSize={8.5}>
         GUE median (ratioOverGue = 1)
       </text>
 
-      <path d={path} fill="none" stroke="#38bdf8" strokeWidth={1.4} />
+      <path d={path} fill="none" stroke={ED.series1} strokeWidth={1.4} />
       {rows.map((row) => (
         <circle
           key={`pt${row.N}`}
           cx={xOf(row.N)}
           cy={yOf(row.ratioOverGue)}
           r={row.isPlateau ? 4.4 : 3}
-          fill={row.isPlateau ? '#facc15' : row.isReset ? '#38bdf8' : '#94a3b8'}
-          stroke={row.isReset ? '#fb923c' : row.isPlateau ? '#78350f' : 'none'}
+          fill={row.isPlateau ? ED.brassDeco : row.isReset ? ED.series1 : '#94a3b8'}
+          stroke={row.isReset ? ED.series4 : row.isPlateau ? '#78350f' : 'none'}
           strokeWidth={row.isReset || row.isPlateau ? 1.4 : 0}
         />
       ))}
 
-      <text x={padL + plotW / 2} y={padT + plotH + 34} textAnchor="middle" fill="#94a3b8" fontSize={9}>
+      <text x={padL + plotW / 2} y={padT + plotH + 34} textAnchor="middle" fill={ED.inkSoft} fontSize={9}>
         N (number of zeros)
       </text>
       <text
         x={-(padT + plotH / 2)}
         y={14}
         textAnchor="middle"
-        fill="#94a3b8"
+        fill={ED.inkSoft}
         fontSize={9}
         transform="rotate(-90)"
       >
@@ -106,7 +107,7 @@ export default function Imp96679GminRatioSawtoothViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="GUE Running-Min Sawtooth: ratioOverGue Plateaus and Record-Gap Resets" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-96654 showed that the imp-96616 running-min ratio ratioOverGue = g<sub>min</sub>(N) /
         (0.8582&nbsp;N<sup>-1/3</sup>) is a two-sided sawtooth about the GUE median (range{' '}
         {IMP96679_OSCILLATION.min.toFixed(4)}&ndash;{IMP96679_OSCILLATION.max.toFixed(4)}, RMS
@@ -116,7 +117,7 @@ export default function Imp96679GminRatioSawtoothViz() {
         record gap resets the numerator and starts a fresh climb.
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         ratioOverGue over the 14-rung ladder (log-log)
       </h3>
       <RatioSawtoothPanel />
@@ -125,14 +126,14 @@ export default function Imp96679GminRatioSawtoothViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> yellow-ringed points continue
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> yellow-ringed points continue
         an argmin-freeze plateau (numerator g<sub>min</sub>(N) unchanged, ratioOverGue rising as
         N<sup>+1/3</sup>); the four measured doublings all match &times;
         {IMP96679_MEASURED_DOUBLINGS[0].factor.toFixed(4)} to 4 sig figs, e.g. N=
@@ -148,14 +149,14 @@ export default function Imp96679GminRatioSawtoothViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page consuming the imp-96679
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the imp-96679
         viz-data (ladder reused verbatim from imp-96616, sawtooth/doubling analysis reused verbatim
         from imp-96654). {IMP96679_READING}
       </div>

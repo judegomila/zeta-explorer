@@ -2,6 +2,7 @@ import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP34645_EFLOW_ATTR_POLE_WINDOW_WIDEN_SE } from '../data/imp-34645-eflow-attr-pole-window-widen-se.js';
 import { IMP34636_POLE_CENTROID_K } from '../data/imp-34636-eflow-attr-pole-centred-window-slope.js';
+import { ED } from '../styles/tokens.js';
 
 const DATA = IMP34645_EFLOW_ATTR_POLE_WINDOW_WIDEN_SE;
 const { w5Baseline: W5, w7Window: W7, w9Window: W9, nearBaseline: NEAR, farBaseline: FAR, kStar: KSTAR } = DATA;
@@ -46,12 +47,12 @@ function SlopeSeChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={nearY} x2={padL + cW} y2={nearY} stroke="#38bdf8" strokeWidth={1} strokeDasharray="4,3" />
-      <text x={padL + cW - 4} y={nearY - 4} textAnchor="end" fill="#38bdf8" fontSize={9.5}>
+      <line x1={padL} y1={nearY} x2={padL + cW} y2={nearY} stroke={ED.series1} strokeWidth={1} strokeDasharray="4,3" />
+      <text x={padL + cW - 4} y={nearY - 4} textAnchor="end" fill={ED.series1} fontSize={9.5}>
         near flank {NEAR.leadingPerKSlope.toFixed(6)}
       </text>
-      <line x1={padL} y1={farY} x2={padL + cW} y2={farY} stroke="#fbbf24" strokeWidth={1} strokeDasharray="4,3" />
-      <text x={padL + cW - 4} y={farY + 12} textAnchor="end" fill="#fbbf24" fontSize={9.5}>
+      <line x1={padL} y1={farY} x2={padL + cW} y2={farY} stroke={ED.brassDeco} strokeWidth={1} strokeDasharray="4,3" />
+      <text x={padL + cW - 4} y={farY + 12} textAnchor="end" fill={ED.brass} fontSize={9.5}>
         far flank {FAR.leadingPerKSlope.toFixed(6)}
       </text>
       {ROWS.map((r) => {
@@ -61,23 +62,23 @@ function SlopeSeChart() {
         const yHi = yAt(toUnits(r.slope + r.se));
         return (
           <g key={r.label}>
-            <line x1={x} y1={yLo} x2={x} y2={yHi} stroke="#f472b6" strokeWidth={1.75} />
-            <line x1={x - 6} y1={yLo} x2={x + 6} y2={yLo} stroke="#f472b6" strokeWidth={1.5} />
-            <line x1={x - 6} y1={yHi} x2={x + 6} y2={yHi} stroke="#f472b6" strokeWidth={1.5} />
-            <circle cx={x} cy={yMid} r={5} fill="#ef4444" stroke="#0a0f1a" strokeWidth={0.75} />
-            <text x={x} y={svgH - padB + 16} textAnchor="middle" fill="#94a3b8" fontSize={10.5}>
+            <line x1={x} y1={yLo} x2={x} y2={yHi} stroke={ED.series7} strokeWidth={1.75} />
+            <line x1={x - 6} y1={yLo} x2={x + 6} y2={yLo} stroke={ED.series7} strokeWidth={1.5} />
+            <line x1={x - 6} y1={yHi} x2={x + 6} y2={yHi} stroke={ED.series7} strokeWidth={1.5} />
+            <circle cx={x} cy={yMid} r={5} fill={ED.series2} stroke={ED.paper} strokeWidth={0.75} />
+            <text x={x} y={svgH - padB + 16} textAnchor="middle" fill={ED.inkSoft} fontSize={10.5}>
               {r.label}
             </text>
-            <text x={x} y={padT + cH + 30} textAnchor="middle" fill="#64748b" fontSize={9}>
+            <text x={x} y={padT + cH + 30} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
               {r.sigma.toFixed(3)}&sigma;
             </text>
           </g>
         );
       })}
-      <text x={16} y={padT + cH / 2} textAnchor="middle" fill="#64748b" fontSize={10} transform={`rotate(-90 16 ${padT + cH / 2})`}>
+      <text x={16} y={padT + cH / 2} textAnchor="middle" fill={ED.inkFaint} fontSize={10} transform={`rotate(-90 16 ${padT + cH / 2})`}>
         leading per-k slope, (value &minus; ({BASE})) &times; 1e6
       </text>
-      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         symmetric pole-centred window width (rungs)
       </text>
     </svg>
@@ -107,23 +108,23 @@ function CentroidDriftChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={kStarY} x2={padL + cW} y2={kStarY} stroke="#a78bfa" strokeWidth={1} strokeDasharray="4,3" />
-      <text x={padL + 4} y={kStarY - 4} fill="#a78bfa" fontSize={9.5}>
+      <line x1={padL} y1={kStarY} x2={padL + cW} y2={kStarY} stroke={ED.series5} strokeWidth={1} strokeDasharray="4,3" />
+      <text x={padL + 4} y={kStarY - 4} fill={ED.series5} fontSize={9.5}>
         pole k* = {KSTAR}
       </text>
-      <polyline points={linePoints} fill="none" stroke="#34d399" strokeWidth={1.75} />
+      <polyline points={linePoints} fill="none" stroke={ED.series3} strokeWidth={1.75} />
       {CENTROID_ROWS.map((r) => (
-        <circle key={r.label} cx={xAt(r.rungs)} cy={yAt(r.centroidK)} r={5} fill="#34d399" stroke="#0a0f1a" strokeWidth={0.75} />
+        <circle key={r.label} cx={xAt(r.rungs)} cy={yAt(r.centroidK)} r={5} fill={ED.series3} stroke={ED.paper} strokeWidth={0.75} />
       ))}
       {CENTROID_ROWS.map((r) => (
-        <text key={`${r.label}-x`} x={xAt(r.rungs)} y={svgH - padB + 16} textAnchor="middle" fill="#94a3b8" fontSize={10.5}>
+        <text key={`${r.label}-x`} x={xAt(r.rungs)} y={svgH - padB + 16} textAnchor="middle" fill={ED.inkSoft} fontSize={10.5}>
           {r.label}
         </text>
       ))}
-      <text x={16} y={padT + cH / 2} textAnchor="middle" fill="#64748b" fontSize={9.5} transform={`rotate(-90 16 ${padT + cH / 2})`}>
+      <text x={16} y={padT + cH / 2} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5} transform={`rotate(-90 16 ${padT + cH / 2})`}>
         centroid k
       </text>
-      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         symmetric pole-centred window width (rungs)
       </text>
     </svg>
@@ -135,7 +136,7 @@ export default function Imp34664PoleWindowBiasVarianceViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Pole-Centred eflow_attr Window: Bias-Variance Tradeoff (imp-34645)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-34636 fit the log-corrected eflow_attr on a 5-rung window centred exactly on the pole
         k* &asymp; {KSTAR}, finding a leading slope nominally steeper than both flanks but too
         underpowered (SE &asymp; {W5.leadingSlopeSE.toExponential(2)}) to test the departure at more than
@@ -145,12 +146,12 @@ export default function Imp34664PoleWindowBiasVarianceViz() {
         the departure from the window-centre-drift prediction in sigma.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         Leading per-k slope &plusmn; SE vs window width, with flank references
       </p>
       <SlopeSeChart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
         Window centroid vs width: drift off the pole
       </p>
       <CentroidDriftChart />
@@ -159,14 +160,14 @@ export default function Imp34664PoleWindowBiasVarianceViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Finding:</strong> widening 5 &rarr; 7 rungs collapses the
+        <strong style={{ color: 'var(--ink-soft)' }}>Finding:</strong> widening 5 &rarr; 7 rungs collapses the
         slope SE ~{DATA.w5SEoverW7SE}x (below the drift scale), but the nominal W5 steepening dissolves
         to only {W7.departureSigma}&sigma; from the centre-drift prediction &mdash; a 5-rung small-sample
         artifact, not a real pole kink. Widening further to 9 rungs keeps the SE tight but the centroid
@@ -178,14 +179,14 @@ export default function Imp34664PoleWindowBiasVarianceViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement only, isRigorous false.
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> measurement only, isRigorous false.
         Descriptive surrogate fit of the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous
         asymptotic; the C_mb GUE-conditional per imp-486 is untouched; changes no bound; establishes no
         operator positivity; imp-3066 K_a&gt;=0 untouched; no RH verdict, NO QED.

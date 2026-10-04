@@ -13,6 +13,7 @@ import {
   IMP34268_POSTMIN_SECOND_DIFFS,
   IMP34268_MAX_SECOND_DIFFERENCE,
 } from '../data/imp-34268-fixed-band-peak-reaccel-convexity-stitch-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 // Panel 1: the stitched increment sequence (17 increments over the 18-window grid) against the
 // imp-34196 4-point linear extrapolation -- actual pulls monotonically above the line past kEnd~19.5.
@@ -44,53 +45,53 @@ function StitchedIncrementChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
 
       {yTicks.map((v) => (
         <g key={'y' + v}>
-          <line x1={padL - 4} y1={yAt(v)} x2={padL + cW} y2={yAt(v)} stroke="#1e293b" strokeWidth={1} />
-          <text x={padL - 8} y={yAt(v) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+          <line x1={padL - 4} y1={yAt(v)} x2={padL + cW} y2={yAt(v)} stroke={ED.ruleSoft} strokeWidth={1} />
+          <text x={padL - 8} y={yAt(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v.toFixed(2)}
           </text>
         </g>
       ))}
       {xTicks.map((k) => (
         <g key={'x' + k}>
-          <line x1={xAt(k)} y1={padT + cH - 4} x2={xAt(k)} y2={padT + cH + 4} stroke="#334155" strokeWidth={1} />
-          <text x={xAt(k)} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={9}>
+          <line x1={xAt(k)} y1={padT + cH - 4} x2={xAt(k)} y2={padT + cH + 4} stroke={ED.rule} strokeWidth={1} />
+          <text x={xAt(k)} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
             {k.toFixed(2)}
           </text>
         </g>
       ))}
-      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         kEnd (right endpoint of each increment step)
       </text>
       <text
         x={16}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={`rotate(-90 16 ${padT + cH / 2})`}
       >
         fixed-band peak increment
       </text>
 
-      <polyline points={fitPath} fill="none" stroke="#f87171" strokeWidth={1.5} strokeDasharray="6,3" />
-      <text x={xAt(20.4)} y={yAt(IMP34268_LINEAR_FIT.a + IMP34268_LINEAR_FIT.b * 20.4) - 8} fill="#f87171" fontSize={9}>
+      <polyline points={fitPath} fill="none" stroke={ED.series2} strokeWidth={1.5} strokeDasharray="6,3" />
+      <text x={xAt(20.4)} y={yAt(IMP34268_LINEAR_FIT.a + IMP34268_LINEAR_FIT.b * 20.4) - 8} fill={ED.series2} fontSize={9}>
         imp-34196 linear fit (extrapolated)
       </text>
 
-      <polyline points={actualPath} fill="none" stroke="#38bdf8" strokeWidth={2} />
+      <polyline points={actualPath} fill="none" stroke={ED.series1} strokeWidth={2} />
       {IMP34268_INCREMENT_END_KENDS.map((k, i) => (
         <circle
           key={'pt' + k}
           cx={xAt(k)}
           cy={yAt(IMP34268_INCREMENTS[i])}
           r={3.5}
-          fill={k >= 19.75 - 1e-9 ? '#facc15' : '#c4b5fd'}
-          stroke="#0a0f1a"
+          fill={k >= 19.75 - 1e-9 ? ED.brassDeco : '#c4b5fd'}
+          stroke={ED.paper}
           strokeWidth={0.75}
         />
       ))}
@@ -124,42 +125,42 @@ function ResidualChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
 
       {yTicks.map((v) => (
         <g key={'y' + v}>
-          <line x1={padL - 4} y1={yAt(v)} x2={padL + cW} y2={yAt(v)} stroke="#1e293b" strokeWidth={1} />
-          <text x={padL - 8} y={yAt(v) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+          <line x1={padL - 4} y1={yAt(v)} x2={padL + cW} y2={yAt(v)} stroke={ED.ruleSoft} strokeWidth={1} />
+          <text x={padL - 8} y={yAt(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v.toFixed(2)}
           </text>
         </g>
       ))}
       {xTicks.map((k) => (
         <g key={'x' + k}>
-          <line x1={xAt(k)} y1={padT + cH - 4} x2={xAt(k)} y2={padT + cH + 4} stroke="#334155" strokeWidth={1} />
-          <text x={xAt(k)} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={9}>
+          <line x1={xAt(k)} y1={padT + cH - 4} x2={xAt(k)} y2={padT + cH + 4} stroke={ED.rule} strokeWidth={1} />
+          <text x={xAt(k)} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
             {k.toFixed(2)}
           </text>
         </g>
       ))}
-      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         kEnd (right endpoint)
       </text>
       <text
         x={16}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={`rotate(-90 16 ${padT + cH / 2})`}
       >
         residual (actual - linear-predicted)
       </text>
 
-      <polyline points={path} fill="none" stroke="#fb923c" strokeWidth={2} />
+      <polyline points={path} fill="none" stroke={ED.series4} strokeWidth={2} />
       {IMP34268_UNDERPREDICT_ROWS.map((r) => (
-        <circle key={'pt' + r.kEnd} cx={xAt(r.kEnd)} cy={yAt(r.residual)} r={3.5} fill="#fb923c" stroke="#0a0f1a" strokeWidth={0.75} />
+        <circle key={'pt' + r.kEnd} cx={xAt(r.kEnd)} cy={yAt(r.residual)} r={3.5} fill={ED.series4} stroke={ED.paper} strokeWidth={0.75} />
       ))}
     </svg>
   );
@@ -193,49 +194,49 @@ function ThirdDifferenceChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
 
       {yTicks.map((v) => (
         <g key={'y' + v}>
-          <line x1={padL - 4} y1={yAt(v)} x2={padL + cW} y2={yAt(v)} stroke="#1e293b" strokeWidth={1} />
-          <text x={padL - 8} y={yAt(v) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+          <line x1={padL - 4} y1={yAt(v)} x2={padL + cW} y2={yAt(v)} stroke={ED.ruleSoft} strokeWidth={1} />
+          <text x={padL - 8} y={yAt(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v.toFixed(2)}
           </text>
         </g>
       ))}
       {xTicks.map((k) => (
         <g key={'x' + k}>
-          <line x1={xAt(k)} y1={padT + cH - 4} x2={xAt(k)} y2={padT + cH + 4} stroke="#334155" strokeWidth={1} />
-          <text x={xAt(k)} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={9}>
+          <line x1={xAt(k)} y1={padT + cH - 4} x2={xAt(k)} y2={padT + cH + 4} stroke={ED.rule} strokeWidth={1} />
+          <text x={xAt(k)} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
             {k.toFixed(2)}
           </text>
         </g>
       ))}
-      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         kEnd (right endpoint)
       </text>
       <text
         x={16}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={`rotate(-90 16 ${padT + cH / 2})`}
       >
         peak third difference
       </text>
 
-      <line x1={padL} y1={yAt(0)} x2={padL + cW} y2={yAt(0)} stroke="#1e293b" strokeWidth={1} strokeDasharray="3,3" />
-      <polyline points={path} fill="none" stroke="#4ade80" strokeWidth={2} />
+      <line x1={padL} y1={yAt(0)} x2={padL + cW} y2={yAt(0)} stroke={ED.ruleSoft} strokeWidth={1} strokeDasharray="3,3" />
+      <polyline points={path} fill="none" stroke={ED.series3} strokeWidth={2} />
       {IMP34268_POSTMIN_SECOND_DIFF_KENDS.map((k, i) => (
         <circle
           key={'pt' + k}
           cx={xAt(k)}
           cy={yAt(IMP34268_POSTMIN_SECOND_DIFFS[i])}
           r={3.5}
-          fill="#4ade80"
-          stroke="#0a0f1a"
+          fill={ED.series3}
+          stroke={ED.paper}
           strokeWidth={0.75}
         />
       ))}
@@ -248,13 +249,13 @@ export default function Imp34268FixedBandPeakReaccelConvexityStitchViz() {
     <div style={{ padding: '1.5rem', maxWidth: 940, margin: '0 auto' }}>
       <PageHeader title="Fixed-Band Peak Re-Acceleration Convexity Stitch (imp-34268 / imp-34196 / imp-34169)" />
 
-      <p style={{ color: '#64748b', fontSize: '0.8rem', marginBottom: '0.75rem' }}>
-        <Link to="/viz-imp34281-m2-ceiling-cohort-index" style={{ color: '#64748b' }}>
+      <p style={{ color: 'var(--ink-faint)', fontSize: '0.8rem', marginBottom: '0.75rem' }}>
+        <Link to="/viz-imp34281-m2-ceiling-cohort-index" style={{ color: 'var(--ink-faint)' }}>
           &larr; back to the M2-ceiling cohort index
         </Link>
       </p>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 740 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 740 }}>
         imp-34196 fit the post-minimum fixed-band (k&le;10) peak re-acceleration branch as a LINEAR
         increment slope (b &asymp; {IMP34268_LINEAR_FIT.b.toFixed(7)}, R&sup2; &asymp;{' '}
         {IMP34268_LINEAR_FIT.r2.toFixed(5)}) on four windows ending kEnd = 18.75 .. 19.50. imp-34268
@@ -270,18 +271,18 @@ export default function Imp34268FixedBandPeakReaccelConvexityStitchViz() {
         genuinely CONVEX, not linear.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         stitched 0.25-grid increments vs. the imp-34196 linear extrapolation -- actual (blue/gold)
         pulls above the fit (red dashed) past kEnd &asymp; 19.5
       </p>
       <StitchedIncrementChart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
         under-prediction residual (actual &minus; linear-predicted) -- monotone growth over the imp-34169 windows
       </p>
       <ResidualChart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
         increment third differences over the post-minimum branch (kEnd &ge; 19.0) -- strictly positive and rising
       </p>
       <ThirdDifferenceChart />
@@ -295,7 +296,7 @@ export default function Imp34268FixedBandPeakReaccelConvexityStitchViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>kEnd</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>actual increment</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>linear-predicted</th>
@@ -304,11 +305,11 @@ export default function Imp34268FixedBandPeakReaccelConvexityStitchViz() {
         </thead>
         <tbody>
           {IMP34268_UNDERPREDICT_ROWS.map((r) => (
-            <tr key={r.kEnd} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+            <tr key={r.kEnd} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.kEnd.toFixed(2)}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.actual.toFixed(6)}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.predicted.toFixed(6)}</td>
-              <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace', color: '#facc15' }}>
+              <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace', color: 'var(--brass)' }}>
                 +{r.residual.toFixed(6)}
               </td>
             </tr>
@@ -320,14 +321,14 @@ export default function Imp34268FixedBandPeakReaccelConvexityStitchViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-data only, baked
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-data only, baked
         literals reproducing the imp-34268 measurement; no new derivation, no bound changed.
         Descriptive OLS surrogate/fit, NOT a rigorous asymptotic; C_mb GUE-conditional per
         imp-486 UNTOUCHED; imp-3066 K_a&ge;0 untouched; the functional form of the convex
@@ -338,19 +339,19 @@ export default function Imp34268FixedBandPeakReaccelConvexityStitchViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Same fixed-band-peak cohort:</strong> the stitch grid
+        <strong style={{ color: 'var(--ink-soft)' }}>Same fixed-band-peak cohort:</strong> the stitch grid
         runs to kEnd = 21.25, the last computable quarter-rung before the imp-34169 resid_exp
         surrogate pole at k* &asymp; 21.28. Neither imp-34196 (correct within 17.0 .. 19.5) nor
         imp-34169 (correct within 20 .. 21) is overturned by this stitch. Cross-linked here for
         context only; no bound or claim on this page changes. See the{' '}
-        <Link to="/viz-imp34281-m2-ceiling-cohort-index" style={{ color: '#94a3b8' }}>
+        <Link to="/viz-imp34281-m2-ceiling-cohort-index" style={{ color: 'var(--ink-soft)' }}>
           full M2-ceiling cohort index
         </Link>{' '}
         for the other viz surfaces sharing this ceiling.

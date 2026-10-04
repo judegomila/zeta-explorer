@@ -11,6 +11,7 @@ import {
 import { getPrimes } from '../math/primes.js';
 import { ZETA_ZEROS } from '../math/zeta.js';
 import { InlineMath, BlockMath } from './KaTeXMath.jsx';
+import { ED, alpha as TK_ALPHA } from '../styles/tokens.js';
 
 const DEFAULT_PRIMES = getPrimes(6);
 
@@ -30,7 +31,7 @@ function ZeroSnap({ tValue, setTValue }) {
     <span
       style={{
         marginLeft: 6, fontSize: 11, fontFamily: 'var(--font-mono)',
-        color: bestDist < 0.3 ? '#10b981' : '#64748b',
+        color: bestDist < 0.3 ? 'var(--series-3)' : 'var(--ink-faint)',
         cursor: 'pointer', borderBottom: '1px dashed currentColor',
       }}
       title={`Click to snap t to γ${bestIdx + 1} = ${ZETA_ZEROS[bestIdx].toFixed(6)}`}
@@ -125,20 +126,20 @@ function LadderAnatomyTab() {
     const scale = radius / (maxExtent * 1.2);
 
     // Grid circle
-    ctx.strokeStyle = '#1e293b';
+    ctx.strokeStyle = ED.ruleSoft;
     ctx.lineWidth = 0.5;
     ctx.beginPath();
     ctx.arc(cx, cy, radius, 0, Math.PI * 2);
     ctx.stroke();
 
     // Axes
-    ctx.strokeStyle = '#2a3050';
+    ctx.strokeStyle = ED.rule;
     ctx.lineWidth = 0.5;
     ctx.beginPath(); ctx.moveTo(cx - radius, cy); ctx.lineTo(cx + radius, cy); ctx.stroke();
     ctx.beginPath(); ctx.moveTo(cx, cy - radius); ctx.lineTo(cx, cy + radius); ctx.stroke();
 
     // Axis labels
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.font = '9px "JetBrains Mono", monospace';
     ctx.textAlign = 'center';
     ctx.fillText('Re', cx + radius + 12, cy + 3);
@@ -197,7 +198,7 @@ function LadderAnatomyTab() {
     }
 
     // Sum vector (origin to tip)
-    ctx.strokeStyle = '#e2e8f0';
+    ctx.strokeStyle = ED.inkSoft;
     ctx.lineWidth = 2.5;
     ctx.setLineDash([4, 3]);
     ctx.beginPath();
@@ -207,7 +208,7 @@ function LadderAnatomyTab() {
     ctx.setLineDash([]);
 
     // Sum dot
-    ctx.fillStyle = '#e2e8f0';
+    ctx.fillStyle = ED.ink;
     ctx.beginPath();
     ctx.arc(px, py, 4, 0, Math.PI * 2);
     ctx.fill();
@@ -216,20 +217,20 @@ function LadderAnatomyTab() {
     const totalRe = rungs.reduce((s, r) => s + r.re, 0);
     const totalIm = rungs.reduce((s, r) => s + r.im, 0);
     const totalAbs = Math.sqrt(totalRe * totalRe + totalIm * totalIm);
-    ctx.fillStyle = '#e2e8f0';
+    ctx.fillStyle = ED.ink;
     ctx.font = '10px "JetBrains Mono", monospace';
     ctx.textAlign = 'left';
     ctx.fillText(`\u03A3 = ${totalRe.toFixed(3)} ${totalIm >= 0 ? '+' : '\u2212'} ${Math.abs(totalIm).toFixed(3)}i`, px + 8, py - 6);
     ctx.fillText(`|\u03A3| = ${totalAbs.toFixed(4)}`, px + 8, py + 8);
 
     // Title
-    ctx.fillStyle = '#e2e8f0';
+    ctx.fillStyle = ED.ink;
     ctx.font = '12px Inter, sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText(`Phasor Chain (p = ${prime})`, cx, 18);
 
     // ── Amplitude bars ──
-    ctx.fillStyle = '#e2e8f0';
+    ctx.fillStyle = ED.ink;
     ctx.font = '12px Inter, sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText('Rung Amplitudes', barsX + barsW / 2, 18);
@@ -250,7 +251,7 @@ function LadderAnatomyTab() {
       ctx.globalAlpha = 1;
 
       // Label
-      ctx.fillStyle = '#94a3b8';
+      ctx.fillStyle = ED.series8;
       ctx.font = '9px "JetBrains Mono", monospace';
       ctx.textAlign = 'right';
       if (barH >= 10) {
@@ -266,7 +267,7 @@ function LadderAnatomyTab() {
     }
 
     // X-axis label
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = ED.series8;
     ctx.font = '10px Inter, sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText('m (rung index)', barsX + barsW / 2, H - 8);
@@ -297,8 +298,8 @@ function LadderAnatomyTab() {
               <button key={p}
                 style={{
                   padding: '4px 10px', borderRadius: 4, border: 'none', cursor: 'pointer',
-                  background: prime === p ? '#06b6d4' : '#1e293b',
-                  color: prime === p ? '#0a0e1a' : '#94a3b8',
+                  background: prime === p ? 'var(--series-6)' : 'var(--paper-3)',
+                  color: prime === p ? 'var(--paper)' : 'var(--ink-soft)',
                   fontFamily: 'var(--font-mono)', fontSize: 12, fontWeight: prime === p ? 700 : 400,
                 }}
                 onClick={() => setPrime(p)}>
@@ -374,7 +375,7 @@ function PressureTemperatureTab() {
     );
 
     // Unweighted bars
-    ctx.fillStyle = '#e2e8f0';
+    ctx.fillStyle = ED.ink;
     ctx.font = '11px Inter, sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText('Unweighted', pad.l + halfW / 2, pad.t - 8);
@@ -384,12 +385,12 @@ function PressureTemperatureTab() {
       const r = unweightedRungs[i];
       const y = pad.t + i * barH;
       const len = (r.amp / maxAmp) * halfW * 0.9;
-      ctx.fillStyle = '#3b82f6';
+      ctx.fillStyle = ED.series1;
       ctx.globalAlpha = 0.7;
       ctx.fillRect(pad.l, y + 1, len, barH - 2);
       ctx.globalAlpha = 1;
       if (barH >= 10) {
-        ctx.fillStyle = '#64748b';
+        ctx.fillStyle = ED.series8;
         ctx.font = '8px "JetBrains Mono", monospace';
         ctx.textAlign = 'right';
         ctx.fillText(`${i}`, pad.l - 3, y + barH / 2 + 3);
@@ -398,7 +399,7 @@ function PressureTemperatureTab() {
 
     // Weighted bars
     const wX = pad.l + halfW + 20;
-    ctx.fillStyle = '#e2e8f0';
+    ctx.fillStyle = ED.ink;
     ctx.font = '11px Inter, sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText(`Weighted (\u03B2=${beta.toFixed(1)}, P=${P.toFixed(1)})`, wX + halfW / 2, pad.t - 8);
@@ -407,14 +408,14 @@ function PressureTemperatureTab() {
       const r = weightedRungs[i];
       const y = pad.t + i * barH;
       const len = (r.weightedAmp / maxAmp) * halfW * 0.9;
-      ctx.fillStyle = '#10b981';
+      ctx.fillStyle = ED.series3;
       ctx.globalAlpha = 0.7;
       ctx.fillRect(wX, y + 1, Math.max(0, len), barH - 2);
       ctx.globalAlpha = 1;
     }
 
     // ── Bottom: |Z_TL| scan ──
-    ctx.fillStyle = '#e2e8f0';
+    ctx.fillStyle = ED.ink;
     ctx.font = '12px Inter, sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText('|Z_TL(\u00BD+iT; \u03B2, P)| along critical line', W / 2, botY - 8);
@@ -425,7 +426,7 @@ function PressureTemperatureTab() {
     const yScale = v => botY + botH - (v / maxZ) * botH;
 
     // Grid
-    ctx.strokeStyle = '#1e293b';
+    ctx.strokeStyle = ED.ruleSoft;
     ctx.lineWidth = 0.5;
     for (let t = 0; t <= 50; t += 10) {
       ctx.beginPath(); ctx.moveTo(xScale(t), botY); ctx.lineTo(xScale(t), botY + botH); ctx.stroke();
@@ -438,14 +439,14 @@ function PressureTemperatureTab() {
       ctx.setLineDash([3, 3]);
       ctx.beginPath(); ctx.moveTo(pad.l, y); ctx.lineTo(pad.l + chartW, y); ctx.stroke();
       ctx.setLineDash([]);
-      ctx.fillStyle = '#64748b';
+      ctx.fillStyle = ED.series8;
       ctx.font = '8px "JetBrains Mono", monospace';
       ctx.textAlign = 'right';
       ctx.fillText(v.toFixed(1), pad.l - 4, y + 3);
     }
 
     // Scan curve
-    ctx.strokeStyle = '#06b6d4';
+    ctx.strokeStyle = ED.series6;
     ctx.lineWidth = 2;
     ctx.beginPath();
     scanData.forEach((d, i) => {
@@ -456,7 +457,7 @@ function PressureTemperatureTab() {
     ctx.stroke();
 
     // Fill under curve
-    ctx.fillStyle = 'rgba(6, 182, 212, 0.08)';
+    ctx.fillStyle = TK_ALPHA(ED.series6, 0.08);
     ctx.beginPath();
     ctx.moveTo(xScale(0), botY + botH);
     scanData.forEach(d => {
@@ -467,14 +468,14 @@ function PressureTemperatureTab() {
     ctx.fill();
 
     // X-axis labels
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.font = '9px "JetBrains Mono", monospace';
     ctx.textAlign = 'center';
     for (let t = 0; t <= 50; t += 10) {
       ctx.fillText(t.toString(), xScale(t), botY + botH + 14);
     }
 
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = ED.series8;
     ctx.font = '10px Inter, sans-serif';
     ctx.fillText('T = Im(s)', W / 2, H - 6);
 
@@ -482,7 +483,7 @@ function PressureTemperatureTab() {
     ctx.save();
     ctx.translate(14, botY + botH / 2);
     ctx.rotate(-Math.PI / 2);
-    ctx.fillStyle = '#06b6d4';
+    ctx.fillStyle = ED.series6;
     ctx.font = '10px Inter, sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText('|Z_TL|', 0, 0);
@@ -513,8 +514,8 @@ function PressureTemperatureTab() {
               <button key={p}
                 style={{
                   padding: '4px 10px', borderRadius: 4, border: 'none', cursor: 'pointer',
-                  background: prime === p ? '#10b981' : '#1e293b',
-                  color: prime === p ? '#0a0e1a' : '#94a3b8',
+                  background: prime === p ? 'var(--series-3)' : 'var(--paper-3)',
+                  color: prime === p ? 'var(--paper)' : 'var(--ink-soft)',
                   fontFamily: 'var(--font-mono)', fontSize: 12, fontWeight: prime === p ? 700 : 400,
                 }}
                 onClick={() => setPrime(p)}>
@@ -597,7 +598,7 @@ function LadderFreezingTab() {
     const chartW = W - pad.l - pad.r;
 
     // ── Top: Exact vs Proxy ──
-    ctx.fillStyle = '#e2e8f0';
+    ctx.fillStyle = ED.ink;
     ctx.font = '12px Inter, sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText('Exact Ladder vs Gaussian Proxy', W / 2, pad.t - 8);
@@ -607,14 +608,14 @@ function LadderFreezingTab() {
     const yScale = v => pad.t + topH - (v / maxVal) * topH;
 
     // Grid
-    ctx.strokeStyle = '#1e293b';
+    ctx.strokeStyle = ED.ruleSoft;
     ctx.lineWidth = 0.5;
     for (let t = 0; t <= 50; t += 10) {
       ctx.beginPath(); ctx.moveTo(xScale(t), pad.t); ctx.lineTo(xScale(t), pad.t + topH); ctx.stroke();
     }
 
     // Y-axis ticks and gridlines for top chart
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.font = '8px "JetBrains Mono", monospace';
     ctx.textAlign = 'right';
     const yTicks = 5;
@@ -622,7 +623,7 @@ function LadderFreezingTab() {
       const v = (i / yTicks) * maxVal;
       const y = yScale(v);
       ctx.setLineDash([3, 3]);
-      ctx.strokeStyle = '#1e293b';
+      ctx.strokeStyle = ED.ruleSoft;
       ctx.lineWidth = 0.5;
       ctx.beginPath(); ctx.moveTo(pad.l, y); ctx.lineTo(pad.l + chartW, y); ctx.stroke();
       ctx.setLineDash([]);
@@ -633,14 +634,14 @@ function LadderFreezingTab() {
     ctx.save();
     ctx.translate(14, pad.t + topH / 2);
     ctx.rotate(-Math.PI / 2);
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = ED.series8;
     ctx.font = '10px Inter, sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText('|Ladder sum|', 0, 0);
     ctx.restore();
 
     // Exact curve
-    ctx.strokeStyle = '#3b82f6';
+    ctx.strokeStyle = ED.series1;
     ctx.lineWidth = 2;
     ctx.beginPath();
     comparisonData.forEach((d, i) => {
@@ -651,7 +652,7 @@ function LadderFreezingTab() {
     ctx.stroke();
 
     // Proxy curve
-    ctx.strokeStyle = '#f59e0b';
+    ctx.strokeStyle = ED.brassDeco;
     ctx.lineWidth = 2;
     ctx.setLineDash([6, 4]);
     ctx.beginPath();
@@ -667,7 +668,7 @@ function LadderFreezingTab() {
     const legX = pad.l + 8;
     const legY = pad.t + 2;
     ctx.fillStyle = 'rgba(10, 14, 26, 0.85)';
-    ctx.strokeStyle = '#1e293b';
+    ctx.strokeStyle = ED.ruleSoft;
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.roundRect(legX, legY, 180, 34, 4);
@@ -675,26 +676,26 @@ function LadderFreezingTab() {
     ctx.stroke();
 
     // Exact: solid line to match the plot
-    ctx.strokeStyle = '#3b82f6';
+    ctx.strokeStyle = ED.series1;
     ctx.lineWidth = 2;
     ctx.setLineDash([]);
     ctx.beginPath(); ctx.moveTo(legX + 6, legY + 10); ctx.lineTo(legX + 20, legY + 10); ctx.stroke();
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = ED.series8;
     ctx.font = '10px Inter, sans-serif';
     ctx.textAlign = 'left';
     ctx.fillText('Exact', legX + 24, legY + 14);
 
     // Gaussian Proxy: dashed line to match the plot's setLineDash([6, 4])
-    ctx.strokeStyle = '#f59e0b';
+    ctx.strokeStyle = ED.brassDeco;
     ctx.lineWidth = 2;
     ctx.setLineDash([6, 4]);
     ctx.beginPath(); ctx.moveTo(legX + 6, legY + 24); ctx.lineTo(legX + 20, legY + 24); ctx.stroke();
     ctx.setLineDash([]);
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = ED.series8;
     ctx.fillText('Gaussian Proxy', legX + 24, legY + 28);
 
     // X-axis
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.font = '9px "JetBrains Mono", monospace';
     ctx.textAlign = 'center';
     for (let t = 0; t <= 50; t += 10) {
@@ -702,7 +703,7 @@ function LadderFreezingTab() {
     }
 
     // ── Bottom: Error plot ──
-    ctx.fillStyle = '#e2e8f0';
+    ctx.fillStyle = ED.ink;
     ctx.font = '12px Inter, sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText('|Exact - Proxy| Error', W / 2, botY - 8);
@@ -712,20 +713,20 @@ function LadderFreezingTab() {
 
     // Grid
     for (let t = 0; t <= 50; t += 10) {
-      ctx.strokeStyle = '#1e293b';
+      ctx.strokeStyle = ED.ruleSoft;
       ctx.lineWidth = 0.5;
       ctx.beginPath(); ctx.moveTo(xScale(t), botY); ctx.lineTo(xScale(t), botY + botH); ctx.stroke();
     }
 
     // Y-axis ticks and gridlines for error chart
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.font = '8px "JetBrains Mono", monospace';
     ctx.textAlign = 'right';
     for (let i = 0; i <= 4; i++) {
       const v = (i / 4) * maxErr;
       const y = yScaleErr(v);
       ctx.setLineDash([3, 3]);
-      ctx.strokeStyle = '#1e293b';
+      ctx.strokeStyle = ED.ruleSoft;
       ctx.lineWidth = 0.5;
       ctx.beginPath(); ctx.moveTo(pad.l, y); ctx.lineTo(pad.l + chartW, y); ctx.stroke();
       ctx.setLineDash([]);
@@ -736,14 +737,14 @@ function LadderFreezingTab() {
     ctx.save();
     ctx.translate(14, botY + botH / 2);
     ctx.rotate(-Math.PI / 2);
-    ctx.fillStyle = '#ef4444';
+    ctx.fillStyle = ED.series2;
     ctx.font = '10px Inter, sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText('|Error|', 0, 0);
     ctx.restore();
 
     // Error fill
-    ctx.fillStyle = 'rgba(239, 68, 68, 0.1)';
+    ctx.fillStyle = TK_ALPHA(ED.series2, 0.1);
     ctx.beginPath();
     ctx.moveTo(xScale(0.5), botY + botH);
     comparisonData.forEach(d => {
@@ -754,7 +755,7 @@ function LadderFreezingTab() {
     ctx.fill();
 
     // Error curve
-    ctx.strokeStyle = '#ef4444';
+    ctx.strokeStyle = ED.series2;
     ctx.lineWidth = 1.5;
     ctx.beginPath();
     comparisonData.forEach((d, i) => {
@@ -765,19 +766,19 @@ function LadderFreezingTab() {
     ctx.stroke();
 
     // X-axis labels
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.font = '9px "JetBrains Mono", monospace';
     ctx.textAlign = 'center';
     for (let t = 0; t <= 50; t += 10) {
       ctx.fillText(t.toString(), xScale(t), botY + botH + 14);
     }
 
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = ED.series8;
     ctx.font = '10px Inter, sans-serif';
     ctx.fillText('T', W / 2, H - 6);
 
     // Slack index readout
-    const slackColor = slack > 5 ? '#10b981' : slack > 0 ? '#f59e0b' : '#ef4444';
+    const slackColor = slack > 5 ? ED.series3 : slack > 0 ? ED.series4 : ED.series2;
     const slackLabel = slack > 5 ? 'SAFE' : slack > 0 ? 'MODERATE' : 'TIGHT';
     ctx.fillStyle = slackColor;
     ctx.font = '12px "JetBrains Mono", monospace';
@@ -813,8 +814,8 @@ function LadderFreezingTab() {
               <button key={p}
                 style={{
                   padding: '4px 10px', borderRadius: 4, border: 'none', cursor: 'pointer',
-                  background: prime === p ? '#f59e0b' : '#1e293b',
-                  color: prime === p ? '#0a0e1a' : '#94a3b8',
+                  background: prime === p ? 'var(--brass-deco)' : 'var(--paper-3)',
+                  color: prime === p ? 'var(--paper)' : 'var(--ink-soft)',
                   fontFamily: 'var(--font-mono)', fontSize: 12, fontWeight: prime === p ? 700 : 400,
                 }}
                 onClick={() => setPrime(p)}>
@@ -934,13 +935,13 @@ function CollapseTab() {
     const { beta, rungs } = currentFrame;
 
     // Title
-    ctx.fillStyle = '#e2e8f0';
+    ctx.fillStyle = ED.ink;
     ctx.font = '13px Inter, sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText(`Ground-State Collapse (p = ${prime}, \u03B2 = ${beta.toFixed(1)})`, W / 2, 22);
 
     // Description
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = ED.series8;
     ctx.font = '10px Inter, sans-serif';
     ctx.fillText(
       beta < 1 ? 'All rungs active \u2014 delocalized' :
@@ -960,11 +961,11 @@ function CollapseTab() {
       const weightedH = (r.weightedAmp / maxAmp) * chartH * 0.85;
 
       // Ghost bar (full unweighted amplitude)
-      ctx.fillStyle = 'rgba(100, 116, 139, 0.15)';
+      ctx.fillStyle = TK_ALPHA(ED.series8, 0.15);
       ctx.fillRect(x, pad.t + chartH - fullH, barW - 4, fullH);
 
       // Weighted bar
-      const hue = r.weight > 0.5 ? '#10b981' : r.weight > 0.1 ? '#f59e0b' : '#ef4444';
+      const hue = r.weight > 0.5 ? ED.series3 : r.weight > 0.1 ? ED.series4 : ED.series2;
       ctx.fillStyle = hue;
       ctx.globalAlpha = Math.max(0.15, r.weight);
       ctx.fillRect(x, pad.t + chartH - weightedH, barW - 4, weightedH);
@@ -972,7 +973,7 @@ function CollapseTab() {
 
       // Rung label
       if (barW >= 14) {
-        ctx.fillStyle = '#94a3b8';
+        ctx.fillStyle = ED.series8;
         ctx.font = '8px "JetBrains Mono", monospace';
         ctx.textAlign = 'center';
         ctx.fillText(`${i}`, x + (barW - 4) / 2, pad.t + chartH + 12);
@@ -989,7 +990,7 @@ function CollapseTab() {
     }
 
     // X axis
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = ED.series8;
     ctx.font = '10px Inter, sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText('Rung index m', W / 2, H - 8);
@@ -998,7 +999,7 @@ function CollapseTab() {
     ctx.save();
     ctx.translate(14, pad.t + chartH / 2);
     ctx.rotate(-Math.PI / 2);
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = ED.series8;
     ctx.font = '10px Inter, sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText('Weighted amplitude', 0, 0);
@@ -1008,13 +1009,13 @@ function CollapseTab() {
     const legendX = W - pad.r - 170;
     const legendY = pad.t + 6;
     const legendItems = [
-      { color: '#10b981', label: 'Weight > 0.5 (active)' },
-      { color: '#f59e0b', label: 'Weight 0.1–0.5 (fading)' },
-      { color: '#ef4444', label: 'Weight < 0.1 (suppressed)' },
-      { color: 'rgba(100, 116, 139, 0.35)', label: 'Unweighted amplitude' },
+      { color: ED.series3, label: 'Weight > 0.5 (active)' },
+      { color: ED.brass, label: 'Weight 0.1–0.5 (fading)' },
+      { color: ED.series2, label: 'Weight < 0.1 (suppressed)' },
+      { color: TK_ALPHA(ED.inkFaint, 0.35), label: 'Unweighted amplitude' },
     ];
     ctx.fillStyle = 'rgba(10, 14, 26, 0.8)';
-    ctx.strokeStyle = 'rgba(100, 116, 139, 0.3)';
+    ctx.strokeStyle = TK_ALPHA(ED.rule, 0.3);
     ctx.lineWidth = 1;
     const lW = 165, lH = legendItems.length * 18 + 10;
     ctx.fillRect(legendX, legendY, lW, lH);
@@ -1023,7 +1024,7 @@ function CollapseTab() {
       const y = legendY + 16 + i * 18;
       ctx.fillStyle = item.color;
       ctx.fillRect(legendX + 8, y - 8, 12, 10);
-      ctx.fillStyle = '#94a3b8';
+      ctx.fillStyle = ED.series8;
       ctx.font = '9px Inter, sans-serif';
       ctx.textAlign = 'left';
       ctx.fillText(item.label, legendX + 26, y);
@@ -1054,8 +1055,8 @@ function CollapseTab() {
               <button key={p}
                 style={{
                   padding: '4px 10px', borderRadius: 4, border: 'none', cursor: 'pointer',
-                  background: prime === p ? '#ef4444' : '#1e293b',
-                  color: prime === p ? '#fff' : '#94a3b8',
+                  background: prime === p ? 'var(--series-2)' : 'var(--paper-3)',
+                  color: prime === p ? '#fff' : 'var(--ink-soft)',
                   fontFamily: 'var(--font-mono)', fontSize: 12, fontWeight: prime === p ? 700 : 400,
                 }}
                 onClick={() => { setPrime(p); setBetaIdx(0); }}>
@@ -1068,7 +1069,7 @@ function CollapseTab() {
           <button
             style={{
               padding: '6px 16px', borderRadius: 4, border: 'none', cursor: 'pointer',
-              background: playing ? '#ef4444' : '#10b981', color: '#fff',
+              background: playing ? 'var(--series-2)' : 'var(--series-3)', color: '#fff',
               fontFamily: 'var(--font-mono)', fontSize: 12, fontWeight: 600,
             }}
             onClick={() => {
@@ -1080,7 +1081,7 @@ function CollapseTab() {
           <button
             style={{
               padding: '6px 12px', borderRadius: 4, border: 'none', cursor: 'pointer',
-              background: '#1e293b', color: '#94a3b8',
+              background: 'var(--paper-3)', color: 'var(--ink-soft)',
               fontFamily: 'var(--font-mono)', fontSize: 12, marginLeft: 4,
             }}
             onClick={() => { setPlaying(false); setBetaIdx(0); }}>
@@ -1100,7 +1101,7 @@ function CollapseTab() {
             title="Inverse temperature β — scrub manually to see how higher rungs are progressively suppressed"
             onChange={e => { setBetaIdx(+e.target.value); setPlaying(false); }} />
           <span className="control-value" style={{
-            color: currentFrame?.beta < 1 ? '#10b981' : currentFrame?.beta < 10 ? '#f59e0b' : '#ef4444'
+            color: currentFrame?.beta < 1 ? 'var(--series-3)' : currentFrame?.beta < 10 ? 'var(--brass)' : 'var(--series-2)'
           }}>{currentFrame?.beta.toFixed(1)}</span>
         </div>
         <div className="control-group">
@@ -1181,26 +1182,26 @@ function PhaseDiagramTab() {
     }
 
     // Axis labels
-    ctx.fillStyle = '#e2e8f0';
+    ctx.fillStyle = ED.ink;
     ctx.font = '12px Inter, sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText(`Phase Diagram: |Z_TL| at T = ${T.toFixed(1)}`, W / 2, 22);
 
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = ED.series8;
     ctx.font = '10px Inter, sans-serif';
     ctx.fillText('\u03B2 (inverse temperature)', pad.l + chartW / 2, H - 8);
 
     ctx.save();
     ctx.translate(14, pad.t + chartH / 2);
     ctx.rotate(-Math.PI / 2);
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = ED.series8;
     ctx.font = '10px Inter, sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText('P (pressure)', 0, 0);
     ctx.restore();
 
     // X ticks
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.font = '9px "JetBrains Mono", monospace';
     ctx.textAlign = 'center';
     for (let b = 0; b <= 15; b += 3) {
@@ -1245,7 +1246,7 @@ function PhaseDiagramTab() {
       ctx.fillRect(barX, pad.t + i, barW, 1);
     }
 
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = ED.series8;
     ctx.font = '8px "JetBrains Mono", monospace';
     ctx.textAlign = 'left';
     ctx.fillText(maxVal.toFixed(1), barX + barW + 4, pad.t + 8);
@@ -1262,7 +1263,7 @@ function PhaseDiagramTab() {
       ctx.arc(cpx, cpy, 8, 0, Math.PI * 2);
       ctx.stroke();
 
-      ctx.fillStyle = '#e2e8f0';
+      ctx.fillStyle = ED.ink;
       ctx.font = '10px "JetBrains Mono", monospace';
       ctx.textAlign = 'left';
       ctx.fillText(

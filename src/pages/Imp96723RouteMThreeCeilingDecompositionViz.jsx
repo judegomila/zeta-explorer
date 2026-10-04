@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PageHeader from '../components/PageHeader.jsx';
 import {
   IMP96723_BARS,
@@ -6,6 +7,7 @@ import {
   IMP96723_DECOMPOSITION_SUMMARY,
   IMP96723_HONEST_BANNER,
 } from '../data/imp-96723-route-m-three-ceiling-decomposition-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 // Horizontal bar chart on a shared log10(N) axis: three Route M conditioning
 // ceilings (trace-domination rigorous < Frobenius fit < measured), with the
@@ -29,8 +31,8 @@ function CeilingPanel() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
 
       {IMP96723_BARS.map((b, i) => {
         const cy = padT + rowH * (i + 0.5);
@@ -44,7 +46,7 @@ function CeilingPanel() {
               fill={b.color}
               opacity={0.75}
             />
-            <text x={padL - 8} y={cy + 3} textAnchor="end" fill="#94a3b8" fontSize={9.5}>
+            <text x={padL - 8} y={cy + 3} textAnchor="end" fill={ED.inkSoft} fontSize={9.5}>
               {b.symbol} ({b.label})
             </text>
             <text x={xOf(b.log10N) + 6} y={cy + 3} fill={b.color} fontSize={9.5}>
@@ -59,18 +61,18 @@ function CeilingPanel() {
         const toY = padT + rowH * (r.toIdx + 0.5);
         const midY = (fromY + toY) / 2;
         return (
-          <text key={r.key} x={padL - 8} y={midY + 3} textAnchor="end" fill="#facc15" fontSize={8} fontStyle="italic">
+          <text key={r.key} x={padL - 8} y={midY + 3} textAnchor="end" fill={ED.brass} fontSize={8} fontStyle="italic">
             {r.label}: {r.ratio.toFixed(4)}x &darr;
           </text>
         );
       })}
 
       {[minX, (minX + maxX) / 2, maxX].map((v) => (
-        <text key={`x${v}`} x={xOf(v)} y={padT + plotH + 16} textAnchor="middle" fill="#64748b" fontSize={8.5}>
+        <text key={`x${v}`} x={xOf(v)} y={padT + plotH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={8.5}>
           10^{v.toFixed(1)}
         </text>
       ))}
-      <text x={padL + plotW / 2} y={padT + plotH + 32} textAnchor="middle" fill="#94a3b8" fontSize={9}>
+      <text x={padL + plotW / 2} y={padT + plotH + 32} textAnchor="middle" fill={ED.inkSoft} fontSize={9}>
         N (log10 scale)
       </text>
     </svg>
@@ -81,23 +83,24 @@ export default function Imp96723RouteMThreeCeilingDecompositionViz() {
   return (
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Route M Three-Ceiling Decomposition" />
+      <p className="ed-lbl">Related: <Link to="/viz-imp96741-route-m-three-ceiling-decomposition">later run (imp-96741)</Link></p>
 
       <div
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> {IMP96723_HONEST_BANNER}
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> {IMP96723_HONEST_BANNER}
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-96693 audited the pairwise-ratio decomposition of the three Route M lam_max
         conditioning ceilings: the rigorous trace-domination lower ceiling T, the Frobenius
         log-law fit ceiling F, and the imp-96443 measured composed ceiling M. Each bar below is
@@ -106,7 +109,7 @@ export default function Imp96723RouteMThreeCeilingDecompositionViz() {
         total M/T ratio.
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         Three-ceiling ladder, log10(N), with the 1.45x / 1.09x decomposition
       </h3>
       <CeilingPanel />
@@ -115,14 +118,14 @@ export default function Imp96723RouteMThreeCeilingDecompositionViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> the ladder is strictly
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> the ladder is strictly
         ordered ({IMP96723_DECOMPOSITION_SUMMARY.strictlyOrdered ? 'confirmed' : 'NOT confirmed'})
         and the two legs multiply exactly to the total ratio M/T &asymp;{' '}
         {IMP96723_DECOMPOSITION_SUMMARY.totalRatio.toFixed(4)} (decomposition closes:{' '}
@@ -135,14 +138,14 @@ export default function Imp96723RouteMThreeCeilingDecompositionViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page consuming the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the
         imp-96723 viz-data leaf (every bar and ratio reused verbatim from imp-96693).{' '}
         {IMP96723_HONEST_BANNER}
       </div>

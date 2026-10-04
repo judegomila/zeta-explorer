@@ -2,6 +2,7 @@ import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import SurrogateDiagnosticCohortNote from '../components/SurrogateDiagnosticCohortNote.jsx';
 import { IMP34084_APEX_CUBIC_TILT_COEFFICIENT } from '../data/imp-34084-apex-cubic-tilt-coefficient.js';
+import { ED } from '../styles/tokens.js';
 
 const { cubicFit: FIT, oddPartMatch: ODD, wingAsymmetryReconstruction: RECON } =
   IMP34084_APEX_CUBIC_TILT_COEFFICIENT;
@@ -45,40 +46,40 @@ function ReconstructionChart() {
       <polyline
         points={curveTs.map((t) => `${xAt(t)},${yAt(parabola(t))}`).join(' ')}
         fill="none"
-        stroke="#f472b6"
+        stroke={ED.series7}
         strokeWidth={1.75}
         strokeDasharray="5,3"
       />
       <polyline
         points={curveTs.map((t) => `${xAt(t)},${yAt(cubic(t))}`).join(' ')}
         fill="none"
-        stroke="#38bdf8"
+        stroke={ED.series1}
         strokeWidth={1.75}
       />
       {[-probeT, probeT].map((t) => (
         <g key={`probe-${t}`}>
-          <line x1={xAt(t)} y1={padT} x2={xAt(t)} y2={padT + cH} stroke="#334155" strokeWidth={1} strokeDasharray="2,3" />
-          <circle cx={xAt(t)} cy={yAt(parabola(t))} r={4} fill="#f472b6" stroke="#0a0f1a" strokeWidth={1} />
-          <circle cx={xAt(t)} cy={yAt(cubic(t))} r={4} fill="#38bdf8" stroke="#0a0f1a" strokeWidth={1} />
+          <line x1={xAt(t)} y1={padT} x2={xAt(t)} y2={padT + cH} stroke={ED.rule} strokeWidth={1} strokeDasharray="2,3" />
+          <circle cx={xAt(t)} cy={yAt(parabola(t))} r={4} fill={ED.series7} stroke={ED.paper} strokeWidth={1} />
+          <circle cx={xAt(t)} cy={yAt(cubic(t))} r={4} fill={ED.series1} stroke={ED.paper} strokeWidth={1} />
         </g>
       ))}
-      <text x={xAt(0)} y={padT + cH + 20} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={xAt(0)} y={padT + cH + 20} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         t = k - k* (t=0 is the apex)
       </text>
       <text
         x={16}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={`rotate(-90 16 ${padT + cH / 2})`}
       >
         reconstructed resid_exp
       </text>
-      <text x={padL + 4} y={padT + 12} fill="#f472b6" fontSize={9.5}>
+      <text x={padL + 4} y={padT + 12} fill={ED.series7} fontSize={9.5}>
         parabola only (even, imp-33948)
       </text>
-      <text x={padL + 4} y={padT + 26} fill="#38bdf8" fontSize={9.5}>
+      <text x={padL + 4} y={padT + 26} fill={ED.series1} fontSize={9.5}>
         + cubic tilt d~{FIT.cubicCoeffD.toExponential(3)} (odd, imp-34084)
       </text>
     </svg>
@@ -112,21 +113,21 @@ function AsymmetryBarChart() {
         const y0 = padT + i * groupGap;
         return (
           <g key={r.label}>
-            <rect x={padL} y={y0} width={xAt(r.left) - padL} height={barH} fill="#f472b6" />
-            <text x={xAt(r.left) + 6} y={y0 + barH - 5} fill="#f472b6" fontSize={10}>
+            <rect x={padL} y={y0} width={xAt(r.left) - padL} height={barH} fill={ED.series7} />
+            <text x={xAt(r.left) + 6} y={y0 + barH - 5} fill={ED.series7} fontSize={10}>
               left {r.left}%
             </text>
-            <rect x={padL} y={y0 + barH + 4} width={xAt(r.right) - padL} height={barH} fill="#38bdf8" />
-            <text x={xAt(r.right) + 6} y={y0 + 2 * barH - 1} fill="#38bdf8" fontSize={10}>
+            <rect x={padL} y={y0 + barH + 4} width={xAt(r.right) - padL} height={barH} fill={ED.series1} />
+            <text x={xAt(r.right) + 6} y={y0 + 2 * barH - 1} fill={ED.series1} fontSize={10}>
               right {r.right}%
             </text>
-            <text x={padL} y={y0 - 4} fill="#94a3b8" fontSize={10}>
+            <text x={padL} y={y0 - 4} fill={ED.inkSoft} fontSize={10}>
               {r.label}
             </text>
           </g>
         );
       })}
-      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         wing discrepancy at |t|=0.5 (% of apex)
       </text>
     </svg>
@@ -138,7 +139,7 @@ export default function Imp34159CubicTiltWingReconstructionViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Apex Cubic-Tilt Odd-Part Wing-Asymmetry Reconstruction (imp-34084 / imp-34159)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-34008 found the imp-33948 apex parabola tracks the true resid_exp(k) hump asymmetrically
         (left wing departs first, 0.410% vs 0.218% at |t|=0.5) and inferred a nonzero cubic tilt without
         fitting it. imp-34084 fits the full cubic basis on the same 21-point k* &plusmn; {FIT.fitWindow}{' '}
@@ -147,12 +148,12 @@ export default function Imp34159CubicTiltWingReconstructionViz() {
         and curvature ({FIT.residSecondDeriv.toExponential(4)}) untouched by symmetry.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         parabola-only vs cubic-augmented reconstruction near the apex
       </p>
       <ReconstructionChart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.25rem 0 0.25rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.25rem 0 0.25rem' }}>
         imp-34008 left/right wing discrepancy split: quadratic vs cubic-augmented
       </p>
       <AsymmetryBarChart />
@@ -161,14 +162,14 @@ export default function Imp34159CubicTiltWingReconstructionViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> at |t|={ODD.probeOffset} the odd part of
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> at |t|={ODD.probeOffset} the odd part of
         the quadratic residual ({ODD.oddResidAtProbe.toExponential(3)}) is reproduced by the fitted cubic term
         ({ODD.cubicTermAtProbe.toExponential(3)}) to within ~6% (ratio {ODD.ratio}), and including the cubic
         collapses the imp-34008 wing split from {RECON.quadraticSplit.splitPct}% to{' '}

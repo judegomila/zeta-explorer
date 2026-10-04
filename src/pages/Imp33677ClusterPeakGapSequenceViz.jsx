@@ -1,9 +1,10 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP33639_CLUSTER_PEAK_SPACING_PERIODICITY_FIT } from '../data/imp-33639-cluster-peak-spacing-periodicity-fit.js';
+import { ED } from '../styles/tokens.js';
 
-const BAR_COLOR = '#38bdf8';
-const MEAN_COLOR = '#f59e0b';
+const BAR_COLOR = ED.series1;
+const MEAN_COLOR = ED.series4;
 const BAND_COLOR = '#334155';
 
 const { measured } = IMP33639_CLUSTER_PEAK_SPACING_PERIODICITY_FIT;
@@ -32,7 +33,7 @@ function GapChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
       <rect
         x={padL}
@@ -42,7 +43,7 @@ function GapChart() {
         fill={BAND_COLOR}
         opacity={0.35}
       />
-      <text x={padL + cW - 4} y={bandTopY - 4} textAnchor="end" fill="#94a3b8" fontSize={9}>
+      <text x={padL + cW - 4} y={bandTopY - 4} textAnchor="end" fill={ED.inkSoft} fontSize={9}>
         &plusmn;1 sd band (&plusmn;{gapSd.toFixed(1)})
       </text>
 
@@ -77,17 +78,17 @@ function GapChart() {
       {gaps.map((g, i) => {
         const x = padL + i * slot + slot / 2;
         return (
-          <text key={`lbl-${peakNs[i]}`} x={x} y={padT + cH + 14} textAnchor="middle" fill="#64748b" fontSize={8}>
+          <text key={`lbl-${peakNs[i]}`} x={x} y={padT + cH + 14} textAnchor="middle" fill={ED.inkFaint} fontSize={8}>
             {i + 1}
           </text>
         );
       })}
-      <text x={padL + cW / 2} y={padT + cH + 32} textAnchor="middle" fill="#64748b" fontSize={9}>
+      <text x={padL + cW / 2} y={padT + cH + 32} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
         gap index i (gap_i = peakN_i+1 - peakN_i)
       </text>
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
-      <text x={10} y={padT + cH / 2} textAnchor="middle" fill="#64748b" fontSize={10} transform={`rotate(-90,10,${padT + cH / 2})`}>
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
+      <text x={10} y={padT + cH / 2} textAnchor="middle" fill={ED.inkFaint} fontSize={10} transform={`rotate(-90,10,${padT + cH / 2})`}>
         inter-peak gap (rungs)
       </text>
     </svg>
@@ -99,7 +100,7 @@ export default function Imp33677ClusterPeakGapSequenceViz() {
     <div style={{ padding: '1.5rem', maxWidth: 980, margin: '0 auto' }}>
       <PageHeader title="Cluster-Peak Gap Sequence, n in [400,900] (imp-33639)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 820 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 820 }}>
         imp-33639 fit the combined imp-33599 + imp-33621 nine band-clearing cluster peaks (n ~
         {peakNs.join(', ')}) to candidate spacing models and found the eight inter-peak gaps [{gaps.join(', ')}]
         scatter from {measured.gapMin} to {measured.gapMax} rungs (mean ~{gapMean.toFixed(1)}, sd ~
@@ -107,7 +108,7 @@ export default function Imp33677ClusterPeakGapSequenceViz() {
         This chart renders that eight-gap sequence directly, with the mean and the &plusmn;1 sd band overlaid.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         eight inter-peak gaps (rungs), [{gaps.join(', ')}]
       </p>
       <GapChart />
@@ -116,14 +117,14 @@ export default function Imp33677ClusterPeakGapSequenceViz() {
         style={{
           marginTop: '1rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> four of the eight bars (65, 75, 53, 50)
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> four of the eight bars (65, 75, 53, 50)
         sit above the mean and outside the &plusmn;1 sd band on the high side, while two (26, 19, 17) fall well
         below it -- a &gt; 4x spread (min {measured.gapMin}, max {measured.gapMax}) with no visible periodic
         pattern, consistent with the imp-33639 CV ~{measured.gapCV.toFixed(2)} dispersion reading.
@@ -133,14 +134,14 @@ export default function Imp33677ClusterPeakGapSequenceViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> accuracy/rule-design measurement only. The
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> accuracy/rule-design measurement only. The
         floorUlp(n) band-clearing lattice is jitter-driven (latticeJitterCaveat), so the exact gap values may
         shift under a different platform libm; the robust reading is the qualitative irregular-spacing verdict,
         not the exact numbers. It changes no bound and patches no literal. Mass-feasibility is

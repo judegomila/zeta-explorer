@@ -28,6 +28,7 @@ import { VIZ_TWIN_LADDER_TOMOGRAPHY } from '../data/viz-twin-ladder-tomography.j
 import { zetaCriticalStrip } from '../math/zeta.js';
 import FreshnessStamp from '../components/FreshnessStamp.jsx';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
+import { ED as TK_ED, alpha } from '../styles/tokens.js';
 
 // ---------------------------------------------------------------------------
 // Geometry / compute parameters (must match the data-module record).
@@ -113,32 +114,32 @@ function tToDisplayY(t, tMax) {
 // ---------------------------------------------------------------------------
 
 const ED = {
-  subtitle: { color: '#877b67', fontSize: 14, marginBottom: 4, lineHeight: 1.6 },
-  code: { color: '#8c6a1d' },
+  subtitle: { color: TK_ED.inkFaint, fontSize: 14, marginBottom: 4, lineHeight: 1.6 },
+  code: { color: TK_ED.brass },
   panel: {
     marginTop: 18, padding: 14,
-    background: '#f6f1e7', border: '1px solid #d5c9b2', borderRadius: 8,
+    background: TK_ED.paper2, border: '1px solid var(--rule)', borderRadius: 8,
   },
-  label: { fontFamily: 'var(--ed-mono, var(--font-mono))', fontSize: 11, color: '#4a4238', marginBottom: 6 },
+  label: { fontFamily: 'var(--ed-mono, var(--font-mono))', fontSize: 11, color: TK_ED.inkSoft, marginBottom: 6 },
   btn: (sel) => ({
     padding: '6px 14px',
     borderRadius: 6,
     fontFamily: 'var(--ed-mono, var(--font-mono))',
     fontSize: 12,
     cursor: 'pointer',
-    background: sel ? 'rgba(140,106,29,0.14)' : 'rgba(28,24,20,0.03)',
-    color: sel ? '#8c6a1d' : '#4a4238',
-    border: '1px solid ' + (sel ? '#8c6a1d' : '#d5c9b2'),
+    background: sel ? alpha(TK_ED.brass, 0.14) : alpha(TK_ED.ink, 0.03),
+    color: sel ? TK_ED.brass : TK_ED.inkSoft,
+    border: '1px solid ' + (sel ? TK_ED.brass : TK_ED.rule),
   }),
   checkboxLabel: {
     display: 'flex', alignItems: 'center', gap: 8,
-    fontFamily: 'var(--ed-mono, var(--font-mono))', fontSize: 12, color: '#4a4238', cursor: 'pointer',
+    fontFamily: 'var(--ed-mono, var(--font-mono))', fontSize: 12, color: TK_ED.inkSoft, cursor: 'pointer',
   },
-  statusMono: { fontFamily: 'var(--ed-mono, var(--font-mono))', fontSize: 11, color: '#877b67' },
-  axisLabel: { fontFamily: 'var(--ed-mono, var(--font-mono))', fontSize: 10, color: '#877b67' },
-  cardTitleA: { color: '#8c6a1d' },
-  cardTitleB: { color: '#3f6b86' },
-  cardBody: { fontSize: 13, color: '#4a4238', lineHeight: 1.6 },
+  statusMono: { fontFamily: 'var(--ed-mono, var(--font-mono))', fontSize: 11, color: TK_ED.inkFaint },
+  axisLabel: { fontFamily: 'var(--ed-mono, var(--font-mono))', fontSize: 10, color: TK_ED.inkFaint },
+  cardTitleA: { color: TK_ED.brass },
+  cardTitleB: { color: TK_ED.series1 },
+  cardBody: { fontSize: 13, color: TK_ED.inkSoft, lineHeight: 1.6 },
 };
 
 // ---------------------------------------------------------------------------
@@ -299,7 +300,7 @@ export default function VizTwinLadderTomographyPage() {
 
     if (showZerosOverlay) {
       const zeros = VIZ_TWIN_LADDER_TOMOGRAPHY.knownZerosOverlay.values;
-      ctx.fillStyle = '#ef4444';
+      ctx.fillStyle = TK_ED.series2;
       ctx.strokeStyle = 'rgba(255,255,255,0.55)';
       ctx.lineWidth = 0.75;
       for (const gamma of zeros) {
@@ -428,15 +429,15 @@ export default function VizTwinLadderTomographyPage() {
             <span>computing... {Math.round(progress * 100)}%</span>
           ) : hoverInfo ? (
             <span>
-              <strong style={{ color: '#8c6a1d' }}>sigma</strong> = {hoverInfo.sigma.toFixed(3)}
-              {' '}&middot; <strong style={{ color: '#8c6a1d' }}>t</strong> = {hoverInfo.t.toFixed(3)}
-              {' '}&middot; <strong style={{ color: '#8c6a1d' }}>P</strong> = {hoverInfo.p.toExponential(3)}
+              <strong style={{ color: 'var(--brass)' }}>sigma</strong> = {hoverInfo.sigma.toFixed(3)}
+              {' '}&middot; <strong style={{ color: 'var(--brass)' }}>t</strong> = {hoverInfo.t.toFixed(3)}
+              {' '}&middot; <strong style={{ color: 'var(--brass)' }}>P</strong> = {hoverInfo.p.toExponential(3)}
             </span>
           ) : (
             <span>
-              compute: <strong style={{ color: '#4c7a4a' }}>{computeMs != null ? (computeMs / 1000).toFixed(1) : '-'} s</strong>
-              {' '}&middot; min P = <strong style={{ color: '#4c7a4a' }}>{vMin != null ? vMin.toExponential(2) : '-'}</strong>
-              {' '}&middot; max P = <strong style={{ color: '#4c7a4a' }}>{vMax != null ? vMax.toFixed(2) : '-'}</strong>
+              compute: <strong style={{ color: 'var(--series-3)' }}>{computeMs != null ? (computeMs / 1000).toFixed(1) : '-'} s</strong>
+              {' '}&middot; min P = <strong style={{ color: 'var(--series-3)' }}>{vMin != null ? vMin.toExponential(2) : '-'}</strong>
+              {' '}&middot; max P = <strong style={{ color: 'var(--series-3)' }}>{vMax != null ? vMax.toFixed(2) : '-'}</strong>
             </span>
           )}
         </div>
@@ -475,8 +476,8 @@ export default function VizTwinLadderTomographyPage() {
               height: CANVAS_DISPLAY,
               imageRendering: 'pixelated',
               display: 'block',
-              background: '#0f172a',
-              border: '1px solid #334155',
+              background: 'var(--paper-2)',
+              border: '1px solid var(--rule)',
             }}
           />
           <canvas
@@ -497,13 +498,13 @@ export default function VizTwinLadderTomographyPage() {
             width: 18, height: CANVAS_DISPLAY,
             background: 'linear-gradient(to top, '
               + '#440154, #482878, #3e4989, #31688e, #26828e, '
-              + '#1f9e89, #35b779, #6ece58, #b5de2b, #fde725)',
-            border: '1px solid #d5c9b2',
+              + '#1f9e89, var(--series-3), #6ece58, #b5de2b, #fde725)',
+            border: '1px solid var(--rule)',
           }} />
           <div style={{ marginTop: 8, ...ED.axisLabel }}>
             log(1 + P)
           </div>
-          <div style={{ marginTop: 4, fontFamily: 'var(--ed-mono, var(--font-mono))', fontSize: 9, color: '#877b67' }}>
+          <div style={{ marginTop: 4, fontFamily: 'var(--ed-mono, var(--font-mono))', fontSize: 9, color: 'var(--ink-faint)' }}>
             (viridis)
           </div>
         </div>
@@ -520,7 +521,7 @@ export default function VizTwinLadderTomographyPage() {
             <div key={'xt-' + sv} style={{
               position: 'absolute',
               left: x - 18, top: 4, width: 36, textAlign: 'center',
-              color: Math.abs(sv - 0.5) < 1e-9 ? '#c23a1c' : '#877b67',
+              color: Math.abs(sv - 0.5) < 1e-9 ? 'var(--accent)' : 'var(--ink-faint)',
               fontWeight: Math.abs(sv - 0.5) < 1e-9 ? 700 : 400,
             }}>
               {Math.abs(sv - 0.5) < 1e-9 ? 'sigma=1/2' : 'sigma=' + sv}
@@ -536,10 +537,10 @@ export default function VizTwinLadderTomographyPage() {
         </div>
         <table style={{
           width: '100%', fontFamily: 'var(--ed-mono, var(--font-mono))', fontSize: 11,
-          color: '#4a4238', borderCollapse: 'collapse',
+          color: 'var(--ink-soft)', borderCollapse: 'collapse',
         }}>
           <thead>
-            <tr style={{ borderBottom: '1px solid #d5c9b2' }}>
+            <tr style={{ borderBottom: '1px solid var(--rule)' }}>
               <th style={{ textAlign: 'left',  padding: '6px 8px' }}>sample</th>
               <th style={{ textAlign: 'right', padding: '6px 8px' }}>sigma</th>
               <th style={{ textAlign: 'right', padding: '6px 8px' }}>t</th>
@@ -550,15 +551,15 @@ export default function VizTwinLadderTomographyPage() {
           </thead>
           <tbody>
             {VIZ_TWIN_LADDER_TOMOGRAPHY.headlineSamples.map((r, i) => (
-              <tr key={'hs-' + i} style={{ borderBottom: '1px solid rgba(213,201,178,0.5)' }}>
-                <td style={{ padding: '6px 8px', color: '#8c6a1d' }}>{r.label}</td>
+              <tr key={'hs-' + i} style={{ borderBottom: '1px solid color-mix(in srgb, var(--rule) 50%, transparent)' }}>
+                <td style={{ padding: '6px 8px', color: 'var(--brass)' }}>{r.label}</td>
                 <td style={{ padding: '6px 8px', textAlign: 'right' }}>{r.sigma.toFixed(3)}</td>
                 <td style={{ padding: '6px 8px', textAlign: 'right' }}>{r.t.toFixed(4)}</td>
                 <td style={{ padding: '6px 8px', textAlign: 'right' }}>{r.absZetaSigma.toExponential(3)}</td>
                 <td style={{ padding: '6px 8px', textAlign: 'right' }}>{r.absZeta1MinusSigma.toExponential(3)}</td>
                 <td style={{
                   padding: '6px 8px', textAlign: 'right',
-                  color: r.product < 1e-6 ? '#4c7a4a' : '#4a4238',
+                  color: r.product < 1e-6 ? 'var(--series-3)' : 'var(--ink-soft)',
                   fontWeight: r.product < 1e-6 ? 700 : 400,
                 }}>{r.product.toExponential(3)}</td>
               </tr>
@@ -609,7 +610,7 @@ export default function VizTwinLadderTomographyPage() {
         </div>
         <ul style={{
           margin: 0, paddingLeft: 18,
-          fontFamily: 'var(--ed-mono, var(--font-mono))', fontSize: 10, color: '#877b67', lineHeight: 1.7,
+          fontFamily: 'var(--ed-mono, var(--font-mono))', fontSize: 10, color: 'var(--ink-faint)', lineHeight: 1.7,
         }}>
           {VIZ_TWIN_LADDER_TOMOGRAPHY.references.map((r) => (
             <li key={r.key}>{r.citation}</li>
@@ -617,7 +618,7 @@ export default function VizTwinLadderTomographyPage() {
         </ul>
         <div style={{
           marginTop: 12, fontFamily: 'var(--ed-mono, var(--font-mono))', fontSize: 10,
-          color: '#877b67', lineHeight: 1.6,
+          color: 'var(--ink-faint)', lineHeight: 1.6,
         }}>
           Scope: this page is a visualization scaffold, not a proof.
           The interference-minimum reading is a qualitative consequence of the
@@ -629,7 +630,7 @@ export default function VizTwinLadderTomographyPage() {
       {/* Footer. */}
       <div className="card" style={{ ...ED.panel, marginTop: 24 }}>
         <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap', alignItems: 'center' }}>
-          <Link to="/" style={{ fontSize: 12, color: '#4a4238', textDecoration: 'none' }}>
+          <Link to="/" style={{ fontSize: 12, color: 'var(--ink-soft)', textDecoration: 'none' }}>
             &larr; the atlas
           </Link>
         </div>

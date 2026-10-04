@@ -7,9 +7,10 @@ import {
   IMP3374_DEG0_SPECTRAL_OVERFLOW,
   IMP3374_BARE_CROSSOVER_FRACTION,
 } from '../data/imp-3374-overflow-degree-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
-const MEASURED_COLOR = '#38bdf8';
-const REF_COLOR = '#f59e0b';
+const MEASURED_COLOR = ED.series1;
+const REF_COLOR = ED.series4;
 
 function OverflowVsDegreeChart() {
   const svgW = 620;
@@ -34,12 +35,12 @@ function OverflowVsDegreeChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
       {[0, 0.5, 1, 1.5, 2].map((d) => (
         <g key={d}>
-          <line x1={xS(d)} y1={padT} x2={xS(d)} y2={padT + cH} stroke="#1e293b" strokeWidth={0.7} />
-          <text x={xS(d)} y={padT + cH + 15} textAnchor="middle" fill="#64748b" fontSize={9}>
+          <line x1={xS(d)} y1={padT} x2={xS(d)} y2={padT + cH} stroke={ED.ruleSoft} strokeWidth={0.7} />
+          <text x={xS(d)} y={padT + cH + 15} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
             {d}
           </text>
         </g>
@@ -47,8 +48,8 @@ function OverflowVsDegreeChart() {
 
       {[0, 0.2, 0.4, 0.6, 0.8].map((f) => (
         <g key={f}>
-          <line x1={padL} y1={yS(f)} x2={padL + cW} y2={yS(f)} stroke="#1e293b" strokeWidth={0.5} />
-          <text x={padL - 8} y={yS(f) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+          <line x1={padL} y1={yS(f)} x2={padL + cW} y2={yS(f)} stroke={ED.ruleSoft} strokeWidth={0.5} />
+          <text x={padL - 8} y={yS(f) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {f.toFixed(1)}
           </text>
         </g>
@@ -73,12 +74,12 @@ function OverflowVsDegreeChart() {
         <circle key={p.degree} cx={xS(p.degree)} cy={yS(p.fraction)} r={4.5} fill={MEASURED_COLOR} stroke="#052e1f" strokeWidth={1} />
       ))}
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
 
-      <text x={padL + cW / 2} y={padT + cH + 32} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={padT + cH + 32} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         completion degree (2 = absolute occupation, 0 = scale-invariant spectral)
       </text>
-      <text x={14} y={padT + cH / 2} textAnchor="middle" fill="#64748b" fontSize={10} transform={`rotate(-90,14,${padT + cH / 2})`}>
+      <text x={14} y={padT + cH / 2} textAnchor="middle" fill={ED.inkFaint} fontSize={10} transform={`rotate(-90,14,${padT + cH / 2})`}>
         overflow-support fraction of tau
       </text>
     </svg>
@@ -87,9 +88,9 @@ function OverflowVsDegreeChart() {
 
 function DegreeTable() {
   return (
-    <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.8rem', color: '#94a3b8' }}>
+    <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.8rem', color: 'var(--ink-soft)' }}>
       <thead>
-        <tr style={{ borderBottom: '1px solid #334155' }}>
+        <tr style={{ borderBottom: '1px solid var(--rule)' }}>
           <th style={{ textAlign: 'left', padding: '0.35rem 0.5rem' }}>completion degree</th>
           <th style={{ textAlign: 'right', padding: '0.35rem 0.5rem' }}>overflow fraction of tau</th>
           <th style={{ textAlign: 'left', padding: '0.35rem 0.5rem' }}>what it is</th>
@@ -97,7 +98,7 @@ function DegreeTable() {
       </thead>
       <tbody>
         {[...IMP3374_DEGREE_POINTS].sort((a, b) => b.degree - a.degree).map((p) => (
-          <tr key={p.degree} style={{ borderBottom: '1px solid #1e293b' }}>
+          <tr key={p.degree} style={{ borderBottom: '1px solid var(--rule-soft)' }}>
             <td style={{ padding: '0.35rem 0.5rem' }}>{p.degree}</td>
             <td style={{ textAlign: 'right', padding: '0.35rem 0.5rem', color: MEASURED_COLOR }}>{p.fraction.toFixed(4)}</td>
             <td style={{ padding: '0.35rem 0.5rem' }}>{p.label}</td>
@@ -120,7 +121,7 @@ export default function Imp3374OverflowDegreeViz() {
     <div style={{ padding: '1.5rem', maxWidth: 940, margin: '0 auto' }}>
       <PageHeader title="Section-26 Overflow-Support Fraction vs Completion Degree (imp-3253)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
         imp-3253 reconciled the two section-26 overflow numbers a reader meets side by side: the
         degree-2 (absolute occupation measure) overflow-support fraction ~{IMP3374_DEG2_OVERFLOW.toFixed(3)} of
         tau, and the degree-0 (scale-invariant normalized-spectral, RH-equivalent) overflow
@@ -128,12 +129,12 @@ export default function Imp3374OverflowDegreeViz() {
         overflow phenomenon measured under two different completion degrees, not distinct objects.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         Overflow-support fraction rising as completion degree falls from 2 to 0
       </p>
       <OverflowVsDegreeChart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.75rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.75rem 0 0.5rem' }}>
         The two reconciled anchor points, plus the geometric reference
       </p>
       <DegreeTable />
@@ -142,14 +143,14 @@ export default function Imp3374OverflowDegreeViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> the dashed blue segment
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> the dashed blue segment
         connects the two ACTUAL reconciled anchors -- degree-2 absolute occupation
         (~{IMP3374_DEG2_OVERFLOW.toFixed(3)}) and degree-0 scale-invariant spectral
         (~{IMP3374_DEG0_SPECTRAL_OVERFLOW.toFixed(2)}) -- to show the monotone RISE imp-3253
@@ -163,14 +164,14 @@ export default function Imp3374OverflowDegreeViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation only -- this
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> presentation only -- this
         visualizes the imp-3253 reconciliation of two already-established overflow fractions. It
         establishes NO operator positivity and does not itself re-derive the degree-0 ~64% (that
         gap is a named imp-3253 sub-gap). RH-equivalent, necessary-but-not-sufficient. The

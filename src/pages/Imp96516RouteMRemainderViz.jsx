@@ -7,6 +7,7 @@ import {
   IMP96516_RMS_BARS,
   IMP96516_HONEST_BANNER,
 } from '../data/imp-96516-route-m-remainder-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 function LadderChart() {
   const svgW = 720;
@@ -36,38 +37,38 @@ function LadderChart() {
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
       {yTicks.map((v) => (
         <g key={`y${v}`}>
-          <line x1={padL} y1={yOf(v)} x2={padL + plotW} y2={yOf(v)} stroke="#334155" strokeWidth={0.5} opacity={0.4} />
-          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={8.5}>{v.toFixed(2)}</text>
+          <line x1={padL} y1={yOf(v)} x2={padL + plotW} y2={yOf(v)} stroke={ED.rule} strokeWidth={0.5} opacity={0.4} />
+          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8.5}>{v.toFixed(2)}</text>
         </g>
       ))}
       {xTicks.map((v) => (
-        <text key={`x${v}`} x={xOf(v)} y={padT + plotH + 14} textAnchor="middle" fill="#64748b" fontSize={8.5}>
+        <text key={`x${v}`} x={xOf(v)} y={padT + plotH + 14} textAnchor="middle" fill={ED.inkFaint} fontSize={8.5}>
           {v}
         </text>
       ))}
 
       {/* RH asymptote line at ratio = 1 */}
-      <line x1={padL} y1={yOf(1)} x2={padL + plotW} y2={yOf(1)} stroke="#4ade80" strokeWidth={1.25} strokeDasharray="4 3" opacity={0.85} />
-      <text x={padL + plotW - 4} y={yOf(1) - 4} textAnchor="end" fill="#4ade80" fontSize={8.5}>RH asymptote (ratio -&gt; 1)</text>
+      <line x1={padL} y1={yOf(1)} x2={padL + plotW} y2={yOf(1)} stroke={ED.series3} strokeWidth={1.25} strokeDasharray="4 3" opacity={0.85} />
+      <text x={padL + plotW - 4} y={yOf(1) - 4} textAnchor="end" fill={ED.series3} fontSize={8.5}>RH asymptote (ratio -&gt; 1)</text>
 
       {/* fitted plateau centerline */}
-      <line x1={padL} y1={yOf(IMP96516_PLATEAU_LINE.c0)} x2={padL + plotW} y2={yOf(IMP96516_PLATEAU_LINE.c0)} stroke="#fb923c" strokeWidth={1.25} strokeDasharray="2 2" opacity={0.85} />
-      <text x={padL + 4} y={yOf(IMP96516_PLATEAU_LINE.c0) + 12} fill="#fb923c" fontSize={8.5}>fitted plateau c0~{IMP96516_PLATEAU_LINE.c0.toFixed(4)}</text>
+      <line x1={padL} y1={yOf(IMP96516_PLATEAU_LINE.c0)} x2={padL + plotW} y2={yOf(IMP96516_PLATEAU_LINE.c0)} stroke={ED.series4} strokeWidth={1.25} strokeDasharray="2 2" opacity={0.85} />
+      <text x={padL + 4} y={yOf(IMP96516_PLATEAU_LINE.c0) + 12} fill={ED.series4} fontSize={8.5}>fitted plateau c0~{IMP96516_PLATEAU_LINE.c0.toFixed(4)}</text>
 
       {/* smooth decaying-oscillation fit */}
-      <path d={fitD} fill="none" stroke="#a78bfa" strokeWidth={1.25} opacity={0.8} />
+      <path d={fitD} fill="none" stroke={ED.series5} strokeWidth={1.25} opacity={0.8} />
 
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
 
       {IMP96516_LADDER_POINTS.map((p) => (
-        <circle key={`pt-${p.N}`} cx={xOf(p.N)} cy={yOf(p.ratio)} r={3.2} fill="#38bdf8" />
+        <circle key={`pt-${p.N}`} cx={xOf(p.N)} cy={yOf(p.ratio)} r={3.2} fill={ED.series1} />
       ))}
 
-      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={9.5}>
+      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5}>
         N (log scale, 250 .. 10000)
       </text>
-      <text x={14} y={padT + plotH / 2} textAnchor="middle" fill="#64748b" fontSize={9.5} transform={`rotate(-90 14 ${padT + plotH / 2})`}>
+      <text x={14} y={padT + plotH / 2} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5} transform={`rotate(-90 14 ${padT + plotH / 2})`}>
         ratio(N)
       </text>
     </svg>
@@ -95,12 +96,12 @@ function RmsBarChart() {
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
       {yTicks.map((v) => (
         <g key={`y${v}`}>
-          <line x1={padL} y1={yOf(v)} x2={padL + plotW} y2={yOf(v)} stroke="#334155" strokeWidth={0.5} opacity={0.4} />
-          <text x={padL - 6} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={8}>{v.toFixed(3)}</text>
+          <line x1={padL} y1={yOf(v)} x2={padL + plotW} y2={yOf(v)} stroke={ED.rule} strokeWidth={0.5} opacity={0.4} />
+          <text x={padL - 6} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8}>{v.toFixed(3)}</text>
         </g>
       ))}
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
 
       {IMP96516_RMS_BARS.map((b, i) => {
         const cx = padL + (i + 0.5) * groupW;
@@ -108,18 +109,18 @@ function RmsBarChart() {
         const forcedH = plotH - (yOf(b.rmsForcedOne) - padT);
         return (
           <g key={`p${b.p}`}>
-            <rect x={cx - barW - 2} y={yOf(b.rmsFreeC0)} width={barW} height={freeH} fill="#38bdf8" />
-            <rect x={cx + 2} y={yOf(b.rmsForcedOne)} width={barW} height={forcedH} fill="#f87171" />
-            <text x={cx} y={padT + plotH + 14} textAnchor="middle" fill="#94a3b8" fontSize={9}>p={b.p}</text>
-            <text x={cx} y={padT + plotH + 26} textAnchor="middle" fill="#64748b" fontSize={8}>{b.rmsRatio.toFixed(2)}x</text>
+            <rect x={cx - barW - 2} y={yOf(b.rmsFreeC0)} width={barW} height={freeH} fill={ED.series1} />
+            <rect x={cx + 2} y={yOf(b.rmsForcedOne)} width={barW} height={forcedH} fill={ED.series2} />
+            <text x={cx} y={padT + plotH + 14} textAnchor="middle" fill={ED.inkSoft} fontSize={9}>p={b.p}</text>
+            <text x={cx} y={padT + plotH + 26} textAnchor="middle" fill={ED.inkFaint} fontSize={8}>{b.rmsRatio.toFixed(2)}x</text>
           </g>
         );
       })}
 
-      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={9.5}>
+      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5}>
         decay exponent p (label: forced/free rms ratio)
       </text>
-      <text x={12} y={padT + plotH / 2} textAnchor="middle" fill="#64748b" fontSize={9.5} transform={`rotate(-90 12 ${padT + plotH / 2})`}>
+      <text x={12} y={padT + plotH / 2} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5} transform={`rotate(-90 12 ${padT + plotH / 2})`}>
         rms
       </text>
     </svg>
@@ -135,18 +136,18 @@ export default function Imp96516RouteMRemainderViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 760,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> {IMP96516_HONEST_BANNER}
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> {IMP96516_HONEST_BANNER}
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
         imp-96487 fit a 21-rung Route M Burnol-ratio ladder (N=250..10000) to a
         decaying-oscillation remainder model. The best fit (purple curve) extrapolates
         a plateau centerline c0~0.9846 (orange dashed line), sitting below the RH
@@ -155,32 +156,32 @@ export default function Imp96516RouteMRemainderViz() {
         the bar chart below.
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         21-rung ratio(N) ladder with fitted plateau (log-N x-axis)
       </h3>
       <LadderChart />
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', margin: '1.5rem 0 0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', margin: '1.5rem 0 0.5rem' }}>
         rms: free plateau vs forced ratio-&gt;1, per decay exponent p
       </h3>
       <RmsBarChart />
-      <div style={{ marginTop: '0.5rem', display: 'flex', gap: '1.25rem', fontSize: '0.8rem', color: '#94a3b8' }}>
-        <span><span style={{ display: 'inline-block', width: 9, height: 9, background: '#38bdf8', marginRight: 6 }} />free plateau (best fit)</span>
-        <span><span style={{ display: 'inline-block', width: 9, height: 9, background: '#f87171', marginRight: 6 }} />forced c0 = 1 (RH asymptote)</span>
+      <div style={{ marginTop: '0.5rem', display: 'flex', gap: '1.25rem', fontSize: '0.8rem', color: 'var(--ink-soft)' }}>
+        <span><span style={{ display: 'inline-block', width: 9, height: 9, background: 'var(--series-1)', marginRight: 6 }} />free plateau (best fit)</span>
+        <span><span style={{ display: 'inline-block', width: 9, height: 9, background: 'var(--series-2)', marginRight: 6 }} />forced c0 = 1 (RH asymptote)</span>
       </div>
 
       <div
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> the top panel
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> the top panel
         shows the 21 measured rungs (blue points) tracking the fitted decaying-oscillation
         curve closely, oscillating about the plateau rather than drifting toward the
         RH line. The bottom panel shows that at every decay exponent p in {'{0,1,2}'}
@@ -193,14 +194,14 @@ export default function Imp96516RouteMRemainderViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page consuming
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming
         the imp-96487 baked ladder and fitted-model objects verbatim (the only new step
         is sampling the fixed fitted curve at a dense grid for a smooth plot line). The
         3.689-wide log-N window (~2.26 oscillation periods) leaves the true asymptote

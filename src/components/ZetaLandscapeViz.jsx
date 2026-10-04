@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState, useCallback, useMemo } from 'react';
 import { InlineMath, BlockMath } from './KaTeXMath.jsx';
 import { riemannSiegelZ, ZETA_ZEROS, zetaCriticalStrip, cAbs } from '../math/zeta.js';
+import { ED, alpha as TK_ALPHA } from '../styles/tokens.js';
 
 // Binary search for nearest value in sorted ZETA_ZEROS array — O(log n) instead of O(n)
 function nearestZetaZero(target) {
@@ -119,13 +120,13 @@ export default function ZetaLandscapeViz() {
     for (let t = Math.ceil(tMin); t <= tMax; t += 5) {
       const x = ((t - tMin) / (tMax - tMin)) * dw;
       ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, dh); ctx.stroke();
-      ctx.fillStyle = '#64748b';
+      ctx.fillStyle = ED.series8;
       ctx.font = '10px sans-serif';
       ctx.fillText(`t=${t}`, x + 2, dh - 4);
     }
 
     // Zero line
-    ctx.strokeStyle = '#2a3050';
+    ctx.strokeStyle = ED.rule;
     ctx.lineWidth = 1;
     ctx.beginPath(); ctx.moveTo(0, yMid); ctx.lineTo(dw, yMid); ctx.stroke();
 
@@ -149,7 +150,7 @@ export default function ZetaLandscapeViz() {
 
       // Fill area
       ctx.globalAlpha = 0.08;
-      ctx.fillStyle = val >= 0 ? '#3b82f6' : '#f59e0b';
+      ctx.fillStyle = val >= 0 ? ED.series1 : ED.series4;
       ctx.beginPath();
       ctx.moveTo(x0, yMid);
       ctx.lineTo(x0, y0);
@@ -160,8 +161,8 @@ export default function ZetaLandscapeViz() {
     }
 
     // Y-axis tick marks and labels
-    ctx.fillStyle = '#64748b';
-    ctx.strokeStyle = '#1e293b';
+    ctx.fillStyle = ED.series8;
+    ctx.strokeStyle = ED.ruleSoft;
     ctx.font = '10px sans-serif';
     ctx.textAlign = 'right';
     // Choose a nice tick step based on maxAbs
@@ -179,7 +180,7 @@ export default function ZetaLandscapeViz() {
       ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(dw, y); ctx.stroke();
       ctx.setLineDash([]);
       // Tick label
-      ctx.fillStyle = '#64748b';
+      ctx.fillStyle = ED.series8;
       const label = Number.isInteger(v) ? String(v) : v.toFixed(1);
       ctx.fillText(label, 28, y + 3);
     }
@@ -189,7 +190,7 @@ export default function ZetaLandscapeViz() {
     ctx.save();
     ctx.translate(8, yMid);
     ctx.rotate(-Math.PI / 2);
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.font = '10px sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText('Z(t)', 0, 0);
@@ -210,11 +211,11 @@ export default function ZetaLandscapeViz() {
 
     for (const { gamma, index } of visibleZeros) {
       const x = ((gamma - tMin) / (tMax - tMin)) * dw;
-      ctx.strokeStyle = '#ef4444';
+      ctx.strokeStyle = ED.series2;
       ctx.lineWidth = 1;
       ctx.beginPath(); ctx.moveTo(x, yMid - 8); ctx.lineTo(x, yMid + 8); ctx.stroke();
 
-      ctx.fillStyle = '#ef4444';
+      ctx.fillStyle = ED.series2;
       ctx.beginPath();
       ctx.arc(x, yMid, 3, 0, 2 * Math.PI);
       ctx.fill();
@@ -222,7 +223,7 @@ export default function ZetaLandscapeViz() {
       // Label with γₙ index (alternating above/below to avoid overlap)
       if (showLabels) {
         const subscript = String(index).split('').map(c => String.fromCharCode(0x2080 + +c)).join('');
-        ctx.fillStyle = '#ef4444';
+        ctx.fillStyle = ED.series2;
         ctx.font = '9px var(--font-mono, monospace)';
         ctx.textAlign = 'center';
         const labelY = index % 2 === 1 ? yMid - 14 : yMid + 20;
@@ -232,10 +233,10 @@ export default function ZetaLandscapeViz() {
     }
 
     // Title
-    ctx.fillStyle = '#e2e8f0';
+    ctx.fillStyle = ED.ink;
     ctx.font = '600 13px sans-serif';
     ctx.fillText('Riemann-Siegel Z(t) on the Critical Line σ = ½', 12, 18);
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.font = '11px sans-serif';
     ctx.fillText('Red dots mark nontrivial zeta zeros (Z(t) = 0)', 12, 34);
 
@@ -244,26 +245,26 @@ export default function ZetaLandscapeViz() {
     const legendY = 10;
     ctx.fillStyle = 'rgba(17,24,39,0.85)';
     ctx.fillRect(legendX, legendY, 160, 60);
-    ctx.strokeStyle = '#334155';
+    ctx.strokeStyle = ED.rule;
     ctx.lineWidth = 0.5;
     ctx.strokeRect(legendX, legendY, 160, 60);
     ctx.font = '10px sans-serif';
     // Z(t) > 0
-    ctx.strokeStyle = 'rgba(59,130,246,0.9)';
+    ctx.strokeStyle = TK_ALPHA(ED.series1, 0.9);
     ctx.lineWidth = 2;
     ctx.beginPath(); ctx.moveTo(legendX + 8, legendY + 14); ctx.lineTo(legendX + 28, legendY + 14); ctx.stroke();
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = ED.series8;
     ctx.fillText('Z(t) > 0', legendX + 34, legendY + 18);
     // Z(t) < 0
-    ctx.strokeStyle = 'rgba(245,158,11,0.9)';
+    ctx.strokeStyle = TK_ALPHA(ED.brassDeco, 0.9);
     ctx.lineWidth = 2;
     ctx.beginPath(); ctx.moveTo(legendX + 8, legendY + 32); ctx.lineTo(legendX + 28, legendY + 32); ctx.stroke();
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = ED.series8;
     ctx.fillText('Z(t) < 0', legendX + 34, legendY + 36);
     // Zeta zeros
-    ctx.fillStyle = '#ef4444';
+    ctx.fillStyle = ED.series2;
     ctx.beginPath(); ctx.arc(legendX + 18, legendY + 50, 3, 0, 2 * Math.PI); ctx.fill();
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = ED.series8;
     ctx.fillText('ζ zeros (γₙ)', legendX + 34, legendY + 54);
 
   }, [tRange, clData]);
@@ -374,11 +375,11 @@ export default function ZetaLandscapeViz() {
       ctx.fillRect(cbX, cbY + row, cbW, 1);
     }
     // Border
-    ctx.strokeStyle = '#64748b';
+    ctx.strokeStyle = ED.rule;
     ctx.lineWidth = 0.5;
     ctx.strokeRect(cbX, cbY, cbW, cbH);
     // Tick labels
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = ED.series8;
     ctx.font = '9px sans-serif';
     ctx.textAlign = 'left';
     for (let v = 0; v <= 4; v++) {
@@ -390,7 +391,7 @@ export default function ZetaLandscapeViz() {
     ctx.save();
     ctx.translate(cbX + cbW + 28, cbY + cbH / 2);
     ctx.rotate(-Math.PI / 2);
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = ED.series8;
     ctx.font = '9px sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText('log(1+|ζ|)', 0, 0);
@@ -398,8 +399,8 @@ export default function ZetaLandscapeViz() {
     ctx.textAlign = 'start';
 
     // Axis tick marks and labels along edges
-    ctx.fillStyle = '#94a3b8';
-    ctx.strokeStyle = '#94a3b8';
+    ctx.fillStyle = ED.series8;
+    ctx.strokeStyle = ED.rule;
     ctx.lineWidth = 0.5;
     ctx.font = '9px sans-serif';
 
@@ -413,12 +414,12 @@ export default function ZetaLandscapeViz() {
       }
     }
     // σ axis label
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.font = '10px sans-serif';
     ctx.fillText('σ', dw / 2, dh - 16);
 
     // Left edge: t ticks
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = ED.series8;
     ctx.font = '9px sans-serif';
     ctx.textAlign = 'right';
     const tStep = (tMax - tMin) > 80 ? 20 : (tMax - tMin) > 40 ? 10 : 5;
@@ -431,7 +432,7 @@ export default function ZetaLandscapeViz() {
     ctx.save();
     ctx.translate(8, dh / 2);
     ctx.rotate(-Math.PI / 2);
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.font = '10px sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText('t = Im(s)', 0, 0);
@@ -439,10 +440,10 @@ export default function ZetaLandscapeViz() {
     ctx.textAlign = 'start';
 
     // Title and info
-    ctx.fillStyle = '#e2e8f0';
+    ctx.fillStyle = ED.ink;
     ctx.font = '600 13px sans-serif';
     ctx.fillText('|ζ(σ + it)| Heatmap in the Critical Strip', 30, 18);
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.font = '11px sans-serif';
     ctx.fillText('White circles: known zeros on σ=½', 30, 34);
   }, [tRange, sigmaRange, heatmapGrid]);
@@ -536,34 +537,34 @@ export default function ZetaLandscapeViz() {
             title={`End of visible t range (currently ${tRange[1]}). Increase to see higher zeta zeros.`}
             onChange={e => setTRange([tRange[0], Math.max(+e.target.value, tRange[0] + 5)])} />
           <span className="control-value">{tRange[1]}{' '}
-            <span style={{ color: '#94a3b8', fontSize: '0.85em' }}>
+            <span style={{ color: 'var(--ink-soft)', fontSize: '0.85em' }}>
               ({countZerosInRange(tRange[0], tRange[1])} zeros visible)
             </span>
           </span>
         </div>
         {hoverInfo && hoverInfo.mode === 'heatmap' && (
-          <div style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: 12, color: '#06b6d4' }}>
+          <div style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: 12, color: 'var(--series-6)' }}>
             <InlineMath tex={"\\sigma"} />={hoverInfo.sigma} <InlineMath tex="t" />={hoverInfo.t}
-            <span style={{ marginLeft: 8, color: '#f59e0b' }}>
+            <span style={{ marginLeft: 8, color: 'var(--brass)' }}>
               log(1+|ζ|)={hoverInfo.logMag} &nbsp;|ζ|≈{hoverInfo.mag}
             </span>
           </div>
         )}
         {hoverInfo && hoverInfo.mode === 'critical-line' && (
-          <div style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: 12, color: '#06b6d4' }}>
+          <div style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: 12, color: 'var(--series-6)' }}>
             <InlineMath tex="t" />={hoverInfo.t}
-            <span style={{ marginLeft: 8, color: '#3b82f6' }}>
+            <span style={{ marginLeft: 8, color: 'var(--series-1)' }}>
               Z(t)={hoverInfo.z}
             </span>
             {hoverInfo.nearestZero && (
-              <span style={{ marginLeft: 8, color: '#ef4444', fontSize: 11 }}>
+              <span style={{ marginLeft: 8, color: 'var(--series-2)', fontSize: 11 }}>
                 nearest zero: γ≈{hoverInfo.nearestZero}
               </span>
             )}
           </div>
         )}
         {!hoverInfo && (
-          <div style={{ marginLeft: 'auto', fontSize: 11, color: '#64748b', fontStyle: 'italic' }}>
+          <div style={{ marginLeft: 'auto', fontSize: 11, color: 'var(--ink-faint)', fontStyle: 'italic' }}>
             Hover over chart to inspect values
           </div>
         )}

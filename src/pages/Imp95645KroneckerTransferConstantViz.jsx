@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import IMP95616_KRONECKER_SUPRMS_CROSSCHECK from '../data/imp-95616-kronecker-suprms-crosscheck.js';
+import { ED } from '../styles/tokens.js';
 
 const ROWS = IMP95616_KRONECKER_SUPRMS_CROSSCHECK.rows;
 
@@ -37,41 +38,41 @@ function TransferConstantChart() {
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
       {ticks.map((v) => (
-        <line key={`gy${v}`} x1={padL} y1={yOf(v)} x2={padL + plotW} y2={yOf(v)} stroke="#1e293b" strokeWidth={1} />
+        <line key={`gy${v}`} x1={padL} y1={yOf(v)} x2={padL + plotW} y2={yOf(v)} stroke={ED.ruleSoft} strokeWidth={1} />
       ))}
-      <path d={ceilingPath} fill="none" stroke="#94a3b8" strokeWidth={1} strokeDasharray="4 4" />
-      <text x={xOf(xMax) - 4} y={yOf(xMax) - 6} textAnchor="end" fill="#94a3b8" fontSize={9}>
+      <path d={ceilingPath} fill="none" stroke={ED.rule} strokeWidth={1} strokeDasharray="4 4" />
+      <text x={xOf(xMax) - 4} y={yOf(xMax) - 6} textAnchor="end" fill={ED.inkSoft} fontSize={9}>
         ceiling sqrt(N)
       </text>
-      <path d={theoryPath} fill="none" stroke="#fbbf24" strokeWidth={1.5} strokeDasharray="2 3" />
-      <path d={measuredPath} fill="none" stroke="#60a5fa" strokeWidth={2} />
+      <path d={theoryPath} fill="none" stroke={ED.brassDeco} strokeWidth={1.5} strokeDasharray="2 3" />
+      <path d={measuredPath} fill="none" stroke={ED.series1} strokeWidth={2} />
       {ROWS.map((r) => (
-        <circle key={r.N} cx={xOf(r.sqrtN)} cy={yOf(r.supOverRmsMeasured)} r={3.5} fill="#60a5fa" />
+        <circle key={r.N} cx={xOf(r.sqrtN)} cy={yOf(r.supOverRmsMeasured)} r={3.5} fill={ED.series1} />
       ))}
       {ROWS.map((r) => (
-        <text key={`lbl${r.N}`} x={xOf(r.sqrtN)} y={yOf(r.supOverRmsMeasured) - 10} textAnchor="middle" fill="#60a5fa" fontSize={9}>
+        <text key={`lbl${r.N}`} x={xOf(r.sqrtN)} y={yOf(r.supOverRmsMeasured) - 10} textAnchor="middle" fill={ED.series1} fontSize={9}>
           N={r.N}
         </text>
       ))}
       {ticks.map((v) => (
-        <text key={`tx${v}`} x={xOf(v)} y={padT + plotH + 16} textAnchor="middle" fill="#64748b" fontSize={9.5}>
+        <text key={`tx${v}`} x={xOf(v)} y={padT + plotH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5}>
           {v}
         </text>
       ))}
       {ticks.map((v) => (
-        <text key={`ty${v}`} x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+        <text key={`ty${v}`} x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
           {v}
         </text>
       ))}
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={9.5}>
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5}>
         sqrt(N)
       </text>
       <text
         x={12}
         y={padT + plotH / 2}
         textAnchor="middle"
-        fill="#94a3b8"
+        fill={ED.inkSoft}
         fontSize={9.5}
         transform={`rotate(-90 12 ${padT + plotH / 2})`}
       >
@@ -90,22 +91,22 @@ export default function Imp95645KroneckerTransferConstantViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> a
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a
         measurement/presentation-only page rendering the frozen imp-95616
         independent cross-check of the imp-95604 witness (no re-derivation). It
         changes no bound and proves no RH-relevant theorem. Platt&ndash;Trudgian
         &Lambda; &le; 0.2 remains state of the art. NO QED.
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         For the packet f(T)&nbsp;=&nbsp;&sum;<sub>p</sub> &Lambda;(p)&nbsp;p<sup>-&sigma;</sup>&nbsp;e(-T&nbsp;log&nbsp;p)
         at &sigma;<sub>B</sub>&nbsp;=&nbsp;{IMP95616_KRONECKER_SUPRMS_CROSSCHECK.sigmaB}, the Kronecker
         equidistribution of the phases {'{log p}'} drives sup<sub>T</sub>|f| to the
@@ -119,14 +120,14 @@ export default function Imp95645KroneckerTransferConstantViz() {
         N&nbsp;=&nbsp;4,&nbsp;8,&nbsp;15,&nbsp;25.
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         sup_T/rms_T transfer constant vs sqrt(N)
       </h3>
       <TransferConstantChart />
 
-      <table style={{ width: '100%', fontSize: '0.78rem', color: '#cbd5e1', borderCollapse: 'collapse', marginTop: '1.25rem' }}>
+      <table style={{ width: '100%', fontSize: '0.78rem', color: 'var(--ink)', borderCollapse: 'collapse', marginTop: '1.25rem' }}>
         <thead>
-          <tr style={{ color: '#64748b' }}>
+          <tr style={{ color: 'var(--ink-faint)' }}>
             <th style={{ textAlign: 'left', paddingBottom: 4 }}>N</th>
             <th style={{ textAlign: 'right', paddingBottom: 4 }}>sqrt(N)</th>
             <th style={{ textAlign: 'right', paddingBottom: 4 }}>transfer constant (theory)</th>
@@ -137,7 +138,7 @@ export default function Imp95645KroneckerTransferConstantViz() {
         </thead>
         <tbody>
           {ROWS.map((r) => (
-            <tr key={r.N} style={{ borderTop: '1px solid rgba(148,163,184,0.15)' }}>
+            <tr key={r.N} style={{ borderTop: '1px solid color-mix(in srgb, var(--rule) 15%, transparent)' }}>
               <td style={{ padding: '3px 0' }}>{r.N}</td>
               <td style={{ textAlign: 'right' }}>{r.sqrtN.toFixed(4)}</td>
               <td style={{ textAlign: 'right' }}>{r.transferConstantTheory.toFixed(4)}</td>
@@ -153,14 +154,14 @@ export default function Imp95645KroneckerTransferConstantViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Anchor-floor cancellation:</strong> the
+        <strong style={{ color: 'var(--ink-soft)' }}>Anchor-floor cancellation:</strong> the
         sqrt(H) transfer loss at the anchor floor width
         H&nbsp;&asymp;&nbsp;{IMP95616_KRONECKER_SUPRMS_CROSSCHECK.anchorFloor.H_FLOOR.toExponential(4)}{' '}
         exactly cancels the H<sup>-1/2</sup> mean-square saving
@@ -172,14 +173,14 @@ export default function Imp95645KroneckerTransferConstantViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page
         rendering the frozen imp-95616 independent-grid reproduction of the
         imp-95604 witness (no re-derivation). Supplies no off-lattice floor
         theorem, changes no bound, establishes no operator positivity, no RH

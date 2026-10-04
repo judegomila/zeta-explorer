@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP34694_SIGMA_EXPONENT_KNEE_CLOSED_FORM_LOCATION } from '../data/imp-34694-sigma-exponent-knee-closed-form-location.js';
+import { ED } from '../styles/tokens.js';
 
 const M = IMP34694_SIGMA_EXPONENT_KNEE_CLOSED_FORM_LOCATION;
 const log10 = (x) => Math.log(x) / Math.LN10;
@@ -94,11 +95,11 @@ function RampChart({ points, field, yLabel, color, markerLog10, markerLabel, zer
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
+      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
 
       {zeroLine && yMin < 0 && yMax > 0 && (
-        <line x1={padL} y1={yAt(0)} x2={padL + cW} y2={yAt(0)} stroke="#475569" strokeWidth={1} strokeDasharray="1 3" />
+        <line x1={padL} y1={yAt(0)} x2={padL + cW} y2={yAt(0)} stroke={ED.rule} strokeWidth={1} strokeDasharray="1 3" />
       )}
 
       <line
@@ -106,24 +107,24 @@ function RampChart({ points, field, yLabel, color, markerLog10, markerLabel, zer
         y1={padT}
         x2={xAt(markerLog10)}
         y2={padT + cH}
-        stroke="#facc15"
+        stroke={ED.brassDeco}
         strokeWidth={1}
         strokeDasharray="2 3"
       />
-      <text x={xAt(markerLog10) + 4} y={padT + 10} fill="#facc15" fontSize={9}>
+      <text x={xAt(markerLog10) + 4} y={padT + 10} fill={ED.brass} fontSize={9}>
         {markerLabel}
       </text>
 
       <path d={linePath} fill="none" stroke={color} strokeWidth={1.75} />
 
-      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         log10 N
       </text>
       <text
         x={12}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={`rotate(-90, 12, ${padT + cH / 2})`}
       >
@@ -140,7 +141,7 @@ export default function Imp34719SigmaExponentRampKneeViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Sigma Exponent-Ramp Knee (imp-34719 / imp-34694)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-34694 sharpened the imp-33701 post-peak sigma(N) decay-exponent knee &mdash; the single
         convex&rarr;concave sign change of the ramp acceleration p&Prime;(ln N) &mdash; from a coarse
         whole-decade [1e10, 1e11] bracket to a direct continuous root-find: log10 N* ={' '}
@@ -152,38 +153,38 @@ export default function Imp34719SigmaExponentRampKneeViz() {
         knee.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         Local decay exponent p(ln N) = &minus;d ln&nbsp;sigma / d ln&nbsp;N
       </p>
       <RampChart
         points={points}
         field="p"
         yLabel="p(ln N)"
-        color="#38bdf8"
+        color={ED.series1}
         markerLog10={M.directRootFind.log10Nstar}
         markerLabel={`knee ${M.directRootFind.log10Nstar}`}
       />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
         Ramp velocity p&prime;(ln N)
       </p>
       <RampChart
         points={points}
         field="pPrime"
         yLabel="p'(ln N)"
-        color="#a78bfa"
+        color={ED.series5}
         markerLog10={M.directRootFind.log10Nstar}
         markerLabel={`knee ${M.directRootFind.log10Nstar}`}
       />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
         Ramp acceleration p&Prime;(ln N) &mdash; the convex&rarr;concave knee is its single zero
       </p>
       <RampChart
         points={points}
         field="pSecond"
         yLabel="p''(ln N)"
-        color="#f87171"
+        color={ED.series2}
         markerLog10={M.directRootFind.log10Nstar}
         markerLabel={`p'' = 0 at ${M.directRootFind.log10Nstar}`}
         zeroLine
@@ -198,21 +199,21 @@ export default function Imp34719SigmaExponentRampKneeViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>landmark</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>log10 N</th>
           </tr>
         </thead>
         <tbody>
-          <tr style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+          <tr style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
             <td style={{ padding: '0.4rem 0.6rem' }}>halving (sigma = 1/2, full model)</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{M.crossoverAndHalving.log10Nhalf}</td>
           </tr>
-          <tr style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+          <tr style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
             <td style={{ padding: '0.4rem 0.6rem' }}>crossover (E_coll = E_trunc)</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{M.crossoverAndHalving.log10Ncross}</td>
           </tr>
-          <tr style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+          <tr style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
             <td style={{ padding: '0.4rem 0.6rem' }}>knee (p'' = 0, direct root-find)</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{M.directRootFind.log10Nstar}</td>
           </tr>
@@ -223,11 +224,11 @@ export default function Imp34719SigmaExponentRampKneeViz() {
         style={{
           marginTop: '1rem',
           padding: '0.6rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
         }}
       >
         The knee sits {M.crossoverAndHalving.kneeOffsetAboveCrossoverLog10} above the crossover in
@@ -240,14 +241,14 @@ export default function Imp34719SigmaExponentRampKneeViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page, recomputing the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-only page, recomputing the
         imp-34694 exponent-ramp curve (inline Riemann&ndash;von Mangoldt inverse-height solver, re-typed
         and independent of the source solver) purely for plotting; establishes no new numerical claim.
         Measurement/derivation on the inherited imp-3220/imp-3406 extrapolation; far-tail exponent stays

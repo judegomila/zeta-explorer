@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP34931_SIGMA_KNEE_RAW_TOTAL_CROSSING as D } from '../data/imp-34931-sigma-knee-raw-total-crossing.js';
+import { ED } from '../styles/tokens.js';
 
 const CURVE = D.rawTotalCurve; // [{eps, rawTotalRelDev}] over [40,100]
 const EPS_5PCT = D.crossings.epsAt5pct; // ~79.24
@@ -36,20 +37,20 @@ function RawTotalDeviationChart() {
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
       {/* axes */}
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
       {yTicks.map((t) => (
         <g key={t}>
-          <line x1={padL - 4} y1={yAt(t)} x2={padL} y2={yAt(t)} stroke="#334155" strokeWidth={1} />
-          <text x={padL - 8} y={yAt(t) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+          <line x1={padL - 4} y1={yAt(t)} x2={padL} y2={yAt(t)} stroke={ED.rule} strokeWidth={1} />
+          <text x={padL - 8} y={yAt(t) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {(t * 100).toFixed(0)}%
           </text>
         </g>
       ))}
       {xTicks.map((t) => (
         <g key={t}>
-          <line x1={xAt(t)} y1={padT + cH} x2={xAt(t)} y2={padT + cH + 4} stroke="#334155" strokeWidth={1} />
-          <text x={xAt(t)} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={9}>
+          <line x1={xAt(t)} y1={padT + cH} x2={xAt(t)} y2={padT + cH + 4} stroke={ED.rule} strokeWidth={1} />
+          <text x={xAt(t)} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
             {t}
           </text>
         </g>
@@ -61,37 +62,37 @@ function RawTotalDeviationChart() {
         y={padT}
         width={xAt(Math.min(R_DOMB_SYKES_RANGE[1], xMax)) - xAt(Math.max(R_DOMB_SYKES_RANGE[0], xMin))}
         height={cH}
-        fill="#38bdf8"
+        fill={ED.series1}
         opacity={0.06}
       />
 
       {/* dev(eps) curve */}
-      <polyline points={points} fill="none" stroke="#34d399" strokeWidth={2} />
+      <polyline points={points} fill="none" stroke={ED.series3} strokeWidth={2} />
       {CURVE.map((r) => (
-        <circle key={r.eps} cx={xAt(r.eps)} cy={yAt(r.rawTotalRelDev)} r={2.5} fill="#34d399" />
+        <circle key={r.eps} cx={xAt(r.eps)} cy={yAt(r.rawTotalRelDev)} r={2.5} fill={ED.series3} />
       ))}
 
       {/* 5% and 25% reference lines */}
-      <line x1={padL} y1={yAt(0.05)} x2={padL + cW} y2={yAt(0.05)} stroke="#fbbf24" strokeWidth={1} strokeDasharray="4 3" />
-      <line x1={padL} y1={yAt(0.25)} x2={padL + cW} y2={yAt(0.25)} stroke="#f87171" strokeWidth={1} strokeDasharray="4 3" />
+      <line x1={padL} y1={yAt(0.05)} x2={padL + cW} y2={yAt(0.05)} stroke={ED.brassDeco} strokeWidth={1} strokeDasharray="4 3" />
+      <line x1={padL} y1={yAt(0.25)} x2={padL + cW} y2={yAt(0.25)} stroke={ED.series2} strokeWidth={1} strokeDasharray="4 3" />
 
       {/* Domb-Sykes radius R~91 */}
-      <line x1={xAt(R_DOMB_SYKES)} y1={padT} x2={xAt(R_DOMB_SYKES)} y2={padT + cH} stroke="#38bdf8" strokeWidth={1.5} strokeDasharray="2 2" />
-      <text x={xAt(R_DOMB_SYKES) + 4} y={padT + 10} fill="#38bdf8" fontSize={9}>
+      <line x1={xAt(R_DOMB_SYKES)} y1={padT} x2={xAt(R_DOMB_SYKES)} y2={padT + cH} stroke={ED.series1} strokeWidth={1.5} strokeDasharray="2 2" />
+      <text x={xAt(R_DOMB_SYKES) + 4} y={padT + 10} fill={ED.series1} fontSize={9}>
         R_DombSykes&asymp;{R_DOMB_SYKES}
       </text>
 
       {/* pinned crossings */}
-      <circle cx={xAt(EPS_5PCT)} cy={yAt(0.05)} r={4.5} fill="#fbbf24" stroke="#0f172a" strokeWidth={1} />
-      <text x={xAt(EPS_5PCT)} y={yAt(0.05) - 8} textAnchor="middle" fill="#fbbf24" fontSize={9}>
+      <circle cx={xAt(EPS_5PCT)} cy={yAt(0.05)} r={4.5} fill={ED.brassDeco} stroke={ED.paper} strokeWidth={1} />
+      <text x={xAt(EPS_5PCT)} y={yAt(0.05) - 8} textAnchor="middle" fill={ED.brass} fontSize={9}>
         5% @ {EPS_5PCT}
       </text>
-      <circle cx={xAt(EPS_25PCT)} cy={yAt(0.25)} r={4.5} fill="#f87171" stroke="#0f172a" strokeWidth={1} />
-      <text x={xAt(EPS_25PCT)} y={yAt(0.25) - 8} textAnchor="middle" fill="#f87171" fontSize={9}>
+      <circle cx={xAt(EPS_25PCT)} cy={yAt(0.25)} r={4.5} fill={ED.series2} stroke={ED.paper} strokeWidth={1} />
+      <text x={xAt(EPS_25PCT)} y={yAt(0.25) - 8} textAnchor="middle" fill={ED.series2} fontSize={9}>
         25% @ {EPS_25PCT}
       </text>
 
-      <text x={padL + cW / 2} y={svgH - 6} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 6} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         eps (bookkeeping point); shaded band = Domb-Sykes uncertainty range [{R_DOMB_SYKES_RANGE[0]},{R_DOMB_SYKES_RANGE[1]}]
       </text>
     </svg>
@@ -103,11 +104,11 @@ export default function Imp34960RawTotalCrossingViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Raw-Total Resummation-Deviation Crossings (imp-34960 / imp-34931)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         {D.question}
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         The raw cross-method resummed-total relative deviation dev(eps) is smooth and monotone
         across [1,~100], crossing 5% at eps &asymp; {EPS_5PCT} and 25% at eps &asymp; {EPS_25PCT}.
         The 25% crossing lands essentially ON the imp-34882 Domb-Sykes radius R &asymp;{' '}
@@ -120,14 +121,14 @@ export default function Imp34960RawTotalCrossingViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page rendering the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-only page rendering the
         imp-34931 raw-total resummation-deviation crossing literals verbatim (fine grid, bisected
         5%/25% crossings, radius cross-checks), no new computation. Measurement on the INHERITED
         imp-3220/imp-3406 surrogate crossover map, NOT a rigorous asymptotic; C_mb GUE-conditional

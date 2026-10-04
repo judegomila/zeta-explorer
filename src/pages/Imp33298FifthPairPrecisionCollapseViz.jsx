@@ -5,10 +5,11 @@ import {
   IMP33298_WILKINSON_FLOOR_ULPS,
   IMP33298_COLLAPSE_ORDERS,
 } from '../data/imp-33298-fifth-pair-precision-collapse-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
-const FP64_COLOR = '#38bdf8';
-const DD_COLOR = '#34d399';
-const FLOOR_COLOR = '#f472b6';
+const FP64_COLOR = ED.series1;
+const DD_COLOR = ED.series3;
+const FLOOR_COLOR = ED.series7;
 
 function PrecisionCollapseChart() {
   const svgW = 640;
@@ -27,12 +28,12 @@ function PrecisionCollapseChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
       {[0, 2, 4, 6, 8, 10, 12].map((v) => (
         <g key={v}>
-          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke="#1e293b" strokeWidth={0.7} />
-          <text x={padL - 6} y={yS(v) + 3.5} textAnchor="end" fill="#475569" fontSize={9}>
+          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke={ED.ruleSoft} strokeWidth={0.7} />
+          <text x={padL - 6} y={yS(v) + 3.5} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v}
           </text>
         </g>
@@ -59,21 +60,21 @@ function PrecisionCollapseChart() {
         return (
           <g key={r.key}>
             <rect x={x} y={y} width={barW} height={h} fill={barColors[r.key]} rx={2} />
-            <text x={x + barW / 2} y={y - 6} textAnchor="middle" fill="#94a3b8" fontSize={9}>
+            <text x={x + barW / 2} y={y - 6} textAnchor="middle" fill={ED.inkSoft} fontSize={9}>
               {r.rel.toExponential(2)} rel
             </text>
-            <text x={x + barW / 2} y={padT + cH + 14} textAnchor="middle" fill="#64748b" fontSize={9}>
+            <text x={x + barW / 2} y={padT + cH + 14} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
               {r.label}
             </text>
           </g>
         );
       })}
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
-      <text x={14} y={padT + cH / 2} textAnchor="middle" fill="#64748b" fontSize={10} transform={`rotate(-90,14,${padT + cH / 2})`}>
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
+      <text x={14} y={padT + cH / 2} textAnchor="middle" fill={ED.inkFaint} fontSize={10} transform={`rotate(-90,14,${padT + cH / 2})`}>
         fifth-pair spread (ULP)
       </text>
-      <text x={padL + cW / 2} y={padT + cH + 34} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={padT + cH + 34} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         identical N=2000 fifth-pair matrix, two working precisions
       </text>
     </svg>
@@ -85,7 +86,7 @@ export default function Imp33298FifthPairPrecisionCollapseViz() {
     <div style={{ padding: '1.5rem', maxWidth: 940, margin: '0 auto' }}>
       <PageHeader title="Fifth-Pair Spread Precision Collapse: fp64 vs Double-Double (imp-33272)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
         imp-33272 solved the identical exactly-degenerate 10x10 fifth-pair matrix (the baked
         imp-3668 N=2000 dense top-10 Gram spectrum, lambda_9 = lambda_10 set exactly equal) with
         the same cyclic-Jacobi eigensolver at two working precisions. The plain fp64 solve lands
@@ -96,7 +97,7 @@ export default function Imp33298FifthPairPrecisionCollapseViz() {
         error does.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         fifth-pair relative spread by working precision, against the Wilkinson floor line
       </p>
       <PrecisionCollapseChart />
@@ -105,14 +106,14 @@ export default function Imp33298FifthPairPrecisionCollapseViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> the fp64 bar sits at a
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> the fp64 bar sits at a
         few ULP, well inside the dashed Wilkinson n&middot;&kappa;_pair floor line derived by
         imp-33253 -- an independent cyclic-Jacobi solve reproducing the same floor order as the
         original tred1+tql1 route (imp-3668). The double-double bar is barely visible on this
@@ -126,14 +127,14 @@ export default function Imp33298FifthPairPrecisionCollapseViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation of the imp-33272
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> presentation of the imp-33272
         cross-check only -- the rotation used to build the test matrix is a fixed deterministic
         surrogate, not the actual Gram eigenvectors, so this confirms the mechanism and order of
         magnitude, not the exact per-rung realized constant. Adds no new Lambda bound, does not

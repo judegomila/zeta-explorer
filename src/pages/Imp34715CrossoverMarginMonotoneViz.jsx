@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP34686_CROSSOVER_CONTRACTION_MARGIN_MONOTONE_PROOF } from '../data/imp-34686-crossover-contraction-margin-monotone-proof.js';
+import { ED, alpha } from '../styles/tokens.js';
 
 const DATA = IMP34686_CROSSOVER_CONTRACTION_MARGIN_MONOTONE_PROOF;
 const TABLE = DATA.marginTable;
@@ -45,33 +46,33 @@ function MarginSignChart() {
         y={padT}
         width={Math.max(0, padL + cW - nCrossX)}
         height={cH}
-        fill="rgba(52,211,153,0.07)"
+        fill={alpha(ED.series3, 0.07)}
       />
 
-      <line x1={padL} y1={zeroY} x2={padL + cW} y2={zeroY} stroke="#475569" strokeWidth={1} strokeDasharray="4,3" />
-      <text x={padL + 4} y={zeroY - 6} fill="#94a3b8" fontSize={9.5}>
+      <line x1={padL} y1={zeroY} x2={padL + cW} y2={zeroY} stroke={ED.rule} strokeWidth={1} strokeDasharray="4,3" />
+      <text x={padL + 4} y={zeroY - 6} fill={ED.inkSoft} fontSize={9.5}>
         m = 0
       </text>
 
-      <line x1={nStarX} y1={padT} x2={nStarX} y2={padT + cH} stroke="#facc15" strokeWidth={1} strokeDasharray="3,3" />
-      <text x={nStarX + 4} y={padT + 12} fill="#facc15" fontSize={9}>
+      <line x1={nStarX} y1={padT} x2={nStarX} y2={padT + cH} stroke={ED.brassDeco} strokeWidth={1} strokeDasharray="3,3" />
+      <text x={nStarX + 4} y={padT + 12} fill={ED.brass} fontSize={9}>
         N_star &asymp; {N_STAR.toExponential(2)} (g_prime crosses 1)
       </text>
 
-      <line x1={nCrossX} y1={padT} x2={nCrossX} y2={padT + cH} stroke="#f472b6" strokeWidth={1.25} />
-      <text x={nCrossX + 4} y={padT + 26} fill="#f472b6" fontSize={9}>
+      <line x1={nCrossX} y1={padT} x2={nCrossX} y2={padT + cH} stroke={ED.series7} strokeWidth={1.25} />
+      <text x={nCrossX + 4} y={padT + 26} fill={ED.series7} fontSize={9}>
         N_cross &asymp; {N_CROSS.toExponential(4)} (fixed point, m = 0)
       </text>
 
-      <polyline points={linePoints} fill="none" stroke="#38bdf8" strokeWidth={1.75} />
+      <polyline points={linePoints} fill="none" stroke={ED.series1} strokeWidth={1.75} />
       {TABLE.map((r) => (
         <circle
           key={r.N}
           cx={xAt(r.N)}
           cy={yAt(signedLog(r.margin_m))}
           r={4}
-          fill={r.margin_m > 0 ? '#34d399' : '#f87171'}
-          stroke="#0a0f1a"
+          fill={r.margin_m > 0 ? ED.series3 : ED.series2}
+          stroke={ED.paper}
           strokeWidth={0.75}
         />
       ))}
@@ -80,13 +81,13 @@ function MarginSignChart() {
         x={16}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={9.5}
         transform={`rotate(-90 16 ${padT + cH / 2})`}
       >
         sign(m)&middot;log&#8321;&#8320;(1+|m|)
       </text>
-      <text x={padL + cW / 2} y={svgH - 6} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 6} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         N (log scale, N_star &hellip; 1e300) &mdash; shaded: N &gt; N_cross, where m(N) &gt; 0 by strict monotonicity
       </text>
     </svg>
@@ -98,7 +99,7 @@ export default function Imp34715CrossoverMarginMonotoneViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Monotone Margin m(N) = N &minus; g(N) Across the Crossover (imp-34686)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-34676 verified the crossover self-map endpoint g(N) &le; N only by SAMPLING g on a
         b-ladder. imp-34686 replaces that with an analytic argument: the margin
         m(N) = N &minus; g(N) has derivative m&prime;(N) = 1 &minus; g&prime;(N), strictly positive
@@ -109,7 +110,7 @@ export default function Imp34715CrossoverMarginMonotoneViz() {
         N &gt; N_cross, with no sampling.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         Signed margin vs N, straddling the fixed point at N_cross
       </p>
       <MarginSignChart />
@@ -123,7 +124,7 @@ export default function Imp34715CrossoverMarginMonotoneViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>N</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>g(N)</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>m(N) = N &minus; g(N)</th>
@@ -133,14 +134,14 @@ export default function Imp34715CrossoverMarginMonotoneViz() {
         </thead>
         <tbody>
           {TABLE.map((r) => (
-            <tr key={r.N} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+            <tr key={r.N} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.N.toExponential(3)}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.g_of_N}</td>
               <td
                 style={{
                   padding: '0.4rem 0.6rem',
                   fontFamily: 'monospace',
-                  color: r.margin_m > 0 ? '#34d399' : r.margin_m < 0 ? '#f87171' : '#94a3b8',
+                  color: r.margin_m > 0 ? 'var(--series-3)' : r.margin_m < 0 ? 'var(--series-2)' : 'var(--ink-soft)',
                 }}
               >
                 {r.margin_m}
@@ -152,7 +153,7 @@ export default function Imp34715CrossoverMarginMonotoneViz() {
         </tbody>
       </table>
 
-      <p style={{ color: '#64748b', fontSize: '0.8rem', marginTop: '1rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontSize: '0.8rem', marginTop: '1rem' }}>
         m&prime;(N) &gt; 0 at every sampled N &gt; N_star, so m climbs monotonically through its zero
         at N_cross: negative below the fixed point (the sampled upper self-map endpoint fails there),
         exactly zero at N_cross, and strictly positive for every N above it out to 1e300 &mdash; the
@@ -163,14 +164,14 @@ export default function Imp34715CrossoverMarginMonotoneViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> visualization of an existing
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> visualization of an existing
         derivation/measurement, isRigorous false. The inputs g&prime;(N) &lt; 1 for N &gt; N_star and
         g&prime; strictly decreasing are still IEEE-754 double precision, not interval-arithmetic
         enclosures (named sub-gap imp-34686a remains open). Certifies a property of the inherited

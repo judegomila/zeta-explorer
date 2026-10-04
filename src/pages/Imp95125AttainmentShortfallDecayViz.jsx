@@ -1,14 +1,15 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP95090_FINITE_RATE_ATTAINMENT_SHORTFALL } from '../data/imp-95090-finite-rate-attainment-shortfall.js';
+import { ED } from '../styles/tokens.js';
 
 // Baked ladders imported verbatim from the imp-95090 data module; no new
 // computation is performed here (viz/UX only).
 const EPS_LADDER = IMP95090_FINITE_RATE_ATTAINMENT_SHORTFALL.continuousLimitLadder.ladder;
 const P_LADDER = IMP95090_FINITE_RATE_ATTAINMENT_SHORTFALL.gridRefinementLadder.ladder;
 
-const EPS_COLOR = '#38bdf8';
-const P_COLOR = '#f59e0b';
+const EPS_COLOR = ED.series1;
+const P_COLOR = ED.series4;
 
 function LogLogPanel({ points, xKey, xLabel, yLabel, color, title, dipIndex }) {
   const svgW = 320;
@@ -36,8 +37,8 @@ function LogLogPanel({ points, xKey, xLabel, yLabel, color, title, dipIndex }) {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
 
       <path d={path} fill="none" stroke={color} strokeWidth={1.5} opacity={0.85} />
 
@@ -47,28 +48,28 @@ function LogLogPanel({ points, xKey, xLabel, yLabel, color, title, dipIndex }) {
             cx={xS(p[xKey])}
             cy={yS(p.shortfall)}
             r={i === dipIndex ? 5 : 3.5}
-            fill={i === dipIndex ? '#f87171' : color}
+            fill={i === dipIndex ? ED.series2 : color}
           />
-          <text x={xS(p[xKey])} y={yS(p.shortfall) - 8} textAnchor="middle" fill="#94a3b8" fontSize={8}>
+          <text x={xS(p[xKey])} y={yS(p.shortfall) - 8} textAnchor="middle" fill={ED.inkSoft} fontSize={8}>
             {p.shortfall.toExponential(2)}
           </text>
-          <text x={xS(p[xKey])} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={8}>
+          <text x={xS(p[xKey])} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={8}>
             {xKey}={p[xKey]}
           </text>
         </g>
       ))}
 
-      <text x={padL + cW / 2} y={padT - 10} textAnchor="middle" fill="#94a3b8" fontSize={10} fontWeight={700}>
+      <text x={padL + cW / 2} y={padT - 10} textAnchor="middle" fill={ED.inkSoft} fontSize={10} fontWeight={700}>
         {title}
       </text>
-      <text x={padL + cW / 2} y={padT + cH + 32} textAnchor="middle" fill="#64748b" fontSize={9}>
+      <text x={padL + cW / 2} y={padT + cH + 32} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
         {xLabel} (log scale)
       </text>
       <text
         x={12}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={9}
         transform={`rotate(-90,12,${padT + cH / 2})`}
       >
@@ -83,7 +84,7 @@ export default function Imp95125AttainmentShortfallDecayViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Finite-Rate Attainment Shortfall Decay at the Dominant Cell (imp-95125 / imp-95090)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-95090 measured the finite-rate attainment shortfall of the exhibited far-bracket
         witness at its dominant cell (0,2): the exhibited p=97 witness realizes only 0.8258 of
         the substituted envelope envE, an unapplied 17.42 pct conservative slack in the ceiling
@@ -118,14 +119,14 @@ export default function Imp95125AttainmentShortfallDecayViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the charts:</strong> the left panel (blue)
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the charts:</strong> the left panel (blue)
         traces the continuous corner sequence d1 = 2^-(b+1)(1+eps) at fixed cell (0,2): the
         shortfall falls off at a per-decade ratio of roughly 0.10 as eps shrinks from 1e-1 to
         1e-4, a straight line on log-log axes -- the linear-in-eps decay recovering the imp-95019
@@ -142,14 +143,14 @@ export default function Imp95125AttainmentShortfallDecayViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page reusing the imp-95090
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page reusing the imp-95090
         continuousLimitLadder and gridRefinementLadder literals verbatim (no new computation). The
         shortfall names a conservative, unapplied grid-corner ceiling adjustment; it moves no bound.
         Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. No QED.

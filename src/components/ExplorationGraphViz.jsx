@@ -1,17 +1,18 @@
 import React, { useRef, useEffect, useState, useCallback } from 'react';
 import * as d3 from 'd3';
 import { getExplorationGraph } from '../data/explorations.js';
+import { ED } from '../styles/tokens.js';
 
 const categoryColors = {
-  'foundation': '#3b82f6',
-  'oscillator-model': '#06b6d4',
-  'duality': '#8b5cf6',
-  'hamiltonian': '#10b981',
-  'control-theory': '#f59e0b',
-  'signal-processing': '#ec4899',
-  'statistical': '#ef4444',
-  'physics': '#3b82f6',
-  'geometry': '#06b6d4',
+  'foundation': ED.series1,
+  'oscillator-model': ED.series6,
+  'duality': ED.series5,
+  'hamiltonian': ED.series3,
+  'control-theory': ED.series4,
+  'signal-processing': ED.series7,
+  'statistical': ED.series2,
+  'physics': ED.series1,
+  'geometry': ED.series6,
 };
 
 /**
@@ -56,7 +57,7 @@ export default function ExplorationGraphViz() {
       .selectAll('line')
       .data(edges)
       .join('line')
-      .attr('stroke', '#2a3050')
+      .attr('stroke', ED.rule)
       .attr('stroke-width', 1.5)
       .attr('marker-end', 'url(#arrowhead)');
 
@@ -87,10 +88,10 @@ export default function ExplorationGraphViz() {
     node.append('circle')
       .attr('r', d => 14 + safeDepth(d) * 2)
       .attr('fill', d => {
-        const color = categoryColors[d.category] || '#3b82f6';
+        const color = categoryColors[d.category] || ED.series1;
         return color + '30'; // with alpha
       })
-      .attr('stroke', d => categoryColors[d.category] || '#3b82f6')
+      .attr('stroke', d => categoryColors[d.category] || ED.series1)
       .attr('stroke-width', 2);
 
     // Status indicator
@@ -98,13 +99,13 @@ export default function ExplorationGraphViz() {
       .attr('r', 4)
       .attr('cx', d => 10 + safeDepth(d) * 2)
       .attr('cy', d => -(10 + safeDepth(d) * 2))
-      .attr('fill', d => d.status === 'complete' ? '#10b981' : d.status === 'in-progress' ? '#f59e0b' : '#64748b');
+      .attr('fill', d => d.status === 'complete' ? ED.series3 : d.status === 'in-progress' ? ED.series4 : ED.series8);
 
     // Node labels
     node.append('text')
       .attr('y', d => 24 + safeDepth(d) * 2)
       .attr('text-anchor', 'middle')
-      .attr('fill', '#94a3b8')
+      .attr('fill', ED.inkSoft)
       .attr('font-size', 9)
       .attr('font-weight', 500)
       .text(d => d.title.length > 25 ? d.title.slice(0, 25) + '...' : d.title);
@@ -113,7 +114,7 @@ export default function ExplorationGraphViz() {
     node.append('text')
       .attr('text-anchor', 'middle')
       .attr('dominant-baseline', 'middle')
-      .attr('fill', d => categoryColors[d.category] || '#3b82f6')
+      .attr('fill', d => categoryColors[d.category] || ED.series1)
       .attr('font-size', 11)
       .attr('font-weight', 700)
       .attr('font-family', 'JetBrains Mono, monospace')
@@ -134,21 +135,21 @@ export default function ExplorationGraphViz() {
 
     // Title
     svg.append('text').attr('x', 12).attr('y', 20)
-      .attr('fill', '#e2e8f0').attr('font-size', 14).attr('font-weight', 600)
+      .attr('fill', ED.ink).attr('font-size', 14).attr('font-weight', 600)
       .text('Exploration Dependency Graph');
     svg.append('text').attr('x', 12).attr('y', 36)
-      .attr('fill', '#64748b').attr('font-size', 11)
+      .attr('fill', ED.inkFaint).attr('font-size', 11)
       .text('Drag nodes to rearrange. Click for details. Numbers = exploration depth.');
 
     // Category color legend (top right)
     const legendCategories = [
-      { label: 'Foundation', color: '#3b82f6' },
-      { label: 'Oscillator Model', color: '#06b6d4' },
-      { label: 'Duality', color: '#8b5cf6' },
-      { label: 'Hamiltonian', color: '#10b981' },
-      { label: 'Control Theory', color: '#f59e0b' },
-      { label: 'Signal Proc.', color: '#ec4899' },
-      { label: 'Statistical', color: '#ef4444' },
+      { label: 'Foundation', color: ED.series1 },
+      { label: 'Oscillator Model', color: ED.series6 },
+      { label: 'Duality', color: ED.series5 },
+      { label: 'Hamiltonian', color: ED.series3 },
+      { label: 'Control Theory', color: ED.brass },
+      { label: 'Signal Proc.', color: ED.series7 },
+      { label: 'Statistical', color: ED.series2 },
     ];
     const legend = svg.append('g').attr('transform', `translate(${width - 130}, 8)`);
     legendCategories.forEach((cat, i) => {
@@ -156,7 +157,7 @@ export default function ExplorationGraphViz() {
       row.append('circle').attr('r', 4.5).attr('cx', 5).attr('cy', 5)
         .attr('fill', cat.color + '30').attr('stroke', cat.color).attr('stroke-width', 1.5);
       row.append('text').attr('x', 14).attr('y', 8.5)
-        .attr('fill', '#94a3b8').attr('font-size', 9).text(cat.label);
+        .attr('fill', ED.inkSoft).attr('font-size', 9).text(cat.label);
     });
 
   }, []);
@@ -173,7 +174,7 @@ export default function ExplorationGraphViz() {
       </div>
       {selectedNode && (
         <div className="card" style={{ marginTop: 12 }}>
-          <h3 style={{ color: categoryColors[selectedNode.category] || '#3b82f6' }}>
+          <h3 style={{ color: categoryColors[selectedNode.category] || 'var(--series-1)' }}>
             {selectedNode.title}
           </h3>
           <div style={{ display: 'flex', gap: 8, marginTop: 8 }}>

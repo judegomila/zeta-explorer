@@ -2,6 +2,7 @@ import React, { useState, useMemo, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { BlockMath, InlineMath } from '../components/KaTeXMath.jsx';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
+import { ED } from '../styles/tokens.js';
 
 /**
  * Interactive Proof Explorer (imp-091)
@@ -50,7 +51,7 @@ const PROOF_STEPS = [
     confidence: 1.0,
     status: 'proven',
     gap: null,
-    color: '#4c7a4a',
+    color: ED.series3,
     computeLabel: 'Verify det(T_p) = 1 for first 20 primes',
     compute: async () => {
       const { getPrimes } = await import('../math/primes.js');
@@ -75,7 +76,7 @@ const PROOF_STEPS = [
     confidence: 1.0,
     status: 'proven',
     gap: null,
-    color: '#4c7a4a',
+    color: ED.series3,
     computeLabel: 'Verify det(S_N) = 1 for N = 10, 50, 100, 200',
     compute: async () => {
       const { getPrimes } = await import('../math/primes.js');
@@ -107,7 +108,7 @@ const PROOF_STEPS = [
     status: 'refuted',
     gap:
       'Here T_p has entries cos(log p), sin(log p)/log p, and −log p·sin(log p); it does not approach the identity. The former 200-step tail-sum test used the vacuous condition tailSum < 1e6 and has been removed.',
-    color: '#c23a1c',
+    color: ED.accent,
   },
   {
     id: 'S4',
@@ -119,7 +120,7 @@ const PROOF_STEPS = [
     confidence: 0.75,
     status: 'conditional',
     gap: 'The closure theorem is exact, but it cannot be applied to the displayed physical factors because the S3 convergence premise is refuted.',
-    color: '#4c7a4a',
+    color: ED.series3,
     computeLabel: 'Verify det continuity (Lipschitz bound)',
     compute: async () => {
       const { sl2rClosureProof } = await import('../math/sl2r-closure.js');
@@ -141,7 +142,7 @@ const PROOF_STEPS = [
     confidence: 0.45,
     status: 'model-only',
     gap: 'The bound has not been shown to equal the unitarity deficit of a realizable analytic continuation of the cascade.',
-    color: '#4c7a4a',
+    color: ED.series3,
     computeLabel: 'Compute δ(P) at P = 100, 10⁴, 10⁶, 10⁸',
     compute: async () => {
       const gamma1 = 14.134725141734693;
@@ -163,7 +164,7 @@ const PROOF_STEPS = [
     confidence: 0.6,
     status: 'conditional',
     gap: 'Both convergence and identification of the model deficit with the cascade deficit are required premises.',
-    color: '#4c7a4a',
+    color: ED.series3,
     computeLabel: 'Verify orthogonality SᵀS ≈ I for cascade',
     compute: async () => {
       const { inheritedUnitarityProof } = await import('../math/inherited-unitarity.js');
@@ -187,7 +188,7 @@ const PROOF_STEPS = [
     confidence: 0.55,
     status: 'conditional',
     gap: 'A matrix in SO(2) is not by itself a proved causal, analytic, physically realizable two-port transfer function.',
-    color: '#4c7a4a',
+    color: ED.series3,
     computeLabel: null,
     compute: null,
   },
@@ -201,7 +202,7 @@ const PROOF_STEPS = [
     confidence: 1.0,
     status: 'proven',
     gap: 'Common numerator/denominator zeros require residual multiplicity. No realization theorem identifies this algebraic embedding with the physical proxy.',
-    color: '#4c7a4a',
+    color: ED.series3,
     computeLabel: null,
     compute: null,
   },
@@ -215,7 +216,7 @@ const PROOF_STEPS = [
     confidence: 1.0,
     status: 'blocked',
     gap: 'A valid pole-confinement or reciprocal-transfer theorem is missing, in addition to infinite-network realizability.',
-    color: '#c23a1c',
+    color: ED.accent,
     computeLabel: null,
     compute: null,
   },
@@ -229,7 +230,7 @@ const PROOF_STEPS = [
     confidence: 0.3,
     status: 'conditional',
     gap: 'Finite numerical resolvent diagnostics do not verify the Trotter-Kato hypotheses, construct Lax-Phillips incoming/outgoing spaces, or identify/constrain the ζ divisor.',
-    color: '#8b5fbf',
+    color: ED.series5,
     computeLabel: null,
     compute: null,
   },
@@ -277,9 +278,9 @@ function ProofStepCard({ step }) {
         <span style={{
           fontSize: 10, padding: '2px 8px', borderRadius: 4, fontWeight: 600,
           background: step.status === 'proven' || step.status === 'proven (classical)'
-            ? 'rgba(76,122,74,0.15)' : step.status === 'numerical'
-              ? 'rgba(181,138,46,0.15)' : step.status === 'refuted'
-                ? 'rgba(194,58,28,0.15)' : 'rgba(63,107,134,0.15)',
+            ? 'color-mix(in srgb, var(--series-3) 15%, transparent)' : step.status === 'numerical'
+              ? 'color-mix(in srgb, var(--brass-deco) 15%, transparent)' : step.status === 'refuted'
+                ? 'color-mix(in srgb, var(--series-2) 15%, transparent)' : 'color-mix(in srgb, var(--series-1) 15%, transparent)',
           color: step.status === 'proven' || step.status === 'proven (classical)'
             ? 'var(--green)' : step.status === 'numerical' ? 'var(--brass-dk)'
               : step.status === 'refuted' ? 'var(--terra-dk)' : 'var(--blue)',
@@ -310,7 +311,7 @@ function ProofStepCard({ step }) {
           {step.gap && (
             <div style={{
               padding: '8px 12px', borderRadius: 6, marginBottom: 12,
-              background: 'rgba(181,138,46,0.08)', border: '1px solid rgba(181,138,46,0.30)',
+              background: 'color-mix(in srgb, var(--brass-deco) 8%, transparent)', border: '1px solid color-mix(in srgb, var(--brass-deco) 30%, transparent)',
             }}>
               <div style={{ color: 'var(--brass-dk)', fontSize: 11, fontWeight: 600, marginBottom: 4 }}>GAP</div>
               <div style={{ color: 'var(--brass-dk)', fontSize: 12, lineHeight: 1.6 }}>{step.gap}</div>
@@ -321,7 +322,7 @@ function ProofStepCard({ step }) {
           {step.compute && (
             <div style={{
               padding: '8px 12px', borderRadius: 6,
-              background: 'rgba(63,107,134,0.06)', border: '1px solid rgba(63,107,134,0.15)',
+              background: 'color-mix(in srgb, var(--series-1) 6%, transparent)', border: '1px solid color-mix(in srgb, var(--series-1) 15%, transparent)',
             }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>
                 <div style={{ color: 'var(--blue)', fontSize: 11, fontWeight: 600 }}>LIVE VERIFICATION</div>
@@ -329,8 +330,8 @@ function ProofStepCard({ step }) {
                   disabled={computation.loading}
                   style={{
                     padding: '2px 10px', borderRadius: 4, fontSize: 10, cursor: 'pointer',
-                    background: 'rgba(63,107,134,0.16)', color: 'var(--blue)',
-                    border: '1px solid rgba(63,107,134,0.35)',
+                    background: 'color-mix(in srgb, var(--series-1) 16%, transparent)', color: 'var(--blue)',
+                    border: '1px solid color-mix(in srgb, var(--series-1) 35%, transparent)',
                   }}>
                   {computation.loading ? 'Running...' : 'Run'}
                 </button>
@@ -401,10 +402,10 @@ export default function ProofExplorerPage() {
           display: 'flex', gap: 16, marginBottom: 24, flexWrap: 'wrap',
         }}>
           {[
-            { label: 'Steps', value: `${provenCount}/${mainSteps.length}`, color: '#4c7a4a' },
-            { label: 'Evidence score', value: `${(avgConfidence * 100).toFixed(0)}%`, color: '#3f6b86' },
-            { label: 'Gaps', value: mainSteps.filter(s => s.gap).length, color: '#b58a2e' },
-            { label: 'Theorems', value: new Set(mainSteps.map(s => s.theorem)).size, color: '#8b5fbf' },
+            { label: 'Steps', value: `${provenCount}/${mainSteps.length}`, color: ED.series3 },
+            { label: 'Evidence score', value: `${(avgConfidence * 100).toFixed(0)}%`, color: ED.series1 },
+            { label: 'Gaps', value: mainSteps.filter(s => s.gap).length, color: ED.brass },
+            { label: 'Theorems', value: new Set(mainSteps.map(s => s.theorem)).size, color: ED.series5 },
           ].map(m => (
             <div key={m.label} style={{
               padding: '8px 16px', borderRadius: 8, background: `${m.color}10`,
@@ -435,8 +436,8 @@ export default function ProofExplorerPage() {
         </div>
 
         {/* Alternative path */}
-        <div className="card" style={{ borderLeft: '3px solid #8b5fbf' }}>
-          <h3 style={{ color: '#8b5fbf', fontSize: 14, marginBottom: 16 }}>
+        <div className="card" style={{ borderLeft: '3px solid var(--series-5)' }}>
+          <h3 style={{ color: 'var(--series-5)', fontSize: 14, marginBottom: 16 }}>
             Alternative Path (bypasses Step S3)
           </h3>
           <ProofStepCard step={altStep} />

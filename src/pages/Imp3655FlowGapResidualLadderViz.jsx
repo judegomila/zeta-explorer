@@ -5,12 +5,13 @@ import {
   IMP3655_EXACT_IDENTITY_FLOOR,
   IMP3655_MIN_SHRINK_VS_IMP3599,
 } from '../data/imp-3655-flow-gap-residual-ladder-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 const SERIES = [
-  { key: 'resid_imp3599', label: 'imp-3599 crude O(eps^2) model', color: '#ef4444', dash: '1 3' },
-  { key: 'resid_lead', label: 'imp-3617 resummed leading -d1 eps', color: '#f59e0b', dash: '4 2.5' },
-  { key: 'resid_order2', label: 'imp-3617 self-consistent O(eps^2)', color: '#a78bfa', dash: '2 2' },
-  { key: 'resid_order3', label: 'imp-3617 self-consistent O(eps^3)', color: '#34d399', dash: 'none' },
+  { key: 'resid_imp3599', label: 'imp-3599 crude O(eps^2) model', color: ED.series2, dash: '1 3' },
+  { key: 'resid_lead', label: 'imp-3617 resummed leading -d1 eps', color: ED.brass, dash: '4 2.5' },
+  { key: 'resid_order2', label: 'imp-3617 self-consistent O(eps^2)', color: ED.series5, dash: '2 2' },
+  { key: 'resid_order3', label: 'imp-3617 self-consistent O(eps^3)', color: ED.series3, dash: 'none' },
 ];
 
 export default function Imp3655FlowGapResidualLadderViz() {
@@ -45,7 +46,7 @@ export default function Imp3655FlowGapResidualLadderViz() {
     <div style={{ padding: '1.5rem', maxWidth: 980, margin: '0 auto' }}>
       <PageHeader title="Self-Consistent Flow-Gap Residual Ladder Across the E_trunc Floor Grid (imp-3617)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
         imp-3599 wrote the EXACT flow-gap identity gap = 1 - (L<sub>half</sub>/L<sub>x</sub>)/(1+&eta;)<sup>2</sup>
         {' '}and a crude O(eps<sup>2</sup>) truncation whose residual left a ~5% tail. imp-3617 pushed the same
         identity to a self-consistent closed expansion in eps = E<sub>flow</sub>(N<sub>x</sub>)/E<sub>trunc</sub>,
@@ -59,17 +60,17 @@ export default function Imp3655FlowGapResidualLadderViz() {
       <div
         style={{
           padding: '1rem',
-          background: 'rgba(148,163,184,0.03)',
+          background: 'color-mix(in srgb, var(--ink-soft) 3%, transparent)',
           borderRadius: 6,
         }}
       >
         <svg width={w} height={h} style={{ display: 'block', margin: '0 auto' }}>
-          <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+          <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
           {yTicks.map((v) => (
             <g key={v}>
-              <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke="#1e293b" strokeWidth={0.6} />
-              <text x={padL - 6} y={yS(v) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+              <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke={ED.ruleSoft} strokeWidth={0.6} />
+              <text x={padL - 6} y={yS(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
                 {v.toExponential(0)}
               </text>
             </g>
@@ -80,7 +81,7 @@ export default function Imp3655FlowGapResidualLadderViz() {
             y1={yS(IMP3655_EXACT_IDENTITY_FLOOR)}
             x2={padL + cW}
             y2={yS(IMP3655_EXACT_IDENTITY_FLOOR)}
-            stroke="#475569"
+            stroke={ED.rule}
             strokeWidth={1}
             strokeDasharray="5 3"
           />
@@ -88,7 +89,7 @@ export default function Imp3655FlowGapResidualLadderViz() {
             x={padL + cW - 4}
             y={yS(IMP3655_EXACT_IDENTITY_FLOOR) - 5}
             textAnchor="end"
-            fill="#64748b"
+            fill={ED.inkFaint}
             fontSize={9}
           >
             ~1e-13 exact-identity floor
@@ -104,20 +105,20 @@ export default function Imp3655FlowGapResidualLadderViz() {
             )),
           )}
 
-          <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
+          <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
 
           {factors.map((f) => (
-            <text key={f} x={xS(f)} y={padT + cH + 16} textAnchor="middle" fill="#94a3b8" fontSize={10}>
+            <text key={f} x={xS(f)} y={padT + cH + 16} textAnchor="middle" fill={ED.inkSoft} fontSize={10}>
               f={f}
             </text>
           ))}
-          <text x={padL + cW / 2} y={h - 4} textAnchor="middle" fill="#64748b" fontSize={9.5}>
+          <text x={padL + cW / 2} y={h - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5}>
             E_trunc floor factor f (E_trunc = f &times; 3.06e-5)
           </text>
         </svg>
       </div>
 
-      <div style={{ marginTop: '0.75rem', fontSize: '0.78rem', color: '#64748b', display: 'flex', gap: '1.25rem', flexWrap: 'wrap' }}>
+      <div style={{ marginTop: '0.75rem', fontSize: '0.78rem', color: 'var(--ink-faint)', display: 'flex', gap: '1.25rem', flexWrap: 'wrap' }}>
         {SERIES.map((s) => (
           <span key={s.key}>
             <span style={{ color: s.color }}>&#9644;</span> {s.label}
@@ -129,14 +130,14 @@ export default function Imp3655FlowGapResidualLadderViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> derivation/measurement only &mdash;
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> derivation/measurement only &mdash;
         no proof, no bridge closure, no RH claim, NO QED. Each added expansion order (leading &rarr;
         O(eps<sup>2</sup>) &rarr; O(eps<sup>3</sup>)) shrinks the residual geometrically, with the
         O(eps<sup>3</sup>) truncation beating the imp-3599 crude model by &ge;{' '}

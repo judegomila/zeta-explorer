@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState, useCallback, useMemo } from 'react'
 import * as d3 from 'd3';
 import { InlineMath, BlockMath } from './KaTeXMath.jsx';
 import { ZETA_ZEROS } from '../math/zeta.js';
+import { ED, alpha } from '../styles/tokens.js';
 
 // Precompute reference curves at module level — these are mathematical constants
 // that never change, avoiding ~750 trig/exp evaluations per draw call.
@@ -150,24 +151,24 @@ export default function GUEStatisticsViz() {
       const y = d3.scaleLinear().domain([0, yMax]).range([h, 0]);
 
       g.append('g').attr('transform', `translate(0,${h})`).call(d3.axisBottom(x).ticks(10))
-        .selectAll('text').attr('fill', '#64748b').attr('font-size', 10);
+        .selectAll('text').attr('fill', ED.inkFaint).attr('font-size', 10);
       g.append('g').call(d3.axisLeft(y).ticks(6))
-        .selectAll('text').attr('fill', '#64748b').attr('font-size', 10);
-      g.selectAll('.domain, .tick line').attr('stroke', '#2a3050');
+        .selectAll('text').attr('fill', ED.inkFaint).attr('font-size', 10);
+      g.selectAll('.domain, .tick line').attr('stroke', ED.rule);
 
       // Horizontal gridlines
       const gridS = g.append('g')
         .call(d3.axisLeft(y).ticks(6).tickSize(-w).tickFormat(''));
       gridS.select('.domain').remove();
       gridS.selectAll('.tick line')
-        .attr('stroke', '#1e293b').attr('stroke-dasharray', '3,3').attr('stroke-width', 0.8);
+        .attr('stroke', ED.ruleSoft).attr('stroke-dasharray', '3,3').attr('stroke-width', 0.8);
 
       // Histogram bars
       for (let i = 0; i < bins; i++) {
         g.append('rect')
           .attr('x', x(i * binWidth)).attr('y', y(density[i]))
           .attr('width', x(binWidth) - x(0) - 1).attr('height', h - y(density[i]))
-          .attr('fill', 'rgba(59,130,246,0.4)').attr('stroke', '#3b82f6').attr('stroke-width', 0.5)
+          .attr('fill', alpha(ED.series1, 0.4)).attr('stroke', ED.series1).attr('stroke-width', 0.5)
           .style('cursor', 'crosshair')
           .append('title').text(`s ∈ [${(i * binWidth).toFixed(2)}, ${((i + 1) * binWidth).toFixed(2)}), P(s) = ${density[i].toFixed(4)}`);
       }
@@ -176,54 +177,54 @@ export default function GUEStatisticsViz() {
       g.append('path')
         .datum(REF_GUE_CURVE)
         .attr('d', d3.line().x(d => x(d.s)).y(d => y(d.p)).curve(d3.curveBasis))
-        .attr('fill', 'none').attr('stroke', '#ef4444').attr('stroke-width', 2.5);
+        .attr('fill', 'none').attr('stroke', ED.series2).attr('stroke-width', 2.5);
 
       // Poisson (uncorrelated) for comparison: P(s) = exp(-s)
       g.append('path')
         .datum(REF_POISSON_CURVE)
         .attr('d', d3.line().x(d => x(d.s)).y(d => y(d.p)).curve(d3.curveBasis))
-        .attr('fill', 'none').attr('stroke', '#64748b').attr('stroke-width', 1.5)
+        .attr('fill', 'none').attr('stroke', ED.rule).attr('stroke-width', 1.5)
         .attr('stroke-dasharray', '6,4');
 
       // GOE: P(s) = (pi/2) * s * exp(-pi*s^2/4)
       g.append('path')
         .datum(REF_GOE_CURVE)
         .attr('d', d3.line().x(d => x(d.s)).y(d => y(d.p)).curve(d3.curveBasis))
-        .attr('fill', 'none').attr('stroke', '#f59e0b').attr('stroke-width', 1.5)
+        .attr('fill', 'none').attr('stroke', ED.brassDeco).attr('stroke-width', 1.5)
         .attr('stroke-dasharray', '3,3');
 
       // Legend
       const legend = g.append('g').attr('transform', `translate(${w - 200}, 10)`);
       legend.append('rect')
         .attr('x', -8).attr('y', -14).attr('width', 208).attr('height', 88)
-        .attr('rx', 4).attr('fill', 'rgba(13,17,23,0.85)').attr('stroke', '#1e293b');
+        .attr('rx', 4).attr('fill', alpha(ED.paper, 0.85)).attr('stroke', ED.ruleSoft);
       // Zeta zeros: filled rect swatch matching histogram bars
       legend.append('rect').attr('x', 2).attr('y', -6).attr('width', 18).attr('height', 12)
-        .attr('rx', 1).attr('fill', 'rgba(59,130,246,0.4)').attr('stroke', '#3b82f6').attr('stroke-width', 0.5);
+        .attr('rx', 1).attr('fill', alpha(ED.series1, 0.4)).attr('stroke', ED.series1).attr('stroke-width', 0.5);
       legend.append('text').attr('x', 28).attr('y', 4)
-        .attr('fill', '#94a3b8').attr('font-size', 11).text(`Zeta zeros (n=${numZeros})`);
+        .attr('fill', ED.inkSoft).attr('font-size', 11).text(`Zeta zeros (n=${numZeros})`);
       // Curve entries: line swatches
       [
-        { label: 'GUE (Wigner surmise)', color: '#ef4444', dash: '' },
-        { label: 'GOE', color: '#f59e0b', dash: '3,3' },
-        { label: 'Poisson (uncorrelated)', color: '#64748b', dash: '6,4' },
+        { label: 'GUE (Wigner surmise)', color: ED.series2, dash: '' },
+        { label: 'GOE', color: ED.brass, dash: '3,3' },
+        { label: 'Poisson (uncorrelated)', color: ED.inkFaint, dash: '6,4' },
       ].forEach(({ label, color, dash }, i) => {
         const row = (i + 1) * 20;
         legend.append('line').attr('x1', 0).attr('y1', row).attr('x2', 22).attr('y2', row)
           .attr('stroke', color).attr('stroke-width', 2).attr('stroke-dasharray', dash);
         legend.append('text').attr('x', 28).attr('y', row + 4)
-          .attr('fill', '#94a3b8').attr('font-size', 11).text(label);
+          .attr('fill', ED.inkSoft).attr('font-size', 11).text(label);
       });
 
       svg.append('text').attr('x', width / 2).attr('y', height - 6)
-        .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12)
+        .attr('text-anchor', 'middle').attr('fill', ED.inkSoft).attr('font-size', 12)
         .text('Normalized spacing s');
       svg.append('text')
         .attr('transform', `translate(16, ${margin.top + h / 2}) rotate(-90)`)
-        .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12)
+        .attr('text-anchor', 'middle').attr('fill', ED.inkSoft).attr('font-size', 12)
         .text('P(s)');
       svg.append('text').attr('x', margin.left + 4).attr('y', 16)
-        .attr('fill', '#e2e8f0').attr('font-size', 13).attr('font-weight', 600)
+        .attr('fill', ED.ink).attr('font-size', 13).attr('font-weight', 600)
         .text('Nearest-Neighbor Spacing Distribution');
 
     } else if (mode === 'pair-correlation') {
@@ -236,23 +237,23 @@ export default function GUEStatisticsViz() {
       const y = d3.scaleLinear().domain([0, yMax]).range([h, 0]);
 
       g.append('g').attr('transform', `translate(0,${h})`).call(d3.axisBottom(x).ticks(10))
-        .selectAll('text').attr('fill', '#64748b').attr('font-size', 10);
+        .selectAll('text').attr('fill', ED.inkFaint).attr('font-size', 10);
       g.append('g').call(d3.axisLeft(y).ticks(6))
-        .selectAll('text').attr('fill', '#64748b').attr('font-size', 10);
-      g.selectAll('.domain, .tick line').attr('stroke', '#2a3050');
+        .selectAll('text').attr('fill', ED.inkFaint).attr('font-size', 10);
+      g.selectAll('.domain, .tick line').attr('stroke', ED.rule);
 
       // Horizontal gridlines
       const gridP = g.append('g')
         .call(d3.axisLeft(y).ticks(6).tickSize(-w).tickFormat(''));
       gridP.select('.domain').remove();
       gridP.selectAll('.tick line')
-        .attr('stroke', '#1e293b').attr('stroke-dasharray', '3,3').attr('stroke-width', 0.8);
+        .attr('stroke', ED.ruleSoft).attr('stroke-dasharray', '3,3').attr('stroke-width', 0.8);
 
       for (let i = 0; i < bins; i++) {
         g.append('rect')
           .attr('x', x(i * binW)).attr('y', y(density[i]))
           .attr('width', x(binW) - x(0) - 1).attr('height', h - y(density[i]))
-          .attr('fill', 'rgba(139,92,246,0.4)').attr('stroke', '#8b5cf6').attr('stroke-width', 0.5)
+          .attr('fill', alpha(ED.series5, 0.4)).attr('stroke', ED.series5).attr('stroke-width', 0.5)
           .style('cursor', 'crosshair')
           .append('title').text(`x ∈ [${(i * binW).toFixed(2)}, ${((i + 1) * binW).toFixed(2)}), R₂ = ${density[i].toFixed(4)}`);
       }
@@ -261,43 +262,43 @@ export default function GUEStatisticsViz() {
       g.append('path')
         .datum(REF_R2_CURVE)
         .attr('d', d3.line().x(d => x(d.r)).y(d => y(d.p)).curve(d3.curveBasis))
-        .attr('fill', 'none').attr('stroke', '#ef4444').attr('stroke-width', 2.5);
+        .attr('fill', 'none').attr('stroke', ED.series2).attr('stroke-width', 2.5);
 
       // R_2 = 1 reference (uncorrelated / Poisson baseline)
       g.append('line')
         .attr('x1', 0).attr('y1', y(1)).attr('x2', w).attr('y2', y(1))
-        .attr('stroke', '#64748b').attr('stroke-dasharray', '4,4').attr('stroke-width', 0.8);
+        .attr('stroke', ED.rule).attr('stroke-dasharray', '4,4').attr('stroke-width', 0.8);
       g.append('text')
         .attr('x', w - 4).attr('y', y(1) - 5)
-        .attr('text-anchor', 'end').attr('fill', '#64748b').attr('font-size', 10)
+        .attr('text-anchor', 'end').attr('fill', ED.inkFaint).attr('font-size', 10)
         .text('R₂ = 1 (uncorrelated)');
 
       const legend = g.append('g').attr('transform', `translate(${w - 220}, 10)`);
       legend.append('rect')
         .attr('x', -8).attr('y', -14).attr('width', 220).attr('height', 68)
-        .attr('rx', 4).attr('fill', 'rgba(13,17,23,0.85)').attr('stroke', '#1e293b');
+        .attr('rx', 4).attr('fill', alpha(ED.paper, 0.85)).attr('stroke', ED.ruleSoft);
       legend.append('rect').attr('x', 2).attr('y', -6).attr('width', 18).attr('height', 12)
-        .attr('rx', 1).attr('fill', 'rgba(139,92,246,0.4)').attr('stroke', '#8b5cf6').attr('stroke-width', 0.5);
+        .attr('rx', 1).attr('fill', alpha(ED.series5, 0.4)).attr('stroke', ED.series5).attr('stroke-width', 0.5);
       legend.append('text').attr('x', 28).attr('y', 4)
-        .attr('fill', '#94a3b8').attr('font-size', 11).text('Zeta zeros (data)');
+        .attr('fill', ED.inkSoft).attr('font-size', 11).text('Zeta zeros (data)');
       legend.append('line').attr('x1', 0).attr('y1', 20).attr('x2', 22).attr('y2', 20)
-        .attr('stroke', '#ef4444').attr('stroke-width', 2);
+        .attr('stroke', ED.series2).attr('stroke-width', 2);
       legend.append('text').attr('x', 28).attr('y', 24)
-        .attr('fill', '#94a3b8').attr('font-size', 11).text('GUE: 1 − (sin πx / πx)²');
+        .attr('fill', ED.inkSoft).attr('font-size', 11).text('GUE: 1 − (sin πx / πx)²');
       legend.append('line').attr('x1', 0).attr('y1', 40).attr('x2', 22).attr('y2', 40)
-        .attr('stroke', '#64748b').attr('stroke-width', 1).attr('stroke-dasharray', '4,4');
+        .attr('stroke', ED.rule).attr('stroke-width', 1).attr('stroke-dasharray', '4,4');
       legend.append('text').attr('x', 28).attr('y', 44)
-        .attr('fill', '#94a3b8').attr('font-size', 11).text('R₂ = 1 (Poisson limit)');
+        .attr('fill', ED.inkSoft).attr('font-size', 11).text('R₂ = 1 (Poisson limit)');
 
       svg.append('text').attr('x', width / 2).attr('y', height - 6)
-        .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12)
+        .attr('text-anchor', 'middle').attr('fill', ED.inkSoft).attr('font-size', 12)
         .text('Normalized distance x');
       svg.append('text')
         .attr('transform', `translate(16, ${margin.top + h / 2}) rotate(-90)`)
-        .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12)
+        .attr('text-anchor', 'middle').attr('fill', ED.inkSoft).attr('font-size', 12)
         .text('R₂(x)');
       svg.append('text').attr('x', margin.left + 4).attr('y', 16)
-        .attr('fill', '#e2e8f0').attr('font-size', 13).attr('font-weight', 600)
+        .attr('fill', ED.ink).attr('font-size', 13).attr('font-weight', 600)
         .text('Pair Correlation Function R₂(x)');
 
     } else {
@@ -308,26 +309,26 @@ export default function GUEStatisticsViz() {
       const y = d3.scaleLinear().domain([0, yMax]).range([h, 0]);
 
       g.append('g').attr('transform', `translate(0,${h})`).call(d3.axisBottom(x).ticks(10))
-        .selectAll('text').attr('fill', '#64748b').attr('font-size', 10);
+        .selectAll('text').attr('fill', ED.inkFaint).attr('font-size', 10);
       g.append('g').call(d3.axisLeft(y).ticks(6))
-        .selectAll('text').attr('fill', '#64748b').attr('font-size', 10);
-      g.selectAll('.domain, .tick line').attr('stroke', '#2a3050');
+        .selectAll('text').attr('fill', ED.inkFaint).attr('font-size', 10);
+      g.selectAll('.domain, .tick line').attr('stroke', ED.rule);
 
       // Horizontal gridlines
       const gridN = g.append('g')
         .call(d3.axisLeft(y).ticks(6).tickSize(-w).tickFormat(''));
       gridN.select('.domain').remove();
       gridN.selectAll('.tick line')
-        .attr('stroke', '#1e293b').attr('stroke-dasharray', '3,3').attr('stroke-width', 0.8);
+        .attr('stroke', ED.ruleSoft).attr('stroke-dasharray', '3,3').attr('stroke-width', 0.8);
 
       // Data points
       const dataLine = d3.line()
         .x((d, i) => x(Ls[i])).y(d => y(d)).curve(d3.curveMonotoneX);
       g.append('path').datum(vars).attr('d', dataLine)
-        .attr('fill', 'none').attr('stroke', '#3b82f6').attr('stroke-width', 2);
+        .attr('fill', 'none').attr('stroke', ED.series1).attr('stroke-width', 2);
       vars.forEach((v, i) => {
         g.append('circle').attr('cx', x(Ls[i])).attr('cy', y(v)).attr('r', 3)
-          .attr('fill', '#3b82f6').attr('stroke', '#0a0e1a').attr('stroke-width', 1)
+          .attr('fill', ED.series1).attr('stroke', ED.paper).attr('stroke-width', 1)
           .style('cursor', 'crosshair')
           .append('title').text(`L = ${Ls[i].toFixed(2)}, Σ²(L) = ${v.toFixed(4)}`);
       });
@@ -335,45 +336,45 @@ export default function GUEStatisticsViz() {
       // GUE prediction: Sigma^2(L) ~ (1/pi^2)(log(2*pi*L) + 1 + gamma_E)
       g.append('path').datum(REF_NUMVAR_GUE)
         .attr('d', d3.line().x(d => x(d.L)).y(d => y(d.s2)).curve(d3.curveBasis))
-        .attr('fill', 'none').attr('stroke', '#ef4444').attr('stroke-width', 2.5);
+        .attr('fill', 'none').attr('stroke', ED.series2).attr('stroke-width', 2.5);
 
       // Poisson: Sigma^2 = L (slope = 1 in data coords)
       // End the line where Σ²=L exits the chart (at L=yMax if yMax < 6)
       const poissonEnd = Math.min(6, yMax);
       g.append('line')
         .attr('x1', x(0)).attr('y1', y(0)).attr('x2', x(poissonEnd)).attr('y2', y(poissonEnd))
-        .attr('stroke', '#64748b').attr('stroke-dasharray', '6,4').attr('stroke-width', 1.5);
+        .attr('stroke', ED.rule).attr('stroke-dasharray', '6,4').attr('stroke-width', 1.5);
 
       const legend = g.append('g').attr('transform', `translate(20, 10)`);
       legend.append('rect')
         .attr('x', -8).attr('y', -14).attr('width', 160).attr('height', 68)
-        .attr('rx', 4).attr('fill', 'rgba(13,17,23,0.85)').attr('stroke', '#1e293b');
+        .attr('rx', 4).attr('fill', alpha(ED.paper, 0.85)).attr('stroke', ED.ruleSoft);
       [
-        { label: 'Zeta zeros', color: '#3b82f6', dash: '', dots: true },
-        { label: 'GUE prediction', color: '#ef4444', dash: '', dots: false },
-        { label: 'Poisson (Σ²=L)', color: '#64748b', dash: '6,4', dots: false },
+        { label: 'Zeta zeros', color: ED.series1, dash: '', dots: true },
+        { label: 'GUE prediction', color: ED.series2, dash: '', dots: false },
+        { label: 'Poisson (Σ²=L)', color: ED.inkFaint, dash: '6,4', dots: false },
       ].forEach(({ label, color, dash, dots }, i) => {
         legend.append('line').attr('x1', 0).attr('y1', i * 20).attr('x2', 22).attr('y2', i * 20)
           .attr('stroke', color).attr('stroke-width', 2).attr('stroke-dasharray', dash);
         if (dots) {
           legend.append('circle').attr('cx', 5).attr('cy', i * 20).attr('r', 2.5)
-            .attr('fill', color).attr('stroke', '#0a0e1a').attr('stroke-width', 1);
+            .attr('fill', color).attr('stroke', ED.paper).attr('stroke-width', 1);
           legend.append('circle').attr('cx', 17).attr('cy', i * 20).attr('r', 2.5)
-            .attr('fill', color).attr('stroke', '#0a0e1a').attr('stroke-width', 1);
+            .attr('fill', color).attr('stroke', ED.paper).attr('stroke-width', 1);
         }
         legend.append('text').attr('x', 28).attr('y', i * 20 + 4)
-          .attr('fill', '#94a3b8').attr('font-size', 11).text(label);
+          .attr('fill', ED.inkSoft).attr('font-size', 11).text(label);
       });
 
       svg.append('text').attr('x', width / 2).attr('y', height - 6)
-        .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12)
+        .attr('text-anchor', 'middle').attr('fill', ED.inkSoft).attr('font-size', 12)
         .text('Interval length L');
       svg.append('text')
         .attr('transform', `translate(16, ${margin.top + h / 2}) rotate(-90)`)
-        .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12)
+        .attr('text-anchor', 'middle').attr('fill', ED.inkSoft).attr('font-size', 12)
         .text('Σ²(L)');
       svg.append('text').attr('x', margin.left + 4).attr('y', 16)
-        .attr('fill', '#e2e8f0').attr('font-size', 13).attr('font-weight', 600)
+        .attr('fill', ED.ink).attr('font-size', 13).attr('font-weight', 600)
         .text('Number Variance Σ²(L)');
     }
 
@@ -417,12 +418,12 @@ export default function GUEStatisticsViz() {
           <p style={{ margin: '4px 0 0' }}>
             <strong>Look for:</strong> the zeta zero histogram matching GUE (red), not GOE (amber) or Poisson (gray).
           </p>
-          <div style={{ margin: '10px 0 0', padding: '8px 10px', borderRadius: 4, background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.25)' }}>
-            <div style={{ fontFamily: 'monospace', fontSize: 13, color: '#e2e8f0' }}>
+          <div style={{ margin: '10px 0 0', padding: '8px 10px', borderRadius: 4, background: 'color-mix(in srgb, var(--series-2) 8%, transparent)', border: '1px solid color-mix(in srgb, var(--series-2) 25%, transparent)' }}>
+            <div style={{ fontFamily: 'monospace', fontSize: 13, color: 'var(--ink)' }}>
               KS distance (empirical vs GUE Wigner): <strong>D = {statsData.spacing.ks.toFixed(4)}</strong>
               {' '}over {statsData.spacing.nSpacings} normalized spacings
             </div>
-            <div style={{ marginTop: 4, fontSize: 11, color: '#94a3b8' }}>
+            <div style={{ marginTop: 4, fontSize: 11, color: 'var(--ink-soft)' }}>
               <InlineMath tex={"D = \\sup_s |F_{\\text{emp}}(s) - F_{\\text{GUE}}(s)|"} /> against the closed-form
               surmise CDF <InlineMath tex={"F_{\\text{GUE}}(s) = \\operatorname{erf}(2s/\\sqrt{\\pi}) - \\tfrac{4}{\\pi} s\\,e^{-4s^2/\\pi}"} />.
               <strong> Scope:</strong> a small, shrinking <InlineMath tex={"D"} /> is strong NUMERICAL evidence
@@ -470,7 +471,7 @@ export default function GUEStatisticsViz() {
           <input type="range" min="10" max="300" step="1" value={numZeros}
             onChange={e => setNumZeros(+e.target.value)} />
           <span className="control-value">{numZeros}</span>
-          <span style={{ marginLeft: 6, fontSize: 11, color: '#64748b' }}>
+          <span style={{ marginLeft: 6, fontSize: 11, color: 'var(--ink-faint)' }}>
             (γ_max ≈ {ZETA_ZEROS[Math.min(numZeros, ZETA_ZEROS.length) - 1]?.toFixed(1) ?? '?'})
           </span>
         </div>

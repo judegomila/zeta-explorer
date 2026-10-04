@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
+import { ED } from '../styles/tokens.js';
 
 /* State of the Field — a cited map of how RH is actually being approached in the
    wider mathematical community (2023–2026), and where this program engages each
@@ -14,7 +15,7 @@ const PROGRAMS = [
     title: 'Zero-density & large values',
     leaders: 'Guth · Maynard · Tao',
     status: 'RIGOROUS — but capped below RH',
-    color: '#4c7a4a',
+    color: ED.series3,
     idea:
       'Rather than prove no zeros lie off the line (RH), bound how many could. Guth–Maynard (2024) gave the first improvement on Huxley’s 1972 zero-density exponent in ~50 years (to 30/13 ≈ 2.31), via new large-value estimates for Dirichlet polynomials — yielding primes in shorter intervals.',
     obstruction:
@@ -30,7 +31,7 @@ const PROGRAMS = [
     title: 'Moments & Random Matrix Theory',
     leaders: 'Conrey · Keating · Snaith · Soundararajan · Radziwiłł · Arguin · Bourgade',
     status: 'PREDICTIVE — mostly assumes RH',
-    color: '#3f6b86',
+    color: ED.series1,
     idea:
       'Model ζ near height T by the characteristic polynomial of a random unitary matrix (dictionary N ↔ log T). Predicts moment asymptotics (Keating–Snaith 2000, CFKRS recipe) and the Fyodorov–Hiary–Keating law for the maximum of |ζ| — the latter now essentially confirmed (Annals 2024).',
     obstruction:
@@ -46,7 +47,7 @@ const PROGRAMS = [
     title: 'The de Bruijn–Newman constant Λ',
     leaders: 'Rodgers · Tao · Polymath 15 · Platt · Trudgian',
     status: 'PROVEN 0 ≤ Λ ≤ 0.2 — RH ⟺ Λ ≤ 0',
-    color: '#8c6a1d',
+    color: ED.brass,
     idea:
       'Heat-flow the ξ-function: H_t has only real zeros iff t ≥ Λ, and H₀ = ξ, so RH ⟺ Λ ≤ 0. Rodgers–Tao (2020) proved Λ ≥ 0; Polymath 15 + Platt–Trudgian’s verified height give Λ ≤ 0.2. This is the program’s home lane.',
     obstruction:
@@ -63,7 +64,7 @@ const PROGRAMS = [
     title: 'Critical-line proportion / mollifiers',
     leaders: 'Levinson · Conrey · Pratt–Robles–Zaharescu–Zeindler',
     status: 'RIGOROUS — partial proportions, not RH',
-    color: '#4c7a4a',
+    color: ED.series3,
     idea:
       'Prove that a positive proportion of the nontrivial zeros lie exactly on the critical line, via mollified moment computations. Levinson (1974) reached 1/3, Conrey (1989) reached 2/5, and the peer-reviewed record is 5/12 ≈ 0.4167 (Pratt–Robles–Zaharescu–Zeindler 2020). In August 2026 an external Claude/Anthropic project announced an unconditional ≥ 2/3 (0.6725, simple and on-line) result — Lean-checked and reviewed by Conrey and Goldston, but not peer-reviewed, so it is not adopted here as the record.',
     obstruction:
@@ -78,7 +79,7 @@ const PROGRAMS = [
     title: 'Spectral / Hilbert–Pólya',
     leaders: 'Connes · Berry–Keating · (de Branges, refuted)',
     status: 'CONCEPTUAL — equivalent to RH, open',
-    color: '#6d55b8',
+    color: ED.series5,
     idea:
       'Realize the zeros’ ordinates as eigenvalues of a self-adjoint operator; self-adjointness would force RH. Connes’ noncommutative-geometry program recasts Weil’s explicit formula as a trace formula and reduces RH to Weil positivity (with real refereed sub-results: archimedean positivity 2021; prolate-spectrum matching PNAS 2022).',
     obstruction:
@@ -94,7 +95,7 @@ const PROGRAMS = [
     title: 'Positivity criteria',
     leaders: 'Li · Weil · Beurling–Nyman · Báez-Duarte',
     status: 'EXACT EQUIVALENCES — as hard as RH',
-    color: '#c23a1c',
+    color: ED.accent,
     idea:
       'RH ⟺ a positivity or density condition: Li’s λ_n ≥ 0; Weil’s explicit-formula functional positive-semidefinite; the constant 1 in the L²-closure of dilated fractional-part functions (Beurling–Nyman / Báez-Duarte).',
     obstruction:

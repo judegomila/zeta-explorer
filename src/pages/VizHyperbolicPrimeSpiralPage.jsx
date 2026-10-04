@@ -4,6 +4,7 @@ import { sieveOfEratosthenes } from '../math/primes.js';
 import { VIZ_HYPERBOLIC_PRIME_SPIRAL } from '../data/viz-hyperbolic-prime-spiral.js';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import VizCeilingNote from '../components/VizCeilingNote.jsx';
+import { ED } from '../styles/tokens.js';
 
 /**
  * VizHyperbolicPrimeSpiralPage — primes embedded in the Poincaré disk via
@@ -21,9 +22,9 @@ import VizCeilingNote from '../components/VizCeilingNote.jsx';
 const S = VIZ_HYPERBOLIC_PRIME_SPIRAL;
 
 function colorForPrime(p) {
-  if (p === 2) return '#8c6a1d';       // brass
-  if (p % 4 === 1) return '#3f6b86';   // blue
-  return '#c23a1c';                    // terra-dk (3 mod 4)
+  if (p === 2) return ED.brass;       // brass
+  if (p % 4 === 1) return ED.series1;   // blue
+  return ED.series2;                    // terra-dk (3 mod 4)
 }
 
 function PrimeDisk({ maxPrime, phase, amplitude, showGeodesic }) {
@@ -45,17 +46,17 @@ function PrimeDisk({ maxPrime, phase, amplitude, showGeodesic }) {
   }, [maxPrime, phase, amplitude]);
 
   return (
-    <svg width="100%" viewBox={`0 0 ${SIZE} ${SIZE}`} style={{ background: '#f6f1e7', borderRadius: 8 }}>
+    <svg width="100%" viewBox={`0 0 ${SIZE} ${SIZE}`} style={{ background: 'var(--paper-2)', borderRadius: 8 }}>
       {/* Unit disk boundary */}
-      <circle cx={CX} cy={CY} r={R} fill="none" stroke="#4a4238" strokeWidth="1" />
+      <circle cx={CX} cy={CY} r={R} fill="none" stroke={ED.inkSoft} strokeWidth="1" />
 
       {/* Concentric reference rings at log(p)/log(p_max) for p = 10, 100, 1000 */}
       {[10, 100, 1000, 10000].filter((p) => p <= maxPrime).map((p) => {
         const r = (Math.log(p) / Math.log(maxPrime)) * R;
         return (
           <g key={p}>
-            <circle cx={CX} cy={CY} r={r} fill="none" stroke="#d5c9b2" strokeWidth="0.5" strokeDasharray="2 3" />
-            <text x={CX + r + 4} y={CY - 2} fill="#877b67" fontSize="10" fontFamily="monospace">p={p}</text>
+            <circle cx={CX} cy={CY} r={r} fill="none" stroke={ED.rule} strokeWidth="0.5" strokeDasharray="2 3" />
+            <text x={CX + r + 4} y={CY - 2} fill={ED.inkFaint} fontSize="10" fontFamily="monospace">p={p}</text>
           </g>
         );
       })}
@@ -71,12 +72,12 @@ function PrimeDisk({ maxPrime, phase, amplitude, showGeodesic }) {
             cy={CY}
             r={R / Math.sqrt(2)}
             fill="none"
-            stroke="#4c7a4a"
+            stroke={ED.series3}
             strokeOpacity="0.55"
             strokeWidth="1.5"
             strokeDasharray="4 3"
           />
-          <text x={CX} y={CY + R + 24} fill="#4c7a4a" fontSize="11" fontFamily="monospace" textAnchor="middle">
+          <text x={CX} y={CY + R + 24} fill={ED.series3} fontSize="11" fontFamily="monospace" textAnchor="middle">
             critical-line geodesic (σ=1/2 lift)
           </text>
         </g>
@@ -89,13 +90,13 @@ function PrimeDisk({ maxPrime, phase, amplitude, showGeodesic }) {
 
       {/* Legend */}
       <g transform="translate(20, 20)">
-        <circle cx="6" cy="6" r="3" fill="#3f6b86" /><text x="14" y="10" fill="#1c1814" fontSize="11" fontFamily="monospace">p ≡ 1 (mod 4)</text>
-        <circle cx="6" cy="26" r="3" fill="#c23a1c" /><text x="14" y="30" fill="#1c1814" fontSize="11" fontFamily="monospace">p ≡ 3 (mod 4)</text>
-        <circle cx="6" cy="46" r="3" fill="#8c6a1d" /><text x="14" y="50" fill="#1c1814" fontSize="11" fontFamily="monospace">p = 2</text>
+        <circle cx="6" cy="6" r="3" fill={ED.series1} /><text x="14" y="10" fill={ED.ink} fontSize="11" fontFamily="monospace">p ≡ 1 (mod 4)</text>
+        <circle cx="6" cy="26" r="3" fill={ED.series2} /><text x="14" y="30" fill={ED.ink} fontSize="11" fontFamily="monospace">p ≡ 3 (mod 4)</text>
+        <circle cx="6" cy="46" r="3" fill={ED.brass} /><text x="14" y="50" fill={ED.ink} fontSize="11" fontFamily="monospace">p = 2</text>
       </g>
 
       {/* Counter */}
-      <text x={SIZE - 20} y={SIZE - 12} fill="#877b67" fontSize="11" fontFamily="monospace" textAnchor="end">
+      <text x={SIZE - 20} y={SIZE - 12} fill={ED.inkFaint} fontSize="11" fontFamily="monospace" textAnchor="end">
         {points.length} primes, p ≤ {maxPrime}
       </text>
     </svg>

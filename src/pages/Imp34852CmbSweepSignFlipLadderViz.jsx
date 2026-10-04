@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP34824_INFLECTION_CROSSOVER_GAP_CMB_SWEEP } from '../data/imp-34824-inflection-crossover-gap-cmb-sweep.js';
+import { ED } from '../styles/tokens.js';
 
 const D = IMP34824_INFLECTION_CROSSOVER_GAP_CMB_SWEEP;
 
@@ -21,16 +22,16 @@ function GapLadder({ grid, zeroGapCmb }) {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={zeroX} x2={zeroX} y1={padT} y2={svgH - padB} stroke="#334155" strokeWidth={1.5} />
+      <line x1={zeroX} x2={zeroX} y1={padT} y2={svgH - padB} stroke={ED.rule} strokeWidth={1.5} />
       {grid.map((g, i) => {
         const y = padT + rowH * i + rowH / 2;
         const barX = xOf(Math.min(0, g.rel_gap_pct));
         const barW = Math.max(Math.abs(xOf(g.rel_gap_pct) - zeroX), 2);
         const positive = g.rel_gap_pct >= 0;
-        const color = positive ? '#38bdf8' : '#f87171';
+        const color = positive ? ED.series1 : ED.series2;
         return (
           <g key={g.C_mb}>
-            <text x={padL - 10} y={y + 4} textAnchor="end" fill="#94a3b8" fontSize={12} fontFamily="monospace">
+            <text x={padL - 10} y={y + 4} textAnchor="end" fill={ED.inkSoft} fontSize={12} fontFamily="monospace">
               C_mb={g.C_mb.toFixed(2)}
             </text>
             <rect x={barX} y={y - 10} width={barW} height={20} fill={color} opacity={0.75} rx={3} />
@@ -48,7 +49,7 @@ function GapLadder({ grid, zeroGapCmb }) {
           </g>
         );
       })}
-      <text x={svgW / 2} y={svgH - 6} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={svgW / 2} y={svgH - 6} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         inflection-vs-crossover relative gap (%) -- sign flips near C_mb* ~ {zeroGapCmb.toFixed(4)}
       </text>
     </svg>
@@ -62,7 +63,7 @@ export default function Imp34852CmbSweepSignFlipLadderViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="C_mb-Sweep Inflection-vs-Crossover Sign-Flip Ladder (imp-34852 / imp-34824)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-34824 recomputed the imp-33721 sigmoid-inflection knee and the imp-33723 Banach/Krawczyk crossover
         as functions of the GUE-conditional constant C_mb (bounded &le; 1, imp-486). At C_mb&nbsp;=&nbsp;1 the
         pair reproduces the imp-34800 +{baseline.rel_gap_pct.toFixed(2)}% residual, but across the sweep the
@@ -70,7 +71,7 @@ export default function Imp34852CmbSweepSignFlipLadderViz() {
         where the two landmarks coincide.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         Relative gap (%) across the C_mb grid
       </p>
       <GapLadder grid={grid} zeroGapCmb={cmbZeroGap} />
@@ -79,11 +80,11 @@ export default function Imp34852CmbSweepSignFlipLadderViz() {
         style={{
           marginTop: '1rem',
           padding: '0.6rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
         }}
       >
         The +{baseline.rel_gap_pct.toFixed(2)}% residual at C_mb&nbsp;=&nbsp;1 is the GUE-saturated endpoint
@@ -101,14 +102,14 @@ export default function Imp34852CmbSweepSignFlipLadderViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page presenting the imp-34824
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-only page presenting the imp-34824
         literals verbatim (no new computation). Component model is the inherited imp-3220/imp-3406 surrogate
         crossover map, NOT a rigorous asymptotic; sub-gap imp-34714a REMAINS OPEN (no machine certificate).
         C_mb is treated as a free knob -- this does NOT discharge the GUE conditional (imp-486). The

@@ -18,13 +18,13 @@ export default function DownstreamVerdictCallout() {
     <div style={{
       margin: '16px 0',
       padding: '14px 18px',
-      background: 'rgba(220,38,38,0.08)',
-      border: '1px solid rgba(220,38,38,0.4)',
-      borderLeft: '4px solid #dc2626',
+      background: 'color-mix(in srgb, var(--series-2) 8%, transparent)',
+      border: '1px solid color-mix(in srgb, var(--series-2) 40%, transparent)',
+      borderLeft: '4px solid var(--series-2)',
       borderRadius: 8,
     }}>
       <div style={{
-        color: '#fca5a5',
+        color: 'var(--series-2)',
         fontSize: 11,
         fontWeight: 700,
         fontFamily: 'var(--font-mono, monospace)',
@@ -34,14 +34,14 @@ export default function DownstreamVerdictCallout() {
       }}>
         Downstream verdict — §27 reduction refuted (2026-06-18)
       </div>
-      <p style={{ color: '#cbd5e1', fontSize: 13, lineHeight: 1.6, margin: 0 }}>
+      <p style={{ color: 'var(--ink)', fontSize: 13, lineHeight: 1.6, margin: 0 }}>
         The constructions on this page feed a chain whose terminal target — the §27
-        Volterra-contraction reduction — is <strong style={{ color: '#fca5a5' }}>ELIMINATED AS A
+        Volterra-contraction reduction — is <strong style={{ color: 'var(--series-2)' }}>ELIMINATED AS A
         REDUCTION</strong>: it is provably impossible to revive by any scalar normalization.
         The surviving open sub-problem (<InlineCode>{'||R|| <= 1 <=> K_a >= 0'}</InlineCode>) is a
-        faithful restatement of positivity — <strong style={{ color: '#e2e8f0' }}>RH-equivalent,
+        faithful restatement of positivity — <strong style={{ color: 'var(--ink)' }}>RH-equivalent,
         not a shortcut</strong>. See the full chain and its status on{' '}
-        <Link to="/collapse-chain" style={{ color: '#60a5fa' }}>/collapse-chain</Link>.
+        <Link to="/collapse-chain" style={{ color: 'var(--series-1)' }}>/collapse-chain</Link>.
       </p>
     </div>
   );
@@ -52,8 +52,8 @@ function InlineCode({ children }) {
     <code style={{
       fontFamily: 'var(--font-mono, monospace)',
       fontSize: 12,
-      color: '#fbbf24',
-      background: 'rgba(148,163,184,0.12)',
+      color: 'var(--brass)',
+      background: 'color-mix(in srgb, var(--ink-soft) 12%, transparent)',
       padding: '1px 5px',
       borderRadius: 4,
     }}>{children}</code>

@@ -10,9 +10,10 @@ import {
   IMP35957_OVERFLOW_PROBE_LOG10_N,
   IMP35957_MAX_DOUBLE,
 } from '../data/imp-35957-rdirect-floor-height-sweep-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
-const PLATEAU_COLOR = '#38bdf8';
-const CLIFF_COLOR = '#f87171';
+const PLATEAU_COLOR = ED.series1;
+const CLIFF_COLOR = ED.series2;
 
 function PlateauCliffChart() {
   const svgW = 680;
@@ -33,10 +34,10 @@ function PlateauCliffChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
-      <line x1={padL} y1={yS(2)} x2={padL + cW} y2={yS(2)} stroke="#334155" strokeWidth={1} strokeDasharray="4,3" />
-      <text x={padL + cW - 4} y={yS(2) - 4} textAnchor="end" fill="#7dd3fc" fontSize={8.5}>
+      <line x1={padL} y1={yS(2)} x2={padL + cW} y2={yS(2)} stroke={ED.rule} strokeWidth={1} strokeDasharray="4,3" />
+      <text x={padL + cW - 4} y={yS(2) - 4} textAnchor="end" fill={ED.series1} fontSize={8.5}>
         {'<= 2 ULP ceiling'}
       </text>
 
@@ -70,16 +71,16 @@ function PlateauCliffChart() {
         NaN
       </text>
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
 
-      <text x={padL + cW / 2} y={padT + cH + 32} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={padT + cH + 32} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         log10 N
       </text>
       <text
         x={16}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={'rotate(-90,16,' + (padT + cH / 2) + ')'}
       >
@@ -98,15 +99,15 @@ export default function Imp35957RdirectFloorHeightSweepViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(251,191,36,0.06)',
-          borderLeft: '3px solid #fbbf24',
+          background: 'color-mix(in srgb, var(--brass-deco) 6%, transparent)',
+          borderLeft: '3px solid var(--brass-deco)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#fbbf24' }}>Status -- TWIN cliffs, not one:</strong> imp-35972/imp-36021
+        <strong style={{ color: 'var(--brass)' }}>Status -- TWIN cliffs, not one:</strong> imp-35972/imp-36021
         resolved this NaN cliff into TWO distinct, sub-decade-adjacent IEEE-754 boundaries: cliff B (a
         {' → '}0 via the T{'·'}u denominator overflow, plotted here at log10 N {'≈'} 307.4559, and cliff A
         (the effectiveHeightForN Newton-seed numerator 2{'π'}N overflow) {'≈'}6.2e-4 decade above it at
@@ -116,7 +117,7 @@ export default function Imp35957RdirectFloorHeightSweepViz() {
         representability wall of this surrogate.
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-35892 extended the imp-35855 de-cancelled surplus-split ratio R_direct = -S_inf . a/(2-a)
         sweep far past its N ~ 1e21 stopping point, out to the last representable finite height. The
         fixed 1e-{Math.round(-Math.log10(IMP35957_THRESHOLD))} departure threshold is never crossed: R_direct tracks its
@@ -126,7 +127,7 @@ export default function Imp35957RdirectFloorHeightSweepViz() {
         RvM height inverse overflows past Number.MAX_VALUE ({IMP35957_MAX_DOUBLE.toExponential(3)}).
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         R_direct departure from R_clean (ULP) vs log10 N -- plateau, then the hard cliff
       </p>
       <PlateauCliffChart />
@@ -135,14 +136,14 @@ export default function Imp35957RdirectFloorHeightSweepViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> the blue trace sits pinned at
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> the blue trace sits pinned at
         {' '}{'<='}1 ULP for every finite N sampled from 1e13 up to the last finite point at log10 N ~
         {IMP35957_LAST_FINITE_LOG10_N.toFixed(3)} (a ~ {IMP35957_LAST_FINITE_A.toExponential(2)}, still a
         NORMAL double -- underflow is not the binding limit). One decade later, the {IMP35957_OVERFLOW_PROBE_LOG10_N}
@@ -154,14 +155,14 @@ export default function Imp35957RdirectFloorHeightSweepViz() {
         style={{
           marginTop: '1rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement/diagnostic only, double
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> measurement/diagnostic only, double
         precision; instantiates no interval, ports no operator, changes no bound. imp-34714a REMAINS
         OPEN. C_C = 1/8 (imp-2642/2643) and C_mb GUE-conditional (imp-486) UNTOUCHED. NO QED.
       </div>

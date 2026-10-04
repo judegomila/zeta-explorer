@@ -1,10 +1,11 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP33698_CLUSTER_PEAK_GAP_SERIES_1200_1600 } from '../data/imp-33698-cluster-peak-gap-series-1200-1600.js';
+import { ED } from '../styles/tokens.js';
 
-const BAR_COLOR = '#38bdf8';
-const PRIOR_MAX_COLOR = '#f59e0b';
-const MEAN_COLOR = '#64748b';
+const BAR_COLOR = ED.series1;
+const PRIOR_MAX_COLOR = ED.series4;
+const MEAN_COLOR = ED.series8;
 
 const { measured } = IMP33698_CLUSTER_PEAK_GAP_SERIES_1200_1600;
 const gaps = measured.gaps;
@@ -29,7 +30,7 @@ function GapBarChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
       <line
         x1={padL}
@@ -77,17 +78,17 @@ function GapBarChart() {
       {gaps.map((g, i) => {
         const x = padL + i * slot + slot / 2;
         return (
-          <text key={`lbl-${peakNs[i]}`} x={x} y={padT + cH + 14} textAnchor="middle" fill="#64748b" fontSize={8}>
+          <text key={`lbl-${peakNs[i]}`} x={x} y={padT + cH + 14} textAnchor="middle" fill={ED.inkFaint} fontSize={8}>
             {peakNs[i]}&rarr;{peakNs[i + 1]}
           </text>
         );
       })}
-      <text x={padL + cW / 2} y={padT + cH + 32} textAnchor="middle" fill="#64748b" fontSize={9}>
+      <text x={padL + cW / 2} y={padT + cH + 32} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
         extension cluster peak pair (rung n)
       </text>
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
-      <text x={10} y={padT + cH / 2} textAnchor="middle" fill="#64748b" fontSize={10} transform={`rotate(-90,10,${padT + cH / 2})`}>
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
+      <text x={10} y={padT + cH / 2} textAnchor="middle" fill={ED.inkFaint} fontSize={10} transform={`rotate(-90,10,${padT + cH / 2})`}>
         inter-peak gap (rungs)
       </text>
     </svg>
@@ -99,7 +100,7 @@ export default function Imp33742InterPeakGapSequenceExtensionViz() {
     <div style={{ padding: '1.5rem', maxWidth: 980, margin: '0 auto' }}>
       <PageHeader title="Inter-Peak Gap Sequence, n in [1200,1600] (imp-33698)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 820 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 820 }}>
         imp-33698 measured the inter-peak GAP series on the imp-33679 four [1200,1600] extension cluster
         peaks (n = {peakNs.join(', ')}), complementing the imp-33718 viz of the imp-33661 [400,1200]
         fifteen-gap sequence. The three extension gaps [{gaps.join(', ')}] have mean ~
@@ -107,12 +108,12 @@ export default function Imp33742InterPeakGapSequenceExtensionViz() {
         every gap sits above the imp-33661 gap max of {measured.imp33661GapMax}.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         three inter-peak gaps (rungs), [{gaps.join(', ')}]
       </p>
       <GapBarChart />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.85rem', margin: '1rem 0 1.25rem' }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.85rem', margin: '1rem 0 1.25rem' }}>
         Taken alone, the extension gap CV ~{measured.gapCV.toFixed(2)} (roughly
         {' '}{measured.gapCVRatio.toFixed(2)}x the imp-33661 CV ~{measured.imp33661GapCV.toFixed(2)}) would
         read as regularization. But band-clearing across the [1200,1600] window is near-continuous
@@ -125,14 +126,14 @@ export default function Imp33742InterPeakGapSequenceExtensionViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> all three bars clear the dashed
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> all three bars clear the dashed
         imp-33661 max-gap line -- the spacing floor lifts wholesale rather than shifting -- while the
         near-continuous clearing behind these four peaks means the discrete clustered lattice imp-33661
         measured has dissolved into a broad elevated floor. Only three gaps are available, so no
@@ -143,14 +144,14 @@ export default function Imp33742InterPeakGapSequenceExtensionViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> accuracy/rule-design measurement only. It
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> accuracy/rule-design measurement only. It
         changes no bound and patches no literal. Mass-feasibility is necessary-but-not-sufficient; the
         operator-level positivity (imp-3066 K_a &ge; 0) is UNTOUCHED. RH-equivalent, NO QED.
       </div>

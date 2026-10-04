@@ -2,6 +2,7 @@ import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP95583_DISCREPANCY_TAIL_EVT } from '../data/imp-95583-discrepancy-tail-evt.js';
 import { IMP95599_DISCREPANCY_NEGATIVE_TAIL_EVT } from '../data/imp-95599-discrepancy-negative-tail-evt.js';
+import { ED, alpha } from '../styles/tokens.js';
 
 const ROWS = IMP95583_DISCREPANCY_TAIL_EVT.rows;
 const NEG_ROWS = IMP95599_DISCREPANCY_NEGATIVE_TAIL_EVT.rows;
@@ -39,13 +40,13 @@ function GumbelZBandChart() {
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
       {/* +-2 Gumbel-sd band */}
-      <rect x={padL} y={yOf(2)} width={plotW} height={yOf(-2) - yOf(2)} fill="rgba(96,165,250,0.08)" />
-      <line x1={padL} y1={yOf(2)} x2={padL + plotW} y2={yOf(2)} stroke="#60a5fa" strokeWidth={1} strokeDasharray="5 3" />
-      <line x1={padL} y1={yOf(-2)} x2={padL + plotW} y2={yOf(-2)} stroke="#60a5fa" strokeWidth={1} strokeDasharray="5 3" />
-      <line x1={padL} y1={zeroY} x2={padL + plotW} y2={zeroY} stroke="#64748b" strokeWidth={1} />
+      <rect x={padL} y={yOf(2)} width={plotW} height={yOf(-2) - yOf(2)} fill={alpha(ED.series1, 0.08)} />
+      <line x1={padL} y1={yOf(2)} x2={padL + plotW} y2={yOf(2)} stroke={ED.series1} strokeWidth={1} strokeDasharray="5 3" />
+      <line x1={padL} y1={yOf(-2)} x2={padL + plotW} y2={yOf(-2)} stroke={ED.series1} strokeWidth={1} strokeDasharray="5 3" />
+      <line x1={padL} y1={zeroY} x2={padL + plotW} y2={zeroY} stroke={ED.rule} strokeWidth={1} />
 
       {yTicks.map((v) => (
-        <text key={`yt${v}`} x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill="#94a3b8" fontSize={9.5}>
+        <text key={`yt${v}`} x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill={ED.inkSoft} fontSize={9.5}>
           {v}
         </text>
       ))}
@@ -55,10 +56,10 @@ function GumbelZBandChart() {
         const zMin = r.gumbelZmin;
         const maxBarTop = zMax >= 0 ? yOf(zMax) : zeroY;
         const maxBarH = Math.abs(yOf(zMax) - zeroY);
-        const maxColor = Math.abs(zMax) < 2 ? '#34d399' : '#f87171';
+        const maxColor = Math.abs(zMax) < 2 ? ED.series3 : ED.series2;
         const minBarTop = zMin >= 0 ? yOf(zMin) : zeroY;
         const minBarH = Math.abs(yOf(zMin) - zeroY);
-        const minColor = Math.abs(zMin) < 2 ? '#a78bfa' : '#f87171';
+        const minColor = Math.abs(zMin) < 2 ? ED.series5 : ED.series2;
         return (
           <g key={r.Tc}>
             <rect
@@ -77,25 +78,25 @@ function GumbelZBandChart() {
               fill={minColor}
               opacity={0.85}
             />
-            <text x={xOf(i)} y={padT + plotH + 16} textAnchor="middle" fill="#64748b" fontSize={9.5}>
+            <text x={xOf(i)} y={padT + plotH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5}>
               {r.Tc.toExponential(0).replace('e+', 'e')}
             </text>
-            <text x={xOf(i)} y={padT + plotH + 28} textAnchor="middle" fill="#475569" fontSize={8.5}>
+            <text x={xOf(i)} y={padT + plotH + 28} textAnchor="middle" fill={ED.inkFaint} fontSize={8.5}>
               N={r.nWindows}
             </text>
           </g>
         );
       })}
 
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={9.5}>
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5}>
         height T_c
       </text>
       <text
         x={14}
         y={padT + plotH / 2}
         textAnchor="middle"
-        fill="#94a3b8"
+        fill={ED.inkSoft}
         fontSize={9.5}
         transform={`rotate(-90 14 ${padT + plotH / 2})`}
       >
@@ -103,12 +104,12 @@ function GumbelZBandChart() {
       </text>
 
       <g>
-        <rect x={padL + plotW - 210} y={padT + 4} width={10} height={10} fill="#34d399" opacity={0.85} />
-        <text x={padL + plotW - 196} y={padT + 13} fill="#94a3b8" fontSize={9.5}>
+        <rect x={padL + plotW - 210} y={padT + 4} width={10} height={10} fill={ED.series3} opacity={0.85} />
+        <text x={padL + plotW - 196} y={padT + 13} fill={ED.inkSoft} fontSize={9.5}>
           max side (gumbelZ, imp-95583)
         </text>
-        <rect x={padL + plotW - 210} y={padT + 20} width={10} height={10} fill="#a78bfa" opacity={0.85} />
-        <text x={padL + plotW - 196} y={padT + 29} fill="#94a3b8" fontSize={9.5}>
+        <rect x={padL + plotW - 210} y={padT + 20} width={10} height={10} fill={ED.series5} opacity={0.85} />
+        <text x={padL + plotW - 196} y={padT + 29} fill={ED.inkSoft} fontSize={9.5}>
           min side (gumbelZmin, imp-95599)
         </text>
       </g>
@@ -125,21 +126,21 @@ export default function Imp95607GumbelZBandViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> a measurement-only
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a measurement-only
         page charting the imp-95583 gumbelZ record and the imp-95599 gumbelZmin
         record verbatim. It re-derives no bound and changes no result.
         Platt&ndash;Trudgian &Lambda; &le; 0.2 remains state of the art. NO QED.
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-95562 measured the worst single-window discrepancy excess max(D) at six
         heights and reported it at 2.9&ndash;3.3 sd(D) above the mean, without asking
         whether that is large for the MAXIMUM of N = nWindows Gaussian draws. imp-95583
@@ -152,15 +153,15 @@ export default function Imp95607GumbelZBandViz() {
         band both tickets use as their no-outlier threshold, on both sides.
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         gumbelZ (max side) and gumbelZmin (min side) per height vs the &plusmn;2
         Gumbel-sd band
       </h3>
       <GumbelZBandChart />
 
-      <table style={{ width: '100%', fontSize: '0.78rem', color: '#cbd5e1', borderCollapse: 'collapse', marginTop: '1rem' }}>
+      <table style={{ width: '100%', fontSize: '0.78rem', color: 'var(--ink)', borderCollapse: 'collapse', marginTop: '1rem' }}>
         <thead>
-          <tr style={{ color: '#64748b' }}>
+          <tr style={{ color: 'var(--ink-faint)' }}>
             <th style={{ textAlign: 'left', paddingBottom: 4 }}>T_c</th>
             <th style={{ textAlign: 'right', paddingBottom: 4 }}>nWindows</th>
             <th style={{ textAlign: 'right', paddingBottom: 4 }}>sd(D)</th>
@@ -172,7 +173,7 @@ export default function Imp95607GumbelZBandViz() {
         </thead>
         <tbody>
           {PAIRED_ROWS.map((r) => (
-            <tr key={r.Tc} style={{ borderTop: '1px solid rgba(148,163,184,0.15)' }}>
+            <tr key={r.Tc} style={{ borderTop: '1px solid color-mix(in srgb, var(--rule) 15%, transparent)' }}>
               <td style={{ padding: '3px 0' }}>{r.Tc.toExponential(1)}</td>
               <td style={{ textAlign: 'right' }}>{r.nWindows}</td>
               <td style={{ textAlign: 'right' }}>{r.sdDiscrepancy.toFixed(4)}</td>
@@ -189,14 +190,14 @@ export default function Imp95607GumbelZBandViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> gumbelZ (max
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> gumbelZ (max
         side) ranges from {Math.min(...ROWS.map((r) => r.gumbelZ)).toFixed(2)} to{' '}
         {Math.max(...ROWS.map((r) => r.gumbelZ)).toFixed(2)}, mean{' '}
         {IMP95583_DISCREPANCY_TAIL_EVT.aggregates.meanGumbelZ.toFixed(3)}; gumbelZmin
@@ -220,14 +221,14 @@ export default function Imp95607GumbelZBandViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page consuming the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the
         frozen imp-95583 (max side) and imp-95599 (min side) records (baked
         (T_c, nWindows, gumbelZ, gumbelZmin) tuples, no zeros bundle, no
         re-derivation). Distinct from the imp-95562 D-vs-number-variance envelope

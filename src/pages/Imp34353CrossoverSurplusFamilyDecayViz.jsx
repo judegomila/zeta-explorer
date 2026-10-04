@@ -4,6 +4,7 @@ import {
   IMP34260_SURPLUS_FAMILY_LADDER,
   IMP34260_SURPLUS_1EM4_CROSSING,
 } from '../data/imp-34260-crossover-surplus-family-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 // Log-scale bar chart of surplus(thr) across the five thresholds, annotated with
 // the N_cross(thr) each rung recedes to and the surplus-below-1e-4 crossing marker.
@@ -29,16 +30,16 @@ function SurplusDecayBars() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
 
       {yTickExps.map((e) => {
         const v = Math.pow(10, e);
         if (e < logMin || e > logMax) return null;
         return (
           <g key={'y' + e}>
-            <line x1={padL - 4} y1={yAt(v)} x2={padL + cW} y2={yAt(v)} stroke="#1e293b" strokeWidth={1} />
-            <text x={padL - 8} y={yAt(v) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+            <line x1={padL - 4} y1={yAt(v)} x2={padL + cW} y2={yAt(v)} stroke={ED.ruleSoft} strokeWidth={1} />
+            <text x={padL - 8} y={yAt(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
               {'1e' + e}
             </text>
           </g>
@@ -57,17 +58,17 @@ function SurplusDecayBars() {
               y={top}
               width={barW}
               height={bottom - top}
-              fill="#38bdf8"
-              stroke="#0a0f1a"
+              fill={ED.series1}
+              stroke={ED.paper}
               strokeWidth={0.75}
             />
-            <text x={xCenter} y={top - 6} textAnchor="middle" fill="#94a3b8" fontSize={9} fontFamily="monospace">
+            <text x={xCenter} y={top - 6} textAnchor="middle" fill={ED.inkSoft} fontSize={9} fontFamily="monospace">
               {row.surplus.toExponential(2)}
             </text>
-            <text x={xCenter} y={padT + cH + 16} textAnchor="middle" fill="#cbd5e1" fontSize={10}>
+            <text x={xCenter} y={padT + cH + 16} textAnchor="middle" fill={ED.ink} fontSize={10}>
               thr={row.thr}
             </text>
-            <text x={xCenter} y={padT + cH + 30} textAnchor="middle" fill="#64748b" fontSize={8.5} fontFamily="monospace">
+            <text x={xCenter} y={padT + cH + 30} textAnchor="middle" fill={ED.inkFaint} fontSize={8.5} fontFamily="monospace">
               N_cross&asymp;{row.N_cross.toExponential(2)}
             </text>
           </g>
@@ -78,7 +79,7 @@ function SurplusDecayBars() {
         x={16}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={`rotate(-90 16 ${padT + cH / 2})`}
       >
@@ -93,7 +94,7 @@ export default function Imp34353CrossoverSurplusFamilyDecayViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Crossover-Surplus Threshold-Family Decay Ladder (imp-34353 / imp-34174)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-33848 showed the halving-vs-crossover surplus 1/2&minus;sigma(N_cross) is purely the
         Gronwall E_flow term, and imp-33743 generalised the crossover to arbitrary thr via
         N_cross(thr) = (C_C(1&minus;thr)/(E_trunc&nbsp;thr))<sup>2</sup>&nbsp;log&nbsp;T0. imp-34174
@@ -107,7 +108,7 @@ export default function Imp34353CrossoverSurplusFamilyDecayViz() {
         {IMP34260_SURPLUS_FAMILY_LADDER[IMP34260_SURPLUS_FAMILY_LADDER.length - 1].surplus.toExponential(4)}.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         surplus(thr) collapse across the generalised threshold family (log-scale bars, N_cross(thr) annotated)
       </p>
       <SurplusDecayBars />
@@ -121,7 +122,7 @@ export default function Imp34353CrossoverSurplusFamilyDecayViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>thr</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>N_cross(thr)</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>E_flow/E_trunc</th>
@@ -130,7 +131,7 @@ export default function Imp34353CrossoverSurplusFamilyDecayViz() {
         </thead>
         <tbody>
           {IMP34260_SURPLUS_FAMILY_LADDER.map((row) => (
-            <tr key={row.thr} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+            <tr key={row.thr} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
               <td style={{ padding: '0.4rem 0.6rem' }}>{row.thr}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{row.N_cross.toExponential(6)}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{row.eFlowOverETrunc.toExponential(4)}</td>
@@ -144,14 +145,14 @@ export default function Imp34353CrossoverSurplusFamilyDecayViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Crossing marker:</strong>{' '}
+        <strong style={{ color: 'var(--ink-soft)' }}>Crossing marker:</strong>{' '}
         {IMP34260_SURPLUS_1EM4_CROSSING.label}
       </div>
 
@@ -159,14 +160,14 @@ export default function Imp34353CrossoverSurplusFamilyDecayViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-data only, baked
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-data only, baked
         literals reproducing the imp-34174 measurement (via the imp-34260 viz-data module); no
         new derivation, no bound changed. Derivation/measurement only within the inherited
         imp-33743/imp-33848 extrapolation component model, which is NOT a rigorous asymptotic;

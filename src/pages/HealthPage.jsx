@@ -10,6 +10,7 @@ import {
   LEAN_STATUS,
 } from '../data/proof-chain-snapshot-2026-04-12.js';
 import { NEWMAN_LAMBDA_01787854_CANDIDATE } from '../data/newman-lambda-01787854-candidate.js';
+import { ED, alpha } from '../styles/tokens.js';
 
 /**
  * imp-591: /health — site-wide health check page.
@@ -24,11 +25,11 @@ import { NEWMAN_LAMBDA_01787854_CANDIDATE } from '../data/newman-lambda-01787854
 // ── Shared style constants (literal warm hexes — status green/warn/fail) ────
 
 const STATUS_COLORS = {
-  green:  { border: '#4c7a4a', bg: 'rgba(76,122,74,0.08)',   badge: '#4c7a4a', label: 'PASS'  },
-  red:    { border: '#c23a1c', bg: 'rgba(194,58,28,0.08)',   badge: '#c23a1c', label: 'FAIL'  },
-  yellow: { border: '#b58a2e', bg: 'rgba(181,138,46,0.08)',  badge: '#b58a2e', label: 'COND'  },
-  orange: { border: '#d9502e', bg: 'rgba(217,80,46,0.07)',   badge: '#d9502e', label: 'ANLYT' },
-  gray:   { border: '#877b67', bg: 'rgba(135,123,103,0.08)', badge: '#877b67', label: '...'   },
+  green:  { border: ED.series3, bg: alpha(ED.series3, 0.08),   badge: ED.series3, label: 'PASS'  },
+  red:    { border: ED.accent, bg: alpha(ED.series2, 0.08),   badge: ED.series2, label: 'FAIL'  },
+  yellow: { border: ED.brassDeco, bg: alpha(ED.brassDeco, 0.08),  badge: ED.brassDeco, label: 'COND'  },
+  orange: { border: ED.accentDeco, bg: alpha(ED.accentDeco, 0.07),   badge: ED.accentDeco, label: 'ANLYT' },
+  gray:   { border: ED.rule, bg: alpha(ED.inkFaint, 0.08), badge: ED.inkFaint, label: '...'   },
 };
 
 // ── Async metric hook ───────────────────────────────────────────────────────
@@ -135,7 +136,7 @@ function Spinner() {
   return (
     <div style={{
       display: 'inline-block', width: 16, height: 16,
-      border: '2px solid #d5c9b2', borderTop: '2px solid #b58a2e',
+      border: '2px solid var(--rule)', borderTop: '2px solid var(--brass-deco)',
       borderRadius: '50%', animation: 'health-spin 0.8s linear infinite',
     }} />
   );
@@ -145,7 +146,7 @@ function StatusBadge({ color }) {
   const meta = STATUS_COLORS[color] || STATUS_COLORS.gray;
   return (
     <span style={{
-      background: meta.badge, color: '#fdfaf3',
+      background: meta.badge, color: 'var(--paper)',
       fontSize: 9, fontWeight: 700, padding: '1px 6px',
       borderRadius: 3, fontFamily: 'var(--ed-mono, var(--font-mono))',
       letterSpacing: 0.4, flexShrink: 0,
@@ -162,17 +163,17 @@ function MetricRow({ label, detail, loading, error, status, value }) {
       display: 'flex', alignItems: 'center', gap: 10,
       padding: '9px 12px',
       background: loading ? 'transparent' : meta.bg,
-      border: `1px solid ${loading ? '#d5c9b2' : meta.border}`,
+      border: `1px solid ${loading ? ED.rule : meta.border}`,
       borderRadius: 7, transition: 'all 0.3s',
     }}>
       <div style={{ flex: 1, minWidth: 0 }}>
-        <div style={{ fontSize: 13, color: '#1c1814', fontWeight: 600 }}>{label}</div>
-        <div style={{ fontSize: 11, color: '#877b67', fontFamily: 'var(--ed-mono, var(--font-mono))', marginTop: 1 }}>
+        <div style={{ fontSize: 13, color: 'var(--ink)', fontWeight: 600 }}>{label}</div>
+        <div style={{ fontSize: 11, color: 'var(--ink-faint)', fontFamily: 'var(--ed-mono, var(--font-mono))', marginTop: 1 }}>
           {detail}
         </div>
       </div>
       <div style={{ fontFamily: 'var(--ed-mono, var(--font-mono))', fontSize: 13, fontWeight: 700, color: meta.border, flexShrink: 0 }}>
-        {loading ? <Spinner /> : error ? <span style={{ color: '#c23a1c' }}>ERR</span> : value}
+        {loading ? <Spinner /> : error ? <span style={{ color: 'var(--accent)' }}>ERR</span> : value}
       </div>
       {!loading && !error && <StatusBadge color={status} />}
     </div>
@@ -182,9 +183,9 @@ function MetricRow({ label, detail, loading, error, status, value }) {
 function SectionHeader({ title }) {
   return (
     <h2 style={{
-      fontSize: 13, fontWeight: 700, color: '#4a4238',
+      fontSize: 13, fontWeight: 700, color: 'var(--ink-soft)',
       textTransform: 'uppercase', letterSpacing: 1.2,
-      borderBottom: '1px solid #d5c9b2', paddingBottom: 8,
+      borderBottom: '1px solid var(--rule)', paddingBottom: 8,
       margin: '24px 0 12px',
       fontFamily: 'var(--ed-mono, var(--font-mono))',
     }}>
@@ -223,7 +224,7 @@ function ProofStepRow({ step }) {
           width: 26, height: 26, borderRadius: '50%',
           background: meta.badge, display: 'flex', alignItems: 'center',
           justifyContent: 'center', fontSize: 11, fontWeight: 700,
-          color: '#fdfaf3', flexShrink: 0, fontFamily: 'var(--ed-mono, var(--font-mono))',
+          color: 'var(--paper)', flexShrink: 0, fontFamily: 'var(--ed-mono, var(--font-mono))',
         }}>
           {step.step}
         </div>
@@ -235,11 +236,11 @@ function ProofStepRow({ step }) {
           {step.ticket}
         </span>
         <div style={{ flex: 1, minWidth: 0 }}>
-          <div style={{ fontSize: 12, color: '#4a4238', fontFamily: 'var(--ed-mono, var(--font-mono))', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+          <div style={{ fontSize: 12, color: 'var(--ink-soft)', fontFamily: 'var(--ed-mono, var(--font-mono))', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
             {step.status}
           </div>
         </div>
-        <span style={{ fontSize: 10, color: '#877b67', flexShrink: 0, userSelect: 'none' }}>
+        <span style={{ fontSize: 10, color: 'var(--ink-faint)', flexShrink: 0, userSelect: 'none' }}>
           {expanded ? '▲' : '▼'}
         </span>
         <StatusBadge color={color} />
@@ -248,7 +249,7 @@ function ProofStepRow({ step }) {
         <div style={{
           marginTop: 8, paddingTop: 8,
           borderTop: `1px solid ${meta.border}`,
-          fontSize: 11, color: '#4a4238',
+          fontSize: 11, color: 'var(--ink-soft)',
           fontFamily: 'var(--ed-mono, var(--font-mono))', lineHeight: 1.6,
           whiteSpace: 'pre-wrap', wordBreak: 'break-word',
         }}>
@@ -275,7 +276,7 @@ function ConditionRow({ cond, color }) {
       }}>
         {cond.id}
       </span>
-      <div style={{ flex: 1, fontSize: 12, color: '#1c1814' }}>
+      <div style={{ flex: 1, fontSize: 12, color: 'var(--ink)' }}>
         {cond.description}
       </div>
       <StatusBadge color={color} />
@@ -296,10 +297,10 @@ function LeanRow({ file }) {
       borderRadius: 7, marginBottom: 5,
     }}>
       <div style={{ flex: 1, minWidth: 0 }}>
-        <div style={{ fontSize: 12, color: '#1c1814', fontFamily: 'var(--ed-mono, var(--font-mono))' }}>{shortName}</div>
-        <div style={{ fontSize: 10, color: '#877b67', fontFamily: 'var(--ed-mono, var(--font-mono))', marginTop: 2 }}>{file.ticket}</div>
+        <div style={{ fontSize: 12, color: 'var(--ink)', fontFamily: 'var(--ed-mono, var(--font-mono))' }}>{shortName}</div>
+        <div style={{ fontSize: 10, color: 'var(--ink-faint)', fontFamily: 'var(--ed-mono, var(--font-mono))', marginTop: 2 }}>{file.ticket}</div>
       </div>
-      <div style={{ fontFamily: 'var(--ed-mono, var(--font-mono))', fontSize: 12, color: '#4a4238', flexShrink: 0 }}>
+      <div style={{ fontFamily: 'var(--ed-mono, var(--font-mono))', fontSize: 12, color: 'var(--ink-soft)', flexShrink: 0 }}>
         axioms: {file.axiomCount} &nbsp;|&nbsp; sorrys: {file.sorryCount}
       </div>
       <StatusBadge color={color} />
@@ -387,6 +388,7 @@ export default function HealthPage() {
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: 12 }}>
             <div>
               <h1 className="ed-h1" style={{ marginBottom: 6 }}>Project Health</h1>
+              <p className="ed-lbl">Related: <Link to="/gap-closing">Unitarity-deficit gap analysis</Link> · <Link to="/dashboard">Model metrics dashboard</Link></p>
               <p style={{ margin: 0, color: 'var(--ink-soft)', fontSize: 14 }}>
                 Live metrics, proof chain status, conditions, and Lean sorry counts in one view.
               </p>
@@ -421,8 +423,8 @@ export default function HealthPage() {
             onClick={handleRefresh}
             disabled={!allDone}
             style={{
-              background: allDone ? '#3f6b86' : '#d5c9b2',
-              color: allDone ? '#fdfaf3' : '#877b67',
+              background: allDone ? 'var(--series-1)' : 'var(--rule)',
+              color: allDone ? 'var(--paper)' : 'var(--ink-faint)',
               border: 'none', borderRadius: 6,
               padding: '7px 16px', fontSize: 12, fontWeight: 600,
               cursor: allDone ? 'pointer' : 'not-allowed',
@@ -435,16 +437,16 @@ export default function HealthPage() {
             aria-pressed={autoRefresh}
             onClick={() => setAutoRefresh(a => !a)}
             style={{
-              background: autoRefresh ? 'rgba(76,122,74,0.12)' : '#f6f1e7',
-              color: autoRefresh ? '#4c7a4a' : '#4a4238',
-              border: `1px solid ${autoRefresh ? '#4c7a4a' : '#d5c9b2'}`,
+              background: autoRefresh ? 'color-mix(in srgb, var(--series-3) 12%, transparent)' : 'var(--paper-2)',
+              color: autoRefresh ? 'var(--series-3)' : 'var(--ink-soft)',
+              border: `1px solid ${autoRefresh ? ED.series3 : ED.rule}`,
               borderRadius: 6, padding: '7px 16px', fontSize: 12, fontWeight: 600,
               cursor: 'pointer', fontFamily: 'var(--ed-mono, var(--font-mono))',
             }}
           >
             Auto-Refresh {autoRefresh ? `(${countdown}s)` : 'Off'}
           </button>
-          <div style={{ color: '#877b67', fontSize: 11, fontFamily: 'var(--ed-mono, var(--font-mono))', marginLeft: 'auto' }}>
+          <div style={{ color: 'var(--ink-faint)', fontSize: 11, fontFamily: 'var(--ed-mono, var(--font-mono))', marginLeft: 'auto' }}>
             {lastChecked
               ? `Last checked: ${new Date(lastChecked).toLocaleTimeString()}`
               : anyLoading ? 'Computing...' : ''}
@@ -453,32 +455,32 @@ export default function HealthPage() {
 
         {/* Current candidate status; legacy chain rows below retain their dated snapshot. */}
         <div className="card" style={{
-          background: 'rgba(63,107,134,0.06)', border: '1px solid #3f6b86',
+          background: 'color-mix(in srgb, var(--series-1) 6%, transparent)', border: '1px solid var(--series-1)',
           borderRadius: 8, padding: '12px 16px', marginBottom: 20,
           display: 'flex', flexWrap: 'wrap', gap: 16, alignItems: 'center',
         }}>
           <div>
-            <span style={{ fontFamily: 'var(--ed-mono, var(--font-mono))', fontSize: 16, fontWeight: 700, color: '#3f6b86' }}>
+            <span style={{ fontFamily: 'var(--ed-mono, var(--font-mono))', fontSize: 16, fontWeight: 700, color: 'var(--series-1)' }}>
               Λ ≤ {NEWMAN_LAMBDA_01787854_CANDIDATE.exactTarget.decimal}
             </span>
-            <span style={{ color: '#877b67', fontSize: 12, marginLeft: 10 }}>
+            <span style={{ color: 'var(--ink-faint)', fontSize: 12, marginLeft: 10 }}>
               (computer-assisted candidate; reviewed by Dan Romik; unrefereed)
             </span>
           </div>
           <div>
-            <span style={{ fontFamily: 'var(--ed-mono, var(--font-mono))', fontSize: 16, fontWeight: 700, color: '#3f6b86' }}>
+            <span style={{ fontFamily: 'var(--ed-mono, var(--font-mono))', fontSize: 16, fontWeight: 700, color: 'var(--series-1)' }}>
               Λ ≤ 0.1758354
             </span>
-            <span style={{ color: '#877b67', fontSize: 12, marginLeft: 10 }}>
-              (four Arb gates, Lean-checked reduction; unrefereed — <Link to="/lambda-01758354-candidate" style={{ color: '#3f6b86' }}>candidate page</Link>)
+            <span style={{ color: 'var(--ink-faint)', fontSize: 12, marginLeft: 10 }}>
+              (four Arb gates, Lean-checked y-transfer reduction and Lemma B3; unrefereed — <Link to="/lambda-01758354-candidate" style={{ color: 'var(--series-1)' }}>candidate page</Link>)
             </span>
           </div>
-          <div style={{ color: '#4a4238', fontSize: 11, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>
+          <div style={{ color: 'var(--ink-soft)', fontSize: 11, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>
             BOUNDS NOT ESTABLISHED · NOT PEER REVIEWED · NOT RH
           </div>
-          <div style={{ color: '#4a4238', fontSize: 11, flexBasis: '100%' }}>
+          <div style={{ color: 'var(--ink-soft)', fontSize: 11, flexBasis: '100%' }}>
             Separately, a conditional Λ ≤ 0.14 completion contract (a contract, not a bound; one open
-            family) is documented at <Link to="/permutation-architecture" style={{ color: '#3f6b86' }}>/permutation-architecture</Link>.
+            family) is documented at <Link to="/permutation-architecture" style={{ color: 'var(--series-1)' }}>/permutation-architecture</Link>.
           </div>
         </div>
 
@@ -511,8 +513,8 @@ export default function HealthPage() {
               display: 'flex', alignItems: 'center', gap: 10,
             }}>
               <div style={{ flex: 1, minWidth: 0 }}>
-                <div style={{ fontSize: 13, fontWeight: 600, color: '#1c1814' }}>{route.name}</div>
-                <div style={{ fontSize: 11, color: '#877b67', fontFamily: 'var(--ed-mono, var(--font-mono))', marginTop: 2 }}>{route.status}</div>
+                <div style={{ fontSize: 13, fontWeight: 600, color: 'var(--ink)' }}>{route.name}</div>
+                <div style={{ fontSize: 11, color: 'var(--ink-faint)', fontFamily: 'var(--ed-mono, var(--font-mono))', marginTop: 2 }}>{route.status}</div>
               </div>
               <StatusBadge color={color} />
             </div>
@@ -528,9 +530,9 @@ export default function HealthPage() {
         {/* Lean Status */}
         <SectionHeader title={`Lean 4 Formalization — dated snapshot 2026-04-12 (total sorrys: ${totalSorrys}, axioms: ${totalAxioms})`} />
         <div style={{
-          fontSize: 12, color: '#4a4238', lineHeight: 1.6, marginBottom: 10,
-          padding: '8px 12px', borderRadius: 7, background: 'rgba(63,107,134,0.06)',
-          border: '1px solid #3f6b86',
+          fontSize: 12, color: 'var(--ink-soft)', lineHeight: 1.6, marginBottom: 10,
+          padding: '8px 12px', borderRadius: 7, background: 'color-mix(in srgb, var(--series-1) 6%, transparent)',
+          border: '1px solid var(--series-1)',
         }}>
           The rows below are a snapshot of the legacy Lean files as of 2026-04-12. Newer Lean 4
           formalization sets exist outside this snapshot: the 2026-08 Aristotle-verified sets at{' '}

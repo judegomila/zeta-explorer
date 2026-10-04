@@ -2,6 +2,7 @@ import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP34710_SIGMA_EXPONENT_KNEE_RESIDUAL_DECOMPOSITION } from '../data/imp-34710-sigma-exponent-knee-residual-decomposition.js';
 import { IMP34756_SIGMA_KNEE_SECOND_ORDER_V_EXPANSION } from '../data/imp-34756-sigma-knee-second-order-v-expansion.js';
+import { ED } from '../styles/tokens.js';
 
 const R = IMP34710_SIGMA_EXPONENT_KNEE_RESIDUAL_DECOMPOSITION;
 const E = IMP34756_SIGMA_KNEE_SECOND_ORDER_V_EXPANSION;
@@ -15,9 +16,9 @@ const EFLOW_PART = Math.abs(R.residualBudget.droppedEflowPartLog10);
 // second-order v-expansion tightening and the finite-difference floor that remain inside the ~1% balance. --
 function ResidualBudgetChart() {
   const rows = [
-    { label: 'Dropped E_flow term (imp-34710 F1)', value: EFLOW_PART, color: '#f87171' },
-    { label: '2nd-order v-expansion tightening (imp-34756 F2)', value: SECOND_ORDER_TIGHTENING, color: '#38bdf8' },
-    { label: 'Finite-difference floor (imp-34756 F3)', value: FD_FLOOR, color: '#a78bfa' },
+    { label: 'Dropped E_flow term (imp-34710 F1)', value: EFLOW_PART, color: ED.series2 },
+    { label: '2nd-order v-expansion tightening (imp-34756 F2)', value: SECOND_ORDER_TIGHTENING, color: ED.series1 },
+    { label: 'Finite-difference floor (imp-34756 F3)', value: FD_FLOOR, color: ED.series5 },
   ];
   const svgW = 660;
   const padL = 260;
@@ -38,10 +39,10 @@ function ResidualBudgetChart() {
         const y = 10 + i * (barH + rowGap);
         return (
           <g key={r.label}>
-            <text x={padL - 10} y={y + barH / 2 + 4} textAnchor="end" fill="#94a3b8" fontSize={11}>
+            <text x={padL - 10} y={y + barH / 2 + 4} textAnchor="end" fill={ED.inkSoft} fontSize={11}>
               {r.label}
             </text>
-            <rect x={padL} y={y} width={cW} height={barH} fill="none" stroke="#334155" strokeWidth={1} />
+            <rect x={padL} y={y} width={cW} height={barH} fill="none" stroke={ED.rule} strokeWidth={1} />
             <rect x={padL} y={y} width={Math.max(xOf(r.value), 2)} height={barH} fill={r.color} />
             <text x={padL + xOf(r.value) + 8} y={y + barH / 2 + 4} fill={r.color} fontSize={11}>
               {r.value.toExponential(2)} dex
@@ -58,14 +59,14 @@ function ResidualBudgetChart() {
 // of them -- the residual lives in the omitted term, not the expansion order. --
 function KneeLadderChart() {
   const points = [
-    { label: 'crossover u=0', value: E.kneeLadder.log10Ncross, color: '#64748b' },
-    { label: 'TRUE knee (E_flow kept)', value: R.directRootFind.log10NstarWithEflow, color: '#f87171' },
-    { label: '1st-order @ crossover', value: E.kneeLadder.log10Nstar1stOrderAtCross, color: '#94a3b8' },
-    { label: '2nd-order @ crossover', value: E.kneeLadder.log10Nstar2ndOrderAtCross, color: '#94a3b8' },
-    { label: '1st-order self-consistent', value: E.kneeLadder.log10Nstar1stOrderSelfConsistent, color: '#fbbf24' },
-    { label: 'exact-F (all orders)', value: E.kneeLadder.log10NstarExactF, color: '#a78bfa' },
-    { label: '2nd-order self-consistent', value: E.kneeLadder.log10Nstar2ndOrderSelfConsistent, color: '#38bdf8' },
-    { label: 'direct no-E_flow root-find', value: E.kneeLadder.log10NstarDirectNoEflow, color: '#34d399' },
+    { label: 'crossover u=0', value: E.kneeLadder.log10Ncross, color: ED.inkFaint },
+    { label: 'TRUE knee (E_flow kept)', value: R.directRootFind.log10NstarWithEflow, color: ED.series2 },
+    { label: '1st-order @ crossover', value: E.kneeLadder.log10Nstar1stOrderAtCross, color: ED.inkSoft },
+    { label: '2nd-order @ crossover', value: E.kneeLadder.log10Nstar2ndOrderAtCross, color: ED.inkSoft },
+    { label: '1st-order self-consistent', value: E.kneeLadder.log10Nstar1stOrderSelfConsistent, color: ED.brass },
+    { label: 'exact-F (all orders)', value: E.kneeLadder.log10NstarExactF, color: ED.series5 },
+    { label: '2nd-order self-consistent', value: E.kneeLadder.log10Nstar2ndOrderSelfConsistent, color: ED.series1 },
+    { label: 'direct no-E_flow root-find', value: E.kneeLadder.log10NstarDirectNoEflow, color: ED.series3 },
   ];
   const svgW = 660;
   const padL = 20;
@@ -83,15 +84,15 @@ function KneeLadderChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} x2={padL + plotW} y1={svgH - padB} y2={svgH - padB} stroke="#334155" strokeWidth={1} />
+      <line x1={padL} x2={padL + plotW} y1={svgH - padB} y2={svgH - padB} stroke={ED.rule} strokeWidth={1} />
       {points.map((p, i) => {
         const y = padT + i * rowH + rowH / 2;
         const x = xOf(p.value);
         return (
           <g key={p.label}>
-            <line x1={padL} x2={padL + plotW} y1={y} y2={y} stroke="#1e293b" strokeWidth={1} />
+            <line x1={padL} x2={padL + plotW} y1={y} y2={y} stroke={ED.ruleSoft} strokeWidth={1} />
             <circle cx={x} cy={y} r={5} fill={p.color} />
-            <text x={padL} y={y - 8} fill="#94a3b8" fontSize={10}>
+            <text x={padL} y={y - 8} fill={ED.inkSoft} fontSize={10}>
               {p.label}
             </text>
             <text x={x} y={y + 18} textAnchor="middle" fill={p.color} fontSize={10}>
@@ -100,7 +101,7 @@ function KneeLadderChart() {
           </g>
         );
       })}
-      <text x={padL + plotW / 2} y={svgH - 8} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + plotW / 2} y={svgH - 8} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         log10 N* (knee location)
       </text>
     </svg>
@@ -112,7 +113,7 @@ export default function Imp34780SigmaKneeResidualDecompositionViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Sigma Exponent-Knee Residual Decomposition (imp-34780 / imp-34710 / imp-34756)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-34694 left a ~7.4e-3 dex gap between the DIRECT root-find of the sigma(N) decay-exponent knee
         (E_flow kept, log10 N* = {R.directRootFind.log10NstarWithEflow}) and an ANALYTIC first-correction
         closed form (E_flow dropped). imp-34710 found the gap is ~{R.residualBudget.eflowSharePercent}%
@@ -121,12 +122,12 @@ export default function Imp34780SigmaKneeResidualDecompositionViz() {
         expansion order.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         Residual budget (log10 dex, log scale)
       </p>
       <ResidualBudgetChart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginTop: '1.5rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginTop: '1.5rem', marginBottom: '0.5rem' }}>
         Knee-location ladder: convergence of the no-E_flow analytic route vs the true (E_flow-kept) knee
       </p>
       <KneeLadderChart />
@@ -140,24 +141,24 @@ export default function Imp34780SigmaKneeResidualDecompositionViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>component</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>value (dex)</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>share of ~7.4e-3 gap</th>
           </tr>
         </thead>
         <tbody>
-          <tr style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+          <tr style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
             <td style={{ padding: '0.4rem 0.6rem' }}>Dropped E_flow term</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{EFLOW_PART.toExponential(3)}</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>~{R.residualBudget.eflowSharePercent}%</td>
           </tr>
-          <tr style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+          <tr style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
             <td style={{ padding: '0.4rem 0.6rem' }}>2nd-order v-expansion tightening</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{SECOND_ORDER_TIGHTENING.toExponential(3)}</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>&lt;1%</td>
           </tr>
-          <tr style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+          <tr style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
             <td style={{ padding: '0.4rem 0.6rem' }}>Finite-difference floor</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{FD_FLOOR.toExponential(3)}</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>&lt;1%</td>
@@ -169,11 +170,11 @@ export default function Imp34780SigmaKneeResidualDecompositionViz() {
         style={{
           marginTop: '1rem',
           padding: '0.6rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
         }}
       >
         The dropped E_flow term accounts for ~{R.residualBudget.eflowSharePercent}% of the ~7.4e-3 dex gap;
@@ -186,14 +187,14 @@ export default function Imp34780SigmaKneeResidualDecompositionViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page presenting the imp-34710
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-only page presenting the imp-34710
         and imp-34756 literals verbatim (no new computation). This is a conditional-share diagnostic on the
         INHERITED imp-3220/imp-3406 surrogate, NOT a rigorous asymptotic, and NOT an RH bound. The C_mb
         GUE-conditional share per imp-486 is UNTOUCHED; far-tail exponent stays 1/2 (imp-3463); no operator

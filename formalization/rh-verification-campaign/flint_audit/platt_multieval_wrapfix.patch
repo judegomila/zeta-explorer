@@ -1,0 +1,27 @@
+--- /tmp/flintsrc/flint-3.6.0/src/acb_dirichlet/platt_multieval.c	2026-06-29 01:18:13
++++ pm.c	2026-10-01 16:28:33
+@@ -608,6 +608,24 @@
+         _acb_vec_scalar_div_arb(row, row, N, k_factorial, prec);
+     }
+ 
++#ifdef WRAP_FIX
++    /* AUDIT PATCH: table index q in (N/2, N) is read by the convolution as u = q/B > A/2,
++       but holds the aliased representative u = q/B - A < 0.  Replace by 0 +/- (A.7 bound)/k!,
++       which majorizes |G^(k)(u)|/k! for every |u| >= A/2 (A.6, right shift; decreasing). */
++    arb_one(k_factorial);
++    for (k = 0; k < K; k++)
++    {
++        if (k >= 2) arb_mul_ui(k_factorial, k_factorial, (ulong) k, prec);
++        acb_dirichlet_platt_lemma_A7(err, sigma, t0, h, k, A, prec);
++        arb_div(err, err, k_factorial, prec);
++        row = table + N*k;
++        for (i = N/2 + 1; i < N; i++)
++        {
++            acb_zero(row + i);
++            _acb_add_error_arb_mag(row + i, err);
++        }
++    }
++#endif
+     do_convolutions(out_a, table, S_table, N, K, prec);
+ 
+     for (i = 0; i < N/2 + 1; i++)

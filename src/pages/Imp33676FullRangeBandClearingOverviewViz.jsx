@@ -15,13 +15,14 @@ import {
   IMP33676_REINTENSIFY_RATIO,
   IMP33676_DEEP_ENV_MAX_N,
 } from '../data/imp-33676-full-range-band-clearing-overview-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
-const FLOOR_COLOR = '#38bdf8';
-const ENVELOPE_COLOR = '#4ade80';
-const TAIL_ENVELOPE_COLOR = '#86efac';
-const BAND_COLOR = '#f472b6';
-const CLUSTER_COLOR = '#f59e0b';
-const SPLIT_COLOR = '#64748b';
+const FLOOR_COLOR = ED.series1;
+const ENVELOPE_COLOR = ED.series3;
+const TAIL_ENVELOPE_COLOR = ED.series3;
+const BAND_COLOR = ED.series7;
+const CLUSTER_COLOR = ED.series4;
+const SPLIT_COLOR = ED.series8;
 
 function FullRangeOverviewChart() {
   const svgW = 980;
@@ -42,7 +43,7 @@ function FullRangeOverviewChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
       {/* shaded disjoint band-clearing clusters, dense + coarse, across the full window */}
       {IMP33676_CLUSTERS.map((c) => (
@@ -59,8 +60,8 @@ function FullRangeOverviewChart() {
 
       {[0, 20, 40, 60, 80, 100, 120, 140].filter((v) => v <= yMax).map((v) => (
         <g key={v}>
-          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke="#1e293b" strokeWidth={0.7} />
-          <text x={padL - 6} y={yS(v) + 3.5} textAnchor="end" fill="#475569" fontSize={9}>
+          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke={ED.ruleSoft} strokeWidth={0.7} />
+          <text x={padL - 6} y={yS(v) + 3.5} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v}
           </text>
         </g>
@@ -142,16 +143,16 @@ function FullRangeOverviewChart() {
       </text>
 
       {[400, 500, 600, 700, 800, 900, 1000, 1100, 1200].map((n) => (
-        <text key={n} x={xS(n)} y={padT + cH + 14} textAnchor="middle" fill="#64748b" fontSize={9}>
+        <text key={n} x={xS(n)} y={padT + cH + 14} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
           {n}
         </text>
       ))}
-      <text x={padL + cW / 2} y={padT + cH + 30} textAnchor="middle" fill="#64748b" fontSize={9}>
+      <text x={padL + cW / 2} y={padT + cH + 30} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
         depth rung n (tau* = saddleTau(n))
       </text>
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
-      <text x={12} y={padT + cH / 2} textAnchor="middle" fill="#64748b" fontSize={10} transform={`rotate(-90,12,${padT + cH / 2})`}>
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
+      <text x={12} y={padT + cH / 2} textAnchor="middle" fill={ED.inkFaint} fontSize={10} transform={`rotate(-90,12,${padT + cH / 2})`}>
         floorUlp(n)
       </text>
     </svg>
@@ -163,7 +164,7 @@ export default function Imp33676FullRangeBandClearingOverviewViz() {
     <div style={{ padding: '1.5rem', maxWidth: 980, margin: '0 auto' }}>
       <PageHeader title="Full-Range Band-Clearing Overview [400,1200] (imp-33656 / imp-33638)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 820 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 820 }}>
         The imp-33656 merged overview covers only [400,900], so the imp-33638 [900,1200]
         re-intensification -- the envelope maximum climbing from ~{IMP33676_TAIL_ENV_MAX.toFixed(1)}{' '}
         ULP (the [700,900] tail max) to ~{IMP33676_DEEP_ENV_MAX.toFixed(1)} ULP at n=
@@ -176,13 +177,13 @@ export default function Imp33676FullRangeBandClearingOverviewViz() {
         cluster at n={IMP33676_DEEP_ENV_MAX_N}.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         floorUlp(n) over n in [{IMP33676_WINDOW_LO}, {IMP33676_WINDOW_HI}]: dense scatter+envelope below n={IMP33676_SPLIT_N},
         coarse envelope digest above, sixteen band-clearing clusters shaded
       </p>
       <FullRangeOverviewChart />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.85rem', margin: '1rem 0 1.25rem' }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.85rem', margin: '1rem 0 1.25rem' }}>
         Across the full window there are sixteen disjoint band-clearing clusters, not a single
         monotone crossing: three in [400,700] with a local peak downtrend (~76.1 &rarr; ~65.3 &rarr;
         ~64.1 ULP), six more in [700,900] whose tallest (~{IMP33676_TAIL_ENV_MAX.toFixed(1)} ULP at
@@ -196,14 +197,14 @@ export default function Imp33676FullRangeBandClearingOverviewViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> the blue scatter and solid
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> the blue scatter and solid
         green envelope (n &lt; {IMP33676_SPLIT_N}) are the imp-33629 dense per-integer reading. The
         dashed light-green trace above n={IMP33676_SPLIT_N} is a coarser every-25th-rung digest
         spanning the imp-33621 tail scan and the imp-33638 deep extension -- no dense per-integer
@@ -217,14 +218,14 @@ export default function Imp33676FullRangeBandClearingOverviewViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation-only merge of three
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> presentation-only merge of three
         already-verified scans (imp-33599/imp-33629, imp-33621, and imp-33638); no new computation.
         It changes no bound and patches no literal. Mass-feasibility is necessary-but-not-sufficient;
         the operator-level positivity (imp-3066 K_a &ge; 0) is UNTOUCHED. No global envelope ceiling

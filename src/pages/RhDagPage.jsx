@@ -2,6 +2,7 @@ import React, { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import { RH_DAG, RH_DAG_NODES } from '../data/rh-dag.js';
+import { ED, alpha as TK_ALPHA } from '../styles/tokens.js';
 
 // RH Dependency DAG — visual planner for the Λ-attack.
 //
@@ -15,13 +16,13 @@ import { RH_DAG, RH_DAG_NODES } from '../data/rh-dag.js';
 // suffixes onto these colors (e.g. `${color}1f`) for fills — that trick only
 // works on literal hex strings, not on var(...) references.
 const STATUS_COLORS = {
-  completed: '#4c7a4a', // var(--green)
-  partial: '#b58a2e', // var(--brass-dk)
-  pending: '#c23a1c', // var(--terra-dk)
-  deferred: '#3f6b86', // var(--blue)
+  completed: ED.series3, // var(--green)
+  partial: ED.brassDeco, // var(--brass-dk)
+  pending: ED.series2, // var(--terra-dk)
+  deferred: ED.series1, // var(--blue)
 };
-const EDGE_COLOR = '#d5c9b2'; // var(--hairline)
-const EDGE_CRIT_COLOR = '#8c6a1d'; // var(--brass)
+const EDGE_COLOR = ED.rule; // var(--hairline)
+const EDGE_CRIT_COLOR = ED.brass; // var(--brass)
 
 function topoLayers(nodes) {
   // Layered topological layout: layer 0 = no-dep nodes, layer k+1 = nodes
@@ -48,7 +49,7 @@ function topoLayers(nodes) {
 }
 
 function statusChipStyle(status) {
-  const color = STATUS_COLORS[status] || '#c23a1c';
+  const color = STATUS_COLORS[status] || ED.accent;
   return {
     display: 'inline-block',
     padding: '2px 8px',
@@ -152,7 +153,7 @@ function DagGraph({ nodes, layer, critSet, frontierSet }) {
         </defs>
         {/* column headers */}
         {layerKeys.map((k, ci) => (
-          <text key={k} x={PAD_X + ci * COL_W + NODE_W / 2} y={16} textAnchor="middle" fill="#877b67" fontSize={10} fontWeight={700} fontFamily="var(--ed-mono, var(--font-mono))">
+          <text key={k} x={PAD_X + ci * COL_W + NODE_W / 2} y={16} textAnchor="middle" fill={ED.inkFaint} fontSize={10} fontWeight={700} fontFamily="var(--ed-mono, var(--font-mono))">
             LAYER {k}
           </text>
         ))}
@@ -177,7 +178,7 @@ function DagGraph({ nodes, layer, critSet, frontierSet }) {
         {nodes.map((n) => {
           const p = positioned[n.id];
           if (!p) return null;
-          const c = STATUS_COLORS[n.status] || '#c23a1c';
+          const c = STATUS_COLORS[n.status] || ED.series2;
           const dim = connected ? !connected.has(n.id) : false;
           const crit = critSet.has(n.id);
           const front = frontierSet.has(n.id);
@@ -186,7 +187,7 @@ function DagGraph({ nodes, layer, critSet, frontierSet }) {
                onMouseEnter={() => setHover(n.id)} onMouseLeave={() => setHover(null)}>
               <rect x={p.x} y={p.y} width={NODE_W} height={NODE_H} rx={6}
                     fill={c + '1f'} stroke={crit ? EDGE_CRIT_COLOR : c} strokeWidth={hover === n.id ? 2.5 : crit ? 2 : 1.3} />
-              <text x={p.x + 8} y={p.cy + 1} dominantBaseline="central" fill="#1c1814" fontSize={10.5}
+              <text x={p.x + 8} y={p.cy + 1} dominantBaseline="central" fill={ED.ink} fontSize={10.5}
                     fontWeight={700} fontFamily="var(--ed-mono, var(--font-mono))" style={{ pointerEvents: 'none' }}>
                 {n.id}{crit ? ' ★' : ''}{front ? ' ⬤' : ''}
               </text>
@@ -202,14 +203,14 @@ function DagGraph({ nodes, layer, critSet, frontierSet }) {
           const below = p.y - th - 8 < 0;
           const ty = below ? p.y + NODE_H + 8 : p.y - th - 8;
           const title = (hoverNode.title || '').slice(0, 64);
-          const hc = STATUS_COLORS[hoverNode.status] || '#c23a1c';
+          const hc = STATUS_COLORS[hoverNode.status] || ED.series2;
           return (
             <g style={{ pointerEvents: 'none' }}>
-              <rect x={tx} y={ty} width={tw} height={th} rx={6} fill="#fdfaf3" stroke={hc + '99'} />
+              <rect x={tx} y={ty} width={tw} height={th} rx={6} fill={ED.paper} stroke={hc + '99'} />
               <text x={tx + 8} y={ty + 16} fill={hc} fontSize={10} fontWeight={700} fontFamily="var(--ed-mono, var(--font-mono))">
                 {hoverNode.id} · {hoverNode.status}
               </text>
-              <text x={tx + 8} y={ty + 33} fill="#4a4238" fontSize={9} fontFamily="var(--ed-mono, var(--font-mono))">
+              <text x={tx + 8} y={ty + 33} fill={ED.inkSoft} fontSize={9} fontFamily="var(--ed-mono, var(--font-mono))">
                 {title}{(hoverNode.title || '').length > 64 ? '…' : ''}
               </text>
             </g>
@@ -396,7 +397,7 @@ export default function RhDagPage() {
 
         {/* ── Completed-target warning ──────────────────────────────── */}
         {targetNode?.status === 'completed' && (
-          <div style={{ marginBottom: 16, padding: '8px 14px', background: 'rgba(76,122,74,0.10)', borderRadius: 6, border: '1px solid rgba(76,122,74,0.40)', fontSize: 11, color: 'var(--green)' }}>
+          <div style={{ marginBottom: 16, padding: '8px 14px', background: 'color-mix(in srgb, var(--series-3) 10%, transparent)', borderRadius: 6, border: '1px solid color-mix(in srgb, var(--series-3) 40%, transparent)', fontSize: 11, color: 'var(--green)' }}>
             {targetId} is already completed. Switch the target above to a live pending node, or view{' '}
             <Link to="/improvement-queue" style={{ color: 'var(--green)' }}>all frontier tickets</Link>.
           </div>
@@ -442,9 +443,9 @@ export default function RhDagPage() {
                         fontSize: 11,
                         padding: '4px 10px',
                         borderRadius: 4,
-                        background: critSet.has(id) ? 'rgba(140,106,29,0.14)' : 'var(--paper)',
+                        background: critSet.has(id) ? 'color-mix(in srgb, var(--brass) 14%, transparent)' : 'var(--paper)',
                         color: critSet.has(id) ? 'var(--brass)' : 'var(--blue)',
-                        border: `1px solid ${critSet.has(id) ? 'rgba(140,106,29,0.45)' : 'var(--hairline)'}`,
+                        border: `1px solid ${critSet.has(id) ? TK_ALPHA(ED.brass, 0.45) : 'var(--hairline)'}`,
                         textDecoration: 'none',
                         fontWeight: critSet.has(id) ? 700 : 400,
                       }}

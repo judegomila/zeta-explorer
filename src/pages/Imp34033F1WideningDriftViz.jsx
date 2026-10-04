@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP33969_EFLOW_DECAY_WIDENING_RATIO_KEND_SWEEP } from '../data/imp-33969-eflow-decay-widening-ratio-kend-sweep.js';
+import { ED } from '../styles/tokens.js';
 
 const { sweep: SWEEP, anchor: ANCHOR, endpoint: ENDPOINT, driftAttribution: DRIFT } =
   IMP33969_EFLOW_DECAY_WIDENING_RATIO_KEND_SWEEP;
@@ -52,23 +53,23 @@ function RatioAndFactorDriftChart() {
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
       {/* top panel: F1/widening over-prediction ratio, log10 scale */}
-      <polyline points={ratioPoints} fill="none" stroke="#38bdf8" strokeWidth={1.5} />
+      <polyline points={ratioPoints} fill="none" stroke={ED.series1} strokeWidth={1.5} />
       {xs.map((x, i) => (
-        <circle key={`r-${x}`} cx={xAt(x)} cy={yAtRatio(logRatios[i])} r={3} fill="#38bdf8" stroke="#0a0f1a" strokeWidth={0.75} />
+        <circle key={`r-${x}`} cx={xAt(x)} cy={yAtRatio(logRatios[i])} r={3} fill={ED.series1} stroke={ED.paper} strokeWidth={0.75} />
       ))}
       {xs.map((x) => (
-        <text key={`xt-top-${x}`} x={xAt(x)} y={padT + topH + 14} textAnchor="middle" fill="#64748b" fontSize={8.5}>
+        <text key={`xt-top-${x}`} x={xAt(x)} y={padT + topH + 14} textAnchor="middle" fill={ED.inkFaint} fontSize={8.5}>
           {x}
         </text>
       ))}
-      <text x={padL + 4} y={padT + 12} fill="#38bdf8" fontSize={9.5}>
+      <text x={padL + 4} y={padT + 12} fill={ED.series1} fontSize={9.5}>
         F1/widening over-prediction ratio = 1/(F2*F3*F4), log10 scale
       </text>
       <text
         x={16}
         y={padT + topH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={`rotate(-90 16 ${padT + topH / 2})`}
       >
@@ -76,37 +77,37 @@ function RatioAndFactorDriftChart() {
       </text>
 
       {/* bottom panel: per-factor drift relative to kEnd=11 anchor */}
-      <polyline points={f2Points} fill="none" stroke="#facc15" strokeWidth={1.5} />
-      <polyline points={f3Points} fill="none" stroke="#94a3b8" strokeWidth={1.5} />
-      <polyline points={f4Points} fill="none" stroke="#f87171" strokeWidth={2} />
+      <polyline points={f2Points} fill="none" stroke={ED.brassDeco} strokeWidth={1.5} />
+      <polyline points={f3Points} fill="none" stroke={ED.rule} strokeWidth={1.5} />
+      <polyline points={f4Points} fill="none" stroke={ED.series2} strokeWidth={2} />
       {xs.map((x, i) => (
-        <circle key={`f4-${x}`} cx={xAt(x)} cy={yAtRel(f4Rel[i])} r={2.5} fill="#f87171" stroke="#0a0f1a" strokeWidth={0.75} />
+        <circle key={`f4-${x}`} cx={xAt(x)} cy={yAtRel(f4Rel[i])} r={2.5} fill={ED.series2} stroke={ED.paper} strokeWidth={0.75} />
       ))}
       {xs.map((x) => (
-        <text key={`xt-bot-${x}`} x={xAt(x)} y={botTop + botH + 14} textAnchor="middle" fill="#64748b" fontSize={8.5}>
+        <text key={`xt-bot-${x}`} x={xAt(x)} y={botTop + botH + 14} textAnchor="middle" fill={ED.inkFaint} fontSize={8.5}>
           {x}
         </text>
       ))}
-      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         kEnd (fit boundary)
       </text>
       <text
         x={16}
         y={botTop + botH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={`rotate(-90 16 ${botTop + botH / 2})`}
       >
         factor / anchor value
       </text>
-      <text x={padL + 4} y={botTop + 12} fill="#facc15" fontSize={9.5}>
+      <text x={padL + 4} y={botTop + 12} fill={ED.brass} fontSize={9.5}>
         F2 (normaliser, x{DRIFT.F2_drift_factor} -- nearly flat)
       </text>
-      <text x={padL + 4} y={botTop + 24} fill="#94a3b8" fontSize={9.5}>
+      <text x={padL + 4} y={botTop + 24} fill={ED.inkSoft} fontSize={9.5}>
         F3 (log-slope ratio, x{DRIFT.F3_drift_factor} -- nearly flat)
       </text>
-      <text x={padL + 4} y={botTop + 36} fill="#f87171" fontSize={9.5}>
+      <text x={padL + 4} y={botTop + 36} fill={ED.series2} fontSize={9.5}>
         F4 (imp-33773 residual ratio, x{DRIFT.F4_drift_factor} -- the drift driver)
       </text>
     </svg>
@@ -118,7 +119,7 @@ export default function Imp34033F1WideningDriftViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="F1/widening Over-prediction Drift (imp-33969)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-33922 measured the raw (log N)^3/N decay F1 over-predicting the empirical widening by
         ~19.9x, but only at the fixed imp-33884 boundary kEnd=11. imp-33969 recomputed the same
         ratio across the imp-33917 9-window sweep kEnd = 11.00..13.00 and found it is NOT
@@ -128,7 +129,7 @@ export default function Imp34033F1WideningDriftViz() {
         imp-33773 residual ratio) as the dominant collapse while F2 and F3 stay nearly flat.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         over-prediction ratio vs kEnd, with per-factor F2/F3/F4 drift below
       </p>
       <RatioAndFactorDriftChart />
@@ -137,14 +138,14 @@ export default function Imp34033F1WideningDriftViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> accuracy / window-stability
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> accuracy / window-stability
         cross-check only, on the inherited imp-3220/imp-3406 component model. F4 supplies ~
         {(DRIFT.F4_drift_log_share * 100).toFixed(1)}% of the ln(attenuation) drift vs F2 ~
         {(DRIFT.F2_drift_log_share * 100).toFixed(1)}% and F3 ~

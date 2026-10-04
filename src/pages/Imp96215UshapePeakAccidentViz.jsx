@@ -1,22 +1,23 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP96187_USHAPE_PEAK_RATIO_LOGCORRECTION } from '../data/imp-96187-ushape-peak-ratio-logcorrection-identity-vs-accident.js';
+import { ED } from '../styles/tokens.js';
 
 function AxisFrame({ children, svgW, svgH, padL, padR, padT, padB, xLabel, yLabel }) {
   const plotW = svgW - padL - padR;
   const plotH = svgH - padT - padB;
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill="#64748b" fontSize={9.5}>
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5}>
         {xLabel}
       </text>
       <text
         x={14}
         y={padT + plotH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={9.5}
         transform={`rotate(-90 14 ${padT + plotH / 2})`}
       >
@@ -66,18 +67,18 @@ function SensitivityPanel() {
         y1={yOf(oneOverSqrt3)}
         x2={padL + plotW}
         y2={yOf(oneOverSqrt3)}
-        stroke="#f87171"
+        stroke={ED.series2}
         strokeWidth={1}
         strokeDasharray="4 3"
         opacity={0.7}
       />
-      <text x={padL + plotW - 4} y={yOf(oneOverSqrt3) - 5} textAnchor="end" fill="#f87171" fontSize={9}>
+      <text x={padL + plotW - 4} y={yOf(oneOverSqrt3) - 5} textAnchor="end" fill={ED.series2} fontSize={9}>
         1/sqrt(3) = {oneOverSqrt3.toFixed(5)} (crossing, not a fixed point)
       </text>
       {yTicks.map((v) => (
         <g key={`y${v}`}>
-          <line x1={padL - 4} y1={yOf(v)} x2={padL} y2={yOf(v)} stroke="#334155" strokeWidth={1} />
-          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={8.5}>
+          <line x1={padL - 4} y1={yOf(v)} x2={padL} y2={yOf(v)} stroke={ED.rule} strokeWidth={1} />
+          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8.5}>
             {v.toFixed(2)}
           </text>
         </g>
@@ -88,7 +89,7 @@ function SensitivityPanel() {
           x={xOf(Math.log2(r.etrunc_scale))}
           y={padT + plotH + 16}
           textAnchor="middle"
-          fill="#64748b"
+          fill={ED.inkFaint}
           fontSize={9}
         >
           {r.etrunc_scale}x
@@ -97,7 +98,7 @@ function SensitivityPanel() {
       <polyline
         points={rows.map((r) => `${xOf(Math.log2(r.etrunc_scale))},${yOf(r.peak_over_N_flow)}`).join(' ')}
         fill="none"
-        stroke="#38bdf8"
+        stroke={ED.series1}
         strokeWidth={2}
         opacity={0.9}
       />
@@ -107,7 +108,7 @@ function SensitivityPanel() {
           cx={xOf(Math.log2(r.etrunc_scale))}
           cy={yOf(r.peak_over_N_flow)}
           r={r.etrunc_scale === 1 ? 4 : 2.5}
-          fill={r.etrunc_scale === 1 ? '#fbbf24' : '#38bdf8'}
+          fill={r.etrunc_scale === 1 ? ED.brassDeco : ED.series1}
         />
       ))}
     </AxisFrame>
@@ -126,20 +127,20 @@ export default function Imp96215UshapePeakAccidentViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> Measurement/derivation only, not
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> Measurement/derivation only, not
         rigorous. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian
         Lambda &lt;= 0.2 remains SOTA; NO QED.
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         The imp-3220 sigma U-shape peak sits at N_peak &asymp; 0.577&nbsp;N_flow, close to
         1/sqrt(3)&nbsp;=&nbsp;0.57735 (imp-96162). imp-96187 derived the exact location ratio
         N_peak/N_flow&nbsp;=&nbsp;(b/a)^(1/(a+b)) from the local log-slopes a, b of E_trunc/E_coll and
@@ -148,7 +149,7 @@ export default function Imp96215UshapePeakAccidentViz() {
         through 1/sqrt(3), with no plateau or fixed point at it.
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         N_peak/N_flow vs E_trunc scaling: a monotone crossing, not a pinned constant
       </h3>
       <SensitivityPanel />
@@ -156,24 +157,24 @@ export default function Imp96215UshapePeakAccidentViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> the ratio falls monotonically
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> the ratio falls monotonically
         from {rows[0].peak_over_N_flow.toFixed(3)} at 0.25x to {rows[rows.length - 1].peak_over_N_flow.toFixed(3)}{' '}
         at 16x (the highlighted point is the actual pinned E_trunc = 3.06e-5, scale 1x). The 1/sqrt(3)
         line is crossed somewhere in the middle of the sweep rather than approached and held, which is
         the signature of an accidental proximity rather than a derived identity.
       </div>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginTop: '1.75rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginTop: '1.75rem', marginBottom: '0.5rem' }}>
         Why: leading order gives exactly 1, not 1/sqrt(3)
       </h3>
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', maxWidth: 700 }}>
         At clean leading order the two log-slopes coincide (a&nbsp;=&nbsp;b&nbsp;=&nbsp;1/2), so the
         derived formula collapses to (b/a)^(1/(a+b))&nbsp;=&nbsp;{D.landmarks.leading_order_ratio_a_eq_b.toFixed(6)}{' '}
         exactly &mdash; the peak would sit at N_flow itself. The entire 0.577 comes from the sub-leading
@@ -186,15 +187,15 @@ export default function Imp96215UshapePeakAccidentViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Verdict:</strong> {D.finding.F3_proximity_to_one_over_sqrt3_is_an_accident}
+        <strong style={{ color: 'var(--series-2)' }}>Verdict:</strong> {D.finding.F3_proximity_to_one_over_sqrt3_is_an_accident}
       </div>
     </div>
   );

@@ -9,12 +9,13 @@ import {
   IMP95810_CAVEAT_BANNER,
   IMP95810_OPEN_RESIDUAL,
 } from '../data/imp-95810-reach-universality-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 const SERIES = [
-  { key: 'ln16', label: 'ln 1.6', color: '#f87171' },
-  { key: 'ln15', label: 'ln 1.5', color: '#38bdf8' },
-  { key: 'ln145', label: 'ln 1.45', color: '#34d399' },
-  { key: 'ln14', label: 'ln 1.4', color: '#fbbf24' },
+  { key: 'ln16', label: 'ln 1.6', color: ED.series2 },
+  { key: 'ln15', label: 'ln 1.5', color: ED.series1 },
+  { key: 'ln145', label: 'ln 1.45', color: ED.series3 },
+  { key: 'ln14', label: 'ln 1.4', color: ED.brass },
 ];
 
 // Line chart of relative C_fit error vs reach R = delta(N_max+1), one line per
@@ -46,13 +47,13 @@ function ReachChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#334155" strokeWidth={1} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1} />
       <line
         x1={padL}
         y1={padT + plotH}
         x2={padL + plotW}
         y2={padT + plotH}
-        stroke="#64748b"
+        stroke={ED.rule}
         strokeWidth={1.5}
       />
       <line
@@ -60,7 +61,7 @@ function ReachChart() {
         y1={yOf(0)}
         x2={padL + plotW}
         y2={yOf(0)}
-        stroke="#475569"
+        stroke={ED.rule}
         strokeWidth={1}
         strokeDasharray="4 4"
       />
@@ -69,11 +70,11 @@ function ReachChart() {
         y1={yOf(-0.01)}
         x2={padL + plotW}
         y2={yOf(-0.01)}
-        stroke="#64748b"
+        stroke={ED.rule}
         strokeWidth={1}
         strokeDasharray="2 3"
       />
-      <text x={padL + plotW + 6} y={yOf(-0.01) + 3} fill="#64748b" fontSize={9} fontFamily="monospace">
+      <text x={padL + plotW + 6} y={yOf(-0.01) + 3} fill={ED.inkFaint} fontSize={9} fontFamily="monospace">
         -1%
       </text>
 
@@ -99,14 +100,14 @@ function ReachChart() {
         );
       })}
 
-      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         reach R = delta(N_max+1)
       </text>
       <text
         x={16}
         y={padT + plotH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={`rotate(-90 16 ${padT + plotH / 2})`}
       >
@@ -121,7 +122,7 @@ export default function Imp95810ReachUniversalityViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Szego Reach-Universality Cross-Validation (imp-95786)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         The finite-grid low bias in the Szego edge-coefficient fit
         C_fit&nbsp;&asymp;&nbsp;pi^2/(2&nbsp;delta^2) is ~ a function of the reach
         R&nbsp;=&nbsp;delta(N_max+1) alone. At fixed R the three float64-clean deltas
@@ -142,7 +143,7 @@ export default function Imp95810ReachUniversalityViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>reach R</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>ln 1.6</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>ln 1.5</th>
@@ -152,7 +153,7 @@ export default function Imp95810ReachUniversalityViz() {
         </thead>
         <tbody>
           {IMP95810_REACH_ROWS.map((r) => (
-            <tr key={r.reach} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+            <tr key={r.reach} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.reach}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>
                 {(r.ln16 * 100).toFixed(2)}%
@@ -171,7 +172,7 @@ export default function Imp95810ReachUniversalityViz() {
         </tbody>
       </table>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginTop: '1.75rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginTop: '1.75rem' }}>
         Sub-1% crossing reaches R*
       </h3>
       <table
@@ -183,7 +184,7 @@ export default function Imp95810ReachUniversalityViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>delta</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>R*</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>N_max*</th>
@@ -192,14 +193,14 @@ export default function Imp95810ReachUniversalityViz() {
         </thead>
         <tbody>
           {IMP95810_CROSSINGS.map((c) => (
-            <tr key={c.delta} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+            <tr key={c.delta} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{c.delta}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{c.rStar.toFixed(1)}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{c.nMaxStar}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{c.nMax250Law}</td>
             </tr>
           ))}
-          <tr style={{ borderBottom: '1px solid #1e293b', color: '#94a3b8' }}>
+          <tr style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink-soft)' }}>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>ln 1.4</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }} colSpan={3}>
               no clean R* &mdash; {IMP95810_LN14_WALL.note}
@@ -212,32 +213,32 @@ export default function Imp95810ReachUniversalityViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(180,131,46,0.06)',
-          borderLeft: '3px solid #b58a2e',
+          background: 'color-mix(in srgb, var(--brass-deco) 6%, transparent)',
+          borderLeft: '3px solid var(--brass-deco)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#cbd5e1',
+          color: 'var(--ink)',
         }}
       >
-        <strong style={{ color: '#e2b566' }}>
+        <strong style={{ color: 'var(--brass)' }}>
           Open residual ({IMP95810_OPEN_RESIDUAL.status}, {IMP95810_OPEN_RESIDUAL.id}):
         </strong>{' '}
         {IMP95810_OPEN_RESIDUAL.question}
-        <div style={{ marginTop: '0.4rem', color: '#94a3b8' }}>{IMP95810_OPEN_RESIDUAL.context}</div>
+        <div style={{ marginTop: '0.4rem', color: 'var(--ink-soft)' }}>{IMP95810_OPEN_RESIDUAL.context}</div>
       </div>
 
       <div
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> {IMP95810_CAVEAT_BANNER}
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> {IMP95810_CAVEAT_BANNER}
       </div>
     </div>
   );

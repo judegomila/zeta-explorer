@@ -5,6 +5,7 @@ import { IMP34025_AR2_BREUSCH_GODFREY_SERIAL_CORRELATION } from '../data/imp-340
 import { IMP33963_DICKEY_FULLER_UNIT_ROOT_TEST } from '../data/imp-33963-dickey-fuller-unit-root-test.js';
 import { IMP34024_KPSS_STATIONARITY_BRACKET } from '../data/imp-34024-kpss-stationarity-bracket.js';
 import { IMP33886_WIDENING_RESIDUAL_SIGNIFICANCE_TEST } from '../data/imp-33886-widening-residual-significance-test.js';
+import { ED } from '../styles/tokens.js';
 
 const LB = IMP33964_LJUNG_BOX_PORTMANTEAU_TEST;
 const AR2 = IMP34025_AR2_BREUSCH_GODFREY_SERIAL_CORRELATION;
@@ -34,7 +35,7 @@ function AcfChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={yZero} x2={padL + cW} y2={yZero} stroke="#334155" strokeWidth={1} />
+      <line x1={padL} y1={yZero} x2={padL + cW} y2={yZero} stroke={ED.rule} strokeWidth={1} />
       {LB.autocorrelations.map((r, i) => {
         const lag = LAGS[i];
         const x = xAt(lag) - barW / 2;
@@ -42,11 +43,11 @@ function AcfChart() {
         const h = Math.abs(yAt(r) - yZero);
         return (
           <g key={lag}>
-            <rect x={x} y={y} width={barW} height={h} fill={r >= 0 ? '#38bdf8' : '#fb7185'} opacity={0.85} rx={2} />
-            <text x={xAt(lag)} y={r >= 0 ? y - 6 : y + h + 14} textAnchor="middle" fill="#94a3b8" fontSize={10}>
+            <rect x={x} y={y} width={barW} height={h} fill={r >= 0 ? ED.series1 : ED.series2} opacity={0.85} rx={2} />
+            <text x={xAt(lag)} y={r >= 0 ? y - 6 : y + h + 14} textAnchor="middle" fill={ED.inkSoft} fontSize={10}>
               {r.toFixed(3)}
             </text>
-            <text x={xAt(lag)} y={padT + cH + 14} textAnchor="middle" fill="#64748b" fontSize={10}>
+            <text x={xAt(lag)} y={padT + cH + 14} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
               lag {lag}
             </text>
           </g>
@@ -56,13 +57,13 @@ function AcfChart() {
         x={16}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={`rotate(-90 16 ${padT + cH / 2})`}
       >
         r_lag
       </text>
-      <text x={padL + cW - 4} y={padT + 10} textAnchor="end" fill="#fb7185" fontSize={9.5}>
+      <text x={padL + cW - 4} y={padT + 10} textAnchor="end" fill={ED.series2} fontSize={9.5}>
         first negative at lag {LB.firstNegativeAutocorrLag}
       </text>
     </svg>
@@ -93,8 +94,8 @@ function LjungBoxChart() {
         const yTop = yAt(q);
         return (
           <g key={m}>
-            <rect x={x} y={yTop} width={barW} height={padT + cH - yTop} fill="#a78bfa" opacity={0.85} rx={2} />
-            <text x={xAt(m)} y={yTop - 6} textAnchor="middle" fill="#94a3b8" fontSize={10}>
+            <rect x={x} y={yTop} width={barW} height={padT + cH - yTop} fill={ED.series5} opacity={0.85} rx={2} />
+            <text x={xAt(m)} y={yTop - 6} textAnchor="middle" fill={ED.inkSoft} fontSize={10}>
               {q.toFixed(2)}
             </text>
             <line
@@ -102,24 +103,24 @@ function LjungBoxChart() {
               y1={yAt(LB.chiSquare01[i])}
               x2={x + barW + 4}
               y2={yAt(LB.chiSquare01[i])}
-              stroke="#fb7185"
+              stroke={ED.series2}
               strokeWidth={1.5}
               strokeDasharray="3,2"
             />
-            <text x={xAt(m)} y={padT + cH + 14} textAnchor="middle" fill="#64748b" fontSize={10}>
+            <text x={xAt(m)} y={padT + cH + 14} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
               m={m}
             </text>
           </g>
         );
       })}
-      <text x={padL + cW - 4} y={padT + 10} textAnchor="end" fill="#fb7185" fontSize={9.5}>
+      <text x={padL + cW - 4} y={padT + 10} textAnchor="end" fill={ED.series2} fontSize={9.5}>
         dashed = 1% chi-square_m (every Q_m clears it)
       </text>
       <text
         x={16}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={`rotate(-90 16 ${padT + cH / 2})`}
       >
@@ -151,11 +152,11 @@ function Ar2Chart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={yZero} x2={padL + cW} y2={yZero} stroke="#334155" strokeWidth={1} strokeDasharray="3,3" />
-      <polyline points={empPts} fill="none" stroke="#fb7185" strokeWidth={2} strokeDasharray="5,3" />
-      <polyline points={ar2Pts} fill="none" stroke="#facc15" strokeWidth={2} />
+      <line x1={padL} y1={yZero} x2={padL + cW} y2={yZero} stroke={ED.rule} strokeWidth={1} strokeDasharray="3,3" />
+      <polyline points={empPts} fill="none" stroke={ED.series2} strokeWidth={2} strokeDasharray="5,3" />
+      <polyline points={ar2Pts} fill="none" stroke={ED.brassDeco} strokeWidth={2} />
       {LAGS.map((lag) => (
-        <text key={lag} x={xAt(lag)} y={padT + cH + 14} textAnchor="middle" fill="#64748b" fontSize={10}>
+        <text key={lag} x={xAt(lag)} y={padT + cH + 14} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
           lag {lag}
         </text>
       ))}
@@ -163,14 +164,14 @@ function Ar2Chart() {
         x={16}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={`rotate(-90 16 ${padT + cH / 2})`}
       >
         ACF
       </text>
-      <line x1={padL + 360} y1={padT + 4} x2={padL + 380} y2={padT + 4} stroke="#facc15" strokeWidth={2} />
-      <text x={padL + 384} y={padT + 8} fill="#facc15" fontSize={9.5}>
+      <line x1={padL + 360} y1={padT + 4} x2={padL + 380} y2={padT + 4} stroke={ED.brassDeco} strokeWidth={2} />
+      <text x={padL + 384} y={padT + 8} fill={ED.brass} fontSize={9.5}>
         AR(2) theoretical (modulus {AR2.rootModulus.toFixed(3)}, period {AR2.pseudoPeriodRungs.toFixed(1)})
       </text>
       <line
@@ -178,11 +179,11 @@ function Ar2Chart() {
         y1={padT + 20}
         x2={padL + 380}
         y2={padT + 20}
-        stroke="#fb7185"
+        stroke={ED.series2}
         strokeWidth={2}
         strokeDasharray="5,3"
       />
-      <text x={padL + 384} y={padT + 24} fill="#fb7185" fontSize={9.5}>
+      <text x={padL + 384} y={padT + 24} fill={ED.series2} fontSize={9.5}>
         empirical (imp-33964)
       </text>
     </svg>
@@ -200,20 +201,20 @@ function Gauge({ label, lo, hi, marks, value, valueLabel, rejects }) {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <text x={0} y={22} fill="#94a3b8" fontSize={11.5} fontWeight={600}>
+      <text x={0} y={22} fill={ED.inkSoft} fontSize={11.5} fontWeight={600}>
         {label}
       </text>
-      <line x1={padL} y1={20} x2={padL + cW} y2={20} stroke="#334155" strokeWidth={1} />
+      <line x1={padL} y1={20} x2={padL + cW} y2={20} stroke={ED.rule} strokeWidth={1} />
       {marks.map((m) => (
         <g key={m.label}>
-          <line x1={xAt(m.v)} y1={10} x2={xAt(m.v)} y2={30} stroke="#64748b" strokeWidth={1} strokeDasharray="2,2" />
-          <text x={xAt(m.v)} y={44} textAnchor="middle" fill="#64748b" fontSize={9}>
+          <line x1={xAt(m.v)} y1={10} x2={xAt(m.v)} y2={30} stroke={ED.rule} strokeWidth={1} strokeDasharray="2,2" />
+          <text x={xAt(m.v)} y={44} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
             {m.label}
           </text>
         </g>
       ))}
-      <circle cx={xAt(value)} cy={20} r={5} fill={rejects ? '#38bdf8' : '#fb7185'} />
-      <text x={xAt(value)} y={4} textAnchor="middle" fill={rejects ? '#38bdf8' : '#fb7185'} fontSize={10} fontWeight={700}>
+      <circle cx={xAt(value)} cy={20} r={5} fill={rejects ? ED.series1 : ED.series2} />
+      <text x={xAt(value)} y={4} textAnchor="middle" fill={rejects ? ED.series1 : ED.series2} fontSize={10} fontWeight={700}>
         {valueLabel}
       </text>
     </svg>
@@ -258,9 +259,9 @@ function BracketStrip() {
         valueLabel={`DW ${DW.durbinWatson.toFixed(3)}`}
         rejects={DW.durbinWatsonRejectsH0}
       />
-      <p style={{ color: '#64748b', fontSize: '0.78rem', marginTop: '0.5rem' }}>
-        <span style={{ color: '#38bdf8' }}>blue dot</span> = this test rejects its null;{' '}
-        <span style={{ color: '#fb7185' }}>red dot</span> = this test does NOT reject its null. DF and KPSS both
+      <p style={{ color: 'var(--ink-faint)', fontSize: '0.78rem', marginTop: '0.5rem' }}>
+        <span style={{ color: 'var(--series-1)' }}>blue dot</span> = this test rejects its null;{' '}
+        <span style={{ color: 'var(--series-2)' }}>red dot</span> = this test does NOT reject its null. DF and KPSS both
         fail to reject (inconclusive bracket), while the Durbin-Watson runs test independently rejects white noise.
       </p>
     </div>
@@ -272,7 +273,7 @@ export default function Imp34101SerialDependenceTestPanelViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Serial-Dependence Test Panel on the imp-33858 Residuals (imp-34101)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 720 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 720 }}>
         Five diagnostics probe the same 21 signed imp-33858 residuals from four angles: the sample ACF
         (imp-33964) shows a sign-changing negative lobe a positive AR(1) cannot produce; the Ljung-Box
         portmanteau Q_m rejects white noise at every lag horizon m=1..5; a second-order AR(2)
@@ -286,22 +287,22 @@ export default function Imp34101SerialDependenceTestPanelViz() {
         endpoint/curved-trend artifact of the OLS line fit to the imp-33858 hump.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         sample ACF r_1..r_5 -- sign-changing negative lobe from lag {LB.firstNegativeAutocorrLag}
       </p>
       <AcfChart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.25rem 0 0.25rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.25rem 0 0.25rem' }}>
         Ljung-Box Q_m vs the 1% chi-square_m critical value, m = 1..5
       </p>
       <LjungBoxChart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.25rem 0 0.25rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.25rem 0 0.25rem' }}>
         AR(2) complex-root damped-sinusoid ACF vs the empirical ACF
       </p>
       <Ar2Chart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.25rem 0 0.25rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.25rem 0 0.25rem' }}>
         DF tau / KPSS eta / Durbin-Watson bracket against their critical values
       </p>
       <BracketStrip />
@@ -310,14 +311,14 @@ export default function Imp34101SerialDependenceTestPanelViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement only, unifying imp-33886 /
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> measurement only, unifying imp-33886 /
         imp-33963 / imp-33964 / imp-34024 / imp-34025 / imp-34026 into one panel; no new statistic is computed
         here. Every test flags non-white residuals, but the DF/KPSS bracket reads that as low-power/
         inconclusive rather than a confirmed unit root, and the AR(2) pseudo-period exceeding the 21-rung

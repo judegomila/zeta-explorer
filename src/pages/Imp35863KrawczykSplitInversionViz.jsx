@@ -7,10 +7,11 @@ import {
   IMP35863_BAND_TOP,
   IMP35863_PT_ANCHOR,
 } from '../data/imp-35863-krawczyk-split-inversion-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
-const SHIFT_COLOR = '#38bdf8';
-const CURVATURE_COLOR = '#f472b6';
-const CROSSOVER_COLOR = '#facc15';
+const SHIFT_COLOR = ED.series1;
+const CURVATURE_COLOR = ED.series7;
+const CROSSOVER_COLOR = ED.series4;
 
 function SplitInversionChart() {
   const w = 680;
@@ -36,14 +37,14 @@ function SplitInversionChart() {
 
   return (
     <svg width={w} height={h} style={{ display: 'block', maxWidth: '100%' }}>
-      <text x={padL} y={padT - 8} fill="#94a3b8" fontSize={11} fontWeight={700}>
+      <text x={padL} y={padT - 8} fill={ED.inkSoft} fontSize={11} fontWeight={700}>
         shift_fraction &amp; curvature_fraction vs log10(N)
       </text>
 
       {[0, 0.25, 0.5, 0.75, 1].map((v) => (
         <g key={v}>
-          <line x1={padL} y1={yOf(v)} x2={padL + plotW} y2={yOf(v)} stroke="#1e293b" strokeWidth={0.7} />
-          <text x={padL - 6} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+          <line x1={padL} y1={yOf(v)} x2={padL + plotW} y2={yOf(v)} stroke={ED.ruleSoft} strokeWidth={0.7} />
+          <text x={padL - 6} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v.toFixed(2)}
           </text>
         </g>
@@ -80,7 +81,7 @@ function SplitInversionChart() {
               x={xOf(p.log10N)}
               y={padT + plotH + 16}
               textAnchor="middle"
-              fill="#cbd5e1"
+              fill={ED.ink}
               fontSize={9}
               fontWeight={700}
             >
@@ -90,8 +91,8 @@ function SplitInversionChart() {
         </g>
       ))}
 
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <text x={padL + plotW / 2} y={h - 8} textAnchor="middle" fill="#64748b" fontSize={9}>
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <text x={padL + plotW / 2} y={h - 8} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
         log10(N) -- band-top ({IMP35863_BAND_TOP.log10N.toFixed(2)}) .. PT anchor ({IMP35863_PT_ANCHOR.log10N.toFixed(2)}) .. 1e14
       </text>
 
@@ -113,7 +114,7 @@ function LadderTable() {
   return (
     <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.8rem' }}>
       <thead>
-        <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+        <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
           <th style={{ padding: '0.4rem 0.6rem' }}>N</th>
           <th style={{ padding: '0.4rem 0.6rem' }}>log10(N)</th>
           <th style={{ padding: '0.4rem 0.6rem' }}>a</th>
@@ -124,7 +125,7 @@ function LadderTable() {
       </thead>
       <tbody>
         {IMP35863_HEIGHT_LADDER.map((p) => (
-          <tr key={p.log10N} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+          <tr key={p.log10N} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{p.N.toExponential(4)}</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{p.log10N.toFixed(3)}</td>
             <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{p.a.toExponential(4)}</td>
@@ -147,7 +148,7 @@ export default function Imp35863KrawczykSplitInversionViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Krawczyk Surplus-Split Height-Axis Inversion (imp-35863 / imp-35809)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
         imp-35762 split the D3 Krawczyk headroom surplus residual into an a-shift piece and an
         O(a&sup2;) curvature piece, and imp-35809 found the ~98/2 curvature-dominant split is flat
         WITHIN the imp-34693 admissible seed band but INVERTS along the height axis: as N climbs
@@ -163,7 +164,7 @@ export default function Imp35863KrawczykSplitInversionViz() {
         <LadderTable />
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.8rem', marginTop: '1rem' }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.8rem', marginTop: '1rem' }}>
         The band-top split ({(IMP35863_BAND_TOP.shiftFraction * 100).toFixed(2)}% shift /{' '}
         {(IMP35863_BAND_TOP.curvatureFraction * 100).toFixed(2)}% curvature) is a near-mirror of the
         PT-anchor split ({(IMP35863_PT_ANCHOR.shiftFraction * 100).toFixed(2)}% shift /{' '}
@@ -175,14 +176,14 @@ export default function Imp35863KrawczykSplitInversionViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation only of the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> presentation only of the
         already-derived imp-35809 measurement (no new derivation, no heavy data-module import);
         measurement on the inherited imp-3220/imp-3406 surrogate; imp-34714a machine certificate
         REMAINS OPEN and F(m)=0 stays a double-precision artifact; C_C 1/8 (imp-2642/2643) and C_mb

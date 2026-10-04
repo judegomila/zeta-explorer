@@ -24,6 +24,7 @@ import React, { useRef, useEffect, useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { getPrimes } from '../math/primes.js';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
+import { ED, alpha } from '../styles/tokens.js';
 
 const TWO_PI = 2 * Math.PI;
 const mono = 'var(--font-mono)';
@@ -92,9 +93,9 @@ function phasesForMode(mode, logSlice, t, eps, rng) {
 }
 
 const SERIES = [
-  { key: 'primes',    label: 'true primes',     color: '#a855f7' },
-  { key: 'random',    label: 'random phases',   color: '#38bdf8' },
-  { key: 'perturbed', label: 'perturbed Euler', color: '#f59e0b' },
+  { key: 'primes',    label: 'true primes',     color: ED.series5 },
+  { key: 'random',    label: 'random phases',   color: ED.series1 },
+  { key: 'perturbed', label: 'perturbed Euler', color: ED.brass },
 ];
 
 function draw(ctx, densities, bins, sMax) {
@@ -118,10 +119,10 @@ function draw(ctx, densities, bins, sMax) {
   const yOf = v => padT + plotH - (v / yMax) * plotH;
 
   // grid + axes
-  ctx.strokeStyle = 'rgba(71,85,105,0.35)';
+  ctx.strokeStyle = alpha(ED.rule, 0.35);
   ctx.lineWidth = 1;
   ctx.font = '10px "JetBrains Mono", monospace';
-  ctx.fillStyle = 'rgba(148,163,184,0.85)';
+  ctx.fillStyle = alpha(ED.series8, 0.85);
   for (let gx = 0; gx <= sMax; gx++) {
     const x = xOf(gx);
     ctx.beginPath(); ctx.moveTo(x, padT); ctx.lineTo(x, padT + plotH); ctx.stroke();
@@ -138,7 +139,7 @@ function draw(ctx, densities, bins, sMax) {
   ctx.fillText('s = Delta / <Delta>  (normalized angular spacing)', padL + plotW / 2, H - 6);
 
   // exponential reference e^{-s} (Poisson / fully random spacing pdf)
-  ctx.strokeStyle = 'rgba(148,163,184,0.7)';
+  ctx.strokeStyle = alpha(ED.rule, 0.7);
   ctx.setLineDash([5, 4]);
   ctx.lineWidth = 1.4;
   ctx.beginPath();
@@ -298,7 +299,7 @@ export default function AngularSpacingStatsPage() {
               ref={canvasRef}
               style={{
                 width: '100%', maxWidth: CANVAS_W, height: 'auto',
-                border: '1px solid #1e293b', borderRadius: 4,
+                border: '1px solid var(--rule-soft)', borderRadius: 4,
               }}
             />
           </div>
@@ -311,7 +312,7 @@ export default function AngularSpacingStatsPage() {
               </span>
             ))}
             <span style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 12, color: 'var(--faint)', fontFamily: mono }}>
-              <span style={{ width: 18, height: 0, borderTop: '2px dashed #877b6799', display: 'inline-block' }} />
+              <span style={{ width: 18, height: 0, borderTop: '2px dashed color-mix(in srgb, var(--rule) 60%, transparent)', display: 'inline-block' }} />
               e^-s reference
             </span>
           </div>
@@ -320,11 +321,11 @@ export default function AngularSpacingStatsPage() {
             <strong style={{ color: 'var(--ink-soft)' }}>Reading the panel.</strong>{' '}
             The dashed curve is the exponential e<sup>&minus;s</sup> &mdash; the spacing
             density of a fully random (Poisson) set of points on the circle. The
-            <span style={{ color: '#38bdf8' }}> random-phase</span> histogram tracks it
-            closely, as it should. The <span style={{ color: '#a855f7' }}>true-prime</span>
+            <span style={{ color: 'var(--series-1)' }}> random-phase</span> histogram tracks it
+            closely, as it should. The <span style={{ color: 'var(--series-5)' }}>true-prime</span>
             histogram is suppressed at small s (level repulsion: primes avoid clustering
             their phases) and shows excess weight at intermediate s &mdash; the
-            rigidity fingerprint. The <span style={{ color: '#f59e0b' }}>perturbed Euler</span>
+            rigidity fingerprint. The <span style={{ color: 'var(--brass)' }}>perturbed Euler</span>
             population, with phases jittered by eps, relaxes toward the random curve as
             eps grows; the L1-deviation numbers above quantify how far each population
             sits from e<sup>&minus;s</sup>.

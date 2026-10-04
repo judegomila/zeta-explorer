@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PageHeader from '../components/PageHeader.jsx';
 import {
   IMP96475_AXIS,
@@ -10,6 +11,7 @@ import {
   IMP96475_GAP,
   IMP96475_HONEST_BANNER,
 } from '../data/imp-96475-etrunc-sensitivity-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 function EtruncSensitivityChart() {
   const svgW = 680;
@@ -50,36 +52,36 @@ function EtruncSensitivityChart() {
             y1={padT}
             x2={xOf(Math.log10(v))}
             y2={padT + plotH}
-            stroke="#334155"
+            stroke={ED.rule}
             strokeWidth={0.5}
             opacity={0.3}
           />
-          <text x={xOf(Math.log10(v))} y={padT + plotH + 14} textAnchor="middle" fill="#64748b" fontSize={8}>
+          <text x={xOf(Math.log10(v))} y={padT + plotH + 14} textAnchor="middle" fill={ED.inkFaint} fontSize={8}>
             {`${v.toFixed(2)}x`}
           </text>
         </g>
       ))}
       {yTicks.map((v) => (
         <g key={`y${v}`}>
-          <line x1={padL} y1={yOf(v)} x2={padL + plotW} y2={yOf(v)} stroke="#334155" strokeWidth={0.5} opacity={0.2} />
-          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={8}>
+          <line x1={padL} y1={yOf(v)} x2={padL + plotW} y2={yOf(v)} stroke={ED.rule} strokeWidth={0.5} opacity={0.2} />
+          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8}>
             {v.toFixed(2)}
           </text>
         </g>
       ))}
 
       {/* analytic reference slope -2/ln10 through the anchor crossover */}
-      <path d={refPath} fill="none" stroke="#64748b" strokeWidth={1} strokeDasharray="4,3" opacity={0.7} />
+      <path d={refPath} fill="none" stroke={ED.rule} strokeWidth={1} strokeDasharray="4,3" opacity={0.7} />
 
       {/* measured crossover (sigma = 1/2) and knee (tenth-decade D2 zero-crossing) */}
-      <path d={crossPath} fill="none" stroke="#facc15" strokeWidth={2} />
-      <path d={kneePath} fill="none" stroke="#a78bfa" strokeWidth={2} />
+      <path d={crossPath} fill="none" stroke={ED.brassDeco} strokeWidth={2} />
+      <path d={kneePath} fill="none" stroke={ED.series5} strokeWidth={2} />
 
       {IMP96475_CROSSOVER_POINTS.map((p) => (
-        <circle key={`c${p.factor}`} cx={xOf(p.log10Factor)} cy={yOf(p.log10Nstar)} r={3} fill="#facc15" />
+        <circle key={`c${p.factor}`} cx={xOf(p.log10Factor)} cy={yOf(p.log10Nstar)} r={3} fill={ED.brassDeco} />
       ))}
       {IMP96475_KNEE_POINTS.map((p) => (
-        <circle key={`k${p.factor}`} cx={xOf(p.log10Factor)} cy={yOf(p.log10Nstar)} r={3} fill="#a78bfa" />
+        <circle key={`k${p.factor}`} cx={xOf(p.log10Factor)} cy={yOf(p.log10Nstar)} r={3} fill={ED.series5} />
       ))}
 
       {IMP96475_WINDOW_EXIT && (
@@ -89,14 +91,14 @@ function EtruncSensitivityChart() {
             cy={yOf(IMP96475_AXIS.log10NstarMin + 0.06)}
             r={4}
             fill="none"
-            stroke="#f87171"
+            stroke={ED.series2}
             strokeWidth={1.5}
           />
           <text
             x={xOf(Math.log10(IMP96475_WINDOW_EXIT.factor)) - 6}
             y={yOf(IMP96475_AXIS.log10NstarMin + 0.06) - 8}
             textAnchor="end"
-            fill="#f87171"
+            fill={ED.series2}
             fontSize={7.5}
           >
             {'knee off-window'}
@@ -104,20 +106,20 @@ function EtruncSensitivityChart() {
         </g>
       )}
 
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
 
-      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill="#64748b" fontSize={9.5}>
+      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5}>
         {'E_trunc multiplier (log scale); dashed grey = analytic -2/ln10 reference slope'}
       </text>
 
       <g transform={`translate(${padL + 8}, ${padT})`}>
-        <line x1={0} y1={4} x2={16} y2={4} stroke="#facc15" strokeWidth={2} />
-        <text x={21} y={8} fill="#94a3b8" fontSize={8}>
+        <line x1={0} y1={4} x2={16} y2={4} stroke={ED.brassDeco} strokeWidth={2} />
+        <text x={21} y={8} fill={ED.inkSoft} fontSize={8}>
           {`crossover (elasticity ${IMP96475_ELASTICITY.crossover.toFixed(4)})`}
         </text>
-        <line x1={0} y1={18} x2={16} y2={18} stroke="#a78bfa" strokeWidth={2} />
-        <text x={21} y={22} fill="#94a3b8" fontSize={8}>
+        <line x1={0} y1={18} x2={16} y2={18} stroke={ED.series5} strokeWidth={2} />
+        <text x={21} y={22} fill={ED.inkSoft} fontSize={8}>
           {`knee (elasticity ${IMP96475_ELASTICITY.knee.toFixed(4)})`}
         </text>
       </g>
@@ -129,23 +131,24 @@ export default function Imp96475EtruncSensitivityViz() {
   return (
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="imp-96451: sigma-Knee / Crossover Sensitivity to the E_trunc Truncation Floor" />
+      <p className="ed-lbl">Related: <Link to="/viz-imp96316-etrunc-sensitivity">earlier run (imp-96316)</Link></p>
 
       <div
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 760,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> {IMP96475_HONEST_BANNER}
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> {IMP96475_HONEST_BANNER}
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
         imp-96451 perturbed the N-independent truncation floor E_trunc = 3.06e-5 by a
         log-symmetric 0.5x..2x band and re-measured the tenth-decade sigma-knee and the
         sigma = 1/2 crossover. Both landmarks move together with elasticity
@@ -155,7 +158,7 @@ export default function Imp96475EtruncSensitivityViz() {
         {' '}log10 (base {IMP96475_GAP.base.toFixed(5)}).
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         knee and crossover log10 N* vs the E_trunc multiplier
       </h3>
       <EtruncSensitivityChart />
@@ -164,14 +167,14 @@ export default function Imp96475EtruncSensitivityViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> the yellow curve is the
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> the yellow curve is the
         sigma = 1/2 crossover, the purple curve is the tenth-decade knee, and the dashed grey
         line is the analytic -2/ln10 reference slope through the factor = 1 anchor. The purple
         curve stops at the 2x mark, ringed in red, where the crossover drops below the
@@ -182,14 +185,14 @@ export default function Imp96475EtruncSensitivityViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page consuming the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the
         imp-96451 baked row literals verbatim (only the log10(factor) projection and reference
         line are computed here, no re-fit, no zeros-bundle import). Component-model
         curvature/sensitivity diagnostic only, not rigorous; changes no bound; establishes no

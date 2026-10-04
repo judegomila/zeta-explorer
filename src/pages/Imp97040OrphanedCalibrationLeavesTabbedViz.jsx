@@ -43,6 +43,7 @@ import {
   IMP96985_PROJECTED_ONSET_CROSSOVER_N,
   IMP96985_HONEST_BANNER,
 } from '../data/imp-96985-bessel-onset-finer-ladder-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 // imp-97040: imp-96959/imp-96960/imp-96961 were each "-viz-data" leaves with no confirmed
 // consumer (no .jsx page imported them -- see imp-96925 for the same trap on an earlier leaf).
@@ -74,18 +75,18 @@ function LineChart({ series, xTicks, xLabel, yFormat, useLogY }) {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
       {yTickVals.map((v) => (
         <g key={`y${v}`}>
-          <line x1={padL - 4} y1={padT + plotH - ((v - minY) / spanY) * plotH} x2={padL} y2={padT + plotH - ((v - minY) / spanY) * plotH} stroke="#334155" strokeWidth={1} />
-          <text x={padL - 8} y={padT + plotH - ((v - minY) / spanY) * plotH + 3} textAnchor="end" fill="#64748b" fontSize={8.5}>
+          <line x1={padL - 4} y1={padT + plotH - ((v - minY) / spanY) * plotH} x2={padL} y2={padT + plotH - ((v - minY) / spanY) * plotH} stroke={ED.rule} strokeWidth={1} />
+          <text x={padL - 8} y={padT + plotH - ((v - minY) / spanY) * plotH + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8.5}>
             {yFormat(useLogY ? 10 ** v : v)}
           </text>
         </g>
       ))}
       {xTicks.map((x) => (
-        <text key={`x${x}`} x={xOf(x)} y={padT + plotH + 14} textAnchor="middle" fill="#64748b" fontSize={8}>
+        <text key={`x${x}`} x={xOf(x)} y={padT + plotH + 14} textAnchor="middle" fill={ED.inkFaint} fontSize={8}>
           {x}
         </text>
       ))}
@@ -102,7 +103,7 @@ function LineChart({ series, xTicks, xLabel, yFormat, useLogY }) {
           ))}
         </g>
       ))}
-      <text x={padL + plotW / 2} y={padT + plotH + 32} textAnchor="middle" fill="#94a3b8" fontSize={9}>
+      <text x={padL + plotW / 2} y={padT + plotH + 32} textAnchor="middle" fill={ED.inkSoft} fontSize={9}>
         {xLabel}
       </text>
     </svg>
@@ -127,14 +128,14 @@ function HonestBanner({ text }) {
       style={{
         marginTop: '1.25rem',
         padding: '0.75rem 1rem',
-        background: 'rgba(248,113,113,0.06)',
-        borderLeft: '3px solid #f87171',
+        background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+        borderLeft: '3px solid var(--series-2)',
         borderRadius: '0 4px 4px 0',
         fontSize: '0.8rem',
-        color: '#94a3b8',
+        color: 'var(--ink-soft)',
       }}
     >
-      <strong style={{ color: '#f87171' }}>Honest status:</strong> {text}
+      <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> {text}
     </div>
   );
 }
@@ -143,18 +144,18 @@ function KreinFloorMarginPanel() {
   const series = [
     {
       label: '2a=ln3',
-      color: '#4ade80',
+      color: ED.series3,
       points: IMP96959_FLOOR_LADDER.map((r) => ({ x: r.Nbig, y: r.floorLn3 })),
     },
     {
       label: '2a=0.96',
-      color: '#38bdf8',
+      color: ED.series1,
       points: IMP96959_FLOOR_LADDER.map((r) => ({ x: r.Nbig, y: r.floorA096 })),
     },
   ];
   return (
     <div>
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1rem', maxWidth: 700 }}>
         imp-96959 reshapes the imp-96938 Nbig=24..240 Ritz floor ladder (T=800) at both endpoints
         onto one chart (log y-axis, since the two floors differ by ~25x). Both floors drift the
         same direction with Nbig (down); only the absolute margin differs.
@@ -167,7 +168,7 @@ function KreinFloorMarginPanel() {
         useLogY
       />
       <Legend series={series} />
-      <div style={{ marginTop: '1rem', fontSize: '0.8rem', color: '#64748b' }}>
+      <div style={{ marginTop: '1rem', fontSize: '0.8rem', color: 'var(--ink-faint)' }}>
         Floor minima: 2a=ln3 &rarr; {IMP96959_MARGIN_CONTRAST.floorMin_ln3.toFixed(6)}; 2a=0.96
         &rarr; {IMP96959_MARGIN_CONTRAST.floorMin_a096.toFixed(6)} (ratio{' '}
         {IMP96959_MARGIN_CONTRAST.ratio.toFixed(2)}x). Drift direction identical at both
@@ -182,18 +183,18 @@ function EtruncCcElasticityPanel() {
   const series = [
     {
       label: 'C_C elasticity',
-      color: '#facc15',
+      color: ED.brass,
       points: IMP96960_LADDER_SERIES.map((r) => ({ x: r.log10N, y: r.elasticityCC })),
     },
     {
       label: 'E_trunc elasticity',
-      color: '#f87171',
+      color: ED.series2,
       points: IMP96960_LADDER_SERIES.map((r) => ({ x: r.log10N, y: r.elasticityEtrunc })),
     },
   ];
   return (
     <div>
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1rem', maxWidth: 700 }}>
         imp-96960 merges the imp-96936/imp-96950 conjugate ladders across all six measured
         sigma-share decay landmarks (sigma = 0.75 down to 0.01). The two leverages mirror each
         other about the +2 / -2 inverse-square asymptote and their signed sum shrinks
@@ -207,11 +208,11 @@ function EtruncCcElasticityPanel() {
       />
       <Legend series={series} />
       <div style={{ marginTop: '1rem', overflowX: 'auto' }}>
-        <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.75rem', color: '#94a3b8' }}>
+        <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.75rem', color: 'var(--ink-soft)' }}>
           <thead>
             <tr>
               {['sigma', 'N_cross', 'elasticity_cc', 'elasticity_etrunc', 'signed sum'].map((h) => (
-                <th key={h} style={{ textAlign: 'right', padding: '0.25rem 0.6rem', borderBottom: '1px solid #334155' }}>
+                <th key={h} style={{ textAlign: 'right', padding: '0.25rem 0.6rem', borderBottom: '1px solid var(--rule)' }}>
                   {h}
                 </th>
               ))}
@@ -239,18 +240,18 @@ function BesselOnsetTailPanel() {
   const series = [
     {
       label: 'measured residual',
-      color: '#4ade80',
+      color: ED.series3,
       points: IMP96961_ONSET_TAIL_SERIES.map((r) => ({ x: r.log10N, y: r.residMeasured })),
     },
     {
       label: 'first-order residual',
-      color: '#38bdf8',
+      color: ED.series1,
       points: IMP96961_ONSET_TAIL_SERIES.map((r) => ({ x: r.log10N, y: r.residFirstOrder })),
     },
   ];
   return (
     <div>
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1rem', maxWidth: 700 }}>
         imp-96961 reshapes the imp-96934 per-N (N = 76, 100, 124) Bessel onset-mass vs measured
         beyond-T=3200 tail-residual table at 2a=ln3. The first-order (Rayleigh) tail residual
         reproduces the measured floor lift in sign and order at every N, but the onset sits
@@ -264,7 +265,7 @@ function BesselOnsetTailPanel() {
         yFormat={(v) => v.toExponential(2)}
       />
       <Legend series={series} />
-      <div style={{ marginTop: '1rem', fontSize: '0.8rem', color: '#64748b' }}>
+      <div style={{ marginTop: '1rem', fontSize: '0.8rem', color: 'var(--ink-faint)' }}>
         Cutoff T3200 = {IMP96961_T3200}. {IMP96961_ONSET_TAIL_SERIES.length} N-rungs shown
         (onset-over-weighted-fraction ratio ranges{' '}
         {Math.min(...IMP96961_ONSET_TAIL_SERIES.map((r) => r.onsetOverWeightedRatio)).toFixed(2)}x
@@ -280,19 +281,19 @@ function BesselOnsetMassExtendedNPanel() {
   const series = [
     {
       label: 'measured floor lift',
-      color: '#4ade80',
+      color: ED.series3,
       points: IMP97038_NS.map((N) => ({ x: N, y: IMP97038_ROWS[N].residMeasured })),
     },
     {
       label: 'onset-mass prediction (unweighted)',
-      color: '#facc15',
+      color: ED.brass,
       points: IMP97038_NS.map((N) => ({ x: N, y: IMP97038_ROWS[N].onsetFracUnweighted })),
     },
   ];
   const steps = ['124->148', '148->172', '172->196'];
   return (
     <div>
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1rem', maxWidth: 700 }}>
         imp-97038 extends the imp-96934 Bessel onset-mass vs measured-tail-residual comparison at
         2a=ln3 three rungs further (N = 148, 172, 196). The robust direct floor lift keeps growing
         but decelerates toward the onset model&apos;s linear-in-k growth rate; the first-order
@@ -308,11 +309,11 @@ function BesselOnsetMassExtendedNPanel() {
       />
       <Legend series={series} />
       <div style={{ marginTop: '1rem', overflowX: 'auto' }}>
-        <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.75rem', color: '#94a3b8' }}>
+        <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.75rem', color: 'var(--ink-soft)' }}>
           <thead>
             <tr>
               {['step', 'ratio measured', 'ratio onset-linear', 'ratio of ratios'].map((h) => (
-                <th key={h} style={{ textAlign: 'right', padding: '0.25rem 0.6rem', borderBottom: '1px solid #334155' }}>
+                <th key={h} style={{ textAlign: 'right', padding: '0.25rem 0.6rem', borderBottom: '1px solid var(--rule)' }}>
                   {h}
                 </th>
               ))}
@@ -339,23 +340,23 @@ function KreinVacuityFactorisationPanel() {
   const series = [
     {
       label: 'log10(step1: sum-vs-single)',
-      color: '#4ade80',
+      color: ED.series3,
       points: IMP97002_LOG10_FACTOR_SERIES.map((r, i) => ({ x: i, y: r.log10Step1 })),
     },
     {
       label: 'log10(step2: spectral gap)',
-      color: '#f87171',
+      color: ED.series2,
       points: IMP97002_LOG10_FACTOR_SERIES.map((r, i) => ({ x: i, y: r.log10Step2 })),
     },
     {
       label: 'log10(step3: trial-vector slack)',
-      color: '#38bdf8',
+      color: ED.series1,
       points: IMP97002_LOG10_FACTOR_SERIES.map((r, i) => ({ x: i, y: r.log10Step3 })),
     },
   ];
   return (
     <div>
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1rem', maxWidth: 700 }}>
         imp-97002 reshapes the imp-96973 three-rung Tr(B<sup>-1</sup>R_T)/actual vacuity
         factorisation (sum-vs-single &times; spectral-gap &times; trial-vector-slack) into
         chart-ready rows. The spectral-gap factor carries all ~13-15 orders of magnitude at every
@@ -365,11 +366,11 @@ function KreinVacuityFactorisationPanel() {
       <LineChart series={series} xTicks={series[0].points.map((p) => p.x)} xLabel="rung index" yFormat={(v) => v.toFixed(1)} />
       <Legend series={series} />
       <div style={{ marginTop: '1rem', overflowX: 'auto' }}>
-        <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.75rem', color: '#94a3b8' }}>
+        <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.75rem', color: 'var(--ink-soft)' }}>
           <thead>
             <tr>
               {['rung', 'N', '2a', 'step1', 'step2', 'step3', 'total', 'recomposed'].map((h) => (
-                <th key={h} style={{ textAlign: 'right', padding: '0.25rem 0.6rem', borderBottom: '1px solid #334155' }}>
+                <th key={h} style={{ textAlign: 'right', padding: '0.25rem 0.6rem', borderBottom: '1px solid var(--rule)' }}>
                   {h}
                 </th>
               ))}
@@ -401,13 +402,13 @@ function BesselOnsetCrossoverPanel() {
   const series = [
     {
       label: 'onsetGapRatio',
-      color: '#f87171',
+      color: ED.series2,
       points: ladderNs.map((N) => ({ x: N, y: IMP96974_JOINED_GAP_LADDER[N] })),
     },
   ];
   return (
     <div>
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1rem', maxWidth: 700 }}>
         imp-96974 extends the imp-96957 Bessel onset-mass vs sigma_2-weighted tail-fraction ladder
         to N in {'{136,148,160}'} at 2a=ln3. The literal uniform-onset over-prediction ratio
         (onsetGapRatio) collapses monotonically and crosses 1 between N=136 and N=148 (joined
@@ -417,11 +418,11 @@ function BesselOnsetCrossoverPanel() {
       <LineChart series={series} xTicks={ladderNs} xLabel="N" yFormat={(v) => v.toFixed(2)} useLogY />
       <Legend series={series} />
       <div style={{ marginTop: '1rem', overflowX: 'auto' }}>
-        <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.75rem', color: '#94a3b8' }}>
+        <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.75rem', color: 'var(--ink-soft)' }}>
           <thead>
             <tr>
               {['N', 'weightedTailFrac', 'onsetFracUnweighted', 'onsetGapRatio'].map((h) => (
-                <th key={h} style={{ textAlign: 'right', padding: '0.25rem 0.6rem', borderBottom: '1px solid #334155' }}>
+                <th key={h} style={{ textAlign: 'right', padding: '0.25rem 0.6rem', borderBottom: '1px solid var(--rule)' }}>
                   {h}
                 </th>
               ))}
@@ -448,23 +449,23 @@ function VifReconciliationLadderPanel() {
   const series = [
     {
       label: 'AR(1) full geometric',
-      color: '#f87171',
+      color: ED.series2,
       points: IMP97039_LADDER.map((r) => ({ x: r.lag, y: r.cumAr1 })),
     },
     {
       label: 'sign-change truncated',
-      color: '#facc15',
+      color: ED.brass,
       points: IMP97039_LADDER.map((r) => ({ x: r.lag, y: r.cumSignChange })),
     },
     {
       label: 'Bartlett b=3',
-      color: '#38bdf8',
+      color: ED.series1,
       points: IMP97039_LADDER.map((r) => ({ x: r.lag, y: r.cumBartlett })),
     },
   ];
   return (
     <div>
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1rem', maxWidth: 700 }}>
         imp-97039 walks the imp-96832 drift-VIF reconciliation down all 12 lags of the same
         measured ACF, under three lag treatments. The AR(1) full-geometric extrapolation
         (red) keeps climbing past the point where the empirical ACF (rhoEmp) turns negative at
@@ -480,11 +481,11 @@ function VifReconciliationLadderPanel() {
       />
       <Legend series={series} />
       <div style={{ marginTop: '1rem', overflowX: 'auto' }}>
-        <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.75rem', color: '#94a3b8' }}>
+        <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.75rem', color: 'var(--ink-soft)' }}>
           <thead>
             <tr>
               {['lag', 'rhoEmp', 'ar1Geo', 'cumAr1', 'cumSignChange', 'cumBartlett'].map((h) => (
-                <th key={h} style={{ textAlign: 'right', padding: '0.25rem 0.6rem', borderBottom: '1px solid #334155' }}>
+                <th key={h} style={{ textAlign: 'right', padding: '0.25rem 0.6rem', borderBottom: '1px solid var(--rule)' }}>
                   {h}
                 </th>
               ))}
@@ -492,7 +493,7 @@ function VifReconciliationLadderPanel() {
           </thead>
           <tbody>
             {IMP97039_LADDER.map((r) => (
-              <tr key={r.lag} style={r.isTruncationLag ? { background: 'rgba(250,204,21,0.06)' } : undefined}>
+              <tr key={r.lag} style={r.isTruncationLag ? { background: 'color-mix(in srgb, var(--brass-deco) 6%, transparent)' } : undefined}>
                 <td style={{ textAlign: 'right', padding: '0.2rem 0.6rem' }}>{r.lag}</td>
                 <td style={{ textAlign: 'right', padding: '0.2rem 0.6rem' }}>{r.rhoEmp.toFixed(4)}</td>
                 <td style={{ textAlign: 'right', padding: '0.2rem 0.6rem' }}>{r.ar1Geo.toFixed(4)}</td>
@@ -504,7 +505,7 @@ function VifReconciliationLadderPanel() {
           </tbody>
         </table>
       </div>
-      <div style={{ marginTop: '1rem', fontSize: '0.8rem', color: '#64748b' }}>
+      <div style={{ marginTop: '1rem', fontSize: '0.8rem', color: 'var(--ink-faint)' }}>
         Gap decomposition: {IMP97039_GAP_DECOMPOSITION.ar1Full.toFixed(3)} (AR(1))
         &minus; {Math.abs(IMP97039_GAP_DECOMPOSITION.minusFictitiousGeometricTail).toFixed(3)}{' '}
         (fictitious geometric tail) = {IMP97039_GAP_DECOMPOSITION.signChangeTruncated.toFixed(3)}{' '}
@@ -522,18 +523,18 @@ function BesselOnsetFinerLadderPanel() {
   const series = [
     {
       label: 'sigma_2-weighted floor-lift',
-      color: '#4ade80',
+      color: ED.series3,
       points: IMP96985_ONSET_LADDER_SERIES.map((r) => ({ x: r.log10N, y: r.residMeasured })),
     },
     {
       label: 'onset/T3200 ratio',
-      color: '#facc15',
+      color: ED.brass,
       points: IMP96985_ONSET_LADDER_SERIES.map((r) => ({ x: r.log10N, y: r.tOnsetOverT3200 })),
     },
   ];
   return (
     <div>
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1rem', maxWidth: 700 }}>
         imp-96985 reshapes the imp-96957 finer Bessel onset ladder N in {'{88,100,112,124}'} at
         2a=ln3 into a chart-ready series. The sigma_2-weighted floor-lift keeps growing
         super-cubically (global exponent {IMP96985_P_GLOBAL.toFixed(3)}, no roll-off) while the
@@ -550,11 +551,11 @@ function BesselOnsetFinerLadderPanel() {
       />
       <Legend series={series} />
       <div style={{ marginTop: '1rem', overflowX: 'auto' }}>
-        <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.75rem', color: '#94a3b8' }}>
+        <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.75rem', color: 'var(--ink-soft)' }}>
           <thead>
             <tr>
               {['N', 'onsetGapRatio', 'weightedTailFrac', 'onsetFracUnweighted'].map((h) => (
-                <th key={h} style={{ textAlign: 'right', padding: '0.25rem 0.6rem', borderBottom: '1px solid #334155' }}>
+                <th key={h} style={{ textAlign: 'right', padding: '0.25rem 0.6rem', borderBottom: '1px solid var(--rule)' }}>
                   {h}
                 </th>
               ))}
@@ -572,7 +573,7 @@ function BesselOnsetFinerLadderPanel() {
           </tbody>
         </table>
       </div>
-      <div style={{ marginTop: '1rem', fontSize: '0.8rem', color: '#64748b' }}>
+      <div style={{ marginTop: '1rem', fontSize: '0.8rem', color: 'var(--ink-faint)' }}>
         Cutoff T3200 = {IMP96985_T3200}. Local step exponents:{' '}
         {IMP96985_GROWTH_SERIES.map((g) => g.pLocal.toFixed(2)).join(', ')} (all super-cubic).
       </div>
@@ -600,7 +601,7 @@ export default function Imp97040OrphanedCalibrationLeavesTabbedViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Orphaned Route I / Route M Calibration Leaves" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1rem', maxWidth: 700 }}>
         Viz-data leaves (imp-96959, imp-96960, imp-96961, imp-97038, imp-97002, imp-96974, imp-97039,
         imp-96985) shipped as import-light reshapes of earlier calibration tables but had no
         consuming page.
@@ -608,7 +609,7 @@ export default function Imp97040OrphanedCalibrationLeavesTabbedViz() {
         single-purpose pages.
       </p>
 
-      <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '1.25rem', borderBottom: '1px solid #334155' }}>
+      <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '1.25rem', borderBottom: '1px solid var(--rule)' }}>
         {TABS.map((t) => (
           <button
             key={t.id}
@@ -619,8 +620,8 @@ export default function Imp97040OrphanedCalibrationLeavesTabbedViz() {
               fontSize: '0.8rem',
               background: 'none',
               border: 'none',
-              borderBottom: t.id === activeTab ? '2px solid #38bdf8' : '2px solid transparent',
-              color: t.id === activeTab ? '#e2e8f0' : '#64748b',
+              borderBottom: t.id === activeTab ? '2px solid var(--series-1)' : '2px solid transparent',
+              color: t.id === activeTab ? 'var(--ink)' : 'var(--ink-faint)',
               cursor: 'pointer',
             }}
           >
@@ -635,14 +636,14 @@ export default function Imp97040OrphanedCalibrationLeavesTabbedViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page consuming three
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming three
         previously-orphaned viz-data leaves verbatim. Changes no bound, establishes no operator
         positivity; Platt-Trudgian Lambda&le;0.2 remains SOTA; RH open; NO QED.
       </div>

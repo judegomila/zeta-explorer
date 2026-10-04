@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState, useCallback, useMemo } from 'react'
 import * as d3 from 'd3';
 import { InlineMath, BlockMath } from './KaTeXMath.jsx';
 import { getPrimes, primeFrequency } from '../math/primes.js';
+import { ED, alpha } from '../styles/tokens.js';
 
 /**
  * Visualize the coupling strength between adjacent oscillator stages.
@@ -50,16 +51,16 @@ export default function PrimeGapCouplingViz() {
 
       g.append('g').attr('transform', `translate(0,${h})`)
         .call(d3.axisBottom(x).ticks(Math.min(20, data.length)).tickFormat(i => data[i]?.p1 || ''))
-        .selectAll('text').attr('fill', '#64748b').attr('font-size', 8)
+        .selectAll('text').attr('fill', ED.inkFaint).attr('font-size', 8)
         .attr('transform', 'rotate(-45)').attr('text-anchor', 'end');
       g.append('g').call(d3.axisLeft(y).ticks(8))
-        .selectAll('text').attr('fill', '#64748b').attr('font-size', 10);
-      g.selectAll('.domain, .tick line').attr('stroke', '#2a3050');
+        .selectAll('text').attr('fill', ED.inkFaint).attr('font-size', 10);
+      g.selectAll('.domain, .tick line').attr('stroke', ED.rule);
 
       // Horizontal gridlines
       const gridG1 = g.append('g').call(d3.axisLeft(y).ticks(8).tickSize(-w).tickFormat(''));
       gridG1.select('.domain').remove();
-      gridG1.selectAll('.tick line').attr('stroke', '#1e293b').attr('stroke-dasharray', '4,4').attr('stroke-width', 0.8);
+      gridG1.selectAll('.tick line').attr('stroke', ED.ruleSoft).attr('stroke-dasharray', '4,4').attr('stroke-width', 0.8);
 
       // Coupling bars
       const barW = Math.max(2, w / data.length - 1);
@@ -68,7 +69,7 @@ export default function PrimeGapCouplingViz() {
           .attr('x', x(i) - barW / 2).attr('y', y(d.coupling))
           .attr('width', barW).attr('height', h - y(d.coupling))
           .attr('rx', 1)
-          .attr('fill', d.isTwin ? '#ef4444' : `hsl(${210 + d.coupling * 20}, 70%, 55%)`)
+          .attr('fill', d.isTwin ? ED.series2 : `hsl(${210 + d.coupling * 20}, 70%, 55%)`)
           .attr('opacity', d.isTwin ? 0.9 : 0.6)
           .style('cursor', 'crosshair')
           .append('title').text(`p=${d.p1}→${d.p2} | gap=${d.gap}${d.isTwin ? ' (twin)' : ''} | Y=${d.coupling.toFixed(2)}`);
@@ -77,38 +78,38 @@ export default function PrimeGapCouplingViz() {
       // Coupling line
       const line = d3.line().x((d, i) => x(i)).y(d => y(d.coupling)).curve(d3.curveMonotoneX);
       g.append('path').datum(data).attr('d', line)
-        .attr('fill', 'none').attr('stroke', '#06b6d4').attr('stroke-width', 1.5);
+        .attr('fill', 'none').attr('stroke', ED.series6).attr('stroke-width', 1.5);
 
       // Mark twin primes
       data.filter(d => d.isTwin).forEach(d => {
         g.append('circle')
           .attr('cx', x(d.index)).attr('cy', y(d.coupling)).attr('r', 4)
-          .attr('fill', '#ef4444').attr('stroke', '#0a0e1a').attr('stroke-width', 1.5)
+          .attr('fill', ED.series2).attr('stroke', ED.paper).attr('stroke-width', 1.5)
           .style('cursor', 'crosshair')
           .append('title').text(`Twin: p=${d.p1},${d.p2} | Y=${d.coupling.toFixed(2)}`);
       });
 
       svg.append('text').attr('x', margin.left + 4).attr('y', 16)
-        .attr('fill', '#e2e8f0').attr('font-size', 13).attr('font-weight', 600)
+        .attr('fill', ED.ink).attr('font-size', 13).attr('font-weight', 600)
         .text('Inter-Stage Coupling Strength Yₙ,ₙ₊₁ = 1/(log pₙ₊₁ − log pₙ)');
 
       // Y-axis label
       svg.append('text')
         .attr('transform', `translate(16, ${margin.top + h / 2}) rotate(-90)`)
-        .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12)
+        .attr('text-anchor', 'middle').attr('fill', ED.inkSoft).attr('font-size', 12)
         .text('Coupling Y');
 
       // Legend
       const legend = g.append('g').attr('transform', `translate(${w - 175}, 10)`);
       legend.append('rect')
         .attr('x', -8).attr('y', -10).attr('width', 178).attr('height', 42)
-        .attr('rx', 6).attr('fill', 'rgba(13,17,23,0.85)').attr('stroke', '#1e293b');
+        .attr('rx', 6).attr('fill', alpha(ED.paper, 0.85)).attr('stroke', ED.ruleSoft);
       legend.append('line').attr('x1', 0).attr('y1', 0).attr('x2', 16).attr('y2', 0)
-        .attr('stroke', '#06b6d4').attr('stroke-width', 1.5);
-      legend.append('text').attr('x', 22).attr('y', 4).attr('fill', '#06b6d4').attr('font-size', 11)
+        .attr('stroke', ED.series6).attr('stroke-width', 1.5);
+      legend.append('text').attr('x', 22).attr('y', 4).attr('fill', ED.series6).attr('font-size', 11)
         .text('Coupling trend');
-      legend.append('circle').attr('cx', 8).attr('cy', 18).attr('r', 4).attr('fill', '#ef4444');
-      legend.append('text').attr('x', 22).attr('y', 22).attr('fill', '#ef4444').attr('font-size', 11)
+      legend.append('circle').attr('cx', 8).attr('cy', 18).attr('r', 4).attr('fill', ED.series2);
+      legend.append('text').attr('x', 22).attr('y', 22).attr('fill', ED.series2).attr('font-size', 11)
         .text('Twin primes (gap=2)');
 
     } else if (mode === 'gap') {
@@ -117,25 +118,25 @@ export default function PrimeGapCouplingViz() {
 
       g.append('g').attr('transform', `translate(0,${h})`)
         .call(d3.axisBottom(x).ticks(Math.min(20, data.length)).tickFormat(i => data[i]?.p1 || ''))
-        .selectAll('text').attr('fill', '#64748b').attr('font-size', 8)
+        .selectAll('text').attr('fill', ED.inkFaint).attr('font-size', 8)
         .attr('transform', 'rotate(-45)').attr('text-anchor', 'end');
       g.append('g').call(d3.axisLeft(y).ticks(8))
-        .selectAll('text').attr('fill', '#64748b').attr('font-size', 10);
-      g.selectAll('.domain, .tick line').attr('stroke', '#2a3050');
+        .selectAll('text').attr('fill', ED.inkFaint).attr('font-size', 10);
+      g.selectAll('.domain, .tick line').attr('stroke', ED.rule);
 
       // Horizontal gridlines
       const gridG2 = g.append('g').call(d3.axisLeft(y).ticks(8).tickSize(-w).tickFormat(''));
       gridG2.select('.domain').remove();
-      gridG2.selectAll('.tick line').attr('stroke', '#1e293b').attr('stroke-dasharray', '4,4').attr('stroke-width', 0.8);
+      gridG2.selectAll('.tick line').attr('stroke', ED.ruleSoft).attr('stroke-dasharray', '4,4').attr('stroke-width', 0.8);
 
       // Gap bars — graduated color for gaps > 6
       const maxGap = d3.max(data, d => d.gap) || 2;
       const barW = Math.max(2, w / data.length - 1);
       data.forEach((d, i) => {
         const gapGradT = Math.min((d.gap - 8) / Math.max(maxGap - 8, 1), 1);
-        const color = d.gap === 2 ? '#ef4444' :
-                      d.gap === 4 ? '#f59e0b' :
-                      d.gap === 6 ? '#3b82f6' :
+        const color = d.gap === 2 ? ED.series2 :
+                      d.gap === 4 ? ED.brass :
+                      d.gap === 6 ? ED.series1 :
                       `hsl(${270 - gapGradT * 30}, 60%, ${55 - gapGradT * 15}%)`;
         g.append('rect')
           .attr('x', x(i) - barW / 2).attr('y', y(d.gap))
@@ -152,31 +153,31 @@ export default function PrimeGapCouplingViz() {
         .y(d => y(Math.log(d.p1)))
         .curve(d3.curveBasis);
       g.append('path').datum(data).attr('d', pntLine)
-        .attr('fill', 'none').attr('stroke', '#10b981').attr('stroke-width', 1.5)
+        .attr('fill', 'none').attr('stroke', ED.series3).attr('stroke-width', 1.5)
         .attr('stroke-dasharray', '6,3').attr('opacity', 0.8);
 
       svg.append('text').attr('x', margin.left + 4).attr('y', 16)
-        .attr('fill', '#e2e8f0').attr('font-size', 13).attr('font-weight', 600)
+        .attr('fill', ED.ink).attr('font-size', 13).attr('font-weight', 600)
         .text('Prime Gaps (pₙ₊₁ − pₙ)');
 
       // Y-axis label
       svg.append('text')
         .attr('transform', `translate(16, ${margin.top + h / 2}) rotate(-90)`)
-        .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12)
+        .attr('text-anchor', 'middle').attr('fill', ED.inkSoft).attr('font-size', 12)
         .text('Gap size');
 
       const legend = g.append('g').attr('transform', `translate(${w - 155}, 10)`);
       legend.append('rect')
         .attr('x', -8).attr('y', -12).attr('width', 150).attr('height', 5 * 18 + 6)
-        .attr('rx', 6).attr('fill', 'rgba(13,17,23,0.85)').attr('stroke', '#1e293b');
+        .attr('rx', 6).attr('fill', alpha(ED.paper, 0.85)).attr('stroke', ED.ruleSoft);
       [
-        { label: 'gap=2', color: '#ef4444' },
-        { label: 'gap=4', color: '#f59e0b' },
-        { label: 'gap=6', color: '#3b82f6' },
+        { label: 'gap=2', color: ED.series2 },
+        { label: 'gap=4', color: ED.brass },
+        { label: 'gap=6', color: ED.series1 },
       ].forEach(({ label, color }, i) => {
         legend.append('rect').attr('x', 0).attr('y', i * 18 - 6).attr('width', 12).attr('height', 12)
           .attr('rx', 2).attr('fill', color).attr('opacity', 0.7);
-        legend.append('text').attr('x', 18).attr('y', i * 18 + 4).attr('fill', '#94a3b8').attr('font-size', 10)
+        legend.append('text').attr('x', 18).attr('y', i * 18 + 4).attr('fill', ED.inkSoft).attr('font-size', 10)
           .text(label);
       });
       // Graduated swatch for gaps > 6
@@ -187,12 +188,12 @@ export default function PrimeGapCouplingViz() {
       grad.append('stop').attr('offset', '100%').attr('stop-color', 'hsl(240, 60%, 40%)');
       legend.append('rect').attr('x', 0).attr('y', 3 * 18 - 6).attr('width', 12).attr('height', 12)
         .attr('rx', 2).attr('fill', `url(#${gradId})`).attr('opacity', 0.7);
-      legend.append('text').attr('x', 18).attr('y', 3 * 18 + 4).attr('fill', '#94a3b8').attr('font-size', 10)
+      legend.append('text').attr('x', 18).attr('y', 3 * 18 + 4).attr('fill', ED.inkSoft).attr('font-size', 10)
         .text('gap≥8 (graded)');
       // PNT trend legend entry
       legend.append('line').attr('x1', 0).attr('y1', 4 * 18 - 2).attr('x2', 12).attr('y2', 4 * 18 - 2)
-        .attr('stroke', '#10b981').attr('stroke-width', 1.5).attr('stroke-dasharray', '6,3');
-      legend.append('text').attr('x', 18).attr('y', 4 * 18 + 2).attr('fill', '#10b981').attr('font-size', 10)
+        .attr('stroke', ED.series3).attr('stroke-width', 1.5).attr('stroke-dasharray', '6,3');
+      legend.append('text').attr('x', 18).attr('y', 4 * 18 + 2).attr('fill', ED.series3).attr('font-size', 10)
         .text('~log(p) (PNT)');
 
     } else {
@@ -202,16 +203,16 @@ export default function PrimeGapCouplingViz() {
 
       g.append('g').attr('transform', `translate(0,${h})`)
         .call(d3.axisBottom(x).ticks(Math.min(20, primes.length)).tickFormat(i => primes[i] || ''))
-        .selectAll('text').attr('fill', '#64748b').attr('font-size', 8)
+        .selectAll('text').attr('fill', ED.inkFaint).attr('font-size', 8)
         .attr('transform', 'rotate(-45)').attr('text-anchor', 'end');
       g.append('g').call(d3.axisLeft(y).ticks(8))
-        .selectAll('text').attr('fill', '#64748b').attr('font-size', 10);
-      g.selectAll('.domain, .tick line').attr('stroke', '#2a3050');
+        .selectAll('text').attr('fill', ED.inkFaint).attr('font-size', 10);
+      g.selectAll('.domain, .tick line').attr('stroke', ED.rule);
 
       // Horizontal gridlines
       const gridG3 = g.append('g').call(d3.axisLeft(y).ticks(8).tickSize(-w).tickFormat(''));
       gridG3.select('.domain').remove();
-      gridG3.selectAll('.tick line').attr('stroke', '#1e293b').attr('stroke-dasharray', '4,4').attr('stroke-width', 0.8);
+      gridG3.selectAll('.tick line').attr('stroke', ED.ruleSoft).attr('stroke-dasharray', '4,4').attr('stroke-width', 0.8);
 
       // Frequency points
       primes.forEach((p, i) => {
@@ -219,7 +220,7 @@ export default function PrimeGapCouplingViz() {
         g.append('circle')
           .attr('cx', x(i)).attr('cy', y(freq)).attr('r', 4)
           .attr('fill', `hsl(${210 + freq * 15}, 70%, 55%)`)
-          .attr('stroke', '#0a0e1a').attr('stroke-width', 1)
+          .attr('stroke', ED.paper).attr('stroke-width', 1)
           .style('cursor', 'crosshair')
           .append('title').text(`p=${p} | ω=log(${p})=${freq.toFixed(4)}`);
       });
@@ -227,7 +228,7 @@ export default function PrimeGapCouplingViz() {
       // Connect with line
       const line = d3.line().x((d, i) => x(i)).y(d => y(primeFrequency(d))).curve(d3.curveMonotoneX);
       g.append('path').datum(primes).attr('d', line)
-        .attr('fill', 'none').attr('stroke', '#3b82f6').attr('stroke-width', 1.5).attr('opacity', 0.6);
+        .attr('fill', 'none').attr('stroke', ED.series1).attr('stroke-width', 1.5).attr('opacity', 0.6);
 
       // PNT asymptotic reference: p_n ~ n log n, so log(p_n) ~ log(n) + log(log(n)).
       // Clamp n to >=3 so log(log(n)) is well-defined at the first couple of indices;
@@ -239,35 +240,35 @@ export default function PrimeGapCouplingViz() {
       });
       g.append('path').datum(refCurve)
         .attr('d', d3.line().x(d => x(d.i)).y(d => y(d.y)).curve(d3.curveBasis))
-        .attr('fill', 'none').attr('stroke', '#64748b').attr('stroke-dasharray', '4,4').attr('stroke-width', 1);
+        .attr('fill', 'none').attr('stroke', ED.rule).attr('stroke-dasharray', '4,4').attr('stroke-width', 1);
 
       svg.append('text').attr('x', margin.left + 4).attr('y', 16)
-        .attr('fill', '#e2e8f0').attr('font-size', 13).attr('font-weight', 600)
+        .attr('fill', ED.ink).attr('font-size', 13).attr('font-weight', 600)
         .text('Euler Factor Phase Rates log(p)  (LC resonance ω₀ = 1)');
 
       // Y-axis label
       svg.append('text')
         .attr('transform', `translate(16, ${margin.top + h / 2}) rotate(-90)`)
-        .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12)
+        .attr('text-anchor', 'middle').attr('fill', ED.inkSoft).attr('font-size', 12)
         .text('Phase rate log(p)');
 
       // Legend
       const legend = g.append('g').attr('transform', `translate(${w - 160}, 10)`);
       legend.append('rect')
         .attr('x', -8).attr('y', -10).attr('width', 152).attr('height', 42)
-        .attr('rx', 6).attr('fill', 'rgba(13,17,23,0.85)').attr('stroke', '#1e293b');
+        .attr('rx', 6).attr('fill', alpha(ED.paper, 0.85)).attr('stroke', ED.ruleSoft);
       legend.append('circle').attr('cx', 6).attr('cy', 0).attr('r', 4)
-        .attr('fill', 'hsl(225, 70%, 55%)').attr('stroke', '#0a0e1a').attr('stroke-width', 1);
-      legend.append('text').attr('x', 18).attr('y', 4).attr('fill', '#94a3b8').attr('font-size', 10)
+        .attr('fill', 'hsl(225, 70%, 55%)').attr('stroke', ED.paper).attr('stroke-width', 1);
+      legend.append('text').attr('x', 18).attr('y', 4).attr('fill', ED.inkSoft).attr('font-size', 10)
         .text('log(p) phase rate');
       legend.append('line').attr('x1', 0).attr('y1', 18).attr('x2', 12).attr('y2', 18)
-        .attr('stroke', '#64748b').attr('stroke-width', 1).attr('stroke-dasharray', '4,4');
-      legend.append('text').attr('x', 18).attr('y', 22).attr('fill', '#94a3b8').attr('font-size', 10)
+        .attr('stroke', ED.rule).attr('stroke-width', 1).attr('stroke-dasharray', '4,4');
+      legend.append('text').attr('x', 18).attr('y', 22).attr('fill', ED.inkSoft).attr('font-size', 10)
         .text('log(n log n) (PNT)');
     }
 
     svg.append('text').attr('x', width / 2).attr('y', height - 6)
-      .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12)
+      .attr('text-anchor', 'middle').attr('fill', ED.inkSoft).attr('font-size', 12)
       .text('Prime pₙ');
 
   }, [primes, data, mode]);
@@ -328,7 +329,7 @@ export default function PrimeGapCouplingViz() {
           <label>Number of primes</label>
           <input type="range" min="10" max="200" step="1" value={numPrimes}
             onChange={e => setNumPrimes(+e.target.value)} />
-          <span className="control-value">{numPrimes} <span style={{ color: '#64748b', fontSize: 11 }}>(up to p={primes[primes.length - 1]})</span></span>
+          <span className="control-value">{numPrimes} <span style={{ color: 'var(--ink-faint)', fontSize: 11 }}>(up to p={primes[primes.length - 1]})</span></span>
         </div>
       </div>
       <div className="viz-container">

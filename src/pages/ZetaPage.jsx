@@ -6,6 +6,7 @@ const Zeta3DLandscape = lazy(() => import('../components/Zeta3DLandscape.jsx'));
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 import { ZETA_ZEROS } from '../math/zeta.js';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
+import { ED, alpha } from '../styles/tokens.js';
 
 // Zeta Function Landscape — editorial (warm) re-theme.
 // Full-width dashboard chrome; the interactive viz components
@@ -37,11 +38,11 @@ const twoCol = { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, margi
 
 // warm accent tints for inset panels
 const TINT = {
-  brass: 'rgba(140,106,29,0.08)',
-  brassDk: 'rgba(181,138,46,0.10)',
-  blue: 'rgba(63,107,134,0.10)',
-  green: 'rgba(76,122,74,0.10)',
-  terra: 'rgba(194,58,28,0.09)',
+  brass: alpha(ED.brass, 0.08),
+  brassDk: alpha(ED.brassDeco, 0.1),
+  blue: alpha(ED.series1, 0.1),
+  green: alpha(ED.series3, 0.1),
+  terra: alpha(ED.series2, 0.09),
 };
 
 export default function ZetaPage() {

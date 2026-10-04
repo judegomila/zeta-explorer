@@ -14,6 +14,8 @@ import { SG1C_ASYM_ONSET_INDEPENDENT_INTEGRATOR } from '../data/sg1c-asym-onset-
 import { IMP33787_G7_PERRON_LOWER_BOUND } from '../data/imp-33787-g7-perron-lower-bound.js';
 import HonestCeilingBanner from '../components/HonestCeilingBanner.jsx';
 import AnimationEmbed from '../components/AnimationEmbed.jsx';
+import ConceptTerm from '../components/ConceptTerm.jsx';
+import { ED, alpha as TK_ALPHA } from '../styles/tokens.js';
 
 // Theorem constants from sg1c-theta-trap-theorems (Theorem A / Corollary A1 / Theorem B)
 const TRAP_A = 1 / 4;                      // unconditional trap: every pair with Theta<=1/4 stays trapped
@@ -61,12 +63,13 @@ function ThetaTrapSection() {
         Theta-Trap Explorer: A1 Collision-Time Bound
       </h3>
       <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.8, marginBottom: 12 }}>
-        For the first <strong style={{ color: 'var(--ink)' }}>N</strong> zeta zeros,
-        compute <InlineMath tex={"\\Theta(0) = g^2 E/2"} /> for every adjacent pair.{' '}
+        For the first <strong style={{ color: 'var(--ink)' }}>N</strong> <ConceptTerm slug="nontrivial-zeros">zeta zeros</ConceptTerm>,
+        compute the <ConceptTerm slug="theta-trap">Θ-trap</ConceptTerm> coupling <InlineMath tex={"\\Theta(0) = g^2 E/2"} /> for every adjacent pair.{' '}
         <strong style={{ color: 'var(--terra-dk)' }}>Theorem A</strong> (1/4-trap, unconditional): any pair with{' '}
         <InlineMath tex={"\\Theta \\leq 1/4"} /> stays trapped forever.{' '}
         <strong style={{ color: 'var(--blue)' }}>Corollary A1</strong>: the minimal pair then satisfies{' '}
-        <InlineMath tex={"t_c \\leq g_{\\min}^2/6"} />.
+        <InlineMath tex={"t_c \\leq g_{\\min}^2/6"} /> on the <ConceptTerm slug="zero-collision-time">collision time</ConceptTerm> under
+        the backward <ConceptTerm slug="heat-flow-ht">heat flow</ConceptTerm>.
       </p>
 
       <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 12 }}>
@@ -94,31 +97,31 @@ function ThetaTrapSection() {
         })}
         {/* Theorem A threshold line */}
         <line x1={padL} y1={yScale(TRAP_A)} x2={svgW - padR} y2={yScale(TRAP_A)}
-          stroke="#c23a1c" strokeWidth={1.5} strokeDasharray="4 2" />
-        <text x={svgW - padR - 2} y={yScale(TRAP_A) - 3} fill="#c23a1c" fontSize={9} textAnchor="end">
+          stroke={ED.accent} strokeWidth={1.5} strokeDasharray="4 2" />
+        <text x={svgW - padR - 2} y={yScale(TRAP_A) - 3} fill={ED.accent} fontSize={9} textAnchor="end">
           Thm A: 1/4
         </text>
         {/* Theorem B threshold line */}
         <line x1={padL} y1={yScale(TRAP_B)} x2={svgW - padR} y2={yScale(TRAP_B)}
-          stroke="#b58a2e" strokeWidth={1} strokeDasharray="3 2" />
-        <text x={svgW - padR - 2} y={yScale(TRAP_B) - 3} fill="#b58a2e" fontSize={9} textAnchor="end">
+          stroke={ED.brassDeco} strokeWidth={1} strokeDasharray="3 2" />
+        <text x={svgW - padR - 2} y={yScale(TRAP_B) - 3} fill={ED.brass} fontSize={9} textAnchor="end">
           Thm B: {TRAP_B.toFixed(3)}
         </text>
         {/* y-axis labels */}
         {[0, 0.1, 0.2, 0.3, 0.4, 0.5].map((v) => (
           <g key={v}>
-            <text x={padL - 3} y={yScale(v) + 3} fill="#877b67" fontSize={8} textAnchor="end">
+            <text x={padL - 3} y={yScale(v) + 3} fill={ED.inkFaint} fontSize={8} textAnchor="end">
               {v.toFixed(1)}
             </text>
-            <line x1={padL - 2} y1={yScale(v)} x2={padL} y2={yScale(v)} stroke="#d5c9b2" />
+            <line x1={padL - 2} y1={yScale(v)} x2={padL} y2={yScale(v)} stroke={ED.rule} />
           </g>
         ))}
-        <text x={10} y={padT + chartH / 2} fill="#4a4238" fontSize={10} textAnchor="middle"
+        <text x={10} y={padT + chartH / 2} fill={ED.inkSoft} fontSize={10} textAnchor="middle"
           transform={`rotate(-90, 10, ${padT + chartH / 2})`}>
           {'Θ(0)'}
         </text>
-        <line x1={padL} y1={padT + chartH} x2={svgW - padR} y2={padT + chartH} stroke="#d5c9b2" />
-        <text x={padL + chartW / 2} y={svgH - 4} fill="#4a4238" fontSize={10} textAnchor="middle">
+        <line x1={padL} y1={padT + chartH} x2={svgW - padR} y2={padT + chartH} stroke={ED.rule} />
+        <text x={padL + chartW / 2} y={svgH - 4} fill={ED.inkSoft} fontSize={10} textAnchor="middle">
           pair index k
         </text>
       </svg>
@@ -200,7 +203,7 @@ function A1RealZeroTable() {
                 <td style={{ padding: '8px 10px', color: 'var(--brass-dk)', fontFamily: 'monospace' }}>{tcBound.toFixed(4)}</td>
                 <td style={{ padding: '8px 10px' }}>
                   <span style={{
-                    background: 'rgba(76,122,74,0.15)',
+                    background: 'color-mix(in srgb, var(--series-3) 15%, transparent)',
                     color: 'var(--green)',
                     padding: '2px 6px', borderRadius: 4, fontSize: 10, fontWeight: 700,
                   }}>
@@ -228,7 +231,7 @@ function ThetaLadderTable() {
       threshold: "Θ ≤ 1/4",
       name: "Theorem A",
       value: "0.2500",
-      color: "#4c7a4a",
+      color: ED.series3,
       status: "RIGOROUS",
       note: "Unconditional trap — every pair with Θ≤1/4 stays trapped forever; Corollary A1 gives t_c ≤ g_min²/6.",
     },
@@ -236,7 +239,7 @@ function ThetaLadderTable() {
       threshold: "Θ ≤ (√73−5)/8",
       name: "Theorem B (minimal-gap)",
       value: TRAP_B.toFixed(4),
-      color: "#b58a2e",
+      color: ED.brass,
       status: "RIGOROUS",
       note: "Sharp static-cover ceiling — capped-greedy profile flips dΘ/ds>0 exactly here; no static bound surpasses it.",
     },
@@ -244,7 +247,7 @@ function ThetaLadderTable() {
       threshold: "Θ ≤ ~0.5073",
       name: "Dressed excursion cap",
       value: EXCURSION_CAP_DRESSED.toFixed(4),
-      color: "#c23a1c",
+      color: ED.accent,
       status: "NUMERICAL",
       note: "Symmetric peak exactly 1/2 at R1-T tie; dressed near-uniform variant reaches ~0.5073. Band (0.443, 0.5073) REFUTED: no absolute static cap lives there.",
     },
@@ -252,7 +255,7 @@ function ThetaLadderTable() {
       threshold: "ρ ≤ √(2+√3)−1",
       name: "R2-T2 isolation onset c*",
       value: TRAP_CSTAR.toFixed(5),
-      color: "#8c6a1d",
+      color: ED.brass,
       status: "RIGOROUS",
       note: "ρ = g/d₁ is the isolation ratio (not Θ); self-isolation dρ/ds < 0 for ρ < c*. Basin cap 0.72 sits below c* with safety margin ≥0.207.",
     },
@@ -260,10 +263,10 @@ function ThetaLadderTable() {
 
   return (
     <div className="card" style={{ marginTop: 24, borderLeft: "3px solid var(--brass-dk)" }}>
-      <h3 style={{ color: "#b58a2e", fontSize: 16, marginBottom: 4 }}>
+      <h3 style={{ color: 'var(--brass)', fontSize: 16, marginBottom: 4 }}>
         Theta-Trap Threshold Ladder
       </h3>
-      <p style={{ color: "#877b67", fontSize: 12, marginBottom: 16 }}>
+      <p style={{ color: 'var(--ink-faint)', fontSize: 12, marginBottom: 16 }}>
         Four certified levels from the sg1c analysis, ascending order.
         The band (0.443, 0.5073) is REFUTED: no absolute static Theta* cover exists inside it.
         The c* row is the self-isolation ratio threshold (not a Theta value).
@@ -273,7 +276,7 @@ function ThetaLadderTable() {
           <thead>
             <tr style={{ borderBottom: "1px solid var(--hairline)" }}>
               {["Threshold", "Name", "Value", "Status", "Note"].map((h) => (
-                <th key={h} style={{ color: "#877b67", fontWeight: 600, padding: "6px 10px", textAlign: "left" }}>
+                <th key={h} style={{ color: 'var(--ink-faint)', fontWeight: 600, padding: "6px 10px", textAlign: "left" }}>
                   {h}
                 </th>
               ))}
@@ -288,19 +291,19 @@ function ThetaLadderTable() {
                 <td style={{ padding: "8px 10px", color: row.color, fontWeight: 600, whiteSpace: "nowrap" }}>
                   {row.name}
                 </td>
-                <td style={{ padding: "8px 10px", color: "#1c1814", fontFamily: "monospace" }}>
+                <td style={{ padding: "8px 10px", color: 'var(--ink)', fontFamily: "monospace" }}>
                   {row.value}
                 </td>
                 <td style={{ padding: "8px 10px", whiteSpace: "nowrap" }}>
                   <span style={{
-                    background: row.status === "RIGOROUS" ? "rgba(76,122,74,0.15)" : "rgba(181,138,46,0.15)",
-                    color: row.status === "RIGOROUS" ? "#4c7a4a" : "#b58a2e",
+                    background: row.status === "RIGOROUS" ? 'color-mix(in srgb, var(--series-3) 15%, transparent)' : 'color-mix(in srgb, var(--brass-deco) 15%, transparent)',
+                    color: row.status === "RIGOROUS" ? 'var(--series-3)' : 'var(--brass)',
                     padding: "2px 6px", borderRadius: 4, fontSize: 10, fontWeight: 700,
                   }}>
                     {row.status}
                   </span>
                 </td>
-                <td style={{ padding: "8px 10px", color: "#4a4238", lineHeight: 1.5 }}>
+                <td style={{ padding: "8px 10px", color: 'var(--ink-soft)', lineHeight: 1.5 }}>
                   {row.note}
                 </td>
               </tr>
@@ -317,21 +320,21 @@ function ThetaCoverageLadderSection() {
 
   return (
     <div className="card" style={{ marginTop: 24, borderLeft: "3px solid var(--terra-dk)" }}>
-      <h3 style={{ color: "#c23a1c", fontSize: 16, marginBottom: 4 }}>
+      <h3 style={{ color: 'var(--accent)', fontSize: 16, marginBottom: 4 }}>
         Theorem-C Static-Cover Ladder: Theta_max(c)
       </h3>
-      <p style={{ color: "#4a4238", fontSize: 13, marginBottom: 8, lineHeight: 1.7 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: 13, marginBottom: 8, lineHeight: 1.7 }}>
         The Theorem-C isolation-for-cover map trades isolation margin c&nbsp;=&nbsp;g/d&#x2081; for Theta coverage:
-        &nbsp;<code style={{ color: "#1c1814", fontSize: 12 }}>Theta_max(c) = 2 - 3c&#xb2;/(1+c) - c&#x2074;/(1+c)&#xb2;</code>.
+        &nbsp;<code style={{ color: 'var(--ink)', fontSize: 12 }}>Theta_max(c) = 2 - 3c&#xb2;/(1+c) - c&#x2074;/(1+c)&#xb2;</code>.
         When the isolation ratio satisfies g/d&#x2081;&nbsp;&le;&nbsp;c the pair is provably non-crossing for every
         Theta*&nbsp;&le;&nbsp;Theta_max(c). At c&nbsp;=&nbsp;0.72 the cover reaches Theta_max&nbsp;&asymp;&nbsp;1.005
         (full unit cover). At c&nbsp;=&nbsp;1 it degenerates to 1/4&nbsp;=&nbsp;Theorem&nbsp;A.
       </p>
-      <div style={{ background: "rgba(194,58,28,0.08)", border: "1px solid rgba(194,58,28,0.3)", borderRadius: 8, padding: "10px 14px", marginBottom: 14 }}>
-        <div style={{ color: "#c23a1c", fontWeight: 700, fontSize: 12, marginBottom: 4 }}>
+      <div style={{ background: 'color-mix(in srgb, var(--series-2) 8%, transparent)', border: "1px solid color-mix(in srgb, var(--accent) 30%, transparent)", borderRadius: 8, padding: "10px 14px", marginBottom: 14 }}>
+        <div style={{ color: 'var(--accent)', fontWeight: 700, fontSize: 12, marginBottom: 4 }}>
           REFUTED BAND ({refutedBand[0].toFixed(3)}, {refutedBand[1].toFixed(4)})
         </div>
-        <div style={{ color: "#4a4238", fontSize: 12 }}>
+        <div style={{ color: 'var(--ink-soft)', fontSize: 12 }}>
           Every Theta* inside this interval is crossed upward by some minimal-gap config:
           the symmetric family peaks at exactly 0.5 (R1-T tie) and the dressed variant reaches 0.5073.
           No absolute static Theta* cover exists in this band. The residual cap above Theta_b must be dynamical.
@@ -342,7 +345,7 @@ function ThetaCoverageLadderSection() {
           <thead>
             <tr style={{ borderBottom: "1px solid var(--hairline)" }}>
               {["c = g/d1", "Theta_max(c)", "Full cover (>=1)?", "In refuted band?", "Status"].map((h) => (
-                <th key={h} style={{ color: "#877b67", fontWeight: 600, padding: "6px 10px", textAlign: "left" }}>
+                <th key={h} style={{ color: 'var(--ink-faint)', fontWeight: 600, padding: "6px 10px", textAlign: "left" }}>
                   {h}
                 </th>
               ))}
@@ -353,12 +356,12 @@ function ThetaCoverageLadderSection() {
               const fullCover = thetaMax >= 1;
               const inBand = thetaMax >= refutedBand[0] && thetaMax <= refutedBand[1];
               const belowBand = !fullCover && !inBand;
-              const statusColor = fullCover ? "#4c7a4a" : inBand ? "#c23a1c" : "#b58a2e";
-              const statusBg = fullCover ? "rgba(76,122,74,0.15)" : inBand ? "rgba(194,58,28,0.15)" : "rgba(181,138,46,0.15)";
+              const statusColor = fullCover ? ED.series3 : inBand ? ED.series2 : ED.brassDeco;
+              const statusBg = fullCover ? TK_ALPHA(ED.series3, 0.15) : inBand ? TK_ALPHA(ED.series2, 0.15) : TK_ALPHA(ED.brassDeco, 0.15);
               const statusLabel = fullCover ? "FULL COVER" : inBand ? "IN REFUTED BAND" : "BELOW BAND";
               return (
-                <tr key={c} style={{ borderBottom: "1px solid var(--paper2)", background: inBand ? "rgba(194,58,28,0.05)" : undefined }}>
-                  <td style={{ padding: "8px 10px", color: "#1c1814", fontFamily: "monospace" }}>
+                <tr key={c} style={{ borderBottom: "1px solid var(--paper2)", background: inBand ? 'color-mix(in srgb, var(--series-2) 5%, transparent)' : undefined }}>
+                  <td style={{ padding: "8px 10px", color: 'var(--ink)', fontFamily: "monospace" }}>
                     {c.toFixed(2)}
                   </td>
                   <td style={{ padding: "8px 10px", color: statusColor, fontFamily: "monospace", fontWeight: fullCover ? 700 : 400 }}>
@@ -366,13 +369,13 @@ function ThetaCoverageLadderSection() {
                   </td>
                   <td style={{ padding: "8px 10px" }}>
                     {fullCover
-                      ? <span style={{ color: "#4c7a4a", fontWeight: 700 }}>YES (&ge;1)</span>
-                      : <span style={{ color: "#877b67" }}>no</span>}
+                      ? <span style={{ color: 'var(--series-3)', fontWeight: 700 }}>YES (&ge;1)</span>
+                      : <span style={{ color: 'var(--ink-faint)' }}>no</span>}
                   </td>
                   <td style={{ padding: "8px 10px" }}>
                     {inBand
-                      ? <span style={{ color: "#c23a1c", fontWeight: 700 }}>YES - REFUTED</span>
-                      : <span style={{ color: "#877b67" }}>no</span>}
+                      ? <span style={{ color: 'var(--accent)', fontWeight: 700 }}>YES - REFUTED</span>
+                      : <span style={{ color: 'var(--ink-faint)' }}>no</span>}
                   </td>
                   <td style={{ padding: "8px 10px" }}>
                     <span style={{ background: statusBg, color: statusColor, padding: "2px 6px", borderRadius: 4, fontSize: 10, fontWeight: 700 }}>
@@ -385,7 +388,7 @@ function ThetaCoverageLadderSection() {
           </tbody>
         </table>
       </div>
-      <p style={{ color: "#877b67", fontSize: 11, marginTop: 12 }}>
+      <p style={{ color: 'var(--ink-faint)', fontSize: 11, marginTop: 12 }}>
         The Theorem-C map is strictly decreasing on (0,1]. Inversion: cover drops to the lower band endpoint 0.443
         at c&nbsp;&asymp;&nbsp;{cAtLowerEndpoint.toFixed(3)}, and to the upper endpoint 0.5073 at
         c&nbsp;&asymp;&nbsp;{cAtUpperEndpoint.toFixed(3)}.
@@ -448,60 +451,60 @@ function ThetaTrapSignViz() {
       </p>
       <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
         {/* Zone fills */}
-        <rect x={padL} y={padT} width={x025 - padL} height={chartH} fill="rgba(76,122,74,0.12)" />
-        <rect x={x025} y={padT} width={xTB - x025} height={chartH} fill="rgba(181,138,46,0.10)" />
-        <rect x={xTB} y={padT} width={xEC - xTB} height={chartH} fill="rgba(194,58,28,0.14)" />
+        <rect x={padL} y={padT} width={x025 - padL} height={chartH} fill={TK_ALPHA(ED.series3, 0.12)} />
+        <rect x={x025} y={padT} width={xTB - x025} height={chartH} fill={TK_ALPHA(ED.brassDeco, 0.1)} />
+        <rect x={xTB} y={padT} width={xEC - xTB} height={chartH} fill={TK_ALPHA(ED.series2, 0.14)} />
         {/* Zero line */}
-        <line x1={padL} y1={yZero} x2={svgW - padR} y2={yZero} stroke="#d5c9b2" strokeWidth={1} />
+        <line x1={padL} y1={yZero} x2={svgW - padR} y2={yZero} stroke={ED.rule} strokeWidth={1} />
         {/* Theorem A bound curve */}
-        <path d={boundPath} stroke="#3f6b86" strokeWidth={2} fill="none" />
+        <path d={boundPath} stroke={ED.series1} strokeWidth={2} fill="none" />
         {/* Threshold verticals */}
-        <line x1={x025} y1={padT} x2={x025} y2={padT + chartH} stroke="#4c7a4a" strokeWidth={1.5} strokeDasharray="5 2" />
-        <line x1={xTB} y1={padT} x2={xTB} y2={padT + chartH} stroke="#b58a2e" strokeWidth={1.5} strokeDasharray="5 2" />
-        <line x1={xEC} y1={padT} x2={xEC} y2={padT + chartH} stroke="#c23a1c" strokeWidth={1} strokeDasharray="3 2" />
+        <line x1={x025} y1={padT} x2={x025} y2={padT + chartH} stroke={ED.series3} strokeWidth={1.5} strokeDasharray="5 2" />
+        <line x1={xTB} y1={padT} x2={xTB} y2={padT + chartH} stroke={ED.brassDeco} strokeWidth={1.5} strokeDasharray="5 2" />
+        <line x1={xEC} y1={padT} x2={xEC} y2={padT + chartH} stroke={ED.accent} strokeWidth={1} strokeDasharray="3 2" />
         {/* Threshold labels at top */}
-        <text x={x025} y={padT - 3} fill="#4c7a4a" fontSize={8} textAnchor="middle">1/4</text>
-        <text x={xTB} y={padT - 3} fill="#b58a2e" fontSize={8} textAnchor="middle">0.443</text>
-        <text x={xEC} y={padT - 3} fill="#c23a1c" fontSize={8} textAnchor="middle">0.5073</text>
+        <text x={x025} y={padT - 3} fill={ED.series3} fontSize={8} textAnchor="middle">1/4</text>
+        <text x={xTB} y={padT - 3} fill={ED.brass} fontSize={8} textAnchor="middle">0.443</text>
+        <text x={xEC} y={padT - 3} fill={ED.accent} fontSize={8} textAnchor="middle">0.5073</text>
         {/* Refuting data point */}
-        <circle cx={xRefuted} cy={yRefuted} r={5} fill="#d9502e" stroke="#fdfaf3" strokeWidth={1.5} />
-        <line x1={xRefuted} y1={yRefuted} x2={xRefuted + 46} y2={yRefuted - 22} stroke="#d9502e" strokeWidth={1} strokeDasharray="3 1" />
-        <text x={xRefuted + 48} y={yRefuted - 26} fill="#d9502e" fontSize={8} fontWeight="bold">d=1.05</text>
-        <text x={xRefuted + 48} y={yRefuted - 14} fill="#d9502e" fontSize={8}>+0.138</text>
+        <circle cx={xRefuted} cy={yRefuted} r={5} fill={ED.accentDeco} stroke={ED.paper} strokeWidth={1.5} />
+        <line x1={xRefuted} y1={yRefuted} x2={xRefuted + 46} y2={yRefuted - 22} stroke={ED.accentDeco} strokeWidth={1} strokeDasharray="3 1" />
+        <text x={xRefuted + 48} y={yRefuted - 26} fill={ED.accentDeco} fontSize={8} fontWeight="bold">d=1.05</text>
+        <text x={xRefuted + 48} y={yRefuted - 14} fill={ED.accentDeco} fontSize={8}>+0.138</text>
         {/* Zone labels below axis */}
-        <text x={(padL + x025) / 2} y={padT + chartH + 14} fill="#4c7a4a" fontSize={8} textAnchor="middle" fontWeight="bold">TRAP</text>
-        <text x={(padL + x025) / 2} y={padT + chartH + 23} fill="#4c7a4a" fontSize={7} textAnchor="middle">unconditional</text>
-        <text x={(x025 + xTB) / 2} y={padT + chartH + 14} fill="#b58a2e" fontSize={8} textAnchor="middle" fontWeight="bold">TRAP</text>
-        <text x={(x025 + xTB) / 2} y={padT + chartH + 23} fill="#b58a2e" fontSize={7} textAnchor="middle">min-gap</text>
-        <text x={(xTB + xEC) / 2} y={padT + chartH + 14} fill="#c23a1c" fontSize={8} textAnchor="middle" fontWeight="bold">REFUTED</text>
-        <text x={(xEC + svgW - padR) / 2} y={padT + chartH + 14} fill="#877b67" fontSize={8} textAnchor="middle">open</text>
+        <text x={(padL + x025) / 2} y={padT + chartH + 14} fill={ED.series3} fontSize={8} textAnchor="middle" fontWeight="bold">TRAP</text>
+        <text x={(padL + x025) / 2} y={padT + chartH + 23} fill={ED.series3} fontSize={7} textAnchor="middle">unconditional</text>
+        <text x={(x025 + xTB) / 2} y={padT + chartH + 14} fill={ED.brass} fontSize={8} textAnchor="middle" fontWeight="bold">TRAP</text>
+        <text x={(x025 + xTB) / 2} y={padT + chartH + 23} fill={ED.brass} fontSize={7} textAnchor="middle">min-gap</text>
+        <text x={(xTB + xEC) / 2} y={padT + chartH + 14} fill={ED.accent} fontSize={8} textAnchor="middle" fontWeight="bold">REFUTED</text>
+        <text x={(xEC + svgW - padR) / 2} y={padT + chartH + 14} fill={ED.inkFaint} fontSize={8} textAnchor="middle">open</text>
         {/* Y-axis ticks */}
         {yTicks.map((v) => (
           <g key={v}>
-            <line x1={padL - 4} y1={yS(v)} x2={padL} y2={yS(v)} stroke="#d5c9b2" strokeWidth={1} />
-            <text x={padL - 6} y={yS(v) + 3} fill="#877b67" fontSize={8} textAnchor="end">{v}</text>
+            <line x1={padL - 4} y1={yS(v)} x2={padL} y2={yS(v)} stroke={ED.rule} strokeWidth={1} />
+            <text x={padL - 6} y={yS(v) + 3} fill={ED.inkFaint} fontSize={8} textAnchor="end">{v}</text>
           </g>
         ))}
         {/* X-axis ticks */}
         {xTicks.map((v) => (
           <g key={v}>
-            <line x1={xS(v)} y1={padT + chartH} x2={xS(v)} y2={padT + chartH + 3} stroke="#d5c9b2" strokeWidth={1} />
-            <text x={xS(v)} y={padT + chartH + 12} fill="#877b67" fontSize={8} textAnchor="middle">{v.toFixed(1)}</text>
+            <line x1={xS(v)} y1={padT + chartH} x2={xS(v)} y2={padT + chartH + 3} stroke={ED.rule} strokeWidth={1} />
+            <text x={xS(v)} y={padT + chartH + 12} fill={ED.inkFaint} fontSize={8} textAnchor="middle">{v.toFixed(1)}</text>
           </g>
         ))}
         {/* Axis labels */}
-        <text x={padL + chartW / 2} y={padT + chartH + 36} fill="#877b67" fontSize={9} textAnchor="middle">
+        <text x={padL + chartW / 2} y={padT + chartH + 36} fill={ED.inkFaint} fontSize={9} textAnchor="middle">
           &Theta;
         </text>
-        <text x={11} y={padT + chartH / 2} fill="#877b67" fontSize={9} textAnchor="middle"
+        <text x={11} y={padT + chartH / 2} fill={ED.inkFaint} fontSize={9} textAnchor="middle"
           transform={`rotate(-90, 11, ${padT + chartH / 2})`}>
           d&Theta;/ds&thinsp;&middot;&thinsp;g&#xb2;
         </text>
         {/* Legend */}
-        <line x1={padL} y1={padT + chartH - 8} x2={padL + 16} y2={padT + chartH - 8} stroke="#3f6b86" strokeWidth={2} />
-        <text x={padL + 19} y={padT + chartH - 4} fill="#3f6b86" fontSize={8}>Thm&nbsp;A bound</text>
-        <circle cx={padL + 92} cy={padT + chartH - 8} r={3} fill="#d9502e" />
-        <text x={padL + 97} y={padT + chartH - 4} fill="#d9502e" fontSize={8}>refuting config</text>
+        <line x1={padL} y1={padT + chartH - 8} x2={padL + 16} y2={padT + chartH - 8} stroke={ED.series1} strokeWidth={2} />
+        <text x={padL + 19} y={padT + chartH - 4} fill={ED.series1} fontSize={8}>Thm&nbsp;A bound</text>
+        <circle cx={padL + 92} cy={padT + chartH - 8} r={3} fill={ED.accentDeco} />
+        <text x={padL + 97} y={padT + chartH - 4} fill={ED.accentDeco} fontSize={8}>refuting config</text>
       </svg>
     </div>
   );
@@ -566,33 +569,33 @@ function ThetaRhoPhaseDiagram() {
       <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
         {/* Shaded trap zones */}
         <rect x={padL} y={y25} width={chartW} height={padT + chartH - y25}
-          fill="rgba(76,122,74,0.12)" />
+          fill={TK_ALPHA(ED.series3, 0.12)} />
         <rect x={padL} y={y443} width={chartW} height={y25 - y443}
-          fill="rgba(181,138,46,0.10)" />
+          fill={TK_ALPHA(ED.brassDeco, 0.1)} />
         <rect x={padL} y={padT} width={chartW} height={y443 - padT}
-          fill="rgba(194,58,28,0.07)" />
+          fill={TK_ALPHA(ED.series2, 0.07)} />
 
         {/* Horizontal threshold lines */}
         <line x1={padL} y1={y25} x2={svgW - padR} y2={y25}
-          stroke="#4c7a4a" strokeWidth={1.5} strokeDasharray="5 2" />
-        <text x={svgW - padR - 2} y={y25 - 4} fill="#4c7a4a" fontSize={9} textAnchor="end">
+          stroke={ED.series3} strokeWidth={1.5} strokeDasharray="5 2" />
+        <text x={svgW - padR - 2} y={y25 - 4} fill={ED.series3} fontSize={9} textAnchor="end">
           Thm A: 1/4
         </text>
         <line x1={padL} y1={y443} x2={svgW - padR} y2={y443}
-          stroke="#b58a2e" strokeWidth={1.5} strokeDasharray="4 2" />
-        <text x={svgW - padR - 2} y={y443 - 4} fill="#b58a2e" fontSize={9} textAnchor="end">
+          stroke={ED.brassDeco} strokeWidth={1.5} strokeDasharray="4 2" />
+        <text x={svgW - padR - 2} y={y443 - 4} fill={ED.brass} fontSize={9} textAnchor="end">
           Thm B: 0.443
         </text>
 
         {/* Vertical threshold lines */}
         <line x1={xBasin} y1={padT} x2={xBasin} y2={padT + chartH}
-          stroke="#3f6b86" strokeWidth={1.5} strokeDasharray="6 3" />
-        <text x={xBasin + 3} y={padT + 10} fill="#3f6b86" fontSize={9}>
+          stroke={ED.series1} strokeWidth={1.5} strokeDasharray="6 3" />
+        <text x={xBasin + 3} y={padT + 10} fill={ED.series1} fontSize={9}>
           &#x3c1;=0.72
         </text>
         <line x1={xCstar} y1={padT} x2={xCstar} y2={padT + chartH}
-          stroke="#8c6a1d" strokeWidth={1} strokeDasharray="3 2" />
-        <text x={xCstar - 3} y={padT + 20} fill="#8c6a1d" fontSize={9} textAnchor="end">
+          stroke={ED.brass} strokeWidth={1} strokeDasharray="3 2" />
+        <text x={xCstar - 3} y={padT + 20} fill={ED.brass} fontSize={9} textAnchor="end">
           c*
         </text>
 
@@ -609,20 +612,20 @@ function ThetaRhoPhaseDiagram() {
 
         {/* Axes */}
         <line x1={padL} y1={padT + chartH} x2={svgW - padR} y2={padT + chartH}
-          stroke="#d5c9b2" strokeWidth={1} />
+          stroke={ED.rule} strokeWidth={1} />
         <line x1={padL} y1={padT} x2={padL} y2={padT + chartH}
-          stroke="#d5c9b2" strokeWidth={1} />
+          stroke={ED.rule} strokeWidth={1} />
 
         {/* Y-axis ticks */}
         {[0, 0.1, 0.2, 0.3, 0.4, 0.5].map((v) => (
           <g key={v}>
-            <text x={padL - 4} y={yS(v) + 3} fill="#877b67" fontSize={8} textAnchor="end">
+            <text x={padL - 4} y={yS(v) + 3} fill={ED.inkFaint} fontSize={8} textAnchor="end">
               {v.toFixed(1)}
             </text>
-            <line x1={padL - 3} y1={yS(v)} x2={padL} y2={yS(v)} stroke="#d5c9b2" />
+            <line x1={padL - 3} y1={yS(v)} x2={padL} y2={yS(v)} stroke={ED.rule} />
           </g>
         ))}
-        <text x={12} y={padT + chartH / 2} fill="#4a4238" fontSize={10} textAnchor="middle"
+        <text x={12} y={padT + chartH / 2} fill={ED.inkSoft} fontSize={10} textAnchor="middle"
           transform={`rotate(-90, 12, ${padT + chartH / 2})`}>
           {'Θ'}
         </text>
@@ -630,13 +633,13 @@ function ThetaRhoPhaseDiagram() {
         {/* X-axis ticks */}
         {[0, 0.25, 0.5, 0.72, 1.0].map((v) => (
           <g key={v}>
-            <text x={xS(v)} y={padT + chartH + 14} fill="#877b67" fontSize={8} textAnchor="middle">
+            <text x={xS(v)} y={padT + chartH + 14} fill={ED.inkFaint} fontSize={8} textAnchor="middle">
               {v.toFixed(2)}
             </text>
-            <line x1={xS(v)} y1={padT + chartH} x2={xS(v)} y2={padT + chartH + 4} stroke="#d5c9b2" />
+            <line x1={xS(v)} y1={padT + chartH} x2={xS(v)} y2={padT + chartH + 4} stroke={ED.rule} />
           </g>
         ))}
-        <text x={padL + chartW / 2} y={svgH - 3} fill="#4a4238" fontSize={10} textAnchor="middle">
+        <text x={padL + chartW / 2} y={svgH - 3} fill={ED.inkSoft} fontSize={10} textAnchor="middle">
           {'ρ = g / d₁  (isolation ratio)'}
         </text>
       </svg>
@@ -721,70 +724,70 @@ function DrhoSelfIsolationPlot() {
       <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
         {/* Shaded self-isolating region rho < 1 */}
         <rect x={padL} y={padT} width={xOne - padL} height={chartH}
-          fill="rgba(76,122,74,0.07)" />
+          fill={TK_ALPHA(ED.series3, 0.07)} />
         {/* Zero line */}
         <line x1={padL} y1={yZero} x2={svgW - padR} y2={yZero}
-          stroke="#d5c9b2" strokeWidth={1} />
+          stroke={ED.rule} strokeWidth={1} />
 
         {/* Rate curves */}
-        <path d={singlePath} stroke="#3f6b86" strokeWidth={2} fill="none" />
-        <path d={symmPath} stroke="#8c6a1d" strokeWidth={1.5} fill="none" strokeDasharray="5 3" />
+        <path d={singlePath} stroke={ED.series1} strokeWidth={2} fill="none" />
+        <path d={symmPath} stroke={ED.brass} strokeWidth={1.5} fill="none" strokeDasharray="5 3" />
 
         {/* rho=1 repeller */}
         <line x1={xOne} y1={padT} x2={xOne} y2={padT + chartH}
-          stroke="#c23a1c" strokeWidth={1.5} strokeDasharray="5 2" />
-        <text x={xOne + 3} y={padT + 11} fill="#c23a1c" fontSize={9}>
+          stroke={ED.accent} strokeWidth={1.5} strokeDasharray="5 2" />
+        <text x={xOne + 3} y={padT + 11} fill={ED.accent} fontSize={9}>
           &rho;=1 repeller
         </text>
 
         {/* Basin cap */}
         <line x1={xBasin} y1={padT} x2={xBasin} y2={padT + chartH}
-          stroke="#4c7a4a" strokeWidth={1} strokeDasharray="4 2" />
-        <text x={xBasin + 3} y={padT + chartH - 4} fill="#4c7a4a" fontSize={9}>
+          stroke={ED.series3} strokeWidth={1} strokeDasharray="4 2" />
+        <text x={xBasin + 3} y={padT + chartH - 4} fill={ED.series3} fontSize={9}>
           0.72 basin
         </text>
 
         {/* c* onset */}
         <line x1={xCstar} y1={padT} x2={xCstar} y2={padT + chartH}
-          stroke="#8c6a1d" strokeWidth={1} strokeDasharray="3 2" />
-        <text x={xCstar - 3} y={padT + 22} fill="#8c6a1d" fontSize={9} textAnchor="end">
+          stroke={ED.brass} strokeWidth={1} strokeDasharray="3 2" />
+        <text x={xCstar - 3} y={padT + 22} fill={ED.brass} fontSize={9} textAnchor="end">
           c*
         </text>
 
         {/* Asymmetric multi-body bracket infimum ~0.927 */}
         <line x1={xAsym} y1={padT} x2={xAsym} y2={padT + chartH}
-          stroke="#b58a2e" strokeWidth={1} strokeDasharray="2 2" />
-        <text x={xAsym - 3} y={padT + 33} fill="#b58a2e" fontSize={8} textAnchor="end">
+          stroke={ED.brassDeco} strokeWidth={1} strokeDasharray="2 2" />
+        <text x={xAsym - 3} y={padT + 33} fill={ED.brass} fontSize={8} textAnchor="end">
           ~0.927
         </text>
 
         {/* "drho/ds < 0" label in shaded zone */}
-        <text x={padL + (xOne - padL) * 0.38} y={yS(-9)} fill="#4c7a4a" fontSize={10} textAnchor="middle">
+        <text x={padL + (xOne - padL) * 0.38} y={yS(-9)} fill={ED.series3} fontSize={10} textAnchor="middle">
           d&rho;/ds &lt; 0
         </text>
-        <text x={padL + (xOne - padL) * 0.38} y={yS(-9) + 13} fill="#4a4238" fontSize={9} textAnchor="middle">
+        <text x={padL + (xOne - padL) * 0.38} y={yS(-9) + 13} fill={ED.inkSoft} fontSize={9} textAnchor="middle">
           (self-isolating)
         </text>
 
         {/* "drho/ds > 0" label in right zone */}
-        <text x={xOne + (svgW - padR - xOne) * 0.45} y={yS(5)} fill="#c23a1c" fontSize={10} textAnchor="middle">
+        <text x={xOne + (svgW - padR - xOne) * 0.45} y={yS(5)} fill={ED.accent} fontSize={10} textAnchor="middle">
           d&rho;/ds &gt; 0
         </text>
 
         {/* Axes */}
         <line x1={padL} y1={padT + chartH} x2={svgW - padR} y2={padT + chartH}
-          stroke="#d5c9b2" strokeWidth={1} />
+          stroke={ED.rule} strokeWidth={1} />
         <line x1={padL} y1={padT} x2={padL} y2={padT + chartH}
-          stroke="#d5c9b2" strokeWidth={1} />
+          stroke={ED.rule} strokeWidth={1} />
 
         {/* Y-axis ticks */}
         {yTicks.map((v) => (
           <g key={v}>
-            <text x={padL - 4} y={yS(v) + 3} fill="#877b67" fontSize={8} textAnchor="end">{v}</text>
-            <line x1={padL - 3} y1={yS(v)} x2={padL} y2={yS(v)} stroke="#d5c9b2" />
+            <text x={padL - 4} y={yS(v) + 3} fill={ED.inkFaint} fontSize={8} textAnchor="end">{v}</text>
+            <line x1={padL - 3} y1={yS(v)} x2={padL} y2={yS(v)} stroke={ED.rule} />
           </g>
         ))}
-        <text x={14} y={padT + chartH / 2} fill="#4a4238" fontSize={9} textAnchor="middle"
+        <text x={14} y={padT + chartH / 2} fill={ED.inkSoft} fontSize={9} textAnchor="middle"
           transform={`rotate(-90, 14, ${padT + chartH / 2})`}>
           d&rho;/ds
         </text>
@@ -792,13 +795,13 @@ function DrhoSelfIsolationPlot() {
         {/* X-axis ticks */}
         {rhoTicks.map((v) => (
           <g key={v}>
-            <text x={xS(v)} y={padT + chartH + 14} fill="#877b67" fontSize={8} textAnchor="middle">
+            <text x={xS(v)} y={padT + chartH + 14} fill={ED.inkFaint} fontSize={8} textAnchor="middle">
               {v.toFixed(2)}
             </text>
-            <line x1={xS(v)} y1={padT + chartH} x2={xS(v)} y2={padT + chartH + 4} stroke="#d5c9b2" />
+            <line x1={xS(v)} y1={padT + chartH} x2={xS(v)} y2={padT + chartH + 4} stroke={ED.rule} />
           </g>
         ))}
-        <text x={padL + chartW / 2} y={svgH - 3} fill="#4a4238" fontSize={10} textAnchor="middle">
+        <text x={padL + chartW / 2} y={svgH - 3} fill={ED.inkSoft} fontSize={10} textAnchor="middle">
           {'ρ = g / d₁  (isolation ratio)'}
         </text>
       </svg>
@@ -862,70 +865,70 @@ function ThetaRhoPhaseFunctionPlot() {
 
   return (
     <div className="card" style={{ marginTop: 24, borderLeft: "3px solid var(--green)" }}>
-      <h3 style={{ color: "#4c7a4a", fontSize: 16, marginBottom: 8 }}>
+      <h3 style={{ color: 'var(--series-3)', fontSize: 16, marginBottom: 8 }}>
         &Theta;(&rho;) = (2&rho;/(&rho;+2))&#xb2; Phase Function (imp-3076)
       </h3>
-      <p style={{ color: "#4a4238", fontSize: 13, lineHeight: 1.8, marginBottom: 12 }}>
-        The <strong style={{ color: "#4c7a4a" }}>analytic Theta-function</strong> for a basin pair
+      <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.8, marginBottom: 12 }}>
+        The <strong style={{ color: 'var(--series-3)' }}>analytic Theta-function</strong> for a basin pair
         under Theorem-C: &Theta;&nbsp;=&nbsp;(2&rho;/(&rho;+2))&#xb2;.
-        The <strong style={{ color: "#c23a1c" }}>1/4-trap crossing</strong> occurs exactly at
+        The <strong style={{ color: 'var(--accent)' }}>1/4-trap crossing</strong> occurs exactly at
         &rho;*&nbsp;=&nbsp;2/3 — on-basin pairs (&rho;&nbsp;&lt;&nbsp;2/3) satisfy Theorem&nbsp;A
-        unconditionally. The <strong style={{ color: "#3f6b86" }}>0.72 Theorem-C cap</strong> sits
+        unconditionally. The <strong style={{ color: 'var(--series-1)' }}>0.72 Theorem-C cap</strong> sits
         above the crossing with &Theta;(0.72)&nbsp;&asymp;&nbsp;0.291 (still below the Theorem-B
         threshold 0.443). Distinct from the d&rho;/ds self-isolation plot (imp-3053).
       </p>
       <svg width={svgW} height={svgH} style={{ display: "block", maxWidth: "100%" }}>
         {/* Shaded trap zone rho < rho* */}
         <rect x={padL} y={padT} width={Math.max(0, xStar - padL)} height={chartH}
-          fill="rgba(76,122,74,0.10)" />
+          fill={TK_ALPHA(ED.series3, 0.1)} />
 
         {/* Analytic curve */}
-        <path d={curvePath} stroke="#4c7a4a" strokeWidth={2.5} fill="none" />
+        <path d={curvePath} stroke={ED.series3} strokeWidth={2.5} fill="none" />
 
         {/* Theta=1/4 horizontal trap line */}
         <line x1={padL} y1={yTrap} x2={svgW - padR} y2={yTrap}
-          stroke="#c23a1c" strokeWidth={1.5} strokeDasharray="5 2" />
-        <text x={svgW - padR - 2} y={yTrap - 4} fill="#c23a1c" fontSize={9} textAnchor="end">
+          stroke={ED.accent} strokeWidth={1.5} strokeDasharray="5 2" />
+        <text x={svgW - padR - 2} y={yTrap - 4} fill={ED.accent} fontSize={9} textAnchor="end">
           Thm A: &Theta;=1/4
         </text>
 
         {/* rho* crossing vertical */}
         <line x1={xStar} y1={padT} x2={xStar} y2={padT + chartH}
-          stroke="#c23a1c" strokeWidth={1.5} strokeDasharray="4 2" />
-        <text x={xStar + 3} y={padT + 12} fill="#c23a1c" fontSize={9}>
+          stroke={ED.accent} strokeWidth={1.5} strokeDasharray="4 2" />
+        <text x={xStar + 3} y={padT + 12} fill={ED.accent} fontSize={9}>
           &rho;*=2/3
         </text>
         {/* crossing dot */}
-        <circle cx={xStar} cy={yTrap} r={5} fill="#c23a1c" />
-        <text x={xStar + 7} y={yTrap + 4} fill="#c23a1c" fontSize={9}>
+        <circle cx={xStar} cy={yTrap} r={5} fill={ED.series2} />
+        <text x={xStar + 7} y={yTrap + 4} fill={ED.accent} fontSize={9}>
           crossing
         </text>
 
         {/* 0.72 Theorem-C basin cap vertical */}
         <line x1={xBasin} y1={padT} x2={xBasin} y2={padT + chartH}
-          stroke="#3f6b86" strokeWidth={1.5} strokeDasharray="6 3" />
-        <text x={xBasin + 3} y={padT + 23} fill="#3f6b86" fontSize={9}>
+          stroke={ED.series1} strokeWidth={1.5} strokeDasharray="6 3" />
+        <text x={xBasin + 3} y={padT + 23} fill={ED.series1} fontSize={9}>
           0.72 cap
         </text>
         {/* basin cap dot on curve */}
-        <circle cx={xBasin} cy={yBasinTheta} r={4} fill="#3f6b86" />
+        <circle cx={xBasin} cy={yBasinTheta} r={4} fill={ED.series1} />
 
         {/* Axes */}
         <line x1={padL} y1={padT + chartH} x2={svgW - padR} y2={padT + chartH}
-          stroke="#d5c9b2" strokeWidth={1} />
+          stroke={ED.rule} strokeWidth={1} />
         <line x1={padL} y1={padT} x2={padL} y2={padT + chartH}
-          stroke="#d5c9b2" strokeWidth={1} />
+          stroke={ED.rule} strokeWidth={1} />
 
         {/* Y-axis ticks */}
         {[0, 0.1, 0.2, 0.25, 0.3, 0.4, 0.5, 0.6, 0.7].map((v) => (
           <g key={v}>
-            <text x={padL - 4} y={yS(v) + 3} fill={v === 0.25 ? "#c23a1c" : "#877b67"} fontSize={8} textAnchor="end">
+            <text x={padL - 4} y={yS(v) + 3} fill={v === 0.25 ? ED.accent : ED.inkFaint} fontSize={8} textAnchor="end">
               {v === 0.25 ? "1/4" : v.toFixed(1)}
             </text>
-            <line x1={padL - 3} y1={yS(v)} x2={padL} y2={yS(v)} stroke="#d5c9b2" />
+            <line x1={padL - 3} y1={yS(v)} x2={padL} y2={yS(v)} stroke={ED.rule} />
           </g>
         ))}
-        <text x={14} y={padT + chartH / 2} fill="#4a4238" fontSize={9} textAnchor="middle"
+        <text x={14} y={padT + chartH / 2} fill={ED.inkSoft} fontSize={9} textAnchor="middle"
           transform={`rotate(-90, 14, ${padT + chartH / 2})`}>
           {"Θ(ρ)"}
         </text>
@@ -933,37 +936,37 @@ function ThetaRhoPhaseFunctionPlot() {
         {/* X-axis ticks */}
         {rhoTicks.map((v) => (
           <g key={v}>
-            <text x={xS(v)} y={padT + chartH + 14} fill={v === 2/3 ? "#c23a1c" : v === 0.72 ? "#3f6b86" : "#877b67"}
+            <text x={xS(v)} y={padT + chartH + 14} fill={v === 2/3 ? ED.accent : v === 0.72 ? ED.series1 : ED.inkFaint}
               fontSize={8} textAnchor="middle">
               {v === 2/3 ? "2/3" : v.toFixed(2)}
             </text>
-            <line x1={xS(v)} y1={padT + chartH} x2={xS(v)} y2={padT + chartH + 4} stroke="#d5c9b2" />
+            <line x1={xS(v)} y1={padT + chartH} x2={xS(v)} y2={padT + chartH + 4} stroke={ED.rule} />
           </g>
         ))}
-        <text x={padL + chartW / 2} y={svgH - 3} fill="#4a4238" fontSize={10} textAnchor="middle">
+        <text x={padL + chartW / 2} y={svgH - 3} fill={ED.inkSoft} fontSize={10} textAnchor="middle">
           {"ρ = g / d₁  (isolation ratio)"}
         </text>
       </svg>
 
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(170px, 1fr))", gap: 8, marginTop: 12 }}>
-        <div style={{ padding: "8px 12px", background: "#fdfaf3", borderRadius: 6, borderTop: "2px solid var(--terra-dk)" }}>
-          <div style={{ color: "#c23a1c", fontSize: 11, fontWeight: 700 }}>1/4-trap crossing &rho;*</div>
-          <div style={{ color: "#1c1814", fontSize: 12 }}>&rho;* = 2/3 &asymp; 0.667</div>
-          <div style={{ color: "#877b67", fontSize: 10 }}>&Theta;(2/3) = 1/4 exactly</div>
+        <div style={{ padding: "8px 12px", background: 'var(--paper)', borderRadius: 6, borderTop: "2px solid var(--terra-dk)" }}>
+          <div style={{ color: 'var(--accent)', fontSize: 11, fontWeight: 700 }}>1/4-trap crossing &rho;*</div>
+          <div style={{ color: 'var(--ink)', fontSize: 12 }}>&rho;* = 2/3 &asymp; 0.667</div>
+          <div style={{ color: 'var(--ink-faint)', fontSize: 10 }}>&Theta;(2/3) = 1/4 exactly</div>
         </div>
-        <div style={{ padding: "8px 12px", background: "#fdfaf3", borderRadius: 6, borderTop: "2px solid var(--blue)" }}>
-          <div style={{ color: "#3f6b86", fontSize: 11, fontWeight: 700 }}>Theorem-C basin cap</div>
-          <div style={{ color: "#1c1814", fontSize: 12 }}>&rho; = 0.72</div>
-          <div style={{ color: "#877b67", fontSize: 10 }}>&Theta;(0.72) &asymp; {thetaFn(0.72).toFixed(4)}</div>
+        <div style={{ padding: "8px 12px", background: 'var(--paper)', borderRadius: 6, borderTop: "2px solid var(--blue)" }}>
+          <div style={{ color: 'var(--series-1)', fontSize: 11, fontWeight: 700 }}>Theorem-C basin cap</div>
+          <div style={{ color: 'var(--ink)', fontSize: 12 }}>&rho; = 0.72</div>
+          <div style={{ color: 'var(--ink-faint)', fontSize: 10 }}>&Theta;(0.72) &asymp; {thetaFn(0.72).toFixed(4)}</div>
         </div>
-        <div style={{ padding: "8px 12px", background: "#fdfaf3", borderRadius: 6, borderTop: "2px solid var(--green)" }}>
-          <div style={{ color: "#4c7a4a", fontSize: 11, fontWeight: 700 }}>On-basin Thm A zone</div>
-          <div style={{ color: "#1c1814", fontSize: 12 }}>&rho; &lt; 2/3 (shaded)</div>
-          <div style={{ color: "#877b67", fontSize: 10 }}>&Theta; &lt; 1/4, trap unconditional</div>
+        <div style={{ padding: "8px 12px", background: 'var(--paper)', borderRadius: 6, borderTop: "2px solid var(--green)" }}>
+          <div style={{ color: 'var(--series-3)', fontSize: 11, fontWeight: 700 }}>On-basin Thm A zone</div>
+          <div style={{ color: 'var(--ink)', fontSize: 12 }}>&rho; &lt; 2/3 (shaded)</div>
+          <div style={{ color: 'var(--ink-faint)', fontSize: 10 }}>&Theta; &lt; 1/4, trap unconditional</div>
         </div>
       </div>
 
-      <p style={{ color: "#877b67", fontSize: 12, marginTop: 10, lineHeight: 1.7 }}>
+      <p style={{ color: 'var(--ink-faint)', fontSize: 12, marginTop: 10, lineHeight: 1.7 }}>
         The formula &Theta;(&rho;)&nbsp;=&nbsp;(2&rho;/(&rho;+2))&#xb2; is the Theorem-C basin
         relationship: it maps each isolation ratio to its theoretical &Theta; value under the
         basin reconditioning. At &rho;*=2/3 the curve crosses the Theorem&nbsp;A threshold
@@ -982,12 +985,12 @@ function R1T4BasinClosureSection() {
 
   return (
     <div className="card" style={{ marginTop: 24, borderLeft: "3px solid var(--green)" }}>
-      <h3 style={{ color: "#4c7a4a", fontSize: 16, marginBottom: 8 }}>
+      <h3 style={{ color: 'var(--series-3)', fontSize: 16, marginBottom: 8 }}>
         Lemma R1-T4: Dynamical-Reachability Basin Closure
       </h3>
-      <p style={{ color: "#4a4238", fontSize: 13, lineHeight: 1.8, marginBottom: 12 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.8, marginBottom: 12 }}>
         Can the attractive CM flow drive an isolated minimal pair toward the uncapped near-uniform
-        lattice configuration? <strong style={{ color: "#1c1814" }}>Lemma R1-T4 (imp-2637)</strong> answers
+        lattice configuration? <strong style={{ color: 'var(--ink)' }}>Lemma R1-T4 (imp-2637)</strong> answers
         no, on the isolated-pair basin: starting from a compressed minimal pair
         (&rho;&nbsp;=&nbsp;g/d&#x2081;&nbsp;&lt;&nbsp;1, &Theta;(0)&nbsp;&lt;&nbsp;1/4 &mdash; the real-zero
         regime), the CM flow drives &rho; <em>downward</em> by Lemma R2-T, trapping the pair deeper into
@@ -997,26 +1000,26 @@ function R1T4BasinClosureSection() {
       </p>
 
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginBottom: 14 }}>
-        <div style={{ background: "rgba(76,122,74,0.08)", border: "1px solid rgba(76,122,74,0.3)", borderRadius: 8, padding: "10px 14px" }}>
-          <div style={{ color: "#4c7a4a", fontWeight: 700, fontSize: 12, marginBottom: 6 }}>
+        <div style={{ background: 'color-mix(in srgb, var(--series-3) 8%, transparent)', border: "1px solid color-mix(in srgb, var(--series-3) 30%, transparent)", borderRadius: 8, padding: "10px 14px" }}>
+          <div style={{ color: 'var(--series-3)', fontWeight: 700, fontSize: 12, marginBottom: 6 }}>
             Isolated-pair basin: {grid.gridSize} starts
           </div>
-          <div style={{ color: "#1c1814", fontSize: 13, marginBottom: 4 }}>
+          <div style={{ color: 'var(--ink)', fontSize: 13, marginBottom: 4 }}>
             Worst excursion = <strong>{grid.worstExcursion < 1e-9 ? "~0 (machine precision)" : grid.worstExcursion.toExponential(2)}</strong>
           </div>
-          <div style={{ color: "#4a4238", fontSize: 12 }}>
+          <div style={{ color: 'var(--ink-soft)', fontSize: 12 }}>
             Peak &Theta; stays at &Theta;(0) over the entire CM-flow trajectory.
-            Violations: <strong style={{ color: grid.violations.length === 0 ? "#4c7a4a" : "#c23a1c" }}>{grid.violations.length}</strong>
+            Violations: <strong style={{ color: grid.violations.length === 0 ? 'var(--series-3)' : 'var(--accent)' }}>{grid.violations.length}</strong>
           </div>
         </div>
-        <div style={{ background: "rgba(194,58,28,0.08)", border: "1px solid rgba(194,58,28,0.3)", borderRadius: 8, padding: "10px 14px" }}>
-          <div style={{ color: "#c23a1c", fontWeight: 700, fontSize: 12, marginBottom: 6 }}>
+        <div style={{ background: 'color-mix(in srgb, var(--series-2) 8%, transparent)', border: "1px solid color-mix(in srgb, var(--accent) 30%, transparent)", borderRadius: 8, padding: "10px 14px" }}>
+          <div style={{ color: 'var(--accent)', fontWeight: 700, fontSize: 12, marginBottom: 6 }}>
             Near-uniform lattice controls (&rho;&nbsp;~&nbsp;1)
           </div>
-          <div style={{ color: "#1c1814", fontSize: 13, marginBottom: 4 }}>
+          <div style={{ color: 'var(--ink)', fontSize: 13, marginBottom: 4 }}>
             Min control peak = <strong>{grid.minControlPeak.toFixed(3)}</strong>
           </div>
-          <div style={{ color: "#4a4238", fontSize: 12 }}>
+          <div style={{ color: 'var(--ink-soft)', fontSize: 12 }}>
             Lattice controls climb to high &Theta; (~0.8), proving the integrator
             detects a climb when one exists.
           </div>
@@ -1028,21 +1031,21 @@ function R1T4BasinClosureSection() {
           <thead>
             <tr style={{ borderBottom: "1px solid var(--hairline)" }}>
               {["N", "g0", "rho0", "Theta(0)", "Peak Theta", "Excursion", "Status"].map((h) => (
-                <th key={h} style={{ color: "#877b67", fontWeight: 600, padding: "5px 8px", textAlign: "left" }}>{h}</th>
+                <th key={h} style={{ color: 'var(--ink-faint)', fontWeight: 600, padding: "5px 8px", textAlign: "left" }}>{h}</th>
               ))}
             </tr>
           </thead>
           <tbody>
             {grid.isolated.map((r, i) => (
               <tr key={i} style={{ borderBottom: "1px solid var(--paper2)" }}>
-                <td style={{ padding: "6px 8px", color: "#1c1814" }}>{r.N}</td>
-                <td style={{ padding: "6px 8px", color: "#1c1814", fontFamily: "monospace" }}>{r.g0.toFixed(2)}</td>
-                <td style={{ padding: "6px 8px", color: "#3f6b86", fontFamily: "monospace" }}>{r.rho0.toFixed(4)}</td>
-                <td style={{ padding: "6px 8px", color: "#b58a2e", fontFamily: "monospace" }}>{r.theta0.toFixed(4)}</td>
-                <td style={{ padding: "6px 8px", color: "#4c7a4a", fontFamily: "monospace" }}>{r.peakTheta.toFixed(4)}</td>
-                <td style={{ padding: "6px 8px", color: "#4a4238", fontFamily: "monospace" }}>{r.excursion < 1e-10 ? "~0" : r.excursion.toExponential(1)}</td>
+                <td style={{ padding: "6px 8px", color: 'var(--ink)' }}>{r.N}</td>
+                <td style={{ padding: "6px 8px", color: 'var(--ink)', fontFamily: "monospace" }}>{r.g0.toFixed(2)}</td>
+                <td style={{ padding: "6px 8px", color: 'var(--series-1)', fontFamily: "monospace" }}>{r.rho0.toFixed(4)}</td>
+                <td style={{ padding: "6px 8px", color: 'var(--brass)', fontFamily: "monospace" }}>{r.theta0.toFixed(4)}</td>
+                <td style={{ padding: "6px 8px", color: 'var(--series-3)', fontFamily: "monospace" }}>{r.peakTheta.toFixed(4)}</td>
+                <td style={{ padding: "6px 8px", color: 'var(--ink-soft)', fontFamily: "monospace" }}>{r.excursion < 1e-10 ? "~0" : r.excursion.toExponential(1)}</td>
                 <td style={{ padding: "6px 8px" }}>
-                  <span style={{ background: "rgba(76,122,74,0.15)", color: "#4c7a4a", padding: "2px 6px", borderRadius: 4, fontSize: 10, fontWeight: 700 }}>
+                  <span style={{ background: 'color-mix(in srgb, var(--series-3) 15%, transparent)', color: 'var(--series-3)', padding: "2px 6px", borderRadius: 4, fontSize: 10, fontWeight: 700 }}>
                     BASIN CLOSED
                   </span>
                 </td>
@@ -1052,29 +1055,29 @@ function R1T4BasinClosureSection() {
         </table>
       </div>
 
-      <div style={{ background: "rgba(194,58,28,0.07)", border: "1px solid rgba(194,58,28,0.25)", borderRadius: 8, padding: "10px 14px", marginBottom: 12 }}>
-        <div style={{ color: "#c23a1c", fontWeight: 700, fontSize: 12, marginBottom: 4 }}>
+      <div style={{ background: 'color-mix(in srgb, var(--series-2) 7%, transparent)', border: "1px solid color-mix(in srgb, var(--accent) 25%, transparent)", borderRadius: 8, padding: "10px 14px", marginBottom: 12 }}>
+        <div style={{ color: 'var(--accent)', fontWeight: 700, fontSize: 12, marginBottom: 4 }}>
           rho = 1 Lattice: Measure-Zero Unstable Repeller (imp-3048)
         </div>
-        <div style={{ color: "#4a4238", fontSize: 12, lineHeight: 1.7 }}>
+        <div style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.7 }}>
           The single-neighbour R2-T rate F(rho) = (rho&minus;1)[2/(rho+1) + 4(rho+1)/rho] has a unique
           interior fixed point at rho = 1 (F(1) = {rep.fixedPointResidual.toFixed(0)}) with closed-form
-          eigenvalue F&prime;(1) = <strong style={{ color: "#c23a1c" }}>{rep.eigenClosed}</strong> &gt; 0.
+          eigenvalue F&prime;(1) = <strong style={{ color: 'var(--accent)' }}>{rep.eigenClosed}</strong> &gt; 0.
           This certifies rho = 1 as a <strong>linearly unstable repeller</strong>: any perturbation away from
           rho = 1 flows outward, not back. sign(F) = sign(rho&minus;1) on the full grid (holds:{" "}
-          <strong style={{ color: rep.signLawHolds ? "#4c7a4a" : "#c23a1c" }}>{rep.signLawHolds ? "YES" : "NO"}</strong>),
+          <strong style={{ color: rep.signLawHolds ? 'var(--series-3)' : 'var(--accent)' }}>{rep.signLawHolds ? "YES" : "NO"}</strong>),
           and perturbed RK4 integration from rho = 1 &plusmn; 1e-3 drifts away on both sides (drifts away:{" "}
-          <strong style={{ color: rep.driftsAway ? "#4c7a4a" : "#c23a1c" }}>{rep.driftsAway ? "YES" : "NO"}</strong>).
+          <strong style={{ color: rep.driftsAway ? 'var(--series-3)' : 'var(--accent)' }}>{rep.driftsAway ? "YES" : "NO"}</strong>).
           The near-uniform lattice configuration occupies a <em>measure-zero</em> locus in the space of
           pair configurations and is not accessible from the isolated-pair basin.
         </div>
       </div>
 
-      <div style={{ background: "rgba(181,138,46,0.07)", border: "1px solid rgba(181,138,46,0.25)", borderRadius: 8, padding: "10px 14px" }}>
-        <div style={{ color: "#b58a2e", fontWeight: 700, fontSize: 12, marginBottom: 4 }}>
+      <div style={{ background: 'color-mix(in srgb, var(--brass-deco) 7%, transparent)', border: "1px solid color-mix(in srgb, var(--brass-deco) 25%, transparent)", borderRadius: 8, padding: "10px 14px" }}>
+        <div style={{ color: 'var(--brass)', fontWeight: 700, fontSize: 12, marginBottom: 4 }}>
           Residual
         </div>
-        <div style={{ color: "#4a4238", fontSize: 12, lineHeight: 1.7 }}>
+        <div style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.7 }}>
           {SG1C_THEOREMS.lemmaR1T4}
         </div>
       </div>
@@ -1088,18 +1091,18 @@ function ShellOnsetLadderSection() {
 
   return (
     <div className="card" style={{ marginTop: 24, borderLeft: "3px solid var(--blue)" }}>
-      <h3 style={{ color: "#3f6b86", fontSize: 16, marginBottom: 8 }}>
+      <h3 style={{ color: 'var(--series-1)', fontSize: 16, marginBottom: 8 }}>
         Symmetric Shell-Onset Ladder (Lemma R2-T2 cross-check)
       </h3>
-      <p style={{ color: "#4a4238", fontSize: 13, lineHeight: 1.8, marginBottom: 12 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.8, marginBottom: 12 }}>
         For the symmetric (2K+2)-body shell config{" "}
-        <span style={{ fontFamily: "monospace", color: "#1c1814" }}>
+        <span style={{ fontFamily: "monospace", color: 'var(--ink)' }}>
           &#123;&minus;(&rho;/2+K..1), &minus;&rho;/2, &rho;/2, &rho;/2+1..K&#125;
         </span>{" "}
         (unit spacing), the worsening-onset &rho;* &mdash; where the central-pair isolation flow
         d&rho;/ds crosses 0 from below &mdash; is bisected for each shell count K.{" "}
-        <strong style={{ color: "#1c1814" }}>K=1</strong> reproduces the{" "}
-        <strong style={{ color: "#3f6b86" }}>imp-3005 closed form</strong>{" "}
+        <strong style={{ color: 'var(--ink)' }}>K=1</strong> reproduces the{" "}
+        <strong style={{ color: 'var(--series-1)' }}>imp-3005 closed form</strong>{" "}
         c* = &radic;(2+&radic;3)&minus;1 &asymp; {cc.cStarClosed.toFixed(8)} to machine precision,
         and the onset rises monotonically with K toward 1 &mdash; so the single shell (K=1) is the
         <em> worst</em> symmetric case. Every onset sits far above the Theorem-C basin constant{" "}
@@ -1107,21 +1110,21 @@ function ShellOnsetLadderSection() {
       </p>
 
       {/* imp-3036: surface the exact defining quartic + u-substitution and the closure-status line */}
-      <div style={{ background: "rgba(63,107,134,0.07)", border: "1px solid rgba(63,107,134,0.25)", borderRadius: 8, padding: "10px 14px", marginBottom: 14 }}>
-        <div style={{ color: "#3f6b86", fontWeight: 700, fontSize: 12, marginBottom: 4 }}>
+      <div style={{ background: 'color-mix(in srgb, var(--series-1) 7%, transparent)', border: "1px solid color-mix(in srgb, var(--series-1) 25%, transparent)", borderRadius: 8, padding: "10px 14px", marginBottom: 14 }}>
+        <div style={{ color: 'var(--series-1)', fontWeight: 700, fontSize: 12, marginBottom: 4 }}>
           Closed form (imp-3005, Lemma R2-T2)
         </div>
-        <div style={{ color: "#1c1814", fontSize: 13, lineHeight: 1.8 }}>
+        <div style={{ color: 'var(--ink)', fontSize: 13, lineHeight: 1.8 }}>
           The K=1 worsening onset is the unique root in (0,1) of the quartic{" "}
-          <span style={{ fontFamily: "monospace", color: "#3f6b86" }}>&rho;&#8308; + 4&rho;&sup3; + 2&rho;&sup2; &minus; 4&rho; &minus; 2 = 0</span>.
-          The substitution <span style={{ fontFamily: "monospace", color: "#1c1814" }}>u = &rho;&sup2; + 2&rho;</span> collapses it to the
-          quadratic <span style={{ fontFamily: "monospace", color: "#1c1814" }}>u&sup2; &minus; 2u &minus; 2 = 0</span>, giving the radical
-          <strong style={{ color: "#3f6b86" }}> c* = &radic;(2+&radic;3) &minus; 1 = (1+&radic;3)/&radic;2 &minus; 1 &asymp; {cc.cStarClosed.toFixed(8)}</strong>.
+          <span style={{ fontFamily: "monospace", color: 'var(--series-1)' }}>&rho;&#8308; + 4&rho;&sup3; + 2&rho;&sup2; &minus; 4&rho; &minus; 2 = 0</span>.
+          The substitution <span style={{ fontFamily: "monospace", color: 'var(--ink)' }}>u = &rho;&sup2; + 2&rho;</span> collapses it to the
+          quadratic <span style={{ fontFamily: "monospace", color: 'var(--ink)' }}>u&sup2; &minus; 2u &minus; 2 = 0</span>, giving the radical
+          <strong style={{ color: 'var(--series-1)' }}> c* = &radic;(2+&radic;3) &minus; 1 = (1+&radic;3)/&radic;2 &minus; 1 &asymp; {cc.cStarClosed.toFixed(8)}</strong>.
         </div>
-        <div style={{ color: "#4a4238", fontSize: 11, marginTop: 6, lineHeight: 1.7 }}>
-          <strong style={{ color: "#4c7a4a" }}>CLOSED:</strong> single-neighbour onset c = 1, the symmetric
+        <div style={{ color: 'var(--ink-soft)', fontSize: 11, marginTop: 6, lineHeight: 1.7 }}>
+          <strong style={{ color: 'var(--series-3)' }}>CLOSED:</strong> single-neighbour onset c = 1, the symmetric
           single-shell c* (above, in closed form), and the unconditional &Theta; &le; 1/4 trap.{" "}
-          <strong style={{ color: "#b58a2e" }}>OPEN:</strong> the global asymmetric multi-body constant below c*
+          <strong style={{ color: 'var(--brass)' }}>OPEN:</strong> the global asymmetric multi-body constant below c*
           (imp-3021 brackets it in &asymp;(0.90, 0.94); still no closed form).
         </div>
       </div>
@@ -1131,27 +1134,27 @@ function ShellOnsetLadderSection() {
           <thead>
             <tr style={{ borderBottom: "1px solid var(--hairline)" }}>
               {["Shell count K", "Bodies (2K+2)", "Worsening onset rho*", "rho* - c*", "Margin over 0.72"].map((h) => (
-                <th key={h} style={{ color: "#877b67", fontWeight: 600, padding: "5px 8px", textAlign: "left" }}>{h}</th>
+                <th key={h} style={{ color: 'var(--ink-faint)', fontWeight: 600, padding: "5px 8px", textAlign: "left" }}>{h}</th>
               ))}
             </tr>
           </thead>
           <tbody>
             {cc.shells.map((r) => (
               <tr key={r.shellCount} style={{ borderBottom: "1px solid var(--paper2)" }}>
-                <td style={{ padding: "6px 8px", color: "#1c1814" }}>
+                <td style={{ padding: "6px 8px", color: 'var(--ink)' }}>
                   {r.shellCount}
                   {r.shellCount === 1 && (
-                    <span style={{ marginLeft: 6, background: "rgba(63,107,134,0.15)", color: "#3f6b86", padding: "1px 5px", borderRadius: 4, fontSize: 9, fontWeight: 700 }}>
+                    <span style={{ marginLeft: 6, background: 'color-mix(in srgb, var(--series-1) 15%, transparent)', color: 'var(--series-1)', padding: "1px 5px", borderRadius: 4, fontSize: 9, fontWeight: 700 }}>
                       = c* (closed form)
                     </span>
                   )}
                 </td>
-                <td style={{ padding: "6px 8px", color: "#4a4238", fontFamily: "monospace" }}>{2 * r.shellCount + 2}</td>
-                <td style={{ padding: "6px 8px", color: "#3f6b86", fontFamily: "monospace" }}>{r.onsetNumeric.toFixed(8)}</td>
-                <td style={{ padding: "6px 8px", color: "#b58a2e", fontFamily: "monospace" }}>
+                <td style={{ padding: "6px 8px", color: 'var(--ink-soft)', fontFamily: "monospace" }}>{2 * r.shellCount + 2}</td>
+                <td style={{ padding: "6px 8px", color: 'var(--series-1)', fontFamily: "monospace" }}>{r.onsetNumeric.toFixed(8)}</td>
+                <td style={{ padding: "6px 8px", color: 'var(--brass)', fontFamily: "monospace" }}>
                   {Math.abs(r.deltaFromCStar) < 1e-7 ? "<1e-7" : "+" + r.deltaFromCStar.toFixed(6)}
                 </td>
-                <td style={{ padding: "6px 8px", color: "#4c7a4a", fontFamily: "monospace" }}>
+                <td style={{ padding: "6px 8px", color: 'var(--series-3)', fontFamily: "monospace" }}>
                   +{(r.onsetNumeric - cc.theoremCConstant).toFixed(4)}
                 </td>
               </tr>
@@ -1161,35 +1164,35 @@ function ShellOnsetLadderSection() {
       </div>
 
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginBottom: 12 }}>
-        <div style={{ background: "rgba(194,58,28,0.08)", border: "1px solid rgba(194,58,28,0.3)", borderRadius: 8, padding: "10px 14px" }}>
-          <div style={{ color: "#c23a1c", fontWeight: 700, fontSize: 12, marginBottom: 4 }}>
+        <div style={{ background: 'color-mix(in srgb, var(--series-2) 8%, transparent)', border: "1px solid color-mix(in srgb, var(--accent) 30%, transparent)", borderRadius: 8, padding: "10px 14px" }}>
+          <div style={{ color: 'var(--accent)', fontWeight: 700, fontSize: 12, marginBottom: 4 }}>
             Asymmetric minimal-pair scan
           </div>
-          <div style={{ color: "#1c1814", fontSize: 13 }}>
+          <div style={{ color: 'var(--ink)', fontSize: 13 }}>
             inf &asymp; <strong>{cc.asymMinPairScan}</strong> &lt; c* (imp-3005, 2e6 configs)
           </div>
-          <div style={{ color: "#4a4238", fontSize: 11, marginTop: 4 }}>
+          <div style={{ color: 'var(--ink-soft)', fontSize: 11, marginTop: 4 }}>
             Asymmetric configs worsen marginally <em>earlier</em> than the symmetric closed form.
           </div>
         </div>
-        <div style={{ background: "rgba(76,122,74,0.08)", border: "1px solid rgba(76,122,74,0.3)", borderRadius: 8, padding: "10px 14px" }}>
-          <div style={{ color: "#4c7a4a", fontWeight: 700, fontSize: 12, marginBottom: 4 }}>
+        <div style={{ background: 'color-mix(in srgb, var(--series-3) 8%, transparent)', border: "1px solid color-mix(in srgb, var(--series-3) 30%, transparent)", borderRadius: 8, padding: "10px 14px" }}>
+          <div style={{ color: 'var(--series-3)', fontWeight: 700, fontSize: 12, marginBottom: 4 }}>
             Skeptical multi-body scan
           </div>
-          <div style={{ color: "#1c1814", fontSize: 13 }}>
+          <div style={{ color: 'var(--ink)', fontSize: 13 }}>
             inf &asymp; <strong>{cc.scannedMultiBodyInf}</strong> &gt; c* (Lemma R2-T, 3e6 configs)
           </div>
-          <div style={{ color: "#4a4238", fontSize: 11, marginTop: 4 }}>
+          <div style={{ color: 'var(--ink-soft)', fontSize: 11, marginTop: 4 }}>
             Brackets the closed form c* &asymp; {cc.cStarClosed.toFixed(5)} from above.
           </div>
         </div>
       </div>
 
-      <div style={{ background: "rgba(181,138,46,0.07)", border: "1px solid rgba(181,138,46,0.25)", borderRadius: 8, padding: "10px 14px" }}>
-        <div style={{ color: "#b58a2e", fontWeight: 700, fontSize: 12, marginBottom: 4 }}>
+      <div style={{ background: 'color-mix(in srgb, var(--brass-deco) 7%, transparent)', border: "1px solid color-mix(in srgb, var(--brass-deco) 25%, transparent)", borderRadius: 8, padding: "10px 14px" }}>
+        <div style={{ color: 'var(--brass)', fontWeight: 700, fontSize: 12, marginBottom: 4 }}>
           Residual (historical — since closed 2026-08-28: c_glob = c_half = 0.8980208880762339)
         </div>
-        <div style={{ color: "#4a4238", fontSize: 12, lineHeight: 1.7 }}>
+        <div style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.7 }}>
           {cc.agreement}
         </div>
       </div>
@@ -1281,8 +1284,8 @@ function ConditioningCollapseBars() {
         {/* Y-axis grid + ticks */}
         {yTicks.map((v) => (
           <g key={v}>
-            <line x1={padL} y1={yS(v)} x2={svgW - padR} y2={yS(v)} stroke="#f6f1e7" strokeWidth={1} />
-            <text x={padL - 5} y={yS(v) + 3} fill="#877b67" fontSize={8} textAnchor="end">{v}</text>
+            <line x1={padL} y1={yS(v)} x2={svgW - padR} y2={yS(v)} stroke={ED.paper2} strokeWidth={1} />
+            <text x={padL - 5} y={yS(v) + 3} fill={ED.inkFaint} fontSize={8} textAnchor="end">{v}</text>
           </g>
         ))}
 
@@ -1295,7 +1298,7 @@ function ConditioningCollapseBars() {
               {/* raw monomial (before) bar */}
               <rect x={xBefore} y={yS(g.before)} width={barW} height={yBase - yS(g.before)}
                 fill="#877b67" opacity={0.85} />
-              <text x={xBefore + barW / 2} y={yS(g.before) - 4} fill="#4a4238" fontSize={9}
+              <text x={xBefore + barW / 2} y={yS(g.before) - 4} fill={ED.inkSoft} fontSize={9}
                 textAnchor="middle">{g.before.toFixed(2)}</text>
 
               {/* orthonormalized (after) bar; residual gap highlighted pink */}
@@ -1306,25 +1309,25 @@ function ConditioningCollapseBars() {
                 textAnchor="middle">{g.after.toFixed(2)}</text>
 
               {/* group label */}
-              <text x={cx} y={yBase + 14} fill="#4a4238" fontSize={9} textAnchor="middle">{g.label}</text>
+              <text x={cx} y={yBase + 14} fill={ED.inkSoft} fontSize={9} textAnchor="middle">{g.label}</text>
             </g>
           );
         })}
 
         {/* Axes */}
-        <line x1={padL} y1={yBase} x2={svgW - padR} y2={yBase} stroke="#d5c9b2" strokeWidth={1} />
-        <line x1={padL} y1={padT} x2={padL} y2={yBase} stroke="#d5c9b2" strokeWidth={1} />
+        <line x1={padL} y1={yBase} x2={svgW - padR} y2={yBase} stroke={ED.rule} strokeWidth={1} />
+        <line x1={padL} y1={padT} x2={padL} y2={yBase} stroke={ED.rule} strokeWidth={1} />
 
         {/* Legend */}
         <rect x={padL + 6} y={svgH - 30} width={12} height={12} fill="#877b67" opacity={0.85} />
-        <text x={padL + 22} y={svgH - 20} fill="#4a4238" fontSize={9}>raw monomial (diag-only)</text>
-        <rect x={padL + 170} y={svgH - 30} width={12} height={12} fill="#3f6b86" opacity={0.9} />
-        <text x={padL + 186} y={svgH - 20} fill="#4a4238" fontSize={9}>orthonormalized</text>
-        <rect x={padL + 300} y={svgH - 30} width={12} height={12} fill="#d9502e" opacity={0.9} />
-        <text x={padL + 316} y={svgH - 20} fill="#4a4238" fontSize={9}>surviving residual</text>
+        <text x={padL + 22} y={svgH - 20} fill={ED.inkSoft} fontSize={9}>raw monomial (diag-only)</text>
+        <rect x={padL + 170} y={svgH - 30} width={12} height={12} fill={ED.series1} opacity={0.9} />
+        <text x={padL + 186} y={svgH - 20} fill={ED.inkSoft} fontSize={9}>orthonormalized</text>
+        <rect x={padL + 300} y={svgH - 30} width={12} height={12} fill={ED.accentDeco} opacity={0.9} />
+        <text x={padL + 316} y={svgH - 20} fill={ED.inkSoft} fontSize={9}>surviving residual</text>
       </svg>
 
-      <div style={{ background: 'rgba(181,138,46,0.07)', border: '1px solid rgba(181,138,46,0.25)', borderRadius: 8, padding: '10px 14px', marginTop: 12 }}>
+      <div style={{ background: 'color-mix(in srgb, var(--brass-deco) 7%, transparent)', border: '1px solid color-mix(in srgb, var(--brass-deco) 25%, transparent)', borderRadius: 8, padding: '10px 14px', marginTop: 12 }}>
         <div style={{ color: 'var(--brass-dk)', fontWeight: 700, fontSize: 12, marginBottom: 4 }}>
           Scope: diagnostic on the representative truncation &mdash; no RH verdict
         </div>
@@ -1346,7 +1349,7 @@ function ConditioningCollapseBars() {
 function G7PerronFloorHonestBanner() {
   const g = IMP33787_G7_PERRON_LOWER_BOUND;
   return (
-    <div style={{ background: 'rgba(194,58,28,0.08)', border: '2px solid rgba(194,58,28,0.4)', borderRadius: 8, padding: '10px 14px', marginTop: 12 }}>
+    <div style={{ background: 'color-mix(in srgb, var(--series-2) 8%, transparent)', border: '2px solid color-mix(in srgb, var(--accent) 40%, transparent)', borderRadius: 8, padding: '10px 14px', marginTop: 12 }}>
       <div style={{ color: 'var(--terra-dk)', fontWeight: 700, fontSize: 12, marginBottom: 6 }}>
         OPEN: no uniform positive &#8214;R&#8214; floor exists over the admissible s&#8201;=&#8201;a&middot;U half-line (imp-33787)
       </div>
@@ -1373,22 +1376,22 @@ function CThetaFlatInvariantPanel() {
 
   return (
     <div className="card" style={{ marginTop: 24, borderLeft: "3px solid var(--brass)" }}>
-      <h3 style={{ color: "#8c6a1d", fontSize: 16, marginBottom: 8 }}>
+      <h3 style={{ color: 'var(--brass)', fontSize: 16, marginBottom: 8 }}>
         Off-Basin C&#x398; Scale-Law Signature: g&#x2080;&middot;d&#x398;/dW&#x2081; = 16/27 (certified flat, imp-3067)
       </h3>
-      <p style={{ color: "#4a4238", fontSize: 13, lineHeight: 1.8, marginBottom: 12 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.8, marginBottom: 12 }}>
         On the crowded off-basin lattice (&rho;&nbsp;=&nbsp;1) the C&#x398; sensitivity
         d&#x398;/dW&#x2081; blows up like 1/g&#x2080;, but the{" "}
-        <strong style={{ color: "#1c1814" }}>product</strong>{" "}
+        <strong style={{ color: 'var(--ink)' }}>product</strong>{" "}
         g&#x2080;&middot;d&#x398;/dW&#x2081; is g&#x2080;-independent and pinned at{" "}
-        <strong style={{ color: "#8c6a1d", fontFamily: "monospace" }}>
+        <strong style={{ color: 'var(--brass)', fontFamily: "monospace" }}>
           16/27 = {(16 / 27).toFixed(7)}
         </strong>
-        . The imp-3067 export <code style={{ color: "#1c1814" }}>CTHETA_FLAT_INVARIANT</code>{" "}
+        . The imp-3067 export <code style={{ color: 'var(--ink)' }}>CTHETA_FLAT_INVARIANT</code>{" "}
         certifies this directly: the same central finite-difference measured over a{" "}
-        <strong style={{ color: "#1c1814" }}>{tbl.length}-halving</strong>{" "}
+        <strong style={{ color: 'var(--ink)' }}>{tbl.length}-halving</strong>{" "}
         (~{inv.decadesSpanned.toFixed(2)}-decade) g&#x2080; sweep stays pinned to within{" "}
-        <strong style={{ color: "#4c7a4a", fontFamily: "monospace" }}>
+        <strong style={{ color: 'var(--series-3)', fontFamily: "monospace" }}>
           max-dev {inv.maxDeviationFrom16over27.toExponential(1)}
         </strong>{" "}
         &lt; 1e-9. This is the scale-free signature of the off-basin C&#x398; divergence &mdash; not
@@ -1400,30 +1403,30 @@ function CThetaFlatInvariantPanel() {
           <thead>
             <tr style={{ borderBottom: "1px solid var(--hairline)" }}>
               {["g₀ (sweep)", "g₀·dΘ/dW₁", "deviation from 16/27"].map((h) => (
-                <th key={h} style={{ color: "#877b67", fontWeight: 600, padding: "5px 8px", textAlign: "left" }}>{h}</th>
+                <th key={h} style={{ color: 'var(--ink-faint)', fontWeight: 600, padding: "5px 8px", textAlign: "left" }}>{h}</th>
               ))}
             </tr>
           </thead>
           <tbody>
             {sampled.map((r, i) => (
               <tr key={i} style={{ borderBottom: "1px solid var(--paper2)" }}>
-                <td style={{ padding: "6px 8px", color: "#4a4238", fontFamily: "monospace" }}>{r.g0.toExponential(3)}</td>
-                <td style={{ padding: "6px 8px", color: "#8c6a1d", fontFamily: "monospace" }}>{r.product.toFixed(10)}</td>
-                <td style={{ padding: "6px 8px", color: "#4c7a4a", fontFamily: "monospace" }}>{r.deviation.toExponential(2)}</td>
+                <td style={{ padding: "6px 8px", color: 'var(--ink-soft)', fontFamily: "monospace" }}>{r.g0.toExponential(3)}</td>
+                <td style={{ padding: "6px 8px", color: 'var(--brass)', fontFamily: "monospace" }}>{r.product.toFixed(10)}</td>
+                <td style={{ padding: "6px 8px", color: 'var(--series-3)', fontFamily: "monospace" }}>{r.deviation.toExponential(2)}</td>
               </tr>
             ))}
           </tbody>
         </table>
-        <div style={{ color: "#877b67", fontSize: 11, marginTop: 4 }}>
+        <div style={{ color: 'var(--ink-faint)', fontSize: 11, marginTop: 4 }}>
           First / middle / last of {tbl.length} sampled rows; full table in CTHETA_FLAT_INVARIANT (imp-3067).
         </div>
       </div>
 
-      <div style={{ background: "rgba(181,138,46,0.07)", border: "1px solid rgba(181,138,46,0.25)", borderRadius: 8, padding: "10px 14px" }}>
-        <div style={{ color: "#b58a2e", fontWeight: 700, fontSize: 12, marginBottom: 4 }}>
+      <div style={{ background: 'color-mix(in srgb, var(--brass-deco) 7%, transparent)', border: "1px solid color-mix(in srgb, var(--brass-deco) 25%, transparent)", borderRadius: 8, padding: "10px 14px" }}>
+        <div style={{ color: 'var(--brass)', fontWeight: 700, fontSize: 12, marginBottom: 4 }}>
           Scope: scale-law signature only &mdash; does NOT close the off-basin divergence
         </div>
-        <div style={{ color: "#4a4238", fontSize: 12, lineHeight: 1.7 }}>
+        <div style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.7 }}>
           {inv.honest}
         </div>
       </div>
@@ -1487,50 +1490,50 @@ function CThetaSensitivityLogLogPlot() {
         {/* grid + y ticks (log10 dTheta/dW_1) */}
         {yTicks.map((t) => (
           <g key={`y${t}`}>
-            <line x1={padL} y1={yS(t)} x2={svgW - padR} y2={yS(t)} stroke="#f6f1e7" strokeWidth={1} />
-            <text x={padL - 6} y={yS(t) + 3} fill="#877b67" fontSize={8} textAnchor="end">{`1e${t}`}</text>
+            <line x1={padL} y1={yS(t)} x2={svgW - padR} y2={yS(t)} stroke={ED.paper2} strokeWidth={1} />
+            <text x={padL - 6} y={yS(t) + 3} fill={ED.inkFaint} fontSize={8} textAnchor="end">{`1e${t}`}</text>
           </g>
         ))}
         {/* x ticks (log10 g0) */}
         {xTicks.map((t) => (
           <g key={`x${t}`}>
-            <line x1={xS(t)} y1={padT} x2={xS(t)} y2={padT + chartH} stroke="#f6f1e7" strokeWidth={1} />
-            <text x={xS(t)} y={padT + chartH + 14} fill="#877b67" fontSize={8} textAnchor="middle">{`1e${t}`}</text>
+            <line x1={xS(t)} y1={padT} x2={xS(t)} y2={padT + chartH} stroke={ED.paper2} strokeWidth={1} />
+            <text x={xS(t)} y={padT + chartH + 14} fill={ED.inkFaint} fontSize={8} textAnchor="middle">{`1e${t}`}</text>
           </g>
         ))}
 
         {/* off-basin blowup (slope -1) */}
-        <polyline points={polyOff} fill="none" stroke="#d9502e" strokeWidth={2} />
+        <polyline points={polyOff} fill="none" stroke={ED.accentDeco} strokeWidth={2} />
         {off.map((p, i) => (
-          <circle key={`off${i}`} cx={xS(log10(p.g0))} cy={yS(log10(p.dW))} r={2} fill="#d9502e" />
+          <circle key={`off${i}`} cx={xS(log10(p.g0))} cy={yS(log10(p.dW))} r={2} fill={ED.accentDeco} />
         ))}
         {/* on-basin vanishing (slope +1) */}
-        <polyline points={polyOn} fill="none" stroke="#3f6b86" strokeWidth={2} />
+        <polyline points={polyOn} fill="none" stroke={ED.series1} strokeWidth={2} />
         {on.map((p, i) => (
-          <circle key={`on${i}`} cx={xS(log10(p.g0))} cy={yS(log10(p.dW))} r={2} fill="#3f6b86" />
+          <circle key={`on${i}`} cx={xS(log10(p.g0))} cy={yS(log10(p.dW))} r={2} fill={ED.series1} />
         ))}
 
         {/* axes */}
-        <line x1={padL} y1={padT + chartH} x2={svgW - padR} y2={padT + chartH} stroke="#d5c9b2" strokeWidth={1} />
-        <line x1={padL} y1={padT} x2={padL} y2={padT + chartH} stroke="#d5c9b2" strokeWidth={1} />
+        <line x1={padL} y1={padT + chartH} x2={svgW - padR} y2={padT + chartH} stroke={ED.rule} strokeWidth={1} />
+        <line x1={padL} y1={padT} x2={padL} y2={padT + chartH} stroke={ED.rule} strokeWidth={1} />
 
         {/* axis labels */}
-        <text x={padL + chartW / 2} y={svgH - 6} fill="#877b67" fontSize={10} textAnchor="middle">log&#8321;&#8320; g&#8320; (gap scale)</text>
-        <text x={14} y={padT + chartH / 2} fill="#877b67" fontSize={10} textAnchor="middle"
+        <text x={padL + chartW / 2} y={svgH - 6} fill={ED.inkFaint} fontSize={10} textAnchor="middle">log&#8321;&#8320; g&#8320; (gap scale)</text>
+        <text x={14} y={padT + chartH / 2} fill={ED.inkFaint} fontSize={10} textAnchor="middle"
           transform={`rotate(-90 14 ${padT + chartH / 2})`}>log&#8321;&#8320; d&#x398;/dW&#8321;</text>
 
         {/* curve labels */}
-        <text x={xS(xMin) + 6} y={yS(log10(off[off.length - 1].dW)) + 2} fill="#d9502e" fontSize={9}>off-basin: slope &minus;1 (16/27)/g&#8320;</text>
-        <text x={xS(xMin) + 6} y={yS(log10(on[on.length - 1].dW)) - 4} fill="#3f6b86" fontSize={9}>on-basin: slope +1, 2g&#8320;/D&sup2;</text>
+        <text x={xS(xMin) + 6} y={yS(log10(off[off.length - 1].dW)) + 2} fill={ED.accentDeco} fontSize={9}>off-basin: slope &minus;1 (16/27)/g&#8320;</text>
+        <text x={xS(xMin) + 6} y={yS(log10(on[on.length - 1].dW)) - 4} fill={ED.series1} fontSize={9}>on-basin: slope +1, 2g&#8320;/D&sup2;</text>
 
         {/* legend */}
-        <rect x={padL + 6} y={svgH - 30} width={12} height={3} fill="#d9502e" />
-        <text x={padL + 22} y={svgH - 25} fill="#4a4238" fontSize={9}>off-basin &rho;=1 blowup (flat product 16/27)</text>
-        <rect x={padL + 300} y={svgH - 30} width={12} height={3} fill="#3f6b86" />
-        <text x={padL + 316} y={svgH - 25} fill="#4a4238" fontSize={9}>on-basin &rho;&rarr;0 vanishing</text>
+        <rect x={padL + 6} y={svgH - 30} width={12} height={3} fill={ED.accentDeco} />
+        <text x={padL + 22} y={svgH - 25} fill={ED.inkSoft} fontSize={9}>off-basin &rho;=1 blowup (flat product 16/27)</text>
+        <rect x={padL + 300} y={svgH - 30} width={12} height={3} fill={ED.series1} />
+        <text x={padL + 316} y={svgH - 25} fill={ED.inkSoft} fontSize={9}>on-basin &rho;&rarr;0 vanishing</text>
       </svg>
 
-      <div style={{ background: 'rgba(181,138,46,0.07)', border: '1px solid rgba(181,138,46,0.25)', borderRadius: 8, padding: '10px 14px', marginTop: 12 }}>
+      <div style={{ background: 'color-mix(in srgb, var(--brass-deco) 7%, transparent)', border: '1px solid color-mix(in srgb, var(--brass-deco) 25%, transparent)', borderRadius: 8, padding: '10px 14px', marginTop: 12 }}>
         <div style={{ color: 'var(--brass-dk)', fontWeight: 700, fontSize: 12, marginBottom: 4 }}>
           Scope: g&#x2080;-space visualization only &mdash; does NOT close the off-basin divergence
         </div>
@@ -1628,63 +1631,63 @@ function AsymIsolationClosedFormPanel() {
   const ledger = SG1C_ASYM_ONSET_BRACKET_LEDGER;
   return (
     <div className="card" style={{ marginTop: 24, borderLeft: "3px solid var(--terra)" }}>
-      <h3 style={{ color: "#d9502e", fontSize: 16, marginBottom: 4 }}>
+      <h3 style={{ color: 'var(--accent-deco)', fontSize: 16, marginBottom: 4 }}>
         Asymmetric Multi-Body Isolation Onset: Closed Form (imp-3170)
       </h3>
-      <p style={{ color: "#4a4238", fontSize: 13, lineHeight: 1.8, marginBottom: 12 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.8, marginBottom: 12 }}>
         The multi-body asymmetric worst-case class left open by imp-3045 is now closed in{" "}
-        <strong style={{ color: "#d9502e" }}>transcendental</strong> form.
+        <strong style={{ color: 'var(--accent-deco)' }}>transcendental</strong> form.
         The onset c<sub>asym</sub> is the unique root in (0,1) of the transcendental equation:
       </p>
 
-      <div style={{ background: "rgba(217,80,46,0.08)", border: "1px solid rgba(217,80,46,0.3)", borderRadius: 8, padding: "10px 16px", marginBottom: 14 }}>
-        <div style={{ fontFamily: "monospace", color: "#d9502e", fontSize: 14, marginBottom: 6 }}>
+      <div style={{ background: 'color-mix(in srgb, var(--accent-deco) 8%, transparent)', border: "1px solid color-mix(in srgb, var(--accent-deco) 30%, transparent)", borderRadius: 8, padding: "10px 16px", marginBottom: 14 }}>
+        <div style={{ fontFamily: "monospace", color: 'var(--accent-deco)', fontSize: 14, marginBottom: 6 }}>
           {d.transcendentalEquation}
         </div>
-        <div style={{ color: "#4a4238", fontSize: 12 }}>
+        <div style={{ color: 'var(--ink-soft)', fontSize: 12 }}>
           Config class: {d.configClass}
         </div>
       </div>
 
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(175px, 1fr))", gap: 10, marginBottom: 16 }}>
-        <div style={{ padding: "10px 12px", background: "#fdfaf3", borderRadius: 6, borderTop: "2px solid var(--terra)" }}>
-          <div style={{ color: "#d9502e", fontSize: 11, fontWeight: 700, marginBottom: 4 }}>c_asym (transcendental)</div>
-          <div style={{ color: "#1c1814", fontFamily: "monospace", fontSize: 13 }}>{d.cAsym.toFixed(10)}</div>
-          <div style={{ color: "#877b67", fontSize: 10, marginTop: 3 }}>digamma root of drho/ds = 0</div>
+        <div style={{ padding: "10px 12px", background: 'var(--paper)', borderRadius: 6, borderTop: "2px solid var(--terra)" }}>
+          <div style={{ color: 'var(--accent-deco)', fontSize: 11, fontWeight: 700, marginBottom: 4 }}>c_asym (transcendental)</div>
+          <div style={{ color: 'var(--ink)', fontFamily: "monospace", fontSize: 13 }}>{d.cAsym.toFixed(10)}</div>
+          <div style={{ color: 'var(--ink-faint)', fontSize: 10, marginTop: 3 }}>digamma root of drho/ds = 0</div>
         </div>
-        <div style={{ padding: "10px 12px", background: "#fdfaf3", borderRadius: 6, borderTop: "2px solid var(--blue)" }}>
-          <div style={{ color: "#3f6b86", fontSize: 11, fontWeight: 700, marginBottom: 4 }}>c* symmetric (algebraic)</div>
-          <div style={{ color: "#1c1814", fontFamily: "monospace", fontSize: 13 }}>{d.symmetricUpperEnd.toFixed(8)}</div>
-          <div style={{ color: "#877b67", fontSize: 10, marginTop: 3 }}>sqrt(2+sqrt(3))-1, K=1 shell</div>
+        <div style={{ padding: "10px 12px", background: 'var(--paper)', borderRadius: 6, borderTop: "2px solid var(--blue)" }}>
+          <div style={{ color: 'var(--series-1)', fontSize: 11, fontWeight: 700, marginBottom: 4 }}>c* symmetric (algebraic)</div>
+          <div style={{ color: 'var(--ink)', fontFamily: "monospace", fontSize: 13 }}>{d.symmetricUpperEnd.toFixed(8)}</div>
+          <div style={{ color: 'var(--ink-faint)', fontSize: 10, marginTop: 3 }}>sqrt(2+sqrt(3))-1, K=1 shell</div>
         </div>
-        <div style={{ padding: "10px 12px", background: "#fdfaf3", borderRadius: 6, borderTop: "2px solid var(--green)" }}>
-          <div style={{ color: "#4c7a4a", fontSize: 11, fontWeight: 700, marginBottom: 4 }}>Basin margin</div>
-          <div style={{ color: "#1c1814", fontFamily: "monospace", fontSize: 13 }}>{d.preservedBasinMargin.toFixed(4)}</div>
-          <div style={{ color: "#877b67", fontSize: 10, marginTop: 3 }}>c_asym - 0.72 = 0.1828 &gt; 0</div>
+        <div style={{ padding: "10px 12px", background: 'var(--paper)', borderRadius: 6, borderTop: "2px solid var(--green)" }}>
+          <div style={{ color: 'var(--series-3)', fontSize: 11, fontWeight: 700, marginBottom: 4 }}>Basin margin</div>
+          <div style={{ color: 'var(--ink)', fontFamily: "monospace", fontSize: 13 }}>{d.preservedBasinMargin.toFixed(4)}</div>
+          <div style={{ color: 'var(--ink-faint)', fontSize: 10, marginTop: 3 }}>c_asym - 0.72 = 0.1828 &gt; 0</div>
         </div>
-        <div style={{ padding: "10px 12px", background: "#fdfaf3", borderRadius: 6, borderTop: "2px solid var(--faint)" }}>
-          <div style={{ color: "#4a4238", fontSize: 11, fontWeight: 700, marginBottom: 4 }}>drho/ds at basin 0.72</div>
-          <div style={{ color: "#1c1814", fontFamily: "monospace", fontSize: 13 }}>{d.basinDrho.toFixed(4)}</div>
-          <div style={{ color: "#877b67", fontSize: 10, marginTop: 3 }}>strongly self-improving (&lt; 0)</div>
+        <div style={{ padding: "10px 12px", background: 'var(--paper)', borderRadius: 6, borderTop: "2px solid var(--faint)" }}>
+          <div style={{ color: 'var(--ink-soft)', fontSize: 11, fontWeight: 700, marginBottom: 4 }}>drho/ds at basin 0.72</div>
+          <div style={{ color: 'var(--ink)', fontFamily: "monospace", fontSize: 13 }}>{d.basinDrho.toFixed(4)}</div>
+          <div style={{ color: 'var(--ink-faint)', fontSize: 10, marginTop: 3 }}>strongly self-improving (&lt; 0)</div>
         </div>
       </div>
 
-      <div style={{ background: "#fdfaf3", border: "1px solid var(--paper2)", borderRadius: 8, padding: "12px 14px", marginBottom: 14 }}>
-        <div style={{ color: "#1c1814", fontWeight: 600, fontSize: 12, marginBottom: 8 }}>
+      <div style={{ background: 'var(--paper)', border: "1px solid var(--paper2)", borderRadius: 8, padding: "12px 14px", marginBottom: 14 }}>
+        <div style={{ color: 'var(--ink)', fontWeight: 600, fontSize: 12, marginBottom: 8 }}>
           Why two different worlds: algebraic d_1 side vs transcendental digamma lattice tail
         </div>
-        <div style={{ color: "#4a4238", fontSize: 12, lineHeight: 1.8 }}>
-          <strong style={{ color: "#3f6b86" }}>d_1 side (nearest neighbour) telescopes algebraically:</strong>{" "}
-          <span style={{ fontFamily: "monospace", color: "#1c1814" }}>
+        <div style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.8 }}>
+          <strong style={{ color: 'var(--series-1)' }}>d_1 side (nearest neighbour) telescopes algebraically:</strong>{" "}
+          <span style={{ fontFamily: "monospace", color: 'var(--ink)' }}>
             v_0 - v_{"{-1}"} = 1/g - 2
           </span>{" "}
           (value at c_asym: {d.d1SideClosedForm.toFixed(6)}). The infinite sum over the left side
           collapses because every term beyond the nearest neighbour cancels exactly.
         </div>
-        <div style={{ color: "#4a4238", fontSize: 12, lineHeight: 1.8, marginTop: 6 }}>
-          <strong style={{ color: "#d9502e" }}>Pair-gap side carries the irreducible digamma tail:</strong>{" "}
+        <div style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.8, marginTop: 6 }}>
+          <strong style={{ color: 'var(--accent-deco)' }}>Pair-gap side carries the irreducible digamma tail:</strong>{" "}
           the opposite uniform lattice contributes{" "}
-          <span style={{ fontFamily: "monospace", color: "#1c1814" }}>
+          <span style={{ fontFamily: "monospace", color: 'var(--ink)' }}>
             psi(g+1) + gamma = sum_k[1/k - 1/(g+k)]
           </span>{" "}
           (value at c_asym: {d.latticeTailDigamma.toFixed(6)}). This sum does NOT telescope -- it
@@ -1693,45 +1696,45 @@ function AsymIsolationClosedFormPanel() {
         </div>
       </div>
 
-      <div style={{ background: "rgba(181,138,46,0.07)", border: "1px solid rgba(181,138,46,0.25)", borderRadius: 8, padding: "10px 14px", marginBottom: 14 }}>
-        <div style={{ color: "#b58a2e", fontWeight: 700, fontSize: 12, marginBottom: 4 }}>
+      <div style={{ background: 'color-mix(in srgb, var(--brass-deco) 7%, transparent)', border: "1px solid color-mix(in srgb, var(--brass-deco) 25%, transparent)", borderRadius: 8, padding: "10px 14px", marginBottom: 14 }}>
+        <div style={{ color: 'var(--brass)', fontWeight: 700, fontSize: 12, marginBottom: 4 }}>
           Corrects imp-3045 numerical bracket ~0.9032-0.9039
         </div>
-        <div style={{ color: "#4a4238", fontSize: 12, lineHeight: 1.7 }}>
-          The imp-3045 bisection locked onto a <strong style={{ color: "#1c1814" }}>discontinuity of
+        <div style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.7 }}>
+          The imp-3045 bisection locked onto a <strong style={{ color: 'var(--ink)' }}>discontinuity of
           the discrete minimal-gap selector</strong> near g ~ 0.9029, not onto the smooth drho/ds zero.
           At g = {d.scanDiscontinuityValue.toFixed(10)}, the true drho/ds is{" "}
-          <strong style={{ color: "#b58a2e" }}>&gt; 0</strong>{" "}
+          <strong style={{ color: 'var(--brass)' }}>&gt; 0</strong>{" "}
           ({d.scanWasHigh ? "confirmed HIGH" : "check failed"}), so the genuine continuous onset sits
           strictly below it. The closed form pins it at c_asym = {d.cAsym.toFixed(10)}.
         </div>
       </div>
 
-      <div style={{ background: "rgba(194,58,28,0.07)", border: "1px solid rgba(194,58,28,0.25)", borderRadius: 8, padding: "10px 14px" }}>
-        <div style={{ color: "#c23a1c", fontWeight: 700, fontSize: 12, marginBottom: 4 }}>
+      <div style={{ background: 'color-mix(in srgb, var(--series-2) 7%, transparent)', border: "1px solid color-mix(in srgb, var(--accent) 25%, transparent)", borderRadius: 8, padding: "10px 14px" }}>
+        <div style={{ color: 'var(--accent)', fontWeight: 700, fontSize: 12, marginBottom: 4 }}>
           Status
         </div>
-        <div style={{ color: "#4a4238", fontSize: 12, lineHeight: 1.7 }}>
+        <div style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.7 }}>
           {d.honest}
         </div>
-        <div style={{ color: "#877b67", fontSize: 11, marginTop: 6, lineHeight: 1.6 }}>
-          <strong style={{ color: "#b58a2e" }}>Sub-gap as recorded 2026-06-30:</strong> {d.openSubGap}{" "}
-          <span style={{ color: "#4c7a4a" }}>Since resolved: the 2026-08-28 closure identifies the global
+        <div style={{ color: 'var(--ink-faint)', fontSize: 11, marginTop: 6, lineHeight: 1.6 }}>
+          <strong style={{ color: 'var(--brass)' }}>Sub-gap as recorded 2026-06-30:</strong> {d.openSubGap}{" "}
+          <span style={{ color: 'var(--series-3)' }}>Since resolved: the 2026-08-28 closure identifies the global
           infimum as c_glob = c_half = 0.8980208880762339, attained along the one-sided half-lattice
           class, not the opposite-lattice class.</span>
         </div>
       </div>
 
       {/* imp-3204 banner, updated 2026-08-28: c_glob closed in closed form */}
-      <div style={{ background: "rgba(76,122,74,0.10)", border: "2px solid rgba(76,122,74,0.5)", borderRadius: 8, padding: "10px 14px", marginTop: 10 }}>
-        <div style={{ color: "#4c7a4a", fontWeight: 700, fontSize: 12, marginBottom: 6 }}>
+      <div style={{ background: 'color-mix(in srgb, var(--series-3) 10%, transparent)', border: "2px solid color-mix(in srgb, var(--series-3) 50%, transparent)", borderRadius: 8, padding: "10px 14px", marginTop: 10 }}>
+        <div style={{ color: 'var(--series-3)', fontWeight: 700, fontSize: 12, marginBottom: 6 }}>
           GLOBAL asymmetric isolation constant: CLOSED (2026-08-28) — c_glob = c_half = 0.8980208880762339
         </div>
-        <div style={{ color: "#4a4238", fontSize: 12, lineHeight: 1.7 }}>
-          <strong style={{ color: "#1c1814" }}>c_asym = {d.cAsym.toFixed(5)}</strong> closes only the{" "}
+        <div style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.7 }}>
+          <strong style={{ color: 'var(--ink)' }}>c_asym = {d.cAsym.toFixed(5)}</strong> closes only the{" "}
           <em>opposite-unit-lattice R&#8594;&#8734; class</em> (Config A: one tight neighbour at d_1 + opposite
           uniform lattice). The GLOBAL infimum over all asymmetric configurations, historically bracketed{" "}
-          <strong style={{ color: "#1c1814" }}>
+          <strong style={{ color: 'var(--ink)' }}>
             ~({ledger.openBracket[0].toFixed(4)},&#8202;{ledger.openBracket[1].toFixed(4)})
           </strong>{" "}
           by the certified structured-search infimum (imp-3172 Config B) and c_asym, is now closed in
@@ -1762,59 +1765,59 @@ function AsymIsolationOnsetLadderViz() {
 
   // Spaced markers (the open-bracket close pair is rendered separately)
   const spaced = [
-    { val: 0.927, lbl: "0.927", sub: "rand. scan", col: "#b58a2e", above: true, dash: true },
-    { val: Math.sqrt(2 + Math.sqrt(3)) - 1, lbl: "c*=0.93185", sub: "algebraic", col: "#3f6b86", above: false, dash: false },
-    { val: 0.943, lbl: "0.943", sub: "rand. scan", col: "#b58a2e", above: true, dash: true },
-    { val: 1.0, lbl: "c=1", sub: "exact", col: "#4c7a4a", above: false, dash: false },
+    { val: 0.927, lbl: "0.927", sub: "rand. scan", col: ED.brassDeco, above: true, dash: true },
+    { val: Math.sqrt(2 + Math.sqrt(3)) - 1, lbl: "c*=0.93185", sub: "algebraic", col: ED.series1, above: false, dash: false },
+    { val: 0.943, lbl: "0.943", sub: "rand. scan", col: ED.brassDeco, above: true, dash: true },
+    { val: 1.0, lbl: "c=1", sub: "exact", col: ED.series3, above: false, dash: false },
   ];
 
   return (
     <div className="card" style={{ marginTop: 24, borderLeft: "3px solid var(--blue)" }}>
-      <h3 style={{ color: "#3f6b86", fontSize: 16, marginBottom: 4 }}>
+      <h3 style={{ color: 'var(--series-1)', fontSize: 16, marginBottom: 4 }}>
         Asymmetric Isolation Onset Ladder vs Theorem-C Basin (imp-3205)
       </h3>
-      <p style={{ color: "#4a4238", fontSize: 13, lineHeight: 1.7, marginBottom: 10 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.7, marginBottom: 10 }}>
         Every located onset (each an upper bound on the global constant c_glob, since closed at
         c_glob&nbsp;=&nbsp;c_half&nbsp;=&nbsp;0.8980208880762339, 2026-08-28)
         sits far above the Theorem-C basin cap &rho;&nbsp;=&nbsp;0.72. The tightest located ceiling
         was the certified structured infimum 0.9016 (imp-3172), giving a protective margin of{" "}
-        <strong style={{ color: "#4c7a4a" }}>{ledger.basinMargin.toFixed(4)}&nbsp;&gt;&nbsp;0.18</strong>.
+        <strong style={{ color: 'var(--series-3)' }}>{ledger.basinMargin.toFixed(4)}&nbsp;&gt;&nbsp;0.18</strong>.
         The basin-conditional C_Lip never depended on closing c_glob.
       </p>
       <svg viewBox={`0 0 ${svgW} ${svgH}`} style={{ width: "100%", maxWidth: svgW, display: "block", marginBottom: 6 }}>
 
         {/* Basin safe zone shaded */}
-        <rect x={padL} y={padT} width={xBasin - padL} height={svgH - padT - padB} fill="rgba(76,122,74,0.08)" />
-        <text x={padL + (xBasin - padL) / 2} y={padT + 12} fill="#4c7a4a" fontSize={8.5} textAnchor="middle">Theorem-C basin</text>
-        <text x={padL + (xBasin - padL) / 2} y={padT + 23} fill="#4c7a4a" fontSize={8} textAnchor="middle">(&rho;&nbsp;&le;&nbsp;0.72, safe)</text>
+        <rect x={padL} y={padT} width={xBasin - padL} height={svgH - padT - padB} fill={TK_ALPHA(ED.series3, 0.08)} />
+        <text x={padL + (xBasin - padL) / 2} y={padT + 12} fill={ED.series3} fontSize={8.5} textAnchor="middle">Theorem-C basin</text>
+        <text x={padL + (xBasin - padL) / 2} y={padT + 23} fill={ED.series3} fontSize={8} textAnchor="middle">(&rho;&nbsp;&le;&nbsp;0.72, safe)</text>
 
         {/* Main axis */}
-        <line x1={padL} y1={axisY} x2={svgW - padR} y2={axisY} stroke="#877b67" strokeWidth={1.5} />
+        <line x1={padL} y1={axisY} x2={svgW - padR} y2={axisY} stroke={ED.rule} strokeWidth={1.5} />
 
         {/* Basin cap vertical */}
-        <line x1={xBasin} y1={padT + 30} x2={xBasin} y2={axisY + 16} stroke="#4c7a4a" strokeWidth={2} />
-        <text x={xBasin - 3} y={padT + 42} fill="#4c7a4a" fontSize={9} textAnchor="end" fontWeight="bold">0.72</text>
+        <line x1={xBasin} y1={padT + 30} x2={xBasin} y2={axisY + 16} stroke={ED.series3} strokeWidth={2} />
+        <text x={xBasin - 3} y={padT + 42} fill={ED.series3} fontSize={9} textAnchor="end" fontWeight="bold">0.72</text>
 
         {/* Open bracket region for close pair */}
         <rect x={xLo - 2} y={axisY - TICK} width={Math.max(xHi - xLo + 4, 12)} height={TICK * 2}
-          fill="rgba(217,80,46,0.1)" rx={3} />
+          fill={TK_ALPHA(ED.accentDeco, 0.1)} rx={3} />
         {/* Structured inf left edge */}
-        <line x1={xLo} y1={axisY - TICK} x2={xLo} y2={axisY + TICK} stroke="#3f6b86" strokeWidth={2} />
+        <line x1={xLo} y1={axisY - TICK} x2={xLo} y2={axisY + TICK} stroke={ED.series1} strokeWidth={2} />
         {/* c_asym right edge */}
-        <line x1={xHi} y1={axisY - TICK / 2} x2={xHi} y2={axisY + TICK / 2} stroke="#d9502e" strokeWidth={1.5} />
+        <line x1={xHi} y1={axisY - TICK / 2} x2={xHi} y2={axisY + TICK / 2} stroke={ED.accentDeco} strokeWidth={1.5} />
         {/* Struct inf label above */}
-        <text x={xLo - 4} y={axisY - TICK - 11} fill="#3f6b86" fontSize={8} textAnchor="end" fontWeight="700">0.9016</text>
-        <text x={xLo - 4} y={axisY - TICK - 2} fill="#3f6b86" fontSize={7.5} textAnchor="end">struct. inf.</text>
+        <text x={xLo - 4} y={axisY - TICK - 11} fill={ED.series1} fontSize={8} textAnchor="end" fontWeight="700">0.9016</text>
+        <text x={xLo - 4} y={axisY - TICK - 2} fill={ED.series1} fontSize={7.5} textAnchor="end">struct. inf.</text>
         {/* c_asym label below */}
-        <text x={xHi + 4} y={axisY + TICK + 12} fill="#d9502e" fontSize={8} textAnchor="start" fontWeight="700">c_asym=0.90279</text>
-        <text x={xHi + 4} y={axisY + TICK + 22} fill="#d9502e" fontSize={7.5} textAnchor="start">transcendental</text>
-        <text x={(xLo + xHi) / 2} y={axisY + TICK + 32} fill="#d9502e" fontSize={7} textAnchor="middle">2026-06 bracket (c_glob since closed at 0.89802)</text>
+        <text x={xHi + 4} y={axisY + TICK + 12} fill={ED.accentDeco} fontSize={8} textAnchor="start" fontWeight="700">c_asym=0.90279</text>
+        <text x={xHi + 4} y={axisY + TICK + 22} fill={ED.accentDeco} fontSize={7.5} textAnchor="start">transcendental</text>
+        <text x={(xLo + xHi) / 2} y={axisY + TICK + 32} fill={ED.accentDeco} fontSize={7} textAnchor="middle">2026-06 bracket (c_glob since closed at 0.89802)</text>
 
         {/* Protective margin indicator */}
-        <line x1={xBasin} y1={axisY + 18} x2={xLo} y2={axisY + 18} stroke="#4c7a4a" strokeWidth={1.5} />
-        <line x1={xBasin} y1={axisY + 13} x2={xBasin} y2={axisY + 23} stroke="#4c7a4a" strokeWidth={1.5} />
-        <line x1={xLo} y1={axisY + 13} x2={xLo} y2={axisY + 23} stroke="#4c7a4a" strokeWidth={1.5} />
-        <text x={(xBasin + xLo) / 2} y={axisY + 31} fill="#4c7a4a" fontSize={8.5} textAnchor="middle" fontWeight="600">
+        <line x1={xBasin} y1={axisY + 18} x2={xLo} y2={axisY + 18} stroke={ED.series3} strokeWidth={1.5} />
+        <line x1={xBasin} y1={axisY + 13} x2={xBasin} y2={axisY + 23} stroke={ED.series3} strokeWidth={1.5} />
+        <line x1={xLo} y1={axisY + 13} x2={xLo} y2={axisY + 23} stroke={ED.series3} strokeWidth={1.5} />
+        <text x={(xBasin + xLo) / 2} y={axisY + 31} fill={ED.series3} fontSize={8.5} textAnchor="middle" fontWeight="600">
           &gt;0.18 protective margin
         </text>
 
@@ -1845,22 +1848,22 @@ function AsymIsolationOnsetLadderViz() {
         {/* X-axis ticks */}
         {[0.70, 0.75, 0.80, 0.85, 0.90, 0.95, 1.00].map((v) => (
           <g key={v}>
-            <line x1={xS(v)} y1={axisY} x2={xS(v)} y2={axisY + 5} stroke="#d5c9b2" strokeWidth={1} />
-            <text x={xS(v)} y={axisY + 15} fill="#877b67" fontSize={8} textAnchor="middle">{v.toFixed(2)}</text>
+            <line x1={xS(v)} y1={axisY} x2={xS(v)} y2={axisY + 5} stroke={ED.rule} strokeWidth={1} />
+            <text x={xS(v)} y={axisY + 15} fill={ED.inkFaint} fontSize={8} textAnchor="middle">{v.toFixed(2)}</text>
           </g>
         ))}
-        <text x={padL + chartW / 2} y={svgH - 4} fill="#877b67" fontSize={8.5} textAnchor="middle">
+        <text x={padL + chartW / 2} y={svgH - 4} fill={ED.inkFaint} fontSize={8.5} textAnchor="middle">
           &rho; (isolation-ratio onset — every tick is an upper bound on c_glob = 0.89802, closed 2026-08-28)
         </text>
       </svg>
 
-      <div style={{ display: "flex", flexWrap: "wrap", gap: 12, fontSize: 11, color: "#4a4238" }}>
+      <div style={{ display: "flex", flexWrap: "wrap", gap: 12, fontSize: 11, color: 'var(--ink-soft)' }}>
         {[
-          { col: "#4c7a4a", lbl: "c=1 exact (single neighbour)" },
-          { col: "#3f6b86", lbl: "c*=0.93185 algebraic (sym. K=1)" },
-          { col: "#d9502e", lbl: "c_asym=0.90279 transcendental" },
-          { col: "#3f6b86", lbl: "0.9016 certified inf. (imp-3172)" },
-          { col: "#b58a2e", lbl: "dashed: random-scan ceilings" },
+          { col: ED.series3, lbl: "c=1 exact (single neighbour)" },
+          { col: ED.series1, lbl: "c*=0.93185 algebraic (sym. K=1)" },
+          { col: ED.accentDeco, lbl: "c_asym=0.90279 transcendental" },
+          { col: ED.series1, lbl: "0.9016 certified inf. (imp-3172)" },
+          { col: ED.brassDeco, lbl: "dashed: random-scan ceilings" },
         ].map(({ col, lbl }) => (
           <div key={lbl} style={{ display: "flex", alignItems: "center", gap: 4 }}>
             <div style={{ width: 14, height: 2, background: col, flexShrink: 0 }} />
@@ -1876,14 +1879,14 @@ function AsymIsolationOnsetLadderViz() {
 function CglobInfimumHonestBanner() {
   const ledger = SG1C_ASYM_ONSET_BRACKET_LEDGER;
   return (
-    <div style={{ background: "rgba(76,122,74,0.08)", border: "2px solid rgba(76,122,74,0.4)", borderRadius: 8, padding: "10px 14px", marginTop: 12 }}>
-      <div style={{ color: "#4c7a4a", fontWeight: 700, fontSize: 12, marginBottom: 6 }}>
+    <div style={{ background: 'color-mix(in srgb, var(--series-3) 8%, transparent)', border: "2px solid color-mix(in srgb, var(--series-3) 40%, transparent)", borderRadius: 8, padding: "10px 14px", marginTop: 12 }}>
+      <div style={{ color: 'var(--series-3)', fontWeight: 700, fontSize: 12, marginBottom: 6 }}>
         CLOSED (2026-08-28): c_glob = c_half = 0.8980208880762339 — earlier located onsets were upper bounds
       </div>
-      <div style={{ color: "#4a4238", fontSize: 12, lineHeight: 1.75 }}>
+      <div style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.75 }}>
         The global asymmetric isolation constant{" "}
-        <strong style={{ color: "#1c1814" }}>c_glob</strong> is defined as the{" "}
-        <strong style={{ color: "#1c1814" }}>infimum</strong> of all asymmetric
+        <strong style={{ color: 'var(--ink)' }}>c_glob</strong> is defined as the{" "}
+        <strong style={{ color: 'var(--ink)' }}>infimum</strong> of all asymmetric
         configuration onset values; every located configuration gave an onset
         that upper-bounds it. The 2026-08-28 closure (src/data/sg1c-cglo-closure-2026-08-28.js)
         proves the universal rate bound d&#8321;&sup2;&middot;(d&rho;/ds) &le; R(&rho;) with
@@ -1955,85 +1958,85 @@ function MinGapSelectorDiscontinuityViz() {
 
   return (
     <div className="card" style={{ marginTop: 24, borderLeft: "3px solid var(--brass)" }}>
-      <h3 style={{ color: "#8c6a1d", fontSize: 16, marginBottom: 4 }}>
+      <h3 style={{ color: 'var(--brass)', fontSize: 16, marginBottom: 4 }}>
         Minimal-Gap Selector Discontinuity (imp-3173): LEFT vs RIGHT Branch
       </h3>
-      <p style={{ color: "#4a4238", fontSize: 13, lineHeight: 1.7, marginBottom: 12 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.7, marginBottom: 12 }}>
         The imp-3045 bisection was trapped by a discrete-selector round-off artifact.
         Near g&nbsp;&isin;&nbsp;(0.901,&nbsp;0.905) the naive strict-"&lt;" d<sub>1</sub> tie-break
-        flips <strong style={{ color: "#1c1814" }}>{d.selectorFlipsNearOnset.toLocaleString()} times</strong>,
+        flips <strong style={{ color: 'var(--ink)' }}>{d.selectorFlipsNearOnset.toLocaleString()} times</strong>,
         switching between two smooth branches:
-        the <strong style={{ color: "#3f6b86" }}>LEFT (correct)</strong> branch that crosses zero at
-        the true c<sub>asym</sub>, and the <strong style={{ color: "#c23a1c" }}>RIGHT (spurious)</strong> branch
+        the <strong style={{ color: 'var(--series-1)' }}>LEFT (correct)</strong> branch that crosses zero at
+        the true c<sub>asym</sub>, and the <strong style={{ color: 'var(--accent)' }}>RIGHT (spurious)</strong> branch
         flat at ~&minus;0.59 with no zero near the onset.
       </p>
 
       <svg viewBox={`0 0 ${svgW} ${svgH}`} style={{ width: "100%", maxWidth: svgW, display: "block" }}>
-        <line x1={padL} y1={yZero} x2={svgW - padR} y2={yZero} stroke="#d5c9b2" strokeWidth={1} />
+        <line x1={padL} y1={yZero} x2={svgW - padR} y2={yZero} stroke={ED.rule} strokeWidth={1} />
 
         {data.naive.map((p, i) => (
           <circle key={i} cx={xS(p.g).toFixed(1)} cy={yS(p.v).toFixed(1)} r={1.2}
-            fill={p.v > -0.3 ? "#3f6b86" : "#c23a1c"} opacity={0.35} />
+            fill={p.v > -0.3 ? ED.series1 : ED.series2} opacity={0.35} />
         ))}
 
-        <path d={toPath(data.right)} stroke="#c23a1c" strokeWidth={1.5} fill="none" strokeDasharray="4 2" opacity={0.85} />
-        <path d={toPath(data.left)} stroke="#3f6b86" strokeWidth={2} fill="none" />
+        <path d={toPath(data.right)} stroke={ED.accent} strokeWidth={1.5} fill="none" strokeDasharray="4 2" opacity={0.85} />
+        <path d={toPath(data.left)} stroke={ED.series1} strokeWidth={2} fill="none" />
 
         <line x1={xOnset} y1={padT} x2={xOnset} y2={padT + chartH}
-          stroke="#4c7a4a" strokeWidth={1.5} strokeDasharray="5 3" />
-        <text x={xOnset + 3} y={padT + 13} fill="#4c7a4a" fontSize={8}>c_asym</text>
-        <text x={xOnset + 3} y={padT + 22} fill="#4c7a4a" fontSize={7.5}>{d.trueOnsetClosedForm.toFixed(6)}</text>
+          stroke={ED.series3} strokeWidth={1.5} strokeDasharray="5 3" />
+        <text x={xOnset + 3} y={padT + 13} fill={ED.series3} fontSize={8}>c_asym</text>
+        <text x={xOnset + 3} y={padT + 22} fill={ED.series3} fontSize={7.5}>{d.trueOnsetClosedForm.toFixed(6)}</text>
 
         <line x1={xFalse} y1={padT} x2={xFalse} y2={padT + chartH}
-          stroke="#b58a2e" strokeWidth={1.5} strokeDasharray="3 2" />
-        <text x={xFalse + 3} y={padT + 35} fill="#b58a2e" fontSize={8}>imp-3045</text>
-        <text x={xFalse + 3} y={padT + 45} fill="#b58a2e" fontSize={7.5}>{d.scanFalseOnset.toFixed(7)}</text>
+          stroke={ED.brassDeco} strokeWidth={1.5} strokeDasharray="3 2" />
+        <text x={xFalse + 3} y={padT + 35} fill={ED.brass} fontSize={8}>imp-3045</text>
+        <text x={xFalse + 3} y={padT + 45} fill={ED.brass} fontSize={7.5}>{d.scanFalseOnset.toFixed(7)}</text>
 
-        <line x1={padL} y1={padT + chartH} x2={svgW - padR} y2={padT + chartH} stroke="#d5c9b2" strokeWidth={1} />
-        <line x1={padL} y1={padT} x2={padL} y2={padT + chartH} stroke="#d5c9b2" strokeWidth={1} />
+        <line x1={padL} y1={padT + chartH} x2={svgW - padR} y2={padT + chartH} stroke={ED.rule} strokeWidth={1} />
+        <line x1={padL} y1={padT} x2={padL} y2={padT + chartH} stroke={ED.rule} strokeWidth={1} />
 
         {[-0.8, -0.6, -0.4, -0.2, 0.0, 0.2].map((v) => (
           <g key={v}>
-            <text x={padL - 4} y={yS(v) + 3} fill="#877b67" fontSize={7.5} textAnchor="end">{v.toFixed(1)}</text>
-            <line x1={padL - 3} y1={yS(v)} x2={padL} y2={yS(v)} stroke="#d5c9b2" />
+            <text x={padL - 4} y={yS(v) + 3} fill={ED.inkFaint} fontSize={7.5} textAnchor="end">{v.toFixed(1)}</text>
+            <line x1={padL - 3} y1={yS(v)} x2={padL} y2={yS(v)} stroke={ED.rule} />
           </g>
         ))}
-        <text x={12} y={padT + chartH / 2} fill="#4a4238" fontSize={8.5} textAnchor="middle"
+        <text x={12} y={padT + chartH / 2} fill={ED.inkSoft} fontSize={8.5} textAnchor="middle"
           transform={`rotate(-90, 12, ${padT + chartH / 2})`}>
           d&rho;/ds
         </text>
 
         {[0.901, 0.902, 0.903, 0.904, 0.905].map((v) => (
           <g key={v}>
-            <text x={xS(v)} y={padT + chartH + 13} fill="#877b67" fontSize={7.5} textAnchor="middle">
+            <text x={xS(v)} y={padT + chartH + 13} fill={ED.inkFaint} fontSize={7.5} textAnchor="middle">
               {v.toFixed(3)}
             </text>
-            <line x1={xS(v)} y1={padT + chartH} x2={xS(v)} y2={padT + chartH + 4} stroke="#d5c9b2" />
+            <line x1={xS(v)} y1={padT + chartH} x2={xS(v)} y2={padT + chartH + 4} stroke={ED.rule} />
           </g>
         ))}
-        <text x={padL + chartW / 2} y={svgH - 3} fill="#4a4238" fontSize={9} textAnchor="middle">
+        <text x={padL + chartW / 2} y={svgH - 3} fill={ED.inkSoft} fontSize={9} textAnchor="middle">
           g (isolation ratio, R=64 approximation)
         </text>
       </svg>
 
       <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginTop: 8, fontSize: 11 }}>
         {[
-          { col: "#3f6b86", label: "LEFT branch: smooth, crosses zero at true c_asym (tight -1 neighbour)" },
-          { col: "#c23a1c", label: "RIGHT branch: flat ~-0.59, no zero near onset (spurious lattice neighbour)" },
-          { col: "#8c6a1d", label: "Naive selector scatter: chaotic jumps between branches (~1000 flips)" },
-          { col: "#4c7a4a", label: "c_asym = 0.902790 (true continuous onset, imp-3170)" },
-          { col: "#b58a2e", label: "imp-3045 false onset 0.903236 (trapped above by spurious RIGHT negatives)" },
+          { col: ED.series1, label: "LEFT branch: smooth, crosses zero at true c_asym (tight -1 neighbour)" },
+          { col: ED.series2, label: "RIGHT branch: flat ~-0.59, no zero near onset (spurious lattice neighbour)" },
+          { col: ED.brass, label: "Naive selector scatter: chaotic jumps between branches (~1000 flips)" },
+          { col: ED.series3, label: "c_asym = 0.902790 (true continuous onset, imp-3170)" },
+          { col: ED.brassDeco, label: "imp-3045 false onset 0.903236 (trapped above by spurious RIGHT negatives)" },
         ].map(({ col, label }) => (
           <div key={label} style={{ display: "flex", alignItems: "center", gap: 5 }}>
             <div style={{ width: 9, height: 9, borderRadius: "50%", background: col, flexShrink: 0 }} />
-            <span style={{ color: "#4a4238" }}>{label}</span>
+            <span style={{ color: 'var(--ink-soft)' }}>{label}</span>
           </div>
         ))}
       </div>
 
-      <div style={{ background: "rgba(194,58,28,0.07)", border: "1px solid rgba(194,58,28,0.25)", borderRadius: 8, padding: "10px 14px", marginTop: 12 }}>
-        <div style={{ color: "#c23a1c", fontWeight: 700, fontSize: 12, marginBottom: 4 }}>Status</div>
-        <div style={{ color: "#4a4238", fontSize: 12, lineHeight: 1.7 }}>{d.honest}</div>
+      <div style={{ background: 'color-mix(in srgb, var(--series-2) 7%, transparent)', border: "1px solid color-mix(in srgb, var(--accent) 25%, transparent)", borderRadius: 8, padding: "10px 14px", marginTop: 12 }}>
+        <div style={{ color: 'var(--accent)', fontWeight: 700, fontSize: 12, marginBottom: 4 }}>Status</div>
+        <div style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.7 }}>{d.honest}</div>
       </div>
     </div>
   );
@@ -2047,57 +2050,57 @@ function IndependentIntegratorCrossValidationPanel() {
       rk4Value: "-0.01721419",
       analyticValue: "-0.01721420",
       residual: "~1e-9",
-      residualColor: "#4c7a4a",
+      residualColor: ED.series3,
     },
     {
       test: "Config-B onset (genuine smooth zero)",
       rk4Value: d.configB.rk4Onset.toFixed(10),
       analyticValue: d.configB.analyticOnset.toFixed(10),
       residual: d.configB.rk4VsAnalyticError.toExponential(1),
-      residualColor: "#4c7a4a",
+      residualColor: ED.series3,
     },
     {
       test: "Config-A pinned onset vs digamma c_asym",
       rk4Value: d.configA.pinnedRK4Onset.toFixed(10),
       analyticValue: d.configA.closedFormOnset.toFixed(10),
       residual: d.configA.pinnedRK4OnsetError.toExponential(1),
-      residualColor: "#b58a2e",
+      residualColor: ED.brassDeco,
     },
   ];
   return (
     <div className="card" style={{ marginTop: 24, borderLeft: "3px solid var(--blue)" }}>
-      <h3 style={{ color: "#3f6b86", fontSize: 15, marginBottom: 4 }}>
+      <h3 style={{ color: 'var(--series-1)', fontSize: 15, marginBottom: 4 }}>
         Independent-Integrator Cross-Validation (imp-3200)
       </h3>
-      <p style={{ color: "#877b67", fontSize: 12, marginBottom: 12 }}>
+      <p style={{ color: 'var(--ink-faint)', fontSize: 12, marginBottom: 12 }}>
         Scheme: {d.scheme}
       </p>
       <div style={{ overflowX: "auto" }}>
         <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 12 }}>
           <thead>
             <tr>
-              <th style={{ textAlign: "left", color: "#877b67", padding: "4px 8px", borderBottom: "1px solid var(--paper2)" }}>Test</th>
-              <th style={{ textAlign: "right", color: "#877b67", padding: "4px 8px", borderBottom: "1px solid var(--paper2)" }}>RK4 / Numeric</th>
-              <th style={{ textAlign: "right", color: "#877b67", padding: "4px 8px", borderBottom: "1px solid var(--paper2)" }}>Analytic / Closed-form</th>
-              <th style={{ textAlign: "right", color: "#877b67", padding: "4px 8px", borderBottom: "1px solid var(--paper2)" }}>|Residual|</th>
+              <th style={{ textAlign: "left", color: 'var(--ink-faint)', padding: "4px 8px", borderBottom: "1px solid var(--paper2)" }}>Test</th>
+              <th style={{ textAlign: "right", color: 'var(--ink-faint)', padding: "4px 8px", borderBottom: "1px solid var(--paper2)" }}>RK4 / Numeric</th>
+              <th style={{ textAlign: "right", color: 'var(--ink-faint)', padding: "4px 8px", borderBottom: "1px solid var(--paper2)" }}>Analytic / Closed-form</th>
+              <th style={{ textAlign: "right", color: 'var(--ink-faint)', padding: "4px 8px", borderBottom: "1px solid var(--paper2)" }}>|Residual|</th>
             </tr>
           </thead>
           <tbody>
             {rows.map((r, i) => (
               <tr key={i} style={{ borderBottom: "1px solid var(--paper)" }}>
-                <td style={{ color: "#4a4238", padding: "6px 8px" }}>{r.test}</td>
-                <td style={{ color: "#1c1814", padding: "6px 8px", textAlign: "right", fontFamily: "monospace" }}>{r.rk4Value}</td>
-                <td style={{ color: "#1c1814", padding: "6px 8px", textAlign: "right", fontFamily: "monospace" }}>{r.analyticValue}</td>
+                <td style={{ color: 'var(--ink-soft)', padding: "6px 8px" }}>{r.test}</td>
+                <td style={{ color: 'var(--ink)', padding: "6px 8px", textAlign: "right", fontFamily: "monospace" }}>{r.rk4Value}</td>
+                <td style={{ color: 'var(--ink)', padding: "6px 8px", textAlign: "right", fontFamily: "monospace" }}>{r.analyticValue}</td>
                 <td style={{ color: r.residualColor, padding: "6px 8px", textAlign: "right", fontFamily: "monospace", fontWeight: 700 }}>{r.residual}</td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
-      <div style={{ background: "rgba(194,58,28,0.07)", border: "1px solid rgba(194,58,28,0.25)", borderRadius: 8, padding: "10px 14px", marginTop: 12 }}>
-        <div style={{ color: "#c23a1c", fontWeight: 700, fontSize: 12, marginBottom: 4 }}>Status as recorded 2026-06-30</div>
-        <div style={{ color: "#4a4238", fontSize: 12, lineHeight: 1.7 }}>{d.honest}</div>
-        <div style={{ color: "#4c7a4a", fontSize: 11, marginTop: 6, lineHeight: 1.6 }}>
+      <div style={{ background: 'color-mix(in srgb, var(--series-2) 7%, transparent)', border: "1px solid color-mix(in srgb, var(--accent) 25%, transparent)", borderRadius: 8, padding: "10px 14px", marginTop: 12 }}>
+        <div style={{ color: 'var(--accent)', fontWeight: 700, fontSize: 12, marginBottom: 4 }}>Status as recorded 2026-06-30</div>
+        <div style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.7 }}>{d.honest}</div>
+        <div style={{ color: 'var(--series-3)', fontSize: 11, marginTop: 6, lineHeight: 1.6 }}>
           Update 2026-08-28: the global constant referenced above has since been closed in closed form,
           c_glob = c_half = 0.8980208880762339 (src/data/sg1c-cglo-closure-2026-08-28.js).
         </div>
@@ -2143,25 +2146,25 @@ function ConfigABDrhoViz() {
   function AxesAndZero({ yS, yMin, yMax, yLabels, label }) {
     return (
       <>
-        <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#d5c9b2" strokeWidth={1} />
-        <line x1={padL} y1={padT + cH} x2={svgW - padR} y2={padT + cH} stroke="#d5c9b2" strokeWidth={1} />
-        <line x1={padL} y1={yS(0)} x2={svgW - padR} y2={yS(0)} stroke="#877b67" strokeWidth={0.7} strokeDasharray="3 2" />
+        <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.rule} strokeWidth={1} />
+        <line x1={padL} y1={padT + cH} x2={svgW - padR} y2={padT + cH} stroke={ED.rule} strokeWidth={1} />
+        <line x1={padL} y1={yS(0)} x2={svgW - padR} y2={yS(0)} stroke={ED.rule} strokeWidth={0.7} strokeDasharray="3 2" />
         {yLabels.map((v) => (
           <g key={v}>
-            <text x={padL - 4} y={yS(v) + 3} fill="#877b67" fontSize={7} textAnchor="end">{v.toFixed(v === 0 ? 0 : 3)}</text>
-            <line x1={padL - 3} y1={yS(v)} x2={padL} y2={yS(v)} stroke="#d5c9b2" />
+            <text x={padL - 4} y={yS(v) + 3} fill={ED.inkFaint} fontSize={7} textAnchor="end">{v.toFixed(v === 0 ? 0 : 3)}</text>
+            <line x1={padL - 3} y1={yS(v)} x2={padL} y2={yS(v)} stroke={ED.rule} />
           </g>
         ))}
         {xLabels.map((v) => (
           <g key={v}>
-            <text x={xS(v)} y={padT + cH + 12} fill="#877b67" fontSize={7} textAnchor="middle">{v === 0 ? "0" : v.toFixed(3)}</text>
-            <line x1={xS(v)} y1={padT + cH} x2={xS(v)} y2={padT + cH + 4} stroke="#d5c9b2" />
+            <text x={xS(v)} y={padT + cH + 12} fill={ED.inkFaint} fontSize={7} textAnchor="middle">{v === 0 ? "0" : v.toFixed(3)}</text>
+            <line x1={xS(v)} y1={padT + cH} x2={xS(v)} y2={padT + cH + 4} stroke={ED.rule} />
           </g>
         ))}
-        <text x={padL + cW / 2} y={svgH - 4} fill="#877b67" fontSize={8} textAnchor="middle">{label}</text>
-        <line x1={xS(0)} y1={padT} x2={xS(0)} y2={padT + cH} stroke="#d5c9b2" strokeWidth={0.5} strokeDasharray="4 3" />
-        <text x={xS(0) + 3} y={padT + 9} fill="#d5c9b2" fontSize={7}>onset</text>
-        <text x={8} y={padT + cH / 2} fill="#4a4238" fontSize={8} textAnchor="middle"
+        <text x={padL + cW / 2} y={svgH - 4} fill={ED.inkFaint} fontSize={8} textAnchor="middle">{label}</text>
+        <line x1={xS(0)} y1={padT} x2={xS(0)} y2={padT + cH} stroke={ED.rule} strokeWidth={0.5} strokeDasharray="4 3" />
+        <text x={xS(0) + 3} y={padT + 9} fill={ED.rule} fontSize={7}>onset</text>
+        <text x={8} y={padT + cH / 2} fill={ED.inkSoft} fontSize={8} textAnchor="middle"
           transform={`rotate(-90, 8, ${padT + cH / 2})`}>dρ/ds</text>
       </>
     );
@@ -2169,43 +2172,43 @@ function ConfigABDrhoViz() {
 
   return (
     <div className="card" style={{ marginTop: 24, borderLeft: "3px solid var(--brass-dk)" }}>
-      <h3 style={{ color: "#b58a2e", fontSize: 15, marginBottom: 4 }}>
+      <h3 style={{ color: 'var(--brass)', fontSize: 15, marginBottom: 4 }}>
         Config-A Selector-Trap vs Config-B Smooth-Zero: RK4 dρ/ds Near Onset (imp-3247)
       </h3>
-      <p style={{ color: "#877b67", fontSize: 12, marginBottom: 14, lineHeight: 1.6 }}>
+      <p style={{ color: 'var(--ink-faint)', fontSize: 12, marginBottom: 14, lineHeight: 1.6 }}>
         Two-panel comparison of the RK4 rate d&rho;/ds vs &Delta;&rho; near each onset. Config-A (c_asym): naive
         global-nearest selector stays flat at {naiveRate.toFixed(2)} (never crosses zero -- selector trap). Pinning the
         selector to the smooth left branch restores a genuine zero at c_asym with rate{" "}
-        <span style={{ color: "#4c7a4a", fontFamily: "monospace" }}>-4.1e-7</span>.
+        <span style={{ color: 'var(--series-3)', fontFamily: "monospace" }}>-4.1e-7</span>.
         Config-B (B = 0.9015828): clean sign change{" "}
-        <span style={{ color: "#4c7a4a", fontFamily: "monospace" }}>-1.09e-2 &rarr; 0 &rarr; +1.09e-2</span>,
+        <span style={{ color: 'var(--series-3)', fontFamily: "monospace" }}>-1.09e-2 &rarr; 0 &rarr; +1.09e-2</span>,
         selector PINNED on the lone left particle on both sides -- a genuine continuous zero.
       </p>
 
       <div style={{ display: "flex", flexWrap: "wrap", gap: 20 }}>
         {/* Config-A Panel */}
         <div style={{ flex: 1, minWidth: 240 }}>
-          <div style={{ color: "#4a4238", fontSize: 11, textAlign: "center", marginBottom: 4 }}>
+          <div style={{ color: 'var(--ink-soft)', fontSize: 11, textAlign: "center", marginBottom: 4 }}>
             Config-A &nbsp; c<sub>asym</sub> = {d.configA.closedFormOnset.toFixed(7)}
           </div>
           <svg width={svgW} height={svgH} style={{ display: "block", maxWidth: "100%", overflow: "visible" }}>
             <AxesAndZero yS={ySA} yMin={yMinA} yMax={yMaxA} yLabels={yLabelsA} label={"Δρ = ρ − c_asym"} />
             {/* naive flat line (selector trap) */}
-            <path d={makePathA(cfgANaive)} stroke="#c23a1c" strokeWidth={2} fill="none" strokeDasharray="5 3" />
-            <text x={svgW - padR - 2} y={ySA(naiveRate) - 4} fill="#c23a1c" fontSize={7.5} textAnchor="end">naive: {naiveRate.toFixed(2)}</text>
+            <path d={makePathA(cfgANaive)} stroke={ED.accent} strokeWidth={2} fill="none" strokeDasharray="5 3" />
+            <text x={svgW - padR - 2} y={ySA(naiveRate) - 4} fill={ED.accent} fontSize={7.5} textAnchor="end">naive: {naiveRate.toFixed(2)}</text>
             {/* pinned genuine zero */}
-            <path d={makePathA(cfgAPinned)} stroke="#3f6b86" strokeWidth={2} fill="none" />
-            <circle cx={xS(0)} cy={ySA(0)} r={4} fill="none" stroke="#4c7a4a" strokeWidth={1.5} />
-            <text x={xS(0) + 6} y={ySA(0) - 6} fill="#4c7a4a" fontSize={7.5}>-4.1e-7 (~0)</text>
+            <path d={makePathA(cfgAPinned)} stroke={ED.series1} strokeWidth={2} fill="none" />
+            <circle cx={xS(0)} cy={ySA(0)} r={4} fill="none" stroke={ED.series3} strokeWidth={1.5} />
+            <text x={xS(0) + 6} y={ySA(0) - 6} fill={ED.series3} fontSize={7.5}>-4.1e-7 (~0)</text>
           </svg>
           <div style={{ display: "flex", flexDirection: "column", gap: 4, marginTop: 6, fontSize: 11 }}>
             {[
-              { col: "#c23a1c", label: "Naive global-nearest: flat -0.59, never crosses zero (selector trap)" },
-              { col: "#3f6b86", label: "Pinned left-branch: genuine sign change at c_asym" },
+              { col: ED.series2, label: "Naive global-nearest: flat -0.59, never crosses zero (selector trap)" },
+              { col: ED.series1, label: "Pinned left-branch: genuine sign change at c_asym" },
             ].map(({ col, label }) => (
               <div key={label} style={{ display: "flex", alignItems: "center", gap: 5 }}>
                 <div style={{ width: 9, height: 2, background: col, flexShrink: 0 }} />
-                <span style={{ color: "#4a4238" }}>{label}</span>
+                <span style={{ color: 'var(--ink-soft)' }}>{label}</span>
               </div>
             ))}
           </div>
@@ -2213,37 +2216,37 @@ function ConfigABDrhoViz() {
 
         {/* Config-B Panel */}
         <div style={{ flex: 1, minWidth: 240 }}>
-          <div style={{ color: "#4a4238", fontSize: 11, textAlign: "center", marginBottom: 4 }}>
+          <div style={{ color: 'var(--ink-soft)', fontSize: 11, textAlign: "center", marginBottom: 4 }}>
             Config-B &nbsp; B = {d.configB.rk4Onset.toFixed(7)}
           </div>
           <svg width={svgW} height={svgH} style={{ display: "block", maxWidth: "100%", overflow: "visible" }}>
             <AxesAndZero yS={ySB} yMin={yMinB} yMax={yMaxB} yLabels={yLabelsB} label={"Δρ = ρ − B"} />
             {/* smooth sign-change line */}
-            <path d={makePathB(cfgBPts)} stroke="#4c7a4a" strokeWidth={2} fill="none" />
-            <circle cx={xS(0)} cy={ySB(0)} r={4} fill="none" stroke="#4c7a4a" strokeWidth={1.5} />
-            <text x={xS(0) + 6} y={ySB(0) - 6} fill="#4c7a4a" fontSize={7.5}>-1.1e-9 (~0)</text>
+            <path d={makePathB(cfgBPts)} stroke={ED.series3} strokeWidth={2} fill="none" />
+            <circle cx={xS(0)} cy={ySB(0)} r={4} fill="none" stroke={ED.series3} strokeWidth={1.5} />
+            <text x={xS(0) + 6} y={ySB(0) - 6} fill={ED.series3} fontSize={7.5}>-1.1e-9 (~0)</text>
             {/* annotate +-0.001 points */}
-            <circle cx={xS(-0.001)} cy={ySB(-0.0109)} r={3} fill="#4c7a4a" />
-            <text x={xS(-0.001) - 4} y={ySB(-0.0109) - 5} fill="#4c7a4a" fontSize={7} textAnchor="end">-1.09e-2</text>
-            <circle cx={xS(0.001)} cy={ySB(0.0109)} r={3} fill="#4c7a4a" />
-            <text x={xS(0.001) + 4} y={ySB(0.0109) + 12} fill="#4c7a4a" fontSize={7}>+1.09e-2</text>
+            <circle cx={xS(-0.001)} cy={ySB(-0.0109)} r={3} fill={ED.series3} />
+            <text x={xS(-0.001) - 4} y={ySB(-0.0109) - 5} fill={ED.series3} fontSize={7} textAnchor="end">-1.09e-2</text>
+            <circle cx={xS(0.001)} cy={ySB(0.0109)} r={3} fill={ED.series3} />
+            <text x={xS(0.001) + 4} y={ySB(0.0109) + 12} fill={ED.series3} fontSize={7}>+1.09e-2</text>
           </svg>
           <div style={{ display: "flex", flexDirection: "column", gap: 4, marginTop: 6, fontSize: 11 }}>
             {[
-              { col: "#4c7a4a", label: "Genuine smooth zero: clean sign change, selector stays pinned on lone left particle both sides" },
+              { col: ED.series3, label: "Genuine smooth zero: clean sign change, selector stays pinned on lone left particle both sides" },
             ].map(({ col, label }) => (
               <div key={label} style={{ display: "flex", alignItems: "center", gap: 5 }}>
                 <div style={{ width: 9, height: 2, background: col, flexShrink: 0 }} />
-                <span style={{ color: "#4a4238" }}>{label}</span>
+                <span style={{ color: 'var(--ink-soft)' }}>{label}</span>
               </div>
             ))}
           </div>
         </div>
       </div>
 
-      <div style={{ background: "rgba(181,138,46,0.07)", border: "1px solid rgba(181,138,46,0.25)", borderRadius: 8, padding: "10px 14px", marginTop: 14 }}>
-        <div style={{ color: "#b58a2e", fontWeight: 700, fontSize: 12, marginBottom: 4 }}>Status</div>
-        <div style={{ color: "#4a4238", fontSize: 12, lineHeight: 1.7 }}>
+      <div style={{ background: 'color-mix(in srgb, var(--brass-deco) 7%, transparent)', border: "1px solid color-mix(in srgb, var(--brass-deco) 25%, transparent)", borderRadius: 8, padding: "10px 14px", marginTop: 14 }}>
+        <div style={{ color: 'var(--brass)', fontWeight: 700, fontSize: 12, marginBottom: 4 }}>Status</div>
+        <div style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.7 }}>
           Config-A&apos;s naive onset is a SELECTOR ARTIFACT (flat -0.59 branch, no zero crossing); reading
           off the PINNED left-branch restores the genuine onset at c_asym = 0.9027902.
           Config-B&apos;s onset 0.9015828 is a genuine smooth zero independently confirmed by the RK4
@@ -2274,16 +2277,16 @@ function IsolationRatioLandmarksNumberLine() {
 
   return (
     <div className="card" style={{ marginTop: 24, borderLeft: "3px solid var(--brass)" }}>
-      <h3 style={{ color: "#8c6a1d", fontSize: 15, marginBottom: 6 }}>
+      <h3 style={{ color: 'var(--brass)', fontSize: 15, marginBottom: 6 }}>
         Isolation-Ratio &rho; Landmarks — Full Range Overview (imp-3099)
       </h3>
-      <p style={{ color: "#4a4238", fontSize: 13, lineHeight: 1.7, marginBottom: 10 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.7, marginBottom: 10 }}>
         Annotated number line of the four key &rho;&nbsp;=&nbsp;g/d&#x2081; thresholds.
-        The <strong style={{ color: "#4c7a4a" }}>basin safe zone</strong> (green) covers &rho;&nbsp;&lt;&nbsp;0.72.
-        The <strong style={{ color: "#b58a2e" }}>2026-06 multi-body bracket</strong> [0.927, 0.943] marks
+        The <strong style={{ color: 'var(--series-3)' }}>basin safe zone</strong> (green) covers &rho;&nbsp;&lt;&nbsp;0.72.
+        The <strong style={{ color: 'var(--brass)' }}>2026-06 multi-body bracket</strong> [0.927, 0.943] marks
         where random-scan onsets bounded the global constant c_glob from above
         (since closed: c_glob = c_half = 0.8980208880762339, 2026-08-28).
-        The <strong style={{ color: "#8c6a1d" }}>algebraic single-shell onset</strong> c*&nbsp;&asymp;&nbsp;0.932
+        The <strong style={{ color: 'var(--brass)' }}>algebraic single-shell onset</strong> c*&nbsp;&asymp;&nbsp;0.932
         sits inside the bracket. The Theorem-C basin cap (0.72) has a protective margin of&nbsp;&gt;0.18
         below the tightest located onset.
       </p>
@@ -2291,85 +2294,85 @@ function IsolationRatioLandmarksNumberLine() {
 
         {/* Basin safe zone shading */}
         <rect x={xS(0)} y={padT} width={xS(BASIN_CAP) - xS(0)} height={svgH - padT - padB}
-          fill="rgba(76,122,74,0.08)" />
+          fill={TK_ALPHA(ED.series3, 0.08)} />
 
         {/* Open multi-body bracket shading */}
         <rect x={xS(BRACKET_LO)} y={padT} width={xS(BRACKET_HI) - xS(BRACKET_LO)} height={svgH - padT - padB}
-          fill="rgba(181,138,46,0.14)" rx={2} />
+          fill={TK_ALPHA(ED.brassDeco, 0.14)} rx={2} />
 
         {/* Main axis line */}
-        <line x1={padL} y1={axisY} x2={svgW - padR} y2={axisY} stroke="#877b67" strokeWidth={1.5} />
+        <line x1={padL} y1={axisY} x2={svgW - padR} y2={axisY} stroke={ED.rule} strokeWidth={1.5} />
 
         {/* Axis ticks and labels */}
         {axisTicks.map((v) => (
           <g key={v}>
-            <line x1={xS(v)} y1={axisY} x2={xS(v)} y2={axisY + 5} stroke="#877b67" strokeWidth={1} />
-            <text x={xS(v)} y={axisY + 15} fill="#877b67" fontSize={9} textAnchor="middle">
+            <line x1={xS(v)} y1={axisY} x2={xS(v)} y2={axisY + 5} stroke={ED.rule} strokeWidth={1} />
+            <text x={xS(v)} y={axisY + 15} fill={ED.inkFaint} fontSize={9} textAnchor="middle">
               {v === 0.25 ? "1/4" : v === 0.75 ? "3/4" : v === 0.5 ? "1/2" : v.toFixed(0)}
             </text>
           </g>
         ))}
-        <text x={padL + chartW / 2} y={svgH - 3} fill="#4a4238" fontSize={10} textAnchor="middle">
+        <text x={padL + chartW / 2} y={svgH - 3} fill={ED.inkSoft} fontSize={10} textAnchor="middle">
           {"ρ = g / d₁  (isolation ratio)"}
         </text>
 
         {/* rho* = 2/3 — above axis: tick up + label above */}
         <line x1={xS(RHO_STAR)} y1={axisY - 38} x2={xS(RHO_STAR)} y2={axisY + 8}
-          stroke="#c23a1c" strokeWidth={2} />
-        <circle cx={xS(RHO_STAR)} cy={axisY} r={4} fill="#c23a1c" />
-        <text x={xS(RHO_STAR)} y={axisY - 42} fill="#c23a1c" fontSize={9} textAnchor="middle" fontWeight="bold">
+          stroke={ED.accent} strokeWidth={2} />
+        <circle cx={xS(RHO_STAR)} cy={axisY} r={4} fill={ED.series2} />
+        <text x={xS(RHO_STAR)} y={axisY - 42} fill={ED.accent} fontSize={9} textAnchor="middle" fontWeight="bold">
           {"ρ*=2/3"}
         </text>
-        <text x={xS(RHO_STAR)} y={axisY - 33} fill="#c23a1c" fontSize={8} textAnchor="middle">
+        <text x={xS(RHO_STAR)} y={axisY - 33} fill={ED.accent} fontSize={8} textAnchor="middle">
           {"1/4-trap crossing"}
         </text>
 
         {/* 0.72 Theorem-C basin cap — below axis */}
         <line x1={xS(BASIN_CAP)} y1={axisY - 8} x2={xS(BASIN_CAP)} y2={axisY + 28}
-          stroke="#3f6b86" strokeWidth={2} strokeDasharray="5 2.5" />
-        <circle cx={xS(BASIN_CAP)} cy={axisY} r={4} fill="#3f6b86" />
-        <text x={xS(BASIN_CAP)} y={axisY + 37} fill="#3f6b86" fontSize={9} textAnchor="middle" fontWeight="bold">
+          stroke={ED.series1} strokeWidth={2} strokeDasharray="5 2.5" />
+        <circle cx={xS(BASIN_CAP)} cy={axisY} r={4} fill={ED.series1} />
+        <text x={xS(BASIN_CAP)} y={axisY + 37} fill={ED.series1} fontSize={9} textAnchor="middle" fontWeight="bold">
           {"0.72"}
         </text>
-        <text x={xS(BASIN_CAP)} y={axisY + 47} fill="#3f6b86" fontSize={8} textAnchor="middle">
+        <text x={xS(BASIN_CAP)} y={axisY + 47} fill={ED.series1} fontSize={8} textAnchor="middle">
           {"Theorem-C cap"}
         </text>
 
         {/* Open bracket edges 0.927 and 0.943 */}
         <line x1={xS(BRACKET_LO)} y1={padT} x2={xS(BRACKET_LO)} y2={axisY + 8}
-          stroke="#b58a2e" strokeWidth={1.5} strokeDasharray="4 2" />
+          stroke={ED.brassDeco} strokeWidth={1.5} strokeDasharray="4 2" />
         <line x1={xS(BRACKET_HI)} y1={padT} x2={xS(BRACKET_HI)} y2={axisY + 8}
-          stroke="#b58a2e" strokeWidth={1.5} strokeDasharray="4 2" />
-        <text x={(xS(BRACKET_LO) + xS(BRACKET_HI)) / 2} y={padT + 10} fill="#b58a2e" fontSize={8}
+          stroke={ED.brassDeco} strokeWidth={1.5} strokeDasharray="4 2" />
+        <text x={(xS(BRACKET_LO) + xS(BRACKET_HI)) / 2} y={padT + 10} fill={ED.brass} fontSize={8}
           textAnchor="middle" fontWeight="bold">
           {"2026-06 multi-body bracket"}
         </text>
-        <text x={xS(BRACKET_LO) - 2} y={axisY + 27} fill="#b58a2e" fontSize={8} textAnchor="end">
+        <text x={xS(BRACKET_LO) - 2} y={axisY + 27} fill={ED.brass} fontSize={8} textAnchor="end">
           {"0.927"}
         </text>
-        <text x={xS(BRACKET_HI) + 2} y={axisY + 27} fill="#b58a2e" fontSize={8} textAnchor="start">
+        <text x={xS(BRACKET_HI) + 2} y={axisY + 27} fill={ED.brass} fontSize={8} textAnchor="start">
           {"0.943"}
         </text>
-        <text x={(xS(BRACKET_LO) + xS(BRACKET_HI)) / 2} y={axisY + 37} fill="#b58a2e" fontSize={8}
+        <text x={(xS(BRACKET_LO) + xS(BRACKET_HI)) / 2} y={axisY + 37} fill={ED.brass} fontSize={8}
           textAnchor="middle">
           {"(random-scan upper bounds on c_glob)"}
         </text>
 
         {/* c* = 0.93185 — above axis */}
         <line x1={xS(C_STAR)} y1={axisY - 28} x2={xS(C_STAR)} y2={axisY + 6}
-          stroke="#8c6a1d" strokeWidth={2} />
-        <circle cx={xS(C_STAR)} cy={axisY} r={4} fill="#8c6a1d" />
-        <text x={xS(C_STAR)} y={axisY - 33} fill="#8c6a1d" fontSize={9} textAnchor="middle" fontWeight="bold">
+          stroke={ED.brass} strokeWidth={2} />
+        <circle cx={xS(C_STAR)} cy={axisY} r={4} fill={ED.brass} />
+        <text x={xS(C_STAR)} y={axisY - 33} fill={ED.brass} fontSize={9} textAnchor="middle" fontWeight="bold">
           {"c*≈0.932"}
         </text>
-        <text x={xS(C_STAR)} y={axisY - 23} fill="#8c6a1d" fontSize={8} textAnchor="middle">
+        <text x={xS(C_STAR)} y={axisY - 23} fill={ED.brass} fontSize={8} textAnchor="middle">
           {"single-shell closed"}
         </text>
 
         {/* c=1 right end tick */}
         <line x1={xS(1.0)} y1={axisY - 10} x2={xS(1.0)} y2={axisY + 10}
-          stroke="#4c7a4a" strokeWidth={1.5} />
-        <text x={xS(1.0)} y={axisY - 14} fill="#4c7a4a" fontSize={8} textAnchor="middle">{"c=1"}</text>
+          stroke={ED.series3} strokeWidth={1.5} />
+        <text x={xS(1.0)} y={axisY - 14} fill={ED.series3} fontSize={8} textAnchor="middle">{"c=1"}</text>
 
       </svg>
     </div>
@@ -2396,7 +2399,7 @@ export default function SpectralAttackPage() {
           all point to <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} />. If these measures are genuinely independent
           (low pairwise correlation), the combined evidence is stronger than any single measure — but
           it stays evidence, not a route to proof: no accumulation of soft (arithmetic-free) measures
-          can decide RH (<Link to="/flow-blindness-no-go" style={{ color: 'var(--brass)' }}>the flow-blindness no-go</Link>).
+          can decide <ConceptTerm slug="riemann-hypothesis">RH</ConceptTerm> (<Link to="/flow-blindness-no-go" style={{ color: 'var(--brass)' }}>the flow-blindness no-go</Link>; concept page: <ConceptTerm slug="flow-blindness">flow-blindness</ConceptTerm>).
           The six vectors are diagnostics of where confinement structure lives.
         </p>
       </div>
@@ -2767,7 +2770,7 @@ export default function SpectralAttackPage() {
       <IsolationRatioLandmarksNumberLine />
 
       {/* Related Pages */}
-      <div className="card" style={{ marginTop: 24, background: 'rgba(63,107,134,0.04)' }}>
+      <div className="card" style={{ marginTop: 24, background: 'color-mix(in srgb, var(--series-1) 4%, transparent)' }}>
         <h3 style={{ color: 'var(--faint)', fontSize: 13, marginBottom: 10 }}>Related Pages</h3>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
           <Link to="/rh-attack" style={{ color: 'var(--blue)', fontSize: 13 }}>RH Approach</Link>

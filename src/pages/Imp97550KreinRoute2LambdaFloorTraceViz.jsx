@@ -6,16 +6,17 @@ import {
   IMP97550_FLOOR,
   IMP97550_REQUIRED_RHO_EXCEEDS,
 } from '../data/imp-97550-krein-route2-lambda-floor-trace-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 // imp-97550: visualizes the imp-97513 direct-build extension of the Route-2
 // Kbig->infinity lambda_2 floor past the imp-97495 Kbig=380 edge -- four
 // directly-measured bound points (no extrapolation) tightening the floor's
 // upper edge, alongside tr(A2) continuing to converge.
 
-const COLOR_POINTS = '#38bdf8';
-const COLOR_TRACE = '#a78bfa';
-const COLOR_TIGHT = '#4ade80';
-const COLOR_WIDE = '#94a3b8';
+const COLOR_POINTS = ED.series1;
+const COLOR_TRACE = ED.series5;
+const COLOR_TIGHT = ED.series3;
+const COLOR_WIDE = ED.series8;
 
 function BoundPanel() {
   const svgW = 720;
@@ -60,24 +61,24 @@ function BoundPanel() {
         strokeWidth={1.6}
       />
       {IMP97550_BOUND_POINTS.map((p) => (
-        <circle key={p.Kbig} cx={xOf(p.Kbig)} cy={yOf(p.bound)} r={4.5} fill={COLOR_POINTS} stroke="#0f172a" strokeWidth={1} />
+        <circle key={p.Kbig} cx={xOf(p.Kbig)} cy={yOf(p.bound)} r={4.5} fill={COLOR_POINTS} stroke={ED.paper} strokeWidth={1} />
       ))}
 
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
 
       {[380, 420, 460, 500].map((k) => (
-        <text key={`xk${k}`} x={xOf(k)} y={padT + plotH + 16} textAnchor="middle" fill="#64748b" fontSize={8}>
+        <text key={`xk${k}`} x={xOf(k)} y={padT + plotH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={8}>
           {k}
         </text>
       ))}
       {[0, tightHi, tightLo, wideLo].map((v, i) => (
-        <text key={`yv${i}`} x={padL - 6} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={8}>
+        <text key={`yv${i}`} x={padL - 6} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8}>
           {v.toFixed(2)}
         </text>
       ))}
 
-      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={9}>
+      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
         Kbig &mdash; <tspan fill={COLOR_POINTS}>dots: directly-built bound (no extrapolation)</tspan>
       </text>
     </svg>
@@ -112,24 +113,24 @@ function TracePanel() {
         strokeWidth={2}
       />
       {IMP97550_TRACE_POINTS.map((p) => (
-        <circle key={p.Kbig} cx={xOf(p.Kbig)} cy={yOf(p.trace)} r={4} fill={COLOR_TRACE} stroke="#0f172a" strokeWidth={1} />
+        <circle key={p.Kbig} cx={xOf(p.Kbig)} cy={yOf(p.trace)} r={4} fill={COLOR_TRACE} stroke={ED.paper} strokeWidth={1} />
       ))}
 
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
 
       {[380, 420, 460, 500].map((k) => (
-        <text key={`xk${k}`} x={xOf(k)} y={padT + plotH + 16} textAnchor="middle" fill="#64748b" fontSize={8}>
+        <text key={`xk${k}`} x={xOf(k)} y={padT + plotH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={8}>
           {k}
         </text>
       ))}
       {IMP97550_TRACE_POINTS.map((p) => (
-        <text key={`yv${p.Kbig}`} x={padL - 6} y={yOf(p.trace) + 3} textAnchor="end" fill="#64748b" fontSize={8}>
+        <text key={`yv${p.Kbig}`} x={padL - 6} y={yOf(p.trace) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8}>
           {(p.trace / 1e6).toFixed(2)}M
         </text>
       ))}
 
-      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={9}>
+      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
         Kbig &mdash; tr(A2), converging toward &sim;4819.1M
       </text>
     </svg>
@@ -145,15 +146,15 @@ export default function Imp97550KreinRoute2LambdaFloorTraceViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(56,189,248,0.06)',
-          borderLeft: '3px solid #38bdf8',
+          background: 'color-mix(in srgb, var(--series-1) 6%, transparent)',
+          borderLeft: '3px solid var(--series-1)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#38bdf8' }}>Honest status:</strong> every
+        <strong style={{ color: 'var(--series-1)' }}>Honest status:</strong> every
         point and bracket below is reused verbatim from imp-97513.
         Measurement only &mdash; no rigorous lower bound on lambda_2, no
         operator positivity, no bound moves; interval-rigorous reach stays
@@ -161,7 +162,7 @@ export default function Imp97550KreinRoute2LambdaFloorTraceViz() {
         QED.
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-97495 built the direct A2 reproducing-kernel matrix to Kbig=380,
         reading the best-reachable Route-2 lower bound on lambda_2 at
         -309.931066. imp-97513 extended the SAME executed build to Kbig in
@@ -172,17 +173,17 @@ export default function Imp97550KreinRoute2LambdaFloorTraceViz() {
         is unchanged.
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         directly-built bound vs Kbig: tightened floor bracket vs the wider imp-97495 bracket
       </h3>
       <BoundPanel />
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', margin: '1.5rem 0 0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', margin: '1.5rem 0 0.5rem' }}>
         tr(A2) vs Kbig: the reproducing kernel keeps converging
       </h3>
       <TracePanel />
 
-      <p style={{ color: '#64748b', fontSize: '0.8rem', marginTop: '1rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-faint)', fontSize: '0.8rem', marginTop: '1rem', maxWidth: 700 }}>
         Required rho for a usable m=1 enclosure: {IMP97550_REQUIRED_RHO_EXCEEDS}
         &mdash; roughly four orders of magnitude above the measured floor
         (bracket [{IMP97550_FLOOR.tightenedBracket[0]}, {IMP97550_FLOOR.tightenedBracket[1]}]),
@@ -196,14 +197,14 @@ export default function Imp97550KreinRoute2LambdaFloorTraceViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> presentation
         only, consuming the imp-97513 directly-built points and brackets
         verbatim. Establishes no operator positivity; changes no bound;
         Platt-Trudgian Lambda&le;0.2 remains SOTA; RH open; NO QED.

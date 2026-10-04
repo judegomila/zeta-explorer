@@ -6,6 +6,7 @@ import { FULL_ROUTE_MAP } from '../data/full-route-map-2026-06-19.js';
 import { GRADE_META } from '../data/graded-results.js';
 import { FRONTIER_DAG } from '../data/frontier-dag.js';
 import { THREADS_META } from '../data/research-threads.js';
+import { STATUS } from '../styles/tokens.js';
 
 /* The Atlas — a high-level portal into the approach map. Every line of approach
    on RH / Λ, grouped by the six route-map clusters, each a card that drops you
@@ -147,14 +148,14 @@ const FRONTIER_CARDS = [
 
 // Warm status-chip colors, mirroring the route map / status legend.
 const STATUS_COLOR = {
-  'RIGOROUS-SOTA': '#4c7a4a',
-  'RH-EQUIVALENT': '#6d55b8',
-  'CONDITIONAL': '#b58a2e',
-  'ESTIMATE': '#3f6b86',
-  'OPEN-HARD': '#3f6b86',
-  'DEAD-END-FORNOW': '#877b67',
-  'REFUTED': '#c23a1c',
-  'UNDER-EXPLORED': '#3f6b86',
+  'RIGOROUS-SOTA': STATUS.proved.fg,
+  'RH-EQUIVALENT': STATUS.rhequiv.fg,
+  'CONDITIONAL': STATUS.conditional.fg,
+  'ESTIMATE': STATUS.open.fg,
+  'OPEN-HARD': STATUS.open.fg,
+  'DEAD-END-FORNOW': STATUS.neutral.fg,
+  'REFUTED': STATUS.refuted.fg,
+  'UNDER-EXPLORED': STATUS.open.fg,
 };
 
 function statusCounts(rows) {

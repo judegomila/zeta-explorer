@@ -6,6 +6,7 @@ import {
   IMP96399_OVERSTATEMENT,
   IMP96399_HONEST_BANNER,
 } from '../data/imp-96399-route-m-reach-reprice-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 function RepriceBarChart() {
   const svgW = 420;
@@ -18,8 +19,8 @@ function RepriceBarChart() {
   const plotH = svgH - padT - padB;
 
   const rows = [
-    { label: 'imp-96230 BUILD-only\n(assumed)', n: IMP96399_BUILD_ONLY_ASSUMED_N.assumedN, color: '#f87171' },
-    { label: 'imp-96352 corrected\n(same 399 s budget)', n: IMP96399_OVERSTATEMENT.correctedN, color: '#4ade80' },
+    { label: 'imp-96230 BUILD-only\n(assumed)', n: IMP96399_BUILD_ONLY_ASSUMED_N.assumedN, color: ED.series2 },
+    { label: 'imp-96352 corrected\n(same 399 s budget)', n: IMP96399_OVERSTATEMENT.correctedN, color: ED.series3 },
   ];
   const maxN = Math.max(...rows.map((r) => r.n)) * 1.15;
   const barH = 44;
@@ -29,21 +30,21 @@ function RepriceBarChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
       {rows.map((r, i) => (
         <g key={r.label}>
-          <text x={padL - 8} y={yOf(i) + barH / 2 + 4} textAnchor="end" fill="#94a3b8" fontSize={9}>
+          <text x={padL - 8} y={yOf(i) + barH / 2 + 4} textAnchor="end" fill={ED.inkSoft} fontSize={9}>
             {r.label.split('\n').map((line, li) => (
               <tspan key={li} x={padL - 8} dy={li === 0 ? 0 : 11}>{line}</tspan>
             ))}
           </text>
           <rect x={padL} y={yOf(i)} width={xOf(r.n) - padL} height={barH} fill={r.color} opacity={0.85} rx={3} />
-          <text x={xOf(r.n) + 8} y={yOf(i) + barH / 2 + 4} fill="#e2e8f0" fontSize={10.5}>
+          <text x={xOf(r.n) + 8} y={yOf(i) + barH / 2 + 4} fill={ED.ink} fontSize={10.5}>
             N &#8776; {r.n.toLocaleString()}
           </text>
         </g>
       ))}
-      <text x={padL + plotW / 2} y={svgH - 8} textAnchor="middle" fill="#64748b" fontSize={9}>
+      <text x={padL + plotW / 2} y={svgH - 8} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
         reachable N at the same 399 s wall-clock budget
       </text>
     </svg>
@@ -59,18 +60,18 @@ export default function Imp96399RouteMReachRepriceViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 760,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> {IMP96399_HONEST_BANNER}
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> {IMP96399_HONEST_BANNER}
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
         The imp-96230 BUILD-only budget assumed N &#8776; {IMP96399_BUILD_ONLY_ASSUMED_N.assumedN.toLocaleString()} was
         reachable in {IMP96399_BUILD_ONLY_ASSUMED_N.budgetSeconds} s, counting only the Gram build, one dense
         eigvalsh, and 25 rung Cholesky factorizations. imp-96352 found that estimate omits the per-rung
@@ -80,24 +81,24 @@ export default function Imp96399RouteMReachRepriceViz() {
         &mdash; a {IMP96399_OVERSTATEMENT.overstatementFactor.toFixed(2)}x overstatement in N.
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         Assumed vs corrected reach at the 399 s budget
       </h3>
       <RepriceBarChart />
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', margin: '1.5rem 0 0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', margin: '1.5rem 0 0.5rem' }}>
         Corrected reach ladder (imp-96352)
       </h3>
-      <table style={{ width: '100%', maxWidth: 500, borderCollapse: 'collapse', fontSize: '0.85rem', color: '#cbd5e1' }}>
+      <table style={{ width: '100%', maxWidth: 500, borderCollapse: 'collapse', fontSize: '0.85rem', color: 'var(--ink)' }}>
         <thead>
-          <tr style={{ borderBottom: '1px solid #334155' }}>
+          <tr style={{ borderBottom: '1px solid var(--rule)' }}>
             <th style={{ textAlign: 'left', padding: '0.35rem 0.5rem' }}>Budget</th>
             <th style={{ textAlign: 'right', padding: '0.35rem 0.5rem' }}>Reachable N</th>
           </tr>
         </thead>
         <tbody>
           {IMP96399_CORRECTED_REACH.map((row) => (
-            <tr key={row.budgetSeconds} style={{ borderBottom: '1px solid rgba(51,65,85,0.4)' }}>
+            <tr key={row.budgetSeconds} style={{ borderBottom: '1px solid color-mix(in srgb, var(--rule) 40%, transparent)' }}>
               <td style={{ padding: '0.35rem 0.5rem' }}>{row.budgetLabel}</td>
               <td style={{ textAlign: 'right', padding: '0.35rem 0.5rem' }}>{row.reachN.toLocaleString()}</td>
             </tr>
@@ -109,14 +110,14 @@ export default function Imp96399RouteMReachRepriceViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page. Every figure is copied verbatim
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page. Every figure is copied verbatim
         from imp-96352 (corrected cost model) and imp-96230 (BUILD-only budget); no new timing measurement
         is made here. The corrected reach ladder is itself an extrapolated cubic fit, not a re-measured
         wall-clock run at each budget (see imp-96352&apos;s IMP96352_SUBGAP for the unresolved inverse-power

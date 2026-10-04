@@ -5,6 +5,7 @@ import {
   IMP97470_SUMMARY,
   IMP97470_HONEST_BANNER,
 } from '../data/imp-97470-route-m-sign-law-omega5-binet-decay-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 // imp-97470: chart of the imp-97443 (X3) Binet-bracket decay law -- q1*certA(p1;q1) converging to the
 // exact constant (1-1/p1)/12 across the omega=5 minimal-config ladder q1 = 10^2 .. 10^6, for p1 = 2, 3, 5.
@@ -31,7 +32,7 @@ function DecayChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
       {IMP97470_DECAY_CURVES.map((curve) => (
         <g key={'asym' + curve.p1}>
@@ -65,17 +66,17 @@ function DecayChart() {
         );
       })}
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
 
       {xTicks.map((q1) => (
         <g key={'x' + q1}>
-          <line x1={xS(q1)} y1={padT + cH} x2={xS(q1)} y2={padT + cH + 5} stroke="#334155" strokeWidth={1} />
-          <text x={xS(q1)} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={8}>
+          <line x1={xS(q1)} y1={padT + cH} x2={xS(q1)} y2={padT + cH + 5} stroke={ED.rule} strokeWidth={1} />
+          <text x={xS(q1)} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={8}>
             {q1.toExponential(0)}
           </text>
         </g>
       ))}
-      <text x={padL + cW / 2} y={padT + cH + 34} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={padT + cH + 34} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         q1 (log scale)
       </text>
 
@@ -83,7 +84,7 @@ function DecayChart() {
         x={12}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={'rotate(-90,12,' + (padT + cH / 2) + ')'}
       >
@@ -120,25 +121,25 @@ export default function Imp97470RouteMSignLawOmega5BinetDecayViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.06)',
-          borderLeft: '3px solid #64748b',
+          background: 'color-mix(in srgb, var(--ink-soft) 6%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#e2e8f0' }}>Honest status:</strong> {IMP97470_HONEST_BANNER}
+        <strong style={{ color: 'var(--ink)' }}>Honest status:</strong> {IMP97470_HONEST_BANNER}
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         The Route M omega=5 sign-law certificate certA(p1;q1,q2,q3,q4) decays like c/q1 as the leading
         prime q1 climbs the minimal-config ladder. The scaled quantity q1*certA converges monotonically to
         the exact constant (1-1/p1)/12, matched here against the imp-97443 extended-precision (mpmath
         dps=60) cross-check for p1 = 2, 3, 5 across q1 = 10^2 .. 10^6.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         q1 * certA vs q1, with the exact asymptote lines (1-1/p1)/12
       </p>
       <DecayChart />
@@ -147,14 +148,14 @@ export default function Imp97470RouteMSignLawOmega5BinetDecayViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page consuming the imp-97470
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the imp-97470
         viz-data leaf (every value reused verbatim from imp-97443, no re-derivation). Changes no bound,
         establishes no operator positivity; Platt-Trudgian &Lambda;&le;0.2 remains SOTA; RH open; NO QED.
       </div>

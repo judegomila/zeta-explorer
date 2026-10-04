@@ -3,6 +3,7 @@ import PageHeader from '../components/PageHeader.jsx';
 import { effectiveHeightForN } from '../data/lambda-rh-height-mapping.js';
 import { C_C_PINNED } from '../data/polymath15-constant-C-C.js';
 import { IMP34859_CROSSOVER_GPPPPPP6_SIXTH_DERIV_FOURTH_BAND } from '../data/imp-34859-crossover-gpppppp6-sixth-deriv-fourth-band.js';
+import { ED } from '../styles/tokens.js';
 
 const D = IMP34859_CROSSOVER_GPPPPPP6_SIXTH_DERIV_FOURTH_BAND;
 
@@ -51,11 +52,11 @@ const SAMPLES = 60;
 const NS = Array.from({ length: SAMPLES }, (_, i) => BAND_LO * Math.pow(BAND_HI / BAND_LO, i / (SAMPLES - 1)));
 
 const SERIES = [
-  { key: 'g2', label: "g''", factor: '-4 pi^2 K', color: '#38bdf8', fn: gDoublePrime },
-  { key: 'g3', label: "g'''", factor: '+8 pi^3 K', color: '#fbbf24', fn: gTriplePrime },
-  { key: 'g4', label: 'g⁴ᵇ', factor: '-16 pi^4 K', color: '#f87171', fn: gQuadruplePrime },
-  { key: 'g5', label: 'g⁵ᵇ', factor: '+32 pi^5 K', color: '#34d399', fn: gFifthDeriv },
-  { key: 'g6', label: 'g⁶ᵇ', factor: '-64 pi^6 K', color: '#a78bfa', fn: gSixthDeriv },
+  { key: 'g2', label: "g''", factor: '-4 pi^2 K', color: ED.series1, fn: gDoublePrime },
+  { key: 'g3', label: "g'''", factor: '+8 pi^3 K', color: ED.brass, fn: gTriplePrime },
+  { key: 'g4', label: 'g⁴ᵇ', factor: '-16 pi^4 K', color: ED.series2, fn: gQuadruplePrime },
+  { key: 'g5', label: 'g⁵ᵇ', factor: '+32 pi^5 K', color: ED.series3, fn: gFifthDeriv },
+  { key: 'g6', label: 'g⁶ᵇ', factor: '-64 pi^6 K', color: ED.series5, fn: gSixthDeriv },
 ];
 
 // Each derivative's magnitude scales differently across the band (T^-n u^{2n-1}), so each curve
@@ -82,13 +83,13 @@ function LadderChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={yAt(0)} x2={padL + cW} y2={yAt(0)} stroke="#334155" strokeWidth={1} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={yAt(0)} x2={padL + cW} y2={yAt(0)} stroke={ED.rule} strokeWidth={1} />
 
       {[-1, -0.5, 0, 0.5, 1].map((v) => (
         <g key={v}>
-          <line x1={padL - 4} y1={yAt(v)} x2={padL + cW} y2={yAt(v)} stroke="#1e293b" strokeWidth={1} />
-          <text x={padL - 8} y={yAt(v) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+          <line x1={padL - 4} y1={yAt(v)} x2={padL + cW} y2={yAt(v)} stroke={ED.ruleSoft} strokeWidth={1} />
+          <text x={padL - 8} y={yAt(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v}
           </text>
         </g>
@@ -99,7 +100,7 @@ function LadderChart() {
           x={padL + f * cW}
           y={padT + cH + 16}
           textAnchor="middle"
-          fill="#64748b"
+          fill={ED.inkFaint}
           fontSize={9}
         >
           {(BAND_LO * Math.pow(BAND_HI / BAND_LO, f)).toExponential(0)}
@@ -119,20 +120,20 @@ function LadderChart() {
       {NORMALIZED.map((s, idx) => (
         <g key={'legend' + s.key}>
           <line x1={padL + 10 + idx * 90} y1={padT - 12} x2={padL + 28 + idx * 90} y2={padT - 12} stroke={s.color} strokeWidth={2.5} />
-          <text x={padL + 32 + idx * 90} y={padT - 8} fill="#94a3b8" fontSize={10} fontFamily="monospace">
+          <text x={padL + 32 + idx * 90} y={padT - 8} fill={ED.inkSoft} fontSize={10} fontFamily="monospace">
             {s.label}
           </text>
         </g>
       ))}
 
-      <text x={padL + cW / 2} y={svgH - 6} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 6} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         N (fourth band, log scale)
       </text>
       <text
         x={12}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={`rotate(-90 12 ${padT + cH / 2})`}
       >
@@ -147,11 +148,11 @@ export default function Imp34890SixthDerivLadderViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Crossover-Map Sixth-Derivative Alternating-Sign Ladder (imp-34890 / imp-34859)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         {D.question}
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         Each derivative g&Prime; through g&#8309;&#8318; is normalized by its own max |value| on the band
         [1e12,1e13] so all five fit on one axis. Leading factors (-4, +8, -16, +32, -64) pi^n K alternate and
         double order by order; the sixth derivative extends the ladder to a definite -, +, -, +, - alternation
@@ -159,7 +160,7 @@ export default function Imp34890SixthDerivLadderViz() {
       </p>
       <LadderChart />
 
-      <p style={{ color: '#64748b', fontSize: '0.78rem', marginTop: '0.75rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontSize: '0.78rem', marginTop: '0.75rem' }}>
         Ladder signs at the band midpoint: {JSON.stringify(D.ladderSignsAtBandMid)}. The sixth derivative
         stays strictly negative across the whole band (most negative {D.sixthDerivMostNegativeOnBand}, least
         negative {D.sixthDerivLeastNegativeOnBand}), matching the sixth-derivative central-difference stencil
@@ -171,14 +172,14 @@ export default function Imp34890SixthDerivLadderViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page recomputing the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-only page recomputing the
         imp-34859/imp-34842/imp-34822/imp-34793/imp-34768/imp-34731 closed forms verbatim on the same band
         and constants (no new computation). Measurement/derivation on the INHERITED imp-3220/imp-3406
         surrogate crossover map; the C_mb GUE-conditional per imp-486 and the C_C 1/8 ansatz

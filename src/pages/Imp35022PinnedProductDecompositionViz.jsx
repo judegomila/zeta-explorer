@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP34956_PINNED_PRODUCT_WINDOW_SENSITIVITY as D } from '../data/imp-34956-pinned-product-window-sensitivity.js';
+import { ED } from '../styles/tokens.js';
 
 const G_STAR = D.gStar; // ~0.7776533 -- window-INVARIANT factor (imp-34956 W0 / imp-35011)
 const MAX_REL_DIFF = D.productOverR0MaxRelDiff; // ~0 -- P/r0 = g* to machine precision at every window
@@ -42,47 +43,47 @@ function DecompositionCharts() {
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
       {/* top panel axes */}
-      <line x1={padL} y1={padT} x2={padL} y2={padT + topH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + topH} x2={padL + cW} y2={padT + topH} stroke="#334155" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + topH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + topH} x2={padL + cW} y2={padT + topH} stroke={ED.rule} strokeWidth={1.5} />
       {topYTicks.map((v) => (
         <g key={v}>
-          <line x1={padL - 4} y1={yTop(v)} x2={padL + cW} y2={yTop(v)} stroke="#1e293b" strokeWidth={1} />
-          <text x={padL - 8} y={yTop(v) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+          <line x1={padL - 4} y1={yTop(v)} x2={padL + cW} y2={yTop(v)} stroke={ED.ruleSoft} strokeWidth={1} />
+          <text x={padL - 8} y={yTop(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v.toExponential(0)}
           </text>
         </g>
       ))}
-      <path d={topPath} fill="none" stroke="#38bdf8" strokeWidth={2} />
+      <path d={topPath} fill="none" stroke={ED.series1} strokeWidth={2} />
       {R0_SWEEP.map((s) => (
-        <circle key={s.dex} cx={xAt(s.dex)} cy={yTop(s.r0)} r={2.5} fill="#38bdf8" />
+        <circle key={s.dex} cx={xAt(s.dex)} cy={yTop(s.r0)} r={2.5} fill={ED.series1} />
       ))}
-      <text x={padL + 6} y={padT + 14} fill="#94a3b8" fontSize={10}>
+      <text x={padL + 6} y={padT + 14} fill={ED.inkSoft} fontSize={10}>
         r0 = E_flow/E_trunc (window-VARIABLE factor) -- swings {MAX_OVER_MIN}x, log scale
       </text>
 
       {/* bottom panel: g* flat line at the FP floor */}
-      <line x1={padL} y1={botY0} x2={padL} y2={botY0 + botH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={botY0 + botH} x2={padL + cW} y2={botY0 + botH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={yBotMid} x2={padL + cW} y2={yBotMid} stroke="#4ade80" strokeWidth={2} />
+      <line x1={padL} y1={botY0} x2={padL} y2={botY0 + botH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={botY0 + botH} x2={padL + cW} y2={botY0 + botH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={yBotMid} x2={padL + cW} y2={yBotMid} stroke={ED.series3} strokeWidth={2} />
       {R0_SWEEP.map((s) => (
-        <circle key={s.dex} cx={xAt(s.dex)} cy={yBotMid} r={2.5} fill="#4ade80" />
+        <circle key={s.dex} cx={xAt(s.dex)} cy={yBotMid} r={2.5} fill={ED.series3} />
       ))}
-      <text x={padL - 8} y={yBotMid + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+      <text x={padL - 8} y={yBotMid + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
         {G_STAR.toFixed(7)}
       </text>
-      <text x={padL + 6} y={botY0 + 14} fill="#94a3b8" fontSize={10}>
+      <text x={padL + 6} y={botY0 + 14} fill={ED.inkSoft} fontSize={10}>
         g* (window-INVARIANT factor) -- flat to the double-precision floor (max rel diff {MAX_REL_DIFF})
       </text>
 
       {xTicks.map((v) => (
         <g key={v}>
-          <line x1={xAt(v)} y1={botY0 + botH} x2={xAt(v)} y2={botY0 + botH + 4} stroke="#334155" strokeWidth={1} />
-          <text x={xAt(v)} y={botY0 + botH + 16} textAnchor="middle" fill="#64748b" fontSize={9}>
+          <line x1={xAt(v)} y1={botY0 + botH} x2={xAt(v)} y2={botY0 + botH + 4} stroke={ED.rule} strokeWidth={1} />
+          <text x={xAt(v)} y={botY0 + botH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
             {v.toFixed(1)}
           </text>
         </g>
       ))}
-      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         X_CROSS window (log10 N)
       </text>
     </svg>
@@ -94,7 +95,7 @@ export default function Imp35022PinnedProductDecompositionViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Pinned-Product Decomposition: g* vs r0 (imp-35022 / imp-34956)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         The imp-34956 pinned product P = g*&middot;r0 splits into a window-INVARIANT factor g* and a
         window-VARIABLE factor r0 = E_flow/E_trunc. This page renders the two factors as separate
         panels across the same [10^9,&nbsp;10^11] X_CROSS bracket: r0 (top) carries the full{' '}
@@ -107,14 +108,14 @@ export default function Imp35022PinnedProductDecompositionViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Since P/r0 = g* to machine
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Since P/r0 = g* to machine
         precision at every sampled window (max relative difference {MAX_REL_DIFF}), the {MAX_OVER_MIN}x
         swing visible in P is entirely a property of r0 -- the fixed-window assumption is a pure
         magnitude bound on the window-variable factor, not on g* itself. Viz-only page rendering

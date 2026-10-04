@@ -20,6 +20,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getPrimes } from '../math/primes.js';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
+import { ED, alpha as TK_ALPHA } from '../styles/tokens.js';
 
 const TWO_PI = 2 * Math.PI;
 const mono = 'var(--ed-mono)';
@@ -90,7 +91,7 @@ function drawUnrolled(ctx, logP, eps, tMin, tMax) {
   // Axis labels -- literal warm off-white (paper2 #f6f1e7) for contrast
   // against the (unmodified) counts colormap. ctx.fillStyle can't read var().
   ctx.font = '10px "JetBrains Mono", monospace';
-  ctx.fillStyle = 'rgba(246, 241, 231, 0.85)';
+  ctx.fillStyle = TK_ALPHA(ED.paper2, 0.85);
   ctx.textAlign = 'left';
   ctx.fillText('th=0',    4,     H - 4);
   ctx.textAlign = 'center';
@@ -110,7 +111,7 @@ function drawCylinder(ctx, logP, tMin, tMax) {
 
   // Scene background -- literal warm paper2 (#f6f1e7). ctx.fillStyle can't
   // read var().
-  ctx.fillStyle = '#f6f1e7';
+  ctx.fillStyle = ED.paper2;
   ctx.fillRect(0, 0, W, H);
 
   const CX   = W / 2;
@@ -121,22 +122,22 @@ function drawCylinder(ctx, logP, tMin, tMax) {
 
   // Draw cylinder silhouette -- literal warm ink (#1c1814) tint gradient.
   const grad = ctx.createLinearGradient(CX - R, 0, CX + R, 0);
-  grad.addColorStop(0,    'rgba(28,24,20,0.0)');
-  grad.addColorStop(0.35, 'rgba(28,24,20,0.10)');
-  grad.addColorStop(0.65, 'rgba(28,24,20,0.10)');
-  grad.addColorStop(1,    'rgba(28,24,20,0.0)');
+  grad.addColorStop(0,    TK_ALPHA(ED.ink, 0));
+  grad.addColorStop(0.35, TK_ALPHA(ED.ink, 0.1));
+  grad.addColorStop(0.65, TK_ALPHA(ED.ink, 0.1));
+  grad.addColorStop(1,    TK_ALPHA(ED.ink, 0));
   ctx.fillStyle = grad;
   ctx.fillRect(CX - R, CY - cylH / 2, R * 2, cylH);
 
   // Bottom ellipse (back) -- literal warm ink-soft (#4a4238).
   ctx.beginPath();
   ctx.ellipse(CX, CY + cylH / 2, R, R * TILT, 0, 0, TWO_PI);
-  ctx.strokeStyle = 'rgba(74,66,56,0.55)';
+  ctx.strokeStyle = TK_ALPHA(ED.inkSoft, 0.55);
   ctx.lineWidth = 1;
   ctx.stroke();
 
   // Side edges -- literal warm ink-soft (#4a4238).
-  ctx.strokeStyle = 'rgba(74,66,56,0.75)';
+  ctx.strokeStyle = TK_ALPHA(ED.inkSoft, 0.75);
   ctx.lineWidth   = 1.2;
   ctx.beginPath(); ctx.moveTo(CX - R, CY - cylH / 2); ctx.lineTo(CX - R, CY + cylH / 2); ctx.stroke();
   ctx.beginPath(); ctx.moveTo(CX + R, CY - cylH / 2); ctx.lineTo(CX + R, CY + cylH / 2); ctx.stroke();
@@ -185,13 +186,13 @@ function drawCylinder(ctx, logP, tMin, tMax) {
   // ink (#1c1814).
   ctx.beginPath();
   ctx.ellipse(CX, CY - cylH / 2, R, R * TILT, 0, 0, TWO_PI);
-  ctx.strokeStyle = 'rgba(28,24,20,0.75)';
+  ctx.strokeStyle = TK_ALPHA(ED.ink, 0.75);
   ctx.lineWidth = 1.2;
   ctx.stroke();
 
   // Labels -- literal warm ink-soft (#4a4238).
   ctx.font = '10px "JetBrains Mono", monospace';
-  ctx.fillStyle = 'rgba(74,66,56,0.85)';
+  ctx.fillStyle = TK_ALPHA(ED.inkSoft, 0.85);
   ctx.textAlign = 'center';
   ctx.fillText('theta axis (0..2pi around circumference)', CX, CY + cylH / 2 + 18);
   ctx.textAlign = 'right';
@@ -233,6 +234,7 @@ export default function VizPhaseCylinderPage() {
         <header style={{ borderBottom: '1px solid var(--hairline)', paddingBottom: 18, marginBottom: 24 }}>
           <div className="ed-lbl">/viz-phase-cylinder &middot; visualizations</div>
           <h1 className="ed-h1" style={{ margin: '8px 0 4px 0' }}>Phase Cylinder: Unwrapped Rays (imp-2725)</h1>
+          <p className="ed-lbl">Related: <Link to="/viz-unwrapped-rays">Unwrapped phase rays</Link></p>
           <p style={{ color: 'var(--ink-soft)', fontSize: 14, margin: '8px 0 0 0', lineHeight: 1.6 }}>
             Each prime p maps t to phase theta = t&thinsp;&middot;&thinsp;log(p) mod 2&pi;.
             In the <strong>unrolled view</strong> (theta on x, t on y) each prime traces a

@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState, useCallback, useMemo } from 'react'
 import * as d3 from 'd3';
 import { InlineMath, BlockMath } from './KaTeXMath.jsx';
 import { ZETA_ZEROS, cAdd, cSub, cMul, cDiv, cAbs, cLog, cPow, cExp } from '../math/zeta.js';
+import { ED, alpha } from '../styles/tokens.js';
 
 /**
  * Li's criterion: RH ⟺ λ_n ≥ 0 for all n ≥ 1
@@ -66,7 +67,7 @@ export default function LiCriterionViz() {
       // and therefore overdraw at exactly σ=½ — only the last-drawn color (purple) was
       // ever visible, while the other 4 legend entries silently rendered nothing.
       const taus = [-0.5, -0.2, -0.1, 0];
-      const colors = ['#3b82f6', '#06b6d4', '#10b981', '#e2e8f0'];
+      const colors = [ED.series1, ED.series6, ED.series3, ED.ink];
       const scatterPoints = taus.map((tau, ti) =>
         zeros.map((gamma, zi) => {
           const perturbation = tau < 0
@@ -103,22 +104,22 @@ export default function LiCriterionViz() {
       g.append('g')
         .attr('class', 'grid')
         .call(d3.axisLeft(y).ticks(8).tickSize(-w).tickFormat(''))
-        .selectAll('line').attr('stroke', '#1e293b').attr('stroke-dasharray', '3,3');
+        .selectAll('line').attr('stroke', ED.ruleSoft).attr('stroke-dasharray', '3,3');
       g.select('.grid .domain').remove();
 
       g.append('g').attr('transform', `translate(0,${h})`)
         .call(d3.axisBottom(x).tickFormat(d => d))
-        .selectAll('text').attr('fill', '#64748b').attr('font-size', 10);
+        .selectAll('text').attr('fill', ED.inkFaint).attr('font-size', 10);
       g.append('g').call(d3.axisLeft(y).ticks(8))
-        .selectAll('text').attr('fill', '#64748b').attr('font-size', 10);
-      g.selectAll('.domain, .tick line').attr('stroke', '#2a3050');
+        .selectAll('text').attr('fill', ED.inkFaint).attr('font-size', 10);
+      g.selectAll('.domain, .tick line').attr('stroke', ED.rule);
 
       // Zero reference
       g.append('line')
         .attr('x1', 0).attr('y1', y(0)).attr('x2', w).attr('y2', y(0))
-        .attr('stroke', '#ef4444').attr('stroke-width', 1.5).attr('stroke-dasharray', '6,4');
+        .attr('stroke', ED.series2).attr('stroke-width', 1.5).attr('stroke-dasharray', '6,4');
       g.append('text').attr('x', w - 4).attr('y', y(0) - 6)
-        .attr('text-anchor', 'end').attr('fill', '#ef4444').attr('font-size', 10)
+        .attr('text-anchor', 'end').attr('fill', ED.series2).attr('font-size', 10)
         .text('λ = 0 (RH boundary)');
 
       // Bars
@@ -130,8 +131,8 @@ export default function LiCriterionViz() {
           .attr('width', x.bandwidth())
           .attr('height', Math.abs(y(lambda) - y(0)))
           .attr('rx', 3)
-          .attr('fill', isPositive ? 'rgba(16,185,129,0.6)' : 'rgba(239,68,68,0.6)')
-          .attr('stroke', isPositive ? '#10b981' : '#ef4444')
+          .attr('fill', isPositive ? alpha(ED.series3, 0.6) : alpha(ED.series2, 0.6))
+          .attr('stroke', isPositive ? ED.series3 : ED.series2)
           .attr('stroke-width', 1)
           .style('cursor', 'crosshair')
           .append('title').text(`λ${n} = ${lambda.toFixed(4)} (${numZeros} zeros used)`);
@@ -141,26 +142,26 @@ export default function LiCriterionViz() {
           .attr('x', x(n) + x.bandwidth() / 2)
           .attr('y', isPositive ? y(lambda) - 4 : y(lambda) + 14)
           .attr('text-anchor', 'middle')
-          .attr('fill', isPositive ? '#10b981' : '#ef4444')
+          .attr('fill', isPositive ? ED.series3 : ED.series2)
           .attr('font-size', Math.min(10, x.bandwidth() / 3))
           .attr('font-family', 'var(--font-mono)')
           .text(lambda.toFixed(2));
       });
 
       svg.append('text').attr('x', margin.left + 4).attr('y', 16)
-        .attr('fill', '#e2e8f0').attr('font-size', 13).attr('font-weight', 600)
+        .attr('fill', ED.ink).attr('font-size', 13).attr('font-weight', 600)
         .text(`Li Coefficients λₙ — RH ⟺ all λₙ ≥ 0`);
       svg.append('text').attr('x', margin.left + 4).attr('y', 32)
-        .attr('fill', '#64748b').attr('font-size', 11)
+        .attr('fill', ED.inkFaint).attr('font-size', 11)
         .text(`Computed using ${numZeros} zeros. All positive → consistent with RH.`);
 
       svg.append('text').attr('x', width / 2).attr('y', height - 6)
-        .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12)
+        .attr('text-anchor', 'middle').attr('fill', ED.inkSoft).attr('font-size', 12)
         .text('n');
 
       svg.append('text')
         .attr('transform', `translate(16, ${margin.top + h / 2}) rotate(-90)`)
-        .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12)
+        .attr('text-anchor', 'middle').attr('fill', ED.inkSoft).attr('font-size', 12)
         .text('λₙ');
 
     } else if (mode === 'keiper-li') {
@@ -176,14 +177,14 @@ export default function LiCriterionViz() {
       g.append('g')
         .attr('class', 'grid')
         .call(d3.axisLeft(y).ticks(8).tickSize(-w).tickFormat(''))
-        .selectAll('line').attr('stroke', '#1e293b').attr('stroke-dasharray', '3,3');
+        .selectAll('line').attr('stroke', ED.ruleSoft).attr('stroke-dasharray', '3,3');
       g.select('.grid .domain').remove();
 
       g.append('g').attr('transform', `translate(0,${h})`).call(d3.axisBottom(x).ticks(10))
-        .selectAll('text').attr('fill', '#64748b').attr('font-size', 10);
+        .selectAll('text').attr('fill', ED.inkFaint).attr('font-size', 10);
       g.append('g').call(d3.axisLeft(y).ticks(8))
-        .selectAll('text').attr('fill', '#64748b').attr('font-size', 10);
-      g.selectAll('.domain, .tick line').attr('stroke', '#2a3050');
+        .selectAll('text').attr('fill', ED.inkFaint).attr('font-size', 10);
+      g.selectAll('.domain, .tick line').attr('stroke', ED.rule);
 
       // Reference curve: (1/2)(log(n/(2π)) + γ − 1) (Keiper-Li asymptotic, Bombieri-Lagarias 1999 Thm 2 / Coffey 2005)
       const EULER_GAMMA = 0.5772156649015329;
@@ -193,46 +194,46 @@ export default function LiCriterionViz() {
       }
       g.append('path').datum(refCurve)
         .attr('d', d3.line().x(d => x(d.n)).y(d => y(d.y)).curve(d3.curveBasis))
-        .attr('fill', 'none').attr('stroke', '#64748b').attr('stroke-dasharray', '4,4').attr('stroke-width', 1.5);
+        .attr('fill', 'none').attr('stroke', ED.rule).attr('stroke-dasharray', '4,4').attr('stroke-width', 1.5);
 
       // Data
       const line = d3.line().x(d => x(d.n)).y(d => y(d.perN)).curve(d3.curveMonotoneX);
       g.append('path').datum(data).attr('d', line)
-        .attr('fill', 'none').attr('stroke', '#8b5cf6').attr('stroke-width', 2.5);
+        .attr('fill', 'none').attr('stroke', ED.series5).attr('stroke-width', 2.5);
 
       data.forEach(d => {
         g.append('circle').attr('cx', x(d.n)).attr('cy', y(d.perN)).attr('r', 3)
-          .attr('fill', '#8b5cf6').attr('stroke', '#0a0e1a').attr('stroke-width', 1)
+          .attr('fill', ED.series5).attr('stroke', ED.paper).attr('stroke-width', 1)
           .style('cursor', 'crosshair')
           .append('title').text(`n = ${d.n}, λₙ = ${d.lambda.toFixed(4)}, λₙ/n = ${d.perN.toFixed(4)}`);
       });
 
       svg.append('text').attr('x', margin.left + 4).attr('y', 16)
-        .attr('fill', '#e2e8f0').attr('font-size', 13).attr('font-weight', 600)
+        .attr('fill', ED.ink).attr('font-size', 13).attr('font-weight', 600)
         .text('Keiper-Li: λₙ/n vs n (should approach ½(log(n/2π) + γ − 1))');
 
       const legend = g.append('g').attr('transform', `translate(${w - 200}, ${h - 50})`);
       legend.append('rect')
         .attr('x', -6).attr('y', -10).attr('width', 196).attr('height', 42)
-        .attr('rx', 4).attr('fill', 'rgba(13,17,23,0.85)').attr('stroke', '#1e293b');
+        .attr('rx', 4).attr('fill', alpha(ED.paper, 0.85)).attr('stroke', ED.ruleSoft);
       legend.append('line').attr('x1', 0).attr('y1', 0).attr('x2', 22).attr('y2', 0)
-        .attr('stroke', '#8b5cf6').attr('stroke-width', 2);
+        .attr('stroke', ED.series5).attr('stroke-width', 2);
       legend.append('circle').attr('cx', 11).attr('cy', 0).attr('r', 3)
-        .attr('fill', '#8b5cf6').attr('stroke', '#0a0e1a').attr('stroke-width', 1);
-      legend.append('text').attr('x', 28).attr('y', 4).attr('fill', '#94a3b8').attr('font-size', 11)
+        .attr('fill', ED.series5).attr('stroke', ED.paper).attr('stroke-width', 1);
+      legend.append('text').attr('x', 28).attr('y', 4).attr('fill', ED.inkSoft).attr('font-size', 11)
         .text('λₙ/n (data)');
       legend.append('line').attr('x1', 0).attr('y1', 20).attr('x2', 22).attr('y2', 20)
-        .attr('stroke', '#64748b').attr('stroke-width', 1.5).attr('stroke-dasharray', '4,4');
-      legend.append('text').attr('x', 28).attr('y', 24).attr('fill', '#94a3b8').attr('font-size', 11)
+        .attr('stroke', ED.rule).attr('stroke-width', 1.5).attr('stroke-dasharray', '4,4');
+      legend.append('text').attr('x', 28).attr('y', 24).attr('fill', ED.inkSoft).attr('font-size', 11)
         .text('½(log(n/2π) + γ − 1)');
 
       svg.append('text').attr('x', width / 2).attr('y', height - 6)
-        .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12)
+        .attr('text-anchor', 'middle').attr('fill', ED.inkSoft).attr('font-size', 12)
         .text('n');
 
       svg.append('text')
         .attr('transform', `translate(16, ${margin.top + h / 2}) rotate(-90)`)
-        .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12)
+        .attr('text-anchor', 'middle').attr('fill', ED.inkSoft).attr('font-size', 12)
         .text('λₙ/n');
 
     } else {
@@ -247,21 +248,21 @@ export default function LiCriterionViz() {
       g.append('g')
         .attr('class', 'grid')
         .call(d3.axisLeft(y).ticks(5).tickSize(-w).tickFormat(''))
-        .selectAll('line').attr('stroke', '#1e293b').attr('stroke-dasharray', '3,3');
+        .selectAll('line').attr('stroke', ED.ruleSoft).attr('stroke-dasharray', '3,3');
       g.select('.grid .domain').remove();
 
       g.append('g').attr('transform', `translate(0,${h})`).call(d3.axisBottom(x).ticks(10))
-        .selectAll('text').attr('fill', '#64748b').attr('font-size', 10);
+        .selectAll('text').attr('fill', ED.inkFaint).attr('font-size', 10);
       g.append('g').call(d3.axisLeft(y).ticks(5).tickFormat(d => d.toFixed(1)))
-        .selectAll('text').attr('fill', '#64748b').attr('font-size', 10);
-      g.selectAll('.domain, .tick line').attr('stroke', '#2a3050');
+        .selectAll('text').attr('fill', ED.inkFaint).attr('font-size', 10);
+      g.selectAll('.domain, .tick line').attr('stroke', ED.rule);
 
       // σ = 0.5 reference
       g.append('line')
         .attr('x1', 0).attr('y1', y(0.5)).attr('x2', w).attr('y2', y(0.5))
-        .attr('stroke', '#ef4444').attr('stroke-width', 1).attr('stroke-dasharray', '6,4');
+        .attr('stroke', ED.series2).attr('stroke-width', 1).attr('stroke-dasharray', '6,4');
       g.append('text').attr('x', w - 4).attr('y', y(0.5) - 6)
-        .attr('text-anchor', 'end').attr('fill', '#ef4444').attr('font-size', 10)
+        .attr('text-anchor', 'end').attr('fill', ED.series2).attr('font-size', 10)
         .text('σ = ½');
 
       // Render precomputed scatter points — radius scales with displacement from critical line
@@ -283,7 +284,7 @@ export default function LiCriterionViz() {
       const legendH = taus.length * 16 + 8;
       legend.append('rect')
         .attr('x', -6).attr('y', -10).attr('width', 80).attr('height', legendH)
-        .attr('rx', 4).attr('fill', 'rgba(13,17,23,0.85)').attr('stroke', '#1e293b');
+        .attr('rx', 4).attr('fill', alpha(ED.paper, 0.85)).attr('stroke', ED.ruleSoft);
       taus.forEach((tau, i) => {
         legend.append('circle').attr('cx', 6).attr('cy', i * 16).attr('r', 3).attr('fill', colors[i]);
         legend.append('text').attr('x', 14).attr('y', i * 16 + 4)
@@ -292,19 +293,19 @@ export default function LiCriterionViz() {
       });
 
       svg.append('text').attr('x', margin.left + 4).attr('y', 16)
-        .attr('fill', '#e2e8f0').attr('font-size', 13).attr('font-weight', 600)
+        .attr('fill', ED.ink).attr('font-size', 13).attr('font-weight', 600)
         .text('de Bruijn-Newman: Zero Drift Under Heat Flow');
       svg.append('text').attr('x', margin.left + 4).attr('y', 32)
-        .attr('fill', '#64748b').attr('font-size', 11)
+        .attr('fill', ED.inkFaint).attr('font-size', 11)
         .text('Λ ≥ 0 (Rodgers-Tao): backward heat (τ<0) always creates non-real zeros');
 
       svg.append('text').attr('x', width / 2).attr('y', height - 6)
-        .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12)
+        .attr('text-anchor', 'middle').attr('fill', ED.inkSoft).attr('font-size', 12)
         .text('Im(ρ) = γ');
 
       svg.append('text')
         .attr('transform', `translate(16, ${margin.top + h / 2}) rotate(-90)`)
-        .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12)
+        .attr('text-anchor', 'middle').attr('fill', ED.inkSoft).attr('font-size', 12)
         .text('σ = Re(ρ)');
     }
 
@@ -369,7 +370,7 @@ export default function LiCriterionViz() {
             The de Bruijn-Newman constant <InlineMath tex={"\\Lambda \\geq 0"} /> (proved by Rodgers-Tao) is the critical
             temperature: the system is already at the coldest point compatible with real zeros.
           </p>
-          <p style={{ margin: '8px 0 0', fontSize: 11, color: '#f59e0b' }}>
+          <p style={{ margin: '8px 0 0', fontSize: 11, color: 'var(--brass)' }}>
             <strong>Note:</strong> the scatter below is a <em>schematic illustration</em>, not a true
             solution of the backward heat equation. For <InlineMath tex={"\\tau < 0"} /> the displacement
             uses a deterministic <InlineMath tex={"\\sin"} />-based pattern
@@ -398,7 +399,7 @@ export default function LiCriterionViz() {
             onChange={e => setNumZeros(+e.target.value)}
             title="More zeros = more accurate Li coefficients and heat flow trajectories" />
           <span className="control-value">{numZeros}</span>
-          <span style={{ color: '#64748b', fontSize: '0.85em', marginLeft: 4 }}>
+          <span style={{ color: 'var(--ink-faint)', fontSize: '0.85em', marginLeft: 4 }}>
             (γ<sub>max</sub> ≈ {ZETA_ZEROS[numZeros - 1]?.toFixed(1)})
           </span>
         </div>

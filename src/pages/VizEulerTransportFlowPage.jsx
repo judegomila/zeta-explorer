@@ -6,6 +6,7 @@ import {
   VIZ_EULER_TRANSPORT_FLOW,
   computeEulerLogDerivative,
 } from '../data/viz-euler-transport-flow.js';
+import { ED, alpha } from '../styles/tokens.js';
 
 /**
  * VizEulerTransportFlowPage — imp-1224.
@@ -159,7 +160,7 @@ function FlowCanvas({ primeCount, showGrid, showDensity }) {
 
     // Optional grid background.
     if (showGrid) {
-      ctx.strokeStyle = 'rgba(100,116,139,0.18)';
+      ctx.strokeStyle = alpha(ED.rule, 0.18);
       ctx.lineWidth = 1;
       // Vertical grid every 0.1 in sigma.
       for (let s = Math.ceil(gridDomain.sigmaMin * 10) / 10; s < gridDomain.sigmaMax; s += 0.1) {
@@ -178,7 +179,7 @@ function FlowCanvas({ primeCount, showGrid, showDensity }) {
         ctx.stroke();
       }
       // Critical line sigma = 1/2 highlighted.
-      ctx.strokeStyle = 'rgba(96,165,250,0.55)';
+      ctx.strokeStyle = alpha(ED.series1, 0.55);
       ctx.lineWidth = 1.5;
       ctx.setLineDash([4, 4]);
       ctx.beginPath();
@@ -227,7 +228,7 @@ function FlowCanvas({ primeCount, showGrid, showDensity }) {
     ctx.lineWidth = 1.1;
     for (const path of streamlines) {
       if (path.length < 2) continue;
-      ctx.strokeStyle = showDensity ? 'rgba(226,232,240,0.55)' : 'rgba(56,189,248,0.65)';
+      ctx.strokeStyle = showDensity ? alpha(ED.inkSoft, 0.55) : alpha(ED.series1, 0.65);
       ctx.beginPath();
       ctx.moveTo(sigmaToX(path[0].sigma), tToY(path[0].t));
       for (let i = 1; i < path.length; i++) {
@@ -236,7 +237,7 @@ function FlowCanvas({ primeCount, showGrid, showDensity }) {
       ctx.stroke();
       // Mark endpoint to show sink convergence.
       const end = path[path.length - 1];
-      ctx.fillStyle = 'rgba(250,204,21,0.85)';
+      ctx.fillStyle = alpha(ED.series4, 0.85);
       ctx.beginPath();
       ctx.arc(sigmaToX(end.sigma), tToY(end.t), 1.4, 0, 2 * Math.PI);
       ctx.fill();
@@ -246,7 +247,7 @@ function FlowCanvas({ primeCount, showGrid, showDensity }) {
     for (const gamma of V.knownZeros) {
       const x = sigmaToX(0.5);
       const y = tToY(gamma);
-      ctx.fillStyle = '#ef4444';
+      ctx.fillStyle = ED.series2;
       ctx.strokeStyle = '#fef2f2';
       ctx.lineWidth = 1.4;
       ctx.beginPath();
@@ -254,14 +255,14 @@ function FlowCanvas({ primeCount, showGrid, showDensity }) {
       ctx.fill();
       ctx.stroke();
       // Label.
-      ctx.fillStyle = '#fecaca';
+      ctx.fillStyle = ED.series2;
       ctx.font = '11px monospace';
       ctx.textAlign = 'left';
       ctx.fillText(`γ ≈ ${gamma.toFixed(2)}`, x + 8, y + 3);
     }
 
     // Axes labels.
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = ED.series8;
     ctx.font = '11px monospace';
     ctx.textAlign = 'left';
     ctx.fillText(`σ ∈ [${gridDomain.sigmaMin}, ${gridDomain.sigmaMax}]`, 8, CH - 10);
@@ -283,7 +284,7 @@ function FlowCanvas({ primeCount, showGrid, showDensity }) {
           maxWidth: CW,
           height: 'auto',
           borderRadius: 8,
-          background: '#0b1220',
+          background: 'var(--paper)',
           display: 'block',
         }}
       />
@@ -295,9 +296,9 @@ function FlowCanvas({ primeCount, showGrid, showDensity }) {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            background: 'rgba(2,6,23,0.45)',
+            background: 'color-mix(in srgb, var(--paper) 45%, transparent)',
             borderRadius: 8,
-            color: '#cbd5e1',
+            color: 'var(--ink)',
             fontFamily: 'var(--font-mono, monospace)',
             fontSize: 13,
           }}

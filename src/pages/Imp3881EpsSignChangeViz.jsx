@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP3881_EPS_RUNGS, IMP3881_SIGN_CHANGE_N } from '../data/imp-3881-eps-sign-change-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 const SHRINK_MIN = 3;
 const SHRINK_MAX = 148;
@@ -31,36 +32,36 @@ function ShrinkChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
       {yTicks.map((v) => (
         <g key={v}>
-          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke="#1e293b" strokeWidth={0.7} />
-          <text x={padL - 4} y={yS(v) + 3.5} textAnchor="end" fill="#475569" fontSize={9}>
+          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke={ED.ruleSoft} strokeWidth={0.7} />
+          <text x={padL - 4} y={yS(v) + 3.5} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v.toExponential(0)}
           </text>
         </g>
       ))}
-      <path d={path} fill="none" stroke="#34d399" strokeWidth={2.2} />
+      <path d={path} fill="none" stroke={ED.series3} strokeWidth={2.2} />
       {SHRINK_RUNGS.map((r) => (
-        <circle key={r.n} cx={xS(r.n)} cy={yS(r.eps)} r={2.2} fill="#34d399" />
+        <circle key={r.n} cx={xS(r.n)} cy={yS(r.eps)} r={2.2} fill={ED.series3} />
       ))}
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
       {xTicks.map((n) => (
         <g key={'x' + n}>
-          <line x1={xS(n)} y1={padT + cH} x2={xS(n)} y2={padT + cH + 5} stroke="#334155" strokeWidth={1} />
-          <text x={xS(n)} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={9}>
+          <line x1={xS(n)} y1={padT + cH} x2={xS(n)} y2={padT + cH + 5} stroke={ED.rule} strokeWidth={1} />
+          <text x={xS(n)} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
             {n}
           </text>
         </g>
       ))}
-      <text x={padL + cW / 2} y={padT + cH + 34} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={padT + cH + 34} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         n (log scale)
       </text>
       <text
         x={12}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={'rotate(-90,12,' + (padT + cH / 2) + ')'}
       >
@@ -99,19 +100,19 @@ function CrossingChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
       {yTicks.map((v) => (
         <g key={v}>
-          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke="#1e293b" strokeWidth={0.7} />
-          <text x={padL - 4} y={yS(v) + 3.5} textAnchor="end" fill="#475569" fontSize={9}>
+          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke={ED.ruleSoft} strokeWidth={0.7} />
+          <text x={padL - 4} y={yS(v) + 3.5} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v.toExponential(1)}
           </text>
         </g>
       ))}
 
       {/* zero line: eps_n = 0 */}
-      <line x1={padL} y1={yS(0)} x2={padL + cW} y2={yS(0)} stroke="#f472b6" strokeWidth={1.2} strokeDasharray="4,3" />
+      <line x1={padL} y1={yS(0)} x2={padL + cW} y2={yS(0)} stroke={ED.series7} strokeWidth={1.2} strokeDasharray="4,3" />
 
       {/* sign-change marker at n = 149 */}
       <line
@@ -119,43 +120,43 @@ function CrossingChart() {
         y1={padT}
         x2={xS(IMP3881_SIGN_CHANGE_N)}
         y2={padT + cH}
-        stroke="#facc15"
+        stroke={ED.brassDeco}
         strokeWidth={1}
         strokeDasharray="2,3"
       />
-      <text x={xS(IMP3881_SIGN_CHANGE_N) + 4} y={padT + 12} fill="#fde68a" fontSize={8.5}>
+      <text x={xS(IMP3881_SIGN_CHANGE_N) + 4} y={padT + 12} fill={ED.brass} fontSize={8.5}>
         sign change n={IMP3881_SIGN_CHANGE_N}
       </text>
 
-      <path d={path} fill="none" stroke="#34d399" strokeWidth={2.4} />
+      <path d={path} fill="none" stroke={ED.series3} strokeWidth={2.4} />
       {CROSS_RUNGS.map((r) => (
         <circle
           key={r.n}
           cx={xS(r.n)}
           cy={yS(r.eps)}
           r={r.n === 148 || r.n === 149 ? 3.5 : 2.2}
-          fill={r.eps >= 0 ? '#34d399' : '#38bdf8'}
+          fill={r.eps >= 0 ? ED.series3 : ED.series1}
         />
       ))}
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
 
       {xTicks.map((n) => (
         <g key={'x' + n}>
-          <line x1={xS(n)} y1={padT + cH} x2={xS(n)} y2={padT + cH + 5} stroke="#334155" strokeWidth={1} />
-          <text x={xS(n)} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={9}>
+          <line x1={xS(n)} y1={padT + cH} x2={xS(n)} y2={padT + cH + 5} stroke={ED.rule} strokeWidth={1} />
+          <text x={xS(n)} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
             {n}
           </text>
         </g>
       ))}
-      <text x={padL + cW / 2} y={padT + cH + 34} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={padT + cH + 34} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         n
       </text>
       <text
         x={12}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={'rotate(-90,12,' + (padT + cH / 2) + ')'}
       >
@@ -170,7 +171,7 @@ export default function Imp3881EpsSignChangeViz() {
     <div style={{ padding: '1.5rem', maxWidth: 940, margin: '0 auto' }}>
       <PageHeader title="Moment-Ratio Correction eps_n Sign-Change Ladder, n=3..300 (imp-3849 / imp-3881)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         eps_n = Q_n/tau*(n)<sup>2</sup> - 1 measures how far the moment ratio Q_n departs from its
         Laplace-saddle estimate tau*(n)<sup>2</sup>. The top panel shows eps_n shrinking from a
         large positive value at small n (eps_3 = 0.538, eps_40 = 9.99e-3) down through the imp-3735
@@ -180,12 +181,12 @@ export default function Imp3881EpsSignChangeViz() {
         (eps_300 = -5.05e-4).
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         eps_n vs n, n=3..148 (log-log): the shrinking positive regime
       </p>
       <ShrinkChart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
         eps_n vs n, n=88..300 (linear, zoomed): the sign-change at n=149 and the negative tail
       </p>
       <CrossingChart />
@@ -194,14 +195,14 @@ export default function Imp3881EpsSignChangeViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> imp-3735 measured eps_n
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> imp-3735 measured eps_n
         positive and shrinking out to n = 80. Continuing the imp-3849 inner-converged ladder shows
         eps_n keeps shrinking past n = 80, crosses zero at n = 149 (green-to-blue transition), then
         goes negative and its magnitude grows before slowly flattening (eps_200 = -3.43e-4,
@@ -213,14 +214,14 @@ export default function Imp3881EpsSignChangeViz() {
         style={{
           marginTop: '1rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement/visualization
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> measurement/visualization
         only -- no proof, no reduction below RH. This pins the CONVERGED shape of a moment-ratio
         correction diagnostic; mass-feasibility is necessary-but-not-sufficient and the
         operator-level K_a &ge; 0 sign-positivity residual (imp-3066) remains untouched. The

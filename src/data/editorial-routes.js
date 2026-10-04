@@ -76,6 +76,8 @@ export const EDITORIAL_ROUTES = new Set([
   '/rh-dag',
   '/frontier-dag',
   '/program-dag',
+  '/rh-landscape-dag',
+  '/project-dag',
   '/volterra-bound',
   '/berry-keating-xp',
   '/connes-adelic',
@@ -111,6 +113,10 @@ export const EDITORIAL_ROUTES = new Set([
   '/health',
   // Reference group
   '/concepts',
+  // Concept pages: '/concept/<slug>' and '/concepts/class/<slug>' are matched by
+  // EDITORIAL_PREFIXES below; the bare paths are listed for completeness.
+  '/concept',
+  '/concepts/class',
   '/history',
   '/explorations',
   '/literature',
@@ -167,10 +173,23 @@ export const EDITORIAL_ROUTES = new Set([
   '/viz-cost-floor',
   '/viz-window-landscape',
   '/viz-freeze-flow',
+  // Pages that render their own EditorialHeader (previously also showed the
+  // classic dark bar above it)
+  '/reach-frontier-audit',
+  '/rh-novel-routes-roadmap',
+  '/route-m-cohort2-audit',
+]);
+
+// Parameterised editorial routes: every pathname starting with one of these
+// prefixes renders in the editorial theme (e.g. /concept/theta-trap).
+export const EDITORIAL_PREFIXES = Object.freeze([
+  '/concept/',
+  '/concepts/class/',
 ]);
 
 export function isEditorialRoute(pathname) {
-  return EDITORIAL_ROUTES.has(pathname);
+  if (EDITORIAL_ROUTES.has(pathname)) return true;
+  return EDITORIAL_PREFIXES.some((p) => pathname.startsWith(p));
 }
 
 // The ~420 auto-generated imp-NNNN / viz-* diagnostic pages all share the same
@@ -193,7 +212,7 @@ const VIZ_LEGACY_EXTRA = new Set([
 ]);
 
 export function isVizLegacyRoute(pathname) {
-  if (EDITORIAL_ROUTES.has(pathname)) return false;
+  if (isEditorialRoute(pathname)) return false;
   return (
     pathname.startsWith('/viz-') || /imp\d/i.test(pathname) || VIZ_LEGACY_EXTRA.has(pathname)
   );

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
+import { ED } from '../styles/tokens.js';
 
 // Editorial (warm) re-theme. Structure/content/data unchanged; dark-theme
 // hexes and dark accent-* CSS vars (unmapped by .ed-root on purpose) are
@@ -21,14 +22,14 @@ import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 // (which key off the un-remapped --accent-* vars) are replaced with inline
 // warm-hex styling on the base "tag" class.
 
-const RED = '#c23a1c';
-const PURPLE = '#d9502e';
-const ORANGE = '#b58a2e';
-const GREEN = '#4c7a4a';
-const BLUE = '#3f6b86';
-const FAINT = '#877b67';
-const INK = '#1c1814';
-const INK_SOFT = '#4a4238';
+const RED = ED.series2;
+const PURPLE = ED.accentDeco;
+const ORANGE = ED.brassDeco;
+const GREEN = ED.series3;
+const BLUE = ED.series1;
+const FAINT = ED.inkFaint;
+const INK = ED.ink;
+const INK_SOFT = ED.inkSoft;
 
 /* ─── Reasoning entries: our evolving proof strategy log ─── */
 const reasoningEntries = [
@@ -495,7 +496,7 @@ export default function HistoricalReasoningPage() {
         <div className="card" style={{ borderLeft: `3px solid ${RED}`, marginBottom: 24 }}>
           <h3 style={{ color: RED, fontSize: 16, marginTop: 0 }}>Current State of the Approach</h3>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 16, marginBottom: 16 }}>
-            <div style={{ padding: 12, background: 'rgba(194,58,28,0.05)', borderRadius: 8, border: '1px solid rgba(194,58,28,0.15)' }}>
+            <div style={{ padding: 12, background: 'color-mix(in srgb, var(--series-2) 5%, transparent)', borderRadius: 8, border: '1px solid color-mix(in srgb, var(--accent) 15%, transparent)' }}>
               <div style={{ fontSize: 11, fontWeight: 700, color: RED, textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: 6 }}>
                 Current Primary Target
               </div>
@@ -506,13 +507,13 @@ export default function HistoricalReasoningPage() {
                 <InlineMath tex="\Lambda\le0.1787854" /> as a computer-assisted
                 candidate (reviewed by Dan Romik, being prepared for public release, unrefereed).
                 A sharper candidate <InlineMath tex="\Lambda\le0.1758354" /> (four Arb gates,
-                Lean-checked reduction, unrefereed) and a conditional{' '}
+                Lean-checked y-transfer reduction and Lemma B3, unrefereed) and a conditional{' '}
                 <Link to="/permutation-architecture"><InlineMath tex="\Lambda\le0.14" /> completion
                 contract</Link> (a contract, not a bound) mark the current frontier. None of these
                 bounds is established or peer reviewed, and none is RH.
               </div>
             </div>
-            <div style={{ padding: 12, background: 'rgba(217,80,46,0.05)', borderRadius: 8, border: '1px solid rgba(217,80,46,0.15)' }}>
+            <div style={{ padding: 12, background: 'color-mix(in srgb, var(--accent-deco) 5%, transparent)', borderRadius: 8, border: '1px solid color-mix(in srgb, var(--accent-deco) 15%, transparent)' }}>
               <div style={{ fontSize: 11, fontWeight: 700, color: PURPLE, textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: 6 }}>
                 July 2026 Realization Audit
               </div>
@@ -523,7 +524,7 @@ export default function HistoricalReasoningPage() {
                 Connes&apos; operators, and a passive LC scattering realization.
               </div>
             </div>
-            <div style={{ padding: 12, background: 'rgba(76,122,74,0.05)', borderRadius: 8, border: '1px solid rgba(76,122,74,0.15)' }}>
+            <div style={{ padding: 12, background: 'color-mix(in srgb, var(--series-3) 5%, transparent)', borderRadius: 8, border: '1px solid color-mix(in srgb, var(--series-3) 15%, transparent)' }}>
               <div style={{ fontSize: 11, fontWeight: 700, color: GREEN, textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: 6 }}>
                 What Convergence Would—and Would Not—Do
               </div>
@@ -541,27 +542,27 @@ export default function HistoricalReasoningPage() {
               Corrected Logical Boundary
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap', fontSize: 12, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>
-              <span style={{ padding: '4px 10px', background: 'rgba(63,107,134,0.1)', border: '1px solid rgba(63,107,134,0.3)', borderRadius: 6, color: BLUE }}>
+              <span style={{ padding: '4px 10px', background: 'color-mix(in srgb, var(--series-1) 10%, transparent)', border: '1px solid color-mix(in srgb, var(--series-1) 30%, transparent)', borderRadius: 6, color: BLUE }}>
                 Euler Product (Re s &gt; 1)
               </span>
               <span style={{ color: FAINT }}>{'→'}</span>
-              <span style={{ padding: '4px 10px', background: 'rgba(63,107,134,0.1)', border: '1px solid rgba(63,107,134,0.3)', borderRadius: 6, color: BLUE }}>
+              <span style={{ padding: '4px 10px', background: 'color-mix(in srgb, var(--series-1) 10%, transparent)', border: '1px solid color-mix(in srgb, var(--series-1) 30%, transparent)', borderRadius: 6, color: BLUE }}>
                 Algebraic Ratio
               </span>
               <span style={{ color: FAINT }}>{'→'}</span>
-              <span style={{ padding: '4px 10px', background: 'rgba(217,80,46,0.1)', border: '1px solid rgba(217,80,46,0.3)', borderRadius: 6, color: PURPLE }}>
+              <span style={{ padding: '4px 10px', background: 'color-mix(in srgb, var(--accent-deco) 10%, transparent)', border: '1px solid color-mix(in srgb, var(--accent-deco) 30%, transparent)', borderRadius: 6, color: PURPLE }}>
                 ζ(2s)/ζ(s)
               </span>
               <span style={{ color: FAINT }}>{'→'}</span>
-              <span style={{ padding: '4px 10px', background: 'rgba(181,138,46,0.1)', border: '1px solid rgba(181,138,46,0.3)', borderRadius: 6, color: ORANGE }}>
+              <span style={{ padding: '4px 10px', background: 'color-mix(in srgb, var(--brass-deco) 10%, transparent)', border: '1px solid color-mix(in srgb, var(--brass-deco) 30%, transparent)', borderRadius: 6, color: ORANGE }}>
                 ζ zero = generic pole
               </span>
               <span style={{ color: FAINT }}>{'→'}</span>
-              <span style={{ padding: '4px 10px', background: 'rgba(76,122,74,0.1)', border: '1px solid rgba(76,122,74,0.3)', borderRadius: 6, color: GREEN }}>
+              <span style={{ padding: '4px 10px', background: 'color-mix(in srgb, var(--series-3) 10%, transparent)', border: '1px solid color-mix(in srgb, var(--series-3) 30%, transparent)', borderRadius: 6, color: GREEN }}>
                 Darlington inference unavailable
               </span>
               <span style={{ color: FAINT }}>{'→'}</span>
-              <span style={{ padding: '4px 10px', background: 'rgba(194,58,28,0.1)', border: '1px solid rgba(194,58,28,0.3)', borderRadius: 6, color: RED }}>
+              <span style={{ padding: '4px 10px', background: 'color-mix(in srgb, var(--series-2) 10%, transparent)', border: '1px solid color-mix(in srgb, var(--accent) 30%, transparent)', borderRadius: 6, color: RED }}>
                 RH remains open
               </span>
             </div>
@@ -659,8 +660,8 @@ export default function HistoricalReasoningPage() {
               style={{
                 fontSize: 11,
                 color: selectedGap === gap ? undefined : ORANGE,
-                borderColor: selectedGap === gap ? undefined : 'rgba(181,138,46,0.3)',
-                background: selectedGap === gap ? undefined : 'rgba(181,138,46,0.08)',
+                borderColor: selectedGap === gap ? undefined : 'color-mix(in srgb, var(--brass-deco) 30%, transparent)',
+                background: selectedGap === gap ? undefined : 'color-mix(in srgb, var(--brass-deco) 8%, transparent)',
               }}
               aria-pressed={selectedGap === gap}
             >
@@ -706,7 +707,7 @@ export default function HistoricalReasoningPage() {
                   <span key={g} style={{
                     fontSize: 9, fontWeight: 700, color: ORANGE,
                     padding: '1px 6px', borderRadius: 4,
-                    background: 'rgba(181,138,46,0.1)', border: '1px solid rgba(181,138,46,0.2)',
+                    background: 'color-mix(in srgb, var(--brass-deco) 10%, transparent)', border: '1px solid color-mix(in srgb, var(--brass-deco) 20%, transparent)',
                     fontFamily: 'var(--ed-mono, var(--font-mono))',
                   }}>
                     GAP {g}
@@ -818,7 +819,7 @@ export default function HistoricalReasoningPage() {
               { framework: 'Circuit Theory', grade: 'Analogy; insufficient', condition: 'Boundary losslessness alone', math: 'S^\\dagger S=I\\;\\not\\Rightarrow\\;\\mathrm{RH}' },
               { framework: 'Spectral Theory', grade: 'Open identification target', condition: 'Self-adjoint operator plus exact divisor map', math: '\\operatorname{Spec}(A)\\stackrel{?}{=}\\{\\gamma_\\rho\\}' },
             ].map((item, i) => (
-              <div key={i} style={{ padding: 10, background: 'rgba(217,80,46,0.05)', borderRadius: 8, border: '1px solid rgba(217,80,46,0.15)' }}>
+              <div key={i} style={{ padding: 10, background: 'color-mix(in srgb, var(--accent-deco) 5%, transparent)', borderRadius: 8, border: '1px solid color-mix(in srgb, var(--accent-deco) 15%, transparent)' }}>
                 <div style={{ fontSize: 10, fontWeight: 700, color: PURPLE, textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: 4 }}>
                   {item.framework}
                 </div>

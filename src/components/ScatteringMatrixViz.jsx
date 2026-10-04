@@ -3,6 +3,7 @@ import * as d3 from 'd3';
 import { InlineMath, BlockMath } from './KaTeXMath.jsx';
 import { losslessBridge } from '../math/oscillators.js';
 import { cAbs, cMul, cAdd, cSub, cDiv, ZETA_ZEROS } from '../math/zeta.js';
+import { ED, alpha } from '../styles/tokens.js';
 
 /**
  * Visualize the scattering matrix of the lossless bridge:
@@ -64,30 +65,30 @@ export default function ScatteringMatrixViz() {
       const y = d3.scaleLinear().domain([0, yMax]).range([h, 0]);
 
       g.append('g').attr('transform', `translate(0,${h})`).call(d3.axisBottom(x).ticks(10))
-        .selectAll('text').attr('fill', '#64748b').attr('font-size', 10);
+        .selectAll('text').attr('fill', ED.inkFaint).attr('font-size', 10);
       g.append('g').call(d3.axisLeft(y).ticks(8))
-        .selectAll('text').attr('fill', '#64748b').attr('font-size', 10);
-      g.selectAll('.domain, .tick line').attr('stroke', '#2a3050');
+        .selectAll('text').attr('fill', ED.inkFaint).attr('font-size', 10);
+      g.selectAll('.domain, .tick line').attr('stroke', ED.rule);
 
       // Horizontal gridlines
       const gridMag = g.append('g').call(d3.axisLeft(y).ticks(8).tickSize(-w).tickFormat(''));
       gridMag.select('.domain').remove();
-      gridMag.selectAll('.tick line').attr('stroke', '#1e293b').attr('stroke-dasharray', '4,4').attr('stroke-width', 0.8);
+      gridMag.selectAll('.tick line').attr('stroke', ED.ruleSoft).attr('stroke-dasharray', '4,4').attr('stroke-width', 0.8);
 
       // |χ| = 1 reference line
       g.append('line')
         .attr('x1', 0).attr('y1', y(1)).attr('x2', w).attr('y2', y(1))
-        .attr('stroke', '#10b981').attr('stroke-width', 1.5).attr('stroke-dasharray', '6,4');
+        .attr('stroke', ED.series3).attr('stroke-width', 1.5).attr('stroke-dasharray', '6,4');
       g.append('text').attr('x', w - 4).attr('y', y(1) - 6)
-        .attr('text-anchor', 'end').attr('fill', '#10b981').attr('font-size', 10)
+        .attr('text-anchor', 'end').attr('fill', ED.series3).attr('font-size', 10)
         .text('|χ| = 1 (lossless)');
 
       // σ = 0.5 line
       g.append('line')
         .attr('x1', x(0.5)).attr('y1', 0).attr('x2', x(0.5)).attr('y2', h)
-        .attr('stroke', '#ef4444').attr('stroke-width', 1.5).attr('stroke-dasharray', '6,4');
+        .attr('stroke', ED.series2).attr('stroke-width', 1.5).attr('stroke-dasharray', '6,4');
       g.append('text').attr('x', x(0.5) + 4).attr('y', h - 6)
-        .attr('fill', '#ef4444').attr('font-size', 10).attr('font-weight', 600)
+        .attr('fill', ED.series2).attr('font-size', 10).attr('font-weight', 600)
         .text('σ = ½');
 
       // |χ(s)| curve
@@ -100,7 +101,7 @@ export default function ScatteringMatrixViz() {
         .y1(d => y(Math.min(yMax, Math.max(1, d.chiMag))))
         .curve(d3.curveBasis);
       g.append('path').datum(data).attr('d', area1)
-        .attr('fill', 'rgba(239,68,68,0.1)');
+        .attr('fill', alpha(ED.series2, 0.1));
 
       const area2 = d3.area()
         .x(d => x(d.sigma))
@@ -108,10 +109,10 @@ export default function ScatteringMatrixViz() {
         .y1(d => y(Math.min(1, d.chiMag)))
         .curve(d3.curveBasis);
       g.append('path').datum(data).attr('d', area2)
-        .attr('fill', 'rgba(59,130,246,0.1)');
+        .attr('fill', alpha(ED.series1, 0.1));
 
       g.append('path').datum(data).attr('d', line)
-        .attr('fill', 'none').attr('stroke', '#8b5cf6').attr('stroke-width', 2.5);
+        .attr('fill', 'none').attr('stroke', ED.series5).attr('stroke-width', 2.5);
 
       // Mark σ = 0.5 point. Tolerance must be tighter than the grid spacing
       // (0.0098 ≈ 0.98/100) so that the i=49 sample at σ≈0.4902 — which is within
@@ -121,57 +122,57 @@ export default function ScatteringMatrixViz() {
       if (halfPoint) {
         g.append('circle')
           .attr('cx', x(0.5)).attr('cy', y(Math.min(yMax, halfPoint.chiMag))).attr('r', 5)
-          .attr('fill', '#10b981').attr('stroke', '#0a0e1a').attr('stroke-width', 2);
+          .attr('fill', ED.series3).attr('stroke', ED.paper).attr('stroke-width', 2);
         g.append('text')
           .attr('x', x(0.5) + 8).attr('y', y(Math.min(yMax, halfPoint.chiMag)) - 8)
-          .attr('fill', '#10b981').attr('font-size', 11).attr('font-weight', 600)
+          .attr('fill', ED.series3).attr('font-size', 11).attr('font-weight', 600)
           .text(`|χ(½+${tValue.toFixed(1)}i)| = ${halfPoint.chiMag.toFixed(4)}`);
       }
 
       svg.append('text').attr('x', margin.left + 4).attr('y', 16)
-        .attr('fill', '#e2e8f0').attr('font-size', 13).attr('font-weight', 600)
+        .attr('fill', ED.ink).attr('font-size', 13).attr('font-weight', 600)
         .text(`Bridge Transfer Magnitude |χ(σ + ${tValue.toFixed(1)}i)|`);
 
       svg.append('text')
         .attr('transform', `translate(14, ${margin.top + h / 2}) rotate(-90)`)
-        .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12)
+        .attr('text-anchor', 'middle').attr('fill', ED.inkSoft).attr('font-size', 12)
         .text('|χ(s)|');
 
       // Annotations
       g.append('text').attr('x', x(0.25)).attr('y', 20)
-        .attr('text-anchor', 'middle').attr('fill', '#ef4444').attr('font-size', 10)
+        .attr('text-anchor', 'middle').attr('fill', ED.series2).attr('font-size', 10)
         .text('|χ| > 1: amplifying');
       g.append('text').attr('x', x(0.75)).attr('y', 20)
-        .attr('text-anchor', 'middle').attr('fill', '#3b82f6').attr('font-size', 10)
+        .attr('text-anchor', 'middle').attr('fill', ED.series1).attr('font-size', 10)
         .text('|χ| < 1: attenuating');
 
     } else if (mode === 'reflection') {
       const y = d3.scaleLinear().domain([-1, 1]).range([h, 0]);
 
       g.append('g').attr('transform', `translate(0,${h})`).call(d3.axisBottom(x).ticks(10))
-        .selectAll('text').attr('fill', '#64748b').attr('font-size', 10);
+        .selectAll('text').attr('fill', ED.inkFaint).attr('font-size', 10);
       g.append('g').call(d3.axisLeft(y).ticks(8))
-        .selectAll('text').attr('fill', '#64748b').attr('font-size', 10);
-      g.selectAll('.domain, .tick line').attr('stroke', '#2a3050');
+        .selectAll('text').attr('fill', ED.inkFaint).attr('font-size', 10);
+      g.selectAll('.domain, .tick line').attr('stroke', ED.rule);
 
       // Horizontal gridlines
       const gridRef = g.append('g').call(d3.axisLeft(y).ticks(8).tickSize(-w).tickFormat(''));
       gridRef.select('.domain').remove();
-      gridRef.selectAll('.tick line').attr('stroke', '#1e293b').attr('stroke-dasharray', '4,4').attr('stroke-width', 0.8);
+      gridRef.selectAll('.tick line').attr('stroke', ED.ruleSoft).attr('stroke-dasharray', '4,4').attr('stroke-width', 0.8);
 
       // Γ = 0 reference line
       g.append('line')
         .attr('x1', 0).attr('y1', y(0)).attr('x2', w).attr('y2', y(0))
-        .attr('stroke', '#475569').attr('stroke-width', 1).attr('stroke-dasharray', '4,4');
+        .attr('stroke', ED.rule).attr('stroke-width', 1).attr('stroke-dasharray', '4,4');
       g.append('text').attr('x', w - 4).attr('y', y(0) - 4)
-        .attr('text-anchor', 'end').attr('fill', '#475569').attr('font-size', 9)
+        .attr('text-anchor', 'end').attr('fill', ED.inkFaint).attr('font-size', 9)
         .text('Γ = 0');
 
       g.append('line')
         .attr('x1', x(0.5)).attr('y1', 0).attr('x2', x(0.5)).attr('y2', h)
-        .attr('stroke', '#ef4444').attr('stroke-width', 1.5).attr('stroke-dasharray', '6,4');
+        .attr('stroke', ED.series2).attr('stroke-width', 1.5).attr('stroke-dasharray', '6,4');
       g.append('text').attr('x', x(0.5) + 4).attr('y', h - 6)
-        .attr('fill', '#ef4444').attr('font-size', 10).attr('font-weight', 600)
+        .attr('fill', ED.series2).attr('font-size', 10).attr('font-weight', 600)
         .text('σ = ½');
 
       const clampRefl = d => Math.max(-1, Math.min(1, d.reflection));
@@ -184,10 +185,10 @@ export default function ScatteringMatrixViz() {
           .y0(y(0))
           .y1(d => y(clampRefl(d)))
           .curve(d3.curveBasis))
-        .attr('fill', 'rgba(245,158,11,0.15)');
+        .attr('fill', alpha(ED.brassDeco, 0.15));
 
       g.append('path').datum(data).attr('d', line)
-        .attr('fill', 'none').attr('stroke', '#f59e0b').attr('stroke-width', 2.5);
+        .attr('fill', 'none').attr('stroke', ED.brassDeco).attr('stroke-width', 2.5);
 
       // Mark σ = 0.5 point — tighter tolerance than grid spacing (0.0098) to
       // exclude the i=49 neighbor at σ≈0.4902 and pick the exact i=50 sample.
@@ -195,28 +196,28 @@ export default function ScatteringMatrixViz() {
       if (halfPoint) {
         g.append('circle')
           .attr('cx', x(0.5)).attr('cy', y(clampRefl(halfPoint))).attr('r', 5)
-          .attr('fill', '#10b981').attr('stroke', '#0a0e1a').attr('stroke-width', 2);
+          .attr('fill', ED.series3).attr('stroke', ED.paper).attr('stroke-width', 2);
         g.append('text')
           .attr('x', x(0.5) + 8).attr('y', y(clampRefl(halfPoint)) - 8)
-          .attr('fill', '#10b981').attr('font-size', 11).attr('font-weight', 600)
+          .attr('fill', ED.series3).attr('font-size', 11).attr('font-weight', 600)
           .text(`Γ(½+${tValue.toFixed(1)}i) = ${halfPoint.reflection.toFixed(4)}`);
       }
 
       // Region labels
       g.append('text').attr('x', 6).attr('y', y(0.5))
-        .attr('fill', '#3b82f6').attr('font-size', 10).attr('opacity', 0.7)
+        .attr('fill', ED.series1).attr('font-size', 10).attr('opacity', 0.7)
         .text('Γ > 0: attenuating (|χ| < 1)');
       g.append('text').attr('x', 6).attr('y', y(-0.5))
-        .attr('fill', '#f59e0b').attr('font-size', 10).attr('opacity', 0.7)
+        .attr('fill', ED.brass).attr('font-size', 10).attr('opacity', 0.7)
         .text('Γ < 0: amplifying (|χ| > 1)');
 
       svg.append('text').attr('x', margin.left + 4).attr('y', 16)
-        .attr('fill', '#e2e8f0').attr('font-size', 13).attr('font-weight', 600)
+        .attr('fill', ED.ink).attr('font-size', 13).attr('font-weight', 600)
         .text(`Bridge Reflection Coefficient Γ(σ + ${tValue.toFixed(1)}i) — zero at σ = ½`);
 
       svg.append('text')
         .attr('transform', `translate(14, ${margin.top + h / 2}) rotate(-90)`)
-        .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12)
+        .attr('text-anchor', 'middle').attr('fill', ED.inkSoft).attr('font-size', 12)
         .text('Γ');
 
     } else {
@@ -224,38 +225,38 @@ export default function ScatteringMatrixViz() {
       const y = d3.scaleLinear().domain([-180, 180]).range([h, 0]);
 
       g.append('g').attr('transform', `translate(0,${h})`).call(d3.axisBottom(x).ticks(10))
-        .selectAll('text').attr('fill', '#64748b').attr('font-size', 10);
+        .selectAll('text').attr('fill', ED.inkFaint).attr('font-size', 10);
       g.append('g').call(d3.axisLeft(y).ticks(8).tickFormat(d => d + '°'))
-        .selectAll('text').attr('fill', '#64748b').attr('font-size', 10);
-      g.selectAll('.domain, .tick line').attr('stroke', '#2a3050');
+        .selectAll('text').attr('fill', ED.inkFaint).attr('font-size', 10);
+      g.selectAll('.domain, .tick line').attr('stroke', ED.rule);
 
       // Horizontal gridlines
       const gridPhase = g.append('g').call(d3.axisLeft(y).ticks(8).tickSize(-w).tickFormat(''));
       gridPhase.select('.domain').remove();
-      gridPhase.selectAll('.tick line').attr('stroke', '#1e293b').attr('stroke-dasharray', '4,4').attr('stroke-width', 0.8);
+      gridPhase.selectAll('.tick line').attr('stroke', ED.ruleSoft).attr('stroke-dasharray', '4,4').attr('stroke-width', 0.8);
 
       g.append('line')
         .attr('x1', x(0.5)).attr('y1', 0).attr('x2', x(0.5)).attr('y2', h)
-        .attr('stroke', '#ef4444').attr('stroke-width', 1.5).attr('stroke-dasharray', '6,4');
+        .attr('stroke', ED.series2).attr('stroke-width', 1.5).attr('stroke-dasharray', '6,4');
       g.append('text').attr('x', x(0.5) + 4).attr('y', h - 6)
-        .attr('fill', '#ef4444').attr('font-size', 10).attr('font-weight', 600)
+        .attr('fill', ED.series2).attr('font-size', 10).attr('font-weight', 600)
         .text('σ = ½');
 
       // 0° reference line
       g.append('line')
         .attr('x1', 0).attr('y1', y(0)).attr('x2', w).attr('y2', y(0))
-        .attr('stroke', '#64748b').attr('stroke-width', 1).attr('stroke-dasharray', '6,4');
+        .attr('stroke', ED.rule).attr('stroke-width', 1).attr('stroke-dasharray', '6,4');
       g.append('text').attr('x', w - 4).attr('y', y(0) - 6)
-        .attr('text-anchor', 'end').attr('fill', '#64748b').attr('font-size', 10)
+        .attr('text-anchor', 'end').attr('fill', ED.inkFaint).attr('font-size', 10)
         .text('0° (real axis)');
 
       // ±90° reference lines for quarter-turn context
       for (const deg of [-90, 90]) {
         g.append('line')
           .attr('x1', 0).attr('y1', y(deg)).attr('x2', w).attr('y2', y(deg))
-          .attr('stroke', '#334155').attr('stroke-width', 0.8).attr('stroke-dasharray', '3,5');
+          .attr('stroke', ED.rule).attr('stroke-width', 0.8).attr('stroke-dasharray', '3,5');
         g.append('text').attr('x', w - 4).attr('y', y(deg) - 4)
-          .attr('text-anchor', 'end').attr('fill', '#475569').attr('font-size', 9)
+          .attr('text-anchor', 'end').attr('fill', ED.inkFaint).attr('font-size', 9)
           .text(`${deg > 0 ? '+' : ''}${deg}°`);
       }
 
@@ -268,7 +269,7 @@ export default function ScatteringMatrixViz() {
         .y1(d => y(phaseDegAccessor(d)))
         .curve(d3.curveLinear);
       g.append('path').datum(data).attr('d', phaseArea)
-        .attr('fill', 'rgba(6,182,212,0.1)');
+        .attr('fill', alpha(ED.series6, 0.1));
 
       const line = d3.line()
         .x(d => x(d.sigma))
@@ -276,7 +277,7 @@ export default function ScatteringMatrixViz() {
         .curve(d3.curveLinear);
 
       g.append('path').datum(data).attr('d', line)
-        .attr('fill', 'none').attr('stroke', '#06b6d4').attr('stroke-width', 2.5);
+        .attr('fill', 'none').attr('stroke', ED.series6).attr('stroke-width', 2.5);
 
       // Mark σ = 0.5 point — tighter tolerance than grid spacing (0.0098) to
       // exclude the i=49 neighbor at σ≈0.4902 and pick the exact i=50 sample.
@@ -285,25 +286,25 @@ export default function ScatteringMatrixViz() {
         const phaseDeg = halfPoint.chiPhase * 180 / Math.PI;
         g.append('circle')
           .attr('cx', x(0.5)).attr('cy', y(phaseDeg)).attr('r', 5)
-          .attr('fill', '#10b981').attr('stroke', '#0a0e1a').attr('stroke-width', 2);
+          .attr('fill', ED.series3).attr('stroke', ED.paper).attr('stroke-width', 2);
         g.append('text')
           .attr('x', x(0.5) + 8).attr('y', y(phaseDeg) - 8)
-          .attr('fill', '#10b981').attr('font-size', 11).attr('font-weight', 600)
+          .attr('fill', ED.series3).attr('font-size', 11).attr('font-weight', 600)
           .text(`arg(χ(½+${tValue.toFixed(1)}i)) = ${phaseDeg.toFixed(1)}°`);
       }
 
       svg.append('text').attr('x', margin.left + 4).attr('y', 16)
-        .attr('fill', '#e2e8f0').attr('font-size', 13).attr('font-weight', 600)
+        .attr('fill', ED.ink).attr('font-size', 13).attr('font-weight', 600)
         .text(`Bridge Phase arg(χ(σ + ${tValue.toFixed(1)}i))`);
 
       svg.append('text')
         .attr('transform', `translate(14, ${margin.top + h / 2}) rotate(-90)`)
-        .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12)
+        .attr('text-anchor', 'middle').attr('fill', ED.inkSoft).attr('font-size', 12)
         .text('arg(χ) (degrees)');
     }
 
     svg.append('text').attr('x', width / 2).attr('y', height - 6)
-      .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12)
+      .attr('text-anchor', 'middle').attr('fill', ED.inkSoft).attr('font-size', 12)
       .text('σ = Re(s)');
 
     // Hover crosshair interaction (works for all modes)
@@ -314,11 +315,11 @@ export default function ScatteringMatrixViz() {
 
     const hoverLine = g.append('line')
       .attr('y1', 0).attr('y2', h)
-      .attr('stroke', '#e2e8f0').attr('stroke-width', 0.5)
+      .attr('stroke', ED.inkSoft).attr('stroke-width', 0.5)
       .attr('opacity', 0);
 
     const hoverDot = g.append('circle')
-      .attr('r', 4).attr('fill', '#10b981').attr('stroke', '#0a0e1a').attr('stroke-width', 2)
+      .attr('r', 4).attr('fill', ED.series3).attr('stroke', ED.paper).attr('stroke-width', 2)
       .attr('opacity', 0);
 
     // Build y-scale and accessor matching current mode
@@ -340,11 +341,11 @@ export default function ScatteringMatrixViz() {
       Math.abs(d.sigma - sigmaValue) < Math.abs(best.sigma - sigmaValue) ? d : best, data[0]);
     g.append('line')
       .attr('x1', x(sigmaValue)).attr('y1', 0).attr('x2', x(sigmaValue)).attr('y2', h)
-      .attr('stroke', '#f97316').attr('stroke-width', 1.5).attr('stroke-dasharray', '5,3')
+      .attr('stroke', ED.series4).attr('stroke-width', 1.5).attr('stroke-dasharray', '5,3')
       .attr('opacity', 0.75);
     g.append('circle')
       .attr('cx', x(sigmaValue)).attr('cy', yScale(yAccessor(closestToSigma))).attr('r', 5)
-      .attr('fill', '#f97316').attr('stroke', '#0a0e1a').attr('stroke-width', 2);
+      .attr('fill', ED.series4).attr('stroke', ED.paper).attr('stroke-width', 2);
 
     const setHP = setHoverPoint;
     hoverOverlay.on('mousemove', (event) => {
@@ -433,7 +434,7 @@ export default function ScatteringMatrixViz() {
               <span
                 style={{
                   marginLeft: 6, fontSize: 11, fontFamily: 'var(--font-mono)',
-                  color: bestDist < 0.3 ? '#10b981' : '#64748b',
+                  color: bestDist < 0.3 ? 'var(--series-3)' : 'var(--ink-faint)',
                   cursor: 'pointer', borderBottom: '1px dashed currentColor',
                 }}
                 title={`Click to snap t to γ${bestIdx + 1} = ${ZETA_ZEROS[bestIdx].toFixed(6)}`}
@@ -451,23 +452,23 @@ export default function ScatteringMatrixViz() {
           <span className="control-value">{sigmaValue.toFixed(2)}</span>
         </div>
         {hoverPoint ? (
-          <div style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: 12, color: '#06b6d4' }}>
+          <div style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: 12, color: 'var(--series-6)' }}>
             σ={hoverPoint.sigma.toFixed(3)} |
             {mode === 'magnitude' && <> |χ|={hoverPoint.chiMag.toFixed(4)} | Γ={hoverPoint.reflection.toFixed(4)}</>}
             {mode === 'reflection' && <> Γ={hoverPoint.reflection.toFixed(4)} | |χ|={hoverPoint.chiMag.toFixed(4)}</>}
             {mode === 'phase' && <> arg(χ)={(hoverPoint.chiPhase * 180 / Math.PI).toFixed(1)}° | |χ|={hoverPoint.chiMag.toFixed(4)}</>}
           </div>
         ) : (
-          <div style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: 11, color: '#475569', fontStyle: 'italic' }}>
+          <div style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--ink-faint)', fontStyle: 'italic' }}>
             Hover over chart to inspect values
           </div>
         )}
       </div>
-      <div style={{ marginBottom: 8, padding: '6px 14px', background: 'rgba(249,115,22,0.08)', border: '1px solid rgba(249,115,22,0.25)', borderRadius: 6, fontFamily: 'var(--font-mono)', fontSize: 12, display: 'flex', flexWrap: 'wrap', gap: 20, alignItems: 'center' }}>
-        <span style={{ color: '#fb923c' }}>|χ({sigmaValue.toFixed(2)} + {tValue.toFixed(1)}i)| = {chiAtPoint.magnitude.toFixed(6)}</span>
-        <span style={{ color: '#94a3b8' }}>Γ = {((1 - chiAtPoint.magnitude) / (1 + chiAtPoint.magnitude)).toFixed(4)}</span>
-        <span style={{ color: '#94a3b8' }}>arg = {(chiAtPoint.phase * 180 / Math.PI).toFixed(1)}°</span>
-        {Math.abs(chiAtPoint.magnitude - 1) < 0.0001 && <span style={{ color: '#10b981' }}>lossless</span>}
+      <div style={{ marginBottom: 8, padding: '6px 14px', background: 'color-mix(in srgb, var(--series-4) 8%, transparent)', border: '1px solid color-mix(in srgb, var(--series-4) 25%, transparent)', borderRadius: 6, fontFamily: 'var(--font-mono)', fontSize: 12, display: 'flex', flexWrap: 'wrap', gap: 20, alignItems: 'center' }}>
+        <span style={{ color: 'var(--series-4)' }}>|χ({sigmaValue.toFixed(2)} + {tValue.toFixed(1)}i)| = {chiAtPoint.magnitude.toFixed(6)}</span>
+        <span style={{ color: 'var(--ink-soft)' }}>Γ = {((1 - chiAtPoint.magnitude) / (1 + chiAtPoint.magnitude)).toFixed(4)}</span>
+        <span style={{ color: 'var(--ink-soft)' }}>arg = {(chiAtPoint.phase * 180 / Math.PI).toFixed(1)}°</span>
+        {Math.abs(chiAtPoint.magnitude - 1) < 0.0001 && <span style={{ color: 'var(--series-3)' }}>lossless</span>}
       </div>
       <div className="viz-container">
         <svg ref={svgRef} style={{ width: '100%', height: 380 }} />

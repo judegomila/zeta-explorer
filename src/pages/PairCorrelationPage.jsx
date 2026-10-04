@@ -18,6 +18,7 @@ import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import { PAIR_CORRELATION_MONTGOMERY } from '../data/pair-correlation-montgomery-numerical.js';
 import { IMP_2656_DIRECT_RH_CONJECTURE_MAP } from '../data/imp-2656-direct-rh-conjecture-map.js';
 import AnimationEmbed from '../components/AnimationEmbed.jsx';
+import { ED, alpha as TK_ALPHA } from '../styles/tokens.js';
 
 // Geometry.
 const W = 920;
@@ -41,7 +42,7 @@ const COLORS = {
   gue: 'var(--brass)',
   residual: 'var(--terra-dk)',
   zero: 'var(--faint)',
-  grid: 'rgba(135, 123, 103, 0.18)',
+  grid: TK_ALPHA(ED.rule, 0.18),
   axis: 'var(--faint)',
   text: 'var(--ink-soft)',
 };
@@ -182,9 +183,9 @@ export default function PairCorrelationPage() {
                     Route 1 lives at |alpha| ~ log N >> 1, where it is OPEN. The
                     shaded wings are exactly where the obstruction bites. */}
                 <rect x={0} y={0} width={xTop(-1)} height={IH_TOP}
-                      fill="rgba(194, 58, 28, 0.09)" />
+                      fill={TK_ALPHA(ED.series2, 0.09)} />
                 <rect x={xTop(1)} y={0} width={IW - xTop(1)} height={IH_TOP}
-                      fill="rgba(194, 58, 28, 0.09)" />
+                      fill={TK_ALPHA(ED.series2, 0.09)} />
                 <text x={xTop(2)} y={IH_TOP - 8} textAnchor="middle"
                       style={{ ...tickStyle, fill: 'var(--terra-dk)', fontSize: 9 }}>
                   PCC obstruction (Route 1, OPEN)
@@ -215,9 +216,9 @@ export default function PairCorrelationPage() {
 
                 {/* alpha = 1 vertical guide: Montgomery proved regime boundary. */}
                 <line x1={xTop(1)} y1={0} x2={xTop(1)} y2={IH_TOP}
-                      stroke="#b58a2e" strokeWidth={1} strokeDasharray="4,4" opacity={0.65} />
+                      stroke={ED.brassDeco} strokeWidth={1} strokeDasharray="4,4" opacity={0.65} />
                 <line x1={xTop(-1)} y1={0} x2={xTop(-1)} y2={IH_TOP}
-                      stroke="#b58a2e" strokeWidth={1} strokeDasharray="4,4" opacity={0.65} />
+                      stroke={ED.brassDeco} strokeWidth={1} strokeDasharray="4,4" opacity={0.65} />
                 <text x={xTop(1) + 4} y={14} style={{ ...tickStyle, fill: 'var(--brass-dk)' }}>
                   alpha = 1 (Montgomery proved)
                 </text>

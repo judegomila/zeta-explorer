@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP35012_CROSSOVER_COMPLETE_MONOTONICITY_BERNSTEIN_ASSESSMENT } from '../data/imp-35012-crossover-complete-monotonicity-bernstein-assessment.js';
+import { ED } from '../styles/tokens.js';
 
 // n = 1..12 derivative order on the post-peak ramp. Three sign traces, all pure sign arithmetic:
 //   actual:     sign(g^(n))            = (-1)^(n+1)   (imp-34957/imp-34880 inherited data)
@@ -33,41 +34,41 @@ function SignLadderChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={yAt(0)} x2={padL + cW} y2={yAt(0)} stroke="#334155" strokeWidth={1} />
-      <text x={padL - 8} y={yAt(1) + 4} textAnchor="end" fill="#64748b" fontSize={10}>
+      <line x1={padL} y1={yAt(0)} x2={padL + cW} y2={yAt(0)} stroke={ED.rule} strokeWidth={1} />
+      <text x={padL - 8} y={yAt(1) + 4} textAnchor="end" fill={ED.inkFaint} fontSize={10}>
         +1
       </text>
-      <text x={padL - 8} y={yAt(-1) + 4} textAnchor="end" fill="#64748b" fontSize={10}>
+      <text x={padL - 8} y={yAt(-1) + 4} textAnchor="end" fill={ED.inkFaint} fontSize={10}>
         -1
       </text>
       {ORDERS.map((n) => (
-        <text key={n} x={xAt(n)} y={svgH - padB + 16} textAnchor="middle" fill="#64748b" fontSize={9}>
+        <text key={n} x={xAt(n)} y={svgH - padB + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
           {n}
         </text>
       ))}
-      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         derivative order n
       </text>
 
       {/* CM-of-g required sign: exact mirror of the actual data at every single order */}
-      <path d={`M ${pathFor('cmOfG')}`} fill="none" stroke="#f87171" strokeWidth={2} strokeDasharray="5,4" />
+      <path d={`M ${pathFor('cmOfG')}`} fill="none" stroke={ED.series2} strokeWidth={2} strokeDasharray="5,4" />
       {/* Actual g^(n) sign, identical to the Bernstein-required trace */}
-      <path d={`M ${pathFor('actual')}`} fill="none" stroke="#34d399" strokeWidth={2.5} />
+      <path d={`M ${pathFor('actual')}`} fill="none" stroke={ED.series3} strokeWidth={2.5} />
 
       {ROWS.map((r) => (
         <g key={r.n}>
-          <circle cx={xAt(r.n)} cy={yAt(r.actual)} r={4} fill="#34d399" />
-          <circle cx={xAt(r.n)} cy={yAt(r.cmOfG)} r={3} fill="#f87171" />
+          <circle cx={xAt(r.n)} cy={yAt(r.actual)} r={4} fill={ED.series3} />
+          <circle cx={xAt(r.n)} cy={yAt(r.cmOfG)} r={3} fill={ED.series2} />
         </g>
       ))}
 
       <g>
-        <rect x={padL + 8} y={padT} width={10} height={10} fill="#34d399" />
-        <text x={padL + 22} y={padT + 9} fill="#94a3b8" fontSize={10}>
+        <rect x={padL + 8} y={padT} width={10} height={10} fill={ED.series3} />
+        <text x={padL + 22} y={padT + 9} fill={ED.inkSoft} fontSize={10}>
           actual sign(g^(n)) = Bernstein-required sign (match at every n)
         </text>
-        <rect x={padL + 8} y={padT + 16} width={10} height={10} fill="#f87171" />
-        <text x={padL + 22} y={padT + 25} fill="#94a3b8" fontSize={10}>
+        <rect x={padL + 8} y={padT + 16} width={10} height={10} fill={ED.series2} />
+        <text x={padL + 22} y={padT + 25} fill={ED.inkSoft} fontSize={10}>
           sign complete-monotonicity of g would require (opposite at every n)
         </text>
       </g>
@@ -78,23 +79,23 @@ function SignLadderChart() {
 function SignTable() {
   return (
     <div style={{ overflowX: 'auto' }}>
-      <table style={{ borderCollapse: 'collapse', fontSize: '0.78rem', color: '#94a3b8', minWidth: 620 }}>
+      <table style={{ borderCollapse: 'collapse', fontSize: '0.78rem', color: 'var(--ink-soft)', minWidth: 620 }}>
         <thead>
           <tr>
-            <th style={{ textAlign: 'left', padding: '4px 8px', borderBottom: '1px solid #334155' }}>n</th>
-            <th style={{ textAlign: 'center', padding: '4px 8px', borderBottom: '1px solid #334155' }}>
+            <th style={{ textAlign: 'left', padding: '4px 8px', borderBottom: '1px solid var(--rule)' }}>n</th>
+            <th style={{ textAlign: 'center', padding: '4px 8px', borderBottom: '1px solid var(--rule)' }}>
               sign(g^(n)) actual
             </th>
-            <th style={{ textAlign: 'center', padding: '4px 8px', borderBottom: '1px solid #334155' }}>
+            <th style={{ textAlign: 'center', padding: '4px 8px', borderBottom: '1px solid var(--rule)' }}>
               CM of g requires
             </th>
-            <th style={{ textAlign: 'center', padding: '4px 8px', borderBottom: '1px solid #334155' }}>
+            <th style={{ textAlign: 'center', padding: '4px 8px', borderBottom: '1px solid var(--rule)' }}>
               matches CM?
             </th>
-            <th style={{ textAlign: 'center', padding: '4px 8px', borderBottom: '1px solid #334155' }}>
+            <th style={{ textAlign: 'center', padding: '4px 8px', borderBottom: '1px solid var(--rule)' }}>
               Bernstein requires
             </th>
-            <th style={{ textAlign: 'center', padding: '4px 8px', borderBottom: '1px solid #334155' }}>
+            <th style={{ textAlign: 'center', padding: '4px 8px', borderBottom: '1px solid var(--rule)' }}>
               matches Bernstein?
             </th>
           </tr>
@@ -103,20 +104,20 @@ function SignTable() {
           {ROWS.map((r) => (
             <tr key={r.n}>
               <td style={{ padding: '3px 8px' }}>{r.n}</td>
-              <td style={{ padding: '3px 8px', textAlign: 'center', fontFamily: 'monospace', color: '#34d399' }}>
+              <td style={{ padding: '3px 8px', textAlign: 'center', fontFamily: 'monospace', color: 'var(--series-3)' }}>
                 {r.actual > 0 ? '+' : '-'}
               </td>
-              <td style={{ padding: '3px 8px', textAlign: 'center', fontFamily: 'monospace', color: '#f87171' }}>
+              <td style={{ padding: '3px 8px', textAlign: 'center', fontFamily: 'monospace', color: 'var(--series-2)' }}>
                 {r.cmOfG > 0 ? '+' : '-'}
               </td>
-              <td style={{ padding: '3px 8px', textAlign: 'center', color: r.matchesCm ? '#34d399' : '#f87171' }}>
+              <td style={{ padding: '3px 8px', textAlign: 'center', color: r.matchesCm ? 'var(--series-3)' : 'var(--series-2)' }}>
                 {r.matchesCm ? 'yes' : 'no'}
               </td>
-              <td style={{ padding: '3px 8px', textAlign: 'center', fontFamily: 'monospace', color: '#34d399' }}>
+              <td style={{ padding: '3px 8px', textAlign: 'center', fontFamily: 'monospace', color: 'var(--series-3)' }}>
                 {r.bernstein > 0 ? '+' : '-'}
               </td>
               <td
-                style={{ padding: '3px 8px', textAlign: 'center', color: r.matchesBernstein ? '#34d399' : '#f87171' }}
+                style={{ padding: '3px 8px', textAlign: 'center', color: r.matchesBernstein ? 'var(--series-3)' : 'var(--series-2)' }}
               >
                 {r.matchesBernstein ? 'yes' : 'no'}
               </td>
@@ -135,7 +136,7 @@ export default function Imp35118BernsteinSignatureLadderViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Bernstein-Signature Derivative Sign Ladder (imp-35118 / imp-35012)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         On the post-peak ramp the inherited surrogate crossover-map derivative has definite sign
         sign(g^(n)) = (-1)^(n+1). That is exactly the sign a BERNSTEIN function requires of its
         derivatives ((-1)^(n-1) g^(n) &ge; 0, i.e. g_prime completely monotone) -- and, since
@@ -146,7 +147,7 @@ export default function Imp35118BernsteinSignatureLadderViz() {
 
       <SignLadderChart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.25rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.25rem 0 0.5rem' }}>
         Sign ladder through n=12: the actual data coincides with the Bernstein-required signature at
         every order (matchesBernsteinAllOrders={String(everyOrderMatchesBernstein)}) and opposes the
         complete-monotonicity-of-g signature at every order
@@ -158,14 +159,14 @@ export default function Imp35118BernsteinSignatureLadderViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page plotting pure sign
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-only page plotting pure sign
         arithmetic ((-1)^(n+1) vs (-1)^n vs (-1)^(n-1)) against the imp-35012 classification
         (completeMonotonicityOfGRefuted={String(A.completeMonotonicityOfGRefuted)},
         bernsteinSignatureMatchesInheritedSign={String(A.bernsteinSignatureMatchesInheritedSign)}). This

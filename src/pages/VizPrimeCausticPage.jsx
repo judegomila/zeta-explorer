@@ -23,6 +23,7 @@ import { VIZ_PRIME_CAUSTIC } from '../data/viz-prime-caustic.js';
 import VizCeilingNote from '../components/VizCeilingNote.jsx';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import AnimationEmbed from '../components/AnimationEmbed.jsx';
+import { ED, alpha } from '../styles/tokens.js';
 
 const D = VIZ_PRIME_CAUSTIC;
 const TWO_PI = 2 * Math.PI;
@@ -216,7 +217,7 @@ export default function VizPrimeCausticPage() {
     // Literal warm off-white (paper2 #f6f1e7) for contrast against the
     // (unmodified) viridis-like data colormap -- ctx.strokeStyle can't read var().
     const critX = ((0.5 - sMin) / (sMax - sMin)) * W;
-    ctx.strokeStyle = 'rgba(246, 241, 231, 0.55)';
+    ctx.strokeStyle = alpha(ED.paper2, 0.55);
     ctx.setLineDash([4, 4]);
     ctx.lineWidth = 1;
     ctx.beginPath();
@@ -226,7 +227,7 @@ export default function VizPrimeCausticPage() {
 
     // Axis labels (drawn on the canvas itself for portability).
     ctx.font = '11px "JetBrains Mono", monospace';
-    ctx.fillStyle = 'rgba(246, 241, 231, 0.85)';
+    ctx.fillStyle = alpha(ED.paper2, 0.85);
     ctx.textAlign = 'left';
     ctx.fillText('sigma = ' + sMin.toFixed(2), 4, H - 6);
     ctx.textAlign = 'right';
@@ -242,11 +243,11 @@ export default function VizPrimeCausticPage() {
     // interferes destructively, making the caustic locally dark.
     // Literal warm terra-dk (#c23a1c) marks the zero heights.
     if (showZeroOverlay) {
-      ctx.strokeStyle = 'rgba(194, 58, 28, 0.60)';
+      ctx.strokeStyle = alpha(ED.accent, 0.6);
       ctx.setLineDash([3, 5]);
       ctx.lineWidth = 1;
       ctx.font = '9px "JetBrains Mono", monospace';
-      ctx.fillStyle = 'rgba(194, 58, 28, 0.90)';
+      ctx.fillStyle = alpha(ED.series2, 0.9);
       ZERO_HEIGHTS.forEach((gamma, idx) => {
         if (gamma < tMin || gamma > tMax) return;
         const py = Math.round(((tMax - gamma) / (tMax - tMin)) * (H - 1));
@@ -386,8 +387,8 @@ export default function VizPrimeCausticPage() {
           </div>
         </div>
         {shufflePrimes && (
-          <div style={{ marginTop: 8, padding: '6px 12px', background: 'rgba(140, 106, 29, 0.08)',
-                        border: '1px solid rgba(140, 106, 29, 0.35)', borderRadius: 6,
+          <div style={{ marginTop: 8, padding: '6px 12px', background: 'color-mix(in srgb, var(--brass) 8%, transparent)',
+                        border: '1px solid color-mix(in srgb, var(--brass) 35%, transparent)', borderRadius: 6,
                         fontSize: 11, color: 'var(--brass-dk)', fontFamily: mono }}>
             Structure is arithmetic, not random: shuffling the log(p) spacings erases the caustic bands.
             The coherent pattern is a property of prime arithmetic, not of the spacing distribution alone.
@@ -523,7 +524,7 @@ function ColormapLegend({ maxVal, mode }) {
     }
     ctx.putImageData(img, 0, 0);
     // Literal warm off-white (paper2 #f6f1e7) tick marks -- ctx.strokeStyle can't read var().
-    ctx.strokeStyle = 'rgba(246, 241, 231, 0.65)';
+    ctx.strokeStyle = alpha(ED.paper2, 0.65);
     ctx.lineWidth = 1;
     for (let i = 0; i <= 4; i++) {
       const x = Math.round((i / 4) * (W - 1));

@@ -419,7 +419,7 @@ export const THREADS = [
       {
         date: '2026-08',
         event:
-          'Λ ≤ 0.1758354 y-transfer package: four gates certified in Arb, Lean-checked components; termwise monotonicity found FALSE (double cancellations), fixed by profile-sector cells + excision budget B ≈ 2.5e-4 vs the 1.87e-3 margin. CONDITIONAL pending the Arb verify run of the y-Dini general-mollifier gate.',
+          'Λ ≤ 0.1758354 y-transfer package: four gates certified in Arb, y-transfer reduction and Lemma B3 Lean-checked; termwise monotonicity found FALSE (double cancellations), fixed by profile-sector cells + excision budget B ≈ 2.5e-4 vs the 1.87e-3 margin. The Arb verify run of the y-Dini general-mollifier gate passed (2026-08-02, B = 2.4957e-4; partials reproduced 2026-09-22); internal composition audit 2026-09-28 (gate 1.622504e-3 > 0). Unreviewed, unpublished; human sign-off on y-transfer Theorems B/C open.',
         verdict: 'conditional candidate',
         route: '/lambda-01758354-candidate',
       },

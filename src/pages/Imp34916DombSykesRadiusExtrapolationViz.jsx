@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP34882_SIGMA_KNEE_DOMB_SYKES_RADIUS } from '../data/imp-34882-sigma-knee-domb-sykes-radius.js';
+import { ED } from '../styles/tokens.js';
 
 const D = IMP34882_SIGMA_KNEE_DOMB_SYKES_RADIUS;
 const ROOT_SEQ = D.reusedLiterals.rootSequence_root1_to_root9;
@@ -43,21 +44,21 @@ function DombSykesChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke="#334155" strokeWidth={1} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke={ED.rule} strokeWidth={1} />
 
       {yTicks.map((t) => (
         <g key={t}>
-          <line x1={padL - 4} y1={yAt(t)} x2={padL + cW} y2={yAt(t)} stroke="#1e293b" strokeWidth={1} />
-          <text x={padL - 8} y={yAt(t) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+          <line x1={padL - 4} y1={yAt(t)} x2={padL + cW} y2={yAt(t)} stroke={ED.ruleSoft} strokeWidth={1} />
+          <text x={padL - 8} y={yAt(t) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {t.toFixed(3)}
           </text>
         </g>
       ))}
       {xTicks.map((t) => (
         <g key={t}>
-          <line x1={xAt(t)} y1={padT + cH} x2={xAt(t)} y2={padT + cH + 4} stroke="#334155" strokeWidth={1} />
-          <text x={xAt(t)} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={9}>
+          <line x1={xAt(t)} y1={padT + cH} x2={xAt(t)} y2={padT + cH + 4} stroke={ED.rule} strokeWidth={1} />
+          <text x={xAt(t)} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
             {t.toFixed(2)}
           </text>
         </g>
@@ -69,12 +70,12 @@ function DombSykesChart() {
         y1={yAt(yAtX0)}
         x2={xAt(x8)}
         y2={yAt(y8)}
-        stroke="#f87171"
+        stroke={ED.series2}
         strokeWidth={1.5}
         strokeDasharray="5,4"
       />
-      <circle cx={xAt(0)} cy={yAt(INV_R_CENTRAL)} r={5} fill="#f87171" />
-      <text x={xAt(0) + 8} y={yAt(INV_R_CENTRAL) - 6} fill="#f87171" fontSize={9.5} fontWeight={700}>
+      <circle cx={xAt(0)} cy={yAt(INV_R_CENTRAL)} r={5} fill={ED.series2} />
+      <text x={xAt(0) + 8} y={yAt(INV_R_CENTRAL) - 6} fill={ED.series2} fontSize={9.5} fontWeight={700}>
         1/R &asymp; {INV_R_CENTRAL.toExponential(3)}
       </text>
 
@@ -82,17 +83,17 @@ function DombSykesChart() {
       <polyline
         points={ROOT_SEQ.map((r, i) => `${xAt(X_ROOT[i])},${yAt(r)}`).join(' ')}
         fill="none"
-        stroke="#38bdf8"
+        stroke={ED.series1}
         strokeWidth={2}
       />
       {ROOT_SEQ.map((r, i) => (
         <g key={i}>
-          <circle cx={xAt(X_ROOT[i])} cy={yAt(r)} r={4} fill={i >= 6 ? '#34d399' : '#38bdf8'} />
+          <circle cx={xAt(X_ROOT[i])} cy={yAt(r)} r={4} fill={i >= 6 ? ED.series3 : ED.series1} />
           <text
             x={xAt(X_ROOT[i])}
             y={yAt(r) - 8}
             textAnchor="middle"
-            fill="#64748b"
+            fill={ED.inkFaint}
             fontSize={8}
           >
             k={i + 1}
@@ -100,7 +101,7 @@ function DombSykesChart() {
         </g>
       ))}
 
-      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         x = 1/k (root_k = |delta_k|^(1/k), imp-34863 literals); green = deepest resolvable pairs (k=7,8,9)
       </text>
     </svg>
@@ -124,10 +125,10 @@ function RadiusComparisonChart() {
   const xAt = (v) => padL + ((Math.log10(v) - xMin) / (xMax - xMin)) * cW;
 
   const rows = [
-    { label: 'eps = 1 (physical point)', v: EPS, color: '#f87171' },
-    { label: `Domb-Sykes low end R~${R_LOW}`, v: R_LOW, color: '#fbbf24' },
-    { label: `Domb-Sykes central R~${R_EXTRAP}`, v: R_EXTRAP, color: '#34d399' },
-    { label: `plain-max (imp-34863) R~${R_PLAIN_MAX.toFixed(1)}`, v: R_PLAIN_MAX, color: '#38bdf8' },
+    { label: 'eps = 1 (physical point)', v: EPS, color: ED.series2 },
+    { label: `Domb-Sykes low end R~${R_LOW}`, v: R_LOW, color: ED.brass },
+    { label: `Domb-Sykes central R~${R_EXTRAP}`, v: R_EXTRAP, color: ED.series3 },
+    { label: `plain-max (imp-34863) R~${R_PLAIN_MAX.toFixed(1)}`, v: R_PLAIN_MAX, color: ED.series1 },
   ];
   const rowH = cH / rows.length;
 
@@ -139,7 +140,7 @@ function RadiusComparisonChart() {
             x={padL - 6}
             y={padT + i * rowH + rowH / 2 + 3}
             textAnchor="end"
-            fill="#94a3b8"
+            fill={ED.inkSoft}
             fontSize={9}
             fontFamily="monospace"
           >
@@ -156,8 +157,8 @@ function RadiusComparisonChart() {
           />
         </g>
       ))}
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
-      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
+      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         log10 scale -- even the Domb-Sykes low end clears eps = 1 by nearly two orders of magnitude
       </text>
     </svg>
@@ -169,11 +170,11 @@ export default function Imp34916DombSykesRadiusExtrapolationViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Domb-Sykes Radius Extrapolation (imp-34916 / imp-34882)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         {D.question}
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         root_k = |delta_k|^(1/k) is still RISING at the resolvable tail (root_7&hellip;root_9), so the
         plain limsup-as-max read (the k=9 rung) understates 1/R. The linear Domb-Sykes extrapolant from
         the two deepest pairs (k=7,8) and (k=8,9) pins 1/R &asymp; {INV_R_CENTRAL.toExponential(3)},
@@ -182,7 +183,7 @@ export default function Imp34916DombSykesRadiusExtrapolationViz() {
       </p>
       <DombSykesChart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.25rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.25rem 0 0.5rem' }}>
         Even the low end of the extrapolated range, R &asymp; {R_LOW}, sits three orders of magnitude
         above the physical resummation point eps = {EPS}, so the delta-expansion stays comfortably
         convergent in the working neighbourhood -- the sharper radius trims the margin, it does not
@@ -190,7 +191,7 @@ export default function Imp34916DombSykesRadiusExtrapolationViz() {
       </p>
       <RadiusComparisonChart />
 
-      <p style={{ color: '#64748b', fontSize: '0.78rem', marginTop: '0.75rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontSize: '0.78rem', marginTop: '0.75rem' }}>
         Higher-order Neville/Richardson extrapolants of the same nine-term sequence are ILL-CONDITIONED
         (3-pt intercept negative, full 9-pt window R &asymp; {(1 / D.nevilleExtrapolation.full9pt_invR).toFixed(2)}),
         so R is pinnable only to linear order, R ~ O(1e2); a tighter estimate needs the analytic/exact-
@@ -201,14 +202,14 @@ export default function Imp34916DombSykesRadiusExtrapolationViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page rendering the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-only page rendering the
         imp-34882 root-sequence, linear Domb-Sykes, and radius-range literals verbatim (no new
         computation). Measurement on the INHERITED imp-3220/imp-3406 surrogate crossover map, NOT a
         rigorous asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a&ge;0 untouched;

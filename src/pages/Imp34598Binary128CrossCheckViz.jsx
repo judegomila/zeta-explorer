@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP34569_BINARY128_EMULATION_CROSS_CHECK } from '../data/imp-34569-binary128-emulation-cross-check.js';
+import { ED } from '../styles/tokens.js';
 
 const M = IMP34569_BINARY128_EMULATION_CROSS_CHECK;
 const RUNGS = M.nodes.filter((n) => n.label.startsWith('e=24') || n.label.startsWith('e=25') || n.label.startsWith('e=26'));
@@ -36,36 +37,36 @@ function RelErrorChart() {
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
       {gridExponents.map((e) => (
         <g key={e}>
-          <line x1={padL} y1={yAt(e)} x2={padL + cW} y2={yAt(e)} stroke="#1e293b" strokeWidth={1} />
-          <text x={padL - 8} y={yAt(e) + 3} textAnchor="end" fill="#64748b" fontSize={9}>
+          <line x1={padL} y1={yAt(e)} x2={padL + cW} y2={yAt(e)} stroke={ED.ruleSoft} strokeWidth={1} />
+          <text x={padL - 8} y={yAt(e) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             1e{e}
           </text>
         </g>
       ))}
 
-      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
+      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
 
-      <path d={nativePath} fill="none" stroke="#f87171" strokeWidth={2} />
-      <path d={ddPath} fill="none" stroke="#4ade80" strokeWidth={2} />
+      <path d={nativePath} fill="none" stroke={ED.series2} strokeWidth={2} />
+      <path d={ddPath} fill="none" stroke={ED.series3} strokeWidth={2} />
 
       {RUNGS.map((r, i) => (
         <g key={r.label}>
-          <circle cx={xAt(i)} cy={yAt(Math.log10(r.relNativeBf))} r={3.5} fill="#f87171" stroke="#0a0f1a" strokeWidth={1} />
-          <circle cx={xAt(i)} cy={yAt(Math.log10(r.relDdBf))} r={3.5} fill="#4ade80" stroke="#0a0f1a" strokeWidth={1} />
-          <text x={xAt(i)} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={9}>
+          <circle cx={xAt(i)} cy={yAt(Math.log10(r.relNativeBf))} r={3.5} fill={ED.series2} stroke={ED.paper} strokeWidth={1} />
+          <circle cx={xAt(i)} cy={yAt(Math.log10(r.relDdBf))} r={3.5} fill={ED.series3} stroke={ED.paper} strokeWidth={1} />
+          <text x={xAt(i)} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
             {r.label.split(' ')[0]}
           </text>
         </g>
       ))}
 
-      <text x={padL} y={16} fill="#f87171" fontSize={10}>
+      <text x={padL} y={16} fill={ED.series2} fontSize={10}>
         rel(native, bf) -- double ULP width
       </text>
-      <text x={padL + 250} y={16} fill="#4ade80" fontSize={10}>
+      <text x={padL + 250} y={16} fill={ED.series3} fontSize={10}>
         rel(dd, bf) -- dd 106-bit floor
       </text>
-      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         refinement rung (dd-argmax nodes near k*_dd &asymp; 8.8210916)
       </text>
     </svg>
@@ -77,7 +78,7 @@ export default function Imp34598Binary128CrossCheckViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Binary128-Emulation resid_exp Cross-Check: native vs dd against the bf arbiter (imp-34598 / imp-34569)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-34569 cross-checked the imp-34551 double-double (dd, 106-bit) resid_exp(k) hi-word
         against an INDEPENDENT extended-precision arbiter -- a BigInt decimal fixed-point kernel
         (bf, P=60, ~199-bit) sharing no radix or transcendental algorithm with the dd kernel. At
@@ -87,7 +88,7 @@ export default function Imp34598Binary128CrossCheckViz() {
         native at every node. No viz existed for this three-way comparison.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         log10(relative error vs the independent bf arbiter), native vs dd, across e=24/25/26
       </p>
       <RelErrorChart />
@@ -101,7 +102,7 @@ export default function Imp34598Binary128CrossCheckViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>rung</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>rel(native, bf)</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>rel(dd, bf)</th>
@@ -110,7 +111,7 @@ export default function Imp34598Binary128CrossCheckViz() {
         </thead>
         <tbody>
           {RUNGS.map((r) => (
-            <tr key={r.label} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+            <tr key={r.label} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
               <td style={{ padding: '0.4rem 0.6rem' }}>{r.label}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.relNativeBf.toExponential(3)}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.relDdBf.toExponential(3)}</td>
@@ -126,14 +127,14 @@ export default function Imp34598Binary128CrossCheckViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-data only, reusing the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-data only, reusing the
         imp-34569 three-way native/dd/bf node table verbatim, no new computation. Independent
         extended-precision cross-validation of an inherited widened pipeline, NOT an RH bound; the
         component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous

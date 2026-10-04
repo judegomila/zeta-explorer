@@ -5,15 +5,16 @@ import {
   IMP97569_LAMBDA_MIN_CURVE,
   IMP97569_CROSSING,
 } from '../data/imp-97569-confined-well-sign-map-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 // imp-97569: charts the imp-97537 sigma_2 sign map (confined well, positive
 // band, far-field t0=27) alongside the soft lambda_min(T_a[sigma_2]) curve
 // crossing at 2a* ~ 1.1316, past ln3.
 
-const COLOR_NEG = '#f87171';
-const COLOR_POS_BAND = '#4ade80';
-const COLOR_POS_MEASURED = '#facc15';
-const COLOR_POS_RIGOROUS = '#38bdf8';
+const COLOR_NEG = ED.series2;
+const COLOR_POS_BAND = ED.series3;
+const COLOR_POS_MEASURED = ED.series4;
+const COLOR_POS_RIGOROUS = ED.series1;
 
 function segColor(seg) {
   if (seg.sign === 'negative') return COLOR_NEG;
@@ -36,7 +37,7 @@ function SignMapPanel() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <text x={padL} y={padT - 8} fill="#94a3b8" fontSize={9}>
+      <text x={padL} y={padT - 8} fill={ED.inkSoft} fontSize={9}>
         sign(sigma_2(t)) for t &ge; 0 (mirrored at t &lt; 0)
       </text>
       {IMP97569_SIGN_MAP.map((seg) => (
@@ -48,16 +49,16 @@ function SignMapPanel() {
           height={rowH}
           fill={segColor(seg)}
           opacity={0.75}
-          stroke="#0f172a"
+          stroke={ED.paper}
           strokeWidth={1}
         />
       ))}
       {[0, 3.306, 6.945, 10.532, 27, 40].map((t) => (
-        <text key={`tick${t}`} x={xOf(t)} y={padT + rowH + 14} textAnchor="middle" fill="#64748b" fontSize={8}>
+        <text key={`tick${t}`} x={xOf(t)} y={padT + rowH + 14} textAnchor="middle" fill={ED.inkFaint} fontSize={8}>
           {t}
         </text>
       ))}
-      <text x={padL} y={padT + rowH + 30} fill="#64748b" fontSize={9}>
+      <text x={padL} y={padT + rowH + 30} fill={ED.inkFaint} fontSize={9}>
         <tspan fill={COLOR_NEG}>&#9632; well (negative)</tspan>{'   '}
         <tspan fill={COLOR_POS_BAND}>&#9632; intervening band (positive)</tspan>{'   '}
         <tspan fill={COLOR_POS_MEASURED}>&#9632; measured positive</tspan>{'   '}
@@ -93,46 +94,46 @@ function LambdaMinPanel() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={yOf(0)} x2={padL + plotW} y2={yOf(0)} stroke="#334155" strokeWidth={1} strokeDasharray="4 3" />
+      <line x1={padL} y1={yOf(0)} x2={padL + plotW} y2={yOf(0)} stroke={ED.rule} strokeWidth={1} strokeDasharray="4 3" />
 
-      <line x1={xOf(IMP97569_CROSSING.ln3)} y1={padT} x2={xOf(IMP97569_CROSSING.ln3)} y2={padT + plotH} stroke="#a78bfa" strokeWidth={1.5} strokeDasharray="3 3" />
-      <text x={xOf(IMP97569_CROSSING.ln3) + 4} y={padT + 10} fill="#a78bfa" fontSize={9}>
+      <line x1={xOf(IMP97569_CROSSING.ln3)} y1={padT} x2={xOf(IMP97569_CROSSING.ln3)} y2={padT + plotH} stroke={ED.series5} strokeWidth={1.5} strokeDasharray="3 3" />
+      <text x={xOf(IMP97569_CROSSING.ln3) + 4} y={padT + 10} fill={ED.series5} fontSize={9}>
         2a=ln3
       </text>
 
-      <polyline points={points} fill="none" stroke="#38bdf8" strokeWidth={2} />
+      <polyline points={points} fill="none" stroke={ED.series1} strokeWidth={2} />
       {IMP97569_LAMBDA_MIN_CURVE.map((p) => (
         <circle
           key={`pt${p.twoA}`}
           cx={xOf(p.twoA)}
           cy={yOf(p.lambdaMin)}
           r={3.5}
-          fill={p.lambdaMin >= 0 ? '#4ade80' : '#f87171'}
-          stroke="#0f172a"
+          fill={p.lambdaMin >= 0 ? ED.series3 : ED.series2}
+          stroke={ED.paper}
           strokeWidth={1}
         />
       ))}
 
-      <circle cx={xOf(IMP97569_CROSSING.twoAStar)} cy={yOf(0)} r={6} fill="none" stroke="#f59e0b" strokeWidth={2} />
-      <text x={xOf(IMP97569_CROSSING.twoAStar) - 44} y={yOf(0) - 10} fill="#f59e0b" fontSize={9}>
+      <circle cx={xOf(IMP97569_CROSSING.twoAStar)} cy={yOf(0)} r={6} fill="none" stroke={ED.brassDeco} strokeWidth={2} />
+      <text x={xOf(IMP97569_CROSSING.twoAStar) - 44} y={yOf(0) - 10} fill={ED.brass} fontSize={9}>
         2a*={IMP97569_CROSSING.twoAStar}
       </text>
 
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
 
       {[0.9, 1.0, 1.04, 1.08, 1.12, 1.16].map((v) => (
-        <text key={`xv${v}`} x={xOf(v)} y={padT + plotH + 16} textAnchor="middle" fill="#64748b" fontSize={8}>
+        <text key={`xv${v}`} x={xOf(v)} y={padT + plotH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={8}>
           {v}
         </text>
       ))}
       {[-60, -10, 0, 10, 30, 60].map((v) => (
-        <text key={`yv${v}`} x={padL - 6} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={8}>
+        <text key={`yv${v}`} x={padL - 6} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8}>
           {v}
         </text>
       ))}
 
-      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={9}>
+      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
         2a (support width) &mdash; true (finite-N Galerkin) soft lambda_min(T_a[sigma_2]) (sqrt-compressed y-axis)
       </text>
     </svg>
@@ -148,22 +149,22 @@ export default function Imp97569ConfinedWellSignMapViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(56,189,248,0.06)',
-          borderLeft: '3px solid #38bdf8',
+          background: 'color-mix(in srgb, var(--series-1) 6%, transparent)',
+          borderLeft: '3px solid var(--series-1)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 760,
         }}
       >
-        <strong style={{ color: '#38bdf8' }}>Honest status:</strong> every
+        <strong style={{ color: 'var(--series-1)' }}>Honest status:</strong> every
         boundary and sample below is reused verbatim from imp-97537. Assessment
         only &mdash; no operator positivity, no coercivity constant, no bound
         moves; interval-rigorous reach stays 2a&le;0.96; Platt-Trudgian
         Lambda&le;0.2 remains SOTA; RH open; NO QED.
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
         sigma_2(t) = (t^2+1/4)^2 w_1(t) is negative on a confined well
         ([0,3.306] &cup; [6.945,10.532]), positive on the intervening band,
         measured (but not rigorously proven) positive out to t=27, and
@@ -174,12 +175,12 @@ export default function Imp97569ConfinedWellSignMapViz() {
         past ln3.
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         sign map of sigma_2(t)
       </h3>
       <SignMapPanel />
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', margin: '1.5rem 0 0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', margin: '1.5rem 0 0.5rem' }}>
         soft lambda_min(T_a[sigma_2]) vs 2a
       </h3>
       <LambdaMinPanel />
@@ -188,14 +189,14 @@ export default function Imp97569ConfinedWellSignMapViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> presentation
         only, consuming the imp-97537 sign-map boundaries and the baked
         lambda_min(T_a[sigma_2]) table verbatim. Establishes no operator
         positivity; changes no bound; Platt-Trudgian Lambda&le;0.2 remains

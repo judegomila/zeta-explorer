@@ -6,6 +6,7 @@ import {
   IMP96598_TAIL_SUM,
   IMP96598_HONEST_BANNER,
 } from '../data/imp-96598-sine-kernel-lag-decay-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 // rho_k vs k on a log-|rho| y-axis: direct box lag correlations (dots) vs
 // the closed-form O(1/k^2) tail curve (line), with rho_1 marked far above
@@ -38,12 +39,12 @@ function LagDecayPanel() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
       {yTicks.map((v) => (
         <g key={`y${v}`}>
-          <line x1={padL - 4} y1={padT + plotH - ((v - minLog) / (maxLog - minLog)) * plotH} x2={padL} y2={padT + plotH - ((v - minLog) / (maxLog - minLog)) * plotH} stroke="#334155" strokeWidth={1} />
-          <text x={padL - 8} y={padT + plotH - ((v - minLog) / (maxLog - minLog)) * plotH + 3} textAnchor="end" fill="#64748b" fontSize={8.5}>
+          <line x1={padL - 4} y1={padT + plotH - ((v - minLog) / (maxLog - minLog)) * plotH} x2={padL} y2={padT + plotH - ((v - minLog) / (maxLog - minLog)) * plotH} stroke={ED.rule} strokeWidth={1} />
+          <text x={padL - 8} y={padT + plotH - ((v - minLog) / (maxLog - minLog)) * plotH + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8.5}>
             {(10 ** v).toExponential(1)}
           </text>
         </g>
@@ -54,33 +55,33 @@ function LagDecayPanel() {
         y1={yOf(Math.abs(rho1Row.direct))}
         x2={xOf(1)}
         y2={yOf(Math.abs(IMP96598_RHO1_GAP.tailCoeffAtK1))}
-        stroke="#f87171"
+        stroke={ED.series2}
         strokeWidth={1.4}
         strokeDasharray="4 3"
       />
-      <text x={xOf(1) + 6} y={(yOf(Math.abs(rho1Row.direct)) + yOf(Math.abs(IMP96598_RHO1_GAP.tailCoeffAtK1))) / 2} fill="#f87171" fontSize={8.5}>
+      <text x={xOf(1) + 6} y={(yOf(Math.abs(rho1Row.direct)) + yOf(Math.abs(IMP96598_RHO1_GAP.tailCoeffAtK1))) / 2} fill={ED.series2} fontSize={8.5}>
         {IMP96598_RHO1_GAP.aboveTailFactor.toFixed(2)}x
       </text>
-      <circle cx={xOf(1)} cy={yOf(Math.abs(IMP96598_RHO1_GAP.tailCoeffAtK1))} r={2.5} fill="#f87171" opacity={0.6} />
+      <circle cx={xOf(1)} cy={yOf(Math.abs(IMP96598_RHO1_GAP.tailCoeffAtK1))} r={2.5} fill={ED.series2} opacity={0.6} />
       <polyline
         points={closedRows.map((r) => `${xOf(r.k)},${yOf(Math.abs(r.closed))}`).join(' ')}
         fill="none"
-        stroke="#38bdf8"
+        stroke={ED.series1}
         strokeWidth={1.8}
       />
       {closedRows.map((r) => (
-        <circle key={`c${r.k}`} cx={xOf(r.k)} cy={yOf(Math.abs(r.closed))} r={2.5} fill="#38bdf8" />
+        <circle key={`c${r.k}`} cx={xOf(r.k)} cy={yOf(Math.abs(r.closed))} r={2.5} fill={ED.series1} />
       ))}
       {directRows.map((r) => (
-        <circle key={`d${r.k}`} cx={xOf(r.k)} cy={yOf(Math.abs(r.direct))} r={3.5} fill="#facc15" stroke="#78350f" strokeWidth={0.5} />
+        <circle key={`d${r.k}`} cx={xOf(r.k)} cy={yOf(Math.abs(r.direct))} r={3.5} fill={ED.brassDeco} stroke="#78350f" strokeWidth={0.5} />
       ))}
-      <text x={padL + 8} y={padT + 12} fill="#facc15" fontSize={9}>
+      <text x={padL + 8} y={padT + 12} fill={ED.brass} fontSize={9}>
         direct box lag correlations |rho_k| (k=1..6)
       </text>
-      <text x={padL + 8} y={padT + 24} fill="#38bdf8" fontSize={9}>
+      <text x={padL + 8} y={padT + 24} fill={ED.series1} fontSize={9}>
         closed-form O(1/k^2) tail |rho_k| = |ln(k^2/(k^2-1))| / (2&pi;^2&middot;&Sigma;^2)
       </text>
-      <text x={padL + plotW / 2} y={padT + plotH + 34} textAnchor="middle" fill="#94a3b8" fontSize={9}>
+      <text x={padL + plotW / 2} y={padT + plotH + 34} textAnchor="middle" fill={ED.inkSoft} fontSize={9}>
         lag k (linear)
       </text>
     </svg>
@@ -96,18 +97,18 @@ export default function Imp96598SineKernelLagDecayViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> {IMP96598_HONEST_BANNER}
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> {IMP96598_HONEST_BANNER}
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-96567 derived the box-averaged lag correlations rho_k directly from the GUE two-point
         cluster function T_2(x) = (sin &pi;x / &pi;x)^2 over the L = 495.779 non-overlapping box
         tiling. The k &ge; 2 tail matches an exact closed form that decays like O(1/k^2), but rho_1
@@ -116,7 +117,7 @@ export default function Imp96598SineKernelLagDecayViz() {
         {' '}{IMP96598_RHO1_GAP.mechanism}
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         Direct lag correlations vs. the closed-form O(1/k^2) tail
       </h3>
       <LagDecayPanel />
@@ -125,14 +126,14 @@ export default function Imp96598SineKernelLagDecayViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> yellow dots are the direct
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> yellow dots are the direct
         double-box-integral lag correlations rho_1..rho_6; the blue curve is the exact closed-form
         tail rho_k = -(1/(2&pi;^2&middot;&Sigma;^2)) ln(k^2/(k^2-1)) for k &ge; 2, which the direct
         values match to 6 digits. The red dashed gap at k=1 shows why anchoring the O(1/k^2) law at
@@ -145,14 +146,14 @@ export default function Imp96598SineKernelLagDecayViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page consuming the imp-96598
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the imp-96598
         viz-data (recomputed verbatim from the imp-96567 baked inputs). {IMP96598_HONEST_BANNER}
       </div>
     </div>

@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState, useCallback, useMemo } from 'react';
 import * as d3 from 'd3';
 import { InlineMath, BlockMath } from './KaTeXMath.jsx';
+import { ED } from '../styles/tokens.js';
 
 /**
  * Mills' theorem explorer.
@@ -132,19 +133,19 @@ export default function MillsExplorerViz() {
 
     g.append('g').attr('transform', `translate(0,${h})`)
       .call(d3.axisBottom(x).ticks(rows.length).tickFormat(d3.format('d')))
-      .selectAll('text').attr('fill', '#64748b').attr('font-size', 10);
+      .selectAll('text').attr('fill', ED.inkFaint).attr('font-size', 10);
     g.append('g').call(d3.axisLeft(yL).ticks(6))
-      .selectAll('text').attr('fill', '#3b82f6').attr('font-size', 10);
+      .selectAll('text').attr('fill', ED.series1).attr('font-size', 10);
     g.append('g').attr('transform', `translate(${w},0)`).call(d3.axisRight(yR).ticks(6))
-      .selectAll('text').attr('fill', '#10b981').attr('font-size', 10);
-    g.selectAll('.domain, .tick line').attr('stroke', '#2a3050');
+      .selectAll('text').attr('fill', ED.series3).attr('font-size', 10);
+    g.selectAll('.domain, .tick line').attr('stroke', ED.rule);
 
     // Mills constant reference line on the right axis.
     g.append('line').attr('x1', 0).attr('x2', w)
       .attr('y1', yR(MILLS_CONST)).attr('y2', yR(MILLS_CONST))
-      .attr('stroke', '#10b981').attr('stroke-dasharray', '5,4').attr('stroke-width', 1).attr('opacity', 0.7);
+      .attr('stroke', ED.series3).attr('stroke-dasharray', '5,4').attr('stroke-width', 1).attr('opacity', 0.7);
     g.append('text').attr('x', 4).attr('y', yR(MILLS_CONST) - 5)
-      .attr('fill', '#10b981').attr('font-size', 10).text(`A ≈ ${MILLS_CONST.toFixed(6)}`);
+      .attr('fill', ED.series3).attr('font-size', 10).text(`A ≈ ${MILLS_CONST.toFixed(6)}`);
 
     // log10(p_n) bars (blue).
     const barW = Math.max(6, w / rows.length * 0.4);
@@ -152,7 +153,7 @@ export default function MillsExplorerViz() {
       g.append('rect')
         .attr('x', x(d.n) - barW / 2).attr('y', yL(d.log10p))
         .attr('width', barW).attr('height', h - yL(d.log10p))
-        .attr('rx', 2).attr('fill', '#3b82f6').attr('opacity', 0.45)
+        .attr('rx', 2).attr('fill', ED.series1).attr('opacity', 0.45)
         .style('cursor', 'crosshair')
         .append('title').text(`p_${d.n}: ${d.digits} digits (log10 ≈ ${d.log10p.toFixed(2)})`);
     });
@@ -160,25 +161,25 @@ export default function MillsExplorerViz() {
     // A_n convergence points + line (green).
     const line = d3.line().x(d => x(d.n)).y(d => yR(d.Aest)).curve(d3.curveMonotoneX);
     g.append('path').datum(rows).attr('d', line).attr('fill', 'none')
-      .attr('stroke', '#10b981').attr('stroke-width', 1.5);
+      .attr('stroke', ED.series3).attr('stroke-width', 1.5);
     rows.forEach(d => {
       g.append('circle').attr('cx', x(d.n)).attr('cy', yR(d.Aest)).attr('r', 4)
-        .attr('fill', '#10b981').attr('stroke', '#0a0e1a').attr('stroke-width', 1.2)
+        .attr('fill', ED.series3).attr('stroke', ED.paper).attr('stroke-width', 1.2)
         .style('cursor', 'crosshair')
         .append('title').text(`A_${d.n} = p_${d.n}^(1/3^${d.n}) = ${d.Aest.toFixed(8)}`);
     });
 
     svg.append('text').attr('x', margin.left).attr('y', 16)
-      .attr('fill', '#e2e8f0').attr('font-size', 13).attr('font-weight', 600)
+      .attr('fill', ED.ink).attr('font-size', 13).attr('font-weight', 600)
       .text('Doubly-exponential growth & convergence to A');
     svg.append('text').attr('transform', `translate(14,${margin.top + h / 2}) rotate(-90)`)
-      .attr('text-anchor', 'middle').attr('fill', '#3b82f6').attr('font-size', 11)
+      .attr('text-anchor', 'middle').attr('fill', ED.series1).attr('font-size', 11)
       .text('log₁₀(pₙ)  (bars)');
     svg.append('text').attr('transform', `translate(${width - 12},${margin.top + h / 2}) rotate(-90)`)
-      .attr('text-anchor', 'middle').attr('fill', '#10b981').attr('font-size', 11)
+      .attr('text-anchor', 'middle').attr('fill', ED.series3).attr('font-size', 11)
       .text('Aₙ = pₙ^(1/3ⁿ)  (line)');
     svg.append('text').attr('x', width / 2).attr('y', height - 6)
-      .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 11)
+      .attr('text-anchor', 'middle').attr('fill', ED.inkSoft).attr('font-size', 11)
       .text('n');
   }, [rows]);
 
@@ -202,7 +203,7 @@ export default function MillsExplorerViz() {
         </p>
         <BlockMath tex={"\\lfloor A^{3^{n}} \\rfloor \\text{ is prime } \\forall n\\ge 1, \\qquad p_1 = 2,\\; p_{n+1} = \\operatorname{nextprime}(p_n^{3})"} />
         <p style={{ margin: '8px 0 0' }}>
-          Each prime below is computed by the recurrence and <strong style={{ color: '#22c55e' }}>verified
+          Each prime below is computed by the recurrence and <strong style={{ color: 'var(--series-3)' }}>verified
           in-browser</strong> with a deterministic Miller–Rabin test. The estimate{' '}
           <InlineMath tex={"A_n = p_n^{1/3^n}"} /> converges to Mills' constant{' '}
           <InlineMath tex={"A \\approx 1.30637788\\ldots"} />
@@ -216,7 +217,7 @@ export default function MillsExplorerViz() {
           <label>Mills primes (n)</label>
           <input type="range" min="2" max="6" step="1" value={nMax}
             onChange={e => setNMax(+e.target.value)} />
-          <span className="control-value">{nMax} <span style={{ color: '#64748b', fontSize: 11 }}>
+          <span className="control-value">{nMax} <span style={{ color: 'var(--ink-faint)', fontSize: 11 }}>
             (p₁…p{nMax === 6 ? '₆' : `_${nMax}`})</span></span>
         </div>
       </div>
@@ -228,7 +229,7 @@ export default function MillsExplorerViz() {
       <div style={{ marginTop: 12, overflowX: 'auto' }}>
         <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 13, fontFamily: 'var(--font-mono, monospace)' }}>
           <thead>
-            <tr style={{ color: '#64748b', textAlign: 'left', borderBottom: '1px solid #1e293b' }}>
+            <tr style={{ color: 'var(--ink-faint)', textAlign: 'left', borderBottom: '1px solid var(--rule-soft)' }}>
               <th style={{ padding: '6px 10px' }}>n</th>
               <th style={{ padding: '6px 10px' }}>pₙ = ⌊A^(3ⁿ)⌋</th>
               <th style={{ padding: '6px 10px' }}>digits</th>
@@ -238,28 +239,28 @@ export default function MillsExplorerViz() {
           </thead>
           <tbody>
             {rows.map(d => (
-              <tr key={d.n} style={{ borderBottom: '1px solid #0f172a', color: '#cbd5e1' }}>
-                <td style={{ padding: '6px 10px', color: '#64748b' }}>{d.n}</td>
-                <td style={{ padding: '6px 10px', color: '#fbbf24' }}>{fmtBig(d.p)}</td>
+              <tr key={d.n} style={{ borderBottom: '1px solid var(--paper)', color: 'var(--ink)' }}>
+                <td style={{ padding: '6px 10px', color: 'var(--ink-faint)' }}>{d.n}</td>
+                <td style={{ padding: '6px 10px', color: 'var(--brass)' }}>{fmtBig(d.p)}</td>
                 <td style={{ padding: '6px 10px' }}>{d.digits}</td>
-                <td style={{ padding: '6px 10px', color: d.prime ? '#22c55e' : '#ef4444' }}>
+                <td style={{ padding: '6px 10px', color: d.prime ? 'var(--series-3)' : 'var(--series-2)' }}>
                   {d.prime ? '✓ verified' : '✗'}
                 </td>
-                <td style={{ padding: '6px 10px', color: '#10b981' }}>{d.Aest.toFixed(10)}</td>
+                <td style={{ padding: '6px 10px', color: 'var(--series-3)' }}>{d.Aest.toFixed(10)}</td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
 
-      <div style={{ marginTop: 20, borderTop: '1px solid #1e293b', paddingTop: 16 }}>
-        <div style={{ color: '#64748b', fontSize: 12, marginBottom: 8 }}>
+      <div style={{ marginTop: 20, borderTop: '1px solid var(--rule-soft)', paddingTop: 16 }}>
+        <div style={{ color: 'var(--ink-faint)', fontSize: 12, marginBottom: 8 }}>
           Continuation — primes too large for live browser verification (digit counts from the formula
           log₁₀(pₙ) ≈ 3ⁿ · log₁₀(A); true count is this value or slightly larger):
         </div>
         <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 13, fontFamily: 'var(--font-mono, monospace)' }}>
           <thead>
-            <tr style={{ color: '#64748b', textAlign: 'left', borderBottom: '1px solid #1e293b' }}>
+            <tr style={{ color: 'var(--ink-faint)', textAlign: 'left', borderBottom: '1px solid var(--rule-soft)' }}>
               <th style={{ padding: '5px 10px' }}>n</th>
               <th style={{ padding: '5px 10px' }}>pₙ</th>
               <th style={{ padding: '5px 10px' }}>digits</th>
@@ -269,14 +270,14 @@ export default function MillsExplorerViz() {
           </thead>
           <tbody>
             {CONTINUATION.map(d => (
-              <tr key={d.n} style={{ borderBottom: '1px solid #0f172a', color: '#475569' }}>
-                <td style={{ padding: '5px 10px', color: '#64748b' }}>{d.n}</td>
+              <tr key={d.n} style={{ borderBottom: '1px solid var(--paper)', color: 'var(--ink-faint)' }}>
+                <td style={{ padding: '5px 10px', color: 'var(--ink-faint)' }}>{d.n}</td>
                 <td style={{ padding: '5px 10px', fontStyle: 'italic' }}>
                   [prime of ~{d.digits} digits — see OEIS A051254]
                 </td>
                 <td style={{ padding: '5px 10px' }}>≥ {d.digits}</td>
-                <td style={{ padding: '5px 10px', color: '#475569' }}>precomputed</td>
-                <td style={{ padding: '5px 10px', color: '#10b981' }}>{d.Aest.toFixed(10)}</td>
+                <td style={{ padding: '5px 10px', color: 'var(--ink-faint)' }}>precomputed</td>
+                <td style={{ padding: '5px 10px', color: 'var(--series-3)' }}>{d.Aest.toFixed(10)}</td>
               </tr>
             ))}
           </tbody>

@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { TIER2_PRICE } from '../data/imp-95214-tier2-chirp-level.js';
+import { ED } from '../styles/tokens.js';
 
 // Ball-op figures baked verbatim from the imp-95213 (level 1) and imp-95214
 // (level 2) data modules; no new computation is performed here (viz/UX only).
@@ -8,17 +9,17 @@ const BARS = [
   {
     label: 'Level 1: single-level Taylor (imp-95213, measured)',
     value: TIER2_PRICE.baselines.level1BallOpsFullWindow,
-    color: '#f87171',
+    color: ED.series2,
   },
   {
     label: 'Level 2: frequency-bin chirp (imp-95214, measured)',
     value: TIER2_PRICE.fullWindow.ballOpsAtSliceRate,
-    color: '#f59e0b',
+    color: ED.brass,
   },
   {
     label: 'Two-level design budget target',
     value: TIER2_PRICE.baselines.designTierBudgetBallOps,
-    color: '#38bdf8',
+    color: ED.series1,
   },
 ];
 
@@ -44,18 +45,18 @@ function BallOpBarChart() {
         const w = Math.max(scale(b.value), 2);
         return (
           <g key={i}>
-            <text x={padL - 10} y={y + barH / 2 + 4} textAnchor="end" fill="#94a3b8" fontSize={11}>
+            <text x={padL - 10} y={y + barH / 2 + 4} textAnchor="end" fill={ED.inkSoft} fontSize={11}>
               {b.label}
             </text>
-            <rect x={padL} y={y} width={cW} height={barH} fill="#0a0f1a" rx={2} />
+            <rect x={padL} y={y} width={cW} height={barH} fill={ED.paper} rx={2} />
             <rect x={padL} y={y} width={w} height={barH} fill={b.color} opacity={0.85} rx={2} />
-            <text x={padL + w + 10} y={y + barH / 2 + 4} fill="#e2e8f0" fontSize={11} fontWeight={700}>
+            <text x={padL + w + 10} y={y + barH / 2 + 4} fill={ED.ink} fontSize={11} fontWeight={700}>
               {b.value.toExponential(3)}
             </text>
           </g>
         );
       })}
-      <text x={padL + cW / 2} y={svgH - 2} textAnchor="middle" fill="#64748b" fontSize={9}>
+      <text x={padL + cW / 2} y={svgH - 2} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
         full-window ball-ops (log scale)
       </text>
     </svg>
@@ -67,7 +68,7 @@ export default function Imp95144TierCertifierBallOpBudgetGapViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Tier-Certifier Ball-Op Budget Gap (imp-95144 / imp-95213 / imp-95214)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         The W1-CERT tier-P/B/S certifier was priced at two built levels. Level 1 (imp-95213, a
         single-level rigorous Taylor panel model) measures{' '}
         {TIER2_PRICE.baselines.level1BallOpsFullWindow.toExponential(3)} full-window ball-ops.
@@ -84,14 +85,14 @@ export default function Imp95144TierCertifierBallOpBudgetGapViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> the bars are on a log
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> the bars are on a log
         scale, so each visible gap is a large multiplicative jump, not an additive one. Level 1
         was panel-pass-dominated (97% of cost was the per-panel O(N) Arb evaluation); level 2
         amortizes that pass via chirp recurrences, buying the {TIER2_PRICE.baselines.ballOpsVsLevel1.toFixed(2)}x
@@ -107,14 +108,14 @@ export default function Imp95144TierCertifierBallOpBudgetGapViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page reusing the imp-95213
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page reusing the imp-95213
         TIER_PRICE and imp-95214 TIER2_PRICE literals verbatim (no new computation). Qualitative
         budget-gap picture only; no bound promoted. Platt&ndash;Trudgian &Lambda; &le; 0.2 remains
         SOTA. No QED.

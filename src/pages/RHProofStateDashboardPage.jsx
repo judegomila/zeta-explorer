@@ -16,6 +16,7 @@ import { IMP35681_W1_W2_W4_EXISTING_INFRA_INVENTORY } from '../data/imp-35681-w1
 import { IMP35711_POSTPORT_PARITY_NO_BEAT_HONEST_STATUS_BANNER } from '../data/imp-35711-postport-parity-no-beat-honest-status-banner.js';
 import ProofTierSummary from '../components/ProofTierSummary.jsx';
 import HonestCeilingBanner from '../components/HonestCeilingBanner.jsx';
+import { ED } from '../styles/tokens.js';
 
 // Editorial (warm) re-theme: same structure/data/logic/claims as the original
 // dark dashboard, just re-skinned. Every proven/open/withdrawn classification,
@@ -68,13 +69,13 @@ function StatusBadge({ status, label }) {
 function PathCard({ path, title, status, statusLabel, description, progress, blockedBy, links }) {
   const [expanded, setExpanded] = useState(false);
   const pathColors = {
-    A: '#d9502e', // Hilbert-Pólya (terra) — was purple #8b5cf6
-    B: '#3f6b86', // Darlington (blue)
-    C: '#4c7a4a', // Weil Positivity (green)
-    D: '#b58a2e', // Nyman-Beurling (brass-dk) — was amber #f59e0b
-    E: '#8c6a1d', // Li Criterion (brass) — was pink #ec4899
+    A: ED.accentDeco, // Hilbert-Pólya (terra) — was purple #8b5cf6
+    B: ED.series1, // Darlington (blue)
+    C: ED.series3, // Weil Positivity (green)
+    D: ED.brassDeco, // Nyman-Beurling (brass-dk) — was amber #f59e0b
+    E: ED.brass, // Li Criterion (brass) — was pink #ec4899
   };
-  const color = pathColors[path] || '#877b67';
+  const color = pathColors[path] || ED.inkFaint;
 
   return (
     <div style={{
@@ -202,6 +203,7 @@ export default function RHProofStateDashboardPage() {
 
         <div style={{ marginTop: 16, marginBottom: 24 }}>
           <h1 className="ed-h1">RH Proof State Dashboard</h1>
+          <p className="ed-lbl">Related: <Link to="/state-of-program">current summary</Link></p>
           <div
             style={{
               marginTop: 10,
@@ -268,7 +270,7 @@ export default function RHProofStateDashboardPage() {
               <div style={{ fontSize: 20, fontWeight: 700, color: BRASS, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>
                 <Link to="/lambda-01758354-candidate" style={{ color: 'inherit', textDecoration: 'none' }}>&#923; &le; 0.1758354</Link>
               </div>
-              <div style={{ fontSize: 11, color: INK_SOFT }}>Four Arb interval gates + Lean-checked reduction; unrefereed; bound not established; not RH</div>
+              <div style={{ fontSize: 11, color: INK_SOFT }}>Four Arb interval gates + Lean-checked y-transfer reduction and Lemma B3; unrefereed; bound not established; not RH</div>
             </div>
           </div>
           <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
@@ -731,7 +733,7 @@ export default function RHProofStateDashboardPage() {
         </Section>
 
         {/* Recommended Reading */}
-        <Section title="Navigate the Proof Landscape" borderColor="#d5c9b2">
+        <Section title="Navigate the Proof Landscape" borderColor={ED.rule}>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 12 }}>
             <div style={{ padding: 12, background: 'var(--paper2)', borderRadius: 8 }}>
               <div style={{ fontSize: 12, color: FAINT, marginBottom: 4 }}>PROOF FRAMEWORKS</div>

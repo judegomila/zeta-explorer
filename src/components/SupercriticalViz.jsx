@@ -10,6 +10,7 @@ import {
 import { ZETA_ZEROS } from '../math/zeta.js';
 import { getPrimes } from '../math/primes.js';
 import { InlineMath, BlockMath } from './KaTeXMath.jsx';
+import { ED, alpha } from '../styles/tokens.js';
 
 // Shared helper: find nearest zeta zero to a given t value
 function findNearestZetaZero(tValue) {
@@ -93,7 +94,7 @@ function ExtendedLandscapeTab() {
     const yScale = v => pad.t + topH - (v - yMin) / (yMax - yMin) * topH;
 
     // Grid — vertical lines
-    ctx.strokeStyle = '#1e293b';
+    ctx.strokeStyle = ED.ruleSoft;
     ctx.lineWidth = 0.5;
     for (let s = Math.ceil(sigmaMin); s <= sigmaMax; s++) {
       ctx.beginPath(); ctx.moveTo(xScale(s), pad.t); ctx.lineTo(xScale(s), pad.t + topH); ctx.stroke();
@@ -107,16 +108,16 @@ function ExtendedLandscapeTab() {
       for (let v = Math.ceil(yMin); v <= Math.floor(yMax); v += yTickStep) {
         const py = yScale(v);
         // Horizontal gridline
-        ctx.strokeStyle = '#1e293b';
+        ctx.strokeStyle = ED.ruleSoft;
         ctx.lineWidth = 0.5;
         ctx.setLineDash([3, 3]);
         ctx.beginPath(); ctx.moveTo(pad.l, py); ctx.lineTo(pad.l + chartW, py); ctx.stroke();
         ctx.setLineDash([]);
         // Tick mark
-        ctx.strokeStyle = '#2a3050';
+        ctx.strokeStyle = ED.rule;
         ctx.beginPath(); ctx.moveTo(pad.l - 4, py); ctx.lineTo(pad.l, py); ctx.stroke();
         // Label
-        ctx.fillStyle = '#94a3b8';
+        ctx.fillStyle = ED.series8;
         ctx.fillText(v.toString(), pad.l - 7, py + 3);
       }
       ctx.textAlign = 'left'; // reset
@@ -124,23 +125,23 @@ function ExtendedLandscapeTab() {
 
     // Phase regions
     // Sub-zero: σ < 0 (blue tint)
-    ctx.fillStyle = 'rgba(59, 130, 246, 0.05)';
+    ctx.fillStyle = alpha(ED.series1, 0.05);
     ctx.fillRect(xScale(sigmaMin), pad.t, xScale(0) - xScale(sigmaMin), topH);
     // Critical strip: 0 < σ < 1 (purple tint)
-    ctx.fillStyle = 'rgba(139, 92, 246, 0.08)';
+    ctx.fillStyle = alpha(ED.series5, 0.08);
     if (sigmaMin < 1 && sigmaMax > 0) {
       ctx.fillRect(xScale(Math.max(0, sigmaMin)), pad.t,
         xScale(Math.min(1, sigmaMax)) - xScale(Math.max(0, sigmaMin)), topH);
     }
     // Supercritical: σ > 1 (green tint)
     if (sigmaMax > 1) {
-      ctx.fillStyle = 'rgba(16, 185, 129, 0.05)';
+      ctx.fillStyle = alpha(ED.series3, 0.05);
       ctx.fillRect(xScale(Math.max(1, sigmaMin)), pad.t,
         xScale(sigmaMax) - xScale(Math.max(1, sigmaMin)), topH);
     }
 
     // Phase boundary at σ=1
-    ctx.strokeStyle = '#f59e0b';
+    ctx.strokeStyle = ED.brassDeco;
     ctx.lineWidth = 1.5;
     ctx.setLineDash([6, 4]);
     if (sigmaMin < 1 && sigmaMax > 1) {
@@ -148,7 +149,7 @@ function ExtendedLandscapeTab() {
     }
 
     // Critical line at σ=0.5
-    ctx.strokeStyle = '#ef4444';
+    ctx.strokeStyle = ED.series2;
     ctx.lineWidth = 2;
     if (sigmaMin < 0.5 && sigmaMax > 0.5) {
       ctx.beginPath(); ctx.moveTo(xScale(0.5), pad.t); ctx.lineTo(xScale(0.5), pad.t + topH); ctx.stroke();
@@ -156,7 +157,7 @@ function ExtendedLandscapeTab() {
     ctx.setLineDash([]);
 
     // log|ζ| curve
-    ctx.strokeStyle = '#06b6d4';
+    ctx.strokeStyle = ED.series6;
     ctx.lineWidth = 2;
     ctx.beginPath();
     scan.forEach((d, i) => {
@@ -167,7 +168,7 @@ function ExtendedLandscapeTab() {
     ctx.stroke();
 
     // 0 reference
-    ctx.strokeStyle = '#64748b';
+    ctx.strokeStyle = ED.rule;
     ctx.lineWidth = 0.5;
     ctx.setLineDash([3, 3]);
     ctx.beginPath(); ctx.moveTo(pad.l, yScale(0)); ctx.lineTo(pad.l + chartW, yScale(0)); ctx.stroke();
@@ -176,7 +177,7 @@ function ExtendedLandscapeTab() {
     // Trivial zeros markers — only shown when t ≈ 0 (trivial zeros exist only on the real axis)
     if (Math.abs(tValue) < 0.5) {
       for (let n = -2; n >= sigmaMin; n -= 2) {
-        ctx.fillStyle = '#f59e0b';
+        ctx.fillStyle = ED.series4;
         ctx.beginPath();
         ctx.arc(xScale(n), yScale(yMin), 4, 0, Math.PI * 2);
         ctx.fill();
@@ -187,32 +188,32 @@ function ExtendedLandscapeTab() {
     }
 
     // Labels
-    ctx.fillStyle = '#e2e8f0';
+    ctx.fillStyle = ED.ink;
     ctx.font = '12px Inter, sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText('log\u2081\u2080|ζ(σ+it)|', pad.l + chartW / 2, 18);
 
     // Region labels
     ctx.font = '10px Inter, sans-serif';
-    ctx.fillStyle = 'rgba(59, 130, 246, 0.6)';
+    ctx.fillStyle = alpha(ED.series1, 0.6);
     if (sigmaMin < -1) ctx.fillText('Reflected Region', xScale((sigmaMin + Math.min(0, sigmaMax)) / 2), pad.t + 16);
-    ctx.fillStyle = 'rgba(139, 92, 246, 0.7)';
+    ctx.fillStyle = alpha(ED.series5, 0.7);
     if (sigmaMin < 1 && sigmaMax > 0) ctx.fillText('Critical Strip', xScale(0.5), pad.t + 16);
-    ctx.fillStyle = 'rgba(16, 185, 129, 0.6)';
+    ctx.fillStyle = alpha(ED.series3, 0.6);
     if (sigmaMax > 1.5) ctx.fillText('Supercritical', xScale(Math.max(1.5, (1 + sigmaMax) / 2)), pad.t + 16);
 
     // Legend for curves and reference lines
     const legendItems = [
-      { color: '#06b6d4', dash: [], label: 'log₁₀|ζ(σ+it)|' },
-      { color: '#ef4444', dash: [], label: 'σ = ½ (critical line)' },
-      { color: '#f59e0b', dash: [6, 4], label: 'σ = 1 (convergence boundary)' },
+      { color: ED.series6, dash: [], label: 'log₁₀|ζ(σ+it)|' },
+      { color: ED.series2, dash: [], label: 'σ = ½ (critical line)' },
+      { color: ED.brass, dash: [6, 4], label: 'σ = 1 (convergence boundary)' },
     ];
     const lgX = pad.l + 6;
     const lgY = pad.t + topH - legendItems.length * 16 - 10;
     const lgW = 192;
     const lgH = legendItems.length * 16 + 8;
     ctx.fillStyle = 'rgba(10, 14, 26, 0.85)';
-    ctx.strokeStyle = '#1e293b';
+    ctx.strokeStyle = ED.ruleSoft;
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.roundRect(lgX, lgY, lgW, lgH, 4);
@@ -229,14 +230,14 @@ function ExtendedLandscapeTab() {
       ctx.lineTo(lx + 16, ly);
       ctx.stroke();
       ctx.setLineDash([]);
-      ctx.fillStyle = '#cbd5e1';
+      ctx.fillStyle = ED.ink;
       ctx.font = '10px Inter, sans-serif';
       ctx.textAlign = 'left';
       ctx.fillText(item.label, lx + 22, ly + 3);
     });
 
     // Axis ticks
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = ED.series8;
     ctx.font = '10px "JetBrains Mono", monospace';
     ctx.textAlign = 'center';
     for (let s = Math.ceil(sigmaMin); s <= sigmaMax; s++) {
@@ -249,7 +250,7 @@ function ExtendedLandscapeTab() {
 
     // Phase boundary at σ=1 (matches top panel)
     if (sigmaMin < 1 && sigmaMax > 1) {
-      ctx.strokeStyle = '#f59e0b';
+      ctx.strokeStyle = ED.brassDeco;
       ctx.lineWidth = 1.5;
       ctx.setLineDash([6, 4]);
       ctx.beginPath(); ctx.moveTo(xScale(1), botY); ctx.lineTo(xScale(1), botY + botH); ctx.stroke();
@@ -257,14 +258,14 @@ function ExtendedLandscapeTab() {
     }
     // Critical line at σ=0.5 (matches top panel)
     if (sigmaMin < 0.5 && sigmaMax > 0.5) {
-      ctx.strokeStyle = '#ef4444';
+      ctx.strokeStyle = ED.series2;
       ctx.lineWidth = 2;
       ctx.setLineDash([6, 4]);
       ctx.beginPath(); ctx.moveTo(xScale(0.5), botY); ctx.lineTo(xScale(0.5), botY + botH); ctx.stroke();
       ctx.setLineDash([]);
     }
 
-    ctx.strokeStyle = '#8b5cf6';
+    ctx.strokeStyle = ED.series5;
     ctx.lineWidth = 1.5;
     ctx.beginPath();
     let needsMove = true;
@@ -301,7 +302,7 @@ function ExtendedLandscapeTab() {
     phaseTicks.forEach(({ val, label }) => {
       const py = phaseScale(val);
       // Gridline
-      ctx.strokeStyle = '#2a3050';
+      ctx.strokeStyle = ED.rule;
       ctx.lineWidth = 0.5;
       ctx.setLineDash(val === 0 ? [] : [3, 3]);
       ctx.beginPath(); ctx.moveTo(pad.l, py); ctx.lineTo(pad.l + chartW, py); ctx.stroke();
@@ -309,16 +310,16 @@ function ExtendedLandscapeTab() {
       ctx.setLineDash([]);
       ctx.beginPath(); ctx.moveTo(pad.l - 4, py); ctx.lineTo(pad.l, py); ctx.stroke();
       // Label
-      ctx.fillStyle = '#94a3b8';
+      ctx.fillStyle = ED.series8;
       ctx.fillText(label, pad.l - 7, py + 3);
     });
 
-    ctx.fillStyle = '#e2e8f0';
+    ctx.fillStyle = ED.ink;
     ctx.font = '12px Inter, sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText('arg ζ(σ+it)', pad.l + chartW / 2, botY - 8);
 
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = ED.series8;
     ctx.font = '11px Inter, sans-serif';
     ctx.fillText('σ = Re(s)', W / 2, H - 8);
 
@@ -350,14 +351,14 @@ function ExtendedLandscapeTab() {
             onChange={e => setTValue(+e.target.value)} />
           <span className="control-value">{tValue.toFixed(1)}</span>
           {tValue < 0.5 ? (
-            <span style={{ marginLeft: 6, fontSize: 11, fontFamily: 'var(--font-mono)', color: '#f59e0b' }}>
+            <span style={{ marginLeft: 6, fontSize: 11, fontFamily: 'var(--font-mono)', color: 'var(--brass)' }}>
               trivial zeros visible
             </span>
           ) : nearest.bestDist < 1 ? (
               <span
                 style={{
                   marginLeft: 6, fontSize: 11, fontFamily: 'var(--font-mono)',
-                  color: nearest.bestDist < 0.3 ? '#10b981' : '#64748b',
+                  color: nearest.bestDist < 0.3 ? 'var(--series-3)' : 'var(--ink-faint)',
                   cursor: 'pointer', borderBottom: '1px dashed currentColor',
                 }}
                 title={`Click to snap t to γ${nearest.bestIdx + 1} = ${ZETA_ZEROS[nearest.bestIdx].toFixed(3)}`}
@@ -412,10 +413,10 @@ function ThermodynamicsTab() {
     const gap = 22;
 
     const quantities = [
-      { key: 'freeEnergy', label: 'Free Energy F = -T\u00B7log|ζ|', color: '#3b82f6' },
-      { key: 'entropy', label: 'Entropy S = -\u2202F/\u2202T', color: '#10b981' },
-      { key: 'pressure', label: 'Pressure P (Euler product density)', color: '#f59e0b' },
-      { key: 'specificHeat', label: 'Specific Heat C_v', color: '#ef4444' },
+      { key: 'freeEnergy', label: 'Free Energy F = -T\u00B7log|ζ|', color: ED.series1 },
+      { key: 'entropy', label: 'Entropy S = -\u2202F/\u2202T', color: ED.series3 },
+      { key: 'pressure', label: 'Pressure P (Euler product density)', color: ED.brass },
+      { key: 'specificHeat', label: 'Specific Heat C_v', color: ED.series2 },
     ];
 
     quantities.forEach((q, qi) => {
@@ -432,39 +433,39 @@ function ThermodynamicsTab() {
       const y = d3.scaleLinear().domain([yExtent[0] - padding, yExtent[1] + padding]).range([h, 0]);
 
       g.append('g').attr('transform', `translate(0,${h})`).call(d3.axisBottom(x).ticks(8).tickFormat(d => d.toFixed(1)))
-        .selectAll('text').attr('fill', '#64748b').attr('font-size', 8);
+        .selectAll('text').attr('fill', ED.inkFaint).attr('font-size', 8);
       g.append('g').call(d3.axisLeft(y).ticks(4).tickFormat(d => {
         if (Math.abs(d) > 1000) return d.toExponential(0);
         return d.toFixed(1);
-      })).selectAll('text').attr('fill', '#64748b').attr('font-size', 8);
-      g.selectAll('.domain, .tick line').attr('stroke', '#2a3050');
+      })).selectAll('text').attr('fill', ED.inkFaint).attr('font-size', 8);
+      g.selectAll('.domain, .tick line').attr('stroke', ED.rule);
 
       // Horizontal gridlines
       const gridG = g.append('g').call(d3.axisLeft(y).ticks(4).tickSize(-w).tickFormat(''));
-      gridG.selectAll('.tick line').attr('stroke', '#1e293b').attr('stroke-dasharray', '4,4');
+      gridG.selectAll('.tick line').attr('stroke', ED.ruleSoft).attr('stroke-dasharray', '4,4');
       gridG.select('.domain').remove();
 
       // Phase regions
       g.append('rect').attr('x', x(-1)).attr('y', 0)
-        .attr('width', x(0) - x(-1)).attr('height', h).attr('fill', 'rgba(59,130,246,0.03)');
+        .attr('width', x(0) - x(-1)).attr('height', h).attr('fill', alpha(ED.series1, 0.03));
       g.append('rect').attr('x', x(0)).attr('y', 0)
-        .attr('width', x(1) - x(0)).attr('height', h).attr('fill', 'rgba(139,92,246,0.05)');
+        .attr('width', x(1) - x(0)).attr('height', h).attr('fill', alpha(ED.series5, 0.05));
       g.append('rect').attr('x', x(1)).attr('y', 0)
-        .attr('width', x(3) - x(1)).attr('height', h).attr('fill', 'rgba(16,185,129,0.03)');
+        .attr('width', x(3) - x(1)).attr('height', h).attr('fill', alpha(ED.series3, 0.03));
 
       // Critical line
       g.append('line').attr('x1', x(0.5)).attr('y1', 0).attr('x2', x(0.5)).attr('y2', h)
-        .attr('stroke', '#ef4444').attr('stroke-width', 1).attr('stroke-dasharray', '4,3').attr('opacity', 0.5);
+        .attr('stroke', ED.series2).attr('stroke-width', 1).attr('stroke-dasharray', '4,3').attr('opacity', 0.5);
       // Phase boundary at σ=1
       g.append('line').attr('x1', x(1)).attr('y1', 0).attr('x2', x(1)).attr('y2', h)
-        .attr('stroke', '#f59e0b').attr('stroke-width', 1).attr('stroke-dasharray', '4,3').attr('opacity', 0.5);
+        .attr('stroke', ED.brassDeco).attr('stroke-width', 1).attr('stroke-dasharray', '4,3').attr('opacity', 0.5);
       // Label reference lines on the first chart only
       if (qi === 0) {
         g.append('text').attr('x', x(0.5)).attr('y', -4)
-          .attr('text-anchor', 'middle').attr('fill', '#ef4444').attr('font-size', 9).attr('opacity', 0.8)
+          .attr('text-anchor', 'middle').attr('fill', ED.series2).attr('font-size', 9).attr('opacity', 0.8)
           .text('\u03C3 = \u00BD');
         g.append('text').attr('x', x(1)).attr('y', -4)
-          .attr('text-anchor', 'middle').attr('fill', '#f59e0b').attr('font-size', 9).attr('opacity', 0.8)
+          .attr('text-anchor', 'middle').attr('fill', ED.brass).attr('font-size', 9).attr('opacity', 0.8)
           .text('\u03C3 = 1');
       }
 
@@ -485,17 +486,17 @@ function ThermodynamicsTab() {
       if (qi === quantities.length - 1) {
         svg.append('text')
           .attr('x', margin.left + w / 2).attr('y', yOff + margin.top + h + margin.bottom + 2)
-          .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 11)
+          .attr('text-anchor', 'middle').attr('fill', ED.inkSoft).attr('font-size', 11)
           .text('σ = Re(s)');
       }
 
       // Repeat σ = ½ and σ = 1 labels on the last chart for readability
       if (qi === quantities.length - 1) {
         g.append('text').attr('x', x(0.5)).attr('y', -4)
-          .attr('text-anchor', 'middle').attr('fill', '#ef4444').attr('font-size', 9).attr('opacity', 0.8)
+          .attr('text-anchor', 'middle').attr('fill', ED.series2).attr('font-size', 9).attr('opacity', 0.8)
           .text('\u03C3 = \u00BD');
         g.append('text').attr('x', x(1)).attr('y', -4)
-          .attr('text-anchor', 'middle').attr('fill', '#f59e0b').attr('font-size', 9).attr('opacity', 0.8)
+          .attr('text-anchor', 'middle').attr('fill', ED.brass).attr('font-size', 9).attr('opacity', 0.8)
           .text('\u03C3 = 1');
       }
     });
@@ -506,7 +507,7 @@ function ThermodynamicsTab() {
     const fullH = quantities.length * (chartH + margin.top + margin.bottom + gap);
     const hoverLine = svg.append('line')
       .attr('x1', 0).attr('x2', 0).attr('y1', 0).attr('y2', fullH)
-      .attr('stroke', '#e2e8f0').attr('stroke-width', 0.5).attr('opacity', 0)
+      .attr('stroke', ED.inkSoft).attr('stroke-width', 0.5).attr('opacity', 0)
       .attr('pointer-events', 'none');
 
     svg.append('rect')
@@ -564,7 +565,7 @@ function ThermodynamicsTab() {
               <span
                 style={{
                   marginLeft: 6, fontSize: 11, fontFamily: 'var(--font-mono)',
-                  color: nearest.bestDist < 0.3 ? '#10b981' : '#64748b',
+                  color: nearest.bestDist < 0.3 ? 'var(--series-3)' : 'var(--ink-faint)',
                   cursor: 'pointer', borderBottom: '1px dashed currentColor',
                 }}
                 title={`Click to snap t to γ${nearest.bestIdx + 1} = ${ZETA_ZEROS[nearest.bestIdx].toFixed(3)}`}
@@ -578,25 +579,25 @@ function ThermodynamicsTab() {
           <label>Primes</label>
           <input type="range" min="5" max="50" step="1" value={numPrimes}
             onChange={e => setNumPrimes(+e.target.value)} />
-          <span className="control-value">{numPrimes} <span style={{ color: '#64748b', fontSize: 11 }}>(up to p={getPrimes(numPrimes)[numPrimes - 1]})</span></span>
+          <span className="control-value">{numPrimes} <span style={{ color: 'var(--ink-faint)', fontSize: 11 }}>(up to p={getPrimes(numPrimes)[numPrimes - 1]})</span></span>
         </div>
         {hoverPoint ? (
-          <div style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: 11, color: '#06b6d4', display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+          <div style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--series-6)', display: 'flex', gap: 8, flexWrap: 'wrap' }}>
             <span>σ={hoverPoint.sigma.toFixed(2)}</span>
-            <span style={{ color: '#3b82f6' }}>F={isFinite(hoverPoint.freeEnergy) ? hoverPoint.freeEnergy.toFixed(2) : '∞'}</span>
-            <span style={{ color: '#10b981' }}>S={isFinite(hoverPoint.entropy) ? hoverPoint.entropy.toFixed(2) : '∞'}</span>
-            <span style={{ color: '#f59e0b' }}>P={isFinite(hoverPoint.pressure) ? hoverPoint.pressure.toFixed(3) : '∞'}</span>
-            <span style={{ color: '#ef4444' }}>C={isFinite(hoverPoint.specificHeat) ? hoverPoint.specificHeat.toFixed(2) : '∞'}</span>
+            <span style={{ color: 'var(--series-1)' }}>F={isFinite(hoverPoint.freeEnergy) ? hoverPoint.freeEnergy.toFixed(2) : '∞'}</span>
+            <span style={{ color: 'var(--series-3)' }}>S={isFinite(hoverPoint.entropy) ? hoverPoint.entropy.toFixed(2) : '∞'}</span>
+            <span style={{ color: 'var(--brass)' }}>P={isFinite(hoverPoint.pressure) ? hoverPoint.pressure.toFixed(3) : '∞'}</span>
+            <span style={{ color: 'var(--series-2)' }}>C={isFinite(hoverPoint.specificHeat) ? hoverPoint.specificHeat.toFixed(2) : '∞'}</span>
             <span style={{
-              color: hoverPoint.phase === 'critical-line' ? '#ef4444'
-                : hoverPoint.phase === 'supercritical' ? '#10b981'
-                : hoverPoint.phase === 'sub-zero' ? '#3b82f6'
-                : '#8b5cf6',
+              color: hoverPoint.phase === 'critical-line' ? 'var(--series-2)'
+                : hoverPoint.phase === 'supercritical' ? 'var(--series-3)'
+                : hoverPoint.phase === 'sub-zero' ? 'var(--series-1)'
+                : 'var(--series-5)',
               fontWeight: 600,
             }}>[{hoverPoint.phase}]</span>
           </div>
         ) : (
-          <div style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: 11, color: '#475569', fontStyle: 'italic' }}>
+          <div style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--ink-faint)', fontStyle: 'italic' }}>
             Hover over charts to inspect values
           </div>
         )}
@@ -643,20 +644,20 @@ function HeatFlowTab() {
       const y = d3.scaleLinear().domain([0.3, 0.7]).range([topH, 0]);
 
       g.append('g').attr('transform', `translate(0,${topH})`).call(d3.axisBottom(x).ticks(10))
-        .selectAll('text').attr('fill', '#64748b').attr('font-size', 9);
+        .selectAll('text').attr('fill', ED.inkFaint).attr('font-size', 9);
       g.append('g').call(d3.axisLeft(y).ticks(5).tickFormat(d => d.toFixed(2)))
-        .selectAll('text').attr('fill', '#64748b').attr('font-size', 9);
-      g.selectAll('.domain, .tick line').attr('stroke', '#2a3050');
+        .selectAll('text').attr('fill', ED.inkFaint).attr('font-size', 9);
+      g.selectAll('.domain, .tick line').attr('stroke', ED.rule);
 
       // Critical line
       g.append('line').attr('x1', 0).attr('y1', y(0.5)).attr('x2', w).attr('y2', y(0.5))
-        .attr('stroke', '#ef4444').attr('stroke-width', 1.5).attr('stroke-dasharray', '6,4').attr('opacity', 0.7);
+        .attr('stroke', ED.series2).attr('stroke-width', 1.5).attr('stroke-dasharray', '6,4').attr('opacity', 0.7);
 
       // Draw original positions (faded)
       evolved.forEach(z => {
         g.append('circle')
           .attr('cx', x(z.gamma0)).attr('cy', y(0.5)).attr('r', 3)
-          .attr('fill', 'none').attr('stroke', '#64748b').attr('stroke-width', 1).attr('opacity', 0.3);
+          .attr('fill', 'none').attr('stroke', ED.rule).attr('stroke-width', 1).attr('opacity', 0.3);
       });
 
       // Draw evolved positions
@@ -665,29 +666,29 @@ function HeatFlowTab() {
         const clampedGamma = Math.max(0, Math.min(xMax, z.gamma));
         g.append('circle')
           .attr('cx', x(clampedGamma)).attr('cy', y(clampedSigma)).attr('r', 5)
-          .attr('fill', tau === 0 ? '#10b981' : tau < 0 ? '#f59e0b' : '#3b82f6')
-          .attr('stroke', '#0a0e1a').attr('stroke-width', 1.5);
+          .attr('fill', tau === 0 ? ED.series3 : tau < 0 ? ED.brassDeco : ED.series1)
+          .attr('stroke', ED.paper).attr('stroke-width', 1.5);
 
         // Arrows from original to evolved
         if (Math.abs(tau) > 0.01) {
           g.append('line')
             .attr('x1', x(z.gamma0)).attr('y1', y(0.5))
             .attr('x2', x(clampedGamma)).attr('y2', y(clampedSigma))
-            .attr('stroke', tau < 0 ? '#f59e0b' : '#3b82f6')
+            .attr('stroke', tau < 0 ? ED.brassDeco : ED.series1)
             .attr('stroke-width', 0.8).attr('opacity', 0.4);
         }
       });
 
       svg.append('text').attr('x', margin.left).attr('y', 18)
-        .attr('fill', '#e2e8f0').attr('font-size', 12).attr('font-weight', 600)
+        .attr('fill', ED.ink).attr('font-size', 12).attr('font-weight', 600)
         .text(`Zero Positions under Heat Flow (τ = ${tau.toFixed(2)})`);
 
       svg.append('text').attr('x', width / 2).attr('y', margin.top + topH + 35)
-        .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 11).text('γ (imaginary part)');
+        .attr('text-anchor', 'middle').attr('fill', ED.inkSoft).attr('font-size', 11).text('γ (imaginary part)');
 
       svg.append('text')
         .attr('transform', `translate(18, ${margin.top + topH / 2}) rotate(-90)`)
-        .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 11)
+        .attr('text-anchor', 'middle').attr('fill', ED.inkSoft).attr('font-size', 11)
         .text('σ = Re(ρ)');
     }
 
@@ -702,43 +703,43 @@ function HeatFlowTab() {
       const y = d3.scaleLinear().domain([-yMax, yMax]).range([botH, 0]);
 
       g.append('g').attr('transform', `translate(0,${botH})`).call(d3.axisBottom(x).ticks(8))
-        .selectAll('text').attr('fill', '#64748b').attr('font-size', 9);
+        .selectAll('text').attr('fill', ED.inkFaint).attr('font-size', 9);
       g.append('g').call(d3.axisLeft(y).ticks(5).tickFormat(d => d.toFixed(1)))
-        .selectAll('text').attr('fill', '#64748b').attr('font-size', 9);
-      g.selectAll('.domain, .tick line').attr('stroke', '#2a3050');
+        .selectAll('text').attr('fill', ED.inkFaint).attr('font-size', 9);
+      g.selectAll('.domain, .tick line').attr('stroke', ED.rule);
 
       // Zero baseline
       g.append('line').attr('x1', 0).attr('y1', y(0)).attr('x2', w).attr('y2', y(0))
-        .attr('stroke', '#475569').attr('stroke-width', 0.5).attr('stroke-dasharray', '4,3');
+        .attr('stroke', ED.rule).attr('stroke-width', 0.5).attr('stroke-dasharray', '4,3');
 
       // Fill
       g.append('path').datum(scanData)
         .attr('d', d3.area().x(d => x(d.t)).y0(y(0)).y1(d => y(d.value)).curve(d3.curveBasis))
-        .attr('fill', tau === 0 ? 'rgba(16,185,129,0.1)' : tau < 0 ? 'rgba(245,158,11,0.1)' : 'rgba(59,130,246,0.1)');
+        .attr('fill', tau === 0 ? alpha(ED.series3, 0.1) : tau < 0 ? alpha(ED.brassDeco, 0.1) : alpha(ED.series1, 0.1));
 
       // Curve
       g.append('path').datum(scanData)
         .attr('d', d3.line().x(d => x(d.t)).y(d => y(d.value)).curve(d3.curveBasis))
         .attr('fill', 'none')
-        .attr('stroke', tau === 0 ? '#10b981' : tau < 0 ? '#f59e0b' : '#3b82f6')
+        .attr('stroke', tau === 0 ? ED.series3 : tau < 0 ? ED.brassDeco : ED.series1)
         .attr('stroke-width', 2);
 
       // Zero locations
       ZETA_ZEROS.filter(z => z >= 10 && z <= 50).forEach(gamma => {
         g.append('line').attr('x1', x(gamma)).attr('y1', 0).attr('x2', x(gamma)).attr('y2', botH)
-          .attr('stroke', '#ef4444').attr('stroke-width', 0.5).attr('stroke-dasharray', '2,2').attr('opacity', 0.4);
+          .attr('stroke', ED.series2).attr('stroke-width', 0.5).attr('stroke-dasharray', '2,2').attr('opacity', 0.4);
       });
 
       svg.append('text').attr('x', margin.left).attr('y', yOff - 8)
-        .attr('fill', '#e2e8f0').attr('font-size', 12).attr('font-weight', 600)
+        .attr('fill', ED.ink).attr('font-size', 12).attr('font-weight', 600)
         .text('Heat-Evolved Xi: Hτ(t)');
 
       svg.append('text').attr('x', width / 2).attr('y', yOff + botH + 35)
-        .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 11).text('t');
+        .attr('text-anchor', 'middle').attr('fill', ED.inkSoft).attr('font-size', 11).text('t');
 
       svg.append('text')
         .attr('transform', `translate(18, ${yOff + botH / 2}) rotate(-90)`)
-        .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 11)
+        .attr('text-anchor', 'middle').attr('fill', ED.inkSoft).attr('font-size', 11)
         .text('Hτ(t)');
     }
 
@@ -770,7 +771,7 @@ function HeatFlowTab() {
           <input type="range" min="-0.5" max="0.5" step="0.01" value={tau}
             onChange={e => setTau(+e.target.value)} />
           <span className="control-value" style={{
-            color: tau === 0 ? '#10b981' : tau < 0 ? '#f59e0b' : '#3b82f6'
+            color: tau === 0 ? 'var(--series-3)' : tau < 0 ? 'var(--brass)' : 'var(--series-1)'
           }}>{tau.toFixed(2)}</span>
         </div>
         <div className="control-group">
@@ -778,16 +779,16 @@ function HeatFlowTab() {
           <input type="range" min="10" max="200" step="1" value={numZeros}
             onChange={e => setNumZeros(+e.target.value)} />
           <span className="control-value">{numZeros}</span>
-          <span style={{ marginLeft: 6, fontSize: 11, color: '#64748b' }}>
+          <span style={{ marginLeft: 6, fontSize: 11, color: 'var(--ink-faint)' }}>
             (γ_max ≈ {ZETA_ZEROS[Math.min(numZeros, ZETA_ZEROS.length) - 1]?.toFixed(1) ?? '?'})
           </span>
         </div>
         <div style={{ marginLeft: 'auto', display: 'flex', gap: 8 }}>
-          <span style={{ fontFamily: 'var(--font-mono)', fontSize: 12, color: tau < 0 ? '#f59e0b' : '#64748b' }}>Scatter</span>
-          <span style={{ fontFamily: 'var(--font-mono)', fontSize: 12, color: '#64748b' }}>|</span>
-          <span style={{ fontFamily: 'var(--font-mono)', fontSize: 12, color: tau === 0 ? '#10b981' : '#64748b' }}>RH</span>
-          <span style={{ fontFamily: 'var(--font-mono)', fontSize: 12, color: '#64748b' }}>|</span>
-          <span style={{ fontFamily: 'var(--font-mono)', fontSize: 12, color: tau > 0 ? '#3b82f6' : '#64748b' }}>Smooth</span>
+          <span style={{ fontFamily: 'var(--font-mono)', fontSize: 12, color: tau < 0 ? 'var(--brass)' : 'var(--ink-faint)' }}>Scatter</span>
+          <span style={{ fontFamily: 'var(--font-mono)', fontSize: 12, color: 'var(--ink-faint)' }}>|</span>
+          <span style={{ fontFamily: 'var(--font-mono)', fontSize: 12, color: tau === 0 ? 'var(--series-3)' : 'var(--ink-faint)' }}>RH</span>
+          <span style={{ fontFamily: 'var(--font-mono)', fontSize: 12, color: 'var(--ink-faint)' }}>|</span>
+          <span style={{ fontFamily: 'var(--font-mono)', fontSize: 12, color: tau > 0 ? 'var(--series-1)' : 'var(--ink-faint)' }}>Smooth</span>
         </div>
       </div>
       <div className="viz-container">
@@ -828,28 +829,28 @@ function EulerPhaseTab() {
       const y = d3.scaleLinear().domain([Math.max(yExtent[0], -20), Math.min(yExtent[1], 20)]).range([topH, 0]);
 
       g.append('g').attr('transform', `translate(0,${topH})`).call(d3.axisBottom(x).ticks(8).tickFormat(d => d.toFixed(1)))
-        .selectAll('text').attr('fill', '#64748b').attr('font-size', 9);
+        .selectAll('text').attr('fill', ED.inkFaint).attr('font-size', 9);
       g.append('g').call(d3.axisLeft(y).ticks(6).tickFormat(d => d.toFixed(1)))
-        .selectAll('text').attr('fill', '#64748b').attr('font-size', 9);
-      g.selectAll('.domain, .tick line').attr('stroke', '#2a3050');
+        .selectAll('text').attr('fill', ED.inkFaint).attr('font-size', 9);
+      g.selectAll('.domain, .tick line').attr('stroke', ED.rule);
 
       // Phase regions
       g.append('rect').attr('x', x(-1)).attr('y', 0).attr('width', x(0) - x(-1)).attr('height', topH)
-        .attr('fill', 'rgba(59,130,246,0.04)');
+        .attr('fill', alpha(ED.series1, 0.04));
       g.append('rect').attr('x', x(0)).attr('y', 0).attr('width', x(1) - x(0)).attr('height', topH)
-        .attr('fill', 'rgba(139,92,246,0.06)');
+        .attr('fill', alpha(ED.series5, 0.06));
       g.append('rect').attr('x', x(1)).attr('y', 0).attr('width', x(3) - x(1)).attr('height', topH)
-        .attr('fill', 'rgba(16,185,129,0.04)');
+        .attr('fill', alpha(ED.series3, 0.04));
 
       // Phase boundary and critical line
       g.append('line').attr('x1', x(1)).attr('y1', 0).attr('x2', x(1)).attr('y2', topH)
-        .attr('stroke', '#f59e0b').attr('stroke-width', 1.5).attr('stroke-dasharray', '4,3').attr('opacity', 0.6);
+        .attr('stroke', ED.brassDeco).attr('stroke-width', 1.5).attr('stroke-dasharray', '4,3').attr('opacity', 0.6);
       g.append('line').attr('x1', x(0.5)).attr('y1', 0).attr('x2', x(0.5)).attr('y2', topH)
-        .attr('stroke', '#ef4444').attr('stroke-width', 1.5).attr('stroke-dasharray', '4,3').attr('opacity', 0.6);
+        .attr('stroke', ED.series2).attr('stroke-width', 1.5).attr('stroke-dasharray', '4,3').attr('opacity', 0.6);
 
       // Zero reference
       g.append('line').attr('x1', 0).attr('y1', y(0)).attr('x2', w).attr('y2', y(0))
-        .attr('stroke', '#64748b').attr('stroke-width', 0.5).attr('stroke-dasharray', '3,3');
+        .attr('stroke', ED.rule).attr('stroke-width', 0.5).attr('stroke-dasharray', '3,3');
 
       // Curve with color transition
       const converging = data.filter(d => d.isConverging);
@@ -860,29 +861,29 @@ function EulerPhaseTab() {
           .x(d => x(d.sigma))
           .y(d => y(Math.max(y.domain()[0], Math.min(y.domain()[1], d.logCumulativeMag))))
           .curve(d3.curveBasis))
-        .attr('fill', 'none').attr('stroke', '#06b6d4').attr('stroke-width', 2);
+        .attr('fill', 'none').attr('stroke', ED.series6).attr('stroke-width', 2);
 
       // Legend for vertical reference lines
       const topLegend = g.append('g').attr('transform', `translate(${w - 200}, 8)`);
       topLegend.append('rect').attr('x', -8).attr('y', -6).attr('width', 206).attr('height', 42)
-        .attr('fill', 'rgba(15,23,42,0.85)').attr('rx', 4).attr('stroke', '#2a3050');
+        .attr('fill', alpha(ED.paper2, 0.85)).attr('rx', 4).attr('stroke', ED.rule);
       topLegend.append('line').attr('x1', 0).attr('y1', 6).attr('x2', 18).attr('y2', 6)
-        .attr('stroke', '#ef4444').attr('stroke-width', 1.5).attr('stroke-dasharray', '4,3');
+        .attr('stroke', ED.series2).attr('stroke-width', 1.5).attr('stroke-dasharray', '4,3');
       topLegend.append('text').attr('x', 24).attr('y', 10)
-        .attr('fill', '#ef4444').attr('font-size', 10).text('Critical line (σ = ½)');
+        .attr('fill', ED.series2).attr('font-size', 10).text('Critical line (σ = ½)');
       topLegend.append('line').attr('x1', 0).attr('y1', 22).attr('x2', 18).attr('y2', 22)
-        .attr('stroke', '#f59e0b').attr('stroke-width', 1.5).attr('stroke-dasharray', '4,3');
+        .attr('stroke', ED.brassDeco).attr('stroke-width', 1.5).attr('stroke-dasharray', '4,3');
       topLegend.append('text').attr('x', 24).attr('y', 26)
-        .attr('fill', '#f59e0b').attr('font-size', 10).text('Convergence boundary (σ = 1)');
+        .attr('fill', ED.brass).attr('font-size', 10).text('Convergence boundary (σ = 1)');
 
       svg.append('text').attr('x', margin.left).attr('y', 16)
-        .attr('fill', '#e2e8f0').attr('font-size', 12).attr('font-weight', 600)
+        .attr('fill', ED.ink).attr('font-size', 12).attr('font-weight', 600)
         .text('log \u220F|1/(1-p^{-s})| \u2014 Euler product log-magnitude');
 
       // Y-axis label
       svg.append('text')
         .attr('transform', `translate(14, ${margin.top + topH / 2}) rotate(-90)`)
-        .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 11)
+        .attr('text-anchor', 'middle').attr('fill', ED.inkSoft).attr('font-size', 11)
         .text('log |Euler product|');
     }
 
@@ -895,22 +896,22 @@ function EulerPhaseTab() {
       const y = d3.scaleLinear().domain([0.5, yMax]).range([botH, 0]);
 
       g.append('g').attr('transform', `translate(0,${botH})`).call(d3.axisBottom(x).ticks(8).tickFormat(d => d.toFixed(1)))
-        .selectAll('text').attr('fill', '#64748b').attr('font-size', 9);
+        .selectAll('text').attr('fill', ED.inkFaint).attr('font-size', 9);
       g.append('g').call(d3.axisLeft(y).ticks(6).tickFormat(d => d.toFixed(2)))
-        .selectAll('text').attr('fill', '#64748b').attr('font-size', 9);
-      g.selectAll('.domain, .tick line').attr('stroke', '#2a3050');
+        .selectAll('text').attr('fill', ED.inkFaint).attr('font-size', 9);
+      g.selectAll('.domain, .tick line').attr('stroke', ED.rule);
 
       // Reference at 1.0
       g.append('line').attr('x1', 0).attr('y1', y(1)).attr('x2', w).attr('y2', y(1))
-        .attr('stroke', '#10b981').attr('stroke-width', 1).attr('stroke-dasharray', '4,3').attr('opacity', 0.5);
+        .attr('stroke', ED.series3).attr('stroke-width', 1).attr('stroke-dasharray', '4,3').attr('opacity', 0.5);
 
       // Phase regions
       g.append('rect').attr('x', x(0)).attr('y', 0).attr('width', x(1) - x(0)).attr('height', botH)
-        .attr('fill', 'rgba(139,92,246,0.06)');
+        .attr('fill', alpha(ED.series5, 0.06));
 
       // Convergence boundary
       g.append('line').attr('x1', x(1)).attr('y1', 0).attr('x2', x(1)).attr('y2', botH)
-        .attr('stroke', '#f59e0b').attr('stroke-width', 1.5).attr('stroke-dasharray', '4,3').attr('opacity', 0.6);
+        .attr('stroke', ED.brassDeco).attr('stroke-width', 1.5).attr('stroke-dasharray', '4,3').attr('opacity', 0.6);
 
       // Color the line by convergence: green for σ>1 (convergent), red for σ<1 (divergent)
       const clampedData = data.map(d => ({ ...d, avgFactorMag: Math.min(d.avgFactorMag, yMax) }));
@@ -919,39 +920,39 @@ function EulerPhaseTab() {
       const divergent = clampedData.filter(d => d.sigma <= 1);
       g.append('path').datum(divergent)
         .attr('d', lineGen)
-        .attr('fill', 'none').attr('stroke', '#ef4444').attr('stroke-width', 2);
+        .attr('fill', 'none').attr('stroke', ED.series2).attr('stroke-width', 2);
       g.append('path').datum(convergent)
         .attr('d', lineGen)
-        .attr('fill', 'none').attr('stroke', '#10b981').attr('stroke-width', 2);
+        .attr('fill', 'none').attr('stroke', ED.series3).attr('stroke-width', 2);
 
       // Legend for convergence coloring
       const legend = g.append('g').attr('transform', `translate(${w - 170}, 8)`);
       legend.append('rect').attr('x', -8).attr('y', -6).attr('width', 176).attr('height', 42)
-        .attr('fill', 'rgba(15,23,42,0.85)').attr('rx', 4).attr('stroke', '#2a3050');
+        .attr('fill', alpha(ED.paper2, 0.85)).attr('rx', 4).attr('stroke', ED.rule);
       // Divergent entry
       legend.append('line').attr('x1', 0).attr('y1', 6).attr('x2', 18).attr('y2', 6)
-        .attr('stroke', '#ef4444').attr('stroke-width', 2);
+        .attr('stroke', ED.series2).attr('stroke-width', 2);
       legend.append('text').attr('x', 24).attr('y', 10)
-        .attr('fill', '#ef4444').attr('font-size', 10).text('Divergent (σ < 1)');
+        .attr('fill', ED.series2).attr('font-size', 10).text('Divergent (σ < 1)');
       // Convergent entry
       legend.append('line').attr('x1', 0).attr('y1', 22).attr('x2', 18).attr('y2', 22)
-        .attr('stroke', '#10b981').attr('stroke-width', 2);
+        .attr('stroke', ED.series3).attr('stroke-width', 2);
       legend.append('text').attr('x', 24).attr('y', 26)
-        .attr('fill', '#10b981').attr('font-size', 10).text('Convergent (σ > 1)');
+        .attr('fill', ED.series3).attr('font-size', 10).text('Convergent (σ > 1)');
 
       svg.append('text').attr('x', margin.left).attr('y', yOff - 6)
-        .attr('fill', '#e2e8f0').attr('font-size', 12).attr('font-weight', 600)
+        .attr('fill', ED.ink).attr('font-size', 12).attr('font-weight', 600)
         .text('Average Euler factor magnitude \u2014 convergence vs divergence boundary');
 
       // Y-axis label
       svg.append('text')
         .attr('transform', `translate(14, ${yOff + botH / 2}) rotate(-90)`)
-        .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 11)
+        .attr('text-anchor', 'middle').attr('fill', ED.inkSoft).attr('font-size', 11)
         .text('Avg |1/(1\u2212p\u207B\u02E2)|');
     }
 
     svg.append('text').attr('x', width / 2).attr('y', height - 6)
-      .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12).text('σ = Re(s)');
+      .attr('text-anchor', 'middle').attr('fill', ED.inkSoft).attr('font-size', 12).text('σ = Re(s)');
 
   }, [data]);
 
@@ -983,7 +984,7 @@ function EulerPhaseTab() {
               <span
                 style={{
                   marginLeft: 6, fontSize: 11, fontFamily: 'var(--font-mono)',
-                  color: nearest.bestDist < 0.3 ? '#10b981' : '#64748b',
+                  color: nearest.bestDist < 0.3 ? 'var(--series-3)' : 'var(--ink-faint)',
                   cursor: 'pointer', borderBottom: '1px dashed currentColor',
                 }}
                 title={`Click to snap t to γ${nearest.bestIdx + 1} = ${ZETA_ZEROS[nearest.bestIdx].toFixed(3)}`}
@@ -997,7 +998,7 @@ function EulerPhaseTab() {
           <label>Primes</label>
           <input type="range" min="5" max="50" step="1" value={numPrimes}
             onChange={e => setNumPrimes(+e.target.value)} />
-          <span className="control-value">{numPrimes} <span style={{ color: '#64748b', fontSize: 11 }}>(up to p={getPrimes(numPrimes)[numPrimes - 1]})</span></span>
+          <span className="control-value">{numPrimes} <span style={{ color: 'var(--ink-faint)', fontSize: 11 }}>(up to p={getPrimes(numPrimes)[numPrimes - 1]})</span></span>
         </div>
       </div>
       <div className="viz-container">

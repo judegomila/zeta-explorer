@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP34691_Q3_CANCELLATION_FLOOR_TRUST_BOUNDARY } from '../data/imp-34691-q3-cancellation-floor-trust-boundary.js';
+import { ED } from '../styles/tokens.js';
 
 const M = IMP34691_Q3_CANCELLATION_FLOOR_TRUST_BOUNDARY;
 const log10 = (x) => Math.log(x) / Math.LN10;
@@ -51,8 +52,8 @@ function FloorCurveChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
+      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
 
       {/* F_rel = 1 crossover line -- roundoff floor equals the physical q3 signal */}
       <line
@@ -60,11 +61,11 @@ function FloorCurveChart() {
         y1={yAt(1)}
         x2={padL + cW}
         y2={yAt(1)}
-        stroke="#f87171"
+        stroke={ED.series2}
         strokeWidth={1}
         strokeDasharray="3 3"
       />
-      <text x={padL + cW - 4} y={yAt(1) - 5} textAnchor="end" fill="#f87171" fontSize={10}>
+      <text x={padL + cW - 4} y={yAt(1) - 5} textAnchor="end" fill={ED.series2} fontSize={10}>
         F_rel = 1 (noise = signal)
       </text>
 
@@ -74,33 +75,33 @@ function FloorCurveChart() {
         y1={padT}
         x2={xAt(DP_STAR_REF)}
         y2={padT + cH}
-        stroke="#facc15"
+        stroke={ED.brassDeco}
         strokeWidth={1}
         strokeDasharray="2 3"
       />
-      <text x={xAt(DP_STAR_REF) + 4} y={padT + 10} fill="#facc15" fontSize={10}>
+      <text x={xAt(DP_STAR_REF) + 4} y={padT + 10} fill={ED.brass} fontSize={10}>
         dp* &asymp; {DP_STAR_REF.toExponential(2)}
       </text>
 
-      <path d={curvePath} fill="none" stroke="#38bdf8" strokeWidth={2} />
+      <path d={curvePath} fill="none" stroke={ED.series1} strokeWidth={2} />
 
       {markers.map((m) => (
-        <circle key={m.label} cx={xAt(m.dp)} cy={yAt(m.Frel)} r={5} fill="#cbd5e1" stroke="#0a0f1a" strokeWidth={1} />
+        <circle key={m.label} cx={xAt(m.dp)} cy={yAt(m.Frel)} r={5} fill="#cbd5e1" stroke={ED.paper} strokeWidth={1} />
       ))}
       {markers.map((m) => (
-        <text key={`lbl-${m.label}`} x={xAt(m.dp) + 6} y={yAt(m.Frel) - 6} fill="#94a3b8" fontSize={9}>
+        <text key={`lbl-${m.label}`} x={xAt(m.dp) + 6} y={yAt(m.Frel) - 6} fill={ED.inkSoft} fontSize={9}>
           {m.label}
         </text>
       ))}
 
-      <text x={padL + cW / 2} y={svgH - 6} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 6} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         step dp (log scale)
       </text>
       <text
         x={14}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={`rotate(-90, 14, ${padT + cH / 2})`}
       >
@@ -132,27 +133,27 @@ function DpStarLadderChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
-      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
+      <line x1={padL} y1={padT + cH} x2={padL + cW} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke={ED.rule} strokeWidth={1.5} />
 
-      <path d={linePath} fill="none" stroke="#38bdf8" strokeWidth={2} />
+      <path d={linePath} fill="none" stroke={ED.series1} strokeWidth={2} />
       {LADDER_POINTS.map((p) => (
-        <circle key={p.N} cx={xAt(p.N)} cy={yAt(p.dp_star)} r={5} fill="#facc15" stroke="#0a0f1a" strokeWidth={1} />
+        <circle key={p.N} cx={xAt(p.N)} cy={yAt(p.dp_star)} r={5} fill={ED.brassDeco} stroke={ED.paper} strokeWidth={1} />
       ))}
       {LADDER_POINTS.map((p) => (
-        <text key={`lbl-${p.N}`} x={xAt(p.N)} y={yAt(p.dp_star) - 10} textAnchor="middle" fill="#cbd5e1" fontSize={9}>
+        <text key={`lbl-${p.N}`} x={xAt(p.N)} y={yAt(p.dp_star) - 10} textAnchor="middle" fill={ED.ink} fontSize={9}>
           {p.dp_star.toExponential(2)}
         </text>
       ))}
 
-      <text x={padL + cW / 2} y={svgH - 6} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 6} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         N (log scale, imp-33620 deep-tail ladder + 1e13 reference)
       </text>
       <text
         x={14}
         y={padT + cH / 2}
         textAnchor="middle"
-        fill="#64748b"
+        fill={ED.inkFaint}
         fontSize={10}
         transform={`rotate(-90, 14, ${padT + cH / 2})`}
       >
@@ -167,7 +168,7 @@ export default function Imp34717Q3TrustBoundaryViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="q3 Trust Boundary: Smallest-Usable Step dp*(N) (imp-34717 / imp-34691)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         The tiny-q3 numerator's catastrophic-cancellation input-roundoff floor is an explicit closed
         function of the finite-difference step dp and depth N: F_rel(dp,N) = C(N)/dp&sup3;, with the
         depth-only prefactor C(N) = W_max&middot;&epsilon;&middot;|q(p)| / (240&middot;|q3(p)|). Below
@@ -177,13 +178,13 @@ export default function Imp34717Q3TrustBoundaryViz() {
         |q3| shrinks.
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         F_rel(dp, N=1e13) vs dp: the closed-form cubic (blue), the three reference points at
         dp=1e-2/1e-3/1e-4, the F_rel=1 crossover (red dashed), and dp* (yellow dashed)
       </p>
       <FloorCurveChart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.5rem 0 0.5rem' }}>
         dp*(N): smallest usable q-derivative step across the deep-tail ladder
       </p>
       <DpStarLadderChart />
@@ -197,14 +198,14 @@ export default function Imp34717Q3TrustBoundaryViz() {
         }}
       >
         <thead>
-          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+          <tr style={{ color: 'var(--ink-soft)', textAlign: 'left', borderBottom: '1px solid var(--rule)' }}>
             <th style={{ padding: '0.4rem 0.6rem' }}>N</th>
             <th style={{ padding: '0.4rem 0.6rem' }}>dp*(N)</th>
           </tr>
         </thead>
         <tbody>
           {LADDER_POINTS.map((p) => (
-            <tr key={p.N} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+            <tr key={p.N} style={{ borderBottom: '1px solid var(--rule-soft)', color: 'var(--ink)' }}>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{p.N.toExponential(4)}</td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{p.dp_star.toExponential(4)}</td>
             </tr>
@@ -216,11 +217,11 @@ export default function Imp34717Q3TrustBoundaryViz() {
         style={{
           marginTop: '1rem',
           padding: '0.6rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
         }}
       >
         The crossover dp* sits between the parents' operating step dp=1e-3 (F_rel &asymp;{' '}
@@ -233,14 +234,14 @@ export default function Imp34717Q3TrustBoundaryViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-data only, plotting the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-data only, plotting the
         already-derived imp-34691 closed-form floor F_rel(dp,N) = C(N)/dp&sup3; and its crossover
         dp*(N); establishes no new numerical claim. q1..q3 are inherited central differences, NOT fresh
         analytic closed forms, so the sigma&nbsp;-&gt;&nbsp;1 deep-tail regime (imp-3220/imp-3406

@@ -10,6 +10,7 @@ import { IMP96531_BASIS_C_CROSSOVER_MEASURED_FLOOR } from '../data/imp-96531-bas
 import { IMP96588_BASIS_C_FLOOR_1E8_RUNG_POWERLAW_BEND } from '../data/imp-96588-basis-c-floor-1e8-rung-powerlaw-bend.js';
 import { IMP96735_HONEST_BANNER } from '../data/imp-96735-basis-c-lstar-bracket-leave-one-out-robustness.js';
 import { IMP96733_HONEST_BANNER } from '../data/imp-96733-basis-c-real-zero-intermediate-signal.js';
+import { ED } from '../styles/tokens.js';
 
 function CrossoverChart() {
   const svgW = 720;
@@ -47,50 +48,50 @@ function CrossoverChart() {
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
       {yTicks.map((v) => (
         <g key={`y${v}`}>
-          <line x1={padL} y1={yOf(v)} x2={padL + plotW} y2={yOf(v)} stroke="#334155" strokeWidth={0.5} opacity={0.4} />
-          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={8.5}>{`1e${v}`}</text>
+          <line x1={padL} y1={yOf(v)} x2={padL + plotW} y2={yOf(v)} stroke={ED.rule} strokeWidth={0.5} opacity={0.4} />
+          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8.5}>{`1e${v}`}</text>
         </g>
       ))}
       {xTicks.map((v) => (
-        <text key={`x${v}`} x={xOf(v)} y={padT + plotH + 14} textAnchor="middle" fill="#64748b" fontSize={8.5}>
+        <text key={`x${v}`} x={xOf(v)} y={padT + plotH + 14} textAnchor="middle" fill={ED.inkFaint} fontSize={8.5}>
           {v}
         </text>
       ))}
 
       {/* crossover band */}
-      <rect x={bandX0} y={padT} width={bandX1 - bandX0} height={plotH} fill="#a78bfa" opacity={0.12} />
-      <text x={(bandX0 + bandX1) / 2} y={padT + 12} textAnchor="middle" fill="#a78bfa" fontSize={8}>
+      <rect x={bandX0} y={padT} width={bandX1 - bandX0} height={plotH} fill={ED.series5} opacity={0.12} />
+      <text x={(bandX0 + bandX1) / 2} y={padT + 12} textAnchor="middle" fill={ED.series5} fontSize={8}>
         crossover band
       </text>
 
       {/* PT anchor */}
-      <line x1={anchorX} y1={padT} x2={anchorX} y2={padT + plotH} stroke="#fbbf24" strokeWidth={1} strokeDasharray="3 3" opacity={0.7} />
-      <text x={anchorX + 4} y={padT + 10} fill="#fbbf24" fontSize={8}>
+      <line x1={anchorX} y1={padT} x2={anchorX} y2={padT + plotH} stroke={ED.brassDeco} strokeWidth={1} strokeDasharray="3 3" opacity={0.7} />
+      <text x={anchorX + 4} y={padT + 10} fill={ED.brass} fontSize={8}>
         PT anchor L=5.9e6
       </text>
 
-      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
-      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke={ED.rule} strokeWidth={1.5} />
 
-      <path d={lineD(IMP96453_FLOOR_LINES.endpointSlope)} fill="none" stroke="#f87171" strokeWidth={1.5} strokeDasharray="5 3" opacity={0.9} />
-      <path d={lineD(IMP96453_FLOOR_LINES.meanSlope)} fill="none" stroke="#fb923c" strokeWidth={1} strokeDasharray="2 3" opacity={0.85} />
-      <path d={signalD} fill="none" stroke="#38bdf8" strokeWidth={2} opacity={0.95} />
+      <path d={lineD(IMP96453_FLOOR_LINES.endpointSlope)} fill="none" stroke={ED.series2} strokeWidth={1.5} strokeDasharray="5 3" opacity={0.9} />
+      <path d={lineD(IMP96453_FLOOR_LINES.meanSlope)} fill="none" stroke={ED.series4} strokeWidth={1} strokeDasharray="2 3" opacity={0.85} />
+      <path d={signalD} fill="none" stroke={ED.series1} strokeWidth={2} opacity={0.95} />
 
       {IMP96453_SIGNAL_SERIES.map((p) => (
-        <circle key={`s-${p.L}`} cx={xOf(p.log10L)} cy={yOf(p.log10Signal)} r={2.6} fill="#38bdf8" />
+        <circle key={`s-${p.L}`} cx={xOf(p.log10L)} cy={yOf(p.log10Signal)} r={2.6} fill={ED.series1} />
       ))}
 
-      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={9.5}>
+      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={9.5}>
         log10 L (L = 30 .. {IMP96453_LANDMARKS.crossoverBand[1].toExponential(1)})
       </text>
 
       <g transform={`translate(${padL + 8}, ${padT + 28})`}>
-        <line x1={0} y1={0} x2={18} y2={0} stroke="#38bdf8" strokeWidth={2} />
-        <text x={22} y={3} fill="#94a3b8" fontSize={8.5}>|rho + 1/2| rigidity signal (shrinks)</text>
-        <line x1={0} y1={14} x2={18} y2={14} stroke="#f87171" strokeWidth={1.5} strokeDasharray="5 3" />
-        <text x={22} y={17} fill="#94a3b8" fontSize={8.5}>floor model, endpoint slope (grows)</text>
-        <line x1={0} y1={28} x2={18} y2={28} stroke="#fb923c" strokeWidth={1} strokeDasharray="2 3" />
-        <text x={22} y={31} fill="#94a3b8" fontSize={8.5}>floor model, mean slope (grows)</text>
+        <line x1={0} y1={0} x2={18} y2={0} stroke={ED.series1} strokeWidth={2} />
+        <text x={22} y={3} fill={ED.inkSoft} fontSize={8.5}>|rho + 1/2| rigidity signal (shrinks)</text>
+        <line x1={0} y1={14} x2={18} y2={14} stroke={ED.series2} strokeWidth={1.5} strokeDasharray="5 3" />
+        <text x={22} y={17} fill={ED.inkSoft} fontSize={8.5}>floor model, endpoint slope (grows)</text>
+        <line x1={0} y1={28} x2={18} y2={28} stroke={ED.series4} strokeWidth={1} strokeDasharray="2 3" />
+        <text x={22} y={31} fill={ED.inkSoft} fontSize={8.5}>floor model, mean slope (grows)</text>
       </g>
     </svg>
   );
@@ -108,18 +109,18 @@ export default function Imp96453BasisCCorroborationCrossoverViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 760,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> {IMP96453_HONEST_BANNER}
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> {IMP96453_HONEST_BANNER}
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
         Basis C (the direct pair-correlation double integral) is only useful as an independent
         cross-check of the exact number-variance basis A while its own catastrophic-cancellation
         floor stays below the corroboration signal |rho + 1/2|. The floor grows roughly linearly
@@ -127,7 +128,7 @@ export default function Imp96453BasisCCorroborationCrossoverViz() {
         -1/2. imp-96430 bisected where the two curves cross.
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         Signal vs floor-model on log-log, PT anchor and crossover band marked
       </h3>
       <CrossoverChart />
@@ -136,14 +137,14 @@ export default function Imp96453BasisCCorroborationCrossoverViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> the blue curve (signal)
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> the blue curve (signal)
         falls steadily across the accessible rungs and beyond, while the red and orange lines
         (the two floor-model calibrations) rise linearly. At the PT anchor (yellow dashed, L =
         {' '}{IMP96453_LANDMARKS.ptAnchorL.toExponential(1)}) the signal ({ptAnchorSignal.toExponential(2)})
@@ -158,14 +159,14 @@ export default function Imp96453BasisCCorroborationCrossoverViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page consuming the
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the
         imp-96430 baked crossover object verbatim (only the log10 axis reshaping and the two
         exact floor-model lines are computed here). rho is the theoretical GUE (sine-kernel,
         universality) two-interval correlation for boxes of unfolded length L; there are no
@@ -181,14 +182,14 @@ export default function Imp96453BasisCCorroborationCrossoverViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(250,204,21,0.06)',
-          borderLeft: '3px solid #facc15',
+          background: 'color-mix(in srgb, var(--brass-deco) 6%, transparent)',
+          borderLeft: '3px solid var(--brass-deco)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
         }}
       >
-        <strong style={{ color: '#facc15' }}>Update &mdash; the band above is stale:</strong> the
+        <strong style={{ color: 'var(--brass)' }}>Update &mdash; the band above is stale:</strong> the
         crossover band [{crossoverBand[0].toExponential(2)}, {crossoverBand[1].toExponential(2)}]
         charted above is the imp-96430 L-linear MODEL-floor band. imp-96531 re-anchored that same
         L-linear form to the imp-96448 <em>measured</em> anchor floor and moved the crossover down
@@ -215,14 +216,14 @@ export default function Imp96453BasisCCorroborationCrossoverViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(250,204,21,0.06)',
-          borderLeft: '3px solid #facc15',
+          background: 'color-mix(in srgb, var(--brass-deco) 6%, transparent)',
+          borderLeft: '3px solid var(--brass-deco)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
         }}
       >
-        <strong style={{ color: '#facc15' }}>Honest status &mdash; the L* point estimate is not a tight bracket:</strong>{' '}
+        <strong style={{ color: 'var(--brass)' }}>Honest status &mdash; the L* point estimate is not a tight bracket:</strong>{' '}
         {IMP96735_HONEST_BANNER}
       </div>
 
@@ -230,14 +231,14 @@ export default function Imp96453BasisCCorroborationCrossoverViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status &mdash; L* is real-zero uncorroborable:</strong>{' '}
+        <strong style={{ color: 'var(--series-2)' }}>Honest status &mdash; L* is real-zero uncorroborable:</strong>{' '}
         {IMP96733_HONEST_BANNER}
       </div>
     </div>

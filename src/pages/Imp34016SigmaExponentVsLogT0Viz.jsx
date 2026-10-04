@@ -5,6 +5,7 @@ import {
   IMP33865_EXPONENT_CURVE,
   IMP33865_WITHIN_1PCT_CROSSING,
 } from '../data/imp-33865-sigma-exponent-asymptote-approach-rate-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
 // log T0 from log10(N) via the Riemann-von Mangoldt inverse N = (T0/2pi)(log(T0/2pi) - 1),
 // i.e. ln N = u + log(u-1) with u = log(T0/2pi), solved by Newton (mirrors the
@@ -77,37 +78,37 @@ function ExponentVsLogT0Chart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <line x1={padL} y1={halfY} x2={padL + cW} y2={halfY} stroke="#64748b" strokeWidth={1.25} strokeDasharray="5,3" />
-      <line x1={crossX} y1={padT} x2={crossX} y2={padT + cH} stroke="#f87171" strokeWidth={1.25} strokeDasharray="3,3" />
-      <polyline points={lawPath} fill="none" stroke="#facc15" strokeWidth={1.5} strokeDasharray="4,2" />
-      <polyline points={dataPath} fill="none" stroke="#38bdf8" strokeWidth={2} />
+      <line x1={padL} y1={halfY} x2={padL + cW} y2={halfY} stroke={ED.rule} strokeWidth={1.25} strokeDasharray="5,3" />
+      <line x1={crossX} y1={padT} x2={crossX} y2={padT + cH} stroke={ED.series2} strokeWidth={1.25} strokeDasharray="3,3" />
+      <polyline points={lawPath} fill="none" stroke={ED.brassDeco} strokeWidth={1.5} strokeDasharray="4,2" />
+      <polyline points={dataPath} fill="none" stroke={ED.series1} strokeWidth={2} />
       {xs.map((x, i) => (
-        <circle key={`pt-${x}`} cx={xAt(x)} cy={yAt(ys[i])} r={3.25} fill="#38bdf8" stroke="#0a0f1a" strokeWidth={0.5} />
+        <circle key={`pt-${x}`} cx={xAt(x)} cy={yAt(ys[i])} r={3.25} fill={ED.series1} stroke={ED.paper} strokeWidth={0.5} />
       ))}
-      <circle cx={crossX} cy={yAt(CROSSING_P)} r={3.75} fill="#f87171" stroke="#0a0f1a" strokeWidth={0.75} />
+      <circle cx={crossX} cy={yAt(CROSSING_P)} r={3.75} fill={ED.series2} stroke={ED.paper} strokeWidth={0.75} />
       {[0, 20, 40, 60, 80, 100].map((t) => (
-        <text key={`xt-${t}`} x={xAt(t)} y={padT + cH + 16} textAnchor="middle" fill="#64748b" fontSize={8.5}>
+        <text key={`xt-${t}`} x={xAt(t)} y={padT + cH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={8.5}>
           {t}
         </text>
       ))}
       {[0, 0.1, 0.2, 0.3, 0.4, 0.5].map((y) => (
-        <text key={`yt-${y}`} x={padL - 8} y={yAt(y) + 3} textAnchor="end" fill="#64748b" fontSize={8.5}>
+        <text key={`yt-${y}`} x={padL - 8} y={yAt(y) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8.5}>
           {y}
         </text>
       ))}
-      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={10}>
+      <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill={ED.inkFaint} fontSize={10}>
         log T0
       </text>
-      <text x={padL + 6} y={padT + 12} fill="#38bdf8" fontSize={9.5}>
+      <text x={padL + 6} y={padT + 12} fill={ED.series1} fontSize={9.5}>
         p(N) local exponent (measured)
       </text>
-      <text x={padL + 6} y={padT + 24} fill="#facc15" fontSize={9.5}>
+      <text x={padL + 6} y={padT + 24} fill={ED.brass} fontSize={9.5}>
         law: 1/2 - 1/(2 log T0)
       </text>
-      <text x={padL + 6} y={halfY - 6} fill="#64748b" fontSize={9}>
+      <text x={padL + 6} y={halfY - 6} fill={ED.inkFaint} fontSize={9}>
         imp-3463 far-tail asymptote p -&gt; 1/2
       </text>
-      <text x={crossX + 4} y={padT + 40} fill="#f87171" fontSize={9}>
+      <text x={crossX + 4} y={padT + 40} fill={ED.series2} fontSize={9}>
         within 1% at log T0~{CROSSING_LOGT0}
       </text>
     </svg>
@@ -119,7 +120,7 @@ export default function Imp34016SigmaExponentVsLogT0Viz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="Sigma Post-Peak Exponent Ramp vs log T0 (imp-33816)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-33816 tracks the local decay exponent p(N) = -d ln sigma / d ln N of the
         Path C error budget's post-peak regime as it climbs toward the imp-3463
         far-tail asymptote p -&gt; 1/2. Re-expressing the same points against log T0
@@ -129,7 +130,7 @@ export default function Imp34016SigmaExponentVsLogT0Viz() {
         crossing within 1% of 1/2 at log T0~{CROSSING_LOGT0} (N~1e{IMP33865_WITHIN_1PCT_CROSSING.log10N}).
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         p(N) vs log T0, with the 1/(2 log T0) approach law overlaid
       </p>
       <ExponentVsLogT0Chart />
@@ -138,14 +139,14 @@ export default function Imp34016SigmaExponentVsLogT0Viz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Beyond the plotted domain:</strong> the
+        <strong style={{ color: 'var(--ink-soft)' }}>Beyond the plotted domain:</strong> the
         within-0.1% crossing (p &gt;= 0.4995) needs log T0~{WITHIN_0_1PCT_LOGT0_FROM_LAW}
         {' '}(N~1e{WITHIN_0_1PCT_LOG10N_FROM_LAW}), an order of magnitude past this
         chart's log T0~100 edge -- both N and T0 overflow IEEE-double there, so this
@@ -156,21 +157,21 @@ export default function Imp34016SigmaExponentVsLogT0Viz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>See also:</strong> this page plots the
+        <strong style={{ color: 'var(--ink-soft)' }}>See also:</strong> this page plots the
         pointwise local exponent p(N) only. The related fixed-span OLS window
         exponent p_eff(N) -- and why it leads p(N) toward the same 1/2 asymptote --
         is characterized by imp-34065 (span-linear centroid law: the window reads
         p at its start-window centroid, offset +Snat/2) and imp-34066 (re-anchoring
         the window at its centre collapses that lead by ~97-99.7%, confirming the
         centroid mechanism). See the{' '}
-        <Link to="/viz-imp34142-window-anchor-centroid" style={{ color: '#38bdf8' }}>
+        <Link to="/viz-imp34142-window-anchor-centroid" style={{ color: 'var(--series-1)' }}>
           window-anchor centroid viz
         </Link>{' '}
         for the START-vs-CENTRE comparison built on this same imp-34006 lineage.
@@ -180,14 +181,14 @@ export default function Imp34016SigmaExponentVsLogT0Viz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement /
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> measurement /
         re-expression of the imp-33816 curve on a different axis, no proof, no
         fresh derivation. The inherited imp-3220/imp-3406/imp-33582 component
         model is NOT a rigorous asymptotic; changes no bound; imp-3066 K_a&gt;=0

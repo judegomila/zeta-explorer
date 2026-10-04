@@ -8,11 +8,12 @@ import {
   IMP33324_PLATEAU_SAVING,
   IMP33324_RUNG_TABLE,
 } from '../data/imp-33324-graded-vs-uniform-node-budget-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
-const MIN_NODE_COLOR = '#4ade80';
-const PLATEAU_COLOR = '#f59e0b';
-const UNIFORM_COLOR = '#38bdf8';
-const FLOOR_COLOR = '#f472b6';
+const MIN_NODE_COLOR = ED.series3;
+const PLATEAU_COLOR = ED.series4;
+const UNIFORM_COLOR = ED.series1;
+const FLOOR_COLOR = ED.series7;
 
 function log10(v) {
   return Math.log(v) / Math.LN10;
@@ -39,12 +40,12 @@ function NodeBudgetChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
       {yTicks.map((v) => (
         <g key={v}>
-          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke="#1e293b" strokeWidth={0.7} />
-          <text x={padL - 6} y={yS(v) + 3.5} textAnchor="end" fill="#475569" fontSize={9}>
+          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke={ED.ruleSoft} strokeWidth={0.7} />
+          <text x={padL - 6} y={yS(v) + 3.5} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v}
           </text>
         </g>
@@ -92,16 +93,16 @@ function NodeBudgetChart() {
       </text>
 
       {IMP33324_RUNG_TABLE.map((r, i) => (
-        <text key={r.n} x={xS(i)} y={padT + cH + 14} textAnchor="middle" fill="#64748b" fontSize={9}>
+        <text key={r.n} x={xS(i)} y={padT + cH + 14} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
           n={r.n}
         </text>
       ))}
-      <text x={padL + cW / 2} y={padT + cH + 30} textAnchor="middle" fill="#64748b" fontSize={9}>
+      <text x={padL + cW / 2} y={padT + cH + 30} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
         saddle rung n (tau* = saddleTau(n))
       </text>
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
-      <text x={16} y={padT + cH / 2} textAnchor="middle" fill="#64748b" fontSize={10} transform={`rotate(-90,16,${padT + cH / 2})`}>
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
+      <text x={16} y={padT + cH / 2} textAnchor="middle" fill={ED.inkFaint} fontSize={10} transform={`rotate(-90,16,${padT + cH / 2})`}>
         inner nodes (log scale)
       </text>
     </svg>
@@ -125,12 +126,12 @@ function WorstUlpChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
-      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+      <rect x={padL} y={padT} width={cW} height={cH} fill={ED.paper} rx={2} />
 
       {[0, 5, 10, 15, 20, 25, 30].map((v) => (
         <g key={v}>
-          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke="#1e293b" strokeWidth={0.7} />
-          <text x={padL - 6} y={yS(v) + 3.5} textAnchor="end" fill="#475569" fontSize={9}>
+          <line x1={padL} y1={yS(v)} x2={padL + cW} y2={yS(v)} stroke={ED.ruleSoft} strokeWidth={0.7} />
+          <text x={padL - 6} y={yS(v) + 3.5} textAnchor="end" fill={ED.inkFaint} fontSize={9}>
             {v}
           </text>
         </g>
@@ -166,16 +167,16 @@ function WorstUlpChart() {
       )}
 
       {IMP33324_RUNG_TABLE.map((r, i) => (
-        <text key={r.n} x={xS(i)} y={padT + cH + 14} textAnchor="middle" fill="#64748b" fontSize={9}>
+        <text key={r.n} x={xS(i)} y={padT + cH + 14} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
           n={r.n}
         </text>
       ))}
-      <text x={padL + cW / 2} y={padT + cH + 30} textAnchor="middle" fill="#64748b" fontSize={9}>
+      <text x={padL + cW / 2} y={padT + cH + 30} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
         saddle rung n
       </text>
 
-      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
-      <text x={16} y={padT + cH / 2} textAnchor="middle" fill="#64748b" fontSize={10} transform={`rotate(-90,16,${padT + cH / 2})`}>
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke={ED.rule} strokeWidth={1} />
+      <text x={16} y={padT + cH / 2} textAnchor="middle" fill={ED.inkFaint} fontSize={10} transform={`rotate(-90,16,${padT + cH / 2})`}>
         worst-window ULP
       </text>
     </svg>
@@ -187,7 +188,7 @@ export default function Imp33324GradedVsUniformNodeBudgetViz() {
     <div style={{ padding: '1.5rem', maxWidth: 940, margin: '0 auto' }}>
       <PageHeader title="Graded-vs-Uniform Inner Node Budget (imp-33295)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
         imp-33295 measured, at each saddle-a rung n in {'{10,20,...,80}'}, how many inner quadrature
         nodes are needed to reach the imp-33275 A(tau) double-precision floor band (&lt; 30 ULP)
         by three routes: a graded-GL min-node lattice hit (green, 120-140 nodes), a robust fixed
@@ -198,23 +199,23 @@ export default function Imp33324GradedVsUniformNodeBudgetViz() {
         30-ULP floor bar (pink, dashed).
       </p>
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         inner node budget to reach the floor band, by saddle rung
       </p>
       <NodeBudgetChart />
 
-      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.25rem 0 0.5rem' }}>
+      <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', margin: '1.25rem 0 0.5rem' }}>
         worst-window ULP actually reached, by saddle rung
       </p>
       <WorstUlpChart />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.85rem', margin: '1rem 0 1.25rem' }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.85rem', margin: '1rem 0 1.25rem' }}>
         Node-saving ratios: the min-node graded lattice hit is{' '}
-        <strong style={{ color: '#4ade80' }}>
+        <strong style={{ color: 'var(--series-3)' }}>
           ~{IMP33324_MIN_NODE_SAVING_RANGE.min.toFixed(1)}-{IMP33324_MIN_NODE_SAVING_RANGE.max.toFixed(1)}x
         </strong>{' '}
         fewer nodes than the uniform ladder (120-140 vs 37205), and the robust plateau rule is{' '}
-        <strong style={{ color: '#f59e0b' }}>~{IMP33324_PLATEAU_SAVING.toFixed(1)}x</strong> fewer
+        <strong style={{ color: 'var(--brass)' }}>~{IMP33324_PLATEAU_SAVING.toFixed(1)}x</strong> fewer
         (4000 vs 37205) -- at every rung, all three routes land within the 30-ULP floor band.
       </p>
 
@@ -222,14 +223,14 @@ export default function Imp33324GradedVsUniformNodeBudgetViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> the blue and amber lines
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> the blue and amber lines
         are flat because those routes use a fixed rule at every rung (37205 and 4000 nodes
         respectively); the green line is the jittery min-node lattice hit, which steps from 120 to
         140 nodes at n=60 (imp-33249/imp-33277 latticeJitterCaveat -- the exact node count bounces
@@ -241,14 +242,14 @@ export default function Imp33324GradedVsUniformNodeBudgetViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> accuracy/rule-design
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> accuracy/rule-design
         measurement only, of an already-verified table (imp-33295). Mass-feasibility is
         necessary-but-not-sufficient; the operator-level positivity (imp-3066 K_a &ge; 0) is
         UNTOUCHED; the NPHI=10 truncation is inherited upstream. RH-equivalent, NO QED.

@@ -5,8 +5,9 @@ import {
   IMP96822_ACQUISITION_SUMMARY,
   IMP96822_HONEST_BANNER,
 } from '../data/imp-96822-gmin-ladder-reach-frontier-viz-data.js';
+import { ED } from '../styles/tokens.js';
 
-const STAGE_COLOR = { complete: '#4ade80', partial: '#facc15', blocked: '#f87171' };
+const STAGE_COLOR = { complete: ED.series3, partial: ED.series4, blocked: ED.series2 };
 
 // Three-stage horizontal fill-fraction bar chart: the last COMPLETE dyadic
 // block (k=19), the current TRUNCATED top rung (k=20, ~91% filled), and the
@@ -31,10 +32,10 @@ function ReachFrontierPanel() {
             y1={padT}
             x2={padL + f * plotW}
             y2={padT + plotH}
-            stroke="#334155"
+            stroke={ED.rule}
             strokeWidth={1}
           />
-          <text x={padL + f * plotW} y={padT + plotH + 16} textAnchor="middle" fill="#64748b" fontSize={9}>
+          <text x={padL + f * plotW} y={padT + plotH + 16} textAnchor="middle" fill={ED.inkFaint} fontSize={9}>
             {Math.round(f * 100)}%
           </text>
         </g>
@@ -44,7 +45,7 @@ function ReachFrontierPanel() {
         const barH = rowH * 0.5;
         return (
           <g key={s.k}>
-            <text x={padL - 10} y={cy + 4} textAnchor="end" fill="#e2e8f0" fontSize={10}>
+            <text x={padL - 10} y={cy + 4} textAnchor="end" fill={ED.ink} fontSize={10}>
               {s.label}
             </text>
             <rect
@@ -55,8 +56,8 @@ function ReachFrontierPanel() {
               fill={STAGE_COLOR[s.status]}
               opacity={0.85}
             />
-            <rect x={padL} y={cy - barH / 2} width={plotW} height={barH} fill="none" stroke="#475569" strokeWidth={1} />
-            <text x={padL + plotW + 8} y={cy + 4} fill="#94a3b8" fontSize={9}>
+            <rect x={padL} y={cy - barH / 2} width={plotW} height={barH} fill="none" stroke={ED.rule} strokeWidth={1} />
+            <text x={padL + plotW + 8} y={cy + 4} fill={ED.inkSoft} fontSize={9}>
               N&asymp;{Math.round(s.nCenter).toLocaleString()}
             </text>
           </g>
@@ -76,18 +77,18 @@ export default function Imp96822GminLadderReachFrontierViz() {
         style={{
           marginBottom: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(248,113,113,0.06)',
-          borderLeft: '3px solid #f87171',
+          background: 'color-mix(in srgb, var(--series-2) 6%, transparent)',
+          borderLeft: '3px solid var(--series-2)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#94a3b8',
+          color: 'var(--ink-soft)',
           maxWidth: 700,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> {IMP96822_HONEST_BANNER}
+        <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> {IMP96822_HONEST_BANNER}
       </div>
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+      <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-96754 pinned exactly where the imp-96629 / imp-96734 disjoint dyadic block-minima gap
         ladder stops. Green: the last COMPLETE block (k=19). Yellow: the current top rung (k=20) is
         only {(IMP96822_REACH_STAGES[1].fillFraction * 100).toFixed(2)}% filled &mdash; a minor
@@ -98,7 +99,7 @@ export default function Imp96822GminLadderReachFrontierViz() {
         cached &mdash; more than doubling the cache.
       </p>
 
-      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: 'var(--ink)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         fill fraction by dyadic rung
       </h3>
       <ReachFrontierPanel />
@@ -107,14 +108,14 @@ export default function Imp96822GminLadderReachFrontierViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> {IMP96822_ACQUISITION_SUMMARY.perRungRule}
+        <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> {IMP96822_ACQUISITION_SUMMARY.perRungRule}
         , so acquiring rung k={blocked.k} at N&asymp;
         {Math.round(blocked.nCenter).toLocaleString()} needs a contiguous ordinate list reaching well
         past the current cache &mdash; the same binding gap (contiguous zero-list length, not zero
@@ -125,14 +126,14 @@ export default function Imp96822GminLadderReachFrontierViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
+          background: 'color-mix(in srgb, var(--ink-soft) 4%, transparent)',
+          borderLeft: '3px solid var(--rule)',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',
-          color: '#64748b',
+          color: 'var(--ink-faint)',
         }}
       >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page consuming the imp-96822
+        <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the imp-96822
         viz-data (all figures reused verbatim from imp-96754). {IMP96822_HONEST_BANNER}
       </div>
     </div>

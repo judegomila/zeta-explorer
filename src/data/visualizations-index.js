@@ -5781,6 +5781,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every residual value and relative-span reading is reused verbatim from imp-97705 (a discretization-refinement cross-check, not a new computation). Conditional-share diagnostic on the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic. Changes no bound; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp124840-fartail-per-nine-ladder',
+      title: 'Far-Tail Per-Nine Spacing Ladder',
+      oneLine:
+        'Charts the imp-124793 pure per-nine far-tail ladder: log10 N climbing 5.30 -> 45.43 -> 437.29 -> 4346.94 at t = 0.9/0.99/0.999/0.9999, with the consecutive log10 N spacing ratio climbing 9.7655 -> 9.9769 toward the 10 limit.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-124840-fartail-per-nine-ladder-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-124793-fartail-diagnostic-per-nine-spacing-ladder.js (IMP124793_FARTAIL_DIAGNOSTIC_PER_NINE_SPACING_LADDER; imp-124840 viz page)',
+      ticket: 'imp-124840',
+      pedagogicalStep: 448,
+      honestCeiling:
+        'Presentation only: every log10 N / spacing / ratio value plotted here is copied verbatim from the imp-124793 closed-form RvM inversion (not a rigorous asymptotic). Conditional-share diagnostic; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

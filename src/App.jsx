@@ -1486,6 +1486,7 @@ const Imp95993WorstAliasMarginViz = lazy(() =>
   import('./pages/Imp95993WorstAliasMarginViz.jsx')
 );
 const RhNovelRoutesRoadmapPage = lazy(() => import('./pages/RhNovelRoutesRoadmapPage.jsx'));
+const ResearchRoutesRoadmapPage = lazy(() => import('./pages/ResearchRoutesRoadmapPage.jsx'));
 const Imp96015FracBelowNullSaturationViz = lazy(() =>
   import('./pages/Imp96015FracBelowNullSaturationViz.jsx')
 );
@@ -1668,6 +1669,9 @@ const Imp96520OffsetDriftLdriftPredictionViz = lazy(() =>
 );
 const Imp96534ArEffectiveCountLadderViz = lazy(() =>
   import('./pages/Imp96534ArEffectiveCountLadderViz.jsx')
+);
+const Imp124840FartailPerNineLadderViz = lazy(() =>
+  import('./pages/Imp124840FartailPerNineLadderViz.jsx')
 );
 const Imp96535LedgerReconciliationViz = lazy(() =>
   import('./pages/Imp96535LedgerReconciliationViz.jsx')
@@ -4245,6 +4249,7 @@ function AppShell() {
             element={<Imp95995VarsConstantDecompositionViz />}
           />
           <Route path="/rh-novel-routes-roadmap" element={<RhNovelRoutesRoadmapPage />} />
+          <Route path="/routes-roadmap" element={<ResearchRoutesRoadmapPage />} />
           <Route
             path="/viz-imp96015-fracbelownull-saturation"
             element={<Imp96015FracBelowNullSaturationViz />}
@@ -4488,6 +4493,10 @@ function AppShell() {
           <Route
             path="/viz-imp96534-ar-effective-count-ladder"
             element={<Imp96534ArEffectiveCountLadderViz />}
+          />
+          <Route
+            path="/viz-imp124840-fartail-per-nine-ladder"
+            element={<Imp124840FartailPerNineLadderViz />}
           />
           <Route
             path="/viz-imp96535-ledger-reconciliation"

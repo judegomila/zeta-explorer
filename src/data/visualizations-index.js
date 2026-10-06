@@ -5837,6 +5837,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every ladder row and fit statistic plotted here is copied verbatim from the imp-124811 reconstruction (a measurement/cross-validation, not a rigorous asymptotic). Conditional-share diagnostic; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp124843-kernel-ratio-consumer',
+      title: 'Kernel Decade-Ratio: Gap-Keyed vs Decade-Keyed',
+      oneLine:
+        'Side-by-side tables of the shared imp-97823 reconstruction-kernel per-decade growth ratio under the imp-124776 gap-keyed and imp-97843 decade-keyed framings, both upslope and downslope arms, across the wide and deep windows, bracketing sqrt(10) = 3.162278 from opposite sides.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-124776-kernel-decade-ratio-vs-gap-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-124776-kernel-decade-ratio-vs-gap-viz-data.js; src/data/imp-97843-kernel-decade-growth-viz-data.js (both reused verbatim from imp-97823-kernel-decade-growth-sqrt10.js; imp-124843 consumer page)',
+      ticket: 'imp-124843',
+      pedagogicalStep: 452,
+      honestCeiling:
+        'Presentation only: every ratio plotted here is copied verbatim from the two orphaned sibling viz-data leaves (themselves reused from imp-97823, a measurement, not a derivation). Conditional-share diagnostic; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

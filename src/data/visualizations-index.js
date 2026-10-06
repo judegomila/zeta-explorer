@@ -5809,6 +5809,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every ladder / crossover value plotted here is copied verbatim from the imp-124769 reconstruction (a measurement/cross-validation, not a rigorous asymptotic). Conditional-share diagnostic; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp124841-knee-locator-comparison',
+      title: 'Fresh vs Imported Knee-Locator Comparison',
+      oneLine:
+        'Bar-chart comparison of four independent sigma-ramp knee floor-elasticity readings -- fresh exponent-curvature (-2.1064), reused-sweep OLS (-2.106468), imported two-floor chord (-2.099), fresh ramp-inflection (-2.073) -- all clustered within 0.033 of each other and clear of the imp-33684 interior-peak contrast (-1.375).',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-124841-knee-locator-comparison-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-124814-knee-floor-elasticity-fresh-locator-repro.js (IMP124814_KNEE_FLOOR_ELASTICITY_FRESH_LOCATOR_REPRO); src/data/imp-97822-sigma-knee-etrunc-floor-elasticity.js (IMP97822_SIGMA_KNEE_ETRUNC_FLOOR_ELASTICITY; imp-124841 viz-data leaf + page)',
+      ticket: 'imp-124841',
+      pedagogicalStep: 450,
+      honestCeiling:
+        'Presentation only: every p_knee value plotted here is copied verbatim from the imp-124814/imp-97822 exported comparison fields (measurement/cross-validation, not a rigorous asymptotic). Conditional-share diagnostic; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

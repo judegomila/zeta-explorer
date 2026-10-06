@@ -524,6 +524,8 @@ const DATA_MODULES = [
   '/src/data/r6-suffix-2026-10-06.js',
   // r6-synthesis: route-P decision (b), certified 0.146660920737233, conditional 0.144797588795775 (WOL-C for 369 P47), Route H comparison.
   '/src/data/r6-synthesis-2026-10-06.js',
+  // research-routes-roadmap: the fifty routes of 2026-10-06 (formalization/routes/fifty-routes-2026-10-06.md) as site data; import-free.
+  '/src/data/research-routes-roadmap.js',
   // imp-96066 (2026-09-23): ASSESSMENT of the P_3-adjoined Route I pencil D_S + P_3 <= L_S vs the dense
   // 2^a 3^b resonance. Answer: the pencil uses the DISCRETE Weil term P_3 (support {k ln 3}, identically zero
   // for 2a < ln 3, single boundary point v = ln 3 at 2a = ln 3), NOT the dense S={oo,2,3} Sonine remainder
@@ -22516,6 +22518,11 @@ const DATA_MODULES = [
   // with the (1+r)^2 curvature (~1.3e-9) negligible. Measurement/decision only; conditional-share
   // diagnostic; imp-3066/imp-486/C_C ansatz untouched; PT Lambda<=0.2 SOTA; no QED. 5 assertions.
   '/src/data/imp-124897-eflow-fartail-residual-attribution.js',
+  // imp-124822: META cross-reference cohort index grouping the imp-124769/124770/124771/124772
+  // frontier cross-check certification batch by role: E_CF stencil crossover, pair-ratio ladder,
+  // knee-amp bracket-width reconcile, p_knee 10-floor OLS, mirroring the imp-124782 cohort index.
+  // Index/meta only; no bound moved; NO QED.
+  '/src/data/imp-124822-frontier-crosscheck-batch-cohort-index.js',
 ];
 
 let ALL_MODULES = FAST_MODE

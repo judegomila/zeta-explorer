@@ -129,6 +129,7 @@ export const IMP124852_SUM_COLLAPSE_FIT = (() => {
 const DEEP_LAST = IMP124852_DEEP_OFFSET_VS_GAP[IMP124852_DEEP_OFFSET_VS_GAP.length - 1];
 
 export const IMP124852_SUMMARY = Object.freeze({
+  isRigorous: false,
   law:
     'The imp-97823 kernel |K| per-decade growth ratio brackets sqrt(10) = ' + SQRT10 + ' from opposite sides: '
     + 'the upslope arm sits BELOW (signed offset < 0), the downslope arm ABOVE (signed offset > 0), at every '
@@ -212,9 +213,10 @@ const IMP124852_OFFSET_ASSERTIONS = [
   },
   {
     id: 'imp124852-honesty-gate-no-qed',
-    description: 'the verdict restates no-bound-moved / NO-QED / SOTA honesty markers',
+    description: 'isRigorous is false and the verdict restates no-bound-moved / NO-QED / SOTA honesty markers',
     holds: () =>
-      /no bound/.test(IMP124852_SUMMARY.verdict)
+      IMP124852_SUMMARY.isRigorous === false
+      && /no bound/.test(IMP124852_SUMMARY.verdict)
       && /NO QED/.test(IMP124852_SUMMARY.verdict)
       && /remains SOTA/.test(IMP124852_SUMMARY.verdict),
   },

@@ -22523,6 +22523,13 @@ const DATA_MODULES = [
   // knee-amp bracket-width reconcile, p_knee 10-floor OLS, mirroring the imp-124782 cohort index.
   // Index/meta only; no bound moved; NO QED.
   '/src/data/imp-124822-frontier-crosscheck-batch-cohort-index.js',
+  // imp-124839: audits whether LAMBDA_ROADMAP.currentStatusTLDR still faithfully restates the
+  // opening paragraph of currentStatus. Live regex probes (not frozen snapshots) check the grade
+  // line, 0.1875, 0.1787854, Steps-1-5 framing, and Route A GUE conditional. FINDING: no drift --
+  // every probed TLDR claim matches a currentStatus claim. The one TLDR-only sentence (seam-chain
+  // program pointer, imp-95210..95420/imp-95388) is a documented deliberate exception (imp-95394),
+  // not drift. Read-only audit; changes no bound; NO QED.
+  '/src/data/imp-124839-tldr-currentstatus-sync-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

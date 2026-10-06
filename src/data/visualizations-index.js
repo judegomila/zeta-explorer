@@ -5768,6 +5768,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Presentation only: every landmark value and eps-ladder reading is reused verbatim from imp-97703 (a finite-difference cross-check, not a new computation). Conditional-share diagnostic on the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic. Changes no bound; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
     Object.freeze({
+      route: '/viz-imp124845-diag3-additivity-flowshare',
+      title: 'imp-124812: DIAG3 Additivity -- Flow-Share Sweep, Linear vs c^2-Broken Numerator',
+      oneLine:
+        'Log-y line chart comparing the amplitude-partial sum |NUM| across the flow-share sweep {0.1,1,5,20}: machine-zero for the real linear-in-amplitude model (reused imp-124812 values) versus sigma(1-sigma) for the c^2-broken numerator diagnostic (B1 hinge), isolating that the additivity break tracks linearity, not flow share.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-124845-diag3-additivity-flowshare-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-124812-diag3-additivity-exact-identity-assessment.js (flowShareSweep reused verbatim; the c^2-break formula re-evaluated across the same sweep; imp-124845 viz-data leaf + page)',
+      ticket: 'imp-124845',
+      pedagogicalStep: 442,
+      honestCeiling:
+        'Presentation only: the linear-model row is reused verbatim from imp-124812; the c^2-break row re-evaluates the identical imp-124812 formula at each flow share (imp-124812 only evaluated it at cf=1.0). Conditional-share diagnostic on the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic. Changes no bound; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
+    Object.freeze({
       route: '/viz-imp97732-wlin-residual-halfdependence',
       title: 'imp-97705: w_lin Residual Half-Dependence Drift vs Factorization-Independence',
       oneLine:

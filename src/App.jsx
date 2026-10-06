@@ -1673,6 +1673,9 @@ const Imp96534ArEffectiveCountLadderViz = lazy(() =>
 const Imp124840FartailPerNineLadderViz = lazy(() =>
   import('./pages/Imp124840FartailPerNineLadderViz.jsx')
 );
+const Imp124824EcfStencilCrossoverViz = lazy(() =>
+  import('./pages/Imp124824EcfStencilCrossoverViz.jsx')
+);
 const Imp96535LedgerReconciliationViz = lazy(() =>
   import('./pages/Imp96535LedgerReconciliationViz.jsx')
 );
@@ -4497,6 +4500,10 @@ function AppShell() {
           <Route
             path="/viz-imp124840-fartail-per-nine-ladder"
             element={<Imp124840FartailPerNineLadderViz />}
+          />
+          <Route
+            path="/viz-imp124824-ecf-stencil-crossover"
+            element={<Imp124824EcfStencilCrossoverViz />}
           />
           <Route
             path="/viz-imp96535-ledger-reconciliation"

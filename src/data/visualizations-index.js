@@ -5795,6 +5795,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every log10 N / spacing / ratio value plotted here is copied verbatim from the imp-124793 closed-form RvM inversion (not a rigorous asymptotic). Conditional-share diagnostic; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp124824-ecf-stencil-crossover',
+      title: 'E_CF Stencil Noise-Floor Crossover',
+      oneLine:
+        'Charts the imp-124769 E_CF finite-difference error ladder L2..L6: a clean O(eps^2) truncation power law bottoming at the round-off floor R~4.5e-13 at L5, then turning back up at L6 past the pinned crossover |E_CF|_crit~1.4e-6.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-124824-ecf-stencil-crossover-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-124769-ecf-stencil-noise-floor-crossover.js (IMP124769_ECF_STENCIL_NOISE_FLOOR_CROSSOVER; imp-124824 viz-data leaf + imp-124937 page)',
+      ticket: 'imp-124937',
+      pedagogicalStep: 449,
+      honestCeiling:
+        'Presentation only: every ladder / crossover value plotted here is copied verbatim from the imp-124769 reconstruction (a measurement/cross-validation, not a rigorous asymptotic). Conditional-share diagnostic; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

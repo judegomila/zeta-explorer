@@ -22530,6 +22530,10 @@ const DATA_MODULES = [
   // program pointer, imp-95210..95420/imp-95388) is a documented deliberate exception (imp-95394),
   // not drift. Read-only audit; changes no bound; NO QED.
   '/src/data/imp-124839-tldr-currentstatus-sync-audit.js',
+  // imp-124844: cross-check verifying the imp-124776 (gap-keyed) and imp-97843 (decade-index-keyed) kernel-
+  // growth-ratio presentation leaves export mutually consistent numbers from the shared imp-97823 source.
+  // FINDING: max |difference| = 0 across all wide/deep, upslope/downslope rows. Audit only; NO QED.
+  '/src/data/imp-124844-kernel-ratio-leaf-crosscheck.js',
 ];
 
 let ALL_MODULES = FAST_MODE

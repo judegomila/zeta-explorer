@@ -1679,6 +1679,9 @@ const Imp124824EcfStencilCrossoverViz = lazy(() =>
 const Imp124841KneeLocatorComparisonViz = lazy(() =>
   import('./pages/Imp124841KneeLocatorComparisonViz.jsx')
 );
+const Imp124842RoundoffLawViz = lazy(() =>
+  import('./pages/Imp124842RoundoffLawViz.jsx')
+);
 const Imp96535LedgerReconciliationViz = lazy(() =>
   import('./pages/Imp96535LedgerReconciliationViz.jsx')
 );
@@ -4511,6 +4514,10 @@ function AppShell() {
           <Route
             path="/viz-imp124841-knee-locator-comparison"
             element={<Imp124841KneeLocatorComparisonViz />}
+          />
+          <Route
+            path="/viz-imp124842-roundoff-law"
+            element={<Imp124842RoundoffLawViz />}
           />
           <Route
             path="/viz-imp96535-ledger-reconciliation"

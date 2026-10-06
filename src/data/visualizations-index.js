@@ -5823,6 +5823,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every p_knee value plotted here is copied verbatim from the imp-124814/imp-97822 exported comparison fields (measurement/cross-validation, not a rigorous asymptotic). Conditional-share diagnostic; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp124842-roundoff-law',
+      title: 'Pair-Ratio |reldiff|-vs-|E_CF| Round-Off Law',
+      oneLine:
+        'Log-log scatter of the imp-124811 pair-ratio cross-check |reldiff| against measured |E_CF| across landmarks L2..L7 (slope ~-1.085, within ~9% of the predicted inverse-|E_CF| round-off law), plus a bar chart of the flat invariant product P = |reldiff|*|E_CF| (geomean R~2.34e-12) showing no identity-drift signature.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-124842-pairratio-reldiff-ecf-roundoff-law-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-124811-pairratio-reldiff-ecf-roundoff-law.js (IMP124811_PAIRRATIO_RELDIFF_ECF_ROUNDOFF_LAW.ladder/fit reused verbatim; imp-124842 viz-data leaf + page)',
+      ticket: 'imp-124842',
+      pedagogicalStep: 451,
+      honestCeiling:
+        'Presentation only: every ladder row and fit statistic plotted here is copied verbatim from the imp-124811 reconstruction (a measurement/cross-validation, not a rigorous asymptotic). Conditional-share diagnostic; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

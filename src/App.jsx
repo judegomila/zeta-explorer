@@ -1778,6 +1778,9 @@ const Imp124880PairratioDriftSlopeScatterViz = lazy(() =>
 const Imp124881FloorElasticitySidebysideViz = lazy(() =>
   import('./pages/Imp124881FloorElasticitySidebysideViz.jsx')
 );
+const Imp124961F2ResidualCurvatureUViz = lazy(() =>
+  import('./pages/Imp124961F2ResidualCurvatureUViz.jsx')
+);
 const Imp97732WlinResidualHalfDependenceViz = lazy(() =>
   import('./pages/Imp97732WlinResidualHalfDependenceViz.jsx')
 );
@@ -4667,6 +4670,10 @@ function AppShell() {
           <Route
             path="/viz-imp124881-floor-elasticity-sidebyside"
             element={<Imp124881FloorElasticitySidebysideViz />}
+          />
+          <Route
+            path="/viz-imp124961-f2-residual-curvature-u"
+            element={<Imp124961F2ResidualCurvatureUViz />}
           />
           <Route
             path="/viz-imp97732-wlin-residual-halfdependence"

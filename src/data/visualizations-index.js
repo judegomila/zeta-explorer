@@ -5922,6 +5922,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Presentation only: every plotted point and fit slope/intercept are reused verbatim from imp-124772 and imp-124848 (two OLS regressions, not new computations). Conditional-share curvature diagnostic on the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
     Object.freeze({
+      route: '/viz-imp124961-f2-residual-curvature-u',
+      title: 'F2 Residual-Curvature U-Curve: imp-124772 Knee Fit Residuals',
+      oneLine:
+        'Plots the imp-124772 full ten-floor OLS fit residuals (log10 N* decades) against the imp-33708 0.5x..5x floor factors, a shallow sign-symmetric U (max-abs ~3e-3 decades) with the ~0.72-decade exponent gap to the imp-33684 interior-peak alternative noted as a ~100x-larger reference band.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-124917-f2-residual-curvature-u-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-124772-knee-floor-elasticity-multifloor-fit.js; src/data/imp-124823-f2-curvature-honest-status.js (residuals + gap/ratio reused verbatim; imp-124917 viz-data leaf, imp-124961 page)',
+      ticket: 'imp-124961',
+      pedagogicalStep: 458,
+      honestCeiling:
+        'Presentation only: every residual row and the gap/ratio fields are reused verbatim from imp-124772/imp-124823 (measurements, not derivations); no new computation. Conditional-share curvature diagnostic on the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
+    Object.freeze({
       route: '/viz-imp124899-kernel-arm-offset-asymmetry',
       title: 'imp-124852: Kernel Arm-Offset Asymmetry vs sqrt(10)',
       oneLine:

@@ -5879,6 +5879,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every scatter point and the fit slope/intercept/standard-errors are reused verbatim from imp-124850 (an OLS regression, not a new computation). Conditional-share diagnostic on the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp124881-floor-elasticity-sidebyside',
+      title: 'Floor-Elasticity Side-by-Side: Interior Peak vs Far-Tail Knee',
+      oneLine:
+        'Overlays the imp-124848 interior-peak (slope ~ -1.412, R^2 ~ 0.99961) and imp-124772 far-tail knee (slope ~ -2.106, R^2 ~ 0.99999) full-ladder OLS fits of log10 N* vs log10 E_trunc on the same imp-33708 0.5x..5x floor ladder, showing the ~0.69 exponent gap and the ~5x larger interior-peak residual directly.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-124881-floor-elasticity-sidebyside-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-124772-knee-floor-elasticity-multifloor-fit.js; src/data/imp-124848-sigma-interior-peak-floor-elasticity-multifloor-fit.js (both fits reused verbatim; imp-124881 viz-data leaf + page)',
+      ticket: 'imp-124881',
+      pedagogicalStep: 454,
+      honestCeiling:
+        'Presentation only: every plotted point and fit slope/intercept are reused verbatim from imp-124772 and imp-124848 (two OLS regressions, not new computations). Conditional-share curvature diagnostic on the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

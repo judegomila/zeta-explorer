@@ -2226,9 +2226,12 @@ export const LAMBDA_ROADMAP = {
     'currentStatus below is a ' +
     'measurement-only refinement appendix (imp-33xxx/imp-35xxx landmark quantifications) -- ' +
     'it changes no bound and discharges no open gap. A separate seam-chain / signed-' +
-    'certificate program (imp-95210..95420, three-obligation ledger in imp-95388) tracks its ' +
-    'own y-thaw package value under the same no-bound-change discipline; it is not part of ' +
-    'this appendix and is tracked instead in graded-results.js and program-dag.js.',
+    'certificate program (imp-95210..95420, three-obligation ledger in imp-95388) assesses ' +
+    'whether a signed per-window certificate can transcribe the Lambda <= 0.14 completion ' +
+    'contract -- a distinct question from the y-thaw package value -- under the same ' +
+    'no-bound-change discipline; it is not part of this appendix and is tracked in the ' +
+    'imp-95XXX data modules and the OpenFrontierPage seam-chain card, not graded-results.js ' +
+    'or program-dag.js (those track only the separate y-thaw O1-O6 package-value ledger).',
   currentStatus:
     'STATUS RECONCILED 2026-07-28: Platt-Trudgian Lambda <= 0.2 remains the accepted peer-reviewed benchmark. ' +
     'The public 0.1875 Zenodo certificate-package claim is reproducible after a local finite-sweep repair ' +

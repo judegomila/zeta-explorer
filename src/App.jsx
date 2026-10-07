@@ -1688,6 +1688,9 @@ const Imp124842RoundoffLawViz = lazy(() =>
 const Imp124843KernelRatioConsumerViz = lazy(() =>
   import('./pages/Imp124843KernelRatioConsumerViz.jsx')
 );
+const Imp124918KernelRatioBracketViz = lazy(() =>
+  import('./pages/Imp124918KernelRatioBracketViz.jsx')
+);
 const Imp96535LedgerReconciliationViz = lazy(() =>
   import('./pages/Imp96535LedgerReconciliationViz.jsx')
 );
@@ -4544,6 +4547,10 @@ function AppShell() {
           <Route
             path="/viz-imp124843-kernel-ratio-consumer"
             element={<Imp124843KernelRatioConsumerViz />}
+          />
+          <Route
+            path="/viz-imp124918-kernel-ratio-bracket"
+            element={<Imp124918KernelRatioBracketViz />}
           />
           <Route
             path="/viz-imp96535-ledger-reconciliation"

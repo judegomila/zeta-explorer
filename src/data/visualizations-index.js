@@ -5880,6 +5880,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Presentation only: every ratio plotted here is copied verbatim from the two orphaned sibling viz-data leaves (themselves reused from imp-97823, a measurement, not a derivation). Conditional-share diagnostic; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
     Object.freeze({
+      route: '/viz-imp124918-kernel-ratio-bracket',
+      title: 'Kernel Decade-Ratio Bracket: Shared-Axis Overlay',
+      oneLine:
+        'Merges the imp-124776 gap-keyed and imp-97843 decade-index-keyed reconstruction-kernel per-decade ratio rows onto one shared axis with a bracket_width = |upslope - downslope| column, exposing the two-arm bracketing of sqrt(10) = 3.162278 as a single shrinking number.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-124918-kernel-ratio-bracket-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-124776-kernel-decade-ratio-vs-gap-viz-data.js; src/data/imp-97843-kernel-decade-growth-viz-data.js (both reused verbatim via the imp-124918 shared-axis merge leaf)',
+      ticket: 'imp-124918',
+      pedagogicalStep: 457,
+      honestCeiling:
+        'Presentation only: every ratio is reused verbatim from the imp-124776/imp-97843 sibling leaves (themselves reused from imp-97823, a measurement, not a derivation); the merge and bracket_width column are presentational only. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
+    Object.freeze({
       route: '/viz-imp124880-pairratio-drift-slope-scatter',
       title: 'imp-124850: Drift-Slope OLS Fit -- P = D*|E_CF| + R Scatter + 2-Sigma Envelope',
       oneLine:

@@ -5824,6 +5824,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Presentation only: every ladder / crossover value plotted here is copied verbatim from the imp-124769 reconstruction (a measurement/cross-validation, not a rigorous asymptotic). Conditional-share diagnostic; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
     Object.freeze({
+      route: '/viz-imp124882-dps-invariance-ladder',
+      title: 'DPS-Invariance Ladder: Round-Off Floor vs Working Precision',
+      oneLine:
+        'Charts the imp-124849 mpmath dps sweep 15..140 of the DIAG3 E_CF round-off floor R and the eps-ladder crossover sigma_crit: the dps=15 rung reproduces the imp-124810 double-precision pin, then every dps>=30 jumps to a dps-invariant extended-precision floor (R~1.08e-12, sigma_crit~0.0204) that never reaches L6.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-124882-dps-invariance-ladder-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-124849-extprec-ecf-floor-sigmacrit.js (IMP124849_EXTPREC_ECF_FLOOR_SIGMACRIT; imp-124882 viz-data leaf + page)',
+      ticket: 'imp-124882',
+      pedagogicalStep: 455,
+      honestCeiling:
+        'Presentation only: every dps / R / sigma_crit value plotted here is copied verbatim from the imp-124849 mpmath port (a measurement/sensitivity sweep, not a rigorous asymptotic). Conditional-share diagnostic; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
+    Object.freeze({
       route: '/viz-imp124841-knee-locator-comparison',
       title: 'Fresh vs Imported Knee-Locator Comparison',
       oneLine:

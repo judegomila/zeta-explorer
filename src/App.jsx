@@ -1676,6 +1676,9 @@ const Imp124840FartailPerNineLadderViz = lazy(() =>
 const Imp124824EcfStencilCrossoverViz = lazy(() =>
   import('./pages/Imp124824EcfStencilCrossoverViz.jsx')
 );
+const Imp124882DpsInvarianceLadderViz = lazy(() =>
+  import('./pages/Imp124882DpsInvarianceLadderViz.jsx')
+);
 const Imp124841KneeLocatorComparisonViz = lazy(() =>
   import('./pages/Imp124841KneeLocatorComparisonViz.jsx')
 );
@@ -4522,6 +4525,10 @@ function AppShell() {
           <Route
             path="/viz-imp124824-ecf-stencil-crossover"
             element={<Imp124824EcfStencilCrossoverViz />}
+          />
+          <Route
+            path="/viz-imp124882-dps-invariance-ladder"
+            element={<Imp124882DpsInvarianceLadderViz />}
           />
           <Route
             path="/viz-imp124841-knee-locator-comparison"

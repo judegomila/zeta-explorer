@@ -1781,6 +1781,9 @@ const Imp124881FloorElasticitySidebysideViz = lazy(() =>
 const Imp124961F2ResidualCurvatureUViz = lazy(() =>
   import('./pages/Imp124961F2ResidualCurvatureUViz.jsx')
 );
+const Imp124963SigmaDiagnosticClusterAnalysisPage = lazy(() =>
+  import('./pages/Imp124963SigmaDiagnosticClusterAnalysisPage.jsx')
+);
 const Imp97732WlinResidualHalfDependenceViz = lazy(() =>
   import('./pages/Imp97732WlinResidualHalfDependenceViz.jsx')
 );
@@ -4674,6 +4677,10 @@ function AppShell() {
           <Route
             path="/viz-imp124961-f2-residual-curvature-u"
             element={<Imp124961F2ResidualCurvatureUViz />}
+          />
+          <Route
+            path="/viz-imp124963-sigma-diagnostic-cluster-analysis"
+            element={<Imp124963SigmaDiagnosticClusterAnalysisPage />}
           />
           <Route
             path="/viz-imp97732-wlin-residual-halfdependence"

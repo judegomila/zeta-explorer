@@ -20,7 +20,7 @@
  * TLDR carries one pointer sentence so a reader of the banner has a signal it exists.
  * Not treated as drift.
  *
- * DOCUMENTATION/AUDIT ONLY. Changes no bound; no RH verdict, NO QED.
+ * DOCUMENTATION/AUDIT ONLY. Changes no bound; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
  * Platt-Trudgian Lambda <= 0.2 remains SOTA.
  */
 
@@ -98,8 +98,8 @@ export const IMP124839_SYNC_AUDIT = {
     'AUDIT ONLY (no drift found). Every probed TLDR claim (grade line, 0.1875, 0.1787854, ' +
     'Steps 1-5 framing, Route A GUE conditional) has a matching claim in the currentStatus ' +
     'opening paragraph. The one sentence present only in the TLDR (seam-chain program pointer) ' +
-    'is a documented, deliberate exception, not drift. Changes no bound; NO QED; ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'is a documented, deliberate exception, not drift. Changes no bound; imp-3066 K_a >= 0 ' +
+    'untouched; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
 };
 
 export const IMP124839_SYNC_AUDIT_ASSERTIONS = [
@@ -122,5 +122,10 @@ export const IMP124839_SYNC_AUDIT_ASSERTIONS = [
       IMP124839_SYNC_AUDIT.knownAsymmetry.inTldrOnly === true &&
       IMP124839_SYNC_AUDIT.knownAsymmetry.isDrift === false &&
       !STATUS.includes('imp-95210..95420'),
+  },
+  {
+    id: 'imp124839-own-verdict-carries-imp3066-phrase',
+    description: 'imp-124935 repair: this module’s own verdict must carry the imp-3066 K_a >= 0 untouched phrase',
+    holds: () => /imp-3066 K_a >= 0 untouched/.test(IMP124839_SYNC_AUDIT.verdict),
   },
 ];

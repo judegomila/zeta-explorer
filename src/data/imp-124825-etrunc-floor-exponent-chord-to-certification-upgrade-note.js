@@ -57,7 +57,8 @@ export const IMP124825_HONEST_BANNER =
   'p_knee_lsq ~ ' + FULL_LADDER_LSQ.toFixed(3) + ' with R^2 ~ ' + LSQ_R2.toFixed(5) + ', within ~' +
   CHORD_TO_LSQ_DELTA.toFixed(3) + ' of the original chord. The two-point construction is thereby upgraded ' +
   'to a quantified-residual certification: the clean dimensional N* ~ E_trunc^(-2) scaling is confirmed, ' +
-  'not an artifact of which two floors were picked. No new numerics, no bound moved.';
+  'not an artifact of which two floors were picked. No new numerics, changes no bound; imp-3066 K_a >= 0 ' +
+  'untouched.';
 
 export default IMP124825_ETRUNC_FLOOR_EXPONENT_CHORD_TO_CERTIFICATION_UPGRADE_NOTE;
 
@@ -74,7 +75,8 @@ if (
     IMP124825_ETRUNC_FLOOR_EXPONENT_CHORD_TO_CERTIFICATION_UPGRADE_NOTE.qed === false &&
     /NO QED/.test(IMP124825_HONEST_BANNER) &&
     /PT Lambda <= 0.2/.test(IMP124825_HONEST_BANNER) &&
-    /RH open/.test(IMP124825_HONEST_BANNER)
+    /RH open/.test(IMP124825_HONEST_BANNER) &&
+    /imp-3066 K_a >= 0 untouched/.test(IMP124825_HONEST_BANNER)
   )
 ) {
   throw new Error(

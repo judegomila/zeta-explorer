@@ -84,8 +84,8 @@ export const IMP124919_ECF_STENCIL_CROSSOVER_GLOSSARY_HEADWORD = Object.freeze({
     'GLOSSARY HEADWORD ONLY (documentation, not a proof). Names the imp-124769 result: the direct ' +
     'E_CF stencil error crosses from O(eps^2) truncation (relTrunc ~ 3.3e-7) to a round-off floor ' +
     '(R ~ 4.5e-13) at |E_CF|_crit ~ 1.4e-6 (sigma_crit ~ 0.013), strictly between L5 (sigma 0.02) ' +
-    'and L6 (sigma 0.005). No bound moved; DIAG3 and all pinned surrogate constants untouched; ' +
-    'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'and L6 (sigma 0.005). No bound moved; imp-3066 K_a >= 0 untouched; DIAG3 and all pinned ' +
+    'surrogate constants untouched; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
   citation:
     'imp-124769 (the stencil round-off crossover this glosses); imp-97821 (the qualitative L6 ' +
     'non-monotone ladder); imp-97710 (the L5 clean O(eps^2) quartering).',
@@ -118,6 +118,12 @@ export const IMP124919_ECF_STENCIL_CROSSOVER_GLOSSARY_HEADWORD_ASSERTIONS = [
       /NO QED/.test(IMP124919_ECF_STENCIL_CROSSOVER_GLOSSARY_HEADWORD.verdict) &&
       /remains SOTA/.test(IMP124919_ECF_STENCIL_CROSSOVER_GLOSSARY_HEADWORD.verdict) &&
       IMP124919_ECF_STENCIL_CROSSOVER_GLOSSARY_HEADWORD.glosses === 'imp-124769',
+  },
+  {
+    id: 'imp124919-imp3066-untouched-citation',
+    why: 'imp-124964 honesty-banner audit: the literal imp-3066 K_a >= 0 untouched citation was ' +
+      'absent from this module and has been repaired into the verdict string.',
+    holds: () => /imp-3066 K_a >= 0 untouched/.test(IMP124919_ECF_STENCIL_CROSSOVER_GLOSSARY_HEADWORD.verdict),
   },
 ];
 

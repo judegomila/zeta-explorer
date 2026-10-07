@@ -82,8 +82,9 @@ export const IMP124922_KERNEL_DECADE_RATIO_GAP_KEYED_GLOSSARY_HEADWORD = Object.
     'GLOSSARY HEADWORD ONLY (documentation, not a proof). Names the imp-124776 gap-keyed re-' +
     'presentation of the imp-97823/imp-97842 kernel |K| = |1/(N sigma_N)| sqrt(10)-per-decade ' +
     'growth ratio: both arms bracket sqrt(10) = 3.162278 as the trailing gap g shrinks (wide ' +
-    'g = 1e-2 .. 1e-7, deep g = 1e-6 .. 1e-8). No new computation; no bound moved; DIAG3 == 0 and ' +
-    'all pinned surrogate constants untouched; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'g = 1e-2 .. 1e-7, deep g = 1e-6 .. 1e-8). No new computation; no bound moved; imp-3066 K_a >= 0 ' +
+    'untouched; DIAG3 == 0 and all pinned surrogate constants untouched; NO QED. Platt-Trudgian ' +
+    'Lambda <= 0.2 remains SOTA.',
   citation:
     'imp-124776 (the gap-keyed presentation this headword names); imp-97823 (the deep-limit ' +
     'sqrt(10) fit it reuses); imp-97842 (sibling headword naming the same fit keyed by decade ' +
@@ -126,6 +127,12 @@ export const IMP124922_KERNEL_DECADE_RATIO_GAP_KEYED_GLOSSARY_HEADWORD_ASSERTION
       IMP124922_KERNEL_DECADE_RATIO_GAP_KEYED_GLOSSARY_HEADWORD.anyBoundMoved === false &&
       /NO QED/.test(IMP124922_KERNEL_DECADE_RATIO_GAP_KEYED_GLOSSARY_HEADWORD.verdict) &&
       /remains SOTA/.test(IMP124922_KERNEL_DECADE_RATIO_GAP_KEYED_GLOSSARY_HEADWORD.verdict),
+  },
+  {
+    id: 'imp124922-imp3066-untouched-citation',
+    why: 'imp-124964 honesty-banner audit: the literal imp-3066 K_a >= 0 untouched citation was ' +
+      'absent from this module and has been repaired into the verdict string.',
+    holds: () => /imp-3066 K_a >= 0 untouched/.test(IMP124922_KERNEL_DECADE_RATIO_GAP_KEYED_GLOSSARY_HEADWORD.verdict),
   },
 ];
 

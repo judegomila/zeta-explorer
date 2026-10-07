@@ -1763,6 +1763,9 @@ const Imp97730Diag3StencilRefineViz = lazy(() =>
 const Imp124845Diag3AdditivityFlowshareViz = lazy(() =>
   import('./pages/Imp124845Diag3AdditivityFlowshareViz.jsx')
 );
+const Imp124880PairratioDriftSlopeScatterViz = lazy(() =>
+  import('./pages/Imp124880PairratioDriftSlopeScatterViz.jsx')
+);
 const Imp97732WlinResidualHalfDependenceViz = lazy(() =>
   import('./pages/Imp97732WlinResidualHalfDependenceViz.jsx')
 );
@@ -4632,6 +4635,10 @@ function AppShell() {
           <Route
             path="/viz-imp124845-diag3-additivity-flowshare"
             element={<Imp124845Diag3AdditivityFlowshareViz />}
+          />
+          <Route
+            path="/viz-imp124880-pairratio-drift-slope-scatter"
+            element={<Imp124880PairratioDriftSlopeScatterViz />}
           />
           <Route
             path="/viz-imp97732-wlin-residual-halfdependence"

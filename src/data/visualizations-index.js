@@ -5865,6 +5865,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every ratio plotted here is copied verbatim from the two orphaned sibling viz-data leaves (themselves reused from imp-97823, a measurement, not a derivation). Conditional-share diagnostic; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp124880-pairratio-drift-slope-scatter',
+      title: 'imp-124850: Drift-Slope OLS Fit -- P = D*|E_CF| + R Scatter + 2-Sigma Envelope',
+      oneLine:
+        'Log-x scatter of the round-off invariant product P = |reldiff|*|E_CF| against |E_CF| over the L2..L7 landmark rungs, with the imp-124850 OLS fit line and a +/-2-sigma envelope band (slope and intercept each shifted by 2 standard errors) -- the six points sit well inside the band and the line is visually flat, matching the fitted t-statistic of -0.64 against zero slope.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-124880-pairratio-drift-slope-scatter-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-124850-pairratio-drift-slope-fit.js (ladder, fit slope/intercept + standard errors reused verbatim; imp-124880 viz-data leaf + page)',
+      ticket: 'imp-124880',
+      pedagogicalStep: 453,
+      honestCeiling:
+        'Presentation only: every scatter point and the fit slope/intercept/standard-errors are reused verbatim from imp-124850 (an OLS regression, not a new computation). Conditional-share diagnostic on the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

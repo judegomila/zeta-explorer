@@ -827,6 +827,98 @@ const NODES = [
     'Route 49: sawtooth S(T) bound; S(T) is not a mirror-descent lever',
     'Given Trudgian 2011, |S(t)| ≤ √(2Aρ)(1 + o(1)): 5.6748 vs Trudgian 2014 6.6612 at 3e12 (9–17% below at 1e11–1e17; asymptotically weaker, 0.137 vs 0.112 log T). Mirror descent at the seam: optimistic all-real model needs E ≤ 3.363; pessimistic weights give 0.2038 > 0.2 even at E = 0; both treat ζ counts as H_t counts. PT Λ ≤ 0.2 stands; NO QED.',
     'src/data/route-49-unconditional-s-of-t-2026-10-06.js; tmp/routes-b1-r49-*, tmp/routes-b1-ref49-*', '2026-10-06', '/routes-roadmap'),
+  // ── fifty-routes roadmap, batch 2 (2026-10-07; src/data/research-routes-roadmap.js) ──
+  N('route3-multipoint-joint-floor', 'barrier', 'certificate', 'certified', 'route 3 done: certified on the exact consumer relative to the shared ledger; Theorem MP / Lemma MP3 / Lemma R2 written, unrefereed (reflected-label bound corrected by one internal referee pass, minor); Λ < 0.145 NOT certified; not proved',
+    'Route 3: multi-point joint floor worth −7.86e-7; new λ < 2 kernels give 0.145465618111039',
+    'Joint floor of a probe measure (Theorem MP); kernel inequality, self cap and Lemma H2 are linear in the measure, so mixtures need no new certificate. On the route-P admission: U_robust = 0.145693297586243 (−7.86286681e-7; 1,566 of 74,595 substeps pick a four-point measure). Side result: six new exactly certified two-point kernels with λ < 2 (r = 3/5, 13/20, 7/10) give 0.145465813975585; with route 3 on top 0.145465618111039 (−2.28e-4). Centre-plus-pair design dominated (measured; the pair-cap bound holds only for 3r² ≥ 1). PT Λ ≤ 0.2 stands; NO QED.',
+    'src/data/route-3-three-point-probes-2026-10-07.js; tmp/routes-b2-r3-*, tmp/routes-b2-ref3-*', '2026-10-07', '/routes-roadmap'),
+  N('route4-fejer-riesz-wol', 'barrier', 'measurement', 'measured', 'route 4 done: per-prime Fejér–Riesz maxima certified (exact rational residual ≤ 1.05e-12), gain = θ-grid slack; not a lever (measured); one internal referee pass (minor)',
+    'Route 4: Fejér–Riesz SOS for WOL-C gains only grid slack (2.2–4.1e-4 per box)',
+    'Branch reduction (1024 sign/branch trigonometric polynomials of degree ≤ 14) makes whole-circle Fejér–Riesz exact for the v4c per-prime fiber maxima, but the gain per box (2.2–4.1e-4) equals the θ-grid Lipschitz slack: a 2^20 grid reproduces the SOS bound to 9.2e-7. Top open boxes need 0.035 (cell 417) and 0.0024 (cell 459); one octree split closes them. Fiber relaxation room at one point at most ≈ 0.05 (0.0628 bound vs 0.0128 measured joint-core lower estimate), out of reach of trigonometric SOS at this size (heuristic). No floor closes. PT Λ ≤ 0.2 stands; NO QED.',
+    'src/data/route-4-fejer-riesz-wol-2026-10-07.js; tmp/routes-b2-r4-*, tmp/routes-b2-ref4-*', '2026-10-07', '/routes-roadmap'),
+  N('route5-many-bands', 'barrier', 'certificate', 'certified', 'route 5 done: certified relative to the shared ledger (Theorem B′_m written, unrefereed; Route-2 RH windows, FLINT zeta_rs unaudited; X165mid/U2 replays recorded, not re-run); one internal referee pass re-ran band 1, band 2, the wall and both windows (minor); Λ < 0.145 NOT certified; not proved',
+    'Route 5: four bands give 0.145620383931826 at PT height (−7.37e-5)',
+    'Multi-band Lemma B with line walls: band 1 (route-P floors, right wall 9000000007188.6094) 0.145620383931826, band 2 (X150 floors) 0.145332594425165, X165mid, U2; 3 bands with existing windows 0.145632847457923. New wall WALLQ_9000000017721.9609; Route-2 RH windows W1 (22,882 zeros) and W2 (33,987 zeros). Band 1 binds; with the current band-1 floors no layout goes below 0.145566855004312 (measured; better floors go lower: 125 missing at target with 3 bands give 0.144986). Slab walls cost ≈ c f⁴/8 (Theorem B″ is a sketch). PT Λ ≤ 0.2 stands; NO QED.',
+    'src/data/route-5-many-bands-2026-10-07.js; tmp/routes-b2-r5-*, tmp/routes-b2-ref5-*', '2026-10-07', '/routes-roadmap'),
+  N('route6-sparse-verification', 'barrier', 'result', 'result', 'route 6 done: Theorems S, N and Lemma G written, unrefereed, framework- and catalogue-relative (Theorem N corrected by one internal referee pass, minor); D_K certified in exact rationals; savings measured/heuristic; no Λ value',
+    'Route 6: contiguous head needed; one local window replaces ≈ 1.73e12 ordinate units',
+    'Window width enters Lemma B only through Lemma C (Far) and (Sep), so 7252 can be replaced by the Lemma H2 distance D_K = 921–1639 (exact). Corrected Theorem N: the contiguous head must reach x_*′ (start q_MTY(x_L)) when one window is used; above it one window with right wall ≥ x_** replaces contiguous verification up to x_**/2: 1.7258e12 units = 5.45e6 core-hours at τ = 0.145 on the base stack (full stack 1.66–1.78e12, heuristic). Extra windows ≤ ≈ 2.4e-5 (heuristic). The existing 7.8e12 window serves. No Λ bound. PT Λ ≤ 0.2 stands; NO QED.',
+    'src/data/route-6-sparse-verification-2026-10-07.js; tmp/routes-b2-r6-*, tmp/routes-b2-ref6-*', '2026-10-07', '/routes-roadmap'),
+  N('route20-effective-kkl', 'barrier', 'certificate', 'certified', 'route 20 done: Arb-certified explicit constants, conditional on Polymath15 Theorem 1.3 and de Bruijn (cited); block lemma re-derived by one internal referee pass (minor); explicit version of Polymath15 Theorem Zero(i); not proved unconditionally',
+    'Route 20: explicit Ki–Kim–Lee threshold x0(t) ≈ 4π·exp(c/t), c ≈ 5.3–5.8',
+    'For all t ∈ [t_lo, 1/2], zeros of H_t with Re z ≥ x0(t_lo) + 0.47 are real and simple: x0 = 4.065e13 (t ≥ 0.20), 1.502e17 (0.15), 1.461e24 (0.10); within 0.02–0.05 in L of the triangle-inequality limit. At X = 6e12 only t ≥ 0.217 (Λ ≤ 0.217 + y0²/2, weaker than PT). Feeds only the canopy hypothesis (ii) of the Polymath criterion, never (i), so it replaces no verified height; a verification-free route needs ≈ 6.8X for Λ ≤ 0.2. PT Λ ≤ 0.2 stands; NO QED.',
+    'src/data/route-20-effective-ki-kim-lee-2026-10-07.js; tmp/routes-b2-r20-kkl/, tmp/routes-b2-ref20-*', '2026-10-07', '/routes-roadmap'),
+  // ── fifty-routes roadmap, batch 3 (2026-10-08; src/data/research-routes-roadmap.js) ──
+  N('route7-time-dependent-mollifiers', 'barrier', 'measurement', 'measured', 'route 7 done: Lemma CG^λ proved (elementary identity + convexity, project-internal); Theorem 4′^λ a written sketch, unrefereed; λ = 1 best in the float model (measured, no interval enclosure); no Λ change; one internal referee pass (minor)',
+    'Route 7: per-cell Euler weights on the {2,3,5} mollifier; λ = 1 already best, U unchanged',
+    'Head coefficients of Π_p (1 − λ_p b_t(p) p^{−s}) are convex combinations of Lemma CG covers for λ_p ∈ [0, 1], so λ may vary per time cell, rectangle and table entry. Float model on the 140 Track A cells the path uses (15,139 of 74,596 substeps): no gain in any path mode with uniform λ (author) or per-rectangle λ_5 (referee, 9 binding cells); row 5 never rises; λ > 1 and a seventh prime lower the floors; max gain 2.09e-4 at 430|r_9_20, off the path. Exact consumer U = 0.145694083872924, change 0. PT Λ ≤ 0.2 stands; NO QED.',
+    'src/data/route-7-time-dependent-mollifiers-2026-10-08.js; tmp/routes-b3-7-*, tmp/routes-b3-ref-7-*', '2026-10-08', '/routes-roadmap'),
+  N('route8-polymath-raymond-hybrid', 'barrier', 'no-go', 'no-go', 'route 8 done: joining lemma Theorem B′_P written, unrefereed; max-over-bands algebra proved; Polymath-next-to-X branch measured (lane model); exact composition of computer-assisted-candidate inputs; one internal referee pass (minor)',
+    'Route 8: Polymath/Raymond hybrid gives no gain; best split has no Polymath band',
+    'Theorem B′_P: Λ ≤ max(U_1, …, U_m, t0 + y0²/2) if τ = max(t_e, t0) ≤ 41/250. The band next to X binds; with any existing Polymath row the hybrid is 879177/5000000 = 0.1758354 (+0.030141316127076 over route P), so the best split is route P / route 5. A Polymath band ties route P only from x* ≈ 1.2e15 in the P11 lane model (measured, mollifier-dependent); the slab is certified only at X and cannot be the join. 0.1758354 and 0.1787854 remain computer-assisted candidates. PT Λ ≤ 0.2 stands; NO QED.',
+    'src/data/route-8-polymath-raymond-hybrid-2026-10-08.js; tmp/routes-b3-8-*, tmp/routes-b3-ref-8-*', '2026-10-08', '/routes-roadmap'),
+  N('route9-barrier-height-schedule', 'barrier', 'certificate', 'certified', 'route 9 done: certified relative to the shared ledger (G0-d family referee passed on every used new height set; joint-pairs/gains/table layers single-implementation, re-derived byte-identically); search optimality measured (local); Λ < 0.145 NOT certified; not proved',
+    'Route 9: one optimised height set gives 0.145637425999752 (−5.67e-5); all sets 0.145630653648379',
+    'W4 = 10-knot piecewise-linear multiplier of PLAN (above PLAN around the hard cells 417–424, below on 430–465), added as an extra height set (picked on 7,443 of 74,567 substeps): U = 18204678249969/(1.25·10^14), exact gain 5.6657873172e-5, E1–E8 0 failures. All used sets: robust 0.145630653648379 (gain 6.343e-5). Option union, not additive with routes 3/5. Heuristic r2-layer transport −2.55e-4 needs ≈ 128 new r2 + WOL floors. PT Λ ≤ 0.2 stands; NO QED.',
+    'src/data/route-9-barrier-height-schedule-2026-10-08.js; tmp/routes-b3-9-*, tmp/routes-b3-ref-9-*', '2026-10-08', '/routes-roadmap'),
+  N('route38-barrier-height-scaling', 'barrier', 'certificate', 'certified', 'route 38 done: six slabs interval-certified by the unmodified sealed producer at proxy-selected X′ (t = 0 endpoint carried over, not re-audited); scaling laws measured; one internal referee pass (minor; verifier F3′ tautological here); no Λ change',
+    'Route 38: barrier slabs certify at 2X, 5X, 10X (floors 0.17, 0.03); verified height binds',
+    'Slabs [X′, X′+1] × [y0, 1] × [0, 0.16125] at X′ = 12000000484002, 30000001807434, 60000002566389: min margins 0.523/0.505/0.504 (y0 = 0.17) and 0.099/0.079/0.091 (y0 = 0.03); uniform error < 0.00125 and shrinking like q^{−(1+y0)/4}. Cost grows like X^0.45 (y0 = 0.17) to X^0.57 (y0 = 0.03). The exact multiple 10X was incomplete after 90 min (choice of X′ dominates; selection bias disclosed). Usable for Λ only with RH to ≈ X′/2 ≥ 6e12. PT Λ ≤ 0.2 stands; NO QED.',
+    'src/data/route-38-barrier-height-scaling-2026-10-08.js; tmp/routes-b3-38-scaling/, tmp/routes-b3-ref-38/', '2026-10-08', '/routes-roadmap'),
+  N('route50-kkl-lambda-curve', 'barrier', 'no-go', 'no-go', 'route 50 done: composition proved (elementary, given Polymath15 Thm 1.2 and route 20); five new KKL rows Arb-certified (conditional on Polymath15 Thm 1.3, de Bruijn); method floor c > 4.9144 Arb-proved; one internal referee pass (minor); closed at PT height for the current technique',
+    'Route 50: Λ(c, X) curve; beating route P at PT height needs c ≤ 3.912, method floored at c > 4.9144',
+    'Λ ≤ t0 + y0²/2 with t0 the smallest certified t_lo having x0(t_lo) + SP ≤ X (step function; c/log((X − 0.47)/4π) an idealisation, c(t) = 5.31–5.84); still needs RH to X/2 and a barrier at X. Route 3 at PT height needs c ≤ 3.9118 (−29%); every term of the triangle-inequality sum is ≥ n^{−1/2−tL/4}, and Σ_{n=2}^{690988} n^{−1.7286} > 1, so the method cannot reach c ≤ 4.9144 for x0 ≥ X_PT. Sub-route-3 only with verified height ≥ 4.63e17 plus a barrier, both uncomputed. PT Λ ≤ 0.2 stands; NO QED.',
+    'src/data/route-50-kkl-lambda-curve-2026-10-08.js; tmp/routes-b3-50-*, tmp/routes-b3-ref-50-*', '2026-10-08', '/routes-roadmap'),
+  N('lambda-levers-combined', 'barrier', 'certificate', 'certified', 'combination done: certified relative to the shared ledger (hence conditional; Theorem B′_m unrefereed, Route-2 RH in W2, recorded X165mid/U2); single implementation, one internal referee pass (minor); projection measured; Λ < 0.145 NOT certified; not proved',
+    'Combined levers: Λ ≤ 0.145322418219213 at PT height; projection 0.1449636 (measured)',
+    'Route-1 campaign certificates (5 budget-stopped + 2 at target) + route-5 3-band layout + route-3 kernels (281 certified λ < 2 kernels): 145322418219213/10^15 (E1–E8 0 failures), −3.72e-4 vs 0.145694083872924, 3.22e-4 above 0.145. Stack: campaign −1.2e-5, route 5 −6.25e-5, six kernels −1.85e-4, extended grid −1.12e-4. Measured projection with the remaining route-1 floors at target: 0.1449636–0.1449666 (3-band only; X150 caps 4 bands at 0.145333). Route 9 not yet stacked (option union). PT Λ ≤ 0.2 stands; NO QED.',
+    'src/data/lambda-levers-combined-2026-10-08.js; tmp/routes-b3-combine-*, tmp/routes-b3-ref-combine-*', '2026-10-08', '/routes-roadmap'),
+  // ── fifty-routes roadmap, batch 4 (2026-10-09; src/data/research-routes-roadmap.js) ──
+  N('route11-multi-prime-arb-lege', 'route-i', 'certificate', 'certified', 'route 11 done: Arb-certified (computer-assisted) clean for 2a ≤ ln 4, ln 5, ln 6; ln 7 … ln 11 certified conditional on closing a float-rounding tiling gap in the torus-floor branch-and-bound (referee re-run pending); one internal referee pass (minor); no Λ change',
+    'Route 11: multi-rung ARB-LEGE certifies pole-free Weil positivity to ln 5 (clean) and ln 11 (conditional)',
+    'Multi-rung symbol w_K = 2θ′ − Σ_{n≤K} 2Λ(n)n^{−1/2} cos(t ln n) with nesting; tail floor lowered from Σβ toward λ_R by the positive-extension freedom (cosines with frequency ≥ 2a). W ≥ c‖h‖²: 8.55e-8 (ln 4), 2.25e-12 (ln 5), 6.25e-17 (ln 6), 5.62e-42 (ln 11, conditional); log10 c ≈ −4.82·e^{2a} + 12.1, within ≈ 2× of independent Ritz upper bounds (near-sharp). All supports lie inside the verified-height range; localises no zero. PT Λ ≤ 0.2 stands; NO QED.',
+    'src/data/route-11-multi-prime-toeplitz-krein-2026-10-09.js; tmp/routes-b4-11/, tmp/routes-b4-ref-11-*', '2026-10-09', '/routes-roadmap'),
+  N('route12-s23-semilocal-identity', 'route-i', 'measurement', 'measured', 'route 12 done: identity derived (conditional on the CC trace-class framework); trace side measured positive; shares measured; nothing certified; one internal referee pass (minor)',
+    'Route 12: S = {∞,2,3} identity; the remainder share does not fall as primes are added',
+    'F_S multiplier ρ_2ρ_3 (Tate factors); W = L_S − D_S for g-support < ln 4. L̂_S23(0) ≈ +0.10 to +0.12 (measured). Share on the pole-free minimiser 99.71% (ln 3) … 99.99997% (ln 4) for S2, S23, S235; it equals 1 − λ_W/L_S(h0) by definition with L_S(h0) ≈ 0.3, so the metric cannot separate S at cutoff 1. D_S23 not positive definite (truncation artefact removed). PT Λ ≤ 0.2 stands; NO QED.',
+    'src/data/route-12-semilocal-s23-identity-2026-10-09.js; tmp/routes-b4-12-s23/, tmp/routes-b4-ref-12-work/', '2026-10-09', '/routes-roadmap'),
+  N('route13-lacunary-cones', 'route-i', 'certificate', 'certified', 'route 13 done: LAC-4 Arb-certified unconditional (referee reproduced bit for bit); horizon corollary conditional (float constants, double-zero model, heuristic boundary term); near-Müntz-threshold regime open (heuristic); one internal referee pass (minor)',
+    'Route 13: Weil positivity on the lacunary cone {4^k} certified; A6 loophole carries no zero information on separated lattices',
+    'Lacunary W(Λ) ⇔ indeterminate Carathéodory/Stieltjes interpolation of ξ′/ξ on a Blaschke node set (A6 made precise). Λ = {4^k}: normalised Pick operator ≥ 3.6346e-4 (head 6.12e-4, Toeplitz tail 0.013840, IMS 2.4854e-4). Horizon 80 in the double-zero model; T·h ≈ 7 on 2^{k/m} (measured); survives backward flow to ε_0 ≈ 364 (q = 4). Non-separated sets near the Müntz threshold (k^p, p ≲ 1.13) open at the heuristic level. PT Λ ≤ 0.2 stands; NO QED.',
+    'src/data/route-13-lacunary-muntz-cones-2026-10-09.js; tmp/routes-b4-13-lacunary/, tmp/routes-b4-ref-13-*', '2026-10-09', '/routes-roadmap'),
+  N('route14-family-weil-positivity', 'route-i', 'certificate', 'certified', 'route 14 done: family certificates Arb-certified (computer-assisted; code audited by one internal referee pass, minor); Euler-blind closed class, not a lever; family RES-T unproved (heuristic)',
+    'Route 14: family-averaged Weil positivity certifiable to 2a ≈ 2 log q (10.0 at q = 257); Euler-blind',
+    'Exact orthogonality symbol over the q − 2 nonprincipal characters (only n ≡ 1 mod q at full weight). Family W_F ≥ 2.336‖h‖² at 2a = 10 (q = 257); individual characters certified only to 2a ≈ 1.95–2.40 (method limit). Hybrid of 254 characters mod 257 with F_DH certified ≥ 0.8578 at 2a = 7.764, so a positive average does not imply positive members; at all supports family positivity is GRH for every χ mod q. PT Λ ≤ 0.2 stands; NO QED.',
+    'src/data/route-14-family-weil-positivity-2026-10-09.js; tmp/routes-b4-14*, tmp/routes-b4-ref-14*', '2026-10-09', '/routes-roadmap'),
+  N('route15-epstein-euler-blindness', 'route-i', 'certificate', 'certified', 'route 15 done: upper bounds a* ≤ A Arb-certified for 27 Epstein forms (valid for the full Weil form); lower ends measured, even sector only (referee, major: odd sector fails first for D = −23; 8 forms open); no Λ change',
+    'Route 15: Euler-blindness radius of 27 Epstein twins; principal forms a* ≈ log(|D|/4) − 0.13',
+    'Certified negative witnesses for 27 Epstein zeta functions (12 discriminants, h = 2–4). Even-sector crossings: principal 1.28–2.60 (DH 1.72 inside the band), β = 2 forms early ((2,2,3) a* ≤ 0.417 < (ln 3)/2); D = −23 principal full-form a* ≈ 1.662 via the odd sector. Lowest off-line zero carries the negativity in every attributed case. Analogy for Route I only. PT Λ ≤ 0.2 stands; NO QED.',
+    'src/data/route-15-epstein-euler-blindness-2026-10-09.js; tmp/routes-b4-15-*, tmp/routes-b4-ref-15-*', '2026-10-09', '/routes-roadmap'),
+  N('lambda-levers-joint', 'barrier', 'certificate', 'certified', 'joint run done: certified relative to the shared ledger (hence conditional; Theorem B′_m unrefereed, Route-2 RH in W2, recorded X165mid/U2); single implementation; one internal referee pass (minor) on collect4/collect5, collect6 recording re-run not separately refereed; projection measured; Λ < 0.145 NOT certified; not proved',
+    'Joint levers: route 9 adds exactly 0; Λ ≤ 0.145276368594868 with the newest campaign certificates (measured projection 0.144962368494868–0.144963731516124)',
+    'Route-1 campaign (collect6: 255 of 369 floors certified) + route-5 3-band + route-3 281 kernels: 36319092148717/(2.5·10^14) = 0.145276368594868 (E1–E8 0 failures, 74,382 steps); referee collect5 value 0.145316161350388, collect4 run value 0.145322418219213. Route 9\'s six refereed height sets are never chosen once the route-3 kernels are present (marginal exactly 0; −6.06e-5 on route P + campaign alone). PASS guard made strict (stored as JSON booleans, never misfired). Measured projection with the remaining floors at target: 0.144962368494868–0.144963731516124 (< 0.145, hypothetical). PT Λ ≤ 0.2 stands; NO QED.',
+    'src/data/lambda-levers-combined-2026-10-09.js; tmp/routes-b4-joint-*, tmp/routes-b4-ref-joint-*, tmp/routes-b4-rec-joint-*', '2026-10-09', '/routes-roadmap'),
+  // ── fifty-routes roadmap, batch 5 (2026-10-10; src/data/research-routes-roadmap.js) ──
+  N('route16-alpoge-furman-reproduction', 'twin-ladder', 'measurement', 'measured', 'route 16 done: reproduction of a preprint (Alpöge–Furman arXiv:2608.13637) — constants and Lemma 3.2 re-derived (elementary), finite-height values are main-term measurements, not theorems; twin-ladder placement heuristic; one internal referee pass (minor); no Λ change',
+    'Route 16: Alpöge–Furman ≥ 2/3 reproduced at 1e3–2.9e5; placed in the class NS-RIGID leaves open',
+    'Gabor compression of Weil\'s form (support [−L/2, L/2], dimension ~ N(T, 2T)) + Montgomery second moment + rank–trace lemma + Sylvester inertia. Explicit-formula entries to 1e-9, tr G = N ± 1, Frobenius main term to 1e-6 at 2.9e5; certificate 0.5775 (paper\'s N(I′) form; 0.585 with N(I)) → 2/3 like 1/L. R(ψMT) = 1.3274992963, Λ_2(0) = 5/36, 13/18 conditional on HL*(4). Errata: d ≠ N + O(L) (d/N = L/(L + 2 log 2 − 1)); Prop 5.2 error O(N log L / L). Outside NS-RIGID\'s native span: the prime-side second moment over a height-localised family, with signature counting not positivity. Ceiling ≈ 0.682; DH/Epstein satisfy the inputs. Preprint; peer-reviewed record PRZZ 5/12. PT Λ ≤ 0.2 stands; NO QED.',
+    'src/data/route-16-alpoge-furman-twin-ladder-2026-10-10.js; tmp/routes-b5-r16-*, tmp/routes-b5-ref16-*', '2026-10-10', '/routes-roadmap'),
+  N('route17-mollifiers-beyond-four-sevenths', 'twin-ladder', 'measurement', 'measured', 'route 17 done: κ(θ > 4/7) conditional on the twisted second moment (Farmer); finite-T agreement measured (4 single-seed sample sets, ≈ 1% sensitivity); small-T recipe failure refuted by the referee (truncation bug); nothing certified; no proof input',
+    'Route 17: conditional κ(θ) to θ = 2; finite-T recipe main term matches to 0.52%',
+    'One-piece Conrey (P deg 6, Q deg 7): κ = 0.4249 (0.6), 0.4753 (0.7), 0.5884 (1.0), 0.7703 (2.0) conditional; passes PRZZ at θ = 0.586, 1/2 at 0.755, 0.6725 at 1.339; dκ/dθ = 0.571 at 4/7. Direct mean of |Vψ|² from Arb ζ values vs full finite-T recipe M_T: 55 configurations on 4 seeds, max |z| 1.55, max 0.52% (θ = 2 at T = 1e3: 1.0750 ± 0.0016 vs 1.0748). θ = 0.4, T = 1e3 "failure" (M_T = −0.462) was an r < 80 series truncation; corrected 3.074282 vs direct 3.083 ± 0.024. Finite-T κ inflated 0.07–0.13 by lower-order terms. Barrier remains the Kloosterman input behind 4/7. PT Λ ≤ 0.2 stands; NO QED.',
+    'src/data/route-17-mollifiers-beyond-four-sevenths-2026-10-10.js; tmp/routes-b5-r17-mollifier/, tmp/routes-b5-ref17/', '2026-10-10', '/routes-roadmap'),
+  N('route18-local-levinson-pair-correlation', 'bridge-models', 'no-go', 'no-go', 'route 18 done: closed as a map; insensitivity and count lemmas proved (elementary, point-set level); "nothing provable" downgraded to a structural observation (no non-implication theorem); frozen-model measurements; one internal referee pass (minor); no Λ change',
+    'Route 18: pair correlation does not shorten the certifiable window; count certificates need ≈ 2–4-spacing loss-free resolution',
+    'Ordinate-only pair / n-level statistics are consistent with any rearrangement in windows of length o(T) (≈ T^{1−δ} for error T^{−δ}) and are β-blind. GUE Palm mirror count 3.021 (lattice 2.529, p_req 4.3743); profile descent GUE 0.1173 / lattice 0.1204 vs t0 = 0.1314, c* = 0.882; loss-free count certificate passes only at w ≤ 2 (lattice, generic) / 4 (GUE mean) spacings; CUE close pairs fail 0.42%, ζ 0/6950 at 5e5–1e6, but mirror-descent C2 already fails at worst-case sites (0.140; 0.144–0.154). PT Λ ≤ 0.2 stands; NO QED.',
+    'src/data/route-18-local-levinson-pair-correlation-2026-10-10.js; tmp/routes-b5-r18-work/, tmp/routes-b5-ref18-*', '2026-10-10', '/routes-roadmap'),
+  N('route19-mollified-weil-forms', 'route-i', 'no-go', 'no-go', 'route 19 done: reduction to the plain Weil form proved (elementary; referee re-derived); Euler-blindness inherited from the dag3 Arb certificate (2a + log N ≤ ln 11); DH onsets measured (double precision); infinite-support weights heuristic; one internal referee pass (minor); no Λ change',
+    'Route 19: mollified Weil form = plain Weil form at half-support a + ½ log N on a subset; merges into Route I',
+    'Σ_ρ ĥ(γ) M(ρ)M(1−ρ) = W(G*G̃), G = μ*g ∈ L²(−A, A), A = a + ½ log N; g ↦ μ*g injective, so a*_mol ≥ a*_plain − ½ log N. DH: Levinson onsets a = 1.78 … 1.44 (A = 2.13 … 2.91), best polynomials a ≤ 1.54 … 0.78 (A ≤ 1.89 … 2.17), all above the plain onset ≈ 1.80 in total support; witnesses reproduced independently, Euler arm ≥ +1.06. DH zero-displacement homotopy (not the dB–N flow): Levinson-19 onset 1.44 → (1.52, 1.60] at 25% less displacement. PT Λ ≤ 0.2 stands; NO QED.',
+    'src/data/route-19-mollified-weil-forms-2026-10-10.js; tmp/routes-b5-r19-*, tmp/routes-b5-ref19-*', '2026-10-10', '/routes-roadmap'),
+  N('route42-mv-cap-theorem', 'no-go', 'no-go', 'no-go', 'route 42 partial: MV-CAP proved (internal) for zero-side and O-form premises, lattice sums CERTIFIED-FLOAT (double, 1e-6 margin, not interval); NOT established for explicit function-side L² mean values (referee, major: the counter-model is caught there at the proxy height; Proposition E false as stated, corrected); t > 0 conditional on Lemma 5; no Λ change',
+    'Route 42: window-replacement counter-models violate H_desc at every lane window (p_viol ≤ 3.0119 < 4.3743)',
+    'ξ_W = κ ξ Q_{W′}/Q_W keeps FE, order 1, residue 1, zero-free region and explicit N(T) bounds up to +1.4935 while H_desc fails (lattice 2.9906 + outer 0.0213; robust to B tripled). A certifying zero-side premise needs slack < 19.3 zeros (relative precision ≤ 1.5e-12). κ = 1 shifted variant satisfies O-form premises at K′ ≈ 19. Explicit σ = 2 Montgomery–Vaughan short-interval mean value (Δ ≈ 2.2e4 vs error ≈ 10) and |ζ(1+it)| ≤ ¾ log t exclude the model at c0 = 5e5 (measured). Narrows the lane-audit MV-CAP. PT Λ ≤ 0.2 stands; NO QED.',
+    'src/data/route-42-formal-mv-cap-2026-10-10.js; formalization/paper/mv-cap-theorem.md; tmp/routes-b5-r42-*, tmp/routes-b5-ref42-*', '2026-10-10', '/routes-roadmap'),
   // ───────────────────────── side ─────────────────────────
   N('routes-catalan-signed-ladder', 'side', 'result', 'proved', 'proved (exact closed forms)',
     'Catalan signed ladder: G = β(2) and period-dimension obstruction',
@@ -1332,6 +1424,74 @@ const RAW_EDGES = [
   ['route27-function-field-ladder', 'weil-curves', 'uses', 'Weil’s proof = Approach III with B from divisor classes'],
   ['route27-function-field-ladder', 'routes-j-weil-deligne-import', 'feeds', 'the lift stops at the same missing Spec Z × Spec Z'],
   ['route49-s-of-t-sawtooth', 'mirror-descent-theorem', 'feeds', 'counting-input ceiling: no pointwise S input is a usable lever at the seam'],
+  ['route3-multipoint-joint-floor', 'route1-r7-route-p', 'uses', 'route-P admission as baseline; joint floor −7.86e-7, new λ < 2 kernels −2.28e-4'],
+  ['route3-multipoint-joint-floor', 'b145-stack', 'uses', 'b145 two-point kernel catalogue, Track A tables (TABLES_NEW reproduced exactly)'],
+  ['route3-multipoint-joint-floor', 'r3-bb', 'uses', 'E1–E8 band logic re-implemented for the new option types'],
+  ['route4-fejer-riesz-wol', 'route1-r7-route-p', 'feeds', 'SOS gain = grid slack; one octree split closes the top boxes — finish by the campaign'],
+  ['route4-fejer-riesz-wol', 'r6-falsify', 'uses', 'same majorant-looseness picture: separable fiber bound 0.0628 vs joint-core lower estimate 0.0128'],
+  ['route5-many-bands', 'route1-r7-route-p', 'uses', 'band 1 = route-P admission at right wall 9.0e12; 125 missing floors at target with 3 bands give 0.144986 (measured)'],
+  ['route5-many-bands', 'r2-lemma-b', 'uses', 'multi-band Theorem B′_m (§6.2) at PT height'],
+  ['route5-many-bands', 'r3-flint2', 'uses', 'Route-2 RH windows (RS signs + Trudgian direct-integral Turing test) at 4.5e12 and 4.95e12'],
+  ['route5-many-bands', 'r4-g0dprime', 'uses', 'last band U2 = 0.144254643222956'],
+  ['route6-sparse-verification', 'r2-lemma-b', 'uses', 'Theorem S: Theorem B′ with 7252 replaced by D_K = 921–1639'],
+  ['route6-sparse-verification', 'verified-height', 'feeds', 'contiguous head required; one window replaces ≈ 1.73e12 ordinate units above it'],
+  ['route6-sparse-verification', 'r2-height-reduction', 'uses', 'head-height grid and the 1.6X / 1.65X window values'],
+  ['route6-sparse-verification', 'r3-flint2', 'uses', 'the 7.8e12 window as the single window'],
+  ['route20-effective-kkl', 'ki-kim-lee', 'uses', 'effective version of "all but finitely many zeros of H_t are real"'],
+  ['route20-effective-kkl', 'polymath15', 'uses', 'Theorem 1.3 effective approximation; explicit constant for Theorem Zero(i)'],
+  ['route20-effective-kkl', 'lambda-p15-barrier-criterion', 'feeds', 'only the canopy hypothesis (ii) for x ≥ x0(t0), never hypothesis (i)'],
+  ['route7-time-dependent-mollifiers', 'route1-r7-route-p', 'uses', 'exact consumer on the r7 admission; 11 measured λ-increments change U by exactly 0'],
+  ['route7-time-dependent-mollifiers', 'b145-stack', 'uses', 'Track A {2,3,5}-mollified floors and joint tables (TABLES_NEW reproduced at λ = 1)'],
+  ['route8-polymath-raymond-hybrid', 'lambda-p15-barrier-criterion', 'uses', 'Polymath band via (P-ii) + strip at t0; (i) and (iii) not needed for that band'],
+  ['route8-polymath-raymond-hybrid', 'r2-lemma-b', 'uses', 'Theorem B′_P built from Lemmas B.1–B.3, Theorem BB, Theorem B′'],
+  ['route8-polymath-raymond-hybrid', 'lambda-01758354', 'uses', 'y-transfer row t0 = 1583/10000 gives the hybrid value 0.1758354'],
+  ['route8-polymath-raymond-hybrid', 'route5-many-bands', 'uses', 'Raymond layouts (3- and 4-band) under the Polymath band'],
+  ['route9-barrier-height-schedule', 'route1-r7-route-p', 'uses', 'route-1 admission plus extra height sets; 0.145694083872924 → 0.145637425999752'],
+  ['route9-barrier-height-schedule', 'r4-g0d', 'uses', 'G0-d family referee run on W4, W5, ×1.06, ×1.03, ×0.94 (0 failures)'],
+  ['route9-barrier-height-schedule', 'lambda-levers-combined', 'feeds', 'height sets to be stacked in one joint consumer run (option union, not additive)'],
+  ['route38-barrier-height-scaling', 'route2-floor-into-route-p', 'uses', 'floor-lowering sealed producer and verifier, X-parameterised'],
+  ['route38-barrier-height-scaling', 'verified-height', 'blocked-by', 'slabs at X′ usable only with RH verified to ≈ X′/2 ≥ 6e12'],
+  ['route50-kkl-lambda-curve', 'route20-effective-kkl', 'rules-out', 'triangle-inequality KKL floored at c > 4.9144 for x0 ≥ X_PT; route P at PT height needs c ≤ 3.912'],
+  ['route50-kkl-lambda-curve', 'lambda-p15-barrier-criterion', 'uses', 'KKL supplies hypothesis (ii); (i) RH to X/2 and (iii) barrier still needed'],
+  ['lambda-levers-combined', 'route1-r7-route-p', 'supersedes', 'best certified route-P value 0.145694083872924 → 0.145322418219213 (relative to the ledger)'],
+  ['lambda-levers-combined', 'route3-multipoint-joint-floor', 'uses', 'two-point kernel option types; six kernels + extended 281-kernel grid'],
+  ['lambda-levers-combined', 'route5-many-bands', 'uses', '3-band layout, band-1 right wall 9900000003031.5801; X150 caps the 4-band layout'],
+  ['route11-multi-prime-arb-lege', 'routes-i-arb-lege-cert', 'uses', 'multi-rung port of the Legendre–Galerkin Arb certificate (tail, η′, compression lemmas)'],
+  ['route11-multi-prime-arb-lege', 'twin-res-t', 'blocked-by', 'every reached support (≤ ln 11) lies below the verified-height crossover 2a = 7.764: content is the method, not ζ'],
+  ['route11-multi-prime-arb-lege', 'dag3-dhblind-arb-ln11', 'uses', 'DH certified positive on 2a ≤ ln 11: positivity at these supports does not by itself encode the Euler product'],
+  ['route12-s23-semilocal-identity', 'routes-i-semilocal-sonine-identity', 'uses', 'S = {∞,2} identity extended to S = {∞,2,3} (Tate factors ρ_2ρ_3)'],
+  ['route12-s23-semilocal-identity', 'routes-i-ds-le-ls', 'feeds', 'share on the minimiser = 1 − λ_W/L_S by definition; the RH content stays D_S ≤ L_S'],
+  ['route13-lacunary-cones', 'twin-ns-rigid', 'feeds', 'A6 made precise: indeterminate interpolation on Blaschke nodes; no zero information on separated lattices'],
+  ['route13-lacunary-cones', 'flow-blindness', 'uses', 'lacunary positivity survives the backward flow (ε_0 ≈ 364 at q = 4): soft in the SL2 sense'],
+  ['route13-lacunary-cones', 'twin-res-t', 'uses', 'near-threshold horizons beyond 3e12 would be RES-T-type zero-free regions (analogy, not a reduction)'],
+  ['route14-family-weil-positivity', 'twin-dh-euler-blindness', 'uses', 'hybrid family (254 characters mod 257 + F_DH) certified positive at 2a = 7.764'],
+  ['route14-family-weil-positivity', 'twin-ns-rigid', 'feeds', 'family positivity at finite support is Euler-blind (NS-RIGID (d)); all supports = GRH for the family'],
+  ['route14-family-weil-positivity', 'dag3-dhblind-arb-ln11', 'uses', 'same Arb Legendre–Galerkin pipeline, mixed gamma factor'],
+  ['route15-epstein-euler-blindness', 'twin-dh-euler-blindness', 'feeds', '27 Epstein radii; DH 1.72 sits inside the principal-form band log(|D|/4) − 0.13'],
+  ['route15-epstein-euler-blindness', 'routes-i-arb-lege-cert', 'feeds', '(2,2,3) fails below (ln 3)/2: same-gamma positivity at ln 3 is blind for principal twins, not for every twin'],
+  ['lambda-levers-joint', 'lambda-levers-combined', 'supersedes', 'newer campaign certificates: 0.145322418219213 → 0.145316161350388 (collect5) → 0.145276368594868 (collect6)'],
+  ['lambda-levers-joint', 'route9-barrier-height-schedule', 'rules-out', 'route-9 height sets never chosen once the route-3 kernels are present: joint marginal exactly 0'],
+  ['lambda-levers-joint', 'route1-r7-route-p', 'uses', 'campaign collect6: 255 of 369 P47 floors certified, route P alone 0.145535458600488'],
+  ['route16-alpoge-furman-reproduction', 'alpoge-furman-2026', 'uses', 'numerical reproduction of the preprint (heights 1e3–2.9e5); two harmless errata'],
+  ['route16-alpoge-furman-reproduction', 'montgomery-pair-correlation', 'uses', 'prime-side second moment (Montgomery–Vaughan mean square) gives ‖G‖²'],
+  ['route16-alpoge-furman-reproduction', 'twin-ns-rigid', 'feeds', 'the open class: second moment over a height-localised Weil compression of growing dimension + inertia (record 0.6725, preprint)'],
+  ['route16-alpoge-furman-reproduction', 'proportion-on-line', 'feeds', '2/3 (0.6725 with ψMT) of simple on-line zeros, preprint; peer-reviewed record PRZZ 5/12'],
+  ['route17-mollifiers-beyond-four-sevenths', 'conrey-1989', 'uses', 'Conrey functional c(P, Q, R, θ), κ ≥ 1 − log(c)/R; anchors 0.3658 / 0.4088 reproduced'],
+  ['route17-mollifiers-beyond-four-sevenths', 'wall-mollifier-length', 'blocked-by', 'θ > 4/7 conditional (Farmer); the Kloosterman input behind 4/7 is the barrier'],
+  ['route17-mollifiers-beyond-four-sevenths', 'przz-2020', 'uses', 'one piece passes PRZZ 0.417294 at θ = 0.58621 (conditional)'],
+  ['route17-mollifiers-beyond-four-sevenths', 'dag3-levinson-bridge', 'feeds', 'finite-T recipe main term confirmed numerically to θ = 2 at T = 1e3'],
+  ['route18-local-levinson-pair-correlation', 'montgomery-pair-correlation', 'uses', 'insensitivity lemma: ordinate statistics blind to windows of length o(T) and to β'],
+  ['route18-local-levinson-pair-correlation', 'ns3-local-levinson-hdesc', 'feeds', 'refines verdict (2): profile form needs c* = 0.882, not a 1.73× surplus; resolution ≈ 2–4 spacings loss-free'],
+  ['route18-local-levinson-pair-correlation', 'mirror-descent-theorem', 'rules-out', 'pair correlation + window Levinson cannot supply H_desc-mirror at every site'],
+  ['route18-local-levinson-pair-correlation', 'pair-correlation-wall', 'blocked-by', 'averaged hypotheses do not control every site'],
+  ['route19-mollified-weil-forms', 'weil-positivity', 'reduces-to', 'plain Weil form at half-support A = a + ½ log N on the subset {μ*g}'],
+  ['route19-mollified-weil-forms', 'dag3-dhblind-arb-ln11', 'uses', 'inherited certificate: mollified DH positivity for 2a + log N ≤ ln 11'],
+  ['route19-mollified-weil-forms', 'twin-dh-euler-blindness', 'uses', 'DH onsets: plain ≈ 1.80; mollified onsets always at larger total support'],
+  ['route19-mollified-weil-forms', 'twin-ns-rigid', 'feeds', 'finite-(a, N) mollified positivity inherits softness from the plain statement (conditional)'],
+  ['route42-mv-cap-theorem', 'lane-audit', 'feeds', 'MV-CAP made a theorem for zero-side and O-form premises; function-side L² scope narrowed (open)'],
+  ['route42-mv-cap-theorem', 'mirror-descent-theorem', 'rules-out', 'zero-side mean values cannot certify H_desc (counter-model at every lane window)'],
+  ['route42-mv-cap-theorem', 'pointwise-wall', 'feeds', 'a certifying zero-side premise needs one-window resolution (slack < 19.3 zeros)'],
+  ['route42-mv-cap-theorem', 'ns3-local-levinson-hdesc', 'feeds', 'replaces the informal MV-CAP cited there'],
   ['twin-dh-euler-blindness', 'twin-bridge-chi', 'uses', 'same bridge factor, no T_p cascade'],
   ['twin-dh-euler-blindness', 'twin-ns-rigid', 'feeds', 'quantifies NS-RIGID (d): FE + Dirichlet structure without Euler product'],
   ['twin-dh-euler-blindness', 'routes-c-signed-interferometer', 'feeds', 'quantitative radius for the Route C DH remark'],
@@ -1656,6 +1816,89 @@ export const PROJECT_ATTEMPTS_DAG_ASSERTIONS = Object.freeze([
         && ids.map(g).every((x) => /PT Λ ≤ 0\.2 stands/.test(x.summary) && /NO QED/.test(x.summary) && x.route === '/routes-roadmap')
         && has('route1-r7-route-p', 'r6-synthesis', 'supersedes') && has('route46-kronecker-floors', 'route1-r7-route-p', 'feeds')
         && has('route27-function-field-ladder', 'weil-curves', 'uses') && has('route49-s-of-t-sawtooth', 'mirror-descent-theorem', 'feeds');
+    },
+  },
+  {
+    id: 'project-routes-batch2-nodes',
+    name: 'fifty-routes batch 2 (2026-10-07) nodes: route 3 and route 5 certified but Λ < 0.145 not certified; route 4 a measurement (not a lever); route 6 a framework-relative result with no Λ value; route 20 certified conditional on Polymath15 Thm 1.3, never touching hypothesis (i); all carry NO QED',
+    why: 'referee-surviving scope of routes 3, 4, 5, 6, 20',
+    holds: () => {
+      const g = (id) => NODES.find((x) => x.id === id);
+      const has = (f, t, type) => EDGES.some((x) => x.from === f && x.to === t && x.type === type);
+      const ids = ['route3-multipoint-joint-floor', 'route4-fejer-riesz-wol', 'route5-many-bands', 'route6-sparse-verification', 'route20-effective-kkl'];
+      const [r3, r4, r5, r6, r20] = ids.map(g);
+      return ids.every((id) => g(id)) && r3.statusKind === 'certified' && /NOT certified/.test(r3.status) && /unrefereed/.test(r3.status)
+        && r4.statusKind === 'measured' && /not a lever/.test(r4.status) && r5.statusKind === 'certified' && /NOT certified/.test(r5.status)
+        && /0\.145620383931826/.test(r5.label) && r6.statusKind === 'result' && /no Λ value/.test(r6.status) && /framework/.test(r6.status)
+        && r20.statusKind === 'certified' && /conditional on Polymath15 Theorem 1\.3/.test(r20.status) && /never \(i\)/.test(r20.summary)
+        && ids.map(g).every((x) => /PT Λ ≤ 0\.2 stands/.test(x.summary) && /NO QED/.test(x.summary) && x.route === '/routes-roadmap' && x.date === '2026-10-07')
+        && has('route3-multipoint-joint-floor', 'route1-r7-route-p', 'uses') && has('route4-fejer-riesz-wol', 'route1-r7-route-p', 'feeds')
+        && has('route5-many-bands', 'r2-lemma-b', 'uses') && has('route6-sparse-verification', 'verified-height', 'feeds')
+        && has('route20-effective-kkl', 'lambda-p15-barrier-criterion', 'feeds');
+    },
+  },
+  {
+    id: 'project-routes-batch3-nodes',
+    name: 'fifty-routes batch 3 (2026-10-08) nodes: route 7 a measurement with no Λ change; route 8 and route 50 no-gos for their levers at PT height; route 9, route 38 and the combination certified but Λ < 0.145 not certified; route 38 blocked by verified height; all carry NO QED',
+    why: 'referee-surviving scope of routes 7, 8, 9, 38, 50 and the combined-lever value',
+    holds: () => {
+      const g = (id) => NODES.find((x) => x.id === id);
+      const has = (f, t, type) => EDGES.some((x) => x.from === f && x.to === t && x.type === type);
+      const ids = ['route7-time-dependent-mollifiers', 'route8-polymath-raymond-hybrid', 'route9-barrier-height-schedule', 'route38-barrier-height-scaling',
+        'route50-kkl-lambda-curve', 'lambda-levers-combined'];
+      const [r7, r8, r9, r38, r50, cmb] = ids.map(g);
+      return ids.every((id) => g(id)) && r7.statusKind === 'measured' && /no Λ change/.test(r7.status) && /sketch/.test(r7.status)
+        && r8.statusKind === 'no-go' && /computer-assisted candidates/.test(r8.summary) && r9.statusKind === 'certified' && /NOT certified/.test(r9.status)
+        && /0\.145637425999752/.test(r9.label) && r38.statusKind === 'certified' && /no Λ change/.test(r38.status) && r50.statusKind === 'no-go'
+        && /4\.9144/.test(r50.label) && cmb.statusKind === 'certified' && /NOT certified/.test(cmb.status) && /conditional/.test(cmb.status)
+        && /0\.145322418219213/.test(cmb.label) && /measured/.test(cmb.label)
+        && ids.map(g).every((x) => /PT Λ ≤ 0\.2 stands/.test(x.summary) && /NO QED/.test(x.summary) && x.route === '/routes-roadmap' && x.date === '2026-10-08')
+        && has('route38-barrier-height-scaling', 'verified-height', 'blocked-by') && has('route50-kkl-lambda-curve', 'route20-effective-kkl', 'rules-out')
+        && has('lambda-levers-combined', 'route1-r7-route-p', 'supersedes') && has('route9-barrier-height-schedule', 'lambda-levers-combined', 'feeds')
+        && has('route8-polymath-raymond-hybrid', 'lambda-p15-barrier-criterion', 'uses') && has('route7-time-dependent-mollifiers', 'route1-r7-route-p', 'uses');
+    },
+  },
+  {
+    id: 'project-routes-batch4-nodes',
+    name: 'fifty-routes batch 4 (2026-10-09) nodes and the joint lever run (route 9 adds 0; Λ < 0.145 NOT certified): route 11 clean to ln 5 and conditional to ln 11; route 12 measured (nothing certified); route 13 certified with the near-threshold regime open; route 14 Euler-blind closed class; route 15 upper bounds certified, lower ends even-sector measured; all carry NO QED',
+    why: 'referee-surviving scope of routes 11, 12, 13, 14, 15',
+    holds: () => {
+      const g = (id) => NODES.find((x) => x.id === id);
+      const has = (f, t, type) => EDGES.some((x) => x.from === f && x.to === t && x.type === type);
+      const ids = ['route11-multi-prime-arb-lege', 'route12-s23-semilocal-identity', 'route13-lacunary-cones', 'route14-family-weil-positivity', 'route15-epstein-euler-blindness'];
+      const [r11, r12, r13, r14, r15] = ids.map(g);
+      return ids.every((id) => g(id)) && r11.statusKind === 'certified' && /conditional/.test(r11.status) && /no Λ change/.test(r11.status)
+        && r12.statusKind === 'measured' && /nothing certified/.test(r12.status) && r13.statusKind === 'certified' && /open \(heuristic\)/.test(r13.status)
+        && r14.statusKind === 'certified' && /not a lever/.test(r14.status) && /Euler-blind/.test(r14.status)
+        && r15.statusKind === 'certified' && /even sector only/.test(r15.status)
+        && ids.map(g).every((x) => /PT Λ ≤ 0\.2 stands/.test(x.summary) && /NO QED/.test(x.summary) && x.route === '/routes-roadmap' && x.date === '2026-10-09' && x.group === 'route-i')
+        && has('route11-multi-prime-arb-lege', 'twin-res-t', 'blocked-by') && has('route12-s23-semilocal-identity', 'routes-i-ds-le-ls', 'feeds')
+        && has('route13-lacunary-cones', 'twin-ns-rigid', 'feeds') && has('route14-family-weil-positivity', 'twin-dh-euler-blindness', 'uses')
+        && has('route15-epstein-euler-blindness', 'twin-dh-euler-blindness', 'feeds')
+        && g('lambda-levers-joint').statusKind === 'certified' && /NOT certified/.test(g('lambda-levers-joint').status) && /0\.145276368594868/.test(g('lambda-levers-joint').label)
+        && /PT Λ ≤ 0\.2 stands/.test(g('lambda-levers-joint').summary) && /NO QED/.test(g('lambda-levers-joint').summary)
+        && has('lambda-levers-joint', 'lambda-levers-combined', 'supersedes') && has('lambda-levers-joint', 'route9-barrier-height-schedule', 'rules-out');
+    },
+  },
+  {
+    id: 'project-routes-batch5-nodes',
+    name: 'fifty-routes batch 5 (2026-10-10) nodes: route 16 a measured reproduction of a preprint; route 17 conditional κ table + measured agreement (truncation bug refuted); route 18 and route 19 no-gos for their levers (19 reduces to the plain Weil form); route 42 partial (zero-side theorem, function-side open); all carry NO QED',
+    why: 'referee-surviving scope of routes 16, 17, 18, 19, 42',
+    holds: () => {
+      const g = (id) => NODES.find((x) => x.id === id);
+      const has = (f, t, type) => EDGES.some((x) => x.from === f && x.to === t && x.type === type);
+      const ids = ['route16-alpoge-furman-reproduction', 'route17-mollifiers-beyond-four-sevenths', 'route18-local-levinson-pair-correlation',
+        'route19-mollified-weil-forms', 'route42-mv-cap-theorem'];
+      const [r16, r17, r18, r19, r42] = ids.map(g);
+      return ids.every((id) => g(id)) && r16.statusKind === 'measured' && /preprint/.test(r16.status) && /PRZZ 5\/12/.test(r16.summary)
+        && r17.statusKind === 'measured' && /conditional/.test(r17.status) && /truncation bug/.test(r17.status)
+        && r18.statusKind === 'no-go' && /structural observation/.test(r18.status) && r19.statusKind === 'no-go' && /proved/.test(r19.status)
+        && r42.statusKind === 'no-go' && /partial/.test(r42.status) && /NOT established/.test(r42.status) && /Lemma 5/.test(r42.status)
+        && ids.map(g).every((x) => /PT Λ ≤ 0\.2 stands/.test(x.summary) && /NO QED/.test(x.summary) && x.route === '/routes-roadmap' && x.date === '2026-10-10'
+          && /no Λ change|no proof input/.test(x.status))
+        && has('route16-alpoge-furman-reproduction', 'twin-ns-rigid', 'feeds') && has('route17-mollifiers-beyond-four-sevenths', 'wall-mollifier-length', 'blocked-by')
+        && has('route18-local-levinson-pair-correlation', 'mirror-descent-theorem', 'rules-out') && has('route19-mollified-weil-forms', 'weil-positivity', 'reduces-to')
+        && has('route42-mv-cap-theorem', 'lane-audit', 'feeds') && has('route42-mv-cap-theorem', 'mirror-descent-theorem', 'rules-out');
     },
   },
 ]);

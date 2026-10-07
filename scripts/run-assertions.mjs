@@ -534,6 +534,46 @@ const DATA_MODULES = [
   '/src/data/route-27-function-field-twin-ladder-2026-10-06.js',
   '/src/data/route-46-exact-kronecker-floors-2026-10-06.js',
   '/src/data/route-49-unconditional-s-of-t-2026-10-06.js',
+  // fifty-routes batch 2 result modules (2026-10-07; one internal referee pass each, corrections applied; import-free):
+  // route 3 (multi-point joint floor -7.86e-7; new lambda<2 kernels 0.145465618111039), route 4 (Fejer-Riesz SOS = grid slack, not a lever),
+  // route 5 (4 bands 0.145620383931826), route 6 (sparse verification: one window, head contiguous), route 20 (explicit KKL x0(t), Arb).
+  '/src/data/route-3-three-point-probes-2026-10-07.js',
+  '/src/data/route-4-fejer-riesz-wol-2026-10-07.js',
+  '/src/data/route-5-many-bands-2026-10-07.js',
+  '/src/data/route-6-sparse-verification-2026-10-07.js',
+  '/src/data/route-20-effective-ki-kim-lee-2026-10-07.js',
+  // fifty-routes batch 3 result modules (2026-10-08; one internal referee pass each, corrections applied; import-free):
+  // route 7 (per-cell Euler weights: lambda = 1 already best, U unchanged), route 8 (Polymath/Raymond hybrid: no gain),
+  // route 9 (optimised height set 0.145637425999752; all sets 0.145630653648379), route 38 (barrier slabs at 2X/5X/10X; verified height binds),
+  // route 50 (KKL Lambda(c, X) curve; method floored at c > 4.9144), and the combination of the certified levers
+  // (0.145322418219213 certified relative to the ledger; projection 0.1449636 measured; Lambda < 0.145 not certified).
+  '/src/data/route-7-time-dependent-mollifiers-2026-10-08.js',
+  '/src/data/route-8-polymath-raymond-hybrid-2026-10-08.js',
+  '/src/data/route-9-barrier-height-schedule-2026-10-08.js',
+  '/src/data/route-38-barrier-height-scaling-2026-10-08.js',
+  '/src/data/route-50-kkl-lambda-curve-2026-10-08.js',
+  '/src/data/lambda-levers-combined-2026-10-08.js',
+  // fifty-routes batch 4 result modules (2026-10-09; one internal referee pass each, corrections applied; import-free):
+  // route 11 (multi-rung ARB-LEGE: clean to ln 5, conditional to ln 11), route 12 (S = {oo,2,3} identity; share does not fall),
+  // route 13 (lacunary cone {4^k} certified; no zero information on separated lattices), route 14 (family positivity to 2a ~ 2 log q;
+  // Euler-blind), route 15 (Epstein Euler-blindness radii; lower ends even-sector only), and the joint consumer run (route 9 adds 0;
+  // newer campaign certificates; Lambda < 0.145 not certified).
+  '/src/data/route-11-multi-prime-toeplitz-krein-2026-10-09.js',
+  '/src/data/route-12-semilocal-s23-identity-2026-10-09.js',
+  '/src/data/route-13-lacunary-muntz-cones-2026-10-09.js',
+  '/src/data/route-14-family-weil-positivity-2026-10-09.js',
+  '/src/data/route-15-epstein-euler-blindness-2026-10-09.js',
+  '/src/data/lambda-levers-combined-2026-10-09.js',
+  // fifty-routes batch 5 result modules (2026-10-10; one internal referee pass each, corrections applied; import-free):
+  // route 16 (Alpoge-Furman >= 2/3 reproduced; NS-RIGID placement), route 17 (mollifiers beyond 4/7: conditional kappa table,
+  // finite-T main-term agreement; small-T "recipe failure" was a truncation bug), route 18 (local Levinson under pair correlation:
+  // closed as a map), route 19 (mollified Weil forms reduce to the plain form at a + (1/2) log N), route 42 (MV-CAP theorem for
+  // zero-side premises; function-side open, partial).
+  '/src/data/route-16-alpoge-furman-twin-ladder-2026-10-10.js',
+  '/src/data/route-17-mollifiers-beyond-four-sevenths-2026-10-10.js',
+  '/src/data/route-18-local-levinson-pair-correlation-2026-10-10.js',
+  '/src/data/route-19-mollified-weil-forms-2026-10-10.js',
+  '/src/data/route-42-formal-mv-cap-2026-10-10.js',
   // imp-96066 (2026-09-23): ASSESSMENT of the P_3-adjoined Route I pencil D_S + P_3 <= L_S vs the dense
   // 2^a 3^b resonance. Answer: the pencil uses the DISCRETE Weil term P_3 (support {k ln 3}, identically zero
   // for 2a < ln 3, single boundary point v = ln 3 at 2a = ln 3), NOT the dense S={oo,2,3} Sonine remainder

@@ -28,8 +28,8 @@ export default function CatalanSignedLadderPage() {
       meta={[D.status]}
       title={D.title}
       dek={D.oneLine}
-      byline={['signed twin ladder · zetaexplorer', 'G irrationality open']}
-      ticker={<span>χ₄ = the signed flip · G = β(2) = L(2,χ₄) · irrationality OPEN</span>}
+      byline={['signed twin ladder · zetaexplorer', 'G irrationality: open in refereed literature; external Lean-formalized claim (not peer-reviewed)']}
+      ticker={<span>χ₄ = the signed flip · G = β(2) = L(2,χ₄) · irrationality OPEN in refereed literature · openai/math 005 claim, not peer-reviewed</span>}
       footer={<>
         Related: <Link to="/irrationality-pipeline">The irrationality pipeline</Link>
         {' · '}<Link to="/flow-blindness-no-go">Flow-blindness no-go</Link>
@@ -128,6 +128,7 @@ export default function CatalanSignedLadderPage() {
         <li style={{ marginBottom: 8 }}><strong>Obstruction.</strong> {D.verdict.obstruction}</li>
         <li style={{ marginBottom: 8 }}><strong>Lever.</strong> {D.verdict.lever}</li>
         <li style={{ marginBottom: 8 }}><strong>Open.</strong> {D.verdict.open}</li>
+        <li style={{ marginBottom: 8 }}><strong>External claim.</strong> {D.verdict.externalClaim}</li>
       </ul>
       <p style={{ fontSize: 13.5, color: 'var(--faint)', borderTop: '1px solid var(--hairline)', paddingTop: 10 }}>
         {D.verdict.caveat}

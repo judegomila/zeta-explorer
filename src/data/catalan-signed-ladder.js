@@ -7,7 +7,12 @@
  * irrationality of G is a famous OPEN problem, and this note pins down exactly why:
  * the same shifted-Legendre device that isolates ζ(2)/ζ(3) into a 2-dimensional
  * period space buries G in a 5-dimensional one, the extra π-column forced by the
- * χ₄ functional equation. No claim of a proof is made; G's irrationality is open.
+ * χ₄ functional equation. No claim of a proof is made; G's irrationality is open in
+ * the peer-reviewed literature. External claim (2026-10-06): openai/math family 005,
+ * written by an internal OpenAI model, claims G irrational; Lean-formalized per the
+ * repository (comparator statement OAI.InternalCatalan.catalan_irrational); not
+ * peer-reviewed and not built or checked by this project. Our obstruction covers the
+ * mechanisms listed here only.
  *
  * NO heavy imports (no zeros bundle). Self-contained record + numeric tripwires.
  */
@@ -21,13 +26,15 @@ const Z2 = (PI * PI) / 6; // ζ(2)
 export const CATALAN_SIGNED_LADDER = Object.freeze({
   id: 'catalan-signed-ladder',
   title: 'The signed twin ladder and Catalan’s constant',
-  status: 'VERIFIED correspondence + RIGOROUS obstruction; G irrationality OPEN',
+  status: 'VERIFIED correspondence + RIGOROUS obstruction (for the listed mechanisms); G irrationality OPEN in the peer-reviewed literature; claimed by an internal OpenAI model in openai/math (2026-10-06), Lean-formalized per the repository, not peer-reviewed',
   oneLine:
     'Catalan’s constant G is the twin ladder’s signed (χ₄) value: '
     + 'Σχ₄(n)/n² = G, a self-dual signed ladder. The same device that '
     + 'isolates ζ(2)/ζ(3) into a 2-period space lands G in a 5-period space '
     + '⟨1, G, π, π², ln2⟩ — the extra π-column, forced by the '
-    + 'χ₄ functional equation, is exactly why G’s irrationality is open.',
+    + 'χ₄ functional equation, is exactly why the mechanisms tested here do not reach G’s '
+    + 'irrationality (open in the peer-reviewed literature; an external Lean-formalized claim '
+    + 'appeared in openai/math on 2026-10-06, not peer-reviewed).',
 
   // 1 — the verified correspondence (all checked numerically below)
   correspondence: {
@@ -88,7 +95,7 @@ export const CATALAN_SIGNED_LADDER = Object.freeze({
     catalan:
       'G: isolating the target means eliminating the π, π², ln2 columns; each elimination '
       + 'costs an extra d_n (plus powers of 2 from the χ₄ Gauss sum), inflating β just past α '
-      + '— net ≳ 0, LOSES. That single flipped exponent is the whole open problem.',
+      + '— net ≳ 0, LOSES. That single flipped exponent is the whole obstruction for this mechanism.',
     frontier:
       'Calegari–Dimitrov–Tang (2024) proved 1, ζ(2), L(2,χ₋₃) linearly independent via an '
       + 'arithmetic holonomy bound — a tug-of-war between an archimedean capacity (log-energy) '
@@ -161,10 +168,18 @@ export const CATALAN_SIGNED_LADDER = Object.freeze({
       + '[B_v,Π_p] weld, which emits signed linear forms, but there is no evidence its aliases cancel '
       + 'the π-column. Speculative, low probability — stated as such.',
     open:
-      'G’s irrationality remains OPEN. This note proves no bound; it locates the wall precisely. '
+      'G’s irrationality remains OPEN in the peer-reviewed literature (external Lean-formalized claim below, not peer-reviewed). This note proves no bound; it locates the wall for the mechanisms tested here. '
       + 'The single quantity a proof must improve: the conductor-4 capacity-vs-denominator balance — '
       + 'either raise the archimedean capacity in the CDT holonomy bound past conductor 4, or make '
       + 'rigorous a 2-adic saturation letting the denominator growth dominate with real margin.',
+    externalClaim:
+      'External claim (2026-10-06): openai/math family 005, written by an internal OpenAI model, claims '
+      + 'that G is irrational. Lean-formalized per the repository: comparator statement '
+      + 'OAI.InternalCatalan.catalan_irrational : Irrational (∑\' j, (-1)^j / (2j+1)^2) with a solution tree '
+      + 'of 981 files whose sources contain no sorry (text search). Not peer-reviewed; this project has not '
+      + 'built or checked that Lean proof. Its method (determinants Δ_N of size 48N whose rows have high '
+      + 'Taylor contact) is stated to cancel the ζ(2) column in every entry, which is a mechanism outside '
+      + 'the list our obstruction covers. Next check: rebuild Δ_N for N = 1, 2 and confirm the cancellation.',
     caveat:
       'Methodology caveat (demonstrated): a double-precision integer-relation search returned a '
       + 'G-FREE relation "12·I₁ = −68 + 11π + 4π² − 9ln2" at the 1e-7 noise floor — a '
@@ -187,6 +202,7 @@ export const CATALAN_SIGNED_LADDER = Object.freeze({
     'Yu. V. Nesterenko, linear independence criterion (1985); K. Ball, T. Rivoal, Invent. Math. 146 (2001).',
     'M. Kontsevich, D. Zagier, Periods, in Mathematics Unlimited (2001).',
     'Zhi-Wei Sun, Catalan’s constant is irrational, arXiv:2609.04176 (Sep 2026) — UNREFEREED preprint.',
+    'openai/math (github.com/openai/math, released 2026-10-06), family 005: Catalan’s constant is irrational — claimed by an internal OpenAI model; Lean-formalized per the repository; NOT peer-reviewed.',
   ],
 });
 
@@ -235,6 +251,14 @@ export const CATALAN_SIGNED_LADDER_ASSERTIONS = Object.freeze([
     name: 'honest: G irrationality stated OPEN, no proof claimed',
     check: () => /OPEN/.test(CATALAN_SIGNED_LADDER.verdict.open)
       && /no lever|no evidence/i.test(CATALAN_SIGNED_LADDER.verdict.lever),
+  },
+  {
+    name: 'openai/math 005 claim recorded as external, Lean-formalized per the repository, not peer-reviewed, not checked here',
+    check: () => /internal OpenAI model/.test(CATALAN_SIGNED_LADDER.verdict.externalClaim)
+      && /Lean-formalized per the repository/.test(CATALAN_SIGNED_LADDER.verdict.externalClaim)
+      && /Not peer-reviewed/.test(CATALAN_SIGNED_LADDER.verdict.externalClaim)
+      && /not peer-reviewed/.test(CATALAN_SIGNED_LADDER.status)
+      && /OPEN in the peer-reviewed literature/.test(CATALAN_SIGNED_LADDER.verdict.open),
   },
   {
     name: 'Sun 2026 preprint flagged UNVERIFIED',

@@ -17,6 +17,9 @@ const WaveSimViz = lazy(() => import('../components/WaveSimViz.jsx'));
    scoped editorial.css applies. Old dark home preserved at /classic. */
 
 const FINDINGS = [
+  { to: '/routes-roadmap', grade: 'CONDITIONAL', date: '2026-10', isNew: true,
+    title: 'Λ ≤ 0.11771 if ζ has no zeros with Re s > 7/8',
+    desc: 'Raymond barrier chain + route-P stack started from the 7/8 zero-free half-plane (openai/math family 003; Lean proof re-built here). Conditional on Raymond’s unrefereed chain and internal certificates; not a bound.' },
   { to: '/lambda-01758354-candidate', grade: 'CANDIDATE', date: '2026-08',
     title: 'Λ ≤ 0.1758354', desc: 'Computer-assisted candidate: four barrier gates certified in Arb, y-transfer reduction and Lemma B3 Lean-checked. Unreviewed and unpublished; PT Λ ≤ 0.2 stands.' },
   { to: '/newman-lambda-01787854-candidate', grade: 'CANDIDATE', date: '2026-08',
@@ -50,7 +53,7 @@ const FINDINGS = [
   { to: '/theta-basin-closure', grade: 'THEOREM', date: '2026-08',
     title: 'c_glob = 0.8980208880762339', desc: 'Unique root of the half-lattice digamma rate bound: global isolation constant = half-lattice constant. Closes R2 subgap; no Λ change.' },
   { to: '/catalan-signed-ladder', grade: 'THEOREM', date: '2026-09', isNew: true,
-    title: 'Catalan period-dimension obstruction', desc: 'Signed-ladder values: ζ(2) control 5ζ(2) − 8 (period dimension 2), Catalan G − π + 2ln2 + π²/12 (dimension 5). G irrationality open.' },
+    title: 'Catalan period-dimension obstruction', desc: 'Signed-ladder values: ζ(2) control 5ζ(2) − 8 (period dimension 2), Catalan G − π + 2ln2 + π²/12 (dimension 5). G irrationality open in the refereed literature; an external Lean-formalized claim (openai/math, 2026-10-06) is not peer-reviewed.' },
   { to: '/theorem-b-threshold', grade: 'RESULT', date: '2026-06',
     title: 'Closed-form constants', desc: 'Exact values for the Theorem-B threshold and boundary constants.' },
   { to: '/lambda-bounds', grade: 'RESULT', date: '2026-07',

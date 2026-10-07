@@ -100,7 +100,7 @@ export const IRRATIONALITY_PIPELINE = Object.freeze({
     { target: 'ζ(3)', enc: 'trivial χ, k=3', predDim: 2, verdict: 'PROVEN (Apéry): α=3.53>β=3' },
     { target: 'ζ(2)', enc: 'trivial χ, k=2', predDim: 2, verdict: 'closed form (π²/6)' },
     { target: 'L(2,χ₋₃)', enc: 'χ₋₃, q=3, k=2', predDim: '≤3', verdict: 'PROVEN (CDT 2024): conductor-3 capacity clears' },
-    { target: 'G = β(2)', enc: 'χ₄, q=4, k=2', predDim: 5, verdict: 'OPEN: π-column forced; β≳α after elimination' },
+    { target: 'G = β(2)', enc: 'χ₄, q=4, k=2', predDim: 5, verdict: 'OPEN in refereed literature: π-column forced for the tested mechanisms; β≳α after elimination. Claimed irrational in openai/math 005 (2026-10-06; Lean-formalized per the repository; not peer-reviewed)' },
     { target: 'β(4), β(6)', enc: 'χ₄, k=4,6', predDim: '≥5', verdict: 'OPEN: one-of-block (RZ 2003)' },
     { target: 'ζ(5), ζ(7)', enc: 'trivial χ, k=5,7', predDim: '≥2', verdict: 'OPEN: odd block coupled' },
   ],
@@ -118,7 +118,7 @@ export const IRRATIONALITY_PIPELINE = Object.freeze({
       + 'sign re-analysis found it FLAWED — the decisive quantity measures ≈ +1.86 B² (or '
       + '+0.474 B² after removing a 2-adic waste factor) where the proof needs ≤ −0.0097 B² '
       + '(wrong-sign B²; three distinct §9 errors; no construction-class variant reaches a '
-      + 'negative coefficient). So: treat it as REFUTED-as-a-proof, Catalan G still OPEN. '
+      + 'negative coefficient). So: treat it as REFUTED-as-a-proof; Catalan G still OPEN in the refereed literature (see the openai/math 005 claim below). '
       + 'Conditional on the flagged §9 sign error (ρ=S/B), a re-derived δ₀_corr(ρ) ledger '
       + 'flips Sun’s literal ρ=1/20 margin NEGATIVE (δ₀_corr≈−0.00034), destroying the '
       + 'fixed-ratio hardening framing, while a robust interior optimum survives near '
@@ -137,6 +137,24 @@ export const IRRATIONALITY_PIPELINE = Object.freeze({
       + 'Zenodo 22867547 — a different author and problem; Raymond’s paper shares NONE of '
       + 'Sun’s δ₀ ledger, and Λ is zero-location, not value-irrationality.)',
     status: 'external, UNVERIFIED — §9 analyzed and found flawed (wrong-sign B²); Catalan G open; distinct from Raymond’s Λ<0.149396 paper',
+  },
+
+  // openai/math release (2026-10-06): families 005 (Catalan) and 017 (irrationality exponent of π).
+  openaiCase: {
+    heading: 'External claims: openai/math families 005 and 017',
+    body:
+      'The openai/math repository (github.com/openai/math, released 2026-10-06) contains manuscripts written by an '
+      + 'internal OpenAI model; its README states that unformalized results may contain errors. Family 005 claims that '
+      + 'Catalan’s constant G = β(2) is irrational, with the Lean comparator statement '
+      + 'OAI.InternalCatalan.catalan_irrational and a solution tree of 981 files whose sources contain no sorry (text '
+      + 'search). Its method uses determinants Δ_N of size 48N whose rows have high Taylor contact so that the ζ(2) '
+      + 'column cancels in every entry, a mechanism outside the list covered by the /catalan-signed-ladder obstruction. '
+      + 'Family 017 claims that the irrationality exponent of π equals 2 (comparator statement PiExponent). '
+      + 'Both are Lean-formalized per the repository and not peer-reviewed; this project has not built or checked '
+      + 'either Lean proof (the family 003 zero-free-strip proof was re-built locally; see '
+      + 'src/data/openai-math-integration-2026-10-08.js). Next check: rebuild Δ_N for N = 1, 2 and confirm the '
+      + 'ζ(2) cancellation numerically.',
+    status: 'external, claimed by an internal OpenAI model; Lean-formalized per the repository; NOT peer-reviewed; not checked by this project',
   },
 
   // Fauzan's ζ(5)-irrationality preprint (Zenodo 22826419) — a live external claim.
@@ -174,6 +192,7 @@ export const IRRATIONALITY_PIPELINE = Object.freeze({
     'Yu. Nesterenko, linear-independence criterion (1985); K. Ball, T. Rivoal, Invent. Math. 146 (2001).',
     'F. Calegari, V. Dimitrov, Y. Tang, The linear independence of 1, ζ(2), L(2,χ₋₃) (2024).',
     'D. Rivoal, W. Zudilin, Diophantine properties of numbers related to Catalan’s constant, Math. Ann. 326 (2003).',
+    'openai/math, github.com/openai/math (released 2026-10-06), families 005 and 017 — claimed by an internal OpenAI model; Lean-formalized per the repository; not peer-reviewed.',
   ],
 });
 
@@ -205,6 +224,14 @@ export const IRRATIONALITY_PIPELINE_ASSERTIONS = Object.freeze([
     name: 'Sun case: sign-corrected ρ=1/20 margin flagged negative, interior optimum load-bearing',
     holds: () => /NEGATIVE/.test(IRRATIONALITY_PIPELINE.sunCase.body)
       && /load-bearing/.test(IRRATIONALITY_PIPELINE.sunCase.body),
+  },
+  {
+    name: 'openai/math 005/017 claims: external, Lean-formalized per the repository, NOT peer-reviewed; G row keeps refereed status OPEN',
+    holds: () => /NOT peer-reviewed/.test(IRRATIONALITY_PIPELINE.openaiCase.status)
+      && /internal OpenAI model/.test(IRRATIONALITY_PIPELINE.openaiCase.body)
+      && /not checked by this project/.test(IRRATIONALITY_PIPELINE.openaiCase.status)
+      && /^OPEN in refereed literature/.test(IRRATIONALITY_PIPELINE.targets.find((t) => t.target === 'G = β(2)').verdict)
+      && /not peer-reviewed/.test(IRRATIONALITY_PIPELINE.targets.find((t) => t.target === 'G = β(2)').verdict),
   },
   {
     name: 'Fauzan ζ(5) case: credible-unrefereed, NOT certified (no false QED)',

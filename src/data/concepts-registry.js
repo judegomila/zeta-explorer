@@ -217,7 +217,7 @@ const RAW_CONCEPTS = [
   // Zero-free regions, zero density, proportions
   // ════════════════════════════════════════════════════════════════════════
   c('zero-free-region', 'Zero-free region', ['zero-free regions', 'zero-free strip', 'MTY region', 'Vinogradov–Korobov region', 'de la Vallée Poussin region'], 'verification',
-    'A proved region near Re s = 1 with no zeros, e.g. σ > 1 − 1/(5.558691 log t) (Mossinghoff–Trudgian–Yang). RH is the widest such region.',
+    'Region with no zeros of ζ. Proved: σ > 1 − 1/(5.558691 log t) (MTY). Claimed, Lean-formalized, not peer-reviewed: σ > 7/8 (openai/math, 2026). RH: σ > 1/2.',
     true, ['prime-number-theorem', 'zero-density-estimate', 't3-strip', 'exponential-sum-wall'], [LANDSCAPE]),
   c('zero-density-estimate', 'Zero-density estimate', ['N(σ,T)', 'Guth–Maynard', 'Ingham estimate', 'density hypothesis'], 'verification',
     'An upper bound on how many zeros can lie right of a line Re s = σ up to height T. Guth–Maynard (2024) improved Ingham’s 1940 exponent.',
@@ -565,7 +565,7 @@ const RAW_CONCEPTS = [
     'Sieve methods cannot tell numbers with an even number of prime factors from those with an odd number, which blocks many prime-detection arguments.',
     false, ['theorem-u'], [LANDSCAPE]),
   c('siegel-zero', 'Landau–Siegel zero', ['Siegel zero', 'exceptional zero', 'Landau-Siegel'], 'no-go',
-    'A possible real zero of a Dirichlet L-function very close to 1. Not ruled out; its possible existence weakens many effective GRH-type bounds.',
+    'Possible real zero of a Dirichlet L-function near 1. Not ruled out in refereed work; openai/math (2026) claims a uniform exclusion, not peer-reviewed.',
     false, ['grh', 'dirichlet-l-function'], [LANDSCAPE]),
   c('weil-support-wall', 'Weil-support wall', ['Weil positivity past the first prime', 'support ln 2 wall'], 'no-go',
     'Weil positivity is proved for small supports where few primes enter; each added prime brings arithmetic terms with no general positivity proof.',

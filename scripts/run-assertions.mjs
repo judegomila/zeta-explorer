@@ -574,6 +574,20 @@ const DATA_MODULES = [
   '/src/data/route-18-local-levinson-pair-correlation-2026-10-10.js',
   '/src/data/route-19-mollified-weil-forms-2026-10-10.js',
   '/src/data/route-42-formal-mv-cap-2026-10-10.js',
+  // fifty-routes batch 6 result modules (2026-10-11; one internal referee pass each, corrections applied; import-free):
+  // route 21 (monotone functionals of the zero flow: majorization + log-convex family, flow-blind), route 22 (Lehmer-pair hunt to 1e13:
+  // best certified -4.2577e-6, CUE_Neff replication), route 23 (H_t vs Dyson BM loop identity, partial), route 24 (mean-field descent
+  // with t > 0 local counts: no gain, B2 ceiling ~0.148 at the seam), route 37 (Gram-law statistics do not predict certificate difficulty).
+  '/src/data/route-21-zero-flow-entropy-functionals-2026-10-11.js',
+  '/src/data/route-22-lehmer-pair-hunt-2026-10-11.js',
+  '/src/data/route-23-ht-vs-dyson-bm-2026-10-11.js',
+  '/src/data/route-24-mean-field-local-counts-2026-10-11.js',
+  '/src/data/route-37-gram-law-barrier-difficulty-2026-10-11.js',
+  // openai/math integration (2026-10-08): family 003 (zeta zero-free for Re s > 7/8) Lean proof re-built locally (lake build,
+  // #print axioms = propext/Classical.choice/Quot.sound, statement match; official comparator not run); conditional Lambda
+  // values with the 7/8 half-plane start (Raymond chain 0.118505710922701, route-P single band 0.117708313410954; referee
+  // corrections applied); de Bruijn 9/32. PT Lambda <= 0.2 stands; NO QED. Import-free.
+  '/src/data/openai-math-integration-2026-10-08.js',
   // imp-96066 (2026-09-23): ASSESSMENT of the P_3-adjoined Route I pencil D_S + P_3 <= L_S vs the dense
   // 2^a 3^b resonance. Answer: the pencil uses the DISCRETE Weil term P_3 (support {k ln 3}, identically zero
   // for 2a < ln 3, single boundary point v = ln 3 at 2a = ln 3), NOT the dense S={oo,2,3} Sonine remainder

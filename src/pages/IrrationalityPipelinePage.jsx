@@ -88,6 +88,12 @@ export default function IrrationalityPipelinePage() {
         status: {D.sunCase.status}
       </p>
 
+      <h2>{D.openaiCase.heading}</h2>
+      <p>{D.openaiCase.body}</p>
+      <p className="ed-mono" style={{ fontSize: 12.5, color: 'var(--brass, #8c6a1d)' }}>
+        status: {D.openaiCase.status}
+      </p>
+
       <p style={{ fontSize: 13.5, color: 'var(--faint)', borderTop: '1px solid var(--hairline)', paddingTop: 10 }}>
         {D.caveat}
       </p>

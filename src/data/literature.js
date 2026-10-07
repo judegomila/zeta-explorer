@@ -832,7 +832,7 @@ const literature = [
     url: 'https://doi.org/10.1017/fmp.2015.7',
     category: 'analytic',
     tags: ['Chowla conjecture', 'Liouville function', 'parity barrier', 'entropy'],
-    summary: 'Proved the logarithmically averaged Chowla conjecture for two-point correlations of the Liouville function, breaking the "parity barrier" in multiplicative number theory. Also resolved the Erdős discrepancy problem.',
+    summary: 'Proved the logarithmically averaged Chowla conjecture for two-point correlations of the Liouville function, breaking the "parity barrier" in multiplicative number theory. Also resolved the Erdős discrepancy problem. The ordinary-average (not log-averaged) two-point case is claimed by an internal OpenAI model in openai/math family 007 (2026-10-06); Lean-formalized per the repository; not peer-reviewed.',
     keyInsight: 'The parity barrier is the oscillator chain\'s inability to distinguish between s and 1-s — Tao broke it by using entropy/information-theoretic arguments.',
     relevanceToModel: 'Entropy methods applied to the Liouville function correspond to thermodynamic analysis of the oscillator chain — measuring its information content rather than just energy.',
   },

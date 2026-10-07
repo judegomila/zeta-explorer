@@ -32,7 +32,7 @@ const NODES = [
     'RH is equivalent to W(f ∗ f̃) ≥ 0 for all admissible test functions f, where W is the prime/archimedean side of the explicit formula.',
     'A. Weil, Comm. Sém. Math. Univ. Lund (1952) 252–265; E. Bombieri, Rend. Mat. Acc. Lincei 11 (2000) 183–233'),
   n('zero-free-region', 'Zero-free regions and strips', 'equivalent-formulation', 'open', 'open', '1896–',
-    'RH is equivalent to: no zero with Re s > 1/2 + a, for every a > 0. No strip Re s > 1 − δ with fixed δ > 0 is known to be zero-free; the proved regions (classical, Vinogradov–Korobov) approach Re s = 1 as t grows.',
+    'RH is equivalent to: no zero with Re s > 1/2 + a, for every a > 0. In the peer-reviewed literature no strip Re s > 1 − δ with fixed δ > 0 is known to be zero-free; the proved regions (classical, Vinogradov–Korobov) approach Re s = 1 as t grows. The strip Re s > 7/8 is claimed by an internal OpenAI model in openai/math (2026-10-06); its Lean proof is formalized in the repository and was re-built locally; not peer-reviewed (node qrh-openai-2026).',
     'Titchmarsh, The Theory of the Riemann Zeta-Function, 2nd ed. (1986) Ch. 3, 6; Ivić, The Riemann Zeta-Function (1985)'),
   n('proportion-on-line', 'Proportion of zeros on the critical line', 'program', 'open', 'open (lower bounds known)', '1942–',
     'Lower bounds for the proportion κ of nontrivial zeros on Re s = 1/2. RH implies κ = 1; κ = 1 as a density statement does not imply RH. Peer-reviewed record κ > 5/12 (PRZZ 2020).',
@@ -99,6 +99,9 @@ const NODES = [
   n('zfr-vk', 'Vinogradov–Korobov zero-free region', 'partial-result', 'proven', 'proven, peer-reviewed', '1958/2002/2024',
     'σ > 1 − c/((log t)^{2/3}(log log t)^{1/3}); the exponent 2/3 is unchanged since 1958. Explicit constant 1/57.54 (Ford 2002), 1/53.989 (Bellotti 2024) for large t.',
     'I.M. Vinogradov, N.M. Korobov (1958); K. Ford, Proc. LMS 85 (2002) 565–633; C. Bellotti, arXiv:2306.10680'),
+  n('qrh-openai-2026', 'Quasi-Riemann hypothesis: ζ and Dirichlet L zero-free in Re s > 7/8 (external claim)', 'record-claim', 'claimed', 'external claim, Lean-formalized (Lean proof re-built locally; official comparator and independent kernel check not run); not peer-reviewed', '2026',
+    'Claimed by an internal OpenAI model in openai/math (2026-10-06), family 003: ζ(s) ≠ 0 and L(s,χ) ≠ 0 for every Dirichlet character when Re s > 7/8 (alternate 11/12 proof in a human-edited writeup; a uniform Landau–Siegel gap is also claimed). The Lean theorem OAI.riemannZeta_ne_zero_of_seven_eighths_lt_re builds locally (Lean 4.34.1, Mathlib d13f23b7) with axioms propext, Classical.choice, Quot.sound, and its statement matches the comparator challenge on Mathlib’s riemannZeta. With de Bruijn (1950) it gives Λ ≤ 9/32 conditionally, above PT’s 0.2. RH is open.',
+    'github.com/openai/math, preprints/The-Quasi-Riemann-Hypothesis-September-30-2026 and lean/ComparatorChallenges/QuasiRiemannHypothesis.lean; formalization/external/openai-math-qrh-verification.md; src/data/openai-math-integration-2026-10-08.js'),
   n('zero-density-ingham', 'Ingham zero-density estimate', 'partial-result', 'proven', 'proven', '1940',
     'N(σ,T) ≪ T^{3(1−σ)/(2−σ)} log^5 T; the benchmark near σ = 3/4 for 80 years (Huxley 1972 for σ ≥ 3/4).',
     'A.E. Ingham, Quart. J. Math. Oxford 11 (1940) 291–292; M.N. Huxley, Invent. Math. 15 (1972) 164–170'),
@@ -220,7 +223,7 @@ const NODES = [
     'Known positivity proofs control the archimedean place only; once log-support exceeds ln 2 the p = 2 term (and then every prime) enters and the archimedean arguments no longer suffice.',
     'Connes–Consani, Selecta Math. 27 (2021); Yoshida (1992)'),
   n('wall-siegel-zero', 'Wall: Landau–Siegel exceptional zero (GRH)', 'wall', 'obstruction', 'standing obstruction', '1935–',
-    'For Dirichlet L-functions, ineffective Siegel bounds cannot exclude a real zero near 1; no analogue for ζ itself, but a central obstruction to GRH-type results.',
+    'For Dirichlet L-functions, ineffective Siegel bounds cannot exclude a real zero near 1; no analogue for ζ itself, but a central obstruction to GRH-type results. Peer-reviewed status unchanged; openai/math family 003 (2026-10-06, internal OpenAI model) claims a uniform gap (1 − β) log q ≥ c, with a SiegelZeros comparator statement in the repository (not checked locally); not peer-reviewed.',
     'C.L. Siegel, Acta Arith. 1 (1935) 83–86; Iwaniec–Kowalski (2004) Ch. 5'),
 ];
 
@@ -264,6 +267,10 @@ const EDGES = [
   e('zfr-vk', 'zfr-classical', 'supersedes', 'asymptotically, for large t'),
   e('zfr-vk', 'zero-free-region', 'partial-toward'),
   e('zfr-vk', 'wall-exponential-sum', 'blocked-by'),
+  e('qrh-openai-2026', 'zero-free-region', 'partial-toward', 'claimed fixed strip Re s > 7/8; Lean-formalized; not peer-reviewed'),
+  e('qrh-openai-2026', 'zfr-vk', 'supersedes', 'claimed; a fixed-width strip contains every region approaching Re s = 1'),
+  e('qrh-openai-2026', 'grh', 'partial-toward', 'claimed for every Dirichlet L-function'),
+  e('qrh-openai-2026', 'de-bruijn-1950', 'feeds', 'with de Bruijn Thm 13: Λ ≤ 9/32 conditionally (not below PT 0.2)'),
   e('zero-free-region', 'wall-exponential-sum', 'blocked-by', 'no fixed strip σ > 1 − δ is known'),
   e('zero-density-ingham', 'density-hypothesis', 'partial-toward'),
   e('guth-maynard', 'zero-density-ingham', 'supersedes', 'near σ = 3/4'),
@@ -442,13 +449,15 @@ export const RH_LANDSCAPE_DAG_ASSERTIONS = Object.freeze([
   },
   {
     id: 'landscape-honest-status',
-    name: 'PT is the accepted benchmark, the project node is an unreviewed candidate, the 2/3 claim is not peer-reviewed, RH open',
+    name: 'PT is the accepted benchmark, the project node is an unreviewed candidate, the 2/3 and quasi-RH claims are not peer-reviewed, RH open',
     why: 'no false QED; no implied publication',
     holds: () => {
       const g = (id) => NODES.find((x) => x.id === id);
       return /accepted benchmark/.test(g('pt-lambda-02').status) &&
         /unreviewed/.test(g('project-lambda-candidate').status) && /unpublished/.test(g('project-lambda-candidate').status) &&
         /not peer-reviewed/.test(g('alpoge-furman-2026').status) && g('rh').status === 'open' &&
+        g('qrh-openai-2026').statusKind === 'claimed' && /^external claim, Lean-formalized/.test(g('qrh-openai-2026').status) &&
+        /not peer-reviewed/.test(g('qrh-openai-2026').status) && /RH is open/.test(g('qrh-openai-2026').summary) &&
         /RH open/.test(RH_LANDSCAPE_DAG.status);
     },
   },

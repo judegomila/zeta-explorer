@@ -23,7 +23,10 @@
  * the joint consumer run with route 9 and the newer campaign certificates is in src/data/lambda-levers-combined-2026-10-09.js).
  * Batch 5 = routes 16, 17, 18, 19 (group C, proportion and mollifiers) and 42 (group I, formal MV-CAP), recorded 2026-10-10 (one
  * internal referee pass each, corrections applied in the route-<id>-*-2026-10-10.js modules; route 42 is 'partial': MV-CAP is a theorem
- * for zero-side premises only). Batch 6 = routes 21, 22, 23, 24, 37 (planned). Later batches are unassigned (null).
+ * for zero-side premises only). Batch 6 = routes 21, 22, 23, 24 (group D, heat flow and the fluid picture) and 37 (group G, Gram-law
+ * statistics), recorded 2026-10-11 (one internal referee pass each, corrections applied in the route-<id>-*-2026-10-11.js modules; route 23
+ * is 'partial': the t = 0 loop-identity test is done, its finite-τ production runs were still running). Batch 7 = routes 25, 26, 28, 29, 30
+ * (group E, twin ladder and bridge model; planned). Later batches are unassigned (null).
  * Import-free. RESEARCH_ROUTES_ASSERTIONS check ids, groups, tags, statuses, the batch sets and result fields.
  */
 
@@ -64,9 +67,10 @@ export const RESEARCH_ROUTE_BATCH_3 = Object.freeze([7, 8, 9, 38, 50]);
 export const RESEARCH_ROUTE_BATCH_4 = Object.freeze([11, 12, 13, 14, 15]);
 export const RESEARCH_ROUTE_BATCH_5 = Object.freeze([16, 17, 18, 19, 42]);
 export const RESEARCH_ROUTE_BATCH_6 = Object.freeze([21, 22, 23, 24, 37]);
+export const RESEARCH_ROUTE_BATCH_7 = Object.freeze([25, 26, 28, 29, 30]);
 const BATCH = new Map([...[...FIRST].map((id) => [id, 1]), ...RESEARCH_ROUTE_BATCH_2.map((id) => [id, 2]),
   ...RESEARCH_ROUTE_BATCH_3.map((id) => [id, 3]), ...RESEARCH_ROUTE_BATCH_4.map((id) => [id, 4]), ...RESEARCH_ROUTE_BATCH_5.map((id) => [id, 5]),
-  ...RESEARCH_ROUTE_BATCH_6.map((id) => [id, 6])]);
+  ...RESEARCH_ROUTE_BATCH_6.map((id) => [id, 6]), ...RESEARCH_ROUTE_BATCH_7.map((id) => [id, 7])]);
 
 // Route-1 certification campaign (launched 2026-10-06 17:27; state recorded from the launch report and status.tsv).
 const ROUTE_1_CAMPAIGN = Object.freeze({
@@ -87,7 +91,7 @@ const ROUTE_1_CAMPAIGN = Object.freeze({
   note: 'Originals in tmp/r7-full-out/run untouched. Route 5 (measured): with 3 bands, the 125 missing floors at target alone would give 0.144986 < 0.145; with the 281-kernel grid on top, 0.1449666 (measured). Λ < 0.145 is not certified while the campaign runs.',
 });
 
-// Recorded outcomes (batch 1, 2026-10-06; batch 2, 2026-10-07; batch 3, 2026-10-08; batch 4, 2026-10-09; batch 5, 2026-10-10). One sentence each; details, grades and referee corrections in the module.
+// Recorded outcomes (batch 1, 2026-10-06; batch 2, 2026-10-07; batch 3, 2026-10-08; batch 4, 2026-10-09; batch 5, 2026-10-10; batch 6, 2026-10-11). One sentence each; details, grades and referee corrections in the module.
 const RESULTS = Object.freeze({
   1: Object.freeze({ status: 'in progress', resultModule: 'src/data/route-1-finish-route-p-2026-10-06.js', campaign: ROUTE_1_CAMPAIGN,
     result: 'Round 7 certified 0.145694083872924 at PT height (244 of 369 P47 floors, interval-certified, internal referee only, conditional on the shared ledger; Λ < 0.145 not certified); the background campaign (tmp/route1-campaign, launched 2026-10-06 17:27, ETA ≈ 60–65 h wall, heuristic) has by 2026-10-07 06:54 15 floors done and 8 budget-stopped (collect6: 255 of 369 floors certified, route P alone 0.145535458600488), and stacked with routes 3 and 5 gives 0.145276368594868 (route 9 adds exactly 0; still above 0.145, so Λ < 0.145 not certified).' }),
@@ -131,6 +135,16 @@ const RESULTS = Object.freeze({
     result: 'A length-N Dirichlet-polynomial mollifier at half-support a is exactly the plain Weil form at half-support a + ½ log N on a subset (proved, elementary), so it never detects earlier in total support; on Davenport–Heilbronn it detects at smaller a but with 0–1.11 more total support than the plain onset, inherits certified Euler-blindness for 2a + log N ≤ ln 11, and merges into Route I.' }),
   42: Object.freeze({ status: 'partial', resultModule: 'src/data/route-42-formal-mv-cap-2026-10-10.js',
     result: 'MV-CAP is a theorem (internal) for zero-side and O-form premises: at every window of [3.1e12, 7.50e16] an explicit admissible counter-model violates H_desc (p_viol ≤ 3.0119 < 4.3743, double-precision with margin), so certifying needs one-window resolution; it is not established for explicit function-side L² mean values, which catch the counter-model at the proxy height (σ = 2 Montgomery–Vaughan, |ζ(1+it)| bound), and the original Proposition E was false as stated.' }),
+  21: Object.freeze({ status: 'done', resultModule: 'src/data/route-21-zero-flow-entropy-functionals-2026-10-11.js',
+    result: 'Closed as a map: the zero flow is a graph heat equation in the imaginary parts (majorization, proved for polynomials), the monotone additive functionals are exactly the saddle functions (complex case) and, for real polynomials, a log-convex family Σ|y|^p from Pólya\'s count to de Bruijn\'s max-Im bound, but all are forward-only inequalities valid for every polynomial datum with non-real zeros (flow-blind, SL2 class), so no Λ or zero-location information.' }),
+  22: Object.freeze({ status: 'done', resultModule: 'src/data/route-22-lehmer-pair-hunt-2026-10-11.js',
+    result: 'Over 1,551,082 FLINT zeros near 1e10–1e13 plus Odlyzko\'s first 1e6, the best certified Lehmer-pair bound is Λ ≥ −4.2577e-6 (assuming FLINT/Arb and the CSV criterion as re-derived), ≈ 3.7e5× weaker than the superseded SGD record and adding nothing beyond Rodgers–Tao Λ ≥ 0; the small-gap rate sits 3σ below GUE and replicates the known Bogomolny et al. CUE_Neff finite-height correction (measured).' }),
+  23: Object.freeze({ status: 'partial', resultModule: 'src/data/route-23-ht-vs-dyson-bm-2026-10-11.js',
+    result: 'The H_t flow is the drift of Dyson BM, so the β = 2 loop identity (proved for finite CUE_N; standard) fixes dV/dτ(0) = −4; zeros near T ≈ 1e6 give Q = −0.9414 (deviation > 12σ, measured), consistent with (0.434 ± 0.008)·12Λ_B/L² over L ∈ [7, 12] only (β_eff ≈ 2.13), not evaluable in the BBLM model; the finite-τ production runs had not finished.' }),
+  24: Object.freeze({ status: 'done', resultModule: 'src/data/route-24-mean-field-local-counts-2026-10-11.js',
+    result: 'No rigorous gain: at X = 6e12 the P15 triangle method controls arg H_t below de Bruijn\'s ceiling only for t ≥ 0.13720 (Arb on a grid, a statement about the method), and the Poisson-smoothed count it can supply is capped by its mean L/4, which under the B2 single-width lemma caps the channel at Λ ≈ 0.148 at the current seam (above the internal 0.145535; below 0.145 only from binding height ≈ 1.75e13).' }),
+  37: Object.freeze({ status: 'done', resultModule: 'src/data/route-37-gram-law-barrier-difficulty-2026-10-11.js',
+    result: 'Closed as a negative result: over 451,291 certified Gram points (FLINT 3.6, 1e8–3e13) Gram-violation density predicts neither the route-P binding late-cell floors (height-free torus suprema) nor t = 0 barrier difficulty (|ρ| ≤ 0.18, both tails) nor the full flow minimum Dall (|ρ| ≤ 0.31), and the easy proxy-selected barrier sites carry three times the background bad-Gram density (measured).' }),
   2: Object.freeze({ status: 'done', resultModule: 'src/data/route-2-lowered-barrier-floor-2026-10-06.js',
     result: 'The lowered barrier floor moves nothing: route P has no floor input, and under Polymath Thm 1.2 the floor enters only through containment, which holds at every certified floor because the certified hypothesis (ii) sits at y0 = 0.18727, so 0.1787854 and 0.1758354 are unchanged.' }),
   27: Object.freeze({ status: 'done', resultModule: 'src/data/route-27-function-field-twin-ladder-2026-10-06.js',
@@ -395,9 +409,9 @@ export const RESEARCH_ROUTES_ASSERTIONS = Object.freeze([
       const b1 = RESEARCH_ROUTES.filter((r) => r.batch === 1).map((r) => r.id).sort((a, b) => a - b).join(',');
       const fp = RESEARCH_ROUTES.filter((r) => r.firstPick).map((r) => r.id).sort((a, b) => a - b).join(',');
       return b1 === '1,2,27,46,49' && fp === b1 && RESEARCH_ROUTE_FIRST_PICKS.map((p) => p.id).join(',') === '2,1,46,27,49'
-        && RESEARCH_ROUTES.every((r) => [1, 2, 3, 4, 5, 6, null].includes(r.batch));
+        && RESEARCH_ROUTES.every((r) => [1, 2, 3, 4, 5, 6, 7, null].includes(r.batch));
     },
-    why: 'Batch 1 = first picks = routes 2, 1, 46, 27, 49; batches 2–6 are the only other batches; the rest are null.',
+    why: 'Batch 1 = first picks = routes 2, 1, 46, 27, 49; batches 2–7 are the only other batches; the rest are null.',
   },
   {
     id: 'rr-batch-2',
@@ -436,9 +450,19 @@ export const RESEARCH_ROUTES_ASSERTIONS = Object.freeze([
     id: 'rr-batch-6',
     holds: () => RESEARCH_ROUTES.filter((r) => r.batch === 6).map((r) => r.id).join(',') === '21,22,23,24,37'
       && RESEARCH_ROUTE_BATCH_6.join(',') === '21,22,23,24,37'
-      && RESEARCH_ROUTES.filter((r) => r.batch === 6).every((r) => r.status === 'planned' && !r.firstPick && r.result === null && r.resultModule === null)
+      && RESEARCH_ROUTES.filter((r) => r.batch === 6).every((r) => ['done', 'partial'].includes(r.status) && !r.firstPick && typeof r.result === 'string'
+        && r.result.length > 40 && r.resultModule.startsWith(`src/data/route-${r.id}-`) && r.resultModule.endsWith('-2026-10-11.js'))
+      && RESEARCH_ROUTES.filter((r) => r.batch === 6).map((r) => r.status).join(',') === 'done,done,partial,done,done'
       && RESEARCH_ROUTES.filter((r) => r.batch === 6).map((r) => r.group).join('') === 'DDDDG',
-    why: 'Batch 6 = routes 21, 22, 23, 24 (group D, heat flow and the fluid picture) and 37 (group G, Gram-law statistics), status planned, no result yet.',
+    why: 'Batch 6 = routes 21, 22, 24 (group D) done, 23 (group D) partial and 37 (group G, Gram-law statistics) done (2026-10-11), each with a one-sentence result and a route-<id>-*-2026-10-11.js module.',
+  },
+  {
+    id: 'rr-batch-7',
+    holds: () => RESEARCH_ROUTES.filter((r) => r.batch === 7).map((r) => r.id).join(',') === '25,26,28,29,30'
+      && RESEARCH_ROUTE_BATCH_7.join(',') === '25,26,28,29,30'
+      && RESEARCH_ROUTES.filter((r) => r.batch === 7).every((r) => r.status === 'planned' && !r.firstPick && r.result === null && r.resultModule === null)
+      && RESEARCH_ROUTES.filter((r) => r.batch === 7).map((r) => r.group).join('') === 'EEEEE',
+    why: 'Batch 7 = routes 25, 26, 28, 29, 30 (group E, twin ladder and bridge model; route 27 was a first pick), status planned, no result yet.',
   },
   {
     id: 'rr-route-1-campaign',
@@ -453,9 +477,9 @@ export const RESEARCH_ROUTES_ASSERTIONS = Object.freeze([
     holds: () => RESEARCH_ROUTES.filter((r) => r.batch === 1).every((r) => ['done', 'partial', 'blocked', 'in progress'].includes(r.status)
         && r.resultModule.startsWith(`src/data/route-${r.id}-`) && r.resultModule.endsWith('-2026-10-06.js')
         && typeof r.result === 'string' && r.result.length > 40)
-      && RESEARCH_ROUTES.filter((r) => r.result !== null).length === 25
+      && RESEARCH_ROUTES.filter((r) => r.result !== null).length === 30
       && ['1:in progress', '2:done', '27:done', '46:partial', '49:done'].every((x) => { const [i, s] = x.split(':'); return RESEARCH_ROUTES[Number(i) - 1].status === s; }),
-    why: 'Batch 1 recorded: routes 2, 27, 49 done; 46 partial; 1 in progress (campaign running); each with a one-sentence result and a route-<id>-*-2026-10-06.js module; 25 routes carry results (batches 1–5).',
+    why: 'Batch 1 recorded: routes 2, 27, 49 done; 46 partial; 1 in progress (campaign running); each with a one-sentence result and a route-<id>-*-2026-10-06.js module; 30 routes carry results (batches 1–6).',
   },
   {
     id: 'rr-result-fields',

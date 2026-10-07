@@ -919,10 +919,44 @@ const NODES = [
     'Route 42: window-replacement counter-models violate H_desc at every lane window (p_viol ≤ 3.0119 < 4.3743)',
     'ξ_W = κ ξ Q_{W′}/Q_W keeps FE, order 1, residue 1, zero-free region and explicit N(T) bounds up to +1.4935 while H_desc fails (lattice 2.9906 + outer 0.0213; robust to B tripled). A certifying zero-side premise needs slack < 19.3 zeros (relative precision ≤ 1.5e-12). κ = 1 shifted variant satisfies O-form premises at K′ ≈ 19. Explicit σ = 2 Montgomery–Vaughan short-interval mean value (Δ ≈ 2.2e4 vs error ≈ 10) and |ζ(1+it)| ≤ ¾ log t exclude the model at c0 = 5e5 (measured). Narrows the lane-audit MV-CAP. PT Λ ≤ 0.2 stands; NO QED.',
     'src/data/route-42-formal-mv-cap-2026-10-10.js; formalization/paper/mv-cap-theorem.md; tmp/routes-b5-r42-*, tmp/routes-b5-ref42-*', '2026-10-10', '/routes-roadmap'),
+  // ── fifty-routes roadmap, batch 6 (2026-10-11; src/data/research-routes-roadmap.js) ──
+  N('route21-zero-flow-functionals', 'flow', 'no-go', 'proved', 'route 21 done: flow form, Theorems A (majorization), A′ (saddle characterisation) and B (log-convex family) proved for polynomial heat flows (elementary, project-internal); H_t transfer conditional (Ki–Kim–Lee finiteness); flow-blind (SL2 class); one internal referee pass (minor: dissipation direction corrected, de Bruijn-optimality moved to heuristic); no Λ change',
+    'Route 21: monotone functionals of the zero flow — majorization and a log-convex family, flow-blind',
+    'dz/dt = L(z) conj(z) with w_kj = 2/|z_k − z_j|²: imaginary parts diffuse by a graph heat equation (y(t2) ≺ y(t1)), real parts spread. Σ F(x_k, y_k) is monotone for every flow iff F_xx ≤ 0 ≤ F_yy; for real polynomials Σψ(|y_k|) is nonincreasing whenever yψ′ is nondecreasing (Σ|y|^p for every p > 0, from Pólya\'s count to de Bruijn\'s max-Im bound). The count above a fixed height is not monotone ({±0.9i, 0.001 ± 1.3i}: 1 → 2 above height 1 by t = 0.02). Forward-only and valid for every polynomial with non-real zeros, so no backward or t = 0 information. Lehmer pair 7005.06: H_t collision t_c = −7.1120473e-4 (measured, dps 25). PT Λ ≤ 0.2 stands; NO QED.',
+    'src/data/route-21-zero-flow-entropy-functionals-2026-10-11.js; tmp/routes-b6-r21-*, tmp/routes-b6-ref21-*', '2026-10-11', '/routes-roadmap'),
+  N('route22-lehmer-pair-hunt', 'flow', 'certificate', 'certified', 'route 22 done: Lehmer-pair bounds certified assuming FLINT 3.6/Arb (G neighbour sum double precision, bounds rounded outward) and the CSV criterion as quoted from memory and re-derived; Odlyzko bound conditional on table accuracy; small-gap statistics measured (replication of BBLM 2006, not a new law); one internal referee pass (minor); not competitive, no Λ change',
+    'Route 22: Lehmer-pair hunt to 1e13 — best certified Λ ≥ −4.2577e-6',
+    '1,551,082 distinct FLINT zeros near 1e10, 1e11, 1e12, 1e13 plus Odlyzko\'s first 1e6. Best CSV bound Λ ≥ −4.2577e-6 (pair #32130279098 near 1e10; 1e11 −1.3453e-5, 1e12 −7.5676e-6, 1e13 −4.9407e-6), ≈ 3.7e5× weaker than the superseded SGD −1.14541e-11; Rodgers–Tao Λ ≥ 0 (a different argument) closes this side. Pooled s < 0.2: obs/GUE 0.9733 ± 0.0088 (3.07σ), obs/CUE_Neff 1.004 ± 0.009; height dependence unresolved. CSV within 4–5% of the collision time for close pairs. PT Λ ≤ 0.2 stands; NO QED.',
+    'src/data/route-22-lehmer-pair-hunt-2026-10-11.js; tmp/routes-b6-r22-lehmer/, tmp/routes-b6-ref22-*', '2026-10-11', '/routes-roadmap'),
+  N('route23-ht-vs-dyson-bm', 'flow', 'measurement', 'measured', 'route 23 partial: loop identity E[gD] = −1 proved for finite CUE_N (standard β = 2 Ward identity; infinite-volume conditions unchecked); zeros\' deviation measured (> 12σ, heavy-tail-aware); 1/L² law over L ∈ [7, 12] only; BBLM inference withdrawn (not evaluable); finite-τ runs unfinished; one internal referee pass (minor); no Λ change',
+    'Route 23: zeros miss the Dyson loop identity dV/dτ(0) = −4 by (0.434 ± 0.008)·12Λ_B/L²',
+    'The H_t flow is the drift of Dyson BM; Dyson-stationary statistics (every CUE_N) give Q = E[gD] = −1. Zeros at idx 1.5e6–2e6 (T ≈ 1e6): Q = −0.9414 (β_eff ≈ 2.13); Q + 1 consistent with c·12Λ_B/L², c = 0.434 ± 0.008, over L ∈ [7, 12]; high blocks (T = 2.68e11, 1.44e20, 1.37e21) consistent with 0 but unconstraining. One window: 49 core pairs leave the line by τ = −0.03 vs 56 from τ_c = s²/8. Production runs PIDs 51915/52264 in flight. PT Λ ≤ 0.2 stands; NO QED.',
+    'src/data/route-23-ht-vs-dyson-bm-2026-10-11.js; tmp/routes-b6-r23-*, tmp/routes-b6-ref23-*', '2026-10-11', '/routes-roadmap'),
+  N('route24-mean-field-local-counts', 'bridge-models', 'no-go', 'no-go', 'route 24 done: mean ceiling and Poisson-count reduction proved (elementary); triangle-method statement Arb-certified on a grid (about the method, not H_t); formal η ≤ 4 envelope conditional and a reproduction of mirror-descent C3; B2 ceiling scoped to the single-width lemma at the current seam; one internal referee pass (minor); no Λ change',
+    'Route 24: t > 0 local counts from the effective approximation — no gain; B2 ceiling Λ ≈ 0.148 at X = 6e12',
+    'At X = 6e12 the P15 triangle criterion controls arg H_t below de Bruijn\'s ceiling √(1−2t) only for t ≥ 0.13720 (6e13: 0.12341; 6e14: 0.11216). Argument control at height η yields the Poisson-smoothed count S_t(x, η), whose x-uniform lower bound is ≤ L/4 = 6.7229. Under the A4/B2 single-width implication even q = L/4 gives descent 0.13631 > t0 = 0.1314 and Λ_inf = 0.14824 (above collect6 0.145535); the lane needs q = 1.040 × L/4, the mean at binding height ≈ 1.75e13. Within η ≤ 1: Λ = 0.5. PT Λ ≤ 0.2 stands; NO QED.',
+    'src/data/route-24-mean-field-local-counts-2026-10-11.js; tmp/routes-b6-r24-meanfield/, tmp/routes-b6-ref24-*', '2026-10-11', '/routes-roadmap'),
+  N('route37-gram-law-statistics', 'barrier', 'no-go', 'no-go', 'route 37 done: closed as a negative result; Gram/Rosser counts certified assuming FLINT 3.6 (cross-checked via the public API and mpmath; ≥ 3e12 rates near selected sites); correlations measured (proxy tracks t = 0 difficulty, not the flow minimum Dall); late-cell height-freeness structural; one internal referee pass (minor); no Λ change',
+    'Route 37: Gram-law violations do not predict barrier or route-P certificate difficulty',
+    '451,291 certified Gram points in 34 windows (1e8–3e13): Gram-law fraction 0.7292 → 0.7007, bad-Gram rate 0.1715 → 0.2112; 18 Rosser deficit blocks (14 [0,0], 4 [0,1,0]); 0.62 / 0.57 per 1e4 blocks at ≥ 3e12. Gram density vs t = 0 barrier proxy |ρ| ≤ 0.18 (max|Z| 0.74), AUC > 0.5 for both tails; vs Dall |ρ| ≤ 0.31; selected easy sites carry 3× background bad-Gram density; P47 late-cell floors are height-free torus suprema. PT Λ ≤ 0.2 stands; NO QED.',
+    'src/data/route-37-gram-law-barrier-difficulty-2026-10-11.js; tmp/routes-b6-r37-gram/, tmp/routes-b6-ref37-check/', '2026-10-11', '/routes-roadmap'),
+  // ── openai/math integration (2026-10-08; src/data/openai-math-integration-2026-10-08.js) ──
+  N('oai-qrh-lean-check', 'barrier', 'formalization', 'external', 'external claim (internal OpenAI model, openai/math family 003), Lean-formalized; Lean proof re-built locally (lake build, #print axioms, statement match by hand); official comparator and independent kernel check not run; not peer-reviewed',
+    'openai/math 003: ζ(s) ≠ 0 for Re s > 7/8 — Lean proof re-built locally',
+    'lake build +OAI.NumberTheory.DirichletL.Nonvanishing on Lean 4.34.1 / Mathlib d13f23b7: 7061 jobs, 2924 / 2924 closure modules, 0 sorry; #print axioms on OAI.riemannZeta_ne_zero_of_seven_eighths_lt_re and the Dirichlet companion = propext, Classical.choice, Quot.sound; type equal to the comparator challenge on Mathlib’s riemannZeta; source scan of 486,490 lines finds no sorry/admit/axiom/native_decide/extern/set_option. Not done: Linux comparator, lean4checker, Hecke and Siegel statements, refereeing. PT Λ ≤ 0.2 stands; NO QED.',
+    'formalization/external/openai-math-qrh-verification.md; src/data/openai-math-integration-2026-10-08.js', '2026-10-07', '/routes-roadmap'),
+  N('oai-qrh-start-lambda', 'barrier', 'contract', 'conditional', 'conditional on the 003 half-plane (Lean-checked locally, not peer-reviewed), Raymond’s chain G0 (no external reader), PT, and for route P the single-band route-P ledger; certified runs with one adversarial internal referee pass (not refuted, minor; corrections applied); conditional values, not bounds',
+    'Half-plane start for decreasing-barrier chains: Raymond 0.118505710922701, route P 0.117708313410954 (conditional)',
+    'Under Re s > 7/8 every zero of H_0 has |Im z| ≤ 3/4, so the barrier starts at q0 = 9/16 + 2e-6 instead of q0 > 1. Raymond’s chain at PT height: 0.118505710922701 (alternate log bound 0.118505710922702; strip control reproduces 0.149395073827688); route-P single band: 0.117708313410954 (referee step verifier, 60,267 substeps, 0 failures). 11/12: 0.129826438865344 / 0.128829131217197. The start does −0.0309 of the work; route-P levers add −0.0008. De Bruijn alone: 9/32; fixed-t0 bounds do not move. PT Λ ≤ 0.2 stands; NO QED.',
+    'src/data/openai-math-integration-2026-10-08.js; tmp/oai-lambda-*, tmp/oai-lambda-ref-*', '2026-10-07', '/routes-roadmap'),
+  N('oai-catalan-005-claim', 'side', 'external', 'external', 'external claim (internal OpenAI model, openai/math family 005), Lean-formalized per the repository; not built or checked by this project; not peer-reviewed',
+    'openai/math 005: Catalan’s constant irrational (external claim)',
+    'Comparator statement OAI.InternalCatalan.catalan_irrational with a 981-file solution tree (no sorry by text search). Method: determinants Δ_N of size 48N with the ζ(2) column cancelling in every entry — outside the mechanisms covered by the signed-ladder period-dimension obstruction. Next check: rebuild Δ_N for N = 1, 2. G irrationality stays open in the peer-reviewed literature.',
+    'formalization/external/openai-math-survey.md; src/data/catalan-signed-ladder.js; src/data/irrationality-pipeline.js', '2026-10-07', '/catalan-signed-ladder'),
   // ───────────────────────── side ─────────────────────────
   N('routes-catalan-signed-ladder', 'side', 'result', 'proved', 'proved (exact closed forms)',
     'Catalan signed ladder: G = β(2) and period-dimension obstruction',
-    'The χ₄-signed twin ladder evaluates to G = L(2,χ₄); the signed-ladder values are 5ζ(2) − 8 (period dimension 2) for the ζ(2) control and G − π + 2 ln 2 + π²/12 (dimension 5, in ⟨1, G, π, π², ln 2⟩) for Catalan. G’s irrationality is open.',
+    'The χ₄-signed twin ladder evaluates to G = L(2,χ₄); the signed-ladder values are 5ζ(2) − 8 (period dimension 2) for the ζ(2) control and G − π + 2 ln 2 + π²/12 (dimension 5, in ⟨1, G, π, π², ln 2⟩) for Catalan. G’s irrationality is open in the peer-reviewed literature; an external Lean-formalized claim (openai/math 005, 2026-10-06) is not peer-reviewed.',
     'src/data/catalan-signed-ladder.js', '2026-09-16', '/catalan-signed-ladder'),
   N('routes-catalan-sun-verdict', 'side', 'assessment', 'open', 'open (unrefereed preprint not settled)',
     'Sun arXiv:2609.04176 Catalan irrationality argument: assessment',
@@ -1492,6 +1526,31 @@ const RAW_EDGES = [
   ['route42-mv-cap-theorem', 'mirror-descent-theorem', 'rules-out', 'zero-side mean values cannot certify H_desc (counter-model at every lane window)'],
   ['route42-mv-cap-theorem', 'pointwise-wall', 'feeds', 'a certifying zero-side premise needs one-window resolution (slack < 19.3 zeros)'],
   ['route42-mv-cap-theorem', 'ns3-local-levinson-hdesc', 'feeds', 'replaces the informal MV-CAP cited there'],
+  ['route21-zero-flow-functionals', 'flow-blindness', 'blocked-by', 'forward-monotone functionals hold for every polynomial datum with non-real zeros (SL2 soft class)'],
+  ['route21-zero-flow-functionals', 'de-bruijn-1950', 'feeds', 'max-Im bound is the p → ∞ end of the log-convex family; t0 + y_max²/2 sharp in y_max (isolated pair)'],
+  ['route21-zero-flow-functionals', 'twin-dyson-burgers-bridge', 'feeds', 'imaginary parts carry the viscous (graph heat) part; real parts the anti-diffusive density'],
+  ['route21-zero-flow-functionals', 'ki-kim-lee', 'uses', 'finiteness of non-real zeros for t > 0 in the conditional H_t transfer'],
+  ['route22-lehmer-pair-hunt', 'lambda-lower-bounds-numeric', 'feeds', 'Λ ≥ −4.2577e-6 near 1e10, ≈ 3.7e5× weaker than SGD −1.14541e-11'],
+  ['route22-lehmer-pair-hunt', 'rt-lambda-ge-0', 'blocked-by', 'Rodgers–Tao Λ ≥ 0 (a different argument) closes the lower side'],
+  ['route22-lehmer-pair-hunt', 'gue-random-matrix', 'uses', 'small-gap rate 3σ below GUE; CUE_Neff finite-height correction replicated'],
+  ['route23-ht-vs-dyson-bm', 'lambda-dyson-backward-flow', 'feeds', 'loop identity dV/dτ(0) = −4 for Dyson-stationary data vs −3.766 for zeros at T ≈ 1e6'],
+  ['route23-ht-vs-dyson-bm', 'gue-random-matrix', 'uses', 'CUE_N controls give Q = −1 (β = 2 Ward identity)'],
+  ['route23-ht-vs-dyson-bm', 'twin-dyson-burgers-bridge', 'feeds', 'H_t flow = noise-free drift of Dyson BM; arithmetic deviation visible at τ = 0'],
+  ['route24-mean-field-local-counts', 'mirror-descent-theorem', 'rules-out', 'B2 single-width channel capped at Λ ≈ 0.148 at X = 6e12 (q ≤ L/4)'],
+  ['route24-mean-field-local-counts', 'twin-mirror-poisson-domination', 'uses', 'S_t(x, η) is the Poisson(η)-smoothed count; A4/B2 implication'],
+  ['route24-mean-field-local-counts', 'polymath15', 'uses', 'Thm 1.3 triangle control only above √(1−2t) for t < 0.1372 at X'],
+  ['route24-mean-field-local-counts', 'route20-effective-kkl', 'uses', 'real-axis control at X only from t ≥ 0.2163 (exact sum)'],
+  ['route37-gram-law-statistics', 'route38-barrier-height-scaling', 'uses', '27 refine minima (Dall, Dbot0) and the proxy-selected X′ windows'],
+  ['route37-gram-law-statistics', 'route1-r7-route-p', 'rules-out', 'no finite-height statistic predicts the height-free P47 late-cell floors'],
+  ['route37-gram-law-statistics', 'route46-kronecker-floors', 'uses', 'late-cell floors are Kronecker-torus suprema with every prime phase free'],
+  ['oai-qrh-lean-check', 'zero-free-region', 'feeds', 'claimed strip Re s > 7/8, Lean proof re-built locally; not peer-reviewed'],
+  ['oai-qrh-lean-check', 'oai-qrh-start-lambda', 'feeds', 'time-zero start q0 = (2θ − 1)² + 2e-6 = 9/16 + 2e-6'],
+  ['oai-qrh-start-lambda', 'lambda-raymond-0149396', 'uses', 'Raymond chain with only the start changed; strip control reproduces 76,491 substeps'],
+  ['oai-qrh-start-lambda', 'lambda-levers-joint', 'uses', 'route-P consumer, single band, collect6 certfile, 281 kernels'],
+  ['oai-qrh-start-lambda', 'b145-raymond-referee', 'blocked-by', 'G0 independent referee is now the binding premise'],
+  ['oai-qrh-start-lambda', 'lambda-p15-barrier-criterion', 'rules-out', 'fixed-t0 bounds do not move under the half-plane (binding point y = y0 unchanged)'],
+  ['oai-qrh-start-lambda', 'de-bruijn-1950', 'uses', 'Λ ≤ (2θ − 1)²/2 = 9/32 with no verified height'],
+  ['oai-catalan-005-claim', 'routes-catalan-signed-ladder', 'feeds', 'ζ(2)-column cancellation mechanism outside the obstruction’s list; not checked here'],
   ['twin-dh-euler-blindness', 'twin-bridge-chi', 'uses', 'same bridge factor, no T_p cascade'],
   ['twin-dh-euler-blindness', 'twin-ns-rigid', 'feeds', 'quantifies NS-RIGID (d): FE + Dirichlet structure without Euler product'],
   ['twin-dh-euler-blindness', 'routes-c-signed-interferometer', 'feeds', 'quantitative radius for the Route C DH remark'],
@@ -1899,6 +1958,42 @@ export const PROJECT_ATTEMPTS_DAG_ASSERTIONS = Object.freeze([
         && has('route16-alpoge-furman-reproduction', 'twin-ns-rigid', 'feeds') && has('route17-mollifiers-beyond-four-sevenths', 'wall-mollifier-length', 'blocked-by')
         && has('route18-local-levinson-pair-correlation', 'mirror-descent-theorem', 'rules-out') && has('route19-mollified-weil-forms', 'weil-positivity', 'reduces-to')
         && has('route42-mv-cap-theorem', 'lane-audit', 'feeds') && has('route42-mv-cap-theorem', 'mirror-descent-theorem', 'rules-out');
+    },
+  },
+  {
+    id: 'project-routes-batch6-nodes',
+    name: 'fifty-routes batch 6 (2026-10-11) nodes: route 21 proved polynomial-flow functionals, flow-blind; route 22 certified but non-competitive Lehmer bounds (BBLM replication); route 23 partial measurement (loop identity); route 24 and route 37 no-gos for their levers; all carry NO QED',
+    why: 'referee-surviving scope of routes 21, 22, 23, 24, 37',
+    holds: () => {
+      const g = (id) => NODES.find((x) => x.id === id);
+      const has = (f, t, type) => EDGES.some((x) => x.from === f && x.to === t && x.type === type);
+      const ids = ['route21-zero-flow-functionals', 'route22-lehmer-pair-hunt', 'route23-ht-vs-dyson-bm', 'route24-mean-field-local-counts', 'route37-gram-law-statistics'];
+      const [r21, r22, r23, r24, r37] = ids.map(g);
+      return ids.every((id) => g(id)) && r21.statusKind === 'proved' && /flow-blind/.test(r21.status) && /conditional/.test(r21.status)
+        && r22.statusKind === 'certified' && /not competitive/.test(r22.status) && /not a new law/.test(r22.status)
+        && r23.statusKind === 'measured' && /partial/.test(r23.status) && /BBLM inference withdrawn/.test(r23.status)
+        && r24.statusKind === 'no-go' && /single-width lemma/.test(r24.status) && r37.statusKind === 'no-go' && /negative result/.test(r37.status)
+        && ids.map(g).every((x) => /PT Λ ≤ 0\.2 stands/.test(x.summary) && /NO QED/.test(x.summary) && x.route === '/routes-roadmap' && x.date === '2026-10-11'
+          && /no Λ change/.test(x.status))
+        && has('route21-zero-flow-functionals', 'flow-blindness', 'blocked-by') && has('route22-lehmer-pair-hunt', 'rt-lambda-ge-0', 'blocked-by')
+        && has('route23-ht-vs-dyson-bm', 'lambda-dyson-backward-flow', 'feeds') && has('route24-mean-field-local-counts', 'mirror-descent-theorem', 'rules-out')
+        && has('route37-gram-law-statistics', 'route1-r7-route-p', 'rules-out');
+    },
+  },
+  {
+    id: 'project-openai-math-integration',
+    name: 'openai/math integration (2026-10-08): 003 Lean check external (re-built locally, not peer-reviewed); half-plane Λ values conditional, not bounds; 005 Catalan claim external and unchecked; all PT Λ ≤ 0.2 / no QED',
+    why: 'no false QED; never present a conditional Λ as a bound',
+    holds: () => {
+      const g = (id) => NODES.find((x) => x.id === id);
+      const has = (f, t, type) => EDGES.some((x) => x.from === f && x.to === t && x.type === type);
+      const [lean, lam, cat] = ['oai-qrh-lean-check', 'oai-qrh-start-lambda', 'oai-catalan-005-claim'].map(g);
+      return !!lean && !!lam && !!cat && lean.statusKind === 'external' && /re-built locally/.test(lean.status) && /not peer-reviewed/.test(lean.status)
+        && lam.statusKind === 'conditional' && /not bounds/.test(lam.status) && /G0/.test(lam.status) && /0\.117708313410954/.test(lam.label)
+        && cat.statusKind === 'external' && /not built or checked/.test(cat.status) && /not peer-reviewed/.test(cat.status)
+        && [lean, lam].every((x) => /PT Λ ≤ 0\.2 stands/.test(x.summary) && /NO QED/.test(x.summary))
+        && has('oai-qrh-lean-check', 'oai-qrh-start-lambda', 'feeds') && has('oai-qrh-start-lambda', 'b145-raymond-referee', 'blocked-by')
+        && has('oai-qrh-lean-check', 'zero-free-region', 'feeds') && /open in the peer-reviewed literature/.test(g('routes-catalan-signed-ladder').summary);
     },
   },
 ]);

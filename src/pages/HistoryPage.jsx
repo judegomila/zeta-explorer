@@ -595,7 +595,7 @@ const TIMELINE = [
     year: 1958,
     era: 'modern',
     title: 'Vinogradov-Korobov Zero-Free Region',
-    content: "Vinogradov and Korobov independently establish the best known zero-free region, which remains essentially unimproved for over 60 years.",
+    content: "Vinogradov and Korobov independently establish the zero-free region that remains, up to constants, the widest of its shape in the peer-reviewed literature for over 60 years. (A fixed strip Re s > 7/8 was claimed in 2026 by an internal OpenAI model; see 2026 below. Not peer-reviewed.)",
     math: '\\sigma > 1 - \\frac{c}{(\\log|t|)^{2/3}(\\log\\log|t|)^{1/3}}',
     highlight: true,
   },
@@ -688,7 +688,7 @@ const TIMELINE = [
     year: 2015,
     era: 'recent',
     title: "Tao's Chowla Conjecture (Averaged)",
-    content: "Terence Tao proves the logarithmically-averaged Chowla conjecture, breaking the parity barrier in multiplicative number theory using entropy methods.",
+    content: "Terence Tao proves the logarithmically-averaged Chowla conjecture, breaking the parity barrier in multiplicative number theory using entropy methods. (The ordinary-average two-point case was claimed in 2026 by an internal OpenAI model in openai/math family 007; Lean-formalized per the repository; not peer-reviewed.)",
   },
   {
     year: 2016,
@@ -739,6 +739,13 @@ const TIMELINE = [
     content: "Running the twin-ladder barrier method, an autonomous AI fleet (Claude, Codex, and ChatGPT) together with human work produces computer-assisted candidates Lambda <= 0.1787854 (reviewed by Dan Romik, being prepared for public release) and a sharper Lambda <= 0.1758354, each certified in interval arithmetic with parts of the reduction Lean-checked. These are candidates, not peer-reviewed theorems: RH remains open and Platt-Trudgian Lambda <= 0.2 remains the rigorous benchmark. The program also establishes no-go theorems (flow-blindness; frozen-rung = Platt-Trudgian) showing the route caps at verified zero height.",
     math: '\\Lambda \\le 0.1758354 \\quad \\text{(computer-assisted candidate.)}',
     highlight: true,
+  },
+  {
+    year: 2026,
+    era: 'recent',
+    title: 'Quasi-Riemann hypothesis claim (openai/math)',
+    content: "The openai/math repository (released 2026-10-06) contains a manuscript by an internal OpenAI model claiming that zeta and every Dirichlet L-function have no zeros with real part greater than 7/8 (family 003), with a Lean proof formalized in the repository. This project re-built that Lean proof locally: it compiles using only the standard axioms and its statement matches the published challenge. The claim is not peer-reviewed. Combined with de Bruijn (1950) it gives Lambda <= 9/32, which does not improve Platt-Trudgian's 0.2; as a starting condition for decreasing-barrier chains it gives lower conditional values (src/data/openai-math-integration-2026-10-08.js). RH remains open.",
+    math: '\\zeta(s) \\ne 0 \\ \\text{for } \\operatorname{Re}(s) > 7/8 \\quad \\text{(claimed; Lean-formalized; not peer-reviewed)}',
   },
 ];
 

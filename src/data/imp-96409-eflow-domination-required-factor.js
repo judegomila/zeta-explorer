@@ -107,6 +107,11 @@ function minFactorOnLog10Range(loD, hiD, coarseStep) {
   let hi = Math.min(hiD, Math.log10(best.N) + coarseStep);
   for (let it = 0; it < 8; it++) {
     const step = (hi - lo) / 200;
+    // The window shrinks ~100x per pass; by pass 7 step (~1e-17) falls below the ulp of d (~4e-16
+    // at d ~ 2-3), so `d += step` stops advancing and the scan never terminates (this hung the
+    // /viz-imp96557 page and any node import). Stop once step is below float resolution -- the
+    // minimum is already located to ~1e-13 in log10 N, far finer than the 6-decimal landmarks.
+    if (!(step > 64 * Number.EPSILON * Math.max(1, Math.abs(hi)))) break;
     let localBest = { N: best.N, kappa: Infinity };
     for (let d = lo; d <= hi + 1e-12; d += step) {
       const N = Math.pow(10, d);

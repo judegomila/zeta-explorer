@@ -82,8 +82,14 @@ const IMP97300_ASSERTIONS = [
     // so the two curves' gap must shrink monotonically with height and vanish at the top rung,
     // not coincide at every rung (it is loose at the low-height end, e.g. ~0.085 at lnN = 22).
     holds: () => {
+      // frac is baked to 6 decimals, so once the true gap drops below the
+      // storage rounding (~5e-7, reached by lnN = 1e4) consecutive residuals
+      // sit at the same floor; "shrinking" is therefore checked up to that floor.
+      const STORAGE_FLOOR = 5e-7;
       const residuals = IMP97300_RUNG_ROWS.map((r) => Math.abs(r.fracApproachLaw - r.frac));
-      const shrinking = residuals.every((res, i) => i === 0 || res < residuals[i - 1]);
+      const shrinking = residuals.every(
+        (res, i) => i === 0 || res < residuals[i - 1] || res < STORAGE_FLOOR,
+      );
       return shrinking && residuals[residuals.length - 1] < 1e-4;
     },
     why: 'the closed-form approach law 1 - (2/y0)/lnN is only asymptotic: its gap to the measured ' +
@@ -91,10 +97,26 @@ const IMP97300_ASSERTIONS = [
   },
   {
     id: 'imp97300-deficit-decays-like-inverse-lnN',
-    holds: () =>
-      IMP97300_RUNG_ROWS.every((r) => Math.abs(r.deficit * r.lnN - 12.121212) < 5e-3),
-    why: 'the deficit (1 - frac) * lnN must converge to the fixed constant 12.1212 = 2/y0 at ' +
-      'every rung, confirming the approach law is a fixed additive deficit, not a narrowing gap.',
+    // Corrected: the original "within 5e-3 of 12.1212 at EVERY rung" is false at
+    // low height (10.24 at lnN = 22, 11.70 at lnN = 50 -- the o(1) term) and at
+    // lnN = 1e6, where the 6-decimal storage of frac (deficit 1.2e-5) quantises
+    // deficit*lnN to multiples of ~1 (reads 12.0). The reproducible claim: the
+    // scaled deficit climbs monotonically toward 2/y0 through lnN = 1e4, matches
+    // it to 5e-3 at lnN >= 1000, and the top rung agrees within storage rounding.
+    holds: () => {
+      const target = 12.121212;
+      const STORAGE = 5e-7; // half-ulp of the 6-decimal frac storage
+      const scaled = IMP97300_RUNG_ROWS.map((r) => r.deficit * r.lnN);
+      const resolved = IMP97300_RUNG_ROWS.filter((r) => r.lnN <= 1e4);
+      const climbing = resolved.every((r, i) => i === 0 || scaled[i] > scaled[i - 1] - 1e-6);
+      const converged = IMP97300_RUNG_ROWS.every(
+        (r, i) => r.lnN < 1000 || Math.abs(scaled[i] - target) < 5e-3 + STORAGE * r.lnN,
+      );
+      return climbing && converged;
+    },
+    why: 'the scaled deficit (1 - frac) * lnN must climb toward the fixed constant 12.1212 = 2/y0 and ' +
+      'match it at lnN >= 1000 (up to the 6-decimal storage rounding of frac), confirming the approach ' +
+      'law is a fixed additive deficit, not a narrowing gap.',
   },
   {
     id: 'imp97300-eight-target-rows-present',

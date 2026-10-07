@@ -45,3 +45,5 @@ scripts/.rh-lit-seen.json
 scripts/.deploy-hook-url-editorial
 scripts/.deploy-editorial-state
 scripts/.deploy-editorial.log
+scripts/.fleet-status-gist-id
+scripts/.fleet-status-publish.log

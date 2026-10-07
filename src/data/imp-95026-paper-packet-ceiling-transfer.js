@@ -110,7 +110,7 @@ function iQuad(T, rho, s, N, pad) {
 
 // far coefficient cFar = 2 (sup_b OmegaE_b) / Tx(2) for a given packet family.
 // A_d-free by construction (Finding 0): the amplitude never enters here.
-function farCoefficient(sigma, beta, c, v, D, theta) {
+function farCoefficientUncached(sigma, beta, c, v, D, theta) {
   const Q = isolationQ(c, v, beta, D);
   const s = sigma + theta;
   const gSharp = (j) => Math.pow(2, beta) * gOld(j, Q, beta);
@@ -145,6 +145,20 @@ function farCoefficient(sigma, beta, c, v, D, theta) {
     }
   }
   return { Q, s, Tx2, sup, argb, ceiling: (2 * sup) / Tx2 };
+}
+
+// Memoised wrapper (same 6-argument signature, so farCoefficient.length === 6). Each call runs
+// ~200 midpoint quadratures of N = 200000 points, and the assertions re-request identical
+// argument tuples several times; caching returns the bit-identical result object.
+const FAR_COEFFICIENT_CACHE = new Map();
+function farCoefficient(sigma, beta, c, v, D, theta) {
+  const key = `${sigma}|${beta}|${c}|${v}|${D}|${theta}`;
+  let r = FAR_COEFFICIENT_CACHE.get(key);
+  if (r === undefined) {
+    r = farCoefficientUncached(sigma, beta, c, v, D, theta);
+    FAR_COEFFICIENT_CACHE.set(key, r);
+  }
+  return r;
 }
 
 function ystar(s) {
@@ -216,6 +230,7 @@ export const IMP95026_PAPER_PACKET_CEILING_TRANSFER = {
 export const IMP95026_TRANSFER_ASSERTIONS = [
   {
     id: "imp95026-model-point-reproduction",
+    heavy: true, // N = 200000 quadrature re-derivation; skipped at browser import (see loop below)
     description:
       "quadrature of the parameterized machinery at the model point (sigma=1, beta=1/3, c=v=D=1, theta=10) reproduces the nineteenth closed-form ceiling 0.2717408057586117 to 3e-6 relative, isolation Q = 0.6299605249474366, s = 11, sup attained at b = 2",
     holds: () => {
@@ -231,6 +246,7 @@ export const IMP95026_TRANSFER_ASSERTIONS = [
   },
   {
     id: "imp95026-finding0-amplitude-independent",
+    heavy: true, // N = 200000 quadrature re-derivation; skipped at browser import (see loop below)
     description:
       "Finding 0: the far coefficient is independent of the packet amplitude A_d - farCoefficient takes no amplitude argument and its value is unchanged whatever amplitude the caller would use (structural: A_d enters M, not cFar)",
     holds: () => {
@@ -243,6 +259,7 @@ export const IMP95026_TRANSFER_ASSERTIONS = [
   },
   {
     id: "imp95026-transfers-below-4",
+    heavy: true, // N = 200000 quadrature re-derivation; skipped at browser import (see loop below)
     description:
       "Finding 2: across the scanned neighborhood the far coefficient stays strictly below the pre-seventeenth 4 - checked at theta in {2,4,8,20}, sigma in {0.5,2}, c in {0.5,2}; worst (theta=2) reproduces 0.8924623374689161",
     holds: () => {
@@ -262,6 +279,7 @@ export const IMP95026_TRANSFER_ASSERTIONS = [
   },
   {
     id: "imp95026-lever-monotonicity",
+    heavy: true, // N = 200000 quadrature re-derivation; skipped at browser import (see loop below)
     description:
       "Finding 1: the ceiling decreases in the decay exponent s (theta up -> cFar down; sigma up -> cFar down) and increases in the isolation constant (c up -> cFar up); beta is a weak lever (< 10 percent over 0.25..0.5)",
     holds: () => {
@@ -310,7 +328,13 @@ export const IMP95026_TRANSFER_ASSERTIONS = [
   },
 ];
 
+// The heavy (quadrature re-derivation) assertions take tens of seconds; at browser import they
+// blanked /permutation-architecture for 25-50 s. They are skipped only in the browser: the node
+// assertion harness (scripts/run-assertions.mjs) runs every entry of the exported array, and the
+// cheap assertions (honesty gate, closed-form checks) still self-execute everywhere.
+const SKIP_HEAVY_AT_IMPORT = typeof window !== 'undefined';
 for (const a of IMP95026_TRANSFER_ASSERTIONS) {
+  if (a.heavy && SKIP_HEAVY_AT_IMPORT) continue;
   if (!a.holds()) {
     throw new Error(`imp-95026-paper-packet-ceiling-transfer assertion failed: ${a.id}`);
   }

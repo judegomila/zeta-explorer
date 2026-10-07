@@ -15,8 +15,10 @@
  *     ],
  *     physicsAnalogy: { system, mapping[], whereItBreaks },
  *     examples: [{ title, level, steps[], result }],                            worked, with real numbers
- *     whyItMatters, example, pitfalls[], prerequisites[], mentions[], furtherReading[{label, route|url}]
+ *     whyItMatters, example, pitfalls[], prerequisites[], mentions[], furtherReading[{label, route|url}],
+ *     diagrams?: [{ id, placement: 'intro'|'beginner'|'intermediate'|'advanced'|'physics', caption, alt }]
  *   }
+ * Diagram ids are registered in src/components/concept-diagrams/index.js.
  * `math` items are { tex, note }: tex is a KaTeX string (String.raw), note explains every symbol in it.
  *
  * Class expositions (key = CONCEPT_CLASSES slug): { name, intro, membersOverview[], physicsAnalogy, readingOrder[] }.
@@ -502,14 +504,14 @@ export const AREA_A_EXPOSITIONS = {
         level: 'advanced',
         heading: 'Proved ranges, Route I certificates, and the information ceiling',
         paragraphs: [
-          'Proved small-support positivity (peer-reviewed): Yoshida (1992) showed W ≥ 0 for test functions of sufficiently small support. Connes and Consani (Selecta Math. 2021) proved positivity for test functions supported in [2^{−1/2}, 2^{1/2}] in the multiplicative variable, log-support width 2a = ln 2, where only the archimedean place contributes; the proof uses the semilocal trace formula and prolate spheroidal functions. Past ln 2 each prime term carries arithmetic with no general positivity proof: this is the Weil-support wall (weil-support-wall). The Connes–Consani scaling-site program (connes-consani-scaling-site) aims to supply that positivity geometrically and is open.',
+          'Proved small-support positivity (peer-reviewed): Yoshida (1992) proved W ≥ 0 for pole-free test functions of log-support width 2a = ln 2 (the attribution given by Connes and Consani). Connes and Consani (Selecta Math. 2021) gave an operator-theoretic strengthening on the same range: for test functions supported in [2^{−1/2}, 2^{1/2}] in the multiplicative variable, log-support width 2a = ln 2, where only the archimedean place contributes, W is bounded below by a positive Sonin trace (their Theorem 1, which also requires the Fourier transform to vanish at 0); the proof uses the semilocal trace formula and prolate spheroidal functions. Past ln 2 each prime term carries arithmetic with no general positivity proof: this is the Weil-support wall (weil-support-wall). The Connes–Consani scaling-site program (connes-consani-scaling-site) aims to supply that positivity geometrically and is open.',
           'Pole-free reduction (repo, rh-route-i-toeplitz-krein-certificate-2026-09-24.js). A pole-free test function (pole-free-test-function) has ĥ(±i/2) = 0, which removes the pole terms. Pole-free h are exactly h = (−d²/dx² + 1/4)φ, with ĥ = (t² + 1/4)φ̂, so pole-free positivity at support 2a is equivalent to positivity of the Toeplitz form T_a[σ₂] (toeplitz-matrix: the quadratic form φ ↦ (1/2π)∫ σ|φ̂|² on functions supported in [−a, a]) with symbol σ₂ = (t² + 1/4)² w₁, w₁(t) = 2θ′(t) − √2 ln 2 cos(t ln 2). Off-line zeros remain detectable after the (t² + 1/4) multiplication, so pole-free positivity over all supports is still RH-equivalent; at a fixed support it tests fewer functions than full positivity.',
-          'Route I (route-i-weil-ladder) certifies pole-free one-prime positivity on 2a ≤ ln 3 in two interval-arithmetic legs: the Toeplitz–Krein certificate (toeplitz-krein-certificate) adds a measure ν with Fourier support outside (−2a, 2a) so that σ₂ + ν ≥ 0 pointwise, proving positivity for every 2a ≤ 0.96 at once; the ARB-LEGE certificate (arb-lege-certificate) covers 0.96 < 2a ≤ ln 3 with W(h) ≥ 8.2045368·10^{−4} ‖h‖² (9.19·10^{−4} with the single-cosine floor), within about 5% of the Rayleigh–Ritz upper bounds. Status: computer-assisted (Arb), two internal adversarial referee passes, not externally refereed; novelty against Yoshida/Bombieri/Connes–Consani not checked. With only the p = 2 term kept, positivity fails at 2a* = 1.1316 = ln 3 + 0.033; past ln 3 the p = 3 term enters anyway.',
-          'Two limits. Euler-blindness (euler-blindness): at conductor 5 the same positivity is Arb-certified both for an Euler-product L-function and for the RH-false Davenport–Heilbronn function (davenport-heilbronn-function) on all supports 2a ≤ ln 11, so small-support certificates do not by themselves use the Euler product. The information ceiling: by RES-T, W_T ≥ 0 can detect a δ = 1/2 quadruple at the verified height X = 3·10^12 only for support T > T_X = 3.882, so for T < T_X it adds nothing beyond the Platt–Trudgian zero verification (platt-trudgian-verified-height). T_X involves every prime power up to e^{3.882} ≈ 48.5; Route I stops at T = ln 3 = 1.099. Beyond T_X, RES-T reduces W_T ≥ 0 to a pointwise short Dirichlet-polynomial bound (the pointwise Hilbert-transform wall).',
+          'Route I (route-i-weil-ladder) certifies pole-free one-prime positivity on 2a ≤ ln 3 in two interval-arithmetic legs: the Toeplitz–Krein certificate (toeplitz-krein-certificate) adds a measure ν with Fourier support outside (−2a, 2a) so that σ₂ + ν ≥ 0 pointwise, proving positivity for every 2a ≤ 0.96 at once; the ARB-LEGE certificate (arb-lege-certificate) covers 0.96 < 2a ≤ ln 3 with W(h) ≥ 8.2045368·10^{−4} ‖h‖² (9.19·10^{−4} with the single-cosine floor), within about 5% of the Rayleigh–Ritz upper bounds. Status: computer-assisted (Arb), two internal adversarial referee passes, not externally refereed; novelty against Yoshida/Bombieri/Connes–Consani not checked. With only the p = 2 term kept, the form turns indefinite just above ln 3 (measured: Galerkin crossing 2a* = 1.1316 at low dimension, drifting to 1.100 at N = 52, src/data/imp-97560-crossing-2astar-drift-vs-N-measurement.js); past ln 3 the p = 3 term enters anyway.',
+          'Two limits. Euler-blindness (euler-blindness): at conductor 5 the same positivity is Arb-certified both for an Euler-product L-function and for the RH-false Davenport–Heilbronn function (davenport-heilbronn-function) on all supports 2a ≤ ln 11, so small-support certificates do not by themselves use the Euler product. The information ceiling: by RES-T, W_T ≥ 0 can detect a δ = 1/2 quadruple at the verified height X = 3·10^12 only for probes supported in [−T, T] with T > T_X = 3.882, so for T < T_X it adds nothing beyond the Platt–Trudgian zero verification (platt-trudgian-verified-height). RES-T’s T is the half-width a, so T_X corresponds to 2a = 7.764 and a prime sum over every prime power up to e^{7.764} ≈ 2354; Route I stops at 2a = ln 3 = 1.099 (T = 0.549). Beyond T_X, RES-T reduces W_T ≥ 0 to a pointwise short Dirichlet-polynomial bound (the pointwise Hilbert-transform wall).',
         ],
         math: [
           { tex: T`\hat h(\pm\tfrac i2)=0\iff h=\bigl(-\tfrac{d^2}{dx^2}+\tfrac14\bigr)\varphi,\qquad W(h)=\frac1{2\pi}\int\sigma_2(t)\,|\hat\varphi(t)|^2dt,\quad \sigma_2=(t^2+\tfrac14)^2 w_1`, note: 'φ smooth with support in [−a, a]; valid for 2a ≤ ln 3, where only the k = 1 term of the p = 2 cosine series survives.' },
-          { tex: T`\tfrac14\,S(T_X/2)^4\,T_X^3=\log\frac{X}{2\pi},\qquad X=3\cdot10^{12}\Rightarrow T_X=3.882`, note: 'RES-T height ceiling (project-internal, leading order in the zero density). log(X/2π) = 26.892.' },
+          { tex: T`\tfrac14\,S(T_X/2)^4\,T_X^3=\log\frac{X}{2\pi},\qquad X=3\cdot10^{12}\Rightarrow T_X=3.882`, note: 'RES-T height ceiling (project-internal, leading order in the zero density). T is the half-width of the support of h (T = a). log(X/2π) = 26.892.' },
         ],
         details: [
           'Weil, Comm. Sém. Math. Univ. Lund (1952) 252–265; Bombieri, Rend. Mat. Acc. Lincei 11 (2000) 183–233 (precise admissible class and the form used here).',
@@ -535,7 +537,7 @@ export const AREA_A_EXPOSITIONS = {
       {
         title: 'Which primes does a test of support 2a see?',
         level: 'beginner',
-        steps: ['ln 2 = 0.693, ln 3 = 1.099, ln 4 = 1.386, ln 5 = 1.609, ln 7 = 1.946.', '2a = 0.5: none. 2a = 1.0: only 2. 2a = 1.2: 2 and 3. 2a = 1.5: 2, 3, 4. 2a = 3.88: every prime power up to 48.'],
+        steps: ['ln 2 = 0.693, ln 3 = 1.099, ln 4 = 1.386, ln 5 = 1.609, ln 7 = 1.946.', '2a = 0.5: none. 2a = 1.0: only 2. 2a = 1.2: 2 and 3. 2a = 1.5: 2, 3, 4. 2a = 7.76 (the RES-T ceiling, T_X = a = 3.882): every prime power up to e^{7.76} ≈ 2354.'],
         result: 'Support 2a sees prime powers n ≤ e^{2a}. The Connes–Consani range is 2a ≤ ln 2 (no primes); Route I is 2a ≤ ln 3 (prime 2 only).',
       },
       {
@@ -551,8 +553,8 @@ export const AREA_A_EXPOSITIONS = {
       {
         title: 'The T_X ceiling',
         level: 'advanced',
-        steps: ['X = 3·10^12: log(X/2π) = 26.892.', 'T = 3.882: S(1.941) = 1.1646, S⁴ = 1.8392, T³ = 58.50, (1/4)(1.8392)(58.50) = 26.90.', 'e^{3.882} = 48.5.'],
-        result: 'T_X = 3.882: Weil positivity only carries information beyond the verified height for supports involving all prime powers up to about 48.',
+        steps: ['X = 3·10^12: log(X/2π) = 26.892.', 'T = 3.882: S(1.941) = 1.1646, S⁴ = 1.8392, T³ = 58.50, (1/4)(1.8392)(58.50) = 26.90.', 'T is the half-width of the support of h, so 2a = 2T_X = 7.764 and the prime sum runs over n ≤ e^{7.764} ≈ 2354.'],
+        result: 'T_X = 3.882: Weil positivity only carries information beyond the verified height for probes of support width 2a > 7.764, whose prime sum involves every prime power up to about 2354.',
       },
     ],
     whyItMatters: 'Weil positivity is the common endpoint of most positivity approaches to RH: Li’s criterion, Connes’ trace formula, and all seven of this project’s novel routes A–G reduce to it. The project’s Route I gives interval-certified pole-free positivity for supports 2a ≤ ln 3, past the published Connes–Consani range ln 2 (computer-assisted, internally refereed, not externally reviewed). Euler-blindness and the RES-T ceiling T_X = 3.88 quantify what such small-support certificates cannot do: they do not use the Euler product and carry no information beyond the verified zero height. RH is open.',
@@ -562,10 +564,40 @@ export const AREA_A_EXPOSITIONS = {
       'Pole-free positivity at a fixed support is a weaker statement than full positivity at that support: it tests fewer functions.',
       'A positivity certificate at support 2a ≤ ln 3 does not exclude any new off-line zero; by RES-T such supports cannot detect zeros above the verified height.',
       'Small-support positivity is shared by RH-false functions with the same gamma factor at conductor 5 (Euler-blindness), so it cannot be the whole proof.',
-      'Normalisations differ (support of h vs of g, additive vs multiplicative variable); "2a" in this project is the support width of g = h ∗ h̃.',
+      'Normalisations differ (support of h vs of g, additive vs multiplicative variable). In this project 2a is the width of the support of h (h in L²(−a, a)); g = h ∗ h̃ is supported in [−2a, 2a], so 2a is also the largest log n in the prime sum. RES-T writes T for a.',
     ],
     prerequisites: ['explicit-formula', 'weil-explicit-formula', 'nontrivial-zeros', 'fourier-transform'],
     mentions: ['explicit-formula', 'gamma-function', 'nontrivial-zeros', 'critical-line', 'riemann-hypothesis', 'rh-equivalent-statement', 'fourier-transform', 'weil-explicit-formula', 'weil-quadratic-form', 'riemann-siegel-theta', 'theorem-res-t', 'weil-support-wall', 'connes-consani-scaling-site', 'pole-free-test-function', 'toeplitz-matrix', 'route-i-weil-ladder', 'toeplitz-krein-certificate', 'arb-lege-certificate', 'euler-blindness', 'davenport-heilbronn-function', 'platt-trudgian-verified-height', 'li-criterion', 'sonine-space', 'hilbert-polya'],
+    diagrams: [
+      {
+        id: 'weil-balance',
+        title: 'The explicit formula as a balance for one probe',
+        placement: 'beginner',
+        caption: 'The explicit formula as a balance, computed for one probe. Probe: h = φ/4 − φ″ with φ(u) = exp(−1/(1 − u²)) on [−1, 1], a smooth test function with ĥ(±i/2) = 0, so the pole terms are zero; support width 2a = 2, so prime powers up to e² ≈ 7.4 enter; normalised to ‖h‖ = 1. Left pan: background 0.427 minus the prime sum −0.384 (negative for this probe, so subtracting it adds weight) = 0.811. Right pan: the zero side, each zero counted together with its mirror −γ, summed over the first 5000 zeros = 0.811; the two sides agree to 5·10⁻¹¹. The first three zeros (with their mirrors) carry 89% of it. Computed with numpy and mpmath (tmp/concept-diagram-weil-probe.py; zeros from src/data/zeros-to-1e6.js).',
+        alt: 'A balance with a level beam. The left pan holds two blocks: background 0.427 and minus the prime sum, 0.384, total 0.811. The right pan holds the zero-side terms, each zero counted with its mirror −γ: 0.402 from the first zero, 0.174 from the second, 0.145 from the third and 0.089 from all others, total 0.811. Text below: RH holds exactly when the zero side is at least zero for every admissible probe, that is, background minus primes is never negative.',
+      },
+      {
+        id: 'weil-probe-squares',
+        title: 'A probe, its squares at the first zeros, and a hypothetical off-line pair',
+        placement: 'intermediate',
+        caption: 'Left: the same probe h on [−a, a], a = 1 (smooth, pole-free, ‖h‖ = 1; positive in the middle, negative near the ends). Right: |ĥ(t)|², with dots at the heights γ₁ … γ₁₀ of the first ten zeros; each dot is one zero-side term, a square, so it is at least zero. The mirror zero at −γ gives the same value again, which is why the balance figure shows twice these numbers (0.402 = 2 × 0.201). Values computed from the probe and the Odlyzko zero table. Bottom: schematic of a hypothetical off-line pair β + iγ and 1 − β + iγ. Their combined term 2 Re[ĥ(γ − iδ)·conj ĥ(γ + iδ)], δ = β − ½, is not a square and is negative for suitable probes. No off-line zero is known; this part is not computed.',
+        alt: 'Three panels. Top left: the probe h(u) on [−1, 1], about 0.25 to 0.48 in the middle, crossing zero near ±0.76 and dipping to about −2.3 near ±0.9 before returning to zero at the ends. Top right: |ĥ(t)|² for t from 0 to 60, an oscillating curve with peak 0.36 near t = 7; dots at the first ten zero heights with values 0.201 at 14.13, 0.087 at 21.02, 0.073 at 25.01, then below 0.014. Bottom: the strip 0 < Re s < 1 with the critical line Re s = ½; one zero on the line, labelled as giving |ĥ(γ)|² ≥ 0, and two hollow points β + iγ and 1 − β + iγ labelled hypothetical, whose combined term 2 Re[ĥ(γ − iδ)·conj ĥ(γ + iδ)] is not a square and can be negative.',
+      },
+      {
+        id: 'weil-support-ladder',
+        title: 'Support sizes for Weil positivity: proved, certified, measured',
+        placement: 'advanced',
+        caption: 'Support sizes at which Weil positivity is proved, certified or measured. Convention: 2a is the width of the support of the probe h (h in L²(−a, a)); g = h ∗ h̃ is supported in [−2a, 2a], so prime powers n ≤ exp(2a) enter. Results stated in other conventions are converted: Connes–Consani’s multiplicative support [1/√2, √2] is 2a = ln 2; the Davenport–Heilbronn witness at a = 1.72 is 2a = 3.44; RES-T’s T_X = 3.882 is a half-width, so 2a = 7.764; below it, positivity carries no information beyond the verified zero height X = 3·10¹² (leading order). Line style gives the status (solid: proved; dashed: certified with computer-assisted interval or Arb arithmetic; dotted: measured in floating point); colour separates ζ from the RH-false Davenport–Heilbronn twin. Project certificates are internally refereed only, not externally reviewed. The p = 2-only crossing is a one-prime model: past ln 3 the prime 3 enters, so it is not a failure of positivity for ζ. Positivity at all supports is equivalent to RH, which is open.',
+        alt: 'A number line of support width 2a from 0 to 8 with an arrow to infinity labelled: all 2a, equivalent to RH, open. Zeta lane: proved up to ln 2 = 0.693 (Yoshida 1992, Connes–Consani 2021), certified up to 0.96 (Toeplitz–Krein, interval arithmetic) and up to ln 3 = 1.099 (ARB-LEGE, Arb); RES-T ceiling marked at 2a = 7.76. Davenport–Heilbronn lane: proved up to 0.783, certified positive up to ln 11 = 2.398, measured positive in finite bases up to 3.40, certified negative at 3.44. Detail panel from 0.6 to 1.2: the p = 2-only form turns indefinite at a measured 2a* between 1.100 and 1.132, depending on basis size.',
+      },
+      {
+        id: 'weil-physics',
+        title: 'Positive energy and stability: a two-mass spring chain',
+        placement: 'physics',
+        caption: 'Toy system with two masses and three springs; energy E = ½[k₁x₁² + k₂(x₂ − x₁)² + k₃x₂²], plotted along the displacement (+s, −s). With all k = 1 the energy is 3s² for this displacement and positive for every other one (stable). With the middle spring at k₂ = −1.5 the same displacement gives −2s² < 0 (unstable), while (s, s) still gives s² ≥ 0. Weil positivity has the same logical form: W(h) ≥ 0 for every probe h corresponds to stability, and one probe with W(h) < 0 would correspond to an unstable mode, an off-line zero.',
+        alt: 'Left: two chains, each a wall, spring, mass, spring, mass, spring, wall, with the masses pushed toward each other by s. In the second chain the middle spring is marked k₂ = −1.5. Right: energy against s from −1 to 1; the stable chain gives the upward parabola 3s², the unstable chain the downward parabola −2s². Text: stable, E ≥ 0 for every displacement, corresponds to RH, W(h) ≥ 0 for every probe; a displacement with E < 0 corresponds to a probe with W(h) < 0 and an off-line zero.',
+      },
+    ],
     furtherReading: [
       R('RH novel routes roadmap (Route I)', '/rh-novel-routes-roadmap'),
       R('Route I remainder resonance', '/viz-imp96103-route-i-remainder-resonance'),

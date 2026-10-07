@@ -72,7 +72,8 @@ const asExample = (e) => {
  * { slug, intro, levels: [{ level, heading, paragraphs[], analogy, example, math[{tex,note}], details[] }],
  *   physicsAnalogy: { system, mapping[], whereItBreaks } | null, examples: [{ title, level, text, steps[], result, source }],
  *   whyItMatters, example: {title,text,steps,result,source} | null, pitfalls[], prerequisites[], mentions[],
- *   furtherReading: [{label, route|url}], sources: [{label, path|route|url}] }
+ *   furtherReading: [{label, route|url}], sources: [{label, path|route|url}],
+ *   diagrams: [{ id, placement: 'intro'|'beginner'|'intermediate'|'advanced'|'physics', caption, alt, title }] }
  */
 export function normaliseExposition(slug, e) {
   if (!e) return null;
@@ -102,6 +103,8 @@ export function normaliseExposition(slug, e) {
     mentions: arr(e.mentions),
     furtherReading: arr(e.furtherReading),
     sources: arr(e.sources),
+    diagrams: arr(e.diagrams).filter((d) => d && d.id && d.placement)
+      .map((d) => ({ id: d.id, placement: d.placement, caption: d.caption || '', alt: d.alt || '', title: d.title || '' })),
   };
 }
 

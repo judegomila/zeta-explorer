@@ -97,6 +97,7 @@ const RAW = [
           { to: '/rh-landscape-dag', label: 'RH literature DAG' },
           { to: '/project-dag', label: 'Project attempts DAG' },
           { to: '/program-dag', label: 'Freeze-program history DAG' },
+          { to: '/routes-roadmap', label: 'Fifty research routes (2026-10-06)' },
           { to: '/rh-novel-routes-roadmap', label: 'Routes A–G roadmap' },
           { to: '/rh-dag', label: 'Insight graph (archive)' },
           { to: '/open-frontier', label: 'Open frontier (archive)' },

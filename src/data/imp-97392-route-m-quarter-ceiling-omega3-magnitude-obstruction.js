@@ -102,10 +102,34 @@ function mobius(d) {
   if (radical(d) !== d) return 0;
   return primeFactors(d).length % 2 === 0 ? 1 : -1;
 }
-function divisors(b) { const ds = []; for (let d = 1; d <= b; d++) if (b % d === 0) ds.push(d); return ds; }
+// Divisors generated from the prime factorisation, then sorted ascending -- the same list (and
+// therefore the same floating-point summation order in Delta) as the original O(b) trial scan,
+// which made the import-time assertion sweeps (every omega=3 b <= 2e5) take minutes and hung the
+// /viz-imp97426 page that imports this module.
+function divisors(b) {
+  let ds = [1];
+  let n = b;
+  for (let p = 2; p * p <= n; p++) {
+    if (n % p !== 0) continue;
+    let e = 0;
+    while (n % p === 0) { n /= p; e++; }
+    const next = [];
+    for (const d of ds) { let pk = 1; for (let i = 0; i <= e; i++) { next.push(d * pk); pk *= p; } }
+    ds = next;
+  }
+  if (n > 1) ds = ds.concat(ds.map((d) => d * n));
+  return ds.sort((x, y) => x - y);
+}
 
 // Exact G(m) = Sum_{k=1}^m k log k; Glaisher-Kinkelin main part; exact remainder R(m); weight g(m).
-function Gexact(m) { let s = 0; for (let k = 1; k <= m; k++) s += k * Math.log(k); return s; }
+// Memoised running prefix sum: G_PREFIX[m] is accumulated in exactly the same order as the
+// original per-call loop (s += k log k for k = 1..m), so values are bit-identical, but each
+// gWeight call is O(1) amortised instead of O(m).
+const G_PREFIX = [0];
+function Gexact(m) {
+  for (let k = G_PREFIX.length; k <= m; k++) G_PREFIX.push(G_PREFIX[k - 1] + k * Math.log(k));
+  return G_PREFIX[m];
+}
 function GKmain(m) {
   if (m === 1) return -1 / 4 + LN_A;
   return (m * m / 2 + m / 2 + 1 / 12) * Math.log(m) - (m * m) / 4 + LN_A;

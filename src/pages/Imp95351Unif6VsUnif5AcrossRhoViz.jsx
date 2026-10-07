@@ -6,7 +6,10 @@ import {
 } from '../data/imp-95351-unif6-vs-unif5-across-rho-viz-data.js';
 import { ED } from '../styles/tokens.js';
 
-function AxisFrame({ children, svgW, svgH, padL, padR, padT, padB, xTicks, yTicks, xOf, yOf, xLabel, yLabel }) {
+// yTickOf maps a tick label to a pixel y; defaults to yOf. The log-scale floor panel passes
+// exponent ticks (-9..-1), which must not go through yOf's own log10 (that produced NaN).
+function AxisFrame({ children, svgW, svgH, padL, padR, padT, padB, xTicks, yTicks, xOf, yOf, yTickOf, xLabel, yLabel }) {
+  const tickY = yTickOf || yOf;
   const plotW = svgW - padL - padR;
   const plotH = svgH - padT - padB;
   return (
@@ -23,8 +26,8 @@ function AxisFrame({ children, svgW, svgH, padL, padR, padT, padB, xTicks, yTick
       ))}
       {yTicks.map((v) => (
         <g key={`y${v}`}>
-          <line x1={padL - 4} y1={yOf(v)} x2={padL} y2={yOf(v)} stroke={ED.rule} strokeWidth={1} />
-          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8.5}>
+          <line x1={padL - 4} y1={tickY(v)} x2={padL} y2={tickY(v)} stroke={ED.rule} strokeWidth={1} />
+          <text x={padL - 8} y={tickY(v) + 3} textAnchor="end" fill={ED.inkFaint} fontSize={8.5}>
             {v}
           </text>
         </g>
@@ -81,6 +84,7 @@ function FloorCurvesPanel() {
       yTicks={[-9, -7, -5, -3, -1]}
       xOf={xOf}
       yOf={yOf}
+      yTickOf={(k) => yOf(Math.pow(10, k))}
       xLabel="a = ln(rho)"
       yLabel="log10(floor value)"
     >

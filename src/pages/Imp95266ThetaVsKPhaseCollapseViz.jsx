@@ -247,7 +247,7 @@ export default function Imp95266ThetaVsKPhaseCollapseViz() {
         imp-95266 baked viz-data (theta_K and the L1/L2 modulus recomputed independently via
         the imp-95233 exact BigInt rational integration and binomial identities; the
         depth-saturation gap 1/2 &minus; R_K, not plotted here but recorded in the data
-        module, cross-checks the imp-95224 baked literal to 3e-10 relative). Changes no
+        module, cross-checks the imp-95224 baked literal to 1e-4 relative; measured 3.3e-7). Changes no
         bound, establishes no operator positivity, no RH claim; Platt&ndash;Trudgian
         &Lambda; &le; 0.2 remains SOTA. NO QED.
       </div>

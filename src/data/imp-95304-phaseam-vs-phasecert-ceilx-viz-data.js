@@ -34,7 +34,7 @@
  * imp-36185 import-light viz-data pattern.
  *
  * PRESENTATION POINT. Both curves decrease monotonically in theta; the
- * PHASE-AM curve sits strictly below the PHASE-CERT curve everywhere, with
+ * PHASE-AM curve sits strictly below the PHASE-CERT curve for theta < 1, with
  * the gap between them narrowing as theta -> 1 (ratio (1+theta)/2 -> 1) and
  * widening as theta -> 0 (ratio -> 1/2, PHASE-AM's loss against PHASE-CERT
  * is halved). The CEIL-X witness sits well to the left of both crossing
@@ -124,11 +124,15 @@ const IMP95304_ASSERTIONS = [
       }),
   },
   {
-    id: 'imp95304-am-strictly-below-cert-everywhere',
-    description: 'PHASE-AM sits strictly below PHASE-CERT at every sampled theta, ratio exactly (1+theta)/2',
+    // Corrected: am/cert = (1+theta)/2 exactly, so PHASE-AM is below PHASE-CERT only for
+    // theta < 1; the sample grid runs to theta = 1.5, where the last three rows (theta =
+    // 1.03, 1.24, 1.5) have am > cert. The original "strictly below at every sampled theta"
+    // was false by the module's own closed form.
+    id: 'imp95304-am-below-cert-iff-theta-below-one',
+    description: 'PHASE-AM / PHASE-CERT = (1+theta)/2 at every sampled theta, so PHASE-AM is strictly below PHASE-CERT exactly for theta < 1 (they cross at theta = 1)',
     holds: () =>
       IMP95304_BOUNDS_VS_THETA.every((p) => {
-        if (!(p.am < p.cert)) return false;
+        if ((p.am < p.cert) !== (p.theta < 1)) return false;
         return Math.abs(p.am / p.cert - (1 + p.theta) / 2) < 1e-6;
       }),
   },

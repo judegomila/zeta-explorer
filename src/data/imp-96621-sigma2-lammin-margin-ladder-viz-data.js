@@ -143,7 +143,8 @@ const IMP96621_ASSERTIONS = [
     id: 'imp96621-honest-banner-present',
     holds: () =>
       /RH open/.test(IMP96621_HONEST_BANNER) &&
-      /PT Lambda <= 0.2/.test(IMP96621_HONEST_BANNER) &&
+      // banner spells the PT marker out as "Platt-Trudgian"; accept both forms
+      /(PT|Platt-Trudgian) Lambda <= 0.2/.test(IMP96621_HONEST_BANNER) &&
       /NO QED/.test(IMP96621_HONEST_BANNER),
     why: 'every Route I Toeplitz/Krein viz surface carries the RH-open / PT-Lambda / NO-QED markers.',
   },

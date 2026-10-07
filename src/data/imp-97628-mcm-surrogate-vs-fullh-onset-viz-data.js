@@ -23,10 +23,12 @@ export const IMP97628_SURROGATE_ONSET_OMEGA = IMP97583_RESULTS.surrogateOnsetOme
 export const IMP97628_FULL_ONSET_OMEGA = IMP97583_RESULTS.onsetOmega; // 11
 export const IMP97628_RCORR_SATURATION = IMP97583_RESULTS.rCorrectionSaturation; // ~1.0186e-3
 
-// Only rows with a recorded surrogate value (omega = 7..11) -- earlier rows (omega=6) don't carry one.
+// Only rows with a recorded surrogate value up to the full-h onset (omega = 7..11) -- earlier
+// rows (omega=6) don't carry one, and the imp-97583 ladder also carries post-onset rows
+// (omega = 12, 13, 15; failure deepening) that are outside this onset-window chart.
 export const IMP97628_ROWS = Object.freeze(
   IMP97583_ONSET_LADDER
-    .filter((row) => row.surrogate !== null)
+    .filter((row) => row.surrogate !== null && row.omega <= IMP97628_FULL_ONSET_OMEGA)
     .map((row) =>
       Object.freeze({
         omega: row.omega,

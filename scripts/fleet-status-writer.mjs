@@ -27,8 +27,10 @@ const NOSTATUS = '--invert-grep --grep="chore(status)"';
 const commitsLastHour = parseInt(sh(`git log --since="1 hour ago" ${NOSTATUS} --oneline | wc -l`) || '0', 10);
 const commits24h = parseInt(sh(`git log --since="24 hours ago" ${NOSTATUS} --oneline | wc -l`) || '0', 10);
 const localHead = sh('git rev-parse HEAD');
-const originHead = sh('git rev-parse origin/main 2>/dev/null');
-const ahead = parseInt(sh('git rev-list --count origin/main..HEAD 2>/dev/null') || '0', 10);
+// compare against the current branch's own remote (was hard-coded to origin/main)
+const branch = sh('git rev-parse --abbrev-ref HEAD 2>/dev/null') || 'main';
+const originHead = sh(`git rev-parse origin/${branch} 2>/dev/null`);
+const ahead = parseInt(sh(`git rev-list --count origin/${branch}..HEAD 2>/dev/null`) || '0', 10);
 
 // ── fleet: engines + live workers ───────────────────────────────────────────
 function freshHeartbeats(glob) {
@@ -80,7 +82,7 @@ const status = {
     commitsLastHour, commits24h,
     synced: localHead && originHead ? localHead === originHead : null,
     unpushed: ahead,
-    repoCommitsUrl: 'https://github.com/judegomila/mathexplorer/commits/main',
+    repoCommitsUrl: `https://github.com/judegomila/mathexplorer/commits/${branch}`,
   },
   fleet: { engines, totalWorkers, liveAgentsNow: liveAgents },
   queue: { pending, byModel, completed24h: commits24h },

@@ -177,6 +177,7 @@ export const EDITORIAL_ROUTES = new Set([
   // classic dark bar above it)
   '/reach-frontier-audit',
   '/rh-novel-routes-roadmap',
+  '/routes-roadmap',
   '/route-m-cohort2-audit',
 ]);
 

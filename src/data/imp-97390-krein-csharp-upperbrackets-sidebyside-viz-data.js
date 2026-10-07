@@ -106,9 +106,13 @@ const IMP97390_ASSERTIONS = [
     holds: () => {
       const B = IMP97390_BRACKET_BARS;
       const band = IMP97390_JOINT_BAND;
+      // The imp-97206 band edges are stored to 4 decimals (lo 0.5817 IS the
+      // plateau mean 0.581687 rounded), so membership is checked up to that
+      // storage rounding (5e-5); an exact >= against the rounded edge fails.
+      const ROUND = 5e-5;
+      const inBand = (v) => v >= band.lo - ROUND && v <= band.hi + ROUND;
       return B.length === 3 && B.every((b) => typeof b.value === 'number' && b.value > 0.55 && b.value < 0.6) &&
-        B[0].value >= band.lo && B[0].value <= band.hi &&
-        B[1].value < band.hi && B[2].value >= band.lo && B[2].value <= band.hi;
+        inBand(B[0].value) && B[1].value < band.hi && inBand(B[2].value);
     },
     why: 'all three measured upper-bracket bars must sit in the ~0.58 range, with the imp-97335 T-limit and coupled plateau mean falling inside the imp-97206 joint range [0.5817,0.5842].',
   },

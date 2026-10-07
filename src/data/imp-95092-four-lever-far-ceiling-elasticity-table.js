@@ -73,7 +73,7 @@ function iQuad(T, rho, s, N, pad) {
   return (acc * h) / Math.sqrt(rho);
 }
 
-function farCoefficient(sigma, beta, c, v, D, theta) {
+function farCoefficientUncached(sigma, beta, c, v, D, theta) {
   const Q = isolationQ(c, v, beta, D);
   const s = sigma + theta;
   const gSharp = (j) => Math.pow(2, beta) * gOld(j, Q, beta);
@@ -104,6 +104,20 @@ function farCoefficient(sigma, beta, c, v, D, theta) {
     if (o > sup) sup = o;
   }
   return { Q, s, ceiling: (2 * sup) / Tx2 };
+}
+
+// Memoised wrapper (same 6-argument signature, so farCoefficient.length === 6). Each call runs
+// ~200 midpoint quadratures of N = 200000 points, and the assertions re-request identical
+// argument tuples several times; caching returns the bit-identical result object.
+const FAR_COEFFICIENT_CACHE = new Map();
+function farCoefficient(sigma, beta, c, v, D, theta) {
+  const key = `${sigma}|${beta}|${c}|${v}|${D}|${theta}`;
+  let r = FAR_COEFFICIENT_CACHE.get(key);
+  if (r === undefined) {
+    r = farCoefficientUncached(sigma, beta, c, v, D, theta);
+    FAR_COEFFICIENT_CACHE.set(key, r);
+  }
+  return r;
 }
 
 // ── central-difference elasticities at the model point (+/- 2 percent) ────────
@@ -185,6 +199,7 @@ export const IMP95092_FOUR_LEVER_FAR_CEILING_ELASTICITY_TABLE = {
 export const IMP95092_ELASTICITY_TABLE_ASSERTIONS = [
   {
     id: "imp95092-model-point-reproduction",
+    heavy: true, // N = 200000 quadrature re-derivation; skipped at browser import (see loop below)
     description:
       "the model point (sigma=1, beta=1/3, c=v=D=1, theta=10) reproduces cFar0 = 0.2717400426244421 and Q0 = 2^(-2/3) = 0.6299605249474366",
     holds: () => {
@@ -198,6 +213,7 @@ export const IMP95092_ELASTICITY_TABLE_ASSERTIONS = [
   },
   {
     id: "imp95092-four-elasticities-reproduce",
+    heavy: true, // N = 200000 quadrature re-derivation; skipped at browser import (see loop below)
     description:
       "the four central-difference elasticities and dcFar/dx reproduce the baked table literals (theta -1.2706, sigma -0.9443, Q +0.8848, beta -0.0993)",
     holds: () => {
@@ -219,6 +235,7 @@ export const IMP95092_ELASTICITY_TABLE_ASSERTIONS = [
   },
   {
     id: "imp95092-Q-row-matches-imp95075",
+    heavy: true, // N = 200000 quadrature re-derivation; skipped at browser import (see loop below)
     description:
       "the Q row reproduces the imp-95075 dcFar/dQ = 0.3816620268743663 and elasticity 0.8847868296486842 exactly (same central difference, same quadrature)",
     holds: () => {
@@ -271,7 +288,13 @@ export const IMP95092_ELASTICITY_TABLE_ASSERTIONS = [
   },
 ];
 
+// The heavy (quadrature re-derivation) assertions take tens of seconds; at browser import they
+// blanked /permutation-architecture for 25-50 s. They are skipped only in the browser: the node
+// assertion harness (scripts/run-assertions.mjs) runs every entry of the exported array, and the
+// cheap assertions (honesty gate, closed-form checks) still self-execute everywhere.
+const SKIP_HEAVY_AT_IMPORT = typeof window !== 'undefined';
 for (const a of IMP95092_ELASTICITY_TABLE_ASSERTIONS) {
+  if (a.heavy && SKIP_HEAVY_AT_IMPORT) continue;
   if (!a.holds()) {
     throw new Error(`imp-95092-four-lever-far-ceiling-elasticity-table assertion failed: ${a.id}`);
   }

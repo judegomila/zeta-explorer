@@ -37,7 +37,9 @@ import {
 } from './imp-96569-route-m-window-reach-projection.js';
 
 // Gap-vs-fluctuation bars: the RH-vs-plateau gap next to the two noise
-// floors it must clear (both are LARGER than the gap, hence the floor).
+// scales it must clear. The gap EXCEEDS each scale but by less than 2x
+// (imp-96569 FINDING 1: gapToScatter 1.24, gapToMB 1.74), hence the
+// per-rung 2-sigma floor.
 export const IMP96702_GAP_BARS = Object.freeze([
   Object.freeze({ key: 'gapFull', label: 'gapFull = 1 - c_plat', value: IMP96569_SCALES.gapFull }),
   Object.freeze({ key: 'sigmaScatter', label: 'sigma_scatter (per-rung)', value: IMP96569_SCALES.sigmaScatter }),
@@ -76,13 +78,16 @@ export const IMP96702_HONEST_BANNER = IMP96569_HONEST_BANNER;
 
 const IMP96702_ASSERTIONS = [
   {
-    id: 'imp96702-gap-bars-three-values-gap-smallest',
+    // Corrected: the original claim "gapFull is the smallest bar" contradicted
+    // the imp-96569 source (gapFull=0.0154 > sigma_scatter=0.0125 > sigma_MB=0.0089).
+    // The reproducible claim is that gapFull exceeds each scale by less than 2x.
+    id: 'imp96702-gap-bars-three-values-gap-under-two-sigma',
     holds: () =>
       IMP96702_GAP_BARS.length === 3 &&
       IMP96702_GAP_BARS.every((b) => b.value > 0) &&
-      IMP96702_GAP_BARS[0].value < IMP96702_GAP_BARS[1].value &&
-      IMP96702_GAP_BARS[0].value < IMP96702_GAP_BARS[2].value,
-    why: 'gapFull must be the smallest of the three bars -- the entire point of the imp-96569 gap floor is that the RH-vs-plateau gap is smaller than either fluctuation scale.',
+      IMP96702_GAP_BARS[0].value < 2 * IMP96702_GAP_BARS[1].value &&
+      IMP96702_GAP_BARS[0].value < 2 * IMP96702_GAP_BARS[2].value,
+    why: 'gapFull must be below 2x each fluctuation scale -- the imp-96569 gap floor is that the RH-vs-plateau gap cannot reach 2 sigma per rung against either scale.',
   },
   {
     id: 'imp96702-ratios-below-two',

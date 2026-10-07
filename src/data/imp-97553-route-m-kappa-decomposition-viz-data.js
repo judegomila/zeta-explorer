@@ -83,7 +83,10 @@ const IMP97553_ASSERTIONS = [
         return (
           Math.abs(p.kappaArith - KAPPA_ARITH) < 1e-12 &&
           Math.abs(p.kappaCot - r.kappaCot) < 1e-9 &&
-          Math.abs(p.kappaArith + p.kappaCot - p.kappa) < 1e-9 &&
+          // imp-97541 bakes kappa and kappaCot to 6 decimals while KAPPA_ARITH is
+          // full precision, so the sum residual is ~5.1e-8 (storage rounding);
+          // the tolerance is the 6-decimal storage precision, not 1e-9.
+          Math.abs(p.kappaArith + p.kappaCot - p.kappa) < 1e-6 &&
           Math.abs(p.kappa - r.kappa) < 1e-6
         );
       }),

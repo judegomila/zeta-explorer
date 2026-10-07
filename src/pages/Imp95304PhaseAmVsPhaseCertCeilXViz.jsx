@@ -189,9 +189,9 @@ export default function Imp95304PhaseAmVsPhaseCertCeilXViz() {
         }}
       >
         <strong style={{ color: 'var(--ink-soft)' }}>Reading the chart:</strong> the green PHASE-AM
-        curve sits strictly below the blue PHASE-CERT curve at every theta, with the gap
+        curve sits strictly below the blue PHASE-CERT curve for every theta &lt; 1, with the gap
         narrowing to zero as theta &rarr; 1 (ratio (1+theta)/2 &rarr; 1, both reduce to the
-        imp-95222 FA-2 sharp case) and widening toward a factor of 1/2 as theta &rarr; 0
+        imp-95222 FA-2 sharp case; past theta = 1 the ratio exceeds 1 and the curves cross) and widening toward a factor of 1/2 as theta &rarr; 0
         (PHASE-AM halves PHASE-CERT's loss in the deep-cancellation regime). The amber CEIL-X
         witness sits well to the left of both vacuity thresholds (theta = 0.1099 &lt;
         theta_0' = 0.6377 &lt; theta_0 = 0.7788): in that region both certificates exceed 1/2

@@ -68,7 +68,9 @@ export const IMP96039_CAVEAT_BANNER =
   if (IMP96039_HEIGHT_BANDS.length !== 5) throw new Error('imp-96039: expected five height bands');
   for (const b of IMP96039_HEIGHT_BANDS) {
     if (!(b.hi > b.lo)) throw new Error('imp-96039: height band range must be increasing');
-    if (Math.abs(b.fraction - b.violations / b.intervals) > 1e-6)
+    // band fractions are baked to 4 decimals in the source (e.g. 21/29 = 0.724138 stored as
+    // 0.7241), so the recompute tolerance is that storage rounding (5e-5), not 1e-6.
+    if (Math.abs(b.fraction - b.violations / b.intervals) > 5e-5)
       throw new Error('imp-96039: height band fraction must match violations/intervals');
   }
   // height-flat: no band fraction may be within an order of magnitude of 0 -- i.e. it never

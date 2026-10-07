@@ -80,7 +80,10 @@ const IMP97302_ASSERTIONS = [
   },
   {
     id: 'imp97302-shares-sum-to-one',
-    holds: () => IMP97302_ROWS.every((r) => Math.abs(r.diagShare + r.offShare - 1) < 1e-6),
+    // M2w/diag/offdiag are baked to 6 decimals, so diag + offdiag can differ
+    // from M2w by 1e-6 absolute (b=101, b=401) = ~8e-6 relative at M2w ~ 0.13;
+    // the tolerance is that storage rounding (2e-5), not 1e-6.
+    holds: () => IMP97302_ROWS.every((r) => Math.abs(r.diagShare + r.offShare - 1) < 2e-5),
     why: 'diagShare + offShare must reconstruct the exact identity M2w = diag + offdiag at every row.',
   },
   {

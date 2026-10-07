@@ -94,3 +94,83 @@
   .cx-seg { flex-wrap: nowrap; max-width: 100%; }
   .cx-seg button { padding: 3px 8px; font-size: 12.5px; }
 }
+
+/* concept diagrams (src/components/concept-diagrams): inline SVG, token colours, light editorial theme.
+   Series slots: c1 = --series-5, c2 = --series-2, c3 = --series-4. Validated on --paper (#fdfaf3) as the pairs that
+   co-occur: c1/c2 and c1/c3 pass all checks; c2 and c3 must not share a figure (deutan ΔE 1.4). */
+.cd-fig { margin: 26px 0 30px; display: flex; flex-direction: column; }
+.cd-fig > .cd-cap { order: 1; }
+.cd-fig > .cd-note { order: 2; }
+.cd-fig > .cd-alt { order: 3; width: 100%; }
+.cd-svg { display: block; width: 100%; max-width: 640px; height: auto; margin: 0 auto; overflow: visible; }
+.cd-cap { font-size: 15px; line-height: 1.5; color: var(--ink-soft); max-width: 640px; width: 100%; margin: 10px auto 0; }
+.cd-loading { font-family: var(--ed-mono); font-size: 12.5px; color: var(--ink-faint); padding: 40px 0; text-align: center; }
+.cd-note { font-size: 15px; line-height: 1.5; max-width: 640px; width: 100%; box-sizing: border-box; margin: 12px auto 0; padding: 10px 14px; border-left: 3px solid var(--warn); background: var(--paper-2); border-radius: 0 6px 6px 0; }
+.ed-prose .cd-note { margin: 12px auto 0; }
+.cd-alt { max-width: 640px; margin: 8px auto 0; font-size: 14px; color: var(--ink-soft); }
+.cd-alt summary { cursor: pointer; font-family: var(--ed-mono); font-size: 11.5px; letter-spacing: .06em; color: var(--ink-faint); }
+.cd-alt summary:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 2px; }
+.cd-alt p { margin: 8px 0; font-size: 14px; }
+.cd-table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 6px 0 4px; font-variant-numeric: tabular-nums; }
+.cd-table caption { text-align: left; font-size: 12.5px; color: var(--ink-faint); padding-bottom: 4px; }
+.cd-table th { text-align: left; font-weight: 500; color: var(--ink-faint); border-bottom: 1px solid var(--rule); padding: 4px 8px 4px 0; }
+.cd-table td { border-bottom: 1px solid var(--rule-soft); padding: 4px 8px 4px 0; vertical-align: top; }
+
+.cd-svg text { fill: var(--ink); }
+.cd-t { font-family: var(--ed-body); font-size: 12.5px; }
+.cd-sm { font-size: 11px; }
+.cd-svg .cd-soft { fill: var(--ink-soft); }
+.cd-strong { font-weight: 600; }
+.cd-mono { font-family: var(--ed-mono); font-size: 10px; }
+.cd-svg text.cd-mono { fill: var(--ink-soft); }
+.cd-halo { paint-order: stroke; stroke: var(--paper); stroke-width: 3px; stroke-linejoin: round; }
+/* phones: figures scale with the column, so widen into the side padding and raise the two smallest text sizes
+   (viewBox units) to keep tick labels and numbers near 10 px at 390 px. Layouts were checked for collisions at these sizes. */
+@media (max-width: 520px) {
+  .cd-svg { width: calc(100% + 20px); max-width: none; margin: 0 -10px; }
+  .cd-mono { font-size: 11px; }
+  .cd-sm { font-size: 11.5px; }
+}
+
+.cd-axis { stroke: var(--ink-faint); stroke-width: 1; fill: none; }
+.cd-grid { stroke: var(--rule); stroke-width: 1; fill: none; }
+.cd-leader { stroke: var(--ink-faint); stroke-width: 0.75; fill: none; }
+.cd-tick { stroke: var(--ink-soft); stroke-width: 1.5; }
+.cd-tick-c1 { stroke: var(--series-5); stroke-width: 1.5; }
+.cd-zoomband { fill: var(--paper-3); opacity: .7; }
+.cd-fill-ink { fill: var(--ink); }
+
+.cd-line { fill: none; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+.cd-line-thin { fill: none; stroke-width: 1.25; stroke-linejoin: round; }
+.cd-dash { stroke-dasharray: 7 4; }
+.cd-stroke-c1 { stroke: var(--series-5); }
+.cd-stroke-c2 { stroke: var(--series-2); }
+.cd-stroke-ink { stroke: var(--ink); }
+.cd-fill-c1 { fill: var(--series-5); }
+.cd-fill-c3 { fill: var(--series-4); }
+.cd-stroke-context { stroke: var(--ink-faint); }
+.cd-dot { stroke: var(--paper); stroke-width: 2; }
+.cd-hollow { fill: var(--paper); stroke-width: 2; }
+
+/* evidence tiers: line style carries the tier, colour carries the function */
+.cd-seg { fill: none; stroke-width: 2; stroke-linecap: round; }
+.cd-proved { stroke-dasharray: none; }
+.cd-cert { stroke-dasharray: 7 4; stroke-linecap: butt; }
+.cd-meas, .cd-meas line { stroke-dasharray: 0 5; stroke-width: 2.5; stroke-linecap: round; }
+.cd-meas-axis { stroke-dasharray: 2 3; }
+
+/* balance */
+.cd-frame { stroke: var(--ink-soft); stroke-width: 2; }
+.cd-frame-fill { fill: var(--ink-soft); }
+.cd-beam { stroke: var(--ink); stroke-width: 3; stroke-linecap: round; }
+.cd-string { stroke: var(--ink-faint); stroke-width: 0.75; }
+.cd-pan { fill: none; stroke: var(--ink-soft); stroke-width: 2; stroke-linecap: round; }
+
+/* physics */
+.cd-wall { fill: var(--paper-4); }
+.cd-mass { fill: var(--paper-3); stroke: var(--ink-soft); stroke-width: 1; }
+.cd-spring { fill: none; stroke: var(--ink-soft); stroke-width: 1.5; stroke-linejoin: round; }
+.cd-spring.cd-spring-neg { stroke: var(--series-2); stroke-width: 2; stroke-dasharray: 4 2; }
+.cd-arrowline { stroke: var(--ink); stroke-width: 1.25; }
+.cd-strip { fill: var(--paper-2); }
+.cd-critline { stroke: var(--ink-soft); stroke-width: 1.25; }

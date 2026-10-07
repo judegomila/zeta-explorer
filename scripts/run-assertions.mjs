@@ -526,6 +526,14 @@ const DATA_MODULES = [
   '/src/data/r6-synthesis-2026-10-06.js',
   // research-routes-roadmap: the fifty routes of 2026-10-06 (formalization/routes/fifty-routes-2026-10-06.md) as site data; import-free.
   '/src/data/research-routes-roadmap.js',
+  // fifty-routes batch 1 result modules (2026-10-06; one internal referee pass each, corrections applied; import-free):
+  // route 1 (route P r7, certified 0.145694083872924, Λ < 0.145 not certified), route 2 (barrier floor: no Λ change),
+  // route 27 (function-field twin ladder), route 46 (Kronecker floors, U2 cap), route 49 (sawtooth S(T), no Λ lever).
+  '/src/data/route-1-finish-route-p-2026-10-06.js',
+  '/src/data/route-2-lowered-barrier-floor-2026-10-06.js',
+  '/src/data/route-27-function-field-twin-ladder-2026-10-06.js',
+  '/src/data/route-46-exact-kronecker-floors-2026-10-06.js',
+  '/src/data/route-49-unconditional-s-of-t-2026-10-06.js',
   // imp-96066 (2026-09-23): ASSESSMENT of the P_3-adjoined Route I pencil D_S + P_3 <= L_S vs the dense
   // 2^a 3^b resonance. Answer: the pencil uses the DISCRETE Weil term P_3 (support {k ln 3}, identically zero
   // for 2a < ln 3, single boundary point v = ln 3 at 2a = ln 3), NOT the dense S={oo,2,3} Sonine remainder

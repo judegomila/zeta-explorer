@@ -409,6 +409,9 @@ export default function RhNovelRoutesRoadmapPage() {
           <p style={{ fontFamily: mono, fontSize: 12, color: 'var(--faint)', marginTop: 8 }}>
             {R.date} · {R.routes.length} routes (A–G) · {R.status}
           </p>
+          <p style={{ fontSize: 13, color: 'var(--ink-soft)', marginTop: 8 }}>
+            Current roadmap: <Link to="/routes-roadmap">fifty research routes (2026-10-06)</Link>, grouped A–J with status per route.
+          </p>
         </div>
 
         <RouteStatusDashboard
@@ -513,6 +516,8 @@ export default function RhNovelRoutesRoadmapPage() {
         <div className="card" style={{ marginTop: 16, background: 'var(--paper2)' }}>
           <h3 style={{ color: 'var(--faint)', fontSize: 13, marginBottom: 10 }}>Related pages</h3>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+            <Link to="/routes-roadmap" style={{ color: 'var(--blue)', fontSize: 13 }}>Fifty research routes (2026-10-06)</Link>
+            <span style={{ color: 'var(--hairline)' }}>|</span>
             <Link to="/rh-dag" style={{ color: 'var(--blue)', fontSize: 13 }}>RH DAG</Link>
             <span style={{ color: 'var(--hairline)' }}>|</span>
             <Link to="/three-attacks" style={{ color: 'var(--brass-dk)', fontSize: 13 }}>Three Approaches</Link>

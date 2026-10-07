@@ -97,7 +97,15 @@ export const IMP97630_SUMMARY = Object.freeze({
     + `(${IMP97600_SOURCE_SHARES.extrapolationModelSharePct.toFixed(1)}%) to the power-refit deep end `
     + `${IMP97600_FLOOR_ANCHORS.powerSaturationRefitDeepEnd.toFixed(3)}, which the measured 80-block ratio `
     + `(0.687) shows is an over-extrapolation.`,
-  verdict: IMP97600_VERDICT.answer,
+  // The imp-97600 answer string carries the diagnosis but not the honesty markers
+  // (those live in its boolean guardrails boundMoves/qed/operatorPositivityProved),
+  // so the markers are restated here from those flags.
+  verdict:
+    IMP97600_VERDICT.answer
+    + (IMP97600_VERDICT.boundMoves === false && IMP97600_VERDICT.qed === false
+      ? ' MEASUREMENT / DIAGNOSIS ONLY: no bound moved; no operator positivity; interval-rigorous reach '
+        + 'stays 2a<=0.96; PT Lambda <= 0.2 SOTA; RH open; NO QED.'
+      : ''),
 });
 
 // ---------------------------------------------------------------------------

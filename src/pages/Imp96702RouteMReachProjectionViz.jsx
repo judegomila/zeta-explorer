@@ -74,8 +74,8 @@ export default function Imp96702RouteMReachProjectionViz() {
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
-        imp-96569 measured that the RH-vs-plateau centerline gap (gapFull) is smaller than either
-        fluctuation scale it must clear, then projected nine reach-N corners (confidence z x drift
+        imp-96569 measured that the RH-vs-plateau centerline gap (gapFull) exceeds each
+        fluctuation scale it must clear by less than a factor of 2, then projected nine reach-N corners (confidence z x drift
         exponent q) under an optimistic SE-of-mean model. Every corner lands beyond the imp-96352
         compute ceiling N&nbsp;~&nbsp;9916.
       </p>

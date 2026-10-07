@@ -67,7 +67,7 @@ function iQuad(T, rho, s, N, pad) {
   return (acc * h) / Math.sqrt(rho);
 }
 
-function farCoefficient(sigma, beta, c, v, D, theta) {
+function farCoefficientUncached(sigma, beta, c, v, D, theta) {
   const Q = isolationQ(c, v, beta, D);
   const s = sigma + theta;
   const gSharp = (j) => Math.pow(2, beta) * gOld(j, Q, beta);
@@ -102,6 +102,20 @@ function farCoefficient(sigma, beta, c, v, D, theta) {
     }
   }
   return { Q, s, Tx2, sup, argb, ceiling: (2 * sup) / Tx2 };
+}
+
+// Memoised wrapper (same 6-argument signature, so farCoefficient.length === 6). Each call runs
+// ~200 midpoint quadratures of N = 200000 points, and the assertions re-request identical
+// argument tuples several times; caching returns the bit-identical result object.
+const FAR_COEFFICIENT_CACHE = new Map();
+function farCoefficient(sigma, beta, c, v, D, theta) {
+  const key = `${sigma}|${beta}|${c}|${v}|${D}|${theta}`;
+  let r = FAR_COEFFICIENT_CACHE.get(key);
+  if (r === undefined) {
+    r = farCoefficientUncached(sigma, beta, c, v, D, theta);
+    FAR_COEFFICIENT_CACHE.set(key, r);
+  }
+  return r;
 }
 
 // ── anchor literals shared with imp-95026 (re-derived at full N below) ─────────
@@ -157,6 +171,7 @@ export const IMP95077_FAR_LEDGER_DEGRADE_TABLE = {
 export const IMP95077_DEGRADE_ASSERTIONS = [
   {
     id: "imp95077-endpoints-reproduce-imp95026-anchors",
+    heavy: true, // N = 200000 quadrature re-derivation; skipped at browser import (see loop below)
     description:
       "the theta = 10 and theta = 2 rows re-derive at full N (200000) to the imp-95026 baked anchors MODEL_CFAR_QUAD and WORST_SCANNED_CFAR to 1e-12 relative, and the baked table endpoints match those anchors bit-for-bit",
     holds: () => {
@@ -209,7 +224,13 @@ export const IMP95077_DEGRADE_ASSERTIONS = [
   },
 ];
 
+// The heavy (quadrature re-derivation) assertions take tens of seconds; at browser import they
+// blanked /permutation-architecture for 25-50 s. They are skipped only in the browser: the node
+// assertion harness (scripts/run-assertions.mjs) runs every entry of the exported array, and the
+// cheap assertions (honesty gate, closed-form checks) still self-execute everywhere.
+const SKIP_HEAVY_AT_IMPORT = typeof window !== 'undefined';
 for (const a of IMP95077_DEGRADE_ASSERTIONS) {
+  if (a.heavy && SKIP_HEAVY_AT_IMPORT) continue;
   if (!a.holds()) {
     throw new Error(`imp-95077-far-ledger-degrade-table assertion failed: ${a.id}`);
   }

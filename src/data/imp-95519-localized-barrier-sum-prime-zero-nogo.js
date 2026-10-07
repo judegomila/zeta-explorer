@@ -408,6 +408,12 @@ const HEIGHT_DEFICIT_Q97 = heightT(N_LO) / PLATT_GRH_HEIGHT_Q97; // 2.9e6
 // across the sieving primes, it grows in direct proportion to the conductor, so p = 97 is the
 // binding (largest-gap) modulus and p = 2 the smallest-gap one. Tabulate verified height,
 // required T and gap for every sieving prime; report only, changes no bound, NO QED.
+// The 25 sieving primes p <= 97. Declared here, before the import-time call
+// grhHeightGapPerPrime() below (a later `const` declaration was a temporal-dead-zone
+// ReferenceError at module evaluation that blanked /permutation-architecture).
+const SIEVING_PRIMES_LE_97 = [
+  2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97,
+];
 function grhHeightGapPerPrime() {
   const T = heightT(N_LO); // window bottom ~ 3.0e12 (= zeta verified height, x0 = X + 1)
   const rows = SIEVING_PRIMES_LE_97.map((p) => {
@@ -514,9 +520,7 @@ const GP_RESID_P97 = gaussPlancherelResidual(97, 100000, 1500, 3e6);
 // isometry on the shared K vector, so the residual is pure float64 roundoff; we
 // tabulate the worst-case relative residual per prime (uniform window matching
 // the p = 7 check: n0 = 5000, H = 400, T = 1234.5). Report only; NO QED.
-const SIEVING_PRIMES_LE_97 = [
-  2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97,
-];
+// (SIEVING_PRIMES_LE_97 is declared above grhHeightGapPerPrime, its first import-time use.)
 const GP_RESID_ALL_PRIMES = SIEVING_PRIMES_LE_97.map((p) => ({
   p,
   residual: gaussPlancherelResidual(p, 5000, 400, 1234.5),
@@ -938,7 +942,7 @@ export const IMP95519_LOCALIZED_BARRIER_SUM_NOGO = {
       sqrtSbar: 0.19522202670189637,
     },
     // Exact recomputation at the module inputs.
-    QtargetExact: 1.4326671818370846, // R_ex / sqrt(Sbar)
+    QtargetExact: 1.4326672060407306, // R_ex / sqrt(Sbar) (was baked as 1.4326671818370846, off by 2.4e-8; corrected to the float64 recompute)
     authoritativeValue: 1.4327,
     ticketTextValue: 1.39930,
     // What the ticket-text 1.39930 would require (neither matches the module convention):

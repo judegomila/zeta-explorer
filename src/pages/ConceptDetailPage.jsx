@@ -8,6 +8,9 @@
  * Order: prerequisites ("Helpful first"), level switcher, intro, the three levels ("Start here",
  * "Going deeper", "Precise version"), physics analogy, worked examples, why it matters, example,
  * pitfalls, classes, related concepts, concepts mentioned, sources and further reading.
+ * Diagrams: an exposition's `diagrams` list ({ id, placement, caption, alt }) renders the registered
+ * component (src/components/concept-diagrams/index.js) after the intro, after a level's paragraphs,
+ * or in the physics analogy, according to placement.
  * Concepts without an exposition show the short definition, classes, related concepts and sources.
  */
 import React, { useEffect, useState } from 'react';
@@ -15,6 +18,7 @@ import { Link, Navigate, useParams } from 'react-router-dom';
 import PostLayout, { BlockMath } from '../components/editorial/PostLayout.jsx';
 import ConceptTerm from '../components/ConceptTerm.jsx';
 import { makeConceptRich } from '../components/conceptRich.jsx';
+import { DiagramsAt } from '../components/concept-diagrams/ConceptDiagram.jsx';
 import { useConceptIndex } from '../components/conceptRegistryClient.js';
 import { CONCEPT_CLASSES, findConcept } from '../data/concepts-registry.js';
 import { loadExposition, hasExposition, getLoadedExposition } from '../data/concept-expositions/index.js';
@@ -91,12 +95,13 @@ export function AnalogyTable({ mapping, rich }) {
   );
 }
 
-export function PhysicsAnalogy({ pa, rich, headingId = 'physics-analogy' }) {
+export function PhysicsAnalogy({ pa, rich, headingId = 'physics-analogy', figures = null }) {
   if (!pa) return null;
   return (
     <section aria-labelledby={headingId}>
       <h2 id={headingId} className="cx-h2">Physics analogy</h2>
       {pa.system && <p><strong>System: </strong>{rich(pa.system)}</p>}
+      {figures}
       <AnalogyTable mapping={pa.mapping} rich={rich} />
       {pa.whereItBreaks && (
         <div className="cx-box cx-breaks">
@@ -222,6 +227,7 @@ export default function ConceptDetailPage() {
           )}
 
           {ex.intro && <p className="lead">{rich(ex.intro)}</p>}
+          <DiagramsAt diagrams={ex.diagrams} placement="intro" />
 
           {shownLevels.map((l) => {
             const meta2 = LEVEL_BY[l.level];
@@ -230,6 +236,7 @@ export default function ConceptDetailPage() {
                 <div className="cx-level-tag">{meta2.label}<span className="cx-aud">· {meta2.audience}</span></div>
                 <h2 id={`${meta2.id}-h`}>{l.heading || meta2.label}</h2>
                 {l.paragraphs.map((p, i) => <p key={i}>{rich(p)}</p>)}
+                <DiagramsAt diagrams={ex.diagrams} placement={l.level} />
                 {l.math.map((m, i) => (
                   <div key={`m${i}`} className="cx-math">
                     <BlockMath tex={m.tex} />
@@ -258,7 +265,7 @@ export default function ConceptDetailPage() {
             );
           })}
 
-          <PhysicsAnalogy pa={ex.physicsAnalogy} rich={rich} />
+          <PhysicsAnalogy pa={ex.physicsAnalogy} rich={rich} figures={<DiagramsAt diagrams={ex.diagrams} placement="physics" />} />
 
           {ex.examples.length > 0 && (
             <section aria-labelledby="worked-examples">

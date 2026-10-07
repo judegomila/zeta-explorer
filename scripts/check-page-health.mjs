@@ -43,6 +43,10 @@ function argValue(flag, def) {
 const BASE = argValue('--base', 'http://localhost:3003');
 const SINGLE_ROUTE = argValue('--route', null);
 const TIMEOUT_MS = parseInt(argValue('--timeout', '12000'), 10);
+// A page whose main thread is stuck (infinite loop) never answers page.evaluate;
+// cap it so one bad page fails instead of hanging the whole sweep.
+const EVAL_TIMEOUT_MS = 15000;
+const withTimeout = (p, ms) => Promise.race([p, new Promise((_, rej) => setTimeout(() => rej(new Error('evaluate timeout (page hung)')), ms))]);
 const WAIT_AFTER_LOAD_MS = 800;
 
 // ── Extract routes from src/App.jsx ───────────────────────────────────────
@@ -152,7 +156,7 @@ async function checkRoute(browser, route) {
     visibleText: '',
   };
   try {
-    metrics = await page.evaluate(() => {
+    metrics = await withTimeout(page.evaluate(() => {
       const body = document.body;
       const root = document.querySelector('#root');
       return {
@@ -161,7 +165,7 @@ async function checkRoute(browser, route) {
         svgTextNodes: document.querySelectorAll('svg text').length,
         visibleText: (body?.innerText || '').trim(),
       };
-    });
+    }), EVAL_TIMEOUT_MS);
   } catch {
     // no-op — leave defaults, which will read as effectively empty
   }

@@ -806,6 +806,27 @@ const NODES = [
     'r6 synthesis: certified route P 0.1466609207; no WOL-C violation at P47 (measured); sub-0.145 still needs WOL-C',
     'No certified WOL-C violation at P47 (search negative), so route P is not ruled out; the refuted fiber certificates are not merged. Exact consumer on the r6 admission: Λ ≤ 0.146660920737233 at PT height (337 certified floors, E1–E8 0 failures, packet replay 39/39 + 13/13). With WOL-C assumed for 369 P47 floors: 0.144797588795775, NOT PROVED; Λ < 0.145 NOT certified. Measured: late-cell margins ≲ 0.050 are needed (best corrected 0.0533 gives 0.14502). Route H: 0.144951726247781 for 5.68e6 paid core-hours (RH to 4.8e12) plus G0-d′ at 1.6X. PT Λ ≤ 0.2 stands; NO QED.',
     'src/data/r6-synthesis-2026-10-06.js; tmp/r6-synth-*; formalization/review-packet-sub0145/ (R32–R39)', '2026-10-06', '/lambda-bounds'),
+  // ── fifty-routes roadmap, batch 1 (2026-10-06; src/data/research-routes-roadmap.js) ──
+  N('route1-r7-route-p', 'barrier', 'certificate', 'certified', 'route 1 partial: interval-certified (single engine, exact coverage re-checked by one internal referee pass, minor), conditional on the shared ledger; Λ < 0.145 NOT certified; not proved',
+    'Route 1 (round 7): certified route P 0.145694083872924 at PT height',
+    'r6 admission + 244 r7 P47 full-run certificates (referee margin where smaller), exact consumer: 36423520968231/(2.5·10^14) = 0.145694083872924 (E1–E8 74,596 steps, 0 failures; altlog pass). 125 P47 floors missing, 13 budget-stopped. Measured (hypothetical): missing at target 0.145015; missing + incomplete at target 0.144995; missing alone suffice at ≈ 0.9× target. Referee CONFIRMED floors replicate the v4c bound formulas (driver-level independence only). PT Λ ≤ 0.2 stands; NO QED.',
+    'src/data/route-1-finish-route-p-2026-10-06.js; tmp/r7-final/; tmp/routes-b1-r1-*, tmp/routes-b1-ref1-*', '2026-10-06', '/routes-roadmap'),
+  N('route2-floor-into-route-p', 'barrier', 'no-go', 'no-go', 'route 2 done: short argument (project-internal, proved up to ≈ 1e-24 after referee correction) + exact composition; one internal referee pass (minor)',
+    'Route 2: the lowered barrier floor moves neither route P nor the Polymath Λ values',
+    'Route-P consumers have no floor input (exact re-runs byte-identical: P-cert 0.146660920737233, P-cond 0.144797588795775); a hybrid using route P\'s band barrier as hypothesis (ii) cannot beat U (up to ≈ 1e-24). Under Polymath Thm 1.2 the floor enters only through containment f² < y0², which holds at every certified floor (0.1809 … 0.022; 0.022 producer-certified only) since y0 = 0.18727199, so 0.1787854 and 0.1758354 do not move. The existing lane fails at y0 = 0.1809 (Arb row lbound −0.0218). PT Λ ≤ 0.2 stands; NO QED.',
+    'src/data/route-2-lowered-barrier-floor-2026-10-06.js; tmp/routes-b1-r2-*, tmp/routes-b1-ref2-*; tmp/floor-lowering/README.md', '2026-10-06', '/routes-roadmap'),
+  N('route46-kronecker-floors', 'barrier', 'measurement', 'measured', 'route 46 partial: Kronecker lower bounds certified (arb, rounded down after referee); slice maxima float-validated (measured); one internal referee pass (minor)',
+    'Route 46: Kronecker suprema certified from below; exactness capped at U2, lever = WOL-C',
+    'Lower bounds on the leading-order Kronecker supremum at 12 binding cells (t = 0.075: ≥ 0.533514111339326); slice maxima for k = 4 (12 cells) and k = 5 (2 cells) float-validated, k ≥ 6 infeasible for the box engine. Exact consumer (hypothetical margins): exactness on certified k ≤ 12 entries worth 8.3e-5; WOL-C at 0.0223 on 369 P47 late floors worth 1.863e-3; any floor gain capped at band = U2 = 0.144254643222956. No Λ change. PT Λ ≤ 0.2 stands; NO QED.',
+    'src/data/route-46-exact-kronecker-floors-2026-10-06.js; tmp/routes-b1-r46-*, tmp/routes-b1-ref46-*', '2026-10-06', '/routes-roadmap'),
+  N('route27-function-field-ladder', 'twin-ladder', 'result', 'proved', 'route 27 done: proved for curves over F_q (re-derivations of classical content, project-internal; one internal referee pass with independent re-implementation, minor); lift to Q blocked',
+    'Route 27: function-field twin ladder — Weil form = −(intersection form on Frobenius-graph classes)',
+    'For curves over F_q: R_a is a degree-2g Blaschke product, T_N has exactly ν negative eigenvalues, and q^j + q^k − Γ_j·Γ_k = −P_j·P_k = q^{(j+k)/2} S_{k−j}, so Hodge index on span{P_j} gives Q_TL ≥ 0 and curve-RH. Ladder data alone do not imply RH: 215 exact FE Euler-product fakes in the census boxes (17 at q = 3, 198 at q = 5; g = 2). The lift to Q stops at the missing Spec Z × Spec Z with Hodge index (O3) and the infinite zero count (O1). Nothing claimed for ζ. PT Λ ≤ 0.2 stands; NO QED.',
+    'src/data/route-27-function-field-twin-ladder-2026-10-06.js; formalization/paper/function-field-twin-ladder.md; tmp/routes-b1-r27-*, tmp/routes-b1-ref27-*', '2026-10-06', '/routes-roadmap'),
+  N('route49-s-of-t-sawtooth', 'bridge-models', 'result', 'proved', 'route 49 done: sawtooth lemma proved (elementary, project-internal, one internal referee pass, minor); numerics conditional on Trudgian 2011 (quoted from memory); no Λ lever (measured, model-dependent)',
+    'Route 49: sawtooth S(T) bound; S(T) is not a mirror-descent lever',
+    'Given Trudgian 2011, |S(t)| ≤ √(2Aρ)(1 + o(1)): 5.6748 vs Trudgian 2014 6.6612 at 3e12 (9–17% below at 1e11–1e17; asymptotically weaker, 0.137 vs 0.112 log T). Mirror descent at the seam: optimistic all-real model needs E ≤ 3.363; pessimistic weights give 0.2038 > 0.2 even at E = 0; both treat ζ counts as H_t counts. PT Λ ≤ 0.2 stands; NO QED.',
+    'src/data/route-49-unconditional-s-of-t-2026-10-06.js; tmp/routes-b1-r49-*, tmp/routes-b1-ref49-*', '2026-10-06', '/routes-roadmap'),
   // ───────────────────────── side ─────────────────────────
   N('routes-catalan-signed-ladder', 'side', 'result', 'proved', 'proved (exact closed forms)',
     'Catalan signed ladder: G = β(2) and period-dimension obstruction',
@@ -1294,6 +1315,23 @@ const RAW_EDGES = [
   ['r6-synthesis', 'r5-synthesis', 'supersedes', 'certified route P 0.146660921819602 → 0.146660920737233'],
   ['r6-synthesis', 'r4-packet', 'uses', 'packet extended with the r6 certificates and runs R32–R39'],
   ['r6-synthesis', 'b145-stack', 'uses', 'b145 PT value 0.147273668782792 remains above the certified route-P value'],
+  ['route1-r7-route-p', 'r6-synthesis', 'supersedes', 'certified route P 0.146660920737233 → 0.145694083872924'],
+  ['route1-r7-route-p', 'r6-suffix', 'uses', 'r6 admission as the base certfile'],
+  ['route1-r7-route-p', 'r4-packet', 'uses', 'packet-pinned venv and restored inputs (sha256 match MANIFEST)'],
+  ['route2-floor-into-route-p', 'r6-synthesis', 'uses', 'exact route-P consumer re-run: no floor input, values byte-identical'],
+  ['route2-floor-into-route-p', 'lambda-barrier-reuse', 'uses', 'barrier enters Thm 1.2 only by containment f² < y0²'],
+  ['route2-floor-into-route-p', 'lambda-p15-barrier-criterion', 'uses', 'Λ ≤ t0 + y0²/2; ceilings t0 + f²/2 need (ii) at y0 = f'],
+  ['route2-floor-into-route-p', 'lambda-01758354', 'feeds', 'Λ unchanged at every certified floor'],
+  ['route2-floor-into-route-p', 'lambda-mollifier-scout-stage0', 'feeds', 'a lower floor pays only after (ii) is certified below y0 = 0.1809'],
+  ['route46-kronecker-floors', 's145-zero-conditioned-floor', 'uses', 'Kronecker torus model and float U values certified from below'],
+  ['route46-kronecker-floors', 'r2-structured-floor', 'uses', 'class extremum scenarios on the r2 floors'],
+  ['route46-kronecker-floors', 'route1-r7-route-p', 'feeds', 'remaining lever is WOL-C on the 369 P47 late-cell floors'],
+  ['route27-function-field-ladder', 'twin-route-d-weil-norm', 'feeds', 'over F_q, Q_TL = −(intersection form on primitive Frobenius-graph classes)'],
+  ['route27-function-field-ladder', 'twin-blaschke-ghosts', 'feeds', 'exact ghost index over F_q (T_N has ν negative eigenvalues)'],
+  ['route27-function-field-ladder', 'twin-ladder-def', 'uses'],
+  ['route27-function-field-ladder', 'weil-curves', 'uses', 'Weil’s proof = Approach III with B from divisor classes'],
+  ['route27-function-field-ladder', 'routes-j-weil-deligne-import', 'feeds', 'the lift stops at the same missing Spec Z × Spec Z'],
+  ['route49-s-of-t-sawtooth', 'mirror-descent-theorem', 'feeds', 'counting-input ceiling: no pointwise S input is a usable lever at the seam'],
   ['twin-dh-euler-blindness', 'twin-bridge-chi', 'uses', 'same bridge factor, no T_p cascade'],
   ['twin-dh-euler-blindness', 'twin-ns-rigid', 'feeds', 'quantifies NS-RIGID (d): FE + Dirichlet structure without Euler product'],
   ['twin-dh-euler-blindness', 'routes-c-signed-interferometer', 'feeds', 'quantitative radius for the Route C DH remark'],
@@ -1601,6 +1639,23 @@ export const PROJECT_ATTEMPTS_DAG_ASSERTIONS = Object.freeze([
         /NOT PROVED/.test(s.summary) && /NOT certified/.test(s.summary) && g('r5-synthesis').statusKind === 'superseded' &&
         ids.map(g).every((x) => /PT Λ ≤ 0\.2 stands/.test(x.summary) && /NO QED/.test(x.summary)) &&
         has('r6-synthesis', 'r5-synthesis', 'supersedes') && ids.slice(0, 3).every((x) => has('r6-synthesis', x, 'uses'));
+    },
+  },
+  {
+    id: 'project-routes-batch1-nodes',
+    name: 'fifty-routes batch 1 (2026-10-06) nodes: route 1 certified but Λ < 0.145 not certified and it supersedes r6; route 2 is a no-go for the floor lever; route 46 is a measurement; route 27 proved for curves only; route 49 proved lemma with no Λ lever; all carry NO QED',
+    why: 'referee-surviving scope of routes 1, 2, 27, 46, 49',
+    holds: () => {
+      const g = (id) => NODES.find((x) => x.id === id);
+      const has = (f, t, type) => EDGES.some((x) => x.from === f && x.to === t && x.type === type);
+      const ids = ['route1-r7-route-p', 'route2-floor-into-route-p', 'route46-kronecker-floors', 'route27-function-field-ladder', 'route49-s-of-t-sawtooth'];
+      const [r1, r2, r46, r27, r49] = ids.map(g);
+      return ids.every((id) => g(id)) && r1.statusKind === 'certified' && /NOT certified/.test(r1.status) && /0\.145694083872924/.test(r1.label)
+        && r2.statusKind === 'no-go' && r46.statusKind === 'measured' && /float-validated/.test(r46.status) && r27.statusKind === 'proved' && /curves over F_q/.test(r27.status)
+        && /Nothing claimed for ζ/.test(r27.summary) && r49.statusKind === 'proved' && /no Λ lever/.test(r49.status)
+        && ids.map(g).every((x) => /PT Λ ≤ 0\.2 stands/.test(x.summary) && /NO QED/.test(x.summary) && x.route === '/routes-roadmap')
+        && has('route1-r7-route-p', 'r6-synthesis', 'supersedes') && has('route46-kronecker-floors', 'route1-r7-route-p', 'feeds')
+        && has('route27-function-field-ladder', 'weil-curves', 'uses') && has('route49-s-of-t-sawtooth', 'mirror-descent-theorem', 'feeds');
     },
   },
 ]);

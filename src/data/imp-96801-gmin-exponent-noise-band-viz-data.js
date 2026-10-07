@@ -73,8 +73,14 @@ const IMP96801_ASSERTIONS = [
   },
   {
     id: 'imp96801-mc-mean-near-null-exponent',
-    holds: () => IMP96801_ROWS.every((r) => Math.abs(r.mcMean - IMP96801_NULL_EXPONENT) < 0.01),
-    why: 'the Monte-Carlo null model is unbiased: every estimator mean sits within 0.01 of the exact -1/3 law.',
+    // Corrected: the two slidingTrend* rows are drift SLOPES of the local
+    // exponent, whose null mean is 0 (imp-96755 mcMean -0.0001), not -1/3.
+    // The original every-row check against -1/3 could never hold.
+    holds: () => IMP96801_ROWS.every((r) => {
+      const nullMean = r.estimator.startsWith('slidingTrend') ? 0 : IMP96801_NULL_EXPONENT;
+      return Math.abs(r.mcMean - nullMean) < 0.01;
+    }),
+    why: 'the Monte-Carlo null model is unbiased: every exponent-estimator mean sits within 0.01 of the exact -1/3 law, and every sliding-trend (drift-slope) mean within 0.01 of 0.',
   },
   {
     id: 'imp96801-full-row-is-most-significant',

@@ -29,7 +29,11 @@ function CrossoverChart() {
   const xTicks = [2, 6, 10, 14, 18, 22];
   const yTicks = [-2, -6, -10, -14, -18, -22];
 
-  const spreadD = IMP96498_SOLVER_SPREAD_SERIES
+  // The imp-96449 solver spread is exactly 0 at N = 1e14 (all solver paths agree bit-for-bit),
+  // so log10 = -Infinity there; that rung cannot sit on a log axis and is skipped (the line
+  // bridges it) instead of emitting an "Infinity" SVG coordinate.
+  const spreadFinite = IMP96498_SOLVER_SPREAD_SERIES.filter((p) => Number.isFinite(p.log10Spread));
+  const spreadD = spreadFinite
     .map((p, i) => `${i === 0 ? 'M' : 'L'} ${xOf(p.log10N).toFixed(2)} ${yOf(p.log10Spread).toFixed(2)}`)
     .join(' ');
 
@@ -65,7 +69,7 @@ function CrossoverChart() {
       <path d={shiftD} fill="none" stroke={ED.series4} strokeWidth={1.5} strokeDasharray="5 3" opacity={0.9} />
       <path d={spreadD} fill="none" stroke={ED.series1} strokeWidth={2} opacity={0.95} />
 
-      {IMP96498_SOLVER_SPREAD_SERIES.map((p) => (
+      {spreadFinite.map((p) => (
         <circle key={`s-${p.log10N}`} cx={xOf(p.log10N)} cy={yOf(p.log10Spread)} r={2} fill={ED.series1} />
       ))}
 

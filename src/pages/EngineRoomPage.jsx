@@ -52,6 +52,8 @@ function Stat({ label, value, sub, color }) {
   );
 }
 
+const LIVE_STATUS_URL = 'https://gist.githubusercontent.com/judegomila/dba57ed37be365928ee1fd51441bb416/raw/fleet-status.json';
+
 export default function EngineRoomPage() {
   const [data, setData] = useState(null);
   const [err, setErr] = useState(null);
@@ -59,9 +61,16 @@ export default function EngineRoomPage() {
 
   const load = useCallback(async () => {
     try {
-      const r = await fetch(`/fleet-status.json?t=${Date.now()}`, { cache: 'no-store' });
-      if (!r.ok) throw new Error('status ' + r.status);
-      setData(await r.json());
+      // Live source: a gist republished every 10 min by scripts/publish-fleet-status.sh
+      // (no build, no commit). Fallback: the snapshot bundled with the deploy. Use
+      // whichever was generated more recently.
+      const grab = async (url) => {
+        try { const r = await fetch(url, { cache: 'no-store' }); return r.ok ? await r.json() : null; } catch { return null; }
+      };
+      const [live, bundled] = await Promise.all([grab(LIVE_STATUS_URL), grab(`/fleet-status.json?t=${Date.now()}`)]);
+      const pick = [live, bundled].filter(Boolean).sort((a, b) => String(b.generatedAt).localeCompare(String(a.generatedAt)))[0];
+      if (!pick) throw new Error('no status source reachable');
+      setData(pick);
       setErr(null);
       setFetchedAt(Date.now());
     } catch (e) { setErr(e.message); }
@@ -169,7 +178,7 @@ export default function EngineRoomPage() {
 
             <div style={{ fontSize: 10, color: 'var(--faint)', marginTop: 10, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>
               snapshot {ago(data.generatedAt)} · auto-refresh 25s{fetchedAt ? ` · last fetch ${ago(new Date(fetchedAt).toISOString())}` : ''}
-              <br />live when run locally (regenerated per request, zero commits) · deployed shows the last snapshot
+              <br />status republished every 10 minutes from the machine running the engines
             </div>
           </>
         )}

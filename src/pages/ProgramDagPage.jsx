@@ -109,6 +109,27 @@ const CLUSTER_LABELS = [
   { y: 1282, text: 'formalization · the aristotle waves' },
 ];
 
+// Nodes added to program-dag.js after the hand layout was drawn get an automatic
+// slot in a 'later additions' block below it, so a new data node can never crash
+// the page (it used to throw "reading 'x'" on an unpositioned node).
+const HAND_BOTTOM = 1480;
+const EXTRA_COLS = 8;
+const wrapName = (s, max = 26) => {
+  const out = []; let cur = '';
+  for (const w of String(s || '').split(/\s+/)) {
+    if (cur && (cur + ' ' + w).length > max) { out.push(cur); cur = w; } else cur = cur ? cur + ' ' + w : w;
+  }
+  if (cur) out.push(cur);
+  return out.length > 2 ? [out[0], out.slice(1).join(' ').slice(0, max - 1) + '…'] : out;
+};
+const EXTRA = NODES.filter((n) => !LAYOUT[n.id]);
+EXTRA.forEach((n, i) => {
+  LAYOUT[n.id] = { x: X(i % EXTRA_COLS), y: HAND_BOTTOM + 34 + Math.floor(i / EXTRA_COLS) * 100, lines: wrapName(n.name || n.id) };
+});
+if (EXTRA.length) CLUSTER_LABELS.push({ y: HAND_BOTTOM + 18, text: 'later additions · placed automatically' });
+const SVG_H = EXTRA.length ? HAND_BOTTOM + 34 + Math.ceil(EXTRA.length / EXTRA_COLS) * 100 : HAND_BOTTOM;
+const DRAWN_EDGES = EDGES.filter((e) => LAYOUT[e.from] && LAYOUT[e.to]);
+
 function edgePath(from, to) {
   const a = LAYOUT[from];
   const b = LAYOUT[to];
@@ -130,7 +151,7 @@ function edgePath(from, to) {
 function DagSvg() {
   return (
     <div style={{ overflowX: 'auto', border: '1px solid var(--hairline)', borderRadius: 8, background: 'var(--paper)' }}>
-      <svg viewBox="0 0 2020 1480" style={{ minWidth: 1900, display: 'block' }} role="img"
+      <svg viewBox={`0 0 2020 ${SVG_H}`} style={{ minWidth: 1900, display: 'block' }} role="img"
         aria-label="Complete retrospective graph of the freeze/permutation-calculus program">
         <defs>
           {Object.entries(EDGE_COLOR).map(([m, c]) => (
@@ -147,7 +168,7 @@ function DagSvg() {
           </text>
         ))}
 
-        {EDGES.map((e, i) => {
+        {DRAWN_EDGES.map((e, i) => {
           const p = edgePath(e.from, e.to);
           const c = EDGE_COLOR[e.meaning];
           return (

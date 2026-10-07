@@ -15,21 +15,22 @@
 #   6. smoke-check the live site in headless Chromium
 # State: scripts/.deploy-editorial-state (gitignored) holds the last published SHA.
 #
-# Usage: scripts/deploy-editorial.sh [--force] [--no-gate]
+# Usage: scripts/deploy-editorial.sh [--force] [--local-gate]
 # Scheduled every 3 days by ~/Library/LaunchAgents/com.mathexplorer.deploy-editorial.plist;
 # run by hand after major changes. Push first: this publishes what is on GitHub.
 set -uo pipefail
 cd "$(dirname "$0")/.." || exit 1
 export GIT_TRACE2_EVENT=0
 ALIAS=zetaexplorer.vercel.app
+SCOPE=judegomila-gmailcoms-projects   # explicit team: the CLI context can be switched by other sessions
 HOOK_FILE=scripts/.deploy-hook-url-editorial
 STATE=scripts/.deploy-editorial-state
 LOG=scripts/.deploy-editorial.log
-FORCE=0; GATE=1
-for a in "$@"; do case "$a" in --force) FORCE=1 ;; --no-gate) GATE=0 ;; esac; done
+FORCE=0; GATE=0   # local worktree gate off by default: the built deployment itself is swept below
+for a in "$@"; do case "$a" in --force) FORCE=1 ;; --local-gate) GATE=1 ;; esac; done
 log() { echo "[$(date '+%F %T')] $*" | tee -a "$LOG"; }
 # run a vercel command with a hard time limit (the CLI can hang)
-vc() { local t=$1; shift; vercel "$@" > /tmp/deploy-editorial-vc.$$ 2>&1 & local p=$!; local i=0; while kill -0 $p 2>/dev/null && [ $i -lt "$t" ]; do sleep 1; i=$((i+1)); done; kill $p 2>/dev/null; cat /tmp/deploy-editorial-vc.$$; rm -f /tmp/deploy-editorial-vc.$$; }
+vc() { local t=$1; shift; vercel --scope "$SCOPE" "$@" > /tmp/deploy-editorial-vc.$$ 2>&1 & local p=$!; local i=0; while kill -0 $p 2>/dev/null && [ $i -lt "$t" ]; do sleep 1; i=$((i+1)); done; kill $p 2>/dev/null; cat /tmp/deploy-editorial-vc.$$; rm -f /tmp/deploy-editorial-vc.$$; }
 
 [ -s "$HOOK_FILE" ] || { log "FAIL: missing $HOOK_FILE"; exit 2; }
 git fetch -q origin editorial-redesign || { log "FAIL: git fetch"; exit 2; }
@@ -42,20 +43,25 @@ if [ "$GATE" = 1 ]; then
   log "health gate PASS"
 fi
 
+BEFORE=$(vc 60 ls | grep -o -E "https://mathexplorer-[a-z0-9]+-judegomila-gmailcoms-projects\.vercel\.app" | sort -u)
 curl -s -X POST "$(cat "$HOOK_FILE")" > /dev/null || { log "FAIL: hook POST"; exit 2; }
 log "build triggered"
 
 URL=""
+# The hook builds the branch HEAD at trigger time (engines may have pushed after
+# $SHA), so wait for the NEW deployment rather than one matching $SHA.
 for i in $(seq 1 40); do
   sleep 30
-  row=$(vc 60 ls -m "githubCommitSha=$SHA" | grep -E 'https://mathexplorer-' | head -1)
+  row=$(vc 60 ls | grep -E 'https://mathexplorer-' | while read -r line; do u=$(echo "$line" | grep -o -E 'https://mathexplorer-[a-z0-9]+-judegomila-gmailcoms-projects\.vercel\.app'); echo "$BEFORE" | grep -q -x "$u" || { echo "$line"; break; }; done)
   u=$(echo "$row" | grep -o -E 'https://mathexplorer-[a-z0-9]+-judegomila-gmailcoms-projects\.vercel\.app' | head -1)
   if echo "$row" | grep -q 'Ready'; then URL=$u; break; fi
   if echo "$row" | grep -q -E 'Error|Canceled'; then log "FAIL: build $u errored"; exit 4; fi
 done
-[ -n "$URL" ] || { log "FAIL: no Ready deployment for $SHA after 20 min"; exit 4; }
+[ -n "$URL" ] || { log "FAIL: no new Ready deployment after 20 min"; exit 4; }
 log "ready $URL"
 
+log "sweeping every route on $URL before aliasing"
+if ! node scripts/deploy-editorial-sweep.mjs "$URL" >> "$LOG" 2>&1; then log "FAIL: sweep found broken routes on $URL (see $LOG); alias NOT moved"; exit 6; fi
 vc 90 alias set "$URL" "$ALIAS" | tail -1 | tee -a "$LOG"
 
 if node scripts/deploy-editorial-smoke.mjs "https://$ALIAS" >> "$LOG" 2>&1; then

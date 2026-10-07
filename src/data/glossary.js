@@ -25296,6 +25296,36 @@ export const glossary = [
       'imp-3444-e-coll-e-trunc-crossover.js the E_coll=E_trunc crossover ~3.28e9, the halving-point twin of this knee',
     ],
   },
+  {
+    term: 'DIAG3 algebraic core vs B1 linearity hinge (imp-124812)',
+    category: 'result',
+    definition:
+      'imp-97689 derived the three-axis crossing-elasticity additivity E_CC + E_ET + E_CF = 0 (DIAG3==0, ' +
+      'the imp-97644 headword) as an Euler degree-0 homogeneity of sigma = E_coll/E_N in the three amplitudes ' +
+      '(C_C, E_trunc, C_F), but left unseparated which parts of that identity are EXACT ALGEBRA of the model ' +
+      'and which rely on measured elasticities or pinned constant VALUES. imp-124812 draws that line. Part (A), ' +
+      'the proven algebraic core: because each E_component (E_coll, E_trunc, E_flow) is degree-1 in its OWN ' +
+      'amplitude, sigma is degree-0 homogeneous in (c,e,f) and Euler forces c*sigma_c + e*sigma_e + f*sigma_f = 0 ' +
+      'POINTWISE at every N, for every flow share E_flow/E_N, and for every value of the pinned constants -- no ' +
+      'numerics required; the shared crossing kernel K = -1/(N_L sigma_N) is a common factor that cancels out of ' +
+      'the elasticity sum regardless of its numerical value. Part (B1), the SOLE load-bearing hypothesis: this ' +
+      'whole core rests on each amplitude entering LINEARLY. imp-124812 demonstrates the hinge directly by ' +
+      'replacing the numerator with a c^2 driver (E_coll = c^2 g) and watching the partial sum jump from ' +
+      'machine-zero to sigma(1-sigma) != 0 -- the exact signature of lost degree-0 homogeneity. That the real ' +
+      'model is linear-in-amplitude is itself only numerically verified (imp-97668 six-probe audit, imp-97720 ' +
+      'Hessian structure), not proven, so the additivity is exact algebra CONDITIONAL on a numerically-checked ' +
+      'linearity assumption, not an unconditional theorem. HONEST SCOPE: assessment/derivation only on the ' +
+      'inherited imp-3220/imp-3406 extrapolation surrogate; no bound moves; no operator positivity; imp-3066 ' +
+      'K_a &gt;= 0 untouched; Platt-Trudgian Lambda &lt;= 0.2 remains SOTA; RH open; NO QED.',
+    firstUsed: 'imp-124812 (separates the DIAG3 additivity into its proven algebraic core and its sole linear-prefactor hinge; adds this glossary headword)',
+    relatedTerms: [
+      'imp-124812-diag3-additivity-exact-identity-assessment.js the source module (algebraic core (A) + B1-B4 measurement boundary + linearity-break demonstration)',
+      'imp-97689-diag3-additivity-euler-derivation.js the analytic three-axis Euler derivation this delineates',
+      'imp-97644 the DIAG3==0 measurement headword this additivity traces back to',
+      'imp-97665-flow-etrunc-elasticity-identity-derivation.js the EXACT pair-ratio E_CF/E_ET = E_flow/E_trunc, the two-axis sibling identity',
+      'imp-97668-nonlinear-amplitude-audit.js the six-probe numerical check that the real model is linear-in-amplitude (the B1 hinge)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

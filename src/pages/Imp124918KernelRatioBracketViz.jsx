@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PageHeader from '../components/PageHeader.jsx';
 import {
   IMP124918_WIDE_BRACKET_ROWS,
@@ -62,6 +63,12 @@ export default function Imp124918KernelRatioBracketViz() {
   return (
     <div style={{ padding: '1.5rem', maxWidth: 940, margin: '0 auto' }}>
       <PageHeader title="Kernel Decade-Ratio Bracket: Shared-Axis Overlay (imp-124918)" />
+
+      <p style={{ color: 'var(--ink-faint)', fontSize: '0.8rem', marginBottom: '0.75rem' }}>
+        <Link to="/viz-imp124843-kernel-ratio-consumer" style={{ color: 'var(--ink-faint)' }}>
+          &larr; compare to the imp-124843 two-table side-by-side view
+        </Link>
+      </p>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
         The imp-124776 (gap-keyed) and imp-97843 (decade-index-keyed) sibling leaves export the same

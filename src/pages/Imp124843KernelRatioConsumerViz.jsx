@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PageHeader from '../components/PageHeader.jsx';
 import {
   IMP124776_WIDE_RATIO_VS_GAP,
@@ -114,6 +115,12 @@ export default function Imp124843KernelRatioConsumerViz() {
       >
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> {IMP97843_SUMMARY.verdict}
       </div>
+
+      <p style={{ color: 'var(--ink-faint)', fontSize: '0.8rem', marginTop: '0.75rem' }}>
+        <Link to="/viz-imp124918-kernel-ratio-bracket" style={{ color: 'var(--ink-faint)' }}>
+          see also: imp-124918 merges both tables onto one shared-axis bracket_width column &rarr;
+        </Link>
+      </p>
     </div>
   );
 }

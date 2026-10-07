@@ -43,6 +43,10 @@
  * @see imp-97821-diag3-sixth-landmark-crossvalidation (L6 non-monotone eps-ladder, qualitative)
  * @see imp-97710-diag3-fourth-landmark-crossvalidation (L5 clean O(eps^2) quartering)
  * @see imp-97520-sigma-conditional-share-landmark-ladder (the landmark ladder L1..L4)
+ * @see imp-124867-sigmacrit-precision-reconciliation.js (imp-124884: reconciles the sigma_crit ~
+ *   0.013 figure here against imp-124849's extended-precision sigma_crit = 0.020385 -- same
+ *   crossover measured against two different round-off floors R, not two phenomena; later
+ *   citations should carry sigma_crit ~ 0.0204 at eps = 1e-3 as the precision-independent figure)
  *
  * Ticket: imp-124802 (content, low, sonnet-4-6). Documentation only; establishes nothing new;
  * NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
@@ -101,6 +105,16 @@ export const IMP124802_ECF_NOISE_FLOOR_CROSSOVER_GLOSSARY_HEADWORD = Object.free
   citation:
     'imp-124769 (the crossover measurement this glosses); imp-97821 (L6 non-monotone eps-ladder, ' +
     'qualitative); imp-97710 (L5 clean O(eps^2) quartering); imp-97520 (landmark ladder L1..L4).',
+  reconciliationNote:
+    'imp-124867 RECONCILED this sigma_crit ~ 0.013 figure (double precision) against imp-124849s ' +
+    'extended-precision sigma_crit = 0.020385 (dps >= 30): both use the identical crossover ' +
+    'formula |E_CF|_crit = R / relTrunc against the SAME precision-invariant relTrunc plateau, ' +
+    'differing only in the round-off floor R (double R ~ 4.46e-13 is a round-off-contaminated ' +
+    'UNDER-estimate of the true O(eps^2) stencil floor R ~ 1.08e-12 at extended precision) -- one ' +
+    'crossover measured against two floors, not two phenomena. Later citations should carry ' +
+    'sigma_crit ~ 0.0204 (|E_CF|_crit ~ 3.36e-6) at eps = 1e-3 as the precision-independent figure; ' +
+    'the ~0.013 value above is the double-precision-floor-contaminated artifact of the same ' +
+    'crossover, kept here for provenance. NO QED; no bound moved; PT Lambda <= 0.2 remains SOTA.',
 });
 
 export default IMP124802_ECF_NOISE_FLOOR_CROSSOVER_GLOSSARY_HEADWORD;
@@ -129,6 +143,21 @@ export const IMP124802_ECF_NOISE_FLOOR_CROSSOVER_GLOSSARY_HEADWORD_ASSERTIONS = 
       /NO QED/.test(IMP124802_ECF_NOISE_FLOOR_CROSSOVER_GLOSSARY_HEADWORD.verdict) &&
       /remains SOTA/.test(IMP124802_ECF_NOISE_FLOOR_CROSSOVER_GLOSSARY_HEADWORD.verdict) &&
       IMP124802_ECF_NOISE_FLOOR_CROSSOVER_GLOSSARY_HEADWORD.glosses === 'imp-124769',
+  },
+  {
+    id: 'imp124884-reconciliation-note-present',
+    why: 'imp-124884 requires the imp-124867 reconciliation outcome to be cross-referenced here so ' +
+      'the ~0.013 figure does not read as stale next to imp-124849s extended-precision 0.020385.',
+    holds: () => {
+      const note = IMP124802_ECF_NOISE_FLOOR_CROSSOVER_GLOSSARY_HEADWORD.reconciliationNote;
+      return (
+        typeof note === 'string' &&
+        /imp-124867/.test(note) &&
+        /0\.020385/.test(note) &&
+        /0\.0204/.test(note) &&
+        /NO QED/.test(note)
+      );
+    },
   },
 ];
 

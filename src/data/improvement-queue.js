@@ -129275,13 +129275,15 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Add an import-light viz-data leaf charting the imp-124852 kernel arm-asymmetry: |up|/|down| ratio vs gap g approaching 1, with the antisymmetric leading correction and higher-order symmetric residual on a second panel',
     category: 'ux',
     priority: 'low',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S-frontier',
     description: "imp-124852 quantifies the reconstruction-kernel up/down arm asymmetry about the L1 sigma peak. Add an import-light viz-data leaf (baked literals from the imp-124852 record, no zeros bundle) charting the |up|/|down| ratio vs gap g tending to 1, with a second panel separating the antisymmetric leading finite-gap correction from the higher-order symmetric residual. Presentation only; no new computation; no bound moves; NO QED.",
     rationale: 'Frontier scout: imp-124852 arm-asymmetry has no viz leaf; complements the measurement ticket imp-124967',
     estimatedComplexity: 'medium',
     dependsOn: [],
     model: 'sonnet-4-6',
+    completedByModel: 'sonnet-4-6',
+    completedByChannel: 'sonnet',
   },
 ];
 

@@ -5907,6 +5907,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every plotted point and fit slope/intercept are reused verbatim from imp-124772 and imp-124848 (two OLS regressions, not new computations). Conditional-share curvature diagnostic on the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp124899-kernel-arm-offset-asymmetry',
+      title: 'imp-124852: Kernel Arm-Offset Asymmetry vs sqrt(10)',
+      oneLine:
+        'Line chart of the signed up/down arm offsets of the imp-97823 reconstruction-kernel per-decade growth ratio from sqrt(10) = 3.162278 across the wide gap ladder, plus a bar chart of the deep-window asymmetry ratio |up_offset|/|down_offset| climbing toward 1 as the near-peak gap g shrinks -- both arms decay as |offset| ~ g^(1/2).',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-124852-kernel-arm-offset-asymmetry-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-124776-kernel-decade-ratio-vs-gap-viz-data.js (gap-keyed ratio tables reused verbatim; imp-124852 viz-data leaf + imp-124899 page)',
+      ticket: 'imp-124899',
+      pedagogicalStep: 456,
+      honestCeiling:
+        'Presentation only: every offset, ratio and slope value is reused verbatim from imp-124852 (signed differences and a log-log slope over the frozen imp-97823 tables, no new kernel computation). Conditional-share diagnostic on the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

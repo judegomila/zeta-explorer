@@ -47,7 +47,8 @@ export const IMP124821_HONEST_BANNER =
   '|E_CF| falls below the imp-124769 round-off crossover |E_CF|_crit ~ 1.4e-6 (sigma_crit ~ 0.013, between L5 and ' +
   'L6), not because the imp-97665 EXACT pair-ratio identity E_CF/E_ET = E_flow/E_trunc weakens. The identity is a ' +
   'common-factor cancellation independent of the flow share; the deep-tail digit loss is a limitation of the ' +
-  'direct numerical 5-point cross-check, not a deviation from the identity. No bound moved.';
+  'direct numerical 5-point cross-check, not a deviation from the identity. Changes no bound; imp-3066 K_a >= 0 ' +
+  'untouched; no RH verdict, NO QED.';
 
 export default IMP124821_PAIRRATIO_DEEPTAIL_RELDIFF_ROUNDOFF_HONEST_STATUS;
 

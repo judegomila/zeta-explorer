@@ -51,6 +51,11 @@ export const IMP124823_F2_CURVATURE_HONEST_STATUS = Object.freeze({
   qed: false,
 });
 
+export const IMP124823_HONEST_BANNER =
+  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. This note restates, standalone, the imp-124772 F2 ' +
+  'residual-curvature finding so it is independently checkable: changes no bound; establishes no operator ' +
+  'positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.';
+
 // -- self-executing assertion (imp-3715 convention): any failure throws at import --
 if (
   !(
@@ -66,7 +71,11 @@ if (
     IMP124823_F2_CURVATURE_HONEST_STATUS.anyBoundMoved === false &&
     IMP124823_F2_CURVATURE_HONEST_STATUS.measurementOnly === true &&
     IMP124823_F2_CURVATURE_HONEST_STATUS.isRigorous === false &&
-    IMP124823_F2_CURVATURE_HONEST_STATUS.qed === false
+    IMP124823_F2_CURVATURE_HONEST_STATUS.qed === false &&
+    /NO QED/.test(IMP124823_HONEST_BANNER) &&
+    /imp-3066 K_a >= 0 untouched/.test(IMP124823_HONEST_BANNER) &&
+    /changes no bound/.test(IMP124823_HONEST_BANNER) &&
+    /remains SOTA/.test(IMP124823_HONEST_BANNER)
   )
 ) {
   throw new Error(

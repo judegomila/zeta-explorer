@@ -72,8 +72,8 @@ export const IMP124837_HONEST_BANNER =
   'between consecutive nines -- climbing toward exactly 10. Read together, the chain says: buying ' +
   'one more nine of certainty that the conditional-share residual has reached its asymptote costs ' +
   'a ten-fold jump in the required height N. This is a measurement of how the diagnostic approaches ' +
-  'its limit, not a bound: no coefficient is newly pinned, no operator positivity is established, ' +
-  'and the headline Platt-Trudgian Lambda <= 0.2 is untouched.';
+  'its limit, not a bound: changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 ' +
+  'untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.';
 
 export default IMP124837_FARTAIL_RVM_PER_NINE_CONDITIONAL_SHARE_NOTE;
 

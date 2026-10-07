@@ -1,0 +1,123 @@
+{
+  "status": "PASS",
+  "arithmetic": "exact integers and rational numbers",
+  "RH_proved": false,
+  "new_zero_free_region_proved": false,
+  "imported_Lean_build_run": false,
+  "vaughan_coefficients": [
+    {
+      "U": 1,
+      "V": 1,
+      "coefficients_checked": 8192,
+      "negative_control_mismatches": 0
+    },
+    {
+      "U": 3,
+      "V": 5,
+      "coefficients_checked": 8192,
+      "negative_control_mismatches": 4505
+    },
+    {
+      "U": 17,
+      "V": 17,
+      "coefficients_checked": 8192,
+      "negative_control_mismatches": 4233
+    },
+    {
+      "U": 31,
+      "V": 11,
+      "coefficients_checked": 8192,
+      "negative_control_mismatches": 3668
+    },
+    {
+      "U": 127,
+      "V": 127,
+      "coefficients_checked": 8192,
+      "negative_control_mismatches": 5011
+    }
+  ],
+  "pole_residues": [
+    {
+      "zero_multiplicity": 1,
+      "residue": -1
+    },
+    {
+      "zero_multiplicity": 2,
+      "residue": -2
+    },
+    {
+      "zero_multiplicity": 3,
+      "residue": -3
+    },
+    {
+      "zero_multiplicity": 4,
+      "residue": -4
+    },
+    {
+      "zero_multiplicity": 5,
+      "residue": -5
+    },
+    {
+      "zero_multiplicity": 6,
+      "residue": -6
+    }
+  ],
+  "norm_lift": {
+    "coefficients_checked": 8192,
+    "examples": [
+      {
+        "n": 2,
+        "mu_Q": -1,
+        "mu_Eisenstein_norm": 0,
+        "recovered_mu": -1
+      },
+      {
+        "n": 3,
+        "mu_Q": -1,
+        "mu_Eisenstein_norm": -1,
+        "recovered_mu": -1
+      },
+      {
+        "n": 4,
+        "mu_Q": 0,
+        "mu_Eisenstein_norm": -1,
+        "recovered_mu": 0
+      },
+      {
+        "n": 7,
+        "mu_Q": -1,
+        "mu_Eisenstein_norm": -2,
+        "recovered_mu": -1
+      },
+      {
+        "n": 9,
+        "mu_Q": 0,
+        "mu_Eisenstein_norm": 0,
+        "recovered_mu": 0
+      },
+      {
+        "n": 13,
+        "mu_Q": -1,
+        "mu_Eisenstein_norm": -2,
+        "recovered_mu": -1
+      },
+      {
+        "n": 49,
+        "mu_Q": 0,
+        "mu_Eisenstein_norm": 1,
+        "recovered_mu": 0
+      }
+    ],
+    "naive_identification_rejected": true
+  },
+  "exponents": {
+    "raw_single_row_infimum": "1",
+    "sixth_power_infimum": "11/12",
+    "imported_zero_bound": "7/8",
+    "energy_bound": "3/4",
+    "closure_parameter_samples": 121,
+    "combined_mark_worksheet_is_optimistic_model": true,
+    "balanced_product_has_no_exponent_contraction": true
+  },
+  "source_sha256": "6e8a90479dfb7e95ac8e02f383b9d7bcb007339578914fab5f967d7dc72aed79"
+}

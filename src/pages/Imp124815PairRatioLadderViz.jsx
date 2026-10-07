@@ -134,6 +134,13 @@ export default function Imp124815PairRatioLadderViz() {
         a deviation from the identity.
       </p>
 
+      <p style={{ color: 'var(--ink-faint)', fontSize: '0.78rem', fontStyle: 'italic', marginBottom: '1rem', maxWidth: 760 }}>
+        Honest status: this page reads as a conditional-share diagnostic -- it tracks how the
+        E_CF/E_ET ratio tracks the flow share E_flow/E_N as that share collapses down the ladder,
+        nothing more. It moves no bound and establishes no operator positivity; the
+        Platt-Trudgian Lambda &lt;= 0.2 figure remains state of the art.
+      </p>
+
       <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         measured E_CF/E_ET vs analytic E_flow/E_trunc across L2..L7
       </p>

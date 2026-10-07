@@ -44,7 +44,7 @@ if [ "$GATE" = 1 ]; then
 fi
 
 BEFORE=$(vc 60 ls | grep -o -E "https://mathexplorer-[a-z0-9]+-judegomila-gmailcoms-projects\.vercel\.app" | sort -u)
-curl -s -X POST "$(cat "$HOOK_FILE")" > /dev/null || { log "FAIL: hook POST"; exit 2; }
+curl -s -m 30 --retry 3 --retry-delay 10 --retry-all-errors -X POST "$(cat "$HOOK_FILE")" > /dev/null || { log "FAIL: hook POST"; exit 2; }
 log "build triggered"
 
 URL=""

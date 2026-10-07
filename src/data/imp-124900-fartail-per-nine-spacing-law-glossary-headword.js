@@ -94,8 +94,8 @@ export const IMP124900_FARTAIL_PER_NINE_SPACING_LAW_GLOSSARY_HEADWORD = Object.f
     'result chain: the far-tail per-nine log10 N spacing splits exactly as Delta_k = g_k + m_k, ' +
     'with leading g_k = 9*10^k*log10(e) growing ten-fold per rung and mantissa correction ' +
     'm_k -> 1 whose share m_k/Delta_k ~ 0.255843*10^-k decays ten-fold per added nine. No bound ' +
-    'moved; the component model and all pinned surrogate constants are untouched; NO QED. ' +
-    'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'moved; the component model and all pinned surrogate constants are untouched; imp-3066 K_a >= 0 ' +
+    'untouched; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
   citation:
     'imp-124793 (per-nine ladder, spacing ratio -> 10, "+~1" mantissa term flagged); imp-124827 ' +
     '(exact Delta_k = g_k + m_k split, m_k - 1 ten-fold decay fit, k = 5 rung); imp-124846 (m_k ' +
@@ -139,6 +139,14 @@ export const IMP124900_FARTAIL_PER_NINE_SPACING_LAW_GLOSSARY_HEADWORD_ASSERTIONS
       const c = IMP124900_FARTAIL_PER_NINE_SPACING_LAW_GLOSSARY_HEADWORD.citation;
       return /imp-124793/.test(c) && /imp-124827/.test(c) && /imp-124846/.test(c);
     },
+  },
+  {
+    id: 'imp124900-imp3066-untouched-citation',
+    why: 'imp-124979 honesty-banner audit: the literal imp-3066 K_a >= 0 untouched citation was ' +
+      'present only in the JSDoc fileoverview, not in the exported verdict field; repaired so the ' +
+      'citation survives a live-export audit, not just a raw file grep.',
+    holds: () =>
+      /imp-3066 K_a >= 0 untouched/.test(IMP124900_FARTAIL_PER_NINE_SPACING_LAW_GLOSSARY_HEADWORD.verdict),
   },
 ];
 

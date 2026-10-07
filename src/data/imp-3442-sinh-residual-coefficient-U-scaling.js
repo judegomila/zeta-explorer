@@ -79,20 +79,40 @@ function spectralNorm(M, n, iters) {
   };
   let s0 = nrm(v);
   for (let i = 0; i < n; i++) v[i] /= s0;
+  // Per-row nonzero column span [lo[i], hi[i]). Entries outside it are +-0, and
+  // with finite v each skipped term is +-0, which never changes an accumulator
+  // that starts at +0 (x + +-0 === x for x !== -0, and the accumulator is never
+  // -0). So restricting to the span is bit-identical to the dense loop while
+  // skipping the exactly-zero Phi tail / band (the dense version made the
+  // /closure-routes page take tens of seconds at import).
+  const lo = new Int32Array(n);
+  const hi = new Int32Array(n);
+  for (let i = 0; i < n; i++) {
+    const Mi = M[i];
+    let a = 0;
+    while (a < n && Mi[a] === 0) a++;
+    let b = n;
+    while (b > a && Mi[b - 1] === 0) b--;
+    lo[i] = a;
+    hi[i] = b;
+  }
   let lam = 0;
   for (let it = 0; it < iters; it++) {
     const Mv = new Float64Array(n);
     for (let i = 0; i < n; i++) {
       let s = 0;
       const Mi = M[i];
-      for (let j = 0; j < n; j++) s += Mi[j] * v[j];
+      for (let j = lo[i], e = hi[i]; j < e; j++) s += Mi[j] * v[j];
       Mv[i] = s;
     }
+    // Row-major accumulation (cache-friendly): each MtMv[j] still receives the
+    // terms M[i][j]*Mv[i] in the same i = 0..n-1 order starting from 0, so the
+    // result is bit-identical to the column-wise loop it replaces.
     const MtMv = new Float64Array(n);
-    for (let j = 0; j < n; j++) {
-      let s = 0;
-      for (let i = 0; i < n; i++) s += M[i][j] * Mv[i];
-      MtMv[j] = s;
+    for (let i = 0; i < n; i++) {
+      const Mi = M[i];
+      const mvi = Mv[i];
+      for (let j = lo[i], e = hi[i]; j < e; j++) MtMv[j] += Mi[j] * mvi;
     }
     lam = nrm(MtMv);
     if (lam === 0) break;

@@ -81,12 +81,24 @@ function phiKernel(u) {
   let s = 0;
   const e2 = Math.exp(2 * u);
   const e4 = Math.exp(4 * u);
+  // Exact early exit: once the n = 1 Gaussian factor underflows to 0, every term
+  // (finite prefactor) * 0 is +-0 and the loop sum is exactly +0, so return 0.
+  if (e4 < 1e300 && Math.exp(-Math.PI * e4) === 0) return 0;
   for (let n = 1; n <= NPHI; n += 1) {
     const n2 = n * n;
     const n4 = n2 * n2;
     s += (2 * Math.PI * Math.PI * n4 * e4 - 3 * Math.PI * n2 * e2) * Math.exp(-Math.PI * n2 * e4);
   }
   return s;
+}
+
+// Autocorrelation integrand Phi(s) Phi(s + tau). When Phi(s) has underflowed to
+// exactly +0 the product is +-0, which never changes the quadrature sums (they
+// start from a non-negative value and are never -0), so returning +0 without
+// evaluating Phi(s + tau) is bit-identical and halves the kernel calls.
+function autocorrIntegrand(s, tau) {
+  const a = phiKernel(s);
+  return a === 0 ? 0 : a * phiKernel(s + tau);
 }
 
 // -- Composite Simpson (the imp-3481 rule, exactly) ----------------------------
@@ -107,12 +119,40 @@ function simpson(f, lo, hi, n) {
  * on an `outerNM`-panel grid. This is the imp-3481 recipe with the panel counts
  * exposed as parameters so they can be co-refined.
  */
+// simpson((s) => autocorrIntegrand(s, tau), 0, INNER_CAP, innerN) with the
+// tau-independent factor Phi(s) tabulated once on the Simpson nodes (the nodes
+// lo + i*h and the endpoints are formed exactly as in simpson(), and the
+// accumulation order is unchanged), so every value is bit-identical.
+function makeInnerSimpson(innerN) {
+  const lo = 0;
+  const hi = INNER_CAP;
+  const m = innerN % 2 === 0 ? innerN : innerN + 1;
+  const hIn = (hi - lo) / m;
+  const xs = new Float64Array(m + 1);
+  const ph = new Float64Array(m + 1);
+  for (let i = 1; i < m; i += 1) {
+    xs[i] = lo + i * hIn;
+    ph[i] = phiKernel(xs[i]);
+  }
+  xs[0] = lo; ph[0] = phiKernel(lo);
+  xs[m] = hi; ph[m] = phiKernel(hi);
+  const g = (i, tau) => (ph[i] === 0 ? 0 : ph[i] * phiKernel(xs[i] + tau));
+  return (tau) => {
+    let sum = g(0, tau) + g(m, tau);
+    for (let i = 1; i < m; i += 1) {
+      sum += (i % 2 === 0 ? 2 : 4) * g(i, tau);
+    }
+    return (sum * hIn) / 3;
+  };
+}
+
 function simpsonM4(innerN, outerNM) {
   const h = T_A / outerNM;
   const aGrid = new Array(outerNM + 1);
+  const innerAt = makeInnerSimpson(innerN);
   for (let j = 0; j <= outerNM; j += 1) {
     const tau = j * h;
-    aGrid[j] = simpson((s) => phiKernel(s) * phiKernel(s + tau), 0, INNER_CAP, innerN);
+    aGrid[j] = innerAt(tau);
   }
   let sum = 0;
   for (let j = 0; j <= outerNM; j += 1) {
@@ -173,7 +213,7 @@ function integrateGL(f, lo, hi, panels, rule) {
 function glM4(order, innerPanels, outerPanels) {
   const rule = gaussLegendreRule(order);
   const autocorr = (tau) =>
-    integrateGL((s) => phiKernel(s) * phiKernel(s + tau), 0, INNER_CAP, innerPanels, rule);
+    integrateGL((s) => autocorrIntegrand(s, tau), 0, INNER_CAP, innerPanels, rule);
   const outerStep = T_A / outerPanels;
   const outerHalf = outerStep / 2;
   let sum = 0;

@@ -142,9 +142,11 @@ function cholFactor(K) {
   const L = [];
   for (let i = 0; i < n; i++) L.push(new Float64Array(n));
   for (let i = 0; i < n; i++) {
+    const Li = L[i];
     for (let j = 0; j <= i; j++) {
+      const Lj = L[j];
       let s = K[i][j];
-      for (let k = 0; k < j; k++) s -= L[i][k] * L[j][k];
+      for (let k = 0; k < j; k++) s -= Li[k] * Lj[k];
       if (i === j) {
         if (s <= 0) return { pd: false };
         L[i][j] = Math.sqrt(s);
@@ -183,11 +185,24 @@ function smoothKernel(d, L, kind) {
  *   Gpass_c = c P_V + w * H phi_i phi_j K_L(u_i - u_j) + RIDGE * I,
  * via the imp-3310 rank-2 closed form ||R_c|| = sqrt(Gqq Gpp - Gqp^2), G = Gpass_c^{-1}.
  */
+// Active prefix: phi underflows to exactly 0 for u > ~1.37, so for i >= M_ACTIVE
+// p = q = phi = Pw = Qw = 0 and row/column i of K is (+-0 off-diagonal, RIDGE on
+// the diagonal). Those indices are fully decoupled in the Cholesky factor and the
+// two solves (they only contribute +-0 terms to the active rows and to Gqq/Gpp/Gqp),
+// so restricting to the active prefix gives bit-identical norms at ~1% of the
+// O(N^3) cost (the full 200x200 version took ~6 s at import and stalled
+// /closure-routes). If the tail were not exactly zero, M_ACTIVE = N (unchanged).
+const M_ACTIVE = (() => {
+  let m = N;
+  while (m > 0 && phi[m - 1] === 0 && p[m - 1] === 0 && q[m - 1] === 0) m--;
+  return m;
+})();
+
 function smoothCoreNorm(w, L, kind) {
   const K = [];
-  for (let i = 0; i < N; i++) {
-    const row = new Float64Array(N);
-    for (let j = 0; j < N; j++) {
+  for (let i = 0; i < M_ACTIVE; i++) {
+    const row = new Float64Array(M_ACTIVE);
+    for (let j = 0; j < M_ACTIVE; j++) {
       const d = u[i] - u[j];
       row[j] = cShear * projV(i, j) + w * H * phi[i] * phi[j] * smoothKernel(d, L, kind) + (i === j ? RIDGE : 0);
     }
@@ -201,7 +216,7 @@ function smoothCoreNorm(w, L, kind) {
   let Gpp = 0;
   let Gqp = 0;
   let GqpAlt = 0;
-  for (let i = 0; i < N; i++) {
+  for (let i = 0; i < M_ACTIVE; i++) {
     Gqq += Qw[i] * xq[i];
     Gpp += Pw[i] * xp[i];
     Gqp += Qw[i] * xp[i];

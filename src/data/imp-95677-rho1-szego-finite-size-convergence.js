@@ -184,11 +184,22 @@ function uniformGram(nPts, delta) {
   return xs.map((a) => xs.map((b) => sech((a - b) / 2)));
 }
 
+// Memoised eigensolve of the uniform Gram per (nPts, delta). The assertions
+// below re-solved the same four Grams (up to 640x640 Jacobi) 14 times at import
+// (~40 s); the solve is deterministic, so caching returns identical values.
+const EIG_CACHE = new Map();
+function uniformEig(nPts, delta) {
+  const key = `${nPts}|${delta}`;
+  if (!EIG_CACHE.has(key)) EIG_CACHE.set(key, eigMinMax(uniformGram(nPts, delta)));
+  return EIG_CACHE.get(key);
+}
+
 const REF = IMP95677_RHO1_SZEGO_FINITE_SIZE_CONVERGENCE;
 
 export const IMP95677_ASSERTIONS = [
   {
     id: "imp95677-ratio-monotone-decreasing",
+    heavy: true, // live Jacobi eigensolves up to 640x640; skipped at browser import (see loop below)
     description:
       "the rho = 1 ratio F / A_opt strictly decreases across the point-count " +
       "grid (a decaying finite-size Szego edge effect, not a flat class floor)",
@@ -196,7 +207,7 @@ export const IMP95677_ASSERTIONS = [
       const aOpt = aOptDual(REF.delta);
       let prev = Infinity;
       for (const row of REF.table) {
-        const [lmin] = eigMinMax(uniformGram(row.nPts, REF.delta));
+        const [lmin] = uniformEig(row.nPts, REF.delta);
         const r = lmin / aOpt;
         if (!(r < prev)) return false;
         prev = r;
@@ -206,26 +217,28 @@ export const IMP95677_ASSERTIONS = [
   },
   {
     id: "imp95677-ratio-brackets-unity",
+    heavy: true, // live Jacobi eigensolves up to 640x640; skipped at browser import (see loop below)
     description:
       "the ratio is above 1 at the smallest section (nPairs = 40) and below 1 " +
       "at the largest (nPairs = 320): it crosses the infinite-lattice value 1",
     holds: () => {
       const aOpt = aOptDual(REF.delta);
-      const [minSmall] = eigMinMax(uniformGram(REF.table[0].nPts, REF.delta));
+      const [minSmall] = uniformEig(REF.table[0].nPts, REF.delta);
       const last = REF.table[REF.table.length - 1];
-      const [minLarge] = eigMinMax(uniformGram(last.nPts, REF.delta));
+      const [minLarge] = uniformEig(last.nPts, REF.delta);
       return minSmall / aOpt > 1 && minLarge / aOpt < 1;
     },
   },
   {
     id: "imp95677-lambda-min-at-cancellation-floor",
+    heavy: true, // live Jacobi eigensolves up to 640x640; skipped at browser import (see loop below)
     description:
       "at every section lambda_min sits at the float64 cancellation floor: " +
       "lmin is within a factor 3 of lmax*machineEps (so the last digit and the " +
       "sub-1 undershoot are numerical noise, cond ~ 5e15 > 1/eps)",
     holds: () =>
       REF.table.every((row) => {
-        const [lmin, lmax] = eigMinMax(uniformGram(row.nPts, REF.delta));
+        const [lmin, lmax] = uniformEig(row.nPts, REF.delta);
         const floor = lmax * Number.EPSILON;
         const ratio = lmin / floor;
         return ratio > 0.3 && ratio < 3;
@@ -233,6 +246,7 @@ export const IMP95677_ASSERTIONS = [
   },
   {
     id: "imp95677-baked-ratios-reproduced-loosely",
+    heavy: true, // live Jacobi eigensolves up to 640x640; skipped at browser import (see loop below)
     description:
       "each baked ratio literal is reproduced by a fresh computation to 15pct " +
       "rel (loose because F is at the float64 cancellation floor; only the " +
@@ -240,7 +254,7 @@ export const IMP95677_ASSERTIONS = [
     holds: () => {
       const aOpt = aOptDual(REF.delta);
       return REF.table.every((row) => {
-        const [lmin] = eigMinMax(uniformGram(row.nPts, REF.delta));
+        const [lmin] = uniformEig(row.nPts, REF.delta);
         const r = lmin / aOpt;
         return Math.abs(r - row.ratio) / row.ratio < 0.15;
       });
@@ -285,7 +299,12 @@ export const IMP95677_ASSERTIONS = [
   },
 ];
 
+// The heavy (live Jacobi) assertions take several seconds even memoised and hung
+// the /viz-imp95697-szego-finite-size-decay page. They are skipped only in the
+// browser; plain node (scripts/run-assertions.mjs) still runs every entry.
+const SKIP_HEAVY_AT_IMPORT = typeof window !== "undefined";
 for (const a of IMP95677_ASSERTIONS) {
+  if (a.heavy && SKIP_HEAVY_AT_IMPORT) continue;
   if (!a.holds()) {
     throw new Error(
       `imp-95677-rho1-szego-finite-size-convergence assertion failed: ${a.id}`,

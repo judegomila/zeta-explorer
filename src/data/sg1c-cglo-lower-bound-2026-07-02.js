@@ -93,10 +93,16 @@
 // ---- exact rate of rho = g/d_1 for the densest right half-lattice (worst case).
 // Direct N-body CM-flow force, used to certify the closed-form rate is not a
 // transcription slip.
-function force(x) {
+// `only` (optional): list of indices whose force is needed. The rate below uses
+// only F[0..3], so restricting the outer loop makes each call O(N) instead of
+// O(N^2) (the import-time assertions call this with N ~ 20000, which took ~30 s
+// and hung the /onset-bracket-ledger page). Per-index sums are computed in the
+// identical order, so the returned F[k] values are bit-for-bit unchanged.
+function force(x, only) {
   const N = x.length;
   const F = new Array(N).fill(0);
-  for (let k = 0; k < N; k++) {
+  const ks = only || Array.from({ length: N }, (_, i) => i);
+  for (const k of ks) {
     let s = 0;
     for (let j = 0; j < N; j++) if (j !== k) s += 1 / (x[k] - x[j]);
     F[k] = -2 * s;
@@ -115,7 +121,7 @@ function halfLatticeConfig(rho, L) {
 // direct rate of rho = g/d_1 against the FIXED reference neighbour (index 0)
 export function directRate(rho, L) {
   const x = halfLatticeConfig(rho, L);
-  const F = force(x);
+  const F = force(x, [0, 1, 2]);
   const g = x[2] - x[1];
   const D = x[1] - x[0];
   return ((F[2] - F[1]) * D - g * (F[1] - F[0])) / (D * D);
@@ -241,7 +247,7 @@ export const SG1C_CGLO_LOWER_BOUND_ASSERTIONS = [
     holds: () => {
       const rho = 0.85;
       const rateIdx = (x, ir, i0, i1) => {
-        const F = force(x);
+        const F = force(x, [ir, i0, i1]);
         const g = x[i1] - x[i0];
         const D = x[i0] - x[ir];
         return ((F[i1] - F[i0]) * D - g * (F[i0] - F[ir])) / (D * D);

@@ -102,20 +102,38 @@ function powerNorm(M, n, iters) {
   for (let i = 0; i < n; i++) v[i] = Math.sin(0.3 * i + 1);
   const s0 = vecNorm(v, n);
   for (let i = 0; i < n; i++) v[i] /= s0;
+  // Per-row nonzero column span [lo[i], hi[i]). Entries outside it are +-0, and
+  // with finite v each skipped term is +-0, which never changes an accumulator
+  // that starts at +0 (x + +-0 === x for x !== -0, and the accumulator is never
+  // -0), so restricting to the span is bit-identical to the dense loop.
+  const lo = new Int32Array(n);
+  const hi = new Int32Array(n);
+  for (let i = 0; i < n; i++) {
+    const Mi = M[i];
+    let a = 0;
+    while (a < n && Mi[a] === 0) a++;
+    let b = n;
+    while (b > a && Mi[b - 1] === 0) b--;
+    lo[i] = a;
+    hi[i] = b;
+  }
   let lam = 0;
   for (let it = 0; it < iters; it++) {
     const Mv = new Float64Array(n);
     for (let i = 0; i < n; i++) {
       let s = 0;
       const Mi = M[i];
-      for (let j = 0; j < n; j++) s += Mi[j] * v[j];
+      for (let j = lo[i], e = hi[i]; j < e; j++) s += Mi[j] * v[j];
       Mv[i] = s;
     }
+    // Row-major accumulation (cache-friendly): each MtMv[j] still receives the
+    // terms M[i][j]*Mv[i] in the same i = 0..n-1 order starting from 0, so the
+    // result is bit-identical to the column-wise loop it replaces.
     const MtMv = new Float64Array(n);
-    for (let j = 0; j < n; j++) {
-      let s = 0;
-      for (let i = 0; i < n; i++) s += M[i][j] * Mv[i];
-      MtMv[j] = s;
+    for (let i = 0; i < n; i++) {
+      const Mi = M[i];
+      const mvi = Mv[i];
+      for (let j = lo[i], e = hi[i]; j < e; j++) MtMv[j] += Mi[j] * mvi;
     }
     lam = vecNorm(MtMv, n);
     if (lam === 0) break;
@@ -133,11 +151,13 @@ function applyGram(M, v, n) {
     for (let j = 0; j < n; j++) s += Mi[j] * v[j];
     Mv[i] = s;
   }
+  // Row-major accumulation (cache-friendly): each out[j] still receives the terms
+  // M[i][j]*Mv[i] in the same i = 0..n-1 order starting from 0 (bit-identical).
   const out = new Float64Array(n);
-  for (let j = 0; j < n; j++) {
-    let s = 0;
-    for (let i = 0; i < n; i++) s += M[i][j] * Mv[i];
-    out[j] = s;
+  for (let i = 0; i < n; i++) {
+    const Mi = M[i];
+    const mvi = Mv[i];
+    for (let j = 0; j < n; j++) out[j] += Mi[j] * mvi;
   }
   return out;
 }
@@ -299,10 +319,15 @@ function crossValCell(a, U, N) {
   const normPower = powerNorm(T, N, POWER_ITERS); // ROUTE A -- imp-3467 power iteration
   const normLanczos = lanczosNorm(T, N, LANCZOS_M); // ROUTE B -- independent Krylov/Jacobi
   // Closed-form numerator a sup_xi |d/dxi |Phihat(xi)|^2| (imp-3400), same convention.
+  // Indices with phi[i] === 0 contribute +-0 to re/im (accumulators start at +0
+  // and are never -0), so skipping them is bit-identical and avoids ~N cos/sin
+  // calls per evaluation on the exactly-underflowed Phi tail.
+  const nzPhi = [];
+  for (let i = 0; i < N; i++) if (phi[i] !== 0) nzPhi.push(i);
   const P = (xi) => {
     let re = 0;
     let im = 0;
-    for (let i = 0; i < N; i++) {
+    for (const i of nzPhi) {
       re += phi[i] * Math.cos(xi * u[i]) * H;
       im -= phi[i] * Math.sin(xi * u[i]) * H;
     }

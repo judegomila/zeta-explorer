@@ -241,6 +241,7 @@ const REF = IMP95823_RHO1_SZEGO_DIRECT_DD_EIGENSOLVE;
 export const IMP95823_ASSERTIONS = [
   {
     id: "imp95823-direct-dd-live-nPts80-reproduces-baked",
+    heavy: true, // live double-double Jacobi eigensolve; skipped at browser import (see loop below)
     description:
       "a fresh double-double Jacobi eigensolve of the rho = 1 delta = ln 1.3 Gram " +
       "at nPts = 80 reproduces the baked F and F / A_opt to ~1e-6 relative " +
@@ -293,6 +294,7 @@ export const IMP95823_ASSERTIONS = [
   },
   {
     id: "imp95823-control-delta3-live-locks-to-exponent-two",
+    heavy: true, // live double-double Jacobi eigensolve; skipped at browser import (see loop below)
     description:
       "on the well-conditioned delta = 3 control the SAME DD Jacobi, recomputed " +
       "live at nPts = 40/80/160, gives a local log-log slope of F / A_opt - 1 " +
@@ -352,7 +354,12 @@ export const IMP95823_ASSERTIONS = [
   },
 ];
 
+// The heavy (live DD Jacobi) assertions take ~7 s at import and stalled the
+// /viz-imp95697-szego-finite-size-decay page. They are skipped only in the
+// browser; plain node (scripts/run-assertions.mjs) still runs every entry.
+const SKIP_HEAVY_AT_IMPORT = typeof window !== "undefined";
 for (const a of IMP95823_ASSERTIONS) {
+  if (a.heavy && SKIP_HEAVY_AT_IMPORT) continue;
   if (!a.holds()) {
     throw new Error(
       `imp-95823-rho1-szego-direct-dd-eigensolve assertion failed: ${a.id}`,

@@ -77,6 +77,9 @@ function phiKernel(u) {
   let s = 0;
   const e2 = Math.exp(2 * u);
   const e4 = Math.exp(4 * u);
+  // Exact early exit: once the n = 1 Gaussian factor underflows to 0, every term
+  // (finite prefactor) * 0 is +-0 and the loop sum is exactly +0, so return 0.
+  if (e4 < 1e300 && Math.exp(-Math.PI * e4) === 0) return 0;
   for (let n = 1; n <= NPHI; n += 1) {
     const n2 = n * n;
     const n4 = n2 * n2;

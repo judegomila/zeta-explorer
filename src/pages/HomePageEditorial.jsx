@@ -17,7 +17,7 @@ const WaveSimViz = lazy(() => import('../components/WaveSimViz.jsx'));
    scoped editorial.css applies. Old dark home preserved at /classic. */
 
 const FINDINGS = [
-  { to: '/routes-roadmap', grade: 'CONDITIONAL', date: '2026-10', isNew: true,
+  { to: '/lambda-qrh-conditional', grade: 'CONDITIONAL', date: '2026-10', isNew: true,
     title: 'Λ ≤ 0.11610 if ζ has no zeros with Re s > 7/8',
     desc: 'Raymond barrier chain + re-tuned route-P stack started from the 7/8 zero-free half-plane (openai/math family 003; Lean proof re-built here). Conditional on Raymond’s unrefereed chain and internal certificates; not a bound.' },
   { to: '/lambda-01758354-candidate', grade: 'CANDIDATE', date: '2026-08',

@@ -629,6 +629,16 @@ const DATA_MODULES = [
   // (exact ladder from 0.117708313410954; referee not refuted, corrections R1-R5) + G0 review parts A/B grades.
   // Conditional value, not a bound. PT Lambda <= 0.2 stands; NO QED. Import-free.
   '/src/data/qrh-path-push-2026-10-08.js',
+  // beat-seven-eighths (2026-10-08): four-angle attempt (amplifier, mean square, height, project inputs) to improve the
+  // zeta zero-free half-plane Re s > 7/8; referee-filtered synthesis. 7/8 NOT beaten (globally or above 3e12; above 3e12 is
+  // the global problem given PT); re-tune ceiling 0.874957 heuristic; open lever = Prop 15.2 P_a^{1/6} exceptional term.
+  // PT Lambda <= 0.2 stands; NO QED. Import-free.
+  '/src/data/beat-seven-eighths-2026-10-08.js',
+  // qrh-theta-and-improvement (2026-10-08): conditional Lambda(theta) at PT height (Raymond chain 14 thetas, route-P at
+  // 7/8, 0.85, 0.80; referee T1-T7) + two attempts to improve the 7/8 half-plane (no rigorous gain; re-tune ~4.3e-5 model;
+  // 34999/40000 closing arithmetic certified, conditional, kept out of the pipeline; barriers 167/192, 13/15). PT Lambda <= 0.2
+  // stands; NO QED. Import-free.
+  '/src/data/qrh-theta-and-improvement-2026-10-08.js',
   // imp-96066 (2026-09-23): ASSESSMENT of the P_3-adjoined Route I pencil D_S + P_3 <= L_S vs the dense
   // 2^a 3^b resonance. Answer: the pencil uses the DISCRETE Weil term P_3 (support {k ln 3}, identically zero
   // for 2a < ln 3, single boundary point v = ln 3 at 2a = ln 3), NOT the dense S={oo,2,3} Sonine remainder

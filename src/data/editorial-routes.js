@@ -14,6 +14,7 @@ export const EDITORIAL_ROUTES = new Set([
   '/permutation-architecture',
   '/directory',
   '/lambda-01758354-candidate',
+  '/lambda-qrh-conditional',
   '/autonomous-fleet',
   '/critical-line-proportion',
   '/flow-blindness-no-go',

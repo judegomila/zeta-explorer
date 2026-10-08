@@ -940,6 +940,48 @@ const NODES = [
     'Route 37: Gram-law violations do not predict barrier or route-P certificate difficulty',
     '451,291 certified Gram points in 34 windows (1e8–3e13): Gram-law fraction 0.7292 → 0.7007, bad-Gram rate 0.1715 → 0.2112; 18 Rosser deficit blocks (14 [0,0], 4 [0,1,0]); 0.62 / 0.57 per 1e4 blocks at ≥ 3e12. Gram density vs t = 0 barrier proxy |ρ| ≤ 0.18 (max|Z| 0.74), AUC > 0.5 for both tails; vs Dall |ρ| ≤ 0.31; selected easy sites carry 3× background bad-Gram density; P47 late-cell floors are height-free torus suprema. PT Λ ≤ 0.2 stands; NO QED.',
     'src/data/route-37-gram-law-barrier-difficulty-2026-10-11.js; tmp/routes-b6-r37-gram/, tmp/routes-b6-ref37-check/', '2026-10-11', '/routes-roadmap'),
+  // ── fifty-routes roadmap, batch 7 (2026-10-12; group E, twin ladder and bridge model; src/data/research-routes-roadmap.js) ──
+  N('route25-bridge-scattering', 'bridge-models', 'no-go', 'no-go', 'route 25 done: factorisation φ = c_∞·χ(2s−1)·ζ(2−2s)/ζ(2s) and Euler-blindness of the soft scattering axioms proved (elementary); inner property along the flow for t < 0 conditional (checked z ≤ 110); numerics mpmath, not interval-certified; one internal referee pass (major: acausal double-root relocation bug corrected, "bridge deformations never move ρ/2" refuted, bridge/Euler split a convention); flow-blind; no Λ change',
+    'Route 25: the bridge as a scattering matrix — φ-level Lax–Phillips axioms are RH-blind',
+    'Modular-surface φ(s) = Λ(2s−1)/Λ(2s) = c_∞(s)·χ(2s−1)·ζ(2−2s)/ζ(2s); on the axis χ is sampled at Re w = 0 and |χ(2it)||c_∞| = 1. Resonances ρ_n/2 (n ≤ 20 to 2.9e-30) sit in the ζ(2s) factor. Unitarity, φ(s)φ(1−s) = 1, the residue 3/π and the inner property survive moving resonances off Re s = ¼ (corrected relocation, local max|S| 0.967–0.972; de Bruijn flow at t = −2: Re s = 0.1257 / 0.3743); causality fails only once a zero reaches Re w ≥ 1 (t ≈ −2.35; ζ(1+it) ≠ 0 level). Untested lever: Phillips–Sarnak surface deformations. PT Λ ≤ 0.2 stands; NO QED.',
+    'src/data/route-25-bridge-as-scattering-2026-10-12.js; tmp/routes-b7-r25-scatter/, tmp/routes-b7-ref25/', '2026-10-12', '/routes-roadmap'),
+  N('route26-gl2-twin-ladder', 'twin-ladder', 'certificate', 'certified', 'route 26 done: GL(2) Weil-form and family certificates Arb-certified (computer-assisted, internal; script audited by one internal referee pass with independent Ritz bracketing, minor); pointwise lemma and coercivity proved (elementary); Ramanujan, modularity, Dobner cited; GL(2) Conj 18.1 ⇔ GRH an analogy only; Euler-blind; no Λ change',
+    'Route 26: GL(2) twin ladder — Ramanujan is RH for each rung, not for the ladder',
+    '11a, Δ, Δ·E4 and the no-Euler-product twin Δ·E4³. Arb: 11a W ≥ 3.2528e-8‖h‖² at 2a ≤ log 16, Δ 6.8856e-11 at log 7; family at 2a ≤ log 3: weight 2 N ≥ 30 (log 4: N ≥ 90), every k ≥ 20 at level 1 (k ≥ 36 by the c0 lemma), Δ·E6 open. Coercivity c0 > 0 from k ≥ 14 (level 1) / N ≥ 126 (weight 2). The twin (off-line zeros δ = 0.186 at γ = 52.3, measured) is certified positive to log 7: Euler-blind. Rungs: Hasse for weight 2, Deligne Weil I (Kuga–Sato) for k > 2. Route-27 obstructions O1/O3 unchanged. PT Λ ≤ 0.2 stands; NO QED.',
+    'src/data/route-26-gl2-twin-ladder-2026-10-12.js; tmp/routes-b7-r26-*, tmp/routes-b7-ref26-*', '2026-10-12', '/routes-roadmap'),
+  N('route28-selberg-freeze-sandbox', 'twin-ladder', 'measurement', 'measured', 'route 28 done: Theorem U / telescope / five-shell on the geodesic monoid proved (elementary, restatement of a closed class); length spectrum exact-count certified (internal C, referee re-count t ≤ 160); gate statistics measured; density attribution heuristic (confounded by ρ/2); RH-blindness NOT shown (no RH-false control; inherited from DH-blind work); one internal referee pass (major, interpretive); no Λ change',
+    'Route 28: freeze calculus on the PSL2(Z) Selberg zeta — behaves like ζ; no RH-false control',
+    'Sandbox with the half-plane RH-analogue (λ_1 = 91.14; Z has zeros at ρ/2 off Re s = ½ and no s ↔ 1−s symmetry). 3,784,618 primitive classes to N ≤ 6.4e7; Euler product vs Mayer det 6.1e-9. Algebraic identities verbatim; collapse 72 vs 256 for the first 8 classes; σ*(1000) 1.04082 vs ζ 1.04109; ψ_Γ − x ≈ −1.93√x (pole at ½); σ = 0.55 phase gate Re Z < 0 on 6.1% vs 0% for ζ. Next: an RH-true / RH-false Selberg pair (cocompact vs exceptional eigenvalue). PT Λ ≤ 0.2 stands; NO QED.',
+    'src/data/route-28-selberg-zeta-freeze-sandbox-2026-10-12.js; tmp/routes-b7-r28-*, tmp/routes-b7-ref28-*', '2026-10-12', '/routes-roadmap'),
+  N('route29-visibility-functional', 'bridge-models', 'no-go', 'no-go', 'route 29 done: closed negative; Theorems A (V0 vacuous) and B (gauge) proved (elementary; B wording corrected by the referee); pointwise bound certified false (Arb sign certificates, lower-bound counts) for ζ and DH to t = 200; integrated deficit heuristic; interlacing measured (Laguerre–Pólya mechanism, referee); one internal referee pass (minor); no Λ change',
+    'Route 29: interferometer visibility — vacuous, false, or a gauge choice',
+    'V0 = 2|χ|/(1+|χ|²) = sech(log|χ|) depends on the gamma factor alone. On the theta split Λ = A(s) + A(1−s) the dark-fringe lemma makes sup V < 1 sufficient, but Arb certifies V = 1 fringes on every tested line to t = 200 (ζ 79 = N(200); DH 129; including σ = 1.5). Visibility is gauge-dependent; the gauge-invariant content is Λ; phase repairs reduce to Lagarias / Turing. DH breaks one-fringe-per-gap exactly at its four off-line heights (classical extra-extremum signature). PT Λ ≤ 0.2 stands; NO QED.',
+    'src/data/route-29-interferometer-visibility-2026-10-12.js; tmp/routes-b7-r29-visibility/, tmp/routes-b7-ref29/', '2026-10-12', '/routes-roadmap'),
+  N('route30-euler-detector', 'bridge-models', 'certificate', 'certified', 'route 30 done: factorisation F_DH = E_{±1} × G and the per-class sharp onsets proved (elementary; sharp relative to FORMAL local Euler products of local degree 1); witnesses Arb-certified (320 bits); zero-side readout measured (heuristic tail estimate); one internal referee pass with exact symbolic check (minor); multiplicativity test, no RH content; no Λ change',
+    'Route 30: rung Toeplitz tests detect DH at ln 2 / ln 4 / ln 6, below the Weil onset 3.44',
+    'a(n mod 5) = (0, 1, κ, −κ, −1) gives F_DH = (Euler product over p ≡ ±1 mod 5) × G, so c(n) = 0 on non-prime-powers with a ±1 factor (1031 of them to 3000; 906 nonzero). Witness 2 + 2m_2(2) = −2(1+κ²) = −2.1614 (local degree 1 Toeplitz), λ_min(T_2^(2)) = −1.1556, Szegő −1.7936; |c(2)| = κ ln 2 ≠ ln 2; c(6) = (1+κ²) ln 6. Read back from DH\'s on-line zeros (c(4) at support 1.606, error 4.5e-7). Kaczorowski–Perelli would give ln 2 for even data (conditional). Prior art: tlb-dh-blind c(6). PT Λ ≤ 0.2 stands; NO QED.',
+    'src/data/route-30-finite-support-euler-detector-2026-10-12.js; tmp/routes-b7-r30-*, tmp/routes-b7-ref30-*', '2026-10-12', '/routes-roadmap'),
+  // ── fifty-routes roadmap, batch 8 (2026-10-13; group F, spectral and Hilbert–Pólya; src/data/research-routes-roadmap.js) ──
+  N('route31-xp-regularised', 'novel-routes', 'measurement', 'measured', 'route 31 done: map result; SRL area, Tate phase and BBM formal relations proved (elementary; BBM reality ⇒ RH one direction only); counting fits, explicit formula and finite-Λ Weil form measured (double precision; near-kernel rounding-dependent for λ² ≥ 13); one internal referee pass (minor: one misreported number, overclaims moved to heuristic); not a step toward RH; no Λ change',
+    'Route 31: regularised xp models reproduce only the smooth N(T); the residual is S(T)',
+    'First 1e5 zeros: Berry–Keating fit constant 0.875007 ± 5.3e-5 (= 7/8); semiclassical SRL count has +2π/E against Riemann\'s 1/(48πE); Gamma-phase spectrum θ(E_n) = π(n − 3/2) displaced by exactly −S (corr 0.9999999994, RMS 0.3108). Fluctuations return only with primes: prime-orbit sum 0.9992, explicit formula 4.3e-9 (1.62 without primes), finite-Λ Weil form (λ² = 3 effectively p = 2 only; a restatement of the explicit formula). BBM: ζ is the boundary condition; eigenfunctions not L². PT Λ ≤ 0.2 stands; NO QED.',
+    'src/data/route-31-berry-keating-xp-regularised-2026-10-13.js; tmp/routes-b8-r31-*, tmp/routes-b8-ref31-*', '2026-10-13', '/routes-roadmap'),
+  N('route32-inverse-spectral-potential', 'novel-routes', 'measurement', 'measured', 'route 32 done: map result; Abel/Wu–Sprung asymptotics proved (elementary); inverse potentials to N = 5000 measured (double precision, not certified); continuum residual corrected by the referee (major: grid-stretch bug); regularity and whiteness NOT established; consumes the ordinates, no RH lever; no Λ change',
+    'Route 32: inverse spectral potentials for the first 5000 zeros — exact discretely, consume the zeros',
+    'Gauss–Newton min-norm potentials from V_WS (E0 = 9.666908, x(V) constant 7/8 + O(1/E0)): DVR operator to ≤ 2.3e-11 for N = 500…5000; continuum (sinc) 0.0127 / 0.0199 / 0.0132 at N = 500 / 1000 / 2000 (c = 0.55), 1.2e-6 at c = 0.2 — the reported ≈ 0.1 ∝ h was a 1/(4K) grid stretch. Fixed-q content N-independent (S(20) 4.47–4.58); spectral slope 0.5–1.1 by fit range, so any limit sits below H^{−0.75}; 2k_max band limit built into min-norm updates. A 1D Schrödinger Hilbert–Pólya operator would also force simple zeros. PT Λ ≤ 0.2 stands; NO QED.',
+    'src/data/route-32-inverse-spectral-potential-2026-10-13.js; tmp/routes-b8-r32-*, tmp/routes-b8-ref32-*', '2026-10-13', '/routes-roadmap'),
+  N('route33-bk-arithmetic-corrections', 'novel-routes', 'measurement', 'measured', 'route 33 done: map result; BK prediction conditional (ratios conjecture); amplitudes measured (floating point on Turing-anchored FLINT/Platt windows, nothing certified); one internal referee pass with an independent pipeline (minor: scope dominated by T ≤ 1.13e6, Λ_B precision, one refuted heuristic sub-claim); no Λ change',
+    'Route 33: the GUE departure of zero pair correlation is the BK arithmetic correction at amplitude 1',
+    'Data − GUE = a·(BK − GUE), a = 1.0000 ± 0.0008 over 8 windows (99.2% of the weight at T = 5.5e4–8.7e5; 1.0086 ± 0.0088 at 1e10–1e13). Hardy–Littlewood factor ≥ 35σ above GUE leakage; spikes at log n resolved for n = 2, 3, 5, 7, 11, 13; low-zero dips 32/32 within 2.5σ. Λ_B = 1.5731511 (primes ≤ 1e8). Gap variance a = 0.784 ± 0.019 (BBLM predicts 1). Route 23: Q + 1 = c·12Λ_B/L², c = 0.441 ± 0.008 to 1e13, saturated at J = 2–3. PT Λ ≤ 0.2 stands; NO QED.',
+    'src/data/route-33-arithmetic-rmt-corrections-2026-10-13.js; tmp/routes-b8-r33-*, tmp/routes-b8-ref33-*', '2026-10-13', '/routes-roadmap'),
+  N('route34-de-branges-hamiltonian', 'twin-ladder', 'no-go', 'no-go', 'route 34 done: REDUCES-TO-WALL (T3 = strip); HB ⇔ RH for E = Ξ + iΞ\' proved (elementary); finite-N chain statements proved and verified exactly (rational arithmetic), infinite-N statements under RH + simple zeros; Hamiltonian measured (long double); one internal referee pass (minor: defect = one mass + one length; δ-depth law a truncation artifact); no Λ change',
+    'Route 34: de Branges Hamiltonian of Ξ + iΞ\' — mass positivity tautological, reduces to the zero-location wall',
+    'Krein string of length ξ\'\'(1/2)/ξ(1/2) = 0.0462099862 (1e6-zero sum agrees to 2e-12); τ(1e100) = 1.50–1.525 for N ≥ 8000; Morse-like q = 20 → 1016; zeros read in order of height with depth (τ* ≈ 0.39 log γ − 0.8, heuristic). An off-line quadruple gives exactly 2 negative coefficients (1 mass, 1 length); for δ ≤ 1e-4 the defect is pinned at the chain end (depth grows with N), so no N-converged depth law. a → 0 gauge limit of the T3 rungs. PT Λ ≤ 0.2 stands; NO QED.',
+    'src/data/route-34-de-branges-hamiltonian-xi-2026-10-13.js; tmp/routes-b8-r34-*, tmp/routes-b8-ref34-*', '2026-10-13', '/routes-roadmap'),
+  N('route35-certified-li-coefficients', 'novel-routes', 'certificate', 'certified', 'route 35 done: λ_n > 0 Arb-certified for every n ≤ 10^4 (reproduces Johansson\'s keiper_li; separately coded Arb run confirms n ≤ 8500); archimedean law fitted (constant convention-dependent); finite-range positivity weaker than the verified height (unconditional sketch); one internal referee pass (minor); no RH content; no Λ change',
+    'Route 35: Li coefficients certified positive for every n ≤ 10^4',
+    'λ_1 = 0.0230957 (minimum), λ_10000 = 34736.5797 ± 1.5e-189; zero-sum over 1e6 zeros agrees to 4.2e-8. With Γ(1+s/2): λ_n^arch = (n/2)log n + c·n + 3/4 − 1/(24n), c = (γ_E − 1 − log 2π)/2 (constant −1/4 with Γ(s/2)); osc_n certified, |osc_n| ≈ (0.15–0.26)·√n, 99 sign changes. Johansson 2015 reports n ≤ 10^5 (recall). PT Λ ≤ 0.2 stands; NO QED.',
+    'src/data/route-35-certified-li-coefficients-2026-10-13.js; tmp/routes-b8-r35-li/, tmp/routes-b8-ref35-*', '2026-10-13', '/routes-roadmap'),
   // ── openai/math integration (2026-10-08; src/data/openai-math-integration-2026-10-08.js) ──
   N('oai-qrh-lean-check', 'barrier', 'formalization', 'external', 'external claim (internal OpenAI model, openai/math family 003), Lean-formalized; Lean proof re-built locally (lake build, #print axioms, statement match by hand); official comparator and independent kernel check not run; not peer-reviewed',
     'openai/math 003: ζ(s) ≠ 0 for Re s > 7/8 — Lean proof re-built locally',
@@ -949,6 +991,14 @@ const NODES = [
     'Half-plane start for decreasing-barrier chains: Raymond 0.118505710922701, route P 0.117708313410954 (conditional)',
     'Under Re s > 7/8 every zero of H_0 has |Im z| ≤ 3/4, so the barrier starts at q0 = 9/16 + 2e-6 instead of q0 > 1. Raymond’s chain at PT height: 0.118505710922701 (alternate log bound 0.118505710922702; strip control reproduces 0.149395073827688); route-P single band: 0.117708313410954 (referee step verifier, 60,267 substeps, 0 failures). 11/12: 0.129826438865344 / 0.128829131217197. The start does −0.0309 of the work; route-P levers add −0.0008. De Bruijn alone: 9/32; fixed-t0 bounds do not move. PT Λ ≤ 0.2 stands; NO QED.',
     'src/data/openai-math-integration-2026-10-08.js; tmp/oai-lambda-*, tmp/oai-lambda-ref-*', '2026-10-07', '/routes-roadmap'),
+  N('qrh-path-retune', 'barrier', 'certificate', 'conditional', 'conditional on the 003 half-plane (Lean-checked locally, not peer-reviewed), G0 (internal review only), PT and the route-P ledger; certified exact run, extended verifier and an independent from-scratch verifier 0 failures; one adversarial internal referee pass (not refuted, minor; corrections R1–R5 applied); a conditional value, not a bound',
+    'QRH path re-tune: route-P single band on the 7/8 path, 0.116091488672439 (conditional)',
+    'Re-tuning the route-P single-band consumer on the 7/8 barrier path gives 116091488672439/10^15 = 0.116091488672439 (was 0.117708313410954; exact ladder −1.616824738515e-3; 59,439 substeps, terminal cell 464). Heights lowered to the producer moment-cap limit in cells 0–250 give 74% of the gain, route-9 tables 24.5%, 79 new r = 3/5 kernels 1.2%. Multi-band layouts proved not to help. 0.002414 below Raymond\'s chain with the same start. PT Λ ≤ 0.2 stands; NO QED.',
+    'src/data/qrh-path-push-2026-10-08.js; tmp/qrh-tune-*, tmp/qrh-ref-*', '2026-10-07', '/routes-roadmap'),
+  N('qrh-g0-review-ab', 'barrier', 'audit', 'measured', 'internal review (two passes, A and B): no ERROR; expository GAPs with written fixes (Lemma W, Lemma S(θ), Lemma FB(θ)); 7/8 start swap valid conditional on 003; not an external review',
+    'Raymond G0 deep review A + B under the 7/8 start',
+    'Part A (AF §§2–5, main eq. (1), Lemma 2, Lemma 3, Theorem 4/4′): no ERROR; GAPs 2a, 3a, 3b, A1–A3 expository; uniformity in x SOUND; RH below X used once (PT). Part B (AF §§6–12, Part II): no ERROR; GAP B1 (start written for q0 > 1) and B2 (first contact) fixed in text; latent B3 (q-windows, route P only, unused); Part II not a premise of the 7/8 values. G0-c still has no external reader. PT Λ ≤ 0.2 stands; NO QED.',
+    'formalization/paper/raymond-g0-review-a-2026-10-08.md; formalization/paper/raymond-g0-review-b-2026-10-08.md; src/data/qrh-path-push-2026-10-08.js', '2026-10-07', '/routes-roadmap'),
   N('oai-catalan-005-claim', 'side', 'external', 'external', 'external claim (internal OpenAI model, openai/math family 005), Lean-formalized per the repository; not built or checked by this project; not peer-reviewed',
     'openai/math 005: Catalan’s constant irrational (external claim)',
     'Comparator statement OAI.InternalCatalan.catalan_irrational with a 981-file solution tree (no sorry by text search). Method: determinants Δ_N of size 48N with the ζ(2) column cancelling in every entry — outside the mechanisms covered by the signed-ladder period-dimension obstruction. Next check: rebuild Δ_N for N = 1, 2. G irrationality stays open in the peer-reviewed literature.',
@@ -1543,6 +1593,40 @@ const RAW_EDGES = [
   ['route37-gram-law-statistics', 'route38-barrier-height-scaling', 'uses', '27 refine minima (Dall, Dbot0) and the proxy-selected X′ windows'],
   ['route37-gram-law-statistics', 'route1-r7-route-p', 'rules-out', 'no finite-height statistic predicts the height-free P47 late-cell floors'],
   ['route37-gram-law-statistics', 'route46-kronecker-floors', 'uses', 'late-cell floors are Kronecker-torus suprema with every prime phase free'],
+  ['route25-bridge-scattering', 'flow-blindness', 'blocked-by', 'unitarity, functional relation, residue and inner property survive the de Bruijn flow off Re s = ¼ (SL2 class)'],
+  ['route25-bridge-scattering', 'twin-bridge-chi', 'uses', 'φ = c_∞·χ(2s−1)·Z; χ sampled on Re w = 0, gain cancelled by the free cusp'],
+  ['route25-bridge-scattering', 'selberg-zeta', 'uses', 'modular-surface scattering matrix; resonances ρ/2 (Faddeev–Pavlov, cited)'],
+  ['route25-bridge-scattering', 'twin-ns-rigid', 'feeds', 'scattering form of the soft-class obstruction; causality only at Re w ≥ 1'],
+  ['route26-gl2-twin-ladder', 'route27-function-field-ladder', 'uses', 'each GL(2) rung is a variety over F_p (curve for weight 2; Kuga–Sato for k > 2)'],
+  ['route26-gl2-twin-ladder', 'deligne', 'uses', 'Ramanujan = per-rung RH (Weil I for k > 2; Hasse for weight 2)'],
+  ['route26-gl2-twin-ladder', 'grh', 'feeds', 'global ladder statements stay equivalent to GRH for L(f,s); only conductor-driven small-support statements become provable'],
+  ['route26-gl2-twin-ladder', 'route14-family-weil-positivity', 'feeds', 'GL(2) family thresholds are the conductor-driven analogue of the Dirichlet family gain'],
+  ['route26-gl2-twin-ladder', 'twin-ns-rigid', 'feeds', 'no-Euler-product weight-24 twin certified positive to log 7 (Euler-blind)'],
+  ['route28-selberg-freeze-sandbox', 'twin-theorem-u', 'uses', 'Theorem U, telescope and five-shell hold verbatim on the geodesic monoid'],
+  ['route28-selberg-freeze-sandbox', 'selberg-zeta', 'uses', 'PSL2(Z) prime-geodesic Euler product; Mayer transfer determinant'],
+  ['route28-selberg-freeze-sandbox', 'twin-dh-euler-blindness', 'uses', 'RH-blindness of the freeze calculus inherited, not shown (no RH-false control)'],
+  ['route29-visibility-functional', 'route-c-interferometer', 'rules-out', 'no visibility bound is a non-tautological RH-equivalent (vacuous / false / gauge)'],
+  ['route29-visibility-functional', 'lagarias', 'reduces-to', 'phase repair arg u increasing ⇔ Re Λ′/Λ > 0 (slightly stronger than Re ξ′/ξ > 0)'],
+  ['route29-visibility-functional', 'twin-bridge-chi', 'uses', 'V0 = sech(log|χ|): exact-arm visibility is a gamma-factor function'],
+  ['route29-visibility-functional', 'twin-dh-euler-blindness', 'uses', 'ζ and DH share the visibility structure; DH interlacing breaks at its off-line heights'],
+  ['route30-euler-detector', 'twin-dh-euler-blindness', 'feeds', 'Euler product detected at 2a = ln 2 / ln 4 / ln 6 vs the Weil-form onset 3.44'],
+  ['route30-euler-detector', 'dag3-dhblind-arb-ln11', 'uses', 'same explicit-formula convention; Weil-blindness certified through ln 11'],
+  ['route30-euler-detector', 'twin-ns-rigid', 'feeds', 'quantifies NS-RIGID (d): Euler detection decouples from off-line-zero detection at small support'],
+  ['route30-euler-detector', 'weil-positivity', 'feeds', 'next step: Euler-aware Weil radius over the formal unitary rung class (SDP)'],
+  ['route31-xp-regularised', 'hilbert-polya', 'feeds', 'operator-only xp regularisations reproduce only the smooth N(T); residual = S(T)'],
+  ['route31-xp-regularised', 'connes-trace-formula', 'uses', 'finite-Λ Weil form / explicit formula restores the fluctuations (primes ≤ λ²)'],
+  ['route31-xp-regularised', 'flow-blindness', 'feeds', 'pattern: fluctuations need arithmetic input (primes or integers), not a theorem'],
+  ['route32-inverse-spectral-potential', 'hilbert-polya', 'rules-out', 'inverse-spectral potentials consume the ordinates: circular as a Hilbert–Pólya operator'],
+  ['route32-inverse-spectral-potential', 'route31-xp-regularised', 'uses', 'Wu–Sprung potential = Abel inversion of the same smooth count θ/π + 1'],
+  ['route33-bk-arithmetic-corrections', 'gue-random-matrix', 'feeds', 'departure from GUE = BK arithmetic correction at amplitude 1.0000 ± 0.0008'],
+  ['route33-bk-arithmetic-corrections', 'montgomery-pair-correlation', 'uses', 'diagonal prime-power terms; measured bins lie outside the Montgomery range'],
+  ['route33-bk-arithmetic-corrections', 'route23-ht-vs-dyson-bm', 'feeds', 'Q + 1 = c·12Λ_B/L², c = 0.441 ± 0.008 to 1e13; Λ_B re-derived 1.5731511; local (J = 2–3)'],
+  ['route34-de-branges-hamiltonian', 'hermite-biehler-de-branges', 'uses', 'Lagarias E = Ξ + iΞ\' is HB ⇔ RH'],
+  ['route34-de-branges-hamiltonian', 'twin-t3-strip', 'reduces-to', 'a → 0 gauge limit of the T3 rungs E_a = Ξ(z + ia)'],
+  ['route34-de-branges-hamiltonian', 'twin-route-b-debranges', 'feeds', 'numerical Hamiltonian; off-line zero = one negative mass + one negative length'],
+  ['route35-certified-li-coefficients', 'li-criterion', 'feeds', 'λ_n > 0 Arb-certified for n ≤ 10^4 (finite range; RH needs all n)'],
+  ['route35-certified-li-coefficients', 'verified-height', 'reduces-to', 'finite-range positivity already implied by RH to 3e12 (unconditional sketch)'],
+  ['route35-certified-li-coefficients', 'routes-l-li-herglotz-cmv', 'feeds', 'certified λ_n and osc_n calibration data'],
   ['oai-qrh-lean-check', 'zero-free-region', 'feeds', 'claimed strip Re s > 7/8, Lean proof re-built locally; not peer-reviewed'],
   ['oai-qrh-lean-check', 'oai-qrh-start-lambda', 'feeds', 'time-zero start q0 = (2θ − 1)² + 2e-6 = 9/16 + 2e-6'],
   ['oai-qrh-start-lambda', 'lambda-raymond-0149396', 'uses', 'Raymond chain with only the start changed; strip control reproduces 76,491 substeps'],
@@ -1550,6 +1634,11 @@ const RAW_EDGES = [
   ['oai-qrh-start-lambda', 'b145-raymond-referee', 'blocked-by', 'G0 independent referee is now the binding premise'],
   ['oai-qrh-start-lambda', 'lambda-p15-barrier-criterion', 'rules-out', 'fixed-t0 bounds do not move under the half-plane (binding point y = y0 unchanged)'],
   ['oai-qrh-start-lambda', 'de-bruijn-1950', 'uses', 'Λ ≤ (2θ − 1)²/2 = 9/32 with no verified height'],
+  ['oai-qrh-start-lambda', 'qrh-path-retune', 'feeds', 'same 7/8 start; levers re-tuned on the lower path (−1.617e-3, conditional)'],
+  ['qrh-path-retune', 'route1-r7-route-p', 'uses', 'route-P ledger: r2 structured floors on 11,304 substeps, route-3 joint P-modes on 11,212'],
+  ['qrh-path-retune', 'b145-raymond-referee', 'blocked-by', 'G0 independent (non-project) referee remains the binding premise'],
+  ['qrh-g0-review-ab', 'b145-raymond-referee', 'feeds', 'parts A/B: no ERROR; Lemma W, Lemma S(θ), Lemma FB(θ) written'],
+  ['qrh-g0-review-ab', 'oai-qrh-start-lambda', 'feeds', 'start-only swap to (2θ − 1)² valid conditional on 003; Part II not a premise of the 7/8 values'],
   ['oai-catalan-005-claim', 'routes-catalan-signed-ladder', 'feeds', 'ζ(2)-column cancellation mechanism outside the obstruction’s list; not checked here'],
   ['twin-dh-euler-blindness', 'twin-bridge-chi', 'uses', 'same bridge factor, no T_p cascade'],
   ['twin-dh-euler-blindness', 'twin-ns-rigid', 'feeds', 'quantifies NS-RIGID (d): FE + Dirichlet structure without Euler product'],
@@ -1981,6 +2070,47 @@ export const PROJECT_ATTEMPTS_DAG_ASSERTIONS = Object.freeze([
     },
   },
   {
+    id: 'project-routes-batch7-nodes',
+    name: 'fifty-routes batch 7 (2026-10-12, group E) nodes: route 25 scattering no-go (flow-blind, bridge/Euler split a convention); route 26 Arb-certified but Euler-blind GL(2) certificates (Ramanujan per rung); route 28 measured sandbox with no RH-false control; route 29 visibility no-go; route 30 certified Euler detector relative to formal local Euler products with no RH content; all carry NO QED',
+    why: 'referee-surviving scope of routes 25, 26, 28, 29, 30',
+    holds: () => {
+      const g = (id) => NODES.find((x) => x.id === id);
+      const has = (f, t, type) => EDGES.some((x) => x.from === f && x.to === t && x.type === type);
+      const ids = ['route25-bridge-scattering', 'route26-gl2-twin-ladder', 'route28-selberg-freeze-sandbox', 'route29-visibility-functional', 'route30-euler-detector'];
+      const [r25, r26, r28, r29, r30] = ids.map(g);
+      return ids.every((id) => g(id)) && r25.statusKind === 'no-go' && /flow-blind/.test(r25.status) && /convention/.test(r25.status) && /not interval-certified/.test(r25.status)
+        && r26.statusKind === 'certified' && /Euler-blind/.test(r26.status) && /analogy only/.test(r26.status)
+        && r28.statusKind === 'measured' && /NOT shown/.test(r28.status) && /no RH-false control/.test(r28.status)
+        && r29.statusKind === 'no-go' && /closed negative/.test(r29.status) && r30.statusKind === 'certified' && /FORMAL/.test(r30.status) && /no RH content/.test(r30.status)
+        && ids.map(g).every((x) => /PT Λ ≤ 0\.2 stands/.test(x.summary) && /NO QED/.test(x.summary) && x.route === '/routes-roadmap' && x.date === '2026-10-12'
+          && /no Λ change/.test(x.status))
+        && has('route25-bridge-scattering', 'flow-blindness', 'blocked-by') && has('route26-gl2-twin-ladder', 'route27-function-field-ladder', 'uses')
+        && has('route28-selberg-freeze-sandbox', 'twin-theorem-u', 'uses') && has('route29-visibility-functional', 'route-c-interferometer', 'rules-out')
+        && has('route30-euler-detector', 'twin-dh-euler-blindness', 'feeds');
+    },
+  },
+  {
+    id: 'project-routes-batch8-nodes',
+    name: 'fifty-routes batch 8 (2026-10-13, group F) nodes: route 31 measured map (operator-only xp gives the smooth N(T) only); route 32 measured map with the referee-corrected continuum residual (consumes the zeros); route 33 measured BK amplitude (conditional on the ratios conjecture); route 34 no-go reducing to the T3 wall; route 35 certified Li positivity to 10^4 with no RH content; all carry NO QED',
+    why: 'referee-surviving scope of routes 31, 32, 33, 34, 35',
+    holds: () => {
+      const g = (id) => NODES.find((x) => x.id === id);
+      const has = (f, t, type) => EDGES.some((x) => x.from === f && x.to === t && x.type === type);
+      const ids = ['route31-xp-regularised', 'route32-inverse-spectral-potential', 'route33-bk-arithmetic-corrections', 'route34-de-branges-hamiltonian', 'route35-certified-li-coefficients'];
+      const [r31, r32, r33, r34, r35] = ids.map(g);
+      return ids.every((id) => g(id)) && r31.statusKind === 'measured' && /one direction only/.test(r31.status) && /not a step toward RH/.test(r31.status)
+        && r32.statusKind === 'measured' && /grid-stretch bug/.test(r32.status) && /NOT established/.test(r32.status) && /no RH lever/.test(r32.status)
+        && r33.statusKind === 'measured' && /ratios conjecture/.test(r33.status) && /nothing certified/.test(r33.status)
+        && r34.statusKind === 'no-go' && /REDUCES-TO-WALL/.test(r34.status) && /under RH/.test(r34.status)
+        && r35.statusKind === 'certified' && /no RH content/.test(r35.status) && /Johansson/.test(r35.status)
+        && ids.map(g).every((x) => /PT Λ ≤ 0\.2 stands/.test(x.summary) && /NO QED/.test(x.summary) && x.route === '/routes-roadmap' && x.date === '2026-10-13'
+          && /no Λ change/.test(x.status))
+        && has('route31-xp-regularised', 'hilbert-polya', 'feeds') && has('route32-inverse-spectral-potential', 'hilbert-polya', 'rules-out')
+        && has('route33-bk-arithmetic-corrections', 'route23-ht-vs-dyson-bm', 'feeds') && has('route34-de-branges-hamiltonian', 'twin-t3-strip', 'reduces-to')
+        && has('route35-certified-li-coefficients', 'li-criterion', 'feeds');
+    },
+  },
+  {
     id: 'project-openai-math-integration',
     name: 'openai/math integration (2026-10-08): 003 Lean check external (re-built locally, not peer-reviewed); half-plane Λ values conditional, not bounds; 005 Catalan claim external and unchecked; all PT Λ ≤ 0.2 / no QED',
     why: 'no false QED; never present a conditional Λ as a bound',
@@ -1994,6 +2124,21 @@ export const PROJECT_ATTEMPTS_DAG_ASSERTIONS = Object.freeze([
         && [lean, lam].every((x) => /PT Λ ≤ 0\.2 stands/.test(x.summary) && /NO QED/.test(x.summary))
         && has('oai-qrh-lean-check', 'oai-qrh-start-lambda', 'feeds') && has('oai-qrh-start-lambda', 'b145-raymond-referee', 'blocked-by')
         && has('oai-qrh-lean-check', 'zero-free-region', 'feeds') && /open in the peer-reviewed literature/.test(g('routes-catalan-signed-ladder').summary);
+    },
+  },
+  {
+    id: 'project-qrh-path-push',
+    name: 'QRH path push (2026-10-08): re-tuned 7/8 route-P value 0.116091488672439 is conditional, not a bound, and blocked by the G0 external referee; G0 review A/B internal; PT Λ ≤ 0.2 / no QED',
+    why: 'no false QED; never present a conditional Λ as a bound; an internal review is not an external referee',
+    holds: () => {
+      const g = (id) => NODES.find((x) => x.id === id);
+      const has = (f, t, type) => EDGES.some((x) => x.from === f && x.to === t && x.type === type);
+      const [rt, rv] = ['qrh-path-retune', 'qrh-g0-review-ab'].map(g);
+      return !!rt && !!rv && rt.statusKind === 'conditional' && /not a bound/.test(rt.status) && /G0/.test(rt.status) && /0\.116091488672439/.test(rt.label)
+        && rv.statusKind === 'measured' && /not an external review/.test(rv.status)
+        && [rt, rv].every((x) => /PT Λ ≤ 0\.2 stands/.test(x.summary) && /NO QED/.test(x.summary))
+        && has('oai-qrh-start-lambda', 'qrh-path-retune', 'feeds') && has('qrh-path-retune', 'b145-raymond-referee', 'blocked-by')
+        && has('qrh-g0-review-ab', 'b145-raymond-referee', 'feeds');
     },
   },
 ]);

@@ -583,11 +583,34 @@ const DATA_MODULES = [
   '/src/data/route-23-ht-vs-dyson-bm-2026-10-11.js',
   '/src/data/route-24-mean-field-local-counts-2026-10-11.js',
   '/src/data/route-37-gram-law-barrier-difficulty-2026-10-11.js',
+  // fifty-routes batch 7 result modules (2026-10-12; group E, twin ladder and bridge model; one internal referee pass each, corrections
+  // applied; import-free): route 25 (bridge as scattering: φ-level Lax–Phillips axioms RH-blind, bridge/Euler split a convention), route 26
+  // (GL(2) twin ladder: Ramanujan = per-rung RH; conductor-driven Arb family certificates, Euler-blind), route 28 (freeze calculus on the
+  // PSL2(Z) Selberg zeta: same as ζ, no RH-false control), route 29 (visibility functional: vacuous / false / gauge), route 30 (rung Toeplitz
+  // Euler detector at ln 2 / ln 4 / ln 6, sharp vs formal local Euler products).
+  '/src/data/route-25-bridge-as-scattering-2026-10-12.js',
+  '/src/data/route-26-gl2-twin-ladder-2026-10-12.js',
+  '/src/data/route-28-selberg-zeta-freeze-sandbox-2026-10-12.js',
+  '/src/data/route-29-interferometer-visibility-2026-10-12.js',
+  '/src/data/route-30-finite-support-euler-detector-2026-10-12.js',
+  // fifty-routes batch 8 result modules (2026-10-13; group F, spectral and Hilbert–Pólya; one internal referee pass each, corrections
+  // applied; import-free): route 31 (regularised xp models reproduce only the smooth N(T); residual = S(T)), route 32 (inverse spectral
+  // potentials to N = 5000; continuum bug corrected; consume the zeros), route 33 (BK arithmetic correction at amplitude 1; Q + 1 local),
+  // route 34 (de Branges Hamiltonian of Ξ + iΞ'; reduces to the zero-location wall), route 35 (Li coefficients Arb-certified to 10^4).
+  '/src/data/route-31-berry-keating-xp-regularised-2026-10-13.js',
+  '/src/data/route-32-inverse-spectral-potential-2026-10-13.js',
+  '/src/data/route-33-arithmetic-rmt-corrections-2026-10-13.js',
+  '/src/data/route-34-de-branges-hamiltonian-xi-2026-10-13.js',
+  '/src/data/route-35-certified-li-coefficients-2026-10-13.js',
   // openai/math integration (2026-10-08): family 003 (zeta zero-free for Re s > 7/8) Lean proof re-built locally (lake build,
   // #print axioms = propext/Classical.choice/Quot.sound, statement match; official comparator not run); conditional Lambda
   // values with the 7/8 half-plane start (Raymond chain 0.118505710922701, route-P single band 0.117708313410954; referee
   // corrections applied); de Bruijn 9/32. PT Lambda <= 0.2 stands; NO QED. Import-free.
   '/src/data/openai-math-integration-2026-10-08.js',
+  // qrh-path-push (2026-10-08): route-P single-band re-tune on the 7/8 path, conditional Lambda 0.116091488672439
+  // (exact ladder from 0.117708313410954; referee not refuted, corrections R1-R5) + G0 review parts A/B grades.
+  // Conditional value, not a bound. PT Lambda <= 0.2 stands; NO QED. Import-free.
+  '/src/data/qrh-path-push-2026-10-08.js',
   // imp-96066 (2026-09-23): ASSESSMENT of the P_3-adjoined Route I pencil D_S + P_3 <= L_S vs the dense
   // 2^a 3^b resonance. Answer: the pencil uses the DISCRETE Weil term P_3 (support {k ln 3}, identically zero
   // for 2a < ln 3, single boundary point v = ln 3 at 2a = ln 3), NOT the dense S={oo,2,3} Sonine remainder

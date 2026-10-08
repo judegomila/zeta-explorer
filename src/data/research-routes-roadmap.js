@@ -26,7 +26,12 @@
  * for zero-side premises only). Batch 6 = routes 21, 22, 23, 24 (group D, heat flow and the fluid picture) and 37 (group G, Gram-law
  * statistics), recorded 2026-10-11 (one internal referee pass each, corrections applied in the route-<id>-*-2026-10-11.js modules; route 23
  * is 'partial': the t = 0 loop-identity test is done, its finite-τ production runs were still running). Batch 7 = routes 25, 26, 28, 29, 30
- * (group E, twin ladder and bridge model; planned). Later batches are unassigned (null).
+ * (group E, twin ladder and bridge model), recorded 2026-10-12 (one internal referee pass each, corrections applied in the
+ * route-<id>-*-2026-10-12.js modules; all five done, none moves Λ). Batch 8 = routes 31, 32, 33, 34, 35 (group F, spectral and
+ * Hilbert–Pólya), recorded 2026-10-13 (one internal referee pass each, corrections applied in the route-<id>-*-2026-10-13.js modules; all
+ * five done, none moves Λ; route 32's referee pass was major: its continuum-residual claim was a grid-stretch bug). Batch 9 = routes 36
+ * (group G, random local windows), 39, 40, 41 (group H, formalisation) and 43 (group I, flow-criticality classes); planned. Later batches
+ * are unassigned (null).
  * Import-free. RESEARCH_ROUTES_ASSERTIONS check ids, groups, tags, statuses, the batch sets and result fields.
  */
 
@@ -68,9 +73,12 @@ export const RESEARCH_ROUTE_BATCH_4 = Object.freeze([11, 12, 13, 14, 15]);
 export const RESEARCH_ROUTE_BATCH_5 = Object.freeze([16, 17, 18, 19, 42]);
 export const RESEARCH_ROUTE_BATCH_6 = Object.freeze([21, 22, 23, 24, 37]);
 export const RESEARCH_ROUTE_BATCH_7 = Object.freeze([25, 26, 28, 29, 30]);
+export const RESEARCH_ROUTE_BATCH_8 = Object.freeze([31, 32, 33, 34, 35]);
+export const RESEARCH_ROUTE_BATCH_9 = Object.freeze([36, 39, 40, 41, 43]);
 const BATCH = new Map([...[...FIRST].map((id) => [id, 1]), ...RESEARCH_ROUTE_BATCH_2.map((id) => [id, 2]),
   ...RESEARCH_ROUTE_BATCH_3.map((id) => [id, 3]), ...RESEARCH_ROUTE_BATCH_4.map((id) => [id, 4]), ...RESEARCH_ROUTE_BATCH_5.map((id) => [id, 5]),
-  ...RESEARCH_ROUTE_BATCH_6.map((id) => [id, 6]), ...RESEARCH_ROUTE_BATCH_7.map((id) => [id, 7])]);
+  ...RESEARCH_ROUTE_BATCH_6.map((id) => [id, 6]), ...RESEARCH_ROUTE_BATCH_7.map((id) => [id, 7]), ...RESEARCH_ROUTE_BATCH_8.map((id) => [id, 8]),
+  ...RESEARCH_ROUTE_BATCH_9.map((id) => [id, 9])]);
 
 // Route-1 certification campaign (launched 2026-10-06 17:27; state recorded from the launch report and status.tsv).
 const ROUTE_1_CAMPAIGN = Object.freeze({
@@ -89,9 +97,10 @@ const ROUTE_1_CAMPAIGN = Object.freeze({
   commands: Object.freeze({ monitor: 'tmp/route1-campaign/monitor.sh', drain: 'touch tmp/route1-campaign/STOP', pause: 'touch tmp/route1-campaign/PAUSE',
     hardStop: 'kill $(cat tmp/route1-campaign/sched.pid); pkill -f "r7-full-cert.py tmp/route1-campaign/run"' }),
   note: 'Originals in tmp/r7-full-out/run untouched. Route 5 (measured): with 3 bands, the 125 missing floors at target alone would give 0.144986 < 0.145; with the 281-kernel grid on top, 0.1449666 (measured). Λ < 0.145 is not certified while the campaign runs.',
+  qrhPathNote: '7/8 (openai/math 003 half-plane) path, 2026-10-08 (src/data/qrh-path-push-2026-10-08.js): the route-P single-band consumer re-tuned on the lower barrier path gives the certified conditional value 0.116091488672439 (was 0.117708313410954), conditional on the 003 half-plane, G0, PT and the route-P ledger, not a bound. On that path a v4c/WOL-C floor is worth ≈ 3.2e-6 to first order (best single target), so the campaign floors placed on the strip/band path are not the lever there; the 130 7/8-path P47 targets (tmp/qrh-tune-out/lever3_targets.json) were NOT appended to the running campaign queue.',
 });
 
-// Recorded outcomes (batch 1, 2026-10-06; batch 2, 2026-10-07; batch 3, 2026-10-08; batch 4, 2026-10-09; batch 5, 2026-10-10; batch 6, 2026-10-11). One sentence each; details, grades and referee corrections in the module.
+// Recorded outcomes (batch 1, 2026-10-06; batch 2, 2026-10-07; batch 3, 2026-10-08; batch 4, 2026-10-09; batch 5, 2026-10-10; batch 6, 2026-10-11; batch 7, 2026-10-12; batch 8, 2026-10-13). One sentence each; details, grades and referee corrections in the module.
 const RESULTS = Object.freeze({
   1: Object.freeze({ status: 'in progress', resultModule: 'src/data/route-1-finish-route-p-2026-10-06.js', campaign: ROUTE_1_CAMPAIGN,
     result: 'Round 7 certified 0.145694083872924 at PT height (244 of 369 P47 floors, interval-certified, internal referee only, conditional on the shared ledger; Λ < 0.145 not certified); the background campaign (tmp/route1-campaign, launched 2026-10-06 17:27, ETA ≈ 60–65 h wall, heuristic) has by 2026-10-07 06:54 15 floors done and 8 budget-stopped (collect6: 255 of 369 floors certified, route P alone 0.145535458600488), and stacked with routes 3 and 5 gives 0.145276368594868 (route 9 adds exactly 0; still above 0.145, so Λ < 0.145 not certified).' }),
@@ -147,6 +156,26 @@ const RESULTS = Object.freeze({
     result: 'Closed as a negative result: over 451,291 certified Gram points (FLINT 3.6, 1e8–3e13) Gram-violation density predicts neither the route-P binding late-cell floors (height-free torus suprema) nor t = 0 barrier difficulty (|ρ| ≤ 0.18, both tails) nor the full flow minimum Dall (|ρ| ≤ 0.31), and the easy proxy-selected barrier sites carry three times the background bad-Gram density (measured).' }),
   2: Object.freeze({ status: 'done', resultModule: 'src/data/route-2-lowered-barrier-floor-2026-10-06.js',
     result: 'The lowered barrier floor moves nothing: route P has no floor input, and under Polymath Thm 1.2 the floor enters only through containment, which holds at every certified floor because the certified hypothesis (ii) sits at y0 = 0.18727, so 0.1787854 and 0.1758354 are unchanged.' }),
+  25: Object.freeze({ status: 'done', resultModule: 'src/data/route-25-bridge-as-scattering-2026-10-12.js',
+    result: 'The modular-surface scattering matrix factors exactly as φ = c_∞(s)·χ(2s−1)·ζ(2−2s)/ζ(2s) with resonances ρ/2 in the ζ(2s) factor, and the soft Lax–Phillips axioms (unitarity, functional relation, positive residue, inner) survive moving resonances off Re s = ¼ (de Bruijn flow; rational relocation with a quadratic Q_0, after the referee caught an acausal double-root bug), so φ-level scattering is RH-blind, detects zeros only at Re w ≥ 1 (the ζ(1+it) ≠ 0 level), and its bridge/Euler split is a bookkeeping convention (mpmath, not interval-certified).' }),
+  26: Object.freeze({ status: 'done', resultModule: 'src/data/route-26-gl2-twin-ladder-2026-10-12.js',
+    result: 'For GL(2) (11a, Δ, Δ·E4) Ramanujan is RH for each rung (Hasse for weight 2, Deligne\'s Weil I for k > 2) and buys no RH-level ladder statement; what becomes provable is conductor-driven and Euler-blind: no pole terms, positive bridge delay once c0 > 0 (k ≥ 14 at level 1, N ≥ 126 at weight 2), and Arb-certified family Weil positivity at 2a ≤ log 3 above level thresholds (weight 2: N ≥ 30; every k ≥ 20 at level 1; Δ·E6 open), which a no-Euler-product weight-24 twin with off-line zeros also passes up to log 7.' }),
+  28: Object.freeze({ status: 'done', resultModule: 'src/data/route-28-selberg-zeta-freeze-sandbox-2026-10-12.js',
+    result: 'On the PSL2(Z) Selberg zeta (half-plane RH-analogue a theorem; exact length spectrum to N ≤ 6.4e7, Mayer determinant agrees to 6e-9) Theorem U, the telescope and five-shell identities hold verbatim and the gate, cocycle and phase statistics are of ζ\'s order (differences heuristically tracking zero density, confounded by the ρ/2 family), but no RH-false control was run, so RH-blindness of the freeze calculus is not shown by this route.' }),
+  29: Object.freeze({ status: 'done', resultModule: 'src/data/route-29-interferometer-visibility-2026-10-12.js',
+    result: 'Closed negative: the exact-arm visibility V0 = sech(log|χ|) is a gamma-factor reparametrisation, the pointwise bound on the canonical theta split is sufficient but Arb-certified false for ζ and DH up to t = 200 on every tested line (even σ = 1.5), visibility is gauge-dependent with Λ as its gauge-invariant content, and fringe-zero interlacing near the line is the Laguerre–Pólya consequence of RH (DH breaks it exactly at its four off-line zero heights).' }),
+  30: Object.freeze({ status: 'done', resultModule: 'src/data/route-30-finite-support-euler-detector-2026-10-12.js',
+    result: 'Rung tests detect the missing Euler product of Davenport–Heilbronn at 2a just above ln 2 (full data, |c(2)| = κ ln 2), ln 4 (even data or any affine test; Toeplitz witness 2 + 2m_2(2) = −2(1+κ²), Arb) or ln 6 (Euler-only, c(6) ≠ 0), sharp relative to formal local Euler products of local degree 1 and read back from DH\'s on-line zeros, well below the Weil-form onset 3.44; a coefficient-multiplicativity test with no RH content.' }),
+  31: Object.freeze({ status: 'done', resultModule: 'src/data/route-31-berry-keating-xp-regularised-2026-10-13.js',
+    result: 'Against the first 10^5 zeros every operator-only regularised xp model (Berry–Keating cutoffs, the semiclassical Sierra–Rodriguez-Laguna count, the Gamma-phase / Sierra–Townsend class) reproduces only the smooth part (T/2π)(log(T/2π) − 1) + 7/8 of N(T) and leaves exactly S(T) as residual (correlation ≥ 0.99999); fluctuations return only with primes (prime-orbit sum 0.9992, explicit formula 4e-9, finite-Λ Weil form, which is a restatement of the explicit formula with a rounding-dependent near-kernel for λ² ≥ 13), and BBM reproduces the zeros only because ζ is its boundary condition (reality of its spectrum would imply RH, one direction).' }),
+  32: Object.freeze({ status: 'done', resultModule: 'src/data/route-32-inverse-spectral-potential-2026-10-13.js',
+    result: 'Inverse spectral (Wu–Sprung type) potentials whose lowest N eigenvalues are the first N zeros are built for N ≤ 5000 (discrete operator to ≤ 2.3e-11; continuum, sinc-interpolated, to ≈ 1–2% of a spacing after the referee found a grid-stretch bug behind the reported ≈ 0.1); the fluctuation persists scale by scale as N grows, its whiteness and limiting regularity are not established, and since the construction consumes the ordinates it gives no RH lever.' }),
+  33: Object.freeze({ status: 'done', resultModule: 'src/data/route-33-arithmetic-rmt-corrections-2026-10-13.js',
+    result: 'The departure of zeta-zero pair correlation from GUE is the (ratios-conjecture) Bogomolny–Keating correction at amplitude 1.0000 ± 0.0008 over 8 windows (dominated by T ≤ 1.13e6; 1.0086 ± 0.0088 at 1e10–1e13), with the Hardy–Littlewood factor, separated prime-power spikes and low-zero dips each detected; Λ_B re-derived as 1.5731511, gap variance off BBLM at L ≤ 28, and route 23\'s Q + 1 follows c·12Λ_B/L² with c = 0.441 ± 0.008 to 1e13, saturated by 2–3 neighbours.' }),
+  34: Object.freeze({ status: 'done', resultModule: 'src/data/route-34-de-branges-hamiltonian-xi-2026-10-13.js',
+    result: 'The de Branges Hamiltonian of Lagarias\' E = Ξ + iΞ\' (a Krein string of length ξ\'\'(1/2)/ξ(1/2) = 0.0462099862) is computable and stable from ≤ 16,000 zeros (exact rational chains confirm), mass positivity is tautological given real zeros, an off-line quadruple appears as one negative mass plus one negative length at a depth not yet N-converged, and as the a → 0 gauge limit of the T3 strip ladder the route reduces to the zero-location wall.' }),
+  35: Object.freeze({ status: 'done', resultModule: 'src/data/route-35-certified-li-coefficients-2026-10-13.js',
+    result: 'Arb certifies λ_n > 0 for every n ≤ 10^4 (reproducing Johansson\'s keiper_li; a separately coded Arb run confirms n ≤ 8500, a 10^6-zero sum agrees to 4e-8); with the Γ(1+s/2) split λ_n = (n/2)log n + c·n + 3/4 + osc_n + O(1/n) (constant −1/4 with Γ(s/2)) and |osc_n| ≈ (0.15–0.26)·√n — calibration data weaker than what the verified height already implies.' }),
   27: Object.freeze({ status: 'done', resultModule: 'src/data/route-27-function-field-twin-ladder-2026-10-06.js',
     result: 'Over F_q the twin-ladder Weil form is minus the intersection form on primitive Frobenius-graph classes, so Hodge index gives curve-RH, while ladder data alone do not (215 exact Euler-product fakes); the lift to Q stops at the missing Spec Z × Spec Z with a Hodge index theorem.' }),
   46: Object.freeze({ status: 'partial', resultModule: 'src/data/route-46-exact-kronecker-floors-2026-10-06.js',
@@ -409,9 +438,9 @@ export const RESEARCH_ROUTES_ASSERTIONS = Object.freeze([
       const b1 = RESEARCH_ROUTES.filter((r) => r.batch === 1).map((r) => r.id).sort((a, b) => a - b).join(',');
       const fp = RESEARCH_ROUTES.filter((r) => r.firstPick).map((r) => r.id).sort((a, b) => a - b).join(',');
       return b1 === '1,2,27,46,49' && fp === b1 && RESEARCH_ROUTE_FIRST_PICKS.map((p) => p.id).join(',') === '2,1,46,27,49'
-        && RESEARCH_ROUTES.every((r) => [1, 2, 3, 4, 5, 6, 7, null].includes(r.batch));
+        && RESEARCH_ROUTES.every((r) => [1, 2, 3, 4, 5, 6, 7, 8, 9, null].includes(r.batch));
     },
-    why: 'Batch 1 = first picks = routes 2, 1, 46, 27, 49; batches 2–7 are the only other batches; the rest are null.',
+    why: 'Batch 1 = first picks = routes 2, 1, 46, 27, 49; batches 2–9 are the only other batches; the rest are null.',
   },
   {
     id: 'rr-batch-2',
@@ -460,16 +489,35 @@ export const RESEARCH_ROUTES_ASSERTIONS = Object.freeze([
     id: 'rr-batch-7',
     holds: () => RESEARCH_ROUTES.filter((r) => r.batch === 7).map((r) => r.id).join(',') === '25,26,28,29,30'
       && RESEARCH_ROUTE_BATCH_7.join(',') === '25,26,28,29,30'
-      && RESEARCH_ROUTES.filter((r) => r.batch === 7).every((r) => r.status === 'planned' && !r.firstPick && r.result === null && r.resultModule === null)
+      && RESEARCH_ROUTES.filter((r) => r.batch === 7).every((r) => r.status === 'done' && !r.firstPick && typeof r.result === 'string'
+        && r.result.length > 40 && r.resultModule.startsWith(`src/data/route-${r.id}-`) && r.resultModule.endsWith('-2026-10-12.js'))
       && RESEARCH_ROUTES.filter((r) => r.batch === 7).map((r) => r.group).join('') === 'EEEEE',
-    why: 'Batch 7 = routes 25, 26, 28, 29, 30 (group E, twin ladder and bridge model; route 27 was a first pick), status planned, no result yet.',
+    why: 'Batch 7 = routes 25, 26, 28, 29, 30 (group E, twin ladder and bridge model; route 27 was a first pick), all done (2026-10-12), each with a one-sentence result and a route-<id>-*-2026-10-12.js module.',
+  },
+  {
+    id: 'rr-batch-8',
+    holds: () => RESEARCH_ROUTES.filter((r) => r.batch === 8).map((r) => r.id).join(',') === '31,32,33,34,35'
+      && RESEARCH_ROUTE_BATCH_8.join(',') === '31,32,33,34,35'
+      && RESEARCH_ROUTES.filter((r) => r.batch === 8).every((r) => r.status === 'done' && !r.firstPick && typeof r.result === 'string'
+        && r.result.length > 40 && r.resultModule.startsWith(`src/data/route-${r.id}-`) && r.resultModule.endsWith('-2026-10-13.js'))
+      && RESEARCH_ROUTES.filter((r) => r.batch === 8).map((r) => r.group).join('') === 'FFFFF',
+    why: 'Batch 8 = routes 31, 32, 33, 34, 35 (group F, spectral and Hilbert–Pólya), all done (2026-10-13), each with a one-sentence result and a route-<id>-*-2026-10-13.js module.',
+  },
+  {
+    id: 'rr-batch-9',
+    holds: () => RESEARCH_ROUTES.filter((r) => r.batch === 9).map((r) => r.id).join(',') === '36,39,40,41,43'
+      && RESEARCH_ROUTE_BATCH_9.join(',') === '36,39,40,41,43'
+      && RESEARCH_ROUTES.filter((r) => r.batch === 9).every((r) => r.status === 'planned' && !r.firstPick && r.result === null && r.resultModule === null)
+      && RESEARCH_ROUTES.filter((r) => r.batch === 9).map((r) => r.group).join('') === 'GHHHI',
+    why: 'Batch 9 = routes 36 (group G, random local windows), 39, 40, 41 (group H, formalisation) and 43 (group I, flow-criticality classes), status planned, no result yet.',
   },
   {
     id: 'rr-route-1-campaign',
     holds: () => { const r = RESEARCH_ROUTES[0]; const c = r.campaign;
       return r.status === 'in progress' && c !== null && c.floors.budgetStopped === 13 && c.floors.missing === 125
         && Object.values(c.floors.missingByFamily).reduce((a, b) => a + b, 0) === c.floors.missing && c.eta.grade === 'heuristic'
-        && /not certified/.test(c.note) && /not certified/.test(r.result) && RESEARCH_ROUTES.filter((x) => x.campaign !== null).length === 1; },
+        && /not certified/.test(c.note) && /not certified/.test(r.result) && RESEARCH_ROUTES.filter((x) => x.campaign !== null).length === 1
+        && /conditional/.test(c.qrhPathNote) && /not a bound/.test(c.qrhPathNote) && /NOT appended/.test(c.qrhPathNote); },
     why: 'Route 1 is in progress with one recorded campaign: 13 budget-stopped + 125 missing floors (47 + 32 + 29 + 17), heuristic ETA, Λ < 0.145 not certified.',
   },
   {
@@ -477,9 +525,9 @@ export const RESEARCH_ROUTES_ASSERTIONS = Object.freeze([
     holds: () => RESEARCH_ROUTES.filter((r) => r.batch === 1).every((r) => ['done', 'partial', 'blocked', 'in progress'].includes(r.status)
         && r.resultModule.startsWith(`src/data/route-${r.id}-`) && r.resultModule.endsWith('-2026-10-06.js')
         && typeof r.result === 'string' && r.result.length > 40)
-      && RESEARCH_ROUTES.filter((r) => r.result !== null).length === 30
+      && RESEARCH_ROUTES.filter((r) => r.result !== null).length === 40
       && ['1:in progress', '2:done', '27:done', '46:partial', '49:done'].every((x) => { const [i, s] = x.split(':'); return RESEARCH_ROUTES[Number(i) - 1].status === s; }),
-    why: 'Batch 1 recorded: routes 2, 27, 49 done; 46 partial; 1 in progress (campaign running); each with a one-sentence result and a route-<id>-*-2026-10-06.js module; 30 routes carry results (batches 1–6).',
+    why: 'Batch 1 recorded: routes 2, 27, 49 done; 46 partial; 1 in progress (campaign running); each with a one-sentence result and a route-<id>-*-2026-10-06.js module; 40 routes carry results (batches 1–8).',
   },
   {
     id: 'rr-result-fields',

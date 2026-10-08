@@ -18,8 +18,8 @@ const WaveSimViz = lazy(() => import('../components/WaveSimViz.jsx'));
 
 const FINDINGS = [
   { to: '/routes-roadmap', grade: 'CONDITIONAL', date: '2026-10', isNew: true,
-    title: 'Λ ≤ 0.11771 if ζ has no zeros with Re s > 7/8',
-    desc: 'Raymond barrier chain + route-P stack started from the 7/8 zero-free half-plane (openai/math family 003; Lean proof re-built here). Conditional on Raymond’s unrefereed chain and internal certificates; not a bound.' },
+    title: 'Λ ≤ 0.11610 if ζ has no zeros with Re s > 7/8',
+    desc: 'Raymond barrier chain + re-tuned route-P stack started from the 7/8 zero-free half-plane (openai/math family 003; Lean proof re-built here). Conditional on Raymond’s unrefereed chain and internal certificates; not a bound.' },
   { to: '/lambda-01758354-candidate', grade: 'CANDIDATE', date: '2026-08',
     title: 'Λ ≤ 0.1758354', desc: 'Computer-assisted candidate: four barrier gates certified in Arb, y-transfer reduction and Lemma B3 Lean-checked. Unreviewed and unpublished; PT Λ ≤ 0.2 stands.' },
   { to: '/newman-lambda-01787854-candidate', grade: 'CANDIDATE', date: '2026-08',

@@ -1,0 +1,92 @@
+{
+  "external_source": {
+    "commit": "adc7f1241b42e322a6451854ab7e4b4c146bf78a",
+    "path": "preprints/The-Quasi-Riemann-Hypothesis-September-30-2026/build/paper.tex",
+    "blob_sha": "268c4e3206d460c617d3d2129742a72b831b3def",
+    "repository": "openai/math",
+    "url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/The-Quasi-Riemann-Hypothesis-September-30-2026/build/paper.tex",
+    "local_source_sha256": "b8cae01b86c250a0639a4e7268be493a85fc5c4419f35aac6b47b1853b30f008",
+    "Lean_build_run": false
+  },
+  "user_source": {
+    "library_file_id": "libfile_bd6913ebac6881918906c4971d424f94",
+    "filename": "rh_vaughan_v9.zip",
+    "sha256": "d08e86914e73f7c4c718006462178605c4cc6e06e188df594fbb270e55c19e9e",
+    "selected_members": [
+      {
+        "path": "research_note.tex",
+        "sha256": "226e362296e3c3ee73a37ae4d36255fe45254ba3d53f9e8e29cbbc62d8038814"
+      },
+      {
+        "path": "packet.py",
+        "sha256": "79abaf30110773c64067c8cd8c77f23480a1787ed1caec1905dc36246924b054"
+      },
+      {
+        "path": "previous_global_closure_v8.tex",
+        "sha256": "de15952a7b8d4cd7077ffddfb4339c6bd0c102cebc80c9c61232a4ecc9ba303b"
+      },
+      {
+        "path": "results.json",
+        "sha256": "0ed9640258be76dfd2c43a23dff85c89da2f15ea7b0136fa47a0097e3b9f6d4a"
+      }
+    ]
+  },
+  "preceding_repository_commit": "b0b3830912c50016f88900d04b352f70542bed7b",
+  "source_labels_reviewed": [
+    "lem:plain",
+    "old-eq:2.18a",
+    "lem:centered-coefficient-invariant",
+    "lem:centered-lattice-cancellation"
+  ],
+  "source_line_ranges_at_pin": [
+    [
+      12510,
+      12615
+    ],
+    [
+      12990,
+      13065
+    ],
+    [
+      13935,
+      14030
+    ],
+    [
+      14535,
+      14610
+    ]
+  ],
+  "packet_copy": {
+    "source": "rh_vaughan_v9.zip / rh_vaughan_v9/packet.py",
+    "sha256": "79abaf30110773c64067c8cd8c77f23480a1787ed1caec1905dc36246924b054",
+    "unchanged": true
+  },
+  "scope": {
+    "diagonal_and_near_shift_bound_proved_in_note": true,
+    "principal_centering_identity_proved_in_note": true,
+    "positive_delta_proved": false,
+    "new_zero_free_region": false,
+    "RH_proved": false,
+    "external_Lean_build_run": false,
+    "app_modified": false
+  },
+  "verification": {
+    "standard_library_exact_check": "PASS",
+    "arb_interval_check": "PASS",
+    "precision_bits": 512,
+    "actual_windows": [
+      2,
+      3,
+      4
+    ],
+    "full_far_pair_sum_independently_checked_at": [
+      2
+    ],
+    "v9_energy_enclosure_compared_at": [
+      4
+    ],
+    "PDF_pages": 6,
+    "all_PDF_pages_visually_checked": true,
+    "independent_mathematical_referee": false
+  }
+}

@@ -43,3 +43,7 @@ The seven-page PDF was compiled and visually checked during the research session
 The external source is pinned to [openai/math commit adc7f124](https://github.com/openai/math/tree/adc7f1241b42e322a6451854ab7e4b4c146bf78a); the original entry point was [lean/docs/003.md](https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/docs/003.md). Exact manuscript and user v9 bundle hashes are recorded in source_index.json. The full third-party manuscript and original v9 bundle are not duplicated here.
 
 Related repository work: [RH positivity audit, PR #9](https://github.com/judegomila/mathexplorer/pull/9). This addition is self-contained and does not require that PR to be merged. It records research only; it changes no application claims or deployed behavior.
+
+## Principal-sector follow-up — 2026-10-08
+
+[The follow-up note](rh-principal-sector-2026-10-08.md) proves explicit diagonal and near-shift bounds, computes the full principal-density subtraction, and records the remaining signed large-shift estimate. Exact and 512-bit checks pass. No positive exponent saving is proved; the archived October 6 release above is unchanged.

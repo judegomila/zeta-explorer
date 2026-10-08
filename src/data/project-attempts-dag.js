@@ -1007,6 +1007,27 @@ const NODES = [
     'Route 43: flow-criticality degree κ(P) = sup Λ — strip 1/2, QRH 7/8 9/32, Weil lower-bound ladder',
     'Witness Λ((z² + Y²)cos(cz)) = (√(1 + 4c²Y²) − 1)/(4c²) ↑ Y²/2; κ(QRH_θ) = (2θ − 1)²/2; tail-blind inputs (proportion, density) add nothing; G4: W_T ≥ 0 ⇔ 2c ≥ sinh(2YT)/Y − 2T gives κ_low(T), T²κ_low → 0.349. H_{−1}, H_{−4} zeros outside the strip are forced by Y(−τ) ≥ √(2τ) for τ > 1/2 (weak evidence). Native span practically soft (κ ≥ 1e5, measured). PT Λ ≤ 0.2 stands; NO QED.',
     'src/data/route-43-flow-criticality-classes-2026-10-14.js; formalization/paper/flow-criticality-grading.md; formalization/lean/Route43/FlowCriticality.lean; tmp/routes-b9-r43-*, tmp/routes-b9-ref43-*', '2026-10-14', '/routes-roadmap'),
+  // ── fifty-routes roadmap, batch 10 (2026-10-15; routes 44, 45, 47, 48; src/data/research-routes-roadmap.js) and the campaign synthesis ──
+  N('route44-euler-detection-depth', 'route-i', 'certificate', 'certified', 'route 44 done: map result; twin construction and the even/odd sector split proved (elementary); 387 of 440 upper bounds a* ≤ A Arb-certified (3000–8000 bits); lower ends measured in a finite basis; conductor slopes censoring-biased; zero-side law heuristic; one internal referee pass (minor); Euler-blind; no Λ change',
+    'Route 44: Euler-detection depth of 440 Dirichlet DH-type twins (q 5–49) — certified onsets a* ≤ 0.36…3.40',
+    'Twins F_θ = Σ Re(e^{iθ}χ(n)) n^{-s} (two per conjugate pair, 220 pairs over 31 conductors; q = 5 T+ is DH, κ = 0.284079). Euler arms never negative; 53 twins blind to a = 3.6 (measured). Onset follows the root-number phase and the first off-line zero (a* ≈ −0.748 + 0.387 log γ − 0.278 log(β − 1/2) + 0.278 log q, rms 0.139, heuristic); conductor slope ≈ 0.2–0.37 per log q against Epstein\'s 1 (route 15). DH λ_min = 0.2103 at (ln 3)/2. PT Λ ≤ 0.2 stands; NO QED.',
+    'src/data/route-44-euler-detection-depth-2026-10-15.js; tmp/routes-b10-r44-euler-depth/, tmp/routes-b10-ref44-*', '2026-10-15', '/routes-roadmap'),
+  N('route45-chaos-source-tails', 'barrier', 'measurement', 'measured', 'route 45 done: random-model (Bohr–Jessen) tails measured (MC, importance sampling) and large-deviation estimates heuristic; nothing certified; one internal referee pass (MAJOR: the uniformity-in-x / torus-sup item is false for t > 0 because the source damps with L = log(x/4π)); finite-window lever candidate only; no Λ change',
+    'Route 45: random-model source tails — certified-floor gap is certification slack; realised heights 0.05–0.12 below Kronecker values',
+    'Field is finite-variance, not log-correlated (labels ≤ 10 carry 93–98% of the variance at σ_eff 0.88–1.59); Kronecker lower bounds 3.7–5.1 sd above the mean; ≈ 0.107 of the cell-300 value comes from aligning ≈ 55,800 primes above 29. Referee: sup_torus J_L falls with L at t > 0 (cell 300: 0.5335 → 0.439 at s = 2), flat at t = 0, so only a finite x-window per L-band is forced; a deterministic finite-window floor is a candidate lever. PT Λ ≤ 0.2 stands; NO QED.',
+    'src/data/route-45-multiplicative-chaos-source-tails-2026-10-15.js; tmp/routes-b10-r45-*, tmp/routes-b10-ref45-*', '2026-10-15', '/routes-roadmap'),
+  N('route47-learned-adversaries', 'barrier', 'measurement', 'measured', 'route 47 done: surrogate adversaries and difficulty forecasts measured / heuristic; v4c point and box bounds graded as the engine (used in no Λ value); one internal referee pass (minor: false claim about g and the target rule, missed g signal on r_23_40, forecast evidence not independent); WOL-C NOT proved; no Λ change',
+    'Route 47: learned adversaries find nothing r6 missed; difficulty forecast by K0 (and g within r_23_40)',
+    '1,062,484 existing θ_s-boxes from 318 floors; best Φ − K0* = −0.001563 (= r6), only r6\'s kink-displaced maximum is non-central; hard-box proposals fail exact v4c checks (pessimistic 0.005–0.017, optimistic up to 0.039 when extrapolating). K0 alone separates stopped from completed floors (AUC 1.000); 17 pending 0.88-sharp floors (cells 392–416) forecast budget-stopped (heuristic). PT Λ ≤ 0.2 stands; NO QED.',
+    'src/data/route-47-learned-adversaries-2026-10-15.js; tmp/routes-b10-r47-*, tmp/routes-b10-ref47-point.py', '2026-10-15', '/routes-roadmap'),
+  N('route48-phase-retrieval', 'no-go', 'theorem', 'proved', 'route 48 done: map result; Thm 48.1–48.5 proved (classical-standard, internal; Thm 48.1 corrected to normalised Blaschke factors, Thm 48.5 wording for σ ≥ 1 corrected); detector runs measured (mpmath, not certified); DH zero-list completeness corroborated, not proved; σ ≥ 7/8 statement conditional on OAI 003; one internal referee pass (minor); no Λ change',
+    'Route 48: phase retrieval for ζ — |ζ| on the line fixes ζ up to independent off-line flips; FE + reality ⇒ ±ξ',
+    'One line, no symmetry: G = e^{iα + λ(s − 1/2)} ξ ∏_S B̃_ρ(s)/B̃_ρ(1/2) (9 configurations per off-line quadruple); FE or reality alone fails; two lines (Poisson–Jensen) locate every zero with β > 1/2 without the FE (DH: 8 off-line zeros below 400); BSY decides RH with 2δ/γ² sensitivity; Hilbert phase defect on the line ≲ 1.48e-12·t for t ≪ 3e12. The pointwise Hilbert-transform wall = arg B from zeros above the verified height. PT Λ ≤ 0.2 stands; NO QED.',
+    'src/data/route-48-phase-retrieval-zeta-2026-10-15.js; tmp/routes-b10-r48-*, tmp/routes-b10-ref48-*', '2026-10-15', '/routes-roadmap'),
+  N('fifty-routes-synthesis', 'novel-routes', 'result', 'measured', 'synthesis (assessment) of the 50 route results, each with one internal referee pass and no external review: 43 done, 6 partial, 1 in progress, 0 blocked; Λ values conditional on the route-P ledger and G0 (0.116091488672439 also on the 7/8 half-plane, not a bound); no Λ change',
+    'Fifty-routes campaign synthesis: status of 50 routes, Λ ledger, structural map, ranked next steps',
+    'Unconditional-on-QRH best 0.145276368594868 (route P + campaign + routes 3 and 5, certified relative to the ledger; Λ < 0.145 not certified); conditional-on-QRH best 0.116091488672439. 22 routes reduce to a known wall (verified height 9, RH-equivalence 8, pointwise 6, flow-blindness 3), others to Euler-blindness or method caps; 18 routes produced new objects graded internal. Binding premise of both values: G0 external referee. PT Λ ≤ 0.2 stands; NO QED.',
+    'src/data/fifty-routes-synthesis-2026-10-15.js; formalization/routes/fifty-routes-synthesis-2026-10-15.md', '2026-10-15', '/routes-roadmap'),
   // ── openai/math integration (2026-10-08; src/data/openai-math-integration-2026-10-08.js) ──
   N('oai-qrh-lean-check', 'barrier', 'formalization', 'external', 'external claim (internal OpenAI model, openai/math family 003), Lean-formalized; Lean proof re-built locally (lake build, #print axioms, statement match by hand); official comparator and independent kernel check not run; not peer-reviewed',
     'openai/math 003: ζ(s) ≠ 0 for Re s > 7/8 — Lean proof re-built locally',
@@ -1673,6 +1694,30 @@ const RAW_EDGES = [
   ['route43-flow-criticality-grading', 'twin-ns-rigid', 'feeds', 'native span has no intermediate grade (finite node sets practically soft, full family 0); binary question open off the span'],
   ['route43-flow-criticality-grading', 'oai-qrh-lean-check', 'uses', 'QRH symmetric strip 1/8 ≤ Re ρ ≤ 7/8 (Lean, trusting OAI 003); κ(QRH 7/8) = 9/32'],
   ['route43-flow-criticality-grading', 'de-bruijn-1950', 'uses', 'upper half of the strip ladder κ(Strip_Y) ≤ Y²/2'],
+  ['route44-euler-detection-depth', 'route15-epstein-euler-blindness', 'feeds', 'Dirichlet twins: conductor slope ≈ 0.2–0.37 per log q vs Epstein principal forms\' slope 1 — different blinding mechanisms'],
+  ['route44-euler-detection-depth', 'twin-dh-euler-blindness', 'uses', 'DH reproduced: certified a* ≤ 1.74 (tlb full basis 1.72); DH λ_min 0.2103 at (ln 3)/2'],
+  ['route44-euler-detection-depth', 'route30-euler-detector', 'uses', 'information floor: for 2a ≤ ln 2 a twin and its Euler arm have the same Weil form'],
+  ['route44-euler-detection-depth', 'weil-positivity', 'feeds', 'Weil form detects a missing Euler product only once the support reaches the first off-line zero\'s resolution scale (heuristic law)'],
+  ['route45-chaos-source-tails', 'route46-kronecker-floors', 'uses', 'route-46 Arb Kronecker lower bounds at the 12 binding cells'],
+  ['route45-chaos-source-tails', 'bagchi-universality', 'uses', 'Bohr–Jessen / Steinhaus random model of the source at σ_eff 0.88–1.59'],
+  ['route45-chaos-source-tails', 'route1-r7-route-p', 'feeds', 'candidate finite-window floor at t > 0 (L-damping, referee); not usable now'],
+  ['route47-learned-adversaries', 'r6-falsify', 'uses', 'true-Φ adversary reproduces r6\'s maxima (−0.001563; kink-displaced maximum 1.98e-6)'],
+  ['route47-learned-adversaries', 'route1-r7-route-p', 'feeds', 'difficulty forecast: 17 pending 0.88-sharp floors expected budget-stopped; g = τ − m0 signal on r_23_40'],
+  ['route47-learned-adversaries', 'route4-fejer-riesz-wol', 'uses', 'v4c point margins reproduce route 4 (idx 269 0.050152)'],
+  ['route48-phase-retrieval', 'twin-res-t', 'feeds', 'the pointwise Hilbert-transform wall stated exactly: independent off-line flips ρ ↔ 1 − ρ̄ invisible on the line'],
+  ['route48-phase-retrieval', 'pointwise-wall', 'feeds', 'modulus on one line carries no pointwise zero-location information without the FE'],
+  ['route48-phase-retrieval', 'twin-dh-euler-blindness', 'uses', 'DH test case: two-line detector locates 8 off-line zeros below 400'],
+  ['route48-phase-retrieval', 'oai-qrh-lean-check', 'uses', 'conditional: Hilbert transform exact on every line σ ≥ 7/8'],
+  ['fifty-routes-synthesis', 'routes-novel-roadmap', 'feeds', 'the fifty-routes campaign mapped; open next steps ranked'],
+  ['fifty-routes-synthesis', 'lambda-levers-joint', 'uses', 'unconditional-on-QRH best 0.145276368594868 (route P + campaign + routes 3, 5)'],
+  ['fifty-routes-synthesis', 'qrh-path-retune', 'uses', 'conditional-on-QRH best 0.116091488672439 (not a bound)'],
+  ['fifty-routes-synthesis', 'b145-raymond-referee', 'blocked-by', 'G0 external referee is the binding premise of both values'],
+  ['fifty-routes-synthesis', 'wall-verification-height', 'feeds', 'nine routes reduce to the verified-height wall'],
+  ['route44-euler-detection-depth', 'fifty-routes-synthesis', 'feeds'],
+  ['route45-chaos-source-tails', 'fifty-routes-synthesis', 'feeds'],
+  ['route47-learned-adversaries', 'fifty-routes-synthesis', 'feeds'],
+  ['route48-phase-retrieval', 'fifty-routes-synthesis', 'feeds'],
+  ['route43-flow-criticality-grading', 'fifty-routes-synthesis', 'feeds'],
   ['oai-qrh-lean-check', 'zero-free-region', 'feeds', 'claimed strip Re s > 7/8, Lean proof re-built locally; not peer-reviewed'],
   ['oai-qrh-lean-check', 'oai-qrh-start-lambda', 'feeds', 'time-zero start q0 = (2θ − 1)² + 2e-6 = 9/16 + 2e-6'],
   ['oai-qrh-start-lambda', 'lambda-raymond-0149396', 'uses', 'Raymond chain with only the start changed; strip control reproduces 76,491 substeps'],
@@ -2176,6 +2221,26 @@ export const PROJECT_ATTEMPTS_DAG_ASSERTIONS = Object.freeze([
         && has('route10-lean-raymond-core', 'r3-cg', 'closes') && has('route36-random-platt-windows', 'route22-lehmer-pair-hunt', 'feeds')
         && has('route39-lean-weil-small-support', 'wall-weil-support', 'blocked-by') && has('route40-lean-wol-bb-fragments', 'r3-outer', 'feeds')
         && has('route41-lean-arb-replay', 'routes-i-arb-lege-cert', 'feeds') && has('route43-flow-criticality-grading', 'flow-blindness', 'feeds');
+    },
+  },
+  {
+    id: 'project-routes-batch10-nodes',
+    name: 'fifty-routes batch 10 (2026-10-15) nodes: route 44 certified but Euler-blind twin onsets (slopes censoring-biased); route 45 measured random-model tails with the MAJOR referee correction (L-damping); route 47 measured forecasts, WOL-C not proved; route 48 classical-standard phase-retrieval theorems, completeness not proved; plus the campaign synthesis (Λ values conditional, not bounds); all PT Λ ≤ 0.2 / NO QED',
+    why: 'referee-surviving scope of routes 44, 45, 47, 48 and the synthesis',
+    holds: () => {
+      const g = (id) => NODES.find((x) => x.id === id);
+      const has = (f, t, type) => EDGES.some((x) => x.from === f && x.to === t && x.type === type);
+      const ids = ['route44-euler-detection-depth', 'route45-chaos-source-tails', 'route47-learned-adversaries', 'route48-phase-retrieval', 'fifty-routes-synthesis'];
+      const [r44, r45, r47, r48, syn] = ids.map(g);
+      return ids.every((id) => g(id)) && r44.statusKind === 'certified' && /Euler-blind/.test(r44.status) && /censoring-biased/.test(r44.status)
+        && r45.statusKind === 'measured' && /MAJOR/.test(r45.status) && /nothing certified/.test(r45.status)
+        && r47.statusKind === 'measured' && /WOL-C NOT proved/.test(r47.status) && /classical-standard/.test(r48.status) && /not proved/.test(r48.status)
+        && syn.statusKind === 'measured' && /not a bound/.test(syn.status) && /0\.116091488672439/.test(syn.summary) && /0\.145276368594868/.test(syn.summary)
+        && ids.map(g).every((x) => /PT Λ ≤ 0\.2 stands/.test(x.summary) && /NO QED/.test(x.summary) && x.route === '/routes-roadmap' && x.date === '2026-10-15'
+          && /no Λ change/.test(x.status))
+        && has('route44-euler-detection-depth', 'route15-epstein-euler-blindness', 'feeds') && has('route45-chaos-source-tails', 'route46-kronecker-floors', 'uses')
+        && has('route47-learned-adversaries', 'r6-falsify', 'uses') && has('route48-phase-retrieval', 'twin-res-t', 'feeds')
+        && has('fifty-routes-synthesis', 'b145-raymond-referee', 'blocked-by') && has('fifty-routes-synthesis', 'qrh-path-retune', 'uses');
     },
   },
   {

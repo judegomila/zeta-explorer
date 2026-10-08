@@ -611,6 +611,15 @@ const DATA_MODULES = [
   '/src/data/route-40-lean-wol-band-barrier-2026-10-14.js',
   '/src/data/route-41-lean-arb-certificate-replay-2026-10-14.js',
   '/src/data/route-43-flow-criticality-classes-2026-10-14.js',
+  // fifty-routes batch 10 result modules (2026-10-15; routes 44 (group I, Euler-detection depth across conductors), 45, 47, 48 (group J:
+  // random-model source tails, learned adversaries, phase retrieval); one internal referee pass each, corrections applied (route 45 major:
+  // uniformity-in-x item false for t > 0, L-damping); import-free; no Lambda change, NO QED) and the campaign synthesis (imports only the
+  // import-free roadmap; checks 50 routes covered and statuses equal to the roadmap).
+  '/src/data/route-44-euler-detection-depth-2026-10-15.js',
+  '/src/data/route-45-multiplicative-chaos-source-tails-2026-10-15.js',
+  '/src/data/route-47-learned-adversaries-2026-10-15.js',
+  '/src/data/route-48-phase-retrieval-zeta-2026-10-15.js',
+  '/src/data/fifty-routes-synthesis-2026-10-15.js',
   // openai/math integration (2026-10-08): family 003 (zeta zero-free for Re s > 7/8) Lean proof re-built locally (lake build,
   // #print axioms = propext/Classical.choice/Quot.sound, statement match; official comparator not run); conditional Lambda
   // values with the 7/8 half-plane start (Raymond chain 0.118505710922701, route-P single band 0.117708313410954; referee

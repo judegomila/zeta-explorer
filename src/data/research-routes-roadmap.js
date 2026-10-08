@@ -34,7 +34,10 @@
  * flow-criticality classes), recorded 2026-10-14 (one internal referee pass each, corrections applied in the route-<id>-*-2026-10-14.js
  * modules; routes 10, 39, 40 'partial', 36, 41, 43 'done'; none moves Λ; route 40's referee pass was major: its L1 dl_identity had
  * inconsistent hypotheses (vacuous) and the Lean file was replaced by the referee's corrected version). Batch 10 = routes 44 (group I,
- * Euler-detection depth), 45, 47, 48 (group J, creative); planned. Later batches are unassigned (null).
+ * Euler-detection depth), 45, 47, 48 (group J, creative), recorded 2026-10-15 (one internal referee pass each, corrections applied in the
+ * route-<id>-*-2026-10-15.js modules; all four done, none moves Λ; route 45's referee pass was major: its 'uniformity in x forces the torus
+ * supremum' item is false for t > 0 because the source damps with L = log(x/4π)). With batch 10 every route has a result module; the campaign
+ * synthesis is src/data/fifty-routes-synthesis-2026-10-15.js (formalization/routes/fifty-routes-synthesis-2026-10-15.md).
  * Import-free. RESEARCH_ROUTES_ASSERTIONS check ids, groups, tags, statuses, the batch sets and result fields.
  */
 
@@ -97,14 +100,14 @@ const ROUTE_1_CAMPAIGN = Object.freeze({
   eta: Object.freeze({ wallHours: Object.freeze([60, 65]), workerHours: 370, missingCpuHours: 290, continuationWorkerHours: 78, grade: 'heuristic' }),
   baselineCollector: 'collect.sh into collect-baseline/ reproduced r7 exactly: 369 floors (244 certified, 125 missing), 0 coverage holes, 523 certfile entries (0 bad, min slack 1.13e-13), fullref 0.145694083872924, rebuild 0.145694083872923, E1–E8 74,596 steps 0 failures',
   snapshot: '2026-10-06 20:54: 6 running (idx 201–206), 132 pending; idx 201 top open box 0.0745 against target 0.0660 (was 0.1011 at launch)',
-  progress: '2026-10-07 02:39 (status.tsv): 2 done at target (idx 246 cell 459, idx 248 cell 460; margins 0.0499994, 0.0499999), 5 budget-stopped (idx 201–205, full-cover certificates at margins 0.0657–0.0740 above target), 6 running, 125 pending. Collector with these: route-P alone 0.145681937488254 (−1.2146e-5); combined with routes 3 and 5 (3 bands, 281 kernels) 0.145322418219213 (src/data/lambda-levers-combined-2026-10-08.js). 2026-10-07 06:54 (status.tsv): 15 done, 8 budget-stopped, 12 running (12 workers, 29.7 GB), 103 pending; collect6: 255 certified (246 complete), 114 missing, route-P alone 0.145535458600488; joint with routes 3 and 5 0.145276368594868 (route 9 adds exactly 0; src/data/lambda-levers-combined-2026-10-09.js)',
+  progress: '2026-10-07 02:39 (status.tsv): 2 done at target (idx 246 cell 459, idx 248 cell 460; margins 0.0499994, 0.0499999), 5 budget-stopped (idx 201–205, full-cover certificates at margins 0.0657–0.0740 above target), 6 running, 125 pending. Collector with these: route-P alone 0.145681937488254 (−1.2146e-5); combined with routes 3 and 5 (3 bands, 281 kernels) 0.145322418219213 (src/data/lambda-levers-combined-2026-10-08.js). 2026-10-07 06:54 (status.tsv): 15 done, 8 budget-stopped, 12 running (12 workers, 29.7 GB), 103 pending; collect6: 255 certified (246 complete), 114 missing, route-P alone 0.145535458600488; joint with routes 3 and 5 0.145276368594868 (route 9 adds exactly 0; src/data/lambda-levers-combined-2026-10-09.js). 2026-10-08 03:10 (status.tsv, read at the batch-10 record): 76 done, 10 budget-stopped, 12 running, 40 pending; no collector run since collect6, so the certified joint value is still 0.145276368594868 (Λ < 0.145 not certified); route 47 forecasts (heuristic) that the 17 pending/running 0.88-sharp floors (cells 392–416) end budget-stopped under the current policy',
   commands: Object.freeze({ monitor: 'tmp/route1-campaign/monitor.sh', drain: 'touch tmp/route1-campaign/STOP', pause: 'touch tmp/route1-campaign/PAUSE',
     hardStop: 'kill $(cat tmp/route1-campaign/sched.pid); pkill -f "r7-full-cert.py tmp/route1-campaign/run"' }),
   note: 'Originals in tmp/r7-full-out/run untouched. Route 5 (measured): with 3 bands, the 125 missing floors at target alone would give 0.144986 < 0.145; with the 281-kernel grid on top, 0.1449666 (measured). Λ < 0.145 is not certified while the campaign runs.',
   qrhPathNote: '7/8 (openai/math 003 half-plane) path, 2026-10-08 (src/data/qrh-path-push-2026-10-08.js): the route-P single-band consumer re-tuned on the lower barrier path gives the certified conditional value 0.116091488672439 (was 0.117708313410954), conditional on the 003 half-plane, G0, PT and the route-P ledger, not a bound. On that path a v4c/WOL-C floor is worth ≈ 3.2e-6 to first order (best single target), so the campaign floors placed on the strip/band path are not the lever there; the 130 7/8-path P47 targets (tmp/qrh-tune-out/lever3_targets.json) were NOT appended to the running campaign queue.',
 });
 
-// Recorded outcomes (batch 1, 2026-10-06; batch 2, 2026-10-07; batch 3, 2026-10-08; batch 4, 2026-10-09; batch 5, 2026-10-10; batch 6, 2026-10-11; batch 7, 2026-10-12; batch 8, 2026-10-13; batch 9, 2026-10-14). One sentence each; details, grades and referee corrections in the module.
+// Recorded outcomes (batch 1, 2026-10-06; batch 2, 2026-10-07; batch 3, 2026-10-08; batch 4, 2026-10-09; batch 5, 2026-10-10; batch 6, 2026-10-11; batch 7, 2026-10-12; batch 8, 2026-10-13; batch 9, 2026-10-14; batch 10, 2026-10-15). One sentence each; details, grades and referee corrections in the module.
 const RESULTS = Object.freeze({
   1: Object.freeze({ status: 'in progress', resultModule: 'src/data/route-1-finish-route-p-2026-10-06.js', campaign: ROUTE_1_CAMPAIGN,
     result: 'Round 7 certified 0.145694083872924 at PT height (244 of 369 P47 floors, interval-certified, internal referee only, conditional on the shared ledger; Λ < 0.145 not certified); the background campaign (tmp/route1-campaign, launched 2026-10-06 17:27, ETA ≈ 60–65 h wall, heuristic) has by 2026-10-07 06:54 15 floors done and 8 budget-stopped (collect6: 255 of 369 floors certified, route P alone 0.145535458600488), and stacked with routes 3 and 5 gives 0.145276368594868 (route 9 adds exactly 0; still above 0.145, so Λ < 0.145 not certified).' }),
@@ -192,6 +195,14 @@ const RESULTS = Object.freeze({
     result: 'A Lean soundness theorem plus decide +kernel integer certificates (no native_decide) replay the linear-algebra leg of ARB-LEGE at (T, N) = (200, 160), (200, 240), (400, 320) as a finite-dimensional assembly inequality in Galerkin coefficients (c_Lean = 8.1498e-4, 8.2044e-4, 9.0434e-4; N = 240 tail also in Lean; ≤ 892 s and 5.5 GB per instance), with the transcendental enclosures and the analytic reduction still Arb/paper-trusted.' }),
   43: Object.freeze({ status: 'done', resultModule: 'src/data/route-43-flow-criticality-classes-2026-10-14.js',
     result: 'Grading inputs by κ(P) = sup Λ over P puts the critical strip at 1/2 and QRH 7/8 at 9/32 (exact witness (z² + Y²)cos(cz), exact only in the de Bruijn class without Φ > 0), gives fixed-support Weil positivity a lower-bound ladder (T²κ_low → 0.349) and tail-blind inputs nothing beyond the strip, while flow-critical-but-not-RH statements in NS-RIGID\'s binary sense stay conditional on an escape law not tested at small τ.' }),
+  44: Object.freeze({ status: 'done', resultModule: 'src/data/route-44-euler-detection-depth-2026-10-15.js',
+    result: 'Across 440 same-gamma-factor Davenport–Heilbronn-type twins of Dirichlet L-functions (conductors 5–49) the Weil form is Arb-certified negative for 387 at supports a ∈ [0.36, 3.40] (upper bounds on the blindness radius; DH ≤ 1.74 against tlb-dh-blind\'s 1.72), Euler arms stay positive, 53 twins stay blind to a = 3.6 (measured), and the onset follows the root-number phase and the first off-line zero with a weak, censoring-biased conductor slope (≈ 0.2–0.37 per log q) against slope 1 for route 15\'s Epstein forms.' }),
+  45: Object.freeze({ status: 'done', resultModule: 'src/data/route-45-multiplicative-chaos-source-tails-2026-10-15.js',
+    result: 'A Bohr–Jessen random model (finite-variance, not log-correlated at σ_eff 0.88–1.59) cannot explain the certified-floor vs Kronecker gap, which is certification slack on one free-phase torus supremum; it predicts real heights near X reach 0.05–0.12 below the Kronecker lower bounds, and the referee (major) showed that for t > 0 the source damps with L = log(x/4π), so uniformity in x forces only a finite x-window per L-band, a candidate lever needing a deterministic finite-window bound (not usable now).' }),
+  47: Object.freeze({ status: 'done', resultModule: 'src/data/route-47-learned-adversaries-2026-10-15.js',
+    result: 'Surrogates trained on 1.06e6 existing θ_s-boxes find no WOL-C violation and nothing r6 missed (best Φ − K0* = −0.001563, only r6\'s kink-displaced maximum is non-central), their hard-box proposals fail exact v4c checks, and as forecasters they match K0 alone (plus g = τ − m0 within r_23_40, referee), pointing to all 17 pending 0.88-sharp floors (cells 392–416) being budget-stopped under the current policy (heuristic).' }),
+  48: Object.freeze({ status: 'done', resultModule: 'src/data/route-48-phase-retrieval-zeta-2026-10-15.js',
+    result: 'Without symmetry |ζ| on the critical line fixes ζ up to independent off-line flips ρ ↔ 1 − ρ̄ and e^{iα + λ(s − 1/2)} (normalised Blaschke factors; the Hilbert-transform wall stated exactly), the functional equation plus reality give ±ξ (either alone fails), a second line right of every zero locates the zeros without the FE (8 Davenport–Heilbronn off-line zeros below 400; completeness corroborated, not proved), and the unconditional Hilbert phase defect on the line is ≲ 1.48e-12·t for t ≪ 3e12.' }),
   27: Object.freeze({ status: 'done', resultModule: 'src/data/route-27-function-field-twin-ladder-2026-10-06.js',
     result: 'Over F_q the twin-ladder Weil form is minus the intersection form on primitive Frobenius-graph classes, so Hodge index gives curve-RH, while ladder data alone do not (215 exact Euler-product fakes); the lift to Q stops at the missing Spec Z × Spec Z with a Hodge index theorem.' }),
   46: Object.freeze({ status: 'partial', resultModule: 'src/data/route-46-exact-kronecker-floors-2026-10-06.js',
@@ -533,9 +544,10 @@ export const RESEARCH_ROUTES_ASSERTIONS = Object.freeze([
     id: 'rr-batch-10',
     holds: () => RESEARCH_ROUTES.filter((r) => r.batch === 10).map((r) => r.id).join(',') === '44,45,47,48'
       && RESEARCH_ROUTE_BATCH_10.join(',') === '44,45,47,48'
-      && RESEARCH_ROUTES.filter((r) => r.batch === 10).every((r) => r.status === 'planned' && !r.firstPick && r.result === null && r.resultModule === null)
+      && RESEARCH_ROUTES.filter((r) => r.batch === 10).every((r) => r.status === 'done' && !r.firstPick && typeof r.result === 'string'
+        && r.result.length > 40 && r.resultModule.startsWith(`src/data/route-${r.id}-`) && r.resultModule.endsWith('-2026-10-15.js'))
       && RESEARCH_ROUTES.filter((r) => r.batch === 10).map((r) => r.group).join('') === 'IJJJ',
-    why: 'Batch 10 = routes 44 (group I, Euler-detection depth across conductors), 45, 47, 48 (group J: multiplicative chaos, learned adversaries, phase retrieval), status planned, no result yet.',
+    why: 'Batch 10 = routes 44 (group I, Euler-detection depth across conductors), 45, 47, 48 (group J: multiplicative chaos, learned adversaries, phase retrieval), all done (2026-10-15), each with a one-sentence result and a route-<id>-*-2026-10-15.js module.',
   },
   {
     id: 'rr-route-1-campaign',
@@ -551,9 +563,9 @@ export const RESEARCH_ROUTES_ASSERTIONS = Object.freeze([
     holds: () => RESEARCH_ROUTES.filter((r) => r.batch === 1).every((r) => ['done', 'partial', 'blocked', 'in progress'].includes(r.status)
         && r.resultModule.startsWith(`src/data/route-${r.id}-`) && r.resultModule.endsWith('-2026-10-06.js')
         && typeof r.result === 'string' && r.result.length > 40)
-      && RESEARCH_ROUTES.filter((r) => r.result !== null).length === 46
+      && RESEARCH_ROUTES.filter((r) => r.result !== null).length === 50
       && ['1:in progress', '2:done', '27:done', '46:partial', '49:done'].every((x) => { const [i, s] = x.split(':'); return RESEARCH_ROUTES[Number(i) - 1].status === s; }),
-    why: 'Batch 1 recorded: routes 2, 27, 49 done; 46 partial; 1 in progress (campaign running); each with a one-sentence result and a route-<id>-*-2026-10-06.js module; 46 routes carry results (batches 1–9).',
+    why: 'Batch 1 recorded: routes 2, 27, 49 done; 46 partial; 1 in progress (campaign running); each with a one-sentence result and a route-<id>-*-2026-10-06.js module; all 50 routes carry results (batches 1–10).',
   },
   {
     id: 'rr-result-fields',

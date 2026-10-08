@@ -982,6 +982,31 @@ const NODES = [
     'Route 35: Li coefficients certified positive for every n ≤ 10^4',
     'λ_1 = 0.0230957 (minimum), λ_10000 = 34736.5797 ± 1.5e-189; zero-sum over 1e6 zeros agrees to 4.2e-8. With Γ(1+s/2): λ_n^arch = (n/2)log n + c·n + 3/4 − 1/(24n), c = (γ_E − 1 − log 2π)/2 (constant −1/4 with Γ(s/2)); osc_n certified, |osc_n| ≈ (0.15–0.26)·√n, 99 sign changes. Johansson 2015 reports n ≤ 10^5 (recall). PT Λ ≤ 0.2 stands; NO QED.',
     'src/data/route-35-certified-li-coefficients-2026-10-13.js; tmp/routes-b8-r35-li/, tmp/routes-b8-ref35-*', '2026-10-13', '/routes-roadmap'),
+  // ── fifty-routes roadmap, batch 9 (2026-10-14; routes 10, 36, 39, 40, 41, 43; src/data/research-routes-roadmap.js) ──
+  N('route10-lean-raymond-core', 'barrier', 'formalization', 'proved', 'route 10 partial: Lean-checked (Lean 4.34.1, Mathlib d13f23b7, 0 sorry, standard axioms; referee re-build confirmed, 18/18 axiom lines): Lemma CG / G0-a unconditional, start substitution for the standard H_t; Lemma R conditional on AF (4.6) and Φ\' = Re β_t; AF §2/§11 start-substitution reading still an open referee item; θ = 7/8 trusts the OAI 003 proof (not peer-reviewed); G0-c, G0-d, barrier certificate not formalised; no Λ change',
+    'Route 10: Lean core of Raymond\'s chain — Lemma CG (G0-a), Lemma R (conditional), start substitution',
+    'RaymondCore.CG.cn_nonneg_mono: 0 ≤ c_n(t\') ≤ c_n(t) for every n ≥ 1, 0 ≤ t\' ≤ t. Substitution: ζ ≠ 0 on Re s > θ ⇒ Im(z)² ≤ max((2θ−1)² − 2t, 0) for zeros of H_t; Λ ≤ 9/32 at θ = 7/8 (Instance78, OAI import), 1/2 at θ = 1 (Mathlib). Lemma R: a²/8 log term (paper a²/4), ε_R < 1e-10 (≈ 4.4e-12) under AF (4.6) + Φ\' = Re β_t hypotheses. Name trap: ComparatorChallenges declares the OAI name with sorry. PT Λ ≤ 0.2 stands; NO QED.',
+    'src/data/route-10-lean-core-raymond-chain-2026-10-14.js; formalization/lean/raymond-core/; tmp/routes-b9-r10-lean/, tmp/routes-b9-ref10-lean/', '2026-10-14', '/routes-roadmap'),
+  N('route36-random-platt-windows', 'novel-routes', 'measurement', 'certified', 'route 36 done: map result, no anomaly; 146,768 zeros certified simple and on the line on the patched Platt lemmas (FLINT_AUDIT_2, single reader) + direct-integral Turing (no Gram-block criterion); 33 RS certificates (T ≤ 2.02e16) independent of Platt; statistics measured; Lehmer value conditional (Platt positions, Trudgian 2014 quoted from memory, non-interval tails); one internal referee pass (minor: bookkeeping); no Λ change',
+    'Route 36: 16 random Platt windows 1.06e13–3.09e19 — 146,768 zeros on the line, no anomaly',
+    '150,541 zeros; Gram\'s law 0.6932; good-Gram share 0.790 → 0.760; 16 Rosser pairs (32 violations; 16 RS-certified) in 116,453 blocks; max block 10 at 3.09e19; S ∈ [−2.3317, 2.3606]; spacing variance 0.1725–0.1797 (GUE 0.180). Closest pair δ = 0.013510 at 4.07e14 (RS-certified gap) gives λ ≥ −3.563e-6 (route 22: −4.2577e-6), superseded by Rodgers–Tao. PT Λ ≤ 0.2 stands; NO QED.',
+    'src/data/route-36-random-local-windows-2026-10-14.js; tmp/routes-b9-r36-platt/, tmp/routes-b9-ref36-*', '2026-10-14', '/routes-roadmap'),
+  N('route39-lean-weil-small-support', 'route-i', 'formalization', 'conditional', 'route 39 partial: Lean-checked structural reduction (0 sorry, standard axioms, referee re-build); positivity conditional on two Arb-certified digamma facts and on Weil\'s explicit formula as a hypothesis over an ABSTRACT zero functional (formally 0 ≤ weilRHS(f⋆f*)); integrability not formalised; PNT+ Kadiri.lean is a 14-sorry scaffold; even f, support 0.1733 only; no Λ change',
+    'Route 39: Lean small-support Weil positivity reduction for ζ (supp g ⊆ [−0.1733, 0.1733])',
+    'Lean: prime side vanishes for supp g ⊂ (−log 2, log 2) (sharp); pole term 2|A(1/2)|² ≥ 0; Fubini link to the explicit-formula RHS (weilRHS_autocorr); uncertainty positivity with archSymbol(57/20) = 1.04719 > 26/25 and deficit 5.912 < 6 (Arb), 2aD = m. weilRHS normalisation checked against zeta zeros (≤ 4.4e-22). Uncertainty method caps near 0.18; far below the 2a ≤ 0.9 certificate. PT Λ ≤ 0.2 stands; NO QED.',
+    'src/data/route-39-lean-weil-small-support-2026-10-14.js; formalization/lean/Route39/WeilSmallSupport.lean; tmp/routes-b9-r39-*, tmp/routes-b9-ref39-*', '2026-10-14', '/routes-roadmap'),
+  N('route40-lean-wol-bb-fragments', 'barrier', 'formalization', 'proved', 'route 40 partial: Lean-checked FRAGMENTS (81 declarations, 0 sorry, standard axioms) after a MAJOR referee correction (submitted L1 dl_identity vacuous: inconsistent hypotheses; replaced by the referee\'s fixed version with non-vacuity log_ok); WOL-C NOT proved; BB1/BB2 NOT proved (analytic inputs are named hypotheses); Aristotle jobs prepared, 0 submitted; no Λ change',
+    'Route 40: Lean fragments of the WOL-C lemmas and the logical core of Theorem BB',
+    'L2 via a new heat-equation proof in the Dirichlet ring: 4β\' = log²n·β + 2β*(log·β), β(0) = Λ, so β_n(t) ≥ 0 and nondecreasing; Lemma 3.1/3.3 grid maxima; pieces of 4.3, 4.4, 5.3; Theorem BB: A17 ≤ e^{−x} ≤ A18, first contact (scalar and set-valued, logic only), Lemma C algebra, H2 μ1/μ3/μ5. Not formalised: Lemma 1.2, 4.1 in full, 4.2, 4.5, 5.1, 5.2, 5.4, Theorem 6.1. PT Λ ≤ 0.2 stands; NO QED.',
+    'src/data/route-40-lean-wol-band-barrier-2026-10-14.js; formalization/lean/Route40/; tmp/routes-b9-r40-*, tmp/routes-b9-ref40-lean/', '2026-10-14', '/routes-roadmap'),
+  N('route41-lean-arb-replay', 'route-i', 'formalization', 'proved', 'route 41 done: Lean soundness theorem (0 sorry) + decide +kernel certificates (no native_decide) for the linear-algebra leg of ARB-LEGE; finite-dimensional assembly inequality in Galerkin coefficients only; transcendental enclosures, KQ (N160, T400), η and the analytic reduction (Plancherel, P_N, η\' correction, HS bound) Arb/paper-trusted; referee full rebuild + exact data check (minor); no Λ change',
+    'Route 41: Lean replay of the ARB-LEGE linear-algebra core (c_Lean up to 9.0434e-4)',
+    'Integer Gram-plus-diagonal-dominance certificates (≤ 100 bits, margin 2.5e-9) for (T, N) = (200, 160), (200, 240), (400, 320): c_Lean = 8.14976e-4, 8.20444e-4, 9.04337e-4 (δ = 1e-8 below Arb); N = 240 HS tail ≤ 1e-60 in Lean (true 1.47e-101). Kernel cost 111 / 255 / 891 s, ≤ 5.47 GB, steps ∝ n³. Format ports to other PSD certificates. PT Λ ≤ 0.2 stands; NO QED.',
+    'src/data/route-41-lean-arb-certificate-replay-2026-10-14.js; formalization/lean/Route41ArbReplay/; tmp/routes-b9-r41*, tmp/routes-b9-ref41-*', '2026-10-14', '/routes-roadmap'),
+  N('route43-flow-criticality-grading', 'no-go', 'analysis', 'proved', 'route 43 done: graded map; exact witness and strip ladder proved (paper, internal; exact only in the de Bruijn class without Φ > 0); QRH symmetric strip Lean-checked (trusts OAI 003); G1/backward-strip Lean results abstract arithmetic with de Bruijn, flow law, Rodgers–Tao as hypotheses; Weil ladder a lower bound only; binary flow-critical-not-RH class CONDITIONAL on an escape law untested at small τ; one internal referee pass (minor); no Λ change',
+    'Route 43: flow-criticality degree κ(P) = sup Λ — strip 1/2, QRH 7/8 9/32, Weil lower-bound ladder',
+    'Witness Λ((z² + Y²)cos(cz)) = (√(1 + 4c²Y²) − 1)/(4c²) ↑ Y²/2; κ(QRH_θ) = (2θ − 1)²/2; tail-blind inputs (proportion, density) add nothing; G4: W_T ≥ 0 ⇔ 2c ≥ sinh(2YT)/Y − 2T gives κ_low(T), T²κ_low → 0.349. H_{−1}, H_{−4} zeros outside the strip are forced by Y(−τ) ≥ √(2τ) for τ > 1/2 (weak evidence). Native span practically soft (κ ≥ 1e5, measured). PT Λ ≤ 0.2 stands; NO QED.',
+    'src/data/route-43-flow-criticality-classes-2026-10-14.js; formalization/paper/flow-criticality-grading.md; formalization/lean/Route43/FlowCriticality.lean; tmp/routes-b9-r43-*, tmp/routes-b9-ref43-*', '2026-10-14', '/routes-roadmap'),
   // ── openai/math integration (2026-10-08; src/data/openai-math-integration-2026-10-08.js) ──
   N('oai-qrh-lean-check', 'barrier', 'formalization', 'external', 'external claim (internal OpenAI model, openai/math family 003), Lean-formalized; Lean proof re-built locally (lake build, #print axioms, statement match by hand); official comparator and independent kernel check not run; not peer-reviewed',
     'openai/math 003: ζ(s) ≠ 0 for Re s > 7/8 — Lean proof re-built locally',
@@ -1627,6 +1652,27 @@ const RAW_EDGES = [
   ['route35-certified-li-coefficients', 'li-criterion', 'feeds', 'λ_n > 0 Arb-certified for n ≤ 10^4 (finite range; RH needs all n)'],
   ['route35-certified-li-coefficients', 'verified-height', 'reduces-to', 'finite-range positivity already implied by RH to 3e12 (unconditional sketch)'],
   ['route35-certified-li-coefficients', 'routes-l-li-herglotz-cmv', 'feeds', 'certified λ_n and osc_n calibration data'],
+  ['route10-lean-raymond-core', 'r3-cg', 'closes', 'Lemma CG covering identity and G0-a (c_n ≥ 0 nondecreasing, every n) as Lean theorems, no hypotheses'],
+  ['route10-lean-raymond-core', 'b145-raymond-referee', 'feeds', 'G0-a machine-checked; Lemma R Lean-checked conditional on AF (4.6) and Φ\' = Re β_t; G0-c/G0-d open'],
+  ['route10-lean-raymond-core', 'oai-qrh-lean-check', 'uses', 'Instance78 imports the proved OAI Nonvanishing module (not the sorried ComparatorChallenges copy)'],
+  ['route10-lean-raymond-core', 'oai-qrh-start-lambda', 'feeds', 'start substitution q0 = (2θ − 1)² for the standard H_t; AF §2/§11 reading still an open referee item'],
+  ['route10-lean-raymond-core', 'de-bruijn-1950', 'uses', 'LeanCert DBN H_forward_strip (squared-strip contraction)'],
+  ['route36-random-platt-windows', 'b145-verification-pilot', 'uses', 'wrap-patched FLINT 3.6.0 Platt code (FLINT_AUDIT_2); direct-integral Turing replaces the flagged Gram-block anchors'],
+  ['route36-random-platt-windows', 'route22-lehmer-pair-hunt', 'feeds', 'best pair λ ≥ −3.563e-6 (1.195× route 22); random windows inefficient for Lehmer search'],
+  ['route36-random-platt-windows', 'route37-gram-law-statistics', 'feeds', 'Gram/Rosser statistics extended to 3.09e19 (good-Gram share 0.790 → 0.760)'],
+  ['route36-random-platt-windows', 'gue-random-matrix', 'feeds', 'spacing variance 0.1725–0.1797 vs GUE 0.180; small gaps within GUE expectations'],
+  ['route39-lean-weil-small-support', 'yoshida-1992', 'uses', 'Yoshida-type small-support positivity, structural reduction formalised'],
+  ['route39-lean-weil-small-support', 'weil-positivity', 'feeds', 'Lean: prime side zero below log 2, pole ≥ 0, uncertainty positivity to supp 0.1733 (explicit formula a hypothesis)'],
+  ['route39-lean-weil-small-support', 'wall-weil-support', 'blocked-by', 'uncertainty method caps near support 0.18; log 2 needs prolate/Toeplitz spectral input'],
+  ['route40-lean-wol-bb-fragments', 'r3-outer', 'feeds', 'Lean fragments of L1–L5; WOL-C itself (630 numerical entries) not proved'],
+  ['route40-lean-wol-bb-fragments', 'r4-wol-pd', 'feeds', 'L2 log-positivity β_n(t) ≥ 0 via a heat-equation proof in the Dirichlet ring'],
+  ['route40-lean-wol-bb-fragments', 'r2-lemma-b', 'feeds', 'Theorem BB logical/algebraic core (first contact, Lemma C, H2 coefficients); BB1/BB2 analytic inputs remain hypotheses'],
+  ['route41-lean-arb-replay', 'routes-i-arb-lege-cert', 'feeds', 'linear-algebra leg and finite-dimensional assembly replayed in Lean (decide +kernel); transcendental legs trusted'],
+  ['route41-lean-arb-replay', 'route11-multi-prime-arb-lege', 'feeds', 'certificate format ports unchanged to other PSD claims'],
+  ['route43-flow-criticality-grading', 'flow-blindness', 'feeds', 'graded flow-blindness: survival ≤ κ(P); SL2 is the case κ = 0'],
+  ['route43-flow-criticality-grading', 'twin-ns-rigid', 'feeds', 'native span has no intermediate grade (finite node sets practically soft, full family 0); binary question open off the span'],
+  ['route43-flow-criticality-grading', 'oai-qrh-lean-check', 'uses', 'QRH symmetric strip 1/8 ≤ Re ρ ≤ 7/8 (Lean, trusting OAI 003); κ(QRH 7/8) = 9/32'],
+  ['route43-flow-criticality-grading', 'de-bruijn-1950', 'uses', 'upper half of the strip ladder κ(Strip_Y) ≤ Y²/2'],
   ['oai-qrh-lean-check', 'zero-free-region', 'feeds', 'claimed strip Re s > 7/8, Lean proof re-built locally; not peer-reviewed'],
   ['oai-qrh-lean-check', 'oai-qrh-start-lambda', 'feeds', 'time-zero start q0 = (2θ − 1)² + 2e-6 = 9/16 + 2e-6'],
   ['oai-qrh-start-lambda', 'lambda-raymond-0149396', 'uses', 'Raymond chain with only the start changed; strip control reproduces 76,491 substeps'],
@@ -2108,6 +2154,28 @@ export const PROJECT_ATTEMPTS_DAG_ASSERTIONS = Object.freeze([
         && has('route31-xp-regularised', 'hilbert-polya', 'feeds') && has('route32-inverse-spectral-potential', 'hilbert-polya', 'rules-out')
         && has('route33-bk-arithmetic-corrections', 'route23-ht-vs-dyson-bm', 'feeds') && has('route34-de-branges-hamiltonian', 'twin-t3-strip', 'reduces-to')
         && has('route35-certified-li-coefficients', 'li-criterion', 'feeds');
+    },
+  },
+  {
+    id: 'project-routes-batch9-nodes',
+    name: 'fifty-routes batch 9 (2026-10-14) nodes: route 10 Lean core (G0-a unconditional, Lemma R conditional, AF §2/§11 reading open); route 36 certified Platt windows with no anomaly; route 39 Lean reduction with the explicit formula as an abstract hypothesis; route 40 Lean fragments after the vacuity fix, WOL-C and BB1/BB2 unproved; route 41 Lean replay of a finite-dimensional leg only; route 43 graded map with the binary class conditional; all carry NO QED',
+    why: 'referee-surviving scope of routes 10, 36, 39, 40, 41, 43',
+    holds: () => {
+      const g = (id) => NODES.find((x) => x.id === id);
+      const has = (f, t, type) => EDGES.some((x) => x.from === f && x.to === t && x.type === type);
+      const ids = ['route10-lean-raymond-core', 'route36-random-platt-windows', 'route39-lean-weil-small-support', 'route40-lean-wol-bb-fragments', 'route41-lean-arb-replay', 'route43-flow-criticality-grading'];
+      const [r10, r36, r39, r40, r41, r43] = ids.map(g);
+      return ids.every((id) => g(id)) && /Lemma R conditional/.test(r10.status) && /open referee item/.test(r10.status) && /not formalised/.test(r10.status)
+        && r36.statusKind === 'certified' && /no anomaly/.test(r36.status) && /single reader/.test(r36.status)
+        && r39.statusKind === 'conditional' && /ABSTRACT zero functional/.test(r39.status) && /integrability not formalised/.test(r39.status)
+        && /vacuous/.test(r40.status) && /WOL-C NOT proved/.test(r40.status) && /BB1\/BB2 NOT proved/.test(r40.status) && /0 submitted/.test(r40.status)
+        && /Galerkin coefficients only/.test(r41.status) && /trusted/.test(r41.status)
+        && /CONDITIONAL on an escape law/.test(r43.status) && /lower bound only/.test(r43.status) && /without Φ > 0/.test(r43.status)
+        && ids.map(g).every((x) => /PT Λ ≤ 0\.2 stands/.test(x.summary) && /NO QED/.test(x.summary) && x.route === '/routes-roadmap' && x.date === '2026-10-14'
+          && /no Λ change/.test(x.status))
+        && has('route10-lean-raymond-core', 'r3-cg', 'closes') && has('route36-random-platt-windows', 'route22-lehmer-pair-hunt', 'feeds')
+        && has('route39-lean-weil-small-support', 'wall-weil-support', 'blocked-by') && has('route40-lean-wol-bb-fragments', 'r3-outer', 'feeds')
+        && has('route41-lean-arb-replay', 'routes-i-arb-lege-cert', 'feeds') && has('route43-flow-criticality-grading', 'flow-blindness', 'feeds');
     },
   },
   {

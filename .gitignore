@@ -48,3 +48,5 @@ scripts/.deploy-editorial.log
 scripts/.fleet-status-gist-id
 scripts/.fleet-status-publish.log
 .venv-arb/
+.lake/
+**/.lake/

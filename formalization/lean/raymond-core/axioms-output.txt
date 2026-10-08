@@ -1,0 +1,22 @@
+# raymond-core axiom check, 2026-10-07 17:18, Lean 4.34.1, Mathlib d13f23b7, LeanCert 7f91b6eb
+## lake env lean scripts/AxiomsCheck.lean
+'RaymondCore.CG.covering_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RaymondCore.CG.D_nonneg_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RaymondCore.CG.Cg_eq_D' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RaymondCore.CG.Cg_nonneg_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RaymondCore.CG.cn_nonneg_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RaymondCore.LemmaR.reBeta_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RaymondCore.LemmaR.lemmaR_sharp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RaymondCore.LemmaR.lemmaR' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RaymondCore.LemmaR.epsR_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RaymondCore.Substitution.substitution' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RaymondCore.Substitution.substitution'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RaymondCore.Substitution.Lambda_le_of_zeroFree' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RaymondCore.Substitution.Lambda_le_half'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RaymondCore.LemmaR.lemmaR_paper' depends on axioms: [propext, Classical.choice, Quot.sound]
+## scripts/check-instance78.sh (openai/math workspace /tmp/qrh-verify/lean)
+'RaymondCore.Instance78.H_zero_strip_78' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RaymondCore.Instance78.Lambda_le_nine_thirtyseconds' depends on axioms: [propext, Classical.choice, Quot.sound]
+## lake build RaymondCore
+Build completed successfully (9003 jobs).
+exit=0

@@ -602,6 +602,15 @@ const DATA_MODULES = [
   '/src/data/route-33-arithmetic-rmt-corrections-2026-10-13.js',
   '/src/data/route-34-de-branges-hamiltonian-xi-2026-10-13.js',
   '/src/data/route-35-certified-li-coefficients-2026-10-13.js',
+  // fifty-routes batch 9 result modules (2026-10-14; routes 10 (group A, Lean core of Raymond's chain), 36 (group G, random Platt
+  // windows), 39, 40, 41 (group H, formalisation) and 43 (group I, flow-criticality grading); one internal referee pass each,
+  // corrections applied (route 40 major: vacuous L1 hypotheses, Lean file replaced); import-free; no Lambda change, NO QED).
+  '/src/data/route-10-lean-core-raymond-chain-2026-10-14.js',
+  '/src/data/route-36-random-local-windows-2026-10-14.js',
+  '/src/data/route-39-lean-weil-small-support-2026-10-14.js',
+  '/src/data/route-40-lean-wol-band-barrier-2026-10-14.js',
+  '/src/data/route-41-lean-arb-certificate-replay-2026-10-14.js',
+  '/src/data/route-43-flow-criticality-classes-2026-10-14.js',
   // openai/math integration (2026-10-08): family 003 (zeta zero-free for Re s > 7/8) Lean proof re-built locally (lake build,
   // #print axioms = propext/Classical.choice/Quot.sound, statement match; official comparator not run); conditional Lambda
   // values with the 7/8 half-plane start (Raymond chain 0.118505710922701, route-P single band 0.117708313410954; referee

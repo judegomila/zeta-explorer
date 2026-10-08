@@ -121,7 +121,7 @@ export const QRH_PATH_PUSH = Object.freeze({
     'Route-P ledger items used on F2: r2 structured floors on 11,304 substeps (κ=0.94 r_19_40 and r_49_100 P47 floors in cells 228–320, κ=1 r_49_100 in cells 380–400; WOL-C outer lemma via wol-pd/r5/v4c certificates, r2-floors-base, measured 0.0023 time-box allowance, and the r2 L-slope lemma for uniformity in x, not reviewed); route-3 joint P-mode floors on 11,212 substeps (Theorem MP = Raymond Lemma 3 + Track A gains, Track A Lemma R, G0-a); Track-A joint floors at re-tuned heights on 36,923 substeps (producer layer, route-9 multi-height licence).',
     'X options (λ<2 kernels at non-PLAN heights) rest on: exact scaling K_ch(cx,cb) = K_h(x,b)/c; the kernel certificate for all real d, 0<y≤ρ, 0≤b≤y; the constant self cap 2/(1+r²) = 25/17 for 3r² ≥ 1; the Track-A joint floor of mode r_3_5 at the set\'s height under the multi-height licence. Not externally refereed.',
     'Single-implementation remainder: the joint-pair and Track-A gain code, and the 275 route-3 kernels not used on F2. The 79 new kernels, the 59 used on F2 and the 289 used table cells now have a second, independent check.',
-    'G0 part A recommends rechecking (5.4), k > 0 and h·v0 > 2 at re-planned heights; the producer enforces (5.1) and its domain/cone/amplitude checks per cell (failed cells are skipped), but the part-A table was computed on PLAN only: recheck on QA/QB/QC heights is open.',
+    'G0 part A recommended rechecking (5.4), k > 0 and h·v0 > 2 at re-planned heights (its table was computed on PLAN only). Done 2026-10-07 (premiseRecheck below): all 468 (cell, height, source) triples used on F2 pass in 256-bit Arb, so no option is excluded and F2 is unchanged.',
   ]),
   measured: Object.freeze([
     'Binding on the published path: sensitivity sum 3.917e-3 per unit rate; per-cell floor sensitivity ≈ 2.6e-5 per unit floor over cells 0–300; cells 0–229 carry 66.8% of the weight, cells 430–470 1.2%.',
@@ -199,16 +199,37 @@ export const QRH_PATH_PUSH = Object.freeze({
     remaining: 'G0-c (main-paper joint-floor lemmas) has no reader outside the project; Lemma W, Lemma S(θ), Lemma FB(θ), the uniformity table and the eq. (1) derivation need a non-project referee (G0-e); route P\'s r2 L-slope lemma is not reviewed.',
   }),
 
+  premiseRecheck: Object.freeze({
+    scope: 'Recheck of Raymond\'s per-row source premises on every (cell, height) actually used on F2: (5.4) e_AB + e_C^broad + e_pair < 1e-6, k = t_L·v0/2 − (1 − h)/2 > 0 and h·v0 > 2 (also (5.1), (4.3), (5.6), (t_L·v0/2 + h)·v0 > 2, (1 + h)/2 > 1/v0 and the time-radius line). '
+      + 'Definitions: Raymond\'s producer tmp/s145-1-g1/code/certify_coupled_probe.py (identical arithmetic in tmp/b145-B-ccp.py, which produced the QA/QB/QC tables; it already asserts these per cell and skips failed cells) and review part A §5/§8, C4.',
+    grade: 'CERTIFIED (outward-rounded, python-flint Arb 256 bit; margins are lower ball endpoints); evaluated at the producer anchor x = X − 4, every term nonincreasing in x (part A §8), re-evaluated at x = 10X, 1e16, 1e20: 0 violations',
+    method: 'tmp/qrh-recheck-extract.py reads tmp/qrh-tune-out/F2_final.steps.jsonl.gz (substep n → cell ⌊n/128⌋, height h of the chosen option); tmp/qrh-recheck-premises.py checks each triple. Output tmp/qrh-recheck-out/{used_cells.json, premises.json}.',
+    substeps: 59439, triples: 468, cellHeightPairs: 466, cells: '0–464', failures: 0, monotoneViolations: 0, verdict: 'PASS',
+    sources: Object.freeze(['X options: QC_cliff, QB_m0.91, QA_m0.88, W4, m091, m094, m097 (Track-A tables at re-tuned heights)', 'r2 structured floors κ = 0.94 and κ = 1 (B:cat)', 'route-3 joint P-modes at PLAN heights (P_27_40, P_3_5, P_13_20, P_5_8, P_51_80)']),
+    heights: Object.freeze(['91/100', '47/25']),
+    minima: Object.freeze({
+      k: Object.freeze({ value: 0.4391807347170579, cell: 1, h: '15/8', src: 'X:QC_cliff:r_3_5' }),
+      hv0: Object.freeze({ value: 12.235748740181311, cell: 464, h: '91/100', src: 'route3:P_27_40' }),
+      margin54: Object.freeze({ value: 8.500610155022008e-7, maxSum: 1.4993898449779916e-7, cell: 319, h: '2773/2500', src: 'B:cat κ = 0.94' }),
+      margin51: Object.freeze({ value: 0.06767719630504193, cell: 319, h: '2773/2500' }),
+      cv0: Object.freeze({ value: 22.12323375592818, cell: 319, h: '2773/2500' }),
+    }),
+    plans: Object.freeze({ note: 'every row (cells 0–464) of each height plan read by F2, used or not', PLAN: 'PASS (min k 0.588361 = part A C4)', W4: 'PASS', m097: 'PASS', m094: 'PASS', m091: 'PASS (min k 0.488361)',
+      QA_m0_88: 'PASS (141 rows, min k 0.455861)', QB_m0_91: 'PASS (200 rows)', QC_cliff: 'PASS (251 rows, min k 0.439181)' }),
+    lambdaChange: 'none: no option fails, so no re-run with options excluded is needed; F2 = 0.116091488672439 stands (CONDITIONAL as before)',
+  }),
+
   files: Object.freeze(['tmp/qrh-tune-out/summary.json', 'tmp/qrh-tune-consume.py', 'tmp/qrh-tune-verify.py', 'tmp/qrh-tune-final.sh', 'tmp/qrh-tune-ladder.sh',
     'tmp/qrh-tune-out/F2_final.json', 'tmp/qrh-tune-out/F2_final_verify.json', 'tmp/qrh-tune-out/F2_final.steps.jsonl.gz', 'tmp/qrh-tune-out/xkernels_final.json',
     'tmp/qrh-tune-out/lever3_targets.json', 'tmp/qrh-ref-out/', 'tmp/qrh-ref-verify.py', 'tmp/qrh-ref-kcert.py', 'tmp/qrh-ref-tables.py',
+    'tmp/qrh-recheck-extract.py', 'tmp/qrh-recheck-premises.py', 'tmp/qrh-recheck-out/premises.json', 'tmp/route1-campaign-78/',
     'formalization/paper/raymond-g0-review-a-2026-10-08.md', 'formalization/paper/raymond-g0-review-b-2026-10-08.md', 'formalization/paper/lambda-qrh-note-draft.md']),
   reproduce: 'tmp/qrh-tune-final.sh with XK=KK=tmp/qrh-tune-out/xkernels_final.json, start offset 1/10000000, sets W4 m097 m094 m091 QA_m0.88 QB_m0.91 QC_cliff (≈ 11 min) then tmp/qrh-tune-verify.py (≈ 1 min); independent: tmp/qrh-ref-verify.py',
   nextSteps: Object.freeze([
     '1. Non-project referee (G0-e) for the merged chain write-up: Lemma W, Lemma S(θ), Lemma FB(θ), uniformity table, eq. (1) derivation, plus G0-c.',
-    '2. Recheck (5.4), k > 0 and h·v0 > 2 on the QA/QB/QC heights (part A heuristic constraint).',
+    '2. Done: (5.4), k > 0 and h·v0 > 2 rechecked on every height used on F2 (premiseRecheck: PASS, min k 0.439, min h·v0 12.24, max (5.4) sum 1.50e-7).',
     '3. Port the r2 structured-floor pipeline to QC/QB heights in cells 0–250, mode r_3_5 (heuristic −1.9e-4 to −4.5e-4).',
-    '4. If the 7/8 track is pursued: append the 130 7/8-path P47 targets (tmp/qrh-tune-out/lever3_targets.json) to the route-1 campaign queue without touching running workers.',
+    '4. Queued: 125 of the 130 7/8-path targets run in a second campaign tmp/route1-campaign-78 (campaign78.py, max 4 workers, starts only after the main campaign has no eligible floors and load < 25); the other 5 (330–334|1|r_23_40) have no batch_P47 entry and are held (held78.json).',
     '5. Canonical dump fingerprint excluding the multi-option "lab" field.',
   ]),
   verdict: 'Conditional on the 003 half-plane (Lean-checked locally, not peer-reviewed), on G0 (two internal review passes: no ERROR, expository GAPs with written fixes; no external reader), on PT\'s RH verification and on the route-P ledger, '
@@ -283,6 +304,26 @@ export const QRH_PATH_PUSH_ASSERTIONS = Object.freeze([
     holds: () => eq(sub(v('raymond78'), v('F2')), '2414222250262/1000000000000000') && lt(v('F2'), v('baseline')) && lt(v('baseline'), v('raymond78'))
       && lt('1/10', v('F2')) && lt(v('F2'), '1/5'),
     why: 'F2 lies 0.002414222250262 below Raymond\'s chain with the same start; 0.1 < F2 < 0.2.',
+  },
+  {
+    id: 'qrh-premise-recheck',
+    holds: () => {
+      const R = C.premiseRecheck; const m = R.minima;
+      const X = 6000000185827, N0 = 690988, v0 = Math.log(N0), Lm = Math.log((X - 4) / (4 * Math.PI));
+      const k = (cell, h) => (cell / 4000) * v0 / 2 - (1 - h) / 2;
+      const e54 = (cell, h) => { const hf = h - 0.01, tt = cell / 4000, tR = (cell + 1) / 4000;
+        const eC = 4 * Math.exp(-(1 + hf) * Lm / 4 - tt * Lm * Lm / 16 + 0.1); const pair = 3 * Math.exp(-(1 + hf) * v0 / 2 - tt * v0 * v0 / 4 + 1e-5);
+        const raw = (tR * tR * (Lm / 2 + 1) ** 2 / 8 + tR / 4 + 1 / 6) / ((X - 4) / 2 - 3.33); return eC + pair + 18 * Math.expm1(raw); };
+      return R.verdict === 'PASS' && R.failures === 0 && R.monotoneViolations === 0 && R.substeps === C.run.steps
+        && Math.abs(k(m.k.cell, num(m.k.h)) - m.k.value) < 1e-12 && m.k.value > 0
+        && Math.abs(num(m.hv0.h) * v0 - m.hv0.value) < 1e-11 && m.hv0.value > 2
+        && Math.abs(e54(m.margin54.cell, num(m.margin54.h)) / m.margin54.maxSum - 1) < 1e-9 && m.margin54.maxSum < 1e-6
+        && Math.abs(1e-6 - m.margin54.maxSum - m.margin54.value) < 1e-15
+        && Math.abs((m.margin54.cell / 4000 * v0 / 2 + num(m.margin54.h)) * v0 - m.cv0.value) < 1e-11 && m.cv0.value > 2
+        && m.margin51.value > 0 && C.run.heights.every((h) => num(h) >= num(R.heights[0]) && num(h) <= num(R.heights[1]))
+        && /none/.test(R.lambdaChange) && Object.values(R.plans).slice(1).every((x) => /^PASS/.test(x));
+    },
+    why: 'Every (cell, height) used on F2 (59,439 substeps, 468 triples) passes (5.4), k > 0 and h·v0 > 2 in Arb; the recorded minima recompute in plain JS doubles (k = 0.43918 at cell 1, h = 15/8; h·v0 = 12.236 at cell 464, h = 91/100; (5.4) sum 1.499e-7 at cell 319, h = 2773/2500); no option excluded, F2 unchanged.',
   },
   {
     id: 'qrh-honest-scope',

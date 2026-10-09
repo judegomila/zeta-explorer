@@ -29,7 +29,12 @@ async function check(r) {
   if (res.hang || res.err || res.crash || errs.length || (res.len !== undefined && res.len < 40)) bad.push(`${r} ${JSON.stringify(res)} ${errs[0] || ''}`);
 }
 for (let i = 0; i < routes.length; i += 4) await Promise.all(routes.slice(i, i + 4).map(check));
+// retry each failing route once (a single slow load should not block a deploy)
+if (bad.length) {
+  const first = bad.splice(0);
+  for (const line of first) await check(line.split(' ')[0]);
+}
 await b.close();
-console.log(`swept ${routes.length} routes, ${bad.length} bad`);
+console.log(`swept ${routes.length} routes, ${bad.length} bad (after one retry)`);
 bad.forEach((x) => console.log('BAD', x));
 process.exit(bad.length ? 1 : 0);

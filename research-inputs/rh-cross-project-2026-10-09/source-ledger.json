@@ -1,0 +1,733 @@
+{
+  "date": "2026-10-09",
+  "repository": "judegomila/mathexplorer",
+  "inventory_ref": "7af2f3f77fe35d144691d2a12a1a5e7437695efe",
+  "tree_entries": 8994,
+  "tree_blobs": 8752,
+  "tree_truncated": false,
+  "branches": [
+    {
+      "name": "codex/lambda-014-research-checkpoint-2026-08-27",
+      "sha": "cd997dcdc4aeddba251e7b87b8531e986b516dd3"
+    },
+    {
+      "name": "codex/mathexplorer-v70-candidate-corrections",
+      "sha": "b87775649ff3d11eeb9c61fd4aa28552bf6ce675"
+    },
+    {
+      "name": "codex/odd-zeta-incompressibility-audit-2026-08-28",
+      "sha": "da71b6fb441c9fb69fcea6d4d59a2ffe12b5a9c4"
+    },
+    {
+      "name": "codex/rh-moment-transfer-2026-10-07",
+      "sha": "8a120918b0bb536e63e22f0cd74408ca6e1daab0"
+    },
+    {
+      "name": "codex/rh-positivity-audit-2026-09-30",
+      "sha": "cabd824fb1500977535d275d5e850117f48dd22b"
+    },
+    {
+      "name": "codex/twin-ladder-explorer-branding",
+      "sha": "f32c49deaaf71a828a11ae1e5ebba6d6472265c3"
+    },
+    {
+      "name": "codex/twistor-rigorous-model-2026-10-03",
+      "sha": "712c4b0ad71693c6f0ba272ded1f3a71b60b5204"
+    },
+    {
+      "name": "codex/xi-prolate-bridge-p0-checkpoint",
+      "sha": "5ea9681fc8b24209deb3ecced6b89a7271c56081"
+    },
+    {
+      "name": "editorial-redesign",
+      "sha": "7af2f3f77fe35d144691d2a12a1a5e7437695efe"
+    },
+    {
+      "name": "main",
+      "sha": "942ba1760c4ef54a519750ab91c37a661c31e0ce"
+    }
+  ],
+  "open_prs": [
+    {
+      "number": 11,
+      "title": "Record RH moment-transfer audit and reproducible checks",
+      "sha": "8a120918b0bb536e63e22f0cd74408ca6e1daab0",
+      "base": "editorial-redesign",
+      "url": "https://github.com/judegomila/mathexplorer/pull/11",
+      "state": "open"
+    },
+    {
+      "number": 10,
+      "title": "Add rigorous twistor model and signed-window certificate",
+      "sha": "712c4b0ad71693c6f0ba272ded1f3a71b60b5204",
+      "base": "main",
+      "url": "https://github.com/judegomila/mathexplorer/pull/10",
+      "state": "open"
+    },
+    {
+      "number": 9,
+      "title": "Audit RH routes: width-2 certificate and unbounded-energy attempts",
+      "sha": "cabd824fb1500977535d275d5e850117f48dd22b",
+      "base": "editorial-redesign",
+      "url": "https://github.com/judegomila/mathexplorer/pull/9",
+      "state": "open"
+    },
+    {
+      "number": 8,
+      "title": "Audit odd-zeta incompressibility and close rank-one capacity route",
+      "sha": "da71b6fb441c9fb69fcea6d4d59a2ffe12b5a9c4",
+      "base": "main",
+      "url": "https://github.com/judegomila/mathexplorer/pull/8",
+      "state": "open"
+    },
+    {
+      "number": 7,
+      "title": "docs: add fail-closed Lambda 0.14 research checkpoint",
+      "sha": "cd997dcdc4aeddba251e7b87b8531e986b516dd3",
+      "base": "main",
+      "url": "https://github.com/judegomila/mathexplorer/pull/7",
+      "state": "open"
+    },
+    {
+      "number": 6,
+      "title": "Add Xi prolate\u2013Weil bridge P0 checkpoint",
+      "sha": "5ea9681fc8b24209deb3ecced6b89a7271c56081",
+      "base": "main",
+      "url": "https://github.com/judegomila/mathexplorer/pull/6",
+      "state": "open"
+    }
+  ],
+  "conversation_retrieval": {
+    "attempts": 2,
+    "successful_conversation_results": 0,
+    "error": "Conversation search returned an error on both attempts. Saved artifacts were used instead."
+  },
+  "files": [
+    {
+      "local_source_path": "sources/pr10/research/heat-fiber-freeze-2026-10-03/heat_twistor_completion/HEAT_FIBER_COMPLETION.md",
+      "sha256": "d6eea65dcd6208bd1212f316b42cb6d49b4d26b44b97b18cd9d155049e3f58dd",
+      "bytes": 19164,
+      "review_level": "materialized_not_content_reviewed",
+      "repository_url": "https://github.com/judegomila/mathexplorer/blob/712c4b0ad71693c6f0ba272ded1f3a71b60b5204/research/heat-fiber-freeze-2026-10-03/heat_twistor_completion/HEAT_FIBER_COMPLETION.md"
+    },
+    {
+      "local_source_path": "sources/pr10/research/twistor-bridge-2026-10-03/audit/all_window_boundedness.tex",
+      "sha256": "8eb1802191b2e69b4290a07441d2ad702b2db7a5d393d658f166e334c6b1e317",
+      "bytes": 4022,
+      "review_level": "targeted_content_review",
+      "repository_url": "https://github.com/judegomila/mathexplorer/blob/712c4b0ad71693c6f0ba272ded1f3a71b60b5204/research/twistor-bridge-2026-10-03/audit/all_window_boundedness.tex"
+    },
+    {
+      "local_source_path": "sources/pr10/research/twistor-bridge-2026-10-03/structural/global_growth.tex",
+      "sha256": "38efdc2ba16cf1ca5f222c9858846f968e2364ef2a700e9fbe9b8e9f5e25aca6",
+      "bytes": 3855,
+      "review_level": "targeted_content_review",
+      "repository_url": "https://github.com/judegomila/mathexplorer/blob/712c4b0ad71693c6f0ba272ded1f3a71b60b5204/research/twistor-bridge-2026-10-03/structural/global_growth.tex"
+    },
+    {
+      "local_source_path": "sources/pr6/research-checkpoints/xi-prolate-bridge/P0_STATUS.json",
+      "sha256": "9b32867e1e0319bfca1b561bab06ee996dea9559d8f2ae7d9311089f0a7c3d05",
+      "bytes": 450454,
+      "review_level": "status_and_failure_flags_reviewed",
+      "repository_url": "https://github.com/judegomila/mathexplorer/blob/5ea9681fc8b24209deb3ecced6b89a7271c56081/research-checkpoints/xi-prolate-bridge/P0_STATUS.json"
+    },
+    {
+      "local_source_path": "sources/pr6/research-checkpoints/xi-prolate-bridge/PROOF_OBLIGATION_LEDGER.md",
+      "sha256": "5f5c55b451464f25085601e5518e1c6f69705c30066e38a6cb4601fc3fda6275",
+      "bytes": 530941,
+      "review_level": "materialized_not_content_reviewed",
+      "repository_url": "https://github.com/judegomila/mathexplorer/blob/5ea9681fc8b24209deb3ecced6b89a7271c56081/research-checkpoints/xi-prolate-bridge/PROOF_OBLIGATION_LEDGER.md"
+    },
+    {
+      "local_source_path": "sources/pr7/research-inputs/lambda-014-2026-08-27/SMOOTH_TAIL_FEJER_REDUCTION_2026-08-29.md",
+      "sha256": "21578a556d29662179daf704174089160fb871cb8ffb3c0d6c9e367e698dfac3",
+      "bytes": 4890,
+      "review_level": "materialized_not_content_reviewed",
+      "repository_url": "https://github.com/judegomila/mathexplorer/blob/cd997dcdc4aeddba251e7b87b8531e986b516dd3/research-inputs/lambda-014-2026-08-27/SMOOTH_TAIL_FEJER_REDUCTION_2026-08-29.md"
+    },
+    {
+      "local_source_path": "sources/repo/README.md",
+      "sha256": "e499f32ecf34ab74f2a30154afd376151a9ff90eee5d437620c5e92bef521ff4",
+      "bytes": 9055,
+      "review_level": "targeted_content_review",
+      "repository_url": "https://github.com/judegomila/mathexplorer/blob/7af2f3f77fe35d144691d2a12a1a5e7437695efe/README.md"
+    },
+    {
+      "local_source_path": "sources/repo/SESSIONS.md",
+      "sha256": "86bc608e2fdc29e9ba3047db1f4da0575c5aa2f0e9cc997bf1bfa690eb0164bc",
+      "bytes": 5370,
+      "review_level": "targeted_content_review",
+      "repository_url": "https://github.com/judegomila/mathexplorer/blob/7af2f3f77fe35d144691d2a12a1a5e7437695efe/SESSIONS.md"
+    },
+    {
+      "local_source_path": "sources/repo/formalization/paper/SL0_dictionary_audit.md",
+      "sha256": "331cf2ea29605e667931c87da03b2ad53e49516fd28fbc74c885620c0adbcedf",
+      "bytes": 2148,
+      "review_level": "targeted_content_review",
+      "repository_url": "https://github.com/judegomila/mathexplorer/blob/7af2f3f77fe35d144691d2a12a1a5e7437695efe/formalization/paper/SL0_dictionary_audit.md"
+    },
+    {
+      "local_source_path": "sources/repo/formalization/paper/debranges_T3_structural_verdict.md",
+      "sha256": "167a5cdca57c4839498505f6378b8df04ace78b59493201401352f8df5fbd08f",
+      "bytes": 30671,
+      "review_level": "targeted_content_review",
+      "repository_url": "https://github.com/judegomila/mathexplorer/blob/7af2f3f77fe35d144691d2a12a1a5e7437695efe/formalization/paper/debranges_T3_structural_verdict.md"
+    },
+    {
+      "local_source_path": "sources/repo/formalization/paper/flow-blindness-no-go.tex",
+      "sha256": "0462e248502ef42a9b1934ee60268362d80ada7f9092db8f3c37b789fa7f089d",
+      "bytes": 11584,
+      "review_level": "targeted_content_review",
+      "repository_url": "https://github.com/judegomila/mathexplorer/blob/7af2f3f77fe35d144691d2a12a1a5e7437695efe/formalization/paper/flow-blindness-no-go.tex"
+    },
+    {
+      "local_source_path": "sources/repo/formalization/paper/flow-criticality-grading.md",
+      "sha256": "23cb01119daa4d175349244a1f78306842ce578f78e746cff78c90a3b8b8b282",
+      "bytes": 34141,
+      "review_level": "targeted_content_review",
+      "repository_url": "https://github.com/judegomila/mathexplorer/blob/7af2f3f77fe35d144691d2a12a1a5e7437695efe/formalization/paper/flow-criticality-grading.md"
+    },
+    {
+      "local_source_path": "sources/repo/formalization/paper/function-field-twin-ladder.md",
+      "sha256": "1fcac50b1621d2b8e70cd2813c8513b4ae2cdc8f4a2488e02974088fee82b72b",
+      "bytes": 34805,
+      "review_level": "targeted_content_review",
+      "repository_url": "https://github.com/judegomila/mathexplorer/blob/7af2f3f77fe35d144691d2a12a1a5e7437695efe/formalization/paper/function-field-twin-ladder.md"
+    },
+    {
+      "local_source_path": "sources/repo/formalization/paper/native-binding-general-weights.md",
+      "sha256": "a4077e3816e5912596db2236d399ca39cc367d5e1f4a2404aa6bf402cff252db",
+      "bytes": 19311,
+      "review_level": "targeted_content_review",
+      "repository_url": "https://github.com/judegomila/mathexplorer/blob/7af2f3f77fe35d144691d2a12a1a5e7437695efe/formalization/paper/native-binding-general-weights.md"
+    },
+    {
+      "local_source_path": "sources/repo/formalization/paper/raymond-g0-review-a-2026-10-08.md",
+      "sha256": "5951233b51e2ddf99a6ab535c9a755a462e1667925cb3adc2bf4603e05ed0c3c",
+      "bytes": 47495,
+      "review_level": "targeted_content_review",
+      "repository_url": "https://github.com/judegomila/mathexplorer/blob/7af2f3f77fe35d144691d2a12a1a5e7437695efe/formalization/paper/raymond-g0-review-a-2026-10-08.md"
+    },
+    {
+      "local_source_path": "sources/repo/formalization/paper/raymond-g0-review-b-2026-10-08.md",
+      "sha256": "008cbc790fb89372f4d294d536cb64ae4ee6f466851781eb8429879fbfe20254",
+      "bytes": 42541,
+      "review_level": "targeted_content_review",
+      "repository_url": "https://github.com/judegomila/mathexplorer/blob/7af2f3f77fe35d144691d2a12a1a5e7437695efe/formalization/paper/raymond-g0-review-b-2026-10-08.md"
+    },
+    {
+      "local_source_path": "sources/repo/formalization/routes/fifty-routes-2026-10-06.md",
+      "sha256": "40a262dbb865c9e99e2bb2b7176a5fabeb9b723735444604c045bf31dddecdf3",
+      "bytes": 7721,
+      "review_level": "targeted_content_review",
+      "repository_url": "https://github.com/judegomila/mathexplorer/blob/7af2f3f77fe35d144691d2a12a1a5e7437695efe/formalization/routes/fifty-routes-2026-10-06.md"
+    },
+    {
+      "local_source_path": "sources/repo/src/data/qrh-path-push-2026-10-08.js",
+      "sha256": "0e1011ad7a38a3be6881d79f73957be1b552394b67e328436dd50895e850549f",
+      "bytes": 34700,
+      "review_level": "targeted_content_review",
+      "repository_url": "https://github.com/judegomila/mathexplorer/blob/7af2f3f77fe35d144691d2a12a1a5e7437695efe/src/data/qrh-path-push-2026-10-08.js"
+    },
+    {
+      "local_source_path": "sources/repo/src/data/rh-no-go-theorems.js",
+      "sha256": "186e23ab5b420173343b89d27d1c6979f97adcba5f81ea7b0ba8b18bc47f93c7",
+      "bytes": 8194,
+      "review_level": "targeted_content_review",
+      "repository_url": "https://github.com/judegomila/mathexplorer/blob/7af2f3f77fe35d144691d2a12a1a5e7437695efe/src/data/rh-no-go-theorems.js"
+    },
+    {
+      "local_source_path": "sources/repo/src/data/rh-novel-routes-sweep-synthesis-2026-09-23.js",
+      "sha256": "7153c9a8ec7fe7daf9f70f313929f3540e947d280efa4ca528b5dd629b15b008",
+      "bytes": 18944,
+      "review_level": "materialized_not_content_reviewed",
+      "repository_url": "https://github.com/judegomila/mathexplorer/blob/7af2f3f77fe35d144691d2a12a1a5e7437695efe/src/data/rh-novel-routes-sweep-synthesis-2026-09-23.js"
+    },
+    {
+      "local_source_path": "earlier/COMPLETION_PROGRESS.md",
+      "sha256": "68d145569d0f8d871c8630e79b920419d77e44178a13d66c60bb801bed5f1d99",
+      "bytes": 6006,
+      "review_level": "targeted_content_review",
+      "library_identifiers": [
+        {
+          "name": "COMPLETION_PROGRESS.md",
+          "library_file_id": "libfile_fa10aefb3ee881918bfaff08340abe86",
+          "file_id": "file_000000001ae481f5932ede44b52dd578",
+          "modified_at": "2026-09-10T19:16:04.184139Z"
+        }
+      ]
+    },
+    {
+      "local_source_path": "earlier/EXPANDING_BLOCK_SCHUR_ATTACK.md",
+      "sha256": "befdf9f67b2fa7b20f3887d47e4d9cfed7d53c41747bd184b5a9c8da276f0423",
+      "bytes": 19846,
+      "review_level": "targeted_content_review",
+      "library_identifiers": [
+        {
+          "name": "EXPANDING_BLOCK_SCHUR_ATTACK.md",
+          "library_file_id": "libfile_d205998ae4dc81919a5d7c9480e954bc",
+          "file_id": "file_000000004c7081f58ec782e671cede6f",
+          "modified_at": "2026-09-04T21:42:46.881824Z"
+        }
+      ]
+    },
+    {
+      "local_source_path": "earlier/FREEZE_THAW_SHORTCUT_2026_09_05.md",
+      "sha256": "f5b9808f29d6684e5b7a355563a237d009d2b87135fd7f57505d63875861fd5c",
+      "bytes": 16734,
+      "review_level": "targeted_content_review",
+      "library_identifiers": [
+        {
+          "name": "FREEZE_THAW_SHORTCUT_2026_09_05.md",
+          "library_file_id": "libfile_6dbc719c99988191bd05de1288655723",
+          "file_id": "file_000000006e4c81f7b2c75131a2157811",
+          "modified_at": "2026-09-05T05:25:27.273180Z"
+        }
+      ]
+    },
+    {
+      "local_source_path": "earlier/Gomila_Arithmetic_Archimedean_Bridge_Addendum.tex",
+      "sha256": "83547213b65f24ce2c97534cfa93b266ad0d7dcca57a1ead6d96804efdc271cf",
+      "bytes": 37195,
+      "review_level": "targeted_content_review",
+      "library_identifiers": [
+        {
+          "name": "Gomila_Arithmetic_Archimedean_Bridge_Addendum.tex",
+          "library_file_id": "libfile_52e3101b1dd08191a3086d21954f4ffc",
+          "file_id": "file_000000007bc481fda04f922e3a9de79c",
+          "modified_at": "2026-08-15T23:40:37.847103Z"
+        }
+      ]
+    },
+    {
+      "local_source_path": "earlier/RH_ATTACK_ROADMAP.md",
+      "sha256": "91e3a5c205f70f7fb6a62c235449b3c42c781e649d0314bfd201de8141d6b6cf",
+      "bytes": 30797,
+      "review_level": "targeted_content_review",
+      "library_identifiers": [
+        {
+          "name": "RH_ATTACK_ROADMAP.md",
+          "library_file_id": "libfile_22c6f5f1776c8191a3a18dc1d728f190",
+          "file_id": "file_0000000092a081f5b5e700bfe4da8e16",
+          "modified_at": "2026-09-04T21:42:46.901325Z"
+        }
+      ]
+    },
+    {
+      "local_source_path": "earlier/gomila-zeta-twin-ladder-permutation-architecture-revised.tex",
+      "sha256": "724c12aaf0aa5e3f4db129cf8ee1870b21c360bbd4f1917f3bd65304b365226b",
+      "bytes": 91347,
+      "review_level": "targeted_content_review",
+      "library_identifiers": [
+        {
+          "name": "gomila-zeta-twin-ladder-permutation-architecture-revised.tex",
+          "library_file_id": "libfile_27932f152f788191b82db1e108381332",
+          "file_id": "file_00000000c4b481fd9143fa56dacd3dd4",
+          "modified_at": "2026-08-24T21:53:30.396336Z"
+        }
+      ]
+    },
+    {
+      "local_source_path": "earlier/hidden_krein_stieltjes_bridge.md",
+      "sha256": "1e447a8f80cd620e90df6caa6bc086a089feab99b75273541e8fdc754d3ff7f6",
+      "bytes": 20238,
+      "review_level": "targeted_content_review",
+      "library_identifiers": [
+        {
+          "name": "hidden_krein_stieltjes_bridge.md",
+          "library_file_id": "libfile_7ff468b163488191a0fcbbb64b37b057",
+          "file_id": "file_000000005b4c823095a19eb67d613bee",
+          "modified_at": "2026-08-05T18:04:03.594391Z"
+        }
+      ]
+    },
+    {
+      "local_source_path": "earlier/twistor-lift-zeta-twin-ladder-revised.tex",
+      "sha256": "fd4163cbc51278d5b95e16ce198d2bd23dd22d7402302da6cb2a2900b60712e4",
+      "bytes": 26743,
+      "review_level": "targeted_content_review",
+      "library_identifiers": [
+        {
+          "name": "twistor-lift-zeta-twin-ladder-revised.tex",
+          "library_file_id": "libfile_d845b84ad08081919dc6d40a9031cd6b",
+          "file_id": "file_00000000b7f081fdb061c19e208066d9",
+          "modified_at": "2026-08-29T23:15:29.462989Z"
+        }
+      ]
+    },
+    {
+      "local_source_path": "inputs/unpacked/discrete_curvature_lab_v3/discrete_curvature_lab_v3/README.md",
+      "sha256": "0e07e3d51e8ee7e706336a169407888a63716d4ac71a955d9cd6ee3d572daafd",
+      "bytes": 5459,
+      "review_level": "targeted_content_review"
+    },
+    {
+      "local_source_path": "inputs/unpacked/discrete_curvature_lab_v3/discrete_curvature_lab_v3/input/README_v2.md",
+      "sha256": "dbe54eea4b1ff360e03dbf4d8163ee11f0c275cc6261cfd1d3ba2ac20ffa2e15",
+      "bytes": 3126,
+      "review_level": "materialized_not_content_reviewed"
+    },
+    {
+      "local_source_path": "inputs/unpacked/discrete_curvature_lab_v3/discrete_curvature_lab_v3/report.tex",
+      "sha256": "5146c55972960bfc16acbd028c79caf34079316370ecd5d349b363255a911f9b",
+      "bytes": 20551,
+      "review_level": "targeted_content_review"
+    },
+    {
+      "local_source_path": "inputs/unpacked/discrete_curvature_rigidity_and_certificates_20261006/discrete_curvature_rigidity/README.md",
+      "sha256": "c262e261bf5f240e6cc2ec9f5c9d5ee948d3e45c23c5444c2e7d94558ec9c10a",
+      "bytes": 3574,
+      "review_level": "materialized_not_content_reviewed"
+    },
+    {
+      "local_source_path": "inputs/unpacked/discrete_curvature_rigidity_and_certificates_20261006/discrete_curvature_rigidity/rigidity.tex",
+      "sha256": "1ec95bb0c38e10fe7fa21dd94aa11f6b29991bb014c90abc32614c7600e04de5",
+      "bytes": 14263,
+      "review_level": "materialized_not_content_reviewed"
+    },
+    {
+      "local_source_path": "inputs/unpacked/rh_avenue_proof_control_bundle/rh_avenue_proof_control/README.md",
+      "sha256": "61f0455fba8a7694dcfbdd683182e01d6ca45ae0ac24d777e1fb43518636deb6",
+      "bytes": 1722,
+      "review_level": "materialized_not_content_reviewed"
+    },
+    {
+      "local_source_path": "inputs/unpacked/rh_avenue_proof_control_bundle/rh_avenue_proof_control/RH_AVENUE_MAP.md",
+      "sha256": "c9e0cbb75874f57530ed9ac69a5ecd418bc012fcb116774a46265d963d886118",
+      "bytes": 23617,
+      "review_level": "targeted_content_review"
+    },
+    {
+      "local_source_path": "inputs/unpacked/rh_avenue_proof_control_bundle/rh_avenue_proof_control/SELF_ZERO_WIDTH_AUDIT.md",
+      "sha256": "810bccf538039f1626a453f93acd0cede2d585fcf59a0196b254ff26109f2747",
+      "bytes": 14432,
+      "review_level": "targeted_content_review"
+    },
+    {
+      "local_source_path": "inputs/unpacked/rh_mobius_cancellation_v8/rh_cancellation_v8/note.tex",
+      "sha256": "981f5e9f759cfe78743bfa229d83bbb2568a32774412da399e28e7e9f63256b1",
+      "bytes": 25620,
+      "review_level": "targeted_content_review"
+    },
+    {
+      "local_source_path": "inputs/unpacked/rh_signed_energy_reproducible_bundle_2026-10-03/README.md",
+      "sha256": "8cb0b8a68d5cb09f25bd368a2426ae4de920b60b6061b7ca33c7f6dcf2db899b",
+      "bytes": 2222,
+      "review_level": "materialized_not_content_reviewed"
+    },
+    {
+      "local_source_path": "inputs/unpacked/rh_signed_energy_reproducible_bundle_2026-10-03/reduced-cofactor-energy-2026-10-03.md",
+      "sha256": "8f520676c81a1e5172870ee03b75750c1ec67b8763994dd499dc7a31495333ef",
+      "bytes": 19258,
+      "review_level": "materialized_not_content_reviewed"
+    },
+    {
+      "local_source_path": "inputs/unpacked/rh_signed_energy_reproducible_bundle_2026-10-03/sources/all-plus-recovery-attempt-2026-10-01.md",
+      "sha256": "ee6466d08407911acaa8b26657dd5f9ff02691cd14d3757628397147d92950be",
+      "bytes": 12408,
+      "review_level": "materialized_not_content_reviewed"
+    },
+    {
+      "local_source_path": "inputs/unpacked/rh_signed_energy_reproducible_bundle_2026-10-03/sources/unbounded-support-energy-2026-10-01.md",
+      "sha256": "0f525c0c3b698a68728fb9711710d558af4433e9a84a34b3ac2712c6d5aebfc0",
+      "bytes": 16436,
+      "review_level": "materialized_not_content_reviewed"
+    },
+    {
+      "local_source_path": "inputs/unpacked/rh_signed_energy_reproducible_bundle_2026-10-03/verification.md",
+      "sha256": "b44b95ff9a2aeba621b0037a1a9980efde28a001eaaaa0b1acdeb202bb3424bb",
+      "bytes": 2362,
+      "review_level": "materialized_not_content_reviewed"
+    },
+    {
+      "local_source_path": "inputs/unpacked/self_bridge_innovation_v0_4/self_bridge_innovation_v0_4/README.md",
+      "sha256": "10c3c23958b44d49220f8becbf16ac26733a4acc4b61f250f88e434c0cc15d34",
+      "bytes": 2198,
+      "review_level": "materialized_not_content_reviewed"
+    },
+    {
+      "local_source_path": "inputs/unpacked/self_bridge_innovation_v0_4/self_bridge_innovation_v0_4/RESEARCH_NOTE.md",
+      "sha256": "fe539dbfa03fee492b5a5acca518efadfa9097879430912e43b298550ff254cb",
+      "bytes": 18097,
+      "review_level": "targeted_content_review"
+    },
+    {
+      "local_source_path": "inputs/unpacked/self_bridge_invariant_v0_6/self_bridge_invariant_v0_6/README.md",
+      "sha256": "919017b3ae808aacfaf4a2b09b3c81561fee9ffccc0149f1412c188b7fae0736",
+      "bytes": 1035,
+      "review_level": "materialized_not_content_reviewed"
+    },
+    {
+      "local_source_path": "inputs/unpacked/self_bridge_invariant_v0_6/self_bridge_invariant_v0_6/RESEARCH_NOTE.md",
+      "sha256": "8e065fa237c9fbc732460faa658769caab7f88a030c613787b46373ad1165809",
+      "bytes": 16476,
+      "review_level": "targeted_content_review"
+    },
+    {
+      "local_source_path": "inputs/unpacked/self_bridge_lab_v0_3/self_bridge_lab_v0_3/.pytest_cache/README.md",
+      "sha256": "73fd6fccdd802c419a6b2d983d6c3173b7da97558ac4b589edec2dfe443db9ad",
+      "bytes": 302,
+      "review_level": "materialized_not_content_reviewed"
+    },
+    {
+      "local_source_path": "inputs/unpacked/self_bridge_lab_v0_3/self_bridge_lab_v0_3/README.md",
+      "sha256": "32cceca77c503efda12c2eb38a124e89b907a88c090702e5dbc39b6ad05b09b2",
+      "bytes": 5094,
+      "review_level": "materialized_not_content_reviewed"
+    },
+    {
+      "local_source_path": "inputs/unpacked/self_bridge_lab_v0_3/self_bridge_lab_v0_3/README_V03.md",
+      "sha256": "ee1869e4f2ba42e27329c066c0ed49075a800557bbcd42078b33799520932ddb",
+      "bytes": 855,
+      "review_level": "materialized_not_content_reviewed"
+    },
+    {
+      "local_source_path": "inputs/unpacked/self_bridge_lab_v0_3/self_bridge_lab_v0_3/RH_RECURSIVE_CONSTRUCTOR.md",
+      "sha256": "5e7aa9fcc79f13a7ae0254fe79ed5f2d623799028708ceaed6d00bb2d1acf18f",
+      "bytes": 10117,
+      "review_level": "materialized_not_content_reviewed"
+    },
+    {
+      "local_source_path": "inputs/unpacked/self_bridge_lab_v0_3/self_bridge_lab_v0_3/legacy/replicating_logistic_lab/README.md",
+      "sha256": "80517283b864967f6ead2d6ebde2cd9c85c72dc69bb144a9fe2588d6d42e39d0",
+      "bytes": 10887,
+      "review_level": "materialized_not_content_reviewed"
+    },
+    {
+      "local_source_path": "inputs/unpacked/self_bridge_lab_v0_3/self_bridge_lab_v0_3/research_note.md",
+      "sha256": "92a90f6d8ead6aef8467c97c97c91af8c732f751852c1105798c62cde815b833",
+      "bytes": 22641,
+      "review_level": "materialized_not_content_reviewed"
+    },
+    {
+      "local_source_path": "inputs/unpacked/self_bridge_measure_v0_7/self_bridge_measure_v0_7/README.md",
+      "sha256": "70b082b32de9c656be50ee681dd40a1c07c26a21471c9a81c4461b27d1426cf2",
+      "bytes": 2283,
+      "review_level": "materialized_not_content_reviewed"
+    },
+    {
+      "local_source_path": "inputs/unpacked/self_bridge_measure_v0_7/self_bridge_measure_v0_7/RESEARCH_NOTE.md",
+      "sha256": "c8cb0e459f7c08054ffe6c9b667e071040eb2cdf037ac286b481460a1177a1ae",
+      "bytes": 19080,
+      "review_level": "targeted_content_review"
+    },
+    {
+      "local_source_path": "inputs/unpacked/self_bridge_residual_v0_5/self_bridge_residual_v0_5/README.md",
+      "sha256": "66570ffab76c4bb27c4602e2cfbec436ac4219635bf469d563685d3afd5885db",
+      "bytes": 1080,
+      "review_level": "materialized_not_content_reviewed"
+    },
+    {
+      "local_source_path": "inputs/unpacked/self_bridge_residual_v0_5/self_bridge_residual_v0_5/RESEARCH_NOTE.md",
+      "sha256": "5566007e3a5633cbc2a9263ab89907eff9689cb70a87ebede10a3741d81a4fcc",
+      "bytes": 14159,
+      "review_level": "targeted_content_review"
+    },
+    {
+      "local_source_path": "inputs/unpacked/twistor_causality_v7/twistor_causality_v7/note.tex",
+      "sha256": "fff4e0285f71e3b072b75921a009ece31f9a0b9cd5796533498a5e1913996dc3",
+      "bytes": 22360,
+      "review_level": "targeted_content_review"
+    },
+    {
+      "local_source_path": "inputs/unpacked/twistor_equivalence_v6/twistor_equivalence_v6/note.tex",
+      "sha256": "8ce7596f54b455a3a8603f78a27f312f9ba031dd585731418c7d50d8e6e7ac3f",
+      "bytes": 25466,
+      "review_level": "targeted_content_review"
+    },
+    {
+      "local_source_path": "inputs/unpacked/twistor_zeta_first_principles/twistor_zeta_exploration/paper.tex",
+      "sha256": "0cb2c8b86d182e7fde2623aca46d3c7fd06fefbee1b55e6dc065e21188b84328",
+      "bytes": 51803,
+      "review_level": "targeted_content_review"
+    },
+    {
+      "local_source_path": "inputs/unpacked/uniform_cancellation_v4/uniform_cancellation_v4/research_note.tex",
+      "sha256": "d09966eb50ad2cdc0cdd87f6c6e6a0f1e1e0168dae1a2914a56f8ddc352a547b",
+      "bytes": 18338,
+      "review_level": "targeted_content_review"
+    }
+  ],
+  "materialized_archives": [
+    {
+      "name": "discrete_curvature_lab_v3.zip",
+      "sha256": "7024c0c727f248a694607e38ed361a397e83524bc9ef8b0a0fac6bfe83b424d7",
+      "library_identifiers": [
+        {
+          "name": "discrete_curvature_lab_v3.zip",
+          "library_file_id": "libfile_4103eea5dd04819192d3be1a468a4f1d",
+          "file_id": "file_0000000036148230a1060d6c65322528",
+          "modified_at": "2026-10-08T05:35:14.558438Z"
+        }
+      ]
+    },
+    {
+      "name": "discrete_curvature_rigidity_and_certificates_20261006.zip",
+      "sha256": "6bdc7f9fe12a3e0c32300bbb86d85a859f31cea5fef04378572b365c5508f2f6",
+      "library_identifiers": [
+        {
+          "name": "discrete_curvature_rigidity_and_certificates_20261006.zip",
+          "library_file_id": "libfile_2364393d634081919e67c8a297ca0cf4",
+          "file_id": "file_0000000098148230abf851a5e0463f32",
+          "modified_at": "2026-10-07T00:00:47.184293Z"
+        }
+      ]
+    },
+    {
+      "name": "rh_avenue_proof_control_bundle.zip",
+      "sha256": "a2e28e8bbc71585ed09207e57c7bcc6e3fd77fa71bc29d90342ef08757c6e15c",
+      "library_identifiers": [
+        {
+          "name": "rh_avenue_proof_control_bundle.zip",
+          "library_file_id": "libfile_2978912ab33081919a3d18ad8c5e9624",
+          "file_id": "file_00000000e56c81f58b477ea5f2f2125d",
+          "modified_at": "2026-10-03T08:15:28.996196Z"
+        }
+      ]
+    },
+    {
+      "name": "rh_mobius_cancellation_v8.zip",
+      "sha256": "c10e0ffb0636e8ca08d8ce3ce20d259eb5c57ae98176e70c1d43173e7254a898",
+      "library_identifiers": [
+        {
+          "name": "rh_mobius_cancellation_v8.zip",
+          "library_file_id": "libfile_c9cf109d04e88191897374534bda96bc",
+          "file_id": "file_0000000099c081f5a3d7ebe92039ce28",
+          "modified_at": "2026-10-04T23:47:38.819021Z"
+        }
+      ]
+    },
+    {
+      "name": "rh_signed_energy_reproducible_bundle_2026-10-03.zip",
+      "sha256": "e9b2eb32ce6283093864d1bb010edc3a990a12aee52f46533d0851debdfac4ce",
+      "library_identifiers": [
+        {
+          "name": "rh_signed_energy_reproducible_bundle_2026-10-03.zip",
+          "library_file_id": "libfile_2f22080edb2c81919c7371f17255de31",
+          "file_id": "file_000000008fa881f68e0e6723d1d236fd",
+          "modified_at": "2026-10-03T08:35:17.506827Z"
+        }
+      ]
+    },
+    {
+      "name": "self_bridge_innovation_v0_4.zip",
+      "sha256": "619dd0fe90a3cf7a4d5daa158f9a4d5fd2fb915d5c0a1e2263ba7102f282b09c",
+      "library_identifiers": [
+        {
+          "name": "self_bridge_innovation_v0_4.zip",
+          "library_file_id": "libfile_73978a91e5a88191998cc058f9ef83d0",
+          "file_id": "file_00000000ae908230b3e86efec1823f21",
+          "modified_at": "2026-09-14T23:41:06.668997Z"
+        }
+      ]
+    },
+    {
+      "name": "self_bridge_invariant_v0_6.zip",
+      "sha256": "5129e065851109fa59bad041af34d7a2bd872762895abebca1450607f4731639",
+      "library_identifiers": [
+        {
+          "name": "self_bridge_invariant_v0_6.zip",
+          "library_file_id": "libfile_c26e787d7e5c8191b9fe282f13462ca7",
+          "file_id": "file_0000000004b081fd8cc80ad35b203aab",
+          "modified_at": "2026-09-15T06:14:13.652562Z"
+        }
+      ]
+    },
+    {
+      "name": "self_bridge_lab_v0_3.zip",
+      "sha256": "681236dcd0ce8cc82f3ea9c49ac33ffe3cde9df781d645736c0cea98fba4fc5b",
+      "library_identifiers": [
+        {
+          "name": "self_bridge_lab_v0_3.zip",
+          "library_file_id": "libfile_414a5bd4b2948191968bc9b1aa88b37d",
+          "file_id": "file_000000008bcc81fdb72ac43bfe12b79c",
+          "modified_at": "2026-09-14T23:13:50.774604Z"
+        }
+      ]
+    },
+    {
+      "name": "self_bridge_measure_v0_7.zip",
+      "sha256": "ddcfebc03e107b882aa417e176f8a59fedd0d4d26a5756a5a3234565d3c26f5e",
+      "library_identifiers": [
+        {
+          "name": "self_bridge_measure_v0_7.zip",
+          "library_file_id": "libfile_90b91cd2c9248191ab8edbbfeb51b4a8",
+          "file_id": "file_00000000c5408230ba586e8be77b0f1a",
+          "modified_at": "2026-09-15T07:11:47.499891Z"
+        }
+      ]
+    },
+    {
+      "name": "self_bridge_residual_v0_5.zip",
+      "sha256": "adeb1fe58658317be2952d1f54611b116bc7a634516bcdc6ff8e3f26400b4d83",
+      "library_identifiers": [
+        {
+          "name": "self_bridge_residual_v0_5.zip",
+          "library_file_id": "libfile_96a234c760e081918ba9b903674b3413",
+          "file_id": "file_00000000b4d88230aea9f60b17089361",
+          "modified_at": "2026-09-15T04:59:50.048241Z"
+        }
+      ]
+    },
+    {
+      "name": "twistor_causality_v7.zip",
+      "sha256": "b2fe9af7a034576e9c4929831547d4032c37bcb5d9fd34ca5e7c87988a535063",
+      "library_identifiers": [
+        {
+          "name": "twistor_causality_v7.zip",
+          "library_file_id": "libfile_06d1dcc1673c8191b92ab8828f50fb67",
+          "file_id": "file_00000000d76881f5a3929f86a92cb777",
+          "modified_at": "2026-10-04T23:16:52.697473Z"
+        }
+      ]
+    },
+    {
+      "name": "twistor_equivalence_v6.zip",
+      "sha256": "610310de058d78519fdfcdbe2554e60267aa221fbd4cfab141f0f412476fcb44",
+      "library_identifiers": [
+        {
+          "name": "twistor_equivalence_v6.zip",
+          "library_file_id": "libfile_2464323246488191a819879246e1f059",
+          "file_id": "file_00000000a5cc81f5b05ed94cb514c67f",
+          "modified_at": "2026-10-04T22:51:39.062004Z"
+        }
+      ]
+    },
+    {
+      "name": "twistor_zeta_first_principles.zip",
+      "sha256": "d951fb6d570ec88cdc5138913abcaab5481e918a909c6928444cc81188c65333",
+      "library_identifiers": [
+        {
+          "name": "twistor_zeta_first_principles.zip",
+          "library_file_id": "libfile_e10383d4db5c81918cee452505a0fb01",
+          "file_id": "file_00000000a89481f5bb9ad12840a4a663",
+          "modified_at": "2026-10-04T23:31:09.798518Z"
+        }
+      ]
+    },
+    {
+      "name": "uniform_cancellation_v4.zip",
+      "sha256": "a08815f5e667b31451ecbb4f24506e1c73ec0e9f149f154f3174e34b4b8e0a5d",
+      "library_identifiers": [
+        {
+          "name": "uniform_cancellation_v4.zip",
+          "library_file_id": "libfile_ca2eeb726c148191826f2fe51ff72e78",
+          "file_id": "file_00000000b26481f784fde79ec254004e",
+          "modified_at": "2026-10-01T08:26:56.129416Z"
+        }
+      ]
+    }
+  ],
+  "limits": [
+    "Targeted content reviews and status reads are not whole-document mathematical verification.",
+    "Most repository blobs were inventoried by path only, not content-read.",
+    "Earlier chat transcripts were not retrieved.",
+    "Historical certificate suites and external Lean builds were not rerun.",
+    "Date labels in source filenames are not proof of execution dates."
+  ],
+  "new_certificate_replay": [
+    "128 fresh coefficient enclosures with identical endpoints",
+    "384-bit Arb finite directional certificate and same-grid continuum-test failure",
+    "12 exact rational models and exact shifted SELF control"
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "status": "PASS",
+  "directional_models": [
+    {
+      "model": 1,
+      "inverse_upper_bound": true,
+      "variational_identity": true,
+      "positive_gain": true
+    },
+    {
+      "model": 2,
+      "inverse_upper_bound": true,
+      "variational_identity": true,
+      "positive_gain": true
+    },
+    {
+      "model": 3,
+      "inverse_upper_bound": true,
+      "variational_identity": true,
+      "positive_gain": true
+    },
+    {
+      "model": 4,
+      "inverse_upper_bound": true,
+      "variational_identity": true,
+      "positive_gain": true
+    },
+    {
+      "model": 5,
+      "inverse_upper_bound": true,
+      "variational_identity": true,
+      "positive_gain": true
+    },
+    {
+      "model": 6,
+      "inverse_upper_bound": true,
+      "variational_identity": true,
+      "positive_gain": true
+    },
+    {
+      "model": 7,
+      "inverse_upper_bound": true,
+      "variational_identity": true,
+      "positive_gain": true
+    },
+    {
+      "model": 8,
+      "inverse_upper_bound": true,
+      "variational_identity": true,
+      "positive_gain": true
+    },
+    {
+      "model": 9,
+      "inverse_upper_bound": true,
+      "variational_identity": true,
+      "positive_gain": true
+    },
+    {
+      "model": 10,
+      "inverse_upper_bound": true,
+      "variational_identity": true,
+      "positive_gain": true
+    },
+    {
+      "model": 11,
+      "inverse_upper_bound": true,
+      "variational_identity": true,
+      "positive_gain": true
+    },
+    {
+      "model": 12,
+      "inverse_upper_bound": true,
+      "variational_identity": true,
+      "positive_gain": true
+    }
+  ],
+  "self_control": {
+    "beta": "3/8",
+    "zero_displacement": "3/10",
+    "shift": "1/10",
+    "shifted_pick_positive": true,
+    "original_pick_third_pivot": "-100524667776910903125/22083581478306370241011846411414",
+    "signed_kernel_identity": true
+  },
+  "weighted_energy_constant": "4/11",
+  "weighted_energy_exponent": "3/4",
+  "compressed_inverse_shortcut_rejected": true,
+  "source_sha256": "79a6136f57f86f15c0fe3039da656638cca31e892f254e0edf48cf7d631a3856",
+  "scope": "Finite algebra checks; analytic transfer proofs are in the synthesis note. No RH proof or numerical certification of an infinite bound."
+}

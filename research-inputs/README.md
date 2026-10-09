@@ -55,3 +55,9 @@ Per the Λ-attack ticket-seeding template:
 The output is one or more tickets seeded into `src/data/improvement-queue.js`
 with explicit `dependsOn: ['research-inputs/<filename>.pdf']` references
 so the provenance trail is auditable.
+
+## RH research checkpoints
+
+- [Moment-transfer audit](../formalization/paper/rh-moment-transfer-2026-10-06.md): exact arithmetic reductions and the imported 7/8 endpoint.
+- [Principal-sector follow-up](../formalization/paper/rh-principal-sector-2026-10-08.md): grouped energy, centering, and the missing signed far-correlation bound.
+- [Cross-project synthesis](../formalization/paper/rh-cross-project-synthesis-2026-10-09.md): saved-research coverage, a finite directional residual repair, and conditional twistor/SELF transfers. Includes explicit failed continuum test and remaining RH gaps.

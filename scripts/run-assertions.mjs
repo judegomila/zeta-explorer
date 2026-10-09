@@ -629,6 +629,11 @@ const DATA_MODULES = [
   // (exact ladder from 0.117708313410954; referee not refuted, corrections R1-R5) + G0 review parts A/B grades.
   // Conditional value, not a bound. PT Lambda <= 0.2 stands; NO QED. Import-free.
   '/src/data/qrh-path-push-2026-10-08.js',
+  // qrh-lambda-lean (2026-10-09): Lean check (formalization/lean/qrh-lambda) of the conditional QRH values 0.116091488672439 (F2)
+  // and 0.118505710922701 (Raymond chain): every substep replayed by decide +kernel; RaymondChainHyps + TableHyps explicit
+  // hypotheses; axioms propext/Classical.choice/Quot.sound only; referee not refuted (minor), corrections applied.
+  // Conditional, not a bound. PT Lambda <= 0.2 stands; NO QED. Import-free.
+  '/src/data/qrh-lambda-lean-2026-10-09.js',
   // beat-seven-eighths (2026-10-08): four-angle attempt (amplifier, mean square, height, project inputs) to improve the
   // zeta zero-free half-plane Re s > 7/8; referee-filtered synthesis. 7/8 NOT beaten (globally or above 3e12; above 3e12 is
   // the global problem given PT); re-tune ceiling 0.874957 heuristic; open lever = Prop 15.2 P_a^{1/6} exceptional term.

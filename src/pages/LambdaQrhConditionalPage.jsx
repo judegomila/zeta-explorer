@@ -7,6 +7,7 @@ import { ED, V, STATUS } from '../styles/tokens.js';
 import { OPENAI_MATH_INTEGRATION as OAI } from '../data/openai-math-integration-2026-10-08.js';
 import { QRH_PATH_PUSH as QP } from '../data/qrh-path-push-2026-10-08.js';
 import { QRH_THETA_IMPROVEMENT as QT } from '../data/qrh-theta-and-improvement-2026-10-08.js';
+import { QRH_LAMBDA_LEAN as QL } from '../data/qrh-lambda-lean-2026-10-09.js';
 
 /* Conditional Λ value from the 7/8 zero-free half-plane (openai/math family 003).
    Read interface for src/data/openai-math-integration-2026-10-08.js and
@@ -17,6 +18,7 @@ const REPO = 'https://github.com/judegomila/mathexplorer/blob/editorial-redesign
 const NOTE_URL = `${REPO}/formalization/paper/lambda-qrh-note-draft.md`;
 const LEAN_VERIFY_URL = `${REPO}/formalization/external/openai-math-qrh-verification.md`;
 const RAYMOND_CORE_URL = `${REPO}/formalization/lean/raymond-core/README.md`;
+const QRH_LEAN_URL = `${REPO}/formalization/lean/qrh-lambda/README.md`;
 const OAI_REPO = OAI.source.repo;
 const RAYMOND_ZENODO = 'https://zenodo.org/records/22867547';
 
@@ -57,6 +59,21 @@ function Tag({ kind, children }) {
 }
 
 // ── data rows (all values read from the modules) ───────────────────────────
+const QLF = QL.values.F2;
+const QLR = QL.values.R78;
+const LEAN_STATUS = [
+  { piece: 'Zero-free half-plane Re s > 7/8', kind: 'external', status: 'Lean proof (openai/math), used as a theorem', note: 'kernel-checked in the local build, standard axioms only; comparator and leanchecker not run on its closure; not peer-reviewed' },
+  { piece: 'Start condition (Im z)² ≤ 9/16 at t = 10⁻⁸', kind: 'proved', status: 'proved in Lean', note: 'start78 / start78_of_zeroFree, via RaymondCore.Substitution.substitution' },
+  { piece: 'Strict entry (S1), barrier step, terminal step, checker soundness', kind: 'proved', status: 'proved in Lean', note: 'barrier_step from first_contact + contact_exclusion; terminal via LeanCert H_forward_strip and real_zeros_iff_Lambda_le' },
+  { piece: `F2 iteration (${QLF.substeps.toLocaleString('en-US')} substeps)`, kind: 'certified', status: 'decide +kernel', note: `${QLF.chunks} chunk theorems + frame; U = ${QLF.dec} computed by the kernel` },
+  { piece: `Raymond-chain iteration (${QLR.substeps.toLocaleString('en-US')} substeps)`, kind: 'certified', status: 'decide +kernel', note: `${QLR.chunks} chunk theorems + frame; U = ${QLR.dec}` },
+  { piece: 'Head wall (W), incl. PT RH verification to 3.0001753·10¹²', kind: 'conditional', status: 'hypothesis: head_wall', note: 'AF §§2–3; PT used once at t = 0' },
+  { piece: 'First contact (FC)', kind: 'conditional', status: 'hypothesis: first_contact', note: 'Polymath15 Thm 1.5(i), Hurwitz, (W) at the wall' },
+  { piece: 'Contact exclusion (CE), AF (11.1)', kind: 'conditional', status: 'hypothesis: contact_exclusion', note: 'zero dynamics, (10.1) summed over the other zeros, self-pair cap, Hermite splitting' },
+  { piece: `Floor tables (J): F2 ${QLF.floorEntries}, Raymond ${QLR.floorEntries} entries`, kind: 'conditional', status: 'hypothesis: floors_valid', note: 'Arb producers, AF (4.6), G0-c, route-3 MP, multi-height licence; 89 r2 entries rest on a measured 0.0023 allowance and the unreviewed L-slope lemma' },
+  { piece: `Kernel rows (K): F2 ${QLF.kernelRows}, Raymond ${QLR.kernelRows}`, kind: 'conditional', status: 'hypothesis: kernels_valid', note: 'exact Bernstein certificates in Python' },
+];
+
 const LADDER = [
   { label: 'de Bruijn from the 7/8 half-plane alone', start: '7/8', val: OV.deBruijn78.dec, exact: OV.deBruijn78.exact, kind: 'conditional', note: 'Lemma 1 at t = (2θ−1)²/2; needs no verified height' },
   { label: 'Raymond chain, classical strip (control)', start: 'θ = 1', val: OV.raymondStrip.dec, exact: OV.raymondStrip.exact, kind: 'conditional', note: 'reproduces Raymond’s deposit (stated 0.149396); depends on G0 + PT' },
@@ -304,7 +321,39 @@ export default function LambdaQrhConditionalPage() {
         <li>Lemma CG (G0-a): the covering identity and joint monotonicity <code>cn_nonneg_mono</code>, for every squarefree g;</li>
         <li>Lemma R: the integration step (sharper than the paper&rsquo;s constant) and ε<sub>R</sub> &lt; 10<sup>−10</sup>, with the AF (4.6) Stirling bounds as hypotheses.</li>
       </ul>
-      <Pull>Not in Lean: AF (4.6), Raymond&rsquo;s Lemmas 2–3 and Theorem 4 / 4′ (G0-c), AF Part I §§2–12, the barrier iteration and its {QP.run.steps.toLocaleString('en-US')}-substep certificate, and the route-P ledger. The Λ values themselves are exact-rational computations in Python, not Lean theorems.</Pull>
+      <Pull>Not in Lean: AF (4.6), Raymond&rsquo;s Lemmas 2–3 and Theorem 4 / 4′ (G0-c), AF Part I §§2–12 and the route-P ledger. The barrier iteration and its {QP.run.steps.toLocaleString('en-US')}-substep certificate are now replayed in Lean (next section), with these analytic inputs as named hypotheses.</Pull>
+
+      <h2>Lean status</h2>
+      <p>A third package, <a href={QRH_LEAN_URL} target="_blank" rel="noreferrer">formalization/lean/qrh-lambda</a> ({QL.date}; Lean {QL.toolchain.lean}, Mathlib {QL.toolchain.mathlib}), replays both runs in the Lean kernel and proves the conditional values as theorems about LeanCert&rsquo;s Λ of the concrete H<sub>t</sub>. Every substep is checked by <code>decide +kernel</code> (no <code>native_decide</code>); every unproved input is an explicit structure argument. The final theorem:</p>
+      <pre style={pre}>{`theorem QrhLambda.lambda_le_of_qrh_raymond
+    (h : RaymondChainHyps) (f : FloorTableHyps) :
+    deBruijnNewmanLambda ≤ 116091488672439 / 10 ^ 15
+
+-- deBruijnNewmanLambda := LeanCert.Analysis.DBN.Lambda
+--   = sInf {t | ∀ z, H t z = 0 → z.im = 0},  H t z = ∫₀^∞ e^{tu²} Φ(u) cos(zu) du
+-- RaymondChainHyps : head_wall, first_contact, contact_exclusion
+-- FloorTableHyps   : floors_valid (${QLF.floorEntries} entries), kernels_valid (${QLF.kernelRows} rows)
+-- the 7/8 half-plane enters as OAI.riemannZeta_ne_zero_of_seven_eighths_lt_re
+
+theorem QrhLambda.lambda_le_of_raymond78
+    (h : RaymondChainHyps) (f : RaymondTableHyps) :
+    deBruijnNewmanLambda ≤ 118505710922701 / 10 ^ 15`}</pre>
+      <div className="ed-breakout">
+        <table style={tbl}>
+          <thead><tr><th style={th}>piece</th><th style={th}>Lean status</th><th style={th}>detail</th></tr></thead>
+          <tbody>
+            {LEAN_STATUS.map((r, i) => (
+              <tr key={i}>
+                <td style={{ ...td, fontWeight: 500 }}>{r.piece}</td>
+                <td style={td}><Tag kind={r.kind}>{r.status}</Tag></td>
+                <td style={{ ...td, fontSize: 13.5, color: V.inkSoft }}>{r.note}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p><b>Axiom audit.</b> <code>#print axioms</code> on {QL.axiomAudit.total} theorems: {QL.axiomAudit.total - QL.axiomAudit.noAxioms.length} depend on exactly {QL.axiomAudit.standard.join(', ')}; <code>two96_pos</code> on none. No <code>sorry</code>, no <code>native_decide</code>, no <code>axiom</code> declarations. Kernel cost: F2 chunks {QL.kernelCost.F2.wallPerChunkS[0]}–{QL.kernelCost.F2.wallPerChunkS[1]} s each (sum {QL.kernelCost.F2.sumS} s, max RSS {QL.kernelCost.F2.maxRssGB} GB), Raymond chunks {QL.kernelCost.R78.wallPerChunkS[0]}–{QL.kernelCost.R78.wallPerChunkS[1]} s (sum {QL.kernelCost.R78.sumS} s). An internal referee rebuilt the package from scratch in a separate copy ({QL.kernelCost.refereeRebuildWallMin} min wall), replayed all modules with <code>leanchecker</code> and re-implemented the checker in Python (0 mismatches against the F2 dump); not refuted, minor corrections applied.</p>
+      <p><b>What remains.</b> The five hypothesis fields above are not Lean-checked, and the half-plane proof has only a local build. {QL.effortNote} The package is untracked build state: it needs a local openai/math workspace and the raymond-core LeanCert checkout to rebuild. The Lean theorem is conditional: it does not change the accepted bound. PT Λ ≤ 0.2 stands; RH is open.</p>
 
       <h2>What the half-plane does not change</h2>
       <p><ConceptText text={OAI.analysis[1].replace(' (method-level analysis, relabelled from "proved" per referee P5)', '') + ' This is a method-level analysis.'} /></p>

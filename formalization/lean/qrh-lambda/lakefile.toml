@@ -1,0 +1,16 @@
+name = "QrhLambda"
+version = "0.1.0"
+defaultTargets = ["QrhLambda"]
+
+[leanOptions]
+autoImplicit = false
+
+# raymond-core (sibling package): LeanCert's concrete H_t and Lambda, the substitution lemma, Lemma CG.
+# Its own requirements pin Mathlib d13f23b7 (same commit as the local openai/math build, Lean 4.34.1)
+# and LeanCert 7f91b6eb.
+[[require]]
+name = "RaymondCore"
+path = "../raymond-core"
+
+[[lean_lib]]
+name = "QrhLambda"

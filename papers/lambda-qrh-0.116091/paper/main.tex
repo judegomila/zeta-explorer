@@ -1,0 +1,980 @@
+\documentclass[11pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=1.15in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage{xcolor}
+\usepackage{framed}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage[section]{placeins}
+\usepackage{enumitem}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\usepackage{xurl}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
+\hypersetup{
+  pdftitle={A conditional upper bound for the de Bruijn--Newman constant from a zero-free half-plane},
+  pdfauthor={Jude Gomila},
+  pdfsubject={Conditional upper bound for the de Bruijn--Newman constant (draft)},
+  pdfkeywords={de Bruijn--Newman constant, Riemann xi function, heat flow, zero-free region, barrier method, Lean}
+}
+
+% ---------------------------------------------------------------
+% Theorem environments
+% ---------------------------------------------------------------
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\LB}{\Lambda}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\capo}{\mathrm{cap}}
+\newcommand{\qe}{q_{\mathrm e}}
+\DeclareMathOperator{\Rea}{Re}
+\DeclareMathOperator{\Ima}{Im}
+
+\emergencystretch=2em
+
+\title{A conditional upper bound for the de Bruijn--Newman constant\\
+from a zero-free half-plane}
+\author{Jude Gomila}
+\date{Draft, 9 October 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\noindent
+Let $\LB$ be the de Bruijn--Newman constant. Assume that $\zeta(s)\ne0$ for
+$\Rea s>7/8$, that the analytic statements of D.~J.~Raymond's decreasing-barrier
+construction hold, and that the Riemann hypothesis holds for zeros of height at most
+$3000175332800$ (Platt and Trudgian). Then
+\[
+\LB\le\frac{118505710922701}{10^{15}}=0.118505710922701 .
+\]
+If in addition the floor and kernel certificates of a re-tuned run produced for this
+paper hold, then
+\[
+\LB\le\frac{116091488672439}{10^{15}}=0.116091488672439 .
+\]
+The half-plane enters Raymond's chain only through the starting value of the barrier
+and its strict-entry check, which become $q_0>(2\theta-1)^2=9/16$ in place of $q_0>1$.
+The half-plane $\Rea s>7/8$ is a claim of the openai/math repository whose Lean proof
+was rebuilt locally; it has not been peer reviewed, and Raymond's construction has
+not been refereed. The paper also gives the conditional value as a function of the
+zero-free abscissa $\theta$, records what limits the abscissa $7/8$, and reports a
+Lean~4 check of the deduction from named hypotheses in which every step of both runs is
+replayed by the kernel. The accepted peer-reviewed bound remains $\LB\le0.2$.
+\end{abstract}
+
+\begin{center}
+\begin{minipage}{0.88\textwidth}
+\begin{framed}
+\small
+\raggedright
+\noindent\textbf{Status of this draft.}
+Not submitted, not published, not peer reviewed. The main result,
+Theorem~\ref{thm:main}, is conditional on hypotheses (H1)--(H3), and for the smaller
+value also (H4) (Section~\ref{sec:main}). It is not a bound on $\LB$ until those
+hypotheses are established. The accepted peer-reviewed upper bound is $\LB\le0.2$
+\cite{PlattTrudgian21}. The Riemann hypothesis is open.
+\end{framed}
+\end{minipage}
+\end{center}
+
+% ===============================================================
+\section{Introduction}
+% ===============================================================
+
+\subsection{The de Bruijn--Newman constant}
+
+Let
+\[
+\Phi(u)=\sum_{n=1}^{\infty}\bigl(2\pi^2n^4e^{9u}-3\pi n^2e^{5u}\bigr)\exp\bigl(-\pi n^2e^{4u}\bigr),
+\qquad
+H_t(z)=\int_0^\infty e^{tu^2}\Phi(u)\cos(zu)\,du
+\quad(t\in\R,\ z\in\C).
+\]
+With $\xi(s)=\tfrac12s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$ one has
+$H_0(z)=\tfrac18\,\xi\bigl(\tfrac12+\tfrac{iz}2\bigr)$, so the zeros of $H_0$ are the
+points $z=2\gamma-i(2\beta-1)$ for the nontrivial zeros $\rho=\beta+i\gamma$ of $\zeta$.
+By the work of de~Bruijn \cite{deBruijn50} and Newman \cite{Newman76} there is a finite
+constant $\LB\le\frac12$, the \emph{de Bruijn--Newman constant}, such that all zeros of
+$H_t$ are real exactly when $t\ge\LB$. The Riemann hypothesis (RH) is equivalent to
+$\LB\le0$. Newman conjectured $\LB\ge0$; Rodgers and Tao proved it \cite{RodgersTao20}.
+An upper bound on $\LB$ therefore measures how far RH can fail in this normalisation;
+it does not prove RH.
+
+\subsection{Upper bounds}\label{sec:history}
+
+De~Bruijn proved $\LB\le\frac12$ \cite{deBruijn50}, and Ki, Kim and Lee proved
+$\LB<\frac12$ \cite{KiKimLee09}. The Polymath project developed effective
+approximations of $H_t$ and a barrier criterion, and proved $\LB\le0.22$
+\cite{Polymath19}. Platt and Trudgian verified RH up to height $3000175332800$ and
+observed that a row of the Polymath parameter table then gives $\LB\le0.2$
+\cite[Theorem~1 and Corollary~2]{PlattTrudgian21}. This is the current peer-reviewed
+upper bound. Histories of the earlier bounds, including the lower bounds that preceded
+\cite{RodgersTao20}, are given in \cite{RodgersTao20} and \cite{Polymath19}.
+
+In 2026 several preprints have claimed smaller unconditional upper bounds:
+$0.1875$ \cite{Mosaic26}, $0.1787854$ \cite{Gomila26}, $0.163297$ \cite{Raymond26a},
+$0.157656619\ldots$ \cite{Gordon26} and $0.149396$ \cite{Raymond26}. None of these has
+been peer reviewed. The present paper uses the method of \cite{Raymond26} and no
+result of the others.
+
+\subsection{Main result}\label{sec:main}
+
+Fix $X=6000000185827$. The hypotheses are the following; Sections~\ref{sec:raymond}
+and~\ref{sec:computation} give the precise statements.
+
+\begin{enumerate}[leftmargin=3.2em]
+\item[\textbf{(H1)}] $\zeta(s)\ne0$ for every $s$ with $\Rea s>7/8$.
+\item[\textbf{(H2)}] The statements of Raymond's construction \cite{Raymond26} listed in
+Section~\ref{sec:raymond}: the head localisation (W), the probe identity and zero
+dynamics used in Lemma~\ref{lem:raymond}, the floor inequalities (J) for the entries of
+his floor tables used by the run of Section~\ref{sec:run1}, and the kernel inequality (K)
+for his catalogue kernels used by that run.
+\item[\textbf{(H3)}] Every zero $\beta+i\gamma$ of $\zeta$ with $0<\gamma\le3000175332800$
+has $\beta=\frac12$ \cite[Theorem~1]{PlattTrudgian21}.
+\item[\textbf{(H4)}] The floor inequalities (J) for the $468$ floor entries and the kernel
+inequality (K) for the $59$ kernel rows used by the run of Section~\ref{sec:run2}.
+\end{enumerate}
+
+\begin{theorem}\label{thm:main}
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=2.2em]
+\item Assume \textup{(H1)}, \textup{(H2)} and \textup{(H3)}. Then
+\[
+\LB\le\frac{118505710922701}{10^{15}}=0.118505710922701 .
+\]
+\item Assume \textup{(H1)}--\textup{(H4)}. Then
+\[
+\LB\le\frac{116091488672439}{10^{15}}=0.116091488672439 .
+\]
+\end{enumerate}
+\end{theorem}
+
+Part (ii) uses from (H2) only (W) and the identities of Lemma~\ref{lem:raymond}, not
+Raymond's floor tables; its floors and kernels are those of (H4).
+
+\paragraph{Status of the hypotheses.}
+(H1) is the claim of result family~003 of the openai/math repository
+\cite{OpenAI26QRH}, whose manuscripts the repository describes as produced by an
+internal OpenAI model. Its Lean proof builds locally with only the standard axioms and
+its statement matches the repository's comparator challenge
+(Section~\ref{sec:lean}); it has not been peer reviewed. (H2) is part of Raymond's
+unrefereed preprint \cite{Raymond26}; it has been read only inside this project, in two
+internal review passes \cite{IntReviewA,IntReviewB}. (H3) is peer reviewed. (H4)
+consists of this project's certificates, most of them single implementations, with one
+internal referee pass.
+
+\paragraph{Dependency.}
+Remove (H1) and the same chain gives Raymond's value $0.149395073827688$
+\cite{Raymond26}. Remove (H2) or (H3) and the argument gives nothing below the accepted
+$0.2$: (H1) alone gives $\LB\le(2\cdot\frac78-1)^2/2=\frac9{32}=0.28125$
+(Lemma~\ref{lem:subst}). Remove (H4) and (ii) reduces to (i). Each of (H1), (H2) and (H3)
+is needed for (i), and (H4) only for (ii).
+
+\subsection{Raymond's method, and the one change made here}
+
+The method is Raymond's \cite{Raymond26}. His construction controls the squared height
+$q=y^2$ of the highest zero $x+iy$ of $H_t$ to the right of $X$ by a decreasing barrier
+\[
+\beta'(t)=-2-c\,\beta(t),
+\]
+where the rates $c>0$ come from certified lower bounds for $\partial_y\log|H_t(x+iy)|$
+at two translated probe points, combined with exact kernel inequalities. A localisation
+wall, built on Platt and Trudgian's verification of RH, keeps every nonreal zero to the
+right of $X$. The barrier starts at time $0$ above the classical strip, $q_0>1$; the bound
+on $\LB$ is the time at which the barrier reaches $10^{-8}$, plus $5\cdot10^{-9}$. His
+floor estimates, kernel catalogue, choice rule and exact comparison arithmetic give
+$\LB\le18674384228461/(125\cdot10^{12})=0.149395073827688<0.149396$.
+
+This paper makes one change: if $\zeta(s)\ne0$ for $\Rea s>\theta$, the barrier may start
+at $q_0>(2\theta-1)^2$. For $\theta=7/8$ the start drops from just above $1$ to just above
+$9/16$, and the barrier reaches $10^{-8}$ about $0.031$ earlier. Lemma~\ref{lem:subst}
+proves the time-zero bound and Theorem~\ref{thm:barrier} proves that the start and its
+strict-entry check are the only places where the zero locations at time $0$ enter the
+chain. The computation of Section~\ref{sec:run1} then reruns Raymond's chain unchanged
+apart from the start. The run of Section~\ref{sec:run2} uses, in addition, floors and
+kernels produced in this project, re-tuned along the lower barrier path.
+
+The substitution applies to any decreasing-barrier chain of this type. Raymond's own
+chain with the $7/8$ start gives part~(i) with no input from this project other than Lemma~\ref{lem:subst} and the written completion of the first-contact
+argument in Theorem~\ref{thm:barrier}.
+
+\subsection{Further results}
+
+Section~\ref{sec:theta} gives the conditional value at the Platt--Trudgian height as a
+function of a hypothetical zero-free abscissa $\theta$: near $\theta=7/8$, each $0.01$
+of $\theta$ is worth about $0.003$ of $\LB$. Section~\ref{sec:limits} records the
+internal analyses of what limits the abscissa $7/8$ in \cite{OpenAI26QRH}; none of them
+improves it. Section~\ref{sec:lean} describes a Lean~4 development in which
+Theorem~\ref{thm:main} is proved from named hypotheses, with every arithmetic step of
+both runs replayed by the kernel.
+
+\paragraph{Use of generative AI.}
+The half-plane (H1) was produced by an internal OpenAI model, as stated in
+\cite{OpenAI26QRH}. The computations, the internal reviews, the Lean developments and
+the text of this draft were produced with generative AI systems (Anthropic Claude
+models) in human-directed cycles of exploration, programming, checking and revision.
+Jude Gomila directed the work and is responsible for the claims and the text.
+
+% ===============================================================
+\section{Zero dynamics under the heat flow}\label{sec:dynamics}
+% ===============================================================
+
+The function $H_t$ is even, real on the real axis and of order~$1$, and $H_t(iy)>0$ for
+real $y$ \cite[Section~3]{Polymath19}. Its zeros are therefore symmetric under
+$z\mapsto-z$ and $z\mapsto\bar z$, and none lies on the imaginary axis. Write
+$z=x+iy$. The following results of \cite{Polymath19} are used.
+
+\begin{proposition}[{\cite[Proposition~3.1]{Polymath19}}]\label{prop:dyn}
+Let $t_0\in\R$.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=2.2em]
+\item If $z_j(t_0)$ is a simple zero of $H_{t_0}$, it extends to a smooth family of simple
+zeros $z_j(t)$ for $t$ near $t_0$, with
+$\frac{d}{dt}z_j(t_0)=2\sideset{}{'}\sum_{k\ne j}\frac1{z_j(t_0)-z_k(t_0)}$, the terms
+$k$ and $-k$ being summed together.
+\item If $z_j(t_0)$ is a zero of order $m\ge2$, then for $t$ close to $t_0$ the $m$ zeros
+of $H_t$ near it are
+$z_j(t_0)+\sqrt2\,(t-t_0)^{1/2}\lambda_l+O(|t-t_0|)$, $l=1,\dots,m$, where
+$\lambda_1<\dots<\lambda_m$ are the roots of the Hermite polynomial $\mathrm{He}_m$.
+\end{enumerate}
+\end{proposition}
+
+\begin{theorem}[{de~Bruijn \cite[Theorem~13]{deBruijn50}; \cite[Theorem~3.2]{Polymath19}}]\label{thm:debruijn}
+Let $t_0\in\R$ and $y_0>0$, and suppose $H_{t_0}$ has no zeros with $y>y_0$. Then for
+every $t>t_0$, $H_t$ has no zeros with $y>\max(y_0^2-2(t-t_0),0)^{1/2}$. In particular
+$\LB\le t_0+\frac12y_0^2$.
+\end{theorem}
+
+\begin{theorem}[{\cite[Theorem~1.5(i)]{Polymath19}}]\label{thm:confine}
+There is an absolute constant $C>0$ such that for $0<t\le\frac12$ every zero $x+iy$ of
+$H_t$ with $x\ge\exp(C/t)$ is real.
+\end{theorem}
+
+% ===============================================================
+\section{Raymond's decreasing-barrier method}\label{sec:raymond}
+% ===============================================================
+
+This section states the parts of \cite{Raymond26} that are used. Section references
+``AF'' are to the companion \emph{Analytic foundations for the time-zero upper-bound
+construction} in the same deposit; ``main'' refers to the paper \emph{Correlated
+translated probes}. The fixed data are
+\[
+X=6000000185827,\qquad N_0=690988,\qquad \qe=10^{-8},
+\]
+the $608$ closed time cells $C_i=[i/4000,(i+1)/4000]$, $0\le i\le607$, covering
+$[0,19/125]$, and a probe height $h_i$ for each cell (Raymond's plan uses rationals in
+$[0.69,2.18]$). A zero $z$ of $H_t$ is a \emph{tail zero} if $|\Rea z|>X$.
+
+\subsection{The head wall}
+
+\begin{enumerate}[leftmargin=3em]
+\item[\textbf{(W)}] For $0\le t\le41/250$, every zero $z$ of $H_t$ with $|\Rea z|\le X$ is
+real.
+\end{enumerate}
+This is AF~\S\S2--3. Platt and Trudgian's verification (H3) gives reality of the zeros
+of $H_0$ with $|\Rea z|<X$; the ordinate used is $(X+1)/2=3000000092914$, which lies
+$175239886$ below $3000175332800$. An interval certificate proves
+$|H_t(X+iy)/B_t(X+iy)|>3/4$ for $0\le t\le41/250$, $0\le y\le1$, where $B_t$ is the
+normalising factor of \cite{Polymath19}; with the classical strip $|y|\le1$ this closes
+the head cell $[-X,X]\times[-1,1]$, and a counting argument with
+Proposition~\ref{prop:dyn} shows that no nonreal zero appears inside it. This is the only
+use of (H3).
+
+\subsection{Probe floors}
+
+For $h>0$ put $S(x,h,t)=\partial_y\log|H_t(x+iy)|\big|_{y=h}$ and
+\[
+K_h(d,b)=\frac{h-b}{d^2+(h-b)^2}+\frac{h+b}{d^2+(h+b)^2}\qquad(d\in\R,\ 0\le b).
+\]
+Since $H_t$ is even of order~$1$ with $H_t(0)>0$, its Hadamard product gives
+\begin{equation}\label{eq:probe}
+S(x,h,t)=\sum_{\text{pairs}}K_h(x-x_j,b_j),
+\end{equation}
+summed over the conjugate pairs $x_j\pm ib_j$ of zeros of $H_t$, with real zeros counted
+with weight $\frac12$; the sum converges absolutely since $K_h(d,b)\ll h/d^2$.
+
+\begin{enumerate}[leftmargin=3em]
+\item[\textbf{(J)}] A \emph{floor entry} $(i,r,h,\ell)$ is valid if for every $t\in C_i$ and
+every $x\ge X$,
+\[
+\tfrac12\bigl[S(x+rh,h,t)+S(x-rh,h,t)\bigr]>\ell .
+\]
+\end{enumerate}
+Raymond's floors come from interval computations built on his one-point estimates (AF
+\S\S4--9) and his two-probe joint floor (main, Theorem~4). They are stated for every
+$x\ge X$, including $x\to\infty$, with six frequency ranges per cell, the last one
+infinite.
+
+\subsection{Kernels and the self term}
+
+\begin{enumerate}[leftmargin=3em]
+\item[\textbf{(K)}] A \emph{kernel row} $(r,\lambda,\rho)$ is valid if for every $h>0$, every
+real $d$, every $0<y\le\rho h$ and every $0\le b\le y$ with $(d,b)\ne(0,y)$,
+\[
+2K_y(d,b)\ \ge\ \lambda\,\frac yh\cdot\frac{K_h(d+rh,b)+K_h(d-rh,b)}2 .
+\]
+\end{enumerate}
+This is AF~(10.1). Raymond proves it for a catalogue of $13$ rows by exact Bernstein
+expansions (below, ``catalogue kernel~$j$'' is the row with index $j$, counted from $0$, in
+the order of his \texttt{data/KERNELS.json}; AF does not number the rows); the inequality is invariant under the scaling $(d,b,y,h)\mapsto(cd,cb,cy,ch)$.
+For a zero at height $y$ write $q=y^2$ and $v=q/h^2$. The zero's own conjugate pair
+contributes $K_h(\pm rh,y)=s_r(v)/h$ to each probe, where
+\[
+s_r(v)=\frac{2(1+r^2-v)}{(1+r^2-v)^2+4r^2v}.
+\]
+A \emph{cap} for $(r,v)$ is a number $\capo\ge\sup_{0\le v'\le v}s_r(v')$, and the
+\emph{rate} of a floor entry with ratio $r$ and a kernel row $(r,\lambda,\rho)$ is
+\[
+c=\frac{2\lambda}h\Bigl(\ell-\frac{\capo}h\Bigr).
+\]
+
+\subsection{The barrier inequality}
+
+\begin{lemma}[{AF~(11.1)}]\label{lem:raymond}
+Let $t>0$ lie in a cell $C_i$, and let $z^*=x^*+iy^*$ be a simple zero of $H_t$ with
+$x^*>X$, $y^*>0$, and $y^*\ge|\Ima w|$ for every zero $w$ of $H_t$. Let $(i,r,h,\ell)$ be a
+valid floor entry and $(r,\lambda,\rho)$ a valid kernel row with $h=h_i$, and suppose
+$v=y^{*2}/h^2\le\rho^2$ and $\capo\ge\sup_{[0,v]}s_r$. Then $q(t)=(\Ima z^*(t))^2$
+satisfies
+\[
+q'(t)<-2-c\,q(t),\qquad c=\frac{2\lambda}h\Bigl(\ell-\frac{\capo}h\Bigr).
+\]
+\end{lemma}
+
+\begin{proof}
+Grouping the sum in Proposition~\ref{prop:dyn}(i) into conjugate pairs (the imaginary
+parts converge absolutely), the conjugate $\bar z^*$ contributes $-1/y^*$ to
+$\frac{d}{dt}\Ima z^*$, and every other pair $x_j\pm ib_j$ contributes
+$-2K_{y^*}(x^*-x_j,b_j)$, real zeros with weight $\frac12$. Hence
+$q'=-2-4y^*\sum'K_{y^*}(d_j,b_j)$ with $d_j=x^*-x_j$, the sum over the other pairs. Every
+other zero has $b_j\le y^*$, and $(d_j,b_j)\ne(0,y^*)$ because $z^*$ is simple. Applying (K)
+to each term and using \eqref{eq:probe} at $x^*\pm rh$, where the own pair contributes
+$s_r(v)/h$ to each probe,
+\[
+4y^*\sideset{}{'}\sum K_{y^*}(d_j,b_j)\ \ge\ \frac{2\lambda q}h\Bigl(\tfrac12\bigl[S(x^*+rh,h,t)+S(x^*-rh,h,t)\bigr]-\frac{s_r(v)}h\Bigr)
+\ >\ \frac{2\lambda q}h\Bigl(\ell-\frac{\capo}h\Bigr)
+\]
+by (J) at $x=x^*\ge X$ and $s_r(v)\le\capo$. Hence $q'<-2-cq$.
+\end{proof}
+
+\subsection{Discretisation and the terminal step}
+
+Each cell is divided into $128$ substeps of length $\delta=1/512000$; write $t_k=k\delta$
+and $i(k)=\lfloor k/128\rfloor$. A run is a record $(q_k,c_k)_{0\le k\le K}$ with a mode
+(ratio $r_k$, kernel row $(r_k,\lambda_k,\rho_k)$, floor $\ell_k$ for cell $i(k)$, cap) on
+each substep. The exact solution of $\beta'=-2-c\beta$ over one substep is
+$q\mapsto(q+2/c)e^{-c\delta}-2/c$. The stored values are upper enclosures: $e^{-x}$ is
+replaced by its degree-$18$ Taylor polynomial (an upper bound for $0\le x<1$) and the
+result is rounded up to a multiple of $2^{-96}$. At the terminal substep the remaining
+time $\tau=\log\bigl(1+c(q-\qe)/(2+c\qe)\bigr)/c$ is bounded above with the alternating
+Taylor sum of $\log(1+z)$ through degree $11$, and
+\[
+U=\bigl\lceil t_K+\tau+\qe/2\bigr\rceil_{10^{-15}} .
+\]
+At each substep the choice rule takes, among the admissible modes, one with the largest
+certified rate; any admissible choice gives a valid barrier.
+
+With the classical start $q_0=(1000001/1000000)^2$, Raymond's run gives
+\cite[Theorem~1]{Raymond26}
+\[
+\LB\le\frac{18674384228461}{125000000000000}=0.149395073827688<0.149396 .
+\]
+
+% ===============================================================
+\section{The substitution lemma}\label{sec:subst}
+% ===============================================================
+
+\begin{lemma}\label{lem:subst}
+Let $\frac12<\theta<1$ and assume $\zeta(s)\ne0$ for $\Rea s>\theta$. Then every zero $z$ of
+$H_0$ satisfies $|\Ima z|\le2\theta-1$, and for every $t\ge0$ every zero $z$ of $H_t$
+satisfies
+\[
+(\Ima z)^2\le\max\bigl((2\theta-1)^2-2t,\ 0\bigr).
+\]
+In particular $\LB\le(2\theta-1)^2/2$.
+\end{lemma}
+
+\begin{proof}
+Write $s=\frac12+\frac{iz}2$, so that $\Rea s=(1-\Ima z)/2$. For $\Rea s>\theta\ge\frac12$
+the factors $s$, $\pi^{-s/2}$ and $\Gamma(s/2)$ of $\xi$ do not vanish; $\xi(1)=\frac12$;
+and for $s\ne1$, $s-1\ne0$ and $\zeta(s)\ne0$ by hypothesis. So $\xi$ has no zero with
+$\Rea s>\theta$, and by $\xi(s)=\xi(1-s)$ none with $\Rea s<1-\theta$. Every zero of $H_0$
+therefore has $1-\theta\le\Rea s\le\theta$, that is,
+$|\Ima z|=|1-2\Rea s|\le2\theta-1$. Theorem~\ref{thm:debruijn} with $t_0=0$ and
+$y_0=2\theta-1$ gives the bound for $\Ima z\ge0$, and the symmetry $z\mapsto\bar z$ gives
+it for $\Ima z<0$. At $t=(2\theta-1)^2/2$ all zeros are real.
+\end{proof}
+
+For $\theta=7/8$ this gives $(\Ima z)^2\le\max(\frac9{16}-2t,0)$ and $\LB\le\frac9{32}$. The bound is
+closed: zeros with $\beta=7/8$ are not excluded, so $\Ima z=\frac34$ can occur at $t=0$.
+Lemma~\ref{lem:subst} is proved in Lean (Section~\ref{sec:lean}).
+
+The next theorem is Raymond's first-contact argument (AF \S11; main \S7) with the start
+condition $q_0>1$ replaced by $q_0>(2\theta-1)^2$, written out in full. It combines
+Lemma~S($\theta$) and Lemma~FB($\theta$) of the internal review \cite[\S\S5,
+8]{IntReviewB}; the second internal review confirms the start substitution
+independently \cite[\S7]{IntReviewA}.
+
+\begin{theorem}\label{thm:barrier}
+Let $\frac12<\theta<1$. Assume $\zeta(s)\ne0$ for $\Rea s>\theta$, assume \textup{(W)}, and
+let $(q_k,c_k)_{0\le k\le K}$ be a run whose floor entries satisfy \textup{(J)} and whose
+kernel rows satisfy \textup{(K)}. Write $h_k=h_{i(k)}$ and $v_k=q_k/h_k^2$, and suppose:
+\begin{enumerate}[label=\textup{(C\arabic*)},leftmargin=3em]
+\item $v_k\le\rho_k^2$ and $r_kh_k<2$;
+\item $c_k=\frac{2\lambda_k}{h_k}\bigl(\ell_k-\capo_k/h_k\bigr)>0$ with
+$\capo_k\ge\sup_{0\le v\le v_k}s_{r_k}(v)$;
+\item $0<c_k\delta<1$ and $q_{k+1}\ge(q_k+2/c_k)e^{-c_k\delta}-2/c_k$ for $k<K$;
+\item \textup{(S1)} $q_0-(2+c_0q_0)\cdot10^{-8}>(2\theta-1)^2$;
+\item $(q_K+2/c_K)e^{-c_K\delta}-2/c_K\le\qe$, and
+$\tau=\log\bigl(1+c_K(q_K-\qe)/(2+c_K\qe)\bigr)/c_K\le\delta$;
+\item $T^*=t_K+\tau$ satisfies $T^*+\qe/2<41/250$.
+\end{enumerate}
+Then $\LB\le T^*+\qe/2$.
+\end{theorem}
+
+\begin{proof}
+\emph{Step 1 (barrier).} Let $\beta$ be the continuous function with $\beta(0)=q_0$ and
+$\beta'=-2-c_k\beta$ on $[t_k,t_{k+1}]$. The one-step map is increasing in $q$, so by (C3)
+and induction $\beta(t_k)\le q_k$; since $\beta$ decreases on each substep,
+$\beta(t)\le q_k$ for $t\in[t_k,t_{k+1}]$. Conditions (C1)--(C2) are upper bounds on the
+height (admissibility $v\le\rho^2$; the cap is a supremum over $[0,v]$), so they hold at
+every height at most $\beta(t)$ on substep $k$. By (C5) and monotonicity of the one-step
+map, $\beta$ reaches $\qe$ at a time $T_\beta\le T^*$.
+
+\emph{Step 2 (start, $0\le t\le10^{-8}$).} On the first substep $\beta$ is convex and
+decreasing with $\beta'(0)=-2-c_0q_0$, so $\beta(t)\ge q_0-(2+c_0q_0)t$. Since
+$10^{-8}<\delta$, Lemma~\ref{lem:subst} and (S1) give, for $0\le t\le10^{-8}$ and every zero,
+\[
+(\Ima z)^2\le(2\theta-1)^2-2t\le(2\theta-1)^2<q_0-(2+c_0q_0)\cdot10^{-8}\le\beta(t).
+\]
+No zero meets the barrier before time $10^{-8}$. This is the only step that uses the
+zero locations at time $0$, and the only use of the half-plane.
+
+\emph{Step 3 (no contact on $[10^{-8},T_\beta]$).} Let $E$ be the set of
+$t\in[10^{-8},T_\beta]$ at which some tail zero satisfies $(\Ima z)^2\ge\beta(t)$, and
+suppose $E\ne\emptyset$. For $t\in[10^{-8},\frac12]$, Theorem~\ref{thm:confine} and
+$|\Ima z|\le1$ (Theorem~\ref{thm:debruijn} with $t_0=0$, $y_0=1$) place every nonreal zero
+in a fixed compact set. By Hurwitz's theorem, the continuity of $\beta$ and (W) (a limit
+of tail zeros that is nonreal is a tail zero), $E$ is closed; let $t^*=\min E$. By
+Step~2 and closedness, $t^*>10^{-8}$. Every tail zero at time $t^*$ is a limit of zeros
+at earlier times, at which $(\Ima z)^2<\beta$; hence some tail zero $z^*$ satisfies
+$(\Ima z^*)^2=\beta(t^*)$ and no zero is higher. By (W) and the symmetries we may take
+$x^*>X$ and $y^*>0$. Let $k$ be the substep with $t^*\in(t_k,t_{k+1}]$ (the left substep if
+$t^*$ is a knot).
+
+If $z^*$ is a repeated zero, Proposition~\ref{prop:dyn}(ii) with $t<t^*$ gives zeros
+$z^*+i\sqrt{2(t^*-t)}\,\lambda_l+O(t^*-t)$ near $z^*$; since $\lambda_m>0$, one of them has
+$\Ima z-y^*\gg(t^*-t)^{1/2}$, while $\sqrt\beta$ is Lipschitz near $t^*$ (as $\beta\ge\qe>0$).
+That zero violates $(\Ima z)^2<\beta(t)$ for $t<t^*$ close to $t^*$, contrary to the
+minimality of $t^*$.
+
+If $z^*$ is simple, Step~1 gives $v^*=\beta(t^*)/h_k^2\le v_k\le\rho_k^2$ and
+$\capo_k\ge s_{r_k}(v^*)$, so Lemma~\ref{lem:raymond} applies (the cell of substep $k$ is
+closed and contains $t^*$) and gives $q'(t^*)<-2-c_k\beta(t^*)=\beta'(t^*-)$. But
+$q(t)<\beta(t)$ for $t<t^*$ and $q(t^*)=\beta(t^*)$ force $q'(t^*)\ge\beta'(t^*-)$. This is a
+contradiction, so $E=\emptyset$.
+
+\emph{Step 4 (terminal).} By Step~3 every tail zero at time $T_\beta$ satisfies
+$(\Ima z)^2<\qe$, and by (W) and $T_\beta<41/250$ every other zero is real.
+Theorem~\ref{thm:debruijn} with $t_0=T_\beta$ and $y_0=\sqrt{\qe}$ gives
+$\LB\le T_\beta+\qe/2\le T^*+\qe/2$.
+\end{proof}
+
+\begin{remark}[Where the half-plane enters]\label{rem:where}
+The half-plane is used once, in Step~2. The wall (W) uses the classical strip and (H3);
+(H1) bounds the head zeros by $|\Ima z|\le\frac34$ but does not make them real, so it does
+not replace (H3). The floors (J) and kernels (K) read no zero locations. The confinement
+after time $10^{-8}$ uses Theorem~\ref{thm:confine} and $|\Ima z|\le1$. The terminal
+allowance $\qe/2$ comes from Theorem~\ref{thm:debruijn} at $T_\beta$ and does not depend on
+$q_0$. For $\theta<1$ the barrier starts below $1$ and falls faster than the classical
+envelope $1-2t$, so on the whole run it lies below $1-2t$ and the classical strip never
+keeps the zeros under it. After time $10^{-8}$ the invariant is carried by the
+first-contact argument alone.
+\end{remark}
+
+\begin{remark}[Windows]
+Theorem~\ref{thm:barrier} uses a barrier that is continuous across substeps. A floor valid
+only on a window $q\in[q_{\mathrm{lo}},q_{\mathrm{hi}}]$ would need the stored, left-continuous
+form of the barrier \cite[\S\S4.2, 8]{IntReviewB}. Neither run uses such a floor.
+\end{remark}
+
+\begin{remark}[The fixed-time criterion]
+In the Polymath criterion \cite[Theorem~1.2]{Polymath19} the half-plane lowers the tops of
+the regions in hypotheses (ii) and (iii) to $\sqrt{(2\theta-1)^2-2t}$, but the conclusion
+$\LB\le t_0+y_0^2/2$ and its binding height $y_0$ are unchanged. On this reading
+(a method-level analysis, not a theorem of this paper), a zero-free half-plane does not move
+a bound of the Polymath type directly; it moves a decreasing-barrier bound through its start.
+\end{remark}
+
+\begin{remark}[Classical zero-free regions]
+Zero-free regions near $\Rea s=1$ do not give a start below $1$. For example, the region
+$\sigma\ge1-1/(5.558691\log|t|)$ of Mossinghoff, Trudgian and Yang \cite{MTY24} gives
+$\beta<0.99373824$ at $\gamma=3.0001753\cdot10^{12}$, so $(2\beta-1)^2<0.9751098$ there, and
+its width tends to $0$ as $\gamma\to\infty$; it gives no uniform bound $q_0<1$. Given (H3),
+a half-plane valid only above the verified height is the same statement as a global one.
+\end{remark}
+
+% ===============================================================
+\section{The computation}\label{sec:computation}
+% ===============================================================
+
+Both runs use exact rational arithmetic for the barrier and its checks. The floor tables
+are interval certificates computed with Arb \cite{JohanssonArb17}, through python-flint
+\cite{FLINT} and, for the structured floors of Section~\ref{sec:run2}, also through a C
+program with complex balls.
+Numbers below are from the run records listed in Appendix~\ref{app:repro}.
+
+\subsection{Value (i): Raymond's chain with the 7/8 start}\label{sec:run1}
+
+The run uses Raymond's floor tables at the Platt--Trudgian height (regenerated
+bit-identically from his code), his plan heights and his kernel catalogue, with
+\[
+q_0=\frac{281251}{500000}=\frac9{16}+2\cdot10^{-6}.
+\]
+On the first substep the chosen mode is catalogue kernel~4 ($r=23/40$, $\lambda=199/100$,
+$\rho=7/20$) at $h=109/50$, with $v_0=q_0/h^2=0.118362\le\rho^2=0.1225$, cell-0 floor
+$\ell=627382516099/10^{11}$ and global cap $1503067131/10^9$, so
+\[
+c_0=\frac{12113002361358409}{1188100000000000}\approx10.195272,
+\]
+\[
+q_0-(2+c_0q_0)\cdot10^{-8}-\frac9{16}=\frac{114215105972865586110341}{59405\cdot10^{24}}\approx1.922651\cdot10^{-6}.
+\]
+The run has $60675$ substeps. It uses only catalogue kernels~4 ($51614$ substeps) and~5
+($r=3/5$, $\lambda=199/100$, $\rho=1/5$; $9061$ substeps), and never Raymond's sharp
+continuum law (AF Part~II). The tightest admissibility margin on the path is
+$\rho^2-v=3.793\cdot10^{-6}$. The terminal substep is $k=60674$ (index $2$ within cell
+$474$), $t_K=30337/256000$, with $z=3.4187\cdot10^{-5}$ and $\tau/\delta=0.9214$. The result is
+\[
+U=\frac{118505710922701}{10^{15}}=0.118505710922701 .
+\]
+Raymond's alternate logarithm bound $\log(1+z)\le z-z^2/(2(1+z))$ gives
+$59252855461351/(5\cdot10^{14})=0.118505710922702$; both are valid upper bounds and the
+smaller is used. Three separately written implementations reproduce the run bit for bit: the project's
+replay of Raymond's consumer, an implementation by the internal referee that shares no
+code with it (with an exact-rational lane and a $320$-bit Arb lane), and the replay written
+for the internal review \cite[\S7]{IntReviewB}; the Lean kernel recomputes the run as well
+(Section~\ref{sec:lean}).
+
+\subsection{Value (ii): a re-tuned run with additional certificates}\label{sec:run2}
+
+The second run replaces Raymond's floor tables by a larger menu of certified floors and
+kernels produced in this project (called \emph{route~P} in the project's records), and
+re-tunes the menu along the lower barrier path that the $7/8$ start produces. The menu
+consists of:
+\begin{enumerate}[label=(M\arabic*),leftmargin=2.6em]
+\item joint floors in which Raymond's two-probe surplus is retained for further label ranges
+(an extension of main Theorem~4 to arbitrary shift intervals), computed with his producer
+at re-planned probe heights between $0.86$ and $1.07$ times his plan heights: $289$ floor
+entries, used on $36923$ substeps;
+\item joint floors from the project's Theorem~MP (a joint floor for a weighted probe measure,
+which for a single pair of probes is main Lemma~3), at Raymond's plan heights: $90$ entries,
+$11212$ substeps;
+\item structured floors in which the primes up to $47$ are treated exactly rather than
+bounded term by term, at $0.94$ and $1$ times the plan heights: $89$ entries, $11304$
+substeps;
+\item $79$ new two-point kernels with $r=3/5$ and $\lambda<2$ on the grid
+$\rho\in\{81/400,\dots,171/400\}$, certified by exact Bernstein expansions at subdivision
+depth $22$, of which $50$ are used; together with $6$ earlier project kernel rows and
+Raymond's catalogue kernels $4$, $8$, $10$, the run uses $59$ kernel rows.
+\end{enumerate}
+The run starts at
+\[
+q_0=\frac{5625001}{10^7}=\frac9{16}+10^{-7},\qquad
+c_0=\frac{41336831094003950997}{3755300000000000000}\approx11.0076,
+\]
+\[
+q_0-(2+c_0q_0)\cdot10^{-8}-\frac9{16}=\frac{67904283759396681637924003}{37553\cdot10^{29}}\approx1.8082\cdot10^{-8}.
+\]
+It has $59439$ substeps, ends with substep $k=59438$ (index $46$ within cell $464$),
+$t_K=29719/256000$, uses probe heights in
+$[91/100,47/25]$ and no window floor, and gives
+\[
+U=\frac{116091488672439}{10^{15}}=0.116091488672439,
+\]
+equal to the value obtained with the alternate logarithm bound.
+
+Table~\ref{tab:ladder} lists the re-tuning steps, each an exact run. The final value is
+computed by its own run, not by adding the steps. About $74\%$ of the gain comes from the
+lowered heights (rungs E3 and E4), $24.5\%$ from the existing height tables of rung E2 and
+$1.2\%$ from the new kernels. Lowering the heights further is limited by Raymond's producer:
+its moment cap requires $C<17/5$ for the exceptional labels in the head $n\le1024$, which
+fails at $0.84$ times the plan in every scanned cell.
+
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{@{}l >{\raggedright\arraybackslash}p{0.42\linewidth} l l@{}}
+\toprule
+rung & change & value & step (exact)\\
+\midrule
+start & first run on the $7/8$ path with the menu of the earlier route-P stack, offset $2\cdot10^{-6}$ & $0.117708313410954$ & \\
+E1 & start offset $2\cdot10^{-6}\to10^{-7}$ & $0.117708137107302$ & $-44075913/(2.5\cdot10^{14})$\\
+E2 & existing height tables ($0.97$, $0.94$, $0.91$ times the plan, and a per-cell plan with multipliers $0.928$--$1.067$ at its knots) with $r=3/5$, $\lambda<2$ kernels & $0.117312236761635$ & $-395900345667/10^{15}$\\
+E3 & new uniform height sets at $0.88$ (cells $0$--$140$) and $0.91$ (cells $0$--$199$) times the plan & $0.116174796162911$ & $-284360149681/(2.5\cdot10^{14})$\\
+E4 & per-cell heights at the producer's moment-cap limit ($0.860$--$0.903$ times the plan, cells $0$--$250$) & $0.116110902986179$ & $-15973294183/(2.5\cdot10^{14})$\\
+F1 & $79$ new $r=3/5$ kernels on the floors of (M1) & $0.116091900099009$ & $-1900288717/10^{14}$\\
+F2 & the same kernels on the floors of (M2) & $0.116091488672439$ & $-41142657/10^{14}$\\
+\midrule
+total & & & $-323364947703/(2\cdot10^{14})$\\
+\bottomrule
+\end{tabular}
+\caption{Re-tuning of the run of Section~\ref{sec:run2}. Each value is the exact output of one
+run; all values are conditional on (H1)--(H4).}
+\label{tab:ladder}
+\end{table}
+
+\subsection{Checks}\label{sec:checks}
+
+For value (ii) the consumer checks, on every substep: admissibility $v\le\rho^2$ and
+$hr<2$; the cap by Raymond's rule; $c>0$ and $0<c\delta<1$; the stored step with the
+degree-$18$ bound and upward rounding; no crossing of $\qe$ before the terminal substep;
+heights in $[\frac12,\frac52]$; $q_0>9/16$ and (S1); the terminal enclosure; and agreement
+of two option generators. All report $0$ failures. Further checks:
+\begin{itemize}[leftmargin=1.6em]
+\item a step verifier and a from-scratch verifier that shares no code with the consumer and
+re-derives every floor from the raw table files: both $0$ failures; the from-scratch
+verifier was re-run on the archived per-substep dump for this paper ($38$\,s) with the same
+result;
+\item a second certification of the kernels by Arb with adaptive bisection, sharing no code
+with the Bernstein certifier: $79/79$ new kernels at $64$ bits ($549302$ boxes), all $59$ rows
+used by the run at $128$ bits ($425359$ boxes);
+\item a re-certification of all $289$ (set, cell) pairs of the floors of (M1) at $224/320$-bit
+lanes and different subdivisions: every one of the $3179$ mode floors lies $1.9\cdot10^{-4}$ to
+$4.2\cdot10^{-4}$ above the value used, none below;
+\item a recheck in $256$-bit Arb of Raymond's per-row source premises at every (cell, height,
+source) used: $468$ triples, $0$ failures, minimum $k=t_L\log N_0/2-(1-h)/2$ equal to $0.43918$ ($t_L$ the left end of the cell),
+minimum $h\log N_0$ equal to $12.236$, largest error sum in AF~(5.4) equal to
+$1.4994\cdot10^{-7}<10^{-6}$;
+\item the Lean kernel replay of every substep (Section~\ref{sec:lean}).
+\end{itemize}
+For value (i), the run was re-executed for this paper ($34$\,s) and reproduced $U$, the
+substep count and the terminal cell.
+
+\subsection{Proof of Theorem~\ref{thm:main}}
+
+(i) The run of Section~\ref{sec:run1} satisfies (C1)--(C6) of Theorem~\ref{thm:barrier} with
+$\theta=7/8$: these are exact rational checks performed by the consumer, by the independent
+replay and by the Lean kernel. Its floor entries and kernel rows are those of (H2), and (W)
+is part of (H2), with (H3) used inside it. By (H1) and Theorem~\ref{thm:barrier},
+$\LB\le T^*+\qe/2\le U$, since $U$ is computed from upper bounds for $e^{-x}$ and
+$\log(1+z)$ and rounded up.
+
+(ii) The same argument applies to the run of Section~\ref{sec:run2}, whose floor entries and
+kernel rows are those of (H4). \qed
+
+\subsection{Results}
+
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.44\linewidth} l >{\raggedright\arraybackslash}p{0.27\linewidth}@{}}
+\toprule
+chain and start & value & conditions\\
+\midrule
+de~Bruijn, $7/8$ half-plane alone (Lemma~\ref{lem:subst}) & $9/32=0.28125$ & (H1)\\
+Raymond's chain, classical start \cite{Raymond26} & $0.149395073827688$ & (H2), (H3)\\
+route~P, classical start (reference run) & $0.148250146775075$ & (H2), (H3), earlier route-P certificates\\
+Raymond's chain, $11/12$ start & $0.129826438865344$ & $11/12$ half-plane, (H2), (H3)\\
+route~P, $11/12$ start, not re-tuned & $0.128829131217197$ & $11/12$ half-plane, (H2), (H3), earlier route-P certificates\\
+\textbf{Raymond's chain, $7/8$ start: Theorem~\ref{thm:main}(i)} & $\mathbf{0.118505710922701}$ & (H1)--(H3)\\
+route~P, $7/8$ start, first run & $0.117708313410954$ & (H1)--(H3), earlier route-P certificates\\
+\textbf{route~P re-tuned, $7/8$ start: Theorem~\ref{thm:main}(ii)} & $\mathbf{0.116091488672439}$ & (H1)--(H4)\\
+\midrule
+accepted peer-reviewed bound \cite[Corollary~2]{PlattTrudgian21} & $0.2$ & \\
+\bottomrule
+\end{tabular}
+\caption{Conditional values at the Platt--Trudgian height. The $11/12$ half-plane follows
+from the $7/8$ one and is also the subject of a separate write-up \cite{OpenAI26QRH1112}.}
+\label{tab:values}
+\end{table}
+
+On Raymond's chain the start alone moves the value from $0.149395073827688$ to
+$0.118505710922701$, a difference of $0.030889362904987$. The re-tuned menu lowers it by
+$1207111125131/(5\cdot10^{14})=0.002414222250262$ more.
+
+% ===============================================================
+\section{The conditional value as a function of \texorpdfstring{$\theta$}{theta}}\label{sec:theta}
+% ===============================================================
+
+Since the chain reads the half-plane only through $q_0=(2\theta-1)^2+\epsilon$, it can be run
+for hypothetical abscissas $\theta$. Table~\ref{tab:theta} lists Raymond's chain at the
+Platt--Trudgian height with $\epsilon=2\cdot10^{-6}$ and the re-tuned menu of
+Section~\ref{sec:run2} with $\epsilon=10^{-7}$. Every $\theta$ other than $7/8$ is
+hypothetical, and each entry is conditional on the half-plane at that $\theta$, on (H2) and
+(H3), and for the last column on (H4)-type certificates at the heights used. An independent
+$192$-bit integrator written by the internal referee reproduces all $14$ values of the third
+column.
+
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{@{}l l l r l l@{}}
+\toprule
+$\theta$ & $(2\theta-1)^2/2$ & Raymond's chain & end cell & AF II substeps & re-tuned run\\
+\midrule
+$7/8$ & $0.28125$ & $0.118505710922701$ & $474$ & $0$ & $0.116091488672439$\\
+$43/50$ & $0.2592$ & $0.114167305308158$ & $456$ & $124$ & \\
+$17/20$ & $0.245$ & $0.111177850880042$ & $444$ & $270$ & $0.108886356046385$\\
+$21/25$ & $0.2312$ & $0.108109947418064$ & $432$ & $571$ & \\
+$41/50$ & $0.2048$ & $0.101732525557584$ & $406$ & $1944$ & \\
+$4/5$ & $0.18$ & $0.095022125299536$ & $380$ & $3078$ & $0.093069284680992$\\
+$39/50$ & $0.1568$ & $0.087983897822374$ & $351$ & $2869$ & \\
+$3/4$ & $0.125$ & $0.076825435581115$ & $307$ & $1372$ & \\
+$7/10$ & $0.08$ & $0.056949250938398$ & $227$ & $0$ & \\
+$13/20$ & $0.045$ & $0.036622545758074$ & $146$ & $0$ & \\
+$3/5$ & $0.02$ & $0.018149345876410$ & $72$ & $0$ & \\
+$11/20$ & $0.005$ & $0.004876352555412$ & $19$ & $0$ & \\
+$13/25$ & $0.0008$ & $0.000797732865289$ & $3$ & $0$ & \\
+$101/200$ & $0.00005$ & $0.000050986694974$ & $0$ & $0$ & \\
+\bottomrule
+\end{tabular}
+\caption{Conditional values at the Platt--Trudgian height against the zero-free abscissa
+$\theta$. Decimals are exact expansions of the computed rationals (listed in
+\texttt{PARAMETERS.md}). ``AF II substeps'' counts the substeps that use Raymond's sharp
+continuum law; disabling it raises the affected values by at most $2.9\cdot10^{-7}$. At
+$\theta=101/200$ the chain exceeds the de~Bruijn value because of the start offset, and the
+de~Bruijn value is the better statement.}
+\label{tab:theta}
+\end{table}
+
+The following are measured on this grid. The value decreases strictly in $\theta$. Near
+$7/8$ the slope is about $0.289$; it peaks at about $0.407$ on $[0.65,0.70]$. No constraint
+of the chain binds for $\theta\le7/8$: the terminal cell falls with $\theta$, the value
+stays below the wall horizon $41/250$, and kernel admissibility becomes easier as $q$
+shrinks.
+
+The share of the descent carried by the floor-dependent term, $1-2U/q_0$, is $0.579$ at
+$7/8$, $0.472$ at $0.80$, $0.288$ at $0.70$ and $0.093$ at $0.60$. Below $\theta\approx0.6$ the
+value is within $10\%$ of $(2\theta-1)^2/2$, which uses no verified height. By linear
+interpolation, $\LB<0.10$ at this height would need $\theta\approx0.815$ on Raymond's chain
+or $\theta\approx0.82$ with the re-tuned menu.
+
+At $\theta=7/8$, Raymond's chain with a head at $10X$, $100X$ and $1000X$ (heights at which RH
+has not been verified) gives $0.112235848057212$, $0.107056451546934$ and
+$0.102615591280579$. At the Platt--Trudgian height, $\theta=0.8535$ gives
+$0.112233029447535$, so near $7/8$ a tenfold verified height is worth about $0.0215$ of
+$\theta$.
+
+% ===============================================================
+\section{What limits the exponent \texorpdfstring{$7/8$}{7/8}}\label{sec:limits}
+% ===============================================================
+
+This section summarises internal analyses of the $7/8$ manuscript \cite{OpenAI26QRH}
+\cite{IntQrhRecords}. Each item was checked in adversarial internal referee passes, and none
+has been read outside the project. None improves $7/8$, and Theorem~\ref{thm:main} does not
+depend on any of them. Equation and lemma numbers refer to \cite{OpenAI26QRH}.
+
+\begin{enumerate}[leftmargin=1.8em]
+\item \emph{Exponent bookkeeping.} From the displayed formulas (eqs.~(10.3), (12.4), (15.6),
+(15.9)), the abscissa is $\sigma_0=1-h/6+b/12=\frac56+\frac M{12}-\frac\ell6$ with
+$h=1-l_x+\ell$, where $M=l_x+l_y$ and $b=l_y-l_x$. On $M+\ell=1$ this is
+$\sigma_0=\frac{11}{12}-\frac\ell4$. The manuscript's geometry
+$(l_x,l_y,\ell)=(17/48,23/48,1/6)$ gives $7/8$; $\ell=0$ gives the $11/12$ of the first stage.
+\item \emph{Joint limit.} The coefficient $1/12$ of $b$ in $\sigma_0$ comes from the
+sixth-power exceptional term $P_a^{1/6}$ of the additive Gram bound (Proposition~15.2). With
+it, the zero-loss range $2M\ge1+4\ell$ of Lemma~15.1 gives
+$\sigma_0\ge\frac56+\frac{1+4\ell}{24}-\frac\ell6=\frac78$, with equality where that range is
+tight. The high side binds at the row bin of Lemma~20.2 at $x=\frac12$,
+$\delta^*=\frac{185}{138}-\frac{35\sqrt{16354}}{4692}\approx0.38664$, with slack
+$\frac{35\sqrt{16354}}{12696}-\frac{1491}{4232}\approx2.2815\cdot10^{-4}$ (the manuscript
+certifies $49/440640$). Re-optimising the manuscript's own inequalities gives at most
+$\sigma_0\approx0.874957$ (a model optimum, not a theorem).
+\item \emph{Density-hypothesis counts.} With Proposition~15.2 as stated, the floor bin and the
+low side meet at $(\ell,M,b)=(\frac15,\frac45,0)$, giving $\frac{13}{15}$ even with
+density-hypothesis row counts.
+\item \emph{The exceptional term.} Three restructurings of the Cauchy--Schwarz step of
+Proposition~15.3 were examined: subtracting the exceptional component before
+Cauchy--Schwarz, H\"older-type bounds, and restricting or re-weighting the rows. None lowers
+the abscissa. At main-term level (error terms sketched only), the term is a positive dual main
+term of the row mean square; the paper's column
+coefficient equals its own exceptional component, so subtraction is vacuous in that form; any
+bound that sees the dual vector only through Lemma~15.1 is at least $\|A\|_2V$; and row
+restrictions that remove the term also remove the high-side signal.
+\item \emph{Height.} Given (H3), a half-plane valid only above $3\cdot10^{12}$ is equivalent
+to the global statement, and the chain reads only $\sup(2\beta-1)^2$ over
+$\gamma>(X+1)/2$; a height-dependent improvement is not an easier target.
+\end{enumerate}
+
+% ===============================================================
+\section{Lean status}\label{sec:lean}
+% ===============================================================
+
+Three Lean~4 \cite{Lean4} developments bear on the result. All use Lean~4.34.1 and Mathlib
+\cite{Mathlib20} commit \texttt{d13f23b7}. Every theorem below depends only on the axioms
+\texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound}; there is no
+\texttt{sorry}, no \texttt{native\_decide} and no \texttt{axiom} declaration.
+
+\paragraph{The half-plane (H1).} The theorem
+\texttt{OAI.riemannZeta\_ne\_zero\_of\_seven\_eighths\_lt\_re}, stating
+\texttt{riemannZeta s} $\ne0$ for $7/8<\Rea s$, was built from the initial commit
+\texttt{adc7f1241} of \cite{OpenAI26QRH}: $7061$ build jobs, all $2924$ modules of the import
+closure, $0$ errors. Its type equals the repository's comparator challenge elaborated against
+Mathlib alone, and \texttt{riemannZeta} is Mathlib's function. A source scan of the closure
+($486490$ lines) found no \texttt{sorry}, \texttt{admit}, \texttt{axiom},
+\texttt{native\_decide}, \texttt{unsafe}, \texttt{implemented\_by}, \texttt{extern} or
+\texttt{set\_option}. The repository update of 8~October~2026 (commit \texttt{301488868},
+merged as \texttt{fd4aeeb2}) changes none of the $2924$ modules of this closure, the comparator
+file, the lakefile, the manifest, the toolchain or the family-003 manuscripts (file list of the
+commit compared with the closure on 9~October~2026); the build was not repeated at the new
+commit. Not done: the official comparator run, an independent kernel replay
+(\texttt{lean4checker} or nanoda) of the closure, and refereeing of the manuscript.
+
+\paragraph{Lemma~\ref{lem:subst}, Lemma CG, Lemma R.} The package \texttt{raymond-core}
+proves Lemma~\ref{lem:subst} (\texttt{RaymondCore.Substitution.substitution}) and
+$\LB\le(2\theta-1)^2/2$ for the concrete $H_t$ of LeanCert \cite{LeanCert}, which formalises
+$H_t$, the identity $H_0(z)=\frac18\xi(\frac12+\frac{iz}2)$, de~Bruijn's strip contraction
+and the threshold characterisation of $\LB$. At $\theta=7/8$ it proves $\LB\le9/32$ from the
+openai/math theorem. It also proves the coefficient monotonicity (Lemma CG) used in
+Raymond's main eqs.~(11)--(13), and the analytic core of the phase estimate (Lemma R) used
+by the floors (M1) of Section~\ref{sec:run2}, with Raymond's Stirling bounds AF~(4.6) as
+explicit hypotheses.
+
+\paragraph{The theorem.} The package \texttt{qrh-lambda} proves
+\begin{center}
+\small
+\begin{tabular}{@{}l@{}}
+\texttt{theorem QrhLambda.lambda\_le\_of\_qrh\_raymond (h : RaymondChainHyps)}\\
+\texttt{\ \ \ \ (f : FloorTableHyps) : deBruijnNewmanLambda $\le$ 116091488672439 / 10 \^{} 15}
+\end{tabular}
+\end{center}
+and the corresponding theorem with $118505710922701/10^{15}$ and Raymond's tables. Here
+\texttt{deBruijnNewmanLambda} is LeanCert's
+$\inf\{t:\text{every zero of }H_t\text{ is real}\}$. \texttt{RaymondChainHyps} has three
+fields: (W); first contact (a continuous positive barrier that starts above the tail zeros
+and is not above them later has a first contact time with a zero on it); and contact
+exclusion (Lemma~\ref{lem:raymond} together with Proposition~\ref{prop:dyn}(ii), stated for
+one substep). \texttt{FloorTableHyps} asserts (J) for each of the $468$ floor entries and (K)
+for each of the $59$ kernel rows. Lean proves the start condition from the openai/math
+theorem via Lemma~\ref{lem:subst}, the strict entry, the substep barrier lemma from the two
+contact hypotheses, the terminal step, the exponential and logarithm bounds, the cap lemma,
+and the soundness of a checker that recomputes each run from its start. Every substep of
+both runs ($59439$ and $60675$) is replayed by \texttt{decide +kernel} in $30$ and $31$ chunk
+theorems. Negative controls (for example $U$ lowered by $10^{-15}$, or one floor entry
+lowered by $10^{-12}$) are rejected by the kernel.
+
+An internal referee rebuilt the package from scratch, replayed the modules with
+\texttt{leanchecker}, re-implemented the checker in Python (with $0$ mismatches against the
+run over all $59439$ substeps), and proved that the hypotheses follow from RH, so they are
+consistent unless RH is false.
+
+\paragraph{What is not in Lean.} The three fields of \texttt{RaymondChainHyps}, including
+(H3); (J) for each floor entry and (K) for each kernel row; and (H1) beyond the local build.
+The Lean theorem is therefore conditional in the same way as Theorem~\ref{thm:main}. The
+packages depend on machine-local builds and are not reproducible from a clean clone without
+them.
+
+% ===============================================================
+\section{Dependencies and limitations}\label{sec:limitations}
+% ===============================================================
+
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.2\linewidth}>{\raggedright\arraybackslash}p{0.47\linewidth}>{\raggedright\arraybackslash}p{0.25\linewidth}@{}}
+\toprule
+condition & status & without it\\
+\midrule
+(H1) $\zeta\ne0$ on $\Rea s>7/8$ & claim of \cite{OpenAI26QRH}; Lean proof rebuilt locally, standard axioms; comparator and independent kernel replay not run; not peer reviewed & the chain gives $0.149395073827688$\\
+(H2) Raymond's chain & unrefereed preprint \cite{Raymond26}; two internal review passes \cite{IntReviewA,IntReviewB}, no false step found, expository gaps with written fixes; no reader outside the project & (H1) alone gives $9/32$\\
+(H3) RH to $3000175332800$ & peer reviewed \cite{PlattTrudgian21}; used once, at $t=0$ & no head wall\\
+(H4) route-P certificates & project-internal, mostly single implementation, one internal referee pass & (ii) reduces to (i)\\
+\bottomrule
+\end{tabular}
+\caption{The four conditions.}
+\label{tab:deps}
+\end{table}
+
+The internal reviews of (H2) found expository gaps, each with a written fix: the counting
+step of the head localisation (AF~\S2); the ideal model and error budget of the wall, which
+are only in code (AF~\S3); the endpoint $t=0$ of the wall; the uniformity of the floors in
+$x$ (AF~\S5); the derivation of main eq.~(1); the start written only for $q_0>1$; and the
+compressed first-contact argument, written out here as Theorem~\ref{thm:barrier}.
+
+The weakest items in (H4) are the structured floors (M3) of Section~\ref{sec:run2}, used on
+$11304$ substeps. They rest on an outer-lemma inequality certified entry by entry by
+project-written engines (single implementations with internal referee passes), on a measured, uncertified allowance of $0.0023$ in the time-box step, on a lemma for
+uniformity in $x$ that has not been reviewed, and on a heuristic allowance
+$10^{-12}\cdot\Sigma D\cdot\Sigma\mu$ per entry for the floating-point FFT used in their
+tails, in place of a proved error bound. The joint-pair and gain code of (M1)--(M2) is a single implementation.
+The re-planned heights rely on a licence to combine floors from several height tables in one
+run, which has not been refereed outside the project.
+
+The run scripts, tables and dumps are in an untracked working tree; the package accompanying
+this draft pins them by SHA-256. None of the four conditions is established by this paper, and
+Theorem~\ref{thm:main} adds no bound on $\LB$ to the literature until they are.
+
+\section*{Acknowledgements}
+
+The barrier method, its floor estimates, kernel catalogue and comparison arithmetic are
+D.~J.~Raymond's \cite{Raymond26}; this paper changes the start of his construction and adds
+certificates to it. His deposit, which includes the TeX source, the analytic companion and a
+full replay archive, made the internal reviews and the computations possible. The half-plane
+$\Rea s>7/8$ and its Lean proof are from the openai/math repository \cite{OpenAI26QRH}. The
+verified height is Platt and Trudgian's \cite{PlattTrudgian21}, and the zero dynamics,
+confinement and normalisation are from the Polymath project \cite{Polymath19}. The Lean
+developments build on Mathlib \cite{Mathlib20} and LeanCert \cite{LeanCert}; the interval
+computations use Arb and FLINT \cite{JohanssonArb17,FLINT}.
+
+\appendix
+\section{Reproduction}\label{app:repro}
+
+Paths are relative to the project repository. The scripts and run artefacts are in its
+untracked \texttt{tmp/} tree; their SHA-256 hashes are listed in \texttt{PROVENANCE.md} of
+the accompanying package. Expected outputs are given after each block.
+
+\paragraph{Value (i)} (about $35$\,s).
+{\small
+\begin{verbatim}
+.venv-arb/bin/python tmp/oai-lambda-raymond.py OUT.json X1 --thetas 7/8
+\end{verbatim}}
+\noindent Expected: \texttt{U = 118505710922701/1000000000000000}, $60675$ substeps, last
+row $474$. The internal referee's independent implementation is
+\texttt{tmp/oai-lambda-ref-raymond.py}.
+
+\paragraph{Value (ii)} (consumer about $11$\,min, each verifier about $1$\,min).
+{\small
+\begin{verbatim}
+cd tmp
+XK=qrh-tune-out/xkernels_final.json KK=qrh-tune-out/xkernels_final.json \
+  ./qrh-tune-final.sh F2_repro 1/10000000 \
+  W4 m097 m094 m091 QA_m0.88 QB_m0.91 QC_cliff
+./qrh-ref-run.sh refverify /tmp/qrh-tune-dump-F2_repro F2_repro_refverify
+\end{verbatim}}
+\noindent Expected: \texttt{U = U\_robust = 116091488672439/1000000000000000}, $59439$
+substeps, terminal cell $464$, $0$ failures in both the consumer's step verifier and the
+from-scratch verifier.
+
+\paragraph{The $\Lambda(\theta)$ table.}
+{\small
+\begin{verbatim}
+tmp/qrh-theta-curve-raymond.sh
+tmp/qrh-theta-curve-routeP.sh      # output: tmp/qrh-theta-curve-out/table.json
+\end{verbatim}}
+
+\paragraph{Lean.} With the dependency builds described in \texttt{LEAN.md}:
+{\small
+\begin{verbatim}
+cd formalization/lean/qrh-lambda
+scripts/build_chunks.sh F2 3; scripts/build_chunks.sh R78 3
+lake build
+lake env lean scripts/AxiomsCheck.lean
+scripts/check-oai.sh
+lake env lean scripts/NegativeControl.lean
+\end{verbatim}}
+
+\bibliographystyle{amsplain}
+\bibliography{refs}
+
+\end{document}

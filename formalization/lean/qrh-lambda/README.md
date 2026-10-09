@@ -1,7 +1,7 @@
 # qrh-lambda: Lean check of the conditional QRH values Λ ≤ 0.116091488672439 (F2) and Λ ≤ 0.118505710922701 (Raymond's chain alone)
 
 Date: 2026-10-09. Lean 4.34.1, Mathlib `d13f23b7`, LeanCert `7f91b6eb`, raymond-core (sibling package),
-openai/math workspace at `/tmp/qrh-verify/lean` for the 7/8 half-plane. PT's Λ ≤ 0.2 is the accepted
+openai/math workspace at `$HOME/lean-deps/qrh-verify/lean` for the 7/8 half-plane. PT's Λ ≤ 0.2 is the accepted
 bound; RH is open. The theorems below are **conditional**: they hold under explicit hypotheses
 (structure arguments), listed in full in "Hypotheses". No `sorry`, no `native_decide`, no `axiom`
 declarations; `#print axioms` shows only `propext`, `Classical.choice`, `Quot.sound` for every theorem.
@@ -143,7 +143,7 @@ Negative controls (`scripts/NegativeControl.lean`, kernel proves the checks retu
 
 ## Build
 
-Reproducibility: the package builds only with machine-local state. It needs `/tmp/qrh-verify/lean` (Mathlib
+Reproducibility: the package builds only with machine-local state. It needs `$HOME/lean-deps/qrh-verify/lean` (Mathlib
 `d13f23b7` build and the openai/math workspace; not a git repository; its PrimeNumberTheoremAnd, belyi and
 formal-schemes checkouts carry local patches) and `../raymond-core/.lake/packages/leancert` (gitignored;
 LeanCert `7f91b6eb`). Regenerating the data also needs `/tmp/raymond_pr/.../KERNELS.json` and
@@ -153,7 +153,7 @@ LeanCert `7f91b6eb`). Regenerating the data also needs `/tmp/raymond_pr/.../KERN
 ```sh
 cd formalization/lean/qrh-lambda
 # packages: symlinks into the openai/math workspace (Mathlib d13f23b7) and raymond-core's LeanCert build
-Q=/tmp/qrh-verify/lean/.lake/packages; mkdir -p .lake/packages
+Q=$HOME/lean-deps/qrh-verify/lean/.lake/packages; mkdir -p .lake/packages
 for p in mathlib plausible LeanSearchClient importGraph proofwidgets aesop Qq batteries Cli; do ln -sfn $Q/$p .lake/packages/$p; done
 ln -sfn $PWD/../raymond-core/.lake/packages/leancert .lake/packages/leancert
 scripts/build_chunks.sh F2 3; scripts/build_chunks.sh R78 3   # chunk certificates, ≤ 3 Lean processes

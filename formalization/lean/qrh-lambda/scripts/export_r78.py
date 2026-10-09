@@ -8,7 +8,7 @@ import sys, json
 from fractions import Fraction as F
 
 ROOT = '/Users/USER/Documents/GitHub/mathexplorer/tmp/'
-KERNELS = json.load(open('/tmp/raymond_pr/pr/Proof_and_Replay/Evidence/numerical/parent_numerical/KERNELS.json'))['rows']
+KERNELS = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'inputs', 'KERNELS.json')))['rows']
 PLAN = json.load(open(ROOT + 's145-1-g1/data/PLAN.json'))
 TABLES = [{m: {k: F(v) for k, v in d.items()} for m, d in row.items()} for row in json.load(open(ROOT + 's145-1-g1/out/X1/TABLES.json'))]
 QE = F(1, 10 ** 8)

@@ -11,7 +11,7 @@ from fractions import Fraction as F
 from collections import OrderedDict, Counter
 
 ROOT = '/Users/USER/Documents/GitHub/mathexplorer/tmp/'
-CATK = json.load(open('/tmp/raymond_pr/pr/Proof_and_Replay/Evidence/numerical/parent_numerical/KERNELS.json'))['rows']
+CATK = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'inputs', 'KERNELS.json')))['rows']
 TWO96 = 2 ** 96
 QE = F(1, 10 ** 8)
 DELTA = F(1, 512000)
@@ -68,7 +68,7 @@ def provenance(flist):
     import glob
     plan = json.load(open(ROOT + 's145-1-g1/data/PLAN.json'))
     PH = {r['time_index']: F(r['height']) for r in plan['rows']}
-    TA = json.load(open('/tmp/b145-A-archive/TABLES_NEW.json'))
+    TA = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'inputs', 'TABLES_NEW.json')))
     CERTF = json.load(open(ROOT + 'routes-b4-rec-joint-out/collect6/merge/certfile_fullref.json'))
     tabs = {}
     for lab, (tp, pp) in SETS.items():

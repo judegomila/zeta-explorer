@@ -1,0 +1,194 @@
+{
+  "rational_identity_crosschecks": 520,
+  "unsafe_rho_half_difference": "-32/195",
+  "schema": "COUPLED_KERNEL_ACCEPTANCE_V1",
+  "PASS": true,
+  "rows": [
+    {
+      "rho": "9/20",
+      "lambda": "2",
+      "r": "1/2",
+      "self_cap": "1618033989/1000000000",
+      "leaves": 3,
+      "coefficients_checked": 540,
+      "zero_coefficients": 40,
+      "self_polynomial": [
+        "18033989/640000000",
+        "-854101967/2000000000",
+        "1618033989/1000000000"
+      ]
+    },
+    {
+      "rho": "9/20",
+      "lambda": "199/100",
+      "r": "21/40",
+      "self_cap": "196956631/125000000",
+      "leaves": 4,
+      "coefficients_checked": 864,
+      "zero_coefficients": 11,
+      "self_polynomial": [
+        "4058495580711/320000000000000",
+        "-28272735329/100000000000",
+        "196956631/125000000"
+      ]
+    },
+    {
+      "rho": "23/50",
+      "lambda": "197/100",
+      "r": "1/2",
+      "self_cap": "1618033989/1000000000",
+      "leaves": 4,
+      "coefficients_checked": 864,
+      "zero_coefficients": 11,
+      "self_polynomial": [
+        "18033989/640000000",
+        "-854101967/2000000000",
+        "1618033989/1000000000"
+      ]
+    },
+    {
+      "rho": "19/40",
+      "lambda": "19/10",
+      "r": "9/20",
+      "self_cap": "214803557/125000000",
+      "leaves": 3,
+      "coefficients_checked": 648,
+      "zero_coefficients": 11,
+      "self_polynomial": [
+        "1597165751077/20000000000000",
+        "-18522334683/25000000000",
+        "214803557/125000000"
+      ]
+    },
+    {
+      "rho": "7/20",
+      "lambda": "199/100",
+      "r": "23/40",
+      "self_cap": "1503067131/1000000000",
+      "leaves": 4,
+      "coefficients_checked": 864,
+      "zero_coefficients": 11,
+      "self_polynomial": [
+        "63703722971/2560000000000000",
+        "-9784897301/800000000000",
+        "1503067131/1000000000"
+      ]
+    },
+    {
+      "rho": "1/5",
+      "lambda": "199/100",
+      "r": "3/5",
+      "self_cap": "25/17",
+      "leaves": 4,
+      "coefficients_checked": 864,
+      "zero_coefficients": 11,
+      "self_polynomial": [
+        "0",
+        "2/17",
+        "25/17"
+      ]
+    },
+    {
+      "rho": "9/20",
+      "lambda": "199/100",
+      "r": "1/2",
+      "self_cap": "1618033989/1000000000",
+      "leaves": 3,
+      "coefficients_checked": 648,
+      "zero_coefficients": 11,
+      "self_polynomial": [
+        "18033989/640000000",
+        "-854101967/2000000000",
+        "1618033989/1000000000"
+      ]
+    },
+    {
+      "rho": "7/20",
+      "lambda": "197/100",
+      "r": "3/5",
+      "self_cap": "25/17",
+      "leaves": 3,
+      "coefficients_checked": 648,
+      "zero_coefficients": 11,
+      "self_polynomial": [
+        "0",
+        "2/17",
+        "25/17"
+      ]
+    },
+    {
+      "rho": "23/50",
+      "lambda": "2",
+      "r": "19/40",
+      "self_cap": "333069367/200000000",
+      "leaves": 4,
+      "coefficients_checked": 720,
+      "zero_coefficients": 40,
+      "self_polynomial": [
+        "25785245255207/512000000000000",
+        "-92672945713/160000000000",
+        "333069367/200000000"
+      ]
+    },
+    {
+      "rho": "9/20",
+      "lambda": "2",
+      "r": "51/100",
+      "self_cap": "800265569/500000000",
+      "leaves": 3,
+      "coefficients_checked": 540,
+      "zero_coefficients": 40,
+      "self_polynomial": [
+        "1060329227044369/50000000000000000",
+        "-921164945031/2500000000000",
+        "800265569/500000000"
+      ]
+    },
+    {
+      "rho": "91/200",
+      "lambda": "2",
+      "r": "49/100",
+      "self_cap": "1636324261/1000000000",
+      "leaves": 3,
+      "coefficients_checked": 540,
+      "zero_coefficients": 40,
+      "self_polynomial": [
+        "3621800849357061/100000000000000000",
+        "-2434428059339/5000000000000",
+        "1636324261/1000000000"
+      ]
+    },
+    {
+      "rho": "7/20",
+      "lambda": "2",
+      "r": "107/200",
+      "self_cap": "194990491/125000000",
+      "leaves": 2,
+      "coefficients_checked": 360,
+      "zero_coefficients": 40,
+      "self_polynomial": [
+        "1649751875794091/200000000000000000",
+        "-567173508541/2500000000000",
+        "194990491/125000000"
+      ]
+    },
+    {
+      "rho": "1/5",
+      "lambda": "2",
+      "r": "113/200",
+      "self_cap": "379109559/250000000",
+      "leaves": 1,
+      "coefficients_checked": 180,
+      "zero_coefficients": 40,
+      "self_polynomial": [
+        "276104234503799/400000000000000000",
+        "-323532401129/5000000000000",
+        "379109559/250000000"
+      ]
+    }
+  ],
+  "coefficients_checked": 8280,
+  "leaves": 41,
+  "corruptions_rejected": 4,
+  "seconds": 0.943819522857666
+}

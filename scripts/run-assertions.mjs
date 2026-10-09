@@ -634,6 +634,10 @@ const DATA_MODULES = [
   // the global problem given PT); re-tune ceiling 0.874957 heuristic; open lever = Prop 15.2 P_a^{1/6} exceptional term.
   // PT Lambda <= 0.2 stands; NO QED. Import-free.
   '/src/data/beat-seven-eighths-2026-10-08.js',
+  // beat78-prop152 (2026-10-09): three strategies (subtract, Holder, row restriction) against the Prop 15.2 P_a^{1/6}
+  // exceptional term of the 7/8 paper; two referees each, none refuted. No theta' < 7/8; no endpoint certificate; no
+  // conditional Lambda. PT Lambda <= 0.2 stands; NO QED. Import-free.
+  '/src/data/beat78-prop152-2026-10-09.js',
   // qrh-theta-and-improvement (2026-10-08): conditional Lambda(theta) at PT height (Raymond chain 14 thetas, route-P at
   // 7/8, 0.85, 0.80; referee T1-T7) + two attempts to improve the 7/8 half-plane (no rigorous gain; re-tune ~4.3e-5 model;
   // 34999/40000 closing arithmetic certified, conditional, kept out of the pipeline; barriers 167/192, 13/15). PT Lambda <= 0.2

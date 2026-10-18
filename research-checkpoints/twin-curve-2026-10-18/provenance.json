@@ -25,6 +25,30 @@
       "source_sha256": "ca1a04bb52a2fd0cd0645034ad919bb178cf7c82572aa54cce75ab0f550d47ea",
       "release_sha256": "774abfae03d3ab15a8db6722737cbfc86cc1941101a58ba632bae64618a6cb02",
       "change": "Review-status wording only; mathematical statements unchanged."
+    },
+    {
+      "file": "harmonic-variance-fixed-prime.md",
+      "source_sha256": "ee49525b742f5f2d04150edc219d36fedf84997b79defbcfcfc43131aed67c93",
+      "release_sha256": "1c3f30b9e13d156a74d19882fe6ccc356d6b57a634e91e28aabb96adca40455e",
+      "change": "Review-status wording only; mathematical statements unchanged."
+    },
+    {
+      "file": "poisson-prime-tail-energy.md",
+      "source_sha256": "c90c5db9a78441b080214ef727fec4644eb496b8979f799452c797e678cef879",
+      "release_sha256": "6485cc634246ee5e8d71835751a149ce2910338a7b14f9c5ee4e4bf1bc614ca9",
+      "change": "Review-status wording only; mathematical statements unchanged."
+    },
+    {
+      "file": "smooth-density-tail-payment.md",
+      "source_sha256": "3f6a2ecef6c07706e59a43ef7513ceeb8d56b2e44e76ab3f5d0e933f6156552a",
+      "release_sha256": "9143bf2b9e023f662e18da726efaed4ccff4411c3ed0a1c5052731f903a4666c",
+      "change": "Review-status wording only; mathematical statements unchanged."
+    },
+    {
+      "file": "sharp-moment-discrepancy-budget.md",
+      "source_sha256": "1e01577fbda397de6a6c1e671797b3ea01f43182b6ca4a52af20cfafcd9a0a0b",
+      "release_sha256": "45d0339a893e59c3a96ef9c3335408032ec5c7249da293d278aa23097b16fb68",
+      "change": "Review-status wording only; mathematical statements unchanged."
     }
   ],
   "reviews": [
@@ -43,6 +67,22 @@
     {
       "source": "twin-reflection-clipping.md",
       "review_sha256": "7c853f09bf51b835e692a5764919eb76be6289eff12b3968ef117aaeecb99f6f"
+    },
+    {
+      "source": "harmonic-variance-fixed-prime.md",
+      "review_sha256": "256f2b0dcc827f31f48bdaa39d8efd58c4eb61689c55e9b7bda3c1784d2f5a1a"
+    },
+    {
+      "source": "poisson-prime-tail-energy.md",
+      "review_sha256": "256f2b0dcc827f31f48bdaa39d8efd58c4eb61689c55e9b7bda3c1784d2f5a1a"
+    },
+    {
+      "source": "smooth-density-tail-payment.md",
+      "review_sha256": "256f2b0dcc827f31f48bdaa39d8efd58c4eb61689c55e9b7bda3c1784d2f5a1a"
+    },
+    {
+      "source": "sharp-moment-discrepancy-budget.md",
+      "review_sha256": "256f2b0dcc827f31f48bdaa39d8efd58c4eb61689c55e9b7bda3c1784d2f5a1a"
     }
   ]
 }

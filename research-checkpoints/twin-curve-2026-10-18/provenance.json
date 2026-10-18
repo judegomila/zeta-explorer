@@ -1,0 +1,38 @@
+{
+  "date": "2026-10-18",
+  "status": "Internally reviewed research lemmas; no all-height curve or RH proof",
+  "files": [
+    {
+      "file": "one-sided-euler-harmonic-criterion.md",
+      "source_sha256": "3367170b3c77789d95e1ba28a4bf1f62a83cd9346a817deea77d518bd13be986",
+      "release_sha256": "56b270a5c05f7ebed941c25d4b421cbe2b6710f5ff70135482afd1c9b1b32ae4",
+      "change": "Editorial provenance/status clarification only; mathematical statements unchanged."
+    },
+    {
+      "file": "pointwise-prime-input-scope.md",
+      "source_sha256": "aab16faf5e926f3d087d789d948aa5c876448aacedff9f5862dc3c1e5af918ce",
+      "release_sha256": "aab16faf5e926f3d087d789d948aa5c876448aacedff9f5862dc3c1e5af918ce",
+      "change": "Editorial provenance/status clarification only; mathematical statements unchanged."
+    },
+    {
+      "file": "gaussian-carrier-localization.md",
+      "source_sha256": "5b362f04336e1f1c0b6d92fc3c8adbd58023b35fde44bcf436036ed8df1504df",
+      "release_sha256": "33184bc23620c1de84bb3d06a3e5b1dc4f63c0705cccf4598ead58a9958b463d",
+      "change": "Editorial provenance/status clarification only; mathematical statements unchanged."
+    }
+  ],
+  "reviews": [
+    {
+      "source": "one-sided-euler-harmonic-criterion.md",
+      "review_sha256": "4acc3f89f463e6b0481284fa4f83635b4eb788373b40c61e4f94a3cbf6905541"
+    },
+    {
+      "source": "gaussian-carrier-localization.md",
+      "review_sha256": "92c0b51ad96c84375d696e1ff007bd2df7d278f8417dbc78b4b3def882d86948"
+    },
+    {
+      "source": "pointwise-prime-input-scope.md",
+      "review_sha256": "525a66550e81e052c487f21be5ec7598c6e58548200daed255e85be555ab9628"
+    }
+  ]
+}

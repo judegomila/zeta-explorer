@@ -16,6 +16,8 @@ The classical zero-free region near real part 1 does not automatically transfer 
 2. [Pointwise prime-input scope](pointwise-prime-input-scope.md): a primary-source actual-prime theorem has the needed carrier range but does not provide enough saving when used separately on fixed-power prime blocks. This is a limitation of that application, not a lower bound on actual primes.
 3. [Gaussian carrier localization](gaussian-carrier-localization.md): exact square-completion identities show why broad positive Gaussian smoothing limits amplification of an off-line zero. Complex demodulation preserves the signal but returns a narrower version of the difficult prime packet.
 
+4. [Twin reflection and clipping](twin-reflection-clipping.md): reflecting an oriented shift reciprocates the completed ratio; clipping retains excursions, and consistent deterministic completion leaves the original residual unchanged.
+
 ## What is proved here
 
 - The original Euler-product method can ask for a one-sided complete fixed-coefficient prime sum, rather than a family of stronger arbitrary block/endpoint estimates.
@@ -36,4 +38,4 @@ An eventual proof must give effective constants and onset, cover every carrier a
 
 The research direction is Jude Gomila's twin-ladder/reflected-curve proposal. The Euler-product transfer is developed in the context of the OpenAI quasi-RH framework; its earlier exponent input is deliberately retained as a hypothesis here. Standard ingredients include Euler products, the maximum principle and harmonic measure, Gaussian Fourier transforms, and the primary-source pointwise estimate cited in the second note. The current algebraic reductions and scope checks were developed with OpenAI assistance and checked in separate internal mathematical reviews. They have not undergone external peer review.
 
-`provenance.json` binds the three reviewed source versions to these release copies. Changes in the copies only clarify provenance and review status; the mathematical content is unchanged. `SHA256SUMS` binds the released documentation. No application code, deployment, historical proof package, or existing branch is changed by this addition.
+`provenance.json` binds the four reviewed source versions to these release copies. Changes in the copies only clarify provenance and review status; the mathematical content is unchanged. `SHA256SUMS` binds the released documentation. No application code, deployment, historical proof package, or existing branch is changed by this addition.

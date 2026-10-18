@@ -49,6 +49,30 @@
       "source_sha256": "1e01577fbda397de6a6c1e671797b3ea01f43182b6ca4a52af20cfafcd9a0a0b",
       "release_sha256": "45d0339a893e59c3a96ef9c3335408032ec5c7249da293d278aa23097b16fb68",
       "change": "Review-status wording only; mathematical statements unchanged."
+    },
+    {
+      "file": "good-height-moments-and-gaps.md",
+      "source_sha256": "dd1d14be3ffa580c9d42e812c372900f2d8e5473ee524c8561bb7f38f986aae9",
+      "release_sha256": "131ac2aad9cc75c740fda5beabf240b6d742ec6b0603e612dde58f3b615f34f5",
+      "change": "Review-status wording only; mathematical statements unchanged."
+    },
+    {
+      "file": "poisson-anchor-propagation.md",
+      "source_sha256": "6373a80444d11922866db332d3da0d2614269dc210c3c181df8b4e8a458083ca",
+      "release_sha256": "9a62586b561909b78e6d60d055ea9aa4b1e1ba68863be908693e919d130be37b",
+      "change": "Review-status wording only; mathematical statements unchanged."
+    },
+    {
+      "file": "global-measure-anchor-cost.md",
+      "source_sha256": "90532b5e50636c1f3e4bd37fade1c4e6ecc0500d77a1dd07676c621da99a994e",
+      "release_sha256": "90532b5e50636c1f3e4bd37fade1c4e6ecc0500d77a1dd07676c621da99a994e",
+      "change": "Review-status wording only; mathematical statements unchanged."
+    },
+    {
+      "file": "actual-prime-higher-moment-local-cost.md",
+      "source_sha256": "7938cc096a54dbf94d43c94e44202e09beb5ed410fcfb963fdc69f2fc03b4226",
+      "release_sha256": "9c31bb6fd73e605c0d64bbabb9bf3e35f983a7258fbb7a64df78116f26136ee4",
+      "change": "Review-status wording only; mathematical statements unchanged."
     }
   ],
   "reviews": [
@@ -83,6 +107,22 @@
     {
       "source": "sharp-moment-discrepancy-budget.md",
       "review_sha256": "256f2b0dcc827f31f48bdaa39d8efd58c4eb61689c55e9b7bda3c1784d2f5a1a"
+    },
+    {
+      "source": "good-height-moments-and-gaps.md",
+      "review_sha256": "8fbf552c2e44cc3568be8689d30e4040ead88177ad1ac17a489883078db4db28"
+    },
+    {
+      "source": "poisson-anchor-propagation.md",
+      "review_sha256": "da51a8d31fac28cb530c22e16074c19f1b54a45c7e285027cb80c2db06574718"
+    },
+    {
+      "source": "global-measure-anchor-cost.md",
+      "review_sha256": "b1f4552d473224ecdebdcf7b662f0fd8e43e0ceedefdf7f3b9485979d4e981f1"
+    },
+    {
+      "source": "actual-prime-higher-moment-local-cost.md",
+      "review_sha256": "8f817b3223d981517f1beae9baf0087c951a59c0cb2b89776b7e913c4bba338f"
     }
   ]
 }

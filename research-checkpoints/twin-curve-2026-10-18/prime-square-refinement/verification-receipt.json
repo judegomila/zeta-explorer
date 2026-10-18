@@ -1,0 +1,26 @@
+{
+  "date": "2026-10-18",
+  "scope": "Internal mathematical review and exact frozen-source copy verification; no global curve, RH claim, external peer review, or Lean verification",
+  "parent_commit": "03f288a0d0099ab143c4342133d2835fb92717c5",
+  "files": [
+    {
+      "file": "PRIME_SQUARE_JOINT_POISSON_REVIEW_v1.md",
+      "source_sha256": "23286afbd537ddc27d4a60dd9a140ee7fac6423056aa35bd3f44b6c6936dfc16",
+      "release_sha256": "23286afbd537ddc27d4a60dd9a140ee7fac6423056aa35bd3f44b6c6936dfc16",
+      "byte_identical": true
+    },
+    {
+      "file": "ABSOLUTE_SPLIT_CONSTANT_COROLLARY_v1.md",
+      "source_sha256": "9fe018a3643a00b30333c1f0629dd4a5da882d9e5c0519c9aa64daa90c8e44b3",
+      "release_sha256": "9fe018a3643a00b30333c1f0629dd4a5da882d9e5c0519c9aa64daa90c8e44b3",
+      "byte_identical": true
+    },
+    {
+      "file": "INDEPENDENT_REVIEW_PRIME_SQUARE_v1.md",
+      "source_sha256": "a209fcc3dac5f021e8cd7cc1e388b54fbb02f68ff993707568b4b40ac04df9a0",
+      "release_sha256": "a209fcc3dac5f021e8cd7cc1e388b54fbb02f68ff993707568b4b40ac04df9a0",
+      "byte_identical": true
+    }
+  ],
+  "review_verdict": "PASS for both bounded mathematical notes; arithmetic and analytic completion gaps remain open"
+}

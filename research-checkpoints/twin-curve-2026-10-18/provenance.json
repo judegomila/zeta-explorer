@@ -19,6 +19,12 @@
       "source_sha256": "5b362f04336e1f1c0b6d92fc3c8adbd58023b35fde44bcf436036ed8df1504df",
       "release_sha256": "33184bc23620c1de84bb3d06a3e5b1dc4f63c0705cccf4598ead58a9958b463d",
       "change": "Editorial provenance/status clarification only; mathematical statements unchanged."
+    },
+    {
+      "file": "twin-reflection-clipping.md",
+      "source_sha256": "ca1a04bb52a2fd0cd0645034ad919bb178cf7c82572aa54cce75ab0f550d47ea",
+      "release_sha256": "774abfae03d3ab15a8db6722737cbfc86cc1941101a58ba632bae64618a6cb02",
+      "change": "Review-status wording only; mathematical statements unchanged."
     }
   ],
   "reviews": [
@@ -33,6 +39,10 @@
     {
       "source": "pointwise-prime-input-scope.md",
       "review_sha256": "525a66550e81e052c487f21be5ec7598c6e58548200daed255e85be555ab9628"
+    },
+    {
+      "source": "twin-reflection-clipping.md",
+      "review_sha256": "7c853f09bf51b835e692a5764919eb76be6289eff12b3968ef117aaeecb99f6f"
     }
   ]
 }

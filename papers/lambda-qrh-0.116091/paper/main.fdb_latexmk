@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1792443623.89819 "main.aux" "main.bbl" "main" 1792443624.61144 0
+["bibtex main"] 1792451840.21135 "main.aux" "main.bbl" "main" 1792451841.07863 0
   "./refs.bib" 1791580815.52441 8668 7d953c59573ba1b81aae76aaece3ea01 ""
   "/usr/local/texlive/2026/texmf-dist/bibtex/bst/amscls/amsplain.bst" 1513722769 25798 9b3546f2f237ee0ce4724eed95f954f4 ""
-  "main.aux" 1792443624.40191 10506 cfeaf068ff1b5d5cd490e55e2b968f73 "pdflatex"
+  "main.aux" 1792451840.8272 10496 6e32ab4606d6cd8cfebcdfdcd1978f26 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1792443623.97246 "main.tex" "main.pdf" "main" 1792443624.61156 0
+["pdflatex"] 1792451840.32494 "main.tex" "main.pdf" "main" 1792451841.07879 0
   "/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc" 1254269338 2375 baa924870cfb487815765f9094cf3728 ""
   "/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc" 1202520719 3486 c7eadf5dcc57b3b2d11736679f6636ba ""
   "/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc" 1202520719 2405 5dcf2c1b967ee25cc46c58cd52244aed ""
@@ -157,10 +157,10 @@
   "/usr/local/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1785881683 5573038 b99aad5e4898a9034e953632f940512b ""
   "/usr/local/texlive/2026/texmf-var/web2c/pdftex/pdflatex.fmt" 1774209607 3636776 dc5fa9b6b1453b9d196cd42edf876004 ""
   "/usr/local/texlive/2026/texmf.cnf" 1774209515 577 648cd9f92f9c0eac486f4c71c85cfbbe ""
-  "main.aux" 1792443624.40191 10506 cfeaf068ff1b5d5cd490e55e2b968f73 "pdflatex"
-  "main.bbl" 1792443623.97041 6837 43b7f6be83006692841411896f8a2b07 "bibtex main"
-  "main.out" 1792443624.40265 4488 2cb93f25e2ca652b2bd629dadddbeabc "pdflatex"
-  "main.tex" 1792443622.15532 53448 ea84b9b626ac588d5229e33274fe7163 ""
+  "main.aux" 1792451840.8272 10496 6e32ab4606d6cd8cfebcdfdcd1978f26 "pdflatex"
+  "main.bbl" 1792451840.32223 6837 43b7f6be83006692841411896f8a2b07 "bibtex main"
+  "main.out" 1792451840.82811 4425 504968d2db9b2a37dc5be05403383c19 "pdflatex"
+  "main.tex" 1792451774.97963 53871 edfc01866fbed82398ed263ddff57ca7 ""
   (generated)
   "main.aux"
   "main.log"

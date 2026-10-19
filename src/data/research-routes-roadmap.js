@@ -104,7 +104,7 @@ const ROUTE_1_CAMPAIGN = Object.freeze({
   commands: Object.freeze({ monitor: 'tmp/route1-campaign/monitor.sh', drain: 'touch tmp/route1-campaign/STOP', pause: 'touch tmp/route1-campaign/PAUSE',
     hardStop: 'kill $(cat tmp/route1-campaign/sched.pid); pkill -f "r7-full-cert.py tmp/route1-campaign/run"' }),
   note: 'Originals in tmp/r7-full-out/run untouched. Route 5 (measured): with 3 bands, the 125 missing floors at target alone would give 0.144986 < 0.145; with the 281-kernel grid on top, 0.1449666 (measured). Λ < 0.145 is not certified while the campaign runs.',
-  qrhPathNote: '7/8 (openai/math 003 half-plane) path, 2026-10-08 (src/data/qrh-path-push-2026-10-08.js): the route-P single-band consumer re-tuned on the lower barrier path gives the certified conditional value 0.116091488672439 (was 0.117708313410954), conditional on the 003 half-plane, G0, PT and the route-P ledger, not a bound. On that path a v4c/WOL-C floor is worth ≈ 3.2e-6 to first order (best single target), so the campaign floors placed on the strip/band path are not the lever there; the 130 7/8-path P47 targets (tmp/qrh-tune-out/lever3_targets.json) were NOT appended to the running campaign queue.',
+  qrhPathNote: '7/8 (openai/math 003 half-plane) path, 2026-10-08 (src/data/qrh-path-push-2026-10-08.js): the route-P single-band consumer re-tuned on the lower barrier path gives the certified value 0.116091488672439 (was 0.117708313410954), using the 003 zero-free half-plane and G0 (both unrefereed), PT and the route-P ledger; not peer reviewed. On that path a v4c/WOL-C floor is worth ≈ 3.2e-6 to first order (best single target), so the campaign floors placed on the strip/band path are not the lever there; the 130 7/8-path P47 targets (tmp/qrh-tune-out/lever3_targets.json) were NOT appended to the running campaign queue.',
 });
 
 // Recorded outcomes (batch 1, 2026-10-06; batch 2, 2026-10-07; batch 3, 2026-10-08; batch 4, 2026-10-09; batch 5, 2026-10-10; batch 6, 2026-10-11; batch 7, 2026-10-12; batch 8, 2026-10-13; batch 9, 2026-10-14; batch 10, 2026-10-15). One sentence each; details, grades and referee corrections in the module.
@@ -555,7 +555,7 @@ export const RESEARCH_ROUTES_ASSERTIONS = Object.freeze([
       return r.status === 'in progress' && c !== null && c.floors.budgetStopped === 13 && c.floors.missing === 125
         && Object.values(c.floors.missingByFamily).reduce((a, b) => a + b, 0) === c.floors.missing && c.eta.grade === 'heuristic'
         && /not certified/.test(c.note) && /not certified/.test(r.result) && RESEARCH_ROUTES.filter((x) => x.campaign !== null).length === 1
-        && /conditional/.test(c.qrhPathNote) && /not a bound/.test(c.qrhPathNote) && /NOT appended/.test(c.qrhPathNote); },
+        && /unrefereed/.test(c.qrhPathNote) && /not peer reviewed/.test(c.qrhPathNote) && /NOT appended/.test(c.qrhPathNote); },
     why: 'Route 1 is in progress with one recorded campaign: 13 budget-stopped + 125 missing floors (47 + 32 + 29 + 17), heuristic ETA, Λ < 0.145 not certified.',
   },
   {

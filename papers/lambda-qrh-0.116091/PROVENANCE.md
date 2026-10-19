@@ -1,6 +1,6 @@
 # Provenance
 
-Generated 2026-10-19 14:00 (local time) with `shasum -a 256` by `papers/lambda-qrh-0.116091/tools/make_provenance.py`, on branch `editorial-redesign` at commit `b9af09d95a03d391235d7e05a74ac9e31d3cbbbe`. Paths are relative to the repository root unless they start with `/`.
+Generated 2026-10-19 16:19 (local time) with `shasum -a 256` by `papers/lambda-qrh-0.116091/tools/make_provenance.py`, on branch `editorial-redesign` at commit `c7f535516cc96880b9469b0854fb177df9b7be3a`. Paths are relative to the repository root unless they start with `/`.
 
 To re-check one group, copy its block into a file and run `shasum -a 256 -c FILE` from the repository root.
 
@@ -19,21 +19,21 @@ External pins recorded elsewhere and not re-hashed here:
 
 Hashed after the last edit of each file. `PROVENANCE.md` itself is not listed.
 
-Git status: 10 tracked, 3 tracked, modified.
+Git status: 3 tracked, 10 tracked, modified.
 
 ```
-3596073155b1abe5fc01fb5f5353133054ea7d5da619c4768df0e067548b2ab1  papers/lambda-qrh-0.116091/README.md
-ccf908ed32449cb62a06b9ad119869b1169ad6052459448bb5a303c9171cdfcf  papers/lambda-qrh-0.116091/PROOF_NOTE.md
-155b7ebec2d17099b5d50b403463474691cf65a7e1254565cdf5a49f7acf9088  papers/lambda-qrh-0.116091/PARAMETERS.md
-243e35fc61c20e9b8410f8e4cee5706fc0d4d4596bb30dcde05e1080f0402d36  papers/lambda-qrh-0.116091/DEPENDENCIES.md
-b9929fa67945ffd92020876a57e6b3c1fd50e8a66763bb3f44150e1a44e0029b  papers/lambda-qrh-0.116091/LEAN.md
-c815bb7620204983c548109d4b227e75bd2579077919a44c525d62da1ed68b2b  papers/lambda-qrh-0.116091/OPEN_REVIEW_QUESTIONS.md
+2c14264087aaa724c440b175a8c8117a760a0378197178f6ec1c2c8d1ecd75a6  papers/lambda-qrh-0.116091/README.md
+4c6501c6a809a16342369b07e981117de20b61bebb67249f8496e43a1e140446  papers/lambda-qrh-0.116091/PROOF_NOTE.md
+22eca3e3e0d01b330426f1326ba010253f2e1a5456e3f01e2e0256dba271c5cb  papers/lambda-qrh-0.116091/PARAMETERS.md
+686eda58c62a0eed16b8f99ed58e21f52a4bf77769c33006f58fcc750fa9236e  papers/lambda-qrh-0.116091/DEPENDENCIES.md
+176e39199219b9916c1b0cb20205cf402619630b826083e683683cd6a4bfb621  papers/lambda-qrh-0.116091/LEAN.md
+2ed0af9f70b4819df2815afdf6ed595b649fbf428828c49165a1327711548f2b  papers/lambda-qrh-0.116091/OPEN_REVIEW_QUESTIONS.md
 38dd0d70964cf80342f8838dd100d0a17053dc7f15a133dc6181eab52d724c08  papers/lambda-qrh-0.116091/BIBLIOGRAPHY.md
-f07e32d08f874da218c38946089e11af61afae2f2c9c13621bb48452c29747f8  papers/lambda-qrh-0.116091/CITATION.md
-eaf16fb1d178b07b208bb6acb457d1763a7c0864af1dc28e7bc70ff50381b7e1  papers/lambda-qrh-0.116091/paper/main.tex
+64417c3cac8f25fdbd21aaa001c33c86ee6e56eeb210331dbacb044a040e11a2  papers/lambda-qrh-0.116091/CITATION.md
+314706042f15b7750173d73b6cc2dadd94f60eabe2fa49ec8022f63ed2b535f5  papers/lambda-qrh-0.116091/paper/main.tex
 17136dd7fc2af55c4b681a6bf8f6a91a471ca7adf3b8ed3285f2931283dd58ec  papers/lambda-qrh-0.116091/paper/refs.bib
-2e4a13c592112d628995cdb4c8e2ad8e9038710da96be5362462b64bece228df  papers/lambda-qrh-0.116091/paper/main.pdf
-2e4a13c592112d628995cdb4c8e2ad8e9038710da96be5362462b64bece228df  papers/lambda-qrh-0.116091/lambda-qrh-0.116091-draft.pdf
+e4dc1810d9b7c75f0cc9331af8fd2d50c4b1b5740e4ac203dc940429c309b947  papers/lambda-qrh-0.116091/paper/main.pdf
+e4dc1810d9b7c75f0cc9331af8fd2d50c4b1b5740e4ac203dc940429c309b947  papers/lambda-qrh-0.116091/lambda-qrh-0.116091-draft.pdf
 50865447d5624fe1371b1a867150acb61de95ff096633f93e1bbc8a90f98c3e5  papers/lambda-qrh-0.116091/tools/make_provenance.py
 ```
 
@@ -41,7 +41,7 @@ eaf16fb1d178b07b208bb6acb457d1763a7c0864af1dc28e7bc70ff50381b7e1  papers/lambda-
 
 Source of the numbers in `PARAMETERS.md` and of the status statements.
 
-Git status: 10 tracked.
+Git status: 8 tracked, 2 tracked, modified.
 
 ```
 cd5e122d020c2245a88b66ca8442691be925d3b4eef9e6967f1bd74680fa79f6  src/data/qrh-path-push-2026-10-08.js
@@ -50,10 +50,10 @@ c49b184b4e397836fd0f08c7d85ae87e6e93f90c5f059a5c07380d35f637854e  src/data/qrh-t
 7ae43f4919d2ec627350bc0679bd39cb92d457c156b5511622b7715d7e963b85  src/data/beat-seven-eighths-2026-10-08.js
 e00eb58257fe13db0cd315dfcd094c8c89e322f44f446e4deab376eddc9c526a  src/data/beat78-prop152-2026-10-09.js
 52eebb227818558b7ae84a9799cdbe1096372f7d0172f6cfa4aacae7ebc2a146  src/data/lambda-levers-combined-2026-10-09.js
-e23ff1f245a371ea49e50af120abd702065fc54e842ae9c33cde7083612acc30  src/data/qrh-lambda-lean-2026-10-09.js
+c22f592fd28e8e5d499d6f6c53aafae6c004a1b2a22db1da79d77996c0c29e9e  src/data/qrh-lambda-lean-2026-10-09.js
 90cd9e596bc876a30720c32301ea52301283262e1f75a811cf388407e7cbc15c  src/data/r2-structured-floor-2026-10-02.js
 8dad4d26ecc2812bca15a5b57e95988bd032bac5cc9ab65b951f4e4d3029d2d0  src/data/r5-synthesis-2026-10-05.js
-f31438f031b8b95cb6871b19675cfb2dd51f7f723aa0cf02c1b5eade4ac38197  src/pages/LambdaQrhConditionalPage.jsx
+1284ed1cce32f7b5dc40d64a7584b684720f1718ef1429bec74f4b00d3aef5a5  src/pages/LambdaQrhConditionalPage.jsx
 ```
 
 ## Internal write-ups

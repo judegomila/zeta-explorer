@@ -1024,9 +1024,9 @@ const NODES = [
     'Route 48: phase retrieval for ζ — |ζ| on the line fixes ζ up to independent off-line flips; FE + reality ⇒ ±ξ',
     'One line, no symmetry: G = e^{iα + λ(s − 1/2)} ξ ∏_S B̃_ρ(s)/B̃_ρ(1/2) (9 configurations per off-line quadruple); FE or reality alone fails; two lines (Poisson–Jensen) locate every zero with β > 1/2 without the FE (DH: 8 off-line zeros below 400); BSY decides RH with 2δ/γ² sensitivity; Hilbert phase defect on the line ≲ 1.48e-12·t for t ≪ 3e12. The pointwise Hilbert-transform wall = arg B from zeros above the verified height. PT Λ ≤ 0.2 stands; NO QED.',
     'src/data/route-48-phase-retrieval-zeta-2026-10-15.js; tmp/routes-b10-r48-*, tmp/routes-b10-ref48-*', '2026-10-15', '/routes-roadmap'),
-  N('fifty-routes-synthesis', 'novel-routes', 'result', 'measured', 'synthesis (assessment) of the 50 route results, each with one internal referee pass and no external review: 43 done, 6 partial, 1 in progress, 0 blocked; Λ values conditional on the route-P ledger and G0 (0.116091488672439 also on the 7/8 half-plane, not a bound); no Λ change',
+  N('fifty-routes-synthesis', 'novel-routes', 'result', 'measured', 'synthesis (assessment) of the 50 route results, each with one internal referee pass and no external review: 43 done, 6 partial, 1 in progress, 0 blocked; Λ values depend on the route-P ledger and G0 (0.116091488672439 also on the 7/8 half-plane); not peer reviewed; no Λ change',
     'Fifty-routes campaign synthesis: status of 50 routes, Λ ledger, structural map, ranked next steps',
-    'Unconditional-on-QRH best 0.145276368594868 (route P + campaign + routes 3 and 5, certified relative to the ledger; Λ < 0.145 not certified); conditional-on-QRH best 0.116091488672439. 22 routes reduce to a known wall (verified height 9, RH-equivalence 8, pointwise 6, flow-blindness 3), others to Euler-blindness or method caps; 18 routes produced new objects graded internal. Binding premise of both values: G0 external referee. PT Λ ≤ 0.2 stands; NO QED.',
+    'Best without the half-plane 0.145276368594868 (route P + campaign + routes 3 and 5, certified relative to the ledger; Λ < 0.145 not certified); best with the 7/8 zero-free half-plane 0.116091488672439 (not peer reviewed). 22 routes reduce to a known wall (verified height 9, RH-equivalence 8, pointwise 6, flow-blindness 3), others to Euler-blindness or method caps; 18 routes produced new objects graded internal. Binding premise of both values: G0 external referee. PT Λ ≤ 0.2 stands; NO QED.',
     'src/data/fifty-routes-synthesis-2026-10-15.js; formalization/routes/fifty-routes-synthesis-2026-10-15.md', '2026-10-15', '/routes-roadmap'),
   // ── openai/math integration (2026-10-08; src/data/openai-math-integration-2026-10-08.js) ──
   N('oai-qrh-lean-check', 'barrier', 'formalization', 'external', 'external claim (internal OpenAI model, openai/math family 003), Lean-formalized; Lean proof re-built locally (lake build, #print axioms, statement match by hand); official comparator and independent kernel check not run; not peer-reviewed',
@@ -1037,8 +1037,8 @@ const NODES = [
     'Half-plane start for decreasing-barrier chains: Raymond 0.118505710922701, route P 0.117708313410954 (conditional)',
     'Under Re s > 7/8 every zero of H_0 has |Im z| ≤ 3/4, so the barrier starts at q0 = 9/16 + 2e-6 instead of q0 > 1. Raymond’s chain at PT height: 0.118505710922701 (alternate log bound 0.118505710922702; strip control reproduces 0.149395073827688); route-P single band: 0.117708313410954 (referee step verifier, 60,267 substeps, 0 failures). 11/12: 0.129826438865344 / 0.128829131217197. The start does −0.0309 of the work; route-P levers add −0.0008. De Bruijn alone: 9/32; fixed-t0 bounds do not move. PT Λ ≤ 0.2 stands; NO QED.',
     'src/data/openai-math-integration-2026-10-08.js; tmp/oai-lambda-*, tmp/oai-lambda-ref-*', '2026-10-07', '/routes-roadmap'),
-  N('qrh-path-retune', 'barrier', 'certificate', 'conditional', 'conditional on the 003 half-plane (Lean-checked locally, not peer-reviewed), G0 (internal review only), PT and the route-P ledger; certified exact run, extended verifier and an independent from-scratch verifier 0 failures; one adversarial internal referee pass (not refuted, minor; corrections R1–R5 applied); a conditional value, not a bound',
-    'QRH path re-tune: route-P single band on the 7/8 path, 0.116091488672439 (conditional)',
+  N('qrh-path-retune', 'barrier', 'certificate', 'conditional', 'computer-assisted upper bound from the 003 zero-free half-plane (Lean proof rebuilt locally, standard axioms; not refereed) and G0 (Raymond, unrefereed; internal review only), with PT and the route-P ledger; certified exact run, extended verifier and an independent from-scratch verifier 0 failures; one adversarial internal referee pass (not refuted, minor; corrections R1–R5 applied); not peer reviewed; PT Λ ≤ 0.2 remains the accepted bound',
+    'QRH path re-tune: route-P single band on the 7/8 path, 0.116091488672439 (zero-free half-plane; not peer reviewed)',
     'Re-tuning the route-P single-band consumer on the 7/8 barrier path gives 116091488672439/10^15 = 0.116091488672439 (was 0.117708313410954; exact ladder −1.616824738515e-3; 59,439 substeps, terminal cell 464). Heights lowered to the producer moment-cap limit in cells 0–250 give 74% of the gain, route-9 tables 24.5%, 79 new r = 3/5 kernels 1.2%. Multi-band layouts proved not to help. 0.002414 below Raymond\'s chain with the same start. PT Λ ≤ 0.2 stands; NO QED.',
     'src/data/qrh-path-push-2026-10-08.js; tmp/qrh-tune-*, tmp/qrh-ref-*', '2026-10-07', '/routes-roadmap'),
   N('qrh-g0-review-ab', 'barrier', 'audit', 'measured', 'internal review (two passes, A and B): no ERROR; expository GAPs with written fixes (Lemma W, Lemma S(θ), Lemma FB(θ)); 7/8 start swap valid conditional on 003; not an external review',
@@ -1709,8 +1709,8 @@ const RAW_EDGES = [
   ['route48-phase-retrieval', 'twin-dh-euler-blindness', 'uses', 'DH test case: two-line detector locates 8 off-line zeros below 400'],
   ['route48-phase-retrieval', 'oai-qrh-lean-check', 'uses', 'conditional: Hilbert transform exact on every line σ ≥ 7/8'],
   ['fifty-routes-synthesis', 'routes-novel-roadmap', 'feeds', 'the fifty-routes campaign mapped; open next steps ranked'],
-  ['fifty-routes-synthesis', 'lambda-levers-joint', 'uses', 'unconditional-on-QRH best 0.145276368594868 (route P + campaign + routes 3, 5)'],
-  ['fifty-routes-synthesis', 'qrh-path-retune', 'uses', 'conditional-on-QRH best 0.116091488672439 (not a bound)'],
+  ['fifty-routes-synthesis', 'lambda-levers-joint', 'uses', 'best without the half-plane 0.145276368594868 (route P + campaign + routes 3, 5)'],
+  ['fifty-routes-synthesis', 'qrh-path-retune', 'uses', 'best with the 7/8 zero-free half-plane 0.116091488672439 (not peer reviewed)'],
   ['fifty-routes-synthesis', 'b145-raymond-referee', 'blocked-by', 'G0 external referee is the binding premise of both values'],
   ['fifty-routes-synthesis', 'wall-verification-height', 'feeds', 'nine routes reduce to the verified-height wall'],
   ['route44-euler-detection-depth', 'fifty-routes-synthesis', 'feeds'],
@@ -2235,7 +2235,7 @@ export const PROJECT_ATTEMPTS_DAG_ASSERTIONS = Object.freeze([
       return ids.every((id) => g(id)) && r44.statusKind === 'certified' && /Euler-blind/.test(r44.status) && /censoring-biased/.test(r44.status)
         && r45.statusKind === 'measured' && /MAJOR/.test(r45.status) && /nothing certified/.test(r45.status)
         && r47.statusKind === 'measured' && /WOL-C NOT proved/.test(r47.status) && /classical-standard/.test(r48.status) && /not proved/.test(r48.status)
-        && syn.statusKind === 'measured' && /not a bound/.test(syn.status) && /0\.116091488672439/.test(syn.summary) && /0\.145276368594868/.test(syn.summary)
+        && syn.statusKind === 'measured' && /not peer reviewed/.test(syn.status) && /0\.116091488672439/.test(syn.summary) && /0\.145276368594868/.test(syn.summary)
         && ids.map(g).every((x) => /PT Λ ≤ 0\.2 stands/.test(x.summary) && /NO QED/.test(x.summary) && x.route === '/routes-roadmap' && x.date === '2026-10-15'
           && /no Λ change/.test(x.status))
         && has('route44-euler-detection-depth', 'route15-epstein-euler-blindness', 'feeds') && has('route45-chaos-source-tails', 'route46-kronecker-floors', 'uses')
@@ -2261,13 +2261,13 @@ export const PROJECT_ATTEMPTS_DAG_ASSERTIONS = Object.freeze([
   },
   {
     id: 'project-qrh-path-push',
-    name: 'QRH path push (2026-10-08): re-tuned 7/8 route-P value 0.116091488672439 is conditional, not a bound, and blocked by the G0 external referee; G0 review A/B internal; PT Λ ≤ 0.2 / no QED',
-    why: 'no false QED; never present a conditional Λ as a bound; an internal review is not an external referee',
+    name: 'QRH path push (2026-10-08): re-tuned 7/8 route-P value 0.116091488672439 depends on the unrefereed half-plane and G0, is not peer reviewed, and is blocked by the G0 external referee; G0 review A/B internal; PT Λ ≤ 0.2 / no QED',
+    why: 'no false QED; state the unrefereed inputs and the not-peer-reviewed status of the Λ value; an internal review is not an external referee',
     holds: () => {
       const g = (id) => NODES.find((x) => x.id === id);
       const has = (f, t, type) => EDGES.some((x) => x.from === f && x.to === t && x.type === type);
       const [rt, rv] = ['qrh-path-retune', 'qrh-g0-review-ab'].map(g);
-      return !!rt && !!rv && rt.statusKind === 'conditional' && /not a bound/.test(rt.status) && /G0/.test(rt.status) && /0\.116091488672439/.test(rt.label)
+      return !!rt && !!rv && rt.statusKind === 'conditional' && /not peer reviewed/.test(rt.status) && /unrefereed/.test(rt.status) && /G0/.test(rt.status) && /0\.116091488672439/.test(rt.label)
         && rv.statusKind === 'measured' && /not an external review/.test(rv.status)
         && [rt, rv].every((x) => /PT Λ ≤ 0\.2 stands/.test(x.summary) && /NO QED/.test(x.summary))
         && has('oai-qrh-start-lambda', 'qrh-path-retune', 'feeds') && has('qrh-path-retune', 'b145-raymond-referee', 'blocked-by')

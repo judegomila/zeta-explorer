@@ -2456,7 +2456,8 @@ function AppShell() {
           <Route path="/state-of-field" element={<StateOfFieldPage />} />
           <Route path="/permutation-architecture" element={<PermutationArchitecturePage />} />
           <Route path="/lambda-01758354-candidate" element={<LambdaCandidate01758354Page />} />
-          <Route path="/lambda-qrh-conditional" element={<LambdaQrhConditionalPage />} />
+          <Route path="/lambda-0116091" element={<LambdaQrhConditionalPage />} />
+          <Route path="/lambda-qrh-conditional" element={<Navigate to="/lambda-0116091" replace />} />
           <Route path="/autonomous-fleet" element={<AutonomousFleetPage />} />
           <Route path="/critical-line-proportion" element={<CriticalLineProportionPage />} />
           <Route path="/oscillators" element={<OscillatorsPage />} />

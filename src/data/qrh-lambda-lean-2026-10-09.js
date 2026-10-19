@@ -28,7 +28,7 @@ export const QRH_LAMBDA_LEAN = Object.freeze({
   title: 'Lean check of the conditional QRH values Λ ≤ 0.116091488672439 (F2) and Λ ≤ 0.118505710922701 (Raymond chain, 7/8 start)',
   status: 'done',
   parent: 'src/data/qrh-path-push-2026-10-08.js',
-  page: '/lambda-qrh-conditional',
+  page: '/lambda-0116091',
   package: PKG,
   headline: 'The conditional QRH values now have a Lean check. Lean proves Λ ≤ 116091488672439/10^15 (F2) and Λ ≤ 118505710922701/10^15 '
     + '(Raymond\'s chain alone) for LeanCert\'s de Bruijn–Newman constant of the concrete H_t, assuming three analytic hypotheses about H_t '

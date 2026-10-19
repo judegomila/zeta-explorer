@@ -5,7 +5,8 @@ exact terminating expansions of the stated rationals or are marked as
 rounded summaries. The source of each number is given in the last column or
 in the paragraph above the table; paths are relative to the repository root.
 
-Status: the values in this file are **conditional** (see `DEPENDENCIES.md`).
+Status: the values in this file depend on the inputs (H1)–(H4) listed in
+`DEPENDENCIES.md`; two of them are unrefereed and none of the values is peer reviewed.
 The accepted peer-reviewed bound is Platt–Trudgian's `Λ ≤ 0.2`. RH is open.
 
 ## 1. Fixed data of Raymond's chain
@@ -201,7 +202,7 @@ separate openai/math write-up (5 October 2026, "alternate 11/12 proof").
 The Raymond 11/12 run uses the AF Part II sharp mode on part of its path; value (i)
 does not.
 
-## 7. Ladder of conditional values at the Platt–Trudgian height
+## 7. Ladder of values at the Platt–Trudgian height
 
 | chain and start | exact | decimal | conditions |
 |---|---|---|---|
@@ -258,7 +259,7 @@ chain or θ ≈ 0.82 with route P (linear interpolation); with the AF Part II sh
 law disabled, the values at θ ∈ {43/50, 17/20, 4/5, 3/4} rise by at most
 2.9·10⁻⁷.
 
-Raymond's chain at 7/8 with unverified heights (measured, not conditional
+Raymond's chain at 7/8 with unverified heights (measured values, not
 bounds, since no RH verification exists at these heights): 10X
 0.112235848057212, 100X 0.107056451546934, 1000X 0.102615591280579
 (`tmp/oai-lambda-out/summary.json`). At the Platt–Trudgian height, θ = 0.8535

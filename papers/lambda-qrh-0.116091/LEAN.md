@@ -7,8 +7,8 @@ none. No `sorry`, no `native_decide`, no `axiom` declarations.
 
 What Lean establishes is the deduction: from the named hypotheses below, the two
 values follow, with every arithmetic step of both runs re-done by the kernel. The
-hypotheses themselves are not Lean-checked, so the Lean theorems are conditional in
-the same way as the paper.
+hypotheses themselves are not Lean-checked, so the Lean theorems depend on the same
+inputs as the paper.
 
 | piece | Lean status | where |
 |---|---|---|
@@ -94,7 +94,7 @@ contraction (`H_forward_strip`) and the threshold characterisation
 `(∀ z, H t z = 0 → z.im = 0) ↔ Lambda ≤ t` (`real_zeros_iff_Lambda_le`), all proved
 in LeanCert.
 
-## 3. qrh-lambda: the conditional values as Lean theorems
+## 3. qrh-lambda: the two values as Lean theorems from named hypotheses
 
 Package `formalization/lean/qrh-lambda` (2026-10-09; commits `fc8b67cd4` and
 `6c1ef30d4` on branch `editorial-redesign`). Axiom outputs: `axioms-output.txt`

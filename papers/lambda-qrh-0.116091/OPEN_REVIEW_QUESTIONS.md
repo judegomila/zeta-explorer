@@ -4,8 +4,12 @@ These are the questions on which an external referee is asked to make an
 independent judgment. An adverse answer to a load-bearing question can remove
 value (ii), value (i), or both.
 
-Status: **conditional result, draft, not submitted, not peer reviewed.** The
-accepted bound is Platt–Trudgian's `Λ ≤ 0.2`. RH is open.
+Status: computer-assisted upper bound depending on two unrefereed results (the
+zero-free half-plane `Re s > 7/8`, openai/math family 003, and D. J. Raymond's
+decreasing-barrier construction, Zenodo 10.5281/zenodo.22867547) and, for 0.116091,
+on this project's internal certificates (0.118506 without them). Draft, not
+submitted, not yet peer reviewed. The accepted peer-reviewed bound remains
+Platt–Trudgian's `Λ ≤ 0.2`. RH is open.
 
 Internal labels used in the project's records, for orientation: G0 = Raymond's
 analytic chain as a whole; G0-a = Lemma CG; G0-c = Raymond's main-paper joint-floor
@@ -144,5 +148,5 @@ After auditing the components, please state:
 4. whether any check is circular with the claim it supports;
 5. whether a correction is local or removes a value.
 
-Until such a review exists, the values are conditional statements of this draft,
+Until such a review exists, the values are unreviewed statements of this draft,
 not accepted results.

@@ -1,8 +1,16 @@
-# A conditional upper bound for the de Bruijn–Newman constant from a zero-free half-plane
+# An upper bound for the de Bruijn–Newman constant from a zero-free half-plane
 
-> **Status.** Draft, 9 October 2026. Not submitted, not published, not peer
-> reviewed. The result is **conditional**: `Λ ≤ 116091488672439/10¹⁵ =
-> 0.116091488672439` at the Platt–Trudgian verified height, assuming
+> **Status.** A computer-assisted upper bound. It depends on two recent results that have not
+> been refereed: the zero-free half-plane `Re s > 7/8` (openai/math family 003, whose
+> Lean proof was rebuilt here with standard axioms only) and D. J. Raymond's
+> decreasing-barrier construction (Zenodo 10.5281/zenodo.22867547). The value
+> 0.116091 also uses this project's internal floor and kernel certificates; without
+> them the same argument gives 0.118506. Not yet peer reviewed. The accepted
+> peer-reviewed bound remains `Λ ≤ 0.2` (Platt–Trudgian). RH is open.
+>
+> Draft, 9 October 2026; not submitted, not published. Theorem 1.1 gives
+> `Λ ≤ 116091488672439/10¹⁵ =
+> 0.116091488672439` at the Platt–Trudgian verified height from
 > (1) `ζ(s) ≠ 0` for `Re s > 7/8` (openai/math family 003; Lean proof rebuilt
 > locally, standard axioms only; not peer reviewed),
 > (2) D. J. Raymond's decreasing-barrier analytic chain (Zenodo
@@ -10,8 +18,8 @@
 > (3) Platt–Trudgian's verification of RH to height 3000175332800 (peer reviewed),
 > and (4) this project's route-P certificates (internal, mostly single
 > implementation). With (1)–(3) only: `Λ ≤ 118505710922701/10¹⁵ =
-> 0.118505710922701`. The accepted peer-reviewed bound is Platt–Trudgian's
-> `Λ ≤ 0.2`. RH is open.
+> 0.118505710922701`. Without (1) the chain gives Raymond's
+> 0.149395; without (2) or (3) it gives nothing below the accepted 0.2.
 
 This folder is private. It lives in the private `mathexplorer` repository, is not
 under `public/`, and is not linked from any page of the site.

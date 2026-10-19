@@ -9,10 +9,11 @@ import { QRH_PATH_PUSH as QP } from '../data/qrh-path-push-2026-10-08.js';
 import { QRH_THETA_IMPROVEMENT as QT } from '../data/qrh-theta-and-improvement-2026-10-08.js';
 import { QRH_LAMBDA_LEAN as QL } from '../data/qrh-lambda-lean-2026-10-09.js';
 
-/* Conditional Λ value from the 7/8 zero-free half-plane (openai/math family 003).
+/* Λ ≤ 0.116091 from the 7/8 zero-free half-plane (openai/math family 003).
    Read interface for src/data/openai-math-integration-2026-10-08.js and
    src/data/qrh-path-push-2026-10-08.js. Every number on this page is read from
-   those two modules. Conditional value, not a bound; PT Λ ≤ 0.2 stands. */
+   those modules. Computer-assisted upper bound depending on two unrefereed results;
+   not peer reviewed; PT Λ ≤ 0.2 stands. Route: /lambda-0116091. */
 
 const REPO = 'https://github.com/judegomila/mathexplorer/blob/editorial-redesign';
 const NOTE_URL = `${REPO}/formalization/paper/lambda-qrh-note-draft.md`;
@@ -147,7 +148,7 @@ function LadderFigure() {
     { v: Number(PV.F2.dec), lab: 're-tuned 0.116091', c: ED.accent, up: false },
   ];
   return (
-    <svg width="100%" viewBox="0 0 640 150" role="img" aria-label="Number line of the conditional Λ values against PT 0.2">
+    <svg width="100%" viewBox="0 0 640 150" role="img" aria-label="Number line of the Λ values of the argument against PT 0.2">
       <line x1={x0} y1="78" x2={x1} y2="78" stroke={ED.rule} strokeWidth="1.5" />
       {[0.10, 0.15, 0.20, 0.25, 0.30].map((t) => (
         <g key={t}>
@@ -192,7 +193,7 @@ function ThetaFigure() {
       ))}
       <text x={Rr} y={B + 30} textAnchor="end" fontFamily="IBM Plex Mono" fontSize="10" fill={ED.inkFaint}>θ (zero-free for Re s &gt; θ)</text>
       <line x1={L} y1={Y(0.2)} x2={Rr} y2={Y(0.2)} stroke={ED.ink} strokeDasharray="2 3" />
-      <text x={L + 6} y={Y(0.2) - 5} fontFamily="IBM Plex Mono" fontSize="10" fill={ED.ink}>PT 0.2 (accepted, unconditional)</text>
+      <text x={L + 6} y={Y(0.2) - 5} fontFamily="IBM Plex Mono" fontSize="10" fill={ED.ink}>PT 0.2 (accepted, peer reviewed)</text>
       <path d={path(db)} fill="none" stroke={ED.inkFaint} strokeDasharray="5 4" />
       <text x={X(0.83)} y={Y(0.2) + 16} fontFamily="IBM Plex Mono" fontSize="10" fill={ED.inkFaint}>(2θ−1)²/2</text>
       <path d={path(ray)} fill="none" stroke={ED.series3} strokeWidth="1.8" />
@@ -208,17 +209,19 @@ export default function LambdaQrhConditionalPage() {
   const gain = (Number(PV.raymond78.dec) - Number(PV.F2.dec)).toFixed(6);
   return (
     <PostLayout
-      grade="CONDITIONAL"
-      meta={[QP.date, 'conditional value', 'unrefereed']}
-      title={<>Λ ≤ 0.116091 if ζ has no zeros with Re s &gt; 7/8</>}
-      dek={<>A zero-free half-plane Re s &gt; 7/8 lowers the time-zero start of Raymond&rsquo;s decreasing-barrier chain from (Im z)² ≤ 1 to (Im z)² ≤ 9/16. Run at Platt–Trudgian height, the chain then ends at 0.118506, and the re-tuned route-P stack at 0.116091. The 7/8 half-plane is the claim of openai/math family 003; its Lean proof re-builds here. This is a conditional value, not a bound on Λ.</>}
-      byline={['Barrier program · zetaexplorer', 'conditional — not a bound']}
-      ticker={<span>conditional · Λ ≤ <b>&nbsp;0.116091</b></span>}
+      grade="CANDIDATE"
+      meta={[QP.date, 'computer-assisted', 'not peer reviewed']}
+      title={<>Λ ≤ 0.116091 from a zero-free half-plane</>}
+      dek={<>A zero-free half-plane Re s &gt; 7/8 lowers the time-zero start of Raymond&rsquo;s decreasing-barrier chain from (Im z)² ≤ 1 to (Im z)² ≤ 9/16. Run at Platt–Trudgian height, the chain then ends at 0.118506, and the re-tuned route-P stack at 0.116091. The 7/8 half-plane is the claim of openai/math family 003; its Lean proof re-builds here. Not yet peer reviewed; the accepted bound remains Λ ≤ 0.2.</>}
+      byline={['Barrier program · zetaexplorer', 'computer-assisted · not peer reviewed']}
+      ticker={<span>candidate · Λ ≤ <b>&nbsp;0.116091</b></span>}
       footer={<>Draft note: <a href={NOTE_URL} target="_blank" rel="noreferrer">lambda-qrh-note-draft.md</a> (internal, not submitted) · Related: <Link to="/lambda-bounds">the bounds ledger</Link> · <Link to="/lambda-01758354-candidate">Λ ≤ 0.1758354 candidate</Link> · <Link to="/routes-roadmap">routes roadmap</Link><br /><br />← <Link to="/">the atlas</Link></>}
     >
-      <p className="lead">The <ConceptTerm slug="de-bruijn-newman-constant">de Bruijn–Newman constant</ConceptTerm> Λ is the least t at which every zero of the heat-flowed function <ConceptTerm slug="heat-flow-ht">H<sub>t</sub></ConceptTerm> is real; <ConceptTerm slug="riemann-hypothesis">RH</ConceptTerm> ⇔ Λ = 0, <ConceptTerm slug="newman-conjecture">Rodgers–Tao</ConceptTerm> proved Λ ≥ 0, and <ConceptTerm slug="platt-trudgian-verified-height">Platt–Trudgian</ConceptTerm> give the accepted bound Λ ≤ 0.2. This page records what Λ upper bound follows if ζ has no zeros with real part above 7/8. The answer, given Raymond&rsquo;s analytic chain and the project&rsquo;s internal floor certificates, is <InlineMath tex="\Lambda \le 0.116091488672439" />.</p>
+      <p className="lead">The <ConceptTerm slug="de-bruijn-newman-constant">de Bruijn–Newman constant</ConceptTerm> Λ is the least t at which every zero of the heat-flowed function <ConceptTerm slug="heat-flow-ht">H<sub>t</sub></ConceptTerm> is real; <ConceptTerm slug="riemann-hypothesis">RH</ConceptTerm> ⇔ Λ = 0, <ConceptTerm slug="newman-conjecture">Rodgers–Tao</ConceptTerm> proved Λ ≥ 0, and <ConceptTerm slug="platt-trudgian-verified-height">Platt–Trudgian</ConceptTerm> give the accepted bound Λ ≤ 0.2. This page records the upper bound <InlineMath tex="\Lambda \le 0.116091488672439" /> obtained by starting Raymond&rsquo;s barrier chain from a zero-free half-plane.</p>
 
-      <TheoremBox label="Conditional value">
+      <p style={{ padding: '12px 16px', border: `1px solid ${V.rule}`, borderRadius: 8, background: V.paper2, fontSize: 15.5 }}><b>Status.</b> A computer-assisted upper bound. It depends on two recent results that have not been refereed: the zero-free half-plane Re s &gt; 7/8 (<a href={OAI_REPO} target="_blank" rel="noreferrer">openai/math</a> family 003, whose Lean proof was rebuilt here with standard axioms only) and D. J. Raymond&rsquo;s decreasing-barrier construction (<a href={RAYMOND_ZENODO} target="_blank" rel="noreferrer">Zenodo 10.5281/zenodo.22867547</a>). The value 0.116091 also uses this project&rsquo;s internal floor and kernel certificates; without them the same argument gives 0.118506. Not yet peer reviewed. The accepted peer-reviewed bound remains Λ ≤ 0.2 (Platt–Trudgian). RH is open.</p>
+
+      <TheoremBox label="Theorem (from hypotheses Z₇/₈, G0, PT, L)">
         <p style={{ marginBottom: 10 }}>Assume</p>
         <ul style={{ margin: '0 0 12px 18px', padding: 0, fontSize: 16 }}>
           <li><b>(Z<sub>7/8</sub>)</b> ζ(s) ≠ 0 for Re s &gt; 7/8;</li>
@@ -229,7 +232,7 @@ export default function LambdaQrhConditionalPage() {
         <p>If in addition <b>(L)</b> the <ConceptTerm slug="route-p">route-P</ConceptTerm> ledger holds, then (ii) Λ ≤ 116091488672439/10<sup>15</sup> = <b style={mono}>{PV.F2.dec}</b>.</p>
       </TheoremBox>
 
-      <p>Neither number is a bound on Λ until (Z<sub>7/8</sub>) is accepted by peer review and (G0) has an external referee; (ii) also needs (L). Without the half-plane nothing on this page moves Λ: Platt–Trudgian Λ ≤ 0.2 stands. The result does not bear on RH itself.</p>
+      <p>Each input is needed: without (Z<sub>7/8</sub>) the chain gives Raymond&rsquo;s 0.149395; without (G0) or (PT) the argument gives nothing below 0.2 (the half-plane alone gives 9/32); without (L), (ii) reduces to (i). (Z<sub>7/8</sub>) and (G0) are claimed proofs that have not been refereed, (PT) is peer reviewed, and (L) is internal to this project. The result does not bear on RH itself.</p>
 
       <h2>The substitution lemma</h2>
       <p>A zeta zero ρ = β + iγ is the zero z = 2γ − i(2β − 1) of H<sub>0</sub>, so |Im z| = |2β − 1|. A zero-free half-plane bounds β above, the functional equation ξ(s) = ξ(1 − s) bounds it below, and de Bruijn&rsquo;s theorem carries the strip forward in t.</p>
@@ -247,7 +250,7 @@ export default function LambdaQrhConditionalPage() {
       <p>Floors, kernel certificates and the head wall are unchanged; the barrier path is recomputed from the lower start. For value (ii), q<sub>0</sub> = 9/16 + 10<sup>−7</sup> and the S1 margin is 1.808·10<sup>−8</sup>. Any decreasing-barrier chain of this type admits the same substitution; Raymond&rsquo;s own chain with the 7/8 start gives value (i) with no project-specific input.</p>
 
       <h2>The ladder of values</h2>
-      <Figure caption={<>Conditional values at Platt–Trudgian height against the accepted bound 0.2. Every marker below 0.2 depends on (G0) and (PT); the 7/8 and 11/12 markers also depend on the corresponding half-plane.</>}>
+      <Figure caption={<>Values at Platt–Trudgian height against the accepted bound 0.2. Every marker below 0.2 depends on (G0) and (PT); the 7/8 and 11/12 markers also depend on the corresponding half-plane.</>}>
         <LadderFigure />
       </Figure>
 
@@ -324,7 +327,7 @@ export default function LambdaQrhConditionalPage() {
       <Pull>Not in Lean: AF (4.6), Raymond&rsquo;s Lemmas 2–3 and Theorem 4 / 4′ (G0-c), AF Part I §§2–12 and the route-P ledger. The barrier iteration and its {QP.run.steps.toLocaleString('en-US')}-substep certificate are now replayed in Lean (next section), with these analytic inputs as named hypotheses.</Pull>
 
       <h2>Lean status</h2>
-      <p>A third package, <a href={QRH_LEAN_URL} target="_blank" rel="noreferrer">formalization/lean/qrh-lambda</a> ({QL.date}; Lean {QL.toolchain.lean}, Mathlib {QL.toolchain.mathlib}), replays both runs in the Lean kernel and proves the conditional values as theorems about LeanCert&rsquo;s Λ of the concrete H<sub>t</sub>. Every substep is checked by <code>decide +kernel</code> (no <code>native_decide</code>); every unproved input is an explicit structure argument. The final theorem:</p>
+      <p>A third package, <a href={QRH_LEAN_URL} target="_blank" rel="noreferrer">formalization/lean/qrh-lambda</a> ({QL.date}; Lean {QL.toolchain.lean}, Mathlib {QL.toolchain.mathlib}), replays both runs in the Lean kernel and proves the two values, from named hypotheses, as theorems about LeanCert&rsquo;s Λ of the concrete H<sub>t</sub>. Every substep is checked by <code>decide +kernel</code> (no <code>native_decide</code>); every unproved input is an explicit structure argument. The final theorem:</p>
       <pre style={pre}>{`theorem QrhLambda.lambda_le_of_qrh_raymond
     (h : RaymondChainHyps) (f : FloorTableHyps) :
     deBruijnNewmanLambda ≤ 116091488672439 / 10 ^ 15
@@ -353,7 +356,7 @@ theorem QrhLambda.lambda_le_of_raymond78
         </table>
       </div>
       <p><b>Axiom audit.</b> <code>#print axioms</code> on {QL.axiomAudit.total} theorems: {QL.axiomAudit.total - QL.axiomAudit.noAxioms.length} depend on exactly {QL.axiomAudit.standard.join(', ')}; <code>two96_pos</code> on none. No <code>sorry</code>, no <code>native_decide</code>, no <code>axiom</code> declarations. Kernel cost: F2 chunks {QL.kernelCost.F2.wallPerChunkS[0]}–{QL.kernelCost.F2.wallPerChunkS[1]} s each (sum {QL.kernelCost.F2.sumS} s, max RSS {QL.kernelCost.F2.maxRssGB} GB), Raymond chunks {QL.kernelCost.R78.wallPerChunkS[0]}–{QL.kernelCost.R78.wallPerChunkS[1]} s (sum {QL.kernelCost.R78.sumS} s). An internal referee rebuilt the package from scratch in a separate copy ({QL.kernelCost.refereeRebuildWallMin} min wall), replayed all modules with <code>leanchecker</code> and re-implemented the checker in Python (0 mismatches against the F2 dump); not refuted, minor corrections applied.</p>
-      <p><b>What remains.</b> The five hypothesis fields above are not Lean-checked, and the half-plane proof has only a local build. {QL.effortNote} The package is untracked build state: it needs a local openai/math workspace and the raymond-core LeanCert checkout to rebuild. The Lean theorem is conditional: it does not change the accepted bound. PT Λ ≤ 0.2 stands; RH is open.</p>
+      <p><b>What remains.</b> The five hypothesis fields above are not Lean-checked, and the half-plane proof has only a local build. {QL.effortNote} The package is untracked build state: it needs a local openai/math workspace and the raymond-core LeanCert checkout to rebuild. The Lean theorem is stated from named hypotheses: it does not change the accepted bound. PT Λ ≤ 0.2 stands; RH is open.</p>
 
       <h2>What the half-plane does not change</h2>
       <p><ConceptText text={OAI.analysis[1].replace(' (method-level analysis, relabelled from "proved" per referee P5)', '') + ' This is a method-level analysis.'} /></p>
@@ -390,7 +393,7 @@ theorem QrhLambda.lambda_le_of_raymond78
       </div>
       <p>Measured from these runs:</p>
       <ul style={{ margin: '0 0 22px 18px', padding: 0 }}>
-        <li>Near 7/8, each 0.01 of θ is worth about 0.003 of conditional Λ. Below 0.10 needs θ ≈ 0.815 on Raymond&rsquo;s chain alone, or θ ≈ 0.82 with route P.</li>
+        <li>Near 7/8, each 0.01 of θ is worth about 0.003 of Λ. Below 0.10 needs θ ≈ 0.815 on Raymond&rsquo;s chain alone, or θ ≈ 0.82 with route P.</li>
         <li>No constraint of the chain binds for θ ≤ 7/8: the terminal cell falls with θ, U stays under the 41/250 horizon, and kernel admissibility gets easier as q shrinks. The value falls all the way to the de Bruijn value as θ → 1/2.</li>
         <li>Verified height matters less as θ falls. At 7/8, 10× the verified height is worth about 0.0215 of θ ({TH.rivalLever.X10at78} at 10× height against {TH.rivalLever.theta8535} at θ = 0.8535). Below θ ≈ 0.6 the chain is within 10% of the de Bruijn value, which needs no verified height.</li>
         <li>Route P stays 0.0020–0.0024 below Raymond&rsquo;s chain. Its 0.85 and 0.80 runs reuse the height sets tuned for 7/8.</li>

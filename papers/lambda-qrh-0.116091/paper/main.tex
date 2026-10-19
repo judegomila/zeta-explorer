@@ -15,9 +15,9 @@
 \usepackage{xurl}
 \usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
 \hypersetup{
-  pdftitle={A conditional upper bound for the de Bruijn--Newman constant from a zero-free half-plane},
+  pdftitle={An upper bound for the de Bruijn--Newman constant from a zero-free half-plane},
   pdfauthor={Jude Gomila},
-  pdfsubject={Conditional upper bound for the de Bruijn--Newman constant (draft)},
+  pdfsubject={Computer-assisted upper bound for the de Bruijn--Newman constant (draft, not peer reviewed)},
   pdfkeywords={de Bruijn--Newman constant, Riemann xi function, heat flow, zero-free region, barrier method, Lean}
 }
 
@@ -43,7 +43,7 @@
 
 \emergencystretch=2em
 
-\title{A conditional upper bound for the de Bruijn--Newman constant\\
+\title{An upper bound for the de Bruijn--Newman constant\\
 from a zero-free half-plane}
 \author{Jude Gomila}
 \date{Draft, 9 October 2026}
@@ -69,7 +69,7 @@ The half-plane enters Raymond's chain only through the starting value of the bar
 and its strict-entry check, which become $q_0>(2\theta-1)^2=9/16$ in place of $q_0>1$.
 The half-plane $\Rea s>7/8$ is a claim of the openai/math repository whose Lean proof
 was rebuilt locally; it has not been peer reviewed, and Raymond's construction has
-not been refereed. The paper also gives the conditional value as a function of the
+not been refereed. The paper also gives the value of the same argument as a function of the
 zero-free abscissa $\theta$, records what limits the abscissa $7/8$, and reports a
 Lean~4 check of the deduction from named hypotheses in which every step of both runs is
 replayed by the kernel. The accepted peer-reviewed bound remains $\LB\le0.2$.
@@ -81,11 +81,15 @@ replayed by the kernel. The accepted peer-reviewed bound remains $\LB\le0.2$.
 \small
 \raggedright
 \noindent\textbf{Status of this draft.}
-Not submitted, not published, not peer reviewed. The main result,
-Theorem~\ref{thm:main}, is conditional on hypotheses (H1)--(H3), and for the smaller
-value also (H4) (Section~\ref{sec:main}). It is not a bound on $\LB$ until those
-hypotheses are established. The accepted peer-reviewed upper bound is $\LB\le0.2$
-\cite{PlattTrudgian21}. The Riemann hypothesis is open.
+A computer-assisted upper bound. It depends on two recent results that have not been
+refereed: the zero-free half-plane $\Rea s>7/8$ (openai/math result family~003, whose
+Lean proof was rebuilt here with standard axioms only) and D.~J.~Raymond's
+decreasing-barrier construction (Zenodo \href{https://doi.org/10.5281/zenodo.22867547}{10.5281/zenodo.22867547}).
+The value $0.116091$ also uses this project's internal floor and kernel certificates;
+without them the same argument gives $0.118506$. Theorem~\ref{thm:main} states these
+inputs as hypotheses (H1)--(H4) (Section~\ref{sec:main}). Not submitted, not published,
+not yet peer reviewed. The accepted peer-reviewed bound remains $\LB\le0.2$
+(Platt--Trudgian \cite{PlattTrudgian21}). The Riemann hypothesis is open.
 \end{framed}
 \end{minipage}
 \end{center}
@@ -124,7 +128,7 @@ observed that a row of the Polymath parameter table then gives $\LB\le0.2$
 upper bound. Histories of the earlier bounds, including the lower bounds that preceded
 \cite{RodgersTao20}, are given in \cite{RodgersTao20} and \cite{Polymath19}.
 
-In 2026 several preprints have claimed smaller unconditional upper bounds:
+In 2026 several preprints have claimed smaller upper bounds without a zero-free half-plane:
 $0.1875$ \cite{Mosaic26}, $0.1787854$ \cite{Gomila26}, $0.163297$ \cite{Raymond26a},
 $0.157656619\ldots$ \cite{Gordon26} and $0.149396$ \cite{Raymond26}. None of these has
 been peer reviewed. The present paper uses the method of \cite{Raymond26} and no
@@ -212,7 +216,7 @@ argument in Theorem~\ref{thm:barrier}.
 
 \subsection{Further results}
 
-Section~\ref{sec:theta} gives the conditional value at the Platt--Trudgian height as a
+Section~\ref{sec:theta} gives the value of the argument at the Platt--Trudgian height as a
 function of a hypothetical zero-free abscissa $\theta$: near $\theta=7/8$, each $0.01$
 of $\theta$ is worth about $0.003$ of $\LB$. Section~\ref{sec:limits} records the
 internal analyses of what limits the abscissa $7/8$ in \cite{OpenAI26QRH}; none of them
@@ -632,7 +636,7 @@ total & & & $-323364947703/(2\cdot10^{14})$\\
 \bottomrule
 \end{tabular}
 \caption{Re-tuning of the run of Section~\ref{sec:run2}. Each value is the exact output of one
-run; all values are conditional on (H1)--(H4).}
+run; all values depend on (H1)--(H4).}
 \label{tab:ladder}
 \end{table}
 
@@ -696,7 +700,7 @@ route~P, $7/8$ start, first run & $0.117708313410954$ & (H1)--(H3), earlier rout
 accepted peer-reviewed bound \cite[Corollary~2]{PlattTrudgian21} & $0.2$ & \\
 \bottomrule
 \end{tabular}
-\caption{Conditional values at the Platt--Trudgian height. The $11/12$ half-plane follows
+\caption{Values at the Platt--Trudgian height and the hypotheses each uses. The $11/12$ half-plane follows
 from the $7/8$ one and is also the subject of a separate write-up \cite{OpenAI26QRH1112}.}
 \label{tab:values}
 \end{table}
@@ -706,7 +710,7 @@ $0.118505710922701$, a difference of $0.030889362904987$. The re-tuned menu lowe
 $1207111125131/(5\cdot10^{14})=0.002414222250262$ more.
 
 % ===============================================================
-\section{The conditional value as a function of \texorpdfstring{$\theta$}{theta}}\label{sec:theta}
+\section{The value as a function of \texorpdfstring{$\theta$}{theta}}\label{sec:theta}
 % ===============================================================
 
 Since the chain reads the half-plane only through $q_0=(2\theta-1)^2+\epsilon$, it can be run
@@ -741,7 +745,7 @@ $13/25$ & $0.0008$ & $0.000797732865289$ & $3$ & $0$ & \\
 $101/200$ & $0.00005$ & $0.000050986694974$ & $0$ & $0$ & \\
 \bottomrule
 \end{tabular}
-\caption{Conditional values at the Platt--Trudgian height against the zero-free abscissa
+\caption{Values at the Platt--Trudgian height against a hypothetical zero-free abscissa
 $\theta$. Decimals are exact expansions of the computed rationals (listed in
 \texttt{PARAMETERS.md}). ``AF II substeps'' counts the substeps that use Raymond's sharp
 continuum law; disabling it raises the affected values by at most $2.9\cdot10^{-7}$. At
@@ -872,7 +876,7 @@ consistent unless RH is false.
 
 \paragraph{What is not in Lean.} The three fields of \texttt{RaymondChainHyps}, including
 (H3); (J) for each floor entry and (K) for each kernel row; and (H1) beyond the local build.
-The Lean theorem is therefore conditional in the same way as Theorem~\ref{thm:main}. The
+The Lean theorem therefore depends on the same inputs as Theorem~\ref{thm:main}. The
 packages depend on machine-local builds and are not reproducible from a clean clone without
 them.
 

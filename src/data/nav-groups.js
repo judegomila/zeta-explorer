@@ -48,7 +48,7 @@ const RAW = [
           { to: '/lambda-timeline', label: 'Λ bound timeline' },
           { to: '/full-story', label: 'How the Λ bound is improved' },
           { to: '/lambda-01758354-candidate', label: 'Candidate Λ ≤ 0.1758354' },
-          { to: '/lambda-qrh-conditional', label: 'Conditional Λ ≤ 0.116091 (7/8 half-plane)' },
+          { to: '/lambda-0116091', label: 'Λ ≤ 0.116091 (zero-free half-plane)' },
           { to: '/newman-lambda-01787854-candidate', label: 'Candidate Λ ≤ 0.1787854' },
         ],
       },

@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-19",
+  "source_sha256": {
+    "DYADIC_NEAR_FREQUENCY_REDUCTION_v2.md": "6014cccd3f2b0a6ddbca4ffcc31aca3da5f49bc904d00bc50e5b50795ece82d8",
+    "INDEPENDENT_REVIEW_DYADIC_v2.md": "0fafda9fa6ff71c2a5da72ce9fa40641606fac1e06641bf840272745016ea0ff"
+  },
+  "copy_check": true,
+  "review_verdict": "PASS; source unchanged",
+  "parent_head": "9d7e3fbec0b3424d2fa88786a41c5a154cb88f67",
+  "scope": "Near-frequency sufficient reduction with explicit loss; signed arithmetic bound remains open"
+}

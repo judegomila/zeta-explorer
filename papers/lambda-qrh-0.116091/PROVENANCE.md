@@ -1,6 +1,6 @@
 # Provenance
 
-Generated 2026-10-09 14:23 (local time) with `shasum -a 256` by `papers/lambda-qrh-0.116091/tools/make_provenance.py`, on branch `editorial-redesign` at commit `6c1ef30d4850d46cb281184cb6b98b5f10beceaf`. Paths are relative to the repository root unless they start with `/`.
+Generated 2026-10-19 14:00 (local time) with `shasum -a 256` by `papers/lambda-qrh-0.116091/tools/make_provenance.py`, on branch `editorial-redesign` at commit `b9af09d95a03d391235d7e05a74ac9e31d3cbbbe`. Paths are relative to the repository root unless they start with `/`.
 
 To re-check one group, copy its block into a file and run `shasum -a 256 -c FILE` from the repository root.
 
@@ -19,7 +19,7 @@ External pins recorded elsewhere and not re-hashed here:
 
 Hashed after the last edit of each file. `PROVENANCE.md` itself is not listed.
 
-Git status: 13 untracked.
+Git status: 10 tracked, 3 tracked, modified.
 
 ```
 3596073155b1abe5fc01fb5f5353133054ea7d5da619c4768df0e067548b2ab1  papers/lambda-qrh-0.116091/README.md
@@ -30,10 +30,10 @@ b9929fa67945ffd92020876a57e6b3c1fd50e8a66763bb3f44150e1a44e0029b  papers/lambda-
 c815bb7620204983c548109d4b227e75bd2579077919a44c525d62da1ed68b2b  papers/lambda-qrh-0.116091/OPEN_REVIEW_QUESTIONS.md
 38dd0d70964cf80342f8838dd100d0a17053dc7f15a133dc6181eab52d724c08  papers/lambda-qrh-0.116091/BIBLIOGRAPHY.md
 f07e32d08f874da218c38946089e11af61afae2f2c9c13621bb48452c29747f8  papers/lambda-qrh-0.116091/CITATION.md
-3997381f68b8ec8a9bc4746090f131aba372e286bbb6a3eaaab3258b470fc5a8  papers/lambda-qrh-0.116091/paper/main.tex
+eaf16fb1d178b07b208bb6acb457d1763a7c0864af1dc28e7bc70ff50381b7e1  papers/lambda-qrh-0.116091/paper/main.tex
 17136dd7fc2af55c4b681a6bf8f6a91a471ca7adf3b8ed3285f2931283dd58ec  papers/lambda-qrh-0.116091/paper/refs.bib
-a9deadedc5db4962c02a91e83a98dfced27c71b53a4c667a33280003bb093033  papers/lambda-qrh-0.116091/paper/main.pdf
-a9deadedc5db4962c02a91e83a98dfced27c71b53a4c667a33280003bb093033  papers/lambda-qrh-0.116091/lambda-qrh-0.116091-draft.pdf
+2e4a13c592112d628995cdb4c8e2ad8e9038710da96be5362462b64bece228df  papers/lambda-qrh-0.116091/paper/main.pdf
+2e4a13c592112d628995cdb4c8e2ad8e9038710da96be5362462b64bece228df  papers/lambda-qrh-0.116091/lambda-qrh-0.116091-draft.pdf
 50865447d5624fe1371b1a867150acb61de95ff096633f93e1bbc8a90f98c3e5  papers/lambda-qrh-0.116091/tools/make_provenance.py
 ```
 
@@ -194,7 +194,7 @@ af1e0543e0f8fc7c30d0bbc6ca582d5a67137b6042995b0997c4784ebffbebd5  tmp/routes-b3-
 
 Results of the runs and verifiers. The per-substep dump of value (ii) is kept compressed in the repository tree; the uncompressed copy used by the verifiers is in `/tmp`.
 
-Git status: 1 outside repository, 28 untracked.
+Git status: 28 untracked.
 
 ```
 e2c685750e37492172764066b9c37fedd5945e2dcaef6089c5c9dcf52a0f6634  tmp/oai-lambda-out/summary.json
@@ -210,7 +210,6 @@ e6fb7552d5559857b0cb82841973745b5b0d5df72a239330f101f78cd57093ea  tmp/qrh-tune-o
 10f43e3065753dd7f3a42fa06ed6ac67edc2198e28bc084397eb71d4c3a0a430  tmp/qrh-tune-out/F2_final.json
 547b0d39ef27eba07e9fdb968d541800f0be8883c8e427a89877850b4475167b  tmp/qrh-tune-out/F2_final_verify.json
 87665a4c17b51bc1c39bf403dc50d21f80e86cc9328c9046da40321402f2279c  tmp/qrh-tune-out/F2_final.steps.jsonl.gz
-1c546f5c2c79b52b7bd93b7ef101ca798c6a1dcf18225482e8a1a60f71fc0cfb  /tmp/qrh-tune-dump-F2_final.steps.jsonl
 f2efc8f57f1f3983d3bc74a333a204806dc04b49a1c3d877188dfd81391feb9d  tmp/qrh-tune-out/lever3_targets.json
 706febcb4ebd4c1971bf3666fe160da2c9c735cb4c5da2129927367c4f12a7ed  tmp/qrh-ref-out/F2_refverify.json
 8b0a021ebc361e30cdc32ed3ab490b22b7b5ea7345959100999c96522e2d0a0d  tmp/qrh-ref-out/F2_rerun_refverify.json
@@ -232,14 +231,9 @@ f068bad3df7e7ce5c530718d1acb28aac0fc6644c8ed4b6a585822cd61786389  tmp/g0-review-
 
 Outside the repository, in `/tmp/qrh-paper-check/`.
 
-Git status: 5 outside repository.
+Git status: .
 
 ```
-35a219ce8af6a80eb8da198518b924049d2c5a789c898a975d1bb926f31dbb09  /tmp/qrh-paper-check/raymond78.json
-688ce9f12c12bfd454f61841c399d187510ae9c6b1a4b52e04775ee42b605d8c  /tmp/qrh-paper-check/raymond78.log
-50930d68d92da6ee4ff5cadfc199dd3532f3ba403b092adf0351394b029cd2df  /tmp/qrh-paper-check/run_refverify.sh
-0a30f89ecd5e82ac21d6bad839a8c47df3731cd1d9a5388b2a6f2d8379b18d80  /tmp/qrh-paper-check/F2_refverify.json
-7ee074c1f5a9c0f8a75d75898af62506864996803461b971adbc2ae316364f21  /tmp/qrh-paper-check/F2_refverify.log
 ```
 
 ## Lean: raymond-core
@@ -379,11 +373,9 @@ a196a2c92b6289c7cb392d0249bb88425e8503b8b2f21486f9d727d7b1b114d8  formalization/
 
 The internal referee's proof that the named hypotheses follow from RH (`QrhLambda.Referee.raymondChainHyps_of_RH`) and its axiom output, in the referee's copy outside the repository.
 
-Git status: 2 outside repository.
+Git status: .
 
 ```
-77cd47d7db5fab7bf306650fded18e43d3518b9e8dfd84ff16651fcd2e16ef8d  /tmp/qrh-referee-20261009/qrh-lambda/referee/RefereeSanity.lean
-e61ff0bee5873184385632a3b26fffeef23aa27fcc831d48a9b92aecbae693c4  /tmp/qrh-referee-20261009/logs/sanity.out
 ```
 
 ## Lean: openai/math check files
@@ -400,3 +392,14 @@ da75e4ef0e6ec162ab1648ca3d1419c22652d2e0276c2feb3f388fcfce056e27  /tmp/qrh-verif
 41a8ab3189d7381a84a5d699ec05bc48175be7aaadfc19666043313ef7d39deb  /tmp/qrh-verify/check/solution.out
 da75e4ef0e6ec162ab1648ca3d1419c22652d2e0276c2feb3f388fcfce056e27  /tmp/qrh-verify/check/solution.types
 ```
+
+## Not found when hashing
+
+* `/tmp/qrh-tune-dump-F2_final.steps.jsonl`
+* `/tmp/qrh-paper-check/raymond78.json`
+* `/tmp/qrh-paper-check/raymond78.log`
+* `/tmp/qrh-paper-check/run_refverify.sh`
+* `/tmp/qrh-paper-check/F2_refverify.json`
+* `/tmp/qrh-paper-check/F2_refverify.log`
+* `/tmp/qrh-referee-20261009/qrh-lambda/referee/RefereeSanity.lean`
+* `/tmp/qrh-referee-20261009/logs/sanity.out`

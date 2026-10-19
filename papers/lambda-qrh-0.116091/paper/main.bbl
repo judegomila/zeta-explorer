@@ -1,0 +1,149 @@
+\providecommand{\bysame}{\leavevmode\hbox to3em{\hrulefill}\thinspace}
+\providecommand{\MR}{\relax\ifhmode\unskip\space\fi MR }
+% \MRhref is called by the amsart/book/proc definition of \MR.
+\providecommand{\MRhref}[2]{%
+  \href{http://www.ams.org/mathscinet-getitem?mr=#1}{#2}
+}
+\providecommand{\href}[2]{#2}
+\begin{thebibliography}{10}
+
+\bibitem{deBruijn50}
+N.~G. de~Bruijn, \emph{The roots of trigonometric integrals}, Duke Math. J.
+  \textbf{17} (1950), no.~3, 197--226,
+  \href{https://doi.org/10.1215/S0012-7094-50-01720-0}{doi:10.1215/S0012-7094-50-01720-0}.
+
+\bibitem{Lean4}
+Leonardo de~Moura and Sebastian Ullrich, \emph{The {L}ean 4 theorem prover and
+  programming language}, Automated Deduction -- {CADE} 28, Lecture Notes in
+  Comput. Sci., vol. 12699, Springer, 2021,
+  \href{https://doi.org/10.1007/978-3-030-79876-5_37}{doi:10.1007/978-3-030-79876-5\_37},
+  pp.~625--635.
+
+\bibitem{Gomila26}
+Jude Gomila, \emph{A computer-assisted proof of the bound {$\Lambda\le
+  0.1787854$} for the de {B}ruijn--{N}ewman constant}, Public repository and
+  manuscript dated 20 August 2026,
+  \url{https://github.com/judegomila/dbn-lambda-01787854-candidate-audit}, Not
+  peer reviewed.
+
+\bibitem{Gordon26}
+Stefan Gordon, \emph{A computer-assisted upper bound for the de
+  {B}ruijn--{N}ewman constant}, Public manuscript and repository, September
+  2026, \url{https://github.com/stefangordon/dbn-upper-bound}, Not peer
+  reviewed.
+
+\bibitem{JohanssonArb17}
+Fredrik Johansson, \emph{Arb: efficient arbitrary-precision midpoint-radius
+  interval arithmetic}, IEEE Trans. Comput. \textbf{66} (2017), no.~8,
+  1281--1292,
+  \href{https://doi.org/10.1109/TC.2017.2690633}{doi:10.1109/TC.2017.2690633};
+  \href{https://arxiv.org/abs/1611.02831}{arXiv:1611.02831}.
+
+\bibitem{KiKimLee09}
+Haseo Ki, Young-One Kim, and Jungseob Lee, \emph{On the de {B}ruijn--{N}ewman
+  constant}, Adv. Math. \textbf{222} (2009), no.~1, 281--306,
+  \href{https://doi.org/10.1016/j.aim.2009.04.003}{doi:10.1016/j.aim.2009.04.003}.
+
+\bibitem{LeanCert}
+{LeanCert contributors}, \emph{{LeanCert}: verified interval arithmetic for
+  {L}ean 4}, \url{https://github.com/alerad/leancert}, commit
+  \texttt{7f91b6eb}, 29 September 2026.
+
+\bibitem{IntReviewA}
+{mathexplorer project}, \emph{Raymond {G0} deep review, part {A}: {AF} {P}art
+  {I} {\S\S}2--5 and main-paper {L}emma 2, {L}emma 3, {T}heorem 4 / {T}heorem
+  {$4'$}}, Internal note, 8 October 2026, file
+  \texttt{formalization/paper/raymond-g0-review-a-2026-10-08.md}, Unpublished;
+  internal review only.
+
+\bibitem{IntReviewB}
+\bysame, \emph{Raymond {G0} deep review, part {B}: {AF} {P}art {I} {\S\S}6--12
+  and {P}art {II} under the {$7/8$} start}, Internal note, 8 October 2026, file
+  \texttt{formalization/paper/raymond-g0-review-b-2026-10-08.md}, Unpublished;
+  internal review only.
+
+\bibitem{IntQrhRecords}
+\bysame, \emph{Records of the conditional {QRH} values, the re-tuned run, the
+  {$\Lambda(\theta)$} curve and the attempts to improve {$7/8$}}, Internal data
+  modules in \texttt{src/data/} of the project repository, 7--9 October 2026,
+  Unpublished.
+
+\bibitem{Mosaic26}
+{Mosaic Intelligence}, \emph{A certified unconditional upper bound
+  {$\Lambda\le0.1875$} for the de {B}ruijn--{N}ewman constant}, Zenodo
+  preprint, version 2, 3 July 2026,
+  \href{https://doi.org/10.5281/zenodo.21175533}{doi:10.5281/zenodo.21175533}.
+  Not peer reviewed.
+
+\bibitem{MTY24}
+Michael~J. Mossinghoff, Timothy~S. Trudgian, and Andrew Yang, \emph{Explicit
+  zero-free regions for the {R}iemann zeta-function}, Res. Number Theory
+  \textbf{10} (2024), no.~1, Paper No. 11,
+  \href{https://doi.org/10.1007/s40993-023-00498-y}{doi:10.1007/s40993-023-00498-y};
+  \href{https://arxiv.org/abs/2212.06867}{arXiv:2212.06867}.
+
+\bibitem{Newman76}
+Charles~M. Newman, \emph{Fourier transforms with only real zeros}, Proc. Amer.
+  Math. Soc. \textbf{61} (1976), no.~2, 245--251,
+  \href{https://doi.org/10.1090/S0002-9939-1976-0434982-5}{doi:10.1090/S0002-9939-1976-0434982-5}.
+
+\bibitem{OpenAI26QRH}
+{OpenAI}, \emph{The quasi-{R}iemann hypothesis: a zero-free half-plane {$\Re
+  s>7/8$}}, Manuscript dated 30 September 2026, with Lean formalisation, result
+  family 003 of the repository \url{https://github.com/openai/math} (initial
+  commit \texttt{adc7f1241}, 6 October 2026), The repository describes its
+  manuscripts as produced by an internal OpenAI model. Not peer reviewed.
+
+\bibitem{OpenAI26QRH1112}
+\bysame, \emph{The quasi-{R}iemann hypothesis (alternate 11/12 proof)},
+  Manuscript dated 5 October 2026, result family 003 of the repository
+  \url{https://github.com/openai/math}, Not peer reviewed.
+
+\bibitem{PlattTrudgian21}
+Dave Platt and Tim Trudgian, \emph{The {R}iemann hypothesis is true up to
+  {$3\cdot 10^{12}$}}, Bull. Lond. Math. Soc. \textbf{53} (2021), no.~3,
+  792--797, \href{https://doi.org/10.1112/blms.12460}{doi:10.1112/blms.12460};
+  \href{https://arxiv.org/abs/2004.09765}{arXiv:2004.09765}.
+
+\bibitem{Polymath19}
+D.~H.~J. Polymath, \emph{Effective approximation of heat flow evolution of the
+  {R}iemann {$\xi$} function, and a new upper bound for the de
+  {B}ruijn--{N}ewman constant}, Res. Math. Sci. \textbf{6} (2019), no.~3, Paper
+  No. 31,
+  \href{https://doi.org/10.1007/s40687-019-0193-1}{doi:10.1007/s40687-019-0193-1};
+  \href{https://arxiv.org/abs/1904.12438}{arXiv:1904.12438}.
+
+\bibitem{Raymond26}
+Dale~James Raymond, \emph{Correlated translated probes and the bound
+  {$\Lambda<0.149396$} for the de {B}ruijn--{N}ewman constant}, Zenodo
+  preprint, version 1, 21 September 2026; deposit includes the companion
+  \emph{Analytic foundations for the time-zero upper-bound construction},
+  version 1.0,
+  \href{https://doi.org/10.5281/zenodo.22867547}{doi:10.5281/zenodo.22867547}.
+  Not peer reviewed.
+
+\bibitem{Raymond26a}
+\bysame, \emph{Phase-correlated certificates and the bound {$\Lambda<0.163297$}
+  for the de {B}ruijn--{N}ewman constant}, Zenodo preprint, 8 September 2026,
+  \href{https://doi.org/10.5281/zenodo.22626161}{doi:10.5281/zenodo.22626161}.
+  Not peer reviewed.
+
+\bibitem{RodgersTao20}
+Brad Rodgers and Terence Tao, \emph{The de {B}ruijn--{N}ewman constant is
+  non-negative}, Forum Math. Pi \textbf{8} (2020), e6,
+  \href{https://doi.org/10.1017/fmp.2020.6}{doi:10.1017/fmp.2020.6};
+  \href{https://arxiv.org/abs/1801.05914}{arXiv:1801.05914}.
+
+\bibitem{FLINT}
+{The FLINT team}, \emph{{FLINT}: {F}ast {L}ibrary for {N}umber {T}heory},
+  \url{https://flintlib.org}; Python bindings
+  \url{https://github.com/flintlib/python-flint}.
+
+\bibitem{Mathlib20}
+{The mathlib Community}, \emph{The {L}ean mathematical library}, Proceedings of
+  the 9th {ACM} {SIGPLAN} International Conference on Certified Programs and
+  Proofs ({CPP} 2020), ACM, 2020,
+  \href{https://doi.org/10.1145/3372885.3373824}{doi:10.1145/3372885.3373824},
+  pp.~367--381.
+
+\end{thebibliography}

@@ -1,0 +1,64 @@
+{
+  "status": "PASS: final source-bound packaging review",
+  "frozen_files_verified": 11,
+  "final_manifest_preserved": true,
+  "supplemental_source_snapshots_match_previous_review": true,
+  "pinned_app_and_euler_git_blob_hashes_match": true,
+  "portable_delta": "Only input path resolution, v1-to-reviewed-v2 binding, and separate output receipt path changed; mathematical checks unchanged.",
+  "fresh_relocated_replay": [
+    {
+      "script": "delay/verify_passive_delay.py",
+      "exit_code": 0,
+      "receipt_byte_identical": true,
+      "receipt_sha256": "40a5df4c22b8559a3e6b8b7cc7f40dc2b654a56be9480c782584a1274466c3b4"
+    },
+    {
+      "script": "poisson/check_poisson_ou.py",
+      "exit_code": 0,
+      "receipt_byte_identical": true,
+      "receipt_sha256": "d29508fa7509af079c07fb7019017d952193b845fbd211cb61cb7775ebd1612a"
+    },
+    {
+      "script": "audit/portable_independent_checks.py",
+      "exit_code": 0,
+      "receipt_byte_identical": true,
+      "receipt_sha256": "4c4d0b35cc0220892e15ce39d2669cc5e6d8f336ad54ab4898d67663274adead"
+    }
+  ],
+  "replay_directory": "/tmp/physics-packaging-independent-wglpnd1_/release",
+  "working_directory_for_tests": "/tmp",
+  "reviewed_utc": "2026-10-19T23:41:10Z",
+  "release_root": "/workspace/shared/physics_release_20261019",
+  "readme_scope_review": "PASS: finite ideal models, no RH/new-physics/novelty/hardware claims; historical preparation paths and separate portable replay explained.",
+  "provenance_map_review": "PASS: exact final v2 copies; original audit retained; supplemental PR12 sources match reviewed snapshots.",
+  "release_files_sha256": {
+    "README.md": "1f7f6cac12e22665a7862bb1503e726e35b0cb9c51a0192fd4ab2eac00450e75",
+    "audit/FINAL_REVIEW_MANIFEST.json": "0065c9af33aa9ae3a019a7f268784529c91def1eaf247b156aadfe83286c1ecd",
+    "audit/INDEPENDENT_AUDIT.md": "ce448b9df3a1bbe796fa17683d0fe7e22236393457d3f72d6520d00b81c4e229",
+    "audit/independent_checks.py": "752bbc785051b382cab0a5de13a76f15ff4f6e19f62b3dc875dee13f9e50997f",
+    "audit/independent_receipt.json": "5f37bac992ea21d3031b9fb8565ee520b5af5d80ce0308af517677d5449a37a0",
+    "audit/portable_independent_checks.py": "f68f822471fcb4ad2d9c4aedd0749006111cac486880f0126c6063fdb0c923eb",
+    "audit/portable_replay_receipt.json": "4c4d0b35cc0220892e15ce39d2669cc5e6d8f336ad54ab4898d67663274adead",
+    "audit/source_binding.json": "8fdb6b0253c362d84edf04d0718d3d4e4ea0a558e86284edf72006202b7097d0",
+    "delay/CAUCHY_CARRIER_MEASUREMENT_ADDENDUM_v2.md": "90b56f6bf0597b0f93d5e9f1530a5f38854f3bd5fe4ccee6a241db04f29bebd8",
+    "delay/PASSIVE_DELAY_REALIZATION_v2.md": "c7f1042fa4b1ba8afbbf14cf18ca79bda9aeead1e524a054f1e3d50d5443538e",
+    "delay/verification_receipt.json": "40a5df4c22b8559a3e6b8b7cc7f40dc2b654a56be9480c782584a1274466c3b4",
+    "delay/verify_passive_delay.py": "d6868bed83f3e9111d0fc225460f75830c599c4f9a002c44ebf60b9b45323e8e",
+    "poisson/POISSON_OU_AND_PRIME_BEAT_CORRESPONDENCE_v2.md": "a5bfb352eb3bb50486ae51f55b22bb0604e80399562c186a516d5f3dd4df89b2",
+    "poisson/check_poisson_ou.py": "e79cf374c3c72179781cb4d155fa20cb1f2aee86212980146a8b882d0e98090c",
+    "poisson/finite_diagnostics.json": "d29508fa7509af079c07fb7019017d952193b845fbd211cb61cb7775ebd1612a",
+    "provenance.json": "00e20c06a39d9e4fad0bc60c1660aed718833ae11e5fa56471ebac23944c25b0",
+    "replay_environment.json": "6e772ae4bd8111c8ba723c3511c2396a9bcbcd1f9860a985e0423be7fc11a47a",
+    "sources/DYADIC_NEAR_FREQUENCY_REDUCTION_v2.md": "6014cccd3f2b0a6ddbca4ffcc31aca3da5f49bc904d00bc50e5b50795ece82d8",
+    "sources/DYADIC_NEAR_FREQUENCY_REDUCTION_v2.md.source.json": "10aa91e9e373c6074db1c28044943ae6c91c780e3b7a041abb06242664b3dfa1",
+    "sources/one-sided-euler-harmonic-criterion.md": "56b270a5c05f7ebed941c25d4b421cbe2b6710f5ff70135482afd1c9b1b32ae4",
+    "sources/one-sided-euler-harmonic-criterion.md.source.json": "746d61d293533a44c8338dec01945f607d38d05852f544cfd752a41e808ae070",
+    "sources/poisson-prime-tail-energy.md": "6485cc634246ee5e8d71835751a149ce2910338a7b14f9c5ee4e4bf1bc614ca9",
+    "sources/poisson-prime-tail-energy.md.source.json": "c22b9018b96823d58007bf641c6caecd6c495d39b9f4d495ab27d4d421b689c2",
+    "sources/twin-ladder.js": "dd0ce1dae9e35e82fcd125dfd0e988be3fa2f35b0f9498917051252ade60239a",
+    "sources/twin-ladder.js.source.json": "19abc879f7281d5ffa96e2ed514e5abce7581e419e6a6331636b10c404d2baf1"
+  },
+  "reviewed_file_count": 25,
+  "allowed_post_review_packaging": "This receipt may be copied verbatim into the release and SHA256SUMS generated over the resulting files. Other byte changes require a delta review. Verify these hashes before publishing.",
+  "publication_action": "No external write or publication performed by reviewer. This is a packaging/scientific review, not independent authorization for publication."
+}

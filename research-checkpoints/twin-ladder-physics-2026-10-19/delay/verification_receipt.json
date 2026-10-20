@@ -1,0 +1,108 @@
+{
+  "status": "PASS: exact identities and finite diagnostic checks",
+  "exact_rational_checks": 24,
+  "max_transfer_error": 5.566705740848049e-16,
+  "max_two_port_power_error": 6.661338147750939e-16,
+  "max_three_stage_power_error": 5.551115123125783e-16,
+  "max_decay_rate_error": 1.1102230246251565e-16,
+  "parameters": {
+    "sigma": 0.834,
+    "h": 0.125
+  },
+  "examples": [
+    {
+      "p": 2,
+      "tau_over_tau0": 0.6931471805599453,
+      "q0": 0.5609717402652422,
+      "q1": 0.5144133539467878,
+      "c": 0.9701734598279509,
+      "A": 0.9385762759036406,
+      "B": 0.06142372409635926,
+      "field_decay_per_tau0": 0.9590000000000001,
+      "square_to_prime_log_harmonic": 0.5376925471060152
+    },
+    {
+      "p": 3,
+      "tau_over_tau0": 1.0986122886681098,
+      "q0": 0.40001923371238546,
+      "q1": 0.34869098289771644,
+      "c": 0.9633374673870991,
+      "A": 0.9437094656296716,
+      "B": 0.056290534370328583,
+      "field_decay_per_tau0": 0.9589999999999999,
+      "square_to_prime_log_harmonic": 0.3743551083050509
+    },
+    {
+      "p": 5,
+      "tau_over_tau0": 1.6094379124341003,
+      "q0": 0.2612516345766298,
+      "q1": 0.2136425563217795,
+      "c": 0.9622525141298773,
+      "A": 0.9519970387848596,
+      "B": 0.04800296121514038,
+      "field_decay_per_tau0": 0.959,
+      "square_to_prime_log_harmonic": 0.23744709544920464
+    },
+    {
+      "p": 7,
+      "tau_over_tau0": 1.9459101490553132,
+      "q0": 0.19732778211969348,
+      "q1": 0.15472161131400874,
+      "c": 0.9644156166407023,
+      "A": 0.9579021730170879,
+      "B": 0.04209782698291213,
+      "field_decay_per_tau0": 0.959,
+      "square_to_prime_log_harmonic": 0.17602469671685111
+    },
+    {
+      "p": 11,
+      "tau_over_tau0": 2.3978952727983707,
+      "q0": 0.1353563081889676,
+      "q1": 0.10030080414850476,
+      "c": 0.9691237862619704,
+      "A": 0.9656816257251316,
+      "B": 0.034318374274868314,
+      "field_decay_per_tau0": 0.9589999999999999,
+      "square_to_prime_log_harmonic": 0.11782855616873616
+    }
+  ],
+  "normalizations": [
+    {
+      "Q": 3,
+      "prime_count": 2,
+      "ring_normalization_db": 0.9726890629795544,
+      "optimal_normalization_db": 0.5874431677724397
+    },
+    {
+      "Q": 10,
+      "prime_count": 4,
+      "ring_normalization_db": 2.902774118417399,
+      "optimal_normalization_db": 1.2363773937256588
+    },
+    {
+      "Q": 100,
+      "prime_count": 25,
+      "ring_normalization_db": 45.45347241119334,
+      "optimal_normalization_db": 4.289162439337547
+    },
+    {
+      "Q": 1000,
+      "prime_count": 168,
+      "ring_normalization_db": 519.115052484692,
+      "optimal_normalization_db": 8.77615187914085
+    },
+    {
+      "Q": 10000,
+      "prime_count": 1229,
+      "ring_normalization_db": 5372.218061162537,
+      "optimal_normalization_db": 14.738652488503522
+    }
+  ],
+  "limitations": [
+    "No hardware test",
+    "No independent review",
+    "No interval certification",
+    "No completed-xi realization",
+    "No RH or global positivity result"
+  ]
+}

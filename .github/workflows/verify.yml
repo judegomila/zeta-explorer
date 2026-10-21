@@ -28,6 +28,14 @@ jobs:
           # Keep checkout bounded; this repository's full history is large.
           fetch-depth: 50
 
+      - name: Verify conditional Mobius parameter certificate
+        working-directory: rigorous/mobius_bridge_reduction
+        run: |
+          sha256sum --check SHA256SUMS.txt
+          python3 -E verify_certificate.py
+          python3 -E certify_parameters.py
+          git diff --exit-code -- parameter_certificate.json target_obstruction.json
+
       - name: Fetch bounded PR base for assertion diff
         if: github.event_name == 'pull_request'
         run: git fetch --no-tags --depth=50 origin +refs/heads/${{ github.base_ref }}:refs/remotes/origin/${{ github.base_ref }}
@@ -54,3 +62,4 @@ jobs:
 
       - name: Heavy-import tripwire (pages must not import zeros-to-1e6.js)
         run: npm run verify:heavy-imports
+

@@ -39,6 +39,25 @@ The framing of the visualization side — the **Twin-Ladder Bridge model** — r
 
 The older asymptotic program target (#5) is retained as a conditional research path, not as a current bound. Its numerical value depends on the Polymath15 `G6a` bridge and therefore must not be compared with the three evidence-graded headline rows as if it were an established theorem.
 
+## Möbius bridge reduction (conditional research checkpoint)
+
+The [Möbius bridge research package](rigorous/mobius_bridge_reduction/README.md)
+records an exact-rational parameter refinement of the numerical admissibility
+system in Xu–Sang, [arXiv:2610.15291v2](https://arxiv.org/html/2610.15291v2):
+`B = 0.874886700 → 0.874886650`, a gain of `5 × 10⁻⁸` in the proposed
+right-hand boundary for nontrivial zeta zeros. The zero-free conclusion is
+**conditional on that source's imported analytic estimates and closure lemma**,
+which this package does not independently verify. This is a bound on `Re(ρ)`,
+not on the de Bruijn–Newman constant `Λ`.
+
+The package includes the [six-page report](rigorous/mobius_bridge_reduction/Mobius_Bridge_Reduction.pdf),
+two separate exact-arithmetic checkers, rational certificates, and finite Möbius
+diagnostics. It also excludes `B ≤ 0.8748` within the source's stated numerical
+admissibility system. The direct twin-ladder/Möbius energy route still requires
+an all-scale estimate for the remaining signed correlations. No proof of RH,
+independent global bound, literature-priority claim, or Lean formalization is
+asserted.
+
 ## Twin-Ladder Research Program (v70 review over the v52 integration)
 
 The repository hosts a 191-page consolidated research-program paper (`research-inputs/twin_ladder_consolidated_v52.pdf`) operationalizing the twin-ladder framework. The app wires it into **9 dedicated sections**:
@@ -243,3 +262,4 @@ Suggested reading order for a new visitor:
 ## License
 
 MIT
+

@@ -1,5 +1,13 @@
 # Reproducibility index and explicit omissions
 
+## Artifact availability correction (21 October 2026)
+
+As of this update, the current workspace cannot access the original approximately 1.1 GB frozen proof bundle. The repository-logging step preserved this checkpoint and its inventories, but did not create a persistent archive of the omitted data. No accessible persistent copy of that bundle has currently been verified. This is an availability limitation, not a determination that the data are permanently lost.
+
+The inventories and hashes below are historical content identifiers, not downloadable data, and cannot reconstruct missing files. Full third-party stress testing and reproduction of the large computations are blocked until the original artifacts are recovered and their integrity checked, or regenerated and revalidated with their new provenance recorded. The other omitted numerical inputs likewise are not supplied by this checkpoint and need their availability established separately.
+
+The previously reported research results and internal replays remain historical records. What is presently independently reproducible from this repository checkpoint is the included small checks listed below, not the omitted full arithmetic or periodic/adaptive certificate runs.
+
 ## Included, self-contained checks
 
 Run from this checkpoint directory using Python 3:

@@ -1,0 +1,144 @@
+{
+  "source": "https://arxiv.org/html/2610.15291v2",
+  "source_version": "v2, 15 October 2026",
+  "stage0": {
+    "status": "EXACT_NUMERICAL_ADMISSIBILITY_PASS",
+    "analytic_status": "Conditional on the analytic inputs and closure lemma of Xu--Sang arXiv:2610.15291v2; those are not verified by this program.",
+    "parameters": {
+      "b": "173/2000",
+      "ell": "10027/60000",
+      "kappa": "3/4",
+      "g": "1/1000000",
+      "zeta": "1/10000000",
+      "gstar": "1/2000000"
+    },
+    "boundary": "69991/80000",
+    "boundary_decimal": 0.8748875,
+    "licensing_boundary": "7/8",
+    "geometry": {
+      "lx": "44783/120000",
+      "ly": "55163/120000",
+      "h": "31757/40000",
+      "C0": "-427/16000",
+      "Asm": "1028891177/5716260000"
+    },
+    "polynomial_identity": "2 * multiplier * J * (-E-g) = A(y)*delta^2 + Bpoly(y)*delta + C(y), y=1/2-x",
+    "multiplier": "2916000000",
+    "A_coefficients_low_to_high": [
+      1209956550,
+      2343372300,
+      1740394800,
+      794068800
+    ],
+    "Bpoly_coefficients_low_to_high": [
+      -1135891798,
+      -1173235148,
+      258347816
+    ],
+    "C_coefficients_low_to_high": [
+      266598135,
+      244982070
+    ],
+    "four_AC_minus_B_squared_coefficients_low_to_high": [
+      38461880464196,
+      1019289016601843792,
+      3362710436662080432,
+      3158456603732169536,
+      711386879353694144
+    ],
+    "strict_scalar_margins": {
+      "b_positive": "173/2000",
+      "ell_minus_one_sixth": "9/20000",
+      "one_fifth_minus_ell": "1973/60000",
+      "B_minus_87_100": "391/80000",
+      "lx_minus_ell": "8243/40000",
+      "ly_minus_ell_minus_11b_6": "16079/120000",
+      "six_kappa_ell_minus_three_quarters": "81/40000",
+      "capacity_minus_ell_over_h": "3352/285813",
+      "prime_supply_minus_21_100": "1177187/2381775300",
+      "ly_minus_half_h": "3011/48000",
+      "half_minus_ly": "4837/120000",
+      "gstar_positive": "1/2000000",
+      "one_thousandth_minus_gstar": "1999/2000000",
+      "twice_zeta_positive": "1/5000000",
+      "one_thousandth_minus_twice_zeta": "4999/5000000",
+      "endpoint_margin_after_extension": "3/10000000",
+      "small_delta_bound_margin": "8610013/45730080000",
+      "floor_bound_margin": "837/500000",
+      "small_row_bound_margin": "133393/6000000"
+    },
+    "polynomial_identity_check": "Exact 3x4 interpolation grid, sufficient for bidegree at most (2,3); formulas generated directly above.",
+    "proved_rectangle": "0 <= delta <= 5/6, 0 <= x <= 1/2",
+    "published_boundary_difference": "-1/1250000"
+  },
+  "new_stage": {
+    "status": "EXACT_NUMERICAL_ADMISSIBILITY_PASS",
+    "analytic_status": "Conditional on the analytic inputs and closure lemma of Xu--Sang arXiv:2610.15291v2; those are not verified by this program.",
+    "parameters": {
+      "b": "17307/200000",
+      "ell": "2506801/15000000",
+      "kappa": "29991/40000",
+      "g": "1/10000000000",
+      "zeta": "1/1000000000000",
+      "gstar": "1/100000000000"
+    },
+    "boundary": "17497733/20000000",
+    "boundary_decimal": 0.87488665,
+    "licensing_boundary": "69991/80000",
+    "geometry": {
+      "lx": "5597587/15000000",
+      "ly": "1723903/3750000",
+      "h": "1984869/2500000",
+      "C0": "-320129/12000000",
+      "Asm": "64303949191613/357276420000000"
+    },
+    "polynomial_identity": "2 * multiplier * J * (-E-g) = A(y)*delta^2 + Bpoly(y)*delta + C(y), y=1/2-x",
+    "multiplier": "112086563940000000000",
+    "A_coefficients_low_to_high": [
+      46501070784601278000,
+      90081550448547048000,
+      66913076792340792000,
+      30531589864320000000
+    ],
+    "Bpoly_coefficients_low_to_high": [
+      -43650077750908680818,
+      -45099611220658802788,
+      9921038707018180000
+    ],
+    "C_coefficients_low_to_high": [
+      10243470356612277525,
+      9414858864312431010
+    ],
+    "four_AC_minus_B_squared_coefficients_low_to_high": [
+      72870796612798148886593706650876,
+      1504991768060132407378629131680706878832,
+      4966242098981960640134858861738899027056,
+      4665776416752030428499157453568411360000,
+      1051375428876425938346394191740400000000
+    ],
+    "strict_scalar_margins": {
+      "b_positive": "17307/200000",
+      "ell_minus_one_sixth": "2267/5000000",
+      "one_fifth_minus_ell": "493199/15000000",
+      "B_minus_87_100": "97733/20000000",
+      "lx_minus_ell": "515131/2500000",
+      "ly_minus_ell_minus_11b_6": "1339399/10000000",
+      "six_kappa_ell_minus_three_quarters": "181468791/100000000000",
+      "capacity_minus_ell_over_h": "1404430403/119056412358",
+      "prime_supply_minus_21_100": "117321199937/238184280000300",
+      "ly_minus_half_h": "188201/3000000",
+      "half_minus_ly": "151097/3750000",
+      "gstar_positive": "1/100000000000",
+      "one_thousandth_minus_gstar": "99999999/100000000000",
+      "twice_zeta_positive": "1/500000000000",
+      "one_thousandth_minus_twice_zeta": "499999999/500000000000",
+      "endpoint_margin_after_extension": "11/125000000000",
+      "small_delta_bound_margin": "512900740507/2858211360000000",
+      "floor_bound_margin": "1247861/750000000",
+      "small_row_bound_margin": "2084639/93750000"
+    },
+    "polynomial_identity_check": "Exact 3x4 interpolation grid, sufficient for bidegree at most (2,3); formulas generated directly above.",
+    "proved_rectangle": "0 <= delta <= 5/6, 0 <= x <= 1/2",
+    "published_boundary_difference": "1/20000000"
+  }
+}

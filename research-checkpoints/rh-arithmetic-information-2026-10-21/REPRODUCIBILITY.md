@@ -19,9 +19,13 @@ python3 -m unittest discover -s checks -p 'test_*.py' -v
 python3 checks/verify_manifest.py
 ```
 
-No third-party packages are required. The scalar checker uses exact rational arithmetic, outward decimal rounding, convergent-series remainder bounds, and the elementary enclosure `H_N-log N-1/N < EulerGamma < H_N-log N`, with `N=10000`. It verifies the two canonical row defects at two small radii. The block checker performs 1,119 exact-rational checks of windowed hinges, the compact B-spline kernel, endpoints, mass, and discrete reconstruction using synthetic event locations and masses, not primes. The unit tests check finite exact-algebra analogues of the weighted-network identity, the pole/variance signs, Gaussian invariant covariance, and short-time sharpness. These are regression checks of the displayed identities, not formal proofs of the continuum theorems or a replay of the full Weil certificate.
+No third-party packages are required for the four commands above. The scalar checker uses exact rational arithmetic, outward decimal rounding, convergent-series remainder bounds, and the elementary enclosure `H_N-log N-1/N < EulerGamma < H_N-log N`, with `N=10000`. It verifies the two canonical row defects at two small radii. The block checker performs 1,119 exact-rational checks of windowed hinges, the compact B-spline kernel, endpoints, mass, and discrete reconstruction using synthetic event locations and masses, not primes. The unit tests check finite exact-algebra analogues of the weighted-network identity, the pole/variance signs, Gaussian invariant covariance, and short-time sharpness. These are regression checks of the displayed identities, not formal proofs of the continuum theorems or a replay of the full Weil certificate.
 
 `SHA256SUMS` binds the included files except itself. `checks/verify_manifest.py` fails on a missing, modified, unsafe, duplicate, or unlisted file, ignoring Python cache files only.
+
+## Dated vortex collision follow-up (22 October 2026)
+
+The [collision checkpoint](vortex-collision-2026-10-22/README.md) includes two mathematical notes and two exact symbolic checkers with an isolated SymPy 1.14.0 requirement. See its README for commands and scope. These checks were freshly rerun with Python 3.12.14 and SymPy 1.14.0. They verify selected identities and counterexamples, not the unproved theta-specific positivity or all-height trajectory bounds. They require none of the omitted large data and do not change the availability correction above.
 
 ## Large fixed-support proof package: identified but not included
 

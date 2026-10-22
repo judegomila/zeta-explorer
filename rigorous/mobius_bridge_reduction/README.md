@@ -25,6 +25,15 @@ Möbius correlations.
 Read [Mobius_Bridge_Reduction.pdf](Mobius_Bridge_Reduction.pdf) for the endpoint
 identity, positivity argument, target obstruction, and direct bridge reduction.
 
+## Larger-cut research target
+
+[TARGET_0874.md](TARGET_0874.md) derives a route to `B = 0.874` from a new
+restricted fourth-moment saving of `U^(-1/40)`. Its exact arithmetic checker
+passes all modified endpoint and unchanged scalar conditions, including the
+short-block supply constraint. **The additional moment estimate is unproved;
+0.874 is a target, not an achieved bound.** This follow-up also explains why
+the existing row count and fourth moment alone cannot supply the saving.
+
 ## Exact certificate
 
 The new-stage parameters are

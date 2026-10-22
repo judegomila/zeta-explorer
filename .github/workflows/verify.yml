@@ -35,6 +35,9 @@ jobs:
           python3 -E verify_certificate.py
           python3 -E certify_parameters.py
           git diff --exit-code -- parameter_certificate.json target_obstruction.json
+          python3 -E target_0874.py
+          python3 -E target_0874.py --json > /tmp/target_0874_certificate.json
+          diff -u target_0874_certificate.json /tmp/target_0874_certificate.json
 
       - name: Fetch bounded PR base for assertion diff
         if: github.event_name == 'pull_request'

@@ -27,6 +27,10 @@ No third-party packages are required for the four commands above. The scalar che
 
 The [collision checkpoint](vortex-collision-2026-10-22/README.md) includes two mathematical notes and two exact symbolic checkers with an isolated SymPy 1.14.0 requirement. See its README for commands and scope. These checks were freshly rerun with Python 3.12.14 and SymPy 1.14.0. They verify selected identities and counterexamples, not the unproved theta-specific positivity or all-height trajectory bounds. They require none of the omitted large data and do not change the availability correction above.
 
+## Finite actual-theta positivity certificate (22 October 2026)
+
+The [central theta certificate](theta-central-2026-10-22/README.md) supplies a complete small interval-arithmetic checker, both analytic tail estimates, a pinned python-flint 0.9.0 requirement and recorded 128/192-bit outputs. With 65,536 dyadic cells, both runs certify the moment-ratio target `M2(1/2)/M0(1/2)<2/169`, implying `H_tau(x)>0` for real `|x|<=13` and `0<=tau<=1/2`. The higher-precision run replays the same implementation; it is not a second implementation or formal proof verification. This is a bounded real-axis result, not a complex zero-free region, all-height collision barrier, or novelty claim. No omitted archive is required or reconstructed.
+
 ## Large fixed-support proof package: identified but not included
 
 The independently replayed `L=6/5` computation belongs to the frozen package identified as `frozen_l1200_complete_20261021_1902`. It is approximately 1.1 GB on disk, with 117 files including its manifest. This commit deliberately does not copy that large package.

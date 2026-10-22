@@ -38,6 +38,9 @@ jobs:
           python3 -E target_0874.py
           python3 -E target_0874.py --json > /tmp/target_0874_certificate.json
           diff -u target_0874_certificate.json /tmp/target_0874_certificate.json
+          python3 -E signed_phase_filter.py
+          python3 -E signed_phase_filter.py --json > /tmp/signed_phase_filter_results.json
+          diff -u signed_phase_filter_results.json /tmp/signed_phase_filter_results.json
 
       - name: Fetch bounded PR base for assertion diff
         if: github.event_name == 'pull_request'

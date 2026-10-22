@@ -34,6 +34,16 @@ short-block supply constraint. **The additional moment estimate is unproved;
 0.874 is a target, not an achieved bound.** This follow-up also explains why
 the existing row count and fourth moment alone cannot supply the saving.
 
+## Signed phase-filter investigation
+
+[SIGNED_PHASE_FILTER.md](SIGNED_PHASE_FILTER.md) constructs an optimal
+zero-mean filter on sixth-root character phases that preserves the principal
+response. It proves complete-period Gram cancellation and an incomplete
+integer-interval mean-square bound, and identifies the surviving eigenvalue-one
+subspace. Exact local algebra and finite arithmetic diagnostics are reproducible
+with `python3 -E signed_phase_filter.py`. Embedding this filter into the weighted
+Eisenstein-row probe remains open; it establishes no new zero-free boundary.
+
 ## Exact certificate
 
 The new-stage parameters are

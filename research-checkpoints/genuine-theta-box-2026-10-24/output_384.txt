@@ -1,0 +1,10 @@
+Derivative quadratures: 162 seconds: 4.484881162643433
+Per-component scaled remainder: [3.1141331091474837351770069279342849367806578180838442100143440804295195103176132038314265396478113837650141411140e-16 +/- 1.02e-129]
+x=200 certified segments: 1
+t=1/3 certified segments: 11
+x=220 certified segments: 1
+t=1/5 certified segments: 10
+Winding enclosure: [+/- 1.36e-16]
+Certified winding: 0; minimum scaled boundary norm: [2.949365949312152286298972448917032970441207561501890129274956940795328996226778762882848176032284027940907759130741 +/- 1.36e-115]
+Interior: all 68 closed rectangles exclude G=0 directly.
+PASS: complete continuous-boundary certificate saved to certificate_384.json

@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "reviewed_at_utc": "2026-10-30T11:07:39.280190+00:00",
+  "producer": "rh_attack_cycle_20261030/weil_radical_tail_attack/EXACT_RADICAL_WINDOW_IDENTITY_AND_TWO_TAIL_BRIDGE.md",
+  "producer_sha256": "788280061df1d3acd494b47a95d85280b8a4646f79237ed5d4edcf7b8f421430",
+  "source_hashes": {
+    "rh_attack_cycle_20261030/actual_translation_graph/ACTUAL_JUMP_GRAPH_AND_COUNTERTERM.md": "f82f4a4f7ae0277df8d45155b0cfbf1ba8b5026474a5fe85853432319b0a4391",
+    "rh_attack_cycle_20261030/independent_review/radical_action_checks/check_exact_factors.py": "94a456ff60fbcf3dc1d34e34c67794696af1b9df2db46cabdc9bbb56ea7aa4ef",
+    "rh_attack_cycle_20261030/independent_review/radical_action_checks/EXACT_FACTOR_CHECKS.json": "e9b939571730b65b303dfb1fe62e0582601a6d08ce791195e646bc6b246db4cf",
+    "rh_attack_cycle_20261030/weil_radical_tail_attack/EXACT_RADICAL_WINDOW_IDENTITY_AND_TWO_TAIL_BRIDGE.md": "788280061df1d3acd494b47a95d85280b8a4646f79237ed5d4edcf7b8f421430"
+  },
+  "audit_note_sha256": "c7957752b73333b3f7c7f213cf66ebce4f64eea5067cc2c3b0ab3721c99c9880",
+  "scope": "ACTUAL_E_RADICAL_DOMAIN_AND_TWO_TAIL_AUDIT",
+  "numerical_spectral_run": false,
+  "global_L2_closure_asserted": false,
+  "cofinal_complement_floor_proved": false,
+  "post_v8_cutoff": true
+}

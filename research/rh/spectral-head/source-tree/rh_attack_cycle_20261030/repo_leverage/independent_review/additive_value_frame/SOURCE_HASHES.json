@@ -1,0 +1,13 @@
+{
+  "review_date_utc": "2026-10-30",
+  "relative_to": "repo_leverage",
+  "sources": {
+    "ADDITIVE_THRESHOLD_ENDPOINT_NULL_VALUE_FRAME.md": "62cff67c897596caf6dfab6f8b09a1e71975aafe6ff643f33aec6ff2fe794b4c",
+    "EVENTUAL_THRESHOLD_SONIN_EXTENSION.md": "8bd7ac668d341b86d101329a54b3b89430c9a0256354f82e806448631fd85f94",
+    "independent_review/extended_sonin_conditional/CONDITIONAL_SUPERCRITICAL_SONIN.md": "2c9655f85f97b040004edd7a69bcaee10b23de2265f40f8209bcaf89b716635b",
+    "independent_review/extended_sonin_conditional/EVENTUAL_THRESHOLD_AUDIT.md": "2fbbf576a4770687def1aa4b67295243a0e4b89a822f8f4b641f8f7904c4a771",
+    "independent_review/dyadic_deficit/DYADIC_DEFICIT_BANDS_AND_MOMENTS.md": "f87bd74844c945c4252c0bbfcf9bed05abdf2f03c332dc259a44b86ca4027f43",
+    "independent_review/dyadic_deficit/SPECTRAL_RANGE_AUDIT.md": "e09a443768d6f27f017be3cda683ed1d408bef28cfefe60ee5b822b8d668672b"
+  },
+  "status": "PASS for stated eventual additive-input value frame; no deficit-whitened or positivity claim"
+}

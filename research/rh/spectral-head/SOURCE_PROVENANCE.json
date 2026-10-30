@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "reviewUnit": "spectral-head",
+  "module": {
+    "id": "spectral-head-theory",
+    "bodyPath": "research/rh/modules/spectral-head-theory.md",
+    "status": "proved-identity",
+    "reviewStatus": "accepted",
+    "reviewScope": "internal",
+    "rhStatus": "open",
+    "verification": {
+      "reproducibilityStatus": "partial",
+      "scope": "Analytic theorem derived from explicitly stated internally audited deep inputs. Selected current source/audit pairs included; classical proofs and auxiliary scalar-check outputs not exhaustively reproduced. No executable replay, effective onset or formal verification."
+    },
+    "claims": [
+      {
+        "id": "actual-near-null-head",
+        "status": "proved-identity",
+        "scope": "For each fixed r>0, eventual actual supported action bound Cr(1+loglambda)^(-r) on the selected literal arithmetic image, without source trace constraints."
+      },
+      {
+        "id": "head-rank-and-physical-bridge",
+        "status": "proved-identity",
+        "scope": "Explicit guaranteed-prefix rank lower bound and actual physical off-head action estimate; not a complement diagonal lower bound."
+      },
+      {
+        "id": "whole-complement",
+        "status": "open",
+        "scope": "No whole-complement floor, cofinal-support bound, actual-ground identification or RH theorem."
+      }
+    ]
+  },
+  "bodyMapping": {
+    "originalPath": "staging/spectral-head-theory.md",
+    "originalSha256": "602b553e3ea558edb843d15eeefcb09b2bb780b8d34bb4b6ce6656d2c6a657a8",
+    "publishedPath": "research/rh/modules/spectral-head-theory.md",
+    "publishedSha256": "4f2ae023c08d8b5aad261f7e63d088ed0dfc4abbbb2d905cfe14a5bc27370247",
+    "transformation": "Publication path/scope clarification; explicit digamma, distinct additive Fourier convention and tail domain; restored action-strip threshold hypothesis. No strengthening of theorem."
+  },
+  "dependencyInventory": {
+    "path": "research/rh/spectral-head/DEPENDENCY_INVENTORY.json",
+    "sha256": "e37d720c68f81af7ee25784ae6914c8a96670361aa2b9278353897b785f8804d"
+  },
+  "externalSourceCheck": {
+    "source": "Karnik\u2013Romberg\u2013Davenport, arXiv:2006.00427v2, Corollaries3\u20134",
+    "url": "https://arxiv.org/html/2006.00427v2",
+    "checkedClaim": "Concentration prefix constant beta=(2/pi^2)log(200lambda^2+25) under c=2pi lambda^2, with lower prefix shift7 and deficit prefactor10.",
+    "scope": "Primary statement checked; not a new proof of its theorem."
+  }
+}

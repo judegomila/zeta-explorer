@@ -51,7 +51,7 @@ export const SIGNED_COMPLEMENT = createResearchModule({
       {
         id: 'strong-clipping-excess',
         label: 'Refuted strong clipping aggregate',
-        tex: tex`E_\lambda=\sum_j\left(A_j-\frac{M}{12\ell}\right)_+,qquad E_\lambda\ge c_{M,\theta,\phi}N^{\theta-1/2}\log N`,
+        tex: tex`E_\lambda=\sum_j\left(A_j-\frac{M}{12\ell}\right)_+,\qquad E_\lambda\ge c_{M,\theta,\phi}N^{\theta-1/2}\log N`,
         explanation: 'The lower bound holds for all sufficiently large integers $N$ along $X=2N$, with positive constant and unspecified onset.',
       },
       {
@@ -592,6 +592,17 @@ export const SIGNED_COMPLEMENT_ASSERTIONS = Object.freeze([
         failure.failureStage.includes('N^{\\theta-1/2}') &&
         failure.nonImplications.some((item) => /not a negative vector/i.test(item)),
     ),
+  },
+  {
+    name: 'strong clipping theorem preserves its exact TeX separator at runtime',
+    holds: () => {
+      const equation = SIGNED_COMPLEMENT.theorem.equations.find(
+        (candidate) => candidate.id === 'strong-clipping-excess',
+      );
+      const expected = String.raw`E_\lambda=\sum_j\left(A_j-\frac{M}{12\ell}\right)_+,\qquad E_\lambda\ge c_{M,\theta,\phi}N^{\theta-1/2}\log N`;
+      return equation?.tex === expected && equation.tex.includes(',\\qquad E_\\lambda') &&
+        !/[\u0000-\u001f\u007f]/.test(equation.tex);
+    },
   },
   {
     name: 'actual supported packet and head projection mathematics are displayed',

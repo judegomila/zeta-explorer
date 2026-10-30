@@ -1,0 +1,27 @@
+{
+  "status": "PASS_SCOPED_INTEGRATION_BODY_REVIEW",
+  "review_date": "2026-10-30",
+  "body_path": "research/rh/modules/channel-geometry.md",
+  "body_sha256": "bcda63ebc745d6363fc1ac407312035af011af25acc61404923a60147ae592f8",
+  "checks": {
+    "math_fidelity": "PASS after explicit hypotheses and normalizations restored in integration body only",
+    "annular_scope": "T=X=exp(2b), fixed smooth U precursor only; no acceptance of original general-T or band-compression assertions",
+    "gamma_normalization": "1/4 multiplier plus explicit pole in paired packet form; 5/4 multiplier with matching signed continuum in curvature form",
+    "physical_head": "Projection conclusion conditional on accepted action norm, not Rayleigh energy; incomplete transitive proof tree disclosed",
+    "attribution": "Montgomery\u2013Vaughan mean value and Suzuki screw identities/RH equivalences explicitly attributed; no new general superwire theorem or RH claim",
+    "transport": "Normalized coupling marginals, M_b=0 case, omega(0), log energy, atom counting, reference density and fixed-annulus PNT now explicit",
+    "privacy": "No private conversation links, room message IDs, agent paths or workspace paths found in body; 24 curated source hashes and privacy scans pass",
+    "renderer": "Delimiter structure matches inspected CanonicalResearchBody source; 45 display and 112 inline expressions, per-expression braces/environments balanced",
+    "ui_boundary": "No KaTeX runtime, actual UI render, build, route registration or deployment performed"
+  },
+  "approved_source_pins_unchanged": {
+    "rh_attack_cycle_20261030/superwire_channel_attack/SEPARATED_GOOD_CARRIERS_AND_SIGNED_CHANNEL_TEST.md": "6d277359682bbe1af9e5ff7c3477e6a2d60941b7615f05f8cfa8d7be724510c6",
+    "rh_attack_cycle_20261030/triangle_channel_bridge/TRIANGLE_TO_SIGNED_CHANNEL_TEST.md": "6082ff03c245e38b7a6a51c049d3e7070d19759b3d19247bec710a69ef8bbb8e",
+    "rh_attack_cycle_20261030/neutral_transport_bound_attempt/TWO_NEUTRAL_PRIME_EXCESS_ROUTES.md": "b74af74df2019fcefbd412dd28eeb49aeb1368e4a303413bc9b23cb73e3e41a7"
+  },
+  "changed_accepted_sources": false,
+  "remote_actions": false,
+  "display_math_blocks": 45,
+  "inline_math_expressions": 112,
+  "curated_source_files_checked": 24
+}

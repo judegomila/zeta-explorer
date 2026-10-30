@@ -1,0 +1,247 @@
+{
+  "schemaVersion": 1,
+  "status": "LOCAL_INTEGRATION_SLICE_UNPUBLISHED",
+  "remoteCommit": null,
+  "privacyAndProvenanceTransformationsOnly": true,
+  "mathematicalContentUnchanged": true,
+  "originalProducerPinsVerified": {
+    "rh_attack_cycle_20261030/superwire_channel_attack/SEPARATED_GOOD_CARRIERS_AND_SIGNED_CHANNEL_TEST.md": "6d277359682bbe1af9e5ff7c3477e6a2d60941b7615f05f8cfa8d7be724510c6",
+    "rh_attack_cycle_20261030/triangle_channel_bridge/TRIANGLE_TO_SIGNED_CHANNEL_TEST.md": "6082ff03c245e38b7a6a51c049d3e7070d19759b3d19247bec710a69ef8bbb8e",
+    "rh_attack_cycle_20261030/annular_shared_frequency_attack/ANNULAR_NEUTRAL_MOST_CARRIER_SECTORS.md": "d68bdff59cff8bf1504e06ee1e65ee9331926ce926f7ab312570256e2b3ed19d"
+  },
+  "annularReviewBoundary": "Only the independently rederived T=X fixed-envelope precursor is accepted here. Dedicated final audit of the broader original annular source was not recovered.",
+  "analyticAvailability": "partial; actual-head action theorem included, full transitive chain not bundled",
+  "files": [
+    {
+      "originalPath": "rh_attack_cycle_20261030/annular_shared_frequency_attack/ANNULAR_NEUTRAL_MOST_CARRIER_SECTORS.md",
+      "originalSha256": "d68bdff59cff8bf1504e06ee1e65ee9331926ce926f7ab312570256e2b3ed19d",
+      "repoPath": "research/rh/channel-geometry/source-tree/rh_attack_cycle_20261030/annular_shared_frequency_attack/ANNULAR_NEUTRAL_MOST_CARRIER_SECTORS.md",
+      "curatedSha256": "d68bdff59cff8bf1504e06ee1e65ee9331926ce926f7ab312570256e2b3ed19d",
+      "bytes": 12810,
+      "transformations": []
+    },
+    {
+      "originalPath": "rh_attack_cycle_20261030/annular_shared_frequency_attack/RECOVERED_RESTRICTED_PRECURSOR_STATUS.md",
+      "originalSha256": "c3bc041ec7b34f9820a6489c6d9607c84163c7bf1d1ab8c131e605194474c8ad",
+      "repoPath": "research/rh/channel-geometry/source-tree/rh_attack_cycle_20261030/annular_shared_frequency_attack/RECOVERED_RESTRICTED_PRECURSOR_STATUS.md",
+      "curatedSha256": "c3bc041ec7b34f9820a6489c6d9607c84163c7bf1d1ab8c131e605194474c8ad",
+      "bytes": 2089,
+      "transformations": []
+    },
+    {
+      "originalPath": "rh_attack_cycle_20261030/annular_shared_frequency_attack/RECOVERY_STATUS_MANIFEST.json",
+      "originalSha256": "9bc069fcd68c9f325fba5bbd04135f79fc3d103457687314541525fc3a7279cb",
+      "repoPath": "research/rh/channel-geometry/source-tree/rh_attack_cycle_20261030/annular_shared_frequency_attack/RECOVERY_STATUS_MANIFEST.json",
+      "curatedSha256": "9bc069fcd68c9f325fba5bbd04135f79fc3d103457687314541525fc3a7279cb",
+      "bytes": 1183,
+      "transformations": []
+    },
+    {
+      "originalPath": "rh_attack_cycle_20261030/superwire_channel_attack/SEPARATED_GOOD_CARRIERS_AND_SIGNED_CHANNEL_TEST.md",
+      "originalSha256": "6d277359682bbe1af9e5ff7c3477e6a2d60941b7615f05f8cfa8d7be724510c6",
+      "repoPath": "research/rh/channel-geometry/source-tree/rh_attack_cycle_20261030/superwire_channel_attack/SEPARATED_GOOD_CARRIERS_AND_SIGNED_CHANNEL_TEST.md",
+      "curatedSha256": "77efb27d0d94b06d3a4c97d840038fce2f3026a6e16313af474f26d44d95d26f",
+      "bytes": 13592,
+      "transformations": [
+        {
+          "kind": "https://chatgpt\\.com/c/[^\\s)]+",
+          "occurrences": 2
+        }
+      ]
+    },
+    {
+      "originalPath": "rh_attack_cycle_20261030/superwire_channel_attack/SPARSE_CARRIER_SPAN_INDEPENDENT_AUDIT.md",
+      "originalSha256": "f406d4f5c4d7088732dc717cfaaf0f067846bd42a86dd5655abc44922b19466a",
+      "repoPath": "research/rh/channel-geometry/source-tree/rh_attack_cycle_20261030/superwire_channel_attack/SPARSE_CARRIER_SPAN_INDEPENDENT_AUDIT.md",
+      "curatedSha256": "f406d4f5c4d7088732dc717cfaaf0f067846bd42a86dd5655abc44922b19466a",
+      "bytes": 11355,
+      "transformations": []
+    },
+    {
+      "originalPath": "rh_attack_cycle_20261030/superwire_channel_attack/SPARSE_CARRIER_SPAN_INDEPENDENT_AUDIT.json",
+      "originalSha256": "47189b9933a593ad36460a2c1779437cd4942346479647e815f4326c407faa0d",
+      "repoPath": "research/rh/channel-geometry/source-tree/rh_attack_cycle_20261030/superwire_channel_attack/SPARSE_CARRIER_SPAN_INDEPENDENT_AUDIT.json",
+      "curatedSha256": "59285bdd00290ae5d8dcced9fee5928f540043b614a74fb30337e040b7b8318a",
+      "bytes": 2127,
+      "transformations": [
+        {
+          "kind": "label original audit source pins distinctly",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "originalPath": "rh_attack_cycle_20261030/superwire_channel_attack/check_channel_algebra.py",
+      "originalSha256": "d9df79d14b4d8ca5d5d35b56e41cea8d9af355d07bb7ca95d1e385bb26dd85e6",
+      "repoPath": "research/rh/channel-geometry/source-tree/rh_attack_cycle_20261030/superwire_channel_attack/check_channel_algebra.py",
+      "curatedSha256": "d9df79d14b4d8ca5d5d35b56e41cea8d9af355d07bb7ca95d1e385bb26dd85e6",
+      "bytes": 2071,
+      "transformations": []
+    },
+    {
+      "originalPath": "rh_attack_cycle_20261030/superwire_channel_attack/CHANNEL_ALGEBRA_EXACT_CHECKS.json",
+      "originalSha256": "3400788f5afdb8ff50db9a4069a23c23ea590a0ccffdd58deacc7aa23b035f45",
+      "repoPath": "research/rh/channel-geometry/source-tree/rh_attack_cycle_20261030/superwire_channel_attack/CHANNEL_ALGEBRA_EXACT_CHECKS.json",
+      "curatedSha256": "3400788f5afdb8ff50db9a4069a23c23ea590a0ccffdd58deacc7aa23b035f45",
+      "bytes": 892,
+      "transformations": []
+    },
+    {
+      "originalPath": "rh_attack_cycle_20261030/triangle_channel_bridge/TRIANGLE_TO_SIGNED_CHANNEL_TEST.md",
+      "originalSha256": "6082ff03c245e38b7a6a51c049d3e7070d19759b3d19247bec710a69ef8bbb8e",
+      "repoPath": "research/rh/channel-geometry/source-tree/rh_attack_cycle_20261030/triangle_channel_bridge/TRIANGLE_TO_SIGNED_CHANNEL_TEST.md",
+      "curatedSha256": "d15427518d64cab324f94bc37442ffc5767f002db555f6d543b08526df20f3a9",
+      "bytes": 11923,
+      "transformations": [
+        {
+          "kind": "\\[([^\\]]+)\\]\\(https://chatgpt\\.com/c/[^)]+\\)",
+          "occurrences": 2
+        }
+      ]
+    },
+    {
+      "originalPath": "rh_attack_cycle_20261030/triangle_channel_bridge/INDEPENDENT_AUDIT.md",
+      "originalSha256": "9f0fbb99645d93d6dc34836f783137077b9203186d0f694c9f08774ee51e8193",
+      "repoPath": "research/rh/channel-geometry/source-tree/rh_attack_cycle_20261030/triangle_channel_bridge/INDEPENDENT_AUDIT.md",
+      "curatedSha256": "1940059dde9db0c605b41536d8d98932e9cf93879cfeb8659a875ec5faaf77e0",
+      "bytes": 5878,
+      "transformations": [
+        {
+          "kind": "/root(?:/[A-Za-z0-9_]+)+",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "originalPath": "rh_attack_cycle_20261030/triangle_channel_bridge/INDEPENDENT_AUDIT.json",
+      "originalSha256": "253406974982ee7cd4656a01475dd131afa879e8527c7771dbe5f2c1d9f076ff",
+      "repoPath": "research/rh/channel-geometry/source-tree/rh_attack_cycle_20261030/triangle_channel_bridge/INDEPENDENT_AUDIT.json",
+      "curatedSha256": "942ce3092f145e01af751108a202a540f4ba7f49aa67d7d4aee35ad6120aa1d9",
+      "bytes": 2514,
+      "transformations": [
+        {
+          "kind": "/root(?:/[A-Za-z0-9_]+)+",
+          "occurrences": 1
+        },
+        {
+          "kind": "label original audit source pins distinctly",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "originalPath": "rh_attack_cycle_20261030/triangle_channel_bridge/check_triangle_channel_algebra.py",
+      "originalSha256": "9cd2e63cc638351c745c4db6d5f1da568f1caccfbd1c4fe559fb2c97f213e576",
+      "repoPath": "research/rh/channel-geometry/source-tree/rh_attack_cycle_20261030/triangle_channel_bridge/check_triangle_channel_algebra.py",
+      "curatedSha256": "9cd2e63cc638351c745c4db6d5f1da568f1caccfbd1c4fe559fb2c97f213e576",
+      "bytes": 3983,
+      "transformations": []
+    },
+    {
+      "originalPath": "rh_attack_cycle_20261030/triangle_channel_bridge/EXACT_ALGEBRA_CHECKS.json",
+      "originalSha256": "71e82d81f1f166327657f1ed472eaa718890833ef6129462b918aa49bcc1b425",
+      "repoPath": "research/rh/channel-geometry/source-tree/rh_attack_cycle_20261030/triangle_channel_bridge/EXACT_ALGEBRA_CHECKS.json",
+      "curatedSha256": "71e82d81f1f166327657f1ed472eaa718890833ef6129462b918aa49bcc1b425",
+      "bytes": 1834,
+      "transformations": []
+    },
+    {
+      "originalPath": "rh_attack_cycle_20261030/signed_packet_cancellation/EXACT_PAIRED_PACKET_SIGNED_CANCELLATION.md",
+      "originalSha256": "b5c7843f266ce7a66f9f150cb0f625cfba0a6789c972050ac49160068417aa9f",
+      "repoPath": "research/rh/channel-geometry/source-tree/rh_attack_cycle_20261030/signed_packet_cancellation/EXACT_PAIRED_PACKET_SIGNED_CANCELLATION.md",
+      "curatedSha256": "b5c7843f266ce7a66f9f150cb0f625cfba0a6789c972050ac49160068417aa9f",
+      "bytes": 13532,
+      "transformations": []
+    },
+    {
+      "originalPath": "rh_attack_cycle_20261030/signed_packet_cancellation/independent_review/PAIRED_PACKET_CANCELLATION_AUDIT.md",
+      "originalSha256": "0de77d977419e4f48e5738576f220b10069b43486c4e98b34616b49463972fa4",
+      "repoPath": "research/rh/channel-geometry/source-tree/rh_attack_cycle_20261030/signed_packet_cancellation/independent_review/PAIRED_PACKET_CANCELLATION_AUDIT.md",
+      "curatedSha256": "0de77d977419e4f48e5738576f220b10069b43486c4e98b34616b49463972fa4",
+      "bytes": 6263,
+      "transformations": []
+    },
+    {
+      "originalPath": "rh_attack_cycle_20261030/signed_packet_cancellation/independent_review/PAIRED_PACKET_CANCELLATION_AUDIT.json",
+      "originalSha256": "0f3e626514023cd212f583dd9020e371d8225a3e6e72bbee814e082fa78def72",
+      "repoPath": "research/rh/channel-geometry/source-tree/rh_attack_cycle_20261030/signed_packet_cancellation/independent_review/PAIRED_PACKET_CANCELLATION_AUDIT.json",
+      "curatedSha256": "0f3e626514023cd212f583dd9020e371d8225a3e6e72bbee814e082fa78def72",
+      "bytes": 2301,
+      "transformations": []
+    },
+    {
+      "originalPath": "rh_attack_cycle_20261030/neutral_transport_bound_attempt/TWO_NEUTRAL_PRIME_EXCESS_ROUTES.md",
+      "originalSha256": "b74af74df2019fcefbd412dd28eeb49aeb1368e4a303413bc9b23cb73e3e41a7",
+      "repoPath": "research/rh/channel-geometry/source-tree/rh_attack_cycle_20261030/neutral_transport_bound_attempt/TWO_NEUTRAL_PRIME_EXCESS_ROUTES.md",
+      "curatedSha256": "b74af74df2019fcefbd412dd28eeb49aeb1368e4a303413bc9b23cb73e3e41a7",
+      "bytes": 12913,
+      "transformations": []
+    },
+    {
+      "originalPath": "rh_attack_cycle_20261030/neutral_transport_bound_attempt/NEUTRAL_TRANSPORT_INDEPENDENT_AUDIT.md",
+      "originalSha256": "470dd685994f486394cee5a12f4ae1b6248599dc9ddeb487710dab505e463dc0",
+      "repoPath": "research/rh/channel-geometry/source-tree/rh_attack_cycle_20261030/neutral_transport_bound_attempt/NEUTRAL_TRANSPORT_INDEPENDENT_AUDIT.md",
+      "curatedSha256": "470dd685994f486394cee5a12f4ae1b6248599dc9ddeb487710dab505e463dc0",
+      "bytes": 6094,
+      "transformations": []
+    },
+    {
+      "originalPath": "rh_attack_cycle_20261030/neutral_transport_bound_attempt/NEUTRAL_TRANSPORT_INDEPENDENT_AUDIT.json",
+      "originalSha256": "7856fba48c0ac9085c39c0ce16a893d4169393ea8d604dd0d73ef7367e122194",
+      "repoPath": "research/rh/channel-geometry/source-tree/rh_attack_cycle_20261030/neutral_transport_bound_attempt/NEUTRAL_TRANSPORT_INDEPENDENT_AUDIT.json",
+      "curatedSha256": "7856fba48c0ac9085c39c0ce16a893d4169393ea8d604dd0d73ef7367e122194",
+      "bytes": 1404,
+      "transformations": []
+    },
+    {
+      "originalPath": "rh_attack_cycle_20261030/curvature_bulk/ARITHMETIC_CURVATURE_AUDIT.md",
+      "originalSha256": "3195a4587d8ab0424e5cf990e3871569f6cc2a0e84ba5fb5f9cfc7600b7d3d13",
+      "repoPath": "research/rh/channel-geometry/source-tree/rh_attack_cycle_20261030/curvature_bulk/ARITHMETIC_CURVATURE_AUDIT.md",
+      "curatedSha256": "b66b8983fec7223da1548d3e446a965344db7d0db6181fae4d8e39d045b24619",
+      "bytes": 17395,
+      "transformations": [
+        {
+          "kind": "\\[([^\\]]+)\\]\\(https://chatgpt\\.com/c/[^)]+\\)",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "originalPath": "rh_attack_cycle_20261030/curvature_bulk/SUZUKI_FOLLOWTHROUGH_ADDENDUM.md",
+      "originalSha256": "a48e10d579cfdf171992f827ca4f4876f6174ce230491c32c783984052c00dfe",
+      "repoPath": "research/rh/channel-geometry/source-tree/rh_attack_cycle_20261030/curvature_bulk/SUZUKI_FOLLOWTHROUGH_ADDENDUM.md",
+      "curatedSha256": "c4c05c844ca9d1ba4327160a18247dfc96852692b87d312b7fa5635e2ff3caaf",
+      "bytes": 9530,
+      "transformations": [
+        {
+          "kind": "\\[([^\\]]+)\\]\\(https://chatgpt\\.com/c/[^)]+\\)",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "originalPath": "rh_attack_cycle_20261030/weil_radical_tail_attack/CRITICAL_POWER_FOUR_LOG_TUNED_ACTUAL_ACTION_HEAD.md",
+      "originalSha256": "44599cd2bc804f2387d009506f70ac957ad4643ff45017b00ce9862dc4cf00a1",
+      "repoPath": "research/rh/channel-geometry/source-tree/rh_attack_cycle_20261030/weil_radical_tail_attack/CRITICAL_POWER_FOUR_LOG_TUNED_ACTUAL_ACTION_HEAD.md",
+      "curatedSha256": "44599cd2bc804f2387d009506f70ac957ad4643ff45017b00ce9862dc4cf00a1",
+      "bytes": 4985,
+      "transformations": []
+    },
+    {
+      "originalPath": "rh_attack_cycle_20261030/independent_review/CRITICAL_POWER_FOUR_ACTION_HEAD_AUDIT.md",
+      "originalSha256": "4bcc529f29174dcc08217c1a5de7d1712ffca1f060910eff2a7ca456b9861ac9",
+      "repoPath": "research/rh/channel-geometry/source-tree/rh_attack_cycle_20261030/independent_review/CRITICAL_POWER_FOUR_ACTION_HEAD_AUDIT.md",
+      "curatedSha256": "4bcc529f29174dcc08217c1a5de7d1712ffca1f060910eff2a7ca456b9861ac9",
+      "bytes": 4612,
+      "transformations": []
+    },
+    {
+      "originalPath": "rh_attack_cycle_20261030/independent_review/CRITICAL_POWER_FOUR_ACTION_HEAD_AUDIT.json",
+      "originalSha256": "f063b8c7b5b0d9c67bf7a735022b439ef6299e3117a977b1a364d7fbc3399dc3",
+      "repoPath": "research/rh/channel-geometry/source-tree/rh_attack_cycle_20261030/independent_review/CRITICAL_POWER_FOUR_ACTION_HEAD_AUDIT.json",
+      "curatedSha256": "f063b8c7b5b0d9c67bf7a735022b439ef6299e3117a977b1a364d7fbc3399dc3",
+      "bytes": 13253,
+      "transformations": []
+    }
+  ]
+}

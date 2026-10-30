@@ -1,0 +1,36 @@
+{
+  "status": "PASS_RESTRICTED_ANALYTIC_THEOREM",
+  "review_date": "2026-10-30",
+  "scope": [
+    "annular mean-square precursor independently rederived",
+    "sparse coherent cross-carrier span",
+    "fixed epsilon separation extension",
+    "true physical complement transfer conditional on accepted head action"
+  ],
+  "not_claimed": [
+    "exceptional-carrier control",
+    "dense-carrier control",
+    "coverage",
+    "cofinal positive exhaustion",
+    "new whole-even endpoint",
+    "RH"
+  ],
+  "numerical_experiments": false,
+  "remote_actions": false,
+  "primary_references_checked": [
+    "https://personal.science.psu.edu/rcv4/personal/Publications/s2-8-1-73.pdf",
+    "https://dlmf.nist.gov/5.11#E2"
+  ],
+  "final_producer_status": "PASS_FINAL_BYTES",
+  "gram_kernel_qualification": "resolved: linearly independent family or quotient Gram kernel",
+  "exact_synthetic_replay": "PASS_BYTE_IDENTICAL",
+  "original_source_hashes": {
+    "rh_attack_cycle_20261030/annular_shared_frequency_attack/ANNULAR_NEUTRAL_MOST_CARRIER_SECTORS.md": "d68bdff59cff8bf1504e06ee1e65ee9331926ce926f7ab312570256e2b3ed19d",
+    "rh_attack_cycle_20261030/signed_packet_cancellation/EXACT_PAIRED_PACKET_SIGNED_CANCELLATION.md": "b5c7843f266ce7a66f9f150cb0f625cfba0a6789c972050ac49160068417aa9f",
+    "rh_attack_cycle_20261030/superwire_channel_attack/SPARSE_CARRIER_SPAN_INDEPENDENT_AUDIT.md": "f406d4f5c4d7088732dc717cfaaf0f067846bd42a86dd5655abc44922b19466a",
+    "rh_attack_cycle_20261030/superwire_channel_attack/SEPARATED_GOOD_CARRIERS_AND_SIGNED_CHANNEL_TEST.md": "6d277359682bbe1af9e5ff7c3477e6a2d60941b7615f05f8cfa8d7be724510c6",
+    "rh_attack_cycle_20261030/superwire_channel_attack/check_channel_algebra.py": "d9df79d14b4d8ca5d5d35b56e41cea8d9af355d07bb7ca95d1e385bb26dd85e6",
+    "rh_attack_cycle_20261030/superwire_channel_attack/CHANNEL_ALGEBRA_EXACT_CHECKS.json": "3400788f5afdb8ff50db9a4069a23c23ea590a0ccffdd58deacc7aa23b035f45"
+  },
+  "curation_note": "Original audit pins refer to the pre-curation source bytes. SOURCE_PROVENANCE.json maps them to the curated publication copies; mathematical audit scope is unchanged."
+}

@@ -2,13 +2,24 @@
   "schemaVersion": 1,
   "reviewUnit": "suzuki",
   "asOf": "2026-10-30",
+  "publicationRelocation": {
+    "sourceStagingHead": "1a85a498d3de8a42bb7d7b18a916b9b603cfd688",
+    "reason": "Keep canonical mathematical module bodies beside their research evidence and outside the browser bundle.",
+    "method": "Byte-identical path-only moves; bodySha256 and curated original-source hashes are unchanged.",
+    "paths": [
+      "content/rh-modules/suzuki-recurrence.md -> research/rh/modules/suzuki-recurrence.md",
+      "content/rh-modules/prime-memory.md -> research/rh/modules/prime-memory.md",
+      "content/rh-modules/finite-suzuki-certificate.md -> research/rh/modules/finite-suzuki-certificate.md"
+    ]
+  },
   "modules": [
     {
       "id": "suzuki-recurrence",
       "title": "Suzuki scalar criterion and signed reserve recurrence",
       "status": "accepted",
       "statusMeaning": "Internally reviewed scoped claim; not external peer review or formal verification.",
-      "bodyPath": "content/rh-modules/suzuki-recurrence.md",
+      "bodyPath": "research/rh/modules/suzuki-recurrence.md",
+      "relocatedFrom": "content/rh-modules/suzuki-recurrence.md (byte-identical move; body SHA-256 unchanged)",
       "bodySha256": "46453c52806db3757535fb10aca6875b219e2a024c5c4b9b9351f2a0ac5a6e30",
       "evidenceType": "internally-reviewed-proof",
       "scope": "Finite scalar and analytic reductions only; global arithmetic gap remains open.",
@@ -25,7 +36,8 @@
       "title": "Prime-only memory and credit variation",
       "status": "accepted",
       "statusMeaning": "Internally reviewed scoped claim; not external peer review or formal verification.",
-      "bodyPath": "content/rh-modules/prime-memory.md",
+      "bodyPath": "research/rh/modules/prime-memory.md",
+      "relocatedFrom": "content/rh-modules/prime-memory.md (byte-identical move; body SHA-256 unchanged)",
       "bodySha256": "1e793a7d2a49bc6140b9012cca6864418526109c98a906d1a32d9326d3c24496",
       "evidenceType": "internally-reviewed-proof-with-symbolic-and-scalar-replay",
       "scope": "Finite scalar and analytic reductions only; global arithmetic gap remains open.",
@@ -44,7 +56,8 @@
       "title": "All-real finite Suzuki certificate through 10^7",
       "status": "accepted",
       "statusMeaning": "Internally reviewed scoped claim; not external peer review or formal verification.",
-      "bodyPath": "content/rh-modules/finite-suzuki-certificate.md",
+      "bodyPath": "research/rh/modules/finite-suzuki-certificate.md",
+      "relocatedFrom": "content/rh-modules/finite-suzuki-certificate.md (byte-identical move; body SHA-256 unchanged)",
       "bodySha256": "4dc523d105722c74645eed93265147c8a58480d239195c8c03fbbb184c5b8cb2",
       "evidenceType": "complete-finite-scalar-replay-bundle",
       "scope": "Finite scalar and analytic reductions only; global arithmetic gap remains open.",

@@ -242,6 +242,18 @@ try {
       'Its coercivity constant is existential',
       'It does not prove odd-sector positivity, a cofinal-support result, or RH',
     ],
+    'channel-geometry': [
+      String.raw`E-B^*D^{-1}B\ge0`,
+      String.raw`J_b^*H_\ell J_b=A-\Delta_b-C_b`,
+      String.raw`T=X=e^{2b}`,
+      String.raw`\tfrac14 S\le\|\Psi_b\|^2\le S`,
+      String.raw`H_\ell[Q_\ell J_b\Psi_b]\ge\tfrac1{32}\log T\,S`,
+      String.raw`K>\max\{1,\varepsilon^{-1},(3-\varepsilon)/2\}`,
+      String.raw`q(b_a,b_b)=2[\Psi(a+b)-\Psi(|a-b|)]`,
+      String.raw`\det z=1-r_{12}^2-r_{23}^2-r_{31}^2`,
+      'All triple tests can miss a collective defect',
+      'Synthetic algebra replays are not actual-prime numerical certificates',
+    ],
   });
 
   for (const module of RH_RESEARCH_MODULES) {
@@ -460,6 +472,16 @@ verbatim proof receipt
       'rank-one-gram-bound',
       'finite-gate-dimensions',
     ],
+    'channel-geometry': [
+      'paired-pullback',
+      'annular-good-carrier',
+      'coherent-sparse-span',
+      'physical-projection-transfer',
+      'fixed-epsilon-extension',
+      'suzuki-box-test',
+      'triangle-phase-test',
+      'remaining-schur-obligation',
+    ],
   });
   for (const [moduleId, equationIds] of Object.entries(structuredRenderCases)) {
     const html = publishedPageHtmlById.get(moduleId);
@@ -652,6 +674,126 @@ verbatim proof receipt
     if (!spectralPageHtml?.includes(requiredText)) {
       throw new Error(`spectral-head rendered page omitted ${requiredText}`);
     }
+  }
+
+  const channelGeometry = RH_RESEARCH_MODULES.find((module) => module.id === 'channel-geometry');
+  if (!channelGeometry) throw new Error('published registry omitted the coherent channel-geometry module');
+  if (channelGeometry.status !== 'proved-analytic' ||
+      channelGeometry.reviewStatus !== 'accepted' ||
+      channelGeometry.reviewScope !== 'internal' ||
+      channelGeometry.rhStatus !== 'open') {
+    throw new Error('channel geometry must remain an internally reviewed analytic estimate with RH open');
+  }
+  if (channelGeometry.verification.reproducibilityStatus !== 'partial') {
+    throw new Error('channel geometry must disclose its partial analytic proof tree');
+  }
+  if (channelGeometry.bodyPath !== 'research/rh/modules/channel-geometry.md') {
+    throw new Error('channel geometry did not bind the reviewed canonical body');
+  }
+  if (!channelGeometry.provenance.sourceRefs.some((source) =>
+    source.branch === 'codex/rh-channel-geometry-source-2026-10-30' &&
+    source.commit === 'a9e52e234e104a1b64b5fce6d2c108519b18eb8f' &&
+    source.access === 'private-repository')) {
+    throw new Error('channel geometry did not pin the immutable reviewed source commit');
+  }
+
+  const channelStrings = collectStrings({
+    summary: channelGeometry.summary,
+    claimBoundary: channelGeometry.claimBoundary,
+    theorem: channelGeometry.theorem,
+    derivation: channelGeometry.derivation,
+    verification: channelGeometry.verification,
+    blockers: channelGeometry.blockers,
+  }).join('\n');
+  const normalizedChannelStrings = normalizeTeX(channelStrings);
+  for (const [label, token] of [
+    ['all-channel Schur obligation', 'E-B^*D^{-1}B\\ge0'],
+    ['exact paired pullback', 'J_b^*H_\\ellJ_b=A-\\Delta_b-C_b'],
+    ['fixed-envelope annular scale', 'T=X=e^{2b}'],
+    ['coherent sparse-span norm bound', '\\frac14S\\le\\|\\Psi_b\\|^2\\leS'],
+    ['physical-head transfer', 'H_\\ell[Q_\\ellJ_b\\Psi_b]\\ge\\frac1{32}\\logTS'],
+    ['fixed-epsilon packing condition', 'K>\\max\\{1,\\varepsilon^{-1},(3-\\varepsilon)/2\\}'],
+    ['Suzuki box-channel identity', 'q(b_a,b_b)=2[\\Psi(a+b)-\\Psi(|a-b|)]'],
+    ['triangle phase determinant', '\\detz=1-r_{12}^2-r_{23}^2-r_{31}^2'],
+  ]) {
+    if (!normalizedChannelStrings.includes(token)) {
+      throw new Error(`channel geometry structured data omitted ${label}`);
+    }
+  }
+
+  const channelLimitations = collectStrings(channelGeometry.claimBoundary).join('\n');
+  for (const [label, pattern] of [
+    ['exceptional/neighboring/low-frequency directions', /exceptional[\s\S]*neighbor|neighbor[\s\S]*exceptional|low-frequency/i],
+    ['complement or cofinal coverage', /complement|cofinal|nested exhaustion/i],
+    ['global floor, zero-free region, or RH', /global (?:lower )?floor|zero-free|prove RH|RH theorem/i],
+    ['general carrier-height or band-compression promotion', /carrier-height|band-compression/i],
+    ['whole-even endpoint extension', /endpoint|whole-even/i],
+  ]) {
+    if (!pattern.test(channelLimitations)) {
+      throw new Error(`channel geometry scope omitted ${label}`);
+    }
+  }
+  if (!/source-specific[^.]*annular[^.]*audit[^.]*not (?:recovered|available)|not recovered[^.]*source-specific[^.]*audit/i.test(channelStrings)) {
+    throw new Error('channel geometry did not disclose the unavailable broad annular source audit');
+  }
+  if (!/transitive[^.]*proof tree[^.]*not bundled|proof tree[^.]*partial/i.test(channelStrings)) {
+    throw new Error('channel geometry did not disclose its partial inherited analytic proof tree');
+  }
+  if (!/fixed smooth|fixed-envelope|fixed envelope/i.test(channelStrings) || !/T=X=e\^\{2b\}/.test(channelStrings)) {
+    throw new Error('channel geometry widened the fixed-envelope T=X precursor scope');
+  }
+
+  if (channelGeometry.failures.length !== 7) {
+    throw new Error(`channel geometry must retain all seven failed shortcuts, found ${channelGeometry.failures.length}`);
+  }
+  const channelFailureText = channelGeometry.failures.map((failure) => collectStrings(failure).join('\n'));
+  for (const [label, pattern] of [
+    ['entrywise intensity loses phase', /intensity[\s\S]*phase|phase[\s\S]*intensity/i],
+    ['lossless evolution is not contraction', /lossless|unitary[\s\S]*contraction/i],
+    ['positive scalar or metric is not kernel positivity', /positive (?:metric|scalar)[\s\S]*(?:kernel|channel)|kernel[\s\S]*-192/i],
+    ['triangle-angle or Gauss-Bonnet cancellation is insufficient', /Gauss.Bonnet|triangle angle|geodesic-curvature/i],
+    ['three-channel tests miss a four-channel defect', /three-channel|triple tests|four-channel/i],
+    ['absolute transport budget diverges', /absolute transport|transport[\s\S]*diverg/i],
+    ['variation-to-gamma-energy shortcut fails', /variation[\s\S]*gamma|gamma energy[\s\S]*variation/i],
+  ]) {
+    if (!channelFailureText.some((text) => pattern.test(text))) {
+      throw new Error(`channel geometry failed-route ledger omitted ${label}`);
+    }
+  }
+  const channelFailureNonImplications = channelGeometry.failures
+    .flatMap((failure) => failure.nonImplications)
+    .join('\n');
+  if (!/not (?:an? )?(?:negative )?actual Weil|does not establish[^.]*actual Weil|does not prove[^.]*actual Weil/i.test(
+    channelFailureNonImplications,
+  )) {
+    throw new Error('channel geometry failures blurred their non-implication for the actual Weil form');
+  }
+
+  const channelEquations = [
+    ...(channelGeometry.theorem.equations || []),
+    ...channelGeometry.derivation.flatMap((step) => step.equations || []),
+  ];
+  if (channelEquations.length < 8) {
+    throw new Error(`channel geometry structured equation inventory unexpectedly small: ${channelEquations.length}`);
+  }
+  const channelPageHtml = publishedPageHtmlById.get('channel-geometry');
+  if (!channelPageHtml?.includes('Failed surrogate records')) {
+    throw new Error('channel geometry rendered page omitted the seven failed shortcuts');
+  }
+  for (const equation of channelEquations) {
+    if (!channelPageHtml.includes(`data-research-equation-id="${equation.id}"`)) {
+      throw new Error(`channel geometry rendered page omitted structured equation ${equation.id}`);
+    }
+    try {
+      katex.renderToString(equation.tex, { throwOnError: true, displayMode: true });
+    } catch (error) {
+      throw new Error(`channel geometry structured TeX failed to parse (${equation.id}): ${error.message}`);
+    }
+  }
+  if (!channelPageHtml.includes('RH remains open') ||
+      !channelPageHtml.includes('partial reproducibility') ||
+      !channelPageHtml.includes('class="canonical-research-body"')) {
+    throw new Error('channel geometry rendered page omitted its RH, reproducibility, or full-proof boundary');
   }
 } finally {
   await vite.close();

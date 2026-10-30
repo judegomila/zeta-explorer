@@ -88,6 +88,7 @@ repository's existing flat-router convention:
 /rh-prime-memory
 /rh-finite-suzuki-certificate
 /rh-spectral-head-theory
+/rh-channel-geometry
 /rh-whole-even-certificate
 /rh-signed-complement
 /rh-prime-retained-tail-certificate

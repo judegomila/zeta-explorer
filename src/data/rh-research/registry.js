@@ -1,5 +1,6 @@
 import { createResearchRegistry } from './module-contract.js';
 import { ARITHMETIC_FOUNDATION } from './arithmetic-foundation.js';
+import { CHANNEL_GEOMETRY } from './channel-geometry.js';
 import { FINITE_SUZUKI_CERTIFICATE } from './finite-suzuki-certificate.js';
 import { HISTORICAL_ROUTES } from './historical-routes.js';
 import { PRIME_MEMORY } from './prime-memory.js';
@@ -25,6 +26,7 @@ export const RH_RESEARCH_MODULES = createResearchRegistry([
   SPECTRAL_DENOMINATOR_REPAIR,
   SPECTRAL_HEAD_THEORY,
   PRIME_RETAINED_TAIL_CERTIFICATE,
+  CHANNEL_GEOMETRY,
   HISTORICAL_ROUTES,
   SIGNED_COMPLEMENT,
 ]);

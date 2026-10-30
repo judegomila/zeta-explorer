@@ -104,7 +104,7 @@ export const WHOLE_EVEN_CERTIFICATE = createResearchModule({
           id: 'gamma-normalization-identity',
           tex: String.raw`\alpha(t)-m(t)=\frac1{t^2+1/4},\qquad m(t)=\Re\psi(1/4+it/2)-\log\pi`,
           explanation:
-            'The inverse Fourier kernel is $e^{-|x-y|/2}$; subtracting it from $2\cosh((x-y)/2)$ leaves the $e^{|x-y|/2}$ continuum term used in the form.',
+            tex`The inverse Fourier kernel is $e^{-|x-y|/2}$; subtracting it from $2\cosh((x-y)/2)$ leaves the $e^{|x-y|/2}$ continuum term used in the form.`,
         },
       ],
       notes: [
@@ -172,7 +172,7 @@ export const WHOLE_EVEN_CERTIFICATE = createResearchModule({
       id: 'inverse-energy-majorant',
       title: 'Bound the true inverse tail energy from above',
       body:
-        'Positive inverse order gives $D^{-1}\le L^{-1}$. Every near row through $J=16384$ is evaluated directly. The remaining infinite rows are compressed only after a proved all-head upper majorant, retaining the nearly resonant signed phases and bounding every other phase by a global Abel allowance.',
+        tex`Positive inverse order gives $D^{-1}\le L^{-1}$. Every near row through $J=16384$ is evaluated directly. The remaining infinite rows are compressed only after a proved all-head upper majorant, retaining the nearly resonant signed phases and bounding every other phase by a global Abel allowance.`,
       equations: [
         {
           id: 'inverse-order',
@@ -704,6 +704,14 @@ export const WHOLE_EVEN_CERTIFICATE_ASSERTIONS = Object.freeze([
       [WHOLE_EVEN_CERTIFICATE.theorem.equations.find(
         (equation) => equation.id === 'actual-supported-weil-form',
       )?.explanation || '', [tex`\int`, tex`\mathbb`, tex`\overline`]],
+      [WHOLE_EVEN_CERTIFICATE.derivation.find(
+        (step) => step.id === 'normalization-and-domain',
+      )?.equations.find(
+        (equation) => equation.id === 'gamma-normalization-identity',
+      )?.explanation || '', [tex`\cosh`]],
+      [WHOLE_EVEN_CERTIFICATE.derivation.find(
+        (step) => step.id === 'inverse-energy-majorant',
+      )?.body || '', [tex`\le`]],
       [WHOLE_EVEN_CERTIFICATE.verification.scope, [tex`\lambda`, tex`\le`, tex`\sqrt`]],
       [WHOLE_EVEN_CERTIFICATE.blockers.find(
         (blocker) => blocker.id === 'cofinal-support-control',

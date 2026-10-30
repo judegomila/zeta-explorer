@@ -3,6 +3,7 @@ import { ARITHMETIC_FOUNDATION } from './arithmetic-foundation.js';
 import { FINITE_SUZUKI_CERTIFICATE } from './finite-suzuki-certificate.js';
 import { HISTORICAL_ROUTES } from './historical-routes.js';
 import { PRIME_MEMORY } from './prime-memory.js';
+import { SPECTRAL_HEAD_THEORY } from './spectral-head-theory.js';
 import { SUZUKI_RECURRENCE } from './suzuki-recurrence.js';
 
 /**
@@ -16,6 +17,7 @@ export const RH_RESEARCH_MODULES = createResearchRegistry([
   SUZUKI_RECURRENCE,
   PRIME_MEMORY,
   FINITE_SUZUKI_CERTIFICATE,
+  SPECTRAL_HEAD_THEORY,
   HISTORICAL_ROUTES,
 ]);
 

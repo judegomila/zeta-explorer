@@ -43,9 +43,9 @@ The app adapter must make the mathematical boundary more precise:
 
 - neutral `status` becomes `reviewStatus`; `accepted` means internal review only
   and requires `reviewScope: 'internal'`;
-- app `status` is the result class: `proved-identity`, `proved-analytic`,
-  `certified-finite`, `conditional-reduction`, `failed-surrogate`, `superseded`,
-  or `open`;
+- app `status` is the result class: `proved-identity`, `proved-estimate`,
+  `proved-analytic`, `certified-finite`, `conditional-reduction`,
+  `failed-surrogate`, `superseded`, or `open`;
 - `claims` are separated into `theorem`, ordered `derivation`, and
   `claimBoundary.statement`;
 - `limitations` are separated into `claimBoundary.doesNotClaim`, `blockers`, and,
@@ -70,6 +70,7 @@ negativity of the underlying operator unless separately proved.
 2. Reflection-even support certificate and the larger-support failed surrogate.
 3. Evidence-pinned route ledger, split by coherent route family rather than one
    undifferentiated research dump.
+4. Actual spectral-head estimate with its scoped analytic dependency chain.
 
 Proposed flat app routes, matching the repository's existing router convention:
 
@@ -79,6 +80,7 @@ Proposed flat app routes, matching the repository's existing router convention:
 /rh-suzuki-recurrence
 /rh-prime-memory
 /rh-finite-suzuki-certificate
+/rh-spectral-head-theory
 /rh-whole-even-certificate
 /rh-signed-complement
 ```

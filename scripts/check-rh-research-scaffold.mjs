@@ -45,7 +45,10 @@ function extractCanonicalMath(markdown) {
   const matcher = /\\\[([\s\S]*?)\\\]|\\\(([\s\S]*?)\\\)|\$\$([\s\S]*?)\$\$|\$([^$\n]+?)\$/g;
   let match;
   while ((match = matcher.exec(markdown)) !== null) {
-    snippets.push((match[1] || match[2] || match[3] || match[4]).trim());
+    snippets.push({
+      tex: (match[1] || match[2] || match[3] || match[4]).trim(),
+      display: match[1] !== undefined || match[3] !== undefined,
+    });
   }
   return snippets;
 }
@@ -193,6 +196,18 @@ try {
       String.raw`q=p^k\le10^7`,
       '4c24e9f9cdf8411292143f0e81281da86dabcf08ad0c20c6064bcdffd3da06c1',
     ],
+    'spectral-head-theory': [
+      String.raw`X_\lambda=L^2_{\mathrm{even}}[-\ell,\ell]`,
+      String.raw`a_\lambda=\lambda^{-4}w^{-(3+2r)}`,
+      String.raw`\|H_\lambda F\|\le C_r w^{-r}\|F\|`,
+      'no source-origin or source-endpoint trace constraints',
+      String.raw`\lambda^{-5}\le a\le\lambda^{-3}`,
+      String.raw`v=g-b_gp-d_g\eta_\lambda`,
+      String.raw`\|e^sa_v\|\le C\sqrt a\,w^{3/2}\|g\|`,
+      String.raw`\|H_\lambda F_v\|\le C\lambda\|e^sa_v\|`,
+      String.raw`P_{\rm phys}(H_\lambda+M)P_{\rm phys}`,
+      'Nothing above supplies a lower bound on the correctly projected complementary diagonal block',
+    ],
     'arithmetic-foundation': [
       String.raw`D(W)=\sum_{n<e^W}`,
       String.raw`S_h(W)=D(W+h)-2D(W)+D(W-h)`,
@@ -225,9 +240,9 @@ try {
     if (canonicalMath.length === 0) {
       throw new Error(`${module.id} canonical body unexpectedly contains no mathematical expressions`);
     }
-    for (const tex of canonicalMath) {
+    for (const { tex, display } of canonicalMath) {
       try {
-        katex.renderToString(tex, { throwOnError: true, displayMode: false });
+        katex.renderToString(tex, { throwOnError: true, displayMode: display });
       } catch (error) {
         throw new Error(`${module.id} canonical TeX failed to parse (${tex}): ${error.message}`);
       }
@@ -394,6 +409,18 @@ verbatim proof receipt
       'theta-certified-moment-ratio',
       'toeplitz-compression',
     ],
+    'spectral-head-theory': [
+      'critical-head-definition',
+      'actual-head-action',
+      'spectral-head-rank',
+      'actual-coordinate-gram',
+      'exact-origin-defect-bound',
+      'repaired-source',
+      'weighted-two-tail-bound',
+      'tail-to-window-action',
+      'normalized-uniform-action',
+      'physical-off-head-bridge',
+    ],
   });
   for (const [moduleId, equationIds] of Object.entries(structuredRenderCases)) {
     const html = publishedPageHtmlById.get(moduleId);
@@ -470,6 +497,66 @@ verbatim proof receipt
   }
   if (!suzukiPageHtml.includes('RH remains open')) {
     throw new Error('Suzuki recurrence rendered page omitted the permanent RH-open boundary');
+  }
+
+  const spectralHead = RH_RESEARCH_MODULES.find((module) => module.id === 'spectral-head-theory');
+  if (!spectralHead) throw new Error('published registry omitted the spectral-head theory module');
+  if (spectralHead.status !== 'proved-estimate') {
+    throw new Error('spectral-head result must remain classified as an actual proved estimate');
+  }
+  if (spectralHead.verification.reproducibilityStatus !== 'partial' ||
+      spectralHead.verification.replays.length !== 0) {
+    throw new Error('spectral-head module misrepresented partial analytic availability as a replay');
+  }
+  if (spectralHead.rhStatus !== 'open' || !spectralHead.claimBoundary.doesNotClaim.some(
+    (claim) => /prove RH/i.test(claim),
+  )) {
+    throw new Error('spectral-head module weakened the permanent RH-open boundary');
+  }
+  if (!spectralHead.claimBoundary.doesNotClaim.some(
+    (claim) => /whole-even positivity|complement coercivity/i.test(claim),
+  )) {
+    throw new Error('spectral-head module omitted its whole-even/complement nonclaim');
+  }
+
+  const spectralRuntimeStrings = collectRuntimeStrings(spectralHead);
+  const spectralCorruption = spectralRuntimeStrings.find(({ value }) => controlCharacter.test(value));
+  if (spectralCorruption) {
+    throw new Error(`spectral-head runtime text contains a control character at ${spectralCorruption.path}`);
+  }
+  const spectralEquations = [
+    ...spectralHead.theorem.equations,
+    ...spectralHead.derivation.flatMap((step) => step.equations),
+  ];
+  for (const equation of spectralEquations) {
+    try {
+      katex.renderToString(equation.tex, { throwOnError: true, displayMode: true });
+    } catch (error) {
+      throw new Error(`spectral-head structured TeX failed to render at ${equation.id}: ${error.message}`);
+    }
+  }
+  const spectralAction = spectralHead.theorem.equations.find(
+    (equation) => equation.id === 'actual-head-action',
+  )?.tex || '';
+  for (const token of [String.raw`\lambda`, String.raw`\operatorname`, String.raw`\|H_\lambda F\|`]) {
+    if (!spectralAction.includes(token)) {
+      throw new Error(`spectral-head runtime theorem text lost ${token}`);
+    }
+  }
+  const spectralPageHtml = publishedPageHtmlById.get('spectral-head-theory');
+  if (!spectralPageHtml?.includes('class="ed-grade g-thm">THEOREM</span>')) {
+    throw new Error('spectral-head proved estimate did not render with theorem grade');
+  }
+  for (const requiredText of [
+    'Actual proved estimate / partial availability',
+    'proved estimate',
+    'partial reproducibility',
+    'The complementary sector has no proved floor',
+    'RH remains open',
+  ]) {
+    if (!spectralPageHtml?.includes(requiredText)) {
+      throw new Error(`spectral-head rendered page omitted ${requiredText}`);
+    }
   }
 } finally {
   await vite.close();

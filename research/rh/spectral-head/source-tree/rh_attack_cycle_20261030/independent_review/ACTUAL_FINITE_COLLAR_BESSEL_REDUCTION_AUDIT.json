@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "reviewed_at_utc": "2026-10-30T11:11:05.927366+00:00",
+  "scope": "Exact actual finite source-coordinate Bessel reduction and o(1) off-diagonal synthesis error only",
+  "actual_diagonal_HS_limit_proved_here": false,
+  "all_head_Weil_floor_proved": false,
+  "source_hashes": {
+    "rh_attack_cycle_20261030/repo_leverage/ACTUAL_FINITE_COLLAR_CHANNEL_BESSEL_REDUCTION.md": "dce34475d13cb0f90a9dbc75ee108c4bbe336ecf2915e90e674dc5d9116f0045",
+    "rh_attack_cycle_20261030/repo_leverage/ACTUAL_CHANNEL_BESSEL_SCOPE_CLARIFICATION.md": "e2d86fcb776a0a62f2c6f2e9d253282234d311cfc8cfb032a8397f930e268634",
+    "rh_attack_cycle_20261030/gamma_complement_attack/EXACT_POISSON_MOBIUS_EDGE_AND_SIGNED_GRAM_TARGET.md": "891f2400ca23fe404658ad4735ffeb86713e959ef219c25ba8853a2249678304",
+    "rh_attack_cycle_20261030/gamma_complement_attack/CRITICAL_COLLAR_AND_EXPLICIT_FOURIER_JET_PORTS.md": "3dda8369703839ee9533468a3ebda8025e4994aa656d3998f0b68e632cb3762a"
+  },
+  "audit_note_sha256": "c8fe912059bfa7f5ddc237fa8d89017bc361f84c28f2a7b73535df44975781ca",
+  "post_v8_cutoff": true,
+  "large_numerical_run": false
+}

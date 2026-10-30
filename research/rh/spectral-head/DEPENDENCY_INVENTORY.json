@@ -1,0 +1,777 @@
+{
+  "schemaVersion": 1,
+  "reviewUnit": "spectral-head",
+  "scope": "Actual near-null head theorem, physical image Gram, explicit trace repairs and critical cutoff only. Not finite-support positivity, complement coercivity or RH. This is a current proof-use DAG, not recursive expansion of every historical audit manifest.",
+  "reproducibilityStatus": "partial",
+  "availabilityScope": "All 18 selected current proof-use sources and paired audit notes/receipts are bundled. Classical analytic inputs and auxiliary scalar-check receipts referenced within audits are not independently rederived or exhaustively bundled; no executable-replay or complete recursive historical archive claim.",
+  "sourceMappings": [
+    {
+      "unitId": "positive_head",
+      "role": "source",
+      "originalPath": "rh_attack_cycle_20261030/gamma_complement_attack/MAXIMAL_POSITIVE_CHI_HEAD_AND_TRANSITION_PRICE.md",
+      "originalSha256": "3a4fa2df9fbc34a787aedbdbf96d458ca74de5dc51e151fae3fa5cdac6a58c3b",
+      "publishedPath": "research/rh/spectral-head/source-tree/rh_attack_cycle_20261030/gamma_complement_attack/MAXIMAL_POSITIVE_CHI_HEAD_AND_TRANSITION_PRICE.md",
+      "publishedSha256": "1de8c78f8e4d17a722f9a6e5f9de7637f0cd1cb220a3d4b7df4df068ecbb48bd",
+      "transformation": [
+        "Added curation/status scope notice; retained all mathematical sections."
+      ]
+    },
+    {
+      "unitId": "positive_head",
+      "role": "audit_note",
+      "originalPath": "rh_attack_cycle_20261030/independent_review/MAXIMAL_POSITIVE_CHI_HEAD_AUDIT.md",
+      "originalSha256": "911a66cea495404fa84331cae0481ad26e65a15040ab7dd1084b03dcc3188e32",
+      "publishedPath": "research/rh/spectral-head/source-tree/rh_attack_cycle_20261030/independent_review/MAXIMAL_POSITIVE_CHI_HEAD_AUDIT.md",
+      "publishedSha256": "c38c05a764fb01be40dc3056617c4970a55e7cb223aa63fe23ba8d1afbe09130",
+      "transformation": [
+        "Added curation/status scope notice; retained all mathematical sections."
+      ]
+    },
+    {
+      "unitId": "positive_head",
+      "role": "audit_receipt",
+      "originalPath": "rh_attack_cycle_20261030/independent_review/MAXIMAL_POSITIVE_CHI_HEAD_AUDIT.json",
+      "originalSha256": "c8b07c6a21b8891850f94014d190d3c8c8d72a731719ae8aa759bd81d1926cbb",
+      "publishedPath": "research/rh/spectral-head/source-tree/rh_attack_cycle_20261030/independent_review/MAXIMAL_POSITIVE_CHI_HEAD_AUDIT.json",
+      "publishedSha256": "c8b07c6a21b8891850f94014d190d3c8c8d72a731719ae8aa759bd81d1926cbb",
+      "transformation": [
+        "Byte-identical."
+      ]
+    },
+    {
+      "unitId": "visible_main",
+      "role": "source",
+      "originalPath": "rh_attack_cycle_20261030/gamma_complement_attack/POSITIVE_CHI_CORE_PROJECTION_AND_MAIN_RESERVE.md",
+      "originalSha256": "4c48c438efc32a3c64b9248683ac89adf5f46d9c0ffbd0e85ec907361e3100b2",
+      "publishedPath": "research/rh/spectral-head/source-tree/rh_attack_cycle_20261030/gamma_complement_attack/POSITIVE_CHI_CORE_PROJECTION_AND_MAIN_RESERVE.md",
+      "publishedSha256": "5f0ea04efc3de70f12ef85517d92180673db7f70cc82f9b53f7aadf3cf037a41",
+      "transformation": [
+        "Added curation/status scope notice; retained all mathematical sections.",
+        "Generalized operational reviewer metadata."
+      ]
+    },
+    {
+      "unitId": "visible_main",
+      "role": "audit_note",
+      "originalPath": "rh_attack_cycle_20261030/independent_review/POSITIVE_CHI_CORE_AND_JORDAN_RESERVE_AUDIT.md",
+      "originalSha256": "0d0de89128b15e6da19d8a2a8a6860f3358e95c89b6bcd12f6db11b80921c29b",
+      "publishedPath": "research/rh/spectral-head/source-tree/rh_attack_cycle_20261030/independent_review/POSITIVE_CHI_CORE_AND_JORDAN_RESERVE_AUDIT.md",
+      "publishedSha256": "f00cb8cf1b2ff63bdd223ef67825ea77d0ccad0cd06722a90efb6e5b40db36f8",
+      "transformation": [
+        "Added curation/status scope notice; retained all mathematical sections."
+      ]
+    },
+    {
+      "unitId": "visible_main",
+      "role": "audit_receipt",
+      "originalPath": "rh_attack_cycle_20261030/independent_review/POSITIVE_CHI_CORE_AND_JORDAN_RESERVE_AUDIT.json",
+      "originalSha256": "f5c0b82de16b4d039473f32e1747d01861c4005f9a1b77b18ddcefe68cbbfb44",
+      "publishedPath": "research/rh/spectral-head/source-tree/rh_attack_cycle_20261030/independent_review/POSITIVE_CHI_CORE_AND_JORDAN_RESERVE_AUDIT.json",
+      "publishedSha256": "f5c0b82de16b4d039473f32e1747d01861c4005f9a1b77b18ddcefe68cbbfb44",
+      "transformation": [
+        "Byte-identical."
+      ]
+    },
+    {
+      "unitId": "strong_edge",
+      "role": "source",
+      "originalPath": "rh_attack_cycle_20261030/prolate_endpoint_flow/STRONG_EDGE_LIMIT_AND_POSITIVE_PHASE_MEASURE.md",
+      "originalSha256": "361f984698daa9c859db45c779bc4e78d8fdc8eb5af1cfb9008c2de98a424afe",
+      "publishedPath": "research/rh/spectral-head/source-tree/rh_attack_cycle_20261030/prolate_endpoint_flow/STRONG_EDGE_LIMIT_AND_POSITIVE_PHASE_MEASURE.md",
+      "publishedSha256": "9e5be561bb000ae81cf5eaab3cd11145d738dfa5b9c97589667824678f642b3b",
+      "transformation": [
+        "Added curation/status scope notice; retained all mathematical sections."
+      ]
+    },
+    {
+      "unitId": "strong_edge",
+      "role": "audit_note",
+      "originalPath": "rh_attack_cycle_20261030/independent_review/STRONG_EDGE_POSITIVE_PHASE_MEASURE_AUDIT.md",
+      "originalSha256": "568f0e5bf3287dcca5100fb1efba9fdb60a552c856e44500e075538c71abd7fb",
+      "publishedPath": "research/rh/spectral-head/source-tree/rh_attack_cycle_20261030/independent_review/STRONG_EDGE_POSITIVE_PHASE_MEASURE_AUDIT.md",
+      "publishedSha256": "bb6e2169eaadbd2ef17a9bcb7057014ea184a169e14eae4a2e458708bcfb45b3",
+      "transformation": [
+        "Added curation/status scope notice; retained all mathematical sections."
+      ]
+    },
+    {
+      "unitId": "strong_edge",
+      "role": "audit_receipt",
+      "originalPath": "rh_attack_cycle_20261030/independent_review/STRONG_EDGE_POSITIVE_PHASE_MEASURE_AUDIT.json",
+      "originalSha256": "12a2aeaeae6479651e13f0b499a284ca21842e583a4dc064f9a8a7755a93a6d8",
+      "publishedPath": "research/rh/spectral-head/source-tree/rh_attack_cycle_20261030/independent_review/STRONG_EDGE_POSITIVE_PHASE_MEASURE_AUDIT.json",
+      "publishedSha256": "12a2aeaeae6479651e13f0b499a284ca21842e583a4dc064f9a8a7755a93a6d8",
+      "transformation": [
+        "Byte-identical."
+      ]
+    },
+    {
+      "unitId": "weak_head",
+      "role": "source",
+      "originalPath": "rh_attack_cycle_20261030/prolate_endpoint_flow/WEAK_HEAD_OPERATOR_AND_COMPACT_CHANNEL_TRANSFER.md",
+      "originalSha256": "6fd3197cec2972e7e23fcda4719591dbfb7443f769ac9373f9ab89d88e2af6e6",
+      "publishedPath": "research/rh/spectral-head/source-tree/rh_attack_cycle_20261030/prolate_endpoint_flow/WEAK_HEAD_OPERATOR_AND_COMPACT_CHANNEL_TRANSFER.md",
+      "publishedSha256": "8bf7990570c5e54eb092ae6b8004bf3d83b6eb27f5470a22426bc433912212be",
+      "transformation": [
+        "Added curation/status scope notice; retained all mathematical sections."
+      ]
+    },
+    {
+      "unitId": "weak_head",
+      "role": "audit_note",
+      "originalPath": "rh_attack_cycle_20261030/independent_review/WEAK_HEAD_COMPACT_CHANNEL_TRANSFER_AUDIT.md",
+      "originalSha256": "1aa4fdf262e52a2c3632bc10670f0cbed374f5f3db36bfd124ff2598f2e332cc",
+      "publishedPath": "research/rh/spectral-head/source-tree/rh_attack_cycle_20261030/independent_review/WEAK_HEAD_COMPACT_CHANNEL_TRANSFER_AUDIT.md",
+      "publishedSha256": "56a9ab17489bad12dcbae9ec39cc1754f03c37c032d11832e089ddd823a73797",
+      "transformation": [
+        "Added curation/status scope notice; retained all mathematical sections."
+      ]
+    },
+    {
+      "unitId": "weak_head",
+      "role": "audit_receipt",
+      "originalPath": "rh_attack_cycle_20261030/independent_review/WEAK_HEAD_COMPACT_CHANNEL_TRANSFER_AUDIT.json",
+      "originalSha256": "e3300fbdba45c761fa22b4408911984112ea93fa0f49de639efce43108d9bd5c",
+      "publishedPath": "research/rh/spectral-head/source-tree/rh_attack_cycle_20261030/independent_review/WEAK_HEAD_COMPACT_CHANNEL_TRANSFER_AUDIT.json",
+      "publishedSha256": "e3300fbdba45c761fa22b4408911984112ea93fa0f49de639efce43108d9bd5c",
+      "transformation": [
+        "Byte-identical."
+      ]
+    },
+    {
+      "unitId": "finite_channel",
+      "role": "source",
+      "originalPath": "rh_attack_cycle_20261030/repo_leverage/ACTUAL_FINITE_COLLAR_CHANNEL_BESSEL_REDUCTION.md",
+      "originalSha256": "dce34475d13cb0f90a9dbc75ee108c4bbe336ecf2915e90e674dc5d9116f0045",
+      "publishedPath": "research/rh/spectral-head/source-tree/rh_attack_cycle_20261030/repo_leverage/ACTUAL_FINITE_COLLAR_CHANNEL_BESSEL_REDUCTION.md",
+      "publishedSha256": "4ff9b3d4d17748e1bbd2598f22f021bfef6361c475505699828b7b6f7a488956",
+      "transformation": [
+        "Added curation/status scope notice; retained all mathematical sections."
+      ]
+    },
+    {
+      "unitId": "finite_channel",
+      "role": "audit_note",
+      "originalPath": "rh_attack_cycle_20261030/independent_review/ACTUAL_FINITE_COLLAR_BESSEL_REDUCTION_AUDIT.md",
+      "originalSha256": "c8fe912059bfa7f5ddc237fa8d89017bc361f84c28f2a7b73535df44975781ca",
+      "publishedPath": "research/rh/spectral-head/source-tree/rh_attack_cycle_20261030/independent_review/ACTUAL_FINITE_COLLAR_BESSEL_REDUCTION_AUDIT.md",
+      "publishedSha256": "331241be6158dbd81636d9e886753f8ae2b19807a4dd2a56443a6891ec73d6f4",
+      "transformation": [
+        "Added curation/status scope notice; retained all mathematical sections."
+      ]
+    },
+    {
+      "unitId": "finite_channel",
+      "role": "audit_receipt",
+      "originalPath": "rh_attack_cycle_20261030/independent_review/ACTUAL_FINITE_COLLAR_BESSEL_REDUCTION_AUDIT.json",
+      "originalSha256": "6f0af363cbb1fdd2aadb4fe96f542f4557902682898b91eb8a2c04bb972f8b09",
+      "publishedPath": "research/rh/spectral-head/source-tree/rh_attack_cycle_20261030/independent_review/ACTUAL_FINITE_COLLAR_BESSEL_REDUCTION_AUDIT.json",
+      "publishedSha256": "6f0af363cbb1fdd2aadb4fe96f542f4557902682898b91eb8a2c04bb972f8b09",
+      "transformation": [
+        "Byte-identical."
+      ]
+    },
+    {
+      "unitId": "collar_tail",
+      "role": "source",
+      "originalPath": "rh_attack_cycle_20261030/repo_leverage/UNIFORM_COLLAR_TAIL_AND_SINGLE_CHANNEL_TRANSFER.md",
+      "originalSha256": "ec540fc47064e87fbcc7beed595321d08c8b65758b14bc70e5249cd2a2139f14",
+      "publishedPath": "research/rh/spectral-head/source-tree/rh_attack_cycle_20261030/repo_leverage/UNIFORM_COLLAR_TAIL_AND_SINGLE_CHANNEL_TRANSFER.md",
+      "publishedSha256": "e0a6866595ab93d43a8201d7ffeb283a913bbc15db2075c95d932c84aa6f18fc",
+      "transformation": [
+        "Added curation/status scope notice; retained all mathematical sections."
+      ]
+    },
+    {
+      "unitId": "collar_tail",
+      "role": "audit_note",
+      "originalPath": "rh_attack_cycle_20261030/independent_review/UNIFORM_COLLAR_TAIL_AND_CHANNEL_TRANSFER_AUDIT.md",
+      "originalSha256": "3c5b77c0e9b238dfee35c6416c231347fc64c787eebe1e871e17b59f2a0d0f04",
+      "publishedPath": "research/rh/spectral-head/source-tree/rh_attack_cycle_20261030/independent_review/UNIFORM_COLLAR_TAIL_AND_CHANNEL_TRANSFER_AUDIT.md",
+      "publishedSha256": "d784e720ac88d4a7a884e928c27f7806f5d414d41b177c617751b9b94b1799ec",
+      "transformation": [
+        "Added curation/status scope notice; retained all mathematical sections."
+      ]
+    },
+    {
+      "unitId": "collar_tail",
+      "role": "audit_receipt",
+      "originalPath": "rh_attack_cycle_20261030/independent_review/UNIFORM_COLLAR_TAIL_AND_CHANNEL_TRANSFER_AUDIT.json",
+      "originalSha256": "a05f494eabade69d782c7144025e9b336890c96a002e6d7775a8ccbd6bf7d148",
+      "publishedPath": "research/rh/spectral-head/source-tree/rh_attack_cycle_20261030/independent_review/UNIFORM_COLLAR_TAIL_AND_CHANNEL_TRANSFER_AUDIT.json",
+      "publishedSha256": "a05f494eabade69d782c7144025e9b336890c96a002e6d7775a8ccbd6bf7d148",
+      "transformation": [
+        "Byte-identical."
+      ]
+    },
+    {
+      "unitId": "reciprocal",
+      "role": "source",
+      "originalPath": "rh_attack_cycle_20261030/gamma_complement_attack/COLLAR_RECIPROCAL_SAMPLING_AND_SMALL_LABEL_REDUCTION.md",
+      "originalSha256": "2f3642c389ca9e56064945d3350357e83ab9cf73ae42beff1614d05b660a87ad",
+      "publishedPath": "research/rh/spectral-head/source-tree/rh_attack_cycle_20261030/gamma_complement_attack/COLLAR_RECIPROCAL_SAMPLING_AND_SMALL_LABEL_REDUCTION.md",
+      "publishedSha256": "d2fd4e895278f95fb8710778601340651e23923cbd5e6cd051f1a99578b57517",
+      "transformation": [
+        "Added curation/status scope notice; retained all mathematical sections."
+      ]
+    },
+    {
+      "unitId": "reciprocal",
+      "role": "audit_note",
+      "originalPath": "rh_attack_cycle_20261030/repo_leverage/independent_review/reciprocal_sampling/RECIPROCAL_SAMPLING_AND_JET_ALGEBRA_AUDIT.md",
+      "originalSha256": "4616b92eb7243ab75096937c0b59e696f1e204b862e68cbef2a3a41d4dc6fe04",
+      "publishedPath": "research/rh/spectral-head/source-tree/rh_attack_cycle_20261030/repo_leverage/independent_review/reciprocal_sampling/RECIPROCAL_SAMPLING_AND_JET_ALGEBRA_AUDIT.md",
+      "publishedSha256": "db8217eccc9bf8ad665f7c9ae726918192f00b6e759c03f68d58d862dab149dc",
+      "transformation": [
+        "Added curation/status scope notice; retained all mathematical sections.",
+        "Generalized operational reviewer metadata."
+      ]
+    },
+    {
+      "unitId": "reciprocal",
+      "role": "audit_receipt",
+      "originalPath": "rh_attack_cycle_20261030/repo_leverage/independent_review/reciprocal_sampling/RECIPROCAL_SAMPLING_AND_JET_ALGEBRA_AUDIT.json",
+      "originalSha256": "48207c82e2a698f83c37e2e5bbf3dde831d124f7b9520363244780d2008ce90d",
+      "publishedPath": "research/rh/spectral-head/source-tree/rh_attack_cycle_20261030/repo_leverage/independent_review/reciprocal_sampling/RECIPROCAL_SAMPLING_AND_JET_ALGEBRA_AUDIT.json",
+      "publishedSha256": "af0aca6b8f287e1f703c65018eb740c70445c31710d837760d03f1cc311e864e",
+      "transformation": [
+        "Generalized reviewer identifier; all other values unchanged."
+      ]
+    },
+    {
+      "unitId": "hardy_gram",
+      "role": "source",
+      "originalPath": "rh_attack_cycle_20261030/gamma_complement_attack/HARDY_CHANNEL_CLOSURE_AND_TWO_TRACE_COORDINATE_GRAM.md",
+      "originalSha256": "72c6f1bbc5a4aee305aa5cd66584b48f7160d159e5f63e67100d922d4ac5a5fa",
+      "publishedPath": "research/rh/spectral-head/source-tree/rh_attack_cycle_20261030/gamma_complement_attack/HARDY_CHANNEL_CLOSURE_AND_TWO_TRACE_COORDINATE_GRAM.md",
+      "publishedSha256": "12b38e3ba627423145c14c6bdf8fc7cce2276700bab79c2145efb2bc05e67cc2",
+      "transformation": [
+        "Added curation/status scope notice; retained all mathematical sections."
+      ]
+    },
+    {
+      "unitId": "hardy_gram",
+      "role": "audit_note",
+      "originalPath": "rh_attack_cycle_20261030/independent_review/HARDY_CHANNEL_TWO_TRACE_COORDINATE_GRAM_AUDIT.md",
+      "originalSha256": "f99e91208577580d4426a7df4ed78f6aee594ce562d7ee5c9fa078abb33a371b",
+      "publishedPath": "research/rh/spectral-head/source-tree/rh_attack_cycle_20261030/independent_review/HARDY_CHANNEL_TWO_TRACE_COORDINATE_GRAM_AUDIT.md",
+      "publishedSha256": "f61e2dbbaeeec52808a9a779a850582eec29723279c519aea8a2671d92a3b246",
+      "transformation": [
+        "Added curation/status scope notice; retained all mathematical sections.",
+        "Generalized operational reviewer metadata."
+      ]
+    },
+    {
+      "unitId": "hardy_gram",
+      "role": "audit_receipt",
+      "originalPath": "rh_attack_cycle_20261030/independent_review/HARDY_CHANNEL_TWO_TRACE_COORDINATE_GRAM_AUDIT.json",
+      "originalSha256": "56be3d7d0593d3f63b4c342f0ba5db37797759c3ee07e5fa590bb2c4dd9c3fdf",
+      "publishedPath": "research/rh/spectral-head/source-tree/rh_attack_cycle_20261030/independent_review/HARDY_CHANNEL_TWO_TRACE_COORDINATE_GRAM_AUDIT.json",
+      "publishedSha256": "56be3d7d0593d3f63b4c342f0ba5db37797759c3ee07e5fa590bb2c4dd9c3fdf",
+      "transformation": [
+        "Byte-identical."
+      ]
+    },
+    {
+      "unitId": "all_head_gram",
+      "role": "source",
+      "originalPath": "rh_attack_cycle_20261030/repo_leverage/SHARP_SOURCE_POISSON_AND_ALL_HEAD_COORDINATE_CLOSURE.md",
+      "originalSha256": "fe914fb77a89eeddf77ccc2a425f2653307a15ff84c6fe8640819ac19d2b7faa",
+      "publishedPath": "research/rh/spectral-head/source-tree/rh_attack_cycle_20261030/repo_leverage/SHARP_SOURCE_POISSON_AND_ALL_HEAD_COORDINATE_CLOSURE.md",
+      "publishedSha256": "77476e7fb4f5ee91728995ef3a50593a807215f6dff338a0be005c3b8554cb5d",
+      "transformation": [
+        "Added curation/status scope notice; retained all mathematical sections."
+      ]
+    },
+    {
+      "unitId": "all_head_gram",
+      "role": "audit_note",
+      "originalPath": "rh_attack_cycle_20261030/independent_review/SHARP_POISSON_ALL_HEAD_COORDINATE_AUDIT.md",
+      "originalSha256": "f51dc0e846833c6e31b535c39442d5252982deb1c85dab91f344b864713c2105",
+      "publishedPath": "research/rh/spectral-head/source-tree/rh_attack_cycle_20261030/independent_review/SHARP_POISSON_ALL_HEAD_COORDINATE_AUDIT.md",
+      "publishedSha256": "99a9b098a44f4b54c295bdbe70229e416a5fd8702772542f50a871b16dcc72ff",
+      "transformation": [
+        "Added curation/status scope notice; retained all mathematical sections."
+      ]
+    },
+    {
+      "unitId": "all_head_gram",
+      "role": "audit_receipt",
+      "originalPath": "rh_attack_cycle_20261030/independent_review/SHARP_POISSON_ALL_HEAD_COORDINATE_AUDIT.json",
+      "originalSha256": "41f545c670af6056235985a3b7c1d0b6c07c09f0e614f790b1fcb17dc567a624",
+      "publishedPath": "research/rh/spectral-head/source-tree/rh_attack_cycle_20261030/independent_review/SHARP_POISSON_ALL_HEAD_COORDINATE_AUDIT.json",
+      "publishedSha256": "41f545c670af6056235985a3b7c1d0b6c07c09f0e614f790b1fcb17dc567a624",
+      "transformation": [
+        "Byte-identical."
+      ]
+    },
+    {
+      "unitId": "threshold_range",
+      "role": "source",
+      "originalPath": "rh_attack_cycle_20261030/repo_leverage/EVENTUAL_THRESHOLD_SONIN_EXTENSION.md",
+      "originalSha256": "8bd7ac668d341b86d101329a54b3b89430c9a0256354f82e806448631fd85f94",
+      "publishedPath": "research/rh/spectral-head/source-tree/rh_attack_cycle_20261030/repo_leverage/EVENTUAL_THRESHOLD_SONIN_EXTENSION.md",
+      "publishedSha256": "a9fce02d4e947c7d61564f0e6facf45c8743ffd0f7276924fc00b3ea9648492b",
+      "transformation": [
+        "Added curation/status scope notice; retained all mathematical sections."
+      ]
+    },
+    {
+      "unitId": "threshold_range",
+      "role": "audit_note",
+      "originalPath": "rh_attack_cycle_20261030/repo_leverage/independent_review/extended_sonin_conditional/EVENTUAL_THRESHOLD_AUDIT.md",
+      "originalSha256": "2fbbf576a4770687def1aa4b67295243a0e4b89a822f8f4b641f8f7904c4a771",
+      "publishedPath": "research/rh/spectral-head/source-tree/rh_attack_cycle_20261030/repo_leverage/independent_review/extended_sonin_conditional/EVENTUAL_THRESHOLD_AUDIT.md",
+      "publishedSha256": "9a06146d4848d3a14b5324358c5904ae20f60e05d99ce053e5c5bca4356b039b",
+      "transformation": [
+        "Added curation/status scope notice; retained all mathematical sections."
+      ]
+    },
+    {
+      "unitId": "threshold_range",
+      "role": "audit_receipt",
+      "originalPath": "rh_attack_cycle_20261030/repo_leverage/independent_review/extended_sonin_conditional/EVENTUAL_SOURCE_HASHES.json",
+      "originalSha256": "7ba33002c6f597a7dac7bcf53b01bddef1df0229e41408c3a1a2a76853e278a1",
+      "publishedPath": "research/rh/spectral-head/source-tree/rh_attack_cycle_20261030/repo_leverage/independent_review/extended_sonin_conditional/EVENTUAL_SOURCE_HASHES.json",
+      "publishedSha256": "3387be1027c1eb8cc93d69b29dab6d911ef4ba793b06a522563392b811da303b",
+      "transformation": [
+        "Removed absolute local directory prefix from source-map keys; relative names and hash values unchanged."
+      ]
+    },
+    {
+      "unitId": "action_strip",
+      "role": "source",
+      "originalPath": "rh_attack_cycle_20261030/repo_leverage/POLYNOMIAL_DEFICIT_ACTION_STRIP.md",
+      "originalSha256": "0f866fc257fc82240fe342d643bce369b9f625f06f987b8d3523ca4e83d6d20c",
+      "publishedPath": "research/rh/spectral-head/source-tree/rh_attack_cycle_20261030/repo_leverage/POLYNOMIAL_DEFICIT_ACTION_STRIP.md",
+      "publishedSha256": "6ffea845698ed5e84c5f08fb9e0476a6da2d9c2770b9c28cfaaa28e633d01596",
+      "transformation": [
+        "Added curation/status scope notice; retained all mathematical sections."
+      ]
+    },
+    {
+      "unitId": "action_strip",
+      "role": "audit_note",
+      "originalPath": "rh_attack_cycle_20261030/independent_review/POLYNOMIAL_DEFICIT_ACTION_STRIP_AUDIT.md",
+      "originalSha256": "b1fba63fc15821fc73a695c4afe26c3ecdec09af13d35883f7db75d10be2b20c",
+      "publishedPath": "research/rh/spectral-head/source-tree/rh_attack_cycle_20261030/independent_review/POLYNOMIAL_DEFICIT_ACTION_STRIP_AUDIT.md",
+      "publishedSha256": "97db8562692e9109597e364b19b38644accedd0e329ee22556e9a4cdfc76ed37",
+      "transformation": [
+        "Added curation/status scope notice; retained all mathematical sections."
+      ]
+    },
+    {
+      "unitId": "action_strip",
+      "role": "audit_receipt",
+      "originalPath": "rh_attack_cycle_20261030/independent_review/POLYNOMIAL_DEFICIT_ACTION_STRIP_AUDIT.json",
+      "originalSha256": "10ec0e6605ba85b2ea4fd30a48cb3955ba86b87698c6c52a5232128855c20ea8",
+      "publishedPath": "research/rh/spectral-head/source-tree/rh_attack_cycle_20261030/independent_review/POLYNOMIAL_DEFICIT_ACTION_STRIP_AUDIT.json",
+      "publishedSha256": "10ec0e6605ba85b2ea4fd30a48cb3955ba86b87698c6c52a5232128855c20ea8",
+      "transformation": [
+        "Byte-identical."
+      ]
+    },
+    {
+      "unitId": "endpoint_leakage",
+      "role": "source",
+      "originalPath": "rh_attack_cycle_20261030/prolate_exterior_phase_attack/WEIGHTED_PRUEFER_LOG_LEAKAGE.md",
+      "originalSha256": "5fb617fa2628e694e60e1fc907a3dec379b746731fe9876107f9e22107978271",
+      "publishedPath": "research/rh/spectral-head/source-tree/rh_attack_cycle_20261030/prolate_exterior_phase_attack/WEIGHTED_PRUEFER_LOG_LEAKAGE.md",
+      "publishedSha256": "cb6f2d3073b45a9a59617b23cc5f86bd73a15a68738e22a30e7678bd442cc0cb",
+      "transformation": [
+        "Added curation/status scope notice; retained all mathematical sections."
+      ]
+    },
+    {
+      "unitId": "endpoint_leakage",
+      "role": "audit_note",
+      "originalPath": "rh_attack_cycle_20261030/independent_review/WEIGHTED_PRUEFER_ENDPOINT_AUDIT.md",
+      "originalSha256": "a016d7ae190d20e3f1a6dbb2228ee7a76a47b00cbb07cb6c82e9c51ade951fed",
+      "publishedPath": "research/rh/spectral-head/source-tree/rh_attack_cycle_20261030/independent_review/WEIGHTED_PRUEFER_ENDPOINT_AUDIT.md",
+      "publishedSha256": "fdf12837b3cf275db1fd1b33823acedbc57e614fb7dbdd0fff5477c9e12b5593",
+      "transformation": [
+        "Added curation/status scope notice; retained all mathematical sections."
+      ]
+    },
+    {
+      "unitId": "endpoint_leakage",
+      "role": "audit_receipt",
+      "originalPath": "rh_attack_cycle_20261030/independent_review/WEIGHTED_PRUEFER_ENDPOINT_AUDIT.json",
+      "originalSha256": "6fe7492a2b2a73aa9b3e3fc6daed29531b94c1941042cf1813f382fa2750ce13",
+      "publishedPath": "research/rh/spectral-head/source-tree/rh_attack_cycle_20261030/independent_review/WEIGHTED_PRUEFER_ENDPOINT_AUDIT.json",
+      "publishedSha256": "6fe7492a2b2a73aa9b3e3fc6daed29531b94c1941042cf1813f382fa2750ce13",
+      "transformation": [
+        "Byte-identical."
+      ]
+    },
+    {
+      "unitId": "divided_difference",
+      "role": "source",
+      "originalPath": "rh_attack_cycle_20261030/repo_leverage/ADDITIVE_THRESHOLD_ENDPOINT_NULL_VALUE_FRAME.md",
+      "originalSha256": "62cff67c897596caf6dfab6f8b09a1e71975aafe6ff643f33aec6ff2fe794b4c",
+      "publishedPath": "research/rh/spectral-head/source-tree/rh_attack_cycle_20261030/repo_leverage/ADDITIVE_THRESHOLD_ENDPOINT_NULL_VALUE_FRAME.md",
+      "publishedSha256": "ad397ccc96371ab12205f7efb68a9c9071cdc748dd5ce53729c2efbe1b9a34b6",
+      "transformation": [
+        "Added curation/status scope notice; retained all mathematical sections."
+      ]
+    },
+    {
+      "unitId": "divided_difference",
+      "role": "audit_note",
+      "originalPath": "rh_attack_cycle_20261030/repo_leverage/independent_review/additive_value_frame/ADDITIVE_VALUE_FRAME_AUDIT.md",
+      "originalSha256": "40a94324bad690aaafc0bfbd6e0be1d0cbc12adadcdb689f3d9aef49208e8c1c",
+      "publishedPath": "research/rh/spectral-head/source-tree/rh_attack_cycle_20261030/repo_leverage/independent_review/additive_value_frame/ADDITIVE_VALUE_FRAME_AUDIT.md",
+      "publishedSha256": "302eb54e545c9ea5d4e98a09f9bde7b0462451fc70e089f5a53c6f71555cf2b7",
+      "transformation": [
+        "Added curation/status scope notice; retained all mathematical sections."
+      ]
+    },
+    {
+      "unitId": "divided_difference",
+      "role": "audit_receipt",
+      "originalPath": "rh_attack_cycle_20261030/repo_leverage/independent_review/additive_value_frame/SOURCE_HASHES.json",
+      "originalSha256": "70cb3d8df3b8f10f827cc3704c30c6cc210691e7fcb36c78e5b058fd3cff79f5",
+      "publishedPath": "research/rh/spectral-head/source-tree/rh_attack_cycle_20261030/repo_leverage/independent_review/additive_value_frame/SOURCE_HASHES.json",
+      "publishedSha256": "70cb3d8df3b8f10f827cc3704c30c6cc210691e7fcb36c78e5b058fd3cff79f5",
+      "transformation": [
+        "Byte-identical."
+      ]
+    },
+    {
+      "unitId": "restricted_row",
+      "role": "source",
+      "originalPath": "rh_attack_cycle_20261030/weil_radical_tail_attack/POLYNOMIAL_DEFICIT_WEIL_HEAD_ENERGY_TRANSFER.md",
+      "originalSha256": "120b7cec1e421b8dae7e63061460b9ccd6499f1958d388b27cdfad12df66c4c4",
+      "publishedPath": "research/rh/spectral-head/source-tree/rh_attack_cycle_20261030/weil_radical_tail_attack/POLYNOMIAL_DEFICIT_WEIL_HEAD_ENERGY_TRANSFER.md",
+      "publishedSha256": "38275cc8402ba9357c4985d04a25bf41c6218b14f431ca3276df20da64aaa29a",
+      "transformation": [
+        "Added curation/status scope notice; retained all mathematical sections."
+      ]
+    },
+    {
+      "unitId": "restricted_row",
+      "role": "audit_note",
+      "originalPath": "rh_attack_cycle_20261030/independent_review/POLYNOMIAL_DEFICIT_WEIL_HEAD_ENERGY_AUDIT.md",
+      "originalSha256": "a6db53810f31f589ac6d752e7b6c33c3e82dd53bb7c2c2feebcd5dc18f17b08d",
+      "publishedPath": "research/rh/spectral-head/source-tree/rh_attack_cycle_20261030/independent_review/POLYNOMIAL_DEFICIT_WEIL_HEAD_ENERGY_AUDIT.md",
+      "publishedSha256": "3ec6006db74db5cd5dfdc7db541ccd3aec525d6faaf0c64ddd8fbe25f2c6b0d7",
+      "transformation": [
+        "Added curation/status scope notice; retained all mathematical sections."
+      ]
+    },
+    {
+      "unitId": "restricted_row",
+      "role": "audit_receipt",
+      "originalPath": "rh_attack_cycle_20261030/independent_review/POLYNOMIAL_DEFICIT_WEIL_HEAD_ENERGY_AUDIT.json",
+      "originalSha256": "425753df3c2b8235b6dc0edd65c823f9dacf2e54a154bc4aa477c226d0adde3e",
+      "publishedPath": "research/rh/spectral-head/source-tree/rh_attack_cycle_20261030/independent_review/POLYNOMIAL_DEFICIT_WEIL_HEAD_ENERGY_AUDIT.json",
+      "publishedSha256": "425753df3c2b8235b6dc0edd65c823f9dacf2e54a154bc4aa477c226d0adde3e",
+      "transformation": [
+        "Byte-identical."
+      ]
+    },
+    {
+      "unitId": "radical_domain",
+      "role": "source",
+      "originalPath": "rh_attack_cycle_20261030/weil_radical_tail_attack/EXACT_RADICAL_WINDOW_IDENTITY_AND_TWO_TAIL_BRIDGE.md",
+      "originalSha256": "788280061df1d3acd494b47a95d85280b8a4646f79237ed5d4edcf7b8f421430",
+      "publishedPath": "research/rh/spectral-head/source-tree/rh_attack_cycle_20261030/weil_radical_tail_attack/EXACT_RADICAL_WINDOW_IDENTITY_AND_TWO_TAIL_BRIDGE.md",
+      "publishedSha256": "f34fbabdb428679bfc98d5d99d2c999ad2972df5cbac373f85395910a7ddfc03",
+      "transformation": [
+        "Added curation/status scope notice; retained all mathematical sections."
+      ]
+    },
+    {
+      "unitId": "radical_domain",
+      "role": "audit_note",
+      "originalPath": "rh_attack_cycle_20261030/independent_review/ACTUAL_E_RADICAL_DOMAIN_AND_TWO_TAIL_AUDIT.md",
+      "originalSha256": "c7957752b73333b3f7c7f213cf66ebce4f64eea5067cc2c3b0ab3721c99c9880",
+      "publishedPath": "research/rh/spectral-head/source-tree/rh_attack_cycle_20261030/independent_review/ACTUAL_E_RADICAL_DOMAIN_AND_TWO_TAIL_AUDIT.md",
+      "publishedSha256": "15c4e14afa97d347a116f544a6554601304b1936245fafe6320f1a6815293fe9",
+      "transformation": [
+        "Added curation/status scope notice; retained all mathematical sections."
+      ]
+    },
+    {
+      "unitId": "radical_domain",
+      "role": "audit_receipt",
+      "originalPath": "rh_attack_cycle_20261030/independent_review/ACTUAL_E_RADICAL_DOMAIN_AND_TWO_TAIL_AUDIT.json",
+      "originalSha256": "562202641713e8c5967ccc847097ef91927ed6da0fa93fee9a62fc7d74fee2ec",
+      "publishedPath": "research/rh/spectral-head/source-tree/rh_attack_cycle_20261030/independent_review/ACTUAL_E_RADICAL_DOMAIN_AND_TWO_TAIL_AUDIT.json",
+      "publishedSha256": "562202641713e8c5967ccc847097ef91927ed6da0fa93fee9a62fc7d74fee2ec",
+      "transformation": [
+        "Byte-identical."
+      ]
+    },
+    {
+      "unitId": "action_transfer",
+      "role": "source",
+      "originalPath": "rh_attack_cycle_20261030/weil_radical_tail_attack/CARLEMAN_TAIL_TO_WINDOW_WEIL_ACTION_TRANSFER.md",
+      "originalSha256": "fc903d4c2afebe561323ecf085661a1fadd6c854f1f284e4722434da40598bb1",
+      "publishedPath": "research/rh/spectral-head/source-tree/rh_attack_cycle_20261030/weil_radical_tail_attack/CARLEMAN_TAIL_TO_WINDOW_WEIL_ACTION_TRANSFER.md",
+      "publishedSha256": "3bc16a596c97795c00ab6e2a96519c56ba74c544ff62bf2e0cd98d62451dfd2b",
+      "transformation": [
+        "Added curation/status scope notice; retained all mathematical sections."
+      ]
+    },
+    {
+      "unitId": "action_transfer",
+      "role": "audit_note",
+      "originalPath": "rh_attack_cycle_20261030/independent_review/CARLEMAN_WEIL_ACTION_RESIDUAL_AUDIT.md",
+      "originalSha256": "c6686b1e603d85e0a6249c723d1894e320a75ddeef541a107cb7c2168d984bc6",
+      "publishedPath": "research/rh/spectral-head/source-tree/rh_attack_cycle_20261030/independent_review/CARLEMAN_WEIL_ACTION_RESIDUAL_AUDIT.md",
+      "publishedSha256": "74ef8cef92910a97bc51a8ab23689aa086735733c70d6e5dc7c760a47be733e5",
+      "transformation": [
+        "Added curation/status scope notice; retained all mathematical sections."
+      ]
+    },
+    {
+      "unitId": "action_transfer",
+      "role": "audit_receipt",
+      "originalPath": "rh_attack_cycle_20261030/independent_review/CARLEMAN_WEIL_ACTION_RESIDUAL_AUDIT.json",
+      "originalSha256": "cdfca8c6e67fe39db841e3846983a5cf6dcc6f41eedec6c8c34050746657e273",
+      "publishedPath": "research/rh/spectral-head/source-tree/rh_attack_cycle_20261030/independent_review/CARLEMAN_WEIL_ACTION_RESIDUAL_AUDIT.json",
+      "publishedSha256": "cdfca8c6e67fe39db841e3846983a5cf6dcc6f41eedec6c8c34050746657e273",
+      "transformation": [
+        "Byte-identical."
+      ]
+    },
+    {
+      "unitId": "full_trace_repair",
+      "role": "source",
+      "originalPath": "rh_attack_cycle_20261030/weil_radical_tail_attack/TRACE_REPAIRS_AT_BANDWIDTH_SCALE_AND_FULL_DEEP_HEAD_ACTION.md",
+      "originalSha256": "b1440ac746cdc6819010735b74bc78b55d44a24b82f32897c76129f3215bd1f6",
+      "publishedPath": "research/rh/spectral-head/source-tree/rh_attack_cycle_20261030/weil_radical_tail_attack/TRACE_REPAIRS_AT_BANDWIDTH_SCALE_AND_FULL_DEEP_HEAD_ACTION.md",
+      "publishedSha256": "d0c4ae921052310cf40c5ae8da7afd15e8674b8eb8675b320a19fc1ceb7734ae",
+      "transformation": [
+        "Added curation/status scope notice; retained all mathematical sections."
+      ]
+    },
+    {
+      "unitId": "full_trace_repair",
+      "role": "audit_note",
+      "originalPath": "rh_attack_cycle_20261030/independent_review/FULL_DEEP_HEAD_TRACE_REPAIR_ACTION_AUDIT.md",
+      "originalSha256": "70d02dcbea6c7f27309c9a5b7f560fb07382e08e150dbfe3626a0c1bab63ef4f",
+      "publishedPath": "research/rh/spectral-head/source-tree/rh_attack_cycle_20261030/independent_review/FULL_DEEP_HEAD_TRACE_REPAIR_ACTION_AUDIT.md",
+      "publishedSha256": "2e9023fee1b6f65de7d578be03a1a38f6ff1d77d293f1024453374f7beeb0d7f",
+      "transformation": [
+        "Added curation/status scope notice; retained all mathematical sections."
+      ]
+    },
+    {
+      "unitId": "full_trace_repair",
+      "role": "audit_receipt",
+      "originalPath": "rh_attack_cycle_20261030/independent_review/FULL_DEEP_HEAD_TRACE_REPAIR_ACTION_AUDIT.json",
+      "originalSha256": "21b8e03f119dba8a8f60dd1c2d50de3570125cef9bd70ab67967b4da047590de",
+      "publishedPath": "research/rh/spectral-head/source-tree/rh_attack_cycle_20261030/independent_review/FULL_DEEP_HEAD_TRACE_REPAIR_ACTION_AUDIT.json",
+      "publishedSha256": "21b8e03f119dba8a8f60dd1c2d50de3570125cef9bd70ab67967b4da047590de",
+      "transformation": [
+        "Byte-identical."
+      ]
+    },
+    {
+      "unitId": "critical_cutoff",
+      "role": "source",
+      "originalPath": "rh_attack_cycle_20261030/weil_radical_tail_attack/CRITICAL_POWER_FOUR_LOG_TUNED_ACTUAL_ACTION_HEAD.md",
+      "originalSha256": "44599cd2bc804f2387d009506f70ac957ad4643ff45017b00ce9862dc4cf00a1",
+      "publishedPath": "research/rh/spectral-head/source-tree/rh_attack_cycle_20261030/weil_radical_tail_attack/CRITICAL_POWER_FOUR_LOG_TUNED_ACTUAL_ACTION_HEAD.md",
+      "publishedSha256": "e6c4d4fe4348b592533235d1b45332360f1a5b4bc43e5029d2e4236cb4515c92",
+      "transformation": [
+        "Added curation/status scope notice; retained all mathematical sections."
+      ]
+    },
+    {
+      "unitId": "critical_cutoff",
+      "role": "audit_note",
+      "originalPath": "rh_attack_cycle_20261030/independent_review/CRITICAL_POWER_FOUR_ACTION_HEAD_AUDIT.md",
+      "originalSha256": "4bcc529f29174dcc08217c1a5de7d1712ffca1f060910eff2a7ca456b9861ac9",
+      "publishedPath": "research/rh/spectral-head/source-tree/rh_attack_cycle_20261030/independent_review/CRITICAL_POWER_FOUR_ACTION_HEAD_AUDIT.md",
+      "publishedSha256": "cf845b420c5aa28b19f1eda85685a88b9da0f941d4f01d48870d632b75ece899",
+      "transformation": [
+        "Added curation/status scope notice; retained all mathematical sections."
+      ]
+    },
+    {
+      "unitId": "critical_cutoff",
+      "role": "audit_receipt",
+      "originalPath": "rh_attack_cycle_20261030/independent_review/CRITICAL_POWER_FOUR_ACTION_HEAD_AUDIT.json",
+      "originalSha256": "f063b8c7b5b0d9c67bf7a735022b439ef6299e3117a977b1a364d7fbc3399dc3",
+      "publishedPath": "research/rh/spectral-head/source-tree/rh_attack_cycle_20261030/independent_review/CRITICAL_POWER_FOUR_ACTION_HEAD_AUDIT.json",
+      "publishedSha256": "f063b8c7b5b0d9c67bf7a735022b439ef6299e3117a977b1a364d7fbc3399dc3",
+      "transformation": [
+        "Byte-identical."
+      ]
+    }
+  ],
+  "proofUseUnits": [
+    {
+      "id": "positive_head",
+      "proofUse": "Coordinates, positive finite-Fourier threshold and explicit KRD signed prefix",
+      "layer": "current_deep_lemma_foundation",
+      "dependsOnUnits": []
+    },
+    {
+      "id": "visible_main",
+      "proofUse": "Exact physical-core compression and noncommuting Jordan reserve",
+      "layer": "current_deep_lemma_foundation",
+      "dependsOnUnits": [
+        "positive_head"
+      ]
+    },
+    {
+      "id": "strong_edge",
+      "proofUse": "Strong band-edge limit and positive-phase measure, not individual-mode asymptotics",
+      "layer": "current_deep_lemma_foundation",
+      "dependsOnUnits": []
+    },
+    {
+      "id": "weak_head",
+      "proofUse": "Weak actual-head projector plus compact channel transfer",
+      "layer": "current_deep_lemma_foundation",
+      "dependsOnUnits": [
+        "strong_edge"
+      ]
+    },
+    {
+      "id": "finite_channel",
+      "proofUse": "Actual finite-collar collective Bessel estimate, all finite endpoints retained",
+      "layer": "current_deep_lemma_foundation",
+      "dependsOnUnits": []
+    },
+    {
+      "id": "collar_tail",
+      "proofUse": "Uniform actual collar tail and fixed-collar transfer; ideal diagonal constant is derived again in Hardy unit",
+      "layer": "current_deep_lemma_foundation",
+      "dependsOnUnits": [
+        "weak_head",
+        "finite_channel"
+      ]
+    },
+    {
+      "id": "reciprocal",
+      "proofUse": "Actual moving-cutoff middle/high-label reduction; ordinary quantitative Mertens only",
+      "layer": "current_deep_lemma_foundation",
+      "dependsOnUnits": [
+        "positive_head"
+      ]
+    },
+    {
+      "id": "hardy_gram",
+      "proofUse": "Hardy/squarefree actual collective-channel bound B0<0.386; source-trace hypotheses later removed explicitly",
+      "layer": "current_deep_lemma_foundation",
+      "dependsOnUnits": [
+        "weak_head",
+        "finite_channel",
+        "collar_tail",
+        "reciprocal",
+        "visible_main"
+      ]
+    },
+    {
+      "id": "all_head_gram",
+      "proofUse": "Sharp paired Poisson, origin norm absorption and full mean-zero actual Gram; no source traces",
+      "layer": "current_result_chain",
+      "dependsOnUnits": [
+        "hardy_gram",
+        "collar_tail",
+        "reciprocal",
+        "visible_main"
+      ]
+    },
+    {
+      "id": "threshold_range",
+      "proofUse": "Eventual one-well global modal envelope and reference range",
+      "layer": "current_deep_lemma_foundation",
+      "dependsOnUnits": []
+    },
+    {
+      "id": "action_strip",
+      "proofUse": "Sections1-4: uniform polynomial-deficit differential strip and exact first moment; section5 endpoint input supplied by leakage unit",
+      "layer": "current_result_chain",
+      "dependsOnUnits": [
+        "threshold_range",
+        "positive_head"
+      ]
+    },
+    {
+      "id": "endpoint_leakage",
+      "proofUse": "Explicit weighted-Pruefer logarithmic endpoint/leakage theorem under actual differential-width hypotheses",
+      "layer": "current_result_chain",
+      "dependsOnUnits": []
+    },
+    {
+      "id": "divided_difference",
+      "proofUse": "Global endpoint envelope and complete normalized Fourier divided difference, not old low-prefix frame",
+      "layer": "current_result_chain",
+      "dependsOnUnits": [
+        "threshold_range",
+        "positive_head"
+      ]
+    },
+    {
+      "id": "restricted_row",
+      "proofUse": "Only section2 restricted spectral row is used; no old trace-null coordinate/energy theorem imported",
+      "layer": "current_result_chain",
+      "dependsOnUnits": [
+        "action_strip",
+        "endpoint_leakage",
+        "divided_difference"
+      ]
+    },
+    {
+      "id": "radical_domain",
+      "proofUse": "Declared paired form, finite-regularity radical source, sharp window and exact two-tail normalization",
+      "layer": "current_result_chain",
+      "dependsOnUnits": []
+    },
+    {
+      "id": "action_transfer",
+      "proofUse": "General weighted-tail to supported ACTUAL operator-action bound; no use of energy alone",
+      "layer": "current_result_chain",
+      "dependsOnUnits": [
+        "radical_domain"
+      ]
+    },
+    {
+      "id": "full_trace_repair",
+      "proofUse": "Bandwidth1/(4lambda) endpoint and invisible-origin repairs; full action and output normalization",
+      "layer": "current_result_chain",
+      "dependsOnUnits": [
+        "all_head_gram",
+        "restricted_row",
+        "divided_difference",
+        "radical_domain",
+        "action_transfer"
+      ]
+    },
+    {
+      "id": "critical_cutoff",
+      "proofUse": "Fixed exponent11 deep split gives uniform a-range, power4/log cutoff, rank and physical bridge",
+      "layer": "current_result_chain",
+      "dependsOnUnits": [
+        "full_trace_repair",
+        "action_strip",
+        "endpoint_leakage",
+        "positive_head"
+      ]
+    }
+  ],
+  "externalClassicalInputs": [
+    "Standard finite Fourier/prolate eigenfunction facts and differential equation",
+    "Uniform KRD concentration transition/prefix bounds in the conventions explicitly stated by the positive_head/action_strip sources",
+    "Classical elliptic-action comparison underlying threshold_range/action_strip",
+    "Unconditional quantitative Mertens/PNT and Chebyshev bounds, not RH-strength cancellation",
+    "Classical Weil explicit formula on the declared rapidly decaying correlation test class"
+  ],
+  "deliberateExclusions": [
+    "Earlier iterated-log or trace-null coordinate Gram (superseded by all_head_gram)",
+    "Old two-trace or Fourier-jet Schur obstruction (resolved for this coordinate map, not an energy theorem)",
+    "Historical canonical candidate/ground-space comparisons",
+    "Old low-prefix weighted frame theorem, whose growing-label hypotheses are not used",
+    "Energy theorem output-normalization/translation sections: only its restricted row lemma is imported",
+    "Signed gamma-complement, high-cell cap, joint-rank or resonator blockers",
+    "All finite X16.001/X16.1 numerical certificates and caches"
+  ],
+  "foundationScope": "Deep compact-channel limits and finite-collar estimates are explicit admitted analytic lemmas in the clean reduction module. Their exact current source/audit pairs are included here; older conditional ideal-model narratives are not silently asserted as complete transfers.",
+  "originalInventorySha256": "fd6d600948a74af6bff7366d8cb80d4a86d4903d9b97f1e8c51a65446b09c99e"
+}

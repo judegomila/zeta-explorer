@@ -1,0 +1,36 @@
+{
+  "status": "PASS_ANALYTIC_AND_EXACT_REPLAY",
+  "source_sha256": "361f984698daa9c859db45c779bc4e78d8fdc8eb5af1cfb9008c2de98a424afe",
+  "source_repairs": [],
+  "copied_exact_checks": 6,
+  "copied_output_byte_identical": true,
+  "independent_scalar_items": 12,
+  "phase_values_checked": 16,
+  "accepted_scope": [
+    "Strong band-edge convergence",
+    "Natural prolate domain and essentially self-adjoint first-order limit",
+    "Exact positive Fourier phase quarter split",
+    "Tight weak joint endpoint measure and sharp positive head",
+    "Exact physical normalization and rank-two derivative"
+  ],
+  "excluded_scope": [
+    "Separate differential-moment supplement",
+    "Quantitative growing-collar or operator-norm transfer",
+    "Weil positivity or a new support certificate",
+    "Numerical spectral sweep"
+  ],
+  "primary_sources": [
+    "https://comptes-rendus.academie-sciences.fr/mathematique/item/10.1016/j.crma.2014.01.004.pdf",
+    "https://arxiv.org/html/1405.3676v2"
+  ],
+  "files": {
+    "prolate_endpoint_flow/STRONG_EDGE_LIMIT_AND_POSITIVE_PHASE_MEASURE.md": "361f984698daa9c859db45c779bc4e78d8fdc8eb5af1cfb9008c2de98a424afe",
+    "prolate_endpoint_flow/check_exact_normalizations.py": "19b91ac5eb41acf704e1f2bf7c3cc8728ce945c4ad1acf5286b23e52f9b78235",
+    "prolate_endpoint_flow/EXACT_NORMALIZATIONS.json": "624a042681bbdd6594ff3f1da18fa414fab82693faa090fa7c8f1cdadf55903d",
+    "independent_review/STRONG_EDGE_POSITIVE_PHASE_MEASURE_AUDIT.md": "568f0e5bf3287dcca5100fb1efba9fdb60a552c856e44500e075538c71abd7fb",
+    "independent_review/prolate_strong_edge_replay/check_exact_normalizations.py": "19b91ac5eb41acf704e1f2bf7c3cc8728ce945c4ad1acf5286b23e52f9b78235",
+    "independent_review/prolate_strong_edge_replay/EXACT_NORMALIZATIONS.json": "624a042681bbdd6594ff3f1da18fa414fab82693faa090fa7c8f1cdadf55903d",
+    "independent_review/prolate_strong_edge_replay/independent_edge_checks.py": "6d833f441cec940cbd8e660f63c0c5b46e20c3c93e69af1dc5cf7a88ff458b2b",
+    "independent_review/prolate_strong_edge_replay/INDEPENDENT_EDGE_CHECKS.json": "a451ac8ef3902ee6ccfc7d00878df92823431557e9e08b8176f2fc39c18a117c"
+  }
+}

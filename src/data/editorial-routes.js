@@ -72,6 +72,7 @@ export const EDITORIAL_ROUTES = new Set([
   '/rh-suzuki-recurrence',
   '/rh-prime-memory',
   '/rh-finite-suzuki-certificate',
+  '/rh-whole-even-certificate',
   '/rh-historical-routes',
   '/spectral-attack',
   '/theta-seizing-margin',

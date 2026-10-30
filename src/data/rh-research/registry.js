@@ -4,6 +4,7 @@ import { FINITE_SUZUKI_CERTIFICATE } from './finite-suzuki-certificate.js';
 import { HISTORICAL_ROUTES } from './historical-routes.js';
 import { PRIME_MEMORY } from './prime-memory.js';
 import { SUZUKI_RECURRENCE } from './suzuki-recurrence.js';
+import { WHOLE_EVEN_CERTIFICATE } from './whole-even-certificate.js';
 
 /**
  * RH research-module registry.
@@ -16,6 +17,7 @@ export const RH_RESEARCH_MODULES = createResearchRegistry([
   SUZUKI_RECURRENCE,
   PRIME_MEMORY,
   FINITE_SUZUKI_CERTIFICATE,
+  WHOLE_EVEN_CERTIFICATE,
   HISTORICAL_ROUTES,
 ]);
 

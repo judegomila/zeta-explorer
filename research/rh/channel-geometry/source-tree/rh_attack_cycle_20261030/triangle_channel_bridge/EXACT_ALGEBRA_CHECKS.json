@@ -1,0 +1,89 @@
+{
+  "status": "PASS_EXACT_IDENTITIES_AND_SYNTHETIC_OBSTRUCTIONS",
+  "scope": "No actual prime/carrier computation, Weil negative direction, support certificate, or RH conclusion.",
+  "archimedean_regularized_multiplier": "2*t**2/(alpha*(alpha**2 + t**2))",
+  "box_corner_identity": "-2*Fminus + 2*Fplus",
+  "general_complex_three_channel_determinant": "symbolic polynomial identity PASS",
+  "equal_intensity_phase_test": {
+    "r": "2/3",
+    "pair_minor": "5/9",
+    "phase_zero_det": "7/27",
+    "phase_pi_det": "-25/27"
+  },
+  "all_triples_pass": [
+    {
+      "omitted_channel": 0,
+      "eigenvalues": [
+        "1/5",
+        "7/5",
+        "7/5"
+      ],
+      "determinant": "49/125"
+    },
+    {
+      "omitted_channel": 1,
+      "eigenvalues": [
+        "1/5",
+        "7/5",
+        "7/5"
+      ],
+      "determinant": "49/125"
+    },
+    {
+      "omitted_channel": 2,
+      "eigenvalues": [
+        "1/5",
+        "7/5",
+        "7/5"
+      ],
+      "determinant": "49/125"
+    },
+    {
+      "omitted_channel": 3,
+      "eigenvalues": [
+        "1/5",
+        "7/5",
+        "7/5"
+      ],
+      "determinant": "49/125"
+    }
+  ],
+  "full_four_channel": {
+    "eigenvalues": [
+      "-1/5",
+      "7/5",
+      "7/5",
+      "7/5"
+    ],
+    "all_ones_energy": "-4/5",
+    "determinant": "-343/625",
+    "coupling_payment": "12/5",
+    "schur_remainder": "-7/5"
+  },
+  "nonarithmetic_F_t4": {
+    "kernel_matrix": [
+      [
+        "2",
+        "16"
+      ],
+      [
+        "16",
+        "32"
+      ]
+    ],
+    "kernel_determinant": "-192",
+    "even_box_matrix": [
+      [
+        "32",
+        "160"
+      ],
+      [
+        "160",
+        "512"
+      ]
+    ],
+    "even_box_determinant": "-9216"
+  },
+  "sympy_version": "1.14.0",
+  "script_sha256": "9cd2e63cc638351c745c4db6d5f1da568f1caccfbd1c4fe559fb2c97f213e576"
+}

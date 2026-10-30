@@ -58,6 +58,27 @@ function countOccurrences(value, needle) {
   return value.split(needle).length - 1;
 }
 
+function collectRuntimeStrings(value, path = 'module', strings = []) {
+  if (typeof value === 'string') {
+    strings.push({ path, value });
+    return strings;
+  }
+  if (!value || typeof value !== 'object') return strings;
+  if (Array.isArray(value)) {
+    value.forEach((item, index) => collectRuntimeStrings(item, `${path}[${index}]`, strings));
+    return strings;
+  }
+  Object.entries(value).forEach(([key, item]) => collectRuntimeStrings(item, `${path}.${key}`, strings));
+  return strings;
+}
+
+function extractInlineMath(text) {
+  const snippets = [];
+  const matcher = /\$\$([^$]+?)\$\$|\$([^$\n]+?)\$/g;
+  let match;
+  while ((match = matcher.exec(text)) !== null) snippets.push(match[1] || match[2]);
+  return snippets;
+}
 for (const entry of entries) {
   await build({
     logLevel: 'silent',
@@ -278,6 +299,74 @@ verbatim proof receipt
   }
   if (countOccurrences(markdownFeatureHtml, 'canonical-math-source') !== 3) {
     throw new Error('canonical Markdown renderer omitted inline, table-cell, or display mathematics');
+  }
+  const historicalRoutes = RH_RESEARCH_MODULES.find((module) => module.id === 'historical-routes');
+  if (!historicalRoutes) throw new Error('published registry omitted the historical route atlas');
+
+  const historicalStrings = collectRuntimeStrings(historicalRoutes);
+  const controlCharacter = /[\u0000-\u0009\u000b\u000c\u000e-\u001f\u007f]/;
+  const corruptedString = historicalStrings.find(({ value }) => controlCharacter.test(value));
+  if (corruptedString) {
+    throw new Error(`historical route runtime text contains a control character at ${corruptedString.path}`);
+  }
+
+  const historicalMath = historicalStrings.flatMap(({ path, value }) => (
+    extractInlineMath(value).map((tex) => ({ path, tex }))
+  ));
+  if (historicalMath.length < 20) {
+    throw new Error(`historical route runtime math inventory unexpectedly small: ${historicalMath.length}`);
+  }
+  for (const { path, tex } of historicalMath) {
+    try {
+      katex.renderToString(tex, { throwOnError: true, displayMode: false });
+    } catch (error) {
+      throw new Error(`historical route runtime TeX failed to render at ${path}: ${error.message}`);
+    }
+  }
+
+  const thetaBoundary = historicalRoutes.claimBoundary.doesNotClaim.find((claim) => claim.includes('PR 17'));
+  const overloadedCoordinates = historicalRoutes.claimBoundary.doesNotClaim.find(
+    (claim) => claim.includes('spectral-support'),
+  );
+  const historicalRenderCases = [
+    {
+      label: 'theta finite-box inequalities',
+      source: thetaBoundary,
+      tex: String.raw`|x|\le13,\quad 0\le\tau\le1/2`,
+      sourceTokens: [String.raw`\le`, String.raw`\tau`],
+      renderedSymbols: ['≤', 'τ'],
+    },
+    {
+      label: 'theta Cartesian product',
+      source: thetaBoundary,
+      tex: String.raw`[0,1/2]\times[200,220]`,
+      sourceTokens: [String.raw`\times`],
+      renderedSymbols: ['×'],
+    },
+    {
+      label: 'overloaded Lambda coordinates',
+      source: overloadedCoordinates,
+      tex: String.raw`\lambda,\quad\Lambda,\quad\Lambda(n)`,
+      sourceTokens: [String.raw`\lambda`, String.raw`\Lambda`, String.raw`\Lambda(n)`],
+      renderedSymbols: ['λ', 'Λ'],
+    },
+  ];
+  for (const renderCase of historicalRenderCases) {
+    if (!renderCase.source) throw new Error(`historical route omitted ${renderCase.label}`);
+    for (const token of renderCase.sourceTokens) {
+      if (!renderCase.source.includes(token)) {
+        throw new Error(`historical route runtime text lost ${token} in ${renderCase.label}`);
+      }
+    }
+    const rendered = katex.renderToString(renderCase.tex, {
+      throwOnError: true,
+      displayMode: false,
+    });
+    for (const symbol of renderCase.renderedSymbols) {
+      if (!rendered.includes(symbol)) {
+        throw new Error(`historical route KaTeX regression omitted ${symbol} in ${renderCase.label}`);
+      }
+    }
   }
 
   const failedRouteModule = RH_RESEARCH_MODULES.find((module) => module.failures.length > 0);

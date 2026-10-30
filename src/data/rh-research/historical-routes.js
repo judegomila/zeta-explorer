@@ -28,8 +28,8 @@ export const HISTORICAL_ROUTES = createResearchModule({
       'It does not treat a counterexample to an auxiliary heat, fluid, network, periodic-envelope, or curvature model as a counterexample to RH.',
       'It does not treat PRs 14–19 as merged dependencies; they are pinned, private-repository review sources.',
       'It does not claim to recover or freshly replay the unavailable approximately 1.1 GB PR 15 arithmetic certificate bundle.',
-      'It does not extend PR 17 beyond real $|x|\le13$, $0\le\tau\le1/2$, or PR 18 beyond the bounded real box $[0,1/2]\times[200,220]$.',
-      'It does not present a numerical spectral-support $\lambda$, Newman $\Lambda$, von Mangoldt $\Lambda(n)$, and the Möbius boundary $B$ as interchangeable quantities.',
+      tex`It does not extend PR 17 beyond real $|x|\le13$, $0\le\tau\le1/2$, or PR 18 beyond the bounded real box $[0,1/2]\times[200,220]$.`,
+      tex`It does not present a numerical spectral-support $\lambda$, Newman $\Lambda$, von Mangoldt $\Lambda(n)$, and the Möbius boundary $B$ as interchangeable quantities.`,
       'It does not assert that the inspected delivered V7, synchronization, discrete-refinement, or thin-window sources have a verified remote publication.',
     ],
   },
@@ -103,7 +103,7 @@ export const HISTORICAL_ROUTES = createResearchModule({
       id: 'information-criticality',
       title: 'Information geometry and critical tuning — identities plus no-go tests',
       body:
-        'For the Gaussian two-rail Ornstein–Uhlenbeck model, the prefactor-one entropy decay rate is exactly $2\min(\sigma,1-\sigma)$ and balance is optimal. For the actual xi exponential family, the central member minimizes KL divergence. Neither statement controls complex cancellation. Finite independent prime ladders instead approach a Gaussian midpoint statistic; the proposed positive quadratic reweighting is already nonnormalizable, and a stabilized quartic law is not the theta density.',
+        tex`For the Gaussian two-rail Ornstein–Uhlenbeck model, the prefactor-one entropy decay rate is exactly $2\min(\sigma,1-\sigma)$ and balance is optimal. For the actual xi exponential family, the central member minimizes KL divergence. Neither statement controls complex cancellation. Finite independent prime ladders instead approach a Gaussian midpoint statistic; the proposed positive quadratic reweighting is already nonnormalizable, and a stabilized quartic law is not the theta density.`,
       equations: [
         {
           id: 'sharp-entropy-rate',
@@ -122,7 +122,7 @@ export const HISTORICAL_ROUTES = createResearchModule({
       id: 'synchronization',
       title: 'Synchronization and stochastic correspondences — conditional model',
       body:
-        'A domain-correct infinite ladder with $K\ge\kappa I$ synchronizes exponentially, while the conservative bridge preserves difference energy. A separate finite Ornstein–Uhlenbeck construction exactly matches the Cauchy-phase mean and covariance, not its law or higher cumulants. Stable finite eigenvalue plots cannot control an infinite approximate spectrum, and chosen toy damping does not establish the signed arithmetic gain bound.',
+        tex`A domain-correct infinite ladder with $K\ge\kappa I$ synchronizes exponentially, while the conservative bridge preserves difference energy. A separate finite Ornstein–Uhlenbeck construction exactly matches the Cauchy-phase mean and covariance, not its law or higher cumulants. Stable finite eigenvalue plots cannot control an infinite approximate spectrum, and chosen toy damping does not establish the signed arithmetic gain bound.`,
       equations: [
         {
           id: 'difference-energy',
@@ -149,7 +149,9 @@ export const HISTORICAL_ROUTES = createResearchModule({
         },
         {
           id: 'local-collision-index',
-          tex: tex`\operatorname{ind}(h,h_x)=-\left\lfloor\frac m2\right\rfloor`,
+          tex: tex`h_t+h_{xx}=0,\quad h\ \text{real analytic},\quad \operatorname{ord}_{x=x_0}h(t_0,x)=m,\quad 2\le m<\infty,\qquad \deg_{(t,x)\mapsto(h,h_x)}(t_0,x_0)=-\left\lfloor\frac m2\right\rfloor`,
+          explanation:
+            'The spatial zero has exact finite multiplicity $m$ at $(t_0,x_0)$. The displayed sign uses domain orientation $(t,x)$ and target orientation $(h,h_x)$.',
         },
       ],
       notes: [
@@ -160,11 +162,20 @@ export const HISTORICAL_ROUTES = createResearchModule({
       id: 'theta-finite',
       title: 'PR 17 and PR 18 — two finite, genuine theta certificates',
       body:
-        'PR 17 uses moment monotonicity, both infinite tails, and Arb enclosures to prove real-axis positivity only on $|x|\le13$, $0\le\tau\le1/2$. PR 18 separately proves $H+iH_x$ nonzero with zero boundary winding on $[0,1/2]\times[200,220]$, including the complete time-zero edge. Neither result is a complex disk, an all-height result, or a statement that $H$ itself is nonzero on the second box.',
+        tex`PR 17 uses moment monotonicity, both infinite tails, and Arb enclosures to prove real-axis positivity only on $|x|\le13$, $0\le\tau\le1/2$. PR 18 separately proves $H+iH_x$ nonzero with zero boundary winding on $[0,1/2]\times[200,220]$, including the complete time-zero edge. Neither result is a complex disk, an all-height result, or a statement that $H$ itself is nonzero on the second box.`,
       equations: [
         {
           id: 'moment-monotonicity',
           tex: tex`\frac d{d\tau}\frac{M_2}{M_0}=\operatorname{Var}_\tau(u^2)\ge0`,
+        },
+        {
+          id: 'theta-central-lower-bound',
+          tex: tex`H_\tau(x)\ge M_0(\tau)\left[1-\frac{x^2M_2(\tau)}{2M_0(\tau)}\right]`,
+        },
+        {
+          id: 'theta-certified-moment-ratio',
+          tex: tex`\frac{M_2(1/2)}{M_0(1/2)}<\frac2{169}`,
+          explanation: tex`Together with moment-ratio monotonicity, this yields the displayed finite real-axis positivity box $|x|\le13$, $0\le\tau\le1/2$.`,
         },
       ],
       notes: [
@@ -179,7 +190,7 @@ export const HISTORICAL_ROUTES = createResearchModule({
       equations: [
         {
           id: 'toeplitz-compression',
-          tex: tex`H_{h,m}=(q_{|i-j|}),\qquad q_d=\frac{\Psi((d+1)h)-2\Psi(dh)+\Psi((d-1)h)}h`,
+          tex: tex`H_{h,m}=(q_{|i-j|}),\qquad q_0=\frac{2\Psi(h)}h,\qquad q_d=\frac{\Psi((d+1)h)-2\Psi(dh)+\Psi((d-1)h)}h\quad(d\ge1)`,
         },
         {
           id: 'finite-threshold',
@@ -195,7 +206,7 @@ export const HISTORICAL_ROUTES = createResearchModule({
       id: 'twistor-thin',
       title: 'Split twistor and thin Hankel continuation — finite signed windows',
       body:
-        'The wide bridge is a right-half-plane contraction, but its constant angular mode leaves the scalar arithmetic ratio as the full norm obstruction. Signed certificates prove finite-window contractions for $H_{1/4,L}$ through $L\le8/5$. Absolute-kernel norms already fail at the first window and diverge across all windows; the cancellation-aware all-window condition remains tied to unproved matching of possible xi zeros.',
+        tex`The wide bridge is a right-half-plane contraction, but its constant angular mode leaves the scalar arithmetic ratio as the full norm obstruction. Signed certificates prove finite-window contractions for $H_{1/4,L}$ through $L\le8/5$. Absolute-kernel norms already fail at the first window and diverge across all windows; the cancellation-aware all-window condition remains tied to unproved matching of possible xi zeros.`,
       equations: [
         {
           id: 'thin-hankel-bounds',
@@ -203,7 +214,7 @@ export const HISTORICAL_ROUTES = createResearchModule({
         },
       ],
       notes: [
-        'These certify $I\pm H>0$, not positivity of the signed Hankel operator.',
+        tex`These certify $I\pm H>0$, not positivity of the signed Hankel operator.`,
         'The delivered extension was inspected but not freshly rerun or verified as published in the older twistor tree.',
       ],
     },
@@ -246,7 +257,7 @@ export const HISTORICAL_ROUTES = createResearchModule({
       id: 'curvature-bulk-suzuki',
       title: 'Curvature, gamma bulk, and the Suzuki reserve — exact encodings, open sign',
       body:
-        'The cylinder curvature identity exactly encodes the signed arithmetic distribution, but the curvature is not positive and Gauss–Bonnet cancels the desired boundary quantity. A genuine positive auxiliary-field representation exists for the gamma symbol only; prime translation deltas leave a signed boundary defect. The direct absolute-transport comparison grows at least like $\lambda/\sqrt{\log\lambda}$ and cannot yield a uniform floor. The scalar Suzuki reserve has an exact convex update whose sign is not fixed by convexity.',
+        tex`The cylinder curvature identity exactly encodes the signed arithmetic distribution, but the curvature is not positive and Gauss–Bonnet cancels the desired boundary quantity. A genuine positive auxiliary-field representation exists for the gamma symbol only; prime translation deltas leave a signed boundary defect. The direct absolute-transport comparison grows at least like $\lambda/\sqrt{\log\lambda}$ and cannot yield a uniform floor. The scalar Suzuki reserve has an exact convex update whose sign is not fixed by convexity.`,
       equations: [
         {
           id: 'curvature-encoding',
@@ -266,7 +277,7 @@ export const HISTORICAL_ROUTES = createResearchModule({
       id: 'newman-distinction',
       title: 'Newman Λ — a separate global heat threshold',
       body:
-        'Newman $\Lambda$ is the threshold for all zeros of the heat-deformed function to be real. Positive-time finite capture is compatible with the known lower bound $\Lambda\ge0$ and does not prove RH. The repository’s $0.1787854$ candidate and $0.1875$ package retain their historical unestablished and unrefereed labels; this atlas does not freshly audit external state of the art or certify either value.',
+        tex`Newman $\Lambda$ is the threshold for all zeros of the heat-deformed function to be real. Positive-time finite capture is compatible with the known lower bound $\Lambda\ge0$ and does not prove RH. The repository’s $0.1787854$ candidate and $0.1875$ package retain their historical unestablished and unrefereed labels; this atlas does not freshly audit external state of the art or certify either value.`,
       equations: [],
       notes: [
         'Spectral-support λ, Newman Λ, von Mangoldt Λ(n), and Möbius boundary B are four different coordinates.',
@@ -603,7 +614,7 @@ export const HISTORICAL_ROUTES = createResearchModule({
       surrogate:
         'Restrict null-symbol frequencies to a lattice and interpret the negative optimum of the periodic-envelope relaxation as negative Weil energy.',
       failureStage:
-        'The relaxed negative measure need not equal $|\widehat f|^2$ for any function with the required compact support.',
+        tex`The relaxed negative measure need not equal $|\widehat f|^2$ for any function with the required compact support.`,
       implication:
         'The exact fixed-support dual remains complete, but the chosen lattice relaxation is not an effective all-support certificate.',
       nonImplications: [
@@ -676,6 +687,24 @@ export const HISTORICAL_ROUTES = createResearchModule({
   ],
 });
 
+const INLINE_TEX_RUNTIME_TEXT = [
+  ...HISTORICAL_ROUTES.claimBoundary.doesNotClaim,
+  ...HISTORICAL_ROUTES.derivation.flatMap((step) => [step.body, ...(step.notes ?? [])]),
+  ...HISTORICAL_ROUTES.failures.flatMap((failure) => [
+    failure.surrogate,
+    failure.failureStage,
+    failure.implication,
+    ...failure.nonImplications,
+  ]),
+].join('\n');
+
+function hasRuntimeControlCharacter(value) {
+  if (typeof value === 'string') return /[\u0000-\u001f\u007f]/u.test(value);
+  if (Array.isArray(value)) return value.some(hasRuntimeControlCharacter);
+  if (value && typeof value === 'object') return Object.values(value).some(hasRuntimeControlCharacter);
+  return false;
+}
+
 export const HISTORICAL_ROUTES_ASSERTIONS = Object.freeze([
   {
     name: 'historical atlas remains open and internally reviewed',
@@ -736,6 +765,59 @@ export const HISTORICAL_ROUTES_ASSERTIONS = Object.freeze([
     name: 'historical atlas labels V7 and delivered refinements partially reproducible',
     holds: () => HISTORICAL_ROUTES.verification.reproducibilityStatus === 'partial' &&
       HISTORICAL_ROUTES.claimBoundary.doesNotClaim.some((claim) => /verified remote publication/.test(claim)),
+  },
+  {
+    name: 'historical atlas preserves inline TeX commands at JavaScript runtime',
+    holds: () => [
+      tex`\le`,
+      tex`\tau`,
+      tex`\times`,
+      tex`\lambda`,
+      tex`\Lambda`,
+      tex`\min`,
+      tex`\sigma`,
+      tex`\ge`,
+      tex`\kappa`,
+      tex`\pm`,
+      tex`\sqrt`,
+      tex`\log`,
+      tex`\widehat`,
+    ].every((command) => INLINE_TEX_RUNTIME_TEXT.includes(command)),
+  },
+  {
+    name: 'historical atlas runtime strings contain no control characters',
+    holds: () => !hasRuntimeControlCharacter(HISTORICAL_ROUTES),
+  },
+  {
+    name: 'historical Toeplitz display separates q0 from positive second differences',
+    holds: () => HISTORICAL_ROUTES.derivation.some(
+      (step) => step.id === 'discrete-curvature' && step.equations.some(
+        (equation) => equation.id === 'toeplitz-compression' &&
+          equation.tex.includes(tex`q_0=\frac{2\Psi(h)}h`) && equation.tex.includes(tex`(d\ge1)`),
+      ),
+    ),
+  },
+  {
+    name: 'historical collision index displays heat multiplicity and orientation hypotheses',
+    holds: () => HISTORICAL_ROUTES.derivation.some(
+      (step) => step.id === 'vortex-collision' && step.equations.some(
+        (equation) => equation.id === 'local-collision-index' &&
+          equation.tex.includes(tex`h_t+h_{xx}=0`) && equation.tex.includes(tex`\operatorname{ord}_{x=x_0}`) &&
+          equation.tex.includes(tex`2\le m<\infty`) && equation.tex.includes(tex`\deg_{(t,x)\mapsto(h,h_x)}`) &&
+          /domain orientation \$\(t,x\)\$ and target orientation \$\(h,h_x\)\$/.test(equation.explanation),
+      ),
+    ),
+  },
+  {
+    name: 'historical theta display includes the finite lower bound and certified ratio',
+    holds: () => {
+      const step = HISTORICAL_ROUTES.derivation.find((item) => item.id === 'theta-finite');
+      return step?.equations.some(
+        (equation) => equation.id === 'theta-central-lower-bound' && equation.tex.includes(tex`H_\tau(x)\ge M_0(\tau)`),
+      ) && step.equations.some(
+        (equation) => equation.id === 'theta-certified-moment-ratio' && equation.tex.includes(tex`\frac2{169}`),
+      );
+    },
   },
 ]);
 

@@ -62,6 +62,13 @@ export const PRIME_MEMORY = createResearchModule({
         tex: tex`\widetilde H_p=\sum_{\substack{\ell<p\\\ell\ \mathrm{prime}}}\frac{\log\ell}{\sqrt\ell}+\frac12\log p+\kappa-b,\qquad \widetilde c_p=\frac{\log p}{\sqrt p}\log\frac{p}{(\widetilde H_p/2)^2}`,
       },
       {
+        id: 'ordinary-prime-index-reset',
+        label: 'Ordinary-prime indexing for the variation theorem',
+        tex: tex`2<p_1<p_2<\cdots\ \text{ enumerate ordinary primes},\qquad c_n=\widetilde c_{p_n},\qquad r_n=\log p_n`,
+        explanation:
+          'This is a fresh ordinary-prime index. It does not reuse the prime-power event index from the companion Suzuki recurrence.',
+      },
+      {
         id: 'convergent-correction',
         label: 'Prime-only reduction',
         tex: tex`\sum_p\lvert c_p-\widetilde c_p\rvert<\infty,\qquad R(X)-\sum_{2<p\le X}\widetilde c_p\longrightarrow C_*\in\mathbb R`,
@@ -71,6 +78,12 @@ export const PRIME_MEMORY = createResearchModule({
         id: 'naive-drift',
         label: 'Drift manufactured by deleting memory',
         tex: tex`\sum_{2<p\le X}\left(c_p^{(0)}-c_p\right)=\frac14(\log X)^2+\kappa\log X+C_0+o(1)`,
+      },
+      {
+        id: 'naive-ordinary-prime-state',
+        label: 'Naive ordinary-prime predictor',
+        tex: tex`H_p^{(0)}=\sum_{\substack{\ell<p\\\ell\ \mathrm{prime}}}\frac{\log\ell}{\sqrt\ell}-b`,
+        explanation: 'The sum is over ordinary primes only; deleting the proper-power memory from this predictor creates the displayed drift.',
       },
       {
         id: 'unweighted-variation',
@@ -503,6 +516,19 @@ export const PRIME_MEMORY_ASSERTIONS = Object.freeze([
     name: 'partial reproducibility does not masquerade as a finite certificate',
     holds: () => PRIME_MEMORY.verification.reproducibilityStatus === 'partial' &&
       PRIME_MEMORY.status !== 'certified-finite',
+  },
+  {
+    name: 'prime-memory resets the variation index on ordinary primes',
+    holds: () => PRIME_MEMORY.theorem.equations.some((equation) =>
+      equation.id === 'ordinary-prime-index-reset' && equation.tex.includes('2<p_1<p_2') &&
+      equation.tex.includes('c_n=\\widetilde c_{p_n}') && equation.tex.includes('r_n=\\log p_n') &&
+      /fresh ordinary-prime index/.test(equation.explanation)),
+  },
+  {
+    name: 'prime-memory defines the naive predictor with ordinary primes only',
+    holds: () => PRIME_MEMORY.theorem.equations.some((equation) =>
+      equation.id === 'naive-ordinary-prime-state' && equation.tex.includes('H_p^{(0)}=') &&
+      equation.tex.includes('\\ell\\ \\mathrm{prime}') && /ordinary primes only/.test(equation.explanation)),
   },
 ]);
 

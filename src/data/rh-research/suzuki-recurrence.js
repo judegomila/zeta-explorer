@@ -33,7 +33,7 @@ export const SUZUKI_RECURRENCE = createResearchModule({
     label: 'Exact scalar reserve reduction and summable-debt theorem',
     statement:
       'For the actual von Mangoldt normalization, the constant-box energy equals $2\\Psi(W)/W$. ' +
-      'Prime-power event positivity is equivalent to nonnegativity of the exact reserves $M_n$. ' +
+      'All-real scalar nonnegativity $\\Psi(r)\\ge0$ for every $r\\ge\\log2$ is equivalent to nonnegativity of every exact reserve $M_n$. ' +
       'An explicit closed reserve $R_n$ encloses $M_n$, evolves as signed credit minus positive debt, ' +
       'and the full future positive debt is summable. Consequently, using the established one-sided Landau bridge, ' +
       'RH is equivalent to a finite lower bound for the accumulated signed credits; that lower bound remains open.',
@@ -82,7 +82,7 @@ export const SUZUKI_RECURRENCE = createResearchModule({
       equations: [
         {
           id: 'psi-definition',
-          tex: String.raw`\begin{aligned}a&=\frac{\psi_0(5/4)-\log\pi}{2},\quad \alpha_k=2k+\tfrac12,\\ T(r)&=\sum_{k\ge1}\frac{1-e^{-\alpha_k r}}{\alpha_k^2},\\ D(r)&=\sum_{n\le e^r}\frac{\Lambda(n)}{\sqrt n}(r-\log n)-4(e^{r/2}-1)+2r,\\ \Psi(r)&=ar+T(r)-D(r).\end{aligned}`,
+          tex: String.raw`\begin{aligned}a&=\frac{\psi_0(5/4)-\log\pi}{2},\qquad b=a-2,\qquad \alpha_k=2k+\tfrac12,\\ T(r)&=\sum_{k\ge1}\frac{1-e^{-\alpha_k r}}{\alpha_k^2},\qquad T_\infty=\frac{\psi_0'(5/4)}4,\\ D(r)&=\sum_{n\le e^r}\frac{\Lambda(n)}{\sqrt n}(r-\log n)-4(e^{r/2}-1)+2r,\\ \Psi(r)&=ar+T(r)-D(r).\end{aligned}`,
         },
       ],
       notes: ['Suzuki’s known global nonnegativity criterion is cited, not reproved or claimed as new.'],
@@ -114,7 +114,11 @@ export const SUZUKI_RECURRENCE = createResearchModule({
       equations: [
         {
           id: 'event-state',
-          tex: String.raw`r_n=\log q_n,\quad w_n=\frac{\Lambda(q_n)}{\sqrt{q_n}},\quad S_n=\sum_{j\le n}w_j,\quad J_n=\sum_{j\le n}w_jr_j`,
+          tex: String.raw`r_n=\log q_n,\quad w_n=\frac{\Lambda(q_n)}{\sqrt{q_n}},\quad S_n=\sum_{j\le n}w_j,\quad J_n=\sum_{j\le n}w_jr_j,\quad H_n=S_n-b`,
+        },
+        {
+          id: 'convex-conjugate-definitions',
+          tex: String.raw`\begin{aligned}r_0&=\log2,\qquad C(r)=4e^{r/2}+br-4+T(r),\\ C^*(s)&=\sup_{r\ge r_0}\{sr-C(r)\},\qquad M_n=J_n-C^*(S_n),\\ u(s)&=(C^*)'(s)=\underset{r\ge r_0}{\operatorname{argmax}}\{sr-C(r)\}.\end{aligned}`,
         },
         {
           id: 'cell-and-reserve',
@@ -123,6 +127,10 @@ export const SUZUKI_RECURRENCE = createResearchModule({
         {
           id: 'exact-m-update',
           tex: String.raw`M_{n+1}-M_n=\int_{S_n}^{S_n+w_{n+1}}\bigl(r_{n+1}-u(s)\bigr)\,ds`,
+        },
+        {
+          id: 'strict-convexity',
+          tex: String.raw`C''(r)=e^{r/2}-\frac{e^{-5r/2}}{1-e^{-2r}}>0\qquad(r\ge r_0)`,
         },
       ],
       notes: ['Strict convexity does not determine the sign of the update.'],
@@ -134,6 +142,12 @@ export const SUZUKI_RECURRENCE = createResearchModule({
         'Split the bounded gamma tail from the elementary exponential conjugate. Bounds on the true maximizer and ' +
         'monotonicity of the omitted tail place the exact reserve between two explicit expressions.',
       equations: [
+        {
+          id: 'interior-maximizer-gate',
+          tex: String.raw`\delta_0=\frac8{15}2^{-5/2},\qquad H_1-\delta_0>2\sqrt2`,
+          explanation:
+            'This verified first-event inequality places every constrained conjugate maximizer in the interior; it is a proof gate, not a numerical positivity claim for all scales.',
+        },
         {
           id: 'closed-reserve',
           tex: String.raw`R_n=J_n-2H_n\left[\log(H_n/2)-1\right]-4+T_\infty,\qquad H_n=S_n-b`,
@@ -151,6 +165,10 @@ export const SUZUKI_RECURRENCE = createResearchModule({
         'Exact subtraction of consecutive closed reserves produces a signed term depending on the entire weighted ' +
         'history and a nonnegative Bregman-type remainder with two-sided elementary bounds.',
       equations: [
+        {
+          id: 'next-event-abbreviations',
+          tex: String.raw`q=q_{n+1},\qquad H=H_n,\qquad w=\frac{\Lambda(q)}{\sqrt q}`,
+        },
         {
           id: 'credit-debt-definitions',
           tex: String.raw`c_q=w\log\frac{q}{(H/2)^2},\qquad d_q=2H\left[(1+w/H)\log(1+w/H)-w/H\right]`,
@@ -355,6 +373,59 @@ export const SUZUKI_RECURRENCE_ASSERTIONS = Object.freeze([
   {
     name: 'Suzuki recurrence does not upgrade scalar work to whole-even positivity',
     holds: () => SUZUKI_RECURRENCE.claimBoundary.doesNotClaim.some((claim) => /whole even Weil form/i.test(claim)),
+  },
+  {
+    name: 'Suzuki recurrence renders b and the limiting gamma tail explicitly',
+    holds: () => SUZUKI_RECURRENCE.derivation.some((step) =>
+      step.id === 'actual-normalization' && step.equations.some((equation) =>
+        equation.id === 'psi-definition' && equation.tex.includes('b=a-2') &&
+        equation.tex.includes('T_\\infty=\\frac{\\psi_0\'(5/4)}4'))),
+  },
+  {
+    name: 'Suzuki recurrence renders C, C star, and the constrained maximizer u',
+    holds: () => SUZUKI_RECURRENCE.derivation.some((step) =>
+      step.id === 'event-reserve' && step.equations.some((equation) =>
+        equation.id === 'convex-conjugate-definitions' && equation.tex.includes('C(r)=') &&
+        equation.tex.includes('C^*(s)') && equation.tex.includes('u(s)') &&
+        equation.tex.includes('r\\ge r_0'))),
+  },
+  {
+    name: 'Suzuki recurrence renders H state and next-event abbreviation',
+    holds: () => SUZUKI_RECURRENCE.derivation.some((step) =>
+      step.id === 'event-reserve' && step.equations.some((equation) =>
+        equation.id === 'event-state' && equation.tex.includes('H_n=S_n-b'))) &&
+      SUZUKI_RECURRENCE.derivation.some((step) =>
+        step.id === 'signed-credit-debt' && step.equations.some((equation) =>
+          equation.id === 'next-event-abbreviations' && equation.tex.includes('H=H_n'))),
+  },
+  {
+    name: 'Suzuki recurrence renders delta zero and the first-event interior gate',
+    holds: () => SUZUKI_RECURRENCE.derivation.some((step) =>
+      step.id === 'closed-conjugate' && step.equations.some((equation) =>
+        equation.id === 'interior-maximizer-gate' && equation.tex.includes('\\delta_0=') &&
+        equation.tex.includes('H_1-\\delta_0>2\\sqrt2') &&
+        /proof gate/.test(equation.explanation) && /not a numerical positivity claim/.test(equation.explanation))),
+  },
+  {
+    name: 'Suzuki recurrence keeps the exact event and debt-tail scopes visible',
+    holds: () => SUZUKI_RECURRENCE.theorem.hypotheses.some((hypothesis) =>
+      hypothesis.includes('r\\ge\\log 2')) &&
+      SUZUKI_RECURRENCE.theorem.hypotheses.some((hypothesis) =>
+        hypothesis.includes('H_0\\ge 6e')),
+  },
+  {
+    name: 'Suzuki recurrence states the exact all-real scalar equivalence',
+    holds: () => SUZUKI_RECURRENCE.theorem.statement.includes(
+      'All-real scalar nonnegativity $\\Psi(r)\\ge0$ for every $r\\ge\\log2$',
+    ) && SUZUKI_RECURRENCE.theorem.equations.some((equation) =>
+      equation.id === 'event-reserve-equivalence' && equation.tex.includes('r\\ge\\log 2')),
+  },
+  {
+    name: 'Suzuki recurrence next-event shorthand uses the actual successor event',
+    holds: () => SUZUKI_RECURRENCE.derivation.some((step) =>
+      step.id === 'signed-credit-debt' && step.equations.some((equation) =>
+        equation.id === 'next-event-abbreviations' && equation.tex.includes('q=q_{n+1}') &&
+        equation.tex.includes('H=H_n') && equation.tex.includes('w=\\frac{\\Lambda(q)}{\\sqrt q}'))),
   },
 ]);
 

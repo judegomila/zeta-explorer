@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import PostLayout, { BlockMath, Pull, TheoremBox } from '../editorial/PostLayout.jsx';
 import { MathText } from '../KaTeXMath.jsx';
 import ClaimBoundary, { researchStatusLabel } from './ClaimBoundary.jsx';
+import CanonicalResearchBody from './CanonicalResearchBody.jsx';
 import FailureCard from './FailureCard.jsx';
 import VerificationPanel, { reproducibilityLabel } from './VerificationPanel.jsx';
 
@@ -148,6 +149,8 @@ export default function ResearchModulePage({ module, indexRoute }) {
           {derivation.map((step, index) => <DerivationStep key={step.id || index} step={step} index={index} />)}
         </section>
       )}
+
+      <CanonicalResearchBody bodyPath={module.bodyPath} />
 
       <VerificationPanel verification={module.verification} />
 

@@ -1,0 +1,59 @@
+{
+  "status": "PASS_ANALYTIC_SOURCE_AND_EXACT_SYNTHETIC_PREFLIGHT",
+  "small_gate_pinned_pass_verified": true,
+  "exact_synthetic_checks": [
+    {
+      "N": 1,
+      "J": 3,
+      "forward_rows": 2,
+      "prime_action_rows": 2,
+      "transpose_columns": 2,
+      "exact_energy_identity": true,
+      "exact_wedge_identity": true
+    },
+    {
+      "N": 3,
+      "J": 8,
+      "forward_rows": 5,
+      "prime_action_rows": 5,
+      "transpose_columns": 4,
+      "exact_energy_identity": true,
+      "exact_wedge_identity": true
+    },
+    {
+      "N": 7,
+      "J": 17,
+      "forward_rows": 10,
+      "prime_action_rows": 10,
+      "transpose_columns": 8,
+      "exact_energy_identity": true,
+      "exact_wedge_identity": true
+    },
+    {
+      "N": 16,
+      "J": 41,
+      "forward_rows": 25,
+      "prime_action_rows": 25,
+      "transpose_columns": 17,
+      "exact_energy_identity": true,
+      "exact_wedge_identity": true
+    }
+  ],
+  "source_sha256_before": {
+    "rh_attack_cycle_20261030/support_endpoint_X165/prime_retained_rankone_attempt/retained_prime_rankone_inputs.py": "238b04e13d65e214d827c1d7b53cd976985e5f4d4275d3d444a248a84c24fc50",
+    "rh_attack_cycle_20261030/support_endpoint_X165/prime_retained_rankone_attempt/certify_prime_retained_rankone.py": "7a5725e4522317c5993326b494fc81d4ee188716ef822e489adb670e4d937c61",
+    "rh_attack_cycle_20261030/support_endpoint_X165/prime_retained_rankone_attempt/PRIME_RETAINED_RANKONE_SMALL_GATE.json": "f33d1a1f393fde16ebad2edd4aa32919414b49350641da5158190385162ac385",
+    "rh_attack_cycle_20261030/support_endpoint_X165/near_tail_inverse_repair/audit_prime_retained_inverse.py": "593da1ef6e66a705318d09a143a617e83baf26fb4a1bb90432cc9145e9aebee9",
+    "rh_attack_cycle_20261030/support_endpoint_X165/prime_retained_rankone_attempt/audit_rankone_preflight.py": "e6078f8cbfe19ef0cc9d453d97ea540f8b86a5d1930c1f7728401ae8bc52bce7"
+  },
+  "source_sha256_after": {
+    "rh_attack_cycle_20261030/support_endpoint_X165/prime_retained_rankone_attempt/retained_prime_rankone_inputs.py": "238b04e13d65e214d827c1d7b53cd976985e5f4d4275d3d444a248a84c24fc50",
+    "rh_attack_cycle_20261030/support_endpoint_X165/prime_retained_rankone_attempt/certify_prime_retained_rankone.py": "7a5725e4522317c5993326b494fc81d4ee188716ef822e489adb670e4d937c61",
+    "rh_attack_cycle_20261030/support_endpoint_X165/prime_retained_rankone_attempt/PRIME_RETAINED_RANKONE_SMALL_GATE.json": "f33d1a1f393fde16ebad2edd4aa32919414b49350641da5158190385162ac385",
+    "rh_attack_cycle_20261030/support_endpoint_X165/near_tail_inverse_repair/audit_prime_retained_inverse.py": "593da1ef6e66a705318d09a143a617e83baf26fb4a1bb90432cc9145e9aebee9",
+    "rh_attack_cycle_20261030/support_endpoint_X165/prime_retained_rankone_attempt/audit_rankone_preflight.py": "e6078f8cbfe19ef0cc9d453d97ea540f8b86a5d1930c1f7728401ae8bc52bce7"
+  },
+  "full_producer_run_by_auditor": false,
+  "endpoint_accepted": false,
+  "scope": "Clearance of the displayed rank-one lower comparison and implementation for one parent-authorized full gate. A full PASS and independent isolated full replay are still required."
+}

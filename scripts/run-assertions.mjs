@@ -193,6 +193,7 @@ const DATA_MODULES = [
   '/src/data/rh-research/arithmetic-foundation.js',
   '/src/data/rh-research/historical-routes.js',
   '/src/data/rh-research/signed-complement.js',
+  '/src/data/rh-research/whole-even-certificate.js',
   // levinson-mollifier-frontier-audit-2026-09: literature-verified SOTA of the Levinson/mollifier
   // critical-line-proportion program (PRZZ 2020 κ≥0.417293962 = lineage record) vs the mollifier-free
   // 2026 pair-correlation record (Alpöge–Furman arXiv:2608.13637 Lean-verified 2/3, MT-window 0.6725;

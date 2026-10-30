@@ -2509,6 +2509,7 @@ function AppShell() {
           <Route path="/rh-suzuki-recurrence" element={<RHResearchModulePage moduleId="suzuki-recurrence" />} />
           <Route path="/rh-prime-memory" element={<RHResearchModulePage moduleId="prime-memory" />} />
           <Route path="/rh-finite-suzuki-certificate" element={<RHResearchModulePage moduleId="finite-suzuki-certificate" />} />
+          <Route path="/rh-whole-even-certificate" element={<RHResearchModulePage moduleId="whole-even-certificate" />} />
           <Route path="/rh-historical-routes" element={<RHResearchModulePage moduleId="historical-routes" />} />
           <Route path="/rh-signed-complement" element={<RHResearchModulePage moduleId="signed-complement" />} />
           <Route path="/info-theory" element={<InformationTheoryPage />} />

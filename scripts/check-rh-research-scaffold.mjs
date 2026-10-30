@@ -3,6 +3,13 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import { MemoryRouter } from 'react-router-dom';
 import { build, createServer } from 'vite';
 
+const REPRODUCIBILITY_TEXT = Object.freeze({
+  'current-replay': 'current independent replay',
+  'historical-unavailable': 'historical record · certificate unavailable',
+  partial: 'partial reproducibility',
+  'not-applicable': 'reproducibility not applicable',
+});
+
 const { RH_RESEARCH_CONTRACT_FIXTURE: fixture } = await import(
   './check-rh-research-module-contract.mjs'
 );
@@ -86,9 +93,10 @@ try {
         throw new Error(`${module.id} renderer omitted ${requiredText}`);
       }
     }
-    const reproducibilityText = module.verification.reproducibilityStatus === 'current-replay'
-      ? 'current independent replay'
-      : 'partial reproducibility';
+    const reproducibilityText = REPRODUCIBILITY_TEXT[module.verification.reproducibilityStatus];
+    if (!reproducibilityText) {
+      throw new Error(`${module.id} uses an untested reproducibility state`);
+    }
     if (!publishedPageHtml.includes(reproducibilityText)) {
       throw new Error(`${module.id} renderer omitted ${reproducibilityText}`);
     }

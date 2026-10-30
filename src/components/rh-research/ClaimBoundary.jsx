@@ -3,6 +3,7 @@ import { MathText } from '../KaTeXMath.jsx';
 
 const STATUS_LABELS = Object.freeze({
   'proved-identity': 'proved identity',
+  'proved-estimate': 'proved estimate',
   'proved-analytic': 'proved analytic theorem',
   'certified-finite': 'certified finite result',
   'conditional-reduction': 'conditional reduction',

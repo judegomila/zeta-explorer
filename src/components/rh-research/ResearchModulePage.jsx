@@ -9,6 +9,7 @@ import VerificationPanel, { reproducibilityLabel } from './VerificationPanel.jsx
 
 const GRADE_BY_STATUS = Object.freeze({
   'proved-identity': 'THEOREM',
+  'proved-estimate': 'THEOREM',
   'proved-analytic': 'THEOREM',
   'certified-finite': 'VERIFIED',
   'conditional-reduction': 'CANDIDATE',

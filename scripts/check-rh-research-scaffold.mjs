@@ -227,7 +227,10 @@ try {
     }
     for (const tex of canonicalMath) {
       try {
-        katex.renderToString(tex, { throwOnError: true, displayMode: false });
+        // Canonical bodies mix inline expressions with display blocks that may
+        // legitimately use commands such as \tag. Display mode is a strict
+        // superset for this parse-only audit and matches the app's block renderer.
+        katex.renderToString(tex, { throwOnError: true, displayMode: true });
       } catch (error) {
         throw new Error(`${module.id} canonical TeX failed to parse (${tex}): ${error.message}`);
       }

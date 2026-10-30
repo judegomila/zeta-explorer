@@ -90,6 +90,7 @@ export const EDITORIAL_ROUTES = new Set([
   '/rh-prime-memory',
   '/rh-finite-suzuki-certificate',
   '/rh-whole-even-certificate',
+  '/rh-spectral-denominator-repair',
   '/rh-historical-routes',
   '/rh-signed-complement',
   '/spectral-attack',

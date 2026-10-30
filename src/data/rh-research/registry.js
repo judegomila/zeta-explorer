@@ -5,6 +5,7 @@ import { HISTORICAL_ROUTES } from './historical-routes.js';
 import { PRIME_MEMORY } from './prime-memory.js';
 import { SIGNED_COMPLEMENT } from './signed-complement.js';
 import { SUZUKI_RECURRENCE } from './suzuki-recurrence.js';
+import { SPECTRAL_DENOMINATOR_REPAIR } from './spectral-denominator-repair.js';
 import { WHOLE_EVEN_CERTIFICATE } from './whole-even-certificate.js';
 
 /**
@@ -19,6 +20,7 @@ export const RH_RESEARCH_MODULES = createResearchRegistry([
   PRIME_MEMORY,
   FINITE_SUZUKI_CERTIFICATE,
   WHOLE_EVEN_CERTIFICATE,
+  SPECTRAL_DENOMINATOR_REPAIR,
   HISTORICAL_ROUTES,
   SIGNED_COMPLEMENT,
 ]);

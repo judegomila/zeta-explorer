@@ -206,6 +206,14 @@ try {
       String.raw`M_2(1/2)/M_0(1/2)<2/169`,
       'Nonvanishing alone is not zero winding',
     ],
+    'spectral-denominator-repair': [
+      String.raw`q_\lambda[f]\ge c_*\|f\|_2^2`,
+      String.raw`P_{\rm new}=\frac{3790593}{10^6}`,
+      String.raw`\Delta=P_{\rm old}-P_{\rm new}`,
+      String.raw`\frac1{d_{\rm new,j}}\le\frac1{d_{\rm old,j}}\le\omega_{\rm old,j}`,
+      String.raw`I-QC^{-1}Q^*>0`,
+      'failed seventh-power',
+    ],
   });
 
   for (const module of RH_RESEARCH_MODULES) {
@@ -396,6 +404,13 @@ verbatim proof receipt
       'theta-central-lower-bound',
       'theta-certified-moment-ratio',
       'toeplitz-compression',
+    ],
+    'spectral-denominator-repair': [
+      'repair-actual-form',
+      'exact-denominator-lift',
+      'old-far-majorant-remains-valid',
+      'repaired-gate-counts',
+      'repaired-existential-floor',
     ],
   });
   for (const [moduleId, equationIds] of Object.entries(structuredRenderCases)) {

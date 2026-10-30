@@ -24,11 +24,16 @@ function gradeForModule(module) {
 }
 function Equation({ equation }) {
   const tex = typeof equation === 'string' ? equation : equation.tex;
+  const id = typeof equation === 'string' ? null : equation.id;
   const label = typeof equation === 'string' ? null : equation.label;
   const description = typeof equation === 'string' ? null : equation.explanation;
 
   return (
-    <figure style={{ margin: '18px 0' }}>
+    <figure
+      data-research-equation-id={id || undefined}
+      data-research-equation-tex={tex}
+      style={{ margin: '18px 0' }}
+    >
       {label && <div className="ed-mono" style={{ color: 'var(--faint)', fontSize: 11 }}>{label}</div>}
       <BlockMath tex={tex} />
       {description && <figcaption style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.6 }}><MathText>{description}</MathText></figcaption>}

@@ -1,0 +1,40 @@
+{
+  "status": "PASS_COMPLETE_GENERIC_SOURCE_CACHE_SMALL_AND_FULL_REPLAYS",
+  "comparisons": [
+    {
+      "file": "GENERIC_ACTUAL_HEAD_PILOT.json",
+      "dimension": null,
+      "all_non_timing_fields_identical": true,
+      "producer_seconds": 7.367441415786743,
+      "replay_seconds": 7.910170555114746,
+      "producer_sha256": "66c1ca623d3f9fa5db24e1931dbad788ec32f800f3e8fe4b0eca844693002d9e",
+      "replay_sha256": "f86995c1c0a9a846c7013ced197f35b5a4bf49ec3132a1e115df86f33b09911c"
+    },
+    {
+      "file": "GENERIC_SMALL_DENSE_GATE.json",
+      "dimension": 33,
+      "all_non_timing_fields_identical": true,
+      "producer_seconds": 17.953079223632812,
+      "replay_seconds": 19.37487554550171,
+      "producer_sha256": "3884a23972382f72e6c97259281aa3673458ebb75f7ba5eec3f208ba214f65db",
+      "replay_sha256": "55fcd4c6667f286e11ad4dc0614eb8a8a1b335964c1c4fe65d59f777e26d9c8d"
+    },
+    {
+      "file": "GENERIC_FULL_EVEN_CERTIFICATE.json",
+      "dimension": 2049,
+      "all_non_timing_fields_identical": true,
+      "producer_seconds": 207.8310022354126,
+      "replay_seconds": 236.36372756958008,
+      "producer_sha256": "589f88eb475bd51023abacb58af4bbf473041b9c0610184c33561c5f14a396c2",
+      "replay_sha256": "caac1531f4bdccf5bd39170c162a73be46535b3ad0eba50b4839786b7b00c150"
+    }
+  ],
+  "all_10437_cached_balls_recomputed": true,
+  "all_original_sources_and_cache_unchanged": true,
+  "full_min_relative_accuracies": [
+    314,
+    939,
+    316
+  ],
+  "scope": "Numerical replay gate; whole-operator conclusion also requires the separately recorded analytic-majorant audit."
+}

@@ -1,0 +1,24 @@
+{
+  "status": "PRODUCER_COMPLETE_PASS_INDEPENDENT_COMPLETE_REVIEW_PENDING",
+  "source_and_evidence_sha256": {
+    "rh_attack_cycle_20261028/structured_inertia/certify_structured_factored.py": "ce639d73178ed2ebae8e6e11bca6c73f37ce3cc8081daeb388868f0f6984cd46",
+    "rh_attack_cycle_20261028/structured_inertia/certify_structured_lambda25.py": "e428d4e886045d5b31a5018953308e95ce527c832a0f28cdcc6692b23d15eeee",
+    "rh_attack_cycle_20261030/support_endpoint_continuity/GENERIC_ACTUAL_HEAD_PILOT.json": "66c1ca623d3f9fa5db24e1931dbad788ec32f800f3e8fe4b0eca844693002d9e",
+    "rh_attack_cycle_20261030/support_endpoint_continuity/GENERIC_FROZEN_DIRECTION_GATE.json": "8e3021249e66726e1c3df15e7a45ca74db6b1def83e0e1ae7cb8c8d2fcf56260",
+    "rh_attack_cycle_20261030/support_endpoint_continuity/GENERIC_FULL_EVEN_CERTIFICATE.json": "589f88eb475bd51023abacb58af4bbf473041b9c0610184c33561c5f14a396c2",
+    "rh_attack_cycle_20261030/support_endpoint_continuity/GENERIC_FULL_EVEN_CERTIFICATE.log": "a94e7c9c02afb189c9119f15d46c101030cc66a26c99edd220d7cb0b220f6e65",
+    "rh_attack_cycle_20261030/support_endpoint_continuity/GENERIC_FULL_MAJORANT_METHOD.md": "63a29ab9c8d308842ac3ffaea9a1bd13a90aae3ef7c07bd51ef496d5625f0627",
+    "rh_attack_cycle_20261030/support_endpoint_continuity/GENERIC_MOMENT_CACHE_V2.jsonl": "124a650c0eb45aeda57e4de4b53e6e3cc76a1880a4e583458a78ff3ef65e26ce",
+    "rh_attack_cycle_20261030/support_endpoint_continuity/GENERIC_MOMENT_CACHE_V2_COMPLETE.json": "e62c6873fcad98776b519ccf32fd8b758440b8dad36e138ccbdbb0ca2c4a9c06",
+    "rh_attack_cycle_20261030/support_endpoint_continuity/GENERIC_MOMENT_CACHE_V2_META.json": "e1832457d421cf6686db09a5743c0bead305a280c91bcf298c28754cbb83cf5e",
+    "rh_attack_cycle_20261030/support_endpoint_continuity/GENERIC_POWER7_FEASIBILITY.json": "6faf119c33b0bf6a9f6b9ef653045f0c7605bf76c3d0c665ea534faa34fd8b9a",
+    "rh_attack_cycle_20261030/support_endpoint_continuity/GENERIC_SMALL_DENSE_GATE.json": "3884a23972382f72e6c97259281aa3673458ebb75f7ba5eec3f208ba214f65db",
+    "rh_attack_cycle_20261030/support_endpoint_continuity/GENERIC_X16001_FULL_EVEN_RESULT.md": "29a46684bb34041cfea8dd0f925170941f88c7e051019c960345362654591474",
+    "rh_attack_cycle_20261030/support_endpoint_continuity/certify_generic_X16001.py": "f07fd6e12421b1f5e6db4ee12df902980128ce20f98b48371e32ea8d070e42a0",
+    "rh_attack_cycle_20261030/support_endpoint_continuity/compute_generic_moment_cache_v2.py": "b8878ab8b70a5b96d4fc34022535bdd91ae61b6f48473bb3c1130b0b84842bf2",
+    "rh_attack_cycle_20261030/support_endpoint_continuity/generic_actual_head_pilot.py": "5f445ed152eefc96539b1af7f9b1d2deed1618a3e786f8658d8ef5aab2b427de",
+    "rh_attack_cycle_20261030/support_endpoint_continuity/generic_full_inputs.py": "749dbde6154b03bf3ecf858fbdb0259d1476291fbd49d949e7a40f7ff1588c8e",
+    "rh_attack_cycle_20261030/support_endpoint_continuity/generic_prime_power7_feasibility.py": "b48f2274e7818d623995c9dba3759764c73e3808850a0204088025ac9754044d",
+    "rh_attack_cycle_20261030/support_endpoint_continuity/quadrature_near_moments_production.py": "8a94380ef617b34d27902c9c1ae18e8dcc034d57d5a1f25652a23b2981834a04"
+  }
+}

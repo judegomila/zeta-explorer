@@ -1,0 +1,152 @@
+{
+  "schemaVersion": 1,
+  "reviewUnit": "spectral",
+  "module": {
+    "id": "whole-even-certificate",
+    "bodyPath": "research/rh/modules/whole-even-certificate.md",
+    "bodySha256": "881a736aa736b37b2b366e5cb61cf2033802eced1d144c98912cb4b0c4e05b11",
+    "status": "certified-finite",
+    "reviewStatus": "accepted",
+    "reviewScope": "internal",
+    "rhStatus": "open",
+    "verification": {
+      "reproducibilityStatus": "current-replay",
+      "scope": "Complete accepted finite interval pipeline; historical independent replay plus new producer clean-checkout replay. Not a second arithmetic implementation or formal proof."
+    },
+    "claims": [
+      {
+        "id": "actual-whole-even-X16001",
+        "status": "certified-finite",
+        "reviewStatus": "accepted",
+        "range": "1 < lambda <= sqrt(16001/1000)",
+        "positiveFloor": "Existential; no numerical endpoint floor advertised.",
+        "reproducibilityStatus": "current-replay"
+      },
+      {
+        "id": "X161-failed-lower-surrogate",
+        "status": "failed-surrogate",
+        "reviewStatus": "failed",
+        "reproducibilityStatus": "partial",
+        "scope": "Producer complete failure source-pinned; prerequisites independently replayed. Optional complete portable failure pipeline packaged but not newly executed. Negative surrogate is not actual negativity."
+      }
+    ]
+  },
+  "noteMappings": [
+    {
+      "review_unit": "spectral",
+      "original_path": "frequency_sensitive_bound/FREQUENCY_BLOCK_SUPPORT_BOUND.md",
+      "original_sha256": "0f05f3a881685c96a7016fcf5a9133e628254055f2ede55d25e8afeee9352e62",
+      "published_path": "research/rh/spectral/source-tree/frequency_sensitive_bound/FREQUENCY_BLOCK_SUPPORT_BOUND.md",
+      "published_sha256": "94298bb0c245aa04ac5ac84657b01dc17ff4b655b2875f46e03ec1f332342dc8",
+      "transformation": "Retained mathematical body; added curation notice; scrubbed operational reviewer/delegation/private-path text."
+    },
+    {
+      "review_unit": "spectral",
+      "original_path": "rh_attack_cycle_20261029/X16_even_feasibility/FAR_LOSS_ATTRIBUTION_AND_TARGETED_REPAIR.md",
+      "original_sha256": "c16069a8151edb8c356faa04607df6b791b397ff0bded039b612d5c25dbde5be",
+      "published_path": "research/rh/spectral/source-tree/rh_attack_cycle_20261029/X16_even_feasibility/FAR_LOSS_ATTRIBUTION_AND_TARGETED_REPAIR.md",
+      "published_sha256": "a830e35d10e358d5f6a56de976a9e4bfae3f463ae335b031164e526b7f416447",
+      "transformation": "Retained mathematical body; added curation notice; scrubbed operational reviewer/delegation/private-path text."
+    },
+    {
+      "review_unit": "spectral",
+      "original_path": "rh_attack_cycle_20261029/independent_review/X16_ANALYTIC_INPUT_AND_DRIVER_AUDIT.md",
+      "original_sha256": "ada719ee9c4d81fca55e073946876bad1ddfde797f44b22e5154e2468ba647bc",
+      "published_path": "research/rh/spectral/source-tree/rh_attack_cycle_20261029/independent_review/X16_ANALYTIC_INPUT_AND_DRIVER_AUDIT.md",
+      "published_sha256": "d98f56f1a4926aafde1ae196bcb1f90574fb962947e54728a1d361860a645053",
+      "transformation": "Retained mathematical body; added curation notice; scrubbed operational reviewer/delegation/private-path text."
+    },
+    {
+      "review_unit": "spectral",
+      "original_path": "rh_attack_cycle_20261029/independent_review/X16_TARGETED_LOSS_AND_WEIGHTED_SIGNED_MAJORANT_AUDIT.md",
+      "original_sha256": "d7fe00acaf053a5e16ad4796d3eb8844caca190682bbd4d1f9a775567c9d2fc2",
+      "published_path": "research/rh/spectral/source-tree/rh_attack_cycle_20261029/independent_review/X16_TARGETED_LOSS_AND_WEIGHTED_SIGNED_MAJORANT_AUDIT.md",
+      "published_sha256": "0e8954ea8c6e4629a04fd5fe60f2d1f83930c403b5e3dd170a20fcc275731283",
+      "transformation": "Retained mathematical body; added curation notice; scrubbed operational reviewer/delegation/private-path text."
+    },
+    {
+      "review_unit": "spectral",
+      "original_path": "rh_attack_cycle_20261029/independent_review/X16_REPAIRED_FULL_EVEN_POSITIVITY_AUDIT.md",
+      "original_sha256": "133d9e9dc744978b0a4a8a6c348945f01ec81a1eddccb0057dbb87e3d36bb3ab",
+      "published_path": "research/rh/spectral/source-tree/rh_attack_cycle_20261029/independent_review/X16_REPAIRED_FULL_EVEN_POSITIVITY_AUDIT.md",
+      "published_sha256": "13c21c6242fa4fec8174568f7d26976561bb623ea327f81e6183cf2ba31482f2",
+      "transformation": "Retained mathematical body; added curation notice; scrubbed operational reviewer/delegation/private-path text."
+    },
+    {
+      "review_unit": "spectral",
+      "original_path": "rh_attack_cycle_20261030/support_endpoint_continuity/GENERIC_FULL_MAJORANT_METHOD.md",
+      "original_sha256": "63a29ab9c8d308842ac3ffaea9a1bd13a90aae3ef7c07bd51ef496d5625f0627",
+      "published_path": "research/rh/spectral/source-tree/rh_attack_cycle_20261030/support_endpoint_continuity/GENERIC_FULL_MAJORANT_METHOD.md",
+      "published_sha256": "7b2308d29d8f7ed0c7e64e84bdefdf3b6853f9f37ae6b491e9e5c8444a201f9b",
+      "transformation": "Retained mathematical body; added curation notice; scrubbed operational reviewer/delegation/private-path text."
+    },
+    {
+      "review_unit": "spectral",
+      "original_path": "rh_attack_cycle_20261030/independent_review/GENERIC_PHASE_PREREQUISITES_AUDIT.md",
+      "original_sha256": "3311d445690461b1a1a2d432399fca93840ad4b7d55aa8a6c551910e65bc7f74",
+      "published_path": "research/rh/spectral/source-tree/rh_attack_cycle_20261030/independent_review/GENERIC_PHASE_PREREQUISITES_AUDIT.md",
+      "published_sha256": "a3a3b4b95a9bb9be53e49e9c3376f87811532e40fb04284bb1d9f54b56274faf",
+      "transformation": "Retained mathematical body; added curation notice; scrubbed operational reviewer/delegation/private-path text."
+    },
+    {
+      "review_unit": "spectral",
+      "original_path": "rh_attack_cycle_20261030/independent_review/GENERIC_X16001_COMPLETE_EVEN_POSITIVITY_AUDIT.md",
+      "original_sha256": "3369e80da0a6719fc036675d7eb432025d127ded07cfab217aa4deab054e8bd8",
+      "published_path": "research/rh/spectral/source-tree/rh_attack_cycle_20261030/independent_review/GENERIC_X16001_COMPLETE_EVEN_POSITIVITY_AUDIT.md",
+      "published_sha256": "163ac0f18b95a1f3c94325bb6df4955dc65d6adfddd37d645981150fa4c57ed3",
+      "transformation": "Retained mathematical body; added curation notice; scrubbed operational reviewer/delegation/private-path text."
+    },
+    {
+      "review_unit": "spectral",
+      "original_path": "rh_attack_cycle_20261030/support_endpoint_X161/EXACT_SUPPORT_PARAMETERIZATION_METHOD.md",
+      "original_sha256": "4d7f5c9ebc69a4b7a2d8fd87ddf8770b78bfdab1cd2d89c71a2ef88dc4bb9003",
+      "published_path": "research/rh/spectral/source-tree/rh_attack_cycle_20261030/support_endpoint_X161/EXACT_SUPPORT_PARAMETERIZATION_METHOD.md",
+      "published_sha256": "23503682ebeb18d913fd4886a63c2ebd267c49992fa4f9f4cfad2c00856b397b",
+      "transformation": "Retained mathematical body; added curation notice; scrubbed operational reviewer/delegation/private-path text."
+    },
+    {
+      "review_unit": "spectral",
+      "original_path": "rh_attack_cycle_20261030/support_endpoint_X161/FAILED_FULL_TEST.md",
+      "original_sha256": "3ba8a74c1293d8800f78b395f986654c0172cc996b373e5fb4f3f35eb0e9ae03",
+      "published_path": "research/rh/spectral/source-tree/rh_attack_cycle_20261030/support_endpoint_X161/FAILED_FULL_TEST.md",
+      "published_sha256": "e6981513863e70fab4942ead1858c3d3696efed64f4901150cc059d41a891c2a",
+      "transformation": "Retained mathematical body; added curation notice; scrubbed operational reviewer/delegation/private-path text."
+    },
+    {
+      "review_unit": "spectral",
+      "original_path": "rh_attack_cycle_20261030/independent_review/GENERIC_X161_PARAMETERIZATION_AND_FAILED_GATE_AUDIT.md",
+      "original_sha256": "7bf3f24371cdccd9aa35bf06646dd50f474018ec6e9d0d5d2b994f2b6062560d",
+      "published_path": "research/rh/spectral/source-tree/rh_attack_cycle_20261030/independent_review/GENERIC_X161_PARAMETERIZATION_AND_FAILED_GATE_AUDIT.md",
+      "published_sha256": "a0546f6eae11b2483ac43c47ed2f996db4dfa7cb9ffeb60ed82f7bb6e5484fed",
+      "transformation": "Retained mathematical body; added curation notice; scrubbed operational reviewer/delegation/private-path text."
+    }
+  ],
+  "runtimeAndReceiptMapping": {
+    "path": "research/rh/spectral/manifest.json",
+    "sha256": "1b5cc0afddecf88f23074f7b60cc3aa7de707d07d217223d632e745224737303",
+    "scope": "17 byte-identical Python originals and 23 references; one source-map-key scrub and three reviewer-metadata scrubs, all documented. Mathematical fields unchanged."
+  },
+  "bodyDerivation": {
+    "source": "staging/whole-even-certificate.md",
+    "sourceSha256": "c3697652a72d56a111d63d1dfa1fd577520a85274d051cd5c60171231ebb00ef",
+    "publishedSha256": "881a736aa736b37b2b366e5cb61cf2033802eced1d144c98912cb4b0c4e05b11",
+    "transformation": "Curated exact theorem and proof; defined digamma; added internal-review scope and removed pending follow-on diagnosis/repair paragraphs."
+  },
+  "sourceOnlyNormalizationReferences": [
+    {
+      "originalPath": "output/pdf/rh_research_paper_v7_20261030/source/sections/06-07-spectral-bridge.tex",
+      "originalSha256": "15b2852fbfd13aabf721ed7ebeeaa936c3bbd405c24f709fde97ba4c305220ab",
+      "availability": "Inspected local source, not bundled in this finite slice. Exact domain/form is restated in the module and equivalent normalization appears in the bundled frequency-sensitive proof."
+    },
+    {
+      "originalPath": "rh_attack_cycle_20261030/actual_translation_graph/ACTUAL_JUMP_GRAPH_AND_COUNTERTERM.md",
+      "originalSha256": "f82f4a4f7ae0277df8d45155b0cfbf1ba8b5026474a5fe85853432319b0a4391",
+      "availability": "Inspected local source, not bundled in this finite slice. Exact domain/form is restated in the module and equivalent normalization appears in the bundled frequency-sensitive proof."
+    }
+  ],
+  "limitations": [
+    "No RH, odd-space, cofinal-support, or effective onset claim",
+    "No claim that negative sufficient surrogate is actual negative energy",
+    "No external peer review or proof-assistant formalization"
+  ]
+}

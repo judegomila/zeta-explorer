@@ -1,0 +1,24 @@
+{
+  "status": "PASS_ALL_10437_SCALAR_BALLS_INDEPENDENTLY_RECOMPUTED",
+  "recomputed": 10437,
+  "every_non_timing_row_field_identical": true,
+  "minimum_restored_bits": 942,
+  "roundtrip_and_accuracy_assertions_rerun_for_every_entry": true,
+  "workers": 4,
+  "seconds": 131.0290732383728,
+  "source_sha256_before": {
+    "rh_attack_cycle_20261030/support_endpoint_continuity/compute_generic_moment_cache_v2.py": "b8878ab8b70a5b96d4fc34022535bdd91ae61b6f48473bb3c1130b0b84842bf2",
+    "rh_attack_cycle_20261030/support_endpoint_continuity/quadrature_near_moments_production.py": "8a94380ef617b34d27902c9c1ae18e8dcc034d57d5a1f25652a23b2981834a04",
+    "rh_attack_cycle_20261030/support_endpoint_continuity/GENERIC_MOMENT_CACHE_V2_META.json": "e1832457d421cf6686db09a5743c0bead305a280c91bcf298c28754cbb83cf5e",
+    "rh_attack_cycle_20261030/support_endpoint_continuity/GENERIC_MOMENT_CACHE_V2.jsonl": "124a650c0eb45aeda57e4de4b53e6e3cc76a1880a4e583458a78ff3ef65e26ce",
+    "rh_attack_cycle_20261030/support_endpoint_continuity/GENERIC_MOMENT_CACHE_V2_COMPLETE.json": "e62c6873fcad98776b519ccf32fd8b758440b8dad36e138ccbdbb0ca2c4a9c06"
+  },
+  "source_sha256_after": {
+    "rh_attack_cycle_20261030/support_endpoint_continuity/compute_generic_moment_cache_v2.py": "b8878ab8b70a5b96d4fc34022535bdd91ae61b6f48473bb3c1130b0b84842bf2",
+    "rh_attack_cycle_20261030/support_endpoint_continuity/quadrature_near_moments_production.py": "8a94380ef617b34d27902c9c1ae18e8dcc034d57d5a1f25652a23b2981834a04",
+    "rh_attack_cycle_20261030/support_endpoint_continuity/GENERIC_MOMENT_CACHE_V2_META.json": "e1832457d421cf6686db09a5743c0bead305a280c91bcf298c28754cbb83cf5e",
+    "rh_attack_cycle_20261030/support_endpoint_continuity/GENERIC_MOMENT_CACHE_V2.jsonl": "124a650c0eb45aeda57e4de4b53e6e3cc76a1880a4e583458a78ff3ef65e26ce",
+    "rh_attack_cycle_20261030/support_endpoint_continuity/GENERIC_MOMENT_CACHE_V2_COMPLETE.json": "e62c6873fcad98776b519ccf32fd8b758440b8dad36e138ccbdbb0ca2c4a9c06"
+  },
+  "scope": "Same reviewed rigorous scalar primitive independently executed for every cache key; no full-matrix conclusion by itself."
+}

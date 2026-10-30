@@ -1,0 +1,41 @@
+{
+  "status": "PASS_PARAMETERIZATION_AND_PREREQUISITE_REPLAYS_BUT_COMPLETE_CERTIFICATE_FAILED",
+  "X": "161/10",
+  "comparisons": [
+    {
+      "filename": "PREFLIGHT_SUPPORT_AND_CACHE.json",
+      "all_non_timing_fields_identical": true,
+      "producer_seconds": 0.22132587432861328,
+      "replay_seconds": 0.2197122573852539,
+      "producer_sha256": "74736a45bca4c1b06f2fef9d6c95254b76190ab5b8c99e7edd128f499849b3f6",
+      "replay_sha256": "842b57cd1c89f4ec1918d5f9328f05524a67ba881317b29930314b2d4e47ca04"
+    },
+    {
+      "filename": "CACHE_ISOLATION_CHECK.json",
+      "all_non_timing_fields_identical": true,
+      "producer_seconds": null,
+      "replay_seconds": null,
+      "producer_sha256": "f3b72436c34bb5c37fee849c7728ce5e2289e2240937dd4feef008e485187eef",
+      "replay_sha256": "f3b72436c34bb5c37fee849c7728ce5e2289e2240937dd4feef008e485187eef"
+    },
+    {
+      "filename": "GENERIC_SMALL_DENSE_GATE.json",
+      "all_non_timing_fields_identical": true,
+      "producer_seconds": 19.199965953826904,
+      "replay_seconds": 18.008987188339233,
+      "producer_sha256": "cf5e0cc0db775543201916f5f00e30b2527b0964305007503b5250f200b9a6ec",
+      "replay_sha256": "5efb4ae86821dba9e899186ced784e178c2c8a00c6bb118dd3ba8e6a659011be"
+    }
+  ],
+  "all10437_moments_recomputed_identically": true,
+  "minimum_recomputed_restored_bits": 945,
+  "cache_recomputation_seconds": 58.42602229118347,
+  "producer_failed_full_receipt_sha256": "852645d51afa4d663313b420c2310b73532bf264ada50032801ba21f97eb5ac8",
+  "producer_full_core_H_pass": true,
+  "producer_whitened_failed_index": 0,
+  "producer_whitened_negative_pivot": "[-0.674664753296947054062371696700129088360526721235066110352449 +/- 1.20e-61]",
+  "all_full_receipt_sources_independently_pinned": true,
+  "independent_failed_full_replay_performed": false,
+  "prior_X16001_audited_file_pins_unchanged": 26,
+  "scope": "No X16.1 positivity accepted; negative certified lower surrogate does not prove actual physical negativity. Complete failed matrix gate was not independently rerun after the producer failure; current accepted endpoint remains sqrt(16001/1000)."
+}

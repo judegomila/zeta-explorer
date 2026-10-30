@@ -1,0 +1,10 @@
+{
+  "status": "PASS_COMPLETE_CACHE_ISOLATION",
+  "X": "161/10",
+  "exact_required_index_set_complete": true,
+  "all10437_exact_support_phase_precision_tolerance_U_source_keys_match": true,
+  "minimum_reloaded_relative_accuracy_bits": 945,
+  "cache_sha256": "b40a1c4befce69b27d61afd3f81bddd4725accfdfa54f7741d63fe4f4a8b2998",
+  "source_sha256": "869eef184b6d5b21ba2673def9cc915bf7bf5f65c988fe7a6590ec51e2773146",
+  "scope": "Read-only verification of complete support-specific cache metadata and finite reloaded balls; not full operator positivity."
+}

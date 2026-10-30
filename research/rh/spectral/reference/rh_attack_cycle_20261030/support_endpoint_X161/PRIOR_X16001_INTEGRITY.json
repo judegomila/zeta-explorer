@@ -1,0 +1,6 @@
+{
+  "status": "PASS_ALL_PRIOR_X16001_PRODUCER_PINS_UNCHANGED",
+  "prior_manifest_sha256": "6f26d8ec3f7e54b968ff4c7ca0df22abb4ce1b797716109df6df58ec34d61afa",
+  "checked_pins": 19,
+  "scope": "Read-only integrity check of all previous producer source/evidence pins; does not assert the new support result."
+}

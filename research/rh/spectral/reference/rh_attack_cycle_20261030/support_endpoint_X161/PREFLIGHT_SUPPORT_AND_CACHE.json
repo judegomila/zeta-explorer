@@ -1,0 +1,44 @@
+{
+  "status": "PASS_FRESH_SUPPORT_PREFLIGHT",
+  "X": "161/10",
+  "active_prime_list": [
+    2,
+    3,
+    4,
+    5,
+    7,
+    8,
+    9,
+    11,
+    13,
+    16
+  ],
+  "all36_literal_prime_entries_overlap_finitely": true,
+  "Cbeta_formula": "[1.265539026322234633257683540736276088761804947136135419227952017544560169538205803243052419003121729 +/- 3.20e-100]",
+  "Cbeta13over10_reverified": true,
+  "B3_j_ge2_envelope": "[2.520528370067968239655562754453467076798222343585859689039315431636090977540921699843083475208725296 +/- 4.55e-100]",
+  "b1": "[0.03416663802270260672137058077928060670900031294253495408842345060217942809744948298000873752091228247 +/- 1.10e-102]",
+  "B3_reverified": true,
+  "fresh_prime_norm_envelope": "3805113/1000000",
+  "fresh_prime_receipt_X_matches": true,
+  "incompatible_X_cache_entry_rejected": true,
+  "sample_restored_bits": 972,
+  "cache_meta": {
+    "X": "161/10",
+    "J": 16384,
+    "precision_bits": 1000,
+    "digits": 350,
+    "required_min_relative_accuracy_bits": 900,
+    "quadrature_U": 1600,
+    "abs_rel_tolerance_bits": 950,
+    "primitive_sha256": "38b613381f5679f62056c013c9df53faa31a1a1845b6a0aa8c4e3bbadf3317d1",
+    "support_config_sha256": "727794ab6fa29e1492e744587e1e41b68aa87f3fd85e5f6a1b347d30e6414de8"
+  },
+  "seconds": 0.22132587432861328,
+  "source_sha256": {
+    "rh_attack_cycle_20261030/support_endpoint_X161/preflight_support_and_cache.py": "ba92ce88b8c7883ff2fd7ed174b9a938382a1c268d747fb5be1a95111f478eef",
+    "rh_attack_cycle_20261030/support_endpoint_continuity/generic_actual_head_pilot.py": "5f445ed152eefc96539b1af7f9b1d2deed1618a3e786f8658d8ef5aab2b427de",
+    "rh_attack_cycle_20261030/support_endpoint_next_feasibility/X161_POWER7_FEASIBILITY.json": "de1ce55765a229cbbbdb024c7e3984b3d86f328ff462edd1dea574f13dc7d335"
+  },
+  "scope": "New support literal-entry/scalar/cache-isolation gate only. No full corrected matrix positivity."
+}

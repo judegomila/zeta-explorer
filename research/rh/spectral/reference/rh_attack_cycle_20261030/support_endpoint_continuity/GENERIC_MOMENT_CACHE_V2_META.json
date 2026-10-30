@@ -1,0 +1,10 @@
+{
+  "X": "16001/1000",
+  "J": 16384,
+  "precision_bits": 1000,
+  "digits": 350,
+  "required_min_relative_accuracy_bits": 900,
+  "quadrature_U": 1600,
+  "abs_rel_tolerance_bits": 950,
+  "primitive_sha256": "8a94380ef617b34d27902c9c1ae18e8dcc034d57d5a1f25652a23b2981834a04"
+}

@@ -114,6 +114,7 @@ export const NAV_GROUPS = [
       { to: '/berry-keating-xp', label: 'Berry-Keating xp' },
       { to: '/connes-adelic', label: 'Connes Adelic' },
       { to: '/rh-attack', label: 'RH Attack' },
+      { to: '/rh-research-modules', label: 'RH Research Modules' },
       { to: '/spectral-attack', label: 'Spectral' },
       { to: '/theorem-b-threshold', label: 'Theorem B: Θ_b Threshold ★' },
       { to: '/theta-seizing-margin', label: 'Theta Seizing Margin' },

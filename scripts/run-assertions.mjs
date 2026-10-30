@@ -182,6 +182,11 @@ const MATH_MODULES = [
 // (Kept local to the change in case the top-level list becomes stale.)
 
 const DATA_MODULES = [
+  // App-visible RH research modules. These tripwires pin the exact theorem
+  // boundary, replay provenance, and explicit nonclaims rendered in the app.
+  '/src/data/rh-research/suzuki-recurrence.js',
+  '/src/data/rh-research/prime-memory.js',
+  '/src/data/rh-research/finite-suzuki-certificate.js',
   '/src/data/newman-lambda-01787854-candidate.js',
   '/src/data/lambda-N1e6-final-assembly.js',
   '/src/data/lambda-N1e6-unconditional-beat.js',

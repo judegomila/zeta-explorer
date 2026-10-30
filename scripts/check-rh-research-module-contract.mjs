@@ -95,6 +95,13 @@ if (!validateResearchModule(closedRh).errors.some((error) => error.includes('rhS
   throw new Error('validator accepted an RH-closed status');
 }
 
+const analyticTheorem = structuredClone(fixture);
+analyticTheorem.status = 'proved-analytic';
+analyticTheorem.verification.reproducibilityStatus = 'partial';
+if (!validateResearchModule(analyticTheorem).ok) {
+  throw new Error('validator rejected the proved-analytic result class');
+}
+
 const externalAcceptance = structuredClone(fixture);
 externalAcceptance.reviewScope = 'peer-reviewed';
 if (!validateResearchModule(externalAcceptance).errors.some((error) => error.includes('reviewScope'))) {

@@ -188,6 +188,7 @@ const DATA_MODULES = [
   '/src/data/rh-research/suzuki-recurrence.js',
   '/src/data/rh-research/prime-memory.js',
   '/src/data/rh-research/finite-suzuki-certificate.js',
+  '/src/data/rh-research/channel-geometry.js',
   '/src/data/rh-research/historical-routes.js',
   '/src/data/newman-lambda-01787854-candidate.js',
   '/src/data/lambda-N1e6-final-assembly.js',

@@ -91,6 +91,7 @@ Proposed flat app routes, matching the repository's existing router convention:
 /rh-suzuki-recurrence
 /rh-prime-memory
 /rh-finite-suzuki-certificate
+/rh-channel-geometry
 /rh-whole-even-certificate
 /rh-signed-complement
 ```

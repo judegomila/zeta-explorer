@@ -149,7 +149,7 @@ export const ARITHMETIC_FOUNDATION = createResearchModule({
           id: 'grid-chord-loss',
           tex: tex`\text{possible cell excess}\ \le\ \frac18e^{(b+\delta)/2}\delta^2`,
           explanation:
-            'The distributional inequality $D^{\prime\prime}\ge-e^{W/2}$ alone does not make fixed-grid sampling exponent-preserving.',
+            tex`The distributional inequality $D^{\prime\prime}\ge-e^{W/2}$ alone does not make fixed-grid sampling exponent-preserving.`,
         },
       ],
     },
@@ -179,8 +179,24 @@ export const ARITHMETIC_FOUNDATION = createResearchModule({
           tex: tex`w_x(t)=t^{-1/2}\bigl(h-|\log(t/x)|\bigr)_+`,
         },
         {
+          id: 'vaughan-explicit-constants',
+          tex: tex`c=c_h=8\bigl(\cosh(h/2)-1\bigr),\quad c_1=8h\sinh(h/2)-32\bigl(\cosh(h/2)-1\bigr),\quad C_w=4\sqrt2+2+h,\quad C_\ell=8h+2\sqrt2\,h^2`,
+          explanation: 'These are the exact continuum moments and derivative-variation constants used in the centered identity and its rigorous remainder.',
+        },
+        {
+          id: 'second-order-quadrature',
+          tex: tex`\left|\sum_{n\ge1}g(n)-\int_0^\infty g(t)\,dt\right|\le\frac1{16}\operatorname{Var}(g')`,
+          explanation:
+            tex`Here $g$ is continuous and compactly supported inside $(0,\infty)$, and its weak derivative has bounded variation. The constant $1/16$ is sharp in this class.`,
+        },
+        {
           id: 'vaughan-identity',
           tex: tex`\Lambda=\mu_{\le U}*\log-\mu_{\le U}*1*\Lambda_{\le V}+\Lambda_{\le V}+\mu_{>U}*1*\Lambda_{>V}`,
+        },
+        {
+          id: 'finite-i4-definition',
+          tex: tex`I_4=\sum_{a>U}\mu(a)\sum_{c>V}\Lambda(c)\sum_{b\ge1}w_x(abc)`,
+          explanation: 'The tent support makes this triple sum finite.',
         },
         {
           id: 'centered-shell-identity',
@@ -381,7 +397,7 @@ export const ARITHMETIC_FOUNDATION = createResearchModule({
       surrogate:
         'Prove the shell estimate only on one progression $W=W_0+nh$ and infer the required discrepancy bound between its sampled centers.',
       failureStage:
-        'Positive reconstruction works residue class by residue class. The inequality $D^{\prime\prime}\ge-e^{W/2}$ still permits cell-chord excess of order $e^{W/2}\delta^2$, so a fixed grid need not preserve an exponent below one half.',
+        tex`Positive reconstruction works residue class by residue class. The inequality $D^{\prime\prime}\ge-e^{W/2}$ still permits cell-chord excess of order $e^{W/2}\delta^2$, so a fixed grid need not preserve an exponent below one half.`,
       implication:
         'The shell hypothesis must be uniform over every sufficiently large real center, or an additional phase-uniform interpolation theorem must be proved.',
       nonImplications: [
@@ -408,7 +424,7 @@ export const ARITHMETIC_FOUNDATION = createResearchModule({
       surrogate:
         'Bound the Vaughan bilinear term and its centering terms independently by absolute values, improving only lattice constants and easy remainders.',
       failureStage:
-        'The direct bound for $I_4$ remains $\sqrt x$ times logarithms, and bounding $B$ separately has the same scale. That exponent is exactly the threshold the conditional theorem needs to beat.',
+        tex`The direct bound for $I_4$ remains $\sqrt x$ times logarithms, and bounding $B$ separately has the same scale. That exponent is exactly the threshold the conditional theorem needs to beat.`,
       implication:
         'Progress must control the signed interaction in the combined centered remainder $J(x)$ rather than repeatedly estimating its components independently.',
       nonImplications: [
@@ -437,6 +453,27 @@ export const ARITHMETIC_FOUNDATION = createResearchModule({
     'research/rh/foundation/v7-mathematical-review.md — scoped internal mathematical source review.',
   ],
 });
+
+const ARITHMETIC_INLINE_TEX_RUNTIME_TEXT = [
+  ...ARITHMETIC_FOUNDATION.derivation.flatMap((step) => [
+    step.body,
+    ...(step.notes ?? []),
+    ...step.equations.flatMap((equation) => [equation.explanation ?? '']),
+  ]),
+  ...ARITHMETIC_FOUNDATION.failures.flatMap((failure) => [
+    failure.surrogate,
+    failure.failureStage,
+    failure.implication,
+    ...failure.nonImplications,
+  ]),
+].join('\n');
+
+function hasRuntimeControlCharacter(value) {
+  if (typeof value === 'string') return /[\u0000-\u001f\u007f]/u.test(value);
+  if (Array.isArray(value)) return value.some(hasRuntimeControlCharacter);
+  if (value && typeof value === 'object') return Object.values(value).some(hasRuntimeControlCharacter);
+  return false;
+}
 
 export const ARITHMETIC_FOUNDATION_ASSERTIONS = Object.freeze([
   {
@@ -490,6 +527,33 @@ export const ARITHMETIC_FOUNDATION_ASSERTIONS = Object.freeze([
     ) && ARITHMETIC_FOUNDATION.theorem.equations.some(
       (equation) => equation.id === 'open-signed-target' && /open/i.test(equation.explanation),
     ),
+  },
+  {
+    name: 'arithmetic foundation preserves inline TeX commands at JavaScript runtime',
+    holds: () => [
+      tex`\prime`,
+      tex`\ge`,
+      tex`\delta`,
+      tex`\sqrt`,
+      tex`\infty`,
+    ].every((command) => ARITHMETIC_INLINE_TEX_RUNTIME_TEXT.includes(command)),
+  },
+  {
+    name: 'arithmetic foundation runtime strings contain no control characters',
+    holds: () => !hasRuntimeControlCharacter(ARITHMETIC_FOUNDATION),
+  },
+  {
+    name: 'centered Vaughan display includes constants finite I4 and quadrature hypotheses',
+    holds: () => {
+      const step = ARITHMETIC_FOUNDATION.derivation.find((item) => item.id === 'centered-vaughan');
+      const constants = step?.equations.find((equation) => equation.id === 'vaughan-explicit-constants');
+      const quadrature = step?.equations.find((equation) => equation.id === 'second-order-quadrature');
+      const i4 = step?.equations.find((equation) => equation.id === 'finite-i4-definition');
+      return constants?.tex.includes('c=c_h') && constants.tex.includes('c_1=8h\\sinh') &&
+        constants.tex.includes('C_w=4\\sqrt2+2+h') && constants.tex.includes('C_\\ell=8h+2\\sqrt2') &&
+        quadrature?.tex.includes(tex`\operatorname{Var}(g')`) && /weak derivative has bounded variation/.test(quadrature.explanation) &&
+        i4?.tex.includes('\\sum_{a>U}') && i4.tex.includes('\\sum_{c>V}') && i4.tex.includes('\\sum_{b\\ge1}');
+    },
   },
 ]);
 

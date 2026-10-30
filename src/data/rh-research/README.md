@@ -76,27 +76,25 @@ surrogate must list what the failure does *not*
 imply, including that it is not an RH counterexample and does not establish
 negativity of the underlying operator unless separately proved.
 
-## Planned focused content PRs
+## Published focused module routes on this branch
 
-1. Scalar Suzuki recurrence, prime-memory decomposition, and finite certificate.
-2. Reflection-even support certificate and the larger-support failed surrogate.
-3. Evidence-pinned route ledger, split by coherent route family rather than one
-   undifferentiated research dump.
-4. Actual spectral-head estimate with its scoped analytic dependency chain.
-
-Proposed flat app routes, matching the repository's existing router convention:
+The shared index and the focused modules present on this branch use the
+repository's existing flat-router convention:
 
 ```text
 /rh-research-modules
-/rh-route-atlas
+/rh-arithmetic-foundation
 /rh-suzuki-recurrence
 /rh-prime-memory
 /rh-finite-suzuki-certificate
 /rh-spectral-head-theory
 /rh-whole-even-certificate
 /rh-signed-complement
+/rh-prime-retained-tail-certificate
+/rh-historical-routes
 ```
 
-The shared scaffold is intentionally content-free. Exact theorem statements,
-normalizations, formulas, verifiers, receipts, and manifests are required before
-any of those routes become app-visible.
+Each visible module renders its complete checksum-pinned canonical note together
+with structured theorem, status, limitation, provenance, and evidence data.
+Modules developed on other focused branches appear only when those branches are
+composed; this list does not imply that unmerged modules are bundled here.

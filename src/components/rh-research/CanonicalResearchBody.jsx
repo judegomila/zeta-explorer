@@ -205,7 +205,16 @@ function CanonicalBlock({ block, index }) {
   if (block.type === 'paragraph') return <p><InlineMarkdown text={block.text} /></p>;
   if (block.type === 'quote') return <blockquote><InlineMarkdown text={block.text} /></blockquote>;
   if (block.type === 'rule') return <hr />;
-  if (block.type === 'code') return <pre data-language={block.language || undefined}><code>{block.text}</code></pre>;
+  if (block.type === 'code') {
+    return (
+      <pre
+        data-language={block.language || undefined}
+        style={{ maxWidth: '100%', overflowX: 'auto' }}
+      >
+        <code>{block.text}</code>
+      </pre>
+    );
+  }
   if (block.type === 'list') {
     const List = block.ordered ? 'ol' : 'ul';
     return (

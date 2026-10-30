@@ -229,6 +229,19 @@ try {
       String.raw`I-QC^{-1}Q^*>0`,
       'failed seventh-power',
     ],
+    'prime-retained-tail-certificate': [
+      String.raw`1<\lambda\le\sqrt{33/2}`,
+      String.raw`D\ge d+B`,
+      String.raw`0\le B\le2P_*I`,
+      String.raw`D^{-1}\le d^{-1}-\frac{2}{25}d^{-1}Bd^{-1}`,
+      String.raw`A_{\rm head}-K^*D^{-1}K`,
+      String.raw`Y^*B_{nn}Y\ge ee^*/E_0`,
+      'All 2,049 pivots positive',
+      'All 72 pivots positive',
+      'This did not prove actual negative Weil energy',
+      'Its coercivity constant is existential',
+      'It does not prove odd-sector positivity, a cofinal-support result, or RH',
+    ],
   });
 
   for (const module of RH_RESEARCH_MODULES) {
@@ -333,6 +346,9 @@ verbatim proof receipt
       throw new Error(`canonical Markdown renderer omitted ${label}`);
     }
   }
+  if (!/<pre[^>]*style="[^"]*overflow-x:auto/.test(markdownFeatureHtml)) {
+    throw new Error('canonical Markdown renderer did not make wide fenced code horizontally scrollable');
+  }
   if (countOccurrences(markdownFeatureHtml, 'canonical-math-source') !== 3) {
     throw new Error('canonical Markdown renderer omitted inline, table-cell, or display mathematics');
   }
@@ -436,6 +452,14 @@ verbatim proof receipt
       'normalized-uniform-action',
       'physical-off-head-bridge',
     ],
+    'prime-retained-tail-certificate': [
+      'support-endpoint',
+      'actual-tail-lower-bound',
+      'retained-inverse-bound',
+      'complete-near-far-lower-bound',
+      'rank-one-gram-bound',
+      'finite-gate-dimensions',
+    ],
   });
   for (const [moduleId, equationIds] of Object.entries(structuredRenderCases)) {
     const html = publishedPageHtmlById.get(moduleId);
@@ -454,6 +478,62 @@ verbatim proof receipt
   ));
   if (!failedRouteHtml.includes('Failed surrogate records')) {
     throw new Error('published detail renderer omitted failed-route evidence');
+  }
+
+  const primeRetained = RH_RESEARCH_MODULES.find(
+    (module) => module.id === 'prime-retained-tail-certificate',
+  );
+  if (!primeRetained) {
+    throw new Error('published registry omitted the prime-retained whole-even certificate');
+  }
+  if (primeRetained.status !== 'certified-finite' ||
+      primeRetained.reviewStatus !== 'accepted' ||
+      primeRetained.reviewScope !== 'internal' ||
+      primeRetained.rhStatus !== 'open' ||
+      primeRetained.verification.reproducibilityStatus !== 'current-replay') {
+    throw new Error('prime-retained certificate weakened its finite/internal/RH-open status boundary');
+  }
+  const primeRetainedStructuredText = collectStrings({
+    summary: primeRetained.summary,
+    claimBoundary: primeRetained.claimBoundary,
+    theorem: primeRetained.theorem,
+    derivation: primeRetained.derivation,
+    verification: primeRetained.verification,
+    blockers: primeRetained.blockers,
+    failures: primeRetained.failures,
+  }).join('\n');
+  for (const [label, pattern] of [
+    ['existential coercivity constant', /existential/i],
+    ['reflection-even scope', /reflection-even/i],
+    ['complete 2,049 core gate', /2,?049/],
+    ['complete 72-by-72 auxiliary gates', /72/],
+    ['no numerical coercivity floor', /no numerical|not (?:an? )?(?:eigenvalue|coercivity) floor/i],
+    ['no odd-sector theorem', /odd[- ]sector/i],
+    ['no cofinal-support theorem', /cofinal[- ]support|all[- ]support/i],
+    ['RH remains open', /(?:RH.*(?:open|not proved)|(?:does not|not).*prove RH)/i],
+    ['failed diagonal-inverse surrogate', /diagonal[- ]inverse/i],
+    ['failure is not actual negativity', /not actual negative|no actual operator negativity|did not prove actual negative/i],
+  ]) {
+    if (!pattern.test(primeRetainedStructuredText)) {
+      throw new Error(`prime-retained display data omitted ${label}`);
+    }
+  }
+  if (!primeRetained.failures?.some((failure) => (
+    /diagonal[- ]inverse/i.test(failure.surrogate) &&
+    failure.nonImplications.some((item) => /actual.*negative|negative.*actual/i.test(item))
+  ))) {
+    throw new Error('prime-retained certificate did not preserve the failed surrogate/non-negativity boundary');
+  }
+  const primeRetainedPageHtml = publishedPageHtmlById.get(primeRetained.id);
+  for (const renderedBoundary of [
+    'Failed surrogate records',
+    'RH remains open',
+    'Physics picture.',
+    'current independent replay',
+  ]) {
+    if (!primeRetainedPageHtml?.includes(renderedBoundary)) {
+      throw new Error(`prime-retained rendered page omitted ${renderedBoundary}`);
+    }
   }
 
   const suzukiRecurrence = RH_RESEARCH_MODULES.find((module) => module.id === 'suzuki-recurrence');

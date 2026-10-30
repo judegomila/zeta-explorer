@@ -2512,6 +2512,7 @@ function AppShell() {
           <Route path="/rh-whole-even-certificate" element={<RHResearchModulePage moduleId="whole-even-certificate" />} />
           <Route path="/rh-spectral-denominator-repair" element={<RHResearchModulePage moduleId="spectral-denominator-repair" />} />
           <Route path="/rh-spectral-head-theory" element={<RHResearchModulePage moduleId="spectral-head-theory" />} />
+          <Route path="/rh-prime-retained-tail-certificate" element={<RHResearchModulePage moduleId="prime-retained-tail-certificate" />} />
           <Route path="/rh-historical-routes" element={<RHResearchModulePage moduleId="historical-routes" />} />
           <Route path="/rh-signed-complement" element={<RHResearchModulePage moduleId="signed-complement" />} />
           <Route path="/info-theory" element={<InformationTheoryPage />} />

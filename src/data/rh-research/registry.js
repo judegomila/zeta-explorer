@@ -1,13 +1,19 @@
 import { createResearchRegistry } from './module-contract.js';
+import { FINITE_SUZUKI_CERTIFICATE } from './finite-suzuki-certificate.js';
+import { PRIME_MEMORY } from './prime-memory.js';
+import { SUZUKI_RECURRENCE } from './suzuki-recurrence.js';
 
 /**
  * RH research-module registry.
  *
- * It is intentionally empty until curated theorem text and verification
- * artifacts land.  Empty registry data is not routed or presented as a result.
+ * Registry order is the reading order used by the app index.
  */
 
-export const RH_RESEARCH_MODULES = createResearchRegistry([]);
+export const RH_RESEARCH_MODULES = createResearchRegistry([
+  SUZUKI_RECURRENCE,
+  PRIME_MEMORY,
+  FINITE_SUZUKI_CERTIFICATE,
+]);
 
 export function getResearchModule(idOrRoute) {
   return RH_RESEARCH_MODULES.find(

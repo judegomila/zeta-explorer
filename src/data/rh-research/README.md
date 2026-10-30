@@ -43,8 +43,9 @@ The app adapter must make the mathematical boundary more precise:
 
 - neutral `status` becomes `reviewStatus`; `accepted` means internal review only
   and requires `reviewScope: 'internal'`;
-- app `status` is the result class: `proved-identity`, `certified-finite`,
-  `conditional-reduction`, `failed-surrogate`, `superseded`, or `open`;
+- app `status` is the result class: `proved-identity`, `proved-analytic`,
+  `certified-finite`, `conditional-reduction`, `failed-surrogate`, `superseded`,
+  or `open`;
 - `claims` are separated into `theorem`, ordered `derivation`, and
   `claimBoundary.statement`;
 - `limitations` are separated into `claimBoundary.doesNotClaim`, `blockers`, and,

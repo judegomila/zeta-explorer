@@ -124,6 +124,7 @@ const RAW = [
           { to: '/selberg-trace', label: 'Selberg trace formula' },
           { to: '/spectral-attack', label: 'Spectral operator console' },
           { to: '/rh-attack', label: 'Approach strategies (computational tests)' },
+          { to: '/rh-research-modules', label: 'RH research modules' },
           { to: '/cross-attack', label: 'Approach comparison dashboard' },
           { to: '/voronin-universality', label: 'Voronin universality' },
           { to: '/supercritical', label: 'Supercritical-fluid analogy' },

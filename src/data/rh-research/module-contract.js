@@ -10,6 +10,7 @@ export const RH_RESEARCH_SCHEMA_VERSION = 1;
 
 export const RH_RESEARCH_STATUSES = Object.freeze([
   'proved-identity',
+  'proved-analytic',
   'certified-finite',
   'conditional-reduction',
   'failed-surrogate',

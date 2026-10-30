@@ -68,6 +68,8 @@ const SurrogateModelPage = lazy(() => import('./pages/SurrogateModelPage.jsx'));
 const PascalPage = lazy(() => import('./pages/PascalPage.jsx'));
 const ZXCalculusPage = lazy(() => import('./pages/ZXCalculusPage.jsx'));
 const RHAttackPage = lazy(() => import('./pages/RHAttackPage.jsx'));
+const RHResearchModulesPage = lazy(() => import('./pages/RHResearchModulesPage.jsx'));
+const RHResearchModulePage = lazy(() => import('./pages/RHResearchModulePage.jsx'));
 const InformationTheoryPage = lazy(() => import('./pages/InformationTheoryPage.jsx'));
 const FormalProofPage = lazy(() => import('./pages/FormalProofPage.jsx'));
 const OddZetaPage = lazy(() => import('./pages/OddZetaPage.jsx'));
@@ -2502,6 +2504,10 @@ function AppShell() {
           <Route path="/pascal" element={<PascalPage />} />
           <Route path="/zx-calculus" element={<ZXCalculusPage />} />
           <Route path="/rh-attack" element={<RHAttackPage />} />
+          <Route path="/rh-research-modules" element={<RHResearchModulesPage />} />
+          <Route path="/rh-suzuki-recurrence" element={<RHResearchModulePage moduleId="suzuki-recurrence" />} />
+          <Route path="/rh-prime-memory" element={<RHResearchModulePage moduleId="prime-memory" />} />
+          <Route path="/rh-finite-suzuki-certificate" element={<RHResearchModulePage moduleId="finite-suzuki-certificate" />} />
           <Route path="/info-theory" element={<InformationTheoryPage />} />
           <Route path="/formal-proof" element={<FormalProofPage />} />
           <Route path="/odd-zeta" element={<OddZetaPage />} />

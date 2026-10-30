@@ -29,6 +29,18 @@ build assertions registered in `scripts/run-assertions.mjs`. The generic React
 renderers live in `src/components/rh-research/`. No module is routed or shown in
 navigation until its source text and evidence package are present.
 
+## TeX source-literal safety
+
+JavaScript can silently consume TeX backslashes before the renderer sees them;
+for example, `\tau` in an ordinary source literal begins with JavaScript's tab
+escape. Write TeX-bearing templates with `String.raw` (or an immutable local
+alias such as `const tex = String.raw`) and double backslashes in ordinary
+single- or double-quoted strings. `npm run audit:rh-source-escapes` lexes every
+`src/data/rh-research/*.js` source file before JavaScript evaluation. It excludes
+comments and regular-expression bodies, but rejects unsafe single-backslash
+letter commands in ordinary string and template literals. The gate is also part
+of `audit:rh-research`, `assert`, `assert:pr`, and `build`.
+
 ## Inventory mapping
 
 The neutral inventory may retain these editorial fields:

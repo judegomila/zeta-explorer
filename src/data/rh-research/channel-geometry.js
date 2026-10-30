@@ -554,11 +554,20 @@ export const CHANNEL_GEOMETRY = createResearchModule({
   references: [
     'H. L. Montgomery and R. C. Vaughan, Hilbert’s inequality, Journal of the London Mathematical Society (1974), Corollary 3.',
     'M. Suzuki, Aspects of the screw function corresponding to the Riemann zeta-function, Journal of the London Mathematical Society 108 (2023).',
-    'Graf et al., Interacting electrons in topological superwires, 2024. Used only as physical motivation for retaining coherent channel amplitudes.',
+    'Anton M. Graf, Ke Lin, MyeongSeo Kim, Joonas Keski-Rahkonen, Alvar Daza, and Eric J. Heller, Chaos-Assisted Dynamical Tunneling in Flat Band Superwires, Entropy 26(6), 492 (2024), DOI: 10.3390/e26060492, arXiv:2404.19074, https://pmc.ncbi.nlm.nih.gov/articles/PMC11203167/. Used only as physical motivation for retaining coherent channel amplitudes.',
   ],
 });
 
 export const CHANNEL_GEOMETRY_ASSERTIONS = Object.freeze([
+  {
+    name: 'channel geometry cites the verified flat-band superwire primary source',
+    holds: () => CHANNEL_GEOMETRY.references.some((reference) =>
+      reference.includes('Chaos-Assisted Dynamical Tunneling in Flat Band Superwires') &&
+      reference.includes('arXiv:2404.19074') &&
+      reference.includes('https://pmc.ncbi.nlm.nih.gov/articles/PMC11203167/')) &&
+      !CHANNEL_GEOMETRY.references.some((reference) =>
+        reference.includes('Interacting electrons in topological superwires')),
+  },
   {
     name: 'channel geometry is an internally reviewed analytic theorem with RH open',
     holds: () => CHANNEL_GEOMETRY.status === 'proved-analytic' &&

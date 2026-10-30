@@ -193,6 +193,19 @@ try {
       String.raw`q=p^k\le10^7`,
       '4c24e9f9cdf8411292143f0e81281da86dabcf08ad0c20c6064bcdffd3da06c1',
     ],
+    'arithmetic-foundation': [
+      String.raw`D(W)=\sum_{n<e^W}`,
+      String.raw`S_h(W)=D(W+h)-2D(W)+D(W-h)`,
+      String.raw`\Lambda=\mu_{\le U}*\log-\mu_{\le U}*1*\Lambda_{\le V}`,
+      'for every real',
+    ],
+    'historical-routes': [
+      String.raw`\partial_\tau H=-H_{zz}`,
+      String.raw`\operatorname{ind}(h,h_x)=-\lfloor m/2\rfloor`,
+      String.raw`q_0=\frac{2\Psi(h)}h`,
+      String.raw`M_2(1/2)/M_0(1/2)<2/169`,
+      'Nonvanishing alone is not zero winding',
+    ],
   });
 
   for (const module of RH_RESEARCH_MODULES) {
@@ -365,6 +378,29 @@ verbatim proof receipt
     for (const symbol of renderCase.renderedSymbols) {
       if (!rendered.includes(symbol)) {
         throw new Error(`historical route KaTeX regression omitted ${symbol} in ${renderCase.label}`);
+      }
+    }
+  }
+
+  const structuredRenderCases = Object.freeze({
+    'arithmetic-foundation': [
+      'vaughan-explicit-constants',
+      'second-order-quadrature',
+      'finite-i4-definition',
+    ],
+    'historical-routes': [
+      'local-collision-index',
+      'theta-central-lower-bound',
+      'theta-certified-moment-ratio',
+      'toeplitz-compression',
+    ],
+  });
+  for (const [moduleId, equationIds] of Object.entries(structuredRenderCases)) {
+    const html = publishedPageHtmlById.get(moduleId);
+    if (!html) throw new Error(`published page HTML missing for ${moduleId}`);
+    for (const equationId of equationIds) {
+      if (!html.includes(`data-research-equation-id="${equationId}"`)) {
+        throw new Error(`${moduleId} rendered page omitted structured equation ${equationId}`);
       }
     }
   }

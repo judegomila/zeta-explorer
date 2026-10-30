@@ -1,0 +1,217 @@
+\section{Exact triangular shells and prime powers}
+Fix $h=\log2$, and for $W\ge h$ set
+\[
+S_h(W)=D(W+h)-2D(W)+D(W-h).
+\]
+The shell variable $x=e^W$ will always be real, not restricted to integers or a selected geometric progression.
+\begin{proposition}[Exact shell identity]
+For every $W\ge h$,
+\begin{equation}\label{eq:shell}
+S_h(W)=\sum_n\frac{\Lambda(n)}{\sqrt n}(h-|\log n-W|)_+-c_he^{W/2},
+\quad c_h=8\bigl(\cosh(h/2)-1\bigr).
+\end{equation}
+Only $e^W/2<n<2e^W$ contribute.
+\end{proposition}
+\begin{proof}
+Directly checking the four intervals cut by $W-h,W,W+h$ gives
+\[
+(W+h-r)_+-2(W-r)_++(W-h-r)_+=(h-|r-W|)_+.
+\]
+Apply this identity separately to the atomic measure and the continuum measure in \eqref{eq:D}. In the latter term substitute $r=W+u$ to obtain
+\[
+c_h=\int_{-h}^h(h-|u|)e^{u/2}\dd u=8(\cosh(h/2)-1).
+\]
+The tent vanishes at the endpoints, so there is no endpoint error.
+\end{proof}
+\begin{proposition}[Positive reconstruction]\label{prop:reconstruction}
+If, uniformly for all sufficiently large real $W$,
+\[
+S_h(W)\le C(1+W)^me^{\alpha W},\qquad\alpha\ge0,
+\]
+then for $\alpha>0$ the same type of bound holds for $D$ with exponent $\alpha$. For $\alpha=0$, one has $D(W)\le C'(1+W)^{m+2}$.
+\end{proposition}
+\begin{proof}
+Choose $W_0\ge h$ beyond the threshold. For every $v\in[W_0,W_0+h)$ put $d_n=D(v+nh)$. The exact second-difference recurrence has solution
+\begin{equation}\label{eq:reconstruction}
+d_n=d_0+n(d_1-d_0)+\sum_{j=1}^{n-1}(n-j)S_h(v+jh),\qquad n\ge1.
+\end{equation}
+The formula agrees at $n=0,1$ and has the required second difference, proving it by induction. Its coefficients $n-j$ are nonnegative. Continuity of $D$ makes the initial data uniformly bounded over the compact base interval, so their contribution is $O(1+n)$, uniformly in $v$.
+
+Put $W=v+nh$. When $\alpha>0$, the sum in \eqref{eq:reconstruction} is at most
+\[
+C(1+W)^me^{\alpha W}\sum_{k=1}^{n-1}ke^{-\alpha hk}
+\le C(1+W)^me^{\alpha W}\frac{e^{-\alpha h}}{(1-e^{-\alpha h})^2}.
+\]
+The initial contribution is absorbed by the same exponential. If $\alpha=0$, use $\sum_{k=1}^{n-1}k\le n^2/2$. Every sufficiently large real $W$ has a representation with a residue $v$ in the chosen interval. This proves the all-real conclusion.
+\end{proof}
+A bound on only one progression would leave all other residues untreated. In fact $D''\ge-e^{W/2}$ distributionally; on $[b,b+\delta]$ this only bounds the possible excess above the endpoint chord by $e^{(b+\delta)/2}\delta^2/8$. Fixed grid spacing therefore does not automatically preserve an exponent below $1/2$.
+
+\begin{proposition}[Higher prime powers are a polynomial cost]
+Write $S_h(W)=T_h(W)+R_h(W)$, where
+\[
+T_h(W)=\sum_p\frac{\log p}{\sqrt p}(h-|\log p-W|)_+-c_he^{W/2}
+\]
+and $R_h$ contains prime powers $p^k$ with $k\ge2$. For $x=e^W\ge2$,
+\begin{equation}\label{eq:powers}
+0\le R_h(W)\le2h\log(2x)\lfloor\log_2(2x)\rfloor=O((1+W)^2).
+\end{equation}
+\end{proposition}
+\begin{proof}
+A nonzero term has $x/2\le p^k\le2x$, so $k\le\log_2(2x)$. Its value is at most $h\log(2x)\sqrt{2/x}$. For any fixed $k\ge2$, the number of eligible primes is at most $(2x)^{1/k}\le\sqrt{2x}$. Multiplying these bounds and summing over $k$ proves \eqref{eq:powers}. The weight is $\log p$, not $\log(p^k)$; the larger logarithm was used only as an upper bound.
+\end{proof}
+Since $T_h\le S_h$, the two one-sided targets are equivalent if arbitrary fixed polynomial factors are allowed. No prime number theorem is required to remove the higher powers.
+\begin{corollary}[Prime shell criterion]
+For $0\le\alpha<1/2$, the eventual uniform inequality
+\[
+\sum_{x/2<p<2x}\frac{\log p}{\sqrt p}\bigl(\log2-|\log(p/x)|\bigr)_+
+\le c_h\sqrt x+C(1+\log x)^mx^\alpha
+\]
+for every sufficiently large real $x$ implies nonvanishing of $\zeta$ in $\Rea s>1/2+\alpha$. At $\alpha=0$ it implies RH.
+\end{corollary}
+The point is an exact reformulation of the needed cancellation, not a claim that a new prime estimate has been proved.
+
+\section{The centered Vaughan reduction}
+\subsection{Exact convolution algebra}
+For arithmetic functions let $(f*g)(n)=\sum_{d\mid n}f(d)g(n/d)$, let $1(n)=1$, and let $\delta$ be the convolution identity. The divisor identities are $\log=1*\Lambda$ and $\mu*1=\delta$. Write $\mu_{\le U}(n)=\mu(n)\one_{n\le U}$, and similarly for the other cutoffs. For $U,V\ge1$,
+\begin{equation}\label{eq:vaughan}
+\Lambda=\mu_{\le U}*\log-\mu_{\le U}*1*\Lambda_{\le V}+\Lambda_{\le V}+\mu_{>U}*1*\Lambda_{>V}.
+\end{equation}
+Indeed, split $\mu$ in $\Lambda=\mu*\log$, use $\log=1*(\Lambda_{\le V}+\Lambda_{>V})$, and apply $\mu_{>U}*1=\delta-\mu_{\le U}*1$ to the low-$\Lambda$ term. This is classical Vaughan-type algebra \cite{vaughan}; it has no cancellation assumption.
+
+Define, for $t>0$,
+\[
+w_x(t)=t^{-1/2}(h-|\log(t/x)|)_+,
+\]
+and define the finite sums
+\begin{align*}
+I_1&=\sum_{a\le U}\mu(a)\sum_b\log b\,w_x(ab),&
+I_2&=\sum_{a\le U}\mu(a)\sum_{c\le V}\Lambda(c)\sum_b w_x(abc),\\
+I_3&=\sum_{c\le V}\Lambda(c)w_x(c),&
+I_4&=\sum_{a>U}\mu(a)\sum_{c>V}\Lambda(c)\sum_b w_x(abc).
+\end{align*}
+The shell support makes all sums finite, and \eqref{eq:vaughan} gives
+\begin{equation}\label{eq:Is}
+S_h(\log x)=I_1-I_2+I_3+I_4-c\sqrt x,\qquad c=c_h.
+\end{equation}
+The continuum main term is subtracted exactly once. All later centering must preserve this identity.
+
+\subsection{Second-order lattice errors with exact constants}
+Besides $c$, put
+\[
+c_1=\int_{-h}^h u(h-|u|)e^{u/2}\dd u=8h\sinh(h/2)-32(\cosh(h/2)-1).
+\]
+Changing variables $t=xe^u$ gives $\int w_x=c\sqrt x$ and $\int\log t\,w_x(t)\dd t=\sqrt x(c\log x+c_1)$.
+\begin{lemma}[Second-order quadrature]\label{lem:quad}
+If $g$ is continuous, compactly supported inside $(0,\infty)$ and its weak derivative has bounded variation, then
+\[
+\left|\sum_{n\ge1}g(n)-\int_0^\infty g(t)\dd t\right|\le\frac1{16}\Var(g').
+\]
+The constant is sharp in this class.
+\end{lemma}
+\begin{proof}
+Let $P_2(t)=\tfrac12(\{t\}^2-\{t\}+1/6)$ be periodic. Distributionally $P_2''=1-\sum_{n\in\Z}\delta_n$. Integrating twice by parts expresses the lattice error, up to sign, as $\int P_2\,\dd g'$. The signed measure $\dd g'$ has total mass zero. The range of $P_2$ is $[-1/24,1/12]$, so subtract its midpoint $1/48$; the remaining supremum is $1/16$. This proves the bound directly for distributional derivatives, or by smoothing followed by the variation bound. A triangular tent of height one supported on $[k,k+1]$, $k\ge1$ integer, has lattice sum zero, integral $1/2$ and derivative variation eight. It attains equality. The Bernoulli identity is the second-order Euler--Maclaurin mechanism \cite{eulermac}.
+\end{proof}
+Put
+\[
+C_w=4\sqrt2+2+h,\qquad C_\ell=8h+2\sqrt2h^2.
+\]
+Direct differentiation on the two halves of the support, including all three derivative jumps, gives
+\[
+\Var(w_x')=C_wx^{-3/2}.
+\]
+Explicitly the left derivative decreases from $2\sqrt2x^{-3/2}$ to $(1-h/2)x^{-3/2}$; the center jump is $-2x^{-3/2}$; the right derivative increases from $-(1+h/2)x^{-3/2}$ to $-(2\sqrt2)^{-1}x^{-3/2}$. Add the jumps from and to zero at the outer endpoints. Scaling the argument by $q$ multiplies derivative variation by $q$. Thus
+\begin{equation}\label{eq:E0}
+\sum_{b\ge1}w_x(qb)=\frac{c\sqrt x}{q}+E_0(q),\qquad
+|E_0(q)|\le\frac{C_wq}{16x^{3/2}}.
+\end{equation}
+For $a\le x/2$ put $g_a(t)=\log(t/a)w_x(t)$. The logarithm is nonnegative on the support. Product differentiation in measures gives
+\[
+\Var(g_a')\le x^{-3/2}\{C_w\log(2x/a)+C_\ell\}.
+\]
+Indeed $2\int|w_x'|/t\le(4/x)\Var(w_x)=8hx^{-3/2}$ and
+\[
+\int\frac{w_x(t)}{t^2}\dd t
+=x^{-3/2}\int_{-h}^h(h-|u|)e^{-3u/2}\dd u\le2\sqrt2h^2x^{-3/2}.
+\]
+Scaling by $a$ and applying Lemma~\ref{lem:quad} yields
+\begin{equation}\label{eq:E1}
+\begin{gathered}
+\sum_{b\ge1}\log b\,w_x(ab)=\frac{\sqrt x}{a}\{c\log(x/a)+c_1\}+E_1(a),\\
+|E_1(a)|\le\frac{a[C_w\log(2x/a)+C_\ell]}{16x^{3/2}}.
+\end{gathered}
+\end{equation}
+This improves quadrature only, not the arithmetic cancellation in the main terms.
+
+\subsection{The exact centered remainder}
+Define
+\[
+M(U)=\sum_{a\le U}\frac{\mu(a)}a,\quad
+L(U)=\sum_{a\le U}\frac{\mu(a)\log a}a,\quad
+A(V)=\sum_{c\le V}\frac{\Lambda(c)}c.
+\]
+Summing \eqref{eq:E1} and using $|\mu|\le1$ gives
+\[
+I_1=\sqrt x\{(c\log x+c_1)M(U)-cL(U)\}+R_1,
+\quad |R_1|\le\frac{U(U+1)[C_w\log(2x)+C_\ell]}{32x^{3/2}}.
+\]
+Similarly, \eqref{eq:E0} gives
+\[
+I_2=c\sqrt xM(U)A(V)+R_2,\quad
+|R_2|\le\frac{C_wU(U+1)V(V+1)\log V}{64x^{3/2}}.
+\]
+The last inequality uses only $\Lambda(n)\le\log V$ for $n\le V$; it holds also at $V=1$, where both sides are zero. Since $V<x/2$, $I_3=0$.
+\begin{theorem}[Centered shell identity]\label{thm:centered}
+For $x\ge2$, $U,V\ge1$, $UV\le x/2$ and $V<x/2$, set
+\[
+B(x;U,V)=cM(U)[\log x-A(V)]+c_1M(U)-cL(U)-c.
+\]
+Then
+\begin{equation}\label{eq:centered}
+S_h(\log x)=I_4+\sqrt x B(x;U,V)+R,
+\end{equation}
+where $R=R_1-R_2$ and
+\begin{equation}\label{eq:R}
+|R|\le\frac{U(U+1)[C_w\log(2x)+C_\ell]}{32x^{3/2}}+\frac{C_wU(U+1)V(V+1)\log V}{64x^{3/2}}.
+\end{equation}
+\end{theorem}
+\begin{proof}
+Insert the two preceding identities and $I_3=0$ into \eqref{eq:Is}. The terms of order $\sqrt x$ combine to the displayed $B$, including precisely one $-c$. The triangle inequality applied only to $R_1-R_2$ proves \eqref{eq:R}.
+\end{proof}
+
+\subsection{A concrete power margin and the missing theorem}
+For $x\ge16$, choose $U=V=\lfloor x^{3/8}\rfloor$. Then $UV\le x^{3/4}\le x/2$ and $V<x/2$. The exact remainder bound becomes
+\begin{equation}\label{eq:Rconcrete}
+|R|\le\frac{x^{-3/4}}{16}[C_w\log(2x)+C_\ell]+\frac{3C_w}{128}\log x=O(\log x).
+\end{equation}
+Group $d=bc$ in $I_4$ and define
+\[
+\beta_V(d)=\sum_{\substack{c\mid d\\c>V}}\Lambda(c),\qquad0\le\beta_V(d)\le\log d.
+\]
+The nonzero products satisfy $x/2\le ad\le2x$, $a>U$, $d>V$, so in particular $a\le2x/V$ and $d\le2x/U$. With these exact cutoffs the unresolved quantity is
+\begin{equation}\label{eq:J}
+\begin{aligned}
+J(x)={}&\sum_{a>U}\mu(a)\sum_{d>V}\beta_V(d)w_x(ad)\\
+&+\sqrt x\{cM(U)[\log x-A(V)]+c_1M(U)-cL(U)-c\}.
+\end{aligned}
+\end{equation}
+\paragraph{The missing arithmetic theorem.}
+Prove, for some fixed $0<\eps\le3/8$, fixed $C,m$ and every sufficiently large real $x$,
+\begin{equation}\label{eq:Jtarget}
+J(x)\le C(1+\log x)^m x^{3/8-\eps}.
+\end{equation}
+This statement is open in the present work. If proved, \eqref{eq:Rconcrete} is absorbed after increasing the allowed logarithmic degree to $\max(m,1)$ when the exponent is zero. Theorems \ref{thm:centered} and \ref{thm:landau} and Proposition \ref{prop:reconstruction} would then imply nonvanishing for $\Rea s>7/8-\eps$. At $\eps=3/8$ this would prove RH. The number $7/8$ is an illustrative comparison boundary, not a claim about the current literature record. No case of the displayed new $J$ estimate has been proved here.
+
+More generally, $U=\lfloor x^u\rfloor$, $V=\lfloor x^v\rfloor$ with $u,v>0$, $u+v<1$, give easy errors
+\[
+O(x^{2u-3/2}\log x+x^{2u+2v-3/2}\log x).
+\]
+Thus $u+v\le3/4+\alpha/2$ suffices to absorb them into exponent $\alpha\ge0$ with polynomial logarithms. The particular choice $u=v=3/8$ already reaches a logarithmic error without changing $J$ or its cutoffs. This is a proved removal of a bookkeeping loss, not a signed prime estimate.
+
+\subsection{Where absolute values lose the desired exponent}
+The direct estimate $w_x(ad)\le h\sqrt{2/x}$ gives
+\begin{equation}\label{eq:I4absolute}
+|I_4|\le2\sqrt2h\sqrt x\log(2x)\left[1+\log\frac{2x}{UV}\right].
+\end{equation}
+Indeed, for each $a$ there are at most $2x/a$ possible $d$, and the remaining harmonic sum is at most the bracket above. This retains the exponent $1/2$.
+
+The identity $\sum_{a\le U}\mu(a)\lfloor U/a\rfloor=1$ implies $|M(U)|\le1+1/U$. Partial summation gives $L(U)=O(\log(2U))$, while the elementary estimate $A(V)=O(\log^2(2V))$ suffices to bound $B$ separately. That separate bound again has scale $\sqrt x$ times logarithms. The required gain must therefore come from the signed interaction in \eqref{eq:J}, not from repeating separate absolute estimates with better constants. This is the exact location of the surviving arithmetic difficulty.

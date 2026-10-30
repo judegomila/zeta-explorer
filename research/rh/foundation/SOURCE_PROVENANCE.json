@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "reviewUnit": "foundation-route-atlas",
+  "sourceMappings": [
+    {
+      "originalPath": "output/pdf/rh_research_paper_v7_20261030/source/sections/03-landau.tex",
+      "originalSha256": "b5c8b6617d01527d0a41cbfa815116472f2779ae832e56a05497c96415d0ea5f",
+      "publishedPath": "research/rh/foundation/source/03-landau.tex",
+      "publishedSha256": "b5c8b6617d01527d0a41cbfa815116472f2779ae832e56a05497c96415d0ea5f",
+      "transformation": "None; byte-identical mathematical source excerpt. Not a standalone manuscript build."
+    },
+    {
+      "originalPath": "output/pdf/rh_research_paper_v7_20261030/source/sections/04-05-shell-vaughan.tex",
+      "originalSha256": "46531637e10062586cde04ab1af6078a2f7da29d936fe76f0d72a969272c399a",
+      "publishedPath": "research/rh/foundation/source/04-05-shell-vaughan.tex",
+      "publishedSha256": "46531637e10062586cde04ab1af6078a2f7da29d936fe76f0d72a969272c399a",
+      "transformation": "None; byte-identical mathematical source excerpt. Not a standalone manuscript build."
+    },
+    {
+      "originalPath": "output/pdf/rh_research_paper_v7_20261030/audit/V7_MATHEMATICAL_REVIEW.md",
+      "originalSha256": "13d35578d6ec91540f4d477bacde20e83f7a75ac1c078846de6707bcb21f1b57",
+      "publishedPath": "research/rh/foundation/v7-mathematical-review.md",
+      "publishedSha256": "c66e58910e1a2cc1be1cc100dd7912eefaa54970e2c2fc9b5abc1793ae6b302e",
+      "transformation": "Removed delegation wording in introductory scope sentence; mathematical review unchanged."
+    }
+  ],
+  "modules": [
+    {
+      "id": "arithmetic-foundation",
+      "status": "conditional-reduction",
+      "reviewStatus": "accepted",
+      "reviewScope": "internal",
+      "rhStatus": "open",
+      "reproducibilityStatus": "not-applicable",
+      "bodyPath": "research/rh/modules/arithmetic-foundation.md",
+      "sourceEvidence": "Complete proof derivations in body and included V7 arithmetic source excerpts; no numerical replay required for these analytic implications."
+    },
+    {
+      "id": "historical-routes",
+      "status": "open",
+      "reviewStatus": "accepted",
+      "reviewScope": "internal",
+      "rhStatus": "open",
+      "reproducibilityStatus": "partial",
+      "bodyPath": "research/rh/modules/historical-routes.md",
+      "sourceEvidence": "Route-specific source references, status and replay boundaries are in historical-evidence-map.json. The old1.1GB arithmetic package remains unavailable; no global label upgrades it."
+    }
+  ],
+  "historicalBoundary": "V7 research cutoff2026-10-30T08:00:00Z. This is not a complete V7 manuscript distribution or a claim of recovering any unavailable artifact.",
+  "bodyCuration": {
+    "historical-routes": {
+      "prepublicationSha256": "cf76386b86e7201d4c4833449a796d07dfa99c778606939ee90fed560ab7d207",
+      "publishedSha256": "d7c63dd2357431c8731cd45b28e2ae2aa71b969f4a04f811882d8a045288593d",
+      "transformation": "Added explicit a>0 for strict shift theorem; 0<sigma<1 for OU model; private-repository access and unmerged-branch disclosure. Mathematical formulas otherwise unchanged."
+    },
+    "arithmetic-foundation": {
+      "transformation": "Restored explicit C>0,m>=0,W0>=0 hypotheses from source."
+    }
+  },
+  "pathMapping": {
+    "localBodyRoot": "content/rh-modules",
+    "repositoryBodyRoot": "research/rh/modules",
+    "explanation": "Exporter maps local authored body files to the repository paths listed in modules; bytes are preserved during transport."
+  }
+}

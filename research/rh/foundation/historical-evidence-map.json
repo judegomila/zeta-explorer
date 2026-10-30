@@ -1,0 +1,516 @@
+{
+  "schema_version": 1,
+  "title": "Historical RH route evidence map",
+  "audit_date": "2026-10-30",
+  "scope": "Read-only mathematical curation; no remote or repository modifications",
+  "claim_boundary": "No RH, novelty, external peer-review or new unconditional global zero-free claim",
+  "routes": [
+    {
+      "id": "twin-ladder",
+      "sources": [
+        "shiftbridge",
+        "shear_correction"
+      ],
+      "accepted": "Completed shifted bridge threshold with endpoint/cancellation caveats",
+      "open": "All positive shifts; repaired hidden-square positivity",
+      "status": "conditional-reduction",
+      "includedStatuses": [
+        "proved-identity",
+        "conditional-reduction",
+        "superseded"
+      ],
+      "reviewScope": "internal",
+      "reproducibilityState": "partial",
+      "reproducibilityNote": "Source mathematics inspected; no complete generator replay in this audit. Remote availability and fresh limited checks are separately recorded."
+    },
+    {
+      "id": "information-criticality",
+      "sources": [
+        "v7_critical",
+        "information"
+      ],
+      "accepted": "Gaussian prefactor-one optimum; actual xi KL geometry; limited quartic/Lee-Yang countermodels",
+      "open": "Actual signed arithmetic comparison",
+      "status": "proved-identity",
+      "includedStatuses": [
+        "proved-identity",
+        "failed-surrogate",
+        "open"
+      ],
+      "reviewScope": "internal",
+      "reproducibilityState": "partial",
+      "reproducibilityNote": "Source mathematics inspected; no complete generator replay in this audit. Remote availability and fresh limited checks are separately recorded."
+    },
+    {
+      "id": "synchronization",
+      "sources": [
+        "sync",
+        "network",
+        "ou_covariance"
+      ],
+      "accepted": "Conditional dissipative semigroup and exact finite covariance correspondence",
+      "open": "Arithmetic realization and all-support signed gain",
+      "status": "conditional-reduction",
+      "includedStatuses": [
+        "proved-identity",
+        "conditional-reduction",
+        "open"
+      ],
+      "reviewScope": "internal",
+      "reproducibilityState": "partial",
+      "reproducibilityNote": "Source mathematics inspected; no complete generator replay in this audit. Remote availability and fresh limited checks are separately recorded."
+    },
+    {
+      "id": "vortex-collision",
+      "sources": [
+        "pr16_det",
+        "pr19_index"
+      ],
+      "accepted": "Determinant identity; conditional adjacent-gap reserve; local index -floor(m/2)",
+      "open": "Exhaustive zero-winding boundaries and complex-zero confinement",
+      "status": "conditional-reduction",
+      "includedStatuses": [
+        "proved-identity",
+        "conditional-reduction",
+        "failed-surrogate"
+      ],
+      "reviewScope": "internal",
+      "reproducibilityState": "partial",
+      "reproducibilityNote": "Source mathematics inspected; no complete generator replay in this audit. Remote availability and fresh limited checks are separately recorded."
+    },
+    {
+      "id": "theta-finite",
+      "sources": [
+        "pr17_theta",
+        "pr18_endpoint"
+      ],
+      "accepted": "H>0 on real |x|<=13; separately H+iHx nonzero on [0,1/2]x[200,220]",
+      "open": "All heights and global complex-zero continuation",
+      "status": "certified-finite",
+      "includedStatuses": [
+        "certified-finite",
+        "open"
+      ],
+      "reviewScope": "internal",
+      "reproducibilityState": "partial",
+      "reproducibilityNote": "Remote self-contained generators, analytic tails and saved certificates available; fresh endpoint geometry checks pass at both saved precisions. No fresh genuine-function generator run."
+    },
+    {
+      "id": "discrete-curvature",
+      "sources": [
+        "discrete",
+        "discrete_verify"
+      ],
+      "accepted": "Exact cell compression/nesting; finite perturbation rigidity and twelve threshold brackets",
+      "open": "True arithmetic all-scale Schur residual",
+      "status": "certified-finite",
+      "includedStatuses": [
+        "proved-identity",
+        "certified-finite",
+        "open"
+      ],
+      "reviewScope": "internal",
+      "reproducibilityState": "partial",
+      "reproducibilityNote": "Fresh exact-rational checks pass all twelve saved finite threshold brackets. Arithmetic coefficient generator not rerun; latest delivered refinement has no verified remote publication link."
+    },
+    {
+      "id": "twistor-thin",
+      "sources": [
+        "twistor_baseline",
+        "twistor",
+        "thin"
+      ],
+      "accepted": "Wide scalar/geometric bridge; signed finite-window Hankel contractions",
+      "open": "Thin all-window boundedness with cancellation-aware zero divisors",
+      "status": "certified-finite",
+      "includedStatuses": [
+        "proved-identity",
+        "certified-finite",
+        "failed-surrogate",
+        "open"
+      ],
+      "reviewScope": "internal",
+      "reproducibilityState": "partial",
+      "reproducibilityNote": "Original pinned repository README freshly read. Delivered extension source and interval generator available locally; latest extension remote publication not verified and generator not rerun."
+    },
+    {
+      "id": "arithmetic-duals",
+      "sources": [
+        "pr15_fixed"
+      ],
+      "accepted": "Historical full-domain fixed-support certificate and exact fixed-support duality",
+      "open": "Large input recovery and all-support lower bound",
+      "status": "failed-surrogate",
+      "includedStatuses": [
+        "certified-finite",
+        "proved-identity",
+        "failed-surrogate",
+        "open"
+      ],
+      "reviewScope": "internal",
+      "reproducibilityState": "partial",
+      "reproducibilityNote": "Historical large fixed-support certificate cannot be replayed: required approximately 1.1 GB bundle unavailable. Small checks and source hashes do not replace it."
+    },
+    {
+      "id": "mobius-zero-free",
+      "sources": [
+        "v7_landau",
+        "mobius",
+        "phase_filter"
+      ],
+      "accepted": "Conditional exact PR14 parameter improvement and Landau floor implication",
+      "open": "Imported analytic proof and actual signed all-scale correlations",
+      "status": "conditional-reduction",
+      "includedStatuses": [
+        "certified-finite",
+        "conditional-reduction",
+        "open"
+      ],
+      "reviewScope": "internal",
+      "reproducibilityState": "partial",
+      "reproducibilityNote": "Source mathematics inspected; no complete generator replay in this audit. Remote availability and fresh limited checks are separately recorded."
+    },
+    {
+      "id": "curvature-bulk-suzuki",
+      "sources": [
+        "v7_geometry"
+      ],
+      "accepted": "Weighted curvature identity; positive gamma-only bulk; limited model obstructions; exact reserve",
+      "open": "One fixed supported inverse-energy bound/cofinal floor or all-event scalar sign",
+      "status": "proved-identity",
+      "includedStatuses": [
+        "proved-identity",
+        "conditional-reduction",
+        "failed-surrogate",
+        "open"
+      ],
+      "reviewScope": "internal",
+      "reproducibilityState": "partial",
+      "reproducibilityNote": "Source mathematics inspected; no complete generator replay in this audit. Remote availability and fresh limited checks are separately recorded."
+    },
+    {
+      "id": "newman-distinction",
+      "sources": [
+        "pr16_det"
+      ],
+      "accepted": "Heat threshold distinct from support lambda and zero-strip B",
+      "open": "No new global Newman upper bound established by atlas",
+      "status": "open",
+      "includedStatuses": [
+        "open"
+      ],
+      "reviewScope": "internal",
+      "reproducibilityState": "partial",
+      "reproducibilityNote": "Source mathematics inspected; no complete generator replay in this audit. Remote availability and fresh limited checks are separately recorded."
+    }
+  ],
+  "inspected_remote_sources": [
+    {
+      "id": "pr15_fixed",
+      "path": "research-checkpoints/rh-arithmetic-information-2026-10-21/FIXED_SUPPORT.md",
+      "commit": "acf2a2cedb42a6388b16e89dd277766effc1e3e8",
+      "git_blob_sha": "94d6556da22bd8843d917e44f4d703d974918163",
+      "url": "https://github.com/judegomila/mathexplorer/blob/acf2a2cedb42a6388b16e89dd277766effc1e3e8/research-checkpoints/rh-arithmetic-information-2026-10-21/FIXED_SUPPORT.md",
+      "verification": "fresh GitHub content read; source text inspected",
+      "local_scientific_text_blob_match": true
+    },
+    {
+      "id": "pr16_det",
+      "path": "research-checkpoints/vortex-collision-2026-10-22/DETERMINANT_OBSTRUCTION.md",
+      "commit": "31e39096e18b6630aeadb81966d444f8e39c314f",
+      "git_blob_sha": "8c6aa499b601cb7c4964fa981d0b78e57ab12c23",
+      "url": "https://github.com/judegomila/mathexplorer/blob/31e39096e18b6630aeadb81966d444f8e39c314f/research-checkpoints/vortex-collision-2026-10-22/DETERMINANT_OBSTRUCTION.md",
+      "verification": "fresh GitHub content read; source text inspected",
+      "local_scientific_text_blob_match": true
+    },
+    {
+      "id": "pr17_theta",
+      "path": "research-checkpoints/theta-central-2026-10-22/README.md",
+      "commit": "006ebb4fa6b96c8c36af66544c6d9a8bcedf3ae4",
+      "git_blob_sha": "1c99cd7f078f58b1304628c92b381006a93bef4e",
+      "url": "https://github.com/judegomila/mathexplorer/blob/006ebb4fa6b96c8c36af66544c6d9a8bcedf3ae4/research-checkpoints/theta-central-2026-10-22/README.md",
+      "verification": "fresh GitHub content read; source text inspected",
+      "local_scientific_text_blob_match": false
+    },
+    {
+      "id": "pr18_endpoint",
+      "path": "research-checkpoints/genuine-theta-endpoint-2026-10-24/PROOF.md",
+      "commit": "e4e3535c2457d6e94a1ffd089a008a2e40d0af4f",
+      "git_blob_sha": "e3dab6c65810fcc2594b91b002b9b6e544bcc8df",
+      "url": "https://github.com/judegomila/mathexplorer/blob/e4e3535c2457d6e94a1ffd089a008a2e40d0af4f/research-checkpoints/genuine-theta-endpoint-2026-10-24/PROOF.md",
+      "verification": "fresh GitHub content read; source text inspected",
+      "local_scientific_text_blob_match": true
+    },
+    {
+      "id": "pr19_index",
+      "path": "research-checkpoints/collision-index-2026-10-24/LOCAL_COLLISION_INDEX.md",
+      "commit": "9d33d72ee740933be494258bb6f5540753c36911",
+      "git_blob_sha": "73d6eb0fbfa0f1ce0951bf85b70fee866cc9bc37",
+      "url": "https://github.com/judegomila/mathexplorer/blob/9d33d72ee740933be494258bb6f5540753c36911/research-checkpoints/collision-index-2026-10-24/LOCAL_COLLISION_INDEX.md",
+      "verification": "fresh GitHub content read; source text inspected",
+      "local_scientific_text_blob_match": true
+    },
+    {
+      "id": "shiftbridge",
+      "path": "src/data/shift-bridge-positivity-section.js",
+      "commit": "942ba1760c4ef54a519750ab91c37a661c31e0ce",
+      "git_blob_sha": "0512d04b089dbf84da48dd046dab7d3add40ec1a",
+      "url": "https://github.com/judegomila/mathexplorer/blob/942ba1760c4ef54a519750ab91c37a661c31e0ce/src/data/shift-bridge-positivity-section.js",
+      "verification": "fresh GitHub content read; source text inspected",
+      "local_scientific_text_blob_match": false
+    },
+    {
+      "id": "twistor_baseline",
+      "path": "research/twistor-bridge-2026-10-03/README.md",
+      "commit": "712c4b0ad71693c6f0ba272ded1f3a71b60b5204",
+      "git_blob_sha": "65f3976892cb3bafcd36b9bfe1e4c9212ccc1d87",
+      "url": "https://github.com/judegomila/mathexplorer/blob/712c4b0ad71693c6f0ba272ded1f3a71b60b5204/research/twistor-bridge-2026-10-03/README.md",
+      "verification": "fresh GitHub content read; source text inspected",
+      "local_scientific_text_blob_match": false
+    }
+  ],
+  "inspected_delivered_sources": [
+    {
+      "id": "v7_critical",
+      "title": "Delivered V7 \u2014 cofinal floor, criticality, finite prime partition and theta tests",
+      "filename": "18-cofinal-and-criticality.tex",
+      "bytes": 15643,
+      "sha256": "9e33de7c9d656e6c21c403fd7bd48c7e1a63f0f7fef0e7cdb9fe2bde9627462c",
+      "source_kind": "inspected delivered source",
+      "remote_link_verified": false
+    },
+    {
+      "id": "v7_geometry",
+      "title": "Delivered V7 \u2014 curvature, bulk, transport and scalar reserve",
+      "filename": "19-geometry-bulk-and-suzuki.tex",
+      "bytes": 32305,
+      "sha256": "59b3ca9eebb31573f4a91306393b972be51b0ef5c08affd6299e67253d647448",
+      "source_kind": "inspected delivered source",
+      "remote_link_verified": false
+    },
+    {
+      "id": "v7_landau",
+      "title": "Delivered V7 \u2014 discrepancy-to-zero-free theorem",
+      "filename": "03-landau.tex",
+      "bytes": 6726,
+      "sha256": "b5c8b6617d01527d0a41cbfa815116472f2779ae832e56a05497c96415d0ea5f",
+      "source_kind": "inspected delivered source",
+      "remote_link_verified": false
+    },
+    {
+      "id": "v7_limits",
+      "title": "Delivered V7 \u2014 analogy limits and evidence cutoff",
+      "filename": "13-limits-appendices.tex",
+      "bytes": 16416,
+      "sha256": "ae6e29a4776a40cc3193bca36699086916da11ebc997285435e7414332e61eef",
+      "source_kind": "inspected delivered source",
+      "remote_link_verified": false
+    },
+    {
+      "id": "sync",
+      "title": "Delivered infinite synchronization audit",
+      "filename": "RESEARCH_NOTE.md",
+      "bytes": 17734,
+      "sha256": "9b2365092548ac1889685251ed9aef1daf7312b3fb392dc3c3450f8674e62724",
+      "source_kind": "inspected delivered source",
+      "remote_link_verified": false
+    },
+    {
+      "id": "discrete",
+      "title": "Delivered finite prime-weight rigidity report",
+      "filename": "rigidity.tex",
+      "bytes": 14263,
+      "sha256": "1ec95bb0c38e10fe7fa21dd94aa11f6b29991bb014c90abc32614c7600e04de5",
+      "source_kind": "inspected delivered source",
+      "remote_link_verified": false
+    },
+    {
+      "id": "discrete_verify",
+      "title": "Read-only verification of twelve saved finite brackets",
+      "filename": "verify_certificates.py",
+      "bytes": 1532,
+      "sha256": "cf47194f75dffabf0df8761c29eaee89aa6ec2711dcc4486c2bc447abd957829",
+      "source_kind": "inspected delivered source",
+      "remote_link_verified": false
+    },
+    {
+      "id": "twistor",
+      "title": "Delivered version-three twistor bundle",
+      "filename": "README.md",
+      "bytes": 9033,
+      "sha256": "1471dc1db7fcfb52a7f0f3918c4ac672f619f69b8106a1be349a535ae7fa5c3a",
+      "source_kind": "inspected delivered source",
+      "remote_link_verified": false
+    },
+    {
+      "id": "thin",
+      "title": "Delivered October 4 thin all-window continuation",
+      "filename": "thin_all_window_progress.tex",
+      "bytes": 24245,
+      "sha256": "02cbee03f4c356a6f1290122396570c384b27ba435c6b246d3b7b92784d51b21",
+      "source_kind": "inspected delivered source",
+      "remote_link_verified": false
+    }
+  ],
+  "pull_requests": [
+    {
+      "number": 6,
+      "url": "https://github.com/judegomila/mathexplorer/pull/6",
+      "title": "Add Xi prolate\u2013Weil bridge P0 checkpoint",
+      "head_sha": "5ea9681fc8b24209deb3ecced6b89a7271c56081",
+      "state": "open",
+      "merged": false,
+      "draft": true
+    },
+    {
+      "number": 13,
+      "url": "https://github.com/judegomila/mathexplorer/pull/13",
+      "title": "Document finite twin-ladder physics correspondences and reproducible checks",
+      "head_sha": "b878c92d3df6a4691f2b40593996e9a2c9e983cc",
+      "state": "open",
+      "merged": false,
+      "draft": true
+    },
+    {
+      "number": 14,
+      "url": "https://github.com/judegomila/mathexplorer/pull/14",
+      "title": "Add conditional M\u00f6bius bridge reduction and exact certificate",
+      "head_sha": "05cfffbbd673105bada9d45df1666ef4bd770764",
+      "state": "open",
+      "merged": false,
+      "draft": false
+    },
+    {
+      "number": 15,
+      "url": "https://github.com/judegomila/mathexplorer/pull/15",
+      "title": "Log scoped RH arithmetic, information optimality, and vortex research",
+      "head_sha": "acf2a2cedb42a6388b16e89dd277766effc1e3e8",
+      "state": "open",
+      "merged": false,
+      "draft": true
+    },
+    {
+      "number": 16,
+      "url": "https://github.com/judegomila/mathexplorer/pull/16",
+      "title": "Separate vortex collision identities and conditional certificates",
+      "head_sha": "31e39096e18b6630aeadb81966d444f8e39c314f",
+      "state": "open",
+      "merged": false,
+      "draft": true
+    },
+    {
+      "number": 17,
+      "url": "https://github.com/judegomila/mathexplorer/pull/17",
+      "title": "Separate reproducible theta central positivity certificate",
+      "head_sha": "006ebb4fa6b96c8c36af66544c6d9a8bcedf3ae4",
+      "state": "open",
+      "merged": false,
+      "draft": true
+    },
+    {
+      "number": 18,
+      "url": "https://github.com/judegomila/mathexplorer/pull/18",
+      "title": "Certify genuine theta-field finite boxes through time zero",
+      "head_sha": "e4e3535c2457d6e94a1ffd089a008a2e40d0af4f",
+      "state": "open",
+      "merged": false,
+      "draft": true
+    },
+    {
+      "number": 19,
+      "url": "https://github.com/judegomila/mathexplorer/pull/19",
+      "title": "Separate collision-index proof and conditional RH continuation",
+      "head_sha": "9d33d72ee740933be494258bb6f5540753c36911",
+      "state": "open",
+      "merged": false,
+      "draft": true
+    }
+  ],
+  "fresh_checks": [
+    {
+      "id": "discrete-twelve-saved-brackets",
+      "result": "PASS",
+      "scope": "Lower endpoint positive-definite and upper endpoint exact rational negative witness for twelve deliberately perturbed finite matrices; saved arithmetic intervals trusted; coefficient generator not rerun"
+    },
+    {
+      "id": "theta-endpoint-saved-geometry-384-512",
+      "result": "PASS",
+      "scope": "24 edge cells, 90 interior cells, area 10 and winding zero at both precisions; actual-function containment not regenerated"
+    },
+    {
+      "id": "collision-document-manifest",
+      "result": "PASS",
+      "scope": "3 document/source entries match; mathematical theorem not machine-verified"
+    }
+  ],
+  "blockers": [
+    "The approximately 1.1 GB frozen arithmetic bundle remains unavailable; metadata is not a persistent data copy.",
+    "Latest delivered V7, discrete refinement, synchronization and thin-window-extension sources have no verified remote publication link in this audit.",
+    "Full certificate generators were not rerun; fresh checks were narrowly scoped as listed.",
+    "PR6 remains P0_INVALIDATED; PR14 analytic zero-free implication remains conditional."
+  ],
+  "privacy": "No raw conversation, personal data, absolute workspace paths, credentials or delegation text included",
+  "inspected_pinned_cached_sources": [
+    {
+      "id": "ou_covariance",
+      "path": "research-checkpoints/twin-ladder-physics-2026-10-19/poisson/POISSON_OU_AND_PRIME_BEAT_CORRESPONDENCE_v2.md",
+      "commit": "b878c92d3df6a4691f2b40593996e9a2c9e983cc",
+      "git_blob_sha": "e3f4e0dec1975345f1e0dba24ba926f152988557",
+      "source_sha256": "a5bfb352eb3bb50486ae51f55b22bb0604e80399562c186a516d5f3dd4df89b2",
+      "cache_sha256": "25d15387002a85fc1e123f0ef802dabcf1b454f63302f754d61b24322369bb6b",
+      "url": "https://github.com/judegomila/mathexplorer/blob/b878c92d3df6a4691f2b40593996e9a2c9e983cc/research-checkpoints/twin-ladder-physics-2026-10-19/poisson/POISSON_OU_AND_PRIME_BEAT_CORRESPONDENCE_v2.md",
+      "verification": "Inspected cached source. Cache has exactly one additional terminal LF; removing exactly that LF gives pinned Git blob hash. No scientific-text normalization applied."
+    },
+    {
+      "id": "phase_filter",
+      "path": "rigorous/mobius_bridge_reduction/SIGNED_PHASE_FILTER.md",
+      "commit": "05cfffbbd673105bada9d45df1666ef4bd770764",
+      "git_blob_sha": "6a630258f9068f6c5ae489df90a47b3aeff1c284",
+      "source_sha256": "032bcd8c18b55e9d90bee265154ef29bf8b42ea9c3b2a6687fb35e814f4afba3",
+      "cache_sha256": "34b2494be9ed6c87e522f307fa52f1237cb9f83b9d5f4345e65bd9366851340b",
+      "url": "https://github.com/judegomila/mathexplorer/blob/05cfffbbd673105bada9d45df1666ef4bd770764/rigorous/mobius_bridge_reduction/SIGNED_PHASE_FILTER.md",
+      "verification": "Inspected cached source. Cache has exactly one additional terminal LF; removing exactly that LF gives pinned Git blob hash. No scientific-text normalization applied."
+    },
+    {
+      "id": "information",
+      "path": "research-checkpoints/rh-arithmetic-information-2026-10-21/INFORMATION_OPTIMALITY.md",
+      "commit": "acf2a2cedb42a6388b16e89dd277766effc1e3e8",
+      "git_blob_sha": "b9c4afb6c90f1698f30454f2c60ffaf5f3ffe868",
+      "source_sha256": "e87b7ce30caf98c8d0bf47f7d26034d521b28587e514197fc9c932bfbfdfb59c",
+      "cache_sha256": "822152f4588dd1c6e070ae376b4406230d7d96445fad36e27abe8bef33415ee9",
+      "url": "https://github.com/judegomila/mathexplorer/blob/acf2a2cedb42a6388b16e89dd277766effc1e3e8/research-checkpoints/rh-arithmetic-information-2026-10-21/INFORMATION_OPTIMALITY.md",
+      "verification": "Inspected cached source. Cache has exactly one additional terminal LF; removing exactly that LF gives pinned Git blob hash. No scientific-text normalization applied."
+    },
+    {
+      "id": "mobius",
+      "path": "rigorous/mobius_bridge_reduction/README.md",
+      "commit": "05cfffbbd673105bada9d45df1666ef4bd770764",
+      "git_blob_sha": "13e2401694c95145d075893b4ea726f3fa2ac71d",
+      "source_sha256": "cf687e62f31b3a78f1196b501d33c5d3e8eb354e38782d10fdc872ccc4a003c0",
+      "cache_sha256": "0918347feed79e4fb515e56de0772009703ccdaab78ed97aff4bbeba20013300",
+      "url": "https://github.com/judegomila/mathexplorer/blob/05cfffbbd673105bada9d45df1666ef4bd770764/rigorous/mobius_bridge_reduction/README.md",
+      "verification": "Inspected cached source. Cache has exactly one additional terminal LF; removing exactly that LF gives pinned Git blob hash. No scientific-text normalization applied."
+    },
+    {
+      "id": "network",
+      "path": "research-checkpoints/rh-arithmetic-information-2026-10-21/NETWORK_TRANSFORM.md",
+      "commit": "acf2a2cedb42a6388b16e89dd277766effc1e3e8",
+      "git_blob_sha": "dd8e1d279617ebf4037871589a8dfcb5d93943a5",
+      "source_sha256": "0099e9f780406526fbbd898b1bbc401e485bd2cdd452e2e63325d87736a86169",
+      "cache_sha256": "629fcf75d1fb2f23370419c4e891a4985363ffcf6211b7f7da050df70c3a8648",
+      "url": "https://github.com/judegomila/mathexplorer/blob/acf2a2cedb42a6388b16e89dd277766effc1e3e8/research-checkpoints/rh-arithmetic-information-2026-10-21/NETWORK_TRANSFORM.md",
+      "verification": "Inspected cached source. Cache has exactly one additional terminal LF; removing exactly that LF gives pinned Git blob hash. No scientific-text normalization applied."
+    },
+    {
+      "id": "shear_correction",
+      "path": "formalization/paper/shear_kernel_measure_audit_2026-08-28.md",
+      "commit": "942ba1760c4ef54a519750ab91c37a661c31e0ce",
+      "git_blob_sha": "f80611d7df8581e1034212b4c1c7ac1d27c7c2f6",
+      "source_sha256": "5ba32cd184158e4967cf341042c40523247d9628b4a4075b4e4a9272a50b6a16",
+      "cache_sha256": "45a6286161cbb9d664d00648190c609b6bf074b8f88b95d51f7080f5a44669df",
+      "url": "https://github.com/judegomila/mathexplorer/blob/942ba1760c4ef54a519750ab91c37a661c31e0ce/formalization/paper/shear_kernel_measure_audit_2026-08-28.md",
+      "verification": "Inspected cached source. Cache has exactly one additional terminal LF; removing exactly that LF gives pinned Git blob hash. No scientific-text normalization applied."
+    }
+  ],
+  "reviewScope": "internal"
+}

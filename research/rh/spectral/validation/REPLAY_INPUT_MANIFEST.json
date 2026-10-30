@@ -1,0 +1,295 @@
+{
+  "schema_version": 1,
+  "scope": "Accepted X=16001/1000 whole-even certificate and failed X=161/10 sufficient surrogate only. No pending diagnosis or eighth-power repair. No RH claim.",
+  "runtime": {
+    "python_tested": "3.12.14",
+    "python_flint": "0.9.0",
+    "other_third_party_runtime_packages": []
+  },
+  "sources": {
+    "rh_attack_cycle_20261030/support_endpoint_continuity/certify_generic_X16001.py": {
+      "sha256": "f07fd6e12421b1f5e6db4ee12df902980128ce20f98b48371e32ea8d070e42a0",
+      "bytes": 6141
+    },
+    "rh_attack_cycle_20261030/support_endpoint_continuity/generic_full_inputs.py": {
+      "sha256": "749dbde6154b03bf3ecf858fbdb0259d1476291fbd49d949e7a40f7ff1588c8e",
+      "bytes": 5986
+    },
+    "rh_attack_cycle_20261030/support_endpoint_continuity/generic_actual_head_pilot.py": {
+      "sha256": "5f445ed152eefc96539b1af7f9b1d2deed1618a3e786f8658d8ef5aab2b427de",
+      "bytes": 5330
+    },
+    "rh_attack_cycle_20261030/support_endpoint_continuity/quadrature_near_moments_production.py": {
+      "sha256": "8a94380ef617b34d27902c9c1ae18e8dcc034d57d5a1f25652a23b2981834a04",
+      "bytes": 2012
+    },
+    "rh_attack_cycle_20261030/support_endpoint_continuity/compute_generic_moment_cache_v2.py": {
+      "sha256": "b8878ab8b70a5b96d4fc34022535bdd91ae61b6f48473bb3c1130b0b84842bf2",
+      "bytes": 5137
+    },
+    "rh_attack_cycle_20261030/support_endpoint_continuity/generic_prime_power7_feasibility.py": {
+      "sha256": "b48f2274e7818d623995c9dba3759764c73e3808850a0204088025ac9754044d",
+      "bytes": 3604
+    },
+    "rh_attack_cycle_20261028/structured_inertia/certify_structured_lambda25.py": {
+      "sha256": "e428d4e886045d5b31a5018953308e95ce527c832a0f28cdcc6692b23d15eeee",
+      "bytes": 12070
+    },
+    "rh_attack_cycle_20261028/structured_inertia/certify_structured_factored.py": {
+      "sha256": "ce639d73178ed2ebae8e6e11bca6c73f37ce3cc8081daeb388868f0f6984cd46",
+      "bytes": 3304
+    },
+    "rh_attack_cycle_20261029/X16_even_feasibility/X16_analytic_inputs.py": {
+      "sha256": "0a1930f0f64a18b962026d3cef0a14b1e889ea82f4235067153a6ca838f2f9e7",
+      "bytes": 7611
+    },
+    "rh_attack_cycle_20261030/support_endpoint_X161/support_config.py": {
+      "sha256": "727794ab6fa29e1492e744587e1e41b68aa87f3fd85e5f6a1b347d30e6414de8",
+      "bytes": 693
+    },
+    "rh_attack_cycle_20261030/support_endpoint_X161/parameterized_near_moments.py": {
+      "sha256": "38b613381f5679f62056c013c9df53faa31a1a1845b6a0aa8c4e3bbadf3317d1",
+      "bytes": 1818
+    },
+    "rh_attack_cycle_20261030/support_endpoint_X161/compute_moment_cache.py": {
+      "sha256": "cf6ab8bc8beace03c204588343da7291eef8d0a11fa4fa4a4c8252f9925cb2ef",
+      "bytes": 5718
+    },
+    "rh_attack_cycle_20261030/support_endpoint_X161/generic_full_inputs.py": {
+      "sha256": "54862b276ca8a5518fb83d45d76ebce2b0571071da0e8c48e2c968ce77004da1",
+      "bytes": 6128
+    },
+    "rh_attack_cycle_20261030/support_endpoint_X161/certify_generic_support.py": {
+      "sha256": "e22a8b094f117efa83b97df623fca304bdb600fdd78e8d03fa15dff10fc1256b",
+      "bytes": 6144
+    },
+    "rh_attack_cycle_20261030/support_endpoint_X161/preflight_support_and_cache.py": {
+      "sha256": "ba92ce88b8c7883ff2fd7ed174b9a938382a1c268d747fb5be1a95111f478eef",
+      "bytes": 2224
+    },
+    "rh_attack_cycle_20261030/support_endpoint_X161/check_cache_isolation.py": {
+      "sha256": "869eef184b6d5b21ba2673def9cc915bf7bf5f65c988fe7a6590ec51e2773146",
+      "bytes": 1592
+    },
+    "rh_attack_cycle_20261030/support_endpoint_next_feasibility/X161_power7.py": {
+      "sha256": "76a7dce9e21ec0481d2c72293d055505b87baf1fa0f147ad64d3908cde0c102e",
+      "bytes": 3597
+    }
+  },
+  "reference_receipts": {
+    "rh_attack_cycle_20261030/support_endpoint_continuity/GENERIC_FULL_EVEN_CERTIFICATE.json": {
+      "original_sha256": "589f88eb475bd51023abacb58af4bbf473041b9c0610184c33561c5f14a396c2",
+      "transport_sha256": "589f88eb475bd51023abacb58af4bbf473041b9c0610184c33561c5f14a396c2",
+      "bytes": 30986,
+      "transport_transform": "none"
+    },
+    "rh_attack_cycle_20261030/support_endpoint_continuity/GENERIC_SMALL_DENSE_GATE.json": {
+      "original_sha256": "3884a23972382f72e6c97259281aa3673458ebb75f7ba5eec3f208ba214f65db",
+      "transport_sha256": "3884a23972382f72e6c97259281aa3673458ebb75f7ba5eec3f208ba214f65db",
+      "bytes": 8497,
+      "transport_transform": "none"
+    },
+    "rh_attack_cycle_20261030/support_endpoint_continuity/GENERIC_ACTUAL_HEAD_PILOT.json": {
+      "original_sha256": "66c1ca623d3f9fa5db24e1931dbad788ec32f800f3e8fe4b0eca844693002d9e",
+      "transport_sha256": "66c1ca623d3f9fa5db24e1931dbad788ec32f800f3e8fe4b0eca844693002d9e",
+      "bytes": 1412,
+      "transport_transform": "none"
+    },
+    "rh_attack_cycle_20261030/support_endpoint_continuity/GENERIC_POWER7_FEASIBILITY.json": {
+      "original_sha256": "6faf119c33b0bf6a9f6b9ef653045f0c7605bf76c3d0c665ea534faa34fd8b9a",
+      "transport_sha256": "6faf119c33b0bf6a9f6b9ef653045f0c7605bf76c3d0c665ea534faa34fd8b9a",
+      "bytes": 1798,
+      "transport_transform": "none"
+    },
+    "rh_attack_cycle_20261030/support_endpoint_continuity/GENERIC_MOMENT_CACHE_V2_META.json": {
+      "original_sha256": "e1832457d421cf6686db09a5743c0bead305a280c91bcf298c28754cbb83cf5e",
+      "transport_sha256": "e1832457d421cf6686db09a5743c0bead305a280c91bcf298c28754cbb83cf5e",
+      "bytes": 274,
+      "transport_transform": "none"
+    },
+    "rh_attack_cycle_20261030/support_endpoint_continuity/GENERIC_MOMENT_CACHE_V2_COMPLETE.json": {
+      "original_sha256": "e62c6873fcad98776b519ccf32fd8b758440b8dad36e138ccbdbb0ca2c4a9c06",
+      "transport_sha256": "e62c6873fcad98776b519ccf32fd8b758440b8dad36e138ccbdbb0ca2c4a9c06",
+      "bytes": 675,
+      "transport_transform": "none"
+    },
+    "rh_attack_cycle_20261030/support_endpoint_continuity/GENERIC_CERTIFICATE_MANIFEST.json": {
+      "original_sha256": "6f26d8ec3f7e54b968ff4c7ca0df22abb4ce1b797716109df6df58ec34d61afa",
+      "transport_sha256": "6f26d8ec3f7e54b968ff4c7ca0df22abb4ce1b797716109df6df58ec34d61afa",
+      "bytes": 3144,
+      "transport_transform": "none"
+    },
+    "rh_attack_cycle_20261030/independent_review/GENERIC_X16001_COMPLETE_EVEN_POSITIVITY_AUDIT.json": {
+      "original_sha256": "2b71fb9a9f7e0f1e71487f0a4c7a9174d34caa0e6b1e59fb1bad4348528f5cba",
+      "transport_sha256": "2b71fb9a9f7e0f1e71487f0a4c7a9174d34caa0e6b1e59fb1bad4348528f5cba",
+      "bytes": 10342,
+      "transport_transform": "none"
+    },
+    "rh_attack_cycle_20261030/independent_review/GENERIC_PHASE_PREREQUISITES_AUDIT.json": {
+      "original_sha256": "03af04eca8a4cdf9c384ecc2d47de3fd58488c3d588468762a99a0adec76039b",
+      "transport_sha256": "03af04eca8a4cdf9c384ecc2d47de3fd58488c3d588468762a99a0adec76039b",
+      "bytes": 9748,
+      "transport_transform": "none"
+    },
+    "rh_attack_cycle_20261030/independent_review/generic_full_majorant_replay_workspace/INDEPENDENT_GENERIC_REPLAY_COMPARISON.json": {
+      "original_sha256": "f7197f23c2cafa5ab9661cf2d75a9ec1541551d23f89c7c50a8b15f974e9e30c",
+      "transport_sha256": "f7197f23c2cafa5ab9661cf2d75a9ec1541551d23f89c7c50a8b15f974e9e30c",
+      "bytes": 1604,
+      "transport_transform": "none"
+    },
+    "rh_attack_cycle_20261030/independent_review/generic_full_majorant_replay_workspace/INDEPENDENT_COMPLETE_CACHE_RECOMPUTATION.json": {
+      "original_sha256": "79065abb55042faf74f9900acb6e84e66eb2c1715403cc22a3d0ebe71571a01e",
+      "transport_sha256": "79065abb55042faf74f9900acb6e84e66eb2c1715403cc22a3d0ebe71571a01e",
+      "bytes": 2117,
+      "transport_transform": "none"
+    },
+    "rh_attack_cycle_20261030/support_endpoint_X161/GENERIC_FULL_EVEN_CERTIFICATE.json": {
+      "original_sha256": "852645d51afa4d663313b420c2310b73532bf264ada50032801ba21f97eb5ac8",
+      "transport_sha256": "852645d51afa4d663313b420c2310b73532bf264ada50032801ba21f97eb5ac8",
+      "bytes": 30702,
+      "transport_transform": "none"
+    },
+    "rh_attack_cycle_20261030/support_endpoint_X161/GENERIC_SMALL_DENSE_GATE.json": {
+      "original_sha256": "cf5e0cc0db775543201916f5f00e30b2527b0964305007503b5250f200b9a6ec",
+      "transport_sha256": "cf5e0cc0db775543201916f5f00e30b2527b0964305007503b5250f200b9a6ec",
+      "bytes": 8576,
+      "transport_transform": "none"
+    },
+    "rh_attack_cycle_20261030/support_endpoint_X161/PREFLIGHT_SUPPORT_AND_CACHE.json": {
+      "original_sha256": "74736a45bca4c1b06f2fef9d6c95254b76190ab5b8c99e7edd128f499849b3f6",
+      "transport_sha256": "16f5ab5a756b87c8eaedbe11affd4cf58d75d431061fea3aa66697453f895d55",
+      "bytes": 1912,
+      "transport_transform": "Only source_sha256 dictionary keys: original absolute workspace root removed; values and mathematical fields unchanged."
+    },
+    "rh_attack_cycle_20261030/support_endpoint_X161/CACHE_ISOLATION_CHECK.json": {
+      "original_sha256": "f3b72436c34bb5c37fee849c7728ce5e2289e2240937dd4feef008e485187eef",
+      "transport_sha256": "f3b72436c34bb5c37fee849c7728ce5e2289e2240937dd4feef008e485187eef",
+      "bytes": 551,
+      "transport_transform": "none"
+    },
+    "rh_attack_cycle_20261030/support_endpoint_X161/MOMENT_CACHE_META.json": {
+      "original_sha256": "7a3032db9babe035e8b5121063947818025a7ad08e304ce60116f698c651831e",
+      "transport_sha256": "7a3032db9babe035e8b5121063947818025a7ad08e304ce60116f698c651831e",
+      "bytes": 365,
+      "transport_transform": "none"
+    },
+    "rh_attack_cycle_20261030/support_endpoint_X161/MOMENT_CACHE_COMPLETE.json": {
+      "original_sha256": "fe22eaa9f7200a2c4b9e94bf7b78c0fed2b57fbe0872e59d99537ccb966b68b6",
+      "transport_sha256": "fe22eaa9f7200a2c4b9e94bf7b78c0fed2b57fbe0872e59d99537ccb966b68b6",
+      "bytes": 768,
+      "transport_transform": "none"
+    },
+    "rh_attack_cycle_20261030/support_endpoint_X161/FAILED_CERTIFICATE_MANIFEST.json": {
+      "original_sha256": "30d89048ae06aac9ec1da086d5094f7f73d5abadd6825434629e7b4bbba731bd",
+      "transport_sha256": "30d89048ae06aac9ec1da086d5094f7f73d5abadd6825434629e7b4bbba731bd",
+      "bytes": 3248,
+      "transport_transform": "none"
+    },
+    "rh_attack_cycle_20261030/support_endpoint_X161/PRIOR_X16001_INTEGRITY.json": {
+      "original_sha256": "09cb62e64b25236deae661fe564b8b33ae5ccccfeb530edb7f8693e4f90b1bbc",
+      "transport_sha256": "09cb62e64b25236deae661fe564b8b33ae5ccccfeb530edb7f8693e4f90b1bbc",
+      "bytes": 308,
+      "transport_transform": "none"
+    },
+    "rh_attack_cycle_20261030/support_endpoint_next_feasibility/X161_POWER7_FEASIBILITY.json": {
+      "original_sha256": "de1ce55765a229cbbbdb024c7e3984b3d86f328ff462edd1dea574f13dc7d335",
+      "transport_sha256": "de1ce55765a229cbbbdb024c7e3984b3d86f328ff462edd1dea574f13dc7d335",
+      "bytes": 1770,
+      "transport_transform": "none"
+    },
+    "rh_attack_cycle_20261030/independent_review/GENERIC_X161_PARAMETERIZATION_AND_FAILED_GATE_AUDIT.json": {
+      "original_sha256": "db67f80371c408e8592265ea3089452ec8974f1baaa7dbe079a4bb5b9174d98e",
+      "transport_sha256": "db67f80371c408e8592265ea3089452ec8974f1baaa7dbe079a4bb5b9174d98e",
+      "bytes": 7672,
+      "transport_transform": "none"
+    },
+    "rh_attack_cycle_20261030/independent_review/generic_X161_replay_workspace/INDEPENDENT_REPLAY_AND_FAILURE_CHECK.json": {
+      "original_sha256": "0cf297920df0f0a19ff6b5ac3ba52bbffacd391bad4437f7c9258b3992d3e6b0",
+      "transport_sha256": "0cf297920df0f0a19ff6b5ac3ba52bbffacd391bad4437f7c9258b3992d3e6b0",
+      "bytes": 2131,
+      "transport_transform": "none"
+    },
+    "rh_attack_cycle_20261030/independent_review/generic_X161_replay_workspace/INDEPENDENT_COMPLETE_CACHE_RECOMPUTATION.json": {
+      "original_sha256": "b1cbdb20d3b7587620ebf8ea96f3daf132898f03bdd7536b2298550db6b4595e",
+      "transport_sha256": "b1cbdb20d3b7587620ebf8ea96f3daf132898f03bdd7536b2298550db6b4595e",
+      "bytes": 2233,
+      "transport_transform": "none"
+    }
+  },
+  "cases": {
+    "accepted": {
+      "id": "rh-supported-even-x16001",
+      "status": "ACCEPTED_INDEPENDENT_COMPLETE_REPLAY",
+      "claim": "Actual whole-even coercivity for 1<lambda<=sqrt(16001/1000), with existential positive constant; no numerical endpoint floor, odd/cofinal/RH claim.",
+      "commands": [
+        [
+          "rh_attack_cycle_20261030/support_endpoint_continuity/generic_prime_power7_feasibility.py"
+        ],
+        [
+          "rh_attack_cycle_20261030/support_endpoint_continuity/compute_generic_moment_cache_v2.py",
+          "--workers",
+          "4"
+        ],
+        [
+          "rh_attack_cycle_20261030/support_endpoint_continuity/generic_actual_head_pilot.py"
+        ],
+        [
+          "rh_attack_cycle_20261030/support_endpoint_continuity/certify_generic_X16001.py",
+          "--small"
+        ],
+        [
+          "rh_attack_cycle_20261030/support_endpoint_continuity/certify_generic_X16001.py"
+        ]
+      ],
+      "directory": "rh_attack_cycle_20261030/support_endpoint_continuity",
+      "cache": "rh_attack_cycle_20261030/support_endpoint_continuity/GENERIC_MOMENT_CACHE_V2.jsonl",
+      "original_cache_sha256": "124a650c0eb45aeda57e4de4b53e6e3cc76a1880a4e583458a78ff3ef65e26ce",
+      "canonical_all_rows_sha256": "7124e3da5214999afd3edbe57cbbda015f4d14ae6a5f7a7acfafd1330b6292fa",
+      "expected_certificate_status": "PASS",
+      "required_cache_rows": 10437
+    },
+    "failed": {
+      "id": "rh-supported-even-x161-failed-surrogate",
+      "status": "FAILED_SUFFICIENT_SURROGATE_NOT_ACTUAL_NEGATIVITY",
+      "claim": "X161/10 prerequisites independently pass, complete producer first whitened pivot<0; accepted endpoint remainssqrt(16001/1000). Independent complete FAILED matrix replay was not performed.",
+      "commands": [
+        [
+          "rh_attack_cycle_20261030/support_endpoint_next_feasibility/X161_power7.py"
+        ],
+        [
+          "rh_attack_cycle_20261030/support_endpoint_X161/compute_moment_cache.py",
+          "--limit",
+          "64",
+          "--workers",
+          "4"
+        ],
+        [
+          "rh_attack_cycle_20261030/support_endpoint_X161/compute_moment_cache.py",
+          "--workers",
+          "4"
+        ],
+        [
+          "rh_attack_cycle_20261030/support_endpoint_X161/preflight_support_and_cache.py"
+        ],
+        [
+          "rh_attack_cycle_20261030/support_endpoint_X161/check_cache_isolation.py"
+        ],
+        [
+          "rh_attack_cycle_20261030/support_endpoint_X161/certify_generic_support.py",
+          "--small"
+        ],
+        [
+          "rh_attack_cycle_20261030/support_endpoint_X161/certify_generic_support.py"
+        ]
+      ],
+      "directory": "rh_attack_cycle_20261030/support_endpoint_X161",
+      "cache": "rh_attack_cycle_20261030/support_endpoint_X161/MOMENT_CACHE.jsonl",
+      "original_cache_sha256": "b40a1c4befce69b27d61afd3f81bddd4725accfdfa54f7741d63fe4f4a8b2998",
+      "canonical_all_rows_sha256": "a16c51de67b2d0296ee0689f2201511e29c3a43705a8ab2f277360b66bf00faf",
+      "expected_certificate_status": "FAILED_OR_INCONCLUSIVE",
+      "required_cache_rows": 10437
+    }
+  },
+  "cache_digest_encoding": "JSON list sorted lexicographically by key; remove only per-row seconds; json.dumps(sort_keys=True,separators=(comma,colon)); UTF-8 SHA256.",
+  "excluded": "Bulk moment caches, temporary arrays, diagnosis and pending eighth-power repair. All bulk moments regenerate from exact sources."
+}

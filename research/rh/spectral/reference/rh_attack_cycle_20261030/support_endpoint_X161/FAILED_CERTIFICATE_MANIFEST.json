@@ -1,0 +1,26 @@
+{
+  "status": "STRICT_LOWER_SURROGATE_FAILURE_NO_ACTUAL_NEGATIVITY",
+  "sha256": {
+    "rh_attack_cycle_20261028/structured_inertia/certify_structured_factored.py": "ce639d73178ed2ebae8e6e11bca6c73f37ce3cc8081daeb388868f0f6984cd46",
+    "rh_attack_cycle_20261028/structured_inertia/certify_structured_lambda25.py": "e428d4e886045d5b31a5018953308e95ce527c832a0f28cdcc6692b23d15eeee",
+    "rh_attack_cycle_20261030/support_endpoint_X161/CACHE_ISOLATION_CHECK.json": "f3b72436c34bb5c37fee849c7728ce5e2289e2240937dd4feef008e485187eef",
+    "rh_attack_cycle_20261030/support_endpoint_X161/EXACT_SUPPORT_PARAMETERIZATION_METHOD.md": "4d7f5c9ebc69a4b7a2d8fd87ddf8770b78bfdab1cd2d89c71a2ef88dc4bb9003",
+    "rh_attack_cycle_20261030/support_endpoint_X161/FAILED_FULL_TEST.md": "3ba8a74c1293d8800f78b395f986654c0172cc996b373e5fb4f3f35eb0e9ae03",
+    "rh_attack_cycle_20261030/support_endpoint_X161/GENERIC_FULL_EVEN_CERTIFICATE.json": "852645d51afa4d663313b420c2310b73532bf264ada50032801ba21f97eb5ac8",
+    "rh_attack_cycle_20261030/support_endpoint_X161/GENERIC_FULL_EVEN_CERTIFICATE.log": "4e426e3ce5aef2f10974e508be3bbe32d186a4dd3128a3ff3270992cb757ef18",
+    "rh_attack_cycle_20261030/support_endpoint_X161/GENERIC_SMALL_DENSE_GATE.json": "cf5e0cc0db775543201916f5f00e30b2527b0964305007503b5250f200b9a6ec",
+    "rh_attack_cycle_20261030/support_endpoint_X161/MOMENT_CACHE.jsonl": "b40a1c4befce69b27d61afd3f81bddd4725accfdfa54f7741d63fe4f4a8b2998",
+    "rh_attack_cycle_20261030/support_endpoint_X161/MOMENT_CACHE_COMPLETE.json": "fe22eaa9f7200a2c4b9e94bf7b78c0fed2b57fbe0872e59d99537ccb966b68b6",
+    "rh_attack_cycle_20261030/support_endpoint_X161/MOMENT_CACHE_META.json": "7a3032db9babe035e8b5121063947818025a7ad08e304ce60116f698c651831e",
+    "rh_attack_cycle_20261030/support_endpoint_X161/PREFLIGHT_SUPPORT_AND_CACHE.json": "74736a45bca4c1b06f2fef9d6c95254b76190ab5b8c99e7edd128f499849b3f6",
+    "rh_attack_cycle_20261030/support_endpoint_X161/PRIOR_X16001_INTEGRITY.json": "09cb62e64b25236deae661fe564b8b33ae5ccccfeb530edb7f8693e4f90b1bbc",
+    "rh_attack_cycle_20261030/support_endpoint_X161/certify_generic_support.py": "e22a8b094f117efa83b97df623fca304bdb600fdd78e8d03fa15dff10fc1256b",
+    "rh_attack_cycle_20261030/support_endpoint_X161/compute_moment_cache.py": "cf6ab8bc8beace03c204588343da7291eef8d0a11fa4fa4a4c8252f9925cb2ef",
+    "rh_attack_cycle_20261030/support_endpoint_X161/generic_full_inputs.py": "54862b276ca8a5518fb83d45d76ebce2b0571071da0e8c48e2c968ce77004da1",
+    "rh_attack_cycle_20261030/support_endpoint_X161/parameterized_near_moments.py": "38b613381f5679f62056c013c9df53faa31a1a1845b6a0aa8c4e3bbadf3317d1",
+    "rh_attack_cycle_20261030/support_endpoint_X161/support_config.py": "727794ab6fa29e1492e744587e1e41b68aa87f3fd85e5f6a1b347d30e6414de8",
+    "rh_attack_cycle_20261030/support_endpoint_continuity/generic_actual_head_pilot.py": "5f445ed152eefc96539b1af7f9b1d2deed1618a3e786f8658d8ef5aab2b427de",
+    "rh_attack_cycle_20261030/support_endpoint_next_feasibility/X161_POWER7_FEASIBILITY.json": "de1ce55765a229cbbbdb024c7e3984b3d86f328ff462edd1dea574f13dc7d335",
+    "rh_attack_cycle_20261030/support_endpoint_next_feasibility/X161_power7.py": "76a7dce9e21ec0481d2c72293d055505b87baf1fa0f147ad64d3908cde0c102e"
+  }
+}

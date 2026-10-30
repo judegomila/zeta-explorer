@@ -1,0 +1,20 @@
+{
+  "status": "PASS_SCALAR_WRAPPER_PREFLIGHT_NOT_FULL_TEST",
+  "X": "161/10",
+  "new_prime_envelope": "3790593/1000000",
+  "exact_denominator_increase": "0.014520",
+  "uniform_tail_floor": "[0.7425026529290798492244241438240104079340437467737872968004505949350784020630680653490707054179265832 +/- 2.34e-101]",
+  "new_far_diagonal_floor": "[2.821517021874173397680548233808098190093486578259877532220454904617955585076358396786783717615870885 +/- 8.27e-101]",
+  "old_far_reference_floor": "[2.806997021874173397680548233808098190093486578259877532220454904617955585076358396786783717615870885 +/- 8.27e-101]",
+  "old_far_H_and_rem_unchanged": true,
+  "all_old_inverse_steps_dominate_new_diagonal_inverse": true,
+  "source_sha256": {
+    "rh_attack_cycle_20261030/support_endpoint_X161_power8_repair/repaired_inputs.py": "ffe9c969e35a66aa5ea9bef2127f580cc1faee67443746f92e21217786b8c8a0",
+    "rh_attack_cycle_20261030/support_endpoint_X161/generic_full_inputs.py": "54862b276ca8a5518fb83d45d76ebce2b0571071da0e8c48e2c968ce77004da1",
+    "rh_attack_cycle_20261030/support_endpoint_X161/support_config.py": "727794ab6fa29e1492e744587e1e41b68aa87f3fd85e5f6a1b347d30e6414de8",
+    "rh_attack_cycle_20261030/support_endpoint_X161/MOMENT_CACHE.jsonl": "b40a1c4befce69b27d61afd3f81bddd4725accfdfa54f7741d63fe4f4a8b2998",
+    "rh_attack_cycle_20261030/support_endpoint_X161/diagnosis/X161_power8_targeted.py": "0d7b941557c108fa9cbb7d30f3eb7200c7e8084b951e29d966af307b669d8698",
+    "rh_attack_cycle_20261030/support_endpoint_X161/diagnosis/X161_POWER8_TARGETED.json": "03046a834436bacbd9347914f9bcb246a59c7d7552485960fa5193e93020915d"
+  },
+  "scope": "Scalar/source implication gate only. No repaired complete head or full positivity test has run."
+}

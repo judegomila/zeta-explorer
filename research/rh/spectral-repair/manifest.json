@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "status": "ACCEPTED_INDEPENDENT_COMPLETE_REPLAY",
+  "scope": "Separate eighth-power denominator repair at X=161/10. Actual whole-even coercivity through sqrt(161/10), existential positive constant only. No odd/cofinal/RH result. Preserves the failed seventh-power surrogate and earlier accepted X16.001 certificate.",
+  "base_package": "../spectral",
+  "base_manifest_sha256": "1b5cc0afddecf88f23074f7b60cc3aa7de707d07d217223d632e745224737303",
+  "base_replay_helper_sha256": "f50e72d9cc1d804c4ee00f1e727ebfbab22f8e9299b2d5d2193bbcaa2490d896",
+  "base_case": "failed",
+  "base_cache_canonical_nontiming_sha256": "a16c51de67b2d0296ee0689f2201511e29c3a43705a8ab2f277360b66bf00faf",
+  "sources": {
+    "rh_attack_cycle_20261030/support_endpoint_X161_power8_repair/repaired_inputs.py": {
+      "sha256": "ffe9c969e35a66aa5ea9bef2127f580cc1faee67443746f92e21217786b8c8a0",
+      "bytes": 3241
+    },
+    "rh_attack_cycle_20261030/support_endpoint_X161_power8_repair/certify_repaired_support.py": {
+      "sha256": "5c30fed69672a3f190fe348cb985fa16a348c2b9fdce2a158eb000846bea5b8d",
+      "bytes": 4990
+    },
+    "rh_attack_cycle_20261030/support_endpoint_X161/diagnosis/X161_power8_targeted.py": {
+      "sha256": "0d7b941557c108fa9cbb7d30f3eb7200c7e8084b951e29d966af307b669d8698",
+      "bytes": 3591
+    }
+  },
+  "reference_receipts": {
+    "rh_attack_cycle_20261030/support_endpoint_X161/diagnosis/X161_POWER8_TARGETED.json": {
+      "original_sha256": "03046a834436bacbd9347914f9bcb246a59c7d7552485960fa5193e93020915d",
+      "transport_sha256": "03046a834436bacbd9347914f9bcb246a59c7d7552485960fa5193e93020915d",
+      "bytes": 1785,
+      "transport_transform": "none"
+    },
+    "rh_attack_cycle_20261030/support_endpoint_X161_power8_repair/REPAIR_WRAPPER_PREFLIGHT.json": {
+      "original_sha256": "2363896e0d009af28978a6627db44a9391600c144690339cba92b93bbbfead37",
+      "transport_sha256": "2363896e0d009af28978a6627db44a9391600c144690339cba92b93bbbfead37",
+      "bytes": 1743,
+      "transport_transform": "none"
+    },
+    "rh_attack_cycle_20261030/support_endpoint_X161_power8_repair/REPAIRED_SMALL_DENSE_GATE.json": {
+      "original_sha256": "800abdb6a1c85844a746af5a9df85ba9dc8bea0fa5f791fa62d034a51b06e268",
+      "transport_sha256": "800abdb6a1c85844a746af5a9df85ba9dc8bea0fa5f791fa62d034a51b06e268",
+      "bytes": 9317,
+      "transport_transform": "none"
+    },
+    "rh_attack_cycle_20261030/support_endpoint_X161_power8_repair/REPAIRED_FULL_EVEN_CERTIFICATE.json": {
+      "original_sha256": "2b7edf024d6e8b0192d0bf5267f04a887daa99b9fcadbed72780d4c02302d992",
+      "transport_sha256": "2b7edf024d6e8b0192d0bf5267f04a887daa99b9fcadbed72780d4c02302d992",
+      "bytes": 31807,
+      "transport_transform": "none"
+    },
+    "rh_attack_cycle_20261030/independent_review/GENERIC_X161_POWER8_REPAIR_CLEARANCE.md": {
+      "original_sha256": "353ef9ec5714f87efa53297007e0cfa43ac904873dae61d78fa38064c31eb695",
+      "transport_sha256": "353ef9ec5714f87efa53297007e0cfa43ac904873dae61d78fa38064c31eb695",
+      "bytes": 6945,
+      "transport_transform": "none"
+    },
+    "rh_attack_cycle_20261030/independent_review/GENERIC_X161_POWER8_REPAIR_CLEARANCE.json": {
+      "original_sha256": "3e4a414d886099138d430079376f59deef966144a5b5eca60601bb413f13765a",
+      "transport_sha256": "3e4a414d886099138d430079376f59deef966144a5b5eca60601bb413f13765a",
+      "bytes": 6365,
+      "transport_transform": "none"
+    },
+    "rh_attack_cycle_20261030/independent_review/GENERIC_X161_POWER8_COMPLETE_EVEN_POSITIVITY_AUDIT.md": {
+      "original_sha256": "7a3db2e284f62ccdb13da1217481fdbb73e7beb44bb6a06e3ef4c017dd4d302b",
+      "transport_sha256": "d8dfb8188928998606f1462f5a68344b97f70ef8073eeb40599098a8f0133583",
+      "bytes": 7568,
+      "transport_transform": "Only reviewer identification generalized; all mathematical/source text unchanged."
+    },
+    "rh_attack_cycle_20261030/independent_review/GENERIC_X161_POWER8_COMPLETE_EVEN_POSITIVITY_AUDIT.json": {
+      "original_sha256": "ba89db2b5a57281b676352c87a93a5163e13b6df23f93ae49ddd602a7ed52351",
+      "transport_sha256": "807899c0259a066005cbb0e49bd08f64ddf83e9772df6102439b5d58c4d37da8",
+      "bytes": 15560,
+      "transport_transform": "Only reviewer metadata generalized; all mathematical/source fields unchanged."
+    },
+    "rh_attack_cycle_20261030/independent_review/generic_X161_power8_replay_workspace/INDEPENDENT_COMPLETE_REPAIRED_COMPARISON.json": {
+      "original_sha256": "ba01cf3bb93f32e32da7d44619aae4b8e0db9a325fad44f2a18195912b08b7a3",
+      "transport_sha256": "ba01cf3bb93f32e32da7d44619aae4b8e0db9a325fad44f2a18195912b08b7a3",
+      "bytes": 1429,
+      "transport_transform": "none"
+    }
+  },
+  "new_note": {
+    "path": "rh_attack_cycle_20261030/support_endpoint_X161_power8_repair/PRODUCER_RESULT_AND_REPAIR_IMPLICATION.md",
+    "sha256": "ae226b46025c0be9f287d69f507281bee10618b0966e0ab6ae3e4d869c26dd96",
+    "status_note": "Historical producer-pending-review wording is superseded by the distinct bundled complete independent acceptance, not rewritten."
+  },
+  "runtime": {
+    "python_tested": "3.12.14",
+    "python_flint": "0.9.0",
+    "other_third_party_runtime_packages": []
+  },
+  "cache_regeneration_note": "The entire same-support10437-row cache regenerates from the frozen first-package failed-case sources. No cache/data reused across different X. New delta changes neither cache key nor raw moment value.",
+  "diagnosis_excluded": "Frozen-direction vectors and discovery factors motivated the repair but are not dependencies of the repaired complete certificate.",
+  "verified_base_source_paths": [
+    "rh_attack_cycle_20261030/support_endpoint_continuity/certify_generic_X16001.py",
+    "rh_attack_cycle_20261030/support_endpoint_continuity/generic_full_inputs.py",
+    "rh_attack_cycle_20261030/support_endpoint_continuity/generic_actual_head_pilot.py",
+    "rh_attack_cycle_20261030/support_endpoint_continuity/quadrature_near_moments_production.py",
+    "rh_attack_cycle_20261030/support_endpoint_continuity/compute_generic_moment_cache_v2.py",
+    "rh_attack_cycle_20261030/support_endpoint_continuity/generic_prime_power7_feasibility.py",
+    "rh_attack_cycle_20261028/structured_inertia/certify_structured_lambda25.py",
+    "rh_attack_cycle_20261028/structured_inertia/certify_structured_factored.py",
+    "rh_attack_cycle_20261029/X16_even_feasibility/X16_analytic_inputs.py",
+    "rh_attack_cycle_20261030/support_endpoint_X161/support_config.py",
+    "rh_attack_cycle_20261030/support_endpoint_X161/parameterized_near_moments.py",
+    "rh_attack_cycle_20261030/support_endpoint_X161/compute_moment_cache.py",
+    "rh_attack_cycle_20261030/support_endpoint_X161/generic_full_inputs.py",
+    "rh_attack_cycle_20261030/support_endpoint_X161/certify_generic_support.py",
+    "rh_attack_cycle_20261030/support_endpoint_X161/preflight_support_and_cache.py",
+    "rh_attack_cycle_20261030/support_endpoint_X161/check_cache_isolation.py",
+    "rh_attack_cycle_20261030/support_endpoint_next_feasibility/X161_power7.py"
+  ],
+  "required_base_runtime_source_paths": [
+    "rh_attack_cycle_20261030/support_endpoint_X161/support_config.py",
+    "rh_attack_cycle_20261030/support_endpoint_X161/parameterized_near_moments.py",
+    "rh_attack_cycle_20261030/support_endpoint_X161/compute_moment_cache.py",
+    "rh_attack_cycle_20261030/support_endpoint_X161/generic_full_inputs.py",
+    "rh_attack_cycle_20261030/support_endpoint_X161/preflight_support_and_cache.py",
+    "rh_attack_cycle_20261030/support_endpoint_X161/check_cache_isolation.py",
+    "rh_attack_cycle_20261030/support_endpoint_next_feasibility/X161_power7.py",
+    "rh_attack_cycle_20261030/support_endpoint_continuity/generic_actual_head_pilot.py",
+    "rh_attack_cycle_20261028/structured_inertia/certify_structured_lambda25.py",
+    "rh_attack_cycle_20261028/structured_inertia/certify_structured_factored.py"
+  ]
+}

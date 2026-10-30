@@ -74,6 +74,7 @@ export const EDITORIAL_ROUTES = new Set([
   '/rh-finite-suzuki-certificate',
   '/rh-whole-even-certificate',
   '/rh-spectral-denominator-repair',
+  '/rh-spectral-head-theory',
   '/rh-historical-routes',
   '/rh-signed-complement',
   '/spectral-attack',

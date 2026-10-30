@@ -1,0 +1,19 @@
+{
+  "status": "PASS_ANALYTIC_RAW_GRAM_AND_TRANSITION_REDUCTION",
+  "utc": "2026-10-30T08:56:58.312513+00:00",
+  "new_numerical_run": false,
+  "raw_gram_constant": "1/(1152 lambda^2), lambda>=8",
+  "uniform_evenized_gram_proved": false,
+  "transition_reserve_proved": false,
+  "whole_complement_gap_proved": false,
+  "files": {
+    "rh_attack_cycle_20261030/independent_review/MAXIMAL_POSITIVE_CHI_HEAD_AUDIT.md": "911a66cea495404fa84331cae0481ad26e65a15040ab7dd1084b03dcc3188e32",
+    "rh_attack_cycle_20261030/gamma_complement_attack/MAXIMAL_POSITIVE_CHI_HEAD_AND_TRANSITION_PRICE.md": "3a4fa2df9fbc34a787aedbdbf96d458ca74de5dc51e151fae3fa5cdac6a58c3b",
+    "rh_attack_cycle_20261030/gamma_complement_attack/EXACT_COMPLEMENT_AND_NESTED_FRAME_CROWDING.md": "52aee3c3d81d743f86c3b86ac3a25d93b6c87aa7742b0ba9551f4feba08cf236",
+    "rh_attack_cycle_20261030/gamma_bulk_attack/FRAME_GAMMA_UPPER_AND_SIGNED_HEAD_GAP.md": "6ca22ba9a3627752a3057422c320d728af8791eafe926c6e4ee940d43c7778c7",
+    "rh_attack_cycle_20261028/growing_prolate_frame/complement_map/EXACT_RANGE_AND_INTERTWINING_OBSTRUCTION.md": "021e9f673c928f1a276de11510927b198c20188b6535720386de574ee6f6cc5a",
+    "rh_attack_cycle_20261028/growing_prolate_frame/near_full_band/TUNABLE_ACCURACY_ADDENDUM.md": "29607de99ad27b6959ed3d200b60f47ca91e4b37f140b212d6a04d4a1b75df74",
+    "rh_attack_cycle_20261030/independent_review/FRAME_GAMMA_UPPER_AND_HEAD_GAP_AUDIT.json": "ef04194672cd8f6aada607e1808eaeefc4b6960ec3888e4ecf3ff739c9c683fa",
+    "rh_attack_cycle_20261030/independent_review/GAMMA_COMPLEMENT_AND_NESTED_CROWDING_AUDIT.json": "c9f77a55bfaf5d9f134e34d8341e1ddcc15deefdcfe157f65eb674eb61b51edb"
+  }
+}

@@ -102,6 +102,13 @@ if (!validateResearchModule(analyticTheorem).ok) {
   throw new Error('validator rejected the proved-analytic result class');
 }
 
+const provedEstimate = structuredClone(fixture);
+provedEstimate.status = 'proved-estimate';
+provedEstimate.verification.reproducibilityStatus = 'partial';
+if (!validateResearchModule(provedEstimate).ok) {
+  throw new Error('validator rejected the proved-estimate result class');
+}
+
 const externalAcceptance = structuredClone(fixture);
 externalAcceptance.reviewScope = 'peer-reviewed';
 if (!validateResearchModule(externalAcceptance).errors.some((error) => error.includes('reviewScope'))) {

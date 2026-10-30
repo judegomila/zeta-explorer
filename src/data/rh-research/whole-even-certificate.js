@@ -1,5 +1,6 @@
 import { createResearchModule } from './module-contract.js';
 
+const tex = String.raw;
 const SOURCE_COMMIT = 'd011a853ffa177fcaedd741616370a38feb37e00';
 const SOURCE_TREE = '5e56abd63ae89cc783144cab6b19d38514fe5bc9';
 const ACCEPTED_CACHE_DIGEST = '7124e3da5214999afd3edbe57cbbda015f4d14ae6a5f7a7acfafd1330b6292fa';
@@ -23,11 +24,11 @@ export const WHOLE_EVEN_CERTIFICATE = createResearchModule({
   claimBoundary: {
     title: 'An actual finite-support even-form theorem, not RH',
     statement:
-      'At the exact endpoint $X_*=16001/1000$ and $\lambda_*=\sqrt{X_*}$, the canonical reflection-even supported Weil form has a strictly positive coercivity constant. Centered zero extension gives the same bound on every smaller support.',
+      tex`At the exact endpoint $X_*=16001/1000$ and $\lambda_*=\sqrt{X_*}$, the canonical reflection-even supported Weil form has a strictly positive coercivity constant. Centered zero extension gives the same bound on every smaller support.`,
     doesNotClaim: [
       'This does not prove positivity in the odd reflection sector, ground-state simplicity, or identification of a distinguished zeta-related candidate.',
       'This does not give a support-independent lower floor along a cofinal sequence of supports and therefore does not prove RH.',
-      'The certified endpoint is the largest endpoint completed in this module, not a claim that positivity ends at $\lambda_*$.',
+      tex`The certified endpoint is the largest endpoint completed in this module, not a claim that positivity ends at $\lambda_*$.`,
       'The coercivity constant $c_*>0$ is existential. No LDL pivot, diagnostic interval, or tail diagonal is asserted to equal a numerical lower bound for the complete form.',
       'The negative $X=161/10$ whitened-surrogate pivot is a failure of a sufficient lower majorant, not actual form or operator negativity.',
       'The internal accepted status is neither external peer review nor proof-assistant formalization.',
@@ -37,13 +38,13 @@ export const WHOLE_EVEN_CERTIFICATE = createResearchModule({
   theorem: {
     label: 'Certified reflection-even theorem',
     statement:
-      'For the canonical closed supported Weil form below, there exists $c_*>0$ such that $q_{\lambda_*}[f]\ge c_*\lVert f\rVert_2^2$ for every complex reflection-even form-domain vector, and the same constant works for every smaller centered support.',
+      tex`For the canonical closed supported Weil form below, there exists $c_*>0$ such that $q_{\lambda_*}[f]\ge c_*\lVert f\rVert_2^2$ for every complex reflection-even form-domain vector, and the same constant works for every smaller centered support.`,
     hypotheses: [
-      'Set $X=\lambda^2$, $a=\log\lambda$, $W=2a=\log X$, and extend every function on $[-a,a]$ by zero.',
+      tex`Set $X=\lambda^2$, $a=\log\lambda$, $W=2a=\log X$, and extend every function on $[-a,a]$ by zero.`,
       'Use the nonunitary Fourier transform and the logarithmically weighted canonical form domain displayed below; the associated operator is defined by the closed form, not by imposed boundary conditions.',
       'Reflection-even means $f(-y)=f(y)$; complex coefficients are allowed and every matrix test is Hermitian.',
-      'The endpoint is exact: $X_*=16001/1000$, $W_*=\log(16001/1000)$, and $\lambda_*=\sqrt{16001/1000}$.',
-      'The finite head uses modes $0,\ldots,2048$ and the proof majorizes the entire complementary infinite tail, rather than a finite tail truncation.',
+      tex`The endpoint is exact: $X_*=16001/1000$, $W_*=\log(16001/1000)$, and $\lambda_*=\sqrt{16001/1000}$.`,
+      tex`The finite head uses modes $0,\ldots,2048$ and the proof majorizes the entire complementary infinite tail, rather than a finite tail truncation.`,
       'All numerical sign decisions use outward Arb intervals at 1000-bit precision. Midpoints select pivot permutations only.',
     ],
     equations: [
@@ -67,7 +68,7 @@ export const WHOLE_EVEN_CERTIFICATE = createResearchModule({
         label: 'Actual supported Weil form',
         tex: String.raw`q_\lambda[f]=\frac1{2\pi}\int_{\mathbb R}\alpha(t)|\widehat f(t)|^2\,dt+2\Re\int_0^W e^{r/2}R_f(r)\,dr-2\Re\sum_{2\le n<\lambda^2}\frac{\Lambda(n)}{\sqrt n}R_f(\log n)`,
         explanation:
-          'Here $R_f(r)=\int_{\mathbb R}\overline{f(y)}f(y+r)\,dy$ and $\alpha(t)=\Re\psi(5/4+it/2)-\log\pi$. Endpoint atoms vanish because $R_f(W)=0$.',
+          tex`Here $R_f(r)=\int_{\mathbb R}\overline{f(y)}f(y+r)\,dy$ and $\alpha(t)=\Re\psi(5/4+it/2)-\log\pi$. Endpoint atoms vanish because $R_f(W)=0$.`,
       },
       {
         id: 'reflection-even-domain',
@@ -187,7 +188,7 @@ export const WHOLE_EVEN_CERTIFICATE = createResearchModule({
       notes: [
         'The retained nearly resonant ratios are $16,1/16,256,1/256$, with their signed moments.',
         'Forty-eight finite inverse-weight bands and the infinite final plateau are retained.',
-        'The far proof uses the reviewed all-sequence bounds $B=3$ and $C_\beta=13/10$, including beta-error and geometric remainder terms.',
+        tex`The far proof uses the reviewed all-sequence bounds $B=3$ and $C_\beta=13/10$, including beta-error and geometric remainder terms.`,
         'The exact-$X=16$ quarter/half-phase shortcuts are not used at this endpoint.',
       ],
     },
@@ -238,7 +239,7 @@ export const WHOLE_EVEN_CERTIFICATE = createResearchModule({
       ],
       notes: [
         'The coercivity constant is deliberately existential at this enlarged endpoint.',
-        'Centered zero extension preserves both the norm and the actual form, so the same inequality passes to every $1<\lambda\le\lambda_*$.',
+        tex`Centered zero extension preserves both the norm and the actual form, so the same inequality passes to every $1<\lambda\le\lambda_*$.`,
       ],
     },
     {
@@ -291,7 +292,7 @@ export const WHOLE_EVEN_CERTIFICATE = createResearchModule({
     result:
       'PASS for the accepted endpoint: every source/hash gate, all 10,437 moment rows, the 2049-dimensional core, 72-dimensional coefficient factor, and 72-dimensional whitened Schur gate agree with the frozen receipts. The separate X=16.1 sufficient surrogate remains failed with only partial full-run reproduction.',
     scope:
-      'Actual reflection-even supported-form coercivity for the finite support range $1<\lambda\le\sqrt{16001/1000}$, including the complete infinite Fourier tail. No odd-sector, cofinal-support, numerical full-form floor, actual-negativity, or RH conclusion is replayed.',
+      tex`Actual reflection-even supported-form coercivity for the finite support range $1<\lambda\le\sqrt{16001/1000}$, including the complete infinite Fourier tail. No odd-sector, cofinal-support, numerical full-form floor, actual-negativity, or RH conclusion is replayed.`,
     reproducibilityStatus: 'current-replay',
     commands: [
       {
@@ -492,17 +493,17 @@ export const WHOLE_EVEN_CERTIFICATE = createResearchModule({
       id: 'cofinal-support-control',
       title: 'A fixed cavity is not the infinite-volume limit',
       statement:
-        'The theorem controls every centered even support only up to $\lambda_*$. RH-oriented use would require a support-independent floor or another stable mechanism along a cofinal family, plus control of the distinguished branch as support grows.',
+        tex`The theorem controls every centered even support only up to $\lambda_*$. RH-oriented use would require a support-independent floor or another stable mechanism along a cofinal family, plus control of the distinguished branch as support grows.`,
       physicsAnalogy:
         'A resonator can be rigorously stable at every cavity size up to four units while its lowest mode still softens as the walls recede. A finite-cavity certificate does not establish a mass gap in the thermodynamic limit.',
       nextTest:
-        'Prove a uniform family estimate along unbounded supports, or construct a monotone/compactness mechanism that prevents the even ground branch from collapsing as $\lambda\to\infty$.',
+        tex`Prove a uniform family estimate along unbounded supports, or construct a monotone/compactness mechanism that prevents the even ground branch from collapsing as $\lambda\to\infty$.`,
     },
     {
       id: 'odd-sector-control',
       title: 'The odd reflection sector remains open',
       statement:
-        'The current certificate is only for $H_{\lambda,+}$. It gives no positive lower bound for reflection-odd vectors.',
+        tex`The current certificate is only for $H_{\lambda,+}$. It gives no positive lower bound for reflection-odd vectors.`,
       physicsAnalogy:
         'Certifying one polarization of a coupled field does not certify the orthogonal polarization; symmetry decouples the channels but does not transfer the gap.',
       nextTest:
@@ -558,14 +559,14 @@ export const WHOLE_EVEN_CERTIFICATE = createResearchModule({
       surrogate:
         'At $X=161/10$, the same finite-rank far-tail majorant asks for positivity of the final whitened sufficient matrix $I-ZC^{-1}Z^*$.',
       failureStage:
-        'The producer core and coefficient factor pass, but the first final whitened pivot is enclosed near $-0.674664753296947054\ldots$ with radius $1.20\times10^{-61}$. The full producer result was inspected and source-pinned; prerequisites and the complete scalar cache were independently replayed, but the full failed matrix producer was not independently rerun.',
+        tex`The producer core and coefficient factor pass, but the first final whitened pivot is enclosed near $-0.674664753296947054\ldots$ with radius $1.20\times10^{-61}$. The full producer result was inspected and source-pinned; prerequisites and the complete scalar cache were independently replayed, but the full failed matrix producer was not independently rerun.`,
       implication:
         'This particular sufficient lower-majorant route does not certify positivity at $X=161/10$ without a sharper bound or different factorization.',
       nonImplications: [
         'It does not prove that the actual Schur complement has a negative direction.',
         'It does not prove that the actual supported Weil form or its operator is negative.',
-        'It does not establish a true positivity endpoint at $\sqrt{16001/1000}$.',
-        'It does not invalidate the accepted certificate below $\sqrt{16001/1000}$.',
+        tex`It does not establish a true positivity endpoint at $\sqrt{16001/1000}$.`,
+        tex`It does not invalidate the accepted certificate below $\sqrt{16001/1000}$.`,
         'It does not promote any proposed directional repair or higher-power prerequisite to a completed theorem.',
       ],
       evidence: [
@@ -599,6 +600,20 @@ export const WHOLE_EVEN_CERTIFICATE = createResearchModule({
     'research/rh/spectral/source-tree/rh_attack_cycle_20261030/support_endpoint_X161/FAILED_FULL_TEST.md — retained failed-surrogate route.',
   ],
 });
+
+function collectRuntimeStrings(value, strings = []) {
+  if (typeof value === 'string') {
+    strings.push(value);
+    return strings;
+  }
+  if (!value || typeof value !== 'object') return strings;
+  if (Array.isArray(value)) {
+    value.forEach((item) => collectRuntimeStrings(item, strings));
+    return strings;
+  }
+  Object.values(value).forEach((item) => collectRuntimeStrings(item, strings));
+  return strings;
+}
 
 export const WHOLE_EVEN_CERTIFICATE_ASSERTIONS = Object.freeze([
   {
@@ -678,6 +693,28 @@ export const WHOLE_EVEN_CERTIFICATE_ASSERTIONS = Object.freeze([
       (blocker) => blocker.id === 'odd-sector-control',
     ) && WHOLE_EVEN_CERTIFICATE.blockers.some(
       (blocker) => blocker.id === 'ground-branch-identification',
+    ),
+  },
+  {
+    name: 'whole-even runtime prose preserves representative TeX commands',
+    holds: () => [
+      [WHOLE_EVEN_CERTIFICATE.claimBoundary.statement, [tex`\lambda`, tex`\sqrt`]],
+      [WHOLE_EVEN_CERTIFICATE.theorem.statement, [tex`\lambda`, tex`\ge`, tex`\lVert`]],
+      [WHOLE_EVEN_CERTIFICATE.theorem.hypotheses.join('\n'), [tex`\log`, tex`\ldots`]],
+      [WHOLE_EVEN_CERTIFICATE.theorem.equations.find(
+        (equation) => equation.id === 'actual-supported-weil-form',
+      )?.explanation || '', [tex`\int`, tex`\mathbb`, tex`\overline`]],
+      [WHOLE_EVEN_CERTIFICATE.verification.scope, [tex`\lambda`, tex`\le`, tex`\sqrt`]],
+      [WHOLE_EVEN_CERTIFICATE.blockers.find(
+        (blocker) => blocker.id === 'cofinal-support-control',
+      )?.nextTest || '', [tex`\lambda`, tex`\to`, tex`\infty`]],
+      [WHOLE_EVEN_CERTIFICATE.failures[0]?.failureStage || '', [tex`\ldots`, tex`\times`]],
+    ].every(([value, tokens]) => tokens.every((token) => value.includes(token))),
+  },
+  {
+    name: 'whole-even runtime text contains no destructive ASCII controls',
+    holds: () => collectRuntimeStrings(WHOLE_EVEN_CERTIFICATE).every(
+      (value) => !/[\u0000-\u0009\u000b\u000c\u000e-\u001f\u007f]/.test(value),
     ),
   },
 ]);

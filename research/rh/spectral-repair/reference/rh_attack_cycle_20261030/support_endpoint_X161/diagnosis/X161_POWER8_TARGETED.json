@@ -1,0 +1,50 @@
+{
+  "status": "SCALAR_FEASIBILITY_ONLY",
+  "precision_bits": 200,
+  "runs": [
+    {
+      "X": "161/10",
+      "state_counts": [
+        20,
+        218,
+        1573,
+        8969,
+        43173,
+        182321,
+        691992,
+        2409206
+      ],
+      "endpoint_count": 26978,
+      "prime_count": 10,
+      "eighth_power_schur_norm_upper": "[3.7905925951290782344586104354242358506851817445221 +/- 4.99e-51]",
+      "N2048_tail_floor_with_this_norm": "[0.74250305780000161476581370839977455724886200225168 +/- 2.32e-51]",
+      "raw_beta_phase_count": 21,
+      "raw_square_ratio_count": 193,
+      "exact_grouped_square_phase_count": 193,
+      "near_identity_squared_channels": [
+        {
+          "r": "161/160",
+          "phase_distance": "[0.014087889429673934478653283897794353 +/- 1.64e-37]",
+          "J_phase_product": "[230.81598041577774249825540338146268 +/- 2.23e-33]"
+        },
+        {
+          "r": "25921/25600",
+          "phase_distance": "[0.028175778859347868957306567795588706 +/- 3.27e-37]",
+          "J_phase_product": "[461.63196083155548499651080676292536 +/- 4.46e-33]"
+        },
+        {
+          "r": "2560/161",
+          "phase_distance": "[0.028175778859347868957306567795588706 +/- 3.27e-37]",
+          "J_phase_product": "[461.63196083155548499651080676292536 +/- 4.46e-33]"
+        },
+        {
+          "r": "16",
+          "phase_distance": "[0.014087889429673934478653283897794353 +/- 1.64e-37]",
+          "J_phase_product": "[230.81598041577774249825540338146268 +/- 2.23e-33]"
+        }
+      ],
+      "seconds": 107.61654162406921
+    }
+  ],
+  "scope": "Complete rational eighth-power prime norm enumeration and exact channel counts only. No finite corrected matrix, full positivity, or support extension certificate."
+}

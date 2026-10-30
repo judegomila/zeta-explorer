@@ -1,0 +1,37 @@
+{
+  "status": "PASS_COMPLETE_REPAIRED_SOURCE_PINNED_INDEPENDENT_REPLAY",
+  "X": "161/10",
+  "comparisons": [
+    {
+      "filename": "REPAIRED_SMALL_DENSE_GATE.json",
+      "all_non_timing_fields_identical": true,
+      "producer_seconds": 17.533603191375732,
+      "replay_seconds": 18.951136827468872,
+      "min_relative_accuracies": [
+        585,
+        954,
+        594
+      ],
+      "producer_sha256": "800abdb6a1c85844a746af5a9df85ba9dc8bea0fa5f791fa62d034a51b06e268",
+      "replay_sha256": "cf19f3c9b0a9022167a52d5c3535b23774b7d2b5759e999cd3321d5d610e129f"
+    },
+    {
+      "filename": "REPAIRED_FULL_EVEN_CERTIFICATE.json",
+      "all_non_timing_fields_identical": true,
+      "producer_seconds": 200.3052704334259,
+      "replay_seconds": 200.23536610603333,
+      "min_relative_accuracies": [
+        264,
+        954,
+        263
+      ],
+      "producer_sha256": "2b7edf024d6e8b0192d0bf5267f04a887daa99b9fcadbed72780d4c02302d992",
+      "replay_sha256": "290a8703fbfd0f994b64e196a2bbbb44142770b330ec2ec8a3765fdd7b1fefcb"
+    }
+  ],
+  "all_producer_sources_cache_unchanged": true,
+  "previous_accepted_and_failed_audit_pins_unchanged": true,
+  "same_support_prior_independently_recomputed_cache_reused": true,
+  "no_numeric_floor_from_pivots": true,
+  "scope": "Complete finite-sign replay; actual full-even coercivity also uses the separately sealed all-tail inverse-order and unchanged-far-majorant proof."
+}

@@ -8,17 +8,18 @@
     "build": "node scripts/verify-debranges-gram-certificates.mjs && node scripts/audit-nav-links.mjs && node scripts/check-bundle-sizes.mjs && vite build",
     "preview": "vite preview",
     "assert": "node scripts/run-assertions.mjs --fail-inject && node scripts/audit-nav-links.mjs && node scripts/run-assertions.mjs && node scripts/reproduce-headline-numbers.mjs",
-    "assert:pr": "node scripts/run-assertions.mjs --fail-inject && node scripts/audit-nav-links.mjs && node scripts/run-assertions.mjs --fast --since-ref=origin/main && node scripts/reproduce-headline-numbers.mjs && node scripts/smoke-tests.mjs",
+    "assert:pr": "node scripts/run-assertions.mjs --fail-inject && node scripts/audit-nav-links.mjs && node scripts/run-assertions.mjs --fast --since-ref=origin/main && node scripts/reproduce-headline-numbers.mjs && node scripts/smoke-tests.mjs && npm run test:cayley",
     "assert:fast": "node scripts/audit-nav-links.mjs && node scripts/run-assertions.mjs --fast",
     "audit:shear": "node --no-warnings scripts/shear-kernel-audit.mjs",
     "audit:debranges-grams": "node --no-warnings scripts/verify-debranges-gram-certificates.mjs",
     "test:debranges-gram-audit": "node --no-warnings scripts/verify-debranges-gram-certificates.mjs --self-test",
     "reproduce": "node scripts/reproduce-headline-numbers.mjs",
-    "test": "node scripts/smoke-tests.mjs",
+    "test": "node scripts/smoke-tests.mjs && npm run test:cayley",
     "test:pages": "node scripts/check-page-health.mjs",
     "test:buttons": "node scripts/test-buttons.mjs",
-    "test:all": "node scripts/smoke-tests.mjs && node scripts/check-page-health.mjs && node scripts/test-buttons.mjs",
-    "verify:heavy-imports": "node scripts/verify-no-heavy-page-imports.mjs"
+    "test:all": "npm test && node scripts/check-page-health.mjs && node scripts/test-buttons.mjs",
+    "verify:heavy-imports": "node scripts/verify-no-heavy-page-imports.mjs",
+    "test:cayley": "node --test scripts/cayley-schur.test.mjs"
   },
   "repository": {
     "type": "git",

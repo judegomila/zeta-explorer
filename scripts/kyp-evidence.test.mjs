@@ -164,6 +164,15 @@ test('existing boundary, convergence-region and sparse-node conjecture gates rem
   assert.match(M.blocker, /well-posed realization, operator domains/);
 });
 
+test('repeated-prime delay labels are not an independent family or a realization proof', () => {
+  // For a single fixed prime, 2*(1*log p) - 1*(2*log p)=0 exactly.
+  assert.equal(2n * 1n - 1n * 2n, 0n);
+  assert.doesNotMatch(K.landscape.summary, /Baker-independent/);
+  assert.match(K.landscape.summary, /proposed countably infinite delay family/);
+  assert.match(K.landscape.summary, /requires a justified full realization and limit/);
+  assert.match(K.landscape.summary, /finite reports alone establish neither/);
+});
+
 test('changed math strings render with strict KaTeX parsing', () => {
   for (const tex of [M.latexFormula, M.derivationLaTeX, N.latexFormula]) {
     const html = katex.renderToString(tex, { throwOnError: true, strict: 'error', displayMode: true });

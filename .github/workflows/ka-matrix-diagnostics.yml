@@ -1,0 +1,28 @@
+name: ka-matrix-diagnostics
+
+# Pure bounded tests only: do not run the historical quadrature sweep.
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'scripts/compute-imp-2424-Ka-tp-certificate.mjs'
+      - 'scripts/lib/ka-matrix-diagnostics.mjs'
+      - 'scripts/ka-matrix-diagnostics.test.mjs'
+      - '.github/workflows/ka-matrix-diagnostics.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  matrix-safety:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check syntax without running the generator
+        run: node --check scripts/compute-imp-2424-Ka-tp-certificate.mjs
+      - name: Run finite numerical-safety regressions
+        run: node --test scripts/ka-matrix-diagnostics.test.mjs

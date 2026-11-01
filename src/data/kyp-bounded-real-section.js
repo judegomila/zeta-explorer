@@ -294,9 +294,8 @@ export const KYP_BOUNDED_REAL = Object.freeze({
       'equivalently K_a >= 0) in control-theoretic language. App M uses the ' +
       'KYP LMI; App N uses the bounded-real Lyapunov-Krasovskii functional ' +
       'and the signed-Mobius barrier; App O uses the delay-Gram Cholesky pilot. ' +
-      'All three face the same infinite-dimensional obstruction: the prime-delay ' +
-      'ladder is countably infinite and Baker-independent, so finite-dimensional ' +
-      'certificates cannot directly close any of the three routes.',
+      'The proposed countably infinite delay family requires a justified full ' +
+      'realization and limit; finite reports alone establish neither.',
     controlTheoreticEquivalence:
       'Stable analytic Schur contractivity of Theta_a in the half-plane for ' +
       'every a > 0  <=>  K_a >= 0  <=>  Delta = 0  <=>  RH. Boundary modulus ' +

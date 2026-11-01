@@ -7,8 +7,14 @@
  * coefficients and X(w)=8 integral Phi(u) cosh(2wu) du. Consequently every
  * negative pivot and power-law fit in this file belongs only to the surrogate.
  * The former exact-K_a cone-boundary inference is RETRACTED and INVALID FOR T3.
- * A correctly normalized 60-digit four-node numerical check is positive.
+ * The historical record reports a positive canonical 60-digit four-node
+ * numerical check, not replayed here. The normalization mismatch itself
+ * already invalidates the surrogate-to-exact-kernel inference.
  * Historical values are retained solely for reproducibility.
+ * NUMERICAL SAFETY CORRECTION (2026-11-01): the old sign-flipping,
+ * zero-pivot and nonfinite diagnostic algorithm is also invalidated.
+ * No corrected full sweep has been rerun. Old rows are historical records,
+ * not certified signs/inertias or established surrogate continuum limits.
  * @see imp-2424
  * @see imp-2363
  * @see data/three-attacks-section.js (Attack I)
@@ -33,30 +39,38 @@
 //
 // imp-2424 built the n x n Gram matrix G[j,k] = K_a(z_j, z_k) on a symmetric
 // real grid, formed the diagonal-normalized correlation matrix C (unit
-// |diagonal|) to separate sign from conditioning, and read the minor margin off
+// |diagonal|), but also flipped the orientation by majority diagonal sign.
+// That flip is not a sign-preserving congruence. It read the minor margin off
 // the symmetric LDL^T pivots (Sylvester: sign changes of the leading principal
 // minors are governed by the pivots; the product-of-pivots minor itself
 // underflows for large n and measures conditioning, not sign). It reported the
 // smallest signed normalized pivot is NEGATIVE and shrinks like n^{-1.7}.
+// Those claims are historical: zero-pivot continuation and nonfinite handling
+// do not establish a valid factorization, sign or negative-pivot count.
 //
 // imp-2456 extends that sweep: n in {8,16,24,32,48,64,80,96} and a 12-point
 // a-grid {0.05 .. 6.0}. For each a it fits log|margin| against log n by OLS and
-// extrapolates the SIGNED margin to the continuum. Three outcomes were
+// historically extrapolated the margin to the continuum. Three outcomes were
 // distinguished a priori: a strictly-positive floor (Attack I achievable), a
 // signed limit of 0 reached from below (MARGINAL, on the cone boundary), or a
-// bounded-away negative value (positivity structurally blocked).
+// bounded-away negative value (positivity structurally blocked). Neither an
+// OLS fit nor this changing finite grid established those continuum outcomes.
 //
 // HISTORICAL SURROGATE FINDING
 // ----------------------------
-// Across all 12 a-values and all 8 surrogate truncations the smallest signed
-// normalized pivot is negative (96 of 96 cells), with the fitted law:
+// The old output claimed that across all 12 a-values and all 8 truncations the
+// smallest normalized pivot was negative (96 of 96 cells), with the fitted law:
 //   - p approx 1.87 with R^2 = 0.999 for a in [0.05, 2] -- remarkably
 //     a-independent, sharpening imp-2424's coarser n^{-1.7} estimate;
 //   - p drifts down to approx 1.06 (R^2 = 0.75) only at a = 6, where the
-//     cosh(au) growth dominates and the fixed grid under-resolves the kernel.
-// These values say nothing about the sign or continuum location of exact K_a.
-// The correctly normalized four-node numerical check is positive. No negative-minor,
-// cone-boundary, T3, B_a^+, Lambda, or RH inference survives the audit.
+//     under-resolution was suggested as an explanation, not independently
+//     isolated by this record.
+// The old diagnostics are invalidated as numerical evidence; literal values
+// are preserved below, not recomputed. They establish no surrogate limit and
+// say nothing about the sign or continuum location of exact K_a.
+// The historical record reports a positive canonical four-node numerical check,
+// not replayed here. The normalization mismatch already blocks the exact-kernel
+// inference. No cone-boundary, T3, B_a^+, Lambda or RH result follows.
 
 // Representative full margin series at a = 0.5 (smallest signed normalized
 // pivot of C; negativePivots = count of negative pivots out of n).
@@ -71,7 +85,7 @@ const IMP2456_SERIES_A_HALF = Object.freeze([
   Object.freeze({ n: 96, minPivotSigned: -3.026984e-5, negativePivots: 45 }),
 ]);
 
-// Per-a power-law fit |margin| ~ C n^{-p} and continuum verdict.
+// Historical per-a finite power-law fit and old label; not an established limit.
 const IMP2456_FIT_TABLE = Object.freeze([
   Object.freeze({ a: 0.05, p: 1.872, r2: 0.999, marginSign: -1, lastMargin: -3.041e-5, verdict: 'surrogate-marginal-fit' }),
   Object.freeze({ a: 0.1,  p: 1.872, r2: 0.999, marginSign: -1, lastMargin: -3.040e-5, verdict: 'surrogate-marginal-fit' }),
@@ -94,6 +108,23 @@ export const IMP_2456_KA_MINOR_EXTRAPOLATION = Object.freeze({
   kernelModel: 'historical-surrogate-normalization',
   appliesToExactRiemannKernel: false,
   kernel: 'surrogate Wronskian matrix inherited from imp-2424',
+  numericalAudit: Object.freeze({
+    correctedOn: '2026-11-01',
+    historicalDiagnosticStatus: 'invalidated-pre-correction-not-current-evidence',
+    correctedSweepStatus: 'not-rerun',
+    orientationFlipInvalid: true,
+    zeroPivotContinuationInvalid: true,
+    nonfiniteComparisonsInvalid: true,
+    finiteFitProvesContinuumLimit: false,
+    currentFiniteSignOrInertia: null,
+    historicalNumbersPreserved: true,
+    scope: 'The old rows remain recorded values only. No corrected sign, negative index, continuum limit or floor is asserted.',
+  }),
+  historicalInvalidated: Object.freeze({
+    recordedEveryCellMarginNegative: true,
+    recordedFitDirection: 'surrogate fit approaches 0 from below',
+    evidenceStatus: 'not-current-numerical-evidence',
+  }),
   normalizationAudit: Object.freeze({
     implementedPhi:
       '(2 pi^2 n^4 e^(4u) - 3 pi n^2 e^(2u)) exp(-pi n^2 e^(4u))',
@@ -103,6 +134,7 @@ export const IMP_2456_KA_MINOR_EXTRAPOLATION = Object.freeze({
     omittedTransformArgumentFactor: 2,
     correctedCanonicalFourNodeNumericalCheck: Object.freeze({
       status: 'positive-numerical-only',
+      provenance: 'Stored historical claim; independent producer and numerical enclosure not replayed in this safety repair.',
       rigorous: false,
       precisionDigits: 60,
       a: 0.5,
@@ -127,24 +159,29 @@ export const IMP_2456_KA_MINOR_EXTRAPOLATION = Object.freeze({
     form: '|margin| ~ C n^{-p}',
     pSmallA: 1.87,
     pSmallA_r2: 0.999,
-    aRangeOfUniversalExponent: '[0.05, 2.0]',
+    aRangeOfUniversalExponent: '[0.05, 2.0]', // historical field name, not universality
+    status: 'historical-fit-only-not-an-asymptotic-law',
     pAtLargeA: 1.06,
     note:
-      'p approx 1.87 is nearly a-independent for a <= 2 (sharpening imp-2424 ' +
-      'n^{-1.7}); it falls to approx 1.06 only at a = 6 where cosh(au) growth ' +
-      'dominates and the fixed grid under-resolves the kernel.',
+      'The stored fit reports p approx 1.87 for a <= 2 and approx 1.06 at a = 6. ' +
+      'The old numerical diagnostic is invalidated. Under-resolution was a ' +
+      'suggested explanation, not an independently established cause or asymptotic theorem.',
   }),
   continuum: Object.freeze({
-    historicalSurrogateEveryCellMarginNegative: true,
+    historicalSurrogateEveryCellMarginNegative: null, // withdrawn evidentiary field
     cellsTested: 96,
-    historicalFitDirection: 'surrogate fit approaches 0 from below',
-    verdict: 'surrogate-fit-only-invalid-for-T3',
+    historicalFitDirection: null, // old statement retained in historicalInvalidated
+    verdict: 'inconclusive-invalidated-diagnostics',
+    surrogateLimit: null,
+    strictlyPositiveFloor: null,
+    boundedAwayNegativeLimit: null,
     exactKernelInference: 'RETRACTED',
     interpretation:
-      'The fit describes only the mis-normalized surrogate. It does not place ' +
-      'exact K_a on either side of the PSD cone or on its boundary. The ' +
-      'correctly normalized 60-digit four-node numerical check is positive, ' +
-      'so the historical negative-pivot inference is invalid for T3.',
+      'The historical fit is not a verified surrogate limit; the old diagnostic ' +
+      'algorithm is invalidated and the corrected sweep has not been rerun. It does not place ' +
+      'exact K_a on either side of the PSD cone or on its boundary: the normalization mismatch ' +
+      'already blocks that transfer. The historical record reports a positive canonical ' +
+      '60-digit four-node numerical check, not replayed here and not a proof.',
   }),
   subGap: Object.freeze({
     id: 'RETRACTED-GAP-2456-SURROGATE-CONE-BOUNDARY',
@@ -156,11 +193,12 @@ export const IMP_2456_KA_MINOR_EXTRAPOLATION = Object.freeze({
   }),
   honestScope:
     'SURROGATE / INVALID FOR T3. The historical negative rows and n^{-1.87} ' +
-    'fit are reproducibility data for a mis-normalized kernel only. They do ' +
+    'fit are historical recorded values for a mis-normalized kernel only; the old ' +
+    'sign/pivot algorithm is invalidated and the corrected sweep has not been rerun. They do ' +
     'not establish a negative exact-K_a minor, a PSD-cone boundary, or any ' +
-    'restriction on an exact proof strategy. The correctly normalized ' +
-    'four-node numerical check is positive but is not a proof. B_a^+, ' +
-    'Lambda, RH, and T3 are untouched.',
+    'restriction on an exact proof strategy. The normalization mismatch already blocks that transfer. ' +
+    'The historical record reports a positive canonical four-node numerical check, ' +
+    'not replayed here and not a proof. B_a^+, Lambda, RH, and T3 are untouched.',
   proofClaim: false,
   lambdaImpact: 'none',
   references: Object.freeze({
@@ -192,13 +230,16 @@ export const IMP_2456_KA_MINOR_EXTRAPOLATION_ASSERTIONS = [
   },
   {
     id: 'imp2456-negative-minor-inference-retracted',
-    why: 'Surrogate negative pivots cannot imply a cone-boundary or negative-minor verdict for exact K_a.',
+    why: 'The normalization mismatch independently blocks exact-kernel transfer; the separate positive numerical claim is only an unreplayed historical record.',
     holds: () =>
       IMP_2456_KA_MINOR_EXTRAPOLATION.continuum.exactKernelInference === 'RETRACTED' &&
       IMP_2456_KA_MINOR_EXTRAPOLATION.normalizationAudit
         .correctedCanonicalFourNodeNumericalCheck.status === 'positive-numerical-only' &&
       IMP_2456_KA_MINOR_EXTRAPOLATION.normalizationAudit
         .correctedCanonicalFourNodeNumericalCheck.rigorous === false &&
+      /not replayed/.test(IMP_2456_KA_MINOR_EXTRAPOLATION.normalizationAudit
+        .correctedCanonicalFourNodeNumericalCheck.provenance) &&
+      /normalization mismatch/.test(IMP_2456_KA_MINOR_EXTRAPOLATION.continuum.interpretation) &&
       IMP_2456_KA_MINOR_EXTRAPOLATION.normalizationAudit
         .correctedCanonicalFourNodeNumericalCheck.smallestNormalizedEigenvalue > 0 &&
       IMP_2456_KA_MINOR_EXTRAPOLATION.normalizationAudit
@@ -215,6 +256,29 @@ export const IMP_2456_KA_MINOR_EXTRAPOLATION_ASSERTIONS = [
       IMP_2456_KA_MINOR_EXTRAPOLATION.fitTable.every(
         (row) => row.verdict === 'surrogate-marginal-fit'
       ),
+  },
+  {
+    id: 'imp2456-old-diagnostics-invalidated-corrected-sweep-not-rerun',
+    why: 'Historical numbers must not be silently promoted to corrected finite evidence.',
+    holds: () => {
+      const a = IMP_2456_KA_MINOR_EXTRAPOLATION.numericalAudit;
+      return a.historicalDiagnosticStatus === 'invalidated-pre-correction-not-current-evidence' &&
+        a.correctedSweepStatus === 'not-rerun' &&
+        a.orientationFlipInvalid && a.zeroPivotContinuationInvalid &&
+        a.nonfiniteComparisonsInvalid && a.currentFiniteSignOrInertia === null &&
+        a.historicalNumbersPreserved === true;
+    },
+  },
+  {
+    id: 'imp2456-finite-fit-does-not-establish-either-continuum-side',
+    why: 'Unavailable continuum claims are null, not false claims of the opposite sign.',
+    holds: () => {
+      const c = IMP_2456_KA_MINOR_EXTRAPOLATION.continuum;
+      return c.historicalSurrogateEveryCellMarginNegative === null &&
+        c.historicalFitDirection === null && c.surrogateLimit === null &&
+        c.strictlyPositiveFloor === null && c.boundedAwayNegativeLimit === null &&
+        IMP_2456_KA_MINOR_EXTRAPOLATION.numericalAudit.finiteFitProvesContinuumLimit === false;
+    },
   },
 ];
 

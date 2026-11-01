@@ -1,0 +1,24 @@
+name: de Branges HB scope regressions
+on:
+  pull_request:
+    paths:
+      - 'src/data/imp-2695-debranges-hb-downstream-verify.js'
+      - 'scripts/test-debranges-hb-scope.mjs'
+      - '.github/workflows/debranges-hb-scope.yml'
+  push:
+    branches: ['repair/debranges-hb-scope-20261101']
+    paths:
+      - 'src/data/imp-2695-debranges-hb-downstream-verify.js'
+      - 'scripts/test-debranges-hb-scope.mjs'
+      - '.github/workflows/debranges-hb-scope.yml'
+permissions:
+  contents: read
+jobs:
+  focused-regressions:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: node --test scripts/test-debranges-hb-scope.mjs

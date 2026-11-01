@@ -9,7 +9,7 @@
 //   2. Parallel-delay realization diagram (inline SVG, no D3).
 //   3. Per-App cards (M / N / O): statement + LaTeX + status + blocker + principle.
 //   4. Conjectures M.1 and O.1.
-//   5. Numerical certificates table.
+//   5. Unverified historical numerical reports.
 //   6. Open sub-problems list.
 //   7. Related-pages footer.
 //
@@ -54,7 +54,7 @@ function ParallelDelayDiagram() {
       width="100%"
       style={{ maxWidth: 680, display: 'block', margin: '0 auto' }}
       role="img"
-      aria-label="Parallel-delay realization of the prime-delay system: input feeds delay lines at tau_p = log p for each prime p"
+      aria-label="Proposed parallel-delay schematic, not a verified arithmetic realization: first eight prime delays"
     >
       {/* Input node */}
       <circle cx={inputX} cy={inputY} r={18} fill="rgba(63,107,134,0.12)" stroke="#3f6b86" strokeWidth="2" />
@@ -113,7 +113,7 @@ function ParallelDelayDiagram() {
 
       {/* Label */}
       <text x={W / 2} y={H - 8} textAnchor="middle" fontFamily={mono} fontSize="11" fill="#877b67">
-        Parallel prime-delay realization of Sigma_a (first 8 primes shown)
+        Proposed prime-delay schematic (first 8 primes; not a verified realization)
       </text>
     </svg>
   );
@@ -144,6 +144,13 @@ function AppCard({ app }) {
         <strong style={{ color: col.fg }}>Statement. </strong>
         {app.statement}
       </p>
+
+      {app.derivationLaTeX && (
+        <div style={{ marginTop: 12, overflowX: 'auto' }}>
+          <BlockMath tex={app.derivationLaTeX} />
+          <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.75 }}>{app.derivation}</p>
+        </div>
+      )}
 
       <p style={{ marginTop: 12, color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.75 }}>
         <strong style={{ color: 'var(--brass-dk)' }}>Current status. </strong>
@@ -233,7 +240,7 @@ export default function KypBoundedRealPage() {
             background: 'rgba(181,138,46,0.08)',
           }}
           role="note"
-          aria-label="Verdict: RH-equivalent, not a reduction"
+          aria-label="Verdict: proposed realizations and unverified reports, not a proof"
         >
           <div style={{ display: 'flex', alignItems: 'baseline', gap: 10, flexWrap: 'wrap' }}>
             <span
@@ -242,30 +249,34 @@ export default function KypBoundedRealPage() {
                 color: 'var(--brass-dk)', background: 'rgba(181,138,46,0.14)', border: '1px solid var(--brass-dk)',
               }}
             >
-              VERDICT: RH-EQUIVALENT, NOT A REDUCTION
+              VERDICT: PROPOSED REALIZATIONS; REPORTS UNVERIFIED
             </span>
           </div>
           <p style={{ marginTop: 10, color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.75 }}>
-            The passivity / bounded-real condition on the prime-delay system
-            <InlineMath tex="\;\Sigma_a\;" /> is <strong style={{ color: 'var(--brass-dk)' }}>equivalent to
-            RH in the infinite-dimensional limit</strong>, not a reduction of it. The finite-N
-            KYP/delay-LMI/Cholesky certificates below establish positivity unconditionally only for
-            each truncated system; that positivity <strong>does not transfer to the limit without a
-            uniform-convergence (uniform spectral-gap) bound</strong>, which remains open for all
-            <InlineMath tex="\;a>0" />. So this page documents a control-theoretic restatement of RH
-            and its numerical support &mdash; it is <strong>not a near-complete proof step</strong>.
-            This mirrors the &ldquo;RH-equivalent and open&rdquo; framing of the
+            Stable analytic Schur contractivity of the bridge ratio is the RH-strength
+            target. A finite-dimensional bounded-real condition is valid only for an
+            actual model satisfying its hypotheses; an infinite-delay realization and
+            its identification with the arithmetic bridge remain separate obligations.
+            The seven numbers below are <strong>unverified historical reports, not
+            replayed certificates</strong>. They establish neither positivity of a
+            supplied truncation nor absence of off-critical zeros. This is
+            <strong> not a near-complete proof step</strong>; see the
             {' '}<Link to="/closure-routes" style={{ color: 'var(--blue)' }}>four closure routes</Link>.
           </p>
+        </div>
+
+        <div className="card" style={{ marginTop: 16 }} role="note">
+          <h3 style={{ color: 'var(--blue)', marginBottom: 8 }}>Positivity is not coercivity</h3>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.75 }}>{K.positivityLimitNote}</p>
         </div>
 
         {/* ─── Intro ─── */}
         <div className="card" style={{ marginTop: 16 }}>
           <h3 style={{ color: 'var(--blue)', marginBottom: 8 }}>Control-theoretic bridge to no-ghost</h3>
           <p style={{ color: 'var(--ink-soft)', fontSize: 14, lineHeight: 1.75 }}>
-            Appendices M, N, and O translate the bridge-kernel positivity condition
+            Appendices M, N, and O propose control-theoretic routes to the bridge-kernel positivity condition
             <InlineMath tex={'\\;K_a \\succeq 0\\;'} />
-            (equivalent to RH by para 16, Theorem 16.1) into three control-theoretic
+            (equivalent to RH by para 16, Theorem 16.1) using three control-theoretic
             languages. The central object is the shifted bridge ratio
           </p>
           <div style={{ marginTop: 12, overflowX: 'auto' }}>
@@ -278,12 +289,11 @@ export default function KypBoundedRealPage() {
             <BlockMath tex={K.setup.schurConditionLaTeX} />
           </div>
           <p style={{ marginTop: 12, color: 'var(--ink-soft)', fontSize: 14, lineHeight: 1.75 }}>
-            Because <InlineMath tex="\Theta_a" /> is the transfer function of the
-            prime-delay system <InlineMath tex="\Sigma_a" />, standard tools from
-            robust control theory apply: the KYP lemma (App M), the bounded-real
-            Lyapunov-Krasovskii approach (App N), and the Gram-matrix Cholesky
-            pilot (App O). All three route certification of losslessness to the
-            same shared bottleneck as Routes A-D in para 16.
+            If a well-posed stable model is separately shown to have the bridge ratio
+            as its transfer function (with the correct half-plane change of variable),
+            control-theoretic tools may apply. The finite-dimensional sufficient KYP
+            condition (App M), conditional storage inequality (App N), and finite Gram
+            diagnostic (App O) do not supply that identification themselves.
           </p>
           <p style={{ marginTop: 10, color: 'var(--faint)', fontSize: 12, lineHeight: 1.7, fontFamily: mono }}>
             {K.subtitle}
@@ -292,34 +302,28 @@ export default function KypBoundedRealPage() {
 
         {/* ─── Setup: prime-delay representation ─── */}
         <div className="card" style={{ marginTop: 16 }}>
-          <h3 style={{ color: 'var(--blue)', marginBottom: 8 }}>Prime-delay representation</h3>
+          <h3 style={{ color: 'var(--blue)', marginBottom: 8 }}>Proposed prime-delay representation</h3>
           <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.7 }}>
             The completed zeta function has the cosh-representation
             <InlineMath tex={'\\; X(w) = \\int_0^\\infty \\Phi(u)\\cosh(wu)\\,du'} />.
-            In the bridge ratio this produces an infinite sum of exponential delays:
+            The proposed delay description uses a formal Euler expansion, restricted below to its absolute-convergence region; it is not a global realization proof:
           </p>
           <div style={{ marginTop: 8, overflowX: 'auto' }}>
             <BlockMath tex={K.setup.primeDelayLaTeX} />
           </div>
           <p style={{ marginTop: 10, color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.7 }}>
-            Each prime <InlineMath tex="p" /> contributes delay lines at integer
-            multiples of <InlineMath tex="\log p" />. By Baker{String.fromCharCode(8217)}s theorem (1966) the
-            delays <InlineMath tex="\{\log p\}_p" /> are linearly independent over
-            <InlineMath tex="\mathbb{Q}" />, making the prime-delay ladder infinite-dimensional
-            and ruling out a finite-dimensional state-space realization.
+            Each prime <InlineMath tex="p" /> supplies proposed delay labels at multiples
+            of <InlineMath tex="\log p" />. These labels alone establish neither a
+            state-space realization nor its transfer identity. Infinite sums, operator
+            domains and continuation beyond the convergence region need separate justification.
           </p>
         </div>
 
         {/* ─── Parallel-delay diagram ─── */}
         <div className="card" style={{ marginTop: 16 }}>
-          <h3 style={{ color: 'var(--brass)', marginBottom: 8 }}>Parallel-delay realization of {String.fromCharCode(931)}<sub>a</sub></h3>
+          <h3 style={{ color: 'var(--brass)', marginBottom: 8 }}>Proposed parallel-delay schematic for {String.fromCharCode(931)}<sub>a</sub></h3>
           <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.7, marginBottom: 16 }}>
-            The prime-delay system <InlineMath tex="\Sigma_a" /> has a parallel realization:
-            input <InlineMath tex="u(t)" /> fans out to independent delay channels at
-            <InlineMath tex="\tau_p = \log p" /> for each prime <InlineMath tex="p" />,
-            then sums with bridge weights <InlineMath tex="c_{p,m}(a)" /> to form
-            <InlineMath tex="y(t)" />. The KYP certificate is a block-diagonal operator
-            <InlineMath tex="P = \mathrm{diag}(P_{p,m})" /> on <InlineMath tex="\ell^2" />.
+            {K.parallelDelayDiagram.description}
           </p>
           <ParallelDelayDiagram />
         </div>
@@ -340,29 +344,24 @@ export default function KypBoundedRealPage() {
           <ConjectureCard key={conj.label} conj={conj} />
         ))}
 
-        {/* ─── Numerical certificates table ─── */}
+        {/* ─── Unverified historical reports ─── */}
         <div className="card" style={{ marginTop: 28 }}>
-          <h3 style={{ color: 'var(--blue)', marginBottom: 12 }}>Numerical certificates at a glance</h3>
-          <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 13 }}>
+          <h3 style={{ color: 'var(--blue)', marginBottom: 12 }}>Historical numerical reports — unverified</h3>
+          <p id="kyp-report-status" style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.7 }}>{K.evidenceStatus}</p>
+          <div style={{ overflowX: 'auto' }}>
+          <table aria-describedby="kyp-report-status" style={{ width: '100%', borderCollapse: 'collapse', fontSize: 13 }}>
             <thead>
               <tr style={{ borderBottom: '1px solid var(--hairline)', color: 'var(--faint)', textAlign: 'left' }}>
                 <th style={{ padding: '8px 6px', fontFamily: mono }}>App</th>
                 <th style={{ padding: '8px 6px', fontFamily: mono }}>Method</th>
                 <th style={{ padding: '8px 6px', fontFamily: mono }}>a</th>
                 <th style={{ padding: '8px 6px', fontFamily: mono }}>N</th>
-                <th style={{ padding: '8px 6px', fontFamily: mono }}>Result</th>
+                <th style={{ padding: '8px 6px', fontFamily: mono }}>Reported result (unverified)</th>
+                <th style={{ padding: '8px 6px', fontFamily: mono }}>Evidence</th>
               </tr>
             </thead>
             <tbody>
-              {[
-                { app: 'App M', method: 'KYP LMI (SDP)', a: '0.50', n: '20', result: 'P_{20} > 0, lambda_min ~ 0.013' },
-                { app: 'App M', method: 'KYP LMI (SDP)', a: '0.25', n: '50', result: 'P_{50} > 0, lambda_min ~ 2.4e-4' },
-                { app: 'App N', method: 'Delay-LMI', a: '0.10', n: '10', result: 'passivity margin ~ 0.008' },
-                { app: 'App N', method: 'Delay-LMI', a: '0.10', n: '20', result: 'passivity margin ~ 0.003' },
-                { app: 'App O', method: 'Cholesky pilot', a: '0.025', n: '50', result: 'lambda_min ~ 1.4e-4, clean' },
-                { app: 'App O', method: 'Cholesky pilot', a: '0.010', n: '20', result: 'lambda_min ~ 3.8e-5, clean' },
-                { app: 'App O', method: 'Cholesky pilot', a: '0.005', n: '10', result: 'lambda_min ~ 1.1e-5, clean' },
-              ].map((row, i) => {
+              {K.historicalReports.map((row, i) => {
                 const col = APP_COLORS[row.app] || { fg: 'var(--ink)' };
                 return (
                   <tr key={i} style={{ borderBottom: '1px solid var(--hairline)' }}>
@@ -371,13 +370,15 @@ export default function KypBoundedRealPage() {
                     <td style={{ padding: '10px 6px', color: 'var(--faint)', fontFamily: mono }}>{row.a}</td>
                     <td style={{ padding: '10px 6px', color: 'var(--faint)', fontFamily: mono }}>{row.n}</td>
                     <td style={{ padding: '10px 6px', color: 'var(--faint)', fontFamily: mono, fontSize: 12 }}>{row.result}</td>
+                    <td style={{ padding: '10px 6px', color: 'var(--brass-dk)', fontSize: 12 }}>Unverified; not replayed; no witness supplied</td>
                   </tr>
                 );
               })}
             </tbody>
           </table>
+          </div>
           <p style={{ marginTop: 10, color: 'var(--faint)', fontSize: 12, fontFamily: mono }}>
-            All pilots confirm positivity; no off-critical zero detected in any tested parameter range.
+            Historical wording such as “clean” is preserved in the reported values, not endorsed. These rows do not certify positivity or a zero-free region.
           </p>
         </div>
 

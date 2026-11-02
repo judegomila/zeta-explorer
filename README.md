@@ -16,6 +16,8 @@ This repository hosts (a) an exploratory computational program around the de Bru
 
 ## Why this exists
 
+**Research checkpoint (2 November 2026):** [Zeta riblets and backward phase budgets](research-checkpoints/zeta-riblet-phase-budget-2026-11-02/README.md) derives the local multiplicity-sensitive phase obstruction, a uniform-window RH criterion, and a finite-scan counterexample, with runnable checks. The required global one-sided arithmetic estimate remains open; this is not an RH proof or a new Newman bound.
+
 The Riemann Hypothesis is equivalent to `Λ ≤ 0` (and, with Rodgers–Tao `Λ ≥ 0`, to `Λ = 0`). It is important to separate three grades used in the app: the peer-reviewed `0.2` benchmark, the public but unrefereed `0.1875` record-package claim, and the unreviewed computer-assisted `0.1787854` candidate for an unconditional proof in the standalone private review repository. The candidate bound is not established, has not been peer reviewed, and is not RH.
 
 This project does both of the following simultaneously, in public:

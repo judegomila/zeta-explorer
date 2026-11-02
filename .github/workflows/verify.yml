@@ -41,6 +41,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Check zeta riblet and phase-budget research checkpoint
+        run: node research-checkpoints/zeta-riblet-phase-budget-2026-11-02/verify.mjs
+
       - name: Build
         run: npm run build
 

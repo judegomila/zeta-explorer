@@ -1,0 +1,188 @@
+{
+  "status": "finite checks passed; global arithmetic bound open; not an RH proof",
+  "exactChecks": {
+    "pairIdentities": 48,
+    "distantTailBounds": 24,
+    "oneSidedErrorInequalities": 625
+  },
+  "capacity": {
+    "count": 78734,
+    "S": "182590132",
+    "numerator": "4513764145771872",
+    "denominator": "14000000000000000",
+    "strictUpperBound": "1/3"
+  },
+  "floatingDiagnostics": {
+    "status": "IEEE floating point, not interval certified",
+    "constantBackgroundCases": 9,
+    "maxConstantBackgroundError": 0.0000020297960379167534,
+    "polynomialBudgets": [
+      {
+        "xOverB": 0.5,
+        "backwardPhase": 1.0471975511965979
+      },
+      {
+        "xOverB": 0.9,
+        "backwardPhase": 2.2395390299972684
+      },
+      {
+        "xOverB": 0.99,
+        "backwardPhase": 2.8585137069409385
+      },
+      {
+        "xOverB": 0.9999,
+        "backwardPhase": 3.113308146634769
+      }
+    ],
+    "rows": [
+      {
+        "c": 1,
+        "q": 0.1,
+        "M": 13.46689509215374,
+        "epsilon": 0.007425616618804978,
+        "certified_halfwidth": 0.022276849856414933,
+        "computed_central_mass": 2.3728172631460236,
+        "analytic_lower_bound": 1.8980915447965088,
+        "computed_full_pocket_mass": 2.5667611455837056,
+        "pocket_width": 0.1024226883262648
+      },
+      {
+        "c": 1,
+        "q": 0.01,
+        "M": 13.46689509215374,
+        "epsilon": 0.0007425616618804978,
+        "certified_halfwidth": 0.00738839524848109,
+        "computed_central_mass": 2.9001748800363885,
+        "analytic_lower_bound": 2.7422603238453496,
+        "computed_full_pocket_mass": 2.959943383927239,
+        "pocket_width": 0.03267400865073572
+      },
+      {
+        "c": 1,
+        "q": 0.0001,
+        "M": 13.46689509215374,
+        "epsilon": 0.000007425616618804978,
+        "certified_halfwidth": 0.0007425245328691553,
+        "computed_central_mass": 3.117468542752344,
+        "analytic_lower_bound": 3.1015933202664603,
+        "computed_full_pocket_mass": 3.123429086799298,
+        "pocket_width": 0.003270525297896529
+      },
+      {
+        "c": 10,
+        "q": 0.1,
+        "M": 16.563936814893065,
+        "epsilon": 0.006037212114337904,
+        "certified_halfwidth": 0.01811163634301371,
+        "computed_central_mass": 2.0512216725442345,
+        "analytic_lower_bound": 1.8980915447965088,
+        "computed_full_pocket_mass": 2.063642439717467,
+        "pocket_width": 0.042551238883840464
+      },
+      {
+        "c": 10,
+        "q": 0.01,
+        "M": 16.563936814893065,
+        "epsilon": 0.0006037212114337904,
+        "certified_halfwidth": 0.006006950208914109,
+        "computed_central_mass": 2.7932352929131232,
+        "analytic_lower_bound": 2.7422603238453496,
+        "computed_full_pocket_mass": 2.7970351136029143,
+        "pocket_width": 0.01394740778005556
+      },
+      {
+        "c": 10,
+        "q": 0.0001,
+        "M": 16.563936814893065,
+        "epsilon": 0.0000060372121143379036,
+        "certified_halfwidth": 0.0006036910246185294,
+        "computed_central_mass": 3.1067183972337107,
+        "analytic_lower_bound": 3.1015933202664603,
+        "computed_full_pocket_mass": 3.107097090179775,
+        "pocket_width": 0.001400043537895196
+      },
+      {
+        "c": 100,
+        "q": 0.1,
+        "M": 103.43358437213048,
+        "epsilon": 0.0009668039699777084,
+        "certified_halfwidth": 0.0029004119099331253,
+        "computed_central_mass": 1.9034664522370637,
+        "analytic_lower_bound": 1.8980915447965088,
+        "computed_full_pocket_mass": 1.903479887661496,
+        "pocket_width": 0.005829884168298242
+      },
+      {
+        "c": 100,
+        "q": 0.01,
+        "M": 103.43358437213048,
+        "epsilon": 0.00009668039699777083,
+        "certified_halfwidth": 0.0009619578042726255,
+        "computed_central_mass": 2.7440533856412586,
+        "analytic_lower_bound": 2.7422603238453496,
+        "computed_full_pocket_mass": 2.7440574840328287,
+        "pocket_width": 0.0019327303639564395
+      },
+      {
+        "c": 100,
+        "q": 0.0001,
+        "M": 103.43358437213048,
+        "epsilon": 9.668039699777084e-7,
+        "certified_halfwidth": 0.0000966755628570644,
+        "computed_central_mass": 3.1017736354239527,
+        "analytic_lower_bound": 3.1015933202664603,
+        "computed_full_pocket_mass": 3.1017740437472456,
+        "pocket_width": 0.00019422879927953593
+      },
+      {
+        "c": 1000,
+        "q": 0.1,
+        "M": 1003.4335839598998,
+        "epsilon": 0.00009965781651971925,
+        "certified_halfwidth": 0.00029897344955915776,
+        "computed_central_mass": 1.898648808768105,
+        "analytic_lower_bound": 1.8980915447965088,
+        "computed_full_pocket_mass": 1.8986489526026915,
+        "pocket_width": 0.000598255638270047
+      },
+      {
+        "c": 1000,
+        "q": 0.01,
+        "M": 1003.4335839598998,
+        "epsilon": 0.000009965781651971925,
+        "certified_halfwidth": 0.00009915827544659723,
+        "computed_central_mass": 2.7424452584263426,
+        "analytic_lower_bound": 2.7422603238453496,
+        "computed_full_pocket_mass": 2.7424453018468373,
+        "pocket_width": 0.00019840969731258577
+      },
+      {
+        "c": 1000,
+        "q": 0.0001,
+        "M": 1003.4335839598998,
+        "epsilon": 9.965781651971926e-8,
+        "certified_halfwidth": 0.000009965283350431477,
+        "computed_central_mass": 3.1016119071888486,
+        "analytic_lower_bound": 3.1015933202664603,
+        "computed_full_pocket_mass": 3.1016119115099254,
+        "pocket_width": 0.000019939835748862822
+      }
+    ],
+    "maxReplayError": 1.2434497875801753e-14,
+    "finite_scan_counterexample": {
+      "b": 0.2,
+      "gamma": 10,
+      "c": 100,
+      "scan_x": [
+        0.05,
+        0.1,
+        0.15,
+        0.25,
+        0.4
+      ],
+      "uniform_all_t_lower_bound": 59.99092042625952,
+      "bound_expression": "100*tanh(5)-40 > 59",
+      "off_line_zeros": "±0.2 ± 10i; all cosh zeros remain on x=0"
+    }
+  }
+}

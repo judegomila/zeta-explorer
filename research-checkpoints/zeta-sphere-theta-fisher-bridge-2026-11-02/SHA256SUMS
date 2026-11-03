@@ -1762,3 +1762,7 @@ f49595a2c75b4b012fae6a0aa6d6e4757d35fce42a059c387cfff5ddbd2dce85  ./evidence/pri
 9afe72875701dd532f80f8de00e51e70a7a46867b0811746963f42a5400b267d  ./evidence/prime-cancellation-checkpoint-2026-11-03/SOBOLEV_SOURCE_PRIME_CANCELLATION.md
 c70bc699116cb736b9977c5989d77ac3895457b9ad139dabb350eb25cffeb299  ./evidence/prime-cancellation-checkpoint-2026-11-03/THETA_CORRELATION_NONUNIFORMITY.md
 c20081742a3b541c32772faf528c3971914157b360a98b089283cacfe902540d  ./evidence/prime-cancellation-checkpoint-2026-11-03/THETA_PRIME_CORRELATION_TAIL.md
+b58f3f2db462e983d5aae42a1037cdd602159c5970c1a50622e28758dfdad2fb  ./evidence/fixed-tau-oscillator-checkpoint-2026-11-03/ACTUAL_THETA_OSCILLATOR_FORM_OBSTRUCTION.md
+33d863c024beeffbe209e9c9e2f46fb55a5748e95b4f64f7ddcb2b41316819bc  ./evidence/fixed-tau-oscillator-checkpoint-2026-11-03/OSCILLATOR_RELATIVE_FORM_CRITERION.md
+e65855603368afb79bee2a257e09625e8afe6ad45c12e60496f1bc85b1c2bde1  ./evidence/fixed-tau-oscillator-checkpoint-2026-11-03/README.md
+0f3081da803122ff810ce2b68834dc3b2f5385a4f7b2af6c2af22f88248143b4  ./evidence/fixed-tau-oscillator-checkpoint-2026-11-03/SHIFTED_OSCILLATOR_CANCELLATION.md

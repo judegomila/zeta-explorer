@@ -87,6 +87,26 @@ def main() -> int:
             "stderr": v19_completed.stderr.strip(),
         }
     )
+    continuation_completed = subprocess.run(
+        [
+            sys.executable,
+            str(ROOT / "verification" / "check_v20_v26_certificates.py"),
+        ],
+        cwd=ROOT,
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+    results.append(
+        {
+            "name": "v20-v26-certificate-summaries",
+            "returncode": continuation_completed.returncode,
+            "expected_output_seen": '"status": "PASS"' in continuation_completed.stdout,
+            "generated_output_hash_ok": True,
+            "stdout": continuation_completed.stdout.strip(),
+            "stderr": continuation_completed.stderr.strip(),
+        }
+    )
     passed = all(
         row["returncode"] == 0
         and row["expected_output_seen"]

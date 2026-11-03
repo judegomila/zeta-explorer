@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "source_artifact": {
+    "name": "zeta_sphere_campaign_v26_20261103T0228Z.zip",
+    "bytes": 5658383,
+    "sha256": "945a1f0b5bc0a3fbb0852bd3af2512e5f9797022aad48ded4afc9bc9dba1d71e",
+    "unzip_test": "PASS",
+    "manifest_payloads_verified": 839,
+    "v25_payloads_preserved": 825,
+    "v19_payloads_preserved": 672,
+    "v18_payloads_preserved": 585
+  },
+  "delta_accounting": {
+    "new_paths_since_v19": 167,
+    "source_allowlist_rows": 174,
+    "source_unique_allowlisted_paths": 146,
+    "source_repeated_allowlist_rows": 28,
+    "source_non_allowlisted_paths": 21,
+    "byte_identical_public_allowlist_paths": 139,
+    "public_text_redactions": 7,
+    "retained_publication_manifests": 7,
+    "omitted_duplicate_private_provenance_paths": 14
+  },
+  "repository_policy": "Publish the deduplicated authored allowlist, with seven recorded Library-identifier redactions. Retain the seven source publication manifests as metadata. Do not publish the source archive or duplicate private provenance manifests.",
+  "non_allowlisted_groups": [
+    {
+      "count": 7,
+      "paths": [
+        "PUBLICATION_DELTA_V20.json",
+        "PUBLICATION_DELTA_V21.json",
+        "PUBLICATION_DELTA_V22.json",
+        "PUBLICATION_DELTA_V23.json",
+        "PUBLICATION_DELTA_V24.json",
+        "PUBLICATION_DELTA_V25.json",
+        "PUBLICATION_DELTA_V26.json"
+      ],
+      "repository_treatment": "retained unchanged as publication metadata"
+    },
+    {
+      "count": 14,
+      "path_pattern": "provenance/v{19..25}/MANIFEST.{json,sha256}",
+      "repository_treatment": "omitted: duplicate private provenance manifests"
+    }
+  ]
+}

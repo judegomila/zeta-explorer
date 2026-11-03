@@ -21,14 +21,16 @@ parallel-friendly package.
 
 ## Frozen baseline and append-only deltas
 
-The integrated checkpoint is a composition of the frozen v18 baseline and two
-verified deltas:
+The integrated checkpoint is a composition of the frozen v18 baseline,
+publication-safe campaign deltas through v26, and the separate CP62 packet:
 
 - campaign v18, Library `libfile_93281585a66c81918ba351446f9d7615`,
   4,369,533 bytes, SHA-256
   `3a47ccddd9a529c719e4a2ca0a6b262290610cbc1d651f3dec20e8ffd8f5c9ef`;
 - campaign v19, 4,843,375 bytes, SHA-256
   `8fe5bb4162a0650d297c3ec841b81111ef25c06ce19a1133725e87d4b7e90aa0`;
+- campaign v26, 5,658,383 bytes, SHA-256
+  `945a1f0b5bc0a3fbb0852bd3af2512e5f9797022aad48ded4afc9bc9dba1d71e`;
 - CP62, Library `libfile_19a836c8b8a8819198a91a5abe44c640`,
   79,980 bytes, SHA-256
   `75db9056b1863e904afecbbf2a99de1ff108a48fd3b0ea2242c988e899aa7ccb`.
@@ -54,6 +56,16 @@ privacy redactions recorded in
 archive, private conversation capture, and acquired source extraction are not
 committed; exact accounting is in
 [`provenance/v19-publication.json`](provenance/v19-publication.json).
+
+The v26 source manifest verifies 839 payloads and preserves all 672 v19
+payloads byte-for-byte. The public continuation under
+`evidence/v20-v26-continuation/` is the deduplicated union of the seven explicit
+V20--V26 publication allowlists: 174 manifest rows, 146 unique authored files,
+and 28 intentional same-hash carry-forwards. Seven internal Library references
+in version indexes are replaced by prior archive hashes and recorded in
+`provenance/v20-v26-redactions.json`; 14 duplicate private provenance-manifest
+files and the full source archive are omitted. The exact accounting is in
+`provenance/v20-v26-publication.json`.
 
 CP62 is stored byte-for-byte under `evidence/cp62/`. It postdates v17 and is not
 part of the v18 campaign payload, so it is recorded as an explicit delta rather

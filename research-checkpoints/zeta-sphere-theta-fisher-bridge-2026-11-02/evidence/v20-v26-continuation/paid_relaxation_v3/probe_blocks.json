@@ -1,0 +1,194 @@
+{
+  "scope": "Floating diagnostics; step masks on GL nodes do not certify block integrals.",
+  "spatial_edges": [
+    0,
+    0.125,
+    0.25,
+    0.5,
+    1,
+    2,
+    3
+  ],
+  "time_edges": [
+    0,
+    0.5,
+    1
+  ],
+  "rows": [
+    {
+      "n": 5,
+      "results": [
+        {
+          "gauge": null,
+          "space_time_block_budget_ratio": 0.41686897366852327,
+          "space_only_time_aggregated_ratio": 0.41686897366852327,
+          "local_ratio": 1.1641310970342298,
+          "block_signed_integrals": [
+            814.2538445232553,
+            2932.0871442206376,
+            119163.32538459894,
+            -149349.38768764603,
+            61.93312009929227,
+            1.4675206118890157e-111
+          ],
+          "relative_signed_identity_error": -7.245021392062389e-16
+        },
+        {
+          "gauge": "scaled_psecond",
+          "space_time_block_budget_ratio": 0.20110940590829307,
+          "space_only_time_aggregated_ratio": 0.20110940590829307,
+          "local_ratio": 0.5064900835023215,
+          "block_signed_integrals": [
+            -3187.4055215296567,
+            3798.9198146122726,
+            -82515.36697189807,
+            55461.922113722125,
+            64.14237088943514,
+            1.4676239842927844e-111
+          ],
+          "relative_signed_identity_error": -9.056276740077987e-16
+        }
+      ]
+    },
+    {
+      "n": 9,
+      "results": [
+        {
+          "gauge": null,
+          "space_time_block_budget_ratio": 0.2095215367628422,
+          "space_only_time_aggregated_ratio": 0.2095215367628422,
+          "local_ratio": 2.180564043386894,
+          "block_signed_integrals": [
+            43030979692.63997,
+            252527636941.9867,
+            874791668145.29,
+            -8262361313755.73,
+            5982669824415.337,
+            1.6917251295557824e-91
+          ],
+          "relative_signed_identity_error": -5.297117201317845e-14
+        },
+        {
+          "gauge": "scaled_psecond",
+          "space_time_block_budget_ratio": 0.30448303493661294,
+          "space_only_time_aggregated_ratio": 0.304483034936613,
+          "local_ratio": 0.8067488867230084,
+          "block_signed_integrals": [
+            -26377643920.714493,
+            931219521606.1772,
+            -885421759120.5188,
+            -10592526992352.002,
+            9463765669227.191,
+            1.692106234373095e-91
+          ],
+          "relative_signed_identity_error": -7.025883484593125e-14
+        }
+      ]
+    },
+    {
+      "n": 12,
+      "results": [
+        {
+          "gauge": null,
+          "space_time_block_budget_ratio": 1.7429359110737366,
+          "space_only_time_aggregated_ratio": 1.7429359110737366,
+          "local_ratio": 2.4709163728666548,
+          "block_signed_integrals": [
+            4.17240204635492e+17,
+            1.6566772398078277e+18,
+            2.002095262486877e+19,
+            4.144586042003228e+20,
+            -4.2687694698077684e+20,
+            1.641678813821894e-76
+          ],
+          "relative_signed_identity_error": -1.6048305965845808e-12
+        },
+        {
+          "gauge": "scaled_psecond",
+          "space_time_block_budget_ratio": 0.16561450496189747,
+          "space_only_time_aggregated_ratio": 0.15118023180130777,
+          "local_ratio": 1.0708192491751913,
+          "block_signed_integrals": [
+            -1.0494020866170074e+18,
+            -5.483092067728937e+18,
+            -1.0303677204572512e+19,
+            -1.1353441474972785e+19,
+            3.786614012278362e+19,
+            1.6423527227120854e-76
+          ],
+          "relative_signed_identity_error": -1.7474459162844572e-12
+        }
+      ]
+    },
+    {
+      "n": 13,
+      "results": [
+        {
+          "gauge": null,
+          "space_time_block_budget_ratio": 2.339885250773929,
+          "space_only_time_aggregated_ratio": 2.339885250773929,
+          "local_ratio": 2.6432980064783846,
+          "block_signed_integrals": [
+            1.1078824376588288e+20,
+            3.415338886372917e+20,
+            6.573762992390592e+21,
+            1.3441054021465041e+23,
+            -1.3778810470293166e+23,
+            1.5822536506386245e-71
+          ],
+          "relative_signed_identity_error": 5.351079650771837e-12
+        },
+        {
+          "gauge": "scaled_psecond",
+          "space_time_block_budget_ratio": 0.14213288863474166,
+          "space_only_time_aggregated_ratio": 0.14194270565909323,
+          "local_ratio": 1.1586547520517358,
+          "block_signed_integrals": [
+            -7.870513582743278e+18,
+            -2.4035333032495478e+20,
+            -1.417447448603222e+21,
+            8.579864022533569e+21,
+            -3.2656720934783104e+21,
+            1.5830244912368484e-71
+          ],
+          "relative_signed_identity_error": 4.790878576681208e-12
+        }
+      ]
+    },
+    {
+      "n": 15,
+      "results": [
+        {
+          "gauge": null,
+          "space_time_block_budget_ratio": 1.4265079410553443,
+          "space_only_time_aggregated_ratio": 1.4265079410553443,
+          "local_ratio": 2.5337367128876154,
+          "block_signed_integrals": [
+            6.232642770517778e+24,
+            8.403032947524353e+24,
+            2.5200552748806848e+26,
+            7.863530251103327e+27,
+            -6.815274982490669e+27,
+            1.4103433491652793e-61
+          ],
+          "relative_signed_identity_error": 5.10609104304697e-11
+        },
+        {
+          "gauge": "scaled_psecond",
+          "space_time_block_budget_ratio": 0.2399293699433895,
+          "space_only_time_aggregated_ratio": 0.23487836184721542,
+          "local_ratio": 1.21330989061426,
+          "block_signed_integrals": [
+            -2.3758082873201944e+25,
+            2.4959345390218053e+25,
+            2.4930199152121395e+26,
+            5.912267791704627e+25,
+            1.0052705399526555e+27,
+            1.4112815926783138e-61
+          ],
+          "relative_signed_identity_error": 3.072456825870466e-11
+        }
+      ]
+    }
+  ]
+}

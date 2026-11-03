@@ -1,0 +1,49 @@
+{
+  "status": "PASS",
+  "precision_bits": 160,
+  "cells": 4000,
+  "first_orbit_lower_integral_enclosure": [
+    0.03107976388848985,
+    0.03179365250485583
+  ],
+  "I_strict_lower": 0.03,
+  "arithmetic_head_terms": [
+    {
+      "j": 2,
+      "lower": 33.40653064493367,
+      "upper": 33.406530644933675
+    },
+    {
+      "j": 3,
+      "lower": 2.4508173891286487,
+      "upper": 2.450817389128649
+    },
+    {
+      "j": 4,
+      "lower": 0.04841062943890119,
+      "upper": 0.0484106294389012
+    },
+    {
+      "j": 5,
+      "lower": 0.000511696570927411,
+      "upper": 0.0005116965709274111
+    },
+    {
+      "j": 6,
+      "lower": 3.952769357262587e-06,
+      "upper": 3.952769357262588e-06
+    },
+    {
+      "j": 7,
+      "lower": 2.1788124076272355e-08,
+      "upper": 2.178812407627236e-08
+    }
+  ],
+  "arithmetic_tail_upper": 3.3309247783702173e-09,
+  "U_enclosure": [
+    35.906274337960554,
+    35.90627433796056
+  ],
+  "D_absolute_strict_upper": 36,
+  "scope": "q=t only; 0<=a<=1/2; integrated Abel endpoint; source curvature v_prime>17 is an explicitly inherited analytic dependency, not checked here; no signed pivot evaluated"
+}

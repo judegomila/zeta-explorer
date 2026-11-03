@@ -1,0 +1,788 @@
+{
+  "baseline_commit": "6c6c81697fdc527d017dc592b55bea3efa5bb31b",
+  "publication_kind": "append-only owned-research continuation; not a version promotion of the integrated paper",
+  "payload_files": [
+    {
+      "path": "src/prime_signed_recurrence_20261103/AGGREGATE_ODD_HALFSOURCE_RESERVE.md",
+      "bytes": 8658,
+      "sha256": "f20022ea93083e20d251f65a7ff266b8188b019d1e0a09abc98f5b86f662fd24",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/prime_signed_recurrence_20261103/AGGREGATE_REAL_ROOTED_PAYMENT_OBSTRUCTION.md",
+      "bytes": 7067,
+      "sha256": "d5fb6d64fbdada7d82debfc1546f612ede8102fd7ee98639a767e1d07e691e9c",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/prime_signed_recurrence_20261103/ALL_DEGREE_PRIME_TAIL_PAYMENT_OBSTRUCTION.md",
+      "bytes": 9766,
+      "sha256": "2c46d982b8822100500e54da5f5e6577a2f7253c84cd9cb549cebe803abbcf74",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/prime_signed_recurrence_20261103/ALL_SHIFT_AGGREGATE_ODD_RESERVE.md",
+      "bytes": 9182,
+      "sha256": "1571b8f1e19a84a01bf1e5c28cfddd49575608072facb6ed82979ac6df6c46f3",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/prime_signed_recurrence_20261103/ARCH_SOURCE_DIAGNOSTIC.txt",
+      "bytes": 269,
+      "sha256": "6f73f059569a2a2bb17ea13d66d76d0720d0b37053eab759e1d321746ee4c23a",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/prime_signed_recurrence_20261103/AUDIT.md",
+      "bytes": 9626,
+      "sha256": "018423bc46bc9fc7a38c437b3959464e649552f9c2b8595f6a73e89fa571a9bf",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/prime_signed_recurrence_20261103/BASE_DIAGNOSTIC.txt",
+      "bytes": 537,
+      "sha256": "74ebf60a2b8a47c1c00796a18a824787fe202c597820883feceb951f3795395a",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/prime_signed_recurrence_20261103/EULER_BOUNDARY_ABEL_COMB.md",
+      "bytes": 4595,
+      "sha256": "af1c554bb57e4fe9e5690ef928f2150868407ceaa7d3a9cddd6d0e93324f3258",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/prime_signed_recurrence_20261103/HALFSOURCE_INTERIOR_DOMAIN_OBSTRUCTION.md",
+      "bytes": 12769,
+      "sha256": "fcce9ed2a04263c6ef20d7edc739301f1d0e24cee3fd9fd600cce9194c252ddc",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/prime_signed_recurrence_20261103/NONEMPTY_PREFIX_PAID_DEBIT_BARRIER.md",
+      "bytes": 7913,
+      "sha256": "59ba19b62b92d69c9a3070f365bdedb1cf3f870eaad328a9faf667542ad7213b",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/prime_signed_recurrence_20261103/ODD_BASE_ARITHMETIC_RESERVE_NO_GO.md",
+      "bytes": 7212,
+      "sha256": "3aa84901ca5c2c3028f54c9b7e3f3f9a89a00ac9ff5852b9434d126e8c01026b",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/prime_signed_recurrence_20261103/ODD_BASE_PAYMENT_AUDIT_REPLAY.json",
+      "bytes": 1150,
+      "sha256": "5f190a881d3e92dec90567312cdec5aa1013cb991bdd0d085a9471e8bf763629",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/prime_signed_recurrence_20261103/ODD_BASE_PAYMENT_CERTIFICATE.json",
+      "bytes": 1150,
+      "sha256": "5f190a881d3e92dec90567312cdec5aa1013cb991bdd0d085a9471e8bf763629",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/prime_signed_recurrence_20261103/ODD_BASE_SIGNED_DEBIT_PAYMENT.md",
+      "bytes": 7621,
+      "sha256": "a7e544aaf5221b866abd58654c120e9444fcf3e777ff008780cbdf30d640d339",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/prime_signed_recurrence_20261103/SHA256SUMS",
+      "bytes": 2568,
+      "sha256": "f65435790dfbe9445e6e2956676b8faec8cc83f0a36f23edcc7a63e22c456bd9",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/prime_signed_recurrence_20261103/TILTED_ALL_PRIME_DIVISOR_RECURRENCE.md",
+      "bytes": 9550,
+      "sha256": "b830a6f5e0085cefb4baffa43145d319a79f3590bf2a8aec3ce09554599c2484",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/prime_signed_recurrence_20261103/TRANSFORM_ORIGIN_AUDIT_REPLAY.json",
+      "bytes": 294,
+      "sha256": "fb2f36c24d5ae77534f91bbff934ba76249f30cfdba7729c07bc75df02dd1ede",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/prime_signed_recurrence_20261103/TRANSFORM_ORIGIN_CERTIFICATE.json",
+      "bytes": 294,
+      "sha256": "fb2f36c24d5ae77534f91bbff934ba76249f30cfdba7729c07bc75df02dd1ede",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/prime_signed_recurrence_20261103/TRANSFORM_ORIGIN_INDEPENDENT_IV_REPLAY.txt",
+      "bytes": 260,
+      "sha256": "cbcfcd695701415691829d42ac6acb6f029762429a551599ebeb390fddb14500",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/prime_signed_recurrence_20261103/certify_odd_base_payment_mpfi.py",
+      "bytes": 3413,
+      "sha256": "53e35519e789590cdcbb81423b6cfec5db3623c3072bb1a2d476d30d93721f12",
+      "source_identical": true,
+      "classification": "frozen mathematical source or diagnostic; consult the accompanying audit for evidence grade"
+    },
+    {
+      "path": "src/prime_signed_recurrence_20261103/certify_transform_origin_mpfi.py",
+      "bytes": 2512,
+      "sha256": "03955ebc441fa999fa2f8bead4fbcb1d7d49a90d102c4721b20f749df3117aaf",
+      "source_identical": true,
+      "classification": "frozen mathematical source or diagnostic; consult the accompanying audit for evidence grade"
+    },
+    {
+      "path": "src/prime_signed_recurrence_20261103/probe_arch_source_identity.py",
+      "bytes": 586,
+      "sha256": "21d2736709215ea0c352d5d7eec77f77f1e8b0bd68a1e82f6d6cbcd6ff7cd148",
+      "source_identical": true,
+      "classification": "frozen mathematical source or diagnostic; consult the accompanying audit for evidence grade"
+    },
+    {
+      "path": "src/prime_signed_recurrence_20261103/probe_base_collapse.py",
+      "bytes": 839,
+      "sha256": "54861002b626a40490e7c864ca3f68d53a7bf14d85f5207d00e988d712edc367",
+      "source_identical": true,
+      "classification": "frozen mathematical source or diagnostic; consult the accompanying audit for evidence grade"
+    },
+    {
+      "path": "src/prime_signed_recurrence_20261103/probe_variance_sign.py",
+      "bytes": 632,
+      "sha256": "252f70767be2dbfb680edb6a66f4e0d9fe82c86999318728f82d8a8c7614467a",
+      "source_identical": true,
+      "classification": "frozen mathematical source or diagnostic; consult the accompanying audit for evidence grade"
+    },
+    {
+      "path": "src/prime_signed_recurrence_20261103/verify_asymptotic_coefficients.py",
+      "bytes": 728,
+      "sha256": "7af8f985bac23c942cb9638d5b40368ab72335582532dd4274351a1e0e6e7e80",
+      "source_identical": true,
+      "classification": "frozen mathematical source or diagnostic; consult the accompanying audit for evidence grade"
+    },
+    {
+      "path": "src/prime_signed_recurrence_20261103/verify_generating_identity.py",
+      "bytes": 431,
+      "sha256": "11583cefd9f50fc01005073353b727674d1e8cc65f894643122fc7eae0ac0c6d",
+      "source_identical": true,
+      "classification": "frozen mathematical source or diagnostic; consult the accompanying audit for evidence grade"
+    },
+    {
+      "path": "src/prime_signed_recurrence_20261103/verify_odd_base_polynomials.py",
+      "bytes": 824,
+      "sha256": "e76f54dd1d0eb3c88172951cdde5fb5b38793c3802c9c87d46c066b98aab3fdb",
+      "source_identical": true,
+      "classification": "frozen mathematical source or diagnostic; consult the accompanying audit for evidence grade"
+    },
+    {
+      "path": "src/paired_theta_form_20261103/AUDIT.md",
+      "bytes": 4245,
+      "sha256": "0d1ee7914d9b4409ed7d1726cb449173aa247885e82662d98145d697a908e51b",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/paired_theta_form_20261103/FRACTIONAL_SIEVE_DOMAIN_COLLAPSE.md",
+      "bytes": 14939,
+      "sha256": "8e3ff2f6654c50fb5352de169c6f7070580cf0942a070181c5b8bbb258984ee9",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/paired_theta_form_20261103/FULL_PAIR_ZERO_FACTOR_BOUND.md",
+      "bytes": 5433,
+      "sha256": "e0143f15861361b769d2dbbcfe5aff10287bf27b12ddac63bae2fe70c8547e63",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/paired_theta_form_20261103/ORIGINAL_DENSITY_NEGATIVE_INDEX_RIGIDITY.md",
+      "bytes": 7047,
+      "sha256": "b448879841ac248584787bb9f49dd60c8cf1a110ec3ac77689069a79ac11bc14",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/paired_theta_form_20261103/SHA256SUMS",
+      "bytes": 481,
+      "sha256": "84298401cd4183b4a074de702466dc5e7a701cb8ede069343fc9bfdd7140385e",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/paired_theta_form_20261103/SRA_PREPRINT_TRANSFER_AUDIT.md",
+      "bytes": 4304,
+      "sha256": "7f4dfb6d457e8bf0b4e3e2d092dfe14866db7ae4c41833315886e9484d50fcef",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/paired_theta_20261103/SRA_PREPRINT_TRANSFER_AUDIT.md",
+      "bytes": 4304,
+      "sha256": "7f4dfb6d457e8bf0b4e3e2d092dfe14866db7ae4c41833315886e9484d50fcef",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/suzuki_prime_recurrence_20261103/GLOBAL_TEMPEREDNESS_IS_RH.md",
+      "bytes": 6672,
+      "sha256": "f37d9625efa9a149a681b0120357f2737431f715de3ee8868f14f261241cd681",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/suzuki_prime_recurrence_20261103/INDEPENDENT_TEMPEREDNESS_AUDIT.md",
+      "bytes": 5267,
+      "sha256": "804c974d8e4c9d431f26e6b1f9a4ea1bc589a4dbfbabb03f3c37ffcc9dc418b5",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/suzuki_prime_recurrence_20261103/MINIMAL_GAMMA_JORDAN_TRANSFER.md",
+      "bytes": 9137,
+      "sha256": "98796414764f5893499e8073cda43c500798fb0b79ede67731a7b0447f5c6521",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/suzuki_prime_recurrence_20261103/RECURRENCE_PRESERVING_QUARTET.md",
+      "bytes": 11093,
+      "sha256": "ac0e03fdadd0a243ac2ca3f1d154014b05d65c2065006e272ce2ef32202105db",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/suzuki_prime_recurrence_20261103/SHA256SUMS",
+      "bytes": 389,
+      "sha256": "d1c557f8f8575c85ea16bc8d9a742593576c8a6d433cf9175a269b7797e016fc",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/suzuki_prime_recurrence_20261103/verify_minimal_gamma_transfer.py",
+      "bytes": 621,
+      "sha256": "a95f883ef6a0e3f1730ba290ca59a63fce899cb5e8e0c4a604da6fb264197b77",
+      "source_identical": true,
+      "classification": "frozen mathematical source or diagnostic; consult the accompanying audit for evidence grade"
+    },
+    {
+      "path": "src/suzuki_prime_recurrence_20261103/verify_recurrence_quartet.py",
+      "bytes": 1016,
+      "sha256": "93f7c4a1582c910de1da57d9f0a8642451b8f679fd1c8db6fec793ef00787b17",
+      "source_identical": true,
+      "classification": "frozen mathematical source or diagnostic; consult the accompanying audit for evidence grade"
+    },
+    {
+      "path": "src/interior_theta_shift_20261103/AUDIT.md",
+      "bytes": 2594,
+      "sha256": "103944438c1b79164c32dbc59076f8cb6ddb7f517f8a0d47358bd371f27ce0c5",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/interior_theta_shift_20261103/EXACT_ORBIT_MORSE_ENERGY.md",
+      "bytes": 8463,
+      "sha256": "3fa0cfb0003beb8abe3705325f6d218fea45f74bd9f7c1e5bdf2a28016018e15",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/interior_theta_shift_20261103/MORSE_INDEPENDENT_AUDIT.md",
+      "bytes": 3342,
+      "sha256": "7565d583acce190e8f425e9459e4a2c7892fa48a988e826d2fe35931483246da",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/interior_theta_shift_20261103/REMOTE_QUARTET_INTERIOR_OBSTRUCTION.md",
+      "bytes": 15000,
+      "sha256": "dafd7f5e79c360b94c03b1c8bc56ebece9a4972f437d95887f98d699c74a6069",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/interior_theta_shift_20261103/SHA256SUMS",
+      "bytes": 556,
+      "sha256": "af6b74b0dc5af8ea441fdd310f54416c8c28be6b02fcf097da355b97af676374",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/interior_theta_shift_20261103/verify_exact_orbit_morse.py",
+      "bytes": 1766,
+      "sha256": "761a8cee341fc1e56a7cbbae11fa3801c89d66c6a75d970a2df3341fd50f2971",
+      "source_identical": true,
+      "classification": "frozen mathematical source or diagnostic; consult the accompanying audit for evidence grade"
+    },
+    {
+      "path": "src/interior_theta_shift_20261103/verify_quartet_identities.py",
+      "bytes": 1582,
+      "sha256": "dd0e4f2edf06a2f62aabaaebfb3e56c1be4c2054f66c2335d2210296c433212f",
+      "source_identical": true,
+      "classification": "frozen mathematical source or diagnostic; consult the accompanying audit for evidence grade"
+    },
+    {
+      "path": "src/modular_bl_recovery_20261103/BL_N1_WEIGHTED_TEST.md",
+      "bytes": 2793,
+      "sha256": "c2d683ff832287c0361d3a34902ef88425e10a56f6873e056e87e795b9f6d81a",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/modular_bl_recovery_20261103/CURVATURE_COST_ALL_C_COUNTERMODEL.md",
+      "bytes": 2245,
+      "sha256": "476e70be47fb01f9b70723871a6dbb2a3f060e915eaa46908b638849e6c8bfc3",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/modular_bl_recovery_20261103/CURVATURE_ENVELOPE_SELECTED_NO_GO.md",
+      "bytes": 2469,
+      "sha256": "ca31a96d50c51e2c2e122f9db435b3db2a04e1675715b107180864a1f7171f4c",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/modular_bl_recovery_20261103/ENDPOINT_REMAINDER_CONDITIONAL_BOUND.md",
+      "bytes": 2239,
+      "sha256": "aea5718b349fbff6ab67d48ad5078e21ddc0bce055a6105debb97ea18a9eba63",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/modular_bl_recovery_20261103/GAUSSIAN_ALL_DEGREE_STRONG_PAYMENT_NO_GO.md",
+      "bytes": 2573,
+      "sha256": "e28f58db3135d52a31da158f06cf8d9ffc2805bca4391b72b99c6b8371b173a0",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/modular_bl_recovery_20261103/GAUSSIAN_N2_WEIGHTED_NO_GO.md",
+      "bytes": 1714,
+      "sha256": "84b82bc9d8db1798d0c0d3679e74e1e0adf64b176b459cf9f0ef8c6c2bad2c9f",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/modular_bl_recovery_20261103/GAUSSIAN_PAIRED_INNOVATION_GAP.md",
+      "bytes": 2170,
+      "sha256": "54a16c068590fa36042b53ec973d6a3201c9262d176da5bfb9300a83f5dcbc36",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/modular_bl_recovery_20261103/GAUSSIAN_SIGNED_COMMUTATOR_NO_GO.md",
+      "bytes": 2421,
+      "sha256": "f4d9cc5d02b7a32d8887ce253345ae0734b305f92c848fccd69734d86a037bf7",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/modular_bl_recovery_20261103/MATRIX_BL_SIGNED_TEST.md",
+      "bytes": 4142,
+      "sha256": "049349b7068172d117264e1f4444e641e9cd598836fd32e43fd77014d3a68ca9",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/modular_bl_recovery_20261103/MATRIX_MIXTURE_TRANSFER_OBSTRUCTION.md",
+      "bytes": 2930,
+      "sha256": "219c30d7483d1eadce87721fbd720b539a592cefdfb0b401f296035b66bac64f",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/modular_bl_recovery_20261103/MIDPOINT_MPFI_CERTIFICATE.md",
+      "bytes": 3166,
+      "sha256": "59c794e6ab82811846fa4e242e8b2553992f1e3428eba36d24d86fc08595c8d3",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/modular_bl_recovery_20261103/N2_THETA_DIAGNOSTIC.md",
+      "bytes": 699,
+      "sha256": "27345af5d5e686f2939ca29af2640cd3caf053a743e1d0db20a5e67a705b99f1",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/modular_bl_recovery_20261103/PAIRED_CONSERVATION_ENDPOINT.md",
+      "bytes": 2418,
+      "sha256": "714f42616beb2020140bf9d2762351e4957387fb2094ed4735bd7b4977182202",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/modular_bl_recovery_20261103/SELECTED_CONE_CRITICAL_WINDOW.md",
+      "bytes": 1672,
+      "sha256": "a7d7eae653fe24499a73513bf39f20a17c04f2d419597f1ef0d6cbc52aa48678",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/modular_bl_recovery_20261103/SELECTED_CURVATURE_REMAINDER_LEMMA.md",
+      "bytes": 3334,
+      "sha256": "229d52cf697183ff26d614a5b1dca6c34066a6ab05da80820da6a8eb1493519c",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/modular_bl_recovery_20261103/SELECTED_DEFECT_TRIANGLE_NO_GO.md",
+      "bytes": 2879,
+      "sha256": "e7489c659e7b935df7d870ddc11613453ebdaafa3133bfe33d5ec8d4c0d62bdc",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/modular_bl_recovery_20261103/SELECTED_EVEN_GAUSSIAN_WINDOW.md",
+      "bytes": 2897,
+      "sha256": "a75259ff4cf5d7d345f2cd1bd8ea6111b8ec2a4dc87b543d0577c9e0a1f9a442",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/modular_bl_recovery_20261103/SELECTED_WINDOW_CONTINUATION_NO_GO.md",
+      "bytes": 2482,
+      "sha256": "868cb0d951fed142918925ad46ab588b4313c932a5592ba5f023bc0515362346",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/modular_bl_recovery_20261103/SELECTED_ZERO_COINCIDENCE_MODEL.md",
+      "bytes": 1861,
+      "sha256": "42e63b64088139117ac7a9fe49cdbde55ee4617fe06d5c2ad345a8ed90b25e4c",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/modular_bl_recovery_20261103/STRONG_CURVATURE_HIGHER_MOMENT_NO_GO.md",
+      "bytes": 1594,
+      "sha256": "5bd78f9e5fdde09a63cd07ed33ec7af489c220aff967e89c44db3f86ad97a53e",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/modular_bl_recovery_20261103/THETA_CURVATURE_COST_N1_DIAGNOSTIC.md",
+      "bytes": 993,
+      "sha256": "e466e3c736d97d85d878271ed20816cca87a01b8b0f7a021fdac2ea6c960f49e",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/modular_bl_recovery_20261103/THETA_FINITE_BAND_WINDOW_REMOVAL.md",
+      "bytes": 4019,
+      "sha256": "d0e2b663a14785ef14bdaa50930ac7c46078b37a1bd13830c8561dde232db870",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/modular_bl_recovery_20261103/THETA_GLOBAL_HERMITE_CONE.md",
+      "bytes": 3122,
+      "sha256": "0a61b3e43ca52aeaa8d089095f9b45dee4f13cc2305db354f5733820b1cb1564",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/modular_bl_recovery_20261103/THETA_GLOBAL_LINEAR_GAUSSIAN_WINDOWS.md",
+      "bytes": 2734,
+      "sha256": "fdee3c8bb06c99998b0e6d37fc1bed8ab47a5644c412d14dc1e456c8dcce09f4",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/modular_bl_recovery_20261103/THETA_JOINT_CURVATURE_QUANTILE.md",
+      "bytes": 3194,
+      "sha256": "d459003c0fb5e0420458c669ede01c276cc236c2df53f9d24452a722b3bd71e6",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/modular_bl_recovery_20261103/THETA_JOINT_SIGN_DICHOTOMY.md",
+      "bytes": 1919,
+      "sha256": "b294c8aa446d460673f1ea21a8be560e0f1cd99c2f436c37a6d1f01635943fad",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/modular_bl_recovery_20261103/THETA_MATRIX_BL_STRICT_GAP.md",
+      "bytes": 2018,
+      "sha256": "4e313d3d8cc4a2cc6762febd468ddaedd06c3dae0e0b83ae3f063f277303a48a",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/modular_bl_recovery_20261103/THETA_N1_PAID_DEFECT.md",
+      "bytes": 1690,
+      "sha256": "c8895d60afb2820ac46015786c4bb088f0fa48defab96549a4431f7d379ef9db",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/modular_bl_recovery_20261103/THETA_OSCILLATOR_DEFECT_UNBOUNDED.md",
+      "bytes": 2551,
+      "sha256": "0bc209ecb08bae8e042a6cb9823d8cd29e85191b19383e09a74eb7d016e82bfd",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/modular_bl_recovery_20261103/THETA_PAIRED_GAP_DIAGNOSTIC.md",
+      "bytes": 2462,
+      "sha256": "438544c36555543bb7e68477b795261c628fce07f1df3029a337324a6e5ba2d1",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/modular_bl_recovery_20261103/THETA_REFERENCE_SURPLUS_SIGN_CHANGE.md",
+      "bytes": 2733,
+      "sha256": "09eb719ca6b7173cf79d0504bc9c27dd67477693ced8e9650d88b644afea2d46",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/modular_bl_recovery_20261103/THETA_SCORE_VARIANCE_OBSTRUCTION.md",
+      "bytes": 1993,
+      "sha256": "6af1268fa9a92c4b467de778deadc9bd0e4546b0b3db5912832eae63d1c0ee75",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/modular_bl_recovery_20261103/THETA_SIGNED_DEFECT_N1.md",
+      "bytes": 2190,
+      "sha256": "8c48bdd3165319fffeff80fbcd9e044b949a0ed116d60b7692feb332780d56fe",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/modular_bl_recovery_20261103/THETA_VERIFIED_BAND_WINDOW_PAYMENT.md",
+      "bytes": 3202,
+      "sha256": "d68487b3080a30ca3be326eb8ce312765d8c9407894589c861ecbd80fc292b38",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/modular_bl_recovery_20261103/TWO_FEATURE_METRIC_NOT_LOGCONCAVE.md",
+      "bytes": 2203,
+      "sha256": "c799f8901090481f2070893a88687490290d7ae2df7f28d8f839dcbc14fdcef7",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/modular_bl_recovery_20261103/VERIFIED_BAND_ABSOLUTE_TAIL_ASYMPTOTIC.md",
+      "bytes": 2261,
+      "sha256": "c3cc29c8ab6da70932b16fde602f30d8b220a6086ddd36413e1923aa9fa150c0",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/modular_bl_recovery_20261103/WEIGHTED_N1_LOGCONCAVITY.md",
+      "bytes": 4262,
+      "sha256": "ebb13018dd9f5a0960646d17443a4fe69cd05c5ca13029726dd306cdf6f48d69",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/modular_bl_recovery_20261103/cert_curvature_cost_counter_mpfi.py",
+      "bytes": 681,
+      "sha256": "f112b093e7c95d6afbe378c2aa8245f81b8f0f8faca325ebb3e58b0fd8077334",
+      "source_identical": true,
+      "classification": "frozen mathematical source or diagnostic; consult the accompanying audit for evidence grade"
+    },
+    {
+      "path": "src/modular_bl_recovery_20261103/cert_n1_defect_mpfi.py",
+      "bytes": 1128,
+      "sha256": "673bb59e10c006fdbd1e0623e790680a519184d80760161305f45026b7e4cd01",
+      "source_identical": true,
+      "classification": "frozen mathematical source or diagnostic; consult the accompanying audit for evidence grade"
+    },
+    {
+      "path": "src/modular_bl_recovery_20261103/cert_n1_signed_defect_mpfi.py",
+      "bytes": 1181,
+      "sha256": "d6057679d2fc454eab3d31831308a5e7796937ff683c4259b1266beb9ac7137e",
+      "source_identical": true,
+      "classification": "frozen mathematical source or diagnostic; consult the accompanying audit for evidence grade"
+    },
+    {
+      "path": "src/modular_bl_recovery_20261103/cert_selected_q4_mixture_mpfi.py",
+      "bytes": 915,
+      "sha256": "139f0c022c55a33a3f6d1ec35fe81c106e7775b23d957c198a7547436f30f7c2",
+      "source_identical": true,
+      "classification": "frozen mathematical source or diagnostic; consult the accompanying audit for evidence grade"
+    },
+    {
+      "path": "src/modular_bl_recovery_20261103/check_midpoint_mpfi.py",
+      "bytes": 2891,
+      "sha256": "757136c9a7e3331a74342c6a9513e88c9a5eb3f35b2870b1a3d9f10183513a05",
+      "source_identical": true,
+      "classification": "frozen mathematical source or diagnostic; consult the accompanying audit for evidence grade"
+    },
+    {
+      "path": "src/modular_bl_recovery_20261103/check_origin_jets_mpfi.py",
+      "bytes": 2703,
+      "sha256": "9ff42913483179076f48d6429362599729d1d0d18bba3bbfe627728dd3adf632",
+      "source_identical": true,
+      "classification": "frozen mathematical source or diagnostic; consult the accompanying audit for evidence grade"
+    },
+    {
+      "path": "src/modular_bl_recovery_20261103/check_universal_alpha_mpfi.py",
+      "bytes": 2786,
+      "sha256": "896ed22d4fab52626bf5187de46ab5183c52144f2393e5d23c01bdb2f7c2d3c0",
+      "source_identical": true,
+      "classification": "frozen mathematical source or diagnostic; consult the accompanying audit for evidence grade"
+    },
+    {
+      "path": "src/modular_bl_recovery_20261103/check_weighted_logconcavity_mpfi.py",
+      "bytes": 2693,
+      "sha256": "24c5b176f3b2106a7073f3174ad962aeadb19213db146d3431901b53e29c8490",
+      "source_identical": true,
+      "classification": "frozen mathematical source or diagnostic; consult the accompanying audit for evidence grade"
+    },
+    {
+      "path": "src/modular_bl_recovery_20261103/cost_counter_mpfi.py",
+      "bytes": 706,
+      "sha256": "ed0c4583169d69bd15e7df9d494f1bfc4ea604a84e0ef4ffe15dcd9faab6f814",
+      "source_identical": true,
+      "classification": "frozen mathematical source or diagnostic; consult the accompanying audit for evidence grade"
+    },
+    {
+      "path": "src/modular_bl_recovery_20261103/paired_gap_theta_probe.py",
+      "bytes": 1032,
+      "sha256": "d084f8baeb4f8b8703c4e0c8273262663ce6dcd2676d5bd9489976997c7c64b5",
+      "source_identical": true,
+      "classification": "frozen mathematical source or diagnostic; consult the accompanying audit for evidence grade"
+    },
+    {
+      "path": "src/modular_bl_recovery_20261103/selected_defect_probe.py",
+      "bytes": 1052,
+      "sha256": "3208ff1b41e9b1fc9ad5c87d5218f1b4f2a7558c1003bac44858b5fb4dcab2fd",
+      "source_identical": true,
+      "classification": "frozen mathematical source or diagnostic; consult the accompanying audit for evidence grade"
+    },
+    {
+      "path": "src/modular_bl_recovery_20261103/theta_bl_probe.py",
+      "bytes": 725,
+      "sha256": "f73235d50ee7807a4a307b536391e53f1dbc034fd069b489f047073b10186e01",
+      "source_identical": true,
+      "classification": "frozen mathematical source or diagnostic; consult the accompanying audit for evidence grade"
+    },
+    {
+      "path": "src/modular_bl_recovery_20261103/theta_curvature_cost_probe.py",
+      "bytes": 708,
+      "sha256": "da4e618293c2fd1cd5f1ac25c7859b15ae60d2db4a49a3c708bc83db2cb9b6f1",
+      "source_identical": true,
+      "classification": "frozen mathematical source or diagnostic; consult the accompanying audit for evidence grade"
+    },
+    {
+      "path": "src/modular_bl_recovery_20261103/theta_n2_metric_probe.py",
+      "bytes": 582,
+      "sha256": "1d8e9b8f0c1a31f9293825130deda339967a691b1ea7722c219b71f0a082891a",
+      "source_identical": true,
+      "classification": "frozen mathematical source or diagnostic; consult the accompanying audit for evidence grade"
+    },
+    {
+      "path": "src/theta_coupling_20261103/AUDIT.md",
+      "bytes": 2075,
+      "sha256": "4c081a5895384d9e872abe8d6822fac2b589fe796a44d11d84964947641bdb10",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/theta_coupling_20261103/README.md",
+      "bytes": 1383,
+      "sha256": "a1c1738089c873085501e773efa02c7d50eca9f93c70ca77b5549dcd3caef71e",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/theta_coupling_20261103/RHO_FIFTH.md",
+      "bytes": 3939,
+      "sha256": "2393e1c03fb2d152fd4b0fa0ca1d609fedf4eee622df2c100fe7727e539bda68",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/theta_coupling_20261103/RHO_QUARTER.md",
+      "bytes": 5230,
+      "sha256": "36682ae1d183ec28497d60bb95328649a5fd66b24da3e1ab9a3bdc5294b8c8c7",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/theta_coupling_20261103/SHA256SUMS",
+      "bytes": 873,
+      "sha256": "06fcff92d45bcfde672884bd94f32caa176b4cff9d62f7279bd8b54956d08d3e",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/theta_coupling_20261103/SOURCE_COUPLING_REDUCTION.md",
+      "bytes": 3626,
+      "sha256": "ef68c5b2bfc8dddd312c1362a03260a3cacb61ddbd6ad8e623cae60bc3975bc4",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/theta_coupling_20261103/certify_rho_fifth_mpfi.py",
+      "bytes": 4504,
+      "sha256": "99481761cfdd8e1410e1d7f3bb80fb2cfae6653b77979c085cf26777a074003e",
+      "source_identical": true,
+      "classification": "frozen mathematical source or diagnostic; consult the accompanying audit for evidence grade"
+    },
+    {
+      "path": "src/theta_coupling_20261103/certify_rho_quarter_mpfi.py",
+      "bytes": 4482,
+      "sha256": "4a6ca1620c47732734c0076bda888a1579d6ca9ddbd3b019b0ed1a32ead5ad9f",
+      "source_identical": true,
+      "classification": "frozen mathematical source or diagnostic; consult the accompanying audit for evidence grade"
+    },
+    {
+      "path": "src/theta_coupling_20261103/rho_fifth_certificate.json",
+      "bytes": 696,
+      "sha256": "b9cfc7316388c6db605eda3653f3598e9a9e0aab849f7df2453ca2ba76d42044",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/theta_coupling_20261103/rho_quarter_certificate.json",
+      "bytes": 649,
+      "sha256": "6d2a289cd0deffc634fc5b9b5c45df5992c647f82e03d5ab73e6ee054e394100",
+      "source_identical": true,
+      "classification": "frozen research note, certificate, audit record or checksum; retains its original scope"
+    },
+    {
+      "path": "src/theta_coupling_20261103/select_rayleigh_witness.py",
+      "bytes": 948,
+      "sha256": "90a5bb21ddd550e9a2dca8ff6445c6384845e3e2f00efb97600bdc6e540b46a2",
+      "source_identical": true,
+      "classification": "frozen mathematical source or diagnostic; consult the accompanying audit for evidence grade"
+    }
+  ],
+  "payload_count": 110,
+  "payload_bytes": 359129,
+  "redactions": [],
+  "scope": "Auxiliary rho bounds certified; two substantive theta mismatch inequalities remain open. No signed pivot, all-degree positivity or RH conclusion.",
+  "exclusions": [
+    "acquired third-party source trees",
+    "private source-range bookkeeping",
+    "service transfer metadata and helpers",
+    "private artifact locators",
+    "cache or runtime files"
+  ],
+  "scientific_replay_this_publication": "Not rerun by the preservation step. Existing analytic audit and independent MPFI replay records are preserved with their original qualifications."
+}

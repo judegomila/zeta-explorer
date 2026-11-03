@@ -1,0 +1,44 @@
+{
+  "scope": "Floating normalized original theta, verified finite rungs only; no interval/full-tail certification",
+  "rows": [
+    {
+      "N": 2,
+      "design_size": 3,
+      "error_derivative": 63.74768545397538,
+      "positive_error_formula": 63.74768545397714,
+      "relative_identity_error": 2.764250924776374e-14,
+      "Ldot": 291.9384449224441,
+      "actual_drift_cost": 65.94545757623588,
+      "modular_cost": 360.09839737074253,
+      "payment_lower": 91.88757732167392,
+      "payment_lower_over_current_pivot": 5.4160475413772415,
+      "positive_parent_condition": 150.64813648067602
+    },
+    {
+      "N": 4,
+      "design_size": 5,
+      "error_derivative": 94320.5407388228,
+      "positive_error_formula": 94320.54073891444,
+      "relative_identity_error": 9.715106537266627e-13,
+      "Ldot": 1097628.4673480631,
+      "actual_drift_cost": 378727.2951310758,
+      "modular_cost": 1211119.354581541,
+      "payment_lower": 226682.9898524338,
+      "payment_lower_over_current_pivot": 8.456059486372725,
+      "positive_parent_condition": 5830.022830051025
+    },
+    {
+      "N": 5,
+      "design_size": 6,
+      "error_derivative": 5440798.158670967,
+      "positive_error_formula": 5440798.158690812,
+      "relative_identity_error": 3.647373205396411e-12,
+      "Ldot": 95400480.07421605,
+      "actual_drift_cost": 37418181.66299644,
+      "modular_cost": 88667188.1281905,
+      "payment_lower": 27297408.69424872,
+      "payment_lower_over_current_pivot": 16.783497205840696,
+      "positive_parent_condition": 29357.37571264632
+    }
+  ]
+}

@@ -66,12 +66,52 @@ forcing in the actual complete bridge metric.
 These are mechanism validations at fixed finite order. They do not establish a
 new all-order positivity theorem or prove RH.
 
+## Consolidated continuation through v26
+
+- At degree `5`, `a=1/4`, and `lambda in [0,1]`, a legal old-feature gauge
+  with zero signed integral gives a certified Newman payment. Before the common
+  `pi/2` factor, the terminal Schur value is `> 375589.1213813384`, the gauged
+  budget is `< 322853.8114762700`, and the retained reserve is
+  `> 52735.3099050647`. This is one fixed finite mechanism; the ungauged
+  sufficient envelope failed numerically, not the target.
+- In the odd same-parity degree-`9` channel at `a=1/4`, the endpoint old Grams
+  are positive at `lambda=0,1` and the regional endpoint minimum retains
+  `> 0.0031365403907762` after division by `10^16` and omission of `pi/2`.
+  This is not mixed-parity `H9`, interior-path positivity, or a new all-shift
+  hierarchy theorem.
+- For every finite polynomial degree and raised spatial moment, an
+  actual-theta theorem gives explicit superexponential confinement in the
+  positive physical parent norm. It is not a signed Schur lower bound and does
+  not pay inverse feedback or the modular defect.
+- Exact block transport retains the signed local terms until their joint
+  inverse feedback is assembled. Modular reflection then reduces one
+  normalized endpoint route to exactly one negative direction, but does not
+  pay it.
+- An auxiliary positive-regression remainder satisfies `E'(a)>0` at every
+  finite degree. The canonical actual next source further cancels the separate
+  inverse-feedback estimate, leaving one correlated current-prefix inequality.
+  That inequality is **unproved**. A conditional obstruction rules out proving
+  it with a degree-independent mixed-metric spectral gap.
+
+All floating scans and probes in the continuation remain numerical
+diagnostics. The highest all-shift hierarchy theorem remains `H6`.
+
 ## Central open lemma
 
 The current bridge would require an actual, source-specific lower-metric
 innovation gain that uniformly dominates the regression mismatch/action and
 every signed coupling cost as the degree grows. The Fisher inequalities above
 do not, by themselves, pay that all-degree cost.
+
+For the narrower normalized-endpoint modular route, assuming a positive
+current prefix, the v26 canonical construction sharpens the sufficient target
+to
+
+`4 y^T c_W' - 2 gamma^T H gamma >= kappa_0 M_N`.
+
+Every term is determined by the current prefix, but its correlated sign and
+size are not proved uniformly. This is the remaining criterion for that route,
+not a global equivalence to all-shift closure.
 
 Equivalently in the CP62 matrix language, one needs a complete positive-time
 coefficient map into the physical boundary form and a reserve-relative

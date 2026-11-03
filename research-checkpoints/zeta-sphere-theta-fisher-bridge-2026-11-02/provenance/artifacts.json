@@ -25,6 +25,16 @@
       "rerun_status": "supplied-and-hash-verified; bounded public smoke checks are recorded separately"
     },
     {
+      "role": "campaign-v20-v26-publication-continuation",
+      "name": "zeta_sphere_campaign_v26_20261103T0228Z.zip",
+      "bytes": 5658383,
+      "sha256": "945a1f0b5bc0a3fbb0852bd3af2512e5f9797022aad48ded4afc9bc9dba1d71e",
+      "integrity": "unzip-test-pass; internal manifest 839/839 pass; all 825 v25, 672 v19, and 585 v18 payloads preserved byte-for-byte",
+      "repository_copy": "146-file deduplicated publication allowlist with seven recorded Library-identifier redactions; seven publication manifests retained; source archive and 14 duplicate private provenance manifests excluded",
+      "private_locator": "retained outside the public repository",
+      "rerun_status": "supplied-and-hash-verified; bounded public smoke checks are recorded separately"
+    },
+    {
       "role": "preserved-v17-baseline-identity",
       "name": "zeta_sphere_campaign_v17_20261102T2328Z.zip",
       "library_file_id": "libfile_3c3aff317d308191bde03515a0a4dd47",

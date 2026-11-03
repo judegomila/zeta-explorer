@@ -1,0 +1,69 @@
+{
+  "scope": "Floating diagnostic only; trapezoidal lambda integration.",
+  "rows": [
+    {
+      "n": 2,
+      "integral_alpha": -0.06836761161539312,
+      "terminal_m": 0.019510101330163065,
+      "terminal_delta_ratio": 0.9829945983180657,
+      "terminal_conditional_eta": 0.11882861552061749,
+      "compensated_ratio": 4.478113308423697
+    },
+    {
+      "n": 3,
+      "integral_alpha": -0.10984276723474473,
+      "terminal_m": 0.02463496204309004,
+      "terminal_delta_ratio": 0.9228353273813211,
+      "terminal_conditional_eta": 0.17826048429383967,
+      "compensated_ratio": 6.71357421223151
+    },
+    {
+      "n": 4,
+      "integral_alpha": -0.12731557740855498,
+      "terminal_m": 0.03063694019010661,
+      "terminal_delta_ratio": 0.7851302097168793,
+      "terminal_conditional_eta": 0.24147936162811467,
+      "compensated_ratio": 8.868579923152302
+    },
+    {
+      "n": 5,
+      "integral_alpha": -0.08780371201122734,
+      "terminal_m": 0.034392286687083835,
+      "terminal_delta_ratio": 0.615718085551775,
+      "terminal_conditional_eta": 0.2678657737061229,
+      "compensated_ratio": 10.433964163317578
+    },
+    {
+      "n": 7,
+      "integral_alpha": -0.07778789215158081,
+      "terminal_m": 0.03796328645623103,
+      "terminal_delta_ratio": 0.6737402883482851,
+      "terminal_conditional_eta": 0.27543844988809274,
+      "compensated_ratio": 10.205661097201798
+    },
+    {
+      "n": 9,
+      "integral_alpha": -0.09085673580557031,
+      "terminal_m": 0.05006478014815692,
+      "terminal_delta_ratio": 0.45445538940305374,
+      "terminal_conditional_eta": 0.3774129454290421,
+      "compensated_ratio": 13.422695952954316
+    },
+    {
+      "n": 12,
+      "integral_alpha": -0.06347092619679041,
+      "terminal_m": 0.057768564671915774,
+      "terminal_delta_ratio": 0.4743983159918337,
+      "terminal_conditional_eta": 0.42786760749127667,
+      "compensated_ratio": 13.010001959859336
+    },
+    {
+      "n": 15,
+      "integral_alpha": 0.03990150870757361,
+      "terminal_m": 0.07173720961643185,
+      "terminal_delta_ratio": 0.4141944984045736,
+      "terminal_conditional_eta": 0.47207901743636105,
+      "compensated_ratio": 13.388558017997967
+    }
+  ]
+}

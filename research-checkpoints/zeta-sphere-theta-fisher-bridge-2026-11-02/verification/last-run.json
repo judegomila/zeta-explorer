@@ -1,6 +1,6 @@
 {
-  "schema_version": 2,
-  "executed_utc": "2026-11-03T00:28:01Z",
+  "schema_version": 3,
+  "executed_utc": "2026-11-03T02:41:45Z",
   "archive_verifier": {
     "status": "PASS",
     "v18_files_verified": 574,
@@ -11,7 +11,11 @@
     "cp62_bytes_verified": 177616,
     "v19_allowlist_files_verified": 58,
     "v19_allowlist_bytes_verified": 692019,
-    "v19_public_redactions": 2
+    "v19_public_redactions": 2,
+    "v20_v26_allowlist_files_verified": 146,
+    "v20_v26_allowlist_bytes_verified": 962560,
+    "v20_v26_public_redactions": 7,
+    "v20_v26_repeated_manifest_rows": 28
   },
   "smoke_suite": {
     "status": "PASS",
@@ -22,7 +26,8 @@
       "cluster-certificate",
       "cp62-joint-source",
       "cp62-matrix-anchor",
-      "v19-certificate-summaries"
+      "v19-certificate-summaries",
+      "v20-v26-certificate-summaries"
     ]
   },
   "v19_scientific_replays": {
@@ -52,24 +57,70 @@
       }
     ]
   },
+  "v20_v26_scientific_replays": {
+    "status": "PASS",
+    "checks": [
+      {
+        "name": "degree9-arb-3072-cells",
+        "environment": "Python 3.13; python-flint 0.9.0",
+        "result": "PASS; every certificate field except runtime matched the stored source and audit"
+      },
+      {
+        "name": "positive-parent-constants-6000-cells",
+        "environment": "Python 3.13; python-flint 0.9.0",
+        "result": "PASS; fresh output was byte-identical to the stored source and audit"
+      },
+      {
+        "name": "alternative-h5-window",
+        "environment": "Python 3.13; python-flint 0.9.0",
+        "result": "PASS; fresh certificate matched the frozen JSON",
+        "dependency": "the declared inherited h5_tail_v1 dependency was not rebuilt"
+      },
+      {
+        "name": "fisher-laguerre-identities",
+        "environment": "Python 3.13; SymPy 1.14.0",
+        "result": "PASS; source and audit reproduced the stored JSON exactly"
+      },
+      {
+        "name": "transport-and-reflection-symbolics",
+        "environment": "Python 3.13; SymPy 1.14.0",
+        "result": "PASS; local flux, generating transport, degree compatibility, and modular reflection outputs reproduced byte-for-byte"
+      },
+      {
+        "name": "degree5-endpoint-extraction",
+        "environment": "Python 3.13; python-flint 0.9.0",
+        "result": "PASS; source and audit endpoint bounds matched",
+        "dependency": "consumed the frozen 1024x1024 budget; the full degree-five Arb integration was not rerun"
+      }
+    ],
+    "internal_checksum_manifests": {
+      "status": "PASS",
+      "manifests": 25,
+      "entries": 71
+    },
+    "floating_diagnostics": "14 files retained with explicit noncertificate labels; not executed as proof checks"
+  },
   "package_manifest": {
     "status": "PASS",
     "algorithm": "SHA-256",
-    "files_verified": 694
+    "files_verified": 851
   },
   "paper": {
     "status": "PASS",
     "builder": "Tectonic",
-    "pages": 14,
-    "bytes": 117858,
-    "sha256": "da505c12036e8469f3af3b0202c69df71f6bfa8d59c6fcbc9463c82b45b73ab5",
+    "pages": 17,
+    "bytes": 138248,
+    "sha256": "ac00ff5f370d120c0dea3f3b4826304d26c5691234d1e8f4db525bcf84a904d8",
+    "rendered_png_set_sha256": "bf20d537180356555cf2dad7982dffa83ec893d76af142c8704e81e6200968f8",
     "checks": [
-      "all 14 pages rendered to PNG and visually inspected",
+      "all 17 pages rendered to PNG and visually inspected",
       "PDF metadata and embedded text inspected",
       "no TeX warnings, overfull boxes, undefined references, or missing characters"
     ]
   },
   "not_rerun": [
+    "v20 full degree-five 1024x1024 Arb integration",
+    "v20-v26 floating NumPy/SciPy probes",
     "v19 1000-cell parent Taylor integration",
     "v19 60000x1000 paid rectangle integration",
     "historical Arb 2^21-point DFT certificate",

@@ -1,0 +1,106 @@
+{
+  "version": 21,
+  "baseline_version": 20,
+  "files": [
+    {
+      "path": "V21_INDEX.md",
+      "sha256": "09adacf620a9528754cca02db2eb073bbc799bfc1199e6ad0dc9b77e72aec437"
+    },
+    {
+      "path": "paid_parent_conditioning_audit/AUDIT.md",
+      "sha256": "3c134267b1dc0ee5bc443f28ec328b99126f02bb1c5d3f56265b1f2bc99f87a4"
+    },
+    {
+      "path": "paid_parent_conditioning_v1/COMPENSATED_ACTION.md",
+      "sha256": "9295eab04ad1e6e2a40dd0d2aceac4671be09a349bedd0a0d82781cba1034fd5"
+    },
+    {
+      "path": "paid_parent_conditioning_v1/CONDITIONING.md",
+      "sha256": "5968c1aeac1fe92e902b2d431d0ad85104d603989ba9c5facfb63e689ae17278"
+    },
+    {
+      "path": "paid_parent_conditioning_v1/EXPLICIT_COEFFICIENT_ENVELOPE.md",
+      "sha256": "9c64162fd47b9cd530d0b9ba81935cf3a198598b76673b2ef901a770e836865c"
+    },
+    {
+      "path": "paid_parent_conditioning_v1/FLOATING_DIAGNOSTIC_SHA256.txt",
+      "sha256": "b0904fdf5f2b8571dc5e79b40116c4c6ca495394bf790eb099dc839c8cd39adf"
+    },
+    {
+      "path": "paid_parent_conditioning_v1/FROZEN_SHA256.txt",
+      "sha256": "87a52c0bede783c63c6fb49ae48780b075f8955e1034584fd43ddb7b0af5c335"
+    },
+    {
+      "path": "paid_parent_conditioning_v1/check_rate.json",
+      "sha256": "9c7c06e59ddf90da323aea38ec07fb260963becb6ebca85d2dbb2acc6a74ea6c"
+    },
+    {
+      "path": "paid_parent_conditioning_v1/check_rate.py",
+      "sha256": "f86bf3f04bfca5b648c8c6e9c60305dd6a48caf8cff188119e142e63c6d45318"
+    },
+    {
+      "path": "paid_parent_conditioning_v1/probe_compensated.json",
+      "sha256": "e9bad648b6750599c077c8640926aa60829d94c8f40596f35d8e67b412b77835"
+    },
+    {
+      "path": "paid_parent_conditioning_v1/probe_compensated.py",
+      "sha256": "d87657e36b16be73eae839a241370a03feb10632ef90278278a6542420abfd15"
+    },
+    {
+      "path": "paid_parent_conditioning_v1/probe_conditioning.json",
+      "sha256": "50fc1a104e8c38c47f30d530ce6f2d13e0d104f9751507c2b80baab57dfaa05f"
+    },
+    {
+      "path": "paid_parent_conditioning_v1/probe_conditioning.py",
+      "sha256": "c26ffc314c670647beb72b30fc0682b683667a16de2d5e0c79d54614f15a9162"
+    },
+    {
+      "path": "paid_parent_conditioning_v1/probe_conditioning_refined.json",
+      "sha256": "7c4e1d1865ced132a929b4a4ba1bd743d682405fa6dba7c66c1e80fdb8c1962a"
+    },
+    {
+      "path": "paid_parent_conditioning_v1/probe_conditioning_refined.py",
+      "sha256": "889583d15723158faa04cc5aa62ed52a788ddbb24b11b996e1f353993899b4cd"
+    },
+    {
+      "path": "paid_parent_conditioning_v1/probe_terminal_zero.json",
+      "sha256": "a87c1e3ed0a9b19e2a954ceb85e0657de6205e064de593c2450439a22f8ed24d"
+    },
+    {
+      "path": "paid_parent_conditioning_v1/probe_terminal_zero.py",
+      "sha256": "465ee772f93557f893592f946142d8155dadcd8ffd68553a5a723cecd5a4af9b"
+    },
+    {
+      "path": "theta_parent_growth_audit/AUDIT.md",
+      "sha256": "23b004b050da804f3caaacafd33df8ee55b6acd654acaf2deec68db6c1ceab17"
+    },
+    {
+      "path": "theta_parent_growth_audit/constants.json",
+      "sha256": "c722da3356e0fff35f750a49067962f4180b620239225c38339943e918c42caa"
+    },
+    {
+      "path": "theta_parent_growth_v1/ALL_MOMENTS.md",
+      "sha256": "4f17ea4b816babcde8a8aacc2c1dd423157fbc9f3a18123b116e1fc6d3f37c76"
+    },
+    {
+      "path": "theta_parent_growth_v1/ALL_MOMENTS_FROZEN_SHA256.txt",
+      "sha256": "78ff34ecb936feb59e31b17846dee6c01469f1b42b00346a310b51e168cc899b"
+    },
+    {
+      "path": "theta_parent_growth_v1/FROZEN_SHA256.txt",
+      "sha256": "c62541e93711648ac3107060b6aecb7be53eb52dbeec76ee4d443069d44b9356"
+    },
+    {
+      "path": "theta_parent_growth_v1/GROWTH.md",
+      "sha256": "749b4e3109a308706d31c07f38817d08f8d061d10aadad8d4fd314d402d57a9f"
+    },
+    {
+      "path": "theta_parent_growth_v1/check_constants.py",
+      "sha256": "42739412f0089cc4fb9888048da5e221f49d3facb1fa552a1a43e97a9cb90ecd"
+    },
+    {
+      "path": "theta_parent_growth_v1/constants.json",
+      "sha256": "c722da3356e0fff35f750a49067962f4180b620239225c38339943e918c42caa"
+    }
+  ]
+}

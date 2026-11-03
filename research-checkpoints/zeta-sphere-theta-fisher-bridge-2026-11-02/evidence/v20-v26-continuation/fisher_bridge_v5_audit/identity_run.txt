@@ -1,0 +1,1 @@
+PASS: 30 polynomial/gamma identities and norm bounds; no theta target-rung claim.

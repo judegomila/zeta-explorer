@@ -1,0 +1,348 @@
+{
+  "description": "Exact rational checks of finite constants in the separated, paired, and three-channel confluent bridge Gram proofs",
+  "status": "all checks passed",
+  "check_count": 71,
+  "arithmetic": "Python fractions.Fraction; standard library only",
+  "not_verified_automatically": [
+    "theta modularity and analytic convergence",
+    "differentiation of the full theta sum and bridge integrals",
+    "strong-concavity and divided-difference arguments",
+    "positive Laplace representation of the full theta tail ratio",
+    "three-channel bridge moment and logarithmic derivative identities",
+    "Gaussian integral identities and operator/Schur reasoning",
+    "full positive definiteness for unrestricted nodes or RH"
+  ],
+  "checks": [
+    {
+      "name": "Leibniz lower bound for pi exceeds 3",
+      "passed": true,
+      "exact_value": "135904/45045"
+    },
+    {
+      "name": "Taylor lower bound for e exceeds 8/3",
+      "passed": true,
+      "exact_value": "65/24"
+    },
+    {
+      "name": "Geometric-series upper bound for e is below 3",
+      "passed": true,
+      "exact_value": "49/18"
+    },
+    {
+      "name": "The Gaussian-envelope condition 5/e^2 < 1",
+      "passed": true
+    },
+    {
+      "name": "The theta-tail comparison 1/(e-1) < 1",
+      "passed": true
+    },
+    {
+      "name": "e^(1/2) < 2 follows from e < 3 < 4",
+      "passed": true
+    },
+    {
+      "name": "e^(1/4) < 2 follows from e < 3 < 16",
+      "passed": true
+    },
+    {
+      "name": "Individual curvature polynomial identity",
+      "passed": true
+    },
+    {
+      "name": "Individual curvature positive residual",
+      "passed": true,
+      "exact_value": "9/5"
+    },
+    {
+      "name": "e^3 > 20",
+      "passed": true,
+      "exact_value": "89641/4480"
+    },
+    {
+      "name": "Successive theta-tail polynomial ratio < 32",
+      "passed": true,
+      "exact_value": "2025/64"
+    },
+    {
+      "name": "Entire theta-tail ratio <= 1/100000",
+      "passed": true,
+      "exact_value": "1/100000"
+    },
+    {
+      "name": "Entire mixture-variance bound < 2",
+      "passed": true,
+      "exact_value": "160000/99999"
+    },
+    {
+      "name": "Full log-curvature bound below -17",
+      "passed": true,
+      "exact_value": "1739981/99999"
+    },
+    {
+      "name": "e^(17/16) > 20/7",
+      "passed": true,
+      "exact_value": "1509931/524288"
+    },
+    {
+      "name": "Separated infinite row bound equals 5600/7657",
+      "passed": true,
+      "exact_value": "5600/7657"
+    },
+    {
+      "name": "Separated relative remainder < 3/4",
+      "passed": true
+    },
+    {
+      "name": "Separated coercivity reserve exceeds 1/4",
+      "passed": true,
+      "exact_value": "2057/7657"
+    },
+    {
+      "name": "Derivative majorant P0 coefficients",
+      "passed": true
+    },
+    {
+      "name": "Derivative factorial total j=0",
+      "passed": true,
+      "exact_value": "864"
+    },
+    {
+      "name": "Derivative majorant P1 coefficients",
+      "passed": true
+    },
+    {
+      "name": "Derivative factorial total j=1",
+      "passed": true,
+      "exact_value": "30576"
+    },
+    {
+      "name": "Derivative majorant P2 coefficients",
+      "passed": true
+    },
+    {
+      "name": "Derivative factorial total j=2",
+      "passed": true,
+      "exact_value": "1359384"
+    },
+    {
+      "name": "All three factorial totals",
+      "passed": true
+    },
+    {
+      "name": "Bridge weight integral I < 1/10",
+      "passed": true,
+      "exact_value": "2/27"
+    },
+    {
+      "name": "First theta summand coefficient lower bound 36",
+      "passed": true
+    },
+    {
+      "name": "Normalization integral coefficient 27/2",
+      "passed": true,
+      "exact_value": "27/2"
+    },
+    {
+      "name": "Normalization (27/2)e^-16 > 1e-7 using e<3",
+      "passed": true,
+      "exact_value": "1/3188646"
+    },
+    {
+      "name": "Normalized derivative envelope j=0 below M",
+      "passed": true,
+      "exact_value": "4000000000000000000"
+    },
+    {
+      "name": "Normalized derivative envelope j=1 below M",
+      "passed": true,
+      "exact_value": "8000000000000000000"
+    },
+    {
+      "name": "Normalized derivative envelope j=2 below M",
+      "passed": true,
+      "exact_value": "16000000000000000000"
+    },
+    {
+      "name": "Pair exponent 40h^2 <= 2/5 for h<=1/10",
+      "passed": true
+    },
+    {
+      "name": "e^(-2/5) > 1/2 follows from e<3 and 3^2<2^5",
+      "passed": true
+    },
+    {
+      "name": "Cross-cluster minimum argument gap 23/10",
+      "passed": true
+    },
+    {
+      "name": "Cross-cluster Gaussian exponent 529/10",
+      "passed": true
+    },
+    {
+      "name": "Gaussian exponent exceeds 3*17",
+      "passed": true
+    },
+    {
+      "name": "Paired geometric parameter q=20^-17 < 1e-22",
+      "passed": true,
+      "exact_value": "1/13107200000000000000000"
+    },
+    {
+      "name": "Paired infinite off-block row norm < 1/100",
+      "passed": true,
+      "exact_value": "13743895347200000000000000000000000000000000000000000000000000000/2251799813685247999999999999999999999999999999999999999999999999999"
+    },
+    {
+      "name": "Paired relative remainder < 1/50",
+      "passed": true
+    },
+    {
+      "name": "Paired absolute reserve > 49/100",
+      "passed": true
+    },
+    {
+      "name": "Paired relative reserve > 49/50",
+      "passed": true
+    },
+    {
+      "name": "Uniform within-pair QQ upper bound M/20 is finite",
+      "passed": true,
+      "exact_value": "1000000000000000000"
+    },
+    {
+      "name": "Laplace derivative recurrence P1",
+      "passed": true,
+      "exact_value": "[Fraction(0, 1), Fraction(1, 1)]"
+    },
+    {
+      "name": "Laplace P1 nonnegative for t>=9 by shifted coefficients",
+      "passed": true,
+      "exact_value": "[Fraction(9, 1), Fraction(1, 1)]"
+    },
+    {
+      "name": "Laplace P1 <= t^1 for t>=9 by shifted coefficients",
+      "passed": true,
+      "exact_value": "[Fraction(0, 1), Fraction(0, 1)]"
+    },
+    {
+      "name": "Laplace derivative recurrence P2",
+      "passed": true,
+      "exact_value": "[Fraction(0, 1), Fraction(-1, 1), Fraction(1, 1)]"
+    },
+    {
+      "name": "Laplace P2 nonnegative for t>=9 by shifted coefficients",
+      "passed": true,
+      "exact_value": "[Fraction(72, 1), Fraction(17, 1), Fraction(1, 1)]"
+    },
+    {
+      "name": "Laplace P2 <= t^2 for t>=9 by shifted coefficients",
+      "passed": true,
+      "exact_value": "[Fraction(9, 1), Fraction(1, 1), Fraction(0, 1)]"
+    },
+    {
+      "name": "Laplace derivative recurrence P3",
+      "passed": true,
+      "exact_value": "[Fraction(0, 1), Fraction(1, 1), Fraction(-3, 1), Fraction(1, 1)]"
+    },
+    {
+      "name": "Laplace P3 nonnegative for t>=9 by shifted coefficients",
+      "passed": true,
+      "exact_value": "[Fraction(495, 1), Fraction(190, 1), Fraction(24, 1), Fraction(1, 1)]"
+    },
+    {
+      "name": "Laplace P3 <= t^3 for t>=9 by shifted coefficients",
+      "passed": true,
+      "exact_value": "[Fraction(234, 1), Fraction(53, 1), Fraction(3, 1), Fraction(0, 1)]"
+    },
+    {
+      "name": "Laplace derivative recurrence P4",
+      "passed": true,
+      "exact_value": "[Fraction(0, 1), Fraction(-1, 1), Fraction(7, 1), Fraction(-6, 1), Fraction(1, 1)]"
+    },
+    {
+      "name": "Laplace P4 nonnegative for t>=9 by shifted coefficients",
+      "passed": true,
+      "exact_value": "[Fraction(2745, 1), Fraction(1583, 1), Fraction(331, 1), Fraction(30, 1), Fraction(1, 1)]"
+    },
+    {
+      "name": "Laplace P4 <= t^4 for t>=9 by shifted coefficients",
+      "passed": true,
+      "exact_value": "[Fraction(3816, 1), Fraction(1333, 1), Fraction(155, 1), Fraction(6, 1), Fraction(0, 1)]"
+    },
+    {
+      "name": "Triple derivative-tail ratio prefactor equals 96",
+      "passed": true,
+      "exact_value": "96"
+    },
+    {
+      "name": "Triple entire-tail ratio 96/20^5 < 1e-4",
+      "passed": true,
+      "exact_value": "3/100000"
+    },
+    {
+      "name": "Triple derivative first-tail numerator j=1",
+      "passed": true,
+      "exact_value": "640"
+    },
+    {
+      "name": "Triple entire derivative-tail bound j=1",
+      "passed": true,
+      "exact_value": "800/9999"
+    },
+    {
+      "name": "Triple derivative first-tail numerator j=2",
+      "passed": true,
+      "exact_value": "13184"
+    },
+    {
+      "name": "Triple entire derivative-tail bound j=2",
+      "passed": true,
+      "exact_value": "16480/9999"
+    },
+    {
+      "name": "Triple derivative first-tail numerator j=3",
+      "passed": true,
+      "exact_value": "282624"
+    },
+    {
+      "name": "Triple entire derivative-tail bound j=3",
+      "passed": true,
+      "exact_value": "117760/3333"
+    },
+    {
+      "name": "Triple logarithmic correction loss equals 180003/5000",
+      "passed": true,
+      "exact_value": "180003/5000"
+    },
+    {
+      "name": "Triple logarithmic correction loss < 37",
+      "passed": true
+    },
+    {
+      "name": "First-summand fourth-derivative rational identity numerator -3456z^2",
+      "passed": true
+    },
+    {
+      "name": "First-summand loss <= 384 for z>=3 by shifted coefficients",
+      "passed": true,
+      "exact_value": "[Fraction(0, 1), Fraction(62208, 1), Fraction(79488, 1), Fraction(36864, 1), Fraction(6144, 1)]"
+    },
+    {
+      "name": "First-summand loss at z=3 equals 384",
+      "passed": true
+    },
+    {
+      "name": "Full fourth-log-derivative loss constant 421",
+      "passed": true
+    },
+    {
+      "name": "Triple determinant polynomial at m=-17-y",
+      "passed": true,
+      "exact_value": "[Fraction(1334, 1), Fraction(264, 1), Fraction(8, 1)]"
+    },
+    {
+      "name": "Triple determinant reserve >=1334 for m<=-17",
+      "passed": true
+    }
+  ]
+}

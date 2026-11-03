@@ -1,0 +1,15 @@
+{
+  "z_domain": [
+    "3",
+    "16"
+  ],
+  "subintervals": 13000,
+  "width": "1/1000",
+  "finite_theta_N": 6,
+  "interval_decimal_precision": 45,
+  "proved": "x>17 and P>8*x^4 on every interval",
+  "minimum_x_lower": "18.7067250478701091393252414399990167924672488743454602991083",
+  "minimum_margin_lower": "881661.270284428472937816430403970223255695085693269395812902",
+  "minimum_P_over_x4_lower": "15.0758315178670351030502786094648148858647866834290700950501",
+  "elapsed_seconds": 30.76596474647522
+}

@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "executed_utc": "2026-11-03T00:02:32Z",
+  "archive_verifier": {
+    "status": "PASS",
+    "v18_files_verified": 574,
+    "v18_bytes_verified": 7980302,
+    "v18_policy_exclusions": 11,
+    "v18_public_redactions": 9,
+    "cp62_files_verified": 34,
+    "cp62_bytes_verified": 177616
+  },
+  "smoke_suite": {
+    "status": "PASS",
+    "checks": [
+      "h5-analytic-tail",
+      "grouped-gram",
+      "zero-window",
+      "cluster-certificate",
+      "cp62-joint-source",
+      "cp62-matrix-anchor"
+    ]
+  },
+  "package_manifest": {
+    "status": "PASS",
+    "algorithm": "SHA-256",
+    "files_verified": 631
+  },
+  "paper": {
+    "status": "PASS",
+    "builder": "Tectonic",
+    "pages": 12,
+    "bytes": 109526,
+    "sha256": "06eff0b4e95075c0a873b90e8d7e700e3c6845acbccbeb4ce661be06259c1e62",
+    "checks": [
+      "all pages rendered to PNG and visually inspected",
+      "embedded fonts inspected",
+      "text extraction inspected",
+      "no TeX warnings, overfull boxes, undefined references, or missing characters"
+    ]
+  },
+  "not_rerun": [
+    "historical Arb 2^21-point DFT certificate",
+    "all interval quadratures",
+    "python-flint dependency stack",
+    "every historical high-precision certificate"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "scope": "Arb enclosure of finite trig-interpolant weighted convolution, before analytic alias/truncation errors",
+  "power": 20,
+  "precision_bits": 80,
+  "t": "7005.081715",
+  "H": "1",
+  "delta": "2/t",
+  "scaled_core_ball": "[5.6962777822e+13 +/- 9.71e+2]",
+  "lower": "[56962777821816.084505746 +/- 2.09e-10]",
+  "upper": "[56962777822970.226908395 +/- 2.83e-10]",
+  "seconds": 27.697991132736206
+}

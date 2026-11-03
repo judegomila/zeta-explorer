@@ -1,0 +1,661 @@
+\documentclass[11pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,longtable,array,tabularx}
+\usepackage[margin=1in]{geometry}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!45!black,
+  citecolor=blue!45!black,
+  urlcolor=blue!50!black,
+  pdftitle={Zeta Sphere Vortices and the Twin-Ladder Bridge},
+  pdfauthor={Jude Gomila}
+}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{Zeta sphere / theta--Fisher bridge}
+\fancyhead[R]{Jude Gomila}
+\fancyfoot[C]{\thepage}
+\setlength{\headheight}{14pt}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{obligation}[theorem]{Open obligation}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Var}{\operatorname{Var}}
+\newcommand{\Cov}{\operatorname{Cov}}
+\newcommand{\PSD}{\succeq 0}
+\newcommand{\pd}{\succ 0}
+
+\title{\textbf{Zeta Sphere Vortices and the Twin-Ladder Bridge}\\
+\large A Theta--Fisher Information Research Program}
+\author{Jude Gomila}
+\date{2 November 2026}
+
+\begin{document}
+\maketitle
+
+\begin{center}
+\fbox{\parbox{0.92\textwidth}{
+\textbf{Status.} This paper does not prove the Riemann hypothesis. It integrates
+finite-order interval theorems, exact signed decompositions, rigorous
+counterexamples to stronger auxiliary routes, and reviewed information-theoretic
+bounds. The remaining degree-uniform signed coupling estimate is stated
+explicitly and is not assumed. Review to date is internal and AI-assisted, not
+external peer review.
+}}
+\end{center}
+
+\begin{abstract}
+We organize a computational and analytic research program around a paired theta
+kernel whose positive definiteness for every allowed shift is equivalent to the
+Riemann hypothesis. The program has established two finite footholds: complete
+$H_5$ positivity for all positive shifts and positivity of the full odd
+$10\times10$ moment block through channel $19$ at normalized shift $a=0$.
+It has also rigorously disproved a stronger shortcut: arbitrary spatial
+cumulative tails need not be positive, even at the explicit positive shift
+$a=10^{-4}$. A positive-time refinement exhibits the correct mechanism on a
+restricted actual band: the tail is negative, the central contribution is
+positive, and their complete sum is positive.
+
+The new information-relaxation layer gives a genuine bridge Fisher bound
+$I_a\le 2/17$, the regular endpoint bound $I_{a^2}(0)\le4/867$, and exponential
+decay $I'(h)\le-14I(h)$ for the complete theta orbit law. These estimates are
+then inserted into exact signed identities rather than treated as positivity
+theorems. A two-ladder regression formula separates favorable innovation,
+reflected innovation, and the mismatch action measured by the already-certified
+lower block. Spatial heat preserves every zero and contributes only a removable
+Gaussian reserve; Newman evolution retains a signed derivative-ladder forcing.
+The central open lemma is a degree-uniform comparison showing that the actual
+lower-metric innovation dominates regression mismatch, inverse feedback, and
+signed forcing. Without that lemma the Riemann hypothesis remains open.
+\end{abstract}
+
+\tableofcontents
+\newpage
+
+\section{Scope, evidence grades, and provenance}
+
+The purpose of this paper is not to package a long computation as a hidden
+proof. It is to identify what has actually been established, what has been
+falsified, and what a successful next estimate must pay. The word
+``reviewed'' below means that a separate campaign audit checked the derivation
+or replay. It does not mean peer review, formal proof-assistant verification, or
+community acceptance.
+
+The repository checkpoint binds two immutable source artifacts:
+\begin{itemize}[leftmargin=2em]
+\item Campaign v18 has Library identifier
+\texttt{libfile\_93281585a66c81918ba351446f9d7615}, byte count
+$4{,}369{,}533$, and SHA-256
+\begin{center}\small\ttfamily
+3a47ccddd9a529c719e4a2ca0a6b2622\\
+90610cbc1d651f3dec20e8ffd8f5c9ef.
+\end{center}
+Its internal manifest verifies 585 payloads and preserves all 537 v17 payloads
+byte-for-byte.
+\item CP62 has Library identifier
+{\small\texttt{libfile\_19a836c8b8a8819198a91a5abe44c640}}, byte count $79{,}980$,
+and SHA-256
+\begin{center}\small\ttfamily
+75db9056b1863e904afecbbf2a99de1f\\
+f108a48fd3b0ea2242c988e899aa7ccb.
+\end{center}
+\end{itemize}
+The public repository derivative omits third-party papers, captured HTML,
+nested downloaded archives, and conversation records. Nine otherwise
+publishable authored text files have only private conversation references or
+stale pointers to omitted files replaced. The exact omissions and redactions are manifested; the private
+original artifacts remain hash-addressed.
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.20\textwidth}
+                  >{\raggedright\arraybackslash}p{0.34\textwidth}
+                  >{\raggedright\arraybackslash}p{0.36\textwidth}}
+\toprule
+Result & Established scope & Boundary that remains \\
+\midrule
+\endhead
+Full theta $H_5$ & Strict positivity for every positive shift; finite-order interval theorem. & No all-order hierarchy and no RH conclusion. \\
+Odd channels $1,3,\ldots,19$ & Full $10\times10$ odd block at normalized $a=0$, including the actual $H=1/16$ core/tail coupling. & Not the even block, not full $H_{19}$, and no nonzero-shift or all-degree result. \\
+$H=1$ cumulative tail & Explicit negative Fourier density at $t=7005081715/10^6$, including $a=10^{-4}$. & Refutes universal tail positivity, not the complete kernel or RH. \\
+Bridge Fisher information & $I_a\le2/17$ and regular endpoint $I_{a^2}(0)\le4/867$. & Fisher PSD does not imply parameter-derivative Gram PSD. \\
+Orbit information & $I'(h)\le-14I(h)$ and $I(h)<2e^{-14h}$. & High-degree observables can amplify rare orbits; the actual bridge metric is not controlled. \\
+Twin innovation & Exact innovation-minus-reflection-minus-mismatch identity. & Uniform domination of mismatch action is open. \\
+Heat/Newman relaxation & Exact zero-preserving spatial heat formula and signed Newman forcing. & The Gaussian reserve is removable; the forcing has no automatic favorable sign. \\
+\bottomrule
+\end{longtable}
+
+\section{The paired theta bridge}
+
+Let $\psi$ be the complete even positive theta profile in the campaign
+normalization, and write
+\begin{equation}
+  F(z):=\Xi(z)=\int_0^\infty \psi(u)\cos(zu)\,du,
+  \qquad z=t+ia.
+\end{equation}
+For $a>0$ define the positive parent and its parameter derivative
+\begin{align}
+ K_a(v)&=\int_0^\infty \cosh(2ah)\psi(h-v)\psi(h+v)\,dh,\\
+ C_a(v)&=\frac12\partial_a K_a(v)
+       =\int_0^\infty h\sinh(2ah)\psi(h-v)\psi(h+v)\,dh.
+\end{align}
+With Fourier convention $\widehat f(k)=\int_\R f(v)e^{-ikv}\,dv$,
+\begin{equation}
+ \widehat K_a(2t)=|F(t+ia)|^2=:M(t,a),\qquad
+ \widehat C_a(2t)=\frac12\partial_a M(t,a)=:W(t,a).
+ \label{eq:bridge-fourier}
+\end{equation}
+The parent $K_a$ is a positive Gram for every $a$. The derivative $C_a$ is the
+target and need not inherit positivity merely from its parent. Nonnegativity of
+$W(t,a)$ for every real $t$ and every positive shift in the critical strip is
+the horizontal-modulus formulation of the RH target, consistent with the
+classical logarithmic-derivative criteria of Lagarias and the associated-kernel
+literature \cite{Lagarias1999,Lagarias2005,SondowDumitrescu2010,Csordas2015}.
+
+The exact paired-coordinate derivation is essential. An ordinary
+two-dimensional integral receives no nonzero mass from the line $u=v$; that
+line has two-dimensional Lebesgue measure zero. The repository's corrected
+measure audit replaces the withdrawn ``positive diagonal channel'' with the
+actual paired $(r,s)$ identity. Nothing in this paper uses the stale diagonal
+argument.
+
+For normalized moments put
+\begin{equation}
+ \mu_n(a)=(-1)^n\frac{C_a^{(2n)}(0)}{a},
+\end{equation}
+with the removable $a=0$ limit. The associated Hankel blocks are finite tests
+of the full positivity hierarchy. They are useful footholds, but no fixed
+finite order can discharge the universal quantifiers in RH.
+
+\section{Certified finite footholds}
+
+\subsection{Complete \texorpdfstring{$H_5$}{H5} positivity}
+
+The odd three-channel block is
+\begin{equation}
+ G_a=\begin{pmatrix}
+ \mu_1&\mu_2&\mu_3\\
+ \mu_2&\mu_3&\mu_4\\
+ \mu_3&\mu_4&\mu_5
+ \end{pmatrix}.
+\end{equation}
+Validated integration over twelve closed shift bins, together with an analytic
+theta-index tail and a spatial tail beyond $h=4$, proves $G_a\pd$ uniformly for
+$0\le a\le1/2$. The minimum third normalized LDL pivot is greater than
+$0.09778764$. A complementary tail-matrix proof covers every positive shift,
+and the independently reviewed even block through $H_4$ completes the finite
+$H_5$ result.
+
+This theorem is not pointwise positivity in the spatial variable. Indeed, the
+pointwise odd $3\times3$ determinant is negative at $h=0$. Integration over the
+complete theta profile repairs that local sign through this finite order. That
+distinction foreshadows the signed core/tail mechanism used below.
+
+\subsection{The odd block through channel 19}
+
+At normalized shift $a=0$, the full odd block
+\begin{equation}
+ \Gamma_{19}=[\mu_{i+j+1}(0)]_{i,j=0}^{9}
+\end{equation}
+is positive definite. The proof uses the actual split at $H=1/16$. After exact
+rational scaling and congruence, the core residual has three negative and five
+positive directions. The actual tail residual is positive, and the complete
+coupling satisfies, in the fixed certificate coordinates,
+\begin{equation}
+  T_{--}-600N\pd,
+  \qquad 0.995T_{--}-T_{-+}(P+T_{++})^{-1}T_{+-}\pd.
+\end{equation}
+Hence the tail pays the negative core and its complement coupling. A direct
+LDL check of the complete $10\times10$ matrix gives a redundant verification.
+
+The result is exactly the odd channels $1,3,\ldots,19$ at $a=0$. It does not
+include the even block through degree $18$, does not prove full $H_{19}$, and
+does not give positive-shift or growing-degree control.
+
+\section{A rigorous failed route and the lesson of signed compensation}
+
+\subsection{Universal cumulative-tail positivity is false}
+
+Let $T_{H,a}$ denote the normalized spatial tail beginning at $H$. At
+\begin{equation}
+ H=1,\qquad t_*=\frac{7005081715}{10^6},\qquad \xi_*=2t_*=14010.16343,
+\end{equation}
+the full-theta Arb/DFT certificate and analytic alias, truncation, and
+periodization bounds prove
+\begin{equation}
+ e^{\pi t_*/2}\widehat T_{1,0}(2t_*)<-53766891745349<0.
+ \label{eq:a0-tail}
+\end{equation}
+An independent positive-shift certificate proves
+\begin{equation}
+ e^{\pi t_*/2}\frac{\widehat T_{1,10^{-4}}(2t_*)}{10^{-4}}
+ <-51718939276867<0.
+ \label{eq:apos-tail}
+\end{equation}
+The computation evaluates the complete theta sum, not a finite-orbit
+surrogate. These inequalities refute the stronger claim that every cumulative
+tail is positive. They do not give a negative value for the complete bridge
+kernel and are not counterexamples to RH.
+
+\subsection{Positive heat retains the obstruction, but the full sum can be positive}
+
+CP62 extends \eqref{eq:apos-tail} to true positive heat. Put
+\begin{equation}
+ \varepsilon_- =\frac{51718939276867}{3^{14012}},\qquad
+ \varepsilon_+ =\frac{3194699959754}{3^{14012}}.
+\end{equation}
+For $a=10^{-4}$, $0\le\tau\le\varepsilon_-/8$, and
+$|\xi-\xi_*|\le\varepsilon_-/8$, the $H=1$ tail Fourier density is less than
+$-\varepsilon_-/2$. On the narrower $\varepsilon_+$ rectangle, the complete
+$H=0$ density is greater than $\varepsilon_+/2$. Thus the central term is
+strictly positive and compensates the negative tail on the same actual
+spectral band.
+
+Moreover, the truncated-tail convolution form has arbitrarily large negative
+subspaces even on the union of reflection-even compactly supported smooth
+sources. Any correction factoring through finitely many fixed linear
+functionals has a nonzero kernel on a sufficiently large negative subspace and
+cannot make the entire tail nonnegative. This closes a finite-rank tail-repair
+shortcut while leaving correlated infinite-rank and restricted-source
+strategies open.
+
+The conceptual lesson is positive: a viable argument must preserve the signed
+central/tail pair and the complete covariance, rather than prove every piece
+positive separately.
+
+\section{A genuine bridge Fisher bound}
+
+\subsection{The positive bridge law}
+
+For $a>0$ define the probability density
+\begin{equation}
+ \rho_a(h)=\frac{h\sinh(2ah)\psi(h)^2}{C_a(0)},\qquad h>0,
+\end{equation}
+and put
+\begin{equation}
+ r_a(h)=2h\coth(2ah),\qquad
+ s_a=r_a-\E_{\rho_a}r_a,\qquad
+ I_a=\Var_{\rho_a}(r_a).
+\end{equation}
+The campaign's audited theta curvature bound is
+$(\log\psi)''<-17$. If $U_a=-\log\rho_a$, then
+\begin{equation}
+ U_a''(h)=\frac1{h^2}+4a^2\operatorname{csch}^2(2ah)
+          -2(\log\psi)''(h)>34.
+\end{equation}
+Also $0<r_a'(h)<2$. The one-dimensional Brascamp--Lieb variance inequality
+\cite{BrascampLieb1976,CarlenEtAl2013}
+therefore gives the reviewed theorem
+\begin{equation}
+ I_a\le \E_{\rho_a}\frac{(r_a')^2}{U_a''}\le\frac2{17}.
+ \label{eq:fisher-2-17}
+\end{equation}
+For a finite vector observable $V(a,h)$, differentiation retains both pieces:
+\begin{equation}
+ \partial_a\E_{\rho_a}V
+ =\E_{\rho_a}(\partial_aV)+\Cov_{\rho_a}(V,r_a),
+\end{equation}
+Writing $e_a(V):=\Cov_{\rho_a}(V,r_a)$ for the covariance contribution, under
+any fixed whitening,
+\begin{equation}
+ e_a(V)e_a(V)^*\preceq I_a\Cov_{\rho_a}(V).
+\end{equation}
+The small coefficient $2/17$ is uniform in degree; the covariance it multiplies
+is not. Calling \eqref{eq:fisher-2-17} a uniform high-jet relative error would
+be incorrect.
+
+\subsection{The regular endpoint}
+
+The singular term $1/a$ in $r_a$ disappears after centering. In the regular
+parameter $\lambda=a^2$,
+\begin{equation}
+ s_\lambda\longrightarrow\frac23(h^2-\E_{\rho_0}h^2),
+ \qquad
+ I_\lambda(0)=\frac49\Var_{\rho_0}(h^2).
+\end{equation}
+Integration of $(h^3\psi^2)'$ and the curvature bound give
+$\E_{\rho_0}h^2\le3/34$. A second Brascamp--Lieb estimate yields
+$\Var(h^2)\le3/289$, and hence
+\begin{equation}
+ I_\lambda(0)\le\frac4{867}.
+ \label{eq:endpoint}
+\end{equation}
+This is a nondegenerate endpoint information constant. It is not a free
+all-order bridge estimate.
+
+\section{Why Fisher positivity is not bridge positivity}
+
+Normalize the full-line tilt
+\begin{equation}
+ p_a(u)=\frac{e^{2au}\psi(u)^2}{Z(a)},
+ \qquad Z(a)=\int_\R e^{2au}\psi(u)^2\,du.
+\end{equation}
+Then the parent $K_a/K_a(0)$ is the Hellinger affinity between the translates
+$p_a(u-v)$ and $p_a(u+v)$. This explains its positive definiteness. It does not
+explain the sign of its parameter derivative.
+
+With
+\begin{equation}
+ B_j(a,u)=(-2)^j\frac{(D+a)^j\psi(u)}{\psi(u)},
+\end{equation}
+the parent jet Gram is $(Z/2)\E_p[BB^*]$. On either differential parity block,
+integration by parts cancels the explicit feature-drift integral and leaves
+the exact target
+\begin{equation}
+ H=\frac Z2\E_p[uBB^*].
+ \label{eq:signed-u}
+\end{equation}
+The measure is positive but the weight $u$ is signed.
+
+Assume the complete previous target block $A$ is positive. If $R$ is the actual
+same-parity regression residual for the next feature, its Schur residual is
+\begin{equation}
+ S=\frac Z2\E_p[uR^2]
+  =\frac Z2\left(m_a\E_pR^2+\frac12\Cov_p(R^2,\sigma_a)\right),
+ \label{eq:signed-schur}
+\end{equation}
+where $m_a=\E_pu$, $\sigma_a=2(u-m_a)$, and
+$I_p(a):=\Var_p(\sigma_a)=4\Var_p(u)$. Fisher Cauchy gives the sufficient
+condition
+\begin{equation}
+ m_a\E_pR^2\ge\frac12\sqrt{I_p(a)\Var_p(R^2)},
+\end{equation}
+but no uniform-in-degree proof of this inequality is known, and the absolute
+bound loses useful reflection cancellation near $a=0$.
+
+The positive Stein kernel $\tau_a$ makes the unpaid term even more explicit:
+\begin{equation}
+ \frac{2S}{Z}=m_a\E_pR^2+2\E_p[\tau_aRR'].
+ \label{eq:stein-cost}
+\end{equation}
+Curvature and semigroup relaxation control magnitudes and decay
+\cite{Gentil2010}; they do not
+assign a favorable sign to the last term.
+
+\section{Paid twin-ladder innovation}
+
+The sharp finite-dimensional reduction uses both genuinely positive reflected
+sides. Fix $\varepsilon\in\{0,1\}$ and put
+$q_j(z)=z^{\varepsilon+2j}$. For that parity let $G^\pm$ be the positive Grams
+built from
+\begin{equation}
+ F_j^\pm(a,h)=\sqrt h\,e^{\pm ah}q_j(D\pm a)\psi(h),
+\end{equation}
+so the actual target is $(G^+-G^-)/2$. Extend the old block by one feature and
+write $\alpha_\pm$ and $\delta_\pm>0$ for the two positive-side regression
+coefficients and innovations. Put $A=A_+-A_-\pd$ and
+$\Delta=\alpha_--\alpha_+$. Exact block algebra gives
+\begin{equation}
+ \widetilde S=\delta_+-\delta_- -\Delta^*K\Delta,
+ \qquad
+ K=A_-+A_-A^{-1}A_-=A_-A^{-1}A_+\pd.
+ \label{eq:paid-innovation}
+\end{equation}
+Thus the favorable innovation difference must pay the mismatch between the two
+optimal regression paths in the actual already-certified lower geometry.
+Equation \eqref{eq:paid-innovation} is an exact restatement, not a new sign
+theorem.
+
+At the normalized $a=0$ endpoint, if a dot denotes differentiation at zero,
+\begin{equation}
+ \lim_{a\to0}\frac{S_{\rm actual}(a)}a
+ =\dot\delta-\dot\alpha^*G(0)[\dot G(0)]^{-1}G(0)\dot\alpha.
+ \label{eq:endpoint-innovation}
+\end{equation}
+The apparent $A^{-1}\sim1/a$ singularity cancels, leaving derivative innovation
+minus regression-drift energy. A constructive sufficient path estimate is
+\begin{equation}
+ \delta_+-\delta_-
+ \ge 2a\int_{-a}^{a}\alpha'(t)^*K\alpha'(t)\,dt,
+ \label{eq:action}
+\end{equation}
+or a sharper matrix-path version. No uniform theta proof of
+\eqref{eq:action} is presently known. This is the cleanest form of the central
+regression-action obstruction.
+
+\section{Orbit information relaxation and its limits}
+
+Write the complete positive orbit decomposition on $h\ge0$ as
+\begin{equation}
+ p_n(h)=\frac{f_n(h)}{\psi(h)},\qquad
+ S_n(h)=\partial_h\log f_n(h).
+\end{equation}
+The full-tail estimates prove $p_1>400/401$. Under positive transport from
+$h$ to $h+s$, put $P=p(h)\otimes p(h)$ and
+$Q=p(h+s)\otimes p(h+s)$. The one-orbit chi-square distance is less than
+$1/400$, and the independent-pair distance is less than $801/160000$.
+Therefore, for every finite vector observable $V$, with
+$e_{P,Q}(V):=\E_QV-\E_PV$,
+\begin{equation}
+ e_{P,Q}(V)e_{P,Q}(V)^*\preceq\frac{801}{160000}\Cov_P(V),
+ \label{eq:chi-cov}
+\end{equation}
+including after any fixed whitening. The covariance must remain in the bound.
+
+The actual orbit Fisher information
+\begin{equation}
+ I(h)=\Var_p(S)=\sum_{n<m}p_np_m(S_n-S_m)^2
+\end{equation}
+satisfies the reviewed differential inequality
+\begin{equation}
+ I'(h)\le-14I(h),\qquad 0<I(h)<2e^{-14h}.
+ \label{eq:orbit-fisher}
+\end{equation}
+Every pairwise Fisher summand contracts. Nevertheless, differentiated
+observables may have covariance growing rapidly with degree. In fact the
+modular-radius argument produces an unbounded subsequence on which first-orbit
+approximation fails relatively. Small probability distance therefore does not
+become a small relative high-jet error.
+
+The exact graded orbit algebra has one polynomial channel and one residue
+channel. That residue functional is unbounded relative to the raw discrete
+polynomial Gram as degree grows. A separate fixed-parity sampling theorem shows
+that continuous Hermite/Poisson $L^2$ cannot uniformly control lattice
+evaluation. These are method guardrails, not negative bridge tests: the full
+residue channel, spatial integration, and signed correlations may still repair
+the target.
+
+\section{Heat, Ornstein--Uhlenbeck, and Newman evolution}
+
+\subsection{Spatial heat preserves the original zeros}
+
+Let $\psi_s=e^{s\partial_u^2}\psi$. Its transform is
+\begin{equation}
+ F_s(z)=e^{-sz^2}F(z),
+\end{equation}
+so every zero and its multiplicity are unchanged. With
+$E=e^{-2s(t^2-a^2)}$,
+\begin{equation}
+ M_s=EM,\qquad W_s=E(W+2saM).
+\end{equation}
+Equivalently,
+\begin{equation}
+ C_s=e^{2a^2s}e^{(s/2)\partial_v^2}(C_0+2saK_0).
+\end{equation}
+The positive term $2saK_0$ is a Gaussian reserve. Subtracting it gives
+\begin{equation}
+ C_s-2saK_s=e^{2a^2s}e^{(s/2)\partial_v^2}C_0,
+\end{equation}
+whose Fourier sign is equivalent to the original bridge sign. The reserve
+cannot cure an off-axis zero: near a simple zero the negative term in $W$ is
+linear in transverse displacement, whereas the reserve is quadratic.
+Ornstein--Uhlenbeck relaxation likewise rescales nonreal zeros rather than
+making them real.
+
+\subsection{Newman forcing remains signed}
+
+For the de Bruijn--Newman deformation \cite{RodgersTao2020},
+\begin{equation}
+ F_\lambda(z)=\int_0^\infty e^{\lambda u^2}\psi(u)\cos(zu)\,du,
+\end{equation}
+define
+\begin{equation}
+ W[G](t,a):=\Re\!\left(iG'(t+ia)\overline{G(t+ia)}\right),
+ \qquad W_\lambda:=W[F_\lambda].
+\end{equation}
+Then one has spectral backward heat
+\begin{equation}
+ \partial_\lambda F_\lambda=-\partial_z^2F_\lambda.
+\end{equation}
+Product differentiation gives
+\begin{equation}
+ \partial_\lambda W_\lambda
+ =-\partial_t^2W_\lambda+2W[F_\lambda'].
+ \label{eq:newman-forcing}
+\end{equation}
+The derivative-ladder term $2W[F_\lambda']$ has no proved favorable sign.
+It cannot be suppressed under the name of entropy dissipation.
+
+For a polynomial $p$, define the signed quadratic forms
+\begin{align}
+ Q_\lambda[p]&:=\int_\R |p(t)|^2W[F_\lambda](t,a)\,dt,\\
+ Q_\lambda^{[1]}[p]&:=\int_\R |p(t)|^2W[F_\lambda'](t,a)\,dt.
+\end{align}
+For the monic $Q_\lambda$-Schur residual polynomial $p_\lambda^*$, exact heat
+transport of the test polynomial yields
+\begin{equation}
+ S_\lambda'=2\left(
+ Q_\lambda^{[1]}[p_\lambda^*]
+ -Q_\lambda[(p_\lambda^*)']\right).
+ \label{eq:schur-flow}
+\end{equation}
+A safe positive Sobolev envelope pays both signed terms, leading to a finite
+certificate template: certify the lower block along the interval, certify a
+terminal reserve, and prove that the integrated positive energy budget is
+smaller than that reserve. This template has not been closed uniformly in
+degree.
+
+\section{A positive death chain and a still-signed bridge}
+
+The orbit marginals admit an exact time-inhomogeneous pure-death process. For
+$m<n$ set
+\begin{equation}
+ q_{n,m}(h)=p_m(h)(S_m(h)-S_n(h)),
+\end{equation}
+with no upward jumps. The forward equation is precisely
+$p_n'=p_n(S_n-\E S)$. This supplies a positive Markov realization and a
+nonnegative jump energy, while retaining the signed moving-feature drift.
+
+For a finite observable $V$, the compensated process has exact covariance cost
+in any already-certified lower metric $A\pd$:
+\begin{equation}
+ \Gamma_u(V)(n):=\sum_{m<n}q_{n,m}(u)
+ [V(m)-V(n)][V(m)-V(n)]^*\succeq0.
+\end{equation}
+Writing $M_t$ for the compensated jump martingale,
+\begin{equation}
+ \E[M_t^*A^{-1}M_t]
+ =\int_s^t\E\operatorname{tr}(A^{-1}\Gamma_u(V))\,du.
+\end{equation}
+At a random spatial horizon with the genuine bridge density, the same process
+gives an exact forcing representation for the Schur residual. It also gives an
+exact conditional mismatch identity in which positive innovation and initial
+or horizon covariance are subtracted from the raw second moment.
+
+The pair-chain common-atom estimate proves a degree-independent conditional
+innovation fraction greater than $0.508$ from $0$ to $1/16$ and greater than
+$0.9955$ from $0$ to $1/4$. These are fractions of each terminal feature's own
+conditional orbit covariance. They are not fractions of the bridge Schur
+surplus, whose covariance and spatial means may grow with degree.
+
+\section{The exact remaining lemma}
+
+All successful routes now point to the same missing comparison.
+
+\begin{obligation}[uniform innovation domination]
+For every degree in each parity and every allowed shift, compare the positive
+twin-ladder innovation and the exact orbit/death-chain innovation with the
+actual complete lower-block metric, and prove that the resulting gain dominates
+all of the following in one inequality:
+\begin{enumerate}[label=(\roman*)]
+\item the reflected innovation;
+\item the regression mismatch $\Delta^*K\Delta$ or its endpoint drift form;
+\item the positive-complement inverse and exceptional-direction feedback;
+\item the signed spatial/parameter feature drift;
+\item the Newman derivative-ladder forcing or its fully paid Sobolev envelope;
+\item every shrinking reserve, switching, tail, and limiting/domain cost.
+\end{enumerate}
+The constants must remain uniform as the degree grows.
+\end{obligation}
+
+CP62 gives an equivalent finite-matrix interface. After the full positive
+complement inverse and after subtracting the specified reserve, a congruence
+splits the signed residual into a negative block $N$ and a positive block $P$.
+The exact target is the angular Schur inequality
+\begin{equation}
+ \Omega_{--}-\Omega_{-+}(P+\Omega_{++})^{-1}\Omega_{+-}\succeq N.
+ \label{eq:j8}
+\end{equation}
+A source-specific proof of \eqref{eq:j8}, or the equivalent paid innovation
+inequality \eqref{eq:paid-innovation}, would be genuine progress. Writing the
+identity, choosing a different anchor, or invoking Fisher positivity does not
+prove it.
+
+The current evidence narrows the target substantially:
+\begin{itemize}
+\item finite $H_5$ and odd-degree-19 certificates show that actual signed
+  repair can work at fixed degree;
+\item the $H=1$ obstruction forbids an arbitrary-tail positivity shortcut;
+\item Fisher and orbit contraction provide real, explicit information gains;
+\item regression and death-chain identities state exactly where those gains
+  must enter;
+\item residue and sampling obstructions forbid replacing the actual metric by
+  simpler degree-uniform surrogates.
+\end{itemize}
+What remains is the quantitative theta-specific comparison itself.
+
+\section{Reproducibility and parallel continuation}
+
+The repository checkpoint contains the editable sources, exact evidence
+manifests, certificate outputs, and bounded verification scripts. The default
+archive verifier checks 574 retained v18 payload files and 34 CP62 files against
+their source hashes. The dependency-light smoke suite reruns exact rational
+checks for the $H_5$ analytic tail, fixed grouped Gram, zero window, confluent
+cluster, and both CP62 algebra packets. It does not claim to rerun the Arb
+$2^{21}$-point DFT, all interval quadratures, or every historical dependency.
+
+Parallel work uses isolated worktrees. Evidence and provenance are frozen;
+proof, experiment, audit, and paper lanes submit claim deltas to a single
+integration branch. Numerical observations cannot be promoted to theorems
+without a finite domain, arithmetic/error model, verifier, and replay receipt.
+No internal audit is labeled peer review.
+
+This manuscript was prepared with AI assistance for organization, derivation
+checking, bounded replays, typesetting, and editing. Jude Gomila is the named
+author and retains responsibility for the research claims. The evidence audits
+are campaign-internal independent checks, not external refereeing.
+
+\section*{Conclusion}
+
+The theta--Fisher route has moved beyond a loose information-theoretic analogy.
+It now has genuine bridge and orbit Fisher inequalities, exact paid regression
+identities, a positive stochastic realization, and rigorous counterexamples
+that prevent convenient but false shortcuts. The evidence also says precisely
+why this is not yet a proof of RH: none of the information gains has been shown
+to dominate the actual all-degree signed coupling cost. The next useful result
+is therefore not another generic contraction theorem, but the source-specific,
+degree-uniform innovation inequality in the complete bridge metric.
+
+\bibliographystyle{plain}
+\bibliography{references}
+
+\end{document}
+

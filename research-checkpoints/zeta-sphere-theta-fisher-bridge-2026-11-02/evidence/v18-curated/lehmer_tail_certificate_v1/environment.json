@@ -1,0 +1,8 @@
+{
+  "python_flint_version": "0.9.0",
+  "python_version": "3.12.14",
+  "library": {
+    "__FLINT_VERSION__": "3.6.0",
+    "__version__": "0.9.0"
+  }
+}

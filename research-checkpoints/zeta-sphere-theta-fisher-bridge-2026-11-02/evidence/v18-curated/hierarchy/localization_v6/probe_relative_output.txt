@@ -1,0 +1,2 @@
+NONCERTIFIED quadrature, a=.25 A=.75
+Exploratory infinite-range mpmath quadrature terminated before producing a numerical value (slow high-height zeta evaluations). No numerical evidence claimed. Both outstanding processes ended with exit 130. Analytic results do not depend on this probe.

@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "source_artifact": "zeta_sphere_campaign_v18_20261102T2347Z.zip",
+  "policy": "Exclude third-party binaries/HTML, nested archives, and private conversation records while retaining their original manifest entries and archive identity.",
+  "excluded": [
+    {"path": "foundations/original_factorization/complete_modular_kernel_attack.pdf", "reason": "derived PDF omitted; editable authored TeX is retained"},
+    {"path": "foundations/original_factorization/modular_bridge_research_sources.zip", "reason": "nested archive omitted; relevant editable sources are retained separately"},
+    {"path": "hierarchy/large_order_v4/rstation_v3.html", "reason": "captured third-party HTML omitted"},
+    {"path": "hierarchy/suzuki_v8/suzuki.pdf", "reason": "third-party paper omitted; provenance and public citation remain"},
+    {"path": "hierarchy/suzuki_v9/chains.pdf", "reason": "third-party paper omitted"},
+    {"path": "hierarchy/suzuki_v9/hamiltonians.pdf", "reason": "third-party paper omitted"},
+    {"path": "hierarchy/suzuki_v9/operators.pdf", "reason": "third-party paper omitted"},
+    {"path": "latest_bounds_audit/relative_modular_bridge_sources.zip", "reason": "nested duplicate source archive omitted"},
+    {"path": "modular_epstein_v3/source_message.md", "reason": "conversation transcript omitted"},
+    {"path": "modular_epstein_v3/source_message_provenance.json", "reason": "conversation/message identifiers omitted"},
+    {"path": "source_2122_audit/relative_modular_bridge_sources.zip", "reason": "nested duplicate source archive omitted"}
+  ]
+}

@@ -1,0 +1,11 @@
+All serialized interval targets and rational constants: PASS
+Scaled confluent Gershgorin margin > 1/200
+Newton perturbation maximum row sum <= 1861/4000000 < 1/2000
+Full normalized Newton margin > 9/2000
+Complex-strip exact tail bound: 485537/63135190800000000000000000000 <1e-23
+Grouped Ewald cutoff N=12; derivative-tail bounds <1e-12 through order6
+Uniform relative q<1e-9 for <=3 real nodes of diameter<=1/1000, 0<a<=1/2
+SHA256 certify_confluent_jets.py 7c960542259d174e83f1c7cb870eff0d4f3f15931217d256773c6090d9b31600
+SHA256 certify_local_derivative_bounds.py ba017f4aec791a3330ebae49432492ec09cd94893beacdcd9852ed46a7345e7c
+SHA256 confluent_jet_intervals.json e4b5fd245aa9cecd87eff3a965029ec544c489d82088af64512360261f35b480
+SHA256 local_derivative_bounds.json 06a5e9e5e5324862ce6578b9f7c8214baec2a2b68c26b57fc46505155374ae44

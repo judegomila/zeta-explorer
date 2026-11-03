@@ -1,0 +1,248 @@
+{
+  "base": {
+    "path": "input/logical_cp61/ledger_revision67.json",
+    "bytes": 6926017,
+    "sha256": "2eecef491e212ca796ccaa858cd32225ec7824fd4fbe6735f6d6f15d39cefeab"
+  },
+  "new_revision": 68,
+  "history_entry": {
+    "revision": 68,
+    "event": "Added CP62 actual signed positive-heat core-tail band, local denominator and infinite tail negative-index obstruction; complete inverse/common-anchor/angular identities and sharp matrix-anchor countermodel.64 current exactcontrols independently audited; sourcev15read/hashverified,noimportedproducer replay. Canonical54/54/57unchanged."
+  },
+  "append_key": "sixtysecond_joint_anchor_and_actual_heated_core_tail",
+  "append_value": {
+    "checkpoint": 62,
+    "entries": [
+      {
+        "checkpoint": 62,
+        "source_normalization": "Full actual even psi; H=Xi_tau(z/2)/8; C/a normalized; a=y/2,S=a*hatK/128; frequency nu distinct from heat tau.",
+        "scope_controls": "Both heat factors, all theta/arithmetic terms, shared full denominator, signed core-tail endpoints and moving derivatives; all retained/exceptional directions, mixed inverse, support/time/switch and range gates remain.",
+        "RH_proved": false,
+        "id": "cp62-01",
+        "status": "imported source verified, no fresh numerical producer replay",
+        "target_lemma": "Bind durable v15 negative tails and finite odd-degree19 normalization",
+        "exact_input": "H1,a0 bound-53766891745349 and a1/10000 bound-51718939276867 scaled byexp(pi nu/2),nu7005081715/1000000.",
+        "dependencies": "483CRCs,481manifest and481SHA records; source proofs, producer read-only and supplied independent audits.",
+        "strongest_surviving_statement": "Actual tail equals CP61 C/a atheat0; full normalized interval is two-sided. Degree19 certifies only odd10x10 at a0/heat0/H1/16, no pivot-to-eigenvalue conversion.",
+        "precise_obstruction": "Incoming stronger integrated-anchor source not identified; neither finiteodd19 nor a positive shift is a positive-time boundary certificate.",
+        "next_step": "Require exact new common-anchor body and a positive-time physical coefficient map; do not infer it."
+      },
+      {
+        "checkpoint": 62,
+        "source_normalization": "Full actual even psi; H=Xi_tau(z/2)/8; C/a normalized; a=y/2,S=a*hatK/128; frequency nu distinct from heat tau.",
+        "scope_controls": "Both heat factors, all theta/arithmetic terms, shared full denominator, signed core-tail endpoints and moving derivatives; all retained/exceptional directions, mixed inverse, support/time/switch and range gates remain.",
+        "RH_proved": false,
+        "id": "cp62-02",
+        "status": "rigorous actual-source estimates under explicit real parameter gates",
+        "target_lemma": "Uniform full-theta Gaussian and true-heat derivative bounds",
+        "domain": "Real v,h;0<=a<=1/2,0<=tau<=1/2,H>=0,full even source.",
+        "strongest_surviving_statement": "|psi(u)|<18exp(-6u\u00b2); normalized tail L1<72/5, first absolute moment<108/55, time-derivative L1<387/275.",
+        "precise_obstruction": "These are ingredients for signed persistence, not a Schur/curvature bound.",
+        "tests": "Current exact rational constants plus independent analytic audit.",
+        "source": "root/actual_heated_tail_obstruction.md T1-T4"
+      },
+      {
+        "checkpoint": 62,
+        "source_normalization": "Full actual even psi; H=Xi_tau(z/2)/8; C/a normalized; a=y/2,S=a*hatK/128; frequency nu distinct from heat tau.",
+        "scope_controls": "Both heat factors, all theta/arithmetic terms, shared full denominator, signed core-tail endpoints and moving derivatives; all retained/exceptional directions, mixed inverse, support/time/switch and range gates remain.",
+        "RH_proved": false,
+        "id": "cp62-03",
+        "status": "rigorous actual truncated-tail obstruction conditional only on the source-verified v15 input",
+        "target_lemma": "Positive-heat negative rectangle and infinite negative index",
+        "domain": "H1,a1/10000,0<=tau<=epsilon/8,|xi-14010.16343|<=epsilon/8,epsilon=51718939276867/3^14012; reflected interval too.",
+        "form_domain": "Tail convolution on L2; even Schwartz negative subspaces approximated by complex reflection-even Cc\u221e on increasing finite supports.",
+        "strongest_surviving_statement": "Density<-epsilon/2; arbitrary-dimensional negative subspaces. Any fixed finite-complex-linear-functional correction fails to make the entire tail nonnegative.",
+        "precise_obstruction": "Finite-rank correction no-go concerns this tail only. It is not actual Weil negativity, nor a claim that full physical feedback has finite rank.",
+        "next_step": "Keep central compensation/infinite-rank or restricted-span costs; do not revive universal positive-tail repair.",
+        "source": "root/actual_heated_tail_obstruction.md T3-T5"
+      },
+      {
+        "checkpoint": 62,
+        "source_normalization": "Full actual even psi; H=Xi_tau(z/2)/8; C/a normalized; a=y/2,S=a*hatK/128; frequency nu distinct from heat tau.",
+        "scope_controls": "Both heat factors, all theta/arithmetic terms, shared full denominator, signed core-tail endpoints and moving derivatives; all retained/exceptional directions, mixed inverse, support/time/switch and range gates remain.",
+        "RH_proved": false,
+        "id": "cp62-04",
+        "status": "rigorous actual joint signed compensation on an explicit restricted positive-time band",
+        "target_lemma": "Positive complete source plus negative tail and local denominator gate",
+        "domain": "Fixeda1/10000;0<=tau<=epsilon_plus/8 and|xi-14010.16343|<=epsilon_plus/8,epsilon_plus=3194699959754/3^14012.",
+        "strongest_surviving_statement": "Full density>epsilon_plus/2,tail<-epsilon_minus/2,core>(epsilon_plus+epsilon_minus)/2. Atphysicaly1/5000,D>(a*epsilon_plus/72)^2.",
+        "form_domain": "Complete-kernel positive Gram on restricted Fourier-supported L2 amplitudes, with all cross terms; no simultaneous compact spatial/frequency support claim.",
+        "precise_obstruction": "Frequency/time range is outside CP61 huge phase gates; one fixed y line is not a full chart. Denominator allowance scales epsilon_plus^-2 and pays no claimed reserve.",
+        "next_step": "Find an actual source transfer to a relevant boundary family and compare all remaining response with Sigma_W.",
+        "source": "root/actual_heated_tail_obstruction.md T6"
+      },
+      {
+        "checkpoint": 62,
+        "source_normalization": "Full actual even psi; H=Xi_tau(z/2)/8; C/a normalized; a=y/2,S=a*hatK/128; frequency nu distinct from heat tau.",
+        "scope_controls": "Both heat factors, all theta/arithmetic terms, shared full denominator, signed core-tail endpoints and moving derivatives; all retained/exceptional directions, mixed inverse, support/time/switch and range gates remain.",
+        "RH_proved": false,
+        "id": "cp62-05",
+        "status": "rigorous exact form-domain/joint matrix identities; actual coefficient transfer open",
+        "target_lemma": "Same-metric integrated anchor after complete inverse feedback",
+        "domain": "Fixed supportW,closed positive complementD_W withformrepresenters;finite anchorx andALL remaining/exceptionalz; independentpostfeedbackA>0.",
+        "strongest_surviving_statement": "A=A0-kappa*kappa,B=B0-kappa*lambda,C=C0-lambda*lambda; exact half allocation retains every source cross term. SameA anchors yield S=Xi+Omega with complete PSD covariance.",
+        "precise_obstruction": "Degree19Gamma is an undeformed origin-jet Gram, not the positive-time nonlocal logarithmic boundary form. No actual CP61 boundary subspace certified by that import alone.",
+        "next_step": "Prove actual source map and signed residual; using differentintegratedA requires the signed inverse mismatch.",
+        "source": "root/joint_anchor_and_feedback.md J1-J6"
+      },
+      {
+        "checkpoint": 62,
+        "source_normalization": "Full actual even psi; H=Xi_tau(z/2)/8; C/a normalized; a=y/2,S=a*hatK/128; frequency nu distinct from heat tau.",
+        "scope_controls": "Both heat factors, all theta/arithmetic terms, shared full denominator, signed core-tail endpoints and moving derivatives; all retained/exceptional directions, mixed inverse, support/time/switch and range gates remain.",
+        "RH_proved": false,
+        "id": "cp62-06",
+        "status": "rigorous sharp synthetic universal-claim obstruction; not actual theta data",
+        "target_lemma": "Can arbitrary matrix-valued anchors make every local residual PSD?",
+        "exact_coefficients": "A=I2,B1=I2/2+J,B2=I2/2-J,J=[[0,1],[-1,0]],C1=C2=I2.",
+        "strongest_surviving_statement": "TotalSchur=I2 but for everyHermitianPi>0,sumPi=I2,trace inversecost>=10 andtrace localsum<=-6. Optimalminimumlocaleigenvalue=-3/2. Equalanchors give localsum-3I,covariance4I.",
+        "precise_obstruction": "Matrix-valued anchors do not automatically supply local PSD. Exact signed integrated compensation remains valid.",
+        "tests": "25 exact current Gaussian-rationalcontrols, independentrootanalyticreview/temp replay and additional analytic audit.",
+        "source": "anchor_audit/matrix_anchor_obstruction.md"
+      },
+      {
+        "checkpoint": 62,
+        "source_normalization": "Full actual even psi; H=Xi_tau(z/2)/8; C/a normalized; a=y/2,S=a*hatK/128; frequency nu distinct from heat tau.",
+        "scope_controls": "Both heat factors, all theta/arithmetic terms, shared full denominator, signed core-tail endpoints and moving derivatives; all retained/exceptional directions, mixed inverse, support/time/switch and range gates remain.",
+        "RH_proved": false,
+        "id": "cp62-07",
+        "status": "open actual angular/covariance estimate",
+        "target_lemma": "Full actual joint head/exceptional sign at shrinking reserve after inverse feedback",
+        "exact_target": "SubtractSigma_W beforecongruence; Xi-Sigma_W=diag(-N,P),N>0,P>=0. RequireOmega-- -Omega-+(P+Omega++)^-1Omega+- >=N withpositive lowergate.",
+        "sufficient_finite_lemma": "Source-specifickappa_W>0,0<=rho_W<1,Omega-->=kappa_W N,mixedcost<=rho_W Omega--,(1-rho_W)kappa_W>=1.",
+        "precise_obstruction": "This exact reduction is not independently proved for the actual family; degree19constants600/.995 belong to different undeformed matrices and cannot be imported.",
+        "next_step": "Actual positive-time coefficient map plus signed angular estimate with all error/reserve/switch/support scales; a finite specified-chart lemma is local, while an exhausting claim needs all limiting controls.",
+        "source": "root/joint_anchor_and_feedback.md J6-J7"
+      }
+    ],
+    "source_chain": {
+      "sphere_v15": {
+        "library_file_id": "libfile_b03b6820cea881919787c807c6e54dbb",
+        "campaign_version": 15,
+        "library_version_number_not_invented": true,
+        "path": "input/sphere_v15/zeta_sphere_campaign_v15_20261102T2259Z.zip",
+        "bytes": 4062261,
+        "sha256": "cbb9e402553adaa5de6b9ef76f82ca53765fcd7307a1263ebdc7eb768db3e57c",
+        "CRC_members": 483,
+        "JSON_manifest_records": 481,
+        "SHA_records": 481,
+        "v14_baseline_zip_sha256": "79680f8620bb75d17ec6b0c35bfdccd0396fcf90674ce9fe22b6008ecaac387c",
+        "v14_manifest_payloads_checked": 469,
+        "v14_zip_freshly_materialized": false,
+        "source_numerical_producer_executed": false
+      },
+      "cp61": [
+        {
+          "library_file_id": "libfile_d5b1584e45388191935da949fb215d94",
+          "version": 0,
+          "path": "output/mathexplorer_handoff/MathExplorer_RH_CP61_full_height_sphere_boundary_v1.zip",
+          "bytes": 180488,
+          "sha256": "91b3c3ad761c23bda8cf4fccaed9bc18e599c55ff1c61cfc0334fc47bc054dd4"
+        },
+        {
+          "library_file_id": "libfile_13e966f0eee08191a90363c18b208508",
+          "version": 0,
+          "path": "output/mathexplorer_handoff/MathExplorer_RH_CP61_signed_spatial_tail_correction_v1.zip",
+          "bytes": 48821,
+          "sha256": "ed0b0cffab5c1e7382ee99e6b5da966c47f21a1565c59e6ad4a6d54790b7e755"
+        }
+      ],
+      "selected_original_source_bodies": [
+        {
+          "path": "input/sphere_v15/extracted/V15_INDEX.md",
+          "bytes": 1169,
+          "sha256": "3cb4cadd8aa30c0d4752cc840c8a2759be8af41d7a426174439145ba25b60fe0"
+        },
+        {
+          "path": "input/sphere_v15/extracted/lehmer_tail_certificate_v1/PROOF.md",
+          "bytes": 7172,
+          "sha256": "b1d0c93d4fa53c9681d5a18835ce20dfa55573d125519f3e751bec1080ff9aff"
+        },
+        {
+          "path": "input/sphere_v15/extracted/lehmer_positive_shift_v1/PROOF.md",
+          "bytes": 2317,
+          "sha256": "5a407629128dbcb4afff59a7175dddf53d9b2330ea2228973daa0e71ad648fcd"
+        },
+        {
+          "path": "input/sphere_v15/extracted/lehmer_positive_shift_v1/positive_shift_certificate.json",
+          "bytes": 1302,
+          "sha256": "3684e87bb4e3e3b5c28f1b8f351ea766625838fbe9b56f44c1a7e00499b4bf8f"
+        },
+        {
+          "path": "input/sphere_v15/extracted/lehmer_tail_audit/POSITIVE_SHIFT_AUDIT.md",
+          "bytes": 1332,
+          "sha256": "961c6ee5fb2baff4ddfb50596c4249776c94764873cc9ebfa0f83b5fa39dab50"
+        },
+        {
+          "path": "input/sphere_v15/extracted/lehmer_tail_audit/positive_shift_certificate.json",
+          "bytes": 1302,
+          "sha256": "a5b78613d7117c168cf90ac659a6655597b705191eb68f51cb659dd558c14146"
+        },
+        {
+          "path": "input/sphere_v15/extracted/lehmer_tail_audit/CORE_AND_SIGN_AUDIT.md",
+          "bytes": 4005,
+          "sha256": "63b593c9fef8f802fe74b252ed2b1d4609ee6809fea84870ee9cabf0cb06b554"
+        },
+        {
+          "path": "input/sphere_v15/extracted/lehmer_tail_audit/STRIP_SUPPORT_AUDIT.md",
+          "bytes": 679,
+          "sha256": "05a81feb0aeaf100c3d47b9e59e422b7d3400ce5aacab99052df96db4208e264"
+        },
+        {
+          "path": "input/sphere_v15/extracted/core_inertia_v2/FULL_SPLIT_PROOF.md",
+          "bytes": 3673,
+          "sha256": "f45f0184a69b06b9b30ef1be75961906c66f39b29305cac31ef668a3d3e8d7cd"
+        },
+        {
+          "path": "input/sphere_v15/extracted/core_inertia_v2/full_split_coordinates.json",
+          "bytes": 6938,
+          "sha256": "41250880463525e17c147a5a04abcd29bbbad3b31c8799179893c6289a60ad84"
+        },
+        {
+          "path": "input/sphere_v15/extracted/core_inertia_v2/full_split_certificate.json",
+          "bytes": 10272,
+          "sha256": "cc07d7c74b4070e69e9ffaede2b7d9cd2c04acb20a082750e7eeedd37570cd2e"
+        },
+        {
+          "path": "input/sphere_v15/extracted/full_split_audit/AUDIT.md",
+          "bytes": 2820,
+          "sha256": "c0df6973d7186b53b30e0c47647fc71a3f90ce046cac1fa8c07697906a7d40a5"
+        },
+        {
+          "path": "input/sphere_v15/extracted/full_split_audit/full_split_certificate.json",
+          "bytes": 10272,
+          "sha256": "cc07d7c74b4070e69e9ffaede2b7d9cd2c04acb20a082750e7eeedd37570cd2e"
+        }
+      ],
+      "numerical_input_classification": "Original proofs/certificate files and supplied independent audits read and byte-verified; no new acquired Arb/EM/DFT execution.",
+      "normalization_correction": "Positive-shift PROOF defines T already divided by a; v15 index extra /a must not be applied a second time.",
+      "incoming_common_anchor_originals": "New reported replacement framework not identified in v15; available finite odd19 result kept distinct.",
+      "canonical_versions_unchanged": [
+        54,
+        54,
+        57
+      ],
+      "historical_v39": "hash-linked only; not freshly reconstructed"
+    },
+    "audit": {
+      "path": "output/rh_sixtysecond_attempt/audit/aggregate_audit62.json",
+      "bytes": 1471,
+      "sha256": "a7c291897889270aa1b09ba64ee5aa85fc834a00b005df2938e2b97371ac3ae1"
+    },
+    "canonical_versions_unchanged": [
+      54,
+      54,
+      57
+    ]
+  },
+  "expected_output": {
+    "path": "input/logical_cp62/ledger_revision68.json",
+    "bytes": 6941770,
+    "sha256": "63b85a81b0e59b05d270313b8899f70a360356c65bcd9b1b3a5f5eb3fd0a4511"
+  },
+  "canonical_versions_unchanged": [
+    54,
+    54,
+    57
+  ],
+  "old_nonheader_values_retained": 81
+}

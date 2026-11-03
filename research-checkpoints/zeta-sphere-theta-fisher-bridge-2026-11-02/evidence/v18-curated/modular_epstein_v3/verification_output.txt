@@ -1,0 +1,9 @@
+All saved interval targets and rational arithmetic/spatial tail bounds: PASS
+Elementary epsilon bound: 1/2640 < 1/2500
+Fixed real nodes: 0,1/4,1/2; all complex coefficient vectors
+Uniform shifts: 0<a<=1/2
+Normalized candidate minimum eigenvalue > 57/5000
+Exact normalized remainder norm < 3/2500
+Relative bound E >= -q D, q= 2/19
+Full normalized Gram minimum eigenvalue > 63/5000
+No arbitrary-node/global-positive-definiteness conclusion.

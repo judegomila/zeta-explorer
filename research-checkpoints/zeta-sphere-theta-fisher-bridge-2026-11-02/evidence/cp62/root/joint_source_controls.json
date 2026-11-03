@@ -1,0 +1,165 @@
+{
+  "status": "PASS",
+  "controls": 39,
+  "checks": [
+    {
+      "name": "e3_lower_partial8",
+      "pass": true
+    },
+    {
+      "name": "theta_prefactor352",
+      "pass": true
+    },
+    {
+      "name": "gaussian_constant18",
+      "pass": true
+    },
+    {
+      "name": "series_ratio16expminus9",
+      "pass": true
+    },
+    {
+      "name": "heat_alpha47over4",
+      "pass": true
+    },
+    {
+      "name": "h_gaussian_exponent_gt10",
+      "pass": true
+    },
+    {
+      "name": "v_gaussian_exponent_gt11",
+      "pass": true
+    },
+    {
+      "name": "kernel_prefactor",
+      "pass": true
+    },
+    {
+      "name": "heat_derivative_prefactor",
+      "pass": true
+    },
+    {
+      "name": "Gaussian_h2_constant",
+      "pass": true
+    },
+    {
+      "name": "Gaussian_h4_constant",
+      "pass": true
+    },
+    {
+      "name": "Gaussian_v2_constant",
+      "pass": true
+    },
+    {
+      "name": "L1_bound",
+      "pass": true
+    },
+    {
+      "name": "weighted_L1_bound",
+      "pass": true
+    },
+    {
+      "name": "time_derivative_L1_bound",
+      "pass": true
+    },
+    {
+      "name": "source_frequency_gate",
+      "pass": true
+    },
+    {
+      "name": "positive_rational_epsilon_less_one",
+      "pass": true
+    },
+    {
+      "name": "epsilon_rectangle_total_loss",
+      "pass": true
+    },
+    {
+      "name": "positive_shift_boundary_height",
+      "pass": true
+    },
+    {
+      "name": "negative_bound_exact_subtraction",
+      "pass": true
+    },
+    {
+      "name": "boundary_S_over_y_normalization",
+      "pass": true
+    },
+    {
+      "name": "positive_full_source_enclosing_integer",
+      "pass": true
+    },
+    {
+      "name": "positive_full_rectangle_inside_negative_tail_rectangle",
+      "pass": true
+    },
+    {
+      "name": "H_y_Gaussian_exponent",
+      "pass": true
+    },
+    {
+      "name": "H_y_bound_constant",
+      "pass": true
+    },
+    {
+      "name": "full_denominator_lower_constant",
+      "pass": true
+    },
+    {
+      "name": "full_inverse_partition_A",
+      "pass": true
+    },
+    {
+      "name": "full_inverse_partition_B",
+      "pass": true
+    },
+    {
+      "name": "full_inverse_partition_C",
+      "pass": true
+    },
+    {
+      "name": "cross_inverse_not_zero",
+      "pass": true
+    },
+    {
+      "name": "discard_cross_inverse_changes_B",
+      "pass": true
+    },
+    {
+      "name": "postfeedback_anchor_positive",
+      "pass": true
+    },
+    {
+      "name": "full_complement_minimizer_0",
+      "pass": true
+    },
+    {
+      "name": "full_complement_minimizer_1",
+      "pass": true
+    },
+    {
+      "name": "full_complement_minimizer_2",
+      "pass": true
+    },
+    {
+      "name": "same_anchor_all_exceptional_columns",
+      "pass": true
+    },
+    {
+      "name": "covariance_retains_nondiagonal",
+      "pass": true
+    },
+    {
+      "name": "reserve_subtracted_once",
+      "pass": true
+    },
+    {
+      "name": "angular_source_example_scalar",
+      "pass": true
+    }
+  ],
+  "scope": "Original exact rational constants, full-inverse allocation and finite joint algebra controls. The actual negative Fourier input is source-verified v15; this script does not compute it or replay Arb. Infinite-index and source majorants require the accompanying analytic proof.",
+  "source_Arb_replay_performed": false,
+  "RH_proved": false
+}

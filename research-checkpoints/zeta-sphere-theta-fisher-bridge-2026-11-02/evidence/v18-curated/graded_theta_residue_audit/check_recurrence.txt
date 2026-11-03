@@ -1,0 +1,14 @@
+grade 0 PASS; residue 0
+grade 1 PASS; residue 6
+grade 2 PASS; residue 6
+grade 3 PASS; residue -195/2
+grade 4 PASS; residue -489
+grade 5 PASS; residue 9543/8
+grade 6 PASS; residue 223329/8
+grade 7 PASS; residue 3759969/32
+grade 8 PASS; residue -7245537/8
+grade 9 PASS; residue -2110513461/128
+grade 10 PASS; residue -9852077985/128
+grade 11 PASS; residue 427131019461/512
+grade 12 PASS; residue 4629114791925/256
+Exact symbolic checks only; analytic all-grade proof in GRADED_RESIDUE.md.

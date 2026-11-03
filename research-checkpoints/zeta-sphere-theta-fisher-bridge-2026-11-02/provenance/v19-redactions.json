@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "source_artifact": "zeta_sphere_campaign_v19_20261103T0020Z.zip",
+  "policy": "Remove private conversation and internal storage identifiers from the public derivative while preserving source and public hashes.",
+  "redacted": [
+    {
+      "path": "V19_INDEX.md",
+      "source_bytes": 4027,
+      "source_sha256": "18578f61226805c9d1e93db6a9de4f690938eb03e00b0011e99a3b5c298c117b",
+      "public_bytes": 4081,
+      "public_sha256": "84547d2416bc8157ffee245d0277992cee8ae131950ba0fce5cce4d44e98add8",
+      "reason": "private baseline Library identifier replaced by the public v18 artifact hash"
+    },
+    {
+      "path": "source_2354_audit/H6_AUDIT.md",
+      "source_bytes": 3929,
+      "source_sha256": "0edc70dcc7540c9be8facfff1d207540e9e54ad7c93198ed90a0b8c6aac10337",
+      "public_bytes": 3837,
+      "public_sha256": "30e532acf664e3fe63f168a832145f7be0f483e1c10965b93bd5ac85cc099d66",
+      "reason": "private conversation, message, Library, and backing-file identifiers removed; source ZIP hash retained"
+    }
+  ]
+}

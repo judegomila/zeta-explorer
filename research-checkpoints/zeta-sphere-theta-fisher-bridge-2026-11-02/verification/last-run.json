@@ -1,6 +1,6 @@
 {
-  "schema_version": 1,
-  "executed_utc": "2026-11-03T00:02:32Z",
+  "schema_version": 2,
+  "executed_utc": "2026-11-03T00:28:01Z",
   "archive_verifier": {
     "status": "PASS",
     "v18_files_verified": 574,
@@ -8,7 +8,10 @@
     "v18_policy_exclusions": 11,
     "v18_public_redactions": 9,
     "cp62_files_verified": 34,
-    "cp62_bytes_verified": 177616
+    "cp62_bytes_verified": 177616,
+    "v19_allowlist_files_verified": 58,
+    "v19_allowlist_bytes_verified": 692019,
+    "v19_public_redactions": 2
   },
   "smoke_suite": {
     "status": "PASS",
@@ -18,31 +21,59 @@
       "zero-window",
       "cluster-certificate",
       "cp62-joint-source",
-      "cp62-matrix-anchor"
+      "cp62-matrix-anchor",
+      "v19-certificate-summaries"
+    ]
+  },
+  "v19_scientific_replays": {
+    "status": "PASS",
+    "checks": [
+      {
+        "name": "h6-arb-512-cells",
+        "environment": "Python 3.13; python-flint 0.9.0",
+        "result": "PASS; fresh result matched the stored H6 certificate"
+      },
+      {
+        "name": "odd-endpoint-evaluator",
+        "environment": "mpmath 1.4.1",
+        "result": "PASS for odd rungs 3 through 19; fresh endpoint certificate was byte-identical to the stored certificate",
+        "dependency": "consumed the frozen 1000-cell parent certificate; parent integration was not rerun"
+      },
+      {
+        "name": "paid-endpoint-and-tail",
+        "environment": "Python 3.13; python-flint 0.9.0",
+        "result": "PASS; tail constants and 60000-cell endpoint extraction matched stored bounds",
+        "dependency": "consumed the frozen 60000x1000 integrated budget; full rectangle integration was not rerun"
+      },
+      {
+        "name": "orthogonality-identity",
+        "environment": "SymPy 1.14.0",
+        "result": "PASS; degrees 0 through 7 and captured output matched"
+      }
     ]
   },
   "package_manifest": {
     "status": "PASS",
     "algorithm": "SHA-256",
-    "files_verified": 631
+    "files_verified": 694
   },
   "paper": {
     "status": "PASS",
     "builder": "Tectonic",
-    "pages": 12,
-    "bytes": 109526,
-    "sha256": "06eff0b4e95075c0a873b90e8d7e700e3c6845acbccbeb4ce661be06259c1e62",
+    "pages": 14,
+    "bytes": 117858,
+    "sha256": "da505c12036e8469f3af3b0202c69df71f6bfa8d59c6fcbc9463c82b45b73ab5",
     "checks": [
-      "all pages rendered to PNG and visually inspected",
-      "embedded fonts inspected",
-      "text extraction inspected",
+      "all 14 pages rendered to PNG and visually inspected",
+      "PDF metadata and embedded text inspected",
       "no TeX warnings, overfull boxes, undefined references, or missing characters"
     ]
   },
   "not_rerun": [
+    "v19 1000-cell parent Taylor integration",
+    "v19 60000x1000 paid rectangle integration",
     "historical Arb 2^21-point DFT certificate",
-    "all interval quadratures",
-    "python-flint dependency stack",
+    "every historical interval quadrature",
     "every historical high-precision certificate"
   ]
 }

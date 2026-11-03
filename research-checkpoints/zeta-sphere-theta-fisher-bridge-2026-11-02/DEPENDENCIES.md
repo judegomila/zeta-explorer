@@ -3,12 +3,11 @@
 ```text
 exact theta / paired bridge identities
         |
-        +--> finite H4 + integrated odd H5 ----------------> ZSV-THETA-H5
+        +--> inherited odd H5 + replayed even H6 ----------> ZSV-THETA-H6
         |
         +--> a=0 odd 1,3,...,19 certificate --------------> ZSV-ODD-19
         |                                                       |
-        |                                                       v
-        |                                           finite signed-anchor repair
+        |                           endpoint payment replay ----> paid finite rung
         |
         +--> H=1 full-theta tail certificate -------------> tail route false
         |                                                       |
@@ -16,6 +15,8 @@ exact theta / paired bridge identities
         |                                           retain central compensation
         |
         +--> positive-time heat transport + signed forcing
+                                |
+                                +--> degree-2 paid Newman certificate
                                 |
                                 +--> Fisher / endpoint / orbit bounds
                                 |             (frozen v18; reviewed scope)
@@ -37,6 +38,11 @@ inverse, degree-dependent whitening, exceptional directions, and a shrinking
 reserve have all been included. A bound in the first metric is not a bound in
 the second without a proved comparison. CP62 equations J3-J9 make this missing
 comparison explicit.
+
+The v19 finite payments show that the desired mechanism is real in two bounded
+settings: the existing odd-19 endpoint and one degree-2 Newman interval. They
+do not control the constants as degree grows, and therefore do not fill the
+downward arrow from metric/source transfer to uniform domination.
 
 ## Why the negative tail is constructive information
 

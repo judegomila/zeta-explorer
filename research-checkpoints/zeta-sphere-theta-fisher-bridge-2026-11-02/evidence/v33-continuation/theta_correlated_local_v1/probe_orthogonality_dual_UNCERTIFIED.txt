@@ -1,0 +1,5 @@
+UNCERTIFIED selected scaled coefficients [-0.18088801  1.5165297  -2.53796275  1.        ]
+pointwise minimum 0.0004909934104600997 at 0.0
+LP status Optimization terminated successfully. (HiGHS Status 7: Optimal)
+dual objective 0.0017664658665766115 atoms [(0.21, 0.2187124229935555), (0.22, 0.6121729770133372), (0.44, 0.08432210991033892), (0.45, 0.08479249008275884)]
+constraint residual [-1.20617492e-17 -2.69966341e-17 -2.16840434e-17]

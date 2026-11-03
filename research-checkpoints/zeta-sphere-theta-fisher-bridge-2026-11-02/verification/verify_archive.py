@@ -19,6 +19,7 @@ CONTINUATION = ROOT / "evidence" / "v20-v26-continuation"
 V27_V30 = ROOT / "evidence" / "v27-v30-continuation"
 V31 = ROOT / "evidence" / "v31-continuation"
 V32 = ROOT / "evidence" / "v32-continuation"
+V33 = ROOT / "evidence" / "v33-continuation"
 
 CONTINUATION_ROWS = {20: 45, 21: 25, 22: 25, 23: 35, 24: 26, 25: 7, 26: 11}
 CONTINUATION_MANIFEST_SHA256 = {
@@ -106,6 +107,15 @@ V32_REVIEWED_CLASSIFICATIONS = {
     "reviewed_scope_index": 1,
 }
 V32_DIAGNOSTIC_CLASSIFICATIONS = {"owned_diagnostic_not_theorem": 19}
+
+V33_MANIFEST_SHA256 = "b5cc41779a7ff61652e850be4e59fb3e0ac846d6d01586202965ef05256b1c91"
+V33_REVIEWED_CLASSIFICATIONS = {
+    "independent_audit_or_replay": 82,
+    "reviewed_owned": 115,
+    "reviewed_owned_external_theorem_dependency": 7,
+    "reviewed_scope_index": 1,
+}
+V33_DIAGNOSTIC_CLASSIFICATIONS = {"owned_diagnostic_not_theorem": 29}
 
 PACKAGE_MANIFEST = ROOT / "SHA256SUMS"
 PACKAGE_BUILD_INTERMEDIATES = {
@@ -1023,6 +1033,173 @@ def verify_v32() -> tuple[int, int, int, int]:
     return checked, checked_bytes, len(reviewed_rows), len(diagnostic_rows)
 
 
+def verify_v33() -> tuple[int, int, int, int]:
+    """Verify the exact, zero-redaction V33 publication lane."""
+
+    reject_symlinks(V33, "V33 continuation")
+    manifest_name = "PUBLICATION_DELTA_V33.json"
+    manifest_path = V33 / manifest_name
+    if not manifest_path.is_file():
+        fail("missing V33 publication manifest")
+    if manifest_path.stat().st_size != 53937:
+        fail("unexpected V33 publication manifest byte count")
+    if digest(manifest_path) != V33_MANIFEST_SHA256:
+        fail("V33 publication manifest hash mismatch")
+
+    publication = json.loads(manifest_path.read_text())
+    if publication.get("version") != 33 or publication.get("baseline_version") != 32:
+        fail("expected V33 publication delta over V32")
+    reviewed_rows = publication.get("reviewed_owned_files")
+    diagnostic_rows = publication.get("diagnostic_or_correction_history")
+    if not isinstance(reviewed_rows, list) or len(reviewed_rows) != 205:
+        fail("expected 205 V33 reviewed-owned rows")
+    if not isinstance(diagnostic_rows, list) or len(diagnostic_rows) != 29:
+        fail("expected 29 V33 diagnostic/correction rows")
+    if publication.get("historical_working_file_revisions") != []:
+        fail("unexpected V33 historical working-file revisions")
+    private_policy = str(publication.get("private_provenance_policy", ""))
+    if (
+        "remain private" not in private_policy
+        or "No acquisition or publication clearance" not in private_policy
+    ):
+        fail("unexpected V33 private-provenance policy")
+
+    expected: dict[str, dict[str, object]] = {}
+    for label, rows in (("reviewed", reviewed_rows), ("diagnostic", diagnostic_rows)):
+        for row in rows:
+            if not isinstance(row, dict):
+                fail(f"invalid V33 {label} row: {row!r}")
+            relative = validate_relative_path(row.get("path"), f"V33 {label}")
+            expected_hash = row.get("sha256")
+            classification = row.get("classification")
+            if not isinstance(expected_hash, str) or len(expected_hash) != 64:
+                fail(f"invalid V33 SHA-256 for {relative}")
+            if not isinstance(classification, str) or not classification:
+                fail(f"invalid V33 classification for {relative}")
+            if relative in expected:
+                fail(f"duplicate V33 publication path: {relative}")
+            expected[relative] = row
+
+    if len(expected) != 234:
+        fail(f"expected 234 V33 classified paths, got {len(expected)}")
+    reviewed_counts = Counter(row["classification"] for row in reviewed_rows)
+    diagnostic_counts = Counter(row["classification"] for row in diagnostic_rows)
+    if dict(reviewed_counts) != V33_REVIEWED_CLASSIFICATIONS:
+        fail(f"unexpected V33 reviewed classifications: {dict(reviewed_counts)}")
+    if dict(diagnostic_counts) != V33_DIAGNOSTIC_CLASSIFICATIONS:
+        fail(f"unexpected V33 diagnostic classifications: {dict(diagnostic_counts)}")
+
+    redactions_doc = json.loads((ROOT / "provenance" / "v33-redactions.json").read_text())
+    if redactions_doc.get("redacted") != []:
+        fail("V33 is a zero-redaction publication lane")
+    redaction_policy = str(redactions_doc.get("policy", ""))
+    if "all 234 classified payloads are retained byte-for-byte" not in redaction_policy:
+        fail("unexpected V33 zero-redaction policy")
+
+    checked = 0
+    checked_bytes = 0
+    forbidden_suffixes = {".zip", ".pdf", ".html", ".tex"}
+    private_identifier = re.compile(
+        rb"libfile_|file_[0-9a-f]{16,}|"
+        rb"[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}|"
+        rb"/(?:Users|home|tmp|var/folders)/[^\s\"']+"
+    )
+    for relative, row in expected.items():
+        path = V33 / relative
+        if not path.is_file():
+            fail(f"missing V33 classified file: {relative}")
+        if path.suffix.lower() in forbidden_suffixes:
+            fail(f"forbidden captured-source type in V33 continuation: {relative}")
+        if "private" in PurePosixPath(relative).parts:
+            fail(f"private capture path published in V33 continuation: {relative}")
+        if digest(path) != row["sha256"]:
+            fail(f"V33 classified hash mismatch: {relative}")
+        if private_identifier.search(path.read_bytes()):
+            fail(f"private identifier or personal path remains in V33 public file: {relative}")
+        checked += 1
+        checked_bytes += path.stat().st_size
+
+    metadata = {manifest_name, "README.md"}
+    actual = {
+        str(path.relative_to(V33))
+        for path in V33.rglob("*")
+        if path.is_file()
+    }
+    expected_files = set(expected) | metadata
+    if actual != expected_files:
+        fail(
+            "unexpected V33 public file set: "
+            f"extra={sorted(actual - expected_files)}, missing={sorted(expected_files - actual)}"
+        )
+    if checked_bytes != 647767:
+        fail(f"unexpected V33 classified public bytes: {checked_bytes}")
+
+    receipt = json.loads((ROOT / "provenance" / "v33-publication.json").read_text())
+    expected_source = {
+        "name": "zeta_sphere_campaign_v33_20261103T1331Z.zip",
+        "bytes": 8672645,
+        "sha256": "7fa9c3f26154506f107cba1ac45e58545ef51b9115496d4965a00b45a8d75007",
+        "unzip_test": "PASS",
+        "manifest_payloads_verified": 1778,
+        "manifest_payload_bytes_verified": 20094508,
+        "v32_payloads_preserved": 1541,
+        "v32_sha256": "ba4504126d2ee711ca5b4bf3f8ece7b83ee6023230afcb4d98c415d15f65a5cf",
+        "manifest_json_bytes": 332889,
+        "manifest_json_sha256": "ea4a09031cf1edfd95e732eab720c5631310fa4de6fc530c0ce76014c7e836a3",
+        "manifest_sha256_bytes": 212119,
+        "manifest_sha256_sha256": "b268a4ff41a7c04f50622358f5f17b7381876b724678127554f4c9763545f6ba",
+    }
+    if receipt.get("source_artifact") != expected_source:
+        fail("unexpected V33 source artifact receipt")
+    expected_publication_manifest = {
+        "name": manifest_name,
+        "bytes": 53937,
+        "sha256": V33_MANIFEST_SHA256,
+        "reviewed_owned_rows": 205,
+        "diagnostic_or_correction_rows": 29,
+    }
+    if receipt.get("publication_manifest") != expected_publication_manifest:
+        fail("unexpected V33 publication-manifest receipt")
+    expected_accounting = {
+        "new_payload_paths_since_v32": 237,
+        "new_payload_bytes_since_v32": 1167912,
+        "source_classified_owned_paths": 234,
+        "source_classified_owned_bytes": 647767,
+        "public_classified_owned_paths": 234,
+        "public_classified_owned_bytes": 647767,
+        "source_unique_content_hashes": 216,
+        "source_duplicate_content_groups": 17,
+        "source_repeated_path_rows": 18,
+        "byte_identical_public_payload_paths": 234,
+        "public_text_redactions": 0,
+        "retained_publication_manifests": 1,
+        "source_backed_public_bytes_before_readme": 701704,
+        "repository_readme_bytes": 3428,
+        "public_lane_files": 236,
+        "public_lane_bytes": 705132,
+        "omitted_duplicate_v32_provenance_paths": 2,
+    }
+    if receipt.get("delta_accounting") != expected_accounting:
+        fail("unexpected V33 publication accounting")
+    if receipt.get("omitted_duplicate_v32_provenance_paths") != [
+        "provenance/v32/MANIFEST.json",
+        "provenance/v32/MANIFEST.sha256",
+    ]:
+        fail("unexpected V33 omitted duplicate-provenance paths")
+    if receipt.get("existing_public_lane_overlap") != 0:
+        fail("V33 publication unexpectedly overlaps earlier public lanes")
+    if receipt.get("excluded_material") != [
+        "zeta_sphere_campaign_v33_20261103T1331Z.zip",
+        "MANIFEST.json",
+        "MANIFEST.sha256",
+        "all source paths not explicitly classified in PUBLICATION_DELTA_V33.json",
+        "all inherited private or acquired-source captures",
+    ]:
+        fail("unexpected V33 excluded-material receipt")
+
+    return checked, checked_bytes, len(reviewed_rows), len(diagnostic_rows)
+
+
 def main() -> int:
     snapshot_checked, snapshot_bytes, excluded, redacted = verify_snapshot()
     cp62_checked, cp62_bytes = verify_cp62()
@@ -1035,6 +1212,7 @@ def main() -> int:
     )
     v31_checked, v31_bytes, v31_reviewed, v31_diagnostic = verify_v31()
     v32_checked, v32_bytes, v32_reviewed, v32_diagnostic = verify_v32()
+    v33_checked, v33_bytes, v33_reviewed, v33_diagnostic = verify_v33()
     package_checked, package_bytes = verify_package_manifest()
     print(
         json.dumps(
@@ -1067,6 +1245,11 @@ def main() -> int:
                 "v32_reviewed_files": v32_reviewed,
                 "v32_diagnostic_correction_files": v32_diagnostic,
                 "v32_public_redactions": len(V32_REDACTIONS),
+                "v33_classified_files_verified": v33_checked,
+                "v33_classified_bytes_verified": v33_bytes,
+                "v33_reviewed_files": v33_reviewed,
+                "v33_diagnostic_correction_files": v33_diagnostic,
+                "v33_public_redactions": 0,
                 "package_manifest_files_verified": package_checked,
                 "package_manifest_bytes_verified": package_bytes,
             },

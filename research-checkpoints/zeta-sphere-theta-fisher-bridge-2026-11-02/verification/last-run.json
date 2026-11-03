@@ -1,6 +1,6 @@
 {
-  "schema_version": 6,
-  "executed_utc": "2026-11-03T08:16:42Z",
+  "schema_version": 7,
+  "executed_utc": "2026-11-03T13:44:58Z",
   "archive_verifier": {
     "status": "PASS",
     "v18_files_verified": 574,
@@ -29,7 +29,12 @@
     "v32_classified_bytes_verified": 1192893,
     "v32_reviewed_files": 386,
     "v32_diagnostic_correction_files": 19,
-    "v32_public_redactions": 1
+    "v32_public_redactions": 1,
+    "v33_classified_files_verified": 234,
+    "v33_classified_bytes_verified": 647767,
+    "v33_reviewed_files": 205,
+    "v33_diagnostic_correction_files": 29,
+    "v33_public_redactions": 0
   },
   "smoke_suite": {
     "status": "PASS",
@@ -44,7 +49,8 @@
       "v20-v26-certificate-summaries",
       "v27-v30-bounded-checks",
       "v31-bounded-checks",
-      "v32-bounded-checks"
+      "v32-bounded-checks",
+      "v33-bounded-checks"
     ]
   },
   "v19_scientific_replays": {
@@ -219,6 +225,49 @@
     "not_rerun": "Inherited v31 payloads; the external Platt-Trudgian computation; floating, diagnostic, and inconclusive packets; remaining regional transport families; acquired/private sources; and prose-only outer-strip and infinite-range dyadic arguments.",
     "open_scope": "Finite degree-at-most-9 only. Positive-cutoff uniformity is certified only for a<=1/2 and H_cut<=1/8; all positive shifts are completed only at H_cut=0. No all-degree theorem or RH proof was established."
   },
+  "v33_scientific_replays": {
+    "status": "PASS",
+    "environment": "Python 3.13.15; mpmath 1.3.0; python-flint 0.9.0; SymPy 1.14.0; standard-library arithmetic also replayed under Python 3.15.2",
+    "checks": [
+      {
+        "name": "verified-zero-central-and-tail-arithmetic",
+        "result": "PASS; the 4000-cell central interval output and exact degree-10-billion/30-billion arithmetic were byte-identical to their frozen outputs",
+        "outputs_sha256": [
+          "382ab34083784b230e0c7a06010514b2109e298445ada0df31e356919c126bc7",
+          "8e69ec5ec17b9853f859081870d80b19bbca9c6f401508be741b575b673f2fe8"
+        ],
+        "dependency": "the published Platt-Trudgian zero verification was not rerun"
+      },
+      {
+        "name": "full-degree10-shift-slabs",
+        "result": "PASS; the copied-source derivative-24 16 x 4000 x 4000 slab packet and consequence were byte-identical to the frozen author and audit outputs",
+        "outputs_sha256": [
+          "a3a3b29860d5a92397c0e75d51105099ebb5b9aaf135f34a9b6afaeb04055a72",
+          "37e73e9c41b0626a098d8289aa526a4ffa2cc6bf3e29960c67f73c04b77bdf61"
+        ],
+        "scope": "even degree 10 passes on 0 <= a <= 1/2 and 0 <= H_cut <= 1/8; odd degree 11 is inconclusive in all 16 slabs, not negative"
+      },
+      {
+        "name": "symbolic-sos-and-nonlinear-modules",
+        "result": "PASS; all-degree signed-flux, nonlinear-theta, degree-selection, and localization outputs reproduced byte-for-byte",
+        "scope": "exact reductions and obstructions only; no all-degree sign theorem"
+      },
+      {
+        "name": "selected-degree20-and-corrected-N1",
+        "result": "PASS; corrected N1 and the canonical, scalar-gauge, and two-point degree-20 obstruction outputs reproduced byte-for-byte",
+        "dependency": "selected-degree20 checks reuse inherited certified moment enclosures and do not compute the unknown target pivot"
+      }
+    ],
+    "internal_checksum_manifests": {
+      "status": "PASS",
+      "manifests": 52,
+      "entries": 122,
+      "frozen_generic_workspace_locators_resolved_by_hash": 4
+    },
+    "default_bounded_checker": "PASS; exact rational finite-degree arithmetic rerun in a temporary copy, H10 frozen summaries and eight reviewed outputs hash-checked, and all 29 diagnostic files excluded from execution",
+    "not_rerun": "Platt-Trudgian's massive zero verification; inherited v32 jobs as standalone computations; 29 diagnostic/invalid programs; acquired/private code; and the outer-strip, Gamma-envelope, and infinite-tail arguments as machine-formalized proofs.",
+    "open_scope": "The degree-at-most-30-billion theorem is global only at H_cut=0 and explicitly depends on the published verification through 3 trillion. Positive-cutoff uniformity extends directly only through degree 10 on the compact rectangle. No H11, all-degree, or RH theorem was established."
+  },
   "repository_checks": {
     "npm_run_build": "PASS",
     "npm_run_assert_pr": "PASS",
@@ -227,17 +276,17 @@
   "package_manifest": {
     "status": "PASS",
     "algorithm": "SHA-256",
-    "files_verified": 1520
+    "files_verified": 1759
   },
   "paper": {
     "status": "PASS",
     "builder": "Tectonic",
-    "pages": 31,
-    "bytes": 208694,
-    "sha256": "1d3618d07b1f964985eb83c48b242bc1f9d9a025aae8d78261de165f6e50421d",
-    "rendered_png_set_sha256": "65ef8df50e919be8968505511932321c3bb6c1f8e83764dbb50af0de99fd8670",
+    "pages": 36,
+    "bytes": 235803,
+    "sha256": "e39861e3e9d78148da7ee426a8088b5df6ea02489a7640dd622b57a4892ada2d",
+    "rendered_png_set_sha256": "dc86321d240c55f7b28ee5c2be648069ce682832188fe2080c10d11a7937d27d",
     "checks": [
-      "all 31 pages rendered to PNG and visually inspected",
+      "all 36 pages rendered to PNG and visually inspected",
       "PDF metadata and embedded text inspected",
       "no TeX warnings, overfull boxes, undefined references, or missing characters"
     ]
@@ -257,6 +306,7 @@
     "V31 optional python-flint integrations during the bounded smoke run; their separately recorded scientific replays used python-flint 0.9.0",
     "V32 inherited v31 payloads and remaining regional transport families",
     "V32 external Platt-Trudgian computation, floating and diagnostic packets, private/acquired sources, and prose-only infinite arguments",
-    "a degree-uniform finite signed arithmetic-core certificate or a theta pivot beyond the certified degree-at-most-9 range"
+    "V33 published Platt-Trudgian massive zero computation, 29 diagnostic/invalid programs, acquired/private sources, and prose analytic arguments as machine-formalized proofs",
+    "an all-degree finite signed arithmetic-core certificate, a positive-cutoff theorem beyond degree 10, or any H11/RH conclusion"
   ]
 }

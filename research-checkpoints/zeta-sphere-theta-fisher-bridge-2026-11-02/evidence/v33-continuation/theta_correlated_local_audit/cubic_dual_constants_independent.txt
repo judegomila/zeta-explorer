@@ -1,0 +1,1 @@
+Quadratic minimum, atomic objective, and optimal-plane constants: PASS

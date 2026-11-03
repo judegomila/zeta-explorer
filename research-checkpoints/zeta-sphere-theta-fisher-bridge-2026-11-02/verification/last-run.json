@@ -1,6 +1,6 @@
 {
-  "schema_version": 5,
-  "executed_utc": "2026-11-03T06:04:59Z",
+  "schema_version": 6,
+  "executed_utc": "2026-11-03T08:16:42Z",
   "archive_verifier": {
     "status": "PASS",
     "v18_files_verified": 574,
@@ -24,7 +24,12 @@
     "v31_classified_bytes_verified": 573957,
     "v31_reviewed_files": 137,
     "v31_diagnostic_correction_files": 25,
-    "v31_public_redactions": 1
+    "v31_public_redactions": 1,
+    "v32_classified_files_verified": 405,
+    "v32_classified_bytes_verified": 1192893,
+    "v32_reviewed_files": 386,
+    "v32_diagnostic_correction_files": 19,
+    "v32_public_redactions": 1
   },
   "smoke_suite": {
     "status": "PASS",
@@ -38,7 +43,8 @@
       "v19-certificate-summaries",
       "v20-v26-certificate-summaries",
       "v27-v30-bounded-checks",
-      "v31-bounded-checks"
+      "v31-bounded-checks",
+      "v32-bounded-checks"
     ]
   },
   "v19_scientific_replays": {
@@ -177,6 +183,42 @@
     "invalid_correction_history": "Eight swapped-coordinate even2 paths and four mixed odd/even diagnostic paths were retained with explicit invalid labels and were not executed",
     "open_scope": "No uniform regional payment, all-degree finite-core sign, new all-shift theorem, new hierarchy degree, or RH proof was established"
   },
+  "v32_scientific_replays": {
+    "status": "PASS",
+    "environment": "Python 3.15.2; python-flint 0.9.0; mpmath 1.3.0",
+    "checks": [
+      {
+        "name": "full-degree9-shift-slabs",
+        "result": "PASS; the copied-source 16 x 4000 x 4000 replay was byte-identical and had no failed slabs",
+        "scope": "both actual parity blocks through degree 9 on 0 <= a <= 1/2 and 0 <= H_cut <= 1/8"
+      },
+      {
+        "name": "positive-shift-cutoff-rectangle",
+        "result": "PASS; the copied-source 4000 x 8000 cutoff replay was byte-identical",
+        "scope": "compact cutoff uniformity only; the outer-shift completion is used only at H_cut=0"
+      },
+      {
+        "name": "inverse-residual-odd7",
+        "result": "PASS; author and independent exact-rational replays reproduced the integer Schur floor 5028566847",
+        "dependency": "reused the previously independently certified degree-7 moment enclosures; no fresh theta quadrature"
+      },
+      {
+        "name": "modular-signed-cancellation",
+        "result": "PASS; six modular outputs were reproduced byte-for-byte, including adverse Bessel and slice signs and the positive full transform"
+      },
+      {
+        "name": "sharp-dyadic-threshold",
+        "result": "PASS; both exact implementations retained threshold 107521, minimum finite-range margin 11, and exact failure at 107520"
+      }
+    ],
+    "internal_checksum_manifests": {
+      "status": "PASS",
+      "manifests": 48,
+      "entries": 400
+    },
+    "not_rerun": "Inherited v31 payloads; the external Platt-Trudgian computation; floating, diagnostic, and inconclusive packets; remaining regional transport families; acquired/private sources; and prose-only outer-strip and infinite-range dyadic arguments.",
+    "open_scope": "Finite degree-at-most-9 only. Positive-cutoff uniformity is certified only for a<=1/2 and H_cut<=1/8; all positive shifts are completed only at H_cut=0. No all-degree theorem or RH proof was established."
+  },
   "repository_checks": {
     "npm_run_build": "PASS",
     "npm_run_assert_pr": "PASS",
@@ -185,17 +227,17 @@
   "package_manifest": {
     "status": "PASS",
     "algorithm": "SHA-256",
-    "files_verified": 1113
+    "files_verified": 1520
   },
   "paper": {
     "status": "PASS",
     "builder": "Tectonic",
-    "pages": 28,
-    "bytes": 186950,
-    "sha256": "375e8e62c8c591652eea1a0301aa9befb5e2c36373f36cee4814a4420107931a",
-    "rendered_png_set_sha256": "8a75874a2f2608d68b34c6883d1f9b928988173a40f17bbf02792090ea27fab6",
+    "pages": 31,
+    "bytes": 208694,
+    "sha256": "1d3618d07b1f964985eb83c48b242bc1f9d9a025aae8d78261de165f6e50421d",
+    "rendered_png_set_sha256": "65ef8df50e919be8968505511932321c3bb6c1f8e83764dbb50af0de99fd8670",
     "checks": [
-      "all 28 pages rendered to PNG and visually inspected",
+      "all 31 pages rendered to PNG and visually inspected",
       "PDF metadata and embedded text inspected",
       "no TeX warnings, overfull boxes, undefined references, or missing characters"
     ]
@@ -213,6 +255,8 @@
     "V31 invalid swapped-coordinate even2 programs and mixed invalid diagnostics",
     "V31 private-prefix moment integration inputs",
     "V31 optional python-flint integrations during the bounded smoke run; their separately recorded scientific replays used python-flint 0.9.0",
-    "a finite signed arithmetic-core certificate or a new theta pivot"
+    "V32 inherited v31 payloads and remaining regional transport families",
+    "V32 external Platt-Trudgian computation, floating and diagnostic packets, private/acquired sources, and prose-only infinite arguments",
+    "a degree-uniform finite signed arithmetic-core certificate or a theta pivot beyond the certified degree-at-most-9 range"
   ]
 }

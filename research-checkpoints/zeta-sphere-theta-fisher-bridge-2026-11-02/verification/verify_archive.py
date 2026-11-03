@@ -18,6 +18,7 @@ V19 = ROOT / "evidence" / "v19-delta"
 CONTINUATION = ROOT / "evidence" / "v20-v26-continuation"
 V27_V30 = ROOT / "evidence" / "v27-v30-continuation"
 V31 = ROOT / "evidence" / "v31-continuation"
+V32 = ROOT / "evidence" / "v32-continuation"
 
 CONTINUATION_ROWS = {20: 45, 21: 25, 22: 25, 23: 35, 24: 26, 25: 7, 26: 11}
 CONTINUATION_MANIFEST_SHA256 = {
@@ -97,6 +98,15 @@ V31_DIAGNOSTIC_CLASSIFICATIONS = {
     "superseded_owned_source_unused_read_cleanup": 1,
 }
 
+V32_MANIFEST_SHA256 = "88b4af6f1ddae8216974e59e902975e3feeb125c28aea966f52d792b8df0e188"
+V32_REDACTIONS = {"V32_INDEX.md"}
+V32_REVIEWED_CLASSIFICATIONS = {
+    "independent_audit_or_replay": 257,
+    "reviewed_owned": 128,
+    "reviewed_scope_index": 1,
+}
+V32_DIAGNOSTIC_CLASSIFICATIONS = {"owned_diagnostic_not_theorem": 19}
+
 PACKAGE_MANIFEST = ROOT / "SHA256SUMS"
 PACKAGE_BUILD_INTERMEDIATES = {
     "paper/main.aux",
@@ -136,6 +146,13 @@ def validate_relative_path(relative: object, label: str) -> str:
     return relative
 
 
+def is_runtime_cache_path(relative: str) -> bool:
+    """Identify interpreter caches, which never belong to the public package."""
+
+    parsed = PurePosixPath(relative)
+    return "__pycache__" in parsed.parts or parsed.suffix.lower() in {".pyc", ".pyo"}
+
+
 def verify_package_manifest() -> tuple[int, int]:
     """Bind the complete public checkpoint tree, excluding build intermediates."""
 
@@ -150,7 +167,11 @@ def verify_package_manifest() -> tuple[int, int]:
         if relative.startswith("./"):
             relative = relative[2:]
         relative = validate_relative_path(relative, "package manifest")
-        if relative == "SHA256SUMS" or relative in PACKAGE_BUILD_INTERMEDIATES:
+        if (
+            relative == "SHA256SUMS"
+            or relative in PACKAGE_BUILD_INTERMEDIATES
+            or is_runtime_cache_path(relative)
+        ):
             fail(f"invalid package manifest target: {relative}")
         if relative in expected:
             fail(f"duplicate package manifest target: {relative}")
@@ -164,6 +185,7 @@ def verify_package_manifest() -> tuple[int, int]:
         if path.is_file()
         and path != PACKAGE_MANIFEST
         and str(path.relative_to(ROOT)) not in PACKAGE_BUILD_INTERMEDIATES
+        and not is_runtime_cache_path(str(path.relative_to(ROOT)))
     }
     if actual != set(expected):
         fail(
@@ -815,6 +837,192 @@ def verify_v31() -> tuple[int, int, int, int]:
     return checked, checked_bytes, len(reviewed_rows), len(diagnostic_rows)
 
 
+def verify_v32() -> tuple[int, int, int, int]:
+    """Verify the exact V32 reviewed plus diagnostic publication lane."""
+
+    reject_symlinks(V32, "V32 continuation")
+    manifest_name = "PUBLICATION_DELTA_V32.json"
+    manifest_path = V32 / manifest_name
+    if not manifest_path.is_file():
+        fail("missing V32 publication manifest")
+    if manifest_path.stat().st_size != 94217:
+        fail("unexpected V32 publication manifest byte count")
+    if digest(manifest_path) != V32_MANIFEST_SHA256:
+        fail("V32 publication manifest hash mismatch")
+
+    publication = json.loads(manifest_path.read_text())
+    if publication.get("version") != 32 or publication.get("baseline_version") != 31:
+        fail("expected V32 publication delta over V31")
+    reviewed_rows = publication.get("reviewed_owned_files")
+    diagnostic_rows = publication.get("diagnostic_or_correction_history")
+    if not isinstance(reviewed_rows, list) or len(reviewed_rows) != 386:
+        fail("expected 386 V32 reviewed-owned rows")
+    if not isinstance(diagnostic_rows, list) or len(diagnostic_rows) != 19:
+        fail("expected 19 V32 diagnostic/correction rows")
+    if publication.get("historical_working_file_revisions") != []:
+        fail("unexpected V32 historical working-file revisions")
+    private_policy = str(publication.get("private_provenance_policy", ""))
+    if "remain private" not in private_policy or "No acquisition or publication clearance" not in private_policy:
+        fail("unexpected V32 private-provenance policy")
+
+    expected: dict[str, dict[str, object]] = {}
+    reviewed_paths: set[str] = set()
+    diagnostic_paths: set[str] = set()
+    for label, rows, destination in (
+        ("reviewed", reviewed_rows, reviewed_paths),
+        ("diagnostic", diagnostic_rows, diagnostic_paths),
+    ):
+        for row in rows:
+            if not isinstance(row, dict):
+                fail(f"invalid V32 {label} row: {row!r}")
+            relative = validate_relative_path(row.get("path"), f"V32 {label}")
+            expected_hash = row.get("sha256")
+            classification = row.get("classification")
+            if not isinstance(expected_hash, str) or len(expected_hash) != 64:
+                fail(f"invalid V32 SHA-256 for {relative}")
+            if not isinstance(classification, str) or not classification:
+                fail(f"invalid V32 classification for {relative}")
+            if relative in expected:
+                fail(f"duplicate V32 publication path: {relative}")
+            expected[relative] = row
+            destination.add(relative)
+
+    if reviewed_paths & diagnostic_paths:
+        fail("V32 reviewed and diagnostic path sets overlap")
+    if len(expected) != 405:
+        fail(f"expected 405 V32 classified paths, got {len(expected)}")
+    reviewed_counts = Counter(row["classification"] for row in reviewed_rows)
+    diagnostic_counts = Counter(row["classification"] for row in diagnostic_rows)
+    if dict(reviewed_counts) != V32_REVIEWED_CLASSIFICATIONS:
+        fail(f"unexpected V32 reviewed classifications: {dict(reviewed_counts)}")
+    if dict(diagnostic_counts) != V32_DIAGNOSTIC_CLASSIFICATIONS:
+        fail(f"unexpected V32 diagnostic classifications: {dict(diagnostic_counts)}")
+
+    redactions_doc = json.loads((ROOT / "provenance" / "v32-redactions.json").read_text())
+    redacted_rows = redactions_doc.get("redacted")
+    if not isinstance(redacted_rows, list) or len(redacted_rows) != 1:
+        fail("expected one V32 redaction row")
+    redactions = {
+        validate_relative_path(row.get("path"), "V32 redaction"): row
+        for row in redacted_rows
+        if isinstance(row, dict)
+    }
+    if set(redactions) != V32_REDACTIONS:
+        fail(f"unexpected V32 redaction set: {sorted(redactions)}")
+    if not redactions.keys() <= expected.keys():
+        fail("V32 redaction is not in the publication manifest")
+
+    checked = 0
+    checked_bytes = 0
+    forbidden_suffixes = {".zip", ".pdf", ".html", ".tex"}
+    private_identifier = re.compile(
+        rb"libfile_|file_[0-9a-f]{16,}|"
+        rb"[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}|"
+        rb"/(?:Users|home|tmp|var/folders)/[^\s\"']+"
+    )
+    for relative, row in expected.items():
+        path = V32 / relative
+        if not path.is_file():
+            fail(f"missing V32 classified file: {relative}")
+        if path.suffix.lower() in forbidden_suffixes:
+            fail(f"forbidden captured-source type in V32 continuation: {relative}")
+        if "private" in PurePosixPath(relative).parts:
+            fail(f"private capture path published in V32 continuation: {relative}")
+        if relative in redactions:
+            redaction = redactions[relative]
+            if redaction.get("source_sha256") != row["sha256"]:
+                fail(f"V32 redaction source hash mismatch: {relative}")
+            if redaction.get("source_bytes") != 6632:
+                fail(f"V32 redaction source byte mismatch: {relative}")
+            if path.stat().st_size != redaction.get("public_bytes"):
+                fail(f"V32 redacted byte mismatch: {relative}")
+            if digest(path) != redaction.get("public_sha256"):
+                fail(f"V32 redacted hash mismatch: {relative}")
+        elif digest(path) != row["sha256"]:
+            fail(f"V32 classified hash mismatch: {relative}")
+        if private_identifier.search(path.read_bytes()):
+            fail(f"private identifier or local path remains in V32 public file: {relative}")
+        checked += 1
+        checked_bytes += path.stat().st_size
+
+    metadata = {manifest_name, "README.md"}
+    actual = {
+        str(path.relative_to(V32))
+        for path in V32.rglob("*")
+        if path.is_file()
+    }
+    expected_files = set(expected) | metadata
+    if actual != expected_files:
+        fail(
+            "unexpected V32 public file set: "
+            f"extra={sorted(actual - expected_files)}, missing={sorted(expected_files - actual)}"
+        )
+    if checked_bytes != 1192893:
+        fail(f"unexpected V32 classified public bytes: {checked_bytes}")
+
+    receipt = json.loads((ROOT / "provenance" / "v32-publication.json").read_text())
+    expected_source = {
+        "name": "zeta_sphere_campaign_v32_20261103T0754Z.zip",
+        "bytes": 8156868,
+        "sha256": "ba4504126d2ee711ca5b4bf3f8ece7b83ee6023230afcb4d98c415d15f65a5cf",
+        "unzip_test": "PASS",
+        "manifest_payloads_verified": 1541,
+        "manifest_payload_bytes_verified": 18926596,
+        "v31_payloads_preserved": 1133,
+        "v31_sha256": "841e3ea3e332334fb022b5a1859fcbce0c8b3f3012a3659e2e83e13e2f2391ef",
+        "manifest_json_bytes": 285479,
+        "manifest_json_sha256": "c2f9531869680381c2917c79a37add488cad7517a209aa954b8cad196d210ce4",
+        "manifest_sha256_bytes": 180729,
+        "manifest_sha256_sha256": "673362f418bdf90f8c7fb62bb5b372af01c20ca3f613400d1bb589a7067963c6",
+    }
+    if receipt.get("source_artifact") != expected_source:
+        fail("unexpected V32 source artifact receipt")
+    expected_publication_manifest = {
+        "name": manifest_name,
+        "bytes": 94217,
+        "sha256": V32_MANIFEST_SHA256,
+        "reviewed_owned_rows": 386,
+        "diagnostic_or_correction_rows": 19,
+    }
+    if receipt.get("publication_manifest") != expected_publication_manifest:
+        fail("unexpected V32 publication-manifest receipt")
+    expected_accounting = {
+        "new_payload_paths_since_v31": 408,
+        "new_payload_bytes_since_v31": 1616611,
+        "source_classified_owned_paths": 405,
+        "source_classified_owned_bytes": 1192875,
+        "public_classified_owned_paths": 405,
+        "public_classified_owned_bytes": 1192893,
+        "source_unique_content_hashes": 214,
+        "source_duplicate_content_groups": 71,
+        "source_repeated_path_rows": 191,
+        "byte_identical_public_payload_paths": 404,
+        "public_text_redactions": 1,
+        "retained_publication_manifests": 1,
+        "source_backed_public_bytes_before_readme": 1287110,
+        "omitted_duplicate_v31_provenance_paths": 2,
+    }
+    if receipt.get("delta_accounting") != expected_accounting:
+        fail("unexpected V32 publication accounting")
+    if receipt.get("omitted_duplicate_v31_provenance_paths") != [
+        "provenance/v31/MANIFEST.json",
+        "provenance/v31/MANIFEST.sha256",
+    ]:
+        fail("unexpected V32 omitted duplicate-provenance paths")
+    if receipt.get("existing_public_lane_overlap") != 0:
+        fail("V32 publication unexpectedly overlaps earlier public lanes")
+    if receipt.get("excluded_material") != [
+        "zeta_sphere_campaign_v32_20261103T0754Z.zip",
+        "MANIFEST.json",
+        "MANIFEST.sha256",
+        "all source paths not explicitly classified in PUBLICATION_DELTA_V32.json",
+        "all inherited private or acquired-source captures",
+    ]:
+        fail("unexpected V32 excluded-material receipt")
+
+    return checked, checked_bytes, len(reviewed_rows), len(diagnostic_rows)
+
+
 def main() -> int:
     snapshot_checked, snapshot_bytes, excluded, redacted = verify_snapshot()
     cp62_checked, cp62_bytes = verify_cp62()
@@ -826,6 +1034,7 @@ def main() -> int:
         verify_v27_v30()
     )
     v31_checked, v31_bytes, v31_reviewed, v31_diagnostic = verify_v31()
+    v32_checked, v32_bytes, v32_reviewed, v32_diagnostic = verify_v32()
     package_checked, package_bytes = verify_package_manifest()
     print(
         json.dumps(
@@ -853,6 +1062,11 @@ def main() -> int:
                 "v31_reviewed_files": v31_reviewed,
                 "v31_diagnostic_correction_files": v31_diagnostic,
                 "v31_public_redactions": len(V31_REDACTIONS),
+                "v32_classified_files_verified": v32_checked,
+                "v32_classified_bytes_verified": v32_bytes,
+                "v32_reviewed_files": v32_reviewed,
+                "v32_diagnostic_correction_files": v32_diagnostic,
+                "v32_public_redactions": len(V32_REDACTIONS),
                 "package_manifest_files_verified": package_checked,
                 "package_manifest_bytes_verified": package_bytes,
             },

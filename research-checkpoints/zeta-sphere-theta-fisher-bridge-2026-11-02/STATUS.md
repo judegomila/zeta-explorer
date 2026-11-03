@@ -4,22 +4,30 @@ Last integrated: 2026-11-03 UTC.
 
 ## Bottom line
 
-The Riemann hypothesis remains unproved. The present program has rigorous
-finite-order positivity results and exact signed decompositions, but it does not
-have a degree-uniform estimate that transfers the information-theoretic gain to
-the full signed coupling cost.
+The Riemann hypothesis remains unproved. The present program now has rigorous
+actual-target positivity through degree 9 for every positive shift at global
+spatial cutoff, together with an explicit positive-cutoff rectangle. It still
+does not have a degree-uniform estimate that transfers the information-theoretic
+gain to the full signed coupling cost.
 
 ## Established within the frozen evidence
 
+- Let `H_cut` denote the lower spatial integration limit. Both actual signed
+  five-channel parity blocks, on degrees `0,2,4,6,8` and `1,3,5,7,9`, are
+  strictly positive for every `0 <= a <= 1/2` and
+  `0 <= H_cut <= 1/8`. At `H_cut=0`, the standard outer-shift argument extends
+  this finite degree-at-most-9 Gram to every `a>0`; the divided-by-`a`
+  normalized endpoint at `a=0` is also certified. The outer argument does not
+  apply at positive cutoff, and there is no degree-above-9 or all-degree claim.
 - The complete theta `H6` test is positive for every positive shift and at the
   normalized endpoint. On `0 <= a <= 1/2`, the newly replayed even `4 x 4`
   polynomial-basis Gram has reserve `I/60`; it combines with the previously
   reviewed odd `H5` block. The outer shifts use the standard zero-strip and
   paired canonical-product argument. This is finite-order, not all-order.
 - The full `10 x 10` odd moment block with channels `1,3,...,19` is positive at
-  normalized shift `a=0`. The proof uses the actual `H=1/16` core/tail split
+  normalized shift `a=0`. The proof uses the actual `H_cut=1/16` core/tail split
   and complete complement coupling. It is not the full `H19` hierarchy.
-- Universal cumulative-tail positivity is false. At `H=1`,
+- Universal cumulative-tail positivity is false. At `H_cut=1`,
   `t=7005081715/1000000`, and `a=1/10000`, the normalized full-theta tail has a
   rigorously negative Fourier value. This does not contradict positivity of
   the complete kernel or RH.
@@ -94,15 +102,16 @@ new all-order positivity theorem or prove RH.
   it with a degree-independent mixed-metric spectral gap.
 
 All floating scans and probes in the continuation remain numerical
-diagnostics. The highest all-shift hierarchy theorem remains `H6`.
+diagnostics. These v20--v26 results predate and are logically separate from the
+later degree-through-9 theorem.
 
 ## Scalar, trace, and arithmetic reductions through v30
 
 - A separate interval certificate proves the even channels `0,2,4,6,8` on
   `0 <= a <= 1/2`, with polynomial-basis Gram reserve `I/100`; the standard
-  outer-shift argument extends strict positivity, not that reserve. The odd
-  channels `1,3,5,7` are not supplied, so this is **not** full `H8` and `H6`
-  remains the highest complete all-shift hierarchy theorem.
+  outer-shift argument extends strict positivity, not that reserve. This older
+  calculation alone did not supply odd channels `1,3,5,7`; the v32 theorem
+  later supplies both parity blocks through degree 9 by a separate certificate.
 - Exact boundary-square and regression-trace identities sign the boundary
   correction and the highest canonical regression coefficient. They do not
   sign `tr R`, the lower source components, or the general higher-degree
@@ -171,9 +180,51 @@ an append-only derivative of the 1,133-payload v31 snapshot, which preserves
 all 968 v30 payloads. Private captures and acquired third-party material are
 not committed.
 
+## Degree-through-9 theorem and signed mechanisms in v32
+
+- A direct 16-shift-slab interval certificate, with 4,000 spatial-tail cells,
+  4,000 inward-cutoff cells, exact rational bases, derivative jets through
+  order 20, and complete orbit and spatial tails, proves both actual `5 x 5`
+  parity blocks positive on
+  `0 <= a <= 1/2, 0 <= H_cut <= 1/8`. The compact monic Schur bounds are
+  `>658509314218` for even degree 8 and `>82637820677424` for odd degree 9.
+  The reported LDL pivots are basis-dependent pivots, not Euclidean eigenvalue
+  reserves.
+- At `H_cut=0` only, the paired-Hadamard/zero-strip formula gives a strictly
+  positive spectral density for `a>=1/2`. Joined to the compact certificate,
+  this proves actual degree-at-most-9 positivity for every `a>0`, plus the
+  removable normalized endpoint. It does not extend the compact constants or
+  positive-cutoff result to the outer strip.
+- An exact inverse-residual replay gives a normalized odd-degree-7 Schur lower
+  bound `>5028566847`, conditional on previously certified moment enclosures.
+  This reproduces a known rung and demonstrates why an unweighted small
+  residual is useless without inverse-metric conditioning.
+- Exact regional and finite-width identities retain the signed source,
+  regression variation, and inverse-adaptation terms. Fresh replays recover
+  known even-6 and odd-7 gains, while nearby-shell and subdivision tests show
+  why local monotonicity and refinement are not universal shortcuts.
+- The modular Bessel/divisor transform is genuinely signed. A certified
+  negative unweighted section at frequency 24 coexists with a positive full
+  `a=1/4` transform; a separate normalized moment certificate is positive for
+  `0<a<=1/2, |x|<=3`. These are finite cancellation results, not global
+  Fourier positivity.
+- The exact normalized-endpoint dyadic coefficient threshold is `107521`.
+  Independent prime-power accumulation checks every integer through `2^21`
+  with minimum integer margin `11`, exact inequalities show failure at
+  `107520`, and an analytic argument covers the infinite remainder. The result
+  applies only after a separate derivative-sign cutoff: even high terms pay
+  their same-residual eta terms, while odd high terms remain negative.
+
+The v32 public lane contains 405 classified owned payloads: 386 reviewed and
+19 diagnostic or correction-history files. Its single index redaction removes
+a private artifact locator; the source archive, duplicate prior manifests, and
+all unlisted private or acquired material are not committed. Independent
+replays do not constitute external peer review.
+
 ## Central open lemma
 
-The current bridge would require an actual, source-specific lower-metric
+Beyond the separately certified finite degrees, the current bridge would
+require an actual, source-specific lower-metric
 innovation gain that uniformly dominates the regression mismatch/action and
 every signed coupling cost as the degree grows. The Fisher inequalities above
 do not, by themselves, pay that all-degree cost.
@@ -193,8 +244,8 @@ For the even ladder the infinite tail beyond an explicit `O(N^2)` cutoff is
 positive, so a positive exact finite partial sum would certify the contact. For
 the odd ladder the finite partial sum must exceed the explicit negative-tail
 payment, not merely be positive. Proving these finite signed-core inequalities
-uniformly in degree is open; the reduction is not itself a pivot theorem or an
-all-shift closure theorem.
+uniformly beyond the certified range is open; the reduction is not itself an
+all-degree or RH theorem.
 
 Equivalently in the CP62 matrix language, one needs a complete positive-time
 coefficient map into the physical boundary form and a reserve-relative

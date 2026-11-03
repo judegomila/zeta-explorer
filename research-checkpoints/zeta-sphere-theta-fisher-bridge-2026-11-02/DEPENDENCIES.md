@@ -4,7 +4,11 @@
 exact theta / paired bridge identities
         |
         +--> inherited odd H5 + replayed even H6 ----------> ZSV-THETA-H6
-        +--> separate even 0,2,4,6,8 certificate ----------> not full H8
+        +--> separate even 0,2,4,6,8 certificate ----------> historical foothold
+        +--> both parity blocks through degree 9
+        |          |
+        |          +--> compact (a,H_cut) rectangle
+        |          +--> H_cut=0 outer-shift completion ----> finite all-shift degree 9
         |
         +--> a=0 odd 1,3,...,19 certificate --------------> ZSV-ODD-19
         |                                                       |
@@ -15,7 +19,7 @@ exact theta / paired bridge identities
         |                       +--> quadratic square payment
         |                       +--> degree-7 regional-variation payment
         |
-        +--> H=1 full-theta tail certificate -------------> tail route false
+        +--> H_cut=1 full-theta tail certificate ----------> tail route false
         |                                                       |
         |                                                       v
         |                                           retain central compensation
@@ -43,7 +47,8 @@ exact theta / paired bridge identities
  correlated prefix            even positive O(N^2) tail      global comparison
  inequality (OPEN)            + odd paid negative tail       (OPEN)
        |                            |
-       |                      finite signed core (OPEN)
+       |                      finite signed core beyond
+       |                      certified degrees (OPEN)
        \____________________________|__________________________/
                         distinct obligations; none closed
                                       |
@@ -59,7 +64,7 @@ reserve have all been included. A bound in the first metric is not a bound in
 the second without a proved comparison. CP62 equations J3-J9 make this missing
 comparison explicit.
 
-The finite payments now show that the desired mechanism is real in six bounded
+The finite payments show that the desired mechanism is real in multiple bounded
 settings: the existing odd-19 endpoint, the degree-2 Newman interval, the
 gauged degree-5 Newman interval, an odd same-parity degree-9 endpoint reserve,
 the complete-theta quadratic family, and the normalized degree-7 regional
@@ -95,7 +100,7 @@ positive. The adjacent odd summands have the opposite eventual sign, with an
 explicit absolute tail payment. What remains is finite but signed: prove the
 actual even core positive and the actual odd partial sum larger than its
 payment, uniformly in degree. The v31 corrected low-rung replays do not supply
-that uniform bound or a new pivot.
+that uniform bound.
 
 The v31 theta-specific square pays every quadratic `t^2-alpha` by combining a
 literal square with the global bound `4k^2+k''>1254`. At normalized degree 7,
@@ -106,9 +111,20 @@ or shift estimate. The invalid coordinate-swapped even2 output is retained as
 implementation history only; the corrected replay reproduces a known contact
 and leaves the all-degree obligations unchanged.
 
+The v32 interval theorem advances the finite frontier independently of those
+uniform routes. It proves both actual parity blocks through degree 9 on
+`0 <= a <= 1/2, 0 <= H_cut <= 1/8`; at `H_cut=0`, the separate outer-shift
+argument extends the finite Gram to every positive shift, with the normalized
+endpoint included. An exact inverse-residual reproduction, finite-width signed
+transport, and modular cancellation checks expose the conditioning and
+cancellation mechanisms at known finite rungs. The sharp dyadic threshold
+`107521` improves the normalized arithmetic tail comparison. None of these
+finite results supplies the degree-uniform signed-core payment represented by
+the downward arrows above, so all-degree closure remains open.
+
 ## Why the negative tail is constructive information
 
-The `H=1` counterexample rules out a convenient stronger premise: making every
+The `H_cut=1` counterexample rules out a convenient stronger premise: making every
 cumulative spatial tail positive. It does not attack the complete kernel.
 CP62 instead demonstrates the correct pattern on a restricted actual band:
 the tail is negative, the central term is positive, and the complete kernel is

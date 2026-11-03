@@ -1,0 +1,15 @@
+# Relative actual-metric flow conditioning: independent audit
+
+PASS, 2026-11-03. Replayed the owned endpoint checker using the auditor's independently generated core1000 and half-core moment enclosures. No fresh full-path quadrature or acquired code execution. Result.json retains all endpoint trace, energy and conditioning comparisons.
+
+The bound |S'''|<=|sigma2|+6sqrt(ErEt)+6||A^-1/2 L A^-1/2||Er follows directly from actual-metric Cauchy and the quadratic-form operator bound. Under constant invertible old-basis changes, Er,Et,sigma2 and the generalized spectral norm are invariant. A scalar old-basis shrink can make raw lambda arbitrarily small without changing these quantities. This identifies coordinate loss, not an intrinsic uniform bound or a guaranteed computational improvement.
+
+The fixed cell transformation has old block A0^-1/2 A A0^-1/2 and cross A0^-1/2(Az0+b), zero at the reference point. It uses no square root of the signed target Schur. Being constant on the cell it introduces no omitted derivative/connection terms. The remaining transformed source and residual-cross bounds are explicitly unpaid.
+
+When L>=0, L<=tr(A^-1L)A and integration yields A0<=A(H)<=exp(integral tau)A0. Determinant-log partition therefore gives relative eigenvalues in[1,1.5] per cell. Continuous nondecreasing mass permits the stated ceil-count, including one cell for zero mass. These are conditioning cells, not adequate source-quadrature cells. For indefinite L the operator norm replacement gives two-sided exp bounds; the determinant alone cannot substitute for it.
+
+Dependency check: read h4_attack_v1/H4_PROOF.md and post_v7_audit/H4_AUDIT.md, plus h5_tail_v1/POINTWISE_TAIL_PROOF.md. Their pointwise Bell moments satisfy mu_j=(-1)^j d_r^(2j)[psi(u+r)psi(u-r)]/psi^2=4^j g_j. Hence their even/odd3x3 matrices are positive diagonal congruences of the local old matrices here. H4 covers all u>=0; H5-tail covers z>=4 and explicitly proves pi exp(1/4)>4, so covers the entire [1/8,1/2]. The extra positive factor 2u^2 psi^2 preserves strict positivity. These are previously independently reviewed/replayed dependencies, NOT freshly regenerated in this endpoint audit. This supplies the local-positivity premise that the earlier midpoint-flow checker did not itself establish between its midpoint samples.
+
+Independent endpoint replay confirms odd7 logdet ratio upper10.826756225 and ratio to log1.5 upper26.702066482; even6 bounds8.448618189 and20.836856425. Thus at most27 and21 conditioning cells exist. Endpoint relative trace enclosures match the note. The generic-to-invariant ratios compare conservative upper estimates, not actual conditioning or complexity ratios.
+
+Accepted scope: coordinate-invariant conditional error estimates and finite-order actual determinant-log conditioning budgets. No growing-degree local positivity, source sign, cross-variation bound, quadrature resolution, or new rung is inferred. The signed relative-variation budget remains a separate theta-specific task where local positivity fails.

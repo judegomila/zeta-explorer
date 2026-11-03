@@ -1,0 +1,41 @@
+{
+  "odd7_eighth": {
+    "gamma_power_of_two": -3,
+    "gamma": "0.125000000000000000000000000000000000000000000000000000000",
+    "loewner_difference_pivot_lowers": [
+      "[0.00809399839862035733952477059345684760932007528224838241312 +/- 3.58e-61]",
+      "[8.86119176202718742597442066948778766662184733156167356065 +/- 2.86e-57]",
+      "[22726.9990877042387628331444731594655357413864344067813194 +/- 1.77e-54]"
+    ],
+    "variation_core_lower_bound": "[466619542.706700737884748539559386446666766698585577120993 +/- 2.09e-49]",
+    "core_plus_metric_bound_lower": "[118863888.253444753742486573645137100106915543948280667303 +/- 2.16e-49]",
+    "metric_bound_pays_core": true,
+    "scope": "Certified A_core<gamma A_tail; first passing candidate on a discrete grid, not an optimal eigenvalue ratio."
+  },
+  "odd7_half": {
+    "gamma_power_of_two": 7,
+    "gamma": "128.000000000000000000000000000000000000000000000000000000",
+    "loewner_difference_pivot_lowers": [
+      "[0.390614644232356690546424690205203853476208433700756054364 +/- 1.12e-58]",
+      "[923.002675489615944134385248354809533816506959020072820641 +/- 8.8e-57]",
+      "[6177299.85637825035252428473853251645935542050822140131375 +/- 3.93e-51]"
+    ],
+    "variation_core_lower_bound": "[10797414.6858000623865745390116322925633395158189860486055 +/- 4.24e-51]",
+    "core_plus_metric_bound_lower": "[3740564577.26884100128630748973383583648987000743579442412 +/- 4.89e-48]",
+    "metric_bound_pays_core": true,
+    "scope": "Certified A_core<gamma A_tail; first passing candidate on a discrete grid, not an optimal eigenvalue ratio."
+  },
+  "even6_eighth": {
+    "gamma_power_of_two": -2,
+    "gamma": "0.250000000000000000000000000000000000000000000000000000000",
+    "loewner_difference_pivot_lowers": [
+      "[0.00349213285755379921911714360739472866506733652053279795625 +/- 4.80e-60]",
+      "[1.33422561067572648740857645417303213212099380720650059836 +/- 4.70e-57]",
+      "[2547.33566125438955012046222755858824224796294503468255307 +/- 2.36e-54]"
+    ],
+    "variation_core_lower_bound": "[2299099.87076750355345338920428918115154701609709442798679 +/- 1.62e-51]",
+    "core_plus_metric_bound_lower": "[1555686.61987731948828723168682595155699658372048805186190 +/- 4.83e-52]",
+    "metric_bound_pays_core": true,
+    "scope": "Certified A_core<gamma A_tail; first passing candidate on a discrete grid, not an optimal eigenvalue ratio."
+  }
+}

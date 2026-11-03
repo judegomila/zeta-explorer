@@ -16,7 +16,12 @@ and recorded public hash, and that the two v19 redactions match the source and
 public hashes in `provenance/v19-redactions.json`. For V20--V26 it verifies the
 seven exact publication manifests, 174 rows/146 unique payloads/28 identical
 carry-forwards, all seven recorded index redactions, and the exact 154-file
-continuation directory.
+continuation directory. For V27--V30 it verifies the four exact publication
+manifests, 121 rows/84 unique payloads/37 identical carry-forwards, all six
+identifier-only redactions, the exact 89-file public directory, and the
+absence of the 33 declared private/acquired paths. Finally it verifies the
+root `SHA256SUMS` against the exact public checkpoint tree, excluding only the
+checksum file itself and known local LaTeX build intermediates.
 
 `run_smoke.py` copies selected exact-rational verifiers to a temporary
 directory and executes them there. This keeps the frozen evidence byte-for-byte
@@ -38,6 +43,16 @@ labels. It validates frozen summaries and conservative inequalities; it does
 not rerun the Arb or SymPy programs, execute any floating diagnostic, or prove
 the analytical statements recorded in the accompanying notes.
 
+`check_v27_v30_certificates.py` reruns three standard-library exact checks in
+a temporary copy: the degree-only coefficient envelope, Gauss-orbit constants,
+and orbit recurrence. It requires byte-identical source/audit replay summaries,
+checks diagnostic scope labels, and validates the stored 2048-cell even-channel
+certificate summary. It does **not** rerun that Arb job, access excluded source
+captures, execute floating probes, or certify a new theta pivot.
+Several frozen diagnostics retain historical absolute path strings and are not
+portable without the excluded private inputs; the bounded checker intentionally
+does not execute them.
+
 The latest bounded replay and paper inspection receipt is recorded in
 [`last-run.json`](last-run.json).
 
@@ -56,4 +71,13 @@ the alternative H5 window certificate, the Fisher/Laguerre identities, and
 four symbolic transport/reflection outputs. Degree-five endpoint extraction
 matched the frozen source and audit, but the full `1024 x 1024` degree-five Arb
 integration was not rerun. Floating scans were not executed as certificates.
+
+For V27--V30, the default bounded suite reruns only the three elementary exact
+checks described above. A separate scientific replay reran the complete
+2048-cell even `0,2,4,6,8` Arb verifier under Python 3.13.15/python-flint 0.9.0
+and reproduced the frozen JSON byte-for-byte. The correlated N1/N2 rational
+diagnostics and the orbit, degree-only, and Gauss-orbit checks were also
+reproduced; N1/N2 reuse earlier certified moments and are not fresh quadrature
+or new ladder results. The v27 floating probes and all acquired/private source
+checkers were not executed as proof checks.
 

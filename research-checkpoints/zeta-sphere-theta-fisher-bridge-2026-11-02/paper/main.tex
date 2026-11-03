@@ -58,20 +58,23 @@
 \textbf{Status.} This paper does not prove the Riemann hypothesis. It integrates
 finite-order interval theorems, exact signed decompositions, rigorous
 counterexamples to stronger auxiliary routes, and reviewed information-theoretic
-bounds. The remaining degree-uniform signed coupling estimate is stated
-explicitly and is not assumed. Review to date is internal and AI-assisted, not
-external peer review. The continuation adds finite degree-five and degree-nine
-mechanism certificates and sharpens one normalized-endpoint modular route to
-an exact correlated prefix inequality. That inequality remains unproved.
+bounds. Review to date is internal and AI-assisted, not external peer review.
+The latest reduction pays the even infinite arithmetic remainder beyond an
+explicit degree-only $O(N^2)$ cutoff and bounds the oppositely signed odd
+remainder. The finite signed arithmetic core and the degree-uniform bridge
+comparison remain unproved; neither is assumed.
 }}
 \end{center}
 
 \begin{abstract}
 We organize a computational and analytic research program around a paired theta
 kernel whose positive definiteness for every allowed shift is equivalent to the
-Riemann hypothesis. The program has established two finite footholds: complete
-$H_6$ positivity for all positive shifts and positivity of the full odd
-$10\times10$ moment block through channel $19$ at normalized shift $a=0$.
+Riemann hypothesis. The program has established complete $H_6$ positivity for
+all positive shifts, positivity of the full odd $10\times10$ moment block
+through channel $19$ at normalized shift $a=0$, and a separate all-shift
+certificate for the five even channels $0,2,4,6,8$. The last result is not full
+$H_8$: the odd channels through $7$ are missing, so $H_6$ remains the highest
+complete all-shift hierarchy theorem.
 It has also rigorously disproved a stronger shortcut: arbitrary spatial
 cumulative tails need not be positive, even at the explicit positive shift
 $a=10^{-4}$. A positive-time refinement exhibits the correct mechanism on a
@@ -92,9 +95,13 @@ An all-finite-degree theorem controls every raised spatial moment in the
 complete-theta positive-parent norm, but gives no signed Schur reserve. Exact
 block transport and modular reflection reduce a normalized-endpoint route to
 one negative direction, while a canonical source cancels the separately
-estimated inverse-feedback term. The resulting correlated prefix inequality
-is unproved. No result here extends the all-shift hierarchy beyond $H_6$ or
-proves the Riemann hypothesis.
+estimated inverse-feedback term. A second route rewrites the actual residual
+through a positive scalar resolvent, an adaptive correlated mean, and an exact
+theta divisor expansion. In that expansion every sufficiently high even
+summand is positive after an explicit $O(N^2)$ cutoff, while the odd remainder
+is negative with an explicit absolute payment. The actual finite signed core
+remains unproved uniformly in degree. No result here extends the complete
+all-shift hierarchy beyond $H_6$ or proves the Riemann hypothesis.
 \end{abstract}
 
 \tableofcontents
@@ -133,7 +140,7 @@ allowlist, with two documented privacy redactions.
 \item Campaign v26 is a $5{,}658{,}383$-byte append-only source artifact named
 \begin{center}\small\ttfamily
 zeta\_sphere\_campaign\_v26\_\\
-20261103T0228Z.zip,
+20261103T0229Z.zip,
 \end{center}
 with SHA-256
 \begin{center}\small\ttfamily
@@ -146,6 +153,22 @@ The authored evidence payload is the deduplicated union of the explicit
 V20--V26 allowlists: 174 rows and 146 unique files, with seven documented
 text-only privacy redactions. The repository also retains all seven exact
 publication manifests and one repository-authored continuation README.
+\item Campaign v30 is a $7{,}056{,}540$-byte append-only source artifact named
+\begin{center}\small\ttfamily
+zeta\_sphere\_campaign\_v30\_\\
+20261103T0421Z.zip,
+\end{center}
+with SHA-256
+\begin{center}\small\ttfamily
+f17d58c60d7dabaab7018ad38aa57c62\\
+8748c7dc9ed2081c616332a95ace5cd6.
+\end{center}
+Its manifest verifies 968 payloads and preserves all 839 v26 payloads
+byte-for-byte through the v27--v29 chain. The publication-safe continuation is
+the deduplicated union of the explicit v27--v30 allowlists: 121 rows, 84 unique
+authored files, and 37 same-hash carry-forwards. The repository retains those
+84 files, the four exact publication manifests, and one repository-authored
+README; six text files have documented privacy-only locator redactions.
 \item CP62 has Library identifier
 {\small\texttt{libfile\_19a836c8b8a8819198a91a5abe44c640}}, byte count $79{,}980$,
 and SHA-256
@@ -161,7 +184,11 @@ stale pointers to omitted files replaced in v18; two analogous text redactions
 are recorded for v19. The exact omissions and redactions are manifested; the
 private original artifacts remain hash-addressed. The same policy excludes the
 v26 source archive, duplicate private provenance manifests, and internal
-Library locators from its public continuation.
+Library locators from its public continuation. For v27--v30 it also excludes an
+acquired source ZIP and PDF, the captured private response, all extracted
+third-party source, eight duplicate prior-manifest files, and the full v30
+archive. The public paper records the archive hash but not its private Library
+locator.
 
 \begin{longtable}{>{\raggedright\arraybackslash}p{0.20\textwidth}
                   >{\raggedright\arraybackslash}p{0.34\textwidth}
@@ -171,6 +198,7 @@ Result & Established scope & Boundary that remains \\
 \midrule
 \endhead
 Full theta $H_6$ & Strict positivity for every positive shift and the normalized endpoint; on $0\le a\le1/2$, the even $4\times4$ basis Gram has reserve $I/60$ and joins the inherited odd $H_5$ block. & No $H_7$, no all-order hierarchy, and no RH conclusion. \\
+Even channels through $8$ & The explicit five-polynomial even Gram for channels $0,2,4,6,8$ exceeds $I/100$ on $0\le a\le1/2$, with strict positivity extended to all positive shifts. & Not full $H_8$: odd channels $1,3,5,7$ are missing. It adds no new complete hierarchy order. \\
 Odd channels $1,3,\ldots,19$ & Full $10\times10$ odd block at normalized $a=0$, including the actual $H=1/16$ core/tail coupling. & Not the even block, not full $H_{19}$, and no nonzero-shift or all-degree result. \\
 $H=1$ cumulative tail & Explicit negative Fourier density at $t=7005081715/10^6$, including $a=10^{-4}$. & Refutes universal tail positivity, not the complete kernel or RH. \\
 Bridge Fisher information & $I_a\le2/17$ and regular endpoint $I_{a^2}(0)\le4/867$. & Fisher PSD does not imply parameter-derivative Gram PSD. \\
@@ -180,6 +208,7 @@ Heat/Newman relaxation & Exact zero-preserving heat formula, signed forcing, and
 Continuation finite mechanisms & At $a=1/4$, a gauged degree-five Newman certificate retains $>52735.3099050647$ unscaled reserve on $0\le\lambda\le1$; an odd same-parity degree-nine endpoint certificate retains $>0.0031365403907762$ in its stated $10^{16}$-scaled normalization. & Fixed degree and shift only; degree nine is not $H_9$, and no interior-path positivity is claimed. \\
 Positive-parent confinement & For every finite degree and raised spatial moment, the complete-theta tail is bounded by $e^{-250(n+r+1)^2}$ beyond $\log(10(n+r+1))$. & This is a positive physical $L^2$ theorem, not a signed Schur, inverse, or modular-defect bound. \\
 Modular/canonical reduction & Reflection leaves exactly one negative commutator direction, and a canonical source cancels the actual inverse-feedback term algebraically. & The remaining correlated normalized-endpoint criterion is unproved; no degree-independent mixed-metric gap is available. \\
+Arithmetic-core reduction & The complete theta divisor expansion has a positive even remainder beyond an explicit $O(N^2)$ cutoff; the adjacent odd remainder is negative with a paid absolute bound. & The finite signed core still contains the actual degree-dependent coefficients. Its uniform sign is unproved, and no new pivot is computed. \\
 \bottomrule
 \end{longtable}
 
@@ -271,6 +300,30 @@ This theorem is not pointwise positivity in the spatial variable. Indeed, the
 pointwise odd $3\times3$ determinant is negative at $h=0$. Integration over the
 complete theta profile repairs that local sign through this finite order. That
 distinction foreshadows the signed core/tail mechanism used below.
+
+\subsection{A separate even-channel certificate through degree 8}
+
+The v28 interval certificate adds one more even channel without filling the
+intervening odd block. In its explicit rational polynomial basis, for
+$0\le a\le1/2$,
+\begin{equation}
+ G^{\mathrm{even}}_{0,2,4,6,8}(a)\succeq\frac1{100}I.
+ \label{eq:even8-reserve}
+\end{equation}
+An independent 2048-cell Arb replay gives
+\begin{equation}
+ r_{\min}>0.02834170721162048,
+ \qquad n_{\max}<0.03181057715956688<\frac4{125}.
+\end{equation}
+In the fixed certificate coordinates the final normalized monomial Schur
+reserve exceeds $4.44765\cdot10^{17}$ and the determinant exceeds $10^{40}$.
+The standard outer-strip Hadamard argument
+extends strict positivity to all positive shifts; it does not extend the
+$I/100$ quantitative reserve.
+
+This is an even-channel theorem only. The odd channels $1,3,5,7$ were not
+certified in this calculation, so the result is not full $H_8$. Complete
+$H_6$ remains the highest all-shift hierarchy theorem in this paper.
 
 \subsection{The odd block through channel 19}
 
@@ -776,6 +829,63 @@ direction; for $N=0$ it is zero. This is an inertia statement under
 congruence, not an eigenvalue-size bound in the target coordinates and not a
 payment theorem.
 
+\subsection{Signed pieces of the canonical source}
+
+The v27 boundary calculation identifies one favorable sign without assigning a
+sign to the complete source. Under a positive current normalized prefix, the
+physical current polynomial factors as
+\begin{equation}
+ T_j(x)=x^\varepsilon\prod_\ell(x^2+a_\ell^2).
+\end{equation}
+Put $F=T_j(D)\psi$, $K=T_j'(D)\psi$,
+$f_\ell=T_j(D)(D^2+a_\ell^2)^{-1}\psi$, and, in the odd case,
+$v=T_j(D)D^{-1}\psi$. Half-line integration by parts gives
+\begin{equation}
+ \int_0^\infty KF
+ =-\sum_\ell\left(f_\ell'(0)^2+a_\ell^2f_\ell(0)^2\right)
+  -\frac{\varepsilon}{2}v(0)^2.
+ \label{eq:boundary-squares}
+\end{equation}
+Consequently
+\begin{equation}
+ R_{jj}=2\int_0^\infty hY_j(h)^2\,dh-2B_j,
+ \qquad
+ \operatorname{tr}R=2\operatorname{tr}M_1-2\sum_jB_j,
+ \quad B_j\ge0.
+ \label{eq:trace-boundary}
+\end{equation}
+Thus the boundary correction has a sign; $R_{jj}$ and
+$\operatorname{tr}R$ need not.
+
+There is also an exact sign for the top canonical regression coefficient. With
+$B=M_1$, $M_0=\int UU^T$, and $G$ the positive $h$-weighted compression of
+physical differentiation,
+\begin{equation}
+ BG+G^TB=-M_0,
+ \qquad
+ \gamma_N=-\frac{\sqrt{\sigma_N}}2
+             \operatorname{tr}(B^{-1}M_0)<0.
+ \label{eq:top-regression}
+\end{equation}
+The inherited identity
+$c_N'=-\sqrt{\sigma_N}\operatorname{tr}R/2$ then yields
+\begin{equation}
+ 4\gamma_Nc_N'
+ =\sigma_N\operatorname{tr}(B^{-1}M_0)\operatorname{tr}R.
+ \label{eq:top-trace-payment}
+\end{equation}
+Only the boundary correction and the coefficient $\gamma_N$ are signed. The
+trace comparison, all lower source components, the signed regression
+quadratic, and the modular cost remain unpaid.
+
+\begin{remark}
+Positive current pivots plus strong log curvature do not imply
+$\operatorname{tr}R\ge0$ for a generic profile. An explicit smooth non-theta
+family has positive $N=1$ parity pivots and arbitrarily strong curvature while
+$\operatorname{tr}R<0$. This refutes that sufficient shortcut only; it is not a
+counterexample to the theta trace comparison, the target kernel, or RH.
+\end{remark}
+
 \subsection{Auxiliary regression sign and canonical cancellation}
 
 For every fixed finite degree, the derivative-closed positive half-line
@@ -829,6 +939,242 @@ unilateral witnesses create a spurious endpoint normalization loss; and a
 fixed mixed-metric gap is conditionally impossible. Floating finite-rung
 probes do not alter any of these theorem boundaries.
 
+\section{From the correlated scalar residual to a finite arithmetic core}
+
+\subsection{Scalar positivity is not a Gram theorem}
+
+Let
+\begin{equation}
+ \Lambda(t)=F'(t)^2-F(t)F''(t)
+\end{equation}
+be the complete theta density, and for $d>0$ define its scalar resolvent
+\begin{equation}
+ J(d)=\int_{\R}\frac{\Lambda(t)}{t^2+d^2}\,dt.
+\end{equation}
+The reviewed positive-primitive identity is
+\begin{equation}
+ J(d)=\frac{\pi}{2d}\iint_{\R^2}(u-v)^2\psi(u)\psi(v)
+       e^{-d|u+v|}\,du\,dv>0.
+ \label{eq:scalar-resolvent}
+\end{equation}
+For every $R>0$ it also gives the explicit lower bound
+\begin{equation}
+ J(d)\ge\frac{\pi}{d}e^{-2dR}M_0(R)M_2(R)>0,
+ \label{eq:scalar-resolvent-lower}
+\end{equation}
+where $M_0,M_2$ are the corresponding positive truncated orbit moments.
+
+An earlier base-$2$ construction supplies a positive theta primitive
+$\chi_2=2x^{5/4}\Theta_4'(x)$ and an exact reflected inverse relation for
+$a<1/2$. It produces signed energy identities, not a hidden reserve: at the
+raw endpoint the apparently positive pieces cancel exactly, and on every
+region the scalar-tail bulk cancels its boundary. Likewise, no
+degree-uniform strict reflected contraction can hold in the actual even
+polynomial ladder. These reviewed limitations motivate retaining the complete
+correlated residual below.
+
+This scalar sign does not imply positivity of a higher rational Gram. Put
+$s=d^2$ and, assuming only the current even and odd prefix blocks are positive,
+separate the constant coefficient of a polynomial $p$. Exact square completion
+has the form
+\begin{equation}
+ I[p]=(z+p_0C^{-1}b)^*C(z+p_0C^{-1}b)+|p_0|^2\Delta_N(s),
+ \qquad
+ \Delta_N(s)=J(d)-b^TC^{-1}b.
+ \label{eq:rational-square}
+\end{equation}
+Here $C$ is the known current rational Gram and $b$ its constant-term column.
+The actual monic current polynomial $P_N$ satisfies $P_N(-s)\ne0$ without
+assuming the next pivot, and
+\begin{equation}
+ \Delta_N(s)=
+ \frac{\displaystyle\int_{\R}
+       \frac{P_N(t^2)^2\Lambda(t)}{t^2+s}\,dt}
+      {P_N(-s)^2}.
+ \label{eq:delta-rational}
+\end{equation}
+Thus $J(d)>0$ is a useful input, not a replacement for the missing correlated
+residual. A fixed scalar floor is also insufficient at all degrees: under
+indefinitely positive prefixes, the Gauss resolvent converges to $J$ while the
+available fixed lower floor stays strictly below it.
+
+\subsection{Adaptive resolvent and correlated conditional mean}
+
+Write
+\begin{equation}
+ h_N=\int_{\R}P_N(t^2)^2\Lambda(t)\,dt,
+ \qquad \rho_N(s)=b^TC^{-1}b.
+\end{equation}
+The adaptive-resolvent estimate retains the current polynomial:
+\begin{equation}
+ \left|h_N-sP_N(-s)^2\Delta_N(s)\right|
+ \le\frac{\mathcal B_N}{s},
+ \label{eq:adaptive-resolvent-error}
+\end{equation}
+where, with $T=DP_N(-D^2)$,
+\begin{equation}
+ \mathcal B_N\le2\pi\left(
+ \|T(u\psi)\|_2^2+\|T\psi\|_2\,\|T(u^2\psi)\|_2
+ \right).
+ \label{eq:adaptive-envelope}
+\end{equation}
+Combining \eqref{eq:scalar-resolvent-lower} with the known prefix gives the
+sufficient inequality
+\begin{equation}
+ h_N\ge sP_N(-s)^2\bigl[J_{\mathrm{low}}(s)-\rho_N(s)\bigr]
+       -\frac{\mathcal B_N}{s}.
+ \label{eq:adaptive-lower}
+\end{equation}
+What is open is a degree-dependent choice $s=s_N$ for which the positive term
+uniformly exceeds $\mathcal B_N/s$. A generic three-atom example refutes the
+shortcut ``fixed-$s$ rational positivity implies the next pivot''; it is not a
+counterexample to the complete theta target.
+
+The same residual has an exact correlated-space representation. Define
+\begin{equation}
+ C(r)=\int_{\R}v^2\psi(r+v)\psi(r-v)\,dv,
+ \qquad
+ C_N=[P_N(-D_r^2/4)]^2C,
+ \label{eq:correlated-kernel}
+\end{equation}
+where the square denotes operator composition, not a pointwise square. Then
+\begin{equation}
+ sP_N(-s)^2\Delta_N(s)
+ =8\pi\sqrt{s}\int_0^\infty C_N(r)e^{-2\sqrt{s}r}\,dr,
+ \qquad h_N=4\pi C_N(0).
+ \label{eq:correlated-mean}
+\end{equation}
+Equivalently, the first expression is $4\pi\E[C_N(R_s)]$ for
+$R_s\sim\operatorname{Exp}(2\sqrt{s})$. This avoids a large numerical
+subtraction but does not make $C_N$ nonnegative.
+
+The positive current prefix also supplies Gauss nodes $x_\ell>0$ and weights
+$w_\ell>0$ such that
+\begin{equation}
+ \rho_N(s)=\sum_\ell\frac{w_\ell}{s+x_\ell},
+ \qquad
+ q_N(r)=\frac1{4\pi}\sum_\ell w_\ell
+                 \cos(2\sqrt{x_\ell}r),
+\end{equation}
+and hence
+\begin{equation}
+ \Delta_N(s)=\frac{8\pi}{\sqrt{s}}
+ \int_0^\infty\bigl(C(r)-q_N(r)\bigr)e^{-2\sqrt{s}r}\,dr.
+ \label{eq:gauss-source}
+\end{equation}
+This is an exact current-prefix cancellation. Reflected finite-orbit bounds
+control the scalar-source approximation error, not the sign of the correlated
+remainder.
+
+\subsection{Complete-theta divisor grouping}
+
+For all real $u$, let the unreflected single-orbit profile be
+\begin{equation}
+ f(u)=4e^{u/2}(2z^2-3z)e^{-z},\qquad z=\pi e^{2u}.
+\end{equation}
+It changes sign on part of the negative half-line and is not replaced by an
+even or positive surrogate. Define
+\begin{equation}
+ A_f(R)=\int_{\R}f(R+w)f(R-w)\,dw,qquad
+ C_f(R)=\int_{\R}w^2f(R+w)f(R-w)\,dw.
+\end{equation}
+If $d(k)$ is the divisor count and
+\begin{equation}
+ \ell_2(k)=\sum_{n\mid k}\left[\log\left(\frac{n^2}{k}\right)\right]^2,
+\end{equation}
+then the complete, untruncated theta kernel satisfies
+\begin{equation}
+ C(r)=\sum_{k\ge1}k^{-1/2}\left[
+ d(k)C_f\!\left(r+\tfrac12\log k\right)
+ +\frac{\ell_2(k)}4A_f\!\left(r+\tfrac12\log k\right)
+ \right].
+ \label{eq:divisor-grouping}
+\end{equation}
+The identity follows by grouping orbit pairs $nm=k$ and shifting the midpoint;
+the odd cross term integrates to zero. Absolute integrated convergence pays
+the grouping and every fixed derivative used below. No finite-orbit
+approximation occurs in \eqref{eq:divisor-grouping}.
+
+\subsection{Twin-parity arithmetic remainder}
+
+For the even ladder, positivity of the actual two-parity prefix implies that
+the monic polynomial $P_N$ has positive roots $x_\ell$ and therefore
+\begin{equation}
+ L_N=P_N(-D^2/4)^2
+     =\prod_\ell(D^2/4+x_\ell)^2
+     =\sum_{j\ \mathrm{even}}a_jD^j,qquad a_j\ge0.
+ \label{eq:positive-operator-coefficients}
+\end{equation}
+Put $K=4N$ and
+\begin{equation}
+ W(S)=\sum_j a_j(2S)^j=P_N(-S^2)^2,
+\end{equation}
+and define the degree-only constants
+\begin{align}
+ B_K&=6400(K+2)^2(K+3)^3,\nonumber\\
+ H_K&=(2K+7)(3K+7),\nonumber\\
+ z_K&=\max\left\{64\pi,\ K(9+2K),\ \frac{H_K}{4},\
+                \frac12\log(24B_K)\right\},
+ \qquad
+ k_K=\left\lceil\frac{z_K}{\pi}\right\rceil.
+ \label{eq:degree-only-cutoff}
+\end{align}
+The reviewed central/noncentral comparison retains the whole positive
+coefficient polynomial $W$, which cancels from the cutoff estimate. Every even
+divisor summand with $k\ge k_K$ is then strictly positive for every $r\ge0$.
+Thus the omitted infinite remainder after the finite signed core is positive.
+The cutoff is $O(N^2)$; for $K\ge4$ one may use the conservative bound
+\begin{equation}
+ k_K\le\left\lceil\frac{100K^2}{\pi}\right\rceil.
+\end{equation}
+The actual coefficients remain inside the finite core; only their contribution
+to the cutoff location has cancelled.
+
+There is a parity reversal. For the adjacent odd target,
+\begin{equation}
+ C_N^{\mathrm{odd}}
+ =-\frac{D^2}{4}Q_N(-D^2/4)^2C=-A_NC,
+ \label{eq:odd-sign-reversal}
+\end{equation}
+where $A_N$ has nonnegative even-derivative coefficients and highest order
+$K=4N+2$. The same high-index single-orbit kernels are positive before the
+leading minus sign. Hence all sufficiently high odd arithmetic summands are
+strictly negative. They must be paid, not discarded as a reserve.
+
+Let $U_k$ denote the actual signed divisor summand in the parity under
+consideration, and define the corresponding partial sum
+$S_J=\sum_{k=1}^{J-1}U_k$. For an integer
+\begin{equation}
+ J\ge\max\left\{k_K,e^2,\frac{H_K}{4\pi},
+                         \frac{4(K+3)}{\pi}\right\},
+\end{equation}
+the complete absolute remainder is bounded by
+\begin{equation}
+ \operatorname{Tail}_K(J)=\frac{4B_K}{\pi}J^{1/4}
+ \left(1+\frac{\log^2J}{4}\right)
+ W(2\pi J)e^{-\pi J/2}.
+ \label{eq:arithmetic-tail-payment}
+\end{equation}
+In the normalized contact convention this gives
+\begin{align}
+ \frac{h_N^{\mathrm{even}}}{4\pi}
+   &\in[S_J,S_J+\operatorname{Tail}_K(J)],\nonumber\\
+ \frac{h_N^{\mathrm{odd}}}{4\pi}
+   &\in[S_J-\operatorname{Tail}_K(J),S_J].
+ \label{eq:twin-tail-enclosures}
+\end{align}
+For the even ladder, a positive exact finite partial sum beyond the sign cutoff
+certifies the pivot. For the odd ladder, positivity requires the stronger
+payment $S_J>\operatorname{Tail}_K(J)$. The even procedure is a complete
+semidecision if the true pivot is positive, but no uniform termination or
+effort bound is proved. No new pivot was computed in v30.
+
+The central open arithmetic lemma is therefore concrete: prove the actual
+finite signed divisor core positive in the even ladder, and large enough to pay
+\eqref{eq:arithmetic-tail-payment} in the odd ladder, uniformly in degree. The
+positive even infinite remainder and the explicit odd payment do not determine
+that core.
+
 \section{A positive death chain and a still-signed bridge}
 
 The orbit marginals admit an exact time-inhomogeneous pure-death process. For
@@ -862,7 +1208,7 @@ $0.9955$ from $0$ to $1/4$. These are fractions of each terminal feature's own
 conditional orbit covariance. They are not fractions of the bridge Schur
 surplus, whose covariance and spatial means may grow with degree.
 
-\section{The sharpened endpoint criterion and the global remaining obligation}
+\section{Two endpoint reductions and the global remaining obligation}
 
 The continuation does not add another generic positivity theorem. For the
 normalized-endpoint modular route, conditional on a positive current prefix,
@@ -877,6 +1223,15 @@ The old inverse-feedback term has already cancelled. What remains unproved is
 the correlated sign and size comparison itself, uniformly in degree. This is
 the exact remaining criterion for that endpoint route, not an equivalence to
 the full all-shift problem.
+
+The arithmetic route gives a distinct normalized-contact reduction. Conditional
+on the same positive current prefix, the even ladder needs a positive finite
+signed divisor core beyond which the remainder is rigorously positive. The odd
+ladder needs its finite partial sum to exceed the explicit negative-tail bound
+\eqref{eq:arithmetic-tail-payment}. These are finite, theta-specific sufficient
+criteria, but no proof establishes them uniformly in degree. They are not
+equivalent to \eqref{eq:sharpened-endpoint}, and neither endpoint route alone is
+equivalent to the full all-shift problem.
 
 The broader program still points to the following missing comparison.
 
@@ -912,7 +1267,8 @@ prove it.
 The current evidence narrows the target substantially:
 \begin{itemize}
 \item $H_6$ is the highest all-shift hierarchy theorem; the normalized odd-19
-  block is a different fixed finite certificate;
+  block and the even-channel certificate through $8$ are different finite
+  results, and the latter is not full $H_8$;
 \item at the odd-19 endpoint, positive innovation rigorously pays the
   coefficient-motion cost with explicit surplus;
 \item at Newman degrees $2$ and $5$, complete finite deformation budgets are
@@ -922,6 +1278,9 @@ The current evidence narrows the target substantially:
   spatial moments, but in the wrong metric for signed closure;
 \item modular reflection isolates one negative direction and the canonical
   source cancels inverse feedback, leaving \eqref{eq:correlated-prefix} open;
+\item the exact theta divisor expansion pays the infinite even remainder after
+  an explicit $O(N^2)$ cutoff and bounds the negative odd remainder, while the
+  actual finite signed core remains open;
 \item a uniform mixed-metric spectral gap is not available under indefinitely
   positive normalized prefixes;
 \item the $H=1$ obstruction forbids an arbitrary-tail positivity shortcut;
@@ -931,7 +1290,7 @@ The current evidence narrows the target substantially:
 \item residue and sampling obstructions forbid replacing the actual metric by
   simpler degree-uniform surrogates.
 \end{itemize}
-What remains is the quantitative theta-specific comparison itself.
+What remain are the quantitative theta-specific comparisons themselves.
 
 \section{Reproducibility and parallel continuation}
 
@@ -939,11 +1298,13 @@ The repository checkpoint contains the editable sources, exact evidence
 manifests, certificate outputs, and bounded verification scripts. Frozen v18
 and v19 remain unchanged. The V20--V26 continuation is an append-only
 deduplicated 146-file authored union with seven recorded index redactions. The
-default archive verifier checks v18, CP62, v19, and every continuation
-allowlist path against its source or recorded public hash. The dependency-light
-smoke suite reruns exact rational checks for the $H_5$ analytic tail, fixed
-grouped Gram, zero window, confluent cluster, both CP62 algebra packets, and
-standard-library checks of the v19 and continuation certificate summaries and
+V27--V30 lane adds 84 unique allowlisted authored files, four exact publication
+manifests, and one repository README, with six recorded locator-only
+redactions. The default archive verifier checks v18, CP62, v19, and every
+continuation path against its source or recorded public hash. The
+dependency-light smoke suite reruns exact rational checks for the $H_5$
+analytic tail, fixed grouped Gram, zero window, confluent cluster, both CP62
+algebra packets, and standard-library checks of the later frozen summaries and
 identities.
 
 Separate scientific replays reran the v19 H6 Arb checker, the odd-rung endpoint
@@ -961,6 +1322,17 @@ this update claim to rerun the historical Arb $2^{21}$-point DFT, every
 interval quadrature, or every historical dependency. All continuation files
 labeled as floating probes remain numerical diagnostics, not certificates.
 
+For the v27--v30 integration, a fresh independent run reproduced the v28
+2048-cell Arb certificate byte-for-byte using Python 3.13.15 and python-flint
+0.9.0. Five dependency-light replays also reproduced the v29 correlated
+$N=1,2$ rational diagnostics, the orbit recurrence output, and the v30
+degree-only and Gauss-orbit constant outputs. The $N=1,2$ diagnostics inherit
+already certified moments; they are bookkeeping checks, not fresh quadrature or
+new pivots. Twenty-four internal checksum manifests bind all 39 listed entries.
+The v27 floating probes, analytic prose proofs, and acquired/private source
+checker were not executed as proof checks. No finite signed arithmetic core was
+certified in this update.
+
 Parallel work uses isolated worktrees. Evidence and provenance are frozen;
 proof, experiment, audit, and paper lanes submit claim deltas to a single
 integration branch. Numerical observations cannot be promoted to theorems
@@ -974,16 +1346,15 @@ are campaign-internal independent checks, not external refereeing.
 
 \section*{Conclusion}
 
-The continuation adds two further finite payment certificates and replaces
-several independent overestimates by one exact correlated prefix functional.
-It also proves strong all-degree control in the positive parent while showing
-why neither that control nor a uniform mixed-metric gap closes the signed
-target. The highest all-shift hierarchy theorem remains $H_6$. For the
-normalized endpoint modular route, the next useful result is the theta-specific
-correlated inequality \eqref{eq:correlated-prefix}; broader all-shift closure
-still requires the uniform signed innovation comparison. Neither another
-generic identity nor a floating trend supplies either estimate, and the
-Riemann hypothesis remains unproved.
+The continuation now exposes two concrete normalized-endpoint routes. The
+modular route leaves the theta-specific correlated inequality
+\eqref{eq:correlated-prefix}. The arithmetic route pays the even infinite
+remainder positively after an explicit $O(N^2)$ cutoff and pays the magnitude
+of the oppositely signed odd remainder, leaving the actual finite signed core.
+Neither missing estimate is supplied by scalar resolvent positivity, a generic
+identity, or a floating trend. The highest complete all-shift hierarchy theorem
+remains $H_6$, broader closure still requires the uniform signed innovation
+comparison, and the Riemann hypothesis remains unproved.
 
 \bibliographystyle{plain}
 \bibliography{references}

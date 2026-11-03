@@ -1,0 +1,13 @@
+# Independent twin-ladder arithmetic certificates audit
+
+PASS, 2026-11-03. Covers ODD_PARITY_TAIL_SIGN.md, DIRECT_CORE_CERTIFICATE.md, and ARITHMETIC_REMAINDER_BOUND.md. No new finite computation or degree-uniform sign theorem.
+
+For an odd test t Q_N(t²), the multiplier t² contributes -D²/4 to its spatial correlation. Under the relevant positive shifted prefix, Q_N has positive roots. Hence the opposite operator (D²/4)Q_N(-D²/4)^2 has nonnegative even coefficients and highest degree K=4N+2. The previous central/tail proof uses only those properties, not K divisible by4 nor a positive constant term. It therefore gives a strictly negative arithmetic remainder for the actual odd target. K=2 is covered by the displayed exact thresholds; the optional K>=4 crude estimate is not invoked. This does not imply a negative odd pivot.
+
+For the even target, the exact contact is4pi times the convergent divisor series. All terms at and beyond the established cutoff are strictly positive. Thus any strictly positive finite partial sum including all lower indices proves a positive pivot. From the cutoff onward these partial sums increase to the true contact; if the contact is positive, one is eventually strictly positive. With certified old coefficients and convergent outward integration, interval refinement can establish that strict margin. This is conditional semidecision completeness, not proof of termination at every degree or a uniform effort bound.
+
+For the magnitude bound, split the full single-orbit integral at w=0. On each half one argument u=R+|w|>=R>=1; both the w² weight and the unit weight are <=u². The same T/M convolution bound and change of variables as the prior paid tail, now starting at R, give2B_K W(2z)pi^(-3/4)z^(-1/4)e^(-z/2). At z=pi k, multiply by k^(-1/2), use d(k)<=k and ell2(k)<=k log²k, and obtain exactly (2B_K/pi)k^(1/4)(1+log²k/4)W(2pi k)e^(-pi k/2).
+
+For k>0, nonnegative coefficients give the W logarithmic derivative<=K/k. With l=log k, the log-square factor has logarithmic derivative2l/[k(4+l²)]<=1/(2k) for l>=0. Including k^(1/4) gives<= (K+3/4)/k, so the stated weaker(K+3)/k is safe. At integer J above the three thresholds, the continuous derivative bound yields successive ratio<=exp(-pi/4)<1/2. The geometric series is therefore bounded by2F_K(J), exactly the stated Tail_K(J).
+
+Beyond the sign cutoff, even contact lies in[Partial,Partial+Tail], odd contact in[Partial-Tail,Partial], with Partial ending at J-1 and Tail starting at J. Multiply by4pi for the original normalized pivot convention. Thus the odd finite certificate must pay the negative remainder, not merely show a positive partial sum. Actual coefficients remain in W and in the signed core. No original next norm is assumed in these statements.

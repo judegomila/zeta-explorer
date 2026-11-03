@@ -1,6 +1,6 @@
 {
-  "schema_version": 3,
-  "executed_utc": "2026-11-03T02:41:45Z",
+  "schema_version": 4,
+  "executed_utc": "2026-11-03T04:32:21Z",
   "archive_verifier": {
     "status": "PASS",
     "v18_files_verified": 574,
@@ -15,7 +15,11 @@
     "v20_v26_allowlist_files_verified": 146,
     "v20_v26_allowlist_bytes_verified": 962560,
     "v20_v26_public_redactions": 7,
-    "v20_v26_repeated_manifest_rows": 28
+    "v20_v26_repeated_manifest_rows": 28,
+    "v27_v30_allowlist_files_verified": 84,
+    "v27_v30_allowlist_bytes_verified": 193852,
+    "v27_v30_public_redactions": 6,
+    "v27_v30_repeated_manifest_rows": 37
   },
   "smoke_suite": {
     "status": "PASS",
@@ -27,7 +31,8 @@
       "cp62-joint-source",
       "cp62-matrix-anchor",
       "v19-certificate-summaries",
-      "v20-v26-certificate-summaries"
+      "v20-v26-certificate-summaries",
+      "v27-v30-bounded-checks"
     ]
   },
   "v19_scientific_replays": {
@@ -100,20 +105,55 @@
     },
     "floating_diagnostics": "14 files retained with explicit noncertificate labels; not executed as proof checks"
   },
+  "v27_v30_scientific_replays": {
+    "status": "PASS",
+    "checks": [
+      {
+        "name": "even-a4-arb-2048-cells",
+        "environment": "Python 3.13.15; python-flint 0.9.0",
+        "result": "PASS; fresh output was byte-identical to a4_replay.json",
+        "scope": "even channels 0,2,4,6,8 only; not full H8"
+      },
+      {
+        "name": "correlated-n1-n2-rational",
+        "environment": "Python 3.13.15 standard-library exact arithmetic",
+        "result": "PASS; N1 and N2 outputs reproduced",
+        "dependency": "reused inherited certified moments; no fresh quadrature or new pivot"
+      },
+      {
+        "name": "orbit-degree-gauss-exact",
+        "environment": "Python 3.13.15 standard library",
+        "result": "PASS; orbit recurrence, degree-only envelopes, and Gauss-orbit constants reproduced byte-for-byte"
+      }
+    ],
+    "internal_checksum_manifests": {
+      "status": "PASS",
+      "manifests": 24,
+      "entries": 39
+    },
+    "floating_diagnostics": "V27 probes retained with explicit noncertificate labels; not executed as proof checks",
+    "private_source_policy": "No acquired/private source checker was executed or published",
+    "open_scope": "No finite signed arithmetic core or new theta pivot was computed"
+  },
+  "repository_checks": {
+    "npm_run_build": "PASS",
+    "npm_run_assert_pr": "PASS",
+    "notes": "Existing navigation-backlog and large-chunk warnings remain warnings; no broken link, assertion, smoke, or build failure occurred."
+  },
   "package_manifest": {
     "status": "PASS",
     "algorithm": "SHA-256",
-    "files_verified": 851
+    "files_verified": 943
   },
   "paper": {
     "status": "PASS",
     "builder": "Tectonic",
-    "pages": 17,
-    "bytes": 138248,
-    "sha256": "ac00ff5f370d120c0dea3f3b4826304d26c5691234d1e8f4db525bcf84a904d8",
-    "rendered_png_set_sha256": "bf20d537180356555cf2dad7982dffa83ec893d76af142c8704e81e6200968f8",
+    "pages": 22,
+    "bytes": 167761,
+    "sha256": "f775d9ed828285b7dd56c0bc50842afea6fed668b103c9c7eff0bec427c08a68",
+    "rendered_png_set_sha256": "9255e235ac0c7877d8228675439bd9cc33ff603ea458faf81af756fb004f1aa0",
     "checks": [
-      "all 17 pages rendered to PNG and visually inspected",
+      "all 22 pages rendered to PNG and visually inspected",
       "PDF metadata and embedded text inspected",
       "no TeX warnings, overfull boxes, undefined references, or missing characters"
     ]
@@ -125,6 +165,9 @@
     "v19 60000x1000 paid rectangle integration",
     "historical Arb 2^21-point DFT certificate",
     "every historical interval quadrature",
-    "every historical high-precision certificate"
+    "every historical high-precision certificate",
+    "V27 floating probes as proof checks",
+    "acquired/private V28 source checkers",
+    "a finite signed arithmetic-core certificate or a new theta pivot"
   ]
 }

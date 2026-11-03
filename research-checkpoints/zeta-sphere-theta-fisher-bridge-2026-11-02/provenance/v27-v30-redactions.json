@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "source_artifact": "zeta_sphere_campaign_v30_20261103T0421Z.zip",
+  "policy": "Replace internal Library or conversation identifiers with public archive hashes or neutral provenance wording while preserving all mathematical content and recording source/public identities.",
+  "redacted": [
+    {
+      "path": "V27_INDEX.md",
+      "source_bytes": 3260,
+      "source_sha256": "e1fd1f67c950223742f86107a06aecf8b0bc4a37dbf24d8e31919a7ba0001452",
+      "public_bytes": 3334,
+      "public_sha256": "1fb14d4f59fb0b527cd01705538c7e3d2f8cfec0bb89928aec7f03e36c893d2d",
+      "reason": "private v26 Library identifier replaced by the public v26 manifest hash and duplicate-manifest policy"
+    },
+    {
+      "path": "V28_INDEX.md",
+      "source_bytes": 2909,
+      "source_sha256": "140207e8cb74dd2e7a3b2fe603881270af7fe8ec4ee1e2d2c10ac42695f9ca67",
+      "public_bytes": 2964,
+      "public_sha256": "2c45c471a6d1bdc0619d045c530194cd3cf420d457973995bd9df8b7085c65f4",
+      "reason": "private v27 Library identifier replaced by the public v27 manifest hash and duplicate-manifest policy"
+    },
+    {
+      "path": "V29_INDEX.md",
+      "source_bytes": 3442,
+      "source_sha256": "94428d62798df57a3365108d99b26265e80eb3d2a13ffc530c98843659d732b9",
+      "public_bytes": 3504,
+      "public_sha256": "e38d8540fb60406829a7f89310e336b0fac40b46d13ef55d8dd73aff50da242f",
+      "reason": "private v28 Library identifier replaced by the public v28 manifest hash and duplicate-manifest policy"
+    },
+    {
+      "path": "V30_INDEX.md",
+      "source_bytes": 3159,
+      "source_sha256": "0ce2a0f3540385acb4fee63e8bab477e4fbab9719dba8bb19585a12935dce7cd",
+      "public_bytes": 3215,
+      "public_sha256": "3aca8aebc0e408c814ec618fdc11dc748e7160deb81495258dc84943c20ae26c",
+      "reason": "private v29 Library identifier replaced by the public v29 manifest hash and duplicate-manifest policy"
+    },
+    {
+      "path": "source_0145_audit/EVEN_A4_AUDIT.md",
+      "source_bytes": 4344,
+      "source_sha256": "b79b1148743258d1929c553fda8efbc7464dde0e220b4521c406e4511fed4252",
+      "public_bytes": 4325,
+      "public_sha256": "cba2c0213474c456e8232e8231e8b355819b4aa702f2aef117ea9c58703daf79",
+      "reason": "private source-message identifier replaced by neutral provenance wording"
+    },
+    {
+      "path": "source_0145_audit/REVIEW_SUMMARY.md",
+      "source_bytes": 3106,
+      "source_sha256": "b459a0ffb8e99077f3ec44edccb600a28394f1eb4ecce60263c3fc90a9348b34",
+      "public_bytes": 3034,
+      "public_sha256": "307fa2eb782aa97a32b7dfc3f4d0de72491db0640b5725e5d54a97cdee21a42d",
+      "reason": "private conversation and response identifiers replaced by neutral provenance wording"
+    }
+  ]
+}

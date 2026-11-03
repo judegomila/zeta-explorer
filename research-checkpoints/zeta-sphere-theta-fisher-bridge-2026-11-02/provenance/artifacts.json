@@ -26,13 +26,23 @@
     },
     {
       "role": "campaign-v20-v26-publication-continuation",
-      "name": "zeta_sphere_campaign_v26_20261103T0228Z.zip",
+      "name": "zeta_sphere_campaign_v26_20261103T0229Z.zip",
       "bytes": 5658383,
       "sha256": "945a1f0b5bc0a3fbb0852bd3af2512e5f9797022aad48ded4afc9bc9dba1d71e",
       "integrity": "unzip-test-pass; internal manifest 839/839 pass; all 825 v25, 672 v19, and 585 v18 payloads preserved byte-for-byte",
       "repository_copy": "146-file deduplicated publication allowlist with seven recorded Library-identifier redactions; seven publication manifests retained; source archive and 14 duplicate private provenance manifests excluded",
       "private_locator": "retained outside the public repository",
       "rerun_status": "supplied-and-hash-verified; bounded public smoke checks are recorded separately"
+    },
+    {
+      "role": "campaign-v27-v30-publication-continuation",
+      "name": "zeta_sphere_campaign_v30_20261103T0421Z.zip",
+      "bytes": 7056540,
+      "sha256": "f17d58c60d7dabaab7018ad38aa57c628748c7dc9ed2081c616332a95ace5cd6",
+      "integrity": "unzip-test-pass; internal manifest 968/968 pass; all 940 v29, 905 v28, 857 v27, and 839 v26 payloads preserved byte-for-byte",
+      "repository_copy": "84-file deduplicated publication allowlist with six recorded privacy redactions; four publication manifests retained; source archive, 33 private/acquired paths, and eight duplicate prior manifests excluded",
+      "private_locator": "retained outside the public repository",
+      "rerun_status": "supplied-and-hash-verified; bounded and scientific replay scopes are recorded separately"
     },
     {
       "role": "preserved-v17-baseline-identity",

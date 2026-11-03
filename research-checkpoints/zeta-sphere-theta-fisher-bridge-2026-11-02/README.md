@@ -22,7 +22,7 @@ parallel-friendly package.
 ## Frozen baseline and append-only deltas
 
 The integrated checkpoint is a composition of the frozen v18 baseline,
-publication-safe campaign deltas through v26, and the separate CP62 packet:
+publication-safe campaign deltas through v30, and the separate CP62 packet:
 
 - campaign v18, Library `libfile_93281585a66c81918ba351446f9d7615`,
   4,369,533 bytes, SHA-256
@@ -31,6 +31,9 @@ publication-safe campaign deltas through v26, and the separate CP62 packet:
   `8fe5bb4162a0650d297c3ec841b81111ef25c06ce19a1133725e87d4b7e90aa0`;
 - campaign v26, 5,658,383 bytes, SHA-256
   `945a1f0b5bc0a3fbb0852bd3af2512e5f9797022aad48ded4afc9bc9dba1d71e`;
+- campaign v30, `zeta_sphere_campaign_v30_20261103T0421Z.zip`,
+  7,056,540 bytes, SHA-256
+  `f17d58c60d7dabaab7018ad38aa57c628748c7dc9ed2081c616332a95ace5cd6`;
 - CP62, Library `libfile_19a836c8b8a8819198a91a5abe44c640`,
   79,980 bytes, SHA-256
   `75db9056b1863e904afecbbf2a99de1ff108a48fd3b0ea2242c988e899aa7ccb`.
@@ -66,6 +69,18 @@ in version indexes are replaced by prior archive hashes and recorded in
 `provenance/v20-v26-redactions.json`; 14 duplicate private provenance-manifest
 files and the full source archive are omitted. The exact accounting is in
 `provenance/v20-v26-publication.json`.
+
+The v30 source manifest verifies 968 payloads and preserves all 839 v26
+payloads byte-for-byte. The public continuation under
+`evidence/v27-v30-continuation/` is the deduplicated union of the four explicit
+V27--V30 publication allowlists: 121 manifest rows, 84 unique authored files,
+and 37 intentional same-hash carry-forwards. Six private locators or response
+identifiers in otherwise publishable text are replaced and recorded in
+`provenance/v27-v30-redactions.json`. The four exact publication manifests are
+retained; 33 private or acquired paths, eight duplicate prior-manifest files,
+and the full source archive are omitted. Exact accounting is in
+`provenance/v27-v30-publication.json`. No private Library or file locator for
+the v30 source artifact is published.
 
 CP62 is stored byte-for-byte under `evidence/cp62/`. It postdates v17 and is not
 part of the v18 campaign payload, so it is recorded as an explicit delta rather

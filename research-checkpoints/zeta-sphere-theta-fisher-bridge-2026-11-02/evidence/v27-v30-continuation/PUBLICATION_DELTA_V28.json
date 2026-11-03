@@ -1,0 +1,89 @@
+{
+  "version": 28,
+  "baseline_version": 27,
+  "files": [
+    {
+      "path": "V28_INDEX.md",
+      "sha256": "140207e8cb74dd2e7a3b2fe603881270af7fe8ec4ee1e2d2c10ac42695f9ca67"
+    },
+    {
+      "path": "eta_positive_primitive_audit/AUDIT.md",
+      "sha256": "0901fdeaad6f7d2f5558e5c1b0720c9f6e6f7c9cf9479a838d3276af975f5369"
+    },
+    {
+      "path": "eta_positive_primitive_v1/FROZEN_SHA256.txt",
+      "sha256": "ccb921eba91fabd3e628f3f33eaa023efb750d5bb0614b73a4afb4a32505c303"
+    },
+    {
+      "path": "eta_positive_primitive_v1/POSITIVE_PRIMITIVE.md",
+      "sha256": "b9a67096dd33088dd079b963ebe05a8083e410e1e9c502ab11d6dd761c381b8a"
+    },
+    {
+      "path": "source_0145_audit/EVEN_A4_AUDIT.md",
+      "sha256": "b79b1148743258d1929c553fda8efbc7464dde0e220b4521c406e4511fed4252"
+    },
+    {
+      "path": "source_0145_audit/OWNED_REVIEW_FROZEN_SHA256.txt",
+      "sha256": "0495145163ca3d7494a85c90fc112a65cd97cc5d71acda8744ecf16b8fcebd84"
+    },
+    {
+      "path": "source_0145_audit/REVIEW_SUMMARY.md",
+      "sha256": "b459a0ffb8e99077f3ec44edccb600a28394f1eb4ecce60263c3fc90a9348b34"
+    },
+    {
+      "path": "source_0145_audit/a4_replay.json",
+      "sha256": "55e622144a463434b82a9e534cada03b9dd3bc9b5d12a470fd96f74ebb6ad73a"
+    },
+    {
+      "path": "source_0145_audit/a4_run.txt",
+      "sha256": "a79ff41f1b57ab88c06a07867b07a9477c8363958455640b11c1c81c8826d1ab"
+    },
+    {
+      "path": "source_0145_audit/arithmetic_resolvent_audit.md",
+      "sha256": "8ede569a61cc31ac399099650d6f79afcc8cab9af420e08d060b082a482d73a6"
+    },
+    {
+      "path": "source_0145_audit/replay_a4.py",
+      "sha256": "2421db58ea07398bb4263ba07b21275d4385938b743763ec41bc11fe186e8d67"
+    },
+    {
+      "path": "source_0145_audit/structural_local_audit.md",
+      "sha256": "339e1798ec0415fa8b30c43ac996089dfa7cef958b7cc2e8d1fdfdb2a6abdb86"
+    }
+  ],
+  "excluded_private_provenance": [
+    "source_0145_audit/PRIVATE_SOURCE_FROZEN_SHA256.txt",
+    "source_0145_audit/private/conversation.json",
+    "source_0145_audit/private/paper.pdf",
+    "source_0145_audit/private/paper.txt",
+    "source_0145_audit/private/source.zip",
+    "source_0145_audit/private/source/a4_integrated_certificate.json",
+    "source_0145_audit/private/source/a4_integrated_certificate.py",
+    "source_0145_audit/private/source/bridge_gram_exact_checks.json",
+    "source_0145_audit/private/source/bridge_gram_exact_checks.py",
+    "source_0145_audit/private/source/energy_matrix_exact_checks.json",
+    "source_0145_audit/private/source/energy_matrix_exact_checks.py",
+    "source_0145_audit/private/source/factorization_attack_exact_checks.json",
+    "source_0145_audit/private/source/factorization_attack_exact_checks.py",
+    "source_0145_audit/private/source/h6_integrated_certificate.json",
+    "source_0145_audit/private/source/h6_integrated_certificate.py",
+    "source_0145_audit/private/source/integrated_pivots_certificate.json",
+    "source_0145_audit/private/source/integrated_pivots_certificate.py",
+    "source_0145_audit/private/source/recurrence_attack_checks.json",
+    "source_0145_audit/private/source/recurrence_attack_checks.py",
+    "source_0145_audit/private/source/relative_modular_bridge_README.txt",
+    "source_0145_audit/private/source/relative_modular_bridge_all_order.tex",
+    "source_0145_audit/private/source/relative_modular_bridge_attacks.tex",
+    "source_0145_audit/private/source/relative_modular_bridge_bounds.tex",
+    "source_0145_audit/private/source/relative_modular_bridge_continuation.tex",
+    "source_0145_audit/private/source/relative_modular_bridge_extensions.tex",
+    "source_0145_audit/private/source/relative_modular_bridge_hierarchy.tex",
+    "source_0145_audit/private/source/schur_transport_certificate.json",
+    "source_0145_audit/private/source/schur_transport_certificate.py",
+    "source_0145_audit/private/source/sixth_pointwise_certificate.json",
+    "source_0145_audit/private/source/sixth_pointwise_certificate.py",
+    "source_0145_audit/private/source/slice_h5_exact_certificate.json",
+    "source_0145_audit/private/source/slice_h5_exact_certificate.py",
+    "source_0145_audit/private/source_metadata.json"
+  ]
+}

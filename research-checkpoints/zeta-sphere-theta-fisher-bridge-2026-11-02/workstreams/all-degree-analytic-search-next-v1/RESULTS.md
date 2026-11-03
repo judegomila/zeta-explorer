@@ -2361,10 +2361,10 @@ For the complete left Euler cell
 \]
 
 Thus the infinite cell tail now has an analytic sign and geometric majorant.
-On odd rungs it is eventually positive. If a negative head cell is rigorously
-certified, the stronger cutoff inequalities `P B_k>=N A_k` then fail for all
-sufficiently large `k`; the existing negative-head observations are floating,
-so this consequence remains conditional. The aggregate identity
+On odd rungs it is eventually positive. The thirteenth-wave certificate
+proves `e_2(q=t)<0` at the actual first odd rung, so the stronger cutoff
+inequalities `P B_k>=N A_k` fail there for all sufficiently large `k`. The
+aggregate identity
 `-zD=sum_k(PB_k-NA_k)` is not refuted, and the unfavorable far tail is
 geometrically small. The explicit tail inequalities give an effectively
 certifiable majorant and reduce the live Ewald problem to
@@ -2385,6 +2385,393 @@ Finally, summing the exact cell multiplier with an index weight gives, for
 The corresponding real-line pairing is exactly `S'(1)`, but (97) does not
 sign it. Equations (95)--(97) are analytic infinite-tail and endpoint
 identities, not an Abel-interval proof, all-degree pivot theorem, or RH proof.
+
+## Thirteenth-wave exact bridge and route falsifiers
+
+### A fixed three-feature score space has a source-free obstruction
+
+For `U_3(q)=span{q'W,tqW,t^2q'W}`, let `K` and `y` be the polynomial Gram
+matrix and score vector, and let `A=||q'W||_2^2`. After reducing dependent
+generators to a maximal independent basis, define
+
+\[
+ \boxed{
+ \mathfrak m_3(q,W)={y^TK^\dagger y\over A}-1,
+ \qquad
+ \mathcal H_{U_3}={A\over4}\mathfrak m_3(q,W).}          \tag{98}
+\]
+
+Take `q=t` and
+`W=exp(-t^2/2)+(1/100)exp(-t^2/800)`. Then `U_3` rank-adapts to
+`span{W,t^2W}`. Exact Gaussian moments prove
+
+\[
+ \boxed{
+ 8\pi\mathcal S[q]=||s||_2^2-A>0,
+ \qquad
+ \mathfrak m_3(q,W)<0,
+ \qquad
+ \mathcal H_{U_3}<0.}                                   \tag{99}
+\]
+
+This is a source-free obstruction, not an actual-theta counterexample. It
+shows that positive-even-Schwartz geometry alone cannot prove a fixed-`U_3`
+theorem. The exact identity `D_2N_3=D_3N_2+Delta^2` in
+`U3_UNIFORM_OBSTRUCTION_NEXT.md` supplies a denominator-free test for future
+full-rank interval certificates.
+
+### The first Ewald index packet changes physical sign
+
+The inverse Fourier packet of
+`H_1=-s(2-s)pi^(-s/2)Gamma(s/2)zeta(s-1)` is
+
+`chi(h)=8 exp(h/2) sum_(n>=1) n z_n(z_n-2)exp(-z_n)`,
+`z_n=pi n^2 exp(2h)`.
+
+Its real even part `eta(h)=(chi(h)+chi(-h))/2` obeys
+
+\[
+ \boxed{
+ \eta(0)>0,
+ \qquad
+ \eta(H)=-{\pi\over15}e^{-5H/2}+O(e^{-9H/2})<0
+ \quad(H\ \hbox{sufficiently large}).}                  \tag{100}
+\]
+
+The tail sign follows from an explicit Euler--Maclaurin bound, not a formal
+asymptotic. With `Xi=(1/2)widehat psi`, the exact endpoint correlation is
+
+\[
+ \boxed{
+ R_1(u)={1\over8}\int_{\mathbb R}v^2
+ \psi\!\left({u+v\over2}\right)
+ \eta\!\left({u-v\over2}\right)dv,
+ \qquad
+ S'(1)=[q(-iD)^2R_1](0).}                                \tag{101}
+\]
+
+Thus pointwise packet positivity is refuted, but the complete differentiated
+correlation in (101) is not signed.
+
+### The complete `N=1` modular commutator has an exact bridge
+
+Define
+`I_+/-=integral_0^infinity h exp(+/-2ah)psi^2 dh`,
+`P_+/-=integral_0^infinity exp(+/-2ah)psi^2 dh`, and
+`M(b)=E_(nu_b)[v^2]`, where
+`dnu_b` is proportional to `h exp(2bh)psi^2 dh`. Direct specialization of
+the archived reflection matrices and complete integrated commutator gives
+
+\[
+ \boxed{
+ \mathcal C_1={4aI_-\over s_0s_1}
+ \{I_+[M(a)-M(-a)]-a(P_++P_-)\}.}                        \tag{102}
+\]
+
+For `a>0`, `s_0=I_+-I_->0` automatically. Assuming the separate actual-prefix
+input `s_1>0`, the already audited asymmetric Brascamp--Lieb estimate makes
+(102) strictly negative under
+
+\[
+ \boxed{
+ 2I_+\int_{-a}^{a}\sqrt{A_bB_b}\,db<a(P_++P_-)
+ \quad\Longrightarrow\quad \mathcal C_1<0.}             \tag{103}
+\]
+
+This is the complete commutator, including the derivative-of-weight term. It
+is an unpaid defect sign: neither `s_1` nor the next pivot `s_2` follows from
+the algebra alone. At this checkpoint the remaining analytic target was the
+correlated opposite-tilt inequality for `E_(nu_b)v'`; the next wave certifies
+it and `s_1>0` on the campaign interval without paying `s_2`.
+
+### One actual negative odd-rung Ewald head cell is certified
+
+For the actual degree-one residual `q=t`, complete Arb integration on
+`[-40,40]` gives
+`-0.42546800686816579594009338701+/-1.08e-30`. An explicit contour-shift and
+complete-theta derivative majorant bounds both omitted spectral tails, with an
+extra factor-two safety reserve, by `1.4251071458817267e-6`. Hence
+
+\[
+ \boxed{
+ e_2(q=t)<-0.425466581761017<0.}                          \tag{104}
+\]
+
+Together with the proved eventual-positive odd Ewald tail, (104) rigorously
+refutes the stronger cutoff-by-cutoff stochastic order at this actual rung.
+This one cell alone does not determine aggregate `D=P'N-PN'`, the half-seed,
+or `S'`; the next wave supplies the required signed regional compensation at
+this rung. It does not prove a pivot or RH.
+
+### The fixed three-feature rule also fails at an actual theta rung
+
+The source-free obstruction above does not by itself decide the complete
+theta ladder. A separate source-bound calculation does. Construct the actual
+odd monic `kappa=15` residual from `M_0,...,M_14`, with `M_15` excluded. For
+`U_3=span{q',tq,t^2q'}`, exact coefficient arithmetic certifies rank three;
+complete positive moments through order 16 and the signed old-data receipt
+give positive `Delta_2` and `det K_3`. The denominator-free Schur numerator
+
+`N_3=D_num^2+H_num S_num`
+
+then satisfies
+
+\[
+ \boxed{
+ N_3<-5.973346107310686\,10^{177},
+ \qquad
+ \mathcal H_{U_3}\in
+ [-9.886093182083536,-9.886043195560485]10^{24}<0.}       \tag{105}
+\]
+
+A clean replay reproduces every substantive signed-moment enclosure and the
+800-bit downstream result byte-for-byte; an independent implementation audit
+checks the padding, normalization, exact rank, complete positive tail,
+bordered determinant, and Schur identity. Equation (105) refutes this fixed
+dictionary as a uniform actual-theta auxiliary. It does not sign `M_15` or the
+true target. The next wave supplies a finite recurrence-aware repair, while
+the adaptive/growing all-degree question remains open.
+
+## Fourteenth-wave recurrence repair and first-rung closures
+
+### Exact adaptive block gain and its source-free boundary
+
+Let `U` be an old-data score space and let `R` be a finite candidate block.
+After residualizing `R` against `U`, write its Gram matrix as `Sigma` and its
+score-correlation vector as `z`. Exact block inversion gives
+
+\[
+ \boxed{
+ \mathcal H_{U+R}=\mathcal H_U+{1\over4}z^T\Sigma^{-1}z,
+ \qquad c=\Sigma^{-1}z
+ \text{ realizes the same gain in one direction}.}       \tag{106}
+\]
+
+This construction is noncircular whenever the candidates and positive moments
+are old data. It still cannot yield a source-free fixed-degree theorem. For
+each fixed `d`, take `q=t` and
+`W_L=exp(-t^2/2)+L^(-1)exp(-t^2/(2L^2))`. Projection onto the entire even
+polynomial space through degree `2d` satisfies
+
+\[
+ \boxed{
+ \Pi_d(L)=O_d(L^{-1}),\qquad
+ 8\pi\mathcal S_L[t]\longrightarrow\sqrt\pi>0,qquad
+ \mathcal H_{\mathcal P_d^{\rm even}W_L}
+ \longrightarrow-\frac{\sqrt\pi}{4}<0.}                 \tag{107}
+\]
+
+Thus no source-free fixed polynomial degree ceiling works uniformly, even
+with moment-adaptive coefficients. Growing-degree and complete-theta
+recurrence rules remain admissible.
+
+### The backward recurrence channel repairs every available actual rung
+
+The actual residual recurrence gives
+
+\[
+ \boxed{
+ t^2q_N'=q_{N+1}'+\alpha_{N+1}q_N'-2tq_N
+             +\beta_{N+1}q_{N-1}',
+ \qquad
+ V_N^{\rm prior}=\operatorname {span}\{q_N',tq_N,q_{N-1}'\}.} \tag{108}
+\]
+
+The forward derivative in (108) needs new signed data; the predecessor is
+already old data. Distinct leading degrees certify rank three. Complete-orbit
+Arb enclosures prove positive inverse-free Schur numerators at all thirteen
+available rungs. At the critical actual odd degree fifteen,
+
+\[
+ \boxed{
+ \mathcal H_{V_7^{\rm prior}}
+ \in[6.611165481170336,6.611172265806858]10^{25}>0,
+ \qquad
+ N_{\rm prior}>1.080381572245252\,10^{169}.}             \tag{109}
+\]
+
+Only `M_0,...,M_14` enter; `M_15` is absent. Equation (109) repairs the known
+fixed-`U_3` failure at this rung but does not prove the open all-degree target
+`N_prior(N,epsilon)>0`.
+
+### Signed Ewald compensation closes the first odd aggregate
+
+If `e_2` is the sole negative cell, an exact useful reduction is
+
+\[
+ \boxed{
+ D(z)=(-e_2)z\{zS'(z)-2S(z)\},qquad
+ D\le0\text{ on }(0,1]
+ \Longleftrightarrow S'(1)-2S(1)\le0.}                  \tag{110}
+\]
+
+The actual certificate does not assume that sign pattern. For `q=t`, complete
+cells `e_1,...,e_6` and a sign-free `Y=20` tail give
+`T_0=sum_(n>6)|e_n|<0.00064572235` and
+`T_1=sum_(n>6)n|e_n|<0.00784330785`. A regional perturbation inequality then
+proves uniformly for `1/2<=z<=1`
+
+\[
+ \boxed{
+ S(1/2)>0.2224841354323905,qquad
+ S'(z)>0.2535251354001165,qquad
+ -D(z)>0.0340797978403207.}                              \tag{111}
+\]
+
+Arbitrary signs after cell six are allowed. This closes the bounded Abel seed,
+derivative, and aggregate reverse-order gates at `kappa=1` only.
+
+### The complete `N=1` modular tilt input is uniformly certified
+
+Let `J_b=integral h exp(2bh)psi^2v' dh` and form the even and divided-odd
+combinations `I_e,I_s,J_e,J_s`. With `c=psi(0)^2` and
+`Q=c/4-aP_(-a)`, define
+
+\[
+ \boxed{
+ R(a)=I_eJ_s-I_sJ_e-2I_sQ,qquad
+ {I_{-a}\over a}F(a)=R(a),qquad
+ {s_1\over2a}=L_s-P_e-a^2I_s.}                          \tag{112}
+\]
+
+Here `F<0` is exactly the previously open opposite-tilt condition, and the
+divided functions have ordinary limits at `a=0`. Complete theta orbits one
+through eight, analytic `n>=9` and `h>=2` tails, and a full parameter/spatial
+interval cover prove
+
+\[
+ \boxed{
+ R(a)<-0.0324959540305671,qquad
+ {s_1\over2a}>0.352482030101313,qquad
+ \mathcal C_1<0
+ \quad(0<a\le1/4).}                                     \tag{113}
+\]
+
+Thus neither the opposite-tilt bound nor `s_1>0` remains an input at `N=1` in
+the campaign range. The negative complete commutator is still an unpaid
+defect: `s_2`, the next pivot, every all-degree conclusion, and RH remain
+open.
+
+## Fifteenth-wave source-specific barriers and endpoint payment
+
+### The prior repair requires complete-theta drift alignment
+
+Let `p=(I-P_U)q_(N-1)'`, where `U=span{q_N',tq_N}`, and put
+`v=-W'/W`. Orthogonality to both old features gives, for every real `lambda`,
+
+\[
+ \boxed{
+ \mathcal H_{V_N^{\rm prior}}
+ =\mathcal H_U+
+ {\left|\int_{\mathbb R}(v-\lambda t)q_NpW^2\,dt\right|^2
+  \over\|pW\|_2^2}.}                                  \tag{114}
+\]
+
+Equation (114) is exact and noncircular. It also shows why recurrence or
+Christoffel--Darboux geometry alone is insufficient: the predecessor pays
+only through its alignment with the nonlinear logarithmic drift.
+
+An exact positive-even-Schwartz countermodel makes this failure concrete. For
+`W=exp(-t^2/2)(1+4t^2/5)`, the old signed determinant and current target are
+positive, while
+
+\[
+ \boxed{
+ \Delta_{\rm old}={3393\over1250}>0,qquad
+ \mathcal T_4={4035\over754}>0,qquad
+ \mathcal H_{V_2^{\rm prior}}
+ =-{14131991108769\over2800717324340}\sqrt\pi<0.}       \tag{115}
+\]
+
+The stronger supergaussian example rules out even log-concavity plus full
+target-ladder positivity. For `W=exp(-t^4)`,
+
+\[
+ \boxed{W'^2-WW''=12t^2e^{-2t^4}\geq0,}                \tag{116}
+\]
+
+but exact gamma moments and Arb enclosure give
+
+\[
+ \boxed{
+ \mathcal H_7<-0.0017001720616628,qquad
+ \mathcal H_8<-0.00074017432132118.}                    \tag{117}
+\]
+
+Thus positive targets, Favard geometry, and log concavity cannot prove the
+prior rule. The Gaussian reference has exactly
+`H_prior/A=1/(4 kappa)`, so its generic reserve shrinks. For the actual theta
+orbits, `phi_n^(j)(h)=n^(-1/2)phi_1^(j)(h+log n)` exposes why fixed-order
+first-orbit dominance is not uniform as the derivative order grows. The open
+lemma is the complete-theta version of the alignment in (114), formed before
+separate orbit bounds.
+
+### Eventual Ewald tails are resolved by parity
+
+Fix a certified eventual-sign threshold `K`. At odd degree the remote tail
+`A=sum_(n>K)e_nz^n` is positive, so it improves the seed and derivative. If
+`mu_-=zN_K'/N_K` and `m<=mu_-`, then exactly
+
+\[
+ \boxed{
+ D=D_K+N_K\sum_{n>K}(n-\mu_-)e_nz^{n-1},qquad
+ D_K+N_KU_m\leq0\Longrightarrow D\leq0,}               \tag{118}
+\]
+
+where `U_m` majorizes the centered tail moment. This removes the generic
+`P_KT_1`, `P_K'T_0`, and `T_0T_1` payments.
+
+At even degree the remote tail is negative. Writing its magnitude as `B`,
+support separation gives
+
+\[
+ \boxed{
+ D=D_K+P_K'B-P_KB'\leq D_K.}                            \tag{119}
+\]
+
+Hence the even aggregate needs no tail-size payment; only the seed and
+derivative pay `T_0,T_1`. Equations (118)--(119) include every remote cell for
+each fixed residual. They do not supply a threshold uniform in `kappa` or the
+finite-head margins required for an all-degree theorem.
+
+### The normalized `N=1` modular defect is paid locally
+
+For positive `a`, the audited one-negative-direction cost is not simply the
+negative commutator. Exact cleared algebra gives
+
+\[
+ \boxed{
+ \kappa_1\mu_1^-=-\mathcal C_1+\mathscr R_a,qquad
+ \mathscr R_a=4a\left({I_-\over s_0}+{aP_-\over s_1}
+       +{a^2s_0Q_-\over s_1^2}\right)>0.}              \tag{120}
+\]
+
+Thus `C_1<0` alone strictly underpays. At `a=0`, the independently audited
+quadratic curvature result gives `sigma_2>(1254/8)sigma_0`. The exact drift
+identity, `17<v'<2v+20`, `c_*<16/5`, and the frozen moment bound
+`M_0>3/100` give the rational chain
+
+\[
+ \boxed{
+ Q_0<{182\over85}<{1881\over800}
+ <{1254\over32}\sigma_0,qquad
+ \sigma_2>{1254\over8}\sigma_0>4Q_0.}                 \tag{121}
+\]
+
+This pays the normalized first-rung scalar and proves `sigma_2>0`. All divided
+prefix quantities extend continuously at zero, so the strict margin also
+gives
+
+\[
+ \boxed{
+ \lim_{a\downarrow0}\left{{s_2(a)\over s_1(a)}
+        -\kappa_1(a)\mu_1^-(a)\right}
+ ={\sigma_2-4Q_0\over\sigma_1}>0.}                     \tag{122}
+\]
+
+Consequently some unspecified `a_0>0` has strong payment and `s_2(a)>0` for
+`0<a<a_0`. No explicit `a_0`, coverage of the full `0<a<=1/4` interval,
+higher-degree payment, all-degree theorem, or RH conclusion follows.
 
 ## Reproduction and recovery
 

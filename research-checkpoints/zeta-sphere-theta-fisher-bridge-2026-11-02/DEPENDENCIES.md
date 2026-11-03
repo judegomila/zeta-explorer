@@ -4,6 +4,7 @@
 exact theta / paired bridge identities
         |
         +--> inherited odd H5 + replayed even H6 ----------> ZSV-THETA-H6
+        +--> separate even 0,2,4,6,8 certificate ----------> not full H8
         |
         +--> a=0 odd 1,3,...,19 certificate --------------> ZSV-ODD-19
         |                                                       |
@@ -27,15 +28,19 @@ exact theta / paired bridge identities
                                 |             (all finite degrees; wrong metric)
                                 v
                     exact physical metric/source transfer
-                     /                                  \
- normalized-endpoint modular route               global all-shift route
-              |                                           |
- one negative direction + canonical              uniform innovation gain
- inverse-feedback cancellation                    > mismatch + signed action
-              |                                           |
- correlated prefix inequality (OPEN)              global comparison (OPEN)
-                     \                                  /
-                      distinct obligations; neither closed
+                 /                    |                    \
+ normalized-endpoint          normalized-endpoint          global all-shift
+ modular route                arithmetic route              route
+       |                            |                          |
+ one negative direction       scalar/correlated residual     uniform innovation
+ + canonical cancellation     + exact divisor grouping       > mismatch + action
+       |                            |                          |
+ correlated prefix            even positive O(N^2) tail      global comparison
+ inequality (OPEN)            + odd paid negative tail       (OPEN)
+       |                            |
+       |                      finite signed core (OPEN)
+       \____________________________|__________________________/
+                        distinct obligations; none closed
                                       |
                               all-degree closure (OPEN)
 ```
@@ -65,6 +70,22 @@ The remaining current-prefix correlated inequality is still open. Conditional
 failure of a uniform mixed-metric spectral gap rules out one sufficient
 shortcut, not the correlated inequality itself.
 
+The v27 trace identities sharpen the canonical source without changing that
+status. Boundary factorization makes the boundary correction nonpositive and
+determines the highest regression coefficient, but the sign of `tr R`, every
+lower source component, and the full signed quadratic remain open. A generic
+curvature counterfamily rules out replacing this theta-specific comparison by
+positive finite pivots plus a strong log-curvature bound.
+
+The v29--v30 arithmetic route is a second, separate normalized-endpoint
+reduction. Scalar resolvent positivity, adaptive rational completion, and the
+correlated conditional-mean formula lead to an exact complete-theta divisor
+grouping. Beyond an explicit degree-only `O(N^2)` cutoff, every even summand is
+positive. The adjacent odd summands have the opposite eventual sign, with an
+explicit absolute tail payment. What remains is finite but signed: prove the
+actual even core positive and the actual odd partial sum larger than its
+payment, uniformly in degree. No new pivot or such uniform bound was obtained.
+
 ## Why the negative tail is constructive information
 
 The `H=1` counterexample rules out a convenient stronger premise: making every
@@ -73,4 +94,9 @@ CP62 instead demonstrates the correct pattern on a restricted actual band:
 the tail is negative, the central term is positive, and the complete kernel is
 positive. Any viable proof must therefore preserve signed compensation rather
 than certify the pieces separately.
+
+The arithmetic tail theorem is consistent with this lesson. It signs only the
+remote divisor remainder after a paid cutoff; it does not declare the finite
+central arithmetic core positive. In the odd ladder the remote remainder is
+itself negative and must be paid explicitly.
 

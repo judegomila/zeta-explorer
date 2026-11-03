@@ -96,6 +96,39 @@ new all-order positivity theorem or prove RH.
 All floating scans and probes in the continuation remain numerical
 diagnostics. The highest all-shift hierarchy theorem remains `H6`.
 
+## Scalar, trace, and arithmetic reductions through v30
+
+- A separate interval certificate proves the even channels `0,2,4,6,8` on
+  `0 <= a <= 1/2`, with polynomial-basis Gram reserve `I/100`; the standard
+  outer-shift argument extends strict positivity, not that reserve. The odd
+  channels `1,3,5,7` are not supplied, so this is **not** full `H8` and `H6`
+  remains the highest complete all-shift hierarchy theorem.
+- Exact boundary-square and regression-trace identities sign the boundary
+  correction and the highest canonical regression coefficient. They do not
+  sign `tr R`, the lower source components, or the complete signed quadratic.
+  A smooth non-theta counterfamily shows that a positive finite prefix plus
+  arbitrarily strong log-curvature cannot, by itself, force `tr R >= 0`.
+- The complete-theta scalar resolvent `J(d)` is strictly positive, and the
+  rational square completion, adaptive-resolvent inequality, and correlated
+  conditional-mean formula are exact reviewed reductions. Scalar positivity
+  is not higher rational-Gram positivity; the uniform adaptive payment remains
+  unproved.
+- Exact divisor grouping reduces the complete-theta correlated contact to
+  arithmetic summands. For the even ladder, an explicit degree-only `O(N^2)`
+  cutoff leaves a strictly positive infinite remainder. For the adjacent odd
+  ladder the high-index remainder has the opposite sign, but its absolute size
+  has an explicit exponentially decaying payment bound.
+- These tail results leave a finite signed arithmetic core. No new pivot was
+  computed in v29 or v30, and no uniform finite-core inequality was proved.
+  The v29 low-degree calculations reuse previously certified pivots; the v30
+  replays check elementary constants and envelopes rather than ladder signs.
+
+The v27--v30 evidence is an append-only public derivative of the 968-payload
+v30 source snapshot. It preserves all 839 v26 payloads. Its public lane has 84
+unique authored payloads, four exact publication manifests, one repository
+README, and six documented privacy-only text redactions; private or acquired
+source captures are not committed.
+
 ## Central open lemma
 
 The current bridge would require an actual, source-specific lower-metric
@@ -112,6 +145,14 @@ to
 Every term is determined by the current prefix, but its correlated sign and
 size are not proved uniformly. This is the remaining criterion for that route,
 not a global equivalence to all-shift closure.
+
+A second normalized-endpoint reduction is now available in arithmetic form.
+For the even ladder the infinite tail beyond an explicit `O(N^2)` cutoff is
+positive, so a positive exact finite partial sum would certify the contact. For
+the odd ladder the finite partial sum must exceed the explicit negative-tail
+payment, not merely be positive. Proving these finite signed-core inequalities
+uniformly in degree is open; the reduction is not itself a pivot theorem or an
+all-shift closure theorem.
 
 Equivalently in the CP62 matrix language, one needs a complete positive-time
 coefficient map into the physical boundary form and a reserve-relative

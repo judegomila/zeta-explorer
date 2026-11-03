@@ -1,0 +1,11 @@
+# Independent correlated-mean audit and finite bookkeeping replay
+
+PASS, 2026-11-03. Separate post-v28 packet. Own author script was copied to correlated_replay/check.py and executed there; no acquired code was executed and no source quadrature was rerun.
+
+Changing u=r+v, v_original=r-v in the symmetrized Fourier Lambda expression gives Lambda(t)=4 C_hat(2t). The operator -(1/4)D_r² therefore has multiplier t² at frequency 2t. Composition P_N(-(1/4)D²)^2 gives exactly the weighted Fourier density, not a pointwise nonnegative square. Applying the rational Fourier kernel gives s P_N(-s)^2 Delta=8pi sqrt(s) integral_0∞ C_N(r)e^(-2sqrt(s)r)dr=4pi E C_N(R_s). Fourier inversion gives h_N=4pi C_N(0). These match the audited error B_N/s.
+
+The finite diagnostics use an existing interval JSON as input, and only replay exact rational Gershgorin and ensuing coefficient/error arithmetic. They do not independently regenerate its interval enclosure. On that inherited premise, the old three-polynomial Gram exceeds I/40. With x=k²/4 and mu_j=4pi L(k^(2j))/4^j, the first monic leading coefficient is 66/4 in the p2 basis, giving h1>=1089pi/40. The actual coefficient alpha differs from 47/4 by at most (66/4)(1/10000)/(3/100), hence 0<alpha<12. The script's Q bounds and residual >70 at s=10^10 pass.
+
+For P2 the p4 coefficient is 10500/16. The spectral inverse bound ||G_old^-1||<=40 and the l1 bound on its cross column imply each regression coefficient <=(10500/16)40(1/20000+1/3000)=161/16<11. Conversion back to x gives |c1|<70 and |c0|<421. Gershgorin gives h2> (3/10)(10500/16)^2. Q0=2672832,Q1=16927936,Q2=80472960, B<=22072411673083904/7, and residual >100000 at s=10^12 were reproduced by exact rational arithmetic. The coarse logarithm replacement 5 covers all derivative/spatial indices involved.
+
+Accepted scope: exact correlated representation plus rigorous arithmetic calibration conditional on existing certified moments. The calibration uses already-known pivot reserves, so it is neither a new ladder extension nor an independent proof of those reserves. The unresolved step remains a lower estimate of the actual signed conditional mean without assuming its unknown contact value positive.

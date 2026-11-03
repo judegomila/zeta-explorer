@@ -6,6 +6,7 @@ from __future__ import annotations
 import hashlib
 import json
 from pathlib import Path, PurePosixPath
+import re
 import sys
 
 
@@ -14,6 +15,7 @@ SNAPSHOT = ROOT / "evidence" / "v18-curated"
 CP62 = ROOT / "evidence" / "cp62"
 V19 = ROOT / "evidence" / "v19-delta"
 CONTINUATION = ROOT / "evidence" / "v20-v26-continuation"
+V27_V30 = ROOT / "evidence" / "v27-v30-continuation"
 
 CONTINUATION_ROWS = {20: 45, 21: 25, 22: 25, 23: 35, 24: 26, 25: 7, 26: 11}
 CONTINUATION_MANIFEST_SHA256 = {
@@ -24,6 +26,70 @@ CONTINUATION_MANIFEST_SHA256 = {
     24: "5f470db91af734a55aa6c944224c7580adc68e42fe41f3a8aeed3c0d7eaea9b0",
     25: "e112aca0d3dbb9860a52a0f32cf3a914c55e480b24aa24a26354d3a63e1a76b4",
     26: "51e9bec5caa6c711c760f33d2fbcb2dd3b8f245eb58821111860bc4f93cd10b1",
+}
+
+V27_V30_ROWS = {27: 15, 28: 12, 29: 35, 30: 59}
+V27_V30_MANIFEST_SHA256 = {
+    27: "71a438daf04dbdde7db345603d3162e43663ef6e5529c85c6b0e8e40a8c607d1",
+    28: "b7f68a5ea1ea87dfc448eeaa1a0472c9b8f20b6b92cc71b55096ad776fef99f1",
+    29: "a32a7b503b25f107895096a4e5379cfbf79e01ce31f50d3bf07515792b188127",
+    30: "e31c63a415971d31bdb76e8ec12bc23082b5e119d05e7e1282d23ed9c762a8a4",
+}
+
+V27_V30_REDACTIONS = {
+    "V27_INDEX.md",
+    "V28_INDEX.md",
+    "V29_INDEX.md",
+    "V30_INDEX.md",
+    "source_0145_audit/EVEN_A4_AUDIT.md",
+    "source_0145_audit/REVIEW_SUMMARY.md",
+}
+
+V27_V30_PRIVATE_PATHS = {
+    "source_0145_audit/PRIVATE_SOURCE_FROZEN_SHA256.txt",
+    "source_0145_audit/private/conversation.json",
+    "source_0145_audit/private/paper.pdf",
+    "source_0145_audit/private/paper.txt",
+    "source_0145_audit/private/source.zip",
+    "source_0145_audit/private/source/a4_integrated_certificate.json",
+    "source_0145_audit/private/source/a4_integrated_certificate.py",
+    "source_0145_audit/private/source/bridge_gram_exact_checks.json",
+    "source_0145_audit/private/source/bridge_gram_exact_checks.py",
+    "source_0145_audit/private/source/energy_matrix_exact_checks.json",
+    "source_0145_audit/private/source/energy_matrix_exact_checks.py",
+    "source_0145_audit/private/source/factorization_attack_exact_checks.json",
+    "source_0145_audit/private/source/factorization_attack_exact_checks.py",
+    "source_0145_audit/private/source/h6_integrated_certificate.json",
+    "source_0145_audit/private/source/h6_integrated_certificate.py",
+    "source_0145_audit/private/source/integrated_pivots_certificate.json",
+    "source_0145_audit/private/source/integrated_pivots_certificate.py",
+    "source_0145_audit/private/source/recurrence_attack_checks.json",
+    "source_0145_audit/private/source/recurrence_attack_checks.py",
+    "source_0145_audit/private/source/relative_modular_bridge_README.txt",
+    "source_0145_audit/private/source/relative_modular_bridge_all_order.tex",
+    "source_0145_audit/private/source/relative_modular_bridge_attacks.tex",
+    "source_0145_audit/private/source/relative_modular_bridge_bounds.tex",
+    "source_0145_audit/private/source/relative_modular_bridge_continuation.tex",
+    "source_0145_audit/private/source/relative_modular_bridge_extensions.tex",
+    "source_0145_audit/private/source/relative_modular_bridge_hierarchy.tex",
+    "source_0145_audit/private/source/schur_transport_certificate.json",
+    "source_0145_audit/private/source/schur_transport_certificate.py",
+    "source_0145_audit/private/source/sixth_pointwise_certificate.json",
+    "source_0145_audit/private/source/sixth_pointwise_certificate.py",
+    "source_0145_audit/private/source/slice_h5_exact_certificate.json",
+    "source_0145_audit/private/source/slice_h5_exact_certificate.py",
+    "source_0145_audit/private/source_metadata.json",
+}
+
+PACKAGE_MANIFEST = ROOT / "SHA256SUMS"
+PACKAGE_BUILD_INTERMEDIATES = {
+    "paper/main.aux",
+    "paper/main.bbl",
+    "paper/main.blg",
+    "paper/main.log",
+    "paper/main.out",
+    "paper/main.toc",
+    "paper/main.xdv",
 }
 
 
@@ -52,6 +118,51 @@ def validate_relative_path(relative: object, label: str) -> str:
     if parsed.is_absolute() or ".." in parsed.parts or str(parsed) != relative:
         fail(f"unsafe or noncanonical {label} path: {relative!r}")
     return relative
+
+
+def verify_package_manifest() -> tuple[int, int]:
+    """Bind the complete public checkpoint tree, excluding build intermediates."""
+
+    expected: dict[str, str] = {}
+    for line in PACKAGE_MANIFEST.read_text().splitlines():
+        if not line.strip():
+            continue
+        parts = line.split(None, 1)
+        if len(parts) != 2:
+            fail(f"invalid package checksum row: {line!r}")
+        expected_hash, relative = parts
+        if relative.startswith("./"):
+            relative = relative[2:]
+        relative = validate_relative_path(relative, "package manifest")
+        if relative == "SHA256SUMS" or relative in PACKAGE_BUILD_INTERMEDIATES:
+            fail(f"invalid package manifest target: {relative}")
+        if relative in expected:
+            fail(f"duplicate package manifest target: {relative}")
+        if len(expected_hash) != 64:
+            fail(f"invalid package SHA-256 for {relative}")
+        expected[relative] = expected_hash
+
+    actual = {
+        str(path.relative_to(ROOT))
+        for path in ROOT.rglob("*")
+        if path.is_file()
+        and path != PACKAGE_MANIFEST
+        and str(path.relative_to(ROOT)) not in PACKAGE_BUILD_INTERMEDIATES
+    }
+    if actual != set(expected):
+        fail(
+            "unexpected package file set: "
+            f"extra={sorted(actual - set(expected))}, "
+            f"missing={sorted(set(expected) - actual)}"
+        )
+
+    checked_bytes = 0
+    for relative, expected_hash in expected.items():
+        path = ROOT / relative
+        if digest(path) != expected_hash:
+            fail(f"package checksum mismatch: {relative}")
+        checked_bytes += path.stat().st_size
+    return len(expected), checked_bytes
 
 
 def verify_snapshot() -> tuple[int, int, int, int]:
@@ -326,7 +437,7 @@ def verify_continuation() -> tuple[int, int, int, int]:
     receipt = json.loads((ROOT / "provenance" / "v20-v26-publication.json").read_text())
     source = receipt.get("source_artifact", {})
     expected_source = {
-        "name": "zeta_sphere_campaign_v26_20261103T0228Z.zip",
+        "name": "zeta_sphere_campaign_v26_20261103T0229Z.zip",
         "bytes": 5658383,
         "sha256": "945a1f0b5bc0a3fbb0852bd3af2512e5f9797022aad48ded4afc9bc9dba1d71e",
         "manifest_payloads_verified": 839,
@@ -354,6 +465,159 @@ def verify_continuation() -> tuple[int, int, int, int]:
     return checked, checked_bytes, len(redactions), repeated_rows
 
 
+def verify_v27_v30() -> tuple[int, int, int, int]:
+    """Verify the deduplicated V27--V30 owned publication allowlists."""
+
+    reject_symlinks(V27_V30, "V27--V30 continuation")
+
+    expected: dict[str, dict[str, object]] = {}
+    manifest_rows = 0
+    repeated_rows = 0
+    manifest_names: set[str] = set()
+    for version, expected_count in V27_V30_ROWS.items():
+        manifest_name = f"PUBLICATION_DELTA_V{version}.json"
+        manifest_names.add(manifest_name)
+        manifest_path = V27_V30 / manifest_name
+        if not manifest_path.is_file():
+            fail(f"missing V27--V30 publication manifest: {manifest_name}")
+        if digest(manifest_path) != V27_V30_MANIFEST_SHA256[version]:
+            fail(f"V27--V30 publication manifest hash mismatch: {manifest_name}")
+        publication = json.loads(manifest_path.read_text())
+        if publication.get("version") != version:
+            fail(f"expected continuation version {version} in {manifest_name}")
+        if publication.get("baseline_version") != version - 1:
+            fail(f"expected V{version} publication delta over V{version - 1}")
+        rows = publication.get("files")
+        if not isinstance(rows, list) or len(rows) != expected_count:
+            fail(
+                f"expected {expected_count} V{version} allowlist rows, got "
+                f"{len(rows) if isinstance(rows, list) else rows!r}"
+            )
+        manifest_rows += len(rows)
+        paths_in_manifest: set[str] = set()
+        for row in rows:
+            if not isinstance(row, dict):
+                fail(f"invalid V{version} allowlist row: {row!r}")
+            relative = validate_relative_path(row.get("path"), f"V{version} allowlist")
+            expected_hash = row.get("sha256")
+            if not isinstance(expected_hash, str) or len(expected_hash) != 64:
+                fail(f"invalid V{version} SHA-256 for {relative}")
+            if relative in paths_in_manifest:
+                fail(f"duplicate path inside V{version} allowlist: {relative}")
+            paths_in_manifest.add(relative)
+            if relative in expected:
+                if expected[relative]["sha256"] != expected_hash:
+                    fail(f"conflicting V27--V30 allowlist hashes: {relative}")
+                repeated_rows += 1
+            else:
+                expected[relative] = {"sha256": expected_hash, "first_version": version}
+
+    if manifest_rows != 121 or len(expected) != 84 or repeated_rows != 37:
+        fail(
+            "unexpected V27--V30 allowlist accounting: "
+            f"rows={manifest_rows}, unique={len(expected)}, repeats={repeated_rows}"
+        )
+
+    redactions_doc = json.loads(
+        (ROOT / "provenance" / "v27-v30-redactions.json").read_text()
+    )
+    redacted_rows = redactions_doc.get("redacted")
+    if not isinstance(redacted_rows, list):
+        fail("invalid V27--V30 redactions receipt")
+    redactions = {
+        validate_relative_path(row.get("path"), "V27--V30 redaction"): row
+        for row in redacted_rows
+        if isinstance(row, dict)
+    }
+    if set(redactions) != V27_V30_REDACTIONS or len(redacted_rows) != 6:
+        fail(
+            "unexpected V27--V30 redaction set: "
+            f"expected={sorted(V27_V30_REDACTIONS)}, actual={sorted(redactions)}"
+        )
+    if not redactions.keys() <= expected.keys():
+        fail(f"unknown V27--V30 redactions: {sorted(redactions.keys() - expected.keys())}")
+
+    checked = 0
+    checked_bytes = 0
+    forbidden_suffixes = {".zip", ".pdf", ".html", ".tex"}
+    private_identifier = re.compile(
+        rb"libfile_|[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}"
+    )
+    for relative, row in expected.items():
+        path = V27_V30 / relative
+        if not path.is_file():
+            fail(f"missing V27--V30 file: {relative}")
+        if path.suffix.lower() in forbidden_suffixes:
+            fail(f"forbidden captured-source type in V27--V30 continuation: {relative}")
+        if relative in redactions:
+            public = redactions[relative]
+            if public.get("source_sha256") != row["sha256"]:
+                fail(f"V27--V30 redaction source hash mismatch: {relative}")
+            if not isinstance(public.get("source_bytes"), int) or public["source_bytes"] <= 0:
+                fail(f"invalid V27--V30 redaction source byte count: {relative}")
+            if path.stat().st_size != public.get("public_bytes"):
+                fail(f"V27--V30 redacted byte mismatch: {relative}")
+            if digest(path) != public.get("public_sha256"):
+                fail(f"V27--V30 redacted hash mismatch: {relative}")
+        elif digest(path) != row["sha256"]:
+            fail(f"V27--V30 allowlist hash mismatch: {relative}")
+        if private_identifier.search(path.read_bytes()):
+            fail(f"private identifier remains in V27--V30 public file: {relative}")
+        checked += 1
+        checked_bytes += path.stat().st_size
+
+    metadata = manifest_names | {"README.md"}
+    actual = {
+        str(path.relative_to(V27_V30))
+        for path in V27_V30.rglob("*")
+        if path.is_file()
+    }
+    expected_files = set(expected) | metadata
+    if actual != expected_files:
+        fail(
+            "unexpected V27--V30 public file set: "
+            f"extra={sorted(actual - expected_files)}, missing={sorted(expected_files - actual)}"
+        )
+    if V27_V30_PRIVATE_PATHS & actual:
+        fail(f"private V28 paths published: {sorted(V27_V30_PRIVATE_PATHS & actual)}")
+
+    receipt = json.loads((ROOT / "provenance" / "v27-v30-publication.json").read_text())
+    source = receipt.get("source_artifact", {})
+    expected_source = {
+        "name": "zeta_sphere_campaign_v30_20261103T0421Z.zip",
+        "bytes": 7056540,
+        "sha256": "f17d58c60d7dabaab7018ad38aa57c628748c7dc9ed2081c616332a95ace5cd6",
+        "unzip_test": "PASS",
+        "manifest_payloads_verified": 968,
+        "v29_payloads_preserved": 940,
+        "v28_payloads_preserved": 905,
+        "v27_payloads_preserved": 857,
+        "v26_payloads_preserved": 839,
+        "v19_payloads_preserved": 672,
+        "v18_payloads_preserved": 585,
+    }
+    if source != expected_source:
+        fail("unexpected V27--V30 source artifact receipt")
+    expected_accounting = {
+        "new_paths_since_v26": 129,
+        "source_allowlist_rows": 121,
+        "source_unique_allowlisted_paths": 84,
+        "source_repeated_allowlist_rows": 37,
+        "source_non_allowlisted_paths": 45,
+        "byte_identical_public_allowlist_paths": 78,
+        "public_text_redactions": 6,
+        "retained_publication_manifests": 4,
+        "omitted_duplicate_private_provenance_paths": 8,
+        "omitted_private_acquired_paths": 33,
+    }
+    if receipt.get("delta_accounting") != expected_accounting:
+        fail("unexpected V27--V30 publication accounting")
+    if set(receipt.get("excluded_private_acquired_paths", [])) != V27_V30_PRIVATE_PATHS:
+        fail("unexpected V27--V30 private/acquired exclusion set")
+
+    return checked, checked_bytes, len(redactions), repeated_rows
+
+
 def main() -> int:
     snapshot_checked, snapshot_bytes, excluded, redacted = verify_snapshot()
     cp62_checked, cp62_bytes = verify_cp62()
@@ -361,6 +625,10 @@ def main() -> int:
     continuation_checked, continuation_bytes, continuation_redacted, continuation_repeats = (
         verify_continuation()
     )
+    v27_v30_checked, v27_v30_bytes, v27_v30_redacted, v27_v30_repeats = (
+        verify_v27_v30()
+    )
+    package_checked, package_bytes = verify_package_manifest()
     print(
         json.dumps(
             {
@@ -378,6 +646,12 @@ def main() -> int:
                 "v20_v26_allowlist_bytes_verified": continuation_bytes,
                 "v20_v26_public_redactions": continuation_redacted,
                 "v20_v26_repeated_manifest_rows": continuation_repeats,
+                "v27_v30_allowlist_files_verified": v27_v30_checked,
+                "v27_v30_allowlist_bytes_verified": v27_v30_bytes,
+                "v27_v30_public_redactions": v27_v30_redacted,
+                "v27_v30_repeated_manifest_rows": v27_v30_repeats,
+                "package_manifest_files_verified": package_checked,
+                "package_manifest_bytes_verified": package_bytes,
             },
             sort_keys=True,
         )

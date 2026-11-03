@@ -1,0 +1,6 @@
+{
+  "even_K_tested": "2..30",
+  "convolution_envelopes": "PASS",
+  "positive_root_coefficient_identity": "PASS",
+  "scope": "Exact elementary identities only; no signed arithmetic core or theta pivot evaluated."
+}

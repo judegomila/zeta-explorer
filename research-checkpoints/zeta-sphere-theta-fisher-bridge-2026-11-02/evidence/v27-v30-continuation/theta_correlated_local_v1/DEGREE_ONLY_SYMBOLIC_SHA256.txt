@@ -1,0 +1,2 @@
+1c964a9769d884feba5a11a6283f49f8ff31d86c2102a1da6c77fec194c69ac2  check_degree_only_constants.py
+0332f16230de95bfec8625c6d7afcb3e59df6e0bd9286bde4c3108e633a6afa9  degree_only_constants.json

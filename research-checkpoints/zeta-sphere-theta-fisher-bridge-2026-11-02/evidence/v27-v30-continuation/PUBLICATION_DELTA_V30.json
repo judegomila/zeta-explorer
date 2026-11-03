@@ -1,0 +1,243 @@
+{
+  "version": 30,
+  "baseline_version": 29,
+  "files": [
+    {
+      "path": "V30_INDEX.md",
+      "sha256": "0ce2a0f3540385acb4fee63e8bab477e4fbab9719dba8bb19585a12935dce7cd"
+    },
+    {
+      "path": "eta_positive_primitive_audit/ADAPTIVE_AUDIT.md",
+      "sha256": "05016de36ded2aa00449f8258d2093f6290ed00d115584198d4adbf2d881d805"
+    },
+    {
+      "path": "eta_positive_primitive_audit/AUDIT.md",
+      "sha256": "0901fdeaad6f7d2f5558e5c1b0720c9f6e6f7c9cf9479a838d3276af975f5369"
+    },
+    {
+      "path": "eta_positive_primitive_audit/CORRELATED_AUDIT.md",
+      "sha256": "91e3d3bfbf997d13d22cba2cf267ef07d044667c744e2af66493e7e461ff8ff8"
+    },
+    {
+      "path": "eta_positive_primitive_audit/RATIONAL_SOS_AUDIT.md",
+      "sha256": "6166296e0fb105485ab03f4a1473bcb9b41d1ad28b11e83189d6cf4980b518bb"
+    },
+    {
+      "path": "eta_positive_primitive_audit/SCALAR_AUDIT.md",
+      "sha256": "3b5a4b97bc4ec2f7059254a2a00221f99f73ea098788bbf885fae5ecc89376a8"
+    },
+    {
+      "path": "eta_positive_primitive_audit/correlated_replay/N1.json",
+      "sha256": "54962ef245eb5aecb9959c67dc6040f7145c0a0e91857c46eb51b17430cbe4f1"
+    },
+    {
+      "path": "eta_positive_primitive_audit/correlated_replay/check.py",
+      "sha256": "f7019f2584219f3c87aa447cc7bc573c1a4a8b611d6277e2649746190d04a305"
+    },
+    {
+      "path": "eta_positive_primitive_audit/correlated_replay/correlated_diagnostic_N2.json",
+      "sha256": "b73fe42b1d84c3b8fd6b8d2ad03df276829db4366e5d186937129f7b9ee9788e"
+    },
+    {
+      "path": "eta_positive_primitive_v1/ADAPTIVE_RESOLVENT.md",
+      "sha256": "b6e150c528d5715de085469345b6dae14eeaeeacb4a0e56313ec259d5f8defe5"
+    },
+    {
+      "path": "eta_positive_primitive_v1/ADAPTIVE_RESOLVENT_FROZEN_SHA256.txt",
+      "sha256": "3347ee9ccbee97af7f896e22ab8322037d2e01a151b7ef394a0f4e3101f67fa8"
+    },
+    {
+      "path": "eta_positive_primitive_v1/CORRELATED_MEAN.md",
+      "sha256": "0682c21338dc94958cec0dd7bd527c4c91bdeb3405de01ff9b93e449df7ff120"
+    },
+    {
+      "path": "eta_positive_primitive_v1/CORRELATED_MEAN_FROZEN_SHA256.txt",
+      "sha256": "a628dd2df90469a5a69af8046f14635eb59aac13de0b046d0741db5d6271417b"
+    },
+    {
+      "path": "eta_positive_primitive_v1/FROZEN_SHA256.txt",
+      "sha256": "ccb921eba91fabd3e628f3f33eaa023efb750d5bb0614b73a4afb4a32505c303"
+    },
+    {
+      "path": "eta_positive_primitive_v1/POSITIVE_PRIMITIVE.md",
+      "sha256": "b9a67096dd33088dd079b963ebe05a8083e410e1e9c502ab11d6dd761c381b8a"
+    },
+    {
+      "path": "eta_positive_primitive_v1/RATIONAL_SOS.md",
+      "sha256": "9ebd911c9c83622a1c685236af0303b1447e5850a302976435ac5c615af38ef8"
+    },
+    {
+      "path": "eta_positive_primitive_v1/RATIONAL_SOS_FROZEN_SHA256.txt",
+      "sha256": "dbf19e5e80d57420d56207eb60869177089d47b4099166ae7059dcde8f5507fd"
+    },
+    {
+      "path": "eta_positive_primitive_v1/SCALAR_RECURRENCE.md",
+      "sha256": "a76084e605a3c6494e2817332c9c2fba8145c93a03f385d7dfc62068f7d56c07"
+    },
+    {
+      "path": "eta_positive_primitive_v1/SCALAR_RECURRENCE_FROZEN_SHA256.txt",
+      "sha256": "cdbbf6f42bd0961932a2346c6626007890a808df6a09817c98d9f6e6fb0850f2"
+    },
+    {
+      "path": "eta_positive_primitive_v1/check_correlated_diagnostic.py",
+      "sha256": "f7019f2584219f3c87aa447cc7bc573c1a4a8b611d6277e2649746190d04a305"
+    },
+    {
+      "path": "eta_positive_primitive_v1/correlated_diagnostic.json",
+      "sha256": "54962ef245eb5aecb9959c67dc6040f7145c0a0e91857c46eb51b17430cbe4f1"
+    },
+    {
+      "path": "eta_positive_primitive_v1/correlated_diagnostic_N2.json",
+      "sha256": "b73fe42b1d84c3b8fd6b8d2ad03df276829db4366e5d186937129f7b9ee9788e"
+    },
+    {
+      "path": "theta_correlated_local_audit/ARITHMETIC_CORE_AUDIT.md",
+      "sha256": "4edb1a5855367df366dbf9ad85b5913643f0edbf914c8a9bd92ca5e45e1ce1c3"
+    },
+    {
+      "path": "theta_correlated_local_audit/AUDIT.md",
+      "sha256": "4eca433a0b9f36599f46c7fd17b2ae0b132ec15d6a3c7aa47ba1b3d16cd836d5"
+    },
+    {
+      "path": "theta_correlated_local_audit/COMPACT_FLUX_AUDIT.md",
+      "sha256": "e5afa561409dedcd7838f3797a495958f580af0b741c7bbcf6678a4e74dd993a"
+    },
+    {
+      "path": "theta_correlated_local_audit/DEGREE_ONLY_AUDIT.md",
+      "sha256": "354fe4efcda16a0b1bc10af4a58e029989da05eabc84972e374e19229bb340f3"
+    },
+    {
+      "path": "theta_correlated_local_audit/GAUSS_ORBIT_AUDIT.md",
+      "sha256": "9bb90402387b725d219af52475a6e3602bb69ea68cb74505f462f2d012b10825"
+    },
+    {
+      "path": "theta_correlated_local_audit/PAID_TAIL_AUDIT.md",
+      "sha256": "d95f565f4b7f91cff8941bca4cd30dd27b00fc8cd5952eff126f24bf458ce0de"
+    },
+    {
+      "path": "theta_correlated_local_audit/TWIN_ARITHMETIC_CERTIFICATE_AUDIT.md",
+      "sha256": "3d662efd3a47cb550f58f30d6c73932cf05514e9874b988db746e03a13be7cb3"
+    },
+    {
+      "path": "theta_correlated_local_audit/degree_only_constants_replay.json",
+      "sha256": "0332f16230de95bfec8625c6d7afcb3e59df6e0bd9286bde4c3108e633a6afa9"
+    },
+    {
+      "path": "theta_correlated_local_audit/gauss_orbit_constants_replay.json",
+      "sha256": "25dc89ea6b79743451ea5dd61aa1e6520ad518e5d0f39c147f9e48c302454717"
+    },
+    {
+      "path": "theta_correlated_local_audit/orbit_recurrence_replay.json",
+      "sha256": "9a4386179246b2b74f13895fd80f439801bb7ebe861ad9633f0be45b67eb72a0"
+    },
+    {
+      "path": "theta_correlated_local_v1/ARITHMETIC_CORE.md",
+      "sha256": "35c5f830b0f77d22b44619323a4163f49c0b957ca2cd377bd1c7ec411fe46830"
+    },
+    {
+      "path": "theta_correlated_local_v1/ARITHMETIC_CORE_FROZEN_SHA256.txt",
+      "sha256": "841f12fdb048d73484eb523c0f5a618bb0710d64370c633fc4c1b56301e0d7e9"
+    },
+    {
+      "path": "theta_correlated_local_v1/ARITHMETIC_REMAINDER_BOUND.md",
+      "sha256": "c743273c806f4330a32a3615387e06e26f96f981de3bd3000ca7d79f97843f9d"
+    },
+    {
+      "path": "theta_correlated_local_v1/ARITHMETIC_REMAINDER_BOUND_FROZEN_SHA256.txt",
+      "sha256": "04104e63ea487f876e68f944a95eaff39ddc1756fe5a845f373b0b5c5b3e092a"
+    },
+    {
+      "path": "theta_correlated_local_v1/COMPACT_FLUX.md",
+      "sha256": "8edab9f6f81e8715a6693c6652611902adfd998d8492ae141821a17afa62aab1"
+    },
+    {
+      "path": "theta_correlated_local_v1/COMPACT_FLUX_FROZEN_SHA256.txt",
+      "sha256": "bf8c5b1cc0a124169c26f11509df3903c8ddeae04bcae13d98af4d802f6e4802"
+    },
+    {
+      "path": "theta_correlated_local_v1/DEGREE_ONLY_ARITHMETIC_TAIL.md",
+      "sha256": "4dc6ae874cefa3543d4653c60f18e79c2864dd6052e472b1c0757862eda6a8d3"
+    },
+    {
+      "path": "theta_correlated_local_v1/DEGREE_ONLY_ARITHMETIC_TAIL_FROZEN_SHA256.txt",
+      "sha256": "5ff270592f1021e240a302086cbca1fdbf1beaec83f10268ebfb950a6be608fe"
+    },
+    {
+      "path": "theta_correlated_local_v1/DEGREE_ONLY_SYMBOLIC_SHA256.txt",
+      "sha256": "6b0c07d7ec0b37344625c78b3f276314217508dd87f40f3f5e84b7c7db84e413"
+    },
+    {
+      "path": "theta_correlated_local_v1/DIRECT_CORE_CERTIFICATE.md",
+      "sha256": "12aa1a227058a08dce61c8b2b2a85aa3c0a0bc96ea3d5ae358ac94ebe10e55e6"
+    },
+    {
+      "path": "theta_correlated_local_v1/DIRECT_CORE_CERTIFICATE_FROZEN_SHA256.txt",
+      "sha256": "c7496f15b6dce043c41e9ee3f31a27472bc0c1234f17b241bb6a65691b5498da"
+    },
+    {
+      "path": "theta_correlated_local_v1/FROZEN_SHA256.txt",
+      "sha256": "dcb32b52171e2b144d5a4bb8a229013cb8a4c7a7616fdd092f7e4ccb8bab0fb1"
+    },
+    {
+      "path": "theta_correlated_local_v1/GAUSS_ORBIT_COMPACT.md",
+      "sha256": "1c66451517096196ad7fe74dbcc72ed82a5833b79bac803d5cba13d1211ef5fa"
+    },
+    {
+      "path": "theta_correlated_local_v1/GAUSS_ORBIT_COMPACT_FROZEN_SHA256.txt",
+      "sha256": "24c90e7e5020a14f5275ac8278571526e43ddc7539d658d476c1ec81b564f035"
+    },
+    {
+      "path": "theta_correlated_local_v1/GAUSS_ORBIT_SYMBOLIC_SHA256.txt",
+      "sha256": "2ba02ab35929e3ca039fbac030de704b0dc343064d3130e2d3d264b312274891"
+    },
+    {
+      "path": "theta_correlated_local_v1/ODD_PARITY_TAIL_SIGN.md",
+      "sha256": "72400f6a9b8596ad50f98701e2a69c097c0ec6f6344bd7d48e7be0b9144c709b"
+    },
+    {
+      "path": "theta_correlated_local_v1/ODD_PARITY_TAIL_SIGN_FROZEN_SHA256.txt",
+      "sha256": "695d1e4801470c37f3a73ac245485001b884d563d9e96c88d6862149c852e87d"
+    },
+    {
+      "path": "theta_correlated_local_v1/PAID_NONCENTRAL_TAIL.md",
+      "sha256": "56075c3294f35da761612d9b902e42ba64d898544877bd4203feaaed775a2247"
+    },
+    {
+      "path": "theta_correlated_local_v1/PAID_NONCENTRAL_TAIL_FROZEN_SHA256.txt",
+      "sha256": "e12acdd2da474ea6935aeb293b26cc31cc8b6e2d1a87db9a9ae3a25f58a2b61e"
+    },
+    {
+      "path": "theta_correlated_local_v1/SYMBOLIC_CHECK_SHA256.txt",
+      "sha256": "d5f75923320f345e2b906a1a105e7922b9b12dc2ca1e4c530fcf12e684e01279"
+    },
+    {
+      "path": "theta_correlated_local_v1/THETA_TAIL_AND_SCALE.md",
+      "sha256": "f71278c9b473f7b065c76d4699f1ba688dd38f612059223b281bb42a5d988661"
+    },
+    {
+      "path": "theta_correlated_local_v1/check_degree_only_constants.py",
+      "sha256": "1c964a9769d884feba5a11a6283f49f8ff31d86c2102a1da6c77fec194c69ac2"
+    },
+    {
+      "path": "theta_correlated_local_v1/check_gauss_orbit_constants.py",
+      "sha256": "1ea02b773ae0fc067789d2768af57b50163d7fbde7200b49b3867a3b9299afb0"
+    },
+    {
+      "path": "theta_correlated_local_v1/check_orbit_recurrence.py",
+      "sha256": "a832356634bfba6607828a2c8ed992647a806d1d56b77ad63edd2d9dae4d4dca"
+    },
+    {
+      "path": "theta_correlated_local_v1/degree_only_constants.json",
+      "sha256": "0332f16230de95bfec8625c6d7afcb3e59df6e0bd9286bde4c3108e633a6afa9"
+    },
+    {
+      "path": "theta_correlated_local_v1/gauss_orbit_constants.json",
+      "sha256": "25dc89ea6b79743451ea5dd61aa1e6520ad518e5d0f39c147f9e48c302454717"
+    },
+    {
+      "path": "theta_correlated_local_v1/orbit_recurrence_check.json",
+      "sha256": "9a4386179246b2b74f13895fd80f439801bb7ebe861ad9633f0be45b67eb72a0"
+    }
+  ],
+  "private_provenance_policy": "Inherited acquired-source material remains private and is not publication-cleared."
+}

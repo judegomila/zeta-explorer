@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "source_artifact": "zeta_sphere_campaign_v26_20261103T0228Z.zip",
+  "source_artifact": "zeta_sphere_campaign_v26_20261103T0229Z.zip",
   "policy": "Remove internal Library identifiers from the public derivative while preserving prior-archive hashes and recording both source and public hashes.",
   "redacted": [
     {

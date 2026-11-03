@@ -1768,3 +1768,8 @@ e65855603368afb79bee2a257e09625e8afe6ad45c12e60496f1bc85b1c2bde1  ./evidence/fix
 0f3081da803122ff810ce2b68834dc3b2f5385a4f7b2af6c2af22f88248143b4  ./evidence/fixed-tau-oscillator-checkpoint-2026-11-03/SHIFTED_OSCILLATOR_CANCELLATION.md
 f2d28337b7a6a21d39eb73be88b6ec56584c71ece96fd12dbb4e7987e6bed31f  ./evidence/adaptive-tau-criterion-checkpoint-2026-11-03/ADAPTIVE_TAU_NO_GO.md
 e524e5a4f61ef8e333ca00bf0f37411efa7af765db90a95308a9eb62bdf69b06  ./evidence/adaptive-tau-criterion-checkpoint-2026-11-03/README.md
+ad8e72f4d44f23414b3febeb20e69f49e50607226a5c10cad3c715389c113e74  ./evidence/prime2-source-sign-checkpoint-2026-11-03/PRIME2_CONSTANT_SOURCE.md
+63b3a8b9a9bad63d61a506d0e1216137e9c6f086fef03b9f14ca61261e5bf9c5  ./evidence/prime2-source-sign-checkpoint-2026-11-03/README.md
+d75bf0b2a1558eb0e5b2eddd4476fc9d4f730f2ef60c38c1036d643e811bcc01  ./evidence/prime2-source-sign-checkpoint-2026-11-03/audit_decimal_independent.py
+1795fe403a0da1b9614511ab0ce401028b7a48d1b7df8c2ca8421262135f31ac  ./evidence/prime2-source-sign-checkpoint-2026-11-03/check_prime2_mpfi.py
+1ff2e58d67b941a39ae7db7d478734c36a480c775173ea6a2fc609ced75d6e73  ./evidence/prime2-source-sign-checkpoint-2026-11-03/check_prime2_source.py

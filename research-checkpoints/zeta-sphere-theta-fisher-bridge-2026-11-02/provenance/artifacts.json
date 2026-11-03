@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-11-02",
+  "artifacts": [
+    {
+      "role": "campaign-baseline",
+      "name": "zeta_sphere_campaign_v18_20261102T2347Z.zip",
+      "library_file_id": "libfile_93281585a66c81918ba351446f9d7615",
+      "file_id": "file_0000000098a081f586d9319e2b1648be",
+      "version": 0,
+      "bytes": 4369533,
+      "sha256": "3a47ccddd9a529c719e4a2ca0a6b262290610cbc1d651f3dec20e8ffd8f5c9ef",
+      "integrity": "unzip-test-pass; internal MANIFEST.sha256 585/585 pass",
+      "repository_copy": "curated-extraction",
+      "rerun_status": "supplied-and-hash-verified"
+    },
+    {
+      "role": "preserved-v17-baseline-identity",
+      "name": "zeta_sphere_campaign_v17_20261102T2328Z.zip",
+      "library_file_id": "libfile_3c3aff317d308191bde03515a0a4dd47",
+      "file_id": "file_000000004c8c81f58265ef0c29aa92be",
+      "bytes": 4253983,
+      "sha256": "91fcf656def48a7be236aab622cfe2dd426cdf2e0794ea032859bcf6764ea486",
+      "integrity": "unzip-test-pass",
+      "repository_copy": "the original v18 artifact preserves all 537 v17 payloads byte-for-byte; the repository derivative applies the separately recorded exclusions and public redactions",
+      "rerun_status": "supplied-and-hash-verified"
+    },
+    {
+      "role": "post-v17-delta",
+      "name": "MathExplorer_RH_CP62_joint_anchor_and_heated_tail_v1.zip",
+      "library_file_id": "libfile_19a836c8b8a8819198a91a5abe44c640",
+      "file_id": "file_00000000aba081fd83d4aa4bf45da77b",
+      "bytes": 79980,
+      "sha256": "75db9056b1863e904afecbbf2a99de1ff108a48fd3b0ea2242c988e899aa7ccb",
+      "integrity": "unzip-test-pass",
+      "repository_copy": "complete-extraction",
+      "rerun_status": "supplied-and-hash-verified"
+    },
+    {
+      "role": "historical-fisher-provenance-not-published",
+      "name": "RH_Grid_Fisher_Review_Packet_2026-10-24.zip",
+      "library_file_id": "libfile_126800906ab88191a52d3b901a0327d0",
+      "bytes": 575080,
+      "sha256": "b175bf5d2b397aa89eb30a16ce6df2b90034fd38cfef3d5f80b9c987cc388099",
+      "integrity": "unzip-test-pass; internal checksums pass",
+      "repository_copy": "none",
+      "rerun_status": "provenance-only; does not contain the v18 Fisher bridge theorems"
+    }
+  ]
+}
+

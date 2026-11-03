@@ -1,0 +1,67 @@
+{
+  "status": "PASS",
+  "analytic_status": "PASS_WITH_STATED_GATES",
+  "campaign": "CP62",
+  "branch": "root",
+  "reviewer": "audit38",
+  "checks": 39,
+  "independently_inspected": true,
+  "exit_code": 0,
+  "result_matches_pre_replay_bytes": true,
+  "replay_mode": "One execution of the inspected current standard-library verifier in temporary copies; exact existing result bytes reproduced. No acquired or historical producer executed.",
+  "analytic_review": [
+    "T1-T4: exact normalized full-theta source, evenness, both heat factors, Gaussian majorant18*exp(-6u^2), and complete spatial/time Lipschitz constants72/5,108/55,387/275 verified.",
+    "T5-T9: the supplied source negative interval transfers to a true-positive-heat rectangle. Negative Fourier intervals yield arbitrarily large negative subspaces of even Schwartz functions and then even Cc-infinity via finite-dimensional L2 cutoff. Fixed complex-linear finite-functional corrections leave a negative kernel vector.",
+    "T10-T11: the source full-density lower interval is genuinely two-sided. A=3194699959754<B gives simultaneous complete-kernel positivity, tail negativity and signed central compensation on the smaller fixed rectangle, with all spectral-span cross terms.",
+    "T12: psi_tau and z/2 scaling yield |H_y|<9/32; S>a*epsilon_plus/256 gives the same-line actual denominator floor D>(a*epsilon_plus/72)^2. It supplies no f_xx or quotient-derivative sign and no complete chart.",
+    "J1-J2: verified odd-degree19 Gram is limited to the original undeformed normalized odd10-channel source at H=1/16. No unproved map identifies it with positive-heat boundary or physical Weil coordinates.",
+    "J3-J5: form-domain representers, full inverse, exact mixed allocations, same integrated anchor and noncommuting covariance are retained; A0>0 alone does not imply postfeedback A>0.",
+    "J6: reserve is subtracted before source-bound congruence. J8 is an exact Schur condition under the positive lower-block gate. J9 now explicitly assumes kappa_W>0 and 0<=rho_W<1; its final scalar inequality is sufficient, not a proved actual angular estimate."
+  ],
+  "pre_freeze_corrections": [
+    "Stated fixed complex-linear functionals and smooth compactly supported cutoff explicitly.",
+    "Added independently source-checked two-sided full-density input and actual joint heat rectangle; retained fixed-shift/finite-band scope.",
+    "Made kappa_W>0 and 0<=rho_W<1 explicit in J9; renamed the anchor response R_anchor to distinguish the phase carrier."
+  ],
+  "bindings": [
+    {
+      "path": "output/rh_sixtysecond_attempt/root/actual_heated_tail_obstruction.md",
+      "bytes": 11121,
+      "sha256": "0fc15607b19462b364e868f2464b171ba876a758e1664aa57f63034a0b1c01b5"
+    },
+    {
+      "path": "output/rh_sixtysecond_attempt/root/joint_anchor_and_feedback.md",
+      "bytes": 12705,
+      "sha256": "d7711d3dd15f77556c6e023d4181521314b72b1caf31b393679370805cc7b1a9"
+    },
+    {
+      "path": "output/rh_sixtysecond_attempt/root/verify_joint_source.py",
+      "bytes": 5306,
+      "sha256": "b84747f8c07987e6a742f474c3e28af94bb606965d4d37133fb39aebe7f94e83"
+    },
+    {
+      "path": "output/rh_sixtysecond_attempt/root/joint_source_controls.json",
+      "bytes": 3342,
+      "sha256": "b798b5f0e4bb65b179fb30f0160b516b4714f1f7f716487dffffa085b69e0e17"
+    },
+    {
+      "path": "output/rh_sixtysecond_attempt/audit/sphere_v15_normalization_receipt.json",
+      "bytes": 16226,
+      "sha256": "4a21345ffc64cb6bf972a4f7bca18276f630d09e4d63376128e4dfe9701f7250"
+    },
+    {
+      "path": "output/rh_sixtysecond_attempt/audit/full_density_lower_bound_check62.json",
+      "bytes": 3791,
+      "sha256": "cb2da3e3ab457d6d65d656b1be3b050805e2107ba6e92aae7fac488ec9e0e527"
+    }
+  ],
+  "imported_numerics": "The supplied v15 certificate and supplied independent replay are source-read inputs. No fresh Arb/DFT/interval producer run occurred.",
+  "scope_limits": [
+    "Actual truncated-tail negativity is not complete theta, critical covariance, physical Weil negativity or an RH counterexample.",
+    "The actual complete positive band has fixed a=1/10000 and extremely small heat/frequency range; no simultaneous compact space/frequency support, support exhaustion or CP61 large-phase extension.",
+    "No arbitrary jet degree, all-tail positivity, all-order heat positivity, missing common-anchor original, or eigenvalue margin from coordinate LDL pivots is inferred.",
+    "The separate matrix branch has25 controls independently replayed by root and is counted once; total unique current controls39+25=64."
+  ],
+  "canonical_or_prior_artifact_mutations": false,
+  "remote_redownload_claimed": false
+}

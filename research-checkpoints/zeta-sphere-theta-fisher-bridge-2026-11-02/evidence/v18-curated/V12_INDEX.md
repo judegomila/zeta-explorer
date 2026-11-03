@@ -1,0 +1,13 @@
+# Sphere campaign v12 — actual tail repair and completed-target transfer
+
+All 358 v11 payload files remain byte-identical. Its manifests are retained under provenance/v11. Baseline Library file: libfile_355a116206d48191bd604dd231b0122f. The v10 ratio-label erratum remains in v11 and is unchanged.
+
+## New independently reviewed results
+
+- **Actual tail pays the witnessed core cost:** core_inertia_v2/ACTUAL_REPAIR_PROOF.md and independent 768-cell full-theta replay certify Z*(St+600Sc)Z>0 at normalized a=0 for the fixed rational 3D residual witness space, after eliminating the first two odd channels. Thus actual tail reserve exceeds 600 times that negative core Schur cost before adding nonnegative covariance. Positive LDL pivots certify definiteness, not eigenvalue lower bounds. This is not positivity of the full degree-19 matrix or its complementary couplings.
+- **Conditional full-space coupling target:** STRUCTURAL_SYNTHESIS.md states the exact actual-tail-relative Schur criterion and complement-coupling cost. The required full inertia split and uniform coupling estimates are not proved by the fixed-subspace certificate.
+- **Actual completed-theta remainder allowance:** modular_transfer_v1/ACTUAL_COMPLETED_HEAD_TRANSFER.md uses an Euler–Maclaurin corrected Dirichlet head with N=ceil(T), O(log T) boundary corrections, and explicit remainders for zeta and its first two derivatives, uniformly on fixed delta<=sigma<=1 and T<=|t|<=2T. The endpoint convention includes -N^(-z)/2. Its Bernoulli remainder constant is 2 zeta(2m)/(2pi)^(2m); with 2m+1<=T its geometric factor is [3/(2pi)]^(2m).
+- **Every spectral derivative cross term retained:** for G=|Q|² and b=partial_s log G, the one-sided budget is G times E=|b|(2|H|e+e²)/2+|H'|e+|H|e1+ee1. A symmetric head and explicit second-derivative budget E2 give normalized error <=(1/2) sup_|s|<=a G_s E2_s for 0<a<=1/2-delta, continuous at a=0. The inverse-Fourier envelope uses 1/(2pi) on 2T<=|k|<=4T, and applies to node and jet quadratic forms.
+- **Exact arithmetic grouping preserved:** omitted integers, overincluded Euler-box integers and analytic-continuation boundary terms remain in the head/box correction. The spatial tau_A identity retains all mixed terms and does not interchange an unbounded negative-h integral with an absolute orbit sum.
+
+The corrected finite head has not been proved positive or shown to dominate its error allowance uniformly. No all-height sign or RH proof follows. Ongoing full inertia/complement coupling and concrete corrected-head margin experiments are excluded. Author numerical sanity checks are diagnostics; the transfer allowance is analytically reviewed. Independent audits/replays are in actual_tail_repair_audit/ and modular_transfer_audit/.

@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "source_artifact": "zeta_sphere_campaign_v18_20261102T2347Z.zip",
+  "policy": "Replace private conversation references and correct repository-context statements that would otherwise point to deliberately omitted private or third-party files. The private hash-identified source archive remains the immutable original.",
+  "redacted": [
+    {
+      "path": "INDEX.md",
+      "source_bytes": 18687,
+      "source_sha256": "542b09bba9a842bc60237c35e90fd06af5dd6d54fe6ed80be40ebfac0df80887",
+      "public_bytes": 18709,
+      "public_sha256": "5d8bd57d8143e60e430586336d8159249474854ae3b377a7a3af29d1832f2a4f",
+      "reason": "repository-context statement corrected to identify omitted private, binary, and third-party source captures"
+    },
+    {
+      "path": "foundations/FOUNDATIONAL_AUDIT.md",
+      "source_bytes": 8724,
+      "source_sha256": "93cb2b0ba1dbe7a97047b5f00e8a0f1bdda1f92b576039f1f0ec7ee33b41b84f",
+      "public_bytes": 8654,
+      "public_sha256": "8b0d68b4dc92c5fa12da4a900120661bff750f735a261bee9f0c428d2d81b362",
+      "reason": "private conversation URL and message identifiers"
+    },
+    {
+      "path": "foundations/ORIGINAL_FACTORIZATION_AUDIT.md",
+      "source_bytes": 8799,
+      "source_sha256": "8aa2b3e48149bef48b5f45662af15c933edd203fbfc8b5df81ccb899bd4c5937",
+      "public_bytes": 8834,
+      "public_sha256": "ca3a82b7f2b98b6610265763a4835db102b28b197467c2bf970aae08b9d947ae",
+      "reason": "private conversation and message identifiers"
+    },
+    {
+      "path": "h3_attack_v1/H3_PROOF.md",
+      "source_bytes": 4783,
+      "source_sha256": "ee07b4c06919ebba5e4cd41bf4ea6f6aff3a3a3146fc34a4bb462d097b33a806",
+      "public_bytes": 4780,
+      "public_sha256": "ed3a9981070909c40522333fc98ae8910ac8307429f56badc60e983c9c922b4f",
+      "reason": "private conversation and message identifiers"
+    },
+    {
+      "path": "hierarchy/hierarchy_results.md",
+      "source_bytes": 13939,
+      "source_sha256": "2c33098425b152ffe3f9abe849e496a0ff057de158c6d4907534756520850854",
+      "public_bytes": 13962,
+      "public_sha256": "02c84d508089081856fd69afdcdb1c1cbfdb489d07c83b66f6b20f8ebdc53b22",
+      "reason": "private conversation URL"
+    },
+    {
+      "path": "hierarchy/large_order_v4/L1_GAUSSIAN_THEOREM.md",
+      "source_bytes": 9655,
+      "source_sha256": "e4f02081ec068c1b5737fc31da1c8196c2d3bf984108cfb7ccfe60b319242a12",
+      "public_bytes": 9645,
+      "public_sha256": "16f69ea1af286f384d15ae0576bc72eedcdf5020dab3030aba4a976dedce6414",
+      "reason": "private conversation URL and message identifier"
+    },
+    {
+      "path": "latest_bounds_audit/AUDIT.md",
+      "source_bytes": 6292,
+      "source_sha256": "5af067dffe369000fd50be6b654c9646ef90fa0b6d65a3a29f939ca415ca8432",
+      "public_bytes": 6291,
+      "public_sha256": "4994916c953f9ed14d82af632a99153b8e2bc67e0722470487051598c8d3d64a",
+      "reason": "private conversation URL and message identifier"
+    },
+    {
+      "path": "modular_epstein_v3/GROUPED_EWALD_CANDIDATE.md",
+      "source_bytes": 10253,
+      "source_sha256": "a0690678a5db555a05cff410b2a94ca20c40dc7a43a3e62bf7ca44e73e3c7851",
+      "public_bytes": 10270,
+      "public_sha256": "33df735cb61c624c3efc38c0472b7e51f29dd0d28b5b4dc920bfd6e709c80441",
+      "reason": "stale pointer to an omitted private source message replaced by the durable Library source identity"
+    },
+    {
+      "path": "source_2122_audit/AUDIT.md",
+      "source_bytes": 3352,
+      "source_sha256": "bb3caabbdc5818cb68585b2ee16740e74be69d85be01170e634a69527eb29b44",
+      "public_bytes": 3367,
+      "public_sha256": "ac6df76fe171cd688c5b41bbe8f075e588ea56098990b251c316f2002b18bc5e",
+      "reason": "private conversation and message identifiers"
+    }
+  ]
+}

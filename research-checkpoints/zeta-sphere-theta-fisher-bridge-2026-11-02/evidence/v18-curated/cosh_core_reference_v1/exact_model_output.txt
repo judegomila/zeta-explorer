@@ -1,0 +1,8 @@
+J 1 det lambda
+J 2 det lambda*(2*lambda - 1)
+J 3 det 3*lambda**3*(2*lambda - 3)
+J 4 det 12*lambda**3*(4*lambda**3 - 14*lambda**2 + 9*lambda - 3)
+J 5 det 180*lambda**6*(4*lambda**3 - 26*lambda**2 + 45*lambda - 30)
+J 6 det 2160*lambda**6*(16*lambda**6 - 176*lambda**5 + 636*lambda**4 - 1032*lambda**3 + 735*lambda**2 - 360*lambda + 90)
+J 7 det 226800*lambda**10*(16*lambda**6 - 272*lambda**5 + 1692*lambda**4 - 5160*lambda**3 + 8295*lambda**2 - 7560*lambda + 3150)
+J 8 det 10886400*lambda**10*(128*lambda**10 - 3200*lambda**9 + 31520*lambda**8 - 163488*lambda**7 + 495264*lambda**6 - 928560*lambda**5 + 1088100*lambda**4 - 823725*lambda**3 + 479430*lambda**2 - 189000*lambda + 37800)

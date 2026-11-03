@@ -1,0 +1,10 @@
+{
+  "t": "7005.081715",
+  "Fourier_argument": "14010.163430",
+  "H": "1",
+  "scaling": "exp(pi*t/2)",
+  "core_strict_lower": 56962777800000,
+  "full_strict_upper": 3195886054651,
+  "actual_tail_strict_upper": -53766891745349,
+  "scope": "Negative actual cumulative-tail Fourier density at H=1; not full-kernel or RH counterexample; H=1/16 unaffected"
+}

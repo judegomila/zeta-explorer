@@ -1,0 +1,12 @@
+PASS: exact orthogonality through degree9 and spectral constant arithmetic.
+Illustrative floating bounds only, m=5, additive allowance divided by J:
+0.001 9.012979212414688e-09
+0.005 0.00014081112245514294
+0.01 0.009008577294037045
+0.1 8581.465812590694
+1 357108435.23475206
+Illustrative degree m sufficient by universal bound for J=100, epsilon=1e-6:
+0.01 9
+0.1 20
+1 446
+2 10343

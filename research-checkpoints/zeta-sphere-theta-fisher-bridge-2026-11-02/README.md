@@ -22,7 +22,7 @@ parallel-friendly package.
 ## Frozen baseline and append-only deltas
 
 The integrated checkpoint is a composition of the frozen v18 baseline,
-publication-safe campaign deltas through v30, and the separate CP62 packet:
+publication-safe campaign deltas through v31, and the separate CP62 packet:
 
 - campaign v18, Library `libfile_93281585a66c81918ba351446f9d7615`,
   4,369,533 bytes, SHA-256
@@ -34,6 +34,9 @@ publication-safe campaign deltas through v30, and the separate CP62 packet:
 - campaign v30, `zeta_sphere_campaign_v30_20261103T0421Z.zip`,
   7,056,540 bytes, SHA-256
   `f17d58c60d7dabaab7018ad38aa57c628748c7dc9ed2081c616332a95ace5cd6`;
+- campaign v31, `zeta_sphere_campaign_v31_20261103T0543Z.zip`,
+  7,430,485 bytes, SHA-256
+  `841e3ea3e332334fb022b5a1859fcbce0c8b3f3012a3659e2e83e13e2f2391ef`;
 - CP62, Library `libfile_19a836c8b8a8819198a91a5abe44c640`,
   79,980 bytes, SHA-256
   `75db9056b1863e904afecbbf2a99de1ff108a48fd3b0ea2242c988e899aa7ccb`.
@@ -81,6 +84,18 @@ retained; 33 private or acquired paths, eight duplicate prior-manifest files,
 and the full source archive are omitted. Exact accounting is in
 `provenance/v27-v30-publication.json`. No private Library or file locator for
 the v30 source artifact is published.
+
+The v31 source manifest verifies 1,133 payloads and preserves all 968 v30
+payloads byte-for-byte. Its append-only public derivative under
+`evidence/v31-continuation/` contains 162 owned payloads: 137 reviewed files
+and 25 files retained as explicitly classified diagnostic or correction
+history. The exact V31 publication manifest and one repository README are
+also retained. One private artifact locator in the version index is replaced
+by the public v30 archive hash and recorded in
+`provenance/v31-redactions.json`. The source archive, root manifests, two
+duplicate private v30 manifests, inherited private captures, and acquired
+third-party material are omitted; exact accounting is in
+`provenance/v31-publication.json`.
 
 CP62 is stored byte-for-byte under `evidence/cp62/`. It postdates v17 and is not
 part of the v18 campaign payload, so it is recorded as an explicit delta rather

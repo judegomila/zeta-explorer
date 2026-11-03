@@ -19,9 +19,14 @@ carry-forwards, all seven recorded index redactions, and the exact 154-file
 continuation directory. For V27--V30 it verifies the four exact publication
 manifests, 121 rows/84 unique payloads/37 identical carry-forwards, all six
 identifier-only redactions, the exact 89-file public directory, and the
-absence of the 33 declared private/acquired paths. Finally it verifies the
-root `SHA256SUMS` against the exact public checkpoint tree, excluding only the
-checksum file itself and known local LaTeX build intermediates.
+absence of the 33 declared private/acquired paths. For V31 it verifies the
+exact source-backed publication manifest, 137 reviewed plus 25 diagnostic or
+correction-history payloads, the single identifier-only index redaction, the
+exact 164-file continuation directory, and the snapshot/preservation receipt.
+It also requires the eight coordinate-swapped even2 paths to remain classified
+as invalid correction history. Finally it verifies the root `SHA256SUMS`
+against the exact public checkpoint tree, excluding only the checksum file
+itself and known local LaTeX build intermediates.
 
 `run_smoke.py` copies selected exact-rational verifiers to a temporary
 directory and executes them there. This keeps the frozen evidence byte-for-byte
@@ -53,6 +58,15 @@ Several frozen diagnostics retain historical absolute path strings and are not
 portable without the excluded private inputs; the bounded checker intentionally
 does not execute them.
 
+`check_v31_certificates.py` is also a standard-library bounded checker. It
+reruns the exact dyadic-identity program in a temporary copy; verifies seven
+internal checksum manifests, source/audit mirrors, the frozen complete-theta
+curvature and regional-payment summaries, and their scope labels; and checks
+the corrected even2 coordinate ordering and known-rung label. It never executes
+the coordinate-swapped programs, mixed invalid even2 diagnostics, superseded
+sources, failed/coarse diagnostics, private-prefix-dependent arithmetic
+quadratures, or the optional python-flint integrations by default.
+
 The latest bounded replay and paper inspection receipt is recorded in
 [`last-run.json`](last-run.json).
 
@@ -80,4 +94,16 @@ diagnostics and the orbit, degree-only, and Gauss-orbit checks were also
 reproduced; N1/N2 reuse earlier certified moments and are not fresh quadrature
 or new ladder results. The v27 floating probes and all acquired/private source
 checkers were not executed as proof checks.
+
+For V31, a separate scientific replay used Python 3.13.18 with python-flint
+0.9.0. It reproduced byte-for-byte the 4000-cell theta-curvature certificate,
+both 4000-cell degree-seven regional certificates, the 64000-cell integrated
+square certificate, and the 64000-cell regional-old certificate. The
+self-contained 6000-cell odd0 dyadic quadrature was also byte-identical.
+Arithmetic replays that need the inherited private prefix-moment enclosure
+reproduced their stored mathematical outputs, but that input enclosure was not
+regenerated or published. The invalid swapped-coordinate even2 programs were
+not executed. Degree seven was already covered by the prior normalized
+odd-through-19 result: these computations exhibit a payment mechanism, not a
+new rung, all-shift theorem, all-degree theorem, or RH proof.
 

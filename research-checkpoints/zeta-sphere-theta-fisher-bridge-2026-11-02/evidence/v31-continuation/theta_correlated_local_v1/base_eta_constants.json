@@ -1,0 +1,7 @@
+{
+  "base_lower": "[1.4413590417546042740013075789799949151916588548 +/- 2.58e-47]",
+  "base_upper": "[1.6840825919788416566429514588109502415351654546 +/- 5.28e-47]",
+  "general_upper": "[7.2409399531763606677701578123946190773967692715 +/- 7.14e-47]",
+  "certified_base_between_1_44_and_1_685": true,
+  "scope": "p=1 only; no derivative-residual or signed-pivot inference"
+}

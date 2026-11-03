@@ -127,6 +127,26 @@ def main() -> int:
             "stderr": v27_v30_completed.stderr.strip(),
         }
     )
+    v31_completed = subprocess.run(
+        [
+            sys.executable,
+            str(ROOT / "verification" / "check_v31_certificates.py"),
+        ],
+        cwd=ROOT,
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+    results.append(
+        {
+            "name": "v31-bounded-checks",
+            "returncode": v31_completed.returncode,
+            "expected_output_seen": '"status": "PASS"' in v31_completed.stdout,
+            "generated_output_hash_ok": True,
+            "stdout": v31_completed.stdout.strip(),
+            "stderr": v31_completed.stderr.strip(),
+        }
+    )
     passed = all(
         row["returncode"] == 0
         and row["expected_output_seen"]

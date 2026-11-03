@@ -29,9 +29,51 @@ parallel-friendly package.
    sign-changing endpoint packet, the certified negative actual Ewald head
    cell, the recurrence-aware prior-derivative repair, the uniform-in-`z`
    first-rung Ewald aggregate certificate, the parity-resolved analytic tail,
-   the prior-score source-free and supergaussian barriers, the uniform `N=1`
-   modular-tilt certificate, the normalized endpoint payment and local
-   continuity consequence, governed finite diagnostics, and their limits.
+   the prior-score source-free and supergaussian barriers, the complete
+   orbit-pair obstruction to a score-MLR proof, the uniform `N=1`
+   modular-tilt certificate, the analytic raw `N=1` payment on the full
+   `0<a<=1/4` campaign interval, its governed bounded cross-check queue, the
+   all-rung coefficient-motion cancellation, the quantitative cubic reserve,
+   the exact `N=2` payment map and cubic-floor obstruction, the actual-theta
+   full-interval `N=2` payment, the generic Gaussian strong-payment and
+   full-conservation barriers, and the conditional theta high-degree criterion.
+
+## Latest analytic checkpoint
+
+For the actual complete theta profile, the strong `N=2` modular payment now
+holds for every `0<a<=1/4`:
+`s_3/a>14487/25=579.48`, `kappa_2 Q_2^-/a<558`, and
+`(s_3-kappa_2 Q_2^-)/a>537/25=21.48`. The combined certificate at commit
+`c09e352` replays four frozen dependencies byte-for-byte; its receipt SHA-256 is
+`4302a51415dc6d85182cdb3aa38ec315a9ccc044b1eb08285c6d5d8c6d24b10c`.
+See [`MODULAR_N2_FULL_INTERVAL_PAYMENT_20261103.md`](workstreams/all-degree-analytic-search-next-v1/MODULAR_N2_FULL_INTERVAL_PAYMENT_20261103.md).
+This is one low rung only, with no higher-degree, all-degree, or RH conclusion.
+
+Generic curvature and positive-prefix arguments cannot close the ladder:
+the auxiliary Gaussian `exp(-20h^2/2)` fails strong payment at `N=3` and even
+the weaker net full-conservation payment at `N=15`. These are route barriers,
+not counterexamples to the actual theta profile. The theta-specific
+[`high-degree criterion`](workstreams/all-degree-analytic-search-next-v1/MODULAR_THETA_HIGH_DEGREE_CRITERION_20261103.md)
+requires a direct source reserve `R_n=sigma_(n+1)/||F_n||_2^2` and the current
+reflection cost `D_n` satisfying
+`R_n>=(4n+D_n)(log(10(n+1))+1)/2`. The needed lower reserve, upper
+`D_n=O(n^2)` bound, quantified finite-prefix closure and transport beyond the
+normalized endpoint remain open. Positive parent localization and raw-moment
+Gaussian limits do not control these signed residual and inverse-block costs.
+
+The next audited wave adds an exact all-degree CD shifted-score identity for
+the **net** conservation target, together with a single correlated Ewald
+source. It proves no sign. A complete-theta alternate quadratic Jacobi ladder
+has bounded conditioning reserve and misses the required logarithmic factor;
+it lacks the actual signed stationarity equations. Separately, the exact
+quadratic model has `D_n/n^2 -> pi^2/8-1`, but an `O(1/n)` parity perturbation
+forces cubic derivative cost. That recurrence countermodel has a Jacobi atom
+at zero and is not the smooth theta source. A division-free `f''` identity
+now combines the actual reserve and derivative cost in one integral. See
+[`RESULTS.md`](workstreams/all-degree-analytic-search-next-v1/RESULTS.md),
+nineteenth wave, for the audited formulas, receipt hashes, and caveats. The
+actual-theta lower reserve, upper `D_n` bound, and correlated sign remain open;
+the `N=2` theorem remains low-rung only and no RH proof is established.
 
 ## Frozen baseline and append-only deltas
 

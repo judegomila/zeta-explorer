@@ -19,8 +19,35 @@ def main() -> int:
     parser.add_argument("--python", type=Path, required=True)
     parser.add_argument("--run-dir", type=Path, required=True)
     parser.add_argument("--protected-pid", type=int, required=True)
-    parser.add_argument("--protected-cwd", type=Path, required=True)
+    parser.add_argument(
+        "--protected-root",
+        "--protected-cwd",
+        dest="protected_root",
+        type=Path,
+        required=True,
+    )
+    parser.add_argument(
+        "--protected-command-pattern",
+        action="append",
+        required=True,
+        help="literal protected-process command substring; repeat as needed",
+    )
+    parser.add_argument("--protected-finish-confirmations", type=int, default=12)
     args = parser.parse_args()
+
+    patterns = list(
+        dict.fromkeys(
+            pattern.strip()
+            for pattern in args.protected_command_pattern
+            if pattern.strip()
+        )
+    )
+    if args.protected_pid <= 1:
+        parser.error("--protected-pid must be greater than 1")
+    if not patterns:
+        parser.error("at least one nonempty --protected-command-pattern is required")
+    if args.protected_finish_confirmations < 1:
+        parser.error("--protected-finish-confirmations must be positive")
 
     args.run_dir.mkdir(parents=True, exist_ok=True)
     launcher_log = args.run_dir / "supervisor.log"
@@ -40,9 +67,13 @@ def main() -> int:
         str(args.run_dir),
         "--protected-pid",
         str(args.protected_pid),
-        "--protected-cwd",
-        str(args.protected_cwd),
+        "--protected-root",
+        str(args.protected_root),
+        "--protected-finish-confirmations",
+        str(args.protected_finish_confirmations),
     ]
+    for pattern in patterns:
+        command.extend(("--protected-command-pattern", pattern))
     process = subprocess.Popen(
         command,
         cwd=args.root,

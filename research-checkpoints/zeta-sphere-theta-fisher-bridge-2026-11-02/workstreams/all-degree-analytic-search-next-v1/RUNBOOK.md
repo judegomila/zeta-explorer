@@ -924,6 +924,12 @@ the accepted receipt and canonical payload SHA-256 values are
 `1db1987de3a7542c5cf02e45178b5d5dd65a76c1f2bfaeaa176184d5810290e5`
 and
 `f0ab78590eefb0d9c576eccdf33a95a2eaf72227b33e3bdcc28f448db11c103d`.
+The deployed Arb balls conservatively enclose the exact rectangle: the primary
+superset is `h in [-2^-41,2+2^-41]`,
+`a in [-2^-38,1/4+2^-38]`, and the replay uses `2^-42`, `2^-39`. The proof
+note audits the `|a|<=1/2` tail safety range and the checked
+`|2ah|<1001/1000` `sinhc` remainder domain, so this outward padding does not
+weaken the certificate.
 Require the divided `a=0` limit, complete `n>=9` orbit and `h>=2` spatial
 tails, full rectangle coverage, `R<0`, and `s_1/(2a)>0`. The conclusion is
 only `C_1<0`; by itself it underpays the separate boundary/`s_2` cost. The

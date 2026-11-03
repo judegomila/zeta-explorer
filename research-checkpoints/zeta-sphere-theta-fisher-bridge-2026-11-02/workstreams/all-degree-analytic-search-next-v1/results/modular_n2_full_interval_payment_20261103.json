@@ -1,0 +1,82 @@
+{
+  "checks": [
+    "four exact dependency commits and trees are ancestors of HEAD",
+    "twelve dependency note/source/result blobs match commit and working tree",
+    "all four dependency verifiers replay byte-identically",
+    "uniform prefix caps discharge both analytic-cost conditions",
+    "Q2-minus < 62 and kappa2/a < 9 give cost/a < 558",
+    "sharp cubic transport gives s3/a > 14487/25",
+    "exact strict margin 14487/25 - 558 = 537/25"
+  ],
+  "dependency_commits": {
+    "analytic_cost_envelope": {
+      "commit": "d9ba9e6d57d3fa4c432cf44038e501a573c28d8e",
+      "tree": "f297683b6c478742bed21d1ffd1dced87b13131c"
+    },
+    "exact_obligation": {
+      "commit": "02d481a12da723b20b79f24891e89098ef26e24d",
+      "tree": "c0124d757017f3c1c0f678e3553c3433c1204dd3"
+    },
+    "sharp_cubic_reserve": {
+      "commit": "00782310d3bc1c9b5f23119be5ecb5ded97f3099",
+      "tree": "7fd8338a5d8cbc86bc3cb5d79bc6cd52a8be7980"
+    },
+    "uniform_prefix_caps": {
+      "commit": "5df7934882cdd6850aeaedeeee4518c179ec2c16",
+      "tree": "972dac116e69248bcc421b7bbf1e3572102b9736"
+    }
+  },
+  "dependency_replays": {
+    "analytic_cost_envelope": {
+      "byte_identical": true,
+      "receipt_sha256": "834b0d98a034fd48877fb0452492f7c465e38512c9b397ae473d4d53994d4722",
+      "status": "PASS"
+    },
+    "exact_obligation": {
+      "byte_identical": true,
+      "receipt_sha256": "b79c5ce2cbebc04275cdfce717888669ff6109b9b93a38189614838f3fc4bfe3",
+      "status": "PASS"
+    },
+    "sharp_cubic_reserve": {
+      "byte_identical": true,
+      "receipt_sha256": "5b5118668f17f3067c63fbb357e7e0dcb088b8af6f9b37447e73a3b8237a8333",
+      "status": "PASS"
+    },
+    "uniform_prefix_caps": {
+      "byte_identical": true,
+      "receipt_sha256": "18311a3b8dc47035566812504386c10b0844160935aa3cf82b5686d5112fc698",
+      "status": "PASS"
+    }
+  },
+  "exact_conclusion": {
+    "cost_over_a": "<558",
+    "interval": "0<a<=1/4",
+    "margin_over_a": ">537/25 = 21.48",
+    "normalized_payment": "s3(a)/s2(a) > kappa2(a)*mu2_minus(a)",
+    "payment": "s3(a) > kappa2(a)*Q2_minus(a)",
+    "reserve_over_a": ">14487/25 = 579.48"
+  },
+  "frozen_artifacts": {
+    "workstreams/all-degree-analytic-search-next-v1/MODULAR_N2_ANALYTIC_COST_ENVELOPE_20261103.md": "976a9893becbe86e40322214ae9fac63293d860bdb3b1924881f0a603e9be326",
+    "workstreams/all-degree-analytic-search-next-v1/MODULAR_N2_CUBIC_RESERVE_PAYMENT_MAP_20261103.md": "afb6431055e8167fdb9ef30e61e01195cfd557cfec91d2114d062f27daee9c93",
+    "workstreams/all-degree-analytic-search-next-v1/MODULAR_N2_SHARP_CUBIC_TRANSPORT_20261103.md": "cde23c97b17f3029621299b4ff0d99ff462b0c89ad6632ceade073922e172318",
+    "workstreams/all-degree-analytic-search-next-v1/MODULAR_N2_UNIFORM_PREFIX_CAPS_20261103.md": "de6fb12c532e82234e0140f0190672203d47a5b9ce45db5e603ac43866b86f68",
+    "workstreams/all-degree-analytic-search-next-v1/results/modular_n2_analytic_cost_envelope_20261103.json": "834b0d98a034fd48877fb0452492f7c465e38512c9b397ae473d4d53994d4722",
+    "workstreams/all-degree-analytic-search-next-v1/results/modular_n2_cubic_reserve_payment_map_20261103.json": "b79c5ce2cbebc04275cdfce717888669ff6109b9b93a38189614838f3fc4bfe3",
+    "workstreams/all-degree-analytic-search-next-v1/results/modular_n2_sharp_cubic_transport_20261103.json": "5b5118668f17f3067c63fbb357e7e0dcb088b8af6f9b37447e73a3b8237a8333",
+    "workstreams/all-degree-analytic-search-next-v1/results/modular_n2_uniform_prefix_caps_20261103.json": "18311a3b8dc47035566812504386c10b0844160935aa3cf82b5686d5112fc698",
+    "workstreams/all-degree-analytic-search-next-v1/src/verify_modular_n2_analytic_cost_envelope_20261103.py": "387b5e3953f1aa27315ad9ca814b42ea5c60536d3a3105c349e039ea47270073",
+    "workstreams/all-degree-analytic-search-next-v1/src/verify_modular_n2_cubic_reserve_payment_map_20261103.py": "94081de4fb6926c4236d1f0fbf026a625e3fd26efe9d5a913cc8b97bcd68e8a6",
+    "workstreams/all-degree-analytic-search-next-v1/src/verify_modular_n2_sharp_cubic_transport_20261103.py": "9dc26bb32466bd62a30ed35984906762f105b0c69a9e94286dd1e7b6a506d9ae",
+    "workstreams/all-degree-analytic-search-next-v1/src/verify_modular_n2_uniform_prefix_caps_20261103.py": "f184e02ad922a72f488fccac8cb344b1d1c9a16e45b200ea515654139d38caae"
+  },
+  "proof_note": {
+    "binding": "recorded, not self-frozen by this replay",
+    "path": "workstreams/all-degree-analytic-search-next-v1/MODULAR_N2_FULL_INTERVAL_PAYMENT_20261103.md",
+    "sha256": "d8a2f9399d6addf65f310d9e577193374439d10dfc826a3c9972255d0bf5e2d7"
+  },
+  "schema_version": "zsv.modular_n2_full_interval_payment.20261103.v1",
+  "scope": "Actual complete-theta N=2 strong payment on 0<a<=1/4 only; not an equivalence to every full-conservation term, a higher-degree or all-degree theorem, or RH",
+  "source_sha256": "33a417c7a623ddf40eb9253fa13f07107cf404cd33f560d3df3700ebaa97d4c0",
+  "status": "PASS"
+}

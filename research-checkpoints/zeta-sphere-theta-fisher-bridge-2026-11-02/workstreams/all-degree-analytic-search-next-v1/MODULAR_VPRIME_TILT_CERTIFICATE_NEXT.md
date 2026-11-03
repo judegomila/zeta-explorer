@@ -163,20 +163,36 @@ successive-tail ratio at most
 
 \[
  \left({10\over9}\right)^{2d_j}e^{-19z}<\frac12,
- \qquad z\geq\pi.                                       \tag{14}
+ \qquad z>3.                                             \tag{14}
 \]
 
 The compact spatial interval `[0,2]` is divided into 4,096 closed cells. The
 parameter interval `[0,1/4]` is divided into 64 closed cells. Every displayed
 integrand in (5), (6), (9), and (10) is evaluated directly on the full
-spatial and parameter balls at 192-bit precision. The entire function
+spatial and parameter balls at 192-bit precision. Because Arb stores a ball
+radius with outward fixed-precision padding, the deployed primary input balls
+actually lie in
+
+```text
+h in [-2^-41, 2 + 2^-41],
+a in [-2^-38, 1/4 + 2^-38].
+```
+
+The 8,192-by-128 replay uses the narrower supersets with `2^-42` and `2^-39`,
+respectively. The exact intended partitions are contained in these balls, so
+evaluating on the supersets is conservative. On the slightly negative first
+spatial ball, `z=pi exp(2h)>3`, which is the audited safety domain in (14).
+The entire function
 
 \[
  {\sinh(2ah)\over a}=2h\,{\sinh(2ah)\over2ah}
 \]
 
 is enclosed by eight positive Taylor terms plus a geometric remainder, so the
-first parameter cell rigorously includes the limit at zero.
+first parameter cell rigorously includes the limit at zero. The implementation
+checks `|2ah|<1001/1000`; the largest deployed primary ball has upper bound
+below `1.000000000102`, so the outward padding remains inside that checked
+remainder domain.
 
 For the infinite spatial tail, put `Z=pi exp(4)`. The absolute coefficient
 sums of `P_0,P_1,P_2` are
@@ -194,8 +210,8 @@ For `h>=2`, first-orbit domination gives
 \]
 
 Using `cosh(2ah)<=exp(h)`,
-`sinh(2ah)/a<=2h exp(h)` on (2), and `dh=dz/(2z)`, every
-tail is bounded by a constant times
+`sinh(2ah)/a<=2h exp(h)`, and `dh=dz/(2z)`, every tail is
+bounded by a constant times
 
 \[
  E_m(Z)=\int_Z^\infty z^m e^{-2z}\,dz
@@ -215,6 +231,11 @@ The deployed bounds are
  L_s&C_1^2E_8.
 \end{array}                                             \tag{18}
 \]
+
+These inequalities hold throughout the wider safety range `|a|<=1/2`; for
+the one-sided term, `exp(-2ah)<=exp(h)` whenever `a>=-1/2`. Thus (18) also
+covers both outward parameter supersets above, not only the intended interval
+(2).
 
 The largest deployed tail in the primary receipt is below `1e-127`. These
 are complete all-orbit and all-space bounds; (8) and (11) are not floating

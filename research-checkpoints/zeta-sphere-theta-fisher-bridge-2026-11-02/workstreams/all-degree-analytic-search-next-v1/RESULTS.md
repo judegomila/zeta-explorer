@@ -13,9 +13,11 @@ identify either `h=c/N` or `h=c/N^2` as a distinguished boundary scale: both
 observed collapses are explained by the ordinary center Taylor laws forced by
 parity.
 
-The next analytic target is therefore a residue-preserving Hadamard--Schur
+The initial next analytic target was therefore a residue-preserving Hadamard--Schur
 reduction in the actual paid-twin border recurrence. It must retain the signed
-feature/residue cross term.
+feature/residue cross term. Later analytic waves below now close the actual
+theta `N=2` modular payment on `0<a<=1/4`, while the high-degree criterion
+remains conditional and no all-degree or RH theorem is established.
 
 ## Execution and resource audit
 
@@ -2770,8 +2772,540 @@ gives
 \]
 
 Consequently some unspecified `a_0>0` has strong payment and `s_2(a)>0` for
-`0<a<a_0`. No explicit `a_0`, coverage of the full `0<a<=1/4` interval,
-higher-degree payment, all-degree theorem, or RH conclusion follows.
+`0<a<a_0`. This endpoint-continuity argument does not quantify `a_0`; the next
+audited wave closes the same raw first-rung payment on `0<a<=1/4` by a
+different analytic transport. Neither argument supplies a higher-degree
+payment, an all-degree theorem, or an RH conclusion.
+
+## Sixteenth-wave orbit-pair obstruction and full `N=1` payment
+
+### Complete orbit assembly makes score MLR silent
+
+Let `p=(I-P_span(q',hq))q_(N-1)'` and `F=qp`. Complete theta symmetrization,
+followed by pairwise integration by parts, gives the exact division-free
+identity
+
+\[
+ \boxed{
+ \mathcal A_N=\int_{\mathbb R}vqp\psi^2
+ =\sum_{n,m\geq1}\int_0^\infty (qp)'\phi_n\phi_m\,dh.} \tag{123}
+\]
+
+Because `F(h)` has no orbit index, every antisymmetric score-gap covariance
+vanishes identically. The old Galerkin density instead has the complete signed
+pair kernel
+
+\[
+ \boxed{
+ \kappa_{nm}=-{1\over2}\{(\sigma_n-\sigma_m)^2
+                 +\sigma_n'+\sigma_m'\},\qquad
+ \kappa_{nn}>0,\quad\kappa_{nm}<0\ (n\ne m).}          \tag{124}
+\]
+
+Thus the predecessor is constructed in a diagonal-minus-cross metric but paid
+in the all-positive pair metric (123). Remote pair signs are controlled by the
+first nonzero modular-center jet of `(qp)'`, not by score ordering. For the
+open rungs with `H_U<0`, the exact surviving strict obligation is
+
+\[
+ \boxed{
+ \left[\sum_{n,m\geq1}\int_0^\infty
+       (q_Np_N)'\phi_n\phi_m\,dh\right]^2
+ >-\mathcal H_U\int_{\mathbb R}p_N^2\psi^2\,dh.}       \tag{125}
+\]
+
+The weak version gives only nonnegativity of the prior auxiliary. Equation
+(125) retains every cross-orbit term before squaring and uses only old signed
+residual data and positive Gram data, so it is noncircular. It remains unproved
+uniformly in degree.
+
+### The raw first-rung modular payment holds on the full campaign interval
+
+For `g_a=e^(au)psi`, let `beta=s_1/s_0` and
+`F=(D^2+beta)g_a`. Along this actual inverse-selected path, the `beta'` term in
+`s_2'` vanishes because `integral u F g_a=-s_1+beta s_0=0`. The quadratic
+curvature square therefore transports from the endpoint without freezing the
+polynomial. The degree-one identity independently gives
+`s_1'>(17/2)s_0'`, so `s_0/s_1<2/17` without a parameter-cell `s_1` bound.
+Together with monotonicity of the physical negative-side energy, the frozen
+complete-theta bounds give, for every `0<a<=1/4`,
+
+\[
+ \boxed{
+ {s_2(a)\over a}>{1881\over200},\qquad
+ {\kappa_1(a)Q_-(a)\over a}<{12467\over1445},\qquad
+ {s_2(a)-\kappa_1(a)Q_-(a)\over a}>{44929\over57800}>0.} \tag{126}
+\]
+
+Since `s_1>0` and `mu_1^-=Q_-/s_1`, equation (126) proves
+`s_2/s_1>kappa_1 mu_1^-` and `s_2>0` on the whole campaign interval. The
+standard-library frozen-receipt verifier replays byte-for-byte, and an
+independent proof audit rederived the half-line factors, coefficient-motion
+cancellation, curvature identity, negative-side monotonicity and rational
+margin. This is a raw `N=1` theorem only.
+
+The two-task Arb interval queue in `tasks-modular-n1-payment.json` remains a
+bounded computational cross-check independent of the analytic transport. Its
+primary/finer replay pair uses the same interval worker, so it is not a second
+implementation, and no production queue result was required for (126). No
+finite queue or first-rung result proves a higher-degree payment, an all-degree
+first Xi--Laguerre inequality, or RH.
+
+## Seventeenth-wave all-rung transport and `N=2` payment obstruction
+
+### Coefficient motion cancels at every regular rung
+
+Let `F=T_n(D,a)g_a`, `K=T_n'(D,a)g_a`, and
+`L=T_n''(D,a)g_a` for the actual monic same-parity residual. The derivative of
+its lower coefficients lies in the old same-parity span, so signed Schur
+stationarity removes it exactly. The raw pivot obeys
+
+\[
+ \boxed{
+ s_n'(a)=2\|uF\|_2^2-\|K\|_2^2-\langle F,L\rangle_2.} \tag{127}
+\]
+
+If `p_n` is the corresponding real-rooted orthogonal polynomial and
+`q_j=p_n/(t-rho_j)`, root deletion and Parseval give the equivalent form
+
+\[
+ \boxed{
+ s_n'(a)={h_{g_a}[p_n]\over2\pi}
+ =2\|uT_n(D)g_a\|_2^2
+  -\sum_{j=1}^n\|q_j(-iD)g_a\|_2^2.}                  \tag{128}
+\]
+
+Thus coefficient derivatives are harmless; the genuine all-degree problem is
+the integrated root-deletion sum in (128).
+
+### A cubic reserve and a real-rooted pointwise obstruction
+
+For the actual cubic `p_3=t^3-alpha t`, the audited pointwise `H3` inequalities
+`X>17` and `XD-B^2>8X^4` complete the local square uniformly in `alpha`.
+Integrating (128) from the analytic endpoint gives
+
+\[
+ \boxed{
+ s_3(a)>{17^3\over4}s_0(a)
+        >{14739\over200}a\qquad(a>0).}                 \tag{129}
+\]
+
+This is a raw reserve, not a modular payment. Pointwise repetition also fails
+at the next tested odd family. The frozen `H5` direction gives
+
+\[
+ \boxed{
+ w=(10847,-263,1)^T,\qquad w^TM_5w<-1493000000,\\
+ p_*(t)=16t^5-1052t^3+10847t,\qquad
+ 1052^2-64\cdot10847=16\cdot25781>0.}                 \tag{130}
+\]
+
+The Bell/physical diagonal congruence sends the negative vector `w` to the
+displayed polynomial's negative local source. The two nonzero `t^2` roots have
+positive sum and product, so the monic version of `p_*` has five distinct real
+roots. Equation (130) refutes universal
+pointwise root-deletion positivity within the real-rooted family. It does not
+make the integrated actual `s_5'` negative: the spatial `u^2` factor vanishes
+at the center, positive regions may compensate, and the actual inverse-selected
+quintic need not be `p_*`.
+
+### Exact `N=2` payment and failure of the coarse cubic floor
+
+Put `b_1=s_1/s_0` and `b_2=s_2/s_1`. Complete reflection algebra, with every
+mixed term retained, gives
+
+\[
+ \boxed{
+ \kappa_2(a)=a\left\{8+{36a^2\over b_2}
+ +{(4a^2-2b_1+b_2)^2\over b_1b_2}\right\},\qquad
+ Q_2^-(a)=\int_0^\infty h e^{-2ah}\psi^2
+       \bigl((a+v)^2-v'+b_1\bigr)^2\,dh.}              \tag{131}
+\]
+
+The one negative square is paid by the exact, noncircular current-prefix
+obligation
+
+\[
+ \boxed{s_3(a)\geq\kappa_2(a)Q_2^-(a).}                \tag{132}
+\]
+
+The cubic lower guarantee (129) cannot establish (132) uniformly. Endpoint
+stationarity, Cauchy--Schwarz and likelihood-ratio domination by the
+half-Gaussian `e^(-17h^2)` give
+
+\[
+ \boxed{
+ {\kappa_0Q_{2,0}^-\over\sigma_0}
+ \geq\sqrt\pi\,17^{5/2}>{17^3\over4},\qquad
+ \kappa_2(a)Q_2^-(a)>{4913\over4}s_0(a)
+ \quad(0<a<\varepsilon).}                              \tag{133}
+\]
+
+Both strict inequalities in (133) compare the cost only with the coarse floor,
+not with the true `s_3`. They do **not** reverse (132), do not refute the actual
+`N=2` payment, and do not show that `s_3` fails. The next target at that wave retained
+the discarded positive cubic excess:
+
+\[
+ \boxed{
+ \mathcal E_3=s_3-{4913\over4}s_0
+ \geq\kappa_2Q_2^--{4913\over4}s_0,qquad0<a\leq{1\over4}.} \tag{134}
+\]
+
+Equations (127)--(134) have frozen-source standard-library receipts and
+independent algebra, endpoint and scope audits. They prove no actual `N=2`
+payment, higher-rung payment, all-degree theorem, or RH.
+
+## Eighteenth-wave Gaussian barriers and full-interval `N=2` payment
+
+### Generic strong and full-conservation payments both have barriers
+
+For the auxiliary Gaussian `psi_c(h)=exp(-ch^2/2)`, `c=20`, the endpoint
+ladder has `b_n=nc/2` and every `sigma_n>0`. It also satisfies the successful
+low-rung local hypotheses `X=20>17` and `P=24c^4>8X^4`. Nevertheless exact
+Hermite integration gives
+
+\[
+ \boxed{\kappa_{3,0}Q_{3,0}={27\over2}c^2,
+ \qquad \sigma_4={3\over2}\sqrt\pi\,c^{5/2},
+ \qquad \sqrt{20\pi}<9.}                              \tag{135}
+\]
+
+Thus strong payment fails at `N=3`. The Gaussian strong cost is bounded
+below at order `n^(3/2)` whereas its next-pivot ratio is `O(n)`. Positive
+prefix geometry and generic curvature cannot prove strong payment at all
+rungs. This statement concerns an auxiliary Gaussian, not actual theta.
+
+The full modular commutator retains a nonnegative square and gives the
+strictly weaker net target
+
+\[
+ \boxed{\mathcal W_N^{(0)}={\sigma_{N+1}\over\sigma_N}
+       +\mathcal C_N^{(0)}
+ =\mathcal P_N^{(0)}+
+  \left({\sigma_{N+1}\over\sigma_N}
+       -\kappa_{N,0}\mathsf H_{NN}\right),
+ \quad\mathcal P_N^{(0)}\geq0.}                        \tag{136}
+\]
+
+On the branch `C_N^(0)<=0`, nonnegative `W_N^(0)` would imply the next-pivot
+sign. It still does not follow from the generic hypotheses: the same
+Gaussian has
+
+\[
+ \boxed{\mathcal C_{15}^{(0)}<0,\qquad
+ \mathcal W_{15}^{(0)}=160-{66495\over1024}
+             \sqrt{20\over\pi}<0.}                    \tag{137}
+\]
+
+The last inequality follows exactly from `pi<22/7`; its cleared positive
+margin is `1423195015/29360128`. Both failures and their finite positive
+prefixes persist for sufficiently small positive tilts by continuity. The
+full-conservation barrier includes the derivative-of-weight and eliminated
+next-feature terms; it is not a test of the boundary term alone. It requires
+source-specific theta correlation but asserts no actual-theta failure.
+
+### The sharp cubic reserve pays the actual-theta cost uniformly
+
+The independent endpoint audit certifies `sigma_3>579.48`,
+`kappa_0 Q_(2,0)^-<385`, and an endpoint margin `>194.69`. It uses the actual
+degree-three target moment `M_3`; it is a certificate, not a prefix-only
+induction argument. Exact local cubic completion and Schur stationarity
+then transport the sharp reserve:
+
+\[
+ \boxed{s_3'(a)\geq\sigma_3,\qquad
+        {s_3(a)\over a}\geq\sigma_3>{14487\over25}.}   \tag{138}
+\]
+
+The analytic finite-tilt envelope is initially conditional on the deliberately
+coarse current-prefix caps `b_1<=12,b_2<=30`. Frozen all-shift moment rows,
+their independent audit, and the curvature transport discharge those caps
+on the entire campaign interval. Exact reflection-rectangle convexity and
+boundary-correct half-line integration by parts give
+
+\[
+ \boxed{\begin{gathered}
+ {17\over2}<b_1<12,\quad0<b_2<30,\quad b_1b_2>{627\over4},
+ {\kappa_2\over a}<9,\quad
+ A_a<159,\quad B_a<24,\quad
+ Q_2^-<\sqrt{3816}<62.
+ \end{gathered}}                                      \tag{139}
+\]
+
+Consequently, without a parameter mesh, the actual complete theta profile
+satisfies for every `0<a<=1/4`
+
+\[
+ \boxed{{s_3\over a}>{14487\over25}=579.48,\qquad
+ {\kappa_2Q_2^-\over a}<558,\qquad
+ {s_3-\kappa_2Q_2^-\over a}>{537\over25}=21.48.}       \tag{140}
+\]
+
+Because `s_2>0`, this is equivalently `s_3/s_2>kappa_2 mu_2^-` for
+`mu_2^-=Q_2^-/s_2`. It closes the excess target (134). The coarse-floor
+obstruction (133) remains true; the sharper transported reserve retains the
+previously discarded positive excess. Strong scalar payment is sufficient
+for the isolated negative square and is not equivalent to every signed
+term in the complete integrated conservation law.
+
+The combined certificate checks four exact dependency commit/tree objects,
+twelve frozen note/source/result blobs, and four byte-identical dependency
+replays before the final rational comparison. Its receipt SHA-256 is
+`4302a51415dc6d85182cdb3aa38ec315a9ccc044b1eb08285c6d5d8c6d24b10c`.
+This computer-assisted theorem is at the single low rung `N=2`; it proves
+no higher rung, degree-uniform induction, all-degree first Xi--Laguerre
+inequality, or RH.
+
+### A conditional theta high-degree criterion and its exact blockers
+
+Assume a positive normalized endpoint prefix through rung `n`. Put
+`P_n=||F_n||_2^2`, `c_n=sigma_n/P_n`, and expand the current reflection
+derivative in the pivot-normalized basis with top coefficient `n+1` and
+perpendicular squared coefficient sum `D_n`. Complete-theta parent growth
+is uniform in every polynomial coefficient, so it supplies
+
+\[
+ \boxed{H_n=\log(10(n+1)),\quad
+ Q_{n,0}^-<{H_n+1\over2}P_n,\quad
+ \kappa_{n,0}=4n+D_n,\quad
+ \mathcal R_n:={\sigma_{n+1}\over P_n}=b_{n+1}c_n.}    \tag{141}
+\]
+
+The next monic residual and direct source defining `sigma_(n+1)` are fixed
+by the current positive prefix; no normalization by the unknown next pivot
+or assumption of its sign is used. Endpoint strong payment follows from
+
+\[
+ \boxed{\mathcal R_n\geq{1\over2}(4n+D_n)(H_n+1).}    \tag{142}
+\]
+
+This explains why the auxiliary Gaussian order mismatch cannot simply be
+imported to theta: the coefficient-uniform theta spatial cost is logarithmic.
+It does not prove that the actual signed source pays that cost. Moreover the
+exact recurrence supplies a compulsory reflection cost:
+
+\[
+ \boxed{D_n\geq
+ {\left((n-1)b_n-2\sum_{k=1}^{n-1}b_k\right)^2
+       \over b_{n-1}b_n}\quad(n\geq2),\qquad
+ b_n=Cn^2\ \Longrightarrow\ D_n\geq{(n+1)^2\over9}.} \tag{143}
+\]
+
+This is a lower bound, not the needed upper bound, and `b_n=Cn^2` is an exact
+model rather than a proved theta asymptotic. A precise sufficient eventual
+criterion is
+
+\[
+ \boxed{\rho_-:=\liminf_{n\to\infty}
+ {\mathcal R_n\over n^2(H_n+1)},\quad
+ \delta_+:=\limsup_{n\to\infty}{D_n\over n^2},\quad
+ \delta_+<\infty,\quad2\rho_->\delta_+.}              \tag{144}
+\]
+
+Neither rate is proved for the actual inverse-selected theta residual.
+Localization only gives the upper `c_n<2(H_n^2+1)`; the signed root-deletion
+sum prevents a lower direct reserve from following from a positive parent
+norm. Recurrence positivity gives neither an upper `D_n=O(n^2)` bound nor a
+quadratic two-sided law for the actual `b_n`. A monomial saddle cannot be
+transferred to the inverse-selected residual without controlling all its
+coefficients and root-deletion cancellation. The raw-moment `L1` Gaussian
+limit does not control the growing Hankel inverse or Schur complement.
+
+Even a proof of eventual (144) would still need a quantified cutoff with the
+remaining finite rungs to close an endpoint induction, followed by finite-tilt
+transport for a full-interval ladder. Neither these steps nor all-degree
+theta payment is supplied here. No all-degree or RH proof is established.
+
+### Verified provenance for this wave
+
+All paths below are relative to this workstream; only these committed
+analytic checkpoints enter this integration.
+
+| Commit | Note / role |
+|---|---|
+| `5226988` | `MODULAR_GAUSSIAN_STRONG_PAYMENT_BARRIER_20261103.md` |
+| `883d558` | `MODULAR_N2_ENDPOINT_PAYMENT_INDEPENDENT_AUDIT_20261103.md` |
+| `0078231` | `MODULAR_N2_SHARP_CUBIC_TRANSPORT_20261103.md` |
+| `097635c` | `MODULAR_FULL_CONSERVATION_GAUSSIAN_BARRIER_20261103.md` |
+| `d9ba9e6` | `MODULAR_N2_ANALYTIC_COST_ENVELOPE_20261103.md` |
+| `05513fd`, normalized by `5df7934` | `MODULAR_N2_UNIFORM_PREFIX_CAPS_20261103.md` |
+| `d2439b6` | `MODULAR_THETA_HIGH_DEGREE_CRITERION_20261103.md` |
+| `c09e352` | `MODULAR_N2_FULL_INTERVAL_PAYMENT_20261103.md` |
+
+## Nineteenth-wave correlated CD source and quadratic-ladder limits
+
+### The complete net target is one shifted score
+
+Under a positive normalized endpoint prefix through `n`, write
+`F_j=T_j(D)psi`, `G=T_(n+1)'(D)psi`, and `V=|h|F_n`. The diagonal
+Christoffel--Darboux cancellation and the full-conservation target obey
+
+\[
+ \boxed{K_n=\sum_{j=0}^n{F_j^2\over\sigma_j},\qquad
+ K_n'={2F_nF_{n+1}\over\sigma_n},\qquad
+ \mathcal W_n={\|2hF_{n+1}+G-V\|_2^2-\|G+V\|_2^2
+                   \over2\sigma_n}.}                 \tag{145}
+\]
+
+Equivalently the complete profile supplies the single signed correlation
+
+\[
+ \boxed{\mathcal W_n={4\over\sigma_n}\int_0^\infty
+ h(F_{n+1}-F_n)T_{n+1}(D)(h\psi)\,dh.}                 \tag{146}
+\]
+
+Both formulas use only a positive current prefix to construct the next monic
+polynomial; no next-pivot sign is assumed. The absolute value in `V` is
+essential to the cross term, and `V` is never differentiated. A prescribed
+old-data feature family with Gram `K` and correlations
+`y_i=<2hF_(n+1)+G-V,v_i>` gives the sufficient shifted-score inequality
+`y^T K^(-1)y>=||G+V||_2^2`. The orthogonal complement is an exact extra
+nonnegative square, but neither the inequality nor any fixed feature rule
+is signed here. Adjoining the target score itself would merely make the
+condition target-equivalent.
+
+Keeping the first Fourier leg complete, the linear continuous-orbit source
+`J_n(x)=(4/sigma_n)integral_0^infinity h(F_(n+1)-F_n)T_(n+1)(D)(h sigma_x)dh`
+is seam-free and has the exact net Ewald representation
+
+\[
+ \boxed{\mathcal W_n=\sum_{a\geq1}
+ \left(J_n(a)-\int_{a-1}^aJ_n(x)\,dx\right)
+ ={1\over2}\int_0^\infty\{x\}(1-\{x\})J_n''(x)\,dx.} \tag{147}
+\]
+
+This retains the complete cross covariance, which has no automatic sign.
+Positive orbit weights, Jensen, and Poisson reciprocity do not sign it.
+Already at actual-theta `n=0`, the unweighted product in (146) tends to
+`-psi(0)^2` at the center. Thus pointwise positivity is false. These are exact
+all-degree identities, not an all-degree sign theorem; the Gaussian `W_15<0`
+remains consistent with them. Inferring a next-pivot sign from `W_n>=0`
+still requires the correct `C_n<=0` commutator branch.
+
+### Complete theta with an alternate quadratic ladder still underpays
+
+Fix `C>1` and use the coherent alternate recurrence
+`p_(n+1)=tp_n-Cn^2p_(n-1)`. Its roots are real, simple and strictly
+interlacing. Keep both complete-theta Fourier legs unchanged and define
+the test energies `tilde sigma_n=(2/pi)integral p_n^2 f`,
+`tilde P_n=(2/pi)integral p_n^2 Xi^2`, with
+`f=Xi'^2-Xi Xi''`. These are test energies, not actual Schur pivots.
+Here `F_n=i^n p_n(-iD)psi` belongs to the alternate ladder and
+`q_(n,j)=p_n/(t-r_(n,j))` are its real-root deletion quotients.
+Analytic weak averaging for this exact quadratic Jacobi ladder proves
+
+\[
+ \boxed{\widetilde c_n\longrightarrow c_C\in(0,\infty),
+ \quad {\widetilde\sigma_{n+1}\over\widetilde\sigma_n}
+       \sim Cn^2,\quad
+ \widetilde{\mathcal R}_n\sim Cc_Cn^2,\quad
+ {\widetilde{\mathcal R}_n\over n^2(\log n+1)}\to0.}  \tag{148}
+\]
+
+The test energies are eventually positive. With `a=pi/(2sqrt C)<pi/2`,
+the finite positive constant and leading spatial/root-deletion cancellation
+are exactly
+
+\[
+ \boxed{\begin{gathered}
+ c_C={\int\cosh(at)f\,dt\over\int\cosh(at)\Xi^2\,dt}
+ ={2\|h\psi(h-ia/2)\|_2^2\over\|\psi(h-ia/2)\|_2^2}>0,\\
+ {\|hF_n\|_2^2\over\widetilde P_n\log^2n}\to{1\over4C},
+ \qquad {\sum_j\|q_{n,j}(-iD)\psi\|_2^2
+                \over\widetilde P_n\log^2n}\to{1\over2C}.
+ \end{gathered}}                                      \tag{149}
+\]
+
+Thus logarithmic spatial localization and quadratic energy ratios do not
+force a logarithmic conditioning reserve, even for the complete theta
+profile. The missing distinction is actual signed stationarity:
+`integral f p_n t^j=0` for `j<n`. The alternate recurrence coefficients are
+only asymptotic test-energy ratios, not exact signed pivot ratios. At `C=4`,
+`p_2=t^2-4` already differs from the actual first coefficient `b_1>17/2`.
+This is a complete-theta obstruction to a geometry-only shortcut; it does
+not refute the actual sufficient criterion (142) or the actual pivot sign.
+The algebra replay does not machine-prove the analytic strip bounds and
+asymptotics, which are proved and independently audited in the note.
+
+### Exact quadratic derivative cost and a parity-resonance obstruction
+
+For the exactly quadratic model `b_j=Cj^2`, the full normalized derivative
+row, not just its leading component (143), is explicit:
+
+\[
+ \boxed{d_{n,n-2r}={n+1\over2r+1},\qquad
+ D_n=(n+1)^2\sum_{r=1}^{\lfloor n/2\rfloor}{1\over(2r+1)^2}
+ <{(n+1)^2\over4},\qquad
+ {D_n\over n^2}\to{\pi^2\over8}-1.}                   \tag{150}
+\]
+
+This exact benchmark is sensitive to parity correlations. For arbitrary
+positive recurrence data, define
+`Pi_m=product_(j=1)^m b_(2j)/b_(2j-1)` and
+`K_m=sum_(j=0)^m Pi_j^(-1)`. Center CD evaluation gives the necessary bound
+
+\[
+ \boxed{D_{2m}\geq
+ {\{\Pi_mK_m-(2m+1)\}^2\over\Pi_mK_{m-1}}.}          \tag{151}
+\]
+
+In particular, an explicit positive rational parity perturbation satisfies
+
+\[
+ \boxed{\begin{gathered}
+ b_{2j-1}=(2j-1)^2{j\over j+1},\qquad
+ b_{2j}=(2j)^2{j+1\over j},\qquad b_k=k^2(1+O(1/k)),\\
+ D_{2m}\geq{9\over32}(m+1)^2(3m+1).
+ \end{gathered}}                                      \tag{152}
+\]
+
+Hence even this relative recurrence approximation cannot transfer an
+`O(n^2)` derivative bound. The model's Jacobi matrix has the square-summable
+zero mode `v_(2m)=(-1)^m/sqrt(Pi_m)`, `v_(2m+1)=0`, and its positive spectral
+measure has an atom at zero. The actual theta functional has the smooth
+signed density `(2/pi)f(t)dt`; the recurrence model does not meet that source
+condition and is not a theta counterexample.
+
+### Actual stationarity yields one correlated `f''` payment identity
+
+For the actual endpoint polynomial `p=p_(n+1)`, the known-prefix
+orthogonality to `p''` and two integrations by parts give the division-free
+identity
+
+\[
+ \boxed{(n+1)^2+D_n={1\over\pi\sigma_n}\int p^2 f''\,dt,
+ \qquad f''=\Xi''^2-\Xi\Xi^{(4)}.}                    \tag{153}
+\]
+
+The `f''` integral uses only known moments of `f` through degree `2n`.
+With `Q_n=integral_0^infinity hF_n^2`, the exact strong-payment margin is
+
+\[
+ \boxed{\sigma_{n+1}-(4n+D_n)Q_n
+ ={2\over\pi}\int p^2
+ \left[f-{Q_n\over2\sigma_n}f''\right]dt+(n-1)^2Q_n.} \tag{154}
+\]
+
+No sign of `f`, division by it, or normalization by the unknown next pivot
+is used. The target moment remains in the `f` term. Nonnegativity of (154)
+is exactly the strong-payment condition, and is unproved. The actual lower
+reserve, upper `D_n=O(n^2)` bound, and net shifted-score/correlated-source
+sign remain open. These identities and obstructions prove no higher-rung
+payment, all-degree theta sign, or RH.
+
+### Audited provenance and receipt replay
+
+| Commit | Note | Receipt SHA-256 |
+|---|---|---|
+| `02d35d0` | `THETA_NET_CD_SHIFTED_SCORE_20261103.md` | `5e16e7248e2b9b27d7012586ea971011a730a4d21ea05772a010a2920c7f676b` |
+| `afdae43` | `THETA_RESERVE_QUADRATIC_JACOBI_OBSTRUCTION_20261103.md` | `a5b2afe4ce68649b0c1a38f19e9c41397b02436fceebd790b5b3e6c64665e5f7` |
+| `9d0ec62` | `THETA_DERIVATIVE_CD_PARITY_RESONANCE_20261103.md` | `760748887ffed125fc5a2860594c2f399d19b82f2167dc9bb8a122265effaf38` |
+
+All three independently audited receipts replay byte-for-byte. The reserve
+verifier requires output in its own workstream's `results` directory; it was
+replayed in a temporary snapshot of `afdae43` to preserve the committed
+receipt. The other two verifiers accept temporary output paths directly.
 
 ## Reproduction and recovery
 
@@ -2794,6 +3328,29 @@ higher-degree payment, all-degree theorem, or RH conclusion follows.
   heartbeat, event sequence, completion receipt and worker log;
   `results/m0_inertia_primary_parameter_replay.json` is the bound floating
   result and `analysis-m0-inertia.json` is its deterministic governed receipt.
+- `MODULAR_N1_FULL_INTERVAL_PAYMENT_NEXT.md`,
+  `src/verify_modular_n1_full_interval_payment.py`, and
+  `results/modular_n1_full_interval_payment.json` retain the analytic
+  full-interval proof, its frozen inputs and the byte-identical standard-library
+  replay. `tasks-modular-n1-payment.json` is a bounded interval cross-check
+  queue; it is not an input to equation (126).
+- `MODULAR_GENERAL_PIVOT_TRANSPORT_NEXT.md`,
+  `src/verify_modular_general_pivot_transport.py`, and
+  `results/modular_general_pivot_transport.json` retain the all-rung
+  coefficient-cancellation identity, cubic reserve and real-rooted quintic
+  obstruction.
+- `MODULAR_N2_CUBIC_RESERVE_PAYMENT_MAP_20261103.md`, its same-named verifier
+  under `src/`, and its same-named JSON receipt under `results/` retain the
+  exact `N=2` payment map and endpoint proof that the coarse cubic floor is
+  insufficient. They do not contain an actual `N=2` payment certificate.
+- `MODULAR_N2_FULL_INTERVAL_PAYMENT_20261103.md`,
+  `src/verify_modular_n2_full_interval_payment_20261103.py`, and
+  `results/modular_n2_full_interval_payment_20261103.json` retain the combined
+  low-rung theorem (140). Replay to a temporary output and compare its SHA-256
+  with the frozen receipt above; the verifier accepts `--root` at either the
+  repository or checkpoint root. The two Gaussian barrier verifiers and
+  `src/verify_modular_theta_high_degree_criterion_20261103.py` retain the
+  exact route barriers and conditional criterion (135)--(144).
 
 The committed checkpoint retains the exact EGF manifest, both N24 replay
 exemplars, the terminal receipts/event audit, and the deterministic aggregate.

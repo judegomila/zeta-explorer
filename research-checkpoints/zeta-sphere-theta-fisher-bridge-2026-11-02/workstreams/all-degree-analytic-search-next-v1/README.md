@@ -630,9 +630,112 @@ The commutator sign alone therefore cannot pay the defect. At the normalized
 endpoint, however, independently audited complete-theta bounds give
 `sigma_2>(1254/8)sigma_0>4Q_0`. This pays the `N=1`, `a=0` scalar and proves
 `sigma_2>0`. Continuity supplies some unspecified `a_0>0` with the strong
-payment and `s_2(a)>0` on `0<a<a_0`. No explicit `a_0`, full
-`0<a<=1/4` payment, higher-degree theorem, all-degree theorem, or RH result is
-claimed.
+payment and `s_2(a)>0` on `0<a<a_0`. This endpoint argument by itself does not
+quantify `a_0`; the next audited wave closes the same raw `N=1` payment on the
+full campaign interval by a different analytic transport. Neither result is a
+higher-degree theorem, an all-degree theorem, or an RH result.
+
+## Sixteenth-wave orbit-pair obstruction and full `N=1` payment
+
+`PRIOR_DRIFT_ORBIT_PAIR_OBSTRUCTION_20261103.md` assembles every complete-theta
+orbit pair before taking signs. For
+`p=(I-P_span(q',hq))q_(N-1)'`, it proves exactly
+
+`A_N=integral v q p psi^2=sum_(n,m) integral_0^infinity (qp)' phi_n phi_m`.
+
+The predecessor factor is orbit-index independent, so every antisymmetric
+score-gap covariance vanishes identically: strict orbit MLR is silent for this
+alignment. By contrast, the old Galerkin density uses
+`kappa_(n,m)=-((sigma_n-sigma_m)^2+sigma_n'+sigma_m')/2`, with positive
+diagonal and negative off-diagonal entries. The surviving all-degree target is
+therefore the strict version of equation (32) in that note: the fully assembled
+pair sum must pay `-H_U ||p psi||_2^2` before any orbitwise absolute value or
+diagonal truncation. The exact identity and sign proof are independently
+audited; the strict inequality itself remains open uniformly in degree.
+
+`MODULAR_N1_FULL_INTERVAL_PAYMENT_NEXT.md` closes a different first-rung
+obligation analytically. Along the actual inverse-selected path
+`beta(a)=s_1(a)/s_0(a)`, the coefficient derivative cancels exactly and the
+complete-theta curvature square gives the `s_2` bound. The degree-one
+transport identity separately gives `s_1'>(17/2)s_0'`, hence
+`s_0/s_1<2/17`, without using the parameter-cell `s_1` enclosure. Together
+with monotonicity of the physical negative-side energy, this yields
+
+`s_2(a)/a>1881/200`,
+`kappa_1(a)Q_-(a)/a<12467/1445`, and hence
+`(s_2-kappa_1 Q_-)/a>44929/57800`
+
+for every `0<a<=1/4`. Since `s_1>0` and `mu_1^-=Q_-/s_1`, this proves the raw
+strong `N=1` payment `s_2/s_1>kappa_1 mu_1^-` throughout the campaign interval.
+An independent derivation audit rechecked every half-line factor, the
+`beta'` cancellation, the curvature integration by parts, the negative-side
+monotonicity and the rational margin; the frozen-receipt verifier replays
+byte-for-byte.
+
+`tasks-modular-n1-payment.json` and
+`src/certify_modular_n1_payment_interval.py` retain a two-run Arb interval
+queue as a bounded computational cross-check independent of the analytic
+transport. Its finer replay uses the same worker rather than an independent
+implementation, and the production queue was not needed to prove the result.
+No queue outcome, nor the analytic first-rung theorem, proves a higher-degree
+payment, an all-degree first Xi--Laguerre inequality, or RH.
+
+## Seventeenth-wave all-rung transport and the `N=2` payment map
+
+`MODULAR_GENERAL_PIVOT_TRANSPORT_NEXT.md` shows that coefficient motion is not
+the higher-rung obstruction. For the actual monic same-parity residual
+`T_n(x,a)`, signed Schur stationarity kills every derivative of its lower
+coefficients and gives the exact transport law
+
+`s_n'=2||uT_n(D)g_a||_2^2-||T_n'(D)g_a||_2^2
+       -<T_n(D)g_a,T_n''(D)g_a>`.
+
+Equivalently, for the real-rooted orthogonal polynomial `p_n` and its root
+quotients `q_j=p_n/(t-rho_j)`, this is
+
+`s_n'=h_(g_a)[p_n]/(2pi)
+     =2||uT_n(D)g_a||_2^2-sum_j||q_j(-iD)g_a||_2^2`.
+
+At the actual cubic rung the audited pointwise `H3` bounds therefore imply
+
+`s_3(a)>(4913/4)s_0(a)>(14739/200)a`.
+
+This is a raw cubic reserve, not yet a modular payment. Moreover, the monic
+version of `16t^5-1052t^3+10847t` has five distinct real roots but a rigorously
+negative pointwise root-deletion source at the modular center. That example
+refutes universal pointwise positivity even within the real-rooted quintic
+family; it does not make the integrated actual `s_5'` negative and does not
+identify the actual inverse-selected quintic.
+
+`MODULAR_N2_CUBIC_RESERVE_PAYMENT_MAP_20261103.md` then derives the exact
+second-rung obligation. With `b_1=s_1/s_0` and `b_2=s_2/s_1`,
+
+`kappa_2=a{8+36a^2/b_2+(4a^2-2b_1+b_2)^2/(b_1b_2)}`,
+
+`Q_2^-=integral_0^infinity h e^(-2ah)psi^2
+        ((a+v)^2-v'+b_1)^2 dh`,
+
+and the strong negative-square payment is exactly `s_3>=kappa_2 Q_2^-`.
+All mixed terms in the centered square are retained and every quantity on the
+right is fixed by the positive prefix through degree two.
+
+The coarse cubic floor cannot prove that payment uniformly. At the normalized
+endpoint the exact stationarity witness, Cauchy--Schwarz and the
+`v'>17` likelihood-ratio bound give
+
+`kappa_0 Q_(2,0)^-/sigma_0 >= sqrt(pi)17^(5/2)>4913/4`.
+
+Analytic endpoint continuation therefore makes
+`kappa_2Q_2^->(4913/4)s_0` for all sufficiently small positive `a`. This
+compares the modular cost only with the guaranteed floor: it does **not** show
+`kappa_2Q_2^->s_3`, does not refute the actual `N=2` payment, and does not show
+that `s_3` fails. The surviving noncircular target is to compare the positive
+cubic excess `E_3=s_3-(4913/4)s_0` directly with the excess cost
+`kappa_2Q_2^--(4913/4)s_0` on `0<a<=1/4`.
+
+Both notes have standard-library, frozen-source verifier receipts and
+independent algebra/provenance audits. They prove no higher-rung payment,
+all-degree first Xi--Laguerre inequality, all-shift hierarchy, or RH.
 
 ## Hard staged gates
 

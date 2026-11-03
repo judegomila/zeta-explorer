@@ -39,8 +39,14 @@ quadrature so those jobs fail immediately instead of consuming a full sweep.
 
 ## CPU and coexistence contract
 
-- Protected 4CT controller: PID `76469`, whose command and working directory
-  must both match before it is considered active.
+- The protected 4CT root PID is a required launch argument and must be resolved
+  immediately before launch. It is not hard-coded. Repeatable command-pattern
+  arguments cover chain19 and its independently long-lived children; a command
+  match is accepted only when its cwd is under the configured protected root.
+- PID reuse, PID turnover races, an unreadable cwd, or any other discovery
+  uncertainty retain the protected-active policy. Apparent completion requires
+  12 consecutive confident full-process-table absence samples by default, and
+  scanning continues afterward so a restart is protected.
 - While the screen is locked and 4CT is active: at most five new workers.
 - After 4CT exits, while locked: at most fifteen new workers.
 - When unlocked, or whenever lock detection is uncertain: at most five new
@@ -52,10 +58,21 @@ quadrature so those jobs fail immediately instead of consuming a full sweep.
   `IOConsoleLocked` and `CGSSessionScreenIsLocked`, and pauses/resumes only
   process groups it created and recorded.
 - Failure to sample total CPU pauses all owned workers.
+- A lifetime run-directory lock prevents concurrent supervisors from sharing a
+  queue, while pre-launch validation rejects duplicate task IDs, aliased output
+  paths, outputs outside the workspace root, and malformed accepted-verdict
+  policies.
+- A result with `accepted_verdicts` is restart-complete only when verdict,
+  status, and all bound parameters match. Diagnostic receipts are not silently
+  accepted unless the manifest explicitly allows their verdict.
+- Every worker is launched through a separate parent-liveness guardian. The
+  guardian remains runnable while the worker group is paused and terminates
+  only its verified PID=PGID=SID session if the supervisor disappears.
 
 macOS has no installed hard percentage limiter. This is a conservative sampled
 governor using `SIGSTOP`/`SIGCONT`, background QoS and nice level 15; it cannot
 promise a zero-duration transient never crosses a ceiling between samples.
+The 84% and 42% figures are admission targets, not hard machine caps.
 
 ## Current evidence grade
 
@@ -81,7 +98,18 @@ python3 workstreams/regional-degree-sweep/src/control.py stop \
 
 The supervisor resumes any stopped child, sends `TERM` only to its recorded
 process groups, waits 30 seconds, and reports rather than force-killing a
-straggler. Restarting the same launch command resumes from atomic result files.
+straggler. The legacy finite-atlas queue is complete/obsolete and must not be
+restarted merely to consume CPU; a fresh run directory and a meaningful
+analytic task manifest are required for a new run. Handled exceptions,
+`TERM`/`INT`, and launch failures use the same cleanup path; repeated `TERM` is
+idempotent. If the supervisor is killed before cleanup or between worker spawn
+and registration, the independent guardian resumes and terminates the owned
+worker group, escalating to `KILL` only after a ten-second grace period. Power
+loss, simultaneous guardian failure, and descendants that deliberately escape
+the owned session remain OS-level recovery cases: inspect lock metadata, the
+process table, `events.jsonl`, guardian receipts, and `stopped.json` before any
+restart. A detached launcher PID is not sufficient evidence of a healthy run;
+verify a fresh heartbeat and its protected/load fields.
 
 ## Known baseline issue
 

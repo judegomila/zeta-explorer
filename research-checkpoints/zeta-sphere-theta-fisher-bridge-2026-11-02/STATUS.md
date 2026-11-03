@@ -963,10 +963,193 @@ separate modular boundary/`s_2` payment; the next wave sharpens all three.
   finite-`a` strong payment and `s_2(a)>0` persist.
 
 All exact countermodels and payment constants were independently replayed.
-The modular result does not give an explicit `a_0`, does not cover the full
-`0<a<=1/4` interval, and does not extend to higher degrees. The all-degree
-complete-theta alignment inequality, degree-uniform Ewald head/tail margins,
-and global modular payment remain open. Nothing in this wave proves RH.
+The fifteenth-wave endpoint argument does not give an explicit `a_0`; the next
+audited wave closes the same raw `N=1` payment on the full `0<a<=1/4` interval
+by a different analytic transport. Neither result extends to higher degrees.
+The all-degree complete-theta alignment inequality, degree-uniform Ewald
+head/tail margins, and higher-rung modular payment remain open. Nothing in
+this wave proves RH.
+
+## Sixteenth-wave orbit-pair obstruction and full `N=1` payment
+
+- Complete orbit-pair symmetrization gives
+  `A_N=integral v q p psi^2=sum_(n,m) integral_0^infinity (qp)'phi_nphi_m`.
+  Since `qp` is orbit-index independent, every antisymmetric score-gap
+  covariance vanishes identically, so strict orbit MLR cannot pay the
+  predecessor alignment. The old Galerkin density instead has the exact
+  diagonal-minus-cross kernel
+  `kappa_(n,m)=-((sigma_n-sigma_m)^2+sigma_n'+sigma_m')/2`, with
+  `kappa_(n,n)>0` and `kappa_(n,m)<0` for `n!=m`. The surviving theorem-shaped
+  target is the strict version of equation (32) in
+  `PRIOR_DRIFT_ORBIT_PAIR_OBSTRUCTION_20261103.md`, retaining all cross-orbit
+  terms before squaring. Its derivation and sign pattern are independently
+  audited; the strict inequality remains open uniformly in degree.
+- The raw `N=1` modular payment is now proved analytically for every
+  `0<a<=1/4`. Along the actual path `beta=s_1/s_0`, the `beta'` term cancels;
+  complete-theta curvature gives `s_2/a>1881/200`. Independently,
+  `s_1'>(17/2)s_0'` gives `s_0/s_1<2/17`, the physical negative-side energy
+  decreases, and the frozen complete-theta endpoint bound gives
+  `Q_-<182/85`. Therefore
+  `kappa_1 Q_-/a<12467/1445` and
+  `(s_2-kappa_1 Q_-)/a>44929/57800>0`. Since `s_1>0`, this proves
+  `s_2/s_1>kappa_1 mu_1^-` and `s_2>0` throughout the campaign interval.
+- The standard-library receipt replay and an independent derivation audit
+  check the coefficient-motion cancellation, integration by parts,
+  negative-side monotonicity and exact rational comparisons. The separate
+  two-task Arb interval queue is retained only as a bounded computational
+  cross-check independent of the analytic transport; its finer replay uses
+  the same worker, and no queue result is needed for the theorem.
+
+This closes one raw first-rung scalar, not a higher-degree payment, the
+all-degree first Xi--Laguerre inequality, or RH.
+
+## Seventeenth-wave all-rung transport and `N=2` route obstruction
+
+- For every regular actual same-parity rung, signed Schur stationarity cancels
+  all motion of the lower polynomial coefficients. The raw pivot satisfies
+  `s_n'=2||uF||_2^2-||K||_2^2-<F,L>` and, in the real-rooted orthogonal
+  normalization, exactly
+  `s_n'=h_(g_a)[p_n]/(2pi)
+       =2||uT_n(D)g_a||_2^2-sum_j||q_j(-iD)g_a||_2^2`.
+  Thus coefficient derivatives are not the all-degree obstruction; the open
+  problem is domination of the complete integrated root-deletion sum.
+- At the actual cubic rung, the audited pointwise `H3` inequality yields the
+  quantitative raw reserve
+  `s_3>(4913/4)s_0>(14739/200)a`. This is not yet a payment of the modular
+  defect. At degree five, the monic version of
+  `16t^5-1052t^3+10847t` is real-rooted and has a rigorously negative local
+  source at the center. This refutes universal pointwise root-deletion
+  positivity, even for real-rooted polynomials, but it does not make the
+  integrated actual `s_5'` negative or identify the actual quintic.
+- For `b_1=s_1/s_0` and `b_2=s_2/s_1`, the exact `N=2` negative-square
+  coefficient and physical cost are
+  `kappa_2=a{8+36a^2/b_2+(4a^2-2b_1+b_2)^2/(b_1b_2)}` and
+  `Q_2^-=integral_0^infinity h e^(-2ah)psi^2((a+v)^2-v'+b_1)^2dh`.
+  The strong payment is exactly `s_3>=kappa_2Q_2^-`; every quantity on the
+  right is fixed by the positive prefix through degree two.
+- The cubic guarantee alone cannot prove that payment. The endpoint comparison
+  gives
+  `kappa_0Q_(2,0)^-/sigma_0>=sqrt(pi)17^(5/2)>4913/4`, so
+  `kappa_2Q_2^->(4913/4)s_0` for all sufficiently small positive `a`.
+  This does **not** compare the true, larger `s_3` with the cost and does not
+  refute the actual `N=2` payment. It proves only that the coarse floor drops
+  indispensable positive cubic excess.
+
+The next target at that wave was the correlated excess inequality
+`E_3=s_3-(4913/4)s_0 >= kappa_2Q_2^--(4913/4)s_0` on `0<a<=1/4`.
+Both new results have frozen-source standard-library receipts and independent
+audits. They establish no higher-rung payment, all-degree theorem, or RH.
+
+## Eighteenth-wave Gaussian barriers and full-interval `N=2` payment
+
+- The auxiliary Gaussian `psi_c=exp(-ch^2/2)`, `c=20`, has every normalized
+  endpoint pivot positive and satisfies `X=20>17` and `P=24c^4>8X^4`.
+  Nevertheless its strong scalar payment fails at `N=3`, where it would
+  require `sqrt(20pi)>=9`. More generally the Gaussian next-pivot ratio is
+  `O(n)` while its strong cost is bounded below at order `n^(3/2)`.
+  This blocks a source-free curvature/prefix proof, not actual theta payment.
+- Keeping the full commutator gives the weaker net target
+  `W_N^(0)=sigma_(N+1)/sigma_N+C_N^(0)`, retaining its nonnegative completed
+  square. The same Gaussian has `C_15^(0)<0` and
+  `W_15^(0)=160-(66495/1024)sqrt(20/pi)<0`. Both Gaussian failures and their
+  finite positive prefixes persist for sufficiently small positive tilts.
+  Thus even full-conservation payment needs source-specific correlation;
+  neither barrier refutes a theta pivot or RH.
+- The actual-theta endpoint audit independently certifies
+  `sigma_3>579.48`, `kappa_0 Q_(2,0)^-<385`, and margin `>194.69`.
+  Sharp cubic transport then gives `s_3'(a)>=sigma_3` and
+  `s_3(a)/a>14487/25`. The finite-tilt cost envelope gives
+  `A_a<159`, `B_a<24`, and `Q_2^-<sqrt(3816)<62`, conditionally on
+  `b_1<=12,b_2<=30`. The uniform-prefix theorem discharges those conditions:
+  `17/2<b_1<12`, `0<b_2<30`, `b_1b_2>627/4`, and `kappa_2/a<9`.
+- Consequently, for every `0<a<=1/4`,
+  `s_3/a>14487/25=579.48`, `kappa_2 Q_2^-/a<558`, and
+  `(s_3-kappa_2 Q_2^-)/a>537/25=21.48`. Since `s_2>0`, this proves
+  `s_3/s_2>kappa_2 mu_2^-` with `mu_2^-=Q_2^-/s_2` and closes the
+  seventeenth-wave excess target. The combined certificate at `c09e352`
+  binds the four dependency commits/trees and twelve note/source/receipt
+  blobs, replays the four checkers byte-for-byte, and makes the final exact
+  rational comparison. Its receipt SHA-256 is
+  `4302a51415dc6d85182cdb3aa38ec315a9ccc044b1eb08285c6d5d8c6d24b10c`.
+- A separate conditional high-degree theorem sets `H_n=log(10(n+1))`,
+  `P_n=||F_n||_2^2`, `c_n=sigma_n/P_n`,
+  `R_n=sigma_(n+1)/P_n=b_(n+1)c_n`, and
+  `D_n=sum_(j<n)d_(n,j)^2` for the current normalized reflection derivative.
+  Complete-theta parent localization gives `Q_(n,0)^-<(H_n+1)P_n/2` and
+  `kappa_(n,0)=4n+D_n`, so `R_n>=(4n+D_n)(H_n+1)/2` is sufficient for
+  endpoint strong payment. If
+  `rho_-=liminf R_n/[n^2(H_n+1)]` and `delta_+=limsup D_n/n^2`, then
+  `delta_+<infinity` and `2rho_->delta_+` suffice eventually.
+
+The source notes are `MODULAR_GAUSSIAN_STRONG_PAYMENT_BARRIER_20261103.md`,
+`MODULAR_FULL_CONSERVATION_GAUSSIAN_BARRIER_20261103.md`,
+`MODULAR_N2_ENDPOINT_PAYMENT_INDEPENDENT_AUDIT_20261103.md`,
+`MODULAR_N2_SHARP_CUBIC_TRANSPORT_20261103.md`,
+`MODULAR_N2_ANALYTIC_COST_ENVELOPE_20261103.md`,
+`MODULAR_N2_UNIFORM_PREFIX_CAPS_20261103.md`,
+`MODULAR_N2_FULL_INTERVAL_PAYMENT_20261103.md`, and
+`MODULAR_THETA_HIGH_DEGREE_CRITERION_20261103.md` under
+`workstreams/all-degree-analytic-search-next-v1/`.
+
+The `N=2` result is low-rung only. The high-degree condition remains
+conditional: neither a lower direct source reserve nor an upper `D_n=O(n^2)`
+bound is proved for the actual inverse-selected theta residual. The exact
+recurrence supplies only a lower reflection-cost bound, and localization
+only an upper `c_n<2(H_n^2+1)` bound. Root-deletion cancellation, residual
+coefficient control, a quantified cutoff with the remaining finite rungs,
+and finite-tilt transport beyond these low rungs remain unpaid. Raw-moment
+`L1` Gaussian asymptotics do not bound growing Hankel inverses or Schur
+complements. Neither an all-degree theta payment, an all-degree first
+Xi--Laguerre theorem, nor an RH proof follows.
+
+## Nineteenth-wave correlated CD source and quadratic-ladder limits
+
+- Under a positive endpoint prefix through `n`, the exact diagonal CD identity
+  is `K_n'=2F_nF_(n+1)/sigma_n`. With `F=F_(n+1)`,
+  `G=T_(n+1)'(D)psi`, and `V=|h|F_n`, the net target is exactly
+  `W_n=(||2hF+G-V||_2^2-||G+V||_2^2)/(2sigma_n)` and
+  `W_n=(4/sigma_n)integral_0^infinity h(F_(n+1)-F_n)T_(n+1)(D)(hpsi)dh`.
+  This is an all-degree identity, not an all-degree sign theorem. A prescribed
+  old-data score projection and one seam-free net Ewald source retain the
+  cross covariance. Their sign remains open; even the actual-theta integrand
+  is negative near the center at `n=0`. Using `W_n>=0` to infer the next pivot
+  still requires the correct `C_n<=0` commutator branch.
+- Keeping the complete theta profile in both Fourier legs, an alternate
+  coherent ladder `p_(n+1)=tp_n-Cn^2p_(n-1)`, `C>1`, has real simple
+  interlacing roots, genuine logarithmic spatial scale, eventually positive
+  test energies, and test energy ratios asymptotic to `Cn^2`. Nonetheless
+  `tilde c_n -> c_C in (0,infinity)` and
+  `tilde R_n/[n^2(log n+1)] -> 0`: the complete root-deletion sum cancels the
+  leading `log^2 n` spatial energy. These test energies are not actual Schur
+  pivots. The ladder lacks exact signed stationarity, already at `p_2=t^2-4`
+  for `C=4`, so it refutes the geometry-only shortcut and not the actual-theta
+  reserve criterion.
+- The exactly quadratic recurrence has the full derivative-row benchmark
+  `D_n=(n+1)^2 sum_(r=1)^floor(n/2) 1/(2r+1)^2`, hence
+  `D_n/n^2 -> pi^2/8-1`. This does not follow from approximate quadratic growth:
+  the positive rational coefficients
+  `b_(2j-1)=(2j-1)^2 j/(j+1)` and `b_(2j)=(2j)^2(j+1)/j`
+  satisfy `b_k=k^2(1+O(1/k))` but force
+  `D_(2m)>=(9/32)(m+1)^2(3m+1)`. Their Jacobi matrix has a square-summable
+  zero mode and a spectral atom at zero. They do not model the smooth signed
+  actual-theta density `(2/pi)f(t)dt`.
+- Actual signed stationarity gives the exact division-free identity
+  `(n+1)^2+D_n=(pi sigma_n)^(-1)integral p_(n+1)^2 f''`, where
+  `f=Xi'^2-Xi Xi''` and `f''=Xi''^2-Xi Xi^(4)`. Thus strong payment has the
+  exact correlated margin
+  `(2/pi)integral p_(n+1)^2[f-Q_n f''/(2sigma_n)]+(n-1)^2Q_n`, with
+  `Q_n=integral_0^infinity hF_n^2`. No sign of `f`, division by `f`, or next
+  pivot normalization is assumed. This equality does not sign the margin.
+
+The independently audited notes are `THETA_NET_CD_SHIFTED_SCORE_20261103.md`
+(`02d35d0`), `THETA_RESERVE_QUADRATIC_JACOBI_OBSTRUCTION_20261103.md`
+(`afdae43`), and `THETA_DERIVATIVE_CD_PARITY_RESONANCE_20261103.md`
+(`9d0ec62`) in the active workstream. Their receipt hashes and exact formulas
+are recorded in `RESULTS.md` and `CLAIMS.md`; all three receipts replay
+byte-for-byte. The reserve verifier checks algebra and source bindings;
+its analytic asymptotics are proved in the note, not machine-certified by
+the finite replay. The actual lower reserve, upper `D_n=O(n^2)` estimate,
+and correlated sign are still open. No higher-rung payment or RH proof follows.
 
 ## Central open lemma
 
@@ -987,11 +1170,20 @@ to
 `4 y^T c_W' - 2 gamma^T H gamma >= kappa_0 M_N`.
 
 Every term is determined by the current prefix, but its correlated sign and
-size are not proved uniformly. The fifteenth-wave curvature argument pays the
-`N=1` normalized endpoint and a nonquantified positive neighborhood by a
-different sufficient bound. The displayed criterion remains open uniformly,
-for an explicit full interval, and at higher degree; it is not a global
-equivalence to all-shift closure.
+size are not proved uniformly. The sixteenth-wave curvature transport pays the
+raw `N=1` scalar on the full campaign interval by a different sufficient
+bound. The eighteenth-wave sharp reserve and uniform cost caps now also pay
+the raw `N=2` scalar throughout `0<a<=1/4`; the earlier coarse-floor
+obstruction remains valid but its positive-excess target is closed. At higher
+degree, the theta-specific sufficient criterion above isolates the missing
+lower direct reserve and upper reflection cost. Those estimates, the
+displayed correlated criterion uniformly across rungs, and all-shift closure
+remain open; the strong scalar is not an equivalence to every signed term in
+the full conservation law. The nineteenth-wave CD shifted-score and `f''`
+identities now provide correlated alternatives to separate reserve/cost
+estimates, but their actual-theta sign is also unproved. Exact signed
+stationarity and the smooth complete source must quantitatively distinguish
+the actual ladder from the two alternate recurrence obstructions above.
 
 A second normalized-endpoint reduction is now available in arithmetic form.
 For the even ladder the infinite tail beyond an explicit `O(N^2)` cutoff is

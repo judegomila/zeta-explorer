@@ -1,0 +1,69 @@
+{
+  "N": 1600,
+  "Nlambda": 80,
+  "a": 0.25,
+  "Lambda": 1,
+  "scope": "Floating ten-orbit |u|<=3 diagnostic only. No rigorous quadrature/tail or positive-block path certificate.",
+  "rows": [
+    {
+      "n": 2,
+      "S0": 6.687552796292247,
+      "S1": 6.7711204492020896,
+      "generic_budget_ratio": 12.29230260334276,
+      "paired_budget_ratio": 0.33324451970540125,
+      "paired_paid_lower": 4.5146816672403185,
+      "signed_identity_error": 8.881784197001252e-16,
+      "min_sampled_lower_eigenvalue": 0.024764029854204114
+    },
+    {
+      "n": 3,
+      "S0": 228.56869038175716,
+      "S1": 219.05200652321497,
+      "generic_budget_ratio": 19.19361418344279,
+      "paired_budget_ratio": 0.600026969350199,
+      "paired_paid_lower": 87.61489491901028,
+      "signed_identity_error": -8.526512829121202e-14,
+      "min_sampled_lower_eigenvalue": 0.2909803475965112
+    },
+    {
+      "n": 4,
+      "S0": 10582.859064807823,
+      "S1": 9801.893816214393,
+      "generic_budget_ratio": 22.337279488191985,
+      "paired_budget_ratio": 0.8978335513513732,
+      "paired_paid_lower": 1001.4246812335605,
+      "signed_identity_error": 2.1827872842550278e-11,
+      "min_sampled_lower_eigenvalue": 0.016372791340557337
+    },
+    {
+      "n": 5,
+      "S0": 642732.7983018825,
+      "S1": 589977.2219134708,
+      "generic_budget_ratio": 21.187274760616436,
+      "paired_budget_ratio": 1.1641353034353668,
+      "paired_paid_lower": -96836.09033872222,
+      "signed_identity_error": -6.51925802230835e-09,
+      "min_sampled_lower_eigenvalue": 0.11471473538809251
+    },
+    {
+      "n": 6,
+      "S0": 50176751.14320532,
+      "S1": 46181831.76927965,
+      "generic_budget_ratio": 19.825734363369843,
+      "paired_budget_ratio": 1.4140354333944072,
+      "paired_paid_lower": -19120914.7315413,
+      "signed_identity_error": 3.8743019104003906e-07,
+      "min_sampled_lower_eigenvalue": 0.013068834274718423
+    },
+    {
+      "n": 7,
+      "S0": 4823092574.301453,
+      "S1": 4424812759.455937,
+      "generic_budget_ratio": 22.70975045523035,
+      "paired_budget_ratio": 1.686811472450523,
+      "paired_paid_lower": -3039012166.6397943,
+      "signed_identity_error": -0.00015926361083984375,
+      "min_sampled_lower_eigenvalue": 0.06659384780940668
+    }
+  ]
+}

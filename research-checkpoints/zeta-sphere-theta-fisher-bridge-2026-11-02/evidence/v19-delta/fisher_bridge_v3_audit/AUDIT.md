@@ -1,0 +1,12 @@
+# Independent endpoint/action audit
+
+Analytic endpoint tightness PASS; independent1000-cell parent replay pending. Numerical certificate not yet accepted by this audit.
+
+The action excess is exactly2a times the K-metric integrated centered regression-speed variance. K(a)=Gminus (Gplus-Gminus)^-1 Gplus is symmetric and odd under a->-a. Therefore its leading term is(2a)^-1G0G1^-1G0 with no constant term. Taylor expansion of alpha' about0 gives excess(2a³/3)alpha''^T K0 alpha''+O(a5). Analyticity and previously certified normalized finite-rung S0>0 give success on some unspecified small-a interval, separately at each rung, and one common interval for the finite set through odd19. This is not a uniform-degree or explicit-width theorem.
+
+The parent integrator's exact rational P_j recurrence, coefficient sum bound1e53 and degree<=41 imply the omitted-orbit envelope2e53*507^(165/4)exp(-507). Its successive ratio is below1/2 and decreasing. Every evaluated derivative receives that full uncertainty. Midpoint Taylor terms through18 plus derivative20 interval remainder use the correct integral factor2d^21/21!. Derivatives through39 bound this quadrature error only; no new matrix rung is involved. The spatial tail follows h<=z, dh=dz/(2z), and monotonicity of z^(165/2)e^-z above3e6. Positive fixed basis scales multiply all errors.
+
+Parent decimal serialization is padded1e-54 before endpoint inversion. Audit requested an additional outward guard on inherited target moment decimals; author added1e-90*(1+|lo|+|hi|) and reran. This must remain in the final replay. Target-unit diagonal scaling is treated as fixed exact decimal congruence, not an assumption of exact unit diagonals. Interval Gaussian elimination asserts strictly positive pivots; pivots are not norm-eigenvalue bounds. Nonzero-shift quadrature remains exploratory.
+
+## Completed independent replay
+The full1000-cell parent integration and corrected endpoint evaluator both PASS independently. Max scaled Taylor remainder <3.446e-24. All existing odd rungs3..19 have strictly positive old-block pivots, innovation gains, costs and surpluses. Odd19 gives gain>.000252203292259, cost<.000091900511724, surplus>.000160302780535 and cost/gain<.364390610847. Results are fixed-basis finite endpoint quantities, not uniform-degree constants. The new positive-parent integration, not agreement of surplus with an already-known target Schur value alone, certifies the component split. Final audit PASS.

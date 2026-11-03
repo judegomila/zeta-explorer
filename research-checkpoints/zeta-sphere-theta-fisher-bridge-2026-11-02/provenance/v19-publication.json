@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "source_artifact": {
+    "name": "zeta_sphere_campaign_v19_20261103T0020Z.zip",
+    "bytes": 4843375,
+    "sha256": "8fe5bb4162a0650d297c3ec841b81111ef25c06ce19a1133725e87d4b7e90aa0",
+    "unzip_test": "PASS",
+    "manifest_payloads_verified": 672,
+    "v18_payloads_preserved": 585
+  },
+  "delta_accounting": {
+    "new_paths_since_v18": 87,
+    "source_allowlisted_paths": 58,
+    "source_non_allowlisted_paths": 29,
+    "byte_identical_public_allowlist_paths": 56,
+    "public_text_redactions": 2
+  },
+  "repository_policy": "Publish only the explicit authored allowlist, with two recorded privacy redactions. Do not publish the source archive, private conversation capture, extracted acquired source, or duplicate private provenance manifests.",
+  "non_allowlisted_groups": [
+    {
+      "count": 3,
+      "paths": [
+        "PUBLICATION_DELTA.json",
+        "provenance/v18/MANIFEST.json",
+        "provenance/v18/MANIFEST.sha256"
+      ],
+      "repository_treatment": "PUBLICATION_DELTA.json is retained as metadata; the duplicate private v18 provenance manifests are omitted"
+    },
+    {
+      "count": 2,
+      "paths": [
+        "source_2354_audit/conversation.json",
+        "source_2354_audit/source.zip"
+      ],
+      "repository_treatment": "omitted: private conversation capture and acquired source archive"
+    },
+    {
+      "count": 24,
+      "path_prefix": "source_2354_audit/source/",
+      "repository_treatment": "omitted: extracted acquired source; the newly authored independent replay and audit remain in the allowlist"
+    }
+  ]
+}

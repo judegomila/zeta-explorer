@@ -1,0 +1,97 @@
+{
+  "initial": {
+    "lam": 0,
+    "A": 0.024764029854201064,
+    "alpha": 11.750121014618008,
+    "S": 6.68755279629143,
+    "B": 41.335504324779855,
+    "D": 0.022843534606898253,
+    "Bpaired": 1.0763606397879593,
+    "QFprime": 1.1867649249928007,
+    "Qpprime": 1.1639213903859025,
+    "relative_quad_error": 1.3824225348823386e-12
+  },
+  "rows": [
+    {
+      "Lambda": 0.01,
+      "terminal": {
+        "lam": 0.01,
+        "A": 0.024799027548855938,
+        "alpha": 11.742092903324508,
+        "S": 6.688012967137749,
+        "B": 41.34060251753093,
+        "D": 0.02317376885033018,
+        "Bpaired": 1.0773125819001979,
+        "QFprime": 1.1879437104134136,
+        "Qpprime": 1.1647699415630834,
+        "relative_quad_error": 1.3825893952349287e-12
+      },
+      "budget_over_terminal": 0.12361833755081947,
+      "paid_lower_bound": 5.861251922621857,
+      "paired_budget_over_terminal": 0.003220198346054677,
+      "paired_paid_lower_bound": 6.66647623884258,
+      "signed_identity_error": 1.865174681370263e-14
+    },
+    {
+      "Lambda": 0.1,
+      "terminal": {
+        "lam": 0.1,
+        "A": 0.025117601633928045,
+        "alpha": 11.669976464811793,
+        "S": 6.692455498372336,
+        "B": 41.38713935322717,
+        "D": 0.026205825021878404,
+        "Bpaired": 1.085987234675982,
+        "QFprime": 1.1986931047037128,
+        "Qpprime": 1.1724872796818344,
+        "relative_quad_error": 1.3994468933749753e-12
+      },
+      "budget_over_terminal": 1.236054548513964,
+      "paid_lower_bound": -1.5797845611180783,
+      "paired_budget_over_terminal": 0.032309635601443745,
+      "paired_paid_lower_bound": 6.4762246999410475,
+      "signed_identity_error": 1.7763568394002505e-14
+    },
+    {
+      "Lambda": 0.5,
+      "terminal": {
+        "lam": 0.5,
+        "A": 0.02661594886660698,
+        "alpha": 11.352541182545803,
+        "S": 6.719214457971695,
+        "B": 41.609115848178064,
+        "D": 0.0410931223976001,
+        "Bpaired": 1.1270270708807426,
+        "QFprime": 1.2497277448803568,
+        "Qpprime": 1.2086346224827567,
+        "relative_quad_error": 1.5310436910979895e-12
+      },
+      "budget_over_terminal": 6.17170851631879,
+      "paid_lower_bound": -34.74981863526456,
+      "paired_budget_over_terminal": 0.16388165607198132,
+      "paired_paid_lower_bound": 5.618058465096493,
+      "signed_identity_error": 1.0658141036401503e-14
+    },
+    {
+      "Lambda": 1.0,
+      "terminal": {
+        "lam": 1.0,
+        "A": 0.02869915993490698,
+        "alpha": 10.9633488673348,
+        "S": 6.771120449201283,
+        "B": 41.92608178544792,
+        "D": 0.06349584985871792,
+        "Bpaired": 1.1848141755806674,
+        "QFprime": 1.3220514601220121,
+        "Qpprime": 1.2585556102632942,
+        "relative_quad_error": 1.508825396392459e-12
+      },
+      "budget_over_terminal": 12.292302603342732,
+      "paid_lower_bound": -76.46154107606286,
+      "paired_budget_over_terminal": 0.333242332977164,
+      "paired_paid_lower_bound": 4.514696473840065,
+      "signed_identity_error": 1.9539925233402755e-14
+    }
+  ],
+  "scope": "Floating diagnostic, ten theta orbits and |u|<=3; no rigorous truncation or quadrature certification."
+}

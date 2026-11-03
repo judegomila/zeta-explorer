@@ -19,13 +19,16 @@ parallel-friendly package.
 5. [`verification/README.md`](verification/README.md) - exact integrity and smoke-test commands.
 6. [`PARALLEL_WORK.md`](PARALLEL_WORK.md) - branch, worktree, and ownership rules for parallel work.
 
-## Frozen evidence baseline
+## Frozen baseline and append-only deltas
 
-The integrated baseline is a composition of two verified Library artifacts:
+The integrated checkpoint is a composition of the frozen v18 baseline and two
+verified deltas:
 
 - campaign v18, Library `libfile_93281585a66c81918ba351446f9d7615`,
   4,369,533 bytes, SHA-256
   `3a47ccddd9a529c719e4a2ca0a6b262290610cbc1d651f3dec20e8ffd8f5c9ef`;
+- campaign v19, 4,843,375 bytes, SHA-256
+  `8fe5bb4162a0650d297c3ec841b81111ef25c06ce19a1133725e87d4b7e90aa0`;
 - CP62, Library `libfile_19a836c8b8a8819198a91a5abe44c640`,
   79,980 bytes, SHA-256
   `75db9056b1863e904afecbbf2a99de1ff108a48fd3b0ea2242c988e899aa7ccb`.
@@ -43,12 +46,21 @@ archive identity is preserved above and in
 [`provenance/artifacts.json`](provenance/artifacts.json); the archive itself is
 not committed.
 
+The v19 source manifest verifies 672 payloads and preserves all 585 v18
+payloads byte-for-byte. Its publication-safe, append-only derivative is stored
+under `evidence/v19-delta/`: 58 allowlisted authored files, with two text-only
+privacy redactions recorded in
+[`provenance/v19-redactions.json`](provenance/v19-redactions.json). The source
+archive, private conversation capture, and acquired source extraction are not
+committed; exact accounting is in
+[`provenance/v19-publication.json`](provenance/v19-publication.json).
+
 CP62 is stored byte-for-byte under `evidence/cp62/`. It postdates v17 and is not
 part of the v18 campaign payload, so it is recorded as an explicit delta rather
 than silently folded into the campaign freeze.
 
-The checkpoint-level [`SHA256SUMS`](SHA256SUMS) binds all 631 public files
-other than the checksum list itself.
+The checkpoint-level [`SHA256SUMS`](SHA256SUMS) binds every public file other
+than the checksum list itself.
 
 ## Repository boundary
 

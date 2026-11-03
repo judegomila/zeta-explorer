@@ -70,6 +70,23 @@ def main() -> int:
                     "stderr": completed.stderr.strip(),
                 }
             )
+    v19_completed = subprocess.run(
+        [sys.executable, str(ROOT / "verification" / "check_v19_certificates.py")],
+        cwd=ROOT,
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+    results.append(
+        {
+            "name": "v19-certificate-summaries",
+            "returncode": v19_completed.returncode,
+            "expected_output_seen": '"status": "PASS"' in v19_completed.stdout,
+            "generated_output_hash_ok": True,
+            "stdout": v19_completed.stdout.strip(),
+            "stderr": v19_completed.stderr.strip(),
+        }
+    )
     passed = all(
         row["returncode"] == 0
         and row["expected_output_seen"]

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Verify the curated v18 baseline and the complete CP62 delta."""
+"""Verify the curated v18 baseline and the CP62/v19 public deltas."""
 
 from __future__ import annotations
 
@@ -12,6 +12,7 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 SNAPSHOT = ROOT / "evidence" / "v18-curated"
 CP62 = ROOT / "evidence" / "cp62"
+V19 = ROOT / "evidence" / "v19-delta"
 
 
 def digest(path: Path) -> str:
@@ -118,9 +119,77 @@ def verify_cp62() -> tuple[int, int]:
     return checked, checked_bytes
 
 
+def verify_v19() -> tuple[int, int, int]:
+    publication = json.loads((V19 / "PUBLICATION_DELTA.json").read_text())
+    if publication.get("version") != 19 or publication.get("baseline_version") != 18:
+        fail("expected v19 publication delta over v18")
+
+    rows = publication.get("files")
+    if not isinstance(rows, list) or len(rows) != 58:
+        fail(f"expected 58 v19 allowlist rows, got {len(rows) if isinstance(rows, list) else rows!r}")
+    expected = {row["path"]: row for row in rows}
+    if len(expected) != len(rows):
+        fail("duplicate v19 allowlist paths")
+
+    redactions_doc = json.loads((ROOT / "provenance" / "v19-redactions.json").read_text())
+    redactions = {row["path"]: row for row in redactions_doc["redacted"]}
+    if not redactions.keys() <= expected.keys():
+        fail(f"unknown v19 redactions: {sorted(redactions.keys() - expected.keys())}")
+
+    checked = 0
+    checked_bytes = 0
+    forbidden_suffixes = {".zip", ".pdf", ".html", ".tex"}
+    for relative, row in expected.items():
+        path = V19 / relative
+        if not path.is_file():
+            fail(f"missing v19 file: {relative}")
+        if path.suffix.lower() in forbidden_suffixes:
+            fail(f"forbidden captured-source type in v19 public delta: {relative}")
+        if relative in redactions:
+            public = redactions[relative]
+            if public["source_sha256"] != row["sha256"]:
+                fail(f"v19 redaction source hash mismatch: {relative}")
+            if path.stat().st_size != public["public_bytes"]:
+                fail(f"v19 redacted byte mismatch: {relative}")
+            if digest(path) != public["public_sha256"]:
+                fail(f"v19 redacted hash mismatch: {relative}")
+        elif digest(path) != row["sha256"]:
+            fail(f"v19 allowlist hash mismatch: {relative}")
+        checked += 1
+        checked_bytes += path.stat().st_size
+
+    metadata = {"PUBLICATION_DELTA.json", "README.md"}
+    actual = {
+        str(path.relative_to(V19))
+        for path in V19.rglob("*")
+        if path.is_file() and str(path.relative_to(V19)) not in metadata
+    }
+    if actual != set(expected):
+        fail(
+            "unexpected v19 public payload set: "
+            f"extra={sorted(actual - set(expected))}, missing={sorted(set(expected) - actual)}"
+        )
+    for relative in metadata:
+        if not (V19 / relative).is_file():
+            fail(f"missing v19 metadata file: {relative}")
+
+    publication_receipt = json.loads((ROOT / "provenance" / "v19-publication.json").read_text())
+    accounting = publication_receipt["delta_accounting"]
+    if accounting != {
+        "new_paths_since_v18": 87,
+        "source_allowlisted_paths": 58,
+        "source_non_allowlisted_paths": 29,
+        "byte_identical_public_allowlist_paths": 56,
+        "public_text_redactions": 2,
+    }:
+        fail("unexpected v19 publication accounting")
+    return checked, checked_bytes, len(redactions)
+
+
 def main() -> int:
     snapshot_checked, snapshot_bytes, excluded, redacted = verify_snapshot()
     cp62_checked, cp62_bytes = verify_cp62()
+    v19_checked, v19_bytes, v19_redacted = verify_v19()
     print(
         json.dumps(
             {
@@ -131,6 +200,9 @@ def main() -> int:
                 "v18_public_redactions": redacted,
                 "cp62_files_verified": cp62_checked,
                 "cp62_bytes_verified": cp62_bytes,
+                "v19_allowlist_files_verified": v19_checked,
+                "v19_allowlist_bytes_verified": v19_bytes,
+                "v19_public_redactions": v19_redacted,
             },
             sort_keys=True,
         )

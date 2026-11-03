@@ -48,7 +48,7 @@
 \title{\textbf{Zeta Sphere Vortices and the Twin-Ladder Bridge}\\
 \large A Theta--Fisher Information Research Program}
 \author{Jude Gomila}
-\date{2 November 2026}
+\date{3 November 2026}
 
 \begin{document}
 \maketitle
@@ -68,7 +68,7 @@ external peer review.
 We organize a computational and analytic research program around a paired theta
 kernel whose positive definiteness for every allowed shift is equivalent to the
 Riemann hypothesis. The program has established two finite footholds: complete
-$H_5$ positivity for all positive shifts and positivity of the full odd
+$H_6$ positivity for all positive shifts and positivity of the full odd
 $10\times10$ moment block through channel $19$ at normalized shift $a=0$.
 It has also rigorously disproved a stronger shortcut: arbitrary spatial
 cumulative tails need not be positive, even at the explicit positive shift
@@ -82,8 +82,12 @@ decay $I'(h)\le-14I(h)$ for the complete theta orbit law. These estimates are
 then inserted into exact signed identities rather than treated as positivity
 theorems. A two-ladder regression formula separates favorable innovation,
 reflected innovation, and the mismatch action measured by the already-certified
-lower block. Spatial heat preserves every zero and contributes only a removable
-Gaussian reserve; Newman evolution retains a signed derivative-ladder forcing.
+lower block. At the existing odd-19 endpoint, an interval replay certifies that
+innovation pays coefficient motion with positive surplus. Spatial heat preserves
+every zero and contributes only a removable Gaussian reserve; Newman evolution
+retains a signed derivative-ladder forcing, but one degree-$2$ certificate pays
+that forcing over a complete finite deformation interval. These are finite
+mechanism validations, not all-order estimates.
 The central open lemma is a degree-uniform comparison showing that the actual
 lower-metric innovation dominates regression mismatch, inverse feedback, and
 signed forcing. Without that lemma the Riemann hypothesis remains open.
@@ -101,7 +105,8 @@ falsified, and what a successful next estimate must pay. The word
 or replay. It does not mean peer review, formal proof-assistant verification, or
 community acceptance.
 
-The repository checkpoint binds two immutable source artifacts:
+The repository checkpoint binds a frozen baseline, a publication-safe campaign
+delta, and the separate CP62 delta:
 \begin{itemize}[leftmargin=2em]
 \item Campaign v18 has Library identifier
 \texttt{libfile\_93281585a66c81918ba351446f9d7615}, byte count
@@ -112,6 +117,15 @@ $4{,}369{,}533$, and SHA-256
 \end{center}
 Its internal manifest verifies 585 payloads and preserves all 537 v17 payloads
 byte-for-byte.
+\item Campaign v19 is an append-only source artifact of $4{,}843{,}375$ bytes
+with SHA-256
+\begin{center}\small\ttfamily
+8fe5bb4162a0650d297c3ec841b8111\\
+1ef25c06ce19a1133725e87d4b7e90aa0.
+\end{center}
+Its internal manifest verifies 672 payloads and preserves all 585 v18 payloads
+byte-for-byte. The repository publishes only its explicit 58-file authored
+allowlist, with two documented privacy redactions.
 \item CP62 has Library identifier
 {\small\texttt{libfile\_19a836c8b8a8819198a91a5abe44c640}}, byte count $79{,}980$,
 and SHA-256
@@ -123,8 +137,9 @@ f108a48fd3b0ea2242c988e899aa7ccb.
 The public repository derivative omits third-party papers, captured HTML,
 nested downloaded archives, and conversation records. Nine otherwise
 publishable authored text files have only private conversation references or
-stale pointers to omitted files replaced. The exact omissions and redactions are manifested; the private
-original artifacts remain hash-addressed.
+stale pointers to omitted files replaced in v18; two analogous text redactions
+are recorded for v19. The exact omissions and redactions are manifested; the
+private original artifacts remain hash-addressed.
 
 \begin{longtable}{>{\raggedright\arraybackslash}p{0.20\textwidth}
                   >{\raggedright\arraybackslash}p{0.34\textwidth}
@@ -133,13 +148,13 @@ original artifacts remain hash-addressed.
 Result & Established scope & Boundary that remains \\
 \midrule
 \endhead
-Full theta $H_5$ & Strict positivity for every positive shift; finite-order interval theorem. & No all-order hierarchy and no RH conclusion. \\
+Full theta $H_6$ & Strict positivity for every positive shift and the normalized endpoint; on $0\le a\le1/2$, the even $4\times4$ basis Gram has reserve $I/60$ and joins the inherited odd $H_5$ block. & No $H_7$, no all-order hierarchy, and no RH conclusion. \\
 Odd channels $1,3,\ldots,19$ & Full $10\times10$ odd block at normalized $a=0$, including the actual $H=1/16$ core/tail coupling. & Not the even block, not full $H_{19}$, and no nonzero-shift or all-degree result. \\
 $H=1$ cumulative tail & Explicit negative Fourier density at $t=7005081715/10^6$, including $a=10^{-4}$. & Refutes universal tail positivity, not the complete kernel or RH. \\
 Bridge Fisher information & $I_a\le2/17$ and regular endpoint $I_{a^2}(0)\le4/867$. & Fisher PSD does not imply parameter-derivative Gram PSD. \\
 Orbit information & $I'(h)\le-14I(h)$ and $I(h)<2e^{-14h}$. & High-degree observables can amplify rare orbits; the actual bridge metric is not controlled. \\
-Twin innovation & Exact innovation-minus-reflection-minus-mismatch identity. & Uniform domination of mismatch action is open. \\
-Heat/Newman relaxation & Exact zero-preserving spatial heat formula and signed Newman forcing. & The Gaussian reserve is removable; the forcing has no automatic favorable sign. \\
+Twin innovation & Exact innovation-minus-reflection-minus-mismatch identity; at the odd-19 endpoint, gain $>2.52203292259\cdot10^{-4}$ pays cost $<9.1900511724\cdot10^{-5}$. & The certified payment is finite-rung and endpoint-local; uniform domination is open. \\
+Heat/Newman relaxation & Exact zero-preserving heat formula, signed forcing, and a paid degree-$2$ certificate at $a=1/4$, $0\le\lambda\le1$. & The Gaussian reserve is removable, and no degree-uniform forcing bound is known. \\
 \bottomrule
 \end{longtable}
 
@@ -187,7 +202,7 @@ finite order can discharge the universal quantifiers in RH.
 
 \section{Certified finite footholds}
 
-\subsection{Complete \texorpdfstring{$H_5$}{H5} positivity}
+\subsection{Complete \texorpdfstring{$H_6$}{H6} positivity}
 
 The odd three-channel block is
 \begin{equation}
@@ -203,6 +218,29 @@ $0\le a\le1/2$. The minimum third normalized LDL pivot is greater than
 $0.09778764$. A complementary tail-matrix proof covers every positive shift,
 and the independently reviewed even block through $H_4$ completes the finite
 $H_5$ result.
+
+The v19 advance certifies the next even block. On $0\le a\le1/2$, a newly
+authored independent Arb verifier establishes, in the stated polynomial basis,
+\begin{equation}
+ G^{\mathrm{even}}_6(a)\succeq\frac1{60}I.
+ \label{eq:h6-reserve}
+\end{equation}
+The minimum Gershgorin lower enclosure exceeds
+$0.0170093334380758$, while the normalization upper enclosure is below
+$0.0318323627008881<4/125$. In the fixed certificate coordinates this yields
+the exact normalized Schur reserve
+\begin{equation}
+ \frac{12915039062500}{3}>4\cdot10^{12}
+\end{equation}
+and determinant lower bound $>2\cdot10^{23}$. These values belong to the
+specified basis and normalization, not arbitrary coordinates.
+
+Together with the previously reviewed odd $H_5$ block, this proves the complete
+finite $H_6$ test on the normalized critical-shift interval. For $a\ge1/2$,
+the standard zero-strip and paired canonical-product argument gives strict
+positivity. Hence $H_6$ holds for every $a>0$ and at the normalized endpoint
+$a=0$. The v19 audit did not rerun the inherited odd $H_5$ certificate. This is
+a finite-order result, not an all-order hierarchy or a proof of RH.
 
 This theorem is not pointwise positivity in the spatial variable. Indeed, the
 pointwise odd $3\times3$ determinant is negative at $h=0$. Integration over the
@@ -431,6 +469,25 @@ or a sharper matrix-path version. No uniform theta proof of
 \eqref{eq:action} is presently known. This is the cleanest form of the central
 regression-action obstruction.
 
+There is now a rigorous finite endpoint payment. An independent 1000-cell
+interval evaluation of the positive parent, combined with the inherited
+certified target-moment intervals, verifies every existing odd rung
+$3,5,\ldots,19$ at normalized $a=0$. At the odd-19 rung, in the fixed scaled
+certificate basis,
+\begin{align}
+ \text{innovation gain}&>0.000252203292259,\nonumber\\
+ \text{coefficient-motion cost}&<0.000091900511724,\nonumber\\
+ \text{surplus}&>0.000160302780535,\nonumber\\
+ \frac{\text{cost}}{\text{gain}}&<0.364390610847.
+ \label{eq:odd19-payment}
+\end{align}
+The replay newly encloses the positive parent but inherits padded target-moment
+intervals from the established odd-19 certificate. The exact action-excess
+expansion is $O(a^3)$, so it gives a common but unspecified sufficiently small
+positive-shift interval for this finite set of rungs. Reported nonzero-shift
+action probes remain numerical diagnostics: they are not interval-certified
+shift ranges and not degree-uniform constants.
+
 \section{Orbit information relaxation and its limits}
 
 Write the complete positive orbit decomposition on $h\ge0$ as
@@ -543,6 +600,43 @@ terminal reserve, and prove that the integrated positive energy budget is
 smaller than that reserve. This template has not been closed uniformly in
 degree.
 
+It has, however, been closed at one actual finite order. For the theta kernel
+at degree $n=2$, $a=1/4$, and $0\le\lambda\le1$, an independent
+$60000\times1000$ Arb rectangle certificate proves, before the common
+$\pi/2$ normalization,
+\begin{align}
+ S_1&>3.6442681947430,\nonumber\\
+ 2\int_0^1 B_{\mathrm{pair}}(\lambda)\,d\lambda
+   &<3.1520578244214.
+ \label{eq:paid-newman-n2}
+\end{align}
+The paid residual therefore exceeds $0.4922103693903$ unscaled and exceeds
+$0.773162230542629$ after multiplication by the common $\pi/2$ factor. The
+certificate retains derivative-square cancellation and reflection before
+taking a positive-part bound. It validates the paid mechanism at an
+already-known finite order; it proves no new positivity order, all-shift
+statement, or all-degree estimate.
+
+There is also an exact forcing reduction. For the real phase-normalized
+same-parity residual $F=Tg$, with $K=T'g$ and $L=T''g$, integration by parts
+gives
+\begin{equation}
+ \int_{\R}u^2FK\,du=-\int_{\R}u(K^2+FL)\,du.
+\end{equation}
+Actual signed lower same-parity orthogonality removes the $uFL$ term, yielding
+\begin{equation}
+ D=\frac{\pi}{2}\left(
+     \int_{\R}u^3F(u)^2\,du
+     -2\int_{\R}uK(u)^2\,du
+   \right).
+ \label{eq:orthogonality-forcing}
+\end{equation}
+This is an exact identity, not a sign theorem. The second integral is an
+opposite-parity bridge energy whose sign needs an independent proof: the
+odd-19 certificate alone does not provide the even-18 sign. No uniform
+higher-degree comparison has been paid, and a local positive-part estimate can
+be more expensive than the paired formula.
+
 \section{A positive death chain and a still-signed bridge}
 
 The orbit marginals admit an exact time-inhomogeneous pure-death process. For
@@ -611,8 +705,11 @@ prove it.
 
 The current evidence narrows the target substantially:
 \begin{itemize}
-\item finite $H_5$ and odd-degree-19 certificates show that actual signed
+\item finite $H_6$ and odd-degree-19 certificates show that actual signed
   repair can work at fixed degree;
+\item at the odd-19 endpoint, positive innovation rigorously pays the
+  coefficient-motion cost with explicit surplus;
+\item at degree $2$, the complete finite Newman-flow budget is rigorously paid;
 \item the $H=1$ obstruction forbids an arbitrary-tail positivity shortcut;
 \item Fisher and orbit contraction provide real, explicit information gains;
 \item regression and death-chain identities state exactly where those gains
@@ -625,12 +722,22 @@ What remains is the quantitative theta-specific comparison itself.
 \section{Reproducibility and parallel continuation}
 
 The repository checkpoint contains the editable sources, exact evidence
-manifests, certificate outputs, and bounded verification scripts. The default
-archive verifier checks 574 retained v18 payload files and 34 CP62 files against
-their source hashes. The dependency-light smoke suite reruns exact rational
-checks for the $H_5$ analytic tail, fixed grouped Gram, zero window, confluent
-cluster, and both CP62 algebra packets. It does not claim to rerun the Arb
-$2^{21}$-point DFT, all interval quadratures, or every historical dependency.
+manifests, certificate outputs, and bounded verification scripts. Frozen v18
+remains unchanged; v19 is an append-only 58-file public delta with two recorded
+text redactions. The default archive verifier checks v18, CP62, and every v19
+allowlist path against its source or recorded public hash. The dependency-light
+smoke suite reruns exact rational checks for the $H_5$ analytic tail, fixed
+grouped Gram, zero window, confluent cluster, both CP62 algebra packets, and
+standard-library checks of the v19 endpoint/certificate inequalities and
+orthogonality identity.
+
+Separate scientific replays reran the v19 H6 Arb checker, the odd-rung endpoint
+evaluator, the paid endpoint extraction and tail constants, and the symbolic
+orthogonality smoke. The expensive 1000-cell parent construction and full
+$60000\times1000$ paid rectangle integration were not rerun during repository
+integration; their independently captured interval outputs remain frozen. Nor
+does this update claim to rerun the historical Arb $2^{21}$-point DFT, every
+interval quadrature, or every historical dependency.
 
 Parallel work uses isolated worktrees. Evidence and provenance are frozen;
 proof, experiment, audit, and paper lanes submit claim deltas to a single
@@ -647,12 +754,13 @@ are campaign-internal independent checks, not external refereeing.
 
 The theta--Fisher route has moved beyond a loose information-theoretic analogy.
 It now has genuine bridge and orbit Fisher inequalities, exact paid regression
-identities, a positive stochastic realization, and rigorous counterexamples
-that prevent convenient but false shortcuts. The evidence also says precisely
-why this is not yet a proof of RH: none of the information gains has been shown
-to dominate the actual all-degree signed coupling cost. The next useful result
-is therefore not another generic contraction theorem, but the source-specific,
-degree-uniform innovation inequality in the complete bridge metric.
+identities, two certified finite payment mechanisms, a positive stochastic
+realization, and rigorous counterexamples that prevent convenient but false
+shortcuts. The evidence also says precisely why this is not yet a proof of RH:
+none of the information gains has been shown to dominate the actual all-degree
+signed coupling cost. The next useful result is therefore not another generic
+contraction theorem, but the source-specific, degree-uniform innovation
+inequality in the complete bridge metric.
 
 \bibliographystyle{plain}
 \bibliography{references}

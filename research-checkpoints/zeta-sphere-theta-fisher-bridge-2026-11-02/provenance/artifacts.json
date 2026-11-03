@@ -15,6 +15,16 @@
       "rerun_status": "supplied-and-hash-verified"
     },
     {
+      "role": "campaign-v19-publication-delta",
+      "name": "zeta_sphere_campaign_v19_20261103T0020Z.zip",
+      "bytes": 4843375,
+      "sha256": "8fe5bb4162a0650d297c3ec841b81111ef25c06ce19a1133725e87d4b7e90aa0",
+      "integrity": "unzip-test-pass; internal manifest 672/672 pass; all 585 v18 payloads preserved byte-for-byte",
+      "repository_copy": "58-file publication allowlist with two recorded privacy redactions; source archive, conversation capture, and acquired source excluded",
+      "private_locator": "retained outside the public repository",
+      "rerun_status": "supplied-and-hash-verified; bounded public smoke checks are recorded separately"
+    },
+    {
       "role": "preserved-v17-baseline-identity",
       "name": "zeta_sphere_campaign_v17_20261102T2328Z.zip",
       "library_file_id": "libfile_3c3aff317d308191bde03515a0a4dd47",

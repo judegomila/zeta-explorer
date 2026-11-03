@@ -18,6 +18,13 @@ parallel-friendly package.
 4. [`DEPENDENCIES.md`](DEPENDENCIES.md) - how the proved pieces and the open bridge fit together.
 5. [`verification/README.md`](verification/README.md) - exact integrity and smoke-test commands.
 6. [`PARALLEL_WORK.md`](PARALLEL_WORK.md) - branch, worktree, and ownership rules for parallel work.
+7. [`workstreams/all-degree-analytic-search-next-v1/README.md`](workstreams/all-degree-analytic-search-next-v1/README.md)
+   - the post-v31 exact EGF, endpoint-defect, frozen-residue and correlated
+   trace workstream, including the exact real-line drift kernel, the
+   all-prefix frozen-residue route obstruction, the surviving one-negative
+   and paid-Schur continuations, the enlarged score-space certificate, the
+   analytic Bessel-controlled Ewald tail, governed finite diagnostics, and
+   their limits.
 
 ## Frozen baseline and append-only deltas
 

@@ -291,6 +291,552 @@ classified as diagnostic or correction history. Uncertified probes, the
 invalid six-channel implementation, private provenance, and acquired
 third-party material are not theorem inputs. Internal independent replay
 remains AI-assisted campaign review, not external peer review.
+## Post-v31 frozen-residue closure
+
+The isolated workstream
+`workstreams/all-degree-analytic-search-next-v1/` now records the exact
+frozen-residue metric and its limitation.
+
+- On each parity prefix, `M_(0,N)=Q_N+v_N d_N^*+d_N v_N^*`. In physical
+  space it is the signed square
+  `(||2hF_p+Psi_(p')||^2-||Psi_(p')||^2)/2`; the negative leg has rank growing
+  with the prefix. In Fourier space it is the original Xi--Laguerre multiplier
+  plus a nonlocal rank-two boundary kernel, not a new scalar multiplier.
+- Any uniform finite bound on `n_-(M_(0,N))` is equivalent to nonnegativity of
+  the endpoint Xi--Laguerre density. In particular, the proposed all-prefix
+  `n_-<=1` lemma is endpoint-equivalent, not an easier induction. A positive
+  old target by itself gives only the sharp generic bound two.
+- The exact real-theta old-prefix gate is `sqrt(VD)-C<=1`, equivalently
+  `inf_(tau>0)||L_tau||_(A*)^2<=1` for one correlated combination of the
+  half-line functional `v` and residue-drift trace `d`. The drift also has an
+  exact undivided real-frequency gamma/digamma kernel and is a shifted
+  first-theta-orbit trace. On the endpoint-positive branch, fixed-`tau`
+  target-dual norms diverge while nested feasible prefix intervals would
+  force one fixed `tau`; on the other branch, target negative inertia is
+  unbounded. Thus all-prefix `M_0` positivity is false and some finite
+  `M_(0,N)` prefix is not positive semidefinite in each parity, without
+  locating the first failure.
+- The surviving one-negative-direction extension has an exact singular
+  bordered-inertia criterion. Once an old `M_0` prefix has index one, the next
+  rung preserves it exactly when the indefinite-orthogonal theta residual has
+  nonnegative `M_0` square, together with the Moore--Penrose range condition
+  at a zero pivot. This is noncircular but all-prefix success remains
+  endpoint-equivalent, not proved.
+- The actual paid-twin Schur border now has the exact two-regression split
+  `2S=A_X-B_Y-C_XY`, where all three terms are nonnegative and
+  `C_XY=r^*(G_Y^dagger+Q^-1)r`. For a monic degree-`n` rung,
+  `B_Y=n^2 h_(n-1)^(Y)`. Thus `A_X>=B_Y` is a necessary positive-channel
+  comparison, while the still-open sufficient target pays the regression
+  mismatch `C_XY` without separating residue and drift.
+- The mismatch covector itself is exactly
+  `r(q)=<Yq,YR_X>=-2 q(q,R_X)` and
+  `r=G_Y(alpha_Y-alpha_X)=Q(alpha_X-alpha_A)`. In real frequency the
+  `X`-regression residual obeys the undivided Galerkin equation for
+  `L U=-(Xi^2 U')'+2(Xi'^2-Xi Xi'')U`. Substitution collapses the border to
+  the actual signed Schur pivot, so generic `Q^-1` Cauchy is circular rather
+  than an independent payment.
+- The mismatch payment has the principal-angle form
+  `C_XY=sum csc(theta_j)^2 |w_j|^2`. Exact smooth positive countermodels show
+  that neither `A_X>=B_Y`, old strict contractivity, nor the formal graded
+  commutators imply the border generically. For the real theta source the
+  surviving target is directional: the same border is one confluent Turan
+  minor, with a zero-safe primitive-curvature integral and the exact mismatch
+  correction inside its residual polynomial.
+- The undivided Galerkin operator has a global zero-safe square
+  `L=B^*B`, including through arbitrary-multiplicity real Xi zeros. This is
+  exactly the positive `X` normal equation, not a square of the signed target.
+  The angle cost is equivalently `r^*(G_Y:Q)^dagger r`, so the live theorem is
+  one bordered parallel-sum trace inequality for the combined mismatch
+  vector.
+- Full Hankel/Stieltjes positivity of the endpoint moments is equivalent to
+  the missing Xi--Laguerre spectral sign. The actual odd-H5 Bell-fiber matrix
+  is indefinite near the center, so pointwise fiber total positivity cannot
+  prove it; integrated covariance repair is essential.
+- Every isolated sufficiently high theta orbit already has
+  `A_X-B_Y<0` at the first even extension, and every raw finite positive orbit
+  packet has a negative algebraic Turan tail. Pairwise orbit positivity,
+  finite-orbit limits, and blockwise regressions are therefore refuted routes.
+  A viable proof must retain the modularly complete infinite sum and
+  cross-orbit compensation.
+- The interaction profile has an exact signed three-autocorrelation split and
+  a tilted-norm curvature form, but positive-definite parents do not imply the
+  required Loewner curvature. Positive local differential squares are
+  obstructed by their order of vanishing at real Xi zeros. Finite verified
+  zero bands remain insufficient for an all-degree polynomial ladder.
+- After the exact normalization `Xi(nu)=8H(2nu)`, the all-prefix endpoint sign
+  is Csordas' Open Problem 4.7 for the first Laguerre expression of the
+  Riemann Xi function. This is a literature alignment, not a proof or an RH
+  equivalence; first Laguerre positivity alone is only necessary in general.
+- Finite residue-jet renormalizations cannot remove the high-frequency drift:
+  every nonzero constant-coefficient jet combination remains target-dual
+  divergent in both parities, and its target-space boundary functional is
+  nonclosable. Separately, the endpoint Turan density is the Fourier transform
+  of a strictly positive theta conditional-variance profile; the missing sign
+  is exactly positive definiteness of that profile, not its pointwise
+  positivity.
+- A governed SHA-bound floating diagnostic found `M_0` positive on every
+  archived odd prefix through degree 19. At degree 19 the target gate has left
+  side `0.2752057211...` and margin `0.7247942789...`; the primary/replay
+  matrices differ by about `3.09e-60`. All receipt and execution-audit checks
+  passed. These are pre-asymptotic finite cutoff midpoint diagnostics, not new
+  interval certificates or evidence for an all-degree/RH result.
+
+## Fourth-wave correlated closure audit
+
+- Exact modular quotients realize the old parallel metric as a global
+  quotient norm. The optimal two-channel Cauchy inequality is sharp at the
+  existing mismatch cost `C_XY`; replacing that cost by `A_X-B_Y` is exactly
+  the original signed pivot. The singular `G_Y` and zero-`H` cases have been
+  audited explicitly. Generic independent-channel pointwise shorting is
+  indefinite, although a stronger theta-specific admissible-graph inequality
+  is not excluded.
+- The regional Schur pivot satisfies an exact law of total variance. At odd
+  H5 the small center pivot is negative at order `H^3`, within-core covariance
+  is only `O(H^7)`, and the known integrated positivity is repaired by the
+  tail plus core--tail covariance. A positive auxiliary anchor gives an
+  all-degree identity even when a regional old block is indefinite; the open
+  step is a theta-specific signed regional/angular budget with exact payment
+  `2 delta_(ij) a_i a_j`.
+- A left-cell Euler/Ewald decomposition cancels every modular seam jet and
+  converges in an all-degree Schwartz topology. It gives a legitimate global
+  correlated paid decomposition, but every nonzero finite cell packet has
+  infinitely many Fourier sign changes, and finite packets with positive cell
+  coefficients change sign in physical space. Seam repair therefore does not
+  yield finite-block positivity in this grouping.
+- Complete-theta log-concavity proves only the lower sine-tail bound. A smooth
+  log-concave countermodel refutes the generic shape route, leaving a stronger
+  alternating-lattice sign as a possible theta-specific target. Its
+  high-frequency value is beyond all finite local jet expansions.
+- Sra's 2026 reciprocal-Xi result gives a positive Laplace formula only before
+  the first zero and all generalized Laguerre inequalities only on the finite
+  published verified band. The source explicitly leaves the global first
+  Laguerre inequality open. The RH-equivalent properties that cannot be
+  imported without circularity are infinite PF order and complete
+  monotonicity of the zero-heat sum `mathcal H` (equivalently, the
+  complete-Bernstein property of `B`); the proved finite PF order and
+  Bernstein property are unconditional.
+- Any hypothetical off-line quartet must satisfy a reciprocal-square local
+  crowding condition `M_(a,b)+1/(2a^2)>=2/b^2`. Standard strip geometry,
+  finite verification, zero-free regions, density upper bounds, and global
+  counts do not imply that scale-sensitive reserve. The canonical-product
+  countermodel establishing this information gap is not a zeta/Xi model and
+  preserves none of the missing theta or Euler-product arithmetic.
+
+These results do not prove the first Xi Laguerre inequality, a new all-degree
+pivot, or RH. Among the concrete analytic directions highlighted by this wave
+are a theta-specific admissible-graph estimate, a uniform regional angular
+budget, and a global correlated Euler/Ewald compensation; these are not
+claimed to exhaust every possible argument.
+
+## Fifth-wave source-specific closure audit
+
+- The proposed theta-admissible pointwise rescue is closed. The exact
+  translation--shear graph reaches every local feature pair already at even
+  degree two and contains negative directions at the first odd rung. Enforcing
+  the common polynomial/Appell relation globally reproduces the original
+  signed Xi--Laguerre quadratic form exactly, so its positivity cannot be used
+  as an independent premise.
+- A uniform positive regional angular gap is impossible: at the scalar first
+  odd rung every regional border is collinear for every partition. At H5 the
+  actual complete-theta ratio `c4/c3` is nevertheless strictly increasing on
+  `(0,infinity)`, which gives strict core--tail projective ordering and a
+  mass-balanced cutoff. The remaining payment retains the signed regional
+  `c5` diagonals in equation (44) of `H5_RATIO_AVERAGE_NEXT.md`. Its compact
+  interval proof is now frozen as a deterministic 3,300-cell Arb replay; this
+  promotes the fixed-H5 ratio theorem, not the signed payment or higher rungs.
+- The correlated Ewald payment has an exact trapezoidal Peano representation.
+  Galerkin orthogonality supplies only a global curvature-null mode. The former
+  core--edge condition collapses to perfect sign segregation; the surviving
+  sufficient target is stochastic fractional-cell placement for the assembled
+  corrected theta source, including its mismatch term.
+- The stronger alternating-lattice sign is now proved on the entire half-cell
+  for all sufficiently large spacings. There is also a rigorous finite-lobe
+  plus convex-tail certificate schema on any compact spacing interval bounded
+  away from zero. Modular inversion does not transfer spacing, and no compact
+  replay or small-spacing closure is claimed.
+- Ordinary heat-flow positivity cannot cross zero collisions: in decreasing
+  time `s=T-tau` the undivided Laguerre expression acquires a negative
+  collision source, and excluding all topology changes down to zero heat would
+  already impose the stronger de Bruijn--Newman conclusion. A separate entire
+  countermodel proves that
+  infinite coefficient log-concavity plus all relevant Toeplitz minors does
+  not imply the continuous spectral Laguerre sign.
+- For each fixed residual, an off-line zero quartet's local `b^-2` obstruction
+  integrates to an `O(b^3)` negative penalty under the stated scaled
+  equicontinuity hypothesis. Disk bounds and canonical-series convergence give
+  a conditional fixed-polynomial verification principle, not a single
+  degree-uniform verified band.
+
+These are analytic reductions and route retirements, not an RH result. At the
+fifth-wave checkpoint, the candidate source-specific obligations were the
+signed H5 `c5` budget, fractional-cell Ewald placement,
+compact/small-spacing alternating-lattice completion, or quotient sampling.
+The next audit sharpens or retires those formulations.
+
+## Sixth-wave saturation and high-frequency audit
+
+- The canonical joint old/new-channel completion has now been evaluated on
+  the actual polynomial witness. Both nonnegative channel terms cancel and
+  the bordered trace form is exactly `Q[pi]=2S`. Thus a generic correlated
+  covariance or one more quotient Cauchy estimate has no hidden reserve; any
+  successful continuation must estimate the source-specific pivot itself.
+- At H5, equation (44) of `H5_RATIO_AVERAGE_NEXT.md` is a strict sufficient
+  condition, not the sharp pivot: its left side equals the true H5 Schur
+  complement minus `delta_*^2 a^2`. The exact live scalarization is a single
+  assembled bottom-Turan integral plus the variance of `c4/c3`, minus one
+  explicit old-prefix cost. A rational two-region model shows that ordering,
+  balance, positive regional old blocks, and even pointwise bottom-Turan
+  positivity do not imply this payment. The Planat--Sole four-spatial-jet cone
+  likewise does not determine the independent `c5` jet.
+- Fractional Ewald placement is exactly a folded sine-family inequality for
+  the assembled samples `m J_pi(m)`, whereas the actual paid pivot is only a
+  positive weighted average of that family. A self-dual Schwartz countermodel
+  proves placement is strictly stronger than the scalar sign. Convexity and
+  nonnegativity of the combined sample sequence remain a concrete sufficient
+  cone, not an established theta property.
+- The small-spacing alternating lattice has an exact odd-harmonic
+  high-frequency form. Full half-cell positivity forces the actual first
+  Laguerre density `F(a)>=0`, and a third-harmonic-scale lower bound on `F`
+  would close sufficiently small spacings. The available completed-zeta
+  envelope is only an upper bound and cannot decide that sign.
+- Conditional on one off-line quartet, the all-polynomial core-only quotient
+  sampling norm grows exponentially on both parity ladders. That proposed
+  contraction is therefore equivalent to excluding such quartets and is too
+  strong to serve as a weaker input. This does not rule out special alignment
+  of the actual Galerkin residual or exact background/exterior compensation.
+- The complete de Bruijn--Newman source, and hence the scaled campaign source
+  `psi`, is not Polya-frequency of order five. This blocks source-level
+  translation total positivity above order four, but it does not sign the
+  associated Turan profile, Hankel form, or endpoint pivot.
+- Independently of the Volterra quotient, the shifted-Xi de Branges diagonal
+  has an exact small-shift identity whose boundary derivative recovers
+  `Q[pi]`. The Volterra construction is an exact structural quotient analogue,
+  but the cited framework supplies no proved evaluation-trace and
+  joint-isometry pullback between the two, nor the required endpoint passage.
+  It is an analogue, not a sign transfer.
+
+These results further narrow the live analytic work to direct complete-theta
+control of `Q[pi]`, the assembled H5 scalar expression, a weaker integrated
+form of the Ewald sine family, or actual-residual alignment with the full
+signed exterior compensation retained. They do not prove the first Xi
+Laguerre inequality, an all-degree pivot, or RH.
+
+## Seventh-wave assembled-scalar audit
+
+- Under the old-prefix/range hypotheses with `m_k>0`, reverse Gram--Schmidt
+  gives a singular-safe all-degree identity. If `c_k>0` a.e. and the quotient
+  integrals converge, each normalized next pivot is the expectation of one
+  signed local Schur defect plus the variance of the same combined feature
+  vector. It exactly recovers the H5
+  bottom-Turan/ratio-variance/old-cost formula. The identity is saturated:
+  with earlier moments fixed, the newest moment enters with coefficient one.
+  Old-prefix or border-only recursion cannot supply the missing sign.
+- Retaining the entire positive background and exterior parent does not make
+  the actual Galerkin residual avoid a near-critical negative sampling mode.
+  Its correction is amplified by `(1-lambda)^(-1)`. At an exterior point
+  where the parent residual is nonzero, an exact Christoffel model, stable
+  under fixed-degree quartet-shaped interval approximation,
+  keeps the old prefix positive while the next actual pivot is negative.
+  This is a source-free method obstruction, not a Xi quartet.
+- The full H5 payment has an exact Sobolev/Riccati square representation. A
+  cubic auxiliary makes the remainder criterion positive in a noncertifying
+  diagnostic, yielding a
+  compact fixed-H5 target without splitting its signed terms. At every
+  nontrivial rung `2N+epsilon>=1`, however, every pointwise polynomial
+  auxiliary has the sharp Hardy deficit `(4N+2epsilon-1)/4`; the even base is
+  separately positive. The auxiliary hierarchy converges back to the target,
+  and a positive Gaussian ladder proves that fixed auxiliary degree eventually
+  fails generically. Linear degree is the natural growing scale, but a
+  theta-specific fixed-degree miracle is not excluded; either route must pay
+  a source-specific margin.
+- The direct Ewald scalar is one harmonic-weighted half-space in the second
+  differences of `mJ_pi(m)`, not the full pointwise sine cone. It is also the
+  endpoint integral of a seam-free Euler-renormalized polylogarithmic Abel
+  path. Finite samples or cells do not determine its sign in the generic
+  self-Fourier class; an all-index theta rigidity or tail theorem is needed.
+- The proposed absolute small-spacing first-harmonic lower bound is a strong
+  minimum-modulus theorem. It would force eventual critical-line simplicity,
+  individual derivative and spacing bounds, and a zero-free tube for the
+  Laguerre density. A relative log-decay lemma avoids an absolute minimum but
+  still assumes the missing first-Laguerre sign.
+- A degree-independent translation-intertwining contraction between the
+  complete positive and negative theta channels is equivalent to the global
+  first-Laguerre sign on either full parity cyclic range. Positive tilted parents have
+  exactly the missing Turan profile as their Loewner curvature, while complex
+  shift subharmonicity leaves the polynomial-transport curvature unpaid.
+
+The surviving analytic work is correspondingly directional and
+source-specific: control the newest Bell coefficient in the reverse-anchor
+identity, construct a theta-specific auxiliary with a uniform margin, prove
+the scalar Ewald half-space/Abel integral, or couple the actual mismatch
+vector to its sampling spectrum. None of these identities or countermodels
+proves the first Xi Laguerre sign, the full ladder, or RH.
+
+## Eighth-wave correlated-target audit
+
+- The finite Bell-moment map has full-rank differential at the actual theta
+  profile. For every sufficiently small parameter, theta-scale positive even
+  analytic perturbations preserve every old moment and the differentiated
+  first-orbit hierarchy through its orbit-gap scale while moving the newest
+  moment and pivot. They leave the exact Jacobi family, so the new conclusion
+  is a route boundary: additional source-specific structure is necessary.
+  The exact joint orbit-score payment isolates that missing structure but is
+  still target-equivalent and unproved.
+- The direct negative-quartet term and inverse old-metric feedback combine as
+  one defect norm `<z,(I-CC*)^(-1)z>`. The next pivot is equivalent to one
+  directional augmented-column contraction. A coupled entire
+  quartet/background model preserves reflection, exterior reserve, and old
+  positivity but has a negative next pivot, ruling out those properties alone.
+  It is not Xi and lacks complete-theta modular arithmetic.
+- The actual residual has an exact one-rung Julia-defect lift. Its contraction
+  margin is `8q[pi]`, with the complete harmonic/Abel compensation retained.
+  A damped Abel differential inequality permits negative cells and a negative
+  Abel derivative, but no complete-theta seed or damping function is proved.
+- The whole Abel path has an exact Poisson--ceiling boundary-trace kernel.
+  Every interior infinite Abel packet and its radial derivative change sign
+  in physical and Fourier space, refuting positive-packet proofs. A generic
+  Fourier-`+1` Schwartz countermodel shows that pointwise Abel monotonicity is
+  not necessary and does not follow from generic self-dual data, but it
+  remains a possible, unnecessarily strong theta-specific sufficient
+  condition. An integrated sign-changing correlation remains live.
+- The two-generator Sobolev auxiliary `alpha q'+beta tq` gives a genuinely
+  noncircular five-scalar sufficient inequality using only the old residual
+  and positive `W^2` measure. Its rounded H5 value is noncertifying, and the
+  all-degree inequality is unproved. The derivative-only recurrence fails for
+  real-rooted residuals, while ordinary theta heat flow supplies no fixed
+  polynomial closure.
+- The Bell exponential generating function is a positive imaginary-shift
+  norm, but its Gram differs from the target exponential-Hankel kernel by an
+  explicit indefinite transport kernel. Full positivity of the target kernel
+  is the missing first-Laguerre sign. A scaled strongly log-concave Gaussian
+  heat family still has negative spectral Turan density, so source-free
+  imaginary-shift, heat, and log-concavity arguments cannot close the gap.
+
+Highlighted live theorem-shaped obligations include the directional defect
+inequality for the actual sampling column, the two-generator five-scalar
+Sobolev inequality, and a source-derived damped Abel inequality; this list is
+not exhaustive. An orbit-score proof would have to use exact Jacobi arithmetic
+before any termwise estimates. These are analytic reductions and route
+classifications, not the first Xi Laguerre sign, an all-degree theorem, or RH.
+
+## Ninth-wave complete-orbit and Hardy audit
+
+- A theta-scale double-exponential tail, the natural open imaginary-shift
+  strip, positivity, evenness, and arbitrary strong log concavity still admit
+  a negative spectral transport direction in an explicit non-Jacobi model.
+  Super-Gaussian shape alone is therefore not the missing arithmetic input.
+- The exact Green-kernel representation inserts the complete theta source
+  into every quartet quotient. Every nonempty raw finite packet of positive
+  half-line theta orbits has an uncancelled odd modular-center jet, producing
+  an algebraic quotient tail and divergent exterior reserve at high polynomial
+  degree. Raw positive-orbit truncations and orbitwise-positive Cauchy are
+  retired; complete modular cancellation or an explicitly seam-free
+  Euler/Ewald grouping is essential.
+- The exact Jacobi orbit law has strict MLR ordering. At the center, its
+  negative score covariance is canceled exactly by positive drift. For each
+  fixed spatial point, higher even scores are increasing only on a high tail,
+  which signs the tail--tail covariance but not the full covariance. Drift,
+  lower Bell data, and old regression must remain jointly assembled.
+- Integrable Abel damping is only a bounded positive gauge. The logarithmic
+  quotient is circular/nonintegrable at zeros, and every positive scalar
+  damping of an interior completed packet still changes sign. The explicit
+  variation gauge has total damping at most `log 3` for the fixed half seed;
+  it leaves one Poisson--ceiling seed and one signed Wronskian inequality.
+  Both remain open.
+- Under the two old positive-prefix/simple-root hypotheses, the Abel path for
+  `0<=z<1` is exactly a polarized Hardy defect, with `z=1` obtained as the
+  Euler-renormalized endpoint limit. The variation-gauge Wronskian is the
+  corresponding directional cross-Hardy form with positive cell weights.
+  Root Mellin variance also has an exact
+  Euler-cell representation. This bridge supplies no automatic sign:
+  logarithmic root factors create nonintegrable scale tails, so Euler
+  subtraction must precede Mellin differentiation. A theta-specific
+  cross-Hardy angle or reverse root-cell curvature remains open.
+- The five-scalar Sobolev condition is exactly a lower bound on a correlated
+  two-dimensional score projection. Generic Gram geometry has the opposite
+  direction. Positive-target super-Gaussian and exact residual countermodels
+  show that convexity, integration by parts, old-prefix positivity, and the
+  two canonical old-space identities are insufficient without theta
+  arithmetic.
+- The first odd complete-theta instance is now proved analytically:
+  `||psi||_2^2 ||psi''||_2^2 < 5 ||psi'||_2^4`. The proof uses exact
+  incomplete-gamma formulas for the first orbit and a uniform analytic sum of
+  all remaining orbits, with strict rational margin
+  `622392611/20000000`. It uses no sampled-height quadrature or finite orbit
+  truncation. This closes one sufficient base case only.
+- The first nonconstant even auxiliary `(N,epsilon)=(1,0)` is also proved.
+  For `q=t^2-c`, a discriminant reduction makes the sufficient condition
+  independent of `c`; complete orbit bounds give `r>14/5`, `s<14`, and
+  margin `9r^2+6r-27-4s>109/25`. The result therefore holds for the actual
+  coefficient and indeed every real `c`. Together with the preceding item,
+  both first nontrivial parity instances are closed, with no higher-rung
+  induction asserted.
+- The full Bell-plus-regression pivot has an exact all-orbit collapse. Under
+  the two old coupled positive prefixes it is the square of the complete raw
+  orbit mean minus a strict real-root Hardy cost. Ordinary variance is
+  subtracted, so Jensen cannot pay the cost. A two-branch logarithmic
+  transform gives the new noncircular sufficient budget
+  `sum_j 4V_j/(1+V_j)<=2`, with `V_j` the rootwise log-distance variance.
+  Proving that Mellin/Ewald curvature budget for the actual residual remains
+  open.
+- Assembling all roots gives one vector-state `log|D|` variance criterion,
+  but exact Gaussian Hermite residuals show that both the rootwise and
+  assembled Mellin bounds can fail while the Hardy target is positive. They
+  are sufficient, not necessary, and cannot follow from strong log concavity
+  or additive Christoffel localization. Raw finite positive-orbit theta
+  packets also lack the Mellin domain at campaign degrees. Complete modular
+  jet cancellation or an explicitly seam-free Euler/Ewald grouping restores
+  the domain, but a positive all-jet smooth source can still approach the
+  sharp Hardy constant `1/4` with divergent log variance. Additional
+  quantitative actual-theta structure, for example exact Jacobi weights, is
+  required beyond seam cancellation alone.
+
+The ninth wave therefore contains two new analytic low-rung proofs and
+several exact route classifications. It does not establish a higher rung,
+the all-degree Hardy/Mellin budget, the first Xi Laguerre sign, an all-degree
+positivity theorem, or RH.
+
+## Tenth-wave low-rung certificates and uniform reductions
+
+- The actual complete-theta two-generator auxiliary is now strictly proved
+  at three additional rungs: `(1,1)`, `(2,0)`, and `(2,1)`. Together with the
+  prior first odd and first nonconstant even results, this gives five
+  consecutive low-degree complete-orbit certificates. These are fixed-rung
+  results, not an induction.
+- At `(1,1)`, the degree-eight numerator is positive for every real residual
+  coefficient. Exact first-two-orbit incomplete-gamma expressions, a uniform
+  all-`n>=3` tail, Arb outward bounds, and an exact Sturm chain prove the
+  statement. A positive-Gaussian actual-residual countermodel satisfies the
+  first-odd gap but has a negative next pivot, so the proof uses genuinely new
+  theta arithmetic rather than a source-free odd induction.
+- At `(2,0)`, a fixed `3 by 3` moment projection isolates the correlated
+  bivariate numerator. Generic positive-source Gram geometry fails on an
+  exact Gaussian actual residual, while the complete-theta high-derivative
+  anchor holds. Correct `M_j=mu_j/4^j` normalization and tight full-orbit
+  enclosures through derivative order five prove the actual theta numerator,
+  auxiliary, and pivot strictly positive.
+- At `(2,1)`, first-three-orbit assembly plus an all-`n>=4` tail and independent
+  300/420-bit replays prove the actual residual auxiliary and pivot strictly
+  positive. A real-rooted trial polynomial makes the coefficient-free
+  auxiliary negative, so actual signed-residual control is essential.
+- The general nonautomatic two-generator condition is exactly a reverse Schur
+  upper cap on `D-E^2/A`. Positive moment/Hankel/J-fraction theory supplies
+  only the opposite lower bound. The newest positive moment enters affinely,
+  and no fixed finite multiplication state closes the hierarchy. This exact
+  cap was the candidate carried into the eleventh wave; it is refuted below.
+- The complete Hardy form is exactly one division-free root-logarithmic band
+  correlation. Quotient angles generically have poles at real Xi zeros. The
+  reverse Mellin condition is one absolutely convergent double Euler-cell
+  inequality after subtraction, not a cellwise sign.
+- The bounded-gauge band difference further collapses to a signed scalar
+  Ewald-cell hazard order. The exact half-gauge target is a seed plus
+  `(3M/2-2N)P'>=(3M/2-2P)N'`. The tilted mean-index order
+  `P'N-PN'>=0` is sufficient but unproved. Exact abstract sequences show that
+  cell magnitudes, seed, and positive endpoint do not determine the sign.
+
+All fixed-rung interval proofs have bounded replay programs and frozen
+receipts; the odd `(1,1)` and following `(2,1)` certificates also have fresh
+independent higher-precision replays. None of these fixed-degree results
+proves the actual signed-cell order, the first Xi--Laguerre inequality, an
+all-degree theorem, or RH.
+
+## Eleventh-wave route resolution and reverse cell order
+
+- The actual complete-theta degree-ten residual `(N,epsilon)=(5,0)` has a
+  strictly positive old signed block and actual target pivot. In the corrected
+  archived signed-moment normalization,
+  `S_(5,0)^(archive)>1.3981115905406887e16`, but it rigorously violates the
+  reverse Schur cap: `cap-V<-8.571354299633478e16` and
+  `H[n]<-1.019072112071746e14`. The two-generator auxiliary is therefore
+  false as an all-degree theta lemma even though the actual pivot at the same
+  rung is positive.
+- The primary proof uses exact first-six-orbit Gram terms plus an analytic
+  tail containing every `n>=7` orbit. Frozen 400/600-bit receipts replay
+  byte-for-byte. A separate 720-bit implementation uses `arb_mat`, a
+  determinant-ratio pivot, exact orbits one through eight, and an analytic
+  `n>=9` tail; it independently confirms every sign.
+- Adjacent complete-theta Turan inequalities and strict truncated Stieltjes
+  moment geometry do not imply the residual-correlated cap. Keeping the
+  certified half-line moments through `n_5` while moving only `n_6` inside all those
+  bounds gives a rigorously negative correlated numerator. This is a
+  non-implication model, not a modified-theta theorem.
+- The compressed Sobolev route must therefore retain more of the orthogonal
+  score reserve, for example through multiplication layers and the prior
+  same-parity residual. No such enlarged-space uniform lemma is yet proved.
+- For fully assembled signed scalar Ewald cells, the exact hazard has the
+  reverse-order form `W_alpha=C S'-2D`. Thus `S'>=0` and `D<=0`, plus the
+  separate Abel seed, suffice. The equivalent pair transport and stochastic
+  tail identities give a concrete all-index analytic target.
+- The two frozen low-rung Ewald probes observe `S'>0`, `D<0`, and positive
+  truncated half-gauge hazard at their sampled points. Both are explicitly
+  floating first-ten-cell diagnostics; they prove no Abel interval,
+  all-index tail, endpoint sign, or all-degree theorem.
+- The tilted Brascamp--Lieb estimate underlying the proposed `N=1` test is
+  valid with its exact factor two, but the supplied `I_+`, `I_-`, `P_+`,
+  `P_-` quantities and their bridge to the archived modular commutator are
+  undefined. The advertised
+  commutator implication remains uncertified pending those definitions.
+
+This wave resolves one central blocker by falsification: improving the
+two-generator reverse-Schur cap cannot yield a uniform proof. It does not
+make the actual degree-ten pivot negative and proves neither the first
+Xi--Laguerre inequality, an all-degree target theorem, nor RH.
+
+## Twelfth-wave enlarged score and analytic Ewald tail
+
+- The exact polynomial-score identity now applies to any finite correlated
+  dictionary `V`: with `s=-q'W-2qW'`, Gram matrix `K`, and
+  `y_i=integral q r_i'W^2`,
+  `H_V=(y^T K^(-1)y-A)/4` and
+  `2pi S-H_V=||(I-P_V)s||^2/4`. Adding one feature has the exact nonnegative
+  Schur gain `delta^2/(4 sigma)`.
+- At the actual complete-theta even residual `kappa=10`, the single extra
+  feature `t^2q'` repairs the failed auxiliary. In the half-line positive
+  moment scale, the two-generator interval is contained below
+  `-1.0189895180e14`, whereas
+  `H_span(q',tq,t^2q')>6.3933727580e13`. The construction uses signed
+  moments only through `M_9`; the comparison pivot moment `M_10` is not used.
+  The 720-bit primary/replay receipts are byte-identical, and an independent
+  800-bit replay confirms every reported sign.
+- The same bounded verifier covers the available actual even ladder
+  `kappa=2,4,...,10` and odd ladder `kappa=1,3,...,9`, using exact theta
+  orbits one through eight plus an analytic tail containing every `n>=9`
+  orbit. These remain finite-rung certificates and route-selection data.
+- A blanket fixed-width impossibility is false. The precise obstruction is
+  narrower: the two-rung residual vectors have an exact operator recurrence,
+  but no fixed finite scalar Gram state is invariant under multiplication by
+  `t^2`; the highest layer creates new Gram data. A uniform proof must supply
+  a complete-theta lower bound for `delta^2/sigma`, or control a growing
+  multiplication hierarchy.
+- The fully assembled Ewald source has a genuine analytic all-index tail.
+  For every fixed monic parity residual of degree `kappa`,
+  `J_q(x)` has sign `(-1)^kappa` eventually and leading size
+  `8 pi^4 (2pi)^(2kappa) x^(2kappa+7/2)(log x)^2 exp(-2pi x)`.
+  Consequently the left Euler cells have eventual sign
+  `(-1)^(kappa+1)` and successive absolute ratio tending to `exp(-2pi)`.
+  This is derived from the complete physical correlation through a
+  Bessel-`K` reduction, before any sign split.
+- The tail theorem supplies explicit head/tail inequalities and an
+  effectively certifiable geometric-majorant scheme for the
+  half-seed, `S'`, and aggregate reverse order `D<=0`. On odd rungs the
+  stronger cutoff-by-cutoff condition `P B_k>=N A_k` is incompatible with an
+  eventual positive tail whenever a negative head cell is rigorously present;
+  the current negative head observations are still floating, so this
+  implication is stated conditionally. The weaker aggregate `D<=0` remains a
+  live route.
+- Exact index moments also isolate the endpoint derivative:
+  `M_1(s)=((2-s)/(1-s)) zeta(s-1)` and
+  `S'(1)=(2pi)^(-1) integral q^2 B(Xi,H_1)`, with
+  `H_1=-s(2-s)pi^(-s/2)Gamma(s/2)zeta(s-1)`. No sign is inferred from this
+  identity.
+
+This wave cracks two route-selection blockers: the discarded score reserve
+can be recovered at the first failed actual rung with one noncircular feature,
+and the infinite Ewald tail is now analytic rather than a finite-cell
+diagnostic. The remaining obligations are uniform theta inequalities for the
+one-feature Schur gain, or certified finite-head compensation against the
+proved Ewald tail. Neither obligation is solved, and no all-degree pivot,
+first Xi--Laguerre inequality, or RH theorem follows.
 
 ## Central open lemma
 
@@ -298,8 +844,11 @@ Beyond the finite global theorem through degree `30000000000`--and beyond
 degree 10 at positive cutoff--the current bridge would require an actual,
 source-specific lower-metric
 innovation gain that uniformly dominates the regression mismatch/action and
-every signed coupling cost as the degree grows. The Fisher inequalities above
-do not, by themselves, pay that all-degree cost.
+every signed coupling cost as the degree grows. The all-prefix
+frozen-residue-positive route is now retired: a viable proof must retain the
+endpoint-equivalent one-negative-direction structure or bypass that gate.
+The Fisher inequalities and finite prefix diagnostics do not, by themselves,
+pay the actual all-degree signed cost.
 
 For the narrower normalized-endpoint modular route, assuming a positive
 current prefix, the v26 canonical construction sharpens the sufficient target

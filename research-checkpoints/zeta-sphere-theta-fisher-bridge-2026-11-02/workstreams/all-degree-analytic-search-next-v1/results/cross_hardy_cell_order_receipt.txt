@@ -1,0 +1,63 @@
+CROSS_HARDY_CELL_ORDER_NEXT exact replay receipt
+Date: 2026-11-03 (UTC)
+
+Inputs and artifacts
+--------------------
+Source note:
+  /Users/USER/Documents/Codex/2026-11-02/task-4/mathexplorer-swarm/research-checkpoints/zeta-sphere-theta-fisher-bridge-2026-11-02/workstreams/all-degree-analytic-search-next-v1/CROSS_HARDY_EULER_CURVATURE_NEXT.md
+  SHA-256 363922938df6d84db5800a41db4a9264d98138db8c1101cc30846a6b23b8a889
+
+Continuation note:
+  /tmp/CROSS_HARDY_CELL_ORDER_NEXT.md
+  SHA-256 62ba3ba55833c9056dc3acb9f80032e08c0305832a8640754bed1a983a8bd990
+
+Exact verifier:
+  /tmp/verify_cross_hardy_cell_order.py
+  SHA-256 4bdc57a5598d293449d11972fb0807524227042bf4d9cd50e68c3b1818a468cb
+
+Bounded replay
+--------------
+Command:
+  python3 /tmp/verify_cross_hardy_cell_order.py
+
+Output:
+  PASS: 900 randomized exact identities and the exact no-go replay
+
+The replay uses only the Python standard library, fixed seed 20261103,
+Fraction arithmetic, lengths 1 through 9, and 100 trials per length.
+
+Audited identities
+------------------
+1. D = P' N - P N' = (V S' - S V')/2.
+2. W_alpha = (C-2N)P'-(C-2P)N'
+             = C(P'-N')+2(PN'-P'N).
+3. V W_alpha = 2 R D + C S V'.
+4. The Mobius derivative numerator is exactly 2 W_alpha.
+5. W_alpha = G + alpha M S'.
+6. Both the ordered-pair and paired anti-diagonal expansions of D.
+7. Exact same-V no-go:
+     eA=(-2,11,10,-8,-8), eB=(2,11,-10,-8,8),
+     S_A(1/2)=S_B(1/2)=9/4,
+     S_A(1)=S_B(1)=3,
+     W_A(1)=-51, W_B(1)=417.
+
+Manual normalization/domain audit
+---------------------------------
+- From Q_q=(2/kappa)<U.,A_kappa U.> and
+  Q_q(W,Delta_n W)=4 pi e_n, the cell factor is 2 pi kappa e_n.
+- The root-logarithmic profile identity is used only for 0<z<1.
+  Scalar cell series extend smoothly to z=1 because the actual e_n are
+  rapidly decreasing.
+- The P/N split occurs after every root, complete theta orbit, and Euler
+  subtraction have been assembled into e_n.
+- The fixed half-gauge hazard criterion is exactly equivalent to (46).
+- D>=0 plus the seed is a stronger sufficient condition, not equivalent
+  and not necessary.
+- No quotient by W=2Xi, separate Cauchy estimate, or finite positive theta
+  packet is used.
+
+Verdict
+-------
+PASS as an exact reduction and generic obstruction.
+NO PROOF of the actual theta hazard inequality, next pivot, all-degree
+theorem, or RH is claimed.

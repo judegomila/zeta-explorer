@@ -1,0 +1,5 @@
+__pycache__/
+run/
+results/*.json
+!results/smoke_d07_n4000.json
+!results/smoke_d09_n4000.json

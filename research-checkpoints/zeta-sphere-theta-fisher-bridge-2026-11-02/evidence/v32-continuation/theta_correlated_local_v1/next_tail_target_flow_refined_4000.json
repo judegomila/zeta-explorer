@@ -1,0 +1,32 @@
+{
+  "N": 4000,
+  "bits": 192,
+  "orientation": "inward t=1/8-H on[0,1/8]",
+  "scope": "Fresh actual target Schur derivative integration, signed local matrices and actual four-old inverse. No integrated even8 M8 or odd9 M9 target input; only their local densities are evaluated. No target positivity assumption.",
+  "even8": {
+    "signed_gain": {
+      "lo": "[20735409057.7166102757948874704810900729970631023231699958 +/- 2.57e-47]",
+      "hi": "[20846719009.4666102757948874704810900729970631023231699958 +/- 2.57e-47]"
+    },
+    "midpoint_error_upper": "[35439587.0380913118458427553586200067126083350470156190903 +/- 1.12e-50]",
+    "negative_source_integral_upper": "[6687583543173.60659339458427930289462334337556210770009288 +/- 1.49e-45]",
+    "negative_source_integral_lower": "0",
+    "inverse_action_upper": "[250248863368350.929779238316398673977820639953939244619957 +/- 2.11e-44]",
+    "old_top_pivot_lower": "[58152169.7817549933041232017913824733847792304003335645473 +/- 3.36e-50]",
+    "positive_gain": true,
+    "negative_gain": false
+  },
+  "odd9": {
+    "signed_gain": {
+      "lo": "[-3086765284693.66196542496609786003361406399581692078855493 +/- 3.26e-45]",
+      "hi": "[7704771011242.33803457503390213996638593600418307921144507 +/- 3.26e-45]"
+    },
+    "midpoint_error_upper": "[5358232671048.43486790942336482019594489446540330407700405 +/- 4.56e-45]",
+    "negative_source_integral_upper": "[12559944576198711.9444046471908508791563135790809158882158 +/- 5.51e-42]",
+    "negative_source_integral_lower": "0",
+    "inverse_action_upper": "[9291302462174972207.90660785939504375251367909953902144026 +/- 3.75e-40]",
+    "old_top_pivot_lower": "[4616620046.06547833952527929803922634229786004549450679166 +/- 1.21e-48]",
+    "positive_gain": false,
+    "negative_gain": false
+  }
+}

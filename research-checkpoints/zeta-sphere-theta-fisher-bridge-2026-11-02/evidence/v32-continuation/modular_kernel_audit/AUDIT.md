@@ -1,0 +1,15 @@
+# Modular Bessel reduction and local finite-strip positivity
+
+PASS,2026-11-03. Independently read owned notes and replayed final owned single-a and uniform moment checkers. No acquired code executed.
+
+For the stated Phi normalization (psi/4 in the campaign convention), the transform derivative identity is d_a|F(x+ia)|^2=8 Fourier[C_a](2x). The (u,v) to midpoint/separation Jacobian is2; reflection in the midpoint produces sinh and the factor8. Complete theta's Jacobi identity identifies its all-real summand series with the even extension. This equality is needed before expanding terms at h-v<0.
+
+After the n,m separation shift, the pre-IBP kernel is pi^2 l^2 exp(5h)[(z^2+9)K+6zK_z], z=2pi l exp2h. Since K_h=2zK_z and K_hh=4(z^2-x^2)K, it is pi^2 l^2 exp5h[quarter K_hh+3K_h+(x^2+9)K]. Adjoint integration against w=h sinh2ah yields quarter w''-half w'+(x^2+quarter)w, exactly the stated S. At0,w=w'=0; infinity decays superexponentially. Absolute term interchange follows by bounding original polynomial coefficients in absolute value: after the same shift these are positive K0/K1 majorants with divisor multiplicity and at most polynomial l weights, dominated by exp(-2pi l exp2h). Fixed real x and bounded real a suffice. This does not rely on cancellation of a nonabsolute divisor expansion.
+
+The resulting identity is not a global sign proof: S(quarter,0,1)=-(3/16)sinh(half)<0 and D2(x)=2cos(x log2) changes sign. No positivity of the oscillatory imaginary-order Bessel kernel may simply be presumed.
+
+For tilted moments M_k, integral C_a=-M0*M1/4 and integral v^2 C_a=(M1*M2-M0*M3)/16. The latter is strictly positive for a>0 because the original spatial product and weight are positive. Hence cos(2xv)>=1-2x^2v^2 gives the exact criterion -2M0M1-x^2(M1M2-M0M3)>0. No denominator sign is guessed.
+
+Single-a final interval replay at a=1/4 gives criterion lower0.00133713258224149 for|x|<=1. Every interval cell uses outward decimal endpoints representing the intended j/1000 grid; formatting from floats is safe here because three-decimal grid rounding errors are far below half a decimal unit. Omitted n>=7 terms on[0,2] obey the stated geometric majorant. Full t>=2 Phi is bounded by4pi^2 exp(9t/2-pi exp2t), since the n>=2 leading-tail relative sum is<1 there. Multiplying by even cosh/odd sinh and t^k<=k!exp t yields the final t-tail exponent23/4 for a=1/4. Both error bounds are explicitly asserted below1e-50.
+
+Uniform final replay normalizes odd moments by a. On[0,2],0<=a<=1/2, cosh(at) lies in[1,8/5] and sinh(at)/(at) in[1,6/5]; monotonicity and cosh1<1.6,sinh1<1.2 justify the constants. At infinity sinh(at)/a<=t cosh(at)<=t exp(t/2), so odd normalized moments require power k+1 and the common tail exponent6. The code correctly uses that power and factorial, with total error<1e-50. Independent normalized criterion lower0.000216065575352264 for x^2=9 establishes strict Fourier[C_a](2x)>0 for every0<a<=1/2,|x|<=3. At a=0 the unnormalized C vanishes; only its divided-by-a continuous limit is positive. This is local-frequency finite-strip positivity, not global spectral positivity or RH.

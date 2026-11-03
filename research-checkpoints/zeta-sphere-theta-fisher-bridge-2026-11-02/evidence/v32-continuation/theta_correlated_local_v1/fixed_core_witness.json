@@ -1,0 +1,14 @@
+{
+  "witness": [
+    678,
+    -66,
+    1
+  ],
+  "interval": [
+    0,
+    "1e-8"
+  ],
+  "quadratic_form_lower": "[-1460235.0014471776613866893512749811634421348573 +/- 1.55e-41]",
+  "quadratic_form_upper": "[-1455319.0280737645754491893512749811634421348573 +/- 1.55e-41]",
+  "scope": "Fixed integer witness for actual local old block. Every nondegenerate positive-u subinterval in this neighborhood has an indefinite integrated old block."
+}

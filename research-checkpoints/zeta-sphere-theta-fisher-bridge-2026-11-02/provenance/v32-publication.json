@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "source_artifact": {
+    "name": "zeta_sphere_campaign_v32_20261103T0754Z.zip",
+    "bytes": 8156868,
+    "sha256": "ba4504126d2ee711ca5b4bf3f8ece7b83ee6023230afcb4d98c415d15f65a5cf",
+    "unzip_test": "PASS",
+    "manifest_payloads_verified": 1541,
+    "manifest_payload_bytes_verified": 18926596,
+    "v31_payloads_preserved": 1133,
+    "v31_sha256": "841e3ea3e332334fb022b5a1859fcbce0c8b3f3012a3659e2e83e13e2f2391ef",
+    "manifest_json_bytes": 285479,
+    "manifest_json_sha256": "c2f9531869680381c2917c79a37add488cad7517a209aa954b8cad196d210ce4",
+    "manifest_sha256_bytes": 180729,
+    "manifest_sha256_sha256": "673362f418bdf90f8c7fb62bb5b372af01c20ca3f613400d1bb589a7067963c6"
+  },
+  "publication_manifest": {
+    "name": "PUBLICATION_DELTA_V32.json",
+    "bytes": 94217,
+    "sha256": "88b4af6f1ddae8216974e59e902975e3feeb125c28aea966f52d792b8df0e188",
+    "reviewed_owned_rows": 386,
+    "diagnostic_or_correction_rows": 19
+  },
+  "delta_accounting": {
+    "new_payload_paths_since_v31": 408,
+    "new_payload_bytes_since_v31": 1616611,
+    "source_classified_owned_paths": 405,
+    "source_classified_owned_bytes": 1192875,
+    "public_classified_owned_paths": 405,
+    "public_classified_owned_bytes": 1192893,
+    "source_unique_content_hashes": 214,
+    "source_duplicate_content_groups": 71,
+    "source_repeated_path_rows": 191,
+    "byte_identical_public_payload_paths": 404,
+    "public_text_redactions": 1,
+    "retained_publication_manifests": 1,
+    "source_backed_public_bytes_before_readme": 1287110,
+    "omitted_duplicate_v31_provenance_paths": 2
+  },
+  "repository_policy": "Publish all 405 explicitly classified owned paths and the exact V32 publication manifest, with one recorded identifier-only redaction. Preserve diagnostics under their source classification but exclude them from theorem promotion and default smoke execution. Do not publish the source archive, master manifests, duplicate prior-version manifests, inherited private captures, acquired third-party material, or any unlisted source path.",
+  "omitted_duplicate_v31_provenance_paths": [
+    "provenance/v31/MANIFEST.json",
+    "provenance/v31/MANIFEST.sha256"
+  ],
+  "excluded_material": [
+    "zeta_sphere_campaign_v32_20261103T0754Z.zip",
+    "MANIFEST.json",
+    "MANIFEST.sha256",
+    "all source paths not explicitly classified in PUBLICATION_DELTA_V32.json",
+    "all inherited private or acquired-source captures"
+  ],
+  "existing_public_lane_overlap": 0
+}

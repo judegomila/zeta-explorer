@@ -22,7 +22,7 @@ parallel-friendly package.
 ## Frozen baseline and append-only deltas
 
 The integrated checkpoint is a composition of the frozen v18 baseline,
-publication-safe campaign deltas through v31, and the separate CP62 packet:
+publication-safe campaign deltas through v32, and the separate CP62 packet:
 
 - campaign v18, Library `libfile_93281585a66c81918ba351446f9d7615`,
   4,369,533 bytes, SHA-256
@@ -37,6 +37,9 @@ publication-safe campaign deltas through v31, and the separate CP62 packet:
 - campaign v31, `zeta_sphere_campaign_v31_20261103T0543Z.zip`,
   7,430,485 bytes, SHA-256
   `841e3ea3e332334fb022b5a1859fcbce0c8b3f3012a3659e2e83e13e2f2391ef`;
+- campaign v32, `zeta_sphere_campaign_v32_20261103T0754Z.zip`,
+  8,156,868 bytes, SHA-256
+  `ba4504126d2ee711ca5b4bf3f8ece7b83ee6023230afcb4d98c415d15f65a5cf`;
 - CP62, Library `libfile_19a836c8b8a8819198a91a5abe44c640`,
   79,980 bytes, SHA-256
   `75db9056b1863e904afecbbf2a99de1ff108a48fd3b0ea2242c988e899aa7ccb`.
@@ -96,6 +99,25 @@ by the public v30 archive hash and recorded in
 duplicate private v30 manifests, inherited private captures, and acquired
 third-party material are omitted; exact accounting is in
 `provenance/v31-publication.json`.
+
+The v32 source manifest verifies 1,541 payloads and preserves all 1,133 v31
+payloads byte-for-byte. Its append-only public derivative under
+`evidence/v32-continuation/` contains 405 classified owned payloads: 386
+reviewed files and 19 diagnostic or correction-history files. The exact v32
+publication manifest and one repository README are also retained. One private
+artifact locator in the version index is replaced by the public v31 archive
+hash and recorded in `provenance/v32-redactions.json`. The source archive,
+root manifests, duplicate private v31 manifests, and every unlisted private or
+acquired path are omitted; exact accounting is in
+`provenance/v32-publication.json`.
+
+The principal v32 finite theorem certifies both actual five-channel parity
+blocks through degree 9 on
+`0 <= a <= 1/2, 0 <= H_cut <= 1/8`. At global spatial cutoff `H_cut = 0`,
+the standard outer-shift argument extends the finite degree-at-most-9 Gram to
+every `a > 0`, with the divided-by-`a` normalized endpoint at `a = 0` also
+certified. The positive-cutoff rectangle is not extended to `a > 1/2`; there
+is no degree-above-9, all-degree, arbitrary-configuration, or RH conclusion.
 
 CP62 is stored byte-for-byte under `evidence/cp62/`. It postdates v17 and is not
 part of the v18 campaign payload, so it is recorded as an explicit delta rather

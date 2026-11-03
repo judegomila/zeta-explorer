@@ -24,9 +24,13 @@ exact source-backed publication manifest, 137 reviewed plus 25 diagnostic or
 correction-history payloads, the single identifier-only index redaction, the
 exact 164-file continuation directory, and the snapshot/preservation receipt.
 It also requires the eight coordinate-swapped even2 paths to remain classified
-as invalid correction history. Finally it verifies the root `SHA256SUMS`
-against the exact public checkpoint tree, excluding only the checksum file
-itself and known local LaTeX build intermediates.
+as invalid correction history. For V32 it verifies the exact 386 reviewed plus
+19 diagnostic classified paths, the one index redaction, all source/public
+hashes and byte counts, the exact 407-file continuation directory, and the
+v31-preservation receipt. Finally it verifies the root `SHA256SUMS` against the
+exact public checkpoint tree, excluding only the checksum file itself, known
+local LaTeX build intermediates, and transient Python interpreter caches.
+Cache paths are forbidden as checksum targets rather than treated as evidence.
 
 `run_smoke.py` copies selected exact-rational verifiers to a temporary
 directory and executes them there. This keeps the frozen evidence byte-for-byte
@@ -67,6 +71,17 @@ the coordinate-swapped programs, mixed invalid even2 diagnostics, superseded
 sources, failed/coarse diagnostics, private-prefix-dependent arithmetic
 quadratures, or the optional python-flint integrations by default.
 
+`check_v32_certificates.py` uses only the Python standard library. In temporary
+copies it reruns both exact dyadic-threshold implementations through `2^21`
+and the author plus independent exact-rational inverse-residual checks. It
+verifies 48 owned checksum/freeze manifests with 400 entries (including 19
+dependencies already present in earlier public lanes), source/audit mirrors,
+the signed modular/Bessel interval summaries, both rational bases, all 16
+stored shift slabs, and the stored cutoff and Schur consequences. It does
+**not** rerun the `16 x 4000 x 4000` full-shift integration, the `4000 x 8000`
+cutoff calculation, any floating diagnostic, or any acquired program by
+default.
+
 The latest bounded replay and paper inspection receipt is recorded in
 [`last-run.json`](last-run.json).
 
@@ -106,4 +121,15 @@ regenerated or published. The invalid swapped-coordinate even2 programs were
 not executed. Degree seven was already covered by the prior normalized
 odd-through-19 result: these computations exhibit a payment mechanism, not a
 new rung, all-shift theorem, all-degree theorem, or RH proof.
+
+For V32, separate scientific replays reproduced the copied-source
+`16 x 4000 x 4000` full-shift calculation and the compact cutoff calculation;
+the stored results have no failed slabs in either parity. The bounded suite
+still reads their frozen summaries instead of repeating those expensive jobs.
+The exact inverse-residual replay reuses named, previously certified degree-7
+moment enclosures rather than regenerating theta quadrature. Modular sign and
+cancellation checks and both exact dyadic implementations were independently
+replayed. The external Platt--Trudgian zero verification was cited as an
+analytic dependency and was not independently recomputed. These are finite
+certificates and signed-mechanism checks, not an all-degree or RH result.
 

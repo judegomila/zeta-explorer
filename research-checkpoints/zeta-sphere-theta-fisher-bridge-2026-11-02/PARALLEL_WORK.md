@@ -7,7 +7,8 @@ proceed simultaneously without rewriting the validated baseline.
 
 - `evidence/v18-curated/`, `evidence/cp62/`, `evidence/v19-delta/`,
   `evidence/v20-v26-continuation/`, `evidence/v27-v30-continuation/`, and
-  `evidence/v31-continuation/` are frozen. Accepted later work is appended in a
+  `evidence/v31-continuation/`, and `evidence/v32-continuation/` are frozen.
+  Accepted later work is appended in a
   new versioned evidence directory; it never replaces old bytes or silently
   extends an existing version union.
 - Versioned provenance receipts are append-only. The root `SHA256SUMS` is
@@ -92,4 +93,28 @@ These lanes take the curated v31 checkpoint as read-only input and submit
 separate claim deltas. None may rewrite the frozen v27--v31 files, present an
 even-tail sign as an odd-tail reserve, or infer a uniform theorem from the
 finite quadratic, degree-7, or corrected even2 reproductions.
+
+The v32 continuation adds a new frozen finite frontier and four separate
+follow-on lanes:
+
+- `zsv/proof-degree10-plus` owns any extension beyond the certified
+  degree-at-most-9 Gram. It must preserve both parity blocks, the exact
+  normalization, complete orbit/spatial tails, and inverse costs.
+- `zsv/proof-positive-cutoff-outer-shift` owns any attempt to extend the
+  positive-cutoff rectangle beyond `a=1/2` or `H_cut=1/8`. The existing
+  paired-Hadamard outer argument is available only at `H_cut=0` and may not be
+  reused silently for truncated kernels.
+- `zsv/proof-finite-signed-arithmetic-core` continues the all-degree arithmetic
+  route beyond the separately certified finite degrees. Even partial sums must
+  retain the degree-dependent cutoff; odd partial sums must exceed the explicit
+  negative-tail payment in the same normalization.
+- `zsv/audit-signed-transport-conditioning` owns independent checks of
+  residual conditioning, regional transport, and moving-flux proposals.
+  Unweighted residual size, local source sign, subdivision, or one failed
+  Lyapunov weight may not be promoted into a target theorem.
+
+These lanes take the curated v32 checkpoint as read-only input. They must use
+`H_cut` for the spatial lower limit, keep the raw bridge distinct from its
+divided-by-`a` endpoint, and treat the degree-through-9 theorem as finite—not
+as all-degree positivity, arbitrary-configuration positivity, or RH.
 

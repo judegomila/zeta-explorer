@@ -1,0 +1,21 @@
+{"event": "center_interpolation", "n": 24, "parity": "odd"}
+{"event": "interpolation_solve", "n": 24, "parity": "odd"}
+{"beta": 1, "constant": "0.25", "event": "paired_sample"}
+{"beta": 1, "constant": "1", "event": "paired_sample"}
+{"beta": 1, "constant": "4", "event": "paired_sample"}
+{"beta": 2, "constant": "0.25", "event": "paired_sample"}
+{"beta": 2, "constant": "1", "event": "paired_sample"}
+{"beta": 2, "constant": "4", "event": "paired_sample"}
+Traceback (most recent call last):
+  File "/Users/USER/Documents/Codex/2026-11-02/task-4/mathexplorer-swarm/research-checkpoints/zeta-sphere-theta-fisher-bridge-2026-11-02/workstreams/all-degree-analytic-search-next-v1/src/signed_h_pair.py", line 484, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "/Users/USER/Documents/Codex/2026-11-02/task-4/mathexplorer-swarm/research-checkpoints/zeta-sphere-theta-fisher-bridge-2026-11-02/workstreams/all-degree-analytic-search-next-v1/src/signed_h_pair.py", line 468, in main
+    payload = run_experiment(
+        n=args.n,
+    ...<6 lines>...
+        progress_enabled=args.progress,
+    )
+  File "/Users/USER/Documents/Codex/2026-11-02/task-4/mathexplorer-swarm/research-checkpoints/zeta-sphere-theta-fisher-bridge-2026-11-02/workstreams/all-degree-analytic-search-next-v1/src/signed_h_pair.py", line 358, in run_experiment
+    raise ArithmeticError("direct and paired ell evaluations disagree")
+ArithmeticError: direct and paired ell evaluations disagree

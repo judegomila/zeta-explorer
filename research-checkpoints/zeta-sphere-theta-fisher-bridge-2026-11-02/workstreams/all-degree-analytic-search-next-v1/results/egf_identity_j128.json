@@ -1,0 +1,71 @@
+{
+  "checks": {
+    "all_exact_checks_passed": true,
+    "ell_a_equals_minus_c": true,
+    "even_center_lhopital_sign_is_minus": true,
+    "even_odd_coefficient_symmetrization": true,
+    "full_a_coefficients_match_manifest": true,
+    "full_p_coefficients_match_manifest": true,
+    "initial_condition": true,
+    "odd_center_prefactors_reduce_without_extra_two": true,
+    "pde_coefficient_recurrence": true,
+    "residue_extraction_at_three_halves": true,
+    "sample_a_values_match_manifest": true,
+    "scalar_c_coefficients_match_manifest": true
+  },
+  "comparison": {
+    "candidate_a_sha256": "f4b9b4e29c56544e546187b34c6c48ba1eb052d0f547f2d8d5b404440dc56b5a",
+    "candidate_c_sha256": "2fb1ff52a2453aaa9719c419b6caac3899846508390304cb5af594905ad14c09",
+    "candidate_p_sha256": "1308670da0bcfa2b83754445557a4e2e00b10fe133ccddc8750f3f3229d3d076",
+    "even_grade_sha256": "1e425fa63e44661118404fd8017b82258cc8f9652b5070440751e00c60941883",
+    "full_polynomial_grades_checked": 65,
+    "odd_grade_sha256": "f2bf11fd0e6d1080fd850e765cc1e81a1d20c2d94ff804a7fce5a8a9e94af7cf",
+    "sample_comparisons": 260,
+    "sample_z": [
+      "0",
+      "1",
+      "2",
+      "3"
+    ],
+    "scalar_grades_checked": 129
+  },
+  "experiment": "exact-graded-theta-egf-audit",
+  "formulas": {
+    "A": "R-C/(2*z-3)",
+    "C": "3*(exp(2*t)-1)*exp(5*t/2-(3/2)*(exp(2*t)-1))",
+    "P": "exp(t/2-z*(exp(2*t)-1))*P_0(z*exp(2*t))",
+    "R": "exp(5*t/2-z*(exp(2*t)-1))*(2*z*exp(2*t)-3)/(2*z-3)",
+    "ell_A": "-C",
+    "parity": "A_even=(A(t)+A(-t))/2; A_odd=(A(t)-A(-t))/2"
+  },
+  "hashes": {
+    "formula_sha256": "7cd5aa8898b39cfc1eed9417bd6bb7d9b8f52dfd33ca25665e4f2c7765cf8843",
+    "source_sha256": "d7c777d34c5684f133ce536166617c389492db0f678602e65f324c0a8220d9c4",
+    "structural_content_sha256": "344266feef06fed33b6ac09e49bb0c85a69d861c596b5837900f58b5c8aab05e",
+    "structural_file_sha256": "bade90b472dc29ae0cf18dc7df6469d6c00b177683fad54b1bab73381100e6b1"
+  },
+  "normalization_audit": {
+    "even_center": "ell(A)=-Psi_A'(0)/q''(0)",
+    "even_center_derivative_prefactors": "-2/2=-1",
+    "even_paired_identity": "Psi_A(-h)-Psi_A(h)=2*q'(h)*ell(A)",
+    "interface": "P=P_0*A+4*z*C and ell(A)=-C",
+    "odd_center": "q(0)=2*chi(0); Psi_A(0)/chi(0)=sum(w_n*A(z_n))/sum(z_n*exp(-z_n))",
+    "odd_center_common_prefactor": "4/4=1",
+    "odd_paired_identity": "Psi_A(-h)+Psi_A(h)=q(h)*ell(A)",
+    "zero_over_zero_division_used": false
+  },
+  "parameters": {
+    "full_polynomial_degree": 64,
+    "scalar_degree": 128
+  },
+  "provenance": {
+    "pid": 21123,
+    "python": "3.14.10 (main, Oct 25 2026, 17:12:00) [Clang 21.0.0 (clang-2100.3.34.2)]",
+    "python_executable": "/Users/USER/Documents/GitHub/mathexplorer/.venv-arb/bin/python",
+    "structural_result": "/Users/USER/Documents/Codex/2026-11-02/task-4/mathexplorer-swarm/research-checkpoints/zeta-sphere-theta-fisher-bridge-2026-11-02/workstreams/all-degree-analytic-search/results/structure_j128.json"
+  },
+  "schema_version": "zsv.egf_identity.v1",
+  "scope": "Exact formal-series identity audit only. The arbitrary-grade EGF does not establish complete-bridge positivity or RH.",
+  "status": "exact_egf_identity",
+  "timing_seconds": 0.9687838554382324
+}

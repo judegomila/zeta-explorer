@@ -1,0 +1,347 @@
+{
+  "experiment": "complete-theta-reflected-operator-mining",
+  "normalization": "positive-shift reflected T_plus/T_minus form",
+  "orbit_evaluation": {
+    "minus": {
+      "geometric_tail_max_abs_estimate": 6.0319152934472625e-134,
+      "geometric_tail_ratio_estimate": 1.0153304249889832e-25,
+      "last_orbit_max_abs": 5.940839696114407e-109,
+      "minimum_tail_check_orbit": 8,
+      "orbit_cutoff": 10,
+      "relative_tolerance": 2e-15,
+      "rigorous_tail_bound": false
+    },
+    "plus": {
+      "geometric_tail_max_abs_estimate": 6.002055090581026e-134,
+      "geometric_tail_ratio_estimate": 1.0169553204615984e-25,
+      "last_orbit_max_abs": 5.901985042820445e-109,
+      "minimum_tail_check_orbit": 8,
+      "orbit_cutoff": 10,
+      "relative_tolerance": 2e-15,
+      "rigorous_tail_bound": false
+    }
+  },
+  "parameters": {
+    "degree": 6,
+    "integration_upper": 4.0,
+    "maximum_derivative_order": 8,
+    "nodes": 512,
+    "shift": "0.25",
+    "shift_numeric": 0.25
+  },
+  "parities": {
+    "even": {
+      "available": true,
+      "basis_degrees": [
+        0,
+        2,
+        4,
+        6
+      ],
+      "basis_dimension": 4,
+      "displacements": {
+        "JB_minus_BJ": {
+          "frobenius_norm": 19.48539415383707,
+          "norm": 13.569136808284052,
+          "rank_at_1e-8": 4,
+          "relative_ranks": {
+            "1e-06": 4,
+            "1e-08": 4,
+            "1e-10": 4
+          },
+          "singular_values": [
+            13.569136808284052,
+            13.569136808284048,
+            2.3914052235589107,
+            2.39140522355891
+          ]
+        },
+        "JB_plus_BJ": {
+          "frobenius_norm": 57.374611207301434,
+          "norm": 52.29908949027159,
+          "rank_at_1e-8": 4,
+          "relative_ranks": {
+            "1e-06": 4,
+            "1e-08": 4,
+            "1e-10": 4
+          },
+          "singular_values": [
+            52.29908949027159,
+            23.46733330582887,
+            2.3722383567919527,
+            0.5549796115745591
+          ]
+        },
+        "J_B_minus_B_J_transpose": {
+          "frobenius_norm": 32.94459664327971,
+          "norm": 23.051786909879773,
+          "rank_at_1e-8": 4,
+          "relative_ranks": {
+            "1e-06": 4,
+            "1e-08": 4,
+            "1e-10": 4
+          },
+          "singular_values": [
+            23.051786909879773,
+            23.05178690987977,
+            3.359813128091235,
+            3.3598131280912336
+          ]
+        }
+      },
+      "effective_dimension": 4,
+      "factorization_diagnostics": {
+        "bounded_rank_le_4_candidate_at_1e-8": true,
+        "cholesky_bandwidth_outside_frobenius_ratios": {
+          "0": 0.49718582430264824,
+          "1": 0.33059791267847394,
+          "2": 0.19336427232587536,
+          "3": 0.0
+        },
+        "falsifier_flags": {
+          "finite_signed_indefinite_below_minus_1e-6": false,
+          "no_commutator_or_anticommutator_rank_le_4_at_1e-8": false,
+          "no_signed_bandwidth_le_4_at_1e-6": false,
+          "parent_compression_not_nearly_self_adjoint": true
+        },
+        "finite_signed_psd_at_1e-8": true,
+        "narrow_bandwidth_le_4_candidate_at_1e-6": true,
+        "strict_cholesky_available_at_1e-10": true
+      },
+      "multiplication_variable": "t^2",
+      "negative_relative_positive_component": {
+        "available": true,
+        "denominator_condition_retained": 55.821833154816254,
+        "effective_dimension": 4,
+        "eigenvalues": [
+          0.6478772753411156,
+          0.776212661055933,
+          0.9089693566015269,
+          0.9530949597611459
+        ],
+        "maximum": 0.9530949597611459,
+        "minimum": 0.6478772753411156
+      },
+      "parent": {
+        "correlation_eigenvalues": [
+          0.043414391649435995,
+          0.5485927816917652,
+          1.0579514745001188,
+          2.3500413521586743
+        ],
+        "hankel_relative_deviation": 0.56324752515049,
+        "numerical_rank": 4,
+        "raw_diagonal_dynamic_range": 15895114043.830053,
+        "raw_diagonal_max": 2574036782.889182,
+        "raw_diagonal_min": 0.16193886849703581,
+        "retained_condition": 54.13046832798829
+      },
+      "parent_multiplication": {
+        "adjoint_defect_relative_frobenius": 1.4163006878312965,
+        "bandwidth_outside_frobenius_ratios": {
+          "0": 0.9227957362651777,
+          "1": 0.7491063767231788,
+          "2": 0.7225809956400406,
+          "3": 0.0
+        },
+        "projected_extension_residual": 0.06031039217685019,
+        "symmetric_eigenvalues": [
+          -124.82605805314594,
+          -31.74301486277514,
+          -0.4606248906356283,
+          155.246967246733
+        ]
+      },
+      "parity": "even",
+      "signed_relative_parent": {
+        "bandwidth_outside_frobenius_ratios": {
+          "0": 0.5691309256534854,
+          "1": 0.39728184557135765,
+          "2": 0.20586377233973402,
+          "3": 0.0
+        },
+        "eigenvalues": [
+          0.024015749978993025,
+          0.04768575413936011,
+          0.12599129814277357,
+          0.21368261455392443
+        ],
+        "maximum": 0.21368261455392443,
+        "minimum": 0.024015749978993025,
+        "singular_values": [
+          0.21368261455392443,
+          0.12599129814277363,
+          0.047685754139360104,
+          0.024015749978993056
+        ]
+      }
+    },
+    "odd": {
+      "available": true,
+      "basis_degrees": [
+        1,
+        3,
+        5
+      ],
+      "basis_dimension": 3,
+      "displacements": {
+        "JB_minus_BJ": {
+          "frobenius_norm": 8.717818010704697,
+          "norm": 6.164428232519509,
+          "rank_at_1e-8": 2,
+          "relative_ranks": {
+            "1e-06": 2,
+            "1e-08": 2,
+            "1e-10": 2
+          },
+          "singular_values": [
+            6.164428232519509,
+            6.164428232519509,
+            1.9164234015251252e-17
+          ]
+        },
+        "JB_plus_BJ": {
+          "frobenius_norm": 24.059015797156928,
+          "norm": 22.14071978021979,
+          "rank_at_1e-8": 3,
+          "relative_ranks": {
+            "1e-06": 3,
+            "1e-08": 3,
+            "1e-10": 3
+          },
+          "singular_values": [
+            22.14071978021979,
+            9.37018204014741,
+            0.9079962974206309
+          ]
+        },
+        "J_B_minus_B_J_transpose": {
+          "frobenius_norm": 12.352860768519815,
+          "norm": 8.734791616473627,
+          "rank_at_1e-8": 2,
+          "relative_ranks": {
+            "1e-06": 2,
+            "1e-08": 2,
+            "1e-10": 2
+          },
+          "singular_values": [
+            8.734791616473627,
+            8.734791616473627,
+            2.227089670328769e-16
+          ]
+        }
+      },
+      "effective_dimension": 3,
+      "factorization_diagnostics": {
+        "bounded_rank_le_4_candidate_at_1e-8": true,
+        "cholesky_bandwidth_outside_frobenius_ratios": {
+          "0": 0.405241130882596,
+          "1": 0.30033796568994164,
+          "2": 0.0
+        },
+        "falsifier_flags": {
+          "finite_signed_indefinite_below_minus_1e-6": false,
+          "no_commutator_or_anticommutator_rank_le_4_at_1e-8": false,
+          "no_signed_bandwidth_le_4_at_1e-6": false,
+          "parent_compression_not_nearly_self_adjoint": true
+        },
+        "finite_signed_psd_at_1e-8": true,
+        "narrow_bandwidth_le_4_candidate_at_1e-6": true,
+        "strict_cholesky_available_at_1e-10": true
+      },
+      "multiplication_variable": "t^2",
+      "negative_relative_positive_component": {
+        "available": true,
+        "denominator_condition_retained": 25.055708101718963,
+        "effective_dimension": 3,
+        "eigenvalues": [
+          0.7488299774574164,
+          0.8936858082912654,
+          0.9486275586161882
+        ],
+        "maximum": 0.9486275586161882,
+        "minimum": 0.7488299774574164
+      },
+      "parent": {
+        "correlation_eigenvalues": [
+          0.08771872510077561,
+          0.7908560092731043,
+          2.121425265626124
+        ],
+        "hankel_relative_deviation": 0.2813931397593428,
+        "numerical_rank": 3,
+        "raw_diagonal_dynamic_range": 7276469.497184324,
+        "raw_diagonal_max": 24585654.364701897,
+        "raw_diagonal_min": 3.3787888995089546,
+        "retained_condition": 24.18440604544726
+      },
+      "parent_multiplication": {
+        "adjoint_defect_relative_frobenius": 1.417711850512712,
+        "bandwidth_outside_frobenius_ratios": {
+          "0": 0.869759647800001,
+          "1": 0.6895127583435677,
+          "2": 0.0
+        },
+        "projected_extension_residual": 0.09280753462916014,
+        "symmetric_eigenvalues": [
+          -74.39351311333502,
+          -15.371873958149257,
+          88.21873277168072
+        ]
+      },
+      "parity": "odd",
+      "signed_relative_parent": {
+        "bandwidth_outside_frobenius_ratios": {
+          "0": 0.5010045148784397,
+          "1": 0.3411400510422511,
+          "2": 0.0
+        },
+        "eigenvalues": [
+          0.026363396718192943,
+          0.056141410176514195,
+          0.14362175041609382
+        ],
+        "maximum": 0.14362175041609382,
+        "minimum": 0.026363396718192943,
+        "singular_values": [
+          0.1436217504160938,
+          0.056141410176514216,
+          0.02636339671819298
+        ]
+      }
+    }
+  },
+  "provenance": {
+    "numpy": "2.5.3",
+    "pid": 69844,
+    "platform": "macOS-26.5.2-arm64-arm-64bit-Mach-O",
+    "python": "3.14.10 (main, Oct 25 2026, 17:12:00) [Clang 21.0.0 (clang-2100.3.34.2)]",
+    "python_executable": "/Users/USER/Documents/GitHub/mathexplorer/.venv-arb/bin/python",
+    "scipy": "1.18.1",
+    "source_sha256": "122a6ee179f6b7878ff1abd5ed47593d778a90df6ac633303f791733336f75b9"
+  },
+  "quadrature": {
+    "boundary_feature_diagnostics": {
+      "even": {
+        "negative_feature_max_abs_at_last_node": 0.0,
+        "positive_feature_max_abs_at_last_node": 0.0
+      },
+      "odd": {
+        "negative_feature_max_abs_at_last_node": 0.0,
+        "positive_feature_max_abs_at_last_node": 0.0
+      }
+    },
+    "interval": [
+      0.0,
+      4.0
+    ],
+    "last_node": 3.9999779819687635,
+    "nodes": 512,
+    "rigorous_error_bound": false,
+    "rule": "single-panel Gauss-Legendre"
+  },
+  "schema_version": 1,
+  "scope": "Exploratory finite-section structure discovery only. Numerical rank, bandwidth, or positivity observations are not interval certificates, all-degree statements, or evidence proving RH.",
+  "status": "analytic_structure_experiment",
+  "timing_seconds": 0.032412052154541016
+}

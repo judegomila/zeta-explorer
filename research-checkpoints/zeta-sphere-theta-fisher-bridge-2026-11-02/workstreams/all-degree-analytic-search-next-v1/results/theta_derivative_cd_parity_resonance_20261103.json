@@ -1,0 +1,289 @@
+{
+  "arbitrary_positive_recurrence_center_replay": [
+    {
+      "D_2m": "9/14",
+      "center_CD_lower": "9/14",
+      "m": 1
+    },
+    {
+      "D_2m": "393/110",
+      "center_CD_lower": "3481/990",
+      "m": 2
+    },
+    {
+      "D_2m": "64217/10010",
+      "center_CD_lower": "1151329/240890",
+      "m": 3
+    },
+    {
+      "D_2m": "6708685/782782",
+      "center_CD_lower": "668170801/112654230",
+      "m": 4
+    },
+    {
+      "D_2m": "619560512141/66853496710",
+      "center_CD_lower": "599306674201/106760861870",
+      "m": 5
+    }
+  ],
+  "exact_formulas": {
+    "Wallis_induction_identity": "4*m^2*(3*m-2)-(2*m-1)^2*(3*m+1)=m-1",
+    "actual_theta_endpoint_normalization": "sigma[p]=(2/pi)*integral p^2*(Xi'^2-Xi*Xi'')",
+    "center_CD_lower": "D_(2m)>=(Pi_m*K_m-(2m+1))^2/(Pi_m*K_(m-1))",
+    "correlated_payment_margin": "(2/pi)*integral p_(n+1)^2*(f-Q_n*f''/(2*sigma_n))+(n-1)^2*Q_n",
+    "countermodel": "b_(2j-1)=(2j-1)^2*j/(j+1); b_(2j)=(2j)^2*(j+1)/j",
+    "countermodel_cubic_lower": "D_(2m)>=(9/32)*(m+1)^2*(3m+1)",
+    "derivative_source": "(n+1)^2+D_n=integral p_(n+1)^2*f''/(pi*sigma_n)",
+    "quadratic_full_row": "d_(n,n-2r)=(n+1)/(2r+1)",
+    "quadratic_limit": "pi^2/8-1"
+  },
+  "frozen_sources": {
+    "evidence/v20-v26-continuation/modular_cd_flux_v1/MODULAR_REFLECTION.md": "f835812a94fea49975530614dafe600449596d8e579fe2cacfef53a052cdd4e3",
+    "evidence/v20-v26-continuation/modular_cd_flux_v1/NORMALIZED_LIMIT.md": "d0f4b2c61364270c71515caaa421a10a29683ddaedbc779ecd36db485cac08af",
+    "workstreams/all-degree-analytic-search-next-v1/MODULAR_GAUSSIAN_STRONG_PAYMENT_BARRIER_20261103.md": "6dfb042d62b594bc93c73f3db36d9dfea7a177f535b77f85d1062fe5bfd0f539",
+    "workstreams/all-degree-analytic-search-next-v1/MODULAR_THETA_HIGH_DEGREE_CRITERION_20261103.md": "1ecb468d0537c6f60e64afc94939bdb415d8522d7b6cc112be4057abc8fc85cb",
+    "workstreams/all-degree-analytic-search-next-v1/PRIOR_DERIVATIVE_SUPERGAUSSIAN_BARRIER_NEXT.md": "3cd55aaf03ef221f380fac945b9b1d3286f980723c5a34b2460c2f267c960bd7",
+    "workstreams/all-degree-analytic-search-next-v1/THETA_TURAN_NEXT.md": "722a5ec66b1ee984b5f28769f3a6a7b28824eeed4709d3461c2d03d47b853a19"
+  },
+  "gaussian_source_identity_replay": [
+    {
+      "derivative_energy_over_sigma_n": "4",
+      "f_second_source": "4",
+      "n": 1,
+      "payment_Q_coefficient": "-4"
+    },
+    {
+      "derivative_energy_over_sigma_n": "9",
+      "f_second_source": "9",
+      "n": 2,
+      "payment_Q_coefficient": "-8"
+    },
+    {
+      "derivative_energy_over_sigma_n": "16",
+      "f_second_source": "24",
+      "n": 3,
+      "payment_Q_coefficient": "-12"
+    },
+    {
+      "derivative_energy_over_sigma_n": "25",
+      "f_second_source": "75",
+      "n": 4,
+      "payment_Q_coefficient": "-16"
+    },
+    {
+      "derivative_energy_over_sigma_n": "36",
+      "f_second_source": "270",
+      "n": 5,
+      "payment_Q_coefficient": "-20"
+    },
+    {
+      "derivative_energy_over_sigma_n": "49",
+      "f_second_source": "2205/2",
+      "n": 6,
+      "payment_Q_coefficient": "-24"
+    },
+    {
+      "derivative_energy_over_sigma_n": "64",
+      "f_second_source": "5040",
+      "n": 7,
+      "payment_Q_coefficient": "-28"
+    },
+    {
+      "derivative_energy_over_sigma_n": "81",
+      "f_second_source": "25515",
+      "n": 8,
+      "payment_Q_coefficient": "-32"
+    },
+    {
+      "derivative_energy_over_sigma_n": "100",
+      "f_second_source": "141750",
+      "n": 9,
+      "payment_Q_coefficient": "-36"
+    }
+  ],
+  "limitations": [
+    "No actual-theta recurrence asymptotic or derivative upper bound is established",
+    "The parity countermodel has a square-summable Jacobi zero mode and is not a theta source",
+    "The correlated payment identity is not a proof of its nonnegative sign",
+    "Finite exact replays audit algebra; all-degree claims use the analytic note's proofs"
+  ],
+  "note": {
+    "path": "workstreams/all-degree-analytic-search-next-v1/THETA_DERIVATIVE_CD_PARITY_RESONANCE_20261103.md",
+    "sha256": "e9bf52755bedc7a37979993b1d0722ce8b6cdaf9e040f8ebc33cfb4fb7e328da"
+  },
+  "parity_countermodel_exact_replay": [
+    {
+      "D_2m": "49/4",
+      "all_degree_cubic_lower": "9/2",
+      "center_CD_lower": "49/4",
+      "m": 1
+    },
+    {
+      "D_2m": "145865/2304",
+      "all_degree_cubic_lower": "567/32",
+      "center_CD_lower": "1024/17",
+      "m": 2
+    },
+    {
+      "D_2m": "5845845497/33177600",
+      "all_degree_cubic_lower": "45",
+      "center_CD_lower": "1516563/9200",
+      "m": 3
+    },
+    {
+      "D_2m": "430480980186713/1156055040000",
+      "all_degree_cubic_lower": "2925/32",
+      "center_CD_lower": "75446596/217609",
+      "m": 4
+    },
+    {
+      "D_2m": "6299646459814200881/9364045824000000",
+      "all_degree_cubic_lower": "162",
+      "center_CD_lower": "19683809401/31422132",
+      "m": 5
+    },
+    {
+      "D_2m": "877861706920872895541208341/799479758743142400000000",
+      "all_degree_cubic_lower": "8379/32",
+      "center_CD_lower": "318506724496/310853961",
+      "m": 6
+    },
+    {
+      "D_2m": "872983353326471379561204127969909/523100593157685903360000000000",
+      "all_degree_cubic_lower": "396",
+      "center_CD_lower": "21025287970986049/13461612690240",
+      "m": 7
+    },
+    {
+      "D_2m": "1307743537682290343665092570617083219359227/543583310201765764477747200000000000000",
+      "all_degree_cubic_lower": "18225/32",
+      "center_CD_lower": "338067126698901604/149667560696225",
+      "m": 8
+    },
+    {
+      "D_2m": "73071294586655957224029289138908541252354007349403889/21947634498843454869681650836439040000000000000000",
+      "all_degree_cubic_lower": "1575/2",
+      "center_CD_lower": "28949816364630221163/9231532298880892",
+      "m": 9
+    },
+    {
+      "D_2m": "3724754079367113802092265336378918568742156912301999977029576849/835129537860534518328278139006901184102400000000000000000000",
+      "all_degree_cubic_lower": "33759/32",
+      "center_CD_lower": "55727645270089336384/13224332543158633",
+      "m": 10
+    },
+    {
+      "D_2m": "564684608670484738055960733207399719929106660899165603156536025313687641/97049067387512139519699877288969575562645340160000000000000000000000",
+      "all_degree_cubic_lower": "1377",
+      "center_CD_lower": "5717720003476885590995449/1037031396093034216784",
+      "m": 11
+    },
+    {
+      "D_2m": "88005237618260019040782749971241041723198001133928118606559370497558580144516388549401/11852164431416806881052005153163404552612127415941837357056000000000000000000000000",
+      "all_degree_cubic_lower": "56277/32",
+      "center_CD_lower": "30541008113789515210591308/4328901939634868858339",
+      "m": 12
+    }
+  ],
+  "quadratic_exact_replay": [
+    {
+      "D_n": "0",
+      "D_n_over_n_squared": "0",
+      "n": 1
+    },
+    {
+      "D_n": "1",
+      "D_n_over_n_squared": "1/4",
+      "n": 2
+    },
+    {
+      "D_n": "16/9",
+      "D_n_over_n_squared": "16/81",
+      "n": 3
+    },
+    {
+      "D_n": "34/9",
+      "D_n_over_n_squared": "17/72",
+      "n": 4
+    },
+    {
+      "D_n": "136/25",
+      "D_n_over_n_squared": "136/625",
+      "n": 5
+    },
+    {
+      "D_n": "1891/225",
+      "D_n_over_n_squared": "1891/8100",
+      "n": 6
+    },
+    {
+      "D_n": "121024/11025",
+      "D_n_over_n_squared": "121024/540225",
+      "n": 7
+    },
+    {
+      "D_n": "18244/1225",
+      "D_n_over_n_squared": "4561/19600",
+      "n": 8
+    },
+    {
+      "D_n": "72976/3969",
+      "D_n_over_n_squared": "72976/321489",
+      "n": 9
+    },
+    {
+      "D_n": "2306749/99225",
+      "D_n_over_n_squared": "2306749/9922500",
+      "n": 10
+    },
+    {
+      "D_n": "36907984/1334025",
+      "D_n_over_n_squared": "36907984/161417025",
+      "n": 11
+    },
+    {
+      "D_n": "401846806/12006225",
+      "D_n_over_n_squared": "200923403/864448200",
+      "n": 12
+    },
+    {
+      "D_n": "1607387224/41409225",
+      "D_n_over_n_squared": "1607387224/6998159025",
+      "n": 13
+    },
+    {
+      "D_n": "410864815/9018009",
+      "D_n_over_n_squared": "410864815/1767529764",
+      "n": 14
+    },
+    {
+      "D_n": "21036278528/405810405",
+      "D_n_over_n_squared": "21036278528/91307341125",
+      "n": 15
+    },
+    {
+      "D_n": "24153796712/405810405",
+      "D_n_over_n_squared": "3019224589/12985932960",
+      "n": 16
+    },
+    {
+      "D_n": "96615186848/1447891445",
+      "D_n_over_n_squared": "96615186848/418440627605",
+      "n": 17
+    },
+    {
+      "D_n": "8836799820077/117279207045",
+      "D_n_over_n_squared": "8836799820077/37998463082580",
+      "n": 18
+    },
+    {
+      "D_n": "706943985606160/8467558748649",
+      "D_n_over_n_squared": "706943985606160/3056788708262289",
+      "n": 19
+    }
+  ],
+  "schema_version": "zsv.theta_derivative_cd_parity_resonance.20261103.v1",
+  "scope": "Exact recurrence/source identities and non-theta parity countermodel; actual-theta upper bound and payment remain open; no RH claim",
+  "source_sha256": "765438bcc2d7d61c980792985a4f0333a518fc8dbfe58150487bc0c8d2753474",
+  "status": "PASS"
+}

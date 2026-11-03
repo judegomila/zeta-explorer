@@ -1,0 +1,65 @@
+{
+  "arbitrary_positive_recurrence_replay": [
+    {
+      "gamma": "3",
+      "n": 2,
+      "normalized_leading_square": "9/14"
+    },
+    {
+      "gamma": "-8",
+      "n": 3,
+      "normalized_leading_square": "64/35"
+    },
+    {
+      "gamma": "5",
+      "n": 4,
+      "normalized_leading_square": "5/11"
+    },
+    {
+      "gamma": "2",
+      "n": 5,
+      "normalized_leading_square": "4/143"
+    },
+    {
+      "gamma": "9",
+      "n": 6,
+      "normalized_leading_square": "81/221"
+    }
+  ],
+  "checks": [
+    "endpoint half-line factor 1/2 and parent multiplier H_n+1",
+    "direct reserve R_n=sigma_(n+1)/P_n=b_(n+1)*c_n",
+    "physical recurrence subleading coefficient",
+    "leading lower derivative component gamma_n",
+    "pivot-normalized square gamma_n^2/(b_(n-1)*b_n)",
+    "exact cancellation for b_n=C*n",
+    "exact lower component (n+1)^2/9 for b_n=C*n^2"
+  ],
+  "exact_formulas": {
+    "D_n_lower": "gamma_n^2/(b_(n-1)*b_n)",
+    "conditioning": "c_n=sigma_n/P_n",
+    "direct_theta_reserve": "R_n=sigma_(n+1)/P_n=b_(n+1)*c_n",
+    "gamma_n": "(n-1)*b_n-2*sum_(k=1)^(n-1)b_k",
+    "kappa_endpoint": "4*n+D_n",
+    "parent_halfline_bound": "Q_n0 < (log(10*(n+1))+1)*P_n/2",
+    "quadratic_model_lower": "(n+1)^2/9",
+    "sharp_asymptotic_criterion": "2*liminf R_n/(n^2*(H_n+1)) > limsup D_n/n^2",
+    "sufficient_payment": "R_n >= (4*n+D_n)*(H_n+1)/2"
+  },
+  "frozen_sources": {
+    "evidence/v18-curated/hierarchy/large_order_v4/L1_GAUSSIAN_THEOREM.md": "16f69ea1af286f384d15ae0576bc72eedcdf5020dab3030aba4a976dedce6414",
+    "evidence/v20-v26-continuation/modular_cd_flux_v1/NORMALIZED_LIMIT.md": "d0f4b2c61364270c71515caaa421a10a29683ddaedbc779ecd36db485cac08af",
+    "evidence/v20-v26-continuation/theta_parent_growth_v1/GROWTH.md": "749b4e3109a308706d31c07f38817d08f8d061d10aadad8d4fd314d402d57a9f",
+    "workstreams/all-degree-analytic-search-next-v1/MODULAR_GAUSSIAN_STRONG_PAYMENT_BARRIER_20261103.md": "6dfb042d62b594bc93c73f3db36d9dfea7a177f535b77f85d1062fe5bfd0f539",
+    "workstreams/all-degree-analytic-search-next-v1/MODULAR_GENERAL_PIVOT_TRANSPORT_NEXT.md": "5076a00c5e5b2b20fddd7470d92f61f907a2e954c23dc0bb66278271e0d96970"
+  },
+  "proof_note": {
+    "binding": "recorded, not self-frozen by this replay",
+    "path": "workstreams/all-degree-analytic-search-next-v1/MODULAR_THETA_HIGH_DEGREE_CRITERION_20261103.md",
+    "sha256": "1ecb468d0537c6f60e64afc94939bdb415d8522d7b6cc112be4057abc8fc85cb"
+  },
+  "schema_version": "zsv.modular_theta_high_degree_criterion.20261103.v1",
+  "scope": "Exact recurrence and source-binding audit for a conditional complete-theta high-degree modular-payment criterion; no theta asymptotic, all-degree sign, or RH claim",
+  "source_sha256": "b94cd833a469d30a6e70e0b0b61893b4498ae3a64237ffaac19c6367cd111fec",
+  "status": "PASS"
+}

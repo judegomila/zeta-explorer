@@ -1,0 +1,44 @@
+{
+  "asymptotic": {
+    "cost_lower": "2*sqrt(2*c/3)*n^(3/2)*(1+o(1))",
+    "next_pivot_ratio": "(c/2)*n+O(1)"
+  },
+  "checks": [
+    "frozen modular source hashes",
+    "monic Hermite recurrence and derivative",
+    "J3=9/8",
+    "N=3 strict failure from pi<4",
+    "exact second and fourth oscillator moments",
+    "N=400 exact interpolation failure certificate",
+    "Gaussian satisfies X>17 and P>8X^4"
+  ],
+  "conclusion": "Generic curvature and positive-prefix hypotheses do not imply the modular strong payment. The strict endpoint failure persists for sufficiently small positive tilt at each fixed counterexample degree.",
+  "exact_n3": {
+    "J3": "9/8",
+    "cost": "27*c^2/2",
+    "failure_proof_at_c20": "20*pi<80<81 using pi<4",
+    "payment_condition": "sqrt(pi*c)>=9",
+    "sigma4": "3*sqrt(pi)*c^(5/2)/2"
+  },
+  "exact_n400": {
+    "gap": 654725565983940,
+    "left": 657820673280000,
+    "right": 3095107296060
+  },
+  "model": {
+    "c": 20,
+    "halfline_mass": "Q_n0=c^(n-1)*J_n",
+    "kappa_endpoint": "4*n",
+    "next_pivot_ratio": "(n+1)*c/2",
+    "normalized_cost": "2*n*sqrt(c)*E_n|X|",
+    "pivot": "sigma_n=sqrt(pi)*n!*c^(n-3/2)/2^n",
+    "profile": "psi_c(h)=exp(-c*h^2/2)"
+  },
+  "schema_version": "zsv.modular_gaussian_strong_payment_barrier.20261103.v1",
+  "scope": "Exact auxiliary Gaussian barrier to source-free modular strong payment; not the theta profile, full conservation law, an all-degree theta result, or an RH claim",
+  "source_sha256": {
+    "evidence/v20-v26-continuation/modular_cd_flux_v1/MODULAR_REFLECTION.md": "f835812a94fea49975530614dafe600449596d8e579fe2cacfef53a052cdd4e3",
+    "evidence/v20-v26-continuation/modular_cd_flux_v1/PAID_HALF_LINE.md": "808cdf94c2196e8dbe819418534d9a95853ff8aa61d2ff3d09412a57a95b4fb0"
+  },
+  "status": "PASS"
+}

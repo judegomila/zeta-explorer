@@ -1,0 +1,76 @@
+{
+  "checks": [
+    "frozen complete-theta input hashes",
+    "independent center-only receipts give psi(0)^2 < 16/5",
+    "complete-theta M0 > 3/100",
+    "quadratic curvature 4k^2+k'' > 1254",
+    "exact differential-polynomial IBP identity",
+    "exact s1'=integral u^2 g^2 v' transport identity",
+    "s0/s1 < 2/17 from v'>17",
+    "Q0 < 182/85",
+    "s2/a > 1881/200",
+    "cost/a < 12467/1445",
+    "uniform divided margin > 44929/57800"
+  ],
+  "frozen_inputs": {
+    "evidence/v31-continuation/theta_correlated_local_v1/THETA_CURVATURE_PAYMENT.md": "a508698183302e3827769a3b9cd135023d79ffb557e2fe5f700ffb00cd98d97d",
+    "evidence/v31-continuation/theta_correlated_local_v1/integrated_square_payment_64000.json": "bd25296a2bd9d739fdc6463167198738dd60785ca6fa3ebbec941ba6c423d17e",
+    "evidence/v31-continuation/theta_correlated_local_v1/theta_curvature_square.json": "47353b64c47ce2d5e14112d2bbfcdfc0f2985a170e15c13cb8e64222823990f7",
+    "workstreams/all-degree-analytic-search-next-v1/MODULAR_N1_S2_PAYMENT_REDUCTION_NEXT.md": "63ba56745d75e67efc8e5249b0563c5ce7482b3ce12d81f1288e3d8956d0ed09",
+    "workstreams/all-degree-analytic-search-next-v1/results/modular_vprime_tilt_certificate.json": "1db1987de3a7542c5cf02e45178b5d5dd65a76c1f2bfaeaa176184d5810290e5",
+    "workstreams/all-degree-analytic-search-next-v1/results/modular_vprime_tilt_replay.json": "ba2fa918da86840db31e72decb72f49647d331c956bd180154e301403ec95855"
+  },
+  "frozen_manifests": {
+    "evidence/v31-continuation/theta_correlated_local_v1/INTEGRATED_SQUARE_PAYMENT_FROZEN_SHA256.txt": {
+      "members": {
+        "INTEGRATED_SQUARE_PAYMENT.md": "dca1c63d81b7c6796d2526a6933afd37f2b0c7dc03a2e66687e5de529139485a",
+        "check_integrated_square_payment.py": "2b3a34bcc3f53ea47715e1bab8df0e4f9986b0a4abef377c66fc2348acfd0ccc",
+        "integrated_square_payment_64000.json": "bd25296a2bd9d739fdc6463167198738dd60785ca6fa3ebbec941ba6c423d17e"
+      },
+      "sha256": "8a3cc29068a1b55512ff1eec17f7a05e4e3a4167ce6184416b4bef807a4871ae"
+    },
+    "evidence/v31-continuation/theta_correlated_local_v1/THETA_CURVATURE_PAYMENT_FROZEN_SHA256.txt": {
+      "members": {
+        "THETA_CURVATURE_PAYMENT.md": "a508698183302e3827769a3b9cd135023d79ffb557e2fe5f700ffb00cd98d97d",
+        "check_theta_curvature_square.py": "b44f8aa650721c3f5d598a9b489e84eeba03fd4d67d20f23415d87c60fe01a88",
+        "theta_curvature_square.json": "47353b64c47ce2d5e14112d2bbfcdfc0f2985a170e15c13cb8e64222823990f7"
+      },
+      "sha256": "73dd74752fa6a51d831524087a05aa987c2d4618245713ecda6bfc309ecf2b31"
+    }
+  },
+  "modular_center_receipts": {
+    "workstreams/all-degree-analytic-search-next-v1/results/modular_vprime_tilt_certificate.json": {
+      "lower": "3.1926099341909630240026091881188427689883137600876858319709",
+      "upper": "3.1926099341909630240026091881188427689883137600876858320291",
+      "use_scope": "center value only; no parameter-cell or uniform-in-a claim used"
+    },
+    "workstreams/all-degree-analytic-search-next-v1/results/modular_vprime_tilt_replay.json": {
+      "lower": "3.19260993419096302400260918811884276898831376008768583201744772502350826429591",
+      "upper": "3.19260993419096302400260918811884276898831376008768583201744772502350826430409",
+      "use_scope": "center value only; no parameter-cell or uniform-in-a claim used"
+    }
+  },
+  "modular_receipt_provenance": {
+    "MODULAR_COMMUTATOR_N1_FULL_AUDIT_NEXT.md": "08733abd3ef1baed9997a7af6564e65ed98ae49f72284aca5ede22e8e3cd33c6",
+    "MODULAR_COMMUTATOR_N1_INDEPENDENT_AUDIT.md": "f576b82fb18f0fbdf162b79ca4f8f0fa4e2af2095a71027a2e231ed8b3e6f7fd"
+  },
+  "modular_receipt_source": {
+    "path": "workstreams/all-degree-analytic-search-next-v1/src/certify_modular_vprime_tilt.py",
+    "sha256": "31cd42b5a31157b9ff885c9fd1a3117522a2f014b7bd829b14c6f6d87063794e"
+  },
+  "proof_note": {
+    "binding": "recorded, not self-frozen by this replay",
+    "path": "workstreams/all-degree-analytic-search-next-v1/MODULAR_N1_FULL_INTERVAL_PAYMENT_NEXT.md",
+    "sha256": "75c1b743e8a067f450c67fd5a919980ef7130120026aeee91ea63c10fc89b64a"
+  },
+  "rational_bounds": {
+    "Q_minus_upper": "182/85",
+    "cost_over_a_upper": "12467/1445",
+    "payment_margin_lower": "44929/57800",
+    "s0_over_s1_upper": "2/17",
+    "s2_over_a_lower": "1881/200"
+  },
+  "scope": "Uniform raw N=1 modular scalar payment on 0<a<=1/4; no higher-degree, all-degree, first Xi--Laguerre, or RH claim.",
+  "source_sha256": "2cc2c829fe2c639a7505dd5f5ed0d47e8a333fcfa6034bbe9b1a36ee4866214b",
+  "status": "PASS"
+}

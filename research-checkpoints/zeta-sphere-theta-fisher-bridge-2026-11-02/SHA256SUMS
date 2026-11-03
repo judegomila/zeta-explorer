@@ -2047,3 +2047,8 @@ b4716e06bea31e15a43a013e2a04e02373faf6741eb6f2c1b537cd6ae3582fa7  ./workstreams/
 bf6beca85436c4eba012e04f1115a74871a06b57d8fed854e0b1c80072599de7  ./workstreams/regional-degree-sweep/tests/test_degree7_reference.py
 869273896c7abe99cfa0e35cd9753a4c8835f2de15049e852fe2443a8e89103a  ./workstreams/regional-degree-sweep/tests/test_governor.py
 a4b7f731faf20bf41bc370c7338893fd547859f7767cb5471b3101a5cc226fb5  ./workstreams/regional-degree-sweep/tests/test_spatial_tail_preflight.py
+84b82bc9d8db1798d0c0d3679e74e1e0adf64b176b459cf9f0ef8c6c2bad2c9f  ./evidence/weighted-n1-logconcavity-2026-11-03/GAUSSIAN_N2_WEIGHTED_NO_GO.md
+3070dfd6e9280ee13d5b982644881021c7a2eca8e612d6b0ee0a99a69c9b3d44  ./evidence/weighted-n1-logconcavity-2026-11-03/README.md
+ebb13018dd9f5a0960646d17443a4fe69cd05c5ca13029726dd306cdf6f48d69  ./evidence/weighted-n1-logconcavity-2026-11-03/WEIGHTED_N1_LOGCONCAVITY.md
+9ff42913483179076f48d6429362599729d1d0d18bba3bbfe627728dd3adf632  ./evidence/weighted-n1-logconcavity-2026-11-03/check_origin_jets_mpfi.py
+896ed22d4fab52626bf5187de46ab5183c52144f2393e5d23c01bdb2f7c2d3c0  ./evidence/weighted-n1-logconcavity-2026-11-03/check_universal_alpha_mpfi.py

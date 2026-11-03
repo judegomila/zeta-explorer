@@ -1,0 +1,74 @@
+{
+  "exact_examples": [
+    {
+      "D": [
+        "0",
+        "0",
+        "-91/30",
+        "0",
+        "7/54",
+        "7/240"
+      ],
+      "F": [
+        "-13/5",
+        "0",
+        "1/9",
+        "1/40"
+      ],
+      "F_derivative_coefficients_nonnegative": true,
+      "S_third_derivative_coefficients_nonnegative": true,
+      "cells": [
+        "0",
+        "13/5",
+        "-7/6",
+        "1/9",
+        "1/80"
+      ],
+      "endpoint_gap": "-887/360",
+      "seed": "2357/2304",
+      "seed_floor": "121/120"
+    },
+    {
+      "D": [
+        "0",
+        "0",
+        "-187/21",
+        "0",
+        "22/91",
+        "0",
+        "33/707",
+        "44/6979"
+      ],
+      "F": [
+        "-17/3",
+        "0",
+        "2/13",
+        "0",
+        "3/101",
+        "4/997"
+      ],
+      "F_derivative_coefficients_nonnegative": true,
+      "S_third_derivative_coefficients_nonnegative": true,
+      "cells": [
+        "0",
+        "17/3",
+        "-11/7",
+        "2/13",
+        "0",
+        "1/101",
+        "1/997"
+      ],
+      "endpoint_gap": "-21517450/3927183",
+      "seed": "4328126207/1759377984",
+      "seed_floor": "205/84"
+    }
+  ],
+  "identities": {
+    "aggregate_collapse": "D=b*z*(z*S_prime-2*S)",
+    "endpoint_equivalence": "D<=0 on (0,1] iff S_prime(1)-2*S(1)<=0 under the sole-negative-index-2 sign pattern",
+    "physical_packet": "eta-2*psi",
+    "spectral_multiplier": "H1-4*Xi"
+  },
+  "scope": "exact rational algebra only; the actual all-index sign pattern and endpoint inequality remain unproved",
+  "status": "PASS"
+}

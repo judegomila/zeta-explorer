@@ -1,0 +1,4 @@
+PASS: exact N=1 reflection, matrix commutator, half-line reductions,
+      archived integrated-scalar factorization, and shifted-energy relation.
+equation_manifest_sha256=2f25016acac8f4d3eb7d0ad79c41114b76aef82b42fd148824039ba50e40f459
+scope=algebra only; no theta inequality, pivot sign, all-degree result, or RH claim

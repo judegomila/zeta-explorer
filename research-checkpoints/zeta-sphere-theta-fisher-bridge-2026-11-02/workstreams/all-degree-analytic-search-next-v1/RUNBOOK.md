@@ -706,9 +706,11 @@ all-degree certificate. A useful computation must develop an analytic tail
 for the fully assembled cells rather than extend `nmax`.
 
 The Brascamp--Lieb inequality in
-`MODULAR_COMMUTATOR_N1_CONDITIONAL_AUDIT.md` is valid, but do not apply the
-advertised commutator test until exact definitions of `I_+`, `I_-`, `P_+`,
-`P_-` and the bridge to the archived commutator are supplied and audited.
+`MODULAR_COMMUTATOR_N1_CONDITIONAL_AUDIT.md` is valid. The missing
+definitions and exact bridge are now supplied and independently audited in
+`MODULAR_COMMUTATOR_N1_FULL_AUDIT_NEXT.md`. Apply the commutator test only for
+`a>0` and with the separate actual-prefix input `s_1>0`; its conclusion is
+`C_1<0`, not a pivot sign.
 
 ## Twelfth-wave continuation gates
 
@@ -730,15 +732,17 @@ division, and the positive-moment rule `m_j=4pi n_j`. For `kappa=10`, the
 enlarged auxiliary must use only `M_0,...,M_9` and `n_0,...,n_11`; `M_10`
 is comparison-only. A positive finite-rung result is not a uniform theorem.
 
-The next Sobolev theorem-shaped target is the exact one-feature inequality
+At this checkpoint the next Sobolev theorem-shaped target was the exact
+one-feature inequality
 
 `delta^2 >= -4 H_span(q',tq) sigma`
 
 for the feature `t^2q'`, or a rigorously specified adaptive old-data feature,
-at every actual complete-theta rung. The two-rung operator recurrence does not
-propagate a fixed scalar Gram matrix: new multiplication layers introduce new
-moments. Do not claim a blanket fixed-width obstruction; the actual
-degree-ten repair disproves that stronger statement.
+at every actual complete-theta rung. The thirteenth-wave actual `kappa=15`
+certificate refutes the fixed `t^2q'` option. The two-rung operator recurrence
+does not propagate a fixed scalar Gram matrix: new multiplication layers
+introduce new moments. Continue only with an adaptive old-data feature or a
+growing dictionary; a finite positive prefix is not a uniform theorem.
 
 Replay the two standard-library Ewald algebra checkers:
 
@@ -760,11 +764,231 @@ infinite-tail inequalities. The
 three required inequalities are the half-seed, a uniform positive lower bound
 for `S'` on `[1/2,1]`, and an upper bound proving aggregate `D<=0`. Do not
 replace aggregate compensation by `P B_k>=N A_k` on odd rungs: the Bessel
-tail is eventually positive, and that stronger condition is conditionally
-incompatible with a negative head. The current negative-head observations are
-floating and cannot be used as the missing interval certificate.
+tail is eventually positive, and the certified actual value `e_2(q=t)<0`
+rigorously refutes that stronger condition at the first odd rung. This does
+not refute aggregate `D<=0` and is not the missing Abel-interval certificate.
 
 Do not launch a larger finite cell or degree sweep merely to consume CPU. A
 new governed job must certify a finite analytic head against the proved tail,
-or test/falsify the uniform Schur-gain inequality, while retaining the
-lock-state CPU policy and leaving the protected 4CT scripts untouched.
+or develop and falsify an adaptive/growing old-data score rule, while retaining
+the lock-state CPU policy and leaving the protected 4CT scripts untouched.
+
+## Thirteenth-wave continuation gates
+
+Replay the compact source-free and endpoint-packet checkers from the
+workstream directory:
+
+```text
+<arb-python> src/verify_u3_source_free_countermodel.py \
+  --output /tmp/u3_source_free_countermodel.replay.json
+python3 src/verify_ewald_endpoint_packet.py
+python3 src/verify_modular_commutator_n1_bridge.py
+```
+
+The accepted source-free `U_3` receipt SHA-256 is
+`c96352f987a0b28030a13f3ff8596dbfd78fe2135ad65d852b7dc6b8869e35ef`.
+The endpoint-packet checker rewrites its frozen accepted result path and must
+reproduce the transform polynomial,
+Euler--Maclaurin constants, and factor `1/8`; its accepted receipt SHA-256 is
+`549d1bf39370a63b188f1973c9a7cc1f4bfab3e161c1a802d5e7b10df14e86f8`.
+The modular checker output must match
+`results/modular_commutator_n1_bridge_replay.out` byte-for-byte, SHA-256
+`75babc9a0b122f564ebe0f1fd5f3a597643bc3c1dc6dd2681c878035816f4c87`.
+
+The full negative-head replay uses the recorded Arb interpreter:
+
+```text
+<arb-python> src/certify_ewald_kappa1_e2.py \
+  --output /tmp/ewald_kappa1_e2_certificate.replay.json
+```
+
+Freeze the verifier before launch. Its SHA-256 is
+`ae5e91dc5f8d4eecfe30f527257461dcc61302a44dcdc96e2c4ce0857cd40e24`;
+the accepted receipt SHA-256 is
+`b22fc12b2710807b9f124922959eef6348e1f9379d7e018c482313bd801cb99f`.
+Require the finite Arb enclosure, both spectral-tail bounds, and the final
+upper endpoint to be strictly negative. Do not infer aggregate `D`, the
+half-seed, or `S'` from this one cell.
+
+The fixed source-free `U_3` lemma and pointwise first-index-packet positivity
+are retired. At actual theta rungs, use the inverse-free `N_3` identity and
+bind the frozen source, signed-moment archive, complete positive-moment engine,
+normalization, outward padding, and receipt hashes. A finite actual failure
+would refute only that fixed dictionary; it would not refute the target pivot
+or RH.
+
+The actual `kappa=15` fixed-`U_3` obstruction is now accepted and closes that
+dictionary as a uniform route. To replay its bounded downstream certificate
+from the checkpoint root:
+
+```text
+<arb-python> workstreams/all-degree-analytic-search-next-v1/src/verify_u3_kappa15_obstruction_20261103.py \
+  --root . --precision-bits 800 \
+  --output /tmp/u3_kappa15_actual_obstruction_replay.json
+```
+
+The verifier source SHA-256 is
+`568a6159b08563a9af938927dae0cf8f8458a1fc7dc562eb66d26f82b0612050`;
+the accepted 800-bit result SHA-256 is
+`54a67b1978aaa0c9afc00df02e3e9549f064a54464d068a5540e5e157c0e6dad`.
+The frozen signed-moment source and receipt SHA-256 values are respectively
+`dc5828f6ce61a461d5a881c08d0e4034dab473f85dabd20be488dd4b5f6ff178`
+and
+`94d3741b7eabecf2f0f0ccc33a2786f8a4eaae752a98e1076fe08389828b1eff`.
+The signed generator's clean replay takes about 200 single-core seconds and
+differs in PID/elapsed metadata only; compare all moment endpoints,
+remainder bounds, provenance, and the canonical scientific payload rather
+than requiring the metadata-dependent whole file to match. `M_15` must remain
+absent. Do not reinterpret the negative auxiliary as a negative target.
+
+At this checkpoint the live modular task was the correlated opposite-tilt
+inequality, and the live Ewald task was finite-head compensation for the seed,
+`S'`, and `D`. The fourteenth wave closes both tasks only at `N=1`/`kappa=1`.
+
+## Fourteenth-wave continuation gates
+
+Replay the exact adaptive-score barrier from the workstream directory:
+
+```text
+python3 src/verify_adaptive_score_finite_degree_barrier.py \
+  --output /tmp/adaptive_score_finite_degree_barrier.replay.json
+```
+
+The source SHA-256 is
+`eab3a1943a9caed5073b00217a0852b11fbd1e18db1ef1ad24588278bc314f11`;
+the accepted receipt SHA-256 is
+`c418f268177a8b857c002297e0b7b37040ead056b8fc77e4d970cf7249e09018`.
+The finite samples audit closed moment formulas only. The proof that every
+fixed degree ceiling fails source-free is the asymptotic argument in
+`ADAPTIVE_SCORE_FINITE_DEGREE_BARRIER_NEXT.md`.
+
+Replay the recurrence-aware prior-derivative certificate from the checkpoint
+root:
+
+```text
+<arb-python> workstreams/all-degree-analytic-search-next-v1/src/verify_prior_derivative_score_20261103.py \
+  --root . --precision-bits 800 --output /tmp/prior_derivative_score_800.json
+```
+
+The verifier SHA-256 is
+`45467394a474ae3e53cda98d91eb6c4ebde62afe84d76264ed1cef1c72683aeb`;
+the accepted 800-bit receipt SHA-256 is
+`77cb034a3c488d77a3ec52ae9429a3f14b92ba8a796a15745b4c80248c92ddfe`.
+A 900-bit replay has SHA-256
+`98b2090ee2ea53d6313e3f91209ea05fccfeb7a926f7b1ff5ed3379f9061b6ab`.
+Require exact rank, positive `Delta_2`, `det K_3`, and `N_prior`, and absence
+of each new `M_kappa`. Thirteen positive rungs are a falsifier check, not the
+uniform theorem `N_prior(N,epsilon)>0`.
+
+The standard-library conditional Ewald checker is
+
+```text
+python3 src/verify_ewald_single_negative_compensation.py
+```
+
+It rewrites its deterministic accepted result. The source and receipt SHA-256
+values are respectively
+`493e926d2d93f5246359ac57b55defdc1752dbf1fd73d2584a56272f226c9d6e`
+and
+`0a2ba64c8401934cd26494a9d706dc393e93dfd4e426dd0b749ffe7884051057`.
+Do not apply its endpoint equivalence without the sole-negative-cell sign
+pattern.
+
+Replay the actual sign-free `kappa=1` aggregate certificate from the
+workstream directory:
+
+```text
+<arb-python> src/certify_ewald_kappa1_aggregate.py \
+  --output /tmp/ewald_kappa1_aggregate.replay.json
+```
+
+The frozen source SHA-256 is
+`1e813e55f13f6cd74d4cb8f16706228bf3e7ac46df089b37fbc3ef22bd1e1a3f`;
+the byte-identical receipt SHA-256 is
+`57b9f9c63e4c3ac5f2292c25b90c99881d7bf1e3c3f3d5163b5b4ceb4fec4345`.
+Require complete cells one through six, the evaluated `Y=20` global tail
+constant, sign-free `T_0,T_1`, and strict seed, derivative, placement, and
+`-D` margins. Do not extrapolate the base rung to higher degrees.
+
+Finally replay the modular tilt certificate from the checkpoint root:
+
+```text
+<arb-python> workstreams/all-degree-analytic-search-next-v1/src/certify_modular_vprime_tilt.py \
+  --spatial-cells 4096 --parameter-cells 64 --precision-bits 192 \
+  --output /tmp/modular_vprime_tilt.replay.json
+```
+
+The source SHA-256 is
+`31cd42b5a31157b9ff885c9fd1a3117522a2f014b7bd829b14c6f6d87063794e`;
+the accepted receipt and canonical payload SHA-256 values are
+`1db1987de3a7542c5cf02e45178b5d5dd65a76c1f2bfaeaa176184d5810290e5`
+and
+`f0ab78590eefb0d9c576eccdf33a95a2eaf72227b33e3bdcc28f448db11c103d`.
+Require the divided `a=0` limit, complete `n>=9` orbit and `h>=2` spatial
+tails, full rectangle coverage, `R<0`, and `s_1/(2a)>0`. The conclusion is
+only `C_1<0`; by itself it underpays the separate boundary/`s_2` cost. The
+fifteenth-wave endpoint result below pays that cost locally near zero, not on
+the full campaign interval.
+
+## Fifteenth-wave continuation gates
+
+Replay the exact source-free prior-score countermodel from the workstream
+directory:
+
+```text
+python3 src/verify_prior_derivative_source_free_countermodel_20261103.py \
+  --output /tmp/prior_derivative_source_free_countermodel.replay.json
+```
+
+The source and byte-identical receipt SHA-256 values are respectively
+`ffadda9b2765a50bdb4c9b63eb5b114adfe3d0dfbe09db4ad3e43e3116a5f60f`
+and
+`38bfc145beb130154d122b50f1a1fface451a11dd0292b5fd92d40b9f3e0480e`.
+Require the positive old determinant, positive current target, positive Gram
+determinant, and negative bordered auxiliary. This countermodel is not theta.
+
+Replay the stronger log-concave barrier with the recorded Arb interpreter:
+
+```text
+<arb-python> src/verify_prior_derivative_supergaussian_barrier.py \
+  --output /tmp/prior_derivative_supergaussian_barrier.replay.json \
+  --precision-bits 384
+```
+
+The source and 384-bit receipt SHA-256 values are respectively
+`aa7c35bb5f2a32087c98a9421d8493b0cef2d8f6efd80e5654dfb3fefa6d2f39`
+and
+`b6465f43eb03fc3abfde15ebb680ffdc6837ed2f5fe12dc0ea40ae49adcbabfa`.
+Require target density `12t^2 exp(-2t^4)>=0`, positive Gram determinants, and
+strictly negative degree-seven and degree-eight auxiliaries. This retires
+generic log-concavity/Favard/CD proofs, not the actual-theta rule.
+
+`EWALD_PARITY_TAIL_COMPENSATION_NEXT.md` is exact algebra and has SHA-256
+`2f686d90249e7c277972fa39ab63f208fdd71f982c5ed766f031cfb021844a56`.
+There is no numerical replay. Check the eventual-sign premise before applying
+the odd centered-moment or even support-separation formulas. The fixed-residual
+Bessel asymptotic is not uniform in degree.
+
+Replay the modular payment reduction from the workstream directory:
+
+```text
+python3 src/verify_modular_n1_s2_payment_reduction.py \
+  > /tmp/modular_n1_s2_payment_reduction.replay.json
+```
+
+The provenance-hardened source and byte-identical receipt SHA-256 values are
+respectively
+`5fb1b8c78634662c739b04853c1044dbd5b7d339e02b5fcbecc8508d1e1df663`
+and
+`93c708a1f8b1567b32ca62d1a02e8a9927ef165b1c99e924af6730eef7e72624`.
+The checker binds the modular-tilt, integrated-square, and curvature-square
+receipts. Require the exact finite-`a` underpayment identity and the strict
+rational endpoint margin. The conclusion is `N=1` payment at `a=0` plus an
+unspecified local `a_0`; it is not full coverage of `0<a<=1/4`.
+
+Do not launch larger degree or cell tables merely to consume CPU. The useful
+next targets are the complete-theta nonlinear-drift/predecessor alignment,
+a degree-uniform Bessel threshold and finite-head margins, and an explicit
+extension of the local modular payment through `0<a<=1/4`, followed by higher
+degrees. Continue under the lock/load policy and never touch protected 4CT
+files or processes.

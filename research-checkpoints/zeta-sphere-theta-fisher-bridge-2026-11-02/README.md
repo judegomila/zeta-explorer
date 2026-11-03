@@ -23,8 +23,15 @@ parallel-friendly package.
    trace workstream, including the exact real-line drift kernel, the
    all-prefix frozen-residue route obstruction, the surviving one-negative
    and paid-Schur continuations, the enlarged score-space certificate, the
-   analytic Bessel-controlled Ewald tail, governed finite diagnostics, and
-   their limits.
+   analytic Bessel-controlled Ewald tail, the exact conditional `N=1`
+   commutator bridge, the fixed-`U_3` source-free obstruction and certified
+   actual-theta `kappa=15` failure, the
+   sign-changing endpoint packet, the certified negative actual Ewald head
+   cell, the recurrence-aware prior-derivative repair, the uniform-in-`z`
+   first-rung Ewald aggregate certificate, the parity-resolved analytic tail,
+   the prior-score source-free and supergaussian barriers, the uniform `N=1`
+   modular-tilt certificate, the normalized endpoint payment and local
+   continuity consequence, governed finite diagnostics, and their limits.
 
 ## Frozen baseline and append-only deltas
 

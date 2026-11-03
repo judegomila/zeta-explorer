@@ -772,10 +772,9 @@ all-degree theorem, or RH.
   floating first-ten-cell diagnostics; they prove no Abel interval,
   all-index tail, endpoint sign, or all-degree theorem.
 - The tilted Brascamp--Lieb estimate underlying the proposed `N=1` test is
-  valid with its exact factor two, but the supplied `I_+`, `I_-`, `P_+`,
-  `P_-` quantities and their bridge to the archived modular commutator are
-  undefined. The advertised
-  commutator implication remains uncertified pending those definitions.
+  valid with its exact factor two. The subsequently supplied `I_+`, `I_-`,
+  `P_+`, `P_-` definitions and exact bridge to the archived complete
+  commutator are audited in the thirteenth wave below.
 
 This wave resolves one central blocker by falsification: improving the
 two-generator reverse-Schur cap cannot yield a uniform proof. It does not
@@ -820,10 +819,10 @@ Xi--Laguerre inequality, an all-degree target theorem, nor RH.
   effectively certifiable geometric-majorant scheme for the
   half-seed, `S'`, and aggregate reverse order `D<=0`. On odd rungs the
   stronger cutoff-by-cutoff condition `P B_k>=N A_k` is incompatible with an
-  eventual positive tail whenever a negative head cell is rigorously present;
-  the current negative head observations are still floating, so this
-  implication is stated conditionally. The weaker aggregate `D<=0` remains a
-  live route.
+  eventual positive tail whenever a negative head cell is rigorously present.
+  The thirteenth wave supplies such a certified head at the actual first odd
+  rung. The weaker aggregate `D<=0` remained the live route and is certified
+  at that one rung in the fourteenth wave.
 - Exact index moments also isolate the endpoint derivative:
   `M_1(s)=((2-s)/(1-s)) zeta(s-1)` and
   `S'(1)=(2pi)^(-1) integral q^2 B(Xi,H_1)`, with
@@ -833,10 +832,141 @@ Xi--Laguerre inequality, an all-degree target theorem, nor RH.
 This wave cracks two route-selection blockers: the discarded score reserve
 can be recovered at the first failed actual rung with one noncircular feature,
 and the infinite Ewald tail is now analytic rather than a finite-cell
-diagnostic. The remaining obligations are uniform theta inequalities for the
-one-feature Schur gain, or certified finite-head compensation against the
-proved Ewald tail. Neither obligation is solved, and no all-degree pivot,
-first Xi--Laguerre inequality, or RH theorem follows.
+diagnostic. At this checkpoint the remaining obligations were a uniform theta
+inequality for the one-feature Schur gain, or certified finite-head
+compensation against the proved Ewald tail. The thirteenth wave below refutes
+the fixed one-feature rule at an actual later rung; no all-degree pivot, first
+Xi--Laguerre inequality, or RH theorem follows.
+
+## Thirteenth-wave route falsifiers and exact `N=1` bridge
+
+- A source-free fixed-`U_3` theorem is impossible. For
+  `q=t` and the positive even Schwartz weight
+  `W=exp(-t^2/2)+(1/100)exp(-t^2/800)`, the target is strictly positive while
+  the rank-adapted projection onto `span{q'W,tqW,t^2q'W}` is strictly
+  negative. The proof is closed Gaussian algebra, with a denominator-free
+  rank-three identity for future interval tests. This countermodel is not the
+  complete theta source and does not refute a theta-arithmetic inequality.
+- The source-specific question is now also settled for this fixed dictionary.
+  At the actual odd `kappa=15` residual, constructed only from old signed
+  moments `M_0,...,M_14`, a complete-orbit Arb certificate proves rank three
+  and
+  `H_span(q',tq,t^2q')<-9.88604319556048e24`. The inverse-free numerator is
+  strictly negative while both Gram determinants are strictly positive; an
+  independent clean replay and implementation audit confirm the sign. This
+  refutes `t^2q'` as a uniform repair for the actual theta ladder. It does not
+  load or sign `M_15`, the true target, and leaves adaptive or growing
+  old-data dictionaries open.
+- The exact physical packet behind the first Ewald index moment is positive at
+  the modular centre and negative in both far tails. An explicit
+  Euler--Maclaurin bound proves the negative tail. Pointwise positivity of that
+  packet is therefore unavailable; the signed correlation with the complete
+  theta profile remains the relevant object.
+- With
+  `I_+/-=integral h exp(+/-2ah)psi^2`,
+  `P_+/-=integral exp(+/-2ah)psi^2`, and
+  `M(b)=E_(nu_b)[v^2]`, the complete archived `N=1` commutator is exactly
+
+  `C_1=(4a I_-/(s_0 s_1))
+       {I_+[M(a)-M(-a)]-a(P_++P_-)}`.
+
+  For `a>0`, `s_0>0` is automatic. Conditional on the actual current-prefix
+  input `s_1>0`, the audited Brascamp--Lieb inequality proves `C_1<0` under
+  `2I_+ integral_(-a)^a sqrt(A_bB_b)db<a(P_++P_-)`. This signs an unpaid
+  commutator defect; it proves neither `s_1` nor the next pivot `s_2`.
+- For the actual degree-one residual `q=t`, Arb quadrature on `[-40,40]`
+  plus a complete analytic spectral-tail bound proves
+  `e_2<-0.425466581761017`. Together with the proved eventual-positive odd
+  Ewald tail, this rigorously refutes the stronger cutoff-by-cutoff stochastic
+  order at this actual rung. It does not sign the aggregate
+  `D=P'N-PN'`, the half-seed, or `S'`.
+
+These results remove three overly strong proof routes and supply the formerly
+missing `N=1` algebraic bridge. They do not prove a pivot, an all-degree first
+Xi--Laguerre inequality, or RH. At this checkpoint the live work was an
+adaptive or growing complete-theta score rule, a correlated tilt bound for
+`E_(nu_b)v'`, or certified aggregate Ewald head/tail compensation. The next
+wave below advances all three without closing the all-degree problem.
+
+## Fourteenth-wave recurrence repair and first-rung closures
+
+- A finite candidate block has exact gain `z^T Sigma^(-1)z/4`, and the single
+  old-data combination `c=Sigma^(-1)z` realizes the full block gain. However,
+  no source-free fixed polynomial degree ceiling can work uniformly: for each
+  ceiling a two-scale positive even Schwartz family has a positive target but
+  a negative auxiliary even after projection onto every polynomial below that
+  ceiling. Complete-theta arithmetic or a degree-growing rule is essential.
+- The recurrence supplies a sharper actual-theta choice. The old-data space
+  `V_N^prior=span{q_N',tq_N,q_(N-1)'}` is rigorously positive on all thirteen
+  available rungs, odd `kappa=3,...,15` and even `kappa=4,...,14`. At the
+  critical actual `kappa=15` rung,
+  `H_(V_prior)>6.611165481170336e25` and the cleared numerator is positive.
+  Only `M_0,...,M_14` enter; `M_15` is absent. This repairs the known fixed
+  `U_3` failure noncircularly, but the uniform inequality
+  `N_prior(N,epsilon)>0` remains open.
+- Conditional on the second cell being the sole negative cell, the first-odd
+  Ewald aggregate collapses exactly to
+  `D=(-e_2)z(zS'-2S)`, reducing its sign to one endpoint test. More strongly,
+  the actual `kappa=1`, `q=t` certificate does not assume any remote sign:
+  complete cells one through six plus a sign-free analytic all-index tail
+  prove uniformly on `1/2<=z<=1`
+  `S(1/2)>0.2224841354`, `S'(z)>0.2535251354`, and
+  `-D(z)>0.03407979784`. This closes the aggregate Abel gates at this one
+  actual rung only.
+- The complete-theta opposite-tilt inequality is also now certified uniformly
+  for `0<a<=1/4`. A cancellation-free complete-orbit enclosure proves
+  `R(a)<-0.0324959540305671` and independently
+  `s_1/(2a)>0.352482030101313`. Since `s_0>0` is automatic, the complete
+  archived `N=1` integrated modular commutator is rigorously negative over the
+  full campaign interval. This signs the archived unpaid defect; it does not
+  pay the next `s_2` reserve.
+
+All interval certificates above were clean-replayed and independently audited.
+They identify a recurrence-aware score target and close two first-rung analytic
+obligations. They do not prove a next pivot, an all-degree first Xi--Laguerre
+inequality, or RH. At that checkpoint the live work was the uniform
+prior-derivative inequality, higher-rung sign-free Ewald compensation, and the
+separate modular boundary/`s_2` payment; the next wave sharpens all three.
+
+## Fifteenth-wave source-specific barriers and endpoint payment
+
+- The recurrence-aware prior derivative is not a source-free theorem. An exact
+  positive even entire Schwartz countermodel has a positive old signed block
+  and positive degree-four target but a strictly negative prior-derivative
+  auxiliary. More strongly, `W=exp(-t^4)` is log-concave and satisfies
+  `W'^2-WW''>=0`, so its entire true target ladder is positive, yet the same
+  auxiliary is rigorously negative at degrees seven and eight. These examples
+  do not affect the thirteen complete-theta certificates; they prove that
+  Favard, Christoffel--Darboux, target positivity, and log concavity alone
+  cannot extend them.
+- The exact surviving prior-score identity is now explicit. If
+  `p=(I-P_span(q',tq))q_(N-1)'` and `v=-W'/W`, adjoining the predecessor gains
+  `|integral (v-lambda t)q p W^2|^2/||pW||^2` for every real `lambda`.
+  Therefore the open all-degree statement is a complete-theta alignment bound
+  between the nonlinear logarithmic drift and the predecessor innovation,
+  not generic Jacobi positivity. Even the Gaussian reference reserve is only
+  `H_prior/A=1/(4 kappa)` and shrinks with degree.
+- The analytic Ewald tail now separates exactly by parity after any certified
+  Bessel sign threshold. For odd degree, the positive remote tail improves the
+  seed and derivative and costs only one centered first moment in `D`. For
+  even degree, support separation gives `D<=D_K` exactly, so the remote tail
+  costs nothing in the aggregate. The remaining all-degree obligation is a
+  degree-uniform Bessel threshold/remainder together with uniform finite-head
+  margins; no larger floating cell table can replace it.
+- The modular defect has an exact payment identity:
+  `kappa_1 mu_1^-=-C_1+R_a`, where `R_a>0` is a current-prefix remainder.
+  Thus `C_1<0` alone necessarily underpays the one-negative-direction cost.
+  At the normalized endpoint, however, independently audited complete-theta
+  bounds prove
+  `sigma_2>(1254/8)sigma_0>4Q_0`, so the `N=1`, `a=0` defect is paid and
+  `sigma_2>0`. Continuity yields an unspecified `a_0>0` on which the raw
+  finite-`a` strong payment and `s_2(a)>0` persist.
+
+All exact countermodels and payment constants were independently replayed.
+The modular result does not give an explicit `a_0`, does not cover the full
+`0<a<=1/4` interval, and does not extend to higher degrees. The all-degree
+complete-theta alignment inequality, degree-uniform Ewald head/tail margins,
+and global modular payment remain open. Nothing in this wave proves RH.
 
 ## Central open lemma
 
@@ -857,8 +987,11 @@ to
 `4 y^T c_W' - 2 gamma^T H gamma >= kappa_0 M_N`.
 
 Every term is determined by the current prefix, but its correlated sign and
-size are not proved uniformly. This is the remaining criterion for that route,
-not a global equivalence to all-shift closure.
+size are not proved uniformly. The fifteenth-wave curvature argument pays the
+`N=1` normalized endpoint and a nonquantified positive neighborhood by a
+different sufficient bound. The displayed criterion remains open uniformly,
+for an explicit full interval, and at higher degree; it is not a global
+equivalence to all-shift closure.
 
 A second normalized-endpoint reduction is now available in arithmetic form.
 For the even ladder the infinite tail beyond an explicit `O(N^2)` cutoff is

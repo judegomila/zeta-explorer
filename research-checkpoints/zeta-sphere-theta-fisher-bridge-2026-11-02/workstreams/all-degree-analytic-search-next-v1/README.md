@@ -430,7 +430,7 @@ The signed-cell route sharpens in the opposite direction.
 `ACTUAL_EWALD_REVERSE_ORDER_NEXT.md` proves the exact identity
 `W_alpha=C S'-2D` and a ratio-free stochastic-tail criterion for `D<=0`.
 Consequently the separate half-seed, `S'>=0`, and reverse tilted cell order
-are sufficient. Two frozen low-rung probes observe this reverse order, but
+are sufficient. At that checkpoint two frozen low-rung probes observed this reverse order, but
 they are explicitly floating first-ten-cell diagnostics with no interval or
 all-index tail certificate. The live analytic target is the complete-cell
 tail order plus derivative balance, not a larger cell table.
@@ -438,10 +438,11 @@ tail order plus derivative balance, not a larger cell table.
 Finally, `MODULAR_COMMUTATOR_N1_CONDITIONAL_AUDIT.md` verifies the
 Brascamp--Lieb tilt estimate
 `|E_(nu_a)v^2-E_(nu_-a)v^2|<=2 integral_-a^a sqrt(A_b B_b) db` for `a>0`,
-with its exact domain and factor. The proposed `I_+`, `I_-`, `P_+`, `P_-`
-commutator test cannot be linked to the archived commutator until those
-quantities and the bridge identity are supplied; it is not presently an
-`N=1` pivot theorem.
+with its exact domain and factor. `MODULAR_COMMUTATOR_N1_FULL_AUDIT_NEXT.md`
+and its independent audit now supply the missing definitions and exact bridge.
+For `a>0` and the separate actual-prefix input `s_1>0`, the proposed strict
+integral condition signs the complete archived commutator negative. That is an
+unpaid defect sign, not an `N=1` or next-pivot theorem.
 
 A twelfth audited wave turns both surviving continuation suggestions into
 concrete formulas. `ENLARGED_SCORE_PROJECTION_NEXT.md` proves the exact
@@ -462,8 +463,9 @@ boundary. The residual vectors are closed as a two-rung operator recurrence,
 so a blanket fixed-width impossibility would be false. What fails is exact
 propagation of a fixed finite scalar Gram state: multiplication by `t^2`
 creates a new highest feature and new inner products. A live Sobolev proof
-must establish the source-specific Schur-gain bound at every rung or control
-the growing hierarchy.
+would have had to establish the source-specific Schur-gain bound at every rung
+or control the growing hierarchy. The thirteenth-wave actual `kappa=15`
+certificate below refutes the former fixed-feature option.
 
 `EWALD_BESSEL_CELL_TAIL_NEXT.md` and
 `EWALD_SCALAR_CELL_TAIL_NEXT.md` replace the finite-cell tail diagnostic by an
@@ -471,11 +473,12 @@ analytic all-index theorem. The complete physical correlation reduces to
 modified Bessel functions and gives eventual Euler-cell sign
 `(-1)^(kappa+1)` with ratio `exp(-2pi)`. This yields an effectively
 certifiable geometric tail majorant. The remaining Ewald work is a certified finite head proving the
-half-seed, `S'>=0`, and aggregate `D<=0` on the Abel interval. The stronger
-termwise stochastic order is only conditionally obstructed on odd rungs,
-because a negative head cell has not yet been interval-certified. No new
-result in this wave proves an all-degree pivot, first Xi--Laguerre inequality,
-or RH.
+half-seed, `S'>=0`, and aggregate `D<=0` on the Abel interval; the fourteenth
+wave later closes these at `kappa=1`. The stronger
+termwise stochastic order is rigorously refuted at the actual first odd rung
+by the thirteenth-wave negative `e_2` certificate. This does not refute
+aggregate compensation. No result here proves an all-degree pivot, first
+Xi--Laguerre inequality, or RH.
 
 The governed floating diagnostic in `results/m0_inertia_primary_parameter_replay.json`
 finds `M0` positive on every archived odd prefix through degree 19. At degree
@@ -486,6 +489,150 @@ events, completion receipt and result hash. This is cutoff stabilization on
 known finite prefixes and is necessarily pre-asymptotic, not an interval
 certificate or an all-degree result. `TAU_STRUCTURE_PROBE.md` records the
 nested feasible-interval diagnostics without escalating degree.
+
+## Thirteenth-wave exact bridge and route falsifiers
+
+`U3_UNIFORM_OBSTRUCTION_NEXT.md` gives a closed two-scale Gaussian example
+with positive target but negative
+`H_span(q',tq,t^2q')`. It also records the inverse-free identity
+`D_2N_3=D_3N_2+Delta^2` for rank-safe interval tests. The example is not the
+complete theta source: it retires source-free fixed-`U_3` positivity, not a
+theta-arithmetic or adaptive-feature route.
+
+`U3_KAPPA15_OBSTRUCTION_20261103.md` then performs the source-specific test.
+For the actual odd `kappa=15` residual, built only from old signed moments
+`M_0,...,M_14`, complete-orbit Arb enclosures prove exact rank three and
+
+`H_span(q',tq,t^2q') in
+[-9.886093182083536e24,-9.886043195560485e24]<0`.
+
+The cleared inverse-free numerator is strictly negative while both Gram
+determinants are strictly positive. A clean 3,072-cell replay and independent
+implementation audit reproduce the result. `M_15` is absent, so the true
+target is not signed. The result closes only the fixed three-feature rule;
+adaptive or growing old-data dictionaries remain live.
+
+`EWALD_ENDPOINT_PACKET_SIGN_NEXT.md` inverts the exact first-index multiplier.
+Its real even packet is positive at the modular centre and negative in both
+far tails, with an explicit Euler--Maclaurin remainder. Thus pointwise packet
+positivity is unavailable, while the complete integrated correlation remains
+unsigned.
+
+`MODULAR_COMMUTATOR_N1_FULL_AUDIT_NEXT.md` derives the complete archived
+scalar
+
+`C_1=(4aI_-/(s_0s_1)){I_+[M(a)-M(-a)]-a(P_++P_-)}`.
+
+The independent audit checks the reflection matrices, derivative-weight term,
+half-line integration by parts, common target normalization, and the optional
+theta reduction. For `a>0`, `s_0>0` is automatic; at that checkpoint
+`s_1>0` remained an input. The Brascamp--Lieb condition proves `C_1<0` but
+does not prove `s_1`,
+`s_2`, or any pivot.
+
+Finally, `EWALD_KAPPA1_E2_CERTIFICATE_NEXT.md` proves for the actual
+degree-one residual `q=t` that
+
+`e_2<-0.425466581761017`.
+
+The certificate combines complete Arb integration on `[-40,40]` with an
+explicit bound for both spectral tails and an extra factor-two safety reserve;
+an independent replay checks the normalization and is byte-identical. With the
+proved eventual-positive odd tail, this refutes only the stronger
+cutoff-by-cutoff stochastic order. At this checkpoint the half-seed, `S'`, and
+aggregate `D` remained open; the next wave closes them only at `kappa=1`.
+Every next-pivot sign and RH remain open.
+
+## Fourteenth-wave recurrence repair and first-rung closures
+
+`ADAPTIVE_SCORE_FINITE_DEGREE_BARRIER_NEXT.md` gives the exact gain
+`z^T Sigma^(-1)z/4` of any old-data candidate block and shows that the single
+adaptive direction `c=Sigma^(-1)z` realizes the whole gain. Its two-scale
+counterfamily then proves a sharp source-free limit: no fixed polynomial
+degree ceiling works uniformly, even if the rule selects coefficients from
+all positive moments and the target is positive. Growing degree and
+complete-theta arithmetic are not covered.
+
+`PRIOR_DERIVATIVE_SCORE_REPAIR_20261103.md` identifies the corresponding
+theta-specific recurrence choice
+
+`V_N^prior=span{q_N',tq_N,q_(N-1)'}`.
+
+It is strictly positive on all thirteen available rungs, with
+`H_(V_prior)>6.611165481170336e25` at the critical actual odd `kappa=15`
+rung. Exact rank and inverse-free Schur signs are certified, `M_15` is absent,
+and independent 800/900-bit replays agree. This is a noncircular repair and a
+theorem-shaped target, not a proof that `N_prior(N,epsilon)>0` for every rung.
+
+`EWALD_SINGLE_NEGATIVE_COMPENSATION_NEXT.md` first records the exact
+conditional identity `D=(-e_2)z(zS'-2S)`. More importantly,
+`EWALD_KAPPA1_AGGREGATE_CERTIFICATE_NEXT.md` avoids that sign hypothesis.
+Complete cells one through six and a sign-free `Y=20` all-index tail prove,
+uniformly for `1/2<=z<=1`,
+
+`S(1/2)>0.2224841354`, `S'(z)>0.2535251354`, and
+`-D(z)>0.03407979784`.
+
+The regional perturbation proof permits arbitrary remote cell signs and was
+replayed byte-for-byte. It closes the bounded aggregate gates at the actual
+first odd rung only, not at higher degrees.
+
+Finally, `MODULAR_VPRIME_TILT_CERTIFICATE_NEXT.md` closes the correlated
+opposite-tilt input in the campaign range. Complete-orbit and spatial-tail Arb
+enclosures prove uniformly for `0<a<=1/4`
+
+`R(a)<-0.0324959540305671`,
+`s_1/(2a)>0.352482030101313`, and hence `C_1<0`.
+
+The independent audit verifies the cancellation-free algebra, zero-limit,
+all-orbit and all-space tails, and byte-identical replay. The conclusion is
+only the negative archived `N=1` commutator defect. At that checkpoint the
+separate `s_2` boundary payment remained open; the next wave pays its
+normalized endpoint locally but not the full interval or any all-degree
+statement.
+
+## Fifteenth-wave source-specific barriers and endpoint payment
+
+`PRIOR_DERIVATIVE_SOURCE_FREE_COUNTERMODEL_20261103.md` proves exactly that
+the recurrence-aware repair is not source-free. For
+`W=exp(-t^2/2)(1+4t^2/5)`, the old block and current degree-four target are
+positive but the prior auxiliary is negative. It also gives the exact
+surviving gain formula
+
+`H_prior=H_span(q',tq)+|integral (v-lambda t)q pW^2|^2/||pW||^2`,
+
+where `p` is the predecessor innovation. Thus the needed theorem is a lower
+bound on alignment with the nonlinear complete-theta drift, not ordinary
+Christoffel--Darboux positivity.
+
+`PRIOR_DERIVATIVE_SUPERGAUSSIAN_BARRIER_NEXT.md` strengthens that boundary.
+The entire log-concave Schwartz weight `W=exp(-t^4)` has a nonnegative true
+target density at every degree, yet its prior auxiliary is rigorously negative
+at degrees seven and eight. The Gaussian reference identity
+`H_prior/A=1/(4kappa)` shows that the generic reserve itself shrinks with
+degree. These countermodels do not affect the thirteen positive actual-theta
+rungs; they force any continuation to retain complete theta orbit/drift
+correlations.
+
+`EWALD_PARITY_TAIL_COMPENSATION_NEXT.md` removes avoidable remote-tail costs.
+After a certified eventual-sign threshold, an odd-degree positive tail
+improves the seed and derivative and enters `D` only through a centered first
+moment. At even degree, support separation gives `D<=D_K` exactly. The
+remaining theorem-shaped task is a degree-uniform Bessel threshold/remainder
+and uniform finite-head margins.
+
+Finally, `MODULAR_N1_S2_PAYMENT_REDUCTION_NEXT.md` proves the exact
+underpayment identity
+
+`kappa_1 mu_1^-=-C_1+R_a`, with `R_a>0`.
+
+The commutator sign alone therefore cannot pay the defect. At the normalized
+endpoint, however, independently audited complete-theta bounds give
+`sigma_2>(1254/8)sigma_0>4Q_0`. This pays the `N=1`, `a=0` scalar and proves
+`sigma_2>0`. Continuity supplies some unspecified `a_0>0` with the strong
+payment and `s_2(a)>0` on `0<a<a_0`. No explicit `a_0`, full
+`0<a<=1/4` payment, higher-degree theorem, all-degree theorem, or RH result is
+claimed.
 
 ## Hard staged gates
 

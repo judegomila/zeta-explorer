@@ -551,22 +551,51 @@ The surviving Sobolev arrow must enlarge or change the compressed score
 space while preserving noncircularity. The exact projection identity shows
 that the two-generator rule discards an orthogonal reserve which is essential
 at degree ten. Multiplication layers and the prior same-parity residual give a
-candidate correlated space, but no uniform estimate on that space is proved.
+candidate correlated space. The prior-derivative choice is now certified on
+all thirteen available rungs, but no uniform estimate on that space is proved.
 Unrestricted enlargement merely returns to the target and is circular.
+
+The fifteenth wave shows that the prior-derivative rule is not supplied by
+generic positive-weight geometry. One exact positive-even-Schwartz example
+has a positive old block and target but a negative prior auxiliary; the
+stronger `exp(-t^4)` example is log-concave and has every true target positive
+while the prior auxiliary is negative at degrees seven and eight. The exact
+surviving gain is
+
+`|integral (v-lambda t) q p W^2|^2 / ||pW||^2`,
+
+where `p` is the predecessor innovation and `v=-W'/W`. Thus the dependency is
+specifically a complete-theta lower bound on nonlinear-drift/predecessor
+alignment. Favard, Christoffel--Darboux, target positivity, or separate
+Cauchy estimates cannot provide it.
 
 The signed-cell arrow has a sharper direction. For fully assembled scalar
 cells, `W_alpha=C S'-2D`, so the separate half-seed together with `S'>=0`
 and reverse tilted order `D<=0` suffices. The ratio-free all-index tail
-conditions `P B_k>=N A_k` imply `D<=0`. Floating low-rung probes support this
-orientation but certify no tail or interval. The live dependency is an
-analytic complete-cell proof of the derivative balance and stochastic-tail
-order, or a direct proof of the hazard inequality.
+conditions `P B_k>=N A_k` imply `D<=0`, but they are now rigorously known to
+be too strong at the actual first odd rung: `e_2(q=t)<0` while the analytic
+tail is eventually positive. The aggregate `D<=0` route nevertheless succeeds
+at `kappa=1`: a sign-free finite-head/tail certificate pays the half-seed,
+`S'`, and `D` uniformly. The live dependency is to propagate such signed
+compensation beyond the first rung or prove the hazard inequality directly.
 
 The audited tilted Brascamp--Lieb estimate controls the difference of
-`E_(nu_b)[v^2]` between opposite tilts. It does not yet enter the dependency
-graph for the modular commutator: the proposed `I_+`, `I_-`, `P_+`, `P_-`
-objects and the exact bridge identity were not supplied, so the claimed
-`N=1` implication cannot be checked without new definitions.
+`E_(nu_b)[v^2]` between opposite tilts. With the supplied definitions it now
+enters the modular dependency exactly:
+
+`C_1=(4aI_-/(s_0s_1)){I_+[M(a)-M(-a)]-a(P_++P_-)}`.
+
+For `a>0`, `s_0>0` is automatic; assuming the actual current-prefix input
+`s_1>0`, the strict integrated Brascamp--Lieb condition makes `C_1<0`.
+The complete-theta interval certificate now proves both the correlated
+opposite-tilt inequality and `s_1>0` uniformly on `0<a<=1/4`, so `C_1<0`
+there without a remaining prefix assumption. The exact payment decomposition
+is now `kappa_1 mu_1^-=-C_1+R_a` with `R_a>0`, so commutator negativity alone
+strictly underpays. At `a=0`, the audited quadratic curvature theorem and
+complete-theta drift/moment bounds prove `sigma_2>4Q_0`, paying the normalized
+`N=1` defect; continuity extends this to some unspecified `0<a<a_0`. The live
+modular dependency is an explicit bound for `a_0` and continuation through the
+full `0<a<=1/4` interval, followed by higher-degree payments.
 
 The twelfth wave replaces both surviving arrows by sharper obligations. For
 the Sobolev branch, the exact arbitrary-dictionary projection identity gives
@@ -576,16 +605,40 @@ the Sobolev branch, the exact arbitrary-dictionary projection identity gives
 and one extra feature contributes exactly `delta^2/(4 sigma)`. The actual
 degree-ten theta residual proves that `V=span{q',tq,t^2q'}` crosses from a
 strictly negative two-generator auxiliary to a strictly positive one without
-using the new signed moment. Thus the live dependency is no longer “find a
-larger space” in the abstract; it is the concrete complete-theta inequality
+using the new signed moment. The thirteenth wave then certifies the same fixed
+dictionary strictly negative at the actual odd `kappa=15` rung. Thus the
+concrete inequality
 
 `delta^2 >= -4 H_span(q',tq) sigma`
 
-for `t^2q'`, or an adaptive old-data feature, at every rung. The residual
-recurrence closes as an operator recurrence on two consecutive rungs but not
-as a fixed scalar Gram state: multiplication creates a new highest layer and
-new positive moments. This is not an impossibility result for a theta-specific
-fixed-width inequality.
+is false uniformly for the feature `t^2q'`. The residual recurrence closes as
+an operator recurrence on two consecutive rungs but not as a fixed scalar
+Gram state: multiplication creates a new highest layer and new positive
+moments. The live dependency is now an adaptive old-data feature rule or a
+growing dictionary with a source-specific all-degree gain estimate.
+
+The thirteenth-wave source-free test first narrows this statement: a closed
+two-scale Gaussian example has positive target but negative
+`H_span(q',tq,t^2q')`, so positive-even-Schwartz geometry cannot prove a
+fixed-`U_3` theorem. The source-bound actual `kappa=15` certificate then
+closes the theta-specific fixed-dictionary question itself. It uses only
+`M_0,...,M_14`, has exact rank three, positive Gram determinants, and a
+strictly negative cleared Schur numerator. It does not load `M_15` or sign the
+true target. Adaptive or growing old-data features remain possible.
+
+The fourteenth wave identifies the recurrence-compatible continuation. A
+finite candidate block has exact Schur gain `z^T Sigma^(-1)z/4`, realized by
+one adaptive direction, but a two-scale counterfamily proves that no
+source-free fixed polynomial degree ceiling can work uniformly. For the actual
+theta source, replacing the failed forward/backward mixture `t^2q_N'` by the
+old-data backward channel `q_(N-1)'` gives
+
+`V_N^prior=span{q_N',tq_N,q_(N-1)'}`.
+
+Its inverse-free numerator is positive on every available rung through odd
+degree fifteen, and `M_kappa` is absent at each rung. The dependency is now the
+specific uniform complete-theta inequality `N_prior(N,epsilon)>0`, not an
+unstructured adaptive search or another finite sweep.
 
 For the signed-cell branch, the complete physical correlation now supplies
 an analytic infinite tail. The Bessel reduction proves eventual cell sign
@@ -594,15 +647,35 @@ contour-shift estimate supplies arbitrary-power absolute bounds. Therefore the
 open Ewald dependency can be reduced to a certified finite head plus a proved
 tail margin for three quantities: the half-seed, `S'`, and aggregate
 `D=P'N-PN'`. The stronger termwise stochastic-tail inequalities are not a
-uniform replacement: on odd rungs an eventual positive tail makes them fail
-whenever a negative head cell exists. The aggregate reverse-order inequality
-can still be paid by favorable finite-head compensation.
+uniform replacement: the certified actual value `e_2(q=t)<0`, together with
+the eventual-positive odd tail, makes them fail at the first odd rung. The
+aggregate reverse-order inequality can still be paid by favorable finite-head
+compensation.
+
+That favorable compensation is now certified at the first odd rung. Complete
+Arb cells one through six and a sign-free `Y=20` all-index tail prove
+`S(1/2)>0`, `S'>0`, and `D<0` uniformly on the full Abel interval. The proof
+permits arbitrary remote cell signs. Separately, under a sole-negative-cell
+hypothesis, the exact identity
+`D=(-e_2)z(zS'-2S)` reduces the aggregate to one endpoint correlation; this
+conditional reduction is not needed by the actual certificate. The remaining
+Ewald dependency has now been reduced by parity. Beyond a certified Bessel
+sign threshold, an odd-degree positive tail improves the seed and derivative
+and costs only one centered first moment in `D`. At even degree, support
+separation gives `D<=D_K` exactly, so the remote tail has no aggregate cost.
+What remains is a degree-uniform Bessel threshold/remainder and uniform
+finite-head margins, not a larger unproved cell table.
 
 The endpoint derivative has the exact completed multiplier
 `H_1=-s(2-s)pi^(-s/2)Gamma(s/2)zeta(s-1)`, but this identity supplies no
-sign. Accordingly, the current Ewald arrow is a finite analytic head
-enclosure over `1/2<=z<=1`, not another finite-cell table and not a
-coefficientwise positivity theorem.
+sign. Its exact even physical packet is positive at the modular centre and
+negative in both far tails, so pointwise packet positivity is also retired.
+Accordingly, the general Ewald arrow is a finite analytic head enclosure over
+`1/2<=z<=1`, not another finite-cell table and not a coefficientwise
+positivity theorem. Its `kappa=1` base rung is now closed; no higher-rung or
+all-degree conclusion is inferred. The parity reduction handles the complete
+remote tail once its sign threshold is certified, but does not supply the
+degree-uniform threshold or head inequalities.
 
 ## Why the negative tail is constructive information
 

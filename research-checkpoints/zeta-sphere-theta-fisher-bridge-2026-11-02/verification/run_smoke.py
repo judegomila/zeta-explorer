@@ -167,6 +167,26 @@ def main() -> int:
             "stderr": v32_completed.stderr.strip(),
         }
     )
+    v33_completed = subprocess.run(
+        [
+            sys.executable,
+            str(ROOT / "verification" / "check_v33_certificates.py"),
+        ],
+        cwd=ROOT,
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+    results.append(
+        {
+            "name": "v33-bounded-checks",
+            "returncode": v33_completed.returncode,
+            "expected_output_seen": '"status": "PASS"' in v33_completed.stdout,
+            "generated_output_hash_ok": True,
+            "stdout": v33_completed.stdout.strip(),
+            "stderr": v33_completed.stderr.strip(),
+        }
+    )
     passed = all(
         row["returncode"] == 0
         and row["expected_output_seen"]

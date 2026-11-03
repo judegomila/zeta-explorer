@@ -1,0 +1,4 @@
+degree 10000000000 height 1000000000000 log-tail upper -101999999688 PASS
+degree 30000000000 height 2900000000000 log-tail upper -230999999688 PASS
+core reserve exact 6299958915587/3662109375000000 > 43/25000 PASS
+log(10)<12/5 via positive exponential Taylor polynomial: PASS

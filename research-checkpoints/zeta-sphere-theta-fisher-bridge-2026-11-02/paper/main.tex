@@ -59,12 +59,15 @@
 finite-order interval theorems, exact signed decompositions, rigorous
 counterexamples to stronger auxiliary routes, and reviewed information-theoretic
 bounds. Review to date is internal and AI-assisted, not external peer review.
-Both actual parity blocks through degree nine are now certified on
-$0\le a\le1/2$, $0\le H_{\mathrm{cut}}\le1/8$; at global cutoff
-$H_{\mathrm{cut}}=0$, their direct sum is positive for every $a>0$, with the
-divided-by-$a$ normalized endpoint included. This is a finite theorem. The
-finite signed arithmetic core beyond the certified degrees and the
-degree-uniform bridge comparison remain unproved; neither is assumed.
+At global spatial cutoff $H_{\mathrm{cut}}=0$, the actual polynomial quadratic
+form is now proved positive through degree $30{,}000{,}000{,}000$ for every
+$a>0$, with the divided-by-$a$ normalized endpoint included.  This finite
+theorem depends on the published Platt--Trudgian verification of zeta zeros to
+height $3\cdot10^{12}$; that massive external computation was not rerun here.
+A separate direct interval certificate covers degree $10$ on
+$0\le a\le1/2$, $0\le H_{\mathrm{cut}}\le1/8$.  Neither result is an
+all-degree theorem, an extension to arbitrary positive spatial cutoffs, a new
+zero verification, a novelty claim, or RH.
 }}
 \end{center}
 
@@ -72,14 +75,33 @@ degree-uniform bridge comparison remain unproved; neither is assumed.
 We organize a computational and analytic research program around a paired theta
 kernel whose all-order positive-definiteness problem is tied to the Riemann
 hypothesis. Let $H_{\mathrm{cut}}$ denote a spatial lower integration limit.
-A direct interval certificate proves that both actual $5\times5$ parity blocks,
-on degrees $0,2,4,6,8$ and $1,3,5,7,9$, are positive for every
-$0\le a\le1/2$ and $0\le H_{\mathrm{cut}}\le1/8$. At
-$H_{\mathrm{cut}}=0$, the standard paired-Hadamard argument supplies the outer
-shifts, so the actual degree-at-most-nine Gram is positive for every $a>0$;
-its divided-by-$a$ removable endpoint is certified at $a=0$. Mixed-parity
-entries vanish by evenness. The older complete $H_6$, even-through-eight, and
-normalized odd-through-nineteen results remain independent finite footholds.
+
+The principal finite theorem is analytic rather than a giant matrix
+calculation.  For the normalized bridge density $\Lambda_a$, every nonzero real
+polynomial $p$ of degree at most $3\cdot10^{10}$ satisfies, uniformly for
+$0\le a\le1/2$,
+\[
+ \int_{\mathbb R}p(t)^2\Lambda_a(t)\,dt
+ >\bigl(0.00172-e^{-2\cdot10^{11}}\bigr)
+   \int_{-4}^{4}p(t)^2\,dt>0.
+\]
+The proof combines a certified central theta reserve, the exact localization
+of a possible negative zero-pair halo, the published Platt--Trudgian critical-line
+verification through height $3\cdot10^{12}$, and an explicit gamma-decay plus
+polynomial-tail estimate.  The external zero computation is a dependency and
+was not rerun.  The standard outer-shift argument then gives positivity through
+the same finite degree for every $a>0$ at $H_{\mathrm{cut}}=0$, including the
+normalized $a=0$ limit.  For complex polynomials the statement uses $|p|^2$;
+it is not an order statement for the bilinear expression $p^2$.
+
+A separate direct interval certificate proves the even block on degrees
+$0,2,4,6,8,10$ and the inherited odd block on degrees $1,3,5,7,9$ are positive
+for every $0\le a\le1/2$ and $0\le H_{\mathrm{cut}}\le1/8$.  Thus the actual
+degree-at-most-ten Gram is positive on that compact rectangle.  This direct
+$H_{10}$ theorem retains positive-cutoff content that the much larger
+verified-zero degree theorem does not provide.  The corrected odd-degree-11
+interval run is inconclusive in every shift slab; an earlier six-channel
+adaptation had an unfilled row and column and is invalid, not negative evidence.
 
 The program has also rigorously disproved a stronger shortcut: arbitrary spatial
 cumulative tails need not be positive, even at the explicit positive shift
@@ -117,16 +139,17 @@ all-degree positivity theorem.
 
 An all-finite-degree theorem controls every raised spatial moment in the
 complete-theta positive-parent norm, but gives no signed Schur reserve. Exact
-block transport and modular reflection reduce a normalized-endpoint route to
-one negative direction, while a canonical source cancels the separately
-estimated inverse-feedback term. A second route rewrites the actual residual
-through a positive scalar resolvent, an adaptive correlated mean, and an exact
-theta divisor expansion. In that expansion every sufficiently high even
-summand is positive after an explicit $O(N^2)$ cutoff, while the odd remainder
-is negative with an explicit absolute payment. The actual finite signed core
-remains unproved uniformly beyond the certified finite degrees. No result here
-extends to arbitrary positive cutoffs, degrees above nine in both parities,
-arbitrary configurations, or the Riemann hypothesis.
+block transport and modular reflection reduce one normalized-endpoint route to
+one negative direction, while a canonical source cancels inverse feedback.  An
+exact Hardy prefix identity compresses all subset debits to one translation
+norm, and an exact canonical flux retains every root-deletion cost; neither has
+a known degree-uniform sign.  Polynomial localization proves that a negative
+open interval in the actual fixed-shift density, if one exists, must eventually
+defeat both parity ladders.  A degree-20 selected residual also refutes an
+uncorrected local canonical-sign shortcut, without determining its integrated
+pivot.  The finite signed core beyond the new threshold, all-degree closure,
+and the positive-cutoff hierarchy beyond degree ten remain unproved.  Nothing
+here is an RH proof or a claim of literature novelty.
 \end{abstract}
 
 \tableofcontents
@@ -228,6 +251,24 @@ manifest, and one repository README. One version-index locator is replaced by
 the public v31 archive hash. The source archive, root manifests, duplicated
 private v31 manifests, and every unlisted private or acquired path remain
 excluded.
+\item Campaign v33 is an $8{,}672{,}645$-byte append-only source artifact named
+\begin{center}\small\ttfamily
+zeta\_sphere\_campaign\_v33\_\\
+20261103T1331Z.zip,
+\end{center}
+with SHA-256
+\begin{center}\small\ttfamily
+7fa9c3f26154506f107cba1ac45e5854\\
+5ef51b9115496d4965a00b45a8d75007.
+\end{center}
+Its manifest verifies $1{,}778$ payloads and preserves all $1{,}541$ v32
+payloads byte-for-byte.  The public continuation retains 205 reviewed owned
+files---seven explicitly marked as depending on an external published
+theorem---and 29 owned diagnostic or correction-history files, together with
+the exact publication manifest and one repository README.  No v33 payload was
+redacted: all 234 classified payloads are source-identical.  The source
+archive, root manifests, duplicated v32 manifests, private locators, acquired
+material, and every unallowlisted path remain excluded.
 \item CP62 has Library identifier
 {\small\texttt{libfile\_19a836c8b8a8819198a91a5abe44c640}}, byte count $79{,}980$,
 and SHA-256
@@ -251,7 +292,12 @@ locator. The v31 continuation applies the same policy and publishes its invalid
 even2 implementation only as explicitly labeled owned correction history. The
 v32 continuation applies the same policy, retains inconclusive or superseded
 runs only under their explicit evidence grades, and publishes no private
-Library locator. No acquired program was executed.
+Library locator. The v33 continuation preserves the same separation and labels
+the Platt--Trudgian computation as an external theorem dependency rather than
+redistributing or claiming to rerun it. Generic
+\texttt{/workspace/shared} strings in frozen replay notes are implementation
+locators, not personal paths, and were preserved to keep source hashes exact.
+No acquired program was executed.
 
 \begin{longtable}{>{\raggedright\arraybackslash}p{0.20\textwidth}
                   >{\raggedright\arraybackslash}p{0.34\textwidth}
@@ -260,9 +306,11 @@ Library locator. No acquired program was executed.
 Result & Established scope & Boundary that remains \\
 \midrule
 \endhead
-Full theta $H_6$ & Strict positivity for every positive shift and the normalized endpoint; on $0\le a\le1/2$, the even $4\times4$ basis Gram has reserve $I/60$ and joins the inherited odd $H_5$ block. & A historical finite foothold, now below the separate v32 degree-through-nine frontier; still no all-order or RH conclusion. \\
+Full theta $H_6$ & Strict positivity for every positive shift and the normalized endpoint; on $0\le a\le1/2$, the even $4\times4$ basis Gram has reserve $I/60$ and joins the inherited odd $H_5$ block. & A historical finite foothold, now below the later finite frontiers; still no all-order or RH conclusion. \\
 Even channels through $8$ & The explicit five-polynomial even Gram for channels $0,2,4,6,8$ exceeds $I/100$ on $0\le a\le1/2$, with strict positivity extended to all positive shifts. & This older calculation alone omitted odd channels; its quantitative reserve remains specific to its basis and interval. \\
-Actual degree-through-$9$ Gram & Both actual parity blocks are positive on $0\le a\le1/2$, $0\le H_{\mathrm{cut}}\le1/8$; at $H_{\mathrm{cut}}=0$, the complete finite Gram is positive for every $a>0$ plus its normalized endpoint. Compact monic bounds exceed $658{,}509{,}314{,}218$ and $82{,}637{,}820{,}677{,}424$. & The outer argument is only for $H_{\mathrm{cut}}=0$; no $a>1/2$ positive-cutoff claim, degree above $9$, all-degree theorem, or RH. \\
+Actual degree-through-$9$ Gram & Both actual parity blocks are positive on $0\le a\le1/2$, $0\le H_{\mathrm{cut}}\le1/8$; at $H_{\mathrm{cut}}=0$, the complete finite Gram is positive for every $a>0$ plus its normalized endpoint. Compact monic bounds exceed $658{,}509{,}314{,}218$ and $82{,}637{,}820{,}677{,}424$. & This historical certificate alone has no $a>1/2$ positive-cutoff claim and no degree-above-$9$, all-degree, or RH conclusion. \\
+Actual degree-through-$10$ Gram & The new even $6\times6$ block on $0,2,4,6,8,10$, joined to the prior odd block on $1,3,5,7,9$, is positive on $0\le a\le1/2$, $0\le H_{\mathrm{cut}}\le1/8$. The even monic Schur bound exceeds $8{,}928{,}867{,}843{,}900{,}347$. & Direct positive-cutoff scope stops at degree $10$. The corrected odd-$11$ enclosure is inconclusive; an earlier six-channel adaptation is invalid dimension, not negative evidence. \\
+Verified-zero degree bound & At $H_{\mathrm{cut}}=0$, every nonzero real polynomial of degree at most $3\cdot10^{10}$ has positive bridge form for every $a>0$ plus normalized $a=0$. On $0\le a\le1/2$ the displayed reserve is $0.00172-e^{-2\cdot10^{11}}$. & Depends on the published Platt--Trudgian verification through $3\cdot10^{12}$, not rerun here. Finite degree only; no new zero verification, positive-cutoff extension, all-degree theorem, novelty claim, or RH. \\
 Odd channels $1,3,\ldots,19$ & Full $10\times10$ odd block at normalized $a=0$, including the actual $H_{\mathrm{cut}}=1/16$ core/tail coupling. & Not the even block, not full $H_{19}$, and no nonzero-shift or all-degree result. \\
 $H_{\mathrm{cut}}=1$ cumulative tail & Explicit negative Fourier density at $t=7005081715/10^6$, including $a=10^{-4}$. & Refutes universal tail positivity, not the complete kernel or RH. \\
 Bridge Fisher information & $I_a\le2/17$ and regular endpoint $I_{a^2}(0)\le4/867$. & Fisher PSD does not imply parameter-derivative Gram PSD. \\
@@ -485,7 +533,157 @@ The outer identity is not preserved by spatial truncation. Hence no claim is
 made for $a>1/2$ at positive cutoff, for $H_{\mathrm{cut}}>1/8$, for degree
 above nine in both parities, or for arbitrary configurations. The compact
 reserves in \eqref{eq:v32-monic-bounds} are not exported to the outer strip.
-This is a finite degree-nine theorem, not all-degree positivity or RH.
+This is the historical finite degree-nine theorem, not all-degree positivity or
+RH.  The following direct certificate adds one even channel while retaining its
+positive-cutoff scope.
+
+\subsection{Direct degree-ten positivity on the compact cutoff rectangle}
+
+Keep the moments in \eqref{eq:v32-shifted-moments} and set
+\begin{equation}
+ B_0^{(10)}(a,H_{\mathrm{cut}})
+   =[m_{i+j}(a,H_{\mathrm{cut}})]_{i,j=0}^{5},
+ \qquad
+ B_1^{(9)}(a,H_{\mathrm{cut}})
+   =[m_{i+j+1}(a,H_{\mathrm{cut}})]_{i,j=0}^{4}.
+ \label{eq:v33-h10-blocks}
+\end{equation}
+Thus the first block represents $0,2,4,6,8,10$, while the second is the
+already-certified block on $1,3,5,7,9$.
+
+\begin{theorem}[direct $H_{10}$ certificate]
+Both matrices in \eqref{eq:v33-h10-blocks} are positive definite for
+\begin{equation}
+ 0\le a\le\frac12,
+ \qquad 0\le H_{\mathrm{cut}}\le\frac18.
+ \label{eq:v33-h10-rectangle}
+\end{equation}
+Consequently the actual mixed-parity Gram is positive through degree $10$ on
+this rectangle.  At $H_{\mathrm{cut}}=0$, the outer-strip argument extends the
+same finite statement to every $a>0$, with normalized $a=0$ included.
+\end{theorem}
+
+The new even computation uses six channels, derivative order $24$, the same 16
+closed shift slabs, 4000 spatial cells and tail, and 4000 inward-cutoff cells.
+In the common fixed basis its six final LDL lower bounds are
+\[
+ .88886338, .92779862, .95945616, .96612687, .96388527,
+ \ .63863770,
+\]
+rounded downward as displayed.  These are pivots in congruence coordinates,
+not Euclidean eigenvalue bounds.  The corresponding monic even-degree-ten
+Schur lower bound is
+\begin{equation}
+ S_{\mathrm{even},10}>8{,}928{,}867{,}843{,}900{,}347.
+ \label{eq:v33-even10-monic}
+\end{equation}
+An independent copied-source replay reproduced the full
+$16\times4000\times4000$ packet and its consequence check byte-for-byte.
+
+Two correction-history facts delimit this result.  A corrected odd-degree-11
+enclosure is inconclusive in all 16 shift slabs; ``inconclusive'' is not a
+negative result.  An earlier attempted six-channel adaptation left four loops
+at length five, so the sixth row and column were not populated.  That output is
+classified \emph{invalid dimension} and supplies no mathematical evidence.
+The theorem above does not claim $H_{11}$, degree-uniform positivity, or any
+positive-cutoff scope outside \eqref{eq:v33-h10-rectangle}.
+
+\subsection{A verified-zero theorem through degree thirty billion}
+
+For this theorem it is useful to state the analytic normalization directly.
+Let $\xi$ denote Riemann's entire xi function and, for $a>0$, define
+\begin{equation}
+ \Lambda_a(t)=\frac4a\,
+ \Re\!\left[
+   \xi'\!\left(\frac12+a+it\right)
+   \overline{\xi\!\left(\frac12+a+it\right)}
+ \right],
+ \label{eq:v33-lambda}
+\end{equation}
+with its continuous divided-by-$a$ limit at $a=0$.  Reflection and the harmless
+frequency-$2t$ rescaling in \eqref{eq:bridge-fourier} identify its polynomial
+moments with the global $H_{\mathrm{cut}}=0$ bridge form by a positive diagonal
+congruence.  This changes neither polynomial degree nor the zero-height scale.
+
+\begin{theorem}[finite degree bound from a verified zero window]
+For every nonzero real polynomial $p$ with
+$\deg p\le30{,}000{,}000{,}000$ and every $0\le a\le1/2$,
+\begin{equation}
+ \int_{\mathbb R}p(t)^2\Lambda_a(t)\,dt
+ >\left(0.00172-e^{-2\cdot10^{11}}\right)
+   \int_{-4}^{4}p(t)^2\,dt>0.
+ \label{eq:v33-30b}
+\end{equation}
+For a complex polynomial the valid statement replaces $p^2$ by $|p|^2$ on
+both sides.  Combining \eqref{eq:v33-30b} with the outer-shift theorem proves
+strict positivity through the same degree for every $a>0$ at
+$H_{\mathrm{cut}}=0$, with normalized $a=0$ included.
+\end{theorem}
+
+The proof has three spatial-frequency regions and one explicit external
+dependency.  Platt and Trudgian prove that all nontrivial zeros through height
+$3{,}000{,}175{,}332{,}800$ lie on the critical line
+\cite{PlattTrudgian2021}.  We use only the weaker height $3\cdot10^{12}$ and set
+\[
+ T_{\mathrm{spec}}=2.9\cdot10^{12}.
+\]
+The massive zero-verification computation was not rerun in this campaign; the
+published theorem is an explicit dependency.
+
+For a reflected pair whose horizontal offsets are $\pm d$ and whose ordinate
+is $\gamma$, the relevant paired logarithmic-derivative contribution is
+\begin{equation}
+ \frac{2a\bigl(a^2+(t-\gamma)^2-d^2\bigr)}
+ {\bigl((a-d)^2+(t-\gamma)^2\bigr)
+  \bigl((a+d)^2+(t-\gamma)^2\bigr)}.
+ \label{eq:v33-zero-pair}
+\end{equation}
+It can be negative only when $d>a$ and
+$|t-\gamma|<\sqrt{d^2-a^2}<1/2$.  The verified critical-line window therefore
+excludes every possible negative zero-pair halo on
+$[-T_{\mathrm{spec}},T_{\mathrm{spec}}]$.  A separate owned interval
+calculation supplies the strict core reserve
+\begin{equation}
+ \Lambda_a(t)>0.00172
+ \quad(0\le a\le1/2,\ |t|\le4.3),
+ \label{eq:v33-central-reserve}
+\end{equation}
+with exact rational lower endpoint
+$6299958915587/3662109375000000>0.00172$.  The theorem uses only $[-4,4]$.
+
+Outside the spectral window, the uniform analytic envelope
+\begin{equation}
+ |\Lambda_a(t)|\le4100(1+|t|)^8e^{-\pi|t|/4}
+ \qquad(0\le a\le1/2)
+ \label{eq:v33-gamma-envelope}
+\end{equation}
+holds also at the normalized endpoint.  Legendre control on $[-4,4]$ and a
+Chebyshev exterior bound give, with $c=\pi/4$ and $n=\deg p$,
+\begin{equation}
+ \int_{|t|>T_{\mathrm{spec}}}|p(t)|^2|\Lambda_a(t)|\,dt
+ \le E_n\int_{-4}^{4}|p(t)|^2\,dt,
+ \quad
+ E_n=\frac{2050}{c}(n+1)^2 4^n
+ (1+T_{\mathrm{spec}})^{2n+8}e^{-cT_{\mathrm{spec}}}.
+ \label{eq:v33-tail-factor}
+\end{equation}
+The deliberately coarse exact arithmetic closes at the advertised degree:
+\begin{equation}
+ \log E_n<(27n+130)\,2.4-.75(2.9\cdot10^{12})
+ \le-230{,}999{,}999{,}688<-2\cdot10^{11}.
+ \label{eq:v33-tail-arithmetic}
+\end{equation}
+Equations \eqref{eq:v33-central-reserve}--\eqref{eq:v33-tail-arithmetic}, with
+nonnegativity on the middle region, prove \eqref{eq:v33-30b}. No Gram matrix at
+this degree was formed. The proof assumes neither monicity, real-rootedness, an
+inverse residual, nor a coefficient bound.
+
+This is a finite theorem conditional only in the ordinary sense that it invokes
+the published rigorous theorem of Platt--Trudgian.  It is not a new zero
+verification, an all-degree theorem, a positive-$H_{\mathrm{cut}}$ extension, a
+literature-novelty claim, or RH.  The direct theorem
+\eqref{eq:v33-h10-rectangle} remains the stronger result in its positive-cutoff
+scope.
 
 \subsection{The odd block through channel 19}
 
@@ -1681,9 +1879,120 @@ $0.9955$ from $0$ to $1/4$. These are fractions of each terminal feature's own
 conditional orbit covariance. They are not fractions of the bridge Schur
 surplus, whose covariance and spatial means may grow with degree.
 
+\section{All-degree analytic reductions and obstruction tests}
+
+The finite theorem \eqref{eq:v33-30b} changes the practical frontier but not
+the logical all-degree problem. The v33 continuation develops several exact
+reductions and then stress-tests the shortcuts they might suggest. The useful
+distinction is between an identity that keeps every signed term and an estimate
+that actually pays those terms.
+
+\subsection{Hardy prefix compression and a shrinking critical band}
+
+Fix a real-rooted polynomial $p$ and let $q_S$ delete the labeled roots in a
+nonempty subset $S$. If $M_q(b)$ is the positive norm of $q$ on the horizontal
+line $b$ and $H_p(b)$ is the corresponding Hardy norm of $p(t+ib)$, then the
+finite triangular expansion is exact:
+\begin{equation}
+ J_a[p]=H_p'(a)-\sum_{S\ne\varnothing}
+ \left(2|S|a^{2|S|-1}M_{q_S}(a)+a^{2|S|}J_a[q_S]\right).
+ \label{eq:v33-hardy-budget}
+\end{equation}
+For an actual inverse-selected residual, prefix positivity makes every
+displayed debit positive. The source $H_p'(a)$ is itself positive, but that
+fact alone does not prove that it dominates the deletion budget. At $a=0$,
+the divided limit of \eqref{eq:v33-hardy-budget} is exactly the earlier
+root-deletion identity; the apparent new source has not removed the old cost.
+All subset costs can also be compressed to one actual-prefix translation norm
+using the finite nilpotent differentiation matrix. This is a cleaner exact
+target, not a payment theorem.
+
+One tempting universal-factor shortcut is unavailable: the complete theta
+profile has a flat, nonremovable boundary at $u=i\pi/4$. After the alternating
+modular transformation it vanishes faster than every power on approach to that
+point, so a holomorphic continuation would force it to vanish identically.
+Multiplication by an entire nonvanishing Gaussian-like factor cannot repair
+this boundary. This refutes that proposed factorization criterion only; it
+does not rule out strip-holomorphic or theta-specific estimates for
+\eqref{eq:v33-hardy-budget}.
+
+There is nevertheless a degree-dependent analytic entry into the critical
+shift region. For each fixed $n$, an explicit tail inequality chooses
+$R_n=O(n\log n)$ and
+\begin{equation}
+ \epsilon_n=\min\!\left(\frac14,
+       \frac{1}{6\log(R_n+3)}\right).
+ \label{eq:v33-critical-band}
+\end{equation}
+The Mossinghoff--Trudgian--Yang zero-free region
+\cite{MossinghoffTrudgianYang2024}, the paired halo formula
+\eqref{eq:v33-zero-pair}, and complete-theta contour decay then prove the
+degree-at-most-$n$ global form positive for
+$a\ge1/2-\epsilon_n$. This supplies no fixed interior shift valid at every
+degree: $\epsilon_n\to0$. It is uncut spatially, depends on a published
+zero-free theorem, and asserts neither a practical decimal threshold nor RH.
+
+\subsection{Fixed-shift localization and the signed-flux remainder}
+
+At a fixed interior shift, the exponentially decaying bridge density is
+continuous. If it is negative on any open interval, polynomial concentration
+constructs a finite even test and a finite odd test with negative quadratic
+form. Conversely, pointwise nonnegativity immediately makes every polynomial
+form nonnegative. Thus all-degree polynomial positivity at a fixed shift is
+equivalent to pointwise nonnegativity of the actual density there. The result
+does \emph{not} assert that the actual theta density has a negative interval;
+it proves that an exponentially tiny remote negative interval could not be
+paid at all degrees merely by bounding its total mass.
+
+The normalized endpoint has an exact canonical flux for every real-rooted
+parity polynomial. It retains every deletion and produces a polynomial flux
+of degree at most $2n+3$. The higher remainder has denominator only $T_0^2$,
+independent of $n$, and an exact Bell-type recurrence. These are genuine
+structural gains. But the Taylor radius is exactly $\pi/2$, forcing
+factorial-order coefficient growth, and the central canonical remainders take
+both signs infinitely often in the larger real-rooted test class. Therefore
+neither a geometric absolute-coefficient estimate nor generic local
+nonnegativity closes the target. The sign for the actual inverse-selected
+coefficients after integration remains open.
+
+The associated nonlinear theta/Bezout module is also exact: it gives a
+rank-one polynomial recurrence and a divergence-certificate framework, with
+base cases $n=0,1$. A fixed rational-coefficient linear ODE closure is
+impossible because the theta profile has infinitely many boundary
+singularities. This excludes that finite linear closure, not nonlinear,
+infinite, or nonrational approaches.
+
+\subsection{Selected degree-20 and dual-transport cautions}
+
+For the actual normalized even degree-20 inverse-selected residual, the
+uncorrected canonical local factor is rigorously negative near $u=14/25$:
+\begin{equation}
+ -2697.34<f_{20}(14/25)<-2697.17.
+ \label{eq:v33-selected20-local}
+\end{equation}
+Hence a proof that simply declares this canonical local remainder nonnegative
+cannot work. Scalar proportional gauges fail locally, and a two-point check
+excludes every real one-dimensional proportional gauge on a small
+neighborhood. Neither calculation annihilates the full cross-moment vector,
+so neither is a negative optimized-dual witness or an integrated pivot sign;
+the degree-20 target moment was not computed.
+
+The normalized selected orthogonality problem does have an attained dual
+minimum with an atomic optimizer using at most $N+1$ atoms. Its positivity is
+unproved in general. Enlarging the selected residual to arbitrary polynomial
+multiples satisfying finitely many orthogonality constraints is not a safe
+shortcut: an actual-theta constrained negative energy exists in that larger
+class. Likewise, rigid supporting-plane transport can fail even in known
+positive settings. Adaptive reoptimization yields conditional fixed-degree
+continuation and eventual large-shift positivity, but its optimizer norm can
+grow while the fractional margin decays. Frozen raw linear-program outputs
+remain diagnostics; they are not uniform SOS or atomic-repair certificates.
+
 \section{Two endpoint reductions and the global remaining obligation}
 
-The finite degree-nine theorem does not close either degree-uniform route. For
+The finite zero-cutoff theorem through degree $3\cdot10^{10}$ and the direct
+positive-cutoff theorem through degree $10$ do not close either degree-uniform
+route. For
 the normalized-endpoint modular route, conditional on a positive current prefix,
 the canonical construction reduces sufficient payment to
 \begin{equation}
@@ -1709,8 +2018,8 @@ equivalent to the full all-shift problem.
 The broader program still points to the following missing comparison.
 
 \begin{obligation}[uniform innovation domination]
-For every degree beyond the certified finite range in each parity and every
-allowed shift, compare the positive
+For every degree beyond $3\cdot10^{10}$ at $H_{\mathrm{cut}}=0$, and beyond
+degree $10$ in the present positive-cutoff rectangle, compare the positive
 twin-ladder innovation and the exact orbit/death-chain innovation with the
 actual complete lower-block metric, and prove that the resulting gain dominates
 all of the following in one inequality:
@@ -1740,10 +2049,13 @@ prove it.
 
 The current evidence narrows the target substantially:
 \begin{itemize}
-\item both actual parity blocks through degree $9$ are positive on
-  $0\le a\le1/2$, $0\le H_{\mathrm{cut}}\le1/8$, and at
-  $H_{\mathrm{cut}}=0$ the finite Gram is positive for every $a>0$ plus the
-  normalized endpoint;
+\item the external-theorem-dependent argument proves the global
+  $H_{\mathrm{cut}}=0$ form positive through degree $3\cdot10^{10}$ for every
+  $a>0$ plus normalized $a=0$; the Platt--Trudgian zero computation was not
+  rerun and no all-degree conclusion follows;
+\item the direct interval certificate proves both actual parity blocks through
+  degree $10$ on $0\le a\le1/2$,
+  $0\le H_{\mathrm{cut}}\le1/8$; odd degree $11$ is inconclusive;
 \item the normalized odd-19 block remains a higher one-parity endpoint result,
   not a nonzero-shift or full degree-19 theorem;
 \item at the odd-19 endpoint, positive innovation rigorously pays the
@@ -1795,7 +2107,11 @@ redactions. The v31 lane adds 162 classified owned payloads---137 reviewed and
 manifest and one repository README, with one locator-only redaction. The v32
 lane adds 405 classified owned payloads---386 reviewed and 19 diagnostic or
 correction-history files---plus its exact publication manifest and one
-repository README, with one locator-only redaction. The
+repository README, with one locator-only redaction. The v33 lane adds 234
+source-identical classified owned payloads---205 reviewed and 29 diagnostic or
+correction-history files---plus its exact publication manifest and one
+repository README. Its zero-redaction receipt records that no payload rewrite
+was required. The
 default archive verifier checks v18, CP62, v19, and every
 continuation path against its source or recorded public hash. The
 dependency-light smoke suite reruns exact rational checks for the $H_5$
@@ -1859,6 +2175,22 @@ inspected as proofs rather than machine-formalized. These limits are recorded
 so a successful replay is not mistaken for external peer review or an
 all-dependency recomputation.
 
+For v33, a copied-tree replay under Python 3.13.15 with mpmath 1.3.0,
+python-flint 0.9.0, and SymPy 1.14.0 reproduced byte-for-byte the 4000-cell
+central theta interval calculation, the exact degree-$10^{10}$ and
+degree-$3\cdot10^{10}$ tail arithmetic, the derivative-24
+$16\times4000\times4000$ direct $H_{10}$ slab packet, and its consequence
+check. It also reproduced the canonical flux, nonlinear module, SOS selection
+and localization, corrected $N=1$, and three selected-degree-20 obstruction
+checks. The direct $H_{10}$ replay passed every even-degree-10 slab and left
+odd degree $11$ inconclusive in all 16 slabs. All 234 classified payload hashes
+and 122 entries across 52 internal checksum manifests passed. The published
+Platt--Trudgian computation, the 29 diagnostic or invalid programs, inherited
+v32 jobs as standalone computations, private or acquired code, and the prose
+analytic gamma-envelope and outer-strip arguments were not rerun as
+machine-formalized proofs. The verified-zero theorem therefore retains its
+explicit external dependency and its finite-degree scope.
+
 Parallel work uses isolated worktrees. Evidence and provenance are frozen;
 proof, experiment, audit, and paper lanes submit claim deltas to a single
 integration branch. Numerical observations cannot be promoted to theorems
@@ -1872,12 +2204,15 @@ are campaign-internal independent checks, not external refereeing.
 
 \section*{Conclusion}
 
-V32 moves the finite frontier: both actual parity blocks through degree nine
-are positive on the compact shift--cutoff rectangle, and at
-$H_{\mathrm{cut}}=0$ the complete finite Gram is positive for every $a>0$,
-with its normalized removable endpoint included. The exact inverse-residual
-replay, modular cancellation witness, and sharp threshold $107521$ retain the
-actual signed and conditioned mechanisms.
+V33 moves two distinct finite frontiers. At global spatial cutoff
+$H_{\mathrm{cut}}=0$, the analytic verified-zero argument proves the actual
+quadratic form positive through degree $30{,}000{,}000{,}000$ for every
+$a>0$, with the normalized endpoint included. Its central reserve and tail
+arithmetic are independently replayed, while the critical-line window depends
+explicitly on the published Platt--Trudgian verification through
+$3\cdot10^{12}$, whose massive computation was not rerun. Independently, the
+direct interval method proves degree $10$ on the compact positive-cutoff
+rectangle $0\le a\le1/2$, $0\le H_{\mathrm{cut}}\le1/8$.
 
 The continuation also exposes two concrete normalized-endpoint routes. The
 modular route leaves the theta-specific correlated inequality
@@ -1889,10 +2224,13 @@ show two genuine compensation mechanisms: the first pays every
 $t^2-\alpha$, while the second shows globally selected regression variation
 paying a negative regional optimum at a known finite rung. Neither supplies
 the uniform finite-core or innovation estimate required beyond the certified
-finite range. No theorem is asserted outside the cutoff rectangle, beyond the
-finite degree range, or for arbitrary configurations. Broader closure still
-requires the uniform signed innovation comparison, and the Riemann hypothesis
-remains unproved.
+finite range. The Hardy budget, canonical flux, fixed-shift localization, and
+selected-degree-20 tests sharpen why mass-only, generic local-sign, scalar-gauge,
+and rigid-transport shortcuts cannot provide that estimate. No theorem is
+asserted beyond degree $3\cdot10^{10}$ at zero cutoff, beyond degree $10$ at
+positive cutoff, or for arbitrary configurations. There is no new zero
+verification or novelty claim. Broader closure still requires the uniform
+signed innovation comparison, and the Riemann hypothesis remains unproved.
 
 \bibliographystyle{plain}
 \bibliography{references}

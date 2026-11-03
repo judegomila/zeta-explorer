@@ -7,8 +7,8 @@ proceed simultaneously without rewriting the validated baseline.
 
 - `evidence/v18-curated/`, `evidence/cp62/`, `evidence/v19-delta/`,
   `evidence/v20-v26-continuation/`, `evidence/v27-v30-continuation/`, and
-  `evidence/v31-continuation/`, and `evidence/v32-continuation/` are frozen.
-  Accepted later work is appended in a
+  `evidence/v31-continuation/`, `evidence/v32-continuation/`, and
+  `evidence/v33-continuation/` are frozen. Accepted later work is appended in a
   new versioned evidence directory; it never replaces old bytes or silently
   extends an existing version union.
 - Versioned provenance receipts are append-only. The root `SHA256SUMS` is
@@ -94,12 +94,14 @@ separate claim deltas. None may rewrite the frozen v27--v31 files, present an
 even-tail sign as an odd-tail reserve, or infer a uniform theorem from the
 finite quadratic, degree-7, or corrected even2 reproductions.
 
-The v32 continuation adds a new frozen finite frontier and four separate
-follow-on lanes:
+The v32 continuation added a frozen finite frontier and four separate
+follow-on lanes. V33 closes the original degree-10 lane but not its successor:
 
-- `zsv/proof-degree10-plus` owns any extension beyond the certified
-  degree-at-most-9 Gram. It must preserve both parity blocks, the exact
-  normalization, complete orbit/spatial tails, and inverse costs.
+- `zsv/proof-degree11-plus` owns any direct interval extension beyond the
+  certified degree-at-most-10 Gram on the positive-cutoff rectangle. It must
+  preserve both parity blocks, the exact normalization, complete orbit/spatial
+  tails, and inverse costs. The corrected odd-degree-11 run is inconclusive,
+  not negative; the earlier unpopulated sixth channel is invalid history.
 - `zsv/proof-positive-cutoff-outer-shift` owns any attempt to extend the
   positive-cutoff rectangle beyond `a=1/2` or `H_cut=1/8`. The existing
   paired-Hadamard outer argument is available only at `H_cut=0` and may not be
@@ -113,8 +115,44 @@ follow-on lanes:
   Unweighted residual size, local source sign, subdivision, or one failed
   Lyapunov weight may not be promoted into a target theorem.
 
-These lanes take the curated v32 checkpoint as read-only input. They must use
-`H_cut` for the spatial lower limit, keep the raw bridge distinct from its
-divided-by-`a` endpoint, and treat the degree-through-9 theorem as finite—not
-as all-degree positivity, arbitrary-configuration positivity, or RH.
+These lanes now take the curated v33 checkpoint as read-only input. They must
+use `H_cut` for the spatial lower limit, keep the raw bridge distinct from its
+divided-by-`a` endpoint, and treat both the direct degree-10 rectangle and the
+global degree-30-billion theorem as finite--not as all-degree positivity,
+arbitrary-configuration positivity, or RH.
+
+The v33 continuation adds four non-overlapping lanes:
+
+- `zsv/proof-verified-height-extension` owns any attempt to raise the global
+  finite-degree threshold by a larger verified spectral height or sharper
+  central/tail constants. It must name `H_spec` separately from `H_cut`, cite
+  the exact external theorem and height, record whether the underlying large
+  computation was rerun, and preserve the distinction between real `p^2` and
+  complex `abs(p)^2`. A citation to a larger computation is not a new zero
+  verification by this project.
+- `zsv/proof-fixed-shift-density` owns any all-degree theorem at one fixed
+  interior shift. Because polynomial localization detects every genuine
+  negative density interval, central reserve or small total negative mass is
+  insufficient. This lane must control the complete pointwise theta density
+  without assuming the desired zero location or silently discarding exterior
+  zero-pair contributions.
+- `zsv/proof-selected-dual-full-vector` owns the normalized-endpoint atomic
+  dual and adaptive reoptimization route. Any negative witness must satisfy all
+  `N` cross-moment constraints exactly and pay its reservoir repair; scalar or
+  two-point proportional-gauge failures are only restricted-route
+  obstructions. Rigid transport is not an admissible substitute for
+  reoptimization.
+- `zsv/proof-endpoint-flux-selected` owns the nonlinear theta/SOS flux route.
+  It must retain the exact inverse-selected coefficients, every root-deletion
+  term, the weighted boundary, and the signed remainder. Factorial coefficient
+  growth and negative remainders in the larger real-rooted class prohibit
+  promotion of a coefficientwise or ambient-cyclic positivity claim, but do
+  not themselves decide the actual selected pivot.
+
+An independent audit lane for the global finite-degree theorem must keep the
+four proof layers separate: published zero-height theorem, zero-pair sign,
+owned theta central/gamma bounds, and polynomial-tail arithmetic. Replaying the
+owned small certificate and arithmetic does not count as rerunning the
+Platt--Trudgian computation. No lane may present internal or AI-assisted review
+as external peer review or a literature novelty determination.
 

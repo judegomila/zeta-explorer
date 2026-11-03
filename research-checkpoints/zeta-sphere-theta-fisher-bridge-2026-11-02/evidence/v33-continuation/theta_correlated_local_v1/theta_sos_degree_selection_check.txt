@@ -1,0 +1,8 @@
+constraint V(C)=xC: PASS
+jet 0 factorization and degree: PASS
+jet 1 factorization and degree: PASS
+jet 2 factorization and degree: PASS
+jet 3 factorization and degree: PASS
+jet 4 factorization and degree: PASS
+n1 SOS base identity and trial degrees: PASS
+No general SOS feasibility or theta pivot inferred.

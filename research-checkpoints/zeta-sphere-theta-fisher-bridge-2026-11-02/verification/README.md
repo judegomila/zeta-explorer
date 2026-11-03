@@ -27,7 +27,13 @@ It also requires the eight coordinate-swapped even2 paths to remain classified
 as invalid correction history. For V32 it verifies the exact 386 reviewed plus
 19 diagnostic classified paths, the one index redaction, all source/public
 hashes and byte counts, the exact 407-file continuation directory, and the
-v31-preservation receipt. Finally it verifies the root `SHA256SUMS` against the
+v31-preservation receipt. For V33 it verifies all 205 reviewed plus 29
+diagnostic classified payloads byte-for-byte, the exact zero-redaction
+236-file public lane, the source/preservation receipt, and the absence of
+private identifiers, personal filesystem paths, captured publications, and
+symlinks. Generic frozen `/workspace/shared` replay locators are retained as
+non-private implementation strings and are resolved by content hash in bounded
+checks. Finally it verifies the root `SHA256SUMS` against the
 exact public checkpoint tree, excluding only the checksum file itself, known
 local LaTeX build intermediates, and transient Python interpreter caches.
 Cache paths are forbidden as checksum targets rather than treated as evidence.
@@ -82,6 +88,16 @@ stored shift slabs, and the stored cutoff and Schur consequences. It does
 cutoff calculation, any floating diagnostic, or any acquired program by
 default.
 
+`check_v33_certificates.py` uses only the Python standard library. It reruns
+the exact-rational central-reserve and degree-30-billion tail arithmetic in a
+temporary directory and requires byte-identical output. It verifies the frozen
+H10 source/audit packet, six positive even10 LDL pivots, the stored monic Schur
+lower bound, the all-slab odd11 `INCONCLUSIVE` result, all 52 internal
+checksum/freeze manifests (122 entries), and explicit limitation labels on the
+reviewed analytic obstructions. It does **not** rerun the published
+Platt--Trudgian zero computation, the full `16 x 4000 x 4000` H10 integration,
+the 29 diagnostic programs, or optional SymPy/python-flint/mpmath jobs.
+
 The latest bounded replay and paper inspection receipt is recorded in
 [`last-run.json`](last-run.json).
 
@@ -132,4 +148,11 @@ cancellation checks and both exact dyadic implementations were independently
 replayed. The external Platt--Trudgian zero verification was cited as an
 analytic dependency and was not independently recomputed. These are finite
 certificates and signed-mechanism checks, not an all-degree or RH result.
+
+For V33, the default bounded suite reruns the exact rational theorem constants
+only. The finite-degree theorem remains explicitly dependent on the published
+Platt--Trudgian verification through three trillion, whose large computation
+was not rerun. The direct H10 packet retains positive-cutoff scope only on
+`0 <= a <= 1/2`, `0 <= H_cut <= 1/8`; the degree-30-billion theorem is global
+only at `H_cut=0`. Neither result is all-degree positivity or an RH proof.
 

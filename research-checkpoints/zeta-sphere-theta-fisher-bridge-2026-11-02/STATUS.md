@@ -5,20 +5,38 @@ Last integrated: 2026-11-03 UTC.
 ## Bottom line
 
 The Riemann hypothesis remains unproved. The present program now has rigorous
-actual-target positivity through degree 9 for every positive shift at global
-spatial cutoff, together with an explicit positive-cutoff rectangle. It still
-does not have a degree-uniform estimate that transfers the information-theoretic
-gain to the full signed coupling cost.
+actual-target positivity through degree `30000000000` for every positive shift
+at global spatial cutoff, with an explicit dependence on the published
+Platt--Trudgian zero verification. A separate direct certificate covers degree
+10 on an explicit positive-cutoff rectangle. It still does not have an
+all-degree estimate that transfers the information-theoretic gain to the full
+signed coupling cost.
 
 ## Established within the frozen evidence
 
-- Let `H_cut` denote the lower spatial integration limit. Both actual signed
-  five-channel parity blocks, on degrees `0,2,4,6,8` and `1,3,5,7,9`, are
-  strictly positive for every `0 <= a <= 1/2` and
-  `0 <= H_cut <= 1/8`. At `H_cut=0`, the standard outer-shift argument extends
-  this finite degree-at-most-9 Gram to every `a>0`; the divided-by-`a`
-  normalized endpoint at `a=0` is also certified. The outer argument does not
-  apply at positive cutoff, and there is no degree-above-9 or all-degree claim.
+- Let `H_cut` denote the lower spatial integration limit and `H_spec` a
+  spectral-height window. At `H_cut=0`, every nonzero real polynomial `p` with
+  `deg p <= 30000000000` has positive normalized bridge form for every `a>0`,
+  with the continuous divided-by-`a` endpoint included. On `0 <= a <= 1/2`,
+  the quantitative bound is
+
+  `integral p(t)^2 Lambda_a(t) dt > [0.00172-exp(-2*10^11)] integral_[-4,4] p(t)^2 dt`.
+
+  The complex extension is for `abs(p)^2`, not the bilinear `p^2`. The proof
+  uses the published Platt--Trudgian theorem through exact height
+  `3000175332800`, weakened to `3*10^12`, and sets
+  `H_spec=2.9*10^12`. That external computation was checked as a published
+  theorem but was not rerun; this is not a new zero verification.
+- A separate direct certificate proves the even block on degrees
+  `0,2,4,6,8,10` positive for
+  `0 <= a <= 1/2, 0 <= H_cut <= 1/8`. Combined with the v32 odd block through
+  degree 9, it gives full degree-at-most-10 positivity on that rectangle and,
+  at `H_cut=0`, for every positive shift plus the normalized endpoint. Its
+  monic even-10 Schur lower bound is `>8928867843900347`. The reported
+  fixed-basis LDL bounds are Schur pivots, not Euclidean eigenvalue reserves.
+  The corrected odd-11 calculation is inconclusive, not negative; an earlier
+  six-channel adaptation that populated only five channels is invalid
+  implementation history.
 - The complete theta `H6` test is positive for every positive shift and at the
   normalized endpoint. On `0 <= a <= 1/2`, the newly replayed even `4 x 4`
   polynomial-basis Gram has reserve `I/60`; it combines with the previously
@@ -221,10 +239,64 @@ a private artifact locator; the source archive, duplicate prior manifests, and
 all unlisted private or acquired material are not committed. Independent
 replays do not constitute external peer review.
 
+## Analytic finite-degree theorem and all-degree diagnostics in v33
+
+- The degree-30-billion theorem combines four independently reviewed inputs.
+  The reflected contribution of a zero pair at horizontal offsets `+/-d` is
+
+  `2a[a^2+(t-gamma)^2-d^2] / ([(a-d)^2+(t-gamma)^2][(a+d)^2+(t-gamma)^2])`.
+
+  Its negative halo has radius `<1/2`. Platt--Trudgian's published verified
+  height therefore makes the full middle `[-H_spec,H_spec]` nonnegative. A
+  fresh owned theta replay gives `Lambda_a>0.00172` on `[-4,4]`, the uniform
+  tail satisfies
+  `abs(Lambda_a(t))<=4100(1+abs(t))^8 exp(-pi abs(t)/4)`, and Legendre/Chebyshev
+  polynomial bounds give a complement `<exp(-2*10^11)` through degree
+  `3*10^10`. The final arithmetic exponent is
+  `-230999999688<-2*10^11`. No giant Gram matrix, individual zero list,
+  positive-prefix hypothesis, or inverse-selected polynomial is used.
+- The quantitative theorem is only for normalized shifts `0<=a<=1/2`. The
+  independently established outer-strip theorem supplies `a>=1/2` only at
+  global `H_cut=0`. Nothing in v33 extends that argument to arbitrary positive
+  spatial cutoffs. The result is finite degree, is not a novelty claim, and is
+  neither all-degree positivity nor RH.
+- Exact Hardy compression reduces all subset debits to the single actual-prefix
+  translation norm `L_a[abs(p(t+ia)-p(t))^2]`; it does not pay that norm. A
+  separate analytic theorem gives a degree-dependent band
+  `a>=1/2-epsilon_n`, with `epsilon_n` asymptotic to `1/(6 log n)`, but no fixed
+  inner shift is covered at all degrees.
+- At a fixed interior shift, any actual negative interval of the continuous
+  bridge density is detected by some finite even and odd polynomial. Thus an
+  all-degree fixed-shift theorem must establish the complete pointwise density
+  sign. This does **not** assert that actual theta has such a negative interval;
+  the exponentially small-tail example is a non-theta obstruction to
+  mass-only arguments.
+- The normalized endpoint now has an exact all-degree polynomial flux, a
+  nonlinear rank-one theta recurrence, and an attained selected-orthogonality
+  dual with at most `N+1` atoms. These are exact reviewed representations, not
+  sign theorems. Factorial coefficient growth is genuine, normalized central
+  remainders have infinitely many signs in a larger real-rooted class, and no
+  uniform positive remainder is known.
+- At the actual degree-20 selected residual, the uncorrected canonical local
+  factor is negative and every one-dimensional proportional gauge in the
+  audited restricted family fails. The two-point scalar witness does not
+  satisfy the full vector of cross-moment constraints, so it is not a negative
+  optimized dual or a negative integrated pivot. Rigid supporting-plane
+  transport also fails even in known-positive examples; adaptive
+  reoptimization remains possible but has no critical-shift degree-uniform
+  lower bound.
+
+The v33 public continuation contains 205 reviewed-owned entries and 29 entries
+classified as diagnostic or correction history. Uncertified probes, the
+invalid six-channel implementation, private provenance, and acquired
+third-party material are not theorem inputs. Internal independent replay
+remains AI-assisted campaign review, not external peer review.
+
 ## Central open lemma
 
-Beyond the separately certified finite degrees, the current bridge would
-require an actual, source-specific lower-metric
+Beyond the finite global theorem through degree `30000000000`--and beyond
+degree 10 at positive cutoff--the current bridge would require an actual,
+source-specific lower-metric
 innovation gain that uniformly dominates the regression mismatch/action and
 every signed coupling cost as the degree grows. The Fisher inequalities above
 do not, by themselves, pay that all-degree cost.
@@ -245,7 +317,9 @@ positive, so a positive exact finite partial sum would certify the contact. For
 the odd ladder the finite partial sum must exceed the explicit negative-tail
 payment, not merely be positive. Proving these finite signed-core inequalities
 uniformly beyond the certified range is open; the reduction is not itself an
-all-degree or RH theorem.
+all-degree or RH theorem. The degree-30-billion theorem bypasses this
+arithmetic-core route and does not certify the individual finite divisor cores
+through that range.
 
 Equivalently in the CP62 matrix language, one needs a complete positive-time
 coefficient map into the physical boundary form and a reserve-relative

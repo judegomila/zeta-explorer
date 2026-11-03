@@ -8,7 +8,20 @@ exact theta / paired bridge identities
         +--> both parity blocks through degree 9
         |          |
         |          +--> compact (a,H_cut) rectangle
-        |          +--> H_cut=0 outer-shift completion ----> finite all-shift degree 9
+        |          |          |
+        |          |          +--> direct even degree 10
+        |          |                    + prior odd degree 9
+        |          |                    ----> full degree 10 rectangle
+        |          +--> H_cut=0 outer-shift completion ----> finite all-shift degree 10
+        |
+        +--> published verified zeros through 3,000,175,332,800
+        |          + exact zero-pair halo (<1/2)
+        |          + owned central reserve (>0.00172)
+        |          + uniform gamma envelope
+        |          + Legendre/Chebyshev tail arithmetic
+        |          ----> H_cut=0 positivity through degree 30,000,000,000
+        |                 for every positive shift + normalized endpoint
+        |                 (external computation not rerun; finite degree only)
         |
         +--> a=0 odd 1,3,...,19 certificate --------------> ZSV-ODD-19
         |                                                       |
@@ -121,6 +134,44 @@ cancellation mechanisms at known finite rungs. The sharp dyadic threshold
 `107521` improves the normalized arithmetic tail comparison. None of these
 finite results supplies the degree-uniform signed-core payment represented by
 the downward arrows above, so all-degree closure remains open.
+
+V33 advances the finite frontier in two logically different ways. The direct
+six-channel replay adds the even degree-10 channel on the same
+`0 <= a <= 1/2, 0 <= H_cut <= 1/8` rectangle. Combined with the existing odd
+degree-9 block, this gives full degree-at-most-10 positivity there. The
+corrected odd-degree-11 enclosure is inconclusive, while an earlier adaptation
+that left the sixth row and column unpopulated is invalid implementation
+history, not a negative matrix.
+
+The much larger global theorem does not iterate the finite arithmetic-core or
+innovation routes. It combines the published Platt--Trudgian verification
+through exact height `3000175332800` (weakened to `3*10^12`), the exact
+zero-pair halo, a freshly replayed theta central reserve, a uniform complete
+gamma envelope, and polynomial concentration. With spectral window
+`H_spec=2.9*10^12`, the possible negative complement is
+`<exp(-2*10^11)` through degree `30000000000`, against central density
+`>0.00172`. The external zero computation is an explicit dependency and was
+not rerun. The quantitative bound covers `0<=a<=1/2`; the pre-existing outer
+argument completes all positive shifts only at global `H_cut=0`. This is a
+finite-degree theorem, not new zero verification, arbitrary positive-cutoff
+positivity, all-degree closure, or RH.
+
+The remaining v33 analytic results diagnose why the downward arrows stay open.
+Hardy compression turns all subset costs into one actual-prefix translation
+norm but does not pay it. A degree-dependent critical band reaches inward by
+only about `1/(6 log n)`. At a fixed interior shift, polynomial localization
+detects any genuine negative density interval, so total signed-tail smallness
+cannot prove all degrees. The exact endpoint flux/nonlinear-theta module and
+finite atomic dual retain the signed terms, but neither supplies a positive
+all-degree remainder. Actual degree-20 local and scalar-gauge obstructions
+refute restricted repairs only: they are not negative integrated pivots or
+negative full optimized-dual witnesses. Rigid dual transport is likewise
+false, while adaptive reoptimization remains unclosed in the critical range.
+
+Accordingly the degree-30-billion theorem bypasses, rather than solves, the
+finite signed arithmetic-core obligation. It does not establish the signs of
+those individual cores through its degree range, and it supplies no induction
+beyond that finite threshold.
 
 ## Why the negative tail is constructive information
 

@@ -1,0 +1,4 @@
+PASS: 48 module identities, degree bounds through P5, base flux identity
+P1: 15*x**3/4 + 15*x*y/2 - 15*x/4 + 4*y*z
+P2 at center: -y**2/2 - 45*y/4 + 15/4
+PASS: transformed classical Jacobi identity

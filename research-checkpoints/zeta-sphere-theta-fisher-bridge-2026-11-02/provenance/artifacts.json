@@ -65,6 +65,16 @@
       "rerun_status": "supplied-and-hash-verified; bounded and scientific replay scopes are recorded separately; no acquired program executed"
     },
     {
+      "role": "campaign-v33-publication-continuation",
+      "name": "zeta_sphere_campaign_v33_20261103T1331Z.zip",
+      "bytes": 8672645,
+      "sha256": "7fa9c3f26154506f107cba1ac45e58545ef51b9115496d4965a00b45a8d75007",
+      "integrity": "unzip-test-pass; internal manifest 1778/1778 pass; all 1541 v32 payloads preserved byte-for-byte",
+      "repository_copy": "234 explicitly classified owned payloads retained byte-for-byte; exact publication manifest retained; source archive, master manifests, two duplicate v32 provenance manifests, and all unallowlisted private/acquired material excluded",
+      "private_locator": "retained outside the public repository",
+      "rerun_status": "supplied-and-hash-verified; bounded and scientific replay scopes are recorded separately; published Platt-Trudgian zero verification and acquired programs were not rerun"
+    },
+    {
       "role": "preserved-v17-baseline-identity",
       "name": "zeta_sphere_campaign_v17_20261102T2328Z.zip",
       "library_file_id": "libfile_3c3aff317d308191bde03515a0a4dd47",

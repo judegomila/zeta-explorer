@@ -1,0 +1,2 @@
+INVALID_DIMENSION diagnostic, not a certificate or evidence of a negative matrix.
+The initial six-channel adaptation retained four upper-triangle loops bounded by5, omitting the sixth row/column and leaving its diagonal zero. Independent source review caught the error. All four loops were corrected to6 before restarting the six-channel run. This source and its all-failed output are preserved solely as implementation history.

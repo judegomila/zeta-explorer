@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+from collections import Counter
 import hashlib
 import json
 from pathlib import Path, PurePosixPath
@@ -16,6 +17,7 @@ CP62 = ROOT / "evidence" / "cp62"
 V19 = ROOT / "evidence" / "v19-delta"
 CONTINUATION = ROOT / "evidence" / "v20-v26-continuation"
 V27_V30 = ROOT / "evidence" / "v27-v30-continuation"
+V31 = ROOT / "evidence" / "v31-continuation"
 
 CONTINUATION_ROWS = {20: 45, 21: 25, 22: 25, 23: 35, 24: 26, 25: 7, 26: 11}
 CONTINUATION_MANIFEST_SHA256 = {
@@ -79,6 +81,20 @@ V27_V30_PRIVATE_PATHS = {
     "source_0145_audit/private/source/slice_h5_exact_certificate.json",
     "source_0145_audit/private/source/slice_h5_exact_certificate.py",
     "source_0145_audit/private/source_metadata.json",
+}
+
+V31_MANIFEST_SHA256 = "bd0dfa4859ac06b1f700cbbc662e95a6708421d440ec189d2d0ae369203ff22b"
+V31_REDACTIONS = {"V31_INDEX.md"}
+V31_REVIEWED_CLASSIFICATIONS = {
+    "independent_audit_or_replay": 63,
+    "reviewed_owned": 73,
+    "reviewed_scope_index": 1,
+}
+V31_DIAGNOSTIC_CLASSIFICATIONS = {
+    "invalid_polynomial_correction_history": 8,
+    "mixed_valid_odd_invalid_even_diagnostic": 4,
+    "owned_diagnostic_not_theorem": 12,
+    "superseded_owned_source_unused_read_cleanup": 1,
 }
 
 PACKAGE_MANIFEST = ROOT / "SHA256SUMS"
@@ -618,6 +634,187 @@ def verify_v27_v30() -> tuple[int, int, int, int]:
     return checked, checked_bytes, len(redactions), repeated_rows
 
 
+def verify_v31() -> tuple[int, int, int, int]:
+    """Verify the exact V31 reviewed plus correction-history publication lane."""
+
+    reject_symlinks(V31, "V31 continuation")
+    manifest_name = "PUBLICATION_DELTA_V31.json"
+    manifest_path = V31 / manifest_name
+    if not manifest_path.is_file():
+        fail("missing V31 publication manifest")
+    if manifest_path.stat().st_size != 36672:
+        fail("unexpected V31 publication manifest byte count")
+    if digest(manifest_path) != V31_MANIFEST_SHA256:
+        fail("V31 publication manifest hash mismatch")
+
+    publication = json.loads(manifest_path.read_text())
+    if publication.get("version") != 31 or publication.get("baseline_version") != 30:
+        fail("expected V31 publication delta over V30")
+    reviewed_rows = publication.get("reviewed_owned_files")
+    diagnostic_rows = publication.get("diagnostic_or_correction_history")
+    if not isinstance(reviewed_rows, list) or len(reviewed_rows) != 137:
+        fail("expected 137 V31 reviewed-owned rows")
+    if not isinstance(diagnostic_rows, list) or len(diagnostic_rows) != 25:
+        fail("expected 25 V31 diagnostic/correction rows")
+    if publication.get("historical_working_file_revisions") != []:
+        fail("unexpected V31 historical working-file revisions")
+    private_policy = str(publication.get("private_provenance_policy", ""))
+    if "remain private" not in private_policy or "No acquisition or publication clearance" not in private_policy:
+        fail("unexpected V31 private-provenance policy")
+
+    expected: dict[str, dict[str, object]] = {}
+    reviewed_paths: set[str] = set()
+    diagnostic_paths: set[str] = set()
+    for label, rows, destination in (
+        ("reviewed", reviewed_rows, reviewed_paths),
+        ("diagnostic", diagnostic_rows, diagnostic_paths),
+    ):
+        for row in rows:
+            if not isinstance(row, dict):
+                fail(f"invalid V31 {label} row: {row!r}")
+            relative = validate_relative_path(row.get("path"), f"V31 {label}")
+            expected_hash = row.get("sha256")
+            classification = row.get("classification")
+            if not isinstance(expected_hash, str) or len(expected_hash) != 64:
+                fail(f"invalid V31 SHA-256 for {relative}")
+            if not isinstance(classification, str) or not classification:
+                fail(f"invalid V31 classification for {relative}")
+            if relative in expected:
+                fail(f"duplicate V31 publication path: {relative}")
+            expected[relative] = row
+            destination.add(relative)
+
+    if reviewed_paths & diagnostic_paths:
+        fail("V31 reviewed and diagnostic path sets overlap")
+    if len(expected) != 162:
+        fail(f"expected 162 V31 classified paths, got {len(expected)}")
+    reviewed_counts = Counter(row["classification"] for row in reviewed_rows)
+    diagnostic_counts = Counter(row["classification"] for row in diagnostic_rows)
+    if dict(reviewed_counts) != V31_REVIEWED_CLASSIFICATIONS:
+        fail(f"unexpected V31 reviewed classifications: {dict(reviewed_counts)}")
+    if dict(diagnostic_counts) != V31_DIAGNOSTIC_CLASSIFICATIONS:
+        fail(f"unexpected V31 diagnostic classifications: {dict(diagnostic_counts)}")
+
+    redactions_doc = json.loads((ROOT / "provenance" / "v31-redactions.json").read_text())
+    redacted_rows = redactions_doc.get("redacted")
+    if not isinstance(redacted_rows, list) or len(redacted_rows) != 1:
+        fail("expected one V31 redaction row")
+    redactions = {
+        validate_relative_path(row.get("path"), "V31 redaction"): row
+        for row in redacted_rows
+        if isinstance(row, dict)
+    }
+    if set(redactions) != V31_REDACTIONS:
+        fail(f"unexpected V31 redaction set: {sorted(redactions)}")
+    if not redactions.keys() <= expected.keys():
+        fail("V31 redaction is not in the publication manifest")
+
+    checked = 0
+    checked_bytes = 0
+    forbidden_suffixes = {".zip", ".pdf", ".html", ".tex"}
+    private_identifier = re.compile(
+        rb"libfile_|[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}"
+    )
+    for relative, row in expected.items():
+        path = V31 / relative
+        if not path.is_file():
+            fail(f"missing V31 classified file: {relative}")
+        if path.suffix.lower() in forbidden_suffixes:
+            fail(f"forbidden captured-source type in V31 continuation: {relative}")
+        if "private" in PurePosixPath(relative).parts:
+            fail(f"private capture path published in V31 continuation: {relative}")
+        if relative in redactions:
+            redaction = redactions[relative]
+            if redaction.get("source_sha256") != row["sha256"]:
+                fail(f"V31 redaction source hash mismatch: {relative}")
+            if redaction.get("source_bytes") != 5409:
+                fail(f"V31 redaction source byte mismatch: {relative}")
+            if path.stat().st_size != redaction.get("public_bytes"):
+                fail(f"V31 redacted byte mismatch: {relative}")
+            if digest(path) != redaction.get("public_sha256"):
+                fail(f"V31 redacted hash mismatch: {relative}")
+        elif digest(path) != row["sha256"]:
+            fail(f"V31 classified hash mismatch: {relative}")
+        if private_identifier.search(path.read_bytes()):
+            fail(f"private identifier remains in V31 public file: {relative}")
+        checked += 1
+        checked_bytes += path.stat().st_size
+
+    metadata = {manifest_name, "README.md"}
+    actual = {
+        str(path.relative_to(V31))
+        for path in V31.rglob("*")
+        if path.is_file()
+    }
+    expected_files = set(expected) | metadata
+    if actual != expected_files:
+        fail(
+            "unexpected V31 public file set: "
+            f"extra={sorted(actual - expected_files)}, missing={sorted(expected_files - actual)}"
+        )
+    if checked_bytes != 573957:
+        fail(f"unexpected V31 classified public bytes: {checked_bytes}")
+
+    receipt = json.loads((ROOT / "provenance" / "v31-publication.json").read_text())
+    expected_source = {
+        "name": "zeta_sphere_campaign_v31_20261103T0543Z.zip",
+        "bytes": 7430485,
+        "sha256": "841e3ea3e332334fb022b5a1859fcbce0c8b3f3012a3659e2e83e13e2f2391ef",
+        "unzip_test": "PASS",
+        "manifest_payloads_verified": 1133,
+        "manifest_payload_bytes_verified": 17309985,
+        "v30_payloads_preserved": 968,
+        "v30_sha256": "f17d58c60d7dabaab7018ad38aa57c628748c7dc9ed2081c616332a95ace5cd6",
+    }
+    if receipt.get("source_artifact") != expected_source:
+        fail("unexpected V31 source artifact receipt")
+    expected_publication_manifest = {
+        "name": manifest_name,
+        "bytes": 36672,
+        "sha256": V31_MANIFEST_SHA256,
+        "reviewed_owned_rows": 137,
+        "diagnostic_or_correction_rows": 25,
+    }
+    if receipt.get("publication_manifest") != expected_publication_manifest:
+        fail("unexpected V31 publication-manifest receipt")
+    expected_accounting = {
+        "new_payload_paths_since_v30": 165,
+        "new_payload_bytes_since_v30": 887067,
+        "source_classified_owned_paths": 162,
+        "source_classified_owned_bytes": 573853,
+        "public_classified_owned_paths": 162,
+        "public_classified_owned_bytes": 573957,
+        "source_unique_content_hashes": 126,
+        "source_duplicate_content_groups": 30,
+        "source_repeated_path_rows": 36,
+        "byte_identical_public_payload_paths": 161,
+        "public_text_redactions": 1,
+        "retained_publication_manifests": 1,
+        "source_backed_public_bytes_before_readme": 610629,
+        "omitted_duplicate_v30_provenance_paths": 2,
+    }
+    if receipt.get("delta_accounting") != expected_accounting:
+        fail("unexpected V31 publication accounting")
+    if receipt.get("omitted_duplicate_v30_provenance_paths") != [
+        "provenance/v30/MANIFEST.json",
+        "provenance/v30/MANIFEST.sha256",
+    ]:
+        fail("unexpected V31 omitted duplicate-provenance paths")
+    if receipt.get("existing_public_lane_overlap") != 0:
+        fail("V31 publication unexpectedly overlaps earlier public lanes")
+    excluded = receipt.get("excluded_material")
+    if excluded != [
+        "zeta_sphere_campaign_v31_20261103T0543Z.zip",
+        "MANIFEST.json",
+        "MANIFEST.sha256",
+        "all source paths not explicitly classified in PUBLICATION_DELTA_V31.json",
+        "all inherited private or acquired-source captures",
+    ]:
+        fail("unexpected V31 excluded-material receipt")
+
+    return checked, checked_bytes, len(reviewed_rows), len(diagnostic_rows)
+
+
 def main() -> int:
     snapshot_checked, snapshot_bytes, excluded, redacted = verify_snapshot()
     cp62_checked, cp62_bytes = verify_cp62()
@@ -628,6 +825,7 @@ def main() -> int:
     v27_v30_checked, v27_v30_bytes, v27_v30_redacted, v27_v30_repeats = (
         verify_v27_v30()
     )
+    v31_checked, v31_bytes, v31_reviewed, v31_diagnostic = verify_v31()
     package_checked, package_bytes = verify_package_manifest()
     print(
         json.dumps(
@@ -650,6 +848,11 @@ def main() -> int:
                 "v27_v30_allowlist_bytes_verified": v27_v30_bytes,
                 "v27_v30_public_redactions": v27_v30_redacted,
                 "v27_v30_repeated_manifest_rows": v27_v30_repeats,
+                "v31_classified_files_verified": v31_checked,
+                "v31_classified_bytes_verified": v31_bytes,
+                "v31_reviewed_files": v31_reviewed,
+                "v31_diagnostic_correction_files": v31_diagnostic,
+                "v31_public_redactions": len(V31_REDACTIONS),
                 "package_manifest_files_verified": package_checked,
                 "package_manifest_bytes_verified": package_bytes,
             },

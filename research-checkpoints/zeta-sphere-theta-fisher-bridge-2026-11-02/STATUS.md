@@ -105,7 +105,8 @@ diagnostics. The highest all-shift hierarchy theorem remains `H6`.
   remains the highest complete all-shift hierarchy theorem.
 - Exact boundary-square and regression-trace identities sign the boundary
   correction and the highest canonical regression coefficient. They do not
-  sign `tr R`, the lower source components, or the complete signed quadratic.
+  sign `tr R`, the lower source components, or the general higher-degree
+  signed quadratic.
   A smooth non-theta counterfamily shows that a positive finite prefix plus
   arbitrarily strong log-curvature cannot, by itself, force `tr R >= 0`.
 - The complete-theta scalar resolvent `J(d)` is strictly positive, and the
@@ -128,6 +129,47 @@ v30 source snapshot. It preserves all 839 v26 payloads. Its public lane has 84
 unique authored payloads, four exact publication manifests, one repository
 README, and six documented privacy-only text redactions; private or acquired
 source captures are not committed.
+
+## Theta-specific compensation and correction history in v31
+
+- For the complete theta profile, put `k=(log psi)''`. For every real
+  `alpha`, the normalized quadratic contact has the exact square form
+
+  `h[t^2-alpha]/(4pi) = integral u^2 psi^2[(alpha+k/2)^2+(4k^2+k'')/8]`.
+
+  A 4,000-cell interval certificate on the compact region, together with an
+  analytic full-orbit tail, proves `4k^2+k''>1254` on the whole real line.
+  Hence `h[t^2-alpha]>(1254/8)h[1]>0` for the entire quadratic family. This is
+  a complete-theta payment at a known finite family, not an all-degree source
+  inequality, shift-uniform hierarchy theorem, or new rung.
+- At the already-known normalized odd degree-`7` rung, splitting at
+  `|u|=1/8` gives a genuinely negative region-optimized core
+  `-347755655 < s_C < -342212016`. The global-regression variation satisfies
+  `V_C>520963072`, so the actual globally selected core contribution obeys
+  `s_C+V_C>173207417`; the complete regional sum is `>6047289376`, in
+  `h/(4pi)` units. The negative object is the separately optimized regional
+  minimum, not the globally selected residual's core integral. This
+  independently demonstrates signed compensation at a rung already contained
+  in the normalized odd-19 theorem; it is not a degree extension, `H7`, or an
+  all-shift result.
+- An early even2 arithmetic implementation swapped the `p0` and `p2`
+  regression coordinates. Its `12577.616055...` output is **invalid** for the
+  actual target polynomial and is retained only as correction history. With
+  the corrected order, an independent replay gives
+  `h_even2/(4pi)>11757.11998533215587`, hence `h_even2>141084`. This reproduces
+  a known finite contact from inherited old-moment enclosures; those inputs
+  were not regenerated, and no next norm or new pivot reserve is used.
+- Further v31 transform, eta, dyadic, and low-divisor identities sharpen the
+  signed arithmetic diagnosis. In particular they rule out separate-sign
+  shortcuts in actual low rungs, but do not prove the finite signed core or a
+  uniform regional-payment law. Invalid, failed, and superseded diagnostics
+  remain separately classified from the 137 reviewed v31 payloads.
+
+The v31 public lane has 162 owned payloads, one exact publication manifest,
+one repository README, and one documented privacy-only index redaction. It is
+an append-only derivative of the 1,133-payload v31 snapshot, which preserves
+all 968 v30 payloads. Private captures and acquired third-party material are
+not committed.
 
 ## Central open lemma
 

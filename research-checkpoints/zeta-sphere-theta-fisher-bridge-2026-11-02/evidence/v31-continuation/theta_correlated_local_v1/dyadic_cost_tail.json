@@ -1,0 +1,18 @@
+{
+  "odd1": {
+    "M": 5,
+    "J": 64,
+    "eta_cost_tail_upper": "[5.2567488288581855927495695078130509931265962755e-18 +/- 2.22e-65]",
+    "certified_upper": "6e-18",
+    "eventual_cost_tail_sign": "negative",
+    "scope": "Tail envelope uses prefix coefficients only; no pivot reserve used."
+  },
+  "even2": {
+    "M": 5,
+    "J": 64,
+    "eta_cost_tail_upper": "[2.4259924608345854636332492714420068882666307322e-12 +/- 4.16e-59]",
+    "certified_upper": "3e-12",
+    "eventual_cost_tail_sign": "positive",
+    "scope": "Tail envelope uses prefix coefficients only; no pivot reserve used."
+  }
+}

@@ -10,6 +10,11 @@ exact theta / paired bridge identities
         |                                                       |
         |                           endpoint payment replay ----> paid finite rung
         |
+        +--> normalized complete-theta compensation
+        |                       |
+        |                       +--> quadratic square payment
+        |                       +--> degree-7 regional-variation payment
+        |
         +--> H=1 full-theta tail certificate -------------> tail route false
         |                                                       |
         |                                                       v
@@ -54,11 +59,15 @@ reserve have all been included. A bound in the first metric is not a bound in
 the second without a proved comparison. CP62 equations J3-J9 make this missing
 comparison explicit.
 
-The finite payments now show that the desired mechanism is real in four
-bounded settings: the existing odd-19 endpoint, the degree-2 Newman interval,
-the gauged degree-5 Newman interval, and an odd same-parity degree-9 endpoint
-reserve. They do not control the constants as degree grows, and therefore do
-not fill the downward arrow from metric/source transfer to uniform domination.
+The finite payments now show that the desired mechanism is real in six bounded
+settings: the existing odd-19 endpoint, the degree-2 Newman interval, the
+gauged degree-5 Newman interval, an odd same-parity degree-9 endpoint reserve,
+the complete-theta quadratic family, and the normalized degree-7 regional
+variation payment. The corrected even2 arithmetic replay separately
+reproduces another known finite contact after repairing a swapped-coordinate
+implementation; it is not counted as a new payment theorem. None of these
+results controls the constants as degree grows, so they do not fill the
+downward arrow from metric/source transfer to uniform domination.
 
 The v21 positive-parent theorem supplies strong all-finite-degree spatial
 moment control, but in the physical positive `L2` norm rather than the signed
@@ -73,9 +82,10 @@ shortcut, not the correlated inequality itself.
 The v27 trace identities sharpen the canonical source without changing that
 status. Boundary factorization makes the boundary correction nonpositive and
 determines the highest regression coefficient, but the sign of `tr R`, every
-lower source component, and the full signed quadratic remain open. A generic
-curvature counterfamily rules out replacing this theta-specific comparison by
-positive finite pivots plus a strong log-curvature bound.
+lower source component, and the general higher-degree signed quadratic remain
+open. A generic curvature counterfamily rules out replacing this
+theta-specific comparison by positive finite pivots plus a strong
+log-curvature bound.
 
 The v29--v30 arithmetic route is a second, separate normalized-endpoint
 reduction. Scalar resolvent positivity, adaptive rational completion, and the
@@ -84,7 +94,17 @@ grouping. Beyond an explicit degree-only `O(N^2)` cutoff, every even summand is
 positive. The adjacent odd summands have the opposite eventual sign, with an
 explicit absolute tail payment. What remains is finite but signed: prove the
 actual even core positive and the actual odd partial sum larger than its
-payment, uniformly in degree. No new pivot or such uniform bound was obtained.
+payment, uniformly in degree. The v31 corrected low-rung replays do not supply
+that uniform bound or a new pivot.
+
+The v31 theta-specific square pays every quadratic `t^2-alpha` by combining a
+literal square with the global bound `4k^2+k''>1254`. At normalized degree 7,
+the regional certificate shows a different mechanism: global-regression
+variation pays a negative region-optimized minimum. These are genuine signed
+compensations, but neither produces a degree-uniform source matrix, partition,
+or shift estimate. The invalid coordinate-swapped even2 output is retained as
+implementation history only; the corrected replay reproduces a known contact
+and leaves the all-degree obligations unchanged.
 
 ## Why the negative tail is constructive information
 

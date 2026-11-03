@@ -1,6 +1,6 @@
 {
-  "schema_version": 4,
-  "executed_utc": "2026-11-03T04:32:21Z",
+  "schema_version": 5,
+  "executed_utc": "2026-11-03T06:04:59Z",
   "archive_verifier": {
     "status": "PASS",
     "v18_files_verified": 574,
@@ -19,7 +19,12 @@
     "v27_v30_allowlist_files_verified": 84,
     "v27_v30_allowlist_bytes_verified": 193852,
     "v27_v30_public_redactions": 6,
-    "v27_v30_repeated_manifest_rows": 37
+    "v27_v30_repeated_manifest_rows": 37,
+    "v31_classified_files_verified": 162,
+    "v31_classified_bytes_verified": 573957,
+    "v31_reviewed_files": 137,
+    "v31_diagnostic_correction_files": 25,
+    "v31_public_redactions": 1
   },
   "smoke_suite": {
     "status": "PASS",
@@ -32,7 +37,8 @@
       "cp62-matrix-anchor",
       "v19-certificate-summaries",
       "v20-v26-certificate-summaries",
-      "v27-v30-bounded-checks"
+      "v27-v30-bounded-checks",
+      "v31-bounded-checks"
     ]
   },
   "v19_scientific_replays": {
@@ -135,6 +141,42 @@
     "private_source_policy": "No acquired/private source checker was executed or published",
     "open_scope": "No finite signed arithmetic core or new theta pivot was computed"
   },
+  "v31_scientific_replays": {
+    "status": "PASS",
+    "checks": [
+      {
+        "name": "complete-theta-curvature-square-4000-cells",
+        "environment": "Python 3.13.18; python-flint 0.9.0",
+        "result": "PASS; fresh certificate was byte-identical and its compact lower bound exceeds 1254.97168240277899",
+        "scope": "quadratic family only; no all-degree or hierarchy extension"
+      },
+      {
+        "name": "degree7-regional-payments-4000-cells",
+        "environment": "Python 3.13.18; python-flint 0.9.0",
+        "result": "PASS; both the one-eighth and one-half partition certificates were byte-identical",
+        "scope": "reproduction of a mechanism at a rung already covered by normalized odd-through-19; not a new degree"
+      },
+      {
+        "name": "integrated-square-and-regional-old-64000-cells",
+        "environment": "Python 3.13.18; python-flint 0.9.0",
+        "result": "PASS; both fresh certificates were byte-identical"
+      },
+      {
+        "name": "dyadic-and-low-rung-arithmetic",
+        "environment": "Python 3.13.18; python-flint 0.9.0",
+        "result": "PASS; the self-contained 6000-cell odd0 dyadic certificate was byte-identical and inherited-prefix low-rung outputs matched semantically",
+        "dependency": "the inherited private prefix-moment enclosure was not regenerated or published"
+      }
+    ],
+    "internal_checksum_manifests": {
+      "status": "PASS",
+      "manifests": 7,
+      "entries": 30
+    },
+    "default_bounded_checker": "PASS; one standard-library dyadic identity replay, 12 source/audit mirrors, frozen interval summaries, and exact invalid/correction classifications",
+    "invalid_correction_history": "Eight swapped-coordinate even2 paths and four mixed odd/even diagnostic paths were retained with explicit invalid labels and were not executed",
+    "open_scope": "No uniform regional payment, all-degree finite-core sign, new all-shift theorem, new hierarchy degree, or RH proof was established"
+  },
   "repository_checks": {
     "npm_run_build": "PASS",
     "npm_run_assert_pr": "PASS",
@@ -143,17 +185,17 @@
   "package_manifest": {
     "status": "PASS",
     "algorithm": "SHA-256",
-    "files_verified": 943
+    "files_verified": 1113
   },
   "paper": {
     "status": "PASS",
     "builder": "Tectonic",
-    "pages": 22,
-    "bytes": 167761,
-    "sha256": "f775d9ed828285b7dd56c0bc50842afea6fed668b103c9c7eff0bec427c08a68",
-    "rendered_png_set_sha256": "9255e235ac0c7877d8228675439bd9cc33ff603ea458faf81af756fb004f1aa0",
+    "pages": 28,
+    "bytes": 186950,
+    "sha256": "375e8e62c8c591652eea1a0301aa9befb5e2c36373f36cee4814a4420107931a",
+    "rendered_png_set_sha256": "8a75874a2f2608d68b34c6883d1f9b928988173a40f17bbf02792090ea27fab6",
     "checks": [
-      "all 22 pages rendered to PNG and visually inspected",
+      "all 28 pages rendered to PNG and visually inspected",
       "PDF metadata and embedded text inspected",
       "no TeX warnings, overfull boxes, undefined references, or missing characters"
     ]
@@ -168,6 +210,9 @@
     "every historical high-precision certificate",
     "V27 floating probes as proof checks",
     "acquired/private V28 source checkers",
+    "V31 invalid swapped-coordinate even2 programs and mixed invalid diagnostics",
+    "V31 private-prefix moment integration inputs",
+    "V31 optional python-flint integrations during the bounded smoke run; their separately recorded scientific replays used python-flint 0.9.0",
     "a finite signed arithmetic-core certificate or a new theta pivot"
   ]
 }

@@ -1,0 +1,38 @@
+{
+  "even": {
+    "polynomial_coefficients_ascending": [
+      60000,
+      0,
+      12000,
+      0,
+      250,
+      0,
+      1
+    ],
+    "integral_Y2_minus_three_quarters_X2": [
+      22187231.378500093,
+      22259005.45185021
+    ]
+  },
+  "odd": {
+    "polynomial_coefficients_ascending": [
+      0,
+      440000,
+      0,
+      28000,
+      0,
+      340,
+      0,
+      1
+    ],
+    "integral_Y2_minus_three_quarters_X2": [
+      5564083577.169811,
+      5614490937.900694
+    ]
+  },
+  "cells": 4000,
+  "precision_bits": 160,
+  "complete_orbit_tail_per_derivative": "1e-20",
+  "spatial_energy_tail": "1e-450",
+  "seconds": 54.26877349899951
+}

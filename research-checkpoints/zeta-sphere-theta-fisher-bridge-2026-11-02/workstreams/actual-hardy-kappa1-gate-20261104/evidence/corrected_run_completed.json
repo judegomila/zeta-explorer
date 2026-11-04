@@ -1,0 +1,11 @@
+{
+  "elapsed_seconds": 5.010848045349121,
+  "guardian_pid": 49793,
+  "log": "$CHECKPOINT/workstreams/actual-hardy-kappa1-gate-20261104/run-corrected/logs/actual-hardy-kappa1-j2.log",
+  "output": "$CHECKPOINT/workstreams/actual-hardy-kappa1-gate-20261104/results/actual_hardy_kappa1_gate.json",
+  "pid": 49795,
+  "returncode": 0,
+  "sha256": "97adc3bd11bd7aab66ec5cd7c2123f105c589e4a1c00a4f05ec6089870347d39",
+  "task": "actual-hardy-kappa1-j2",
+  "time": 1793762319.8456352
+}

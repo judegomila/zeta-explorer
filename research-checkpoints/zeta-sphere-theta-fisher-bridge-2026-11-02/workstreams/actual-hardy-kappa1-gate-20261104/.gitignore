@@ -1,0 +1,6 @@
+results/*.tmp
+results/*.partial
+run/
+run-corrected/
+__pycache__/
+tests/__pycache__/

@@ -1,0 +1,97 @@
+{
+  "baseline_commit": "e61333c031b3949168166a5ddc9eb0e51ecd14cd",
+  "publication_kind": "append-only actual-theta mismatch investigation",
+  "scope": "Both substantive theta mismatch inequalities remain unproved and not decisively falsified. No new signed Schur pivot, all-degree positivity or RH conclusion.",
+  "source_folder_name": "theta_coupling_bounds_20261103",
+  "source_report_date": "2026-11-04",
+  "payload_count": 12,
+  "payload_bytes": 160286,
+  "payload_files": [
+    {
+      "path": "src/AMPLITUDE_SOBOLEV_REDUCTION.md",
+      "bytes": 6257,
+      "sha256": "b7229c39b59578aa8d6b48d8265f179a96fb2f4a0478f4c087e12ad38b135784",
+      "source_identical": true,
+      "evidence_grade": "frozen research note, AI-assisted audit or checksum; retain its stated assumptions"
+    },
+    {
+      "path": "src/AUDIT.md",
+      "bytes": 2524,
+      "sha256": "39ac0941ec57b732f1df4f020b23a7d6cebcae48fb5752441f265316f5120651",
+      "source_identical": true,
+      "evidence_grade": "frozen research note, AI-assisted audit or checksum; retain its stated assumptions"
+    },
+    {
+      "path": "src/README.md",
+      "bytes": 2844,
+      "sha256": "49ae689d058af2811fcc5d70ec98f7eb38abdbef312c3f5180da4e2b756d0e5e",
+      "source_identical": true,
+      "evidence_grade": "frozen research note, AI-assisted audit or checksum; retain its stated assumptions"
+    },
+    {
+      "path": "src/SELECTED_DIAGNOSTIC.md",
+      "bytes": 2433,
+      "sha256": "16271b9a3731882747c8a4b1e7fad8503035e4541ece54c77b855a552b25d78b",
+      "source_identical": true,
+      "evidence_grade": "frozen research note, AI-assisted audit or checksum; retain its stated assumptions"
+    },
+    {
+      "path": "src/SHA256SUMS",
+      "bytes": 969,
+      "sha256": "4020aebe9a9eb3d7fa498fc1513fac7d022f829dc4f4648a2577a98b44c7c19b",
+      "source_identical": true,
+      "evidence_grade": "frozen research note, AI-assisted audit or checksum; retain its stated assumptions"
+    },
+    {
+      "path": "src/SOBOLEV_LITERATURE_TRANSFER_CHECK.md",
+      "bytes": 3241,
+      "sha256": "3fbf28d5b5f7d0732fb9fc9ba3fc7a39bd13551c6d6a208ee0e0bfcd585d8e20",
+      "source_identical": true,
+      "evidence_grade": "frozen research note, AI-assisted audit or checksum; retain its stated assumptions"
+    },
+    {
+      "path": "src/probe_n30_240_90.json",
+      "bytes": 17028,
+      "sha256": "29e63e3ffefd07a8951bb4645d83e82a9d17bad198a5975d419f550327c741a2",
+      "source_identical": true,
+      "evidence_grade": "unvalidated numerical diagnostic; not an interval certificate"
+    },
+    {
+      "path": "src/probe_n30_480_120.json",
+      "bytes": 21254,
+      "sha256": "a6ad11a5202e699b0aa6ef554f3335dd12390ca7adbd970bb3328b1f7ecabd6b",
+      "source_identical": true,
+      "evidence_grade": "unvalidated numerical diagnostic; not an interval certificate"
+    },
+    {
+      "path": "src/probe_n30_480_120.log",
+      "bytes": 4989,
+      "sha256": "aaaa28e91876346ba027f61cdb11cf5158a51e502b2185dc38bffd00f9c4b5a1",
+      "source_identical": true,
+      "evidence_grade": "unvalidated numerical diagnostic; not an interval certificate"
+    },
+    {
+      "path": "src/probe_n80_560_180.json",
+      "bytes": 82285,
+      "sha256": "b61ca151d1bbd343859bf0ed8a1b06ec67b03f171fbf509791090becd257c6c0",
+      "source_identical": true,
+      "evidence_grade": "unvalidated numerical diagnostic; not an interval certificate"
+    },
+    {
+      "path": "src/probe_n80_560_180.log",
+      "bytes": 13778,
+      "sha256": "fdfc811f7f238a3b117d7298496478a6e4b53104cf9103bdbe6e6a060338adf1",
+      "source_identical": true,
+      "evidence_grade": "unvalidated numerical diagnostic; not an interval certificate"
+    },
+    {
+      "path": "src/probe_selected_mp.py",
+      "bytes": 2684,
+      "sha256": "3b6ddf0757d57d3f3f64aabf21e223ba572a70a23445a1fff36d499629d74713",
+      "source_identical": true,
+      "evidence_grade": "unvalidated numerical diagnostic; not an interval certificate"
+    }
+  ],
+  "redactions": [],
+  "scientific_replay_this_publication": "Not rerun; diagnostic and audit qualifications preserved."
+}

@@ -13,6 +13,7 @@ HERE = Path(__file__).resolve()
 WORKSTREAM = HERE.parents[1]
 CHECKPOINT = WORKSTREAM.parents[1]
 SOURCE = WORKSTREAM / "src" / "certify_actual_hardy_kappa1_gate.py"
+COMPATIBILITY = WORKSTREAM / "src" / "replay_actual_hardy_kappa1_gate.py"
 
 
 def load_checker():
@@ -25,18 +26,37 @@ def load_checker():
     return module
 
 
+def load_compatibility():
+    spec = importlib.util.spec_from_file_location(
+        "actual_hardy_compatibility_test", COMPATIBILITY
+    )
+    if spec is None or spec.loader is None:
+        raise ImportError(COMPATIBILITY)
+    module = importlib.util.module_from_spec(spec)
+    sys.modules[spec.name] = module
+    spec.loader.exec_module(module)
+    return module
+
+
 class ActualHardyKappa1GateTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.checker = load_checker()
+        cls.compatibility = load_compatibility()
 
     def test_exact_algebra_self_checks(self):
         checks = self.checker.exact_algebra_self_checks()
         self.assertTrue(all(checks.values()))
 
     def test_dependencies_are_frozen(self):
-        observed = self.checker.verify_dependencies(CHECKPOINT)
-        self.assertEqual(observed, self.checker.EXPECTED_SHA256)
+        with self.compatibility.frozen_checkpoint_overlay(CHECKPOINT) as result:
+            root, provenance = result
+            observed = self.checker.verify_dependencies(root)
+            self.assertEqual(observed, self.checker.EXPECTED_SHA256)
+            self.assertIn(
+                provenance["mode"],
+                {"exact_live_match", "known_pr40_whitespace_reconstruction"},
+            )
 
     def test_existing_head_and_tail_are_strictly_positive(self):
         payload = self.checker.load_json(

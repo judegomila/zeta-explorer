@@ -14,6 +14,10 @@
 - Constructed analytic source and moment-functional countermodels proving that
   domain conditions, remote-tail geometry, and positive current recurrence do
   not pay the finite head without actual complete-theta coupling.
+- Completed the bounded `n=3,5` floating primary/replay diagnostic. Four
+  representations agree and the resolution replay is stable, while both
+  pointwise monotonicity and crude absolute-variation payment fail. This is
+  mechanism evidence for a localized signed-placement lemma, not a proof.
 - Isolated the live problem as a noncircular theta-specific nonlinear bound for
   the signed variation, or a direct finite-head bound. That bound remains open.
 - No next pivot or RH conclusion is asserted.

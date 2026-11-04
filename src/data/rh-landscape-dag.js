@@ -102,6 +102,12 @@ const NODES = [
   n('qrh-openai-2026', 'Quasi-Riemann hypothesis: ζ and Dirichlet L zero-free in Re s > 7/8 (external claim)', 'record-claim', 'claimed', 'external claim, Lean-formalized (Lean proof re-built locally; official comparator and independent kernel check not run); not peer-reviewed', '2026',
     'Claimed by an internal OpenAI model in openai/math (2026-10-06), family 003: ζ(s) ≠ 0 and L(s,χ) ≠ 0 for every Dirichlet character when Re s > 7/8 (alternate 11/12 proof in a human-edited writeup; a uniform Landau–Siegel gap is also claimed). The Lean theorem OAI.riemannZeta_ne_zero_of_seven_eighths_lt_re builds locally (Lean 4.34.1, Mathlib d13f23b7) with axioms propext, Classical.choice, Quot.sound, and its statement matches the comparator challenge on Mathlib’s riemannZeta. With de Bruijn (1950) it gives Λ ≤ 9/32 conditionally, above PT’s 0.2. RH is open.',
     'github.com/openai/math, preprints/The-Quasi-Riemann-Hypothesis-September-30-2026 and lean/ComparatorChallenges/QuasiRiemannHypothesis.lean; formalization/external/openai-math-qrh-verification.md; src/data/openai-math-integration-2026-10-08.js'),
+  n('qrh-liu-2026', 'Liu: zero-free half-plane Re s > 0.874957019… (external preprint)', 'record-claim', 'claimed', 'external preprint, reported Lean-formalized; not peer-reviewed', '2026',
+    'B. Liu re-tunes the parameters of the openai/math 7/8 argument and obtains B = (18ξ + 7)/(18ξ + 9) = 0.874957019420098946…, ξ the root in (0.38858, 0.38859) of 1188ξ³ − 2160ξ² + 171ξ + 190; the paper proves this value optimal within the stated exponent comparison system and reports a Lean formalization (not re-built here). A later preprint by the same author (arXiv:2610.26835) extends the method to finite-order Hecke L-functions over every number field with boundary ≈ 0.874886647, building on this paper, the OpenAI work and Xu–Sang. Effect on the project’s Raymond-chain value at PT height: about −1·10⁻⁵ (interpolated). RH is open.',
+    'B. Liu, arXiv:2610.12234 (v1 8 Oct 2026, v2 12 Oct 2026); B. Liu, arXiv:2610.26835 (v1 19 Oct 2026, v2 29 Oct 2026)'),
+  n('qrh-xu-sang-2026', 'Xu–Sang: zero-free half-plane Re s > 0.8748867, conditional (external preprint)', 'record-claim', 'claimed', 'external preprint, conditional on the analytic inputs of the openai/math 7/8 work; not peer-reviewed', '2026',
+    'Y. Xu and H. Sang use amplified moments to obtain 0.8748867, taking the OpenAI 7/8 inputs (cubic-theta half-plane over Q(√−3) and its transfer to Dirichlet L-functions) and an existing fourth-moment estimate as given. This project re-derived the ceiling of that system: B*(κ) increases in κ, B*(3/4) = 49619/53814 − √715621/17938 ≈ 0.8748870, B*(29991/40000) ≈ 0.874886650; the PR #14 value 0.87488665 is within 4·10⁻¹⁰ of it. Raymond’s chain at θ = 0.8748888 ends at 0.1184742 against 0.118506 at 7/8, so the half-plane moves the conditional Λ value by about −3·10⁻⁵. RH is open.',
+    'Y. Xu, H. Sang, arXiv:2610.15291 (v1 11 Oct 2026, v2 15 Oct 2026); src/data/zero-free-campaign-2026-11-01.js; src/data/sextic-theta-campaign-2026-11-03.js', '/lambda-0116091'),
   n('zero-density-ingham', 'Ingham zero-density estimate', 'partial-result', 'proven', 'proven', '1940',
     'N(σ,T) ≪ T^{3(1−σ)/(2−σ)} log^5 T; the benchmark near σ = 3/4 for 80 years (Huxley 1972 for σ ≥ 3/4).',
     'A.E. Ingham, Quart. J. Math. Oxford 11 (1940) 291–292; M.N. Huxley, Invent. Math. 15 (1972) 164–170'),
@@ -271,6 +277,11 @@ const EDGES = [
   e('qrh-openai-2026', 'zfr-vk', 'supersedes', 'claimed; a fixed-width strip contains every region approaching Re s = 1'),
   e('qrh-openai-2026', 'grh', 'partial-toward', 'claimed for every Dirichlet L-function'),
   e('qrh-openai-2026', 'de-bruijn-1950', 'feeds', 'with de Bruijn Thm 13: Λ ≤ 9/32 conditionally (not below PT 0.2)'),
+  e('qrh-liu-2026', 'qrh-openai-2026', 'supersedes', 'claimed; parameter re-tuning of the same argument, 7/8 → 0.874957'),
+  e('qrh-liu-2026', 'qrh-openai-2026', 'uses', 'same exponent system and lemmas'),
+  e('qrh-xu-sang-2026', 'qrh-openai-2026', 'uses', 'conditional on the 7/8 analytic inputs'),
+  e('qrh-xu-sang-2026', 'qrh-openai-2026', 'supersedes', 'claimed, conditionally; 7/8 → 0.8748867'),
+  e('qrh-xu-sang-2026', 'qrh-liu-2026', 'supersedes', 'claimed, conditionally; 0.874957 → 0.8748867'),
   e('zero-free-region', 'wall-exponential-sum', 'blocked-by', 'no fixed strip σ > 1 − δ is known'),
   e('zero-density-ingham', 'density-hypothesis', 'partial-toward'),
   e('guth-maynard', 'zero-density-ingham', 'supersedes', 'near σ = 3/4'),
@@ -458,6 +469,8 @@ export const RH_LANDSCAPE_DAG_ASSERTIONS = Object.freeze([
         /not peer-reviewed/.test(g('alpoge-furman-2026').status) && g('rh').status === 'open' &&
         g('qrh-openai-2026').statusKind === 'claimed' && /^external claim, Lean-formalized/.test(g('qrh-openai-2026').status) &&
         /not peer-reviewed/.test(g('qrh-openai-2026').status) && /RH is open/.test(g('qrh-openai-2026').summary) &&
+        ['qrh-liu-2026', 'qrh-xu-sang-2026'].every((id) => g(id).statusKind === 'claimed' && /^external preprint/.test(g(id).status) &&
+          /not peer-reviewed/.test(g(id).status) && /RH is open/.test(g(id).summary)) &&
         /RH open/.test(RH_LANDSCAPE_DAG.status);
     },
   },

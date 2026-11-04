@@ -217,7 +217,7 @@ const RAW_CONCEPTS = [
   // Zero-free regions, zero density, proportions
   // ════════════════════════════════════════════════════════════════════════
   c('zero-free-region', 'Zero-free region', ['zero-free regions', 'zero-free strip', 'MTY region', 'Vinogradov–Korobov region', 'de la Vallée Poussin region'], 'verification',
-    'Region with no zeros of ζ. Proved: σ > 1 − 1/(5.558691 log t) (MTY). Claimed, Lean-formalized, not peer-reviewed: σ > 7/8 (openai/math, 2026). RH: σ > 1/2.',
+    'Region with no zeros of ζ. Proved: σ > 1 − 1/(5.558691 log t). Claimed, not refereed: σ > 7/8 (openai/math), 0.874957 (Liu), 0.8748867 (Xu–Sang). RH: σ > 1/2.',
     true, ['prime-number-theorem', 'zero-density-estimate', 't3-strip', 'exponential-sum-wall'], [LANDSCAPE]),
   c('zero-density-estimate', 'Zero-density estimate', ['N(σ,T)', 'Guth–Maynard', 'Ingham estimate', 'density hypothesis'], 'verification',
     'An upper bound on how many zeros can lie right of a line Re s = σ up to height T. Guth–Maynard (2024) improved Ingham’s 1940 exponent.',

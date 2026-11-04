@@ -30,6 +30,13 @@ const TH = QT.theta;
 const IA = QT.improvement.A;
 const IB = QT.improvement.B;
 const THETA_ROWS = ['7/8', '43/50', '17/20', '21/25', '41/50', '4/5', '39/50', '3/4', '7/10', '13/20', '3/5', '11/20', '13/25', '101/200'];
+// Zero-free half-plane claims at or below 7/8 (arXiv abstracts checked 2026-11-04). None refereed.
+const BELOW_78_CLAIMS = [
+  { source: 'openai/math family 003', href: OAI_REPO, theta: '7/8 = 0.875', basis: 'cubic-theta argument; Lean proof (re-built here)', status: 'preprint, Lean', kind: 'external' },
+  { source: 'B. Liu, arXiv:2610.12234', href: 'https://arxiv.org/abs/2610.12234', theta: '0.874957019…', basis: 'parameter re-tuning of the same argument; proved optimal within that exponent system; reported Lean-formalized', status: 'preprint', kind: 'external' },
+  { source: 'Y. Xu, H. Sang, arXiv:2610.15291', href: 'https://arxiv.org/abs/2610.15291', theta: '0.8748867', basis: 'amplified moments; conditional on the analytic inputs of the OpenAI work. This project re-derived the ceiling of that system (src/data/zero-free-campaign-2026-11-01.js): B*(κ) is increasing in κ, B*(3/4) = 49619/53814 − √715621/17938 ≈ 0.8748870 and B*(29991/40000) ≈ 0.874886650; PR #14 value 0.87488665 is within 4·10⁻¹⁰ of it', status: 'preprint, conditional', kind: 'conditional' },
+  { source: 'B. Liu, arXiv:2610.26835', href: 'https://arxiv.org/abs/2610.26835', theta: '≈ 0.874886647', basis: 'extension to finite-order Hecke L-functions over every number field, with an added averaged numerator estimate; builds on the three entries above', status: 'preprint', kind: 'external' },
+];
 const thetaDec = (t) => { const [a, b] = t.split('/').map(Number); return (a / b).toFixed(3).replace(/0+$/, '').replace(/\.$/, ''); };
 
 // ── small presentational helpers (tokens only) ─────────────────────────────
@@ -427,6 +434,27 @@ theorem QrhLambda.lambda_le_of_raymond78
         <li><b>Method limit.</b> Even with density-hypothesis row counts the method stops at 13/15. The one change worth more than 5·10<sup>−3</sup> is an additive Gram bound without the P<sub>a</sub><sup>1/6</sup> sixth-power term (≈ 0.864). That term looks like a genuine main term, so this needs a new estimate rather than tuning.</li>
       </ul>
       <Pull>{IB.verdict}</Pull>
+
+      <h3>Current claims below 7/8</h3>
+      <p>Since the 7/8 manuscript, three preprints claim smaller zero-free abscissae. None has been refereed, and none is used in any Λ value on this page.</p>
+      <div className="ed-breakout">
+        <table style={tbl}>
+          <thead><tr><th style={th}>source</th><th style={th}>θ (zero-free for Re s &gt; θ)</th><th style={th}>basis</th><th style={th}>status</th></tr></thead>
+          <tbody>
+            {BELOW_78_CLAIMS.map((c) => (
+              <tr key={c.source}>
+                <td style={td}>{c.href ? <a href={c.href} target="_blank" rel="noreferrer">{c.source}</a> : c.source}</td>
+                <td style={{ ...td, ...mono }}>{c.theta}</td>
+                <td style={td}>{c.basis}</td>
+                <td style={td}><Tag kind={c.kind}>{c.status}</Tag></td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p><b>Effect on Λ.</b> The chain reads θ only through q<sub>0</sub> = (2θ − 1)², and near 7/8 the slope is about 0.28 of Λ per unit of θ. Raymond&rsquo;s chain run at θ = 0.8748888 (just above the Xu–Sang value) ends at 0.1184742, against 0.118506 at 7/8: the Xu–Sang half-plane would move value (i) by about −3·10<sup>−5</sup>, to about 0.11847. Liu&rsquo;s 0.874957 would move it by about −1·10<sup>−5</sup> (interpolated, not run). Both are conditional on the respective preprint as well as on (G0) and (PT); the stated values (i) and (ii) are unchanged.</p>
+      <p><b>The P<sub>a</sub><sup>1/6</sup> loss (TRO6♮).</b> A campaign in this project (<code>src/data/sextic-theta-campaign-2026-11-03.js</code>, write-up <code>formalization/paper/sextic-theta-synthesis.md</code>) showed that removing a power of the P<sub>a</sub><sup>1/6</sup> loss is exactly equivalent, in the relevant window and given a zero-free hypothesis for the family, to an open hypothesis TRO6♮: a power saving over Cauchy–Schwarz when the complete sextic Kubota theta coefficient is paired with the manuscript&rsquo;s cubic rows. Cauchy–Schwarz gives saving 0; no saving η &gt; 0 is known. Assuming TRO6♮ with η ≥ 0.0219, the fixed-geometry argument gives θ = 0.87477 and a Raymond-chain value of 0.118441. The ≈ 0.864 figure above is a model computation with the term removed entirely, not a derived bound. No rigorous θ below 7/8 comes from this project.</p>
+
       <p>Write-ups: <code>{IA.file}</code> and <code>{IB.file}</code>. Record module: <code>src/data/qrh-theta-and-improvement-2026-10-08.js</code>, with the referee corrections (A1–A6, B1–B7, T1–T7).</p>
 
       <h2>Credits</h2>

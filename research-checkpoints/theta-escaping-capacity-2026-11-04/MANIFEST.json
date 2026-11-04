@@ -1,0 +1,60 @@
+{
+  "publication_kind": "append-only escaping-cell capacity and source-escape research",
+  "scope": "Exact cell-capacity criterion, fixed-cell coercivity and necessary selected-source escape, with a non-theta entire countermodel. Actual-theta capacity tails, selected source escape, negative-excess coherence, the relative Schur-excess estimate, and RH remain unproved.",
+  "source_folder_name": "theta_escaping_capacity_20261104",
+  "payload_count": 6,
+  "payload_bytes": 27462,
+  "original_final_payload_files": [
+    "AUDIT.md",
+    "CELL_POSITIVE_EXCESS_CAPACITY_CRITERION.md",
+    "FIXED_CELL_COERCIVITY_AND_NEGATIVE_EXCESS.md",
+    "README.md",
+    "SPARSE_ENTIRE_VALLEY_COUNTERMODEL.md"
+  ],
+  "payload_files": [
+    {
+      "path": "src/AUDIT.md",
+      "bytes": 3031,
+      "sha256": "620e2a287cef925491cbe17801d63f5d7778330b25c05cef48fb1b7d59cb8670",
+      "source_identical": true,
+      "role": "independent AI-assisted audit"
+    },
+    {
+      "path": "src/CELL_POSITIVE_EXCESS_CAPACITY_CRITERION.md",
+      "bytes": 6663,
+      "sha256": "7770023ae4eb7c666a71196af3d339d6767f7594444ffdfd54d7120da8b522b0",
+      "source_identical": true,
+      "role": "final analytic research"
+    },
+    {
+      "path": "src/FIXED_CELL_COERCIVITY_AND_NEGATIVE_EXCESS.md",
+      "bytes": 6880,
+      "sha256": "ec45812be731eeb4684aa8b0926e85faa463a96d53af83b15fb4fbcdf9fbc063",
+      "source_identical": true,
+      "role": "final analytic research"
+    },
+    {
+      "path": "src/README.md",
+      "bytes": 3649,
+      "sha256": "e285817a9906867d11c5e7d8fd01096996300ce2c7bacecc045e9f645552a052",
+      "source_identical": true,
+      "role": "final analytic research"
+    },
+    {
+      "path": "src/SHA256SUMS",
+      "bytes": 474,
+      "sha256": "1212ade405eae44e0cf3f8b9c52151fc1f846c1cce0b295ce4f9f4001aaa6e67",
+      "source_identical": true,
+      "role": "original final-payload checksum manifest"
+    },
+    {
+      "path": "src/SPARSE_ENTIRE_VALLEY_COUNTERMODEL.md",
+      "bytes": 6765,
+      "sha256": "e6c964fe2c18cb7c31ddde917950a9a9789337569546717524bc9926170c581a",
+      "source_identical": true,
+      "role": "final analytic research"
+    }
+  ],
+  "redactions": [],
+  "scientific_verification_scope": "Preservation integrity and scope only. The supplied analytical audit is AI-assisted, not peer review or machine formalization. Inherited theta/source-closure inputs are not reproved."
+}

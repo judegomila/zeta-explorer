@@ -1,0 +1,33 @@
+{
+  "checks": {
+    "F_closed_form_rational_samples": 147,
+    "H_4": "13/96",
+    "H_5": "101/750",
+    "P_derivative_coefficients": [
+      "2",
+      "-3"
+    ],
+    "analytic_countermodel_endpoint_mean_cancellations": true,
+    "combined_source_decombination_cases": 20,
+    "first_cell_derivative_has_both_signs": true,
+    "jordan_divisor_identity_integers": 100,
+    "peano_cell_polynomial_cases": 54,
+    "stieltjes_jump_coefficient": "-2/15"
+  },
+  "grade": "exact_standard_library_algebra_audit",
+  "nonclaims": [
+    "Finite rational samples audit exact algebra but do not replace the analytic proof.",
+    "This receipt proves no all-degree theta inequality, next pivot, or RH claim."
+  ],
+  "provenance": {
+    "network_used": false,
+    "source": "src/verify_signed_variation_algebra.py",
+    "source_sha256": "01ce7952de22c7ec448f654098f27af501e822153bde77735ad9fe794f231f24"
+  },
+  "receipt_integrity": {
+    "definition": "sha256 of compact sorted JSON with receipt_integrity omitted",
+    "payload_sha256": "69196877311dc9fcadd4e4cc2331fb0217ea4bf4f53d04443644ddce47a205b5"
+  },
+  "schema_version": "zsv.signed_variation_analytic_audit.v1",
+  "status": "PASS"
+}

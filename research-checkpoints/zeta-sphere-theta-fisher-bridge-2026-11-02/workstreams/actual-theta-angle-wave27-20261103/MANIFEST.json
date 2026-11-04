@@ -1,0 +1,20 @@
+{
+  "schema_version": "zsv.actual_theta_angle.manifest.v1",
+  "files": {
+    "ACTUAL_THETA_ANGLE_CERTIFICATE_20261104.md": "3ff5d03b4576d01b24b4d160af0442e9631b22046adc8fab160f29de90500382",
+    "INDEPENDENT_AUDIT.md": "41da2bb9d1030f6ce2cce514f94cd0d8b694fee4ff4bec66bb22decf5741a0d0",
+    "STATUS.md": "79cfeb6d4dbff614bd5234ff2e11d9d19fcf7755e5b863decf111a44e2abcf9a",
+    "tasks.json": "289da9e86668a5274f4e1d2005154aba1fb1d21d5312ecfca759bd4a4aa90d78",
+    "src/certify_actual_theta_angle.py": "159bcc5b32afe6e55045e4d9ed009ef0efa481d4758eafa9a8b6c557263055e4",
+    "src/audit_actual_theta_angle_receipts.py": "352a7e1d4d26406573345a38f01d97a5cb746d2b7015acf67a6bb63a3eed900f",
+    "results/actual_theta_angle_p384.json": "ebd863cd67d3e518a3f9910159a643e85d25b27b84ab78fecff543a62ff54115",
+    "results/actual_theta_angle_replay_p640.json": "8682df0163748549b60f666cb5d89dec3f7ceb2eb3fc1c511626eac1deeb13e9",
+    "results/actual_theta_angle_receipt_audit.json": "989ae824c87b5ecad2fb92507c932ecd860af3f4ad3b512dca303bb01690a8b0"
+  },
+  "payload_sha256": {
+    "primary": "ea0f8a0ef888e1d20fd97d4ceea601eaccbd5d9f8a8886c95b975929107cbc52",
+    "replay": "b021a38762cf3c446ea1c8748607682340d32c08f8afc1880028ca9cfea84afa",
+    "receipt_audit": "b46a6ddbf18b59397009b1f786e76a8e8b0e98579e2d231c93ea3a020985ab4c"
+  },
+  "remote_push_attempted": false
+}

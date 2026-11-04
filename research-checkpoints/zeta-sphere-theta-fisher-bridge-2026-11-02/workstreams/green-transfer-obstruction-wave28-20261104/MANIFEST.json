@@ -1,0 +1,18 @@
+{
+  "schema_version": "zsv.green_transfer_obstruction.manifest.v1",
+  "files": {
+    "GREEN_TRANSFER_LOCALIZATION_OBSTRUCTION_20261104.md": "008dba393747f4c46299048998a59de35a0fc6a4936e99c2575e553681c5ef15",
+    "CLAIM_DELTA.md": "4cae5cb5413712c80f1182ba1bc82d392b6939db5a4abaea434c79434e507104",
+    "STATUS.md": "a3cd1dc6f9effe478b89daf1e7b9357cfa2c7d523177c4663f49d9c559995181",
+    "INDEPENDENT_AUDIT.md": "7b4ce8c6753fa71f855905973b7e3275af8e2f9cdcdee6542199a819504bc5d3",
+    "src/verify_green_transfer_obstruction.py": "2f24552a3ad20b2a2976a8372f9531c3c8d6e182fd9a843e23fd8a4129e26c0d",
+    "results/green_transfer_obstruction.json": "c6d6feda02075810ddca6a0444c62e4fdd50d80777200001997e9422e842b53b",
+    "src/probe_actual_theta_shifted_correlation.py": "94d0533284d02329e90a6e47330f2c5b19ae82cb9fd88d53ceafb5f2891b7587",
+    "results/actual_theta_shifted_correlation_probe.json": "1a5cdb88c766d6e074c86b2f19f4ccaa1d8021a6aa58db7f9d69e80f996c68ec"
+  },
+  "receipt_payload_sha256": {
+    "exact_countermodel": "21984c8055d277d8db1288d83a2d3849b6ed70d645af87d28fb92b60f91d625f",
+    "actual_theta_floating_probe": "635d93c12f2e8af2b6fd3e49452dbc3194b9e0db1c6dc997f9ef4b05f3601558"
+  },
+  "remote_push_attempted": false
+}

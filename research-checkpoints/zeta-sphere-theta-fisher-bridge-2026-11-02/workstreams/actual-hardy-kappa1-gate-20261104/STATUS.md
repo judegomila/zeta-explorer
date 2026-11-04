@@ -19,6 +19,10 @@
   4096 cells and 192-bit Arb precision.
 - Remote state: no push, PR update, merge, or deployment performed.
 - Protected state: no live 4CT or modular-run file or process was changed.
+- Replay compatibility: a narrow temporary-overlay wrapper preserves the
+  historical checker and receipt hashes across PR #40's single audited
+  trailing-whitespace cleanup.  It rejects every unrecognized dependency
+  hash and does not mutate the shared proof note.
 
 The corrected exact replay command is recorded in
 `ACTUAL_HARDY_KAPPA1_GATE_20261104.md`.  A second run reproduced every

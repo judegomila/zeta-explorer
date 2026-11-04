@@ -94,7 +94,7 @@ Run from the checkpoint root with the recorded Arb environment:
 ```text
 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 \
 /Users/USER/Documents/GitHub/mathexplorer/.venv-arb/bin/python \
-  workstreams/actual-hardy-kappa1-gate-20261104/src/certify_actual_hardy_kappa1_gate.py \
+  workstreams/actual-hardy-kappa1-gate-20261104/src/replay_actual_hardy_kappa1_gate.py \
   --checkpoint-root . \
   --spatial-cells 4096 \
   --precision-bits 192 \
@@ -102,6 +102,11 @@ OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 \
   --max-rss-mib 512 \
   --output workstreams/actual-hardy-kappa1-gate-20261104/results/actual_hardy_kappa1_gate.json
 ```
+
+The wrapper calls the unchanged historical checker directly.  On the original
+checkpoint it is a pass-through.  On PR #40 it recognizes only the recorded
+one-line trailing-whitespace cleanup and reconstructs the historical
+dependency in a temporary overlay; it never edits the shared proof note.
 
 Then run the focused tests:
 

@@ -26,3 +26,11 @@ are already represented by the heartbeat and event projection.
 
 The full replay receipt is tracked under `results/`.  The primary and replay
 receipts differ only in measured runtime fields and the consequent self-hash.
+
+`dependency_whitespace_compatibility.json` records the only known byte-level
+drift in a frozen explanatory dependency: PR #40 removed 17 trailing spaces
+from one displayed-equation line in `COMPLETE_ORBIT_HARDY_NEXT.md`.  The replay
+wrapper accepts only the two recorded hashes, requires the normalized byte
+sequence to occur exactly once, reconstructs the historical hash in a
+temporary overlay, and leaves the shared note, historical checker, and
+receipts unchanged.

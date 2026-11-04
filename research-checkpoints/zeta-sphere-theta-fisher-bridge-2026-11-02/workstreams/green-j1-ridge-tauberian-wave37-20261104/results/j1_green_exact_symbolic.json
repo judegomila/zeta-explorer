@@ -1,0 +1,26 @@
+{
+  "canonical_sha256_before_self_hash": "3a6ae28dff4fa4807fbefe0544e5b0b33f7335db2e0603aef2673bcab4f28120",
+  "checks": {
+    "direct_first_shell_factor": true,
+    "direct_n2_derivative_quartic_positive": true,
+    "direct_n2_ratio_at_three": true,
+    "exp10_gt_20000": true,
+    "exp3_gt_20": true,
+    "exp9_gt_8000": true,
+    "first_modular_bernstein_minima": true,
+    "generic_shell_expansion": true,
+    "large_domain_total_below_one": true,
+    "modular_n2_payment_at_c10_positive": true,
+    "modular_n2_payment_decreases_in_c": true,
+    "small_domain_total_below_one": true
+  },
+  "first_modular_bernstein_minima": [
+    "1080",
+    "10543/10",
+    "2635/2",
+    "35367/2"
+  ],
+  "large_domain_tail_fraction": "96/125",
+  "small_domain_tail_fraction": "152400878939/1164800000000",
+  "status": "PASS_EXACT_SYMBOLIC"
+}

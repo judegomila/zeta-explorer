@@ -1,0 +1,70 @@
+{
+  "publication_kind": "append-only actual-theta packet-family leverage obstruction",
+  "scope": "Packet-family obstruction only; not a disproof of selected derivative coherence or RH. Cancellation-sensitive synthesis remains open. No Delta_n positivity or U_n=o(Delta_n) conclusion.",
+  "source_folder_name": "theta_packet_leverage_20261104",
+  "payload_count": 7,
+  "payload_bytes": 40974,
+  "original_final_payload_files": [
+    "AUDIT.md",
+    "CHEBYSHEV_MONIC_COMPARISON.md",
+    "EXPONENTIAL_PACKET_LEVERAGE.md",
+    "README.md",
+    "SHARPER_CHEBYSHEV_AUDIT.md"
+  ],
+  "archival_files": [
+    "src/DRAFT_EXPONENTIAL_PACKET_LEVERAGE.md"
+  ],
+  "payload_files": [
+    {
+      "path": "src/AUDIT.md",
+      "bytes": 7765,
+      "sha256": "47b93933c2210482be96e53ac1c54e0159a1ea2599453202914dc3d5640eea64",
+      "source_identical": true,
+      "role": "final analytic research or AI-assisted audit"
+    },
+    {
+      "path": "src/CHEBYSHEV_MONIC_COMPARISON.md",
+      "bytes": 6260,
+      "sha256": "07d5665bb90ae14be3cedeb918fba2aaa02c96c2c4761b4e767b73454ebf2545",
+      "source_identical": true,
+      "role": "final analytic research or AI-assisted audit"
+    },
+    {
+      "path": "src/DRAFT_EXPONENTIAL_PACKET_LEVERAGE.md",
+      "bytes": 9083,
+      "sha256": "7fb7788192fe213dd95fe9bbde3c552396726218e100e82d101d0cb2f807445b",
+      "source_identical": true,
+      "role": "archival draft, superseded; not final payload"
+    },
+    {
+      "path": "src/EXPONENTIAL_PACKET_LEVERAGE.md",
+      "bytes": 9131,
+      "sha256": "71ee66879868edc50b0774d453d334d767b4b4392983ff4f3493c9b9d1493e82",
+      "source_identical": true,
+      "role": "final analytic research or AI-assisted audit"
+    },
+    {
+      "path": "src/README.md",
+      "bytes": 3757,
+      "sha256": "688183c7e1ebfcc8d524262a0c52b8306da90b0499d5a5dfc2e151b572fb724c",
+      "source_identical": true,
+      "role": "final analytic research or AI-assisted audit"
+    },
+    {
+      "path": "src/SHA256SUMS",
+      "bytes": 437,
+      "sha256": "20337f25d18b8987074fd2a5797a275cc39fe6d9c5bcf29119b77f2c87eeea23",
+      "source_identical": true,
+      "role": "original final-payload checksum manifest"
+    },
+    {
+      "path": "src/SHARPER_CHEBYSHEV_AUDIT.md",
+      "bytes": 4541,
+      "sha256": "b66197c22ceb8526ffb26030c9193cb3928ba7c0523d5673fdaf7c7be1ad3d2c",
+      "source_identical": true,
+      "role": "final analytic research or AI-assisted audit"
+    }
+  ],
+  "redactions": [],
+  "scientific_verification_scope": "Preserves final notes and AI-assisted audits. Backup verifies bytes and the stated finite integer certificate, not theorems or inherited analytic inputs."
+}

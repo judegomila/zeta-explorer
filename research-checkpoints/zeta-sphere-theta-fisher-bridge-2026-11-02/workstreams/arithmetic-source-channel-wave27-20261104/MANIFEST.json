@@ -1,0 +1,10 @@
+{
+  "schema_version": "zsv.arithmetic_source_channel.manifest.v1",
+  "files": {
+    "ARITHMETIC_SOURCE_CHANNEL_20261104.md": "c34f71789d9cd77bfd03dd1342e34c69a2ce616003a19d36ca4c662542ede55c",
+    "src/verify_arithmetic_source_channel.py": "257468b8d22304dd08aefd0096a0c0b6cb2954e46492cd810c3bf1ceb15d35d6",
+    "results/arithmetic_source_channel_audit.json": "557f0100af00736dd674ecc641710a40106ede86196211766d7747a882ad9147"
+  },
+  "receipt_payload_sha256": "b04ecd1d52570bcdb176349cc6b3e46205ba3fd423a2cbe196a65aaa8d8cc14a",
+  "remote_push_attempted": false
+}

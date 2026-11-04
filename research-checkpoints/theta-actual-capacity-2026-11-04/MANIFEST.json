@@ -1,0 +1,76 @@
+{
+  "publication_kind": "append-only actual-Xi capacity continuation and preservation-boundary correction",
+  "scope": "Actual-Xi curvature localization, a conditional pair-capacity test, and audited non-theta countermodels preserving stronger reference bounds. This continuation corrects earlier preservation-boundary wording without changing frozen files. Actual-theta capacity tails, selected negative cancellation, selected coherence, and RH remain unproved.",
+  "source_folder_name": "theta_actual_capacity_20261104",
+  "payload_count": 8,
+  "payload_bytes": 48724,
+  "original_final_payload_files": [
+    "ACTUAL_THETA_PAIR_CAPACITY_TEST.md",
+    "ACTUAL_XI_LAGUERRE_SOURCE_AUDIT.md",
+    "README.md",
+    "SPARSE_MULTIPLIER_REFERENCE_COMPARISON_AUDIT.md",
+    "VALLEY_MODEL_RETAINS_SUBEXPONENTIAL_COMPARISON.md",
+    "ZERO_PAIR_REPLACEMENT_INDEPENDENT_AUDIT.md",
+    "ZERO_SURGERY_PRESERVES_SHARP_REFERENCE_BOUNDS.md"
+  ],
+  "payload_files": [
+    {
+      "path": "src/ACTUAL_THETA_PAIR_CAPACITY_TEST.md",
+      "bytes": 2576,
+      "sha256": "5c8c1ad0343625d0190580c1c77e6b96a1d6dca5e75ab5c6fcafa12eb245dc7a",
+      "source_identical": true,
+      "role": "final analytic research"
+    },
+    {
+      "path": "src/ACTUAL_XI_LAGUERRE_SOURCE_AUDIT.md",
+      "bytes": 5356,
+      "sha256": "693da4159c478a862ff388ecb7ae1b7255d25be04874c86bd6cb25a1333fa350",
+      "source_identical": true,
+      "role": "independent AI-assisted audit"
+    },
+    {
+      "path": "src/README.md",
+      "bytes": 4636,
+      "sha256": "31e1c7bf2904aaac03adae3ad125141fa930c0892d42ac1afc01fa2fc137263f",
+      "source_identical": true,
+      "role": "final analytic research"
+    },
+    {
+      "path": "src/SHA256SUMS",
+      "bytes": 732,
+      "sha256": "9914f7bf6d8b96fa34562547662e16e31c8fdafcb49cca06289338840141e18b",
+      "source_identical": true,
+      "role": "original final-payload checksum manifest"
+    },
+    {
+      "path": "src/SPARSE_MULTIPLIER_REFERENCE_COMPARISON_AUDIT.md",
+      "bytes": 6222,
+      "sha256": "5b8582583b60762aee05b22a27abdeeacb9455b061891a3ae4b7471b1057947d",
+      "source_identical": true,
+      "role": "independent AI-assisted audit"
+    },
+    {
+      "path": "src/VALLEY_MODEL_RETAINS_SUBEXPONENTIAL_COMPARISON.md",
+      "bytes": 7629,
+      "sha256": "84576b4cdbd5c5f822ffc6baab818e0323a317544245f8da021de411b3cb80c2",
+      "source_identical": true,
+      "role": "final analytic research"
+    },
+    {
+      "path": "src/ZERO_PAIR_REPLACEMENT_INDEPENDENT_AUDIT.md",
+      "bytes": 9991,
+      "sha256": "525674ad11db928366b99f422b3042035d7d477a9d4ba2fff607abf2743e2dfd",
+      "source_identical": true,
+      "role": "independent AI-assisted audit"
+    },
+    {
+      "path": "src/ZERO_SURGERY_PRESERVES_SHARP_REFERENCE_BOUNDS.md",
+      "bytes": 11582,
+      "sha256": "d403ac6c886d6441c0c046a84c2b553e4c29d4aed1cc0f20075d878e3f0946f7",
+      "source_identical": true,
+      "role": "final analytic research"
+    }
+  ],
+  "redactions": [],
+  "scientific_verification_scope": "Preservation integrity and scope only. The supplied analytical audit is AI-assisted, not peer review or machine formalization. Inherited theta/source-closure inputs are not reproved."
+}

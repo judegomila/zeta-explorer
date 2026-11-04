@@ -1,0 +1,52 @@
+{
+  "publication_kind": "append-only actual relative selected-column locality obstruction",
+  "scope": "Actual diagonal-relative inverse-Gram columns cannot obey a uniform stretched-exponential distance bound, even with a quasi-polynomial prefactor, in either parity. This excludes the stated strong localization mechanisms; it neither proves nor disproves selected derivative coherence or RH.",
+  "source_folder_name": "theta_selected_relative_locality_20261104",
+  "payload_count": 5,
+  "payload_bytes": 32110,
+  "original_final_payload_files": [
+    "DIRECT_HEAD_AND_RELATIVE_COLUMN_OBSTRUCTION.md",
+    "FIXED_ROW_STRETCHED_EXPONENTIAL.md",
+    "INDEPENDENT_ANALYTIC_AUDIT.md",
+    "README.md"
+  ],
+  "payload_files": [
+    {
+      "path": "src/DIRECT_HEAD_AND_RELATIVE_COLUMN_OBSTRUCTION.md",
+      "bytes": 6762,
+      "sha256": "a2f9e560bffa59457bb43a18b848e6ae97641739724c10e187e50f7f7ff6fa6f",
+      "source_identical": true,
+      "role": "final analytic research"
+    },
+    {
+      "path": "src/FIXED_ROW_STRETCHED_EXPONENTIAL.md",
+      "bytes": 9482,
+      "sha256": "f675cfe2345c1562dce97b4c8d1c759c02c87c1b0ffdef6ec7775803cbab1770",
+      "source_identical": true,
+      "role": "final analytic research"
+    },
+    {
+      "path": "src/INDEPENDENT_ANALYTIC_AUDIT.md",
+      "bytes": 12690,
+      "sha256": "c9caca85c5e3665922df6fe564f1d173af586e1baa10ec611740ef44077f6819",
+      "source_identical": true,
+      "role": "independent AI-assisted audit"
+    },
+    {
+      "path": "src/README.md",
+      "bytes": 2790,
+      "sha256": "28722895bf7c3cc72617e28d22c7e581f41a742fd56e81d14b4786a9884a7513",
+      "source_identical": true,
+      "role": "final analytic research"
+    },
+    {
+      "path": "src/SHA256SUMS",
+      "bytes": 386,
+      "sha256": "9fbab3b5cb6d9439d9c39307f8d6962f9d617d91fe924573279394b2a6e3b17e",
+      "source_identical": true,
+      "role": "original final-payload checksum manifest"
+    }
+  ],
+  "redactions": [],
+  "scientific_verification_scope": "Preserves final derivation and completed AI-assisted audits. Backup verifies bytes and scope, not mathematical theorems or inherited analytic inputs."
+}

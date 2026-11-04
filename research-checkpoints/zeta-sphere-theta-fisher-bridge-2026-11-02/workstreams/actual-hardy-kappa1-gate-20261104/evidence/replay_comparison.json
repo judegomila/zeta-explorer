@@ -1,0 +1,17 @@
+{
+  "all_non_runtime_fields_identical": true,
+  "non_runtime_projection_sha256": "f533afe043cb963dcc2e19e844ea5b5cb5e206b6c98993792a50626aec9e9ef2",
+  "primary": {
+    "canonical_sha256_before_self_hash": "2b5ce755776ffdf6d0a145181aa77a6fb388a138563bc20c88407fc620ca746d",
+    "receipt_sha256": "97adc3bd11bd7aab66ec5cd7c2123f105c589e4a1c00a4f05ec6089870347d39"
+  },
+  "projection_excludes": [
+    "runtime",
+    "payload_sha256_before_self_hash"
+  ],
+  "replay": {
+    "canonical_sha256_before_self_hash": "63fb48beadd1335f8e01b994bb65e2a330a2fe770205813580998865b4854a25",
+    "receipt_sha256": "9e4cd744c8a241d1e6107b8c590126076fc8bb335a7007616501f690019c12f2"
+  },
+  "schema_version": "zsv.actual_hardy_kappa1_replay_comparison.v1"
+}

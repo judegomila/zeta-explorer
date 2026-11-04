@@ -1,0 +1,27 @@
+{
+  "tasks": [
+    {
+      "argv": [
+        "--checkpoint-root",
+        ".",
+        "--spatial-cells",
+        "4096",
+        "--precision-bits",
+        "192",
+        "--max-cpu-seconds",
+        "120",
+        "--max-rss-mib",
+        "512"
+      ],
+      "expected_parameters": {
+        "direct_ewald_cutoff_J": 2,
+        "precision_bits": 192,
+        "spatial_cells": 4096
+      },
+      "expected_status": "PASS_CERTIFIED_ACTUAL_KAPPA1_J2",
+      "id": "actual-hardy-kappa1-j2",
+      "output": "workstreams/actual-hardy-kappa1-gate-20261104/results/actual_hardy_kappa1_gate.json",
+      "worker": "workstreams/actual-hardy-kappa1-gate-20261104/src/certify_actual_hardy_kappa1_gate.py"
+    }
+  ]
+}

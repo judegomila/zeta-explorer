@@ -1,0 +1,84 @@
+{
+  "publication_kind": "append-only exact-theta Mobius packet transfer and polynomial-selector gap",
+  "scope": "Exact-theta cancellation transfer on smooth compact arithmetic packet spaces, with complete coefficient reselection and scoped map obstructions. Compact packets are not monic algebraic polynomials; transfer to complete monic-polynomial selection, selected h_n->0, a_n(s_n)=1+o(s_n), and RH remain open.",
+  "source_folder_name": "theta_mobius_transfer_20261104",
+  "payload_count": 9,
+  "payload_bytes": 110728,
+  "original_final_payload_files": [
+    "AUDIT.md",
+    "INDEPENDENT_AUDIT_POLYNOMIAL_LEADING_CONSTRAINT.md",
+    "INDEPENDENT_AUDIT_THETA_SELECTION_INTERTWINER.md",
+    "MOBIUS_TWIST_CORRECTION.md",
+    "POLYNOMIAL_LEADING_CONSTRAINT_OBSTRUCTION.md",
+    "README.md",
+    "SHIFTED_MOMENT_AND_RESELECTION_AUDIT.md",
+    "THETA_SELECTION_INTERTWINER.md"
+  ],
+  "payload_files": [
+    {
+      "path": "src/AUDIT.md",
+      "bytes": 4813,
+      "sha256": "0c27ad5cf4d78b3430fa1885b96172249f753b8b2ee6cfc6f964a65eb0d6523c",
+      "source_identical": true,
+      "role": "independent AI-assisted audit"
+    },
+    {
+      "path": "src/INDEPENDENT_AUDIT_POLYNOMIAL_LEADING_CONSTRAINT.md",
+      "bytes": 12664,
+      "sha256": "b607fff26b9ac8e5e8142fb34a5a4e412a93aa58f3199796cb21838ac87322b1",
+      "source_identical": true,
+      "role": "independent AI-assisted audit"
+    },
+    {
+      "path": "src/INDEPENDENT_AUDIT_THETA_SELECTION_INTERTWINER.md",
+      "bytes": 12877,
+      "sha256": "d8ef0fe75ce271ae797bc5ba2b38526350ea226ee58c45decb30e52a8c37bb87",
+      "source_identical": true,
+      "role": "independent AI-assisted audit"
+    },
+    {
+      "path": "src/MOBIUS_TWIST_CORRECTION.md",
+      "bytes": 24244,
+      "sha256": "e42c18f35207151fefc6ef0163bc09499eb1a0c0dc2dcbdfdd4562dff7c865d5",
+      "source_identical": true,
+      "role": "final analytic research"
+    },
+    {
+      "path": "src/POLYNOMIAL_LEADING_CONSTRAINT_OBSTRUCTION.md",
+      "bytes": 9661,
+      "sha256": "cbc08681ba71ea97908210523e39a8dbe6a86ce17a60787f6b58b9a2fc1ffe25",
+      "source_identical": true,
+      "role": "final analytic research"
+    },
+    {
+      "path": "src/README.md",
+      "bytes": 4849,
+      "sha256": "9d276c4b79adcb63ea3a7e307fe079b20d2d8438a075c348346a2f6ce0c01eb3",
+      "source_identical": true,
+      "role": "final analytic research"
+    },
+    {
+      "path": "src/SHA256SUMS",
+      "bytes": 790,
+      "sha256": "0c9b153cd47d321291eafc7d5a4be036945530d040369bd7aaad035b892f0eef",
+      "source_identical": true,
+      "role": "original final-payload checksum manifest"
+    },
+    {
+      "path": "src/SHIFTED_MOMENT_AND_RESELECTION_AUDIT.md",
+      "bytes": 20995,
+      "sha256": "eede6c659a537e84e414cf6734f51304a0a8c50c48250bf865e79e518063f1f5",
+      "source_identical": true,
+      "role": "independent AI-assisted audit"
+    },
+    {
+      "path": "src/THETA_SELECTION_INTERTWINER.md",
+      "bytes": 19835,
+      "sha256": "129d0d8c5c57346d81438e317e081b38fb332a6ff4605c9a8b46f669f9ca1c82",
+      "source_identical": true,
+      "role": "final analytic research"
+    }
+  ],
+  "redactions": [],
+  "scientific_verification_scope": "Preservation integrity and scope only. The supplied analytical audit is AI-assisted, not peer review or machine formalization. Inherited theta/source-closure inputs are not reproved."
+}

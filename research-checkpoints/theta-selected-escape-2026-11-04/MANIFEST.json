@@ -1,0 +1,54 @@
+{
+  "baseline_commit": "b4965866a8249d52a8b915feead054107f60ade1",
+  "publication_kind": "append-only selected-escape and transfer-boundary continuation",
+  "scope": "The actual-selected o(Delta) estimate and coherence remain open. Tail control is o(X), not automatically o(Delta). Scalar error models are not claims about actual arithmetic remainders. No selected counterexample, signed pivot or RH conclusion.",
+  "source_folder_name": "theta_selected_escape_20261104",
+  "payload_count": 6,
+  "payload_bytes": 49149,
+  "payload_files": [
+    {
+      "path": "src/ACTUAL_THETA_PARITY_CONDITIONING_AND_LAGUERRE_ERROR_AMPLIFICATION.md",
+      "bytes": 17845,
+      "sha256": "78aed88c522dfbb09a70d5e6d3f1c492006d74ea0a151f3ceb200afcb1ab47c0",
+      "source_identical": true,
+      "evidence_grade": "frozen analytic note, AI-assisted audit or checksum; retains stated assumptions, dependencies and non-implications"
+    },
+    {
+      "path": "src/AUDIT.md",
+      "bytes": 4722,
+      "sha256": "415de4e622287e53719651be4b100c9e65683e866016750012d03f7f675914b6",
+      "source_identical": true,
+      "evidence_grade": "frozen analytic note, AI-assisted audit or checksum; retains stated assumptions, dependencies and non-implications"
+    },
+    {
+      "path": "src/HARDY_ZERO_ESCAPE_AND_AVERAGE_BRIDGE_OBSTRUCTION.md",
+      "bytes": 16094,
+      "sha256": "0047f987d4b2b47f53a1e796822b393f2e0758dc306760381c941041f2ae6572",
+      "source_identical": true,
+      "evidence_grade": "frozen analytic note, AI-assisted audit or checksum; retains stated assumptions, dependencies and non-implications"
+    },
+    {
+      "path": "src/README.md",
+      "bytes": 4926,
+      "sha256": "df28406d671099860f59e84b96abcb9b9e7ce8493eba40044f4649536f820bf2",
+      "source_identical": true,
+      "evidence_grade": "frozen analytic note, AI-assisted audit or checksum; retains stated assumptions, dependencies and non-implications"
+    },
+    {
+      "path": "src/SHA256SUMS",
+      "bytes": 505,
+      "sha256": "0131751b8c9f85b9f2c0040cb858320bfe4e922aa5e5900ab0d5c4af5c70c529",
+      "source_identical": true,
+      "evidence_grade": "frozen analytic note, AI-assisted audit or checksum; retains stated assumptions, dependencies and non-implications"
+    },
+    {
+      "path": "src/UNIFORM_LOGARITHMIC_RANGE_BOUND.md",
+      "bytes": 5057,
+      "sha256": "414d35f9f374e831fbe989ed77f2e72f3b4b330f48a6e8795c53e030da62ea15",
+      "source_identical": true,
+      "evidence_grade": "frozen analytic note, AI-assisted audit or checksum; retains stated assumptions, dependencies and non-implications"
+    }
+  ],
+  "redactions": [],
+  "scientific_replay_this_publication": "No mathematical reproof or external zero-count replay. Existing independently AI-assisted audit and exact qualifications preserved."
+}

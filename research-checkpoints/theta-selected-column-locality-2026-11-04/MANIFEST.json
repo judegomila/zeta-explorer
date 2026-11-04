@@ -1,0 +1,60 @@
+{
+  "publication_kind": "append-only actual selected-column locality obstruction",
+  "scope": "Actual normalized selected inverse-Gram columns cannot obey a uniform absolute stretched-exponential localization bound in either parity. This excludes a strong localization mechanism; it neither proves nor disproves selected derivative coherence or RH.",
+  "source_folder_name": "theta_selected_column_locality_20261104",
+  "payload_count": 6,
+  "payload_bytes": 30094,
+  "original_final_payload_files": [
+    "ACTUAL_SELECTED_COLUMN_OBSTRUCTION.md",
+    "COMBINED_ANALYTIC_AUDIT.md",
+    "MATRIX_LOCALITY_LEMMA.md",
+    "NO_FAST_SELECTED_MULTIPLICATION_TAIL.md",
+    "README.md"
+  ],
+  "payload_files": [
+    {
+      "path": "src/ACTUAL_SELECTED_COLUMN_OBSTRUCTION.md",
+      "bytes": 7380,
+      "sha256": "2faa7253cc612cf527ba9e5df0235a93e3803c7d338489341f1b43dea4205475",
+      "source_identical": true,
+      "role": "final analytic research"
+    },
+    {
+      "path": "src/COMBINED_ANALYTIC_AUDIT.md",
+      "bytes": 5935,
+      "sha256": "a9ba444545854c0693da82175b45c6588d7d4bdc098adbbad323422d69e25448",
+      "source_identical": true,
+      "role": "independent AI-assisted audit"
+    },
+    {
+      "path": "src/MATRIX_LOCALITY_LEMMA.md",
+      "bytes": 7985,
+      "sha256": "33a20102c1b6d785e736676f09e98229ca15f71121edaaa541b1975bf2f2ff86",
+      "source_identical": true,
+      "role": "final analytic research"
+    },
+    {
+      "path": "src/NO_FAST_SELECTED_MULTIPLICATION_TAIL.md",
+      "bytes": 6456,
+      "sha256": "2022a62b8823c7ac4d992dd3367e2c6e9fd567fb62700fa85e1b127816f39b8b",
+      "source_identical": true,
+      "role": "final analytic research"
+    },
+    {
+      "path": "src/README.md",
+      "bytes": 1868,
+      "sha256": "d69aacedbe19729b63b6b817bfd776ac6533dcc54dc4beb1891b15f2a8c2f5f6",
+      "source_identical": true,
+      "role": "final analytic research"
+    },
+    {
+      "path": "src/SHA256SUMS",
+      "bytes": 470,
+      "sha256": "7947a278c885334f3030d4a585c1c31ca0c7d2aeec4220649dc03ed73b0edbde",
+      "source_identical": true,
+      "role": "original final-payload checksum manifest"
+    }
+  ],
+  "redactions": [],
+  "scientific_verification_scope": "Preserves final derivation and completed AI-assisted audits. Backup verifies bytes and scope, not mathematical theorems or inherited analytic inputs."
+}

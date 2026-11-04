@@ -440,3 +440,12 @@ forms and records unit-cell signed variation. These finite values may falsify
 candidate inequalities or locate compensation, but they cannot establish the
 all-degree finite-head bound and do not prove RH.
 
+The completed primary/replay agree to relative scale below `3.6e-14` and
+reproduce the certified signs `X_3<0<X_5`. Both degrees contain both signs of
+`Z_n'`, so pointwise monotonicity is false. The cell data instead show a
+localized placement mechanism: the degree-three adverse first cell overwhelms
+a small favorable tail, whereas the degree-five favorable first cell pays a
+contiguous adverse remainder. Crude absolute-variation payments lose this
+correlation and fail even at the positive degree-five rung. These are floating
+route diagnostics, not interval certificates or all-degree evidence.
+

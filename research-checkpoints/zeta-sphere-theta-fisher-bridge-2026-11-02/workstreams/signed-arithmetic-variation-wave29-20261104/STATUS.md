@@ -7,6 +7,19 @@
   resolution check, not an independent proof.
 - Direct, Laplace, Abel, and common-scale Stieltjes forms are compared before
   any structural diagnostic is accepted.
+- The governed primary, higher-resolution replay, and comparison all completed
+  with return code zero. The largest primary/replay relative discrepancy is
+  below `3.6e-14`; all three receipt payload hashes validate.
+- The floating probe reproduces `X_3=-0.0872779998...` and
+  `X_5=0.7205312604...`. At degree three the adverse first cell contributes
+  about `-4.03122` and the later cells recover only `+0.00651`. At degree
+  five the favorable first cell contributes about `94083.92` and pays the
+  localized adverse remainder of about `-826.816`.
+- Both degrees sample both signs of the actual `Z_n'`. Thus the pointwise
+  monotonicity candidate is falsified, and the crude absolute-variation
+  payments are negative even when the true degree-five integral is strongly
+  positive. The surviving route is signed placement/correlation, not total
+  variation magnitude.
 - The exact arithmetic audit passes: the Jordan divisor identity, Abel closed
   form, first-cell sign change, and Stieltjes derivative/jump constants agree.
 - A noncircular `O(log(x)/x^2)` Jordan-weight bound and two tail lower bounds

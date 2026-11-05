@@ -1,5 +1,7 @@
 # Zeta riblets and backward phase budgets
 
+**Continuation, 4 November 2026:** [Cluster residuals and an actual finite-window certificate](cluster/CLUSTER_RESIDUAL.md) adds a contour bound independent of internal zero spacing, the exact squared-norm blowup, and outward-interval verification of a low-height completed-zeta window. The global nonconcentration and Schur-positivity estimates remain open.
+
 **Research checkpoint for review, 2 November 2026.** Analytic derivations with finite exact checks and floating-point diagnostics; not refereed or Lean-formalized. No RH proof, new zero-verification height, or de Bruijn–Newman bound is claimed. The global one-sided arithmetic estimate remains open.
 
 Research note, 2 November 2026. Distant reflected zero pairs provide positive transverse reserve, while a bare finite array with the natural prime amplitudes cannot resolve the singular field beside a zero at arbitrarily small scales. The continuation proves that an off-line zero leaves a limiting backward phase variation of mπ, derives a finite-scale bound, and gives an exact countermodel to finite scan-line positivity. The resulting one-sided arithmetic error criterion remains unproved; global confinement and the Weil Schur-complement inequality remain open.

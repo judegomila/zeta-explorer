@@ -57,6 +57,10 @@ The repository hosts a 191-page consolidated research-program paper (`research-i
 
 **Audit status**: all 14 dashboard conjectures now have verdicts. Seven are RH-equivalent reformulations, five are partially related to existing theory, and two retain independent-novel classifications. The v70 overlay adds mathematical corrections without rewriting the historical v52 audit provenance.
 
+## Vortex / bridge reserve research
+
+The [vortex / bridge reserve lab](research/vortex-bridge-reserve/README.md) records the October 2026 continuation: finite scalar positivity through `t = log(1,000,000)`, fixed-window and prime-only audits, and a centered Vaughan/Möbius identity retaining its tail correction. It includes reproducible Python checks and an explicit list of unresolved arithmetic bounds. These finite certificates and research reductions do not prove RH or establish a new zero-free region.
+
 ## Visualizations (new section)
 
 A `/visualizations` nav group surfaces connections between the twin-ladder model, Ulam/Archimedean spiral coordinates, and Euler-product natural coordinates:

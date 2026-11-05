@@ -1,6 +1,6 @@
 # Import provenance
 
-Imported on 2026-11-05 from `Vortex_Bridge_Reserve_v1.zip`, archive version 5, last modified 2026-10-30. The filename's `v1` is not the archive version number. The source contains 30 files under `vortex_bridge_lab/`.
+Imported on 2026-11-04 Pacific (2026-11-05 UTC) from `Vortex_Bridge_Reserve_v1.zip`, archive version 5, last modified 2026-10-30. The filename's `v1` is not the archive version number. The source contains 30 files under `vortex_bridge_lab/`.
 
 Archive SHA-256:
 
@@ -38,3 +38,7 @@ The import checks archive integrity and replays the local arithmetic calculation
 `PRIORITY_AUDIT.md` and `benchmark_sources.json` preserve an October 22 source-inspection record, including the original limits of that inspection. Their links are historical references, not independently rechecked benchmarks from this import. `MOBIUS_CENTERING.md` refers to the user's version-7 manuscript; that manuscript is not bundled here. The final statement in the original `REPORT.md` that no repository was changed refers to its October 21 session, before this import.
 
 No source PDFs, external proof dependencies, or private account identifiers are added. The full infinite signed estimate remains open.
+
+## Interval continuation
+
+The subsequent 2026-11-04 Pacific continuation adds `MOBIUS_INTERVAL.md`, `mobius_interval_audit.py`, `mobius_interval_audit.json`, and `check_mobius_interval.py`. These are new work, not files from archive version 5. It extends the replay to cover the new finite audit and updates the package index, validation record, and manifest. The original nine scripts and six substantive notes remain unchanged. The new JSON snapshot pins the audit and interval-engine source hashes; it does not turn historical external-source claims into newly verified results.

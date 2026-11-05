@@ -1,6 +1,6 @@
 # Import replay
 
-Completed 2026-11-05 with CPython 3.12.14 on Linux. Command, from the repository root:
+Initial import completed 2026-11-04 Pacific (2026-11-05 UTC) with CPython 3.12.14 on Linux. Command, from the repository root:
 
 ```bash
 python3 research/vortex-bridge-reserve/replay.py
@@ -29,3 +29,15 @@ fd8c251551fa410aac712d96ccedb9109da3d9f89f7e5f3e6b99b4e62d5c9bb9
 Before replay, all 29 source-manifest entries were verified, and all 24 retained original non-README files were checked byte for byte against the archive. All ten Python files in the integrated package parsed successfully.
 
 The optional plotting/Fisher scripts, application build, and external Lean projects were not run. The import adds research files and a root README link; it makes no application-code changes. These checks establish reproducibility of the finite computations, not an independent validation of every analytic argument or a proof of RH.
+
+## Centered interval continuation
+
+Completed 2026-11-04 Pacific with the same Python environment. The expanded `replay.py` passed **nine core checks, seven result snapshots, and both table hashes**, in approximately 134 seconds. All previously imported snapshots still matched, and the new `mobius_interval_audit.json` matched exactly, including every Decimal endpoint and both source hashes.
+
+The new default audit covered 23 `(x,U,V)` triples and 69 cutoff evaluations. It certified 22 sign reversals caused by dropping the correction. Maximum `J` interval width: `9.071e-45`; maximum identity-difference interval width: `9.200255e-44`. The exact Möbius convolution was checked through 131,072.
+
+The independent reference checker passed 2,048 trial-factor comparisons, 128 rational prefix checks, four direct divisor-enumeration comparisons, support endpoint checks, and invalid-cutoff checks. All twelve Python files in the expanded package parsed successfully; local Markdown links and the new certificate's source hashes were verified.
+
+A separate run with `--case 65536 64 64 --precision 70` gave `J` width `5.1417e-65` and maximum identity-difference width `6.283617e-64`. All 27 interval-valued fields lay inside the corresponding 50-digit enclosures. The command to reproduce this cross-check is in `MOBIUS_INTERVAL.md`.
+
+The interval engine and all nine original research scripts were unchanged. The new result remains a finite audit; no bound uniform in `x` has been proved.

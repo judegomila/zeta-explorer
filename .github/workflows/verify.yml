@@ -58,6 +58,11 @@ jobs:
       - name: Check zeta riblet and phase-budget research checkpoint
         run: node research-checkpoints/zeta-riblet-phase-budget-2026-11-02/verify.mjs
 
+      - name: Check cluster residuals and actual completed-zeta contour
+        run: |
+          python3 research-checkpoints/zeta-riblet-phase-budget-2026-11-02/cluster/check_cluster.py
+          python3 research-checkpoints/zeta-riblet-phase-budget-2026-11-02/cluster/certify_actual_window.py 256
+
       - name: Build
         run: npm run build
 

@@ -25,10 +25,13 @@ COMMANDS = (
     ("block_audit.py",),
     ("prime_only_audit.py",),
     ("mobius_centering_probe.py",),
+    ("check_mobius_interval.py",),
+    ("mobius_interval_audit.py",),
 )
 SNAPSHOTS = (
     "certificate/certificate.json", "tail_budget.json", "window_audit.json",
     "block_audit.json", "prime_only_audit.json", "mobius_centering_probe.json",
+    "mobius_interval_audit.json",
 )
 
 
@@ -89,7 +92,8 @@ def main():
             if actual != manifest[name]:
                 raise AssertionError(f"SHA-256 mismatch: {name}")
             print(f"HASH MATCH {name}", flush=True)
-    print(f"PASS: 7 core checks, 6 snapshots, 2 table hashes; {monotonic()-started:.1f}s")
+    print(f"PASS: {len(COMMANDS)} core checks, {len(SNAPSHOTS)} snapshots, "
+          f"2 table hashes; {monotonic()-started:.1f}s")
     print("Finite certificates and diagnostics only; no infinite bound or RH proof.")
 
 

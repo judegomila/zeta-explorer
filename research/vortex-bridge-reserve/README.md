@@ -11,7 +11,7 @@ The remaining task is a uniform, one-sided bound on a signed arithmetic quantity
 | Scalar response `Psi(t) > 0` for `0 < t <= log(1,000,000)` | Outward-rounded Decimal computation over 78,734 prime-power events, plus the initial segment; minimum reserve lower bound `0.02752038099608944…` at event 3089. |
 | Fixed-width mean `W_1(t) > 0.0431381` for `0 <= t <= log(1,000,000)-1` | Interval grid with a continuum correction and independent eventwise integration checks. |
 | Loss/recovery and prime-only reductions | Analytic working notes with finite interval audits; the required infinite mixed/recovery or signed prime bound remains unproved. |
-| Centered Vaughan/Möbius identity | Derivation retaining the exact finite tail correction; 15 floating-point identity diagnostics and exact rational exponent comparisons. The diagnostics are not interval certificates. |
+| Centered Vaughan/Möbius identity | Exact finite tail correction; 23 triples and 69 cutoff checks now have outward-rounded enclosures, including 22 certified sign reversals when the tail is omitted. The older floating probe is preserved separately. |
 | Generic-mechanism obstructions | Synthetic countermodels to several proposed sufficient mechanisms; these are not counterexamples to RH or models of the actual primes. |
 
 Logarithmic delay is not zero height. Finite scalar positivity is not full Weil-kernel positivity. The analytic notes have not received an independent proof audit as part of this repository import.
@@ -24,7 +24,7 @@ Python 3.10 or later; the core audit uses only the standard library. From the re
 python3 research/vortex-bridge-reserve/replay.py
 ```
 
-This runs all seven core checks in a temporary directory, regenerates the omitted event and window tables, and compares their hashes and the six JSON result snapshots. It leaves the tracked research snapshots unchanged. Expect several minutes of computation and approximately 30 MB of temporary table data. See [VALIDATION.md](VALIDATION.md) for the import replay result.
+This runs all nine core checks in a temporary directory, regenerates the omitted event and window tables, and compares their hashes and the seven JSON result snapshots. It leaves the tracked research snapshots unchanged. Expect several minutes of computation and approximately 30 MB of temporary table data. See [VALIDATION.md](VALIDATION.md) for the replay results.
 
 To retain the generated tables, run the original tools directly, in order:
 
@@ -37,6 +37,8 @@ python3 window_audit.py
 python3 block_audit.py
 python3 prime_only_audit.py
 python3 mobius_centering_probe.py
+python3 check_mobius_interval.py
+python3 mobius_interval_audit.py
 ```
 
 These commands write the tables and refresh their neighboring JSON snapshots. `certificate/certificate.json` includes runtime, so a direct rerun normally changes that field. Run without Python's `-O` option: the audits use assertions.
@@ -53,6 +55,8 @@ The generated PNGs, `certificate/reserve_leaves.csv`, and `window_values.csv` ar
 
 ## Reading order
 
+Start with [MOBIUS_INTERVAL.md](MOBIUS_INTERVAL.md) for the latest certified finite centering audit and its precise limitations.
+
 1. [MOBIUS_CENTERING.md](MOBIUS_CENTERING.md): latest centered-row identity, mandatory tail correction, and quantified loss from separate Möbius estimates.
 2. [PRIME_ARITHMETIC.md](PRIME_ARITHMETIC.md): prime-only target, higher-power correction, and sparse weighted obstruction.
 3. [PRIORITY_AUDIT.md](PRIORITY_AUDIT.md): historical benchmark-source inspection, inherited block state, and generic countermodels.
@@ -64,4 +68,4 @@ The generated PNGs, `certificate/reserve_leaves.csv`, and `window_values.csv` ar
 
 ## Next mathematical step
 
-Study the jointly centered sum in `MOBIUS_CENTERING.md`, keeping its exact correction for every finite cutoff. The next computational task is an outward-rounded implementation of that identity over several admissible `(x, U, V, K)` choices, checking cutoff consistency and measuring cancellation jointly. That would strengthen the current floating diagnostics, but any infinite conclusion would still require an analytic bound uniform in `x`. A proposed Möbius hypothesis must also be compared with the zero-free conclusion it already implies directly.
+The finite interval implementation is complete for the documented sweep. The next task is an analytic, one-sided estimate on the jointly centered sum, retaining its exact correction. The cutoff-transfer identity in `MOBIUS_INTERVAL.md` shows why increasing `K` alone cannot improve the corrected value. A useful infinite conclusion still requires a bound uniform in `x`; a proposed Möbius hypothesis must also be compared with the zero-free conclusion it already implies directly.

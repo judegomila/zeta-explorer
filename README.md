@@ -59,7 +59,7 @@ The repository hosts a 191-page consolidated research-program paper (`research-i
 
 ## Vortex / bridge reserve research
 
-The [vortex / bridge reserve lab](research/vortex-bridge-reserve/README.md) records the October 2026 continuation: finite scalar positivity through `t = log(1,000,000)`, fixed-window and prime-only audits, and a centered Vaughan/Möbius identity retaining its tail correction. It includes reproducible Python checks and an explicit list of unresolved arithmetic bounds. These finite certificates and research reductions do not prove RH or establish a new zero-free region.
+The [vortex / bridge reserve lab](research/vortex-bridge-reserve/README.md) records the October–November 2026 continuation: finite scalar positivity through `t = log(1,000,000)`, fixed-window and prime-only audits, and a centered Vaughan/Möbius identity retaining its tail correction. The centered calculation now has interval enclosures for 23 parameter triples and 69 cutoff evaluations. It includes reproducible Python checks and an explicit list of unresolved arithmetic bounds. These finite certificates and research reductions do not prove RH or establish a new zero-free region.
 
 ## Visualizations (new section)
 

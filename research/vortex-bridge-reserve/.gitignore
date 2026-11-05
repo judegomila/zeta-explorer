@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+/certificate/reserve_leaves.csv
+/window_values.csv
+/reserve_check.png
+/window_comparison.png

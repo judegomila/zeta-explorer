@@ -63,6 +63,9 @@ jobs:
           python3 research-checkpoints/zeta-riblet-phase-budget-2026-11-02/cluster/check_cluster.py
           python3 research-checkpoints/zeta-riblet-phase-budget-2026-11-02/cluster/certify_actual_window.py 256
 
+      - name: Check small-value backward-shear energy models
+        run: python3 research-checkpoints/zeta-riblet-phase-budget-2026-11-02/energy/check_energy.py
+
       - name: Build
         run: npm run build
 

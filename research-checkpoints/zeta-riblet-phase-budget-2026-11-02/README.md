@@ -1,5 +1,7 @@
 # Zeta riblets and backward phase budgets
 
+**Small-value energy continuation, 4 November 2026:** [Backward shear and logarithmic energy](energy/SMALL_VALUE_ENERGY.md) derives the exact fourth-power small-value law and logarithmic energy coefficient for off-line zeros, including multiplicity and critical-line boundary zeros. It connects the statistic to the complete modular bridge, transfers the existing weighted density estimate, and gives a zero-safe approximation bound and a symmetric counterexample to unweighted norm control. The required small-value little-o estimate remains open. Run `python3 energy/check_energy.py` for the new model checks.
+
 **Continuation, 4 November 2026:** [Cluster residuals and an actual finite-window certificate](cluster/CLUSTER_RESIDUAL.md) adds a contour bound independent of internal zero spacing, the exact squared-norm blowup, and outward-interval verification of a low-height completed-zeta window. The global nonconcentration and Schur-positivity estimates remain open.
 
 **Research checkpoint for review, 2 November 2026.** Analytic derivations with finite exact checks and floating-point diagnostics; not refereed or Lean-formalized. No RH proof, new zero-verification height, or de Bruijn–Newman bound is claimed. The global one-sided arithmetic estimate remains open.

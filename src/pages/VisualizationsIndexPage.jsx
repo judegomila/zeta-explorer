@@ -27,6 +27,7 @@ const BUCKET_ACCENTS = Object.freeze({
   'schur':        '#8b5cf6', // violet
   'kernel':       '#6366f1', // indigo
   'bound':        '#10b981', // emerald
+  'measurement':  '#94a3b8', // slate; existing diagnostic cards
 });
 
 // ── Tiny inline-SVG previews ────────────────────────────────────────────
@@ -1084,7 +1085,7 @@ const PREVIEWS = Object.freeze({
 });
 
 // ── Card component ─────────────────────────────────────────────────────
-function VizCard({ entry }) {
+function VizCard({ entry, position, total }) {
   const accent = BUCKET_ACCENTS[entry.mathBucket] || '#94a3b8';
   const Preview = PREVIEWS_BY_ROUTE[entry.route] || PREVIEWS[entry.mathBucket] || null;
   return (
@@ -1170,7 +1171,7 @@ function VizCard({ entry }) {
         fontFamily: 'var(--font-mono)',
         color: 'var(--faint)',
       }}>
-        <span>{entry.ticket} · step {entry.pedagogicalStep}/6</span>
+        <span>{entry.ticket} · view {position}/{total}</span>
         <span style={{ color: accent }}>view &rarr;</span>
       </div>
       {/* imp-2728: mathematical ceiling for this panel -- keeps a
@@ -1216,8 +1217,8 @@ export default function VisualizationsIndexPage() {
           marginTop: 20,
         }}
       >
-        {V.entries.map((e) => (
-          <VizCard key={e.route} entry={e} />
+        {V.entries.map((e, i) => (
+          <VizCard key={e.route} entry={e} position={i + 1} total={V.entries.length} />
         ))}
       </div>
 
@@ -1248,22 +1249,22 @@ export default function VisualizationsIndexPage() {
           }}
         >
           <li>
-            <strong>Index, not proof.</strong> These six visualizations are
-            geometric / interferometric aids for intuition. They visualize
-            structure, they do not prove anything about RH, Λ, or the
-            twin-ladder closure routes.
+            <strong>Mathematical scope.</strong> Each view states its assumptions
+            and the status of its claims. The catalog itself establishes no RH
+            result or new Λ bound; exact identities, finite diagnostics, and
+            open inequalities must be read at their stated scope.
           </li>
           <li>
-            <strong>Pedagogical order.</strong> The cards are ordered
+            <strong>Pedagogical order.</strong> The opening six cards follow
             phase-spiral → tomography → flow-field → caustic → hyperbolic →
             crystal so the reader moves from a single-curve view through 2D
             (σ, t) representations and finally into discrete prime structure.
+            Later views cover kernels, numerical experiments, and proof diagnostics.
           </li>
           <li>
-            <strong>Reusability.</strong> Each card&apos;s data module is
-            the single source-of-truth for that visualization&apos;s
-            parameters and tripwires; see the dataModule field on each card
-            for the import path.
+            <strong>Reusability.</strong> Each catalog entry names its source.
+            Where a companion data module is provided, it records the parameters
+            and checks; other views compute their models directly.
           </li>
         </ul>
       </div>
@@ -1313,3 +1314,4 @@ export default function VisualizationsIndexPage() {
     </div>
   );
 }
+

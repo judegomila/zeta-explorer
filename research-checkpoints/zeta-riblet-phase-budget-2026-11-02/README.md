@@ -1,5 +1,7 @@
 # Zeta riblets and backward phase budgets
 
+[Moving-window critical-line mass](energy/MOVING_WINDOW.md) derives a half-unit grid test, an exponentially small tail, and the lower bounds available on verified windows and on average.
+
 [All-height weighted shear bound, 7 November 2026](energy/GLOBAL_BOUND.md) gives an explicit bound uniform in small amplitudes, the weighted zero-count limit on the entire strip, and the remaining moving-window threshold.
 
 **Small-value energy continuation, 4 November 2026:** [Backward shear and logarithmic energy](energy/SMALL_VALUE_ENERGY.md) derives the exact fourth-power small-value law and logarithmic energy coefficient for off-line zeros, including multiplicity and critical-line boundary zeros. It connects the statistic to the complete modular bridge, transfers the existing weighted density estimate, and gives a zero-safe approximation bound and a symmetric counterexample to unweighted norm control. The required small-value little-o estimate remains open. Run `python3 energy/check_energy.py` for the new model checks.

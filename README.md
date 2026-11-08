@@ -63,6 +63,7 @@ A `/visualizations` nav group surfaces connections between the twin-ladder model
 
 | Route | Idea |
 |---|---|
+| `/sign-switching` | Linked exact collision half-disk / modal diameter and full-kernel even-minus-odd energy identity; finite Ξ benchmarks, global inequality open |
 | `/viz-log-phase-spiral` | Polar arg(ζ(½+it)) spiral with 25 known zeros marked as caustic points |
 | `/viz-twin-ladder-tomography` | `|ζ(σ+it)|·|ζ((1−σ)+it)|` heatmap; critical line stands out as interference minimum (functional-equation-driven) |
 | `/viz-euler-transport-flow` | Streamlines of `−ζ'(s)/ζ(s) = Σ_p (log p)/(p^s−1)`; zeros are sinks of the flow |
@@ -243,3 +244,4 @@ Suggested reading order for a new visitor:
 ## License
 
 MIT
+

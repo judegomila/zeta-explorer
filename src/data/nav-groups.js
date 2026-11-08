@@ -76,6 +76,7 @@ export const NAV_GROUPS = [
       { to: '/visual-geometries', label: 'Visual Geometries (gallery)' },
       { to: '/viz-near-zero', label: 'Near a Zeta Zero' },
       { to: '/vortex-field', label: 'Vortex Field' },
+      { to: '/sign-switching', label: 'Sign Switching & Bridge Energy' },
       { to: '/viz-winding-dyson-flow', label: 'Winding under Dyson/Newman Flow' },
       { to: '/debruijn-departure', label: 'Zero Departure (exact de Bruijn flow)' },
       { to: '/pt-floor-audit', label: 'What Binds the Λ≤0.2 Floor? (audit)' },
@@ -177,3 +178,4 @@ export const NAV_GROUPS = [
     ],
   },
 ];
+

@@ -162,6 +162,7 @@ const registryRoutes = new Set();
 // Non-"/viz-" routes that ARE visualization pages and belong in the registry.
 const EXPLICIT_VIZ_ROUTES = new Set([
   '/vortex-field',
+  '/sign-switching',
   '/prime-rigidity',
   '/visual-geometries',
   '/cayley-schur-trajectory',
@@ -603,3 +604,4 @@ if (broken.length === 0) {
   console.log('');
   process.exit(1);
 }
+

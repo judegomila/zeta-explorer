@@ -133,6 +133,7 @@ export const EDITORIAL_ROUTES = new Set([
   '/viz-winding-dyson-flow',
   // Visualizations wave B + analysis/formalization
   '/vortex-field',
+  '/sign-switching',
   '/debruijn-departure',
   '/verified-height-lever',
   '/mollified-barrier-certificate',
@@ -181,3 +182,4 @@ export function isVizLegacyRoute(pathname) {
     pathname.startsWith('/viz-') || /imp\d/i.test(pathname) || VIZ_LEGACY_EXTRA.has(pathname)
   );
 }
+

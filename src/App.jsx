@@ -122,6 +122,7 @@ const RouteMapPage = lazy(() => import('./pages/RouteMapPage.jsx'));
 const StateOfProgramPage = lazy(() => import('./pages/StateOfProgramPage.jsx'));
 const EngineRoomPage = lazy(() => import('./pages/EngineRoomPage.jsx'));
 const VortexFieldPage = lazy(() => import('./pages/VortexFieldPage.jsx'));
+const SignSwitchingPage = lazy(() => import('./pages/SignSwitchingPage.jsx'));
 const VizWindingDysonFlowPage = lazy(() => import('./pages/VizWindingDysonFlowPage.jsx'));
 const VizNearZeroPage = lazy(() => import('./pages/VizNearZeroPage.jsx'));
 const VisualGeometriesPage = lazy(() => import('./pages/VisualGeometriesPage.jsx'));
@@ -1747,6 +1748,7 @@ function AppShell() {
           <Route path="/state-of-program" element={<StateOfProgramPage />} />
           <Route path="/engine-room" element={<EngineRoomPage />} />
           <Route path="/vortex-field" element={<VortexFieldPage />} />
+          <Route path="/sign-switching" element={<SignSwitchingPage />} />
           <Route path="/viz-winding-dyson-flow" element={<VizWindingDysonFlowPage />} />
           <Route path="/viz-near-zero" element={<VizNearZeroPage />} />
           <Route path="/visual-geometries" element={<VisualGeometriesPage />} />
@@ -2763,3 +2765,4 @@ export default function App() {
     </MathModalProvider>
   );
 }
+

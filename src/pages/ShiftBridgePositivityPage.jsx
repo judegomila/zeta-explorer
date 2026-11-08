@@ -82,6 +82,7 @@ export default function ShiftBridgePositivityPage() {
       ticker={<span>reformulation · RH-equivalent conjectures · not a new bound</span>}
       footer={<>
         Related: <Link to="/closure-routes">§16 Closure routes</Link>
+        {' · '}<Link to="/sign-switching">Sign switching & bridge energy</Link>
         {' · '}<Link to="/blaschke-ghosts">§17 Blaschke ghosts</Link>
         {' · '}<Link to="/three-attacks">§18 Three attacks</Link>
         {' · '}<Link to="/selberg-trace">Selberg trace</Link>
@@ -98,6 +99,10 @@ export default function ShiftBridgePositivityPage() {
       {/* 15.1 — Purpose */}
       <SectionHead tag="15.1">Purpose of this section</SectionHead>
       <p>{S.summary}</p>
+      <p>
+        <Link to="/sign-switching">Explore the sign geometrically and as an energy balance →</Link>{' '}
+        The linked view shows the exact local half-disk / modal-diameter relation and reconstructs the full inward shear as even energy minus odd energy from a known positive boundary kernel. The all-height inequality remains open.
+      </p>
 
       {/* 15.2 — Centered completed function */}
       <SectionHead tag="15.2">
@@ -277,3 +282,4 @@ export default function ShiftBridgePositivityPage() {
     </PostLayout>
   );
 }
+

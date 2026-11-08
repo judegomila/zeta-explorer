@@ -1761,6 +1761,19 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive chart baking the imp-36082/imp-36151 r_B(N) rate machinery verbatim across a wider ladder (no new numerics, no heavy data-module import); presentation only; r_B(N) bounds a shock-time DEVIATION, not |t_c(N)| absolutely (imp-36082 CONSUMABLE-MODULO-ANCHOR); does not imply the imp-36045 Route-C > Route-B ranking reflects a faster exponent (imp-36151); C_mb GUE-conditional (imp-486) is UNTOUCHED; changes no bound, establishes no operator positivity, no RH verdict; NO QED.',
     }),
+    Object.freeze({
+      route: '/sign-switching',
+      title: 'Sign Switching & Bridge Energy',
+      oneLine:
+        'Link a collision half-disk to its modal diameter, then reconstruct the full Ξ shear as even energy minus odd energy from a positive boundary kernel.',
+      mathBucket: 'kernel',
+      dataModule: 'src/data/sign-switching-xi.json',
+      paperSourcePath: 'formalization/paper/sign_switching_energy_2026-11-07.md',
+      ticket: 'user-research-2026-11-07',
+      pedagogicalStep: 123,
+      honestCeiling:
+        'The local model and full-kernel identity are exact. Finite numerical benchmarks do not prove the all-height energy inequality; no RH claim.',
+    }),
   ]),
 });
 
@@ -2010,3 +2023,4 @@ export const VISUALIZATIONS_INDEX_ASSERTIONS = [
       'ceiling that describes only positive results without an explicit denial.',
   },
 ];
+

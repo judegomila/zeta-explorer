@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "base_commit": "942ba1760c4ef54a519750ab91c37a661c31e0ce",
+  "scope": "All checkpoint files except this manifest.",
+  "files": [
+    {
+      "path": "rigorous/theta-endpoint-2026-11-08/AUDIT.md",
+      "bytes": 4553,
+      "sha256": "2bef56a5cb4868a339ebcff57e2eb6248c52c4f3ab2e089d339293dac3b7757a"
+    },
+    {
+      "path": "rigorous/theta-endpoint-2026-11-08/README.md",
+      "bytes": 9590,
+      "sha256": "4e6e4d6404375d99f5e9ab56cabe70a4f58c37e8ad51b7b3ed1ba2deba582053"
+    },
+    {
+      "path": "rigorous/theta-endpoint-2026-11-08/SOURCES.md",
+      "bytes": 5431,
+      "sha256": "b81d4121d7122d9aaa0404291ef4dc42c8d6fd4aa7ebf493cd644ff479e76219"
+    },
+    {
+      "path": "rigorous/theta-endpoint-2026-11-08/requirements.txt",
+      "bytes": 28,
+      "sha256": "96464f405b58137236b9c10c698be08a780ff7d062dd918ac40c0460f1b0831f"
+    },
+    {
+      "path": "rigorous/theta-endpoint-2026-11-08/theta_direct_gaussian_contours_20261108.md",
+      "bytes": 15298,
+      "sha256": "9ea02e39c3de2ab32e093cee7a8d1276f06029e66c8af1922c0ebc70ede0d6a0"
+    },
+    {
+      "path": "rigorous/theta-endpoint-2026-11-08/theta_logarithmic_endpoint_20261108.md",
+      "bytes": 10402,
+      "sha256": "c893a5cb55cb1eeef3bad8fa3d1f2025c75702ced5f0c478a127def83105eda0"
+    },
+    {
+      "path": "rigorous/theta-endpoint-2026-11-08/theta_modular_system_20261108.md",
+      "bytes": 16996,
+      "sha256": "bfa423a1889f8f377700417ec34b87e005361d533d86042a399e8f823f5b2ab5"
+    },
+    {
+      "path": "rigorous/theta-endpoint-2026-11-08/theta_modular_system_20261108.py",
+      "bytes": 3464,
+      "sha256": "5b35ffc193e8b6fff7b461be48d03b7adc5957982aa236cf27377eb8168f84cd"
+    },
+    {
+      "path": "rigorous/theta-endpoint-2026-11-08/theta_modular_system_replay.txt",
+      "bytes": 346,
+      "sha256": "ca10c9a8c810653ceea433f3737994ef7b634628e54b32cb2dc138538fd20d48"
+    },
+    {
+      "path": "rigorous/theta-endpoint-2026-11-08/theta_unbounded_operator_domains_20261108.md",
+      "bytes": 13774,
+      "sha256": "b5c783120be50db5107a8f7ad20cde346c64518656ba6ca1463e1fe8d9bbd637"
+    },
+    {
+      "path": "rigorous/theta-endpoint-2026-11-08/validation.json",
+      "bytes": 1357,
+      "sha256": "f6867d269391b48076d20c699b7695233f00d4b4a9bec2e14d44c11f8ffdc414"
+    },
+    {
+      "path": "thinking/decisions/2026-11-08-theta-endpoint.md",
+      "bytes": 3371,
+      "sha256": "759f48f14c194e3b7b93bbd10443bd9f0263aa26323c09b764cdd3775b093f6c"
+    }
+  ]
+}

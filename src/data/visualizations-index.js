@@ -1,6 +1,6 @@
 /**
  * @module visualizations-index
- * @fileoverview Master index of every WAVE 13 visualization page.
+ * @fileoverview Growing visualization catalog, preserving the WAVE 13/18 foundation.
  *
  * Six visualization pages were shipped in WAVE 13 (imp-1222..1227). Until
  * imp-1228 they were scattered across three different "Visualizations" nav
@@ -48,6 +48,7 @@ export const VIZ_MATH_BUCKETS = Object.freeze([
   'schur',
   'kernel',
   'bound',
+  'measurement',
 ]);
 
 /**
@@ -56,12 +57,12 @@ export const VIZ_MATH_BUCKETS = Object.freeze([
  * Entry semantics:
  *  - `route`           string  page route (must match an App.jsx <Route>)
  *  - `title`           string  page-level <h1> the card surfaces
- *  - `oneLine`         string  ≤ 160 char one-liner shown on the card
+ *  - `oneLine`         string  bounded card summary (legacy: <=200; later: <=512)
  *  - `mathBucket`      string  one of VIZ_MATH_BUCKETS (drives badge color)
- *  - `dataModule`      string  src-relative path to companion data module
+ *  - `dataModule`      string|null  src/data JS/JSON path(s), or computed data
  *  - `paperSourcePath` string  pointer to source paper / section
- *  - `ticket`          string  originating ticket (imp-1222..imp-1227)
- *  - `pedagogicalStep` number  1..6, ordering of the cards on the page
+ *  - `ticket`          string  imp-N ticket or dated user-research provenance
+ *  - `pedagogicalStep` number  positive integer rank; original steps 1..9 pinned
  *
  * @type {Readonly<object>}
  */
@@ -70,18 +71,17 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
   routePath: '/visualizations',
   title: 'Visualizations',
   intro:
-    'Geometric perspectives on the Riemann zeta-function and its prime ' +
-    'structure. The curated sequence walks from a single-curve log-phase ' +
-    'spiral through 2D interferometric (twin-ladder), flow-field, and ' +
-    'caustic representations to discrete-prime pictures (hyperbolic spiral ' +
-    'and Bragg-style crystal), alongside the program’s deep-tail diagnostic ' +
-    'visualizations. Together they visualize the twin-ladder framing.',
+    'Explore zeta geometry, operator models, arithmetic measurements, and ' +
+    'bridge-energy diagnostics. The catalog opens with six geometric views ' +
+    'of the Twin-Ladder Consolidated v52 paper, followed by Schur and ' +
+    'Volterra panels and later research views. Each card names its data ' +
+    'or source and the limit of what it establishes.',
 
   paperSource: Object.freeze({
     path: 'research-inputs/twin_ladder_consolidated_v52.pdf',
     note:
-      'Twin-Ladder Consolidated v52 — the canonical paper source. The ' +
-      'curated visualizations together cover the geometric content of ' +
+      'Twin-Ladder Consolidated v52 — the source of the opening six-view ' +
+      'suite, covering the geometric content of ' +
       '§§15-18 (shift-bridge, closure routes, ghosts, approaches) plus the ' +
       'rigorous-numerics §§20-23 supporting material.',
   }),
@@ -399,7 +399,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-34983',
       pedagogicalStep: 23,
       honestCeiling:
-        'Descriptive sensitivity sweep; C_mb remains GUE-conditional, changes no bound, no RH verdict.',
+        'Descriptive sensitivity sweep; C_mb remains GUE-conditional, changes no bound, no RH claim.',
     }),
     Object.freeze({
       route: '/viz-imp34985-pinned-product-window-sensitivity',
@@ -1563,7 +1563,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-35864',
       pedagogicalStep: 104,
       honestCeiling:
-        'Descriptive chart re-exporting the imp-35811 BigInt digit-ladder measurement verbatim (no new derivation, no heavy data-module import, no ~520-digit recomputation at page load); measures ONLY the exp(-pi x/8) underflow-driven mantissa-digit requirement off the imp-35781-measured accumulator scale K; evaluates no true H_0 at high precision, extends no evaluator, certifies no value at any height, changes no bound.',
+        'Descriptive chart re-exporting the imp-35811 BigInt digit-ladder measurement verbatim (no new derivation, no heavy data-module import, no ~520-digit recomputation at page load); measures ONLY the exp(-pi x/8) underflow-driven mantissa-digit requirement off the imp-35781-measured accumulator scale K; evaluates no true H_0 at high precision, extends no evaluator, certifies no value at any height, changes no bound; no RH claim.',
     }),
     Object.freeze({
       route: '/viz-imp35865-summation-scheme-ladder',
@@ -1576,7 +1576,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-35865',
       pedagogicalStep: 105,
       honestCeiling:
-        'Descriptive chart re-exporting the imp-35812 exact-BigInt-referenced summation-scheme measurement verbatim (no new derivation, no heavy data-module import, no re-running the summation schemes at page load); measurement only; certifies no W1 bound; evaluates no true H_0; instantiates no interval; verifies no inequality; establishes no positivity; the W1 A+B-C certificate at T_PT stays GREENFIELD (imp-35681 Part A).',
+        'Descriptive chart re-exporting the imp-35812 exact-BigInt-referenced summation-scheme measurement verbatim (no new derivation, no heavy data-module import, no re-running the summation schemes at page load); measurement only; certifies no W1 bound; evaluates no true H_0; instantiates no interval; verifies no inequality; establishes no positivity; the W1 A+B-C certificate at T_PT stays GREENFIELD (imp-35681 Part A); no RH claim.',
     }),
     Object.freeze({
       route: '/viz-imp35934-kappa-sweep-ladder',
@@ -1589,7 +1589,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-35934',
       pedagogicalStep: 106,
       honestCeiling:
-        'Descriptive chart re-exporting the imp-35854 exact-BigInt-referenced kappa-sweep measurement verbatim (no new derivation, no heavy data-module import, no re-running the summation schemes at page load); measurement only; certifies no W1 bound; evaluates no true H_0; instantiates no interval; verifies no inequality; establishes no positivity; the W1 A+B-C certificate at T_PT stays GREENFIELD (imp-35681 Part A).',
+        'Descriptive chart re-exporting the imp-35854 exact-BigInt-referenced kappa-sweep measurement verbatim (no new derivation, no heavy data-module import, no re-running the summation schemes at page load); measurement only; certifies no W1 bound; evaluates no true H_0; instantiates no interval; verifies no inequality; establishes no positivity; the W1 A+B-C certificate at T_PT stays GREENFIELD (imp-35681 Part A); no RH claim.',
     }),
     Object.freeze({
       route: '/viz-imp35935-adversarial-ordering',
@@ -1602,7 +1602,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-35935',
       pedagogicalStep: 107,
       honestCeiling:
-        'Descriptive chart re-exporting the imp-35852 exact-BigInt-referenced adversarial-ordering measurement verbatim (no new derivation, no heavy data-module import, no re-running the summation schemes at page load); measurement only; certifies no W1 bound; evaluates no true H_0; instantiates no interval; verifies no inequality; establishes no positivity; the W1 A+B-C certificate at T_PT stays GREENFIELD (imp-35681 Part A).',
+        'Descriptive chart re-exporting the imp-35852 exact-BigInt-referenced adversarial-ordering measurement verbatim (no new derivation, no heavy data-module import, no re-running the summation schemes at page load); measurement only; certifies no W1 bound; evaluates no true H_0; instantiates no interval; verifies no inequality; establishes no positivity; the W1 A+B-C certificate at T_PT stays GREENFIELD (imp-35681 Part A); no RH claim.',
     }),
     Object.freeze({
       route: '/viz-imp35936-req4-height-multiple-sigma',
@@ -5972,243 +5972,137 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
 // run-assertions.mjs harness invokes every .holds() and fails the build
 // if any returns false.
 
-const EXPECTED_ROUTES = Object.freeze([
-  '/viz-log-phase-spiral',
-  '/viz-twin-ladder-tomography',
-  '/viz-euler-transport-flow',
-  '/viz-prime-caustic',
-  '/viz-hyperbolic-prime-spiral',
-  '/viz-prime-phase-crystal',
-  '/cayley-schur-trajectory',
-  '/viz-volterra-kernel-heatmap',
-  '/viz-volterra-norm-curve',
+// These original route/ticket/bucket pairings and the six data-file pins are
+// independent of the live catalog. Extensions must not silently rewrite them.
+const FOUNDATION_ENTRIES = Object.freeze([
+  Object.freeze({ route: '/viz-log-phase-spiral', ticket: 'imp-1222', mathBucket: 'phase-spiral', dataModule: 'src/data/viz-log-phase-spiral.js' }),
+  Object.freeze({ route: '/viz-twin-ladder-tomography', ticket: 'imp-1223', mathBucket: 'tomography', dataModule: 'src/data/viz-twin-ladder-tomography.js' }),
+  Object.freeze({ route: '/viz-euler-transport-flow', ticket: 'imp-1224', mathBucket: 'flow-field', dataModule: 'src/data/viz-euler-transport-flow.js' }),
+  Object.freeze({ route: '/viz-prime-caustic', ticket: 'imp-1225', mathBucket: 'caustic', dataModule: 'src/data/viz-prime-caustic.js' }),
+  Object.freeze({ route: '/viz-hyperbolic-prime-spiral', ticket: 'imp-1226', mathBucket: 'hyperbolic', dataModule: 'src/data/viz-hyperbolic-prime-spiral.js' }),
+  Object.freeze({ route: '/viz-prime-phase-crystal', ticket: 'imp-1227', mathBucket: 'crystal', dataModule: 'src/data/viz-prime-phase-crystal.js' }),
+  Object.freeze({ route: '/cayley-schur-trajectory', ticket: 'imp-1294', mathBucket: 'schur', dataModule: null }),
+  Object.freeze({ route: '/viz-volterra-kernel-heatmap', ticket: 'imp-1291', mathBucket: 'kernel', dataModule: null }),
+  Object.freeze({ route: '/viz-volterra-norm-curve', ticket: 'imp-1292', mathBucket: 'bound', dataModule: null }),
 ]);
-
-const EXPECTED_TICKETS = Object.freeze([
-  'imp-1222', 'imp-1223', 'imp-1224', 'imp-1225', 'imp-1226', 'imp-1227',
-  'imp-1291', 'imp-1292', 'imp-1294',
+const FOUNDATION_PAPER = 'research-inputs/twin_ladder_consolidated_v52.pdf';
+const DENIAL_PHRASES = Object.freeze([
+  'no lambda', 'no rh claim', 'not proven', 'does not', 'no operator', 'no upper',
 ]);
+const isRecord = value => value !== null && typeof value === 'object' && !Array.isArray(value);
+const hasText = (value, min, max = Infinity) =>
+  typeof value === 'string' && value.trim().length >= min && value.length <= max;
+const isRoute = value => typeof value === 'string' && /^\/[a-z0-9]+(?:[/-][a-z0-9]+)*$/.test(value);
+function isDataModule(value) {
+  if (value === null) return true;
+  if (typeof value !== 'string') return false;
+  // A comparison card can cite several source modules in the rendered string.
+  // Validate every component, including later paths, rather than just a prefix.
+  const paths = value.split(/,\s*/);
+  return new Set(paths).size === paths.length && paths.every(path =>
+    /^src\/data\/(?:[a-zA-Z0-9_-]+\/)*[a-zA-Z0-9_-]+\.(?:js|json)$/.test(path));
+}
+function isTicket(value) {
+  if (typeof value !== 'string') return false;
+  if (/^imp-\d+$/.test(value)) return true;
+  const date = /^user-research-(\d{4}-\d{2}-\d{2})$/.exec(value)?.[1];
+  return Boolean(date && Number.isFinite(Date.parse(date)) && new Date(date).toISOString().slice(0, 10) === date);
+}
 
-export const VISUALIZATIONS_INDEX_ASSERTIONS = [
-  {
-    id: 'imp1228-record-frozen-and-route-pinned',
-    holds: () =>
-      Object.isFrozen(VISUALIZATIONS_INDEX) &&
-      Object.isFrozen(VISUALIZATIONS_INDEX.entries) &&
-      Object.isFrozen(VISUALIZATIONS_INDEX.paperSource) &&
-      VISUALIZATIONS_INDEX.ticketId === 'imp-1228' &&
-      VISUALIZATIONS_INDEX.routePath === '/visualizations' &&
-      typeof VISUALIZATIONS_INDEX.title === 'string' &&
-      VISUALIZATIONS_INDEX.title === 'Visualizations' &&
-      typeof VISUALIZATIONS_INDEX.intro === 'string' &&
-      VISUALIZATIONS_INDEX.intro.length >= 100,
-    why:
-      'VISUALIZATIONS_INDEX must be a frozen record (and its entries / ' +
-      'paperSource sub-records also frozen) with ticketId imp-1228, ' +
-      'routePath /visualizations, title "Visualizations", and a non-trivial ' +
-      'intro (>= 100 chars). Drift on any of these silently misroutes the ' +
-      'nav-link wired into App.jsx.',
-  },
-  {
-    id: 'imp1228-exactly-nine-entries-present',
-    holds: () => {
-      const e = VISUALIZATIONS_INDEX.entries;
-      if (!Array.isArray(e) && !(e && typeof e.length === 'number')) return false;
-      if (e.length !== 9) return false;
-      for (const entry of e) {
-        if (!entry || !Object.isFrozen(entry)) return false;
-        if (typeof entry.route !== 'string' || !entry.route.startsWith('/viz-')) return false;
-        if (typeof entry.title !== 'string' || entry.title.length < 5) return false;
-        if (typeof entry.oneLine !== 'string' || entry.oneLine.length < 20 || entry.oneLine.length > 200) return false;
-        if (typeof entry.mathBucket !== 'string') return false;
-        if (typeof entry.dataModule !== 'string' || !entry.dataModule.startsWith('src/data/viz-')) return false;
-        if (typeof entry.paperSourcePath !== 'string' || entry.paperSourcePath.length < 10) return false;
-        if (typeof entry.ticket !== 'string' || !/^imp-\d+$/.test(entry.ticket)) return false;
-        if (typeof entry.pedagogicalStep !== 'number') return false;
-      }
-      return true;
+/**
+ * Pure assertion factory: the harness uses the live frozen catalog, while the
+ * focused regression supplies corrupted copies to prove the same gates reject
+ * bad metadata. No assertion is skipped, and no data module is imported here.
+ */
+export function createVisualizationsIndexAssertions(index = VISUALIZATIONS_INDEX, mathBuckets = VIZ_MATH_BUCKETS) {
+  const entries = Array.isArray(index?.entries) ? index.entries : null;
+  const checkEntries = predicate => () => Boolean(
+    entries && entries.length >= FOUNDATION_ENTRIES.length && Array.from(entries).every(isRecord) && predicate(entries)
+  );
+  const foundationPresent = predicate => FOUNDATION_ENTRIES.every(required => {
+    const entry = entries?.find(candidate => candidate?.route === required.route);
+    return entry && predicate(entry, required);
+  });
+  return [
+    {
+      id: 'imp1228-record-frozen-and-route-pinned',
+      holds: () => Boolean(
+        isRecord(index) && Object.isFrozen(index) && entries && Object.isFrozen(entries) &&
+        isRecord(index.paperSource) && Object.isFrozen(index.paperSource) &&
+        index.ticketId === 'imp-1228' && index.routePath === '/visualizations' &&
+        index.title === 'Visualizations' && hasText(index.intro, 100)
+      ),
+      why: 'The index, entry array and paperSource must be frozen; preserve the landing route, ticket, title and substantive introduction.',
     },
-    why:
-      'entries must contain exactly 6 frozen records, each with route ' +
-      'starting "/viz-", a non-trivial title, oneLine 20..200 chars, a ' +
-      'string mathBucket, dataModule under src/data/viz-, paperSourcePath, ' +
-      'an imp-NNNN ticket, and a numeric pedagogicalStep. Any miss breaks ' +
-      'the card grid the index renders.',
-  },
-  {
-    id: 'imp1228-nine-routes-unique-and-expected',
-    holds: () => {
-      const routes = VISUALIZATIONS_INDEX.entries.map((e) => e.route);
-      const uniq = new Set(routes);
-      if (uniq.size !== 9) return false;
-      // All nine expected routes must be present.
-      for (const r of EXPECTED_ROUTES) {
-        if (!uniq.has(r)) return false;
-      }
-      // And no spurious extras.
-      for (const r of routes) {
-        if (!EXPECTED_ROUTES.includes(r)) return false;
-      }
-      return true;
+    {
+      id: 'imp1228-required-entries-and-metadata',
+      holds: checkEntries(items => items.every(entry => {
+        const legacy = FOUNDATION_ENTRIES.some(required => required.route === entry.route);
+        return Object.isFrozen(entry) && isRoute(entry.route) && hasText(entry.title, 5) &&
+          hasText(entry.oneLine, 20, legacy ? 200 : 512) && hasText(entry.mathBucket, 1) &&
+          isDataModule(entry.dataModule) && hasText(entry.paperSourcePath, 10) &&
+          isTicket(entry.ticket) && Number.isSafeInteger(entry.pedagogicalStep) && entry.pedagogicalStep > 0;
+      })),
+      why: 'Require at least the original nine frozen cards and valid metadata on every card: local route, title, bounded summary, bucket, JS/JSON data paths or null, source, ticket and positive integer rank. Legacy summaries keep their 200-character ceiling; later catalog summaries are bounded at 512.',
     },
-    why:
-      'The 9 entry routes must be unique AND must equal the expected ' +
-      'routes (WAVE 13 plus WAVE 18 operator visualizations). Any divergence ' +
-      'would silently fork the master-index from the actual viz pages.',
-  },
-  {
-    id: 'imp1228-pedagogical-step-is-1-through-9-in-order',
-    holds: () => {
-      const e = VISUALIZATIONS_INDEX.entries;
-      // entries must be ordered by pedagogicalStep 1..9 monotonically.
-      const expectedAtStep = [
-        '/viz-log-phase-spiral',
-        '/viz-twin-ladder-tomography',
-        '/viz-euler-transport-flow',
-        '/viz-prime-caustic',
-        '/viz-hyperbolic-prime-spiral',
-        '/viz-prime-phase-crystal',
-        '/cayley-schur-trajectory',
-        '/viz-volterra-kernel-heatmap',
-        '/viz-volterra-norm-curve',
-      ];
-      for (let i = 0; i < 9; i++) {
-        if (e[i].pedagogicalStep !== i + 1) return false;
-        if (e[i].route !== expectedAtStep[i]) return false;
-      }
-      return true;
+    {
+      id: 'imp1228-routes-unique-and-required',
+      holds: checkEntries(items => items.every(entry => isRoute(entry.route)) &&
+        new Set(items.map(entry => entry.route)).size === items.length && foundationPresent(() => true)),
+      why: 'Every route must be a unique local path, and all nine original routes must remain present. Valid catalog additions are allowed.',
     },
-    why:
-      'pedagogicalStep must be 1..9 monotonically with the route at each ' +
-      'step pinned to the spec. The sequence progresses from WAVE 13 ' +
-      'geometric visualizations (steps 1-6) through operator-theoretic ' +
-      'visualizations (steps 7-9): Schur functions, Volterra kernel ' +
-      'structure, and norm bounds.',
-  },
-  {
-    id: 'imp1228-math-bucket-is-from-closed-set',
-    holds: () => {
-      const buckets = new Set(VIZ_MATH_BUCKETS);
-      if (buckets.size !== 9) return false;
-      // Each entry's bucket must come from the closed VIZ_MATH_BUCKETS set.
-      for (const e of VISUALIZATIONS_INDEX.entries) {
-        if (!buckets.has(e.mathBucket)) return false;
-      }
-      // And the buckets must be pairwise distinct (one per viz).
-      const used = new Set(VISUALIZATIONS_INDEX.entries.map((e) => e.mathBucket));
-      if (used.size !== 9) return false;
-      return Object.isFrozen(VIZ_MATH_BUCKETS);
+    {
+      id: 'imp1228-foundation-steps-pinned',
+      holds: checkEntries(items => FOUNDATION_ENTRIES.every((required, i) =>
+        items[i].route === required.route && items[i].pedagogicalStep === i + 1) &&
+        items.every(entry => Number.isSafeInteger(entry.pedagogicalStep) && entry.pedagogicalStep > 0)),
+      why: 'Keep the original pedagogical sequence at steps 1..9. Later entries carry positive integer ranks; their existing ranks need not equal their array positions.',
     },
-    why:
-      'mathBucket on every entry must come from the closed VIZ_MATH_BUCKETS ' +
-      'set (frozen, exactly 9 buckets) and each bucket must be used once. ' +
-      'This is what the per-card badge color mapping keys off — an unknown ' +
-      'bucket renders an uncolored badge and a duplicate bucket would tie ' +
-      'two cards to the same color.',
-  },
-  {
-    id: 'imp1228-every-ticket-present',
-    holds: () => {
-      const tickets = VISUALIZATIONS_INDEX.entries.map((e) => e.ticket);
-      const uniq = new Set(tickets);
-      if (uniq.size !== 9) return false;
-      for (const t of EXPECTED_TICKETS) {
-        if (!uniq.has(t)) return false;
-      }
-      return true;
+    {
+      id: 'imp1228-math-bucket-is-from-closed-set',
+      holds: checkEntries(items => {
+        if (!Array.isArray(mathBuckets) || !Object.isFrozen(mathBuckets) ||
+          !Array.from(mathBuckets).every(bucket => typeof bucket === 'string' && /^[a-z]+(?:-[a-z]+)*$/.test(bucket))) return false;
+        const buckets = new Set(mathBuckets);
+        return buckets.size === mathBuckets.length &&
+          items.every(entry => buckets.has(entry.mathBucket)) &&
+          foundationPresent((entry, required) => entry.mathBucket === required.mathBucket);
+      }),
+      why: 'Every bucket must belong to the frozen, duplicate-free declared set, including the existing measurement family. Preserve the original nine route/bucket pairings; multiple cards may share a category.',
     },
-    why:
-      'All visualization tickets (WAVE 13 imp-1222..1227 and WAVE 18 ' +
-      'imp-1291..1292, imp-1294) must appear exactly once. A missing or ' +
-      'duplicate ticket means the index lost provenance for one of the pages.',
-  },
-  {
-    id: 'imp1228-data-modules-pin-to-viz-files',
-    holds: () => {
-      const expected = new Set([
-        'src/data/viz-log-phase-spiral.js',
-        'src/data/viz-twin-ladder-tomography.js',
-        'src/data/viz-euler-transport-flow.js',
-        'src/data/viz-prime-caustic.js',
-        'src/data/viz-hyperbolic-prime-spiral.js',
-        'src/data/viz-prime-phase-crystal.js',
-      ]);
-      const seen = new Set();
-      for (const e of VISUALIZATIONS_INDEX.entries) {
-        // Entries may have null dataModule (computed visualizations).
-        if (e.dataModule !== null && !expected.has(e.dataModule)) return false;
-        if (e.dataModule !== null) {
-          if (seen.has(e.dataModule)) return false;
-          seen.add(e.dataModule);
-        }
-      }
-      return seen.size === 6;
+    {
+      id: 'imp1228-every-ticket-present',
+      holds: checkEntries(items => items.every(entry => isTicket(entry.ticket)) &&
+        foundationPresent((entry, required) => entry.ticket === required.ticket &&
+          items.filter(candidate => candidate.ticket === required.ticket).length === 1)),
+      why: 'Preserve every original route/ticket pairing exactly once. Later provenance must be an imp-N ticket or a valid dated user-research identifier; one later research ticket may legitimately supply several views.',
     },
-    why:
-      'WAVE 13 entries (steps 1-6) must have dataModule pinned to one of six ' +
-      'known data files (pairwise distinct). WAVE 18 entries (steps 7-9) may ' +
-      'have null dataModule (computed dynamically). A wrong dataModule would ' +
-      'point a card at a non-existent file.',
-  },
-  {
-    id: 'imp1228-paper-source-and-intro-pin-v52',
-    holds: () => {
-      const p = VISUALIZATIONS_INDEX.paperSource;
-      if (!p || typeof p.path !== 'string' || typeof p.note !== 'string') return false;
-      if (!p.path.includes('twin_ladder_consolidated_v52.pdf')) return false;
-      if (p.note.length < 40) return false;
-      // Every entry should also pin a paperSourcePath that references the
-      // v52 PDF (the canonical source for the WAVE 13 suite).
-      for (const e of VISUALIZATIONS_INDEX.entries) {
-        if (!e.paperSourcePath.includes('twin_ladder_consolidated_v52.pdf')) return false;
-      }
-      return true;
+    {
+      id: 'imp1228-data-modules-pin-to-viz-files',
+      holds: checkEntries(items => items.every(entry => isDataModule(entry.dataModule)) &&
+        foundationPresent((entry, required) => required.dataModule === null || entry.dataModule === required.dataModule)),
+      why: 'Keep each of the six original data files pinned to its original route. Other cards may cite one or several safe src/data JS/JSON paths, or null for computed data; validate every cited path, and allow related views to share a source.',
     },
-    why:
-      'paperSource must point at research-inputs/twin_ladder_consolidated_v52.pdf ' +
-      'with a substantive note, and every entry.paperSourcePath must ' +
-      'reference that same PDF (with section). This pins provenance back ' +
-      'to the canonical v52 paper.',
-  },
-  {
-    id: 'imp2728-every-entry-has-honest-ceiling',
-    holds: () => {
-      for (const e of VISUALIZATIONS_INDEX.entries) {
-        if (typeof e.honestCeiling !== 'string') return false;
-        if (e.honestCeiling.length < 20) return false;
-      }
-      return true;
+    {
+      id: 'imp1228-paper-source-and-intro-pin-v52',
+      holds: checkEntries(items => index.paperSource?.path === FOUNDATION_PAPER &&
+        hasText(index.paperSource?.note, 40) && items.every(entry => hasText(entry.paperSourcePath, 10)) &&
+        foundationPresent(entry => entry.paperSourcePath === FOUNDATION_PAPER ||
+          entry.paperSourcePath.startsWith(FOUNDATION_PAPER + ' '))),
+      why: 'Preserve the canonical v52 source and substantive note for the original suite. Every later card must cite its actual substantive source rather than falsely attributing new data or user research to v52.',
     },
-    why:
-      'imp-2728: every index entry must carry an honestCeiling string ' +
-      '(>= 20 chars) naming the honest mathematical ceiling of that panel ' +
-      '(descriptive map / re-derives sign only / conjecture-illustration). ' +
-      'This is rendered as a muted footer on each card so a reader cannot ' +
-      'infer an unearned Lambda or RH claim from any single visualization.',
-  },
-  {
-    id: 'imp2992-every-ceiling-has-denial-marker',
-    holds: () => {
-      const DENIAL_PHRASES = [
-        'no lambda',
-        'no rh claim',
-        'not proven',
-        'does not',
-        'no operator',
-        'no upper',
-      ];
-      for (const e of VISUALIZATIONS_INDEX.entries) {
-        const lower = (e.honestCeiling || '').toLowerCase();
-        const hasDenial = DENIAL_PHRASES.some((p) => lower.includes(p));
-        if (!hasDenial) return false;
-      }
-      return true;
+    {
+      id: 'imp2728-every-entry-has-honest-ceiling',
+      holds: checkEntries(items => items.every(entry => hasText(entry.honestCeiling, 20))),
+      why: 'Every card must retain a substantive honestCeiling so a descriptive view cannot silently be presented as an RH or operator-positivity result.',
     },
-    why:
-      'imp-2992: every honestCeiling must contain at least one denial marker ' +
-      '("no lambda", "no rh claim", "not proven", "does not", "no operator", ' +
-      '"no upper") so no future visualization can silently overclaim a Lambda ' +
-      'bound or RH result. This tripwire fires if a new entry is added with a ' +
-      'ceiling that describes only positive results without an explicit denial.',
-  },
-];
+    {
+      id: 'imp2992-every-ceiling-has-denial-marker',
+      holds: checkEntries(items => items.every(entry => typeof entry.honestCeiling === 'string' &&
+        DENIAL_PHRASES.some(phrase => entry.honestCeiling.toLowerCase().includes(phrase)))),
+      why: 'Retain the original explicit denial-marker gate: no lambda, no rh claim, not proven, does not, no operator, or no upper. Positive claims alone are insufficient.',
+    },
+  ];
+}
+
+export const VISUALIZATIONS_INDEX_ASSERTIONS = createVisualizationsIndexAssertions();

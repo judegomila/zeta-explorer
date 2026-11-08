@@ -5949,6 +5949,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every offset, ratio and slope value is reused verbatim from imp-124852 (signed differences and a log-log slope over the frozen imp-97823 tables, no new kernel computation). Conditional-share diagnostic on the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/sign-switching',
+      title: 'Sign Switching & Bridge Energy',
+      oneLine:
+        'Link a collision half-disk to its modal diameter, then reconstruct the full Ξ shear as even energy minus odd energy from a positive boundary kernel.',
+      mathBucket: 'kernel',
+      dataModule: 'src/data/sign-switching-xi.json',
+      paperSourcePath: 'formalization/paper/sign_switching_energy_2026-11-07.md',
+      ticket: 'user-research-2026-11-07',
+      pedagogicalStep: 123,
+      honestCeiling:
+        'The local model and full-kernel identity are exact. Finite numerical benchmarks do not prove the all-height energy inequality; no RH claim.',
+    }),
+
   ]),
 });
 

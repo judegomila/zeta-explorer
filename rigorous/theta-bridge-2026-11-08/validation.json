@@ -1,0 +1,47 @@
+{
+  "date_utc": "2026-11-08",
+  "status": "Both interval certificates replayed successfully. Analytical derivations independently reviewed during the session; full propagation/energy remains open.",
+  "runtime": {
+    "python": "3.12.14",
+    "mpmath": "1.3.0",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "matplotlib": "3.10.8"
+  },
+  "commands": [
+    {
+      "command": "python gram_attack_torus_theta_20261108.py",
+      "exit_code": 0,
+      "stdout": "gram_certificate_replay.txt",
+      "scope": "Full-theta fixed-layer counterexamples and transform enclosure, with analytic truncation/quadrature/tail bounds."
+    },
+    {
+      "command": "python theta_confining_operator_certificate.py",
+      "exit_code": 0,
+      "stdout": "theta_confining_replay.txt",
+      "scope": "Interval Rayleigh exclusion of the specified confining candidate."
+    }
+  ],
+  "rayleigh_enclosure": "[36.194935886422829494208976852636303, 46.514196482943803547214284677464244]",
+  "frequency_upper_bound_enclosure": "[12.032445451598412211138716852184602, 13.640263411377920094248329289549861]",
+  "rayleigh_output_matches_original": true,
+  "new_analytic_checks": [
+    "Boundary-energy factors and right-tail sign",
+    "Strict two-point positivity from cited stronger concavity",
+    "Gram square plus indefinite correction",
+    "Actual box response through ordinary-L2 Tikhonov convergence",
+    "Fixed-finite normalized tail limit and eventual positivity"
+  ],
+  "historical_illustrations_not_rerun_in_this_checkpoint": [
+    "torus_vortex_audit.json",
+    "torus_vortex_fields.svg",
+    "gram_layer_cancellation.json",
+    "gram_layer_cancellation.svg"
+  ],
+  "limitations": [
+    "No certificate of full boundary-operator positivity.",
+    "No proof of box-pulse propagation or exponential integrability.",
+    "No uniform theorem over growing finite configurations.",
+    "No new CI or application behavior change."
+  ]
+}

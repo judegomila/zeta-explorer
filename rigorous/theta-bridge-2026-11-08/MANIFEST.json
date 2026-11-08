@@ -1,0 +1,193 @@
+{
+  "checkpoint": "theta-bridge-2026-11-08",
+  "repository": "judegomila/mathexplorer",
+  "base_commit": "942ba1760c4ef54a519750ab91c37a661c31e0ce",
+  "scope": "The three earlier archive payloads are preserved as notes, programs, JSON and vector figures; redundant PNG renders and ZIP containers are reproducible and omitted.",
+  "edits_to_source_copies": {
+    "bridge_single_pulse_research_note.txt": [
+      "Qualified bounded graph closure by X>=1/2.",
+      "Specified original versus weighted input in the toy-pole cancellation condition."
+    ],
+    "theta_boundary_energy.md": [
+      "Added exact combined pulse remainder, global-density implication and compactness/trace explanation.",
+      "Replaced internal agent-name attribution by the independent-review description."
+    ],
+    "theta_boundary_two_point.md": [
+      "Standardized Q_c for the right-tail projection."
+    ],
+    "independent_audit.txt": [
+      "Appended the targeted audit of the new cutoff notes."
+    ]
+  },
+  "files": [
+    {
+      "path": "rigorous/theta-bridge-2026-11-08/README.md",
+      "bytes": 5886,
+      "sha256": "ff1f25f8b80ddc94051a4c4189e56edef63e516c2bac2c684ea6a2650e39f901"
+    },
+    {
+      "path": "rigorous/theta-bridge-2026-11-08/SOURCES.md",
+      "bytes": 3935,
+      "sha256": "719198c6bc64117da26bfbadd9df97653853dee7307c68476030690f79a3ae0c"
+    },
+    {
+      "path": "rigorous/theta-bridge-2026-11-08/bridge_single_pulse_research_note.txt",
+      "bytes": 13670,
+      "sha256": "79670a89d4c4e15444b595a115a9cf1e6ea10e6f6f8d042b5f951bc84096250e",
+      "source_filename": "bridge_single_pulse_research_note.txt",
+      "source_sha256": "c0802e0575156c0552ab0db75016f95f05a5f4c6bc7c6df86f59d7f29d3b295b",
+      "source_copied_without_change": false
+    },
+    {
+      "path": "rigorous/theta-bridge-2026-11-08/geometry_and_twistors.md",
+      "bytes": 5638,
+      "sha256": "bbe9867be6a9c1888c179c106e2d8ca0e2387d96f268b96095194c253c7f46ef"
+    },
+    {
+      "path": "rigorous/theta-bridge-2026-11-08/gram_attack_torus_theta_20261108.py",
+      "bytes": 3868,
+      "sha256": "e9cd954267e06bf37f877e9bf1431a6277a53bbed23713a7718e9e611605b33a",
+      "source_filename": "gram_attack_torus_theta_20261108.py",
+      "source_sha256": "e9cd954267e06bf37f877e9bf1431a6277a53bbed23713a7718e9e611605b33a",
+      "source_copied_without_change": true
+    },
+    {
+      "path": "rigorous/theta-bridge-2026-11-08/gram_attack_torus_theta_20261108.txt",
+      "bytes": 6318,
+      "sha256": "0b3a39f9eafb10b37e889eeda1de4bea0cf833f09a4448d25c0a9b7e0eb9fcfe",
+      "source_filename": "gram_attack_torus_theta_20261108.txt",
+      "source_sha256": "0b3a39f9eafb10b37e889eeda1de4bea0cf833f09a4448d25c0a9b7e0eb9fcfe",
+      "source_copied_without_change": true
+    },
+    {
+      "path": "rigorous/theta-bridge-2026-11-08/gram_certificate_replay.txt",
+      "bytes": 1369,
+      "sha256": "d985bbf61c923d9f89b01f564157bd39e3ab80542470da5027d5d0acb455cea6"
+    },
+    {
+      "path": "rigorous/theta-bridge-2026-11-08/gram_layer_cancellation.json",
+      "bytes": 1159,
+      "sha256": "17a6d53b2de49238e47b52b6c6928f7a309d6dbd48356458d06eb59ebb317413",
+      "source_filename": "gram_layer_cancellation.json",
+      "source_sha256": "17a6d53b2de49238e47b52b6c6928f7a309d6dbd48356458d06eb59ebb317413",
+      "source_copied_without_change": true
+    },
+    {
+      "path": "rigorous/theta-bridge-2026-11-08/gram_layer_cancellation.py",
+      "bytes": 4923,
+      "sha256": "7f916acffedac1c848cc5d0737b58e198367854d139df811390fa3fe7c57094f",
+      "source_filename": "gram_layer_cancellation.py",
+      "source_sha256": "7f916acffedac1c848cc5d0737b58e198367854d139df811390fa3fe7c57094f",
+      "source_copied_without_change": true
+    },
+    {
+      "path": "rigorous/theta-bridge-2026-11-08/gram_layer_cancellation.svg",
+      "bytes": 234740,
+      "sha256": "caca42984488141d3236311a06688cb47f241094af4c3d4582c164b42ae37aef",
+      "source_filename": "gram_layer_cancellation.svg",
+      "source_sha256": "caca42984488141d3236311a06688cb47f241094af4c3d4582c164b42ae37aef",
+      "source_copied_without_change": true
+    },
+    {
+      "path": "rigorous/theta-bridge-2026-11-08/gram_twistor_research_README.txt",
+      "bytes": 6735,
+      "sha256": "0ac29b95953c8427fc9a3bddd770f1d719b46cc7f1862f843467980160b4bcb0",
+      "source_filename": "gram_twistor_research_README.txt",
+      "source_sha256": "0ac29b95953c8427fc9a3bddd770f1d719b46cc7f1862f843467980160b4bcb0",
+      "source_copied_without_change": true
+    },
+    {
+      "path": "rigorous/theta-bridge-2026-11-08/independent_audit.txt",
+      "bytes": 14034,
+      "sha256": "114b41b05cb53f0adb45169f552917362686ae7c7719b39575028b383348604d",
+      "source_filename": "independent_bridge_audit_20261108.txt",
+      "source_sha256": "4967fc0e557aaa0420e55cc73ac378b0cb0d96edcf1e54e696de1c36aae4eb8d",
+      "source_copied_without_change": false
+    },
+    {
+      "path": "rigorous/theta-bridge-2026-11-08/requirements.txt",
+      "bytes": 139,
+      "sha256": "76432f9107d2e2c85eb8eae934fcba47c99042b4d05131be34c6041962151a3d"
+    },
+    {
+      "path": "rigorous/theta-bridge-2026-11-08/theta_boundary_energy.md",
+      "bytes": 14057,
+      "sha256": "7285524cf6423d8920c7c63785689eed2919aef15d6e26b5e644620a62fac40e",
+      "source_filename": "theta_boundary_energy_derivation.md",
+      "source_sha256": "3ce87885154d77aa10cd643e7a33478be87a6815e5464fb1db2bd082f164ea3c",
+      "source_copied_without_change": false
+    },
+    {
+      "path": "rigorous/theta-bridge-2026-11-08/theta_boundary_two_point.md",
+      "bytes": 8130,
+      "sha256": "ddba1caa80e8ae34621984455a7cef293a6fa94fea6c5bce276b8f065a6b9755",
+      "source_filename": "theta_flux_two_point_20261108.md",
+      "source_sha256": "eac5ec7cd5d6e7ec796d551d828e49fd70af4d67361a3ff73a367d6f4f1cfc98",
+      "source_copied_without_change": false
+    },
+    {
+      "path": "rigorous/theta-bridge-2026-11-08/theta_confining_operator_certificate.json",
+      "bytes": 1333,
+      "sha256": "0d3cccf637f7fac70eb9235086e485b9ba74b7d214899b425c5a6ca3b2b45c50",
+      "source_filename": "theta_confining_operator_certificate.json",
+      "source_sha256": "0d3cccf637f7fac70eb9235086e485b9ba74b7d214899b425c5a6ca3b2b45c50",
+      "source_copied_without_change": true
+    },
+    {
+      "path": "rigorous/theta-bridge-2026-11-08/theta_confining_operator_certificate.py",
+      "bytes": 2745,
+      "sha256": "1fae327dfa34651a613db673e1528a3026cc873bc81645752546822b287242d5",
+      "source_filename": "theta_confining_operator_certificate.py",
+      "source_sha256": "1fae327dfa34651a613db673e1528a3026cc873bc81645752546822b287242d5",
+      "source_copied_without_change": true
+    },
+    {
+      "path": "rigorous/theta-bridge-2026-11-08/theta_confining_replay.txt",
+      "bytes": 1333,
+      "sha256": "0d3cccf637f7fac70eb9235086e485b9ba74b7d214899b425c5a6ca3b2b45c50"
+    },
+    {
+      "path": "rigorous/theta-bridge-2026-11-08/torus_vortex_audit.json",
+      "bytes": 1362,
+      "sha256": "411000a4e544638e421fc4f28d689bb9c0047dc4aa3579f43ba420c153e6a1be",
+      "source_filename": "torus_vortex_audit.json",
+      "source_sha256": "411000a4e544638e421fc4f28d689bb9c0047dc4aa3579f43ba420c153e6a1be",
+      "source_copied_without_change": true
+    },
+    {
+      "path": "rigorous/theta-bridge-2026-11-08/torus_vortex_audit.py",
+      "bytes": 8014,
+      "sha256": "49a392461fbcc9054a8b3fda1b30fe6e6805c46511dcb740ea1ffed14546ec55",
+      "source_filename": "torus_vortex_audit.py",
+      "source_sha256": "49a392461fbcc9054a8b3fda1b30fe6e6805c46511dcb740ea1ffed14546ec55",
+      "source_copied_without_change": true
+    },
+    {
+      "path": "rigorous/theta-bridge-2026-11-08/torus_vortex_fields.svg",
+      "bytes": 451374,
+      "sha256": "d1ae238f22840c376a75dd7fd2c941ec815b21eca89ace90f6de340007c8a523",
+      "source_filename": "torus_vortex_fields.svg",
+      "source_sha256": "d1ae238f22840c376a75dd7fd2c941ec815b21eca89ace90f6de340007c8a523",
+      "source_copied_without_change": true
+    },
+    {
+      "path": "rigorous/theta-bridge-2026-11-08/validation.json",
+      "bytes": 1921,
+      "sha256": "1fe44df5aa210ba7f14d8840abb124bbf9403b7f5f068b20cfca38243173b9f9"
+    },
+    {
+      "path": "rigorous/theta-bridge-2026-11-08/weighted_theta_resolvent_20261108.txt",
+      "bytes": 6295,
+      "sha256": "6b7882c2304be62499d0d3d29f207717bdbfac043447d487ecf50c53dc21d549",
+      "source_filename": "weighted_theta_resolvent_20261108.txt",
+      "source_sha256": "6b7882c2304be62499d0d3d29f207717bdbfac043447d487ecf50c53dc21d549",
+      "source_copied_without_change": true
+    },
+    {
+      "path": "thinking/decisions/2026-11-08-theta-bridge-boundary-energy.md",
+      "bytes": 3383,
+      "sha256": "443fbb42a7e83868172f320f9767ccb5f12f84f4ef0dd5b32d8c2948b5e757f8"
+    }
+  ],
+  "manifest_hashing": "This manifest excludes itself from its file-hash list."
+}

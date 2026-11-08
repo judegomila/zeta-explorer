@@ -105,7 +105,7 @@ def n_power(mid, radius, logn):
     return value.widen((radius*logn).hi)
 
 
-def source(s, mid, radius):
+def source(s, mid, radius, *, modulus_bound=24):
     value, deriv = C(R(0)), C(R(0))
     for n in range(1, 17):
         logn = log_integer(n)
@@ -125,7 +125,7 @@ def source(s, mid, radius):
             j += 1
         factor = base.scale(rational(coef/16**(2*k-1)))
         value, deriv = value+factor*poch, deriv+factor*(dpoch-poch.scale(logn))
-    rem = Fraction(4*prod(range(24, 40)), 6**16*15*16**15)
+    rem = Fraction(4*prod(range(modulus_bound, modulus_bound+16)), 6**16*15*16**15)
     return value.widen(rational(rem).hi), deriv.widen(rational(5*rem).hi)
 
 
@@ -136,28 +136,41 @@ def sum_interval(a):
     return R(a.lo.item(), a.hi.item())
 
 
-def certify(n):
+def rectangle_moments(n, *, top, center, scale, degree):
+    """Use a dyadic ordinate coordinate on [0,1] + i[12,top]."""
+    if top not in (23, 27) or not isinstance(center, int) or scale not in (4, 8):
+        raise ValueError("unsupported contour or coordinate")
+    if degree not in (2, 3):
+        raise ValueError("supported highest moment is two or three")
     if n < 1 or n > 65536 or n & (n-1):
         raise ValueError("choose a dyadic number of cells per side, up to 65536")
     if np.finfo(np.float64).nmant != 52:
         raise ValueError("requires binary64")
     t = np.arange(n, dtype=np.float64)
-    totals = [R(0) for _ in range(3)]
+    totals = [R(0) for _ in range(degree+1)]
     # All endpoints, centers, and differentials below are exact dyadic numbers.
-    for x, y, dx, dy in [(0,12,1,0),(1,12,0,11),(1,23,-1,0),(0,23,0,-11)]:
+    height = top - 12
+    for x, y, dx, dy in [(0,12,1,0),(1,12,0,height),(1,top,-1,0),(0,top,0,-height)]:
         x0, x1 = x+dx*t/n, x+dx*(t+1)/n
         y0, y1 = y+dy*t/n, y+dy*(t+1)/n
         s = C(R(np.minimum(x0,x1),np.maximum(x0,x1)),
               R(np.minimum(y0,y1),np.maximum(y0,y1)))
         mid = C(R((x0+x1)/2),R((y0+y1)/2))
-        val, der = source(s, mid, R((abs(dx)+abs(dy))/(2*n)))
+        val, der = source(s, mid, R((abs(dx)+abs(dy))/(2*n)), modulus_bound=top+1)
         integral = der*val.inverse()*C(R(dx/n),R(dy/n))
-        z = C(s.im-R(18), R(0.5)-s.re).scale(R(0.25))
-        for j in range(3):
+        z = C(s.im-R(center), R(0.5)-s.re).scale(R(1/scale))
+        for j in range(degree+1):
             totals[j] = totals[j]+sum_interval(integral.im)
             integral = integral*z
     inv_two_pi = R(2*3.140625, 2*3.142578125).inverse_positive()
     moments = [moment*inv_two_pi for moment in totals]
+    if not all(np.isfinite(x) for v in moments for x in v.bounds()):
+        raise ValueError("non-finite moment enclosure")
+    return moments
+
+
+def certify(n):
+    moments = rectangle_moments(n, top=23, center=18, scale=4, degree=2)
     if ceil(moments[0].lo) != 2 or floor(moments[0].hi) != 2:
         raise ValueError(f"count unresolved: {moments[0].bounds()}")
     delta = R(2)*moments[2]-moments[1].square()

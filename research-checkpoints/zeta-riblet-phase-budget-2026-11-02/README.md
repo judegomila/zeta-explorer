@@ -1,5 +1,7 @@
 # Zeta riblets and backward phase budgets
 
+[Partial cluster mass and an actual two-zero certificate](cluster/PARTIAL_CLUSTER_MASS.md) gives a lower bound from moment subspaces and the final-pivot obstruction for close reflected pairs.
+
 [Moving-window critical-line mass](energy/MOVING_WINDOW.md) derives a half-unit grid test, an exponentially small tail, and the lower bounds available on verified windows and on average.
 
 [All-height weighted shear bound, 7 November 2026](energy/GLOBAL_BOUND.md) gives an explicit bound uniform in small amplitudes, the weighted zero-count limit on the entire strip, and the remaining moving-window threshold.

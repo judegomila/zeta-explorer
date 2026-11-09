@@ -1,5 +1,7 @@
 # Zeta riblets and backward phase budgets
 
+[Two-zero windows with positive shear and reversed endpoint slopes](cluster/JOINT_PAIR_WINDOWS.md) derives a lower bound exceeding one disjoint passing window per 40 zero copies from two preprint estimates. A four-point slope formula distinguishes a double line zero from an off-line pair at the same height in the shrinking-scale limit.
+
 [Signed zeta shear on windows fixed in advance](cluster/FIXED_WINDOW_SHEAR.md) bounds the shear throughout many predetermined cells at arbitrarily large heights. A separate endpoint test classifies all three two-zero rectangles in a fixed eight-window check. The empty rectangle also has positive shear.
 
 [Positive shear at unbounded pair centroids](cluster/UNBOUNDED_CENTROIDS.md) gives two per-zero packing inequalities, a positive-density consequence of Conrey’s theorem, and a stronger full-strip result using an additional preprint input.

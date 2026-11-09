@@ -89,6 +89,8 @@ The previous [outward-interval computation](fixed-window-shear.json) already cer
 
 ## A four-point test for a coincident projection
 
+The [theta continuation](TRANSVERSE_THETA.md) identifies the limit with the central multiplicity and gives a finite polynomial criterion for the transverse segment.
+
 A reflected pair projects twice onto the same height. An isolated double critical-line zero does too. The following extrapolation gives a separate observable for this case. Let a full-strip count isolate two copies at that single projected height $c$. Equivalently, a sequence of nested full-strip rectangles shrinks to that height with count two. Conjugation makes $c$ the real first contour moment divided by two. Write $R>0$ for a lower bound on the complex distance of every exterior zero from $c$. For $0<h\le R/2$ evaluate
 
 $$

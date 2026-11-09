@@ -1,5 +1,7 @@
 # Zeta riblets and backward phase budgets
 
+[Centroid shear and isolated close pairs](cluster/CENTROID_SHEAR.md) bounds the exterior zero contribution at every height and verifies the complete-theta curvature criterion on a two-zero window near height 111.
+
 [Reading the last Hermite pivot from the sign of zeta](cluster/ARITHMETIC_PIVOT.md) gives a moment-selected Hardy sign test, a two-critical-value variant, and an interval certificate for three critical-line zeros at heights 12 to 27. It identifies the signed theta estimate that remains open at arbitrary height.
 
 [Partial cluster mass and an actual two-zero certificate](cluster/PARTIAL_CLUSTER_MASS.md) gives a lower bound from moment subspaces and the final-pivot obstruction for close reflected pairs.

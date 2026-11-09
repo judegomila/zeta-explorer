@@ -1,0 +1,12 @@
+{
+  "center_L": 2,
+  "Taylor_order_count": 6,
+  "tau": "0",
+  "precision_digits": 60,
+  "theta_terms": 5,
+  "leading_form_exact": "-4/5",
+  "leading_form_decimal": -0.8,
+  "theta_form": "13.43796266243867777957804927397717440245008955531417",
+  "elapsed_seconds": 2.584293842315674,
+  "status": "high_precision_numerical_check_not_interval_certificate"
+}

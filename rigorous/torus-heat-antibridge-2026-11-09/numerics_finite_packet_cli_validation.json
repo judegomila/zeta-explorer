@@ -1,0 +1,22 @@
+{
+  "L": "5/4",
+  "d": "log(11/9)",
+  "points": [
+    "1.04932930453784883872854689587992210947327",
+    "1.25",
+    "1.45067069546215116127145310412007789052673"
+  ],
+  "coefficients": [
+    50,
+    -99,
+    50
+  ],
+  "dps": 50,
+  "theta_terms": 5,
+  "tau": "0",
+  "leading_M_form": "-0.0812051007345803947400226881360839233108505",
+  "actual_scaled_flux_form": "0.783982291586975634465156639224153359065088",
+  "actual_scaled_flux_definition": "F(u,v)=pi*K_tau(u,v)/(kappa_tau(u)*kappa_tau(v))",
+  "seconds": 2.188274621963501,
+  "status": "NONRIGOROUS_NUMERICAL_DIAGNOSTIC_FINITE_THETA_SUM_AND_QUADRATURE"
+}

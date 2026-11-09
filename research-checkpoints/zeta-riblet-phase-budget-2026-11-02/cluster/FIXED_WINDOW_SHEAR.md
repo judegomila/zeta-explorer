@@ -104,4 +104,6 @@ Each window starts with 128 theta subcells, bisecting a subcell when its interva
 
 ## The remaining estimate
 
+The [joint-window continuation](JOINT_PAIR_WINDOWS.md) proves simultaneous pair occupancy, positive shear and endpoint reversal on a prescribed family of lattice intervals using two recent gap and zero-proportion estimates. Its shear bound is proportional to the squared completed amplitude. The additive Hardy-normalized bound above remains unproved on those same intervals.
+
 The proposition controls the signed theta shear on an unbounded collection of prescribed cells. It does not identify their zero counts. To classify pairs at unbounded heights by this route, prove simultaneous occurrence of a strip count of two and a strict endpoint deficit on cells with the shear bound, or prove the same joint condition for unions of such cells with controlled intervening shear. The endpoint test can also use directly integrated subcell bounds. A positive frequency of successful pairs would still leave the complementary windows and larger clusters to handle for RH.

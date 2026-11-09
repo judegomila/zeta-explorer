@@ -1,0 +1,46 @@
+[
+  {
+    "L": "5/4",
+    "d": "log(11/9)",
+    "points": [
+      "1.0493293045378488387285468958799221",
+      "1.25",
+      "1.4506706954621511612714531041200779"
+    ],
+    "coefficients": [
+      50,
+      -99,
+      50
+    ],
+    "dps": 60,
+    "theta_terms": 5,
+    "tau": 0,
+    "leading_M_form": "-0.0812051007345803947400226881360839233108504964",
+    "actual_scaled_flux_form": "0.783982291586975634465156639224153359065088315",
+    "actual_scaled_flux_definition": "F(u,v)=pi*K_tau(u,v)/(kappa_tau(u)*kappa_tau(v))",
+    "seconds": 2.4999492168426514,
+    "status": "NONRIGOROUS_NUMERICAL_DIAGNOSTIC_FINITE_THETA_SUM_AND_QUADRATURE"
+  },
+  {
+    "L": "5/4",
+    "d": "log(11/9)",
+    "points": [
+      "1.0493293045378488387285468958799221",
+      "1.25",
+      "1.4506706954621511612714531041200779"
+    ],
+    "coefficients": [
+      50,
+      -99,
+      50
+    ],
+    "dps": 80,
+    "theta_terms": 7,
+    "tau": 0,
+    "leading_M_form": "-0.0812051007345803947400226881360839233108504964",
+    "actual_scaled_flux_form": "0.783982291586975634465156639224153359065088315",
+    "actual_scaled_flux_definition": "F(u,v)=pi*K_tau(u,v)/(kappa_tau(u)*kappa_tau(v))",
+    "seconds": 6.782452583312988,
+    "status": "NONRIGOROUS_NUMERICAL_DIAGNOSTIC_FINITE_THETA_SUM_AND_QUADRATURE"
+  }
+]

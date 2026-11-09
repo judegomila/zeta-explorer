@@ -13,10 +13,10 @@ def atan_reciprocal(n):
     return I(total.numerator)/total.denominator + I(0,1)*I(tail.numerator)/tail.denominator
 
 
-def theta_moments():
+def theta_moments(midpoint='111.4375', highest_order=66):
     pi = 16*atan_reciprocal(5)-4*atan_reciprocal(239)
-    midpoint = I('111.4375')
-    moments = [I(0) for _ in range(67)]
+    midpoint = I(midpoint)
+    moments = [I(0) for _ in range(highest_order+1)]
     absolute_mass = I(0)
     for k in range(385):
         u = I(k)/128

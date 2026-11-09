@@ -21,7 +21,7 @@ def cells(x, y, dx, dy, n):
 
 def zeta_jet(s, mid, radius):
     if (np.any(s.re.lo < 0) or np.any(s.re.hi > 1) or
-            np.any(s.im.lo < 108) or np.any(s.im.hi > 114)):
+            np.any(s.im.lo < 32) or np.any(s.im.hi > 114)):
         raise ValueError("outside the proved source domain")
     zero, one = C(R(0)), C(R(1))
     value = first = second = zero

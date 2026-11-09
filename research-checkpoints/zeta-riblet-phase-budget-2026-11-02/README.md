@@ -1,5 +1,7 @@
 # Zeta riblets and backward phase budgets
 
+[Signed zeta shear on windows fixed in advance](cluster/FIXED_WINDOW_SHEAR.md) bounds the shear throughout many predetermined cells at arbitrarily large heights. A separate endpoint test classifies all three two-zero rectangles in a fixed eight-window check. The empty rectangle also has positive shear.
+
 [Positive shear at unbounded pair centroids](cluster/UNBOUNDED_CENTROIDS.md) gives two per-zero packing inequalities, a positive-density consequence of Conrey’s theorem, and a stronger full-strip result using an additional preprint input.
 
 [Centroid shear and isolated close pairs](cluster/CENTROID_SHEAR.md) bounds the exterior zero contribution at every height and verifies the complete-theta curvature criterion on a two-zero window near height 111.

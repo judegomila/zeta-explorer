@@ -1,0 +1,13 @@
+{
+  "centroid_cover": [
+    110.75,
+    112.125
+  ],
+  "theta_sum_terms": 16,
+  "mesh": "1/128",
+  "integration_cutoff": 3,
+  "taylor_degree": 64,
+  "height_cells": 128,
+  "analytic_error_per_jet": "1e-55",
+  "bridge_shear_derivative_lower": "1.547307241956791919952726109803320194973740364007785949935474886270794E-69"
+}

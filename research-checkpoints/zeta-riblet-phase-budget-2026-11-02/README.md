@@ -1,5 +1,9 @@
 # Zeta riblets and backward phase budgets
 
+[Full-strip shear on a fixed grid of heights](cluster/MOLLIFIED_SHEAR_COVERAGE.md) derives an asymptotic lower bound of 83.4% for whole cells with outward shear across the critical strip. A reflected pair would force a local zeta energy ratio below 2.95% at a matching dyadic scale. An interval calculation puts this ratio above 4.6% at every dyadic scale on a band around height 18. A uniform bound at candidate pair centers remains open.
+
+[Signed moments of the low transverse coefficients](cluster/LOW_ORDER_MOMENTS.md) give an independent additive lower bound on boxes reaching one mean spacing from the critical line at arbitrarily large heights.
+
 [A finite theta test at a shared height](cluster/TRANSVERSE_THETA.md) gives an explicit remainder for the transverse squared modulus, proves positivity of its high-order coefficients directly from the theta density, and certifies outward bridge shear across the entire strip at heights 32–64. The remaining low-order sign problem is explicit.
 
 [Two-zero windows with positive shear and reversed endpoint slopes](cluster/JOINT_PAIR_WINDOWS.md) derives a lower bound exceeding one disjoint passing window per 40 zero copies from two preprint estimates. A four-point slope formula distinguishes a double line zero from an off-line pair at the same height in the shrinking-scale limit.

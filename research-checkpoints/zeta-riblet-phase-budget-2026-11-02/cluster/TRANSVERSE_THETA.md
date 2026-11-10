@@ -117,3 +117,5 @@ The [Poisson, spatial and theta-series error estimates](CENTROID_SHEAR.md) exten
 ## Remaining proof obligation
 
 At a coincident two-copy site, (2) supplies a sufficient and pointwise necessary finite sign certificate that forces both zeros onto the line. Existence of these certificates at every such height remains open. The direct positive-tail theorem confines any failure to the signed low-order part. The stronger bridge inequality $G_c'(x)>0$ succeeded throughout the tested band. An arithmetic bound for that polynomial or its adverse coefficients at arbitrary candidate heights is still needed. In particular an actual double zero has $G_c'(0)=0$, so a uniform strictly positive derivative margin extending to $x=0$ cannot be required in that case.
+
+The [mollified coverage and local energy test](MOLLIFIED_SHEAR_COVERAGE.md) establishes simultaneous low-order signs on a positive fraction of full-strip cells. The [direct moment estimate](LOW_ORDER_MOMENTS.md) bounds the average negative mass of each fixed coefficient. The unresolved case is a pointwise estimate at an arbitrary candidate pair center.

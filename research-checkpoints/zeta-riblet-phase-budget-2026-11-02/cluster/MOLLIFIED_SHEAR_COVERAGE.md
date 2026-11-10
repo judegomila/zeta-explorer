@@ -103,3 +103,5 @@ $$
                      +\frac{4d^2}{3Y^3}\right).
 $$
 The last row uses $0\le d\le1/32$ inside the scaled integral for uniform enclosures and asserts the ratio bound for $d>0$ only.
+
+The [adaptive filter continuation](ADAPTIVE_LOCAL_FILTER.md) proves that the raw ratio has arbitrarily small values at every fixed scale. It certifies a finite repair on an actual zeta band and proves a universality obstruction for every fixed finite set of Dirichlet rungs.

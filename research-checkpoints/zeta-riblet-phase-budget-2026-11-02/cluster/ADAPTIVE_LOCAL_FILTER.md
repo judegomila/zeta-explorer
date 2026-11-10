@@ -89,3 +89,5 @@ $$
  \sum_{k\ge1}|[w^k]\,(Fp)|^2 < (16+12\sqrt2)|F(0)|^2. \tag{5}
 $$
 This follows by separating the constant term in $\|Fp\|^2$ and using $q^{-1}-1=16+12\sqrt2$. For the exceptional centers one needs a construction from zeta's arithmetic that establishes (5) at the matching scales, or an independent geometric condition narrowing the sites. Optimizing after replacing (5) by the unknown zero product would be circular for that purpose. At the safe anchor $(d,c)=(1/2,0)$, $U(1/2)=1$ by removal of the zeta pole. Equation (1) shows that $\mathcal R_N\to1$ at this single anchor exactly when RH holds. That classical factorization criterion supplies no rate driving this residual to zero and no sign for the separate twin-ladder operator.
+
+The [arithmetic search continuation](ARITHMETIC_FILTER_SEARCH.md) gives automatic coefficient selection, a certified lower-degree obstruction, and a fixed grid whose passing witnesses exclude every possible reflected pair.

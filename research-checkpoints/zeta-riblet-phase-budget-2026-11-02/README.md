@@ -1,5 +1,7 @@
 # Zeta riblets and backward phase budgets
 
+[Adaptive local filters and the finite-rung obstruction](cluster/ADAPTIVE_LOCAL_FILTER.md) gives a certified zeta band around height 1967.40625 where a linear filter repairs a false low reading. Voronin universality shows that every fixed finite Dirichlet dictionary fails the all-height threshold somewhere, even after optimizing its coefficients. The limiting ratio gives a simultaneous fine-scale coverage estimate and an explicit arithmetic residual for an adaptive filter.
+
 [Full-strip shear on a fixed grid of heights](cluster/MOLLIFIED_SHEAR_COVERAGE.md) derives an asymptotic lower bound of 83.4% for whole cells with outward shear across the critical strip. A reflected pair would force a local zeta energy ratio below 2.95% at a matching dyadic scale. An interval calculation puts this ratio above 4.6% at every dyadic scale on a band around height 18. A uniform bound at candidate pair centers remains open.
 
 [Signed moments of the low transverse coefficients](cluster/LOW_ORDER_MOMENTS.md) give an independent additive lower bound on boxes reaching one mean spacing from the critical line at arbitrarily large heights.

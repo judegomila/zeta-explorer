@@ -1,0 +1,153 @@
+{
+  "anchor_interval": "a>=100",
+  "anchor_tail_cells": 768,
+  "audit_check_frequencies": {
+    "Bernstein_identity": 1,
+    "H_Phi_leading_structure": 1,
+    "H_exact_leading_monomials": 1,
+    "H_leading_p_v_structure": 1,
+    "H_leading_positive_coefficient": 1,
+    "H_leading_power": 1,
+    "H_model_derivative_identity": 1,
+    "H_parameter_degrees": 72,
+    "H_positive_Omega_tail_margin": 1,
+    "H_positive_Phi_leading": 1,
+    "H_positive_Phi_tail_margin": 1,
+    "H_quadratic_affine_identity": 1,
+    "H_rectangle_cell": 384,
+    "H_rectangle_nonnegative_power": 206,
+    "H_zero_edge_exact_deflation": 2,
+    "N_prime_remainder_rounding": 1,
+    "N_remainder_rounding": 1,
+    "P_Phi_leading_structure": 1,
+    "P_exact_leading_monomials": 1,
+    "P_leading_p_v_structure": 1,
+    "P_leading_positive_coefficient": 1,
+    "P_leading_power": 1,
+    "P_model_derivative_identity": 1,
+    "P_parameter_degrees": 64,
+    "P_positive_Omega_tail_margin": 1,
+    "P_positive_Phi_leading": 1,
+    "P_positive_Phi_tail_margin": 1,
+    "P_quadratic_affine_identity": 1,
+    "P_rectangle_cell": 384,
+    "P_rectangle_nonnegative_power": 194,
+    "P_zero_edge_exact_deflation": 2,
+    "inverse_p_power": 11,
+    "nonnegative_tail_decay_power": 91,
+    "rectangle_binomial_identity_0": 1,
+    "rectangle_binomial_identity_1": 1,
+    "rectangle_binomial_identity_2": 1
+  },
+  "conclusion": "Both Phi source-origin values and their mixed logarithmic derivative numerators Omega are strictly positive for every a>=100; combine with the compact companion for all-anchor source-origin positivity.",
+  "exact_and_bound_assertion_count": 1436,
+  "gates": {
+    "H": {
+      "N_error_upper": "[8.015465376156919481817586863694703518967009235387271147147758226844192083190e-7 +/- 7.66e-83]",
+      "N_prime_error_upper": "[1.485801928076492999565075433598081075744471020503051977867148775526965790540e-6 +/- 2.52e-82]",
+      "Omega_normalization": "p(a)/a^6",
+      "Omega_positive_margin": "[4.381823167421795097706724106303233327478091207603661239706666713367192094902e-5 +/- 3.95e-81]",
+      "Omega_power": 6,
+      "Omega_quantity": "Cleared source determinant using a-derivatives; equals 2*a*H1^4*Omega_v for H and 2*a*B1^4*Omega_v for P.",
+      "Phi_leading": "[0.00345295974240351723034908978818458643619092369095985535906772 +/- 5.91e-63]",
+      "Phi_p_power": 0,
+      "Phi_polynomial_penalty": "[0.001378199154547809948936950096805231885801070058352182747093311422327406119087 +/- 5.21e-79]",
+      "Phi_positive_margin": "[0.00207475946950581897038986953301261307271967474623074831918189 +/- 4.78e-63]",
+      "Phi_power": 2,
+      "Phi_remainder_error": "[1.118349888311022270158366741477670178886376924292792513781243368750874775608e-9 +/- 4.72e-85]",
+      "leading_coefficient_lower": "[8.226249145032589114069067089391299993294898803955696072e-5 +/- 2.04e-60]",
+      "parameter_rectangle": {
+        "T_cells_per_coefficient": 64,
+        "endpoint_records": [
+          {
+            "Bernstein_q_coefficient_minima": [
+              "[1.220164327589383103555786631656115386675167500280015512777017655925789100971e-6 +/- 2.16e-82]",
+              "[8.809031254840049464102249656950416290641000088631135127649223322324911313828e-7 +/- 3.02e-83]",
+              "[1.229832581667171547268447302096410315783001789880269205730441062150632715955e-6 +/- 4.03e-82]"
+            ],
+            "v_endpoint": "0"
+          },
+          {
+            "Bernstein_q_coefficient_minima": [
+              "[6.134552434390513136789413748824526658469327690645125735589333398714068932863e-7 +/- 2.96e-83]",
+              "[6.189699720834794676001144747821290099425223240395870351795885609053097958783e-7 +/- 2.45e-83]",
+              "[6.231433042642091243824084130812628637883684370275338675999980298154253692676e-7 +/- 3.17e-83]"
+            ],
+            "v_endpoint": "0.5000000000000000000000000000000000000000000000000000000000000000000000000000"
+          }
+        ],
+        "interval_cell_count": 384,
+        "normalized_Omega_margin_lower": "[4.381823167421795097706724106303233327478091207603661239706666713367192094902e-5 +/- 3.45e-81]",
+        "q_Bernstein_degree": 2,
+        "status": "passed",
+        "v_endpoints": 2
+      },
+      "polynomial_penalty_upper": "[8.318108743046366997521953806265688171421800424518292937416989143011481446971e-5 +/- 4.70e-81]",
+      "quadratic_error_upper": "[4.460608097970199833152935936218668194022285719898642451633375033467266836058e-14 +/- 2.84e-90]"
+    },
+    "P": {
+      "N_error_upper": "[25299322.39340411069882313503385543218217619803408568690140538648241178060395 +/- 4.55e-69]",
+      "N_prime_error_upper": "[41954449.77239844508608542740357553842970609764533918327100148724512643416392 +/- 6.10e-69]",
+      "Omega_normalization": "p(a)/a^8",
+      "Omega_positive_margin": "[459200908.1062486132978136758048604832409174517533512783131176103597973861685 +/- 3.67e-68]",
+      "Omega_power": 8,
+      "Omega_quantity": "Cleared source determinant using a-derivatives; equals 2*a*H1^4*Omega_v for H and 2*a*B1^4*Omega_v for P.",
+      "Phi_leading": "[6596.585808980708109151719064114508525432235398752064463526019056283412277 +/- 3.96e-70]",
+      "Phi_p_power": 1,
+      "Phi_polynomial_penalty": "[150.0611782165512967688381453092448734180644646543951195230048274534818807046 +/- 3.39e-74]",
+      "Phi_positive_margin": "[6446.512882593322444755334337171167507616685216680439485381871657645897490 +/- 2.85e-70]",
+      "Phi_power": 3,
+      "Phi_remainder_error": "[0.01174817083436762754658163409614439748571741722985862114257118403290618463055 +/- 1.59e-78]",
+      "leading_coefficient_lower": "[1406437145.273964503283615196547554441866927653862511886625562082999734840 +/- 7.04e-64]",
+      "parameter_rectangle": {
+        "T_cells_per_coefficient": 64,
+        "endpoint_records": [
+          {
+            "Bernstein_q_coefficient_minima": [
+              "[6429711.589909180141072973588255361415849669922825506298514042648926183242681 +/- 3.67e-71]",
+              "[6438605.848972621208844986040569473362041465676600826117800017538420683831047 +/- 1.72e-70]",
+              "[6437996.731649605558435347734784143975037662673581984921949908897244359354083 +/- 1.75e-71]"
+            ],
+            "v_endpoint": "0"
+          },
+          {
+            "Bernstein_q_coefficient_minima": [
+              "[13093167.64595852205137360974380667208126957972624338672131499623713850858378 +/- 3.67e-69]",
+              "[9387569.983987249410981900825891304250652211374484702342466854505267728245284 +/- 3.77e-70]",
+              "[7050247.454550664909369584732329446930791050190896194916607856631413237861016 +/- 3.16e-70]"
+            ],
+            "v_endpoint": "0.5000000000000000000000000000000000000000000000000000000000000000000000000000"
+          }
+        ],
+        "interval_cell_count": 384,
+        "normalized_Omega_margin_lower": "[459200908.1062486132978136758048604832409174517533512783131176103597973861685 +/- 3.39e-68]",
+        "q_Bernstein_degree": 2,
+        "status": "passed",
+        "v_endpoints": 2
+      },
+      "polynomial_penalty_upper": "[986118464.2334431913594231633330863346238648656149679362531067917745625584035 +/- 5.50e-68]",
+      "quadratic_error_upper": "[9.67522379296273803618414404635250160304461637044351708770505951095978186952 +/- 5.14e-75]"
+    }
+  },
+  "global_fourteenth_certificate": {
+    "cells": 2048,
+    "core_upper_bound": "[13213957866.20381478596391100046953437434623866999706443674839627747421380248 +/- 2.56e-66]",
+    "global_bound": 14000000000,
+    "scope": "All real spatial arguments, using evenness, interval Taylor bounds on[0,4], and monotone analytic theta tail.",
+    "status": "passed",
+    "tail_upper_bound": "[8.4541510597632952887007318569018447107910353750715135574374054920774342546e-23 +/- 4.23e-97]"
+  },
+  "precision_bits": 256,
+  "prior_dependencies": "p>=1.4,0<a*p_prime<.5,p/a<.01402 for a>=100; the first two are PR53 plus the fresh compact p100<1.402 bound, and p/a decreases since a*p_prime<p.",
+  "scope": "Spatial origin only; no global positive-spatial-source claim.",
+  "status": "passed",
+  "theta_values": {
+    "b": "[56.8172479346539912093383112284382751147147765097989267511449234289693268289 +/- 6.55e-74]",
+    "c": "[4.68172623237583029210407548804330496619219714572269263739849565173507648098 +/- 4.62e-75]",
+    "g": "[-887.34186028029872009731346870340229594125906612143963658093217107945968209 +/- 5.40e-72]",
+    "h": "[0.0481953369344030627283480272840027121700793418281005070202046769 +/- 7.33e-65]",
+    "j10": "[716958.407881545166921619200749062788473316573274888305170749111286040392 +/- 3.68e-67]",
+    "j12": "[-94341849.6497742730041414604673180230754551482932948108069199590668531262 +/- 8.24e-65]",
+    "j8": "[7972.302265638479624145536379786138648421436980916209315936104347363698415 +/- 6.16e-70]"
+  }
+}

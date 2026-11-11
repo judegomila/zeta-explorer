@@ -128,3 +128,7 @@ The checker certifies all finite scales as whole height bands. For the continuou
 Controls in the checker also compare a polynomial with a zero inside the disk and an outer polynomial with the same boundary weight. Their different central values must keep the inside-zero example below threshold.
 
 The [recorded certificate](adaptive-filter.json) includes every trial, the chosen exact coefficients, the degree-one upper bound, and the interval lower bounds. The default maximum degree is six and coefficient rounding is fixed for this experiment. An unresolved budget causes an error. This implementation demonstrates finite arithmetic selection on the stated band. The unbounded search and its global termination proof remain separate tasks.
+
+## Causal arithmetic continuation
+
+[The theta source and a convergent arithmetic ladder](THETA_LAGUERRE_LADDER.md) expresses every entry of this energy matrix as a causal Laguerre correlation. It derives a pole-preserving finite arithmetic approximation with an explicit global $L^2$ error, transfers strict filter witnesses into that approximation, and identifies the norm obstruction in raw finite Euler products. The signed accumulated-gain estimate at every grid point remains open.

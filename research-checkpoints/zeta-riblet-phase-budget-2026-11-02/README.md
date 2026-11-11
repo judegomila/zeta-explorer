@@ -1,5 +1,7 @@
 # Zeta riblets and backward phase budgets
 
+[Theta source, causal correlations, and a convergent arithmetic ladder](cluster/THETA_LAGUERRE_LADDER.md) identifies the local filter energy with a causal Laguerre norm. Raw finite Euler products fail to converge in this norm; an explicit pole term repairs the finite arithmetic approximation and gives a global source-error bound of order $N^{-1/2}$ at each fixed anchor. A 64-term interval certificate verifies the transfer at low height. The all-height gain estimate and the signed identity for the main de Branges operator remain open.
+
 [Arithmetic filter selection and a covering grid](cluster/ARITHMETIC_FILTER_SEARCH.md) selects exact dyadic coefficients from the zeta energy matrix, verifies each proposal with interval arithmetic, and gives a fixed grid covering every possible off-line zero. At the tested band near height 1967, degree two is certified necessary and sufficient for the grid threshold. Termination at every grid point is equivalent to RH and remains open.
 
 [Adaptive local filters and the finite-rung obstruction](cluster/ADAPTIVE_LOCAL_FILTER.md) gives a certified zeta band around height 1967.40625 where a linear filter repairs a false low reading. Voronin universality shows that every fixed finite Dirichlet dictionary fails the all-height threshold somewhere, even after optimizing its coefficients. The limiting ratio gives a simultaneous fine-scale coverage estimate and an explicit arithmetic residual for an adaptive filter.

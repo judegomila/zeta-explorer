@@ -1,0 +1,63 @@
+{
+  "arithmetic": "exact identities and rational coefficient signs",
+  "check_count": 42,
+  "checks": [
+    "H_fifth_kernel_factor",
+    "Q_fifth_kernel_factor",
+    "even_coordinate_factor",
+    "H_polynomial_degree",
+    "H_polynomial_coefficient_norm",
+    "Q_polynomial_degree",
+    "Q_polynomial_coefficient_norm",
+    "uniform_polynomial_degree",
+    "uniform_polynomial_norm",
+    "H_first_mode_affine",
+    "H4_residual_identity",
+    "H4_positive.numerator",
+    "H4_positive.denominator",
+    "H4_residual_positive.numerator",
+    "H4_residual_positive.denominator",
+    "H_coefficient_positive.numerator",
+    "H_coefficient_positive.denominator",
+    "H_first_mode_margin.numerator",
+    "H_first_mode_margin.denominator",
+    "Q_first_mode_margin.numerator",
+    "Q_first_mode_margin.denominator",
+    "r_above_half_p.numerator",
+    "r_above_half_p.denominator",
+    "r_below_p.numerator",
+    "r_below_p.denominator",
+    "r_prime_above_p.numerator",
+    "r_prime_above_p.denominator",
+    "p_at_t4_above128",
+    "q_geometric_parameter",
+    "q_eight_derivative_bound",
+    "q_seven_derivative_bound",
+    "Touchard_coefficient_bound",
+    "theta_gaussian_ratio",
+    "theta_derivative_constant",
+    "logarithm_partition_constant",
+    "delta_at128",
+    "epsilon_at128",
+    "remainder_decreases",
+    "polynomial_error_constant",
+    "common_error_at128",
+    "common_error_decreases",
+    "common_error_below_half"
+  ],
+  "common_error_bound": "less than 2^(-100)",
+  "scope": "Only the fifth-source tail is proved. The source signs fail near zero; this is not an all-anchor or arbitrary-depth preservation theorem.",
+  "source_polynomial_norms": {
+    "H": {
+      "coefficient_norm": 302068,
+      "degree": 13
+    },
+    "Q": {
+      "coefficient_norm": 60260864,
+      "degree": 12
+    }
+  },
+  "status": "passed",
+  "tail_conclusion": "SH>1/2 and SQ>1/2",
+  "tail_domain": "t>=4, p=pi exp(t)>128"
+}

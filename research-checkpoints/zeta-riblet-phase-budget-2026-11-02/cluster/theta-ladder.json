@@ -1,0 +1,25 @@
+{
+  "certificate": {
+    "arithmetic_terms": 64,
+    "anchor": {
+      "d": "1/2",
+      "c": "0"
+    },
+    "finite_source_energy_interval": [
+      "10.49420807045890634657571902692977358884050228974114480681768761224913",
+      "10.49420807045890634657571902692977358884050228974114480681768785105123"
+    ],
+    "finite_source_norm_upper": "13/4",
+    "source_norm_error_upper": "1/2",
+    "true_energy_upper": "225/16",
+    "true_ratio_strict_lower": "16/225"
+  },
+  "symbolic": {
+    "laguerre_orders": 9,
+    "positive_source_counterexample_zero": "1/4+8i"
+  },
+  "quadrature": {
+    "max_absolute_discrepancy": "7.0031936e-51",
+    "rigorous": false
+  }
+}

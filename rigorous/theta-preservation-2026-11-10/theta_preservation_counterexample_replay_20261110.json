@@ -1,0 +1,42 @@
+{
+  "certified_upper_bound": "H_q*N_qq-H_qq*N_q < -0.0000178 at q=0",
+  "conclusion": "The proposed stronger input class is not preserved: new H is strictly concave as a function of new B for all sufficiently small positive t at anchor 10.",
+  "enclosures": {
+    "H_q_N_qq_minus_H_qq_N_q_at_zero": "[-1.78579621350399572791500356384512212732771691748e-5 +/- 8.26e-53]",
+    "Iu": "[0.08307526897076196744650539891056249425034724493285950 +/- 5.94e-54]",
+    "Iu_tail_bound": "[7.080460958384313502346525566792125476463261111549860915374501753143641486935e-220 +/- 4.68e-296]",
+    "Iv": "[0.1868222758877820581172885824241906489789323265890456503705613343072820026494 +/- 4.92e-77]",
+    "N0": "[0.3138035844738202499171711921330239898933010667369435 +/- 1.05e-53]",
+    "N_q_at_zero": "[-0.028775983417339324141237509164689613449787281576655 +/- 5.79e-52]",
+    "N_qq_at_zero": "[0.00903211119793746347798438858489495826678691640448 +/- 4.44e-51]",
+    "mu": "[0.30185515350111671718504243166717061641699325147286849 +/- 3.18e-54]",
+    "mu_tail_bound": "[7.16451727638528514762709653049647087436281111605127399980651896368671917023e-136 +/- 5.05e-211]"
+  },
+  "environment": {
+    "precision_bits": 256,
+    "python": "3.12.14",
+    "python_flint": "0.9.0"
+  },
+  "exact_algebra": {
+    "check_count": 9,
+    "checks": {
+      "B": true,
+      "B_q": true,
+      "B_q_polynomial": true,
+      "B_qq": true,
+      "H_convexity_numerator": true,
+      "H_convexity_polynomial": true,
+      "J_convexity_numerator": true,
+      "minus_B_qq_polynomial": true,
+      "origin_coefficient_formula": true
+    },
+    "status": "passed"
+  },
+  "example": {
+    "anchor": 10,
+    "u": "exp(-t^2)/sqrt(t^2+5)",
+    "v": "exp(-t^2)"
+  },
+  "scope": "A rigorous auxiliary-pair counterexample. It is not a counterexample to actual theta, RH, or the PR51 ratio theorem.",
+  "status": "passed"
+}

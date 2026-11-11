@@ -1,0 +1,101 @@
+{
+  "status": "certified gain at one exact anchor; global correlation bound open",
+  "anchor": {
+    "d": "1/2",
+    "c": "62957/32",
+    "height_jitter": "0"
+  },
+  "threshold": "15/16",
+  "source": {
+    "window": 32,
+    "step": "1/8192",
+    "bins": 524288,
+    "dirichlet_terms": 1024,
+    "height_jet_degree": 16,
+    "bernoulli_corrections": 8
+  },
+  "current_coefficients": [
+    [
+      "-478747/16777216",
+      "-867101/8388608"
+    ],
+    [
+      "478747/8388608",
+      "867101/4194304"
+    ]
+  ],
+  "correction_coefficients": [
+    [
+      "16645/131072",
+      "2003049/2097152"
+    ],
+    [
+      "-147717/65536",
+      "-2003049/1048576"
+    ],
+    [
+      "3",
+      "0"
+    ]
+  ],
+  "old_energy": [
+    4.071953969417408,
+    4.078669706638987
+  ],
+  "correlation": {
+    "real": [
+      -2.288153711441829,
+      -2.2461447480447085
+    ],
+    "imag": [
+      -8.410872663874171,
+      -8.366057207327707
+    ]
+  },
+  "correction_energy": [
+    22.751837904561317,
+    22.923046655334772
+  ],
+  "gain": [
+    3.273390337404642,
+    3.3394412659672916
+  ],
+  "repaired_energy_upper": 0.8052793692343451,
+  "margin_lower": 0.1322206307656548,
+  "tails": {
+    "old_energy_upper": 1.8391773266322397e-05,
+    "correction_energy_upper": 0.0031406577781037935,
+    "correlation_modulus_upper": 0.00022465289629663792
+  },
+  "dyadic_step": [
+    "-832765/8388608",
+    "-770309/2097152"
+  ],
+  "updated_coefficients": [
+    [
+      "1362020524873/4398046511104",
+      "-4307106468357/17592186044416"
+    ],
+    [
+      "-925411828553/2199023255552",
+      "10768926708229/8796093022208"
+    ],
+    [
+      "-2498295/8388608",
+      "-2310927/2097152"
+    ]
+  ],
+  "updated_energy_direct": [
+    0.7646412386307045,
+    0.7740895546166826
+  ],
+  "controls": {
+    "complex_line_minimization": "exact rational identity passed",
+    "common_zero_control": {
+      "remaining_energy": "1",
+      "future_gain": "0",
+      "gram_condition_number": "1",
+      "passes_threshold": false
+    }
+  }
+}

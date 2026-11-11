@@ -1,5 +1,7 @@
 # Zeta riblets and backward phase budgets
 
+[Moving arithmetic certificates and the missing gain estimate](cluster/FILTER_PROPAGATION.md) proves an exact comparison between height/scale anchors and specifies the arithmetic gain needed after each move. Interval transport widens the existing certified band by a factor of 32. Universality rules out a height-independent fixed stopping cutoff, while known boundary zeros force coefficient growth at small scales. The required height- and scale-dependent gain bound remains open.
+
 [Growing arithmetic filters and direct zero evaluation](cluster/GROWING_ARITHMETIC_FILTER.md) raises the sufficient residual-energy allowance to $15/16$ on the covering grid. A search with an explicit boundary-tail penalty selects exact arithmetic coefficients and certifies every scale on the band near height 1967.40625. At scale $1/2$, cutoff three passes while every cutoff-two filter fails this threshold. An analytic bound covers the continuum of smaller scales. The all-height accumulated-gain inequality remains open.
 
 [Arithmetic jump cancellation and the signed bridge](cluster/ARITHMETIC_GAIN_BRIDGE.md) derives a smoothed fractional-part residual whose norm below $3/10$ gives a local filter certificate. A two-delay interval example passes. An exact evaluation identity writes the main shifted kernel as a difference of source energies on an interior domain, with a transferable approximation error; its sign remains open. Discrete universality proves that no fixed maximum Cayley degree passes the entire covering grid.

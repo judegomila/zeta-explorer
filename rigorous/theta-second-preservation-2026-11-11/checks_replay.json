@@ -1,0 +1,58 @@
+{
+  "conclusion": "All stated algebra and interval gates passed. The companion analytic proofs combine them into second preservation and strict five-node real Pick positivity.",
+  "elapsed_seconds": 122.55,
+  "fresh_moment_integrals": 602,
+  "gates": {
+    "first_source_origin_compact": {
+      "seconds": 1.084,
+      "status": "passed"
+    },
+    "first_source_origin_infinite_anchor_tail": {
+      "seconds": 3.694,
+      "status": "passed"
+    },
+    "fixed_PR52_sixth_derivative_constants": {
+      "seconds": 0.532,
+      "status": "passed"
+    },
+    "higher_transfer": {
+      "seconds": 2.561,
+      "status": "passed"
+    },
+    "second_origin_all_anchors": {
+      "seconds": 54.177,
+      "status": "passed"
+    },
+    "single_crossing_compensation": {
+      "seconds": 1.343,
+      "status": "passed"
+    },
+    "source_algebra": {
+      "seconds": 0.205,
+      "status": "passed"
+    },
+    "source_infinite_tail": {
+      "seconds": 1.538,
+      "status": "passed"
+    },
+    "source_obstruction": {
+      "seconds": 0.405,
+      "status": "passed"
+    },
+    "source_single_crossing": {
+      "seconds": 57.01,
+      "status": "passed"
+    }
+  },
+  "limitations": "No formal proof-assistant verification, external peer review, sixth-order or arbitrary-order positivity, or RH proof is claimed.",
+  "new_exact_checks": 201,
+  "new_interval_cells": 12604,
+  "python": "3.12.14",
+  "replayed_fixed_dependency_cells": 4096,
+  "status": "passed",
+  "versions": {
+    "mpmath": "1.3.0",
+    "python_flint": "0.9.0",
+    "sympy": "1.14.0"
+  }
+}

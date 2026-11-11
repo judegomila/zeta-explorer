@@ -134,3 +134,5 @@ The [recorded certificate](adaptive-filter.json) includes every trial, the chose
 [The theta source and a convergent arithmetic ladder](THETA_LAGUERRE_LADDER.md) expresses every entry of this energy matrix as a causal Laguerre correlation. It derives a pole-preserving finite arithmetic approximation with an explicit global $L^2$ error, transfers strict filter witnesses into that approximation, and identifies the norm obstruction in raw finite Euler products. The signed accumulated-gain estimate at every grid point remains open.
 
 [Arithmetic jump cancellation and the signed bridge](ARITHMETIC_GAIN_BRIDGE.md) supplies a direct finite-delay sufficient condition for this gain target, a two-delay interval certificate, and a signed evaluation form for the main kernel. The global signed estimate remains open.
+
+[Growing arithmetic filters and direct zero evaluation](GROWING_ARITHMETIC_FILTER.md) supplies a second stopping test on this grid. It uses a residual-energy threshold of $15/16$ and different exclusion cells, with exact arithmetic coefficients and a boundary window chosen from the coefficient size. Its all-grid termination theorem remains open.

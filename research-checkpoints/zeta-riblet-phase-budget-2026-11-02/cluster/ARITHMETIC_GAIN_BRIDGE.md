@@ -285,3 +285,7 @@ Accordingly both Cayley degree and arithmetic cutoff must be allowed to grow in 
 The arithmetic version is now: construct, at every covering-grid anchor, a finite coefficient vector satisfying (1) and (6), or prove the original local Schur-gain inequality by another use of the exact jumps. The finite certificate demonstrates that signed cancellation can establish the required margin. It supplies no theorem forcing that margin at all anchors.
 
 For the main bridge route, (11)–(13) identify the signed quadratic form of the actual source that needs to be nonnegative. This identity closes a representation gap on the stated interior domain; its sign remains open. A complete global filter theorem would imply RH through the covering argument, after which bridge positivity follows from the established criterion. We do not use that implication as an assumption in either calculation.
+
+## Direct evaluation continuation
+
+[Growing arithmetic filters](GROWING_ARITHMETIC_FILTER.md) replaces the intermediate ratio comparison by direct evaluation at a hypothetical zero. On the same grid, residual energy below $15/16$ suffices for the new rectangular exclusion cells. This relaxes the arithmetic stopping condition and supports a certified growing-cutoff construction on the difficult band. The earlier $3/10$ norm condition remains sufficient for its stated ratio conclusion.

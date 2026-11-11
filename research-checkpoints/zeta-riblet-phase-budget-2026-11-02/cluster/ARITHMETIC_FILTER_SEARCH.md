@@ -31,7 +31,7 @@ Both $r$ and every vector in $V_N$ vanish at zero, so normalization is preserved
 
 The implementation obtains approximate entries from interval-enclosed zeta data, solves (1), and rounds the real and imaginary coefficients to multiples of $1/1024$. It then integrates the squared modulus of that exact dyadic polynomial with outward arithmetic. The floating-point solve only proposes a polynomial. The certificate needs no accuracy guarantee for the solve. On the omitted boundary, $|p(w)|\le L=\sum_k(|\Re a_k|+|\Im a_k|)$ since $|w|=1$. Multiplying the earlier analytic tail bound by $L^2$ covers that entire tail.
 
-These modes are powers of the rational Cayley coordinate. The finite Dirichlet dictionary in the preceding universality theorem is a different family. Connecting these filters to the prime-rung twin-ladder operator requires an additional representation or comparison.
+These modes are powers of the rational Cayley coordinate. The finite Dirichlet dictionary in the preceding universality theorem is a different family. The [causal ladder representation](THETA_LAGUERRE_LADDER.md) now connects the local filter to integer-log delays. The [signed bridge continuation](ARITHMETIC_GAIN_BRIDGE.md) gives an interior source-evaluation identity for the main kernel; a positive factorization remains open.
 
 ## A grid that covers every possible reflected pair
 
@@ -79,7 +79,7 @@ The following equivalence locates the remaining proof obligation exactly.
 - If every point of the predetermined grid eventually receives a strict certificate, (3) excludes every off-line zero, giving RH.
 - If RH holds, $B=1$. At each grid point, (4) tends to one, so a strict finite certificate exists and the complete search eventually finds it.
 
-This equivalence derives from the classical factorization theorem and the covering geometry. It supplies no unconditional termination proof. The existing universality obstruction rules out a fixed degree bound over continuously varying heights at $d=1/4$. A corresponding obstruction on this exact grid requires a separate argument.
+This equivalence derives from the classical factorization theorem and the covering geometry. It supplies no unconditional termination proof. The existing universality obstruction rules out a fixed degree bound over continuously varying heights at $d=1/4$. The [discrete-universality continuation](ARITHMETIC_GAIN_BRIDGE.md#the-fixed-degree-obstruction-holds-on-the-exact-grid) proves the corresponding obstruction on this exact grid as well.
 
 The incremental rule gives another exact target entirely in the boundary correlations. Write $e_0=C_{00}$. For a fixed grid point a sufficient and necessary finite stopping inequality is
 $$
@@ -132,3 +132,5 @@ The [recorded certificate](adaptive-filter.json) includes every trial, the chose
 ## Causal arithmetic continuation
 
 [The theta source and a convergent arithmetic ladder](THETA_LAGUERRE_LADDER.md) expresses every entry of this energy matrix as a causal Laguerre correlation. It derives a pole-preserving finite arithmetic approximation with an explicit global $L^2$ error, transfers strict filter witnesses into that approximation, and identifies the norm obstruction in raw finite Euler products. The signed accumulated-gain estimate at every grid point remains open.
+
+[Arithmetic jump cancellation and the signed bridge](ARITHMETIC_GAIN_BRIDGE.md) supplies a direct finite-delay sufficient condition for this gain target, a two-delay interval certificate, and a signed evaluation form for the main kernel. The global signed estimate remains open.

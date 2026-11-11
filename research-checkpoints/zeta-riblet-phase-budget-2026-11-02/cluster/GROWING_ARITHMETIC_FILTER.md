@@ -246,3 +246,7 @@ The classical Nyman–Beurling–Báez-Duarte theorem explains why an unconditio
 Conversely, if $\epsilon_D(d,c)\to0$ at any fixed anchor, (1) rules out each right-hand zero. Thus convergence to zero at even one anchor is already RH-equivalent; it cannot be used as an unconditional premise. See [Báez-Duarte, Theorem 1.1](https://arxiv.org/pdf/math/0202141). The sharper known rate for a specific smoothed Möbius polynomial in [Bettin–Conrey–Farmer, Theorem 1](https://arxiv.org/pdf/1211.5191) assumes RH and an additional derivative-moment hypothesis.
 
 At the weaker fixed threshold (3), termination on the entire grid is also equivalent to RH: sufficiency is (1)–(2), and RH supplies convergence at each grid point as just explained. The outstanding analytic task is a non-circular lower bound on the accumulated arithmetic gain (5), with a finite cutoff allowed to depend on height and scale. Equations (7)–(8) settle how to pay for the boundary tail once a candidate is chosen; they do not supply that gain.
+
+## Moving the certificates
+
+[The propagation continuation](FILTER_PROPAGATION.md) gives an exact kernel comparison between arbitrary anchors, translates its movement cost into a sufficient arithmetic-gain budget, and proves two necessary restrictions on a global bound. It widens the certified height half-width from $1/4096$ to $1/128$, including the continuum of small scales. The gain needed to repeat this at every height remains unproved.

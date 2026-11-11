@@ -1,5 +1,7 @@
 # Zeta riblets and backward phase budgets
 
+[A correlation inequality for arithmetic gain](cluster/ARITHMETIC_GAIN_INEQUALITY.md) gives an unconditional correction bound using signed residual correlations and their energy cost. At the exact difficult anchor, a verified gain above 3.273390 exceeds the required deficit, leaving energy below 0.805280. A common-zero control shows why Gram conditioning alone cannot force progress. The corresponding correlation lower bound at every grid anchor remains open.
+
 [Moving arithmetic certificates and the missing gain estimate](cluster/FILTER_PROPAGATION.md) proves an exact comparison between height/scale anchors and specifies the arithmetic gain needed after each move. Interval transport widens the existing certified band by a factor of 32. Universality rules out a height-independent fixed stopping cutoff, while known boundary zeros force coefficient growth at small scales. The required height- and scale-dependent gain bound remains open.
 
 [Growing arithmetic filters and direct zero evaluation](cluster/GROWING_ARITHMETIC_FILTER.md) raises the sufficient residual-energy allowance to $15/16$ on the covering grid. A search with an explicit boundary-tail penalty selects exact arithmetic coefficients and certifies every scale on the band near height 1967.40625. At scale $1/2$, cutoff three passes while every cutoff-two filter fails this threshold. An analytic bound covers the continuum of smaller scales. The all-height accumulated-gain inequality remains open.

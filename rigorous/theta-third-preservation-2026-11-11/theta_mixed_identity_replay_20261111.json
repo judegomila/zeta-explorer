@@ -1,0 +1,21 @@
+{
+  "checks": [
+    "source_fifth_Wronskian_density_factor",
+    "source_ratio_derivative",
+    "H_theta_six_column_factor",
+    "U_theta_six_column_factor",
+    "first_reduced_H_source_column_factor",
+    "first_reduced_Q_source_column_factor",
+    "U_fourth_source_decomposition",
+    "first_prefix_coordinate_origin_formula",
+    "first_prefix_initial_positive_function",
+    "oriented_three_node_kernel_minor",
+    "output_ratio_source_sign",
+    "first_prefix_tail_coordinate",
+    "first_prefix_tail_coordinate_derivative",
+    "first_prefix_tail_convexity"
+  ],
+  "exact_symbolic_checks": 14,
+  "scope": "Exact factors, origin coordinate, orientation model, and tail leading model. Global H fifth-source negativity and U positivity/crossing are separate proof inputs; the level-set theorems are analytic.",
+  "status": "passed"
+}

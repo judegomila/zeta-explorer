@@ -1,0 +1,21 @@
+{
+  "check_count": 14,
+  "checks": [
+    "first_H_convexity_factor",
+    "first_J_convexity_factor",
+    "H_prefix_factor",
+    "P_prefix_factor",
+    "H_annihilator_expansion",
+    "P_annihilator_expansion",
+    "monic_second_order_Sylvester",
+    "block_column_orientation",
+    "mixed_log_clearing",
+    "anchor_independent_factor_cancels",
+    "spatial_even_deflation",
+    "anchor_even_deflation",
+    "H_even_annihilator",
+    "P_even_annihilator"
+  ],
+  "scope": "Exact reduction and signs of fixed prefactors; positivity of actual mixed determinants remains a separate gate.",
+  "status": "passed"
+}

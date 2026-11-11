@@ -1,0 +1,45 @@
+{
+  "core": {
+    "C4": "[3.0007270222571887949010658713226252459843757364685602e-72 +/- 6.47e-125]",
+    "C_at_1_over_8_direct": "[0.0206720411283830191162572169355173393899097009214432201 +/- 7.25e-56]",
+    "C_at_1_over_8_propagated": "[0.02067204112838301911625721694 +/- 5.17e-30]",
+    "Taylor_order": 14,
+    "cell_widths": {
+      "1/1024": 710,
+      "1/128": 90,
+      "1/2048": 600,
+      "1/256": 178,
+      "1/512": 355,
+      "1/64": 51
+    },
+    "cells": 1984,
+    "domain": "1/8<=t<=4",
+    "lower_bounds": {
+      "W_H": "0.001044100625222199596464633941650390625000000000000000000000000000000000000000",
+      "W_P": "201.9980041980743408203125000000000000000000000000000000000000000000000000000"
+    },
+    "precision_bits": 256,
+    "scope": "Rigorous full Taylor models; no product truncation or sampled sign inference.",
+    "status": "passed",
+    "theta_terms": 16
+  },
+  "exact_numerator_checks": 4,
+  "global_scope": "This file covers 0<t<=4; the infinite tail needs a separate analytic proof.",
+  "origin": {
+    "C0": "[0.021528707625566523248989621991521973453722249763325813 +/- 6.27e-55]",
+    "cells": 128,
+    "conversion": "W_t(B',J',Q')=64*t^6*W_u(B_u,J_u,Q_u)",
+    "coordinate": "u=t^2",
+    "degree": 24,
+    "domain": "0<t<=1/8",
+    "lower_bounds": {
+      "W_H_over_64t6": "4.395735591650009155273437500000000000000000000000000000000000000000000000000",
+      "W_P_over_64t6": "850430.4277343750000000000000000000000000000000000000000000000000000000000000"
+    },
+    "precision_bits": 256,
+    "scope": "Rigorous interval certificate, all theta and Taylor tails included.",
+    "status": "passed",
+    "theta_terms": 16
+  },
+  "status": "passed"
+}

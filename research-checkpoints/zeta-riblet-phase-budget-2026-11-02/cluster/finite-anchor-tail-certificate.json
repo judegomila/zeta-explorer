@@ -1,0 +1,89 @@
+{
+  "status": "passed",
+  "bits": 192,
+  "python_flint": "0.9.0",
+  "scope": "threshold certificates for the displayed analytic continuum theorem; no pointwise grid inference",
+  "controls": {
+    "source_ratio_derivatives": "passed",
+    "green_score": "passed",
+    "green_normalization": "passed",
+    "tail_threshold_monotonicity": "passed",
+    "numerator_source_identity": "passed",
+    "rational_tail_margins": "passed"
+  },
+  "bands": [
+    {
+      "A": 1,
+      "T": 3,
+      "p_A": "[0.0461359280604625753594660065422719932179382973224181973 +/- 1.70e-56]",
+      "threshold_margins": {
+        "x_minus_A_minus_3": "[59.1005752412929161832940287566458546130734304082160965713 +/- 4.26e-56]",
+        "T_x_minus_8_A_p": "[188.932638299395047947006358217599387893476784846068944135 +/- 6.25e-55]",
+        "Q_lower_minus_A_over_2p": "[9.19598433897814214926389255154717607404390158732012252 +/- 6.80e-54]"
+      },
+      "domain": "0<a<=1, t>=3",
+      "status": "all threshold inequalities certified"
+    },
+    {
+      "A": 8,
+      "T": 3,
+      "p_A": "[0.3389385309948554451530451191940401831575016208065859116 +/- 2.99e-56]",
+      "threshold_margins": {
+        "x_minus_A_minus_3": "[52.1005752412929161832940287566458546130734304082160965713 +/- 4.26e-56]",
+        "T_x_minus_8_A_p": "[167.609659740208000060087198641518992117140187493026791373 +/- 7.94e-55]",
+        "Q_lower_minus_A_over_2p": "[8.231975140802792929869361433103402126886099928548777747 +/- 6.09e-55]"
+      },
+      "domain": "0<a<=8, t>=3",
+      "status": "all threshold inequalities certified"
+    },
+    {
+      "A": 32,
+      "T": 4,
+      "p_A": "[0.8686544272004927683670422305760973822875329012540853135 +/- 6.14e-56]",
+      "threshold_margins": {
+        "x_minus_A_minus_3": "[136.525147043719267699184110657879217347346173862920641576 +/- 1.75e-55]",
+        "T_x_minus_8_A_p": "[463.7250548115509220947736316040359395237762727306367261 +/- 5.69e-53]",
+        "Q_lower_minus_A_over_2p": "[23.711994233330616593109625384786238234101882287685815651 +/- 8.67e-55]"
+      },
+      "domain": "0<a<=32, t>=4",
+      "status": "all threshold inequalities certified"
+    },
+    {
+      "A": 64,
+      "T": 4,
+      "p_A": "[1.187853990331832251843201284122260209814823683258012256 +/- 2.10e-55]",
+      "threshold_margins": {
+        "x_minus_A_minus_3": "[104.525147043719267699184110657879217347346173862920641576 +/- 1.75e-55]",
+        "T_x_minus_8_A_p": "[77.9193451249789578530173851609196419641949696235802912 +/- 7.60e-53]",
+        "Q_lower_minus_A_over_2p": "[15.19194887895607464064560234201685395979587067053035531 +/- 6.99e-54]"
+      },
+      "domain": "0<a<=64, t>=4",
+      "status": "all threshold inequalities certified"
+    },
+    {
+      "A": 256,
+      "T": 6,
+      "p_A": "[1.860486477953353765540502974806889988568013830666093664 +/- 8.12e-55]",
+      "threshold_margins": {
+        "x_minus_A_minus_3": "[1008.40893388337044466472060194786772250244816801177321976 +/- 2.37e-54]",
+        "T_x_minus_8_A_p": "[3794.17729645175415616137351928269563842739668286647950 +/- 5.63e-51]",
+        "Q_lower_minus_A_over_2p": "[141.9356122595400195169292829320909957316556090827821220 +/- 6.72e-53]"
+      },
+      "domain": "0<a<=256, t>=6",
+      "status": "all threshold inequalities certified"
+    },
+    {
+      "A": 1024,
+      "T": 7,
+      "p_A": "[2.54850637436213440442640455391282497002056953253254007 +/- 6.38e-54]",
+      "threshold_margins": {
+        "x_minus_A_minus_3": "[2418.17467420181738347661237329389474512420862514474726049 +/- 7.02e-54]",
+        "T_x_minus_8_A_p": "[3238.8585006381166432751805074034010614609547655066625 +/- 5.77e-50]",
+        "Q_lower_minus_A_over_2p": "[290.837250010233395719159317164776775872625275295177792 +/- 3.72e-52]"
+      },
+      "domain": "0<a<=1024, t>=7",
+      "status": "all threshold inequalities certified"
+    }
+  ],
+  "global_small_anchor_corollary": "existence of one delta>0 for all t>0; no numerical delta claimed"
+}

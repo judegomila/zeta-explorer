@@ -198,7 +198,7 @@ $$
 \tag{18}
 $$
 
-The subsequent [small-anchor proof](THETA_SMALL_ANCHOR.md) establishes $-(B_0/J)'>0$ for every $t>0$, using rigorous whole-interval enclosures and an analytic tail argument for the complete theta kernel. Thus both ratio signs hold for sufficiently small positive anchors on each fixed compact coordinate interval. A threshold uniform over the unbounded coordinate domain is not established. A positive unscaled lower slack uniform as $a\downarrow0$ is impossible as well.
+The subsequent [small-anchor proof](THETA_SMALL_ANCHOR.md) establishes $-(B_0/J)'>0$ for every $t>0$, using rigorous whole-interval enclosures and an analytic tail argument for the complete theta kernel. Thus both ratio signs hold for sufficiently small positive anchors on each fixed compact coordinate interval. The later [finite-anchor tail theorem](THETA_FINITE_ANCHOR_TAIL.md) further proves the existence of one small-anchor range valid on the entire positive coordinate domain; its endpoint is not numerically evaluated. A positive unscaled lower slack uniform as $a\downarrow0$ is impossible as well.
 
 ## An alternative using cumulative tails
 
@@ -279,7 +279,7 @@ Dependencies: mpmath and SymPy. The analytic results (6)–(18) and the conditio
 
 ## Next precise targets
 
-1. Extend the now-proved [positive small-anchor coefficient](THETA_SMALL_ANCHOR.md) to finite positive anchors with error bounds uniform in the coordinate tails.
+1. Compute an explicit endpoint for the global small-anchor range now obtained from [uniform finite-anchor tail bands](THETA_FINITE_ANCHOR_TAIL.md), then address the remaining parameter domain.
 2. Obtain certified derivative-norm bounds for (14)–(15) on selected compact intervals; then study the joint escape regime rather than treating compact-interval thresholds as uniform.
 3. Test the cumulative ordering (20) and derive it from actual theta identities if possible. This may offer an integrated approach when pointwise derivative bounds are too restrictive.
 4. Only after these first-pair questions are resolved, identify a property preserved by every alternating reduction. A direct transfer to PR #39's correlation gain would require an additional proved argument.

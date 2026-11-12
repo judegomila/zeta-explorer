@@ -49,7 +49,7 @@ $$
 (n_a/b_a)'>0,\qquad(n_a/\kappa)'<0
 $$
 
-hold on $K$ for $0<a<\delta_K$. Together with the preceding large-anchor theorem, this settles both parameter endpoints on each fixed compact coordinate interval. Neither result supplies an anchor threshold uniform over all $t>0$.
+hold on $K$ for $0<a<\delta_K$. Together with the preceding large-anchor theorem, this settles both parameter endpoints on each fixed compact coordinate interval. The subsequent [finite-anchor tail theorem](THETA_FINITE_ANCHOR_TAIL.md) combines this coefficient result with a uniform tail band and a parity argument at zero to prove that one common small-anchor range works for every $t>0$. Its endpoint is not numerically evaluated.
 
 ## Exact identities used to test the sign
 
@@ -342,9 +342,9 @@ Dependencies: python-flint 0.9.0 and SymPy. The output includes the whole-cell c
 
 The completed result is the global one-variable inequality (1) and its compact-coordinate small-anchor corollary. Still open:
 
-- A parameter range uniform over the unbounded coordinate domain, including joint limits.
+- An explicit numerical endpoint for the global small-anchor range now proved in [the continuation](THETA_FINITE_ANCHOR_TAIL.md), and control of the remaining joint limits.
 - The intermediate-anchor ratio inequalities for the first pair.
 - Preservation of a sufficient property under every alternating reduction.
 - The separate all-height arithmetic correlation-gain inequality in PR #39.
 
-The useful next target is to extend the tail comparison to finite positive anchors, while tracking its error uniformly in $t$. This would turn the endpoint expansions into a more useful domain reduction; it must not be assumed from (1) alone.
+The [finite-anchor continuation](THETA_FINITE_ANCHOR_TAIL.md) now proves uniform tail bands by exact Green comparisons, and uses them to derive a common global small-anchor range. The next target is to compute an explicit endpoint for that range and control the remaining intermediate and coupled large-parameter domains.

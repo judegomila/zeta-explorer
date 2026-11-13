@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Methods & mathematics · Zeta Observatory</title>
+<meta name="color-scheme" content="dark">
+<style>
+:root{--bg:#0b1018;--panel:#101923;--ink:#edf2f6;--muted:#8c9bae;--accent:#c4f098;--line:#263342;--pink:#e1a2d5;--blue:#8ebae9}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.75 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:var(--accent);text-underline-offset:4px}a:hover{color:white}header{padding:24px clamp(24px,6vw,100px);border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:20px}header a{text-decoration:none;font-size:13px}.brand{letter-spacing:.2em;font-size:11px;color:var(--muted);text-transform:uppercase}.wrap{max-width:1280px;margin:auto;padding:64px 32px 100px;display:grid;grid-template-columns:210px minmax(0,1fr);gap:65px}nav{align-self:start;position:sticky;top:30px;font-size:12px}nav a{display:block;text-decoration:none;color:var(--muted);padding:7px 0}nav a:hover{color:var(--accent)}nav .label{margin-bottom:14px;font-size:10px;letter-spacing:.15em;color:var(--accent)}main{max-width:880px}h1,h2,h3{font-family:Georgia,"Times New Roman",serif;font-weight:400;line-height:1.2}h1{font-size:clamp(42px,6vw,68px);margin:10px 0 24px;letter-spacing:-.035em}h2{font-size:31px;margin:60px 0 22px;scroll-margin-top:30px}h3{font-size:23px;margin:32px 0 13px}p{margin:0 0 18px}.eyebrow{font:11px ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.14em;color:var(--accent);text-transform:uppercase}.lead{font-size:19px;line-height:1.7;color:#b9c5d3;max-width:730px}.muted{color:var(--muted)}.equation{margin:24px 0;padding:22px 24px;border:1px solid var(--line);border-left:2px solid var(--accent);background:var(--panel);font:14px/1.9 ui-monospace,SFMono-Regular,Consolas,monospace;overflow-x:auto;white-space:pre-wrap;overflow-wrap:anywhere}.equation .note{display:block;color:var(--muted);font-size:12px;margin-top:8px}code{font:13px ui-monospace,SFMono-Regular,Consolas,monospace;color:var(--accent)}.card{padding:23px 24px;border:1px solid var(--line);background:linear-gradient(125deg,#162221,#101923);margin:26px 0}.card p:last-child{margin:0}.cards{display:grid;grid-template-columns:1fr 1fr;gap:18px}.cards .card{margin:0}.table-wrap{overflow-x:auto;margin:24px 0}table{border-collapse:collapse;width:100%;font-size:13px}th,td{text-align:left;vertical-align:top;padding:14px 13px;border-bottom:1px solid var(--line)}th{color:var(--muted);font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.1em}td:first-child{color:var(--accent);white-space:nowrap}ul,ol{padding-left:21px}li{padding:4px 0}.source-list{list-style:none;padding:0}.source-list li{border-bottom:1px solid var(--line);padding:15px 0}.source-list small{display:block;color:var(--muted);line-height:1.6;margin-top:3px}.pill{display:inline-block;border:1px solid #3c4f3c;border-radius:20px;color:var(--accent);font-size:10px;letter-spacing:.08em;padding:4px 11px;margin:0 5px 6px 0;text-transform:uppercase}footer{border-top:1px solid var(--line);padding-top:22px;margin-top:60px;color:var(--muted);font-size:12px}@media(max-width:900px){.wrap{grid-template-columns:1fr;padding:40px 22px 70px;gap:20px}nav{position:static;display:flex;flex-wrap:wrap;gap:6px 18px}nav .label{width:100%;margin:0}nav a{padding:0}h2{margin-top:46px}header{padding:18px 22px}.cards{grid-template-columns:1fr}.equation{padding:18px;font-size:12px}th,td{padding:10px 8px}.lead{font-size:17px}}
+</style>
+</head>
+<body>
+<header><a href="./">← Back to the observatory</a><span class="brand">Zeta Observatory / Methods</span></header>
+<div class="wrap">
+<nav aria-label="Methods contents"><div class="label">Methods reference</div><a href="#functions">01 · Functions & coordinates</a><a href="#encoding">02 · Height & rainbow phase</a><a href="#vortices">03 · Vortices & shear</a><a href="#sphere">04 · Sphere mounting</a><a href="#torus">05 · Exact elliptic torus</a><a href="#ladder">06 · Twin ladder & packets</a><a href="#heat">07 · Theta heat flow</a><a href="#numerics">08 · Numerical scope</a><a href="#playback">09 · Cache & playback</a><a href="#research">10 · Research interpretation</a><a href="#sources">11 · Sources</a></nav>
+<main>
+<div class="eyebrow">Read the geometry through the mathematics</div>
+<h1>A field guide to<br>the observatory.</h1>
+<p class="lead">Every surface is a coordinate view of a specified complex function. Colors, heights, arrows, and moving signals have different mathematical meanings. This reference keeps those meanings visible while you explore.</p>
+<div><span class="pill">Actual function evaluation</span><span class="pill">Exact coordinate maps</span><span class="pill">Finite numerical resolution</span></div>
+
+<h2 id="functions">01 / Functions & coordinates</h2>
+<p>The spectral coordinate is <code>s = σ + it</code>. The real part σ runs across the critical strip; t is the imaginary height. The critical line is σ = ½. Animation time and the de Bruijn–Newman heat parameter τ are separate controls.</p>
+<div class="equation">ζ(s) = Σₙ≥₁ n⁻ˢ                          (Re s &gt; 1)
+ξ(s) = ½ s(s−1) π⁻ˢᐟ² Γ(s/2) ζ(s)
+X(w) = ξ(½+w),       Ξ(t) = ξ(½+it)
+ξ(s) = ξ(1−s),       ξ(s̄) = ξ(s)̄
+<span class="note">The displayed ζ outside Re s &gt; 1 uses analytic continuation. Its values are not obtained by summing a divergent Dirichlet series.</span></div>
+<p>ζ has a simple pole at s = 1, trivial zeros at the negative even integers, and the nontrivial zeros studied by RH. ξ is entire: its prefactor removes the ζ pole and the trivial zeros, leaving precisely the nontrivial zeros. In particular, ξ(0) = ξ(1) = ½.</p>
+<p>Hardy's real function is useful when taking a critical-line slice:</p>
+<div class="equation">Z(t) = eⁱϑ⁽ᵗ⁾ ζ(½+it)
+ϑ(t) = Im log Γ(¼+it/2) − (t/2)log π
+<span class="note">Z(t) is real for real t. Its sign changes and zeros can be inspected without the rotating ζ phase.</span></div>
+
+<h2 id="encoding">02 / Height & rainbow phase</h2>
+<div class="table-wrap"><table><thead><tr><th>Quantity</th><th>What it represents</th><th>How to read it</th></tr></thead><tbody>
+<tr><td>arg F(s)</td><td>The complex argument, wrapped modulo 2π.</td><td>A full color cycle around a contour records a phase winding. The rainbow seam is a color convention.</td></tr>
+<tr><td>|F(s)|</td><td>The magnitude of the selected function.</td><td>Zeros have zero magnitude. A clipped peak is a display limit, not a finite value at a pole.</td></tr>
+<tr><td>log₂(1 + |F|/q₉₅)</td><td>A compressed height encoding normalized by a sampled magnitude reference.</td><td>Useful for seeing shallow valleys and tall peaks together. It is not the untransformed magnitude.</td></tr>
+<tr><td>Re F / Im F</td><td>The two Cartesian components.</td><td>Their simultaneous vanishing identifies a candidate zero; a sign contour of only one component does not.</td></tr>
+<tr><td>Real-axis / line slice</td><td>Samples along a specified σ or t.</td><td>Compare the slice with the actual complex values, especially near a zero or a pole.</td></tr>
+</tbody></table></div>
+<p>The renderer chooses q₉₅ as the area-weighted 95th percentile of sampled, positive magnitudes on the base surface. The weights use the plane, sphere, or embedded-torus area element, so concentrating samples near a puncture does not give that tiny region disproportionate influence. Lock height scale retains the current reference in logarithmic form. One common reference applies across each rendered surface; there is no per-height rescaling of ξ.</p>
+<div class="equation">Log relief:        h = log₂(1 + |F|/q₉₅)
+Magnitude relief:  h = |F|/q₉₅
+Real relief:       h = asinh(Re F/q₉₅) / asinh(1)
+Imaginary relief:  h = asinh(Im F/q₉₅) / asinh(1)
+Displacement = g · c · clamp(h, −2.5, 2.5)
+c = 2.1 on the plane; c = 0.46 on the sphere or torus.
+<span class="note">g is the height control. Flat mode has zero displacement. q₉₅ is a visual normalization, not an error bound. Changing the sampled window can change this reference and therefore the displayed relief.</span></div>
+<p>The completed function decays rapidly as |t| grows, so distant ξ relief may remain shallow even when phase structure is visible. With heat playback paused, the point inspector freshly evaluates the unscaled function. Log-polar arithmetic retains phase and logarithmic magnitude when a raw number would overflow or underflow; the inspector then displays a scientific-notation magnitude and identifies this representation. Derivatives and bridge comparisons use analytic function derivatives and logarithmic ratios, never derivatives of the compressed height map.</p>
+
+<h2 id="vortices">03 / Phase vortices, amplitude & shear</h2>
+<p>Away from zeros and poles, set <code>q(s) = F′(s)/F(s)</code> and <code>U = log|F|</code>. In the ordinary (σ,t) chart, the Cauchy–Riemann equations give two perpendicular fields:</p>
+<div class="equation">∇U = (Re q, −Im q)
+∇arg F = (Im q, Re q)
+j = Im(dF/F) = *dU
+J = Im(F̄ dF) = |F|² j = ½*d|F|²</div>
+<p>The phase field circulates around a zero and follows amplitude contours. It is not an attractive flow into the zero. Amplitude descent is the different field <code>−∇U</code>. Normalizing arrow lengths changes the speed shown, while preserving their directions away from singularities.</p>
+<p>A zero of multiplicity m has phase circulation 2πm. A pole contributes the opposite sign. Numerical winding estimates require a contour that avoids zeros and poles and enough samples to resolve the phase change. A colorful singularity or a small sampled value alone does not certify a zero.</p>
+<div class="equation">Estimated winding = (1/2π) Σⱼ Arg[F(sⱼ₊₁)/F(sⱼ)]
+<span class="note">The winding tool compares 128-point and 256-point contour sampling. Agreement is a consistency check, not a proof that no phase turn was missed. A contour through a zero or pole has no well-defined winding of this form.</span></div>
+<h3>The bridge shear</h3>
+<p>In centered coordinates <code>w = x+iy = s−½</code>, a useful transverse quantity is:</p>
+<div class="equation">W(x,y) = Re[X′(w) X(w)̄] = ½ ∂ₓ|X(w)|²
+W / |X|² = Re(X′/X)                  (where X ≠ 0)
+<span class="note">On x=0, W vanishes by ξ symmetry. A zero there is not a positive shear certificate. One must examine transverse shifts or the continuous normalized limit.</span></div>
+<p>In the horizontal <code>f(z)=Ξ(z)</code> convention, the same orientation is written <code>Wₕ(t)=−Im[f′(t+ih)f(t+ih)̄]</code>. The minus sign comes from rotating the spectral coordinate.</p>
+<div class="equation">Wₕ(t)/h → f′(t)² − f(t)f″(t)  as h → 0
+<span class="note">This first modal expression is a local diagnostic. Its sign on finitely many heights is not an all-height theorem.</span></div>
+<p>The switchable bridge-color field uses a finite shift, rather than a derivative:</p>
+<div class="equation">Bₐ(s) = [|G(s+a)|² − |G(s−a)|²] / [|G(s+a)|² + |G(s−a)|²]
+G = ξ for the ordinary views; G = Fτ for the heat view.
+<span class="note">This is a bounded, signed amplitude comparison. Where the denominator vanishes its value is undefined. The display scale is not differentiated or substituted into this calculation.</span></div>
+
+<h2 id="sphere">04 / Mounting on a Riemann sphere</h2>
+<p>Inverse stereographic projection places a complex chart coordinate c = a+ib on a unit sphere with north direction +Y. The observatory uses the displayed spectral scale ℓ/3:</p>
+<div class="equation">(X,Y,Z) = (2a, |c|²−1, 2b) / (1+|c|²)
+c = (X+iZ)/(1−Y)
+s = ½ + (ℓ/3)c
+c = ∞ maps to the north pole Y=1.
+<span class="note">The selected chart-scale control is ℓ; the sphere explicitly uses ℓ/3. Rotation of the sphere changes the camera view, not F(s).</span></div>
+<p>A sphere can compactify the drawing of the complex plane. It cannot turn ξ into a meromorphic function at infinity: ξ retains an essential singularity there. Large spectral ranges are compressed near the chart pole, so pixel-sized regions may conceal many oscillations. The finite evaluation mask indicates where the renderer has stopped sampling.</p>
+<p>The critical guide is now traced from the exact base geometry, independently of the sampling mask: one complete great circle on the sphere and two complete critical ovals on the torus. A solid raised trace follows evaluated values; dashed portions mark the base-coordinate continuation. An infinity ring remains a puncture, not an assigned function value. The half-angle sphere chart avoids cancellation when a finite high point approaches the north pole.</p>
+<p>Curved meshes include additional logarithmically spaced knots near the punctures and critical curves. Standard, Fine, and Ultra settings increase the actual sampling density; point picking and exported coordinates retain the true nonuniform UV positions. Expanding the evaluated domain fills more of the surface, but infinitely many windings cannot fit into a finite image. Use <strong>Unwrap this point in the plane</strong> for a narrow, finely sampled spectral window around a selected tail point.</p>
+
+<h2 id="torus">05 / The studied elliptic double cover</h2>
+<p>The torus uses the two-sheet construction from Math Explorer. Two copies of the w-sphere are cross-glued at cuts between four branch points. Its exact algebraic curve is:</p>
+<div class="equation">Eᵣ: η² = (w²+r²)(w²+r⁻²),       r &gt; 1
+w = (s₀−1)/s₀,                    s₀ = 1/(1−w)
+<span class="note">The four branch points w=±ir, ±i/r give genus one by Riemann–Hurwitz. This is a double cover of the sphere, not an identification of ζ values at arbitrary periodic boundaries.</span></div>
+<p>The implementation evaluates the complex Jacobi functions through their convergent theta quotients. With parameter <code>m=r⁻⁴</code>, <code>K=K(m)</code>, and complementary <code>K′=K(1−m)</code>, the chart is:</p>
+<div class="equation">z = 4K u + 2iK′(v−½),             0 ≤ u,v &lt; 1
+w = (i/r) sn(z|m)
+η = cn(z|m) dn(z|m)
+qₑ = exp(−πK′/K)
+sn(z|m) = [θ₃(0,qₑ)/θ₂(0,qₑ)] · θ₁(πz/2K,qₑ)/θ₄(πz/2K,qₑ)
+<span class="note">K in the code uses the parameter m. Some references use the modulus k=√m=r⁻². Confusing these conventions changes the surface.</span></div>
+<p>The true common periods of w and η are 4K and 2iK′. A geometric torus in three-dimensional space displays this complex period rectangle. The embedding's circular shape is not an additional equation for ξ.</p>
+<h3>The visible spectral lens</h3>
+<div class="equation">s = ½ + ℓ(s₀−½)
+ℓ = 1: literal studied Cayley pullback
+ℓ &gt; 0: explicit affine spectral lens
+<span class="note">The lens makes a larger spectral range visible. It preserves the reflection s ↦ 1−s and the critical line but changes the finite branch values in the displayed s-plane. It is not a functional identity of ζ.</span></div>
+<div class="table-wrap"><table><thead><tr><th>Feature</th><th>(u,v) location</th><th>Meaning</th></tr></thead><tbody>
+<tr><td>Critical ovals</td><td>v = ¼ and v = ¾</td><td>Two lifts of Re s = ½, each containing one infinity puncture.</td></tr>
+<tr><td>p₊, p₋</td><td>(0,¼), (½,¾)</td><td>w=1, s=∞. Essential punctures for the completed function.</td></tr>
+<tr><td>q₋, q₊</td><td>(½,¼), (0,¾)</td><td>w=−1, s=½. Finite anti-bridge symmetry anchors.</td></tr>
+<tr><td>Branch points</td><td>(¼,½), (¾,½), (¼,0), (¾,0)</td><td>Projection ramification. Their coordinate stagnations do not imply zeros of ξ.</td></tr>
+<tr><td>Deck exchange</td><td>(u,v) ↦ (½−u,1−v) modulo 1</td><td>Preserves s and reverses η. It exchanges the two lifts.</td></tr>
+</tbody></table></div>
+<p><strong>Two zero markers on the torus can represent one spectral zero.</strong> Every ordinary s-value has two preimages. The sheets carry the same pulled-back scalar function; their duplicate zeros do not count as additional zeros of ζ or ξ.</p>
+<p>The anti-bridge anchors are not collision sites. The actual heat family has <code>Hτ(0)&gt;0</code> for every real τ. At the other end, apparent freezing near infinity is coordinate compression; it does not supply a zero-trapping force.</p>
+<h3>Transforming a field correctly</h3>
+<p>Phase textures pull back by evaluating F at the chart's s. For the flat conformal phase-flow interpretation, first set <code>qz=(F′/F)·ds/dz</code>. The corresponding UV velocities are <code>du=Im(qz)/(4K)</code> and <code>dv=Re(qz)/(2K′)</code>. These can then be mapped along the torus's tangent vectors. Treating unchanged plane arrows as torus tangent arrows would omit the chart derivative.</p>
+
+<h2 id="ladder">06 / Twin ladder, bridge & packets</h2>
+<p>The direct and reflected prime-power tones come from the two spectral arguments s and 1−s. A rung with prime p and exponent m has log-frequency λ = m log p:</p>
+<div class="equation">Direct tone: p⁻ᵐˢ = exp(−σλ) exp(−itλ)
+Dual tone:   p⁻ᵐ⁽¹⁻ˢ⁾ = exp[−(1−σ)λ] exp(+itλ)
+λ = m log p</div>
+<p>At σ=½ the direct and dual tone magnitudes agree. Finite collections of these tones are useful for studying interference, delays, and wave packets. A finite prime sum is a specified signal, not the analytically continued zeta function. The Euler product itself converges absolutely only in Re s&gt;1.</p>
+<p>The exact analytic bridge is the functional equation:</p>
+<div class="equation">ζ(s) = χ(s) ζ(1−s)
+χ(s) = πˢ⁻½ Γ((1−s)/2) / Γ(s/2)
+|χ(½+it)| = 1
+ξ(s) = ξ(1−s)
+<span class="note">Removable values are understood by continuation. “Lossless” on the critical line means unit modulus of this scalar factor. Off-line amplitude scaling is not a physical dissipation law.</span></div>
+<p>The ladder rails at σ=½±a are aligned at the same spectral height. The completed-function identity at that height is <code>ξ(½+a+it)=conj ξ(½−a+it)</code>; a same-height bridge therefore links conjugate values. Both rails are traced through the current surface map.</p>
+<h3>The finite prime-power packet</h3>
+<p>The packet inset displays the magnitude of a specified finite sum against log-delay ℓ. With packet width h and independent transport clock T, its direct signal is:</p>
+<div class="equation">ψσ(ℓ,T) = Σₚ≤pₘₐₓ Σₘ₌₁² (log p) p⁻ᵐσ
+           · exp[−(ℓ−m log p)²/(2h²)] · exp(−imT log p)
+<span class="note">The dual uses p⁻ᵐ⁽¹⁻σ⁾ and the opposite carrier sign exp(+imT log p). The Gaussian window localizes the selected log-frequency atoms.</span></div>
+<p>The log p coefficients correspond to the prime-power atoms in <code>−ζ′/ζ</code> on its convergent Euler-product half-plane. This Gaussian-windowed, finite packet is not itself ζ or ξ. The moving surface envelope is an illustration of packet transport. Its clock T is separate from τ in the actual heat equation, and it does not supply an infinite passive realization of ξ.</p>
+
+<h2 id="heat">07 / Actual theta heat evolution</h2>
+<p>The heat layer uses the classical de Bruijn–Newman integral, with the convention used in the repository's torus heat-flow note and in Polymath's paper:</p>
+<div class="equation">Φ(u) = Σₙ≥₁ (2π²n⁴e⁹ᵘ − 3πn²e⁵ᵘ) exp(−πn²e⁴ᵘ)
+Hτ(z) = ∫₀∞ exp(τu²) Φ(u) cos(zu) du
+H₀(z) = ⅛ ξ(½+iz/2)
+∂τHτ = −∂z²Hτ</div>
+<p>To retain the same σ,t axes as the ζ and ξ views, the renderer evaluates:</p>
+<div class="equation">Fτ(s) = 8Hτ(−2i(s−½)) = 8Hτ(2t−2i(σ−½))
+F₀(s) = ξ(s)
+∂τFτ = ¼∂s²Fτ = −¼∂t²Fτ
+<span class="note">A τ increase is backward heat evolution in the real spectral t-coordinate under this convention. A generic smoothing filter or ordinary diffusion on the embedded torus would be a different operation.</span></div>
+<p>For comparison with the theta-convolution bridge notes, the real kernel coordinate has a different scaling:</p>
+<div class="equation">κ(u) = Φ(u/4)
+κτ(u) = exp(τu²/16) κ(u)
+Fτ(½+a) = ∫ℝ κτ(u) exp(au/2) du</div>
+<p>The kernel variable u, spectral height t, torus parameters (u,v), and animation clock are different variables even when historical notation reuses a letter. The on-screen axes identify which space is being viewed.</p>
+<h3>Why the infinity end seems to freeze</h3>
+<p>For the literal lens ℓ=1, on a critical oval write <code>w=eⁱθ</code>. Then <code>s=½+(i/2)cot(θ/2)</code>, and the pullback of H obeys:</p>
+<div class="equation">fτ(θ) = Hτ(cot(θ/2))
+∂τfτ = −(1−cos θ)² ∂θ²fτ − (1−cos θ)sin θ ∂θfτ
+<span class="note">At θ=0 the second-derivative coefficient vanishes to fourth order. The degeneration records coordinate compression near infinity, not a new dynamical boundary condition.</span></div>
+<p>Λ is the threshold for all zeros of Hτ to be real. Rodgers–Tao established Λ≥0. A lower positive bound would contradict RH; reducing an upper bound toward zero is the direction compatible with proving RH. This finite visualization does not establish either a bound or its global hypotheses.</p>
+
+<h2 id="numerics">08 / Numerical scope & reproducibility</h2>
+<p>The browser uses ordinary IEEE-754 double precision. ζ uses Euler–Maclaurin summation with 12 Bernoulli corrections and functional-equation continuation into the left half-plane. ξ uses the completed function with reflected evaluation and removable endpoint values. No nontrivial zeros are inserted into those evaluations.</p>
+<p>Inside the original numerical window, the heat integrator shifts its complex contour to reduce oscillatory cancellation. It uses a finite theta sum and trapezoidal quadrature, with a finer grid available as a convergence diagnostic. At τ=0 it evaluates ξ directly. Outside the original window, the heat engine uses the equivalent Gaussian convolution of the entire completed function, evaluated in log-polar arithmetic:</p>
+<div class="equation">Fτ(s) = (1/√π) ∫ℝ e^(−u²) ξ(s + √τ u) du
+τ &gt; 0: √τ is real
+τ &lt; 0: √τ = i√(−τ)
+<span class="note">Expanding the Gaussian moments gives exp[(τ/4)∂s²]ξ, matching the stated heat normalization. The extended integrator uses 32-node Gauss–Hermite quadrature, with 64 nodes for convergence diagnostics. A small refinement difference is numerical evidence, not an interval error enclosure. High-ordinate heat grids require many ξ evaluations; Responsive density reduces the sample count, while Fine and Ultra can take substantially longer.</span></div>
+<div class="table-wrap"><table><thead><tr><th>Setting</th><th>Numerical kernel</th></tr></thead><tbody>
+<tr><td>Evaluation window</td><td>Extended: −128 ≤ σ ≤ 129, |t| ≤ 2,000; heat |τ| ≤ 1. The Original window option retains −12 ≤ σ ≤ 13, |t| ≤ 120 for comparison. Independent reference checks sample these domains; they do not certify every point.</td></tr>
+<tr><td>Heat cutoff</td><td>Real contour half-length 1.5; 384 steps per half-line, refined to 768 for a diagnostic.</td></tr>
+<tr><td>Theta series</td><td>12 integer terms in the complex heat kernel.</td></tr>
+<tr><td>Elliptic chart</td><td>Jacobi theta quotients; AGM complete elliptic integrals; both common periods retained.</td></tr>
+<tr><td>Independent checks</td><td>Reference special-function values, normalization, periodicity, symmetry, and coordinate inverse checks.</td></tr>
+<tr><td>Certification</td><td>Numerical exploration. There is no rigorous interval or all-height proof attached to an image.</td></tr>
+</tbody></table></div>
+<h3>Independent accuracy checks</h3>
+<p>The extended-domain checks compare logarithmic magnitude, phase, and the analytic logarithmic derivative against independent high-precision references, including points whose ordinary floating-point values overflow or underflow. Their measured discrepancies and sample counts are recorded in the numerical report below. The original checks remain as regressions.</p>
+<p>The <a href="./numerics.json" target="_blank" rel="noopener noreferrer">machine-readable numerical report</a> records nine original tests and five extended kernel tests. The original fixtures contain 33 function/derivative reference points and 13 heat reference points computed independently with 80-decimal mpmath arithmetic. The largest observed scaled discrepancies are approximately 2.04×10⁻¹³ for ζ/ξ values and 3.93×10⁻¹³ for heat values. These are measurements on the checked finite sample, not uniform error bounds.</p>
+<div class="equation">ζ error metric:
+|computed − reference| / max(1, |reference|)
+
+ξ and heat error metric:
+|computed − reference| /
+max(|reference|, exp(−π|t|/4)(1+|t|)⁷ᐟ⁴)
+<span class="note">The envelope in this test metric avoids an undefined relative error at a zero. It is not a display rescaling and does not establish relative accuracy where the true value is extremely small.</span></div>
+<p>The heat references use independent, unshifted real-axis quadrature; the app uses a shifted contour. Other checks cover functional/conjugate symmetry, the τ=0 identity, the PDE sign and factor ¼, the ζ pole, ξ's removable endpoints, and nonzero points beside reference zeros. The separate elliptic tests compare chart values to 60-decimal Jacobi-function references and check both periods, both lifts, and the fixed landmarks.</p>
+<h3>Zero markers and point probes</h3>
+<p>For ζ and ξ at heat time zero, the nontrivial markers use the first 25 positive reference zero heights, together with their negative-height partners. This finite marker list is not every zero in the full numerical window. The ζ view also distinguishes negative-even trivial zeros and the pole at s=1.</p>
+<p>At nonzero heat time, markers come from sampled sign changes on the critical line at positive heights up to t=60, followed by bisection and reflection. This detects selected real-axis roots of Hτ. It does not detect off-line zeros, roots without a resolved sign change, or certify that the displayed list is complete.</p>
+<p>Outside buffered playback, a pointer probe first obtains the chart coordinates (u,v), applies the sphere or elliptic map again, and freshly evaluates the selected function at the resulting (σ,t). It therefore reports numerical function values rather than interpolation of the mesh's complex vertex values. During playback the inspector holds these numerical readouts. Pressing <strong>Inspect</strong> pauses the sequence and resumes fresh point and derivative evaluation. The drawn surface itself remains a finite mesh.</p>
+<p>Near a zero, relative value errors and logarithmic derivatives can become large. Near a pole or a chart puncture, clipping and sampling limits matter. At a branch point, the chart derivative can vanish even though the function does not. These cases have different mathematical meanings and should be inspected with the point probe.</p>
+<p>CSV exports include true nonuniform (u,v), spectral (σ,t), log |F|, argument in radians, and explicit validity and raw-representability flags. Raw value columns are blank if their magnitudes cannot be represented as ordinary floating-point numbers. To make an observation reproducible, retain the selected function, computed extent, spectral bounds, geometry and lens scale, heat parameter, layer settings, numerical resolution, and probe coordinates. Compare suspected features at greater resolution and with a second numerical method before treating them as research evidence.</p>
+
+<h2 id="playback">09 / Computed cache & buffered playback</h2>
+<p>The observatory separates numerical sampling from displaying a field. A prepared frame contains the actual double-precision complex values and their log-polar representation, together with its critical traces, landmark values, root markers, requested overlay curves, and 361-point critical-line inset. Reusing that frame preserves the same numerical samples. It changes latency and repeated work, not the mathematical function, numerical precision, or accuracy claims.</p>
+<h3>Where a field comes from</h3>
+<p>For an exact numerical setting, the loader checks the memory cache, the browser's saved cache, the shipped starter pack, and finally the numerical worker. The cache key includes the engine version, function, heat parameter when applicable, chart and spectral bounds, density, computed extent, bridge offset when relevant, and numerical overlay choices. Camera movement and display controls such as phase rotation, opacity, and height style can reuse a field.</p>
+<div class="table-wrap"><table><thead><tr><th>Resource</th><th>Budget or contents</th><th>Behavior</th></tr></thead><tbody>
+<tr><td>Memory cache</td><td>128 MiB</td><td>Least recently used computed views are evicted when the budget is reached.</td></tr>
+<tr><td>Saved field cache</td><td>Up to 256 MiB in IndexedDB</td><td>Best effort. Available browser storage can reduce this budget; storage failure falls back to memory and computation.</td></tr>
+<tr><td>Active heat clip</td><td>192 MiB</td><td>Every frame must fit before Play begins. An oversized clip asks for fewer frames or Responsive density; it does not silently lower the requested density.</td></tr>
+<tr><td>Shipped starter pack</td><td>78 independently evaluated fields; 155 exact keys; 59.32 MB compressed in total</td><td>Files load on demand, with shared geometry between heat frames. Optional ladder records allow both overlay settings to reuse the same numerical field.</td></tr>
+</tbody></table></div>
+<p>The complete starter-pack size is not the initial download size. The pack includes ζ and ξ on all three default mounts, the bridge, pole, phase-atlas, and vortex presets, and the following Standard-density heat sequences:</p>
+<div class="equation">τⱼ = −0.30 + 0.05j,       j = 0,…,16
+
+Default plane:     −2 ≤ σ ≤ 3,        8 ≤ t ≤ 38
+Sphere / torus:    lens L = 24; torus r = 1.6
+Heat-preset plane: −0.75 ≤ σ ≤ 1.75, 10 ≤ t ≤ 32
+<span class="note">The sphere and torus use the extended finite computation window. Each heat field was evaluated independently at its displayed τ. The machine-readable manifest lists the exact numerical keys and assets.</span></div>
+<p><a href="./precache/manifest.json" target="_blank" rel="noopener noreferrer">View the starter-pack manifest</a>. The binary format preserves typed-array bytes, NaN, infinity, and signed zero. Gzip compression does not quantize the values. A browser that cannot load a compressed asset can compute the same field in its worker instead.</p>
+<h3>Prepare, play, inspect</h3>
+<ol>
+<li>In <strong>Cache &amp; playback</strong>, choose the heat range, <strong>9</strong>, <strong>17</strong>, or <strong>33 exact frames</strong>, and <strong>Responsive</strong>, <strong>Standard</strong>, or <strong>Current mesh density</strong>. The default 17-frame Standard sequence matches the shipped pack.</li>
+<li>Choose <strong>Prepare heat frames</strong>, or press <strong>Play</strong> to prepare and then start. All frames load or compute before playback begins. Custom settings reuse exact matches and compute any missing frames.</li>
+<li>Play traverses the stored frames forward and then reverse. The direction, frame index, and actual τ remain visible. The frame slider selects a prepared frame; it does not interpolate between τ values.</li>
+<li>Pause or press <strong>Inspect</strong> to resume numerical point inspection. During playback and after frame scrubbing, the held inspector avoids presenting a value from another heat time as a fresh measurement.</li>
+</ol>
+<p>Preparation locks one common height reference for the sequence, preserving an existing lock when appropriate. Keep this lock enabled when comparing amplitudes: independent per-frame normalization would change the apparent relief. “Forward” means increasing τ and “reverse” means decreasing τ; these are playback directions through the same prepared family. The PDE sign remains the one in <a href="#heat">the heat normalization above</a>.</p>
+<p>The heat playback step performs no ζ, ξ, or heat-kernel evaluation and loads no additional fields. Surface samples, critical traces, landmarks, roots, overlay curves, and the critical-line inset come from the current buffered frame. The renderer still transforms, colors, and draws them. A requested frame rate can therefore be limited by rendering speed. The Canvas fallback draws a smaller motion mesh and restores stationary detail when playback and other motion pause; the underlying numerical samples remain available.</p>
+<p>The prime-power packet panel is separate. Its independent clock T continues to drive the explicit finite sum while packets are enabled, and its own Pause control stops that clock. Buffered heat playback does not turn this signal into ζ or into a heat solution.</p>
+<p><strong>Precache modes</strong> prepares the nine chart/function combinations for the current numerical settings. <strong>Clear cache</strong> clears computed fields and the active clip while retaining the saved-view notebook and notes. Browser persistence is convenient reuse; exported session JSON remains the portable record of a chosen view.</p>
+<h3>Reproducible preparation</h3>
+<div class="equation">node scripts/build-precache.mjs
+<span class="note">Run from the app's source directory. The shared sampler computes every missing frame, writes lossless gzip assets, and updates dist/precache/manifest.json. Existing entries are reused only for the current numerical and codec version.</span></div>
+<p>The implementation separates <code>sampler.js</code> and <code>critical-samples.js</code> from the thin <code>sample-worker.js</code> wrapper. <code>field-cache.js</code> defines exact versioned keys and bounded caches; <code>field-service.js</code> selects a source; <code>playback.js</code> prepares a complete bounded clip; <code>cache-codec.js</code> preserves the stored data. The build script invokes the same sampler used for a custom browser calculation. Codec, cache, sequence, and baked-frame tests complement the mathematical checks above; they do not strengthen those finite accuracy bounds.</p>
+
+<h2 id="research">10 / Interpreting a possible RH clue</h2>
+<div class="cards"><div class="card"><div class="eyebrow">Useful observation</div><p>A recurring sign pattern, a stable contour, or a candidate cancellation can suggest a precise inequality. Record its exact function and coordinate dependence.</p></div><div class="card"><div class="eyebrow">Remaining mathematical task</div><p>Convert the observation into an identity or bound with the required domain, precision, and tail control. A finite picture cannot provide those quantifiers.</p></div></div>
+<p style="margin-top:22px">The recent Math Explorer notes distinguish exact geometric identities, finite positivity results, and the unresolved arbitrary-depth positivity problem. The fourth-stage Pick and later theta-ratio checkpoints do not claim a general preservation theorem or an RH proof.</p>
+<p>In particular, the phase circulation of a fixed contour counts enclosed zeros without determining whether they lie on the critical line. Positive boundary kernels can have signed off-diagonal correlations. Two-sheet gluing and compact-looking pictures do not remove the essential punctures or their limiting boundary terms. These are specific mathematical distinctions that help keep an attractive pattern useful.</p>
+
+<h2 id="sources">11 / Sources & research checkpoints</h2>
+<p class="muted">The mathematical definitions below were consulted directly. Repository links point to immutable research commits so the conventions remain reproducible.</p>
+<ul class="source-list">
+<li><a href="https://dlmf.nist.gov/22.2" target="_blank" rel="noopener noreferrer">NIST DLMF §22.2 · Jacobi elliptic definitions</a><small>Nome, theta quotients, and the distinction between modulus and parameter. Equation 22.2.4 supplies the sn quotient used in the torus chart.</small></li>
+<li><a href="https://arxiv.org/html/1904.12438v2" target="_blank" rel="noopener noreferrer">D. H. J. Polymath · Effective approximation of heat flow evolution of the Riemann ξ function</a><small>Equations (1)–(4) define the completed function, theta kernel, heat normalization, and PDE sign.</small></li>
+<li><a href="https://github.com/judegomila/mathexplorer/blob/69d4049f289217812051188378a0a9f3f061a169/rigorous/theta-bridge-2026-11-08/geometry_and_twistors.md" target="_blank" rel="noopener noreferrer">Math Explorer PR #43 · From two cut spheres to the theta bridge</a><small>The exact elliptic double cover, critical ovals, punctures, phase current, uniformization, and cautions about branch stagnations.</small></li>
+<li><a href="https://github.com/judegomila/mathexplorer/blob/1de63e68375adb60b39ea7fdbe7d7b048b30ceea/rigorous/torus-heat-antibridge-2026-11-09/torus_heat_flow.md" target="_blank" rel="noopener noreferrer">Math Explorer PR #49 · Torus heat flow and opposite reflection</a><small>The finite anti-bridge anchors, exact compressed-coordinate evolution, heat-deformed theta bridge, and freezing obstruction.</small></li>
+<li><a href="https://github.com/judegomila/mathexplorer/blob/e8223ea5b9ccf9104f684e242204590c2ba15eea/formalization/paper/sign_switching_energy_2026-11-07.md" target="_blank" rel="noopener noreferrer">Math Explorer PR #42 · Sign switching, modal diameter & boundary energy</a><small>Exact shear conventions and even-minus-odd boundary-energy identity, with the remaining global inequality stated explicitly.</small></li>
+<li><a href="https://github.com/judegomila/mathexplorer/blob/7e6d01d9dae527a5785ed31d770cd4b8acd38e17/rigorous/theta-interpolation-2026-11-08/theta_positive_interpolation_20261108.md" target="_blank" rel="noopener noreferrer">Math Explorer PR #47 · Positive interpolation of the exact ξ response</a><small>Actual-xi Pick data, finite passive interpolation, and the unresolved all-stage positivity condition.</small></li>
+<li><a href="https://github.com/judegomila/mathexplorer/blob/146ce77aa8407e912ed54c73e30664d86936c253/rigorous/theta-fourth-stage-2026-11-09/README.md" target="_blank" rel="noopener noreferrer">Math Explorer PR #50 · Fourth xi Pick stage</a><small>Finite-stage research result and explicit residual-energy target; arbitrary-order positivity remains open.</small></li>
+<li><a href="https://github.com/judegomila/mathexplorer/blob/afdac28948ab084e80214c31ef72c9520d943760/rigorous/theta-ratio-convexity-2026-11-10/README.md" target="_blank" rel="noopener noreferrer">Math Explorer PR #51 · Global theta ratio signs</a><small>Pointwise theta-kernel mechanism and the additional unproved preservation signs. This checkpoint does not claim RH.</small></li>
+</ul>
+<footer><p>Built for geometric investigation. The mathematics determines the field; the controls determine how you see it.</p><a href="./">Return to the observatory →</a></footer>
+</main></div>
+</body></html>

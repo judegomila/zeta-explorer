@@ -1,0 +1,68 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {spawnSync} from 'node:child_process';
+import {fileURLToPath} from 'node:url';
+import fs from 'node:fs/promises';
+import vm from 'node:vm';
+
+// A VM-linked numerical module actively throws if the UI renderer attempts
+// analytic evaluation. The child flag is needed by Node's module-linking API;
+// ordinary `npm test` remains sufficient to run the guard.
+if(typeof vm.SourceTextModule!=='function'){
+  test('cached render/play paths perform no analytic evaluation and preserve cached inputs',{timeout:90000},()=>{
+    const child=spawnSync(process.execPath,['--experimental-vm-modules',fileURLToPath(import.meta.url)],{encoding:'utf8',timeout:80000});
+    assert.equal(child.status,0,[child.error?.message,child.stdout,child.stderr].filter(Boolean).join('\n'));
+  });
+}else{
+  const THREE=await import('../dist/vendor/three.module.js');
+  const {sampleField}=await import('../dist/sampler.js');
+  const {NUMERICS}=await import('../dist/math.js');
+  let evaluations=0;
+  const reject=()=>{evaluations++;throw Error('Analytic evaluation on render/play path');};
+  async function linkedRenderer(filename){
+    const numerical=new vm.SyntheticModule(['evaluate','evaluatePolar','NUMERICS'],function(){this.setExport('evaluate',reject);this.setExport('evaluatePolar',reject);this.setExport('NUMERICS',NUMERICS);});
+    const geometry=new vm.SyntheticModule(['liftPoint'],function(){this.setExport('liftPoint',reject);});
+    const three=new vm.SyntheticModule(Object.keys(THREE),function(){for(const[k,v]of Object.entries(THREE))this.setExport(k,v);});
+    const controls=new vm.SyntheticModule(['OrbitControls'],function(){this.setExport('OrbitControls',class{});});
+    const module=new vm.SourceTextModule(await fs.readFile(new URL('../dist/'+filename,import.meta.url),'utf8'));
+    await module.link(spec=>spec.includes('math.js')?numerical:spec.includes('geometry.js')?geometry:spec.includes('OrbitControls')?controls:three);
+    await module.evaluate();return module.namespace;
+  }
+  test('both renderers consume precalculated overlays; Play/Pause, styles and probes do not evaluate',{timeout:70000},async()=>{
+    const state={geometry:'torus',resolution:'standard',function:'heat',tau:.2,extent:'extended',chartScale:24,torusR:1.6,bridgeA:.25,
+      colorMode:'phase',heightMode:'log',height:.55,opacity:.98,contours:true,critical:true,zeros:false,seams:false,ladder:true,packets:false,vortices:false,
+      sigmaMin:-2,sigmaMax:3,tMin:8,tMax:38,heightLocked:true,heightLogReference:0,heightReference:1,playing:true};
+    const data=sampleField(state),original=structuredClone(data);
+    assert.equal(data.criticalSamples.length,2);assert.equal(data.landmarkValues.length,8);
+    const statuses=[];
+    const {CanvasZetaScene}=await linkedRenderer('canvas-renderer.js');
+    const cpu=Object.create(CanvasZetaScene.prototype);
+    Object.assign(cpu,{state:{},width:900,heightPixels:650,yaw:.62,pitch:.73,zoom:1,panX:0,panY:0,onStatus:s=>statuses.push(s),probeCoordinates:{sigma:.5,t:14.13}});
+    cpu.setData(data,state);
+    const movingFaces=cpu.faces;
+    assert.equal(cpu.fullDetailPrepared,false);assert.equal(cpu.faces,cpu.motionFaces);assert.equal(cpu.probes.length,0);
+    assert.equal(cpu.criticalSamples(),data.criticalSamples);
+    cpu.yaw=1.234;cpu.zoom=1.45;const savedCamera=cpu.getCameraState();
+    cpu.setData(data,state);
+    assert.equal(cpu.faces,movingFaces);assert.deepEqual(cpu.getCameraState(),savedCamera);assert.equal(statuses.at(-1).preparedCacheHit,true);
+    cpu.updateStyle({playing:false});
+    assert.equal(cpu.fullDetailPrepared,true);assert.ok(cpu.faces.length>movingFaces.length,'Pause restores selected full detail');
+    assert.equal(statuses.at(-1).motionDetail,false);assert.equal(statuses.at(-1).meshStride,cpu.stride);assert.equal(cpu.probes.length,0);
+    cpu.updateStyle({height:.65,ladder:false,colorMode:'real'});
+    assert.equal(cpu.probes.length,0,'An automatic redraw must not evaluate the old inspection point');
+
+    const {ZetaScene}=await linkedRenderer('renderer.js');
+    const gpu=Object.create(ZetaScene.prototype);
+    Object.assign(gpu,{state:{},renderer:{},surfaceGroup:new THREE.Group(),overlayGroup:new THREE.Group(),guideGroup:new THREE.Group(),probeGroup:new THREE.Group(),controls:{},
+      buildGuides(){},addZero(){},resetCamera(){},onStatus:s=>statuses.push(s),probeCoordinates:{sigma:.5,t:14.13}});
+    gpu.setData(data,state);const geometryBuffer=gpu.surface.geometry;
+    gpu.setData(data,state);assert.equal(gpu.surface.geometry,geometryBuffer);assert.equal(gpu.criticalSamples(),data.criticalSamples);
+    gpu.updateStyle({playing:false,height:.7,colorMode:'imag'});assert.equal(gpu.probeGroup.children.length,0);
+    assert.equal(evaluations,0,'No zeta/xi/theta evaluation or inverse inspection is allowed while applying cached frames');
+    assert.deepEqual(data,original,'Renderer styling and frame reuse must not mutate shared cached fields');
+    // Prove the throwing guard is active: explicitly requesting fresh inspection
+    // while paused does call the permitted evaluator and reaches our sentinel.
+    assert.throws(()=>cpu.setProbe(.5,14.1),/Analytic evaluation/);
+    assert.equal(evaluations,1);
+  });
+}

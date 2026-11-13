@@ -1,0 +1,158 @@
+{
+  "schemaVersion": 2,
+  "title": "Independent numerical checks",
+  "certified": false,
+  "statement": "Finite numerical validation against 80- and90-digit mpmath references, including log-polar compactified tails. These are not interval-certified error bounds, root completeness, or an RH proof.",
+  "arithmetic": "IEEE-754 double",
+  "validatedWindow": {
+    "sigmaMin": -128,
+    "sigmaMax": 129,
+    "absoluteTMax": 2000,
+    "absoluteTauMax": 1
+  },
+  "suite": {
+    "command": "node --test tests/math.test.mjs tests/math-extended.test.mjs",
+    "tests": 14,
+    "passed": 14,
+    "failed": 0,
+    "referencePrecisionDecimalDigits": [
+      80,
+      90
+    ],
+    "functionReferencePoints": 33,
+    "heatReferencePoints": 13,
+    "extendedFunctionReferencePoints": 36,
+    "extendedHeatReferencePoints": 10
+  },
+  "normalization": {
+    "heat": "8 H_tau(2t − 2i(σ−½)); F₀(s)=ξ(s)",
+    "equation": "∂τ F = ¼∂s²F = −¼∂t²F"
+  },
+  "errorMetric": {
+    "zeta": "|computed-reference| / max(1, |reference|)",
+    "xiAndHeat": "|computed-reference| / max(|reference|, exp(-pi*|t|/4)*(1+|t|)^1.75)",
+    "interpretation": "Observed scaled error at finite checked points; relative error at a zero is not claimed."
+  },
+  "checks": [
+    {
+      "id": "analytic-continuation",
+      "label": "Core: zeta and xi against 80-digit values",
+      "referencePoints": 33,
+      "passed": true,
+      "maxObservedScaledError": 2.0341262624864642e-13,
+      "metrics": {
+        "zeta": 2.0341262624864642e-13,
+        "xi": 1.8126290721854755e-13
+      },
+      "method": "Independent mpmath zeta and gamma formula"
+    },
+    {
+      "id": "analytic-derivatives",
+      "label": "Core: analytic derivatives against 80-digit derivatives",
+      "referencePoints": 33,
+      "passed": true,
+      "maxObservedScaledError": 2.0237922748930322e-13,
+      "metrics": {
+        "zetaPrime": 2.0237922748930322e-13,
+        "xiPrime": 1.8177158208500505e-13
+      },
+      "method": "Independent mpmath arbitrary-precision differentiation"
+    },
+    {
+      "id": "heat-integral",
+      "label": "Core: heat against unshifted theta quadrature",
+      "referencePoints": 13,
+      "passed": true,
+      "maxObservedScaledError": 3.914796760754885e-13,
+      "metrics": {
+        "heat": 3.914796760754885e-13,
+        "heatPrime": 2.956716286997368e-13
+      },
+      "method": "Independent direct real-axis integration at 80 digits"
+    }
+  ],
+  "additionalChecks": [
+    "Heat at tau=0 equals xi, including contour-shift boundaries",
+    "Functional and conjugate symmetry",
+    "Classical heat PDE sign and factor one quarter",
+    "Zeta pole and removable xi singularities",
+    "First 25 reference zeros and nonzero off-line neighbours",
+    "Theta positivity samples and doubled-grid heat diagnostic",
+    "Raw underflow and overflow preserve valid log-polar values",
+    "HardyZ beyond the old complex Gamma overflow threshold",
+    "Explicit domain rejection and refined heat diagnostics below raw underflow"
+  ],
+  "files": {
+    "mathSha256": "92a3fd0382a15ee0cefc3997fa13c0b8e47f4e7a0e426e3a398bea74dc81e940",
+    "referenceSha256": "3d5b08e9ac2955b5d37118f19975848e69056d1eaa7a437e6a746f59bff8dc32",
+    "extendedReferenceSha256": "7204c74a4bb38a128c86c16ec35376f6ebea1331f901384e10e2d2bc69b1f325",
+    "extendedHeatReferenceSha256": "30fc729da0bc9ff8c5b8b7482bf3a7c24fda15fb09417a0c9f764c48c22a3726"
+  },
+  "sources": [
+    "https://dlmf.nist.gov/25.2#iii",
+    "https://dlmf.nist.gov/25.4",
+    "https://terrytao.wordpress.com/2018/01/19/the-de-bruijn-newman-constant-is-non-negativ/"
+  ],
+  "domains": {
+    "zeta": {
+      "sigmaMin": -128,
+      "sigmaMax": 129,
+      "tMax": 2000
+    },
+    "xi": {
+      "sigmaMin": -128,
+      "sigmaMax": 129,
+      "tMax": 2000
+    },
+    "heat": {
+      "sigmaMin": -128,
+      "sigmaMax": 129,
+      "tMax": 2000,
+      "heatTauMax": 1
+    }
+  },
+  "coreWindow": {
+    "sigmaMin": -12,
+    "sigmaMax": 13,
+    "absoluteTMax": 120,
+    "absoluteTauMax": 1
+  },
+  "extendedChecks": [
+    {
+      "id": "extended-log-polar",
+      "label": "Extended zeta and xi against 90-digit references",
+      "referencePoints": 36,
+      "passed": true,
+      "metrics": {
+        "logMagnitude": 4.240163775648398e-12,
+        "phaseRadians": 2.1818102879933576e-12,
+        "normalizedLogDerivative": 5.6689063020573325e-12,
+        "derivativeLogMagnitude": 4.816591570033779e-12
+      },
+      "method": "Independent mpmath zeta/gamma log magnitudes, phases, derivatives and HardyZ"
+    },
+    {
+      "id": "extended-heat",
+      "label": "Extended heat against 90-digit convolution",
+      "referencePoints": 10,
+      "passed": true,
+      "metrics": {
+        "logMagnitude": 2.7284841053187847e-12,
+        "phaseRadians": 6.712393485821993e-12,
+        "normalizedLogDerivative": 5.450342652156008e-12
+      },
+      "method": "Independently computed 80-node Gauss–Hermite rule at 90 decimal digits; app uses 32 nodes"
+    }
+  ],
+  "extendedErrorMetric": {
+    "logMagnitude": "absolute difference of natural logarithms of |F|",
+    "phaseRadians": "wrapped phase difference in radians",
+    "normalizedLogDerivative": "|q_computed-q_reference| / max(1,|q_reference|), where q=F_prime/F",
+    "derivativeLogMagnitude": "absolute difference of natural logarithms of |F_prime|"
+  },
+  "heatExtended": {
+    "identity": "F_tau(s)=pi^(-1/2) integral_R exp(-v^2) xi(s+sqrt(tau)*v) dv; sqrt(tau)=i*sqrt(-tau) for negative tau",
+    "method": "32-node Gauss–Hermite outside the core window; 64-node convergence diagnostic",
+    "sameClassicalTimeNormalization": true
+  }
+}

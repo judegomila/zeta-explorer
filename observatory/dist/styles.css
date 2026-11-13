@@ -13,3 +13,9 @@
 .main-stage{overflow-y:auto;scrollbar-width:thin;scrollbar-color:#344151 transparent}.stage-toolbar{position:sticky;top:0;z-index:4}.viewport-wrap{flex:none;width:100%;height:calc(100dvh - 129px);aspect-ratio:auto;min-height:480px}.projective-workbench{scroll-margin-top:60px}@media(max-width:760px){.viewport-wrap{height:calc(100dvh - 174px);min-height:400px}.projective-workbench{scroll-margin-top:85px}}
 
 .fiber-controls{background:#111b27}.fiber-controls .select-row{align-items:flex-start;flex-direction:column;gap:6px}.fiber-controls .select-row select{width:100%}.fiber-controls .range-label{margin-top:16px}.fiber-controls .control-note{font-size:10px}.geometry-buttons{flex-shrink:0}@media(max-width:760px){.geometry-buttons{flex-wrap:wrap;justify-content:flex-start;flex-basis:100%;gap:2px}.geometry-buttons button{padding:7px 8px}.stage-toolbar{min-height:80px}}
+
+/* Dynamics replaces the active scene while retaining shared navigation. */
+body[data-dynamics="true"] .main-stage>.viewport-wrap,body[data-dynamics="true"] .main-stage>.analysis-strip,body[data-dynamics="true"] .main-stage>.stage-status,body[data-dynamics="true"] #projectiveWorkbench,body[data-dynamics="true"] #fiberWorkbench,body[data-dynamics="true"] #packetPanel{display:none!important}
+body[data-dynamics="true"] .sidebar .control-scroll>:not(:first-child):not(#dynamicsControls):not(.export-section){display:none!important}
+body[data-dynamics="true"] #inspector>.inspector-scroll:not(#dynamicsInspector),body[data-dynamics="true"] .view-actions>:not(#focusBtn){display:none!important}
+.stage-toolbar .geometry-buttons{min-width:0;overflow-x:auto;scrollbar-width:none;flex-shrink:1}.geometry-buttons button{flex-shrink:0}

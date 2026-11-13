@@ -12,7 +12,7 @@
 <body>
 <header><a href="./">← Back to the observatory</a><span class="brand">Zeta Observatory / Methods</span></header>
 <div class="wrap">
-<nav aria-label="Methods contents"><div class="label">Methods reference</div><a href="#functions">01 · Functions & coordinates</a><a href="#encoding">02 · Height & rainbow phase</a><a href="#vortices">03 · Vortices & shear</a><a href="#sphere">04 · Sphere mounting</a><a href="#torus">05 · Exact elliptic torus</a><a href="#projective">05b · Projective atlas</a><a href="#spinor">05c · Spinor & Hopf fiber</a><a href="#twistor">05d · Euclidean twistor view</a><a href="#ladder">06 · Twin ladder & packets</a><a href="#heat">07 · Theta heat flow</a><a href="#numerics">08 · Numerical scope</a><a href="#playback">09 · Cache & playback</a><a href="#research">10 · Research interpretation</a><a href="#sources">11 · Sources</a></nav>
+<nav aria-label="Methods contents"><div class="label">Methods reference</div><a href="#functions">01 · Functions & coordinates</a><a href="#encoding">02 · Height & rainbow phase</a><a href="#vortices">03 · Vortices & shear</a><a href="#sphere">04 · Sphere mounting</a><a href="#torus">05 · Exact elliptic torus</a><a href="#projective">05b · Projective atlas</a><a href="#spinor">05c · Spinor & Hopf fiber</a><a href="#twistor">05d · Euclidean twistor view</a><a href="#ladder">06 · Twin ladder & packets</a><a href="#heat">07 · Theta heat flow</a><a href="#dynamics">07b · Dynamics & trapping</a><a href="#numerics">08 · Numerical scope</a><a href="#playback">09 · Cache & playback</a><a href="#research">10 · Research interpretation</a><a href="#sources">11 · Sources</a></nav>
 <main>
 <div class="eyebrow">Read the geometry through the mathematics</div>
 <h1>A field guide to<br>the observatory.</h1>
@@ -207,6 +207,40 @@ Fτ(½+a) = ∫ℝ κτ(u) exp(au/2) du</div>
 ∂τfτ = −(1−cos θ)² ∂θ²fτ − (1−cos θ)sin θ ∂θfτ
 <span class="note">At θ=0 the second-derivative coefficient vanishes to fourth order. The degeneration records coordinate compression near infinity, not a new dynamical boundary condition.</span></div>
 <p>Λ is the threshold for all zeros of Hτ to be real. Rodgers–Tao established Λ≥0. A lower positive bound would contradict RH; reducing an upper bound toward zero is the direction compatible with proving RH. This finite visualization does not establish either a bound or its global hypotheses.</p>
+
+<h2 id="dynamics">07b / Dynamics, perturbations &amp; zero trapping</h2>
+<p>The <a href="./?view=dynamics">Dynamics laboratory</a> turns the phase-field and finite-zero experiments into a playable, reproducible view. It uses three distinct kinds of evolution: probes moving through a fixed analytic field, a complex field changing under a specified operation, and a finite system whose zeros evolve under an explicit model. Each mode identifies its kind in the live inspector.</p>
+<div class="table-wrap"><table><thead><tr><th>Mode</th><th>What moves</th><th>Interpretation</th></tr></thead><tbody>
+<tr><td>Vortex phase flow</td><td>Numerical probes in the actual completed ξ field.</td><td>Phase circulation follows amplitude contours away from singularities.</td></tr>
+<tr><td>Dissipative relaxation</td><td>Probes following amplitude descent.</td><td>Observed probe capture leaves the underlying ξ function unchanged.</td></tr>
+<tr><td>Seeded random walk</td><td>Probes with drift and reproducible Gaussian increments in (σ,t).</td><td>A bounded spectral-plane stochastic experiment.</td></tr>
+<tr><td>Shifted-field cancellation</td><td>The field U − A exp(iφ)V, where U=ξ(s+a), V=ξ(s−a).</td><td>Additive interference can move its zeros; these are zeros of the combined field.</td></tr>
+<tr><td>Bounded heat</td><td>A perturbed complex grid under spatial diffusion.</td><td>A finite boundary-value experiment; distinct from the theta heat family above.</td></tr>
+<tr><td>Zero trapping model</td><td>A finite interacting set with imposed transverse confinement and optional forcing.</td><td>Tests the mechanics of a chosen model and its perturbations.</td></tr>
+<tr><td>Heat collisions</td><td>Roots of a finite polynomial evolved by exp(−τD²).</td><td>The coefficient evolution is exact; displayed root locations use numerical solving except the explicit cubic.</td></tr>
+</tbody></table></div>
+<h3>Phase current, dissipation and diffusion</h3>
+<div class="equation">U = log|ξ|,  Φ = arg ξ,  q = ξ′/ξ
+∇U = (Re q, −Im q),  ∇Φ = (Im q, Re q)
+b = −α∇U + β∇Φ
+Formal deterministic identity: dU/du = −α|∇U|²
+Random-walk increment: Δr = b Δu + √(2D Δu) N(0,I)
+<span class="note">The numerical integrator regularizes singular speeds and uses finite steps. The formal identity applies to the unregularized, continuous deterministic field away from zeros; a bounded boundary rule and stochastic noise add different effects.</span></div>
+<p>The component signs follow from the <a href="https://dlmf.nist.gov/1.9.E25" target="_blank" rel="noopener">Cauchy–Riemann equations</a>. Phase circulation alone is tangent to log-amplitude contours. A small raw |ξ| is not a sufficient capture test, because ξ decays rapidly with height; the lab instead uses scale-independent local root diagnostics. Candidate counts and winding measurements remain finite numerical observations.</p>
+<h3>Additive cancellation and bounded spatial heat</h3>
+<p>The cancellation mode evaluates a shifted-pair interference field. At a fixed parameter setting it is a specified entire function. Adjusting its relative phase or amplitude changes that function. Play sweeps the relative phase at the selected phase rate; setting that rate to zero holds the field fixed. A common phase multiplier applied to one unchanged function would preserve its zeros, since <a href="https://dlmf.nist.gov/4.2.iii" target="_blank" rel="noopener">the exponential never vanishes</a>.</p>
+<div class="equation">F(s) = ξ(s+a) − A exp(iφ) ξ(s−a)
+Spatial heat: ∂u f = D(∂σσ f + ∂tt f)
+<span class="note">Spatial heat evolves the real and imaginary grid components, with the selected boundary rule. Analytic ξ is harmonic in the continuum; the added perturbation supplies nonharmonic structure to relax. A finite-difference discretization also introduces truncation error.</span></div>
+<h3>Finite polynomial collisions and forced zero models</h3>
+<p>The six-real, Lehmer-type, eight-real and quartet starting polynomials follow the coefficient-heat experiments in <a href="https://github.com/judegomila/mathexplorer" target="_blank" rel="noopener">Math Explorer</a>. An explicit cubic provides a collision whose roots are known directly:</p>
+<div class="equation">Pτ(z) = exp(−τD²)P₀(z)
+P₀(z) = z(z²+b²)  ⇒  Pτ(z) = z(z²+b²−6τ)
+Roots: 0 and ±√(6τ−b²)
+<span class="note">At τ=b²/6 the cubic has a multiple root. Before and after that time the pair changes between imaginary and real positions. This is a finite-polynomial mechanism, not a computed violation of RH.</span></div>
+<p>For the actual theta family, zero motion is obtained by differentiating the changing function at a simple zero. In this app’s s coordinate it is <code>dρ/dτ = −F″/(4F′)</code>. The full de Bruijn–Newman zero interaction is an infinite, appropriately summed system; see <a href="https://terrytao.wordpress.com/2018/01/19/the-de-bruijn-newman-constant-is-non-negativ/" target="_blank" rel="noopener">Rodgers and Tao’s explanation</a>. The lab’s finite trapping system exposes its imposed confinement and forcing as controls. Future capture in such a system does not establish that the original ξ zeros are globally trapped.</p>
+<h3>Reproduce an experiment</h3>
+<p>The lab uses a seeded random generator and fixed simulation steps. Mode, parameters, overlay choices, seed and step index are included in the view URL. Play changes the address at a bounded cadence; Pause and Copy view link record the exact current step. Opening that URL replays deterministically to the selected step and remains paused. Parameters reset the trajectory; display overlays retain it. The actual theta heat view continues to use the buffered evaluator described above.</p>
 
 <h2 id="numerics">08 / Numerical scope & reproducibility</h2>
 <p>The browser uses ordinary IEEE-754 double precision. ζ uses Euler–Maclaurin summation with 12 Bernoulli corrections and functional-equation continuation into the left half-plane. ξ uses the completed function with reflected evaluation and removable endpoint values. No nontrivial zeros are inserted into those evaluations.</p>

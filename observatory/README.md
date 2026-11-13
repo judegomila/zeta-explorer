@@ -28,7 +28,7 @@ The projective atlas, linked bridge/Bloch point state, derivative disk, spinor l
 Direct entry links on any host are [`?view=projective`](https://zeta-view.vercel.app/?view=projective), [`?view=projectiveSphere`](https://zeta-view.vercel.app/?view=projectiveSphere), [`?view=spinor`](https://zeta-view.vercel.app/?view=spinor), and [`?view=twistor`](https://zeta-view.vercel.app/?view=twistor). They select the corresponding preset regardless of an older browser-local view.
 
 1. Click **Projective** beside Plane, Sphere, and Torus. Alternatively choose **Projective · elliptic double cover** or **Projective · domain sphere** under Starting point.
-2. In **Projective geometry**, select **Elliptic torus Eᵣ** or **Projective sphere ℂℙ¹** as the Domain view. The main viewport stays 4:3; its phase, relief, twin ladder, and other existing layers remain available.
+2. In **Projective geometry**, select **Elliptic torus Eᵣ** or **Projective sphere ℂℙ¹** as the Domain view. The main viewport fills the available screen height; its phase, relief, twin ladder, and other existing layers remain available.
 3. Choose a Point state: **Domain [s₀−1:s₀]**, **Shifted pair [U:V]**, or **Derivative disk**. The derivative case exposes its positive scale ℓ.
 4. Click a surface point, enter coordinates in the inspector, or use the **Anti-bridge · ½** and **First ξ zero** shortcuts. **Open the linked point panels** moves to the workbench below the viewport: a target sphere/disk and a two-sphere atlas with crosswise branch cuts. Both follow the inspected point.
 5. Use **Original projective chart · L = 1** for the literal construction from the projective notes. The presets start at **r = 2, L = 24** to separate high zeros visually. Selecting an ordinary Plane, Sphere, or Torus button leaves projective mode.
@@ -77,6 +77,26 @@ The twistor mode explicitly chooses the quaternionic structure `(X₀ + jX₁, X
 The address bar updates automatically as views, controls, the inspected point, or the camera change. Copy the current URL, or use **Copy link**, to reopen the same configuration elsewhere. The short `view` name is accompanied by exact state, probe, and camera overrides when needed. Discrete view changes participate in browser Back/Forward navigation; slider and camera updates replace the current history entry.
 
 Loading a shared URL takes precedence over a saved local view. Links restore a paused scene and do not include notebook notes or computed arrays. Legacy `#view=…` links still load. The view is recomputed or loaded from its exact cache as usual, so a share link does not require somebody else's browser storage.
+
+## Play the dynamics experiments
+
+Open **Dynamics** in the top toolbar, or choose a dynamics starting point:
+
+| URL preset | What evolves |
+| --- | --- |
+| `?view=dynamics` | Tracers circulating through the actual completed ξ phase field |
+| `?view=relaxation` | Dissipative probe trajectories in that fixed field |
+| `?view=randomWalk` | Seeded, bounded spectral-plane random walks with adjustable drift |
+| `?view=phaseCancel` | The additive shifted field ξ(s+a) − A exp(iφ) ξ(s−a) |
+| `?view=boundedHeat` | A perturbed complex grid under spatial diffusion in a bounded box |
+| `?view=zeroTrap` | A finite interacting-zero model with imposed confinement and optional forcing |
+| `?view=heatCollision` | Exact coefficient heat evolution of finite polynomials and numerical root tracking |
+
+Use **Play**, **Step**, **Reset**, **Perturb**, and the simulation-step slider. The controls expose the seed, drift, circulation, diffusion, interference, and model parameters relevant to the selected experiment. Phase color, velocity, trails, and zero markers can be shown independently. The live diagnostics identify whether the picture uses actual ξ samples, a numerical grid, or an explicit finite model.
+
+The URL stores the seed, parameters, overlays, and fixed simulation step. It updates during playback at a bounded rate and captures the current step exactly on Pause or Copy view link. Opening a link reconstructs that step and stays paused. Random walks are reproducible in the same numerical engine; they are not intrinsic Brownian motion on the sphere or torus.
+
+The finite-polynomial collision presets carry across the six-real, Lehmer-type, eight-real, and quartet experiments from Math Explorer, with an exact cubic collision example. **Open actual theta heat** returns to the existing independently evaluated de Bruijn–Newman family. The bounded spatial heat grid and the finite zero-interaction model are separate experiments. Full equations, provenance, numerical choices, and limits are in [docs/DYNAMICS.md](docs/DYNAMICS.md) and the in-app methods reference.
 
 ## Run locally
 
@@ -152,6 +172,8 @@ Height normalization, chart lenses, masking, interpolation, finite root coverage
 | `dist/math.js` | Raw/log-polar values, analytic derivatives, theta integration and extended Gaussian heat convolution |
 | `dist/domain.js` | Shared finite computation bounds and core/extended controls |
 | `dist/elliptic.js` | Jacobi uniformization, deck exchange, both inverse lifts and landmarks |
+| `dist/dynamics.js` | Deterministic phase, relaxation, random-walk, interference, bounded-heat, trapping and polynomial mechanics |
+| `dist/dynamics-panel.js` | Live dynamics controls, canvas rendering, replay, playback and diagnostics |
 | `dist/geometry.js` | Exact charts, complete critical guides and clustered mesh axes |
 | `dist/projective.js` | Scale-safe homogeneous pairs, Bloch coordinates, derivative Cayley chart and ℂℙ³ curve coordinates |
 | `dist/projective-panel.js` | Linked selected-point sphere/disk and two-sphere branch-cut atlas |

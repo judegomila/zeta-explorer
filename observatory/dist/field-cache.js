@@ -19,7 +19,12 @@ export function fieldKey(state = {}) {
   if(!['plane','sphere','torus'].includes(geometry)||!['zeta','xi','heat'].includes(kind)||!['core','extended'].includes(extent)||!['draft','standard','high','ultra'].includes(resolution))throw new TypeError('Unknown numerical cache mode');
   const bridge=state.colorMode==='bridge',flow=!!state.vortices,ladder=!!(state.ladder||state.packets);
   const chart=geometry==='plane'?[number(state,'sigmaMin'),number(state,'sigmaMax'),number(state,'tMin'),number(state,'tMax')]:[number(state,'chartScale'),geometry==='torus'?number(state,'torusR'):null];
-  return JSON.stringify([FIELD_CACHE_VERSION,geometry,kind,kind==='heat'?number(state,'tau'):null,extent,resolution,chart,bridge,flow,ladder,bridge||ladder?number(state,'bridgeA'):null]);
+  const key=[FIELD_CACHE_VERSION,geometry,kind,kind==='heat'?number(state,'tau'):null,extent,resolution,chart,bridge,flow,ladder,bridge||ladder?number(state,'bridgeA'):null];
+  // Keep every shipped legacy key unchanged. The new atlas changes sphere
+  // coordinates and curved-surface landmarks, so it owns a separate namespace.
+  // Inspector channels and derivative scale do not change a sampled field.
+  if(state.projective&&geometry!=='plane')key.push(['projective-atlas-v1',number(state,'torusR')]);
+  return JSON.stringify(key);
 }
 function currentKey(key){try{return JSON.parse(key)?.[0]===FIELD_CACHE_VERSION;}catch{return false;}}
 function keyFor(state){if(typeof state!=='string')return fieldKey(state);if(!currentKey(state))throw new TypeError('Cache key belongs to another engine version');return state;}

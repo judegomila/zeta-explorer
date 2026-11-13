@@ -1,5 +1,5 @@
 import { evaluatePolar, heatXi, hardyZ, ZERO_HEIGHTS } from './math.js';
-import { surfacePoint, inversePoint, liftPoint, wrap, sampleAxes } from './geometry.js';
+import { surfacePoint, inversePoint, liftPoint, wrap, sampleAxes, projectiveGuides } from './geometry.js';
 import { domainFor, withinDomain } from './domain.js';
 import { computeCriticalSamples, computeLandmarkValues } from './critical-samples.js';
 
@@ -123,5 +123,6 @@ export function sampleField(inputState,{onProgress=()=>{}}={}){
   }
   onProgress('Tracing geometry');
   const data={nx,ny,uvs,uAxis:axes.u,vAxis:axes.v,coords,values,logAbs,arg,rawRepresentable,sampleWeights,basePositions,normals,valid,bridge,domain:state._domain,kind:state.function,zeroPoints:rootMarkers(state),ladderLines:ladder(state),flowLines:flow(state),criticalSamples:computeCriticalSamples(state,state._domain,axes),landmarkValues:computeLandmarkValues(state,state._domain),slice:computeSlice(state),validCount:count,logOnlyCount,maxSampleT,ms:performance.now()-start};
+  if(state.projective)data.projectiveGuides=projectiveGuides(state);
   return data;
 }

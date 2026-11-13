@@ -30,7 +30,7 @@ function weightedLogQuantile(data, logs, quantile = .95) {
   return 0;
 }
 function renderStyleSignature(state) {
-  return JSON.stringify(['geometry','function','tau','heightMode','height','colorMode','phaseOffset','exposure','opacity','wireframe','contours','critical','zeros','vortices','ladder','packets','seams','heightLocked','heightLogReference','heightReference','resolution','playing'].map(k=>state[k]));
+  return JSON.stringify(['geometry','projective','function','tau','heightMode','height','colorMode','phaseOffset','exposure','opacity','wireframe','contours','critical','zeros','vortices','ladder','packets','seams','heightLocked','heightLogReference','heightReference','resolution','playing'].map(k=>state[k]));
 }
 function sampleMetadata(data) {
   const logs=data.logAbs||Float64Array.from(data.valid,(_,i)=>logMagnitude(data.values[2*i],data.values[2*i+1]));
@@ -167,6 +167,10 @@ export class CanvasZetaScene {
     if(this.state.seams&&this.state.geometry!=='plane'){
       for(const v of [0,1])this.addPath(Array.from({length:d.nx+1},(_,i)=>{const k=Math.round(v*d.ny)*(d.nx+1)+i;return [d.basePositions[3*k],d.basePositions[3*k+1],d.basePositions[3*k+2]];}),'#718199',.5,true);
       for(const u of [0,1])this.addPath(Array.from({length:d.ny+1},(_,j)=>{const k=j*(d.nx+1)+Math.round(u*d.nx);return [d.basePositions[3*k],d.basePositions[3*k+1],d.basePositions[3*k+2]];}),'#718199',.5,true);
+      if(this.state.projective)for(const guide of d.projectiveGuides||[]){
+        const points=guide.points.map((p,i)=>p.map((x,k)=>x+guide.normals[i][k]*.045));
+        this.addPath(points,guide.color,1.2,true,.85);
+      }
     }
     if(this.state.vortices)for(const line of d.flowLines||[])this.addPath(this.raiseLine(line,.06),colorHex(line.color||'#e7ffee'),.65);
     if(this.state.ladder||this.state.packets)for(const [i,line]of(d.ladderLines||[]).entries()){
@@ -246,12 +250,12 @@ export class CanvasZetaScene {
   addPath(points,color,width=1,dashed=false,opacity=.82){if(points.length>1)this.paths.push({points,color,width,dashed,opacity});}
 
   addLandmarks(){
-    if(this.state.geometry==='torus'&&!(this.state.ladder||this.state.critical))return;
+    if(this.state.geometry==='torus'&&!this.state.projective&&!(this.state.ladder||this.state.critical))return;
     for(const marker of this.data.landmarkValues||[]){
-      if(this.state.geometry==='torus'&&!this.state.ladder&&marker.kind!=='puncture')continue;
+      if(this.state.geometry==='torus'&&!this.state.projective&&!this.state.ladder&&marker.kind!=='puncture')continue;
       const h=(marker.polar?this.heightPolar(marker.polar.logAbs,marker.polar.arg):0)+.08;
       this.markers.push({point:marker.position.map((x,k)=>x+marker.normal[k]*h),
-        color:marker.kind==='puncture'?'#9aacc5':marker.kind==='anti'?'#ffe3a4':'#a3b6db',
+        color:marker.kind==='puncture'?'#9aacc5':marker.kind==='anti'?'#ffe3a4':marker.kind==='chart'?'#83e8e5':'#a3b6db',
         label:marker.kind==='branch'?'branch · '+marker.label:marker.label,ring:true,size:marker.kind==='branch'?2.5:4});
     }
   }
@@ -259,7 +263,7 @@ export class CanvasZetaScene {
   updateStyle(state){
     const old=this.state,previousLogReference=this.logReference;this.state={...this.state,...state};
     this.syncReference();
-    if(this.data&&['height','heightMode','heightReference','heightLocked','heightLogReference','colorMode','phaseOffset','opacity','wireframe','exposure','contours','critical','zeros','vortices','ladder','packets','seams','playing'].some(k=>old[k]!==this.state[k]))this.prepare();
+    if(this.data&&['projective','height','heightMode','heightReference','heightLocked','heightLogReference','colorMode','phaseOffset','opacity','wireframe','exposure','contours','critical','zeros','vortices','ladder','packets','seams','playing'].some(k=>old[k]!==this.state[k]))this.prepare();
     this.preparedSignature=renderStyleSignature(this.state);
     if(this.data&&old.playing!==this.state.playing)this.refreshProbe();
     if(this.data&&(previousLogReference!==this.logReference||old.playing!==this.state.playing)){

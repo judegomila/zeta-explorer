@@ -2,15 +2,17 @@
 
 A dedicated mathematical geometry workbench for the Riemann zeta function, with private source at [judegomila/zeta-view](https://github.com/judegomila/zeta-view).
 
-The app is self-contained and runs on any static HTTP(S) host. Vercel serves the checked-in `dist/` directory using `vercel.json`; no ChatGPT runtime, API key, database, installation, or build step is required. The application keeps the Zeta Observatory name.
+The app is self-contained and runs on any static HTTP(S) host. Vercel serves `dist/` using `vercel.json` and prepares the projective numerical pack during deployment. Local serving requires no build, ChatGPT runtime, API key, or database. The application keeps the Zeta Observatory name.
 
-See [the development roadmap](docs/ROADMAP.md) for the projective, bridge/Bloch, shear, complex heat-zero, and Pick/Schur views discussed for the next releases. These are proposed extensions, not features of this migration.
+The projective atlas, linked bridge/Bloch point state, and derivative disk are implemented. See [the development roadmap](docs/ROADMAP.md) for their current scope and the proposed global shear, complex heat-zero, and Pick/Schur extensions.
 
 ## Features
 
 - Euler–Maclaurin analytic continuation of ζ, completed ξ, and the actual theta-integral de Bruijn–Newman family.
 - Complex phase, modulus, real/imaginary sign, and normalized bridge balance; logarithmic or signed height surfaces.
 - Plane, inverse stereographic sphere, and the exact elliptic double cover from Math Explorer PRs 43 and 49.
+- A Projective toggle with a domain sphere or elliptic torus, reciprocal charts, infinity/anti-bridge markers, branch cuts, and linked two-sphere and homogeneous-coordinate readouts.
+- Selected-point domain, shifted-pair Bloch sphere, and derivative Cayley disk, with scale-safe polar arithmetic and explicit unresolved states.
 - Critical line/two ovals, reference zero markers, limited sampled heat roots, Re/Im contours and transported phase-gradient streamlines.
 - Surface-conforming conjugate-aligned twin ladders and finite prime-power packet experiments with independent display time.
 - A freshly evaluated point inspector, sampled contour winding, critical-line profile and linked phase atlas.
@@ -18,6 +20,45 @@ See [the development roadmap](docs/ROADMAP.md) for the projective, bridge/Bloch,
 - Fully buffered heat playback with 9, 17, or 33 independently evaluated frames, frame scrubbing, explicit forward/reverse direction, and a common locked height reference.
 - Saved browser-local viewpoints and observations, portable session JSON including camera, numerical grid CSV with raw and log-polar values, PNG snapshots and URL-encoded views.
 - GPU rendering plus an automatic Canvas2D 3D fallback using the same mathematical mesh.
+
+## Use the projective views
+
+1. Click **Projective** beside Plane, Sphere, and Torus. Alternatively choose **Projective · elliptic double cover** or **Projective · domain sphere** under Starting point.
+2. In **Projective geometry**, select **Elliptic torus Eᵣ** or **Projective sphere ℂℙ¹** as the Domain view. The main viewport stays 4:3; its phase, relief, twin ladder, and other existing layers remain available.
+3. Choose a Point state: **Domain [s₀−1:s₀]**, **Shifted pair [U:V]**, or **Derivative disk**. The derivative case exposes its positive scale ℓ.
+4. Click a surface point, enter coordinates in the inspector, or use the **Anti-bridge · ½** and **First ξ zero** shortcuts. **Open the linked point panels** moves to the workbench below the viewport: a target sphere/disk and a two-sphere atlas with crosswise branch cuts. Both follow the inspected point.
+5. Use **Original projective chart · L = 1** for the literal construction from the projective notes. The presets start at **r = 2, L = 24** to separate high zeros visually. Selecting an ordinary Plane, Sphere, or Torus button leaves projective mode.
+
+The domain chart is
+
+```text
+s₀ = 1/2 + (s - 1/2)/L,
+w = [s₀ - 1 : s₀],
+s = 1/2 + L(1/(1-w) - 1/2).
+```
+
+At L = 1 this is exactly w = (s−1)/s. The critical line becomes |w| = 1. Spectral infinity is **w = 1**; the anti-bridge is **w = −1**, at s = 1/2. The reciprocal-chart point **w = ∞** is regular and maps to finite s = 1/2 − L/2. These points have different markers and are never conflated. Increasing L changes the finite spectral chart explicitly; it does not extend the evaluator to infinity.
+
+The elliptic cover is η² = (w² + r²)(w² + r⁻²), with branch values ±ir and ±i/r. Its two sheets are joined crosswise along the marked cuts. The inspector records the projective point [X₀:X₁:X₂:X₃] = [1:w:w²:η] in a scale-safe chart, satisfying
+
+```text
+X₁² = X₀X₂,
+X₃² = X₀² + (r² + r⁻²)X₁² + X₂².
+```
+
+The three-dimensional torus is a display embedding of this elliptic surface; the coordinate readout supplies the ℂℙ³ model. Each ordinary ξ zero has two lifts with the same local winding in the holomorphic orientation. The anti-bridge of ξ is a nonzero phase saddle, not an additional zero. Opposite zero/pole winding in the shifted ratio can cancel in a contour count; this does not cancel the zeros of ξ.
+
+The point-state channels have separate meanings:
+
+| Point state | What is displayed |
+| --- | --- |
+| Domain | The input coordinate [s₀−1:s₀], switching between w and 1/w as needed. |
+| Shifted pair | [U:V] = [G(s+a):G(s−a)] on a Bloch sphere. The vertical coordinate is (|U|²−|V|²)/(|U|²+|V|²); the other coordinates retain relative phase. |
+| Derivative disk | C = (G−ℓG′)/(G+ℓG′). Where G is nonzero and the chart is finite, |C| < 1 corresponds to Re(G′/G) > 0. |
+
+The bridge and derivative channels use G = ξ, or the actual heat family Fτ when Heat is selected. They retain log-polar information when raw values underflow. Simultaneous homogeneous zeros and ill-conditioned signs are marked unresolved. Every simple function zero maps to C = −1 regardless of its input location, so this display alone does not constrain zero locations. Infinity remains a puncture of the pulled-back transcendental function; no limiting phase or function value is assigned there.
+
+Projective point calculations pause during buffered playback. Pause and inspect a coordinate to refresh them. Saved views and session exports retain the projective mode, selected channel, lens, and derivative scale.
 
 ## Run locally
 
@@ -43,7 +84,7 @@ python3 -m http.server 8080 --directory dist
 
 Edit the source modules directly in `dist/`. They are the maintained application source, not disposable build output. Run `npm test` after numerical or rendering changes. The checked-in runtime dependencies make both serving and the Node.js test suite usable without an install step. The optional Python reference generators require `mpmath`.
 
-Vercel configuration is in `vercel.json` (Other framework, output `dist`, no install or build command). Connect the private repository with `main` as the production branch. GitHub source privacy and Vercel deployment access are separate settings; maintain the intended deployment protection when changing hosts.
+Vercel configuration is in `vercel.json` (Other framework, output `dist`, no install command). Its build command runs `node scripts/build-projective-precache.mjs` to extend the shipped pack with default projective fields. Connect the private repository with `main` as the production branch. GitHub source privacy and Vercel deployment access are separate settings; maintain the intended deployment protection when changing hosts.
 
 The browser's saved views, notes, and computed cache belong to the current origin. To move an existing notebook, export its session JSON from the old host and import it on the new host. Computed caches populate independently; the shipped precache assets move with the repository.
 
@@ -57,7 +98,9 @@ The field loader checks memory, IndexedDB, and the shipped numerical pack before
 
 The memory cache has a **128 MiB** budget. IndexedDB has a **256 MiB** configured budget, reduced when the browser reports limited available storage. Both evict the least recently used fields. Persistence is best effort: unavailable storage or quota pressure falls back to memory and fresh computation. **Clear cache** removes computed views and the active clip while keeping saved viewpoints, notes, and exported sessions separate.
 
-The starter pack contains **78 independently computed fields exposed through 155 exact keys**, with shared geometry and optional ladder-overlay aliases. Its **59.32 MB** of compressed assets are loaded on demand; this is the complete pack size, not a compulsory initial download. It includes ζ and ξ on all three default mounts, several research presets, and 17 heat frames at τ = −0.30, −0.25, …, 0.50 for the default plane, sphere, torus, and narrower heat-preset plane window. Those are Standard-density samples from the same numerical engine as a custom worker calculation. Caching changes when the work happens; it does not improve the precision or mathematical accuracy of a field.
+The original starter pack contains **78 independently computed fields exposed through 155 exact keys**, with shared geometry and optional ladder-overlay aliases. Its **59.32 MB** of compressed assets are loaded on demand; this is the original pack size, not a compulsory initial download. It includes ζ and ξ on all three ordinary mounts, several research presets, and 17 heat frames at τ = −0.30, −0.25, …, 0.50 for the default plane, sphere, torus, and narrower heat-preset plane window.
+
+The deployment build preserves that pack and adds **38 default projective fields**: ζ and ξ on the projective sphere and torus, plus 17 heat frames for each projective geometry. These use r = 2, L = 24 and Standard density. Custom lens values, densities, or numerical overlays can require a fresh calculation. Projective field keys are distinct from ordinary chart keys; display-only point-state controls reuse the underlying field. All packed samples come from the same numerical engine as custom worker calculations. Caching changes when the work happens; it does not improve the precision or mathematical accuracy of a field.
 
 In **Cache & playback**, choose the heat range, 9/17/33 exact frames, and **Responsive**, **Standard**, or **Current mesh density**. **Prepare heat frames** loads or computes every frame before the sequence is ready. **Play** performs the same preparation automatically if needed. The active clip has a separate **192 MiB** memory limit; an oversized request asks for fewer frames or Responsive density instead of silently reducing the chosen density. Custom ranges and denser sequences compute any frames that are absent from the cache. **Precache modes** prepares the nine chart/function combinations for the current numerical settings.
 
@@ -71,9 +114,10 @@ Live point and derivative inspection is held during playback. **Inspect** pauses
 
 ```sh
 node scripts/build-precache.mjs
+node scripts/build-projective-precache.mjs
 ```
 
-The script uses the shared sampler, writes `dist/precache/manifest.json`, and stores lossless binary frames compressed with gzip. Shared mesh files avoid repeating geometry at every heat time. The codec preserves typed-array bytes, nonfinite puncture coordinates, and signed zero. The browser decodes supported compressed assets and otherwise falls back to the numerical worker. Existing entries with the current engine/codec version can be reused when rebuilding; bump the numerical version after changing numerical or sampling behavior.
+The base script uses the shared sampler, writes `dist/precache/manifest.json`, and stores lossless binary frames compressed with gzip. The projective script extends the manifest with the default projective fields and preserves existing entries. Shared mesh files avoid repeating geometry at every heat time. The codec preserves typed-array bytes, nonfinite puncture coordinates, and signed zero. The browser decodes supported compressed assets and otherwise falls back to the numerical worker. Existing entries with the current engine/codec version can be reused when rebuilding; bump the numerical version after changing numerical or sampling behavior.
 
 For a smaller development build, use `--base-only` or `--without-heat-preset`. `--out <directory>` selects another output directory. Tests cover codec round trips, exact manifest keys, independent frame values, the worker sampler, cache behavior, and buffered sequence preparation.
 
@@ -91,6 +135,8 @@ Height normalization, chart lenses, masking, interpolation, finite root coverage
 | `dist/domain.js` | Shared finite computation bounds and core/extended controls |
 | `dist/elliptic.js` | Jacobi uniformization, deck exchange, both inverse lifts and landmarks |
 | `dist/geometry.js` | Exact charts, complete critical guides and clustered mesh axes |
+| `dist/projective.js` | Scale-safe homogeneous pairs, Bloch coordinates, derivative Cayley chart and ℂℙ³ curve coordinates |
+| `dist/projective-panel.js` | Linked selected-point sphere/disk and two-sphere branch-cut atlas |
 | `dist/sampler.js` | Shared pure mesh sampler, finite bridge comparisons, flow curves, markers and critical-line inset |
 | `dist/sample-worker.js` | Browser worker wrapper and transferable buffers |
 | `dist/critical-samples.js` | Numerical critical traces and landmark values prepared with each frame |
@@ -100,9 +146,11 @@ Height normalization, chart lenses, masking, interpolation, finite root coverage
 | `dist/cache-codec.js` | Lossless binary frame encoder and decoder |
 | `dist/precache/manifest.json` | On-demand numerical assets and exact settings for each shipped frame |
 | `scripts/build-precache.mjs` | Reproducible offline starter-pack generation |
+| `scripts/build-projective-precache.mjs` | Default projective fields and heat sequences added during deployment |
 | `dist/renderer.js` | Three.js GPU renderer |
 | `dist/canvas-renderer.js` | Software 3D fallback |
 | `dist/app.js` | Research controls, probes, winding, storage and export |
 | `tests/` | Independent reference fixtures and mathematical integration checks |
 
 Three.js 0.180.0 is vendored with its MIT license. No external scripts, web fonts, analytics or back-end data services are required at runtime. The on-demand frame files are part of this static app. Saved notebooks use the current browser's local storage; computed fields use their separate cache. Export session JSON for a portable copy of a viewpoint and its notes.
+

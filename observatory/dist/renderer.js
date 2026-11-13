@@ -32,7 +32,7 @@ function weightedLogQuantile(data, logs, quantile = .95) {
   return 0;
 }
 function renderStyleSignature(state) {
-  return JSON.stringify(['geometry','function','tau','heightMode','height','colorMode','phaseOffset','exposure','opacity','wireframe','contours','critical','zeros','vortices','ladder','packets','seams','heightLocked','heightLogReference','heightReference','resolution'].map(k=>state[k]));
+  return JSON.stringify(['geometry','projective','function','tau','heightMode','height','colorMode','phaseOffset','exposure','opacity','wireframe','contours','critical','zeros','vortices','ladder','packets','seams','heightLocked','heightLogReference','heightReference','resolution'].map(k=>state[k]));
 }
 function sampleMetadata(data) {
   const logs=data.logAbs||Float64Array.from(data.valid,(_,i)=>logMagnitude(data.values[2*i],data.values[2*i+1]));
@@ -465,6 +465,10 @@ export class ZetaScene {
       for (let j = 0; j < data.ny; j++) { add(j * (data.nx + 1), (j + 1) * (data.nx + 1)); add(j * (data.nx + 1) + data.nx, (j + 1) * (data.nx + 1) + data.nx); }
       for (let i = 0; i < data.nx; i++) { add(i, i + 1); add(data.ny * (data.nx + 1) + i, data.ny * (data.nx + 1) + i + 1); }
       this.lineSegments(edges, 0xd1ddeb, 0.32);
+      if(this.state.projective)for(const guide of data.projectiveGuides||[]){
+        const points=guide.points.map((p,i)=>new THREE.Vector3(...p).addScaledVector(new THREE.Vector3(...guide.normals[i]),.045));
+        this.pathLine(points,guide.color,.8,true);
+      }
     }
     if (this.state.zeros) {
       const points = data.zeroPoints || [];
@@ -529,13 +533,13 @@ export class ZetaScene {
   }
 
   addLandmarks() {
-    if(this.state.geometry==='torus'&&!(this.state.ladder||this.state.critical))return;
+    if(this.state.geometry==='torus'&&!this.state.projective&&!(this.state.ladder||this.state.critical))return;
     for(const marker of this.data.landmarkValues||[]){
-      if(this.state.geometry==='torus'&&!this.state.ladder&&marker.kind!=='puncture')continue;
+      if(this.state.geometry==='torus'&&!this.state.projective&&!this.state.ladder&&marker.kind!=='puncture')continue;
       const polar=marker.polar;
       this.addZero({...marker,value:polar?[polar.re,polar.im]:[0,0],
         ...(polar?{logAbs:polar.logAbs,arg:polar.arg}:{}),
-        color:marker.kind==='puncture'?0xa9bcd4:marker.kind==='anti'?0xffe3a4:0xa7b9e4,
+        color:marker.kind==='puncture'?0xa9bcd4:marker.kind==='anti'?0xffe3a4:marker.kind==='chart'?0x83e8e5:0xa7b9e4,
         hollow:marker.kind==='puncture',label:marker.kind==='branch'?'branch · '+marker.label:marker.label});
     }
   }
@@ -552,7 +556,7 @@ export class ZetaScene {
       this.syncReference();
       this.buildSurface();
     }
-    if (rebuild || ['contours', 'critical', 'zeros', 'vortices', 'ladder', 'packets', 'seams'].some(key => previous[key] !== this.state[key])) this.buildOverlays();
+    if (rebuild || ['projective', 'contours', 'critical', 'zeros', 'vortices', 'ladder', 'packets', 'seams'].some(key => previous[key] !== this.state[key])) this.buildOverlays();
     this.preparedSignature=renderStyleSignature(this.state);
     if(previous.playing!==this.state.playing)this.refreshProbe();
     if (previousLogReference !== this.logReference) this.onStatus({type:'render',vertices:this.data.valid.length,faces:this.indices.length/3,heightScale:this.reference,reference:this.reference,logReference:this.logReference});

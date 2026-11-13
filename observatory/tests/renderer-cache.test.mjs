@@ -10,7 +10,8 @@ import vm from 'node:vm';
 // ordinary `npm test` remains sufficient to run the guard.
 if(typeof vm.SourceTextModule!=='function'){
   test('cached render/play paths perform no analytic evaluation and preserve cached inputs',{timeout:90000},()=>{
-    const child=spawnSync(process.execPath,['--experimental-vm-modules',fileURLToPath(import.meta.url)],{encoding:'utf8',timeout:80000});
+    const env={...process.env};delete env.NODE_TEST_CONTEXT;
+    const child=spawnSync(process.execPath,['--experimental-vm-modules',fileURLToPath(import.meta.url)],{encoding:'utf8',timeout:80000,env});
     assert.equal(child.status,0,[child.error?.message,child.stdout,child.stderr].filter(Boolean).join('\n'));
   });
 }else{
@@ -28,12 +29,18 @@ if(typeof vm.SourceTextModule!=='function'){
     await module.link(spec=>spec.includes('math.js')?numerical:spec.includes('geometry.js')?geometry:spec.includes('OrbitControls')?controls:three);
     await module.evaluate();return module.namespace;
   }
-  test('both renderers consume precalculated overlays; Play/Pause, styles and probes do not evaluate',{timeout:70000},async()=>{
+  for(const mode of [{geometry:'torus',projective:false,resolution:'standard'},
+    {geometry:'sphere',projective:true,resolution:'draft'},
+    {geometry:'torus',projective:true,resolution:'draft'}])
+  test(`${mode.projective?'projective':'ordinary'} ${mode.geometry}: cached Play/Pause and styles do not evaluate`,{timeout:70000},async()=>{
+    evaluations=0;
     const state={geometry:'torus',resolution:'standard',function:'heat',tau:.2,extent:'extended',chartScale:24,torusR:1.6,bridgeA:.25,
       colorMode:'phase',heightMode:'log',height:.55,opacity:.98,contours:true,critical:true,zeros:false,seams:false,ladder:true,packets:false,vortices:false,
-      sigmaMin:-2,sigmaMax:3,tMin:8,tMax:38,heightLocked:true,heightLogReference:0,heightReference:1,playing:true};
+      sigmaMin:-2,sigmaMax:3,tMin:8,tMax:38,heightLocked:true,heightLogReference:0,heightReference:1,playing:true,...mode,seams:mode.projective};
     const data=sampleField(state),original=structuredClone(data);
-    assert.equal(data.criticalSamples.length,2);assert.equal(data.landmarkValues.length,8);
+    assert.equal(data.criticalSamples.length,state.geometry==='sphere'?1:2);
+    assert.equal(data.landmarkValues.length,state.projective?(state.geometry==='sphere'?8:10):8);
+    if(state.projective)assert.ok(data.projectiveGuides.length>0,'sampled chart guides are available during playback');
     const statuses=[];
     const {CanvasZetaScene}=await linkedRenderer('canvas-renderer.js');
     const cpu=Object.create(CanvasZetaScene.prototype);
@@ -46,7 +53,8 @@ if(typeof vm.SourceTextModule!=='function'){
     cpu.setData(data,state);
     assert.equal(cpu.faces,movingFaces);assert.deepEqual(cpu.getCameraState(),savedCamera);assert.equal(statuses.at(-1).preparedCacheHit,true);
     cpu.updateStyle({playing:false});
-    assert.equal(cpu.fullDetailPrepared,true);assert.ok(cpu.faces.length>movingFaces.length,'Pause restores selected full detail');
+    assert.equal(cpu.fullDetailPrepared,true);assert.ok(cpu.faces.length>=movingFaces.length,'Pause retains at least the full selected detail');
+    if(mode.resolution==='standard')assert.ok(cpu.faces.length>movingFaces.length,'Pause restores full standard detail');
     assert.equal(statuses.at(-1).motionDetail,false);assert.equal(statuses.at(-1).meshStride,cpu.stride);assert.equal(cpu.probes.length,0);
     cpu.updateStyle({height:.65,ladder:false,colorMode:'real'});
     assert.equal(cpu.probes.length,0,'An automatic redraw must not evaluate the old inspection point');
@@ -66,3 +74,4 @@ if(typeof vm.SourceTextModule!=='function'){
     assert.equal(evaluations,1);
   });
 }
+

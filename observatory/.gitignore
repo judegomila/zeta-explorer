@@ -7,3 +7,7 @@ __pycache__/
 .env
 .env.*
 !.env.example
+
+# Generated projective field packs are reproducible at deployment.
+dist/precache/projective-*.bin.gz
+dist/precache/manifest.json.tmp-*

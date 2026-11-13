@@ -24,9 +24,10 @@ export function computeCriticalSamples(state,domain,axes=sampleAxes(state)){
   const segments=({draft:192,standard:384,high:640,ultra:960})[state.resolution]||384;
   return criticalCurves(state,{segments}).map(curve=>{
     const knots=new Set(curve.points.map(p=>p.q));
-    const axis=state.geometry==='sphere'?axes.v:axes.u;
+    const axis=state.geometry==='sphere'&&!state.projective?axes.v:axes.u;
     for(const x of axis){
-      if(state.geometry==='sphere'){knots.add(x/2);knots.add(1-x/2);}
+      if(state.geometry==='sphere'&&state.projective)knots.add(x);
+      else if(state.geometry==='sphere'){knots.add(x/2);knots.add(1-x/2);}
       else knots.add(curve.index===0?x:((.5-x)%1+1)%1);
     }
     const qs=[...knots].sort((a,b)=>a-b),cache=new Map();
@@ -56,14 +57,14 @@ export function computeCriticalSamples(state,domain,axes=sampleAxes(state)){
 
 /** Already evaluated locations for every optional geometric landmark. */
 export function computeLandmarkValues(state,domain){
-  if(state.geometry==='sphere'){
+  if(state.geometry==='sphere'&&!state.projective){
     return [{...embedded(0,0,'sphere'),u:0,v:0,kind:'puncture',label:'∞ · chart puncture',sigma:NaN,t:NaN,puncture:true,polar:null,computed:false}];
   }
-  if(state.geometry!=='torus')return [];
+  if(state.geometry!=='torus'&&!(state.geometry==='sphere'&&state.projective))return [];
   const L=landmarks(state),result=[];
-  for(const [kind,list]of[['puncture',L.punctures],['anti',L.antiBridge],['branch',L.branches]]){
+  for(const [kind,list]of[['puncture',L.punctures],['anti',L.antiBridge],['branch',L.branches],['chart',L.regular||[]]]){
     for(const p of list){
-      const base=embedded(p.u,p.v,'torus');
+      const base=embedded(p.u,p.v,state.geometry);
       const sample=kind==='puncture'?null:surfacePoint(p.u,p.v,state);
       const polar=sample?.valid?valueAt(sample.sigma,sample.t,state,domain):null;
       result.push({...base,u:p.u,v:p.v,kind,label:p.label,

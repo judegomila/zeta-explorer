@@ -12,7 +12,7 @@
 <body>
 <header><a href="./">← Back to the observatory</a><span class="brand">Zeta Observatory / Methods</span></header>
 <div class="wrap">
-<nav aria-label="Methods contents"><div class="label">Methods reference</div><a href="#functions">01 · Functions & coordinates</a><a href="#encoding">02 · Height & rainbow phase</a><a href="#vortices">03 · Vortices & shear</a><a href="#sphere">04 · Sphere mounting</a><a href="#torus">05 · Exact elliptic torus</a><a href="#ladder">06 · Twin ladder & packets</a><a href="#heat">07 · Theta heat flow</a><a href="#numerics">08 · Numerical scope</a><a href="#playback">09 · Cache & playback</a><a href="#research">10 · Research interpretation</a><a href="#sources">11 · Sources</a></nav>
+<nav aria-label="Methods contents"><div class="label">Methods reference</div><a href="#functions">01 · Functions & coordinates</a><a href="#encoding">02 · Height & rainbow phase</a><a href="#vortices">03 · Vortices & shear</a><a href="#sphere">04 · Sphere mounting</a><a href="#torus">05 · Exact elliptic torus</a><a href="#projective">05b · Projective atlas</a><a href="#ladder">06 · Twin ladder & packets</a><a href="#heat">07 · Theta heat flow</a><a href="#numerics">08 · Numerical scope</a><a href="#playback">09 · Cache & playback</a><a href="#research">10 · Research interpretation</a><a href="#sources">11 · Sources</a></nav>
 <main>
 <div class="eyebrow">Read the geometry through the mathematics</div>
 <h1>A field guide to<br>the observatory.</h1>
@@ -98,9 +98,9 @@ sn(z|m) = [θ₃(0,qₑ)/θ₂(0,qₑ)] · θ₁(πz/2K,qₑ)/θ₄(πz/2K,qₑ)
 <span class="note">K in the code uses the parameter m. Some references use the modulus k=√m=r⁻². Confusing these conventions changes the surface.</span></div>
 <p>The true common periods of w and η are 4K and 2iK′. A geometric torus in three-dimensional space displays this complex period rectangle. The embedding's circular shape is not an additional equation for ξ.</p>
 <h3>The visible spectral lens</h3>
-<div class="equation">s = ½ + ℓ(s₀−½)
-ℓ = 1: literal studied Cayley pullback
-ℓ &gt; 0: explicit affine spectral lens
+<div class="equation">s = ½ + L(s₀−½)
+L = 1: literal studied Cayley pullback
+L &gt; 0: explicit affine spectral lens
 <span class="note">The lens makes a larger spectral range visible. It preserves the reflection s ↦ 1−s and the critical line but changes the finite branch values in the displayed s-plane. It is not a functional identity of ζ.</span></div>
 <div class="table-wrap"><table><thead><tr><th>Feature</th><th>(u,v) location</th><th>Meaning</th></tr></thead><tbody>
 <tr><td>Critical ovals</td><td>v = ¼ and v = ¾</td><td>Two lifts of Re s = ½, each containing one infinity puncture.</td></tr>
@@ -113,6 +113,30 @@ sn(z|m) = [θ₃(0,qₑ)/θ₂(0,qₑ)] · θ₁(πz/2K,qₑ)/θ₄(πz/2K,qₑ)
 <p>The anti-bridge anchors are not collision sites. The actual heat family has <code>Hτ(0)&gt;0</code> for every real τ. At the other end, apparent freezing near infinity is coordinate compression; it does not supply a zero-trapping force.</p>
 <h3>Transforming a field correctly</h3>
 <p>Phase textures pull back by evaluating F at the chart's s. For the flat conformal phase-flow interpretation, first set <code>qz=(F′/F)·ds/dz</code>. The corresponding UV velocities are <code>du=Im(qz)/(4K)</code> and <code>dv=Re(qz)/(2K′)</code>. These can then be mapped along the torus's tangent vectors. Treating unchanged plane arrows as torus tangent arrows would omit the chart derivative.</p>
+
+<h2 id="projective">05b / Projective atlas &amp; point states</h2>
+<p>Click <strong>Projective</strong> above the viewport, then choose an elliptic torus or projective domain sphere. The linked panels below the 4:3 scene follow the inspector's selected point: one shows its projective state, and the other shows two sphere charts with crosswise branch cuts. The presets use r = 2 and L = 24; <strong>Original projective chart · L = 1</strong> restores the literal construction.</p>
+<div class="equation">s₀ = ½ + (s−½)/L,       w = [s₀−1:s₀]
+s = ½ + L(1/(1−w)−½)
+Eᵣ ⊂ ℂℙ³: [X₀:X₁:X₂:X₃] = [1:w:w²:η]
+X₁² = X₀X₂
+X₃² = X₀² + (r²+r⁻²)X₁² + X₂²
+<span class="note">The sphere displays the input projective line; the torus is a three-dimensional display embedding of Eᵣ. Its homogeneous ℂℙ³ coordinates are reported separately.</span></div>
+<div class="table-wrap"><table><thead><tr><th>Marked point</th><th>Coordinate</th><th>Meaning</th></tr></thead><tbody>
+<tr><td>p or p±</td><td>w = 1</td><td>Spectral infinity s = ∞; the pulled-back ξ function remains essential and unevaluated there.</td></tr>
+<tr><td>q or q±</td><td>w = −1</td><td>Anti-bridge s = ½; a nonzero phase saddle for ξ, with zero circulation.</td></tr>
+<tr><td>ω±</td><td>w = ∞</td><td>Regular quartic infinities [0:0:1:±1], mapping to finite s = ½−L/2. The reciprocal chart handles them.</td></tr>
+<tr><td>Branch points</td><td>w = ±ir, ±i/r</td><td>Projection ramification; the two-sphere panel shows local sheets, joined crosswise at the indicated cuts.</td></tr>
+</tbody></table></div>
+<p><strong>Domain</strong> displays [s₀−1:s₀], switching between w and 1/w. <strong>Shifted pair</strong> displays [U:V] with U = G(s+a), V = G(s−a), using G = ξ or, in Heat mode, Fτ. Its sphere coordinates retain the relative phase and normalized amplitude difference:</p>
+<div class="equation">n = (2 Re(ŪV), 2 Im(ŪV), |U|²−|V|²) / (|U|²+|V|²)
+R = V/U,       n₃ = (1−|R|²)/(1+|R|²)
+<span class="note">Polar normalization avoids losing the state when raw values underflow. Either channel may vanish; if both vanish, the projective state requires local analysis and is marked unresolved.</span></div>
+<p><strong>Derivative disk</strong> uses [G:ℓG′], with ℓ &gt; 0. Its Cayley coordinate is:</p>
+<div class="equation">C = (G−ℓG′)/(G+ℓG′)
+1−|C|² = 4ℓ Re(ḠG′) / |G+ℓG′|²
+<span class="note">Where defined, inside |C| &lt; 1 corresponds to Re(G′/G) &gt; 0. A simple zero maps to C = −1 regardless of its input location. Singular or ill-conditioned signs are shown explicitly.</span></div>
+<p>The two ordinary lifts of a ξ zero have the same local winding in the holomorphic orientation. The shifted ratio R can instead have a zero–pole pair with opposite winding; their contour contributions can cancel without canceling any ξ zeros. The marked anti-bridge and geometric chart boundaries supply no RH proof. During buffered playback the point-state panels are held; pause and inspect to refresh their numerical values.</p>
 
 <h2 id="ladder">06 / Twin ladder, bridge & packets</h2>
 <p>The direct and reflected prime-power tones come from the two spectral arguments s and 1−s. A rung with prime p and exponent m has log-frequency λ = m log p:</p>
@@ -198,8 +222,9 @@ max(|reference|, exp(−π|t|/4)(1+|t|)⁷ᐟ⁴)
 <tr><td>Memory cache</td><td>128 MiB</td><td>Least recently used computed views are evicted when the budget is reached.</td></tr>
 <tr><td>Saved field cache</td><td>Up to 256 MiB in IndexedDB</td><td>Best effort. Available browser storage can reduce this budget; storage failure falls back to memory and computation.</td></tr>
 <tr><td>Active heat clip</td><td>192 MiB</td><td>Every frame must fit before Play begins. An oversized clip asks for fewer frames or Responsive density; it does not silently lower the requested density.</td></tr>
-<tr><td>Shipped starter pack</td><td>78 independently evaluated fields; 155 exact keys; 59.32 MB compressed in total</td><td>Files load on demand, with shared geometry between heat frames. Optional ladder records allow both overlay settings to reuse the same numerical field.</td></tr>
+<tr><td>Original starter pack</td><td>78 independently evaluated fields; 155 exact keys; 59.32 MB compressed</td><td>Files load on demand, with shared geometry between heat frames. Optional ladder records allow both overlay settings to reuse the same numerical field.</td></tr>
 </tbody></table></div>
+<p>The deployment build adds 38 default projective fields while preserving the original pack: ζ and ξ on each projective geometry, plus 17 heat frames per geometry at r = 2, L = 24 and Standard density. Their keys are distinct from ordinary charts. Custom settings can require fresh calculation.</p>
 <p>The complete starter-pack size is not the initial download size. The pack includes ζ and ξ on all three default mounts, the bridge, pole, phase-atlas, and vortex presets, and the following Standard-density heat sequences:</p>
 <div class="equation">τⱼ = −0.30 + 0.05j,       j = 0,…,16
 
@@ -221,6 +246,7 @@ Heat-preset plane: −0.75 ≤ σ ≤ 1.75, 10 ≤ t ≤ 32
 <p><strong>Precache modes</strong> prepares the nine chart/function combinations for the current numerical settings. <strong>Clear cache</strong> clears computed fields and the active clip while retaining the saved-view notebook and notes. Browser persistence is convenient reuse; exported session JSON remains the portable record of a chosen view.</p>
 <h3>Reproducible preparation</h3>
 <div class="equation">node scripts/build-precache.mjs
+node scripts/build-projective-precache.mjs
 <span class="note">Run from the app's source directory. The shared sampler computes every missing frame, writes lossless gzip assets, and updates dist/precache/manifest.json. Existing entries are reused only for the current numerical and codec version.</span></div>
 <p>The implementation separates <code>sampler.js</code> and <code>critical-samples.js</code> from the thin <code>sample-worker.js</code> wrapper. <code>field-cache.js</code> defines exact versioned keys and bounded caches; <code>field-service.js</code> selects a source; <code>playback.js</code> prepares a complete bounded clip; <code>cache-codec.js</code> preserves the stored data. The build script invokes the same sampler used for a custom browser calculation. Codec, cache, sequence, and baked-frame tests complement the mathematical checks above; they do not strengthen those finite accuracy bounds.</p>
 

@@ -37,7 +37,7 @@ export const DYNAMICS_LIMITS=Object.freeze({
   dynamicsAlpha:[0,2,.05],dynamicsBeta:[-2,2,.05],
   dynamicsDiffusion:[0,.4,.005],dynamicsPhase:[0,TAU,.02],dynamicsPhaseRate:[0,2,.05],
   dynamicsAmplitude:[0,2,.05],dynamicsShift:[.02,.8,.01],
-  dynamicsPerturbation:[0,1,.02],dynamicsKappa:[0,8,.1],
+  dynamicsPerturbation:[0,1,.01],dynamicsKappa:[0,8,.1],
   dynamicsForcing:[0,.05,.01],dynamicsRate:[1,100,1],
 });
 export const DYNAMICS_ENUMS=Object.freeze({

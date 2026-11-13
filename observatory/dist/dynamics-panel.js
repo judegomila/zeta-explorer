@@ -90,7 +90,7 @@ export class DynamicsPanel {
    <div class="dynamics-mobile-actions"><button type="button" data-dynamics-command="controls">Parameters ↗</button><button type="button" data-dynamics-command="inspect">Measurements ↗</button></div>`;
   this.el=Object.fromEntries([...this.container.querySelectorAll('[data-dynamics]')].map(el=>[el.dataset.dynamics,el]));
   this.el.play.onclick=()=>this.togglePlay();this.el.step.onclick=()=>this.step();this.el.reset.onclick=()=>this.reset();this.el.perturb.onclick=()=>this.perturb();
-  this.el.timeline.oninput=()=>{this.stop(false);this.el.timelineOutput.textContent=`${this.el.timeline.value} / ${this.el.timeline.max}`;this.queuePatch({dynamicsStep:Number(this.el.timeline.value)},false);};
+  this.el.timeline.oninput=()=>{const step=Number(this.el.timeline.value);this.queuePatch({dynamicsStep:step},false);this.stop(false);};
   this.el.timeline.onchange=()=>this.commitPending(true);
   for(const button of this.container.querySelectorAll('[data-dynamics-command]'))button.onclick=()=>this.onCommand(button.dataset.dynamicsCommand);
  }
@@ -156,7 +156,7 @@ export class DynamicsPanel {
   try{
    if(!this.engine||this.configSignature!==nextSignature){
     this.stop(false);this.engine=new DynamicsSimulation(incoming);this.snapshot=this.engine.snapshot();this.configSignature=nextSignature;this.fieldCache=null;this.captureBrightnessReference();this.selected=null;this.lastEmittedStep=null;this.replayTarget=wanted>0?wanted:null;
-   }else if(wanted!==this.snapshot.step&&(explicitSeek||(!this.running&&this.replayTarget===null))){
+   }else if((wanted!==this.snapshot.step&&(explicitSeek||(!this.running&&this.replayTarget===null)))||(explicitSeek&&this.replayTarget!==null&&wanted!==this.replayTarget)){
     this.stop(false);
     if(wanted<this.snapshot.step){this.engine.reset(incoming);this.snapshot=this.engine.snapshot();this.fieldCache=null;this.captureBrightnessReference();}
     this.replayTarget=wanted>this.snapshot.step?wanted:null;
@@ -194,7 +194,7 @@ export class DynamicsPanel {
 
  commit(patch,{reset=false,mode='replace',immediate=true}={}){
   if(this.disposed)return;
-  if(reset)this.stop(false);
+  if(reset){clearTimeout(this.changeTimer);this.changeTimer=null;this.pendingPatch=null;this.stop(false);}
   const merged={...patch};if(reset)merged.dynamicsStep=0;
   else if(!('dynamicsStep' in merged))merged.dynamicsStep=this.replayTarget??this.snapshot?.step??currentStep(this.state);
   this.update({...this.state,...merged});this.lastEmittedStep=merged.dynamicsStep;this.onChange(merged,{mode,immediate});
@@ -290,8 +290,9 @@ export class DynamicsPanel {
   this.el.playText.textContent=this.running?'Pause':'Play';this.el.playIcon.textContent=this.running?'Ⅱ':'▶';this.el.play.setAttribute('aria-label',this.running?'Pause dynamics':'Play dynamics');this.el.play.disabled=replaying||!!this.snapshot?.stopped;
   this.el.step.disabled=replaying||step>=max||!!this.snapshot?.stopped;this.el.runStatus.textContent=replaying?`REPLAY ${step} / ${this.replayTarget}`:this.snapshot?.stopped?'MODEL STOPPED':this.running?'RUNNING':step>=max?'END OF RUN':'PAUSED';this.el.runStatus.dataset.running=String(this.running);
   this.el.canvasTime.textContent=`T = ${time.toFixed(3)}`;this.el.timeline.max=max;
-  if(document.activeElement!==this.el.timeline&&!this.pendingPatch?.dynamicsStep)this.el.timeline.value=replaying?this.replayTarget:step;
-  this.el.timelineOutput.textContent=`${replaying?this.replayTarget:step} / ${max}`;
+  const pendingSeek=this.pendingPatch!=null&&Object.prototype.hasOwnProperty.call(this.pendingPatch,'dynamicsStep');
+  const shownStep=pendingSeek?this.pendingPatch.dynamicsStep:replaying?this.replayTarget:step;
+  this.el.timeline.value=shownStep;this.el.timelineOutput.textContent=`${shownStep} / ${max}`;
  }
 
  renderInspector(force=false){

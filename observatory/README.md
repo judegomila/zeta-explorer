@@ -4,7 +4,7 @@ A dedicated mathematical geometry workbench for the Riemann zeta function, with 
 
 The app is self-contained and runs on any static HTTP(S) host. Vercel serves `dist/` using `vercel.json` and prepares the projective numerical pack during deployment. Local serving requires no build, ChatGPT runtime, API key, or database. The application keeps the Zeta Observatory name.
 
-The projective atlas, linked bridge/Bloch point state, and derivative disk are implemented. See [the development roadmap](docs/ROADMAP.md) for their current scope and the proposed global shear, complex heat-zero, and Pick/Schur extensions.
+The projective atlas, linked bridge/Bloch point state, derivative disk, spinor lift, and chosen Euclidean twistor view are implemented. See [the spinor and twistor conventions](docs/SPINORS-TWISTORS.md) and [the development roadmap](docs/ROADMAP.md) for their scope and the proposed global shear, complex heat-zero, and Pick/Schur extensions.
 
 ## Features
 
@@ -13,15 +13,19 @@ The projective atlas, linked bridge/Bloch point state, and derivative disk are i
 - Plane, inverse stereographic sphere, and the exact elliptic double cover from Math Explorer PRs 43 and 49.
 - A Projective toggle with a domain sphere or elliptic torus, reciprocal charts, infinity/anti-bridge markers, branch cuts, and linked two-sphere and homogeneous-coordinate readouts.
 - Selected-point domain, shifted-pair Bloch sphere, and derivative Cayley disk, with scale-safe polar arithmetic and explicit unresolved states.
+- Spinor/Hopf view with a common-phase fiber, SU(2) rotation, amplitude phases, and the visible 2π sign change / 4π return.
+- A chosen Euclidean ℂℙ³ → S⁴ twistor map, complete ℂℙ¹ fiber controls, elliptic sheet selection, north/south charts, and source-versus-moved quadric residuals.
 - Critical line/two ovals, reference zero markers, limited sampled heat roots, Re/Im contours and transported phase-gradient streamlines.
 - Surface-conforming conjugate-aligned twin ladders and finite prime-power packet experiments with independent display time.
 - A freshly evaluated point inspector, sampled contour winding, critical-line profile and linked phase atlas.
 - Exact numerical fields reused from a bounded memory cache, best-effort IndexedDB storage, and an on-demand starter pack.
 - Fully buffered heat playback with 9, 17, or 33 independently evaluated frames, frame scrubbing, explicit forward/reverse direction, and a common locked height reference.
-- Saved browser-local viewpoints and observations, portable session JSON including camera, numerical grid CSV with raw and log-polar values, PNG snapshots and URL-encoded views.
+- Automatically updated shareable view URLs, including selected controls, camera and inspected point; browser-local viewpoints and observations, portable session JSON, numerical grid CSV and PNG snapshots.
 - GPU rendering plus an automatic Canvas2D 3D fallback using the same mathematical mesh.
 
 ## Use the projective views
+
+Direct entry links on any host are [`?view=projective`](https://zeta-view.vercel.app/?view=projective), [`?view=projectiveSphere`](https://zeta-view.vercel.app/?view=projectiveSphere), [`?view=spinor`](https://zeta-view.vercel.app/?view=spinor), and [`?view=twistor`](https://zeta-view.vercel.app/?view=twistor). They select the corresponding preset regardless of an older browser-local view.
 
 1. Click **Projective** beside Plane, Sphere, and Torus. Alternatively choose **Projective · elliptic double cover** or **Projective · domain sphere** under Starting point.
 2. In **Projective geometry**, select **Elliptic torus Eᵣ** or **Projective sphere ℂℙ¹** as the Domain view. The main viewport stays 4:3; its phase, relief, twin ladder, and other existing layers remain available.
@@ -59,6 +63,20 @@ The point-state channels have separate meanings:
 The bridge and derivative channels use G = ξ, or the actual heat family Fτ when Heat is selected. They retain log-polar information when raw values underflow. Simultaneous homogeneous zeros and ill-conditioned signs are marked unresolved. Every simple function zero maps to C = −1 regardless of its input location, so this display alone does not constrain zero locations. Infinity remains a puncture of the pulled-back transcendental function; no limiting phase or function value is assigned there.
 
 Projective point calculations pause during buffered playback. Pause and inspect a coordinate to refresh them. Saved views and session exports retain the projective mode, selected channel, lens, and derivative scale.
+
+### Spinor and twistor controls
+
+Choose **Spinor** in the fiber controls, or open `?view=spinor`, to lift the selected Domain, Shifted pair, or Derivative state to a normalized two-component spinor. **Common phase** changes its Hopf fiber while holding the Bloch direction fixed. **Rotation** and **Axis** apply the spin-one-half SU(2) rotation: at 2π the normalized amplitudes change sign, and at 4π they return. The reference overlap and orthonormal frame make the distinction visible. These controls transform the displayed channel state; they do not evolve ξ or move its zeros.
+
+Choose **Twistor**, or open `?view=twistor`, to use the selected elliptic homogeneous quartet. The sheet selector first chooses the source lift or its deck partner. The two fiber angles cover a full ℂℙ¹, and the north/south selector changes the stereographic chart of the same S⁴ base. Three of the resulting four real chart coordinates are drawn spatially and the fourth is retained separately. A genuine chart pole is marked as infinity.
+
+The twistor mode explicitly chooses the quaternionic structure `(X₀ + jX₁, X₂ + jX₃)`. The curve's embedding in ℂℙ³ alone does not canonically choose it. A generic fiber motion leaves the elliptic curve: the source and moved quadric residuals are displayed separately, and the moved point receives no inherited s or ξ value. A local common-phase gauge is used for the fiber controls; its chart can change as the source point moves. The derivation, conventions, sources, and mathematical limits are in [SPINORS-TWISTORS.md](docs/SPINORS-TWISTORS.md).
+
+### Share exactly the current view
+
+The address bar updates automatically as views, controls, the inspected point, or the camera change. Copy the current URL, or use **Copy link**, to reopen the same configuration elsewhere. The short `view` name is accompanied by exact state, probe, and camera overrides when needed. Discrete view changes participate in browser Back/Forward navigation; slider and camera updates replace the current history entry.
+
+Loading a shared URL takes precedence over a saved local view. Links restore a paused scene and do not include notebook notes or computed arrays. Legacy `#view=…` links still load. The view is recomputed or loaded from its exact cache as usual, so a share link does not require somebody else's browser storage.
 
 ## Run locally
 
@@ -137,6 +155,10 @@ Height normalization, chart lenses, masking, interpolation, finite root coverage
 | `dist/geometry.js` | Exact charts, complete critical guides and clustered mesh axes |
 | `dist/projective.js` | Scale-safe homogeneous pairs, Bloch coordinates, derivative Cayley chart and ℂℙ³ curve coordinates |
 | `dist/projective-panel.js` | Linked selected-point sphere/disk and two-sphere branch-cut atlas |
+| `dist/spinor.js` | Hopf/Bloch lift, common phase, SU(2) rotation and spin frame |
+| `dist/twistor.js` | Chosen quaternionic ℂℙ³ → S⁴ map, fibers, charts and quadric residuals |
+| `dist/fiber-panels.js` | Linked spinor and twistor displays from held projective snapshots |
+| `dist/view-url.js` | Named view URLs, exact allowed overrides, camera/probe restore and browser history |
 | `dist/sampler.js` | Shared pure mesh sampler, finite bridge comparisons, flow curves, markers and critical-line inset |
 | `dist/sample-worker.js` | Browser worker wrapper and transferable buffers |
 | `dist/critical-samples.js` | Numerical critical traces and landmark values prepared with each frame |

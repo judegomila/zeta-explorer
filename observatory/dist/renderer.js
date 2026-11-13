@@ -107,10 +107,11 @@ function glowTexture() {
 }
 
 export class ZetaScene {
-  constructor(container, { onProbe = () => {}, onStatus = () => {} } = {}) {
+  constructor(container, { onProbe = () => {}, onStatus = () => {}, onCameraChange = () => {} } = {}) {
     this.container = container;
     this.onProbe = onProbe;
     this.onStatus = onStatus;
+    this.onCameraChange = onCameraChange;
     this.data = null;
     this.state = {};
     this.disposed = false;
@@ -158,6 +159,7 @@ export class ZetaScene {
     this.controls.maxDistance = 100;
     this.controls.autoRotateSpeed = 0.3;
     this.controls.addEventListener('change', () => { this.needsRender = true; });
+    this.controls.addEventListener('end', () => this.onCameraChange());
     this.scene.add(new THREE.HemisphereLight(0xcddfff, 0x14213c, 2.1));
     const key = new THREE.DirectionalLight(0xfff0db, 3.2);
     key.position.set(-5, 12, 8);

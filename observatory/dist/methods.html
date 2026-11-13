@@ -12,7 +12,7 @@
 <body>
 <header><a href="./">← Back to the observatory</a><span class="brand">Zeta Observatory / Methods</span></header>
 <div class="wrap">
-<nav aria-label="Methods contents"><div class="label">Methods reference</div><a href="#functions">01 · Functions & coordinates</a><a href="#encoding">02 · Height & rainbow phase</a><a href="#vortices">03 · Vortices & shear</a><a href="#sphere">04 · Sphere mounting</a><a href="#torus">05 · Exact elliptic torus</a><a href="#projective">05b · Projective atlas</a><a href="#ladder">06 · Twin ladder & packets</a><a href="#heat">07 · Theta heat flow</a><a href="#numerics">08 · Numerical scope</a><a href="#playback">09 · Cache & playback</a><a href="#research">10 · Research interpretation</a><a href="#sources">11 · Sources</a></nav>
+<nav aria-label="Methods contents"><div class="label">Methods reference</div><a href="#functions">01 · Functions & coordinates</a><a href="#encoding">02 · Height & rainbow phase</a><a href="#vortices">03 · Vortices & shear</a><a href="#sphere">04 · Sphere mounting</a><a href="#torus">05 · Exact elliptic torus</a><a href="#projective">05b · Projective atlas</a><a href="#spinor">05c · Spinor & Hopf fiber</a><a href="#twistor">05d · Euclidean twistor view</a><a href="#ladder">06 · Twin ladder & packets</a><a href="#heat">07 · Theta heat flow</a><a href="#numerics">08 · Numerical scope</a><a href="#playback">09 · Cache & playback</a><a href="#research">10 · Research interpretation</a><a href="#sources">11 · Sources</a></nav>
 <main>
 <div class="eyebrow">Read the geometry through the mathematics</div>
 <h1>A field guide to<br>the observatory.</h1>
@@ -138,6 +138,33 @@ R = V/U,       n₃ = (1−|R|²)/(1+|R|²)
 <span class="note">Where defined, inside |C| &lt; 1 corresponds to Re(G′/G) &gt; 0. A simple zero maps to C = −1 regardless of its input location. Singular or ill-conditioned signs are shown explicitly.</span></div>
 <p>The two ordinary lifts of a ξ zero have the same local winding in the holomorphic orientation. The shifted ratio R can instead have a zero–pole pair with opposite winding; their contour contributions can cancel without canceling any ξ zeros. The marked anti-bridge and geometric chart boundaries supply no RH proof. During buffered playback the point-state panels are held; pause and inspect to refresh their numerical values.</p>
 
+<h2 id="spinor">05c / Spinor &amp; Hopf fiber</h2>
+<p>Open <a href="./?view=spinor">the Spinor view</a> to lift the selected Domain, Shifted pair, or Derivative state to a normalized vector ψ = (U,V)ᵀ. Its common complex phase is retained in the amplitude dials and reference overlap, although it disappears from the projective Bloch point. The <a href="https://www.math.columbia.edu/~woit/twistorp1.pdf" target="_blank" rel="noopener noreferrer">complex-line and Pauli-matrix descriptions</a> identify this base with ℂℙ¹ ≅ S².</p>
+<div class="equation">ψ = (U,V)ᵀ / √(|U|²+|V|²)
+n = ψ†σψ = (2 Re(ŪV), 2 Im(ŪV), |U|²−|V|²)  [unit ψ]
+ψ ↦ exp(iχ)ψ leaves n unchanged
+Rₐ(θ) = exp(−iθ â·σ/2) = cos(θ/2)I − i sin(θ/2) â·σ
+Rₐ(2π)ψ = −ψ,          Rₐ(4π)ψ = ψ
+<span class="note">The Bloch direction returns after 2π. The signed spinor amplitudes return after 4π. The chosen channel pair is a mathematical spinor state; this does not identify ξ with a physical particle.</span></div>
+<p><strong>Common phase</strong> explores the Hopf circle. <strong>Rotation</strong> and <strong>Axis</strong> use the standard <a href="https://bohr.physics.berkeley.edu/classes/221/notes/spinrot.pdf" target="_blank" rel="noopener noreferrer">spin-one-half SU(2) rotation</a>. The displayed frame has columns determined by (ψ,Jψ), with J(U,V) = (−V̄,Ū); its normal is n. A common phase changes the frame without moving n. SU(2) mixing generally changes the channel balance |U|²−|V|², so a rotated display does not prove the original bridge balance positive.</p>
+
+<h2 id="twistor">05d / A chosen Euclidean twistor structure</h2>
+<p>Open <a href="./?view=twistor">the Twistor view</a> to use the selected point Z = [X₀:X₁:X₂:X₃] of the elliptic curve Eᵣ above. We explicitly choose the standard Hermitian norm and the ordered quaternionic pairing (Z₀+jZ₁, Z₂+jZ₃), with complex coefficients on the right of j. These choices give the genuine Euclidean fibration ℂℙ³ → ℍℙ¹ ≅ S⁴ with ℂℙ¹ fibers, using <a href="https://arxiv.org/pdf/0704.3422" target="_blank" rel="noopener noreferrer">Salamon–Viaclovsky's conventions, sections 2.2–2.4</a>. The elliptic curve's projective embedding alone does not canonically select this twistor structure.</p>
+<div class="equation">q₁ = Z₀+jZ₁,           q₂ = Z₂+jZ₃,          Σ|Zₖ|² = 1
+A = Z₀Z̄₂ + Z̄₁Z₃,    B = Z₁Z̄₂ − Z̄₀Z₃
+x = (2 Re A, 2 Im A, 2 Re B, 2 Im B,
+     |Z₀|²+|Z₁|²−|Z₂|²−|Z₃|²) ∈ S⁴
+JZ = (−Z̄₁,Z̄₀,−Z̄₃,Z̄₂),                 J² = −I
+Fiber: [αZ+βJZ],  α = cos(θ/2),  β = exp(iφ) sin(θ/2)
+<span class="note">The five real coordinates have unit norm. The fiber controls change the ℂℙ³ representative while preserving its S⁴ base; the displayed invariance residual checks this numerically.</span></div>
+<p>The identity behind the fiber is (q₁h) overline(q₂h) = q₁q̄₂ for a unit quaternion h. The ordinary common complex phase is included in this right action. The two fiber angles cover a full sphere of projective representatives. Its local frame uses the largest quartet component as a positive-real phase reference; where that component changes, the gauge may change.</p>
+<p><strong>Elliptic sheets and twistor fibers are different.</strong> The sheet selector first sends X₃ to ±X₃, choosing the source lift or its elliptic deck partner. The subsequent fiber motion generally leaves Eᵣ. The source and moved quartets therefore have separate residuals for X₁²−X₀X₂ and X₃²−X₀²−(r²+r⁻²)X₁²−X₂². A moved point outside Eᵣ inherits no spectral coordinate s or value ξ(s); the point inspector remains attached to the source.</p>
+<div class="equation">North chart: y = (x₀,x₁,x₂,x₃)/(1−x₄)
+South chart: y = (x₀,x₁,x₂,x₃)/(1+x₄)
+<span class="note">These are ℝ⁴ chart coordinates. The panel draws three and retains the fourth separately. A projection pole is explicitly marked as infinity; the other chart is regular there.</span></div>
+<p>The map at a spectral puncture still exists geometrically because Eᵣ is smooth there, while the loaded ξ value remains essential and masked. Neither twistor projection nor fiber motion supplies a new global zero-location or positivity theorem. Spinor and twistor panels use held projective data; drawing and buffered playback do not reevaluate the analytic field.</p>
+<p>The links <a href="./?view=projective">?view=projective</a>, <a href="./?view=spinor">?view=spinor</a>, and <a href="./?view=twistor">?view=twistor</a> select the corresponding starting point. The address bar subsequently tracks controls, the inspected point, and the camera automatically. Copy its URL or use <strong>Copy link</strong> to reopen that view, with playback paused.</p>
+
 <h2 id="ladder">06 / Twin ladder, bridge & packets</h2>
 <p>The direct and reflected prime-power tones come from the two spectral arguments s and 1−s. A rung with prime p and exponent m has log-frequency λ = m log p:</p>
 <div class="equation">Direct tone: p⁻ᵐˢ = exp(−σλ) exp(−itλ)
@@ -258,6 +285,9 @@ node scripts/build-projective-precache.mjs
 <h2 id="sources">11 / Sources & research checkpoints</h2>
 <p class="muted">The mathematical definitions below were consulted directly. Repository links point to immutable research commits so the conventions remain reproducible.</p>
 <ul class="source-list">
+<li><a href="https://arxiv.org/pdf/0704.3422" target="_blank" rel="noopener noreferrer">Salamon &amp; Viaclovsky · Orthogonal complex structures on domains in ℝ⁴</a><small>Sections 2.2–2.4 specify the right quaternionic convention, ℂℙ³ → S⁴ projection, and its ℂℙ¹ fibers.</small></li>
+<li><a href="https://bohr.physics.berkeley.edu/classes/221/notes/spinrot.pdf" target="_blank" rel="noopener noreferrer">Littlejohn · Rotations of Spin-½ Systems</a><small>Author-hosted Berkeley lecture notes on the SU(2) action and its two-to-one relation to ordinary rotations.</small></li>
+<li><a href="https://www.math.columbia.edu/~woit/twistorp1.pdf" target="_blank" rel="noopener noreferrer">Woit · Notes on the Twistor P¹</a><small>Author-hosted exposition of complex projective lines, quaternionic real structures, and Euclidean twistor geometry. Its quaternion coefficient convention differs from the one used here.</small></li>
 <li><a href="https://dlmf.nist.gov/22.2" target="_blank" rel="noopener noreferrer">NIST DLMF §22.2 · Jacobi elliptic definitions</a><small>Nome, theta quotients, and the distinction between modulus and parameter. Equation 22.2.4 supplies the sn quotient used in the torus chart.</small></li>
 <li><a href="https://arxiv.org/html/1904.12438v2" target="_blank" rel="noopener noreferrer">D. H. J. Polymath · Effective approximation of heat flow evolution of the Riemann ξ function</a><small>Equations (1)–(4) define the completed function, theta kernel, heat normalization, and PDE sign.</small></li>
 <li><a href="https://github.com/judegomila/mathexplorer/blob/69d4049f289217812051188378a0a9f3f061a169/rigorous/theta-bridge-2026-11-08/geometry_and_twistors.md" target="_blank" rel="noopener noreferrer">Math Explorer PR #43 · From two cut spheres to the theta bridge</a><small>The exact elliptic double cover, critical ovals, punctures, phase current, uniformization, and cautions about branch stagnations.</small></li>

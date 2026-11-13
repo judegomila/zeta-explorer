@@ -12,9 +12,17 @@ const base={geometry:'sphere',projective:true,function:'xi',tau:0,resolution:'dr
 
 test('projective fields and clips are isolated while shipped ordinary cache keys stay unchanged',()=>{
   const manifest=JSON.parse(readFileSync(new URL('../dist/precache/manifest.json',import.meta.url),'utf8'));
+  let ordinaryEntries=0;
   for(const [key,entry]of Object.entries(manifest.entries)){
-    assert.equal(fieldKey({...entry.state,projective:false}),key,'ordinary starter frame remains addressable');
+    if(entry.state.projective){
+      assert.equal(fieldKey(entry.state),key,'generated projective starter frame remains addressable');
+      assert.notEqual(fieldKey({...entry.state,projective:false}),key,'projective starter cannot alias ordinary geometry');
+    }else{
+      ordinaryEntries++;
+      assert.equal(fieldKey({...entry.state,projective:false}),key,'ordinary starter frame remains addressable');
+    }
   }
+  assert.ok(ordinaryEntries>0,'ordinary starter compatibility is exercised');
   for(const geometry of ['sphere','torus']){
     const state={...base,geometry};
     assert.notEqual(fieldKey(state),fieldKey({...state,projective:false}));
@@ -22,6 +30,12 @@ test('projective fields and clips are isolated while shipped ordinary cache keys
     assert.notEqual(fieldKey(state),fieldKey({...state,torusR:1.7}),'branch geometry participates in identity');
     assert.equal(fieldKey(state),fieldKey({...state,projectiveChannel:'derivative',derivativeScale:12}));
     assert.equal(sequenceKey(state),sequenceKey({...state,projectiveChannel:'bridge',derivativeScale:.1}));
+    for(const fiberMode of ['off','spinor','twistor']){
+      const inspected={...state,fiberMode,spinorPhase:1.1,spinorRotation:7.3,spinorAxis:'x',
+        twistorSheet:-1,twistorFiberTheta:.7,twistorFiberPhi:2.1,twistorProjection:'south'};
+      assert.equal(fieldKey(state),fieldKey(inspected),'fiber transforms reuse the sampled field');
+      assert.equal(sequenceKey(state),sequenceKey(inspected),'fiber transforms reuse the buffered clip');
+    }
   }
   assert.equal(fieldKey({...base,geometry:'plane'}),fieldKey({...base,geometry:'plane',projective:false}));
 });

@@ -61,8 +61,8 @@ function barycentric(x,y,a,b,c) {
  * mathematical model. Large meshes use a reported rendering stride.
  */
 export class CanvasZetaScene {
-  constructor(container,{onProbe=()=>{},onStatus=()=>{}}={}) {
-    this.container=container;this.onProbe=onProbe;this.onStatus=onStatus;
+  constructor(container,{onProbe=()=>{},onStatus=()=>{},onCameraChange=()=>{}}={}) {
+    this.container=container;this.onProbe=onProbe;this.onStatus=onStatus;this.onCameraChange=onCameraChange;
     this.state={};this.data=null;this.disposed=false;this.dirty=true;
     this.yaw=.62;this.pitch=.73;this.zoom=1;this.panX=0;this.panY=0;
     this.packetTime=0;this.lastFrame=performance.now();this.lastRender=0;
@@ -91,8 +91,8 @@ export class CanvasZetaScene {
         }
       }else if(performance.now()-(this.lastHover||0)>90){this.lastHover=performance.now();this.inspect(e,false);}
     };
-    this.up=e=>{const click=this.drag&&this.drag.moved<7&&this.pointerMap.size===1;this.pointerMap.delete(e.pointerId);this.drag=null;this.pinch=0;this.dirty=true;if(click)this.inspect(e,true);};
-    this.wheel=e=>{e.preventDefault();this.zoom=clamp(this.zoom*Math.exp(-e.deltaY*.001),.25,8);this.dirty=true;};
+    this.up=e=>{const click=this.drag&&this.drag.moved<7&&this.pointerMap.size===1;this.pointerMap.delete(e.pointerId);this.drag=null;this.pinch=0;this.dirty=true;if(click)this.inspect(e,true);else this.onCameraChange();};
+    this.wheel=e=>{e.preventDefault();this.zoom=clamp(this.zoom*Math.exp(-e.deltaY*.001),.25,8);this.dirty=true;this.onCameraChange();};
     this.context=e=>e.preventDefault();
     this.canvas.addEventListener('pointerdown',this.down);this.canvas.addEventListener('pointermove',this.move);this.canvas.addEventListener('pointerup',this.up);this.canvas.addEventListener('pointercancel',this.up);this.canvas.addEventListener('wheel',this.wheel,{passive:false});this.canvas.addEventListener('contextmenu',this.context);
     this.resizeObserver=new ResizeObserver(()=>this.resize());this.resizeObserver.observe(container);this.resize();

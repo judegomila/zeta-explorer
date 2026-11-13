@@ -7,9 +7,11 @@ import { FieldService } from './field-service.js';
 import { fieldKey } from './field-cache.js';
 import { createSequencePlan, sequenceKey, prepareSequence, nearestFrame } from './playback.js';
 import { ProjectivePanel } from './projective-panel.js';
+import { FiberPanels } from './fiber-panels.js';
+import { decodeViewURL, ViewURLController, sanitizeViewCamera, sanitizeViewProbe } from './view-url.js';
 
 const $=id=>document.getElementById(id), $$=s=>document.querySelectorAll(s), TAU=2*Math.PI;
-const defaults={projective:false,projectiveChannel:'bridge',derivativeScale:1,geometry:'plane',function:'zeta',heightMode:'log',height:1.1,colorMode:'phase',phaseOffset:0,exposure:1,opacity:.97,wireframe:false,contours:true,critical:true,zeros:true,vortices:false,ladder:false,packets:false,packetPaused:false,seams:true,autoRotate:false,flowSpeed:1,packetWidth:.35,playing:false,tau:0,sigmaMin:-2,sigmaMax:3,tMin:8,tMax:38,bridgeA:.25,chartScale:24,torusR:1.6,resolution:'standard',extent:'extended',heightReference:0,heightLocked:false,heightLogReference:0,heatStart:-.3,heatEnd:.5,heatFrames:17,heatFPS:6,playbackResolution:'standard'};
+const defaults={fiberMode:'off',spinorPhase:0,spinorRotation:0,spinorAxis:'z',twistorSheet:1,twistorFiberTheta:0,twistorFiberPhi:0,twistorProjection:'north',projective:false,projectiveChannel:'bridge',derivativeScale:1,geometry:'plane',function:'zeta',heightMode:'log',height:1.1,colorMode:'phase',phaseOffset:0,exposure:1,opacity:.97,wireframe:false,contours:true,critical:true,zeros:true,vortices:false,ladder:false,packets:false,packetPaused:false,seams:true,autoRotate:false,flowSpeed:1,packetWidth:.35,playing:false,tau:0,sigmaMin:-2,sigmaMax:3,tMin:8,tMax:38,bridgeA:.25,chartScale:24,torusR:1.6,resolution:'standard',extent:'extended',heightReference:0,heightLocked:false,heightLogReference:0,heatStart:-.3,heatEnd:.5,heatFrames:17,heatFPS:6,playbackResolution:'standard'};
 const presets={
  critical:{settings:{...defaults},note:'The first six nontrivial zeros, from t = 8 to 38.'},
  vortex:{settings:{...defaults,sigmaMin:-.15,sigmaMax:1.15,tMin:12.8,tMax:15.5,height:.7,vortices:true,contours:true},note:'A close look at the phase circulation around the first zero.'},
@@ -19,16 +21,28 @@ const presets={
  bridge:{settings:{...defaults,function:'xi',colorMode:'bridge',sigmaMin:-.25,sigmaMax:1.25,tMin:10,tMax:28,height:.7,ladder:true,contours:false},note:'Signed finite bridge balance from ξ(s+a) and ξ(s−a).'},
  projective:{settings:{...defaults,projective:true,geometry:'torus',function:'xi',torusR:2,ladder:true,height:.35,contours:false},note:'Projective elliptic curve, two critical ovals, infinity and anti-bridge, with a linked shifted-pair sphere.'},
  projectiveSphere:{settings:{...defaults,projective:true,geometry:'sphere',function:'xi',torusR:2,ladder:true,height:.35,contours:false,projectiveChannel:'domain'},note:'The projective domain [s₀−1:s₀], with finite and reciprocal charts linked to both torus sheets.'},
+ spinor:{settings:{...defaults,projective:true,geometry:'torus',function:'xi',torusR:2,ladder:true,height:.35,contours:false,fiberMode:'spinor'},note:'The selected homogeneous pair lifted to a spinor: Hopf phase, Bloch direction and 4π rotation.'},
+ twistor:{settings:{...defaults,projective:true,geometry:'torus',function:'xi',torusR:2,ladder:true,height:.35,contours:false,fiberMode:'twistor'},note:'A chosen Euclidean twistor structure on ℂℙ³: the elliptic point, its S⁴ image and its ℂℙ¹ fiber.'},
  pole:{settings:{...defaults,sigmaMin:-10,sigmaMax:4,tMin:-7,tMax:7,height:1.3,contours:true},note:'The pole at s = 1 and the trivial zeros at negative even integers.'},
  phase:{settings:{...defaults,heightMode:'flat',height:0,sigmaMin:-2,sigmaMax:3,tMin:0,tMax:48,contours:true},note:'A plane phase atlas with an undistorted top view.'}
 };
 let state={...defaults},renderedState={...state},data=null,busy=false,computeTimer,heatTimer,toastTimer,reference=1,logReference=0,probe={sigma:.5,t:ZERO_HEIGHTS[0]},pinned=false,probeEditing=false,pendingCamera=null,windingKey=null,saveViews=[],packetTime=0,lastPacketTime=performance.now();
 let fieldService,fieldController=null,requestSerial=0,warmController=null,warmTimer,warmMessage='',prepareController=null,preparing=false,prepareMessage='',activeClip=null,frameIndex=0,frameDirection=1,lastSource='';
-const enums={projectiveChannel:['domain','bridge','derivative'],geometry:['plane','sphere','torus'],function:['zeta','xi','heat'],heightMode:['log','abs','real','imag','flat'],colorMode:['phase','modulus','real','imag','bridge'],resolution:['draft','standard','high','ultra'],extent:['core','extended'],playbackResolution:['draft','standard','current'],heatFrames:[9,17,33]};
-const limits={derivativeScale:[.01,20],height:[0,2.4],phaseOffset:[0,TAU],exposure:[.3,2],opacity:[.1,1],flowSpeed:[.1,3],packetWidth:[.1,1],tau:[-.3,.5],sigmaMin:[-128,128.99],sigmaMax:[-127.99,129],tMin:[-2000,1999.99],tMax:[-1999.99,2000],bridgeA:[.04,1.5],chartScale:[1,72],torusR:[1.15,3],heightReference:[0,1e300],heightLogReference:[-100000,100000],heatStart:[-.3,.49],heatEnd:[-.29,.5],heatFPS:[1,12]};
-function validate(input){const s={...defaults};for(const key in defaults){const v=input?.[key];if(v===undefined)continue;if(enums[key]){if(enums[key].includes(v))s[key]=v;}else if(typeof defaults[key]==='boolean'){s[key]=!!v;}else if(typeof v==='number'&&Number.isFinite(v)){s[key]=limits[key]?Math.max(limits[key][0],Math.min(limits[key][1],v)):v;}}if(s.sigmaMax-s.sigmaMin<.05)s.sigmaMax=Math.min(129,s.sigmaMin+.05);if(s.tMax-s.tMin<.05)s.tMax=Math.min(2000,s.tMin+.05);if(input?.heightLocked===undefined&&s.heightReference>0){s.heightLocked=true;s.heightLogReference=Math.log(s.heightReference);}if(s.heatStart>=s.heatEnd){s.heatStart=defaults.heatStart;s.heatEnd=defaults.heatEnd;}if(s.projective&&s.geometry==='plane')s.geometry='torus';s.playing=false;return s;}
-try{const h=new URLSearchParams(location.hash.slice(1));if(h.has('view')){const session=JSON.parse(h.get('view'));state=validate(session.state||session);pendingCamera=session.camera||null;if(session.probe&&Number.isFinite(session.probe.sigma)&&Number.isFinite(session.probe.t))probe=session.probe;}else{const saved=localStorage.getItem('zeta-observatory-last');if(saved)state=validate(JSON.parse(saved));}saveViews=JSON.parse(localStorage.getItem('zeta-observatory-views')||'[]');if(!Array.isArray(saveViews))saveViews=[];}catch{state={...defaults};}
-const sceneCallbacks={onProbe:p=>{if(busy||state.playing||preparing||probeEditing||(pinned&&!p.pinned))return;const raw=surfacePoint(p.u,p.v,renderedState);if(!within(raw.sigma,raw.t,renderedState))return;probe={sigma:raw.sigma,t:raw.t};pinned=p.pinned;updateProbe(pinned);},onStatus:s=>{if(s.type==='render'){reference=s.reference;logReference=Number.isFinite(s.logReference)?s.logReference:Math.log(reference);$('referenceStats').textContent=(s.renderMode==='software'?'software 3D'+(s.meshStride>1?' / '+s.meshStride+'× mesh step':'')+' · ':'')+(state.heightLocked?'reference = ':'area q₉₅ = ')+fmtLog(logReference,3);}else if(s.type==='error'&&!/WebGL/.test(s.message))toast(s.message);}};
+let viewURL=null,sharedCamera=null,pendingResetView=null,cameraURLTimer,focusModuleAfterLoad=false,lastBufferedURL=0;
+const defaultProbe={sigma:.5,t:ZERO_HEIGHTS[0]};
+const enums={fiberMode:['off','spinor','twistor'],spinorAxis:['x','y','z'],twistorSheet:[1,-1],twistorProjection:['north','south'],projectiveChannel:['domain','bridge','derivative'],geometry:['plane','sphere','torus'],function:['zeta','xi','heat'],heightMode:['log','abs','real','imag','flat'],colorMode:['phase','modulus','real','imag','bridge'],resolution:['draft','standard','high','ultra'],extent:['core','extended'],playbackResolution:['draft','standard','current'],heatFrames:[9,17,33]};
+const limits={spinorPhase:[0,TAU],spinorRotation:[0,2*TAU],twistorFiberTheta:[0,Math.PI],twistorFiberPhi:[0,TAU],derivativeScale:[.01,20],height:[0,2.4],phaseOffset:[0,TAU],exposure:[.3,2],opacity:[.1,1],flowSpeed:[.1,3],packetWidth:[.1,1],tau:[-.3,.5],sigmaMin:[-128,128.99],sigmaMax:[-127.99,129],tMin:[-2000,1999.99],tMax:[-1999.99,2000],bridgeA:[.04,1.5],chartScale:[1,72],torusR:[1.15,3],heightReference:[0,1e300],heightLogReference:[-100000,100000],heatStart:[-.3,.49],heatEnd:[-.29,.5],heatFPS:[1,12]};
+function validate(input){const s={...defaults};for(const key in defaults){const v=input?.[key];if(v===undefined)continue;if(enums[key]){if(enums[key].includes(v))s[key]=v;}else if(typeof defaults[key]==='boolean'){s[key]=!!v;}else if(typeof v==='number'&&Number.isFinite(v)){s[key]=limits[key]?Math.max(limits[key][0],Math.min(limits[key][1],v)):v;}}if(s.sigmaMax-s.sigmaMin<.05)s.sigmaMax=Math.min(129,s.sigmaMin+.05);if(s.tMax-s.tMin<.05)s.tMax=Math.min(2000,s.tMin+.05);if(input?.heightLocked===undefined&&s.heightReference>0){s.heightLocked=true;s.heightLogReference=Math.log(s.heightReference);}if(s.heatStart>=s.heatEnd){s.heatStart=defaults.heatStart;s.heatEnd=defaults.heatEnd;}if(s.fiberMode!=='off')s.projective=true;if(s.projective&&s.geometry==='plane')s.geometry='torus';s.playing=false;return s;}
+const viewConfig={defaults,presets,validate,defaultProbe};
+const incomingView=decodeViewURL(location.href,viewConfig);
+try{
+ if(incomingView.valid){state=incomingView.session.state;pendingCamera=incomingView.session.camera||null;sharedCamera=pendingCamera;probe=incomingView.session.probe||{...defaultProbe};pinned=true;}
+ else if(!incomingView.matched){const saved=localStorage.getItem('zeta-observatory-last');if(saved)state=validate(JSON.parse(saved));}
+ saveViews=JSON.parse(localStorage.getItem('zeta-observatory-views')||'[]');if(!Array.isArray(saveViews))saveViews=[];
+}catch{saveViews=[];}
+focusModuleAfterLoad=state.fiberMode!=='off';if(incomingView.valid&&!pendingCamera)pendingResetView=incomingView.name==='phase'?'top':'perspective';
+
+const sceneCallbacks={onCameraChange:()=>{clearTimeout(cameraURLTimer);cameraURLTimer=setTimeout(()=>{cameraURLTimer=null;sharedCamera=scene.getCameraState?.();storeState({immediate:true});},220);},onProbe:p=>{if(busy||state.playing||preparing||probeEditing||(pinned&&!p.pinned))return;const raw=surfacePoint(p.u,p.v,renderedState);if(!within(raw.sigma,raw.t,renderedState))return;probe={sigma:raw.sigma,t:raw.t};pinned=p.pinned;updateProbe(pinned);},onStatus:s=>{if(s.type==='render'){reference=s.reference;logReference=Number.isFinite(s.logReference)?s.logReference:Math.log(reference);$('referenceStats').textContent=(s.renderMode==='software'?'software 3D'+(s.meshStride>1?' / '+s.meshStride+'× mesh step':'')+' · ':'')+(state.heightLocked?'reference = ':'area q₉₅ = ')+fmtLog(logReference,3);}else if(s.type==='error'&&!/WebGL/.test(s.message))toast(s.message);}};
 let scene=new ZetaScene($('viewport'),sceneCallbacks);
 if(!scene.renderer){$('viewport').replaceChildren();scene=new CanvasZetaScene($('viewport'),sceneCallbacks);}
 function within(s,t,settings=state){return withinDomain(s,t,domainFor(settings));}
@@ -36,16 +50,36 @@ function fmt(n,d=6){if(Number.isNaN(n))return 'undefined';if(!Number.isFinite(n)
 function fmtLog(logAbs,d=6){if(logAbs===-Infinity)return '0';if(!Number.isFinite(logAbs))return 'undefined';if(logAbs>-690&&logAbs<690)return fmt(Math.exp(logAbs),d);const e=Math.floor(logAbs/Math.LN10),m=Math.exp(logAbs-e*Math.LN10);return m.toPrecision(d)+'e'+(e<0?'−'+(-e):'+'+e);}
 function fmtComponent(p,imag=false,d=6){const factor=imag?Math.sin(p.arg):Math.cos(p.arg);if(!p.valid)return 'undefined';if(p.rawRepresentable)return fmt(imag?p.im:p.re,d);if(Math.abs(factor)<1e-14)return '≈ 0 (phase precision)';return (factor<0?'−':'')+fmtLog(p.logAbs+Math.log(Math.abs(factor)),d);}
 function toast(msg){$('toast').textContent=msg;$('toast').classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('toast').classList.remove('show'),3600);}
-function storeState(){try{localStorage.setItem('zeta-observatory-last',JSON.stringify({...state,playing:false}));}catch{}}
+function shareViewName(){
+ if(state.fiberMode!=='off')return state.fiberMode;
+ if(state.projective)return state.geometry==='sphere'?'projectiveSphere':'projective';
+ const exact=Object.entries(presets).find(([,p])=>Object.keys(defaults).filter(k=>!['playing','autoRotate','packetPaused','heightReference','heightLocked','heightLogReference'].includes(k)).every(k=>p.settings[k]===state[k]));
+ return exact?exact[0]:state.geometry==='sphere'?'sphere':state.geometry==='torus'?'torus':state.function==='heat'?'heat':state.colorMode==='bridge'?'bridge':'critical';
+}
+function storeState({mode='replace',name=shareViewName(),immediate=mode==='push'}={}){
+ try{localStorage.setItem('zeta-observatory-last',JSON.stringify({...state,playing:false}));}catch{}
+ viewURL?.sync({mode,name,immediate});
+}
+function settleCamera(){if(cameraURLTimer){clearTimeout(cameraURLTimer);cameraURLTimer=null;sharedCamera=scene.getCameraState?.();}}
+function resetViewCamera(view='perspective'){settleCamera();scene.resetCamera(view);sharedCamera=scene.getCameraState?.();storeState({immediate:true});}
+async function restoreURLView(session,decoded){
+ clearTimeout(cameraURLTimer);stopHeat(false);cancelField();cancelWarm();activeClip=null;prepareMessage='';probeEditing=false;
+ state=validate(session.state);probe=session.probe||{...defaultProbe};pinned=true;pendingCamera=sanitizeViewCamera(session.camera);sharedCamera=pendingCamera;
+ pendingResetView=pendingCamera?null:decoded?.name==='phase'?'top':'perspective';focusModuleAfterLoad=state.fiberMode!=='off';syncUI();await compute();
+}
+
 function syncUI(){
  const presetMatch=Object.entries(presets).find(([,p])=>Object.keys(defaults).filter(k=>!['playing','autoRotate','packetPaused','heightReference','heightLocked','heightLogReference'].includes(k)).every(k=>p.settings[k]===state[k]));
  $('preset').value=presetMatch?presetMatch[0]:'custom';$('presetNote').textContent=presetMatch?presetMatch[1].note:'Your current chart, function and layers. Save this view to keep the experiment.';
  document.body.dataset.geometry=state.geometry;document.body.dataset.projective=String(state.projective);
  $('projectiveSection').hidden=!state.projective;$('projectiveWorkbench').hidden=!state.projective;
- $('projectiveBtn').classList.toggle('active',state.projective);$('projectiveBtn').setAttribute('aria-pressed',String(state.projective));
+ $('fiberSection').hidden=!state.projective;$('fiberWorkbench').hidden=!state.projective||state.fiberMode==='off';
+ $('spinorControls').hidden=state.fiberMode!=='spinor';$('twistorControls').hidden=state.fiberMode!=='twistor';$('fiberPanelBtn').hidden=state.fiberMode==='off';
+ for(const mode of ['spinor','twistor']){const active=state.projective&&state.fiberMode===mode;$(mode+'Btn').classList.toggle('active',active);$(mode+'Btn').setAttribute('aria-pressed',String(active));}
+ $('projectiveBtn').classList.toggle('active',state.projective&&state.fiberMode==='off');$('projectiveBtn').setAttribute('aria-pressed',String(state.projective&&state.fiberMode==='off'));
  $('projectiveMount').value=state.geometry==='sphere'?'sphere':'torus';$('derivativeScaleRow').hidden=state.projectiveChannel!=='derivative';
  $$('[data-setting]').forEach(el=>{const v=state[el.dataset.setting];if(el.type==='checkbox')el.checked=!!v;else el.value=v;});
- $$('[data-output]').forEach(el=>{const k=el.dataset.output;el.textContent=k==='phaseOffset'?Math.round(state[k]*180/Math.PI)+'°':k==='heatFPS'?Math.round(state[k])+' fps':k==='chartScale'?state[k]:state[k].toFixed(2);});
+ $$('[data-output]').forEach(el=>{const k=el.dataset.output;el.textContent=['spinorPhase','spinorRotation','twistorFiberTheta','twistorFiberPhi'].includes(k)?(state[k]/Math.PI).toFixed(2)+'π':k==='phaseOffset'?Math.round(state[k]*180/Math.PI)+'°':k==='heatFPS'?Math.round(state[k])+' fps':k==='chartScale'?state[k]:state[k].toFixed(2);});
  $$('button[data-geometry]').forEach(el=>{const active=!state.projective&&el.dataset.geometry===state.geometry;el.classList.toggle('active',active);el.setAttribute('aria-pressed',active);});
  $$('button[data-function]').forEach(el=>{const active=el.dataset.function===state.function;el.classList.toggle('active',active);el.setAttribute('aria-pressed',active);});
  $('lockHeight').checked=state.heightLocked;
@@ -53,8 +87,8 @@ function syncUI(){
  $('tau').value=state.tau;$('tauValue').textContent=(state.tau>=0?'+':'')+state.tau.toFixed(3);$('heatBadge').textContent='τ = '+state.tau.toFixed(3);
  $('playHeat').innerHTML=preparing?'■':state.playing?'Ⅱ':'<svg><use href="#i-play"/></svg>';$('playHeat').setAttribute('aria-label',preparing?'Cancel frame preparation':state.playing?'Pause buffered heat playback':'Play buffered heat sequence');
  $('functionNote').textContent=state.function==='zeta'?'ζ(s) · Euler–Maclaurin continuation':state.function==='xi'?'ξ(s) · completed, entire, symmetric':'Fτ(s) = 8Hτ(−2i(s−½)) · true theta flow';
- $('sceneKicker').textContent=state.projective?'04 / PROJECTIVE ATLAS':state.geometry==='plane'?'01 / COMPLEX LANDSCAPE':state.geometry==='sphere'?'02 / RIEMANN SPHERE':'03 / ELLIPTIC DOUBLE COVER';
- $('sceneTitle').textContent=state.projective?(state.geometry==='torus'?'The projective double cover.':'Infinity in a finite chart.'):state.geometry==='torus'?'One function. Two sheets.':state.geometry==='sphere'?'The compactified s-plane.':state.function==='heat'?'The theta heat family':state.function==='xi'?'The completed xi function':'The Riemann zeta function';
+ $('sceneKicker').textContent=state.fiberMode==='spinor'?'05 / SPINOR LIFT':state.fiberMode==='twistor'?'06 / EUCLIDEAN TWISTOR FIBER':state.projective?'04 / PROJECTIVE ATLAS':state.geometry==='plane'?'01 / COMPLEX LANDSCAPE':state.geometry==='sphere'?'02 / RIEMANN SPHERE':'03 / ELLIPTIC DOUBLE COVER';
+ $('sceneTitle').textContent=state.fiberMode==='spinor'?'Lift the point to a spinor.':state.fiberMode==='twistor'?'Explore the twistor fiber.':state.projective?(state.geometry==='torus'?'The projective double cover.':'Infinity in a finite chart.'):state.geometry==='torus'?'One function. Two sheets.':state.geometry==='sphere'?'The compactified s-plane.':state.function==='heat'?'The theta heat family':state.function==='xi'?'The completed xi function':'The Riemann zeta function';
  const F=state.function==='zeta'?'ζ':state.function==='xi'?'ξ':'Fτ',Q=state.heightLocked?'reference':'q₉₅';
  $('sceneSubtitle').textContent='s = σ + it · '+(state.heightMode==='flat'?'phase on the base surface':state.heightMode==='log'?'height ∝ log(1 + |'+F+'| / '+Q+')':state.heightMode==='abs'?'height ∝ |'+F+'| / '+Q:state.heightMode==='real'?'height ∝ asinh(Re '+F+' / '+Q+')':'height ∝ asinh(Im '+F+' / '+Q+')');
  $('chartNote').textContent=state.projective?'s₀ = ½ + (s−½)/L; w = (s₀−1)/s₀. L = 1 is the exact chart from the projective construction. Larger L separates high zeros visually.':state.geometry==='torus'?'s = ½ + L(1/(1−w) − ½). L = 1 restores the studied cover. Two critical ovals; each zero has two lifts.':'s = ½ + (L/3)(X + iZ)/(1−Y). Sphere scale = '+fmt(state.chartScale/3,3)+'.';
@@ -88,21 +122,22 @@ function syncCacheUI(){
 }
 function cancelField(){clearTimeout(computeTimer);fieldController?.abort();fieldController=null;requestSerial++;busy=false;}
 function cancelWarm(){clearTimeout(warmTimer);warmController?.abort();warmController=null;warmMessage='';}
-function restoreDisplayedField(){if(!data||fieldKey(state)===fieldKey(renderedState))return;for(const key of ['geometry','projective','function','tau','resolution','extent','sigmaMin','sigmaMax','tMin','tMax','chartScale','torusR','bridgeA','colorMode','vortices','ladder','packets'])state[key]=renderedState[key];scene.updateStyle(renderSettings());syncUI();storeState();}
+function restoreDisplayedField(){if(!data||fieldKey(state)===fieldKey(renderedState))return;for(const key of ['geometry','projective','function','tau','resolution','extent','sigmaMin','sigmaMax','tMin','tMax','chartScale','torusR','bridgeA','colorMode','vortices','ladder','packets'])state[key]=renderedState[key];if(!state.projective)state.fiberMode='off';scene.updateStyle(renderSettings());syncUI();storeState();}
 function cancelPreparation(){stopHeat(false);restoreDisplayedField();updateProbe(pinned);}
-function holdProbe(message=state.playing?'Buffered playback · pause to inspect':'Buffered frame · press Inspect for point values'){$('probeMode').textContent=message;$('probeFunction').textContent=state.function==='zeta'?'ζ(s)':state.function==='xi'?'ξ(s)':'Fτ(s)';for(const id of ['probeAbs','probeReal','probeImag','probePhase','probeDerivative','probeShear','probeBalance'])$(id).textContent='—';$('windingResult').querySelector('strong').textContent='—';windingKey=null;projectivePanel.hold(state,probe,message);}
+function holdProbe(message=state.playing?'Buffered playback · pause to inspect':'Buffered frame · press Inspect for point values'){$('probeMode').textContent=message;$('probeFunction').textContent=state.function==='zeta'?'ζ(s)':state.function==='xi'?'ξ(s)':'Fτ(s)';for(const id of ['probeAbs','probeReal','probeImag','probePhase','probeDerivative','probeShear','probeBalance'])$(id).textContent='—';$('windingResult').querySelector('strong').textContent='—';windingKey=null;projectivePanel.hold(state,probe,message);fiberPanels.hold(state,probe,message);}
 function applyField(result,requested,{inspect=true,source=result.source}={}){
  data=result.data;renderedState={...requested};lastSource=source;scene.setData(data,{...state,resolution:requested.resolution});
- if(pendingCamera){scene.setCameraState?.(pendingCamera);pendingCamera=null;}
+ if(pendingCamera){scene.setCameraState?.(pendingCamera);pendingCamera=null;}else if(pendingResetView){scene.resetCamera(pendingResetView);}pendingResetView=null;
  $('computeStatus').classList.add('done');$('computeText').textContent='Field ready';$('meshStats').textContent=data.validCount.toLocaleString()+' samples · '+sourceLabel[source]+' · '+requested.resolution;
  $('meshStats').dataset.source=source;$('meshStats').dataset.tau=requested.tau;$('meshStats').dataset.fieldFunction=requested.function;$('meshStats').dataset.fieldGeometry=requested.geometry;
  drawAtlas();drawSlice();if(inspect)updateProbe(pinned);else holdProbe();syncCacheUI();
+ if(focusModuleAfterLoad){focusModuleAfterLoad=false;focusFiber();}
 }
 function scheduleCompute(delay=90){cancelField();cancelWarm();busy=true;$('computeStatus').classList.remove('done');$('computeText').textContent='Checking computed cache';computeTimer=setTimeout(compute,delay);}
 async function compute(){
  cancelField();cancelWarm();const controller=new AbortController();fieldController=controller;const id=requestSerial,requested={...state,playing:false};busy=true;holdProbe('Loading the selected field');$('computeStatus').classList.remove('done');$('computeText').textContent='Checking computed cache';
  try{const result=await fieldService.get(requested,{signal:controller.signal,onProgress:message=>{if(id===requestSerial)$('computeText').textContent=message;}});if(id!==requestSerial||controller.signal.aborted)return;busy=false;fieldController=null;applyField(result,requested);storeState();warmTimer=setTimeout(()=>warmModes(false),500);}
- catch(error){if(error.name==='AbortError'||id!==requestSerial)return;busy=false;fieldController=null;restoreDisplayedField();$('computeText').textContent='Field could not be loaded · previous field retained';$('computeStatus').classList.add('done');toast(error.message);syncCacheUI();}
+ catch(error){if(error.name==='AbortError'||id!==requestSerial)return;busy=false;fieldController=null;pendingCamera=null;pendingResetView=null;sharedCamera=scene.getCameraState?.();restoreDisplayedField();$('computeText').textContent='Field could not be loaded · previous field retained';$('computeStatus').classList.add('done');toast(error.message);syncCacheUI();}
 }
 async function warmModes(explicit=false){
  if(busy||preparing||state.playing||(!explicit&&warmController&&warmMessage))return;cancelWarm();const controller=new AbortController();warmController=controller;const settings={...state,playing:false};let done=0;
@@ -110,7 +145,8 @@ async function warmModes(explicit=false){
  catch(error){if(error.name!=='AbortError'&&explicit)toast(error.message);}
  finally{if(warmController===controller){warmController=null;warmMessage='';syncCacheUI();if(explicit&&done===9&&!controller.signal.aborted)toast('Prepared nine chart/function modes within the cache budget.');}}
 }
-function change(key,value){
+function change(key,value,{historyMode='replace'}={}){
+ settleCamera();if(data&&!pendingCamera)sharedCamera=scene.getCameraState?.();
  const oldValue=state[key];if(typeof value==='number'&&limits[key])value=Math.max(limits[key][0],Math.min(limits[key][1],value));
  const oldKey=fieldKey(state),clipSetting=['heatStart','heatEnd','heatFrames','playbackResolution'].includes(key);
  const candidate={...state,[key]:value};
@@ -118,43 +154,58 @@ function change(key,value){
  if(['heatStart','heatEnd'].includes(key)&&candidate.heatStart>=candidate.heatEnd){syncUI();toast('Heat start must be below heat end.');return;}
  const numerical=oldKey!==fieldKey(candidate);if(numerical||clipSetting){stopHeat(false);cancelWarm();prepareMessage='';}
  state[key]=value;if(key==='function'&&oldValue!==value){state.heightReference=0;state.heightLocked=false;}if(!clipMatches())activeClip=null;
- syncUI();storeState();
+ syncUI();storeState({mode:historyMode});
  if(numerical)scheduleCompute();else if(!clipSetting&&key!=='heatFPS'){scene.updateStyle(renderSettings());if(['phaseOffset','colorMode','heightReference','heightLocked','heightLogReference'].includes(key))drawAtlas();if(key==='heightReference')drawSlice();}
  if(key==='geometry')closeDrawers();if(numerical)holdProbe('Loading the selected field');
  if(['projectiveChannel','derivativeScale','bridgeA'].includes(key))updateProjective();
+ if(['fiberMode','spinorPhase','spinorRotation','spinorAxis','twistorSheet','twistorFiberTheta','twistorFiberPhi','twistorProjection'].includes(key))updateFiber();
+ if(key==='fiberMode'&&value!=='off')focusFiber();
 }
-$$('[data-setting]').forEach(el=>{const event=el.type==='range'?'input':'change';el.addEventListener(event,()=>{const k=el.dataset.setting,v=el.type==='checkbox'?el.checked:typeof defaults[k]==='number'?Number(el.value):el.value;if(typeof v==='number'&&!Number.isFinite(v))return;change(k,v);});});
+$$('[data-setting]').forEach(el=>{const event=el.type==='range'?'input':'change';el.addEventListener(event,()=>{const k=el.dataset.setting,v=el.type==='checkbox'?el.checked:typeof defaults[k]==='number'?Number(el.value):el.value;if(typeof v==='number'&&!Number.isFinite(v))return;if(k==='fiberMode')selectFiber(v);else change(k,v,{historyMode:el.type==='range'?'replace':'push'});});});
 $$('button[data-geometry]').forEach(el=>el.onclick=()=>selectMount(el.dataset.geometry,false));
-$('projectiveBtn').onclick=()=>selectMount(state.geometry==='sphere'?'sphere':'torus',!state.projective);
-$('projectiveMount').onchange=()=>selectMount($('projectiveMount').value,true);
+$('projectiveBtn').onclick=()=>selectMount(state.geometry==='sphere'?'sphere':'torus',!state.projective||state.fiberMode!=='off');
+$('spinorBtn').onclick=()=>selectFiber('spinor');$('twistorBtn').onclick=()=>selectFiber('twistor');
+$('fiberPanelBtn').onclick=focusFiber;
+$('projectiveMount').onchange=()=>selectMount($('projectiveMount').value,true,{fiberMode:state.fiberMode});
 $('projectivePanelBtn').onclick=()=>{$('projectiveWorkbench').scrollIntoView({block:'start',behavior:'smooth'});closeDrawers();};
 $('projectiveOriginal').onclick=()=>{change('chartScale',1);toast('Original chart: w = (s−1)/s. Infinity and the anti-bridge stay distinct.');};
 $('projectiveAnti').onclick=()=>{stopHeat(false);probeEditing=false;probe={sigma:.5,t:0};pinned=true;updateProbe(true);};
 $('projectiveFirstZero').onclick=()=>{stopHeat(false);probeEditing=false;probe={sigma:.5,t:ZERO_HEIGHTS[0]};pinned=true;updateProbe(true);};
-function selectMount(geometry,projective){
- stopHeat(false);cancelField();cancelWarm();activeClip=null;prepareMessage='';
- const entering=projective&&!state.projective;state={...state,geometry,projective};
+function selectMount(geometry,projective,{fiberMode='off'}={}){
+ settleCamera();stopHeat(false);if(geometry!==state.geometry){sharedCamera=null;pendingCamera=null;}else if(data&&!pendingCamera)sharedCamera=scene.getCameraState?.();cancelField();cancelWarm();activeClip=null;prepareMessage='';
+ const entering=projective&&!state.projective;state={...state,geometry,projective,fiberMode:projective?fiberMode:'off'};
  if(entering){state.torusR=2;state.height=Math.min(state.height,.45);state.contours=false;state.ladder=true;state.seams=true;}
- syncUI();storeState();compute();closeDrawers();
+ focusModuleAfterLoad=fiberMode!=='off';syncUI();storeState({mode:'push'});compute();closeDrawers();
+}
+function focusFiber(){if(state.fiberMode==='off')return;$('fiberWorkbench').scrollIntoView({block:'start',behavior:'smooth'});closeDrawers();}
+function selectFiber(mode){
+ stopHeat(false);
+ if(mode==='off'||state.projective){change('fiberMode',mode,{historyMode:'push'});if(!projectivePanel.snapshot)updateProjective();return;}
+ selectMount(state.geometry==='sphere'?'sphere':'torus',true,{fiberMode:mode});focusFiber();
+}
+function updateFiber(){
+ if(!state.projective||state.fiberMode==='off')return;
+ if(busy||state.playing||preparing||probeEditing||!projectivePanel.snapshot){fiberPanels.hold(state,probe,state.playing?'Buffered playback · pause to inspect':probeEditing?'Coordinates edited · press Inspect':'Loading the linked point');return;}
+ fiberPanels.update(state,probe,{pair:projectivePanel.snapshot.point,curvePoint:projectivePanel.snapshot.curvePoint});
 }
 function updateProjective(){
  if(!state.projective)return;
- if(busy||state.playing||preparing||probeEditing){projectivePanel.hold(state,probe,state.playing?'Buffered playback · pause to inspect':probeEditing?'Coordinates edited · press Inspect':'Loading the selected field');return;}
- projectivePanel.update(state,probe);
+ if(busy||state.playing||preparing||probeEditing){const message=state.playing?'Buffered playback · pause to inspect':probeEditing?'Coordinates edited · press Inspect':'Loading the selected field';projectivePanel.hold(state,probe,message);fiberPanels.hold(state,probe,message);return;}
+ projectivePanel.update(state,probe);updateFiber();
 }
-$$('button[data-function]').forEach(el=>el.onclick=()=>{stopHeat();change('function',el.dataset.function);});
+$$('button[data-function]').forEach(el=>el.onclick=()=>{stopHeat();change('function',el.dataset.function,{historyMode:'push'});});
 $('preset').onchange=()=>applyPreset($('preset').value);
-function applyPreset(key){if(!presets[key])return;probeEditing=false;stopHeat();state={...presets[key].settings};$('presetNote').textContent=presets[key].note;$('ladderSection').open=state.ladder||state.packets;syncUI();storeState();compute();setTimeout(()=>scene.resetCamera(key==='phase'?'top':'perspective'),120);}
+function applyPreset(key){if(!presets[key])return;probeEditing=false;settleCamera();stopHeat(false);sharedCamera=null;pendingCamera=null;pendingResetView=key==='phase'?'top':'perspective';state={...presets[key].settings};focusModuleAfterLoad=state.fiberMode!=='off';$('presetNote').textContent=presets[key].note;$('ladderSection').open=state.ladder||state.packets;syncUI();storeState({mode:'push',name:key});compute();}
 $('lockHeight').onchange=()=>{state.heightLogReference=logReference;state.heightReference=$('lockHeight').checked&&Number.isFinite(reference)?reference:0;change('heightLocked',$('lockHeight').checked);};
 $('unitHeight').onclick=()=>{state.heightLogReference=0;state.heightReference=1;change('heightLocked',true);drawAtlas();toast('Height reference set to |F| = 1. Unlock to restore the area percentile.');};
 $('literalTorus').onclick=()=>{change('chartScale',1);toast('Original torus cover: s = 1/(1−w).');};
-$('resetBtn').onclick=()=>scene.resetCamera();$('topBtn').onclick=()=>scene.resetCamera('top');
-$('rotateBtn').onclick=()=>change('autoRotate',!state.autoRotate);
+$('resetBtn').onclick=()=>resetViewCamera();$('topBtn').onclick=()=>resetViewCamera('top');
+$('rotateBtn').onclick=()=>{sharedCamera=scene.getCameraState?.();change('autoRotate',!state.autoRotate);};
 $('focusBtn').onclick=()=>{document.body.classList.toggle('focus-mode');setTimeout(()=>window.dispatchEvent(new Event('resize')),100);};
 function stopHeat(refresh=true){
  const wasPlaying=state.playing,wasPreparing=preparing;state.playing=false;clearTimeout(heatTimer);
  if(prepareController){prepareController.abort();prepareController=null;preparing=false;prepareMessage='Preparation cancelled · completed fields remain cached';busy=false;$('computeText').textContent='Preparation cancelled · previous field retained';$('computeStatus').classList.add('done');}
- if(wasPlaying&&data)scene.updateStyle(renderSettings());syncUI();if((wasPlaying||wasPreparing)&&refresh)updateProbe(pinned);storeState();
+ if(wasPlaying&&data)scene.updateStyle(renderSettings());syncUI();if((wasPlaying||wasPreparing)&&refresh)updateProbe(pinned);storeState({immediate:wasPlaying});
 }
 function displayBufferedFrame(index){
  if(!clipMatches())return;frameIndex=Math.max(0,Math.min(activeClip.frames.length-1,index));const frame=activeClip.frames[frameIndex],functionChanged=state.function!=='heat';state.function='heat';state.tau=frame.tau;
@@ -162,6 +213,7 @@ function displayBufferedFrame(index){
  $('tau').value=state.tau;$('tauValue').textContent=(state.tau>=0?'+':'')+state.tau.toFixed(3);$('heatBadge').textContent='τ = '+state.tau.toFixed(3);
  applyField(frame,{...state,resolution:activeClip.resolution},{inspect:false,source:'buffer'});
  if(functionChanged)syncUI();
+ const now=performance.now();if(!state.playing||now-lastBufferedURL>=1000){lastBufferedURL=now;storeState({immediate:true});}
 }
 function startPlayback(){
  if(!clipMatches())return;cancelWarm();lockPlaybackReference();state.function='heat';state.playing=true;syncUI();displayBufferedFrame(frameIndex);
@@ -170,6 +222,7 @@ function startPlayback(){
 }
 function lockPlaybackReference(){if(!state.heightLocked){state.heightLocked=true;state.heightLogReference=Number.isFinite(activeClip?.heightLogReference)?activeClip.heightLogReference:logReference;const ref=Math.exp(state.heightLogReference);state.heightReference=Number.isFinite(ref)?ref:0;scene.updateStyle(renderSettings());drawAtlas();}if(activeClip)activeClip.heightLogReference=state.heightLogReference;}
 async function prepareHeat(autoplay=false){
+ settleCamera();if(data&&!pendingCamera)sharedCamera=scene.getCameraState?.();
  if(preparing){cancelPreparation();return;}
  stopHeat(false);cancelField();cancelWarm();
  if(clipMatches()){if(state.function!=='heat'){state.heightLocked=false;state.heightReference=0;}frameIndex=nearestFrame(activeClip.taus,state.tau);displayBufferedFrame(frameIndex);lockPlaybackReference();if(autoplay)startPlayback();else syncUI();return;}
@@ -188,7 +241,7 @@ $('frameScrub').oninput=()=>{const index=Number($('frameScrub').value);stopHeat(
 $('playbackSettings').onclick=()=>{$('cacheSection').open=true;if(window.innerWidth<=760)openDrawer('controls');$('cacheSection').scrollIntoView({block:'nearest',behavior:'smooth'});};
 $('precacheModes').onclick=()=>{if(warmController&&warmMessage){cancelWarm();syncCacheUI();return;}if(busy&&!preparing){toast('Wait for the selected field to finish loading.');return;}if(preparing)cancelPreparation();else stopHeat(false);warmModes(true);};
 $('clearCache').onclick=async()=>{stopHeat(false);cancelField();cancelWarm();activeClip=null;busy=false;restoreDisplayedField();const success=await fieldService.clear();lastSource='';prepareMessage='';$('computeStatus').classList.add('done');syncCacheUI();toast(success?'Computed cache cleared. Saved views are kept.':'Memory cache cleared; browser storage is unavailable.');};
-function selectHeatTime(value){stopHeat(false);if(state.function!=='heat'){state.heightLocked=false;state.heightReference=0;}state.function='heat';state.tau=value;syncUI();storeState();holdProbe('Loading the selected heat field');scheduleCompute();}
+function selectHeatTime(value){settleCamera();if(data&&!pendingCamera)sharedCamera=scene.getCameraState?.();stopHeat(false);if(state.function!=='heat'){state.heightLocked=false;state.heightReference=0;}state.function='heat';state.tau=value;syncUI();storeState();holdProbe('Loading the selected heat field');scheduleCompute();}
 $('tau').oninput=()=>selectHeatTime(Number($('tau').value));
 $('zeroTau').onclick=()=>selectHeatTime(0);
 $('pausePackets').onclick=()=>change('packetPaused',!state.packetPaused);
@@ -203,20 +256,20 @@ $('windingRadius').onchange=invalidateWinding;
 function updateProbe(mark=false){
  if(busy||state.playing||preparing){holdProbe(busy&&!state.playing?'Loading the selected field':'Buffered playback · pause to inspect');return;}
  invalidateWinding();
- const {sigma:s,t}=probe;if(!within(s,t)){$('probeMode').textContent='Outside the selected computed domain';for(const id of ['probeAbs','probeReal','probeImag','probePhase','probeDerivative','probeShear','probeBalance'])$(id).textContent='—';projectivePanel.hold(state,probe,'Outside the selected computed domain');return;}
+ const {sigma:s,t}=probe;if(!within(s,t)){$('probeMode').textContent='Outside the selected computed domain';for(const id of ['probeAbs','probeReal','probeImag','probePhase','probeDerivative','probeShear','probeBalance'])$(id).textContent='—';projectivePanel.hold(state,probe,'Outside the selected computed domain');fiberPanels.hold(state,probe,'Outside the selected computed domain');return;}
  const f=evaluatePolar(s,t,state.function,state.tau,true),pole=state.function==='zeta'&&s===1&&t===0;
  if(!probeEditing&&document.activeElement!==$('probeSigma'))$('probeSigma').value=Number(s.toPrecision(12));if(!probeEditing&&document.activeElement!==$('probeT'))$('probeT').value=Number(t.toPrecision(14));
  $('probeMode').textContent=probeEditing?'Coordinates edited · press Inspect':!f.valid&&!pole?'Numerical evaluation unavailable':f.valid&&!f.rawRepresentable?'Log-polar evaluation · magnitude outside raw float64':pinned?'Pinned · click another point to move':'Live · recomputed at chart coordinates';$('probeFunction').textContent=state.function==='zeta'?'ζ(s)':state.function==='xi'?'ξ(s)':'Fτ(s)';
  $('probeAbs').textContent=pole?'∞':fmtLog(f.logAbs,7);$('probeReal').textContent=pole?'pole':fmtComponent(f,false,7);$('probeImag').textContent=pole?'undefined':fmtComponent(f,true,7);const stable=f.valid&&Number.isFinite(f.arg)&&Number.isFinite(f.logAbs)&&f.logAbs-(f.derivativeLogAbs??Infinity)>Math.log(1e-11);$('probePhase').textContent=stable?(f.arg/Math.PI).toFixed(5)+'π':'ill-conditioned / singular';$('probeDerivative').textContent=pole?'∞':fmtLog(f.derivativeLogAbs);$('probeShear').textContent=stable&&f.q?fmt(f.q.re):'ill-conditioned';$('probeBalance').textContent=fmt(bridgeValue(s,t),5);
- if(mark)scene.setProbe(s,t);drawSlice();updateProjective();
+ if(mark)scene.setProbe(s,t);drawSlice();updateProjective();if(mark)storeState();
 }
 $('inspectBtn').onclick=()=>{const s=Number($('probeSigma').value),t=Number($('probeT').value);if(!within(s,t)){toast('Use '+domainLabel(domainFor(state))+'.');return;}stopHeat(false);probeEditing=false;probe={sigma:s,t};pinned=true;updateProbe(true);};
-$('unwrapBtn').onclick=()=>{if(probeEditing){toast('Press Inspect coordinates first.');return;}const d=domainFor(state);if(!within(probe.sigma,probe.t))return;stopHeat();state={...state,geometry:'plane',projective:false,sigmaMin:Math.max(d.sigmaMin,probe.sigma-.65),sigmaMax:Math.min(d.sigmaMax,probe.sigma+.65),tMin:Math.max(-d.tMax,probe.t-2.5),tMax:Math.min(d.tMax,probe.t+2.5),resolution:'high',height:.8,heightReference:0,heightLocked:false,contours:true};syncUI();compute();closeDrawers();toast('Unwrapped this point into a detailed spectral window.');};
+$('unwrapBtn').onclick=()=>{if(probeEditing){toast('Press Inspect coordinates first.');return;}const d=domainFor(state);if(!within(probe.sigma,probe.t))return;stopHeat();state={...state,geometry:'plane',projective:false,fiberMode:'off',sigmaMin:Math.max(d.sigmaMin,probe.sigma-.65),sigmaMax:Math.min(d.sigmaMax,probe.sigma+.65),tMin:Math.max(-d.tMax,probe.t-2.5),tMax:Math.min(d.tMax,probe.t+2.5),resolution:'high',height:.8,heightReference:0,heightLocked:false,contours:true};syncUI();storeState({mode:'push'});compute();closeDrawers();toast('Unwrapped this point into a detailed spectral window.');};
 [$('probeSigma'),$('probeT')].forEach(el=>el.addEventListener('input',()=>{probeEditing=true;$('probeMode').textContent='Coordinates edited · press Inspect';}));
 [$('probeSigma'),$('probeT')].forEach(el=>el.addEventListener('keydown',e=>{if(e.key==='Enter')$('inspectBtn').click();}));
 ZERO_HEIGHTS.forEach((t,i)=>{const o=document.createElement('option');o.value=i;o.textContent='ρ'+(i+1)+' · '+t.toFixed(9);$('zeroSelect').appendChild(o);});
 $('zeroSelect').onchange=()=>{stopHeat(false);probeEditing=false;probe={sigma:.5,t:ZERO_HEIGHTS[Number($('zeroSelect').value)]};pinned=true;updateProbe(true);};
-$('focusZero').onclick=()=>{const t=ZERO_HEIGHTS[Number($('zeroSelect').value)];stopHeat();state={...state,geometry:'plane',projective:false,function:'zeta',tau:0,sigmaMin:-.1,sigmaMax:1.1,tMin:t-1.3,tMax:t+1.3,height:.75,heightReference:0,heightLocked:false,vortices:true};probe={sigma:.5,t};pinned=true;syncUI();compute();closeDrawers();};
+$('focusZero').onclick=()=>{const t=ZERO_HEIGHTS[Number($('zeroSelect').value)];stopHeat();state={...state,geometry:'plane',projective:false,fiberMode:'off',function:'zeta',tau:0,sigmaMin:-.1,sigmaMax:1.1,tMin:t-1.3,tMax:t+1.3,height:.75,heightReference:0,heightLocked:false,vortices:true};probe={sigma:.5,t};pinned=true;syncUI();storeState({mode:'push'});compute();closeDrawers();};
 $('windingBtn').onclick=()=>{
  stopHeat(false);
  if(probeEditing){toast('Press Inspect coordinates before measuring this contour.');return;}
@@ -257,18 +310,21 @@ $('pngBtn').onclick=()=>{
 };
 $('csvBtn').onclick=()=>{if(!data||busy){toast('Wait for the grid to finish computing.');return;}const lines=['# Zeta Observatory numerical grid','# '+JSON.stringify({state:renderedState,domain:data.domain,method:NUMERICS.method,certified:false}),'# log_abs is the natural logarithm of magnitude; arg is radians. Raw fields are blank outside representable float64 range.','u,v,sigma,t,re,im,abs,log_abs,arg,valid,raw_representable,bridge_balance'];for(let k=0;k<data.valid.length;k++){const re=data.values[2*k],im=data.values[2*k+1],raw=data.valid[k]&&data.rawRepresentable[k];lines.push([data.uvs[2*k],data.uvs[2*k+1],data.coords[2*k],data.coords[2*k+1],raw?re:'',raw?im:'',raw?Math.hypot(re,im):'',data.valid[k]?data.logAbs[k]:'',data.valid[k]?data.arg[k]:'',data.valid[k],data.rawRepresentable[k],renderedState.colorMode==='bridge'&&Number.isFinite(data.bridge[k])?data.bridge[k]:''].join(','));}download(new Blob([lines.join('\n')],{type:'text/csv'}),filename('csv'));toast('Saved exact sample coordinates, log-polar values and available raw values.');};
 $('jsonBtn').onclick=()=>{download(new Blob([JSON.stringify(session(),null,2)],{type:'application/json'}),filename('json'));toast('Session exported. Import it to restore this view.');};
-$('linkBtn').onclick=async()=>{const url=new URL(location.href);url.hash=new URLSearchParams({view:JSON.stringify({state:{...state,playing:false},probe,camera:scene.getCameraState?.()})}).toString();try{await navigator.clipboard.writeText(url.href);history.replaceState(null,'',url);toast('View link copied, including the exact settings.');}catch{history.replaceState(null,'',url);toast('Settings are in the address bar. Copy the current URL.');}};
-$('importInput').onchange=async e=>{const f=e.target.files?.[0];if(!f)return;try{if(f.size>2000000)throw Error('Session file is too large.');const d=JSON.parse(await f.text());if(d.schema!=='zeta-observatory/1'||!d.state)throw Error('Choose a Zeta Observatory session JSON.');stopHeat();state=validate(d.state);pendingCamera=d.camera||null;if(d.probe&&within(d.probe.sigma,d.probe.t))probe=d.probe;syncUI();compute();toast('Session restored.');}catch(error){toast(error.message);}e.target.value='';};
+$('linkBtn').onclick=async()=>{sharedCamera=scene.getCameraState?.();storeState({immediate:true});const url=location.href;try{await navigator.clipboard.writeText(url);toast('View link copied, including the exact settings, camera and point.');}catch{toast('This view is in the address bar. Copy the current URL.');}};
+$('importInput').onchange=async e=>{const f=e.target.files?.[0];if(!f)return;try{if(f.size>2000000)throw Error('Session file is too large.');const d=JSON.parse(await f.text());if(d.schema!=='zeta-observatory/1'||!d.state)throw Error('Choose a Zeta Observatory session JSON.');settleCamera();stopHeat();state=validate(d.state);pendingCamera=sanitizeViewCamera(d.camera);sharedCamera=pendingCamera;pendingResetView=pendingCamera?null:shareViewName()==='phase'?'top':'perspective';probeEditing=false;pinned=true;if(sanitizeViewProbe(d.probe)&&within(d.probe.sigma,d.probe.t))probe=d.probe;focusModuleAfterLoad=state.fiberMode!=='off';syncUI();storeState({mode:'push'});compute();toast('Session restored.');}catch(error){toast(error.message);}e.target.value='';};
 $('saveBtn').onclick=()=>{$('viewName').value='';$('viewNote').value='';$('saveDialog').showModal();};
 $('saveForm').onsubmit=e=>{if(e.submitter?.value!=='save')return;e.preventDefault();const name=$('viewName').value.trim();if(!name)return;const view={...session(),name,notes:$('viewNote').value.trim(),id:Date.now()};saveViews.unshift(view);saveViews=saveViews.slice(0,80);try{localStorage.setItem('zeta-observatory-views',JSON.stringify(saveViews));$('saveDialog').close();toast('Saved “'+name+'” in this browser.');}catch{toast('Browser storage is full. Export this session JSON instead.');}};
 $('viewsBtn').onclick=()=>{renderViews();$('viewsDialog').showModal();};$('closeViews').onclick=()=>$('viewsDialog').close();
-function renderViews(){const box=$('viewsList');box.replaceChildren();if(!saveViews.length){const p=document.createElement('p');p.textContent='Your saved viewpoints and observations will appear here. Use “Save view” when you find something interesting.';box.append(p);return;}saveViews.forEach(view=>{const c=document.createElement('article');c.className='saved-card';const h=document.createElement('h3');h.textContent=view.name;const p=document.createElement('p');p.textContent=view.notes||'No observation added.';const small=document.createElement('small');small.textContent=view.state.geometry+' · '+view.state.function+' · '+new Date(view.createdAt).toLocaleString();const actions=document.createElement('div');actions.className='actions';const open=document.createElement('button');open.textContent='Restore';open.onclick=()=>{stopHeat();state=validate(view.state);pendingCamera=view.camera||null;if(within(view.probe?.sigma,view.probe?.t))probe=view.probe;syncUI();compute();$('viewsDialog').close();};const exportBtn=document.createElement('button');exportBtn.textContent='Export';exportBtn.onclick=()=>download(new Blob([JSON.stringify(view,null,2)],{type:'application/json'}),'zeta-saved-view.json');const del=document.createElement('button');del.textContent='Remove';del.onclick=()=>{saveViews=saveViews.filter(v=>v.id!==view.id);localStorage.setItem('zeta-observatory-views',JSON.stringify(saveViews));renderViews();};actions.append(open,exportBtn,del);c.append(h,p,small,actions);box.append(c);});}
+function renderViews(){const box=$('viewsList');box.replaceChildren();if(!saveViews.length){const p=document.createElement('p');p.textContent='Your saved viewpoints and observations will appear here. Use “Save view” when you find something interesting.';box.append(p);return;}saveViews.forEach(view=>{const c=document.createElement('article');c.className='saved-card';const h=document.createElement('h3');h.textContent=view.name;const p=document.createElement('p');p.textContent=view.notes||'No observation added.';const small=document.createElement('small');small.textContent=view.state.geometry+' · '+view.state.function+' · '+new Date(view.createdAt).toLocaleString();const actions=document.createElement('div');actions.className='actions';const open=document.createElement('button');open.textContent='Restore';open.onclick=()=>{settleCamera();stopHeat();state=validate(view.state);pendingCamera=sanitizeViewCamera(view.camera);sharedCamera=pendingCamera;pendingResetView=pendingCamera?null:shareViewName()==='phase'?'top':'perspective';probeEditing=false;pinned=true;if(within(view.probe?.sigma,view.probe?.t))probe=view.probe;focusModuleAfterLoad=state.fiberMode!=='off';syncUI();storeState({mode:'push'});compute();$('viewsDialog').close();};const exportBtn=document.createElement('button');exportBtn.textContent='Export';exportBtn.onclick=()=>download(new Blob([JSON.stringify(view,null,2)],{type:'application/json'}),'zeta-saved-view.json');const del=document.createElement('button');del.textContent='Remove';del.onclick=()=>{saveViews=saveViews.filter(v=>v.id!==view.id);localStorage.setItem('zeta-observatory-views',JSON.stringify(saveViews));renderViews();};actions.append(open,exportBtn,del);c.append(h,p,small,actions);box.append(c);});}
 function closeDrawers(){$('controls').classList.remove('open');$('inspector').classList.remove('open');$('scrim').classList.remove('open');}
 function openDrawer(id){closeDrawers();$(id).classList.add('open');$('scrim').classList.add('open');}
 $('mobileControls').onclick=()=>openDrawer('controls');$('mobileProbe').onclick=()=>openDrawer('inspector');$('scrim').onclick=closeDrawers;$$('[data-close]').forEach(b=>b.onclick=closeDrawers);
-document.addEventListener('keydown',e=>{if(/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName)||document.querySelector('dialog[open]'))return;if(e.key==='r'||e.key==='R')scene.resetCamera();if(e.key==='h'||e.key==='H')$('focusBtn').click();if(e.key==='Escape'){pinned=false;closeDrawers();$('probeMode').textContent='Live · hover the surface';}if(e.code==='Space'){e.preventDefault();$('playHeat').click();}});
-window.addEventListener('resize',()=>{drawSlice();projectivePanel.redraw();});
-window.addEventListener('beforeunload',()=>{fieldService.dispose();prepareController?.abort();clearTimeout(heatTimer);scene.dispose();});
+document.addEventListener('keydown',e=>{if(/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName)||document.querySelector('dialog[open]'))return;if(e.key==='r'||e.key==='R')resetViewCamera();if(e.key==='h'||e.key==='H')$('focusBtn').click();if(e.key==='Escape'){pinned=false;closeDrawers();$('probeMode').textContent='Live · hover the surface';}if(e.code==='Space'){e.preventDefault();$('playHeat').click();}});
+window.addEventListener('resize',()=>{drawSlice();projectivePanel.redraw();fiberPanels.redraw();});
+window.addEventListener('beforeunload',()=>{viewURL?.flush();viewURL?.dispose();clearTimeout(cameraURLTimer);fieldService.dispose();prepareController?.abort();clearTimeout(heatTimer);scene.dispose();});
 const projectivePanel=new ProjectivePanel();
+const fiberPanels=new FiberPanels($('fiberWorkbench'),{onChange:(key,value)=>change(key,value)});
 fieldService=new FieldService({onStatus:()=>syncCacheUI()});
-syncUI();updateProbe();compute();
+viewURL=new ViewURLController({window,...viewConfig,syncAfterRestore:true,getSnapshot:()=>({state,probe,camera:pendingCamera||(sharedCamera?scene.getCameraState?.():null)}),onRestore:restoreURLView,onError:error=>toast(error.message)});
+syncUI();updateProbe();storeState({immediate:true});compute();
+if(incomingView.matched&&!incomingView.valid)toast('That view link could not be read. Showing the default view.');

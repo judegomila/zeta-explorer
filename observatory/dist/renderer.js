@@ -1,7 +1,7 @@
 import {displayLogMagnitude,displayVisibility} from './display-field.js';
 import * as THREE from './vendor/three.module.js';
 import { OrbitControls } from './vendor/OrbitControls.js';
-import { liftPoint } from './geometry.js';
+import { liftPoint, continueMaskedHeights } from './geometry.js';
 import * as numerical from './math.js';
 const { evaluate, NUMERICS } = numerical;
 
@@ -281,9 +281,11 @@ export class ZetaScene {
     const count = data.valid.length;
     this.raised = new Float32Array(count * 3);
     const colors = new Float32Array(count * 3);
+    // Masked samples keep no value or colour, but inherit a continued height
+    // so the unresolved cap closes the surface instead of cratering it.
+    const heights = continueMaskedHeights(Float64Array.from(data.valid, (ok, i) => ok ? this.heightPolar(this.sampleLogs[i],this.sampleArgs[i]) : 0), data.valid, data.nx, data.ny, this.state.geometry);
     for (let i = 0; i < count; i++) {
-      const re = data.values[2 * i], im = data.values[2 * i + 1];
-      const displacement = data.valid[i] ? this.heightPolar(this.sampleLogs[i],this.sampleArgs[i]) : 0;
+      const displacement = heights[i];
       for (let axis = 0; axis < 3; axis++) this.raised[3 * i + axis] = data.basePositions[3 * i + axis] + data.normals[3 * i + axis] * displacement;
       const c = this.colorPolar(this.sampleLogs[i],this.sampleArgs[i],data.bridge?.[i] ?? NaN,data.coords[2*i],data.coords[2*i+1]);
       colors[3 * i] = c.r;
@@ -304,7 +306,7 @@ export class ZetaScene {
     this.indices = indices;
     if (this.state.geometry !== 'plane' && maskedIndices.length) {
       const baseGeometry = new THREE.BufferGeometry();
-      baseGeometry.setAttribute('position', new THREE.BufferAttribute(data.basePositions.slice(), 3));
+      baseGeometry.setAttribute('position', new THREE.BufferAttribute(this.raised.slice(), 3));
       baseGeometry.setIndex(maskedIndices);
       baseGeometry.computeVertexNormals();
       const base = new THREE.Mesh(baseGeometry, new THREE.MeshStandardMaterial({ color: 0x142136, roughness: 0.94, metalness: 0.02, side: THREE.DoubleSide, transparent: true, opacity: 0.65, depthWrite: true }));

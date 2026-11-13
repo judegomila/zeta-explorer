@@ -228,3 +228,76 @@ export function sampleAxes(state){
   }
   return {u:distinctAxis(u),v:distinctAxis(v)};
 }
+
+/**
+ * Continue the relief across masked samples so a closed surface has no pit.
+ *
+ * Samples outside the evaluated domain (around s=infinity, or at the zeta
+ * pole) carry no function value and must stay uncoloured. Their HEIGHT, though,
+ * is only a display choice: leaving it at zero tears a crater into the raised
+ * surface. This fills masked heights from the surrounding evaluated rim
+ * (nearest-layer average, then a short relaxation). It is geometry only; it
+ * NEVER manufactures a function value, phase, or validity flag.
+ *
+ * Seam duplicates (u=0/1, and v=0/1 on the torus) and the degenerate sphere
+ * pole rows receive identical heights, so the cap cannot crack along a seam.
+ */
+export function continueMaskedHeights(heights,valid,nx,ny,geometry,{relaxations=24}={}){
+  const out=Float64Array.from(heights);
+  // Only the closed sphere and torus are continued. The plane has no cap and
+  // the Klein/annulus quotients have their own seam and boundary rules.
+  if(geometry!=='sphere'&&geometry!=='torus')return out;
+  const wrapV=geometry==='torus',W=nx,H=wrapV?ny:ny+1,n=W*H;
+  // Reduced grid: one representative per periodic class.
+  const value=new Float64Array(n),known=new Uint8Array(n),masked=[];
+  for(let j=0;j<H;j++)for(let i=0;i<W;i++){
+    const k=j*(nx+1)+i,r=j*W+i;
+    if(valid[k]&&Number.isFinite(heights[k])){value[r]=heights[k];known[r]=1;}else masked.push(r);
+  }
+  if(!masked.length||masked.length===n){
+    if(masked.length===n)out.fill(0);
+    return out;
+  }
+  const neighbours=(r,diagonal)=>{
+    const i=r%W,j=(r-i)/W,list=[];
+    for(let dj=-1;dj<=1;dj++)for(let di=-1;di<=1;di++){
+      if((!di&&!dj)||(!diagonal&&di&&dj))continue;
+      let y=j+dj;
+      if(wrapV)y=(y+H)%H;else if(y<0||y>=H)continue;
+      list.push(y*W+(i+di+W)%W);
+    }
+    return list;
+  };
+  let frontier=masked;
+  while(frontier.length){
+    const assigned=[],rest=[];
+    for(const r of frontier){
+      let sum=0,count=0;
+      for(const q of neighbours(r,true))if(known[q]){sum+=value[q];count++;}
+      if(count)assigned.push([r,sum/count]);else rest.push(r);
+    }
+    if(!assigned.length)break;
+    for(const [r,h] of assigned){value[r]=h;known[r]=1;}
+    frontier=rest;
+  }
+  const next=new Float64Array(masked.length);
+  for(let pass=0;pass<relaxations;pass++){
+    masked.forEach((r,m)=>{
+      const list=neighbours(r,false);let sum=0;
+      for(const q of list)sum+=value[q];
+      next[m]=sum/list.length;
+    });
+    masked.forEach((r,m)=>{value[r]=next[m];});
+  }
+  if(geometry==='sphere')for(const j of [0,ny]){
+    // Each pole row is a single point of the sphere.
+    let any=false,sum=0;
+    for(let i=0;i<W;i++){if(!valid[j*(nx+1)+i])any=true;sum+=value[j*W+i];}
+    if(any)for(let i=0;i<W;i++)if(!valid[j*(nx+1)+i])value[j*W+i]=sum/W;
+  }
+  for(let j=0;j<=ny;j++)for(let i=0;i<=nx;i++){
+    const k=j*(nx+1)+i;
+    if(!valid[k]||!Number.isFinite(heights[k]))out[k]=value[(wrapV?j%ny:j)*W+i%nx];
+  }
+  return out;
+}

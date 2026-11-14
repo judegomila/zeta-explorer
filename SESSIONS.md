@@ -59,4 +59,28 @@ Coarse-grained journal of work sessions on the Riemann Hypothesis Λ bound attac
 
 ---
 
+## 2026-11-14 — Session: Zero channels, coupling, and Newton guidance
+
+**Request:** Make the proposed zero “wires” concrete in the renderer and log the mathematics in Zeta Explorer. Renderer: `judegomila/zeta-view`; research repository: `judegomila/mathexplorer`.
+
+**Delivered:** A [three-view laboratory](https://zeta-view.vercel.app/experiments/zero-channels.html) for moving zero channels, inverse-gap coupling, and continuous Newton guidance. View, family, time, selected branch, direction, radius, and probe settings persist in shareable URLs. The actual theta trajectories use the analytic heat family; the three-root coupling graph is a labeled local diagnostic. Newton guidance moves test points through a fixed field and preserves explicit failure states. The renderer implementation is pinned at `ee749ce5ea91bc336896d3ab87ac4faca1401cc3`.
+
+**Research package:** [`research/rh/zero-channels`](research/rh/zero-channels/README.md) contains the derivations, executable certificate generator/verifier, compact numerical input, saved bounds, replay output, dependency versions, and source hashes.
+
+**Certified finite results:**
+
+- Exact quartet: four disjoint moving disks, each containing exactly one simple zero for every `tau` in `[-0.13, 0]`. Radius `0.01`; 130 complete time cells; 520 branch-cell comparisons; exact rational arithmetic. Minimum strict Taylor–Rouché margin `0.020444320768133732`; minimum disk clearance `0.07010952625620315`.
+- Actual theta: one fixed disk centered at `1/2 + 14.134725141734693 i`, radius `0.35`, containing exactly one simple zero for every `tau` in `[-0.05, 0.05]`. Arb interval arithmetic plus explicit omitted-term and integration-tail bounds. Initial boundary floor `0.000355319999999998`, uniform perturbation at most `0.00029`, final strict margin `0.000065319999999998`. Reflection pins the unique zero to the critical line.
+
+**What the comparison establishes:** Moving quartet channels remain valid past the old fixed-disk failure near `tau=-0.08175425`, but stop before the actual collision near `tau=-0.13406958`. Inverse-gap coupling damps relative perturbations in increasing heat time and amplifies them when that direction is reversed. Its translation mode does not choose absolute targets. Newton paths locally reach existing simple zeros, including off-line zeros; they do not relocate those zeros.
+
+**Verification:** 26 focused renderer tests pass (10 mathematical, six UI/URL/worker, 10 existing research-panel tests). The saved rational and actual-theta certificates were independently recomputed. Six certificate controls pass, including rejection of forged bounds and an unsupported enlargement of the theta interval. The packaged compact dataset retains all 723 frames and 2,169 root records from the previous numerical comparison. Production browser checks passed for all three views, shared settings, Back/reload, certificate transitions, probe playback, and both app entry links; a screenshot is included in the package.
+
+**Claim boundary:** The other two tracked theta branches and the wider heat trajectories remain numerical candidates. This session establishes no all-height coverage, no new global bound on the de Bruijn–Newman constant, and no proof of RH. It leaves the repository's existing global research status unchanged.
+
+**Next mathematical work:** Certify additional moving theta channels with whole-time bounds and explicit disjointness, then control omitted infinite-root contributions before extending any collective coupling claim.
+
+---
+
 <!-- Append new session entries ABOVE this line -->
+

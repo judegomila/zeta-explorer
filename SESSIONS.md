@@ -82,5 +82,17 @@ Coarse-grained journal of work sessions on the Riemann Hypothesis Λ bound attac
 
 ---
 
+## 2026-11-14 — Follow-up: Channels integrated into the main renderer
+
+**Request:** Make the channel visualization available directly in the Zeta renderer app.
+
+**Integration:** The main app gains Channels, Coupling, Newton guidance, and a quartet-channel starting point. The parent app owns their shareable URLs, history, and saved-session state, while the workbench reuses the existing numerical engine and certificate display. Restored views retain their selected frame and probe travel position and open paused. Renderer integration commit: `3db4bd3d72651d23663859fd67e15b762d77d31f`, with browser fetch follow-up `b5b5cc6ac0cf170172ddd66477aaa1b539c24dbe`.
+
+**Record:** [`APP-INTEGRATION.md`](research/rh/zero-channels/APP-INTEGRATION.md) lists the main-app links, controls, state ownership, and verification coverage. This complements the package in [PR #57](https://github.com/judegomila/mathexplorer/pull/57).
+
+**Claim boundary:** The exact quartet and first actual-theta disk retain their previously stated finite certificate scopes. The underlying certificate, numerical input, verifier output, and original provenance are preserved; this interface integration adds no global zero-location claim.
+
+---
+
 <!-- Append new session entries ABOVE this line -->
 

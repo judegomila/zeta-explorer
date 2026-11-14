@@ -39,7 +39,9 @@ export class ChannelsPanel {
     this.onChange = onChange;
     this.onCopyLink = onCopyLink;
     this.onCommand = onCommand;
-    this.fetcher = fetcher;
+    // Native Window.fetch needs its Window receiver, including when passed on
+    // to the shared lab as a standalone callback for JSON data loads.
+    this.fetcher = fetcher.bind(this.win);
     this.WorkerClass = WorkerClass;
     this.labFactory = labFactory;
     this.Parser = Parser;

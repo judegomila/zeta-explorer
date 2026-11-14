@@ -20,7 +20,7 @@ function harness({ fetcher, onChange = () => {} } = {}) {
   }
   const panel = new TestPanel(host, {
     onChange,
-    fetch: url => { requests.push(String(url)); return fetcher ? fetcher(url) : Promise.resolve({ ok: true, text: async () => 'asset' }); },
+    fetch: function (url) { requests.push(String(url)); return fetcher ? fetcher.call(this, url) : Promise.resolve({ ok: true, text: async () => 'asset' }); },
     createLab: options => {
       const lab = {
         options, ready: Promise.resolve(), state: options.initialState, destroyed: false, updates: [],
@@ -33,8 +33,25 @@ function harness({ fetcher, onChange = () => {} } = {}) {
       labs.push(lab); return lab;
     },
   });
-  return { panel, labs, requests, mounts, shadow, standalone };
+  return { panel, labs, requests, mounts, shadow, standalone, win: doc.defaultView };
 }
+
+test('asset and lab data fetches keep the native Window receiver', async () => {
+  const receivers = [];
+  const h = harness({ fetcher: function () {
+    receivers.push(this);
+    if (this !== h.win) throw new TypeError('Illegal invocation');
+    return Promise.resolve({ ok: true, text: async () => 'asset', json: async () => ({ sample: true }) });
+  } });
+  await h.panel.update({ ...CHANNELS_DEFAULTS, channelsMode: 'channels' });
+  assert.equal(h.labs.length, 1);
+  const loadData = h.labs[0].options.fetch;
+  await loadData(new URL('../dist/experiments/zero-confinement-theta.json', import.meta.url));
+  await loadData(new URL('../dist/experiments/zero-channel-bounds.json', import.meta.url));
+  assert.equal(receivers.length, 4);
+  assert.ok(receivers.every(receiver => receiver === h.win));
+  h.panel.destroy();
+});
 
 test('switching away during asset loading never mounts a hidden lab; reopening uses the latest state', async () => {
   const assets = deferred(), h = harness({ fetcher: () => assets.promise });

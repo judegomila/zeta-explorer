@@ -123,13 +123,13 @@ export class CanvasZetaScene {
   }
   color(re,im,bridge,shade=1){return this.colorPolar(logMagnitude(re,im),Math.atan2(im,re),bridge,shade);}
   colorPolar(logAbs,arg,bridge,shade=1){
-    const mode=this.state.colorMode||'phase';if(!validLog(logAbs)||(mode==='bridge'&&!finite(bridge)))return '#29313d';
+    const mode=this.state.colorMode||'phase';if(!validLog(logAbs)||(['bridge','shear'].includes(mode)&&!finite(bridge)))return '#29313d';
     const relative=logAbs-this.logReference,normalized=softplus(relative)/Math.LN2;let h,s,l;
     if(mode==='phase'){
       h=((((arg||0)+Math.PI+(this.state.phaseOffset||0))/TAU)%1+1)%1;s=88;
       l=(.42+.075*Math.min(normalized,1)+(finite(relative)?.036*Math.cos(TAU*relative/Math.LN2):0))*100;
     }else if(mode==='modulus'){const t=clamp(normalized/1.8,0,1);h=.72-.64*t;s=72;l=16+47*t;}
-    else {let v=mode==='bridge'?bridge:Math.tanh(Math.exp(Math.min(relative,40))*(mode==='imag'?Math.sin(arg||0):Math.cos(arg||0))*2);if(!finite(v))v=0;const strength=clamp(Math.abs(v),0,1);h=v>=0?.45:.99;s=15+72*strength;l=76-36*strength;}
+    else {let v=['bridge','shear'].includes(mode)?bridge:Math.tanh(Math.exp(Math.min(relative,40))*(mode==='imag'?Math.sin(arg||0):Math.cos(arg||0))*2);if(!finite(v))v=0;const strength=clamp(Math.abs(v),0,1);h=v>=0?.45:.99;s=15+72*strength;l=76-36*strength;}
     return `hsl(${h*360} ${s}% ${clamp(l*shade*(this.state.exposure||1),9,85)}%)`;
   }
 

@@ -194,8 +194,11 @@ function heatIntegrate(sigma,t,tau,wantDerivative=false,steps=384){
   for(let j=0;j<us.length;j++){
     const u=us[j],ang=2*T*u,co=Math.cos(ang),si=Math.sin(ang),ar=rs[j]*co-is[j]*si,ai=rs[j]*si+is[j]*co;
     const sh=Math.sinh(2*x*u),ch=Math.cosh(2*x*u);
-    const vr=wantDerivative?2*(u*ar-alpha*ai)*sh:ar*ch;
-    const vi=wantDerivative?2*(u*ai+alpha*ar)*ch:ai*sh;
+    // Differentiation is analytic, before the contour's real display scale.
+    // The second derivative multiplies the whole-contour integrand by
+    // 4(u+i alpha)^2, including its imaginary cross term.
+    const vr=wantDerivative===2?4*((u*u-alpha*alpha)*ar-2*u*alpha*ai)*ch:wantDerivative?2*(u*ar-alpha*ai)*sh:ar*ch;
+    const vi=wantDerivative===2?4*((u*u-alpha*alpha)*ai+2*u*alpha*ar)*sh:wantDerivative?2*(u*ai+alpha*ar)*ch:ai*sh;
     let y=vr-cr,q=re+y;cr=(q-re)-y;re=q;y=vi-ci;q=im+y;ci=(q-im)-y;im=q;
   }
   const ang=2*x*alpha,factor=8*Math.exp(-2*T*alpha),co=Math.cos(ang),si=Math.sin(ang);
@@ -247,6 +250,36 @@ export function derivative(sigma,t,kind='zeta',tau=0){
   if(kind==='heat'||kind==='heatXi'){const p=heatScaledPair(sigma,t,tau,true);return unscale(p.derivative,p.logScale);}
   const p=kind==='xi'?xiScaledPair(sigma,t,true):zetaScaledPair(sigma,t,true);
   return unscale(p.derivative,p.logScale);
+}
+/** Analytic F_ss for the xi/theta heat family on the theta chart. This
+ * deliberately does not claim the extended log-polar domain of evaluate().
+ * Unsupported kinds or coordinates return NaN, never a different function.
+ * The research workbench restricts |t|<=60. */
+export function secondDerivative(sigma,t=0,kind='xi',tau=0){
+  if(kind!=='xi'&&kind!=='heat'&&kind!=='heatXi')return C(NaN,NaN);
+  const heatTau=kind==='xi'?0:tau;
+  if(!Number.isFinite(sigma)||!Number.isFinite(t)||!Number.isFinite(heatTau)||sigma< -12||sigma>13||Math.abs(t)>120||Math.abs(heatTau)>1)return C(NaN,NaN);
+  return heatIntegrate(sigma,t,heatTau,2);
+}
+/** Value, first and second analytic derivatives in one theta-contour pass.
+ * All three have the SAME raw analytic normalization. Refining `steps`
+ * gives a discrepancy diagnostic, not an interval error certificate. */
+export function heatJet(sigma,t=0,tau=0,{steps=384}={}){
+  if(!Number.isFinite(sigma)||!Number.isFinite(t)||!Number.isFinite(tau)||sigma< -12||sigma>13||Math.abs(t)>120||Math.abs(tau)>1)
+    return {valid:false,value:C(NaN,NaN),derivative:C(NaN,NaN),secondDerivative:C(NaN,NaN)};
+  steps=steps===768?768:384;
+  const sign=t<0?-1:1,T=Math.abs(t),x=sigma-.5,alpha=contourAlpha(T),{us,rs,is}=heatWeights(tau,alpha,steps);
+  const sums=new Float64Array(6),corrections=new Float64Array(6);
+  for(let j=0;j<us.length;j++){
+    const u=us[j],ang=2*T*u,co=Math.cos(ang),si=Math.sin(ang),ar=rs[j]*co-is[j]*si,ai=rs[j]*si+is[j]*co;
+    const sh=Math.sinh(2*x*u),ch=Math.cosh(2*x*u),a=u*u-alpha*alpha,b=2*u*alpha;
+    const terms=[ar*ch,ai*sh,2*(u*ar-alpha*ai)*sh,2*(u*ai+alpha*ar)*ch,4*(a*ar-b*ai)*ch,4*(a*ai+b*ar)*sh];
+    for(let k=0;k<6;k++){const y=terms[k]-corrections[k],next=sums[k]+y;corrections[k]=(next-sums[k])-y;sums[k]=next;}
+  }
+  const angle=2*x*alpha,factor=8*Math.exp(-2*T*alpha),co=Math.cos(angle),si=Math.sin(angle);
+  const decode=k=>C(factor*(sums[k]*co-sums[k+1]*si),sign*factor*(sums[k]*si+sums[k+1]*co));
+  const value=decode(0),derivative=decode(2),secondDerivative=decode(4);
+  return {valid:[value,derivative,secondDerivative].every(z=>Number.isFinite(z.re)&&Number.isFinite(z.im)),value,derivative,secondDerivative};
 }
 export function logarithmicDerivative(sigma,t,kind='zeta',tau=0){return evaluatePolar(sigma,t,kind,tau,true).q??C(NaN,NaN);}
 export function numericalDomain(kind='zeta',tau=0){

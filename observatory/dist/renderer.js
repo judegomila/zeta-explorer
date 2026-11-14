@@ -249,7 +249,7 @@ export class ZetaScene {
 
   colorPolar(logAbs, arg, bridge = NaN) {
     const mode = this.state.colorMode || 'phase';
-    if (!validLog(logAbs) || (mode === 'bridge' && !finite(bridge))) return tmpColor.set(0x28313e);
+    if (!validLog(logAbs) || (['bridge','shear'].includes(mode) && !finite(bridge))) return tmpColor.set(0x28313e);
     const relative = logAbs - this.logReference, normalized = softplus(relative) / Math.LN2;
     if (mode === 'phase') {
       const h = (((arg || 0) + Math.PI + (this.state.phaseOffset || 0)) / TAU % 1 + 1) % 1;
@@ -260,7 +260,7 @@ export class ZetaScene {
       tmpColor.setHSL(.72 - t * .64, .72, .16 + t * .47);
     } else {
       const component = mode === 'imag' ? Math.sin(arg || 0) : Math.cos(arg || 0);
-      let value = mode === 'bridge' ? bridge : Math.tanh(Math.exp(Math.min(relative, 40)) * component * 2);
+      let value = ['bridge','shear'].includes(mode) ? bridge : Math.tanh(Math.exp(Math.min(relative, 40)) * component * 2);
       if (!finite(value)) value = 0;
       const strength = clamp(Math.abs(value), 0, 1);
       tmpColor.setHSL(value >= 0 ? .45 : .99, .15 + .72 * strength, .76 - .36 * strength);

@@ -4,12 +4,12 @@ A dedicated mathematical geometry workbench for the Riemann zeta function, with 
 
 The app is self-contained and runs on any static HTTP(S) host. Vercel serves `dist/` using `vercel.json` and prepares the projective numerical pack during deployment. Local serving requires no build, ChatGPT runtime, API key, or database. The application keeps the Zeta Observatory name.
 
-The projective atlas, linked bridge/Bloch point state, derivative disk, spinor lift, and chosen Euclidean twistor view are implemented. See [the spinor and twistor conventions](docs/SPINORS-TWISTORS.md) and [the development roadmap](docs/ROADMAP.md) for their scope and the proposed global shear, complex heat-zero, and Pick/Schur extensions.
+The projective atlas, linked bridge/Bloch point state, derivative disk, spinor lift, and chosen Euclidean twistor view are implemented. See [the spinor and twistor conventions](docs/SPINORS-TWISTORS.md) and [the development roadmap](docs/ROADMAP.md) for their scope. The Research workspace adds bridge shear, modal signs, even/odd boundary energies, finite Gram/Schur diagnostics, theta/arithmetic cancellation, prime-mode mixing, ratio paths, pulse response, and actual complex heat-zero continuation.
 
 ## Features
 
 - Euler–Maclaurin analytic continuation of ζ, completed ξ, and the actual theta-integral de Bruijn–Newman family.
-- Complex phase, modulus, real/imaginary sign, and normalized bridge balance; logarithmic or signed height surfaces.
+- Complex phase, modulus, real/imaginary sign, normalized bridge balance, and logarithmic shear; logarithmic or signed height surfaces.
 - Plane, inverse stereographic sphere, and the exact elliptic double cover from Math Explorer PRs 43 and 49.
 - A Projective toggle with a domain sphere or elliptic torus, reciprocal charts, infinity/anti-bridge markers, branch cuts, and linked two-sphere and homogeneous-coordinate readouts.
 - Selected-point domain, shifted-pair Bloch sphere, and derivative Cayley disk, with scale-safe polar arithmetic and explicit unresolved states.
@@ -98,6 +98,30 @@ The URL stores the seed, parameters, overlays, and fixed simulation step. It upd
 
 The finite-polynomial collision presets carry across the six-real, Lehmer-type, eight-real, and quartet experiments from Math Explorer, with an exact cubic collision example. **Open actual theta heat** returns to the existing independently evaluated de Bruijn–Newman family. The bounded spatial heat grid and the finite zero-interaction model are separate experiments. Full equations, provenance, numerical choices, and limits are in [docs/DYNAMICS.md](docs/DYNAMICS.md) and the in-app methods reference.
 
+## Explore the bridge research
+
+Click **Research** in the toolbar or choose a starting point under **Bridge research**. Each experiment has a direct route:
+
+| View | Direct link | What is computed |
+| --- | --- | --- |
+| Bridge shear | [`?view=bridgeShear`](https://zeta-view.vercel.app/?view=bridgeShear) | Smooth signed shear, logarithmic shear, phase and the finite bridge |
+| Modal sign switching | [`?view=modalSigns`](https://zeta-view.vercel.app/?view=modalSigns) | Exact quadratic sign regions and the first modal witness |
+| Even & odd energy | [`?view=bridgeEnergy`](https://zeta-view.vercel.app/?view=bridgeEnergy) | Boundary energy decomposition, direct shear and quadrature residual |
+| Gram & Schur | [`?view=gramSchur`](https://zeta-view.vercel.app/?view=gramSchur) | A finite Hermitian matrix, spectrum, weakest mode and frozen-block complement |
+| Theta cancellation | [`?view=thetaCancellation`](https://zeta-view.vercel.app/?view=thetaCancellation) | Divisor sums, their factorization and theta-kernel contributions |
+| Prime-mode mixer | [`?view=primeModes`](https://zeta-view.vercel.app/?view=primeModes) | Signed finite prime/power oscillators with solo and mute |
+| Ratio & poles | [`?view=ratioPoles`](https://zeta-view.vercel.app/?view=ratioPoles) | Analytic shifted-ratio paths and optional synthetic quartet factors |
+| Pulse response | [`?view=bridgePulse`](https://zeta-view.vercel.app/?view=bridgePulse) | Finite periodic Fourier multiplier, norm and tail measurements |
+| Heat-zero motion | [`?view=heatZeros`](https://zeta-view.vercel.app/?view=heatZeros) | Complex theta-root continuation and an exact quartic calibration |
+
+Controls, nodes, model choice, overlays and the displayed frame are included in the URL. Play updates it at a bounded cadence; Pause, Copy view link, session export and saved views flush the exact frame. Opening a link restores a paused experiment. The calculations run in a dedicated worker, with coalesced requests so changing controls stays responsive.
+
+**Open on surface** takes the analytic probe to the main renderer. The new **Logarithmic shear** color is `tanh Re(F′/F)` for the displayed function; its signed color can be mounted on the plane, sphere or torus. Its derivative payload has a separate cache key. The main colorful surface retains the taller viewport.
+
+The calculations are numerical experiments with stated scopes. A negative individual arithmetic block does not settle the full form. A finite positive matrix does not establish all-order positivity. The prime mixer is an explicit oscillator model. Pulse response uses a finite periodic window. The optional quartet changes the model function and does not insert a zero into xi.
+
+For the actual heat family, `∂τ F = F_ss/4` and a simple zero satisfies `ρ′ = −F_ss/(4F_s)`. With `x = Re ρ − 1/2`, the distance diagnostic is `(x²)′ = −x Re(F_ss/F_s)/2`. It is undefined at multiple roots. The heat view reports root residuals, local conditioning and sampled contour margins; it does not certify an entire zero-free boundary or a global no-escape theorem. See [the bridge research definitions](docs/BRIDGE-RESEARCH.md) and [the no-escape analysis](docs/NO-ESCAPE.md).
+
 ## Run locally
 
 This is a buildless static app. All runtime dependencies are included in `dist/`.
@@ -128,7 +152,7 @@ The browser's saved views, notes, and computed cache belong to the current origi
 
 ### Migration provenance
 
-This source was recovered from the published Zeta Observatory revision `71c6986e47516b27b51cb5b167f499addea2a6d4`. The migration preserves the numerical engine, renderer, 4:3 viewport, precache assets, reference fixtures, and existing tests. Hosting-specific Sites metadata is excluded from the new deployment.
+This source was recovered from the published Zeta Observatory revision `71c6986e47516b27b51cb5b167f499addea2a6d4`. The migration preserves the numerical engine, renderer, original viewport, precache assets, reference fixtures, and existing tests. Hosting-specific Sites metadata is excluded from the new deployment.
 
 ## Computed views and heat playback
 
@@ -194,6 +218,11 @@ Height normalization, chart lenses, masking, interpolation, finite root coverage
 | `dist/renderer.js` | Three.js GPU renderer |
 | `dist/canvas-renderer.js` | Software 3D fallback |
 | `dist/app.js` | Research controls, probes, winding, storage and export |
+| `dist/research-state.js` | Shared controls, bounds and named research presets |
+| `dist/research-math.js` | Bridge, energy, Gram, arithmetic and ratio calculations |
+| `dist/research-dynamics.js` | Prime modes, periodic pulse response and heat-root continuation |
+| `dist/research-panel.js` | Worker-backed research controls, plots and measurements |
+| `dist/research-worker.js` | Isolated numerical dispatch for the nine research modes |
 | `tests/` | Independent reference fixtures and mathematical integration checks |
 
 Three.js 0.180.0 is vendored with its MIT license. No external scripts, web fonts, analytics or back-end data services are required at runtime. The on-demand frame files are part of this static app. Saved notebooks use the current browser's local storage; computed fields use their separate cache. Export session JSON for a portable copy of a viewpoint and its notes.

@@ -24,6 +24,9 @@ export function fieldKey(state = {}) {
   // coordinates and curved-surface landmarks, so it owns a separate namespace.
   // Inspector channels and derivative scale do not change a sampled field.
   if(state.projective&&geometry!=='plane')key.push(['projective-atlas-v1',number(state,'torusR')]);
+  // The derivative color owns a distinct payload without invalidating the
+  // unchanged, precomputed phase/bridge fields. bridge[] holds tanh Re(F′/F).
+  if(state.colorMode==='shear')key.push(['log-shear-v1']);
   return JSON.stringify(key);
 }
 function currentKey(key){try{return JSON.parse(key)?.[0]===FIELD_CACHE_VERSION;}catch{return false;}}

@@ -112,8 +112,9 @@ export function sampleField(inputState,{onProgress=()=>{}}={}){
    sampleWeights[k]=(ur-ul)*(state.geometry==='sphere'?Math.cos(Math.PI*vl)-Math.cos(Math.PI*vr):state.geometry==='torus'?3.65*(vr-vl)+1.38/(2*Math.PI)*(Math.sin(2*Math.PI*vr)-Math.sin(2*Math.PI*vl)):vr-vl);
    basePositions.set(p.position,k*3);normals.set(p.normal,k*3);coords[2*k]=p.sigma;coords[2*k+1]=p.t;
    if(!p.valid||!inDomain(p.sigma,p.t,state))continue;
-   const f=val(p.sigma,p.t,state);if(!f.valid)continue;
+   const f=val(p.sigma,p.t,state,state.colorMode==='shear');if(!f.valid)continue;
    values[k*2]=f.re;values[k*2+1]=f.im;logAbs[k]=f.logAbs;arg[k]=f.arg;rawRepresentable[k]=f.rawRepresentable?1:0;valid[k]=1;count++;if(!f.rawRepresentable)logOnlyCount++;maxSampleT=Math.max(maxSampleT,Math.abs(p.t));
+   if(state.colorMode==='shear')bridge[k]=f.q&&Number.isFinite(f.q.re)&&f.logAbs!==-Infinity?Math.tanh(f.q.re):NaN;
    if(state.colorMode==='bridge'){
     const kind=state.function==='heat'?'heat':'xi';
     if(!withinDomain(p.sigma-state.bridgeA,p.t,state._domain)||!withinDomain(p.sigma+state.bridgeA,p.t,state._domain))continue;

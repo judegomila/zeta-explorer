@@ -12,7 +12,11 @@ The corresponding exact quotient views are implemented and live in [Zeta Observa
 
 ### Follow-up: oscillatory odd inputs
 
-The [odd-sector continuation](odd-sector-followup/README.md) advances beyond the constant-phase cone. An interval calculation with explicit series and infinite-tail bounds certifies a strictly positive first odd Taylor block for actual theta. Analyticity then proves positivity for every sufficiently small two-node odd configuration, including arbitrary complex and sign-changing coefficients; no explicit neighborhood radius is claimed. An exact comparison kernel shows that stronger convexity alone cannot prove positivity for arbitrary odd inputs, even with double-exponential decay and an order-one transform. An independent Fourier/Löwner reduction shows that positivity of either complete Mellin parity sector is already RH-equivalent. The uniform bridge estimate remains open.
+The [first odd-sector continuation](odd-sector-followup/README.md) advances beyond the constant-phase cone. An interval calculation with explicit series and infinite-tail bounds certifies a strictly positive first odd Taylor block for actual theta. Analyticity then proves positivity for every sufficiently small two-node odd configuration, including arbitrary complex and sign-changing coefficients. An exact comparison kernel shows that stronger convexity alone cannot prove positivity for arbitrary odd inputs, even with double-exponential decay and an order-one transform. An independent Fourier/Löwner reduction shows that positivity of either complete Mellin parity sector is already RH-equivalent.
+
+### Current extension: explicit two-node and four-node bounds
+
+The [quantitative extension](odd-sector-extension/README.md) supplies an explicit radius `1/200` and an energy lower bound for two odd nodes. It also certifies the third and fourth Taylor blocks and proves positivity for **every configuration of up to four distinct odd nodes within radius `1/100000`**, with arbitrary complex coefficients and no minimum separation. These are Mellin distances from the cutoff for actual unheated theta. The fourth block also proves the derivative-polynomial energy inequality through odd degree seven. A checked analytic continuation argument shows that positivity of every finite Taylor block would suffice for the complete odd-sector inequality and RH, without a uniform eigenvalue gap across orders. That all-order sign statement and the uniform bridge estimate remain open.
 
 ## Read the derivations
 
@@ -22,6 +26,7 @@ The [odd-sector continuation](odd-sector-followup/README.md) advances beyond the
 | [annulus_theta_coupling.md](annulus_theta_coupling.md) | Exact annulus coupling, conditional transfer criteria, actual theta parity reduction, odd-majorant obstruction, the odd-cone theorem, compactness limits, and actual pulse symmetry |
 | [numeric/AUDIT.md](numeric/AUDIT.md) | Finite numerical findings, independent high-precision checks, and reproduction instructions |
 | [odd-sector-followup/README.md](odd-sector-followup/README.md) | Certified local oscillatory theorem, exact convexity obstruction, full-sector RH equivalence, and refined seven-node numerical evidence |
+| [odd-sector-extension/README.md](odd-sector-extension/README.md) | Explicit two-node and four-node continuum certificates, quantitative energy lower bound, and the all-order derivative-polynomial target |
 
 ## 1. The Klein change does not create a coupling margin
 

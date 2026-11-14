@@ -1,6 +1,6 @@
 {
   "date": "2026-11-14",
-  "status": "Research comparison and oscillatory follow-up: certified local two-node odd positivity; no global positivity certificate",
+  "status": "Explicit two-node and up-to-four-node odd theta continuum certificates; all-order/global positivity remains open",
   "source_app_commit": "e88a12315cf4423d77ddc89f961245d83b59204b",
   "source_theta_cutoff_commit": "69d4049f289217812051188378a0a9f3f061a169",
   "source_head_residual_commit": "146ce77aa8407e912ed54c73e30664d86936c253",
@@ -79,11 +79,110 @@
       "python3 numeric/theta-odd-confluent.py"
     ]
   },
-  "limitations": [
+  "odd_sector_extension": {
+    "date": "2026-11-14",
+    "normalization": "Actual unheated theta, Mellin input distances from the cutoff, alpha=1 for certificate outputs; positivity rescales for every alpha>0",
+    "two_node_radius_exact": "1/200",
+    "two_node_Newton_lower_bound_exact": "1/10000",
+    "two_node_Newton_shifted_determinant_enclosure": [
+      3.491470714516927e-06,
+      0.00012909332850886195
+    ],
+    "higher_Taylor_blocks": {
+      "largest_certified_order": 4,
+      "odd_monomials": [
+        1,
+        3,
+        5,
+        7
+      ],
+      "third_determinant_enclosure": [
+        2.854973356043209e-08,
+        2.8549734185443205e-08
+      ],
+      "fourth_determinant_enclosure": [
+        1.4097072863877992e-12,
+        1.4097309454731956e-12
+      ],
+      "method": "Exact integration-by-parts recurrence, interval LDL, degree-nine midpoint Taylor integration with tenth-derivative remainder",
+      "theta_terms": 6,
+      "integration_panels": 128,
+      "integral_cutoff": 3,
+      "max_theta_derivative": 17,
+      "interval_precision_digits": 50
+    },
+    "four_node_continuum_certificate": {
+      "radius_exact": "1/100000",
+      "covered_node_counts": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "coefficients": "Arbitrary complex coefficients",
+      "minimum_separation": "None for distinct positive nodes",
+      "fourth_Newton_pivot_enclosure": [
+        2.84889581127737e-05,
+        7.015096701080491e-05
+      ],
+      "fourth_Newton_determinant_enclosure": [
+        8.121776319949019e-13,
+        2.0056836020764787e-12
+      ],
+      "method": "Whole-panel shifted derivative bounds, positive-weight squared-variable identity, Newton divided-difference error boxes and interval LDL",
+      "max_shifted_theta_derivative": 9,
+      "derivative_bound_panels": 512,
+      "tail_scope": "All omitted theta terms and the entire infinite integral tail enclosed"
+    },
+    "polynomial_inequality": "Proved for every odd polynomial of degree at most seven; all odd degrees is equivalent to the all-order Taylor-block criterion",
+    "analytic_criterion": "All leading odd coefficient blocks J_N PSD for every finite N iff complete odd cutoff operator PSD iff RH; no uniform-in-N spectral gap or radius required",
+    "primary_propagation_input": "Neeb and Olafsson, Reflection Positivity and Conformal Symmetry, arXiv:1206.2039v2, Appendix A, Theorem A.1, pp.41-42",
+    "review": {
+      "integrating_reviewer_replays": [
+        "two-node explicit radius",
+        "four-feature interval block",
+        "exact coefficient controls",
+        "four-node explicit radius"
+      ],
+      "independent_replays": [
+        "two-node explicit radius",
+        "four-feature interval block and exact controls",
+        "four-node explicit radius"
+      ],
+      "independently_checked": [
+        "Theta derivative recurrences",
+        "all shifted and unshifted infinite tails",
+        "Taylor and interval integration remainders",
+        "IBP boundary terms",
+        "two distinct factorial normalizations",
+        "Newton congruence and coalescing nodes",
+        "interval LDL containment",
+        "holomorphic strip and primary propagation theorem",
+        "polynomial energy identity"
+      ],
+      "result": "Passed with no substantive correction"
+    },
+    "commands_from_extension_directory": [
+      "python3 explicit-radius/theta-odd-explicit-radius.py",
+      "python3 higher-jets/theta-odd-higher-jet-interval.py",
+      "python3 higher-jets/coefficient-reduction-audit.py",
+      "python3 local-global/theta-odd-four-node-radius.py"
+    ],
+    "trust_basis": "mpmath 1.3.0 elementary outward-rounded interval arithmetic, exact rational coefficient/parameter inputs, Python runtime and displayed analytic bounds; no proof-assistant verification"
+  },
+  "previous_followup_limitations": [
     "No explicit numerical radius for the local two-node theorem",
     "No arbitrary-order or full odd-sector positivity proof",
     "No uniform bridge residual, regularized box-pulse propagation, or RH proof",
     "Seven-node high-precision eigenvalue uses non-interval quadrature",
     "Comparison-kernel factorizations and counterexamples do not by themselves settle the actual theta kernel"
+  ],
+  "limitations": [
+    "No arbitrary-order theta positivity or global bridge-residual proof",
+    "No regularized box-pulse propagation or zero-trapping theorem",
+    "Radii are sufficient Mellin-input bounds, not maximal or spectral zero-capture radii",
+    "The numerical constants are certified only for unheated theta",
+    "The four-node statement concerns antisymmetric full-kernel configurations, not unrestricted eight-center positivity",
+    "The earlier seven-node result remains finite non-interval numerical evidence"
   ]
 }

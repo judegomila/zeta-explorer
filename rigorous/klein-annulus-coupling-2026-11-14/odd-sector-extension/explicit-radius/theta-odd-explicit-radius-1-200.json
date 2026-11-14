@@ -1,0 +1,98 @@
+{
+  "status": "PASS",
+  "theorem": "Every two-node odd theta Gram is positive definite for distinct 0<x,y<=delta; alpha=1, and hence every alpha>0",
+  "parameters": {
+    "delta_exact": "1/200",
+    "delta_squared_exact": "1/40000",
+    "theta_terms": 4,
+    "midpoint_subintervals": 512,
+    "integral_cutoff": 3
+  },
+  "runtime": {
+    "mpmath": "1.3.0",
+    "interval_decimal_precision": 40
+  },
+  "jet_matrix": [
+    [
+      [
+        0.021748626221194018,
+        0.021780582206408664
+      ],
+      [
+        -0.06309321590559477,
+        -0.06302924736043192
+      ]
+    ],
+    [
+      [
+        -0.06309321590559477,
+        -0.06302924736043192
+      ],
+      [
+        0.18660877551272112,
+        0.18682786267825918
+      ]
+    ]
+  ],
+  "jet_determinant": [
+    7.773061491088037e-05,
+    9.653359868893574e-05
+  ],
+  "G_derivative_absolute_upper_bounds": {
+    "1,0": 1.6928118551590738,
+    "1,1": 3.17425253416878,
+    "0,2": 5.4062975429121165,
+    "2,1": 9.750006154043309
+  },
+  "Newton_entry_error_upper_bounds": {
+    "00": 8.464059275795369e-05,
+    "01": 0.00021451375192702243,
+    "11": 0.00048750030770216543
+  },
+  "Newton_entry_enclosures": {
+    "00": [
+      0.021663985628436067,
+      0.021865222799166615
+    ],
+    "01": [
+      -0.0633077296575218,
+      -0.0628147336085049
+    ],
+    "11": [
+      0.18612127520501895,
+      0.18731536298596135
+    ]
+  },
+  "Newton_determinant_enclosure": [
+    2.425999679786243e-05,
+    0.00015000138708737474
+  ],
+  "exact_interval_Newton_determinant": "[0.0000242599967978624347164756391303907384441335053, 0.000150001387087374741511678984585742471384171626]",
+  "Newton_uniform_lower_bound_exact": "1/10000",
+  "Newton_shifted_determinant_enclosure": [
+    3.491470714516927e-06,
+    0.00012909332850886195
+  ],
+  "uniform_theta_derivative_tail_bounds": [
+    3.5073289053373544e-30,
+    7.2634136414211895e-28,
+    1.7698024209728405e-25,
+    4.9406456324085745e-23,
+    1.5459309661985052e-20,
+    5.3354327556504296e-18
+  ],
+  "infinite_moment_tail_bounds": [
+    7.760697426752004e-43,
+    3.055179242196503e-38,
+    1.579241633817928e-33
+  ],
+  "infinite_G_derivative_tail_bounds": {
+    "1,0": 4.2399479451463264e-38,
+    "1,1": 3.1605869738530376e-34,
+    "0,2": 3.009326399861448e-34,
+    "2,1": 2.243922748673166e-30
+  },
+  "scope": "All distinct pairs in the stated real interval, with no minimum separation; arbitrary complex coefficients. No arbitrary-node-count or global positivity claim.",
+  "trust_basis": "Outward-rounded mpmath elementary interval operations, exact rational polynomial coefficients, and the displayed analytic error bounds; not a formal proof-assistant verification",
+  "elapsed_seconds": 1.3053596019744873
+}

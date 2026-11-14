@@ -28,9 +28,13 @@ The Cauchy–Riemann equations give
 
 The pure phase tracer equation \(\dot Z=\beta J\nabla U\) has
 \(dU/dt=0\). Its trajectories stay on modulus level sets. A compact regular
-level curve can therefore trap this particular tracer, but the equation has
-no attracting radial component. Near a zero of multiplicity \(m\),
-\(U\sim m\log r\), tangential speed is \(\beta m/r\), and radial speed is zero.
+level curve can therefore trap this particular tracer, but there is no
+descent across modulus contours. Write \(F(s)=(s-\rho)^m g(s)\) with
+\(g(\rho)\ne0\). The leading singular circulation has tangential speed
+\(\beta m/r\) and zero radial velocity; the regular factor contributes
+bounded corrections, including a possible radial component. Exact circular
+motion holds for the pure monomial model, not for an arbitrary analytic
+function. The exact invariant remains \(U\), not Euclidean distance.
 
 Adding a gradient component changes the model:
 
@@ -85,6 +89,14 @@ This is an identity at a simple zero, not a sign theorem. The reverse clock
 \(u=-\tau\) changes its sign. At a multiple zero \(F_s=0\), the quotient is
 undefined and the simple-root continuation must be reconsidered. The fact
 that \(D'=0\) at a simple critical-line zero does not rule out a later collision.
+
+A proved bound \(M\ge0\) along the entire simple-zero branch interval makes
+\(D\) nonincreasing. At the boundary of a moving tube \(|x|\le d(\tau)\),
+the inward/tangent test is \(M\ge-4dd'\). Checking this weak inequality only
+at the branch's contacts is insufficient: a crossing can be tangent to higher
+order. Strict inward bounds at all regular contacts, or a suitable uniform
+neighborhood comparison inequality, can establish a barrier. At \(d=0\),
+\(M=0\) is automatic and supplies no such estimate.
 
 In the theta chart the analytic second derivative is obtained by multiplying
 the shifted whole-contour integrand by \(4(u+i\alpha)^2\). The implementation

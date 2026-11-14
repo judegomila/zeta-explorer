@@ -10,6 +10,10 @@ Using the established stronger theta concavity, this checkpoint derives strict p
 
 The corresponding exact quotient views are implemented and live in [Zeta Observatory: Klein](https://zeta-view.vercel.app/?view=klein) and [reflection annulus](https://zeta-view.vercel.app/?view=annulus). App release: [zeta-view PR #2](https://github.com/judegomila/zeta-view/pull/2), merge `e88a12315cf4423d77ddc89f961245d83b59204b`.
 
+### Follow-up: oscillatory odd inputs
+
+The [odd-sector continuation](odd-sector-followup/README.md) advances beyond the constant-phase cone. An interval calculation with explicit series and infinite-tail bounds certifies a strictly positive first odd Taylor block for actual theta. Analyticity then proves positivity for every sufficiently small two-node odd configuration, including arbitrary complex and sign-changing coefficients; no explicit neighborhood radius is claimed. An exact comparison kernel shows that stronger convexity alone cannot prove positivity for arbitrary odd inputs, even with double-exponential decay and an order-one transform. An independent Fourier/Löwner reduction shows that positivity of either complete Mellin parity sector is already RH-equivalent. The uniform bridge estimate remains open.
+
 ## Read the derivations
 
 | File | Main content |
@@ -17,6 +21,7 @@ The corresponding exact quotient views are implemented and live in [Zeta Observa
 | [klein_phase_transport.md](klein_phase_transport.md) | Twisted phase current, zero circulation, exact phase correlation, a conditional positive-contribution/tail bound, exact negative controls, and invariance of the actual Schur target |
 | [annulus_theta_coupling.md](annulus_theta_coupling.md) | Exact annulus coupling, conditional transfer criteria, actual theta parity reduction, odd-majorant obstruction, the odd-cone theorem, compactness limits, and actual pulse symmetry |
 | [numeric/AUDIT.md](numeric/AUDIT.md) | Finite numerical findings, independent high-precision checks, and reproduction instructions |
+| [odd-sector-followup/README.md](odd-sector-followup/README.md) | Certified local oscillatory theorem, exact convexity obstruction, full-sector RH equivalence, and refined seven-node numerical evidence |
 
 ## 1. The Klein change does not create a coupling margin
 
@@ -160,7 +165,7 @@ The companion scripts sample the deployed numerical modules and independently re
 
 The exact nodes and settings are retained in the JSON outputs. The high-precision inputs use the specified finite decimal center near the first zero. Block congruences, conjugation, and duplicated-cover bookkeeping preserve the coupling to numerical precision. Changing the arbitrary geometric shape improves the annulus reference constant while leaving these fixed spectral bridge data unchanged.
 
-The theta odd-kernel checks agree with the analytic ordering. A seven-node matrix has an eigenvalue too small to resolve at the stated floating-point tolerance. None of these experiments is an interval certificate, an infinite-tail bound, or an all-orders positivity result.
+The theta odd-kernel checks agree with the analytic ordering. In this initial audit, a seven-node matrix has an eigenvalue too small to resolve at the stated floating-point tolerance. None of these initial experiments is an interval certificate, an infinite-tail bound, or an all-orders positivity result. The [follow-up](odd-sector-followup/README.md) resolves that finite eigenvalue numerically at higher precision and separately establishes an interval-certified local two-node theorem; it retains the distinction between those two kinds of evidence.
 
 ## Sources and validation
 

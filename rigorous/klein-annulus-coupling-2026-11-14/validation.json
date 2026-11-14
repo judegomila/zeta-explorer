@@ -1,0 +1,39 @@
+{
+  "date": "2026-11-14",
+  "status": "Research derivations and finite numerical audit; no global positivity certificate",
+  "source_app_commit": "e88a12315cf4423d77ddc89f961245d83b59204b",
+  "source_theta_cutoff_commit": "69d4049f289217812051188378a0a9f3f061a169",
+  "source_head_residual_commit": "146ce77aa8407e912ed54c73e30664d86936c253",
+  "commands": [
+    "node sample-app.mjs /absolute/path/to/zeta-view > app-samples.json",
+    "python3 analyze-coupling.py"
+  ],
+  "replay": "Both commands completed successfully; all script assertions passed",
+  "independent_xi_cases": 5,
+  "independent_xi_precision_digits": 70,
+  "max_app_matrix_error": 1.96455730152033e-13,
+  "theta_ordering_cases": 15,
+  "reviewed_analytic_results": [
+    "Hodge and conjugacy signs",
+    "normalized coupling invariance",
+    "annulus DtN and Schur constants",
+    "odd half-line theta ordering and heat extension",
+    "odd Gram-majorant nullspace",
+    "midpoint and endpoint pulse reflection",
+    "odd resolvent failure of general cone preservation"
+  ],
+  "review_correction": "Explicit continuous extension at the possible zero squared argument s=xy in the odd-kernel comparison",
+  "limitations": [
+    "No interval arithmetic certificate",
+    "No infinite-tail enclosure from finite quadrature probes",
+    "No uniform residual or all-orders PSD bound",
+    "Seven-node odd Gram smallest sign unresolved at displayed double-precision tolerance"
+  ],
+  "app_release_validation": {
+    "tests_passed": 180,
+    "tests_failed": 0,
+    "browser": "Klein and annulus production surfaces verified using software Canvas fallback; heat state preserved across quotient transition",
+    "deployment_id": "dpl_REDACTED",
+    "deployment_state": "READY"
+  }
+}

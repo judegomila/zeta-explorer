@@ -1,0 +1,65 @@
+{
+  "date": "2026-11-14",
+  "files": [
+    {
+      "path": "rigorous/klein-annulus-coupling-2026-11-14/README.md",
+      "bytes": 9823,
+      "sha256": "07c730522c7c59794410cb698e00d5a5665718be38935d95e7d4b9fc986f9384",
+      "git_blob_sha": "d699d23ac9b0b5201117397514b632a6f88497c4"
+    },
+    {
+      "path": "rigorous/klein-annulus-coupling-2026-11-14/annulus_theta_coupling.md",
+      "bytes": 19051,
+      "sha256": "288baaf0507faacd43992dbde4d72b0824055759b6c7d72fe884d9ce4e0dfef1",
+      "git_blob_sha": "774da64bf0e9b9cffaf8627e5c2cb5bf30203ecd"
+    },
+    {
+      "path": "rigorous/klein-annulus-coupling-2026-11-14/klein_phase_transport.md",
+      "bytes": 20167,
+      "sha256": "f19962727ffd808182cc9be219d9ef50c496ffe4d9d5f2b3b4698b1c4e3d507c",
+      "git_blob_sha": "9a4c3f25888575df44160181122f6e8805fc47a4"
+    },
+    {
+      "path": "rigorous/klein-annulus-coupling-2026-11-14/numeric/AUDIT.md",
+      "bytes": 12522,
+      "sha256": "4b370ec46706a225f91a030ddf9cedf1f5c65e36b8eff04d3b82311502f234a2",
+      "git_blob_sha": "e288b57d705bd3f8f75881001f7ea15b28cbeda9"
+    },
+    {
+      "path": "rigorous/klein-annulus-coupling-2026-11-14/numeric/analyze-coupling.py",
+      "bytes": 9128,
+      "sha256": "98d3c959d3fd8575a5738cb69761466d1f383c8d4c9bc0c3c0796ff20d3d3bed",
+      "git_blob_sha": "069a0b44901ad5227ef7b85171d73e5a98b82f4b"
+    },
+    {
+      "path": "rigorous/klein-annulus-coupling-2026-11-14/numeric/app-samples.json",
+      "bytes": 54316,
+      "sha256": "bd45cc98d512fe10cc8ddc2f972d28bc91def89ebf6947d54bb0fd649642f6db",
+      "git_blob_sha": "4d4af9981b4be8524cd4adea2c01f3189ad7d937"
+    },
+    {
+      "path": "rigorous/klein-annulus-coupling-2026-11-14/numeric/coupling-results.json",
+      "bytes": 25580,
+      "sha256": "15d3f449094429f9a0f62cdfe129037ddce98d36da4d5a12ef6d0d3e9eaa9f78",
+      "git_blob_sha": "3f09972ee50cce754f72ab2ecb0c3ba0cffecdf7"
+    },
+    {
+      "path": "rigorous/klein-annulus-coupling-2026-11-14/numeric/requirements.txt",
+      "bytes": 41,
+      "sha256": "e5698b55553133cbcdbcb05c5b953f60c8246df0b65930d95e8ea77112e09e52",
+      "git_blob_sha": "93054803ebd7928f2973cde4521ddb65a0ab1daa"
+    },
+    {
+      "path": "rigorous/klein-annulus-coupling-2026-11-14/numeric/sample-app.mjs",
+      "bytes": 4559,
+      "sha256": "d1a08ce4b2326a891bd3f18712a04e5ab441327d5b425827c5d8d3a3905e10b0",
+      "git_blob_sha": "f6bfaf3fdd918b3b5595973fa3be4796504dc6a5"
+    },
+    {
+      "path": "rigorous/klein-annulus-coupling-2026-11-14/validation.json",
+      "bytes": 1761,
+      "sha256": "2d940fea984429063639f681f6a83d057540206f8287ef21c24b180330968999",
+      "git_blob_sha": "eed00c4a3f98ea9971dec1859313797a3abcb28e"
+    }
+  ]
+}

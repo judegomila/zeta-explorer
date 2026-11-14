@@ -85,7 +85,7 @@ function nearestName(state,cfg){
   let name='custom',best=Infinity;
   for(const candidate of candidates){
     const base=resolvedBase(cfg,candidate).state;
-    const mismatches=['geometry','function','fiberMode','projective','dynamicsMode','researchMode','channelsMode'].filter(k=>own(cfg.defaults,k)&&state[k]!==base[k]).length;
+    const mismatches=['geometry','function','fiberMode','projective','dynamicsMode','researchMode','channelsMode','infinityMode','dualMode'].filter(k=>own(cfg.defaults,k)&&state[k]!==base[k]).length;
     const cost=mismatches*1e6+JSON.stringify(overrides(state,base,cfg)).length;
     if(cost<best){best=cost;name=candidate;}
   }
@@ -201,3 +201,4 @@ export class ViewURLController {
   }
   dispose(){this.cancelPending();this.disposed=true;++this.restoreSerial;this.window.removeEventListener('popstate',this.navigate);this.window.removeEventListener('hashchange',this.navigate);}
 }
+

@@ -1,3 +1,4 @@
+import {displayLogMagnitude,displayVisibility} from './display-field.js';
 import * as THREE from './vendor/three.module.js';
 import { OrbitControls } from './vendor/OrbitControls.js';
 import { liftPoint } from './geometry.js';
@@ -32,7 +33,7 @@ function weightedLogQuantile(data, logs, quantile = .95) {
   return 0;
 }
 function renderStyleSignature(state) {
-  return JSON.stringify(['geometry','projective','function','tau','heightMode','height','colorMode','phaseOffset','exposure','opacity','wireframe','contours','critical','zeros','vortices','ladder','packets','seams','heightLocked','heightLogReference','heightReference','resolution'].map(k=>state[k]));
+  return JSON.stringify(['geometry','projective','function','tau','heightMode','height','colorMode','phaseOffset','exposure','opacity','wireframe','contours','critical','zeros','vortices','ladder','packets','seams','heightLocked','heightLogReference','heightReference','resolution','displayDamping','displayDampingScale'].map(k=>state[k]));
 }
 function sampleMetadata(data) {
   const logs=data.logAbs||Float64Array.from(data.valid,(_,i)=>logMagnitude(data.values[2*i],data.values[2*i+1]));
@@ -235,7 +236,7 @@ export class ZetaScene {
   heightPolar(logAbs, arg = 0) {
     // A Klein bottle has no global continuous normal. Scalar normal relief
     // would tear the identified edge; retain the exact immersed base surface.
-    if (this.state.geometry === 'klein') return 0;
+    if (this.state.geometry === 'klein' || this.state.displayDamping) return 0;
     const mode = this.state.heightMode || 'log';
     if (mode === 'flat' || !this.state.height || !validLog(logAbs) || logAbs === -Infinity) return 0;
     const relative = logAbs - this.logReference;
@@ -250,7 +251,8 @@ export class ZetaScene {
 
   color(re, im, bridge = NaN) { return this.colorPolar(logMagnitude(re,im),Math.atan2(im,re),bridge); }
 
-  colorPolar(logAbs, arg, bridge = NaN) {
+  colorPolar(logAbs, arg, bridge = NaN, sigma, t) {
+    logAbs=displayLogMagnitude(logAbs,sigma,t,this.state);
     const mode = this.state.colorMode || 'phase';
     if (!validLog(logAbs) || (['bridge','shear'].includes(mode) && !finite(bridge))) return tmpColor.set(0x28313e);
     const relative = logAbs - this.logReference, normalized = softplus(relative) / Math.LN2;
@@ -268,6 +270,7 @@ export class ZetaScene {
       const strength = clamp(Math.abs(value), 0, 1);
       tmpColor.setHSL(value >= 0 ? .45 : .99, .15 + .72 * strength, .76 - .36 * strength);
     }
+    if(this.state.displayDamping){const visibility=displayVisibility(logAbs,this.logReference);tmpColor.multiplyScalar(visibility);tmpColor.r+=.025*(1-visibility);tmpColor.g+=.035*(1-visibility);tmpColor.b+=.05*(1-visibility);}
     return tmpColor;
   }
 
@@ -282,7 +285,7 @@ export class ZetaScene {
       const re = data.values[2 * i], im = data.values[2 * i + 1];
       const displacement = data.valid[i] ? this.heightPolar(this.sampleLogs[i],this.sampleArgs[i]) : 0;
       for (let axis = 0; axis < 3; axis++) this.raised[3 * i + axis] = data.basePositions[3 * i + axis] + data.normals[3 * i + axis] * displacement;
-      const c = this.colorPolar(this.sampleLogs[i],this.sampleArgs[i],data.bridge?.[i] ?? NaN);
+      const c = this.colorPolar(this.sampleLogs[i],this.sampleArgs[i],data.bridge?.[i] ?? NaN,data.coords[2*i],data.coords[2*i+1]);
       colors[3 * i] = c.r;
       colors[3 * i + 1] = c.g;
       colors[3 * i + 2] = c.b;
@@ -556,7 +559,7 @@ export class ZetaScene {
     this.state = { ...this.state, ...state };
     this.controls.autoRotate = !!this.state.autoRotate;
     if (!this.data) return;
-    const rebuild = ['height', 'heightMode', 'colorMode', 'phaseOffset', 'opacity', 'wireframe', 'exposure', 'heightReference', 'heightLocked', 'heightLogReference'].some(key => previous[key] !== this.state[key]);
+    const rebuild = ['height', 'heightMode', 'colorMode', 'phaseOffset', 'opacity', 'wireframe', 'exposure', 'heightReference', 'heightLocked', 'heightLogReference', 'displayDamping', 'displayDampingScale'].some(key => previous[key] !== this.state[key]);
     if (rebuild) {
       this.syncReference();
       this.buildSurface();
@@ -771,3 +774,4 @@ export class ZetaScene {
     }
   }
 }
+

@@ -15,6 +15,7 @@ The projective atlas, linked bridge/Bloch point state, derivative disk, spinor l
 - Selected-point domain, shifted-pair Bloch sphere, and derivative Cayley disk, with scale-safe polar arithmetic and explicit unresolved states.
 - Spinor/Hopf view with a common-phase fiber, SU(2) rotation, amplitude phases, and the visible 2π sign change / 4π return.
 - A chosen Euclidean ℂℙ³ → S⁴ twistor map, complete ℂℙ¹ fiber controls, elliptic sheet selection, north/south charts, and source-versus-moved quadric residuals.
+- Spectral infinity end and fixed-strip charts, positive Gaussian display damping, and the elliptic curve's projective conormal family with exact infinity anchors.
 - Critical line/two ovals, reference zero markers, limited sampled heat roots, Re/Im contours and transported phase-gradient streamlines.
 - Surface-conforming conjugate-aligned twin ladders and finite prime-power packet experiments with independent display time.
 - A freshly evaluated point inspector, sampled contour winding, critical-line profile and linked phase atlas.
@@ -97,6 +98,21 @@ These modes use completed **ξ** or its symmetric **heat family**. Raw ζ does n
 The quotient panel includes an intrinsic seam diagram, probe/partner diagnostics, paired landmark explanations, and direct links to the existing even/odd energy and Gram/Schur experiments. It states the exact limitation: the two-dimensional Dirichlet energy densities of the real and imaginary parts of a holomorphic field are equal. They are not the bridge experiment's even-minus-odd boundary energy. Infinity remains an essential puncture, so finite cutoff energies cannot silently be promoted to a finite global energy or a no-escape theorem.
 
 The derivation, annulus Dirichlet-to-Neumann reference operator, remaining coercivity target, and a symmetry-preserving off-line-zero counterexample are in [KLEIN-ANNULUS.md](docs/KLEIN-ANNULUS.md). Settings, inspected points and cameras share through the existing URL/session controls; quotient fields have distinct numerical cache keys.
+
+### Infinity ends, a damped display, and the dual conormal
+
+| View | Direct link | What to inspect |
+| --- | --- | --- |
+| Infinity end | [?view=infinityEnd](https://zeta-view.vercel.app/?view=infinityEnd) | The local coordinate q = 1 − w near either spectral puncture, its conjugating Klein partner, and finite evaluation coverage. |
+| Fixed strip ends | [?view=stripEnds](https://zeta-view.vercel.app/?view=stripEnds) | The real offset σ − ½ retained across logarithmic-height and reciprocal-height charts, with separate upper and lower ends. |
+| Damped Klein display | [?view=smoothKlein](https://zeta-view.vercel.app/?view=smoothKlein) | Positive Gaussian attenuation on the existing completed field. |
+| Dual conormal | [?view=dualTwistor](https://zeta-view.vercel.app/?view=dualTwistor) | The ℂℙ¹ family of tangent hyperplanes at the selected point or an exact infinity, anti-bridge, branch, or reciprocal-chart anchor. |
+
+The end charts evaluate finite spectral points only. Gray and hatched regions distinguish unavailable or unresolved samples from known values. The finite-cutoff boundary diagnostic does not certify the remaining tail or a global energy bound. The Klein partner uses the exact nonlinear end-coordinate transformation and the completed function's conjugating symmetry.
+
+The Gaussian weight is exp(−|s−½|²/S²), with default scale S = 120. It preserves every finite zero and the phase away from zeros; it changes amplitudes and makes the weighted field nonholomorphic. For ξ, the weighted field admits a smooth, flat extension by zero at the spectral punctures, while ξ itself remains essential there. The renderer keeps raw samples, inspected values, cached fields, and bridge calculations unchanged. The end panel has its own exact/damped display control. No phase or original-function value is assigned to infinity.
+
+The dual view displays the family W = λ dQ₁ + μ dQ₂ for the two defining quadrics. It reports the bilinear point and tangent incidence residuals W·Z and W·T. There is a family of tangent hyperplanes, not a unique curve normal. Exact geometric infinity anchors require no ξ evaluation. See [the derivations and limits](docs/INFINITY-ENDS-DUAL.md) for the seam, strip metric, smooth-extension proof, full-energy distinction, and conormal conventions.
 
 ### Share exactly the current view
 
@@ -230,6 +246,9 @@ Height normalization, chart lenses, masking, interpolation, finite root coverage
 | `dist/spinor.js` | Hopf/Bloch lift, common phase, SU(2) rotation and spin frame |
 | `dist/twistor.js` | Chosen quaternionic ℂℙ³ → S⁴ map, fibers, charts and quadric residuals |
 | `dist/fiber-panels.js` | Linked spinor and twistor displays from held projective snapshots |
+| `dist/dual.js`, `dist/dual-panel.js` | Elliptic conormal family, bilinear incidence, and exact geometric anchors |
+| `dist/infinity.js`, `dist/infinity-panel.js`, `dist/infinity-worker.js` | Spectral end and fixed-strip coordinates, finite coverage and cutoff diagnostics |
+| `dist/display-field.js` | Positive Gaussian display weight, kept separate from analytic samples and caches |
 | `dist/view-url.js` | Named view URLs, exact allowed overrides, camera/probe restore and browser history |
 | `dist/sampler.js` | Shared pure mesh sampler, finite bridge comparisons, flow curves, markers and critical-line inset |
 | `dist/sample-worker.js` | Browser worker wrapper and transferable buffers |
@@ -252,4 +271,5 @@ Height normalization, chart lenses, masking, interpolation, finite root coverage
 | `tests/` | Independent reference fixtures and mathematical integration checks |
 
 Three.js 0.180.0 is vendored with its MIT license. No external scripts, web fonts, analytics or back-end data services are required at runtime. The on-demand frame files are part of this static app. Saved notebooks use the current browser's local storage; computed fields use their separate cache. Export session JSON for a portable copy of a viewpoint and its notes.
+
 

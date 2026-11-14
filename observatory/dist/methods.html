@@ -12,7 +12,7 @@
 <body>
 <header><a href="./">← Back to the observatory</a><span class="brand">Zeta Observatory / Methods</span></header>
 <div class="wrap">
-<nav aria-label="Methods contents"><div class="label">Methods reference</div><a href="#functions">01 · Functions & coordinates</a><a href="#encoding">02 · Height & rainbow phase</a><a href="#vortices">03 · Vortices & shear</a><a href="#sphere">04 · Sphere mounting</a><a href="#torus">05 · Exact elliptic torus</a><a href="#projective">05b · Projective atlas</a><a href="#spinor">05c · Spinor & Hopf fiber</a><a href="#twistor">05d · Euclidean twistor view</a><a href="#ladder">06 · Twin ladder & packets</a><a href="#heat">07 · Theta heat flow</a><a href="#dynamics">07b · Dynamics & trapping</a><a href="#bridge-research">07c · Bridge research views</a><a href="#no-escape">07d · No-escape diagnostics</a><a href="#numerics">08 · Numerical scope</a><a href="#playback">09 · Cache & playback</a><a href="#research">10 · Research interpretation</a><a href="#sources">11 · Sources</a></nav>
+<nav aria-label="Methods contents"><div class="label">Methods reference</div><a href="#functions">01 · Functions & coordinates</a><a href="#encoding">02 · Height & rainbow phase</a><a href="#vortices">03 · Vortices & shear</a><a href="#sphere">04 · Sphere mounting</a><a href="#torus">05 · Exact elliptic torus</a><a href="#projective">05b · Projective atlas</a><a href="#spinor">05c · Spinor & Hopf fiber</a><a href="#twistor">05d · Euclidean twistor view</a><a href="#klein-annulus">05e · Klein &amp; annulus</a><a href="#infinity-ends">05f · Infinity &amp; display damping</a><a href="#dual-conormal">05g · Dual conormal family</a><a href="#ladder">06 · Twin ladder & packets</a><a href="#heat">07 · Theta heat flow</a><a href="#dynamics">07b · Dynamics & trapping</a><a href="#bridge-research">07c · Bridge research views</a><a href="#no-escape">07d · No-escape diagnostics</a><a href="#numerics">08 · Numerical scope</a><a href="#playback">09 · Cache & playback</a><a href="#research">10 · Research interpretation</a><a href="#sources">11 · Sources</a></nav>
 <main>
 <div class="eyebrow">Read the geometry through the mathematics</div>
 <h1>A field guide to<br>the observatory.</h1>
@@ -187,6 +187,34 @@ E(torus cutoff) = 2 E(Klein cutoff) = 2 E(annulus cutoff)
 <p>The equality of real and imaginary Dirichlet energies follows directly from the Cauchy–Riemann equations. Their difference is identically zero. The <a href="./?view=bridgeEnergy">bridge even/odd energies</a> use different boundary traces and kernels; they are not these two bulk energies. Folding the domain does not create a new positivity inequality or remove the <a href="./?view=gramSchur">Gram/Schur coupling</a>.</p>
 <p>The annulus does supply a positive reference operator. In uniformizing coordinates its circumference is ℓ = 4K and width b = K′. For κ = 2π|n|/ℓ &gt; 0, the harmonic Dirichlet-to-Neumann block is κ times the matrix with diagonal coth(κb) and off-diagonal −csch(κb). Its symmetric and antisymmetric eigenvalues are κ tanh(κb/2) and κ coth(κb/2); the zero-mode eigenvalues are 0 and 2/b.</p>
 <p>To turn that reference into a useful bound for ξ, one still needs an exact comparison with the theta bridge form and control of all signed coupling and infinity terms. Green's identity makes the punctures essential: removing their boundary flux while imposing the regular homogeneous conditions forces a constant harmonic field. The complete derivation and a symmetric entire counterexample with off-line zeros are recorded in <a href="https://github.com/judegomila/zeta-view/blob/main/docs/KLEIN-ANNULUS.md" target="_blank" rel="noopener">KLEIN-ANNULUS.md</a>.</p>
+
+<h2 id="infinity-ends">05f / Infinity ends &amp; positive display damping</h2>
+<div class="table-wrap"><table><thead><tr><th>View</th><th>Coordinates or display</th><th>What remains explicit</th></tr></thead><tbody>
+<tr><td><a href="./?view=infinityEnd">Infinity end</a></td><td>A cylinder and unrolled chart of q = 1 − w near either p±.</td><td>The finite near and far cutoffs, selected sheet, and exact Klein partner.</td></tr>
+<tr><td><a href="./?view=stripEnds">Fixed strip ends</a></td><td>x = σ − ½, with log-height ρ = log|t| and reciprocal height y = 1/t.</td><td>The transverse offset x and the choice of upper or lower end.</td></tr>
+<tr><td><a href="./?view=smoothKlein">Damped Klein display</a></td><td>Positive Gaussian attenuation of the completed field.</td><td>The original samples, zeros, derivatives, inspector and bridge diagnostics.</td></tr>
+</tbody></table></div>
+<p>The geometric curve is smooth at p±, where w = 1. The loaded ξ function has an essential singularity there. The end chart expands a neighborhood of that puncture:</p>
+<div class="equation">q = exp(−τₑ + iθ),       s = L/q + (1−L)/2
+Klein partner: q ↦ −q̄/(1−q̄),       s ↦ 1−s̄
+<span class="note">τₑ = −log|q| is an end coordinate, separate from heat time. The chart uses τₑ ≥ 0, so |q| ≤ 1 stays away from the elliptic branch points. Its far edge is a finite cutoff, not infinity.</span></div>
+<p>The strip view keeps x independent as |t| grows; it does not collapse different real offsets into the same limiting direction. Both charts show actual finite evaluations. Gray regions are outside numerical coverage, and hatching warns that phase may turn between samples. A partner can be outside the plotted window while still evaluable. The cutoff fluxes use the original field and retain their amplitude multipliers. In strip mode they cover the two height caps only, with the vertical sides omitted; they are not a global energy or tail bound.</p>
+<h3>What the Gaussian changes</h3>
+<div class="equation">hS(s) = exp(−|s−½|²/S²),       F̃ = hS F,       S &gt; 0
+arg F̃ = arg F and Im(dF̃/F̃) = Im(dF/F)     wherever F ≠ 0
+∂s̄F̃ = −(s−½)F̃/S²
+<span class="note">The default scale is S = 120. The positive factor retains finite zeros and phase, but the weighted field is nonholomorphic.</span></div>
+<p>The main surface and end panel provide separate damping controls. They change the display; raw numerical values, caches, exports, derivatives and signed bridge forms remain attached to the original function. For ξ, its <a href="https://dlmf.nist.gov/25.5#E13" target="_blank" rel="noopener noreferrer">theta integral</a> gives growth bounded by exp(O(|s| log|s|)). The Gaussian therefore allows the weighted complex amplitude to extend smoothly and flatly by zero at the puncture. This added display zero is not a ξ zero, and no phase is assigned there. The original ξ singularity survives. Finite damped heat samples do not establish a global smooth-extension theorem for that family.</p>
+
+<h2 id="dual-conormal">05g / The dual conormal family</h2>
+<p>Open <a href="./?view=dualTwistor">Dual conormal</a> to inspect tangent hyperplanes of the elliptic curve at the selected point or at exact infinity, anti-bridge, branch and reciprocal-chart anchors. A curve in ℂℙ³ has a family of tangent hyperplanes, rather than one preferred normal.</p>
+<div class="equation">Q₁ = X₁² − X₀X₂
+Q₂ = X₃² − X₀² − (r²+r⁻²)X₁² − X₂²
+W = α dQ₁ + β dQ₂,       [α:β] ∈ ℂℙ¹
+W·Z = 0,       W·T = 0
+<span class="note">Z is the source point and T its projective tangent representative. Incidence uses the complex bilinear pairing, without conjugation. A separate Hermitian norm chooses convenient display representatives.</span></div>
+<p>The controls vary [α:β] in the stated quadric basis. The source sphere, family sphere and coordinate dials are coordinate displays, not a literal three-dimensional drawing of a complex hyperplane. Point and tangent residuals check the incidence numerically. The family is regular at spectral infinity and requires no ξ evaluation there; it neither assigns a field to the dual space nor resolves the essential singularity. This projective conormal construction does not by itself choose a Penrose spacetime interpretation.</p>
+<p>The <a href="https://github.com/judegomila/zeta-view/blob/main/docs/INFINITY-ENDS-DUAL.md" target="_blank" rel="noopener noreferrer">complete derivations</a> include the exact end seam, strip metric, Gaussian smooth-extension proof, full-energy distinction and conormal conventions.</p>
 
 <h2 id="ladder">06 / Twin ladder, bridge & packets</h2>
 <p>The direct and reflected prime-power tones come from the two spectral arguments s and 1−s. A rung with prime p and exponent m has log-frequency λ = m log p:</p>
@@ -368,6 +396,7 @@ node scripts/build-projective-precache.mjs
 <p>Additional bridge views follow <a href="https://github.com/judegomila/mathexplorer/blob/e8223ea5b9ccf9104f684e242204590c2ba15eea/formalization/paper/sign_switching_energy_2026-11-07.md" target="_blank" rel="noopener">the sign-switching and boundary-energy checkpoint</a>. Heat-root collision conventions can be compared with <a href="https://terrytao.wordpress.com/2017/10/17/heat-flow-and-zeroes-of-polynomials/" target="_blank" rel="noopener">Tao’s polynomial heat-flow derivation</a> and <a href="https://dlmf.nist.gov/1.10" target="_blank" rel="noopener">DLMF’s argument principle</a>.</p>
 <p class="muted">The mathematical definitions below were consulted directly. Repository links point to immutable research commits so the conventions remain reproducible.</p>
 <ul class="source-list">
+<li><a href="https://dlmf.nist.gov/25.4" target="_blank" rel="noopener noreferrer">NIST DLMF §§25.4–25.5 · Completed ξ and its theta integral</a><small>The functional equation and <a href="https://dlmf.nist.gov/25.5#E13" target="_blank" rel="noopener noreferrer">integral 25.5.13–14</a> supply the infinity and Gaussian-weighted growth analysis. <a href="https://dlmf.nist.gov/5.11#E3" target="_blank" rel="noopener noreferrer">Stirling's formula</a> confirms that ξ is nonpolynomial.</small></li>
 <li><a href="https://arxiv.org/pdf/0704.3422" target="_blank" rel="noopener noreferrer">Salamon &amp; Viaclovsky · Orthogonal complex structures on domains in ℝ⁴</a><small>Sections 2.2–2.4 specify the right quaternionic convention, ℂℙ³ → S⁴ projection, and its ℂℙ¹ fibers.</small></li>
 <li><a href="https://bohr.physics.berkeley.edu/classes/221/notes/spinrot.pdf" target="_blank" rel="noopener noreferrer">Littlejohn · Rotations of Spin-½ Systems</a><small>Author-hosted Berkeley lecture notes on the SU(2) action and its two-to-one relation to ordinary rotations.</small></li>
 <li><a href="https://www.math.columbia.edu/~woit/twistorp1.pdf" target="_blank" rel="noopener noreferrer">Woit · Notes on the Twistor P¹</a><small>Author-hosted exposition of complex projective lines, quaternionic real structures, and Euclidean twistor geometry. Its quaternion coefficient convention differs from the one used here.</small></li>
@@ -383,3 +412,4 @@ node scripts/build-projective-precache.mjs
 <footer><p>Built for geometric investigation. The mathematics determines the field; the controls determine how you see it.</p><a href="./">Return to the observatory →</a></footer>
 </main></div>
 </body></html>
+

@@ -8,6 +8,9 @@ import {domainFor} from '../dist/domain.js';
 import {fieldKey} from '../dist/field-cache.js';
 import {encodeViewURL,decodeViewURL,sanitizeViewCamera,sanitizeViewProbe} from '../dist/view-url.js';
 import * as channelsState from '../dist/channels-state.js';
+import * as infinityState from '../dist/infinity.js';
+import * as dualState from '../dist/dual.js';
+import * as displayState from '../dist/display-field.js';
 import {RESEARCH_DEFAULTS,RESEARCH_LIMITS,RESEARCH_ENUMS,RESEARCH_VIEW_NAMES,normalizeResearchConfig,createResearchPresets} from '../dist/research-state.js';
 import {DYNAMICS_DEFAULTS,DYNAMICS_LIMITS,DYNAMICS_ENUMS,normalizeDynamicsConfig} from '../dist/dynamics.js';
 
@@ -45,7 +48,7 @@ function actualApp(){
   activeElement:{tagName:'BODY'},body:{append(){}},
   addEventListener:(name,callback)=>listeners.set(name,callback)};
  const context=vm.createContext({
-  ...channelsState,ZERO_HEIGHTS,NUMERICS,isQuotientGeometry,domainFor,fieldKey,performance,document,
+  ...channelsState,...infinityState,...dualState,...displayState,ZERO_HEIGHTS,NUMERICS,isQuotientGeometry,domainFor,fieldKey,performance,document,
   RESEARCH_DEFAULTS,RESEARCH_LIMITS,RESEARCH_ENUMS,RESEARCH_VIEW_NAMES,normalizeResearchConfig,createResearchPresets,
   DYNAMICS_DEFAULTS,DYNAMICS_LIMITS,DYNAMICS_ENUMS,normalizeDynamicsConfig,
   sanitizeViewCamera,sanitizeViewProbe,Blob,clearTimeout,setTimeout,
@@ -56,6 +59,9 @@ function actualApp(){
    updateStyle:()=>recordEffect('surface-style'),screenshot:()=>{recordEffect('surface-screenshot');return null;}};
   dynamicsPanel={pause:()=>recordEffect('dynamics-pause'),flush:()=>recordEffect('dynamics-flush'),togglePlay:()=>recordEffect('dynamics-play')};
   researchPanel={pause:()=>recordEffect('research-pause'),flush:()=>recordEffect('research-flush'),togglePlay:()=>recordEffect('research-play')};
+  infinityPanel={pause:()=>recordEffect('infinity-pause'),flush:()=>recordEffect('infinity-flush'),
+   update:()=>recordEffect('infinity-update'),exportData:()=>({kind:'infinity',mode:state.infinityMode})};
+  dualPanel={update:()=>recordEffect('dual-update'),hold:()=>recordEffect('dual-hold')};
   channelsPanel={pause:()=>recordEffect('channels-pause'),flush:()=>recordEffect('channels-flush'),
    update:(value,options)=>recordEffect(options?.restore?'channels-restore':'channels-update'),
    togglePlay:()=>recordEffect('channels-play'),reset:()=>recordEffect('channels-reset'),
@@ -121,7 +127,7 @@ test('main navigation exits Channels for each surface, quotient, fiber, research
   assert.equal(state.projective,projective);assert.ok(app.effects.includes('channels-pause'));
   assert.ok(app.effects.includes('push'));assert.ok(app.effects.includes('compute'));
  }
- for(const name of ['critical','projective','spinor','twistor','klein','annulus','bridgeShear','dynamics']){
+ for(const name of ['critical','projective','spinor','twistor','klein','annulus','bridgeShear','dynamics','smoothKlein','infinityEnd','stripEnds','dualTwistor']){
   const app=actualApp();app.setState(app.config.presets.channels.settings);app.applyPreset(name);
   assert.equal(app.getState().channelsMode,'off',name);assert.ok(app.effects.includes('channels-pause'),name);
  }
@@ -129,6 +135,67 @@ test('main navigation exits Channels for each surface, quotient, fiber, research
   const app=actualApp();app.setState(app.config.presets.channels.settings);app.selectFiber(fiberMode);
   assert.equal(app.getState().channelsMode,'off');assert.equal(app.getState().fiberMode,fiberMode);
  }
+});
+
+test('infinity, strip, smooth Klein and dual routes restore their actual controls and canonical names',()=>{
+ const entries=[
+  ['smoothKlein',{displayDampingScale:87.375}],
+  ['infinityEnd',{infinityTauMin:.65,infinityTauMax:4.15,infinityProbeU:.173,infinityProbeV:.811,
+   infinityPartner:false,infinityLayout:'cylinder',infinitySheet:'minus',infinityDisplay:'damped',infinityDampingScale:177.25}],
+  ['stripEnds',{infinityTMin:13.25,infinityTMax:1444.125,infinitySigmaSpan:.71,infinityEnd:'lower',
+   infinityLayout:'flat',infinityProbeU:.11,infinityProbeV:.93}],
+  ['dualTwistor',{dualTheta:.7,dualPhi:5.2,dualSheet:-1,dualAnchor:'infinity'}],
+ ];
+ for(const [name,changes]of entries){
+  const app=actualApp(),decoded=decodeViewURL(origin+'?view='+name,app.config);
+  assert.equal(decoded.valid,true,decoded.error);assert.equal(decoded.name,name);
+  app.setState(decoded.session.state);assert.equal(app.shareViewName(),name);
+  const initial=app.getState();
+  assert.equal(initial.channelsMode,'off');assert.equal(initial.dynamicsMode,'off');assert.equal(initial.researchMode,'off');
+  assert.equal(initial.playing,false);
+  if(name==='infinityEnd'||name==='stripEnds'){
+   assert.equal(initial.infinityMode,name==='stripEnds'?'strip':'end');
+   assert.equal(initial.projective,false,'infinity is its own chart, not the hidden torus/quotient panels');
+   assert.equal(initial.dualMode,'off');assert.equal(initial.function,'xi');
+   if(name==='infinityEnd')assert.equal(app.validate({...initial,infinityTauMin:-.65}).infinityTauMin,0,'negative cylinder cutoff is clamped to the branch-free end');
+  }else if(name==='dualTwistor'){
+   assert.equal(initial.dualMode,'conormal');assert.equal(initial.geometry,'torus');assert.equal(initial.projective,true);
+   assert.equal(initial.infinityMode,'off');assert.equal(initial.fiberMode,'off');
+  }else{
+   assert.equal(initial.geometry,'klein');assert.equal(initial.displayDamping,true);assert.equal(initial.heightMode,'flat');
+   assert.equal(initial.function,'xi');assert.equal(initial.infinityMode,'off');assert.equal(initial.dualMode,'off');
+  }
+  const changed={...initial,...changes,playing:true},probe={sigma:.731,t:26.625};
+  const href=encodeViewURL(origin,{state:changed,probe},{...app.config,name}),restored=decodeViewURL(href,app.config);
+  assert.equal(restored.valid,true,restored.error);assert.equal(restored.name,name);
+  for(const [key,value]of Object.entries(changes))assert.equal(restored.session.state[key],value,`${name}: ${key}`);
+  assert.equal(restored.session.state.playing,false);assert.deepEqual(restored.session.probe,probe);
+  assert.equal(encodeViewURL(href,restored.session,{...app.config,name}),href,'exact control serialization is stable');
+  app.setState(restored.session.state);assert.equal(app.shareViewName(),name);
+  app.applyPreset(name);assert.deepEqual(app.getState(),app.validate(app.config.presets[name].settings),'preset button and URL enter the same normalized state');
+ }
+});
+
+test('infinity and dual modes exit cleanly when a mount or exclusive research view is selected',()=>{
+ for(const name of ['infinityEnd','stripEnds','dualTwistor']){
+  const app=actualApp();app.applyPreset(name);app.selectMount('sphere',false);
+  assert.equal(app.getState().infinityMode,'off');assert.equal(app.getState().dualMode,'off');
+  assert.equal(app.getState().geometry,'sphere');assert.equal(app.getState().projective,false);
+  assert.ok(app.effects.includes('infinity-pause'));
+  for(const target of ['channels','bridgeShear','dynamics','twistor']){
+   app.applyPreset(name);app.applyPreset(target);
+   assert.equal(app.getState().infinityMode,'off',`${name} → ${target}`);
+   assert.equal(app.getState().dualMode,'off',`${name} → ${target}`);
+  }
+ }
+});
+
+test('display-only damping and dual family controls preserve the exact field-cache key',()=>{
+ const app=actualApp(),smooth=app.validate(app.config.presets.smoothKlein.settings),dual=app.validate(app.config.presets.dualTwistor.settings);
+ assert.equal(fieldKey(smooth),fieldKey({...smooth,displayDamping:false,displayDampingScale:200}));
+ assert.equal(fieldKey(dual),fieldKey({...dual,dualTheta:.9,dualPhi:4,dualSheet:-1,dualAnchor:'infinity'}));
+ const raw=app.validate({...smooth,function:'zeta',geometry:'torus',projective:true});
+ assert.equal(raw.displayDamping,false,'raw zeta is not silently assigned the completed-field smooth display');
 });
 
 test('main URL restoration pauses Channels and session capture excludes the old surface grid and camera',async()=>{
@@ -179,3 +246,4 @@ test('main keyboard controls target Channels while text entry inside its shadow 
  for(const tag of ['INPUT','TEXTAREA','SELECT','BUTTON']){keydown(key(' ',tag));keydown(key('r',tag));}
  assert.equal(app.effects.filter(e=>e==='channels-play').length,1);assert.equal(app.effects.filter(e=>e==='channels-reset').length,1);
 });
+

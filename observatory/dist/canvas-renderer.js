@@ -1,3 +1,4 @@
+import {displayLogMagnitude,displayVisibility} from './display-field.js';
 import * as numerical from './math.js';
 const { evaluate, NUMERICS } = numerical;
 import { liftPoint } from './geometry.js';
@@ -30,7 +31,7 @@ function weightedLogQuantile(data, logs, quantile = .95) {
   return 0;
 }
 function renderStyleSignature(state) {
-  return JSON.stringify(['geometry','projective','function','tau','heightMode','height','colorMode','phaseOffset','exposure','opacity','wireframe','contours','critical','zeros','vortices','ladder','packets','seams','heightLocked','heightLogReference','heightReference','resolution','playing'].map(k=>state[k]));
+  return JSON.stringify(['geometry','projective','function','tau','heightMode','height','colorMode','phaseOffset','exposure','opacity','wireframe','contours','critical','zeros','vortices','ladder','packets','seams','heightLocked','heightLogReference','heightReference','resolution','displayDamping','displayDampingScale','playing'].map(k=>state[k]));
 }
 function sampleMetadata(data) {
   const logs=data.logAbs||Float64Array.from(data.valid,(_,i)=>logMagnitude(data.values[2*i],data.values[2*i+1]));
@@ -116,7 +117,7 @@ export class CanvasZetaScene {
   height(re,im){return this.heightPolar(logMagnitude(re,im),Math.atan2(im,re));}
   heightPolar(logAbs,arg=0){
     // There is no global normal on the Klein quotient; keep its seam exact.
-    if(this.state.geometry==='klein')return 0;
+    if(this.state.geometry==='klein'||this.state.displayDamping)return 0;
     const mode=this.state.heightMode||'log';if(mode==='flat'||!this.state.height||!validLog(logAbs)||logAbs===-Infinity)return 0;
     const relative=logAbs-this.logReference;let h;
     if(mode==='real'||mode==='imag')h=Math.asinh(Math.exp(Math.min(relative,700))*(mode==='real'?Math.cos(arg):Math.sin(arg)))/Math.asinh(1);
@@ -124,7 +125,8 @@ export class CanvasZetaScene {
     return clamp(h,-2.5,2.5)*(this.state.geometry==='plane'?2.1:.46)*this.state.height;
   }
   color(re,im,bridge,shade=1){return this.colorPolar(logMagnitude(re,im),Math.atan2(im,re),bridge,shade);}
-  colorPolar(logAbs,arg,bridge,shade=1){
+  colorPolar(logAbs,arg,bridge,shade=1,sigma,t){
+    logAbs=displayLogMagnitude(logAbs,sigma,t,this.state);
     const mode=this.state.colorMode||'phase';if(!validLog(logAbs)||(['bridge','shear'].includes(mode)&&!finite(bridge)))return '#29313d';
     const relative=logAbs-this.logReference,normalized=softplus(relative)/Math.LN2;let h,s,l;
     if(mode==='phase'){
@@ -132,6 +134,7 @@ export class CanvasZetaScene {
       l=(.42+.075*Math.min(normalized,1)+(finite(relative)?.036*Math.cos(TAU*relative/Math.LN2):0))*100;
     }else if(mode==='modulus'){const t=clamp(normalized/1.8,0,1);h=.72-.64*t;s=72;l=16+47*t;}
     else {let v=['bridge','shear'].includes(mode)?bridge:Math.tanh(Math.exp(Math.min(relative,40))*(mode==='imag'?Math.sin(arg||0):Math.cos(arg||0))*2);if(!finite(v))v=0;const strength=clamp(Math.abs(v),0,1);h=v>=0?.45:.99;s=15+72*strength;l=76-36*strength;}
+    if(this.state.displayDamping){const visibility=displayVisibility(logAbs,this.logReference);s*=visibility;l=6+(l-6)*visibility;}
     return `hsl(${h*360} ${s}% ${clamp(l*shade*(this.state.exposure||1),9,85)}%)`;
   }
 
@@ -204,7 +207,7 @@ export class CanvasZetaScene {
       if(finite(ref))for(const k of ids){const amplitude=Math.exp(this.sampleLogs[k]-ref);re+=amplitude*Math.cos(this.sampleArgs[k]);im+=amplitude*Math.sin(this.sampleArgs[k]);}
       const logAbs=finite(ref)?ref+Math.log(Math.hypot(re,im)/3):-Infinity,arg=Math.atan2(im,re);
       const bridge=ids.every(k=>finite(d.bridge?.[k]))?ids.reduce((x,k)=>x+d.bridge[k],0)/3:NaN;
-      faces.push({ids,points,masked,color:masked?'#142033':this.colorPolar(logAbs,arg,bridge,shade)});
+      faces.push({ids,points,masked,color:masked?'#142033':this.colorPolar(logAbs,arg,bridge,shade,ids.reduce((a,k)=>a+d.coords[2*k],0)/3,ids.reduce((a,k)=>a+d.coords[2*k+1],0)/3)});
     };
     const cell=(i,j,i2,j2)=>{
       // Never bridge a masked interior just because coarse corners are valid.
@@ -265,7 +268,7 @@ export class CanvasZetaScene {
   updateStyle(state){
     const old=this.state,previousLogReference=this.logReference;this.state={...this.state,...state};
     this.syncReference();
-    if(this.data&&['projective','height','heightMode','heightReference','heightLocked','heightLogReference','colorMode','phaseOffset','opacity','wireframe','exposure','contours','critical','zeros','vortices','ladder','packets','seams','playing'].some(k=>old[k]!==this.state[k]))this.prepare();
+    if(this.data&&['projective','height','heightMode','heightReference','heightLocked','heightLogReference','colorMode','phaseOffset','opacity','wireframe','exposure','contours','critical','zeros','vortices','ladder','packets','seams','playing','displayDamping','displayDampingScale'].some(k=>old[k]!==this.state[k]))this.prepare();
     this.preparedSignature=renderStyleSignature(this.state);
     if(this.data&&old.playing!==this.state.playing)this.refreshProbe();
     if(this.data&&(previousLogReference!==this.logReference||old.playing!==this.state.playing)){
@@ -390,3 +393,4 @@ export class CanvasZetaScene {
   screenshot(){this.render();return this.canvas.toDataURL('image/png');}
   dispose(){this.disposed=true;cancelAnimationFrame(this.raf);this.resizeObserver?.disconnect();for(const [type,handler]of[['pointerdown',this.down],['pointermove',this.move],['pointerup',this.up],['pointercancel',this.up],['wheel',this.wheel],['contextmenu',this.context]])this.canvas.removeEventListener(type,handler);this.canvas.remove();}
 }
+

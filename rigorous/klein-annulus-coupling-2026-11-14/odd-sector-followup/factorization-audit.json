@@ -1,0 +1,29 @@
+{
+  "status": "All exact symbolic assertions passed",
+  "sympy_version": "1.14.0",
+  "scope": "Explicit control kernels, not the actual Jacobi theta kernel",
+  "convexity_second_derivative": "2*(-t**2 - 30*t + 2*(t + 15)**2 - 300)/(t**2 + 30*t + 300)**2",
+  "odd_feature_matrix": [
+    [
+      "121/30000",
+      "1/3000"
+    ],
+    [
+      "1/3000",
+      "1/45000"
+    ]
+  ],
+  "odd_feature_determinant": "-29/1350000000",
+  "smooth_witness": "p(x)=exp(-x^2)*x*(65-84*x^2)",
+  "smooth_witness_energy": "-29*pi/960000",
+  "smooth_witness_norm_squared": "1325*sqrt(2)*sqrt(pi)/8",
+  "two_node_coefficients": [
+    "19*E/3",
+    "-8*exp(4)/3"
+  ],
+  "two_node_determinant": "-29*exp(-10)/37500000",
+  "double_exponential_epsilon": "1/1000000000",
+  "perturbed_energy_strict_upper_bound": "-97/1600000",
+  "M_bound": "187*sqrt(pi)/128",
+  "N_bound": "40477*sqrt(pi)*exp(1/4)/25600"
+}

@@ -57,12 +57,12 @@ function table(head,body,headers,rows,selected){const tr=node('tr');headers.forE
 function liveURL(snapshot,href){const {root}=selectedOf(snapshot),url=new URL('../',href),state={researchHeatModel:snapshot.state.model,researchHeatEnd:snapshot.tau===0?snapshot.state.end:snapshot.tau,researchFrame:snapshot.tau===0?0:240,researchShowContours:true,researchShowVectors:true};url.searchParams.set('view','heatZeros');url.searchParams.set('state',JSON.stringify(state));url.searchParams.set('probe',JSON.stringify({sigma:root.sigma,t:root.t}));return url.href;}
 function finiteExtent(values,fallback=1){const vals=values.filter(finite);return vals.length?Math.max(fallback,...vals.map(Math.abs)):fallback;}
 
-export function createLab({window:win=window,document:doc=document,fetch:fetcher=fetch,Worker:WorkerClass=Worker}={}){
- const $=id=>doc.getElementById(id);let state=readLabURL(win.location.href),snapshot=null,worker=null,workerReady=false,serial=0,inFlight=null,pending=null,thetaDataset=null,boundsDataset=null,playing=false,playRAF=null,lastTime=null,playAccumulator=0,updateTimer=null,resizeRAF=null,toastTimer=null;
- const initialURL=writeLabURL(win.location.href,state);if(initialURL!==win.location.href)win.history.replaceState(null,'',initialURL);
+export function createLab({window:win=window,document:doc=document,fetch:fetcher=fetch,Worker:WorkerClass=Worker,initialState,manageURL=true,onChange=()=>{},onCopyLink=null}={}){
+ const $=id=>doc.getElementById(id);let state=initialState===undefined?(manageURL?readLabURL(win.location.href):normalizeLabState()):normalizeLabState(initialState),snapshot=null,worker=null,workerReady=false,serial=0,inFlight=null,pending=null,thetaDataset=null,boundsDataset=null,playing=false,playRAF=null,lastTime=null,playAccumulator=0,updateTimer=null,resizeRAF=null,toastTimer=null,destroyed=false;
+ if(manageURL){const initialURL=writeLabURL(win.location.href,state);if(initialURL!==win.location.href)win.history.replaceState(null,'',initialURL);}
  function toast(message){$('toast').textContent=message;$('toast').hidden=false;clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('toast').hidden=true,3500);}
  function pause(){playing=false;lastTime=null;playAccumulator=0;if(playRAF!==null)win.cancelAnimationFrame(playRAF);playRAF=null;syncTransport();}
- function persist(mode='replace'){const url=writeLabURL(win.location.href,state);if(url!==win.location.href)win.history[mode==='push'?'pushState':'replaceState'](null,'',url);}
+ function persist(mode='replace',{progress=false,immediate=mode==='push'}={}){if(destroyed)return;if(manageURL){const url=writeLabURL(win.location.href,state);if(url!==win.location.href)win.history[mode==='push'?'pushState':'replaceState'](null,'',url);}onChange({...state},{mode,progress,immediate});}
  function syncTransport(){const newton=state.view==='newton';$('play').textContent=playing?'Ⅱ Pause':newton?'▶ Probes':'▶ Play';$('play').setAttribute('aria-label',playing?'Pause playback':newton?'Play Newton guidance':'Play heat evolution');}
  function syncControls(){
   for(const button of doc.querySelectorAll('[data-view]'))button.setAttribute('aria-pressed',String(button.dataset.view===state.view));
@@ -74,20 +74,21 @@ export function createLab({window:win=window,document:doc=document,fetch:fetcher
   $('heat-frame').step=state.model==='quartic'?'any':'1';$('heat-frame').value=state.frame;const tau=state.checkpoint==='collision'?-(10-Math.sqrt(46))/24:state.frame/240*(state.model==='quartic'?-.25:state.end);$('heat-output').textContent=`τ = ${fmt(tau,8)}`;$('heat-note').textContent=state.checkpoint==='collision'?'Exact algebraic collision · no finite epsilon offset.':state.model==='quartic'?'The quartet is evaluated algebraically at the selected heat parameter.':'241 saved frames. The field is frozen while guidance probes move.';
   $('travel-row').hidden=state.view!=='newton';$('travel').value=state.travel;$('travel-output').textContent=`${Math.round(state.travel*100)}%`;$('quartet-checkpoints').hidden=state.model!=='quartic';$('theta-checkpoints').hidden=state.model!=='theta'||boundsDataset?.thetaCertifiedWitness?.certified!==true;syncTransport();
  }
- function commit(patch,{mode='replace',compute=true,stop=true}={}){if(stop)pause();state=normalizeLabState({...state,...patch});persist(mode);syncControls();if(compute)requestCompute();else if(snapshot)renderNewton(snapshot);}
- function queue(patch){state=normalizeLabState({...state,...patch});pause();persist('replace');syncControls();pending={...state};clearTimeout(updateTimer);updateTimer=setTimeout(requestCompute,75);}
+ function commit(patch,{mode='replace',compute=true,stop=true}={}){if(destroyed)return;if(stop)pause();state=normalizeLabState({...state,...patch});persist(mode,{progress:!stop});syncControls();if(compute)requestCompute();else if(snapshot)renderNewton(snapshot);}
+ function queue(patch){if(destroyed)return;state=normalizeLabState({...state,...patch});pause();persist('replace');syncControls();pending={...state};clearTimeout(updateTimer);updateTimer=setTimeout(requestCompute,75);}
  function showError(message){$('loading').hidden=false;$('loading').dataset.error='true';$('loading').querySelector('strong').textContent='This experiment could not load.';$('loading').querySelector('p').textContent=message+' Try another family or reload the page.';$('experiment-content').hidden=true;$('scope-badge').textContent='Unresolved';$('scope-badge').dataset.state='failed';pause();}
  function requestCompute(){
-  clearTimeout(updateTimer);if(!workerReady){pending={...state};return;}
+  if(destroyed)return;clearTimeout(updateTimer);if(!workerReady){pending={...state};return;}
   pending={...state};$('compute-status').textContent='COMPUTING';$('experiment-content').dataset.pending='true';$('experiment-content').setAttribute('aria-busy','true');if(!inFlight)dispatch();
  }
- function dispatch(){if(!pending||!workerReady)return;const next=pending;pending=null;inFlight=++serial;worker.postMessage({type:'compute',id:inFlight,state:next});}
+ function dispatch(){if(destroyed||!pending||!workerReady)return;const next=pending;pending=null;inFlight=++serial;worker.postMessage({type:'compute',id:inFlight,state:next});}
  function accept(message){
+  if(destroyed)return;
   if(message.type==='ready'){workerReady=true;requestCompute();return;}
   if(message.id!==inFlight)return;inFlight=null;if(pending){dispatch();return;}
   if(message.type==='error'){showError(message.error);return;}snapshot=message.result;$('loading').hidden=true;$('loading').dataset.error='false';$('experiment-content').hidden=false;$('experiment-content').dataset.pending='false';$('experiment-content').removeAttribute('aria-busy');$('compute-status').textContent='READY';render(snapshot);
  }
- function setupWorker(){worker?.terminate();worker=new WorkerClass(new URL('./zero-channels-worker.js',import.meta.url),{type:'module'});worker.onmessage=e=>accept(e.data);worker.onerror=e=>{showError(e.message||'The numerical worker failed.');};worker.postMessage({type:'init',thetaDataset,boundsDataset});}
+ function setupWorker(){if(destroyed)return;worker?.terminate();worker=new WorkerClass(new URL('./zero-channels-worker.js',import.meta.url),{type:'module'});worker.onmessage=e=>accept(e.data);worker.onerror=e=>{if(!destroyed)showError(e.message||'The numerical worker failed.');};worker.postMessage({type:'init',thetaDataset,boundsDataset});}
  function heading(snap,title,description,eyebrow,badge,badgeState){$('experiment-title').textContent=title;$('experiment-description').textContent=description;$('view-eyebrow').textContent=eyebrow;$('scope-badge').textContent=badge;$('scope-badge').dataset.state=badgeState;$('frame-context').textContent=`${snap.state.model==='theta'?'THETA FAMILY':'EXACT QUARTET'} · τ = ${fmt(snap.tau,9)} · root ${snap.state.branch+1}`;$('live-link').href=liveURL(snap,win.location.href);}
  function reading(title,equation,text,rows,eyebrow){$('reading-title').textContent=title;$('equation').textContent=equation;$('reading-text').textContent=text;$('reading-eyebrow').textContent=eyebrow;$('reading-metrics').replaceChildren(...rows.map(([a,b])=>dlItem(a,b)));}
  function finding(label,text,status='sampled'){$('finding-label').textContent=label;$('finding-text').textContent=text;$('finding').dataset.state=status;}
@@ -158,12 +159,12 @@ export function createLab({window:win=window,document:doc=document,fetch:fetcher
   table($('measurement-head'),$('measurement-body'),['Probe','Status','Destination','Phase drift','Decay error'],traces.map((trace,i)=>{const destination=typeof trace.destination==='number'?trace.destination:snap.roots.findIndex(r=>r.id===trace.destination);return [String(i+1),trace.status||'unresolved',destination>=0?`Root ${destination+1}`:'unassigned',fmt(trace.phaseError,4),fmt(trace.decayError,4)];}),-1);
  }
  function render(snap){if(snap.state.view==='coupling')renderCoupling(snap);else if(snap.state.view==='newton')renderNewton(snap);else renderChannels(snap);}
- function tick(time){if(!playing)return;if(lastTime===null)lastTime=time;const delta=Math.min(.15,(time-lastTime)/1000);lastTime=time;playAccumulator+=delta;
+ function tick(time){if(destroyed||!playing)return;if(lastTime===null)lastTime=time;const delta=Math.min(.15,(time-lastTime)/1000);lastTime=time;playAccumulator+=delta;
   if(state.view==='newton'){const travel=Math.min(1,state.travel+delta/7);commit({travel},{compute:false,stop:false});if(travel>=1){pause();return;}}
   else if(playAccumulator>=.18&&!inFlight&&!pending){const end=state.model==='quartic'?-.25:state.end,step=(end>=0?1:-1)*(state.direction==='increase'?1:-1),next=state.frame+step*2;playAccumulator=0;if(next<0||next>240){pause();return;}commit({frame:next,checkpoint:null},{stop:false});}
   playRAF=win.requestAnimationFrame(tick);
  }
- function togglePlay(){if(playing){pause();return;}if(state.view==='newton'&&state.travel>=1)commit({travel:0},{compute:false});else if(state.view!=='newton'){const end=state.model==='quartic'?-.25:state.end,step=(end>=0?1:-1)*(state.direction==='increase'?1:-1);if((step>0&&state.frame>=240)||(step<0&&state.frame<=0))commit({frame:step>0?0:240,checkpoint:null});}playing=true;lastTime=null;syncTransport();playRAF=win.requestAnimationFrame(tick);}
+ function togglePlay(){if(destroyed)return;if(playing){pause();return;}if(state.view==='newton'&&state.travel>=1)commit({travel:0},{compute:false});else if(state.view!=='newton'){const end=state.model==='quartic'?-.25:state.end,step=(end>=0?1:-1)*(state.direction==='increase'?1:-1);if((step>0&&state.frame>=240)||(step<0&&state.frame<=0))commit({frame:step>0?0:240,checkpoint:null});}playing=true;lastTime=null;syncTransport();playRAF=win.requestAnimationFrame(tick);}
  for(const button of doc.querySelectorAll('[data-view]'))button.onclick=()=>commit({view:button.dataset.view},{mode:'push'});
  $('model').onchange=()=>commit({model:$('model').value,frame:0,branch:0,checkpoint:null,radiusScale:1},{mode:'push'});
  $('end').onchange=()=>commit({end:Number($('end').value),frame:0,checkpoint:null},{mode:'push'});
@@ -173,16 +174,27 @@ export function createLab({window:win=window,document:doc=document,fetch:fetcher
  $('seed').onchange=()=>{const value=Number($('seed').value);if(!Number.isInteger(value)||value<1||value>9999){$('seed').setAttribute('aria-invalid','true');return;}$('seed').removeAttribute('aria-invalid');commit({seed:value},{mode:'push'});};
  $('perturbation-time').onchange=()=>commit({perturbationTime:Number($('perturbation-time').value)},{mode:'push'});
  $('heat-frame').oninput=()=>queue({frame:Number($('heat-frame').value),checkpoint:null});$('heat-frame').onchange=requestCompute;
- $('travel').oninput=()=>commit({travel:Number($('travel').value)},{compute:false});$('play').onclick=togglePlay;$('reset').onclick=()=>commit(state.view==='newton'?{travel:0}:{frame:0,checkpoint:null});
+ $('travel').oninput=()=>commit({travel:Number($('travel').value)},{compute:false});$('play').onclick=togglePlay;$('reset').onclick=reset;
  $('theta-certificate-start').onclick=()=>commit({view:'channels',end:-.2,frame:60,branch:0,radiusScale:1,checkpoint:null},{mode:'push'});$('theta-certificate-end').onclick=()=>commit({view:'channels',end:.2,frame:60,branch:0,radiusScale:1,checkpoint:null},{mode:'push'});
  $('certificate-end').onclick=()=>commit({frame:124.8,checkpoint:null,radiusScale:1},{mode:'push'});$('collision').onclick=()=>commit({checkpoint:'collision',frame:240*(10-Math.sqrt(46))/6},{mode:'push'});$('after-collision').onclick=()=>commit({frame:144,checkpoint:null},{mode:'push'});
- $('copy-link').onclick=async()=>{persist();try{await win.navigator.clipboard.writeText(win.location.href);toast('View link copied, including this frame and selected root.');}catch{toast('This view is in the address bar. Copy its URL to share it.');}};
- const popstate=()=>{pause();state=readLabURL(win.location.href);syncControls();requestCompute();};win.addEventListener('popstate',popstate);
- const visibility=()=>{if(doc.hidden)pause();};doc.addEventListener('visibilitychange',visibility);
- const resize=()=>{if(resizeRAF!==null)return;resizeRAF=win.requestAnimationFrame(()=>{resizeRAF=null;if(snapshot)render(snapshot);});};win.addEventListener('resize',resize,{passive:true});
+ $('copy-link').onclick=async()=>{flush();try{if(onCopyLink)await onCopyLink();else await win.navigator.clipboard.writeText(win.location.href);if(!destroyed)toast('View link copied, including this frame and selected root.');}catch{if(!destroyed)toast('This view is in the address bar. Copy its URL to share it.');}};
+ const popstate=()=>{pause();state=readLabURL(win.location.href);syncControls();requestCompute();};if(manageURL)win.addEventListener('popstate',popstate);
+ const visibility=()=>{if(!destroyed&&doc.hidden)pause();};doc.addEventListener('visibilitychange',visibility);
+ const resize=()=>{if(destroyed)return;if(resizeRAF!==null)return;resizeRAF=win.requestAnimationFrame(()=>{resizeRAF=null;if(!destroyed&&snapshot)render(snapshot);});};win.addEventListener('resize',resize,{passive:true});
  syncControls();
  const load=async path=>{const response=await fetcher(new URL(path,import.meta.url));if(!response.ok)throw Error(`${path}: HTTP ${response.status}`);return response.json();};
- const ready=Promise.allSettled([load('./zero-confinement-theta.json'),load('./zero-channel-bounds.json')]).then(results=>{thetaDataset=results[0].status==='fulfilled'?results[0].value:null;boundsDataset=results[1].status==='fulfilled'?results[1].value:null;syncControls();setupWorker();}).catch(error=>showError(error.message));
- return {ready,getState:()=>({...state}),getSnapshot:()=>snapshot,commit,pause,destroy(){pause();clearTimeout(updateTimer);clearTimeout(toastTimer);worker?.terminate();win.removeEventListener('popstate',popstate);win.removeEventListener('resize',resize);doc.removeEventListener('visibilitychange',visibility);}};
+ const ready=Promise.allSettled([load('./zero-confinement-theta.json'),load('./zero-channel-bounds.json')]).then(results=>{if(destroyed)return;thetaDataset=results[0].status==='fulfilled'?results[0].value:null;boundsDataset=results[1].status==='fulfilled'?results[1].value:null;syncControls();setupWorker();}).catch(error=>{if(!destroyed)showError(error.message);});
+ function update(next,{restore=false}={}){
+  if(destroyed)return false;
+  const clean=normalizeLabState(next),changed=URL_KEYS.filter(key=>clean[key]!==state[key]);
+  if(restore)pause();
+  if(!changed.length)return false; // A parent callback echo must not stop playback.
+  pause();clearTimeout(updateTimer);state=clean;syncControls();
+  if(changed.every(key=>key==='travel')&&snapshot?.state.view==='newton'&&state.view==='newton')renderNewton(snapshot);else requestCompute();
+  return true;
+ }
+ function flush(){if(!destroyed)persist('replace',{progress:playing,immediate:true});return {...state};}
+ function reset(){commit(state.view==='newton'?{travel:0}:{frame:0,checkpoint:null});}
+ return {ready,getState:()=>({...state}),getSnapshot:()=>snapshot,isPlaying:()=>playing,commit,update,pause,togglePlay,reset,flush,destroy(){if(destroyed)return;destroyed=true;pause();clearTimeout(updateTimer);clearTimeout(toastTimer);if(resizeRAF!==null)win.cancelAnimationFrame(resizeRAF);pending=null;inFlight=null;worker?.terminate();if(manageURL)win.removeEventListener('popstate',popstate);win.removeEventListener('resize',resize);doc.removeEventListener('visibilitychange',visibility);}};
 }
-if(typeof window!=='undefined'&&typeof document!=='undefined')createLab();
+if(typeof window!=='undefined'&&typeof document!=='undefined'&&document.querySelector?.('[data-zero-channels-standalone]'))createLab();

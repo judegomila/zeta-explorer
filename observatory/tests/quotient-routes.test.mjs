@@ -8,6 +8,7 @@ import {fieldKey} from '../dist/field-cache.js';
 import {encodeViewURL,decodeViewURL} from '../dist/view-url.js';
 import {RESEARCH_DEFAULTS,RESEARCH_LIMITS,RESEARCH_ENUMS,RESEARCH_VIEW_NAMES,normalizeResearchConfig,createResearchPresets} from '../dist/research-state.js';
 import {DYNAMICS_DEFAULTS,DYNAMICS_LIMITS,DYNAMICS_ENUMS,normalizeDynamicsConfig} from '../dist/dynamics.js';
+import * as channelsState from '../dist/channels-state.js';
 
 // Exercise the application's real presets, enums and validation gate. Importing
 // app.js would initialize a live DOM/renderer; extract its pre-DOM bootstrap
@@ -28,7 +29,7 @@ const origin='https://zeta-view.vercel.app/';
 function actualApp(){
   const effects=[],stage={scrollTop:99};
   const context=vm.createContext({
-    ZERO_HEIGHTS,isQuotientGeometry,fieldKey,performance,
+    ...channelsState,ZERO_HEIGHTS,isQuotientGeometry,fieldKey,performance,
     RESEARCH_DEFAULTS,RESEARCH_LIMITS,RESEARCH_ENUMS,RESEARCH_VIEW_NAMES,normalizeResearchConfig,createResearchPresets,
     DYNAMICS_DEFAULTS,DYNAMICS_LIMITS,DYNAMICS_ENUMS,normalizeDynamicsConfig,
     document:{querySelector:selector=>{assert.equal(selector,'.main-stage');return stage;}},

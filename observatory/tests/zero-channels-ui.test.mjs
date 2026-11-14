@@ -51,15 +51,15 @@ class FakeWorker{
  reply(message,result){this.onmessage({data:{type:'result',id:message.id,result}});}
  terminate(){this.terminated=true;}
 }
-async function mount(url=origin){
+async function mount(url=origin,options={}){
  const root=parseHTML(html),ids=new Map();const walk=e=>{if(e.id)ids.set(e.id,e);e.children.forEach(walk);};walk(root);const listeners={},frames=new Map();let raf=0;
  const doc={hidden:false,createElement:t=>new Element(t),createElementNS:(_,t)=>new Element(t),getElementById:id=>ids.get(id),querySelectorAll:s=>root.querySelectorAll(s),addEventListener:(n,f)=>listeners[n]=f,removeEventListener:n=>delete listeners[n]};
  const win={location:{href:url},navigator:{clipboard:{writeText:async()=>{}}},requestAnimationFrame:f=>{frames.set(++raf,f);return raf;},cancelAnimationFrame:id=>frames.delete(id),addEventListener:(n,f)=>listeners[n]=f,removeEventListener:n=>delete listeners[n]};
  const history=[url];let historyIndex=0;win.history={replaceState:(_,__,next)=>{win.location.href=next;history[historyIndex]=next;},pushState:(_,__,next)=>{win.location.href=next;history.splice(++historyIndex);history.push(next);},back(){if(historyIndex>0){win.location.href=history[--historyIndex];listeners.popstate?.();}}};
  globalThis.document=doc;globalThis.window=win;
- const lab=createLab({window:win,document:doc,Worker:FakeWorker,fetch:async url=>({ok:true,json:async()=>String(url).includes('zero-confinement-theta')?theta:bounds})});await lab.ready;FakeWorker.current.ready();
+ const lab=createLab({window:win,document:doc,Worker:FakeWorker,fetch:async url=>({ok:true,json:async()=>String(url).includes('zero-confinement-theta')?theta:bounds}),...options});await lab.ready;FakeWorker.current.ready();
  const worker=FakeWorker.current,resolve=()=>{const job=worker.sent.filter(j=>j.type==='compute').at(-1);const result=computeZeroChannels(job.state,theta,bounds,{includeGuidance:job.state.view==='newton'});worker.reply(job,result);return result;};
- return {lab,worker,resolve,$:id=>ids.get(id),win,frames,root};
+ return {lab,worker,resolve,$:id=>ids.get(id),win,frames,root,listeners};
 }
 
 test('actual UI renders each view, keeps finite SVG coordinates, and never certifies a collision',async()=>{
@@ -96,3 +96,48 @@ test('theta witness labels only its first disk and exact time window as certifie
  m.lab.destroy();
 });
 
+
+
+test('embedded lab reports selected state immediately while the parent exclusively owns history',async()=>{
+ const url='https://zeta-view.vercel.app/?view=channels&state=%7B%22channelsFrame%22:60%7D',changes=[];
+ const m=await mount(url,{manageURL:false,initialState:{model:'quartic',frame:124.8},onChange:(state,meta)=>changes.push({state,meta})});
+ m.resolve();assert.equal(m.lab.getState().model,'quartic');assert.equal(m.lab.getState().frame,124.8);assert.equal(m.win.location.href,url);assert.equal(m.listeners.popstate,undefined);
+ m.$('heat-frame').value='100';m.$('heat-frame').oninput();
+ assert.equal(changes.at(-1).state.frame,100);assert.equal(m.lab.getState().frame,100);assert.equal(m.win.location.href,url);
+ m.lab.commit({view:'coupling'},{mode:'push'});assert.equal(changes.at(-1).state.view,'coupling');assert.equal(changes.at(-1).meta.mode,'push');
+ const count=changes.length;m.lab.update({model:'theta',frame:60});assert.equal(changes.length,count);assert.equal(m.win.location.href,url);
+ m.lab.destroy();
+});
+
+test('parent echoes preserve probe playback while an explicit external restore pauses',async()=>{
+ let m;const changes=[];
+ m=await mount(origin,{manageURL:false,initialState:{view:'newton',model:'quartic',frame:144,seedCount:4,travel:.2},onChange:(state,meta)=>{changes.push(meta);m?.lab.update(state);}});
+ m.resolve();m.lab.togglePlay();assert.equal(m.lab.isPlaying(),true);
+ const runFrame=time=>{const callbacks=[...m.frames.values()];m.frames.clear();callbacks.forEach(f=>f(time));};
+ runFrame(100);runFrame(200);
+ assert.ok(m.lab.getState().travel>.2);assert.equal(m.lab.isPlaying(),true);assert.ok(m.frames.size>0);assert.equal(changes.at(-1).progress,true);
+ assert.equal(m.lab.update(m.lab.getState()),false);assert.equal(m.lab.isPlaying(),true);
+ m.lab.update(m.lab.getState(),{restore:true});assert.equal(m.lab.isPlaying(),false);assert.equal(m.frames.size,0);
+ m.lab.destroy();
+});
+
+test('destroyed embedded lab rejects queued state, stale worker replies, and late ready messages',async()=>{
+ const changes=[];const m=await mount(origin,{manageURL:false,onChange:state=>changes.push(state)}),job=m.worker.sent.find(j=>j.type==='compute');
+ m.lab.destroy();const sent=m.worker.sent.length;
+ m.worker.reply(job,computeZeroChannels(job.state,theta,bounds));m.worker.ready();m.lab.commit({frame:17});m.lab.update({frame:31});
+ assert.equal(m.lab.getSnapshot(),null);assert.equal(m.worker.sent.length,sent);assert.equal(m.worker.terminated,true);assert.equal(changes.length,0);assert.equal(m.frames.size,0);
+});
+
+test('embedded Copy delegates to the main app after flushing the current selection',async()=>{
+ const events=[];const url='https://zeta-view.vercel.app/?view=channels';
+ const m=await mount(url,{manageURL:false,initialState:{frame:60},onChange:(state,meta)=>events.push(['state',state.frame,meta.immediate]),onCopyLink:async()=>{events.push(['copy']);return url;}});
+ m.resolve();m.lab.commit({frame:61});await m.$('copy-link').onclick();
+ assert.deepEqual(events.slice(-2),[['state',61,true],['copy']]);assert.equal(m.win.location.href,url);assert.match(m.$('toast').textContent,/View link copied/);m.lab.destroy();
+});
+
+test('importing the shared lab module in the main app does not auto-initialize it',async()=>{
+ await mount('https://zeta-view.vercel.app/?view=channels',{manageURL:false}).then(m=>m.lab.destroy());
+ const previous=FakeWorker.current;
+ await import('../dist/experiments/zero-channels.js?embedded-import-test');
+ assert.equal(FakeWorker.current,previous);
+});

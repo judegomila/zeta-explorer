@@ -25,3 +25,13 @@ body[data-geometry="klein"] .plane-settings,body[data-geometry="annulus"] .plane
 body[data-geometry="klein"] .curved-settings,body[data-geometry="annulus"] .curved-settings{display:block}
 body[data-geometry="klein"] input[data-setting="height"],body[data-geometry="klein"] select[data-setting="heightMode"],body[data-geometry="klein"] #unitHeight{opacity:.45;cursor:default}
 #functionButtons button:disabled{cursor:default}#quotientControlNote{color:#b8cbb5}
+
+/* Zero channels share the main navigation and use the full plotting width. */
+body[data-channels="true"] .workspace{grid-template-columns:minmax(0,1fr)}
+body[data-channels="true"] #controls,body[data-channels="true"] #inspector{display:none!important}
+body[data-channels="true"] .main-stage>.viewport-wrap,body[data-channels="true"] .main-stage>.analysis-strip,body[data-channels="true"] .main-stage>.stage-status,body[data-channels="true"] #projectiveWorkbench,body[data-channels="true"] #quotientWorkbench,body[data-channels="true"] #fiberWorkbench{display:none!important}
+body[data-channels="true"] .view-actions>:not(#focusBtn),body[data-channels="true"] .mobile-tools{display:none!important}
+#channelsWorkbench{display:block;min-width:0;width:100%;flex:1;scroll-margin-top:55px}
+#channelsWorkbench[hidden]{display:none!important}
+body[data-channels="true"] .main-stage{overflow-y:auto}
+@media(max-width:760px){body[data-channels="true"] .workspace{display:block;height:auto}body[data-channels="true"] .main-stage{overflow:visible;min-height:calc(100dvh - 64px)}#channelsWorkbench{scroll-margin-top:64px}}

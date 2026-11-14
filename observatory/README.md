@@ -23,6 +23,19 @@ The projective atlas, linked bridge/Bloch point state, derivative disk, spinor l
 - Automatically updated shareable view URLs, including selected controls, camera and inspected point; browser-local viewpoints and observations, portable session JSON, numerical grid CSV and PNG snapshots.
 - GPU rendering plus an automatic Canvas2D 3D fallback using the same mathematical mesh.
 
+## Use the zero channels workspace
+
+Choose **Channels** beside the main geometry buttons. The native workspace uses the full plotting width and contains the same moving-channel, coupling, and Newton experiments as the standalone laboratory:
+
+- [Moving channels](https://zeta-view.vercel.app/?view=channels)
+- [Certified quartet channels at tau = -0.13](https://zeta-view.vercel.app/?view=channelsQuartet)
+- [Coupling network](https://zeta-view.vercel.app/?view=coupling)
+- [Newton guidance](https://zeta-view.vercel.app/?view=newton)
+
+The main app owns the address bar and saved sessions. Changes to the model, view, heat frame, selected branch, direction, disk radius, or probe settings update the current URL. **Copy view link**, **Save view**, and **Export session** retain the selected state; restored views open paused. The controls and plots are scoped inside the app rather than opening a separate page. The standalone laboratory remains available at `experiments/zero-channels.html`.
+
+The existing certificates retain their exact scope: four disjoint quartet channels on `-0.13 <= tau <= 0`, and one fixed first-root theta disk of radius `0.35` on `-0.05 <= tau <= 0.05`. Other theta trajectories are numerical. Resized disks, collisions, and off-line departures retain their explicit status. See [the mathematical derivations and verifier](docs/ZERO-CHANNELS-MATH.md) and [the Zeta Explorer research log](https://github.com/judegomila/mathexplorer/pull/57).
+
 ## Use the projective views
 
 Direct entry links on any host are [`?view=projective`](https://zeta-view.vercel.app/?view=projective), [`?view=projectiveSphere`](https://zeta-view.vercel.app/?view=projectiveSphere), [`?view=spinor`](https://zeta-view.vercel.app/?view=spinor), and [`?view=twistor`](https://zeta-view.vercel.app/?view=twistor). They select the corresponding preset regardless of an older browser-local view.

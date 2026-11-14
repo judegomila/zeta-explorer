@@ -3,9 +3,9 @@
   "files": [
     {
       "path": "rigorous/klein-annulus-coupling-2026-11-14/README.md",
-      "bytes": 11133,
-      "sha256": "c4b28bfcc9ea3d92317783f1cf190165555fd51044a033779c310f731c5391d6",
-      "git_blob_sha": "a004f124b44d8b3bebcbbc7db0a4c74f70d54b70"
+      "bytes": 12136,
+      "sha256": "09d1832542b2f39259fc28326bcc93c8e1479491e960c4ff2ed8ff52762420ca",
+      "git_blob_sha": "62c4d8b2c0b634fd398b7141b2d9d71cafe59401"
     },
     {
       "path": "rigorous/klein-annulus-coupling-2026-11-14/annulus_theta_coupling.md",
@@ -56,10 +56,112 @@
       "git_blob_sha": "f6bfaf3fdd918b3b5595973fa3be4796504dc6a5"
     },
     {
+      "path": "rigorous/klein-annulus-coupling-2026-11-14/odd-sector-extension/README.md",
+      "bytes": 10139,
+      "sha256": "d20ea967aec49072ecef2a0c7c0a2398374e8f5c1e93a305133ae875e53c55ed",
+      "git_blob_sha": "28ff7d6c785bf944b03c1648cdb425f90b01d0fb"
+    },
+    {
+      "path": "rigorous/klein-annulus-coupling-2026-11-14/odd-sector-extension/explicit-radius/EXPLICIT-RADIUS.md",
+      "bytes": 9638,
+      "sha256": "e55aef71d90c6258a9863f179e98342b352f79dc65e0100e070c79c5f2fd186e",
+      "git_blob_sha": "90495e071e4182b92d45bba33bd87249060af9e8"
+    },
+    {
+      "path": "rigorous/klein-annulus-coupling-2026-11-14/odd-sector-extension/explicit-radius/HIGHER-JET-REVIEW.md",
+      "bytes": 4045,
+      "sha256": "74ffc509351c5810d92d32264a05a1e011d3fb9bd5bf2ce1dbd0e9bb582cd07d",
+      "git_blob_sha": "6d8d471a2125018876cf42e2e7a3116c532a0d4c"
+    },
+    {
+      "path": "rigorous/klein-annulus-coupling-2026-11-14/odd-sector-extension/explicit-radius/theta-odd-explicit-radius-1-200.json",
+      "bytes": 2720,
+      "sha256": "158a5d00e3404056c17e8779d89e93352390da1dd5fd9924efbebc87000ae43c",
+      "git_blob_sha": "c947242223f07b3838ae12c18c0a16cefd73a8f7"
+    },
+    {
+      "path": "rigorous/klein-annulus-coupling-2026-11-14/odd-sector-extension/explicit-radius/theta-odd-explicit-radius.py",
+      "bytes": 7378,
+      "sha256": "f970422a46273d65f628704fdaeba2925585524fd67e8f40fd8226d093d44d2a",
+      "git_blob_sha": "60f69c4bd73fb4a9559bf55219c3f069dae359e4"
+    },
+    {
+      "path": "rigorous/klein-annulus-coupling-2026-11-14/odd-sector-extension/higher-jets/EXPLICIT-RADIUS-REVIEW.md",
+      "bytes": 4934,
+      "sha256": "7f68597b06cfb6bd97e322cf2309d15a618482a41bdb255f84c4a0747032a3c3",
+      "git_blob_sha": "2edfcd04e1971df22b09f00ad19343f2e0dea275"
+    },
+    {
+      "path": "rigorous/klein-annulus-coupling-2026-11-14/odd-sector-extension/higher-jets/FOUR-NODE-RADIUS-REVIEW.md",
+      "bytes": 6046,
+      "sha256": "73d7caf88aa341211681660e2e8f2388394ea2a3a64c559b3b73242758a16060",
+      "git_blob_sha": "dae256348af9eb4429d5b4c3951a4cbcf26ed8ee"
+    },
+    {
+      "path": "rigorous/klein-annulus-coupling-2026-11-14/odd-sector-extension/higher-jets/HIGHER-JET-CERTIFICATE.md",
+      "bytes": 10117,
+      "sha256": "f08748e867bbdaab9275802d5458a0c8a39069e137cd938c50f47283bc907919",
+      "git_blob_sha": "cea7d2d3afd1f60a75f04d5d0c292fd63794bf92"
+    },
+    {
+      "path": "rigorous/klein-annulus-coupling-2026-11-14/odd-sector-extension/higher-jets/coefficient-reduction-audit.json",
+      "bytes": 1305,
+      "sha256": "51e2f3dd59790e917910ed046b73b5cfc61f62aced3ea7eafdf9a4f0bf0044a8",
+      "git_blob_sha": "61e8ac4aecb4e338f3dbfb162444f4225629e53f"
+    },
+    {
+      "path": "rigorous/klein-annulus-coupling-2026-11-14/odd-sector-extension/higher-jets/coefficient-reduction-audit.py",
+      "bytes": 2176,
+      "sha256": "9b86dd8d3d932f6537564cb97f7f60118bf214263922395a4f8c64e56f589f42",
+      "git_blob_sha": "8c670bfdecbac98139f68359aa905a96f85c1f68"
+    },
+    {
+      "path": "rigorous/klein-annulus-coupling-2026-11-14/odd-sector-extension/higher-jets/theta-odd-higher-jet-interval.json",
+      "bytes": 11313,
+      "sha256": "b215ffb4d484bfc91647cdbe7d3b0a2e3ab2a0cabba41ab77c9cf9aaf5b46704",
+      "git_blob_sha": "d2bce6297be515331d588ad2c1642afe5aa03efa"
+    },
+    {
+      "path": "rigorous/klein-annulus-coupling-2026-11-14/odd-sector-extension/higher-jets/theta-odd-higher-jet-interval.py",
+      "bytes": 6725,
+      "sha256": "a1d650b418d8bacf503aa2ea4916aeeb0220614420542b7c2501f328580e5653",
+      "git_blob_sha": "4a2a06575421245eef81e1af62972f20fc9347f7"
+    },
+    {
+      "path": "rigorous/klein-annulus-coupling-2026-11-14/odd-sector-extension/local-global/FOUR-NODE-RADIUS.md",
+      "bytes": 8127,
+      "sha256": "09b5640249c5973befd62633ca47b5e8a53a9f39dba55a662d89e6e6060df1c5",
+      "git_blob_sha": "82c079423eab4b713364d3c35050edb3e181bfd7"
+    },
+    {
+      "path": "rigorous/klein-annulus-coupling-2026-11-14/odd-sector-extension/local-global/local-to-global.md",
+      "bytes": 14386,
+      "sha256": "bc872e6f0048ed3d5c8bcb7f9faf78a983f1789ebfe46ce347aabe8bce70a158",
+      "git_blob_sha": "077a83d23a703cb454138d2d0e3e57a3ecae89b0"
+    },
+    {
+      "path": "rigorous/klein-annulus-coupling-2026-11-14/odd-sector-extension/local-global/theta-odd-four-node-radius-1-100000.json",
+      "bytes": 14428,
+      "sha256": "2c34e9702c1eff3607e0b3e74a2989f80567bab8cdf295ea64d6c0908132e103",
+      "git_blob_sha": "946dbfb443ccf564578e40caa3dcf0eaa68c3736"
+    },
+    {
+      "path": "rigorous/klein-annulus-coupling-2026-11-14/odd-sector-extension/local-global/theta-odd-four-node-radius.py",
+      "bytes": 9922,
+      "sha256": "7dbe2125bb860a3cdbfc6e97f7f57674cd3e631b8ae6912d397a91a4f7217455",
+      "git_blob_sha": "5765c2cc5ba82a1a3576a362deb64494e89366e4"
+    },
+    {
+      "path": "rigorous/klein-annulus-coupling-2026-11-14/odd-sector-extension/requirements.txt",
+      "bytes": 28,
+      "sha256": "96464f405b58137236b9c10c698be08a780ff7d062dd918ac40c0460f1b0831f",
+      "git_blob_sha": "7336df4d0ecf96e14bf5a85c08c47d331d7aa725"
+    },
+    {
       "path": "rigorous/klein-annulus-coupling-2026-11-14/odd-sector-followup/README.md",
-      "bytes": 8378,
-      "sha256": "f4ca9345b6fef4b5d805f2837ddd8c58af7bbf573e82a77d08bff6ddaa3b5214",
-      "git_blob_sha": "434e078ab876336b2369508c894c5573f9d065da"
+      "bytes": 8809,
+      "sha256": "b4ae11fa5ccc9f1552fcca19b2f7aad705bd9c325469910e08fb5ab14d1be2eb",
+      "git_blob_sha": "d798621d853a8bfad4b6fc226759246ee54359b2"
     },
     {
       "path": "rigorous/klein-annulus-coupling-2026-11-14/odd-sector-followup/factorization-audit.json",
@@ -153,9 +255,9 @@
     },
     {
       "path": "rigorous/klein-annulus-coupling-2026-11-14/validation.json",
-      "bytes": 4651,
-      "sha256": "146d84f55bce1bff8d05a62823ee6f8d26c2357d7dd0f30adbf42cf41b1af192",
-      "git_blob_sha": "0d006088e95a54ff36424210a6e67fbb968fb204"
+      "bytes": 9030,
+      "sha256": "8f8895562cc4d41d075c0cdaef35c17c3b47106387d71d44d1d53aeb6ce7a57f",
+      "git_blob_sha": "25c4dd2dfe5c49306338062f0f61d67969b73f01"
     }
   ]
 }

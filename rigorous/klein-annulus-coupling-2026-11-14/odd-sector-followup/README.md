@@ -2,6 +2,8 @@
 
 Research continuation, 14 November 2026, using the same actual theta normalization and cutoff operator as the [parent comparison](../README.md). The cutoff is translated to zero and the scale is `alpha=1`; every positive `alpha` rescales the operator without changing positivity.
 
+**Later extension:** the [quantitative continuation](../odd-sector-extension/README.md) supplies the previously missing explicit radius: `1/200` for two odd nodes. It additionally certifies the third and fourth Taylor blocks, an explicit `1/100000` radius for every configuration of up to four odd nodes, and the exact all-order continuation criterion. The existential statements and scope below describe this earlier checkpoint.
+
 ## Main result
 
 An outward-rounded interval calculation proves that the first two odd Taylor features of the actual theta cutoff kernel have a strictly positive coefficient matrix. Analyticity then proves that **every two-node odd Gram matrix at distinct positive nodes sufficiently close to the cutoff is positive definite**, including arbitrary complex or sign-changing coefficients.

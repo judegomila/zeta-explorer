@@ -115,6 +115,8 @@ export class CanvasZetaScene {
   }
   height(re,im){return this.heightPolar(logMagnitude(re,im),Math.atan2(im,re));}
   heightPolar(logAbs,arg=0){
+    // There is no global normal on the Klein quotient; keep its seam exact.
+    if(this.state.geometry==='klein')return 0;
     const mode=this.state.heightMode||'log';if(mode==='flat'||!this.state.height||!validLog(logAbs)||logAbs===-Infinity)return 0;
     const relative=logAbs-this.logReference;let h;
     if(mode==='real'||mode==='imag')h=Math.asinh(Math.exp(Math.min(relative,700))*(mode==='real'?Math.cos(arg):Math.sin(arg)))/Math.asinh(1);
@@ -165,7 +167,7 @@ export class CanvasZetaScene {
     if(this.state.contours){this.contours('real',0,'#d3edff',.6);this.contours('imag',0,'#ffc28d',.6);}
     if(this.state.critical){if(this.state.geometry!=='plane')this.criticalOvals();else this.contours(i=>d.coords[2*i],.5,'#e7f8b7',1.1);}
     if(this.state.seams&&this.state.geometry!=='plane'){
-      for(const v of [0,1])this.addPath(Array.from({length:d.nx+1},(_,i)=>{const k=Math.round(v*d.ny)*(d.nx+1)+i;return [d.basePositions[3*k],d.basePositions[3*k+1],d.basePositions[3*k+2]];}),'#718199',.5,true);
+      for(const v of this.state.geometry==='klein'?[0]:[0,1])this.addPath(Array.from({length:d.nx+1},(_,i)=>{const k=Math.round(v*d.ny)*(d.nx+1)+i;return [d.basePositions[3*k],d.basePositions[3*k+1],d.basePositions[3*k+2]];}),'#718199',.5,true);
       for(const u of [0,1])this.addPath(Array.from({length:d.ny+1},(_,j)=>{const k=j*(d.nx+1)+Math.round(u*d.nx);return [d.basePositions[3*k],d.basePositions[3*k+1],d.basePositions[3*k+2]];}),'#718199',.5,true);
       if(this.state.projective)for(const guide of d.projectiveGuides||[]){
         const points=guide.points.map((p,i)=>p.map((x,k)=>x+guide.normals[i][k]*.045));
@@ -314,8 +316,12 @@ export class CanvasZetaScene {
   drawProbe(sample){
     this.probes=[];this.dirty=true;
     if(!sample||!this.data||!this.inDomain(sample.sigma,sample.t))return;
-    const h=this.heightPolar(sample.polar.logAbs,sample.polar.arg)+.08;
-    for(const p of sample.lifts||[]){if(!this.visibleTriangle(p.u,p.v))continue;this.probes.push({point:p.position.map((x,k)=>x+p.normal[k]*h),color:'#ffffff',ring:true,size:5});}
+    for(const p of sample.lifts||[]){
+      if(!this.visibleTriangle(p.u,p.v))continue;
+      const localArg=p.conjugated?-sample.polar.arg:sample.polar.arg;
+      const h=this.heightPolar(sample.polar.logAbs,localArg)+.08;
+      this.probes.push({point:p.position.map((x,k)=>x+p.normal[k]*h),color:'#ffffff',ring:true,size:5});
+    }
   }
 
   grid(ctx){

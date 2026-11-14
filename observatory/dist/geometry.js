@@ -1,4 +1,5 @@
 import { torusPoint, torusInverse, torusLandmarks, torusCriticalPoint } from './elliptic.js';
+import { isQuotientGeometry, quotientPoint, quotientInverse, quotientLandmarks, quotientCriticalPoint } from './quotient.js';
 const TAU=Math.PI*2;
 export const wrap=x=>((x%1)+1)%1;
 const cdiv=(ar,ai,br,bi)=>{const d=br*br+bi*bi;return {re:(ar*br+ai*bi)/d,im:(ai*br-ar*bi)/d};};
@@ -27,6 +28,24 @@ function projectiveSpherePoint(u,v,state,base){
 
 export function embedded(u,v,geometry){
   if(geometry==='plane') return {position:[(u-.5)*12,0,(v-.5)*16],normal:[0,1,0]};
+  if(geometry==='annulus'){
+    const a=TAU*wrap(u),normal=[Math.cos(a),0,Math.sin(a)];
+    return {position:[4*normal[0],5.2*(v-.5),4*normal[2]],normal};
+  }
+  if(geometry==='klein'){
+    // A regular figure-eight immersion of the quotient. Its crossings are
+    // display intersections, never identifications of the underlying UVs.
+    // F(u,1)=F(1/2-u,0); local normals reverse across this transition.
+    const theta=TAU*v,phi=TAU*(wrap(u)-.25),c=Math.cos(theta/2),s=Math.sin(theta/2);
+    const a=Math.cos(theta),b=Math.sin(theta),f=c*Math.sin(phi)-s*Math.sin(2*phi);
+    const g=s*Math.sin(phi)+c*Math.sin(2*phi),fp=c*Math.cos(phi)-2*s*Math.cos(2*phi);
+    const gp=s*Math.cos(phi)+2*c*Math.cos(2*phi),radius=3.65+1.38*f;
+    const du=[1.38*fp*a,1.38*gp,1.38*fp*b];
+    const dv=[-.69*g*a-radius*b,.69*f,-.69*g*b+radius*a];
+    const n=[du[1]*dv[2]-du[2]*dv[1],du[2]*dv[0]-du[0]*dv[2],du[0]*dv[1]-du[1]*dv[0]];
+    const norm=Math.hypot(...n);
+    return {position:[radius*a,1.38*g,radius*b],normal:n.map(x=>x/norm)};
+  }
   if(geometry==='sphere'){
     const a=TAU*wrap(u),b=Math.PI*v,n=[Math.sin(b)*Math.cos(a),Math.cos(b),Math.sin(b)*Math.sin(a)];
     return {position:n.map(x=>4*x),normal:n};
@@ -38,6 +57,7 @@ export function surfacePoint(u,v,state){
   const p=embedded(u,v,state.geometry);
   if(state.geometry==='plane')return {...p,sigma:state.sigmaMin+u*(state.sigmaMax-state.sigmaMin),t:state.tMin+v*(state.tMax-state.tMin),valid:true};
   if(state.geometry==='torus')return {...p,...torusPoint(u,v,{r:state.torusR,scale:state.chartScale})};
+  if(isQuotientGeometry(state.geometry))return {...p,...quotientPoint(u,v,{r:state.torusR,scale:state.chartScale})};
   if(state.projective)return projectiveSpherePoint(u,v,state,p);
   const a=TAU*wrap(u),L=state.chartScale/3;
   if(!(v>0&&v<=1))return {...p,sigma:NaN,t:NaN,valid:false,puncture:v===0};
@@ -52,6 +72,7 @@ export function inversePoint(sigma,t,state){
     return u>=0&&u<=1&&v>=0&&v<=1?[{u,v}]:[];
   }
   if(state.geometry==='torus')return torusInverse(sigma,t,{r:state.torusR,scale:state.chartScale});
+  if(isQuotientGeometry(state.geometry))return quotientInverse(sigma,t,{geometry:state.geometry,r:state.torusR,scale:state.chartScale});
   if(state.projective){
     if(!Number.isFinite(sigma)||!Number.isFinite(t))return [];
     const x=.5+(sigma-.5)/state.chartScale,y=t/state.chartScale;
@@ -68,6 +89,7 @@ export function inversePoint(sigma,t,state){
 }
 export function liftPoint(sigma,t,state){return inversePoint(sigma,t,state).map(p=>({...embedded(p.u,p.v,state.geometry),...p,sigma,t}));}
 export function landmarks(state){
+  if(isQuotientGeometry(state.geometry))return quotientLandmarks(state.geometry,{r:state.torusR,scale:state.chartScale});
   if(state.geometry==='sphere'&&state.projective){
     const r=state.torusR,L=state.chartScale;
     return {criticalOvals:[.5],scale:L,
@@ -97,7 +119,7 @@ export function projectiveGuides(state){
   const result=[],r=state.torusR;
   for(const [u,color]of[[.25,'#83e8e5'],[.75,'#d2a9ff']]){
     const samples=Array.from({length:129},(_,i)=>{
-      const v=state.geometry==='torus'?i/128:
+      const v=state.geometry==='torus'||isQuotientGeometry(state.geometry)?i/128:
         2*Math.atan(1/(Math.exp(-Math.log(r)+2*Math.log(r)*i/128)))/Math.PI;
       return embedded(u,v,state.geometry);
     });
@@ -109,6 +131,10 @@ export function projectiveGuides(state){
 /** Complete geometric critical curves, independent of evaluator coverage. */
 export function criticalCurvePoint(q,curve,state){
   if(!Number.isFinite(q)||q<0||q>1)throw new RangeError('Critical-curve q must lie in [0,1].');
+  if(isQuotientGeometry(state.geometry)){
+    const p=quotientCriticalPoint(q,Number(curve),{geometry:state.geometry,r:state.torusR,scale:state.chartScale});
+    return {...embedded(p.u,p.v,state.geometry),...p};
+  }
   if(state.geometry==='torus'){
     const p=torusCriticalPoint(q,Number(curve),{r:state.torusR,scale:state.chartScale});
     return {...embedded(p.u,p.v,'torus'),...p};
@@ -133,7 +159,7 @@ export function criticalCurvePoint(q,curve,state){
 export function criticalCurves(state,{segments=720}={}){
   const n=Math.max(8,Math.ceil(segments));
   if(state.geometry==='plane'&&(.5<state.sigmaMin||.5>state.sigmaMax))return [];
-  return Array.from({length:state.geometry==='torus'?2:1},(_,index)=>({
+  return Array.from({length:state.geometry==='torus'||state.geometry==='annulus'?2:1},(_,index)=>({
     id:`critical-${state.geometry}-${index}`,index,closed:state.geometry!=='plane',
     points:Array.from({length:n+1},(_,i)=>criticalCurvePoint(i/n,index,state)),
   }));
@@ -167,8 +193,8 @@ export function sampleAxes(state){
   const factor=({draft:.65,standard:1,high:1.5,ultra:2.2})[state.resolution]??1;
   const intervals=n=>Math.max(8,4*Math.round(n*factor/4));
   if(state.geometry==='plane')return {u:new Float64Array(regularAxis(intervals(96))),v:new Float64Array(regularAxis(intervals(176)))};
-  const sphere=state.geometry==='sphere';
-  const u=regularAxis(intervals(sphere?224:192)),v=regularAxis(intervals(sphere?112:128));
+  const sphere=state.geometry==='sphere',quotient=isQuotientGeometry(state.geometry);
+  const u=regularAxis(intervals(sphere?224:192)),v=regularAxis(intervals(sphere?112:quotient?64:128));
   u.push(0,.25,.5,.75,1);v.push(0,.25,.5,.75,1);
   if(sphere&&state.projective){
     const knots=Math.max(8,Math.round(12*factor));
@@ -177,6 +203,10 @@ export function sampleAxes(state){
   }else if(sphere){
     addPeriodicClusters(u,[.25,.75],Math.max(6,Math.round(8*factor)));
     v.push(...logKnots(Math.max(12,Math.round(24*factor))));
+  }else if(quotient){
+    const knots=Math.max(8,Math.round(12*factor));
+    addPeriodicClusters(u,[0,.5],knots);
+    for(const d of logKnots(knots))v.push(d,1-d);
   }else{
     const knots=Math.max(8,Math.round(12*factor));
     addPeriodicClusters(u,[0,.5],knots);

@@ -5,6 +5,7 @@
  */
 import { evaluatePolar } from './math.js';
 import { sampleAxes, criticalCurves, criticalCurvePoint, embedded, landmarks, surfacePoint } from './geometry.js';
+import { isQuotientGeometry } from './quotient.js';
 
 const validLog=x=>Number.isFinite(x)||x===-Infinity;
 function inside(sigma,t,state,domain){
@@ -60,7 +61,7 @@ export function computeLandmarkValues(state,domain){
   if(state.geometry==='sphere'&&!state.projective){
     return [{...embedded(0,0,'sphere'),u:0,v:0,kind:'puncture',label:'∞ · chart puncture',sigma:NaN,t:NaN,puncture:true,polar:null,computed:false}];
   }
-  if(state.geometry!=='torus'&&!(state.geometry==='sphere'&&state.projective))return [];
+  if(state.geometry!=='torus'&&!isQuotientGeometry(state.geometry)&&!(state.geometry==='sphere'&&state.projective))return [];
   const L=landmarks(state),result=[];
   for(const [kind,list]of[['puncture',L.punctures],['anti',L.antiBridge],['branch',L.branches],['chart',L.regular||[]]]){
     for(const p of list){

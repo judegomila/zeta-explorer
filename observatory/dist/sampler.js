@@ -2,6 +2,7 @@ import { evaluatePolar, heatXi, hardyZ, ZERO_HEIGHTS } from './math.js';
 import { surfacePoint, inversePoint, liftPoint, wrap, sampleAxes, projectiveGuides } from './geometry.js';
 import { domainFor, withinDomain } from './domain.js';
 import { computeCriticalSamples, computeLandmarkValues } from './critical-samples.js';
+import { isQuotientGeometry } from './quotient.js';
 
 const mag=z=>Math.hypot(z.re,z.im);
 const finite=z=>Number.isFinite(z.re)&&Number.isFinite(z.im);
@@ -9,7 +10,12 @@ function inDomain(s,t,state){return withinDomain(s,t,state._domain||domainFor(st
 function val(s,t,state,withDerivative=false){return evaluatePolar(s,t,state.function,state.tau,withDerivative);}
 function styledPoint(u,v,state,withDerivative=false){const p=surfacePoint(u,v,state);if(!p.valid||!inDomain(p.sigma,p.t,state))return null;const f=val(p.sigma,p.t,state,withDerivative);return f.valid?{...p,u,v,value:[f.re,f.im],logAbs:f.logAbs,arg:f.arg,q:f.q}:null;}
 function append(lines,arr,meta){if(arr.length<2)return;lines.push({...meta,points:arr.map(p=>p.position),positions:arr.map(p=>p.position),normals:arr.map(p=>p.normal),values:arr.map(p=>p.value),logAbs:arr.map(p=>p.logAbs),arg:arr.map(p=>p.arg)});}
-function periodicDistance(a,b,state){let x=Math.abs(a.u-b.u),y=Math.abs(a.v-b.v);if(state.geometry!=='plane')x=Math.min(x,1-x);if(state.geometry==='torus')y=Math.min(y,1-y);return x*x+y*y;}
+function periodicDistance(a,b,state){
+ let x=Math.abs(a.u-b.u),y=Math.abs(a.v-b.v);if(state.geometry!=='plane')x=Math.min(x,1-x);if(state.geometry==='torus')y=Math.min(y,1-y);
+ let distance=x*x+y*y;
+ if(state.geometry==='klein'){const dx=Math.abs(a.u-wrap(.5-b.u)),dy=1-Math.abs(a.v-b.v);distance=Math.min(distance,Math.min(dx,1-dx)**2+dy*dy);}
+ return distance;
+}
 function spectralLine(samples,state,meta){
  const lines=[],tracks=[];
  for(const [s,t] of samples){
@@ -42,7 +48,12 @@ function flow(state){
  if(!state.vortices)return [];
  const paths=[],nU=11,nV=11,steps=80;
  const vel=(u,v)=>{
-  if(state.geometry==='torus'){u=wrap(u);v=wrap(v);}else if(state.geometry==='sphere'){u=wrap(u);if(v<.007||v>.993)return null;}else if(u<0||u>1||v<0||v>1)return null;
+  if(state.geometry==='torus'){u=wrap(u);v=wrap(v);}else if(state.geometry==='sphere'){u=wrap(u);if(v<.007||v>.993)return null;}
+  // Phase flow is shown in this local lift. Its direction conjugates across
+  // the Klein transition, so terminate here rather than inventing a globally
+  // oriented phase vector field on the nonorientable quotient.
+  else if(isQuotientGeometry(state.geometry)){u=wrap(u);if(v<0||v>1)return null;}
+  else if(u<0||u>1||v<0||v>1)return null;
   const p=styledPoint(u,v,state,true);if(!p||!p.q||!finite(p.q)||p.logAbs===-Infinity)return null;
   const qr=p.q.re,qi=p.q.im;
   let a,b,c,e;
@@ -99,6 +110,7 @@ export function computeSlice(state){
 /** Pure synchronous field sampler, shared by browser workers and offline packs. */
 export function sampleField(inputState,{onProgress=()=>{}}={}){
  const state={...inputState},start=performance.now();
+  if(isQuotientGeometry(state.geometry)&&!['xi','heat'].includes(state.function))throw new RangeError('Real quotients require the completed xi or heat field; raw zeta does not obey the conjugated transition.');
   state._domain=domainFor(state);
   const axes=sampleAxes(state),nx=axes.u.length-1,ny=axes.v.length-1,n=(nx+1)*(ny+1);
   const coords=new Float64Array(2*n),uvs=new Float64Array(2*n),values=new Float64Array(2*n),logAbs=new Float64Array(n),arg=new Float64Array(n),sampleWeights=new Float64Array(n),rawRepresentable=new Uint8Array(n),basePositions=new Float32Array(3*n),normals=new Float32Array(3*n),valid=new Uint8Array(n),bridge=new Float32Array(n);

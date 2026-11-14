@@ -19,3 +19,9 @@ body[data-dynamics="true"] .main-stage>.viewport-wrap,body[data-dynamics="true"]
 body[data-dynamics="true"] .sidebar .control-scroll>:not(:first-child):not(#dynamicsControls):not(.export-section){display:none!important}
 body[data-dynamics="true"] #inspector>.inspector-scroll:not(#dynamicsInspector),body[data-dynamics="true"] .view-actions>:not(#focusBtn){display:none!important}
 .stage-toolbar .geometry-buttons{min-width:0;overflow-x:auto;scrollbar-width:none;flex-shrink:1}.geometry-buttons button{flex-shrink:0}
+
+/* Exact quotients use the curved spectral chart and retain the large viewport. */
+body[data-geometry="klein"] .plane-settings,body[data-geometry="annulus"] .plane-settings{display:none}
+body[data-geometry="klein"] .curved-settings,body[data-geometry="annulus"] .curved-settings{display:block}
+body[data-geometry="klein"] input[data-setting="height"],body[data-geometry="klein"] select[data-setting="heightMode"],body[data-geometry="klein"] #unitHeight{opacity:.45;cursor:default}
+#functionButtons button:disabled{cursor:default}#quotientControlNote{color:#b8cbb5}

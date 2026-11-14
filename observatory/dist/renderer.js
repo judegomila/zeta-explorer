@@ -233,6 +233,9 @@ export class ZetaScene {
   height(re, im) { return this.heightPolar(logMagnitude(re, im), Math.atan2(im, re)); }
 
   heightPolar(logAbs, arg = 0) {
+    // A Klein bottle has no global continuous normal. Scalar normal relief
+    // would tear the identified edge; retain the exact immersed base surface.
+    if (this.state.geometry === 'klein') return 0;
     const mode = this.state.heightMode || 'log';
     if (mode === 'flat' || !this.state.height || !validLog(logAbs) || logAbs === -Infinity) return 0;
     const relative = logAbs - this.logReference;
@@ -465,7 +468,7 @@ export class ZetaScene {
         for (const index of [a, b]) for (let axis = 0; axis < 3; axis++) edges.push(this.raised[3 * index + axis] + data.normals[3 * index + axis] * 0.03);
       };
       for (let j = 0; j < data.ny; j++) { add(j * (data.nx + 1), (j + 1) * (data.nx + 1)); add(j * (data.nx + 1) + data.nx, (j + 1) * (data.nx + 1) + data.nx); }
-      for (let i = 0; i < data.nx; i++) { add(i, i + 1); add(data.ny * (data.nx + 1) + i, data.ny * (data.nx + 1) + i + 1); }
+      for (let i = 0; i < data.nx; i++) { add(i, i + 1); if(this.state.geometry!=='klein')add(data.ny * (data.nx + 1) + i, data.ny * (data.nx + 1) + i + 1); }
       this.lineSegments(edges, 0xd1ddeb, 0.32);
       if(this.state.projective)for(const guide of data.projectiveGuides||[]){
         const points=guide.points.map((p,i)=>new THREE.Vector3(...p).addScaledVector(new THREE.Vector3(...guide.normals[i]),.045));
@@ -707,9 +710,12 @@ export class ZetaScene {
     if(!this.renderer)return;
     disposeTree(this.probeGroup);this.needsRender=true;
     if(!sample||!this.insideNumericDomain(sample.sigma,sample.t))return;
-    const h=this.heightPolar(sample.polar.logAbs,sample.polar.arg)+.065;
     for(const p of sample.lifts||[]){
       if(!this.visibleTriangle(p.u,p.v))continue;
+      // Quotient inverses can represent the reflected source point. Imaginary
+      // relief follows the conjugated local field, just like the mesh does.
+      const localArg=p.conjugated?-sample.polar.arg:sample.polar.arg;
+      const h=this.heightPolar(sample.polar.logAbs,localArg)+.065;
       const normal=new THREE.Vector3(...p.normal).normalize();
       const position=new THREE.Vector3(...p.position).addScaledVector(normal,h);
       const ring=new THREE.Mesh(new THREE.TorusGeometry(.18,.018,6,40),new THREE.MeshBasicMaterial({color:0xffffff,depthTest:false,transparent:true,opacity:.93}));

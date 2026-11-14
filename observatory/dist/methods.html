@@ -165,6 +165,29 @@ South chart: y = (x₀,x₁,x₂,x₃)/(1+x₄)
 <p>The map at a spectral puncture still exists geometrically because Eᵣ is smooth there, while the loaded ξ value remains essential and masked. Neither twistor projection nor fiber motion supplies a new global zero-location or positivity theorem. Spinor and twistor panels use held projective data; drawing and buffered playback do not reevaluate the analytic field.</p>
 <p>The links <a href="./?view=projective">?view=projective</a>, <a href="./?view=spinor">?view=spinor</a>, and <a href="./?view=twistor">?view=twistor</a> select the corresponding starting point. The address bar subsequently tracks controls, the inspected point, and the camera automatically. Copy its URL or use <strong>Copy link</strong> to reopen that view, with playback paused.</p>
 
+<h2 id="klein-annulus">05e / Exact Klein quotient &amp; reflection annulus</h2>
+<p>The two added views use quotients of the existing elliptic curve Eᵣ, with r &gt; 1. The <a href="./?view=klein">Klein view</a> identifies a free antiholomorphic involution on the whole curve. The <a href="./?view=annulus">annulus view</a> quotients by the reflection with two fixed critical ovals. Identifying only the two infinity points would instead create a singular node.</p>
+<div class="equation">R(w, η) = (1/w̄, η̄/w̄²),     D(w, η) = (w, −η)
+A = D ∘ R: (w, η) ↦ (1/w̄, −η̄/w̄²)
+R(u,v) = (u, ½−v),     A(u,v) = (½−u, ½+v)     modulo 1
+<span class="note">The common fundamental band is ¼ ≤ v ≤ ¾. In the displayed chart V = 2(v−¼), the Klein seam glues (u,1) to (½−u,0). The annulus retains both boundary circles.</span></div>
+<p>A has no fixed points for r ≠ 1. A hypothetical fixed point would have |w| = 1 and η/w purely imaginary, while the curve equation gives (η/w)² = (r−r⁻¹)² + 4 cos²(arg w) &gt; 0. Thus the quotient is a smooth nonorientable Klein bottle as a compact domain. The ξ-loaded surface remains punctured: p₊ and p₋ become one essential infinity puncture. The two finite q lifts become one distinct anti-bridge point. The critical ovals become one two-sided, nonseparating loop; cutting it gives an annulus, so it is not a no-escape wall.</p>
+<p>The Klein surface is shown by a figure-eight immersion in three dimensions. Its visible self-intersections do not identify extra points; picking and sampling use the intrinsic chart. A global scalar displacement along a normal is unavailable on a nonorientable surface, so Klein relief is fixed to zero. The cylinder used for the annulus is a display of its intrinsic band; displayed lengths and areas are not the conformal metric used for energy.</p>
+<h3>Conjugate fields and boundary data</h3>
+<div class="equation">F(Ap) = F(Rp) = conjugate F(p),     F = ξ or Fτ
+U = Re F: even across the reflection boundary
+V = Im F: odd across the reflection boundary
+V = 0,     ∂ₙU = 0     on each regular annulus boundary
+<span class="note">Raw ζ has a functional-equation multiplier and is not an equivariant field under this simple conjugation law. The quotient modes therefore use completed ξ or the symmetric heat family.</span></div>
+<p>On the Klein quotient, |F| and U are ordinary scalars; V and the local phase change sign under the orientation-reversing transition. The phase current is a twisted one-form. Its trajectories are shown within the selected local chart and stop at the seam. Local winding still records zero multiplicity; conjugate chart changes do not annihilate zeros. The panel compares actual reflected evaluations in logarithmic polar form and reports floating-point residuals, not certified error bounds.</p>
+<h3>What the energy comparison establishes</h3>
+<div class="equation">|∇U|² = |∇V|²     pointwise for a holomorphic field
+E(torus cutoff) = 2 E(Klein cutoff) = 2 E(annulus cutoff)
+<span class="note">The factors use the intrinsic conformal metric and symmetry-matched cutoffs. They do not assert that a finite total energy exists at the essential puncture.</span></div>
+<p>The equality of real and imaginary Dirichlet energies follows directly from the Cauchy–Riemann equations. Their difference is identically zero. The <a href="./?view=bridgeEnergy">bridge even/odd energies</a> use different boundary traces and kernels; they are not these two bulk energies. Folding the domain does not create a new positivity inequality or remove the <a href="./?view=gramSchur">Gram/Schur coupling</a>.</p>
+<p>The annulus does supply a positive reference operator. In uniformizing coordinates its circumference is ℓ = 4K and width b = K′. For κ = 2π|n|/ℓ &gt; 0, the harmonic Dirichlet-to-Neumann block is κ times the matrix with diagonal coth(κb) and off-diagonal −csch(κb). Its symmetric and antisymmetric eigenvalues are κ tanh(κb/2) and κ coth(κb/2); the zero-mode eigenvalues are 0 and 2/b.</p>
+<p>To turn that reference into a useful bound for ξ, one still needs an exact comparison with the theta bridge form and control of all signed coupling and infinity terms. Green's identity makes the punctures essential: removing their boundary flux while imposing the regular homogeneous conditions forces a constant harmonic field. The complete derivation and a symmetric entire counterexample with off-line zeros are recorded in <a href="https://github.com/judegomila/zeta-view/blob/main/docs/KLEIN-ANNULUS.md" target="_blank" rel="noopener">KLEIN-ANNULUS.md</a>.</p>
+
 <h2 id="ladder">06 / Twin ladder, bridge & packets</h2>
 <p>The direct and reflected prime-power tones come from the two spectral arguments s and 1−s. A rung with prime p and exponent m has log-frequency λ = m log p:</p>
 <div class="equation">Direct tone: p⁻ᵐˢ = exp(−σλ) exp(−itλ)

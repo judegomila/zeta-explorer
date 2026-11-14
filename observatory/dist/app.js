@@ -7,6 +7,8 @@ import { FieldService } from './field-service.js';
 import { fieldKey } from './field-cache.js';
 import { createSequencePlan, sequenceKey, prepareSequence, nearestFrame } from './playback.js';
 import { ProjectivePanel } from './projective-panel.js';
+import { QuotientPanel } from './quotient-panel.js';
+import { isQuotientGeometry } from './quotient.js';
 import { FiberPanels } from './fiber-panels.js';
 import { DynamicsPanel } from './dynamics-panel.js';
 import { ResearchPanel } from './research-panel.js';
@@ -28,6 +30,8 @@ const presets={
  bridge:{settings:{...defaults,function:'xi',colorMode:'bridge',sigmaMin:-.25,sigmaMax:1.25,tMin:10,tMax:28,height:.7,ladder:true,contours:false},note:'Signed finite bridge balance from ξ(s+a) and ξ(s−a).'},
  projective:{settings:{...defaults,projective:true,geometry:'torus',function:'xi',torusR:2,ladder:true,height:.35,contours:false},note:'Projective elliptic curve, two critical ovals, infinity and anti-bridge, with a linked shifted-pair sphere.'},
  projectiveSphere:{settings:{...defaults,projective:true,geometry:'sphere',function:'xi',torusR:2,ladder:true,height:.35,contours:false,projectiveChannel:'domain'},note:'The projective domain [s₀−1:s₀], with finite and reciprocal charts linked to both torus sheets.'},
+ klein:{settings:{...defaults,projective:true,geometry:'klein',function:'xi',torusR:2,heightMode:'flat',height:0,ladder:true,contours:false},note:'The exact free antiholomorphic quotient Eᵣ/A. One critical loop, paired infinity lifts, and a conjugating seam.'},
+ annulus:{settings:{...defaults,projective:true,geometry:'annulus',function:'xi',torusR:2,heightMode:'flat',height:0,ladder:true,contours:false},note:'The reflection quotient Eᵣ/R. Its two critical boundaries expose the even and odd boundary conditions.'},
  spinor:{settings:{...defaults,projective:true,geometry:'torus',function:'xi',torusR:2,ladder:true,height:.35,contours:false,fiberMode:'spinor'},note:'The selected homogeneous pair lifted to a spinor: Hopf phase, Bloch direction and 4π rotation.'},
  twistor:{settings:{...defaults,projective:true,geometry:'torus',function:'xi',torusR:2,ladder:true,height:.35,contours:false,fiberMode:'twistor'},note:'A chosen Euclidean twistor structure on ℂℙ³: the elliptic point, its S⁴ image and its ℂℙ¹ fiber.'},
  dynamics:{settings:{...dynamicsBase,dynamicsMode:'phase',dynamicsAlpha:0,dynamicsBeta:1},note:'Trace the phase current of completed ξ. The particles move; the ξ zeros stay fixed.'},
@@ -45,9 +49,15 @@ let fieldService,fieldController=null,requestSerial=0,warmController=null,warmTi
 let dynamicsPanel=null,researchPanel=null,lastResearchURL=0;
 let viewURL=null,sharedCamera=null,pendingResetView=null,cameraURLTimer,focusModuleAfterLoad=false,lastBufferedURL=0;
 const defaultProbe={sigma:.5,t:ZERO_HEIGHTS[0]};
-const enums={...DYNAMICS_ENUMS,...RESEARCH_ENUMS,fiberMode:['off','spinor','twistor'],spinorAxis:['x','y','z'],twistorSheet:[1,-1],twistorProjection:['north','south'],projectiveChannel:['domain','bridge','derivative'],geometry:['plane','sphere','torus'],function:['zeta','xi','heat'],heightMode:['log','abs','real','imag','flat'],colorMode:['phase','modulus','real','imag','bridge','shear'],resolution:['draft','standard','high','ultra'],extent:['core','extended'],playbackResolution:['draft','standard','current'],heatFrames:[9,17,33]};
+const enums={...DYNAMICS_ENUMS,...RESEARCH_ENUMS,fiberMode:['off','spinor','twistor'],spinorAxis:['x','y','z'],twistorSheet:[1,-1],twistorProjection:['north','south'],projectiveChannel:['domain','bridge','derivative'],geometry:['plane','sphere','torus','klein','annulus'],function:['zeta','xi','heat'],heightMode:['log','abs','real','imag','flat'],colorMode:['phase','modulus','real','imag','bridge','shear'],resolution:['draft','standard','high','ultra'],extent:['core','extended'],playbackResolution:['draft','standard','current'],heatFrames:[9,17,33]};
 const limits={...DYNAMICS_LIMITS,...RESEARCH_LIMITS,spinorPhase:[0,TAU],spinorRotation:[0,2*TAU],twistorFiberTheta:[0,Math.PI],twistorFiberPhi:[0,TAU],derivativeScale:[.01,20],height:[0,2.4],phaseOffset:[0,TAU],exposure:[.3,2],opacity:[.1,1],flowSpeed:[.1,3],packetWidth:[.1,1],tau:[-.3,.5],sigmaMin:[-128,128.99],sigmaMax:[-127.99,129],tMin:[-2000,1999.99],tMax:[-1999.99,2000],bridgeA:[.005,1.5],chartScale:[1,72],torusR:[1.15,3],heightReference:[0,1e300],heightLogReference:[-100000,100000],heatStart:[-.3,.49],heatEnd:[-.29,.5],heatFPS:[1,12]};
-function validate(input){const s={...defaults};for(const key in defaults){const v=input?.[key];if(v===undefined)continue;if(enums[key]){if(enums[key].includes(v))s[key]=v;}else if(typeof defaults[key]==='boolean'){if(typeof v==='boolean')s[key]=v;}else if(typeof defaults[key]==='string'&&typeof v==='string'){s[key]=v.slice(0,128);}else if(typeof v==='number'&&Number.isFinite(v)){s[key]=limits[key]?Math.max(limits[key][0],Math.min(limits[key][1],v)):v;}}if(s.sigmaMax-s.sigmaMin<.05)s.sigmaMax=Math.min(129,s.sigmaMin+.05);if(s.tMax-s.tMin<.05)s.tMax=Math.min(2000,s.tMin+.05);if(input?.heightLocked===undefined&&s.heightReference>0){s.heightLocked=true;s.heightLogReference=Math.log(s.heightReference);}if(s.heatStart>=s.heatEnd){s.heatStart=defaults.heatStart;s.heatEnd=defaults.heatEnd;}const dynamics=normalizeDynamicsConfig(s);for(const key of Object.keys(DYNAMICS_DEFAULTS))s[key]=dynamics[key];const research=normalizeResearchConfig(s);for(const key of Object.keys(RESEARCH_DEFAULTS))s[key]=research[key];if(s.researchMode!=='off')s.dynamicsMode='off';if(s.dynamicsMode!=='off'||s.researchMode!=='off'){s.projective=false;s.fiberMode='off';s.autoRotate=false;s.packets=false;}if(s.fiberMode!=='off')s.projective=true;if(s.projective&&s.geometry==='plane')s.geometry='torus';s.playing=false;return s;}
+function normalizeQuotient(s){
+ if(!isQuotientGeometry(s.geometry)||s.dynamicsMode!=='off'||s.researchMode!=='off')return s;
+ s.projective=true;s.fiberMode='off';if(s.function==='zeta')s.function='xi';
+ if(s.geometry==='klein'){s.heightMode='flat';s.height=0;}
+ return s;
+}
+function validate(input){const s={...defaults};for(const key in defaults){const v=input?.[key];if(v===undefined)continue;if(enums[key]){if(enums[key].includes(v))s[key]=v;}else if(typeof defaults[key]==='boolean'){if(typeof v==='boolean')s[key]=v;}else if(typeof defaults[key]==='string'&&typeof v==='string'){s[key]=v.slice(0,128);}else if(typeof v==='number'&&Number.isFinite(v)){s[key]=limits[key]?Math.max(limits[key][0],Math.min(limits[key][1],v)):v;}}if(s.sigmaMax-s.sigmaMin<.05)s.sigmaMax=Math.min(129,s.sigmaMin+.05);if(s.tMax-s.tMin<.05)s.tMax=Math.min(2000,s.tMin+.05);if(input?.heightLocked===undefined&&s.heightReference>0){s.heightLocked=true;s.heightLogReference=Math.log(s.heightReference);}if(s.heatStart>=s.heatEnd){s.heatStart=defaults.heatStart;s.heatEnd=defaults.heatEnd;}const dynamics=normalizeDynamicsConfig(s);for(const key of Object.keys(DYNAMICS_DEFAULTS))s[key]=dynamics[key];const research=normalizeResearchConfig(s);for(const key of Object.keys(RESEARCH_DEFAULTS))s[key]=research[key];if(s.researchMode!=='off')s.dynamicsMode='off';if(s.dynamicsMode!=='off'||s.researchMode!=='off'){s.projective=false;s.fiberMode='off';s.autoRotate=false;s.packets=false;}if(s.fiberMode!=='off')s.projective=true;if(s.projective&&s.geometry==='plane')s.geometry='torus';s.playing=false;return normalizeQuotient(s);}
 const viewConfig={defaults,presets,validate,defaultProbe};
 const incomingView=decodeViewURL(location.href,viewConfig);
 try{
@@ -69,6 +79,7 @@ function shareViewName(){
  if(state.researchMode!=='off')return RESEARCH_VIEW_NAMES[state.researchMode]||'bridgeShear';
  if(state.dynamicsMode!=='off')return dynamicsViewNames[state.dynamicsMode]||'dynamics';
  if(state.fiberMode!=='off')return state.fiberMode;
+ if(isQuotientGeometry(state.geometry))return state.geometry;
  if(state.projective)return state.geometry==='sphere'?'projectiveSphere':'projective';
  const exact=Object.entries(presets).find(([,p])=>Object.keys(defaults).filter(k=>!['playing','autoRotate','packetPaused','heightReference','heightLocked','heightLogReference'].includes(k)).every(k=>p.settings[k]===state[k]));
  return exact?exact[0]:state.geometry==='sphere'?'sphere':state.geometry==='torus'?'torus':state.function==='heat'?'heat':state.colorMode==='bridge'?'bridge':'critical';
@@ -88,6 +99,7 @@ async function restoreURLView(session,decoded){
 
 function syncUI(){
  const dynamicsActive=state.dynamicsMode!=='off',researchActive=state.researchMode!=='off';document.body.dataset.dynamics=String(dynamicsActive);document.body.dataset.research=String(researchActive);
+ const quotientActive=isQuotientGeometry(state.geometry)&&!dynamicsActive&&!researchActive,kleinActive=quotientActive&&state.geometry==='klein';
  $('researchWorkbench').hidden=!researchActive;$('researchControls').hidden=!researchActive;$('researchInspector').hidden=!researchActive;
  $('researchBtn').classList.toggle('active',researchActive);$('researchBtn').setAttribute('aria-pressed',String(researchActive));
  researchPanel?.update(state);
@@ -100,22 +112,26 @@ function syncUI(){
  $('preset').value=presetMatch?presetMatch[0]:'custom';$('presetNote').textContent=presetMatch?presetMatch[1].note:'Your current chart, function and layers. Save this view to keep the experiment.';
  document.body.dataset.geometry=state.geometry;document.body.dataset.projective=String(state.projective);
  $('projectiveSection').hidden=!state.projective;$('projectiveWorkbench').hidden=!state.projective;
- $('fiberSection').hidden=!state.projective;$('fiberWorkbench').hidden=!state.projective||state.fiberMode==='off';
+ $('quotientWorkbench').hidden=!quotientActive;$('quotientPanelBtn').hidden=!quotientActive;$('quotientControlNote').hidden=!quotientActive;
+ $('quotientControlNote').textContent=kleinActive?'Phase reverses across the seam. The 3D immersion crosses itself; those crossings do not join the surface. Relief is fixed to zero.':'The two boundary circles are separate critical ovals. Re F is even across each boundary; Im F is odd.';
+ $('projectiveScopeNote').textContent=quotientActive?'The linked point panels below show the orientable elliptic double. The quotient panel shows which points are identified.':'Infinity p and anti-bridge q are distinct. Branch cuts exchange the two sheets. The panels below follow the inspected point.';
+ $('fiberSection').hidden=!state.projective||quotientActive;$('fiberWorkbench').hidden=!state.projective||state.fiberMode==='off';
  $('spinorControls').hidden=state.fiberMode!=='spinor';$('twistorControls').hidden=state.fiberMode!=='twistor';$('fiberPanelBtn').hidden=state.fiberMode==='off';
  for(const mode of ['spinor','twistor']){const active=state.projective&&state.fiberMode===mode;$(mode+'Btn').classList.toggle('active',active);$(mode+'Btn').setAttribute('aria-pressed',String(active));}
- $('projectiveBtn').classList.toggle('active',state.projective&&state.fiberMode==='off');$('projectiveBtn').setAttribute('aria-pressed',String(state.projective&&state.fiberMode==='off'));
- $('projectiveMount').value=state.geometry==='sphere'?'sphere':'torus';$('derivativeScaleRow').hidden=state.projectiveChannel!=='derivative';
+ $('projectiveBtn').classList.toggle('active',state.projective&&state.fiberMode==='off'&&!quotientActive);$('projectiveBtn').setAttribute('aria-pressed',String(state.projective&&state.fiberMode==='off'&&!quotientActive));
+ $('projectiveMount').value=state.geometry;$('derivativeScaleRow').hidden=state.projectiveChannel!=='derivative';
  $$('[data-setting]').forEach(el=>{const v=state[el.dataset.setting];if(el.type==='checkbox')el.checked=!!v;else el.value=v;});
  $$('[data-output]').forEach(el=>{const k=el.dataset.output;el.textContent=['spinorPhase','spinorRotation','twistorFiberTheta','twistorFiberPhi'].includes(k)?(state[k]/Math.PI).toFixed(2)+'π':k==='phaseOffset'?Math.round(state[k]*180/Math.PI)+'°':k==='heatFPS'?Math.round(state[k])+' fps':k==='chartScale'?state[k]:k==='bridgeA'?fmt(state[k],4):state[k].toFixed(2);});
- $$('button[data-geometry]').forEach(el=>{const active=!researchActive&&!dynamicsActive&&!state.projective&&el.dataset.geometry===state.geometry;el.classList.toggle('active',active);el.setAttribute('aria-pressed',active);});
- $$('button[data-function]').forEach(el=>{const active=el.dataset.function===state.function;el.classList.toggle('active',active);el.setAttribute('aria-pressed',active);});
+ $$('button[data-geometry]').forEach(el=>{const active=!researchActive&&!dynamicsActive&&(!state.projective||quotientActive)&&el.dataset.geometry===state.geometry;el.classList.toggle('active',active);el.setAttribute('aria-pressed',active);});
+ $$('button[data-function]').forEach(el=>{const active=el.dataset.function===state.function;el.classList.toggle('active',active);el.setAttribute('aria-pressed',active);el.disabled=quotientActive&&el.dataset.function==='zeta';el.title=el.disabled?'These quotients require the reflection symmetry of completed ξ or its heat deformation.':'';});
+ $$('[data-setting="heightMode"],[data-setting="height"]').forEach(el=>el.disabled=kleinActive);$('lockHeight').disabled=kleinActive;$('unitHeight').disabled=kleinActive;
  $('lockHeight').checked=state.heightLocked;
  $('rotateBtn').classList.toggle('active',state.autoRotate);$('rotateBtn').style.color=state.autoRotate?'#d1f1a8':'';
  $('tau').value=state.tau;$('tauValue').textContent=(state.tau>=0?'+':'')+state.tau.toFixed(3);$('heatBadge').textContent='τ = '+state.tau.toFixed(3);
  $('playHeat').innerHTML=preparing?'■':state.playing?'Ⅱ':'<svg><use href="#i-play"/></svg>';$('playHeat').setAttribute('aria-label',preparing?'Cancel frame preparation':state.playing?'Pause buffered heat playback':'Play buffered heat sequence');
  $('functionNote').textContent=state.function==='zeta'?'ζ(s) · Euler–Maclaurin continuation':state.function==='xi'?'ξ(s) · completed, entire, symmetric':'Fτ(s) = 8Hτ(−2i(s−½)) · true theta flow';
- $('sceneKicker').textContent=state.fiberMode==='spinor'?'05 / SPINOR LIFT':state.fiberMode==='twistor'?'06 / EUCLIDEAN TWISTOR FIBER':state.projective?'04 / PROJECTIVE ATLAS':state.geometry==='plane'?'01 / COMPLEX LANDSCAPE':state.geometry==='sphere'?'02 / RIEMANN SPHERE':'03 / ELLIPTIC DOUBLE COVER';
- $('sceneTitle').textContent=state.fiberMode==='spinor'?'Lift the point to a spinor.':state.fiberMode==='twistor'?'Explore the twistor fiber.':state.projective?(state.geometry==='torus'?'The projective double cover.':'Infinity in a finite chart.'):state.geometry==='torus'?'One function. Two sheets.':state.geometry==='sphere'?'The compactified s-plane.':state.function==='heat'?'The theta heat family':state.function==='xi'?'The completed xi function':'The Riemann zeta function';
+ $('sceneKicker').textContent=quotientActive?(kleinActive?'07 / KLEIN QUOTIENT':'08 / REFLECTION ANNULUS'):state.fiberMode==='spinor'?'05 / SPINOR LIFT':state.fiberMode==='twistor'?'06 / EUCLIDEAN TWISTOR FIBER':state.projective?'04 / PROJECTIVE ATLAS':state.geometry==='plane'?'01 / COMPLEX LANDSCAPE':state.geometry==='sphere'?'02 / RIEMANN SPHERE':'03 / ELLIPTIC DOUBLE COVER';
+ $('sceneTitle').textContent=quotientActive?(kleinActive?'Two lifts. One twisted surface.':'The critical line becomes a boundary.'):state.fiberMode==='spinor'?'Lift the point to a spinor.':state.fiberMode==='twistor'?'Explore the twistor fiber.':state.projective?(state.geometry==='torus'?'The projective double cover.':'Infinity in a finite chart.'):state.geometry==='torus'?'One function. Two sheets.':state.geometry==='sphere'?'The compactified s-plane.':state.function==='heat'?'The theta heat family':state.function==='xi'?'The completed xi function':'The Riemann zeta function';
  const F=state.function==='zeta'?'ζ':state.function==='xi'?'ξ':'Fτ',Q=state.heightLocked?'reference':'q₉₅';
  $('sceneSubtitle').textContent='s = σ + it · '+(state.heightMode==='flat'?'phase on the base surface':state.heightMode==='log'?'height ∝ log(1 + |'+F+'| / '+Q+')':state.heightMode==='abs'?'height ∝ |'+F+'| / '+Q:state.heightMode==='real'?'height ∝ asinh(Re '+F+' / '+Q+')':'height ∝ asinh(Im '+F+' / '+Q+')');
  $('chartNote').textContent=state.projective?'s₀ = ½ + (s−½)/L; w = (s₀−1)/s₀. L = 1 is the exact chart from the projective construction. Larger L separates high zeros visually.':state.geometry==='torus'?'s = ½ + L(1/(1−w) − ½). L = 1 restores the studied cover. Two critical ovals; each zero has two lifts.':'s = ½ + (L/3)(X + iZ)/(1−Y). Sphere scale = '+fmt(state.chartScale/3,3)+'.';
@@ -130,6 +146,12 @@ function syncUI(){
  else if(state.colorMode==='modulus'){legend.querySelector(':scope > span').textContent='|F| / q₉₅ · COMPRESSED';bar.style.background='linear-gradient(to right,#311946,#4351ab,#4fc1a3,#eed67a)';['0','','1','','large'].forEach((x,i)=>ticks[i].textContent=x);}
  else{legend.querySelector(':scope > span').textContent=state.colorMode==='shear'?'LOG SHEAR · tanh Re(F′/F)':state.colorMode==='bridge'?'SIGNED BRIDGE BALANCE':state.colorMode==='real'?'SIGN OF Re F':'SIGN OF Im F';bar.style.background='linear-gradient(to right,#c61b37,#b9cdbf,#1bb38a)';['negative','','0','','positive'].forEach((x,i)=>ticks[i].textContent=x);}
  $('atlasNote').textContent=state.projective&&state.geometry==='sphere'?'Projective longitude / colatitude. Infinity lies at the middle of the left/right seam (w=1); the north pole w=∞ is a regular finite spectral point.':state.geometry==='plane'?'Same complex values in (σ,t). Darker regions have smaller magnitude.':state.geometry==='torus'?'Exact (u,v) chart; u runs right, v runs down. Opposite edges are identified. Click a tail, then unwrap it in the plane.':'Longitude / colatitude chart; the top edge is north (infinity). Click a tail, then unwrap it in the plane.';
+ if(quotientActive){
+  $('functionNote').textContent+=(kleinActive?' · conjugate phase on the reversed chart':' · reflection symmetry at both boundaries');
+  $('sceneSubtitle').textContent=kleinActive?'Eᵣ / A · local phase · one critical loop · essential infinity puncture':'Eᵣ / R · two critical boundaries · Re F even / Im F odd';
+  $('geometryBadge').textContent=kleinActive?'A(w,η) = (1/w̄, −η̄/w̄²)\np₊ ∼ p₋ · q₊ ∼ q₋ · r = '+state.torusR.toFixed(2):'R(w,η) = (1/w̄, η̄/w̄²)\nIm F = 0 · ∂ₙ Re F = 0 · r = '+state.torusR.toFixed(2);
+  $('atlasNote').textContent=kleinActive?'Fundamental chart: u →, V ↓. Glue (u,1) to (½−u,0) with conjugate phase. Left/right edges are periodic. Self-intersections of the 3D picture stay separate.':'Fundamental annulus: u →, V ↓. Left/right edges are periodic; V = 0 and V = 1 remain separate critical boundaries.';
+ }
  syncCacheUI();
 }
 const sourceLabel={memory:'memory cache',disk:'saved cache',precomputed:'precomputed',computed:'newly computed',buffer:'frame buffer'};
@@ -151,7 +173,7 @@ function cancelField(){clearTimeout(computeTimer);fieldController?.abort();field
 function cancelWarm(){clearTimeout(warmTimer);warmController?.abort();warmController=null;warmMessage='';}
 function restoreDisplayedField(){if(!data||fieldKey(state)===fieldKey(renderedState))return;for(const key of ['geometry','projective','function','tau','resolution','extent','sigmaMin','sigmaMax','tMin','tMax','chartScale','torusR','bridgeA','colorMode','vortices','ladder','packets'])state[key]=renderedState[key];if(!state.projective)state.fiberMode='off';scene.updateStyle(renderSettings());syncUI();storeState();}
 function cancelPreparation(){stopHeat(false);restoreDisplayedField();updateProbe(pinned);}
-function holdProbe(message=state.playing?'Buffered playback · pause to inspect':'Buffered frame · press Inspect for point values'){$('probeMode').textContent=message;$('probeFunction').textContent=state.function==='zeta'?'ζ(s)':state.function==='xi'?'ξ(s)':'Fτ(s)';for(const id of ['probeAbs','probeReal','probeImag','probePhase','probeDerivative','probeShear','probeBalance'])$(id).textContent='—';$('windingResult').querySelector('strong').textContent='—';windingKey=null;projectivePanel.hold(state,probe,message);fiberPanels.hold(state,probe,message);}
+function holdProbe(message=state.playing?'Buffered playback · pause to inspect':'Buffered frame · press Inspect for point values'){$('probeMode').textContent=message;$('probeFunction').textContent=state.function==='zeta'?'ζ(s)':state.function==='xi'?'ξ(s)':'Fτ(s)';for(const id of ['probeAbs','probeReal','probeImag','probePhase','probeDerivative','probeShear','probeBalance'])$(id).textContent='—';$('windingResult').querySelector('strong').textContent='—';windingKey=null;projectivePanel.hold(state,probe,message);fiberPanels.hold(state,probe,message);quotientPanel.hold(state,probe,message);}
 function applyField(result,requested,{inspect=true,source=result.source}={}){
  data=result.data;renderedState={...requested};lastSource=source;scene.setData(data,{...state,resolution:requested.resolution});
  if(pendingCamera){scene.setCameraState?.(pendingCamera);pendingCamera=null;}else if(pendingResetView){scene.resetCamera(pendingResetView);}pendingResetView=null;
@@ -178,11 +200,11 @@ function change(key,value,{historyMode='replace'}={}){
  settleCamera();if(data&&!pendingCamera)sharedCamera=scene.getCameraState?.();
  const oldValue=state[key];if(typeof value==='number'&&limits[key])value=Math.max(limits[key][0],Math.min(limits[key][1],value));
  const oldKey=fieldKey(state),clipSetting=['heatStart','heatEnd','heatFrames','playbackResolution'].includes(key);
- const candidate={...state,[key]:value};
+ const candidate=normalizeQuotient({...state,[key]:value});
  if(['sigmaMin','sigmaMax','tMin','tMax'].includes(key)){const a=key.startsWith('sigma')?'sigmaMin':'tMin',b=key.startsWith('sigma')?'sigmaMax':'tMax';if(candidate[a]>=candidate[b]){syncUI();toast('The minimum must be below the maximum.');return;}}
  if(['heatStart','heatEnd'].includes(key)&&candidate.heatStart>=candidate.heatEnd){syncUI();toast('Heat start must be below heat end.');return;}
  const numerical=oldKey!==fieldKey(candidate);if(numerical||clipSetting){stopHeat(false);cancelWarm();prepareMessage='';}
- state[key]=value;if(key==='function'&&oldValue!==value){state.heightReference=0;state.heightLocked=false;}if(!clipMatches())activeClip=null;
+ state=candidate;if(key==='function'&&oldValue!==state.function){state.heightReference=0;state.heightLocked=false;}if(!clipMatches())activeClip=null;
  syncUI();storeState({mode:historyMode});
  if(numerical)scheduleCompute();else if(!clipSetting&&key!=='heatFPS'){scene.updateStyle(renderSettings());if(['phaseOffset','colorMode','heightReference','heightLocked','heightLogReference'].includes(key))drawAtlas();if(key==='heightReference')drawSlice();}
  if(key==='geometry')closeDrawers();if(numerical)holdProbe('Loading the selected field');
@@ -192,26 +214,28 @@ function change(key,value,{historyMode='replace'}={}){
 }
 $$('[data-setting]').forEach(el=>{const event=el.type==='range'?'input':'change';el.addEventListener(event,()=>{const k=el.dataset.setting,v=el.type==='checkbox'?el.checked:typeof defaults[k]==='number'?Number(el.value):el.value;if(typeof v==='number'&&!Number.isFinite(v))return;if(k==='fiberMode')selectFiber(v);else change(k,v,{historyMode:el.type==='range'?'replace':'push'});});});
 $$('button[data-geometry]').forEach(el=>el.onclick=()=>selectMount(el.dataset.geometry,false));
-$('projectiveBtn').onclick=()=>selectMount(state.geometry==='sphere'?'sphere':'torus',!state.projective||state.fiberMode!=='off');
+$('projectiveBtn').onclick=()=>selectMount(state.geometry==='sphere'?'sphere':'torus',isQuotientGeometry(state.geometry)||!state.projective||state.fiberMode!=='off');
 $('researchBtn').onclick=()=>{applyPreset('bridgeShear');closeDrawers();$('researchWorkbench').scrollIntoView({block:'start'});};
 $('dynamicsBtn').onclick=()=>{dynamicsPanel?.pause();researchPanel?.pause();applyPreset('dynamics');closeDrawers();$('dynamicsWorkbench').scrollIntoView({block:'start'});};
 $('spinorBtn').onclick=()=>selectFiber('spinor');$('twistorBtn').onclick=()=>selectFiber('twistor');
 $('fiberPanelBtn').onclick=focusFiber;
 $('projectiveMount').onchange=()=>selectMount($('projectiveMount').value,true,{fiberMode:state.fiberMode});
 $('projectivePanelBtn').onclick=()=>{$('projectiveWorkbench').scrollIntoView({block:'start',behavior:'smooth'});closeDrawers();};
+$('quotientPanelBtn').onclick=()=>{$('quotientWorkbench').scrollIntoView({block:'start',behavior:'smooth'});closeDrawers();};
 $('projectiveOriginal').onclick=()=>{change('chartScale',1);toast('Original chart: w = (s−1)/s. Infinity and the anti-bridge stay distinct.');};
 $('projectiveAnti').onclick=()=>{stopHeat(false);probeEditing=false;probe={sigma:.5,t:0};pinned=true;updateProbe(true);};
 $('projectiveFirstZero').onclick=()=>{stopHeat(false);probeEditing=false;probe={sigma:.5,t:ZERO_HEIGHTS[0]};pinned=true;updateProbe(true);};
 function selectMount(geometry,projective,{fiberMode='off'}={}){
+ if(isQuotientGeometry(geometry)){projective=true;fiberMode='off';}
  dynamicsPanel?.pause();researchPanel?.pause();
  settleCamera();stopHeat(false);if(geometry!==state.geometry){sharedCamera=null;pendingCamera=null;}else if(data&&!pendingCamera)sharedCamera=scene.getCameraState?.();cancelField();cancelWarm();activeClip=null;prepareMessage='';
  const entering=projective&&!state.projective;state={...state,dynamicsMode:'off',researchMode:'off',geometry,projective,fiberMode:projective?fiberMode:'off'};
- if(entering){state.torusR=2;state.height=Math.min(state.height,.45);state.contours=false;state.ladder=true;state.seams=true;}
- focusModuleAfterLoad=fiberMode!=='off';document.querySelector('.main-stage').scrollTop=0;syncUI();storeState({mode:'push'});compute();closeDrawers();
+ if(entering){if(!isQuotientGeometry(geometry))state.torusR=2;state.height=Math.min(state.height,.45);state.contours=false;state.ladder=true;state.seams=true;}
+ normalizeQuotient(state);focusModuleAfterLoad=state.fiberMode!=='off';document.querySelector('.main-stage').scrollTop=0;syncUI();storeState({mode:'push'});compute();closeDrawers();
 }
 function focusFiber(){if(state.fiberMode==='off')return;$('fiberWorkbench').scrollIntoView({block:'start',behavior:'smooth'});closeDrawers();}
 function selectFiber(mode){
- if(state.researchMode!=='off'||state.dynamicsMode!=='off'){selectMount('torus',true,{fiberMode:mode});return;}
+ if(state.researchMode!=='off'||state.dynamicsMode!=='off'||isQuotientGeometry(state.geometry)){selectMount('torus',true,{fiberMode:mode});return;}
  stopHeat(false);
  if(mode==='off'||state.projective){change('fiberMode',mode,{historyMode:'push'});if(!projectivePanel.snapshot)updateProjective();return;}
  selectMount(state.geometry==='sphere'?'sphere':'torus',true,{fiberMode:mode});focusFiber();
@@ -223,8 +247,8 @@ function updateFiber(){
 }
 function updateProjective(){
  if(!state.projective)return;
- if(busy||state.playing||preparing||probeEditing){const message=state.playing?'Buffered playback · pause to inspect':probeEditing?'Coordinates edited · press Inspect':'Loading the selected field';projectivePanel.hold(state,probe,message);fiberPanels.hold(state,probe,message);return;}
- projectivePanel.update(state,probe);updateFiber();
+ if(busy||state.playing||preparing||probeEditing){const message=state.playing?'Buffered playback · pause to inspect':probeEditing?'Coordinates edited · press Inspect':'Loading the selected field';projectivePanel.hold(state,probe,message);fiberPanels.hold(state,probe,message);quotientPanel.hold(state,probe,message);return;}
+ projectivePanel.update(state,probe);quotientPanel.update(state,probe);updateFiber();
 }
 $$('button[data-function]').forEach(el=>el.onclick=()=>{stopHeat();change('function',el.dataset.function,{historyMode:'push'});});
 $('preset').onchange=()=>applyPreset($('preset').value);
@@ -360,6 +384,10 @@ window.addEventListener('resize',()=>{drawSlice();projectivePanel.redraw();fiber
 window.addEventListener('beforeunload',()=>{dynamicsPanel?.flush();dynamicsPanel?.dispose();researchPanel?.flush();researchPanel?.dispose();viewURL?.flush();viewURL?.dispose();clearTimeout(cameraURLTimer);fieldService.dispose();prepareController?.abort();clearTimeout(heatTimer);scene.dispose();});
 const projectivePanel=new ProjectivePanel();
 const fiberPanels=new FiberPanels($('fiberWorkbench'),{onChange:(key,value)=>change(key,value)});
+const quotientPanel=new QuotientPanel($('quotientWorkbench'),{
+ onProbe:point=>{if(!within(point.sigma,point.t))return;stopHeat(false);probeEditing=false;probe={sigma:point.sigma,t:point.t};pinned=true;updateProbe(true);},
+ onAction:action=>{if(action?.type==='open-research'&&['bridgeEnergy','gramSchur'].includes(action.view)){applyPreset(action.view);$('researchWorkbench').scrollIntoView({block:'start'});}else if(action?.type==='open-view'&&['projective','klein','annulus'].includes(action.view))selectMount(action.view==='projective'?'torus':action.view,true);}
+});
 function changeDynamics(patch,{mode='replace',immediate=false}={}){
  const clean={};for(const key of Object.keys(DYNAMICS_DEFAULTS))if(Object.prototype.hasOwnProperty.call(patch,key))clean[key]=patch[key];
  state=validate({...state,...clean,researchMode:'off'});syncUI();storeState({mode,immediate:immediate||mode==='push'});

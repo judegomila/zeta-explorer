@@ -16,14 +16,17 @@ function number(state,key){const v=state[key]??DEFAULTS[key];if(typeof v!=='numb
 export function fieldKey(state = {}) {
   const geometry=state.geometry??DEFAULTS.geometry,kind=state.function??DEFAULTS.function;
   const extent=state.extent??DEFAULTS.extent,resolution=state.resolution??DEFAULTS.resolution;
-  if(!['plane','sphere','torus'].includes(geometry)||!['zeta','xi','heat'].includes(kind)||!['core','extended'].includes(extent)||!['draft','standard','high','ultra'].includes(resolution))throw new TypeError('Unknown numerical cache mode');
+  const quotient=geometry==='klein'||geometry==='annulus';
+  if(!['plane','sphere','torus','klein','annulus'].includes(geometry)||!['zeta','xi','heat'].includes(kind)||!['core','extended'].includes(extent)||!['draft','standard','high','ultra'].includes(resolution))throw new TypeError('Unknown numerical cache mode');
+  if(quotient&&kind==='zeta')throw new TypeError('Real quotients require the completed xi or heat field.');
   const bridge=state.colorMode==='bridge',flow=!!state.vortices,ladder=!!(state.ladder||state.packets);
-  const chart=geometry==='plane'?[number(state,'sigmaMin'),number(state,'sigmaMax'),number(state,'tMin'),number(state,'tMax')]:[number(state,'chartScale'),geometry==='torus'?number(state,'torusR'):null];
+  const chart=geometry==='plane'?[number(state,'sigmaMin'),number(state,'sigmaMax'),number(state,'tMin'),number(state,'tMax')]:[number(state,'chartScale'),geometry==='torus'||quotient?number(state,'torusR'):null];
   const key=[FIELD_CACHE_VERSION,geometry,kind,kind==='heat'?number(state,'tau'):null,extent,resolution,chart,bridge,flow,ladder,bridge||ladder?number(state,'bridgeA'):null];
   // Keep every shipped legacy key unchanged. The new atlas changes sphere
   // coordinates and curved-surface landmarks, so it owns a separate namespace.
   // Inspector channels and derivative scale do not change a sampled field.
   if(state.projective&&geometry!=='plane')key.push(['projective-atlas-v1',number(state,'torusR')]);
+  if(quotient)key.push(['real-quotient-v1',geometry]);
   // The derivative color owns a distinct payload without invalidating the
   // unchanged, precomputed phase/bridge fields. bridge[] holds tanh Re(F′/F).
   if(state.colorMode==='shear')key.push(['log-shear-v1']);

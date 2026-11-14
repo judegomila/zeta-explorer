@@ -72,6 +72,19 @@ Choose **Twistor**, or open `?view=twistor`, to use the selected elliptic homoge
 
 The twistor mode explicitly chooses the quaternionic structure `(X₀ + jX₁, X₂ + jX₃)`. The curve's embedding in ℂℙ³ alone does not canonically choose it. A generic fiber motion leaves the elliptic curve: the source and moved quadric residuals are displayed separately, and the moved point receives no inherited s or ξ value. A local common-phase gauge is used for the fiber controls; its chart can change as the source point moves. The derivation, conventions, sources, and mathematical limits are in [SPINORS-TWISTORS.md](docs/SPINORS-TWISTORS.md).
 
+### Klein quotient and reflection annulus
+
+Open [Klein](https://zeta-view.vercel.app/?view=klein) or [Annulus](https://zeta-view.vercel.app/?view=annulus) in the toolbar, the starting-point menu, or the projective domain selector. Both use the exact half-torus fundamental region of the existing Jacobi chart; they are genuine quotients of the elliptic double, with the original torus retained for comparison.
+
+- **Klein:** the free antiholomorphic involution `A(w,η) = (1/conj(w), −conj(η)/conj(w)²)` pairs the two infinity lifts and the two anti-bridge lifts. The boundary seam reverses the periodic coordinate and conjugates the field. The single critical loop does not separate the surface. The 3D figure-eight immersion has visual self-intersections; those are not additional identifications. Scalar normal relief is disabled because the surface is nonorientable.
+- **Annulus:** the reflection `R(w,η) = (1/conj(w), conj(η)/conj(w)²)` keeps the two critical ovals as separate boundary circles. Away from the infinity punctures, `Im F = 0` and the outward normal derivative of `Re F` is zero. This exposes boundary data without asserting an energy inequality.
+
+These modes use completed **ξ** or its symmetric **heat family**. Raw ζ does not obey the required simple conjugation law, so selecting a quotient changes ζ to ξ and disables the ζ option there. Local phase and imaginary sign are chart-dependent in the Klein view. The linked projective point panels continue to show the orientable double.
+
+The quotient panel includes an intrinsic seam diagram, probe/partner diagnostics, paired landmark explanations, and direct links to the existing even/odd energy and Gram/Schur experiments. It states the exact limitation: the two-dimensional Dirichlet energy densities of the real and imaginary parts of a holomorphic field are equal. They are not the bridge experiment's even-minus-odd boundary energy. Infinity remains an essential puncture, so finite cutoff energies cannot silently be promoted to a finite global energy or a no-escape theorem.
+
+The derivation, annulus Dirichlet-to-Neumann reference operator, remaining coercivity target, and a symmetry-preserving off-line-zero counterexample are in [KLEIN-ANNULUS.md](docs/KLEIN-ANNULUS.md). Settings, inspected points and cameras share through the existing URL/session controls; quotient fields have distinct numerical cache keys.
+
 ### Share exactly the current view
 
 The address bar updates automatically as views, controls, the inspected point, or the camera change. Copy the current URL, or use **Copy link**, to reopen the same configuration elsewhere. The short `view` name is accompanied by exact state, probe, and camera overrides when needed. Discrete view changes participate in browser Back/Forward navigation; slider and camera updates replace the current history entry.

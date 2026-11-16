@@ -1,0 +1,72 @@
+{
+  "verified": true,
+  "certificate_sha256": "db19665a99c0abb95e6376270013bd271c2f6cdaf98f06d414a208f4fb360bd0",
+  "artifact_filename": "certificates.json.gz",
+  "artifact_sha256": "8562cd54222ca46e0c191dd0e3773cbc6532d955de2ceea39af1d3123398edaa",
+  "certificate_encoding": "gzip",
+  "python_flint_version": "0.9.0",
+  "precision_bits": 160,
+  "flint_version": "3.6.0",
+  "covers": [
+    {
+      "label": "positive_height_0_to_144",
+      "rectangle": [
+        "0",
+        "144",
+        "-1/2",
+        "1/2"
+      ],
+      "certified_total_zeros": 50,
+      "certified_real_simple_zeros": 50,
+      "certified_other_zeros": 0,
+      "boundary_segments": 3994
+    },
+    {
+      "label": "close_pair_7005_to_7005_125",
+      "rectangle": [
+        "7005",
+        "56041/8",
+        "-1/2",
+        "1/2"
+      ],
+      "certified_total_zeros": 2,
+      "certified_real_simple_zeros": 2,
+      "certified_other_zeros": 0,
+      "boundary_segments": 212
+    }
+  ],
+  "negative_controls": [
+    {
+      "label": "off_axis_pair_control",
+      "certified_winding": 2,
+      "unit_cage_claim_rejected": true
+    },
+    {
+      "label": "off_axis_quartet_control",
+      "certified_winding": 4,
+      "unit_cage_claim_rejected": true
+    }
+  ],
+  "perturbation_control": {
+    "rectangle": [
+      "1599/8",
+      "1601/8",
+      "-3/8",
+      "3/8"
+    ],
+    "original_count": 0,
+    "modified_count": 2,
+    "certified_difference": 2,
+    "inserted_pair": [
+      "200+i/4",
+      "200-i/4"
+    ]
+  },
+  "verification_seconds": 4.119,
+  "limitations": [
+    "Finite bands only; no all-height theorem.",
+    "No claim of polynomial certificate size or generation time.",
+    "Trusted numerical base: python-flint / FLINT / Arb and Python exact integer arithmetic.",
+    "The verifier does not use precomputed zero indices or locations as evidence."
+  ]
+}

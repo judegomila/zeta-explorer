@@ -1,0 +1,12 @@
+distinct RHP zeros: 6  with multiplicity: 12
+ alpha=0.01  zeros of 1+alpha L: RHP 6  LHP 14  on-axis(|Re|<1e-30) 0
+ alpha=0.3   zeros of 1+alpha L: RHP 6  LHP 14  on-axis(|Re|<1e-30) 0
+ alpha=1     zeros of 1+alpha L: RHP 6  LHP 14  on-axis(|Re|<1e-30) 0
+ alpha=7     zeros of 1+alpha L: RHP 6  LHP 14  on-axis(|Re|<1e-30) 0
+ alpha=300   zeros of 1+alpha L: RHP 6  LHP 14  on-axis(|Re|<1e-30) 0
+ n=16 Gram of K_L: pos 11 neg 5 (|ev|<tol: 0)  most negative/top -0.11454  smallest |neg|/top -2.7209e-7
+ n=24 Gram of K_L: pos 14 neg 6 (|ev|<tol: 4)  most negative/top -0.17769  smallest |neg|/top -1.8181e-6
+ n=30 Gram of K_L: pos 14 neg 6 (|ev|<tol: 10)  most negative/top -0.16788  smallest |neg|/top -1.0068e-6
+ pair model alpha=1.0 sigma=0.5: |Res|/(2Re b) = 0.894427190999916   alpha/sqrt(alpha^2+sigma^2) = 0.894427190999916
+ pair model alpha=0.2 sigma=0.05: |Res|/(2Re b) = 0.970142500145332   alpha/sqrt(alpha^2+sigma^2) = 0.970142500145332
+ pair model alpha=3.0 sigma=0.01: |Res|/(2Re b) = 0.99999444449074   alpha/sqrt(alpha^2+sigma^2) = 0.99999444449074

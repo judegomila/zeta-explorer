@@ -1,0 +1,16 @@
+rows (primary sf prime to 6, N<=796): 228
+1      mean r^2 =  1.778   max r =  7.359   (#stats 540)
+g1     mean r^2 =  0.896   max r =  2.554   (#stats 540)
+cg1    mean r^2 =  1.035   max r =  2.365   (#stats 540)
+g2     mean r^2 =  1.108   max r =  2.382   (#stats 540)
+cg2    mean r^2 =  0.925   max r =  2.607   (#stats 540)
+g3     mean r^2 =  1.065   max r =  3.883   (#stats 540)
+cg3    mean r^2 =  1.114   max r =  4.235   (#stats 540)
+g1g2   mean r^2 =  1.094   max r =  3.199   (#stats 540)
+g1g3   mean r^2 =  0.872   max r =  2.420   (#stats 540)
+cg1g3  mean r^2 =  1.231   max r =  2.549   (#stats 540)
+g1cg3  mean r^2 =  1.033   max r =  2.507   (#stats 540)
+g2g3   mean r^2 =  1.192   max r =  2.588   (#stats 540)
+null (random phases), max over 12 classes x 45 twists: median 2.380, 99% 3.108
+full coherence would be sqrt(n) = 15.10; twists = 45
+signal share of |rho-hat|^2 on these rows (model): 0.745

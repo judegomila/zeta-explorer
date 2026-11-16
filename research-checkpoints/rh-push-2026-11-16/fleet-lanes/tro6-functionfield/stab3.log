@@ -1,0 +1,69 @@
+v1 vs v2 2 3 1.0588169879041567e-12
+v1 vs v2 1 4 8.950187640948659e-12
+v1 vs v2 3 3 1.3270229749115006e-12
+n=3 d=0 k=0 done 0.0s
+n=3 d=1 k=0 done 0.0s
+n=3 d=2 k=0 done 0.0s
+n=3 d=3 k=0 done 0.0s
+n=3 d=4 k=0 done 0.0s
+n=3 d=0 k=1 done 0.0s
+n=3 d=1 k=1 done 0.0s
+n=3 d=2 k=1 done 0.0s
+n=3 d=3 k=1 done 0.2s
+n=3 d=4 k=1 done 15.6s
+n=3 d=0 k=2 done 0.0s
+n=3 d=1 k=2 done 0.0s
+n=3 d=2 k=2 done 0.0s
+n=3 d=3 k=2 done 0.3s
+n=3 d=4 k=2 done 18.4s
+n=3 d=0 k=3 done 0.0s
+n=3 d=1 k=3 done 0.0s
+n=3 d=2 k=3 done 0.0s
+n=3 d=3 k=3 done 0.5s
+n=3 d=4 k=3 done 16.2s
+n=3 d=0 k=4 done 0.0s
+n=3 d=1 k=4 done 0.0s
+n=3 d=2 k=4 done 0.1s
+n=3 d=3 k=4 done 1.2s
+n=3 d=4 k=4 done 19.0s
+n=3 d=0 k=5 done 0.3s
+n=3 d=1 k=5 done 0.5s
+n=3 d=2 k=5 done 1.2s
+n=3 d=3 k=5 done 7.0s
+n=3 d=4 k=5 done 61.2s
+n=3 d=0 k=6 done 3.6s
+n=3 d=1 k=6 done 4.6s
+n=3 d=2 k=6 done 11.5s
+n=3 d=3 k=6 done 52.7s
+n=3 d=0 k=7 done 33.2s
+n=3 d=1 k=7 done 43.6s
+n=3 d=2 k=7 done 78.8s
+--- stabilisation test c_k = q^(n+1) c_(k-n), n=3 ---
+d=0 k=3: max|c_k - q^4 c_(k-3)| / max = 1.429e-01
+d=0 k=4: max|c_k - q^4 c_(k-3)| / max = 1.429e-01
+d=0 k=5: max|c_k - q^4 c_(k-3)| / max = 1.094e+00
+d=0 k=6: max|c_k - q^4 c_(k-3)| / max = 3.785e-16
+d=0 k=7: max|c_k - q^4 c_(k-3)| / max = 4.952e-16
+d=1 k=3: max|c_k - q^4 c_(k-3)| / max = 1.429e-01
+d=1 k=4: max|c_k - q^4 c_(k-3)| / max = 8.844e-01
+d=1 k=5: max|c_k - q^4 c_(k-3)| / max = 1.429e-01
+d=1 k=6: max|c_k - q^4 c_(k-3)| / max = 7.154e-16
+d=1 k=7: max|c_k - q^4 c_(k-3)| / max = 9.779e-01
+d=2 k=3: max|c_k - q^4 c_(k-3)| / max = 1.143e+00
+d=2 k=4: max|c_k - q^4 c_(k-3)| / max = 1.429e-01
+d=2 k=5: max|c_k - q^4 c_(k-3)| / max = 1.429e-01
+d=2 k=6: max|c_k - q^4 c_(k-3)| / max = 1.000e+00
+d=2 k=7: max|c_k - q^4 c_(k-3)| / max = 1.101e-13
+d=3 k=3: max|c_k - q^4 c_(k-3)| / max = 1.505e+00
+d=3 k=4: max|c_k - q^4 c_(k-3)| / max = 2.450e-01
+d=3 k=5: max|c_k - q^4 c_(k-3)| / max = 1.107e+00
+d=3 k=6: max|c_k - q^4 c_(k-3)| / max = 2.271e-01
+d=4 k=3: max|c_k - q^4 c_(k-3)| / max = 1.505e+00
+d=4 k=4: max|c_k - q^4 c_(k-3)| / max = 1.143e+00
+d=4 k=5: max|c_k - q^4 c_(k-3)| / max = 2.450e-01
+--- normalised rms: sqrt(mean |c_k(m)|^2) * q^(-k(1+1/n)) ---
+0 ['1.0000', '1.3831', '0.0000', '0.8571', '1.1855', '0.0000', '0.8571', '1.1855']
+1 ['1.0000', '0.0000', '0.7230', '0.8571', '0.0000', '0.6197', '0.8571', '0.0000']
+2 ['1.0000', '0.4840', '0.6694', '0.1429', '0.4148', '0.5738', '0.0000', '0.4148']
+3 ['1.0000', '0.4840', '0.0000', '0.3499', '0.4595', '0.0000', '0.3240']
+4 ['1.0000', '0.4840', '0.2530', '0.3499', '0.0691', '0.2402']

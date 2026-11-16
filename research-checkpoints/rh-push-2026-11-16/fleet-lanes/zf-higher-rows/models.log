@@ -1,0 +1,52 @@
+B_XS = 17497733/20000000 = 0.87488665
+
+(C) exact identities
+  r=2   PartI ceiling 1-1/(2r)=3/4     ell needed for B_XS: -2497733/15000000      = -0.166516   L1&L2 low cap 1-4/(5r)=3/5=0.60000  cap < B_XS
+  r=3   PartI ceiling 1-1/(2r)=5/6     ell needed for B_XS: -2493199/30000000      = -0.083107   L1&L2 low cap 1-4/(5r)=11/15=0.73333  cap < B_XS
+  r=4   PartI ceiling 1-1/(2r)=7/8     ell needed for B_XS: 2267/7500000           = +0.000302   L1&L2 low cap 1-4/(5r)=4/5=0.80000  cap < B_XS
+  r=5   PartI ceiling 1-1/(2r)=9/10    ell needed for B_XS: 502267/6000000         = +0.083711   L1&L2 low cap 1-4/(5r)=21/25=0.84000  cap < B_XS
+  r=6   PartI ceiling 1-1/(2r)=11/12   ell needed for B_XS: 2506801/15000000       = +0.167120   L1&L2 low cap 1-4/(5r)=13/15=0.86667  cap < B_XS
+  r=7   PartI ceiling 1-1/(2r)=13/14   ell needed for B_XS: 7515869/30000000       = +0.250529   L1&L2 low cap 1-4/(5r)=31/35=0.88571  cap >= B_XS: excluded
+  r=8   PartI ceiling 1-1/(2r)=15/16   ell needed for B_XS: 1252267/3750000        = +0.333938   L1&L2 low cap 1-4/(5r)=9/10=0.90000  cap >= B_XS: excluded
+  r=9   PartI ceiling 1-1/(2r)=17/18   ell needed for B_XS: 12520403/30000000      = +0.417347   L1&L2 low cap 1-4/(5r)=41/45=0.91111  cap >= B_XS: excluded
+  r=10  PartI ceiling 1-1/(2r)=19/20   ell needed for B_XS: 1502267/3000000        = +0.500756   L1&L2 low cap 1-4/(5r)=23/25=0.92000  cap >= B_XS: excluded
+  r=11  PartI ceiling 1-1/(2r)=21/22   ell needed for B_XS: 17524937/30000000      = +0.584165   L1&L2 low cap 1-4/(5r)=51/55=0.92727  cap >= B_XS: excluded
+  r=12  PartI ceiling 1-1/(2r)=23/24   ell needed for B_XS: 5006801/7500000        = +0.667573   L1&L2 low cap 1-4/(5r)=14/15=0.93333  cap >= B_XS: excluded
+  effective order r_eff = r/(1+3 ell): sextic at ell=1/6 -> 4 ; at ell_XS=2506801/15000000 -> 3.9963760861650655
+
+(A) Framework A (model A-V, order r, dual exponent a, cross exponent c): min over lambda, exact
+  r   a   c=1/2 [theta, lambda]       c=2/3 [theta, lambda]      source of a
+  3   4   7/8       =0.87500 @3/4      1         =1.00000 @1/240   6-fold Kubota series, index h^4
+  4   3   569/640   =0.88906 @71/80    5761/5760 =1.00017 @1/240   4-fold Kubota series, index h^3
+  5   6   11/12     =0.91667 @5/6      3601/3600 =1.00028 @1/240   10-fold Kubota series, index h^6
+  6   2   11/12     =0.91667 @1        71/72     =0.98611 @7/6     Patterson cubic theta, GL(2) [theorem, 7/8 paper Prop 5.1]
+  7   8   15/16     =0.93750 @7/8      2521/2520 =1.00040 @1/240   14-fold Kubota series, index h^8
+  8   5   1207/1280 =0.94297 @73/80    2305/2304 =1.00043 @1/240   8-fold Kubota series, index h^5
+  9   10  19/20     =0.95000 @9/10     2161/2160 =1.00046 @1/240   18-fold Kubota series, index h^10
+  10  2   19/20     =0.95000 @1        14407/14400=1.00049 @1/240   order-5 Gauss sums x quadratic twist: no known FE; a = 2 is the floor
+  12  7   173/180   =0.96111 @14/15    1921/1920 =1.00052 @1/240   12-fold Kubota series, index h^7
+  hypothetical a = 2 at every order (c = 1/2):
+    r=3  theta_A=5/6=0.83333 at lambda=1
+    r=4  theta_A=7/8=0.87500 at lambda=1
+    r=5  theta_A=9/10=0.90000 at lambda=1
+    r=6  theta_A=11/12=0.91667 at lambda=1
+    r=7  theta_A=13/14=0.92857 at lambda=1
+    r=8  theta_A=15/16=0.93750 at lambda=1
+    r=10 theta_A=19/20=0.95000 at lambda=1
+    r=12 theta_A=23/24=0.95833 at lambda=1
+
+(B) Framework B model (runB): order r, dual exponent a
+  r=3  a=2  (hypothetical a=2): sigma0=0.74283  (lx,b,ell)=(0.3275,0.1641,0.1810)  BELOW B_XS
+  r=3  a=4  (actual a        ): sigma0=1.04598  (lx,b,ell)=(0.1724,-0.0000,0.1724)  >= B_XS
+  r=4  a=2  (hypothetical a=2): sigma0=0.80986  (lx,b,ell)=(0.3278,0.1706,0.1737)  BELOW B_XS
+  r=4  a=3  (actual a        ): sigma0=1.02779  (lx,b,ell)=(0.2500,-0.0000,0.1667)  >= B_XS
+  r=5  a=2  (hypothetical a=2): sigma0=0.84917  (lx,b,ell)=(0.3438,0.1430,0.1694)  BELOW B_XS
+  r=5  a=6  (actual a        ): sigma0=2.05067  (lx,b,ell)=(0.2196,0.0490,0.1788)  >= B_XS
+  r=6  a=2  (actual a        ): sigma0=0.87496  (lx,b,ell)=(0.3550,0.1231,0.1668)  >= B_XS
+  r=7  a=2  (hypothetical a=2): sigma0=0.89320  (lx,b,ell)=(0.3627,0.1096,0.1651)  >= B_XS
+  r=7  a=8  (actual a        ): sigma0=3.19525  (lx,b,ell)=(0.2594,0.1015,0.1749)  >= B_XS
+  r=8  a=2  (hypothetical a=2): sigma0=0.90678  (lx,b,ell)=(0.3685,0.0993,0.1638)  >= B_XS
+  r=8  a=5  (actual a        ): sigma0=2.08518  (lx,b,ell)=(0.2711,0.1170,0.1736)  >= B_XS
+  r=10 a=2  (actual a        ): sigma0=0.92568  (lx,b,ell)=(0.3761,0.0856,0.1621)  >= B_XS
+  r=12 a=2  (hypothetical a=2): sigma0=0.93820  (lx,b,ell)=(0.3810,0.0769,0.1610)  >= B_XS
+  r=12 a=7  (actual a        ): sigma0=3.18340  (lx,b,ell)=(0.2968,0.1516,0.1705)  >= B_XS

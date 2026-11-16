@@ -1,0 +1,93 @@
+{"q": 5, "parity": 1, "p": 11, "nchars": 2, "ord_p": 1, "fibre_sizes": [2], "max_resid_in_fibre": 4.965068306494546e-16, "resid_generic": 2.237726045655905e-16, "converged": 200, "converged_in_single_fibre": 200, "support_size_hist": {"2": 200}, "trials": 200}
+{"q": 5, "parity": 1, "p": 2, "nchars": 2, "ord_p": 4, "fibre_sizes": [1, 1], "max_resid_in_fibre": 2.8832183502149566e-16, "resid_generic": 1.2240762021618394, "converged": 200, "converged_in_single_fibre": 200, "support_size_hist": {"1": 200}, "trials": 200}
+{"q": 13, "parity": 1, "p": 3, "nchars": 6, "ord_p": 3, "fibre_sizes": [2, 2, 2], "max_resid_in_fibre": 5.604724282600033e-14, "resid_generic": 7.277060275056468, "converged": 157, "converged_in_single_fibre": 157, "support_size_hist": {"2": 157}, "trials": 200}
+{"q": 13, "parity": 1, "p": 5, "nchars": 6, "ord_p": 4, "fibre_sizes": [3, 3], "max_resid_in_fibre": 2.3606015078304433e-14, "resid_generic": 9.674779405587056, "converged": 200, "converged_in_single_fibre": 200, "support_size_hist": {"3": 200}, "trials": 200}
+{"q": 13, "parity": 0, "p": 3, "nchars": 5, "ord_p": 3, "fibre_sizes": [1, 2, 2], "max_resid_in_fibre": 8.751262127894403e-14, "resid_generic": 8.797418245512484, "converged": 171, "converged_in_single_fibre": 171, "support_size_hist": {"2": 149, "1": 22}, "trials": 200}
+{"q": 17, "parity": 1, "p": 2, "nchars": 8, "ord_p": 8, "fibre_sizes": [2, 2, 2, 2], "max_resid_in_fibre": 1.0415667229623678e-13, "resid_generic": 43.18707737070004, "converged": 113, "converged_in_single_fibre": 113, "support_size_hist": {"2": 113}, "trials": 200}
+{"q": 17, "parity": 1, "p": 13, "nchars": 8, "ord_p": 4, "fibre_sizes": [4, 4], "max_resid_in_fibre": 3.7495964427257346e-14, "resid_generic": 1.2081437750791106, "converged": 100, "converged_in_single_fibre": 100, "support_size_hist": {"4": 100}, "trials": 100}
+{"q": 31, "parity": 1, "p": 2, "nchars": 15, "ord_p": 5, "fibre_sizes": [3, 3, 3, 3, 3], "max_resid_in_fibre": 6.800693770411269e-14, "resid_generic": 4.300390998301862, "converged": 19, "converged_in_single_fibre": 19, "support_size_hist": {"3": 19}, "trials": 60}
+{"q": 31, "parity": 1, "p": 5, "nchars": 15, "ord_p": 3, "fibre_sizes": [5, 5, 5], "max_resid_in_fibre": 9.007460469076791e-14, "resid_generic": 1.6997918250880508, "converged": 48, "converged_in_single_fibre": 48, "support_size_hist": {"5": 48}, "trials": 60}
+{
+ "QMAX": 4000000,
+ "n_prime_conductors": 283144,
+ "mean_fibre_minus_1_after_r_primes": [
+  961526.2813691973,
+  7.53186717712542,
+  0.5014656853050038,
+  0.13405899471646937,
+  0.04780606334585935,
+  0.01996510609442545,
+  0.008638713869974288,
+  0.003598875483852739,
+  0.0014586217613652417,
+  0.0005474246319893764,
+  0.00019777922188003277,
+  6.357189274715339e-05,
+  1.0595315457858899e-05
+ ],
+ "frac_not_collapsed_after_r_primes": [
+  1.0,
+  0.4387166953917441,
+  0.179290396406069,
+  0.08028776876783544,
+  0.037016500437939706,
+  0.017086712061707116,
+  0.007840533438815585,
+  0.003443477523804142,
+  0.001426835814991665,
+  0.0005474246319893764,
+  0.00019777922188003277,
+  6.357189274715339e-05,
+  1.0595315457858899e-05
+ ],
+ "heuristic_frac_l2_only": [
+  0.5,
+  0.25,
+  0.125,
+  0.0625,
+  0.03125,
+  0.015625,
+  0.0078125,
+  0.00390625,
+  0.001953125,
+  0.0009765625,
+  0.00048828125,
+  0.000244140625,
+  0.0001220703125
+ ],
+ "collapse_index_hist": {
+  "1": 158924,
+  "2": 73455,
+  "3": 28032,
+  "4": 12252,
+  "5": 5643,
+  "6": 2618,
+  "7": 1245,
+  "8": 571,
+  "9": 249,
+  "10": 99,
+  "11": 38,
+  "12": 15,
+  "13": 2,
+  "15": 1
+ },
+ "largest_collapse_prime": {
+  "q": 3818929,
+  "P0": 47,
+  "rstar": 15
+ },
+ "max_P0_over_log2q": {
+  "q": 241,
+  "P0": 7,
+  "ratio": 0.23268957898527318
+ },
+ "max_P0_by_decade": {
+  "0": 2,
+  "1": 5,
+  "2": 7,
+  "3": 17,
+  "4": 29,
+  "5": 37,
+  "6": 47
+ }
+}

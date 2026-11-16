@@ -1,0 +1,5 @@
+first on-line DH zero ordinate ~ 5.09415984457109
+on-line  c=(0.5 + 5.09415984457j) r=0.2  E=6.48e-15 A=1.31483 B<~0.319712  margin A r - E - B r^2/2 = 0.256572  -> ONE ZERO
+off-line DH zero (0.808517182456637 + 85.6993484853776j)
+off-line c=(0.808517182457 + 85.6993484854j) r=0.1  E=2.81e-11 A=1.25575 B<~0.135997  margin A r - E - B r^2/2 = 0.124895  -> ONE ZERO
+distance of the off-line disk from Re s = 1/2: 0.208517

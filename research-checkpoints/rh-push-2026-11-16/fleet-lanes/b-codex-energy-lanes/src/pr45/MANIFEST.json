@@ -1,0 +1,95 @@
+{
+  "repository": "judegomila/mathexplorer",
+  "base_commit": "942ba1760c4ef54a519750ab91c37a661c31e0ce",
+  "files_except_this_manifest": [
+    {
+      "path": "rigorous/theta-all-order-2026-11-08/AUDIT.md",
+      "bytes": 6129,
+      "sha256": "eef9ede6f397eaa615826160481d9f6bf7049319e0a3545557278f56282a7ee4"
+    },
+    {
+      "path": "rigorous/theta-all-order-2026-11-08/README.md",
+      "bytes": 7710,
+      "sha256": "490d6e2556ab3fc092e8e10061bb070a28cbeaab46a00499bd1a50eb103a6a7a"
+    },
+    {
+      "path": "rigorous/theta-all-order-2026-11-08/SOURCES.md",
+      "bytes": 3234,
+      "sha256": "887527211652c79f311b9576f682297039665d7097d79b3df89a67e23ccbf476"
+    },
+    {
+      "path": "rigorous/theta-all-order-2026-11-08/requirements.txt",
+      "bytes": 14,
+      "sha256": "a699f46ed76bd216f1081b6b2330e4fb45d7c8c5a5354b208694d6590a5a8645"
+    },
+    {
+      "path": "rigorous/theta-all-order-2026-11-08/theta_all_order_jet_structure_20261108.md",
+      "bytes": 11775,
+      "sha256": "ceefa59ae029feed68ff16d72a925decf1f187d9f0574d4c6fa1b6534d92c1a2",
+      "original_source_filename": "theta_all_order_jet_structure_20261108.md",
+      "original_source_sha256": "aa29a688088cdb5a6167bf72b0f8890ec4cc6d7fa1aed408220a0be5ada1b6a4",
+      "same_as_original": false
+    },
+    {
+      "path": "rigorous/theta-all-order-2026-11-08/theta_gaussian_preimage_obstruction_certificate_20261108.json",
+      "bytes": 1609,
+      "sha256": "0918eb6bdabf94e8e13c73899fecf5f328c0e2419fdced6373aec3a73962da6b",
+      "original_source_filename": "theta_gaussian_preimage_obstruction_certificate_20261108.json",
+      "original_source_sha256": "0918eb6bdabf94e8e13c73899fecf5f328c0e2419fdced6373aec3a73962da6b",
+      "same_as_original": true
+    },
+    {
+      "path": "rigorous/theta-all-order-2026-11-08/theta_gaussian_preimage_obstruction_certificate_20261108.py",
+      "bytes": 5338,
+      "sha256": "4ff2a205da9d3cc6c047ed581d2d5157b7092e0185454ce32bcee88c2bd2a138",
+      "original_source_filename": "theta_gaussian_preimage_obstruction_certificate_20261108.py",
+      "original_source_sha256": "4ff2a205da9d3cc6c047ed581d2d5157b7092e0185454ce32bcee88c2bd2a138",
+      "same_as_original": true
+    },
+    {
+      "path": "rigorous/theta-all-order-2026-11-08/theta_gaussian_preimage_obstruction_replay.txt",
+      "bytes": 1609,
+      "sha256": "0918eb6bdabf94e8e13c73899fecf5f328c0e2419fdced6373aec3a73962da6b"
+    },
+    {
+      "path": "rigorous/theta-all-order-2026-11-08/theta_gaussian_probe_obstruction_20261108.md",
+      "bytes": 14728,
+      "sha256": "37a23acf9a06190b1c7324b72098af7b823f95d51f5035cb725aa0748dcf9007",
+      "original_source_filename": "theta_gaussian_probe_obstruction_20261108.md",
+      "original_source_sha256": "111ba28bf39341165200823d0639377859631dbfa35ad3a25719ceddc6ca6839",
+      "same_as_original": false
+    },
+    {
+      "path": "rigorous/theta-all-order-2026-11-08/theta_jet_commutator_20261108.md",
+      "bytes": 16463,
+      "sha256": "e15ae8c778344d0f5a9a597e1d920ff3abfd7780264b5682760549c40cb01454",
+      "original_source_filename": "theta_jet_commutator_20261108.md",
+      "original_source_sha256": "e15ae8c778344d0f5a9a597e1d920ff3abfd7780264b5682760549c40cb01454",
+      "same_as_original": true
+    },
+    {
+      "path": "rigorous/theta-all-order-2026-11-08/theta_jet_concavity_obstruction_20261108.py",
+      "bytes": 4177,
+      "sha256": "970433a1c4b1cec203c74b6408e2db32e2088fa90401a3db02947b7bbd735913",
+      "original_source_filename": "theta_jet_concavity_obstruction_20261108.py",
+      "original_source_sha256": "970433a1c4b1cec203c74b6408e2db32e2088fa90401a3db02947b7bbd735913",
+      "same_as_original": true
+    },
+    {
+      "path": "rigorous/theta-all-order-2026-11-08/theta_jet_concavity_obstruction_replay.txt",
+      "bytes": 912,
+      "sha256": "0d8f2f95128557b83ad3b8501facaece13c5c36b53dff18412e273ba955b7335"
+    },
+    {
+      "path": "rigorous/theta-all-order-2026-11-08/validation.json",
+      "bytes": 1661,
+      "sha256": "38b439b1cfaa87f099c7e5aad65b82c465db6606f3808070bac7d21f8ebb89ba"
+    },
+    {
+      "path": "thinking/decisions/2026-11-08-theta-all-order.md",
+      "bytes": 2918,
+      "sha256": "0f08022f59c117432d1dc15a113db7dc8a165b62b68304436f07be41f61c70df"
+    }
+  ],
+  "editorial_note": "The staged all-order and Gaussian notes include primary-agent clarifications recorded in AUDIT.md. Other copied source files retain their source content."
+}

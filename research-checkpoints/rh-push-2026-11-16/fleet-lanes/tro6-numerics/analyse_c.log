@@ -1,0 +1,141 @@
+rows 11628, N(m) <= 3199; prime to 6: 5814; S-unit rows: 174; good part 6th power: 174; squares: 486; squarefree good part: 10908
+
+A. complete (rho_nat = rho_str + rho_cor) vs stripped coefficient; M_nat(Q) = sum_sigma sum_m |rho_nat|^2 (noise-bias corrected, model se)
+   Q=   50 rows=   186  sum|rho_nat|^2=   1.391  noise bias=  0.179  M_nat=   1.212  M_str=   1.090  |rho_cor|^2/|rho_str|^2=0.0067  cos(rho_str,rho_nat)=0.99784
+   Q=  100 rows=   366  sum|rho_nat|^2=   2.725  noise bias=  0.351  M_nat=   2.374  M_str=   2.101  |rho_cor|^2/|rho_str|^2=0.0077  cos(rho_str,rho_nat)=0.99775
+   Q=  200 rows=   732  sum|rho_nat|^2=   4.959  noise bias=  0.704  M_nat=   4.255  M_str=   3.762  |rho_cor|^2/|rho_str|^2=0.0079  cos(rho_str,rho_nat)=0.99764
+   Q=  400 rows=  1458  sum|rho_nat|^2=   9.599  noise bias=  1.401  M_nat=   8.198  M_str=   7.217  |rho_cor|^2/|rho_str|^2=0.0088  cos(rho_str,rho_nat)=0.99728
+   Q=  800 rows=  2904  sum|rho_nat|^2=  17.241  noise bias=  2.788  M_nat=  14.453  M_str=  12.686  |rho_cor|^2/|rho_str|^2=0.0092  cos(rho_str,rho_nat)=0.99711
+   Q= 1600 rows=  5814  sum|rho_nat|^2=  31.784  noise bias=  5.583  M_nat=  26.201  M_str=  23.045  |rho_cor|^2/|rho_str|^2=0.0091  cos(rho_str,rho_nat)=0.99705
+   Q= 3200 rows= 11628  sum|rho_nat|^2=  58.831  noise bias= 11.169  M_nat=  47.662  M_str=  41.869  |rho_cor|^2/|rho_str|^2=0.0092  cos(rho_str,rho_nat)=0.99698
+   slope of M_nat over Q >= 100: 0.866 (row bootstrap 95% [0.833, 0.900]); stripped: 0.864; theorem A (MS): <= 5/6 + eps
+   signal fraction of sum|rho_nat|^2 at Q=3199: 0.810 (aligned-row sensitivity r ~ 0.900); by octave: 50:0.846, 100:0.871, 200:0.842, 400:0.850, 800:0.818, 1600:0.808, 3200:0.793
+
+B. normalised correlation r = |sum_m rho_nat_sigma(-e0 m) B_m| / (||rho|| ||B||), 12 classes x 9 toy rows x 2 pairings = 216 pairs
+   T = mean over pairs of (rows x r^2): 1 under independent phases (square-root cancellation), grows like rows x r0^2 under a coherent correlation r0
+  rowset: all
+   Q=   50 rows=   186  rms r=0.0776  1/sqrt(rows)=0.0733  max r=0.1789 (iid null 99% 0.2159, p=0.280; orbit null 99% 0.2231, p=0.277)  T=1.119 (iid null 1.046 +- 0.081, p=0.183; orbit null 1.169 +- 0.057, p=0.797)
+   Q=  100 rows=   366  rms r=0.0623  1/sqrt(rows)=0.0523  max r=0.1367 (iid null 99% 0.1640, p=0.227; orbit null 99% 0.1622, p=0.203)  T=1.419 (iid null 1.104 +- 0.096, p=0.000; orbit null 1.159 +- 0.191, p=0.100)
+   Q=  200 rows=   732  rms r=0.0448  1/sqrt(rows)=0.0370  max r=0.1139 (iid null 99% 0.1173, p=0.030; orbit null 99% 0.1183, p=0.023)  T=1.472 (iid null 1.111 +- 0.097, p=0.000; orbit null 1.170 +- 0.196, p=0.050)
+   Q=  400 rows=  1458  rms r=0.0342  1/sqrt(rows)=0.0262  max r=0.0759 (iid null 99% 0.0886, p=0.120; orbit null 99% 0.0829, p=0.077)  T=1.708 (iid null 1.107 +- 0.094, p=0.000; orbit null 1.165 +- 0.184, p=0.000)
+   Q=  800 rows=  2904  rms r=0.0275  1/sqrt(rows)=0.0186  max r=0.0711 (iid null 99% 0.0644, p=0.003; orbit null 99% 0.0667, p=0.000)  T=2.190 (iid null 1.115 +- 0.092, p=0.000; orbit null 1.213 +- 0.247, p=0.000)
+   Q= 1600 rows=  5814  rms r=0.0186  1/sqrt(rows)=0.0131  max r=0.0583 (iid null 99% 0.0458, p=0.000; orbit null 99% 0.0471, p=0.000)  T=2.002 (iid null 1.124 +- 0.085, p=0.000; orbit null 1.190 +- 0.202, p=0.000)
+   Q= 3200 rows= 11628  rms r=0.0126  1/sqrt(rows)=0.0093  max r=0.0337 (iid null 99% 0.0315, p=0.007; orbit null 99% 0.0319, p=0.000)  T=1.848 (iid null 1.088 +- 0.079, p=0.000; orbit null 1.127 +- 0.165, p=0.000)
+  rowset: generic (good part not a 6th power)
+   Q=   50 rows=   132  rms r=0.0785  1/sqrt(rows)=0.0870  max r=0.2416 (iid null 99% 0.2664, p=0.067; orbit null 99% 0.2799, p=0.083)  T=0.814 (iid null 0.981 +- 0.069, p=0.990; orbit null 0.967 +- 0.084, p=0.980)
+   Q=  100 rows=   300  rms r=0.0583  1/sqrt(rows)=0.0577  max r=0.1340 (iid null 99% 0.1809, p=0.663; orbit null 99% 0.1822, p=0.573)  T=1.019 (iid null 1.001 +- 0.067, p=0.387; orbit null 0.943 +- 0.085, p=0.170)
+   Q=  200 rows=   648  rms r=0.0389  1/sqrt(rows)=0.0393  max r=0.1049 (iid null 99% 0.1248, p=0.160; orbit null 99% 0.1155, p=0.143)  T=0.980 (iid null 0.996 +- 0.065, p=0.590; orbit null 0.950 +- 0.076, p=0.350)
+   Q=  400 rows=  1356  rms r=0.0285  1/sqrt(rows)=0.0272  max r=0.0652 (iid null 99% 0.0862, p=0.453; orbit null 99% 0.0863, p=0.487)  T=1.102 (iid null 1.003 +- 0.067, p=0.073; orbit null 0.982 +- 0.081, p=0.080)
+   Q=  800 rows=  2778  rms r=0.0203  1/sqrt(rows)=0.0190  max r=0.0428 (iid null 99% 0.0570, p=0.743; orbit null 99% 0.0601, p=0.720)  T=1.147 (iid null 0.998 +- 0.063, p=0.007; orbit null 0.996 +- 0.073, p=0.020)
+   Q= 1600 rows=  5670  rms r=0.0135  1/sqrt(rows)=0.0133  max r=0.0305 (iid null 99% 0.0410, p=0.643; orbit null 99% 0.0420, p=0.643)  T=1.041 (iid null 0.991 +- 0.069, p=0.230; orbit null 0.995 +- 0.070, p=0.257)
+   Q= 3200 rows= 11454  rms r=0.0095  1/sqrt(rows)=0.0093  max r=0.0225 (iid null 99% 0.0295, p=0.500; orbit null 99% 0.0284, p=0.473)  T=1.031 (iid null 0.980 +- 0.062, p=0.207; orbit null 0.984 +- 0.076, p=0.283)
+  rowset: prime to 6
+   Q=   50 rows=   102  rms r=0.1178  1/sqrt(rows)=0.0990  max r=0.2299 (iid null 99% 0.2874, p=0.837; orbit null 99% 0.2792, p=0.780)  T=1.415 (iid null 1.278 +- 0.101, p=0.077; orbit null 1.439 +- 0.076, p=0.587)
+   Q=  100 rows=   186  rms r=0.0833  1/sqrt(rows)=0.0733  max r=0.1842 (iid null 99% 0.2180, p=0.387; orbit null 99% 0.2311, p=0.453)  T=1.292 (iid null 1.255 +- 0.090, p=0.337; orbit null 1.390 +- 0.098, p=0.857)
+   Q=  200 rows=   366  rms r=0.0615  1/sqrt(rows)=0.0523  max r=0.1402 (iid null 99% 0.1627, p=0.347; orbit null 99% 0.1678, p=0.447)  T=1.385 (iid null 1.275 +- 0.094, p=0.123; orbit null 1.435 +- 0.102, p=0.660)
+   Q=  400 rows=   714  rms r=0.0444  1/sqrt(rows)=0.0374  max r=0.1069 (iid null 99% 0.1231, p=0.143; orbit null 99% 0.1233, p=0.203)  T=1.408 (iid null 1.246 +- 0.090, p=0.030; orbit null 1.396 +- 0.106, p=0.443)
+   Q=  800 rows=  1458  rms r=0.0327  1/sqrt(rows)=0.0262  max r=0.0808 (iid null 99% 0.0908, p=0.100; orbit null 99% 0.0915, p=0.103)  T=1.560 (iid null 1.235 +- 0.092, p=0.000; orbit null 1.383 +- 0.120, p=0.067)
+   Q= 1600 rows=  2910  rms r=0.0213  1/sqrt(rows)=0.0185  max r=0.0715 (iid null 99% 0.0628, p=0.000; orbit null 99% 0.0660, p=0.000)  T=1.317 (iid null 1.185 +- 0.086, p=0.070; orbit null 1.317 +- 0.116, p=0.467)
+   Q= 3200 rows=  5814  rms r=0.0132  1/sqrt(rows)=0.0131  max r=0.0390 (iid null 99% 0.0449, p=0.083; orbit null 99% 0.0421, p=0.070)  T=1.017 (iid null 1.104 +- 0.080, p=0.867; orbit null 1.174 +- 0.162, p=0.850)
+  rowset: prime to 6, generic
+   Q=   50 rows=    96  rms r=0.0954  1/sqrt(rows)=0.1021  max r=0.2432 (iid null 99% 0.3127, p=0.407; orbit null 99% 0.2940, p=0.380)  T=0.874 (iid null 0.980 +- 0.071, p=0.923; orbit null 0.946 +- 0.104, p=0.720)
+   Q=  100 rows=   180  rms r=0.0699  1/sqrt(rows)=0.0745  max r=0.1695 (iid null 99% 0.2347, p=0.723; orbit null 99% 0.2267, p=0.653)  T=0.879 (iid null 1.003 +- 0.066, p=0.960; orbit null 0.921 +- 0.101, p=0.657)
+   Q=  200 rows=   360  rms r=0.0482  1/sqrt(rows)=0.0527  max r=0.1300 (iid null 99% 0.1706, p=0.353; orbit null 99% 0.1582, p=0.273)  T=0.837 (iid null 0.991 +- 0.064, p=1.000; orbit null 0.952 +- 0.101, p=0.883)
+   Q=  400 rows=   708  rms r=0.0343  1/sqrt(rows)=0.0376  max r=0.0911 (iid null 99% 0.1182, p=0.457; orbit null 99% 0.1168, p=0.423)  T=0.832 (iid null 1.000 +- 0.065, p=1.000; orbit null 0.993 +- 0.115, p=0.933)
+   Q=  800 rows=  1452  rms r=0.0265  1/sqrt(rows)=0.0262  max r=0.0561 (iid null 99% 0.0801, p=0.887; orbit null 99% 0.0796, p=0.800)  T=1.021 (iid null 1.006 +- 0.064, p=0.400; orbit null 0.991 +- 0.109, p=0.363)
+   Q= 1600 rows=  2904  rms r=0.0174  1/sqrt(rows)=0.0186  max r=0.0502 (iid null 99% 0.0572, p=0.157; orbit null 99% 0.0580, p=0.117)  T=0.881 (iid null 0.993 +- 0.069, p=0.960; orbit null 0.992 +- 0.103, p=0.843)
+   Q= 3200 rows=  5808  rms r=0.0109  1/sqrt(rows)=0.0131  max r=0.0214 (iid null 99% 0.0406, p=1.000; orbit null 99% 0.0416, p=1.000)  T=0.686 (iid null 0.986 +- 0.066, p=1.000; orbit null 0.990 +- 0.102, p=1.000)
+
+C. exponent fit: rms over the 216 pairs of r(Q) on cumulative rows N(m) <= Q, Q = 50 * 2^k; log r = c - delta log Q
+   delta = 1/2: square-root cancellation; delta = 0: none. Paper geometry: Z^{-eta b/12} = Q^{-eta/80} (b = 1/8, M' = 5/6), so eta = min(1, 80 delta) for rows of this type
+   all                                   : delta = 0.431; row bootstrap sd 0.021, 95% [0.413, 0.489]; iid-phase null 0.496 +- 0.012; orbit null 0.495 +- 0.024; planted aligned fraction f=0.05/0.1/0.2 (one class) -> delta 0.372/0.286/0.187
+   generic (good part not a 6th power)   : delta = 0.511; row bootstrap sd 0.015, 95% [0.491, 0.550]; iid-phase null 0.534 +- 0.011; orbit null 0.530 +- 0.014; planted aligned fraction f=0.05/0.1/0.2 (one class) -> delta 0.416/0.310/0.213
+   prime to 6                            : delta = 0.511; row bootstrap sd 0.021, 95% [0.460, 0.538]; iid-phase null 0.505 +- 0.011; orbit null 0.510 +- 0.015; planted aligned fraction f=0.05/0.1/0.2 (one class) -> delta 0.420/0.311/0.200
+   prime to 6, generic                   : delta = 0.510; row bootstrap sd 0.021, 95% [0.468, 0.546]; iid-phase null 0.494 +- 0.013; orbit null 0.489 +- 0.018; planted aligned fraction f=0.05/0.1/0.2 (one class) -> delta 0.389/0.281/0.197
+   per toy row (generic rows), delta and T at Qmax:
+     aG|10000    : delta = 0.446; T = 1.11 (null 0.99 +- 0.21); max r = 0.0166
+     a|10000     : delta = 0.580; T = 0.94 (null 1.00 +- 0.21); max r = 0.0169
+     1|10000     : delta = 0.380; T = 1.57 (null 0.99 +- 0.20); max r = 0.0188
+     aG|100000   : delta = 0.497; T = 1.01 (null 1.03 +- 0.20); max r = 0.0169
+     a|100000    : delta = 0.476; T = 0.95 (null 1.02 +- 0.21); max r = 0.0225
+     1|100000    : delta = 0.512; T = 1.20 (null 0.99 +- 0.19); max r = 0.0188
+     aG|1000000  : delta = 0.541; T = 0.71 (null 1.00 +- 0.19); max r = 0.0148
+     a|1000000   : delta = 0.572; T = 1.18 (null 0.97 +- 0.18); max r = 0.0210
+     1|1000000   : delta = 0.528; T = 0.60 (null 0.84 +- 0.17); max r = 0.0118
+   generic rows at Q=3199: max over 216 pairs r = 0.0225; dividing by sensitivity 0.898: no pair has a coherent normalised correlation above 0.0250 (noise floor 1/sqrt(rows) = 0.0093)
+
+D. sub-families of rows: z2 = rows x r^2 per pair; nulls are the orbit null (one phase per orbit of m under units and conjugation)
+   S-unit rows (good part 1)                      rows=   174  T=  1.84 (null 1.06+-0.21, p=0.000)  max z2=  14.25 (null 99% 10.7, p=0.000) max r=0.2862 at ('bi', 2, 'a|1000000')
+   good part a 6th power                          rows=   174  T=  1.84 (null 1.05+-0.21, p=0.000)  max z2=  14.25 (null 99% 11.6, p=0.000) max r=0.2862 at ('bi', 2, 'a|1000000')
+   good part a square, not 6th power              rows=   312  T=  0.93 (null 0.95+-0.06, p=0.625)  max z2=   6.67 (null 99% 11.6, p=0.350) max r=0.1462 at ('sesq', 11, 'aG|10000')
+   good part squarefree, != 1                     rows= 10734  T=  0.97 (null 0.99+-0.08, p=0.570)  max z2=   4.68 (null 99% 9.5, p=0.840) max r=0.0209 at ('bi', 2, 'a|100000')
+   good part neither squarefree nor square        rows=   408  T=  0.98 (null 0.95+-0.08, p=0.325)  max z2=   5.05 (null 99% 9.9, p=0.660) max r=0.1113 at ('bi', 8, '1|100000')
+   good part prime                                rows=  6252  T=  1.01 (null 1.00+-0.07, p=0.385)  max z2=   5.60 (null 99% 9.6, p=0.550) max r=0.0299 at ('bi', 5, 'a|1000000')
+   good part product of 2 primes                  rows=  4224  T=  0.94 (null 1.00+-0.08, p=0.790)  max z2=   5.42 (null 99% 9.1, p=0.585) max r=0.0358 at ('bi', 5, 'aG|10000')
+   good part product of >= 3 primes               rows=   258  T=  1.02 (null 1.07+-0.13, p=0.625)  max z2=   8.09 (null 99% 9.0, p=0.075) max r=0.1771 at ('sesq', 10, 'aG|100000')
+   lambda | m                                     rows=  3864  T=  1.45 (null 1.10+-0.12, p=0.000)  max z2=   6.67 (null 99% 9.5, p=0.315) max r=0.0416 at ('sesq', 9, 'aG|100000')
+   2 | m                                          rows=  2904  T=  1.16 (null 1.07+-0.07, p=0.080)  max z2=   5.89 (null 99% 9.6, p=0.450) max r=0.0450 at ('sesq', 2, 'a|1000000')
+   prime to 6                                     rows=  5814  T=  1.02 (null 1.18+-0.17, p=0.835)  max z2=   8.86 (null 99% 9.6, p=0.060) max r=0.0390 at ('sesq', 8, '1|1000000')
+   N(m) in top octave                             rows=  5820  T=  1.11 (null 0.98+-0.08, p=0.045)  max z2=   4.65 (null 99% 9.3, p=0.835) max r=0.0283 at ('sesq', 4, '1|10000')
+   v_lam=0, v_2=0, generic                        rows=  5808  T=  0.69 (null 1.00+-0.11, p=1.000)  max z2=   2.67 (null 99% 9.2, p=1.000) max r=0.0214 at ('sesq', 8, 'aG|100000')
+   v_lam=0, v_2=1, generic                        rows=  1452  T=  0.88 (null 1.02+-0.10, p=0.930)  max z2=   5.29 (null 99% 9.3, p=0.565) max r=0.0603 at ('bi', 4, 'aG|10000')
+   v_lam=0, v_2=2, generic                        rows=   360  T=  1.83 (null 1.01+-0.11, p=0.000)  max z2=  10.02 (null 99% 9.7, p=0.010) max r=0.1668 at ('bi', 8, '1|10000')
+   v_lam=1, v_2=0, generic                        rows=  1932  T=  1.28 (null 0.99+-0.09, p=0.005)  max z2=  13.93 (null 99% 9.6, p=0.000) max r=0.0849 at ('sesq', 8, '1|100000')
+   v_lam=1, v_2=1, generic                        rows=   480  T=  1.01 (null 0.98+-0.08, p=0.370)  max z2=   7.88 (null 99% 9.7, p=0.060) max r=0.1282 at ('bi', 2, 'a|100000')
+   v_lam=1, v_2=2, generic                        rows=   108  T=  1.12 (null 1.06+-0.11, p=0.255)  max z2=   7.45 (null 99% 9.6, p=0.120) max r=0.2626 at ('bi', 9, 'aG|100000')
+   v_lam=2, v_2=0, generic                        rows=   642  T=  0.78 (null 1.03+-0.09, p=0.995)  max z2=   5.58 (null 99% 10.1, p=0.610) max r=0.0933 at ('sesq', 8, '1|100000')
+   v_lam=2, v_2=1, generic                        rows=   144  T=  0.94 (null 0.96+-0.09, p=0.550)  max z2=   6.86 (null 99% 8.8, p=0.160) max r=0.2183 at ('sesq', 8, '1|10000')
+   v_lam=2, v_2=2, generic                        rows=    36  T=  1.12 (null 1.18+-0.09, p=0.615)  max z2=   6.29 (null 99% 8.5, p=0.410) max r=0.4181 at ('bi', 9, 'aG|100000')
+   v_lam=3, v_2=0, generic                        rows=   204  T=  0.98 (null 1.00+-0.10, p=0.545)  max z2=   6.95 (null 99% 9.3, p=0.190) max r=0.1846 at ('sesq', 3, 'a|100000')
+   v_lam=3, v_2=1, generic                        rows=    42  T=  0.80 (null 1.03+-0.07, p=1.000)  max z2=   4.21 (null 99% 8.8, p=0.920) max r=0.3164 at ('sesq', 10, 'aG|10000')
+   v_lam=3, v_2=2, generic                        rows=    12  T=  0.57 (null 0.57+-0.00, p=0.910)  max z2=   2.41 (null 99% 2.4, p=0.800) max r=0.4485 at ('sesq', 2, '1|100000')
+   classes of m mod 9 (generic rows prime to lambda): 54 classes; mean T over classes = 1.030; largest max z2 = 8.9 (class 18, rows 143); expected max of 11664 null pairs ~ 9.4 +- 1.3
+   classes of m mod 4 (generic odd rows): 12 classes; mean T = 1.019; largest max z2 = 10.0; expected null max ~ 7.9 +- 1.3
+
+D2. where sum_m rho B is carried (pairing with the largest all-rows correlation):
+   pair (class 8, key 1|1000000, sesquilinear): r_all = 0.0337
+     S-unit rows                    rows=   174: partial sum 0.0276 (component along total +0.0276); share of ||rho||^2 0.0434, share of ||B||^2 0.5644
+     6th-power good part            rows=   174: partial sum 0.0276 (component along total +0.0276); share of ||rho||^2 0.0434, share of ||B||^2 0.5644
+     square good part               rows=   486: partial sum 0.0286 (component along total +0.0286); share of ||rho||^2 0.0776, share of ||B||^2 0.7044
+     generic                        rows= 11454: partial sum 0.0061 (component along total +0.0061); share of ||rho||^2 0.9566, share of ||B||^2 0.4356
+     odd good part (not a square)   rows= 11142: partial sum 0.0051 (component along total +0.0051); share of ||rho||^2 0.9224, share of ||B||^2 0.2956
+
+E. class-function component of rho_nat(-e0 m) on generic rows prime to 6: model rho_sigma(m) = h_sigma(class of m) N(m)^{-kappa}
+   fit on even-indexed rows, test on odd-indexed rows; explained = 1 - sum|rho - model|^2 / sum|rho|^2 on held-out rows, noise-corrected denominators
+   m mod 9 (54 classes)      : held-out explained fraction +0.1257 at kappa=0.083 (label-shuffle null +0.0330 +- 0.0025); class part vs B: T=0.91, max r=0.0372; remainder vs B: T=0.83, max r=0.0403; rows(test)=2904
+   m mod 4 (12 classes)      : held-out explained fraction +0.1329 at kappa=0.083 (label-shuffle null +0.0537 +- 0.0010); class part vs B: T=1.24, max r=0.0539; remainder vs B: T=0.84, max r=0.0405; rows(test)=2904
+   m mod 36 (648 classes)    : held-out explained fraction -0.0167 at kappa=0.000 (label-shuffle null -0.3374 +- 0.0153); class part vs B: T=0.96, max r=0.0457; remainder vs B: T=0.85, max r=0.0444; rows(test)=2904
+   prime rows, m mod 9       : held-out explained fraction +0.1015 at kappa=0.000; prime rows 2688
+   prime rows, m mod 36      : held-out explained fraction -0.3966 at kappa=0.000; prime rows 2688
+
+F. row first moments of rho_nat: |sum_m rho_sigma(-e0 m) psi(m)| / ||rho_sigma|| x sqrt(rows)^0 as z (null rms 1), psi = 1, angular (m/|m|)^l
+   all      l=0: sum of z^2 over 12 classes = 1229.7 (null 12 +- 3.5); max z = 14.62
+   all      l=1: sum of z^2 over 12 classes =    0.8 (null 12 +- 3.5); max z = 0.45
+   all      l=2: sum of z^2 over 12 classes =    0.3 (null 12 +- 3.5); max z = 0.45
+   all      l=3: sum of z^2 over 12 classes =    0.3 (null 12 +- 3.5); max z = 0.32
+   all      l=6: sum of z^2 over 12 classes =    8.2 (null 12 +- 3.5); max z = 2.48
+   generic  l=0: sum of z^2 over 12 classes = 1188.9 (null 12 +- 3.5); max z = 14.90
+   generic  l=1: sum of z^2 over 12 classes =    0.7 (null 12 +- 3.5); max z = 0.42
+   generic  l=2: sum of z^2 over 12 classes =    1.6 (null 12 +- 3.5); max z = 1.09
+   generic  l=3: sum of z^2 over 12 classes =    0.9 (null 12 +- 3.5); max z = 0.61
+   generic  l=6: sum of z^2 over 12 classes =    3.0 (null 12 +- 3.5); max z = 0.92
+F2. coherent classes [0, 1, 2, 3, 8, 11]: |F_sigma(Q)| = |sum_(N(m)<=Q) rho_sigma| at Q=[50, 100, 200, 400, 800, 1600, 3200]:
+   class  0: [1.45, 2.825, 5.033, 8.147, 12.067, 19.573, 31.663]  slope (Q>=100) 0.682; noise sd of F at Qmax 0.963; M_sigma slope 0.825; z = F/sqrt(M) at Qmax 15.40
+   class  1: [0.387, 1.362, 2.373, 4.61, 8.825, 18.85, 32.012]  slope (Q>=100) 0.934; noise sd of F at Qmax 0.967; M_sigma slope 0.909; z = F/sqrt(M) at Qmax 16.14
+   class  2: [2.699, 4.853, 7.55, 13.137, 17.618, 24.641, 33.15]  slope (Q>=100) 0.554; noise sd of F at Qmax 0.959; M_sigma slope 0.783; z = F/sqrt(M) at Qmax 15.78
+   class  3: [0.387, 1.362, 2.373, 4.61, 8.825, 18.85, 32.012]  slope (Q>=100) 0.934; noise sd of F at Qmax 0.967; M_sigma slope 0.909; z = F/sqrt(M) at Qmax 16.14
+   class  8: [1.155, 2.453, 4.07, 8.87, 13.771, 21.182, 32.935]  slope (Q>=100) 0.757; noise sd of F at Qmax 0.965; M_sigma slope 0.841; z = F/sqrt(M) at Qmax 16.18
+   class 11: [1.45, 2.825, 5.033, 8.147, 12.067, 19.573, 31.663]  slope (Q>=100) 0.682; noise sd of F at Qmax 0.963; M_sigma slope 0.825; z = F/sqrt(M) at Qmax 15.40
+   mean slope of F: 0.757 +- 0.062 (random walk would be M-slope/2 = 0.424)
+
+G. theta-row form with the manuscript's row weights: Omega(x) = sin^2(pi x) on (0,1), factor (N(m)/Q)^{-iv}, rows prime to 6 (xi(m) != 0), generic
+   Q=  799 v= 0.0: rows 1452 (effective 745); rms r = 0.0279; mean r^2 / null mean r^2 = 1.099 (null sd 0.067); max r = 0.0608
+   Q=  799 v= 2.0: rows 1452 (effective 745); rms r = 0.0286; mean r^2 / null mean r^2 = 1.160 (null sd 0.067); max r = 0.0600
+   Q=  799 v=10.0: rows 1452 (effective 745); rms r = 0.0294; mean r^2 / null mean r^2 = 1.206 (null sd 0.067); max r = 0.0636
+   Q= 1599 v= 0.0: rows 2904 (effective 1492); rms r = 0.0194; mean r^2 / null mean r^2 = 1.047 (null sd 0.067); max r = 0.0497
+   Q= 1599 v= 2.0: rows 2904 (effective 1492); rms r = 0.0201; mean r^2 / null mean r^2 = 1.154 (null sd 0.066); max r = 0.0437
+   Q= 1599 v=10.0: rows 2904 (effective 1492); rms r = 0.0202; mean r^2 / null mean r^2 = 1.128 (null sd 0.073); max r = 0.0455
+   Q= 3199 v= 0.0: rows 5808 (effective 2984); rms r = 0.0119; mean r^2 / null mean r^2 = 0.835 (null sd 0.064); max r = 0.0290
+   Q= 3199 v= 2.0: rows 5808 (effective 2984); rms r = 0.0129; mean r^2 / null mean r^2 = 0.997 (null sd 0.067); max r = 0.0287
+   Q= 3199 v=10.0: rows 5808 (effective 2984); rms r = 0.0130; mean r^2 / null mean r^2 = 1.006 (null sd 0.063); max r = 0.0294
+done

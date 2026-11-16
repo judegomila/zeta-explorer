@@ -1,0 +1,6 @@
+zeta N 18 pairs 8 unknowns 9 max residual over all N nodes 7.52e-226
+  m_inf 0.0055719822  masses ['1.0', '1.0000023', '1.0008125', '1.3582207', '1.6550558', '4.3449168', '12.420436', '69.332364']
+dh N 18 pairs 8 unknowns 9 max residual over all N nodes 2.01e-18
+  m_inf 0.013423288  masses ['1.0', '1.0', '1.000341', '1.0231274', '1.5200137', '3.1712382', '8.479314', '43.893293']
+rand N 8 pairs 3 unknowns 4 max residual over all N nodes 3.51e-129
+  m_inf 916.5651  masses ['5943.407', '13882.249', '49583.14']

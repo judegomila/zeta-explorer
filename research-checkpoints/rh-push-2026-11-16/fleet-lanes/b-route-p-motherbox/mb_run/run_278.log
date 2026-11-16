@@ -1,0 +1,17 @@
+### motherbox launch 2026-11-16_21:20:35 idx 278 target 0.056412317752437706 budget 10200
+[278] 487|0.88|r_23_40 cell 487 K0* 0.689266729 target 0.056412318 policy {'coarsen': 0.05, 'adapt': 0.05, 'recmp': 3, 'octgap': 0.03, 'lazy': inf, 'gapr': 0.0, 'fullgap': inf, 'refresh': 1, 'maxdepth': 22} resume True
+   r7f 19524 evals (5400 cheap, 4905 gap, 9219 full, 0 lazy), open 874, done 8041, top 0.05697, done_max 0.05641, 43628s
+   r7f 19560 evals (5420 cheap, 4905 gap, 9235 full, 0 lazy), open 864, done 8061, top 0.05696, done_max 0.05641, 43954s
+   r7f 19580 evals (5430 cheap, 4905 gap, 9245 full, 0 lazy), open 859, done 8071, top 0.05695, done_max 0.05641, 44260s
+   r7f 19598 evals (5440 cheap, 4905 gap, 9253 full, 0 lazy), open 854, done 8081, top 0.05695, done_max 0.05641, 44574s
+   r7f 19616 evals (5450 cheap, 4905 gap, 9261 full, 0 lazy), open 849, done 8091, top 0.05695, done_max 0.05641, 44905s
+   r7f 19633 evals (5460 cheap, 4905 gap, 9268 full, 0 lazy), open 844, done 8101, top 0.05695, done_max 0.05641, 45228s
+   r7f 19657 evals (5474 cheap, 4905 gap, 9278 full, 0 lazy), open 837, done 8115, top 0.05694, done_max 0.05641, 45572s
+   r7f 19677 evals (5486 cheap, 4905 gap, 9286 full, 0 lazy), open 831, done 8127, top 0.05693, done_max 0.05641, 45913s
+   r7f 19706 evals (5504 cheap, 4905 gap, 9297 full, 0 lazy), open 822, done 8145, top 0.05692, done_max 0.05641, 46220s
+   r7f 19838 evals (5584 cheap, 4905 gap, 9349 full, 0 lazy), open 782, done 8225, top 0.05690, done_max 0.05641, 46521s
+   r7f 19963 evals (5654 cheap, 4907 gap, 9402 full, 0 lazy), open 746, done 8297, top 0.05687, done_max 0.05641, 46823s
+   r7f 20097 evals (5734 cheap, 4907 gap, 9456 full, 0 lazy), open 706, done 8377, top 0.05683, done_max 0.05641, 47124s
+### motherbox emit 2026-11-16_22:24:07 idx 278
+[278] 487|0.88|r_23_40 cell 487 K0* 0.689266729 target 0.056412318 policy {'coarsen': 0.05, 'adapt': 0.05, 'recmp': 3, 'octgap': 0.03, 'lazy': inf, 'gapr': 0.0, 'fullgap': inf, 'refresh': 1, 'maxdepth': 22} resume True
+[278] 487|0.88|r_23_40 cell 487: margin 0.0568516 (target 0.056412) complete False boxes 9064 open 725 evals 20038 (cheap 5696 gap 4907 full 9435 lazy 0) wall 47004s cpu 42685s

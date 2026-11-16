@@ -1,0 +1,43 @@
+N = 120
+e2a=   3 theta=0.000 lam_min= 5.537611e-08 lam2= 1.4934e-05 | 2xi'/xi(1/2+th)= 0.000000e+00 | lamR=0.4901 crude=0.9803
+e2a=   3 theta=0.010 lam_min= 1.001595e-03 lam2= 1.3127e-03 | 2xi'/xi(1/2+th)= 9.241996e-04 | lamR=0.4867 crude=0.9735
+e2a=   3 theta=0.050 lam_min= 4.929545e-03 lam2= 6.4079e-03 | 2xi'/xi(1/2+th)= 4.620980e-03 | lamR=0.4734 crude=0.9469
+e2a=   3 theta=0.100 lam_min= 9.815457e-03 lam2= 1.2618e-02 | 2xi'/xi(1/2+th)= 9.241849e-03 | lamR=0.4573 crude=0.9146
+e2a=   3 theta=0.250 lam_min= 2.443918e-02 lam2= 3.0656e-02 | 2xi'/xi(1/2+th)= 2.310267e-02 | lamR=0.4121 crude=0.8243
+e2a=   3 theta=0.375 lam_min= 3.659776e-02 lam2= 4.5308e-02 | 2xi'/xi(1/2+th)= 3.464965e-02 | lamR=0.3779 crude=0.7559
+e2a=   3 theta=0.500 lam_min= 4.873177e-02 lam2= 5.9749e-02 | 2xi'/xi(1/2+th)= 0.000000e+00 | lamR=0.3466 crude=0.6931
+e2a=   5 theta=0.000 lam_min=-5.225846e-14 lam2=-4.6081e-14 | 2xi'/xi(1/2+th)= 0.000000e+00 | lamR=1.2191 crude=2.9420
+e2a=   5 theta=0.010 lam_min= 9.484022e-04 lam2= 1.0315e-03 | 2xi'/xi(1/2+th)= 9.241996e-04 | lamR=1.2075 crude=2.9118
+e2a=   5 theta=0.050 lam_min= 4.733990e-03 lam2= 5.1388e-03 | 2xi'/xi(1/2+th)= 4.620980e-03 | lamR=1.1622 crude=2.7944
+e2a=   5 theta=0.100 lam_min= 9.463500e-03 lam2= 1.0251e-02 | 2xi'/xi(1/2+th)= 9.241849e-03 | lamR=1.1082 crude=2.6546
+e2a=   5 theta=0.250 lam_min= 2.364240e-02 lam2= 2.5514e-02 | 2xi'/xi(1/2+th)= 2.310267e-02 | lamR=0.9620 crude=2.2783
+e2a=   5 theta=0.375 lam_min= 3.544677e-02 lam2= 3.8182e-02 | 2xi'/xi(1/2+th)= 3.464965e-02 | lamR=0.8564 crude=2.0083
+e2a=   5 theta=0.500 lam_min= 4.723961e-02 lam2= 5.0812e-02 | 2xi'/xi(1/2+th)= 0.000000e+00 | lamR=0.7633 crude=1.7721
+e2a=  11 theta=0.000 lam_min=-7.494821e-14 lam2=-6.9191e-14 | 2xi'/xi(1/2+th)= 0.000000e+00 | lamR=2.6906 crude=7.0750
+e2a=  11 theta=0.010 lam_min= 9.334316e-04 lam2= 9.6296e-04 | 2xi'/xi(1/2+th)= 9.241996e-04 | lamR=2.6546 crude=6.9675
+e2a=  11 theta=0.050 lam_min= 4.666427e-03 lam2= 4.8117e-03 | 2xi'/xi(1/2+th)= 4.620980e-03 | lamR=2.5165 crude=6.5551
+e2a=  11 theta=0.100 lam_min= 9.332126e-03 lam2= 9.6192e-03 | 2xi'/xi(1/2+th)= 9.241849e-03 | lamR=2.3556 crude=6.0770
+e2a=  11 theta=0.250 lam_min= 2.332518e-02 lam2= 2.4029e-02 | 2xi'/xi(1/2+th)= 2.310267e-02 | lamR=1.9413 crude=4.8596
+e2a=  11 theta=0.375 lam_min= 3.498009e-02 lam2= 3.6023e-02 | 2xi'/xi(1/2+th)= 3.464965e-02 | lamR=1.6610 crude=4.0506
+e2a=  11 theta=0.500 lam_min= 4.662789e-02 lam2= 4.8004e-02 | 2xi'/xi(1/2+th)= 0.000000e+00 | lamR=1.4277 crude=3.3893
+e2a=  30 theta=0.000 lam_min=-1.471292e-13 lam2=-1.3618e-13 | 2xi'/xi(1/2+th)= 0.000000e+00 | lamR=5.5610 crude=16.6405
+e2a=  30 theta=0.010 lam_min= 9.285285e-04 lam2= 9.4184e-04 | 2xi'/xi(1/2+th)= 9.241996e-04 | lamR=5.4567 crude=16.2597
+e2a=  30 theta=0.050 lam_min= 4.642428e-03 lam2= 4.7082e-03 | 2xi'/xi(1/2+th)= 4.620980e-03 | lamR=5.0627 crude=14.8311
+e2a=  30 theta=0.100 lam_min= 9.284487e-03 lam2= 9.4154e-03 | 2xi'/xi(1/2+th)= 9.241849e-03 | lamR=4.6185 crude=13.2394
+e2a=  30 theta=0.250 lam_min= 2.320806e-02 lam2= 2.3532e-02 | 2xi'/xi(1/2+th)= 2.310267e-02 | lamR=3.5482 crude=9.5095
+e2a=  30 theta=0.375 lam_min= 3.480655e-02 lam2= 3.5289e-02 | 2xi'/xi(1/2+th)= 3.464965e-02 | lamR=2.8848 crude=7.3007
+e2a=  30 theta=0.500 lam_min= 4.639917e-02 lam2= 4.7038e-02 | 2xi'/xi(1/2+th)= 0.000000e+00 | lamR=2.3706 crude=5.6648
+e2a= 100 theta=0.000 lam_min=-2.001410e-13 lam2=-1.8890e-13 | 2xi'/xi(1/2+th)= 0.000000e+00 | lamR=11.0840 crude=33.7924
+e2a= 100 theta=0.010 lam_min= 9.264844e-04 lam2= 9.3343e-04 | 2xi'/xi(1/2+th)= 9.241996e-04 | lamR=10.7916 crude=32.7325
+e2a= 100 theta=0.050 lam_min= 4.632301e-03 lam2= 4.6668e-03 | 2xi'/xi(1/2+th)= 4.620980e-03 | lamR=9.7138 crude=28.8472
+e2a= 100 theta=0.100 lam_min= 9.264392e-03 lam2= 9.3330e-03 | 2xi'/xi(1/2+th)= 9.241849e-03 | lamR=8.5494 crude=24.6961
+e2a= 100 theta=0.250 lam_min= 2.315855e-02 lam2= 2.3328e-02 | 2xi'/xi(1/2+th)= 2.310267e-02 | lamR=5.9739 crude=15.7771
+e2a= 100 theta=0.375 lam_min= 3.473299e-02 lam2= 3.4986e-02 | 2xi'/xi(1/2+th)= 3.464965e-02 | lamR=4.5494 crude=11.0994
+e2a= 100 theta=0.500 lam_min= 4.630193e-02 lam2= 4.6638e-02 | 2xi'/xi(1/2+th)= 0.000000e+00 | lamR=3.5393 crude=7.9712
+e2a= 400 theta=0.000 lam_min=-2.376360e-13 lam2=-2.3079e-13 | 2xi'/xi(1/2+th)= 0.000000e+00 | lamR=22.4007 crude=74.5918
+e2a= 400 theta=0.010 lam_min= 9.255215e-04 lam2= 9.2952e-04 | 2xi'/xi(1/2+th)= 9.241996e-04 | lamR=21.5746 crude=71.4026
+e2a= 400 theta=0.050 lam_min= 4.627539e-03 lam2= 4.6474e-03 | 2xi'/xi(1/2+th)= 4.620980e-03 | lamR=18.6210 crude=60.0600
+e2a= 400 theta=0.100 lam_min= 9.254918e-03 lam2= 9.2944e-03 | 2xi'/xi(1/2+th)= 9.241849e-03 | lamR=15.5990 crude=48.5848
+e2a= 400 theta=0.250 lam_min= 2.313511e-02 lam2= 2.3233e-02 | 2xi'/xi(1/2+th)= 2.310267e-02 | lamR=9.5998 crude=26.5136
+e2a= 400 theta=0.375 lam_min= 3.469807e-02 lam2= 3.4844e-02 | 2xi'/xi(1/2+th)= 3.464965e-02 | lamR=6.7285 crude=16.6289
+e2a= 400 theta=0.500 lam_min= 4.625568e-02 lam2= 4.6450e-02 | 2xi'/xi(1/2+th)= 0.000000e+00 | lamR=4.9038 crude=10.8266

@@ -1,0 +1,38 @@
+== symbolic part ==
+PASS E(delta,1/2) is affine in (b,l): mixed and second derivatives vanish
+PASS 54 d k - 6 d - 75 k + 10 = -36 kappa J(delta,1/2)
+PASS d_b E(delta,1/2) = cr/(24 kappa (54 d k - 6 d - 75 k + 10))
+PASS l*(delta,kappa) printed in the paper equals -E(b=0,l=0)/d_l E identically
+PASS J(delta,1/2) = (5/6-delta)(5/2-c)+delta(1-c/2)
+PASS cr(1/8, kappa) has 0 roots in [13/18,1] and sign -1 at 13/18 (needed -1)
+PASS cr(23/50, kappa) has 0 roots in [13/18,1] and sign -1 at 13/18 (needed -1)
+PASS cr(12/25, kappa) has 0 roots in [13/18,1] and sign +1 at 13/18 (needed +1)
+PASS cr(5/6, kappa) has 0 roots in [13/18,1] and sign +1 at 13/18 (needed +1)
+PASS leading coefficient 3 - 324 kappa^2 < 0 on [13/18,1] (cr concave in delta)
+== interval part: cover of [13/18, 1] ==
+   30001 boxes, 2.3 s
+   stats: {'dc_lo': 0.4679018370807171, 'dc_hi': 0.478504472412169, 'other_lo': 1.6423848271369934, 'dcrd': 194.9376498414219, 'lam': 1.0686730612069368, 'D_all_hi': -0.003353489548288735, 'D_all_lo': -0.006578553122437825, 'D_hi_right': -0.003353489548288735, 'D_lo_mid': -0.006093162715842482, 'D_hi_mid': -0.005987909438772476, 'Gp': 0.49835536171937633}
+PASS (1) on every box: 23/50 < delta_c < 12/25 and the second root of cr exceeds 5/6 (boxes failing: 0)
+PASS     d_delta cr >= 194 at delta_c (enclosure lower bound 194.9376)
+PASS (2) lambda >= 1 (paper: >= 1.068); enclosure lower bound 1.068673
+PASS (3) d l*/d kappa < 0 on [7497/10000, 1]: upper bound -0.003353 (paper: <= -0.0031)
+PASS     -0.0065 <= d l*/d kappa <= -0.0031 on [7497/10000, 3/4]: [-0.006093, -0.005988]
+PASS     G' >= 0.498 on [13/18, 1]: lower bound 0.498355
+PASS     EXTRA (not in the paper): d l*/d kappa < 0 on all of [13/18, 1], i.e. F_flat increasing on the full M2 range: upper bound -0.003353
+== endpoints, fixed point, enclosures ==
+PASS G(13/18) = [-0.0137323008971 +/- 4.39e-14] < 0 < G(1) = [0.124831056764 +/- 2.13e-13]
+PASS G(0.749773294079928) = [-1.3054905e-16 +/- 1.41e-24] < 0 < G(0.749773294079929) = [3.6794052e-16 +/- 1.17e-24]
+PASS resultant_delta(cr, l* - 4(11/12-(1+kappa)/2)) contains the factor 16686k^4-27405k^3+9936k^2+1290k-275
+   resultant factorisation: -1200*kappa**2*(6*kappa - 1)**2*(15*kappa - 2)*(42*kappa + 5)*(16686*kappa**4 - 27405*kappa**3 + 9936*kappa**2 + 1290*kappa - 275)
+PASS quartic: exactly one root in [7/10, 8/10] (1) and two in [13/18, 1] (2)
+PASS quartic changes sign on [0.749773294079928, 0.749773294079929]
+PASS kappa = 2B-1 turns the kappa-quartic into (constant 2) x the B-quartic (14.1)
+PASS B-quartic changes sign on [0.874886647039964, 0.874886647039965] and has exactly one root there
+   B_flat in [0.8748866470399641309446140005301806494989, 0.8748866470399641309446140005301806494989]
+PASS F_flat(kappa_flat) encloses B_flat = (1+kappa_flat)/2: F_flat = [0.874886647039964130944614000530 +/- 1.81e-31], delta_c(kappa_flat) = [0.46934485869814306749 +/- 3.60e-21]
+PASS F_flat(13/18) = [0.874843412008167274607864609464 +/- 2.21e-31] (delta_c = [0.46797218222644336462 +/- 2.44e-21]); contains 0.874843412008...
+PASS kappa=3/4: F_flat = [0.87488698935790150031 +/- 3.18e-21], l* = [0.16711870923506066541 +/- 3.98e-21]; Xu-Sang l_j = 0.167116666667 < l* (admissible triple below the tangent value); delta_c = [0.469355752047 +/- 1.93e-14]
+PASS kappa=29991/40000: F_flat = [0.87488664961663141910 +/- 1.65e-21], l* = [0.16712006820014099027 +/- 3.27e-21]; Xu-Sang l_j = 0.167119866667 < l* (admissible triple below the tangent value); delta_c = [0.469344940692 +/- 2.00e-13]
+   F_flat(1) = [0.87516894323578794282 +/- 2.01e-21]
+
+TOTAL FAILS: 0 []

@@ -1,0 +1,135 @@
+q=7 sfc=1 (k,N,d)=(1,1,2) r=-1 nu=triv     |B|=2.058000e+03 err=5.1e-13 ratio=1.0000 (x null 7.00) princ=0.0000 diag=1.0000 nonpr=0.0000 conjrow=1.000 |c|/q^(d/2+k)=0.926 |R|/q^(d/2+N)=0.926
+q=7 sfc=1 (k,N,d)=(1,1,2) r=-1 nu=T,1      |B|=2.713120e-13 err=8.8e-14 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=0.926 |R|/q^(d/2+N)=0.857
+q=7 sfc=1 (k,N,d)=(1,1,2) r=-1 nu=T,3      |B|=1.399607e-13 err=8.2e-14 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=0.926 |R|/q^(d/2+N)=0.857
+q=7 sfc=1 (k,N,d)=(1,1,2) r=-1 nu=T2+3,1   |B|=7.778509e+02 err=1.1e-13 ratio=0.4472 (x null 3.13) princ=0.0000 diag=0.4472 nonpr=0.0000 conjrow=0.447 |c|/q^(d/2+k)=0.926 |R|/q^(d/2+N)=0.782
+q=7 sfc=1 (k,N,d)=(1,1,2) r=-1 nu=T2+T+3,2 |B|=7.778509e+02 err=2.7e-13 ratio=0.3780 (x null 2.65) princ=0.0000 diag=0.3780 nonpr=0.0000 conjrow=0.378 |c|/q^(d/2+k)=0.926 |R|/q^(d/2+N)=0.926
+q=7 sfc=1 (k,N,d)=(1,2,2) r= 0 nu=triv     |B|=5.444956e+03 err=1.8e-12 ratio=1.0000 (x null 7.00) princ=1.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=0.926 |R|/q^(d/2+N)=0.350
+q=7 sfc=1 (k,N,d)=(1,2,2) r= 0 nu=T,1      |B|=9.383469e-13 err=2.1e-12 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.189 |c|/q^(d/2+k)=0.926 |R|/q^(d/2+N)=0.836
+q=7 sfc=1 (k,N,d)=(1,2,2) r= 0 nu=T,3      |B|=7.778509e+02 err=1.1e-12 ratio=0.0648 (x null 0.45) princ=0.0648 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=0.926 |R|/q^(d/2+N)=0.771
+q=7 sfc=1 (k,N,d)=(1,2,2) r= 0 nu=T2+3,1   |B|=5.708658e+03 err=5.7e-12 ratio=0.4560 (x null 3.19) princ=0.4560 diag=0.0000 nonpr=0.0000 conjrow=0.324 |c|/q^(d/2+k)=0.926 |R|/q^(d/2+N)=0.805
+q=7 sfc=1 (k,N,d)=(1,2,2) r= 0 nu=T2+T+3,2 |B|=5.637556e+03 err=3.3e-12 ratio=0.4060 (x null 2.84) princ=0.4060 diag=0.0000 nonpr=0.0000 conjrow=0.255 |c|/q^(d/2+k)=0.926 |R|/q^(d/2+N)=0.892
+q=7 sfc=1 (k,N,d)=(1,3,2) r= 1 nu=triv     |B|=1.775845e-12 err=2.4e-12 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=0.926 |R|/q^(d/2+N)=0.350
+q=7 sfc=1 (k,N,d)=(1,3,2) r= 1 nu=T,1      |B|=2.683106e-12 err=4.7e-12 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=0.926 |R|/q^(d/2+N)=0.814
+q=7 sfc=1 (k,N,d)=(1,3,2) r= 1 nu=T,3      |B|=2.651610e-12 err=9.8e-12 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=0.926 |R|/q^(d/2+N)=0.648
+q=7 sfc=1 (k,N,d)=(1,3,2) r= 1 nu=T2+3,1   |B|=4.158654e+03 err=1.3e-11 ratio=0.0559 (x null 0.39) princ=0.0000 diag=0.0000 nonpr=0.0559 conjrow=0.070 |c|/q^(d/2+k)=0.926 |R|/q^(d/2+N)=0.683
+q=7 sfc=1 (k,N,d)=(1,3,2) r= 1 nu=T2+T+3,2 |B|=4.459000e+03 err=1.8e-11 ratio=0.0499 (x null 0.35) princ=0.0000 diag=0.0000 nonpr=0.0499 conjrow=0.019 |c|/q^(d/2+k)=0.926 |R|/q^(d/2+N)=0.821
+q=7 sfc=1 (k,N,d)=(2,1,2) r= 0 nu=triv     |B|=3.266974e+04 err=1.2e-11 ratio=0.9864 (x null 6.90) princ=0.9864 diag=0.0000 nonpr=0.0000 conjrow=0.986 |c|/q^(d/2+k)=2.129 |R|/q^(d/2+N)=0.926
+q=7 sfc=1 (k,N,d)=(2,1,2) r= 0 nu=T,1      |B|=3.617046e-12 err=1.4e-12 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=2.129 |R|/q^(d/2+N)=0.857
+q=7 sfc=1 (k,N,d)=(2,1,2) r= 0 nu=T,3      |B|=2.417015e-12 err=1.1e-12 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=2.129 |R|/q^(d/2+N)=0.857
+q=7 sfc=1 (k,N,d)=(2,1,2) r= 0 nu=T2+3,1   |B|=1.234800e+04 err=6.6e-12 ratio=0.4411 (x null 3.09) princ=0.4411 diag=0.0000 nonpr=0.0000 conjrow=0.441 |c|/q^(d/2+k)=2.129 |R|/q^(d/2+N)=0.782
+q=7 sfc=1 (k,N,d)=(2,1,2) r= 0 nu=T2+T+3,2 |B|=1.234800e+04 err=1.0e-11 ratio=0.3728 (x null 2.61) princ=0.3728 diag=0.0000 nonpr=0.0000 conjrow=0.373 |c|/q^(d/2+k)=2.129 |R|/q^(d/2+N)=0.926
+q=7 sfc=1 (k,N,d)=(2,2,2) r= 1 nu=triv     |B|=8.643600e+04 err=7.9e-11 ratio=0.9864 (x null 6.90) princ=0.7046 diag=0.1409 nonpr=0.1409 conjrow=0.000 |c|/q^(d/2+k)=2.129 |R|/q^(d/2+N)=0.350
+q=7 sfc=1 (k,N,d)=(2,2,2) r= 1 nu=T,1      |B|=1.818989e-12 err=2.6e-11 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.186 |c|/q^(d/2+k)=2.129 |R|/q^(d/2+N)=0.836
+q=7 sfc=1 (k,N,d)=(2,2,2) r= 1 nu=T,3      |B|=1.234800e+04 err=2.0e-11 ratio=0.0639 (x null 0.45) princ=0.0457 diag=0.0091 nonpr=0.0091 conjrow=0.000 |c|/q^(d/2+k)=2.129 |R|/q^(d/2+N)=0.771
+q=7 sfc=1 (k,N,d)=(2,2,2) r= 1 nu=T2+3,1   |B|=9.302132e+04 err=8.1e-11 ratio=0.4617 (x null 3.23) princ=0.3826 diag=0.0745 nonpr=0.0053 conjrow=0.325 |c|/q^(d/2+k)=2.129 |R|/q^(d/2+N)=0.805
+q=7 sfc=1 (k,N,d)=(2,2,2) r= 1 nu=T2+T+3,2 |B|=9.189136e+04 err=5.1e-11 ratio=0.4112 (x null 2.88) princ=0.3412 diag=0.0664 nonpr=0.0045 conjrow=0.257 |c|/q^(d/2+k)=2.129 |R|/q^(d/2+N)=0.892
+q=7 sfc=1 (k,N,d)=(2,3,2) r= 2 nu=triv     |B|=1.130713e-10 err=3.6e-10 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=2.129 |R|/q^(d/2+N)=0.350
+q=7 sfc=1 (k,N,d)=(2,3,2) r= 2 nu=T,1      |B|=3.451290e-11 err=4.5e-11 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=2.129 |R|/q^(d/2+N)=0.814
+q=7 sfc=1 (k,N,d)=(2,3,2) r= 2 nu=T,3      |B|=1.466516e-11 err=2.0e-11 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=2.129 |R|/q^(d/2+N)=0.648
+q=7 sfc=1 (k,N,d)=(2,3,2) r= 2 nu=T2+3,1   |B|=7.357410e+04 err=2.3e-10 ratio=0.0614 (x null 0.43) princ=0.0000 diag=0.0000 nonpr=0.0614 conjrow=0.024 |c|/q^(d/2+k)=2.129 |R|/q^(d/2+N)=0.683
+q=7 sfc=1 (k,N,d)=(2,3,2) r= 2 nu=T2+T+3,2 |B|=1.081745e+05 err=2.0e-10 ratio=0.0752 (x null 0.53) princ=0.0000 diag=0.0000 nonpr=0.0752 conjrow=0.007 |c|/q^(d/2+k)=2.129 |R|/q^(d/2+N)=0.821
+q=7 sfc=1 (k,N,d)=(3,1,2) r= 1 nu=triv     |B|=9.201445e-11 err=1.2e-10 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=2.295 |R|/q^(d/2+N)=0.926
+q=7 sfc=1 (k,N,d)=(3,1,2) r= 1 nu=T,1      |B|=9.094947e-12 err=2.1e-11 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=2.295 |R|/q^(d/2+N)=0.857
+q=7 sfc=1 (k,N,d)=(3,1,2) r= 1 nu=T,3      |B|=1.302198e-11 err=8.2e-12 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=2.295 |R|/q^(d/2+N)=0.857
+q=7 sfc=1 (k,N,d)=(3,1,2) r= 1 nu=T2+3,1   |B|=3.542362e-11 err=7.5e-11 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=2.295 |R|/q^(d/2+N)=0.782
+q=7 sfc=1 (k,N,d)=(3,1,2) r= 1 nu=T2+T+3,2 |B|=3.112612e-11 err=2.6e-11 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=2.295 |R|/q^(d/2+N)=0.926
+q=7 sfc=1 (k,N,d)=(3,2,2) r= 2 nu=triv     |B|=1.164722e-11 err=6.1e-11 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=2.295 |R|/q^(d/2+N)=0.350
+q=7 sfc=1 (k,N,d)=(3,2,2) r= 2 nu=T,1      |B|=4.001777e-11 err=8.6e-11 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=2.295 |R|/q^(d/2+N)=0.836
+q=7 sfc=1 (k,N,d)=(3,2,2) r= 2 nu=T,3      |B|=5.031076e-11 err=6.4e-11 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=2.295 |R|/q^(d/2+N)=0.771
+q=7 sfc=1 (k,N,d)=(3,2,2) r= 2 nu=T2+3,1   |B|=1.680700e+04 err=2.0e-10 ratio=0.0111 (x null 0.08) princ=0.0000 diag=0.0000 nonpr=0.0111 conjrow=0.031 |c|/q^(d/2+k)=2.295 |R|/q^(d/2+N)=0.805
+q=7 sfc=1 (k,N,d)=(3,2,2) r= 2 nu=T2+T+3,2 |B|=1.176490e+05 err=1.7e-10 ratio=0.0698 (x null 0.49) princ=0.0000 diag=0.0000 nonpr=0.0698 conjrow=0.035 |c|/q^(d/2+k)=2.295 |R|/q^(d/2+N)=0.892
+q=7 sfc=1 (k,N,d)=(3,3,2) r= 3 nu=triv     |B|=6.725567e-09 err=7.1e-09 ratio=0.0000 (x null 0.00) princ=0.1761 diag=0.0405 nonpr=0.2165 conjrow=0.435 |c|/q^(d/2+k)=2.295 |R|/q^(d/2+N)=0.350
+q=7 sfc=1 (k,N,d)=(3,3,2) r= 3 nu=T,1      |B|=1.151098e-09 err=1.4e-09 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=2.295 |R|/q^(d/2+N)=0.814
+q=7 sfc=1 (k,N,d)=(3,3,2) r= 3 nu=T,3      |B|=1.224092e-09 err=1.4e-09 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=2.295 |R|/q^(d/2+N)=0.648
+q=7 sfc=1 (k,N,d)=(3,3,2) r= 3 nu=T2+3,1   |B|=1.546153e+06 err=7.0e-09 ratio=0.1710 (x null 1.20) princ=0.1588 diag=0.0304 nonpr=0.0501 conjrow=0.054 |c|/q^(d/2+k)=2.295 |R|/q^(d/2+N)=0.683
+q=7 sfc=1 (k,N,d)=(3,3,2) r= 3 nu=T2+T+3,2 |B|=1.825011e+06 err=1.3e-08 ratio=0.1681 (x null 1.18) princ=0.1284 diag=0.0245 nonpr=0.0153 conjrow=0.127 |c|/q^(d/2+k)=2.295 |R|/q^(d/2+N)=0.821
+q=7 sfc=1 (k,N,d)=(1,1,3) r=-2 nu=triv     |B|=1.440600e+04 err=5.5e-12 ratio=1.0000 (x null 18.52) princ=0.0000 diag=1.0000 nonpr=0.0000 conjrow=1.000 |c|/q^(d/2+k)=0.926 |R|/q^(d/2+N)=0.926
+q=7 sfc=1 (k,N,d)=(1,1,3) r=-2 nu=T,1      |B|=1.848941e-12 err=5.7e-13 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=0.926 |R|/q^(d/2+N)=0.857
+q=7 sfc=1 (k,N,d)=(1,1,3) r=-2 nu=T,3      |B|=8.550165e-13 err=7.6e-13 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=0.926 |R|/q^(d/2+N)=0.857
+q=7 sfc=1 (k,N,d)=(1,1,3) r=-2 nu=T2+3,1   |B|=5.444956e+03 err=1.9e-12 ratio=0.4472 (x null 8.28) princ=0.0000 diag=0.4472 nonpr=0.0000 conjrow=0.447 |c|/q^(d/2+k)=0.926 |R|/q^(d/2+N)=0.782
+q=7 sfc=1 (k,N,d)=(1,1,3) r=-2 nu=T2+T+3,2 |B|=5.444956e+03 err=1.3e-12 ratio=0.3780 (x null 7.00) princ=0.0000 diag=0.3780 nonpr=0.0000 conjrow=0.378 |c|/q^(d/2+k)=0.926 |R|/q^(d/2+N)=0.926
+q=7 sfc=1 (k,N,d)=(1,2,3) r=-1 nu=triv     |B|=8.644125e-13 err=8.6e-13 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=0.926 |R|/q^(d/2+N)=0.916
+q=7 sfc=1 (k,N,d)=(1,2,3) r=-1 nu=T,1      |B|=8.198074e-13 err=8.2e-13 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=0.926 |R|/q^(d/2+N)=0.806
+q=7 sfc=1 (k,N,d)=(1,2,3) r=-1 nu=T,3      |B|=8.450382e-13 err=8.5e-13 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=0.926 |R|/q^(d/2+N)=0.806
+q=7 sfc=1 (k,N,d)=(1,2,3) r=-1 nu=T2+3,1   |B|=1.411961e-12 err=1.4e-12 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=0.926 |R|/q^(d/2+N)=0.752
+q=7 sfc=1 (k,N,d)=(1,2,3) r=-1 nu=T2+T+3,2 |B|=2.171984e-12 err=2.2e-12 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=0.926 |R|/q^(d/2+N)=0.843
+q=7 sfc=1 (k,N,d)=(1,3,3) r= 0 nu=triv     |B|=3.811469e+04 err=1.4e-10 ratio=0.0590 (x null 1.09) princ=0.0590 diag=0.0000 nonpr=0.0000 conjrow=0.875 |c|/q^(d/2+k)=0.926 |R|/q^(d/2+N)=0.847
+q=7 sfc=1 (k,N,d)=(1,3,3) r= 0 nu=T,1      |B|=2.648489e-11 err=3.8e-11 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=0.926 |R|/q^(d/2+N)=0.781
+q=7 sfc=1 (k,N,d)=(1,3,3) r= 0 nu=T,3      |B|=4.573773e-11 err=4.5e-11 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=0.926 |R|/q^(d/2+N)=0.811
+q=7 sfc=1 (k,N,d)=(1,3,3) r= 0 nu=T2+3,1   |B|=1.052692e+05 err=1.1e-10 ratio=0.1735 (x null 3.21) princ=0.1735 diag=0.0000 nonpr=0.0000 conjrow=0.023 |c|/q^(d/2+k)=0.926 |R|/q^(d/2+N)=0.796
+q=7 sfc=1 (k,N,d)=(1,3,3) r= 0 nu=T2+T+3,2 |B|=1.008420e+05 err=8.3e-11 ratio=0.1504 (x null 2.79) princ=0.1504 diag=0.0000 nonpr=0.0000 conjrow=0.155 |c|/q^(d/2+k)=0.926 |R|/q^(d/2+N)=0.879
+q=7 sfc=1 (k,N,d)=(2,1,3) r=-1 nu=triv     |B|=9.602848e-13 err=9.6e-13 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=0.324 |R|/q^(d/2+N)=0.926
+q=7 sfc=1 (k,N,d)=(2,1,3) r=-1 nu=T,1      |B|=1.271057e-13 err=1.3e-13 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=0.324 |R|/q^(d/2+N)=0.857
+q=7 sfc=1 (k,N,d)=(2,1,3) r=-1 nu=T,3      |B|=1.607775e-13 err=1.6e-13 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=0.324 |R|/q^(d/2+N)=0.857
+q=7 sfc=1 (k,N,d)=(2,1,3) r=-1 nu=T2+3,1   |B|=2.842171e-13 err=2.8e-13 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=0.324 |R|/q^(d/2+N)=0.782
+q=7 sfc=1 (k,N,d)=(2,1,3) r=-1 nu=T2+T+3,2 |B|=9.554092e-13 err=9.6e-13 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=0.324 |R|/q^(d/2+N)=0.926
+q=7 sfc=1 (k,N,d)=(2,2,3) r= 0 nu=triv     |B|=1.440600e+04 err=9.6e-11 ratio=0.0589 (x null 1.09) princ=0.2946 diag=0.3536 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=0.324 |R|/q^(d/2+N)=0.916
+q=7 sfc=1 (k,N,d)=(2,2,3) r= 0 nu=T,1      |B|=1.385301e-11 err=8.5e-12 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.025 |c|/q^(d/2+k)=0.324 |R|/q^(d/2+N)=0.806
+q=7 sfc=1 (k,N,d)=(2,2,3) r= 0 nu=T,3      |B|=2.058000e+03 err=1.3e-11 ratio=0.0096 (x null 0.18) princ=0.0478 diag=0.0574 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=0.324 |R|/q^(d/2+N)=0.806
+q=7 sfc=1 (k,N,d)=(2,2,3) r= 0 nu=T2+3,1   |B|=1.510369e+04 err=6.8e-11 ratio=0.0753 (x null 1.40) princ=0.4484 diag=0.5238 nonpr=0.0000 conjrow=0.049 |c|/q^(d/2+k)=0.324 |R|/q^(d/2+N)=0.752
+q=7 sfc=1 (k,N,d)=(2,2,3) r= 0 nu=T2+T+3,2 |B|=1.491557e+04 err=1.2e-10 ratio=0.0663 (x null 1.23) princ=0.3954 diag=0.4616 nonpr=0.0000 conjrow=0.031 |c|/q^(d/2+k)=0.324 |R|/q^(d/2+N)=0.843
+q=7 sfc=1 (k,N,d)=(2,3,3) r= 1 nu=triv     |B|=2.401135e-11 err=4.4e-11 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=0.324 |R|/q^(d/2+N)=0.847
+q=7 sfc=1 (k,N,d)=(2,3,3) r= 1 nu=T,1      |B|=7.466724e-11 err=2.4e-11 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=0.324 |R|/q^(d/2+N)=0.781
+q=7 sfc=1 (k,N,d)=(2,3,3) r= 1 nu=T,3      |B|=1.716513e-10 err=6.1e-10 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=0.324 |R|/q^(d/2+N)=0.811
+q=7 sfc=1 (k,N,d)=(2,3,3) r= 1 nu=T2+3,1   |B|=4.038812e-11 err=1.3e-10 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=0.324 |R|/q^(d/2+N)=0.796
+q=7 sfc=1 (k,N,d)=(2,3,3) r= 1 nu=T2+T+3,2 |B|=7.811072e-11 err=6.7e-11 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=0.324 |R|/q^(d/2+N)=0.879
+q=7 sfc=1 (k,N,d)=(3,1,3) r= 0 nu=triv     |B|=1.638932e+06 err=4.7e-10 ratio=0.9909 (x null 18.35) princ=0.9909 diag=0.0000 nonpr=0.0000 conjrow=0.991 |c|/q^(d/2+k)=2.169 |R|/q^(d/2+N)=0.926
+q=7 sfc=1 (k,N,d)=(3,1,3) r= 0 nu=T,1      |B|=2.020634e-10 err=8.3e-11 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=2.169 |R|/q^(d/2+N)=0.857
+q=7 sfc=1 (k,N,d)=(3,1,3) r= 0 nu=T,3      |B|=1.128103e-10 err=3.4e-11 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=2.169 |R|/q^(d/2+N)=0.857
+q=7 sfc=1 (k,N,d)=(3,1,3) r= 0 nu=T2+3,1   |B|=6.194580e+05 err=5.5e-10 ratio=0.4432 (x null 8.21) princ=0.4432 diag=0.0000 nonpr=0.0000 conjrow=0.443 |c|/q^(d/2+k)=2.169 |R|/q^(d/2+N)=0.782
+q=7 sfc=1 (k,N,d)=(3,1,3) r= 0 nu=T2+T+3,2 |B|=6.194580e+05 err=8.2e-11 ratio=0.3745 (x null 6.94) princ=0.3745 diag=0.0000 nonpr=0.0000 conjrow=0.375 |c|/q^(d/2+k)=2.169 |R|/q^(d/2+N)=0.926
+q=7 sfc=1 (k,N,d)=(3,2,3) r= 1 nu=triv     |B|=1.158598e-10 err=1.2e-10 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=2.169 |R|/q^(d/2+N)=0.916
+q=7 sfc=1 (k,N,d)=(3,2,3) r= 1 nu=T,1      |B|=1.546890e-10 err=2.8e-10 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=2.169 |R|/q^(d/2+N)=0.806
+q=7 sfc=1 (k,N,d)=(3,2,3) r= 1 nu=T,3      |B|=3.108290e-10 err=3.8e-10 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=2.169 |R|/q^(d/2+N)=0.806
+q=7 sfc=1 (k,N,d)=(3,2,3) r= 1 nu=T2+3,1   |B|=4.326595e-10 err=4.8e-10 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=2.169 |R|/q^(d/2+N)=0.752
+q=7 sfc=1 (k,N,d)=(3,2,3) r= 1 nu=T2+T+3,2 |B|=7.836446e-11 err=2.4e-10 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=2.169 |R|/q^(d/2+N)=0.843
+q=7 sfc=1 (k,N,d)=(3,3,3) r= 2 nu=triv     |B|=3.529470e+06 err=8.9e-08 ratio=0.0476 (x null 0.88) princ=0.0770 diag=0.0163 nonpr=0.0457 conjrow=0.894 |c|/q^(d/2+k)=2.169 |R|/q^(d/2+N)=0.847
+q=7 sfc=1 (k,N,d)=(3,3,3) r= 2 nu=T,1      |B|=6.333678e-09 err=6.0e-09 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=2.169 |R|/q^(d/2+N)=0.781
+q=7 sfc=1 (k,N,d)=(3,3,3) r= 2 nu=T,3      |B|=4.478587e-09 err=7.0e-09 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=2.169 |R|/q^(d/2+N)=0.811
+q=7 sfc=1 (k,N,d)=(3,3,3) r= 2 nu=T2+3,1   |B|=1.257379e+07 err=4.8e-08 ratio=0.1805 (x null 3.34) princ=0.1443 diag=0.0277 nonpr=0.0105 conjrow=0.025 |c|/q^(d/2+k)=2.169 |R|/q^(d/2+N)=0.796
+q=7 sfc=1 (k,N,d)=(3,3,3) r= 2 nu=T2+T+3,2 |B|=1.185563e+07 err=2.1e-07 ratio=0.1541 (x null 2.85) princ=0.1268 diag=0.0242 nonpr=0.0033 conjrow=0.157 |c|/q^(d/2+k)=2.169 |R|/q^(d/2+N)=0.879
+q=7 sfc=1 (k,N,d)=(1,1,4) r=-3 nu=triv     |B|=1.008420e+05 err=3.3e-11 ratio=1.0000 (x null 49.00) princ=0.0000 diag=1.0000 nonpr=0.0000 conjrow=1.000 |c|/q^(d/2+k)=0.926 |R|/q^(d/2+N)=0.926
+q=7 sfc=1 (k,N,d)=(1,1,4) r=-3 nu=T,1      |B|=1.336119e-11 err=4.3e-12 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=0.926 |R|/q^(d/2+N)=0.857
+q=7 sfc=1 (k,N,d)=(1,1,4) r=-3 nu=T,3      |B|=6.282484e-12 err=5.8e-12 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=0.926 |R|/q^(d/2+N)=0.857
+q=7 sfc=1 (k,N,d)=(1,1,4) r=-3 nu=T2+3,1   |B|=3.811469e+04 err=7.3e-12 ratio=0.4472 (x null 21.91) princ=0.0000 diag=0.4472 nonpr=0.0000 conjrow=0.447 |c|/q^(d/2+k)=0.926 |R|/q^(d/2+N)=0.782
+q=7 sfc=1 (k,N,d)=(1,1,4) r=-3 nu=T2+T+3,2 |B|=3.811469e+04 err=9.1e-12 ratio=0.3780 (x null 18.52) princ=0.0000 diag=0.3780 nonpr=0.0000 conjrow=0.378 |c|/q^(d/2+k)=0.926 |R|/q^(d/2+N)=0.926
+q=7 sfc=1 (k,N,d)=(1,2,4) r=-2 nu=triv     |B|=2.911804e-12 err=2.9e-12 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=0.926 |R|/q^(d/2+N)=0.857
+q=7 sfc=1 (k,N,d)=(1,2,4) r=-2 nu=T,1      |B|=2.014536e-12 err=2.0e-12 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=0.926 |R|/q^(d/2+N)=0.803
+q=7 sfc=1 (k,N,d)=(1,2,4) r=-2 nu=T,3      |B|=3.215549e-12 err=3.2e-12 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=0.926 |R|/q^(d/2+N)=0.803
+q=7 sfc=1 (k,N,d)=(1,2,4) r=-2 nu=T2+3,1   |B|=2.171984e-12 err=2.2e-12 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=0.926 |R|/q^(d/2+N)=0.755
+q=7 sfc=1 (k,N,d)=(1,2,4) r=-2 nu=T2+T+3,2 |B|=7.720667e-12 err=7.7e-12 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=0.926 |R|/q^(d/2+N)=0.845
+q=7 sfc=1 (k,N,d)=(1,3,4) r=-1 nu=triv     |B|=6.644293e-11 err=6.6e-11 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=0.926 |R|/q^(d/2+N)=0.842
+q=7 sfc=1 (k,N,d)=(1,3,4) r=-1 nu=T,1      |B|=9.094947e-12 err=9.1e-12 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=0.926 |R|/q^(d/2+N)=0.826
+q=7 sfc=1 (k,N,d)=(1,3,4) r=-1 nu=T,3      |B|=2.387315e-11 err=2.4e-11 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=0.926 |R|/q^(d/2+N)=0.818
+q=7 sfc=1 (k,N,d)=(1,3,4) r=-1 nu=T2+3,1   |B|=4.816030e-11 err=4.8e-11 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=0.926 |R|/q^(d/2+N)=0.774
+q=7 sfc=1 (k,N,d)=(1,3,4) r=-1 nu=T2+T+3,2 |B|=1.933612e-11 err=1.9e-11 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=0.926 |R|/q^(d/2+N)=0.853
+q=7 sfc=1 (k,N,d)=(2,1,4) r=-2 nu=triv     |B|=4.823324e-12 err=4.8e-12 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=0.857 |R|/q^(d/2+N)=0.926
+q=7 sfc=1 (k,N,d)=(2,1,4) r=-2 nu=T,1      |B|=4.796453e-12 err=4.8e-12 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=0.857 |R|/q^(d/2+N)=0.857
+q=7 sfc=1 (k,N,d)=(2,1,4) r=-2 nu=T,3      |B|=1.892126e-12 err=1.9e-12 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=0.857 |R|/q^(d/2+N)=0.857
+q=7 sfc=1 (k,N,d)=(2,1,4) r=-2 nu=T2+3,1   |B|=9.713408e-13 err=9.7e-13 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=0.857 |R|/q^(d/2+N)=0.782
+q=7 sfc=1 (k,N,d)=(2,1,4) r=-2 nu=T2+T+3,2 |B|=2.651610e-12 err=2.7e-12 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=0.857 |R|/q^(d/2+N)=0.926
+q=7 sfc=1 (k,N,d)=(2,2,4) r=-1 nu=triv     |B|=6.050520e+05 err=1.4e-10 ratio=0.1429 (x null 7.00) princ=0.0000 diag=0.1429 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=0.857 |R|/q^(d/2+N)=0.857
+q=7 sfc=1 (k,N,d)=(2,2,4) r=-1 nu=T,1      |B|=1.566471e-10 err=1.3e-10 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.058 |c|/q^(d/2+k)=0.857 |R|/q^(d/2+N)=0.803
+q=7 sfc=1 (k,N,d)=(2,2,4) r=-1 nu=T,3      |B|=8.643600e+04 err=2.6e-10 ratio=0.0218 (x null 1.07) princ=0.0000 diag=0.0218 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=0.857 |R|/q^(d/2+N)=0.803
+q=7 sfc=1 (k,N,d)=(2,2,4) r=-1 nu=T2+3,1   |B|=7.351296e+05 err=1.2e-10 ratio=0.1971 (x null 9.66) princ=0.0000 diag=0.1971 nonpr=0.0000 conjrow=0.123 |c|/q^(d/2+k)=0.857 |R|/q^(d/2+N)=0.755
+q=7 sfc=1 (k,N,d)=(2,2,4) r=-1 nu=T2+T+3,2 |B|=7.271820e+05 err=4.7e-10 ratio=0.1741 (x null 8.53) princ=0.0000 diag=0.1741 nonpr=0.0000 conjrow=0.080 |c|/q^(d/2+k)=0.857 |R|/q^(d/2+N)=0.845
+q=7 sfc=1 (k,N,d)=(2,3,4) r= 0 nu=triv     |B|=3.201634e+06 err=2.4e-09 ratio=0.1099 (x null 5.38) princ=0.1099 diag=0.0000 nonpr=0.0000 conjrow=0.646 |c|/q^(d/2+k)=0.857 |R|/q^(d/2+N)=0.842
+q=7 sfc=1 (k,N,d)=(2,3,4) r= 0 nu=T,1      |B|=5.491300e-10 err=6.2e-10 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=0.857 |R|/q^(d/2+N)=0.826
+q=7 sfc=1 (k,N,d)=(2,3,4) r= 0 nu=T,3      |B|=3.397179e-10 err=1.5e-10 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=0.857 |R|/q^(d/2+N)=0.818
+q=7 sfc=1 (k,N,d)=(2,3,4) r= 0 nu=T2+3,1   |B|=4.355024e+06 err=5.5e-09 ratio=0.1627 (x null 7.97) princ=0.1627 diag=0.0000 nonpr=0.0000 conjrow=0.023 |c|/q^(d/2+k)=0.857 |R|/q^(d/2+N)=0.774
+q=7 sfc=1 (k,N,d)=(2,3,4) r= 0 nu=T2+T+3,2 |B|=4.211520e+06 err=5.4e-09 ratio=0.1428 (x null 7.00) princ=0.1428 diag=0.0000 nonpr=0.0000 conjrow=0.136 |c|/q^(d/2+k)=0.857 |R|/q^(d/2+N)=0.853
+q=7 sfc=1 (k,N,d)=(3,1,4) r=-1 nu=triv     |B|=9.176436e-11 err=9.2e-11 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=2.161 |R|/q^(d/2+N)=0.926
+q=7 sfc=1 (k,N,d)=(3,1,4) r=-1 nu=T,1      |B|=4.087670e-11 err=4.1e-11 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=2.161 |R|/q^(d/2+N)=0.857
+q=7 sfc=1 (k,N,d)=(3,1,4) r=-1 nu=T,3      |B|=1.423119e-10 err=1.4e-10 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=2.161 |R|/q^(d/2+N)=0.857
+q=7 sfc=1 (k,N,d)=(3,1,4) r=-1 nu=T2+3,1   |B|=4.968206e-11 err=5.0e-11 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=2.161 |R|/q^(d/2+N)=0.782
+q=7 sfc=1 (k,N,d)=(3,1,4) r=-1 nu=T2+T+3,2 |B|=1.054543e-10 err=1.1e-10 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=2.161 |R|/q^(d/2+N)=0.926
+q=7 sfc=1 (k,N,d)=(3,2,4) r= 0 nu=triv     |B|=8.004086e+06 err=8.8e-09 ratio=0.1071 (x null 5.25) princ=0.1071 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=2.161 |R|/q^(d/2+N)=0.857
+q=7 sfc=1 (k,N,d)=(3,2,4) r= 0 nu=T,1      |B|=3.561297e-09 err=3.1e-09 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.043 |c|/q^(d/2+k)=2.161 |R|/q^(d/2+N)=0.803
+q=7 sfc=1 (k,N,d)=(3,2,4) r= 0 nu=T,3      |B|=1.143441e+06 err=1.9e-09 ratio=0.0163 (x null 0.80) princ=0.0163 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=2.161 |R|/q^(d/2+N)=0.803
+q=7 sfc=1 (k,N,d)=(3,2,4) r= 0 nu=T2+3,1   |B|=1.181381e+07 err=1.5e-08 ratio=0.1795 (x null 8.80) princ=0.1795 diag=0.0000 nonpr=0.0000 conjrow=0.104 |c|/q^(d/2+k)=2.161 |R|/q^(d/2+N)=0.755
+q=7 sfc=1 (k,N,d)=(3,2,4) r= 0 nu=T2+T+3,2 |B|=1.170800e+07 err=1.3e-08 ratio=0.1588 (x null 7.78) princ=0.1588 diag=0.0000 nonpr=0.0000 conjrow=0.070 |c|/q^(d/2+k)=2.161 |R|/q^(d/2+N)=0.845
+q=7 sfc=1 (k,N,d)=(3,3,4) r= 1 nu=triv     |B|=5.294205e+07 err=8.7e-07 ratio=0.1030 (x null 5.05) princ=0.0777 diag=0.0165 nonpr=0.0088 conjrow=0.705 |c|/q^(d/2+k)=2.161 |R|/q^(d/2+N)=0.842
+q=7 sfc=1 (k,N,d)=(3,3,4) r= 1 nu=T,1      |B|=1.490298e-08 err=1.3e-08 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=2.161 |R|/q^(d/2+N)=0.826
+q=7 sfc=1 (k,N,d)=(3,3,4) r= 1 nu=T,3      |B|=7.508563e-09 err=1.2e-08 ratio=0.0000 (x null 0.00) princ=0.0000 diag=0.0000 nonpr=0.0000 conjrow=0.000 |c|/q^(d/2+k)=2.161 |R|/q^(d/2+N)=0.818
+q=7 sfc=1 (k,N,d)=(3,3,4) r= 1 nu=T2+3,1   |B|=8.373549e+07 err=7.3e-08 ratio=0.1773 (x null 8.69) princ=0.1489 diag=0.0285 nonpr=0.0002 conjrow=0.024 |c|/q^(d/2+k)=2.161 |R|/q^(d/2+N)=0.774
+q=7 sfc=1 (k,N,d)=(3,3,4) r= 1 nu=T2+T+3,2 |B|=8.118912e+07 err=1.6e-06 ratio=0.1560 (x null 7.64) princ=0.1312 diag=0.0250 nonpr=0.0003 conjrow=0.150 |c|/q^(d/2+k)=2.161 |R|/q^(d/2+N)=0.853

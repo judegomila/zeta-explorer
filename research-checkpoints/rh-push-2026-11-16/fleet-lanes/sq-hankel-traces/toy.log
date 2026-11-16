@@ -1,0 +1,50 @@
+=== A. on-line zeros only (RH toy) ===
+[RH-toy] alpha=0.7: zeros of F in RHP=0, poles of S in RHP=0, LHP=8
+   ||Gamma_-||_HS^2 (pole formula) = 0.0000000000   singular values^2 = []
+   sum_offline alpha^2/(alpha^2+beta^2) = 0.0000000000
+   k(-0.3) quadrature = -0.000006-0.000000j   -sum_RHP r e^(zu) = 0.000000
+   k(-1.0) quadrature = -0.000000-0.000000j   -sum_RHP r e^(zu) = 0.000000
+   k(-2.5) quadrature = 0.000001+0.000000j   -sum_RHP r e^(zu) = 0.000000
+   Besov double integral = 8.000000   ||G+||^2+||G-||^2 (poles) = 8.000000
+   -winding = -(1/2pi i) int conj(S) S' = 8.000000   ||G+||^2-||G-||^2 (poles) = 8.000000   #LHP-#RHP = 8
+=== B. one off-line quartet + on-line zeros ===
+[1 quartet] alpha=0.05: zeros of F in RHP=2, poles of S in RHP=2, LHP=8
+   ||Gamma_-||_HS^2 (pole formula) = 0.0477483517   singular values^2 = [0.0248482901 0.0229000616]
+   sum_offline alpha^2/(alpha^2+beta^2) = 0.0540540541
+[1 quartet] alpha=0.7: zeros of F in RHP=2, poles of S in RHP=2, LHP=8
+   ||Gamma_-||_HS^2 (pole formula) = 1.1477384202   singular values^2 = [0.5937149278 0.5540234924]
+   sum_offline alpha^2/(alpha^2+beta^2) = 1.6896551724
+   k(-0.3) quadrature = 0.253627-0.000000j   -sum_RHP r e^(zu) = 0.253637-0.000000j
+   k(-1.0) quadrature = -0.190507-0.000000j   -sum_RHP r e^(zu) = -0.190507-0.000000j
+   k(-2.5) quadrature = 0.171062+0.000000j   -sum_RHP r e^(zu) = 0.171061-0.000000j
+   Besov double integral = 8.295477   ||G+||^2+||G-||^2 (poles) = 8.295477
+   -winding = -(1/2pi i) int conj(S) S' = 6.000000   ||G+||^2-||G-||^2 (poles) = 6.000000   #LHP-#RHP = 6
+[1 quartet] alpha=5.0: zeros of F in RHP=2, poles of S in RHP=2, LHP=8
+   ||Gamma_-||_HS^2 (pole formula) = 1.9315089406   singular values^2 = [0.9679004245 0.9636085162]
+   sum_offline alpha^2/(alpha^2+beta^2) = 1.9928258270
+=== C. isolated quartet, two-zero model: sigma = alpha/sqrt(alpha^2+beta^2) ===
+   alpha=0.7 beta=0.3: singular values [0.9191450024 0.9191448419]  predicted 0.9191450300; Re pole [0.0615773387 0.0615773387] predicted 0.0615773106
+   alpha=0.1 beta=0.4: singular values [0.2425357257 0.2425352692]  predicted 0.2425356250; Re pole [0.312310574 0.312310574] predicted 0.3123105626
+   alpha=3.0 beta=0.2: singular values [0.9977851573 0.9977851551]  predicted 0.9977851579; Re pole [0.0066592773 0.0066592773] predicted 0.0066592757
+=== D. two quartets, large alpha: HS -> number of off-line zeros ===
+[2 quartets] alpha=0.1: zeros of F in RHP=4, poles of S in RHP=4, LHP=8
+   ||Gamma_-||_HS^2 (pole formula) = 0.7777587557   singular values^2 = [0.2976112854 0.2931163304 0.0946512907 0.0923798492]
+   sum_offline alpha^2/(alpha^2+beta^2) = 0.8153846154
+[2 quartets] alpha=1.0: zeros of F in RHP=4, poles of S in RHP=4, LHP=8
+   ||Gamma_-||_HS^2 (pole formula) = 3.7625791776   singular values^2 = [0.9745913267 0.9739434827 0.9085190904 0.9055252779]
+   sum_offline alpha^2/(alpha^2+beta^2) = 3.7908526054
+[2 quartets] alpha=10.0: zeros of F in RHP=4, poles of S in RHP=4, LHP=8
+   ||Gamma_-||_HS^2 (pole formula) = 3.9974145417   singular values^2 = [0.999738413  0.9997315143 0.9989906588 0.9989539556]
+   sum_offline alpha^2/(alpha^2+beta^2) = 3.9977517198
+[2 quartets] alpha=100.0: zeros of F in RHP=4, poles of S in RHP=4, LHP=8
+   ||Gamma_-||_HS^2 (pole formula) = 3.9999741221   singular values^2 = [0.9999973834 0.9999973143 0.9999898961 0.9999895283]
+   sum_offline alpha^2/(alpha^2+beta^2) = 3.9999775002
+[2 quartets] alpha=1000.0: zeros of F in RHP=4, poles of S in RHP=4, LHP=8
+   ||Gamma_-||_HS^2 (pole formula) = 3.9999997412   singular values^2 = [0.9999999738 0.9999999731 0.999999899  0.9999998953]
+   sum_offline alpha^2/(alpha^2+beta^2) = 3.9999997750
+=== E. backward-heat toy: f(t)=prod(t^2-g^2), f_tau = exp(-tau d^2/dt^2) f ===
+   tau=-0.05: non-real zeros of f_tau = 4, RHP poles of S = 2, ||Gamma_-||_HS^2 = 1.75307523
+   tau=+0.00: non-real zeros of f_tau = 0, RHP poles of S = 0, ||Gamma_-||_HS^2 = 0.00000000
+   tau=+0.02: non-real zeros of f_tau = 0, RHP poles of S = 0, ||Gamma_-||_HS^2 = 0.00000000
+   tau=+0.05: non-real zeros of f_tau = 0, RHP poles of S = 0, ||Gamma_-||_HS^2 = 0.00000000
+   tau=+0.20: non-real zeros of f_tau = 0, RHP poles of S = 0, ||Gamma_-||_HS^2 = 0.00000000

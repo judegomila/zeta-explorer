@@ -1,0 +1,198 @@
+{
+  "status": "floating diagnostics only; exponent identities use exact rational arithmetic",
+  "samples": [
+    {
+      "x": 256,
+      "U": 8,
+      "V": 8,
+      "shell": 0.03218879303132205,
+      "I4": 0.21478599616581695,
+      "centering": -0.18781501200295114,
+      "J": 0.026970984162865808,
+      "quadrature_error": 0.005217808868456242,
+      "quadrature_error_upper": 0.3757732678366417,
+      "tails": [
+        {
+          "K": 64,
+          "centered_partial": 0.043017290821714634,
+          "required_tail_correction": -0.016046306658847875,
+          "identity_residual": 9.506284648352903e-16,
+          "sum_absolute_centered_terms": 0.41199497403573965
+        },
+        {
+          "K": 128,
+          "centered_partial": 0.027469359557449332,
+          "required_tail_correction": -0.0004983753945824176,
+          "identity_residual": 1.106753577673203e-15,
+          "sum_absolute_centered_terms": 1.9992701311847851
+        },
+        {
+          "K": 256,
+          "centered_partial": 0.07622718463756542,
+          "required_tail_correction": -0.04925620047469881,
+          "identity_residual": 8.049116928532385e-16,
+          "sum_absolute_centered_terms": 5.9401096332620655
+        }
+      ]
+    },
+    {
+      "x": 1024,
+      "U": 13,
+      "V": 13,
+      "shell": 0.039346658123566414,
+      "I4": 2.7856269042684243,
+      "centering": -2.748684618279535,
+      "J": 0.03694228598888927,
+      "quadrature_error": 0.0024043721346771463,
+      "quadrature_error_upper": 0.3505301619550088,
+      "tails": [
+        {
+          "K": 158,
+          "centered_partial": 0.05472438693349979,
+          "required_tail_correction": -0.017782100944609525,
+          "identity_residual": 9.992007221626409e-16,
+          "sum_absolute_centered_terms": 0.923027987577411
+        },
+        {
+          "K": 316,
+          "centered_partial": -0.0063074503543208895,
+          "required_tail_correction": 0.043249736343213385,
+          "identity_residual": 3.226585665316861e-15,
+          "sum_absolute_centered_terms": 4.508222652297244
+        },
+        {
+          "K": 632,
+          "centered_partial": 0.003937728492954847,
+          "required_tail_correction": 0.03300455749593567,
+          "identity_residual": 1.2490009027033011e-15,
+          "sum_absolute_centered_terms": 12.62509994505826
+        }
+      ]
+    },
+    {
+      "x": 4096,
+      "U": 22,
+      "V": 22,
+      "shell": 0.003977129252632494,
+      "I4": -3.5787033616920776,
+      "centering": 3.5826977378991174,
+      "J": 0.003994376207039796,
+      "quadrature_error": -1.724695440730173e-05,
+      "quadrature_error_upper": 0.3988429089465172,
+      "tails": [
+        {
+          "K": 373,
+          "centered_partial": -0.0011951034195553506,
+          "required_tail_correction": 0.005189479626594107,
+          "identity_residual": -1.0399667238480959e-15,
+          "sum_absolute_centered_terms": 1.4123205337263118
+        },
+        {
+          "K": 746,
+          "centered_partial": -0.024543108081641563,
+          "required_tail_correction": 0.02853748428867675,
+          "identity_residual": -4.6074255521944e-15,
+          "sum_absolute_centered_terms": 6.481800276868119
+        },
+        {
+          "K": 1492,
+          "centered_partial": 0.0685609209668192,
+          "required_tail_correction": -0.06456654475978141,
+          "identity_residual": -1.9984014443252818e-15,
+          "sum_absolute_centered_terms": 20.640769484011535
+        }
+      ]
+    },
+    {
+      "x": 16384,
+      "U": 38,
+      "V": 38,
+      "shell": -0.022217462555140344,
+      "I4": -4.620248816340318,
+      "centering": 4.599297630402759,
+      "J": -0.020951185937558847,
+      "quadrature_error": -0.0012662766175814966,
+      "quadrature_error_upper": 0.49910398861254746,
+      "tails": [
+        {
+          "K": 863,
+          "centered_partial": -0.01722273979580529,
+          "required_tail_correction": -0.0037284461417499415,
+          "identity_residual": 3.615163723935666e-15,
+          "sum_absolute_centered_terms": 2.669760762560403
+        },
+        {
+          "K": 1726,
+          "centered_partial": -0.1880439324042631,
+          "required_tail_correction": 0.16709274646671446,
+          "identity_residual": 1.021405182655144e-14,
+          "sum_absolute_centered_terms": 13.809169941487973
+        },
+        {
+          "K": 3452,
+          "centered_partial": 0.4061884847870543,
+          "required_tail_correction": -0.4271396707246069,
+          "identity_residual": 6.2727600891321345e-15,
+          "sum_absolute_centered_terms": 43.16098901076562
+        }
+      ]
+    },
+    {
+      "x": 65536,
+      "U": 64,
+      "V": 64,
+      "shell": -0.048559837359434255,
+      "I4": -6.8097447828484565,
+      "centering": 6.759309221063262,
+      "J": -0.050435561785194594,
+      "quadrature_error": 0.001875724425760339,
+      "quadrature_error_upper": 0.560509128349658,
+      "tails": [
+        {
+          "K": 2048,
+          "centered_partial": 0.007973206228596354,
+          "required_tail_correction": -0.05840876801380546,
+          "identity_residual": -1.4509227153070015e-14,
+          "sum_absolute_centered_terms": 5.2470940823396255
+        },
+        {
+          "K": 4096,
+          "centered_partial": -0.4510642433736792,
+          "required_tail_correction": 0.4006286815884863,
+          "identity_residual": 1.7208456881689926e-15,
+          "sum_absolute_centered_terms": 27.51679738166446
+        },
+        {
+          "K": 8192,
+          "centered_partial": 0.4808608727392765,
+          "required_tail_correction": -0.5312964345244922,
+          "identity_residual": -2.1038726316646716e-14,
+          "sum_absolute_centered_terms": 86.08256111896665
+        }
+      ]
+    }
+  ],
+  "exponents": [
+    {
+      "theta": "1/2",
+      "balanced_row_exponent": "5/16",
+      "optimized_infimum": "1/10",
+      "direct_exponent": "0",
+      "loss": "1/10"
+    },
+    {
+      "theta": "2/3",
+      "balanced_row_exponent": "3/8",
+      "optimized_infimum": "3/14",
+      "direct_exponent": "1/6",
+      "loss": "1/21"
+    },
+    {
+      "theta": "7/8",
+      "balanced_row_exponent": "29/64",
+      "optimized_infimum": "13/34",
+      "direct_exponent": "3/8",
+      "loss": "1/136"
+    }
+  ]
+}

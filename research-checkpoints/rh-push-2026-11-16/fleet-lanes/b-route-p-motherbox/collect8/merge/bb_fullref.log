@@ -1,0 +1,1 @@
+{"run": "routeP-r4-certified", "admitted": 637, "U": "144997115913963/1000000000000000", "reproduced": true, "n_steps": 74239, "fails": {"E6-altlog": 1}, "h_min": 0.6336, "h_max": 2.18, "window_min_margin": 0.002055206525634991, "max_c_delta": 4.555496492470885e-05, "start_margin": 2.000000000517967e-06, "start_ok": true, "seconds": 96.9}

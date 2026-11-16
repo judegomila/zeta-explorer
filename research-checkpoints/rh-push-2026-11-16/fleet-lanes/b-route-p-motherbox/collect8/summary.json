@@ -1,0 +1,132 @@
+{
+ "assembly": {
+  "status": {
+   "CERTIFIED": 369
+  },
+  "complete": 334,
+  "incomplete": [
+   176,
+   181,
+   182,
+   185,
+   186,
+   187,
+   188,
+   190,
+   191,
+   192,
+   193,
+   195,
+   196,
+   197,
+   198,
+   199,
+   200,
+   201,
+   202,
+   203,
+   204,
+   205,
+   206,
+   207,
+   208,
+   254,
+   277,
+   278,
+   281,
+   282,
+   283,
+   284,
+   285,
+   286,
+   287
+  ],
+  "meets_target": 334,
+  "missing": []
+ },
+ "exact_cover": {
+  "checked": 369,
+  "bad": [],
+  "not_checked": [],
+  "max_margin_diff_vs_report": 0.0
+ },
+ "certfile_check": {
+  "mode": "fullref",
+  "entries": 642,
+  "from_base": 273,
+  "from_verified": 369,
+  "bad": 0,
+  "margins": 369,
+  "min_slack": 1.1322516738891863e-13,
+  "mine_entries": 642,
+  "mine_eq_cf": 466
+ },
+ "values": {
+  "r6": {
+   "U": "146660920737233/1000000000000000",
+   "dec": "0.146660920737233",
+   "grade": "CERTIFIED",
+   "floors": 0,
+   "below_0145": false
+  },
+  "full": {
+   "U": "36249280075807/250000000000000",
+   "dec": "0.144997120303228",
+   "grade": "CERTIFIED",
+   "floors": 369,
+   "below_0145": true
+  },
+  "fullref": {
+   "U": "144997115913963/1000000000000000",
+   "dec": "0.144997115913963",
+   "grade": "CERTIFIED",
+   "floors": 369,
+   "below_0145": true
+  },
+  "scen_target_missing": {
+   "U": "36249280075807/250000000000000",
+   "dec": "0.144997120303228",
+   "grade": "MEASURED (hypothetical margins)",
+   "floors": 369,
+   "below_0145": true
+  },
+  "scen_target": {
+   "U": "144990419308287/1000000000000000",
+   "dec": "0.144990419308287",
+   "grade": "MEASURED (hypothetical margins)",
+   "floors": 369,
+   "below_0145": true
+  }
+ },
+ "bands": {
+  "full": {
+   "E1_E8_fails": {},
+   "reproduced": true,
+   "n_steps": 74239,
+   "h_min": 0.6336,
+   "h_max": 2.18,
+   "altlog_fails": {},
+   "U_robust": "36249280075807/250000000000000"
+  },
+  "fullref": {
+   "E1_E8_fails": {
+    "E6-altlog": 1
+   },
+   "reproduced": true,
+   "n_steps": 74239,
+   "h_min": 0.6336,
+   "h_max": 2.18,
+   "altlog_fails": {
+    "E6-altlog": 1
+   },
+   "U_robust": "36249278978491/250000000000000"
+  }
+ },
+ "verdict": {
+  "fullref_U": "144997115913963/1000000000000000",
+  "fullref_dec": "0.144997115913963",
+  "all_checks_pass": false,
+  "grade": "NOT ADMISSIBLE: a check failed, see above",
+  "below_0145": true
+ }
+}

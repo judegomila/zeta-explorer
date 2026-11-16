@@ -1,0 +1,4 @@
+v2_q7.pkl Theorem U: max |nonprincipal| / q^(d+N+2r-1/2) over N<=d: (np.float64(0.32396954829371627), 3, 3, 4, 'triv') ( 79 blocks )
+v2_q7.pkl Theorem C: max |principal| / q^(d+5/6+r/6+k+N/2): (np.float64(1.94381728976174), 1, 1, 0, 'triv')  max |nonprincipal| / q^(d+r+1/2+(k+N)/2): (np.float64(0.8571428571428553), 1, 3, 0, 'triv')
+v2_q13.pkl Theorem U: max |nonprincipal| / q^(d+N+2r-1/2) over N<=d: (np.float64(0.2560154751809018), 2, 2, 2, 'triv') ( 19 blocks )
+v2_q13.pkl Theorem C: max |principal| / q^(d+5/6+r/6+k+N/2): (np.float64(3.0721857021705), 1, 1, 0, 'triv')  max |nonprincipal| / q^(d+r+1/2+(k+N)/2): (np.float64(0.2560154751809018), 2, 2, 2, 'triv')

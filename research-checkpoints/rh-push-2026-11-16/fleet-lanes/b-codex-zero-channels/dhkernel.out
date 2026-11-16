@@ -1,0 +1,6 @@
+evenness DH  max |K(u)/K(-u)-1| : 9.7047e-38
+transform/Lambda_DH(1/2+z) / (sqrt(5/pi)/4): (1.0 + 0.0j)
+transform/Lambda_DH(1/2+z) / (sqrt(5/pi)/4): (1.0 + 1.75299793651818e-41j)
+min K_DH on [0,1.5]: 7.38897e-109  K_DH(0)= 0.5763549565
+zeta  min V''(t) on (0,1.0]: 174.17945 at t= 0.0625  #nonconvex samples: 0 
+DH    min V''(t) on (0,1.5]: 40.683721 at t= 0.14  #nonconvex samples: 0 

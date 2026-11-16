@@ -1,0 +1,115 @@
+DH   window t in [80.0,120.0], X=3.0: zeros of F in |Re z|<X: 28.0 ; sign changes on axis N0=24 ; (N-N0)/2 = 2.0   [axis reality defect 5.37e-28]
+   alpha=0.02   zeros of D in right box: 2.0   axis Delta arg D / pi = 23.984711
+   alpha=0.5    zeros of D in right box: 2.0   axis Delta arg D / pi = 23.814772
+   WARNING large step 2.619
+   WARNING large step 1.388
+   WARNING large step -1.388
+   WARNING large step -2.619
+   alpha=5.0    zeros of D in right box: 2.0   axis Delta arg D / pi = 23.954657
+   WARNING large step -2.24
+   WARNING large step -2.751
+   WARNING large step -2.915
+   WARNING large step -2.402
+   WARNING large step 3.114
+   WARNING large step -2.832
+   WARNING large step -2.769
+   WARNING large step -2.738
+   WARNING large step -2.45
+   WARNING large step -2.688
+   WARNING large step -2.771
+   WARNING large step -2.542
+   WARNING large step -2.858
+   WARNING large step -2.434
+   WARNING large step -1.274
+   WARNING large step -1.795
+   WARNING large step -2.781
+   WARNING large step -2.537
+   WARNING large step -2.552
+   WARNING large step -2.812
+   WARNING large step -2.729
+   WARNING large step -2.762
+   WARNING large step -2.891
+   WARNING large step -2.721
+   WARNING large step -2.378
+   WARNING large step 2.929
+   WARNING large step -2.271
+   WARNING large step -2.849
+   WARNING large step -2.362
+   WARNING large step 2.362
+   WARNING large step 2.849
+   WARNING large step 2.271
+   WARNING large step -2.929
+   WARNING large step 2.378
+   WARNING large step 2.721
+   WARNING large step 2.891
+   WARNING large step 2.762
+   WARNING large step 2.729
+   WARNING large step 2.812
+   WARNING large step 2.552
+   WARNING large step 2.537
+   WARNING large step 2.781
+   WARNING large step 1.795
+   WARNING large step 1.274
+   WARNING large step 2.434
+   WARNING large step 2.858
+   WARNING large step 2.542
+   WARNING large step 2.771
+   WARNING large step 2.688
+   WARNING large step 2.45
+   WARNING large step 2.738
+   WARNING large step 2.769
+   WARNING large step 2.832
+   WARNING large step -3.114
+   WARNING large step 2.402
+   WARNING large step 2.915
+   WARNING large step 2.751
+   WARNING large step 2.24
+   alpha=100.0  zeros of D in right box: 2.0   axis Delta arg D / pi = 23.99769
+   (526s)
+zeta window t in [80.0,120.0], X=3.0: zeros of F in |Re z|<X: 17.0 ; sign changes on axis N0=17 ; (N-N0)/2 = -9.4663309e-30   [axis reality defect 8.96e-29]
+   alpha=0.02   zeros of D in right box: 1.4514211e-29   axis Delta arg D / pi = 17.010121
+   alpha=0.5    zeros of D in right box: 5.6944296e-30   axis Delta arg D / pi = 17.240813
+   alpha=5.0    zeros of D in right box: -8.9200142e-30   axis Delta arg D / pi = 17.842922
+   WARNING large step -2.493
+   WARNING large step -2.37
+   WARNING large step -2.455
+   WARNING large step -2.422
+   WARNING large step -2.778
+   WARNING large step -1.331
+   WARNING large step -1.24
+   WARNING large step -2.117
+   WARNING large step -2.731
+   WARNING large step -2.5
+   WARNING large step -2.185
+   WARNING large step -1.631
+   WARNING large step -1.652
+   WARNING large step -1.364
+   WARNING large step -2.652
+   WARNING large step -1.765
+   WARNING large step -2.749
+   WARNING large step -2.383
+   WARNING large step -2.582
+   WARNING large step -1.981
+   WARNING large step 1.981
+   WARNING large step 2.582
+   WARNING large step 2.383
+   WARNING large step 2.749
+   WARNING large step 1.765
+   WARNING large step 2.652
+   WARNING large step 1.364
+   WARNING large step 1.652
+   WARNING large step 1.631
+   WARNING large step 2.185
+   WARNING large step 2.5
+   WARNING large step 2.731
+   WARNING large step 2.117
+   WARNING large step 1.24
+   WARNING large step 1.331
+   WARNING large step 2.778
+   WARNING large step 2.422
+   WARNING large step 2.455
+   WARNING large step 2.37
+   WARNING large step 2.493
+   alpha=100.0  zeros of D in right box: 1.050197e-29   axis Delta arg D / pi = 17.991983
+   (74s)
+(third run, DH window [10,200], stopped before completion; not used)

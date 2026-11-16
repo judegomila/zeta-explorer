@@ -1,0 +1,20 @@
+{'a': 0.5, 'W_form': 0.08801461047371537, 'zero_sum_400': 0.08268470835226661, 'tail_estimate': 0.005323257456985925, 'zero_sum_total': 0.08800796580925253}
+arch+pole only radius a = 0.3716852784156799
+{'a': 0.3, '2a': 0.6, 'lam_min_zeta': np.float64(0.007625679694056505), 'lam_min_no_primes': np.float64(0.007625679694056505)}
+{'a': 0.3466, '2a': 0.6932, 'lam_min_zeta': np.float64(0.0013861173448775856), 'lam_min_no_primes': np.float64(0.0013863289899032768)}
+{'a': 0.4, '2a': 0.8, 'lam_min_zeta': np.float64(0.00024757715968216844), 'lam_min_no_primes': np.float64(-0.07781031625498516)}
+{'a': 0.45, '2a': 0.9, 'lam_min_zeta': np.float64(9.239504173301734e-05), 'lam_min_no_primes': np.float64(-0.2049699103513536)}
+{'a': 0.5, '2a': 1.0, 'lam_min_zeta': np.float64(8.823054586204692e-05), 'lam_min_no_primes': np.float64(-0.3219996645003318)}
+{'a': 0.5493, '2a': 1.0986, 'lam_min_zeta': np.float64(8.762898056814688e-05), 'lam_min_no_primes': np.float64(-0.430052621725479)}
+{'a': 0.6, '2a': 1.2, 'lam_min_zeta': np.float64(6.757986307798812e-05), 'lam_min_no_primes': np.float64(-0.5356386772565406)}
+{'a': 0.6931, '2a': 1.3862, 'lam_min_zeta': np.float64(7.051398711282827e-05), 'lam_min_no_primes': np.float64(-0.7203005043449584)}
+{'a': 0.8, '2a': 1.6, 'lam_min_zeta': np.float64(6.702607010540036e-05), 'lam_min_no_primes': np.float64(-0.9262208730875099)}
+{'a': 0.3466, '2a': 0.6932, 'class_min_lam': np.float64(0.0014499459381671566), 'argmin_phase': {2: np.float64(0.0)}, 'real_class_min': np.float64(0.0014499459381671566), 'zeta': np.float64(0.0014499459381671566)}
+{'a': 0.36, '2a': 0.72, 'class_min_lam': np.float64(0.0009743804662338595), 'argmin_phase': {2: np.float64(0.0)}, 'real_class_min': np.float64(0.0009743804662338595), 'zeta': np.float64(0.0009743804662338595)}
+{'a': 0.38, '2a': 0.76, 'class_min_lam': np.float64(-0.12148243997488205), 'argmin_phase': {2: np.float64(3.141592653589793)}, 'real_class_min': np.float64(-0.12148243997488205), 'zeta': np.float64(0.000537828398297106)}
+{'a': 0.4, '2a': 0.8, 'class_min_lam': np.float64(-0.2606485767151306), 'argmin_phase': {2: np.float64(3.141592653589793)}, 'real_class_min': np.float64(-0.2606485767151306), 'zeta': np.float64(0.00031923516539614574)}
+{'a': 0.42, '2a': 0.84, 'class_min_lam': np.float64(-0.3881758786031631), 'argmin_phase': {2: np.float64(3.141592653589793)}, 'real_class_min': np.float64(-0.3881758786031631), 'zeta': np.float64(0.00022231015752777227)}
+{'a': 0.45, '2a': 0.9, 'class_min_lam': np.float64(-0.5489661658603194), 'argmin_phase': {2: np.float64(3.141592653589793)}, 'real_class_min': np.float64(-0.5489661658603194), 'zeta': np.float64(0.00017707974655344964)}
+{'a': 0.5, '2a': 1.0, 'class_min_lam': np.float64(-0.7518762475632359), 'argmin_phase': {2: np.float64(3.141592653589793)}, 'real_class_min': np.float64(-0.7518762475632359), 'zeta': np.float64(0.00017728225018602726)}
+{'a': 0.5493, '2a': 1.0986, 'class_min_lam': np.float64(-0.8994582585415234), 'argmin_phase': {2: np.float64(3.141592653589793)}, 'real_class_min': np.float64(-0.8994582585415234), 'zeta': np.float64(0.00017284877435101278)}
+class-uniform radius a= 0.3614601211547852 2a= 0.7229202423095704  ln2= 0.6931471805599453

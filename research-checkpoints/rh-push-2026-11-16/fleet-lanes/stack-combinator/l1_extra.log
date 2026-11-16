@@ -1,0 +1,4 @@
+x0=0.4: max over |t-14.1347|<=0.1 of Re f'/f / log(t+2):  zeta 0.762   E_a(0.3) 3.835
+x0=0.33: max over |t-14.1347|<=0.1 of Re f'/f / log(t+2):  zeta 0.951   E_a(0.3) 12.281
+x0=0.31: max over |t-14.1347|<=0.1 of Re f'/f / log(t+2):  zeta 1.021   E_a(0.3) 36.273
+x0=0.301: max over |t-14.1347|<=0.1 of Re f'/f / log(t+2):  zeta 1.055   E_a(0.3) 359.944

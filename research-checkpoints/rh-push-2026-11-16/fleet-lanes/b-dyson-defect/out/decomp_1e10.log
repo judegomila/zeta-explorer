@@ -1,0 +1,3 @@
+L=21.188 N=19998279 J=1000  Q(flat, J neighbours)=-0.98228 +- 0.00051
+kappa=1.5708 nmax=199 (60 prime powers, 0s): P=-0.18433+-0.00004  R=-0.79794+-0.00051  P+R=-0.98228 | prime-sum P=-0.18476  (per-zero: slope -0.99852, rms W 2.5479, rms(W - s*S) 0.0482, <phi resid>=4.28e-04)
+kappa=3.1416 nmax=39900 (4277 prime powers, 13s): P=-0.83643+-0.00026  R=-0.14585+-0.00048  P+R=-0.98228 | prime-sum P=-0.83687  (per-zero: slope -0.99935, rms W 5.2172, rms(W - s*S) 0.0765, <phi resid>=4.36e-04)

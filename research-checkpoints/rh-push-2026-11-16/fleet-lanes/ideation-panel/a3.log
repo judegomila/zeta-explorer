@@ -1,0 +1,14 @@
+D_N(-1,..,-1) = sum_{n<=N} lambda(n)/sqrt(n), N=2: 0.292893
+D_N(-1,..,-1) = sum_{n<=N} lambda(n)/sqrt(n), N=3: -0.284457
+D_N(-1,..,-1) = sum_{n<=N} lambda(n)/sqrt(n), N=5: -0.231671
+D_N(-1,..,-1) = sum_{n<=N} lambda(n)/sqrt(n), N=10: 0.0946209
+D_N(-1,..,-1) = sum_{n<=N} lambda(n)/sqrt(n), N=50: -1.11844
+P=     2: model zeros 79, zeta zeros 79, min dphase/dt -1.142, mean|dz| 0.2471, max|dz| 0.5917 (mean spacing 2.4050632911392404)
+P=    10: model zeros 79, zeta zeros 79, min dphase/dt -2.45, mean|dz| 0.09901, max|dz| 0.3626 (mean spacing 2.4050632911392404)
+P=   100: model zeros 79, zeta zeros 79, min dphase/dt -3.131, mean|dz| 0.03024, max|dz| 0.1066 (mean spacing 2.4050632911392404)
+P=  1000: model zeros 79, zeta zeros 79, min dphase/dt -3.966, mean|dz| 0.01522, max|dz| 0.04531 (mean spacing 2.4050632911392404)
+P= 10000: model zeros 79, zeta zeros 79, min dphase/dt -9.389, mean|dz| 0.0114, max|dz| 0.03452 (mean spacing 2.4050632911392404)
+P=    10: min HB margin log|E(s)/E(1-conj s)| on grid = -3.6362 at (sigma,t)=(1.0, 190.5)  [>0 => all model zeros on the line there]
+P=   100: min HB margin log|E(s)/E(1-conj s)| on grid = -9.6623 at (sigma,t)=(1.0, 142.0)  [>0 => all model zeros on the line there]
+P=  1000: min HB margin log|E(s)/E(1-conj s)| on grid = -23.838 at (sigma,t)=(1.0, 151.5)  [>0 => all model zeros on the line there]
+P= 10000: min HB margin log|E(s)/E(1-conj s)| on grid = -90.731 at (sigma,t)=(1.0, 11.0)  [>0 => all model zeros on the line there]

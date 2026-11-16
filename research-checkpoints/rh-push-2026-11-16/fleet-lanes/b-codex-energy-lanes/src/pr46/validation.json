@@ -1,0 +1,34 @@
+{
+  "date": "2026-11-08",
+  "base_commit": "942ba1760c4ef54a519750ab91c37a661c31e0ce",
+  "runtime": {
+    "python": "3.12.14",
+    "sympy": "1.14.0",
+    "mpmath": "1.3.0"
+  },
+  "command": "python theta_modular_system_20261108.py",
+  "exit_code": 0,
+  "replay": {
+    "symbolic_modular_and_volterra_identities": "passed",
+    "simple_cone_outward_derivative": "-27/256",
+    "variational_negative_two_cycle": "-2*v",
+    "normalization_checks": 15,
+    "maximum_normalization_absolute_error": "4.2018351e-69",
+    "scope": "No all-orders energy positivity is asserted; cusp obstruction has a separate analytic proof."
+  },
+  "local_markdown_links": "passed",
+  "analytic_review": {
+    "modular_energy": "internally cross-checked",
+    "rational_cusp_obstruction": "internally cross-checked",
+    "canonical_endpoint_and_prototype": "independently reviewed against primary EKT statements",
+    "operator_domains": "internally cross-checked",
+    "grouped_contour_and_weight_threshold": "internally cross-checked"
+  },
+  "numerics_scope": "Finite high-precision normalization diagnostics, not interval certificates.",
+  "unproved": [
+    "all-polynomial theta energy nonnegativity",
+    "exact positive canonical realization of xi",
+    "RH"
+  ],
+  "ci_scope": "Repository CI is reported separately in the PR; it does not verify the mathematical proofs."
+}

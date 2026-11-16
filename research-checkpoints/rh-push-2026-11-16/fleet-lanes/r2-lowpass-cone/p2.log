@@ -1,0 +1,8 @@
+(a) extreme rays; roots tau_k log-uniform on [1,1e4]; T=100
+N K samples | frac in K_Om | frac all roots<T | frac all roots<T-0.64K | in K_Om but max root>T | max root<T-0.64K but not in K_Om | max root of members
+3 1 400 | 0.5175 | 0.5175 | 0.5175 | 0 | 0 | 99.32
+5 2 400 | 0.255 | 0.255 | 0.2525 | 0 | 0 | 99.26
+9 4 400 | 0.0575 | 0.0575 | 0.0575 | 0 | 0 | 91.67
+15 7 400 | 0.0075 | 0.0075 | 0.0075 | 0 | 0 | 70.3
+21 10 400 | 0.0 | 0.0 | 0.0 | 0 | 0 | 0
+31 15 400 | 0.0 | 0.0 | 0.0 | 0 | 0 | 0

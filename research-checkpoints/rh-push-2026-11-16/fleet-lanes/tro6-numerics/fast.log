@@ -1,0 +1,53 @@
+cache ready (448 primes), 180s
+rows 11628; n-terms 61077; setup 183s
+  block 0 done (N <= 67), 261s
+  block 250 done (N <= 139), 343s
+  block 500 done (N <= 208), 435s
+  block 750 done (N <= 273), 531s
+  block 1000 done (N <= 343), 600s
+  block 1250 done (N <= 412), 671s
+  block 1500 done (N <= 481), 747s
+  block 1750 done (N <= 553), 829s
+  block 2000 done (N <= 624), 911s
+  block 2250 done (N <= 687), 997s
+  block 2500 done (N <= 763), 1072s
+budget reached before block 2750
+cache ready (448 primes), 4s
+rows 11628; n-terms 61077; setup 6s
+  block 2750 done (N <= 823), 87s
+  block 3000 done (N <= 892), 121s
+  block 3250 done (N <= 967), 155s
+  block 3500 done (N <= 1033), 178s
+  block 3750 done (N <= 1099), 201s
+  block 4000 done (N <= 1168), 222s
+  block 4250 done (N <= 1237), 250s
+  block 4500 done (N <= 1308), 272s
+  block 4750 done (N <= 1381), 295s
+  block 5000 done (N <= 1447), 319s
+  block 5250 done (N <= 1519), 342s
+  block 5500 done (N <= 1591), 364s
+  block 5750 done (N <= 1657), 386s
+  block 6000 done (N <= 1729), 411s
+  block 6250 done (N <= 1792), 435s
+  block 6500 done (N <= 1861), 459s
+  block 6750 done (N <= 1933), 488s
+  block 7000 done (N <= 1996), 508s
+  block 7250 done (N <= 2071), 526s
+  block 7500 done (N <= 2131), 550s
+  block 7750 done (N <= 2203), 565s
+  block 8000 done (N <= 2275), 587s
+  block 8250 done (N <= 2352), 605s
+  block 8500 done (N <= 2413), 624s
+  block 8750 done (N <= 2479), 643s
+  block 9000 done (N <= 2548), 663s
+  block 9250 done (N <= 2617), 682s
+  block 9500 done (N <= 2692), 697s
+  block 9750 done (N <= 2757), 717s
+  block 10000 done (N <= 2821), 740s
+  block 10250 done (N <= 2892), 763s
+  block 10500 done (N <= 2971), 781s
+  block 10750 done (N <= 3031), 802s
+  block 11000 done (N <= 3097), 820s
+  block 11250 done (N <= 3172), 839s
+  block 11500 done (N <= 3199), 849s
+ALLDONE

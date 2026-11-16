@@ -1,0 +1,16 @@
+### motherbox launch 2026-11-16_21:20:35 idx 287 target 0.05 budget 10200
+[287] 496|0.88|r_23_40 cell 496 K0* 0.675284179 target 0.050000000 policy {'coarsen': 0.05, 'adapt': 0.05, 'recmp': 3, 'octgap': 0.03, 'lazy': inf, 'gapr': 0.0, 'fullgap': inf, 'refresh': 1, 'maxdepth': 22} resume True
+   r7f 18552 evals (5880 cheap, 3933 gap, 8739 full, 0 lazy), open 534, done 7635, top 0.05036, done_max 0.05000, 40261s
+   r7f 18585 evals (5900 cheap, 3933 gap, 8752 full, 0 lazy), open 524, done 7655, top 0.05035, done_max 0.05000, 40598s
+   r7f 18602 evals (5910 cheap, 3933 gap, 8759 full, 0 lazy), open 519, done 7665, top 0.05035, done_max 0.05000, 40900s
+   r7f 18621 evals (5920 cheap, 3933 gap, 8768 full, 0 lazy), open 514, done 7675, top 0.05034, done_max 0.05000, 41255s
+   r7f 18657 evals (5942 cheap, 3933 gap, 8782 full, 0 lazy), open 503, done 7697, top 0.05034, done_max 0.05000, 41581s
+   r7f 18676 evals (5954 cheap, 3933 gap, 8789 full, 0 lazy), open 497, done 7709, top 0.05033, done_max 0.05000, 41933s
+   r7f 18707 evals (5972 cheap, 3935 gap, 8800 full, 0 lazy), open 488, done 7727, top 0.05032, done_max 0.05000, 42254s
+   r7f 18725 evals (5982 cheap, 3935 gap, 8808 full, 0 lazy), open 483, done 7737, top 0.05032, done_max 0.05000, 42586s
+   r7f 18774 evals (6014 cheap, 3935 gap, 8825 full, 0 lazy), open 467, done 7769, top 0.05031, done_max 0.05000, 42892s
+   r7f 18909 evals (6094 cheap, 3936 gap, 8879 full, 0 lazy), open 427, done 7849, top 0.05027, done_max 0.05000, 43198s
+   r7f 19047 evals (6176 cheap, 3939 gap, 8932 full, 0 lazy), open 386, done 7931, top 0.05024, done_max 0.05000, 43500s
+### motherbox emit 2026-11-16_22:24:06 idx 287
+[287] 496|0.88|r_23_40 cell 496 K0* 0.675284179 target 0.050000000 policy {'coarsen': 0.05, 'adapt': 0.05, 'recmp': 3, 'octgap': 0.03, 'lazy': inf, 'gapr': 0.0, 'fullgap': inf, 'refresh': 1, 'maxdepth': 22} resume True
+[287] 496|0.88|r_23_40 cell 496: margin 0.0502256 (target 0.050000) complete False boxes 8349 open 354 evals 19153 (cheap 6240 gap 3943 full 8970 lazy 0) wall 43698s cpu 41114s

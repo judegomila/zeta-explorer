@@ -1,0 +1,2 @@
+== 2. first moments on vertical progressions (Lemma M) ==
+ m=2 sigma0=0.5 b=0.3 N=500: mean zeta=(2.73092 - 1.14429j) pred=(2.6505 - 1.25573j) | mean zeta'=(-2.63229 + 3.09331j) pred=(-1.93927 + 3.7436j) | sum G*zeta/(c N (log N)/2)=(0.89936 + 0.29206j)

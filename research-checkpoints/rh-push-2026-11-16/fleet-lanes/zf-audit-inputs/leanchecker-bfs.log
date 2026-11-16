@@ -1,0 +1,7 @@
+OK OAI.NumberTheory.DirichletL.Nonvanishing 83s
+OK OAI.NumberTheory.DirichletL.Foundation 98s
+OK OAI.NumberTheory.DirichletL.Detector.FinalAssemblyUnconditional 79s
+OK OAI.NumberTheory.DirichletL.Arithmetic.EisensteinCoordinates 69s
+OK OAI.NumberTheory.DirichletL.Mellin.ExponentialSmoothing 100s
+OK OAI.NumberTheory.DirichletL.Mellin.LogProfiles 105s
+STOP budget before OAI.NumberTheory.DirichletL.ChineseRemainder.AdditiveCharacters

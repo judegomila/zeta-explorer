@@ -1,0 +1,90 @@
+{
+  "status": "certified wider finite band; global gain theorem remains open",
+  "dependency": {
+    "file": "growing-arithmetic.json",
+    "sha256": "b10d7c89b3e439fcd9c5cbde2c312eb5b1ff6194ddda81e66ce527f13eb3989e"
+  },
+  "center": 1967.40625,
+  "height_half_width": "1/128",
+  "widening_factor": "32",
+  "threshold": "15/16",
+  "exact_checks": {
+    "rational_kernel_comparisons": 216,
+    "adjacent_height_factor_upper": 4.4140770755089695,
+    "adjacent_height_no_repair_threshold_lower": 0.21238867921034224,
+    "dyadic_halving_same_center_factor": 2
+  },
+  "finite_scales": [
+    {
+      "scale": "1/2",
+      "cutoff": 3,
+      "transport_factor_upper": 1.0479905023094256,
+      "energy_upper": 0.9004435065763892
+    },
+    {
+      "scale": "1/4",
+      "cutoff": 3,
+      "transport_factor_upper": 1.0982809511507128,
+      "energy_upper": 0.2022939712891033
+    },
+    {
+      "scale": "1/8",
+      "cutoff": 2,
+      "transport_factor_upper": 1.2061934549237143,
+      "energy_upper": 0.7519203191001621
+    },
+    {
+      "scale": "1/16",
+      "cutoff": 2,
+      "transport_factor_upper": 1.4546368582780882,
+      "energy_upper": 0.2598720963315523
+    },
+    {
+      "scale": "1/32",
+      "cutoff": 2,
+      "transport_factor_upper": 2.1128980351968623,
+      "energy_upper": 0.10837621332822717
+    },
+    {
+      "scale": "1/64",
+      "cutoff": 2,
+      "transport_factor_upper": 4.4140770755089695,
+      "energy_upper": 0.0721931201375628
+    },
+    {
+      "scale": "1/128",
+      "cutoff": 2,
+      "transport_factor_upper": 17.944271909999163,
+      "energy_upper": 0.11597357964486057
+    },
+    {
+      "scale": "1/256",
+      "cutoff": 2,
+      "transport_factor_upper": 197.99494936611669,
+      "energy_upper": 0.7080385004906941
+    }
+  ],
+  "small_scales": {
+    "upper_scale": "1/256",
+    "inner_radius": "1/32",
+    "central_union_radius": "5/128",
+    "inner_energy_upper": 0.20110893932822643,
+    "outer_energy_upper": 3.575834817750783e-06,
+    "omitted_energy_upper": 4.742160722399396e-17,
+    "energy_upper": 0.2011125151630443,
+    "coefficients": [
+      [
+        "-67999/1048576",
+        "-2794411/16777216"
+      ],
+      [
+        "67999/524288",
+        "2794411/8388608"
+      ]
+    ]
+  },
+  "source_errors": {
+    "em_remainder_upper": 1.9823422400357357e-07,
+    "source_jet_remainder_upper": 2.3584212815460872e-08
+  }
+}

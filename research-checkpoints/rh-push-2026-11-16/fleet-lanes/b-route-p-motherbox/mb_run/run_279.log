@@ -1,0 +1,13 @@
+### motherbox launch 2026-11-16_21:20:35 idx 279 target 0.05523947403997575 budget 10200
+[279] 488|0.88|r_23_40 cell 488 K0* 0.686149381 target 0.055239474 policy {'coarsen': 0.05, 'adapt': 0.05, 'recmp': 3, 'octgap': 0.03, 'lazy': inf, 'gapr': 0.0, 'fullgap': inf, 'refresh': 1, 'maxdepth': 22} resume True
+   r7f 19720 evals (5782 cheap, 4703 gap, 9235 full, 0 lazy), open 233, done 8857, top 0.05538, done_max 0.05524, 43676s
+   r7f 19754 evals (5802 cheap, 4703 gap, 9249 full, 0 lazy), open 223, done 8877, top 0.05537, done_max 0.05524, 44035s
+   r7f 19817 evals (5844 cheap, 4705 gap, 9268 full, 0 lazy), open 201, done 8921, top 0.05535, done_max 0.05524, 44360s
+   r7f 19845 evals (5864 cheap, 4705 gap, 9276 full, 0 lazy), open 191, done 8941, top 0.05535, done_max 0.05524, 44711s
+   r7f 19872 evals (5882 cheap, 4705 gap, 9285 full, 0 lazy), open 182, done 8959, top 0.05534, done_max 0.05524, 45014s
+   r7f 19894 evals (5896 cheap, 4705 gap, 9293 full, 0 lazy), open 175, done 8973, top 0.05534, done_max 0.05524, 45335s
+   r7f 19923 evals (5918 cheap, 4705 gap, 9300 full, 0 lazy), open 164, done 8995, top 0.05533, done_max 0.05524, 45642s
+   r7f 19958 evals (5942 cheap, 4705 gap, 9311 full, 0 lazy), open 152, done 9019, top 0.05532, done_max 0.05524, 45973s
+   r7f 19991 evals (5964 cheap, 4705 gap, 9322 full, 0 lazy), open 141, done 9041, top 0.05532, done_max 0.05524, 46284s
+   r7f 20204 evals (6134 cheap, 4705 gap, 9365 full, 0 lazy), open 56, done 9211, top 0.05527, done_max 0.05524, 46584s
+[279] 488|0.88|r_23_40 cell 488: margin 0.0552393 (target 0.055239) complete True boxes 9323 open 0 evals 20318 (cheap 6246 gap 4705 full 9367 lazy 0) wall 46659s cpu 42410s

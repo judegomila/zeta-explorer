@@ -1,0 +1,65 @@
+q=5 eps (0.85065080835204+0.5257311121191334j) arg(-conj eps) 2.5880182946927484 T_dh 2.588018294692748
+DH sigma* = 1.1203626706951286 -5.3281909396182864e-17 2.588018294692728
+DH sigma* with X= 1000000 1.1203616955866007
+5 2 done 2
+7 2 done 4
+7 3 done 6
+11 2 done 8
+11 3 done 10
+11 5 done 12
+11 7 done 14
+13 2 done 16
+13 3 done 18
+13 4 done 20
+13 5 done 22
+13 6 done 24
+17 2 done 26
+17 3 done 28
+17 4 done 30
+17 5 done 32
+17 8 done 34
+17 10 done 36
+17 11 done 38
+19 2 done 40
+19 3 done 42
+19 4 done 44
+19 6 done 46
+19 7 done 48
+19 8 done 50
+19 9 done 52
+19 14 done 54
+29 2 done 56
+29 3 done 58
+29 4 done 60
+29 5 done 62
+29 7 done 64
+31 2 done 66
+31 3 done 68
+31 4 done 70
+31 5 done 72
+31 6 done 74
+37 2 done 76
+37 3 done 78
+37 4 done 80
+37 5 done 82
+37 6 done 84
+41 2 done 86
+41 3 done 88
+41 4 done 90
+41 5 done 92
+41 6 done 94
+n twins 94 sigma* range 1.0694806979704727 3.6817212752243442
+corr(sigma*,|target|) -0.8499896793407324 corr(sigma*,euler density) -0.03528866192828171
+density 0.0500 n=2 mean sigma* 1.3838 min 1.1879 max 1.5797
+density 0.0556 n=4 mean sigma* 1.3221 min 1.1686 max 1.5007
+density 0.0667 n=2 mean sigma* 1.3210 min 1.3025 max 1.3395
+density 0.0714 n=4 mean sigma* 1.4638 min 1.1097 max 1.9363
+density 0.1000 n=4 mean sigma* 1.4824 min 1.1839 max 1.9601
+density 0.1111 n=16 mean sigma* 1.5685 min 1.0793 max 2.8259
+density 0.1250 n=8 mean sigma* 1.8427 min 1.0859 max 3.6817
+density 0.1429 n=6 mean sigma* 1.3381 min 1.1368 max 1.5785
+density 0.1667 n=4 mean sigma* 1.3510 min 1.1633 max 1.6173
+density 0.2000 n=14 mean sigma* 1.6519 min 1.0714 max 2.8288
+density 0.2500 n=6 mean sigma* 1.4658 min 1.1785 max 2.0166
+density 0.3333 n=16 mean sigma* 1.4703 min 1.0695 max 2.4322
+density 0.5000 n=8 mean sigma* 1.4520 min 1.0939 max 2.3823

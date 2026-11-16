@@ -1,0 +1,17 @@
+theta=   0.5000 ceiling=0.567459 at R=1.0837 q1=-0.1200
+theta=   0.5152 ceiling=0.571794 at R=1.0687 q1=-0.1092
+theta=   0.5455 ceiling=0.580492 at R=1.0437 q1=-0.0958
+theta=   0.5714 ceiling=0.588003 at R=1.0187 q1=-0.0788
+theta=   0.6000 ceiling=0.596194 at R=0.9938 q1=-0.0638
+theta=   0.6667 ceiling=0.614840 at R=0.9438 q1=-0.0275
+theta=   0.7500 ceiling=0.636970 at R=0.8839 q1=0.0075
+theta=   0.8750 ceiling=0.667169 at R=0.8090 q1=0.0589
+theta=   1.0000 ceiling=0.693858 at R=0.7441 q1=0.1087
+theta=   1.5000 ceiling=0.772364 at R=0.5743 q1=0.2464
+theta=   2.0000 ceiling=0.822034 at R=0.4744 q1=0.3337
+theta=   3.0000 ceiling=0.879654 at R=0.3546 q1=0.4537
+theta=   5.0000 ceiling=0.931199 at R=0.2497 q1=0.5887
+theta=  10.0000 ceiling=0.970928 at R=0.1498 q1=0.7312
+theta=  30.0000 ceiling=0.993890 at R=0.0599 q1=0.8737
+theta= 100.0000 ceiling=0.999058 at R=0.0250 q1=0.9525
+theta=1000.0000 ceiling=0.999954 at R=0.0100 q1=0.9924

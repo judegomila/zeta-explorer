@@ -1,0 +1,17 @@
+### motherbox launch 2026-11-16_21:20:35 idx 283 target 0.05 budget 10200
+[283] 492|0.88|r_23_40 cell 492 K0* 0.673893739 target 0.050000000 policy {'coarsen': 0.05, 'adapt': 0.05, 'recmp': 3, 'octgap': 0.03, 'lazy': inf, 'gapr': 0.0, 'fullgap': inf, 'refresh': 1, 'maxdepth': 22} resume True
+   r7f 19089 evals (6056 cheap, 4001 gap, 9032 full, 0 lazy), open 715, done 7630, top 0.05043, done_max 0.05000, 40585s
+   r7f 19117 evals (6072 cheap, 4003 gap, 9042 full, 0 lazy), open 707, done 7646, top 0.05042, done_max 0.05000, 40911s
+   r7f 19139 evals (6086 cheap, 4003 gap, 9050 full, 0 lazy), open 700, done 7660, top 0.05041, done_max 0.05000, 41241s
+   r7f 19153 evals (6094 cheap, 4003 gap, 9056 full, 0 lazy), open 696, done 7668, top 0.05041, done_max 0.05000, 41546s
+   r7f 19177 evals (6108 cheap, 4003 gap, 9066 full, 0 lazy), open 689, done 7682, top 0.05041, done_max 0.05000, 41895s
+   r7f 19195 evals (6118 cheap, 4003 gap, 9074 full, 0 lazy), open 684, done 7692, top 0.05041, done_max 0.05000, 42257s
+   r7f 19207 evals (6124 cheap, 4003 gap, 9080 full, 0 lazy), open 681, done 7698, top 0.05040, done_max 0.05000, 42558s
+   r7f 19231 evals (6138 cheap, 4003 gap, 9090 full, 0 lazy), open 674, done 7712, top 0.05040, done_max 0.05000, 42860s
+   r7f 19250 evals (6148 cheap, 4003 gap, 9099 full, 0 lazy), open 669, done 7722, top 0.05040, done_max 0.05000, 43162s
+   r7f 19376 evals (6220 cheap, 4005 gap, 9151 full, 0 lazy), open 632, done 7796, top 0.05038, done_max 0.05000, 43462s
+   r7f 19514 evals (6300 cheap, 4007 gap, 9207 full, 0 lazy), open 591, done 7878, top 0.05035, done_max 0.05000, 43771s
+   r7f 19651 evals (6380 cheap, 4007 gap, 9264 full, 0 lazy), open 551, done 7958, top 0.05032, done_max 0.05000, 44074s
+### motherbox emit 2026-11-16_22:24:07 idx 283
+[283] 492|0.88|r_23_40 cell 492 K0* 0.673893739 target 0.050000000 policy {'coarsen': 0.05, 'adapt': 0.05, 'recmp': 3, 'octgap': 0.03, 'lazy': inf, 'gapr': 0.0, 'fullgap': inf, 'refresh': 1, 'maxdepth': 22} resume True
+[283] 492|0.88|r_23_40 cell 492: margin 0.0503187 (target 0.050000) complete False boxes 8508 open 552 evals 19647 (cheap 6378 gap 4007 full 9262 lazy 0) wall 44065s cpu 41619s

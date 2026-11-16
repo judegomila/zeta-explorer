@@ -1,0 +1,170 @@
+[
+ {
+  "target": "DH target 2.588",
+  "P": 0,
+  "sigma_star": 1.1203624601963513,
+  "sigma_star_minus_1": 0.12036246019635133,
+  "(sigma*-1)*log P": null
+ },
+ {
+  "target": "DH target 2.588",
+  "P": 2,
+  "sigma_star": 1.0467127950537531,
+  "sigma_star_minus_1": 0.04671279505375314,
+  "(sigma*-1)*log P": 0.03237884218758355
+ },
+ {
+  "target": "DH target 2.588",
+  "P": 3,
+  "sigma_star": 1.0242665014914438,
+  "sigma_star_minus_1": 0.024266501491443826,
+  "(sigma*-1)*log P": 0.026659476741483203
+ },
+ {
+  "target": "DH target 2.588",
+  "P": 7,
+  "sigma_star": 1.0182420099779266,
+  "sigma_star_minus_1": 0.018242009977926577,
+  "(sigma*-1)*log P": 0.03549731235521562
+ },
+ {
+  "target": "DH target 2.588",
+  "P": 13,
+  "sigma_star": 1.0156411051443677,
+  "sigma_star_minus_1": 0.015641105144367673,
+  "(sigma*-1)*log P": 0.0401186425900342
+ },
+ {
+  "target": "DH target 2.588",
+  "P": 23,
+  "sigma_star": 1.0127420105843603,
+  "sigma_star_minus_1": 0.012742010584360308,
+  "(sigma*-1)*log P": 0.03995250048656975
+ },
+ {
+  "target": "DH target 2.588",
+  "P": 47,
+  "sigma_star": 1.011043128361328,
+  "sigma_star_minus_1": 0.011043128361327925,
+  "(sigma*-1)*log P": 0.04251767417574304
+ },
+ {
+  "target": "DH target 2.588",
+  "P": 97,
+  "sigma_star": 1.0096027773070928,
+  "sigma_star_minus_1": 0.009602777307092802,
+  "(sigma*-1)*log P": 0.043929930770880594
+ },
+ {
+  "target": "DH target 2.588",
+  "P": 997,
+  "sigma_star": 1.0063564142107826,
+  "sigma_star_minus_1": 0.0063564142107825905,
+  "(sigma*-1)*log P": 0.04388945591609746
+ },
+ {
+  "target": "DH target 2.588",
+  "P": 9973,
+  "sigma_star": 1.004787197879122,
+  "sigma_star_minus_1": 0.004787197879122074,
+  "(sigma*-1)*log P": 0.04407877897963435
+ },
+ {
+  "target": "DH target 2.588",
+  "P": 99991,
+  "sigma_star": 1.003828924628257,
+  "sigma_star_minus_1": 0.0038289246282570133,
+  "(sigma*-1)*log P": 0.044081779237387216
+ },
+ {
+  "target": "DH target 2.588",
+  "P": 999983,
+  "sigma_star": 1.0031910962060113,
+  "sigma_star_minus_1": 0.0031910962060113235,
+  "(sigma*-1)*log P": 0.04408656907653256
+ },
+ {
+  "target": "easy target 0.5536 (omega=-1)",
+  "P": 0,
+  "sigma_star": 2.382286108987122,
+  "sigma_star_minus_1": 1.3822861089871221,
+  "(sigma*-1)*log P": null
+ },
+ {
+  "target": "easy target 0.5536 (omega=-1)",
+  "P": 2,
+  "sigma_star": 1.5883190700875494,
+  "sigma_star_minus_1": 0.5883190700875494,
+  "(sigma*-1)*log P": 0.4077917047008337
+ },
+ {
+  "target": "easy target 0.5536 (omega=-1)",
+  "P": 3,
+  "sigma_star": 1.2838298833383508,
+  "sigma_star_minus_1": 0.2838298833383508,
+  "(sigma*-1)*log P": 0.31181899772674815
+ },
+ {
+  "target": "easy target 0.5536 (omega=-1)",
+  "P": 7,
+  "sigma_star": 1.2108227827558207,
+  "sigma_star_minus_1": 0.21082278275582067,
+  "(sigma*-1)*log P": 0.4102421926166349
+ },
+ {
+  "target": "easy target 0.5536 (omega=-1)",
+  "P": 13,
+  "sigma_star": 1.1804391746260519,
+  "sigma_star_minus_1": 0.18043917462605186,
+  "(sigma*-1)*log P": 0.4628173450179817
+ },
+ {
+  "target": "easy target 0.5536 (omega=-1)",
+  "P": 23,
+  "sigma_star": 1.146190335280832,
+  "sigma_star_minus_1": 0.14619033528083203,
+  "(sigma*-1)*log P": 0.45837895069779194
+ },
+ {
+  "target": "easy target 0.5536 (omega=-1)",
+  "P": 47,
+  "sigma_star": 1.1267174436239662,
+  "sigma_star_minus_1": 0.1267174436239662,
+  "(sigma*-1)*log P": 0.487880861663643
+ },
+ {
+  "target": "easy target 0.5536 (omega=-1)",
+  "P": 97,
+  "sigma_star": 1.1101234214499134,
+  "sigma_star_minus_1": 0.11012342144991338,
+  "(sigma*-1)*log P": 0.5037828250972737
+ },
+ {
+  "target": "easy target 0.5536 (omega=-1)",
+  "P": 997,
+  "sigma_star": 1.0728396991550668,
+  "sigma_star_minus_1": 0.07283969915506683,
+  "(sigma*-1)*log P": 0.5029399688247363
+ },
+ {
+  "target": "easy target 0.5536 (omega=-1)",
+  "P": 9973,
+  "sigma_star": 1.0548542672580652,
+  "sigma_star_minus_1": 0.05485426725806519,
+  "(sigma*-1)*log P": 0.505078165476099
+ },
+ {
+  "target": "easy target 0.5536 (omega=-1)",
+  "P": 99991,
+  "sigma_star": 1.0438737245420344,
+  "sigma_star_minus_1": 0.04387372454203442,
+  "(sigma*-1)*log P": 0.5051109717101693
+ },
+ {
+  "target": "easy target 0.5536 (omega=-1)",
+  "P": 999983,
+  "sigma_star": 1.0365651046076438,
+  "sigma_star_minus_1": 0.03656510460764384,
+  "(sigma*-1)*log P": 0.5051649671479096
+ }
+]

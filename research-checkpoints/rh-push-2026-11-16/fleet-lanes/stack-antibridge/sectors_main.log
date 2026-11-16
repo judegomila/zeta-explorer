@@ -1,0 +1,9 @@
+{'case': 'zeta', 'P': None, 'P_lastpiv': '2.9041e-337', 'Ke': None, 'Ke_lastpiv': '5.447e-673', 'Ko': None, 'Ko_lastpiv': '5.277e-665'}
+{'case': 'move', 'n': 1, 'gamma': '14.13472514', 'P': 7, 'Ke': 4, 'Ko': 4}
+{'case': 'move', 'n': 2, 'gamma': '21.02203964', 'P': 12, 'Ke': 6, 'Ko': 7}
+{'case': 'move', 'n': 3, 'gamma': '25.01085758', 'P': 15, 'Ke': 8, 'Ko': 8}
+{'case': 'move', 'n': 5, 'gamma': '32.93506159', 'P': 24, 'Ke': 12, 'Ko': 13}
+{'case': 'move', 'n': 8, 'gamma': '43.32707328', 'P': 34, 'Ke': 17, 'Ko': 18}
+{'case': 'move', 'n': 12, 'gamma': '56.4462477', 'P': 49, 'Ke': 25, 'Ko': 25}
+{'case': 'move', 'n': 20, 'gamma': '77.14484007', 'P': None, 'Ke': 41, 'Ko': 41}
+../../../../.venv-arb/bin/python -I sectors.py 0.01 0.5 52 1,2,3,5,8,12,20 0.  299.80s user 2.98s system 23% cpu 21:07.83 total

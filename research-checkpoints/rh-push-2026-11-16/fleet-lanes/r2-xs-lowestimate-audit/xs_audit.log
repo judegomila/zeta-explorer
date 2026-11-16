@@ -1,0 +1,103 @@
+== A. Proposition 3.1, direct estimate at general l ==
+PASS A1 lx+ly = 1-l
+PASS A1 h = 1-lx+l = ly+2l
+PASS A1 (12) C_b(B(l)) = lx/2 + b/12
+PASS A1 C_b(s) = lx/2 + s - 1 + h/6 (manuscript (10.3))
+PASS A2 M'+l'-1 = -3d (structural relation, needs only M+l=1)
+PASS A2 second-branch numerator 1+3l'-2M' = 5l+d-1
+PASS A3 manuscript (15.3) is an identity in all variables
+PASS A3 T_d-(H-3d) = H-M'+2A0+2(za-l')-N0-3B0-thN given M'+l'-1=-3d
+PASS A5 per-tuple exponent = (lx-d)/2 + b/12 + L/2
+PASS A5 tuple count + coefficient + X-factor: d - 3d/2 - d/2 = -d
+PASS A4 E_ref <= M' + (5l+d-1)_+/4 on 109970 random admissible points (52772 in the second branch), violations=0, max gap=0.0
+PASS A4 sharpness: l=1/5, d=(1-l)/5=4/25, O=DH=0, za=l', v=0 gives T_d=0 and E_ref-M'=1/25 = (5l+d-1)/4=1/25 (bound attained)
+   INFO measured: max over l in {1/6, l0, 9/50, 1/5}, 41 values of d, of -d + sup(E_ref-M')/2 = 0 (must be <= 0)
+PASS A6 (17) -d + (5l+d-1)_+/8 <= -7d/8 on 1e5 random (l,d), l<=1/5
+PASS A6 (17) proof: (5l+d-1) <= d  <=>  l <= 1/5
+   beyond 1/5: l=201/1000, d=0 gives relative exponent +1/1600 > 0 (low bound fails to be Z^{lx/2+b/12})
+PASS A7 stage0: lx-l=8243/40000>0, ly-l-11b/6=16079/120000>0, M'min=1-3l=9973/20000>0, Pa=Z^b, b>0
+PASS A7 stage1: lx-l=2060527/10000000>0, ly-l-11b/6=669701/5000000>0, M'min=1-3l=1246601/2500000>0, Pa=Z^b, b>0
+== B. Proposition 4.1: witness balance and the r_* range ==
+PASS B1 A_I(r*) = A_P(t-r*)
+PASS B1 common value = R_sh(t)
+PASS B2 r*(3/2) = 1 identically
+PASS B2 d r*/dt = (2-2cx)/D
+PASS B2 r*(1) - 3/5 = (1-(2-c)x)/(5D)
+PASS B2 t - r* = ((1-x)t + (1-c)x)/D
+PASS B2 (t-r*)(3/2) = 1/2 identically
+PASS B2 (t-r*)(1) - 1/3 = (1-c)x/(3D)
+PASS B2 random test 2e5 points (0<=c<=1, 0<=x<=1/2, 1<=t<=3/2): 3/5<=r*<=1, 1/3<=t-r*<=1/2; min r* seen=0.6
+PASS B2 extremal value r*(t=1,x=1/2,c=0) = 3/5 exactly
+PASS B3 R_sh(t*) = R_long(t*) = R_kappa (21)
+PASS B3 t* <= 3/2  <=>  (alpha-delta) D >= 0: 3/2 - t* = (alpha-delta)D/(2J)
+PASS B3 2D - 3P = 2x(2+c-3cx)
+PASS B4 inverse margins: r+2zM = 1, 3-2r-8zM = 2r-1
+PASS B4 A_I from (4): 1 - delta r - 2 q zM
+PASS B4 A_P from (6): 1 - 2 delta m - 2 q zP with c = 1/(3 kappa)
+PASS B4 long branch: (1+5r)/6 - delta r at r=t equals R_long(t)
+PASS B4 max inverse selection (1-3/5)/2 = 1/5 ; max plain selection (1-2/3)/(6k) = 1/(18k) <= 1/13 at k>=13/18
+== C. Proposition 5.1 and Section 6 ==
+PASS C1 (23): -theta m - q v (1-2m)/2 = -theta/2 at theta = q v
+PASS C1 Hoelder: 3R/4 + (1-2 q zp)/4 = (3R+1)/4 - q zp/2
+PASS C1 full-capacity identity = (R-(6k-2q)L)/4 at theta = q/(6k)
+PASS C2 (32): value at delta=1/8, kappa=29991/40000 is 10799/6000000 > 1/600; coefficient of delta = 2/3-21/100 > 0
+PASS C2 theta <= q/(6k) <= (5/12)/(6*13/18) = 5/52 < 1/10
+PASS C3 (27) = raw exponent - C_b(B(l)) for every z-line
+PASS C3 (28) = (27) at d=h, theta = q/(6k) (z0 cancels)
+PASS C3 (33) = (27) at d=h, theta = q l/h
+PASS C3 E_small <= C0 + A_sm delta: substitute x=1/2, 1-R = 2 delta/3
+PASS C3 floor endpoint = C0 + delta(1/2 + 3l/2)
+PASS C4 Lemma 6.3: K - z0 >= (3/6+1)/4 - 17/50 = 7/200
+PASS C4 Lemma 6.3 upper slopes: 1841/2600 and 991/1350, both < 2
+PASS C4 d/dd of dd(K+th/2-z0) - ly th at th = q l/dd is K - z0 + q l ly/dd^2
+== D. Appendix B ==
+PASS D1 dual coefficient: Na^(sigma-1) Q^(-theta) D^theta = Na^(-sigma) D^(-theta) (Na D/sqrt Q)^(2 theta)
+PASS D2 AFE (38): Lambda(w) = I(w,chi) + eps I(1-w,chibar); Q^{(1-w)/2 - w/2} = Q^{1/2-w}
+PASS D3 tail: D >= U^2, Q << U, H <= U^(1/100): exponent 2 - 1/2 - 1/100 = 149/100
+PASS D4 pole-free shift to Re v = -1/4: sigma - 1/4 >= 2/5 - 1/4 > 0 on both w and 1-w
+PASS D5 Q = |d_F| N f/(2 pi)^2 with d_F = -3: 3 N f/(4 pi^2)
+== E. Appendix C: exponent tables from manuscript (7.16) ==
+PASS E1 C.2 boundary table (j=1..5) equals (x-1)+J_j exponents of (7.11)
+PASS E1 strict term (j>=2) after normalisation has exponent -Re w
+PASS E2 C.2 ramified boundary exponents on (31): monotone, max = -51/100 < -1/2
+PASS E2 common R term -159/100, rescaling term -7/5, j=1 strict term -61/25: all < -1/2
+PASS E2 C.2 good-prime exponents on (31): max = -51/100 <= -51/100
+PASS E2 geometric ratios on (31): |R| <= Q^-11/10, |V| = Q^-51/25
+PASS E3 conductor deficit: -Re w - (j-1) theta = -1/2 - (j-2) theta at Re w = 1/2 - theta
+PASS E3 first Euler region on (31): Re(s+w) - 1 = a - 1/2 - theta + 16e >= 16e when theta <= a-1/2
+PASS E4 C.4: |R| <= Q^-221/100 (claimed -221/100), |V| = Q^-99/100 (claimed -99/100), |D| <= Q^-87/100
+PASS E4 C.4: H_p - 1 = O(Q^-181/100) for p not | u (claimed -181/100)
+PASS E4 C.4: H_p - 1 = O(Q^-41/50) for p | u (claimed -41/50)
+PASS E4 C.4 principal selected-error exponents [-87/100, -99/100, -67/50, -47/50] (claimed -87/100,-99/100,-134/100,-94/100)
+PASS E4 at (s,1,1/6): slot error exponents [-87/100, -1, -27/20, -1], all <= -87/100
+PASS E5 Lemma C.1 remainders: (1+h)e - ly/20, e - h/600
+PASS E5 outside power identity: lx(1/2-z)+s+z-1+ly(w-1)+l z = lx/2+s-1+h z+ly(w-1)
+PASS E5 small rows: first Euler region with eps0 = 37/100 needs Re(s+w) = beta*+e+1/2 > 87/100+1/2 = 137/100
+PASS E5 small rows: row power 1 + 3/5 + 1/2 - 17/50 = 44/25 <= 2
+PASS E5 small rows: G_p << Q^(1/2) on u needs boundary exponents <= 1/2 at Re s >= 87/100: max -6/25
+== F. Appendix E: exact scalar values at the two certified triples ==
+PASS F stage0 low-scale margins lx-l=8243/40000, ly-l-11b/6=16079/120000 equal the printed values
+PASS F stage0 small-delta bound C0+Asm/8 = -191530333/45730080000 (printed), < -1/250, Asm=0.17999376812811174 > 0, C0=-0.0266875
+PASS F stage0 floor endpoint = -5837/500000 (printed), < -1/100
+PASS F stage0 small rows = -433393/6000000 (printed), < -1/20
+PASS F stage0 principal margins ly/20, h/600 equal printed values
+PASS F stage0 supply l/(h+zeta) = 0.21049424771513922 > 21/100; 6kl=0.752025 > 3/4; l/h < 1/(6k); h/2 < ly < 1/2; B(l) > 87/100
+PASS F stage0 margins: g-2zeta > g*, 0<2zeta<1/1000, 0<g*<1/1000
+   stage0: small-delta slack below -1/250: 1.883e-04 ; floor slack: 1.674e-03 ; small-row slack: 2.223e-02
+   stage0: B(l) = 69991/80000 = 0.8748875000 ; (1+kappa)/2 = 7/8
+PASS F stage1 low-scale margins lx-l=2060527/10000000, ly-l-11b/6=669701/5000000 equal the printed values
+PASS F stage1 small-delta bound C0+Asm/8 = -47785783297087/11432841120000000 (printed), < -1/250, Asm=0.17998377722945774 > 0, C0=-0.026677666666666666
+PASS F stage1 floor endpoint = -8748053/750000000 (printed), < -1/100
+PASS F stage1 small rows = -108354377/1500000000 (printed), < -1/20
+PASS F stage1 principal margins ly/20, h/600 equal printed values
+PASS F stage1 supply l/(h+zeta) = 0.2104923921980392 > 21/100; 6kl=0.75181378818 > 3/4; l/h < 1/(6k); h/2 < ly < 1/2; B(l) > 87/100
+PASS F stage1 margins: g-2zeta > g*, 0<2zeta<1/1000, 0<g*<1/1000
+   stage1: small-delta slack below -1/250: 1.797e-04 ; floor slack: 1.664e-03 ; small-row slack: 2.224e-02
+   stage1: B(l) = 8748867/10000000 = 0.8748867000 ; (1+kappa)/2 = 69991/80000
+== G. Appendix D certificate (re-check, independent expansion) ==
+PASS G stage0 identity (40) as polynomials in (delta,y)
+PASS G stage0 A_j and 4AC-B^2 have positive coefficients
+PASS G stage1 identity (40) as polynomials in (delta,y)
+PASS G stage1 A_j and 4AC-B^2 have positive coefficients
+
+TOTAL FAILS: 0 []

@@ -1,0 +1,154 @@
+{
+ "E1": [
+  {
+   "K": 2,
+   "R": Infinity,
+   "r": 1.98999990066035
+  },
+  {
+   "K": 3,
+   "R": 18.459993008433266,
+   "r": 1.6089205495303933
+  },
+  {
+   "K": 4,
+   "R": 17.449611790639867,
+   "r": 1.705104583495057
+  },
+  {
+   "K": 8,
+   "R": 17.269955313570183,
+   "r": 1.7312500448678674
+  },
+  {
+   "K": 16,
+   "R": 17.24853076386006,
+   "r": 1.7365718287405387
+  },
+  {
+   "K": 24,
+   "R": 17.244990238743153,
+   "r": 1.7369660795167576
+  },
+  {
+   "K": 32,
+   "R": 17.24445414119048,
+   "r": 1.7373399336679989
+  },
+  {
+   "K": 40,
+   "R": 17.24422357192002,
+   "r": 1.7374545400529753
+  }
+ ],
+ "E2": [
+  {
+   "K": 4,
+   "M": 4,
+   "r": 1.5,
+   "circle_only": 2.1909830056250525,
+   "degree (m+1)": 2.190983005625052,
+   "degree (m+1) companion mass": 0.0,
+   "unit": 2.190983005625052,
+   "unit companion mass": 0.0,
+   "free": 2.190983005625052,
+   "free companion mass": 0.0
+  },
+  {
+   "K": 4,
+   "M": 4,
+   "r": 1.74,
+   "circle_only": Infinity,
+   "degree (m+1)": Infinity,
+   "degree (m+1) companion mass": null,
+   "unit": Infinity,
+   "unit companion mass": null,
+   "free": Infinity,
+   "free companion mass": null
+  },
+  {
+   "K": 4,
+   "M": 4,
+   "r": 1.9,
+   "circle_only": Infinity,
+   "degree (m+1)": Infinity,
+   "degree (m+1) companion mass": null,
+   "unit": Infinity,
+   "unit companion mass": null,
+   "free": Infinity,
+   "free companion mass": null
+  },
+  {
+   "K": 8,
+   "M": 6,
+   "r": 1.5,
+   "circle_only": 2.163395734546128,
+   "degree (m+1)": 2.163395734546128,
+   "degree (m+1) companion mass": 0.0,
+   "unit": 2.163395734546126,
+   "unit companion mass": 0.0,
+   "free": 2.1633957345461274,
+   "free companion mass": 8.917891736460168
+  },
+  {
+   "K": 8,
+   "M": 6,
+   "r": 1.74,
+   "circle_only": 3.5223549591794967,
+   "degree (m+1)": 3.5223549591794976,
+   "degree (m+1) companion mass": 0.0,
+   "unit": 3.5223549591795553,
+   "unit companion mass": 2.7983974662344376e-14,
+   "free": 3.5223549591794985,
+   "free companion mass": 4.181020234280518
+  },
+  {
+   "K": 8,
+   "M": 6,
+   "r": 1.9,
+   "circle_only": 6.6707050676647,
+   "degree (m+1)": 6.670705067664549,
+   "degree (m+1) companion mass": 2.3189751268403815e-14,
+   "unit": 6.670705067664661,
+   "unit companion mass": -1.5784277335763874e-16,
+   "free": 6.670705067664718,
+   "free companion mass": 0.0
+  },
+  {
+   "K": 12,
+   "M": 8,
+   "r": 1.5,
+   "circle_only": 2.160409626170181,
+   "degree (m+1)": 2.1604096261701806,
+   "degree (m+1) companion mass": 0.0,
+   "unit": 2.1604096261701806,
+   "unit companion mass": 0.0,
+   "free": 2.1604096261701735,
+   "free companion mass": 19.924567687298214
+  },
+  {
+   "K": 12,
+   "M": 8,
+   "r": 1.74,
+   "circle_only": 3.5133584485192393,
+   "degree (m+1)": 3.5133584485192424,
+   "degree (m+1) companion mass": 0.0,
+   "unit": 3.5133584485192544,
+   "unit companion mass": 2.7660320612592604e-15,
+   "free": 3.513358448519241,
+   "free companion mass": 12.643450437232692
+  },
+  {
+   "K": 12,
+   "M": 8,
+   "r": 1.9,
+   "circle_only": 6.526247376546941,
+   "degree (m+1)": 6.526247376546955,
+   "degree (m+1) companion mass": 3.4195460033946716e-14,
+   "unit": 6.526247376546904,
+   "unit companion mass": 0.0,
+   "free": 6.526247376546976,
+   "free companion mass": 14.092956075972738
+  }
+ ]
+}

@@ -1,0 +1,46 @@
+{
+ "N": 14,
+ "nodes": "vdC log on [0.6,4]",
+ "rows": [
+  {
+   "case": "eps=+1 (zeta)",
+   "P": null,
+   "Ke": null,
+   "Ko": null
+  },
+  {
+   "case": "eps=-1",
+   "P": 2,
+   "Ke": 2,
+   "Ko": 1
+  },
+  {
+   "case": "eps=0 (gamma+pole only)",
+   "P": 2,
+   "Ke": 2,
+   "Ko": 1
+  },
+  {
+   "case": "eps_n=cos(5 log n)",
+   "P": 2,
+   "Ke": 2,
+   "Ko": 1
+  },
+  {
+   "case": "eps_n=cos(14.1347 log n)",
+   "P": 2,
+   "Ke": 2,
+   "Ko": 1
+  },
+  {
+   "case": "eps_n=cos(0.5 log n)",
+   "P": 2,
+   "Ke": 2,
+   "Ko": 1
+  }
+ ],
+ "density_check": [
+  "1.97e-31",
+  "0.0"
+ ]
+}

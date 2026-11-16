@@ -1,0 +1,1100 @@
+[
+ {
+  "id": "eq48/Thm1",
+  "typ": "IDENT",
+  "region": "axis",
+  "uses": "FE",
+  "cells": [
+   "P",
+   "P*",
+   "N",
+   "N",
+   "P",
+   "P*",
+   "N"
+  ],
+  "status": "PROVED (refereed)",
+  "stmt": "Q_L(v) = sum_ij b_i conj(b_j)(L(x_i)+L(x_j))/(x_i+x_j) = sum_rho V(rho) conj V(-conj rho) for one-sided exponential sums, rates > 1/2",
+  "cons": "zero-side form; no location info"
+ },
+ {
+  "id": "weil-onesided/B1",
+  "typ": "IDENT",
+  "region": "axis",
+  "uses": "FE",
+  "cells": [
+   "P",
+   "P*",
+   "N",
+   "N",
+   "P*",
+   "P*",
+   "N"
+  ],
+  "status": "PROVED",
+  "stmt": "Q_L = sum_rho |V(rho)|^2 - (1/2) sum_rho |V(rho) - V(-conj rho)|^2 (squares with defect; defect runs over off-line zeros only)",
+  "cons": "zero-side form"
+ },
+ {
+  "id": "g-spinor-square-root + sq-krein-index/Krein square",
+  "typ": "IDENT",
+  "region": "axis",
+  "uses": "FE",
+  "cells": [
+   "P",
+   "P",
+   "N",
+   "N",
+   "P*",
+   "P*",
+   "N"
+  ],
+  "status": "PROVED (refereed; inertia theorem unrefereed)",
+  "stmt": "H_c = alpha sum_gamma y_gamma conj(y_gammabar) = D^dagger J D; negative index = rank Gamma_- = number of distinct zeros with Re z > 0 (integer or infinity); S = S_0/B, B Blaschke of degree kappa",
+  "cons": "integer index of the bridge form; counts off-line pairs, does not locate"
+ },
+ {
+  "id": "g-spinor-square-root/Weitzenboeck block",
+  "typ": "IDENT",
+  "region": "axis",
+  "uses": "FE",
+  "cells": [
+   "P",
+   "P*",
+   "N",
+   "N",
+   "P*",
+   "P*",
+   "N"
+  ],
+  "status": "PROVED (refereed)",
+  "stmt": "H_c = A* M_c A, M_c = [[G+*G+, -S_QQ* G-],[-G-* S_QQ, -G-*G-]]; PP block <= 0, so H_c >= 0 iff Gamma_- = 0 (no margin regime)",
+  "cons": "Hankel blocks of S = N/D"
+ },
+ {
+  "id": "sq-hankel-traces/Thm1",
+  "typ": "IDENT",
+  "region": "axis",
+  "uses": "FE",
+  "cells": [
+   "P",
+   "P*",
+   "N",
+   "N",
+   "P*",
+   "P*",
+   "N"
+  ],
+  "status": "PROVED for finitely many off-line zeros (unrefereed)",
+  "stmt": "tr(G-* G-)^m = tr(R* A R conj A)^m, A_jk = 1/(conj z_j + z_k); isolated off-line pair at distance beta has singular value alpha/sqrt(alpha^2+beta^2)",
+  "cons": "anticausal Hankel block; gives a per-zero quantum"
+ },
+ {
+  "id": "sq-hankel-traces/Thm2 + sq-krein-index/index",
+  "typ": "IDENT",
+  "region": "axis",
+  "uses": "FE",
+  "cells": [
+   "P",
+   "P",
+   "N",
+   "N",
+   "P*",
+   "P*",
+   "N"
+  ],
+  "status": "CLASSICAL specialised",
+  "stmt": "||G+||^2 - ||G-||^2 = N_0 (on-line zeros), ||G+||^2 + ||G-||^2 = Besov energy of the boundary phase; axis winding of S = -N_0 + O(1); this is Levinson's argument-principle step with D = xi + alpha xi'",
+  "cons": "counting identity N_0 = N - 2 N_off"
+ },
+ {
+  "id": "sq-hankel-traces/Thm3 + Cor3a",
+  "typ": "IDENT",
+  "region": "axis->Re z=x",
+  "uses": "FE + zero-free Re s>1",
+  "cells": [
+   "F*",
+   "P*",
+   "N",
+   "N",
+   "P*",
+   "P*",
+   "N"
+  ],
+  "status": "PROVED (unrefereed)",
+  "stmt": "windowed anticausal transform I(u) = -2 pi sum_{RHP poles} r_j W(z_j) e^{z_j u} + Rem, |Rem| <= sqrt(2 pi) Dl exp(-u^2 Dl^2/2) once |u| Dl^2 >= sup Re rho (1/2 for zeta)",
+  "cons": "anticausal kernel = residue sum; measured ratio |I|/bound: zeta 0.33, DH 1.2e7 at u = -6"
+ },
+ {
+  "id": "weil-onesided/ThmF",
+  "typ": "INEQ",
+  "region": "axis (low-pass)",
+  "uses": "FE + verified height 100",
+  "cells": [
+   "P",
+   "P*",
+   "N",
+   "N",
+   "F*",
+   "P*",
+   "N"
+  ],
+  "status": "PROVED; DH MEASURED",
+  "stmt": "Theta(t) = sum_rho e^{rho^2 t} > 0 for all t > 0; Phi(u) = L(sqrt u)/sqrt u completely monotone; Q_L > 0 on v = e_{a_1}*...*e_{a_M}",
+  "cons": "lower bound on a low-pass cone; no single high zero is resolved"
+ },
+ {
+  "id": "weil-onesided/ThmC + B2",
+  "typ": "INEQ",
+  "region": "Re s = 1/2",
+  "uses": "FE + ordinary Dirichlet series",
+  "cells": [
+   "P",
+   "N*",
+   "N",
+   "N",
+   "P*",
+   "P*",
+   "N"
+  ],
+  "status": "PROVED",
+  "stmt": "liminf Lam d_Lam(v)^2 >= sum over distinct on-line zeros |V(rho)|^2; Nyman-Beurling functions lie in the radical of Q_L",
+  "cons": "Nyman-Beurling distance; one-sided, on-line part only"
+ },
+ {
+  "id": "dh-separator/ThmA lens + g-renderer/ThmA",
+  "typ": "IDENT",
+  "region": "Re z > 0",
+  "uses": "FE",
+  "cells": [
+   "P",
+   "P*",
+   "N",
+   "N",
+   "P*",
+   "P*",
+   "N"
+  ],
+  "status": "PROVED (refereed)",
+  "stmt": "Q(e^{-zt}) = Re L(z)/Re z = sum_on 1/|z - i gamma|^2 + sum_pairs 2(x^2 - delta^2 + (t-gamma)^2)/(...): negative only inside the disk of radius delta about the pair foot",
+  "cons": "order-1 complex test; lens geometry of an off-line pair"
+ },
+ {
+  "id": "g-coupling-norm/Thm2 Schur-Blaschke",
+  "typ": "IDENT",
+  "region": "real nodes",
+  "uses": "FE",
+  "cells": [
+   "P",
+   "P*",
+   "N",
+   "N",
+   "P*",
+   "P*",
+   "N"
+  ],
+  "status": "PROVED (interval-checked)",
+  "stmt": "1 - rho(X;y)^2 = node-only Blaschke product x product of Schur factors phi_k (Richards iterates); RH iff |phi_k| <= 1 at all orders",
+  "cons": "Schur parameters of L; identity carries no sign"
+ },
+ {
+  "id": "g-antibridge-cancel/ThmB + B1",
+  "typ": "IDENT",
+  "region": "real nodes",
+  "uses": "FE",
+  "cells": [
+   "P",
+   "P*",
+   "N",
+   "N",
+   "P*",
+   "P*",
+   "N"
+  ],
+  "status": "PROVED (refereed)",
+  "stmt": "K_e = P + B = sum phi_rho(x_i) phi_rho(x_j), K_o = P - B; S = 2 (K_e^{-1} + K_o^{-1})^{-1}; ||T|| <= 1 iff K_e, K_o >= 0",
+  "cons": "parity sectors; Loewner form in s = x^2"
+ },
+ {
+  "id": "g-channel-geometry/ThmA inertia",
+  "typ": "IDENT",
+  "region": "axis",
+  "uses": "FE",
+  "cells": [
+   "P",
+   "P*",
+   "N",
+   "N",
+   "P*",
+   "P*",
+   "N"
+  ],
+  "status": "PROVED (finitely many off-line)",
+  "stmt": "channel matrix Z = M* J M with J = identity on on-line zeros and a hyperbolic swap on off-line pairs",
+  "cons": "same Krein structure for PR 29 channels"
+ },
+ {
+  "id": "g-klein-bottle-seam/T1",
+  "typ": "IDENT",
+  "region": "boundary of region",
+  "uses": "FE",
+  "cells": [
+   "P",
+   "P*",
+   "N",
+   "N",
+   "P*",
+   "P*",
+   "N"
+  ],
+  "status": "PROVED (Backlund minus Hardy)",
+  "stmt": "N_on(I) + 2 N_right(Omega) = (1/pi) Delta_C arg F",
+  "cons": "argument principle; integer invariant"
+ },
+ {
+  "id": "li-coefficients/ThmA-B",
+  "typ": "INEQ",
+  "region": "axis",
+  "uses": "FE + verified height (+ strip)",
+  "cells": [
+   "P*",
+   "P*",
+   "N",
+   "N",
+   "F*",
+   "P*",
+   "N"
+  ],
+  "status": "PROVED (refereed)",
+  "stmt": "lambda_n > 0 for n <= n*(H,theta) ~ (2/c) H^2 log H; sharp on the class of zero sets",
+  "cons": "restates verified height"
+ },
+ {
+  "id": "jensen-hyperbolicity/ThmA",
+  "typ": "INEQ",
+  "region": "axis",
+  "uses": "FE + verified height",
+  "cells": [
+   "P",
+   "P",
+   "N",
+   "N",
+   "?",
+   "P*",
+   "N"
+  ],
+  "status": "PROVED (refereed)",
+  "stmt": "Jensen polynomials hyperbolic for degree <= d under a cone condition on non-real zeros",
+  "cons": "restates verified height"
+ },
+ {
+  "id": "pick/K<=12",
+  "typ": "INEQ",
+  "region": "real nodes",
+  "uses": "FE + verified height",
+  "cells": [
+   "P",
+   "P",
+   "F",
+   "F*",
+   "?",
+   "?",
+   "N"
+  ],
+  "status": "CERTIFIED",
+  "stmt": "Pick matrices of L positive definite for all K <= 12 and all real nodes",
+  "cons": "finite orders follow from verified height"
+ },
+ {
+  "id": "euler + g-coupling-norm + pick-induction/DH-149",
+  "typ": "NOGO",
+  "region": "real nodes",
+  "uses": "-",
+  "cells": [
+   "P",
+   "?",
+   "?",
+   "?",
+   "?",
+   "?",
+   "?"
+  ],
+  "status": "CERTIFIED (Arb)",
+  "stmt": "DH Pick pivots positive for orders 2..148, first negative at 149 (three node families): finite Pick orders are Euler-blind",
+  "cons": "no finite-order positivity separates zeta from DH below order 149"
+ },
+ {
+  "id": "pick-induction/ThmR",
+  "typ": "RIGID",
+  "region": "real nodes",
+  "uses": "exact FE",
+  "cells": [
+   "P",
+   "N",
+   "F",
+   "F",
+   "N",
+   "N",
+   "N"
+  ],
+  "status": "PROVED (unrefereed)",
+  "stmt": "for eta != 0 real with sum |eta(n)| n^{-1/2} < inf, L - sum eta(n) n^{-1/2-z} has a non-PSD finite Pick matrix on every interval: all-order positivity has zero tolerance in every prime weight",
+  "cons": "pins each prime weight; identifies the function, does not locate zeros"
+ },
+ {
+  "id": "b-euler-detector/WeilPinsC2 + b-codex-zero-channels/FE-rigidity + screw-canonical/Lemma2",
+  "typ": "RIGID",
+  "region": "support ln 3 / T=2",
+  "uses": "exact FE",
+  "cells": [
+   "N",
+   "?",
+   "F",
+   "F",
+   "?",
+   "?",
+   "?"
+  ],
+  "status": "MEASURED",
+  "stmt": "Weil positivity with zeta's bridge at support ln 3 confines c(2) to [0.99905, 1.00100]; window at log 2 is [-2.5e-26, +5.8e-29] at T = 2; tolerance ~ 10^-(N-2) at order N",
+  "cons": "same rigidity, quantitative"
+ },
+ {
+  "id": "b-mvcap-function-side/Thm1 + Thm2",
+  "typ": "NOGO",
+  "region": "strip window",
+  "uses": "FE",
+  "cells": [
+   "P",
+   "P",
+   "N",
+   "N",
+   "?",
+   "?",
+   "N"
+  ],
+  "status": "PROVED (Thm 2 conditional on H_W)",
+  "stmt": "FE-only forcing has threshold eps* = |Z(t_m)| (c/2 pi)^{-(sigma-1/2)/2}; cluster-lift counter-model within ~4e-9 |Z(t_m)| of zeta on Re s >= 2 at 3.1e12",
+  "cons": "mean-value inputs cannot certify one window (MV-CAP, function side)"
+ },
+ {
+  "id": "g-odd-adversary/heat-no-go + codex OddCone/SeparatedTail",
+  "typ": "NOGO",
+  "region": "kernel side",
+  "uses": "kernel positivity, Csordas convexity",
+  "cells": [
+   "P",
+   "P",
+   "N",
+   "N",
+   "?",
+   "?",
+   "N"
+  ],
+  "status": "PROVED",
+  "stmt": "Csordas convexity, entrywise positivity of H_-, the one-sign cone and the separated-tail positivity persist for every tau, while the target fails for tau < 0",
+  "cons": "every kernel-side input of PR 44/56 is flow-stable"
+ },
+ {
+  "id": "flow-euler-defect/Prop1-2",
+  "typ": "IDENT",
+  "region": "all s",
+  "uses": "heat kernel",
+  "cells": [
+   "P",
+   "F",
+   "N",
+   "N",
+   "?",
+   "?",
+   "N"
+  ],
+  "status": "PROVED (refereed)",
+  "stmt": "H_t = sum_n exp(t log^2 n) n^{-s} gamma_t(s - 2t log n) (t<0); coefficient cocycle 2t log m log n; H_t (t<0) = Gaussian mixture of vertical translates of Xi",
+  "cons": "the heat family has no fixed-gamma ordinary Dirichlet series: HEAT lacks multiplicativity and integrality"
+ },
+ {
+  "id": "b-escape-law/ThmA + C1",
+  "typ": "NOGO",
+  "region": "strips",
+  "uses": "-",
+  "cells": [
+   "F*",
+   "F",
+   "N",
+   "N",
+   "P*",
+   "P*",
+   "N"
+  ],
+  "status": "PROVED (referee-corrected)",
+  "stmt": "for tau > 0, H_{-tau} has zeros outside every strip; so every hypothesis class 'all zeros in |Im z| <= Y' is flow-critical",
+  "cons": "strip statements are violated by HEAT"
+ },
+ {
+  "id": "b-escape-law/C2 = Bohr-Landau density",
+  "typ": "INEQ",
+  "region": "Re s > 1/2",
+  "uses": "FE + size (mean square of zeta M)",
+  "cells": [
+   "F",
+   "F",
+   "P*",
+   "P*",
+   "F",
+   "F*",
+   "?"
+  ],
+  "status": "CLASSICAL for zeta; control outcomes PROVED/inferred",
+  "stmt": "N(sigma,T) = o(T) for each sigma > 1/2",
+  "cons": "zero density; a proportion statement (MV-CAP), never an empty set"
+ },
+ {
+  "id": "lit-dedekind-qrh/ThmA",
+  "typ": "INEQ",
+  "region": "strip",
+  "uses": "FE (extended Selberg class)",
+  "cells": [
+   "P",
+   "N",
+   "N",
+   "N",
+   "P*",
+   "P*",
+   "N"
+  ],
+  "status": "PROVED",
+  "stmt": "zero-free Re s > theta implies Lambda_F <= (2 theta - 1)^2 / 2",
+  "cons": "bridge from a half-plane to the heat axis; Euler-blind"
+ },
+ {
+  "id": "weil-onesided/ThmE (E1)",
+  "typ": "INEQ",
+  "region": "rates > 1/2",
+  "uses": "Lambda >= 0, pole at 1",
+  "cells": [
+   "F",
+   "F*",
+   "P*",
+   "F",
+   "P",
+   "F*",
+   "N"
+  ],
+  "status": "PROVED; DH MEASURED",
+  "stmt": "Q_L(v) <= A(v) for pointwise nonnegative v (A = archimedean + pole form); linear form: sum_rho G(rho) <= A(g) for every g >= 0",
+  "cons": "upper bound on the zero-side form; with the lens identity gives the de la Vallee-Poussin region"
+ },
+ {
+  "id": "dh-separator/ThmC",
+  "typ": "INEQ",
+  "region": "Re z >= 1/2 - eta(t)",
+  "uses": "Lambda >= 0, pole, zero-free Re s >= 1",
+  "cells": [
+   "F",
+   "F*",
+   "P*",
+   "P*",
+   "P",
+   "P*",
+   "?"
+  ],
+  "status": "PROVED (refereed)",
+  "stmt": "Q(e^{-zt}) > 0 for Re z >= 1/2 and on the classical zero-free region; Q >= 0 on the cone F_{1/2} (e^{|l|/2} C_r positive definite)",
+  "cons": "lower bound on a strip-positive cone; equals the classical zero-free region"
+ },
+ {
+  "id": "li-coefficients/LemmaD",
+  "typ": "IDENT",
+  "region": "base a > 1",
+  "uses": "Lambda >= 0",
+  "cells": [
+   "F",
+   "N",
+   "P*",
+   "F",
+   "P",
+   "F*",
+   "P*"
+  ],
+  "status": "PROVED",
+  "stmt": "Lambda >= 0 iff Stieltjes-Hankel positivity of the moments M_k(a); the alternating transform to Li coordinates destroys the positivity",
+  "cons": "prime side only"
+ },
+ {
+  "id": "b-mvcap-function-side/Prop3",
+  "typ": "IDENT",
+  "region": "Re s > 1",
+  "uses": "Lambda >= 0, exact",
+  "cells": [
+   "F",
+   "F*",
+   "P*",
+   "F*",
+   "P",
+   "F*",
+   "P*"
+  ],
+  "status": "PROVED",
+  "stmt": "u -> log zeta(sigma + iu) is positive definite for sigma > 1, with zero slack",
+  "cons": "prime side only"
+ },
+ {
+  "id": "sym-power-positivity/ThmA",
+  "typ": "INEQ",
+  "region": "Re s > 1",
+  "uses": "Lambda >= 0 with unitary companions",
+  "cells": [
+   "F",
+   "N",
+   "P*",
+   "F*",
+   "P",
+   "?",
+   "P*"
+  ],
+  "status": "PROVED (refereed)",
+  "stmt": "3-4-1 type combinations with cuspidal companions: the zeta part of a nonnegative combination is a nonnegative trig polynomial; no gain beyond the classical region",
+  "cons": "upper bounds on zero sums"
+ },
+ {
+  "id": "r2-lambda-tpos-floors/ThmA",
+  "typ": "INEQ",
+  "region": "t >= 0 heat rows",
+  "uses": "Lambda >= 0, Q-independence of log p",
+  "cells": [
+   "F",
+   "?",
+   "P*",
+   "F*",
+   "?",
+   "?",
+   "?"
+  ],
+  "status": "PROVED (unrefereed)",
+  "stmt": "alignment floor S(x,h,0) >= L + (1/2) zeta'/zeta((1+h)/2) + Delta(h)/2 - 1e-9",
+  "cons": "rate floor in the Lambda-bound engine"
+ },
+ {
+  "id": "support-rigidity/P1-P3 + b-euler-detector/E_p",
+  "typ": "INPUT",
+  "region": "formal",
+  "uses": "multiplicativity",
+  "cells": [
+   "F",
+   "F",
+   "P*",
+   "P*",
+   "P",
+   "P*",
+   "P*"
+  ],
+  "status": "PROVED",
+  "stmt": "Lambda_F supported on prime powers iff coefficients multiplicative; a(1)a(p^j m) = a(p^j)a(m); DH fails first at n = 6",
+  "cons": "identifies Euler products; no analytic content"
+ },
+ {
+  "id": "b-euler-detector/T_pK",
+  "typ": "INPUT",
+  "region": "local",
+  "uses": "local unitarity (Ramanujan)",
+  "cells": [
+   "F",
+   "N",
+   "F*",
+   "F*",
+   "F",
+   "F*",
+   "P*"
+  ],
+  "status": "CLASSICAL",
+  "stmt": "rung Toeplitz [m_|i-j|(p)] PSD for all K iff the local factor has unimodular Satake parameters; DH fails at p = 2, K = 2; E_a fails at every p, K = 1",
+  "cons": "local temperedness; kills E_a and the T-NR twin"
+ },
+ {
+  "id": "weil-onesided/ThmA (A2)",
+  "typ": "IDENT",
+  "region": "rates > 1/2",
+  "uses": "Euler product, geometric local factors",
+  "cells": [
+   "F",
+   "N",
+   "F*",
+   "F*",
+   "P*",
+   "P*",
+   "?"
+  ],
+  "status": "PROVED",
+  "stmt": "2 Re <Tv,v> = sum_p log p (||w_p||^2 - p^{-1} ||S_{log p} w_p||^2 - ||v||^2), w_p = (1 - p^{-1/2} S_{log p})^{-1} v; per-prime brackets have no sign",
+  "cons": "prime term as local resolvents"
+ },
+ {
+  "id": "g-passive-cascade/Thm1 + sq-causal-cascade/Thm1",
+  "typ": "IDENT",
+  "region": "Re s > 1",
+  "uses": "Euler product, geometric local factors",
+  "cells": [
+   "F",
+   "F",
+   "F*",
+   "F*",
+   "P*",
+   "P*",
+   "?"
+  ],
+  "status": "PROVED (refereed / unrefereed)",
+  "stmt": "xi'/xi = G - sum_p [Z_p - (log p)/2], Z_p = (log p/2) coth(s log p/2) lossless on Re s = 0; S = T_{M(alpha G) prod_p M(-alpha u_p)}[1], J-defect of a section = Re Z x rank one",
+  "cons": "series chain of negated lossless stubs; converges only for Re s > 1"
+ },
+ {
+  "id": "sq-causal-cascade/Prop2",
+  "typ": "IDENT",
+  "region": "Re s = sigma",
+  "uses": "stub size p^{-sigma}",
+  "cells": [
+   "N",
+   "N",
+   "P*",
+   "P*",
+   "F*",
+   "?",
+   "?"
+  ],
+  "status": "PROVED (unrefereed)",
+  "stmt": "summed J-defect is bounded iff Re s > 1 and square-summable on the Bohr torus iff Re s > 1/2, variance 1/(8x^2) + O(1) at Re s = 1/2 + x",
+  "cons": "the critical line is the l^2 threshold of the chain; for E_a the threshold is 1/2 + a"
+ },
+ {
+  "id": "sq-causal-cascade/Thm3 + g-passive-cascade/S5",
+  "typ": "INEQ",
+  "region": "Re s >= 1/2, |t| >= t0",
+  "uses": "|Lambda(n)| <= log n only",
+  "cells": [
+   "F",
+   "F",
+   "P",
+   "P",
+   "P*",
+   "?",
+   "?"
+  ],
+  "status": "PROVED (unrefereed)",
+  "stmt": "if sum_{p<=Q} log p/(sqrt p - 1) <= R(t0) the truncated chain is J-contractive: |S_Q| <= 1; Q*(t) = (log(t/2pi))^2/16; sharp in the class using only |Lambda|",
+  "cons": "finite-prime Hermite-Biehler reserve; stops at 37 primes at t = 1e12"
+ },
+ {
+  "id": "sq-causal-cascade/Thm4-5 + g-passive-cascade/Thm3 + Kronecker budget",
+  "typ": "NOGO",
+  "region": "Re z > 0",
+  "uses": "-",
+  "cells": [
+   "?",
+   "?",
+   "?",
+   "?",
+   "?",
+   "?",
+   "?"
+  ],
+  "status": "PROVED",
+  "stmt": "no splitting L = L_0 + sum_p h_p with L_0 and each h_p positive-real; no single-delay Blaschke-Potapov section at any node; worst-case draw of the primes has no inter-prime cancellation",
+  "cons": "sectionwise passivity is impossible"
+ },
+ {
+  "id": "sq-hankel-traces/Thm4",
+  "typ": "IDENT",
+  "region": "Re z > sigma_0(alpha)",
+  "uses": "|Lambda(n)| <= log n",
+  "cells": [
+   "F*",
+   "N",
+   "P",
+   "P",
+   "F*",
+   "?",
+   "?"
+  ],
+  "status": "PROVED (unrefereed)",
+  "stmt": "S = -1 + 2 sum_m alpha^m P^m/(1 + alpha G)^{m+1}, P^m = sum Lambda^{*m}(n) n^{-1/2-z}: transform supported on u >= 0, so the prime-side anticausal kernel is identically zero, for every sign twist",
+  "cons": "prime side of Gamma_-; shares no hypothesis with the zero side"
+ },
+ {
+  "id": "g-channel-geometry/ThmC",
+  "typ": "INEQ",
+  "region": "b-channels",
+  "uses": "Chebyshev + |Lambda(n)| <= log n",
+  "cells": [
+   "F",
+   "N",
+   "P",
+   "P*",
+   "F*",
+   "?",
+   "?"
+  ],
+  "status": "PROVED",
+  "stmt": "PR 29 separated-carrier positivity holds for every sequence with the size of Lambda; exceptional-carrier positivity fails for eps_n = cos(t0 log n)",
+  "cons": "sign-blind channel positivity"
+ },
+ {
+  "id": "twist-rigidity/T1-T4",
+  "typ": "INEQ",
+  "region": "support T, families",
+  "uses": "orthogonality of characters",
+  "cells": [
+   "P",
+   "N",
+   "?",
+   "?",
+   "?",
+   "?",
+   "N"
+  ],
+  "status": "PROVED (refereed)",
+  "stmt": "nonnegative weights over a character family annihilate prime terms up to e^T at total weight >= 1 + floor(T/log 2); the family inequality holds for arbitrary real prime data",
+  "cons": "family positivity; no information on a single member"
+ },
+ {
+  "id": "support-rigidity/P5-P9",
+  "typ": "NOGO",
+  "region": "windows",
+  "uses": "support",
+  "cells": [
+   "?",
+   "N",
+   "?",
+   "?",
+   "P",
+   "?",
+   "?"
+  ],
+  "status": "PROVED (constant corrected)",
+  "stmt": "an off-line zero is invisible in every prime-power-free window (domination by n^{1-beta}); exact vanishing gives uniqueness, not location",
+  "cons": "support of Lambda"
+ },
+ {
+  "id": "support-rigidity/P4 + bootstrap/Prop5",
+  "typ": "NOGO",
+  "region": "-",
+  "uses": "-",
+  "cells": [
+   "N",
+   "N",
+   "N",
+   "N",
+   "P",
+   "N",
+   "N"
+  ],
+  "status": "PROVED",
+  "stmt": "E_a has Lambda >= 0, prime-power support, FE s <-> 1-s and zeros at 1/2 +- a: every inequality from {explicit formula, Lambda >= 0, FE, ZF(theta), growth} holds for E_a",
+  "cons": "size normalisation must be used"
+ },
+ {
+  "id": "ideation-panel/T-NR + b-euler-detector/LaurentTwin",
+  "typ": "NOGO",
+  "region": "-",
+  "uses": "-",
+  "cells": [
+   "N",
+   "N",
+   "N",
+   "N",
+   "N",
+   "P",
+   "N"
+  ],
+  "status": "PROVED",
+  "stmt": "xi(s)(2 cosh((s-1/2) log q) + c) is a completed Euler product with zeta's FE, pole at 1 and off-line zeros; it lacks Lambda >= 0 and local temperedness at q",
+  "cons": "FE + Euler product + pole do not suffice"
+ },
+ {
+  "id": "sym-power-positivity/ThmB",
+  "typ": "NOGO",
+  "region": "-",
+  "uses": "-",
+  "cells": [
+   "N",
+   "N",
+   "N",
+   "N",
+   "N",
+   "N",
+   "P"
+  ],
+  "status": "LITERATURE",
+  "stmt": "Beurling zeta with Euler product, Lambda >= 0, simple pole at 1, continuation, and zeros up to any theta < 1",
+  "cons": "Euler product + positivity + pole without FE do not suffice"
+ },
+ {
+  "id": "b-euler-detector/WeilClassRadius",
+  "typ": "NOGO",
+  "region": "support",
+  "uses": "local temperedness class",
+  "cells": [
+   "N",
+   "?",
+   "F",
+   "F",
+   "?",
+   "?",
+   "?"
+  ],
+  "status": "MEASURED",
+  "stmt": "over the class of tempered local data, Weil positivity holds only to support 0.7228 (worst case alpha_2 = -1)",
+  "cons": "class-uniform arguments stop at support 0.7228"
+ },
+ {
+  "id": "bootstrap/Lemma1-3 + nyman-baez-duarte/ThmC",
+  "typ": "NOGO",
+  "region": "Re s > theta",
+  "uses": "ZF(theta), FE, growth",
+  "cells": [
+   "N",
+   "N",
+   "N",
+   "N",
+   "P",
+   "?",
+   "?"
+  ],
+  "status": "PROVED",
+  "stmt": "mollified moments, pointwise detectors, Halasz-Montgomery and Nyman-Beurling rates under ZF(theta) all return f(theta) = theta",
+  "cons": "no contraction of the abscissa"
+ },
+ {
+  "id": "eq48/Thm4 + g-antibridge/no-margin",
+  "typ": "NOGO",
+  "region": "real nodes",
+  "uses": "-",
+  "cells": [
+   "P",
+   "?",
+   "N",
+   "N",
+   "?",
+   "?",
+   "N"
+  ],
+  "status": "PROVED / MEASURED",
+  "stmt": "for every eta > 0 some test has |Q_L(v)| < eta E_gamma(v); 1 - ||T|| = 2.7e-30 on six nodes",
+  "cons": "no margin theta < 1 exists on finite tests"
+ },
+ {
+  "id": "zf-audit-inputs/H1-Lean78",
+  "typ": "INEQ",
+  "region": "Re s > 7/8",
+  "uses": "Hecke cubic rows, sharp mean values, FE",
+  "cells": [
+   "F",
+   "F*",
+   "F*",
+   "F*",
+   "F(a>3/8)",
+   "F*",
+   "?"
+  ],
+  "status": "PROVED (Lean; follow-ups unrefereed)",
+  "stmt": "zeta(s) != 0 and L(s,chi) != 0 for Re s > 7/8",
+  "cons": "the only proved zero-location statement beyond the classical region"
+ },
+ {
+  "id": "b-toeplitz-beyond/Thm1-2 + b-conjecture-22-1/D1-D2",
+  "typ": "INEQ",
+  "region": "damping theta",
+  "uses": "= ZF(1/2 + theta)",
+  "cells": [
+   "F",
+   "F",
+   "N",
+   "N",
+   "F(a>theta)",
+   "F*",
+   "N"
+  ],
+  "status": "PROVED equivalence; holds for zeta at theta >= 3/8",
+  "stmt": "damped Weil positivity W_theta >= 0 on all supports iff zero-free Re s > 1/2 + theta",
+  "cons": "restatement of the half-plane as a positivity"
+ },
+ {
+  "id": "r2-tro6-polar-theorem/PolarExpansion + RB",
+  "typ": "IDENT",
+  "region": "5/6 line",
+  "uses": "1/L(s,chi) (multiplicativity)",
+  "cells": [
+   "F",
+   "N",
+   "F*",
+   "F*",
+   "?",
+   "?",
+   "?"
+  ],
+  "status": "PROVED (unrefereed)",
+  "stmt": "polar part of the theta-row form = sum of <= 12 terms E/L(5/6+t, chi_theta); TRO6(eta) iff a bound on the non-polar remainder",
+  "cons": "where multiplicativity enters the 7/8 method"
+ },
+ {
+  "id": "tro6 large sieves, PropS, LemmaN, GM counts",
+  "typ": "INEQ",
+  "region": "mean values",
+  "uses": "none (Euler-blind)",
+  "cells": [
+   "P",
+   "N",
+   "P*",
+   "P*",
+   "P*",
+   "P*",
+   "?"
+  ],
+  "status": "PROVED (several referee repairs)",
+  "stmt": "large-sieve and Cauchy-Schwarz steps of the 7/8 architecture hold for arbitrary coefficients",
+  "cons": "bilinear forms"
+ },
+ {
+  "id": "lambda-from-halfplane/LemmaR",
+  "typ": "INEQ",
+  "region": "heat axis",
+  "uses": "half-plane input",
+  "cells": [
+   "F",
+   "N",
+   "N",
+   "N",
+   "F",
+   "?",
+   "N"
+  ],
+  "status": "CERTIFIED replay, conditional",
+  "stmt": "Lambda <= 0.116060107834762 given the 0.874886647 half-plane",
+  "cons": "de Bruijn-Newman constant"
+ },
+ {
+  "id": "b-alpoge-furman/AF chain",
+  "typ": "INEQ",
+  "region": "windows",
+  "uses": "prime-side second moment",
+  "cells": [
+   "F",
+   "?",
+   "?",
+   "?",
+   "F",
+   "?",
+   "?"
+  ],
+  "status": "QUOTED",
+  "stmt": "Gabor compression of Weil's form gives a proportion of zeros on the line",
+  "cons": "proportion (MV-CAP)"
+ },
+ {
+  "id": "b-dyson-defect/defect sign",
+  "typ": "MEAS",
+  "region": "zero statistics",
+  "uses": "-",
+  "cells": [
+   "P",
+   "P",
+   "P",
+   "F",
+   "N",
+   "?",
+   "?"
+  ],
+  "status": "MEASURED (1.04e8 zeros)",
+  "stmt": "defect Q + 1 > 0 at every height measured",
+  "cons": "pair statistics"
+ },
+ {
+  "id": "eq48/Thm3 = Weil positivity",
+  "typ": "TARGET",
+  "region": "-",
+  "uses": "-",
+  "cells": [
+   "F",
+   "F",
+   "F",
+   "F",
+   "F",
+   "F",
+   "N"
+  ],
+  "status": "PROVED equivalence",
+  "stmt": "all real-node Pick matrices PSD on one interval <=> one-sided Weil positivity <=> RH",
+  "cons": "target"
+ },
+ {
+  "id": "spinor: S causal / sq-hankel Cor3b / sq-causal (ME)",
+  "typ": "TARGET",
+  "region": "-",
+  "uses": "-",
+  "cells": [
+   "F",
+   "F",
+   "F*",
+   "F*",
+   "F",
+   "F",
+   "N"
+  ],
+  "status": "PROVED equivalences",
+  "stmt": "Gamma_- = 0 <=> |I(u)| <= sqrt(2 pi) Dl exp(-u^2 Dl^2/2) for u < 0 <=> Re T_Q >= -Re L_Q on Re s > 1/2 <=> RH (above t0)",
+  "cons": "target"
+ },
+ {
+  "id": "cc-latest/ThmB",
+  "typ": "TARGET",
+  "region": "real nodes",
+  "uses": "-",
+  "cells": [
+   "F",
+   "F",
+   "?",
+   "?",
+   "F",
+   "F",
+   "N"
+  ],
+  "status": "PROVED (refereed)",
+  "stmt": "RH <=> inf_N eps_N > -infinity: any finite L^2 lower bound Q_L(v) >= -C ||v||^2 on one accumulating node family implies Q_L >= 0",
+  "cons": "target with unbounded slack in the constant"
+ },
+ {
+  "id": "ff-transplant/PropS",
+  "typ": "TARGET",
+  "region": "x > 1/2",
+  "uses": "Landau",
+  "cells": [
+   "F",
+   "?",
+   "?",
+   "?",
+   "F",
+   "?",
+   "N"
+  ],
+  "status": "PROVED",
+  "stmt": "RH <=> R_x(l) = sum_rho e^{rho l}/(x^2 - rho^2) >= -C(1+l)^m for l >= 0 (one-sided polynomial bound)",
+  "cons": "target with polynomial slack"
+ },
+ {
+  "id": "g-odd-sign-tp/TS + g-antibridge/B2",
+  "typ": "TARGET",
+  "region": "interval",
+  "uses": "Loewner",
+  "cells": [
+   "F",
+   "?",
+   "?",
+   "?",
+   "F",
+   "F",
+   "N"
+  ],
+  "status": "PROVED",
+  "stmt": "RH <=> Loewner kernel of phi = -G'/G strictly totally positive of every order <=> K_e >= 0 on one interval <=> Theta(t) completely monotone",
+  "cons": "target"
+ }
+]

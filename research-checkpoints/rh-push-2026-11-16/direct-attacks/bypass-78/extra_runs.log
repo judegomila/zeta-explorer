@@ -1,0 +1,31 @@
+(i) exceptional term designed out
+   b = 0 (lx = ly)    av_max   region A: B = 0.8752369  (lx,ly,l) = [0.41714 0.41714 0.16572]
+   b = 0 (lx = ly)    av_0     region B: B = 0.8993627  (lx,ly,l) = [0.41509 0.41509 0.24527]
+   b = 0 (lx = ly)    pt_left  region A: B = 0.8756822  (lx,ly,l) = [0.41803 0.41803 0.16394]
+   b = 0 (lx = ly)    pt_right region B: B = 0.9108633  (lx,ly,l) = [0.4204 0.4204 0.2612]
+   b <= 0 (ly <= lx)  av_max   region A: B = 0.8752369  (lx,ly,l) = [0.41714 0.41714 0.16572]
+   b <= 0 (ly <= lx)  av_0     region B: B = 0.8870823  (lx,ly,l) = [0.49187 0.33875 0.16938]
+   b <= 0 (ly <= lx)  pt_left  region A: B = 0.8756822  (lx,ly,l) = [0.41803 0.41803 0.16394]
+   b <= 0 (ly <= lx)  pt_right region B: B = 0.8925725  (lx,ly,l) = [0.51658 0.32228 0.16114]
+(ii) fine rho scan, mixed pointwise/averaged per class
+   rho=0.5740  B_mixed - B_ref = +1.753e-05   #pt classes 265
+   rho=0.5745  B_mixed - B_ref = +1.397e-05   #pt classes 268
+   rho=0.5750  B_mixed - B_ref = +1.041e-05   #pt classes 273
+   rho=0.5755  B_mixed - B_ref = +7.935e-06   #pt classes 277
+   rho=0.5760  B_mixed - B_ref = +6.264e-06   #pt classes 279
+   rho=0.5765  B_mixed - B_ref = +4.590e-06   #pt classes 281
+   rho=0.5770  B_mixed - B_ref = +2.912e-06   #pt classes 286
+   rho=0.5775  B_mixed - B_ref = +1.231e-06   #pt classes 291
+   rho=0.5780  B_mixed - B_ref = +3.265e-08   #pt classes 293
+   rho=0.5785  B_mixed - B_ref = +1.542e-07   #pt classes 294
+   rho=0.5790  B_mixed - B_ref = +2.759e-07   #pt classes 298
+   rho=0.5795  B_mixed - B_ref = +3.979e-07   #pt classes 306
+   rho=0.5800  B_mixed - B_ref = +5.202e-07   #pt classes 306
+   rho=0.5805  B_mixed - B_ref = +6.427e-07   #pt classes 309
+   rho=0.5810  B_mixed - B_ref = +2.498e-06   #pt classes 312
+   rho=0.5815  B_mixed - B_ref = +4.345e-06   #pt classes 319
+   rho=0.5820  B_mixed - B_ref = +6.195e-06   #pt classes 322
+   rho=0.5825  B_mixed - B_ref = +8.049e-06   #pt classes 324
+   rho=0.5830  B_mixed - B_ref = +9.907e-06   #pt classes 326
+   rho=0.5835  B_mixed - B_ref = +1.306e-05   #pt classes 334
+   min over fine rho: B_mixed - B_ref = +3.265e-08  (B_ref on this grid 0.8748863453)

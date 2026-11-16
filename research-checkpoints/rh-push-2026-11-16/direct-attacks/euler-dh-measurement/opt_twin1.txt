@@ -1,0 +1,2 @@
+BEST twin1 N=3 d=0.3 min generalized eig mu=0.930402 nodes [0.0, 0.0, 0.0]
+BEST twin1 N=4 d=0.3 min generalized eig mu=0.938731 nodes [0.0, 0.0, 0.0, 0.00112]

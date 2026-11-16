@@ -1,0 +1,11 @@
+check: R_kappa(xi,1/2) with kappa=2B_inf-1, xi=0.388584: 0.6666653307969909
+S0  pointwise, free geometry, region A (w=1-a)
+   B* = 0.874956784797  lx=0.354626 ly=0.478534 l=0.166840  M+l=1.000000 b=0.123908 h=0.812213  worst class (delta,x)=(np.float64(0.38812150298707604), np.float64(0.5)) E=1.31e-06
+S0' pointwise, free geometry, region B (w=a)
+   B* = 0.892572512352  lx=0.516576 ly=0.322282 l=0.161141  M+l=1.000000 b=-0.194294 h=0.644565  worst class (delta,x)=(np.float64(0.6660211104717323), np.float64(0.5)) E=1.30e-06
+S1  averaged theta=max, balanced M+l=1, region A
+   B* = 0.874886508041  lx=0.374074 ly=0.458805 l=0.167121  M+l=1.000000 b=0.084731 h=0.793046  worst class (delta,x)=(np.float64(0.4710522219403106), np.float64(0.5)) E=1.26e-06
+S3  averaged theta=max, FREE geometry, region A
+   B* = 0.874886508041  lx=0.374074 ly=0.458805 l=0.167121  M+l=1.000000 b=0.084731 h=0.793046  worst class (delta,x)=(np.float64(0.47105222194032054), np.float64(0.5)) E=1.26e-06
+S3' averaged theta=0,   FREE geometry, region B
+   B* = 0.887082314803  lx=0.491870 ly=0.338753 l=0.169377  M+l=1.000000 b=-0.153117 h=0.677506  worst class (delta,x)=(np.float64(0.6651570351610743), np.float64(0.5)) E=-2.01e-07

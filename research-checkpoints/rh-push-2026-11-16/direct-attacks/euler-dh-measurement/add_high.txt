@@ -1,0 +1,4 @@
+add g=100 d=0.03  N*=None
+add g=1000 d=0.3  N*=None
+add g=10000 d=0.3  N*=None
+add g=1e+06 d=0.3  N*=None

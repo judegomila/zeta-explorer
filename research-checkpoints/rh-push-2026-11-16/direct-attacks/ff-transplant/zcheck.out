@@ -1,0 +1,9 @@
+zeros: 20000 last 18046.46429623920343761807
+R_x(0) from 20000 zeros 0.0459778422433 + tail est 0.00015809 = 0.0461359317566 ; L(x)/x = 0.0461359280605
+ l=0.693147  R_x(l)/R_x(0) (zeros<=T, all on line by verified height) = -0.37590526
+ l=2.30259  R_x(l)/R_x(0) (zeros<=T, all on line by verified height) = 0.16874759
+ l=6.90776  R_x(l)/R_x(0) (zeros<=T, all on line by verified height) = -0.21035341
+ l=13.8155  R_x(l)/R_x(0) (zeros<=T, all on line by verified height) = 0.19934456
+ l=30  R_x(l)/R_x(0) (zeros<=T, all on line by verified height) = -0.39875952
+ l=60  R_x(l)/R_x(0) (zeros<=T, all on line by verified height) = 0.19282009
+euler table: index n, measured N*, 4n+3: [(1, 7, 7), (2, 12, 11), (3, 15, 15), (5, 24, 23), (8, 34, 35), (12, 49, 51), (20, 81, 83)]

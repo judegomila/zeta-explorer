@@ -1,0 +1,5 @@
+add g=14 d=0.3  N*=7
+add g=14 d=0.03  N*=15
+add g=30 d=0.3  N*=21
+add g=60 d=0.3  N*=None
+add g=100 d=0.3  N*=None

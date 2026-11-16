@@ -1,0 +1,19 @@
+== C1: shifted-Eisenstein control E_a(s)=zeta(s+a)zeta(s-a), a=3/8 ==
+  FE rel.diff at (0.299999999999999988897769753748 + 7.09999999999999964472863211995j) : 7.9741e-31
+  FE rel.diff at (0.810000000000000053290705182008 + 23.3999999999999985789145284798j) : 2.5161e-30
+  FE rel.diff at (1.19999999999999995559107901499 - 3.29999999999999982236431605997j) : 5.7989e-31
+  |E_a(7/8+i*gamma_1)| = 2.7696e-31 (zero on Re s = 1/2+a = 7/8)
+  Dirichlet series at s=3 (n<=3000): 1.481274191  zeta(3+a)zeta(3-a) = 1.481276889
+  Lambda_E(p^k)=(p^{ka}+p^{-ka})log p >= 0 : min over p^k<=1000 = 1.43339
+  coefficient growth e(n)/n^a for n=2^10, 2310, 9973: ['2.4586', '4.2808', '1.001']
+== C2: mollifier/convexity density exponent is neutral exactly at sigma=theta ==
+  identity bracket == 2(th+d-1/2)(th-sigma) on 2000 random rationals: True
+  => N(sigma,T) exponent = 1 + 2A(theta - sigma): < 1 only for sigma > theta, for every mollifier length X=T^A
+== C3: Halasz-Montgomery-Huxley with the ZF(theta) convexity bound mu(alpha)<=c(theta-alpha)/(theta-1/2) ==
+  sigma=0.7: best alpha=None  e(alpha=1/2)=None  e(best)=None  [(1+theta)/2=0.9375]
+  sigma=0.73: best alpha=None  e(alpha=1/2)=None  e(best)=None  [(1+theta)/2=0.9375]
+  sigma=0.75: best alpha=None  e(alpha=1/2)=None  e(best)=None  [(1+theta)/2=0.9375]
+  sigma=0.8: best alpha=0.5  e(alpha=1/2)=0.6461538461538462  e(best)=0.6461538461538462  [(1+theta)/2=0.9375]
+  sigma=0.85: best alpha=0.5  e(alpha=1/2)=1.2923076923076924  e(best)=1.2923076923076924  [(1+theta)/2=0.9375]
+  sigma=0.93: best alpha=0.5  e(alpha=1/2)=2.3261538461538462  e(best)=2.3261538461538462  [(1+theta)/2=0.9375]
+  d e/d alpha has the sign of (2 sigma - 1 - theta): alpha=1/2 (unconditional) optimal for all sigma < (1+theta)/2

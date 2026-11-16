@@ -86,6 +86,12 @@ Choose **Twistor**, or open `?view=twistor`, to use the selected elliptic homoge
 
 The twistor mode explicitly chooses the quaternionic structure `(X₀ + jX₁, X₂ + jX₃)`. The curve's embedding in ℂℙ³ alone does not canonically choose it. A generic fiber motion leaves the elliptic curve: the source and moved quadric residuals are displayed separately, and the moved point receives no inherited s or ξ value. A local common-phase gauge is used for the fiber controls; its chart can change as the source point moves. The derivation, conventions, sources, and mathematical limits are in [SPINORS-TWISTORS.md](docs/SPINORS-TWISTORS.md).
 
+### Hole at infinity, Ultimate views, and a complete count to height T
+
+- **Hole at infinity** (`?view=holedKlein`, or the toggle under Infinity display on any curved shape): removes the open disc `|s − ½| > ρ` around spectral infinity, leaving a compact surface with a boundary rim. The rim is centred on the anti-bridge, so the Klein and annulus identifications preserve it. Nothing inside is evaluated, filled or damped. The radius ρ is a chosen cutoff, not a canonical one, and the essential singularity is excised, not removed: its content is carried by the values on the rim.
+- **Ultimate** (toolbar button, or `?view=ultimatePlane|ultimateSphere|ultimateTorus|ultimateKlein|ultimateAnnulus`): relief, zeros, twin ladder, packets, phase flow, bridge and anti-bridge together on the current shape. Curved shapes use completed ξ. On Klein the relief stays flat and phase flow stops at the seam.
+- **Complete count to height T** (inspector): compares the argument-principle count of every zero with `0 < Im s < T` in the strip against the sign changes of Hardy's `Z` on the line. Agreement means every zero below T is on the line and simple. This is a floating-point verification to that height (`dist/zero-count.js`), not an interval-arithmetic certificate, and says nothing above T.
+
 ### Klein quotient and reflection annulus
 
 Open [Klein](https://zeta-view.vercel.app/?view=klein) or [Annulus](https://zeta-view.vercel.app/?view=annulus) in the toolbar, the starting-point menu, or the projective domain selector. Both use the exact half-torus fundamental region of the existing Jacobi chart; they are genuine quotients of the elliptic double, with the original torus retained for comparison.

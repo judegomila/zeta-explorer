@@ -15,3 +15,26 @@ export function withinDomain(sigma,t,d) {
 export function domainLabel(d) {
   return `${d.sigmaMin} ≤ σ ≤ ${d.sigmaMax}, |t| ≤ ${d.tMax.toLocaleString()}`;
 }
+
+/**
+ * Hole at spectral infinity. The essential point s=infinity is not filled,
+ * damped, or assigned a value: an open disc around it is removed, leaving a
+ * compact surface whose boundary is the spectral circle |s-1/2| = holeRadius.
+ * The circle is centred on the anti-bridge point, so it is preserved by both
+ * s -> 1-conj(s) and s -> conj(s), hence by the Klein and annulus quotients.
+ * The radius is a chosen cutoff, not a canonical one.
+ */
+export const HOLE_DEFAULTS=Object.freeze({infinityHole:false,holeRadius:120});
+export const HOLE_LIMITS=Object.freeze({holeRadius:[2,128]});
+export function holeRadiusFor(state){
+  if(!state?.infinityHole||!state.geometry||state.geometry==='plane')return null;
+  const radius=Number(state.holeRadius??HOLE_DEFAULTS.holeRadius);
+  if(!Number.isFinite(radius))return null;
+  return Math.max(HOLE_LIMITS.holeRadius[0],Math.min(HOLE_LIMITS.holeRadius[1],radius));
+}
+export function insideHole(sigma,t,radius){return radius!==null&&Math.hypot(sigma-.5,t)>radius;}
+/** Sampling domain: on the critical line the hole is exactly |t| > radius. */
+export function samplingDomain(state){
+  const d=domainFor(state),radius=holeRadiusFor(state);
+  return radius===null?d:{...d,tMax:Math.min(d.tMax,radius),holeRadius:radius};
+}

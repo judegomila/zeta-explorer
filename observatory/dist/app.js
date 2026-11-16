@@ -7,7 +7,8 @@ import { ZetaScene } from './renderer.js';
 import { CanvasZetaScene } from './canvas-renderer.js';
 import { evaluatePolar, ZERO_HEIGHTS, NUMERICS } from './math.js';
 import { surfacePoint } from './geometry.js';
-import { domainFor, withinDomain, domainLabel } from './domain.js';
+import { domainFor, withinDomain, domainLabel, HOLE_DEFAULTS, HOLE_LIMITS } from './domain.js';
+import { completeZeroCount } from './zero-count.js';
 import { FieldService } from './field-service.js';
 import { fieldKey } from './field-cache.js';
 import { createSequencePlan, sequenceKey, prepareSequence, nearestFrame } from './playback.js';
@@ -24,7 +25,7 @@ import { DYNAMICS_DEFAULTS, DYNAMICS_LIMITS, DYNAMICS_ENUMS, normalizeDynamicsCo
 import { decodeViewURL, ViewURLController, sanitizeViewCamera, sanitizeViewProbe } from './view-url.js';
 
 const $=id=>document.getElementById(id), $$=s=>document.querySelectorAll(s), TAU=2*Math.PI;
-const defaults={...DYNAMICS_DEFAULTS,...RESEARCH_DEFAULTS,...CHANNELS_DEFAULTS,...INFINITY_DEFAULTS,...DUAL_DEFAULTS,...DISPLAY_DEFAULTS,dynamicsMode:'off',fiberMode:'off',spinorPhase:0,spinorRotation:0,spinorAxis:'z',twistorSheet:1,twistorFiberTheta:0,twistorFiberPhi:0,twistorProjection:'north',projective:false,projectiveChannel:'bridge',derivativeScale:1,geometry:'plane',function:'zeta',heightMode:'log',height:1.1,colorMode:'phase',phaseOffset:0,exposure:1,opacity:.97,wireframe:false,contours:true,critical:true,zeros:true,vortices:false,ladder:false,packets:false,packetPaused:false,seams:true,autoRotate:false,flowSpeed:1,packetWidth:.35,playing:false,tau:0,sigmaMin:-2,sigmaMax:3,tMin:8,tMax:38,bridgeA:.25,chartScale:24,torusR:1.6,resolution:'standard',extent:'extended',heightReference:0,heightLocked:false,heightLogReference:0,heatStart:-.3,heatEnd:.5,heatFrames:17,heatFPS:6,playbackResolution:'standard'};
+const defaults={...DYNAMICS_DEFAULTS,...RESEARCH_DEFAULTS,...CHANNELS_DEFAULTS,...INFINITY_DEFAULTS,...DUAL_DEFAULTS,...DISPLAY_DEFAULTS,...HOLE_DEFAULTS,dynamicsMode:'off',fiberMode:'off',spinorPhase:0,spinorRotation:0,spinorAxis:'z',twistorSheet:1,twistorFiberTheta:0,twistorFiberPhi:0,twistorProjection:'north',projective:false,projectiveChannel:'bridge',derivativeScale:1,geometry:'plane',function:'zeta',heightMode:'log',height:1.1,colorMode:'phase',phaseOffset:0,exposure:1,opacity:.97,wireframe:false,contours:true,critical:true,zeros:true,vortices:false,ladder:false,packets:false,packetPaused:false,seams:true,autoRotate:false,flowSpeed:1,packetWidth:.35,playing:false,tau:0,sigmaMin:-2,sigmaMax:3,tMin:8,tMax:38,bridgeA:.25,chartScale:24,torusR:1.6,resolution:'standard',extent:'extended',heightReference:0,heightLocked:false,heightLogReference:0,heatStart:-.3,heatEnd:.5,heatFrames:17,heatFPS:6,playbackResolution:'standard'};
 const dynamicsBase={...defaults,projective:false,fiberMode:'off',geometry:'plane',function:'xi',playing:false,autoRotate:false,packets:false};
 const dynamicsViewNames={phase:'dynamics',relax:'relaxation',walk:'randomWalk',cancel:'phaseCancel',heat:'boundedHeat',trap:'zeroTrap',collision:'heatCollision'};
 const presets={
@@ -41,6 +42,12 @@ const presets={
  projective:{settings:{...defaults,projective:true,geometry:'torus',function:'xi',torusR:2,ladder:true,height:.35,contours:false},note:'Projective elliptic curve, two critical ovals, infinity and anti-bridge, with a linked shifted-pair sphere.'},
  projectiveSphere:{settings:{...defaults,projective:true,geometry:'sphere',function:'xi',torusR:2,ladder:true,height:.35,contours:false,projectiveChannel:'domain'},note:'The projective domain [s₀−1:s₀], with finite and reciprocal charts linked to both torus sheets.'},
  smoothKlein:{settings:{...defaults,projective:true,geometry:'klein',function:'xi',torusR:2,heightMode:'flat',height:0,ladder:false,contours:false,displayDamping:true,displayDampingScale:120},note:'Positive Gaussian weighting of the displayed ξ field. Finite zeros and phase are retained; analytic diagnostics use the original ξ.'},
+ holedKlein:{settings:{...defaults,projective:true,geometry:'klein',function:'xi',torusR:2,heightMode:'flat',height:0,ladder:true,contours:false,infinityHole:true,holeRadius:120},note:'The Klein quotient with a disc removed around s = ∞. The rim |s − ½| = 120 is a chosen boundary; the essential point lies outside the surface.'},
+ ultimatePlane:{settings:{...defaults,function:'zeta',sigmaMin:-1.5,sigmaMax:2.5,tMin:8,tMax:38,height:.9,ladder:true,packets:true,vortices:true,contours:true},note:'Every layer on the plane: relief, zeros, twin ladder, packets and phase flow.'},
+ ultimateSphere:{settings:{...defaults,geometry:'sphere',height:.4,projective:true,function:'xi',torusR:2,ladder:true,packets:true,vortices:true,contours:false,infinityHole:true,holeRadius:120},note:'Every layer on the projective sphere, with the anti-bridge marked and a hole at s = ∞.'},
+ ultimateTorus:{settings:{...defaults,geometry:'torus',height:.38,projective:true,function:'xi',torusR:2,ladder:true,packets:true,vortices:true,contours:false,infinityHole:true,holeRadius:120},note:'Every layer on the elliptic double: both lifts of each zero, both anti-bridge points, and two holes at s = ∞.'},
+ ultimateKlein:{settings:{...defaults,geometry:'klein',heightMode:'flat',height:0,projective:true,function:'xi',torusR:2,ladder:true,packets:true,vortices:true,contours:false,infinityHole:true,holeRadius:120},note:'Every layer on the holed Klein quotient. Relief stays flat and phase flow stops at the seam, where orientation reverses.'},
+ ultimateAnnulus:{settings:{...defaults,geometry:'annulus',heightMode:'flat',height:0,projective:true,function:'xi',torusR:2,ladder:true,packets:true,vortices:true,contours:false,infinityHole:true,holeRadius:120},note:'Every layer on the reflection annulus, with its two critical boundaries and holes at s = ∞.'},
  klein:{settings:{...defaults,projective:true,geometry:'klein',function:'xi',torusR:2,heightMode:'flat',height:0,ladder:true,contours:false},note:'The exact free antiholomorphic quotient Eᵣ/A. One critical loop, paired infinity lifts, and a conjugating seam.'},
  annulus:{settings:{...defaults,projective:true,geometry:'annulus',function:'xi',torusR:2,heightMode:'flat',height:0,ladder:true,contours:false},note:'The reflection quotient Eᵣ/R. Its two critical boundaries expose the even and odd boundary conditions.'},
  spinor:{settings:{...defaults,projective:true,geometry:'torus',function:'xi',torusR:2,ladder:true,height:.35,contours:false,fiberMode:'spinor'},note:'The selected homogeneous pair lifted to a spinor: Hopf phase, Bloch direction and 4π rotation.'},
@@ -61,7 +68,7 @@ let dynamicsPanel=null,researchPanel=null,channelsPanel=null,infinityPanel=null,
 let viewURL=null,sharedCamera=null,pendingResetView=null,cameraURLTimer,focusModuleAfterLoad=false,lastBufferedURL=0;
 const defaultProbe={sigma:.5,t:ZERO_HEIGHTS[0]};
 const enums={...DYNAMICS_ENUMS,...RESEARCH_ENUMS,...CHANNELS_ENUMS,...INFINITY_ENUMS,...DUAL_ENUMS,fiberMode:['off','spinor','twistor'],spinorAxis:['x','y','z'],twistorSheet:[1,-1],twistorProjection:['north','south'],projectiveChannel:['domain','bridge','derivative'],geometry:['plane','sphere','torus','klein','annulus'],function:['zeta','xi','heat'],heightMode:['log','abs','real','imag','flat'],colorMode:['phase','modulus','real','imag','bridge','shear'],resolution:['draft','standard','high','ultra'],extent:['core','extended'],playbackResolution:['draft','standard','current'],heatFrames:[9,17,33]};
-const limits={...DYNAMICS_LIMITS,...RESEARCH_LIMITS,...CHANNELS_LIMITS,...INFINITY_LIMITS,...DUAL_LIMITS,...DISPLAY_LIMITS,spinorPhase:[0,TAU],spinorRotation:[0,2*TAU],twistorFiberTheta:[0,Math.PI],twistorFiberPhi:[0,TAU],derivativeScale:[.01,20],height:[0,2.4],phaseOffset:[0,TAU],exposure:[.3,2],opacity:[.1,1],flowSpeed:[.1,3],packetWidth:[.1,1],tau:[-.3,.5],sigmaMin:[-128,128.99],sigmaMax:[-127.99,129],tMin:[-2000,1999.99],tMax:[-1999.99,2000],bridgeA:[.005,1.5],chartScale:[1,72],torusR:[1.15,3],heightReference:[0,1e300],heightLogReference:[-100000,100000],heatStart:[-.3,.49],heatEnd:[-.29,.5],heatFPS:[1,12]};
+const limits={...DYNAMICS_LIMITS,...RESEARCH_LIMITS,...CHANNELS_LIMITS,...INFINITY_LIMITS,...DUAL_LIMITS,...DISPLAY_LIMITS,...HOLE_LIMITS,spinorPhase:[0,TAU],spinorRotation:[0,2*TAU],twistorFiberTheta:[0,Math.PI],twistorFiberPhi:[0,TAU],derivativeScale:[.01,20],height:[0,2.4],phaseOffset:[0,TAU],exposure:[.3,2],opacity:[.1,1],flowSpeed:[.1,3],packetWidth:[.1,1],tau:[-.3,.5],sigmaMin:[-128,128.99],sigmaMax:[-127.99,129],tMin:[-2000,1999.99],tMax:[-1999.99,2000],bridgeA:[.005,1.5],chartScale:[1,72],torusR:[1.15,3],heightReference:[0,1e300],heightLogReference:[-100000,100000],heatStart:[-.3,.49],heatEnd:[-.29,.5],heatFPS:[1,12]};
 function normalizeQuotient(s){
  if(s.infinityMode!=='off'||!isQuotientGeometry(s.geometry)||s.dynamicsMode!=='off'||s.researchMode!=='off'||s.channelsMode!=='off')return s;
  s.projective=true;s.fiberMode='off';if(s.function==='zeta')s.function='xi';
@@ -131,6 +138,7 @@ function syncUI(){
  $('dualPanelBtn').hidden=!dualActive;
  $('displayDampingSection').hidden=state.function==='zeta';
  $('displayDampingScaleRow').hidden=!state.displayDamping;
+ {const holeable=state.geometry!=='plane';$$('[data-setting="infinityHole"]').forEach(el=>el.disabled=!holeable);$('holeRadiusRow').hidden=$('holeNote').hidden=!(state.infinityHole&&holeable);}
  $('displayDampingNote').hidden=!state.displayDamping;
  $('displayDampingNote').textContent='Display: exp(−|s−½|² / '+state.displayDampingScale+'²) × '+(state.function==='heat'?'Fτ':'ξ')+'. Phase fades with amplitude. Inspector, contours, zero counts and numerical exports use the original field. Gray remains unevaluated.';
 
@@ -158,7 +166,7 @@ function syncUI(){
  $('projectiveBtn').classList.toggle('active',state.projective&&state.fiberMode==='off'&&!quotientActive);$('projectiveBtn').setAttribute('aria-pressed',String(state.projective&&state.fiberMode==='off'&&!quotientActive));
  $('projectiveMount').value=state.geometry;$('derivativeScaleRow').hidden=state.projectiveChannel!=='derivative';
  $$('[data-setting]').forEach(el=>{const v=state[el.dataset.setting];if(el.type==='checkbox')el.checked=!!v;else el.value=v;});
- $$('[data-output]').forEach(el=>{const k=el.dataset.output;el.textContent=['spinorPhase','spinorRotation','twistorFiberTheta','twistorFiberPhi'].includes(k)?(state[k]/Math.PI).toFixed(2)+'π':k==='phaseOffset'?Math.round(state[k]*180/Math.PI)+'°':k==='heatFPS'?Math.round(state[k])+' fps':k==='chartScale'?state[k]:k==='bridgeA'?fmt(state[k],4):state[k].toFixed(2);});
+ $$('[data-output]').forEach(el=>{const k=el.dataset.output;el.textContent=['spinorPhase','spinorRotation','twistorFiberTheta','twistorFiberPhi'].includes(k)?(state[k]/Math.PI).toFixed(2)+'π':k==='phaseOffset'?Math.round(state[k]*180/Math.PI)+'°':k==='heatFPS'?Math.round(state[k])+' fps':k==='chartScale'?state[k]:k==='holeRadius'?Math.round(state[k]):k==='bridgeA'?fmt(state[k],4):state[k].toFixed(2);});
  $$('button[data-geometry]').forEach(el=>{const active=!infinityActive&&!channelsActive&&!researchActive&&!dynamicsActive&&(!state.projective||quotientActive)&&el.dataset.geometry===state.geometry;el.classList.toggle('active',active);el.setAttribute('aria-pressed',active);});
  $$('button[data-function]').forEach(el=>{const active=el.dataset.function===state.function;el.classList.toggle('active',active);el.setAttribute('aria-pressed',active);el.disabled=quotientActive&&el.dataset.function==='zeta';el.title=el.disabled?'These quotients require the reflection symmetry of completed ξ or its heat deformation.':'';});
  $$('[data-setting="heightMode"],[data-setting="height"]').forEach(el=>el.disabled=kleinActive||state.displayDamping);$('lockHeight').disabled=kleinActive;$('unitHeight').disabled=kleinActive;$$('[data-setting="colorMode"]').forEach(el=>el.disabled=state.displayDamping);
@@ -195,7 +203,7 @@ function syncUI(){
 }
 const sourceLabel={memory:'memory cache',disk:'saved cache',precomputed:'precomputed',computed:'newly computed',buffer:'frame buffer'};
 const mib=bytes=>(bytes/1048576).toFixed(1)+' MiB';
-function renderSettings(){const settings={...state};for(const key of ['geometry','projective','function','tau','resolution','extent','sigmaMin','sigmaMax','tMin','tMax','chartScale','torusR','bridgeA'])settings[key]=renderedState[key];return settings;}
+function renderSettings(){const settings={...state};for(const key of ['geometry','projective','function','tau','resolution','extent','sigmaMin','sigmaMax','tMin','tMax','chartScale','torusR','bridgeA','infinityHole','holeRadius'])settings[key]=renderedState[key];return settings;}
 function clipMatches(){try{return !!activeClip&&activeClip.key===sequenceKey(state);}catch{return false;}}
 function syncCacheUI(){
  const stats=fieldService?.stats(),ready=clipMatches();
@@ -210,7 +218,7 @@ function syncCacheUI(){
 }
 function cancelField(){clearTimeout(computeTimer);fieldController?.abort();fieldController=null;requestSerial++;busy=false;}
 function cancelWarm(){clearTimeout(warmTimer);warmController?.abort();warmController=null;warmMessage='';}
-function restoreDisplayedField(){if(!data||fieldKey(state)===fieldKey(renderedState))return;for(const key of ['geometry','projective','function','tau','resolution','extent','sigmaMin','sigmaMax','tMin','tMax','chartScale','torusR','bridgeA','colorMode','vortices','ladder','packets'])state[key]=renderedState[key];if(!state.projective)state.fiberMode='off';scene.updateStyle(renderSettings());syncUI();storeState();}
+function restoreDisplayedField(){if(!data||fieldKey(state)===fieldKey(renderedState))return;for(const key of ['geometry','projective','function','tau','resolution','extent','sigmaMin','sigmaMax','tMin','tMax','chartScale','torusR','bridgeA','infinityHole','holeRadius','colorMode','vortices','ladder','packets'])state[key]=renderedState[key];if(!state.projective)state.fiberMode='off';scene.updateStyle(renderSettings());syncUI();storeState();}
 function cancelPreparation(){stopHeat(false);restoreDisplayedField();updateProbe(pinned);}
 function holdProbe(message=state.playing?'Buffered playback · pause to inspect':'Buffered frame · press Inspect for point values'){$('probeMode').textContent=message;$('probeFunction').textContent=state.function==='zeta'?'ζ(s)':state.function==='xi'?'ξ(s)':'Fτ(s)';for(const id of ['probeAbs','probeReal','probeImag','probePhase','probeDerivative','probeShear','probeBalance'])$(id).textContent='—';$('windingResult').querySelector('strong').textContent='—';windingKey=null;projectivePanel.hold(state,probe,message);fiberPanels.hold(state,probe,message);quotientPanel.hold(state,probe,message);}
 function applyField(result,requested,{inspect=true,source=result.source}={}){
@@ -259,6 +267,15 @@ $('projectiveBtn').onclick=()=>selectMount(state.geometry==='sphere'?'sphere':'t
 $('infinityBtn').onclick=()=>{applyPreset('infinityEnd');closeDrawers();};
 $('stripEndsBtn').onclick=()=>{applyPreset('stripEnds');closeDrawers();};
 $('dualBtn').onclick=()=>{applyPreset('dualTwistor');closeDrawers();};
+$('ultimateBtn').onclick=()=>{const g=state.geometry;applyPreset('ultimate'+g[0].toUpperCase()+g.slice(1));closeDrawers();};
+$('countZeros').onclick=()=>{const T=Number($('countHeight').value),out=$('countResult');
+ if(!(T>1&&T<=2000)){out.textContent='Choose a height with 1 < T ≤ 2000.';return;}
+ out.textContent='Counting…';
+ setTimeout(()=>{try{const r=completeZeroCount(T);
+  out.textContent=!r.resolved?'Unresolved at T = '+T+' (T may be too close to a zero). Try a nearby height.'
+   :r.complete?'Strip: '+r.strip+' zeros with 0 < Im s < '+T+'. On the line: '+r.line+'. They agree, so every zero below this height is on the critical line and simple. Floating-point check to this height only; not a certificate.'
+   :'Strip: '+r.strip+'. On the line: '+r.line+'. The counts differ, so this scan is not complete at T = '+T+'.';
+ }catch(error){out.textContent=error.message;}},20);};
 $('smoothKleinBtn').onclick=()=>{applyPreset('smoothKlein');closeDrawers();};
 $('dualPanelBtn').onclick=()=>{$('dualWorkbench').scrollIntoView({block:'start',behavior:'smooth'});closeDrawers();};
 $('channelsBtn').onclick=()=>{applyPreset('channels');closeDrawers();$('channelsWorkbench').scrollIntoView({block:'start'});};

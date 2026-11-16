@@ -1,12 +1,12 @@
 import { evaluatePolar, heatXi, hardyZ, ZERO_HEIGHTS } from './math.js';
 import { surfacePoint, inversePoint, liftPoint, wrap, sampleAxes, projectiveGuides } from './geometry.js';
-import { domainFor, withinDomain } from './domain.js';
+import { domainFor, withinDomain, samplingDomain, insideHole } from './domain.js';
 import { computeCriticalSamples, computeLandmarkValues } from './critical-samples.js';
 import { isQuotientGeometry } from './quotient.js';
 
 const mag=z=>Math.hypot(z.re,z.im);
 const finite=z=>Number.isFinite(z.re)&&Number.isFinite(z.im);
-function inDomain(s,t,state){return withinDomain(s,t,state._domain||domainFor(state))&&!(state.function==='zeta'&&Math.hypot(s-1,t)<.025);}
+function inDomain(s,t,state){const d=state._domain||samplingDomain(state);return withinDomain(s,t,d)&&!insideHole(s,t,d.holeRadius??null)&&!(state.function==='zeta'&&Math.hypot(s-1,t)<.025);}
 function val(s,t,state,withDerivative=false){return evaluatePolar(s,t,state.function,state.tau,withDerivative);}
 function styledPoint(u,v,state,withDerivative=false){const p=surfacePoint(u,v,state);if(!p.valid||!inDomain(p.sigma,p.t,state))return null;const f=val(p.sigma,p.t,state,withDerivative);return f.valid?{...p,u,v,value:[f.re,f.im],logAbs:f.logAbs,arg:f.arg,q:f.q}:null;}
 function append(lines,arr,meta){if(arr.length<2)return;lines.push({...meta,points:arr.map(p=>p.position),positions:arr.map(p=>p.position),normals:arr.map(p=>p.normal),values:arr.map(p=>p.value),logAbs:arr.map(p=>p.logAbs),arg:arr.map(p=>p.arg)});}
@@ -28,6 +28,12 @@ function spectralLine(samples,state,meta){
   }
  }
  tracks.forEach(track=>append(lines,track.arr,meta));return lines;
+}
+/** The boundary circle |s-1/2| = radius, lifted to every sheet it meets. */
+function holeRim(state){
+ const radius=state._domain.holeRadius*(1-1e-9),n=({draft:360,standard:720,high:1080,ultra:1440})[state.resolution]||720;
+ const samples=Array.from({length:n+1},(_,i)=>{const a=2*Math.PI*i/n;return [.5+radius*Math.cos(a),radius*Math.sin(a)];});
+ return spectralLine(samples,state,{kind:'hole-rim',color:'#ffd27a'});
 }
 function ladder(state){
  if(!state.ladder&&!state.packets)return [];
@@ -111,7 +117,7 @@ export function computeSlice(state){
 export function sampleField(inputState,{onProgress=()=>{}}={}){
  const state={...inputState},start=performance.now();
   if(isQuotientGeometry(state.geometry)&&!['xi','heat'].includes(state.function))throw new RangeError('Real quotients require the completed xi or heat field; raw zeta does not obey the conjugated transition.');
-  state._domain=domainFor(state);
+  state._domain=samplingDomain(state);
   const axes=sampleAxes(state),nx=axes.u.length-1,ny=axes.v.length-1,n=(nx+1)*(ny+1);
   const coords=new Float64Array(2*n),uvs=new Float64Array(2*n),values=new Float64Array(2*n),logAbs=new Float64Array(n),arg=new Float64Array(n),sampleWeights=new Float64Array(n),rawRepresentable=new Uint8Array(n),basePositions=new Float32Array(3*n),normals=new Float32Array(3*n),valid=new Uint8Array(n),bridge=new Float32Array(n);
   values.fill(NaN);logAbs.fill(NaN);arg.fill(NaN);bridge.fill(NaN);
@@ -137,5 +143,6 @@ export function sampleField(inputState,{onProgress=()=>{}}={}){
   onProgress('Tracing geometry');
   const data={nx,ny,uvs,uAxis:axes.u,vAxis:axes.v,coords,values,logAbs,arg,rawRepresentable,sampleWeights,basePositions,normals,valid,bridge,domain:state._domain,kind:state.function,zeroPoints:rootMarkers(state),ladderLines:ladder(state),flowLines:flow(state),criticalSamples:computeCriticalSamples(state,state._domain,axes),landmarkValues:computeLandmarkValues(state,state._domain),slice:computeSlice(state),validCount:count,logOnlyCount,maxSampleT,ms:performance.now()-start};
   if(state.projective)data.projectiveGuides=projectiveGuides(state);
+  if(state._domain.holeRadius)data.hole={radius:state._domain.holeRadius,rim:holeRim(state)};
   return data;
 }

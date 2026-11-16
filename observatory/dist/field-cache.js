@@ -27,6 +27,9 @@ export function fieldKey(state = {}) {
   // Inspector channels and derivative scale do not change a sampled field.
   if(state.projective&&geometry!=='plane')key.push(['projective-atlas-v1',number(state,'torusR')]);
   if(quotient)key.push(['real-quotient-v1',geometry]);
+  // A hole at infinity removes samples; keyed only when cut, so every
+  // existing key is unchanged. Mirrors holeRadiusFor in domain.js.
+  if(state.infinityHole&&geometry!=='plane'){const radius=Number(state.holeRadius??120);if(!Number.isFinite(radius))throw new TypeError('Invalid numerical cache input: holeRadius');key.push(['infinity-hole-v1',Math.max(2,Math.min(128,radius))]);}
   // The derivative color owns a distinct payload without invalidating the
   // unchanged, precomputed phase/bridge fields. bridge[] holds tanh Re(F′/F).
   if(state.colorMode==='shear')key.push(['log-shear-v1']);

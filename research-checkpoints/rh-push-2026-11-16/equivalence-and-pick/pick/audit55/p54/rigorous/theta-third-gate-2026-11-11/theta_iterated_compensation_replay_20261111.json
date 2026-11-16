@@ -1,0 +1,42 @@
+{
+  "arithmetic": "exact symbolic and rational arithmetic",
+  "check_names": [
+    "Gaussian_Wronskian_order_1",
+    "Gaussian_Wronskian_order_2",
+    "Gaussian_Wronskian_order_3",
+    "Gaussian_Wronskian_order_4",
+    "source_annihilator_1",
+    "source_extended_Wronskian_1",
+    "source_annihilator_2",
+    "source_extended_Wronskian_2",
+    "source_annihilator_3",
+    "source_extended_Wronskian_3",
+    "Sylvester_nonconstant_prefix_order_1",
+    "Sylvester_nonconstant_prefix_order_2",
+    "Sylvester_nonconstant_prefix_order_3",
+    "Sylvester_nonconstant_prefix_order_4",
+    "uniform_interlacing_minor_order_1",
+    "uniform_interlacing_minor_order_2",
+    "uniform_interlacing_minor_order_3",
+    "uniform_interlacing_minor_order_4",
+    "uniform_interlacing_minor_order_5",
+    "uniform_interlacing_minor_order_6",
+    "uniform_rank_one_region_not_strict_TP",
+    "single_crossings_have_order_dependent_wedge",
+    "next_H_source_column_factor",
+    "next_Q_source_column_factor",
+    "signed_density_Cauchy_Binet",
+    "joint_anchor_gauge_counterexample"
+  ],
+  "checks": 26,
+  "scope": "Analytic TN-infinity Peano-kernel theorem; no third canonical preservation, P6, or RH assertion.",
+  "status": "passed",
+  "uniform_kernel_minors": {
+    "1": "19/671088640",
+    "2": "24365/101085468550861160448",
+    "3": "6535166995/7392938300531033869528773093752832",
+    "4": "63517930055784799/35389440000000000000000000000000000000000000000000",
+    "5": "8281659255771960289/3578437887591245325268779771629102560022555238042141814947840",
+    "6": "22344066103371988334507560150036727/10831319234685392639166925013793155107794542642528179332502249876625844528236986368000"
+  }
+}

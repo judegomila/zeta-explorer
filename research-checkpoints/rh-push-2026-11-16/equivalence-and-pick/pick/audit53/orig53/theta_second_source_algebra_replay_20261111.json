@@ -1,0 +1,23 @@
+{
+  "check_count": 16,
+  "checks": [
+    "first_reduced_H_kernel_factor",
+    "first_reduced_P_kernel_factor",
+    "constant_column_H_orientation",
+    "constant_column_J_orientation",
+    "large_anchor_H_source_expansion",
+    "large_anchor_P_source_expansion",
+    "large_anchor_H_prefactor",
+    "large_anchor_P_prefactor",
+    "Laplace_resolvent_remainder",
+    "source_P_identification",
+    "even_coordinate_derivative_constant_1",
+    "even_coordinate_derivative_constant_2",
+    "even_coordinate_derivative_constant_3",
+    "even_Wronskian_chain_factor",
+    "uniform_even_Wronskian_bound",
+    "origin_Wronskian_factor"
+  ],
+  "scope": "Exact source elimination and compact-in-space large-anchor expansion; no all-anchor reduced source signs are asserted.",
+  "status": "passed"
+}

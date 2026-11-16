@@ -1,0 +1,199 @@
+{
+  "claim": "W5(B',J',P',Q',H')<0 for every positive t.",
+  "core": {
+    "C_endpoint_direct": "[0.0196445701546107809061092109158572985690648576192157010 +/- 4.19e-56]",
+    "C_endpoint_propagated": "[0.0196445701546107809061092109158573 +/- 7.82e-35]",
+    "Taylor_order": 16,
+    "cell_widths": {
+      "1/1024": 710,
+      "1/128": 90,
+      "1/2048": 600,
+      "1/256": 178,
+      "1/512": 355,
+      "1/64": 47
+    },
+    "cells": 1980,
+    "domain": "3/16<=t<=4",
+    "precision_bits": 512,
+    "status": "passed",
+    "theta_terms": 16,
+    "upper_bound": "-63.1531043052673339843750000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "exact": {
+    "checks": [
+      "even_column_0_jet_0",
+      "even_column_0_jet_1",
+      "even_column_0_jet_2",
+      "even_column_0_jet_3",
+      "even_column_0_jet_4",
+      "even_column_0_jet_5",
+      "even_column_1_jet_0",
+      "even_column_1_jet_1",
+      "even_column_1_jet_2",
+      "even_column_1_jet_3",
+      "even_column_1_jet_4",
+      "even_column_1_jet_5",
+      "even_column_2_jet_0",
+      "even_column_2_jet_1",
+      "even_column_2_jet_2",
+      "even_column_2_jet_3",
+      "even_column_2_jet_4",
+      "even_column_2_jet_5",
+      "even_column_3_jet_0",
+      "even_column_3_jet_1",
+      "even_column_3_jet_2",
+      "even_column_3_jet_3",
+      "even_column_3_jet_4",
+      "even_column_3_jet_5",
+      "even_column_4_jet_0",
+      "even_column_4_jet_1",
+      "even_column_4_jet_2",
+      "even_column_4_jet_3",
+      "even_column_4_jet_4",
+      "even_column_4_jet_5",
+      "even_column_5_jet_0",
+      "even_column_5_jet_1",
+      "even_column_5_jet_2",
+      "even_column_5_jet_3",
+      "even_column_5_jet_4",
+      "even_column_5_jet_5",
+      "actual_theta_column_factor",
+      "even_derivative_coordinate_factor",
+      "C_core_jet_1",
+      "C_core_jet_2",
+      "C_core_jet_3",
+      "C_core_jet_4",
+      "C_core_jet_5",
+      "division_free_determinant_recursion"
+    ],
+    "exact_checks": 44,
+    "status": "passed"
+  },
+  "origin": {
+    "C_remainder_bound": "[9.70345420012285313704620955717057302459935269687397873721625254852672408058470616348936875399352202950593523330690499967945395817636651975758259844842097e-49 +/- 6.25e-202]",
+    "K_derivative_remainders": [
+      "[1.28068344856376998558988550670994371794889945638386521146832815858244265909797081880435686452707391194759223417014155942436028774224613409209410152677471e-44 +/- 3.36e-197]",
+      "[2.08239292611510402570541178641901430744980872324517620155730512818155026969798269849145534855002349506083736891194150018134754298122457775240667522981850e-41 +/- 3.41e-194]",
+      "[3.32694116994520329247738919105016715108061068681776034331699556473279292037311854529040205770757208724109759724589748503785591889791752479672903142332659e-38 +/- 7.83e-192]",
+      "[5.22099752150973754045324459719164746787665182370195513504085682825430389607497555944040807388955969997776779006024973263231866181058796349836483412393595e-35 +/- 1.84e-188]",
+      "[8.04539353309452069359206204231674471532212867681523598084554024063115509142601619173992174151035215954240566891686525849115825232373916661793580999643105e-32 +/- 3.25e-185]",
+      "[1.21697299188185773653594872604095610253971048556206553507227006475597969104525057871961025099129026394592835209826988824267675288718370258933375967480035e-28 +/- 2.65e-181]",
+      "[1.80635640637841473853685785519751600549523807311873088363070337475938519720940051346421639607019055938237850818345598499713790181189935414620740144431461e-25 +/- 2.85e-178]",
+      "[2.63001438779118824454809769479300668915495778100021753533960533783471204715490410545581032855215649187174277399807923826546646875238654027753002817993617e-22 +/- 3.79e-175]",
+      "[3.75476093339174556060970099514835769764794745755511441440606720071996260770092964100472699309764252291802645881942048064297145358060602879122544207738547e-19 +/- 5.20e-172]",
+      "[5.25420352677379311520111166531694989835647403743715750568064980657171058693546080764304441823065457668420404448789408878375500214700819721599011148664093e-16 +/- 5.20e-169]"
+    ],
+    "cells": 256,
+    "degree": 56,
+    "domain": "0<t<=3/16, with the t^15-normalized origin limit",
+    "normalized_origin": "[-6655818333882.956 +/- 3.60e-4]",
+    "normalized_upper_bound": "-5590555500544.00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "precision_bits": 512,
+    "status": "passed",
+    "theta_disk_tail_bound": "[2.16959673103388153161723991012830905067467368385881442825927692373959465149781863783452249360033407796790379958705884797563714830521412291746339417474990e-181 +/- 2.88e-334]",
+    "theta_terms": 16
+  },
+  "status": "passed",
+  "tail": {
+    "checks": [
+      "first_mode_affine",
+      "H4_residual",
+      "H4_positive.numerator",
+      "H4_positive.denominator",
+      "R4_positive.numerator",
+      "R4_positive.denominator",
+      "R4_decreasing.numerator",
+      "R4_decreasing.denominator",
+      "r0_above_half_z.numerator",
+      "r0_above_half_z.denominator",
+      "r0_below_z.numerator",
+      "r0_below_z.denominator",
+      "r0_prime_above_z.numerator",
+      "r0_prime_above_z.denominator",
+      "coefficient_positive.numerator",
+      "coefficient_positive.denominator",
+      "negative_first_mode_margin.numerator",
+      "negative_first_mode_margin.denominator",
+      "determinant_polynomial_degree_bound",
+      "determinant_polynomial_norm_bound",
+      "theta_frequency_at_t4",
+      "exponential_lower_bound",
+      "q_series_derivative_below_one_0",
+      "q_series_derivative_below_one_1",
+      "q_series_derivative_below_one_2",
+      "q_series_derivative_below_one_3",
+      "q_series_derivative_below_one_4",
+      "q_series_derivative_below_one_5",
+      "q_series_derivative_below_one_6",
+      "q_series_derivative_below_one_7",
+      "q_series_derivative_below_one_8",
+      "q_series_derivative_below_one_9",
+      "q_series_derivative_below_one_10",
+      "coarse_tenth_derivative_bound",
+      "Touchard_bound",
+      "omitted_mode_geometric_ratio",
+      "theta_derivative_constant",
+      "logarithm_derivative_constant",
+      "theta_error_below_one",
+      "logarithm_error_below_one",
+      "full_polynomial_error_below_half",
+      "full_polynomial_error_decreases"
+    ],
+    "conclusion": "K_H<-1/2 on the full spatial tail",
+    "domain": "t>=4, z=pi exp(t)>160",
+    "exact_checks": 42,
+    "full_theta_error_at_160_upper": "8659522734582424163818359375/5575186299632655785383929568162090376495104",
+    "polynomial_column_degrees": [
+      2,
+      2,
+      4,
+      4,
+      6
+    ],
+    "polynomial_column_norms": [
+      "6",
+      "132",
+      "4356",
+      "43312",
+      "253/4"
+    ],
+    "polynomial_degree_bound": 18,
+    "polynomial_norm_bound": "1134130596572160",
+    "scope": "Actual infinite theta sum, with explicit first-mode integral and differentiated omitted-mode errors.",
+    "shifted_coefficient_counts": {
+      "H4_positive": [
+        8,
+        5
+      ],
+      "R4_decreasing": [
+        6,
+        7
+      ],
+      "R4_positive": [
+        4,
+        6
+      ],
+      "coefficient_positive": [
+        63,
+        6
+      ],
+      "negative_first_mode_margin": [
+        72,
+        9
+      ],
+      "r0_above_half_z": [
+        3,
+        2
+      ],
+      "r0_below_z": [
+        2,
+        2
+      ],
+      "r0_prime_above_z": [
+        2,
+        3
+      ]
+    },
+    "status": "passed"
+  }
+}

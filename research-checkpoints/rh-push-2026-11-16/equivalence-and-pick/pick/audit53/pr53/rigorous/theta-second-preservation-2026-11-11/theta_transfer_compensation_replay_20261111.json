@@ -1,0 +1,20 @@
+{
+  "arithmetic": "exact symbolic rational arithmetic",
+  "check_names": [
+    "generalized_source_factor",
+    "Sylvester_nonconstant_prefix",
+    "uniform_Pi_s_below_y",
+    "uniform_Pi_s_above_y",
+    "uniform_Pi_continuity",
+    "uniform_Pi_C1",
+    "uniform_TP2_both_knots_above",
+    "uniform_TP2_knots_straddle_y",
+    "uniform_TP2_both_knots_below",
+    "uniform_signed_Peano_integral",
+    "uniform_negative_source_positive_output",
+    "uniform_Peano_reconstruction"
+  ],
+  "checks": 12,
+  "scope": "comparison theorem and example; transformed theta origin signs remain separate",
+  "status": "passed"
+}

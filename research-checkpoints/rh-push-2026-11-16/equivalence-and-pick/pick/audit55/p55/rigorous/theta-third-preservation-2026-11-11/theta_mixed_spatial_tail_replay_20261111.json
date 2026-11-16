@@ -1,0 +1,23 @@
+{
+  "check_names": [
+    "gamma_polynomial_mass",
+    "gamma_polynomial_logarithmic_mean",
+    "mean_high_shape_difference",
+    "mean_low_shape_difference",
+    "centered_incomplete_gamma_recurrence",
+    "loggamma_saddle_limit",
+    "numerator_next_term",
+    "numerator_saddle_limit",
+    "H_leading_source",
+    "P_leading_source",
+    "H_mixed_log_leading",
+    "P_mixed_log_leading",
+    "mixed_tail_original_coordinate",
+    "mixed_coordinate_operator",
+    "fixed_anchor_H_first_mixed_term",
+    "fixed_anchor_P_first_mixed_term"
+  ],
+  "exact_checks": 16,
+  "scope": "Exact identities supporting the analytic eventual tail theorems; no finite starting-height certificate.",
+  "status": "passed"
+}

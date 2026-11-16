@@ -11,6 +11,7 @@ import * as channelsState from '../dist/channels-state.js';
 import * as infinityState from '../dist/infinity.js';
 import * as dualState from '../dist/dual.js';
 import * as displayState from '../dist/display-field.js';
+import {HOLE_DEFAULTS,HOLE_LIMITS} from '../dist/domain.js';
 import {RESEARCH_DEFAULTS,RESEARCH_LIMITS,RESEARCH_ENUMS,RESEARCH_VIEW_NAMES,normalizeResearchConfig,createResearchPresets} from '../dist/research-state.js';
 import {DYNAMICS_DEFAULTS,DYNAMICS_LIMITS,DYNAMICS_ENUMS,normalizeDynamicsConfig} from '../dist/dynamics.js';
 
@@ -48,7 +49,7 @@ function actualApp(){
   activeElement:{tagName:'BODY'},body:{append(){}},
   addEventListener:(name,callback)=>listeners.set(name,callback)};
  const context=vm.createContext({
-  ...channelsState,...infinityState,...dualState,...displayState,ZERO_HEIGHTS,NUMERICS,isQuotientGeometry,domainFor,fieldKey,performance,document,
+  ...channelsState,...infinityState,...dualState,...displayState,HOLE_DEFAULTS,HOLE_LIMITS,ZERO_HEIGHTS,NUMERICS,isQuotientGeometry,domainFor,fieldKey,performance,document,
   RESEARCH_DEFAULTS,RESEARCH_LIMITS,RESEARCH_ENUMS,RESEARCH_VIEW_NAMES,normalizeResearchConfig,createResearchPresets,
   DYNAMICS_DEFAULTS,DYNAMICS_LIMITS,DYNAMICS_ENUMS,normalizeDynamicsConfig,
   sanitizeViewCamera,sanitizeViewProbe,Blob,clearTimeout,setTimeout,

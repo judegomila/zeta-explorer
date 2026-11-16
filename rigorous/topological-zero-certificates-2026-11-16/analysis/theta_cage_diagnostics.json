@@ -1,0 +1,36 @@
+{
+  "status": "diagnostic floating-point calculations, not interval certificates",
+  "precision_decimal_digits": 60,
+  "normalization": "H_0(z) = xi(1/2 + i*z/2)/8",
+  "M2_at_zero": "0.0007178732598482949229765586405510053207685",
+  "rows": [
+    {
+      "zero_index": 1,
+      "zeta_ordinate": "14.1347251417346937904572519836",
+      "H0_abscissa": "28.2694502834693875809145039671",
+      "log10_H0_slope": "-4.06338602409028660388640683334",
+      "log10_necessary_radius_upper_bound": "-0.618403804970692277223842539519"
+    },
+    {
+      "zero_index": 10,
+      "zeta_ordinate": "49.7738324776723021819167846786",
+      "H0_abscissa": "99.5476649553446043638335693571",
+      "log10_H0_slope": "-15.0108871763828743065768519729",
+      "log10_necessary_radius_upper_bound": "-11.5659049572632799799142876791"
+    },
+    {
+      "zero_index": 100,
+      "zeta_ordinate": "236.524229665816205802475507956",
+      "H0_abscissa": "473.048459331632411604951015911",
+      "log10_H0_slope": "-77.0763025252119290457443358252",
+      "log10_necessary_radius_upper_bound": "-73.6313203060923347190817715313"
+    },
+    {
+      "zero_index": 1000,
+      "zeta_ordinate": "1419.42248094599568646598903808",
+      "H0_abscissa": "2838.84496189199137293197807616",
+      "log10_H0_slope": "-479.350779191541623767652926948",
+      "log10_necessary_radius_upper_bound": "-475.905796972422029440990362654"
+    }
+  ]
+}

@@ -1,6 +1,7 @@
 import { evaluatePolar, heatXi, hardyZ, ZERO_HEIGHTS } from './math.js';
 import { surfacePoint, inversePoint, liftPoint, wrap, sampleAxes, projectiveGuides } from './geometry.js';
 import { domainFor, withinDomain, samplingDomain, insideHole } from './domain.js';
+import { computeTraps } from './zero-traps.js';
 import { computeCriticalSamples, computeLandmarkValues } from './critical-samples.js';
 import { isQuotientGeometry } from './quotient.js';
 
@@ -34,6 +35,65 @@ function holeRim(state){
  const radius=state._domain.holeRadius*(1-1e-9),n=({draft:360,standard:720,high:1080,ultra:1440})[state.resolution]||720;
  const samples=Array.from({length:n+1},(_,i)=>{const a=2*Math.PI*i/n;return [.5+radius*Math.cos(a),radius*Math.sin(a)];});
  return spectralLine(samples,state,{kind:'hole-rim',color:'#ffd27a'});
+}
+/** One symmetric disc per tracked zero, drawn as its boundary ring on every sheet. */
+function zeroTraps(state){
+ if(!state.traps)return [];
+ const limit=state._domain.holeRadius?state._domain.holeRadius-1:120;
+ const inWindow=t=>state.geometry!=='plane'||(t>state.tMin&&t<state.tMax);
+ const traps=computeTraps(criticalRoots(state).filter(t=>t<=limit),{kind:state.function,tau:state.tau});
+ const result=[];
+ for(const trap of traps)for(const sign of state.geometry==='plane'?[1]:[-1,1]){
+  if(!inWindow(trap.t))continue;
+  const ring=Array.from({length:49},(_,i)=>{const a=2*Math.PI*i/48;return [.5+trap.radius*Math.cos(a),sign*trap.t+trap.radius*Math.sin(a)];});
+  result.push({...trap,t:sign*trap.t,rings:spectralLine(ring,state,{kind:'trap',color:trap.color})});
+ }
+ return result;
+}
+/**
+ * Fall lines: test particles released on a grid and moved by the Newton flow
+ * ds/dT = -F/F'. Along a path arg F is constant and |F| decays, so each path
+ * runs into a zero of F wherever that zero is. The particles are probes of
+ * the fixed field; the zeros themselves do not move.
+ */
+function fallLines(state){
+ if(!state.fall)return [];
+ const paths=[],nU=state.geometry==='plane'?9:13,nV=state.geometry==='plane'?13:9,steps=260,h=.004;
+ const quotient=state.geometry==='klein'||state.geometry==='annulus';
+ const vel=(u,v)=>{
+  if(state.geometry==='torus'){u=wrap(u);v=wrap(v);}else if(state.geometry==='sphere'){u=wrap(u);if(v<.007||v>.993)return null;}
+  // As with phase flow, stop at a quotient edge instead of continuing a
+  // direction field across the orientation-reversing transition.
+  else if(quotient){u=wrap(u);if(v<0||v>1)return null;}
+  else if(u<0||u>1||v<0||v>1)return null;
+  const p=styledPoint(u,v,state,true);if(!p||!p.q||!finite(p.q))return null;
+  if(p.logAbs===-Infinity)return {p,arrived:true};
+  let a,b,c,e;
+  if(state.geometry==='plane'){a=state.sigmaMax-state.sigmaMin;b=0;c=0;e=state.tMax-state.tMin;}
+  else if(p.dsdu){a=p.dsdu.re;b=p.dsdv.re;c=p.dsdu.im;e=p.dsdv.im;}
+  else {const d=1e-5,x=surfacePoint(u+d,v,state),y=surfacePoint(u,v+d,state);a=(x.sigma-p.sigma)/d;c=(x.t-p.t)/d;b=(y.sigma-p.sigma)/d;e=(y.t-p.t)/d;}
+  const det=a*e-b*c;if(Math.abs(det)<1e-10)return null;
+  // -F/F' = -1/q has the direction of -conj(q).
+  const vs=-p.q.re,vt=p.q.im,du=(e*vs-b*vt)/det,dv=(-c*vs+a*vt)/det,speed=Math.hypot(du,dv);
+  // Newton step length in s is 1/|q|; a tiny one means the zero is reached.
+  const reach=1/Math.hypot(p.q.re,p.q.im);
+  // du,dv are per |q| of spectral length. Never step past half a Newton
+  // step, so a path settles onto its zero instead of orbiting it.
+  const perLength=speed*reach,ds=Math.min(h/perLength,.5*reach);
+  return speed>1e-10?{du:du*reach*ds,dv:dv*reach*ds,p,arrived:reach<2e-3}:null;
+ };
+ for(let j=0;j<nV;j++)for(let i=0;i<nU;i++){
+  let u=(i+.37)/nU,v=(j+.61)/nV,arr=[],arrived=false;
+  for(let k=0;k<steps;k++){
+   const a=vel(u,v);if(!a)break;arr.push(a.p);if(a.arrived){arrived=true;break;}
+   const b=vel(u+a.du/2,v+a.dv/2);if(!b||b.arrived){if(b){arr.push(b.p);arrived=true;}break;}
+   u+=b.du;v+=b.dv;
+   if(state.geometry!=='plane')u=wrap(u);if(state.geometry==='torus')v=wrap(v);
+  }
+  const end=arr[arr.length-1];
+  append(paths,arr,{color:arrived?'#9be7ff':'#6f86a6',arrived,endSigma:end?.sigma,endT:end?.t});
+ }
+ return paths;
 }
 function ladder(state){
  if(!state.ladder&&!state.packets)return [];
@@ -82,7 +142,8 @@ function flow(state){
  }
  return paths;
 }
-function rootMarkers(state){
+/** Tracked critical-line heights: reference zeros, or sampled heat roots. */
+function criticalRoots(state){
  let roots=[];
  if(state.function==='heat'&&Math.abs(state.tau)>1e-12){
    // Sample and bisect real-axis roots. This intentionally makes NO claim
@@ -90,6 +151,10 @@ function rootMarkers(state){
    let lastT=0,last=heatXi(.5,0,state.tau).re;
    for(let t=.15;t<=60;t+=.15){const f=heatXi(.5,t,state.tau).re;if(Number.isFinite(f)&&f*last<0){let a=lastT,b=t,fa=last;for(let n=0;n<38;n++){const m=(a+b)/2,fm=heatXi(.5,m,state.tau).re;if(fa*fm<=0)b=m;else{a=m;fa=fm;}}roots.push((a+b)/2);}last=f;lastT=t;}
  } else roots=ZERO_HEIGHTS.filter(x=>x<=120);
+ return roots;
+}
+function rootMarkers(state){
+ const roots=criticalRoots(state);
  const result=[];
  for(const t of roots)for(const sign of [-1,1])for(const p of liftPoint(.5,sign*t,state))result.push({...p,label:((state.function==='heat'&&state.tau!==0)?'Sampled Hτ real-axis root · ':'ζ zero · ')+(sign*t).toFixed(6),value:[0,0],kind:'zero'});
  if(state.function==='zeta'){
@@ -141,7 +206,7 @@ export function sampleField(inputState,{onProgress=()=>{}}={}){
    }
   }
   onProgress('Tracing geometry');
-  const data={nx,ny,uvs,uAxis:axes.u,vAxis:axes.v,coords,values,logAbs,arg,rawRepresentable,sampleWeights,basePositions,normals,valid,bridge,domain:state._domain,kind:state.function,zeroPoints:rootMarkers(state),ladderLines:ladder(state),flowLines:flow(state),criticalSamples:computeCriticalSamples(state,state._domain,axes),landmarkValues:computeLandmarkValues(state,state._domain),slice:computeSlice(state),validCount:count,logOnlyCount,maxSampleT,ms:performance.now()-start};
+  const data={nx,ny,uvs,uAxis:axes.u,vAxis:axes.v,coords,values,logAbs,arg,rawRepresentable,sampleWeights,basePositions,normals,valid,bridge,domain:state._domain,kind:state.function,zeroPoints:rootMarkers(state),zeroTraps:zeroTraps(state),fallLines:fallLines(state),ladderLines:ladder(state),flowLines:flow(state),criticalSamples:computeCriticalSamples(state,state._domain,axes),landmarkValues:computeLandmarkValues(state,state._domain),slice:computeSlice(state),validCount:count,logOnlyCount,maxSampleT,ms:performance.now()-start};
   if(state.projective)data.projectiveGuides=projectiveGuides(state);
   if(state._domain.holeRadius)data.hole={radius:state._domain.holeRadius,rim:holeRim(state)};
   return data;

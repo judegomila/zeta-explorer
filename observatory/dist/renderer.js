@@ -480,6 +480,8 @@ export class ZetaScene {
         this.pathLine(points,guide.color,.8,true);
       }
     }
+    if (this.state.traps) for (const trap of data.zeroTraps || []) for (const ring of trap.rings) this.pathLine(this.raisedLine(ring, 0.09), trap.color, 1, trap.status === 'unresolved');
+    if (this.state.fall) for (const path of data.fallLines || []) this.pathLine(this.raisedLine(path, 0.05), path.color, path.arrived ? 0.75 : 0.4);
     // Boundary of the removed disc at infinity: evaluated points only.
     for (const rim of data.hole?.rim || []) this.pathLine(this.raisedLine(rim, 0.07), 0xffd27a, 1);
     if (this.state.zeros) {

@@ -1,0 +1,29 @@
+== axis Laguerre witness at DH off-line feet: L1/Xi^2 = -2/b^2 + screening ==
+gamma=85.6993 b=0.30852 pair=-2/b^2=-21.012 measured=-20.159 screening=0.853  negative t-interval in units of b: [-0.92,0.92]
+gamma=114.1633 b=0.15083 pair=-2/b^2=-87.913 measured=-86.935 screening=0.978  negative t-interval in units of b: [-0.97,0.97]
+gamma=166.4793 b=0.07436 pair=-2/b^2=-361.741 measured=-360.649 screening=1.092  negative t-interval in units of b: [-0.99,0.99]
+gamma=176.7025 b=0.22426 pair=-2/b^2=-39.768 measured=-38.483 screening=1.285  negative t-interval in units of b: [-0.94,0.93]
+== radial shear profile from each foot (Re xi_DH'/xi_DH), r in units of b ==
+gamma=85.70 ang= 5  0.30:-2.043 0.60:-5.740 0.90:-17.955 0.99:-3.958 1.01:+4.438 1.10:+18.734 1.50:+7.811
+gamma=85.70 ang=45  0.30:-1.185 0.60:-1.443 0.90:-0.298 0.99:+0.148 1.01:+0.244 1.10:+0.647 1.50:+1.721
+gamma=85.70 ang=85  0.30:-0.123 0.60:-0.104 0.90:-0.007 0.99:+0.022 1.01:+0.028 1.10:+0.055 1.50:+0.142
+gamma=114.16 ang= 5  0.30:-4.296 0.60:-11.974 0.90:-37.074 0.99:-8.480 1.01:+8.688 1.10:+37.895 1.50:+15.405
+gamma=114.16 ang=45  0.30:-2.508 0.60:-3.126 0.90:-0.876 0.99:+0.007 1.01:+0.196 1.10:+0.991 1.50:+3.051
+gamma=114.16 ang=85  0.30:-0.262 0.60:-0.234 0.90:-0.050 0.99:+0.007 1.01:+0.018 1.10:+0.069 1.50:+0.225
+gamma=166.48 ang= 5  0.30:-8.780 0.60:-24.419 0.90:-75.399 0.99:-17.414 1.01:+17.406 1.10:+76.633 1.50:+30.928
+gamma=166.48 ang=45  0.30:-5.133 0.60:-6.431 0.90:-1.912 0.99:-0.134 1.01:+0.248 1.10:+1.847 1.50:+5.970
+gamma=166.48 ang=85  0.30:-0.538 0.60:-0.485 0.90:-0.117 0.99:-0.005 1.01:+0.019 1.10:+0.120 1.50:+0.430
+gamma=176.70 ang= 5  0.30:-2.833 0.60:-7.940 0.90:-24.766 0.99:-5.517 1.01:+6.033 1.10:+25.693 1.50:+10.638
+gamma=176.70 ang=45  0.30:-1.646 0.60:-2.017 0.90:-0.457 0.99:+0.151 1.01:+0.282 1.10:+0.831 1.50:+2.288
+gamma=176.70 ang=85  0.30:-0.171 0.60:-0.146 0.90:-0.016 0.99:+0.024 1.01:+0.032 1.10:+0.068 1.50:+0.184
+== finite bridge B_a near first DH pair; Theorem A' radius^2=b^2-a^2 ==
+a=0.10 radius^2=+0.0852 negative=1198 outside-disk=0 inside-disk-pts=1317 inside-negative=1198
+a=0.20 radius^2=+0.0552 negative=756 outside-disk=0 inside-disk-pts=847 inside-negative=756
+a=0.30 radius^2=+0.0052 negative=62 outside-disk=0 inside-disk-pts=73 inside-negative=62
+a=0.31 radius^2=-0.0009 negative=0 outside-disk=0 inside-disk-pts=0 inside-negative=0
+a=0.40 radius^2=-0.0648 negative=0 outside-disk=0 inside-disk-pts=0 inside-negative=0
+== axis Laguerre minimum on t in [1,200], step 0.02 ==
+zeta min (-109.83081455276962, 64.0) negative samples 3 range (1.0, 128.0)
+  negative clusters [(1.0, 1.0), (64.0, 64.0), (128.0, 128.0)]
+DH min (-360.5538691871401, 166.48) negative samples 74 range (1.0, 176.9)
+  negative clusters [(1.0, 1.0), (64.0, 64.0), (85.42, 85.98), (114.02, 114.3), (166.42, 166.54), (176.5, 176.9)]

@@ -1,0 +1,20 @@
+== 1. Foster identity: -zeta'/zeta(s) = sum_p (log p/2)(coth(s log p/2)-1)
+ |lhs-rhs| = 1.579e-6  (tail bound ~ Q^-1 = 5e-06 )
+ min Re coth over samples in Re s>0: 0.0039616
+== 2. truncated compensated one-port L_Q on the boundary Re s = 1/2
+ Q=    10: Re L_Q(1/2+it), t in (0,60]: min=-1.2795 max=+2.8700 frac negative=0.328
+ Q=   100: Re L_Q(1/2+it), t in (0,60]: min=-1.7926 max=+5.1991 frac negative=0.425
+ Q=  1000: Re L_Q(1/2+it), t in (0,60]: min=-2.3846 max=+7.2007 frac negative=0.449
+ Q= 10000: Re L_Q(1/2+it), t in (0,60]: min=-2.7619 max=+10.4922 frac negative=0.465
+== 3. reservoir vs worst-case finite cascade draw (local HB criterion)
+ t=1e+02: Re G(1/2+it)=1.3836  largest Q with worst-case draw < reservoir: Q*=None
+ t=1e+04: Re G(1/2+it)=3.6862  largest Q with worst-case draw < reservoir: Q*=3
+ t=1e+06: Re G(1/2+it)=5.9888  largest Q with worst-case draw < reservoir: Q*=7
+ t=1e+09: Re G(1/2+it)=9.4427  largest Q with worst-case draw < reservoir: Q*=17
+ t=1e+12: Re G(1/2+it)=12.8966  largest Q with worst-case draw < reservoir: Q*=37
+ t=1e+20: Re G(1/2+it)=22.1069  largest Q with worst-case draw < reservoir: Q*=107
+== 3b. symmetrized finite cascade xi_Q = A_Q(s)+A_Q(1-s): zeros in box vs on line
+ Q=   3 primes=  2 worst-case draw=  3.174 reservoir(t=100)=1.384: on-line sign changes=14, zeros in box (winding)=14, off-line=0
+ Q=   7 primes=  4 worst-case draw=  5.659 reservoir(t=100)=1.384: on-line sign changes=14, zeros in box (winding)=14, off-line=0
+ Q=  30 primes= 10 worst-case draw= 11.056 reservoir(t=100)=1.384: on-line sign changes=14, zeros in box (winding)=16, off-line=2
+ Q= 300 primes= 62 worst-case draw= 35.653 reservoir(t=100)=1.384: on-line sign changes=14, zeros in box (winding)=14, off-line=0

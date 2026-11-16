@@ -1,0 +1,10 @@
+b=5.0: T=e^10=22026, annulus n in (12089,40134), prime powers=2797, M_b=sum c_n=181.2, sum c_n^2=12.01, m(t)~8.52
+  zeta: P(t) over 3000 t in [T,2T]: mean=+0.059 rms=1.208 (MV prediction sqrt(sum c^2 r^2/2)=1.267) max|P|=3.78; fraction with |P|>(1/2)log T=0.0000; min rho=m-P=4.73
+  F_t0=[zeta(s+it0)zeta(s-it0)]^(1/2), t0=30176.2541: same size bounds (sum c^2=6.00); typical carriers rms P=1.181, fraction |P|>(1/2)log T=0.0013;
+     carrier t=t0: P=+33.39, rho(t0)=m-P=-24.91  (NEGATIVE; prediction P~(1/2)sum c_n r(s_n)=33.10)
+  DH: max|Lambda_f(n)| in annulus=205.98 (log N=10.60), sum c^2=84.12 (zeta 12.01), rms P=3.403, max|P|=26.74, fraction |P|>(1/2)log T=0.1213, max P=26.74, min rho_DH=m_DH-P=-16.97 (m_DH~log(5t/2pi))
+b=6.0: T=e^12=162755, annulus n in (89322,296558), prime powers=17132, M_b=sum c_n=491.3, sum c_n^2=14.39, m(t)~10.51
+  zeta: P(t) over 3000 t in [T,2T]: mean=+0.009 rms=1.304 (MV prediction sqrt(sum c^2 r^2/2)=1.386) max|P|=4.78; fraction with |P|>(1/2)log T=0.0000; min rho=m-P=6.12
+  F_t0=[zeta(s+it0)zeta(s-it0)]^(1/2), t0=222974.0150: same size bounds (sum c^2=7.22); typical carriers rms P=0.925, fraction |P|>(1/2)log T=0.0000;
+     carrier t=t0: P=+90.06, rho(t0)=m-P=-79.58  (NEGATIVE; prediction P~(1/2)sum c_n r(s_n)=89.94)
+  DH: max|Lambda_f(n)| in annulus=957.87 (log N=12.60), sum c^2=255.45 (zeta 14.39), rms P=5.761, max|P|=60.73, fraction |P|>(1/2)log T=0.1777, max P=31.57, min rho_DH=m_DH-P=-19.80 (m_DH~log(5t/2pi))

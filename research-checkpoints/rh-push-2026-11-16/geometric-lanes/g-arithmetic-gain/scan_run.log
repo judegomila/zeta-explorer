@@ -1,0 +1,18 @@
+zeta   d=0.5 N= 4  min 0.0044  median 0.4114  max 4.4828  pass(<15/16) 103/161  argmax c=53.00
+zeta   d=0.5 N=16  min 0.0027  median 0.2865  max 3.9920  pass(<15/16) 108/161  argmax c=48.00
+zeta   d=0.5 N=48  min 0.0020  median 0.2593  max 3.6443  pass(<15/16) 110/161  argmax c=48.00
+zeta   d=0.25 N= 4  min 0.0002  median 0.0301  max 4.8420  pass(<15/16) 132/161  argmax c=48.00
+zeta   d=0.25 N=16  min 0.0001  median 0.0233  max 4.5639  pass(<15/16) 132/161  argmax c=48.00
+zeta   d=0.25 N=48  min 0.0001  median 0.0195  max 4.3303  pass(<15/16) 133/161  argmax c=48.00
+Lchi5  d=0.5 N= 4  min 0.0235  median 1.2310  max 4.1521  pass(<15/16) 67/161  argmax c=35.50
+Lchi5  d=0.5 N=16  min 0.0168  median 1.0558  max 3.7460  pass(<15/16) 76/161  argmax c=41.50
+Lchi5  d=0.5 N=48  min 0.0144  median 0.9329  max 3.5201  pass(<15/16) 82/161  argmax c=34.50
+Lchi5  d=0.25 N= 4  min 0.0010  median 0.2053  max 4.6753  pass(<15/16) 111/161  argmax c=35.50
+Lchi5  d=0.25 N=16  min 0.0007  median 0.1648  max 4.3509  pass(<15/16) 113/161  argmax c=35.50
+Lchi5  d=0.25 N=48  min 0.0006  median 0.1480  max 4.2214  pass(<15/16) 114/161  argmax c=35.50
+DH     d=0.5 N= 4  min 0.0748  median 1.1680  max 5.1085  pass(<15/16) 71/161  argmax c=40.25
+DH     d=0.5 N=16  min 0.0498  median 0.9836  max 4.4469  pass(<15/16) 79/161  argmax c=40.25
+DH     d=0.5 N=48  min 0.0342  median 0.8771  max 3.8732  pass(<15/16) 83/161  argmax c=40.25
+DH     d=0.25 N= 4  min 0.0031  median 0.1844  max 4.5537  pass(<15/16) 112/161  argmax c=48.50
+DH     d=0.25 N=16  min 0.0022  median 0.1535  max 4.3341  pass(<15/16) 113/161  argmax c=50.25
+DH     d=0.25 N=48  min 0.0015  median 0.1366  max 4.1865  pass(<15/16) 114/161  argmax c=50.25

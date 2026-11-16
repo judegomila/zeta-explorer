@@ -1,0 +1,9 @@
+rho=0.5000  rho*b*pi/sqrt2=0.5554  min L/Xi^2 on axis=-4.94417  -> axis Laguerre fails (zeros off axis at 10.3 +- 0.5i in all cases)
+rho=0.8500  rho*b*pi/sqrt2=0.9441  min L/Xi^2 on axis=2.03205  -> axis Laguerre HOLDS (zeros off axis at 10.3 +- 0.5i in all cases)
+rho=0.8900  rho*b*pi/sqrt2=0.9885  min L/Xi^2 on axis=1.16383  -> axis Laguerre HOLDS (zeros off axis at 10.3 +- 0.5i in all cases)
+rho=0.9004  rho*b*pi/sqrt2=1.0001  min L/Xi^2 on axis=3.59514  -> axis Laguerre HOLDS (zeros off axis at 10.3 +- 0.5i in all cases)
+rho=0.9100  rho*b*pi/sqrt2=1.0108  min L/Xi^2 on axis=6.23463  -> axis Laguerre HOLDS (zeros off axis at 10.3 +- 0.5i in all cases)
+rho=1.2000  rho*b*pi/sqrt2=1.3329  min L/Xi^2 on axis=10.89214  -> axis Laguerre HOLDS (zeros off axis at 10.3 +- 0.5i in all cases)
+direct min of Xi'^2-Xi Xi'' on [9,11.5], rho=1.2: 124562.672677819912071658266101
+b=0.500 critical density 0.9003  -> T* = 2pi exp(2pi rho) = 1798.5
+b=0.375 critical density 1.2004  -> T* = 2pi exp(2pi rho) = 11853.2

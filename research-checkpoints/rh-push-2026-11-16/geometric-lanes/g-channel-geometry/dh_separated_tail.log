@@ -1,0 +1,11 @@
+evenness check kappa(u)/kappa(-u):
+  u=0.3 ratio=0.99999999999999997224
+  u=1.0 ratio=1.0
+  u=2.0 ratio=1.0
+  R=1  L(R)-1=0.00338132  bound 0.012*exp(-(3pi/5)(e^R-e))=0.012
+  R=2  L(R)-1=5.07688e-7  bound 0.012*exp(-(3pi/5)(e^R-e))=1.80121e-6
+  R=4  L(R)-1=0.0  bound 0.012*exp(-(3pi/5)(e^R-e))=4.06426e-45
+R=8 delta=8 N=8  min eig normalized DH kernel=0.93149515  (sech Gram min eig 0.97856605, last row-sum dev 0.00161, PR44 ell_delta=0.0354)
+R=20 delta=4 N=8  min eig normalized DH kernel=0.55230867  (sech Gram min eig 0.67553302, last row-sum dev 0.00156, PR44 ell_delta=0.0153)
+R=100 delta=2 N=8  min eig normalized DH kernel=0.10684678  (sech Gram min eig 0.21191871, last row-sum dev 0.000197, PR44 ell_delta=0.00133)
+R=2 delta=1 N=10  min eig normalized DH kernel=0.0021346066  (sech Gram min eig 0.011027563, last row-sum dev 0.11, PR44 ell_delta=4.95e-6)

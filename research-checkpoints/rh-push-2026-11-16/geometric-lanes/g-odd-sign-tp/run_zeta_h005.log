@@ -1,0 +1,8 @@
+table done 115.2 s
+matrix done 181.8 s
+zeta order 1 {'total': 6400, 'pos': 6400, 'neg': 0, 'undetermined': 0, 'first_negative': None} 181.9 s
+zeta order 2 {'total': 6241, 'pos': 6241, 'neg': 0, 'undetermined': 0, 'first_negative': None} 181.9 s
+zeta order 3 {'total': 6084, 'pos': 6084, 'neg': 0, 'undetermined': 0, 'first_negative': None} 181.9 s
+zeta order 4 {'total': 5929, 'pos': 5929, 'neg': 0, 'undetermined': 0, 'first_negative': None} 182.2 s
+zeta order 5 {'total': 5776, 'pos': 5606, 'neg': 170, 'undetermined': 0, 'first_negative': (1, 57, '[-3.7791270e-165 +/- 2.41e-173]')} 182.5 s
+zeta order 6 {'total': 5625, 'pos': 5625, 'neg': 0, 'undetermined': 0, 'first_negative': None} 183.2 s

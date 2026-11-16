@@ -19,11 +19,13 @@ if(typeof vm.SourceTextModule!=='function'){
   const {sampleField}=await import('../dist/sampler.js');
   const {NUMERICS}=await import('../dist/math.js');
   const DISPLAY=await import('../dist/display-field.js');
+  const {continueMaskedHeights}=await import('../dist/geometry.js');
   let evaluations=0;
   const reject=()=>{evaluations++;throw Error('Analytic evaluation on render/play path');};
   async function linkedRenderer(filename){
     const numerical=new vm.SyntheticModule(['evaluate','evaluatePolar','NUMERICS'],function(){this.setExport('evaluate',reject);this.setExport('evaluatePolar',reject);this.setExport('NUMERICS',NUMERICS);});
-    const geometry=new vm.SyntheticModule(['liftPoint'],function(){this.setExport('liftPoint',reject);});
+    // continueMaskedHeights is pure grid arithmetic (no evaluation), so the real one is linked.
+    const geometry=new vm.SyntheticModule(['liftPoint','continueMaskedHeights'],function(){this.setExport('liftPoint',reject);this.setExport('continueMaskedHeights',continueMaskedHeights);});
     const three=new vm.SyntheticModule(Object.keys(THREE),function(){for(const[k,v]of Object.entries(THREE))this.setExport(k,v);});
     const controls=new vm.SyntheticModule(['OrbitControls'],function(){this.setExport('OrbitControls',class{});});
     const display=new vm.SyntheticModule(Object.keys(DISPLAY),function(){for(const[k,v]of Object.entries(DISPLAY))this.setExport(k,v);});

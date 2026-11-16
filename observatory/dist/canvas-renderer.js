@@ -1,7 +1,7 @@
 import {displayLogMagnitude,displayVisibility} from './display-field.js';
 import * as numerical from './math.js';
 const { evaluate, NUMERICS } = numerical;
-import { liftPoint } from './geometry.js';
+import { liftPoint, continueMaskedHeights } from './geometry.js';
 
 const TAU = Math.PI * 2;
 const clamp = (x,lo,hi) => Math.max(lo,Math.min(hi,x));
@@ -154,7 +154,8 @@ export class CanvasZetaScene {
 
   prepare(){
     const d=this.data;if(!d)return;this.raised=[];
-    for(let i=0;i<d.valid.length;i++){const h=d.valid[i]?this.heightPolar(this.sampleLogs[i],this.sampleArgs[i]):0;this.raised.push([d.basePositions[3*i]+d.normals[3*i]*h,d.basePositions[3*i+1]+d.normals[3*i+1]*h,d.basePositions[3*i+2]+d.normals[3*i+2]*h]);}
+    const heights=continueMaskedHeights(Float64Array.from(d.valid,(ok,i)=>ok?this.heightPolar(this.sampleLogs[i],this.sampleArgs[i]):0),d.valid,d.nx,d.ny,this.state.geometry);
+    for(let i=0;i<d.valid.length;i++){const h=heights[i];this.raised.push([d.basePositions[3*i]+d.normals[3*i]*h,d.basePositions[3*i+1]+d.normals[3*i+1]*h,d.basePositions[3*i+2]+d.normals[3*i+2]*h]);}
     // High and Ultra retain their extra finite samples. The old fixed 20k
     // budget erased most visible benefit of selecting higher resolution.
     const budget=({draft:24000,standard:110000,high:260000,ultra:560000})[this.state.resolution]||110000;
@@ -198,7 +199,7 @@ export class CanvasZetaScene {
     const d=this.data,faces=[];
     const make=(ids)=>{
       const masked=ids.some(k=>!d.valid[k]);if(masked&&this.state.geometry==='plane')return;
-      const points=ids.map(k=>masked?[d.basePositions[3*k],d.basePositions[3*k+1],d.basePositions[3*k+2]]:this.raised[k]);
+      const points=ids.map(k=>this.raised[k]);
       const ab=points[1].map((x,k)=>x-points[0][k]),ac=points[2].map((x,k)=>x-points[0][k]),n=[ab[1]*ac[2]-ab[2]*ac[1],ab[2]*ac[0]-ab[0]*ac[2],ab[0]*ac[1]-ab[1]*ac[0]],norm=Math.hypot(...n)||1;
       const shade=.70+.30*Math.abs((-.35*n[0]+.85*n[1]+.39*n[2])/norm);
       // Average the complex values with a shared local exponential scale;
@@ -348,8 +349,8 @@ export class CanvasZetaScene {
       this.lastReportedStride=effectiveStride;
       this.onStatus({type:'render',vertices:this.data.valid.length,faces:(moving?this.motionFaces:this.faces).filter(f=>!f.masked).length,heightScale:this.reference,reference:this.reference,logReference:this.logReference,renderMode:'software',meshStride:effectiveStride,motionDetail:!!moving});
     }
-    const projected=this.raised.map(p=>this.project(p)),baseProjected=Array.from({length:this.data.valid.length},(_,i)=>this.project([this.data.basePositions[3*i],this.data.basePositions[3*i+1],this.data.basePositions[3*i+2]]));
-    for(const face of(moving?this.motionFaces:this.faces)){const p=face.ids.map(i=>face.masked?baseProjected[i]:projected[i]);if(p.some(x=>!finite(x[0])||!finite(x[1])))continue;objects.push({type:'face',face,p,depth:(p[0][2]+p[1][2]+p[2][2])/3});}
+    const projected=this.raised.map(p=>this.project(p));
+    for(const face of(moving?this.motionFaces:this.faces)){const p=face.ids.map(i=>projected[i]);if(p.some(x=>!finite(x[0])||!finite(x[1])))continue;objects.push({type:'face',face,p,depth:(p[0][2]+p[1][2]+p[2][2])/3});}
     for(const path of this.paths){let dashDistance=0;for(let i=1;i<path.points.length;i++){const a=this.project(path.points[i-1]),b=this.project(path.points[i]);objects.push({type:'line',a,b,depth:(a[2]+b[2])/2+.015,color:path.color,width:path.width,dashed:path.dashed,opacity:path.opacity,dashOffset:-dashDistance});dashDistance+=Math.hypot(b[0]-a[0],b[1]-a[1]);}}
     for(const marker of [...this.markers,...this.probes]){const p=this.project(marker.point);objects.push({type:'marker',marker,p,depth:p[2]+.025});}
     if(this.state.packets)for(const track of this.packetTracks)for(let k=0;k<5;k++){

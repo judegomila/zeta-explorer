@@ -1,0 +1,16 @@
+{
+ "dump": "dump-t80.steps.jsonl.gz",
+ "multi_height_cells": {},
+ "runs": [
+  {
+   "theta": "4/5",
+   "U": "2908415146281/31250000000000",
+   "U_float": 0.093069284680992,
+   "terminal_k": 47651,
+   "fails": {},
+   "S1_margin": 4.0216734729224075e-08,
+   "min_admissibility_margin": 2.0026663478476705e-07,
+   "variant": "asdumped"
+  }
+ ]
+}

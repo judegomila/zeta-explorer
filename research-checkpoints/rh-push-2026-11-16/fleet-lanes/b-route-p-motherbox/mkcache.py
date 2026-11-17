@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """build the /tmp cache files (arb-generated coefficient/phase tables, integer structures) the v4c engine opens for the given floors, by constructing the Piece exactly as r7-full-cert.py does."""
 import sys, json, time, importlib.util as ilu
-T = 'tmp'
+T = '/Users/USER/Documents/GitHub/mathexplorer/tmp'
 sp = ilu.spec_from_file_location('C7', f'{T}/r7-engine-cert-v4c.py'); C7 = ilu.module_from_spec(sp); sp.loader.exec_module(C7)
 L6 = C7.L6
 L = json.load(open(f'{T}/r6-fiber-out/p47_hybrid.json'))

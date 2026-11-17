@@ -1,0 +1,12 @@
+L= 32.700900294739 pairs 292723
+(a) least-squares multiplier over primes<100 by gap class
+  delta in [0,0.005): n=1410 multiplier=3.779 +- 0.208
+  delta in [0.005,0.01): n=9516 multiplier=3.954 +- 0.080
+  delta in [0.01,0.02): n=75705 multiplier=3.948 +- 0.028
+  delta in [0.02,0.03): n=206092 multiplier=3.924 +- 0.017
+  delta in [0,0.03): n=292723 multiplier=3.930 +- 0.014
+(b) mean P at pairs: -0.4023151575551087 sd 0.9104105397766334 ; unconditional mean ~ -0.10303908591596393 sd 0.94942540545555
+    predicted mean under 4x tilt: -0.41215634366385573
+    corr(log(|Z'|/delta), P) = 0.8905395697450588  slope d log|Z'|/dP = 0.7958501460134074
+    corr(log delta, P) = 0.0019405959296055666
+(c) median |Z*|/(|Z'(a)| gap/4) for delta<0.01: 1.0000413658987621

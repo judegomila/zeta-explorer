@@ -1,0 +1,46 @@
+{
+ "theta": "4/5",
+ "q0": "3600001/10000000",
+ "qbound": "9/25",
+ "U": "2908415146281/31250000000000",
+ "U_float": 0.093069284680992,
+ "U_robust": "2908415146281/31250000000000",
+ "steps": 47652,
+ "cell": 372,
+ "first_rate": "1296858112603170459/117353125000000000",
+ "strict_entry_margin": 4.0216734729224075e-08,
+ "fails": {},
+ "provenance": {
+  "kernel:xkernel": 37248,
+  "floor:X-QC_cliff": 21888,
+  "floor:X-QA_m0.88": 1664,
+  "floor:X-QB_m0.91": 2432,
+  "floor:X-m091": 4096,
+  "floor:cat-r2": 8960,
+  "floor:X-m094": 256,
+  "floor:X-W4": 4096,
+  "floor:X-m097": 256,
+  "floor:multi-joint": 4004,
+  "kernel:extra": 1444
+ },
+ "kinds": {
+  "X:QC_cliff": 21888,
+  "X:QA_m0.88": 1664,
+  "X:QB_m0.91": 2432,
+  "X:m091": 4096,
+  "0.94:cat": 8960,
+  "X:m094": 256,
+  "X:W4": 4096,
+  "X:m097": 256,
+  "multi:P_3_5": 2560,
+  "multi:P_31_50": 1280,
+  "multi:P_27_40": 164
+ },
+ "floor_not_max": {},
+ "heights": [
+  "107/100",
+  "47/25"
+ ],
+ "r2_keys": 527,
+ "seconds": 95.5
+}

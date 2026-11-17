@@ -1,0 +1,8 @@
+G_trunc(1.13)=3.143120  rigorous tail bound 2.806187  upper 5.949307  (pi=3.141593)
+G_trunc(1.15)=3.008048  rigorous tail bound 1.682553  upper 4.690601  (pi=3.141593)
+G_trunc(1.18)=2.830021  rigorous tail bound 0.806840  upper 3.636862  (pi=3.141593)
+G_trunc(1.20)=2.724681  rigorous tail bound 0.502377  upper 3.227058  (pi=3.141593)
+G_trunc(1.25)=2.497029  rigorous tail bound 0.160000  upper 2.657029  (pi=3.141593)
+Counter({('Z1side', 'rejoin'): 42, ('Z2side', 'rejoin'): 34, ('Z2side', 'escape to +inf (R->1)'): 22})
+max Re on Z1 side: 0.9548830144560524
+rejoin matches with |dt|>0.05: 3 [(8.076, 0.188), (87.524, 0.086), (147.526, 0.096)]

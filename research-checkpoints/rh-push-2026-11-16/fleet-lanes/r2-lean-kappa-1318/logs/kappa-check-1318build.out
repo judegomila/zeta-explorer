@@ -1,0 +1,76 @@
+warning: PrimeNumberTheoremAnd: repository '/Users/USER/Documents/GitHub/mathexplorer/tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/PrimeNumberTheoremAnd' has local changes
+warning: belyi: repository '/Users/USER/Documents/GitHub/mathexplorer/tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/belyi' has local changes
+warning: formal-schemes: repository '/Users/USER/Documents/GitHub/mathexplorer/tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/formal-schemes' has local changes
+warning: elliptic-curves: repository '/Users/USER/Documents/GitHub/mathexplorer/tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/elliptic-curves' has local changes
+warning: tempered-fundamental-groups: repository '/Users/USER/Documents/GitHub/mathexplorer/tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/tempered-fundamental-groups' has local changes
+warning: oka: repository '/Users/USER/Documents/GitHub/mathexplorer/tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/oka' has local changes
+warning: orbicurve-cores: repository '/Users/USER/Documents/GitHub/mathexplorer/tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/orbicurve-cores' has local changes
+warning: pi1: repository '/Users/USER/Documents/GitHub/mathexplorer/tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/pi1' has local changes
+warning: heights: repository '/Users/USER/Documents/GitHub/mathexplorer/tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/heights' has local changes
+warning: genl: repository '/Users/USER/Documents/GitHub/mathexplorer/tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/genl' has local changes
+warning: tate-curves-theta: repository '/Users/USER/Documents/GitHub/mathexplorer/tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/tate-curves-theta' has local changes
+warning: iut: repository '/Users/USER/Documents/GitHub/mathexplorer/tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/iut' has local changes
+warning: gromov: repository '/Users/USER/Documents/GitHub/mathexplorer/tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/gromov' has local changes
+warning: SphereEversion: repository '/Users/USER/Documents/GitHub/mathexplorer/tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/SphereEversion' has local changes
+warning: schoenflies-lean: repository '/Users/USER/Documents/GitHub/mathexplorer/tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/schoenflies-lean' has local changes
+warning: ClassFieldTheory: repository '/Users/USER/Documents/GitHub/mathexplorer/tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/ClassFieldTheory' has local changes
+warning: AINTLIB: repository '/Users/USER/Documents/GitHub/mathexplorer/tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/AINTLIB' has local changes
+warning: AbsorptionCutoff: repository '/Users/USER/Documents/GitHub/mathexplorer/tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/AbsorptionCutoff' has local changes
+warning: StrongPNT: repository '/Users/USER/Documents/GitHub/mathexplorer/tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/StrongPNT' has local changes
+warning: carleson: repository '/Users/USER/Documents/GitHub/mathexplorer/tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/carleson' has local changes
+warning: rellich-kondrachov: repository '/Users/USER/Documents/GitHub/mathexplorer/tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/rellich-kondrachov' has local changes
+warning: Zeta3Irrational: repository '/Users/USER/Documents/GitHub/mathexplorer/tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/Zeta3Irrational' has local changes
+warning: fixed-point-theorems: repository '/Users/USER/Documents/GitHub/mathexplorer/tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/fixed-point-theorems' has local changes
+@CenteredMomentEnergyCertifiedExistence.terminal_certificate : ∀ {α : Type u_1} [Fintype α] [DecidableEq α]
+  (M : Ideal HeckeFamily.O) [inst : NeZero M] (H : Subgroup (HeckeFamily.O ⧸ M)ˣ)
+  (hH : RayOrthogonality.globalUnits M ≤ H) (W : ℝ → ℂ) (aslot bslot a b radial Bmask L lo hi Mcap κ ε : ℝ),
+  0 < aslot →
+    Function.support W ⊆ Set.Icc aslot bslot →
+      ContDiff ℝ (↑⊤) W →
+        0 ≤ bslot →
+          0 < a →
+            a ≤ 1 / 4 →
+              1 ≤ b →
+                0 < radial →
+                  0 ≤ Bmask →
+                    0 < Mcap →
+                      13 / 18 ≤ κ →
+                        0 < ε →
+                          51 / 100 ≤ HeckeZeroSupremum.beta →
+                            2 * HeckeZeroSupremum.beta - 1 ≤ κ →
+                              CenteredMomentEnergyCappedWidthInduction.CertifiedBand M H hH W bslot a b radial Bmask L
+                                lo hi Mcap κ ε (CenteredMomentEnergyWidthSchedule.count Mcap ε)
+'OAI.SevenEighths.CenteredMomentEnergyCertifiedExistence.terminal_certificate' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.SevenEighths.CenteredMomentEnergyCertifiedExistence.certified_bands' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.SevenEighths.KappaThirteenEighteenths.terminal_certificate_stage_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.SevenEighths.KappaThirteenEighteenths.terminal_certificate_of_half_add' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.SevenEighths.CenteredMomentReflectionRetainedLength.positive_slot_width_drop' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.SevenEighths.CenteredMomentEnergyReferenceState.balanced_reference_geometry' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.SevenEighths.CenteredMomentEnergyReferenceLowBranchGeometry.slot_budgets' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.SevenEighths.CenteredMomentEnergyReferenceLowBranchGeometry.reflected_low' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.SevenEighths.CenteredMomentEnergyLiveClippingDefect.robust_slot_budgets' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.SevenEighths.CenteredMomentEnergyLiveClippingDefect.live_profiles_reference_window' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.riemannZeta_ne_zero_of_seven_eighths_lt_re' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OAI.DirichletCharacter.LFunction_ne_zero_of_seven_eighths_lt_re' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

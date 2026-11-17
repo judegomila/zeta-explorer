@@ -16,23 +16,31 @@ interval-certified), ARGUED, OPEN.
 3. Every hypothesis used by PR 56's proved theorems holds for the DH kernel: evenness, positivity, the Csordas-type
    convexity (CERTIFIED on `[0,1]`, tail PROVED), and analyticity. So the odd-cone theorem (G)/(H) is true verbatim
    for DH (section 3.2).
-4. The certified Taylor blocks `J_1..J_4` are positive for DH too, and DH stays positive definite in **both** parity
-   sectors through order `N = 60` (MEASURED, arb ball arithmetic with level-doubled quadrature; `N = 120` run: see
-   section 3.3). PR 56's own equivalence (3) applies to DH, so DH must fail at some finite order; that order is
-   above 60. Every statement PR 56 certifies is therefore also true of a function with zeros off the line.
+4. The certified Taylor blocks `J_1..J_4` are positive for DH too. DH stays positive definite through order
+   **164 in the even sector and 169 in the odd sector**; its first negative pivot is at order **165 (even)** and
+   **170 (odd)**, one negative direction in each sector (MEASURED: arb ball arithmetic; two Gauss–Legendre rules
+   agree to 12 digits on every pivot through order 180; tanh–sinh agrees through order 120; zeta control positive
+   through order 180 in both sectors; section 3.3). The failure is caused by the first off-line quartet
+   `0.8085 ± 85.699 i`: its negative share of the block energy passes 100% exactly at those orders (section 3.4).
+   So every statement PR 56 certifies (orders ≤ 4), and every block of order ≤ 164, is also true of a function with
+   zeros off the line and no Euler product. An off-line quartet at height 85.7 needs about `2 × 85.7` orders to
+   become visible.
 5. The blocks are not coefficient-blind. They are **functional-equation rigid**: multiplying the single Dirichlet
-   coefficient `a(2)` of zeta by `1 ± 10^-k` makes a block fail at order about `k + 2` (section 4, MEASURED). The same
-   holds for DH. So the low-order blocks test evenness of the kernel (the functional equation) with tolerance
-   shrinking about tenfold per order, and do not test multiplicativity. This also rules out the "comparison kernel
-   plus controlled remainder" continuation proposed in PR 56 unless the remainder is exact to all orders.
+   coefficient `a(2)` of zeta by `1 ± 10^-k` makes a block fail at order about `k + 2` (section 4, MEASURED). DH shows
+   the same rigidity (`a(3)` in both directions, `a(2)` upward; `a(2)` downward does not fail below order 16). So the
+   low-order blocks test evenness of the kernel (the functional equation) with tolerance shrinking about tenfold per
+   order, and do not detect DH's failure of multiplicativity below order 165. This also rules out the "comparison
+   kernel plus controlled remainder" continuation proposed in PR 56 unless the remainder is exact to all orders.
 6. PR 57's three constructions (Rouché channel, zero-coupling Laplacian, Newton flow) use analyticity, reflection
    symmetry and computed values only. The channel test certifies a one-zero disk for DH at an on-line zero and at
    the off-line zero `0.808517 + 85.699348 i` alike (section 3.1, MEASURED). In Weil coordinates PR 57 is a
    verified-height statement confined below the second zero ordinate, and it is stable under backward heat flow by
    construction.
 
-Since no mechanism is DH-sensitive, there was nothing to develop past the audit. The one adjacent idea found (FE
-rigidity of the Taylor blocks) is recorded in section 4; it is an obstruction, not a lever.
+Since no mechanism in either PR is DH-sensitive, there was nothing to develop as a route. What was developed instead
+is the measurement of the horizon: the exact order at which PR 56's ladder first separates DH from a function
+satisfying its Riemann hypothesis (165 / 170), the share curve that predicts it, and the FE rigidity of the blocks
+(section 4). These are obstructions, not levers.
 
 ## 0. Plan and what is new relative to the atlas and walls
 
@@ -45,8 +53,8 @@ synthesis.
 | Atlas §5–6 (heat collisions, theta certificates PR 17/18) | PR 57 is a further finite theta certificate | Its Weil-coordinate content and a DH control of the certificate test itself |
 | Atlas §7 (finite-prime rigidity, `ε_* ≈ 1.07e-5` for the prime-2 coefficient) | Same phenomenon in another coordinate system | Rigidity measured for PR 56's Taylor blocks: tolerance about `10^-(N-2)` at order `N`, for zeta and for DH |
 | Atlas §11 / eq48 (residual target = Weil on one-sided tests = RH; no margin) | Same functional | Theorem A: PR 56's cutoff operator is `Q_L` on the test class `1_[c,∞)(κ*a)`; no new target |
-| `euler/RESULT.md` (DH passes real-node Pick positivity to order 100) | Same control idea | First DH measurement on PR 56's ladder (Taylor blocks at the cutoff, both parity sectors), plus DH check of the convexity input |
-| DH wall | — | Each PR 56/57 step is checked against DH; none fails for DH below order 60 |
+| `euler/RESULT.md` (DH passes real-node Pick positivity to order 100) | Same control idea | DH on PR 56's ladder (Taylor blocks at the cutoff, both parity sectors): passes to 164/169, fails at 165/170; share curve of the off-line quartet; DH check of the convexity input |
+| DH wall | — | Each PR 56/57 step is checked against DH; none fails for DH below order 165. First measured DH failure on a finite-order positivity ladder in this program (the real-node Pick ladder shows none to order 100) |
 | Flow-blindness | PR 57's channel is a statement on `|τ| ≤ 1/20` | Noted: a channel certificate is open in `τ`, so it is flow-stable |
 | Verified height | PR 57 | Stated explicitly in eq48 coordinates (section 2.3) |
 
@@ -226,27 +234,91 @@ itself cannot distinguish zeta from a function violating its Riemann hypothesis.
 
 ### 3.3 Taylor blocks of DH (MEASURED)
 
-`jn.py` (exact derivative polynomials) and `jn2.py` (arb power series), python-flint arb balls, tanh–sinh quadrature
-on `[0,U]`; LDL pivots; signs taken only from balls that exclude 0. Quadrature discretization is not enclosed; it is
-checked by level doubling (pivots at `N = 30` agree to all 12 printed digits across levels 7, 8, 9, 10).
-Run on the motherbox, 8 cores.
+Codes: `jn.py` (exact derivative polynomials, tanh–sinh), `jn2.py`/`jn3.py` (arb power series, tanh–sinh),
+`jn4.py` (arb power series, composite Gauss–Legendre). All use python-flint arb balls; a sign is recorded only when
+the pivot ball excludes 0 (no unresolved pivot occurred). Quadrature discretization is not enclosed; it is controlled
+by agreement between rules. Motherbox, 8 cores. `S_ab = T_ab/(a! b!)`, LDL pivots in the order `a = 1,3,5,…`
+(odd) or `a = 0,2,4,…` (even).
 
-| Function | sector | orders | result |
+| Function | orders | arithmetic / quadrature | result |
 |---|---|---|---|
-| zeta | odd, even | `N ≤ 12` (900 bits, level 7; `N ≤ 4` at levels 4–9) | all pivots positive; `N ≤ 4` match PR 56's certified intervals |
-| DH | odd, even | `N ≤ 30` (1200–1600 bits, levels 7–10) | all pivots positive |
-| DH | odd, even | `N ≤ 60` (3200 bits, level 8; two independent codes) | all 60 + 60 pivots positive |
-| DH, zeta | odd, even | `N ≤ 120` (5800 bits, level 9) | __N120__ |
+| zeta | `N ≤ 4` | tanh–sinh levels 4–9 | pivots match PR 56's certified intervals |
+| zeta | `N ≤ 24` | 1700 bits, tanh–sinh levels 7 and 8 (12-digit agreement) | all positive, both sectors |
+| zeta | `N ≤ 60` | 3200 bits, tanh–sinh level 8 | all positive, both sectors |
+| zeta | `N ≤ 180` | 3000 bits, GL 12×240 (one rule only) | all 180 + 180 pivots positive |
+| DH | `N ≤ 30` | 1200–1600 bits, tanh–sinh levels 7, 8, 9, 10 (12-digit agreement) | all positive |
+| DH | `N ≤ 120` | tanh–sinh level 10 (2400 bits) = GL 12×120 = GL 12×160 = GL 12×240, 12-digit agreement on all 240 pivots | all positive |
+| DH | `N ≤ 200` | 3000 bits, GL 12×240 (2880 nodes) | **odd: one negative pivot, at order 170. even: one negative pivot, at order 165.** All other pivots positive |
+| DH | `N ≤ 180` | 3000 bits, GL 16×220 (3520 nodes, different panels) | identical: negatives at 170 (odd) and 165 (even); every pivot agrees with the 12×240 run to 12 digits |
 
-Precision loss is about 11.6 decimal digits per order. PR 56's equivalence (3) uses only: `F` even, real, entire of
-order 1, `K > 0` (to exclude real zeros), analyticity of the kernel in a strip. All hold for DH. DH has zeros off the
-line, so some `J_N^{DH}` is not positive semidefinite; by the table that order exceeds 60. Every block PR 56
-certifies, and every block up to at least order 60, is positive for a function without an Euler product.
+Pivots at the sign change (GL 12×240): odd `…, 3.110e201, 3.048e202, -5.432e203, 7.424e205`; even
+`…, 6.515e194, 7.060e195, -7.073e196, 2.181e199`. Relative ball radii there are below `2^-940`; the working
+precision loses about 9 bits per order.
 
-Reach (ARGUED): the diagonal weight of the test `D^a K` over zeros peaks near height `4a/π`, so order `N` reaches
-height about `8N/π`; the DH off-line quartet at height 85.7 is inside the reach from `N ≈ 34` on. Positivity for
-`34 ≤ N ≤ 60` therefore is not explained by reach alone; resolving the quartet against about 0.67 on-line zeros per
-unit height needs more degrees of freedom.
+Quadrature notes. Tanh–sinh level `L` is accurate only up to an order that doubles with the level: level 8 agrees
+with level 9 to 12 digits up to order 48 and then drifts (it produces spurious negative pivots from order 93);
+level 9 agrees with level 10 up to order 104 (relative difference 1.7e-4 at order 120). GL with 90 nodes per panel is
+accurate to order 101, with 120 nodes to at least order 120. The reported sign changes are at `nper/N ≥ 1.2`, with
+two different panelizations agreeing. An earlier draft of this note relied on level 8 at order 60; that pivot is
+5% off (sign unaffected).
+
+By Sylvester's inertia theorem the leading blocks have exactly one negative eigenvalue from order 165 (even) and 170
+(odd) through the measured range. In PR 56's indexing: `J_N^{DH} ≻ 0` for `N ≤ 169` and `J_170^{DH}` is indefinite
+(odd sector, odd polynomials of degree ≤ 339); the even-sector block is positive for degree ≤ 326 and indefinite at
+degree 328.
+
+PR 56's equivalence (3) uses only: `F` even, real, entire of order 1; `K > 0`; analyticity of the kernel in a strip.
+All hold for DH, and DH has zeros off the line, so a failure at some finite order was forced. The measurement locates
+it.
+
+### 3.4 The off-line quartet's share of the block energy (MEASURED; identity PROVED from Theorem A)
+
+By Theorem A, `S = Σ_ρ m(ρ) m(-ρ)^T` with `m_a(ρ) = M_a⁺(ρ)/a!`. For the quartet `{±ρ_0, ±conj ρ_0}`,
+`ρ_0 = 0.308517… + 85.699348… i` (centered), and a parity sector, `M_a⁺(-ρ_0) = ±M_a⁺(ρ_0)` (because the two-sided
+transform vanishes at `ρ_0` and `K^(a)` has parity `(-1)^a`). So the quartet contributes
+
+    Q_off(p) = ± 4 Re[ M_p⁺(ρ_0)² ]        (+ in the odd sector, - in the even sector),
+
+a rank-2 form with one negative direction. Write `S = S_rest + Q_off` and let `φ_min(N)` be the smallest eigenvalue of
+`S_rest^-1 Q_off` on the order-`N` block: `-φ_min` is the largest fraction of the remaining energy that the quartet can
+cancel with a test of order `N`. `φ_min` is nonincreasing in `N`, and the block is indefinite exactly when
+`φ_min < -1` (as long as `S_rest ≻ 0`). It is computed from the same LDL factorization (`jn3.py`, `jn4.py`, `phi.py`;
+`ρ_0` to 780 digits by Newton in arb, `rho0.py`).
+
+| `N` | `φ_min` odd | `φ_min` even |
+|---|---|---|
+| 8 | -1.2e-11 | -4.1e-10 |
+| 16 | -1.5e-7 | -5.8e-8 |
+| 18 | -5.8e-5 | -1.5e-5 |
+| 20 | -0.0024 | -0.0014 |
+| 24 | -0.018 | -0.019 |
+| 32 | -0.040 | -0.038 |
+| 48 | -0.080 | -0.074 |
+| 64 | -0.131 | -0.121 |
+| 80 | -0.178 | -0.185 |
+| 96 | -0.236 | -0.226 |
+| 112 | -0.283 | -0.283 |
+| 120 | -0.309 | -0.312 |
+| 136 | -0.387 | -0.390 |
+| 152 | -0.513 | -0.440 |
+| 160 | -0.657 | -0.626 |
+| 164 | -0.677 | -0.917 |
+| 165 | -0.699 | (block indefinite) |
+| 169 | -0.921 | — |
+| 170 | (block indefinite) | — |
+
+Reading:
+
+* For `N ≤ 16` the quartet at height 85.7 is invisible (share below 1e-7): the blocks PR 56 certifies cannot
+  register it, for a quantitative reason.
+* The share switches on between `N = 17` and `N = 24` (from 3e-6 to 2%), grows roughly linearly (about 0.3% per
+  order) to 31% at `N = 120`, then accelerates and reaches 100% at 165 / 170. The crossing of `-1` coincides with
+  the first negative pivot in each sector, which is consistent with the first quartet alone accounting for the
+  failure; the higher DH quartets (heights 114.2, 166.5, 176.7 by the literature; not recomputed) sit in `S_rest`.
+* Horizon: one data point, `N_fail / height ≈ 1.9–2.0` for an off-line displacement `δ = 0.31`. If that ratio is
+  typical (ARGUED, not measured elsewhere), a block of order `N` carries no information about zeros above height
+  about `N/2`, and all blocks of order below about twice the verified height are consequences of the verified
+  height. This is the verified-height wall in PR 56's coordinates.
 
 ## 4. Adjacent finding: the Taylor blocks are functional-equation rigid (MEASURED)
 
@@ -283,31 +355,40 @@ Reading:
   functional equation determines zeta among Dirichlet series with this gamma factor, so there is no FE-preserving
   coefficient perturbation in conductor 1. In conductor 5 the FE-preserving, non-multiplicative choice is DH, and it
   passes (section 3.3).
-* So the ladder is FE-rigid and Euler-blind through the measured range. It separates "has the functional equation"
-  from "does not" at low order and to high accuracy; it does not separate zeta from DH below order 60.
+* So the ladder is FE-rigid at low order and Euler-blind up to order 164. It separates "has the functional equation"
+  from "does not" within a few orders and to high accuracy; it separates DH from a function obeying its Riemann
+  hypothesis only at order 165.
 * Consequence for PR 56's proposed continuation ("transfer the positive factorization of `exp(-au⁴-bu²)` to theta with
   a controlled remainder"): a remainder that is small in any fixed norm cannot work beyond a fixed order, because
   the positivity cone has inradius about `10^-(N-2)` around the true kernel in the `a(2)` direction. A proof must be
   exact in the functional equation at every order. This matches eq48 Theorem 4 (no margin) and atlas §7.
 
-This is the pivot. It gives an obstruction, not a mechanism: FE-exactness is shared by DH.
+It gives an obstruction, not a mechanism: FE-exactness is shared by DH.
+
+Level check: the scans use tanh–sinh level 7 at `N ≤ 16–20`; levels 7 and 8 agree to 12 digits for zeta at `N ≤ 24`
+and for DH at `N ≤ 30`.
 
 ## 5. Which step would have to use the Euler product
 
 None of the steps in either PR does. In PR 56's coordinates the open step is the Schur inequality
-`c_N - b_N^* J_N^-1 b_N > 0` for all `N`. For DH this inequality holds for `N < 60` and fails at some larger `N`. A
-proof for zeta must therefore use a property of the coefficient sequence that DH lacks, at arbitrarily high order,
-inside a quadratic form in `(a(n))` whose low-order part is already pinned by the functional equation. In eq48
+`c_N - b_N^* J_N^-1 b_N > 0` for all `N`. For DH this inequality holds for `N ≤ 169` (odd sector) and fails at
+`N = 170`. A proof for zeta must therefore use, at the Schur step of some order, a property of the coefficient
+sequence that DH lacks, inside a quadratic form in `(a(n))` whose low-order part is already pinned by the
+functional equation. At order `N` the dominant theta terms are `n ≈ sqrt(4N/c)` (`c = π` for zeta, `π/5` for DH):
+about `n ≈ 15` for zeta at `N = 170`, so the property has to act on the joint structure of many coefficients, not
+on the first few. In eq48
 coordinates this is the prime sum `Σ Λ(n) n^{-1/2} Re C_v(log n)` in (21) for `v = p(D)K|_[0,∞)`, with `deg p → ∞`.
 No candidate for that property is produced here (OPEN).
 
 ## 6. Three weakest steps
 
-1. **Quadrature discretization in section 3.3 and 4 is not enclosed.** Rounding is tracked by arb balls; the tanh–sinh
-   truncation is controlled only by level doubling (agreement to 12 printed digits at `N = 30`; __L10NOTE__). The
-   pivots lose about 11.6 digits per order, so a discretization error that mimics a positive form cannot be ruled out
-   in principle; the two codes share the quadrature rule. The DH result is MEASURED, not certified. A sign change would
-   be decisive only with an enclosed quadrature.
+1. **Quadrature discretization in sections 3.3, 3.4 and 4 is not enclosed.** Rounding is tracked by arb balls; the
+   quadrature error is controlled only by agreement between rules (two Gauss–Legendre panelizations to order 180;
+   tanh–sinh level 10 and three GL rules to order 120). Tanh–sinh at too low a level does produce spurious negative
+   pivots (level 8 from order 93), so the sign changes at 165 / 170 rest on the GL agreement and on the share curve
+   reaching `-1` at the same orders. They are MEASURED, not certified. The theta-series truncation is chosen with the
+   derivative amplification `n^{2a}` taken into account, but is likewise not enclosed. The zeta control at order 180
+   uses a single GL rule.
 2. **Theorem A's termwise integration.** The interchange of the zero sum with the `r`-integral is sketched (paired
    `O(|ρ|^-2)` bound, Schwartz `m`). It is supported by the 400-zero check (odd sector to 1e-5 = predicted tail; even
    sector to the predicted `γ^-2` tail) and by PR 56's independent Fourier-side formulas (16)–(17) under RH, but a
@@ -326,11 +407,13 @@ replayed).
 
 All under `tmp/research-2026-11-16/push/b-codex-zero-channels/`:
 
-* `jn.py`, `jn2.py` — Taylor blocks (two implementations); `MULT=n:λ` perturbs a coefficient.
+* `jn.py`, `jn2.py` — Taylor blocks (two implementations, tanh–sinh); `MULT=n:λ` in `jn.py` perturbs a coefficient.
+* `jn3.py`, `jn4.py`, `phi.py`, `rho0.py`, `rho0.txt` — blocks with the off-line-quartet share (tanh–sinh / Gauss–Legendre), eigenvalue post-processing, high-precision DH zero.
 * `checkA.py`, `checkA.out` — Theorem A against 400 zeta zeros.
 * `dhkernel.py`, `dhkernel.out` — DH kernel evenness, normalization, positivity, sampled convexity.
 * `convex.py`, `convex.out` — ball-arithmetic convexity certificate on `[0,1]` (DH and zeta).
 * `dh_channel.py`, `dh_channel.out` — Taylor–Rouché disk test on DH zeros.
 * `rigidity.sh`, `rigidity.out` — coefficient rigidity scan.
 * `pr57-replay/`, `pr56-replay/` — files extracted from the PR refs and replayed.
-* `results/` — JSON outputs copied from the motherbox (`~/rh-push/b-codex-zero-channels/`).
+* `results/` — JSON outputs and logs copied from the motherbox (`~/rh-push/b-codex-zero-channels/`); `results/phi_table.txt` is the full share table.
+* `venv/` — local python-flint + mpmath + numpy environment used for the local runs.

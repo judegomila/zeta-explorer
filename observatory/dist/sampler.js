@@ -91,9 +91,32 @@ function fallLines(state){
    if(state.geometry!=='plane')u=wrap(u);if(state.geometry==='torus')v=wrap(v);
   }
   const end=arr[arr.length-1];
-  append(paths,arr,{color:arrived?'#9be7ff':'#6f86a6',arrived,endSigma:end?.sigma,endT:end?.t});
+  // Basin label: the zero reached. Conjugate zeros (t and -t) share a label.
+  const basin=arrived?end.sigma.toFixed(1)+'|'+Math.abs(end.t).toFixed(1):null;
+  append(paths,arr,{color:'#6f86a6',arrived,basin,endSigma:end?.sigma,endT:end?.t});
  }
+ // One hue per basin, golden-angle spaced in order of height so neighbours differ.
+ const basins=[...new Set(paths.map(p=>p.basin).filter(Boolean))].sort((a,b)=>Number(a.split('|')[1])-Number(b.split('|')[1])||Number(a.split('|')[0])-Number(b.split('|')[0]));
+ for(const path of paths)if(path.basin)path.color=basinColor(basins.indexOf(path.basin));
  return paths;
+}
+export function basinColor(index){
+ const h=(index*137.508)%360,s=.72,l=.66,c=(1-Math.abs(2*l-1))*s,x=c*(1-Math.abs(h/60%2-1)),m=l-c/2;
+ const [r,g,b]=h<60?[c,x,0]:h<120?[x,c,0]:h<180?[0,c,x]:h<240?[0,x,c]:h<300?[x,0,c]:[c,0,x];
+ return '#'+[r,g,b].map(v=>Math.round(255*(v+m)).toString(16).padStart(2,'0')).join('');
+}
+/**
+ * Boundary of the rectangle 0 < Re s < 1, 0 < Im s < T that a complete count
+ * covers. Drawn only after strip and line counts agreed at this T.
+ */
+function countBox(state){
+ const T=Number(state.countT);if(!(T>1))return [];
+ const n=240,meta={kind:'count-box',color:'#b8ffd0'},lines=[];
+ // Dense near the real axis, where the curved charts move fastest.
+ const height=x=>T*Math.sinh(6*x)/Math.sinh(6);
+ for(const sigma of [0,1])lines.push(...spectralLine(Array.from({length:n+1},(_,i)=>[sigma,height(i/n)]),state,meta));
+ for(const t of [0,T])lines.push(...spectralLine(Array.from({length:25},(_,i)=>[i/24,t]),state,meta));
+ return lines;
 }
 function ladder(state){
  if(!state.ladder&&!state.packets)return [];
@@ -206,7 +229,7 @@ export function sampleField(inputState,{onProgress=()=>{}}={}){
    }
   }
   onProgress('Tracing geometry');
-  const data={nx,ny,uvs,uAxis:axes.u,vAxis:axes.v,coords,values,logAbs,arg,rawRepresentable,sampleWeights,basePositions,normals,valid,bridge,domain:state._domain,kind:state.function,zeroPoints:rootMarkers(state),zeroTraps:zeroTraps(state),fallLines:fallLines(state),ladderLines:ladder(state),flowLines:flow(state),criticalSamples:computeCriticalSamples(state,state._domain,axes),landmarkValues:computeLandmarkValues(state,state._domain),slice:computeSlice(state),validCount:count,logOnlyCount,maxSampleT,ms:performance.now()-start};
+  const data={nx,ny,uvs,uAxis:axes.u,vAxis:axes.v,coords,values,logAbs,arg,rawRepresentable,sampleWeights,basePositions,normals,valid,bridge,domain:state._domain,kind:state.function,zeroPoints:rootMarkers(state),zeroTraps:zeroTraps(state),fallLines:fallLines(state),countBox:countBox(state),ladderLines:ladder(state),flowLines:flow(state),criticalSamples:computeCriticalSamples(state,state._domain,axes),landmarkValues:computeLandmarkValues(state,state._domain),slice:computeSlice(state),validCount:count,logOnlyCount,maxSampleT,ms:performance.now()-start};
   if(state.projective)data.projectiveGuides=projectiveGuides(state);
   if(state._domain.holeRadius)data.hole={radius:state._domain.holeRadius,rim:holeRim(state)};
   return data;

@@ -50,3 +50,29 @@ test(`${geometry}: released particles end on critical-line zeros and trap rings 
     assert.ok(ZERO_HEIGHTS.some(z=>Math.abs(Math.abs(line.endT)-z)<.05),`ended at t ${line.endT}`);
   }
 });
+
+test('fall lines are coloured by the zero they reach, one colour per basin',()=>{
+  const data=sampleField({...base,geometry:'torus',projective:true,fall:true});
+  const arrived=data.fallLines.filter(p=>p.arrived);
+  assert.ok(arrived.length>20);
+  const byBasin=new Map();
+  for(const path of arrived){
+    assert.match(path.color,/^#[0-9a-f]{6}$/);
+    if(byBasin.has(path.basin))assert.equal(byBasin.get(path.basin),path.color);
+    byBasin.set(path.basin,path.color);
+  }
+  assert.ok(byBasin.size>1,'more than one basin is reached');
+  assert.equal(new Set(byBasin.values()).size,byBasin.size,'basins have distinct colours');
+  for(const path of data.fallLines.filter(p=>!p.arrived)){assert.equal(path.basin,null);assert.equal(path.color,'#6f86a6');}
+});
+
+test('the counted region is drawn only when a count height is set, and owns its cache key',()=>{
+  const s={...base,geometry:'torus',projective:true};
+  assert.equal(sampleField(s).countBox.length,0);
+  assert.equal(fieldKey({...s,countT:0}),fieldKey(s));
+  assert.notEqual(fieldKey({...s,countT:50}),fieldKey(s));
+  assert.notEqual(fieldKey({...s,countT:50}),fieldKey({...s,countT:60}));
+  const box=sampleField({...s,countT:50}).countBox;
+  assert.ok(box.length>=4);
+  for(const edge of box)assert.equal(edge.kind,'count-box');
+});

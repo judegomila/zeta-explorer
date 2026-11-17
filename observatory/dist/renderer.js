@@ -454,6 +454,17 @@ export class ZetaScene {
     return line;
   }
 
+  /** A polyline with real thickness; WebGL lines are one pixel wide. */
+  tubeLine(points, color, radius = 0.012, opacity = 1) {
+    if (points.length < 2) return null;
+    const curve = new THREE.CatmullRomCurve3(points, false, 'centripetal');
+    const geometry = new THREE.TubeGeometry(curve, Math.min(400, Math.max(8, 2 * points.length)), radius, 5, false);
+    const mesh = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color, transparent: opacity < 1, opacity, depthWrite: opacity >= 1 }));
+    mesh.renderOrder = 4;
+    this.overlayGroup.add(mesh);
+    return mesh;
+  }
+
   buildOverlays() {
     disposeTree(this.overlayGroup);
     this.packetTracks = [];
@@ -480,8 +491,10 @@ export class ZetaScene {
         this.pathLine(points,guide.color,.8,true);
       }
     }
-    if (this.state.traps) for (const trap of data.zeroTraps || []) for (const ring of trap.rings) this.pathLine(this.raisedLine(ring, 0.09), trap.color, 1, trap.status === 'unresolved');
-    if (this.state.fall) for (const path of data.fallLines || []) this.pathLine(this.raisedLine(path, 0.05), path.color, path.arrived ? 0.75 : 0.4);
+    if (this.state.traps) for (const trap of data.zeroTraps || []) for (const ring of trap.rings) this.tubeLine(this.raisedLine(ring, 0.09), trap.color, 0.022, trap.status === 'unresolved' ? 0.6 : 1);
+    if (this.state.fall) for (const path of data.fallLines || []) { if (path.arrived) this.tubeLine(this.raisedLine(path, 0.05), path.color, 0.012, 0.9); else this.pathLine(this.raisedLine(path, 0.05), path.color, 0.45); }
+    // Region covered by the last complete count: 0 < Re s < 1, 0 < Im s < T.
+    for (const edge of data.countBox || []) this.tubeLine(this.raisedLine(edge, 0.1), edge.color, 0.018, 1);
     // Boundary of the removed disc at infinity: evaluated points only.
     for (const rim of data.hole?.rim || []) this.pathLine(this.raisedLine(rim, 0.07), 0xffd27a, 1);
     if (this.state.zeros) {

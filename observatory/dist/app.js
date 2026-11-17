@@ -25,7 +25,7 @@ import { DYNAMICS_DEFAULTS, DYNAMICS_LIMITS, DYNAMICS_ENUMS, normalizeDynamicsCo
 import { decodeViewURL, ViewURLController, sanitizeViewCamera, sanitizeViewProbe } from './view-url.js';
 
 const $=id=>document.getElementById(id), $$=s=>document.querySelectorAll(s), TAU=2*Math.PI;
-const defaults={...DYNAMICS_DEFAULTS,...RESEARCH_DEFAULTS,...CHANNELS_DEFAULTS,...INFINITY_DEFAULTS,...DUAL_DEFAULTS,...DISPLAY_DEFAULTS,...HOLE_DEFAULTS,dynamicsMode:'off',fiberMode:'off',spinorPhase:0,spinorRotation:0,spinorAxis:'z',twistorSheet:1,twistorFiberTheta:0,twistorFiberPhi:0,twistorProjection:'north',projective:false,projectiveChannel:'bridge',derivativeScale:1,geometry:'plane',function:'zeta',heightMode:'log',height:1.1,colorMode:'phase',phaseOffset:0,exposure:1,opacity:.97,wireframe:false,contours:true,critical:true,zeros:true,vortices:false,traps:false,fall:false,ladder:false,packets:false,packetPaused:false,seams:true,autoRotate:false,flowSpeed:1,packetWidth:.35,playing:false,tau:0,sigmaMin:-2,sigmaMax:3,tMin:8,tMax:38,bridgeA:.25,chartScale:24,torusR:1.6,resolution:'standard',extent:'extended',heightReference:0,heightLocked:false,heightLogReference:0,heatStart:-.3,heatEnd:.5,heatFrames:17,heatFPS:6,playbackResolution:'standard'};
+const defaults={...DYNAMICS_DEFAULTS,...RESEARCH_DEFAULTS,...CHANNELS_DEFAULTS,...INFINITY_DEFAULTS,...DUAL_DEFAULTS,...DISPLAY_DEFAULTS,...HOLE_DEFAULTS,dynamicsMode:'off',fiberMode:'off',spinorPhase:0,spinorRotation:0,spinorAxis:'z',twistorSheet:1,twistorFiberTheta:0,twistorFiberPhi:0,twistorProjection:'north',projective:false,projectiveChannel:'bridge',derivativeScale:1,geometry:'plane',function:'zeta',heightMode:'log',height:1.1,colorMode:'phase',phaseOffset:0,exposure:1,opacity:.97,wireframe:false,contours:true,critical:true,zeros:true,vortices:false,traps:false,fall:false,countT:0,ladder:false,packets:false,packetPaused:false,seams:true,autoRotate:false,flowSpeed:1,packetWidth:.35,playing:false,tau:0,sigmaMin:-2,sigmaMax:3,tMin:8,tMax:38,bridgeA:.25,chartScale:24,torusR:1.6,resolution:'standard',extent:'extended',heightReference:0,heightLocked:false,heightLogReference:0,heatStart:-.3,heatEnd:.5,heatFrames:17,heatFPS:6,playbackResolution:'standard'};
 const dynamicsBase={...defaults,projective:false,fiberMode:'off',geometry:'plane',function:'xi',playing:false,autoRotate:false,packets:false};
 const dynamicsViewNames={phase:'dynamics',relax:'relaxation',walk:'randomWalk',cancel:'phaseCancel',heat:'boundedHeat',trap:'zeroTrap',collision:'heatCollision'};
 const presets={
@@ -203,7 +203,7 @@ function syncUI(){
 }
 const sourceLabel={memory:'memory cache',disk:'saved cache',precomputed:'precomputed',computed:'newly computed',buffer:'frame buffer'};
 const mib=bytes=>(bytes/1048576).toFixed(1)+' MiB';
-function renderSettings(){const settings={...state};for(const key of ['geometry','projective','function','tau','resolution','extent','sigmaMin','sigmaMax','tMin','tMax','chartScale','torusR','bridgeA','infinityHole','holeRadius'])settings[key]=renderedState[key];return settings;}
+function renderSettings(){const settings={...state};for(const key of ['geometry','projective','function','tau','resolution','extent','sigmaMin','sigmaMax','tMin','tMax','chartScale','torusR','bridgeA','infinityHole','holeRadius','countT'])settings[key]=renderedState[key];return settings;}
 function clipMatches(){try{return !!activeClip&&activeClip.key===sequenceKey(state);}catch{return false;}}
 function syncCacheUI(){
  const stats=fieldService?.stats(),ready=clipMatches();
@@ -218,7 +218,7 @@ function syncCacheUI(){
 }
 function cancelField(){clearTimeout(computeTimer);fieldController?.abort();fieldController=null;requestSerial++;busy=false;}
 function cancelWarm(){clearTimeout(warmTimer);warmController?.abort();warmController=null;warmMessage='';}
-function restoreDisplayedField(){if(!data||fieldKey(state)===fieldKey(renderedState))return;for(const key of ['geometry','projective','function','tau','resolution','extent','sigmaMin','sigmaMax','tMin','tMax','chartScale','torusR','bridgeA','infinityHole','holeRadius','colorMode','vortices','traps','fall','ladder','packets'])state[key]=renderedState[key];if(!state.projective)state.fiberMode='off';scene.updateStyle(renderSettings());syncUI();storeState();}
+function restoreDisplayedField(){if(!data||fieldKey(state)===fieldKey(renderedState))return;for(const key of ['geometry','projective','function','tau','resolution','extent','sigmaMin','sigmaMax','tMin','tMax','chartScale','torusR','bridgeA','infinityHole','holeRadius','countT','colorMode','vortices','traps','fall','ladder','packets'])state[key]=renderedState[key];if(!state.projective)state.fiberMode='off';scene.updateStyle(renderSettings());syncUI();storeState();}
 function cancelPreparation(){stopHeat(false);restoreDisplayedField();updateProbe(pinned);}
 function holdProbe(message=state.playing?'Buffered playback · pause to inspect':'Buffered frame · press Inspect for point values'){$('probeMode').textContent=message;$('probeFunction').textContent=state.function==='zeta'?'ζ(s)':state.function==='xi'?'ξ(s)':'Fτ(s)';for(const id of ['probeAbs','probeReal','probeImag','probePhase','probeDerivative','probeShear','probeBalance'])$(id).textContent='—';$('windingResult').querySelector('strong').textContent='—';windingKey=null;projectivePanel.hold(state,probe,message);fiberPanels.hold(state,probe,message);quotientPanel.hold(state,probe,message);}
 function applyField(result,requested,{inspect=true,source=result.source}={}){
@@ -268,14 +268,30 @@ $('infinityBtn').onclick=()=>{applyPreset('infinityEnd');closeDrawers();};
 $('stripEndsBtn').onclick=()=>{applyPreset('stripEnds');closeDrawers();};
 $('dualBtn').onclick=()=>{applyPreset('dualTwistor');closeDrawers();};
 $('ultimateBtn').onclick=()=>{const g=state.geometry;applyPreset('ultimate'+g[0].toUpperCase()+g.slice(1));closeDrawers();};
-$('countZeros').onclick=()=>{const T=Number($('countHeight').value),out=$('countResult');
+let countWorker=null,countSerial=0;
+function runCount(T){
+ // Up to ~2 s of evaluation at T = 2000: keep it off the main thread.
+ return new Promise((resolve,reject)=>{
+  const id=++countSerial;
+  try{countWorker??=new Worker(new URL('./zero-count-worker.js',import.meta.url),{type:'module'});}
+  catch{try{resolve(completeZeroCount(T));}catch(error){reject(error);}return;}
+  const done=event=>{if(event.data.id!==id)return;countWorker.removeEventListener('message',done);event.data.error?reject(new Error(event.data.error)):resolve(event.data.result);};
+  countWorker.addEventListener('message',done);
+  countWorker.onerror=()=>{countWorker=null;try{resolve(completeZeroCount(T));}catch(error){reject(error);}};
+  countWorker.postMessage({id,T});
+ });
+}
+$('countZeros').onclick=async()=>{const T=Number($('countHeight').value),out=$('countResult');
  if(!(T>1&&T<=2000)){out.textContent='Choose a height with 1 < T ≤ 2000.';return;}
- out.textContent='Counting…';
- setTimeout(()=>{try{const r=completeZeroCount(T);
+ out.textContent='Counting…';$('countZeros').disabled=true;
+ try{const r=await runCount(T);
   out.textContent=!r.resolved?'Unresolved at T = '+T+' (T may be too close to a zero). Try a nearby height.'
-   :r.complete?'Strip: '+r.strip+' zeros with 0 < Im s < '+T+'. On the line: '+r.line+'. They agree, so every zero below this height is on the critical line and simple. Floating-point check to this height only; not a certificate.'
+   :r.complete?'Strip: '+r.strip+' zeros with 0 < Im s < '+T+'. On the line: '+r.line+'. They agree, so every zero below this height is on the critical line and simple. The counted region is outlined on the surface. Floating-point check to this height only; not a certificate.'
    :'Strip: '+r.strip+'. On the line: '+r.line+'. The counts differ, so this scan is not complete at T = '+T+'.';
- }catch(error){out.textContent=error.message;}},20);};
+  // Outline the region only when the two counts agreed.
+  change('countT',r.resolved&&r.complete?T:0);
+ }catch(error){out.textContent=error.message;}
+ finally{$('countZeros').disabled=false;}};
 $('smoothKleinBtn').onclick=()=>{applyPreset('smoothKlein');closeDrawers();};
 $('dualPanelBtn').onclick=()=>{$('dualWorkbench').scrollIntoView({block:'start',behavior:'smooth'});closeDrawers();};
 $('channelsBtn').onclick=()=>{applyPreset('channels');closeDrawers();$('channelsWorkbench').scrollIntoView({block:'start'});};

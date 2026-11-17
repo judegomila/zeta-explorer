@@ -63,7 +63,10 @@ test('shipped starter frames have exact keys, shared geometry and independently 
   let checked=0;
   for(let k=0;k<data.valid.length&&checked<5;k+=137)if(data.valid[k]){
    const p=evaluatePolar(data.coords[2*k],data.coords[2*k+1],'heat',tau);
-   assert.equal(data.logAbs[k],p.logAbs);assert.equal(data.arg[k],p.arg);checked++;
+   // Frames are built on whichever Node ran the build; libm differs by an ulp
+   // across V8 versions, so compare to 1e-12 relative, not bit for bit.
+   const near=(a,b)=>a===b||Math.abs(a-b)<=1e-12*Math.max(1,Math.abs(a),Math.abs(b));
+   assert.ok(near(data.logAbs[k],p.logAbs),`logAbs ${data.logAbs[k]} vs ${p.logAbs}`);assert.ok(near(data.arg[k],p.arg),`arg ${data.arg[k]} vs ${p.arg}`);checked++;
   }
   assert.equal(checked,5);
  }

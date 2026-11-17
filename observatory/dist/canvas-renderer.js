@@ -178,8 +178,9 @@ export class CanvasZetaScene {
         this.addPath(points,guide.color,1.2,true,.85);
       }
     }
-    if(this.state.traps)for(const trap of d.zeroTraps||[])for(const ring of trap.rings)this.addPath(this.raiseLine(ring,.09),trap.color,1.5);
-    if(this.state.fall)for(const path of d.fallLines||[])this.addPath(this.raiseLine(path,.05),path.color,.8);
+    if(this.state.traps)for(const trap of d.zeroTraps||[])for(const ring of trap.rings)this.addPath(this.raiseLine(ring,.09),trap.color,3.2,false,trap.status==='unresolved'?.6:1);
+    if(this.state.fall)for(const path of d.fallLines||[])this.addPath(this.raiseLine(path,.05),path.color,path.arrived?2:.8,false,path.arrived?.9:.45);
+    for(const edge of d.countBox||[])this.addPath(this.raiseLine(edge,.1),edge.color,3,false,1);
     for(const rim of d.hole?.rim||[])this.addPath(this.raiseLine(rim,.07),'#ffd27a',1.6);
     if(this.state.vortices)for(const line of d.flowLines||[])this.addPath(this.raiseLine(line,.06),colorHex(line.color||'#e7ffee'),.65);
     if(this.state.ladder||this.state.packets)for(const [i,line]of(d.ladderLines||[]).entries()){

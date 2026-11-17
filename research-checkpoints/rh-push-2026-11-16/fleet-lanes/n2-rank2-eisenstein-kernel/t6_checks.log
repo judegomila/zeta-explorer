@@ -1,0 +1,26 @@
+== (A) rank-1 identity: (z-1)(conj w-1) K1_0 = z conj(w) A + B - v(z) conj v(w),  v = 1 - theta
+       and v = G(.,1)/(1+theta(1)), norm^2 = (1-theta(1))/(1+theta(1))
+   max |lhs-rhs| = 1.73e-60
+   |v(z)(1+theta(1)) - G(z,1)| = 7.89e-26 (eps 1e-25 offset)
+== (B) derivative identity: d/dx K2_{T + x alpha1^vee} = sum_{v,v'} a_v conj(a_v') K1_{alpha2(T)/2}(z_v, z_v')
+   zeta: finite difference (2.67893556742 + 0.582323676319j)  formula (2.67893556742 + 0.582323676319j)  |diff| 5.75e-39
+   c0*quad(0.2,3): finite difference (0.0426051931863 + 0.041077661488j)  formula (0.0426051931863 + 0.041077661488j)  |diff| 1.41e-39
+== (C) power control over zeta: zeta's c times ONE conjugate pair x +- 14.1347i (inner, real, c(z)c(-z)=1; not FE-symmetric unless x=1/2)
+   zeta                                     T=0 evmin | rand11 Im 10-50: R1 0.00066 R2 0.15 | rand12 Im 10-50: R1 0.1 R2 0.058 | Im 12-17: R1 5.3e-19 R2 0.0013 | Im 0.2-6: R1 5.8e-31 R2 2.7e-13
+   zeta * pair x=0.1                        T=0 evmin | rand11 Im 10-50: R1 0.00097 R2 0.15 | rand12 Im 10-50: R1 0.11 R2 0.074 | Im 12-17: R1 2.8e-15 R2 0.063 | Im 0.2-6: R1 1.5e-28 R2 2.7e-12
+   zeta * pair x=0.3                        T=0 evmin | rand11 Im 10-50: R1 0.00097 R2 0.15 | rand12 Im 10-50: R1 0.11 R2 0.099 | Im 12-17: R1 2.1e-15 R2 0.084 | Im 0.2-6: R1 1.3e-28 R2 4.8e-12
+   zeta * pair x=0.45                       T=0 evmin | rand11 Im 10-50: R1 0.00098 R2 0.15 | rand12 Im 10-50: R1 0.12 R2 0.11 | Im 12-17: R1 1.7e-15 R2 0.084 | Im 0.2-6: R1 1.3e-28 R2 6.0e-12
+   zeta * pair x=0.5                        T=0 evmin | rand11 Im 10-50: R1 0.00098 R2 0.15 | rand12 Im 10-50: R1 0.12 R2 0.11 | Im 12-17: R1 1.6e-15 R2 0.08 | Im 0.2-6: R1 1.2e-28 R2 6.4e-12
+   zeta * pair x=0.7                        T=0 evmin | rand11 Im 10-50: R1 0.00098 R2 0.15 | rand12 Im 10-50: R1 0.12 R2 0.12 | Im 12-17: R1 1.3e-15 R2 0.065 | Im 0.2-6: R1 1.2e-28 R2 8.1e-12
+   zeta * pair x=1.5                        T=0 evmin | rand11 Im 10-50: R1 0.00098 R2 0.15 | rand12 Im 10-50: R1 0.13 R2 0.12 | Im 12-17: R1 6.2e-16 R2 0.032 | Im 0.2-6: R1 9.1e-29 R2 1.6e-11
+   zeta * quad(0.3, g1)  [FE-symmetric]     T=0 evmin | rand11 Im 10-50: R1 0.001 R2 0.15 | rand12 Im 10-50: R1 0.13 R2 0.13 | Im 12-17: R1 4.0e-12 R2 0.064 | Im 0.2-6: R1 1.3e-26 R2 1.2e-11
+   zeta * pairs 0.2+-i g1, 0.8+-i(g1+1)     T=0 evmin | rand11 Im 10-50: R1 0.001 R2 0.15 | rand12 Im 10-50: R1 0.13 R2 0.16 | Im 12-17: R1 5.1e-12 R2 0.081 | Im 0.2-6: R1 9.0e-27 R2 7.9e-12
+== (D) DH: zeros with Re > 1 exist (classical) but none was located below height 260 (t6d_dh_zero.py); FE and E_a residue signs
+   FE check c(z)c(-z) at z=0.3+7i: (1.0 - 7.5225233e-62j)
+   E_a, a=0.2: c_a on the real axis near its two poles 1-a, 1+a (sign of (z-p) c_a(z) = sign of the residue):
+     p = 0.8  (z-p) c_a(z) -> -7.4307372
+     p = 1.2  (z-p) c_a(z) -> 10.743736
+   zeta: residue of c at 1 = 1.909859317  1/xi(2) = 1.909859317
+== (E) sign twist (Liouville: L = zeta(2s)/zeta(s)); c(z)c(-z) and |c| on the imaginary axis
+   c(z)c(-z) = (-0.14916364 + 0.31407357j)   |c(12i)| = 1.0384556  (zeta:  1.0 )
+   Hermitian defect of the rank-2 Gram matrix (relative): 6.52e-63 ; R1 evmin -1.06 R2 evmin 0.425 min diag 0.116

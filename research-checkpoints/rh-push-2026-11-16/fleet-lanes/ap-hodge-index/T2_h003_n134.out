@@ -1,0 +1,15 @@
+# h=0.03 n=134 s=0.0225 cutoff c=3.99 dps=320 ; planned: 134x134 mp matrix (~2.9 MB), Lambda table 198 entries
+# arch table z=0.25 built in 56s
+# check arch j=0  trapezoid 0.0837262063822179170966194479416  quad 0.0837262063822179170966194479416
+# check arch j=1  trapezoid 0.040131257067354438605715654808  quad 0.040131257067354438605715654808
+# check arch j=67  trapezoid -0.00118584075737524349539250479175  quad -0.00118584075737524349539250479175
+# check arch j=133  trapezoid -0.000432844087151961083624545085394  quad -0.000432844087151961083624545085394
+zeta         base 1 | determined 134/134 | i_+ final 1 | first stage i_+ > base: None (cutoff -) | positive pivots at [6] | smallest |pivot| [-8.314e-7 +/- 7.24e-12] | K(0)=-0.03807, negative off-diagonal K(jh): 1 of 133 | 1s
+# arch table z=0.75 built in 36s
+DH           base 0 | determined 134/134 | i_+ final 2 | first stage i_+ > base: 120 (cutoff 3.57) | positive pivots at [120, 123] | smallest |pivot| [-3.707e-6 +/- 3.66e-10] | K(0)=-0.1038, negative off-diagonal K(jh): 46 of 133 | 38s
+tw-_2        base 1 | determined 134/134 | i_+ final 30 | first stage i_+ > base: 23 (cutoff 0.66) | positive pivots at [6, 23, 36, 53, 54, 60, 62, 71, 82, 85] | smallest |pivot| [4.054e-5 +/- 3.19e-9] | K(0)=-0.03807, negative off-diagonal K(jh): 9 of 133 | 1s
+drop2        base 1 | determined 134/134 | i_+ final 39 | first stage i_+ > base: 24 (cutoff 0.69) | positive pivots at [6, 24, 37, 49, 55, 61, 65, 73, 75, 80] | smallest |pivot| [0.0005467 +/- 4.60e-8] | K(0)=-0.03807, negative off-diagonal K(jh): 1 of 133 | 1s
+# arch table z=0.35 built in 77s
+# arch table z=0.15 built in 90s
+EA_0.2       base 2 | determined 134/134 | i_+ final 44 | first stage i_+ > base: 39 (cutoff 1.14) | positive pivots at [6, 35, 39, 44, 49, 51, 57, 58, 63, 65] | smallest |pivot| [6.696e-7 +/- 5.55e-12] | K(0)=-0.07615, negative off-diagonal K(jh): 1 of 133 | 167s
+NR_q2_c2.2   base 1 | determined 134/134 | i_+ final 23 | first stage i_+ > base: 35 (cutoff 1.02) | positive pivots at [23, 35, 40, 46, 52, 68, 70, 73, 74, 77] | smallest |pivot| [-5.858e-6 +/- 1.85e-10] | K(0)=-0.09336, negative off-diagonal K(jh): 12 of 133 | 1s

@@ -1,0 +1,8 @@
+# zeta, h=0.1 s=0.075 dps=200
+# n  cutoff  mu_1 (positive)  mu_2 (largest non-positive)  mu_min
+ 10  0.9  2.31558  -2.30139e-5  -1.61755   (number positive: 1)
+ 20  1.9  4.73189  -2.04598e-8  -2.71191   (number positive: 1)
+ 30  2.9  7.76908  -1.24907e-10  -3.56629   (number positive: 1)
+ 40  3.9  11.9843  -5.23705e-18  -4.6585   (number positive: 1)
+ 50  4.9  18.2093  -2.7921e-20  -8.01119   (number positive: 1)
+ 60  5.9  27.7738  -5.68471e-31  -15.5461   (number positive: 1)

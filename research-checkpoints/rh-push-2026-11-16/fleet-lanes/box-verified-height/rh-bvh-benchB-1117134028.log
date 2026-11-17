@@ -1,0 +1,129 @@
+T=3000175344000 found=7048 grid=21.5s total=53.0s guards=1
+TIMING c_000007 r36win rc=0 wall=53.00 user=52.87 sys=0.07 maxrssMB=301.9
+T=3000175345500 found=6976 grid=22.6s total=53.2s guards=1
+TIMING c_000008 r36win rc=0 wall=53.24 user=53.10 sys=0.07 maxrssMB=301.5
+{"window": "c_000007", "H": 20, "T1_offset": -757.3566495454461, "N_T1": "12363153481832", "T2_offset": 844.116632821816, "N_T2": "12363153488686", "margins_T1": [8.957940128804045, 7.224288613086921], "margins_T2": [6.798770408894956, 7.17840598257176], "zeros_between": 6854, "status": "CERTIFIED_DIRECT_TURING_ON_PLATT_INTERVALS"}
+TIMING c_000007 turing rc=0 wall=0.27 user=0.21 sys=0.01 maxrssMB=28.0
+T=3000175353000 found=7078 grid=20.9s total=53.3s guards=1
+TIMING c_000013 r36win rc=0 wall=53.33 user=53.24 sys=0.06 maxrssMB=302.2
+T=3000175333500 found=7062 grid=21.9s total=53.4s guards=1
+TIMING c_000000 r36win rc=0 wall=53.39 user=53.29 sys=0.07 maxrssMB=301.8
+{"window": "c_000008", "H": 20, "T1_offset": -758.2206466282105, "N_T1": "12363153488248", "T2_offset": 828.532890035257, "N_T2": "12363153495038", "margins_T1": [8.096230634249112, 7.509891944194367], "margins_T2": [8.26718071242772, 9.233046322380133], "zeros_between": 6790, "status": "CERTIFIED_DIRECT_TURING_ON_PLATT_INTERVALS"}
+TIMING c_000008 turing rc=0 wall=0.22 user=0.20 sys=0.01 maxrssMB=27.3
+{"window": "c_000000", "H": 20, "T1_offset": -757.8507799356208, "N_T1": "12363153436890", "T2_offset": 848.0391031183779, "N_T2": "12363153443763", "margins_T1": [7.6121677158298775, 7.896872027355728], "margins_T2": [9.379842635175395, 8.230046066994905], "zeros_between": 6873, "status": "CERTIFIED_DIRECT_TURING_ON_PLATT_INTERVALS"}
+TIMING c_000000 turing rc=0 wall=0.16 user=0.16 sys=0.01 maxrssMB=28.1
+{"window": "c_000013", "H": 20, "T1_offset": -759.0943427983423, "N_T1": "12363153520343", "T2_offset": 851.4327512127812, "N_T2": "12363153527236", "margins_T1": [7.460547231695957, 7.626966202502241], "margins_T2": [7.7483003767509775, 8.782756700496616], "zeros_between": 6893, "status": "CERTIFIED_DIRECT_TURING_ON_PLATT_INTERVALS"}
+TIMING c_000013 turing rc=0 wall=0.21 user=0.21 sys=0.01 maxrssMB=28.0
+T=3000175356000 found=7016 grid=21.6s total=54.3s guards=1
+TIMING c_000015 r36win rc=0 wall=54.27 user=54.13 sys=0.07 maxrssMB=302.1
+{"window": "c_000015", "H": 20, "T1_offset": -755.5652853002625, "N_T1": "12363153533199", "T2_offset": 837.4383018983814, "N_T2": "12363153540017", "margins_T1": [8.74940913166285, 7.921539201237102], "margins_T2": [8.173122416754957, 8.144939625555608], "zeros_between": 6818, "status": "CERTIFIED_DIRECT_TURING_ON_PLATT_INTERVALS"}
+TIMING c_000015 turing rc=0 wall=0.14 user=0.14 sys=0.00 maxrssMB=28.0
+T=3000175342500 found=7012 grid=23.5s total=55.2s guards=1
+TIMING c_000006 r36win rc=0 wall=55.19 user=55.07 sys=0.06 maxrssMB=302.3
+{"window": "c_000006", "H": 20, "T1_offset": -758.7122966796061, "N_T1": "12363153475405", "T2_offset": 836.1604648395686, "N_T2": "12363153482231", "margins_T1": [8.638235977116752, 7.454836004440079], "margins_T2": [7.15053126076744, 9.096435986954313], "zeros_between": 6826, "status": "CERTIFIED_DIRECT_TURING_ON_PLATT_INTERVALS"}
+TIMING c_000006 turing rc=0 wall=0.17 user=0.15 sys=0.02 maxrssMB=27.2
+T=3000175341000 found=6929 grid=22.5s total=55.7s guards=1
+TIMING c_000005 r36win rc=0 wall=55.68 user=55.57 sys=0.06 maxrssMB=301.8
+{"window": "c_000005", "H": 20, "T1_offset": -754.4020099905558, "N_T1": "12363153469004", "T2_offset": 816.1130771676437, "N_T2": "12363153475725", "margins_T1": [8.514723918636706, 7.715089677558905], "margins_T2": [8.72249516832884, 8.817368087832826], "zeros_between": 6721, "status": "CERTIFIED_DIRECT_TURING_ON_PLATT_INTERVALS"}
+TIMING c_000005 turing rc=0 wall=0.22 user=0.20 sys=0.01 maxrssMB=28.0
+T=3000175348500 found=7038 grid=23.5s total=57.1s guards=1
+TIMING c_000010 r36win rc=0 wall=57.12 user=56.95 sys=0.07 maxrssMB=302.3
+{"window": "c_000010", "H": 20, "T1_offset": -758.1962902018563, "N_T1": "12363153501087", "T2_offset": 841.1157595764201, "N_T2": "12363153507932", "margins_T1": [8.677523072111132, 8.33253918846911], "margins_T2": [8.34103743040149, 8.549192917604778], "zeros_between": 6845, "status": "CERTIFIED_DIRECT_TURING_ON_PLATT_INTERVALS"}
+TIMING c_000010 turing rc=0 wall=0.23 user=0.22 sys=0.01 maxrssMB=28.0
+T=3000175354500 found=7050 grid=20.4s total=59.9s guards=1
+TIMING c_000014 r36win rc=0 wall=59.90 user=59.51 sys=0.08 maxrssMB=302.3
+{"window": "c_000014", "H": 20, "T1_offset": -758.6148711972268, "N_T1": "12363153526766", "T2_offset": 845.6037603529188, "N_T2": "12363153533632", "margins_T1": [8.496647273706191, 7.546860387432036], "margins_T2": [7.655231828553506, 7.4525455445442015], "zeros_between": 6866, "status": "CERTIFIED_DIRECT_TURING_ON_PLATT_INTERVALS"}
+TIMING c_000014 turing rc=0 wall=0.22 user=0.22 sys=0.01 maxrssMB=28.0
+T=3000175339500 found=7078 grid=26.2s total=60.7s guards=1
+TIMING c_000004 r36win rc=0 wall=60.70 user=60.28 sys=0.06 maxrssMB=302.3
+{"window": "c_000004", "H": 20, "T1_offset": -756.8674792750625, "N_T1": "12363153462573", "T2_offset": 849.9212668975325, "N_T2": "12363153469451", "margins_T1": [7.381437213651607, 7.991777747436268], "margins_T2": [7.32245248967111, 6.80058572672825], "zeros_between": 6878, "status": "CERTIFIED_DIRECT_TURING_ON_PLATT_INTERVALS"}
+TIMING c_000004 turing rc=0 wall=0.20 user=0.19 sys=0.01 maxrssMB=28.0
+T=3000175335000 found=6948 grid=21.0s total=61.5s guards=1
+TIMING c_000001 r36win rc=0 wall=61.49 user=61.37 sys=0.07 maxrssMB=301.9
+{"window": "c_000001", "H": 20, "T1_offset": -758.5395417556988, "N_T1": "12363153443307", "T2_offset": 821.8471209925382, "N_T2": "12363153450070", "margins_T1": [8.848320092570843, 7.541070358383603], "margins_T2": [8.263016057520298, 8.831618088885818], "zeros_between": 6763, "status": "CERTIFIED_DIRECT_TURING_ON_PLATT_INTERVALS"}
+TIMING c_000001 turing rc=0 wall=0.21 user=0.20 sys=0.01 maxrssMB=28.0
+T=3000175351500 found=7053 grid=28.5s total=62.4s guards=1
+TIMING c_000012 r36win rc=0 wall=62.41 user=62.31 sys=0.07 maxrssMB=301.8
+{"window": "c_000012", "H": 20, "T1_offset": -758.8728741572095, "N_T1": "12363153513925", "T2_offset": 846.513991236159, "N_T2": "12363153520795", "margins_T1": [7.8869467170067535, 7.938008707764512], "margins_T2": [8.712450303186476, 6.802121493885526], "zeros_between": 6870, "status": "CERTIFIED_DIRECT_TURING_ON_PLATT_INTERVALS"}
+TIMING c_000012 turing rc=0 wall=0.19 user=0.19 sys=0.00 maxrssMB=28.0
+T=3000175336500 found=7108 grid=29.4s total=63.6s guards=1
+TIMING c_000002 r36win rc=0 wall=63.65 user=63.50 sys=0.08 maxrssMB=302.1
+{"window": "c_000002", "H": 20, "T1_offset": -758.9946568468777, "N_T1": "12363153449724", "T2_offset": 859.0091337098312, "N_T2": "12363153456649", "margins_T1": [8.452382253369718, 8.052685267776493], "margins_T2": [7.487463258752108, 7.805242613011218], "zeros_between": 6925, "status": "CERTIFIED_DIRECT_TURING_ON_PLATT_INTERVALS"}
+TIMING c_000002 turing rc=0 wall=0.22 user=0.21 sys=0.01 maxrssMB=28.0
+T=3000175338000 found=7074 grid=25.6s total=66.4s guards=1
+TIMING c_000003 r36win rc=0 wall=66.36 user=66.25 sys=0.06 maxrssMB=301.8
+{"window": "c_000003", "H": 20, "T1_offset": -757.4053628443029, "N_T1": "12363153456152", "T2_offset": 851.3109691013838, "N_T2": "12363153463037", "margins_T1": [8.569416061738782, 7.803233604233315], "margins_T2": [8.45613278190285, 8.149673449830273], "zeros_between": 6885, "status": "CERTIFIED_DIRECT_TURING_ON_PLATT_INTERVALS"}
+TIMING c_000003 turing rc=0 wall=0.22 user=0.21 sys=0.01 maxrssMB=28.0
+T=3000175347000 found=7073 grid=27.7s total=68.2s guards=1
+TIMING c_000009 r36win rc=0 wall=68.16 user=68.05 sys=0.08 maxrssMB=301.8
+{"window": "c_000009", "H": 20, "T1_offset": -756.8065878607031, "N_T1": "12363153494674", "T2_offset": 851.1503919461561, "N_T2": "12363153501555", "margins_T1": [8.823868887567647, 6.373113294962319], "margins_T2": [7.525491392784521, 7.894492793823683], "zeros_between": 6881, "status": "CERTIFIED_DIRECT_TURING_ON_PLATT_INTERVALS"}
+TIMING c_000009 turing rc=0 wall=0.15 user=0.14 sys=0.00 maxrssMB=28.0
+T=3000175350000 found=6960 grid=25.1s total=69.2s guards=1
+TIMING c_000011 r36win rc=0 wall=69.22 user=69.11 sys=0.08 maxrssMB=301.8
+{"window": "c_000011", "H": 20, "T1_offset": -758.8850523006787, "N_T1": "12363153507504", "T2_offset": 824.3053712343536, "N_T2": "12363153514280", "margins_T1": [8.766746025038552, 8.075836549818083], "margins_T2": [8.497228622305407, 8.99737545093434], "zeros_between": 6776, "status": "CERTIFIED_DIRECT_TURING_ON_PLATT_INTERVALS"}
+TIMING c_000011 turing rc=0 wall=0.21 user=0.20 sys=0.01 maxrssMB=28.0
+T=3000175359000 found=6800 grid=20.8s total=51.4s guards=1
+TIMING c_000017 r36win rc=0 wall=51.45 user=51.30 sys=0.07 maxrssMB=302.3
+{"window": "c_000017", "H": 20, "T1_offset": -759.4545124391034, "N_T1": "12363153546021", "T2_offset": 782.5556700524116, "N_T2": "12363153552622", "margins_T1": [7.765267487661706, 8.44246153475922], "margins_T2": [7.85403738574514, 8.765612908025997], "zeros_between": 6601, "status": "CERTIFIED_DIRECT_TURING_ON_PLATT_INTERVALS"}
+TIMING c_000017 turing rc=0 wall=0.19 user=0.18 sys=0.01 maxrssMB=28.0
+T=3000175366500 found=7006 grid=21.1s total=49.4s guards=1
+TIMING c_000022 r36win rc=0 wall=49.37 user=49.22 sys=0.06 maxrssMB=301.2
+{"window": "c_000022", "H": 20, "T1_offset": -758.5174474997018, "N_T1": "12363153578126", "T2_offset": 834.2524927350113, "N_T2": "12363153584943", "margins_T1": [8.877232421846625, 7.587251451943302], "margins_T2": [8.214870901661687, 7.768356079654261], "zeros_between": 6817, "status": "CERTIFIED_DIRECT_TURING_ON_PLATT_INTERVALS"}
+TIMING c_000022 turing rc=0 wall=0.20 user=0.18 sys=0.01 maxrssMB=28.1
+T=3000175363500 found=6928 grid=21.6s total=52.3s guards=1
+TIMING c_000020 r36win rc=0 wall=52.31 user=52.22 sys=0.06 maxrssMB=301.8
+{"window": "c_000020", "H": 20, "T1_offset": -756.6726292032871, "N_T1": "12363153565294", "T2_offset": 816.7046302862868, "N_T2": "12363153572028", "margins_T1": [8.144535094609473, 6.466399995633602], "margins_T2": [9.799461357092785, 9.143303699731286], "zeros_between": 6734, "status": "CERTIFIED_DIRECT_TURING_ON_PLATT_INTERVALS"}
+TIMING c_000020 turing rc=0 wall=0.18 user=0.18 sys=0.00 maxrssMB=27.7
+T=3000175362000 found=7068 grid=21.1s total=54.7s guards=1
+TIMING c_000019 r36win rc=0 wall=54.70 user=54.55 sys=0.07 maxrssMB=301.8
+{"window": "c_000019", "H": 20, "T1_offset": -756.918453880298, "N_T1": "12363153558872", "T2_offset": 848.0011177907351, "N_T2": "12363153565742", "margins_T1": [8.4490364149987, 6.3816447751727985], "margins_T2": [7.426957668903491, 8.668860279239047], "zeros_between": 6870, "status": "CERTIFIED_DIRECT_TURING_ON_PLATT_INTERVALS"}
+TIMING c_000019 turing rc=0 wall=0.21 user=0.20 sys=0.01 maxrssMB=28.1
+T=3000175360500 found=7037 grid=21.1s total=55.3s guards=1
+TIMING c_000018 r36win rc=0 wall=55.28 user=55.19 sys=0.07 maxrssMB=301.5
+{"window": "c_000018", "H": 20, "T1_offset": -758.3909240578386, "N_T1": "12363153552447", "T2_offset": 842.6150644685503, "N_T2": "12363153559298", "margins_T1": [8.676565201195626, 7.806654418786822], "margins_T2": [6.6454247642694275, 8.735420165736958], "zeros_between": 6851, "status": "CERTIFIED_DIRECT_TURING_ON_PLATT_INTERVALS"}
+TIMING c_000018 turing rc=0 wall=0.21 user=0.19 sys=0.02 maxrssMB=28.0
+T=3000175368000 found=7041 grid=20.3s total=52.7s guards=1
+TIMING c_000023 r36win rc=0 wall=52.68 user=52.59 sys=0.06 maxrssMB=301.6
+{"window": "c_000023", "H": 20, "T1_offset": -758.2716229063386, "N_T1": "12363153584546", "T2_offset": 842.4423070253869, "N_T2": "12363153591398", "margins_T1": [8.211966144434395, 8.161426488280155], "margins_T2": [6.951094830184502, 7.722038012488535], "zeros_between": 6852, "status": "CERTIFIED_DIRECT_TURING_ON_PLATT_INTERVALS"}
+TIMING c_000023 turing rc=0 wall=0.14 user=0.14 sys=0.01 maxrssMB=28.3
+T=3000175372500 found=7033 grid=21.1s total=52.6s guards=1
+TIMING c_000026 r36win rc=0 wall=52.55 user=52.46 sys=0.05 maxrssMB=301.6
+{"window": "c_000026", "H": 20, "T1_offset": -758.9944415227384, "N_T1": "12363153603804", "T2_offset": 840.9017246714365, "N_T2": "12363153610650", "margins_T1": [9.06427921943981, 8.54522469784981], "margins_T2": [6.918396993596241, 7.861811683753274], "zeros_between": 6846, "status": "CERTIFIED_DIRECT_TURING_ON_PLATT_INTERVALS"}
+TIMING c_000026 turing rc=0 wall=0.21 user=0.20 sys=0.01 maxrssMB=28.0
+T=3000175365000 found=7085 grid=24.6s total=60.0s guards=1
+TIMING c_000021 r36win rc=0 wall=60.01 user=59.92 sys=0.07 maxrssMB=301.9
+{"window": "c_000021", "H": 20, "T1_offset": -758.5296253642832, "N_T1": "12363153571705", "T2_offset": 852.464761920635, "N_T2": "12363153578600", "margins_T1": [7.604436997073725, 8.488342286306468], "margins_T2": [7.776565610440478, 7.762318961000365], "zeros_between": 6895, "status": "CERTIFIED_DIRECT_TURING_ON_PLATT_INTERVALS"}
+TIMING c_000021 turing rc=0 wall=0.14 user=0.14 sys=0.00 maxrssMB=28.0
+T=3000175357500 found=6788 grid=29.3s total=62.6s guards=1
+TIMING c_000016 r36win rc=0 wall=62.59 user=62.47 sys=0.08 maxrssMB=302.2
+{"window": "c_000016", "H": 20, "T1_offset": -758.5905151055155, "N_T1": "12363153539605", "T2_offset": 782.0761985636491, "N_T2": "12363153546199", "margins_T1": [8.058735602433913, 7.959160941691817], "margins_T2": [8.797571433378458, 7.507900446895519], "zeros_between": 6594, "status": "CERTIFIED_DIRECT_TURING_ON_PLATT_INTERVALS"}
+TIMING c_000016 turing rc=0 wall=0.15 user=0.13 sys=0.01 maxrssMB=28.0
+T=3000175375500 found=7116 grid=21.3s total=52.4s guards=1
+TIMING c_000028 r36win rc=0 wall=52.42 user=52.33 sys=0.05 maxrssMB=301.8
+T=3000175369500 found=6803 grid=22.2s total=56.2s guards=1
+TIMING c_000024 r36win rc=0 wall=56.21 user=56.10 sys=0.06 maxrssMB=301.6
+{"window": "c_000028", "H": 20, "T1_offset": -756.8088536013295, "N_T1": "12363153616653", "T2_offset": 859.3257621200579, "N_T2": "12363153623569", "margins_T1": [9.357791891685762, 7.878307704790703], "margins_T2": [7.239380393412683, 8.931321282012807], "zeros_between": 6916, "status": "CERTIFIED_DIRECT_TURING_ON_PLATT_INTERVALS"}
+TIMING c_000028 turing rc=0 wall=0.15 user=0.14 sys=0.01 maxrssMB=28.1
+{"window": "c_000024", "H": 20, "T1_offset": -756.857564557543, "N_T1": "12363153590973", "T2_offset": 787.547496989019, "N_T2": "12363153597582", "margins_T1": [8.258312165887194, 7.310969051332169], "margins_T2": [8.350366358955242, 8.994350097334172], "zeros_between": 6609, "status": "CERTIFIED_DIRECT_TURING_ON_PLATT_INTERVALS"}
+TIMING c_000024 turing rc=0 wall=0.17 user=0.16 sys=0.01 maxrssMB=27.3
+T=3000175371000 found=6954 grid=23.4s total=56.1s guards=1
+TIMING c_000025 r36win rc=0 wall=56.12 user=55.99 sys=0.08 maxrssMB=302.1
+{"window": "c_000025", "H": 20, "T1_offset": -759.123442654107, "N_T1": "12363153597382", "T2_offset": 823.0739817530542, "N_T2": "12363153604155", "margins_T1": [7.509374015680181, 9.126008485612813], "margins_T2": [8.682463718629695, 7.290675317876307], "zeros_between": 6773, "status": "CERTIFIED_DIRECT_TURING_ON_PLATT_INTERVALS"}
+TIMING c_000025 turing rc=0 wall=0.14 user=0.13 sys=0.01 maxrssMB=27.7
+T=3000175377000 found=7054 grid=22.5s total=52.5s guards=1
+TIMING c_000029 r36win rc=0 wall=52.50 user=52.39 sys=0.06 maxrssMB=301.8
+{"window": "c_000029", "H": 20, "T1_offset": -759.3083785659214, "N_T1": "12363153623061", "T2_offset": 846.0200746308927, "N_T2": "12363153629932", "margins_T1": [6.801105403564539, 8.00054028213264], "margins_T2": [6.620984966941381, 7.712201847114923], "zeros_between": 6871, "status": "CERTIFIED_DIRECT_TURING_ON_PLATT_INTERVALS"}
+TIMING c_000029 turing rc=0 wall=0.16 user=0.14 sys=0.01 maxrssMB=27.7
+T=3000175374000 found=7126 grid=23.7s total=57.0s guards=1
+TIMING c_000027 r36win rc=0 wall=57.01 user=56.92 sys=0.05 maxrssMB=302.2
+{"window": "c_000027", "H": 20, "T1_offset": -757.7556183251617, "N_T1": "12363153610228", "T2_offset": 863.3682507739885, "N_T2": "12363153617167", "margins_T1": [8.601212819553261, 7.986350294951289], "margins_T2": [8.206720285268556, 7.98165633280998], "zeros_between": 6939, "status": "CERTIFIED_DIRECT_TURING_ON_PLATT_INTERVALS"}
+TIMING c_000027 turing rc=0 wall=0.13 user=0.13 sys=0.01 maxrssMB=28.1
+T=3000175380000 found=6885 grid=23.3s total=52.2s guards=1
+TIMING c_000031 r36win rc=0 wall=52.21 user=52.13 sys=0.06 maxrssMB=301.5
+{"window": "c_000031", "H": 20, "T1_offset": -758.6414947300805, "N_T1": "12363153635904", "T2_offset": 807.0254214689384, "N_T2": "12363153642606", "margins_T1": [8.115893617269158, 8.171717474407913], "margins_T2": [7.919556481575028, 7.009974994521777], "zeros_between": 6702, "status": "CERTIFIED_DIRECT_TURING_ON_PLATT_INTERVALS"}
+TIMING c_000031 turing rc=0 wall=0.14 user=0.13 sys=0.01 maxrssMB=27.9
+T=3000175378500 found=7054 grid=27.4s total=59.9s guards=1
+TIMING c_000030 r36win rc=0 wall=59.93 user=59.82 sys=0.07 maxrssMB=302.2
+{"window": "c_000030", "H": 20, "T1_offset": -758.2447905195514, "N_T1": "12363153629487", "T2_offset": 843.9878431219796, "N_T2": "12363153636343", "margins_T1": [8.695857891876718, 7.997481733235088], "margins_T2": [7.49868043243528, 8.582253130947876], "zeros_between": 6856, "status": "CERTIFIED_DIRECT_TURING_ON_PLATT_INTERVALS"}
+TIMING c_000030 turing rc=0 wall=0.14 user=0.14 sys=0.01 maxrssMB=28.0
+STAGE_B_DONE NW=32 NP=16 STRIDE=1500 wall=128.466406793

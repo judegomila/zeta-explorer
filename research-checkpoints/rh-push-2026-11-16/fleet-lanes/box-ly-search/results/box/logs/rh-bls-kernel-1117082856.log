@@ -1,0 +1,16 @@
+[sweep] tier=local tasks=116 done=0 todo=116 workers=3 task_cap=3.0 GB task_limit=1500 s out=results/kernel_local.jsonl
+[plan] 190 MB planned  {"T":60.0,"input":"zeta","scheme":"thalf","size":1}
+[plan] 190 MB planned  {"T":60.0,"input":"dh","scheme":"thalf","size":1}
+[plan] 190 MB planned  {"T":60.0,"input":"tw2m","scheme":"thalf","size":1}
+[done] OK             FAIL            1.3s      31 MB  {"T":60.0,"input":"dh","scheme":"thalf","size":1}
+[plan] 190 MB planned  {"T":60.0,"input":"liou","scheme":"thalf","size":1}
+[done] OK             PASS           68.4s      46 MB  {"T":60.0,"input":"zeta","scheme":"thalf","size":1}
+[plan] 190 MB planned  {"T":60.0,"input":"ea:0.25","scheme":"thalf","size":1}
+[done] NOT_FORMULABLE                 0.0s       0 MB  {"T":60.0,"input":"ea:0.25","scheme":"thalf","size":1}
+[plan] 190 MB planned  {"T":60.0,"input":"zeta","scheme":"polya","size":1}
+[done] OK             PASS           69.4s      46 MB  {"T":60.0,"input":"tw2m","scheme":"thalf","size":1}
+[plan] 190 MB planned  {"T":60.0,"input":"dh","scheme":"polya","size":1}
+[done] OK             PASS           68.5s      46 MB  {"T":60.0,"input":"liou","scheme":"thalf","size":1}
+[plan] 190 MB planned  {"T":60.0,"input":"tw2m","scheme":"polya","size":1}
+[done] OK             PASS            0.7s      30 MB  {"T":60.0,"input":"dh","scheme":"polya","size":1}
+[plan] 190 MB planned  {"T":60.0,"input":"liou","scheme":"polya","size":1}

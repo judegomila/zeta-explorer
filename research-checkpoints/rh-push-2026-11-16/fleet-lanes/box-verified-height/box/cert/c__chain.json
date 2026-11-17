@@ -1,0 +1,17 @@
+{
+ "windows": 32,
+ "all_windows_certified": true,
+ "chain_breaks": [],
+ "contiguous": true,
+ "T_lo": "3000175332743",
+ "T_hi": "3000175380807",
+ "length": 48064.87620140456,
+ "N_T_lo": 12363153436890,
+ "N_T_hi": 12363153642606,
+ "zeros": 205716,
+ "min_turing_margin": 6.373113294962319,
+ "mean_usable_per_window": 1593.1387133363628,
+ "cpu_s_total_r36win": 1822.23,
+ "cpu_s_grid_plus_isolate": 835.2,
+ "maxrss_MB": 0.3
+}

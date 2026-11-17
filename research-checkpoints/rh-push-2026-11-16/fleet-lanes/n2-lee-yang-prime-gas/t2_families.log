@@ -1,0 +1,72 @@
+k=6 pmax=13 L=10.31   bare Euler product (J=0, not admissible): sup=2.5015
+   MF (all ones)                                  sup=1.7628  sup(t>10)=1.6726  sup on sigma=1.2: 0.5804  max J=0.434
+   BAND w=0.5 (log-distance)                      sup=1.5006  sup(t>10)=1.5006  sup on sigma=1.2: 0.7016  max J=0.807
+   BAND w=1.5                                     sup=1.7151  sup(t>10)=1.6502  sup on sigma=1.2: 0.5944  max J=0.496
+   INDEX-DIST 1/(1+|i-j|)^2                       sup=1.5712  sup(t>10)=1.5635  sup on sigma=1.2: 0.6368  max J=0.704
+   TOP-soft (1 if touching top third, else 0.05)  sup=1.7943  sup(t>10)=1.7389  sup on sigma=1.2: 0.5597  max J=0.435
+   BIP-soft (1 small-large, 0.05 within)          sup=1.8376  sup(t>10)=1.7036  sup on sigma=1.2: 0.5582  max J=0.357
+   MAXPOW max(p,q)^-1                             sup=1.7061  sup(t>10)=1.6419  sup on sigma=1.2: 0.5970  max J=0.524
+   MINPOW min(p,q)^-1                             sup=1.7986  sup(t>10)=1.6960  sup on sigma=1.2: 0.5690  max J=0.352
+   CUTROW c_p=(1/2)(1-log p/log 2pmax), MF sup=1.8416  sup(t>10)=1.0898  sup on sigma=1.2: 0.5669  max J=0.103
+k=8 pmax=19 L=16.09   bare Euler product (J=0, not admissible): sup=2.8907
+   MF (all ones)                                  sup=1.9864  sup(t>10)=1.3331  sup on sigma=1.2: 0.4976  max J=0.336
+   BAND w=0.5 (log-distance)                      sup=1.5550  sup(t>10)=1.1750  sup on sigma=1.2: 0.6360  max J=0.675
+   BAND w=1.5                                     sup=1.9031  sup(t>10)=1.2947  sup on sigma=1.2: 0.5185  max J=0.399
+   INDEX-DIST 1/(1+|i-j|)^2                       sup=1.7050  sup(t>10)=1.0943  sup on sigma=1.2: 0.5680  max J=0.740
+   TOP-soft (1 if touching top third, else 0.05)  sup=2.0234  sup(t>10)=1.3357  sup on sigma=1.2: 0.4907  max J=0.371
+   BIP-soft (1 small-large, 0.05 within)          sup=2.1099  sup(t>10)=1.3823  sup on sigma=1.2: 0.4716  max J=0.271
+   MAXPOW max(p,q)^-1                             sup=1.9010  sup(t>10)=1.2892  sup on sigma=1.2: 0.5189  max J=0.427
+   MINPOW min(p,q)^-1                             sup=2.0471  sup(t>10)=1.3560  sup on sigma=1.2: 0.4843  max J=0.278
+   CUTROW c_p=(1/2)(1-log p/log 2pmax), MF sup=2.2290  sup(t>10)=1.0220  sup on sigma=1.2: 0.4904  max J=0.085
+k=10 pmax=29 L=22.59   bare Euler product (J=0, not admissible): sup=3.1983
+   MF (all ones)                                  sup=2.3408  sup(t>10)=0.9956  sup on sigma=1.2: 0.4423  max J=0.285
+   BAND w=0.5 (log-distance)                      sup=1.7552  sup(t>10)=1.2279  sup on sigma=1.2: 0.5949  max J=0.645
+   BAND w=1.5                                     sup=2.2289  sup(t>10)=0.9732  sup on sigma=1.2: 0.4698  max J=0.353
+   INDEX-DIST 1/(1+|i-j|)^2                       sup=2.0154  sup(t>10)=0.9692  sup on sigma=1.2: 0.5226  max J=0.796
+   TOP-soft (1 if touching top third, else 0.05)  sup=2.4138  sup(t>10)=0.9943  sup on sigma=1.2: 0.4304  max J=0.351
+   BIP-soft (1 small-large, 0.05 within)          sup=2.4761  sup(t>10)=0.9624  sup on sigma=1.2: 0.4173  max J=0.276
+   MAXPOW max(p,q)^-1                             sup=2.2405  sup(t>10)=0.9774  sup on sigma=1.2: 0.4666  max J=0.372
+   MINPOW min(p,q)^-1                             sup=2.4083  sup(t>10)=1.0004  sup on sigma=1.2: 0.4286  max J=0.238
+   CUTROW c_p=(1/2)(1-log p/log 2pmax), MF sup=2.5359  sup(t>10)=0.8681  sup on sigma=1.2: 0.4391  max J=0.070
+k=12 pmax=37 L=29.64   bare Euler product (J=0, not admissible): sup=3.4562
+   MF (all ones)                                  sup=2.6236  sup(t>10)=0.8554  sup on sigma=1.2: 0.4026  max J=0.246
+   BAND w=0.5 (log-distance)                      sup=1.9973  sup(t>10)=1.0907  sup on sigma=1.2: 0.5658  max J=0.576
+   BAND w=1.5                                     sup=2.4846  sup(t>10)=0.8403  sup on sigma=1.2: 0.4356  max J=0.310
+   INDEX-DIST 1/(1+|i-j|)^2                       sup=2.2574  sup(t>10)=1.0357  sup on sigma=1.2: 0.4901  max J=0.827
+   TOP-soft (1 if touching top third, else 0.05)  sup=2.7277  sup(t>10)=0.8698  sup on sigma=1.2: 0.3873  max J=0.304
+   BIP-soft (1 small-large, 0.05 within)          sup=2.7728  sup(t>10)=0.8648  sup on sigma=1.2: 0.3781  max J=0.242
+   MAXPOW max(p,q)^-1                             sup=2.5081  sup(t>10)=0.8595  sup on sigma=1.2: 0.4292  max J=0.328
+   MINPOW min(p,q)^-1                             sup=2.6980  sup(t>10)=0.8431  sup on sigma=1.2: 0.3886  max J=0.209
+   CUTROW c_p=(1/2)(1-log p/log 2pmax), MF sup=2.8007  sup(t>10)=0.8624  sup on sigma=1.2: 0.4022  max J=0.062
+k=14 pmax=43 L=37.11   bare Euler product (J=0, not admissible): sup=3.6808
+   MF (all ones)                                  sup=2.8616  sup(t>10)=0.7091  sup on sigma=1.2: 0.3722  max J=0.215
+   BAND w=0.5 (log-distance)                      sup=2.1984  sup(t>10)=1.0806  sup on sigma=1.2: 0.5434  max J=0.514
+   BAND w=1.5                                     sup=2.6977  sup(t>10)=0.6629  sup on sigma=1.2: 0.4099  max J=0.274
+   INDEX-DIST 1/(1+|i-j|)^2                       sup=2.4587  sup(t>10)=0.8085  sup on sigma=1.2: 0.4653  max J=0.857
+   TOP-soft (1 if touching top third, else 0.05)  sup=2.9241  sup(t>10)=0.7243  sup on sigma=1.2: 0.3633  max J=0.271
+   BIP-soft (1 small-large, 0.05 within)          sup=3.0174  sup(t>10)=0.7150  sup on sigma=1.2: 0.3490  max J=0.224
+   MAXPOW max(p,q)^-1                             sup=2.7327  sup(t>10)=0.6727  sup on sigma=1.2: 0.4006  max J=0.301
+   MINPOW min(p,q)^-1                             sup=2.9416  sup(t>10)=0.7197  sup on sigma=1.2: 0.3584  max J=0.182
+   CUTROW c_p=(1/2)(1-log p/log 2pmax), MF sup=3.0343  sup(t>10)=0.7234  sup on sigma=1.2: 0.3741  max J=0.056
+[alloc k=16: 2^k=65536 terms, exp chunk <= 600 MB]
+k=16 pmax=53 L=44.93   bare Euler product (J=0, not admissible): sup=3.8822
+   MF (all ones)                                  sup=3.0707  sup(t>10)=0.7354  sup on sigma=1.2: 0.3478  max J=0.190
+   BAND w=0.5 (log-distance)                      sup=2.3747  sup(t>10)=1.1018  sup on sigma=1.2: 0.5251  max J=0.447
+   BAND w=1.5                                     sup=2.8841  sup(t>10)=0.7116  sup on sigma=1.2: 0.3894  max J=0.243
+   INDEX-DIST 1/(1+|i-j|)^2                       sup=2.6354  sup(t>10)=0.8060  sup on sigma=1.2: 0.4451  max J=0.882
+   TOP-soft (1 if touching top third, else 0.05)  sup=3.1515  sup(t>10)=0.7493  sup on sigma=1.2: 0.3374  max J=0.247
+   BIP-soft (1 small-large, 0.05 within)          sup=3.2345  sup(t>10)=0.7521  sup on sigma=1.2: 0.3256  max J=0.204
+   MAXPOW max(p,q)^-1                             sup=2.9308  sup(t>10)=0.7273  sup on sigma=1.2: 0.3774  max J=0.261
+   MINPOW min(p,q)^-1                             sup=3.1542  sup(t>10)=0.7367  sup on sigma=1.2: 0.3344  max J=0.165
+   CUTROW c_p=(1/2)(1-log p/log 2pmax), MF sup=3.2429  sup(t>10)=0.7332  sup on sigma=1.2: 0.3506  max J=0.051
+[alloc k=18: 2^k=262144 terms, exp chunk <= 600 MB]
+k=18 pmax=61 L=53.12   bare Euler product (J=0, not admissible): sup=4.0615
+   MF (all ones)                                  sup=3.2572  sup(t>10)=0.6494  sup on sigma=1.2: 0.3282  max J=0.174
+   BAND w=0.5 (log-distance)                      sup=2.5303  sup(t>10)=1.1277  sup on sigma=1.2: 0.5105  max J=0.440
+   BAND w=1.5                                     sup=3.0484  sup(t>10)=0.6256  sup on sigma=1.2: 0.3734  max J=0.227
+   INDEX-DIST 1/(1+|i-j|)^2                       sup=2.7917  sup(t>10)=0.7605  sup on sigma=1.2: 0.4290  max J=0.913
+   TOP-soft (1 if touching top third, else 0.05)  sup=3.3509  sup(t>10)=0.6358  sup on sigma=1.2: 0.3170  max J=0.230
+   BIP-soft (1 small-large, 0.05 within)          sup=3.4262  sup(t>10)=0.6473  sup on sigma=1.2: 0.3070  max J=0.191
+   MAXPOW max(p,q)^-1                             sup=3.1070  sup(t>10)=0.6412  sup on sigma=1.2: 0.3586  max J=0.253
+   MINPOW min(p,q)^-1                             sup=3.3435  sup(t>10)=0.6488  sup on sigma=1.2: 0.3152  max J=0.150
+   CUTROW c_p=(1/2)(1-log p/log 2pmax), MF sup=3.4303  sup(t>10)=0.6627  sup on sigma=1.2: 0.3320  max J=0.047

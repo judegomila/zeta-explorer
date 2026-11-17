@@ -1,0 +1,17 @@
+K=500 D=500: edge (a,b form) 644; outliers 1; theta_1/(KD)^(2/3) = 0.1364
+K=1000 D=1000: edge (a,b form) 1282; outliers 3; theta_1/(KD)^(2/3) = 0.1449
+K=2000 D=2000: edge (a,b form) 2576; outliers 7; theta_1/(KD)^(2/3) = 0.1538
+K=3000 D=3000: edge (a,b form) 3838; outliers 12; theta_1/(KD)^(2/3) = 0.1584; theta_j ~ j^beta over j=2..12: beta = -0.427; theta_2/theta_1 = 0.420; j*theta_j^3/(KD)^2 at j=5,10,20,40: 0.00072 0.00058
+K=6000 D=6000: edge (a,b form) 7691; outliers 20; theta_1/(KD)^(2/3) = 0.1612; theta_j ~ j^beta over j=2..20: beta = -0.505; theta_2/theta_1 = 0.449; j*theta_j^3/(KD)^2 at j=5,10,20,40: 0.00114 0.00099 0.00027
+K=12000 D=12000: edge (a,b form) 15384; outliers 42; theta_1/(KD)^(2/3) = 0.1625; theta_j ~ j^beta over j=2..42: beta = -0.510; theta_2/theta_1 = 0.458; j*theta_j^3/(KD)^2 at j=5,10,20,40: 0.00137 0.00129 0.00070 0.00032
+K=18000 D=18000: edge (a,b form) 23018; outliers 63; theta_1/(KD)^(2/3) = 0.1623; theta_j ~ j^beta over j=2..63: beta = -0.501; theta_2/theta_1 = 0.463; j*theta_j^3/(KD)^2 at j=5,10,20,40: 0.00134 0.00141 0.00085 0.00057
+K=55 D=3000: no outliers
+K=141 D=20000: no outliers
+K=200 D=40000: edge (a,b form) 14659; outliers 1; theta_1/(KD)^(2/3) = 0.0460
+K=300 D=30000: edge (a,b form) 11585; outliers 1; theta_1/(KD)^(2/3) = 0.0848
+K=1000 D=30000: edge (a,b form) 13395; outliers 7; theta_1/(KD)^(2/3) = 0.1320
+K=3000 D=12000: edge (a,b form) 8647; outliers 17; theta_1/(KD)^(2/3) = 0.1539; theta_j ~ j^beta over j=2..17: beta = -0.530; theta_2/theta_1 = 0.465; j*theta_j^3/(KD)^2 at j=5,10,20,40: 0.00105 0.00067
+K=6000 D=24000: edge (a,b form) 17288; outliers 31; theta_1/(KD)^(2/3) = 0.1567; theta_j ~ j^beta over j=2..31: beta = -0.551; theta_2/theta_1 = 0.479; j*theta_j^3/(KD)^2 at j=5,10,20,40: 0.00130 0.00100 0.00048
+fit theta_1 = c K^a D^b over 12 shapes (K <= D): a = 0.874, b = 0.547, c = 0.0790
+fit Rayleigh excess of w_1 = c K^a D^b over 14 shapes (K <= D): a = 0.669, b = 0.674, c = 0.1501
+literature constant: ((2 pi)^(2/3)/(3 Gamma(2/3)))^2 * (1.5 * density)^2 = 0.19611027800433123

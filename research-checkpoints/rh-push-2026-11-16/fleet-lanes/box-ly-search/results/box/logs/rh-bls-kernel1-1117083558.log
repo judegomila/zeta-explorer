@@ -1,0 +1,2 @@
+[sweep] tier=local tasks=116 done=6 todo=110 workers=1 task_cap=3.0 GB task_limit=1500 s out=results/kernel_local.jsonl
+[plan] 190 MB planned  {"T":60.0,"input":"zeta","scheme":"polya","size":1}

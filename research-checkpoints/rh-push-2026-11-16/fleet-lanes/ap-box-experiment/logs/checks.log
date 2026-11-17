@@ -1,0 +1,15 @@
+== selftest
+time 19.4 s
+SELFTEST PASSED
+== kill/resume test
+6
+[sweep] tier=smoke tasks=10 done=10 todo=0 workers=1 task_cap=8.0 GB task_limit=2 s out=results/killtest.jsonl
+[sweep] tier=smoke tasks=10 done=4 todo=6 workers=1 task_cap=8.0 GB task_limit=60 s out=results/killtest.jsonl
+[done] OK             PASS            2.9s      32 MB  {"T":30.0,"input":"zeta","scheme":"polya","size":2}
+[done] OK             PASS            2.9s      32 MB  {"T":30.0,"input":"tw2m","scheme":"polya","size":2}
+[done] OK             PASS            2.9s      33 MB  {"T":30.0,"input":"liou","scheme":"polya","size":2}
+== jensen timing
+zeta 256 {'real_roots': 256, 'degree': 256, 'shift': 0, 'prec': 10496, 'series_s': 4.87, 'sturm_s': 0.16, 'verdict': 'PASS'} total 5.0s maxrss MB 154.615808
+dh 256 {'real_roots': 256, 'degree': 256, 'shift': 0, 'prec': 10496, 'series_s': 18.27, 'sturm_s': 0.17, 'verdict': 'PASS'} total 18.4s maxrss MB 154.615808
+zeta 512 {'real_roots': 512, 'degree': 512, 'shift': 0, 'prec': 20736, 'series_s': 47.21, 'sturm_s': 1.75, 'verdict': 'PASS'} total 49.0s maxrss MB 498.991104
+EXIT 0

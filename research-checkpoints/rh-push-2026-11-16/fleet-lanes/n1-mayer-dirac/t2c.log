@@ -1,0 +1,9 @@
+hz vs mpmath zeta at a=40: 1.8576e-50
+k=1 Laplace check x=2: rel err 0.0055413
+   Q(u) at u=1e-6,1e-3: 4.6079196e+18 4.6033186e+18  pred c0=4.6079242e+18
+   u=100: Q(u)/u = 0.007538196924 (pred cinf=|zeta(rho-1)/(rho-1)|^2=0.007507279956)
+   u=300: Q(u)/u = 0.007507279956 (pred cinf=|zeta(rho-1)/(rho-1)|^2=0.007507279956)
+   u=1000: Q(u)/u = 0.007507279956 (pred cinf=|zeta(rho-1)/(rho-1)|^2=0.007507279956)
+   u=3000: Q(u)/u = 0.007507279956 (pred cinf=|zeta(rho-1)/(rho-1)|^2=0.007507279956)
+   u=10000: Q(u)/u = 0.007507279956 (pred cinf=|zeta(rho-1)/(rho-1)|^2=0.007507279956)
+   N1[1e-6,1e-3]/log(1e3) = 4.607258e+18 (pred c0)

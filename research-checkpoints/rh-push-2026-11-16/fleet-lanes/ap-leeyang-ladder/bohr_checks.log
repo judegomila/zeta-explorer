@@ -1,0 +1,30 @@
+dh 2 1 {'min_abs_on_critical_torus': 0.799125781707454, 'sup_sigma_with_zero': None}
+dh 2 4 {'min_abs_on_critical_torus': 0.49190113810207753, 'sup_sigma_with_zero': None}
+dh 2 None {'min_abs_on_critical_torus': 0.5327505211383026, 'sup_sigma_with_zero': None}
+dh 3 1 {'min_abs_on_critical_torus': 0.22686437881119728, 'sup_sigma_with_zero': None}
+dh 3 4 {'min_abs_on_critical_torus': 5.317429525810038e-13, 'sup_sigma_with_zero': 0.5040283203125}
+dh 3 None {'min_abs_on_critical_torus': 0.11343218940559861, 'sup_sigma_with_zero': None}
+dh 7 1 {'min_abs_on_critical_torus': 1.4039087592390621e-13, 'sup_sigma_with_zero': 0.6527099609375}
+dh 7 4 {'min_abs_on_critical_torus': 3.2864289324620454e-15, 'sup_sigma_with_zero': 0.6827392578125}
+dh 7 None {'min_abs_on_critical_torus': 2.2895077561088146e-13, 'sup_sigma_with_zero': 0.6527099609375}
+dh 13 1 {'min_abs_on_critical_torus': 5.766658407072898e-13, 'sup_sigma_with_zero': 0.76953125}
+dh 13 4 {'min_abs_on_critical_torus': 5.06476839115981e-13, 'sup_sigma_with_zero': 0.774658203125}
+dh 13 None {'min_abs_on_critical_torus': 5.509221990754179e-13, 'sup_sigma_with_zero': 0.76953125}
+additive [2, 3] 1 {'min_abs_1_plus_sum': 3.151108725416843e-13, 'min_abs_app_ZTL': 0.7155429496238268}
+additive [2, 3] 4 {'min_abs_1_plus_sum': 0.092560442629894, 'min_abs_app_ZTL': 1.0922143518153715}
+additive [2, 3] None {'min_abs_1_plus_sum': 0.21976103384246626, 'min_abs_app_ZTL': 1.2197610338424663}
+additive [2, 3, 5] 1 {'min_abs_1_plus_sum': 9.572776915288371e-14, 'min_abs_app_ZTL': 1.268329354123869}
+additive [2, 3, 5] 4 {'min_abs_1_plus_sum': 0.0, 'min_abs_app_ZTL': 1.7857628348514005}
+additive [2, 3, 5] None {'min_abs_1_plus_sum': 3.180222178168622e-14, 'min_abs_app_ZTL': 1.9107440394675188}
+additive [2, 3, 5, 7] 1 {'min_abs_1_plus_sum': 5.961301384408665e-13, 'min_abs_app_ZTL': 1.8903648811146416}
+additive [2, 3, 5, 7] 4 {'min_abs_1_plus_sum': 5.980442042878306e-13, 'min_abs_app_ZTL': 2.515361348205103}
+additive [2, 3, 5, 7] None {'min_abs_1_plus_sum': 2.2413129654130178e-13, 'min_abs_app_ZTL': 2.6364521542900867}
+inner bound ratio psi(x)/(x log nmax), max 5 1 0.901569479950445
+inner bound ratio psi(x)/(x log nmax), max 11 1 0.9006932004131526
+inner bound ratio psi(x)/(x log nmax), max 5 4 0.9004145992771765
+inner bound ratio psi(x)/(x log nmax), max 11 4 0.9001830621961077
+heat-ising 0.05 {'min_abs_inside': {'0.999': 2.947733070553137e-05, '0.9': 0.002752378885999564, '0.5': 0.04313808123241785}, 'diag_root_moduli': [0.9999999999999988, 0.9999999999999988, 1.0000000000000004, 1.0000000000000004, 1.0000000000000018]}
+heat-ising 0.2 {'min_abs_inside': {'0.999': 0.0005555051497849552, '0.9': 0.05837969536341596, '0.5': 0.35809631426987154}, 'diag_root_moduli': [1.0, 1.0, 1.0000000000000007, 1.0000000000000007, 1.000000000000001]}
+heat-ising -0.05 {'min_abs_inside': {'0.999': 1.1524428612112724e-16, '0.9': 1.5782647759453184e-14, '0.5': 2.4866310365370933e-15}, 'diag_root_moduli': [0.22676837039282216, 0.5466339131710736, 1.0000000000000062, 1.8293778997334835, 4.409786066142013]}
+heat-ising -0.2 {'min_abs_inside': {'0.999': 2.3644345892080985e-16, '0.9': 7.956049771297016e-14, '0.5': 3.821573232829256e-13}, 'diag_root_moduli': [0.03155458187113638, 0.2683328329362611, 1.0000000000000018, 3.7267150242383513, 31.69111871245284]}
+EXIT 0

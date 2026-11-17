@@ -1,0 +1,24 @@
+Z = D = 1000: rows 500, columns 404, planned allocation 0.8 MB (float32 matrix)
+   ratio N/diagonal on rows [squarefree d>1, d = square, other]
+   mu         [0.659, 3.534, 0.441]   sum mu(c) = -14.0
+   |mu|       [0.543, 302.181, 0.163]
+   random +-1 [0.873, 1.109, 0.716] sd [0.037, 1.385, 0.170]
+   rand. mult [0.878, 0.879, 0.724] sd [0.076, 1.165, 0.259]
+Z = D = 2000: rows 1000, columns 811, planned allocation 3.2 MB (float32 matrix)
+   ratio N/diagonal on rows [squarefree d>1, d = square, other]
+   mu         [0.644, 2.862, 0.262]   sum mu(c) = -9.0
+   |mu|       [0.580, 601.429, 0.166]
+   random +-1 [0.879, 0.710, 0.710] sd [0.031, 0.748, 0.100]
+   rand. mult [0.865, 0.812, 0.688] sd [0.051, 1.215, 0.145]
+Z = D = 4000: rows 2000, columns 1622, planned allocation 13.0 MB (float32 matrix)
+   ratio N/diagonal on rows [squarefree d>1, d = square, other]
+   mu         [0.811, 3.139, 0.346]   sum mu(c) = -18.0
+   |mu|       [0.609, 1181.272, 0.173]
+   random +-1 [0.878, 0.756, 0.748] sd [0.026, 0.805, 0.105]
+   rand. mult [0.874, 1.373, 0.699] sd [0.041, 2.692, 0.122]
+Z = D = 8000: rows 4000, columns 3243, planned allocation 51.9 MB (float32 matrix)
+   ratio N/diagonal on rows [squarefree d>1, d = square, other]
+   mu         [0.776, 2.296, 0.367]   sum mu(c) = -19.0
+   |mu|       [0.634, 2380.062, 0.186]
+   random +-1 [0.873, 0.984, 0.734] sd [0.017, 1.141, 0.077]
+   rand. mult [0.874, 0.758, 0.734] sd [0.029, 1.251, 0.141]

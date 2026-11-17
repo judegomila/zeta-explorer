@@ -1,0 +1,10 @@
+{"input": "chi4", "weight": "riesz2", "N": 100, "primes": 25, "sigma": 0.5001, "min_abs_B": 0.2766513057066986, "starts": 40}
+{"input": "chi4", "weight": "riesz2", "N": 150, "primes": 35, "sigma": 0.5001, "min_abs_B": 0.19114081028431185, "starts": 40}
+{"input": "chi4", "weight": "riesz2", "N": 200, "primes": 46, "sigma": 0.5001, "min_abs_B": 0.1318864590712541, "starts": 40}
+{"input": "chi4", "weight": "riesz2", "N": 300, "primes": 62, "sigma": 0.5001, "min_abs_B": 0.05455537522847843, "starts": 40}
+{"input": "chi4", "weight": "riesz2", "N": 400, "primes": 78, "sigma": 0.5001, "min_abs_B": 0.013290296894286327, "starts": 40}
+{"input": "chi4", "weight": "riesz2", "N": 600, "primes": 109, "sigma": 0.5001, "min_abs_B": 0.0003903100283366798, "starts": 12}
+{"input": "chi4", "weight": "riesz2", "N": 800, "primes": 139, "sigma": 0.5001, "min_abs_B": 1.4232701990184898e-05, "starts": 12}
+{"input": "chi4", "weight": "riesz2", "N": 1000, "primes": 168, "sigma": 0.5001, "min_abs_B": 6.4376929078655855e-06, "starts": 12}
+{"input": "chi4", "weight": "riesz2", "N": 1500, "primes": 239, "sigma": 0.5001, "min_abs_B": 8.630052426068472e-09, "starts": 12}
+{"input": "chi4", "weight": "riesz2", "N": 2000, "primes": 303, "sigma": 0.5001, "min_abs_B": 8.676824490038144e-09, "starts": 12}

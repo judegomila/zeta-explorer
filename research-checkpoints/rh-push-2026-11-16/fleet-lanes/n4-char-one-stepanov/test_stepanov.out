@@ -1,0 +1,13 @@
+planned allocation: < 50 MB (pure python enumeration)
+(a1) f^lam = f^(lam) o Fr_lam : 320000 exact evaluations, violations = 0
+     non-Boolean f with f^lam != f o Fr_lam on the grid: 7656 cases
+(a2) Boolean max_i(n_i x) on x>=0 equals (max n_i) x: 561 families, violations = 0
+     => Boolean-rational sections of slope <= N on [0,inf): exactly {n x : n <= N}; count N+1 (slopes >= 0)
+(a3/b) C_2: 3000 random periodic PL functions: |sum of orders| max = 0; zeros == poles in 3000/3000
+(a3/b) C_3: 3000 random periodic PL functions: |sum of orders| max = 0; zeros == poles in 3000/3000
+(b) p=2: 111100 tropical polynomials deg<=4, coefficients in [-9,0]: max (break order on {p^k})/deg = 1, max (all positive breaks)/deg = 1; multiplicity at u/v divisible by v: True
+(b) p=3: 111100 tropical polynomials deg<=4, coefficients in [-9,0]: max (break order on {p^k})/deg = 1, max (all positive breaks)/deg = 1; multiplicity at u/v divisible by v: True
+(b') S = prime powers <= 64: degree 27, breaks exactly S with multiplicity 1: True
+(b') S = composites non-prime-power <= 40: degree 20, breaks exactly S with multiplicity 1: True
+(b') S = all integers 2..30: degree 29, breaks exactly S with multiplicity 1: True
+(c) max(x, lam x / q) = x * max(1, lam/q) (break on lam = q for every x): True

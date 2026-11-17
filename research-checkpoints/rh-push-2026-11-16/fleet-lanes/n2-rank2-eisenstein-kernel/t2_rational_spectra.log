@@ -1,0 +1,45 @@
+c0                         tau=    0 R1 (+,0,-)=(0, 12, 0) min=0.0 | R2 (+,0,-)=(0, 12, 0) mindiag=-9.68e-121 neg=[] smallest+=0
+c0                         tau= 0.05 R1 (+,0,-)=(12, 0, 0) min=1.21e-57 | R2 (+,0,-)=(12, 0, 0) mindiag=0.0124 neg=[] smallest+=3.49e-19
+c0                         tau=  0.3 R1 (+,0,-)=(12, 0, 0) min=1.58e-23 | R2 (+,0,-)=(12, 0, 0) mindiag=0.221 neg=[] smallest+=0.000219
+c0*real r=0.1              tau=    0 R1 (+,0,-)=(12, 0, 0) min=0.16 | R2 (+,0,-)=(1, 0, 11) mindiag=-0.00671 neg=['-2.74', '-2.46', '-2.04', '-1.29', '-1.19', '-0.825', '-0.613', '-0.436', '-0.32', '-0.184', '-0.102'] smallest+=0.197
+c0*real r=0.1              tau= 0.05 R1 (+,0,-)=(12, 0, 0) min=0.0013 | R2 (+,0,-)=(12, 0, 0) mindiag=0.0141 neg=[] smallest+=0.0139
+c0*real r=0.1              tau=  0.3 R1 (+,0,-)=(12, 0, 0) min=0.000339 | R2 (+,0,-)=(12, 0, 0) mindiag=0.229 neg=[] smallest+=0.0565
+c0*real r=0.5              tau=    0 R1 (+,0,-)=(1, 11, 0) min=-2.82e-115 | R2 (+,0,-)=(1, 10, 1) mindiag=-0.00171 neg=['-12.3'] smallest+=0.302
+c0*real r=0.5              tau= 0.05 R1 (+,0,-)=(12, 0, 0) min=8.49e-52 | R2 (+,0,-)=(11, 0, 1) mindiag=0.0131 neg=['-0.00055'] smallest+=1.01e-9
+c0*real r=0.5              tau=  0.3 R1 (+,0,-)=(12, 0, 0) min=9.0e-21 | R2 (+,0,-)=(12, 0, 0) mindiag=0.223 neg=[] smallest+=0.00347
+c0*real r=0.9              tau=    0 R1 (+,0,-)=(0, 0, 12) min=-2.48 | R2 (+,0,-)=(12, 0, 0) mindiag=4.12e-5 neg=[] smallest+=0.505
+c0*real r=0.9              tau= 0.05 R1 (+,0,-)=(2, 0, 10) min=-0.629 | R2 (+,0,-)=(2, 0, 10) mindiag=0.00567 neg=['-2.88', '-1.54', '-0.57', '-0.182', '-0.145', '-0.0705', '-0.056', '-0.0335', '-0.012', '-0.00329'] smallest+=0.232
+c0*real r=0.9              tau=  0.3 R1 (+,0,-)=(6, 0, 6) min=-0.0922 | R2 (+,0,-)=(8, 0, 4) mindiag=0.213 neg=['-0.263', '-0.184', '-0.0847', '-0.0633'] smallest+=0.0229
+c0*real r=1.5              tau=    0 R1 (+,0,-)=(0, 0, 12) min=-2.48 | R2 (+,0,-)=(12, 0, 0) mindiag=0.000146 neg=[] smallest+=0.626
+c0*real r=1.5              tau= 0.05 R1 (+,0,-)=(2, 0, 10) min=-8.99 | R2 (+,0,-)=(2, 0, 10) mindiag=-0.0308 neg=['-5.04', '-3.0', '-1.89', '-0.622', '-0.303', '-0.177', '-0.134', '-0.116', '-0.049', '-0.0156'] smallest+=0.175
+c0*real r=1.5              tau=  0.3 R1 (+,0,-)=(5, 0, 7) min=-0.31 | R2 (+,0,-)=(7, 0, 5) mindiag=0.0646 neg=['-2.17', '-1.31', '-0.443', '-0.34', '-0.061'] smallest+=0.228
+c0*real pair r=.3,.7       tau=    0 R1 (+,0,-)=(1, 11, 0) min=-1.24e-115 | R2 (+,0,-)=(1, 11, 0) mindiag=3.42e-11 neg=[] smallest+=12.0
+c0*real pair r=.3,.7       tau= 0.05 R1 (+,0,-)=(12, 0, 0) min=8.31e-52 | R2 (+,0,-)=(12, 0, 0) mindiag=0.0138 neg=[] smallest+=9.4e-11
+c0*real pair r=.3,.7       tau=  0.3 R1 (+,0,-)=(12, 0, 0) min=8.99e-21 | R2 (+,0,-)=(12, 0, 0) mindiag=0.226 neg=[] smallest+=0.00268
+c0*pair online g=14        tau=    0 R1 (+,0,-)=(1, 11, 0) min=-9.09e-119 | R2 (+,0,-)=(1, 11, 0) mindiag=2.47e-5 neg=[] smallest+=12.0
+c0*pair online g=14        tau= 0.05 R1 (+,0,-)=(12, 0, 0) min=1.34e-51 | R2 (+,0,-)=(12, 0, 0) mindiag=0.0204 neg=[] smallest+=2.76e-10
+c0*pair online g=14        tau=  0.3 R1 (+,0,-)=(12, 0, 0) min=1.41e-20 | R2 (+,0,-)=(12, 0, 0) mindiag=0.269 neg=[] smallest+=0.0093
+c0*pair online g=3         tau=    0 R1 (+,0,-)=(1, 11, 0) min=-3.09e-117 | R2 (+,0,-)=(1, 11, 0) mindiag=7.72e-8 neg=[] smallest+=12.0
+c0*pair online g=3         tau= 0.05 R1 (+,0,-)=(12, 0, 0) min=8.47e-52 | R2 (+,0,-)=(12, 0, 0) mindiag=0.0141 neg=[] smallest+=1.12e-9
+c0*pair online g=3         tau=  0.3 R1 (+,0,-)=(12, 0, 0) min=9.16e-21 | R2 (+,0,-)=(12, 0, 0) mindiag=0.227 neg=[] smallest+=0.0458
+c0*quad d=.2 g=14          tau=    0 R1 (+,0,-)=(2, 10, 0) min=-9.85e-119 | R2 (+,0,-)=(6, 6, 0) mindiag=0.000311 neg=[] smallest+=0.000486
+c0*quad d=.2 g=14          tau= 0.05 R1 (+,0,-)=(12, 0, 0) min=9.07e-46 | R2 (+,0,-)=(12, 0, 0) mindiag=0.024 neg=[] smallest+=5.2e-6
+c0*quad d=.2 g=14          tau=  0.3 R1 (+,0,-)=(12, 0, 0) min=8.22e-18 | R2 (+,0,-)=(12, 0, 0) mindiag=0.287 neg=[] smallest+=0.012
+c0*quad d=.45 g=14         tau=    0 R1 (+,0,-)=(2, 10, 0) min=-1.41e-118 | R2 (+,0,-)=(6, 6, 0) mindiag=0.00031 neg=[] smallest+=2.58e-5
+c0*quad d=.45 g=14         tau= 0.05 R1 (+,0,-)=(12, 0, 0) min=9.06e-46 | R2 (+,0,-)=(12, 0, 0) mindiag=0.024 neg=[] smallest+=2.28e-6
+c0*quad d=.45 g=14         tau=  0.3 R1 (+,0,-)=(12, 0, 0) min=8.21e-18 | R2 (+,0,-)=(12, 0, 0) mindiag=0.287 neg=[] smallest+=0.0117
+c0*quad d=.2 g=3           tau=    0 R1 (+,0,-)=(2, 10, 0) min=-8.61e-117 | R2 (+,0,-)=(6, 6, 0) mindiag=8.33e-6 neg=[] smallest+=1.57e-5
+c0*quad d=.2 g=3           tau= 0.05 R1 (+,0,-)=(12, 0, 0) min=3.73e-46 | R2 (+,0,-)=(12, 0, 0) mindiag=0.0156 neg=[] smallest+=2.51e-5
+c0*quad d=.2 g=3           tau=  0.3 R1 (+,0,-)=(12, 0, 0) min=3.61e-18 | R2 (+,0,-)=(12, 0, 0) mindiag=0.236 neg=[] smallest+=0.0634
+c0*quad d=.45 g=3          tau=    0 R1 (+,0,-)=(2, 10, 0) min=-4.96e-117 | R2 (+,0,-)=(6, 6, 0) mindiag=8.03e-6 neg=[] smallest+=9.54e-7
+c0*quad d=.45 g=3          tau= 0.05 R1 (+,0,-)=(12, 0, 0) min=3.72e-46 | R2 (+,0,-)=(12, 0, 0) mindiag=0.0156 neg=[] smallest+=1.11e-5
+c0*quad d=.45 g=3          tau=  0.3 R1 (+,0,-)=(12, 0, 0) min=3.61e-18 | R2 (+,0,-)=(12, 0, 0) mindiag=0.236 neg=[] smallest+=0.0609
+c0*quad d=.45 g=1          tau=    0 R1 (+,0,-)=(2, 10, 0) min=-1.42e-116 | R2 (+,0,-)=(6, 6, 0) mindiag=3.04e-7 neg=[] smallest+=1.23e-9
+c0*quad d=.45 g=1          tau= 0.05 R1 (+,0,-)=(12, 0, 0) min=3.6e-46 | R2 (+,0,-)=(12, 0, 0) mindiag=0.0151 neg=[] smallest+=6.67e-7
+c0*quad d=.45 g=1          tau=  0.3 R1 (+,0,-)=(12, 0, 0) min=3.49e-18 | R2 (+,0,-)=(12, 0, 0) mindiag=0.232 neg=[] smallest+=0.0154
+c0*quad d=.2 g=0.3         tau=    0 R1 (+,0,-)=(2, 10, 0) min=-1.08e-115 | R2 (+,0,-)=(6, 6, 0) mindiag=5.99e-8 neg=[] smallest+=2.54e-10
+c0*quad d=.2 g=0.3         tau= 0.05 R1 (+,0,-)=(12, 0, 0) min=3.59e-46 | R2 (+,0,-)=(12, 0, 0) mindiag=0.0151 neg=[] smallest+=1.46e-7
+c0*quad d=.2 g=0.3         tau=  0.3 R1 (+,0,-)=(12, 0, 0) min=3.42e-18 | R2 (+,0,-)=(12, 0, 0) mindiag=0.232 neg=[] smallest+=0.00646
+c0*2 online pairs          tau=    0 R1 (+,0,-)=(2, 10, 0) min=-3.23e-119 | R2 (+,0,-)=(6, 6, 0) mindiag=0.000368 neg=[] smallest+=0.0171
+c0*2 online pairs          tau= 0.05 R1 (+,0,-)=(12, 0, 0) min=1.89e-45 | R2 (+,0,-)=(12, 0, 0) mindiag=0.0239 neg=[] smallest+=1.05e-5
+c0*2 online pairs          tau=  0.3 R1 (+,0,-)=(12, 0, 0) min=1.68e-17 | R2 (+,0,-)=(12, 0, 0) mindiag=0.29 neg=[] smallest+=0.0113

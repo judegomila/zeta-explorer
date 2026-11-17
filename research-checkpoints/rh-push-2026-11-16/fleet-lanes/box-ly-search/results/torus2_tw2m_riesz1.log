@@ -1,0 +1,5 @@
+{"input": "tw2m", "weight": "riesz1", "N": 20, "primes": 8, "sigma": 0.5001, "min_abs_B": 0.08823386025821817, "starts": 40}
+{"input": "tw2m", "weight": "riesz1", "N": 25, "primes": 9, "sigma": 0.5001, "min_abs_B": 0.02025618365475335, "starts": 40}
+{"input": "tw2m", "weight": "riesz1", "N": 27, "primes": 9, "sigma": 0.5001, "min_abs_B": 1.2600532393294263e-05, "starts": 40}
+{"input": "tw2m", "weight": "riesz1", "N": 30, "primes": 10, "sigma": 0.5001, "min_abs_B": 5.093246818513571e-09, "starts": 40}
+{"input": "tw2m", "weight": "riesz1", "N": 40, "primes": 12, "sigma": 0.5001, "min_abs_B": 3.6094066457610923e-09, "starts": 40}

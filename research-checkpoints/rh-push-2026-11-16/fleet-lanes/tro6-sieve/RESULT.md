@@ -23,7 +23,9 @@ manuscript). What is established here:
    is Poisson in m, which is the manuscript's high side. In the Gram exponent Σ|A_m|² ≪ (Q/Y′)(1 + P_a^{e}):
    Blomer–Goldmakher–Louvel / Heath-Brown give e = 1/3, Prop 15.2 gives e = 1/6 (sharp), TRO6^♮(η) needs effective
    e = (1−η)/6 *in the pairing with B only*, and no inequality valid for all coefficient vectors can give e < 1/6.
-4. **Numerics (MEASURED).** Rows prime to 6 extended from N(m) ≤ 796 to N(m) ≤ 4000 (7236 rows). See §5.
+4. **Numerics (MEASURED).** Rows prime to 6 extended from N(m) ≤ 796 (1458 rows) to N(m) ≤ 2191 (3972 rows). The toy
+   theta–row correlation decays like Q^{−0.545} (random phases: −0.5); the mean square has slope 0.87–0.89. No
+   alignment is visible; η itself is not measurable at this size. See §5.
 
 No QED. PT Λ ≤ 0.2 stands. RH open.
 
@@ -224,7 +226,51 @@ used or, by Theorem D, usable without zero information.
 
 ## 5. Numerics at larger Q [MEASURED]
 
-NUMERICS_PLACEHOLDER
+Scripts `tro6_rows.py`, `tro6_analyse.py`; table `tmp/sextic/data/sf_1e7.npz` (2,822,619 squarefree moduli, norm ≤ 10⁷).
+Rows: all m prime to 6 (ξ(m) ≠ 0) with 1 < N(m) ≤ 2191, 3972 rows (previous reach on such rows: N(m) ≤ 796, 1458 rows).
+The pass was set for N(m) ≤ 4000 and stopped at its 1050 s wall-time cap (machine load); single process, < 1 GB.
+ρ̂ for N(m) ≤ 796 is reused from `tmp/sextic/conj_rows_800.npz` (three rows recomputed: difference 0). Coefficient:
+the stripped ρ_σ (squarefree moduli prime to 6m), 12 classes, e₀ = (−2)λ⁵, as in the conjecture note.
+
+**Mean square on rows prime to 6.**
+
+| Q | #m | Σ\|ρ̂\|² | model bias | corrected | noise share |
+|---|---|---|---|---|---|
+| 100 | 180 | 0.7224 | 0.1713 | 0.5511 | 0.237 |
+| 400 | 708 | 2.5825 | 0.6807 | 1.9018 | 0.264 |
+| 800 | 1452 | 4.9526 | 1.3937 | 3.5590 | 0.281 |
+| 1600 | 2904 | 9.1667 | 2.7891 | 6.3775 | 0.304 |
+| 2191 | 3972 | 12.4390 | 3.8133 | 8.6257 | 0.307 |
+
+Log-log slope (model-corrected): 0.892 from Q = 100, 0.881 from 400, 0.872 from 800; row bootstrap from Q = 200:
+0.895, 95% [0.840, 0.946]. The slope is still above 5/6 = 0.833 and drifting down slowly; 5/6 is just outside the
+95% interval. The term is dense. (Previous: 0.874 from Q = 100 on these rows to Q = 796.)
+
+**Toy theta–row correlation.** B_m(ψ, R) = Σ_{c sf} γ₂(c)ψ(c)χ_c(m)N(c)^{−1/2}V(N(c)/R), ψ ∈ {αG, α}, at the matched
+length R = Q^{1.4} (the manuscript's ratio (1+ℓ)/M). r = |Σ_mρ̂_σB_m|/(‖ρ̂_σ‖‖B‖) over 12 classes × 2 twists × 2
+pairings (48 statistics); null = independent uniform phases on ρ̂, 300 draws.
+
+| Q (cumulative) | rows n | rms r | n^{−1/2} | mean r²·n (null 1.0 ± 0.15) | max r | null max: median / 99% |
+|---|---|---|---|---|---|---|
+| 100 | 180 | 0.0842 | 0.0745 | 1.28 | 0.202 | 0.157 / 0.215 |
+| 200 | 360 | 0.0439 | 0.0527 | 0.70 | 0.123 | 0.110 / 0.154 |
+| 400 | 708 | 0.0373 | 0.0376 | 0.99 | 0.077 | 0.079 / 0.109 |
+| 800 | 1452 | 0.0234 | 0.0262 | 0.80 | 0.055 | 0.054 / 0.080 |
+| 1600 | 2904 | 0.0193 | 0.0186 | 1.08 | 0.051 | 0.038 / 0.053 |
+| 2191 (R = 3200^{1.4}) | 3972 | 0.0130 | 0.0159 | 0.67 | 0.032 | 0.033 / 0.045 |
+
+Slope of rms r in Q: **−0.545** (random phases: −0.5). On dyadic shells mean r²·n = 1.61, 1.01, 0.88, 0.97, 1.36, 1.27;
+the shells at Q = 100 and Q = 1600 exceed the phase-null spread (p < 0.01 of 300 draws each), the cumulative values at
+Q = 200 and 2191 fall below it. The 48 statistics share rows and are not independent, so the phase null understates
+the spread; no excess persists across scales.
+
+**Reading.** Up to N(m) ≤ 2191 the normalised correlation between the measured sextic theta coefficients and
+α-twisted cubic rows of matched length decays like (#rows)^{−1/2}, i.e. like full square-root cancellation. Converted
+formally (r ≍ Q^{−κ} with Z^{−ηb/12} = Q^{−η/80}) the slope would be "η ≈ 40", which only says the toy has no
+aligned component above the noise floor; an aligned fraction below about 1/(0.83·√n) ≈ 2–3% of ‖B‖ is invisible, and
+TRO6^♮ concerns a saving Z^{−ηb/12} that is far smaller than any detectable effect at these sizes. The data support
+"no visible alignment" (consistent with η > 0, and equally with the absence of zeros near 7/8 in the toy); they do
+not estimate η.
 
 ## 6. Davenport–Heilbronn control
 

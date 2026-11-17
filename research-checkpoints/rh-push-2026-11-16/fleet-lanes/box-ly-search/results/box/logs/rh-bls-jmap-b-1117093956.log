@@ -1,0 +1,305 @@
+[jensen_map] nr:3:2.2 dmax=300 nmax=30 prec=17878; planned memory: 336 coefficients x 17878 bits x workers < 2 GB
+[jensen_map] coefficients 41s
+{"input": "nr:3:2.2", "d": 2, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 0.0, "prec": 17878}
+{"input": "nr:3:2.2", "d": 3, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 0.0, "prec": 17878}
+{"input": "nr:3:2.2", "d": 4, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 0.0, "prec": 17878}
+{"input": "nr:3:2.2", "d": 5, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 0.0, "prec": 17878}
+{"input": "nr:3:2.2", "d": 6, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 0.0, "prec": 17878}
+{"input": "nr:3:2.2", "d": 7, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 0.1, "prec": 17878}
+{"input": "nr:3:2.2", "d": 8, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 0.1, "prec": 17878}
+{"input": "nr:3:2.2", "d": 9, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 0.1, "prec": 17878}
+{"input": "nr:3:2.2", "d": 10, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 0.1, "prec": 17878}
+{"input": "nr:3:2.2", "d": 11, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 0.1, "prec": 17878}
+{"input": "nr:3:2.2", "d": 12, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 0.1, "prec": 17878}
+{"input": "nr:3:2.2", "d": 14, "fails": [[0, 12]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.0, "prec": 17878}
+{"input": "nr:3:2.2", "d": 15, "fails": [[0, 13]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.0, "prec": 17878}
+{"input": "nr:3:2.2", "d": 16, "fails": [[0, 14]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.0, "prec": 17878}
+{"input": "nr:3:2.2", "d": 13, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 0.1, "prec": 17878}
+{"input": "nr:3:2.2", "d": 17, "fails": [[0, 15]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.0, "prec": 17878}
+{"input": "nr:3:2.2", "d": 18, "fails": [[0, 16]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.0, "prec": 17878}
+{"input": "nr:3:2.2", "d": 19, "fails": [[0, 17]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.0, "prec": 17878}
+{"input": "nr:3:2.2", "d": 20, "fails": [[0, 18]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.0, "prec": 17878}
+{"input": "nr:3:2.2", "d": 21, "fails": [[0, 19]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.0, "prec": 17878}
+{"input": "nr:3:2.2", "d": 22, "fails": [[0, 20]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.0, "prec": 17878}
+{"input": "nr:3:2.2", "d": 24, "fails": [[0, 22]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.0, "prec": 17878}
+{"input": "nr:3:2.2", "d": 23, "fails": [[0, 21]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.1, "prec": 17878}
+{"input": "nr:3:2.2", "d": 25, "fails": [[0, 23]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.0, "prec": 17878}
+{"input": "nr:3:2.2", "d": 26, "fails": [[0, 24]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.1, "prec": 17878}
+{"input": "nr:3:2.2", "d": 27, "fails": [[0, 25]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.1, "prec": 17878}
+{"input": "nr:3:2.2", "d": 29, "fails": [[0, 27]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.1, "prec": 17878}
+{"input": "nr:3:2.2", "d": 28, "fails": [[0, 26]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.1, "prec": 17878}
+{"input": "nr:3:2.2", "d": 30, "fails": [[0, 28]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.1, "prec": 17878}
+{"input": "nr:3:2.2", "d": 31, "fails": [[0, 29]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.1, "prec": 17878}
+{"input": "nr:3:2.2", "d": 32, "fails": [[0, 30]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.1, "prec": 17878}
+{"input": "nr:3:2.2", "d": 33, "fails": [[0, 31]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.1, "prec": 17878}
+{"input": "nr:3:2.2", "d": 34, "fails": [[0, 32]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.1, "prec": 17878}
+{"input": "nr:3:2.2", "d": 35, "fails": [[0, 33]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.1, "prec": 17878}
+{"input": "nr:3:2.2", "d": 36, "fails": [[0, 34]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.1, "prec": 17878}
+{"input": "nr:3:2.2", "d": 37, "fails": [[0, 35]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.1, "prec": 17878}
+{"input": "nr:3:2.2", "d": 38, "fails": [[0, 36]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.1, "prec": 17878}
+{"input": "nr:3:2.2", "d": 40, "fails": [[0, 38]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.1, "prec": 17878}
+{"input": "nr:3:2.2", "d": 39, "fails": [[0, 37]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.1, "prec": 17878}
+{"input": "nr:3:2.2", "d": 41, "fails": [[0, 39]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.1, "prec": 17878}
+{"input": "nr:3:2.2", "d": 42, "fails": [[0, 40]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.2, "prec": 17878}
+{"input": "nr:3:2.2", "d": 43, "fails": [[0, 41]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.1, "prec": 17878}
+{"input": "nr:3:2.2", "d": 44, "fails": [[0, 42]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.2, "prec": 17878}
+{"input": "nr:3:2.2", "d": 45, "fails": [[0, 43]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.2, "prec": 17878}
+{"input": "nr:3:2.2", "d": 46, "fails": [[0, 44]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.2, "prec": 17878}
+{"input": "nr:3:2.2", "d": 47, "fails": [[0, 45]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.2, "prec": 17878}
+{"input": "nr:3:2.2", "d": 49, "fails": [[0, 47]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.2, "prec": 17878}
+{"input": "nr:3:2.2", "d": 48, "fails": [[0, 46]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.2, "prec": 17878}
+{"input": "nr:3:2.2", "d": 50, "fails": [[0, 48]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.2, "prec": 17878}
+{"input": "nr:3:2.2", "d": 51, "fails": [[0, 49]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.2, "prec": 17878}
+{"input": "nr:3:2.2", "d": 52, "fails": [[0, 50]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.2, "prec": 17878}
+{"input": "nr:3:2.2", "d": 53, "fails": [[0, 51]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.3, "prec": 17878}
+{"input": "nr:3:2.2", "d": 54, "fails": [[0, 52]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.2, "prec": 17878}
+{"input": "nr:3:2.2", "d": 56, "fails": [[0, 54]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.2, "prec": 17878}
+{"input": "nr:3:2.2", "d": 55, "fails": [[0, 53]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.3, "prec": 17878}
+{"input": "nr:3:2.2", "d": 57, "fails": [[0, 55]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.2, "prec": 17878}
+{"input": "nr:3:2.2", "d": 58, "fails": [[0, 56]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.3, "prec": 17878}
+{"input": "nr:3:2.2", "d": 59, "fails": [[0, 57]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.3, "prec": 17878}
+{"input": "nr:3:2.2", "d": 60, "fails": [[0, 58]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.3, "prec": 17878}
+{"input": "nr:3:2.2", "d": 61, "fails": [[0, 59]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.3, "prec": 17878}
+{"input": "nr:3:2.2", "d": 62, "fails": [[0, 60]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.3, "prec": 17878}
+{"input": "nr:3:2.2", "d": 63, "fails": [[0, 61]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.3, "prec": 17878}
+{"input": "nr:3:2.2", "d": 64, "fails": [[0, 62]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.4, "prec": 17878}
+{"input": "nr:3:2.2", "d": 77, "fails": [[0, 75]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.4, "prec": 17878}
+{"input": "nr:3:2.2", "d": 92, "fails": [[0, 90]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.7, "prec": 17878}
+{"input": "nr:3:2.2", "d": 110, "fails": [[0, 108]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.8, "prec": 17878}
+{"input": "nr:3:2.2", "d": 131, "fails": [[0, 127]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 1.4, "prec": 17878}
+{"input": "nr:3:2.2", "d": 156, "fails": [[0, 152]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 1.8, "prec": 17878}
+{"input": "nr:3:2.2", "d": 186, "fails": [[0, 182]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 2.6, "prec": 17878}
+{"input": "nr:3:2.2", "d": 222, "fails": [[0, 218]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 3.1, "prec": 17878}
+{"input": "nr:3:2.2", "d": 265, "fails": [[0, 261]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 4.7, "prec": 17878}
+{"input": "nr:3:2.2", "d": 300, "fails": [[0, 296]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 5.9, "prec": 17878}
+[jensen_map] finished 57s
+[jensen_map] nr:2:2.5 dmax=300 nmax=30 prec=17878; planned memory: 336 coefficients x 17878 bits x workers < 2 GB
+[jensen_map] coefficients 35s
+{"input": "nr:2:2.5", "d": 2, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 0.0, "prec": 17878}
+{"input": "nr:2:2.5", "d": 3, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 0.0, "prec": 17878}
+{"input": "nr:2:2.5", "d": 4, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 0.0, "prec": 17878}
+{"input": "nr:2:2.5", "d": 6, "fails": [[0, 4]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.0, "prec": 17878}
+{"input": "nr:2:2.5", "d": 7, "fails": [[0, 5]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.0, "prec": 17878}
+{"input": "nr:2:2.5", "d": 5, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 0.0, "prec": 17878}
+{"input": "nr:2:2.5", "d": 8, "fails": [[0, 6]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.0, "prec": 17878}
+{"input": "nr:2:2.5", "d": 9, "fails": [[0, 7]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.0, "prec": 17878}
+{"input": "nr:2:2.5", "d": 10, "fails": [[0, 8]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.0, "prec": 17878}
+{"input": "nr:2:2.5", "d": 11, "fails": [[0, 9]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.0, "prec": 17878}
+{"input": "nr:2:2.5", "d": 13, "fails": [[0, 11]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.0, "prec": 17878}
+{"input": "nr:2:2.5", "d": 12, "fails": [[0, 10]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.0, "prec": 17878}
+{"input": "nr:2:2.5", "d": 14, "fails": [[0, 12]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.0, "prec": 17878}
+{"input": "nr:2:2.5", "d": 15, "fails": [[0, 13]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.0, "prec": 17878}
+{"input": "nr:2:2.5", "d": 16, "fails": [[0, 14]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.0, "prec": 17878}
+{"input": "nr:2:2.5", "d": 17, "fails": [[0, 15]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.0, "prec": 17878}
+{"input": "nr:2:2.5", "d": 18, "fails": [[0, 16]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.0, "prec": 17878}
+{"input": "nr:2:2.5", "d": 19, "fails": [[0, 17]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.0, "prec": 17878}
+{"input": "nr:2:2.5", "d": 20, "fails": [[0, 18]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.0, "prec": 17878}
+{"input": "nr:2:2.5", "d": 21, "fails": [[0, 19]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.0, "prec": 17878}
+{"input": "nr:2:2.5", "d": 23, "fails": [[0, 21]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.0, "prec": 17878}
+{"input": "nr:2:2.5", "d": 22, "fails": [[0, 20]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.1, "prec": 17878}
+{"input": "nr:2:2.5", "d": 24, "fails": [[0, 22]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.0, "prec": 17878}
+{"input": "nr:2:2.5", "d": 25, "fails": [[0, 23]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.1, "prec": 17878}
+{"input": "nr:2:2.5", "d": 26, "fails": [[0, 24]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.1, "prec": 17878}
+{"input": "nr:2:2.5", "d": 28, "fails": [[0, 26]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.1, "prec": 17878}
+{"input": "nr:2:2.5", "d": 27, "fails": [[0, 25]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.1, "prec": 17878}
+{"input": "nr:2:2.5", "d": 29, "fails": [[0, 27]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.1, "prec": 17878}
+{"input": "nr:2:2.5", "d": 30, "fails": [[0, 28]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.1, "prec": 17878}
+{"input": "nr:2:2.5", "d": 31, "fails": [[0, 29]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.1, "prec": 17878}
+{"input": "nr:2:2.5", "d": 32, "fails": [[0, 30]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.1, "prec": 17878}
+{"input": "nr:2:2.5", "d": 33, "fails": [[0, 31]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.1, "prec": 17878}
+{"input": "nr:2:2.5", "d": 35, "fails": [[0, 33]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.1, "prec": 17878}
+{"input": "nr:2:2.5", "d": 34, "fails": [[0, 32]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.1, "prec": 17878}
+{"input": "nr:2:2.5", "d": 36, "fails": [[0, 34]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.1, "prec": 17878}
+{"input": "nr:2:2.5", "d": 37, "fails": [[0, 35]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.1, "prec": 17878}
+{"input": "nr:2:2.5", "d": 38, "fails": [[0, 36]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.1, "prec": 17878}
+{"input": "nr:2:2.5", "d": 40, "fails": [[0, 38]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.1, "prec": 17878}
+{"input": "nr:2:2.5", "d": 39, "fails": [[0, 37]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.2, "prec": 17878}
+{"input": "nr:2:2.5", "d": 41, "fails": [[0, 39]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.1, "prec": 17878}
+{"input": "nr:2:2.5", "d": 42, "fails": [[0, 40]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.2, "prec": 17878}
+{"input": "nr:2:2.5", "d": 43, "fails": [[0, 41]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.1, "prec": 17878}
+{"input": "nr:2:2.5", "d": 45, "fails": [[0, 43]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.1, "prec": 17878}
+{"input": "nr:2:2.5", "d": 44, "fails": [[0, 42]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.2, "prec": 17878}
+{"input": "nr:2:2.5", "d": 46, "fails": [[0, 44]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.2, "prec": 17878}
+{"input": "nr:2:2.5", "d": 47, "fails": [[0, 45]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.2, "prec": 17878}
+{"input": "nr:2:2.5", "d": 48, "fails": [[0, 46]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.2, "prec": 17878}
+{"input": "nr:2:2.5", "d": 49, "fails": [[0, 47]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.2, "prec": 17878}
+{"input": "nr:2:2.5", "d": 50, "fails": [[0, 48]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.2, "prec": 17878}
+{"input": "nr:2:2.5", "d": 52, "fails": [[0, 50]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.2, "prec": 17878}
+{"input": "nr:2:2.5", "d": 51, "fails": [[0, 49]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.2, "prec": 17878}
+{"input": "nr:2:2.5", "d": 53, "fails": [[0, 51]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.2, "prec": 17878}
+{"input": "nr:2:2.5", "d": 54, "fails": [[0, 52]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.3, "prec": 17878}
+{"input": "nr:2:2.5", "d": 55, "fails": [[0, 53]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.2, "prec": 17878}
+{"input": "nr:2:2.5", "d": 57, "fails": [[0, 55]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.2, "prec": 17878}
+{"input": "nr:2:2.5", "d": 56, "fails": [[0, 54]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.3, "prec": 17878}
+{"input": "nr:2:2.5", "d": 58, "fails": [[0, 56]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.2, "prec": 17878}
+{"input": "nr:2:2.5", "d": 59, "fails": [[0, 57]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.3, "prec": 17878}
+{"input": "nr:2:2.5", "d": 60, "fails": [[0, 58]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.2, "prec": 17878}
+{"input": "nr:2:2.5", "d": 61, "fails": [[0, 59]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.3, "prec": 17878}
+{"input": "nr:2:2.5", "d": 62, "fails": [[0, 60]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.2, "prec": 17878}
+{"input": "nr:2:2.5", "d": 64, "fails": [[0, 62]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.3, "prec": 17878}
+{"input": "nr:2:2.5", "d": 63, "fails": [[0, 61]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.4, "prec": 17878}
+{"input": "nr:2:2.5", "d": 77, "fails": [[0, 73]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.4, "prec": 17878}
+{"input": "nr:2:2.5", "d": 92, "fails": [[0, 88]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.7, "prec": 17878}
+{"input": "nr:2:2.5", "d": 110, "fails": [[0, 106]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 0.7, "prec": 17878}
+{"input": "nr:2:2.5", "d": 131, "fails": [[0, 127]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 1.4, "prec": 17878}
+{"input": "nr:2:2.5", "d": 156, "fails": [[0, 152], [1, 154]], "n_fails": 2, "unresolved": [], "scanned_to": 5, "all_pass": false, "last_fail": 1, "seconds": 1.6, "prec": 17878}
+{"input": "nr:2:2.5", "d": 186, "fails": [[0, 182], [1, 184]], "n_fails": 2, "unresolved": [], "scanned_to": 5, "all_pass": false, "last_fail": 1, "seconds": 3.2, "prec": 17878}
+{"input": "nr:2:2.5", "d": 222, "fails": [[0, 216], [1, 220]], "n_fails": 2, "unresolved": [], "scanned_to": 5, "all_pass": false, "last_fail": 1, "seconds": 4.2, "prec": 17878}
+{"input": "nr:2:2.5", "d": 265, "fails": [[0, 259], [1, 263]], "n_fails": 2, "unresolved": [], "scanned_to": 5, "all_pass": false, "last_fail": 1, "seconds": 5.7, "prec": 17878}
+{"input": "nr:2:2.5", "d": 300, "fails": [[0, 294], [1, 298]], "n_fails": 2, "unresolved": [], "scanned_to": 5, "all_pass": false, "last_fail": 1, "seconds": 6.3, "prec": 17878}
+[jensen_map] finished 52s
+[jensen_map] ea:0.45 dmax=420 nmax=30 prec=24989; planned memory: 456 coefficients x 24989 bits x workers < 2 GB
+[jensen_map] coefficients 204s
+{"input": "ea:0.45", "d": 2, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 0.0, "prec": 24989}
+{"input": "ea:0.45", "d": 3, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 0.0, "prec": 24989}
+{"input": "ea:0.45", "d": 4, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 0.0, "prec": 24989}
+{"input": "ea:0.45", "d": 6, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 0.0, "prec": 24989}
+{"input": "ea:0.45", "d": 5, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 0.0, "prec": 24989}
+{"input": "ea:0.45", "d": 7, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 0.1, "prec": 24989}
+{"input": "ea:0.45", "d": 8, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 0.1, "prec": 24989}
+{"input": "ea:0.45", "d": 9, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 0.1, "prec": 24989}
+{"input": "ea:0.45", "d": 11, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 0.1, "prec": 24989}
+{"input": "ea:0.45", "d": 10, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 0.1, "prec": 24989}
+{"input": "ea:0.45", "d": 12, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 0.1, "prec": 24989}
+{"input": "ea:0.45", "d": 13, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 0.2, "prec": 24989}
+{"input": "ea:0.45", "d": 14, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 0.2, "prec": 24989}
+{"input": "ea:0.45", "d": 16, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 0.2, "prec": 24989}
+{"input": "ea:0.45", "d": 15, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 0.3, "prec": 24989}
+{"input": "ea:0.45", "d": 17, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 0.2, "prec": 24989}
+{"input": "ea:0.45", "d": 18, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 0.4, "prec": 24989}
+{"input": "ea:0.45", "d": 19, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 0.3, "prec": 24989}
+{"input": "ea:0.45", "d": 21, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 0.3, "prec": 24989}
+{"input": "ea:0.45", "d": 20, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 0.5, "prec": 24989}
+{"input": "ea:0.45", "d": 22, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 0.4, "prec": 24989}
+{"input": "ea:0.45", "d": 23, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 0.6, "prec": 24989}
+{"input": "ea:0.45", "d": 24, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 0.4, "prec": 24989}
+{"input": "ea:0.45", "d": 25, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 0.5, "prec": 24989}
+{"input": "ea:0.45", "d": 26, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 0.5, "prec": 24989}
+{"input": "ea:0.45", "d": 27, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 0.5, "prec": 24989}
+{"input": "ea:0.45", "d": 28, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 0.6, "prec": 24989}
+{"input": "ea:0.45", "d": 29, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 0.6, "prec": 24989}
+{"input": "ea:0.45", "d": 30, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 0.6, "prec": 24989}
+{"input": "ea:0.45", "d": 31, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 0.7, "prec": 24989}
+{"input": "ea:0.45", "d": 32, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 0.7, "prec": 24989}
+{"input": "ea:0.45", "d": 33, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 0.8, "prec": 24989}
+{"input": "ea:0.45", "d": 34, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 0.8, "prec": 24989}
+{"input": "ea:0.45", "d": 35, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 0.9, "prec": 24989}
+{"input": "ea:0.45", "d": 36, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 0.9, "prec": 24989}
+{"input": "ea:0.45", "d": 37, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 1.1, "prec": 24989}
+{"input": "ea:0.45", "d": 38, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 0.9, "prec": 24989}
+{"input": "ea:0.45", "d": 40, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 1.1, "prec": 24989}
+{"input": "ea:0.45", "d": 39, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 1.6, "prec": 24989}
+{"input": "ea:0.45", "d": 41, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 1.3, "prec": 24989}
+{"input": "ea:0.45", "d": 42, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 1.9, "prec": 24989}
+{"input": "ea:0.45", "d": 43, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 1.4, "prec": 24989}
+{"input": "ea:0.45", "d": 45, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 1.5, "prec": 24989}
+{"input": "ea:0.45", "d": 44, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 2.0, "prec": 24989}
+{"input": "ea:0.45", "d": 46, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 1.5, "prec": 24989}
+{"input": "ea:0.45", "d": 47, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 1.7, "prec": 24989}
+{"input": "ea:0.45", "d": 48, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 1.7, "prec": 24989}
+{"input": "ea:0.45", "d": 49, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 1.8, "prec": 24989}
+{"input": "ea:0.45", "d": 50, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 1.7, "prec": 24989}
+{"input": "ea:0.45", "d": 51, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 1.7, "prec": 24989}
+{"input": "ea:0.45", "d": 52, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 1.9, "prec": 24989}
+{"input": "ea:0.45", "d": 53, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 2.4, "prec": 24989}
+{"input": "ea:0.45", "d": 54, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 2.1, "prec": 24989}
+{"input": "ea:0.45", "d": 55, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 3.0, "prec": 24989}
+{"input": "ea:0.45", "d": 56, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 2.7, "prec": 24989}
+{"input": "ea:0.45", "d": 57, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 3.3, "prec": 24989}
+{"input": "ea:0.45", "d": 58, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 3.2, "prec": 24989}
+{"input": "ea:0.45", "d": 59, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 3.6, "prec": 24989}
+{"input": "ea:0.45", "d": 60, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 3.4, "prec": 24989}
+{"input": "ea:0.45", "d": 61, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 3.8, "prec": 24989}
+{"input": "ea:0.45", "d": 62, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 3.6, "prec": 24989}
+{"input": "ea:0.45", "d": 63, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 4.0, "prec": 24989}
+{"input": "ea:0.45", "d": 64, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 3.8, "prec": 24989}
+{"input": "ea:0.45", "d": 77, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 5.8, "prec": 24989}
+{"input": "ea:0.45", "d": 92, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 5.6, "prec": 24989}
+{"input": "ea:0.45", "d": 131, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 10.8, "prec": 24989}
+{"input": "ea:0.45", "d": 110, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 11.2, "prec": 24989}
+{"input": "ea:0.45", "d": 156, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 15.0, "prec": 24989}
+{"input": "ea:0.45", "d": 186, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 27.7, "prec": 24989}
+{"input": "ea:0.45", "d": 265, "fails": [[0, 263]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 7.7, "prec": 24989}
+{"input": "ea:0.45", "d": 222, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 30, "all_pass": true, "last_fail": null, "seconds": 26.7, "prec": 24989}
+{"input": "ea:0.45", "d": 316, "fails": [[0, 314]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 7.9, "prec": 24989}
+{"input": "ea:0.45", "d": 377, "fails": [[0, 375]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 15.7, "prec": 24989}
+{"input": "ea:0.45", "d": 420, "fails": [[0, 418]], "n_fails": 1, "unresolved": [], "scanned_to": 4, "all_pass": false, "last_fail": 0, "seconds": 16.9, "prec": 24989}
+[jensen_map] finished 319s
+[jensen_map] dh dmax=400 nmax=40 prec=23993; planned memory: 446 coefficients x 23993 bits x workers < 2 GB
+[jensen_map] coefficients 336s
+{"input": "dh", "d": 2, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 0.0, "prec": 23993}
+{"input": "dh", "d": 3, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 0.0, "prec": 23993}
+{"input": "dh", "d": 4, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 0.0, "prec": 23993}
+{"input": "dh", "d": 5, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 0.1, "prec": 23993}
+{"input": "dh", "d": 6, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 0.1, "prec": 23993}
+{"input": "dh", "d": 7, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 0.1, "prec": 23993}
+{"input": "dh", "d": 8, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 0.1, "prec": 23993}
+{"input": "dh", "d": 9, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 0.1, "prec": 23993}
+{"input": "dh", "d": 10, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 0.2, "prec": 23993}
+{"input": "dh", "d": 11, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 0.2, "prec": 23993}
+{"input": "dh", "d": 12, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 0.3, "prec": 23993}
+{"input": "dh", "d": 13, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 0.3, "prec": 23993}
+{"input": "dh", "d": 14, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 0.3, "prec": 23993}
+{"input": "dh", "d": 15, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 0.4, "prec": 23993}
+{"input": "dh", "d": 16, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 0.4, "prec": 23993}
+{"input": "dh", "d": 17, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 0.5, "prec": 23993}
+{"input": "dh", "d": 18, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 0.5, "prec": 23993}
+{"input": "dh", "d": 19, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 0.5, "prec": 23993}
+{"input": "dh", "d": 20, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 0.6, "prec": 23993}
+{"input": "dh", "d": 21, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 0.6, "prec": 23993}
+{"input": "dh", "d": 22, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 0.6, "prec": 23993}
+{"input": "dh", "d": 23, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 0.8, "prec": 23993}
+{"input": "dh", "d": 24, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 0.6, "prec": 23993}
+{"input": "dh", "d": 25, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 0.9, "prec": 23993}
+{"input": "dh", "d": 26, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 1.0, "prec": 23993}
+{"input": "dh", "d": 27, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 1.0, "prec": 23993}
+{"input": "dh", "d": 28, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 1.1, "prec": 23993}
+{"input": "dh", "d": 29, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 1.2, "prec": 23993}
+{"input": "dh", "d": 30, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 1.3, "prec": 23993}
+{"input": "dh", "d": 31, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 1.3, "prec": 23993}
+{"input": "dh", "d": 32, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 1.2, "prec": 23993}
+{"input": "dh", "d": 34, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 1.1, "prec": 23993}
+{"input": "dh", "d": 33, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 1.5, "prec": 23993}
+{"input": "dh", "d": 35, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 1.1, "prec": 23993}
+{"input": "dh", "d": 36, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 1.7, "prec": 23993}
+{"input": "dh", "d": 37, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 1.3, "prec": 23993}
+{"input": "dh", "d": 38, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 1.9, "prec": 23993}
+{"input": "dh", "d": 39, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 1.4, "prec": 23993}
+{"input": "dh", "d": 41, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 1.5, "prec": 23993}
+{"input": "dh", "d": 40, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 2.1, "prec": 23993}
+{"input": "dh", "d": 42, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 1.6, "prec": 23993}
+{"input": "dh", "d": 43, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 2.4, "prec": 23993}
+{"input": "dh", "d": 44, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 1.8, "prec": 23993}
+{"input": "dh", "d": 46, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 1.9, "prec": 23993}
+{"input": "dh", "d": 45, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 2.6, "prec": 23993}
+{"input": "dh", "d": 47, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 2.0, "prec": 23993}
+{"input": "dh", "d": 48, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 2.9, "prec": 23993}
+{"input": "dh", "d": 49, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 2.1, "prec": 23993}
+{"input": "dh", "d": 50, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 3.1, "prec": 23993}
+{"input": "dh", "d": 51, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 2.5, "prec": 23993}
+{"input": "dh", "d": 52, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 3.4, "prec": 23993}
+{"input": "dh", "d": 53, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 3.5, "prec": 23993}
+{"input": "dh", "d": 54, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 2.4, "prec": 23993}
+{"input": "dh", "d": 55, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 2.8, "prec": 23993}
+{"input": "dh", "d": 57, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 2.6, "prec": 23993}
+{"input": "dh", "d": 56, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 3.9, "prec": 23993}
+{"input": "dh", "d": 58, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 2.6, "prec": 23993}
+{"input": "dh", "d": 59, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 4.2, "prec": 23993}
+{"input": "dh", "d": 60, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 2.7, "prec": 23993}
+{"input": "dh", "d": 62, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 2.9, "prec": 23993}
+{"input": "dh", "d": 61, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 4.4, "prec": 23993}
+{"input": "dh", "d": 63, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 3.5, "prec": 23993}
+{"input": "dh", "d": 64, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 5.1, "prec": 23993}
+{"input": "dh", "d": 77, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 4.9, "prec": 23993}
+{"input": "dh", "d": 92, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 10.1, "prec": 23993}
+{"input": "dh", "d": 110, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 9.6, "prec": 23993}
+{"input": "dh", "d": 131, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 16.3, "prec": 23993}
+{"input": "dh", "d": 156, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 20.8, "prec": 23993}
+{"input": "dh", "d": 186, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 32.8, "prec": 23993}
+{"input": "dh", "d": 222, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 37.0, "prec": 23993}
+{"input": "dh", "d": 265, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 63.2, "prec": 23993}
+{"input": "dh", "d": 316, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 76.3, "prec": 23993}
+{"input": "dh", "d": 377, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 105.8, "prec": 23993}
+{"input": "dh", "d": 400, "fails": [], "n_fails": 0, "unresolved": [], "scanned_to": 40, "all_pass": true, "last_fail": null, "seconds": 111.4, "prec": 23993}
+[jensen_map] finished 643s
+[jensen_map] ea:0.25 dmax=1100 nmax=16 prec=66283; planned memory: 1122 coefficients x 66283 bits x workers < 2 GB

@@ -1,0 +1,68 @@
+K D rows cols | s1^2 s1^2/(KD)^(2/3) | s2^2 s2^2/(K+D) s2^2/edge | edge | #>1.0e #>1.1e #>1.25e #>1.5e | ov(v1, conj g N^-1/6) slope|v1|^2 | Rayleigh(w_1) excess/(KD)^(2/3)
+500 500 177 177 | 911 0.2296 | 637 0.637 0.990 | 644 | 1 1 1 0 | 0.8996 -0.280 | 0.1566
+1000 1000 355 355 | 2161 0.2161 | 1398 0.699 1.090 | 1282 | 4 1 1 1 | 0.9209 -0.319 | 0.1592
+2000 2000 711 711 | 5270 0.2092 | 3249 0.812 1.261 | 2576 | 9 5 2 1 | 0.9357 -0.298 | 0.1623
+3000 3000 1058 1058 | 8906 0.2058 | 5118 0.853 1.334 | 3838 | 12 8 4 1 | 0.9468 -0.286 | 0.1654
+6000 6000 2118 2118 | 21631 0.1984 | 12210 1.018 1.588 | 7691 | 23 15 10 4 | 0.9566 -0.308 | 0.1659
+12000 12000 4239 4239 | 52664 0.1917 | 28860 1.202 1.876 | 15384 | 47 28 16 8 | 0.9649 -0.317 | 0.1657
+18000 18000 6340 6340 | 88508 0.1876 | 47891 1.330 2.081 | 23018 | 69 44 23 12 | 0.9692 -0.318 | 0.1650
+55 3000 20 1058 | 1115 0.3706 | 1089 0.356 0.896 | 1215 | 0 0 0 0 | 0.1439 0.055 | 0.1635
+3000 55 1058 20 | 1115 0.3706 | 1089 0.356 0.896 | 1215 | 0 0 0 0 | 0.1957 0.934 | 0.0066
+141 20000 52 7062 | 7663 0.3839 | 7281 0.361 0.968 | 7520 | 1 0 0 0 | 0.1783 0.013 | 0.1663
+200 40000 72 14110 | 15128 0.3782 | 14615 0.364 0.997 | 14659 | 1 0 0 0 | 0.2096 0.022 | 0.1653
+300 30000 105 10570 | 13594 0.3142 | 11298 0.373 0.975 | 11585 | 1 1 0 0 | 0.4917 -0.141 | 0.1623
+1000 30000 355 10570 | 22873 0.2369 | 15539 0.501 1.160 | 13395 | 7 3 1 1 | 0.7776 -0.300 | 0.1613
+3000 12000 1058 4239 | 21802 0.2000 | 13075 0.872 1.512 | 8647 | 19 12 7 2 | 0.9222 -0.339 | 0.1653
+6000 24000 2118 8463 | 53004 0.1929 | 30941 1.031 1.790 | 17288 | 37 21 13 7 | 0.9351 -0.345 | 0.1644
+
+Balanced K = D fits (all sizes / K >= 2000):
+  s_1^2 ~ K^a: a = 1.280 / 1.283
+  s_2^2 ~ K^a: a = 1.209 / 1.231
+  s_5^2 ~ K^a: a = 1.223 / 1.231
+  s_10^2 ~ K^a: a = 1.228 / 1.226
+  s_20^2 ~ K^a: a = 1.224 / 1.208
+  s_40^2 ~ K^a: a = 1.272 / 1.213
+  Rayleigh excess of w_1 ~ K^a: a = 1.349 / 1.339   (4/3 = 1.333)
+  MP edge ~ K^a: a = 0.999
+  count(s^2 > 1.0 edge) = [1, 4, 9, 12, 23, 47, 69]  ~ K^a: a (K >= 2000) = 0.943
+  count(s^2 > 1.1 edge) = [1, 1, 5, 8, 15, 28, 44]  ~ K^a: a (K >= 2000) = 0.965
+  count(s^2 > 1.25 edge) = [1, 1, 2, 4, 10, 16, 23]  ~ K^a: a (K >= 2000) = 1.080
+  count(s^2 > 1.5 edge) = [0, 1, 1, 1, 4, 8, 12]  ~ K^a: a (K >= 2000) = 1.236
+
+Tail profile at fixed size: fit (s_j^2 - x*edge) ... reported as s_j^2/s_1^2 and local exponent over j in [2,40], [5,100]
+  K=D=500: s_j^2 ~ j^b: b[2..40] = -0.321, b[5..100] = -0.606;  s_2/s_1 (squared) = 0.700, s_10 = 0.507, s_40 = 0.281
+  K=D=1000: s_j^2 ~ j^b: b[2..40] = -0.250, b[5..100] = -0.355;  s_2/s_1 (squared) = 0.647, s_10 = 0.488, s_40 = 0.333
+  K=D=2000: s_j^2 ~ j^b: b[2..40] = -0.219, b[5..100] = -0.266;  s_2/s_1 (squared) = 0.617, s_10 = 0.480, s_40 = 0.343
+  K=D=3000: s_j^2 ~ j^b: b[2..40] = -0.218, b[5..100] = -0.242;  s_2/s_1 (squared) = 0.575, s_10 = 0.466, s_40 = 0.329
+  K=D=6000: s_j^2 ~ j^b: b[2..40] = -0.222, b[5..100] = -0.226;  s_2/s_1 (squared) = 0.564, s_10 = 0.445, s_40 = 0.316
+  K=D=12000: s_j^2 ~ j^b: b[2..40] = -0.233, b[5..100] = -0.227;  s_2/s_1 (squared) = 0.548, s_10 = 0.430, s_40 = 0.302
+  K=D=18000: s_j^2 ~ j^b: b[2..40] = -0.242, b[5..100] = -0.233;  s_2/s_1 (squared) = 0.541, s_10 = 0.423, s_40 = 0.292
+
+Joint fit s1^2 = c K^a D^b over 10 shapes with s1^2 > 1.3 edge: a = 0.593, b = 0.681, c = 0.329
+Joint fit Rayleigh excess of w_1 = c K^a D^b over all 15 shapes: a = 0.620, b = 0.979, c = 0.013
+
+Rayleigh excess by N(r), prime r, relative to r = 1 (largest balanced size):
+  N=1:1.000[1.000]  N=4:0.416[0.630]  N=7:0.393[0.523]  N=7:0.393[0.523]  N=13:0.345[0.425]  N=13:0.345[0.425]  N=19:0.314[0.375]  N=19:0.314[0.375]  N=25:0.293[0.342]  N=28:0.156[0.329]  N=28:0.156[0.329]  N=31:0.272[0.318]  N=31:0.272[0.318]  N=37:0.261[0.300]  N=37:0.261[0.300]  N=43:0.248[0.285]  N=43:0.248[0.285]  N=49:0.142[0.273]  N=52:0.135[0.268]  N=52:0.135[0.268]  N=61:0.220[0.254]  N=61:0.220[0.254]  N=67:0.211[0.246]  N=67:0.211[0.246]  N=73:0.205[0.239]  N=73:0.205[0.239]  N=76:0.121[0.236]  N=76:0.121[0.236]  N=79:0.199[0.233]  N=79:0.199[0.233]
+
+Explicit deflation table (largest balanced size):
+   {'rho': 0, 'mode': '9tw', 'nr': 0, 'dim': 0, 'top': 88508.35111437913, 'opt': 88508.3511143791}
+   {'rho': 1, 'mode': '9tw', 'nr': 1, 'dim': 9, 'top': 43288.04066005858, 'opt': 37408.47501242201}
+   {'rho': 13, 'mode': '9tw', 'nr': 6, 'dim': 54, 'top': 37560.66172061783, 'opt': 24288.63939160066}
+   {'rho': 61, 'mode': '9tw', 'nr': 22, 'dim': 198, 'top': 30039.234081835108, 'opt': 18304.837388708846}
+
+Quadratic twist:
+  K=500 D=500: bulk 161; cubic-only Rayleigh 186 (1.16x); quadratic-twisted 166 (1.029x), max 1.205x; top-40 energy 0.2257 vs baseline 0.2260; span ratio quad 1.42 cubic 1.42
+  K=1000 D=1000: bulk 320; cubic-only Rayleigh 404 (1.26x); quadratic-twisted 336 (1.048x), max 1.187x; top-40 energy 0.1140 vs baseline 0.1127; span ratio quad 1.40 cubic 1.32
+  K=2000 D=2000: bulk 644; cubic-only Rayleigh 929 (1.44x); quadratic-twisted 670 (1.041x), max 1.145x; top-40 energy 0.0567 vs baseline 0.0563; span ratio quad 1.28 cubic 1.72
+  K=3000 D=3000: bulk 959; cubic-only Rayleigh 1508 (1.57x); quadratic-twisted 1000 (1.043x), max 1.125x; top-40 energy 0.0384 vs baseline 0.0378; span ratio quad 1.25 cubic 2.14
+  K=6000 D=6000: bulk 1923; cubic-only Rayleigh 3515 (1.83x); quadratic-twisted 1997 (1.039x), max 1.092x; top-40 energy 0.0191 vs baseline 0.0189; span ratio quad 1.16 cubic 3.06
+  K=12000 D=12000: bulk 3846; cubic-only Rayleigh 8295 (2.16x); quadratic-twisted 3994 (1.038x), max 1.088x; top-40 energy 0.0094 vs baseline 0.0094; span ratio quad 1.11 cubic 4.24
+  K=18000 D=18000: bulk 5755; cubic-only Rayleigh 13754 (2.39x); quadratic-twisted 5973 (1.038x), max 1.079x; top-40 energy 0.0061 vs baseline 0.0063; span ratio quad 1.11 cubic 4.98
+  K=55 D=3000: bulk 18; cubic-only Rayleigh 140 (7.90x); quadratic-twisted 14 (0.806x), max 1.203x; top-40 energy 0.0154 vs baseline 0.0189; span ratio quad 0.68 cubic 6.07
+  K=3000 D=55: bulk 939; cubic-only Rayleigh 998 (1.06x); quadratic-twisted 1000 (1.064x), max 1.105x; top-40 energy 1.0000 vs baseline 1.0000; span ratio quad 0.92 cubic 0.92
+  K=141 D=20000: bulk 47; cubic-only Rayleigh 692 (14.74x); quadratic-twisted 42 (0.895x), max 1.184x; top-40 energy 0.0049 vs baseline 0.0057; span ratio quad 0.84 cubic 14.53
+  K=200 D=40000: bulk 65; cubic-only Rayleigh 1261 (19.36x); quadratic-twisted 59 (0.912x), max 1.229x; top-40 energy 0.0026 vs baseline 0.0028; span ratio quad 0.89 cubic 21.37
+  K=300 D=30000: bulk 95; cubic-only Rayleigh 1224 (12.86x); quadratic-twisted 91 (0.958x), max 1.168x; top-40 energy 0.0035 vs baseline 0.0038; span ratio quad 0.96 cubic 13.56
+  K=1000 D=30000: bulk 321; cubic-only Rayleigh 2340 (7.28x); quadratic-twisted 322 (1.002x), max 1.163x; top-40 energy 0.0035 vs baseline 0.0038; span ratio quad 0.99 cubic 8.29
+  K=3000 D=12000: bulk 960; cubic-only Rayleigh 2987 (3.11x); quadratic-twisted 990 (1.032x), max 1.113x; top-40 energy 0.0093 vs baseline 0.0094; span ratio quad 1.04 cubic 4.79
+  K=6000 D=24000: bulk 1922; cubic-only Rayleigh 7253 (3.77x); quadratic-twisted 1976 (1.028x), max 1.106x; top-40 energy 0.0046 vs baseline 0.0047; span ratio quad 1.05 cubic 6.84

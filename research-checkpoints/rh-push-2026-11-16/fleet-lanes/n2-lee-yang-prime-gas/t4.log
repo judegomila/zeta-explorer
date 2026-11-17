@@ -1,0 +1,11 @@
+[alloc: 664579 primes, arrays 11 MB per s-point]
+zeta Lam=0.5: w(pmax)=1.5e-113  sup|log|E*L|| inside triangle 1.7010 ; outside triangle 0.9120 (at s=(0.9+0.2j)) ; outside, t>=1: 0.7316
+zeta Lam=1: w(pmax)=3.9e-57  sup|log|E*L|| inside triangle 1.3627 ; outside triangle 0.7482 (at s=(0.6+0.5j)) ; outside, t>=1: 0.6310
+zeta Lam=2: w(pmax)=6.2e-29  sup|log|E*L|| inside triangle 1.2414 ; outside triangle 1.0574 (at s=(0.6+0.5j)) ; outside, t>=1: 0.4936
+zeta Lam=3: w(pmax)=1.6e-19  sup|log|E*L|| inside triangle 1.7205 ; outside triangle 1.1588 (at s=(0.6+0.5j)) ; outside, t>=1: 0.3712
+zeta Lam=4: w(pmax)=7.9e-15  sup|log|E*L|| inside triangle 2.1286 ; outside triangle 1.1566 (at s=(0.6+0.5j)) ; outside, t>=1: 0.3067
+chi4-twist Lam=0.5: w(pmax)=1.5e-113  sup|log|E*L|| inside triangle 0.3121 ; outside triangle 0.6820 (at s=(0.6+20j)) ; outside, t>=1: 0.6820
+chi4-twist Lam=1: w(pmax)=3.9e-57  sup|log|E*L|| inside triangle 0.1723 ; outside triangle 0.5854 (at s=(0.6+10j)) ; outside, t>=1: 0.5854
+chi4-twist Lam=2: w(pmax)=6.2e-29  sup|log|E*L|| inside triangle 0.0664 ; outside triangle 0.4412 (at s=(0.6+10j)) ; outside, t>=1: 0.4412
+chi4-twist Lam=3: w(pmax)=1.6e-19  sup|log|E*L|| inside triangle 0.0222 ; outside triangle 0.3420 (at s=(0.6+10j)) ; outside, t>=1: 0.3420
+chi4-twist Lam=4: w(pmax)=7.9e-15  sup|log|E*L|| inside triangle 0.0095 ; outside triangle 0.2714 (at s=(0.6+10j)) ; outside, t>=1: 0.2714

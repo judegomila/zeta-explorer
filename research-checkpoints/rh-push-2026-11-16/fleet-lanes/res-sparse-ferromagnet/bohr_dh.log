@@ -1,0 +1,8 @@
+planned chunk allocation: 4 terms x 3906250 pts x 16 B = 250 MB
+{"primes": [2, 3], "logM": 1.791759469228055, "T": 876.6918221318974, "zeros_in_box": 250, "step_box": 0.001686688679437042, "right_beyond_0.05": 109, "left_beyond_0.05": 110, "step_0.05": 0.9357339258342237, "right_beyond_0.01": 122, "left_beyond_0.01": 121, "step_0.01": 1.1603769807994504}
+planned chunk allocation: 8 terms x 1953125 pts x 16 B = 250 MB
+{"primes": [2, 3, 7], "logM": 3.737669618283368, "T": 420.27458103429797, "zeros_in_box": 250, "step_box": 0.02704125323222131, "right_beyond_0.05": 68, "left_beyond_0.05": 140, "step_0.05": 0.7941825775939398, "right_beyond_0.01": 87, "left_beyond_0.01": 156, "step_0.01": 0.9643672741587819}
+planned chunk allocation: 32 terms x 488281 pts x 16 B = 250 MB
+{"primes": [2, 3, 7, 11, 13], "logM": 8.700514248543275, "T": 180.55433034928015, "zeros_in_box": 250, "step_box": 0.008977910597898436, "right_beyond_0.05": 30, "left_beyond_0.05": 30, "step_0.05": 0.4974058113002603, "right_beyond_0.01": 96, "left_beyond_0.01": 97, "step_0.01": 1.528370488210176}
+planned chunk allocation: 128 terms x 122070 pts x 16 B = 250 MB
+{"primes": [2, 3, 7, 11, 13, 17, 19], "logM": 14.47816657176593, "T": 108.50784661785475, "zeros_in_box": 250, "step_box": 0.061286419490411165, "right_beyond_0.05": 24, "left_beyond_0.05": 47, "step_0.05": 0.3964986627641764, "right_beyond_0.01": 70, "left_beyond_0.01": 124, "step_0.01": 0.3202953018624752}

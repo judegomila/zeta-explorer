@@ -1,0 +1,105 @@
+[sweep] tier=local tasks=75 done=24 todo=51 workers=1 task_cap=6.0 GB task_limit=300 s out=results/local.jsonl
+[plan] 185 MB planned  {"T":52.0,"Y":4.0,"input":"zeta","scheme":"thalf","size":1}
+[done] OK             FAIL            2.9s      35 MB  {"T":52.0,"Y":4.0,"input":"zeta","scheme":"thalf","size":1}
+[plan] 185 MB planned  {"T":52.0,"Y":4.0,"input":"dh","scheme":"thalf","size":1}
+[done] OK             FAIL            1.9s      36 MB  {"T":52.0,"Y":4.0,"input":"dh","scheme":"thalf","size":1}
+[plan] 185 MB planned  {"T":52.0,"Y":4.0,"input":"tw2m","scheme":"thalf","size":1}
+[done] OK             FAIL            2.9s      34 MB  {"T":52.0,"Y":4.0,"input":"tw2m","scheme":"thalf","size":1}
+[plan] 185 MB planned  {"T":52.0,"Y":4.0,"input":"liou","scheme":"thalf","size":1}
+[done] OK             FAIL            2.9s      35 MB  {"T":52.0,"Y":4.0,"input":"liou","scheme":"thalf","size":1}
+[plan] 185 MB planned  {"T":52.0,"Y":4.0,"input":"ea:0.25","scheme":"thalf","size":1}
+[done] NOT_FORMULABLE                 0.0s       0 MB  {"T":52.0,"Y":4.0,"input":"ea:0.25","scheme":"thalf","size":1}
+[plan] 170 MB planned  {"T":30.0,"input":"zeta","scheme":"euler","size":7}
+[done] OK             PASS            6.0s      70 MB  {"T":30.0,"input":"zeta","scheme":"euler","size":7}
+[plan] 170 MB planned  {"T":30.0,"input":"tw2m","scheme":"euler","size":7}
+[done] OK             FAIL           10.1s      94 MB  {"T":30.0,"input":"tw2m","scheme":"euler","size":7}
+[plan] 170 MB planned  {"T":30.0,"input":"tw2h","scheme":"euler","size":7}
+[done] OK             PASS            3.1s      50 MB  {"T":30.0,"input":"tw2h","scheme":"euler","size":7}
+[plan] 170 MB planned  {"T":30.0,"input":"liou","scheme":"euler","size":7}
+[done] OK             FAIL            6.6s      71 MB  {"T":30.0,"input":"liou","scheme":"euler","size":7}
+[plan] 170 MB planned  {"T":30.0,"input":"ea:0.25","scheme":"euler","size":7}
+[done] OK             FAIL           11.2s      70 MB  {"T":30.0,"input":"ea:0.25","scheme":"euler","size":7}
+[plan] 170 MB planned  {"T":30.0,"input":"dh","scheme":"euler","size":7}
+[done] NOT_FORMULABLE                 0.0s       0 MB  {"T":30.0,"input":"dh","scheme":"euler","size":7}
+[plan] 204 MB planned  {"T":80.0,"Y":4.0,"input":"zeta","scheme":"thalf","size":2}
+[done] OK             FAIL           14.9s      38 MB  {"T":80.0,"Y":4.0,"input":"zeta","scheme":"thalf","size":2}
+[plan] 204 MB planned  {"T":80.0,"Y":4.0,"input":"dh","scheme":"thalf","size":2}
+[done] OK             FAIL            4.0s      35 MB  {"T":80.0,"Y":4.0,"input":"dh","scheme":"thalf","size":2}
+[plan] 204 MB planned  {"T":80.0,"Y":4.0,"input":"tw2m","scheme":"thalf","size":2}
+[done] OK             FAIL           11.9s      36 MB  {"T":80.0,"Y":4.0,"input":"tw2m","scheme":"thalf","size":2}
+[plan] 204 MB planned  {"T":80.0,"Y":4.0,"input":"liou","scheme":"thalf","size":2}
+[done] OK             FAIL           12.0s      36 MB  {"T":80.0,"Y":4.0,"input":"liou","scheme":"thalf","size":2}
+[plan] 204 MB planned  {"T":80.0,"Y":4.0,"input":"ea:0.25","scheme":"thalf","size":2}
+[done] NOT_FORMULABLE                 0.0s       0 MB  {"T":80.0,"Y":4.0,"input":"ea:0.25","scheme":"thalf","size":2}
+[plan] 204 MB planned  {"T":80.0,"Y":4.0,"input":"zeta","scheme":"thalf","size":3}
+[done] OK             FAIL           33.0s      40 MB  {"T":80.0,"Y":4.0,"input":"zeta","scheme":"thalf","size":3}
+[plan] 204 MB planned  {"T":80.0,"Y":4.0,"input":"dh","scheme":"thalf","size":3}
+[done] OK             FAIL            7.2s      36 MB  {"T":80.0,"Y":4.0,"input":"dh","scheme":"thalf","size":3}
+[plan] 204 MB planned  {"T":80.0,"Y":4.0,"input":"tw2m","scheme":"thalf","size":3}
+[done] OK             FAIL           22.3s      37 MB  {"T":80.0,"Y":4.0,"input":"tw2m","scheme":"thalf","size":3}
+[plan] 204 MB planned  {"T":80.0,"Y":4.0,"input":"liou","scheme":"thalf","size":3}
+[done] OK             FAIL           21.9s      37 MB  {"T":80.0,"Y":4.0,"input":"liou","scheme":"thalf","size":3}
+[plan] 204 MB planned  {"T":80.0,"Y":4.0,"input":"ea:0.25","scheme":"thalf","size":3}
+[done] NOT_FORMULABLE                 0.0s       0 MB  {"T":80.0,"Y":4.0,"input":"ea:0.25","scheme":"thalf","size":3}
+[plan] 170 MB planned  {"T":30.0,"input":"zeta","scheme":"euler","size":13}
+[done] OK             PASS           14.0s     112 MB  {"T":30.0,"input":"zeta","scheme":"euler","size":13}
+[plan] 170 MB planned  {"T":30.0,"input":"tw2m","scheme":"euler","size":13}
+[done] OK             FAIL           14.6s     112 MB  {"T":30.0,"input":"tw2m","scheme":"euler","size":13}
+[plan] 170 MB planned  {"T":30.0,"input":"tw2h","scheme":"euler","size":13}
+[done] OK             PASS            7.0s      70 MB  {"T":30.0,"input":"tw2h","scheme":"euler","size":13}
+[plan] 170 MB planned  {"T":30.0,"input":"liou","scheme":"euler","size":13}
+[done] OK             FAIL           15.8s     117 MB  {"T":30.0,"input":"liou","scheme":"euler","size":13}
+[plan] 170 MB planned  {"T":30.0,"input":"ea:0.25","scheme":"euler","size":13}
+[done] OK             FAIL           26.4s     110 MB  {"T":30.0,"input":"ea:0.25","scheme":"euler","size":13}
+[plan] 170 MB planned  {"T":30.0,"input":"dh","scheme":"euler","size":13}
+[done] NOT_FORMULABLE                 0.0s       0 MB  {"T":30.0,"input":"dh","scheme":"euler","size":13}
+[plan] 170 MB planned  {"T":30.0,"input":"zeta","scheme":"euler","size":17}
+[done] OK             UNRESOLVED      0.1s       0 MB  {"T":30.0,"input":"zeta","scheme":"euler","size":17}
+[plan] 170 MB planned  {"T":30.0,"input":"tw2m","scheme":"euler","size":17}
+[done] OK             FAIL           23.2s     153 MB  {"T":30.0,"input":"tw2m","scheme":"euler","size":17}
+[plan] 170 MB planned  {"T":30.0,"input":"tw2h","scheme":"euler","size":17}
+[done] OK             FAIL           22.4s     150 MB  {"T":30.0,"input":"tw2h","scheme":"euler","size":17}
+[plan] 170 MB planned  {"T":30.0,"input":"liou","scheme":"euler","size":17}
+[done] OK             FAIL           27.6s     173 MB  {"T":30.0,"input":"liou","scheme":"euler","size":17}
+[plan] 170 MB planned  {"T":30.0,"input":"ea:0.25","scheme":"euler","size":17}
+[done] OK             FAIL           60.8s     203 MB  {"T":30.0,"input":"ea:0.25","scheme":"euler","size":17}
+[plan] 170 MB planned  {"T":30.0,"input":"dh","scheme":"euler","size":17}
+[done] NOT_FORMULABLE                 0.0s       0 MB  {"T":30.0,"input":"dh","scheme":"euler","size":17}
+[plan] 170 MB planned  {"T":30.0,"input":"zeta","scheme":"euler","size":23}
+[done] OK             FAIL           55.2s     298 MB  {"T":30.0,"input":"zeta","scheme":"euler","size":23}
+[plan] 170 MB planned  {"T":30.0,"input":"tw2m","scheme":"euler","size":23}
+[done] OK             FAIL           52.0s     272 MB  {"T":30.0,"input":"tw2m","scheme":"euler","size":23}
+[plan] 170 MB planned  {"T":30.0,"input":"tw2h","scheme":"euler","size":23}
+[done] OK             FAIL           45.1s     257 MB  {"T":30.0,"input":"tw2h","scheme":"euler","size":23}
+[plan] 170 MB planned  {"T":30.0,"input":"liou","scheme":"euler","size":23}
+[done] OK             FAIL           54.9s     295 MB  {"T":30.0,"input":"liou","scheme":"euler","size":23}
+[plan] 170 MB planned  {"T":30.0,"input":"ea:0.25","scheme":"euler","size":23}
+[done] OK             UNRESOLVED    104.3s     143 MB  {"T":30.0,"input":"ea:0.25","scheme":"euler","size":23}
+[plan] 170 MB planned  {"T":30.0,"input":"dh","scheme":"euler","size":23}
+[done] NOT_FORMULABLE                 0.0s       0 MB  {"T":30.0,"input":"dh","scheme":"euler","size":23}
+[plan] 170 MB planned  {"T":30.0,"input":"zeta","scheme":"euler","size":29}
+[done] OK             UNRESOLVED     14.6s      59 MB  {"T":30.0,"input":"zeta","scheme":"euler","size":29}
+[plan] 170 MB planned  {"T":30.0,"input":"tw2m","scheme":"euler","size":29}
+[done] OK             FAIL           48.0s     276 MB  {"T":30.0,"input":"tw2m","scheme":"euler","size":29}
+[plan] 170 MB planned  {"T":30.0,"input":"tw2h","scheme":"euler","size":29}
+[done] OK             FAIL           44.0s     265 MB  {"T":30.0,"input":"tw2h","scheme":"euler","size":29}
+[plan] 170 MB planned  {"T":30.0,"input":"liou","scheme":"euler","size":29}
+[done] OK             FAIL           58.0s     327 MB  {"T":30.0,"input":"liou","scheme":"euler","size":29}
+[plan] 170 MB planned  {"T":30.0,"input":"ea:0.25","scheme":"euler","size":29}
+[done] OK             UNRESOLVED      1.4s      32 MB  {"T":30.0,"input":"ea:0.25","scheme":"euler","size":29}
+[plan] 170 MB planned  {"T":30.0,"input":"dh","scheme":"euler","size":29}
+[done] NOT_FORMULABLE                 0.0s       0 MB  {"T":30.0,"input":"dh","scheme":"euler","size":29}
+[plan] 170 MB planned  {"T":30.0,"input":"zeta","scheme":"euler","size":47}
+[done] OK             UNRESOLVED     33.5s      85 MB  {"T":30.0,"input":"zeta","scheme":"euler","size":47}
+[plan] 170 MB planned  {"T":30.0,"input":"tw2m","scheme":"euler","size":47}
+[done] OK             UNRESOLVED     45.3s     101 MB  {"T":30.0,"input":"tw2m","scheme":"euler","size":47}
+[plan] 170 MB planned  {"T":30.0,"input":"tw2h","scheme":"euler","size":47}
+[done] OK             UNRESOLVED     33.3s      86 MB  {"T":30.0,"input":"tw2h","scheme":"euler","size":47}
+[plan] 170 MB planned  {"T":30.0,"input":"liou","scheme":"euler","size":47}
+[done] OK             UNRESOLVED     40.8s      95 MB  {"T":30.0,"input":"liou","scheme":"euler","size":47}
+[plan] 170 MB planned  {"T":30.0,"input":"ea:0.25","scheme":"euler","size":47}
+[done] OK             UNRESOLVED      0.7s      31 MB  {"T":30.0,"input":"ea:0.25","scheme":"euler","size":47}
+[plan] 170 MB planned  {"T":30.0,"input":"dh","scheme":"euler","size":47}
+[done] NOT_FORMULABLE                 0.0s       0 MB  {"T":30.0,"input":"dh","scheme":"euler","size":47}
+[sweep] finished
+EXIT 0

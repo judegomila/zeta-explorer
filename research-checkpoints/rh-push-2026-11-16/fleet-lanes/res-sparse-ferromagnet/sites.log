@@ -1,0 +1,38 @@
+== 1. additive symmetrisation of the prime site: 1/(1-p^-s) + 1/(1-p^(s-1))
+ p=2 k=0 predicted zero s=(1.77155330316 + 0.0j)  |f|=1.97e-31  Re s - 1/2 = 1.271553303
+ p=2 k=3 predicted zero s=(1.77155330316 + 27.194160851j)  |f|=3.63e-30  Re s - 1/2 = 1.271553303
+ p=3 k=0 predicted zero s=(1.543330615 + 0.0j)  |f|=3.94e-31  Re s - 1/2 = 1.043330615
+ p=3 k=3 predicted zero s=(1.543330615 + 17.1576052043j)  |f|=3.91e-30  Re s - 1/2 = 1.043330615
+ p=5 k=0 predicted zero s=(1.3969811535 + 0.0j)  |f|=3.94e-31  Re s - 1/2 = 0.8969811535
+ p=5 k=3 predicted zero s=(1.3969811535 + 11.711887595j)  |f|=2.53e-30  Re s - 1/2 = 0.8969811535
+ p=101 k=0 predicted zero s=(1.14965214654 + 0.0j)  |f|=3.94e-31  Re s - 1/2 = 0.6496521465
+ p=101 k=3 predicted zero s=(1.14965214654 + 4.08430415907j)  |f|=1.5e-30  Re s - 1/2 = 0.6496521465
+== 2. multiplicative symmetrisation = Poisson kernel
+ p=2 t=1.7  lhs=(1.04260672024622 + 0.0j) rhs=1.04260672024622
+ p=7 t=13.1  lhs=(2.29866452134556 + 0.0j) rhs=2.29866452134556
+== 3. tails of the symmetrised one-term kernel phi(u)+phi(-u) against -3 pi e^{-5|u|}
+ u=1  (phi(u)+phi(-u)) / (-3 pi e^(-5u)) = 0.90786863401
+ u=2  (phi(u)+phi(-u)) / (-3 pi e^(-5u)) = 0.998244816993
+ u=3  (phi(u)+phi(-u)) / (-3 pi e^(-5u)) = 0.999967829414
+ u=5  (phi(u)+phi(-u)) / (-3 pi e^(-5u)) = 0.999999989208
+== 4. real zeros of the symmetrised Dirichlet stages  g_N(s) = gam(s) D_N(s) + gam(1-s) D_N(1-s),  s real
+ N=1: intervals (2m-1,2m+1), m<60, where the mid value has the sign opposite to the divergence at both ends (two real zeros each): 26; m = [9, 11, 13, 15, 17, 19]...
+   first pair: s = 17.406144870868, 18.920519400719; |g_N| = 8.87e-30, 6.07e-29; z = -i(2s-1): Im z = -33.81228974
+ N=2: intervals (2m-1,2m+1), m<60, where the mid value has the sign opposite to the divergence at both ends (two real zeros each): 22; m = [17, 19, 21, 23, 25, 27]...
+   first pair: s = 33.712717274124, 34.801429289184; |g_N| = 2.33e-25, 1.29e-24; z = -i(2s-1): Im z = -66.42543455
+ N=3: intervals (2m-1,2m+1), m<60, where the mid value has the sign opposite to the divergence at both ends (two real zeros each): 17; m = [27, 29, 31, 33, 35, 37]...
+   first pair: s = 53.048834999117, 54.993588849256; |g_N| = 3.99e-16, 3.28e-14; z = -i(2s-1): Im z = -105.09767
+ N=10: intervals (2m-1,2m+1), m<60, where the mid value has the sign opposite to the divergence at both ends (two real zeros each): 0; m = []...
+== 5. full Euler factor stage P={2}: zero of gam(s)/(1-2^-s) + gam(1-s)/(1-2^(s-1)) near the pole 1 + 2 pi i k / log 2
+ k=2 pole (1.0 + 18.12944057j)  zero (1.318439403015 + 18.060244261906j)  |h|=5.32e-37  Re-1/2=0.8184394  |zero-pole|=0.32587
+ k=5 pole (1.0 + 45.32360142j)  zero (1.1814648345542 + 45.400527943186j)  |h|=6.11e-45  Re-1/2=0.68146483  |zero-pole|=0.1971
+ k=20 pole (1.0 + 181.2944057j)  zero (1.0980784403475 + 181.27781531691j)  |h|=1.09e-91  Re-1/2=0.59807844  |zero-pole|=0.099472
+ k=100 pole (1.0 + 906.4720284j)  zero (0.5 + 907.58682842124j)  |h|=2.36e-338  Re-1/2=-4.7019774e-38  |zero-pole|=1.2218
+ k=1000 pole (1.0 + 9064.720284j)  zero (0.5 + 9064.390339165j)  |h|=4.16e-3120  Re-1/2=0.0  |zero-pole|=0.59905
+== 6. free Ising products: if Xi(z) = e^{-a z^2} prod cos(lam_k z) then 3 * (first zero) is a zero
+ |zeta(1/2 + 3 i gamma_1)| = 1.083787683   (3 gamma_1 = 42.40417543)
+ |zeta(1/2 + 5 i gamma_1)| = 1.93932213   (5 gamma_1 = 70.67362571)
+== 7. Curie-Weiss at criticality: exp(-x^4/12 - b x^2) transform, real-rooted for b>=0 (Polya); sample zero count
+ b=0: sign changes of the transform on 0<z<20: 16
+ b=1: sign changes of the transform on 0<z<20: 12
+ b=4: sign changes of the transform on 0<z<20: 1

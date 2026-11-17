@@ -1,0 +1,188 @@
+{
+ "zeta P=7 N=1 W=0.5 t in [2,5002]": {
+  "total": 4523,
+  "online": 4523,
+  "offline": 0,
+  "n_windows": 20,
+  "windows_with_offline": 0,
+  "last_window_with_offline_end": null,
+  "pred_thresholds_strip_W": [
+   213.78418171994434,
+   335.849736984272
+  ],
+  "max_wind_frac": 0.0,
+  "max_phase_step": 0.08,
+  "offline_by_window": [
+   [
+    2.0,
+    0
+   ],
+   [
+    252.0,
+    0
+   ],
+   [
+    502.0,
+    0
+   ],
+   [
+    752.0,
+    0
+   ],
+   [
+    1002.0,
+    0
+   ],
+   [
+    1252.0,
+    0
+   ],
+   [
+    1502.0,
+    0
+   ],
+   [
+    1752.0,
+    0
+   ],
+   [
+    2002.0,
+    0
+   ],
+   [
+    2252.0,
+    0
+   ],
+   [
+    2502.0,
+    0
+   ],
+   [
+    2752.0,
+    0
+   ],
+   [
+    3002.0,
+    0
+   ],
+   [
+    3252.0,
+    0
+   ],
+   [
+    3502.0,
+    0
+   ],
+   [
+    3752.0,
+    0
+   ],
+   [
+    4002.0,
+    0
+   ],
+   [
+    4252.0,
+    0
+   ],
+   [
+    4502.0,
+    0
+   ],
+   [
+    4752.0,
+    0
+   ]
+  ]
+ },
+ "zeta P=7 N=1 W=0.5 t in [100000,100500]": {
+  "total": 770,
+  "online": 770,
+  "offline": 0,
+  "n_windows": 2,
+  "windows_with_offline": 0,
+  "last_window_with_offline_end": null,
+  "pred_thresholds_strip_W": [
+   213.78418171994434,
+   335.849736984272
+  ],
+  "max_wind_frac": 0.0,
+  "max_phase_step": 0.027,
+  "offline_by_window": [
+   [
+    100000.0,
+    0
+   ],
+   [
+    100250.0,
+    0
+   ]
+  ]
+ },
+ "dh P=7 N=1 W=0.5 t in [100000,100500]": {
+  "total": 898,
+  "online": 874,
+  "offline": 24,
+  "n_windows": 2,
+  "windows_with_offline": 2,
+  "last_window_with_offline_end": 100500.0,
+  "pred_thresholds_strip_W": null,
+  "max_wind_frac": 0.0,
+  "max_phase_step": 0.031,
+  "offline_by_window": [
+   [
+    100000.0,
+    12
+   ],
+   [
+    100250.0,
+    12
+   ]
+  ]
+ },
+ "zeta P=5 N=2 W=0.5 t in [100000,100500]": {
+  "total": 770,
+  "online": 770,
+  "offline": 0,
+  "n_windows": 2,
+  "windows_with_offline": 0,
+  "last_window_with_offline_end": null,
+  "pred_thresholds_strip_W": [
+   466.14625103616106,
+   942.3469327322846
+  ],
+  "max_wind_frac": 0.0,
+  "max_phase_step": 0.024,
+  "offline_by_window": [
+   [
+    100000.0,
+    0
+   ],
+   [
+    100250.0,
+    0
+   ]
+  ]
+ },
+ "dh P=7 N=2 W=0.5 t in [100000,100500]": {
+  "total": 898,
+  "online": 860,
+  "offline": 38,
+  "n_windows": 2,
+  "windows_with_offline": 2,
+  "last_window_with_offline_end": 100500.0,
+  "pred_thresholds_strip_W": null,
+  "max_wind_frac": 0.0,
+  "max_phase_step": 0.045,
+  "offline_by_window": [
+   [
+    100000.0,
+    20
+   ],
+   [
+    100250.0,
+    18
+   ]
+  ]
+ }
+}

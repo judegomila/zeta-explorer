@@ -1,0 +1,107 @@
+{
+ "invariant_sigma1": true,
+ "invariant_sigma2": true,
+ "unique_up_to_scalar": true,
+ "numerator": "c5*(x*y - 1)",
+ "columns_are_L_times_Q": true,
+ "linear_table": [
+  [
+   0,
+   1,
+   0,
+   1,
+   -1
+  ],
+  [
+   1,
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   2,
+   1,
+   -1,
+   0,
+   -1
+  ],
+  [
+   3,
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   4,
+   1,
+   -1,
+   0,
+   -1
+  ],
+  [
+   5,
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   6,
+   1,
+   -1,
+   0,
+   -1
+  ],
+  [
+   7,
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   8,
+   1,
+   -1,
+   0,
+   -1
+  ],
+  [
+   9,
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   10,
+   1,
+   -1,
+   0,
+   -1
+  ],
+  [
+   11,
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   12,
+   1,
+   -1,
+   0,
+   -1
+  ]
+ ],
+ "any_linear_coefficient_negative": false,
+ "general_chi_linear_coefficient_zero_when_p2_divides_d": true,
+ "f_is_raw_times_zeta_factor": true,
+ "group_order": 6,
+ "elements_fixing_row_variable": [
+  "e"
+ ]
+}

@@ -1,0 +1,10 @@
+Z=16000 M=1.0 l=0.5 X=2023858 NMAX=16001 elements=6444 primes=1857
+rows R=3625  marks n=24  small primes=1857
+gauss sums done 0.6s max||g|-1|=7.11e-15
+cofactors c': 4058; planned allocation: B 4058x3625 c128 x2 (two characters), X 24x3625 c128 x3, W 24x4058 c128 x2, G 24x24 c128 x3, int8 tables: total 0.48 GB
+symbol tables done 0.9s
+cofactor data done 1.0s
+  Ap: lane-normalised Gram: diag_mean=0.931528 off_rms=0.017548 eig[min,max]=[0.795275,1.120252]
+  K : lane-normalised Gram: diag_mean=1.390543 off_rms=0.542397 eig[min,max]=[0.675980,14.146643]
+  R : lane-normalised Gram: diag_mean=0.936039 off_rms=0.016084 eig[min,max]=[0.803240,1.098658]
+total 1.2s

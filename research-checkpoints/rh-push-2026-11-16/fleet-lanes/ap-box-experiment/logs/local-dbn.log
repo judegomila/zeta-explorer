@@ -1,0 +1,11 @@
+[sweep] tier=local tasks=4 done=0 todo=4 workers=1 task_cap=6.0 GB task_limit=420 s out=results/local.jsonl
+[plan] 192 MB planned  {"T":62.0,"input":"zeta","lam":"-1","scheme":"dbn","size":4}
+[done] OK             FAIL          212.3s      35 MB  {"T":62.0,"input":"zeta","lam":"-1","scheme":"dbn","size":4}
+[plan] 192 MB planned  {"T":62.0,"input":"dh","lam":"-1","scheme":"dbn","size":4}
+[done] OK             FAIL          126.8s      35 MB  {"T":62.0,"input":"dh","lam":"-1","scheme":"dbn","size":4}
+[plan] 192 MB planned  {"T":62.0,"input":"zeta","lam":"0.05","scheme":"dbn","size":4}
+[done] OK             PASS          215.0s      35 MB  {"T":62.0,"input":"zeta","lam":"0.05","scheme":"dbn","size":4}
+[plan] 192 MB planned  {"T":62.0,"input":"dh","lam":"0.05","scheme":"dbn","size":4}
+[done] OK             PASS          119.7s      35 MB  {"T":62.0,"input":"dh","lam":"0.05","scheme":"dbn","size":4}
+[sweep] finished
+EXIT 0

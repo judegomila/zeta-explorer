@@ -1,0 +1,10 @@
+{"input": "zeta", "weight": "riesz4", "N": 100, "primes": 25, "sigma": 0.5001, "min_abs_B": 0.47352800850532867, "starts": 40}
+{"input": "zeta", "weight": "riesz4", "N": 150, "primes": 35, "sigma": 0.5001, "min_abs_B": 0.42860885811948385, "starts": 40}
+{"input": "zeta", "weight": "riesz4", "N": 200, "primes": 46, "sigma": 0.5001, "min_abs_B": 0.39793975880548416, "starts": 40}
+{"input": "zeta", "weight": "riesz4", "N": 300, "primes": 62, "sigma": 0.5001, "min_abs_B": 0.35618507976617075, "starts": 40}
+{"input": "zeta", "weight": "riesz4", "N": 400, "primes": 78, "sigma": 0.5001, "min_abs_B": 0.3274797990446003, "starts": 40}
+{"input": "zeta", "weight": "riesz4", "N": 600, "primes": 109, "sigma": 0.5001, "min_abs_B": 0.2881501753847718, "starts": 12}
+{"input": "zeta", "weight": "riesz4", "N": 800, "primes": 139, "sigma": 0.5001, "min_abs_B": 0.26095455695634034, "starts": 12}
+{"input": "zeta", "weight": "riesz4", "N": 1000, "primes": 168, "sigma": 0.5001, "min_abs_B": 0.24022289394598081, "starts": 12}
+{"input": "zeta", "weight": "riesz4", "N": 1500, "primes": 239, "sigma": 0.5001, "min_abs_B": 0.20328053325169607, "starts": 12}
+{"input": "zeta", "weight": "riesz4", "N": 2000, "primes": 303, "sigma": 0.5001, "min_abs_B": 0.17758244782354626, "starts": 12}

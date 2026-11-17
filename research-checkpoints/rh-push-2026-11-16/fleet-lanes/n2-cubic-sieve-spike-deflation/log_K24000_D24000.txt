@@ -1,0 +1,8 @@
+K=24000 D=24000 primary elements=9663 primes=2663
+planned: symbol table int8 9663x2663 = 25.7 MB
+MATRIX SIZE rows=8463 cols=8463; planned complex128 matrix 1.146 GB, SVD workspace about 4x = 4.584 GB
+built C  t=2.7s  density of nonzeros=0.9074
+reciprocity max |C - C^T| on common block: 0.0
+prime Gauss sums: max ||g|-1| = 7.327471962526033e-15
+SVD start t=4.7s
+memcap: RSS 8 GB exceeded cap 8 GB; killing 13047

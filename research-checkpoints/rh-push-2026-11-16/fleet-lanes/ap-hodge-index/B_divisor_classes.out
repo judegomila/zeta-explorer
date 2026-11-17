@@ -1,0 +1,45 @@
+# N=30 classes: H,V + 17 point classes, s=0.02 dps=80 ; planned 19x19 matrix, Lambda table 63
+# 132 distinct arch values in 7s
+zeta        determined 19/19 | inertia (+,-) = (1,18) | class at which i_+ first reaches 2: - | point classes: negative diagonal 17/17, negative off-diagonal 0/136 | I(H,H)=16.136 I(H,V)=45.662 I(e_2,e_2)=-0.038097 | 0s
+drop2       determined 19/19 | inertia (+,-) = (2,17) | class at which i_+ first reaches 2: e_13 | point classes: negative diagonal 17/17, negative off-diagonal 0/136 | I(H,H)=13.424 I(H,V)=44.278 I(e_2,e_2)=-0.038097 | 0s
+drop3       determined 19/19 | inertia (+,-) = (2,17) | class at which i_+ first reaches 2: e_13 | point classes: negative diagonal 17/17, negative off-diagonal 0/136 | I(H,H)=14.031 I(H,V)=44.313 I(e_2,e_2)=-0.038097 | 0s
+drop7       determined 19/19 | inertia (+,-) = (2,17) | class at which i_+ first reaches 2: e_17 | point classes: negative diagonal 17/17, negative off-diagonal 0/136 | I(H,H)=15.101 I(H,V)=44.386 I(e_2,e_2)=-0.038097 | 0s
+tw-_2       determined 19/19 | inertia (+,-) = (2,17) | class at which i_+ first reaches 2: e_7 | point classes: negative diagonal 17/17, negative off-diagonal 12/136 | I(H,H)=12.42 I(H,V)=44.219 I(e_2,e_2)=-0.038097 | 0s
+tw+_2half   determined 19/19 | inertia (+,-) = (2,17) | class at which i_+ first reaches 2: e_16 | point classes: negative diagonal 17/17, negative off-diagonal 0/136 | I(H,H)=14.427 I(H,V)=44.472 I(e_2,e_2)=-0.038097 | 0s
+NR_q2_c2.2  determined 19/19 | inertia (+,-) = (2,17) | class at which i_+ first reaches 2: e_8 | point classes: negative diagonal 17/17, negative off-diagonal 8/136 | I(H,H)=16.136 I(H,V)=45.662 I(e_2,e_2)=-0.08724 | 0s
+# N=100 classes: H,V + 36 point classes, s=0.02 dps=80 ; planned 38x38 matrix, Lambda table 190
+# 619 distinct arch values in 32s
+zeta        determined 38/38 | inertia (+,-) = (1,37) | class at which i_+ first reaches 2: - | point classes: negative diagonal 36/36, negative off-diagonal 5/630 | I(H,H)=16.136 I(H,V)=81.484 I(e_2,e_2)=-0.038097 | 0s
+drop2       determined 38/38 | inertia (+,-) = (5,33) | class at which i_+ first reaches 2: e_13 | point classes: negative diagonal 36/36, negative off-diagonal 5/630 | I(H,H)=13.424 I(H,V)=80.685 I(e_2,e_2)=-0.038097 | 0s
+drop3       determined 38/38 | inertia (+,-) = (5,33) | class at which i_+ first reaches 2: e_16 | point classes: negative diagonal 36/36, negative off-diagonal 5/630 | I(H,H)=14.031 I(H,V)=80.688 I(e_2,e_2)=-0.038097 | 0s
+drop7       determined 38/38 | inertia (+,-) = (4,34) | class at which i_+ first reaches 2: e_17 | point classes: negative diagonal 36/36, negative off-diagonal 5/630 | I(H,H)=15.101 I(H,V)=80.695 I(e_2,e_2)=-0.038097 | 0s
+tw-_2       determined 38/38 | inertia (+,-) = (6,32) | class at which i_+ first reaches 2: e_7 | point classes: negative diagonal 36/36, negative off-diagonal 51/630 | I(H,H)=12.42 I(H,V)=80.679 I(e_2,e_2)=-0.038097 | 0s
+tw+_2half   determined 38/38 | inertia (+,-) = (4,34) | class at which i_+ first reaches 2: e_16 | point classes: negative diagonal 36/36, negative off-diagonal 5/630 | I(H,H)=14.427 I(H,V)=80.734 I(e_2,e_2)=-0.038097 | 0s
+NR_q2_c2.2  determined 38/38 | inertia (+,-) = (6,32) | class at which i_+ first reaches 2: e_8 | point classes: negative diagonal 36/36, negative off-diagonal 52/630 | I(H,H)=16.136 I(H,V)=81.484 I(e_2,e_2)=-0.08724 | 0s
+# N=100 classes: H,V + 36 point classes, s=0.1 dps=80 ; planned 38x38 matrix, Lambda table 1953
+# 619 distinct arch values in 6s
+zeta        determined 38/38 | inertia (+,-) = (1,37) | class at which i_+ first reaches 2: - | point classes: negative diagonal 0/36, negative off-diagonal 0/630 | I(H,H)=16.136 I(H,V)=81.484 I(e_2,e_2)=0.10717 | 1s
+drop2       determined 38/38 | inertia (+,-) = (16,22) | class at which i_+ first reaches 2: e_1 | point classes: negative diagonal 0/36, negative off-diagonal 0/630 | I(H,H)=13.424 I(H,V)=80.685 I(e_2,e_2)=0.10717 | 1s
+drop3       determined 38/38 | inertia (+,-) = (15,23) | class at which i_+ first reaches 2: e_2 | point classes: negative diagonal 0/36, negative off-diagonal 0/630 | I(H,H)=14.031 I(H,V)=80.688 I(e_2,e_2)=0.10717 | 1s
+drop7       determined 36/38 | inertia (+,-) = (13,23) | class at which i_+ first reaches 2: e_2 | point classes: negative diagonal 0/36, negative off-diagonal 0/630 | I(H,H)=15.101 I(H,V)=80.695 I(e_2,e_2)=0.10717 | 1s
+tw-_2       determined 38/38 | inertia (+,-) = (12,26) | class at which i_+ first reaches 2: e_1 | point classes: negative diagonal 0/36, negative off-diagonal 55/630 | I(H,H)=12.42 I(H,V)=80.679 I(e_2,e_2)=0.10716 | 1s
+tw+_2half   determined 38/38 | inertia (+,-) = (17,21) | class at which i_+ first reaches 2: e_2 | point classes: negative diagonal 0/36, negative off-diagonal 0/630 | I(H,H)=14.427 I(H,V)=80.734 I(e_2,e_2)=0.10717 | 1s
+NR_q2_c2.2  determined 38/38 | inertia (+,-) = (11,27) | class at which i_+ first reaches 2: e_2 | point classes: negative diagonal 36/36, negative off-diagonal 150/630 | I(H,H)=16.136 I(H,V)=81.484 I(e_2,e_2)=-0.13854 | 1s
+# N=300 classes: H,V + 80 point classes, s=0.02 dps=80 ; planned 82x82 matrix, Lambda table 551
+# 3130 distinct arch values in 168s
+zeta        determined 82/82 | inertia (+,-) = (1,81) | class at which i_+ first reaches 2: - | point classes: negative diagonal 80/80, negative off-diagonal 54/3160 | I(H,H)=16.136 I(H,V)=140.2 I(e_2,e_2)=-0.038097 | 1s
+drop2       determined 82/82 | inertia (+,-) = (16,66) | class at which i_+ first reaches 2: e_13 | point classes: negative diagonal 80/80, negative off-diagonal 54/3160 | I(H,H)=13.424 I(H,V)=139.74 I(e_2,e_2)=-0.038097 | 1s
+drop3       determined 79/82 | inertia (+,-) = (15,64) | class at which i_+ first reaches 2: e_16 | point classes: negative diagonal 80/80, negative off-diagonal 54/3160 | I(H,H)=14.031 I(H,V)=139.74 I(e_2,e_2)=-0.038097 | 1s
+drop7       determined 82/82 | inertia (+,-) = (14,68) | class at which i_+ first reaches 2: e_19 | point classes: negative diagonal 80/80, negative off-diagonal 54/3160 | I(H,H)=15.101 I(H,V)=139.74 I(e_2,e_2)=-0.038097 | 1s
+tw-_2       determined 80/82 | inertia (+,-) = (13,67) | class at which i_+ first reaches 2: e_7 | point classes: negative diagonal 80/80, negative off-diagonal 271/3160 | I(H,H)=12.42 I(H,V)=139.74 I(e_2,e_2)=-0.038097 | 2s
+tw+_2half   determined 82/82 | inertia (+,-) = (15,67) | class at which i_+ first reaches 2: e_16 | point classes: negative diagonal 80/80, negative off-diagonal 54/3160 | I(H,H)=14.427 I(H,V)=139.75 I(e_2,e_2)=-0.038097 | 2s
+NR_q2_c2.2  determined 82/82 | inertia (+,-) = (15,67) | class at which i_+ first reaches 2: e_8 | point classes: negative diagonal 80/80, negative off-diagonal 300/3160 | I(H,H)=16.136 I(H,V)=140.2 I(e_2,e_2)=-0.08724 | 2s
+# N=40 classes: H,V + 40 point classes, s=0.01 dps=80 ; planned 42x42 matrix, Lambda table 63
+# 571 distinct arch values in 55s
+zeta        determined 42/42 | inertia (+,-) = (1,41) | class at which i_+ first reaches 2: - | point classes: negative diagonal 40/40, negative off-diagonal 0/780 | I(H,H)=16.136 I(H,V)=52.301 I(e_2,e_2)=-0.031491 | 0s
+drop2       determined 42/42 | inertia (+,-) = (3,39) | class at which i_+ first reaches 2: e_23 | point classes: negative diagonal 40/40, negative off-diagonal 0/780 | I(H,H)=13.424 I(H,V)=51.077 I(e_2,e_2)=-0.031491 | 0s
+drop3       determined 42/42 | inertia (+,-) = (3,39) | class at which i_+ first reaches 2: e_23 | point classes: negative diagonal 40/40, negative off-diagonal 0/780 | I(H,H)=14.031 I(H,V)=51.098 I(e_2,e_2)=-0.031491 | 0s
+drop7       determined 42/42 | inertia (+,-) = (2,40) | class at which i_+ first reaches 2: e_20 | point classes: negative diagonal 40/40, negative off-diagonal 0/780 | I(H,H)=15.101 I(H,V)=51.143 I(e_2,e_2)=-0.031491 | 0s
+tw-_2       determined 42/42 | inertia (+,-) = (4,38) | class at which i_+ first reaches 2: e_10 | point classes: negative diagonal 40/40, negative off-diagonal 40/780 | I(H,H)=12.42 I(H,V)=51.041 I(e_2,e_2)=-0.031491 | 0s
+tw+_2half   determined 42/42 | inertia (+,-) = (2,40) | class at which i_+ first reaches 2: e_29 | point classes: negative diagonal 40/40, negative off-diagonal 0/780 | I(H,H)=14.427 I(H,V)=51.221 I(e_2,e_2)=-0.031491 | 0s
+NR_q2_c2.2  determined 42/42 | inertia (+,-) = (4,38) | class at which i_+ first reaches 2: e_9 | point classes: negative diagonal 40/40, negative off-diagonal 23/780 | I(H,H)=16.136 I(H,V)=52.301 I(e_2,e_2)=-0.056062 | 0s

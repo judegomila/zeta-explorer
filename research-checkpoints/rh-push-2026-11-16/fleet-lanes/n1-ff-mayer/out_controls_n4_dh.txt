@@ -1,0 +1,11 @@
+q=3 N=[1, 0, 1, 1, 1] k=2: zeros of det(1 - e^(i theta) M | V+) after removing (1-qu),(1-u),(1+u) factors
+
+DH analogue (n=4): L*(u,chi)=L/(1-u)=c0+c1 u+c2 u^2
+  check: |eps|=1 and Im g1 = 0 for all even chi: max||eps|-1| = 4.440892098500626e-16   max|Im g1| = 4.821387042707948e-16   max |g1|/(2 sqrt q) = 0.9238795325112868
+  DH pair: k1=4, k2=78, f = g_k1 + (-1.0) g_k2, coefficients [(-0.02256+0.06587j), (2.49638-0j), (-0.06769-0.1976j)]
+  f satisfies f(u) = q u^2 conj(f)(1/(q conj u)): |f2 - q conj(f0)| = 2.78e-16, Im f1 = -1.85e-16
+  zeros of f: [(np.float64(11.923872), -0.3949), (np.float64(0.027955), -0.3949)]  (product of radii 0.333333 = 1/q)
+  at DH zero u*=3.864356-11.280313j: smallest singular values of 1-M_k1, 1-M_k2 on V+: 0.0456, 0.0451;  L(u*,chi1)=1261.1952-4790.9933j, L(u*,chi2)=1591.5013-4691.6259j
+     ||ev_0 (1-M_k)^-1|| at u*: 8.1134, 8.1188  (finite: no eigenvalue 1)
+  at DH zero u*=0.009060-0.026446j: smallest singular values of 1-M_k1, 1-M_k2 on V+: 0.8931, 0.8942;  L(u*,chi1)=0.9880-0.0511j, L(u*,chi2)=0.9891+0.0178j
+     ||ev_0 (1-M_k)^-1|| at u*: 1.0024, 1.0024  (finite: no eigenvalue 1)

@@ -1,0 +1,4 @@
+gram_Z2000_M1.0_l0.500.npz: n=8 R=454; planned allocation: G 8x8 c128 x4 = 0.000 GB
+  Ap tr=9.100589e+00 primal=1.10183308e+01 dual=1.10183308e+01 gap=1.6e-11 its=100 | SDP/tr=1.2107 max_lb/tr=1.2107 n*lam/tr=1.2700 ones/tr=1.1882 Gersh/tr=1.351 | off rms*sqrtR=1.187 max*sqrtR=1.89 (sqrt log pairs 1.83) conj pairs 4 rms*sqrtR=0.976 | tr/(R sum Dp)=0.8972 [0.0s]
+  K  tr=1.344953e+01 primal=3.67695690e+01 dual=3.67695690e+01 gap=-1.9e-16 its=50 | SDP/tr=2.7339 max_lb/tr=2.7339 n*lam/tr=2.7572 ones/tr=2.7138 Gersh/tr=2.744 | off rms*sqrtR=5.342 max*sqrtR=6.58 (sqrt log pairs 1.83) conj pairs 4 rms*sqrtR=5.684 | tr/(R sum Dp)=1.3260 [0.0s]
+  R  tr=9.289941e+00 primal=1.15216069e+01 dual=1.15216069e+01 gap=4.9e-10 its=100 | SDP/tr=1.2402 max_lb/tr=1.2402 n*lam/tr=1.3580 ones/tr=0.9480 Gersh/tr=1.359 | off rms*sqrtR=1.260 max*sqrtR=2.98 (sqrt log pairs 1.83) conj pairs 4 rms*sqrtR=1.561 | tr/(R sum Dp)=0.9159 [0.0s]

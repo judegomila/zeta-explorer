@@ -1,0 +1,158 @@
+done (692, 0.09) 81
+done (692, 0.07) 81
+done (815, 0.07) 81
+done (692, 0.065) 81
+done (815, 0.08) 81
+done (692, 0.08) 81
+done (692, 0.06) 81
+done (815, 0.09) 81
+done (815, 0.065) 81
+done (692, 0.055) 81
+done (815, 0.055) 81
+done (815, 0.06) 81
+done (692, 0.05) 81
+done (959, 0.09) 81
+done (959, 0.08) 81
+done (959, 0.07) 81
+done (815, 0.05) 81
+/home/USER/rh-push/box-riesz-order2/hsearch.py:61: RuntimeWarning: overflow encountered in exp
+  ee = w * np.exp(-s * ln) * np.exp(1j * (V @ thT))
+/home/USER/rh-push/box-riesz-order2/hsearch.py:61: RuntimeWarning: invalid value encountered in multiply
+  ee = w * np.exp(-s * ln) * np.exp(1j * (V @ thT))
+/home/USER/rh-push/box-riesz-order2/hsearch.py:62: RuntimeWarning: invalid value encountered in scalar divide
+  f = ee.sum(); fp = -(ee * ln).sum(); s -= f / fp
+/home/USER/rh-push/box-riesz-order2/hsearch.py:63: RuntimeWarning: invalid value encountered in scalar divide
+  if abs(f / fp) < 1e-14: ok = True; break
+done (959, 0.065) 81
+done (1129, 0.09) 81
+done (959, 0.06) 81
+done (1129, 0.08) 81
+done (1129, 0.07) 81
+done (959, 0.055) 81
+done (1129, 0.065) 81
+done (1129, 0.06) 81
+done (1329, 0.09) 81
+done (1329, 0.08) 81
+done (1329, 0.07) 81
+done (959, 0.05) 81
+done (1129, 0.055) 81
+done (1329, 0.065) 81
+/home/USER/rh-push/box-riesz-order2/hsearch.py:61: RuntimeWarning: overflow encountered in exp
+  ee = w * np.exp(-s * ln) * np.exp(1j * (V @ thT))
+/home/USER/rh-push/box-riesz-order2/hsearch.py:61: RuntimeWarning: invalid value encountered in multiply
+  ee = w * np.exp(-s * ln) * np.exp(1j * (V @ thT))
+/home/USER/rh-push/box-riesz-order2/hsearch.py:62: RuntimeWarning: invalid value encountered in scalar divide
+  f = ee.sum(); fp = -(ee * ln).sum(); s -= f / fp
+/home/USER/rh-push/box-riesz-order2/hsearch.py:63: RuntimeWarning: invalid value encountered in scalar divide
+  if abs(f / fp) < 1e-14: ok = True; break
+/home/USER/rh-push/box-riesz-order2/hsearch.py:62: RuntimeWarning: divide by zero encountered in scalar divide
+  f = ee.sum(); fp = -(ee * ln).sum(); s -= f / fp
+/home/USER/rh-push/box-riesz-order2/hsearch.py:63: RuntimeWarning: divide by zero encountered in scalar divide
+  if abs(f / fp) < 1e-14: ok = True; break
+done (1564, 0.08) 81
+done (1564, 0.09) 81
+done (1329, 0.06) 81
+done (1129, 0.05) 81
+done (1564, 0.07) 81
+/home/USER/rh-push/box-riesz-order2/hsearch.py:61: RuntimeWarning: overflow encountered in exp
+  ee = w * np.exp(-s * ln) * np.exp(1j * (V @ thT))
+/home/USER/rh-push/box-riesz-order2/hsearch.py:61: RuntimeWarning: invalid value encountered in multiply
+  ee = w * np.exp(-s * ln) * np.exp(1j * (V @ thT))
+/home/USER/rh-push/box-riesz-order2/hsearch.py:62: RuntimeWarning: invalid value encountered in scalar divide
+  f = ee.sum(); fp = -(ee * ln).sum(); s -= f / fp
+/home/USER/rh-push/box-riesz-order2/hsearch.py:63: RuntimeWarning: invalid value encountered in scalar divide
+  if abs(f / fp) < 1e-14: ok = True; break
+done (1564, 0.065) 81
+done (1329, 0.055) 81
+done (1564, 0.06) 81
+done (1841, 0.08) 81
+done (1841, 0.09) 30
+done (1841, 0.07) 81
+done (1329, 0.05) 81
+done (1841, 0.065) 81
+/home/USER/rh-push/box-riesz-order2/hsearch.py:62: RuntimeWarning: divide by zero encountered in scalar divide
+  f = ee.sum(); fp = -(ee * ln).sum(); s -= f / fp
+/home/USER/rh-push/box-riesz-order2/hsearch.py:62: RuntimeWarning: invalid value encountered in scalar divide
+  f = ee.sum(); fp = -(ee * ln).sum(); s -= f / fp
+/home/USER/rh-push/box-riesz-order2/hsearch.py:63: RuntimeWarning: divide by zero encountered in scalar divide
+  if abs(f / fp) < 1e-14: ok = True; break
+/home/USER/rh-push/box-riesz-order2/hsearch.py:63: RuntimeWarning: invalid value encountered in scalar divide
+  if abs(f / fp) < 1e-14: ok = True; break
+done (1564, 0.055) 81
+done (2167, 0.08) 35
+done (1841, 0.06) 81
+done (2167, 0.09) 21
+done (2167, 0.07) 81
+done (2167, 0.065) 81
+done (1564, 0.05) 81
+done (1841, 0.055) 81
+done (2167, 0.06) 81
+/home/USER/rh-push/box-riesz-order2/hsearch.py:62: RuntimeWarning: divide by zero encountered in scalar divide
+  f = ee.sum(); fp = -(ee * ln).sum(); s -= f / fp
+/home/USER/rh-push/box-riesz-order2/hsearch.py:62: RuntimeWarning: invalid value encountered in scalar divide
+  f = ee.sum(); fp = -(ee * ln).sum(); s -= f / fp
+/home/USER/rh-push/box-riesz-order2/hsearch.py:63: RuntimeWarning: divide by zero encountered in scalar divide
+  if abs(f / fp) < 1e-14: ok = True; break
+/home/USER/rh-push/box-riesz-order2/hsearch.py:63: RuntimeWarning: invalid value encountered in scalar divide
+  if abs(f / fp) < 1e-14: ok = True; break
+done (2550, 0.07) 43
+done (2550, 0.09) 8
+done (1841, 0.05) 81
+done (2550, 0.08) 19
+done (2550, 0.065) 80
+done (2167, 0.055) 81
+done (2550, 0.06) 81
+done (3000, 0.08) 11
+done (3000, 0.09) 1
+/home/USER/rh-push/box-riesz-order2/hsearch.py:61: RuntimeWarning: overflow encountered in exp
+  ee = w * np.exp(-s * ln) * np.exp(1j * (V @ thT))
+/home/USER/rh-push/box-riesz-order2/hsearch.py:61: RuntimeWarning: invalid value encountered in multiply
+  ee = w * np.exp(-s * ln) * np.exp(1j * (V @ thT))
+done (2550, 0.055) 81
+done (3000, 0.07) 24
+/home/USER/rh-push/box-riesz-order2/hsearch.py:62: RuntimeWarning: divide by zero encountered in scalar divide
+  f = ee.sum(); fp = -(ee * ln).sum(); s -= f / fp
+/home/USER/rh-push/box-riesz-order2/hsearch.py:62: RuntimeWarning: invalid value encountered in scalar divide
+  f = ee.sum(); fp = -(ee * ln).sum(); s -= f / fp
+/home/USER/rh-push/box-riesz-order2/hsearch.py:63: RuntimeWarning: divide by zero encountered in scalar divide
+  if abs(f / fp) < 1e-14: ok = True; break
+/home/USER/rh-push/box-riesz-order2/hsearch.py:63: RuntimeWarning: invalid value encountered in scalar divide
+  if abs(f / fp) < 1e-14: ok = True; break
+done (3000, 0.065) 37
+done (2167, 0.05) 81
+done (3000, 0.06) 77
+done (3000, 0.055) 81
+done (2550, 0.05) 81
+done (3000, 0.05) 81
+certifying 367
+CERTIFIED off-line zero {"N": 692, "T_log10": 15.457701087211309, "re_s": 0.5147962819545878, "rho": 0.06, "abs_X": 0.6068670957283663}
+CERTIFIED off-line zero {"N": 692, "T_log10": 15.544274138260118, "re_s": 0.5035499329707892, "rho": 0.065, "abs_X": 0.8864461410737415}
+CERTIFIED off-line zero {"N": 692, "T_log10": 15.544274138260118, "re_s": 0.5035499329707892, "rho": 0.06, "abs_X": 0.8864461410737415}
+CERTIFIED off-line zero {"N": 692, "T_log10": 16.591286249806494, "re_s": 0.5020915750957125, "rho": 0.06, "abs_X": 0.9267605358817234}
+CERTIFIED off-line zero {"N": 692, "T_log10": 16.591286249806494, "re_s": 0.5020915750957125, "rho": 0.055, "abs_X": 0.9267605358817234}
+CERTIFIED off-line zero {"N": 815, "T_log10": 15.28896354529931, "re_s": 0.5228724489572506, "rho": 0.06, "abs_X": 0.46618714093845465}
+CERTIFIED off-line zero {"N": 815, "T_log10": 16.593031963702888, "re_s": 0.5212803560170803, "rho": 0.06, "abs_X": 0.4611900448905754}
+CERTIFIED off-line zero {"N": 815, "T_log10": 16.825860260708797, "re_s": 0.5215862337859345, "rho": 0.065, "abs_X": 0.4508403144330525}
+CERTIFIED off-line zero {"N": 959, "T_log10": 14.016813136952688, "re_s": 0.5208463519941705, "rho": 0.06, "abs_X": 0.5301999934123377}
+CERTIFIED off-line zero {"N": 959, "T_log10": 16.517569694261788, "re_s": 0.530936385340986, "rho": 0.055, "abs_X": 0.32636148383172936}
+CERTIFIED off-line zero {"N": 959, "T_log10": 16.825860260708797, "re_s": 0.5285332904464533, "rho": 0.055, "abs_X": 0.3488811780928695}
+CERTIFIED off-line zero {"N": 1129, "T_log10": 14.898276716059044, "re_s": 0.5010253160145162, "rho": 0.055, "abs_X": 0.9672593686644831}
+CERTIFIED off-line zero {"N": 1129, "T_log10": 15.481641790590363, "re_s": 0.515511407368373, "rho": 0.055, "abs_X": 0.5918870533733489}
+CERTIFIED off-line zero {"N": 1129, "T_log10": 14.898276716059044, "re_s": 0.5010253160145162, "rho": 0.055, "abs_X": 0.9672593686644831}
+CERTIFIED off-line zero {"N": 1129, "T_log10": 16.985828991491008, "re_s": 0.5301266169894019, "rho": 0.05, "abs_X": 0.32532758919749927}
+CERTIFIED off-line zero {"N": 1129, "T_log10": 16.985828991491008, "re_s": 0.5301266169894019, "rho": 0.05, "abs_X": 0.32532758919749927}
+CERTIFIED off-line zero {"N": 1329, "T_log10": 14.037149989948805, "re_s": 0.5322210199757541, "rho": 0.055, "abs_X": 0.37447849200510813}
+CERTIFIED off-line zero {"N": 1329, "T_log10": 14.898276716059044, "re_s": 0.520906119175967, "rho": 0.055, "abs_X": 0.5072495785952835}
+CERTIFIED off-line zero {"N": 1329, "T_log10": 16.832168105970403, "re_s": 0.5319058962954654, "rho": 0.055, "abs_X": 0.3079081852517314}
+CERTIFIED off-line zero {"N": 1329, "T_log10": 16.9173723562202, "re_s": 0.5163159401561833, "rho": 0.05, "abs_X": 0.5457581375577685}
+CERTIFIED off-line zero {"N": 1329, "T_log10": 17.0873269533985, "re_s": 0.5209592083730321, "rho": 0.05, "abs_X": 0.4556090813835057}
+CERTIFIED off-line zero {"N": 1329, "T_log10": 17.212782628454896, "re_s": 0.5381283521662793, "rho": 0.05, "abs_X": 0.23666729405958717}
+CERTIFIED off-line zero {"N": 1329, "T_log10": 17.259547148858804, "re_s": 0.5390292243350143, "rho": 0.05, "abs_X": 0.22778525272108363}
+CERTIFIED off-line zero {"N": 1329, "T_log10": 17.322439018699153, "re_s": 0.5389577091663189, "rho": 0.055, "abs_X": 0.22711860804080597}
+CERTIFIED off-line zero {"N": 1329, "T_log10": 17.73407288665958, "re_s": 0.5349432730755816, "rho": 0.055, "abs_X": 0.2559790750625863}
+CERTIFIED off-line zero {"N": 1329, "T_log10": 17.73407288665958, "re_s": 0.5349432730755816, "rho": 0.05, "abs_X": 0.2559790750625863}
+CERTIFIED off-line zero {"N": 1329, "T_log10": 17.407776072620344, "re_s": 0.5160028377613595, "rho": 0.05, "abs_X": 0.5422497078022374}
+CERTIFIED off-line zero {"N": 1329, "T_log10": 17.73407288665958, "re_s": 0.5349432730755816, "rho": 0.05, "abs_X": 0.2559790750625863}
+CERTIFIED off-line zero {"N": 1329, "T_log10": 17.73407288665958, "re_s": 0.5349432730755816, "rho": 0.05, "abs_X": 0.2559790750625863}
+CERTIFIED off-line zero {"N": 1564, "T_log10": 14.898276716059044, "re_s": 0.528651198693781, "rho": 0.05, "abs_X": 0.3944712203236284}
+CERTIFIED off-line zero {"N": 1841, "T_log10": 12.075901179181791, "re_s": 0.5184601951203356, "rho": 0.05, "abs_X": 0.6191716514145121}

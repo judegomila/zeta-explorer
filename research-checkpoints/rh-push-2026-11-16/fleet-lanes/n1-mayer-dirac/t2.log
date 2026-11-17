@@ -1,0 +1,9 @@
+closed form vs quadrature: 2.4652e-32
+nu=(-0.5 + 14.1347j): boundary=-3745383993.0  Re(kappa)*N=0.0  source=-3745383993.0  defect=-1.27e-21
+nu=(-0.2 + 3.0j): boundary=-9.230067541  Re(kappa)*N=3.552391194  source=-12.78245873  defect=-6.31e-30
+nu=(-0.8 + 3.0j): boundary=-56.3857685  Re(kappa)*N=-14.12427463  source=-42.26149387  defect=-5.68e-29
+multiplier check: 0.798231858689 0.79823185871
+k=1 Laplace check x=2: rel err 2.4193e-15 (value (-0.61206071 + 0.194951j))
+   u=300: Q(u)/u = 0.007507279956 (pred |zeta(nu)/nu|^2=0.007507279956)
+   u=1000: Q(u)/u = 76.6553245 (pred |zeta(nu)/nu|^2=0.007507279956)
+   u=3000: Q(u)/u = 1.293548667e+27 (pred |zeta(nu)/nu|^2=0.007507279956)

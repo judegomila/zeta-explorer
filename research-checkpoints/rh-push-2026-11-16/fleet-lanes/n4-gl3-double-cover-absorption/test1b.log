@@ -1,0 +1,6 @@
+planned allocation: < 50 MB
+N(x,y) = f * (1-x^2)(1-y^2)(1-p x^2 y^2) = -x**2*y**2 - x**2*y - x*y**2 + x + y + 1
+monomials linear in x: [((1, 2), -1), ((1, 0), 1)]
+monomials linear in y: [((2, 1), -1), ((0, 1), 1)]
+row series at p^2 || d, general chi, times (1-chi x)^-1 (1-x^2): chi*p*x**3 + p*x**2 - x**2 + 1
+slice generating function at p: 1 - chi x y^2  <->  local factor of 1/L(s + 2w, chi_d0)

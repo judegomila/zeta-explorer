@@ -1,0 +1,145 @@
++ ROOT=/home/USER/rh-push/box-verified-height
++ P=/home/USER/rh-push/box-verified-height/prefix
++ S=/home/USER/rh-push/box-verified-height/src
++ mkdir -p /home/USER/rh-push/box-verified-height/prefix /home/USER/rh-push/box-verified-height/src
++ cd /home/USER/rh-push/box-verified-height/src
++ J=16
++ '[' -f gmp-6.3.0.tar.xz ']'
++ '[' -f mpfr-4.2.2.tar.xz ']'
++ '[' -f flint-3.6.0.tar.gz ']'
++ sha256sum flint-3.6.0.tar.gz gmp-6.3.0.tar.xz mpfr-4.2.2.tar.xz
+b95e2c7792f5eea4a1c8d2d42c4098434756832e57a094b295eb5dfdc9b4c36b  flint-3.6.0.tar.gz
+a3c2b80201b89e68616f4ad30bc66aee4927c3ce50e33929ca819d5c43538898  gmp-6.3.0.tar.xz
+b67ba0383ef7e8a8563734e2e889ef5ec3c3b898a01d00fa0a6869ad81c6ce01  mpfr-4.2.2.tar.xz
++ command -v m4
++ '[' '!' -x /home/USER/rh-push/box-verified-height/prefix/bin/m4 ']'
++ curl -sSLO https://ftp.gnu.org/gnu/m4/m4-1.4.20.tar.xz
++ tar xf m4-1.4.20.tar.xz
++ cd m4-1.4.20
++ ./configure --prefix=/home/USER/rh-push/box-verified-height/prefix -q
+config.status: creating po/POTFILES
+config.status: creating po/Makefile
++ make -j16
++ make install
++ export PATH=/home/USER/rh-push/box-verified-height/prefix/bin:/home/USER/rh-push/venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
++ PATH=/home/USER/rh-push/box-verified-height/prefix/bin:/home/USER/rh-push/venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
++ '[' '!' -f /home/USER/rh-push/box-verified-height/prefix/lib/libgmp.so ']'
++ tar xf gmp-6.3.0.tar.xz
++ cd gmp-6.3.0
++ ./configure --prefix=/home/USER/rh-push/box-verified-height/prefix --disable-static -q
+checking ABI=64
+using ABI="64"
+      CC="gcc"
+      CFLAGS="-O2 -pedantic -fomit-frame-pointer -m64 -mtune=k8 -march=k8"
+      CPPFLAGS=""
+      MPN_PATH=" x86_64/k8 x86_64 generic"
+creating config.m4
++ make -j16
++ make install
++ '[' '!' -f /home/USER/rh-push/box-verified-height/prefix/lib/libmpfr.so ']'
++ tar xf mpfr-4.2.2.tar.xz
++ cd mpfr-4.2.2
++ ./configure --prefix=/home/USER/rh-push/box-verified-height/prefix --with-gmp=/home/USER/rh-push/box-verified-height/prefix --disable-static -q
+(6.3.0/6.3.0) + make -j16
++ make install
++ '[' '!' -f /home/USER/rh-push/box-verified-height/prefix/lib/libflint.so ']'
++ tar xf flint-3.6.0.tar.gz
++ cd flint-3.6.0
++ ./configure --prefix=/home/USER/rh-push/box-verified-height/prefix --with-gmp=/home/USER/rh-push/box-verified-height/prefix --with-mpfr=/home/USER/rh-push/box-verified-height/prefix --disable-static -q
+creating config.m4
++ make -j16
+/home/USER/rh-push/box-verified-height/src/flint-3.6.0/src/mpn_extras/x86_64/broadwell/mulhigh_basecase.asm: 211: R32(%r14) does not yield minimal instruction size.
+In function ‘_mpn_mod_poly_divrem_q1_preinv1_fmma_n’,
+    inlined from ‘_mpn_mod_poly_divrem_q1_preinv1_fmma’ at /home/USER/rh-push/box-verified-height/src/flint-3.6.0/src/mpn_mod/poly_divrem_q1_preinv1.c:70:16:
+/home/USER/rh-push/box-verified-height/src/flint-3.6.0/src/mpn_mod/poly_divrem_q1_preinv1.c:30:5: warning: ‘q1’ may be used uninitialized [-Wmaybe-uninitialized]
+   30 |     mpn_mod_mul(t, q1, B + (lenB - 2) * nlimbs, ctx);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /home/USER/rh-push/box-verified-height/src/flint-3.6.0/src/mpn_mod/poly_divrem_q1_preinv1.c:12:
+/home/USER/rh-push/box-verified-height/src/flint-3.6.0/src/mpn_mod.h: In function ‘_mpn_mod_poly_divrem_q1_preinv1_fmma’:
+/home/USER/rh-push/box-verified-height/src/flint-3.6.0/src/mpn_mod.h:164:5: note: by argument 2 of type ‘nn_srcptr’ {aka ‘const long unsigned int *’} to ‘mpn_mod_mul’ declared here
+  164 | int mpn_mod_mul(nn_ptr res, nn_srcptr x, nn_srcptr y, gr_ctx_t ctx);
+      |     ^~~~~~~~~~~
+/home/USER/rh-push/box-verified-height/src/flint-3.6.0/src/mpn_mod/poly_divrem_q1_preinv1.c:19:11: note: ‘q1’ declared here
+   19 |     ulong q1[MPN_MOD_MAX_LIMBS];
+      |           ^~
+/home/USER/rh-push/box-verified-height/src/flint-3.6.0/src/padic_radix/log.c: In function ‘_padic_radix_log_wrapper’:
+/home/USER/rh-push/box-verified-height/src/flint-3.6.0/src/padic_radix/log.c:73:11: warning: unused variable ‘p’ [-Wunused-variable]
+   73 |     ulong p = GR_PADIC_RADIX_CTX(ctx)->p;
+      |           ^
+/home/USER/rh-push/box-verified-height/src/flint-3.6.0/src/qsieve/large_prime_variant.c: In function ‘qsieve_parse_relation’:
+/home/USER/rh-push/box-verified-height/src/flint-3.6.0/src/qsieve/large_prime_variant.c:197:5: warning: ignoring return value of ‘fread’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  197 |     fread(&rel.small_primes, sizeof(slong), 1, (FILE *) qs_inf->siqs);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/USER/rh-push/box-verified-height/src/flint-3.6.0/src/qsieve/large_prime_variant.c:201:5: warning: ignoring return value of ‘fread’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  201 |     fread(rel.small, sizeof(slong), rel.small_primes, (FILE *) qs_inf->siqs);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/USER/rh-push/box-verified-height/src/flint-3.6.0/src/qsieve/large_prime_variant.c:204:5: warning: ignoring return value of ‘fread’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  204 |     fread(&rel.num_factors, sizeof(slong), 1, (FILE *) qs_inf->siqs);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/USER/rh-push/box-verified-height/src/flint-3.6.0/src/qsieve/large_prime_variant.c:208:5: warning: ignoring return value of ‘fread’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  208 |     fread(rel.factor, sizeof(fac_t), rel.num_factors, (FILE *) qs_inf->siqs);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/USER/rh-push/box-verified-height/src/flint-3.6.0/src/qsieve/large_prime_variant.c:212:5: warning: ignoring return value of ‘fread’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  212 |     fread(&Ysz, sizeof(slong), 1, (FILE *) qs_inf->siqs);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/USER/rh-push/box-verified-height/src/flint-3.6.0/src/qsieve/large_prime_variant.c:220:9: warning: ignoring return value of ‘fread’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  220 |         fread(&abslimb, sizeof(ulong), 1, (FILE *) qs_inf->siqs);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/USER/rh-push/box-verified-height/src/flint-3.6.0/src/qsieve/large_prime_variant.c:237:9: warning: ignoring return value of ‘fread’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  237 |         fread(ptr, sizeof(ulong), FLINT_ABS(Ysz), (FILE *) qs_inf->siqs);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/USER/rh-push/box-verified-height/src/flint-3.6.0/src/qsieve/large_prime_variant.c: In function ‘qsieve_process_relation’:
+/home/USER/rh-push/box-verified-height/src/flint-3.6.0/src/qsieve/large_prime_variant.c:505:9: warning: ignoring return value of ‘fread’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  505 |         fread(&prime, sizeof(ulong), 1, (FILE *) qs_inf->siqs);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /home/USER/rh-push/box-verified-height/src/flint-3.6.0/src/gr_generic/generic.c:18:
+/home/USER/rh-push/box-verified-height/src/flint-3.6.0/src/gr_generic/generic.c: In function ‘gr_generic_vec_dot_strided’:
+/home/USER/rh-push/box-verified-height/src/flint-3.6.0/src/gr.h:1249:78: warning: ‘tmp1’ may be used uninitialized [-Wmaybe-uninitialized]
+ 1249 | #define GR_TMP_FREE(ptr, size) do { if ((size) > GR_TMP_VEC_ALLOC_MAX_STACK) flint_free(ptr); } while (0)
+      |                                                                              ^~~~~~~~~~~~~~~
+/home/USER/rh-push/box-verified-height/src/flint-3.6.0/src/gr_generic/generic.c:2544:13: note: in expansion of macro ‘GR_TMP_FREE’
+ 2544 |             GR_TMP_FREE(tmp1, len * sz);
+      |             ^~~~~~~~~~~
+/home/USER/rh-push/box-verified-height/src/flint-3.6.0/src/gr_generic/generic.c:2524:16: note: ‘tmp1’ was declared here
+ 2524 |         gr_ptr tmp1, tmp2;
+      |                ^~~~
+/home/USER/rh-push/box-verified-height/src/flint-3.6.0/src/gr_poly/compose.c:19:1: warning: no previous prototype for ‘_gr_poly_inflate’ [-Wmissing-prototypes]
+   19 | _gr_poly_inflate(gr_ptr poly, slong len, slong n, gr_ctx_t ctx)
+      | ^~~~~~~~~~~~~~~~
++ make install
+cp: warning: source file 'src/config.h' specified more than once
+cp: warning: source file 'src/flint-config.h' specified more than once
+cp: warning: source file 'src/flint.h' specified more than once
+cp: warning: source file 'src/gmpcompat.h' specified more than once
+cp: warning: source file 'src/flint-mparam.h' specified more than once
++ ls -la /home/USER/rh-push/box-verified-height/prefix/lib
++ head -30
+total 69996
+drwxrwxr-x 3 jude-gomila jude-gomila     4096 Nov 17 13:35 .
+drwxrwxr-x 6 jude-gomila jude-gomila     4096 Nov 17 13:35 ..
+lrwxrwxrwx 1 jude-gomila jude-gomila       18 Nov 17 13:35 libflint.so -> libflint.so.24.0.0
+lrwxrwxrwx 1 jude-gomila jude-gomila       18 Nov 17 13:35 libflint.so.24 -> libflint.so.24.0.0
+-rwxrwxr-x 1 jude-gomila jude-gomila 70284872 Nov 17 13:35 libflint.so.24.0.0
+-rwxr-xr-x 1 jude-gomila jude-gomila      947 Nov 17 13:35 libgmp.la
+lrwxrwxrwx 1 jude-gomila jude-gomila       16 Nov 17 13:35 libgmp.so -> libgmp.so.10.5.0
+lrwxrwxrwx 1 jude-gomila jude-gomila       16 Nov 17 13:35 libgmp.so.10 -> libgmp.so.10.5.0
+-rwxr-xr-x 1 jude-gomila jude-gomila   561880 Nov 17 13:35 libgmp.so.10.5.0
+-rwxr-xr-x 1 jude-gomila jude-gomila     1090 Nov 17 13:35 libmpfr.la
+lrwxrwxrwx 1 jude-gomila jude-gomila       16 Nov 17 13:35 libmpfr.so -> libmpfr.so.6.2.2
+lrwxrwxrwx 1 jude-gomila jude-gomila       16 Nov 17 13:35 libmpfr.so.6 -> libmpfr.so.6.2.2
+-rwxr-xr-x 1 jude-gomila jude-gomila   799600 Nov 17 13:35 libmpfr.so.6.2.2
+drwxrwxr-x 2 jude-gomila jude-gomila     4096 Nov 17 13:35 pkgconfig
++ cd /home/USER/rh-push/box-verified-height/r36build
++ CF='-O2 -include rename.h -I/home/USER/rh-push/box-verified-height/prefix/include -I/home/USER/rh-push/box-verified-height/prefix/include/flint -I.'
++ gcc -O2 -include rename.h -I/home/USER/rh-push/box-verified-height/prefix/include -I/home/USER/rh-push/box-verified-height/prefix/include/flint -I. -DWRAP_FIX -c platt_multieval_fix.c -o pm_fix.o
++ gcc -O2 -include rename.h -I/home/USER/rh-push/box-verified-height/prefix/include -I/home/USER/rh-push/box-verified-height/prefix/include/flint -I. -c platt_multieval_threaded.c -o pmt.o
++ gcc -O2 -include rename.h -I/home/USER/rh-push/box-verified-height/prefix/include -I/home/USER/rh-push/box-verified-height/prefix/include/flint -I. -c platt_local_hardy_z_zeros.c -o plh.o
++ cd /home/USER/rh-push/box-verified-height
++ gcc -O2 -I/home/USER/rh-push/box-verified-height/prefix/include -I/home/USER/rh-push/box-verified-height/prefix/include/flint -include r36build/rename.h -c r36win.c -o r36build/r36win.o
++ gcc -o r36win r36build/r36win.o r36build/pm_fix.o r36build/pmt.o r36build/plh.o -L/home/USER/rh-push/box-verified-height/prefix/lib -Wl,-rpath,/home/USER/rh-push/box-verified-height/prefix/lib -lflint -lmpfr -lgmp -lm -lpthread
++ gcc -O2 -I/home/USER/rh-push/box-verified-height/prefix/include -I/home/USER/rh-push/box-verified-height/prefix/include/flint -o zsign zsign.c -L/home/USER/rh-push/box-verified-height/prefix/lib -Wl,-rpath,/home/USER/rh-push/box-verified-height/prefix/lib -lflint -lmpfr -lgmp -lm
++ nm r36win
++ grep -c lemma_A7
+1
++ echo BUILD_DONE
+BUILD_DONE

@@ -1,0 +1,70 @@
+{
+ "C1_salie_eval": {
+  "squarefree_cases": 24004,
+  "squarefree_fail": 0,
+  "max_err_squarefree": 1.2789502306113912e-12,
+  "nonsquarefree_cases": 3996,
+  "nonsquarefree_fail": 0
+ },
+ "C2_salie_to_ramanujan": {
+  "cases": 2115,
+  "max_err": 9.936062871523059e-11
+ },
+ "C2b_kloosterman_to_gauss": {
+  "cases": 1710,
+  "max_err": 6.924682161960657e-11
+ },
+ "C3_root_sum_moebius": {
+  "cases": 9720,
+  "max_err": 2.2092961179521269e-13
+ },
+ "C3b_U_as_factorisations": {
+  "cases": 4860,
+  "max_err": 1.2374863774905952e-13
+ },
+ "C4_r3_hecke_square": {
+  "cases": 174,
+  "fails": 0
+ },
+ "C5_probe_factorisation": {
+  "lhs": [
+   30.501437005984414,
+   4.4872389928155533e-13
+  ],
+  "rhs": [
+   30.50143700598442,
+   3.8795932369453863e-14
+  ],
+  "abs_diff": 4.0998954273813263e-13
+ },
+ "C6_completeness_rank_vs_phi": {
+  "3": [
+   2,
+   2
+  ],
+  "5": [
+   4,
+   4
+  ],
+  "7": [
+   6,
+   6
+  ],
+  "15": [
+   8,
+   8
+  ],
+  "21": [
+   12,
+   12
+  ],
+  "33": [
+   20,
+   20
+  ],
+  "35": [
+   24,
+   24
+  ]
+ }
+}

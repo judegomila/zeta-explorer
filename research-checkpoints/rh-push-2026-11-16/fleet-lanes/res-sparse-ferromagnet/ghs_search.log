@@ -1,0 +1,6 @@
+LY polynomials with positive coefficients tested: 203194
+max third derivative found: -3.550262552969334e-08 at h = 8.0
+angles: [1.0472567391369372] factors (w+1): 1
+coefficients: [1.0, 0.00010251827140950187, 0.00010251827140950187, 1.0]
+mpmath third derivative of log P(e^h) at that h: -3.55026255296961e-8
+max | |root| - 1 |: 1.1102230246251565e-15

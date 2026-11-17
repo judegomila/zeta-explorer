@@ -1,0 +1,23 @@
+[sweep] tier=local tasks=60 done=50 todo=10 workers=1 task_cap=6.0 GB task_limit=200 s out=results/local.jsonl
+[plan] 170 MB planned  {"T":30.0,"input":"zeta","scheme":"euler","size":3}
+[done] OK             PASS            1.0s      38 MB  {"T":30.0,"input":"zeta","scheme":"euler","size":3}
+[plan] 170 MB planned  {"T":30.0,"input":"zeta","scheme":"euler","size":17}
+[done] OK             FAIL           21.5s     151 MB  {"T":30.0,"input":"zeta","scheme":"euler","size":17}
+[plan] 170 MB planned  {"T":30.0,"input":"ea:0.25","scheme":"euler","size":23}
+[done] OK             UNRESOLVED     98.6s     142 MB  {"T":30.0,"input":"ea:0.25","scheme":"euler","size":23}
+[plan] 170 MB planned  {"T":30.0,"input":"zeta","scheme":"euler","size":29}
+[done] OK             UNRESOLVED     13.9s      59 MB  {"T":30.0,"input":"zeta","scheme":"euler","size":29}
+[plan] 170 MB planned  {"T":30.0,"input":"ea:0.25","scheme":"euler","size":29}
+[done] OK             UNRESOLVED      1.3s      33 MB  {"T":30.0,"input":"ea:0.25","scheme":"euler","size":29}
+[plan] 170 MB planned  {"T":30.0,"input":"zeta","scheme":"euler","size":47}
+[done] OK             UNRESOLVED     33.0s      86 MB  {"T":30.0,"input":"zeta","scheme":"euler","size":47}
+[plan] 170 MB planned  {"T":30.0,"input":"tw2m","scheme":"euler","size":47}
+[done] OK             UNRESOLVED     44.2s     102 MB  {"T":30.0,"input":"tw2m","scheme":"euler","size":47}
+[plan] 170 MB planned  {"T":30.0,"input":"tw2h","scheme":"euler","size":47}
+[done] OK             UNRESOLVED     34.3s      86 MB  {"T":30.0,"input":"tw2h","scheme":"euler","size":47}
+[plan] 170 MB planned  {"T":30.0,"input":"liou","scheme":"euler","size":47}
+[done] OK             UNRESOLVED     40.7s      96 MB  {"T":30.0,"input":"liou","scheme":"euler","size":47}
+[plan] 170 MB planned  {"T":30.0,"input":"ea:0.25","scheme":"euler","size":47}
+[done] OK             UNRESOLVED      0.6s      31 MB  {"T":30.0,"input":"ea:0.25","scheme":"euler","size":47}
+[sweep] finished
+EXIT 0

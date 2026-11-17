@@ -1,0 +1,17 @@
+q=3 N=[1, 0, 2, 1] dim=28  radii: q^-1/2=0.577350 1/q=0.333333
+== k=0 order 1:  L(u,chi)=(1-u)^0 * roots [0.333333@-0.6667pi, 0.333333@+0.6667pi]
+   det(1-M|V+) dim 15 [geometric]: (1-3u)^(-2) (1-u)^4 (1+u)^0 * roots [0.111111@+0.0000pi, 1.000000@-0.6667pi, 1.000000@+0.6667pi]   (ball rad 7.0e-155)
+   det(1+M|V+) dim 15 [non-geometric]: (1-3u)^(-2) (1-u)^0 (1+u)^2 * roots [0.333333@+1.0000pi, 0.396064@-0.0238pi, 0.396064@+0.0238pi, 0.415082@-0.5023pi, 0.415082@+0.5023pi]   (ball rad 5.8e-155)
+   det(1-M|V-) dim 13 [non-geometric]: (1-3u)^(-0) (1-u)^0 (1+u)^2 * roots [0.449945@+0.0000pi, 0.496934@-0.3544pi, 0.496934@+0.3544pi]   (ball rad 3.4e-159)
+   det(1+M|V-) dim 13 [geometric]: (1-3u)^(-0) (1-u)^3 (1+u)^0 * roots [0.333333@-0.8136pi, 0.333333@+0.8136pi]   (ball rad 3.1e-158)
+== k=2 order 13:  L(u,chi)=(1-u)^1 * roots [0.577350@+0.9437pi]
+   det(1-M|V+) dim 15 [geometric]: (1-3u)^(-1) (1-u)^4 (1+u)^0 * roots [0.577350@-0.9437pi, 0.577350@+0.9437pi]   (ball rad 4.0e-154)
+   det(1+M|V+) dim 15 [non-geometric]: (1-3u)^(-2) (1-u)^0 (1+u)^1 * roots [0.274315@-0.1388pi, 0.274315@+0.1388pi, 0.408567@-0.6035pi, 0.408567@+0.6035pi, 0.433828@-0.1042pi, 0.433828@+0.1042pi]   (ball rad 3.1e-154)
+   det(1-M|V-) dim 13 [non-geometric]: (1-3u)^(-0) (1-u)^0 (1+u)^2 * roots [0.396307@-0.6510pi, 0.396307@+0.6510pi, 0.707447@+0.0000pi]   (ball rad 3.5e-158)
+   det(1+M|V-) dim 13 [geometric]: (1-3u)^(-0) (1-u)^3 (1+u)^0 * roots [0.333333@-0.5057pi, 0.333333@+0.5057pi]   (ball rad 1.8e-158)
+== k=4 order 13:  L(u,chi)=(1-u)^1 * roots [0.577350@-0.7798pi]
+   det(1-M|V+) dim 15 [geometric]: (1-3u)^(-1) (1-u)^4 (1+u)^0 * roots [0.577350@-0.7798pi, 0.577350@+0.7798pi]   (ball rad 1.4e-154)
+   det(1+M|V+) dim 15 [non-geometric]: (1-3u)^(-2) (1-u)^0 (1+u)^1 * roots [0.282005@+0.0000pi, 0.309621@-0.2007pi, 0.309621@+0.2007pi, 0.407277@-0.6330pi, 0.407277@+0.6330pi, 0.527183@-0.0000pi]   (ball rad 2.0e-154)
+   det(1-M|V-) dim 13 [non-geometric]: (1-3u)^(-0) (1-u)^0 (1+u)^2 * roots [0.425653@+0.0000pi, 0.510917@-0.3418pi, 0.510917@+0.3418pi]   (ball rad 4.2e-159)
+   det(1+M|V-) dim 13 [geometric]: (1-3u)^(-0) (1-u)^3 (1+u)^0 * roots [0.333333@-0.8354pi, 0.333333@+0.8354pi]   (ball rad 5.4e-158)
+scripts/memcap.sh 8 tmp/research-2026-11-16/push/n1-ff-mayer/venv/bin/python   0.65s user 0.05s system 34% cpu 2.035 total

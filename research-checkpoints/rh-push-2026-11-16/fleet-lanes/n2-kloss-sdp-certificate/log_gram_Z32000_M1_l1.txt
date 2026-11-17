@@ -1,0 +1,5 @@
+Z=32000 M=1.0 l=1.0 X=1024000000 NMAX=64001 elements=25794 primes=6415
+rows R=7249  marks n=2983  small primes=3432
+gauss sums done 10.3s max||g|-1|=7.11e-15
+cofactors c': 8120; planned allocation: B 8120x7249 c128 x2 (two characters), X 2983x7249 c128 x3, W 2983x8120 c128 x2, G 2983x2983 c128 x3, int8 tables: total 4.17 GB
+planned allocation above 4 GB: reduce Z

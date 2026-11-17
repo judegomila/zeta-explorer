@@ -1,0 +1,5 @@
+k=8 start MF    : sup 1.9864 -> 1.4454   sup(t>10)=1.2646  sup on sigma=1.2: 0.6442  max J=0.508  rowres=1.6e-12  (3s, 43 it)
+k=8 start BAND  : sup 1.5550 -> 1.4454   sup(t>10)=1.2648  sup on sigma=1.2: 0.6442  max J=0.508  rowres=1.5e-12  (3s, 44 it)
+k=8 start rand1 : sup 2.0070 -> 1.4240   sup(t>10)=1.1382  sup on sigma=1.2: 0.5608  max J=0.578  rowres=1.5e-12  (5s, 58 it)
+k=8 start rand2 : sup 2.0524 -> 1.5567   sup(t>10)=1.2287  sup on sigma=1.2: 0.5850  max J=0.468  rowres=1.7e-12  (5s, 60 it)
+k=8 BEST sup=1.4240 (start rand1);  floor from zeta's zero near the compact: sup|log|zeta|| on compact = 2.2439; bare Euler 2.8907

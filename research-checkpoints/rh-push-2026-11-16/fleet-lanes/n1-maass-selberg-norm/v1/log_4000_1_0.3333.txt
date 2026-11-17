@@ -1,0 +1,38 @@
+Z=4000 M=1.0 l=0.3333 NMAX=63479 primary elements=25584
+primes: 6361
+rows: 1207 (norm in (1000,4000])
+planned: symbol table 6361 x 1207 int8 = 7.7 MB
+symbol table done 0.5s
+gauss sums done 5.5s  max||g|-1|=7.33e-15
+check g^3 = -alpha: max dev with alpha=c/|c|: 2.20e-14; with conj: 2.00e+00
+selftest composite Gauss sum (brute force vs twisted multiplicativity): max dev 5.88e-15
+slot primes: 5 norms [19, 19, 25, 31, 31]
+columns used: 15351  (6.7s)
+
+UNMARKED  ratio = mean_m |C|^2 / mean_m diag ; lemma 5.8 factor Z^(M-N)_+ ; classical factor Z^(2N-M)_+
+  A  gamma2*chi6         N=M/2   X=       63 ratio=  0.930  max-row=    4.60  lemma=  63.25  classical=      1.0
+  A  gamma2*chi6         N=3M/4  X=      503 ratio=  0.967  max-row=    6.26  lemma=   7.95  classical=     63.2
+  A  gamma2*chi6         N=M     X=     4000 ratio=  1.039  max-row=   16.25  lemma=   1.00  classical=   4000.0
+  A  gamma2*chi6         N=1+l   X=    63478 ratio=  1.039  max-row=   97.43  lemma=   1.00  classical=1007379.7
+  A' gamma2*abar*chi6    N=M/2   X=       63 ratio=  0.960  max-row=    5.16  lemma=  63.25  classical=      1.0
+  A' gamma2*abar*chi6    N=3M/4  X=      503 ratio=  0.941  max-row=    5.13  lemma=   7.95  classical=     63.2
+  A' gamma2*abar*chi6    N=M     X=     4000 ratio=  0.927  max-row=    4.84  lemma=   1.00  classical=   4000.0
+  A' gamma2*abar*chi6    N=1+l   X=    63478 ratio=  0.970  max-row=    8.95  lemma=   1.00  classical=1007379.7
+  B  gamma2*chi6^5       N=M/2   X=       63 ratio=  0.987  max-row=    5.44  lemma=  63.25  classical=      1.0
+  B  gamma2*chi6^5       N=3M/4  X=      503 ratio=  1.056  max-row=    6.87  lemma=   7.95  classical=     63.2
+  B  gamma2*chi6^5       N=M     X=     4000 ratio=  0.998  max-row=   11.98  lemma=   1.00  classical=   4000.0
+  B  gamma2*chi6^5       N=1+l   X=    63478 ratio=  1.442  max-row=   67.78  lemma=   1.00  classical=1007379.7
+  K  gamma2*chi6^4 (Kubo N=M/2   X=       63 ratio=  0.866  max-row=    5.06  lemma=  63.25  classical=      1.0
+  K  gamma2*chi6^4 (Kubo N=3M/4  X=      503 ratio=  1.492  max-row=   11.19  lemma=   7.95  classical=     63.2
+  K  gamma2*chi6^4 (Kubo N=M     X=     4000 ratio=  3.806  max-row=   31.53  lemma=   1.00  classical=   4000.0
+  K  gamma2*chi6^4 (Kubo N=1+l   X=    63478 ratio= 15.980  max-row=  214.29  lemma=   1.00  classical=1007379.7
+  R  random phase*chi6 ( N=M/2   X=       63 ratio=  1.004  max-row=    6.04  lemma=  63.25  classical=      1.0
+  R  random phase*chi6 ( N=3M/4  X=      503 ratio=  0.980  max-row=    7.24  lemma=   7.95  classical=     63.2
+  R  random phase*chi6 ( N=M     X=     4000 ratio=  1.033  max-row=    9.41  lemma=   1.00  classical=   4000.0
+  R  random phase*chi6 ( N=1+l   X=    63478 ratio=  0.996  max-row=    7.11  lemma=   1.00  classical=1007379.7
+
+MARKED  X=Z^(1+l)=63478  K-loss factor Z^(M+l-1)_+ = 15.87  marks=5  MP edge (1+sqrt(P/R))^2 = 1.133
+  A  gamma2*chi6         diag=0.887 off_rms=0.0363 eig[min,max]=[0.795,1.035]  R_ones=0.882  R_signs=0.877  R_worst=0.876
+  A' gamma2*abar*chi6    diag=0.903 off_rms=0.0345 eig[min,max]=[0.814,1.050]  R_ones=0.869  R_signs=0.869  R_worst=0.936
+  R  random phase*chi6 ( diag=0.918 off_rms=0.0407 eig[min,max]=[0.813,1.087]  R_ones=0.933  R_signs=0.875  R_worst=0.919
+total 6.7s

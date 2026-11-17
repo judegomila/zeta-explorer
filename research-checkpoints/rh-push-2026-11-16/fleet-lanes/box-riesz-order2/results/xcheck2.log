@@ -1,0 +1,2 @@
+    raise Unresolved('box budget exhausted')
+lylib.Unresolved: box budget exhausted

@@ -1,0 +1,8 @@
+residue form S_n = (1-1/q) sum_j q^(4j) a_(n-3j) for n > deg r + 1: max deviation / q^(4n/3) = 6.05e-08
+(m,n)=(3,5) n > m+1: True:  |Cv - conj S_n(c)| / |Cv| = 1.0000; correlation = 0.0873; |Cv|^2 / (N q^(8n/3 - m/3)) = 0.0007
+(m,n)=(4,5) n > m+1: False:  |Cv - conj S_n(c)| / |Cv| = 0.1736; correlation = 0.9930; |Cv|^2 / (N q^(8n/3 - m/3)) = 0.6161
+(m,n)=(4,4) n > m+1: False:  |Cv - conj S_n(c)| / |Cv| = 0.2211; correlation = 0.9836; |Cv|^2 / (N q^(8n/3 - m/3)) = 0.0531
+(m,n)=(3,4) n > m+1: False:  |Cv - conj S_n(c)| / |Cv| = 0.1948; correlation = 0.9913; |Cv|^2 / (N q^(8n/3 - m/3)) = 1.1472
+(m,n)=(4,6) n > m+1: True:  |Cv - conj S_n(c)| / |Cv| = 0.1732; correlation = 0.9935; |Cv|^2 / (N q^(8n/3 - m/3)) = 1.1118
+(m,n)=(3,6) n > m+1: True:  |Cv - conj S_n(c)| / |Cv| = 0.1719; correlation = 0.9932; |Cv|^2 / (N q^(8n/3 - m/3)) = 0.5856
+(m,n)=(2,6) n > m+1: True:  |Cv - conj S_n(c)| / |Cv| = 1.0000; correlation = 0.5663; |Cv|^2 / (N q^(8n/3 - m/3)) = 0.0000

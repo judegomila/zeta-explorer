@@ -1,0 +1,2 @@
+T=10000000000 found=5587 grid=18.6s total=39.8s guards=1
+TIMING a_1e10 r36win rc=0 wall=39.77 user=39.65 sys=0.06 maxrssMB=343.1

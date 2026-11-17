@@ -1,0 +1,351 @@
+[sweep] tier=local tasks=174 done=0 todo=174 workers=1 task_cap=6.0 GB task_limit=240 s out=results/local.jsonl
+[plan] 170 MB planned  {"T":30.0,"input":"zeta","scheme":"euler","size":2}
+[done] OK             PASS            0.4s       0 MB  {"T":30.0,"input":"zeta","scheme":"euler","size":2}
+[plan] 170 MB planned  {"T":30.0,"input":"tw2m","scheme":"euler","size":2}
+[done] OK             PASS            0.4s       0 MB  {"T":30.0,"input":"tw2m","scheme":"euler","size":2}
+[plan] 170 MB planned  {"T":30.0,"input":"tw2h","scheme":"euler","size":2}
+[done] OK             PASS            0.3s       0 MB  {"T":30.0,"input":"tw2h","scheme":"euler","size":2}
+[plan] 170 MB planned  {"T":30.0,"input":"liou","scheme":"euler","size":2}
+[done] OK             PASS            0.4s       0 MB  {"T":30.0,"input":"liou","scheme":"euler","size":2}
+[plan] 170 MB planned  {"T":30.0,"input":"ea:0.25","scheme":"euler","size":2}
+[done] OK             PASS            1.6s      37 MB  {"T":30.0,"input":"ea:0.25","scheme":"euler","size":2}
+[plan] 170 MB planned  {"T":30.0,"input":"dh","scheme":"euler","size":2}
+[done] NOT_FORMULABLE                 0.0s       0 MB  {"T":30.0,"input":"dh","scheme":"euler","size":2}
+[plan] 190 MB planned  {"T":60.0,"input":"zeta","scheme":"afe","size":1,"weight":"sharp"}
+[done] OK             PASS            0.5s      33 MB  {"T":60.0,"input":"zeta","scheme":"afe","size":1,"weight":"sharp"}
+[plan] 190 MB planned  {"T":60.0,"input":"dh","scheme":"afe","size":1,"weight":"sharp"}
+[done] OK             PASS            0.6s      34 MB  {"T":60.0,"input":"dh","scheme":"afe","size":1,"weight":"sharp"}
+[plan] 190 MB planned  {"T":60.0,"input":"tw2m","scheme":"afe","size":1,"weight":"sharp"}
+[done] OK             PASS            0.5s       0 MB  {"T":60.0,"input":"tw2m","scheme":"afe","size":1,"weight":"sharp"}
+[plan] 190 MB planned  {"T":60.0,"input":"tw2h","scheme":"afe","size":1,"weight":"sharp"}
+[done] OK             PASS            0.5s      34 MB  {"T":60.0,"input":"tw2h","scheme":"afe","size":1,"weight":"sharp"}
+[plan] 190 MB planned  {"T":60.0,"input":"liou","scheme":"afe","size":1,"weight":"sharp"}
+[done] OK             PASS            0.5s      34 MB  {"T":60.0,"input":"liou","scheme":"afe","size":1,"weight":"sharp"}
+[plan] 190 MB planned  {"T":60.0,"input":"ea:0.25","scheme":"afe","size":1,"weight":"sharp"}
+[done] OK             PASS            1.6s      36 MB  {"T":60.0,"input":"ea:0.25","scheme":"afe","size":1,"weight":"sharp"}
+[plan] 170 MB planned  {"T":30.0,"input":"zeta","scheme":"euler","size":3}
+[done] OK             UNRESOLVED      0.1s       0 MB  {"T":30.0,"input":"zeta","scheme":"euler","size":3}
+[plan] 170 MB planned  {"T":30.0,"input":"tw2m","scheme":"euler","size":3}
+[done] OK             PASS            1.8s      41 MB  {"T":30.0,"input":"tw2m","scheme":"euler","size":3}
+[plan] 170 MB planned  {"T":30.0,"input":"tw2h","scheme":"euler","size":3}
+[done] OK             PASS            0.8s      34 MB  {"T":30.0,"input":"tw2h","scheme":"euler","size":3}
+[plan] 170 MB planned  {"T":30.0,"input":"liou","scheme":"euler","size":3}
+[done] OK             FAIL            2.4s      44 MB  {"T":30.0,"input":"liou","scheme":"euler","size":3}
+[plan] 170 MB planned  {"T":30.0,"input":"ea:0.25","scheme":"euler","size":3}
+[done] OK             FAIL            7.8s      61 MB  {"T":30.0,"input":"ea:0.25","scheme":"euler","size":3}
+[plan] 170 MB planned  {"T":30.0,"input":"dh","scheme":"euler","size":3}
+[done] NOT_FORMULABLE                 0.0s       0 MB  {"T":30.0,"input":"dh","scheme":"euler","size":3}
+[plan] 170 MB planned  {"T":30.0,"input":"zeta","scheme":"euler","size":5}
+[done] OK             PASS            3.3s      51 MB  {"T":30.0,"input":"zeta","scheme":"euler","size":5}
+[plan] 170 MB planned  {"T":30.0,"input":"tw2m","scheme":"euler","size":5}
+[done] OK             FAIL            5.3s      65 MB  {"T":30.0,"input":"tw2m","scheme":"euler","size":5}
+[plan] 170 MB planned  {"T":30.0,"input":"tw2h","scheme":"euler","size":5}
+[done] OK             PASS            1.3s      38 MB  {"T":30.0,"input":"tw2h","scheme":"euler","size":5}
+[plan] 170 MB planned  {"T":30.0,"input":"liou","scheme":"euler","size":5}
+[done] OK             PASS            3.1s      52 MB  {"T":30.0,"input":"liou","scheme":"euler","size":5}
+[plan] 170 MB planned  {"T":30.0,"input":"ea:0.25","scheme":"euler","size":5}
+[done] OK             PASS           12.6s      77 MB  {"T":30.0,"input":"ea:0.25","scheme":"euler","size":5}
+[plan] 170 MB planned  {"T":30.0,"input":"dh","scheme":"euler","size":5}
+[done] NOT_FORMULABLE                 0.0s       0 MB  {"T":30.0,"input":"dh","scheme":"euler","size":5}
+[plan] 190 MB planned  {"T":60.0,"input":"zeta","scheme":"afe","size":2,"weight":"sharp"}
+[done] OK             FAIL            0.8s      34 MB  {"T":60.0,"input":"zeta","scheme":"afe","size":2,"weight":"sharp"}
+[plan] 190 MB planned  {"T":60.0,"input":"dh","scheme":"afe","size":2,"weight":"sharp"}
+[done] OK             PASS            0.6s      34 MB  {"T":60.0,"input":"dh","scheme":"afe","size":2,"weight":"sharp"}
+[plan] 190 MB planned  {"T":60.0,"input":"tw2m","scheme":"afe","size":2,"weight":"sharp"}
+[done] OK             FAIL            0.8s      34 MB  {"T":60.0,"input":"tw2m","scheme":"afe","size":2,"weight":"sharp"}
+[plan] 190 MB planned  {"T":60.0,"input":"tw2h","scheme":"afe","size":2,"weight":"sharp"}
+[done] OK             PASS            0.5s      34 MB  {"T":60.0,"input":"tw2h","scheme":"afe","size":2,"weight":"sharp"}
+[plan] 190 MB planned  {"T":60.0,"input":"liou","scheme":"afe","size":2,"weight":"sharp"}
+[done] OK             FAIL            0.9s      34 MB  {"T":60.0,"input":"liou","scheme":"afe","size":2,"weight":"sharp"}
+[plan] 190 MB planned  {"T":60.0,"input":"ea:0.25","scheme":"afe","size":2,"weight":"sharp"}
+[done] OK             FAIL            1.7s      36 MB  {"T":60.0,"input":"ea:0.25","scheme":"afe","size":2,"weight":"sharp"}
+[plan] 190 MB planned  {"T":60.0,"input":"zeta","scheme":"afe","size":2,"weight":"riesz1"}
+[done] OK             PASS            0.5s       0 MB  {"T":60.0,"input":"zeta","scheme":"afe","size":2,"weight":"riesz1"}
+[plan] 190 MB planned  {"T":60.0,"input":"dh","scheme":"afe","size":2,"weight":"riesz1"}
+[done] OK             PASS            0.6s      34 MB  {"T":60.0,"input":"dh","scheme":"afe","size":2,"weight":"riesz1"}
+[plan] 190 MB planned  {"T":60.0,"input":"tw2m","scheme":"afe","size":2,"weight":"riesz1"}
+[done] OK             PASS            0.5s       0 MB  {"T":60.0,"input":"tw2m","scheme":"afe","size":2,"weight":"riesz1"}
+[plan] 190 MB planned  {"T":60.0,"input":"tw2h","scheme":"afe","size":2,"weight":"riesz1"}
+[done] OK             PASS            0.5s       0 MB  {"T":60.0,"input":"tw2h","scheme":"afe","size":2,"weight":"riesz1"}
+[plan] 190 MB planned  {"T":60.0,"input":"liou","scheme":"afe","size":2,"weight":"riesz1"}
+[done] OK             PASS            0.5s       0 MB  {"T":60.0,"input":"liou","scheme":"afe","size":2,"weight":"riesz1"}
+[plan] 190 MB planned  {"T":60.0,"input":"ea:0.25","scheme":"afe","size":2,"weight":"riesz1"}
+[done] OK             FAIL            2.8s      40 MB  {"T":60.0,"input":"ea:0.25","scheme":"afe","size":2,"weight":"riesz1"}
+[plan] 190 MB planned  {"T":60.0,"input":"zeta","scheme":"afe","size":2,"weight":"riesz2"}
+[done] OK             PASS            0.5s       0 MB  {"T":60.0,"input":"zeta","scheme":"afe","size":2,"weight":"riesz2"}
+[plan] 190 MB planned  {"T":60.0,"input":"dh","scheme":"afe","size":2,"weight":"riesz2"}
+[done] OK             PASS            0.6s      34 MB  {"T":60.0,"input":"dh","scheme":"afe","size":2,"weight":"riesz2"}
+[plan] 190 MB planned  {"T":60.0,"input":"tw2m","scheme":"afe","size":2,"weight":"riesz2"}
+[done] OK             PASS            0.5s       0 MB  {"T":60.0,"input":"tw2m","scheme":"afe","size":2,"weight":"riesz2"}
+[plan] 190 MB planned  {"T":60.0,"input":"tw2h","scheme":"afe","size":2,"weight":"riesz2"}
+[done] OK             PASS            0.4s       0 MB  {"T":60.0,"input":"tw2h","scheme":"afe","size":2,"weight":"riesz2"}
+[plan] 190 MB planned  {"T":60.0,"input":"liou","scheme":"afe","size":2,"weight":"riesz2"}
+[done] OK             PASS            0.5s       0 MB  {"T":60.0,"input":"liou","scheme":"afe","size":2,"weight":"riesz2"}
+[plan] 190 MB planned  {"T":60.0,"input":"ea:0.25","scheme":"afe","size":2,"weight":"riesz2"}
+[done] OK             PASS            1.5s      35 MB  {"T":60.0,"input":"ea:0.25","scheme":"afe","size":2,"weight":"riesz2"}
+[plan] 190 MB planned  {"T":60.0,"input":"zeta","scheme":"afe","size":3,"weight":"sharp"}
+[done] OK             FAIL            0.9s      34 MB  {"T":60.0,"input":"zeta","scheme":"afe","size":3,"weight":"sharp"}
+[plan] 190 MB planned  {"T":60.0,"input":"dh","scheme":"afe","size":3,"weight":"sharp"}
+[done] OK             PASS            0.6s      34 MB  {"T":60.0,"input":"dh","scheme":"afe","size":3,"weight":"sharp"}
+[plan] 190 MB planned  {"T":60.0,"input":"tw2m","scheme":"afe","size":3,"weight":"sharp"}
+[done] OK             FAIL            0.9s      34 MB  {"T":60.0,"input":"tw2m","scheme":"afe","size":3,"weight":"sharp"}
+[plan] 190 MB planned  {"T":60.0,"input":"tw2h","scheme":"afe","size":3,"weight":"sharp"}
+[done] OK             FAIL            1.0s      33 MB  {"T":60.0,"input":"tw2h","scheme":"afe","size":3,"weight":"sharp"}
+[plan] 190 MB planned  {"T":60.0,"input":"liou","scheme":"afe","size":3,"weight":"sharp"}
+[done] OK             FAIL            0.5s      34 MB  {"T":60.0,"input":"liou","scheme":"afe","size":3,"weight":"sharp"}
+[plan] 190 MB planned  {"T":60.0,"input":"ea:0.25","scheme":"afe","size":3,"weight":"sharp"}
+[done] OK             FAIL            1.6s      36 MB  {"T":60.0,"input":"ea:0.25","scheme":"afe","size":3,"weight":"sharp"}
+[plan] 190 MB planned  {"T":60.0,"input":"zeta","scheme":"afe","size":3,"weight":"riesz1"}
+[done] OK             PASS            0.5s      34 MB  {"T":60.0,"input":"zeta","scheme":"afe","size":3,"weight":"riesz1"}
+[plan] 190 MB planned  {"T":60.0,"input":"dh","scheme":"afe","size":3,"weight":"riesz1"}
+[done] OK             PASS            0.7s      34 MB  {"T":60.0,"input":"dh","scheme":"afe","size":3,"weight":"riesz1"}
+[plan] 190 MB planned  {"T":60.0,"input":"tw2m","scheme":"afe","size":3,"weight":"riesz1"}
+[done] OK             PASS            0.5s      34 MB  {"T":60.0,"input":"tw2m","scheme":"afe","size":3,"weight":"riesz1"}
+[plan] 190 MB planned  {"T":60.0,"input":"tw2h","scheme":"afe","size":3,"weight":"riesz1"}
+[done] OK             PASS            0.5s      34 MB  {"T":60.0,"input":"tw2h","scheme":"afe","size":3,"weight":"riesz1"}
+[plan] 190 MB planned  {"T":60.0,"input":"liou","scheme":"afe","size":3,"weight":"riesz1"}
+[done] OK             FAIL            1.0s      34 MB  {"T":60.0,"input":"liou","scheme":"afe","size":3,"weight":"riesz1"}
+[plan] 190 MB planned  {"T":60.0,"input":"ea:0.25","scheme":"afe","size":3,"weight":"riesz1"}
+[done] OK             FAIL            3.0s      40 MB  {"T":60.0,"input":"ea:0.25","scheme":"afe","size":3,"weight":"riesz1"}
+[plan] 190 MB planned  {"T":60.0,"input":"zeta","scheme":"afe","size":3,"weight":"riesz2"}
+[done] OK             PASS            0.5s      34 MB  {"T":60.0,"input":"zeta","scheme":"afe","size":3,"weight":"riesz2"}
+[plan] 190 MB planned  {"T":60.0,"input":"dh","scheme":"afe","size":3,"weight":"riesz2"}
+[done] OK             PASS            0.6s      34 MB  {"T":60.0,"input":"dh","scheme":"afe","size":3,"weight":"riesz2"}
+[plan] 190 MB planned  {"T":60.0,"input":"tw2m","scheme":"afe","size":3,"weight":"riesz2"}
+[done] OK             PASS            0.5s      33 MB  {"T":60.0,"input":"tw2m","scheme":"afe","size":3,"weight":"riesz2"}
+[plan] 190 MB planned  {"T":60.0,"input":"tw2h","scheme":"afe","size":3,"weight":"riesz2"}
+[done] OK             PASS            0.5s      34 MB  {"T":60.0,"input":"tw2h","scheme":"afe","size":3,"weight":"riesz2"}
+[plan] 190 MB planned  {"T":60.0,"input":"liou","scheme":"afe","size":3,"weight":"riesz2"}
+[done] OK             PASS            0.5s      34 MB  {"T":60.0,"input":"liou","scheme":"afe","size":3,"weight":"riesz2"}
+[plan] 190 MB planned  {"T":60.0,"input":"ea:0.25","scheme":"afe","size":3,"weight":"riesz2"}
+[done] OK             PASS            1.6s      36 MB  {"T":60.0,"input":"ea:0.25","scheme":"afe","size":3,"weight":"riesz2"}
+[plan] 190 MB planned  {"T":60.0,"input":"zeta","scheme":"afe","size":4,"weight":"sharp"}
+[done] OK             FAIL            1.0s      36 MB  {"T":60.0,"input":"zeta","scheme":"afe","size":4,"weight":"sharp"}
+[plan] 190 MB planned  {"T":60.0,"input":"dh","scheme":"afe","size":4,"weight":"sharp"}
+[done] OK             FAIL            1.7s      40 MB  {"T":60.0,"input":"dh","scheme":"afe","size":4,"weight":"sharp"}
+[plan] 190 MB planned  {"T":60.0,"input":"tw2m","scheme":"afe","size":4,"weight":"sharp"}
+[done] OK             PASS            0.5s      34 MB  {"T":60.0,"input":"tw2m","scheme":"afe","size":4,"weight":"sharp"}
+[plan] 190 MB planned  {"T":60.0,"input":"tw2h","scheme":"afe","size":4,"weight":"sharp"}
+[done] OK             FAIL            0.9s      34 MB  {"T":60.0,"input":"tw2h","scheme":"afe","size":4,"weight":"sharp"}
+[plan] 190 MB planned  {"T":60.0,"input":"liou","scheme":"afe","size":4,"weight":"sharp"}
+[done] OK             FAIL            1.0s      36 MB  {"T":60.0,"input":"liou","scheme":"afe","size":4,"weight":"sharp"}
+[plan] 190 MB planned  {"T":60.0,"input":"ea:0.25","scheme":"afe","size":4,"weight":"sharp"}
+[done] OK             FAIL            1.7s      36 MB  {"T":60.0,"input":"ea:0.25","scheme":"afe","size":4,"weight":"sharp"}
+[plan] 190 MB planned  {"T":60.0,"input":"zeta","scheme":"afe","size":4,"weight":"riesz1"}
+[done] OK             PASS            0.5s      34 MB  {"T":60.0,"input":"zeta","scheme":"afe","size":4,"weight":"riesz1"}
+[plan] 190 MB planned  {"T":60.0,"input":"dh","scheme":"afe","size":4,"weight":"riesz1"}
+[done] OK             PASS            0.7s      34 MB  {"T":60.0,"input":"dh","scheme":"afe","size":4,"weight":"riesz1"}
+[plan] 190 MB planned  {"T":60.0,"input":"tw2m","scheme":"afe","size":4,"weight":"riesz1"}
+[done] OK             PASS            0.5s      34 MB  {"T":60.0,"input":"tw2m","scheme":"afe","size":4,"weight":"riesz1"}
+[plan] 190 MB planned  {"T":60.0,"input":"tw2h","scheme":"afe","size":4,"weight":"riesz1"}
+[done] OK             PASS            0.5s      34 MB  {"T":60.0,"input":"tw2h","scheme":"afe","size":4,"weight":"riesz1"}
+[plan] 190 MB planned  {"T":60.0,"input":"liou","scheme":"afe","size":4,"weight":"riesz1"}
+[done] OK             FAIL            1.0s      36 MB  {"T":60.0,"input":"liou","scheme":"afe","size":4,"weight":"riesz1"}
+[plan] 190 MB planned  {"T":60.0,"input":"ea:0.25","scheme":"afe","size":4,"weight":"riesz1"}
+[done] OK             FAIL            3.2s      41 MB  {"T":60.0,"input":"ea:0.25","scheme":"afe","size":4,"weight":"riesz1"}
+[plan] 190 MB planned  {"T":60.0,"input":"zeta","scheme":"afe","size":4,"weight":"riesz2"}
+[done] OK             PASS            0.5s      34 MB  {"T":60.0,"input":"zeta","scheme":"afe","size":4,"weight":"riesz2"}
+[plan] 190 MB planned  {"T":60.0,"input":"dh","scheme":"afe","size":4,"weight":"riesz2"}
+[done] OK             PASS            0.7s      34 MB  {"T":60.0,"input":"dh","scheme":"afe","size":4,"weight":"riesz2"}
+[plan] 190 MB planned  {"T":60.0,"input":"tw2m","scheme":"afe","size":4,"weight":"riesz2"}
+[done] OK             PASS            0.5s      33 MB  {"T":60.0,"input":"tw2m","scheme":"afe","size":4,"weight":"riesz2"}
+[plan] 190 MB planned  {"T":60.0,"input":"tw2h","scheme":"afe","size":4,"weight":"riesz2"}
+[done] OK             PASS            0.5s      33 MB  {"T":60.0,"input":"tw2h","scheme":"afe","size":4,"weight":"riesz2"}
+[plan] 190 MB planned  {"T":60.0,"input":"liou","scheme":"afe","size":4,"weight":"riesz2"}
+[done] OK             PASS            0.5s      34 MB  {"T":60.0,"input":"liou","scheme":"afe","size":4,"weight":"riesz2"}
+[plan] 190 MB planned  {"T":60.0,"input":"ea:0.25","scheme":"afe","size":4,"weight":"riesz2"}
+[done] OK             FAIL            3.1s      41 MB  {"T":60.0,"input":"ea:0.25","scheme":"afe","size":4,"weight":"riesz2"}
+[plan] 170 MB planned  {"T":30.0,"input":"zeta","scheme":"euler","size":11}
+[done] OK             PASS            7.3s      75 MB  {"T":30.0,"input":"zeta","scheme":"euler","size":11}
+[plan] 170 MB planned  {"T":30.0,"input":"tw2m","scheme":"euler","size":11}
+[done] OK             FAIL           10.9s      94 MB  {"T":30.0,"input":"tw2m","scheme":"euler","size":11}
+[plan] 170 MB planned  {"T":30.0,"input":"tw2h","scheme":"euler","size":11}
+[done] OK             PASS            4.1s      53 MB  {"T":30.0,"input":"tw2h","scheme":"euler","size":11}
+[plan] 170 MB planned  {"T":30.0,"input":"liou","scheme":"euler","size":11}
+[done] OK             PASS            7.4s      75 MB  {"T":30.0,"input":"liou","scheme":"euler","size":11}
+[plan] 170 MB planned  {"T":30.0,"input":"ea:0.25","scheme":"euler","size":11}
+[done] OK             PASS           18.0s      90 MB  {"T":30.0,"input":"ea:0.25","scheme":"euler","size":11}
+[plan] 170 MB planned  {"T":30.0,"input":"dh","scheme":"euler","size":11}
+[done] NOT_FORMULABLE                 0.0s       0 MB  {"T":30.0,"input":"dh","scheme":"euler","size":11}
+[plan] 190 MB planned  {"T":60.0,"input":"zeta","scheme":"afe","size":5,"weight":"sharp"}
+[done] OK             FAIL            1.0s      36 MB  {"T":60.0,"input":"zeta","scheme":"afe","size":5,"weight":"sharp"}
+[plan] 190 MB planned  {"T":60.0,"input":"dh","scheme":"afe","size":5,"weight":"sharp"}
+[done] OK             FAIL            1.6s      40 MB  {"T":60.0,"input":"dh","scheme":"afe","size":5,"weight":"sharp"}
+[plan] 190 MB planned  {"T":60.0,"input":"tw2m","scheme":"afe","size":5,"weight":"sharp"}
+[done] OK             FAIL            1.0s      36 MB  {"T":60.0,"input":"tw2m","scheme":"afe","size":5,"weight":"sharp"}
+[plan] 190 MB planned  {"T":60.0,"input":"tw2h","scheme":"afe","size":5,"weight":"sharp"}
+[done] OK             FAIL            1.0s      36 MB  {"T":60.0,"input":"tw2h","scheme":"afe","size":5,"weight":"sharp"}
+[plan] 190 MB planned  {"T":60.0,"input":"liou","scheme":"afe","size":5,"weight":"sharp"}
+[done] OK             FAIL            1.0s      36 MB  {"T":60.0,"input":"liou","scheme":"afe","size":5,"weight":"sharp"}
+[plan] 190 MB planned  {"T":60.0,"input":"ea:0.25","scheme":"afe","size":5,"weight":"sharp"}
+[done] OK             FAIL            1.8s      36 MB  {"T":60.0,"input":"ea:0.25","scheme":"afe","size":5,"weight":"sharp"}
+[plan] 190 MB planned  {"T":60.0,"input":"zeta","scheme":"afe","size":5,"weight":"riesz1"}
+[done] OK             FAIL            1.0s      34 MB  {"T":60.0,"input":"zeta","scheme":"afe","size":5,"weight":"riesz1"}
+[plan] 190 MB planned  {"T":60.0,"input":"dh","scheme":"afe","size":5,"weight":"riesz1"}
+[done] OK             PASS            0.7s      34 MB  {"T":60.0,"input":"dh","scheme":"afe","size":5,"weight":"riesz1"}
+[plan] 190 MB planned  {"T":60.0,"input":"tw2m","scheme":"afe","size":5,"weight":"riesz1"}
+[done] OK             FAIL            1.0s      36 MB  {"T":60.0,"input":"tw2m","scheme":"afe","size":5,"weight":"riesz1"}
+[plan] 190 MB planned  {"T":60.0,"input":"tw2h","scheme":"afe","size":5,"weight":"riesz1"}
+[done] OK             PASS            0.6s      34 MB  {"T":60.0,"input":"tw2h","scheme":"afe","size":5,"weight":"riesz1"}
+[plan] 190 MB planned  {"T":60.0,"input":"liou","scheme":"afe","size":5,"weight":"riesz1"}
+[done] OK             FAIL            1.0s      36 MB  {"T":60.0,"input":"liou","scheme":"afe","size":5,"weight":"riesz1"}
+[plan] 190 MB planned  {"T":60.0,"input":"ea:0.25","scheme":"afe","size":5,"weight":"riesz1"}
+[done] OK             FAIL            1.8s      36 MB  {"T":60.0,"input":"ea:0.25","scheme":"afe","size":5,"weight":"riesz1"}
+[plan] 190 MB planned  {"T":60.0,"input":"zeta","scheme":"afe","size":5,"weight":"riesz2"}
+[done] OK             PASS            0.6s      34 MB  {"T":60.0,"input":"zeta","scheme":"afe","size":5,"weight":"riesz2"}
+[plan] 190 MB planned  {"T":60.0,"input":"dh","scheme":"afe","size":5,"weight":"riesz2"}
+[done] OK             PASS            0.7s      34 MB  {"T":60.0,"input":"dh","scheme":"afe","size":5,"weight":"riesz2"}
+[plan] 190 MB planned  {"T":60.0,"input":"tw2m","scheme":"afe","size":5,"weight":"riesz2"}
+[done] OK             PASS            0.5s      34 MB  {"T":60.0,"input":"tw2m","scheme":"afe","size":5,"weight":"riesz2"}
+[plan] 190 MB planned  {"T":60.0,"input":"tw2h","scheme":"afe","size":5,"weight":"riesz2"}
+[done] OK             PASS            0.5s      34 MB  {"T":60.0,"input":"tw2h","scheme":"afe","size":5,"weight":"riesz2"}
+[plan] 190 MB planned  {"T":60.0,"input":"liou","scheme":"afe","size":5,"weight":"riesz2"}
+[done] OK             PASS            0.5s      34 MB  {"T":60.0,"input":"liou","scheme":"afe","size":5,"weight":"riesz2"}
+[plan] 190 MB planned  {"T":60.0,"input":"ea:0.25","scheme":"afe","size":5,"weight":"riesz2"}
+[done] OK             FAIL            3.2s      41 MB  {"T":60.0,"input":"ea:0.25","scheme":"afe","size":5,"weight":"riesz2"}
+[plan] 190 MB planned  {"T":60.0,"input":"zeta","scheme":"afe","size":6,"weight":"sharp"}
+[done] OK             FAIL            1.1s      36 MB  {"T":60.0,"input":"zeta","scheme":"afe","size":6,"weight":"sharp"}
+[plan] 190 MB planned  {"T":60.0,"input":"dh","scheme":"afe","size":6,"weight":"sharp"}
+[done] OK             FAIL            1.0s      34 MB  {"T":60.0,"input":"dh","scheme":"afe","size":6,"weight":"sharp"}
+[plan] 190 MB planned  {"T":60.0,"input":"tw2m","scheme":"afe","size":6,"weight":"sharp"}
+[done] OK             FAIL            0.6s      34 MB  {"T":60.0,"input":"tw2m","scheme":"afe","size":6,"weight":"sharp"}
+[plan] 190 MB planned  {"T":60.0,"input":"tw2h","scheme":"afe","size":6,"weight":"sharp"}
+[done] OK             FAIL            1.1s      36 MB  {"T":60.0,"input":"tw2h","scheme":"afe","size":6,"weight":"sharp"}
+[plan] 190 MB planned  {"T":60.0,"input":"liou","scheme":"afe","size":6,"weight":"sharp"}
+[done] OK             FAIL            1.1s      36 MB  {"T":60.0,"input":"liou","scheme":"afe","size":6,"weight":"sharp"}
+[plan] 190 MB planned  {"T":60.0,"input":"ea:0.25","scheme":"afe","size":6,"weight":"sharp"}
+[done] OK             FAIL            3.5s      41 MB  {"T":60.0,"input":"ea:0.25","scheme":"afe","size":6,"weight":"sharp"}
+[plan] 190 MB planned  {"T":60.0,"input":"zeta","scheme":"afe","size":6,"weight":"riesz1"}
+[done] OK             FAIL            1.0s      36 MB  {"T":60.0,"input":"zeta","scheme":"afe","size":6,"weight":"riesz1"}
+[plan] 190 MB planned  {"T":60.0,"input":"dh","scheme":"afe","size":6,"weight":"riesz1"}
+[done] OK             PASS            0.7s      34 MB  {"T":60.0,"input":"dh","scheme":"afe","size":6,"weight":"riesz1"}
+[plan] 190 MB planned  {"T":60.0,"input":"tw2m","scheme":"afe","size":6,"weight":"riesz1"}
+[done] OK             FAIL            1.0s      36 MB  {"T":60.0,"input":"tw2m","scheme":"afe","size":6,"weight":"riesz1"}
+[plan] 190 MB planned  {"T":60.0,"input":"tw2h","scheme":"afe","size":6,"weight":"riesz1"}
+[done] OK             FAIL            1.0s      36 MB  {"T":60.0,"input":"tw2h","scheme":"afe","size":6,"weight":"riesz1"}
+[plan] 190 MB planned  {"T":60.0,"input":"liou","scheme":"afe","size":6,"weight":"riesz1"}
+[done] OK             FAIL            1.0s      36 MB  {"T":60.0,"input":"liou","scheme":"afe","size":6,"weight":"riesz1"}
+[plan] 190 MB planned  {"T":60.0,"input":"ea:0.25","scheme":"afe","size":6,"weight":"riesz1"}
+[done] OK             FAIL            3.6s      41 MB  {"T":60.0,"input":"ea:0.25","scheme":"afe","size":6,"weight":"riesz1"}
+[plan] 190 MB planned  {"T":60.0,"input":"zeta","scheme":"afe","size":6,"weight":"riesz2"}
+[done] OK             PASS            0.6s      33 MB  {"T":60.0,"input":"zeta","scheme":"afe","size":6,"weight":"riesz2"}
+[plan] 190 MB planned  {"T":60.0,"input":"dh","scheme":"afe","size":6,"weight":"riesz2"}
+[done] OK             PASS            0.8s      34 MB  {"T":60.0,"input":"dh","scheme":"afe","size":6,"weight":"riesz2"}
+[plan] 190 MB planned  {"T":60.0,"input":"tw2m","scheme":"afe","size":6,"weight":"riesz2"}
+[done] OK             PASS            0.6s      33 MB  {"T":60.0,"input":"tw2m","scheme":"afe","size":6,"weight":"riesz2"}
+[plan] 190 MB planned  {"T":60.0,"input":"tw2h","scheme":"afe","size":6,"weight":"riesz2"}
+[done] OK             PASS            0.6s      34 MB  {"T":60.0,"input":"tw2h","scheme":"afe","size":6,"weight":"riesz2"}
+[plan] 190 MB planned  {"T":60.0,"input":"liou","scheme":"afe","size":6,"weight":"riesz2"}
+[done] OK             FAIL            1.0s      36 MB  {"T":60.0,"input":"liou","scheme":"afe","size":6,"weight":"riesz2"}
+[plan] 190 MB planned  {"T":60.0,"input":"ea:0.25","scheme":"afe","size":6,"weight":"riesz2"}
+[done] OK             FAIL            3.2s      41 MB  {"T":60.0,"input":"ea:0.25","scheme":"afe","size":6,"weight":"riesz2"}
+[plan] 190 MB planned  {"T":60.0,"input":"zeta","scheme":"afe","size":8,"weight":"sharp"}
+[done] OK             FAIL            1.2s      36 MB  {"T":60.0,"input":"zeta","scheme":"afe","size":8,"weight":"sharp"}
+[plan] 190 MB planned  {"T":60.0,"input":"dh","scheme":"afe","size":8,"weight":"sharp"}
+[done] OK             FAIL            1.1s      36 MB  {"T":60.0,"input":"dh","scheme":"afe","size":8,"weight":"sharp"}
+[plan] 190 MB planned  {"T":60.0,"input":"tw2m","scheme":"afe","size":8,"weight":"sharp"}
+[done] OK             FAIL            1.2s      36 MB  {"T":60.0,"input":"tw2m","scheme":"afe","size":8,"weight":"sharp"}
+[plan] 190 MB planned  {"T":60.0,"input":"tw2h","scheme":"afe","size":8,"weight":"sharp"}
+[done] OK             FAIL            1.2s      35 MB  {"T":60.0,"input":"tw2h","scheme":"afe","size":8,"weight":"sharp"}
+[plan] 190 MB planned  {"T":60.0,"input":"liou","scheme":"afe","size":8,"weight":"sharp"}
+[done] OK             FAIL            1.2s      36 MB  {"T":60.0,"input":"liou","scheme":"afe","size":8,"weight":"sharp"}
+[plan] 190 MB planned  {"T":60.0,"input":"ea:0.25","scheme":"afe","size":8,"weight":"sharp"}
+[done] OK             FAIL            4.1s      42 MB  {"T":60.0,"input":"ea:0.25","scheme":"afe","size":8,"weight":"sharp"}
+[plan] 190 MB planned  {"T":60.0,"input":"zeta","scheme":"afe","size":8,"weight":"riesz1"}
+[done] OK             FAIL            1.5s      34 MB  {"T":60.0,"input":"zeta","scheme":"afe","size":8,"weight":"riesz1"}
+[plan] 190 MB planned  {"T":60.0,"input":"dh","scheme":"afe","size":8,"weight":"riesz1"}
+[done] OK             PASS            0.8s      33 MB  {"T":60.0,"input":"dh","scheme":"afe","size":8,"weight":"riesz1"}
+[plan] 190 MB planned  {"T":60.0,"input":"tw2m","scheme":"afe","size":8,"weight":"riesz1"}
+[done] OK             FAIL            1.1s      36 MB  {"T":60.0,"input":"tw2m","scheme":"afe","size":8,"weight":"riesz1"}
+[plan] 190 MB planned  {"T":60.0,"input":"tw2h","scheme":"afe","size":8,"weight":"riesz1"}
+[done] OK             FAIL            1.1s      36 MB  {"T":60.0,"input":"tw2h","scheme":"afe","size":8,"weight":"riesz1"}
+[plan] 190 MB planned  {"T":60.0,"input":"liou","scheme":"afe","size":8,"weight":"riesz1"}
+[done] OK             FAIL            1.1s      36 MB  {"T":60.0,"input":"liou","scheme":"afe","size":8,"weight":"riesz1"}
+[plan] 190 MB planned  {"T":60.0,"input":"ea:0.25","scheme":"afe","size":8,"weight":"riesz1"}
+[done] OK             FAIL            3.5s      40 MB  {"T":60.0,"input":"ea:0.25","scheme":"afe","size":8,"weight":"riesz1"}
+[plan] 190 MB planned  {"T":60.0,"input":"zeta","scheme":"afe","size":8,"weight":"riesz2"}
+[done] OK             PASS            0.6s      33 MB  {"T":60.0,"input":"zeta","scheme":"afe","size":8,"weight":"riesz2"}
+[plan] 190 MB planned  {"T":60.0,"input":"dh","scheme":"afe","size":8,"weight":"riesz2"}
+[done] OK             PASS            0.8s      33 MB  {"T":60.0,"input":"dh","scheme":"afe","size":8,"weight":"riesz2"}
+[plan] 190 MB planned  {"T":60.0,"input":"tw2m","scheme":"afe","size":8,"weight":"riesz2"}
+[done] OK             PASS            0.7s      33 MB  {"T":60.0,"input":"tw2m","scheme":"afe","size":8,"weight":"riesz2"}
+[plan] 190 MB planned  {"T":60.0,"input":"tw2h","scheme":"afe","size":8,"weight":"riesz2"}
+[done] OK             PASS            0.6s      33 MB  {"T":60.0,"input":"tw2h","scheme":"afe","size":8,"weight":"riesz2"}
+[plan] 190 MB planned  {"T":60.0,"input":"liou","scheme":"afe","size":8,"weight":"riesz2"}
+[done] OK             FAIL            1.1s      36 MB  {"T":60.0,"input":"liou","scheme":"afe","size":8,"weight":"riesz2"}
+[plan] 190 MB planned  {"T":60.0,"input":"ea:0.25","scheme":"afe","size":8,"weight":"riesz2"}
+[done] OK             FAIL            3.5s      40 MB  {"T":60.0,"input":"ea:0.25","scheme":"afe","size":8,"weight":"riesz2"}
+[plan] 190 MB planned  {"T":60.0,"input":"zeta","scheme":"afe","size":10,"weight":"sharp"}
+[done] OK             FAIL            1.3s      35 MB  {"T":60.0,"input":"zeta","scheme":"afe","size":10,"weight":"sharp"}
+[plan] 190 MB planned  {"T":60.0,"input":"dh","scheme":"afe","size":10,"weight":"sharp"}
+[done] OK             FAIL            2.1s      41 MB  {"T":60.0,"input":"dh","scheme":"afe","size":10,"weight":"sharp"}
+[plan] 190 MB planned  {"T":60.0,"input":"tw2m","scheme":"afe","size":10,"weight":"sharp"}
+[done] OK             FAIL            1.3s      35 MB  {"T":60.0,"input":"tw2m","scheme":"afe","size":10,"weight":"sharp"}
+[plan] 190 MB planned  {"T":60.0,"input":"tw2h","scheme":"afe","size":10,"weight":"sharp"}
+[done] OK             FAIL            1.4s      35 MB  {"T":60.0,"input":"tw2h","scheme":"afe","size":10,"weight":"sharp"}
+[plan] 190 MB planned  {"T":60.0,"input":"liou","scheme":"afe","size":10,"weight":"sharp"}
+[done] OK             FAIL            1.5s      35 MB  {"T":60.0,"input":"liou","scheme":"afe","size":10,"weight":"sharp"}
+[plan] 190 MB planned  {"T":60.0,"input":"ea:0.25","scheme":"afe","size":10,"weight":"sharp"}
+[done] OK             FAIL            4.0s      41 MB  {"T":60.0,"input":"ea:0.25","scheme":"afe","size":10,"weight":"sharp"}
+[plan] 190 MB planned  {"T":60.0,"input":"zeta","scheme":"afe","size":10,"weight":"riesz1"}
+[done] OK             FAIL            1.3s      35 MB  {"T":60.0,"input":"zeta","scheme":"afe","size":10,"weight":"riesz1"}
+[plan] 190 MB planned  {"T":60.0,"input":"dh","scheme":"afe","size":10,"weight":"riesz1"}
+[done] OK             PASS            0.8s      33 MB  {"T":60.0,"input":"dh","scheme":"afe","size":10,"weight":"riesz1"}
+[plan] 190 MB planned  {"T":60.0,"input":"tw2m","scheme":"afe","size":10,"weight":"riesz1"}
+[done] OK             FAIL            1.2s      35 MB  {"T":60.0,"input":"tw2m","scheme":"afe","size":10,"weight":"riesz1"}
+[plan] 190 MB planned  {"T":60.0,"input":"tw2h","scheme":"afe","size":10,"weight":"riesz1"}
+[done] OK             FAIL            1.2s      35 MB  {"T":60.0,"input":"tw2h","scheme":"afe","size":10,"weight":"riesz1"}
+[plan] 190 MB planned  {"T":60.0,"input":"liou","scheme":"afe","size":10,"weight":"riesz1"}
+[done] OK             FAIL            1.3s      35 MB  {"T":60.0,"input":"liou","scheme":"afe","size":10,"weight":"riesz1"}
+[plan] 190 MB planned  {"T":60.0,"input":"ea:0.25","scheme":"afe","size":10,"weight":"riesz1"}
+[done] OK             FAIL            3.7s      41 MB  {"T":60.0,"input":"ea:0.25","scheme":"afe","size":10,"weight":"riesz1"}
+[plan] 190 MB planned  {"T":60.0,"input":"zeta","scheme":"afe","size":10,"weight":"riesz2"}
+[done] OK             PASS            0.7s      33 MB  {"T":60.0,"input":"zeta","scheme":"afe","size":10,"weight":"riesz2"}
+[plan] 190 MB planned  {"T":60.0,"input":"dh","scheme":"afe","size":10,"weight":"riesz2"}
+[done] OK             PASS            0.8s      33 MB  {"T":60.0,"input":"dh","scheme":"afe","size":10,"weight":"riesz2"}
+[plan] 190 MB planned  {"T":60.0,"input":"tw2m","scheme":"afe","size":10,"weight":"riesz2"}
+[done] OK             FAIL            1.3s      35 MB  {"T":60.0,"input":"tw2m","scheme":"afe","size":10,"weight":"riesz2"}
+[plan] 190 MB planned  {"T":60.0,"input":"tw2h","scheme":"afe","size":10,"weight":"riesz2"}
+[done] OK             PASS            0.7s      33 MB  {"T":60.0,"input":"tw2h","scheme":"afe","size":10,"weight":"riesz2"}
+[plan] 190 MB planned  {"T":60.0,"input":"liou","scheme":"afe","size":10,"weight":"riesz2"}
+[done] OK             FAIL            1.2s      35 MB  {"T":60.0,"input":"liou","scheme":"afe","size":10,"weight":"riesz2"}
+[plan] 190 MB planned  {"T":60.0,"input":"ea:0.25","scheme":"afe","size":10,"weight":"riesz2"}
+[done] OK             FAIL            3.8s      41 MB  {"T":60.0,"input":"ea:0.25","scheme":"afe","size":10,"weight":"riesz2"}
+[plan] 190 MB planned  {"T":60.0,"input":"zeta","scheme":"afe","size":20,"weight":"sharp"}
+[done] OK             FAIL            1.8s      36 MB  {"T":60.0,"input":"zeta","scheme":"afe","size":20,"weight":"sharp"}
+[plan] 190 MB planned  {"T":60.0,"input":"dh","scheme":"afe","size":20,"weight":"sharp"}
+[done] OK             FAIL            3.0s      40 MB  {"T":60.0,"input":"dh","scheme":"afe","size":20,"weight":"sharp"}
+[plan] 190 MB planned  {"T":60.0,"input":"tw2m","scheme":"afe","size":20,"weight":"sharp"}
+[done] OK             FAIL            1.9s      36 MB  {"T":60.0,"input":"tw2m","scheme":"afe","size":20,"weight":"sharp"}
+[plan] 190 MB planned  {"T":60.0,"input":"tw2h","scheme":"afe","size":20,"weight":"sharp"}
+[done] OK             FAIL            1.8s      36 MB  {"T":60.0,"input":"tw2h","scheme":"afe","size":20,"weight":"sharp"}
+[plan] 190 MB planned  {"T":60.0,"input":"liou","scheme":"afe","size":20,"weight":"sharp"}
+[done] OK             FAIL            1.8s      36 MB  {"T":60.0,"input":"liou","scheme":"afe","size":20,"weight":"sharp"}
+[plan] 190 MB planned  {"T":60.0,"input":"ea:0.25","scheme":"afe","size":20,"weight":"sharp"}
+[done] OK             FAIL            5.2s      42 MB  {"T":60.0,"input":"ea:0.25","scheme":"afe","size":20,"weight":"sharp"}
+[plan] 190 MB planned  {"T":60.0,"input":"zeta","scheme":"afe","size":20,"weight":"riesz1"}
+[done] OK             FAIL            1.8s      35 MB  {"T":60.0,"input":"zeta","scheme":"afe","size":20,"weight":"riesz1"}
+[plan] 190 MB planned  {"T":60.0,"input":"dh","scheme":"afe","size":20,"weight":"riesz1"}
+[done] OK             PASS            1.1s      34 MB  {"T":60.0,"input":"dh","scheme":"afe","size":20,"weight":"riesz1"}
+[plan] 190 MB planned  {"T":60.0,"input":"tw2m","scheme":"afe","size":20,"weight":"riesz1"}
+[done] OK             FAIL            1.9s      35 MB  {"T":60.0,"input":"tw2m","scheme":"afe","size":20,"weight":"riesz1"}
+[plan] 190 MB planned  {"T":60.0,"input":"tw2h","scheme":"afe","size":20,"weight":"riesz1"}
+[done] OK             FAIL            1.8s      35 MB  {"T":60.0,"input":"tw2h","scheme":"afe","size":20,"weight":"riesz1"}
+[plan] 190 MB planned  {"T":60.0,"input":"liou","scheme":"afe","size":20,"weight":"riesz1"}
+[done] OK             FAIL            1.9s      36 MB  {"T":60.0,"input":"liou","scheme":"afe","size":20,"weight":"riesz1"}
+[plan] 190 MB planned  {"T":60.0,"input":"ea:0.25","scheme":"afe","size":20,"weight":"riesz1"}
+[done] OK             FAIL            4.9s      41 MB  {"T":60.0,"input":"ea:0.25","scheme":"afe","size":20,"weight":"riesz1"}
+[plan] 190 MB planned  {"T":60.0,"input":"zeta","scheme":"afe","size":20,"weight":"riesz2"}
+[done] OK             FAIL            1.7s      35 MB  {"T":60.0,"input":"zeta","scheme":"afe","size":20,"weight":"riesz2"}
+[plan] 190 MB planned  {"T":60.0,"input":"dh","scheme":"afe","size":20,"weight":"riesz2"}
+[done] OK             PASS            1.1s      34 MB  {"T":60.0,"input":"dh","scheme":"afe","size":20,"weight":"riesz2"}
+[plan] 190 MB planned  {"T":60.0,"input":"tw2m","scheme":"afe","size":20,"weight":"riesz2"}
+[done] OK             FAIL            1.7s      35 MB  {"T":60.0,"input":"tw2m","scheme":"afe","size":20,"weight":"riesz2"}
+[plan] 190 MB planned  {"T":60.0,"input":"tw2h","scheme":"afe","size":20,"weight":"riesz2"}
+[done] OK             FAIL            1.7s      36 MB  {"T":60.0,"input":"tw2h","scheme":"afe","size":20,"weight":"riesz2"}
+[plan] 190 MB planned  {"T":60.0,"input":"liou","scheme":"afe","size":20,"weight":"riesz2"}
+[done] OK             FAIL            1.7s      35 MB  {"T":60.0,"input":"liou","scheme":"afe","size":20,"weight":"riesz2"}
+[plan] 190 MB planned  {"T":60.0,"input":"ea:0.25","scheme":"afe","size":20,"weight":"riesz2"}
+[done] OK             FAIL            4.8s      41 MB  {"T":60.0,"input":"ea:0.25","scheme":"afe","size":20,"weight":"riesz2"}
+[sweep] finished
+EXIT 0

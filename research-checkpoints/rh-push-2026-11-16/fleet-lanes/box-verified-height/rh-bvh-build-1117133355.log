@@ -1,0 +1,27 @@
++ ROOT=/home/USER/rh-push/box-verified-height
++ P=/home/USER/rh-push/box-verified-height/prefix
++ S=/home/USER/rh-push/box-verified-height/src
++ mkdir -p /home/USER/rh-push/box-verified-height/prefix /home/USER/rh-push/box-verified-height/src
++ cd /home/USER/rh-push/box-verified-height/src
++ J=16
++ '[' -f gmp-6.3.0.tar.xz ']'
++ curl -sSLO https://ftp.gnu.org/gnu/gmp/gmp-6.3.0.tar.xz
++ '[' -f mpfr-4.2.2.tar.xz ']'
++ curl -sSLO https://ftp.gnu.org/gnu/mpfr/mpfr-4.2.2.tar.xz
++ '[' -f flint-3.6.0.tar.gz ']'
++ curl -sSLO https://github.com/flintlib/flint/releases/download/v3.6.0/flint-3.6.0.tar.gz
++ sha256sum flint-3.6.0.tar.gz gmp-6.3.0.tar.xz mpfr-4.2.2.tar.xz
+b95e2c7792f5eea4a1c8d2d42c4098434756832e57a094b295eb5dfdc9b4c36b  flint-3.6.0.tar.gz
+a3c2b80201b89e68616f4ad30bc66aee4927c3ce50e33929ca819d5c43538898  gmp-6.3.0.tar.xz
+b67ba0383ef7e8a8563734e2e889ef5ec3c3b898a01d00fa0a6869ad81c6ce01  mpfr-4.2.2.tar.xz
++ '[' '!' -f /home/USER/rh-push/box-verified-height/prefix/lib/libgmp.so ']'
++ tar xf gmp-6.3.0.tar.xz
++ cd gmp-6.3.0
++ ./configure --prefix=/home/USER/rh-push/box-verified-height/prefix --disable-static -q
+checking ABI=64
+using ABI="64"
+      CC="gcc"
+      CFLAGS="-O2 -pedantic -fomit-frame-pointer -m64 -mtune=k8 -march=k8"
+      CPPFLAGS=""
+      MPN_PATH=" x86_64/k8 x86_64 generic"
+configure: error: No usable m4 in $PATH or /usr/5bin (see config.log for reasons).

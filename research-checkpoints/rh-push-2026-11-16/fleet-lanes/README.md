@@ -1,10 +1,12 @@
-# RH push 2026-11-16: fleet lanes (zero-free frontier, baseline avenues, square-root lane, stacking)
+# RH push 2026-11-16/17: fleet lanes
 
-Internal research checkpoint. Not peer reviewed. No claim about RH and no new bound unless a lane says so and its referee confirms it. Updated after the baseline fleet and fleet 1 lanes finished; later rounds (r3-, h-, mb-) were still running: a RESULT.md without REFEREE.md is unrefereed and may be interim. CRITIC_R1.md is the round-1 ranking that selected the r2-* lanes.
+Internal research checkpoint. Not peer reviewed. No claim about RH and no new bound on zeros.
 
-Slug prefixes: (none) = fleet 1 round 1; r2- = fleet 1 round 2; b- = baseline avenues from the fifty-routes synthesis and earlier project results; sq- = square-root (Hankel / Krein) lane; stack- = combination lanes; lit- = literature.
+**Start with OBSTRUCTION_MAP.md**: one row per closed route (118 rows) with where it stops, which control defeats it, the list of proved results worth keeping, the directions not covered, and an index of referee-broken claims. 19 lanes in it are unrefereed and marked so.
 
-See SYNTHESIS_BASELINE.md (b-* lanes), SYNTHESIS_R3.md (r3-* lanes) and CRITIC_R1.md (round-1 ranking). Slug prefixes added since the first snapshot: r3- = round 3 on the 7/8 architecture; h- = geometric-arithmetic lanes (may be interim); mb- = compute-server jobs.
+Ledgers: SYNTHESIS.md (fleet 1, rounds 1-2), SYNTHESIS_BASELINE.md (b-* lanes), SYNTHESIS_R3.md (r3-* lanes, 7/8 architecture and its limit), SYNTHESIS_GEOMETRIC_ARITHMETIC.md (h-* lanes), CRITIC_R1.md. The first geometric fleet (g-* lanes) is in PR 59; the first direct attacks are in PR 60; the equivalence and Pick results are in PR 58.
+
+Slug prefixes: (none) fleet 1 round 1; r2- fleet 1 round 2; r3- round 3; b- baseline avenues; sq- square-root (Hankel/Krein) lane; stack- combination lanes; h- geometric-arithmetic lanes; lit- literature; mb- compute-server job (stopped incomplete).
 
 | Lane | Referee | First verdict line |
 |---|---|---|
@@ -21,15 +23,17 @@ See SYNTHESIS_BASELINE.md (b-* lanes), SYNTHESIS_R3.md (r3-* lanes) and CRITIC_R
 | b-mvcap-function-side | refereed |  |
 | b-route-m-first-moment | refereed |  |
 | b-route-p-motherbox | refereed |  |
+| b-route-p-recert | unrefereed |  |
 | b-sg1c-r1-transfer | refereed |  |
 | b-toeplitz-beyond | refereed |  |
 | b-volterra-norm | refereed | Slug: b-volterra-norm. Date: 2026-11-16. Verdict: precise obstruction (the avenue is closed; the statement is decided unconditionally and carries no z |
 | cc-latest | refereed | Verdict class: partial result (proved structural statements) plus "nothing new applies" for the Sonine wall. |
 | dh-separator | refereed |  |
 | flow-euler-defect | refereed | Verdict: precise obstruction. The Euler defect of H_t exists, is exact and explicit (Prop. 1-2), and it does |
-| h-hecke-channels | unrefereed | 7. Verdict by question |
+| h-hecke-channels | refereed | 7. Verdict by question |
 | h-hecke-torus-symmetry | refereed |  |
 | h-klein-fricke | refereed |  |
+| h-local-sign-change | unrefereed |  |
 | h-metaplectic-spin | refereed | 11. Verdict by task item |
 | h-seven-eighths-in-bridge | refereed | (cubic-r2-conductor-verdict). So among covers of the three tori with extra automorphisms only the hexagonal one |
 | h-tnr-geometric | refereed |  |
@@ -39,13 +43,14 @@ See SYNTHESIS_BASELINE.md (b-* lanes), SYNTHESIS_R3.md (r3-* lanes) and CRITIC_R
 | lambda-from-halfplane | refereed |  |
 | li-coefficients | refereed |  |
 | lit-dedekind-qrh | unrefereed |  |
+| mb-lean-replay | unrefereed | Verdict: the definition is faithful by reading, conditional on those four lemmas being kernel-checked |
 | mollifier-halfplane | refereed | Verdict: precise obstruction. The 7/8 half-plane and its cubic-row inputs do not lengthen the Levinson mollifier |
 | nyman-baez-duarte | refereed | Verdict: precise obstruction, with one proved theorem. The decay exponent of the weighted distance is exactly |
 | r2-classgroup-homotopy | refereed |  |
 | r2-ff-tro6-complete | refereed |  |
 | r2-lambda-reopt-run | refereed |  |
 | r2-lambda-tpos-floors | refereed |  |
-| r2-lean-kappa-1318 | unrefereed | Verdict: both definitions match the standard ones. The identification at `t = 0` and the threshold property are |
+| r2-lean-kappa-1318 | refereed | Verdict: both definitions match the standard ones. The identification at `t = 0` and the threshold property are |
 | r2-lowpass-cone | refereed | 7. Verdict and the three weakest steps |
 | r2-pick-euler-entry | refereed | Verdict (precise obstruction) |
 | r2-tro6-nonpolar-scale | refereed | Verdict: partial result. One exact identity (PROVED-rel manuscript (4.7)) and measurements. TRO6^♮(η) is not |

@@ -1,0 +1,1 @@
+{"tag": "XW26_P100", "X": 15600000009475, "N0": 1114185, "plan": "s145-1-g1/data/PLAN.json", "cells": 608, "usable_cells": 608, "failed_cells": [], "n_failed": 0, "gain_cells": 608, "seconds": {"producers": 531.6, "records": 2.6, "pairs": 145.4, "gains": 349.0}}

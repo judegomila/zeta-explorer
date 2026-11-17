@@ -13,7 +13,7 @@ repo's `formalization/` tree were read, not written. No pushes.
 `zf-audit-inputs` (RESULT + REFEREE) left four items open: (a) the Lean plain moment requires `3/4 <= kappa`
 while Xu-Sang stage 1 needs `kappa = 29991/40000`; (b) kernel replay covered 8 of 2924 modules; (c) the Hecke
 theorem is about an OAI-defined function; (d) `deBruijnNewmanLambda`, `H` are LeanCert definitions. This note
-closes (a), (c), (d) in Lean and runs (b). It is verification work: it adds no arithmetic input and does not
+closes (a), (c), (d) in Lean and completes (b). It is verification work: it adds no arithmetic input and does not
 touch the walls (flow-blindness, MV-CAP, verified height are not involved; DH control in section 6).
 
 ## 1. Inventory of `3/4 <= kappa` (task item 1)
@@ -83,7 +83,33 @@ fixed choices `M0/56` and `rho/100` would also have to be rescaled. Not needed b
 
 ## 3. Kernel replay of the closure (task item 3)
 
-REPLAY_SECTION_PLACEHOLDER
+PROVED (kernel replay, exit codes recorded).
+
+Tool: `leanchecker` of Lean 4.34.1, one module per process, on the **unmodified** workspace
+`~/lean-deps/qrh-verify/lean` (read only), module list `replay/modules.txt` = `zf-audit-inputs/closure-bfs.txt`.
+Each line of `replay/replay.log` is `module rc=<exit code> secs=<wall>`.
+
+| quantity | value |
+|---|---|
+| modules in the closure | 2924 |
+| modules with a recorded exit code 0 | **2924** (set-equal to the list, checked with `diff`) |
+| nonzero exit codes | **0** |
+| process runs logged | 2990 (66 modules were replayed twice where two runners overlapped; 10 modules, list lines 2040-2049, were replayed in one 10-module process, exit 0, tagged `batch10`) |
+| wall time | 14:33 to 20:51 PST, 6 h 18 min, 7 to 19 concurrent processes on a machine at load 35-180 |
+| summed process time | 79.7 h (mostly import loading under contention; the earlier "about 10 CPU-hours" estimate did not hold on this machine today) |
+| runner exit codes | `xargs rc=0` for all runners (`replay/done*.txt`) |
+
+Second replay, on the modified copy (build B, `2/3 <= kappa`): the 276 modules rebuilt there
+(`replay/modules-copy.txt`: the 274-module cone of `Moments/ReflectionRetainedLength` up to `Nonvanishing`, plus
+`Hecke/ConditionalNonvanishing` and `Hecke/Nonvanishing`, which had no olean before): **276 of 276 exit 0**
+(`replay/replay-copy.log`).
+
+Scope of the statement: `leanchecker M` re-typechecks the declarations of module `M` in the kernel against its
+imported environment. All 2924 OAI modules of the closure were covered. Not replayed: Mathlib and the two
+external packages in the cone (`PrimeNumberTheoremAnd`, `rellich-kondrachov`), build A (13/18; superseded by
+build B, which implies it via `terminal_certificate_of_half_add`), and the three check files of this note
+(elaborated once by `lean`, no olean written). Not done: the official comparator run, nanoda. The replay ran on the Mac only (the ssh call to the motherbox
+was refused by the session's permission layer and was not retried).
 
 ## 4. Hecke L-function = Hecke Dirichlet series (task item 4). PROVED
 
@@ -171,7 +197,8 @@ for any `chi` and neither theorem applies to it.
 Partial result (verification): PROVED in Lean that the plain-moment terminal certificate holds for
 `2/3 <= kappa` (hence for `13/18 <= kappa` and at `29991/40000`), that the OAI Hecke L-function is the Hecke
 Dirichlet series on `Re s > 1` and its unique continuation, and that LeanCert's `H`, `Lambda` are the standard
-objects up to the anchors in section 5. Replay status in section 3.
+objects up to the anchors in section 5; and the full 2924-module closure of the 7/8 theorem passes
+`leanchecker` with exit code 0 on every module (section 3).
 
 ## 9. Three weakest steps
 
@@ -189,3 +216,4 @@ objects up to the anchors in section 5. Replay status in section 3.
 `logs/build-01..04.log`, `logs/build-05-hecke.log`, `logs/build-23-01.log`, `logs/build-23-02-hecke.log`,
 `logs/kappa-check.out`, `logs/kappa-check-1318build.out`, `logs/hecke-series.out`, `logs/dbn-check.out`,
 `replay/` (`replay.log`, `replay-copy.log`, `modules.txt`, `modules-copy.txt`, scripts, `err/`).
+`lean/` is an APFS copy-on-write clone (apparent size 22 GB); it can be deleted once the logs are kept.

@@ -1,0 +1,21 @@
+== exact confirmations (ideal high side, source geometry)
+k without K-loss                                                   B=0.8611111 lx=0.5000 ly=0.5000 l=0.3333  exact 31/36: CONFIRMED
+k = max(0, P)                                                      B=0.8518519 lx=0.4444 ly=0.4444 l=0.3333  exact 23/27: CONFIRMED
+k = max(0, J)                                                      B=0.8333333 lx=1.0000 ly=1.0000 l=1.0000  exact 5/6: CONFIRMED
+k = max(0, J, P)                                                   B=0.8611111 lx=0.5000 ly=0.5000 l=0.3333  exact 31/36: CONFIRMED
+k = max(0, K, P)  (J-loss removed)                                 B=0.8666667 lx=0.4000 ly=0.4000 l=0.2000  exact 13/15: CONFIRMED
+G = 0 for every b, k src                                           B=0.8333333 lx=0.0000 ly=1.0000 l=0.0000  exact 5/6: CONFIRMED
+G = 0, k src, GRH counts                                           B=0.8333333 lx=0.0000 ly=1.0000 l=0.0000  exact 5/6: CONFIRMED
+== new certificate for 13/15 without the J-loss: weights on L0, L0', L_K, H0
+  random geometry (0.137, 0.582, 0.867) combination = 13/15
+  random geometry (0.821, 0.782, 0.064) combination = 13/15
+  random geometry (0.261, 0.12, 0.507) combination = 13/15
+  random geometry (0.779, 0.46, 0.483) combination = 13/15
+  random geometry (0.667, 0.388, 0.807) combination = 13/15
+== amplification needed to reach a given abscissa, k = 0, free geometry (lx, ly, l >= 0), ideal high
+  B=0.8333: min l  polar/comp 0.5000  G=0/comp 0.0000  polar/no-comp 1.0000  G=0/no-comp 0.0000   [predicted: polar 8-9B = 0.5000, G=0: 6(5/6-B) = 0.0000]
+  B=0.8000: min l  polar/comp 0.8000  G=0/comp 0.2000  polar/no-comp 1.6000  G=0/no-comp 0.2000   [predicted: polar 8-9B = 0.8000, G=0: 6(5/6-B) = 0.2000]
+  B=0.7500: min l  polar/comp 1.2500  G=0/comp 0.5000  polar/no-comp 2.5000  G=0/no-comp 0.5000   [predicted: polar 8-9B = 1.2500, G=0: 6(5/6-B) = 0.5000]
+  B=0.6667: min l  polar/comp 2.0000  G=0/comp 1.0000  polar/no-comp 4.0000  G=0/no-comp 1.0000   [predicted: polar 8-9B = 2.0000, G=0: 6(5/6-B) = 1.0000]
+  B=0.6000: min l  polar/comp 2.6000  G=0/comp 1.4000  polar/no-comp 5.2000  G=0/no-comp 1.4000   [predicted: polar 8-9B = 2.6000, G=0: 6(5/6-B) = 1.4000]
+  B=0.5000: min l  polar/comp 3.5000  G=0/comp 2.0000  polar/no-comp 7.0000  G=0/no-comp 2.0000   [predicted: polar 8-9B = 3.5000, G=0: 6(5/6-B) = 2.0000]

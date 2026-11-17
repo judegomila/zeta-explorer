@@ -1,0 +1,10 @@
+I1a  1 - delta*F_I(r*) - R_kappa = 0
+I1b  1 - delta*F_S(m*) - R_kappa = 0
+I2   m_x(R=R_kappa) - m* = 0
+I3   R + tau_m - theta0*m - ((3R+1)/4 - theta0/2) = 0
+I4   exchanged-CS exponent - Hoelder exponent = 0
+I5a  N(theta0)+theta0 - (K+theta0/2) = 0
+I5b  N(delta/2)+delta/2 - (R+delta/2) = 0
+I6   (1/2 - m_x)*(delta/2 - g/(6k)) = R/4 + delta/4 - 1/4  (= (R-(1-delta))/4)
+critical class: R = 0.590332353526359  t = 1.16395357650901  r* = 0.745699942724289  m* = 0.418253633784720  theta0 = 0.0521651969562000
+   K = (3R+1)/4 = 0.692749265144769   K - R = 0.102416911618410   sigma(1/2) = (1-R)/4, bin bound delta/4 = 0.117336214674535

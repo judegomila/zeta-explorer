@@ -1,0 +1,3 @@
+dh P all 84 pivots certified positive t=204s
+dh Ke pivot 75 certified negative: [-2.2591706e-476 +/- 1.69e-484] t=205s
+dh Ko pivot 75 certified negative: [-3.8110499e-474 +/- 3.26e-482] t=206s

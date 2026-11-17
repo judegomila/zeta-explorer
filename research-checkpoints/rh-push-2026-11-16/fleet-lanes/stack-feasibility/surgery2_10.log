@@ -1,0 +1,36 @@
+L= 10.0 K= 40 delta=0.010: sup|E| 0.0409 -> 3.59e-07  max|eps|=0.0388  min new gap=2.57e-05
+L= 10.0 K= 40 delta=0.020: sup|E| 0.0711 -> 8.94e-05  max|eps|=0.0555  min new gap=1.14e-11
+L= 10.0 K= 40 delta=0.035: sup|E| 0.155 -> 0.0041  max|eps|=0.101  min new gap=4.16e-11
+L= 10.0 K= 40 delta=0.050: sup|E| 0.286 -> 0.0172  max|eps|=0.133  min new gap=0
+L= 10.0 K= 40 delta=0.075: sup|E| 0.62 -> 0.0495  max|eps|=0.12  min new gap=2.22e-16
+L= 10.0 K= 40 delta=0.100: sup|E| 1.12 -> 0.0936  max|eps|=0.108  min new gap=6.66e-16
+L= 10.0 K= 40 delta=0.130: sup|E| 1.97 -> 0.158  max|eps|=0.144  min new gap=4.44e-16
+L= 10.0 K= 40 delta=0.160: sup|E| 3.19 -> 0.383  max|eps|=0.205  min new gap=4.44e-16
+L= 10.0 K= 40 delta=0.200: sup|E| 5.56 -> 0.873  max|eps|=0.351  min new gap=4.44e-16
+L= 10.0 K= 40 delta=0.250: sup|E| 10.3 -> 2.31  max|eps|=0.503  min new gap=2.22e-16
+L= 10.0 K= 40 delta=0.300: sup|E| 18.2 -> 7.31  max|eps|=0.553  min new gap=0
+L= 10.0 K= 40 delta=0.375: sup|E| 40.6 -> 23.6  max|eps|=0.606  min new gap=0
+L= 10.0 K=150 delta=0.010: sup|E| 0.0409 -> 1.37e-09  max|eps|=0.0168  min new gap=0.0162
+L= 10.0 K=150 delta=0.020: sup|E| 0.0711 -> 9.87e-09  max|eps|=0.0267  min new gap=3.46e-05
+L= 10.0 K=150 delta=0.035: sup|E| 0.155 -> 0.000588  max|eps|=0.0773  min new gap=1.11e-16
+L= 10.0 K=150 delta=0.050: sup|E| 0.286 -> 0.0105  max|eps|=0.0969  min new gap=2.22e-16
+L= 10.0 K=150 delta=0.075: sup|E| 0.62 -> 0.0425  max|eps|=0.114  min new gap=6.66e-16
+L= 10.0 K=150 delta=0.100: sup|E| 1.12 -> 0.0858  max|eps|=0.119  min new gap=4.44e-16
+L= 10.0 K=150 delta=0.130: sup|E| 1.97 -> 0.15  max|eps|=0.197  min new gap=2.66e-15
+L= 10.0 K=150 delta=0.160: sup|E| 3.19 -> 0.247  max|eps|=0.258  min new gap=0
+L= 10.0 K=150 delta=0.200: sup|E| 5.56 -> 0.705  max|eps|=0.404  min new gap=0
+L= 10.0 K=150 delta=0.250: sup|E| 10.3 -> 1.84  max|eps|=0.49  min new gap=0
+L= 10.0 K=150 delta=0.300: sup|E| 18.2 -> 5.06  max|eps|=0.777  min new gap=0
+L= 10.0 K=150 delta=0.375: sup|E| 40.6 -> 18.1  max|eps|=0.839  min new gap=0
+L= 10.0 K=400 delta=0.010: sup|E| 0.0409 -> 1.72e-10  max|eps|=0.0151  min new gap=0.0195
+L= 10.0 K=400 delta=0.020: sup|E| 0.0711 -> 9.21e-11  max|eps|=0.0245  min new gap=0.000893
+L= 10.0 K=400 delta=0.035: sup|E| 0.155 -> 0.000126  max|eps|=0.0741  min new gap=2.44e-15
+L= 10.0 K=400 delta=0.050: sup|E| 0.286 -> 0.00846  max|eps|=0.0992  min new gap=3.46e-13
+L= 10.0 K=400 delta=0.075: sup|E| 0.62 -> 0.0389  max|eps|=0.115  min new gap=1.11e-15
+L= 10.0 K=400 delta=0.100: sup|E| 1.12 -> 0.0829  max|eps|=0.168  min new gap=4.44e-16
+L= 10.0 K=400 delta=0.130: sup|E| 1.97 -> 0.147  max|eps|=0.219  min new gap=2.22e-16
+L= 10.0 K=400 delta=0.160: sup|E| 3.19 -> 0.208  max|eps|=0.256  min new gap=0
+L= 10.0 K=400 delta=0.200: sup|E| 5.56 -> 0.636  max|eps|=0.401  min new gap=0
+L= 10.0 K=400 delta=0.250: sup|E| 10.3 -> 1.72  max|eps|=0.486  min new gap=2.22e-16
+L= 10.0 K=400 delta=0.300: sup|E| 18.2 -> 4.52  max|eps|=0.792  min new gap=0
+L= 10.0 K=400 delta=0.375: sup|E| 40.6 -> 14.7  max|eps|=0.831  min new gap=0

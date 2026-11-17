@@ -1,0 +1,21 @@
+{
+ "which": "xi",
+ "K": 100,
+ "bits": 40000,
+ "mu0": "[0.023104993115418970789 +/- 6.63e-23]",
+ "mu1": "[3.7172599285269686165e-5 +/- 1.34e-25]",
+ "odd_coeff_check": [
+  "[+/- 1.29e-12040]",
+  "[+/- 1.53e-12039]",
+  "[+/- 1.97e-12038]"
+ ],
+ "rows": [
+  {
+   "case": "xi",
+   "H0": null,
+   "H0_msg": "certified signs to order 100; negative pivots at []",
+   "H1": null,
+   "H1_msg": "certified signs to order 100; negative pivots at []"
+  }
+ ]
+}

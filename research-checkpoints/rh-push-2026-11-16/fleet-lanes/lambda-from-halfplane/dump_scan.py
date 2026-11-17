@@ -1,7 +1,7 @@
 import gzip, json, collections
 kinds = collections.Counter(); ex = {}
 n = 0
-with gzip.open('/Users/USER/Documents/GitHub/mathexplorer/tmp/qrh-tune-out/F2_final.steps.jsonl.gz', 'rt') as f:
+with gzip.open('tmp/qrh-tune-out/F2_final.steps.jsonl.gz', 'rt') as f:
     for line in f:
         d = json.loads(line); n += 1
         key = (d['lab'][0], tuple(sorted(k for k in d if k not in ('q', 'rate', 'outq', 'lab'))))

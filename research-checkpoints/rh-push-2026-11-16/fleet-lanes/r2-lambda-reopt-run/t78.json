@@ -21,7 +21,7 @@
  "start_margin": 1e-07,
  "strict_entry_margin": 1.8082252751949694e-08,
  "admitted": 527,
- "certfile": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b4-rec-joint-out/collect6/merge/certfile_fullref.json",
+ "certfile": "tmp/routes-b4-rec-joint-out/collect6/merge/certfile_fullref.json",
  "path_q_at_cell_start": {
   "0": 0.5625001,
   "1": 0.5604549716032288,
@@ -580,59 +580,59 @@
  },
  "q0off": "1/10000000",
  "tables": [
-  "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b2-r3-out/tab_P.json",
-  "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/tab_X.json",
-  "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/tab_X2.json"
+  "tmp/routes-b2-r3-out/tab_P.json",
+  "tmp/routes-b3-combine-out/tab_X.json",
+  "tmp/routes-b3-combine-out/tab_X2.json"
  ],
  "nkernels": 360,
  "nxkernels": 360,
  "xsets": [
   [
    "W4",
-   "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-9-out/archive/W4_single/TABLES.json",
-   "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-9-out/plans/W4_single.json",
+   "tmp/routes-b3-9-out/archive/W4_single/TABLES.json",
+   "tmp/routes-b3-9-out/plans/W4_single.json",
    "0",
    "607"
   ],
   [
    "m097",
-   "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-9-out/archive/X1_P0_97/TABLES.json",
-   "/Users/USER/Documents/GitHub/mathexplorer/tmp/b145-B-out/plans/X1_mult_0_97b.json",
+   "tmp/routes-b3-9-out/archive/X1_P0_97/TABLES.json",
+   "tmp/b145-B-out/plans/X1_mult_0_97b.json",
    "0",
    "607"
   ],
   [
    "m094",
-   "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-9-out/archive/X1_m0.94_c200_600/TABLES.json",
-   "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-9-out/plans/X1_mult_0.94.json",
+   "tmp/routes-b3-9-out/archive/X1_m0.94_c200_600/TABLES.json",
+   "tmp/routes-b3-9-out/plans/X1_mult_0.94.json",
    "0",
    "607"
   ],
   [
    "m091",
-   "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-9-out/archive/X1_m0.91_c200_600/TABLES.json",
-   "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-9-out/plans/X1_mult_0.91.json",
+   "tmp/routes-b3-9-out/archive/X1_m0.91_c200_600/TABLES.json",
+   "tmp/routes-b3-9-out/plans/X1_mult_0.91.json",
    "0",
    "607"
   ],
   [
    "QA_m0.88",
-   "/Users/USER/Documents/GitHub/mathexplorer/tmp/qrh-tune-out/archive/QA_m0.88/TABLES.json",
-   "/Users/USER/Documents/GitHub/mathexplorer/tmp/qrh-tune-out/plans/QA_m0.88.json",
+   "tmp/qrh-tune-out/archive/QA_m0.88/TABLES.json",
+   "tmp/qrh-tune-out/plans/QA_m0.88.json",
    "0",
    "607"
   ],
   [
    "QB_m0.91",
-   "/Users/USER/Documents/GitHub/mathexplorer/tmp/qrh-tune-out/archive/QB_m0.91/TABLES.json",
-   "/Users/USER/Documents/GitHub/mathexplorer/tmp/qrh-tune-out/plans/QB_m0.91.json",
+   "tmp/qrh-tune-out/archive/QB_m0.91/TABLES.json",
+   "tmp/qrh-tune-out/plans/QB_m0.91.json",
    "0",
    "607"
   ],
   [
    "QC_cliff",
-   "/Users/USER/Documents/GitHub/mathexplorer/tmp/qrh-tune-out/archive/QC_cliff/TABLES.json",
-   "/Users/USER/Documents/GitHub/mathexplorer/tmp/qrh-tune-out/plans/QC_cliff.json",
+   "tmp/qrh-tune-out/archive/QC_cliff/TABLES.json",
+   "tmp/qrh-tune-out/plans/QC_cliff.json",
    "0",
    "607"
   ]

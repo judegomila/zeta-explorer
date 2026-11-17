@@ -1,0 +1,43 @@
+L= 16.0 K= 40 delta=0.010: sup|E| 0.105 -> 0.0504  max|eps|=0.0109  min new gap=0.0303
+L= 16.0 K= 40 delta=0.020: sup|E| 0.182 -> 0.0898  max|eps|=0.0268  min new gap=1.08e-06
+L= 16.0 K= 40 delta=0.035: sup|E| 0.401 -> 0.226  max|eps|=0.0275  min new gap=4.73e-06
+L= 16.0 K= 40 delta=0.050: sup|E| 0.754 -> 0.461  max|eps|=0.0313  min new gap=4.23e-06
+L= 16.0 K= 40 delta=0.075: sup|E| 1.7 -> 1  max|eps|=0.0764  min new gap=0
+L= 16.0 K= 40 delta=0.100: sup|E| 3.23 -> 1.45  max|eps|=0.182  min new gap=2.22e-16
+L= 16.0 K= 40 delta=0.130: sup|E| 6.21 -> 3.07  max|eps|=0.207  min new gap=0
+L= 16.0 K= 40 delta=0.160: sup|E| 11.1 -> 6.44  max|eps|=0.231  min new gap=0
+L= 16.0 K= 40 delta=0.200: sup|E| 22.7 -> 15.7  max|eps|=0.275  min new gap=0
+L= 16.0 K= 40 delta=0.250: sup|E| 52.7 -> 41.9  max|eps|=0.279  min new gap=0
+L= 16.0 K= 40 delta=0.300: sup|E| 120 -> 107  max|eps|=0.294  min new gap=0
+L= 16.0 K= 40 delta=0.375: sup|E| 402 -> 387  max|eps|=0.308  min new gap=0
+L= 16.0 K=150 delta=0.010: sup|E| 0.105 -> 0.0578  max|eps|=0.0105  min new gap=0.0312
+L= 16.0 K=150 delta=0.020: sup|E| 0.182 -> 0.105  max|eps|=0.0269  min new gap=1.04e-05
+L= 16.0 K=150 delta=0.035: sup|E| 0.401 -> 0.277  max|eps|=0.0277  min new gap=4.33e-06
+L= 16.0 K=150 delta=0.050: sup|E| 0.754 -> 0.573  max|eps|=0.033  min new gap=7.1e-07
+L= 16.0 K=150 delta=0.075: sup|E| 1.7 -> 1.36  max|eps|=0.0788  min new gap=3.5e-06
+L= 16.0 K=150 delta=0.100: sup|E| 3.23 -> 2.05  max|eps|=0.291  min new gap=3.55e-10
+L= 16.0 K=150 delta=0.130: sup|E| 6.21 -> 2.84  max|eps|=0.246  min new gap=0
+L= 16.0 K=150 delta=0.160: sup|E| 11.1 -> 5.89  max|eps|=0.225  min new gap=0
+L= 16.0 K=150 delta=0.200: sup|E| 22.7 -> 14.7  max|eps|=0.249  min new gap=0
+L= 16.0 K=150 delta=0.250: sup|E| 52.7 -> 42.9  max|eps|=0.256  min new gap=0
+L= 16.0 K=150 delta=0.300: sup|E| 120 -> 98.4  max|eps|=0.275  min new gap=0
+L= 16.0 K=150 delta=0.375: sup|E| 402 -> 368  max|eps|=0.298  min new gap=0
+L= 16.0 K=400 delta=0.010: sup|E| 0.105 -> 0.0602  max|eps|=0.0101  min new gap=0.0247
+L= 16.0 K=400 delta=0.020: sup|E| 0.182 -> 0.107  max|eps|=0.0269  min new gap=1.04e-05
+L= 16.0 K=400 delta=0.035: sup|E| 0.401 -> 0.271  max|eps|=0.0277  min new gap=4.82e-06
+L= 16.0 K=400 delta=0.050: sup|E| 0.754 -> 0.555  max|eps|=0.0335  min new gap=9.8e-05
+L= 16.0 K=400 delta=0.075: sup|E| 1.7 -> 1.34  max|eps|=0.0797  min new gap=4.66e-14
+L= 16.0 K=400 delta=0.100: sup|E| 3.23 -> 2.13  max|eps|=0.289  min new gap=0
+Traceback (most recent call last):
+  File "/home/USER/rh-push/stack-feasibility/surgery2b.py", line 36, in <module>
+    out += run(L, K, deltas)
+           ^^^^^^^^^^^^^^^^^
+  File "/home/USER/rh-push/stack-feasibility/surgery2b.py", line 15, in run
+    U, s, Vt = np.linalg.svd(J, full_matrices=False); ok = False
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/USER/rh-push/venv/lib/python3.12/site-packages/numpy/linalg/_linalg.py", line 1840, in svd
+    u, s, vh = gufunc(a, signature=signature)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/USER/rh-push/venv/lib/python3.12/site-packages/numpy/linalg/_linalg.py", line 153, in _raise_linalgerror_svd_nonconvergence
+    raise LinAlgError("SVD did not converge")
+numpy.linalg.LinAlgError: SVD did not converge

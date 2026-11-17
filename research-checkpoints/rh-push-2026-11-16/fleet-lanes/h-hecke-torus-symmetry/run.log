@@ -1,0 +1,61 @@
+{
+ "rank2_sublattice_identity_abs_err": {
+  "2": 0.0,
+  "3": 0.0,
+  "5": 0.0
+ },
+ "seed_sum_err": 0.0,
+ "kappa_even_err": 4.0234064994579266e-21,
+ "F_eq_zeta_times_seed_relerr": 3.4005373437951783e-22,
+ "DH_a(mn)=chi(m)a(n)_m=+-1mod5_err": 0.0,
+ "DH_U_p a = b (p=2 mod 5)_err": 0.0,
+ "DH_U_p a = -b (p=3 mod 5)_err": 0.0,
+ "DH_U_p b = -a (p=2 mod 5)_err": 0.0,
+ "DH_FE_ratio_Lam(1-s)/Lam(s)": "(1+2.48672788795856e-16j)",
+ "twin_FE_ratio_Lam(1-s)/Lam(s)": "(-1-6.197626868212752e-17j)",
+ "CM_disc_-20": {
+  "3": {
+   "lam_plus": 2,
+   "lam_minus": -2,
+   "plus_eigen": true,
+   "minus_eigen": true,
+   "single_torus_eigen": false,
+   "T_p_maps_torus1_to_torus2": true
+  },
+  "7": {
+   "lam_plus": 2,
+   "lam_minus": -2,
+   "plus_eigen": true,
+   "minus_eigen": true,
+   "single_torus_eigen": false,
+   "T_p_maps_torus1_to_torus2": true
+  },
+  "29": {
+   "lam_plus": 2,
+   "lam_minus": 2,
+   "plus_eigen": true,
+   "minus_eigen": true,
+   "single_torus_eigen": true,
+   "T_p_maps_torus1_to_torus2": null
+  },
+  "41": {
+   "lam_plus": 2,
+   "lam_minus": 2,
+   "plus_eigen": true,
+   "minus_eigen": true,
+   "single_torus_eigen": true,
+   "T_p_maps_torus1_to_torus2": null
+  },
+  "11": {
+   "lam_plus": 0,
+   "lam_minus": 0,
+   "plus_eigen": true,
+   "minus_eigen": true,
+   "single_torus_eigen": true,
+   "T_p_maps_torus1_to_torus2": true
+  }
+ },
+ "NR_offline_zero_real_offset": 0.6399337208971799,
+ "NR_offline_zero_ordinate": 4.532360141827194,
+ "NR_factor_at_zero": 8.381357355277118e-22
+}

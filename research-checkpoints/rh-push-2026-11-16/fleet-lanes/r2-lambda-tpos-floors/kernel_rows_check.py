@@ -8,7 +8,7 @@ def lamstar(r, rho):
     for v in np.linspace(rho*1e-3, rho, 400):
         best = min(best, ((4*v/(d*d+4*v*v))/(v*0.5*(K(1, d+r, v)+K(1, d-r, v)))).min())
     return best
-rows = json.load(open('/Users/USER/Documents/GitHub/mathexplorer/tmp/oai-lambda-out/KERNELS_raymond_backup.json'))['rows']
+rows = json.load(open('tmp/oai-lambda-out/KERNELS_raymond_backup.json'))['rows']
 from fractions import Fraction as F
 for row in rows:
     r = float(F(row['r'])); lam = float(F(row['lambda'])); rho = float(F(row['rho'])) if 'rho' in row else None

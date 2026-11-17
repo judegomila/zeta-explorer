@@ -235,7 +235,16 @@ would have to be continued.
 
 Test of L1 (statistic max_t Re f'/f(1/2 + x_0 + it)/log(t + 2)):
 
-L1_TABLE
+| Object | x_0 = 0.375 | 0.25 | 0.10 | 0.02 | reading |
+|---|---|---|---|---|---|
+| zeta, t in [10, 200] | 0.814 | 1.272 | 3.068 | 11.73 | finite on every line; grows like 1/x_0 as the line approaches the zeros at x = 0 (consistent with L1(theta) for theta > 1/2 and its failure at theta = 1/2) |
+| E_a, a = 0.3, t in [10, 200] | 4.208 | 0.047 | -0.174 | -0.186 | lines to the left of the zeros at x = 0.3 carry no upper-tail signal; on lines approaching x = 0.3 from the right the statistic is 3.8, 12.3, 36.3, 360 at x_0 = 0.40, 0.33, 0.31, 0.301 (`l1_extra.py`; zeta on the same lines: 0.76, 0.95, 1.02, 1.06). L1(theta) FAILS at theta = 1/2 + a, where E_a satisfies ZF(theta) and Theorem E |
+| twist eps_2 = -1, t in [10, 200] | 0.656 | 1.088 | 2.871 | 11.60 | PASS: the twisted function has zeta's zeros in Re s > 0 |
+| DH, t in [80, 120] | 3.287 | 1.962 | 1.795 | 10.31 | peak 3.29 at t = 85.7 on the line just right of the zero 0.8085 + 85.70i; the hypothesis ZF(theta) fails for every theta <= 1.12, so P1 is void for DH |
+| HEAT | n/a | | | | no Dirichlet series |
+
+L1 separates zeta from E_a at the abscissa of E_a's zeros and from nothing else: it is a zero-location statement
+read on a line.
 
 ### Plan 2. Integer index plus Nehari distance: an inequality with margin
 
@@ -288,7 +297,17 @@ Test (existing logs plus `lemma_tests.py`). The statistic is |I(u)|/(sqrt(2 pi) 
 Dl = 1, window centre 85.699348 (<= 1 for all u < 0 iff no pole in the window, sq-hankel-traces Cor 3b), and the
 quantum |r_j|/(2 Re z_j) where a pole exists:
 
-L2_TABLE
+| Object | u = -2 | u = -4 | u = -6 | quantum | source |
+|---|---|---|---|---|---|
+| zeta | 0.342 | 0.334 | 0.328 | none (no pole in the window) | `lemma_tests.log`; agrees with sq-hankel-traces `detector.log` |
+| DH | 1.28 | 589 | 1.17e7 | 0.9407 (alpha = 1), 0.6614 (alpha = 0.3), pole at 0.0515 + 85.743i | sq-hankel-traces `detector.log` |
+| E_a, a = 0.3 | 1.34 | 439 | 6.2e6 | not computed (every zero is off the line) | `lemma_tests.log` |
+| HEAT | not computed | | | index (N - N_0)/2 = 0, 1, 3 at heat time 0, -2, -5 in a box holding 10 zeros | sq-krein-index `heat_index.log` |
+| sign twist | n/a | | | the prime-side anticausal kernel is zero for every sign twist; no symmetric zero side exists | sq-hankel-traces Theorem 4 |
+
+The statistic stays near 1/3 for zeta and grows like exp(u^2/2 - (Re z_j)|u|) for DH and E_a. The quantum for the
+one DH pole in the window is 0.94: the Nehari distance of S_DH from H^inf is at least 0.94 on any window containing
+it (given (Q)), against 0 for zeta under RH.
 
 ### Plan 3. Chain with hard cap
 
@@ -319,7 +338,17 @@ position of the line t -> (p^{-it})_p on the torus and, for the tail, the biline
 
 Test (statistic max_t (-Re f'/f)/Re G_f on the line Re s = 1/2 + x; P3 says <= 1 for zeta):
 
-CAP_TABLE
+| Object | x = 0.375 | 0.25 | 0.10 | 0.02 | reading |
+|---|---|---|---|---|---|
+| zeta, t in [10, 200] | 0.834 | 0.889 | 0.955 | 0.991 | below 1 on every line, tending to 1 as x -> 0 (no margin) |
+| E_a, a = 0.3 | 0.837 | 15.33 | 3.91 | 1.53 | FAIL for x < a, at t = 14.1 |
+| twist eps_2 = -1 (with zeta's G) | 1.98 | 2.19 | 2.46 | 2.60 | FAIL at t = 12.0 on every line |
+| DH, t in [80, 120] | 0.626 | 8.15 | 4.97 | 1.65 | FAIL for x below 0.3085 (t = 85.7, 114.2); on [80, 120] the line x = 0.375 is to the right of the zeros in the window |
+| HEAT | n/a | | | | no chain |
+
+The statistic for zeta approaches the cap from below with no slack as x -> 0, as eq48 Theorem 4 requires. The
+twist with one prime's sign changed already exceeds the cap by a factor 2: the cap has no tolerance in the prime
+data (same content as Theorem R), so L3 cannot be proved from the size of Lambda.
 
 ## 6. DH control
 
@@ -350,5 +379,5 @@ DH at the first step (no chain) and its cap statistic exceeds 1. The steps that 
 
 - `TABLE.md`: the 61-row table and the computed minimal sets. `table_rows.json`: the same rows as data.
 - `gen_table.py`: builds both. `rows/G1.md` .. `rows/G4.md`: source digests (236 rows, with quoted combination leads).
-- `t3_pair_reach.py`, `t3_pair_reach.json`: section 4.5. `lemma_tests.py`, `lemma_tests.log`, `lemma_tests.json`: section 5.
+- `t3_pair_reach.py`, `t3_pair_reach.json`: section 4.5. `lemma_tests.py`, `lemma_tests.log`, `lemma_tests.json`, `l1_extra.py`, `l1_extra.log`: section 5.
 - `READER_BRIEF.md`, `digest.py`, `digest2.py`, `d1.txt` .. `d3.txt`: reader instructions and digest helpers.

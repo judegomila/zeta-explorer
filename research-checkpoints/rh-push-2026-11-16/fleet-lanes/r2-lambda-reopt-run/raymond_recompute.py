@@ -3,7 +3,7 @@
 # Exact rationals.  Extra checks per chosen substep: v <= rho^2, r h < 2, cap >= s_r on 41 sample points of [0, v], rate > 0.
 import json, sys
 from fractions import Fraction as F
-G1 = '/Users/USER/Documents/GitHub/mathexplorer/tmp/s145-1-g1/'
+G1 = 'tmp/s145-1-g1/'
 PLAN = json.load(open(G1 + 'data/PLAN.json'))
 KER = json.load(open('/tmp/raymond_pr/pr/Proof_and_Replay/Evidence/numerical/parent_numerical/KERNELS.json'))['rows']
 TAB = json.load(open(G1 + 'out/X1/TABLES.json'))
@@ -62,4 +62,4 @@ def run(theta, off=F(2, 10**6), parts=128):
             q = up(outq, 2**96)
 res = [run(t) for t in sys.argv[1:]]
 for r in res: print(json.dumps(r), flush=True)
-json.dump(res, open('/Users/USER/Documents/GitHub/mathexplorer/tmp/research-2026-11-16/push/r2-lambda-reopt-run/raymond_recompute.json', 'w'), indent=1)
+json.dump(res, open('tmp/research-2026-11-16/push/r2-lambda-reopt-run/raymond_recompute.json', 'w'), indent=1)

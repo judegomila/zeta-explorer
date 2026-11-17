@@ -1,5 +1,5 @@
 {
- "dump": "/Users/USER/Documents/GitHub/mathexplorer/tmp/qrh-tune-out/F2_final.steps.jsonl.gz",
+ "dump": "tmp/qrh-tune-out/F2_final.steps.jsonl.gz",
  "theta": "7/8",
  "q0": "5625001/10000000",
  "substeps": 59439,

@@ -1,0 +1,28 @@
+## high t0=3000192779652.13 L=8.0 N=2981 J=51 dens=4.280 L*=13.45 ef_err=2.71e-12 positions={'pair': 0.3100849405363988, 'gap': 0.013304384667514962} gaps=0.0352,0.5583
+M1 pair threshold 0.3671875 base_s 0.0 {'kappa': 5.895936838879864e-08, 'Gq': 0.0010612925549222739, 'Gmin_fine': -6.477517988975243e-11, 'bound': 0.0010608278666770297, 'rounds': 1, 's': 4.646882452834301e-07, 'mass_bound': 306.59763236164423, 'tailup': 1e-05, 'taillo': 1.001880844511199e-05, 'delta': 0.3671875} 2s atoms=3665
+M1 gap threshold 0.3095703125 base_s 0.0 {'kappa': 2.804161692682397e-08, 'Gq': 0.0006260244090442187, 'Gmin_fine': -8.839378659266322e-11, 'bound': 0.0006249767229015181, 'rounds': 1, 's': 1.0476861424769277e-06, 'mass_bound': 306.59763236164423, 'tailup': 1e-05, 'taillo': 1.001880844511199e-05, 'delta': 0.3095703125} 4s atoms=3858
+M2_3/8 pair threshold None base_s 0.0 {} 8s atoms=73505
+M2_3/8 gap threshold None base_s 0.0 {} 13s atoms=73505
+M2_1/2 pair threshold None base_s 0.0 {} 9s atoms=73505
+M2_1/2 gap threshold None base_s 0.0 {} 14s atoms=73505
+## high t0=3000192779652.13 L=10.0 N=22026 J=64 dens=4.280 L*=13.45 ef_err=7.41e-13 positions={'pair': 0.3100849405363988, 'gap': 0.013304384667514962} gaps=0.0352,0.5583
+M1 pair threshold 0.236328125 base_s 0.0 {'kappa': 1.0841592053786381e-08, 'Gq': 0.0006298831717916672, 'Gmin_fine': -4.595008760145914e-11, 'bound': 0.0006280094465964363, 'rounds': 1, 's': 1.8737251954364373e-06, 'mass_bound': 306.59763236164423, 'tailup': 1e-05, 'taillo': 1.0004930521035438e-05, 'delta': 0.236328125} 2s atoms=3754
+M1 gap threshold 0.125 base_s 0.0 {'kappa': 3.1941139601857126e-08, 'Gq': 0.0010607530134381636, 'Gmin_fine': -4.3804659290212726e-11, 'bound': 0.0010604130105981572, 'rounds': 2, 's': 3.400028409313301e-07, 'mass_bound': 306.59763236164423, 'tailup': 1e-05, 'taillo': 1.0004930521035438e-05, 'delta': 0.125} 5s atoms=3890
+M2_3/8 pair threshold None base_s 0.0 {} 9s atoms=73505
+M2_3/8 gap threshold None base_s 0.0 {} 14s atoms=73505
+M2_1/2 pair threshold None base_s 0.0 {} 10s atoms=73505
+M2_1/2 gap threshold None base_s 0.0 {} 15s atoms=73505
+## high t0=3000192779652.13 L=12.0 N=162755 J=77 dens=4.280 L*=13.45 ef_err=2.97e-13 positions={'pair': 0.3100849405363988, 'gap': 0.013304384667514962} gaps=0.0352,0.5583
+M1 pair threshold 0.15625 base_s 0.0 {'kappa': 1.3979053420582387e-08, 'Gq': 0.0014139134019058126, 'Gmin_fine': -7.941739564388917e-11, 'bound': 0.0014120867650420348, 'rounds': 2, 's': 1.8266368639645088e-06, 'mass_bound': 306.59763236164423, 'tailup': 1e-05, 'taillo': 1.0001651221518749e-05, 'delta': 0.15625} 2s atoms=3755
+M1 gap threshold 0.0009765625 base_s 0.0 {'kappa': 1.1274746530494975e-08, 'Gq': 0.04156512544620996, 'Gmin_fine': -1.6605770867988388e-07, 'bound': 0.03874733269518899, 'rounds': 0, 's': 0.0028177927510195456, 'mass_bound': 306.59763236164423, 'tailup': 1e-05, 'taillo': 1.0001651221518749e-05, 'delta': 0.0009765625} 4s atoms=4023
+M2_3/8 pair threshold None base_s 0.0 {} 8s atoms=73505
+M2_3/8 gap threshold None base_s 0.0 {} 12s atoms=73505
+M2_1/2 pair threshold None base_s 0.0 {} 9s atoms=73505
+M2_1/2 gap threshold None base_s 0.0 {} 14s atoms=73505
+## high t0=3000192779652.13 L=13.0 N=442413 J=83 dens=4.280 L*=13.45 ef_err=2.03e-13 positions={'pair': 0.3100849405363988, 'gap': 0.013304384667514962} gaps=0.0352,0.5583
+M1 pair threshold 0.1318359375 base_s 0.0 {'kappa': 6.917391227126967e-09, 'Gq': 0.002041372018192557, 'Gmin_fine': -3.1181110854131555e-10, 'bound': 0.0020363395609659584, 'rounds': 1, 's': 5.0324572269748826e-06, 'mass_bound': 306.59763236164423, 'tailup': 1e-05, 'taillo': 1.0001021486666541e-05, 'delta': 0.1318359375} 4s atoms=3917
+M1 gap threshold 0.0009765625 base_s 0.0 {'kappa': 1.7883004788801672e-08, 'Gq': 0.14089205733716378, 'Gmin_fine': -3.8248745226451563e-07, 'bound': 0.1263401283465599, 'rounds': 0, 's': 0.014551928990600503, 'mass_bound': 306.59763236164423, 'tailup': 1e-05, 'taillo': 1.0001021486666541e-05, 'delta': 0.0009765625} 8s atoms=4152
+M2_3/8 pair threshold None base_s 0.0 {} 11s atoms=73505
+M2_3/8 gap threshold 0.36767578125 base_s 0.0 {'kappa': 9.14855401791053e-08, 'Gq': 0.004590543466772071, 'Gmin_fine': -2.4407627334327252e-15, 'bound': 0.004580071387675611, 'rounds': 1, 's': 1.047207910098035e-05, 'mass_bound': 306.59763236164423, 'tailup': 1.0006146260273938e-05, 'taillo': 1.0006146260273938e-05, 'delta': 0.36767578125} 100s atoms=73785
+M2_1/2 pair threshold None base_s 0.0 {} 11s atoms=73505
+M2_1/2 gap threshold None base_s 0.0 {} 16s atoms=73505

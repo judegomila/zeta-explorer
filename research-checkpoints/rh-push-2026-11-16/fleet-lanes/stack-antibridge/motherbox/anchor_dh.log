@@ -1,0 +1,2 @@
+dh mu_0 = [0.09806957695333636694018683 +/- 3.25e-27] mu_1 = [0.001748504939203854391032979 +/- 2.04e-28] odd coeffs: ['[+/- 2.15e-4815]', '[+/- 2.06e-4814]', '[+/- 1.30e-4813]'] t=60s
+{'case': 'dh', 'H0': 75, 'H0_msg': 'certified signs to order 80; negative pivots at [75]', 'H1': 75, 'H1_msg': 'certified signs to order 80; negative pivots at [75]'} t=63s

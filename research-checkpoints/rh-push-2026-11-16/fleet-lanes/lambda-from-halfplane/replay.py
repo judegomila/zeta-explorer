@@ -3,8 +3,8 @@
 # (degree-18 Taylor bound for exp(-x), upward rounding to 2^-96, degree-11 alternating log bound, ceil to 1e-15).
 import gzip, json, math, sys
 from fractions import Fraction as F
-DUMP = '/Users/USER/Documents/GitHub/mathexplorer/tmp/qrh-tune-out/F2_final.steps.jsonl.gz'
-KER = json.load(open('/Users/USER/Documents/GitHub/mathexplorer/tmp/oai-lambda-out/KERNELS_raymond_backup.json'))['rows']
+DUMP = 'tmp/qrh-tune-out/F2_final.steps.jsonl.gz'
+KER = json.load(open('tmp/oai-lambda-out/KERNELS_raymond_backup.json'))['rows']
 QE = F(1, 10**8); DELTA = F(1, 512000)
 def expminus(x):
     s = term = F(1)

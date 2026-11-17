@@ -1,0 +1,9 @@
+M1  uniform numerator saving d = 0.0001  [MODEL]                   B=0.8748683 rho=0.5780 lx=0.3748 ly=0.4580 l=0.1672 M+l=1.0000
+M1  uniform numerator saving d = 0.001  [MODEL]                    B=0.8747036 rho=0.5780 lx=0.3723 ly=0.4598 l=0.1679 M+l=1.0000
+M1  uniform numerator saving d = 0.002  [MODEL]                    B=0.8745199 rho=0.5770 lx=0.3715 ly=0.4599 l=0.1686 M+l=1.0000
+M1  uniform numerator saving d = 0.005  [MODEL]                    B=0.8739664 rho=0.5730 lx=0.3708 ly=0.4584 l=0.1708 M+l=1.0000
+M1  uniform numerator saving d = 0.01  [MODEL]                     B=0.8730360 rho=0.5680 lx=0.3665 ly=0.4589 l=0.1745 M+l=1.0000
+M1  uniform numerator saving d = 0.02  [MODEL]                     B=0.8711517 rho=0.5600 lx=0.3545 ly=0.4634 l=0.1821 M+l=1.0000
+M1  uniform numerator saving d = 0.03  [MODEL]                     B=0.8692107 rho=0.5400 lx=0.3645 ly=0.4457 l=0.1898 M+l=1.0000
+M1  uniform numerator saving d = 0.05  [MODEL]                     B=0.8666666 rho=0.5000 lx=0.4000 ly=0.4000 l=0.2000 M+l=1.0000
+M3  Lindelof on the class, N = R  [MODEL]                          B=0.8666666 rho=0.5000 lx=0.4000 ly=0.4000 l=0.2000 M+l=1.0000

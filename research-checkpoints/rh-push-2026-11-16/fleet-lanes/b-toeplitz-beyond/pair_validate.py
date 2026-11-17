@@ -6,7 +6,7 @@
 #   sinh(2 a d)/d - 2a = log(H/2pi).
 import numpy as np, math, sys
 from scipy.optimize import brentq
-Z = np.load('/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b6-r22-lehmer/odlyzko1e6.npy')
+Z = np.load('tmp/routes-b6-r22-lehmer/odlyzko1e6.npy')
 def leg_on(x, N, a):
     t = x/a; P = np.empty((N, x.size)); P[0] = 1.0; P[1] = t
     for k in range(1, N-1): P[k+1] = ((2*k+1)*t*P[k] - k*P[k-1])/(k+1)

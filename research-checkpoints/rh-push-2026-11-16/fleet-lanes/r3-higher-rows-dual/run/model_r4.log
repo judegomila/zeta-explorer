@@ -1,0 +1,15 @@
+B_XS = 0.87488665
+check: r = 6, a = 2, opt reproduces models.py: 0.87496
+r=4 a_FE=3 bgl       sigma0 = 1.02779  (lx,b,ell)=(0.2500,0.0000,0.1667)  M=0.5000  loss=0.3889  >= B_XS
+r=4 a_FE=3 bgl+dual  sigma0 = 1.00000  (lx,b,ell)=(0.3250,0.1500,0.2000)  M=0.8000  loss=0.4000  >= B_XS
+r=4 a_FE=3 grh       sigma0 = 0.89062  (lx,b,ell)=(0.4375,-0.0000,0.1250)  M=0.8750  loss=0.1250  >= B_XS
+r=4 a_FE=3 opt       sigma0 = 0.80986  (lx,b,ell)=(0.3279,0.1705,0.1737)  M=0.8263  loss=0.0000  BELOW B_XS
+r=3 a_FE=4 bgl       sigma0 = 1.04598  (lx,b,ell)=(0.1724,-0.0000,0.1724)  M=0.3448  loss=0.5517  >= B_XS
+r=3 a_FE=4 bgl+dual  sigma0 = 0.93333  (lx,b,ell)=(0.3539,0.0923,0.2000)  M=0.8000  loss=0.4000  >= B_XS
+r=3 a_FE=4 grh       sigma0 = 0.83333  (lx,b,ell)=(0.4178,0.0430,0.1213)  M=0.8787  loss=0.1213  BELOW B_XS
+r=3 a_FE=4 opt       sigma0 = 0.74283  (lx,b,ell)=(0.3275,0.1641,0.1810)  M=0.8190  loss=0.0000  BELOW B_XS
+r=5 a_FE=6 bgl       sigma0 = 2.05067  (lx,b,ell)=(0.2196,0.0490,0.1788)  M=0.4882  loss=2.3352  >= B_XS
+r=5 a_FE=6 bgl+dual  sigma0 = 1.04000  (lx,b,ell)=(0.3323,0.1354,0.2000)  M=0.8000  loss=0.4000  >= B_XS
+r=5 a_FE=6 grh       sigma0 = 0.92588  (lx,b,ell)=(0.4353,0.0000,0.1294)  M=0.8706  loss=0.1294  >= B_XS
+r=5 a_FE=6 opt       sigma0 = 0.84917  (lx,b,ell)=(0.3439,0.1428,0.1694)  M=0.8306  loss=0.0000  BELOW B_XS
+.venv-arb/bin/python   17.96s user 0.24s system 30% cpu 59.788 total

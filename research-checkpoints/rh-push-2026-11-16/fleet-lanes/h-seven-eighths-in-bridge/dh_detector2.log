@@ -1,0 +1,44 @@
+DH off-line zero: (0.80851718245663737319 + 85.699348485377592166j)
+  zero of L(s,chi): (0.5 + 80.4100131914j)
+  zero of L(s,chi): (0.5 + 81.6603212751j)
+  zero of L(s,chi): (0.5 + 82.9966772938j)
+  zero of L(s,chi): (0.5 + 85.660014861j)
+  zero of L(s,chi): (0.5 + 86.68096632j)
+  zero of L(s,chi): (0.5 + 87.881636095j)
+  zero of L(s,chibar): (0.5 + 80.296096961j)
+  zero of L(s,chibar): (0.5 + 83.3818025186j)
+  zero of L(s,chibar): (0.5 + 84.8316480857j)
+  zero of L(s,chibar): (0.5 + 85.4023857283j)
+  zero of L(s,chibar): (0.5 + 89.6515477324j)
+  zero of L(s,chibar): (0.5 + 90.8029988042j)
+  zero of L(s,chibar): (0.5 + 91.8958712272j)
+point                         R[Moebius twist mu*a]   R[Dirichlet inverse a^-1]
+DH zero 0.8085+85.699i                 0.763                  10.942
+L(chi) zero t=80.410                   4.325                   5.145
+L(chi) zero t=81.660                   2.491                   3.394
+L(chi) zero t=82.997                   1.290                  10.563
+L(chi) zero t=85.660                   1.684                 169.504
+L(chi) zero t=86.681                   3.593                  41.750
+L(chi) zero t=87.882                   3.347                  11.634
+L(chibar) zero t=80.296                4.190                   5.635
+L(chibar) zero t=83.382                3.192                  10.853
+L(chibar) zero t=84.832                5.440                  47.997
+L(chibar) zero t=85.402                3.749                 122.876
+L(chibar) zero t=89.652                1.629                   2.129
+L(chibar) zero t=90.803                2.713                   4.756
+L(chibar) zero t=91.896                2.811                   2.738
+generic 0.8085+83.0i                   0.713                   1.312
+generic 0.5+83.0i                      1.275                  10.532
+growth in N at the DH zero (R at N/8, N/4, N/2, N), Dirichlet inverse vs Moebius twist:
+   N=  250000:  inverse     9.286   twist     0.764
+   N=  500000:  inverse     9.838   twist     0.761
+   N= 1000000:  inverse    10.390   twist     0.760
+   N= 2000000:  inverse    10.942   twist     0.763
+shifted bridge sign at the DH pair (b = 0.308517): min over t in [85.2, 86.2] of Re L(a + it)
+   a = 0.1000:  -2.2626695
+   a = 0.2500:  -15.084854
+   a = 0.3000:  -114.83034
+   a = 0.3086:  1.2370953
+   a = 0.3200:  1.2881992
+   a = 0.3750:  1.5272092
+   a = 0.5000:  1.9749597

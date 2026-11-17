@@ -16,7 +16,7 @@
 # --replay: fixed-mode replay (Lemma R) of this dump's rates from lower starts, with q'_k <= q_k checked at every k.
 import sys, json, gzip, collections
 from fractions import Fraction as F
-T = '/Users/USER/Documents/GitHub/mathexplorer/tmp/'
+T = 'tmp/'
 CAT = json.load(open(T + 'oai-lambda-out/KERNELS_raymond_backup.json'))['rows']
 DELTA = F(1, 512000); QE = F(1, 10**8)
 def up(x, den): return F(-((-x.numerator * den) // x.denominator), den)

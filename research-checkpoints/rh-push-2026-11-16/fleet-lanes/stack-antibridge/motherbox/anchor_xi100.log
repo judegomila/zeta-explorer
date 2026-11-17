@@ -1,0 +1,2 @@
+xi mu_0 = [0.02310499311541897078893381 +/- 4.31e-28] mu_1 = [3.717259928526968616486626e-5 +/- 2.48e-30] odd coeffs: ['[+/- 1.29e-12040]', '[+/- 1.53e-12039]', '[+/- 1.97e-12038]'] t=193s
+{'case': 'xi', 'H0': None, 'H0_msg': 'certified signs to order 100; negative pivots at []', 'H1': None, 'H1_msg': 'certified signs to order 100; negative pivots at []'} t=215s

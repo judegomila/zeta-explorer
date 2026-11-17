@@ -1,5 +1,5 @@
 {
- "dump": "/Users/USER/Documents/GitHub/mathexplorer/tmp/qrh-tune-out/F2_final.steps.jsonl.gz",
+ "dump": "tmp/qrh-tune-out/F2_final.steps.jsonl.gz",
  "multi_height_cells": {
   "322": [
    "117/100",

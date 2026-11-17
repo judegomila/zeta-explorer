@@ -1,0 +1,210 @@
+{
+ "kernel_transform_over_F_at_0.3+4i": {
+  "zeta": "(1.0 + 3.31582889132e-30j)",
+  "DH": "(1.26156626101 - 6.78607499079e-31j)",
+  "NR": "(1.0 + 2.75480901479e-29j)",
+  "NRt": "(1.0 + 6.77969055199e-29j)",
+  "EA": "(1.0 - 2.59720985477e-31j)"
+ },
+ "kernel_properties_u_in_[0,8]": {
+  "zeta": {
+   "min_kappa": "9.2038924e-4059",
+   "kappa0": "0.4466969",
+   "positive": true,
+   "max_second_diff_log": "-4.6947485",
+   "log_concave": true,
+   "csordas_convex": true,
+   "interior_local_maxima": 0
+  },
+  "DH": {
+   "min_kappa": "1.4998541e-811",
+   "kappa0": "0.57635496",
+   "positive": true,
+   "max_second_diff_log": "-0.6412941",
+   "log_concave": true,
+   "csordas_convex": true,
+   "interior_local_maxima": 0
+  },
+  "NR": {
+   "min_kappa": "1.1469895e-445",
+   "kappa0": "0.98273318",
+   "positive": true,
+   "max_second_diff_log": "38.313951",
+   "log_concave": false,
+   "csordas_convex": false,
+   "interior_local_maxima": 1
+  },
+  "NRt": {
+   "min_kappa": "1.1469895e-445",
+   "kappa0": "0.4466969",
+   "positive": true,
+   "max_second_diff_log": "38.231196",
+   "log_concave": false,
+   "csordas_convex": false,
+   "interior_local_maxima": 1
+  },
+  "NR-": {
+   "min_kappa": "-0.98273318",
+   "kappa0": "-0.98273318",
+   "positive": false,
+   "max_second_diff_log": "-4.683627",
+   "log_concave": true,
+   "csordas_convex": false,
+   "interior_local_maxima": 1
+  },
+  "EA": {
+   "min_kappa": "3.521925e-140",
+   "kappa0": "0.16058476",
+   "positive": true,
+   "max_second_diff_log": "-2.5547645",
+   "log_concave": true,
+   "csordas_convex": true,
+   "interior_local_maxima": 0
+  }
+ },
+ "zeros": {
+  "NR_predicted": {
+   "delta0": "0.403753224828",
+   "re_s": "0.903753224828",
+   "heights": [
+    "2.859600867",
+    "8.578802602",
+    "14.29800434",
+    "20.01720607",
+    "25.73640781",
+    "31.45560954"
+   ]
+  },
+  "NR_findroot": "(0.403753224828 + 2.85960086738j)",
+  "EA_findroot": "(0.3 + 14.1347251417j)",
+  "EA_predicted": "0.3 + i*gamma_n (assuming gamma_n on the line), first 14.1347251417",
+  "DH_findroot": [
+   "(0.308517182457 + 85.6993484854j)",
+   "(0.15083008061 + 114.163342731j)"
+  ],
+  "N_right_zeta_T60": "(0.0 + 1.1043593e-18j)",
+  "N_right_NR_T60": "(10.0 - 1.1043593e-18j)",
+  "N_right_NRt_T60": "(2.2087185e-18 - 1.1043593e-18j)",
+  "N_right_EA_T60": "(13.0 - 2.2087185e-18j)"
+ },
+ "lens_Q=ReL/Rez": {
+  "zeta": [
+   {
+    "z": "(0.2 + 14.134725j)",
+    "Q": "25.067661"
+   },
+   {
+    "z": "(0.15 + 2.86j)",
+    "Q": "0.048133861"
+   },
+   {
+    "z": "(0.15 + 85.7j)",
+    "Q": "1.7754762"
+   }
+  ],
+  "NR": [
+   {
+    "z": "(0.20187661 + 2.8596009j)",
+    "Q": "-16.111077"
+   }
+  ],
+  "NRt": [
+   {
+    "z": "(0.2 + 1.9064006j)",
+    "Q": "25.546648"
+   },
+   {
+    "z": "(0.2 + 2.8596009j)",
+    "Q": "2.369001"
+   }
+  ],
+  "EA": [
+   {
+    "z": "(0.15 + 14.134725j)",
+    "Q": "-29.494586"
+   }
+  ],
+  "DH": [
+   {
+    "z": "(0.154 + 85.699348j)",
+    "Q": "-27.134755"
+   },
+   {
+    "z": "(0.075 + 114.16334j)",
+    "Q": "-115.81291"
+   }
+  ]
+ },
+ "sector_forms_7_geometric_real_nodes": {
+  "zeta": {
+   "P": {
+    "min_normalised_eig": "2.33243e-21",
+    "n_negative": 0
+   },
+   "K_e=P+B": {
+    "min_normalised_eig": "1.56559e-37",
+    "n_negative": 0
+   },
+   "K_o=P-B": {
+    "min_normalised_eig": "9.20717e-37",
+    "n_negative": 0
+   }
+  },
+  "DH": {
+   "P": {
+    "min_normalised_eig": "1.21876e-16",
+    "n_negative": 0
+   },
+   "K_e=P+B": {
+    "min_normalised_eig": "1.38653e-29",
+    "n_negative": 0
+   },
+   "K_o=P-B": {
+    "min_normalised_eig": "1.93199e-28",
+    "n_negative": 0
+   }
+  },
+  "NR": {
+   "P": {
+    "min_normalised_eig": "-8.0167e-6",
+    "n_negative": 2
+   },
+   "K_e=P+B": {
+    "min_normalised_eig": "-0.00971358",
+    "n_negative": 2
+   },
+   "K_o=P-B": {
+    "min_normalised_eig": "-0.000302061",
+    "n_negative": 2
+   }
+  },
+  "NRt": {
+   "P": {
+    "min_normalised_eig": "8.35983e-13",
+    "n_negative": 0
+   },
+   "K_e=P+B": {
+    "min_normalised_eig": "8.4551e-25",
+    "n_negative": 0
+   },
+   "K_o=P-B": {
+    "min_normalised_eig": "1.08217e-22",
+    "n_negative": 0
+   }
+  },
+  "EA": {
+   "P": {
+    "min_normalised_eig": "-1.96028e-22",
+    "n_negative": 1
+   },
+   "K_e=P+B": {
+    "min_normalised_eig": "-3.72854e-15",
+    "n_negative": 1
+   },
+   "K_o=P-B": {
+    "min_normalised_eig": "-6.38521e-17",
+    "n_negative": 1
+   }
+  }
+ }
+}

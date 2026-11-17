@@ -1,0 +1,44 @@
+== C. dual certificate: lower bound of the system vs uniform numerator saving d  (x = 1/2 class)
+d=    0  B_cert=0.874886647039964131  delta_c=0.4693448587  w=(0.645319, 0.125113, 0.229568)  max(B_cert, 13/15)=0.87488664704
+d= 1e-6  B_cert=0.874886464222662288  delta_c=0.469343562  w=(0.645318, 0.125114, 0.229568)  max(B_cert, 13/15)=0.874886464223
+d= 1e-4  B_cert=0.874868363123499549  delta_c=0.4692151866  w=(0.645282, 0.125132, 0.229586)  max(B_cert, 13/15)=0.874868363123
+d= 1e-3  B_cert=0.87470360894863648  delta_c=0.4680476957  w=(0.644949, 0.125296, 0.229755)  max(B_cert, 13/15)=0.874703608949
+d= 2e-3  B_cert=0.874520128061313367  delta_c=0.4667495522  w=(0.644578, 0.12548, 0.229942)  max(B_cert, 13/15)=0.874520128061
+d= 5e-3  B_cert=0.873967016928848908  delta_c=0.4628492641  w=(0.64346, 0.126033, 0.230507)  max(B_cert, 13/15)=0.873967016929
+d= 1e-2  B_cert=0.87303619919902073  delta_c=0.4563294149  w=(0.641577, 0.126964, 0.231459)  max(B_cert, 13/15)=0.873036199199
+d= 2e-2  B_cert=0.871140398462565746  delta_c=0.443218256  w=(0.637741, 0.12886, 0.233399)  max(B_cert, 13/15)=0.871140398463
+d= 3e-2  B_cert=0.869198005733200194  delta_c=0.430014001  w=(0.633808, 0.130802, 0.23539)  max(B_cert, 13/15)=0.869198005733
+d= 5e-2  B_cert=0.865168197234341272  delta_c=0.4033367723  w=(0.625639, 0.134832, 0.23953)  max(B_cert, 13/15)=0.866666666667
+slope dB/dd at 0 (finite difference 1e-6): -0.1828173018
+B_flat check: quartic residual -3.0093e-36
+saving d* at which the certificate reaches 13/15: 0.0426768085657
+
+== A. critical class of the source system (d = 0)
+  B_flat                               0.874886647039964
+  kappa                                0.749773294079928
+  delta_c                              0.469344858698143
+  a_c                                  0.734672429349072
+  q                                    0.234672429349072
+  theta cap q/(6k)                     0.0521651969562004
+  R_c                                  0.590332353526356
+  K=(3R+1)/4                           0.692749265144767
+  K - cap/2 (should be 2/3)            0.666666666666667
+  Hoelder level (1-R)/4                0.102416911618411
+  class pointwise level delta/4        0.117336214674536
+  m_p (pointwise/F4 crossing)          0.418253633784721
+  m_a (abs counting/F4 crossing)       0.170451944827622
+  sixth-moment threshold (1-R)/2       0.204833823236822
+  available delta/2                    0.234672429349072
+  gap = (R-(1-delta))/2                0.0298386061122494
+  K - R = (1-R)/4                      0.102416911618411
+  A_P(m_p) - R (should be 0): 0.0
+  t*, r*, t*-r* : 1.163953577 0.7456999427 0.4182536338  (t*-r* should equal m_p)
+  A_I(r*) - R : 1.1479e-41
+
+== B. saturation profile, symbolic
+  R + 2F(m1) + 2F(m2) + 2qz - 1 = q*(6*kappa*z + m1 + m2 - 1)/(3*kappa)   (<= 0 iff m1 + m2 + 6 kappa z <= 1)
+  with z at capacity (1-m1-m2)/(6 kappa): 0
+  K - (R + delta/4) at R = 1 - delta: 0
+  second-moment minus fourth-moment exponent: -R/4 + 1/4 - q/(12*kappa)
+  chord end value N(delta/2) - R: 0
+  (5R+1+omega)/6 < (3R+1)/4  iff omega < [1/2 - R/2]

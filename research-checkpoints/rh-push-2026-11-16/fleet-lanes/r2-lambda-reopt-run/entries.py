@@ -1,6 +1,6 @@
 # Distinct floor entries (cell, r, h, ell, source) and kernel rows (r, lambda, rho) used by each dump, and those not used by F2.
 import gzip, json, sys
-T = '/Users/USER/Documents/GitHub/mathexplorer/tmp/'
+T = 'tmp/'
 CAT = json.load(open(T + 'oai-lambda-out/KERNELS_raymond_backup.json'))['rows']
 def sets(p):
     fl = set(); kr = set(); pairs = set()

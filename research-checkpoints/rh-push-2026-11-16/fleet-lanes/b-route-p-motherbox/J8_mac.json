@@ -48,12 +48,12 @@
   "('row', '27/40', '2439/1250', '5/16')": 56
  },
  "tables": [
-  "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b2-r3-out/tab_A.json",
-  "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b2-r3-out/tab_B.json",
-  "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b2-r3-out/tab_cat8.json",
-  "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b2-r3-out/tab_P.json",
-  "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/tab_X.json",
-  "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/tab_X2.json"
+  "tmp/routes-b2-r3-out/tab_A.json",
+  "tmp/routes-b2-r3-out/tab_B.json",
+  "tmp/routes-b2-r3-out/tab_cat8.json",
+  "tmp/routes-b2-r3-out/tab_P.json",
+  "tmp/routes-b3-combine-out/tab_X.json",
+  "tmp/routes-b3-combine-out/tab_X2.json"
  ],
  "kernels": [
   {
@@ -61,7 +61,7 @@
    "lambda": "399/200",
    "rho": "1/5",
    "self_cap": "5000/3341",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r29_50_lam399_200_rho1_5.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r29_50_lam399_200_rho1_5.json",
    "attempts": 1
   },
   {
@@ -69,7 +69,7 @@
    "lambda": "199/100",
    "rho": "1/4",
    "self_cap": "5000/3341",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r29_50_lam199_100_rho1_4.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r29_50_lam199_100_rho1_4.json",
    "attempts": 1
   },
   {
@@ -77,7 +77,7 @@
    "lambda": "199/100",
    "rho": "3/10",
    "self_cap": "5000/3341",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r29_50_lam199_100_rho3_10.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r29_50_lam199_100_rho3_10.json",
    "attempts": 1
   },
   {
@@ -85,7 +85,7 @@
    "lambda": "199/100",
    "rho": "7/20",
    "self_cap": "5000/3341",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r29_50_lam199_100_rho7_20.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r29_50_lam199_100_rho7_20.json",
    "attempts": 1
   },
   {
@@ -93,7 +93,7 @@
    "lambda": "397/200",
    "rho": "2/5",
    "self_cap": "5000/3341",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r29_50_lam397_200_rho2_5.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r29_50_lam397_200_rho2_5.json",
    "attempts": 1
   },
   {
@@ -101,7 +101,7 @@
    "lambda": "199/100",
    "rho": "1/5",
    "self_cap": "25/17",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r3_5_lam199_100_rho1_5.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r3_5_lam199_100_rho1_5.json",
    "attempts": 1
   },
   {
@@ -109,7 +109,7 @@
    "lambda": "199/100",
    "rho": "1/4",
    "self_cap": "25/17",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r3_5_lam199_100_rho1_4.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r3_5_lam199_100_rho1_4.json",
    "attempts": 1
   },
   {
@@ -117,7 +117,7 @@
    "lambda": "397/200",
    "rho": "3/10",
    "self_cap": "25/17",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r3_5_lam397_200_rho3_10.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r3_5_lam397_200_rho3_10.json",
    "attempts": 1
   },
   {
@@ -125,7 +125,7 @@
    "lambda": "99/50",
    "rho": "7/20",
    "self_cap": "25/17",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r3_5_lam99_50_rho7_20.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r3_5_lam99_50_rho7_20.json",
    "attempts": 1
   },
   {
@@ -133,7 +133,7 @@
    "lambda": "79/40",
    "rho": "2/5",
    "self_cap": "25/17",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r3_5_lam79_40_rho2_5.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r3_5_lam79_40_rho2_5.json",
    "attempts": 1
   },
   {
@@ -141,7 +141,7 @@
    "lambda": "397/200",
    "rho": "1/5",
    "self_cap": "5000/3461",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r31_50_lam397_200_rho1_5.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r31_50_lam397_200_rho1_5.json",
    "attempts": 1
   },
   {
@@ -149,7 +149,7 @@
    "lambda": "99/50",
    "rho": "1/4",
    "self_cap": "5000/3461",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r31_50_lam99_50_rho1_4.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r31_50_lam99_50_rho1_4.json",
    "attempts": 1
   },
   {
@@ -157,7 +157,7 @@
    "lambda": "99/50",
    "rho": "3/10",
    "self_cap": "5000/3461",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r31_50_lam99_50_rho3_10.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r31_50_lam99_50_rho3_10.json",
    "attempts": 1
   },
   {
@@ -165,7 +165,7 @@
    "lambda": "79/40",
    "rho": "7/20",
    "self_cap": "5000/3461",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r31_50_lam79_40_rho7_20.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r31_50_lam79_40_rho7_20.json",
    "attempts": 1
   },
   {
@@ -173,7 +173,7 @@
    "lambda": "393/200",
    "rho": "2/5",
    "self_cap": "5000/3461",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r31_50_lam393_200_rho2_5.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r31_50_lam393_200_rho2_5.json",
    "attempts": 1
   },
   {
@@ -181,7 +181,7 @@
    "lambda": "99/50",
    "rho": "1/5",
    "self_cap": "128/89",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r5_8_lam99_50_rho1_5.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r5_8_lam99_50_rho1_5.json",
    "attempts": 1
   },
   {
@@ -189,7 +189,7 @@
    "lambda": "99/50",
    "rho": "1/4",
    "self_cap": "128/89",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r5_8_lam99_50_rho1_4.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r5_8_lam99_50_rho1_4.json",
    "attempts": 1
   },
   {
@@ -197,7 +197,7 @@
    "lambda": "79/40",
    "rho": "3/10",
    "self_cap": "128/89",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r5_8_lam79_40_rho3_10.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r5_8_lam79_40_rho3_10.json",
    "attempts": 1
   },
   {
@@ -205,7 +205,7 @@
    "lambda": "197/100",
    "rho": "7/20",
    "self_cap": "128/89",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r5_8_lam197_100_rho7_20.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r5_8_lam197_100_rho7_20.json",
    "attempts": 1
   },
   {
@@ -213,7 +213,7 @@
    "lambda": "393/200",
    "rho": "2/5",
    "self_cap": "128/89",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r5_8_lam393_200_rho2_5.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r5_8_lam393_200_rho2_5.json",
    "attempts": 1
   },
   {
@@ -221,7 +221,7 @@
    "lambda": "197/100",
    "rho": "1/5",
    "self_cap": "800/569",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r13_20_lam197_100_rho1_5.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r13_20_lam197_100_rho1_5.json",
    "attempts": 1
   },
   {
@@ -229,7 +229,7 @@
    "lambda": "197/100",
    "rho": "1/4",
    "self_cap": "800/569",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r13_20_lam197_100_rho1_4.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r13_20_lam197_100_rho1_4.json",
    "attempts": 1
   },
   {
@@ -237,7 +237,7 @@
    "lambda": "393/200",
    "rho": "3/10",
    "self_cap": "800/569",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r13_20_lam393_200_rho3_10.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r13_20_lam393_200_rho3_10.json",
    "attempts": 1
   },
   {
@@ -245,7 +245,7 @@
    "lambda": "391/200",
    "rho": "7/20",
    "self_cap": "800/569",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r13_20_lam391_200_rho7_20.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r13_20_lam391_200_rho7_20.json",
    "attempts": 1
   },
   {
@@ -253,7 +253,7 @@
    "lambda": "389/200",
    "rho": "2/5",
    "self_cap": "800/569",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r13_20_lam389_200_rho2_5.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r13_20_lam389_200_rho2_5.json",
    "attempts": 1
   },
   {
@@ -261,7 +261,7 @@
    "lambda": "49/25",
    "rho": "1/5",
    "self_cap": "3200/2329",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r27_40_lam49_25_rho1_5.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r27_40_lam49_25_rho1_5.json",
    "attempts": 1
   },
   {
@@ -269,7 +269,7 @@
    "lambda": "391/200",
    "rho": "1/4",
    "self_cap": "3200/2329",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r27_40_lam391_200_rho1_4.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r27_40_lam391_200_rho1_4.json",
    "attempts": 1
   },
   {
@@ -277,7 +277,7 @@
    "lambda": "389/200",
    "rho": "3/10",
    "self_cap": "3200/2329",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r27_40_lam389_200_rho3_10.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r27_40_lam389_200_rho3_10.json",
    "attempts": 1
   },
   {
@@ -285,7 +285,7 @@
    "lambda": "97/50",
    "rho": "7/20",
    "self_cap": "3200/2329",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r27_40_lam97_50_rho7_20.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r27_40_lam97_50_rho7_20.json",
    "attempts": 1
   },
   {
@@ -293,7 +293,7 @@
    "lambda": "77/40",
    "rho": "2/5",
    "self_cap": "3200/2329",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r27_40_lam77_40_rho2_5.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r27_40_lam77_40_rho2_5.json",
    "attempts": 1
   },
   {
@@ -301,7 +301,7 @@
    "lambda": "97/50",
    "rho": "1/5",
    "self_cap": "200/149",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r7_10_lam97_50_rho1_5.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r7_10_lam97_50_rho1_5.json",
    "attempts": 1
   },
   {
@@ -309,7 +309,7 @@
    "lambda": "387/200",
    "rho": "1/4",
    "self_cap": "200/149",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r7_10_lam387_200_rho1_4.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r7_10_lam387_200_rho1_4.json",
    "attempts": 1
   },
   {
@@ -317,7 +317,7 @@
    "lambda": "193/100",
    "rho": "3/10",
    "self_cap": "200/149",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r7_10_lam193_100_rho3_10.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r7_10_lam193_100_rho3_10.json",
    "attempts": 1
   },
   {
@@ -325,7 +325,7 @@
    "lambda": "383/200",
    "rho": "7/20",
    "self_cap": "200/149",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r7_10_lam383_200_rho7_20.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r7_10_lam383_200_rho7_20.json",
    "attempts": 1
   },
   {
@@ -333,7 +333,7 @@
    "lambda": "189/100",
    "rho": "2/5",
    "self_cap": "200/149",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r7_10_lam189_100_rho2_5.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r7_10_lam189_100_rho2_5.json",
    "attempts": 1
   },
   {
@@ -341,7 +341,7 @@
    "lambda": "48/25",
    "rho": "1/5",
    "self_cap": "3200/2441",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r29_40_lam48_25_rho1_5.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r29_40_lam48_25_rho1_5.json",
    "attempts": 1
   },
   {
@@ -349,7 +349,7 @@
    "lambda": "383/200",
    "rho": "1/4",
    "self_cap": "3200/2441",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r29_40_lam383_200_rho1_4.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r29_40_lam383_200_rho1_4.json",
    "attempts": 1
   },
   {
@@ -357,7 +357,7 @@
    "lambda": "381/200",
    "rho": "3/10",
    "self_cap": "3200/2441",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r29_40_lam381_200_rho3_10.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r29_40_lam381_200_rho3_10.json",
    "attempts": 1
   },
   {
@@ -365,7 +365,7 @@
    "lambda": "379/200",
    "rho": "7/20",
    "self_cap": "3200/2441",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r29_40_lam379_200_rho7_20.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r29_40_lam379_200_rho7_20.json",
    "attempts": 1
   },
   {
@@ -373,7 +373,7 @@
    "lambda": "371/200",
    "rho": "2/5",
    "self_cap": "3200/2441",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r29_40_lam371_200_rho2_5.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r29_40_lam371_200_rho2_5.json",
    "attempts": 1
   },
   {
@@ -381,7 +381,7 @@
    "lambda": "19/10",
    "rho": "1/5",
    "self_cap": "32/25",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r3_4_lam19_10_rho1_5.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r3_4_lam19_10_rho1_5.json",
    "attempts": 1
   },
   {
@@ -389,7 +389,7 @@
    "lambda": "379/200",
    "rho": "1/4",
    "self_cap": "32/25",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r3_4_lam379_200_rho1_4.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r3_4_lam379_200_rho1_4.json",
    "attempts": 1
   },
   {
@@ -397,7 +397,7 @@
    "lambda": "377/200",
    "rho": "3/10",
    "self_cap": "32/25",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r3_4_lam377_200_rho3_10.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r3_4_lam377_200_rho3_10.json",
    "attempts": 1
   },
   {
@@ -405,7 +405,7 @@
    "lambda": "373/200",
    "rho": "7/20",
    "self_cap": "32/25",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r3_4_lam373_200_rho7_20.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r3_4_lam373_200_rho7_20.json",
    "attempts": 1
   },
   {
@@ -413,7 +413,7 @@
    "lambda": "363/200",
    "rho": "2/5",
    "self_cap": "32/25",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r3_4_lam363_200_rho2_5.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r3_4_lam363_200_rho2_5.json",
    "attempts": 1
   },
   {
@@ -421,7 +421,7 @@
    "lambda": "993/500",
    "rho": "3/10",
    "self_cap": "12800/8801",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r49_80_lam993_500_rho3_10.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r49_80_lam993_500_rho3_10.json",
    "attempts": 1
   },
   {
@@ -429,7 +429,7 @@
    "lambda": "248/125",
    "rho": "13/40",
    "self_cap": "12800/8801",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r49_80_lam248_125_rho13_40.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r49_80_lam248_125_rho13_40.json",
    "attempts": 1
   },
   {
@@ -437,7 +437,7 @@
    "lambda": "991/500",
    "rho": "7/20",
    "self_cap": "12800/8801",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r49_80_lam991_500_rho7_20.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r49_80_lam991_500_rho7_20.json",
    "attempts": 1
   },
   {
@@ -445,7 +445,7 @@
    "lambda": "1979/1000",
    "rho": "3/8",
    "self_cap": "12800/8801",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r49_80_lam1979_1000_rho3_8.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r49_80_lam1979_1000_rho3_8.json",
    "attempts": 1
   },
   {
@@ -453,7 +453,7 @@
    "lambda": "79/40",
    "rho": "2/5",
    "self_cap": "12800/8801",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r49_80_lam79_40_rho2_5.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r49_80_lam79_40_rho2_5.json",
    "attempts": 1
   },
   {
@@ -461,7 +461,7 @@
    "lambda": "493/250",
    "rho": "21/50",
    "self_cap": "12800/8801",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r49_80_lam493_250_rho21_50.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r49_80_lam493_250_rho21_50.json",
    "attempts": 1
   },
   {
@@ -469,7 +469,7 @@
    "lambda": "1981/1000",
    "rho": "3/10",
    "self_cap": "128/89",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r5_8_lam1981_1000_rho3_10.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r5_8_lam1981_1000_rho3_10.json",
    "attempts": 1
   },
   {
@@ -477,7 +477,7 @@
    "lambda": "989/500",
    "rho": "13/40",
    "self_cap": "128/89",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r5_8_lam989_500_rho13_40.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r5_8_lam989_500_rho13_40.json",
    "attempts": 1
   },
   {
@@ -485,7 +485,7 @@
    "lambda": "79/40",
    "rho": "7/20",
    "self_cap": "128/89",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r5_8_lam79_40_rho7_20.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r5_8_lam79_40_rho7_20.json",
    "attempts": 1
   },
   {
@@ -493,7 +493,7 @@
    "lambda": "493/250",
    "rho": "3/8",
    "self_cap": "128/89",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r5_8_lam493_250_rho3_8.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r5_8_lam493_250_rho3_8.json",
    "attempts": 1
   },
   {
@@ -501,7 +501,7 @@
    "lambda": "246/125",
    "rho": "2/5",
    "self_cap": "128/89",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r5_8_lam246_125_rho2_5.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r5_8_lam246_125_rho2_5.json",
    "attempts": 1
   },
   {
@@ -509,7 +509,7 @@
    "lambda": "1963/1000",
    "rho": "21/50",
    "self_cap": "128/89",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r5_8_lam1963_1000_rho21_50.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r5_8_lam1963_1000_rho21_50.json",
    "attempts": 1
   },
   {
@@ -517,7 +517,7 @@
    "lambda": "79/40",
    "rho": "3/10",
    "self_cap": "12800/9001",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r51_80_lam79_40_rho3_10.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r51_80_lam79_40_rho3_10.json",
    "attempts": 1
   },
   {
@@ -525,7 +525,7 @@
    "lambda": "493/250",
    "rho": "13/40",
    "self_cap": "12800/9001",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r51_80_lam493_250_rho13_40.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r51_80_lam493_250_rho13_40.json",
    "attempts": 1
   },
   {
@@ -533,7 +533,7 @@
    "lambda": "246/125",
    "rho": "7/20",
    "self_cap": "12800/9001",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r51_80_lam246_125_rho7_20.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r51_80_lam246_125_rho7_20.json",
    "attempts": 1
   },
   {
@@ -541,7 +541,7 @@
    "lambda": "491/250",
    "rho": "3/8",
    "self_cap": "12800/9001",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r51_80_lam491_250_rho3_8.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r51_80_lam491_250_rho3_8.json",
    "attempts": 1
   },
   {
@@ -549,7 +549,7 @@
    "lambda": "1959/1000",
    "rho": "2/5",
    "self_cap": "12800/9001",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r51_80_lam1959_1000_rho2_5.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r51_80_lam1959_1000_rho2_5.json",
    "attempts": 1
   },
   {
@@ -557,7 +557,7 @@
    "lambda": "243/125",
    "rho": "21/50",
    "self_cap": "12800/9001",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r51_80_lam243_125_rho21_50.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r51_80_lam243_125_rho21_50.json",
    "attempts": 1
   },
   {
@@ -565,7 +565,7 @@
    "lambda": "246/125",
    "rho": "3/10",
    "self_cap": "800/569",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r13_20_lam246_125_rho3_10.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r13_20_lam246_125_rho3_10.json",
    "attempts": 1
   },
   {
@@ -573,7 +573,7 @@
    "lambda": "491/250",
    "rho": "13/40",
    "self_cap": "800/569",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r13_20_lam491_250_rho13_40.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r13_20_lam491_250_rho13_40.json",
    "attempts": 1
   },
   {
@@ -581,7 +581,7 @@
    "lambda": "1961/1000",
    "rho": "7/20",
    "self_cap": "800/569",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r13_20_lam1961_1000_rho7_20.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r13_20_lam1961_1000_rho7_20.json",
    "attempts": 1
   },
   {
@@ -589,7 +589,7 @@
    "lambda": "489/250",
    "rho": "3/8",
    "self_cap": "800/569",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r13_20_lam489_250_rho3_8.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r13_20_lam489_250_rho3_8.json",
    "attempts": 1
   },
   {
@@ -597,7 +597,7 @@
    "lambda": "39/20",
    "rho": "2/5",
    "self_cap": "800/569",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r13_20_lam39_20_rho2_5.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r13_20_lam39_20_rho2_5.json",
    "attempts": 1
   },
   {
@@ -605,7 +605,7 @@
    "lambda": "77/40",
    "rho": "21/50",
    "self_cap": "800/569",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r13_20_lam77_40_rho21_50.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r13_20_lam77_40_rho21_50.json",
    "attempts": 1
   },
   {
@@ -613,7 +613,7 @@
    "lambda": "49/25",
    "rho": "3/10",
    "self_cap": "12800/9209",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r53_80_lam49_25_rho3_10.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r53_80_lam49_25_rho3_10.json",
    "attempts": 1
   },
   {
@@ -621,7 +621,7 @@
    "lambda": "489/250",
    "rho": "13/40",
    "self_cap": "12800/9209",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r53_80_lam489_250_rho13_40.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r53_80_lam489_250_rho13_40.json",
    "attempts": 1
   },
   {
@@ -629,7 +629,7 @@
    "lambda": "244/125",
    "rho": "7/20",
    "self_cap": "12800/9209",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r53_80_lam244_125_rho7_20.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r53_80_lam244_125_rho7_20.json",
    "attempts": 1
   },
   {
@@ -637,7 +637,7 @@
    "lambda": "1947/1000",
    "rho": "3/8",
    "self_cap": "12800/9209",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r53_80_lam1947_1000_rho3_8.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r53_80_lam1947_1000_rho3_8.json",
    "attempts": 1
   },
   {
@@ -645,7 +645,7 @@
    "lambda": "1939/1000",
    "rho": "2/5",
    "self_cap": "12800/9209",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r53_80_lam1939_1000_rho2_5.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r53_80_lam1939_1000_rho2_5.json",
    "attempts": 1
   },
   {
@@ -653,7 +653,7 @@
    "lambda": "953/500",
    "rho": "21/50",
    "self_cap": "12800/9209",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r53_80_lam953_500_rho21_50.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r53_80_lam953_500_rho21_50.json",
    "attempts": 1
   },
   {
@@ -661,7 +661,7 @@
    "lambda": "244/125",
    "rho": "3/10",
    "self_cap": "3200/2329",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r27_40_lam244_125_rho3_10.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r27_40_lam244_125_rho3_10.json",
    "attempts": 1
   },
   {
@@ -669,7 +669,7 @@
    "lambda": "1947/1000",
    "rho": "13/40",
    "self_cap": "3200/2329",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r27_40_lam1947_1000_rho13_40.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r27_40_lam1947_1000_rho13_40.json",
    "attempts": 1
   },
   {
@@ -677,7 +677,7 @@
    "lambda": "1943/1000",
    "rho": "7/20",
    "self_cap": "3200/2329",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r27_40_lam1943_1000_rho7_20.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r27_40_lam1943_1000_rho7_20.json",
    "attempts": 1
   },
   {
@@ -685,7 +685,7 @@
    "lambda": "242/125",
    "rho": "3/8",
    "self_cap": "3200/2329",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r27_40_lam242_125_rho3_8.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r27_40_lam242_125_rho3_8.json",
    "attempts": 1
   },
   {
@@ -693,7 +693,7 @@
    "lambda": "1927/1000",
    "rho": "2/5",
    "self_cap": "3200/2329",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r27_40_lam1927_1000_rho2_5.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r27_40_lam1927_1000_rho2_5.json",
    "attempts": 1
   },
   {
@@ -701,7 +701,7 @@
    "lambda": "1887/1000",
    "rho": "21/50",
    "self_cap": "3200/2329",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r27_40_lam1887_1000_rho21_50.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r27_40_lam1887_1000_rho21_50.json",
    "attempts": 1
   },
   {
@@ -709,7 +709,7 @@
    "lambda": "971/500",
    "rho": "3/10",
    "self_cap": "512/377",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r11_16_lam971_500_rho3_10.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r11_16_lam971_500_rho3_10.json",
    "attempts": 1
   },
   {
@@ -717,7 +717,7 @@
    "lambda": "969/500",
    "rho": "13/40",
    "self_cap": "512/377",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r11_16_lam969_500_rho13_40.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r11_16_lam969_500_rho13_40.json",
    "attempts": 1
   },
   {
@@ -725,7 +725,7 @@
    "lambda": "483/250",
    "rho": "7/20",
    "self_cap": "512/377",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r11_16_lam483_250_rho7_20.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r11_16_lam483_250_rho7_20.json",
    "attempts": 1
   },
   {
@@ -733,7 +733,7 @@
    "lambda": "77/40",
    "rho": "3/8",
    "self_cap": "512/377",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r11_16_lam77_40_rho3_8.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r11_16_lam77_40_rho3_8.json",
    "attempts": 1
   },
   {
@@ -741,7 +741,7 @@
    "lambda": "239/125",
    "rho": "2/5",
    "self_cap": "512/377",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r11_16_lam239_125_rho2_5.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r11_16_lam239_125_rho2_5.json",
    "attempts": 1
   },
   {
@@ -749,7 +749,7 @@
    "lambda": "467/250",
    "rho": "21/50",
    "self_cap": "512/377",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r11_16_lam467_250_rho21_50.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r11_16_lam467_250_rho21_50.json",
    "attempts": 1
   },
   {
@@ -757,7 +757,7 @@
    "lambda": "1933/1000",
    "rho": "3/10",
    "self_cap": "200/149",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r7_10_lam1933_1000_rho3_10.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r7_10_lam1933_1000_rho3_10.json",
    "attempts": 1
   },
   {
@@ -765,7 +765,7 @@
    "lambda": "241/125",
    "rho": "13/40",
    "self_cap": "200/149",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r7_10_lam241_125_rho13_40.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r7_10_lam241_125_rho13_40.json",
    "attempts": 1
   },
   {
@@ -773,7 +773,7 @@
    "lambda": "1921/1000",
    "rho": "7/20",
    "self_cap": "200/149",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r7_10_lam1921_1000_rho7_20.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r7_10_lam1921_1000_rho7_20.json",
    "attempts": 1
   },
   {
@@ -781,7 +781,7 @@
    "lambda": "1913/1000",
    "rho": "3/8",
    "self_cap": "200/149",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r7_10_lam1913_1000_rho3_8.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r7_10_lam1913_1000_rho3_8.json",
    "attempts": 1
   },
   {
@@ -789,7 +789,7 @@
    "lambda": "379/200",
    "rho": "2/5",
    "self_cap": "200/149",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r7_10_lam379_200_rho2_5.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r7_10_lam379_200_rho2_5.json",
    "attempts": 1
   },
   {
@@ -797,7 +797,7 @@
    "lambda": "37/20",
    "rho": "21/50",
    "self_cap": "200/149",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r7_10_lam37_20_rho21_50.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r7_10_lam37_20_rho21_50.json",
    "attempts": 1
   },
   {
@@ -805,7 +805,7 @@
    "lambda": "236/125",
    "rho": "3/10",
    "self_cap": "32/25",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r3_4_lam236_125_rho3_10.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r3_4_lam236_125_rho3_10.json",
    "attempts": 1
   },
   {
@@ -813,7 +813,7 @@
    "lambda": "47/25",
    "rho": "13/40",
    "self_cap": "32/25",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r3_4_lam47_25_rho13_40.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r3_4_lam47_25_rho13_40.json",
    "attempts": 1
   },
   {
@@ -821,7 +821,7 @@
    "lambda": "1871/1000",
    "rho": "7/20",
    "self_cap": "32/25",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r3_4_lam1871_1000_rho7_20.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r3_4_lam1871_1000_rho7_20.json",
    "attempts": 1
   },
   {
@@ -829,7 +829,7 @@
    "lambda": "232/125",
    "rho": "3/8",
    "self_cap": "32/25",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r3_4_lam232_125_rho3_8.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r3_4_lam232_125_rho3_8.json",
    "attempts": 1
   },
   {
@@ -837,7 +837,7 @@
    "lambda": "911/500",
    "rho": "2/5",
    "self_cap": "32/25",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r3_4_lam911_500_rho2_5.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r3_4_lam911_500_rho2_5.json",
    "attempts": 1
   },
   {
@@ -845,7 +845,7 @@
    "lambda": "887/500",
    "rho": "21/50",
    "self_cap": "32/25",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r3_4_lam887_500_rho21_50.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r3_4_lam887_500_rho21_50.json",
    "attempts": 1
   },
   {
@@ -853,7 +853,7 @@
    "lambda": "3983/2000",
    "rho": "3/10",
    "self_cap": "25/17",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r3_5_lam3983_2000_rho3_10.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r3_5_lam3983_2000_rho3_10.json",
    "attempts": 1
   },
   {
@@ -861,7 +861,7 @@
    "lambda": "3981/2000",
    "rho": "5/16",
    "self_cap": "25/17",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r3_5_lam3981_2000_rho5_16.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r3_5_lam3981_2000_rho5_16.json",
    "attempts": 1
   },
   {
@@ -869,7 +869,7 @@
    "lambda": "3979/2000",
    "rho": "13/40",
    "self_cap": "25/17",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r3_5_lam3979_2000_rho13_40.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r3_5_lam3979_2000_rho13_40.json",
    "attempts": 1
   },
   {
@@ -877,7 +877,7 @@
    "lambda": "3977/2000",
    "rho": "27/80",
    "self_cap": "25/17",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r3_5_lam3977_2000_rho27_80.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r3_5_lam3977_2000_rho27_80.json",
    "attempts": 1
   },
   {
@@ -885,7 +885,7 @@
    "lambda": "159/80",
    "rho": "7/20",
    "self_cap": "25/17",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r3_5_lam159_80_rho7_20.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r3_5_lam159_80_rho7_20.json",
    "attempts": 1
   },
   {
@@ -893,7 +893,7 @@
    "lambda": "3973/2000",
    "rho": "29/80",
    "self_cap": "25/17",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r3_5_lam3973_2000_rho29_80.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r3_5_lam3973_2000_rho29_80.json",
    "attempts": 1
   },
   {
@@ -901,7 +901,7 @@
    "lambda": "3971/2000",
    "rho": "3/8",
    "self_cap": "25/17",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r3_5_lam3971_2000_rho3_8.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r3_5_lam3971_2000_rho3_8.json",
    "attempts": 1
   },
   {
@@ -909,7 +909,7 @@
    "lambda": "248/125",
    "rho": "31/80",
    "self_cap": "25/17",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r3_5_lam248_125_rho31_80.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r3_5_lam248_125_rho31_80.json",
    "attempts": 1
   },
   {
@@ -917,7 +917,7 @@
    "lambda": "793/400",
    "rho": "2/5",
    "self_cap": "25/17",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r3_5_lam793_400_rho2_5.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r3_5_lam793_400_rho2_5.json",
    "attempts": 1
   },
   {
@@ -925,7 +925,7 @@
    "lambda": "1981/1000",
    "rho": "41/100",
    "self_cap": "25/17",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r3_5_lam1981_1000_rho41_100.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r3_5_lam1981_1000_rho41_100.json",
    "attempts": 1
   },
   {
@@ -933,7 +933,7 @@
    "lambda": "3959/2000",
    "rho": "21/50",
    "self_cap": "25/17",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r3_5_lam3959_2000_rho21_50.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r3_5_lam3959_2000_rho21_50.json",
    "attempts": 1
   },
   {
@@ -941,7 +941,7 @@
    "lambda": "197/100",
    "rho": "43/100",
    "self_cap": "25/17",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r3_5_lam197_100_rho43_100.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r3_5_lam197_100_rho43_100.json",
    "attempts": 3
   },
   {
@@ -949,7 +949,7 @@
    "lambda": "1987/1000",
    "rho": "3/10",
    "self_cap": "12800/8801",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r49_80_lam1987_1000_rho3_10.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r49_80_lam1987_1000_rho3_10.json",
    "attempts": 1
   },
   {
@@ -957,7 +957,7 @@
    "lambda": "993/500",
    "rho": "5/16",
    "self_cap": "12800/8801",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r49_80_lam993_500_rho5_16.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r49_80_lam993_500_rho5_16.json",
    "attempts": 1
   },
   {
@@ -965,7 +965,7 @@
    "lambda": "397/200",
    "rho": "13/40",
    "self_cap": "12800/8801",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r49_80_lam397_200_rho13_40.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r49_80_lam397_200_rho13_40.json",
    "attempts": 1
   },
   {
@@ -973,7 +973,7 @@
    "lambda": "3967/2000",
    "rho": "27/80",
    "self_cap": "12800/8801",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r49_80_lam3967_2000_rho27_80.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r49_80_lam3967_2000_rho27_80.json",
    "attempts": 1
   },
   {
@@ -981,7 +981,7 @@
    "lambda": "793/400",
    "rho": "7/20",
    "self_cap": "12800/8801",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r49_80_lam793_400_rho7_20.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r49_80_lam793_400_rho7_20.json",
    "attempts": 1
   },
   {
@@ -989,7 +989,7 @@
    "lambda": "1981/1000",
    "rho": "29/80",
    "self_cap": "12800/8801",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r49_80_lam1981_1000_rho29_80.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r49_80_lam1981_1000_rho29_80.json",
    "attempts": 1
   },
   {
@@ -997,7 +997,7 @@
    "lambda": "3959/2000",
    "rho": "3/8",
    "self_cap": "12800/8801",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r49_80_lam3959_2000_rho3_8.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r49_80_lam3959_2000_rho3_8.json",
    "attempts": 1
   },
   {
@@ -1005,7 +1005,7 @@
    "lambda": "989/500",
    "rho": "31/80",
    "self_cap": "12800/8801",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r49_80_lam989_500_rho31_80.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r49_80_lam989_500_rho31_80.json",
    "attempts": 1
   },
   {
@@ -1013,7 +1013,7 @@
    "lambda": "247/125",
    "rho": "2/5",
    "self_cap": "12800/8801",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r49_80_lam247_125_rho2_5.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r49_80_lam247_125_rho2_5.json",
    "attempts": 1
   },
   {
@@ -1021,7 +1021,7 @@
    "lambda": "3949/2000",
    "rho": "41/100",
    "self_cap": "12800/8801",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r49_80_lam3949_2000_rho41_100.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r49_80_lam3949_2000_rho41_100.json",
    "attempts": 1
   },
   {
@@ -1029,7 +1029,7 @@
    "lambda": "789/400",
    "rho": "21/50",
    "self_cap": "12800/8801",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r49_80_lam789_400_rho21_50.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r49_80_lam789_400_rho21_50.json",
    "attempts": 1
   },
   {
@@ -1037,7 +1037,7 @@
    "lambda": "1951/1000",
    "rho": "43/100",
    "self_cap": "12800/8801",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r49_80_lam1951_1000_rho43_100.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r49_80_lam1951_1000_rho43_100.json",
    "attempts": 3
   },
   {
@@ -1045,7 +1045,7 @@
    "lambda": "3963/2000",
    "rho": "3/10",
    "self_cap": "128/89",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r5_8_lam3963_2000_rho3_10.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r5_8_lam3963_2000_rho3_10.json",
    "attempts": 1
   },
   {
@@ -1053,7 +1053,7 @@
    "lambda": "3961/2000",
    "rho": "5/16",
    "self_cap": "128/89",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r5_8_lam3961_2000_rho5_16.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r5_8_lam3961_2000_rho5_16.json",
    "attempts": 1
   },
   {
@@ -1061,7 +1061,7 @@
    "lambda": "1979/1000",
    "rho": "13/40",
    "self_cap": "128/89",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r5_8_lam1979_1000_rho13_40.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r5_8_lam1979_1000_rho13_40.json",
    "attempts": 1
   },
   {
@@ -1069,7 +1069,7 @@
    "lambda": "989/500",
    "rho": "27/80",
    "self_cap": "128/89",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r5_8_lam989_500_rho27_80.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r5_8_lam989_500_rho27_80.json",
    "attempts": 1
   },
   {
@@ -1077,7 +1077,7 @@
    "lambda": "3953/2000",
    "rho": "7/20",
    "self_cap": "128/89",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r5_8_lam3953_2000_rho7_20.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r5_8_lam3953_2000_rho7_20.json",
    "attempts": 1
   },
   {
@@ -1085,7 +1085,7 @@
    "lambda": "3949/2000",
    "rho": "29/80",
    "self_cap": "128/89",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r5_8_lam3949_2000_rho29_80.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r5_8_lam3949_2000_rho29_80.json",
    "attempts": 1
   },
   {
@@ -1093,7 +1093,7 @@
    "lambda": "1973/1000",
    "rho": "3/8",
    "self_cap": "128/89",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r5_8_lam1973_1000_rho3_8.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r5_8_lam1973_1000_rho3_8.json",
    "attempts": 1
   },
   {
@@ -1101,7 +1101,7 @@
    "lambda": "1971/1000",
    "rho": "31/80",
    "self_cap": "128/89",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r5_8_lam1971_1000_rho31_80.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r5_8_lam1971_1000_rho31_80.json",
    "attempts": 1
   },
   {
@@ -1109,7 +1109,7 @@
    "lambda": "3937/2000",
    "rho": "2/5",
    "self_cap": "128/89",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r5_8_lam3937_2000_rho2_5.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r5_8_lam3937_2000_rho2_5.json",
    "attempts": 1
   },
   {
@@ -1117,7 +1117,7 @@
    "lambda": "1967/1000",
    "rho": "41/100",
    "self_cap": "128/89",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r5_8_lam1967_1000_rho41_100.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r5_8_lam1967_1000_rho41_100.json",
    "attempts": 1
   },
   {
@@ -1125,7 +1125,7 @@
    "lambda": "3927/2000",
    "rho": "21/50",
    "self_cap": "128/89",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r5_8_lam3927_2000_rho21_50.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r5_8_lam3927_2000_rho21_50.json",
    "attempts": 2
   },
   {
@@ -1133,7 +1133,7 @@
    "lambda": "773/400",
    "rho": "43/100",
    "self_cap": "128/89",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r5_8_lam773_400_rho43_100.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r5_8_lam773_400_rho43_100.json",
    "attempts": 2
   },
   {
@@ -1141,7 +1141,7 @@
    "lambda": "3951/2000",
    "rho": "3/10",
    "self_cap": "12800/9001",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r51_80_lam3951_2000_rho3_10.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r51_80_lam3951_2000_rho3_10.json",
    "attempts": 1
   },
   {
@@ -1149,7 +1149,7 @@
    "lambda": "987/500",
    "rho": "5/16",
    "self_cap": "12800/9001",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r51_80_lam987_500_rho5_16.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r51_80_lam987_500_rho5_16.json",
    "attempts": 1
   },
   {
@@ -1157,7 +1157,7 @@
    "lambda": "789/400",
    "rho": "13/40",
    "self_cap": "12800/9001",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r51_80_lam789_400_rho13_40.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r51_80_lam789_400_rho13_40.json",
    "attempts": 1
   },
   {
@@ -1165,7 +1165,7 @@
    "lambda": "1971/1000",
    "rho": "27/80",
    "self_cap": "12800/9001",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r51_80_lam1971_1000_rho27_80.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r51_80_lam1971_1000_rho27_80.json",
    "attempts": 1
   },
   {
@@ -1173,7 +1173,7 @@
    "lambda": "3939/2000",
    "rho": "7/20",
    "self_cap": "12800/9001",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r51_80_lam3939_2000_rho7_20.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r51_80_lam3939_2000_rho7_20.json",
    "attempts": 1
   },
   {
@@ -1181,7 +1181,7 @@
    "lambda": "787/400",
    "rho": "29/80",
    "self_cap": "12800/9001",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r51_80_lam787_400_rho29_80.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r51_80_lam787_400_rho29_80.json",
    "attempts": 1
   },
   {
@@ -1189,7 +1189,7 @@
    "lambda": "3931/2000",
    "rho": "3/8",
    "self_cap": "12800/9001",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r51_80_lam3931_2000_rho3_8.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r51_80_lam3931_2000_rho3_8.json",
    "attempts": 1
   },
   {
@@ -1197,7 +1197,7 @@
    "lambda": "1963/1000",
    "rho": "31/80",
    "self_cap": "12800/9001",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r51_80_lam1963_1000_rho31_80.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r51_80_lam1963_1000_rho31_80.json",
    "attempts": 1
   },
   {
@@ -1205,7 +1205,7 @@
    "lambda": "3921/2000",
    "rho": "2/5",
    "self_cap": "12800/9001",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r51_80_lam3921_2000_rho2_5.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r51_80_lam3921_2000_rho2_5.json",
    "attempts": 1
   },
   {
@@ -1213,7 +1213,7 @@
    "lambda": "979/500",
    "rho": "41/100",
    "self_cap": "12800/9001",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r51_80_lam979_500_rho41_100.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r51_80_lam979_500_rho41_100.json",
    "attempts": 1
   },
   {
@@ -1221,7 +1221,7 @@
    "lambda": "389/200",
    "rho": "21/50",
    "self_cap": "12800/9001",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r51_80_lam389_200_rho21_50.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r51_80_lam389_200_rho21_50.json",
    "attempts": 2
   },
   {
@@ -1229,7 +1229,7 @@
    "lambda": "3827/2000",
    "rho": "43/100",
    "self_cap": "12800/9001",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r51_80_lam3827_2000_rho43_100.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r51_80_lam3827_2000_rho43_100.json",
    "attempts": 3
   },
   {
@@ -1237,7 +1237,7 @@
    "lambda": "3937/2000",
    "rho": "3/10",
    "self_cap": "800/569",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r13_20_lam3937_2000_rho3_10.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r13_20_lam3937_2000_rho3_10.json",
    "attempts": 1
   },
   {
@@ -1245,7 +1245,7 @@
    "lambda": "1967/1000",
    "rho": "5/16",
    "self_cap": "800/569",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r13_20_lam1967_1000_rho5_16.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r13_20_lam1967_1000_rho5_16.json",
    "attempts": 1
   },
   {
@@ -1253,7 +1253,7 @@
    "lambda": "3931/2000",
    "rho": "13/40",
    "self_cap": "800/569",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r13_20_lam3931_2000_rho13_40.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r13_20_lam3931_2000_rho13_40.json",
    "attempts": 1
   },
   {
@@ -1261,7 +1261,7 @@
    "lambda": "3927/2000",
    "rho": "27/80",
    "self_cap": "800/569",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r13_20_lam3927_2000_rho27_80.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r13_20_lam3927_2000_rho27_80.json",
    "attempts": 1
   },
   {
@@ -1269,7 +1269,7 @@
    "lambda": "3923/2000",
    "rho": "7/20",
    "self_cap": "800/569",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r13_20_lam3923_2000_rho7_20.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r13_20_lam3923_2000_rho7_20.json",
    "attempts": 1
   },
   {
@@ -1277,7 +1277,7 @@
    "lambda": "3919/2000",
    "rho": "29/80",
    "self_cap": "800/569",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r13_20_lam3919_2000_rho29_80.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r13_20_lam3919_2000_rho29_80.json",
    "attempts": 1
   },
   {
@@ -1285,7 +1285,7 @@
    "lambda": "1957/1000",
    "rho": "3/8",
    "self_cap": "800/569",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r13_20_lam1957_1000_rho3_8.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r13_20_lam1957_1000_rho3_8.json",
    "attempts": 1
   },
   {
@@ -1293,7 +1293,7 @@
    "lambda": "977/500",
    "rho": "31/80",
    "self_cap": "800/569",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r13_20_lam977_500_rho31_80.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r13_20_lam977_500_rho31_80.json",
    "attempts": 1
   },
   {
@@ -1301,7 +1301,7 @@
    "lambda": "1951/1000",
    "rho": "2/5",
    "self_cap": "800/569",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r13_20_lam1951_1000_rho2_5.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r13_20_lam1951_1000_rho2_5.json",
    "attempts": 1
   },
   {
@@ -1309,7 +1309,7 @@
    "lambda": "487/250",
    "rho": "41/100",
    "self_cap": "800/569",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r13_20_lam487_250_rho41_100.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r13_20_lam487_250_rho41_100.json",
    "attempts": 1
   },
   {
@@ -1317,7 +1317,7 @@
    "lambda": "963/500",
    "rho": "21/50",
    "self_cap": "800/569",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r13_20_lam963_500_rho21_50.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r13_20_lam963_500_rho21_50.json",
    "attempts": 2
   },
   {
@@ -1325,7 +1325,7 @@
    "lambda": "3789/2000",
    "rho": "43/100",
    "self_cap": "800/569",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r13_20_lam3789_2000_rho43_100.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r13_20_lam3789_2000_rho43_100.json",
    "attempts": 3
   },
   {
@@ -1333,7 +1333,7 @@
    "lambda": "1961/1000",
    "rho": "3/10",
    "self_cap": "12800/9209",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r53_80_lam1961_1000_rho3_10.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r53_80_lam1961_1000_rho3_10.json",
    "attempts": 1
   },
   {
@@ -1341,7 +1341,7 @@
    "lambda": "1959/1000",
    "rho": "5/16",
    "self_cap": "12800/9209",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r53_80_lam1959_1000_rho5_16.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r53_80_lam1959_1000_rho5_16.json",
    "attempts": 1
   },
   {
@@ -1349,7 +1349,7 @@
    "lambda": "783/400",
    "rho": "13/40",
    "self_cap": "12800/9209",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r53_80_lam783_400_rho13_40.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r53_80_lam783_400_rho13_40.json",
    "attempts": 1
   },
   {
@@ -1357,7 +1357,7 @@
    "lambda": "391/200",
    "rho": "27/80",
    "self_cap": "12800/9209",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r53_80_lam391_200_rho27_80.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r53_80_lam391_200_rho27_80.json",
    "attempts": 1
   },
   {
@@ -1365,7 +1365,7 @@
    "lambda": "1953/1000",
    "rho": "7/20",
    "self_cap": "12800/9209",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r53_80_lam1953_1000_rho7_20.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r53_80_lam1953_1000_rho7_20.json",
    "attempts": 1
   },
   {
@@ -1373,7 +1373,7 @@
    "lambda": "3901/2000",
    "rho": "29/80",
    "self_cap": "12800/9209",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r53_80_lam3901_2000_rho29_80.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r53_80_lam3901_2000_rho29_80.json",
    "attempts": 1
   },
   {
@@ -1381,7 +1381,7 @@
    "lambda": "779/400",
    "rho": "3/8",
    "self_cap": "12800/9209",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r53_80_lam779_400_rho3_8.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r53_80_lam779_400_rho3_8.json",
    "attempts": 1
   },
   {
@@ -1389,7 +1389,7 @@
    "lambda": "3889/2000",
    "rho": "31/80",
    "self_cap": "12800/9209",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r53_80_lam3889_2000_rho31_80.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r53_80_lam3889_2000_rho31_80.json",
    "attempts": 1
   },
   {
@@ -1397,7 +1397,7 @@
    "lambda": "3881/2000",
    "rho": "2/5",
    "self_cap": "12800/9209",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r53_80_lam3881_2000_rho2_5.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r53_80_lam3881_2000_rho2_5.json",
    "attempts": 1
   },
   {
@@ -1405,7 +1405,7 @@
    "lambda": "483/250",
    "rho": "41/100",
    "self_cap": "12800/9209",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r53_80_lam483_250_rho41_100.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r53_80_lam483_250_rho41_100.json",
    "attempts": 1
   },
   {
@@ -1413,7 +1413,7 @@
    "lambda": "1907/1000",
    "rho": "21/50",
    "self_cap": "12800/9209",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r53_80_lam1907_1000_rho21_50.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r53_80_lam1907_1000_rho21_50.json",
    "attempts": 2
   },
   {
@@ -1421,7 +1421,7 @@
    "lambda": "469/250",
    "rho": "43/100",
    "self_cap": "12800/9209",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r53_80_lam469_250_rho43_100.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r53_80_lam469_250_rho43_100.json",
    "attempts": 2
   },
   {
@@ -1429,7 +1429,7 @@
    "lambda": "781/400",
    "rho": "3/10",
    "self_cap": "3200/2329",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r27_40_lam781_400_rho3_10.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r27_40_lam781_400_rho3_10.json",
    "attempts": 1
   },
   {
@@ -1437,7 +1437,7 @@
    "lambda": "3901/2000",
    "rho": "5/16",
    "self_cap": "3200/2329",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r27_40_lam3901_2000_rho5_16.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r27_40_lam3901_2000_rho5_16.json",
    "attempts": 1
   },
   {
@@ -1445,7 +1445,7 @@
    "lambda": "3897/2000",
    "rho": "13/40",
    "self_cap": "3200/2329",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r27_40_lam3897_2000_rho13_40.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r27_40_lam3897_2000_rho13_40.json",
    "attempts": 1
   },
   {
@@ -1453,7 +1453,7 @@
    "lambda": "973/500",
    "rho": "27/80",
    "self_cap": "3200/2329",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r27_40_lam973_500_rho27_80.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r27_40_lam973_500_rho27_80.json",
    "attempts": 1
   },
   {
@@ -1461,7 +1461,7 @@
    "lambda": "3887/2000",
    "rho": "7/20",
    "self_cap": "3200/2329",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r27_40_lam3887_2000_rho7_20.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r27_40_lam3887_2000_rho7_20.json",
    "attempts": 1
   },
   {
@@ -1469,7 +1469,7 @@
    "lambda": "3881/2000",
    "rho": "29/80",
    "self_cap": "3200/2329",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r27_40_lam3881_2000_rho29_80.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r27_40_lam3881_2000_rho29_80.json",
    "attempts": 1
   },
   {
@@ -1477,7 +1477,7 @@
    "lambda": "31/16",
    "rho": "3/8",
    "self_cap": "3200/2329",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r27_40_lam31_16_rho3_8.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r27_40_lam31_16_rho3_8.json",
    "attempts": 1
   },
   {
@@ -1485,7 +1485,7 @@
    "lambda": "3867/2000",
    "rho": "31/80",
    "self_cap": "3200/2329",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r27_40_lam3867_2000_rho31_80.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r27_40_lam3867_2000_rho31_80.json",
    "attempts": 1
   },
   {
@@ -1493,7 +1493,7 @@
    "lambda": "3857/2000",
    "rho": "2/5",
    "self_cap": "3200/2329",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r27_40_lam3857_2000_rho2_5.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r27_40_lam3857_2000_rho2_5.json",
    "attempts": 1
   },
   {
@@ -1501,7 +1501,7 @@
    "lambda": "1913/1000",
    "rho": "41/100",
    "self_cap": "3200/2329",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r27_40_lam1913_1000_rho41_100.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r27_40_lam1913_1000_rho41_100.json",
    "attempts": 2
   },
   {
@@ -1509,7 +1509,7 @@
    "lambda": "236/125",
    "rho": "21/50",
    "self_cap": "3200/2329",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r27_40_lam236_125_rho21_50.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r27_40_lam236_125_rho21_50.json",
    "attempts": 2
   },
   {
@@ -1517,7 +1517,7 @@
    "lambda": "1857/1000",
    "rho": "43/100",
    "self_cap": "3200/2329",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r27_40_lam1857_1000_rho43_100.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r27_40_lam1857_1000_rho43_100.json",
    "attempts": 3
   },
   {
@@ -1525,7 +1525,7 @@
    "lambda": "3887/2000",
    "rho": "3/10",
    "self_cap": "512/377",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r11_16_lam3887_2000_rho3_10.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r11_16_lam3887_2000_rho3_10.json",
    "attempts": 1
   },
   {
@@ -1533,7 +1533,7 @@
    "lambda": "1941/1000",
    "rho": "5/16",
    "self_cap": "512/377",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r11_16_lam1941_1000_rho5_16.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r11_16_lam1941_1000_rho5_16.json",
    "attempts": 1
   },
   {
@@ -1541,7 +1541,7 @@
    "lambda": "1939/1000",
    "rho": "13/40",
    "self_cap": "512/377",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r11_16_lam1939_1000_rho13_40.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r11_16_lam1939_1000_rho13_40.json",
    "attempts": 1
   },
   {
@@ -1549,7 +1549,7 @@
    "lambda": "242/125",
    "rho": "27/80",
    "self_cap": "512/377",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r11_16_lam242_125_rho27_80.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r11_16_lam242_125_rho27_80.json",
    "attempts": 1
   },
   {
@@ -1557,7 +1557,7 @@
    "lambda": "3867/2000",
    "rho": "7/20",
    "self_cap": "512/377",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r11_16_lam3867_2000_rho7_20.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r11_16_lam3867_2000_rho7_20.json",
    "attempts": 1
   },
   {
@@ -1565,7 +1565,7 @@
    "lambda": "193/100",
    "rho": "29/80",
    "self_cap": "512/377",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r11_16_lam193_100_rho29_80.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r11_16_lam193_100_rho29_80.json",
    "attempts": 1
   },
   {
@@ -1573,7 +1573,7 @@
    "lambda": "963/500",
    "rho": "3/8",
    "self_cap": "512/377",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r11_16_lam963_500_rho3_8.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r11_16_lam963_500_rho3_8.json",
    "attempts": 1
   },
   {
@@ -1581,7 +1581,7 @@
    "lambda": "3843/2000",
    "rho": "31/80",
    "self_cap": "512/377",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r11_16_lam3843_2000_rho31_80.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r11_16_lam3843_2000_rho31_80.json",
    "attempts": 1
   },
   {
@@ -1589,7 +1589,7 @@
    "lambda": "1913/1000",
    "rho": "2/5",
    "self_cap": "512/377",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r11_16_lam1913_1000_rho2_5.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r11_16_lam1913_1000_rho2_5.json",
    "attempts": 1
   },
   {
@@ -1597,7 +1597,7 @@
    "lambda": "3789/2000",
    "rho": "41/100",
    "self_cap": "512/377",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r11_16_lam3789_2000_rho41_100.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r11_16_lam3789_2000_rho41_100.json",
    "attempts": 2
   },
   {
@@ -1605,7 +1605,7 @@
    "lambda": "1869/1000",
    "rho": "21/50",
    "self_cap": "512/377",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r11_16_lam1869_1000_rho21_50.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r11_16_lam1869_1000_rho21_50.json",
    "attempts": 2
   },
   {
@@ -1613,7 +1613,7 @@
    "lambda": "3677/2000",
    "rho": "43/100",
    "self_cap": "512/377",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r11_16_lam3677_2000_rho43_100.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r11_16_lam3677_2000_rho43_100.json",
    "attempts": 2
   },
   {
@@ -1621,7 +1621,7 @@
    "lambda": "3867/2000",
    "rho": "3/10",
    "self_cap": "200/149",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r7_10_lam3867_2000_rho3_10.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r7_10_lam3867_2000_rho3_10.json",
    "attempts": 1
   },
   {
@@ -1629,7 +1629,7 @@
    "lambda": "1931/1000",
    "rho": "5/16",
    "self_cap": "200/149",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r7_10_lam1931_1000_rho5_16.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r7_10_lam1931_1000_rho5_16.json",
    "attempts": 1
   },
   {
@@ -1637,7 +1637,7 @@
    "lambda": "3857/2000",
    "rho": "13/40",
    "self_cap": "200/149",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r7_10_lam3857_2000_rho13_40.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r7_10_lam3857_2000_rho13_40.json",
    "attempts": 1
   },
   {
@@ -1645,7 +1645,7 @@
    "lambda": "3851/2000",
    "rho": "27/80",
    "self_cap": "200/149",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r7_10_lam3851_2000_rho27_80.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r7_10_lam3851_2000_rho27_80.json",
    "attempts": 1
   },
   {
@@ -1653,7 +1653,7 @@
    "lambda": "769/400",
    "rho": "7/20",
    "self_cap": "200/149",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r7_10_lam769_400_rho7_20.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r7_10_lam769_400_rho7_20.json",
    "attempts": 1
   },
   {
@@ -1661,7 +1661,7 @@
    "lambda": "3837/2000",
    "rho": "29/80",
    "self_cap": "200/149",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r7_10_lam3837_2000_rho29_80.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r7_10_lam3837_2000_rho29_80.json",
    "attempts": 1
   },
   {
@@ -1669,7 +1669,7 @@
    "lambda": "957/500",
    "rho": "3/8",
    "self_cap": "200/149",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r7_10_lam957_500_rho3_8.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r7_10_lam957_500_rho3_8.json",
    "attempts": 1
   },
   {
@@ -1677,7 +1677,7 @@
    "lambda": "477/250",
    "rho": "31/80",
    "self_cap": "200/149",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r7_10_lam477_250_rho31_80.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r7_10_lam477_250_rho31_80.json",
    "attempts": 1
   },
   {
@@ -1685,7 +1685,7 @@
    "lambda": "3791/2000",
    "rho": "2/5",
    "self_cap": "200/149",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r7_10_lam3791_2000_rho2_5.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r7_10_lam3791_2000_rho2_5.json",
    "attempts": 1
   },
   {
@@ -1693,7 +1693,7 @@
    "lambda": "3751/2000",
    "rho": "41/100",
    "self_cap": "200/149",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r7_10_lam3751_2000_rho41_100.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r7_10_lam3751_2000_rho41_100.json",
    "attempts": 2
   },
   {
@@ -1701,7 +1701,7 @@
    "lambda": "3639/2000",
    "rho": "43/100",
    "self_cap": "200/149",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r7_10_lam3639_2000_rho43_100.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r7_10_lam3639_2000_rho43_100.json",
    "attempts": 3
   },
   {
@@ -1709,7 +1709,7 @@
    "lambda": "239/125",
    "rho": "3/10",
    "self_cap": "3200/2441",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r29_40_lam239_125_rho3_10.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r29_40_lam239_125_rho3_10.json",
    "attempts": 1
   },
   {
@@ -1717,7 +1717,7 @@
    "lambda": "3819/2000",
    "rho": "5/16",
    "self_cap": "3200/2441",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r29_40_lam3819_2000_rho5_16.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r29_40_lam3819_2000_rho5_16.json",
    "attempts": 1
   },
   {
@@ -1725,7 +1725,7 @@
    "lambda": "953/500",
    "rho": "13/40",
    "self_cap": "3200/2441",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r29_40_lam953_500_rho13_40.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r29_40_lam953_500_rho13_40.json",
    "attempts": 1
   },
   {
@@ -1733,7 +1733,7 @@
    "lambda": "761/400",
    "rho": "27/80",
    "self_cap": "3200/2441",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r29_40_lam761_400_rho27_80.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r29_40_lam761_400_rho27_80.json",
    "attempts": 1
   },
   {
@@ -1741,7 +1741,7 @@
    "lambda": "3797/2000",
    "rho": "7/20",
    "self_cap": "3200/2441",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r29_40_lam3797_2000_rho7_20.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r29_40_lam3797_2000_rho7_20.json",
    "attempts": 1
   },
   {
@@ -1749,7 +1749,7 @@
    "lambda": "3787/2000",
    "rho": "29/80",
    "self_cap": "3200/2441",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r29_40_lam3787_2000_rho29_80.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r29_40_lam3787_2000_rho29_80.json",
    "attempts": 1
   },
   {
@@ -1757,7 +1757,7 @@
    "lambda": "1887/1000",
    "rho": "3/8",
    "self_cap": "3200/2441",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r29_40_lam1887_1000_rho3_8.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r29_40_lam1887_1000_rho3_8.json",
    "attempts": 1
   },
   {
@@ -1765,7 +1765,7 @@
    "lambda": "751/400",
    "rho": "31/80",
    "self_cap": "3200/2441",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r29_40_lam751_400_rho31_80.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r29_40_lam751_400_rho31_80.json",
    "attempts": 1
   },
   {
@@ -1773,7 +1773,7 @@
    "lambda": "3719/2000",
    "rho": "2/5",
    "self_cap": "3200/2441",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r29_40_lam3719_2000_rho2_5.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r29_40_lam3719_2000_rho2_5.json",
    "attempts": 1
   },
   {
@@ -1781,7 +1781,7 @@
    "lambda": "919/500",
    "rho": "41/100",
    "self_cap": "3200/2441",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r29_40_lam919_500_rho41_100.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r29_40_lam919_500_rho41_100.json",
    "attempts": 2
   },
   {
@@ -1789,7 +1789,7 @@
    "lambda": "29/16",
    "rho": "21/50",
    "self_cap": "3200/2441",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r29_40_lam29_16_rho21_50.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r29_40_lam29_16_rho21_50.json",
    "attempts": 2
   },
   {
@@ -1797,7 +1797,7 @@
    "lambda": "713/400",
    "rho": "43/100",
    "self_cap": "3200/2441",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r29_40_lam713_400_rho43_100.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r29_40_lam713_400_rho43_100.json",
    "attempts": 3
   },
   {
@@ -1805,7 +1805,7 @@
    "lambda": "9909/5000",
    "rho": "87/200",
    "self_cap": "5000/3341",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r29_50_lam9909_5000_rho87_200.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r29_50_lam9909_5000_rho87_200.json",
    "attempts": 8
   },
   {
@@ -1813,7 +1813,7 @@
    "lambda": "1226/625",
    "rho": "11/25",
    "self_cap": "5000/3341",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r29_50_lam1226_625_rho11_25.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r29_50_lam1226_625_rho11_25.json",
    "attempts": 9
   },
   {
@@ -1821,7 +1821,7 @@
    "lambda": "4851/2500",
    "rho": "89/200",
    "self_cap": "5000/3341",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r29_50_lam4851_2500_rho89_200.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r29_50_lam4851_2500_rho89_200.json",
    "attempts": 9
   },
   {
@@ -1829,7 +1829,7 @@
    "lambda": "959/500",
    "rho": "9/20",
    "self_cap": "5000/3341",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r29_50_lam959_500_rho9_20.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r29_50_lam959_500_rho9_20.json",
    "attempts": 10
   },
   {
@@ -1837,7 +1837,7 @@
    "lambda": "1871/1000",
    "rho": "23/50",
    "self_cap": "5000/3341",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r29_50_lam1871_1000_rho23_50.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r29_50_lam1871_1000_rho23_50.json",
    "attempts": 12
   },
   {
@@ -1845,7 +1845,7 @@
    "lambda": "244/125",
    "rho": "87/200",
    "self_cap": "25/17",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r3_5_lam244_125_rho87_200.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r3_5_lam244_125_rho87_200.json",
    "attempts": 8
   },
   {
@@ -1853,7 +1853,7 @@
    "lambda": "4831/2500",
    "rho": "11/25",
    "self_cap": "25/17",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r3_5_lam4831_2500_rho11_25.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r3_5_lam4831_2500_rho11_25.json",
    "attempts": 8
   },
   {
@@ -1861,7 +1861,7 @@
    "lambda": "4779/2500",
    "rho": "89/200",
    "self_cap": "25/17",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r3_5_lam4779_2500_rho89_200.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r3_5_lam4779_2500_rho89_200.json",
    "attempts": 9
   },
   {
@@ -1869,7 +1869,7 @@
    "lambda": "189/100",
    "rho": "9/20",
    "self_cap": "25/17",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r3_5_lam189_100_rho9_20.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r3_5_lam189_100_rho9_20.json",
    "attempts": 10
   },
   {
@@ -1877,7 +1877,7 @@
    "lambda": "9223/5000",
    "rho": "23/50",
    "self_cap": "25/17",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r3_5_lam9223_5000_rho23_50.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r3_5_lam9223_5000_rho23_50.json",
    "attempts": 11
   },
   {
@@ -1885,7 +1885,7 @@
    "lambda": "4833/2500",
    "rho": "87/200",
    "self_cap": "12800/8801",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r49_80_lam4833_2500_rho87_200.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r49_80_lam4833_2500_rho87_200.json",
    "attempts": 8
   },
   {
@@ -1893,7 +1893,7 @@
    "lambda": "957/500",
    "rho": "11/25",
    "self_cap": "12800/8801",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r49_80_lam957_500_rho11_25.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r49_80_lam957_500_rho11_25.json",
    "attempts": 8
   },
   {
@@ -1901,7 +1901,7 @@
    "lambda": "2367/1250",
    "rho": "89/200",
    "self_cap": "12800/8801",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r49_80_lam2367_1250_rho89_200.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r49_80_lam2367_1250_rho89_200.json",
    "attempts": 9
   },
   {
@@ -1909,7 +1909,7 @@
    "lambda": "9363/5000",
    "rho": "9/20",
    "self_cap": "12800/8801",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r49_80_lam9363_5000_rho9_20.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r49_80_lam9363_5000_rho9_20.json",
    "attempts": 9
   },
   {
@@ -1917,7 +1917,7 @@
    "lambda": "457/250",
    "rho": "23/50",
    "self_cap": "12800/8801",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r49_80_lam457_250_rho23_50.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r49_80_lam457_250_rho23_50.json",
    "attempts": 10
   },
   {
@@ -1925,7 +1925,7 @@
    "lambda": "9573/5000",
    "rho": "87/200",
    "self_cap": "128/89",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r5_8_lam9573_5000_rho87_200.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r5_8_lam9573_5000_rho87_200.json",
    "attempts": 8
   },
   {
@@ -1933,7 +1933,7 @@
    "lambda": "4739/2500",
    "rho": "11/25",
    "self_cap": "128/89",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r5_8_lam4739_2500_rho11_25.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r5_8_lam4739_2500_rho11_25.json",
    "attempts": 8
   },
   {
@@ -1941,7 +1941,7 @@
    "lambda": "9379/5000",
    "rho": "89/200",
    "self_cap": "128/89",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r5_8_lam9379_5000_rho89_200.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r5_8_lam9379_5000_rho89_200.json",
    "attempts": 8
   },
   {
@@ -1949,7 +1949,7 @@
    "lambda": "371/200",
    "rho": "9/20",
    "self_cap": "128/89",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r5_8_lam371_200_rho9_20.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r5_8_lam371_200_rho9_20.json",
    "attempts": 9
   },
   {
@@ -1957,7 +1957,7 @@
    "lambda": "1132/625",
    "rho": "23/50",
    "self_cap": "128/89",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r5_8_lam1132_625_rho23_50.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r5_8_lam1132_625_rho23_50.json",
    "attempts": 11
   },
   {
@@ -1965,7 +1965,7 @@
    "lambda": "237/125",
    "rho": "87/200",
    "self_cap": "12800/9001",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r51_80_lam237_125_rho87_200.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r51_80_lam237_125_rho87_200.json",
    "attempts": 7
   },
   {
@@ -1973,7 +1973,7 @@
    "lambda": "9387/5000",
    "rho": "11/25",
    "self_cap": "12800/9001",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r51_80_lam9387_5000_rho11_25.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r51_80_lam9387_5000_rho11_25.json",
    "attempts": 8
   },
   {
@@ -1981,7 +1981,7 @@
    "lambda": "9289/5000",
    "rho": "89/200",
    "self_cap": "12800/9001",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r51_80_lam9289_5000_rho89_200.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r51_80_lam9289_5000_rho89_200.json",
    "attempts": 8
   },
   {
@@ -1989,7 +1989,7 @@
    "lambda": "9187/5000",
    "rho": "9/20",
    "self_cap": "12800/9001",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r51_80_lam9187_5000_rho9_20.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r51_80_lam9187_5000_rho9_20.json",
    "attempts": 9
   },
   {
@@ -1997,7 +1997,7 @@
    "lambda": "8973/5000",
    "rho": "23/50",
    "self_cap": "12800/9001",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r51_80_lam8973_5000_rho23_50.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r51_80_lam8973_5000_rho23_50.json",
    "attempts": 10
   },
   {
@@ -2005,7 +2005,7 @@
    "lambda": "9387/5000",
    "rho": "87/200",
    "self_cap": "800/569",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r13_20_lam9387_5000_rho87_200.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r13_20_lam9387_5000_rho87_200.json",
    "attempts": 7
   },
   {
@@ -2013,7 +2013,7 @@
    "lambda": "1859/1000",
    "rho": "11/25",
    "self_cap": "800/569",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r13_20_lam1859_1000_rho11_25.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r13_20_lam1859_1000_rho11_25.json",
    "attempts": 8
   },
   {
@@ -2021,7 +2021,7 @@
    "lambda": "9199/5000",
    "rho": "89/200",
    "self_cap": "800/569",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r13_20_lam9199_5000_rho89_200.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r13_20_lam9199_5000_rho89_200.json",
    "attempts": 8
   },
   {
@@ -2029,7 +2029,7 @@
    "lambda": "4549/2500",
    "rho": "9/20",
    "self_cap": "800/569",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r13_20_lam4549_2500_rho9_20.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r13_20_lam4549_2500_rho9_20.json",
    "attempts": 9
   },
   {
@@ -2037,7 +2037,7 @@
    "lambda": "8889/5000",
    "rho": "23/50",
    "self_cap": "800/569",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r13_20_lam8889_5000_rho23_50.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r13_20_lam8889_5000_rho23_50.json",
    "attempts": 9
   },
   {
@@ -2045,7 +2045,7 @@
    "lambda": "9719/5000",
    "rho": "3/10",
    "self_cap": "512/377",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r11_16_lam9719_5000_rho3_10.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r11_16_lam9719_5000_rho3_10.json",
    "attempts": 1
   },
   {
@@ -2053,7 +2053,7 @@
    "lambda": "2427/1250",
    "rho": "5/16",
    "self_cap": "512/377",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r11_16_lam2427_1250_rho5_16.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r11_16_lam2427_1250_rho5_16.json",
    "attempts": 1
   },
   {
@@ -2061,7 +2061,7 @@
    "lambda": "9799/5000",
    "rho": "29/80",
    "self_cap": "800/569",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r13_20_lam9799_5000_rho29_80.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r13_20_lam9799_5000_rho29_80.json",
    "attempts": 1
   },
   {
@@ -2069,7 +2069,7 @@
    "lambda": "1951/1000",
    "rho": "5/16",
    "self_cap": "3200/2329",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r27_40_lam1951_1000_rho5_16.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r27_40_lam1951_1000_rho5_16.json",
    "attempts": 1
   },
   {
@@ -2077,7 +2077,7 @@
    "lambda": "4769/2500",
    "rho": "1/5",
    "self_cap": "32/25",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r3_4_lam4769_2500_rho1_5.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r3_4_lam4769_2500_rho1_5.json",
    "attempts": 1
   },
   {
@@ -2085,7 +2085,7 @@
    "lambda": "99/50",
    "rho": "21/50",
    "self_cap": "25/17",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r3_5_lam99_50_rho21_50.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r3_5_lam99_50_rho21_50.json",
    "attempts": 1
   },
   {
@@ -2093,7 +2093,7 @@
    "lambda": "9851/5000",
    "rho": "43/100",
    "self_cap": "25/17",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r3_5_lam9851_5000_rho43_100.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r3_5_lam9851_5000_rho43_100.json",
    "attempts": 7
   },
   {
@@ -2101,7 +2101,7 @@
    "lambda": "9883/5000",
    "rho": "2/5",
    "self_cap": "12800/8801",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r49_80_lam9883_5000_rho2_5.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r49_80_lam9883_5000_rho2_5.json",
    "attempts": 1
   },
   {
@@ -2109,7 +2109,7 @@
    "lambda": "9857/5000",
    "rho": "31/80",
    "self_cap": "128/89",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r5_8_lam9857_5000_rho31_80.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r5_8_lam9857_5000_rho31_80.json",
    "attempts": 1
   },
   {
@@ -2117,7 +2117,7 @@
    "lambda": "246/125",
    "rho": "29/80",
    "self_cap": "12800/9001",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r51_80_lam246_125_rho29_80.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r51_80_lam246_125_rho29_80.json",
    "attempts": 1
   },
   {
@@ -2125,7 +2125,7 @@
    "lambda": "9829/5000",
    "rho": "3/8",
    "self_cap": "12800/9001",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r51_80_lam9829_5000_rho3_8.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r51_80_lam9829_5000_rho3_8.json",
    "attempts": 1
   },
   {
@@ -2133,7 +2133,7 @@
    "lambda": "967/500",
    "rho": "3/10",
    "self_cap": "200/149",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r7_10_lam967_500_rho3_10.json",
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r7_10_lam967_500_rho3_10.json",
    "attempts": 1
   },
   {
@@ -2141,147 +2141,147 @@
    "lambda": "19441/10000",
    "rho": "3/10",
    "self_cap": "512/377",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r11_16_lam19441_10000_rho3_10.json"
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r11_16_lam19441_10000_rho3_10.json"
   },
   {
    "r": "13/20",
    "lambda": "49/25",
    "rho": "29/80",
    "self_cap": "800/569",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r13_20_lam49_25_rho29_80.json"
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r13_20_lam49_25_rho29_80.json"
   },
   {
    "r": "29/50",
    "lambda": "19819/10000",
    "rho": "87/200",
    "self_cap": "5000/3341",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r29_50_lam19819_10000_rho87_200.json"
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r29_50_lam19819_10000_rho87_200.json"
   },
   {
    "r": "3/5",
    "lambda": "19803/10000",
    "rho": "21/50",
    "self_cap": "25/17",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r3_5_lam19803_10000_rho21_50.json"
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r3_5_lam19803_10000_rho21_50.json"
   },
   {
    "r": "5/8",
    "lambda": "4929/2500",
    "rho": "31/80",
    "self_cap": "128/89",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r5_8_lam4929_2500_rho31_80.json"
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r5_8_lam4929_2500_rho31_80.json"
   },
   {
    "r": "51/80",
    "lambda": "19661/10000",
    "rho": "3/8",
    "self_cap": "12800/9001",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r51_80_lam19661_10000_rho3_8.json"
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r51_80_lam19661_10000_rho3_8.json"
   },
   {
    "r": "29/50",
    "lambda": "19881/10000",
    "rho": "43/100",
    "self_cap": "5000/3341",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r29_50_lam19881_10000_rho43_100.json"
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r29_50_lam19881_10000_rho43_100.json"
   },
   {
    "r": "29/50",
    "lambda": "19719/10000",
    "rho": "7/16",
    "self_cap": "5000/3341",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r29_50_lam19719_10000_rho7_16.json"
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r29_50_lam19719_10000_rho7_16.json"
   },
   {
    "r": "3/5",
    "lambda": "9807/5000",
    "rho": "173/400",
    "self_cap": "25/17",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r3_5_lam9807_5000_rho173_400.json"
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r3_5_lam9807_5000_rho173_400.json"
   },
   {
    "r": "49/80",
    "lambda": "9757/5000",
    "rho": "43/100",
    "self_cap": "12800/8801",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r49_80_lam9757_5000_rho43_100.json"
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r49_80_lam9757_5000_rho43_100.json"
   },
   {
    "r": "49/80",
    "lambda": "9619/5000",
    "rho": "7/16",
    "self_cap": "12800/8801",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r49_80_lam9619_5000_rho7_16.json"
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r49_80_lam9619_5000_rho7_16.json"
   },
   {
    "r": "11/16",
    "lambda": "19419/10000",
    "rho": "5/16",
    "self_cap": "512/377",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r11_16_lam19419_10000_rho5_16.json"
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r11_16_lam19419_10000_rho5_16.json"
   },
   {
    "r": "27/40",
    "lambda": "2439/1250",
    "rho": "5/16",
    "self_cap": "3200/2329",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r27_40_lam2439_1250_rho5_16.json"
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r27_40_lam2439_1250_rho5_16.json"
   },
   {
    "r": "3/4",
    "lambda": "19079/10000",
    "rho": "1/5",
    "self_cap": "32/25",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r3_4_lam19079_10000_rho1_5.json"
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r3_4_lam19079_10000_rho1_5.json"
   },
   {
    "r": "49/80",
    "lambda": "2471/1250",
    "rho": "2/5",
    "self_cap": "12800/8801",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r49_80_lam2471_1250_rho2_5.json"
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r49_80_lam2471_1250_rho2_5.json"
   },
   {
    "r": "51/80",
    "lambda": "9841/5000",
    "rho": "29/80",
    "self_cap": "12800/9001",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r51_80_lam9841_5000_rho29_80.json"
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r51_80_lam9841_5000_rho29_80.json"
   },
   {
    "r": "7/10",
    "lambda": "19343/10000",
    "rho": "3/10",
    "self_cap": "200/149",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r7_10_lam19343_10000_rho3_10.json"
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r7_10_lam19343_10000_rho3_10.json"
   },
   {
    "r": "29/50",
    "lambda": "9939/5000",
    "rho": "173/400",
    "self_cap": "5000/3341",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r29_50_lam9939_5000_rho173_400.json"
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r29_50_lam9939_5000_rho173_400.json"
   },
   {
    "r": "3/5",
    "lambda": "19703/10000",
    "rho": "43/100",
    "self_cap": "25/17",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r3_5_lam19703_10000_rho43_100.json"
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r3_5_lam19703_10000_rho43_100.json"
   },
   {
    "r": "3/5",
    "lambda": "1214/625",
    "rho": "7/16",
    "self_cap": "25/17",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r3_5_lam1214_625_rho7_16.json"
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r3_5_lam1214_625_rho7_16.json"
   },
   {
    "r": "49/80",
    "lambda": "9713/5000",
    "rho": "173/400",
    "self_cap": "12800/8801",
-   "cert": "/Users/USER/Documents/GitHub/mathexplorer/tmp/routes-b3-combine-out/kernels/pair_r49_80_lam9713_5000_rho173_400.json"
+   "cert": "tmp/routes-b3-combine-out/kernels/pair_r49_80_lam9713_5000_rho173_400.json"
   }
  ],
  "extra_sets": [],

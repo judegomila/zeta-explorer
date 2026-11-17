@@ -1,0 +1,14 @@
+[k=10      8s] parity 0: window nodes 1359769, check vs r2 FS-SELF (type a): max |diff| 4.38e-08 of 1.41e+00
+[k=10     13s] parity 1: window nodes 1359940, check vs r2 FS-SELF (type a): max |diff| 4.43e-08 of 6.09e-01
+[k=10    161s] F1 through p = 97
+[k=10    861s] F1 through p = 997
+[k=10    861s] F1 done: 73176 characters
+[k=10    876s] f2 done
+[k=10    890s] f2r done
+[k=10    892s] F3 y #0/426
+[k=10   1057s] F3 y #100/426
+[k=10   1207s] F3 y #200/426
+[k=10   1347s] F3 y #300/426
+[k=10   1476s] F3 y #400/426
+[k=10   1615s] controls done
+[k=10   1615s] saved

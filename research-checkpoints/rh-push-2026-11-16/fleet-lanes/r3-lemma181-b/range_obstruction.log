@@ -1,0 +1,12 @@
+critical class: m_x=0.418254; modified flat configuration, max slack over pairs and triples = 0.000e+00 (<= 0 exact: True)
+    theta=0.000000: LP with ideal triple moments = 0.692749265; source value (3R+1)/4 - theta/2 = 0.692749265
+    theta=0.052165: LP with ideal triple moments = 0.666666667; source value (3R+1)/4 - theta/2 = 0.666666667
+delta=1/4, x=1/4: m_x=0.378998; modified flat configuration, max slack over pairs and triples = 0.000e+00 (<= 0 exact: True)
+    theta=0.000000: LP with ideal triple moments = 0.852832538; source value (3R+1)/4 - theta/2 = 0.852832538
+    theta=0.013893: LP with ideal triple moments = 0.845885993; source value (3R+1)/4 - theta/2 = 0.845885993
+delta=2/3, x=1/2: m_x=0.451609; modified flat configuration, max slack over pairs and triples = 0.000e+00 (<= 0 exact: True)
+    theta=0.000000: LP with ideal triple moments = 0.537634094; source value (3R+1)/4 - theta/2 = 0.537634094
+    theta=0.074096: LP with ideal triple moments = 0.500585858; source value (3R+1)/4 - theta/2 = 0.500585858
+delta=1/8, x=0: m_x=0.350877; modified flat configuration, max slack over pairs and triples = 0.000e+00 (<= 0 exact: True)
+    theta=0.000000: LP with ideal triple moments = 0.934210526; source value (3R+1)/4 - theta/2 = 0.934210526
+    theta=0.000000: LP with ideal triple moments = 0.934210526; source value (3R+1)/4 - theta/2 = 0.934210526

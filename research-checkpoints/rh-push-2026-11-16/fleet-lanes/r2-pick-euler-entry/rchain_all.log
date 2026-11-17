@@ -1,0 +1,97 @@
+dh a=1/10 K=230 prec=12000 src=series sec=33
+  first certified negative r_k: k = 148 (Pick order 149) | undecided: [] | negatives: [148, 150, 217, 219]
+   r_146 = [2.79470990193e-7 +/- 4.63e-20]
+   r_147 = [2.09875005262e-7 +/- 3.09e-19]
+   r_148 = [-8.91792604231e-8 +/- 9.18e-21]
+   r_149 = [5.68504773297e-6 +/- 1.62e-18]
+twin:85.699348485377592172:0.30851718245663738555 a=1/10 K=150 prec=8000 src=series sec=3
+  first certified negative r_k: k = 100 (Pick order 101) | undecided: [] | negatives: [100, 102]
+   r_98 = [2.13470842705e-7 +/- 8.34e-20]
+   r_99 = [5.79672071483e-8 +/- 3.69e-20]
+   r_100 = [-3.36422016629e-6 +/- 3.50e-19]
+   r_101 = [5.32083400547e-6 +/- 8.11e-19]
+twin:30:0.3 a=1/10 K=40 prec=3000 src=series sec=0
+  first certified negative r_k: k = 20 (Pick order 21) | undecided: [] | negatives: [20, 22]
+   r_18 = [1.90535774381e-6 +/- 2.10e-18]
+   r_19 = [5.55301740596e-7 +/- 2.42e-19]
+   r_20 = [-2.18902417118e-5 +/- 2.31e-17]
+   r_21 = [3.79656461437e-5 +/- 3.72e-17]
+nr:3:2.2 a=1/10 K=24 prec=2000 src=series sec=0
+  first certified negative r_k: k = 3 (Pick order 4) | undecided: [] | negatives: [3, 5, 9, 11, 15, 17]
+   r_1 = [0.000798940985901 +/- 1.41e-16]
+   r_2 = [0.000129194037308 +/- 3.50e-16]
+   r_3 = [-0.00106159378477 +/- 4.95e-15]
+   r_4 = [0.00257524691291 +/- 1.33e-15]
+chi4 a=1/10 K=230 prec=12000 src=series sec=20
+  first certified negative r_k: k = None (Pick order -) | undecided: [] | negatives: []
+   r_229 = [1.52793579654e-7 +/- 4.49e-19]
+zeta a=1/10 K=230 prec=12000 src=series sec=12
+  first certified negative r_k: k = None (Pick order -) | undecided: [] | negatives: []
+   r_229 = [8.42974332296e-8 +/- 1.84e-20]
+dh a=1 K=230 prec=12000 src=series sec=39
+  first certified negative r_k: k = 148 (Pick order 149) | undecided: [] | negatives: [148, 150, 217, 219]
+   r_146 = [2.79843885755e-5 +/- 3.67e-17]
+   r_147 = [2.10989546747e-5 +/- 4.82e-17]
+   r_148 = [-8.20684560383e-6 +/- 1.93e-18]
+   r_149 = [0.000600778102264 +/- 2.23e-16]
+twin:85.699348485377592172:0.30851718245663738555 a=1 K=150 prec=8000 src=series sec=3
+  first certified negative r_k: k = 100 (Pick order 101) | undecided: [] | negatives: [100, 102]
+   r_98 = [2.13914490761e-5 +/- 3.36e-17]
+   r_99 = [6.00039066937e-6 +/- 4.14e-18]
+   r_100 = [-0.000319447671293 +/- 3.49e-16]
+   r_101 = [0.000515552773068 +/- 2.23e-16]
+twin:30:0.3 a=1 K=40 prec=3000 src=series sec=0
+  first certified negative r_k: k = 20 (Pick order 21) | undecided: [] | negatives: [20, 22]
+   r_18 = [0.000191103676897 +/- 4.32e-17]
+   r_19 = [5.80957051909e-5 +/- 4.18e-17]
+   r_20 = [-0.00202852229165 +/- 1.61e-15]
+   r_21 = [0.00364848044231 +/- 4.57e-15]
+nr:3:2.2 a=1 K=24 prec=2000 src=series sec=0
+  first certified negative r_k: k = 3 (Pick order 4) | undecided: [] | negatives: [3, 5, 9, 11, 15, 17]
+   r_1 = [0.0775418784883 +/- 2.90e-15]
+   r_2 = [0.0173036900720 +/- 3.50e-14]
+   r_3 = [-0.0473393426651 +/- 7.23e-15]
+   r_4 = [0.221099623092 +/- 2.31e-13]
+chi4 a=1 K=230 prec=12000 src=series sec=21
+  first certified negative r_k: k = None (Pick order -) | undecided: [] | negatives: []
+   r_229 = [1.52738697680e-5 +/- 3.98e-17]
+zeta a=1 K=230 prec=12000 src=series sec=10
+  first certified negative r_k: k = None (Pick order -) | undecided: [] | negatives: []
+   r_229 = [8.43069549366e-6 +/- 3.61e-18]
+dh a=3 K=230 prec=12000 src=series sec=41
+  first certified negative r_k: k = 148 (Pick order 149) | undecided: [] | negatives: [148, 150, 217, 219]
+   r_146 = [0.000254460622476 +/- 4.47e-16]
+   r_147 = [0.000197528667354 +/- 4.66e-16]
+   r_148 = [-2.78051604165e-5 +/- 2.63e-17]
+   r_149 = [0.0116062662097 +/- 1.55e-14]
+twin:85.699348485377592172:0.30851718245663738555 a=3 K=150 prec=8000 src=series sec=3
+  first certified negative r_k: k = 100 (Pick order 101) | undecided: [] | negatives: [100, 102]
+   r_98 = [0.000195660193393 +/- 7.38e-17]
+   r_99 = [6.79393138663e-5 +/- 2.13e-17]
+   r_100 = [-0.00198955151837 +/- 3.49e-17]
+   r_101 = [0.00378502784770 +/- 2.28e-16]
+twin:30:0.3 a=3 K=40 prec=3000 src=series sec=0
+  first certified negative r_k: k = 20 (Pick order 21) | undecided: [] | negatives: [20, 22]
+   r_18 = [0.00175906544396 +/- 2.85e-16]
+   r_19 = [0.000691416300991 +/- 2.74e-16]
+   r_20 = [-0.0108224997939 +/- 3.67e-14]
+   r_21 = [0.0260956129194 +/- 9.25e-15]
+nr:3:2.2 a=3 K=24 prec=2000 src=series sec=0
+  first certified negative r_k: k = 4 (Pick order 5) | undecided: [] | negatives: [4, 6, 10, 12, 16, 18]
+   r_2 = [0.289771735569 +/- 2.35e-13]
+   r_3 = [0.0349511888595 +/- 3.35e-14]
+   r_4 = [-0.354273766665 +/- 9.20e-14]
+   r_5 = [3.37489353437 +/- 3.36e-12]
+chi4 a=3 K=230 prec=12000 src=series sec=21
+  first certified negative r_k: k = None (Pick order -) | undecided: [] | negatives: []
+   r_229 = [0.000137074355797 +/- 3.42e-16]
+zeta a=3 K=230 prec=12000 src=series sec=13
+  first certified negative r_k: k = None (Pick order -) | undecided: [] | negatives: []
+   r_229 = [7.59447979943e-5 +/- 9.32e-18]
+theta/series ratio of F jets (must be constant): ['[1.2615662610100800241 +/- 2.36e-20]', '[1.2615662610100800241 +/- 2.36e-20]', '[1.2615662610100800241 +/- 2.36e-20]', '[1.2615662610100800241 +/- 2.36e-20]']
+dh a=1 K=152 prec=9000 src=theta sec=2662
+  first certified negative r_k: k = 148 (Pick order 149) | undecided: [] | negatives: [148, 150]
+   r_146 = [2.79843885755e-5 +/- 3.67e-17]
+   r_147 = [2.10989546747e-5 +/- 4.82e-17]
+   r_148 = [-8.20684560383e-6 +/- 1.93e-18]
+   r_149 = [0.000600778102264 +/- 2.23e-16]

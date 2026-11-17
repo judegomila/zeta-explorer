@@ -29,8 +29,12 @@ Notation. `F(x) = xi(1/2+x)` (real entire, even, order 1), `L = F'/F` (odd), `s 
    matrices of the Stieltjes moment problem for `mu_k = sum_lambda lambda^{-k-1}`. `H0` is the confluent odd
    sector `K_o`, `H1` the confluent even sector `K_e`. So the pair at order `K` is the bridge form at order `2K`
    on a node set closed under the antibridge reflection.
-4. CERTIFIED consequence: the first-failure orders measured by earlier lanes on unrelated node families are the
-   anchor Hankel orders. See section 5 for the numbers (planted twins and Davenport-Heilbronn).
+4. CERTIFIED consequence: the failure orders measured by earlier lanes on node families are the anchor Hankel
+   orders, by the rule `N*_P = min(2 K0 - 1, 2 K1)`. Planted twins: 7 of 7 rows of the euler-lane table
+   (7, 12, 15, 24, 34, 49, 81). Davenport-Heilbronn: `H0` has negative pivots at 75 and 110, `H1` at 75 and 109,
+   which gives 149, 150, 218, 219, the four DH failure orders of g-coupling-norm. The pair itself fails for DH
+   at order 75 on real nodes. For `xi`: `P`, `K_e`, `K_o` positive through 100 nodes, `H0`, `H1` through
+   order 100.
 5. Stack: parity split, Hankel causality and the Stieltjes class are one statement in three coordinates
    (Theorem 5). The passive prime chain does not enter the stack: in the `s = x^2` coordinate each prime stub
    puts its singularities on the parabola `Re s = 1/4 - (Im s)^2`, not on the half-line, and termwise it has an
@@ -45,6 +49,11 @@ Notation. `F(x) = xi(1/2+x)` (real entire, even, order 1), `L = F'/F` (odd), `s 
 - PR 49 (analytic_continuation.md section 2) proved interval propagation for the theta-coordinate kernel with
   Neeb-Olafsson. Theorem 2 here is the same phenomenon in the spectral coordinate with an elementary proof and an
   explicit class.
+- `pick/NEXT_STAGE.md` eq. (1) (also PR 50 eq. (29)) already has the split
+  `P = Loew_j + X Loew_{-h} X` with `h = 2M`, `j = 2sM`, and uses the two Dobsch-Donoghue Hankel matrices at
+  points `u > 0` as a sufficient condition. `H1`, `H0` below are those matrices at the anchor `u = 0`. What that
+  lane does not have: at `u = 0` the sum is a direct sum (Theorem 4), which turns the sufficient condition into
+  an equality of inertia and gives rule (4.1).
 - New here: the definition table (section 1); the exact class with its integral representation (Theorem 1);
   the anchor identity (Theorem 4) and the resulting rule `N*_P = min(2 K0 - 1, 2 K1)` (section 5); the
   certified sector/anchor failure orders for twins and DH; the three controls run on the pair (section 6);
@@ -54,9 +63,10 @@ Notation. `F(x) = xi(1/2+x)` (real entire, even, order 1), `L = F'/F` (odd), `s 
 
 ## 1. Definition table: every use of "antibridge" found
 
-Search: `anti-?bridge | ante bridge | opposite bridge | bridge shear` over the mathexplorer working tree, all
-fetched PR refs (10 to 57), and `~/Documents/GitHub/zeta-view` (read-only, HEAD `dce7d5f`).
-Outside PR 49 no other PR ref contains the word. "ante bridge" does not occur anywhere.
+Search: `anti-?bridge | ante bridge | opposite bridge | bridge shear` over the mathexplorer working tree and
+`~/Documents/GitHub/zeta-view` (read-only, HEAD `dce7d5f`); the first three patterns over all
+fetched PR refs (10 to 57; `.md .txt .js .py`). Outside PR 49 no PR ref contains the word. "ante bridge" does
+not occur anywhere. Working-tree hits under `.claude/worktrees/` and `thinking/transcripts/` duplicate row 17.
 
 | # | Source (file:line) | What it defines or uses | Kind |
 |---|---|---|---|
@@ -167,8 +177,8 @@ i.e. iff every `lambda` is real and positive, i.e. iff RH. Reading of the repres
   empty; for a real Dirichlet character it is the exceptional-zero question.
 
 So, as a function class: **the antibridge pair is the Stieltjes cone**. Equivalent classical forms of membership
-(CLASSICAL): `Xi` is in the Laguerre-Polya class with negative zeros; `M` is completely monotone and so is its
-representing density iterate (`S` = iterated Laplace transforms of positive measures); the Stieltjes continued
+(CLASSICAL): `Xi` is in the Laguerre-Polya class with negative zeros; `M` is the Laplace transform of a completely monotone function
+(`S` = iterated Laplace transforms of positive measures); the Stieltjes continued
 fraction of `M` at the anchor has positive coefficients (section 4); `L(x) = 2x M(x^2)` is a Foster reactance
 function (section 3).
 
@@ -200,7 +210,7 @@ fixed index (section 5: explicit twins) and under small backward heat flow (sect
 `2K` moments (CLASSICAL). So the order-`K` pair says: the first `2K` Taylor coefficients of `M` at the anchor
 agree with those of a function having `K` zeros on the line. It asserts nothing about the actual zeros.
 
-Quantification (section 5): a moved zero of index `n` is first seen by the pair at order about `2n + 2`, and by
+Quantification (section 5): a moved zero of index `n` is first seen by the pair at order `2n + 1` to `2n + 3`, and by
 `P` at order `min(2 K0 - 1, 2 K1)`, which is the euler-lane fit `N* ~ 4n + 3`. Height seen by order `K`:
 zeros of index up to about `(K - 2)/2`, i.e. ordinates up to about `gamma_{K/2}`.
 
@@ -237,8 +247,9 @@ Consequences.
   `(mu_k)` on `[0, inf)`, which (determinate, compact support in `tau = 1/lambda`) is RH. CLASSICAL once
   Theorem 4 is given.
 - Stieltjes continued fraction (CLASSICAL): `M(s) = mu_0 / (1 + c_1 s/(1 + c_2 s/(1 + ...)))` with
-  `c_{2k-1}`, `c_{2k}` ratios of consecutive determinants of `H0` and `H1`. RH iff all `c_k > 0`. The two sectors
-  alternate as the rungs of one ladder: odd rungs from `K_o` (H0), even rungs from `K_e` (H1). In circuit terms
+  each `c_k` a ratio of products of leading determinants of `H0` and `H1`; `c_1, ..., c_m > 0` iff those
+  determinants are positive up to the corresponding orders. RH iff all `c_k > 0`. The two sectors alternate as
+  the rungs of one ladder. In circuit terms
   this is the Cauer RC ladder of `M`, equivalently the LC ladder of `L` (section 7).
 - For nodes near the anchor the inertia of the node matrix `P_N` equals that of `J_N` whenever `J_N` is
   nonsingular (divided-difference congruence). So the first indefinite order of the Pick ladder on a nested
@@ -246,20 +257,159 @@ Consequences.
 
       N*_P = min(2 K0 - 1, 2 K1),   K0, K1 = first orders at which H0, H1 are not positive definite.   (4.1)
 
-  PROVED for sufficiently clustered nodes; for the families actually used (nodes in `[0.01, 0.5]`, `[0.6, 4]`,
-  and spread to 450) it is MEASURED to hold exactly (section 5). Node independence beyond the confluent regime
+  PROVED for sufficiently clustered nodes; for the two bounded families actually used (nodes in `[0.01, 0.5]` and
+  in `[0.6, 4]`) it holds exactly in every case computed (section 5, CERTIFIED case by case). Node independence beyond the confluent regime
   is OPEN.
 
 ## 5. Computation
 
 Scripts in this directory. Ball arithmetic (python-flint 0.9.0 / Arb) where marked CERTIFIED: a pivot sign is
-reported only when its ball excludes 0. mpmath 1.3.0 elsewhere. Single process each, local.
+reported only when its ball excludes 0. mpmath 1.3.0 elsewhere. Single-thread processes; mpmath runs and `anchor_xi.json` local, the other Arb
+runs on the motherbox (outputs copied to `motherbox/`).
 
-RESULTS_PLACEHOLDER
+### 5.1 Planted twins: node sectors against anchor Hankel orders
+
+`xi` with the on-line pair at `gamma_n` moved to `1/2 +- 0.3 +- i gamma_n` (the "move" family of
+`euler/RESULT.md` section 2.2). First order at which the matrix is not positive definite.
+
+| zero index n | gamma | `P` nodes | `K_e` nodes | `K_o` nodes | anchor `H1` (K1) | anchor `H0` (K0) | `min(2K0-1, 2K1)` | euler lane `N*` |
+|---|---|---|---|---|---|---|---|---|
+| 1 | 14.1347 | 7 | 4 | 4 | 4 | 4 | 7 | 7 |
+| 2 | 21.0220 | 12 | 6 | 7 | 6 | 7 | 12 | 12 |
+| 3 | 25.0109 | 15 | 8 | 8 | 8 | 8 | 15 | 15 |
+| 5 | 32.9351 | 24 | 12 | 13 | 12 | 13 | 24 | 24 |
+| 8 | 43.3271 | 34 | 17 | 18 | 17 | 18 | 34 | 34 |
+| 12 | 56.4462 | 49 | 25 | 25 | 25 | 25 | 49 | 49 |
+| 20 | 77.1448 | 81 | 41 | 41 | 41 | 41 | 81 | 81 |
+
+- Node columns: CERTIFIED (Arb, 20000 bits, `dh_sectors.py`, motherbox) on two nested families, van der Corput
+  in `log x` on `[0.01, 0.5]` and on `[0.6, 4]`, 100 nodes. Both families give the same seven rows. Independent
+  mpmath run (`sectors.py`, 1016 digits, `[0.01, 0.5]`, 52 nodes) agrees (`sectors_main.json`).
+- Anchor columns: CERTIFIED (Arb, 24000 bits, `anchor_hankel.py`, `anchor_xi.json`); `mu_k` from the Taylor series
+  of `log xi` at `1/2` (odd coefficients vanish to 1e-7000; `mu_0 = 0.0231049931154189707889338`,
+  `mu_1 = 3.717259928526968616486626e-5`, the known values of `sum gamma^-2`, `sum gamma^-4`).
+- For `xi` itself: `P`, `K_e`, `K_o` positive definite through 100 nodes on both families (CERTIFIED);
+  `H0`, `H1` positive definite through order 100 (CERTIFIED).
+
+Readings.
+
+1. `K_e` on nodes fails exactly at the `H1` order and `K_o` exactly at the `H0` order, on both node families
+   (14 of 14 rows, each CERTIFIED). Mechanism: Theorem 4 plus near-confluence (ARGUED); a proof for general
+   node sets is OPEN.
+2. Rule (4.1) reproduces the euler-lane table 7 of 7. The fit `N* ~ 4n + 3` of ff-transplant is
+   `min(2K0-1, 2K1)` with `K0, K1` in `{2n+1, 2n+2, 2n+3}`.
+3. The pair at order `K` sees what `P` sees at order `2K - 1` or `2K`. The matrix dimension of the block form
+   is `2K`. The antibridge constraint at finite order is a doubling of the node set by reflection through the
+   anchor: same information per dimension, in two decoupled blocks of half the size.
+
+### 5.2 Davenport-Heilbronn
+
+`xi_DH(s) = (pi/5)^{-s/2} Gamma((s+1)/2) f(s)`, `f` the Davenport-Heilbronn function (Hurwitz form of
+g-coupling-norm `lib.py`). All signs CERTIFIED (Arb; motherbox).
+
+| Matrix | Family | First order not positive definite | Certified pivot |
+|---|---|---|---|
+| `P` nodes | `[0.01, 0.5]` | none through 84 here; 149 in g-coupling-norm (CERTIFIED there), then 150, 218, 219 | |
+| `K_e` nodes | `[0.01, 0.5]` | 75 | `-1.5684389e-768 +/- 1.5e-776` |
+| `K_o` nodes | `[0.01, 0.5]` | 75 | `-4.4970414e-764 +/- 2.8e-772` |
+| `P` nodes | `[0.6, 4]` | none through 84 here | |
+| `K_e` nodes | `[0.6, 4]` | 75 | `-2.2591706e-476 +/- 1.7e-484` |
+| `K_o` nodes | `[0.6, 4]` | 75 | `-3.8110499e-474 +/- 3.3e-482` |
+| anchor `H1` | none (jets at `x = 0`) | negative pivots at 75 and 109; all other signs positive through 114 | |
+| anchor `H0` | none (jets at `x = 0`) | negative pivots at 75 and 110; all other signs positive through 114 | |
+
+(`mu_0 = 0.09806957695333636694`, `mu_1 = 0.001748504939203854391` for DH; odd Taylor coefficients of
+`log xi_DH` at `1/2` vanish to 1e-4800, confirming evenness.)
+
+Readings.
+
+1. `2 K0 - 1 = 149` and `2 K1 = 150`: rule (4.1) gives the first two negative pivots of the DH Pick ladder
+   found by g-coupling-norm on its two bounded node families (the same two families as here). This is the
+   node-independent rule asked for in SYNTHESIS_GEOMETRIC next move 4, at least for all four failures found there: the failure orders of the Pick ladder are the
+   failure orders of the two anchor Hankel determinant sequences, i.e. of the Stieltjes moment problem for the
+   power sums `mu_k`. They are properties of the Taylor coefficients of `log xi_DH` at the anchor, not of the
+   nodes. The second pair is reproduced as well: `H1` at 109 gives `2*109 = 218`,
+   `H0` at 110 gives `2*110 - 1 = 219`. All four DH failure orders 149, 150, 218, 219 are the anchor orders
+   (`anchor_dh114.json`, Arb 34000 bits, signs certified through order 114; the orders 109 and 110 were
+   predicted from (4.1) before the run).
+2. For DH the pair fails at order 75 on real nodes (both sectors, both families, including `x in [0.6, 4]`).
+   This supplies the explicit real-node witness that g-antibridge-cancel lacked (its referee item 4: failure had
+   been shown only at complex nodes inside the strip). The zero-side form is used; DH has zeros with
+   `Re s > 1`, so the one-sided Laplace reading of these nodes for DH needs the caveat stated in that lane.
+3. One negative pivot in each of `H0`, `H1` per off-line quartet reached is consistent with the generalized
+   Nevanlinna bound (each sector has at most as many negative squares as there are off-line quartets).
 
 ## 6. The three controls
 
-CONTROLS_PLACEHOLDER
+Status of the lane against the controls: Theorems 1 to 6 are equivalences and identities. None of them is an
+argument for the sign, so none of them can "fail" for a control; what can be checked is (i) that every identity
+holds for the control, (ii) that the pair itself is false for the control, and (iii) at which order that
+becomes visible. All three were run.
+
+### 6.1 Davenport-Heilbronn
+
+- Identities: Theorems 1 to 5 use only "real entire, even, order <= 1, `F(0) != 0`". They hold verbatim for
+  `xi_DH`. No step uses `Lambda(n) >= 0`, multiplicativity, or Hecke structure. Theorem 6(a),(c) use the
+  Dirichlet series only as a convergent expansion.
+- The pair is false for DH at all orders (off-line zeros; Corollary 1): `M_DH` is not a Stieltjes function.
+- Order at which it is visible: section 5.2.
+
+### 6.2 Backward heat family `kappa_tau = e^{tau u^2/16} kappa`, `tau < 0`
+
+- `F_tau` is real entire, even, of order 1 for every real `tau`, so Corollary 1 applies at each `tau`:
+  the pair holds at all orders on one interval iff all zeros of `F_tau` are on the line iff `tau >= Lambda_dBN`.
+  By Rodgers-Tao (`Lambda_dBN >= 0`, CLASSICAL) the pair is false for every `tau < 0`. This is PR 49 finding 4
+  in the spectral coordinate.
+- Finite orders are flow-blind (PROVED given RH at `tau = 0`): each finite sector matrix depends continuously on
+  `tau` and is positive definite at `tau = 0`, so the order-`K` pair holds on an interval `(-eps_K, 0]` where
+  the all-order statement is false. No finite-order version of the pair can decide the sign at `tau = 0`.
+- MEASURED (`heat_control.py`, mpmath 170 digits, `F_tau`, `F_tau'`, `F_tau''` by quadrature of the theta
+  kernel, first 8 nodes of the family `[0.01, 0.5]`; at `tau = 0` the quadrature agrees with the closed form of
+  `L`, `L'` to 1e-169):
+
+| tau | first indefinite order `P` | `K_e` | `K_o` | `min(2K_o - 1, 2K_e)` |
+|---|---|---|---|---|
+| 0 | none to 8 | none to 8 | none to 8 | |
+| -8 | none to 8 | 8 | 8 | 15 |
+| -16 | none to 8 | 5 | 5 | 9 |
+| -32 | 8 | 4 | 5 | 8 |
+| -64 | 7 | 4 | 4 | 7 |
+
+  The pair detects the backward flow at half the order `P` needs, and rule (4.1) holds on the two rows where
+  `P` fails inside the range. The detection order grows as `tau -> 0^-`.
+
+### 6.3 Sign twist `Lambda(n) -> eps_n Lambda(n)`
+
+- No theorem here uses the size, sign or support of `Lambda`. The lane has no step for the twist to break; the
+  twist test applies to any future argument for `nu >= 0`.
+- The property itself is destroyed by every twist tested, at very low order (MEASURED, mpmath;
+  `twist_control.py`, `twist2.py`; nodes van der Corput in `log x` on `[0.6, 4]`, i.e. inside the region of
+  absolute convergence; sector matrices by the same formulas, `L_eps(x) = G(x) - sum eps_n Lambda(n) n^{-1/2-x}`):
+
+| twist | first indefinite order `P` | `K_e` | `K_o` |
+|---|---|---|---|
+| `eps = +1` (zeta) | none to 14 (to 100 CERTIFIED) | none | none |
+| `eps = -1` | 2 | 2 | 1 |
+| `eps = 0` (gamma and pole part only) | 2 | 2 | 1 |
+| `eps_n = cos(t0 log n)`, `t0 = 0.5, 5, 14.1347` | 2 | 2 | 1 |
+| `eps = -1` on powers of `p = 2` only | 2 | 2 | 1 |
+| `eps = 0.99` on powers of 2 only | 5 | 3 | 3 |
+| `eps = -1` on powers of `p = 101` | 3 | 2 | 2 |
+| `p = 10007` | 4 | 3 | 2 |
+| `p = 1000003` | 5 | 4 | 3 |
+| `p = 10^9 + 7` | 6 | 4 | 3 |
+| `p = 10^12 + 39` | 7 | 4 | 4 |
+
+  Flipping the sign at one prime near `10^12` is seen by the pair at order 4. The first rows fail at order 1
+  because the pole of `G` at `s_zeta = 1` is no longer cancelled; it sits at `s = 1/4 > 0`, a positive real
+  pole, which is the case `K_o` detects (table after Theorem 1). The single-prime rows keep that cancellation
+  and still fail by order 4.
+- Consequence. The Stieltjes property is far more sensitive to the arithmetic of the coefficients than to the
+  location of high zeros: a twin at zero 20 needs pair order 41, a sign flip at `p ~ 10^12` needs order 4.
+  Low orders of the ladder test the exact consistency of the prime side with the functional equation (the same
+  observation as the precision trap of `euler/RESULT.md` section 2.1). So any proof of `nu >= 0` must be sensitive to the
+  sign of the coefficient at each individual prime. A twisted function has no functional equation, so `L_eps` is not odd and `M_eps` is not a function of
+  `s`; the test is therefore of "functional equation plus zeros", not of zeros alone.
 
 ## 7. The stacked statement
 
@@ -299,10 +449,10 @@ moment problems that interlace into one positive ladder.
 (b) **Square root / Hankel causality.** Item 5 is item 4 in scattering form. The Stieltjes class adds to the
 square-root lane a canonical first-order structure that exists unconditionally as a formal object: the continued
 fraction `c_1, c_2, ...` computed from the anchor jets. `H_c = D*D` (RH) corresponds to all `c_k > 0`; the Krein
-involution `gamma <-> conj gamma` of the square-root lane corresponds to the first negative `c_k`. The negative
-index of `H0_K (+) H1_K` is a lower bound for the number of off-line pairs (CLASSICAL, generalized Nevanlinna
-class `N_kappa`); equality for large `K` is the Krein-Langer statement not established in the earlier lanes and
-not established here.
+involution `gamma <-> conj gamma` of the square-root lane corresponds to the first negative `c_k`. The number of
+negative eigenvalues of each of `H0_K`, `H1_K` is at most the number of off-line quartets (CLASSICAL,
+generalized Nevanlinna class `N_kappa`); equality for large `K` is the Krein-Langer statement not established in
+the earlier lanes and not established here.
 
 (c) **Passive prime chain** (g-passive-cascade Thm 1), section 8: it does not stack.
 
@@ -351,8 +501,33 @@ supplies it.
 
 ## 10. Three weakest steps
 
-W_PLACEHOLDER
+1. **Which form the user means.** The sources define the antibridge as the two anchor points and say that no
+   coupling equation is attached (table rows 3, 5, 6). The treatment here covers every candidate found, and the
+   main theorems are for the reflection through the anchor (C1/C5/C7). If the intended object is C4 (the
+   cross-tail theta kernel), the link to `K_e, K_o` is still the unproved `H_+-` dictionary; if it is C6, only the
+   all-order equivalence is covered, not a finite-order analysis on the shifted line.
+2. **Rule (4.1) away from the anchor.** Theorem 4 is exact for jets. That the node matrices on `[0.01, 0.5]`,
+   `[0.6, 4]` fail at exactly the anchor orders is CERTIFIED case by
+   case (7 twins and DH, 2 families) but not proved in general. The near-confluence argument covers only
+   clustered nodes. The backward-heat and twist tables are mpmath without enclosures.
+3. **Imported steps.** Theorem 5 item 3 => 4 (real-interval positivity of the sum kernel gives positive-real)
+   is taken from the refereed eq48/pick lanes, not re-proved. Theorem 1 uses Loewner's theorem and the Pick
+   integral representation with a short measure argument (vague limit of `Im h`), written in outline. The
+   statement about negative squares (section 7(b), section 5.2 reading 3) is the classical `N_kappa` bound and
+   only an inequality; equality with the number of off-line quartets is not established.
 
 ## Files
 
-FILES_PLACEHOLDER
+All under `tmp/research-2026-11-16/push/stack-antibridge/`.
+
+- `RESULT.md` (this file)
+- `src/pr49_*.md`: the PR 49 notes as read (copies of `refs/pr/49`, for line references)
+- `anchor_hankel.py`: Arb; anchor moments `mu_k` from the Taylor series of `log xi` / `log xi_DH`; Hankel pair
+  `H0`, `H1`; twins. Outputs `anchor_xi.json`, `anchor_xi.log`, `motherbox/anchor_dh*.json|log`,
+  `motherbox/anchor_xi100.*`
+- `dh_sectors.py` (named `dh_sectors2.py` on the motherbox): Arb; `P`, `K_e`, `K_o` on nested nodes for xi, twins, DH. Outputs `motherbox/xi_A.*`,
+  `motherbox/xi_B.*`, `motherbox/dh_A.*`, `motherbox/dh_B.*`
+- `sectors.py`, `sectors_main.json|log`: mpmath cross-check of the twin table
+- `heat_control.py`, `heat_control.json|log`: backward-heat control
+- `twist_control.py`, `twist2.py`, `twist_control.json`, `twist2.json`: sign-twist control and the density identity
+- `remote_launch.sh`: motherbox launcher (work dir `~/rh-push/stack-antibridge/`, 4 to 5 single-thread jobs)

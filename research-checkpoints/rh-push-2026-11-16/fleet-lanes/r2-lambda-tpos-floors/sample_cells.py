@@ -1,8 +1,8 @@
 # Extract 50 substeps spread along the archived F2 run (math data only): t, q, rate, mode (h, r, lambda, ell, cap).
 import gzip, json
 from fractions import Fraction as F
-DUMP = '/Users/USER/Documents/GitHub/mathexplorer/tmp/qrh-tune-out/F2_final.steps.jsonl.gz'
-KER = json.load(open('/Users/USER/Documents/GitHub/mathexplorer/tmp/oai-lambda-out/KERNELS_raymond_backup.json'))['rows']
+DUMP = 'tmp/qrh-tune-out/F2_final.steps.jsonl.gz'
+KER = json.load(open('tmp/oai-lambda-out/KERNELS_raymond_backup.json'))['rows']
 K = 59439; want = set(round(i*(K-1)/49) for i in range(50)); out = []; allr = []
 with gzip.open(DUMP, 'rt') as f:
     for k, line in enumerate(f):

@@ -2,7 +2,7 @@
 # same start.  Reports whether q_re_k <= q_replay_k for every k (exact rationals) and the largest and final differences.
 import sys, json, gzip
 from fractions import Fraction as F
-F2 = '/Users/USER/Documents/GitHub/mathexplorer/tmp/qrh-tune-out/F2_final.steps.jsonl.gz'
+F2 = 'tmp/qrh-tune-out/F2_final.steps.jsonl.gz'
 DELTA = F(1, 512000); QE = F(1, 10**8)
 def up(x, den): return F(-((-x.numerator * den) // x.denominator), den)
 def em(x):

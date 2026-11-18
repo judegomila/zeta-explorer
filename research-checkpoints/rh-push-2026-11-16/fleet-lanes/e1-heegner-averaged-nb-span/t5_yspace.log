@@ -1,0 +1,34 @@
+alloc MB (coefficients, cumulative sums) 148.800496
+density check -3 0.3675733333333333 0.36755259694786135
+density check -163 0.14963333333333334 0.14959172681275884
+density check -199 1.2187666666666668 1.2184770366937716
+X=20 c from T=50 (line value R=26.2253): Y=3e+03  int_1^Y f^2 dy/y^2 = 27.9782   int |f-1|^2 = 26.9768   max|f| near Y = 77.1
+X=20 c from T=50 (line value R=26.2253): Y=3e+04  int_1^Y f^2 dy/y^2 = 28.3715   int |f-1|^2 = 27.3715   max|f| near Y = 183
+X=20 c from T=50 (line value R=26.2253): Y=3e+05  int_1^Y f^2 dy/y^2 = 28.5253   int |f-1|^2 = 27.5253   max|f| near Y = 222
+X=60 c from T=50 (line value R=8.9185): Y=3e+03  int_1^Y f^2 dy/y^2 = 9.7326   int |f-1|^2 = 8.73202   max|f| near Y = 41.6
+X=60 c from T=50 (line value R=8.9185): Y=3e+04  int_1^Y f^2 dy/y^2 = 9.92473   int |f-1|^2 = 8.92475   max|f| near Y = 98.4
+X=60 c from T=50 (line value R=8.9185): Y=3e+05  int_1^Y f^2 dy/y^2 = 10.0009   int |f-1|^2 = 9.00084   max|f| near Y = 153
+X=100 c from T=50 (line value R=6.40652): Y=3e+03  int_1^Y f^2 dy/y^2 = 7.59919   int |f-1|^2 = 6.59948   max|f| near Y = 56.4
+X=100 c from T=50 (line value R=6.40652): Y=3e+04  int_1^Y f^2 dy/y^2 = 7.82617   int |f-1|^2 = 6.82602   max|f| near Y = 109
+X=100 c from T=50 (line value R=6.40652): Y=3e+05  int_1^Y f^2 dy/y^2 = 7.93247   int |f-1|^2 = 6.93249   max|f| near Y = 120
+X=200 c from T=50 (line value R=3.8168): Y=3e+03  int_1^Y f^2 dy/y^2 = 2.45332e+07   int |f-1|^2 = 2.45332e+07   max|f| near Y = 2.11e+05
+X=200 c from T=50 (line value R=3.8168): Y=3e+04  int_1^Y f^2 dy/y^2 = 2.92963e+07   int |f-1|^2 = 2.92963e+07   max|f| near Y = 3.15e+05
+X=200 c from T=50 (line value R=3.8168): Y=3e+05  int_1^Y f^2 dy/y^2 = 3.1616e+07   int |f-1|^2 = 3.1616e+07   max|f| near Y = 6.56e+05
+pair(-7,-8) c from T=50 (line value R=1898.53): Y=3e+03  int_1^Y f^2 dy/y^2 = 2176.42   int |f-1|^2 = 2175.42   max|f| near Y = 1.27e+03
+pair(-7,-8) c from T=50 (line value R=1898.53): Y=3e+04  int_1^Y f^2 dy/y^2 = 2252.72   int |f-1|^2 = 2251.72   max|f| near Y = 3.02e+03
+pair(-7,-8) c from T=50 (line value R=1898.53): Y=3e+05  int_1^Y f^2 dy/y^2 = 2281.96   int |f-1|^2 = 2280.96   max|f| near Y = 4.19e+03
+X=20 c from T=100 (line value R=27.3232): Y=3e+03  int_1^Y f^2 dy/y^2 = 27.9448   int |f-1|^2 = 26.9436   max|f| near Y = 76.8
+X=20 c from T=100 (line value R=27.3232): Y=3e+04  int_1^Y f^2 dy/y^2 = 28.3346   int |f-1|^2 = 27.3347   max|f| near Y = 180
+X=20 c from T=100 (line value R=27.3232): Y=3e+05  int_1^Y f^2 dy/y^2 = 28.4875   int |f-1|^2 = 27.4875   max|f| near Y = 218
+X=60 c from T=100 (line value R=9.17349): Y=3e+03  int_1^Y f^2 dy/y^2 = 9.31379   int |f-1|^2 = 8.31307   max|f| near Y = 35.2
+X=60 c from T=100 (line value R=9.17349): Y=3e+04  int_1^Y f^2 dy/y^2 = 9.42215   int |f-1|^2 = 8.42217   max|f| near Y = 80.4
+X=60 c from T=100 (line value R=9.17349): Y=3e+05  int_1^Y f^2 dy/y^2 = 9.46543   int |f-1|^2 = 8.46541   max|f| near Y = 89.3
+X=100 c from T=100 (line value R=6.64009): Y=3e+03  int_1^Y f^2 dy/y^2 = 6.70123   int |f-1|^2 = 5.70154   max|f| near Y = 37.4
+X=100 c from T=100 (line value R=6.64009): Y=3e+04  int_1^Y f^2 dy/y^2 = 6.78724   int |f-1|^2 = 5.78707   max|f| near Y = 39.7
+X=100 c from T=100 (line value R=6.64009): Y=3e+05  int_1^Y f^2 dy/y^2 = 6.81863   int |f-1|^2 = 5.81865   max|f| near Y = 136
+X=200 c from T=100 (line value R=4.69373): Y=3e+03  int_1^Y f^2 dy/y^2 = 4.77387   int |f-1|^2 = 3.77396   max|f| near Y = 21
+X=200 c from T=100 (line value R=4.69373): Y=3e+04  int_1^Y f^2 dy/y^2 = 4.85401   int |f-1|^2 = 3.85394   max|f| near Y = 42.5
+X=200 c from T=100 (line value R=4.69373): Y=3e+05  int_1^Y f^2 dy/y^2 = 4.88716   int |f-1|^2 = 3.88716   max|f| near Y = 78.5
+pair(-7,-8) c from T=100 (line value R=2045.85): Y=3e+03  int_1^Y f^2 dy/y^2 = 2176.42   int |f-1|^2 = 2175.42   max|f| near Y = 1.27e+03
+pair(-7,-8) c from T=100 (line value R=2045.85): Y=3e+04  int_1^Y f^2 dy/y^2 = 2252.72   int |f-1|^2 = 2251.72   max|f| near Y = 3.02e+03
+pair(-7,-8) c from T=100 (line value R=2045.85): Y=3e+05  int_1^Y f^2 dy/y^2 = 2281.96   int |f-1|^2 = 2280.96   max|f| near Y = 4.19e+03

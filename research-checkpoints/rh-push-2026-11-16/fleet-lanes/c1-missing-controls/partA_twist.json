@@ -1,0 +1,160 @@
+{
+ "zeta (eps=1)": {
+  "T1_max_eigen_defect": "0.0",
+  "T2_max_inverse_defect": "0.0",
+  "exact": true,
+  "T3_thmB_residual_p3_5_7": [
+   "1.72e-40",
+   "4.09e-40",
+   "1.85e-39"
+  ],
+  "T4_fricke_ratio_x_1.5_2_4_8": [
+   "1.0",
+   "1.0",
+   "1.0",
+   "1.0"
+  ],
+  "T4_psi_growth_exponent_x_to_0": "-0.539",
+  "T4_phase_mod_pi_on_line_t_5_10_17_30": [
+   "4.5917748e-41",
+   "0.0",
+   "0.0",
+   "0.0"
+  ]
+ },
+ "TW+ a: eps_2=1/2": {
+  "T1_max_eigen_defect": "0.0",
+  "T2_max_inverse_defect": "0.0",
+  "exact": true,
+  "T3_thmB_residual_p3_5_7": [
+   "2.2e-40",
+   "3.27e-40",
+   "2.15e-39"
+  ],
+  "T4_fricke_ratio_x_1.5_2_4_8": [
+   "0.999815554171",
+   "0.998684432076",
+   "0.97839057608",
+   "0.925512853569"
+  ],
+  "T4_psi_growth_exponent_x_to_0": "-0.50615",
+  "T4_phase_mod_pi_on_line_t_5_10_17_30": [
+   "3.0917075",
+   "0.48558877",
+   "2.6774405",
+   "0.19833024"
+  ],
+  "value_at_first_zeta_zero": "4.2916e-41"
+ },
+ "TW+ b: eps_p=1/2 all p": {
+  "T1_max_eigen_defect": "0.0",
+  "T2_max_inverse_defect": "0.0",
+  "exact": true,
+  "T3_thmB_residual_p3_5_7": [
+   "1.61e-40",
+   "2.69e-40",
+   "1.16e-39"
+  ],
+  "T4_fricke_ratio_x_1.5_2_4_8": [
+   "0.999815548947",
+   "0.998683921368",
+   "0.977964858393",
+   "0.91517697681"
+  ],
+  "T4_psi_growth_exponent_x_to_0": "-0.36673"
+ },
+ "TW+ c: eps_p random in [0,1]": {
+  "T1_max_eigen_defect": "0.0",
+  "T2_max_inverse_defect": "0.0",
+  "exact": true,
+  "T3_thmB_residual_p3_5_7": [
+   "3.25e-40",
+   "3.04e-40",
+   "1.81e-39"
+  ],
+  "T4_fricke_ratio_x_1.5_2_4_8": [
+   "0.999815545029",
+   "0.998683538337",
+   "0.977645570128",
+   "0.907425071184"
+  ],
+  "T4_psi_growth_exponent_x_to_0": "-0.34565"
+ },
+ "TW- a: eps_2=-1": {
+  "T1_max_eigen_defect": "0.0",
+  "T2_max_inverse_defect": "0.0",
+  "exact": true,
+  "T3_thmB_residual_p3_5_7": [
+   "2.55e-40",
+   "7.19e-40",
+   "2.83e-39"
+  ],
+  "T4_fricke_ratio_x_1.5_2_4_8": [
+   "0.999262216668",
+   "0.994737728354",
+   "0.913572766274",
+   "0.706012858544"
+  ],
+  "T4_psi_growth_exponent_x_to_0": "-0.45786",
+  "T4_phase_mod_pi_on_line_t_5_10_17_30": [
+   "2.408311",
+   "1.0410872",
+   "2.0354591",
+   "1.2078087"
+  ],
+  "value_at_first_zeta_zero": "1.3403e-40"
+ },
+ "TW- b: Liouville": {
+  "T1_max_eigen_defect": "0.0",
+  "T2_max_inverse_defect": "0.0",
+  "exact": true,
+  "T3_thmB_residual_p3_5_7": [
+   "2.89e-40",
+   "6.26e-40",
+   "3.03e-39"
+  ],
+  "T4_fricke_ratio_x_1.5_2_4_8": [
+   "0.999262195774",
+   "0.994735685523",
+   "0.911869895528",
+   "0.664670889354"
+  ],
+  "T4_psi_growth_exponent_x_to_0": "-0.62166",
+  "T4_phase_mod_pi_on_line_t_5_10_17_30": [
+   "2.4267349",
+   "2.5250053",
+   "3.1023941",
+   "0.62658806"
+  ],
+  "pole_at_first_zeta_zero_|1/F|": "1.7523e-41"
+ },
+ "TW- c: eps_p random signs": {
+  "T1_max_eigen_defect": "0.0",
+  "T2_max_inverse_defect": "0.0",
+  "exact": true,
+  "T3_thmB_residual_p3_5_7": [
+   "3.11e-40",
+   "6.27e-40",
+   "3.05e-39"
+  ],
+  "T4_fricke_ratio_x_1.5_2_4_8": [
+   "0.999262195774",
+   "0.994735685523",
+   "0.911869895528",
+   "0.664670889354"
+  ],
+  "T4_psi_growth_exponent_x_to_0": "0.24046"
+ },
+ "DH": {
+  "T1_max_eigen_defect": "1.0807009",
+  "T2_max_inverse_defect": "6.2693468",
+  "exact": false,
+  "T3_thmB_residual_p3_7_11 (eps=i, L=10, nu=0)": null,
+  "T4_fricke_ratio (theta(1/x)/(x^{3/2} theta(x)))": [
+   "1.0",
+   "1.0",
+   "1.0",
+   "1.0"
+  ]
+ }
+}

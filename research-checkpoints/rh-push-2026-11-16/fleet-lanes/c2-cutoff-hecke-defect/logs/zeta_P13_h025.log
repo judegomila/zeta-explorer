@@ -1,0 +1,21 @@
+kernel=zeta P=13 window U=5.1299 nodes n=205 h=0.025 panels=21 r-nodes=3360 Rmax=4.709 dps=600
+planned allocation: 2 x 205 x 3360 = 1377600 arb of 1996 bits ~ 432 MB
+  row 0/205  0s
+  row 20/205  3s
+  row 40/205  5s
+  row 60/205  6s
+  row 80/205  8s
+  row 100/205  9s
+  row 120/205  11s
+  row 140/205  12s
+  row 160/205  13s
+  row 180/205  15s
+  row 200/205  16s
+matrix built 26s
+window p=  2 (0,1.386] nodes= 55: n+=55 n-=0 unresolved=0 uncertain=0 smallest resolved log10|pivot|=-91.52 neg/2x2 pivots log10=[]  27s
+window p=  3 (0,2.197] nodes= 88: n+=88 n-=0 unresolved=0 uncertain=0 smallest resolved log10|pivot|=-116.39 neg/2x2 pivots log10=[]  27s
+window p=  5 (0,3.219] nodes=129: n+=129 n-=0 unresolved=0 uncertain=0 smallest resolved log10|pivot|=-135.36 neg/2x2 pivots log10=[]  30s
+window p=  7 (0,3.892] nodes=156: n+=156 n-=0 unresolved=0 uncertain=0 smallest resolved log10|pivot|=-143.66 neg/2x2 pivots log10=[]  36s
+window p= 11 (0,4.796] nodes=192: n+=192 n-=0 unresolved=0 uncertain=0 smallest resolved log10|pivot|=-151.12 neg/2x2 pivots log10=[]  46s
+window p= 13 (0,5.130] nodes=205: n+=205 n-=0 unresolved=0 uncertain=0 smallest resolved log10|pivot|=-153.02 neg/2x2 pivots log10=[]  58s
+done 57.75006699562073

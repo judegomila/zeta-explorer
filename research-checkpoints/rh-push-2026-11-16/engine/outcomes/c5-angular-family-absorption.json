@@ -1,0 +1,41 @@
+{
+ "slug": "c5-angular-family-absorption",
+ "round": 5,
+ "kind": "explore",
+ "nodes": [
+  "map-open-1"
+ ],
+ "tags": [
+  "seven-eighths",
+  "effective-order",
+  "angular-family",
+  "hecke-character",
+  "root-number",
+  "epsilon-factor",
+  "coherent-set",
+  "large-sieve"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "For the angular family lambda^(6k) over Q(sqrt(-3)) and for ring-class characters, the following survives. The transform in the family variable is Fourier inversion on a compact group, with kernel depending only on the class of sc and no Gauss sum. The root number is +1 (classical; re-derived by theta inversion and rechecked at k = 5, 7). For K <= Y^(1/2-eps) the probe equals its k = 0 row for arbitrary coefficients (confirmed with non-multiplicative coefficients). In the ray regime the on-ray sum, with corrected weight N(c*)^(-1/2), does not exceed the Cauchy-Schwarz level, so there is no gain. The Cauchy-Schwarz ledger gives abscissa >= 1 for all K, Y, up to a log Z in the large-sieve line. The model ledger (1+kappa)/2 contains its conclusion as input. The general row (Theorem 7(iv) and the abstract-family form) is argued, not proved, and covers only transforms in the row variable. Nothing about zeros of zeta.",
+ "obstruction": "The transform in the family variable is Fourier inversion on a compact group with no Gauss sum; the root number is +1 (theta inversion; Froehlich-Queyrut recalled), so the Moebius coefficient is mu itself and the rows are Moebius sums of the family. For K <= Y^(1/2-eps) the probe equals its k = 0 row for arbitrary coefficients. The ray coherent set of exponent 1/2 couples s to conj(c) and, with corrected weight N(c*)^(-1/2), does not exceed the Cauchy-Schwarz level: net gain 0, abscissa >= 1 for all K, Y. The model ledger (1+kappa)/2 has its conclusion as input. mu is absorbed only through a nontrivial weight-1 cocycle of the epsilon factor (Jacobi sums, order >= 3). General abstract-family row argued, not proved.",
+ "obstructionKind": "abelian-family-no-weight-one-cocycle",
+ "controlsThatDefeat": [
+  "arbitrary (non-multiplicative) coefficients: the probe equals its k = 0 row for them as well, so the family carries no arithmetic in that range",
+  "not run: DH, sign twists, THIN, Beurling"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "Report: tmp/research-2026-11-16/push/c5-angular-family-absorption/REFEREE.md\n\nThe obstruction verdict holds, but one PROVED formula is wrong in its error term and several labels overreach.\n\n1. Proposition 5 (PROVED): the parenthetical \"(1 + lower-order terms from rational factors of c)\" is false. For squarefree c = m c* (m the maximal rational divisor) the weight is N(c*)^(-1/2), not Nc^(-1/2). The full on-ray Dirichlet series has Euler factors 1 -",
+ "lesson": "A coherent set of exponent 1/2 is not enough: it must be coherent for every (s, c) pair, as squares are. In a group family (characters injective in the row parameter) the only uncoupled coherent row is the trivial character, which is the Moebius sum itself. mu is absorbed only through a nontrivial weight-1 cocycle of the epsilon factor (Jacobi sums, order >= 3); at order 2 and for characters trivial on a subfield's ideles the cocycle is a root of unity or 1.",
+ "followUp": "None inside abelian families. The remaining candidate type is nonabelian: a family whose epsilon factor has a nontrivial weight-1 cocycle at effective order 2 (existing map entry: genuine cusp forms on the double cover of GL(3), section 6 item 18). Referee Theorem 7 and re-read Froehlich-Queyrut before adding the row to the map.",
+ "resultFile": "tmp/research-2026-11-16/push/c5-angular-family-absorption/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c5-angular-family-absorption/REFEREE.md"
+}

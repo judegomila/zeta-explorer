@@ -1,0 +1,46 @@
+k=7 Q=10607, 4872 conductors, 229 groups (c mod 4, c mod 9, norm bin 1.5), group means removed
+per-system mean of T over (sigma, tau): real mean 1.2336 sd 0.2453; null mean 0.9871 sd 0.0202 max 1.0160
+top systems (A, B, U): mean T, max T over (sigma,tau)
+    (1, 2, 0) 1.9477  2.447
+    (1, 2, 3) 1.9477  2.447
+    (4, 2, 0) 1.9477  2.447
+    (4, 2, 3) 1.9477  2.447
+    (4, 0, 0) 1.9477  2.447
+    (4, 0, 3) 1.9477  2.447
+    (1, 0, 0) 1.9477  2.447
+    (1, 0, 3) 1.9477  2.447
+    (1, 4, 0) 1.9477  2.447
+    (1, 4, 3) 1.9477  2.447
+    (4, 4, 3) 1.9477  2.447
+    (4, 4, 0) 1.9477  2.447
+    (3, 0, 1) 1.5827  2.023
+    (3, 0, 4) 1.5827  2.023
+number of systems above the null maximum: 216 of 216
+best system (1, 2, 0): T[sigma col, tau] for parity-0 groups and parity-1 groups
+  parity 0 (sigma classes [0, 1, 2, 3, 8, 11]), 113 groups
+[[2.25 2.51 2.02 2.32 2.   2.11 2.33 2.79 1.8  2.21 2.11 2.05]
+ [2.61 2.19 2.11 2.13 1.87 2.4  2.42 2.45 2.02 2.47 1.95 2.44]
+ [2.3  2.31 2.04 2.31 2.56 2.09 2.09 2.27 2.19 2.27 2.56 2.3 ]
+ [2.44 2.13 2.11 2.19 1.95 2.42 2.4  2.47 2.02 2.45 1.87 2.61]
+ [2.02 1.81 2.16 1.81 2.42 2.15 2.15 2.12 2.03 2.12 2.42 2.02]
+ [2.05 2.32 2.02 2.51 2.11 2.33 2.11 2.21 1.8  2.79 2.   2.25]]
+  parity 1 (sigma classes [4, 5, 6, 7, 9, 10]), 116 groups
+[[1.57 1.58 1.68 1.66 1.81 1.49 1.52 1.58 2.11 1.49 2.36 1.71]
+ [1.52 1.36 1.28 2.34 1.56 1.95 1.36 1.29 1.47 1.87 1.63 1.78]
+ [1.78 2.34 1.28 1.36 1.63 1.36 1.95 1.87 1.47 1.29 1.56 1.52]
+ [2.45 2.   1.63 1.52 1.47 1.44 1.94 2.25 1.56 1.54 1.53 1.4 ]
+ [1.4  1.52 1.63 2.   1.53 1.94 1.44 1.54 1.56 2.25 1.47 2.45]
+ [1.71 1.66 1.68 1.58 2.36 1.52 1.49 1.49 2.11 1.58 1.81 1.57]]
+best system: dependence on N(c)/Q (groups by c mod 4, c mod 9 inside each norm range); mean T over (sigma, tau), null
+   N(c)/Q in (1.2, 1.5]: n = 905, groups 101, median size 9: T 1.368  null 1.014
+   N(c)/Q in (1.5, 1.9]: n = 1199, groups 108, median size 11: T 1.444  null 1.010
+   N(c)/Q in (1.9, 2.4]: n = 1500, groups 108, median size 14: T 1.605  null 0.998
+   N(c)/Q in (2.4, 3.0]: n = 1268, groups 108, median size 12: T 1.539  null 1.008
+regression of a_sigma on the 12 classes tau of one system, groups (c mod 4, c mod 9), means removed: explained fraction R2, null (permuted)
+   system (1, 2, 0): R2 band 0.5459  null 0.2737 +- 0.0041   (loo variant 0.6614); groups 108, median size 45
+   system (1, 2, 3): R2 band 0.5459  null 0.2724 +- 0.0016   (loo variant 0.6614); groups 108, median size 45
+   system (4, 2, 0): R2 band 0.5459  null 0.2728 +- 0.0015   (loo variant 0.6614); groups 108, median size 45
+   system (4, 2, 3): R2 band 0.5459  null 0.2710 +- 0.0027   (loo variant 0.6614); groups 108, median size 45
+   system (4, 0, 0): R2 band 0.5459  null 0.2714 +- 0.0022   (loo variant 0.6614); groups 108, median size 45
+   system (4, 0, 3): R2 band 0.5459  null 0.2717 +- 0.0037   (loo variant 0.6614); groups 108, median size 45
+   system (5, 4, 1): R2 band 0.3317  null 0.2728 +- 0.0018   (loo variant 0.4124); groups 108, median size 45

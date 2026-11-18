@@ -1,0 +1,24 @@
+{
+ "NP": 1000,
+ "norm_range": [
+  7,
+  8089
+ ],
+ "max_convention_err_vs_table": 1.1177889724935516e-09,
+ "max_hasse_davenport_err": 2.968585217384553e-09,
+ "max_lemmaL_err_all_m": 1.6925268649524792e-09,
+ "mobius_from_gauss": [
+  -1.0000000017479578,
+  -0.9999999984340195,
+  1.3469939840898778e-09
+ ]
+}
+isotypic fractions frac_j (j = 0..5): min / mean / max over primes
+a                            dominant j = 5 (Z/2: 1, Z/3: 2)  frac_dom min 1.000000000000  max leakage 6.50e-31  Z2-odd share mean 1.000000
+b                            dominant j = 1 (Z/2: 1, Z/3: 1)  frac_dom min 1.000000000000  max leakage 2.21e-31  Z2-odd share mean 1.000000
+a3                           dominant j = 4 (Z/2: 0, Z/3: 1)  frac_dom min 1.000000000000  max leakage 9.34e-31  Z2-odd share mean 0.000000
+gram=|a|^2                   dominant j = 0 (Z/2: 0, Z/3: 0)  frac_dom min 1.000000000000  max leakage 9.31e-31  Z2-odd share mean 0.000000
+signal=a*b                   dominant j = 0 (Z/2: 0, Z/3: 0)  frac_dom min 1.000000000000  max leakage 6.15e-31  Z2-odd share mean 0.000000
+a3*b (cubic A, sextic row)   dominant j = 5 (Z/2: 1, Z/3: 2)  frac_dom min 1.000000000000  max leakage 6.38e-31  Z2-odd share mean 1.000000
+a3*conj(a3)                  dominant j = 0 (Z/2: 0, Z/3: 0)  frac_dom min 1.000000000000  max leakage 1.73e-30  Z2-odd share mean 0.000000
+a*b_random                   dominant j = 4 (Z/2: 0, Z/3: 1)  frac_dom min 0.000000055892  max leakage 3.49e-01  Z2-odd share mean 0.004187

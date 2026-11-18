@@ -1,0 +1,41 @@
+{
+ "slug": "c5-marks-circularity-order2",
+ "round": 5,
+ "kind": "explore",
+ "nodes": [
+  "map-open-1"
+ ],
+ "tags": [
+  "seven-eighths",
+  "effective-order",
+  "prime-marks",
+  "linear-program",
+  "tro6",
+  "grh-equivalent",
+  "circular"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "Relative to r3's reduced system, transcribed and not re-derived ((S) extended to Re s >= 1/2, ideal high side with density-hypothesis counts and Lindelof, uncompensated branch a guess, polar decomposition MODEL); nothing about zeros. (1) PROVED scalar, relative: no geometry with l >= M has abscissa <= 1; with polar G and the compensation geometry the floor is 5/6, so r3's \"polar kept, l = 7/2\" vertex is inconsistent. r3's \"G = 0, l = 2\" vertex is geometrically consistent at (0,4,2) and is removed only by rejecting G = 0 beyond b = ly/2. (2) EXACT LP: B = 1/2 is feasible at tall h = 3 points (5,5,7), (5/2,5,9/2), (3,5,5) uncompensated and (4,8,6), (6,12,8) compensated with TRO6 G; the LP itself has no floor at 1/2. (3) ARGUED-rel (S), DH, LH: at h > 3 with strict slack H0 < 1/2, a low estimate with exponent below lx/2 + (h-3)/6 is false; at h = 3 the estimate |I| << Z^(lx/2+eps) together with DH and LH is equivalent to GRH for the family. (4) ARGUED-rel: on the ray (b, 2b, (3b-2)/2), k = 0 is the proved large sieve, the high rows hold for all b >= 2, and a polar-correlation saving Z^(-sigma) corresponds to abscissa 1 - sigma for targets without the s = 2/3 pole. (5) MEASURED: the marked-row mean square equals the random control for Z <= 256 at (2.8,1.6) and Z <= 128 at (3.2,1.0) and (3.0,1.3); the Kubota control grows at (2.8,1.6) only. The long-marks branch to h = r/2 gives no route: precise obstruction inside the model, not unconditional.",
+ "obstruction": "Inside r3's reduced system (transcribed, not re-derived; uncompensated high side a guess; polar decomposition MODEL), referee does not hold the claim as written (one sentence of claim A false: r3's 'G = 0, l = 2' vertex is geometrically consistent). Standing: no geometry with marks outnumbering rows has abscissa <= 1; B = 1/2 is LP-feasible only at tall h = 3 points, where the needed low estimate |I| << Z^(lx/2+eps) (with DH and LH) is equivalent to GRH for the family; for h > 3 a low estimate below lx/2 + (h-3)/6 is false; on the compensated ray the abscissa is 1 minus the power saving in the TRO6 polar correlation, a restatement of the conclusion. Obstruction is inside the model, not unconditional; Theorems B and C not checked against the manuscript.",
+ "obstructionKind": "critical-point-low-input-equals-conclusion",
+ "controlsThatDefeat": [
+  "random control (marked-row mean square equals it for Z <= 256)",
+  "Kubota pole control grows at one geometry only",
+  "not run: THIN, DH, sign twists"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": false,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "Report: tmp/research-2026-11-16/push/c5-marks-circularity-order2/REFEREE.md. Scalar algebra and all tabulated LP values are confirmed (Theorem A, Lemma 1, ray identities, cone threshold t >= 5 + 5d/3, T6 with new cases). The numerics reproduce (Z=128 (2.8,1.6): Ap one=1.01014, K one=1.57915) and are flat at a new geometry (3.0,1.3).\n\nErrors:\n- E1 (claim A, false sentence): r3's \"G = 0, l = 2\" vertex does not have an empty rescaled term. With G = 0 ",
+ "lesson": "The heuristic's stated mechanism (GRH-strength prime sums against few rows) never occurs: that configuration is infeasible. The branch closes for a different reason: a comparison system reaching 1/2 sits at a critical point (h = 3) where its low input is equivalent to the conclusion, and any geometry-uniform norm or correlation package extends to h > 3, where it is false. On the tall compensated ray the abscissa is 1 minus the power saving in the TRO6 polar correlation, so TRO6 at large b is a restatement of the conclusion. Impose compensation geometry (M >= 2l, ly >= l) in every future LP.",
+ "followUp": "Referee Theorems B and C against the manuscript: derive the signal formula and the uncompensated high side for l > lx from sections 12 and 16 (r3 guessed the latter; the dichotomy in section 5 suggests it is wrong), and check the scalar factor L^S(6s-3,(lambda eta)^6) E_eta down to Re s = 1/2, including its pole at 2/3 for some targets. Then update map row Z15 and section 6 item 1 as in RESULT section 8.",
+ "resultFile": "tmp/research-2026-11-16/push/c5-marks-circularity-order2/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c5-marks-circularity-order2/REFEREE.md"
+}

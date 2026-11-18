@@ -1,0 +1,227 @@
+1e8 T0 100000000 window 100000000.64292563 100000758.3932847 spacing 0.378897647642808 n0 248008026 primes 1229 counts [68, 1, 3, 25, 1229]
+planned memory: line grids 127992 x 5 cols x 3 arrays = 20.5 MB; 2D grid 48 x 31998 x 5 complex = 122.9 MB per family; PD chunk <= 2e6 complex x ~8 arrays = 256 MB per worker; arb rows 5 x 31998
+selftest stage rel err 3.7273147816865603e-10
+rouche line c=0.5 done, sec 85
+rouche line c=1 done, sec 160
+rouche line c=2 done, sec 235
+rouche line c=4 done, sec 315
+rouche line c=8 done, sec 393
+zeta line grid sec 6
+zeta line stats sec 84
+zeta 2D grid sec 148
+U line grid sec 6
+U line stats sec 86
+U 2D grid sec 133
+L line grid sec 6
+L line stats sec 100
+L 2D grid sec 122
+done 1e8 sec 1085.3158221244812
+planned memory per worker: 500000 x 4 complex x ~4 arrays = 128 MB
+{"T": 100000.0, "a": 0.2, "X": 10.000000000000002, "nprimes": 4, "n": 4000000, "theta_prime": 4.837524199280441, "sigma_X": 1.0868749876409345, "u": 4.450856128155366, "gauss_Q": 4.276431493793477e-06, "trivial_max": 5.658584321331469, "frac_zeta": 0.00014225, "frac_torus": 0.00012625, "min_phi_prime_zeta": -0.817696254045793, "min_phi_prime_torus": -0.7525642361552318}
+planned memory per worker: 285714 x 7 complex x ~4 arrays = 128 MB
+{"T": 100000.0, "a": 0.25, "X": 17.78279410038923, "nprimes": 7, "n": 4000000, "theta_prime": 4.837524199280441, "sigma_X": 1.4120066160940974, "u": 3.4259925868208994, "gauss_Q": 0.0003062785501911077, "trivial_max": 8.585261089329348, "frac_zeta": 0.00113925, "frac_torus": 0.00118275, "min_phi_prime_zeta": -2.783758635592708, "min_phi_prime_torus": -2.962988877545345}
+planned memory per worker: 181818 x 11 complex x ~4 arrays = 128 MB
+{"T": 100000.0, "a": 0.3, "X": 31.62277660168379, "nprimes": 11, "n": 4000000, "theta_prime": 4.837524199280441, "sigma_X": 1.6902785859007723, "u": 2.8619685770333883, "gauss_Q": 0.002105093230807246, "trivial_max": 11.807576488717446, "frac_zeta": 0.00402025, "frac_torus": 0.00398775, "min_phi_prime_zeta": -4.934804515148956, "min_phi_prime_torus": -4.392965638830864}
+planned memory per worker: 80000 x 25 complex x ~4 arrays = 128 MB
+{"T": 100000.0, "a": 0.4, "X": 100.00000000000003, "nprimes": 25, "n": 4000000, "theta_prime": 4.837524199280441, "sigma_X": 2.1982412501189885, "u": 2.200633892671512, "gauss_Q": 0.013880976103124425, "trivial_max": 20.261591815600166, "frac_zeta": 0.01672375, "frac_torus": 0.01673525, "min_phi_prime_zeta": -6.27279467973956, "min_phi_prime_torus": -6.759709456378545}
+planned memory per worker: 30769 x 65 complex x ~4 arrays = 128 MB
+{"T": 100000.0, "a": 0.5, "X": 316.22776601683796, "nprimes": 65, "n": 4000000, "theta_prime": 4.837524199280441, "sigma_X": 2.787558901244134, "u": 1.7353980205122745, "gauss_Q": 0.04133516523329175, "trivial_max": 36.68860316969205, "frac_zeta": 0.04407675, "frac_torus": 0.04352225, "min_phi_prime_zeta": -7.110276416884677, "min_phi_prime_torus": -10.543903445066242}
+planned memory per worker: 333333 x 6 complex x ~4 arrays = 128 MB
+{"T": 1000000.0, "a": 0.2, "X": 15.848931924611136, "nprimes": 6, "n": 4000000, "theta_prime": 5.988816745777465, "sigma_X": 1.3201953931101202, "u": 4.53631089536602, "gauss_Q": 2.862338632271568e-06, "trivial_max": 7.67808288798501, "frac_zeta": 3.8e-05, "frac_torus": 3.6e-05, "min_phi_prime_zeta": -1.231144958137996, "min_phi_prime_torus": -1.17189727198644}
+planned memory per worker: 181818 x 11 complex x ~4 arrays = 128 MB
+{"T": 1000000.0, "a": 0.25, "X": 31.622776601683793, "nprimes": 11, "n": 4000000, "theta_prime": 5.988816745777465, "sigma_X": 1.6902785859007723, "u": 3.5430944908918334, "gauss_Q": 0.0001977304896182792, "trivial_max": 11.807576488717446, "frac_zeta": 0.0005685, "frac_torus": 0.000564, "min_phi_prime_zeta": -2.890182586127347, "min_phi_prime_torus": -3.4106520026664278}
+planned memory per worker: 111111 x 18 complex x ~4 arrays = 128 MB
+{"T": 1000000.0, "a": 0.3, "X": 63.095734448019314, "nprimes": 18, "n": 4000000, "theta_prime": 5.988816745777465, "sigma_X": 1.9939367108690185, "u": 3.003513959661917, "gauss_Q": 0.0013344065253060645, "trivial_max": 16.385734192217278, "frac_zeta": 0.00226475, "frac_torus": 0.00228075, "min_phi_prime_zeta": -4.123138469751149, "min_phi_prime_torus": -5.059894556274539}
+planned memory per worker: 37037 x 54 complex x ~4 arrays = 128 MB
+{"T": 1000000.0, "a": 0.4, "X": 251.1886431509581, "nprimes": 54, "n": 4000000, "theta_prime": 5.988816745777465, "sigma_X": 2.6737814434339686, "u": 2.23983031989554, "gauss_Q": 0.012550970344041398, "trivial_max": 32.76532406907361, "frac_zeta": 0.0146305, "frac_torus": 0.0142295, "min_phi_prime_zeta": -6.364582061801016, "min_phi_prime_torus": -7.872000927639602}
+planned memory per worker: 11904 x 168 complex x ~4 arrays = 128 MB
+{"T": 1000000.0, "a": 0.5, "X": 1000.0, "nprimes": 168, "n": 4000000, "theta_prime": 5.988816745777465, "sigma_X": 3.3605970327333985, "u": 1.7820692833577727, "gauss_Q": 0.037368967070626084, "trivial_max": 64.59674403298632, "frac_zeta": 0.04140375, "frac_torus": 0.038695, "min_phi_prime_zeta": -9.017209072345347, "min_phi_prime_torus": -15.182265763753998}
+planned memory per worker: 222222 x 9 complex x ~4 arrays = 128 MB
+{"T": 10000000.0, "a": 0.2, "X": 25.118864315095806, "nprimes": 9, "n": 4000000, "theta_prime": 7.140109292274487, "sigma_X": 1.5678097607256452, "u": 4.554193672687532, "gauss_Q": 2.6293445889356507e-06, "trivial_max": 10.287905666314941, "frac_zeta": 2.275e-05, "frac_torus": 2.2e-05, "min_phi_prime_zeta": -1.7966419246103102, "min_phi_prime_torus": -1.4202563865319862}
+planned memory per worker: 125000 x 16 complex x ~4 arrays = 128 MB
+{"T": 10000000.0, "a": 0.25, "X": 56.23413251903491, "nprimes": 16, "n": 4000000, "theta_prime": 7.140109292274487, "sigma_X": 1.9213604472930654, "u": 3.7161737675686655, "gauss_Q": 0.00010113125190187335, "trivial_max": 15.171798655410168, "frac_zeta": 0.00026725, "frac_torus": 0.0002535, "min_phi_prime_zeta": -3.387363592298553, "min_phi_prime_torus": -3.0640143805065145}
+planned memory per worker: 66666 x 30 complex x ~4 arrays = 128 MB
+{"T": 10000000.0, "a": 0.3, "X": 125.8925411794167, "nprimes": 30, "n": 4000000, "theta_prime": 7.140109292274487, "sigma_X": 2.3127292960548975, "u": 3.0873087068401115, "gauss_Q": 0.0010098886107951252, "trivial_max": 22.766073828284103, "frac_zeta": 0.001553, "frac_torus": 0.0015325, "min_phi_prime_zeta": -4.881643735876607, "min_phi_prime_torus": -5.090112365183182}
+planned memory per worker: 17543 x 114 complex x ~4 arrays = 128 MB
+{"T": 10000000.0, "a": 0.4, "X": 630.9573444801935, "nprimes": 114, "n": 4000000, "theta_prime": 7.140109292274487, "sigma_X": 3.1275534103255556, "u": 2.282969578937184, "gauss_Q": 0.011216080181892263, "trivial_max": 51.37127692951669, "frac_zeta": 0.01266875, "frac_torus": 0.01226925, "min_phi_prime_zeta": -7.665692353731029, "min_phi_prime_torus": -8.23394418687272}
+planned memory per worker: 4484 x 446 complex x ~4 arrays = 128 MB
+{"T": 10000000.0, "a": 0.5, "X": 3162.2776601683795, "nprimes": 446, "n": 4000000, "theta_prime": 7.140109292274487, "sigma_X": 3.938791853166115, "u": 1.8127663401494702, "gauss_Q": 0.034933933777039385, "trivial_max": 113.83206877765696, "frac_zeta": 0.0387875, "frac_torus": 0.03582825, "min_phi_prime_zeta": -8.443305957033228, "min_phi_prime_torus": -12.865680795457969}
+planned memory per worker: 166666 x 12 complex x ~4 arrays = 128 MB
+{"T": 100000000.0, "a": 0.2, "X": 39.810717055349734, "nprimes": 12, "n": 4000000, "theta_prime": 8.29140183877151, "sigma_X": 1.7430247114674058, "u": 4.756904353806436, "gauss_Q": 9.829212629687357e-07, "trivial_max": 12.518000769041311, "frac_zeta": 7e-06, "frac_torus": 4e-06, "min_phi_prime_zeta": -2.1948611047686253, "min_phi_prime_torus": -0.5886420907532468}
+planned memory per worker: 80000 x 25 complex x ~4 arrays = 128 MB
+{"T": 100000000.0, "a": 0.25, "X": 100.0, "nprimes": 25, "n": 4000000, "theta_prime": 8.29140183877151, "sigma_X": 2.1982412501189885, "u": 3.771834341805161, "gauss_Q": 8.10259167886368e-05, "trivial_max": 20.261591815600166, "frac_zeta": 0.0001735, "frac_torus": 0.00016025, "min_phi_prime_zeta": -3.9191635507918967, "min_phi_prime_torus": -3.3712041106654524}
+planned memory per worker: 37037 x 54 complex x ~4 arrays = 128 MB
+{"T": 100000000.0, "a": 0.3, "X": 251.18864315095797, "nprimes": 54, "n": 4000000, "theta_prime": 8.29140183877151, "sigma_X": 2.6737814434339686, "u": 3.101002087935342, "gauss_Q": 0.000964334653277119, "trivial_max": 32.76532406907361, "frac_zeta": 0.001364, "frac_torus": 0.001319, "min_phi_prime_zeta": -5.539734910535591, "min_phi_prime_torus": -5.569415834645557}
+planned memory per worker: 8000 x 250 complex x ~4 arrays = 128 MB
+{"T": 100000000.0, "a": 0.4, "X": 1584.893192461114, "nprimes": 250, "n": 4000000, "theta_prime": 8.29140183877151, "sigma_X": 3.5974204735418045, "u": 2.3048186609691172, "gauss_Q": 0.010588365768144113, "trivial_max": 81.48394913260856, "frac_zeta": 0.011711, "frac_torus": 0.01126275, "min_phi_prime_zeta": -8.222136069980905, "min_phi_prime_torus": -10.471432302031065}
+planned memory per worker: 1627 x 1229 complex x ~4 arrays = 128 MB
+{"T": 100000000.0, "a": 0.5, "X": 10000.0, "nprimes": 1229, "n": 4000000, "theta_prime": 8.29140183877151, "sigma_X": 4.526780593559009, "u": 1.8316332473831498, "gauss_Q": 0.033503039976198815, "trivial_max": 202.5660025510767, "frac_zeta": 0.036655, "frac_torus": 0.03406275, "min_phi_prime_zeta": -11.064104386554273, "min_phi_prime_torus": -16.297640956504406}
+planned memory per worker: 80000 x 25 complex x ~4 arrays = 128 MB
+{"T": 10000000000.0, "a": 0.2, "X": 100.00000000000003, "nprimes": 25, "n": 4000000, "theta_prime": 10.593986931765556, "sigma_X": 2.1982412501189885, "u": 4.819301307894261, "gauss_Q": 7.203092233221184e-07, "trivial_max": 20.261591815600166, "frac_zeta": 1.25e-06, "frac_torus": 1.75e-06, "min_phi_prime_zeta": -0.29342601704005133, "min_phi_prime_torus": -1.0686190176714057}
+planned memory per worker: 30769 x 65 complex x ~4 arrays = 128 MB
+{"T": 10000000000.0, "a": 0.25, "X": 316.22776601683796, "nprimes": 65, "n": 4000000, "theta_prime": 10.593986931765556, "sigma_X": 2.787558901244134, "u": 3.8004531229949197, "gauss_Q": 7.221586989000866e-05, "trivial_max": 36.68860316969205, "frac_zeta": 0.00012275, "frac_torus": 0.000109, "min_phi_prime_zeta": -3.548506729102254, "min_phi_prime_torus": -3.6125967973982647}
+planned memory per worker: 11904 x 168 complex x ~4 arrays = 128 MB
+{"T": 10000000000.0, "a": 0.3, "X": 999.9999999999998, "nprimes": 168, "n": 4000000, "theta_prime": 10.593986931765556, "sigma_X": 3.3605970327333985, "u": 3.152412154321507, "gauss_Q": 0.0008096376790012095, "trivial_max": 64.59674403298632, "frac_zeta": 0.000999, "frac_torus": 0.00098125, "min_phi_prime_zeta": -7.085020111812661, "min_phi_prime_torus": -7.385588100879925}
+planned memory per worker: 1627 x 1229 complex x ~4 arrays = 128 MB
+{"T": 10000000000.0, "a": 0.4, "X": 10000.000000000005, "nprimes": 1229, "n": 4000000, "theta_prime": 10.593986931765556, "sigma_X": 4.526780593559009, "u": 2.3402916736983794, "gauss_Q": 0.009634342498513172, "trivial_max": 202.5660025510767, "frac_zeta": 0.01033625, "frac_torus": 0.00995025, "min_phi_prime_zeta": -10.918402252783391, "min_phi_prime_torus": -13.995055863510359}
+planned memory per worker: 208 x 9592 complex x ~4 arrays = 128 MB
+{"T": 10000000000.0, "a": 0.5, "X": 100000.0, "nprimes": 9592, "n": 400000, "theta_prime": 10.593986931765556, "sigma_X": 5.690019078101656, "u": 1.861854378052454, "gauss_Q": 0.031311809591140834, "trivial_max": 636.0019402138473, "frac_zeta": 0.0335925, "frac_torus": 0.031435, "min_phi_prime_zeta": -11.399920730108349, "min_phi_prime_torus": -15.683921901416227}
+planned memory per worker: 37037 x 54 complex x ~4 arrays = 128 MB
+{"T": 1000000000000.0, "a": 0.2, "X": 251.1886431509581, "nprimes": 54, "n": 4000000, "theta_prime": 12.896572024759601, "sigma_X": 2.6737814434339686, "u": 4.823345624014947, "gauss_Q": 7.058501855275789e-07, "trivial_max": 32.76532406907361, "frac_zeta": 2.25e-06, "frac_torus": 2.5e-06, "min_phi_prime_zeta": -1.8578713734789378, "min_phi_prime_torus": -1.5464272766738762}
+planned memory per worker: 11904 x 168 complex x ~4 arrays = 128 MB
+{"T": 1000000000000.0, "a": 0.25, "X": 1000.0, "nprimes": 168, "n": 4000000, "theta_prime": 12.896572024759601, "sigma_X": 3.3605970327333985, "u": 3.8375835898033737, "gauss_Q": 6.212547283158091e-05, "trivial_max": 64.59674403298632, "frac_zeta": 9.125e-05, "frac_torus": 8.325e-05, "min_phi_prime_zeta": -3.678522136506901, "min_phi_prime_torus": -5.08300300788588}
+planned memory per worker: 3642 x 549 complex x ~4 arrays = 128 MB
+{"T": 1000000000000.0, "a": 0.3, "X": 3981.0717055349714, "nprimes": 549, "n": 4000000, "theta_prime": 12.896572024759601, "sigma_X": 4.060118398233159, "u": 3.176402941936817, "gauss_Q": 0.0007455683841805764, "trivial_max": 128.20642668878492, "frac_zeta": 0.00086075, "frac_torus": 0.0008415, "min_phi_prime_zeta": -6.484926060848176, "min_phi_prime_torus": -9.301493683107898}
+planned memory per worker: 316 x 6326 complex x ~4 arrays = 128 MB
+{"T": 1000000000000.0, "a": 0.4, "X": 63095.734448019364, "nprimes": 6326, "n": 400000, "theta_prime": 12.896572024759601, "sigma_X": 5.457021377798086, "u": 2.3632987910271632, "gauss_Q": 0.009056529732590385, "trivial_max": 505.48446445746265, "frac_zeta": 0.00971, "frac_torus": 0.00909, "min_phi_prime_zeta": -10.112022530628488, "min_phi_prime_torus": -12.98701686550128}
+planned memory per worker: 8000 x 250 complex x ~4 arrays = 128 MB
+{"T": 1e+16, "a": 0.2, "X": 1584.893192461114, "nprimes": 250, "n": 4000000, "theta_prime": 17.501742210747693, "sigma_X": 3.5974204735418045, "u": 4.865081060017576, "gauss_Q": 5.720495373771742e-07, "trivial_max": 81.48394913260856, "frac_zeta": 1e-06, "frac_torus": 1.25e-06, "min_phi_prime_zeta": -1.4437353346454067, "min_phi_prime_torus": -0.7384974611878263}
+planned memory per worker: 1627 x 1229 complex x ~4 arrays = 128 MB
+{"T": 1e+16, "a": 0.25, "X": 10000.0, "nprimes": 1229, "n": 4000000, "theta_prime": 17.501742210747693, "sigma_X": 4.526780593559009, "u": 3.866266952644068, "gauss_Q": 5.5256983777234745e-05, "trivial_max": 202.5660025510767, "frac_zeta": 6.9e-05, "frac_torus": 5.8e-05, "min_phi_prime_zeta": -4.1987826492200355, "min_phi_prime_torus": -3.545263408008175}
+planned memory per worker: 316 x 6326 complex x ~4 arrays = 128 MB
+{"T": 1e+16, "a": 0.3, "X": 63095.7344480193, "nprimes": 6326, "n": 400000, "theta_prime": 17.501742210747693, "sigma_X": 5.457021377798086, "u": 3.2071969301702947, "gauss_Q": 0.0006701760363640911, "trivial_max": 505.48446445746265, "frac_zeta": 0.000735, "frac_torus": 0.0006925, "min_phi_prime_zeta": -13.87944663749819, "min_phi_prime_torus": -8.381846679513188}
+planned memory per worker: 1627 x 1229 complex x ~4 arrays = 128 MB
+{"T": 1e+20, "a": 0.2, "X": 10000.000000000005, "nprimes": 1229, "n": 4000000, "theta_prime": 22.106912396735783, "sigma_X": 4.526780593559009, "u": 4.883583805274527, "gauss_Q": 5.208742150430624e-07, "trivial_max": 202.5660025510767, "frac_zeta": 7.5e-07, "frac_torus": 2.5e-07, "min_phi_prime_zeta": -0.5992025282533824, "min_phi_prime_torus": -0.017932981750867327}
+planned memory per worker: 208 x 9592 complex x ~4 arrays = 128 MB
+{"T": 1e+20, "a": 0.25, "X": 100000.0, "nprimes": 9592, "n": 400000, "theta_prime": 22.106912396735783, "sigma_X": 5.690019078101656, "u": 3.8852088355582888, "gauss_Q": 5.112098130537971e-05, "trivial_max": 636.0019402138473, "frac_zeta": 4.75e-05, "frac_torus": 4.25e-05, "min_phi_prime_zeta": -4.827380789114951, "min_phi_prime_torus": -2.1366417307474954}
+1e7 T0 10000000 window 10000000.240023555 10000880.020867841 spacing 0.43999223537215787 n0 21136126 primes 16144 counts [55, 1, 3, 16, 446, 16144]
+planned memory: line grids 127968 x 6 cols x 3 arrays = 24.6 MB; 2D grid 48 x 31992 x 5 complex = 122.8 MB per family; PD chunk <= 2e6 complex x ~8 arrays = 256 MB per worker; arb rows 5 x 31992
+selftest stage rel err 2.0906044130993536e-11
+rouche line c=0.5 done, sec 41
+rouche line c=1 done, sec 75
+rouche line c=2 done, sec 110
+rouche line c=4 done, sec 145
+rouche line c=8 done, sec 178
+zeta line grid sec 66
+multiprocessing.pool.RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+                    ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 48, in mapstar
+    return list(map(*args))
+           ^^^^^^^^^^^^^^^^
+  File "~/rh-push/c4-stage-collision-law/stage.py", line 145, in w_dmin
+    s = apt(0.0, tau); thp = -(arb_dlogchi(s).real) / 2; d = arb_stage(s, [c], want='D')[0]
+                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/rh-push/c4-stage-collision-law/stage.py", line 116, in arb_stage
+    z = (-s * G['alogp'][i]).exp(); L1 += (1 - z).log()
+              ~~~~~~~~~~^^^
+IndexError: list index out of range
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "~/rh-push/c4-stage-collision-law/stage.py", line 403, in <module>
+    main(sys.argv[1], len(sys.argv) > 2 and sys.argv[2] == 'heavy')
+  File "~/rh-push/c4-stage-collision-law/stage.py", line 278, in main
+    lm = lm[:400]; rr = pool.map(w_dmin, [(cnts[col], tau64[lm[i:i + 20]]) for i in range(0, len(lm), 20)], chunksize=1)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 367, in map
+    return self._map_async(func, iterable, mapstar, chunksize).get()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 774, in get
+    raise self._value
+IndexError: list index out of range
+1e6 T0 1000000 window 1000000.5840976964 1001049.5913414842 spacing 0.5245764954492754 n0 1747147 primes 3401 counts [42, 0, 2, 11, 168, 3401]
+planned memory: line grids 127980 x 6 cols x 3 arrays = 24.6 MB; 2D grid 48 x 31995 x 5 complex = 122.9 MB per family; PD chunk <= 2e6 complex x ~8 arrays = 256 MB per worker; arb rows 5 x 31995
+selftest stage rel err 1.1424281988854699e-11
+rouche line c=0.5 done, sec 26
+rouche line c=1 done, sec 49
+rouche line c=2 done, sec 69
+rouche line c=4 done, sec 94
+rouche line c=8 done, sec 119
+zeta line grid sec 16
+multiprocessing.pool.RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+                    ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 48, in mapstar
+    return list(map(*args))
+           ^^^^^^^^^^^^^^^^
+  File "~/rh-push/c4-stage-collision-law/stage.py", line 145, in w_dmin
+    s = apt(0.0, tau); thp = -(arb_dlogchi(s).real) / 2; d = arb_stage(s, [c], want='D')[0]
+                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/rh-push/c4-stage-collision-law/stage.py", line 116, in arb_stage
+    z = (-s * G['alogp'][i]).exp(); L1 += (1 - z).log()
+              ~~~~~~~~~~^^^
+IndexError: list index out of range
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "~/rh-push/c4-stage-collision-law/stage.py", line 403, in <module>
+    main(sys.argv[1], len(sys.argv) > 2 and sys.argv[2] == 'heavy')
+  File "~/rh-push/c4-stage-collision-law/stage.py", line 278, in main
+    lm = lm[:400]; rr = pool.map(w_dmin, [(cnts[col], tau64[lm[i:i + 20]]) for i in range(0, len(lm), 20)], chunksize=1)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 367, in map
+    return self._map_async(func, iterable, mapstar, chunksize).get()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 774, in get
+    raise self._value
+IndexError: list index out of range
+1e5 T0 100000 window 100000.7437234872 101298.62638280187 spacing 0.6494210900521141 n0 138070 primes 739 counts [32, 0, 2, 7, 65, 739]
+planned memory: line grids 127904 x 6 cols x 3 arrays = 24.6 MB; 2D grid 48 x 31976 x 5 complex = 122.8 MB per family; PD chunk <= 2e6 complex x ~8 arrays = 256 MB per worker; arb rows 5 x 31976
+selftest stage rel err 5.602817741705244e-13
+rouche line c=0.5 done, sec 27
+rouche line c=1 done, sec 54
+rouche line c=2 done, sec 78
+rouche line c=4 done, sec 102
+rouche line c=8 done, sec 127
+zeta line grid sec 3
+multiprocessing.pool.RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+                    ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 48, in mapstar
+    return list(map(*args))
+           ^^^^^^^^^^^^^^^^
+  File "~/rh-push/c4-stage-collision-law/stage.py", line 145, in w_dmin
+    s = apt(0.0, tau); thp = -(arb_dlogchi(s).real) / 2; d = arb_stage(s, [c], want='D')[0]
+                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/rh-push/c4-stage-collision-law/stage.py", line 116, in arb_stage
+    z = (-s * G['alogp'][i]).exp(); L1 += (1 - z).log()
+              ~~~~~~~~~~^^^
+IndexError: list index out of range
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "~/rh-push/c4-stage-collision-law/stage.py", line 403, in <module>
+    main(sys.argv[1], len(sys.argv) > 2 and sys.argv[2] == 'heavy')
+  File "~/rh-push/c4-stage-collision-law/stage.py", line 278, in main
+    lm = lm[:400]; rr = pool.map(w_dmin, [(cnts[col], tau64[lm[i:i + 20]]) for i in range(0, len(lm), 20)], chunksize=1)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 367, in map
+    return self._map_async(func, iterable, mapstar, chunksize).get()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 774, in get
+    raise self._value
+IndexError: list index out of range
+1e9 T0 1000000000 window 1000000000.1156509 1000000665.1387535 spacing 0.33270087174183316 n0 2846548033 primes 3401 counts [82, 1, 4, 40, 3401]
+planned memory: line grids 127924 x 5 cols x 3 arrays = 20.5 MB; 2D grid 48 x 31981 x 5 complex = 122.8 MB per family; PD chunk <= 2e6 complex x ~8 arrays = 256 MB per worker; arb rows 5 x 31981
+selftest stage rel err 2.1882398813498187e-09
+rouche line c=0.5 done, sec 214
+rouche line c=1 done, sec 451
+rouche line c=2 done, sec 666
+rouche line c=4 done, sec 869
+rouche line c=8 done, sec 1017
+zeta line grid sec 11
+zeta line stats sec 160
+zeta 2D grid sec 254
+U line grid sec 10
+U line stats sec 155
+U 2D grid sec 252
+L line grid sec 11
+L line stats sec 158
+L 2D grid sec 250
+done 1e9 sec 2307.5646584033966

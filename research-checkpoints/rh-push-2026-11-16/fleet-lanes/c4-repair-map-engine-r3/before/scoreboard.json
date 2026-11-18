@@ -1,0 +1,142 @@
+{
+ "generated": "2026-11-18T11:00Z",
+ "A_requirements": {
+  "headline": {
+   "bestScore": 1,
+   "slug": "c1-leeyang-krein-limit",
+   "missing": [
+    "R2",
+    "R3",
+    "R4"
+   ],
+   "file": "tmp/research-2026-11-16/push/c1-leeyang-krein-limit/RESULT.md"
+  },
+  "lanesWithR4Confirmed": [],
+  "scoreHistogram": {
+   "0": 33,
+   "1": 1,
+   "2": 0,
+   "3": 0,
+   "4": 0
+  },
+  "calibration": [
+   {
+    "name": "7/8 zero-free half-plane (Lean-checked)",
+    "r1": true,
+    "r2": true,
+    "r3": true,
+    "r4": false,
+    "counted": true,
+    "note": "known architecture; excluded from the headline",
+    "score": 3
+   },
+   {
+    "name": "Weil / Pick / bridge identities",
+    "r1": false,
+    "r2": false,
+    "r3": false,
+    "r4": false,
+    "counted": false,
+    "note": "restatements (hold at all heights, also for controls); not counted",
+    "score": null
+   },
+   {
+    "name": "finite Lee-Yang stage theorem",
+    "r1": true,
+    "r2": false,
+    "r3": true,
+    "r4": false,
+    "counted": true,
+    "note": "R1 and R3 at stage level only; lost in the limit",
+    "score": 2
+   }
+  ]
+ },
+ "B_frontier": {
+  "zeroFree": {
+   "leanChecked": "7/8 = 0.875",
+   "claimed": "0.874886647",
+   "claimedDependsOn": "preprints Liu 2610.12234, Xu-Sang 2610.15291, Liu 2610.26835; manuscript Lemmas 14.3, 15.2, 18.1, 14.11 not checked; not in Lean"
+  },
+  "lambda": {
+   "accepted": "0.2 (Platt-Trudgian)",
+   "conditional": "0.116060",
+   "conditionalDependsOn": "abscissa 0.87488665 (unrefereed) plus Raymond chain H2-H4 (tables not verified)",
+   "raymondClaim": "0.107964910079",
+   "raymondStatus": "from VERIFICATION_REPORT.md: Status: **replayed and partially refereed.** Not \"verified\"."
+  }
+ },
+ "C_coverage": {
+  "graphSource": "IDEA_GRAPH.json",
+  "nodes": 1502,
+  "nodesMarkedClosed": 415,
+  "tags": 120,
+  "families": 7140,
+  "familiesClosed": 339,
+  "familiesTriedNotClosed": 184,
+  "familiesOpenUntried": 6617,
+  "outcomeRecords": 44,
+  "outcomeFilesUnparsed": 0,
+  "openLemmasDecided": 4
+ },
+ "D_reliability": {
+  "lanesRun": 34,
+  "lanesRefereed": 34,
+  "refereeHoldRate": 0.882,
+  "provedClaimsBroken": 4,
+  "threeRefereeStatements": 0,
+  "threeRefereeStatementsAboutZeros": 0,
+  "aboutZerosClaimsNotYetCounted": [],
+  "laneLinesUnparsed": 0
+ },
+ "history": [
+  {
+   "round": 1,
+   "lanesThisRound": 18,
+   "lanesCumulative": 18,
+   "bestScore": 1,
+   "bestSlug": "c1-leeyang-krein-limit",
+   "missing": [
+    "R2",
+    "R3",
+    "R4"
+   ],
+   "holdRate": 0.833,
+   "provedBroken": 3,
+   "threeReferee": 0,
+   "lemmasDecided": 2
+  },
+  {
+   "round": 2,
+   "lanesThisRound": 8,
+   "lanesCumulative": 26,
+   "bestScore": 1,
+   "bestSlug": "c1-leeyang-krein-limit",
+   "missing": [
+    "R2",
+    "R3",
+    "R4"
+   ],
+   "holdRate": 0.846,
+   "provedBroken": 3,
+   "threeReferee": 0,
+   "lemmasDecided": 2
+  },
+  {
+   "round": 3,
+   "lanesThisRound": 8,
+   "lanesCumulative": 34,
+   "bestScore": 1,
+   "bestSlug": "c1-leeyang-krein-limit",
+   "missing": [
+    "R2",
+    "R3",
+    "R4"
+   ],
+   "holdRate": 0.882,
+   "provedBroken": 4,
+   "threeReferee": 0,
+   "lemmasDecided": 4
+  }
+ ]
+}

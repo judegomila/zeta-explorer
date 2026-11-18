@@ -1,0 +1,1 @@
+{"label": "transl@1e+06", "kind": "transl", "T0": 1000000, "segs": [{"N": 398, "ua": 0.0, "ub": 200, "screen_right": 87, "attempted": 87, "certified": 87, "failed": [], "min_ds_certified": 0.0007099112546545777, "max_abs_F_upper": 2.47772146225564e-13}], "certified_total": 87, "attempted_total": 87, "screen_right_total": 87, "seconds": 0.0439298152923584, "prec": 128}

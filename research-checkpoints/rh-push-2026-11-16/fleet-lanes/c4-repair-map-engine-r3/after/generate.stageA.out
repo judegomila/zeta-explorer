@@ -1,0 +1,122 @@
+generated 63111, scored 46105, rejected 17006
+  rejected   2899  no member uses multiplicativity (DH passes)
+  rejected   2714  closed family: fam-legendre-dual-limits
+  rejected   2067  closed family: fam-nb-gram-lammin
+  rejected   1885  closed family: fam-selberg-control-companion
+  rejected   1472  contains a combination closed in outcomes.json
+  rejected    865  closed family: fam-one-zero-forces-many
+  rejected    795  shares two nodes with a closed lane (nodes or launchedNodes)
+  rejected    605  closed family: fam-euler-anchor-heat
+  rejected    573  all members flow-stable and none arithmetic (backward heat passes)
+  rejected    521  closed family: fam-stage-limit-semicontinuity
+  rejected    510  closed family: fam-order2-theta-rows
+  rejected    415  closed family: fam-projection-domination-gonek
+  rejected    339  closed family: fam-arithmetic-nb-span
+  rejected    319  closed family: fam-torus-exclusion-sign-test
+  rejected    292  closed family: fam-primitive-test-restriction
+  rejected    242  closed family: fam-vaughan-split-landau
+  rejected    178  closed family: fam-hecke-shear-commutator
+  rejected    123  closed family: fam-heat-monotone-hankel
+  rejected     58  closed family: fam-linear-zero-measure-lmi
+  rejected     51  closed family: fam-multidelay-section
+  rejected     49  closed family: fam-reflected-euler-stage-canonical
+  rejected     16  closed family: fam-pd-log-strip
+  rejected     13  all members attached to one closed row
+  rejected      5  all members from one module
+families (move/theme: count, best score):
+  M1/flow              4425  15.69
+  M1/geometry          1797  16.34
+  M1/nyman              195  13.41
+  M1/positivity        9428  16.75
+  M1/prime-chain       8486  17.0
+  M1/statistics         133  14.71
+  M1/zero-free         3554  15.2
+  M2/flow               401  13.36
+  M2/geometry           141  13.0
+  M2/nyman               91  12.65
+  M2/positivity         839  13.0
+  M2/prime-chain        270  13.88
+  M2/statistics          80  10.0
+  M2/zero-free          249  13.33
+  M3/flow              2362  15.8
+  M3/geometry           773  17.75
+  M3/nyman              311  15.0
+  M3/positivity        3468  15.75
+  M3/prime-chain       1626  17.0
+  M3/statistics         297  15.0
+  M3/zero-free         2406  14.89
+  M4/flow              2535  15.36
+  M4/geometry            18  15.17
+  M4/positivity         891  14.0
+  M4/prime-chain        487  15.77
+  M4/statistics         133  13.76
+  M4/zero-free          304  15.16
+  P2/flow               281  14.32
+  P2/geometry            31  15.0
+  P2/positivity          76  13.43
+  P2/prime-chain          7  13.0
+  P2/statistics           5  9.98
+  P2/zero-free            5  10.98
+
+top 60:
+  1  17.8 M3 geometry    inverse-line-cotangent-mean-value x cmv-truncation-from-taylor-data x sympow-conductor-normalised-shift
+  2  17.0 M1 prime-chain pick-weil-native-span x sympow-conductor-normalised-shift x semilocal-trace-side-positivity
+  3  16.0 M1 prime-chain lean-weil-small-support x gauss-plancherel-alias-lemma x vonmangoldt-weighted-sign-image
+  4  15.8 M1 prime-chain pick-weil-native-span x finite-support-euler-detector x vonmangoldt-weighted-sign-image
+  5  15.8 M3 geometry    star-min-pointwise-prime-bound x frobenius-gcd-factorisation x source-field-finite-variance
+  6  15.8 M3 flow        w3-tail-lemma x field-channel-transfer-modulus x lemma-cg-covering-identity
+  7  15.7 M1 flow        mesoscopic-density-floor-cotangent x h-desc-mirror-palm-surplus x field-channel-transfer-modulus
+  8  15.4 M3 flow        w3-tail-lemma x discriminant-gradient-flow x lean-cg-covering-identity
+  9  15.4 M3 flow        joint-h3-h4-minimal-input x discriminant-gradient-flow x qrh-symmetric-strip-lean
+ 10  15.3 M1 flow        gauss-conv-equals-negative-time-flow x finite-support-euler-detector x joint-h3-h4-minimal-input
+ 11  15.2 M1 zero-free   capture-ratio-psd-slope x ns-rigid-loophole-dirichlet-coefficients x inverse-line-cotangent-mean-value
+ 12  15.2 M1 positivity  lean-weil-small-support x alias-sign-determinacy x n-uniform-fold-modulus-five-inputs
+ 13  15.2 M4 zero-free   theta-density-positivity x staged-strip-triangular-inequality x euler-detection-depth-law
+ 14  15.0 M1 positivity  capture-ratio-psd-slope x prime-delay-domination-15-4 x zv-axis-limit-laguerre
+ 15  15.0 M1 flow        mesoscopic-density-floor-cotangent x lane-audit-h-desc x beta-n-uniformity-fails-real-ordinates
+ 16  15.0 M3 nyman       rm-cot-sign-open x frobenius-gcd-factorisation x rm-bulk-profile
+ 17  15.0 M3 geometry    star-min-pointwise-prime-bound x dbn-prime-torus-phase-closure x sunit-count-cubic
+ 18  15.0 M3 prime-chain dyadic-near-frequency-target x alias-sign-determinacy x rm-mcm-binf-mertens
+ 19  15.0 M3 nyman       cotangent-second-moment-upper-lemma x rm-inverse-line-detection-identity x rm-mcm-binf-mertens
+ 20  15.0 M3 prime-chain rm-sign-law-t-negative x spectral-head-mobius-poisson x route-m-vasyunin-gram
+ 21  15.0 M1 positivity  sep-opt-lattice-extremal x krein-degree4-atom-cap x mem-atlas-closing-line
+ 22  15.0 M1 prime-chain m23-conjugation-closed-ordinates x var-s-constant-pair-correlation-integral x number-variance-cap-selberg
+ 23  14.9 M1 zero-free   sep-opt-lattice-extremal x vasyunin-lammax-log-bound x dbn-global-014-coverage
+ 24  14.8 M1 flow        debruijn-landing-rate-thm13 x lane-audit-h-desc x theta-density-positivity
+ 25  14.7 M3 zero-free   cotangent-second-moment-upper-lemma x kronecker-sup-rms-transfer x arith-first-moment-residual-sign-law
+ 26  14.6 M3 prime-chain m23-real-u-positivity-certificate x costin-lebowitz-variance x landau-transport-lemma-l
+ 27  14.6 M1 positivity  ingham-offlattice-riesz-floor x alias-energy-in-sieve-algebra x n-uniform-fold-modulus-five-inputs
+ 28  14.3 M3 geometry    rm-kappa-smooth-open x rm-parity-sign-law x ramanujan-cube-satake-point
+ 29  14.3 M3 geometry    ramanujan-cube-satake-point x map-pos-2 x cotangent-reciprocity-period-function
+ 30  14.2 M4 zero-free   zv-theta-kernel-phi x mem-atlas-closing-line x euler-detection-depth-law
+ 31  14.0 M1 positivity  autocorrelation-moment-ladder x prime-delay-domination-15-4 x shear-perron-monotone-ceiling
+ 32  14.0 M1 positivity  ns-rigid-primes-enter-as-n-scalars x gauss-plancherel-alias-lemma x route-a-primon-reflection-gram
+ 33  14.0 M1 geometry    zv-annulus-boundary-conditions x selberg-geodesic-ground-truth x hyperbolic-prime-spiral
+ 34  14.0 M1 prime-chain ns-rigid-primes-enter-as-n-scalars x var-s-constant-pair-correlation-integral x harmonic-strip-transport
+ 35  14.0 M1 zero-free   m23-poisson-reproducing-identity x ns-rigid-loophole-dirichlet-coefficients x cascade-s21-zeta2s-over-zeta
+ 36  14.0 M3 positivity  krein-uniform-n-lower-bound-open x ff-three-approaches-one-statement x krein-floor-measured-plateau
+ 37  14.0 M3 nyman       route-m-first-moment-kappa x map-pos-39 x route-m-arith-first-moment-constant
+ 38  14.0 M3 flow        dbn-global-014-coverage x lemma-cg-covering-identity x dbn-lower-time-01782354
+ 39  14.0 M3 flow        s-barrier-statement x spectator-realness-rh-free x lambda-slope-per-theta
+ 40  14.0 M3 flow        bohr-torus-scan-certification x dbn-prime-torus-phase-closure x dbn-phase-orbit-screen
+ 41  14.0 M3 geometry    map-open-12 x cmv-truncation-from-taylor-data x selberg-geodesic-ground-truth
+ 42  14.0 M3 positivity  shift-bridge-ka-psd x ff-three-approaches-one-statement x freezing-inertia-tool
+ 43  14.0 M3 positivity  ka-positivity-residual x function-field-twin-ladder x freezing-inertia-tool
+ 44  14.0 M3 positivity  no-modulus-1-rigid-profile x connes-twin-ladder-crosswalk x number-variance-cap-selberg
+ 45  14.0 M3 prime-chain m23-real-u-positivity-certificate x harmonic-strip-transport x alpoge-furman-inertia-mechanism
+ 46  14.0 M3 positivity  corr23-continuity-spectral-criterion x connes-twin-ladder-crosswalk x semilocal-trace-side-positivity
+ 47  14.0 M3 positivity  lean-explicit-formula-hypothesis x arch-native-prime-jordan-product x lean-arb-certificate-replay
+ 48  13.9 M3 prime-chain lean-explicit-formula-hypothesis x ds-le-ls-interval-port x landau-transport-lemma-l
+ 49  13.9 M1 flow        mem-sg1c-c-half x h-desc-mirror-palm-surplus x beta-n-uniformity-fails-real-ordinates
+ 50  13.8 M4 positivity  zv-signed-shear-w x staged-strip-triangular-inequality x two-tents-joint-zero-completeness
+ 51  13.8 M4 positivity  zv-signed-shear-w x zpo-divergence-law-at-half x mu-pass-overflow
+ 52  13.5 M1 flow        gauss-conv-equals-negative-time-flow x cotangent-reciprocity-period-function x hecke-compression-lax-phillips
+ 53  13.4 M1 statistics  m23-poisson-reproducing-identity x af-hl-star-hierarchy x zeta-zero-lag1-anticorrelation
+ 54  13.3 M1 geometry    sun-prop63-plus4-offset x hasse-weil-checks x hecke-compression-lax-phillips
+ 55  13.3 M1 zero-free   sun-prop63-plus4-offset x mem-sextic-theta-squarefree x bettin-conrey-intercept
+ 56  13.2 M1 geometry    zv-annulus-dtn-operator x bohr-torus-scan-certification x dbn-tail-contraction-lemma
+ 57  13.2 M1 prime-chain ingham-offlattice-riesz-floor x mv-cap-function-side-gap x rm-parity-sign-law
+ 58  13.0 M1 geometry    zv-infinity-end-coordinate x sunit-count-cubic x helson-discrepancy-rigidity
+ 59  13.0 M1 nyman       zeta-half-line-bound-6 x rm-kappa-total-measured x rm-bulk-profile
+ 60  13.0 M1 zero-free   zeta-half-line-bound-6 x vasyunin-gram x route-m-quarter-ceiling
+wrote tmp/research-2026-11-16/engine/CANDIDATES.json

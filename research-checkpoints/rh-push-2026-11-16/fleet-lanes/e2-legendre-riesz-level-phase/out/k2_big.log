@@ -1,0 +1,18 @@
+# k=2 X=100000 theta=0.3 D=32: planned memory: cumulative arrays 0.008 GB, LP nnz <= 4.47e+05 (0.007 GB)
+k=2 X=1e+05 th=0.3 D=32 val=16677.964019 truth=16665.622001 gap=1.2342e+01 gap/sqrtX=0.0390 exc/sqrtX=0.0357 true_exc/sqrtX=-0.0033 l1=29.9 l1kD=12.4 A=-2.30e-07 B=1.00074 C0=-2.008 ynonpp=5.66e+04 rows=1564 it=40 t=1.7s
+# k=2 X=100000 theta=0.4 D=100: planned memory: cumulative arrays 0.008 GB, LP nnz <= 5.61e+05 (0.009 GB)
+k=2 X=1e+05 th=0.4 D=100 val=16671.969306 truth=16665.622001 gap=6.3473e+00 gap/sqrtX=0.0201 exc/sqrtX=0.0168 true_exc/sqrtX=-0.0033 l1=275 l1kD=187 A=-2.37e-07 B=1.00038 C0=-2.008 ynonpp=5.61e+04 rows=1905 it=40 t=11.1s
+# k=2 X=100000 theta=0.5 D=316: planned memory: cumulative arrays 0.008 GB, LP nnz <= 6.76e+05 (0.011 GB)
+k=2 X=1e+05 th=0.5 D=316 val=16668.946259 truth=16665.622001 gap=3.3243e+00 gap/sqrtX=0.0105 exc/sqrtX=0.0072 true_exc/sqrtX=-0.0033 l1=2.25e+05 l1kD=1.9e+05 A=-5.92e-06 B=1.00025 C0=-2.022 ynonpp=5.62e+04 rows=1474 it=2 t=2.7s
+# k=2 X=100000 theta=0.6 D=1000: planned memory: cumulative arrays 0.008 GB, LP nnz <= 7.91e+05 (0.013 GB)
+FAIL {'status': 4, 'msg': '(HiGHS Status 0: Not Set)'}
+# k=2 X=100000 theta=0.7 D=3162: planned memory: cumulative arrays 0.008 GB, LP nnz <= 9.06e+05 (0.014 GB)
+FAIL {'status': 4, 'msg': '(HiGHS Status 0: Not Set)'}
+# k=2 X=300000 theta=0.3 D=44: planned memory: cumulative arrays 0.024 GB, LP nnz <= 1.44e+06 (0.023 GB)
+k=2 X=3e+05 th=0.3 D=44 val=50026.983205 truth=49999.523009 gap=2.7460e+01 gap/sqrtX=0.0501 exc/sqrtX=0.0493 true_exc/sqrtX=-0.0009 l1=52.5 l1kD=28.4 A=-7.45e-08 B=1.00056 C0=-2.007 ynonpp=2.02e+05 rows=3057 it=40 t=6.3s
+# k=2 X=300000 theta=0.4 D=155: planned memory: cumulative arrays 0.024 GB, LP nnz <= 1.81e+06 (0.029 GB)
+k=2 X=3e+05 th=0.4 D=155 val=50013.721362 truth=49999.523009 gap=1.4198e+01 gap/sqrtX=0.0259 exc/sqrtX=0.0251 true_exc/sqrtX=-0.0009 l1=657 l1kD=422 A=-8.41e-08 B=1.00029 C0=-2.008 ynonpp=2.03e+05 rows=2715 it=2 t=2.3s
+# k=2 X=300000 theta=0.5 D=548: planned memory: cumulative arrays 0.024 GB, LP nnz <= 2.19e+06 (0.035 GB)
+k=2 X=3e+05 th=0.5 D=548 val=50006.104400 truth=49999.523009 gap=6.5814e+00 gap/sqrtX=0.0120 exc/sqrtX=0.0111 true_exc/sqrtX=-0.0009 l1=2.97e+06 l1kD=2.64e+06 A=-7.80e-06 B=1.00022 C0=-2.023 ynonpp=2.03e+05 rows=2550 it=1 t=9.6s
+# k=2 X=300000 theta=0.6 D=1933: planned memory: cumulative arrays 0.024 GB, LP nnz <= 2.57e+06 (0.041 GB)
+../../../../scripts/memcap.sh: line 17: 90947 Terminated: 15          "$@"

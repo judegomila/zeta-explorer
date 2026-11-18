@@ -1,0 +1,1540 @@
+[
+ {
+  "id": "flow-blindness-sl2",
+  "type": "obstruction",
+  "name": "Flow-blindness no-go (Lemma SL2)",
+  "statement": "Phi_eps(u)=exp(-eps u^2)Phi(u) stays even, positive, log-concave, doubly-exponentially decaying, yet H_{-eps} has a non-real zero for every eps>0 (Rodgers-Tao). No hypothesis stable under small backward heat flow proves RH. Lean-checked with Lambda>=0 as hypothesis. Matches the HEAT control.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[page:FlowBlindnessNoGoPage] src/data/flow-blindness-no-go.js",
+  "tags": [
+   "heat-flow",
+   "lambda",
+   "antibridge",
+   "lean",
+   "de-branges"
+  ]
+ },
+ {
+  "id": "t3-zero-free-strip-dictionary",
+  "type": "identity",
+  "name": "T3(a) = zero-free strip dictionary (SL0/SL1)",
+  "statement": "E_a(z)=A_a(z)-iB_a(z)=Xi(z+ia). De Branges kernel of E_a is PSD iff E_a is Hermite-Biehler iff zeta has no zero with Re s>1/2+a. T3(a) for all a>0 is RH. Trig core verified to 1e-30; canonical cosh(2au) convention gives shift a (factor-2 relabel elsewhere).",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[page:FlowBlindnessNoGoPage] src/data/flow-blindness-no-go.js",
+  "tags": [
+   "de-branges",
+   "twin-ladder",
+   "zero-free",
+   "bridge"
+  ]
+ },
+ {
+  "id": "ns-rigid-dichotomy",
+  "type": "obstruction",
+  "name": "Theorem NS-RIGID (native-span softness dichotomy)",
+  "statement": "P_S(eps)_ij=(phi_eps(s_i)+phi_eps(s_j))/(s_i+s_j-1), phi_0=xi'/xi, finite S in (1,inf). Either P_S(0)>0, then P_S(eps)>0 for small eps (flow-stable, useless), or P_S(0) not PD and RH is false. Only the full family over all finite S is flow-critical, and it equals RH.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[page:Imp95549NsRigidPencilEigenvalueViz] src/data/imp-95530-native-span-arithmetic-input-rigidity.js",
+  "tags": [
+   "pick",
+   "heat-flow",
+   "antibridge",
+   "weil",
+   "explicit-formula"
+  ]
+ },
+ {
+  "id": "ns-rigid-primes-enter-as-n-scalars",
+  "type": "mechanism",
+  "name": "Primes enter native-span forms through n scalars (PICK-WEIL A1)",
+  "statement": "Every Hermitian form built from the explicit formula on the span E_V(S) is a function of P_S(0) and the Cauchy Gram; the primes enter only through the n numbers zeta'/zeta(s_i), s_i>1. Multiplicativity is not visible to any finite node set.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "src/data/imp-95530-native-span-arithmetic-input-rigidity.js (A1) [page:Imp95549NsRigidPencilEigenvalueViz]",
+  "tags": [
+   "pick",
+   "explicit-formula",
+   "euler-product",
+   "antibridge"
+  ]
+ },
+ {
+  "id": "ns-rigid-pencil-psd-past-lehmer",
+  "type": "measured-phenomenon",
+  "name": "Flowed Pick pencil stays PSD ten orders past Lehmer collision",
+  "statement": "lam_min(P_S(eps)) for nu={1,2,4}: 3.2421e-5 at eps=0, 2.900e-5 at eps=1, 3.02e-8 at eps=100; positive on eps in [1e-12,1e2], while Xi_eps has non-real zeros unconditionally for eps>1.15e-11.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "unknown",
+  "source": "[page:Imp95549NsRigidPencilEigenvalueViz]",
+  "tags": [
+   "pick",
+   "heat-flow",
+   "antibridge"
+  ]
+ },
+ {
+  "id": "ns-rigid-lacunary-blaschke-clause",
+  "type": "obstruction",
+  "name": "Lacunary node sets do not reach RH (NS-RIGID A6)",
+  "statement": "If sum 1/s_k<inf (e.g. geometric lattices nu_0 rho^k), the nodes form a Blaschke sequence and Pick positivity on them only gives some Caratheodory interpolant, not F=phi. Reaching RH needs sum 1/s_k=inf (Muntz-complete sets), where the trace-class structure is unavailable. Obstruction map row P18.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "src/data/imp-95530-native-span-arithmetic-input-rigidity.js (A6)",
+  "tags": [
+   "pick",
+   "antibridge",
+   "de-branges"
+  ]
+ },
+ {
+  "id": "ns-rigid-loophole-dirichlet-coefficients",
+  "type": "open-lemma",
+  "name": "Loophole outside NS-RIGID: Dirichlet-coefficient inputs on the line",
+  "statement": "Inputs that consume Dirichlet coefficients on the critical line (Levinson-Conrey mollifiers, Selberg proportion, near-line density) are flow-critical, non-circular, not RH-equivalent, and not covered by NS-RIGID. Whether any such input yields an every-window statement is open.",
+  "status": "conjectural",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "src/data/imp-95530-native-span-arithmetic-input-rigidity.js (loophole)",
+  "tags": [
+   "mollifier",
+   "euler-product",
+   "bridge",
+   "large-sieve"
+  ]
+ },
+ {
+  "id": "res-t-resolution-law",
+  "type": "identity",
+  "name": "RES-T fixed-support Weil-positivity resolution law",
+  "statement": "For Weil form W_T with test support T and an off-line quadruple at displacement delta, detectable height ceiling H_ceil(T,delta)=2 pi exp(E), E=delta^2 S(T delta)^4 T^3, S(x)=sinh(x/2)/(x/2). Fixed-T positivity follows from verified height only for T<T_X (about 3.88); doubly exponential in T.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[page:Imp95567DoublyExponentialHeightCeilingViz] src/data/imp-95533-res-t-standalone-lemma.js",
+  "tags": [
+   "weil",
+   "explicit-formula",
+   "antibridge"
+  ]
+ },
+ {
+  "id": "obstruction-seam",
+  "type": "obstruction",
+  "name": "Obstruction seam: provable and sufficient halves do not overlap",
+  "statement": "16 angles on C_H and Montgomery PCC each split into a provable-but-inert half (on-basin, mesoscopic, |alpha|<=1, upper bound, t=0, finite height) and a sufficient-but-RH-hard half (min-gap lower bound, |alpha|>1 pair correlation, all-t displacement). No overlap found.",
+  "status": "closed",
+  "usesMultiplicativity": "unknown",
+  "heightUniform": "no",
+  "source": "[page:ObstructionSeamPage] src/data/rh-obstruction-seam-2026-07-16.js",
+  "tags": [
+   "pair-correlation",
+   "lambda",
+   "antibridge"
+  ]
+ },
+ {
+  "id": "lemma-w-wide-support",
+  "type": "open-lemma",
+  "name": "Lemma W (wide-support diagonal pair correlation)",
+  "statement": "Exist A>1, C, T0: sum_{0<gamma<=T} T^{2A|beta-1/2|} <= C T log T for T>=T0. Equivalent to zero density N(sigma,T)<=C T^{1-2A(sigma-1/2)} log^{O(1)} T with slope 2A>2. Implies a fixed strip |beta-1/2|<=delta*=(1+kappa)/(2A), kappa about 0.20, then Lambda<=2 delta*^2.",
+  "status": "conjectural",
+  "usesMultiplicativity": "unknown",
+  "heightUniform": "yes",
+  "source": "[page:SubHalfStripPccCriterionPage] src/data/subhalf-strip-pcc-criterion-2026-07-31.js",
+  "tags": [
+   "pair-correlation",
+   "zero-free",
+   "lambda",
+   "bridge"
+  ]
+ },
+ {
+  "id": "frozen-rung-pt-inertia",
+  "type": "obstruction",
+  "name": "Frozen rungs = Platt-Trudgian; inertia cannot beat verified height",
+  "statement": "ind_-(K_{R_a}) = number of xi-zeros with Re lambda>a (Krein-Langer). Schur-complement freezing preserves negative index (Sylvester), so a frozen-rung certificate on a finite mesh never exceeds verified height. Full equivalence with PT is conjectural (lemmas L1 tail leakage, L2 mesh resolution). Map rows Q6, S7.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[page:FrozenRungPTEquivalencePage] src/data/frozen-rung-pt-equivalence-2026-07-31.js",
+  "tags": [
+   "twin-ladder",
+   "pick",
+   "lambda",
+   "antibridge"
+  ]
+ },
+ {
+  "id": "pt-floor-binds-verified-height",
+  "type": "measured-phenomenon",
+  "name": "Verified height binds the Lambda<=0.2 floor",
+  "statement": "Interval-rigorous audit: verified zero height X about 3e12 binds; barrier slack (margin>=1.2) and AFE tail (margin about 1.047, X-independent) do not. Lambda<=t0+y0^2/2 improves inversely with log X and cannot reach 0.",
+  "status": "certified",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[page:PtFloorSensitivityAuditPage] [page:VerifiedHeightLeverPage]",
+  "tags": [
+   "lambda",
+   "heat-flow"
+  ]
+ },
+ {
+  "id": "zero-density-lambda-inert",
+  "type": "obstruction",
+  "name": "Zero density is Lambda-inert",
+  "statement": "A density bound is an upper bound on the number of off-line zeros and never certifies zero count 0 below height X; even the full Density Hypothesis moves the rigorous barrier bound on Lambda by zero.",
+  "status": "closed",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[page:ZeroDensityScopingPage] [page:GuthMaynardScopingPage]",
+  "tags": [
+   "zero-free",
+   "lambda",
+   "large-sieve",
+   "antibridge"
+  ]
+ },
+ {
+  "id": "mollified-barrier-zero-gain",
+  "type": "obstruction",
+  "name": "Mollified barrier certificate: min-modulus gain exactly 0",
+  "statement": "min|Mf|/max|M| <= min|f|. A mollifier turns the phase-blind triangle bound from -0.155 to +0.206 at x0=2.83e13 but cannot beat the unmollified barrier. Longer mollifiers at fixed height have ceiling Lambda_ceil(X)=min(1, gamma ||A/B||); obstructed for y>=0.14 on the 0.145 line.",
+  "status": "certified",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[page:MollifiedBarrierCertificatePage] [page:Imp95770BarrierMollifierLengthCeilingViz]",
+  "tags": [
+   "mollifier",
+   "lambda",
+   "antibridge"
+  ]
+ },
+ {
+  "id": "route7-cost-exponential",
+  "type": "measured-phenomenon",
+  "name": "Route VII complete-row cost is exponential in 1/t",
+  "statement": "For a complete row U=t+y^2/2, ln N1*(t,y) grows like (2c0-y)/t; the SC3 gate alone forces ln N1*>(1+sqrt(1-2t))/t. Calibrated on two Arb points to 1.6%. Reachable floor U about 0.150 (stretch 0.145).",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[page:VizCostFloorPage] src/data/imp-95218-route7-cost-curve.js",
+  "tags": [
+   "lambda",
+   "heat-flow"
+  ]
+ },
+ {
+  "id": "qrh-conditional-lambda",
+  "type": "identity",
+  "name": "Conditional Lambda <= 0.116091488672439 from Re s>7/8",
+  "statement": "Given zeta(s)!=0 for Re s>7/8 (Lean proof rebuilt locally, standard axioms only), an unrefereed analytic chain G0, PT verification to 3.0001753e12 and the route-P ledger: Lambda<=116091488672439/10^15. Earlier chain values 0.118505710922701 and 0.117708313410954.",
+  "status": "certified",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "[page:LambdaQrhConditionalPage] src/data/qrh-path-push-2026-10-08.js",
+  "tags": [
+   "zero-free",
+   "lambda",
+   "lean",
+   "bridge"
+  ]
+ },
+ {
+  "id": "lambda-rh-ledger",
+  "type": "identity",
+  "name": "de Bruijn-Newman ledger",
+  "statement": "H_t(z)=int_0^inf e^{tu^2}Phi(u)cos(zu)du has only real zeros iff t>=Lambda; RH iff Lambda<=0; Lambda>-inf (Newman); Lambda>=0 (Rodgers-Tao); so RH iff Lambda=0. A zero-free strip of half-width delta gives Lambda<=2 delta^2 (de Bruijn Thm 13).",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[page:CShockNumericalCoincidencePage] src/data/lambda-rh-height-mapping.js",
+  "tags": [
+   "lambda",
+   "heat-flow",
+   "zero-free"
+  ]
+ },
+ {
+  "id": "shift-bridge-threshold",
+  "type": "identity",
+  "name": "Shift-bridge threshold theorem (Section 15)",
+  "statement": "X(w)=xi(1/2+w), Delta=sup|Re lambda| over zeros of X. For fixed a>0: |X(w-a)|<|X(w+a)| for all Re w>0 iff a>=Delta. RH iff the strict inequality holds for every a>0. Common zeros of X(w-a), X(w+a) give a removable zero row, permitted by semidefiniteness.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[page:ShiftBridgePositivityPage] src/data/shift-bridge-positivity-section.js",
+  "tags": [
+   "twin-ladder",
+   "bridge",
+   "de-branges",
+   "zero-free"
+  ]
+ },
+ {
+  "id": "four-closure-routes",
+  "type": "identity",
+  "name": "Four equivalent closure routes for Delta=0 (Section 16)",
+  "statement": "Equivalent for all a>0: (A) |xi(s-a)|<|xi(s+a)| for Re s>1/2; (B) shifted bridge kernel K_a PSD on C_+; and two further forms (C), (D). Each is RH-equivalent; they share one bottleneck.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[page:ClosureRoutesPage] src/data/closure-routes-section.js",
+  "tags": [
+   "twin-ladder",
+   "bridge",
+   "de-branges",
+   "pick"
+  ]
+ },
+ {
+  "id": "blaschke-ghost-negative-square",
+  "type": "identity",
+  "name": "Inverse Blaschke ghosts: one negative square per off-line zero",
+  "statement": "R_a(w)=X(w-a)/X(w+a), |R_a(it)|=1. Each uncancelled right-half-plane pole alpha contributes K_S(z,w)=-k_alpha(z) conj(k_alpha(w)), k_alpha(z)=sqrt(2 Re alpha)/(z-alpha). Negative index = number of ghosts, given a coprime generalized-Schur factorization (not automatic). Map row Q6.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[page:BlaschkeGhostsPage] src/data/blaschke-ghosts-section.js",
+  "tags": [
+   "twin-ladder",
+   "pick",
+   "bridge",
+   "de-branges"
+  ]
+ },
+ {
+  "id": "freeze-preserves-negative-index",
+  "type": "obstruction",
+  "name": "Schur-complement freezing preserves negative index (Prop 23.2)",
+  "statement": "Freezing as Schur-complement (Feshbach) reduction of the bridge Gram keeps the inertia: ghosts move, they do not vanish. Endpoint bridges repair only finite-window positivity (Lemma 23.3).",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[page:FreezingBridgePage] src/data/freezing-bridge-section.js",
+  "tags": [
+   "twin-ladder",
+   "pick",
+   "antibridge"
+  ]
+ },
+ {
+  "id": "hidden-square-volterra-collapse",
+  "type": "identity",
+  "name": "Hidden-square chain: no-ghost = Volterra contraction",
+  "statement": "A_a(z)=int Phi cosh(au)cos(zu)du, B_a(z)=int Phi sinh(au)sin(zu)du; shear density Phi(u)Phi(v)sinh(a(v-u)) on u<=v. Block [[I,V],[V*,I]]>=0 iff ||V_{a,Phi}||<=1. Seven-step forward and five-step reverse chains reduce the Section 15-27 conjectures to this norm bound.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[page:HiddenSquareProgramPage] [page:CollapseChainPage] [page:VolterraBoundPage]",
+  "tags": [
+   "twin-ladder",
+   "shear",
+   "bridge",
+   "de-branges"
+  ]
+ },
+ {
+  "id": "volterra-norm-threshold-closed",
+  "type": "obstruction",
+  "name": "Volterra norm bound: true only up to a*",
+  "statement": "Campaign result (map row P20): ||V_{a,Phi}||<=1 holds exactly for a<=a* in (31.6213,31.6214) and is false above. Earlier in-repo record: HS bound sqrt(I_0 J_a) exceeds 1 near a=2.3 (J_a ~ e^{4a}); HS within 2.02% of op norm; kernel Phi(x)Phi(y)sinh(a(x-y)) is near rank one.",
+  "status": "closed",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[page:VolterraNormCurvePage] [page:VolterraKernelHeatmapPage] [page:SchattenTraceNormPage]",
+  "tags": [
+   "shear",
+   "twin-ladder",
+   "antibridge"
+  ]
+ },
+ {
+  "id": "shear-gram-hollow-antisymmetric",
+  "type": "object",
+  "name": "Shear Gram is the hollow antisymmetric de Branges Wronskian",
+  "statement": "G_shear(u,v)=Phi(u)Phi(v)sinh(a(v-u)) is antisymmetric, zero on the diagonal, indefinite with spectrum symmetric about 0; min eigenvalue about -||G_shear|| about -4.8e-6 at NPHI=10, a=0.5, U=6.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "unknown",
+  "source": "[page:Imp3252ScaledMuPage]",
+  "tags": [
+   "shear",
+   "twin-ladder",
+   "de-branges"
+  ]
+ },
+ {
+  "id": "hankel-gap-aU-invariant",
+  "type": "identity",
+  "name": "Off-diagonal endpoint-Hankel obstruction depends on s=aU only",
+  "statement": "De-homogenized R_jk=H_jk/sqrt(D_jj D_kk): substituting tau=Ux cancels U, so R, its spectrum, ||R|| and the gap ||R||-max R_jj depend on s=aU alone. Raw-monomial gap grows about 0.9 per degree (1.79 at DEG=2 to 10.8 at DEG=12): a basis-conditioning artifact.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "unknown",
+  "source": "[page:ClosureRoutesPage] src/data/imp-3085-hankel-gap-aU-grid.js [page:Section26ConditioningArtifactPage]",
+  "tags": [
+   "shear",
+   "twin-ladder"
+  ]
+ },
+ {
+  "id": "excess-fraction-onset-pole",
+  "type": "measured-phenomenon",
+  "name": "Excess fraction phi(s)=G(s)/F(s): quadratic onset pole",
+  "statement": "On s>s0=arcsinh(1): phi ~ C/(s-s0)^2 with C=sqrt(2)(1-arcsinh 1) about 0.16776 and tail phi ~ K e^{-s}. Integral diverges at s0; regular mass int_{s0+1}^inf phi=0.26900597 (agreement with C_shock=sqrt(2/(3 log gamma_N)) at N=1e4 is a coincidence).",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "unknown",
+  "source": "[page:ExcessFractionPhiPage] [page:CShockNumericalCoincidencePage]",
+  "tags": [
+   "shear",
+   "twin-ladder"
+  ]
+ },
+ {
+  "id": "kyp-bounded-real-prime-delay",
+  "type": "mechanism",
+  "name": "KYP / bounded-real lift of the bridge (Apps M-O)",
+  "statement": "Bridge ratio Theta_a as transfer function of a parallel prime-delay system. Passive lift iff KYP LMI feasible (P>0). L2-dissipative iff a Lyapunov-Krasovskii functional V>=0 with dV/dt<=-||y||^2 exists, iff ||Theta_a||_inf<=1. App N records a signed-Mobius barrier for the delay lift.",
+  "status": "conjectural",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "[page:KypBoundedRealPage] src/data/kyp-bounded-real-section.js",
+  "tags": [
+   "bridge",
+   "twin-ladder",
+   "pick",
+   "euler-product"
+  ]
+ },
+ {
+  "id": "cayley-schur-trajectory",
+  "type": "object",
+  "name": "Cayley-Schur transform of the canonical-system m-function",
+  "statement": "Theta_a(z)=E_a^#(z)/E_a(z), E_a(z)=X(a-iz); Cayley(m)=(m-i)/(m+i) maps the Weyl m-function to the unit-disk Schur class (Krein, de Branges). Theta_a is Schur on C_+ exactly when E_a is Hermite-Biehler.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[page:CayleySchurTrajectoryPage]",
+  "tags": [
+   "de-branges",
+   "pick",
+   "twin-ladder",
+   "visualization"
+  ]
+ },
+ {
+  "id": "reciprocal-pf-excluded",
+  "type": "obstruction",
+  "name": "Reciprocal total positivity: direct PF-infinity route excluded",
+  "statement": "PF_inf kernel iff 1/g(s)=e^{as^2+bs} prod(1+delta_k s)e^{-delta_k s}, delta_k>0. A certified negative 5x5 Toeplitz minor rules out PF_inf for the actual kernel; the rotated reciprocal 1/X(is) is RH-equivalent, not a reduction. Map row G4.",
+  "status": "certified",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[page:ReciprocalProgramPage] src/data/reciprocal-program-section.js",
+  "tags": [
+   "lee-yang",
+   "antibridge",
+   "twin-ladder"
+  ]
+ },
+ {
+  "id": "nyman-beurling-dx",
+  "type": "identity",
+  "name": "Nyman-Beurling distance and reciprocal Mobius ladders",
+  "statement": "d_X^2=inf_c ||1_(0,1](x)-sum_{n<=X} c_n rho(1/(nx))||^2 in L^2(0,inf); RH iff d_X->0. M_X(s)=sum_{n<=X} mu(n)n^{-s}. Finite reciprocal constructions are compact diagnostics with no global tail or uniform margin. Map row P14.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "[page:ReciprocalProgramPage]",
+  "tags": [
+   "mollifier",
+   "euler-product"
+  ]
+ },
+ {
+  "id": "t3-residual-inequality",
+  "type": "open-lemma",
+  "name": "T3: exact Twin Ladder residual inequality",
+  "statement": "K_a=K_{a,0}+D_{a,R}+K_a^(S) with K_{a,0}>=0 the positive core. Prove D_{a,R}+K_a^(S)>=-K_{a,0} as Hermitian forms for every a>0 and every finite test set in C_+. D_{a,R} cancels to second order through cos(ps)-1; absolute values spend the whole core. RH-equivalent.",
+  "status": "conjectural",
+  "usesMultiplicativity": "unknown",
+  "heightUniform": "yes",
+  "source": "[page:OpenFrontierPage]",
+  "tags": [
+   "twin-ladder",
+   "shear",
+   "bridge",
+   "theta"
+  ]
+ },
+ {
+  "id": "no-psd-partition-of-core",
+  "type": "obstruction",
+  "name": "No PSD partition of the positive core repairs both channels",
+  "statement": "At a=1/4, z=(-1/2,0,1/2)+i/5: beta_R>1.027286016, beta_S>0.42200180358, sum>1.449>1. Radial and shear are symmetric and skew parts of one theta tensor; each integration slice is indefinite, so positivity must be theta-specific and appear only after integration.",
+  "status": "certified",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[page:OpenFrontierPage]",
+  "tags": [
+   "twin-ladder",
+   "shear",
+   "theta",
+   "antibridge"
+  ]
+ },
+ {
+  "id": "wiener-hopf-phase-condition",
+  "type": "identity",
+  "name": "Fixed-thickness frontier is one Wiener-Hopf phase condition",
+  "statement": "Fixed a: A_a>=0 iff X(w-a)/X(w+a) is Schur on Re w>0 iff m(lambda)<=m(lambda-2a) for every zero with Re lambda>a. A_{a_n}>=0 for infinitely many a_n->0+ iff RH. a>=1/2 holds unconditionally; B(w)=xi(w)/xi(w+1) is inner. R_{2a}(w)=R_a(w-a)R_a(w+a).",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[page:OpenFrontierPage]",
+  "tags": [
+   "twin-ladder",
+   "pick",
+   "bridge",
+   "de-branges"
+  ]
+ },
+ {
+  "id": "poisson-measure-criterion",
+  "type": "identity",
+  "name": "RH as a Poisson representation with half-width 1/2",
+  "statement": "RH iff q(t)=int dmu(u)/((t-u)^2+1/4) for one positive weighted measure mu (from the a=1/2 inner anchor B(w)=xi(w)/xi(w+1)).",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[page:OpenFrontierPage]",
+  "tags": [
+   "pick",
+   "de-branges",
+   "twin-ladder"
+  ]
+ },
+ {
+  "id": "eventual-psd-is-global",
+  "type": "identity",
+  "name": "Tail PSD is already global PSD",
+  "statement": "K_a restricted to [L,inf) PSD for some L iff A_a>=0 globally (real analyticity propagates). For each n there is L_{a,n} with all n-point minors positive beyond it, but the threshold depends on n and far-separated cross minors are negative.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[page:OpenFrontierPage]",
+  "tags": [
+   "twin-ladder",
+   "pick",
+   "antibridge"
+  ]
+ },
+ {
+  "id": "one-point-all-jets",
+  "type": "identity",
+  "name": "One point suffices iff every jet order is controlled",
+  "statement": "Fixed a: J_a^(d)(z*)>=0 for all d>=0 iff K_a>=0 globally; for a_n->0 the family over all n,d is RH. A de Branges toy kernel has positive jets to any prescribed finite order yet is globally negative: no universal finite cutoff. Compare map rows P3, S9.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[page:OpenFrontierPage]",
+  "tags": [
+   "pick",
+   "de-branges",
+   "antibridge"
+  ]
+ },
+ {
+  "id": "conformal-schur-window",
+  "type": "identity",
+  "name": "Verified height gives a conformal Schur window",
+  "statement": "With Y=H-1/2=3000175332799.5, c=pi/(2Y): |X(w-a)/X(w+a)|<1 on Re w>0, |Im w|<Y; the Pick kernel with sinh(cw) denominators is PSD on the strip. The original linear-denominator kernel is not established (negative real 2x2 minor).",
+  "status": "certified",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[page:OpenFrontierPage]",
+  "tags": [
+   "pick",
+   "twin-ladder",
+   "bridge"
+  ]
+ },
+ {
+  "id": "high-poles-escape-detector-bands",
+  "type": "obstruction",
+  "name": "High residual poles escape every fixed detector band",
+  "statement": "U_a*QU_a-Q=P_{I conj(J) K_J}-P_{K_I}: residual poles are the positive model-space component, but their compression into any fixed band tends to zero as height escapes. Fixed-band detection is not height-uniform.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[page:OpenFrontierPage]",
+  "tags": [
+   "pick",
+   "de-branges",
+   "antibridge",
+   "zero-channel"
+  ]
+ },
+ {
+  "id": "staged-strip-triangular-inequality",
+  "type": "open-lemma",
+  "name": "Staged strip [1/8,7/8] as one triangular prime inequality",
+  "statement": "sum_{p<=x}(x-p)log p <= (x^2-1)/2 + C x^{15/8} is equivalent to the closed zero strip [1/8,7/8]; the Riesz factor makes the zero sum absolute (no log loss). Equivalent heat-trace form: sum_{m,p}(log p)e^{-pi m^2 p u} <= zeta(2)/(pi u)+C u^{-7/8}.",
+  "status": "conjectural",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "[page:OpenFrontierPage]",
+  "tags": [
+   "zero-free",
+   "theta",
+   "explicit-formula",
+   "euler-product",
+   "bridge"
+  ]
+ },
+ {
+  "id": "prime-tent-rh-equivalence",
+  "type": "identity",
+  "name": "RH iff one nonnegative prime tent on (N,4N]",
+  "statement": "RH iff 2 sum_{N<p<=2N}(p-N)log p + sum_{2N<p<=4N}(4N-p)log p <= 3N^2 eventually. The dilation F(4N)-3F(2N)+2F(N) cancels primes p<=N. On RH the prime-square bias dominates the zero wave: L_+V_theta <= -(0.155951-o(1))N^{3/2}.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "[page:OpenFrontierPage]",
+  "tags": [
+   "explicit-formula",
+   "euler-product",
+   "bridge",
+   "zero-channel"
+  ]
+ },
+ {
+  "id": "zero-complete-rational-tents",
+  "type": "identity",
+  "name": "Zero-complete rational tents shrink the support ratio",
+  "statement": "For Q_a(s)=(a^s-1)(a^s-a) all multiplier zeros lie on Re s=0 or 1 and the prime kernel is nonnegative; RH margin positive from a=1.882453339. a=17/9: RH iff 17 sum_{81N<p<=153N}(p-81N)log p+9 sum_{153N<p<=289N}(289N-p)log p<=127296N^2 eventually. Certified supports 529/225, 1024/441; floor b*=3.4513363850.",
+  "status": "certified",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "[page:OpenFrontierPage]",
+  "tags": [
+   "explicit-formula",
+   "euler-product",
+   "bridge"
+  ]
+ },
+ {
+  "id": "two-tents-joint-zero-completeness",
+  "type": "mechanism",
+  "name": "Two positive tents remove each other's blind multiplier zeros",
+  "statement": "c=124/123, m=61,62: multiplier polynomials have exact gcd (z-1)(z-c). Their eventual prime signs together are RH-equivalent although one generic positive tent may hide an off-critical mode. Concave positive annular kernels are weighted averages of single-tent ratios.",
+  "status": "certified",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "[page:OpenFrontierPage]",
+  "tags": [
+   "explicit-formula",
+   "euler-product",
+   "bridge"
+  ]
+ },
+ {
+  "id": "pascal-carry-ballot",
+  "type": "open-lemma",
+  "name": "Annular cofactor as adjacent Pascal/carry mean comparison",
+  "statement": "RH iff C_N<=S_N eventually, with log(S_N/C_N)=2760N(mean_{345N<=u<529N} log K_u - mean_{225N<=u<345N} log K_u), K_u=(u+1)^u/(u! rad(u!)). K_u rises at composites, falls at primes. v_3(S_{3^L}/C_{3^L})=-4923*3^L+15, so divisibility, pairwise and per-block proofs fail; cross-factor cancellation is open.",
+  "status": "conjectural",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "[page:OpenFrontierPage]",
+  "tags": [
+   "euler-product",
+   "explicit-formula",
+   "bridge"
+  ]
+ },
+ {
+  "id": "prime-square-pole-recurrence",
+  "type": "identity",
+  "name": "Prime-square pole forces super-sqrt(N) runs of valid scales",
+  "statement": "Unconditionally: liminf D_{23,15}(N)/N^{3/2}<=-11081.705, liminf D_{32,21}(N)/N^{3/2}<=-40805.171 (negative residue at s=3/2 plus Landau). Each late checkpoint stays negative over floor(sqrt(N) exp(0.8 sqrt(log N))) consecutive scales; starts may be sparse, so no eventual sign.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "[page:OpenFrontierPage]",
+  "tags": [
+   "explicit-formula",
+   "euler-product",
+   "zero-channel"
+  ]
+ },
+ {
+  "id": "first-radix-layer-criterion",
+  "type": "identity",
+  "name": "First radix layer carries the full criterion",
+  "statement": "RH iff sum_{p<=N}[C_p(N)-(N-p)]log p>=0 eventually. Radical Mellin kernel K(s)=((s-1)zeta(s)-1)/(s(s+1)), K(1)=0, K(rho)=-1/(rho(rho+1)); higher-radix tail H_N>=0, H_N ~ -zeta(1/2)N^{3/2}/3.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "[page:OpenFrontierPage]",
+  "tags": [
+   "explicit-formula",
+   "euler-product",
+   "zero-channel"
+  ]
+ },
+ {
+  "id": "mobius-deaveraging-price",
+  "type": "identity",
+  "name": "Mobius deaveraging has an exact fixed-power price",
+  "statement": "M(x)=O(x^{7/8} log^K x) implies R_{1,1/4}(x)=O(x^{1/8} log^K x), which would prove the staged strip; it is stronger at boundary multiplicities and not known. Multiplier zeta(2s) cannot cancel an excluded right-half zero; sparse support is prime times square.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "[page:OpenFrontierPage]",
+  "tags": [
+   "zero-free",
+   "theta",
+   "explicit-formula"
+  ]
+ },
+ {
+  "id": "jacobi-smoothing-unstable",
+  "type": "obstruction",
+  "name": "Jacobi smoothing is pole-faithful but exponentially unstable",
+  "statement": "Symbol |h^(tau)| ~ (1+|tau|)^{13/8} e^{-pi|tau|/2} never vanishes, so no zeta pole is cancelled, but there is no tempered inverse. A smooth positive PNT density satisfies the averaged bound with unbounded pointwise triangular error.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[page:OpenFrontierPage]",
+  "tags": [
+   "theta",
+   "heat-flow",
+   "antibridge"
+  ]
+ },
+ {
+  "id": "large-sieve-density-selector",
+  "type": "mechanism",
+  "name": "Multiplicative large sieve closes the high-zero gap for fixed finite profiles (T153)",
+  "statement": "Each dyadic zero packet contributes O(log T/sqrt T) after normalization; natural density handles fixed low zeros. Every natural-density selector samples the same critical wave. The estimate is not uniform in zero height: the Abel difference costs |rho|.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "[page:OpenFrontierPage]",
+  "tags": [
+   "large-sieve",
+   "explicit-formula",
+   "zero-channel"
+  ]
+ },
+ {
+  "id": "theta-trap-theorems",
+  "type": "identity",
+  "name": "Theta-trap theorems A/B/C for the attractive CM flow",
+  "statement": "Flow dx_k/ds=-2 sum_{j!=k}1/(x_k-x_j). Trap holds at Theta<=1/4 unconditionally (A) and at Theta<=Theta_b=(sqrt73-5)/8=0.443000 under minimal gap (B, sharp: boundary Q(Theta)=r(2r^2+7r-3), r=2Theta-1/2); isolation g<=0.72 d_1 traps every level<=1 (C). Configurations in (0.443,0.5073) cross upward.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "unknown",
+  "source": "[page:TheoremBThresholdPage] [page:SpectralAttackPage] src/data/sg1c-theta-trap-theorems.js",
+  "tags": [
+   "heat-flow",
+   "pair-correlation",
+   "lambda"
+  ]
+ },
+ {
+  "id": "isolation-ratio-rate-identity",
+  "type": "identity",
+  "name": "Exact isolation-ratio rate (Lemma R2-T) and c_glob",
+  "statement": "d(g/d_1)/ds=((g-d_1)/d_1^2)[2/(g+d_1)+4(g+d_1)/(d_1 g)] for a single nearest neighbour. Half-lattice rate bound has unique root c_glob=0.8980208880762339 of 4+4r-4/r-4/(r+1)-2[psi(1+2/r)-psi(1+1/r)].",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "unknown",
+  "source": "[page:ThetaBasinClosurePage] [page:OnsetBracketLedgerPage]",
+  "tags": [
+   "heat-flow",
+   "pair-correlation"
+  ]
+ },
+ {
+  "id": "static-route-obstruction-r1t2",
+  "type": "obstruction",
+  "name": "Static tie comparison cannot cap the excursion (R1-T2)",
+  "statement": "On the near-uniform lattice Theta_K=K/(K+1)->1 the seizing margin tends to 0, so no static bound caps the excursion peak below 1. Open part is dynamical: whether the CM flow from zero-like data can reach a near-uniform lattice (minimality transfer). Map row P31.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "unknown",
+  "source": "[page:ThetaStaticObstructionPage] [page:ThetaSeizingMarginPage]",
+  "tags": [
+   "heat-flow",
+   "pair-correlation",
+   "antibridge"
+  ]
+ },
+ {
+  "id": "h2-flux-kappa-two",
+  "type": "measured-phenomenon",
+  "name": "Burgers flux coefficient kappa=2 along the collision flow",
+  "statement": "kappa=(m_s-m_zz)/(m m_z)=2.000000000 at all 325 sampled (height,time,z) points of the attractive CM RK4 flow; viscosity fraction |m_zz|/|2 m m_z| falls 0.2266 -> 0.02433 -> 4.372e-4 as coarse-graining y*/d goes 2 -> 8.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "unknown",
+  "source": "[page:Imp3900H2FluxConvexityViz]",
+  "tags": [
+   "heat-flow",
+   "vortex"
+  ]
+ },
+ {
+  "id": "route-b-limsup-stieltjes",
+  "type": "identity",
+  "name": "Route B unconditional lim-sup theorem",
+  "statement": "||m_N-m_inf||_{L^inf(Im z>=y_N#)} <= pi C_Selberg log gamma_N/(N y_N#), y_N#=sqrt(2 pi/N), using N(T)=(T/2pi)log(T/2 pi e)+O(log T). Controls the Stieltjes transform at mesoscopic height only; gives no per-N Lambda bound.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[page:RouteBLimsupPage]",
+  "tags": [
+   "heat-flow",
+   "pair-correlation",
+   "trace-formula"
+  ]
+ },
+ {
+  "id": "winding-monotone-backward-heat",
+  "type": "identity",
+  "name": "Winding monotonicity under the de Bruijn flow (classical orientation)",
+  "statement": "H_t(x)=int e^{tu^2}Phi(u)cos(xu)du satisfies dH/dt=-d^2H/dx^2; the Gaussian convolution proxy is the exact flow at negative time. Winding count is monotone by de Bruijn Thm 13 plus a jet lemma. Ceiling: the Polymath15 0.2 architecture.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[page:Imp34825WindingCountLadderViz] [page:VizWindingDysonFlowPage]",
+  "tags": [
+   "heat-flow",
+   "lambda",
+   "vortex"
+  ]
+ },
+ {
+  "id": "ht-corridor-window-census",
+  "type": "object",
+  "name": "H_t corridor certificates and finite-window census",
+  "statement": "Eight interval-rigorous Rouche corridor certificates on H_{0.18}, each proving one real zero; exterior census upgrades to an exact zero count in the window. Two negative results close the corridor route to a Lambda record.",
+  "status": "certified",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[page:HtCorridorCertificatesPage] [page:HtFiniteWindowPage]",
+  "tags": [
+   "heat-flow",
+   "lambda"
+  ]
+ },
+ {
+  "id": "mirror-pair-lemma",
+  "type": "identity",
+  "name": "Mirror pair lemma (Poisson-kernel descent floor)",
+  "statement": "f(h)=h/(Delta^2+h^2). For Delta>0, a in [0,2y]: f(a)+f(2y-a)>=f(2y)=2y/(Delta^2+4y^2), equality only at a in {0,2y}. Poisson-domination best constant c=3/4 at eta=2y, not attained. Descent theorem remains conditional on H_desc-mirror.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[page:Imp97068MirrorDescentPoissonKernelViz] src/data/rh-bridge-mirror-descent-2026-09-25.js",
+  "tags": [
+   "heat-flow",
+   "zero-channel",
+   "pair-correlation"
+  ]
+ },
+ {
+  "id": "euler-product-only-at-t0",
+  "type": "obstruction",
+  "name": "Euler product exists only at t=0 of the flow",
+  "statement": "Mirror count M(t) decreases under the forward flow (spacing spreads), so M(0)=2.5288 is the maximum and already 1.73x short of p_req=4.3743. The Euler-product rate covers the measure-zero slice t=0 and one topmost zero; transport to (0,t0=0.1314] fails.",
+  "status": "measured",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "[page:Imp97068MirrorDescentPoissonKernelViz] src/data/imp-97141-euler-product-flow-continuity-bridge-assessment.js [page:Imp97106PalmMirrorSurplusComparisonViz]",
+  "tags": [
+   "heat-flow",
+   "euler-product",
+   "antibridge"
+  ]
+ },
+ {
+  "id": "perm-arch-theorem-u",
+  "type": "obstruction",
+  "name": "Theorem U: permutation architecture is A_{k,h}-universal",
+  "statement": "Algebra generated by T_p=diag(1_{p|n}), p<=97, equals span{T_d: d|P}=span{c_q: q|P} (Ramanujan sums), dim 2^25. Every freeze-calculus word is a basis choice on one number; no in-algebra mollifier removes alias content. Single alias has in-algebra energy 1/phi(q).",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "[page:PermutationArchitecturePage] src/data/perm-arch-sieve-universality-no-go-2026-09-22.js [page:Imp95566AliasEnergyInAlgebraViz]",
+  "tags": [
+   "mollifier",
+   "large-sieve",
+   "antibridge",
+   "euler-product"
+  ]
+ },
+ {
+  "id": "small-prime-weld-over-budget",
+  "type": "measured-phenomenon",
+  "name": "l2-collapse route exceeds budget at the first prime",
+  "statement": "Budget R_ex=0.27968819555. Per-prime S-bar: 0.396850 (p=2), 0.462241 (p=3), 0.381283 (p=5); cumulative sqrt sum 0.629960 at p=2, 1.867 over p<=97. The aggregate is a geometric constant with no zero or character-sum content.",
+  "status": "measured",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "[page:Imp95548PerPrimeSbarBudgetViz]",
+  "tags": [
+   "mollifier",
+   "large-sieve",
+   "antibridge"
+  ]
+ },
+ {
+  "id": "alpha-kh-pcc-gated-region",
+  "type": "identity",
+  "name": "Montgomery frequency of Fresnel-Airy packets",
+  "statement": "alpha_{k,h}=1+log(1/(2 pi(k-h/p)))/log T at stationary point u_{k,h}=v/(k-h/p). alpha>1 iff k=1 and h>p(1-1/(2pi)); at p=97 this is h in {82..96}, 15 aliases with 59.26% of the named majorant mass, outside the range |alpha|<=1.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "[page:Imp95547AlphaKhHeatScatterViz]",
+  "tags": [
+   "pair-correlation",
+   "mollifier",
+   "explicit-formula"
+  ]
+ },
+ {
+  "id": "modulus-last-normal-form",
+  "type": "mechanism",
+  "name": "Modulus-last ordering (defect-packet telescope)",
+  "statement": "sum_j D_j=E97 over 25 prime packets (p=97..2). At x=6.0000039e12 (N=690988): sum|D_j|=0.24375414 (modulus first) versus |E97|=0.18149721 (recombine first); both below R_ex=0.27969. Telescope verified to 2.55e-14. Taking moduli per prime discards the phases.",
+  "status": "measured",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "[page:VizFreezeFlowPage] src/data/viz-freeze-flow-phasors.js [page:VizWindowLandscapePage]",
+  "tags": [
+   "mollifier",
+   "euler-product",
+   "lambda"
+  ]
+ },
+ {
+  "id": "kronecker-sup-rms-transfer",
+  "type": "identity",
+  "name": "Kronecker-sharp sup/rms transfer constant",
+  "statement": "f(T)=sum_p Lambda(p)p^{-sigma}e(-T log p), sigma=0.59045. Linear independence of {log p} gives time-average |f|^2=sum a_p^2 while sup|f|=sum a_p; the mean-square to pointwise transfer constant (sum a_p)/sqrt(sum a_p^2) in [1,sqrt N] is attained.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[page:Imp95645KroneckerTransferConstantViz]",
+  "tags": [
+   "large-sieve",
+   "explicit-formula",
+   "antibridge"
+  ]
+ },
+ {
+  "id": "meansquare-pointwise-wall",
+  "type": "measured-phenomenon",
+  "name": "Mean-square versus pointwise wall on actual zeros",
+  "statement": "Windows of half-width sqrt(t/2pi): variance ratio sd(C-E)^2/Sigma^2(L) stays in [0.349,0.480] (about 0.402) for T=1e4..5e5, no trend to 1; worst excess over L decays like 1/L (2.18e-2 to 1.79e-3): the gap is additive, O(1-2) zeros.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[page:Imp95759MsqPointwiseWallViz] [page:Imp95588MsqGueEnvelopeViz]",
+  "tags": [
+   "pair-correlation",
+   "zero-channel",
+   "large-sieve"
+  ]
+ },
+ {
+  "id": "signed-certificate-chain",
+  "type": "object",
+  "name": "Seam-chain signed certificates (SGN, COAL, EV-OCT, RZ-PEN, SPLIT)",
+  "statement": "Witness family phi_K(t)=e^{-t}(1-e^{-t/K})^K; EV-OCT certificate on the dyadic skeleton fires at x*=11.31664319 (m=6). Every-octave onsets 15.98 (SPLIT-RZ) to 27.04. Phase currency theta is obstructed, depth y_min maps to per-window geometry. Pointwise RZ-PEN and multiplier routes are terminal.",
+  "status": "certified",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[page:Imp95265EvOctFiringCurveViz] [page:Imp95393YminMapsThetaObstructedViz] [page:Imp95623SeamGramOnsetLadderViz]",
+  "tags": [
+   "pick",
+   "lambda",
+   "antibridge"
+  ]
+ },
+ {
+  "id": "route-a-primon-reflection-gram",
+  "type": "measured-phenomenon",
+  "name": "Route A: reflection Gram of the N-prime primon gas is never PSD",
+  "statement": "F_N=A-sum_{p<=p_N}log p/(p^s-1), nodes nu in {0.05..1.5}: lambda_min from -142.669 (N=0) to -4213.156 (N=1229), strictly monotone; -lambda_min scales like p_N^{1/2-nu_min} (R^2>=0.996). Finite Euler truncations fail reflection positivity at every N.",
+  "status": "measured",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "unknown",
+  "source": "[page:Imp96038RouteALammMinDescentViz]",
+  "tags": [
+   "pick",
+   "euler-product",
+   "lee-yang",
+   "antibridge"
+  ]
+ },
+ {
+  "id": "route-b-half-gram-interlacing",
+  "type": "measured-phenomenon",
+  "name": "Route B: half-Gram lattice violates interlacing",
+  "statement": "n=1 half-Gram lattice fails interlacing with zeta zeros in 167 of 302 intervals up to gamma_300 (fraction about 0.55, flat in height) against 16 of 302 classical Gram-law failures. Arises from the two-parameter arithmetic freeze-flow H_{t,tau} test.",
+  "status": "measured",
+  "usesMultiplicativity": "unknown",
+  "heightUniform": "no",
+  "source": "[page:Imp96039HalfGramInterlacingCensusViz]",
+  "tags": [
+   "heat-flow",
+   "zero-channel"
+  ]
+ },
+ {
+  "id": "route-c-signed-interferometer",
+  "type": "obstruction",
+  "name": "Route C: twisted-ladder signed interferometer refuted",
+  "statement": "Pair phases are pinned by the root number; the signed interferometer supplies no independent constraint.",
+  "status": "refuted",
+  "usesMultiplicativity": "unknown",
+  "heightUniform": "unknown",
+  "source": "[page:RhNovelRoutesRoadmapPage] src/data/rh-novel-routes-roadmap-2026-09-23.js",
+  "tags": [
+   "twin-ladder",
+   "antibridge"
+  ]
+ },
+ {
+  "id": "route-g-block-spin-no-go",
+  "type": "obstruction",
+  "name": "Route G: block-spin prime freezing preserves no real-rootedness",
+  "statement": "Log-gas renormalization by block-spin freezing of primes: no-go for a real-rootedness-preserving lever. Routes D (Peierls confinement) and F (Kramers-Wannier local uniqueness) are reformulations with no lever.",
+  "status": "refuted",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "unknown",
+  "source": "[page:RhNovelRoutesRoadmapPage]",
+  "tags": [
+   "lee-yang",
+   "antibridge",
+   "euler-product"
+  ]
+ },
+ {
+  "id": "route-h-self-product-obstruction",
+  "type": "obstruction",
+  "name": "Weil-Deligne template over Z: tensor-power trick gives no reduction",
+  "statement": "The tensor-power trick uses only the abscissa of absolute convergence of the Euler product. Zeta-regularization (Kurokawa zeta tensor zeta, zeros rho_1+rho_2) extends the function but not the zero-free region: it buys a functional equation, not positivity. Hodge-index needs Spec Z x Spec Z.",
+  "status": "closed",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "[page:RhNovelRoutesRoadmapPage] src/data/rh-routes-jkl-non-statmech-external-input-hunt-2026-09-23.js",
+  "tags": [
+   "function-field",
+   "hodge",
+   "euler-product",
+   "antibridge"
+  ]
+ },
+ {
+  "id": "route-j-fejer-floor",
+  "type": "identity",
+  "name": "Route J: Fejer zero-free-region floor R=5.8284",
+  "statement": "Pure Fejer scheme: a_1/a_0=2cos(pi/(n+2)), c_ceil=2(1-(a_1/a_0)^{-1/2})^2, R_floor=1/c_ceil decreasing to 1/(2(1-1/sqrt2)^2)=5.8284. Classical 3-4-1 gives 34.82; Mossinghoff-Trudgian Stechkin weighting gives 5.573412. No external input beyond de la Vallee Poussin. Map row P25.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[page:Imp96058FejerCeilingFloorLadderViz] [page:Imp95624MtyVsVkCrossoverViz]",
+  "tags": [
+   "zero-free",
+   "explicit-formula"
+  ]
+ },
+ {
+  "id": "route-k-littlewood-jensen-loss",
+  "type": "measured-phenomenon",
+  "name": "Route K: moments reach zeros only through Littlewood's integrated lemma",
+  "statement": "I(T) stays O(log T) while the Jensen bound J_1(T)=(T/2)log(M_1/T) grows like (T/2)log log T; loss J_1/|I| = 10 (T=50), 141 (T=200), 2828 (T=500). Moment identities give no pointwise zero constraint.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[page:Imp96060LittlewoodJensenLossViz]",
+  "tags": [
+   "large-sieve",
+   "mollifier",
+   "antibridge"
+  ]
+ },
+ {
+  "id": "route-l-cmv-detector-reach",
+  "type": "measured-phenomenon",
+  "name": "Route L: Li-Herglotz-CMV detector reach law",
+  "statement": "Replacing gamma_0 by an off-line quadruple 1/2+-delta+-i gamma_0 in exact Herglotz moments: first Levinson order with |alpha|>=1 is N_det ~ N_res(gamma_0)+O(log 1/delta); reach gamma_det(N) ~ 2.21 N^{0.786}. Zero 1 detected at N=9-14, zero 20 at 96-115, zero 40 undetected through 400. Map row P16.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[page:Imp96059DetectorReachLadderViz] [page:Imp96302RouteLReachPowerLawViz]",
+  "tags": [
+   "pick",
+   "de-branges",
+   "zero-channel"
+  ]
+ },
+ {
+  "id": "route-m-vasyunin-burnol",
+  "type": "measured-phenomenon",
+  "name": "Route M: Vasyunin-Gram Nyman-Beurling ladder sits on the Burnol floor",
+  "statement": "d_N^2 log N/sum_rho 1/|rho|^2 goes from 1.258 (N=5) to 0.998 (N=500). |1+zeta D_N|^2/(1/4+t^2) equals 1 at every zero and has median 0.079, max 0.692 between zeros. Route collapses to the mollifier lineage; conditioning ceilings T<F<M.",
+  "status": "measured",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "[page:Imp96075RouteMVasyuninDnLadderViz] [page:Imp96120RouteMBurnolRatioDenseLadderViz] [page:Imp96741RouteMThreeCeilingDecompositionViz]",
+  "tags": [
+   "mollifier",
+   "euler-product"
+  ]
+ },
+ {
+  "id": "route-m-first-moment-kappa",
+  "type": "open-lemma",
+  "name": "Route M lower companion reduces to a first-moment bound",
+  "statement": "Q(b)>=F(b)^2/S(b) (Cauchy-Schwarz) reduces the mean-square lower companion to F(b)>=kappa phi(b) b with kappa=kappa_arith+kappa_cot(b) about 0.696 measured. Q(b)=Qhat+Qcross+Qrr with Qhat about 99.6% (no b^{1/2} term), Qcross/b about 0.0042. kappa>0 is not proved.",
+  "status": "conjectural",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "[page:Imp97388SecondMomentDecompositionViz] [page:Imp97553KappaDecompositionViz] [page:Imp97552E1EnvelopeDecayViz]",
+  "tags": [
+   "mollifier",
+   "euler-product",
+   "large-sieve"
+  ]
+ },
+ {
+  "id": "route-m-conductor-tones",
+  "type": "measured-phenomenon",
+  "name": "Route M conductor tones q=4, q=5 need log-span about 10",
+  "statement": "Adjacent conductor-tone overlap |corr(cos w_4 x, cos w_5 x)| is 0.0674 at the current span L=3.6889 in log N, 0.26 near L=7.5, with first null at the beat period 2 pi/(w_4-w_5)=9.999. Band-versus-drift is not identifiable from the exact Gram ladder to N=1e4.",
+  "status": "measured",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "[page:Imp96378RouteMBeatPeriodOverlapViz]",
+  "tags": [
+   "mollifier",
+   "hecke"
+  ]
+ },
+ {
+  "id": "route-i-weil-symbol",
+  "type": "object",
+  "name": "Route I: Toeplitz symbol of the semilocal S={inf,2} Weil form",
+  "statement": "w(t)=2 theta'(t)-m_2(t) for Arch-P_2=L_S-D_S. Archimedean negative window [0,3.597), min -8.719; six p=2 resonance windows (widths 1.730 to 0.650, depths -2.981 to -1.188). mu_max(a;k=0) crosses 1 at a*=0.56578, 2a*=ln 3+0.033.",
+  "status": "certified",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "[page:Imp96080RouteISymbolAnatomyViz]",
+  "tags": [
+   "weil",
+   "explicit-formula",
+   "trace-formula",
+   "euler-product"
+  ]
+ },
+ {
+  "id": "route-i-semilocal-trace-remainder",
+  "type": "identity",
+  "name": "Route I: semilocal Sonine trace identity and its remainder",
+  "statement": "Tr(theta(f)P Phat_S P)=W_inf+W_2+D_S exactly; delta_S(rho) has log spikes at rho=2^k+eps: 12.1465, 16.6511, 22.7132, 31.6996 at eps=1e-7 (law (2^{k/2}/2)log_2(1/eps)) versus 0.379224 at rho=3. Weil positivity below ln 3 iff D_S<=L_S.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "[page:Imp96103RouteIRemainderResonanceViz]",
+  "tags": [
+   "weil",
+   "trace-formula",
+   "explicit-formula"
+  ]
+ },
+ {
+  "id": "route-i-cusp-allocation",
+  "type": "measured-phenomenon",
+  "name": "Route I: fixed-fraction cusp allocation f_out(rho)=1-1/rho",
+  "statement": "At S-unit cusps rho=2^a 3^b of the {inf,2,3} remainder, the fraction of the (log^2) cusp landing in the Sonine excess tends to 1-1/rho, generalizing the p=2 half-cusp law. E_S composed with Q is unbounded along p=2 resonances for every 2a>ln 2. Map row P19.",
+  "status": "measured",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "[page:Imp96136RouteIFixedFractionPanelViz]",
+  "tags": [
+   "weil",
+   "trace-formula",
+   "antibridge"
+  ]
+ },
+ {
+  "id": "route-i-krein-certificate",
+  "type": "object",
+  "name": "Route I: Toeplitz-Krein sigma_2 certificate ladder",
+  "statement": "lambda_min(T_a[sigma_2])>0 on the theorem range 2a<=0.96 and at (ln 3)/2, crossing zero between 2a=1.12 and 1.1316. Interval certificates at 2a=0.90,0.94,0.96 have margin eps=200(1-2a) and tail l1 norm log10 ~ 73.25(2a)-64.24. RK floor -(a/pi)18301.61 is linear in a.",
+  "status": "certified",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "[page:Imp96621Sigma2LamminMarginLadderViz] [page:Imp96646KreinCertificateMarginViz] [page:Imp97452RkFloorLinearLadderViz]",
+  "tags": [
+   "weil",
+   "pick",
+   "explicit-formula"
+  ]
+ },
+ {
+  "id": "route-i-kato-temple",
+  "type": "measured-phenomenon",
+  "name": "Route I: Kato-Temple capture requirement on the real {inf,2} prolate spectrum",
+  "statement": "On the measured semilocal prolate spectrum (FFT-Mellin) the eigenvector-capture requirement of about 1.17e-2 is stricter than on the stylized 5-level toy; not a toy artifact. Bathtub optimiser versus band-limited density has peak-to-cap ratio 0.5251.",
+  "status": "measured",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "[page:Imp96214KatoTempleUepsViz] [page:Imp97485KreinRealizabilityGapViz]",
+  "tags": [
+   "weil",
+   "trace-formula"
+  ]
+ },
+ {
+  "id": "var-s-constant-decomposition",
+  "type": "measured-phenomenon",
+  "name": "Var S(T) additive constant b=M+P2+K",
+  "statement": "Mertens constant M and prime-power double sum P2 are known to 1e-12; the boundary/cutoff constant K (about 1.06 empirically) is unresolved at about 100x the 0.01 tolerance needed to collapse the crossing-height range.",
+  "status": "measured",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "[page:Imp95995VarsConstantDecompositionViz] [page:Imp96016VarSConstantDecompositionViz]",
+  "tags": [
+   "pair-correlation",
+   "explicit-formula"
+  ]
+ },
+ {
+  "id": "extreme-gap-exponent",
+  "type": "measured-phenomenon",
+  "name": "Extreme normalized gap decay exponent -0.3953",
+  "statement": "Running minimum normalized gap over the first 2,001,052 zeros (N=50..1e6): fit exponent -0.3953 against the GUE -1/3; within factor 0.90..2.21 of the GUE median envelope 0.8582 N^{-1/3}. Deviation persists across dyadic blocks. Compare map row P31 (Lehmer pairs).",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[page:Imp96641GminGueEnvelopeViz] [page:ReachFrontierDatasetAuditPage]",
+  "tags": [
+   "pair-correlation",
+   "zero-channel"
+  ]
+ },
+ {
+  "id": "gap-structure-function",
+  "type": "measured-phenomenon",
+  "name": "Equal-time gap structure function S_2(r)",
+  "statement": "S_2(r) of zero gaps shows level repulsion at small lag then decorrelation to the plateau 2 var; lag-1 autocorrelations recorded raw and unfolded.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "unknown",
+  "source": "[page:Imp3863GapStructureFunctionViz]",
+  "tags": [
+   "pair-correlation",
+   "zero-channel"
+  ]
+ },
+ {
+  "id": "pair-correlation-form-factor",
+  "type": "measured-phenomenon",
+  "name": "Montgomery form factor versus GUE on Odlyzko zeros",
+  "statement": "Empirical F_N(alpha) of the first 1000 zeros against 1-(sin(pi alpha)/(pi alpha))^2; nearest-neighbour spacings of the first 10000 zeros against the Wigner surmise (32/pi^2)s^2 exp(-4s^2/pi). F(alpha) is proved only for |alpha|<=1 under RH.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[page:PairCorrelationPage] [page:GueComparisonPage]",
+  "tags": [
+   "pair-correlation",
+   "zero-channel",
+   "visualization"
+  ]
+ },
+ {
+  "id": "pcc-route-exhaustion",
+  "type": "obstruction",
+  "name": "PCC route exhaustion: 11 routes, 4 families",
+  "statement": "Eleven closure routes for Montgomery pair correlation (5 moment-method, 3 new-input, 2 RH-equivalents, 1 sieve) audited; verdict: genuinely open pending new input. Five of thirteen paper conjectures are subsumed by RH.",
+  "status": "closed",
+  "usesMultiplicativity": "unknown",
+  "heightUniform": "no",
+  "source": "[page:PCCRouteExhaustionPage] [page:PaperAuditDashboardPage]",
+  "tags": [
+   "pair-correlation",
+   "large-sieve",
+   "antibridge"
+  ]
+ },
+ {
+  "id": "esy-rigidity-psi-n",
+  "type": "measured-phenomenon",
+  "name": "ESY rigidity quantity psi_N on unfolded zeros",
+  "statement": "psi_N measured for N in {100,...,10000} at microscopic (eta=c/N) and macroscopic (eta=c) scales, bulk and edge (near gamma_1), against the ESY slope -1. Macroscopic scale is the well-posed local-law regime.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[page:EsyRigidityEmpiricalPage] [page:EdgeRigidityPage]",
+  "tags": [
+   "pair-correlation",
+   "trace-formula"
+  ]
+ },
+ {
+  "id": "prime-log-phase-caustics",
+  "type": "object",
+  "name": "Prime log-phase caustics and resonance heights",
+  "statement": "theta_p(t)=t log p mod 2 pi. Coherent-prime count #{p: |theta_p|<eps} as a field in (sigma,t) with weight p^{-sigma}; two primes align at t=2 pi k/log(p_j/p_i). Phase cylinder: each prime is a straight ray (helix). Descriptive geometry.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[page:VizPrimeCausticPage] [page:VizCausticResonancePage] [page:VizPhaseCylinderPage] [page:VizUnwrappedRaysPage]",
+  "tags": [
+   "visualization",
+   "torus",
+   "euler-product",
+   "vortex"
+  ]
+ },
+ {
+  "id": "angular-spacing-poisson",
+  "type": "measured-phenomenon",
+  "name": "Local angular-spacing statistics of prime phases",
+  "statement": "At fixed t, normalized gaps of theta=t log p mod 2 pi sorted on the circle, for true primes and two comparison populations, against the exponential e^{-s} (Poisson) reference.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "unknown",
+  "source": "[page:AngularSpacingStatsPage]",
+  "tags": [
+   "visualization",
+   "torus",
+   "pair-correlation"
+  ]
+ },
+ {
+  "id": "euler-transport-flow",
+  "type": "object",
+  "name": "Euler transport flow of -zeta'/zeta",
+  "statement": "v(s)=-zeta'/zeta(s)=sum_p log p/(p^s-1) for Re s>1, read as a vector field on (sigma,t). Zeros are simple poles with residue +m: sources of +v, sinks of -v; the pole at s=1 is a source of -v. Inside the strip the prime sum is a numerical proxy only.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "[page:VizEulerTransportFlowPage] src/data/viz-euler-transport-flow.js",
+  "tags": [
+   "vortex",
+   "euler-product",
+   "visualization",
+   "zero-channel"
+  ]
+ },
+ {
+  "id": "true-vs-perturbed-euler-product",
+  "type": "control",
+  "name": "Perturbed Euler product (log p -> log p + eps_p)",
+  "statement": "log|prod_{p<=P_N}(1-p^{-s})^{-1}| on s=1/2+it has near-zeros near zeta zeros; shifting each log p by a small eps_p smears them. Comparable to the Beurling control: positivity and size of the prime side kept, integer lattice of logs destroyed.",
+  "status": "measured",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "[page:VizEulerProductPage] [page:PrimeRigidityPage]",
+  "tags": [
+   "euler-product",
+   "visualization",
+   "antibridge"
+  ]
+ },
+ {
+  "id": "twin-ladder-tomography",
+  "type": "object",
+  "name": "Twin-ladder tomography P(sigma,t)=|zeta(sigma+it)||zeta(1-sigma+it)|",
+  "statement": "On sigma=1/2 the two factors are conjugate partners and P=|zeta(1/2+it)|^2, with exact zeros at every gamma_n; the line appears as an interference trough. Heatmap over [0.05,0.95]x[0,T].",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "unknown",
+  "source": "[page:VizTwinLadderTomographyPage]",
+  "tags": [
+   "twin-ladder",
+   "visualization",
+   "bridge"
+  ]
+ },
+ {
+  "id": "prime-phase-crystal",
+  "type": "object",
+  "name": "Prime phase crystal",
+  "statement": "|sum_p cos(j log p + k t_0)| over (j,k), t_0 a zero ordinate (default gamma_1=14.134725), 200 primes; Bragg-like peaks at integer harmonics of 2 pi/log p; DC term equals the prime count.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "unknown",
+  "source": "[page:VizPrimePhaseCrystalPage]",
+  "tags": [
+   "visualization",
+   "torus",
+   "explicit-formula"
+  ]
+ },
+ {
+  "id": "twistor-dual-intertwiner",
+  "type": "object",
+  "name": "Twistor space, dual and intertwiner (auxiliary layer)",
+  "statement": "Projective twistor space PT (Robinson congruence), its dual PT* and the incidence correspondence, with zeta mapped onto the fibration; an auxiliary O-status layer of the paper. Campaign row G19: the flow cocycle is a coboundary; functional equation is a separate input.",
+  "status": "closed",
+  "usesMultiplicativity": "no",
+  "heightUniform": "unknown",
+  "source": "[page:VizTwistorDualIntertwinerPage] [page:TwistorPage]",
+  "tags": [
+   "twistor",
+   "visualization",
+   "antibridge"
+  ]
+ },
+ {
+  "id": "hyperbolic-prime-spiral",
+  "type": "object",
+  "name": "Hyperbolic prime spiral",
+  "statement": "Primes in the Poincare disk at r(p)=log p/log p_max, theta(p)=phi_0 log p mod 2 pi; coherent rings at phi_0 near 2 pi/log p*; p mod 4 classes equidistribute in angle (Dirichlet). Zoom hierarchy: same embedding at [1e2,1e3], [1e4,1e5], [1e6,1e7].",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "unknown",
+  "source": "[page:VizHyperbolicPrimeSpiralPage] [page:VizZoomHierarchyPage]",
+  "tags": [
+   "visualization",
+   "torus",
+   "klein"
+  ]
+ },
+ {
+  "id": "log-phase-spiral-arg-zeta",
+  "type": "object",
+  "name": "Log-phase spiral of arg zeta(1/2+it)",
+  "statement": "Polar plot r=log(t+e), angle arg zeta(1/2+it); zeros on the line appear as cusps with a pi phase jump. Companion: Hardy Z(t)=e^{i theta(t)}zeta(1/2+it), Riemann-Siegel main sum plus C_0, error O(t^{-1/4}); Gram-law violations by block.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[page:VizLogPhaseSpiralPage] [page:RiemannSiegelZPage] [page:HardyZPage] [page:GramPointsPage]",
+  "tags": [
+   "visualization",
+   "zero-channel"
+  ]
+ },
+ {
+  "id": "berry-keating-xp",
+  "type": "conjecture",
+  "name": "Berry-Keating xp Hamiltonian",
+  "statement": "Conjecture: zero ordinates are eigenvalues of a self-adjoint quantization of H=xp. Numerics: H_sym=(xp+px)/2 in a truncated Hermite basis at N=50,100,200 against the first 30 ordinates; no identification.",
+  "status": "conjectural",
+  "usesMultiplicativity": "no",
+  "heightUniform": "unknown",
+  "source": "[page:BerryKeatingXpPage]",
+  "tags": [
+   "trace-formula",
+   "zero-channel"
+  ]
+ },
+ {
+  "id": "connes-adelic-truncated-trace",
+  "type": "object",
+  "name": "Connes adelic trace, truncated at five primes",
+  "statement": "Prime side of the Weil-Connes trace over {2,3,5,7,11}, k<=5, at heat time t=0.02 is positive; every term is positive in the a_p(k)=1 normalization, so the check is a coefficient tripwire only. No adelic port.",
+  "status": "measured",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "[page:ConnesAdelicPage] [page:SelbergTracePage]",
+  "tags": [
+   "trace-formula",
+   "weil",
+   "explicit-formula"
+  ]
+ },
+ {
+  "id": "voronin-universality",
+  "type": "control",
+  "name": "Voronin universality",
+  "statement": "For nonvanishing analytic f on compact K in 1/2<Re s<1 and eps>0 there are arbitrarily large tau with sup_K|zeta(s+i tau)-f(s)|<eps. Used as a control: any argument using only local value distribution inside the strip must fail: zeta approximates functions with arbitrary non-zero behaviour there.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "[page:VoroninUniversalityPage]",
+  "tags": [
+   "euler-product",
+   "antibridge",
+   "zero-free"
+  ]
+ },
+ {
+  "id": "three-attacks-gram-kernel-audit",
+  "type": "obstruction",
+  "name": "Three closure attempts: prime Gram kernel audit",
+  "statement": "K(s,s')=sum_p F_p(s) conj(F_p(s')) is PSD as a Gram kernel, but no theorem identifies zeta zeros with its poles; generic KYP does not make each local prime contribution positive. Needed: an RH-equivalent completed kernel with archimedean term and exact zero-to-pole divisor map.",
+  "status": "closed",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "unknown",
+  "source": "[page:ThreeAttacksPage]",
+  "tags": [
+   "pick",
+   "euler-product",
+   "antibridge",
+   "bridge"
+  ]
+ },
+ {
+  "id": "catalan-signed-ladder",
+  "type": "object",
+  "name": "Catalan signed ladder",
+  "statement": "Signed flip = chi_4: G=beta(2)=L(2,chi_4)=sum chi_4(n)/n^2 (rung deletion at p=2). Period-dimension obstruction: zeta column 5 zeta(2)-8 (dim 2) versus Catalan G-pi+2 ln 2+pi^2/12 (dim 5). Irrationality of G open; zero location gives no lever.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "unknown",
+  "source": "[page:CatalanSignedLadderPage] [page:IrrationalityPipelinePage] [page:OddZetaPage]",
+  "tags": [
+   "twin-ladder",
+   "hecke",
+   "euler-product"
+  ]
+ },
+ {
+  "id": "bernstein-crossover-map",
+  "type": "object",
+  "name": "Surrogate crossover map g(N)=K log T0(N) is a Bernstein function",
+  "statement": "g(x)=a+bx+int_0^inf(1-e^{-xt})dmu(t), a,b>=0, K=(C_C/E_trunc)^2 about 1.5727e8; g' completely monotone on the post-peak ramp. E(N)=E_trunc+E_flow+E_coll; sigma=E_coll/E_N is degree-0 homogeneous, forcing elasticity sum 0. Bookkeeping for the PT-anchored surrogate.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[page:Imp35184BernsteinIngredientsTripleViz] [page:Imp97670ThreeAxisElasticityViz] [page:SurrogateModelPage]",
+  "tags": [
+   "lambda",
+   "heat-flow"
+  ]
+ },
+ {
+  "id": "height-to-floor-law",
+  "type": "identity",
+  "name": "Verified-height-to-floor law",
+  "statement": "H_required(E)=(prefactor/E)^{1/kappa*}: required verified height as a power of the target error floor in the PT-anchored surrogate. Reentry band lies beyond the verified frontier (data unreachable).",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[page:Imp96237HeightToFloorViz] [page:Imp35582ReentryBandDataUnreachabilityViz]",
+  "tags": [
+   "lambda"
+  ]
+ }
+]

@@ -1,0 +1,67 @@
+zeta   P=2    D=2.0  nwin=479  Obar 4.16 | Krein R min     0.160 mean   3.231 max     6.913 neg   0 | Herm R min   0.160 mean     3.231 max       6.913 | E_krein>0 in 129
+zeta   P=2    D=10.0 nwin=88   Obar 4.18 | Krein R min     1.046 mean   2.850 max     4.850 neg   0 | Herm R min   1.046 mean     2.850 max       4.850 | E_krein>0 in 2
+zeta   P=3    D=2.0  nwin=479  Obar 4.16 | Krein R min     0.023 mean   2.570 max     5.858 neg   0 | Herm R min   0.023 mean     2.570 max       5.858 | E_krein>0 in 50
+zeta   P=3    D=10.0 nwin=88   Obar 4.18 | Krein R min     0.434 mean   1.916 max     3.974 neg   0 | Herm R min   0.434 mean     1.916 max       3.974 | E_krein>0 in 0
+zeta   P=7    D=2.0  nwin=479  Obar 4.16 | Krein R min     0.017 mean   1.770 max     6.128 neg   0 | Herm R min   0.017 mean     1.770 max       6.128 | E_krein>0 in 14
+zeta   P=7    D=10.0 nwin=88   Obar 4.18 | Krein R min     0.174 mean   1.057 max     2.903 neg   0 | Herm R min   0.174 mean     1.057 max       2.903 | E_krein>0 in 0
+zeta   P=30   D=2.0  nwin=479  Obar 4.16 | Krein R min     0.010 mean   0.792 max     4.700 neg   0 | Herm R min   0.010 mean     0.792 max       4.700 | E_krein>0 in 0
+zeta   P=30   D=10.0 nwin=88   Obar 4.18 | Krein R min     0.069 mean   0.416 max     1.763 neg   0 | Herm R min   0.069 mean     0.416 max       1.763 | E_krein>0 in 0
+zeta   P=100  D=2.0  nwin=479  Obar 4.16 | Krein R min     0.005 mean   0.305 max     2.555 neg   0 | Herm R min   0.005 mean     0.305 max       2.555 | E_krein>0 in 0
+zeta   P=100  D=10.0 nwin=88   Obar 4.18 | Krein R min     0.034 mean   0.189 max     0.444 neg   0 | Herm R min   0.034 mean     0.189 max       0.444 | E_krein>0 in 0
+zeta   P=1000 D=2.0  nwin=479  Obar 4.16 | Krein R min     0.002 mean   0.107 max     0.311 neg   0 | Herm R min   0.002 mean     0.107 max       0.311 | E_krein>0 in 0
+zeta   P=1000 D=10.0 nwin=88   Obar 4.18 | Krein R min     0.019 mean   0.079 max     0.183 neg   0 | Herm R min   0.019 mean     0.079 max       0.183 | E_krein>0 in 0
+DH zeros: online 848 offline pairs 28 bad boxes []
+dh     P=2    D=2.0  nwin=479  Obar 5.77 | Krein R min     2.976 mean   6.056 max     9.708 neg   0 | Herm R min   2.976 mean     6.059 max       9.708 | E_krein>0 in 334
+dh     P=2    D=10.0 nwin=88   Obar 5.79 | Krein R min     4.344 mean   6.173 max     7.885 neg   0 | Herm R min   4.344 mean     6.174 max       7.886 | E_krein>0 in 71
+   weights/mean: {'fn': 'dh', 'P': 2, 'mean_sq': 2.0, 'median_online': 0.35793, 'median_pair': 0.17606, 'max_pair': 0.23004, 'median_left': 0.15785, 'median_right': 0.20713}
+dh     P=3    D=2.0  nwin=479  Obar 5.77 | Krein R min     2.058 mean   6.342 max    15.302 neg   0 | Herm R min   2.058 mean     6.491 max      22.685 | E_krein>0 in 323
+dh     P=3    D=10.0 nwin=88   Obar 5.79 | Krein R min     4.283 mean   6.291 max     9.718 neg   0 | Herm R min   4.305 mean     6.342 max       9.723 | E_krein>0 in 64
+   weights/mean: {'fn': 'dh', 'P': 3, 'mean_sq': 3.0, 'median_online': 0.32394, 'median_pair': 0.46354, 'max_pair': 1.09171, 'median_left': 0.56845, 'median_right': 0.36285}
+dh     P=7    D=2.0  nwin=479  Obar 5.77 | Krein R min     0.764 mean   6.301 max    21.573 neg   0 | Herm R min   1.232 mean     6.548 max      42.731 | E_krein>0 in 289
+dh     P=7    D=10.0 nwin=88   Obar 5.79 | Krein R min     3.666 mean   6.412 max    10.461 neg   0 | Herm R min   3.679 mean     6.481 max      10.465 | E_krein>0 in 60
+   weights/mean: {'fn': 'dh', 'P': 7, 'mean_sq': 4.375, 'median_online': 0.22727, 'median_pair': 0.17217, 'max_pair': 1.60325, 'median_left': 0.19388, 'median_right': 0.15889}
+dh     P=30   D=2.0  nwin=479  Obar 5.77 | Krein R min    -8.569 mean   6.394 max    32.479 neg   1 | Herm R min   0.887 mean     7.652 max     279.729 | E_krein>0 in 268
+dh     P=30   D=10.0 nwin=88   Obar 5.79 | Krein R min     2.816 mean   6.413 max    10.409 neg   0 | Herm R min   2.816 mean     6.914 max      20.538 | E_krein>0 in 55
+   weights/mean: {'fn': 'dh', 'P': 30, 'mean_sq': 6.33123, 'median_online': 0.15632, 'median_pair': 0.1963, 'max_pair': 2.93929, 'median_left': 0.24475, 'median_right': 0.159}
+dh     P=100  D=2.0  nwin=479  Obar 5.77 | Krein R min   -63.612 mean   5.780 max    38.426 neg   6 | Herm R min   0.776 mean    14.419 max    2289.689 | E_krein>0 in 233
+dh     P=100  D=10.0 nwin=88   Obar 5.79 | Krein R min     1.585 mean   5.908 max    10.489 neg   0 | Herm R min   2.984 mean     9.388 max     153.269 | E_krein>0 in 47
+   weights/mean: {'fn': 'dh', 'P': 100, 'mean_sq': 8.31136, 'median_online': 0.10418, 'median_pair': 0.09186, 'max_pair': 5.16382, 'median_left': 0.08607, 'median_right': 0.11031}
+dh     P=1000 D=2.0  nwin=479  Obar 5.77 | Krein R min  -152.828 mean   5.167 max    28.820 neg   5 | Herm R min   0.944 mean    52.804 max    9996.454 | E_krein>0 in 230
+dh     P=1000 D=10.0 nwin=88   Obar 5.79 | Krein R min    -9.701 mean   5.594 max     8.509 neg   2 | Herm R min   3.568 mean    28.121 max    1032.812 | E_krein>0 in 45
+   weights/mean: {'fn': 'dh', 'P': 1000, 'mean_sq': 12.35098, 'median_online': 0.08713, 'median_pair': 0.1182, 'max_pair': 11.59599, 'median_left': 0.15981, 'median_right': 0.06184}
+heat   P=2    D=2.0  nwin=94   Obar 2.85 | Krein R min     0.142 mean   1.974 max     5.134 neg   0 | Herm R min   0.142 mean     1.977 max       5.134 | E_krein>0 in 24
+heat   P=2    D=5.0  nwin=34   Obar 2.78 | Krein R min     0.438 mean   1.478 max     4.229 neg   0 | Herm R min   0.438 mean     1.479 max       4.230 | E_krein>0 in 3
+   weights/mean: {'fn': 'heat', 'P': 2, 'mean_sq': 2.0, 'median_online': 0.26852, 'median_pair': 0.19847, 'max_pair': 0.26829, 'median_left': 0.1778, 'median_right': 0.22384}
+heat   P=3    D=2.0  nwin=94   Obar 2.85 | Krein R min     0.020 mean   1.419 max     4.728 neg   0 | Herm R min   0.020 mean     1.421 max       4.730 | E_krein>0 in 9
+heat   P=3    D=5.0  nwin=34   Obar 2.78 | Krein R min     0.122 mean   0.944 max     2.339 neg   0 | Herm R min   0.122 mean     0.946 max       2.346 | E_krein>0 in 0
+   weights/mean: {'fn': 'heat', 'P': 3, 'mean_sq': 3.0, 'median_online': 0.14464, 'median_pair': 0.06491, 'max_pair': 0.08859, 'median_left': 0.04496, 'median_right': 0.08596}
+heat   P=7    D=2.0  nwin=94   Obar 2.85 | Krein R min     0.013 mean   0.751 max     3.034 neg   0 | Herm R min   0.015 mean     0.753 max       3.103 | E_krein>0 in 0
+heat   P=7    D=5.0  nwin=34   Obar 2.78 | Krein R min     0.080 mean   0.418 max     1.478 neg   0 | Herm R min   0.080 mean     0.420 max       1.491 | E_krein>0 in 0
+   weights/mean: {'fn': 'heat', 'P': 7, 'mean_sq': 4.375, 'median_online': 0.07193, 'median_pair': 0.01213, 'max_pair': 0.01457, 'median_left': 0.00527, 'median_right': 0.0269}
+heat   P=30   D=2.0  nwin=94   Obar 2.85 | Krein R min     0.008 mean   0.253 max     1.457 neg   0 | Herm R min   0.012 mean     0.256 max       1.457 | E_krein>0 in 0
+heat   P=30   D=5.0  nwin=34   Obar 2.78 | Krein R min     0.027 mean   0.135 max     0.323 neg   0 | Herm R min   0.027 mean     0.137 max       0.331 | E_krein>0 in 0
+   weights/mean: {'fn': 'heat', 'P': 30, 'mean_sq': 6.33123, 'median_online': 0.03567, 'median_pair': 0.00192, 'max_pair': 0.00448, 'median_left': 0.00032, 'median_right': 0.01317}
+heat   P=100  D=2.0  nwin=94   Obar 2.85 | Krein R min     0.004 mean   0.153 max     0.521 neg   0 | Herm R min   0.007 mean     0.155 max       0.521 | E_krein>0 in 0
+heat   P=100  D=5.0  nwin=34   Obar 2.78 | Krein R min     0.026 mean   0.103 max     0.201 neg   0 | Herm R min   0.026 mean     0.105 max       0.204 | E_krein>0 in 0
+   weights/mean: {'fn': 'heat', 'P': 100, 'mean_sq': 8.31136, 'median_online': 0.01637, 'median_pair': 0.00343, 'max_pair': 0.00438, 'median_left': 0.00113, 'median_right': 0.00867}
+heat   P=1000 D=2.0  nwin=94   Obar 2.85 | Krein R min    -0.001 mean   0.131 max     0.515 neg   1 | Herm R min   0.009 mean     0.137 max       0.519 | E_krein>0 in 0
+heat   P=1000 D=5.0  nwin=34   Obar 2.78 | Krein R min     0.015 mean   0.084 max     0.192 neg   0 | Herm R min   0.015 mean     0.089 max       0.196 | E_krein>0 in 0
+   weights/mean: {'fn': 'heat', 'P': 1000, 'mean_sq': 12.35098, 'median_online': 0.00854, 'median_pair': 0.00376, 'max_pair': 0.01684, 'median_left': 0.00241, 'median_right': 0.00613}
+zeta230 P=2    D=2.0  nwin=94   Obar 2.85 | Krein R min     0.160 mean   1.955 max     5.069 neg   0 | Herm R min   0.160 mean     1.955 max       5.069 | E_krein>0 in 21
+zeta230 P=2    D=5.0  nwin=34   Obar 2.78 | Krein R min     0.463 mean   1.502 max     4.050 neg   0 | Herm R min   0.463 mean     1.502 max       4.050 | E_krein>0 in 3
+zeta230 P=3    D=2.0  nwin=94   Obar 2.85 | Krein R min     0.023 mean   1.430 max     4.689 neg   0 | Herm R min   0.023 mean     1.430 max       4.689 | E_krein>0 in 8
+zeta230 P=3    D=5.0  nwin=34   Obar 2.78 | Krein R min     0.127 mean   0.956 max     2.247 neg   0 | Herm R min   0.127 mean     0.956 max       2.247 | E_krein>0 in 0
+zeta230 P=7    D=2.0  nwin=94   Obar 2.85 | Krein R min     0.017 mean   0.770 max     2.896 neg   0 | Herm R min   0.017 mean     0.770 max       2.896 | E_krein>0 in 0
+zeta230 P=7    D=5.0  nwin=34   Obar 2.78 | Krein R min     0.079 mean   0.419 max     1.391 neg   0 | Herm R min   0.079 mean     0.419 max       1.391 | E_krein>0 in 0
+zeta230 P=30   D=2.0  nwin=94   Obar 2.85 | Krein R min     0.010 mean   0.233 max     1.414 neg   0 | Herm R min   0.010 mean     0.233 max       1.414 | E_krein>0 in 0
+zeta230 P=30   D=5.0  nwin=34   Obar 2.78 | Krein R min     0.026 mean   0.126 max     0.313 neg   0 | Herm R min   0.026 mean     0.126 max       0.313 | E_krein>0 in 0
+zeta230 P=100  D=2.0  nwin=94   Obar 2.85 | Krein R min     0.005 mean   0.096 max     0.305 neg   0 | Herm R min   0.005 mean     0.096 max       0.305 | E_krein>0 in 0
+zeta230 P=100  D=5.0  nwin=34   Obar 2.78 | Krein R min     0.019 mean   0.068 max     0.151 neg   0 | Herm R min   0.019 mean     0.068 max       0.151 | E_krein>0 in 0
+zeta230 P=1000 D=2.0  nwin=94   Obar 2.85 | Krein R min     0.002 mean   0.046 max     0.128 neg   0 | Herm R min   0.002 mean     0.046 max       0.128 | E_krein>0 in 0
+zeta230 P=1000 D=5.0  nwin=34   Obar 2.78 | Krein R min     0.009 mean   0.033 max     0.069 neg   0 | Herm R min   0.009 mean     0.033 max       0.069 | E_krein>0 in 0
+   ea weights: {'fn': 'ea', 'P': 2, 'mean_sq': 2.0, 'median_online': 0.30036, 'median_pair': 0.29803, 'median_left': 0.27043, 'median_right': 0.32845, 'sum_p_pow': 0.65975, 'mean_log_left': -0.08499, 'mean_log_right': -0.05688, 'mean_log_online': -0.06899}
+   ea weights: {'fn': 'ea', 'P': 3, 'mean_sq': 3.0, 'median_online': 0.20699, 'median_pair': 0.20122, 'median_left': 0.17105, 'median_right': 0.23562, 'sum_p_pow': 1.17704, 'mean_log_left': -0.16945, 'mean_log_right': -0.10598, 'mean_log_online': -0.13288}
+   ea weights: {'fn': 'ea', 'P': 7, 'mean_sq': 4.375, 'median_online': 0.12842, 'median_pair': 0.12456, 'median_left': 0.10438, 'median_right': 0.14765, 'sum_p_pow': 1.8689, 'mean_log_left': -0.3098, 'mean_log_right': -0.17057, 'mean_log_online': -0.22741}
+   ea weights: {'fn': 'ea', 'P': 30, 'mean_sq': 6.33123, 'median_online': 0.07153, 'median_pair': 0.06597, 'median_left': 0.048, 'median_right': 0.08933, 'sum_p_pow': 2.95932, 'mean_log_left': -0.57301, 'mean_log_right': -0.25326, 'mean_log_online': -0.37392}
+   ea weights: {'fn': 'ea', 'P': 100, 'mean_sq': 8.31136, 'median_online': 0.04294, 'median_pair': 0.03759, 'median_left': 0.02269, 'median_right': 0.06078, 'sum_p_pow': 4.28589, 'mean_log_left': -0.9197, 'mean_log_right': -0.3225, 'mean_log_online': -0.52811}
+   ea weights: {'fn': 'ea', 'P': 1000, 'mean_sq': 12.35098, 'median_online': 0.0169, 'median_pair': 0.0094, 'median_left': 0.00234, 'median_right': 0.03397, 'sum_p_pow': 8.24207, 'mean_log_left': -1.93468, 'mean_log_right': -0.42437, 'mean_log_online': -0.84667}

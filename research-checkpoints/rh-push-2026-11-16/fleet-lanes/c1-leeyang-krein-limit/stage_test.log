@@ -1,0 +1,130 @@
+== TEST 1: self-dual stage G=M^{z/2}D_M(1/2+z): min Re L_M on grid (inner iff >0), sup|S_M+1| per abscissa x
+P= 13 L= 10.31 zeta   minReL(x=.02,.1,.3,1)=    0.152     0.753     2.085     4.268 | sup|S+1|=1.7359 1.1410 0.6482 0.3796 | 2/(1+aL/2)=0.3249 | max|S|=0.973068
+P= 13 L= 10.31 U_s0   minReL(x=.02,.1,.3,1)=    0.235     1.149     2.926     4.586 | sup|S+1|=1.5644 0.8591 0.5061 0.3580 | 2/(1+aL/2)=0.3249 | max|S|=0.969574
+P= 13 L= 10.31 rand1  minReL(x=.02,.1,.3,1)=    0.180     0.887     2.388     4.450 | sup|S+1|=1.6472 1.0381 0.5882 0.3669 | 2/(1+aL/2)=0.3249 | max|S|=0.969289
+P= 13 L= 10.31 rand2  minReL(x=.02,.1,.3,1)=    0.181     0.889     2.380     4.428 | sup|S+1|=1.6334 0.9994 0.5858 0.3685 | 2/(1+aL/2)=0.3249 | max|S|=0.970752
+P= 13 L= 10.31 rand3  minReL(x=.02,.1,.3,1)=    0.162     0.800     2.184     4.312 | sup|S+1|=1.6563 1.0314 0.6190 0.3764 | 2/(1+aL/2)=0.3249 | max|S|=0.970587
+P= 19 L= 16.09 zeta   minReL(x=.02,.1,.3,1)=    0.318     1.558     4.063     7.110 | sup|S+1|=1.5175 0.7818 0.3950 0.2466 | 2/(1+aL/2)=0.2211 | max|S|=0.973382
+P= 19 L= 16.09 U_s0   minReL(x=.02,.1,.3,1)=    0.465     2.224     5.137     7.496 | sup|S+1|=1.1431 0.5613 0.3213 0.2354 | 2/(1+aL/2)=0.2211 | max|S|=0.968223
+P= 19 L= 16.09 rand1  minReL(x=.02,.1,.3,1)=    0.401     1.943     4.760     7.422 | sup|S+1|=1.3095 0.6667 0.3462 0.2374 | 2/(1+aL/2)=0.2211 | max|S|=0.968064
+P= 19 L= 16.09 rand2  minReL(x=.02,.1,.3,1)=    0.484     2.311     5.259     7.372 | sup|S+1|=1.1093 0.5362 0.3148 0.2389 | 2/(1+aL/2)=0.2211 | max|S|=0.967919
+P= 19 L= 16.09 rand3  minReL(x=.02,.1,.3,1)=    0.476     2.272     5.167     7.335 | sup|S+1|=1.2506 0.5662 0.3226 0.2399 | 2/(1+aL/2)=0.2211 | max|S|=0.968984
+P= 29 L= 22.59 zeta   minReL(x=.02,.1,.3,1)=    0.567     2.742     6.643    10.336 | sup|S+1|=1.2761 0.5345 0.2617 0.1764 | 2/(1+aL/2)=0.1627 | max|S|=0.965209
+P= 29 L= 22.59 U_s0   minReL(x=.02,.1,.3,1)=    0.854     3.956     8.135    10.752 | sup|S+1|=0.9543 0.3956 0.2189 0.1702 | 2/(1+aL/2)=0.1627 | max|S|=0.966381
+P= 29 L= 22.59 rand1  minReL(x=.02,.1,.3,1)=    0.840     3.906     8.142    10.709 | sup|S+1|=0.8926 0.3873 0.2182 0.1708 | 2/(1+aL/2)=0.1627 | max|S|=0.969044
+P= 29 L= 22.59 rand2  minReL(x=.02,.1,.3,1)=    0.918     4.164     8.149    10.595 | sup|S+1|=0.6661 0.3205 0.2182 0.1725 | 2/(1+aL/2)=0.1627 | max|S|=0.967128
+P= 29 L= 22.59 rand3  minReL(x=.02,.1,.3,1)=    0.849     3.922     8.003    10.574 | sup|S+1|=1.0044 0.3886 0.2218 0.1728 | 2/(1+aL/2)=0.1627 | max|S|=0.968865
+P= 37 L= 29.64 zeta   minReL(x=.02,.1,.3,1)=    0.910     4.319     9.669    13.841 | sup|S+1|=1.0469 0.3760 0.1875 0.1348 | 2/(1+aL/2)=0.1264 | max|S|=0.970417
+P= 37 L= 29.64 U_s0   minReL(x=.02,.1,.3,1)=    1.427     6.361    11.713    14.294 | sup|S+1|=0.8201 0.2716 0.1573 0.1308 | 2/(1+aL/2)=0.1264 | max|S|=0.966509
+P= 37 L= 29.64 rand1  minReL(x=.02,.1,.3,1)=    1.821     7.558    12.087    14.219 | sup|S+1|=0.6554 0.2335 0.1528 0.1314 | 2/(1+aL/2)=0.1264 | max|S|=0.963839
+P= 37 L= 29.64 rand2  minReL(x=.02,.1,.3,1)=    2.355     8.785    12.612    14.170 | sup|S+1|=0.5361 0.1959 0.1468 0.1318 | 2/(1+aL/2)=0.1264 | max|S|=0.964063
+P= 37 L= 29.64 rand3  minReL(x=.02,.1,.3,1)=    1.812     7.576    12.088    14.091 | sup|S+1|=0.6533 0.2320 0.1528 0.1325 | 2/(1+aL/2)=0.1264 | max|S|=0.962667
+P= 47 L= 40.96 zeta   minReL(x=.02,.1,.3,1)=    1.621     7.408    14.777    19.484 | sup|S+1|=0.7630 0.2379 0.1268 0.0976 | 2/(1+aL/2)=0.0931 | max|S|=0.972636
+P= 47 L= 40.96 U_s0   minReL(x=.02,.1,.3,1)=    3.014    11.777    17.505    19.950 | sup|S+1|=0.4912 0.1564 0.1081 0.0955 | 2/(1+aL/2)=0.0931 | max|S|=0.963938
+P= 47 L= 40.96 rand1  minReL(x=.02,.1,.3,1)=    4.625    14.998    18.281    19.882 | sup|S+1|=0.3541 0.1249 0.1037 0.0958 | 2/(1+aL/2)=0.0931 | max|S|=0.964262
+P= 47 L= 40.96 rand2  minReL(x=.02,.1,.3,1)=    5.080    15.737    18.250    19.843 | sup|S+1|=0.3253 0.1191 0.1039 0.0960 | 2/(1+aL/2)=0.0931 | max|S|=0.963645
+P= 47 L= 40.96 rand3  minReL(x=.02,.1,.3,1)=    3.615    12.660    17.388    19.779 | sup|S+1|=0.2861 0.1440 0.1087 0.0962 | 2/(1+aL/2)=0.0931 | max|S|=0.964936
+P= 61 L= 53.12 zeta   minReL(x=.02,.1,.3,1)=    2.625    11.401    20.440    25.549 | sup|S+1|=0.5517 0.1613 0.0933 0.0753 | 2/(1+aL/2)=0.0726 | max|S|=0.964666
+P= 61 L= 53.12 U_s0   minReL(x=.02,.1,.3,1)=    6.589    18.867    23.670    26.045 | sup|S+1|=0.2096 0.1003 0.0811 0.0740 | 2/(1+aL/2)=0.0726 | max|S|=0.965425
+P= 61 L= 53.12 rand1  minReL(x=.02,.1,.3,1)=    8.652    21.750    24.187    25.976 | sup|S+1|=0.2038 0.0879 0.0794 0.0741 | 2/(1+aL/2)=0.0726 | max|S|=0.964870
+P= 61 L= 53.12 rand2  minReL(x=.02,.1,.3,1)=   10.408    21.931    24.209    25.916 | sup|S+1|=0.1746 0.0872 0.0793 0.0743 | 2/(1+aL/2)=0.0726 | max|S|=0.964731
+P= 61 L= 53.12 rand3  minReL(x=.02,.1,.3,1)=    8.569    19.538    24.017    25.868 | sup|S+1|=0.1695 0.0943 0.0797 0.0744 | 2/(1+aL/2)=0.0726 | max|S|=0.965995
+== TEST 2 (zeta phases): rel. error of stage against zeta(s)/zeta(2s), t in [3,40]; raw and pole-renormalised R=stage*exp(E1((s-1)logP))
+P=      13 sigma=1.50 Euler raw 2.934e-02 ren 3.128e-02 (P^(1/2-sigma)=7.692e-02; sup|raw|=1.581e+00 sup|ren|=1.576) | CW raw 8.983e-02 ren 9.081e-02
+P=      13 sigma=1.10 Euler raw 1.255e-01 ren 1.344e-01 (P^(1/2-sigma)=2.146e-01; sup|raw|=1.960e+00 sup|ren|=1.944) | CW raw 2.983e-01 ren 3.012e-01
+P=      13 sigma=0.90 Euler raw 3.002e-01 ren 3.175e-01 (P^(1/2-sigma)=3.584e-01; sup|raw|=2.262e+00 sup|ren|=2.231) | CW raw 6.126e-01 ren 6.183e-01
+P=      13 sigma=0.75 Euler raw 6.716e-01 ren 7.040e-01 (P^(1/2-sigma)=5.266e-01; sup|raw|=2.587e+00 sup|ren|=2.559) | CW raw 1.139e+00 ren 1.151e+00
+P=      13 sigma=0.60 Euler raw 2.270e+00 ren 2.361e+00 (P^(1/2-sigma)=7.738e-01; sup|raw|=3.287e+00 sup|ren|=3.331) | CW raw 2.350e+00 ren 2.380e+00
+P=      19 sigma=1.50 Euler raw 2.270e-02 ren 2.509e-02 (P^(1/2-sigma)=5.263e-02; sup|raw|=1.570e+00 sup|ren|=1.568) | CW raw 4.377e-02 ren 4.209e-02
+P=      19 sigma=1.10 Euler raw 1.063e-01 ren 1.150e-01 (P^(1/2-sigma)=1.709e-01; sup|raw|=1.916e+00 sup|ren|=1.908) | CW raw 1.241e-01 ren 1.186e-01
+P=      19 sigma=0.90 Euler raw 2.599e-01 ren 2.786e-01 (P^(1/2-sigma)=3.080e-01; sup|raw|=2.173e+00 sup|ren|=2.157) | CW raw 2.338e-01 ren 2.485e-01
+P=      19 sigma=0.75 Euler raw 5.882e-01 ren 6.264e-01 (P^(1/2-sigma)=4.790e-01; sup|raw|=2.435e+00 sup|ren|=2.392) | CW raw 5.379e-01 ren 5.728e-01
+P=      19 sigma=0.60 Euler raw 1.999e+00 ren 2.118e+00 (P^(1/2-sigma)=7.449e-01; sup|raw|=2.926e+00 sup|ren|=2.846) | CW raw 1.997e+00 ren 2.130e+00
+P=      29 sigma=1.50 Euler raw 1.528e-02 ren 1.374e-02 (P^(1/2-sigma)=3.448e-02; sup|raw|=1.557e+00 sup|ren|=1.559) | CW raw 3.224e-02 ren 3.212e-02
+P=      29 sigma=1.10 Euler raw 7.656e-02 ren 7.182e-02 (P^(1/2-sigma)=1.326e-01; sup|raw|=1.860e+00 sup|ren|=1.871) | CW raw 9.807e-02 ren 9.727e-02
+P=      29 sigma=0.90 Euler raw 1.964e-01 ren 1.859e-01 (P^(1/2-sigma)=2.600e-01; sup|raw|=2.077e+00 sup|ren|=2.079) | CW raw 1.788e-01 ren 1.766e-01
+P=      29 sigma=0.75 Euler raw 4.541e-01 ren 4.329e-01 (P^(1/2-sigma)=4.309e-01; sup|raw|=2.316e+00 sup|ren|=2.292) | CW raw 4.252e-01 ren 4.038e-01
+P=      29 sigma=0.60 Euler raw 1.519e+00 ren 1.388e+00 (P^(1/2-sigma)=7.141e-01; sup|raw|=2.808e+00 sup|ren|=2.723) | CW raw 1.387e+00 ren 1.333e+00
+P=      37 sigma=1.50 Euler raw 1.316e-02 ren 9.516e-03 (P^(1/2-sigma)=2.703e-02; sup|raw|=1.568e+00 sup|ren|=1.567) | CW raw 2.090e-02 ren 2.056e-02
+P=      37 sigma=1.10 Euler raw 5.817e-02 ren 5.617e-02 (P^(1/2-sigma)=1.146e-01; sup|raw|=1.916e+00 sup|ren|=1.909) | CW raw 6.880e-02 ren 6.666e-02
+P=      37 sigma=0.90 Euler raw 1.596e-01 ren 1.553e-01 (P^(1/2-sigma)=2.359e-01; sup|raw|=2.182e+00 sup|ren|=2.166) | CW raw 1.609e-01 ren 1.348e-01
+P=      37 sigma=0.75 Euler raw 3.906e-01 ren 3.792e-01 (P^(1/2-sigma)=4.055e-01; sup|raw|=2.485e+00 sup|ren|=2.529) | CW raw 3.785e-01 ren 3.467e-01
+P=      37 sigma=0.60 Euler raw 1.421e+00 ren 1.359e+00 (P^(1/2-sigma)=6.969e-01; sup|raw|=3.034e+00 sup|ren|=3.127) | CW raw 1.411e+00 ren 1.346e+00
+P=      47 sigma=1.50 Euler raw 1.092e-02 ren 6.636e-03 (P^(1/2-sigma)=2.128e-02; sup|raw|=1.567e+00 sup|ren|=1.566) | CW raw 1.520e-02 ren 1.592e-02
+P=      47 sigma=1.10 Euler raw 5.288e-02 ren 4.463e-02 (P^(1/2-sigma)=9.925e-02; sup|raw|=1.906e+00 sup|ren|=1.903) | CW raw 6.234e-02 ren 5.269e-02
+P=      47 sigma=0.90 Euler raw 1.167e-01 ren 1.291e-01 (P^(1/2-sigma)=2.144e-01; sup|raw|=2.157e+00 sup|ren|=2.150) | CW raw 1.310e-01 ren 1.127e-01
+P=      47 sigma=0.75 Euler raw 3.014e-01 ren 3.277e-01 (P^(1/2-sigma)=3.819e-01; sup|raw|=2.396e+00 sup|ren|=2.381) | CW raw 2.763e-01 ren 3.013e-01
+P=      47 sigma=0.60 Euler raw 1.151e+00 ren 1.233e+00 (P^(1/2-sigma)=6.804e-01; sup|raw|=2.935e+00 sup|ren|=2.798) | CW raw 1.131e+00 ren 1.210e+00
+P=      61 sigma=1.50 Euler raw 9.036e-03 ren 5.959e-03 (P^(1/2-sigma)=1.639e-02; sup|raw|=1.571e+00 sup|ren|=1.572) | CW raw 1.403e-02 ren 1.259e-02
+P=      61 sigma=1.10 Euler raw 4.811e-02 ren 4.051e-02 (P^(1/2-sigma)=8.488e-02; sup|raw|=1.937e+00 sup|ren|=1.942) | CW raw 5.548e-02 ren 4.614e-02
+P=      61 sigma=0.90 Euler raw 1.099e-01 ren 1.162e-01 (P^(1/2-sigma)=1.931e-01; sup|raw|=2.235e+00 sup|ren|=2.249) | CW raw 1.260e-01 ren 1.037e-01
+P=      61 sigma=0.75 Euler raw 2.684e-01 ren 2.970e-01 (P^(1/2-sigma)=3.578e-01; sup|raw|=2.556e+00 sup|ren|=2.586) | CW raw 2.850e-01 ren 2.803e-01
+P=      61 sigma=0.60 Euler raw 1.031e+00 ren 1.153e+00 (P^(1/2-sigma)=6.629e-01; sup|raw|=3.033e+00 sup|ren|=3.098) | CW raw 1.025e+00 ren 1.146e+00
+P=    1000 sigma=1.50 Euler raw 1.462e-03 ren 2.237e-04 (P^(1/2-sigma)=1.000e-03; sup|raw|=1.570e+00 sup|ren|=1.570)
+P=    1000 sigma=1.10 Euler raw 2.379e-02 ren 4.516e-03 (P^(1/2-sigma)=1.585e-02; sup|raw|=1.931e+00 sup|ren|=1.930)
+P=    1000 sigma=0.90 Euler raw 9.815e-02 ren 2.286e-02 (P^(1/2-sigma)=6.310e-02; sup|raw|=2.219e+00 sup|ren|=2.217)
+P=    1000 sigma=0.75 Euler raw 2.998e-01 ren 8.752e-02 (P^(1/2-sigma)=1.778e-01; sup|raw|=2.519e+00 sup|ren|=2.512)
+P=    1000 sigma=0.60 Euler raw 1.064e+00 ren 4.542e-01 (P^(1/2-sigma)=5.012e-01; sup|raw|=3.386e+00 sup|ren|=3.038)
+P=   10000 sigma=1.50 Euler raw 3.519e-04 ren 1.760e-05 (P^(1/2-sigma)=1.000e-04; sup|raw|=1.571e+00 sup|ren|=1.571)
+P=   10000 sigma=1.10 Euler raw 1.433e-02 ren 8.986e-04 (P^(1/2-sigma)=3.981e-03; sup|raw|=1.934e+00 sup|ren|=1.932)
+P=   10000 sigma=0.90 Euler raw 9.273e-02 ren 7.216e-03 (P^(1/2-sigma)=2.512e-02; sup|raw|=2.242e+00 sup|ren|=2.226)
+P=   10000 sigma=0.75 Euler raw 3.960e-01 ren 3.887e-02 (P^(1/2-sigma)=1.000e-01; sup|raw|=2.622e+00 sup|ren|=2.547)
+P=   10000 sigma=0.60 Euler raw 2.013e+00 ren 3.039e-01 (P^(1/2-sigma)=3.981e-01; sup|raw|=4.653e+00 sup|ren|=3.051)
+P=  100000 sigma=1.50 Euler raw 8.962e-05 ren 1.029e-06 (P^(1/2-sigma)=1.000e-05; sup|raw|=1.571e+00 sup|ren|=1.571)
+P=  100000 sigma=1.10 Euler raw 9.119e-03 ren 1.499e-04 (P^(1/2-sigma)=1.000e-03; sup|raw|=1.932e+00 sup|ren|=1.931)
+P=  100000 sigma=0.90 Euler raw 9.136e-02 ren 2.054e-03 (P^(1/2-sigma)=1.000e-02; sup|raw|=2.235e+00 sup|ren|=2.222)
+P=  100000 sigma=0.75 Euler raw 5.025e-01 ren 1.637e-02 (P^(1/2-sigma)=5.623e-02; sup|raw|=2.616e+00 sup|ren|=2.532)
+P=  100000 sigma=0.60 Euler raw 5.830e+00 ren 1.813e-01 (P^(1/2-sigma)=3.162e-01; sup|raw|=6.388e+00 sup|ren|=2.998)
+P= 1000000 sigma=1.50 Euler raw 2.368e-05 ren 1.044e-07 (P^(1/2-sigma)=1.000e-06; sup|raw|=1.571e+00 sup|ren|=1.571)
+P= 1000000 sigma=1.10 Euler raw 6.036e-03 ren 3.440e-05 (P^(1/2-sigma)=2.512e-04; sup|raw|=1.931e+00 sup|ren|=1.931)
+P= 1000000 sigma=0.90 Euler raw 9.332e-02 ren 7.285e-04 (P^(1/2-sigma)=3.981e-03; sup|raw|=2.216e+00 sup|ren|=2.221)
+P= 1000000 sigma=0.75 Euler raw 5.984e-01 ren 8.145e-03 (P^(1/2-sigma)=3.162e-02; sup|raw|=2.727e+00 sup|ren|=2.525)
+P= 1000000 sigma=0.60 Euler raw 1.728e+01 ren 1.283e-01 (P^(1/2-sigma)=2.512e-01; sup|raw|=1.947e+01 sup|ren|=3.009)
+== TEST 2b (controls): Euler stages near s0=0.75+20i. raw |E_P(s)|; zero-renormalised Z=E_P*exp(-E1((s-s0)logP)); pole-renormalised Rp=E_P*exp(E1((s-1)logP))
+zeta   s0-0.15  |raw|: 1.270e+00 1.112e+00 1.394e+00 8.333e-01 1.005e+00 | zero-ren: -18.4843+19.3294j -27.6289+36.6201j -182.8262-39.8357j | pole-ren: 0.8650-0.7526j 0.9288-0.7322j 0.8778-0.7191j
+zeta   s0-0.05  |raw|: 1.195e+00 1.115e+00 1.221e+00 1.024e+00 1.095e+00 | zero-ren: -1.2508+1.1271j -1.4839+1.4177j -2.7714+1.3715j | pole-ren: 0.8657-0.7252j 0.8884-0.7196j 0.8745-0.7154j
+zeta   s0+0.05  |raw|: 1.141e+00 1.101e+00 1.142e+00 1.075e+00 1.100e+00 | zero-ren: 0.4799-0.3928j 0.5132-0.4254j 0.6159-0.4310j | pole-ren: 0.8666-0.6890j 0.8747-0.6874j 0.8709-0.6862j
+zeta   s0+0.15  |raw|: 1.103e+00 1.083e+00 1.099e+00 1.076e+00 1.084e+00 | zero-ren: 0.7797-0.5857j 0.7999-0.6018j 0.8424-0.6050j | pole-ren: 0.8714-0.6470j 0.8743-0.6465j 0.8732-0.6462j
+zeta   s0+0.3i  |raw|: 9.002e-01 1.089e+00 9.685e-01 1.089e+00 9.366e-01 | zero-ren: 0.5709-1.0346j 0.5153-0.9351j 0.3898-0.6944j | pole-ren: 0.7024-0.7419j 0.6875-0.7442j 0.6909-0.7508j
+zeta   s0       |raw|: 1.166e+00 1.109e+00 1.175e+00 1.059e+00 1.102e+00 | zero-ren: 0.0000+0.0000j 0.0000+0.0000j 0.0000+0.0000j | pole-ren: 0.8657-0.7081j 0.8793-0.7051j 0.8720-0.7028j
+U_s0   s0-0.15  |raw|: 1.357e-01 4.449e-02 1.766e-02 6.268e-03 1.871e-03 | zero-ren: -0.3181+0.1166j -0.3242+0.1179j -0.3271+0.1191j | pole-ren: 0.0140-0.0037j 0.0089-0.0008j 0.0007-0.0020j
+U_s0   s0-0.05  |raw|: 1.771e-01 9.055e-02 5.951e-02 4.108e-02 2.918e-02 | zero-ren: -0.0779+0.0257j -0.0782+0.0257j -0.0783+0.0258j | pole-ren: 0.0529-0.0153j 0.0446-0.0107j 0.0258-0.0156j
+U_s0   s0+0.05  |raw|: 2.232e-01 1.494e-01 1.235e-01 1.082e-01 9.822e-02 | zero-ren: 0.0643-0.0192j 0.0643-0.0192j 0.0643-0.0192j | pole-ren: 0.1152-0.0326j 0.1082-0.0292j 0.0931-0.0336j
+U_s0   s0+0.15  |raw|: 2.718e-01 2.137e-01 1.961e-01 1.870e-01 1.819e-01 | zero-ren: 0.1680-0.0455j 0.1680-0.0455j 0.1680-0.0455j | pole-ren: 0.1872-0.0496j 0.1829-0.0479j 0.1753-0.0501j
+U_s0   s0+0.3i  |raw|: 2.124e-01 2.169e-01 2.659e-01 3.308e-01 3.814e-01 | zero-ren: 0.2163+0.2418j 0.2164+0.2416j 0.2163+0.2416j | pole-ren: 0.1285+0.2493j 0.1443+0.2718j 0.1984+0.3651j
+U_s0   s0       |raw|: 1.997e-01 1.188e-01 8.959e-02 7.179e-02 5.985e-02 | zero-ren: 0.0000+0.0000j 0.0000+0.0000j 0.0000+0.0000j | pole-ren: 0.0819-0.0237j 0.0739-0.0194j 0.0556-0.0246j
+rand1  s0-0.15  |raw|: 2.660e-01 2.567e-01 2.986e-01 2.333e-01 2.611e-01 | zero-ren: -4.9255-2.9235j -10.6296-7.2048j -38.7324-29.3348j | pole-ren: 0.1988+0.1441j 0.2179+0.2493j 0.2853-0.0737j
+rand1  s0-0.05  |raw|: 3.139e-01 3.017e-01 3.207e-01 2.933e-01 3.021e-01 | zero-ren: -0.3936-0.2015j -0.5169-0.2800j -0.7445-0.4171j | pole-ren: 0.2590+0.1446j 0.2743+0.1790j 0.2993+0.0875j
+rand1  s0+0.05  |raw|: 3.600e-01 3.473e-01 3.559e-01 3.445e-01 3.472e-01 | zero-ren: 0.1759+0.0799j 0.1938+0.0902j 0.2148+0.1010j | pole-ren: 0.3120+0.1471j 0.3193+0.1589j 0.3247+0.1307j
+rand1  s0+0.15  |raw|: 4.037e-01 3.921e-01 3.958e-01 3.912e-01 3.920e-01 | zero-ren: 0.3250+0.1331j 0.3364+0.1392j 0.3463+0.1438j | pole-ren: 0.3609+0.1502j 0.3641+0.1543j 0.3649+0.1454j
+rand1  s0+0.3i  |raw|: 4.541e-01 4.005e-01 3.868e-01 4.094e-01 4.031e-01 | zero-ren: 0.4016+0.2477j 0.3453+0.2047j 0.2731+0.2072j | pole-ren: 0.2823+0.2945j 0.2716+0.2671j 0.2794+0.3388j
+rand1  s0       |raw|: 3.372e-01 3.245e-01 3.373e-01 3.196e-01 3.246e-01 | zero-ren: 0.0000+0.0000j 0.0000+0.0000j 0.0000+0.0000j | pole-ren: 0.2861+0.1457j 0.2969+0.1658j 0.3090+0.1153j
+rand2  s0-0.15  |raw|: 2.208e+00 1.631e+00 2.184e+00 2.300e+00 2.399e+00 | zero-ren: -31.2451+27.9105j -100.5871+76.8606j -353.7345+272.4370j | pole-ren: 1.4434-1.0689j 3.0117-1.2579j 0.0370-2.7073j
+rand2  s0-0.05  |raw|: 1.931e+00 1.618e+00 1.845e+00 1.878e+00 1.905e+00 | zero-ren: -2.2939+1.0999j -3.4429+1.5224j -4.9200+2.1780j | pole-ren: 1.5643-0.6817j 1.9810-0.6887j 1.5735-1.1787j
+rand2  s0+0.05  |raw|: 1.750e+00 1.577e+00 1.673e+00 1.683e+00 1.691e+00 | zero-ren: 0.8770-0.2364j 1.0115-0.2593j 1.1198-0.2870j | pole-ren: 1.5714-0.3997j 1.6988-0.3887j 1.6249-0.5163j
+rand2  s0+0.15  |raw|: 1.625e+00 1.527e+00 1.569e+00 1.572e+00 1.574e+00 | zero-ren: 1.3778-0.1974j 1.4493-0.2004j 1.4920-0.2062j | pole-ren: 1.5348-0.2111j 1.5761-0.2047j 1.5596-0.2382j
+rand2  s0+0.3i  |raw|: 1.259e+00 1.152e+00 1.022e+00 1.019e+00 1.012e+00 | zero-ren: 1.1057-0.5777j 0.8725-0.4877j 0.7921-0.3355j | pole-ren: 1.0507-0.2434j 0.9147-0.2507j 1.0865-0.1846j
+rand2  s0       |raw|: 1.832e+00 1.599e+00 1.747e+00 1.765e+00 1.779e+00 | zero-ren: 0.0000+0.0000j 0.0000+0.0000j 0.0000+0.0000j | pole-ren: 1.5766-0.5274j 1.8047-0.5187j 1.6365-0.7692j
+rand3  s0-0.15  |raw|: 1.456e+00 1.124e+00 1.244e+00 1.150e+00 1.070e+00 | zero-ren: -22.0866-9.0160j -59.4673-21.7124j -184.4249-75.3928j | pole-ren: 0.9075+0.4716j 1.3407+0.9309j 1.0528-0.5928j
+rand3  s0-0.05  |raw|: 1.393e+00 1.186e+00 1.251e+00 1.217e+00 1.195e+00 | zero-ren: -1.6852-0.3714j -2.3919-0.4826j -3.2952-0.7253j | pole-ren: 1.1206+0.2898j 1.3062+0.3768j 1.2328-0.0117j
+rand3  s0+0.05  |raw|: 1.354e+00 1.223e+00 1.257e+00 1.245e+00 1.238e+00 | zero-ren: 0.6788+0.0706j 0.7686+0.0738j 0.8421+0.0867j | pole-ren: 1.2098+0.1433j 1.2790+0.1565j 1.2472+0.0572j
+rand3  s0+0.15  |raw|: 1.328e+00 1.244e+00 1.261e+00 1.257e+00 1.255e+00 | zero-ren: 1.1186+0.0312j 1.1692+0.0285j 1.2002+0.0324j | pole-ren: 1.2449+0.0417j 1.2698+0.0415j 1.2576+0.0160j
+rand3  s0+0.3i  |raw|: 1.635e+00 1.659e+00 1.626e+00 1.637e+00 1.651e+00 | zero-ren: 1.9156-0.5141j 1.5508-0.4130j 1.3824-0.2448j | pole-ren: 1.7148-0.0143j 1.5227-0.0276j 1.7957+0.1027j
+rand3  s0       |raw|: 1.371e+00 1.207e+00 1.254e+00 1.234e+00 1.222e+00 | zero-ren: 0.0000+0.0000j 0.0000+0.0000j 0.0000+0.0000j | pole-ren: 1.1752+0.2105j 1.2893+0.2463j 1.2407+0.0502j
+== TEST 3: S~=(1-aL~)/(1+aL~), L~ = arch + D'/D + renormaliser'; poles in Re z>0, 10<Im z<30; Hankel singular values (closed form R*AR conj A)
+P= 13 L= 10.31 zeta   stage zeros   32 (L*dT/2pi=32.8) poles in RHP   27 | median Re(pole)*L=1.4206002342353294 max Re=0.3420898577778367 | top sv 0.6002 #sv>1e-3 27 HS 1.6475 iso median 0.3982 max 0.5819 | axis: |mean(S~+1)|=0.2300 max sub-window mean 0.2449 sup|S~|=1.607 | interior sup|S~-S_target| {'0.3': 11.613191963718288, '0.6': 0.8358672268544245}
+P= 13 L= 10.31 U_s0   stage zeros   33 (L*dT/2pi=32.8) poles in RHP   29 | median Re(pole)*L=1.4358340866383157 max Re=0.42220943987644277 | top sv 0.6213 #sv>1e-3 29 HS 1.6618 iso median 0.3980 max 0.5659 | axis: |mean(S~+1)|=0.2307 max sub-window mean 0.2746 sup|S~|=1.800 | interior sup|S~-S_target| {}
+P= 13 L= 10.31 rand1  stage zeros   33 (L*dT/2pi=32.8) poles in RHP   27 | median Re(pole)*L=1.3831432025914367 max Re=0.5062887479300836 | top sv 0.6045 #sv>1e-3 27 HS 1.6563 iso median 0.4074 max 0.5826 | axis: |mean(S~+1)|=0.2289 max sub-window mean 0.2545 sup|S~|=1.593 | interior sup|S~-S_target| {}
+P= 19 L= 16.09 zeta   stage zeros   50 (L*dT/2pi=51.2) poles in RHP   46 | median Re(pole)*L=1.8493028239770113 max Re=0.2635984472968475 | top sv 0.5558 #sv>1e-3 46 HS 1.3271 iso median 0.2776 max 0.4335 | axis: |mean(S~+1)|=0.1392 max sub-window mean 0.1563 sup|S~|=1.324 | interior sup|S~-S_target| {'0.3': 6.718758943590905, '0.6': 0.7947524915623921}
+P= 19 L= 16.09 U_s0   stage zeros   51 (L*dT/2pi=51.2) poles in RHP   47 | median Re(pole)*L=1.8632818417989745 max Re=0.24104421685364152 | top sv 0.5615 #sv>1e-3 47 HS 1.3355 iso median 0.2764 max 0.4304 | axis: |mean(S~+1)|=0.1371 max sub-window mean 0.1535 sup|S~|=1.393 | interior sup|S~-S_target| {}
+P= 19 L= 16.09 rand1  stage zeros   51 (L*dT/2pi=51.2) poles in RHP   47 | median Re(pole)*L=1.8427170478994392 max Re=0.5581061030708753 | top sv 0.5198 #sv>1e-3 47 HS 1.2629 iso median 0.2763 max 0.5231 | axis: |mean(S~+1)|=0.1379 max sub-window mean 0.1443 sup|S~|=1.319 | interior sup|S~-S_target| {}
+P= 29 L= 22.59 zeta   stage zeros   71 (L*dT/2pi=71.9) poles in RHP   62 | median Re(pole)*L=2.3144725505048074 max Re=0.28790508596837416 | top sv 0.5883 #sv>1e-3 62 HS 1.2656 iso median 0.2243 max 0.5121 | axis: |mean(S~+1)|=0.0955 max sub-window mean 0.1053 sup|S~|=1.214 | interior sup|S~-S_target| {'0.3': 39.14241088721518, '0.6': 0.46905886063583724}
+P= 29 L= 22.59 U_s0   stage zeros   72 (L*dT/2pi=71.9) poles in RHP   67 | median Re(pole)*L=2.3943647004850974 max Re=0.30985141346160205 | top sv 0.5138 #sv>1e-3 67 HS 1.2420 iso median 0.2412 max 0.5840 | axis: |mean(S~+1)|=0.0946 max sub-window mean 0.1050 sup|S~|=1.252 | interior sup|S~-S_target| {}
+P= 29 L= 22.59 rand1  stage zeros   72 (L*dT/2pi=71.9) poles in RHP   64 | median Re(pole)*L=2.164771771517738 max Re=0.22327248193648985 | top sv 0.8881 #sv>1e-3 64 HS 1.5208 iso median 0.2197 max 0.6843 | axis: |mean(S~+1)|=0.0949 max sub-window mean 0.1013 sup|S~|=1.210 | interior sup|S~-S_target| {}
+P= 37 L= 29.64 zeta   stage zeros   94 (L*dT/2pi=94.3) poles in RHP   83 | median Re(pole)*L=2.595484770722112 max Re=0.2943591711005618 | top sv 0.9622 #sv>1e-3 83 HS 1.5535 iso median 0.1964 max 0.6582 | axis: |mean(S~+1)|=0.0714 max sub-window mean 0.0744 sup|S~|=1.156 | interior sup|S~-S_target| {'0.3': 9.320240335994841, '0.6': 0.4189600521449869}
+P= 37 L= 29.64 U_s0   stage zeros   94 (L*dT/2pi=94.3) poles in RHP   88 | median Re(pole)*L=2.741247437451105 max Re=0.18510663334568128 | top sv 0.6713 #sv>1e-3 88 HS 1.2140 iso median 0.2118 max 0.5606 | axis: |mean(S~+1)|=0.0711 max sub-window mean 0.0760 sup|S~|=1.178 | interior sup|S~-S_target| {}
+P= 37 L= 29.64 rand1  stage zeros   94 (L*dT/2pi=94.3) poles in RHP   82 | median Re(pole)*L=2.436429705407923 max Re=0.2559787889066273 | top sv 0.8220 #sv>1e-3 82 HS 1.4658 iso median 0.1935 max 0.5465 | axis: |mean(S~+1)|=0.0713 max sub-window mean 0.0741 sup|S~|=1.153 | interior sup|S~-S_target| {}
+P= 47 L= 40.96 zeta   stage zeros  130 (L*dT/2pi=130.4) poles in RHP  118 | median Re(pole)*L=3.0426723679478056 max Re=0.17621566867813862 | top sv 1.2987 #sv>1e-3 118 HS 2.1283 iso median 0.1833 max 0.9510 | axis: |mean(S~+1)|=0.0509 max sub-window mean 0.0528 sup|S~|=1.108 | interior sup|S~-S_target| {'0.3': 1.5596664327780918, '0.6': 0.16201499791398477}
+P= 47 L= 40.96 U_s0   stage zeros  130 (L*dT/2pi=130.4) poles in RHP  122 | median Re(pole)*L=3.169713981784847 max Re=0.19687816322855045 | top sv 0.9424 #sv>1e-3 122 HS 1.3830 iso median 0.1944 max 0.9106 | axis: |mean(S~+1)|=0.0505 max sub-window mean 0.0532 sup|S~|=1.120 | interior sup|S~-S_target| {}
+P= 47 L= 40.96 rand1  stage zeros  130 (L*dT/2pi=130.4) poles in RHP  115 | median Re(pole)*L=2.7870968548244606 max Re=0.20998728711072995 | top sv 0.8092 #sv>1e-3 115 HS 1.4678 iso median 0.1604 max 0.7185 | axis: |mean(S~+1)|=0.0508 max sub-window mean 0.0522 sup|S~|=1.107 | interior sup|S~-S_target| {}
+done in 50.1s

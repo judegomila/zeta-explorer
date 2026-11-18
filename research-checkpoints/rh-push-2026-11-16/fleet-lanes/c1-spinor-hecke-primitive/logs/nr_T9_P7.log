@@ -1,0 +1,10 @@
+name=nr T=9.0 Nmax=400 primes=[2, 3, 5, 7] shifts=81 X=1.702e+06; planned: atoms<= 0.08 GB worst case (DH), matrices 0.010 GB
+atoms=257143 built in 0.1s
+E,D done 38.1s
+{'N': 12, 'full_min': -16.9642285350215, 'full_max': 34.68311845652889, 'full_neg': 1, 'prim_min': -4.789793630420551, 'prim_neg': 1, 'prim_neg_gen': 1, 'gram_min': 0.3117965050302404, 'gram_max': 9.579613941261005}
+{'N': 25, 'full_min': -17.221601441004427, 'full_max': 37.01125412895484, 'full_neg': 3, 'prim_min': -8.60807081628941, 'prim_neg': 3, 'prim_neg_gen': 3, 'gram_min': 0.04528431935792216, 'gram_max': 9.633848025630586}
+{'N': 50, 'full_min': -17.62723365139098, 'full_max': 44.51508333201198, 'full_neg': 5, 'prim_min': -65.63659808116631, 'prim_neg': 5, 'prim_neg_gen': 5, 'gram_min': 0.044911067525801825, 'gram_max': 18.278886456518336}
+{'N': 100, 'full_min': -18.27699088942631, 'full_max': 44.90258161330925, 'full_neg': 9, 'prim_min': -67.08050601381255, 'prim_neg': 10, 'prim_neg_gen': 10, 'gram_min': 0.025652386220463452, 'gram_max': 18.304476927033004}
+{'N': 200, 'full_min': -18.623814164459503, 'full_max': 45.51610958884905, 'full_neg': 18, 'prim_min': -67.44234539759593, 'prim_neg': 19, 'prim_neg_gen': 19, 'gram_min': 0.025429870422747032, 'gram_max': 18.312845348582986}
+{'N': 400, 'full_min': -18.922462537028757, 'full_max': 45.556914024050386, 'full_neg': 36, 'prim_min': -67.59102198211083, 'prim_neg': 36, 'prim_neg_gen': 36, 'gram_min': 0.019498493249627935, 'gram_max': 24.114711522859253}
+total 38.3s

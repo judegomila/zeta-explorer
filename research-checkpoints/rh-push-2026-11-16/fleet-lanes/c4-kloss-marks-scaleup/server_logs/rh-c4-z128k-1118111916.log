@@ -1,0 +1,10 @@
+planned allocation: element grid 0.00 GB
+[    0.0s] Z=128000 M=1.0 l=0.3333333333333333 cslot=-40.0 X=6450796 NMAX=128001 elements=51594 primes=11978
+Traceback (most recent call last):
+  File "~/rh-push/c4-kloss-marks-scaleup/scale.py", line 92, in <module>
+    log(f"rows R={R}  marks n={n} (norms {PN[slot].min()}..{PN[slot].max()}; {int((PN[slot] <= 2 * PLO).sum())} in [Z^l, 2Z^l])  small primes={NS}")
+                                          ^^^^^^^^^^^^^^
+  File "~/rh-push/venv/lib/python3.12/site-packages/numpy/_core/_methods.py", line 45, in _amin
+    return umr_minimum(a, axis, None, out, keepdims, initial, where)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: zero-size array to reduction operation minimum which has no identity

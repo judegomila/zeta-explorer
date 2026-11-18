@@ -1,0 +1,7 @@
+U=512000 rows R=206381 (all primary u, N(u)<=U) t=0.0s
+config r=0.0 z=0.5 k=1: marks n=84 (split primes, 178.9 < N <= 715.5); planned A 84x206381 c64 x2 + G: 0.28 GB
+  w=one  mean w=1.0000 tr=0.9973 | I(1)/tr=1.003 | best Gauss g3 I/tr=1.001 | sup/tr >= 1.019 (start conj_g2) <= 1.026 | n/R=0.0004 (1+sqrt(n/R))^2=1.041 | top row N=71083 share 0.000 | max overlap conj_g2 0.396 t=1s
+config r=0.0 z=0.6 k=1: marks n=260 (split primes, 666.0 < N <= 2664.2); planned A 260x206381 c64 x2 + G: 0.86 GB
+  w=one  mean w=1.0000 tr=0.9993 | I(1)/tr=1.002 | best Gauss conj_g5 I/tr=1.070 | sup/tr >= 1.147 (start g2) <= 1.152 | n/R=0.0013 (1+sqrt(n/R))^2=1.072 | top row N=346957 share 0.000 | max overlap conj_g5 0.502 t=4s
+config r=0.0 z=0.75 k=1: marks n=1522 (split primes, 4785.1 < N <= 19140.5); planned A 1522x206381 c64 x2 + G: 5.17 GB
+memcap: RSS 8 GB exceeded cap 8 GB; killing 72182

@@ -1,0 +1,3 @@
+planned memory per worker: chunk 20000 x 128 complex x ~4 temporaries = 164 MB; workers 8
+computed 1056 tasks in 1407.3283305168152
+done 1408.314305305481

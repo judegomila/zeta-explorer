@@ -1,0 +1,49 @@
+{
+ "slug": "e1-forcing-free-bilinear-split",
+ "round": 1,
+ "batch": 1,
+ "kind": "attack",
+ "nodes": [
+  "vaughan-sqrt-type1-exact",
+  "vaughan-forcing-law",
+  "landau-one-sided-target"
+ ],
+ "launchedNodes": [
+  "vaughan-sqrt-type1-exact",
+  "vaughan-forcing-law",
+  "landau-one-sided-target",
+  "legendre-lcm-identity"
+ ],
+ "tags": [
+  "vaughan",
+  "bilinear",
+  "landau",
+  "legendre-lp",
+  "restatement"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "For any finitely supported mu' on [1, D] and X >= D: sum_m (1*mu')(m) m^-1/2 R(X/m) = -(4 + 2 gamma) sqrt X M'(1) - zeta'(1/2) M'(1/2) + E, |E| <= ||mu'||_1 (6 + log X)/sqrt X. With mu' = mu_{<=U} - c2 delta_2 - c3 delta_3 and M'(1) = M'(1/2) = 0: R(X) = K'_X[R] + Xi', |Xi'| <= (U + 32 sqrt U + 25)(6 + log X)/sqrt X, unconditional (7.99e-7 at X = 1e32). The Vaughan X^{1/4} forcing is a normalisation. The kernel symbol is 1 at every zero on or off the line; kernel absolute mass is of order sqrt X. A one-sided polylog bound on K'[R] is equivalent to RH. NOT surviving: the parity cap at restricted level (false: restricted-level Legendre plus positivity is the half-weight Chebyshev/Legendre LP, whose polylog gap is an open RH-hard quantity).",
+ "obstruction": "After the forcing is removed by two linear conditions on the mollifier, every identity of this shape is a linear combination of the half-weight Legendre identity (1*Lambda = log) with symbol exactly 1 at every zero; at full level Lambda >= 0 is implied (system has the single solution Lambda), and the remaining one-sided polylog bound on K'[R] is equivalent to RH (Theorem OS). Positivity enters only in Landau's lemma.",
+ "obstructionKind": "restatement-of-rh",
+ "controlsThatDefeat": [
+  "E_a = zeta(s+a)zeta(s-a): not excluded by any proved step",
+  "structured sign twist with Lambda >= 0 (TW+): not excluded by any proved step"
+ ],
+ "lesson": "Filter out any combination whose only new ingredient is a different Type-I/Type-II split or mollifier of this shape; a live route must use positivity non-linearly or the size normalisation that separates zeta from E_a. Restricted-level Legendre plus positivity is NOT closed by parity: it is the Legendre LP lane.",
+ "refereeHolds": false,
+ "refereeNote": "Verdict stands. Theorem R(iii) (parity cap at restricted level, labelled PROVED) is false: Theorem P does not apply to Chebyshev-class weights. Also not surviving: uniqueness of the dual certificate, '5-8x', 'X^0.44', '4.7e-7 by proof'.",
+ "referees": 1,
+ "aboutZeros": false,
+ "strength": 0.04,
+ "newNodes": [
+  {
+   "id": "vaughan-forcing-is-gauge",
+   "type": "identity",
+   "status": "proved",
+   "statement": "The X^{1/4} Vaughan forcing equals -(4+2gamma) sqrt X M'(1) - zeta'(1/2) M'(1/2) and is removed by two linear conditions on the mollifier; residual |Xi'| <= (U + 32 sqrt U + 25)(6 + log X)/sqrt X."
+  }
+ ],
+ "followUp": "",
+ "resultFile": "tmp/research-2026-11-16/push/e1-forcing-free-bilinear-split/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/e1-forcing-free-bilinear-split/REFEREE.md"
+}

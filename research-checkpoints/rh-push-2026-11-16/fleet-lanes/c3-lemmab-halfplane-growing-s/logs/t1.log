@@ -1,0 +1,47 @@
+S [2] Tw 0.65 sigma0 0.88 a 0.0 T 3000.0 grid 724983 (46 MB)
+   zero 1.241189792 arch 2.208748071 res -0.9675582792 | rel diff -2.37e-11 | R 3.4663 Obar 6.1685 E -2.7022 sum|res|/den 2.8696 M 2.069 B1 bound 40.448
+S [2] Tw 0.65 sigma0 0.9 a 0.0 T 3000.0 grid 724983 (46 MB)
+   zero 1.23273011 arch 2.12495875 res -0.8922286403 | rel diff -2.37e-11 | R 3.5785 Obar 6.1685 E -2.5900 sum|res|/den 2.7438 M 1.982 B1 bound 37.325
+S [2] Tw 0.65 sigma0 0.95 a 0.0 T 3000.0 grid 724983 (46 MB)
+   zero 1.211849368 arch 1.948857102 res -0.7370077341 | rel diff -2.37e-11 | R 3.8357 Obar 6.1685 E -2.3328 sum|res|/den 2.4568 M 1.784 B1 bound 30.895
+S [2] Tw 0.65 sigma0 1.0 a 0.0 T 3000.0 grid 724983 (46 MB)
+   zero 1.191464182 arch 1.80898088 res -0.6175166971 | rel diff -2.37e-11 | R 4.0628 Obar 6.1685 E -2.1057 sum|res|/den 2.2061 M 1.609 B1 bound 25.956
+S [2] Tw 0.65 sigma0 1.25 a 0.0 T 3000.0 grid 724983 (46 MB)
+   zero 1.100898176 arch 1.399172687 res -0.2982745117 | rel diff -2.37e-11 | R 4.8535 Obar 6.1685 E -1.3150 sum|res|/den 1.3617 M 0.999 B1 bound 12.792
+S [2] Tw 0.65 sigma0 2.0 a 0.0 T 3000.0 grid 724983 (46 MB)
+   zero 0.9539976712 arch 1.03370336 res -0.0797056885 | rel diff -2.37e-11 | R 5.6929 Obar 6.1685 E -0.4756 sum|res|/den 0.5078 M 0.360 B1 bound 3.994
+S [3] Tw 1.05 sigma0 0.9 a 0.0 T 9000.0 grid 448799 (29 MB)
+   zero 2.224755697 arch 2.943660128 res -0.7189044313 | rel diff 2.04e-10 | R 5.4923 Obar 7.2671 E -1.7748 sum|res|/den 2.8068 M 1.749 B1 bound 24.612
+S [3] Tw 1.05 sigma0 1.0 a 0.0 T 9000.0 grid 448799 (29 MB)
+   zero 2.081979026 arch 2.581985943 res -0.5000069181 | rel diff 2.04e-10 | R 5.8598 Obar 7.2671 E -1.4073 sum|res|/den 2.1807 M 1.449 B1 bound 18.280
+S [3] Tw 1.05 sigma0 1.25 a 0.0 T 9000.0 grid 448799 (29 MB)
+   zero 1.879675375 arch 2.131538795 res -0.2518634198 | rel diff 2.04e-10 | R 6.4084 Obar 7.2671 E -0.8587 sum|res|/den 1.3094 M 0.957 B1 bound 10.784
+S [2, 3] Tw 1.7 sigma0 0.9 a 0.0 T 3000.0 grid 277200 (18 MB)
+   zero 3.06266975 arch 5.248835818 res -2.186166069 | rel diff -2.36e-11 | R 3.5992 Obar 6.1684 E -2.5692 sum|res|/den 3.8411 M 1.659 
+S [2, 3] Tw 1.7 sigma0 1.0 a 0.0 T 3000.0 grid 277200 (18 MB)
+   zero 3.002895857 arch 4.479737113 res -1.476841255 | rel diff -2.36e-11 | R 4.1349 Obar 6.1685 E -2.0336 sum|res|/den 3.0463 M 1.398 
+S [2, 3] Tw 1.7 sigma0 1.25 a 0.0 T 3000.0 grid 277200 (18 MB)
+   zero 2.8704339 arch 3.56034674 res -0.6899128399 | rel diff -2.36e-11 | R 4.9732 Obar 6.1686 E -1.1953 sum|res|/den 1.8169 M 0.932 
+S [2, 3, 5] Tw 3.3 sigma0 0.9 a 0.0 T 6000.0 grid 142800 (9 MB)
+   zero 30.78689878 arch 51.56821852 res -20.78131975 | rel diff 2.05e-10 | R 4.0965 Obar 6.8617 E -2.7652 sum|res|/den 3.8611 M 1.519 
+S [2, 3, 5] Tw 3.3 sigma0 1.0 a 0.0 T 6000.0 grid 142800 (9 MB)
+   zero 24.0314698 arch 37.12032897 res -13.08885917 | rel diff 2.04e-10 | R 4.4422 Obar 6.8617 E -2.4195 sum|res|/den 3.6006 M 1.243 
+S [7] Tw 2.5 sigma0 0.9 a 0.0 T 5000.0 grid 188496 (12 MB)
+   zero 4.637021898 arch 4.773206614 res -0.1361847167 | rel diff 2.04e-10 | R 6.4887 Obar 6.6793 E -0.1906 sum|res|/den 1.1499 M 2.059 B1 bound 30.194
+S [7] Tw 2.5 sigma0 1.0 a 0.0 T 5000.0 grid 188496 (12 MB)
+   zero 4.258067853 arch 4.394713265 res -0.1366454129 | rel diff 2.04e-10 | R 6.4716 Obar 6.6793 E -0.2077 sum|res|/den 0.7049 M 1.758 B1 bound 27.183
+S [2] Tw 1.2 sigma0 0.9 a 0.0 T 3000.0 grid 392700 (25 MB)
+   zero 2.326104807 arch 3.933183369 res -1.607078562 | rel diff -2.38e-11 | R 3.6481 Obar 6.1685 E -2.5204 sum|res|/den 2.6463 M 1.659 B1 bound 38.926
+S [2] Tw 0.65 sigma0 1.0 a 0.2 T 3000.0 grid 724983 (46 MB)
+   zero 2.258817431 arch 3.61796176 res -1.359144329 | rel diff -2.37e-11 | R 7.7024 Obar 12.3370 E -4.6346 sum|res|/den 4.9069 M 3.551 B1 bound 57.287
+S [2] Tw 0.65 sigma0 1.25 a 0.2 T 3000.0 grid 724983 (46 MB)
+   zero 2.151281937 arch 2.798345376 res -0.6470634384 | rel diff -2.37e-11 | R 9.4843 Obar 12.3370 E -2.8527 sum|res|/den 2.9628 M 2.165 B1 bound 27.727
+S [2] Tw 0.65 sigma0 1.0 a 0.3 T 3000.0 grid 724983 (46 MB)
+   zero 2.100635208 arch 3.617961762 res -1.517326554 | rel diff -2.37e-11 | R 7.1630 Obar 12.3370 E -5.1740 sum|res|/den 5.5343 M 3.958 B1 bound 63.854
+S [2] Tw 0.65 sigma0 1.0 a 0.45 T 3000.0 grid 724983 (46 MB)
+   zero 1.728715456 arch 3.617961766 res -1.88924631 | rel diff -2.37e-11 | R 5.8948 Obar 12.3370 E -6.4422 sum|res|/den 6.8798 M 4.744 B1 bound 76.544
+S [2] Tw 0.65 sigma0 1.25 a 0.45 T 3000.0 grid 724983 (46 MB)
+   zero 1.924533046 arch 2.79834538 res -0.8738123343 | rel diff -2.37e-11 | R 8.4846 Obar 12.3370 E -3.8523 sum|res|/den 4.1058 M 2.942 B1 bound 37.684
+S [2, 3] Tw 1.7 sigma0 1.0 a 0.2 T 3000.0 grid 277200 (18 MB)
+   zero 5.751055546 arch 8.959474229 res -3.208418683 | rel diff -2.36e-11 | R 7.9190 Obar 12.3369 E -4.4179 sum|res|/den 6.7930 M 2.974 
+exit 0

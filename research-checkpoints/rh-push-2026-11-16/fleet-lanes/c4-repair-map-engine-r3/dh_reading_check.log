@@ -1,0 +1,12 @@
+kappa = 0.28407904384041227
+(D1) |eps| = 1.0  eps(chi) c1 - c2 = -5.551115123125783e-17j  eps(conj chi) - conj eps(chi) = (-1.1102230246251565e-16-2.220446049250313e-16j)  eps(conj chi) c2 - c1 = -8.326672684688674e-17j
+(D6) -i tau/sqrt5 - eps = 0j
+(D5) max |e(a/5) - (1/4) sum tau(conj psi) psi(a)| = 1.5700924586837752e-16  residue of L(w,chi_0) at 1 = 1 - 1/5 = 0.8
+(D4) 25 * 5^(-5/2) - 5^(-1/2) = 5.551115123125783e-17
+(D7) Caratheodory disc at rho = 2^-1/2: centre 3.000000000000001 radius 2.8284271247461907 (2 sqrt 2 = 2.8284271247461903 )
+(D7) 1 + centre - radius*(|c1|+|c2|) = 1.0596586549867615  ; 4 - 2 sqrt2 sqrt(1+kappa^2) = 1.059658654986761
+(D7) with the real-part Harnack bound alone (F3 as stated): Re(c1 z1 + c2 z2) is not bounded below by Re z only;
+     sampled min over the two discs of Re(c1 z1 + c2 z2) = 0.05966759170067826  (bound 3 - 2 sqrt2 sqrt(1+kappa^2) = 0.05965865498676104 )
+(D1) X_c(s) - pi^(s-1/2) Gamma(1-s/2)/Gamma((1+s)/2) at s = 0.3+2.3333i: 9.8608e-32
+(D4) X_c,+ + i chi_+ = 0.0
+(D1) |f(s) - 5^(1/2-s) X_c(s) f(1-s)| = 1.8002e-17 (kappa at float64 precision)

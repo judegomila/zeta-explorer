@@ -1,0 +1,20 @@
+{
+ "high_0_405": {
+  "tau": 0.0,
+  "window": [
+   405.0,
+   425.0
+  ],
+  "sign_changes": 13,
+  "zeta_zeros_in_window": 13
+ },
+ "high_0_532": {
+  "tau": 0.0,
+  "window": [
+   532.0,
+   572.0
+  ],
+  "sign_changes": 28,
+  "zeta_zeros_in_window": 28
+ }
+}

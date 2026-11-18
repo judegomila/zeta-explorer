@@ -1,0 +1,31 @@
+g = Th3 K6m Th3 = [['-5', '0', '-3'], ['2', '1', '1'], ['8', '0', '5']]  g^2 = I: True
+X o g = ['3', '0', '2']  (X + 2T + V: x' = x + (2t + v - 1/2) = 3x + z - 3/2 in high coordinates)
+orders: K6m*K6 (dual chart): 3   Th3*K6m: None   K6*Th3: 2   g*K6: 3   g*AW: None   g*Pm: None
+trace of Th3*K6m = 5 (a rank-2 block with trace 4 > 2: hyperbolic, infinite order)
+order <K6, Th3, Pm> = 48 closed
+K6m in <K6, Th3, Pm>: False    g in <K6, Th3, Pm>: False
+order <K6, Th3, Pm, K6m> : 23372 (cap reached: infinite or large)
+theta = 1 (1.000000), words up to length 6 in <K6, AW, g>: 104 elements; inf x over images: low: 1 [KA], high: 1 [e], dual: 3/2 [e], dual2: 3/2 [g]; images with x unbounded below: 143 e.g. [('KA', 'dual'), ('KA', 'dual2'), ('KAK', 'dual'), ('KAK', 'dual2')]
+theta = 1 (1.000000), words up to length 9 in <K6, AW, g>: 460 elements; inf x over images: low: 1 [KA], high: 1 [e], dual: 3/2 [e], dual2: 3/2 [g]; images with x unbounded below: 865 e.g. [('KA', 'dual'), ('KA', 'dual2'), ('KAK', 'dual'), ('KAK', 'dual2')]
+theta = 7/8 (0.875000), words up to length 6 in <K6, AW, g>: 104 elements; inf x over images: low: 1 [KA], high: 7/8 [e], dual: 3/2 [e], dual2: 3/2 [g]; images with x unbounded below: 143 e.g. [('KA', 'dual'), ('KA', 'dual2'), ('KAK', 'dual'), ('KAK', 'dual2')]
+theta = 7/8 (0.875000), words up to length 9 in <K6, AW, g>: 460 elements; inf x over images: low: 1 [KA], high: 7/8 [e], dual: 3/2 [e], dual2: 3/2 [g]; images with x unbounded below: 865 e.g. [('KA', 'dual'), ('KA', 'dual2'), ('KAK', 'dual'), ('KAK', 'dual2')]
+theta = 874886647/1000000000 (0.874887), words up to length 6 in <K6, AW, g>: 104 elements; inf x over images: low: 1 [KA], high: 874886647/1000000000 [e], dual: 3/2 [e], dual2: 3/2 [g]; images with x unbounded below: 143 e.g. [('KA', 'dual'), ('KA', 'dual2'), ('KAK', 'dual'), ('KAK', 'dual2')]
+theta = 874886647/1000000000 (0.874887), words up to length 9 in <K6, AW, g>: 460 elements; inf x over images: low: 1 [KA], high: 874886647/1000000000 [e], dual: 3/2 [e], dual2: 3/2 [g]; images with x unbounded below: 865 e.g. [('KA', 'dual'), ('KA', 'dual2'), ('KAK', 'dual'), ('KAK', 'dual2')]
+theta = 1/2 (0.500000), words up to length 6 in <K6, AW, g>: 104 elements; inf x over images: low: 1 [KA], high: 1/2 [e], dual: 3/2 [e], dual2: 3/2 [g]; images with x unbounded below: 143 e.g. [('KA', 'dual'), ('KA', 'dual2'), ('KAK', 'dual'), ('KAK', 'dual2')]
+theta = 1/2 (0.500000), words up to length 9 in <K6, AW, g>: 460 elements; inf x over images: low: 1 [KA], high: 1/2 [e], dual: 3/2 [e], dual2: 3/2 [g]; images with x unbounded below: 865 e.g. [('KA', 'dual'), ('KA', 'dual2'), ('KAK', 'dual'), ('KAK', 'dual2')]
+orbit of the functional X under <K6, AW, g>, words up to 7: 89 functionals; with a negative coefficient in (T,S,V): 37
+    e ['1', '0', '1']
+    K ['1', '1', '1']
+    g ['3', '0', '2']
+    KA ['1', '0', '0']
+    Kg ['5', '1', '3']
+    gA ['3', '1', '3']
+    gK ['3', '2', '2']
+    KAg ['-5', '0', '-3']
+    KgA ['5', '2', '4']
+    KgK ['5', '2', '3']
+    gAK ['3', '2', '3']
+    gAg ['11', '1', '7']
+    gKA ['3', '1', '1']
+    KAgA ['-5', '-2', '-5']
+   negative examples: [('KAg', ['-5', '0', '-3']), ('KAgK', ['-5', '-3', '-3']), ('KAgA', ['-5', '-2', '-5']), ('gKAg', ['-5', '1', '-3']), ('KAgKA', ['-5', '-2', '-2']), ('KAgAK', ['-5', '-3', '-5'])]

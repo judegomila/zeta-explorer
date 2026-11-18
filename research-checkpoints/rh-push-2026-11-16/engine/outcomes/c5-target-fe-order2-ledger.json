@@ -1,0 +1,40 @@
+{
+ "slug": "c5-target-fe-order2-ledger",
+ "round": 5,
+ "kind": "deepen",
+ "nodes": [
+  "map-open-1"
+ ],
+ "tags": [
+  "seven-eighths",
+  "effective-order",
+  "functional-equation",
+  "linear-program",
+  "sextic-theta",
+  "large-sieve",
+  "floor"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "Precise obstruction, source geometry (lx, ly >= l), MODEL estimate-system abscissae relative to unrefereed sources; no statement about zeros. (1) Lemma U (proved, Prop. 2.1 format): two high comparisons of the same probe J with signals Z^{s+c1}, Z^{s+c2} and bounded H force c1 = c2, so a re-expression of the same J in that format does not change h. (2) M + l <= 1 is \"dual length T = 2M + l - 1 <= number of rows\" (reading of manuscript (14.11), (14.14)); the target-variable reflection is Prop. 5.1, already in the system. (3) Ledger with height w = 4 tau and side choice: infimum 13/15 at w = 0; reflected branch >= 13/15 + w/15; unreflected branch (Lemma 9.1) >= 1 provided the polar term b/12 is kept; empty dual >= 11/12; 5/6 floor unchanged; r = 3, 4, 5 follow 1 - 4/(5r) and 1 - 1/r. Corrected free-geometry statement: with the polar term kept, h > 1 vertices occur only at lx < l with an optimal unreflected sieve or K and P deleted, and lie below 1/2; with G = 0 they also occur for the stated Lemma 9.1 sieve (1/3 at h = 4) and for the reflected branch with K alone deleted (7/9 at h = 4/3, not below 1/2). All such vertices need hypothetical deletions and establish nothing.",
+ "obstruction": "Lemma U (proved, Prop. 2.1 format): the signal constant c of a probe J is an invariant of J, so no re-expression of the same probe (row functional equation, Voronoi, approximate functional equation) changes h. The reflection of the target variable is already manuscript Prop. 5.1 and is the origin of the K-loss; s <-> 1-s cannot act on 1/L without crossing the zeros. Exact LP in the source geometry (lx, ly >= l) with height w: infimum 13/15 at w = 0, reflected branch >= 13/15 + w/15, unreflected >= 1 with the polar term kept, 5/6 floor unchanged, r = 3, 4, 5 follow 1 - 4/(5r) and 1 - 1/r. Vertices with h > 1 occur only at lx < l under hypothetical deletions (inconsistent reduced system; false input not identified). MODEL abscissae relative to unrefereed sources.",
+ "obstructionKind": "probe-invariant-signal-h-le-1",
+ "controlsThatDefeat": [
+  "not a control question: floor statement inside the 7/8 estimate system",
+  "not run: all controls"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "PROVED steps all confirmed (Lemma U re-derived against Prop. 2.1; scalar statements (R), (D), (E); Lemma V identity; source formulas (14.11), (14.14), Liu II Lemma 2.4 read at the cited lines). Source-geometry ledger reproduced with an independent LP on different cases (w = 3/100, 3/20, 3/10 give 13/15 + w/15; r = 5 gives 21/25 and 4/5; exact spot checks agree).\n\nErrors found, all in the free-geometry part (verdict statement 3, RESULT section 4 second table, proposed row Z15b):\nE1. tiers_fe2.py ",
+ "lesson": "The abscissa of a probe in the Prop. 2.1 format is (true exponent of J) minus c, and both are invariants of J (Lemma U). Re-expressing a probe can only improve the proved low exponent; it never moves the signal. The target's functional equation is already used in the conductor aspect (Prop. 5.1) and is the origin of the K-loss; s <-> 1-s cannot act on 1/L without crossing the zeros. Any route to h > 1 needs a different probe with lx < l, where the reduced system is inconsistent and the false input is not yet identified.",
+ "followUp": "Identify the false input in the inconsistent region lx < l: test numerically (tmp/sextic tools, default size) whether the unreflected marked theta rows obey a K + D mean square for 1 + l <= M < 2 + 2l or carry the (KD)^{2/3} term; this also settles referee item E3 of r3-method-limit. Also referee Lemma U and add proposed map row Z15b (RESULT section 9).",
+ "resultFile": "tmp/research-2026-11-16/push/c5-target-fe-order2-ledger/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c5-target-fe-order2-ledger/REFEREE.md"
+}

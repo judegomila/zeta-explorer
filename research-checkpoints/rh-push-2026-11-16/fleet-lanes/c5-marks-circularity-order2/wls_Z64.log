@@ -1,0 +1,10 @@
+planned allocation: element grid 262x263 int64 x3 = 0.00 GB
+Z=64 M=2.8 l=1.6 X=49667 rows R=25869 marks n=105 small primes=15 columns/rows ~ 105*cof/R
+gauss sums done 0.0s max||g|-1|=9.99e-16
+cofactors c': 16; columns 1680; planned allocation per chunk of 16384 rows: 0.09 GB
+setup done 0.0s
+  rows 16384/25869  0.1s
+  Ap: one=1.02090  lam=1.43621  dia=0.95438  max_m|x(m)|^2/mean=10.54
+  K : one=1.40396  lam=1.60096  dia=0.95417  max_m|x(m)|^2/mean=15.01
+  R : one=0.99899  lam=1.44256  dia=0.95372  max_m|x(m)|^2/mean=9.92
+total 0.1s

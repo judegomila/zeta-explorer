@@ -1,0 +1,52 @@
+planned: T=100000 H=2 K=6 N=404; constraint matrix 84 x 808 float64 = 0.54 MB; tangent LP 168 x 4977 = 6.7 MB
+T=100000 H=2 EPS=1e-05 N=404 primes=79 big=71 |zeta(s0)|=1.332 trunc=1.9e-10 sec=11.8
+  relaxed: rank=18/806 re=[-16.5576, 16.0406] im=[-8.1428, 8.1523] zero=True
+  tangent(all primes, 1st order): rank=22/4977 re=[-5.898, 7.5808] im=[None, 3.8228] moved=[2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151, 157, 163, 167, 173]
+  k=+0 alpha=+0.0000 resid=1.91e-10 dev=0.000 slice_feasible=True re=[-2.0748, 2.7154] im=[-1.001, 0.7239] zero=False maxdev=2.8488869222202373
+  k=+1 alpha=+0.6494 resid=3.92e-05 dev=0.896 slice_feasible=True re=[-1.9095, 2.7171] im=[-1.0884, 0.514] zero=True maxdev=2.8665484685357083
+  k=-1 alpha=-0.6494 resid=3.69e-05 dev=1.671 slice_feasible=True re=[-0.8258, 3.6914] im=[-0.6189, 1.1649] zero=False maxdev=3.7262623126432595
+  k=+2 alpha=+1.2988 resid=7.96e-05 dev=0.428 slice_feasible=True re=[-2.0393, 2.2007] im=[-1.1287, 0.3522] zero=True maxdev=2.3977541890953593
+  k=-2 alpha=-1.2988 resid=7.41e-05 dev=1.506 slice_feasible=True re=[-2.2948, 1.4754] im=[0.5047, 2.1865] zero=False maxdev=3.118604766508413
+  k=+5 alpha=+3.2471 resid=1.99e-04 dev=0.532 slice_feasible=True re=[-2.015, 0.9993] im=[-1.033, 0.0638] zero=False maxdev=2.0195739853753456
+  k=-5 alpha=-3.2471 resid=2.26e-04 dev=1.005 slice_feasible=True re=[-1.8002, -0.2495] im=[-0.2973, 0.4328] zero=True maxdev=1.8200976516441536
+  k=+20 alpha=+12.9884 resid=6.13e-04 dev=0.946 slice_feasible=True re=[-1.9221, -0.0501] im=[-0.5481, 0.1632] zero=True maxdev=1.9225571297834239
+  k=-20 alpha=-12.9884 resid=1.21e-03 dev=0.971 slice_feasible=True re=[-2.1097, 0.5809] im=[-0.1806, 0.9358] zero=False maxdev=2.261974342383981
+planned: T=100000 H=2 K=6 N=404; constraint matrix 84 x 808 float64 = 0.54 MB; tangent LP 168 x 4977 = 6.7 MB
+T=100000 H=2 EPS=0.001 N=404 primes=79 big=71 |zeta(s0)|=1.332 trunc=1.9e-10 sec=10.7
+  relaxed: rank=14/806 re=[-16.5606, 16.0436] im=[-8.1436, 8.153] zero=True
+  tangent(all primes, 1st order): rank=15/4977 re=[-6.1838, 7.7258] im=[-3.8438, 3.9036] moved=[2, 3, 5, 7, 11, 13, 17, 23, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151, 157, 163, 167, 173, 179, 181]
+  k=+0 alpha=+0.0000 resid=1.91e-10 dev=0.000 slice_feasible=True re=[-2.0864, 2.7537] im=[-1.0085, 0.7453] zero=False maxdev=2.887377028212489
+  k=+1 alpha=+0.6494 resid=3.92e-05 dev=0.896 slice_feasible=True re=[-1.9372, 2.7774] im=[-1.1083, 0.517] zero=True maxdev=2.9357520078033623
+  k=-1 alpha=-0.6494 resid=3.69e-05 dev=1.671 slice_feasible=True re=[-0.8619, 3.7013] im=[-0.6247, 1.1772] zero=False maxdev=3.735961083064731
+  k=+2 alpha=+1.2988 resid=7.96e-05 dev=0.428 slice_feasible=True re=[-2.112, 2.211] im=[-1.1325, 0.362] zero=True maxdev=2.4047262904097986
+  k=-2 alpha=-1.2988 resid=7.41e-05 dev=1.506 slice_feasible=True re=[-2.3184, 1.5425] im=[0.4935, 2.1896] zero=False maxdev=3.1328424455520865
+  k=+5 alpha=+3.2471 resid=1.99e-04 dev=0.532 slice_feasible=True re=[-2.1138, 1.0132] im=[-1.04, 0.077] zero=False maxdev=2.116354644732289
+  k=-5 alpha=-3.2471 resid=2.26e-04 dev=1.005 slice_feasible=True re=[-1.8418, -0.23] im=[-0.3027, 0.4502] zero=True maxdev=1.865849941075572
+  k=+20 alpha=+12.9884 resid=6.13e-04 dev=0.946 slice_feasible=True re=[-1.9432, 0.003] im=[-0.5541, 0.1837] zero=True maxdev=1.9439172543615857
+  k=-20 alpha=-12.9884 resid=1.21e-03 dev=0.971 slice_feasible=True re=[-2.1793, 0.6017] im=[-0.1901, 0.948] zero=False maxdev=2.3376476951964733
+planned: T=100000 H=20 K=51 N=404; constraint matrix 624 x 808 float64 = 4.03 MB; tangent LP 1248 x 4977 = 49.7 MB
+T=100000 H=20 EPS=1e-05 N=404 primes=79 big=71 |zeta(s0)|=0.762 trunc=2.7e-10 sec=251.0
+  relaxed: rank=33/806 re=[-16.2618, 17.2158] im=[-6.9697, 6.1009] zero=True
+  tangent(all primes, 1st order): rank=34/4977 re=[-2.4515, 2.8928] im=[-1.4906, 1.5917] moved=[2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151, 157, 163, 167, 173]
+  k=+0 alpha=+0.0000 resid=2.71e-10 dev=0.000 slice_feasible=True re=[-1.8926, 1.6423] im=[-0.3327, 0.4181] zero=False maxdev=1.8926247353729078
+  k=+1 alpha=+0.6494 resid=6.97e-05 dev=1.491 slice_feasible=True re=[-2.8637, 1.78] im=[0.9662, 1.7126] zero=False maxdev=3.096529467010649
+  k=-1 alpha=-0.6494 resid=8.88e-05 dev=0.264 slice_feasible=True re=[-1.1287, 1.541] im=[-0.5641, 0.1405] zero=True maxdev=1.5456181747793911
+  k=+2 alpha=+1.2988 resid=1.21e-04 dev=5.881 slice_feasible=True re=[3.1484, 8.19] im=[0.1198, 1.0594] zero=False maxdev=8.244416434368642
+  k=-2 alpha=-1.2988 resid=1.95e-04 dev=0.250 slice_feasible=True re=[-0.8562, 1.5037] im=[-0.4859, 0.152] zero=False maxdev=1.5045142430161944
+  k=+5 alpha=+3.2471 resid=1.90e-04 dev=1.115 slice_feasible=True re=[-1.4708, 0.9533] im=[-1.4337, -0.4919] zero=False maxdev=1.9953921141144215
+  k=-5 alpha=-3.2471 resid=5.83e-04 dev=1.082 slice_feasible=True re=[-1.2258, 1.2718] im=[-1.2577, -0.5701] zero=False maxdev=1.6520429043404077
+  k=+20 alpha=+12.9883 resid=7.79e-04 dev=1.321 slice_feasible=True re=[-0.6065, 2.7447] im=[-1.156, -0.3628] zero=False maxdev=2.7896861473349053
+  k=-20 alpha=-12.9883 resid=2.03e-03 dev=0.639 slice_feasible=True re=[-1.1496, 0.6525] im=[-1.0213, -0.3641] zero=False maxdev=1.4550347136410038
+planned: T=100000 H=20 K=51 N=404; constraint matrix 624 x 808 float64 = 4.03 MB; tangent LP 1248 x 4977 = 49.7 MB
+T=100000 H=20 EPS=0.001 N=404 primes=79 big=71 |zeta(s0)|=0.762 trunc=2.7e-10 sec=82.1
+  relaxed: rank=24/806 re=[-16.2667, 17.2207] im=[-6.9704, 6.1016] zero=True
+  tangent(all primes, 1st order): rank=28/4977 re=[-2.9809, 3.3922] im=[-1.5337, 1.7649] moved=[2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151, 157, 163, 167, 173]
+  k=+0 alpha=+0.0000 resid=2.71e-10 dev=0.000 slice_feasible=True re=[-2.2832, 1.7975] im=[-0.3445, 0.4413] zero=False maxdev=2.283571481201884
+  k=+1 alpha=+0.6494 resid=6.97e-05 dev=1.491 slice_feasible=True re=[-3.014, 2.2736] im=[0.9483, 1.7327] zero=False maxdev=3.226107056102554
+  k=-1 alpha=-0.6494 resid=8.88e-05 dev=0.264 slice_feasible=True re=[-1.219, 1.6535] im=[-0.59, 0.1427] zero=True maxdev=1.665410493009345
+  k=+2 alpha=+1.2988 resid=1.21e-04 dev=5.881 slice_feasible=True re=[2.6231, 8.324] im=[0.0494, 1.0866] zero=False maxdev=8.378491365589554
+  k=-2 alpha=-1.2988 resid=1.95e-04 dev=0.250 slice_feasible=True re=[-0.913, 1.5968] im=[-0.4981, 0.1658] zero=False maxdev=1.5975480556952555
+  k=+5 alpha=+3.2471 resid=1.90e-04 dev=1.115 slice_feasible=True re=[-1.5598, 1.1524] im=[-1.4607, -0.424] zero=False maxdev=2.0806080727330216
+  k=-5 alpha=-3.2471 resid=5.83e-04 dev=1.082 slice_feasible=True re=[-1.3616, 1.3666] im=[-1.2655, -0.5426] zero=False maxdev=1.7525046677657894
+  k=+20 alpha=+12.9883 resid=7.79e-04 dev=1.321 slice_feasible=True re=[-0.6708, 2.7984] im=[-1.2099, -0.3464] zero=False maxdev=2.8441359551820304
+  k=-20 alpha=-12.9883 resid=2.03e-03 dev=0.639 slice_feasible=True re=[-1.2776, 0.7618] im=[-1.0304, -0.3526] zero=False maxdev=1.5842316220784534

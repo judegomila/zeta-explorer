@@ -1,0 +1,131 @@
+{
+ "RZ_b (b=0.93)": {
+  "euler_product_vs_closed_form_at_2.5+3i_(p<=2e5)": 1.30293582034398e-10,
+  "dirichlet_series_vs_closed_form": 3.925378701777593e-13,
+  "RZ(b+1e-12)/1e-12 (expect 1: simple zero at s=b)": 0.9999999999994228,
+  "-RZ'/RZ(3) + sum n^(b-1)Lambda(n) n^-3 (expect ~0 up to tail 1e-9)": 6.051682524652756e-10,
+  "FE_relative_residuals": [
+   3.6088107032220078e-31,
+   1.2666725136585103e-30,
+   1.9894922366109786e-31
+  ],
+  "poles_first3 (zeta zeros shifted by b-1): Re": [
+   0.43,
+   0.43,
+   0.43
+  ],
+  "symmetry_line": 0.43
+ },
+ "winding": {
+  "E_a = zeta(s+a)zeta(s-a), a=0.2": {
+   "D1_defect": 0.2,
+   "box_right_of_line: zeros-poles": -2.0,
+   "known poles in box": 2,
+   "zeros in box (winding + poles)": 0.0,
+   "max arg step": 1.331,
+   "thin strip around offset=defect: zeros-poles": 6.0,
+   "strip max arg step": 0.75
+  },
+  "L(s+a,chi4)L(s-a,chi4), a=0.15": {
+   "D1_defect": 0.15,
+   "box_right_of_line: zeros-poles": -0.0,
+   "known poles in box": 0,
+   "zeros in box (winding + poles)": -0.0,
+   "max arg step": 1.326,
+   "thin strip around offset=defect: zeros-poles": 14.0,
+   "strip max arg step": 0.743
+  },
+  "T-NR q=3 c=2.2": {
+   "D1_defect": 0.40375322482772363,
+   "box_right_of_line: zeros-poles": -1.0,
+   "known poles in box": 1,
+   "zeros in box (winding + poles)": 0.0,
+   "max arg step": 1.242,
+   "thin strip around offset=defect: zeros-poles": 7.0,
+   "strip max arg step": 0.741
+  },
+  "T-NR two primes q=2 c=-2.5, q=5 c=2.3": {
+   "D1_defect": 1.0,
+   "box_right_of_line: zeros-poles": 0.0,
+   "known poles in box": 0,
+   "zeros in box (winding + poles)": 0.0,
+   "max arg step": 1.308,
+   "thin strip around offset=defect: zeros-poles": 5.0,
+   "strip max arg step": 0.743
+  },
+  "E_a * D_{3,2.2}, a=0.1": {
+   "D1_defect": 0.40375322482772363,
+   "box_right_of_line: zeros-poles": -1.0,
+   "known poles in box": 1,
+   "zeros in box (winding + poles)": -0.0,
+   "max arg step": 1.249,
+   "thin strip around offset=defect: zeros-poles": 6.0,
+   "strip max arg step": 0.875
+  },
+  "zeta(s+a)zeta(s-a)/zeta(s), a=0.3": {
+   "D1_defect": 0.5,
+   "box_right_of_line: zeros-poles": -1.0,
+   "known poles in box": 1,
+   "zeros in box (winding + poles)": 0.0,
+   "max arg step": 1.012,
+   "thin strip around offset=defect: zeros-poles": 1.0,
+   "strip max arg step": 0.664
+  },
+  "1/zeta(s) (RZ_b in own coordinate)": {
+   "D1_defect": 0.5,
+   "box_right_of_line: zeros-poles": -0.0,
+   "known poles in box": 0,
+   "zeros in box (winding + poles)": -0.0,
+   "max arg step": 0.983,
+   "thin strip around offset=defect: zeros-poles": 1.0,
+   "strip max arg step": 0.661
+  },
+  "zeta(s+a)zeta(s-a)/(zeta(s+b)zeta(s-b)), a=0.1 b=0.2": {
+   "D1_defect": 0.7,
+   "box_right_of_line: zeros-poles": -0.0,
+   "known poles in box": 0,
+   "zeros in box (winding + poles)": -0.0,
+   "max arg step": 0.804,
+   "thin strip around offset=defect: zeros-poles": 1.0,
+   "strip max arg step": 0.779
+  }
+ },
+ "zeta(2s)/zeta(s)": {
+  "value at 1+1e-10 divided by 1e-10 (expect zeta(2) = 1.6449...)": 1.6449340665657686
+ },
+ "fake_F5": {
+  "a_d (d=1..10)": [
+   1,
+   5,
+   25,
+   110,
+   500,
+   2215,
+   10000,
+   45100,
+   205200,
+   937874
+  ],
+  "min a_d for d<=400": 1,
+  "all a_d >= 0 and integral (d<=400)": true,
+  "Euler product equals Z(T) mod T^41 (exact)": true,
+  "coefficients A_n (n=0..8)": [
+   1,
+   1,
+   6,
+   31,
+   156,
+   781,
+   3906,
+   19531,
+   97656
+  ],
+  "max A_n/5^n (n<=40)": 1.0,
+  "zeros Re s": [
+   0.7989937178327201,
+   0.20100628216727998
+  ],
+  "offset from 1/2": 0.2989937178327201,
+  "FE check: T1*T2 = 1/5": 0.19999999999999998
+ }
+}

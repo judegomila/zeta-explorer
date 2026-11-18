@@ -1,0 +1,40 @@
+planned allocation: element grid 0.03 GB
+[    0.5s] Z=2.048e+06 M=1.0 l=0.3333333333333333 cslot=-48.0 X=260079788 NMAX=2048001 elements=825484 primes=152199
+[    0.5s] rows R=464316  marks n=49 (norms 127..397; 24 in [Z^l, 2Z^l])  small primes=152199
+[   38.1s] gauss sums done: 76042 split sums computed, max||g|-1|=6.68e-14
+[   39.1s] cofactors c': 541135 (mean omega 2.06, max 5)
+planned allocation: W 541135x4x49 c128 (x2 transient), EP 49x464316 int8, per-pair work arrays 49x541135, thread buffers: total 5.41 GB
+[   39.2s] gamma_2(c') done
+[   46.0s] weights done
+planned allocation: inert table 115x464316 int8 = 0.05 GB
+[   59.0s] row tables done; kernel: 464316 rows x 541135 cofactors x 4 systems x 49 marks = 4.925e+13 complex adds
+  kern: 726/14510 blocks, 42 s
+  kern: 1452/14510 blocks, 82 s
+  kern: 2178/14510 blocks, 123 s
+  kern: 2904/14510 blocks, 164 s
+  kern: 3630/14510 blocks, 205 s
+  kern: 4356/14510 blocks, 246 s
+  kern: 5082/14510 blocks, 286 s
+  kern: 5808/14510 blocks, 327 s
+  kern: 6534/14510 blocks, 368 s
+  kern: 7260/14510 blocks, 410 s
+  kern: 7986/14510 blocks, 450 s
+  kern: 8712/14510 blocks, 490 s
+  kern: 9438/14510 blocks, 529 s
+  kern: 10164/14510 blocks, 573 s
+  kern: 10890/14510 blocks, 614 s
+  kern: 11616/14510 blocks, 655 s
+  kern: 12342/14510 blocks, 696 s
+  kern: 13068/14510 blocks, 738 s
+  kern: 13794/14510 blocks, 779 s
+[  879.8s] kernel done
+  Ap : lane-normalised Gram: diag_mean=0.935791 off_rms=0.004219 eig[min,max]=[0.913958,1.128978] herm_asym=2.2e-18
+  K  : lane-normalised Gram: diag_mean=3.030639 off_rms=2.081234 eig[min,max]=[0.891776,104.096422] herm_asym=5.0e-17
+  R  : lane-normalised Gram: diag_mean=0.935673 off_rms=0.001358 eig[min,max]=[0.917755,0.953893] herm_asym=2.0e-18
+  K4a: lane-normalised Gram: diag_mean=0.933588 off_rms=0.002181 eig[min,max]=[0.910230,1.015913] herm_asym=1.9e-18
+  A  : lane-normalised Gram: diag_mean=0.935713 off_rms=0.004783 eig[min,max]=[0.912926,1.157880] herm_asym=2.3e-18
+  Q  : lane-normalised Gram: diag_mean=0.935108 off_rms=0.004187 eig[min,max]=[0.912138,1.126110] herm_asym=1.7e-18
+  QR : lane-normalised Gram: diag_mean=0.936022 off_rms=0.001571 eig[min,max]=[0.916801,0.962930] herm_asym=2.8e-18
+  Q0 : lane-normalised Gram: diag_mean=79.649452 off_rms=77.640138 eig[min,max]=[0.771230,3849.817838] herm_asym=9.9e-34
+  T6 : lane-normalised Gram: diag_mean=0.912229 off_rms=0.001742 eig[min,max]=[0.848585,0.967153] herm_asym=2.7e-18
+[  879.8s] saved g_Z2048000.npz

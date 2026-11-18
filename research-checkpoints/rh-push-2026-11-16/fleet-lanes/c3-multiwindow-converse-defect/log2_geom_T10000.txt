@@ -1,0 +1,18 @@
+planned: N=128 P=31 windows=16; rows 8064 x 128 complex x2 = 33 MB (x3 with off-grid rows)
+[{'Tj': 10000.0, 'R': 2.0053026197048003, 'nonmult': [30, 40], 'unimod': [26, 28]}, {'Tj': 100.0, 'R': 20.053026197048002, 'nonmult': [68, 88], 'unimod': [25, 28]}, {'Tj': 1000.0, 'R': 6.341323676169617, 'nonmult': [55, 76], 'unimod': [25, 28]}, {'Tj': 3162.2776601683795, 'R': 3.5659883595181583, 'nonmult': [50, 59], 'unimod': [26, 28]}, {'Tj': 316.2277660168379, 'R': 11.27664532572476, 'nonmult': [65, 91], 'unimod': [25, 27]}, {'Tj': 5623.413251903491, 'R': 2.674114021349611, 'nonmult': [39, 52], 'unimod': [26, 28]}, {'Tj': 1778.2794100389228, 'R': 4.755321904262397, 'nonmult': [53, 72], 'unimod': [25, 28]}, {'Tj': 562.3413251903492, 'R': 8.456291030456901, 'nonmult': [58, 85], 'unimod': [25, 27]}, {'Tj': 177.8279410038923, 'R': 15.037648224758334, 'nonmult': [70, 91], 'unimod': [26, 28]}, {'Tj': 7498.942093324558, 'R': 2.3156873390856787, 'nonmult': [35, 46], 'unimod': [26, 28]}, {'Tj': 4216.965034285822, 'R': 3.0880186968600114, 'nonmult': [45, 55], 'unimod': [25, 29]}, {'Tj': 2371.373705661655, 'R': 4.1179391151838844, 'nonmult': [51, 67], 'unimod': [26, 28]}, {'Tj': 1333.521432163324, 'R': 5.491360066441385, 'nonmult': [54, 76], 'unimod': [25, 28]}, {'Tj': 749.8942093324558, 'R': 7.322846340325402, 'nonmult': [56, 81], 'unimod': [25, 28]}, {'Tj': 421.6965034285822, 'R': 9.765172539262688, 'nonmult': [62, 91], 'unimod': [25, 27]}, {'Tj': 237.13737056616554, 'R': 13.022066869879538, 'nonmult': [70, 93], 'unimod': [25, 27]}]
+m=1 d=0.1: hard-zero maxdef=9.77e-05 |F|=2.05e-06 (pert0.3); nonmult maxdef=2.06e-11 |F|=8.33e-16 max|a|=1.32 null=211
+m=1 d=0.4: hard-zero maxdef=4.48e-04 |F|=1.32e-06 (mw); nonmult maxdef=2.06e-11 |F|=5.66e-16 max|a|=1.34 null=211
+m=2 d=0.1: hard-zero maxdef=5.92e-01 |F|=2.61e-02 (zeta); nonmult maxdef=6.44e-08 |F|=9.93e-16 max|a|=3.77 null=122
+m=2 d=0.4: hard-zero maxdef=4.26e-01 |F|=1.64e-02 (pert0.3); nonmult maxdef=6.44e-08 |F|=1.60e-15 max|a|=4.81 null=122
+m=4 d=0.1: hard-zero maxdef=6.31e-01 |F|=9.20e-02 (pert0.1); nonmult maxdef=6.38e-02 |F|=1.99e-10 max|a|=257588101604.29 null=61
+m=4 d=0.4: hard-zero maxdef=7.53e-01 |F|=2.58e-02 (prev); nonmult maxdef=5.61e-02 |F|=4.68e-11 max|a|=493724255614.40 null=61
+m=8 d=0.1: hard-zero maxdef=3.97e-01 |F|=2.08e-01 (mw); nonmult maxdef=5.01e+00 |F|=1.39e-05 max|a|=64592200907741.01 null=34
+m=8 d=0.4: hard-zero maxdef=7.57e-01 |F|=2.36e-01 (pert1.0); nonmult maxdef=3.13e+00 |F|=1.21e-06 max|a|=62286785233352.16 null=34
+m=16 d=0.1: hard-zero maxdef=1.71e-01 |F|=2.34e-01 (pert0.3); nonmult maxdef=9.01e+00 |F|=1.04e-01 max|a|=930097072165.96 null=16
+m=16 d=0.4: hard-zero maxdef=7.39e-01 |F|=3.60e-01 (pert1.0); nonmult maxdef=2.71e+01 |F|=3.04e-02 max|a|=3059097133617.68 null=16
+{'m': 1, 'delta': 0.1, 'offgrid_maxdef': 0.00013135410815773987}
+{'m': 1, 'delta': 0.4, 'offgrid_maxdef': 0.00044367298586687717}
+{'m': 2, 'delta': 0.1, 'offgrid_maxdef': 0.577093862158983}
+{'m': 2, 'delta': 0.4, 'offgrid_maxdef': 0.4170464292463113}
+{'m': 4, 'delta': 0.1, 'offgrid_maxdef': 0.6234054215875529}
+{'m': 4, 'delta': 0.4, 'offgrid_maxdef': 0.7499871952211982}

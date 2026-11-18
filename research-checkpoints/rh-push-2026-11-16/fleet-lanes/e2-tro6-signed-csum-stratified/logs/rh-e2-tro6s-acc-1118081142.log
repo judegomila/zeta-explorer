@@ -1,0 +1,14 @@
+setup: nodes 2822619, even 1411211, windows [[(388, 10893), (1411615, 1422113)], [(663, 16484), (1411881, 1427701)], [(1004, 27636), (1412221, 1438869)], [(1685, 46397), (1412913, 1457601)], [(2831, 77834), (1414061, 1489063)], [(4287, 117748), (1415503, 1528971)], [(7191, 197560), (1418415, 1608779)], [(12066, 331444), (1423305, 1742663)], [(18287, 501414), (1429503, 1912617)], [(30650, 841131), (1441901, 2252429)], [(51442, 1411211), (1462679, 2822619)]], 0.4s
+memory plan per worker: S = 3 x (2822619 x 18) complex64 = 1.14 GB; self = 0.32 GB; x 4 workers = 5.80 GB (+ table, shared by fork)
+bin 0: worker 0 done 427 rows, total 109s
+bin 1: worker 0 done 174 rows, total 151s
+bin 2: worker 0 done 249 rows, total 216s
+bin 3: worker 0 done 354 rows, total 311s
+bin 4: worker 0 done 497 rows, total 430s
+bin 5: worker 0 done 708 rows, total 625s
+bin 6: worker 0 done 990 rows, total 883s
+bin 7: worker 0 done 1407 rows, total 1248s
+bin 8: worker 0 done 1998 rows, total 1679s
+bin 9: worker 0 done 2820 rows, total 2309s
+bin 10: worker 0 done 3978 rows, total 3177s
+ALLDONE

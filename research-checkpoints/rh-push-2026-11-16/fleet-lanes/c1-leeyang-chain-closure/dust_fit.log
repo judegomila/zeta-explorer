@@ -1,0 +1,17 @@
+c=1.0 N=5: best RMS residual of characteristic function = 2.861e-07  weights [3.    1.075 0.801 0.124 0.   ]  total 5.000
+c=1.0 N=6: best RMS residual of characteristic function = 5.785e-07  weights [2.029 2.    0.966 0.005 0.    0.   ]  total 5.000
+c=1.0 N=7: best RMS residual of characteristic function = 1.270e-06  weights [1.498 1.198 0.799 0.792 0.71  0.003 0.   ]  total 5.000
+c=1.0 N=8: best RMS residual of characteristic function = 9.446e-07  weights [2.237 2.    0.396 0.282 0.068 0.017 0.    0.   ]  total 5.000
+c=1.0 N=9: best RMS residual of characteristic function = 2.499e-06  weights [1.303 0.966 0.959 0.725 0.697 0.184 0.109 0.044 0.014]  total 5.000
+c=1.0 N=10: best RMS residual of characteristic function = 3.546e-01  weights [56.989 38.177 10.995  4.034  4.03   3.594  3.482  2.27   1.995  0.505]  total 126.072
+c=1.0 N=11: best RMS residual of characteristic function = 3.418e-01  weights [1.382 1.056 0.874 0.508 0.45  0.252 0.188 0.161 0.142 0.003 0.   ]  total 5.015
+tmp/research-2026-11-16/push/c1-leeyang-chain-closure/dust_fit.py:15: RuntimeWarning: overflow encountered in exp
+  lam = x[:N] ** 2; nlog = -np.exp(x[N:])  # log a_ij = -exp(x) <= 0
+c=1.25 N=5: best RMS residual of characteristic function = 5.467e-02  weights [2.686 1.562 0.437 0.297 0.022]  total 5.004
+c=1.25 N=6: best RMS residual of characteristic function = 4.715e-02  weights [2.029e+00 1.996e+00 9.430e-01 3.200e-02 1.000e-03 0.000e+00]  total 5.001
+c=1.25 N=7: best RMS residual of characteristic function = 5.468e-02  weights [1.559 1.403 0.596 0.574 0.348 0.297 0.227]  total 5.004
+c=1.25 N=8: best RMS residual of characteristic function = 4.717e-02  weights [1.996 0.975 0.658 0.607 0.503 0.15  0.112 0.   ]  total 5.001
+c=1.25 N=9: best RMS residual of characteristic function = 3.077e-01  weights [2.439 1.808 0.331 0.172 0.137 0.13  0.    0.    0.   ]  total 5.017
+c=1.25 N=10: best RMS residual of characteristic function = 3.502e-01  weights [14.073 11.055  0.477  0.356  0.31   0.28   0.236  0.135  0.102  0.098]  total 27.122
+c=1.25 N=11: best RMS residual of characteristic function = 3.484e-01  weights [6.39399e+02 1.35770e+01 1.99300e+00 1.53800e+00 1.26800e+00 1.05100e+00
+ 9.74000e-01 9.08000e-01 8.01000e-01 5.09000e-01 1.00000e-01]  total 662.119

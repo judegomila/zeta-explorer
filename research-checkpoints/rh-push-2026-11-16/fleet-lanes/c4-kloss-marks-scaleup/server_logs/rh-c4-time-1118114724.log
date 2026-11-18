@@ -1,0 +1,37 @@
+planned allocation: element grid 0.01 GB
+[    0.1s] Z=512000 M=1.0 l=0.3333333333333333 cslot=2.0 X=40960000 NMAX=512001 elements=206381 primes=42463
+[    0.1s] rows R=116092  marks n=15 (norms 97..157; 15 in [Z^l, 2Z^l])  small primes=42463
+[    2.5s] gauss sums done: 21199 split sums computed, max||g|-1|=3.26e-14
+[    2.7s] cofactors c': 130064 (mean omega 1.98, max 5)
+planned allocation: W 130064x2x15 c128 (x2 transient), EP 15x116092 int8, per-pair work arrays 15x130064, thread buffers: total 0.29 GB
+[    2.7s] gamma_2(c') done
+[    3.3s] weights done
+planned allocation: inert table 65x116092 int8 = 0.01 GB
+[    4.9s] row tables done; kernel: 116092 rows x 130064 cofactors x 2 systems x 15 marks = 4.530e+11 complex adds
+  kern: 182/3628 blocks, 1 s
+  kern: 364/3628 blocks, 2 s
+  kern: 546/3628 blocks, 3 s
+  kern: 728/3628 blocks, 4 s
+  kern: 910/3628 blocks, 5 s
+  kern: 1092/3628 blocks, 6 s
+  kern: 1274/3628 blocks, 7 s
+  kern: 1456/3628 blocks, 7 s
+  kern: 1638/3628 blocks, 8 s
+  kern: 1820/3628 blocks, 9 s
+  kern: 2002/3628 blocks, 10 s
+  kern: 2184/3628 blocks, 11 s
+  kern: 2366/3628 blocks, 12 s
+  kern: 2548/3628 blocks, 13 s
+  kern: 2730/3628 blocks, 14 s
+  kern: 2912/3628 blocks, 15 s
+  kern: 3094/3628 blocks, 15 s
+  kern: 3276/3628 blocks, 16 s
+  kern: 3458/3628 blocks, 17 s
+  kern thread-seconds: symbols 169.1, accumulate 117.2, assemble 0.1
+[   22.8s] kernel done
+  Ap : lane-normalised Gram: diag_mean=0.930829 off_rms=0.007483 eig[min,max]=[0.906920,1.032136] herm_asym=4.1e-18
+  Rc : lane-normalised Gram: diag_mean=0.931160 off_rms=0.007623 eig[min,max]=[0.903767,1.035292] herm_asym=2.8e-18
+  K4a: lane-normalised Gram: diag_mean=0.927632 off_rms=0.004528 eig[min,max]=[0.907327,0.985147] herm_asym=3.1e-18
+  Q  : lane-normalised Gram: diag_mean=0.931172 off_rms=0.008030 eig[min,max]=[0.897451,1.039467] herm_asym=4.1e-18
+  QRc: lane-normalised Gram: diag_mean=0.933716 off_rms=0.007602 eig[min,max]=[0.907709,1.037115] herm_asym=5.1e-18
+[   22.8s] saved t_Z512000_lean2.npz

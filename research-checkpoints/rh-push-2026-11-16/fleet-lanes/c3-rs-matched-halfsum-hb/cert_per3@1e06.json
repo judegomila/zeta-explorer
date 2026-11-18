@@ -1,0 +1,1 @@
+{"label": "per3@1e+06", "kind": "per3", "T0": 1000000, "segs": [{"N": 398, "ua": 0.0, "ub": 200, "screen_right": 90, "attempted": 90, "certified": 90, "failed": [], "min_ds_certified": 0.00565806407326857, "max_abs_F_upper": 1.2627923505818498e-13}], "certified_total": 90, "attempted_total": 90, "screen_right_total": 90, "seconds": 0.04411005973815918, "prec": 128}

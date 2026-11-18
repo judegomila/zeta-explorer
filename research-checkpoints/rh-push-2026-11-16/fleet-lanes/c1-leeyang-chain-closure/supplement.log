@@ -1,0 +1,12 @@
+(A) n=6: P half-coefficients ['1', '8/3', '5/3', '0']: exact integer separator y=(-4, 2, 0, -1), y.P=4/3 (y.g<=0 on all 11 generators)
+(A) n=7: P half-coefficients ['1', '7/2', '7/2', '0']: exact integer separator y=(-2, 0, 2, -4), y.P=5 (y.g<=0 on all 15 generators)
+(B) n=5, 400 SLSQP starts: sup of c2 - c1 - 1 on {c1<=1} = 2.220446049250313e-16  (measured boundary c2 = 1 + c1);  sup of c1 - 1 - c2 = 1.1102230246251565e-16 (proved <= 0)
+(C) max third cumulant over 3000 random 5-spin ferromagnets (GHS predicts <= 0): -1.8130389578995285e-11
+(D) Curie-Weiss: coefficients c0..c4 = [ 1.        3.742061  7.402587 10.560329 12.301067]; max ||root|-1| = 2.00e-15; FK cone LP feasible: True; chain fit max relative residual = 4.84e-10 with Schur-Cohn parameters [0.0994 0.3307 0.4656 0.6639 0.7309 0.5113 0.948  0.9256]; GHS max third cumulant = -9.295e-03
+(E) sparse sum-rule member found at attempt 0 : edges with K>0: 9  row-sum defect 4.440892098500626e-16
+(D) sparse: coefficients c0..c4 = [ 1.        3.368962  6.875249 10.525033 12.785049]; max ||root|-1| = 5.00e-15; FK cone LP feasible: True; chain fit max relative residual = 7.50e-09 with Schur-Cohn parameters [0.7687 0.3267 0.1318 0.9742 0.5311 0.4999 0.9499 0.4718]; GHS max third cumulant = -8.410e-03
+{"label": "zeta sparse sum-rule stage (kappa=0), primes<=23", "terms": 512, "found": 122, "expected": 122.4, "on_line_1e6": 122, "off_line": 0, "max_dev": 2.220446049250313e-15, "re_min": 0.4999999999999978, "re_max": 0.5000000000000006}
+tmp/research-2026-11-16/push/c1-leeyang-chain-closure/stage_lib.py:18: RuntimeWarning: invalid value encountered in divide
+  step = np.where(np.abs(step) > 0.5, 0.5 * step / np.abs(step), step); s = s - step
+{"label": "sparse stage with unimodular twist U", "terms": 512, "found": 123, "expected": 122.4, "on_line_1e6": 123, "off_line": 0, "max_dev": 8.881784197001252e-16, "re_min": 0.4999999999999991, "re_max": 0.5000000000000004}
+done

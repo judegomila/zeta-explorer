@@ -1,0 +1,9 @@
+planned allocation: element grid 4781x4781 int64 x3 = 0.55 GB
+Z=512 M=2.8 l=1.6 X=11068835 rows R=8738882 marks n=2088 small primes=93 columns/rows ~ 2088*cof/R
+gauss sums done 7.1s max||g|-1|=1.89e-15
+cofactors c': 132; columns 275616; planned allocation per chunk of 16384 rows: 2.04 GB
+setup done 10.3s
+  rows 16384/8738882  14.0s
+  rows 344064/8738882  86.2s
+  rows 671744/8738882  158.4s
+stopped by the lane at the 20-minute local limit (projected 36 min); not used

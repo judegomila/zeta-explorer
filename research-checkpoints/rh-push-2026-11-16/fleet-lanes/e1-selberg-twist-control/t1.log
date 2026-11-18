@@ -1,0 +1,25 @@
+{"a": 0.01, "b": 0.02, "alphas": [0.01, 0.02, 0.99], "sum_abs_alpha": 0.04000000000000001, "zeros_K24": [0.9503290736153394], "s0_K30": 0.950329073890259, "s0_K36": 0.9503290738922601, "lambda0": 0.04720372520733937} 40.3
+{"a": 0.03, "b": 0.05, "alphas": [0.03, 0.05, 0.98], "sum_abs_alpha": 0.10000000000000002, "zeros_K24": [0.8398960901181456], "s0_K30": 0.8398960900355581, "s0_K36": 0.8398960900348281, "lambda0": 0.13447064797903602} 96.2
+{"a": 0.05, "b": 0.12, "alphas": [0.05, 0.12, 0.93], "sum_abs_alpha": 0.23999999999999994, "zeros_K24": []} 110.6
+{"a": 0.1, "b": 0.25, "alphas": [0.1, 0.25, 0.85], "sum_abs_alpha": 0.5, "zeros_K24": []} 126.0
+{"a": 0.15, "b": 0.4, "alphas": [0.15, 0.4, 0.75], "sum_abs_alpha": 0.8, "zeros_K24": []} 131.1
+{"a": 0.25, "b": 0.6, "alphas": [0.25, 0.6, 0.65], "sum_abs_alpha": 1.0, "zeros_K24": []} 144.5
+{"a": 0.3333333333333333, "b": 0.6666666666666666, "alphas": [0.3333333333333333, 0.6666666666666666, 0.6666666666666667], "sum_abs_alpha": 1.0, "zeros_K24": []} 149.7
+0.03 0.05 0.6 (0.37731536370230456-3.612191566963421e-15j) {'area+1_kappa+1': 1.6747343695132147e-13, 'area+1_kappa-1': 0.8595318709885957, 'area-1_kappa+1': 0.01351733441430003, 'area-1_kappa-1': 0.8576331163142215} 153.7
+0.03 0.05 0.75 (0.09679168271520279-4.881463453029034e-15j) {'area+1_kappa+1': 6.941695146923513e-13, 'area+1_kappa-1': 0.992604892449832, 'area-1_kappa+1': 0.2668686397437978, 'area-1_kappa-1': 0.990631370157166} 157.0
+0.03 0.05 0.9 (0.03890862039330433+9.789073808864156e-16j) {'area+1_kappa+1': 6.892417049774074e-13, 'area+1_kappa-1': 0.9996106759870489, 'area-1_kappa+1': 2.8884854017482042, 'area-1_kappa-1': 0.9984861192590887} 161.0
+Traceback (most recent call last):
+  File "tmp/research-2026-11-16/push/e1-selberg-twist-control/t1_zero.py", line 55, in <module>
+    I = complex(tanint(w))
+                ~~~~~~^^^
+  File "tmp/research-2026-11-16/push/e1-selberg-twist-control/t1_zero.py", line 46, in tanint
+    return mp.quad(lambda v: v * mp.tan(mp.pi * v), mp.linspace(0, w, 5))
+                                                    ~~~~~~~~~~~^^^^^^^^^
+  File ".venv-arb/lib/python3.14/site-packages/mpmath/ctx_base.py", line 311, in linspace
+    b = ctx.mpf(args[1])
+  File ".venv-arb/lib/python3.14/site-packages/mpmath/ctx_mp_python.py", line 79, in __new__
+    v._mpf_ = mpf_pos(cls.mpf_convert_arg(val, prec, rounding), prec, rounding)
+                      ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File ".venv-arb/lib/python3.14/site-packages/mpmath/ctx_mp_python.py", line 98, in mpf_convert_arg
+    raise TypeError("cannot create mpf from " + repr(x))
+TypeError: cannot create mpf from mpc(real='0.19999999999999996', imag='1.0')

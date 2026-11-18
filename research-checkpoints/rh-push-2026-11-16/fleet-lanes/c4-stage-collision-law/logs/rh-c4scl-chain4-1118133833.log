@@ -1,0 +1,68 @@
+planned memory: 127982 x 168 complex x ~6 arrays in chunks of <= 2e6
+1e6 zeta log2 {"n": 41, "abscos_min": 0.446499360348027, "abscos_median": 0.9941588679429868, "frac_abscos_gt_0.9": 0.926829268292683, "drop_over_pi_max": 0.3735714593394988, "drop_over_pi_median": 0.03819464177831293, "gap_median": 2.0470544952066767, "gap_max": 2.7246124358703767, "pos_min": 0.35164510771939644, "pos_max": 0.8196177040885909, "all_gaps_median": 0.9638950224110109, "n_gaps_below_gapmax": 2000, "n_distinct_gaps_hit": 41, "smallest_gaps_hit_rank": 2000}
+1e6 zeta a0.5 {"n": 181, "abscos_min": 0.7939855409054469, "abscos_median": 0.9961360131914153, "frac_abscos_gt_0.9": 0.9613259668508287, "drop_over_pi_max": 0.4970874519494808, "drop_over_pi_median": 0.07974318935048709, "gap_median": 1.721617120102115, "gap_max": 2.7246124358703767, "pos_min": 0.2856203625130743, "pos_max": 0.7131996120625269, "all_gaps_median": 0.9638950224110109, "n_gaps_below_gapmax": 2000, "n_distinct_gaps_hit": 181, "smallest_gaps_hit_rank": 2000}
+1e6 U log2 {"n": 43, "abscos_min": 0.007051593295414294, "abscos_median": 0.7104558957973801, "frac_abscos_gt_0.9": 0.23255813953488372, "drop_over_pi_max": 0.3606582006830328, "drop_over_pi_median": 0.021744281774553172, "gap_median": 1.0344906896181076, "gap_max": 2.207255045453854, "pos_min": 0.0011540376676390169, "pos_max": 0.9919380528808702, "all_gaps_median": 0.9638950224110109, "n_gaps_below_gapmax": 1993, "n_distinct_gaps_hit": 43, "smallest_gaps_hit_rank": 1992}
+1e6 U a0.5 {"n": 170, "abscos_min": 0.004057096631561532, "abscos_median": 0.6663960333914758, "frac_abscos_gt_0.9": 0.25882352941176473, "drop_over_pi_max": 0.5280548128537625, "drop_over_pi_median": 0.055795418650430056, "gap_median": 1.18285838272086, "gap_max": 2.1515002926653533, "pos_min": 0.000595990054977694, "pos_max": 0.9995072370303926, "all_gaps_median": 0.9638950224110109, "n_gaps_below_gapmax": 1985, "n_distinct_gaps_hit": 170, "smallest_gaps_hit_rank": 1985}
+1e6 U log2 {"n": 45, "abscos_min": 0.10279164486283592, "abscos_median": 0.7498739704013471, "frac_abscos_gt_0.9": 0.4222222222222222, "drop_over_pi_max": 0.6694871823640818, "drop_over_pi_median": 0.03985440804664923, "gap_median": 0.9882004020829989, "gap_max": 2.1602298388058427, "pos_min": 0.0023351098488865268, "pos_max": 0.9588541263769805, "all_gaps_median": 0.9638950224110109, "n_gaps_below_gapmax": 1987, "n_distinct_gaps_hit": 45, "smallest_gaps_hit_rank": 1987}
+1e6 U a0.5 {"n": 187, "abscos_min": 0.009916589421879462, "abscos_median": 0.6879060702929153, "frac_abscos_gt_0.9": 0.3048128342245989, "drop_over_pi_max": 0.8270027803658132, "drop_over_pi_median": 0.06580621141167896, "gap_median": 1.0772459306671989, "gap_max": 2.7246124358703767, "pos_min": 0.003498058000337903, "pos_max": 0.9997842728311028, "all_gaps_median": 0.9638950224110109, "n_gaps_below_gapmax": 2000, "n_distinct_gaps_hit": 187, "smallest_gaps_hit_rank": 2000}
+planned memory: 127992 x 1229 complex x ~6 arrays in chunks of <= 2e6
+1e8 zeta log2 {"n": 5, "abscos_min": 0.9339325447594616, "abscos_median": 0.9822618428229984, "frac_abscos_gt_0.9": 1.0, "drop_over_pi_max": 0.13860700185705294, "drop_over_pi_median": 0.035279632604165355, "gap_median": 2.3241588441423895, "gap_max": 2.672727546680553, "pos_min": 0.4459149948247937, "pos_max": 0.6126984649360614, "all_gaps_median": 0.9652279028075312, "n_gaps_below_gapmax": 2000, "n_distinct_gaps_hit": 5, "smallest_gaps_hit_rank": 2000}
+1e8 zeta a0.5 {"n": 163, "abscos_min": 0.5756760105644504, "abscos_median": 0.9924548446070738, "frac_abscos_gt_0.9": 0.950920245398773, "drop_over_pi_max": 0.4319344989632183, "drop_over_pi_median": 0.04703008138011227, "gap_median": 1.75469045680781, "gap_max": 2.672727546680553, "pos_min": 0.21007975413516058, "pos_max": 0.6784113382667653, "all_gaps_median": 0.9652279028075312, "n_gaps_below_gapmax": 2000, "n_distinct_gaps_hit": 163, "smallest_gaps_hit_rank": 2000}
+1e8 U log2 {"n": 8, "abscos_min": 0.0878845530915007, "abscos_median": 0.818654749386897, "frac_abscos_gt_0.9": 0.375, "drop_over_pi_max": 0.3046980548951896, "drop_over_pi_median": 0.03420793241415321, "gap_median": 1.0896170339916045, "gap_max": 1.8545211379712978, "pos_min": 0.19631674916586245, "pos_max": 0.916359397838159, "all_gaps_median": 0.9652279028075312, "n_gaps_below_gapmax": 1938, "n_distinct_gaps_hit": 8, "smallest_gaps_hit_rank": 1938}
+1e8 U a0.5 {"n": 152, "abscos_min": 0.007940031434453515, "abscos_median": 0.6907304635430401, "frac_abscos_gt_0.9": 0.2894736842105263, "drop_over_pi_max": 0.7516061111482034, "drop_over_pi_median": 0.0558256723690047, "gap_median": 1.0923783394549973, "gap_max": 2.21767375780835, "pos_min": 0.0019887347016530744, "pos_max": 0.990941846092624, "all_gaps_median": 0.9652279028075312, "n_gaps_below_gapmax": 1991, "n_distinct_gaps_hit": 152, "smallest_gaps_hit_rank": 1991}
+1e8 U log2 {"n": 7, "abscos_min": 0.06409275624189376, "abscos_median": 0.24704123231459418, "frac_abscos_gt_0.9": 0.2857142857142857, "drop_over_pi_max": 0.20046662909193708, "drop_over_pi_median": 0.023167128819243724, "gap_median": 1.1116826279599084, "gap_max": 1.8931007371885018, "pos_min": 0.0517638058101787, "pos_max": 0.941129186979712, "all_gaps_median": 0.9652279028075312, "n_gaps_below_gapmax": 1947, "n_distinct_gaps_hit": 7, "smallest_gaps_hit_rank": 1946}
+1e8 U a0.5 {"n": 147, "abscos_min": 0.0030771836746449925, "abscos_median": 0.6406981380600683, "frac_abscos_gt_0.9": 0.24489795918367346, "drop_over_pi_max": 0.5933010708049076, "drop_over_pi_median": 0.061273243823254726, "gap_median": 1.0897921113964038, "gap_max": 2.672727546680553, "pos_min": 0.000872303108616067, "pos_max": 0.9993340914677649, "all_gaps_median": 0.9652279028075312, "n_gaps_below_gapmax": 2000, "n_distinct_gaps_hit": 147, "smallest_gaps_hit_rank": 2000}
+1e5 T0 100000 window 100000.7437234872 101298.62638280187 spacing 0.6494210900521141 n0 138070 primes 739 counts [32, 0, 2, 7, 65, 739]
+planned memory: line grids 127904 x 6 cols x 3 arrays = 24.6 MB; 2D grid 48 x 31976 x 5 complex = 122.8 MB per family; PD chunk <= 2e6 complex x ~8 arrays = 256 MB per worker; arb rows 5 x 31976
+selftest stage rel err 5.602817741705244e-13
+rouche line c=0.5 done, sec 16
+rouche line c=1 done, sec 33
+rouche line c=2 done, sec 50
+rouche line c=4 done, sec 67
+rouche line c=8 done, sec 84
+zeta line grid sec 3
+zeta line stats sec 21
+zeta 2D grid sec 8
+U line grid sec 2
+U line stats sec 18
+U 2D grid sec 7
+L line grid sec 2
+L line stats sec 20
+L 2D grid sec 7
+done 1e5 sec 177.68571543693542
+1e6 T0 1000000 window 1000000.5840976964 1001049.5913414842 spacing 0.5245764954492754 n0 1747147 primes 3401 counts [42, 0, 2, 11, 168, 3401]
+planned memory: line grids 127980 x 6 cols x 3 arrays = 24.6 MB; 2D grid 48 x 31995 x 5 complex = 122.9 MB per family; PD chunk <= 2e6 complex x ~8 arrays = 256 MB per worker; arb rows 5 x 31995
+selftest stage rel err 1.1424281988854699e-11
+rouche line c=0.5 done, sec 15
+rouche line c=1 done, sec 29
+rouche line c=2 done, sec 43
+rouche line c=4 done, sec 58
+rouche line c=8 done, sec 72
+zeta line grid sec 10
+zeta line stats sec 75
+zeta 2D grid sec 14
+U line grid sec 10
+U line stats sec 66
+U 2D grid sec 14
+L line grid sec 10
+L line stats sec 71
+L 2D grid sec 13
+done 1e6 sec 333.9655041694641
+1e7 T0 10000000 window 10000000.240023555 10000880.020867841 spacing 0.43999223537215787 n0 21136126 primes 16144 counts [55, 1, 3, 16, 446, 16144]
+planned memory: line grids 127968 x 6 cols x 3 arrays = 24.6 MB; 2D grid 48 x 31992 x 5 complex = 122.8 MB per family; PD chunk <= 2e6 complex x ~8 arrays = 256 MB per worker; arb rows 5 x 31992
+selftest stage rel err 2.0906044130993536e-11
+rouche line c=0.5 done, sec 24
+rouche line c=1 done, sec 47
+rouche line c=2 done, sec 71
+rouche line c=4 done, sec 94
+rouche line c=8 done, sec 117
+zeta line grid sec 47
+zeta line stats sec 324
+zeta 2D grid sec 32
+U line grid sec 46
+U line stats sec 286
+U 2D grid sec 31
+L line grid sec 47
+L line stats sec 316
+L 2D grid sec 31
+done 1e7 sec 1146.718180179596

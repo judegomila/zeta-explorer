@@ -1,0 +1,90 @@
+primes: 664579, per-vector 11 MB complex
+zeta t=1000 done 2s
+zeta t=1194 done 5s
+zeta t=1425 done 7s
+zeta t=1701 done 9s
+zeta t=2031 done 12s
+zeta t=2424 done 14s
+zeta t=2894 done 16s
+zeta t=3455 done 19s
+zeta t=4125 done 21s
+zeta t=4924 done 23s
+zeta t=5878 done 25s
+zeta t=7017 done 27s
+zeta t=8377 done 29s
+zeta t=1e+04 done 32s
+zeta t=1.194e+04 done 34s
+zeta t=1.425e+04 done 36s
+zeta t=1.701e+04 done 39s
+zeta t=2.031e+04 done 41s
+zeta t=2.424e+04 done 44s
+zeta t=2.894e+04 done 47s
+zeta t=3.455e+04 done 49s
+zeta t=4.125e+04 done 51s
+zeta t=4.924e+04 done 53s
+zeta t=5.878e+04 done 56s
+zeta t=7.017e+04 done 58s
+zeta t=8.377e+04 done 60s
+zeta t=1e+05 done 62s
+zeta t=1.194e+05 done 65s
+zeta t=1.425e+05 done 67s
+zeta t=1.701e+05 done 69s
+zeta t=2.031e+05 done 71s
+zeta t=2.424e+05 done 74s
+zeta t=2.894e+05 done 76s
+zeta t=3.455e+05 done 78s
+zeta t=4.125e+05 done 80s
+zeta t=4.924e+05 done 83s
+zeta t=5.878e+05 done 85s
+zeta t=7.017e+05 done 87s
+zeta t=8.377e+05 done 90s
+zeta t=1e+06 done 92s
+U done 193s
+RZ done 293s
+DH: planned arrays 3 x 10000001 float64 = 240 MB, + 2 complex per (t,sigma) = 320 MB
+DH coefficients done 296s; max|b(n)|=871.2, sum|b|n^-1=5.976, b(2),b(3),b(4),b(6)=[0.28407904384041227, -0.28407904384041227, -1.0403504515746413, 1.080700903149283]
+DH check at s=3: exp(sum b n^-3)=1.01350459833053 f(3)=1.01350459833054
+DH f check s=(0.6+30j): EM=(0.2731207570406975-0.43169958729600666j) mp=(0.2731207570407168-0.43169958729601393j)
+DH f check s=(0.75+1000j): EM=(0.6822268445608358-0.49429293327215745j) mp=(0.6822268445610461-0.49429293327214746j)
+DH t=1000 done 297s
+DH t=1194 done 298s
+DH t=1425 done 298s
+DH t=1701 done 299s
+DH t=2031 done 300s
+DH t=2424 done 300s
+DH t=2894 done 301s
+DH t=3455 done 302s
+DH t=4125 done 302s
+DH t=4924 done 303s
+DH t=5878 done 304s
+DH t=7017 done 305s
+DH t=8377 done 305s
+DH t=1e+04 done 306s
+DH t=1.194e+04 done 307s
+DH t=1.425e+04 done 307s
+DH t=1.701e+04 done 308s
+DH t=2.031e+04 done 309s
+DH t=2.424e+04 done 309s
+DH t=2.894e+04 done 310s
+DH t=3.455e+04 done 311s
+DH t=4.125e+04 done 312s
+DH t=4.924e+04 done 312s
+DH t=5.878e+04 done 313s
+DH t=7.017e+04 done 314s
+DH t=8.377e+04 done 315s
+DH t=1e+05 done 316s
+DH t=1.194e+05 done 317s
+DH t=1.425e+05 done 318s
+DH t=1.701e+05 done 319s
+DH t=2.031e+05 done 320s
+DH t=2.424e+05 done 320s
+DH t=2.894e+05 done 321s
+DH t=3.455e+05 done 322s
+DH t=4.125e+05 done 323s
+DH t=4.924e+05 done 324s
+DH t=5.878e+05 done 325s
+DH t=7.017e+05 done 326s
+DH t=8.377e+05 done 327s
+DH t=1e+06 done 328s
+ALL DONE 328s
+exit 0

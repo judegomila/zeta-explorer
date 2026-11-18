@@ -1,0 +1,25 @@
+critical-class count  source    no supply 0.590349   supply 0.2105 0.590349
+critical-class count  source2   no supply 0.590349   supply 0.2105 0.590349
+critical-class count  first     no supply 0.578587   supply 0.2105 0.578587
+critical-class count  both      no supply 0.530655   supply 0.2105 0.577042
+critical-class count  forced    no supply 0.530655   supply 0.2105 0.577042
+source   supply=True  optimistic B 0.8749133  gain vs source on the same grid 0.00e+00  (b=0.0971 l=0.1670 kappa=0.74983 L=0.2090)  B_flat-gain = 0.8748866
+source   supply=True  gates      B 0.8749164  gain vs source on the same grid 0.00e+00  (b=0.0895 l=0.1670 kappa=0.74983 L=0.2100)  B_flat-gain = 0.8748866
+source   supply=False optimistic B 0.8749133  gain vs source on the same grid 0.00e+00  (b=0.0971 l=0.1670 kappa=0.74983 L=9.0000)  B_flat-gain = 0.8748866
+source   supply=False gates      B 0.8749164  gain vs source on the same grid 0.00e+00  (b=0.0895 l=0.1670 kappa=0.74983 L=9.0000)  B_flat-gain = 0.8748866
+source2  supply=True  optimistic B 0.8749133  gain vs source on the same grid 0.00e+00  (b=0.0971 l=0.1670 kappa=0.74983 L=0.2090)  B_flat-gain = 0.8748866
+source2  supply=True  gates      B 0.8749164  gain vs source on the same grid 0.00e+00  (b=0.0895 l=0.1670 kappa=0.74983 L=0.2100)  B_flat-gain = 0.8748866
+source2  supply=False optimistic B 0.8749133  gain vs source on the same grid 0.00e+00  (b=0.0971 l=0.1670 kappa=0.74983 L=9.0000)  B_flat-gain = 0.8748866
+source2  supply=False gates      B 0.8749164  gain vs source on the same grid 0.00e+00  (b=0.0895 l=0.1670 kappa=0.74983 L=9.0000)  B_flat-gain = 0.8748866
+first    supply=True  optimistic B 0.8733143  gain vs source on the same grid 1.60e-03  (b=0.0546 l=0.1734 kappa=0.74663 L=0.2202)  B_flat-gain = 0.8732877
+first    supply=True  gates      B 0.8733185  gain vs source on the same grid 1.60e-03  (b=0.0483 l=0.1734 kappa=0.74664 L=0.2211)  B_flat-gain = 0.8732888
+first    supply=False optimistic B 0.8733143  gain vs source on the same grid 1.60e-03  (b=0.0546 l=0.1734 kappa=0.74663 L=9.0000)  B_flat-gain = 0.8732877
+first    supply=False gates      B 0.8733185  gain vs source on the same grid 1.60e-03  (b=0.0483 l=0.1734 kappa=0.74664 L=9.0000)  B_flat-gain = 0.8732888
+both     supply=True  optimistic B 0.8728192  gain vs source on the same grid 2.09e-03  (b=0.0394 l=0.1754 kappa=0.74564 L=0.2242)  B_flat-gain = 0.8727926
+both     supply=True  gates      B 0.8730210  gain vs source on the same grid 1.90e-03  (b=0.0392 l=0.1746 kappa=0.74604 L=0.2234)  B_flat-gain = 0.8729913
+both     supply=False optimistic B 0.8703626  gain vs source on the same grid 4.55e-03  (b=-0.0000 l=0.1852 kappa=0.74073 L=9.0000)  B_flat-gain = 0.8703360
+both     supply=False gates      B 0.8730210  gain vs source on the same grid 1.90e-03  (b=0.0392 l=0.1746 kappa=0.74604 L=9.0000)  B_flat-gain = 0.8729913
+forced   supply=True  optimistic B 0.8728192  gain vs source on the same grid 2.09e-03  (b=0.0394 l=0.1754 kappa=0.74564 L=0.2242)  B_flat-gain = 0.8727926
+forced   supply=True  gates      B 0.8730210  gain vs source on the same grid 1.90e-03  (b=0.0392 l=0.1746 kappa=0.74604 L=0.2234)  B_flat-gain = 0.8729913
+forced   supply=False optimistic B 0.8703626  gain vs source on the same grid 4.55e-03  (b=-0.0000 l=0.1852 kappa=0.74073 L=9.0000)  B_flat-gain = 0.8703360
+forced   supply=False gates      B 0.8730210  gain vs source on the same grid 1.90e-03  (b=0.0392 l=0.1746 kappa=0.74604 L=9.0000)  B_flat-gain = 0.8729913

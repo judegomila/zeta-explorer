@@ -1,0 +1,6 @@
+planned: N=1277 P=206 windows=8; rows 4032 x 1277 complex x2 = 165 MB
+{"T": 1000000.0, "layout": "cluster", "m": 8, "delta": 0.1, "label": "start", "maxdef": 0.0026477858786142436, "absF": 0.0025174387128265208, "s0_xindep": 0.000758704068987583, "sec": 432}
+{"T": 1000000.0, "layout": "cluster", "m": 8, "delta": 0.1, "label": "round0 nfev=1000 status=0", "maxdef": 0.0025299584286353283, "absF": 0.0015488823577888523, "s0_xindep": 0.0006092962506554572, "sec": 504}
+{"T": 1000000.0, "layout": "cluster", "m": 8, "delta": 0.1, "label": "round1 nfev=1000 status=0", "maxdef": 0.002211178557429023, "absF": 0.0006342797434217472, "s0_xindep": 0.0005629661161543237, "sec": 572}
+{"T": 1000000.0, "layout": "cluster", "m": 8, "delta": 0.1, "label": "round2 nfev=1000 status=0", "maxdef": 0.002181146360730014, "absF": 0.0006484719051911776, "s0_xindep": 0.0005593593097205276, "sec": 643}
+{"T": 1000000.0, "layout": "cluster", "m": 8, "delta": 0.1, "label": "round3 nfev=1000 status=0", "maxdef": 0.0021802944400530723, "absF": 0.0006477671439526271, "s0_xindep": 0.0005592294162341084, "sec": 716}

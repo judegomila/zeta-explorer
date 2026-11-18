@@ -1,0 +1,22 @@
+.venv-arb/lib/python3.14/site-packages/numpy/linalg/_linalg.py:2406: RuntimeWarning: divide by zero encountered in det
+  r = _umath_linalg.det(a, signature=signature)
+.venv-arb/lib/python3.14/site-packages/numpy/linalg/_linalg.py:2406: RuntimeWarning: overflow encountered in det
+  r = _umath_linalg.det(a, signature=signature)
+.venv-arb/lib/python3.14/site-packages/numpy/linalg/_linalg.py:2406: RuntimeWarning: invalid value encountered in det
+  r = _umath_linalg.det(a, signature=signature)
+{"point": "s=1", "radius": 0.2, "ord_Z": 1.0, "ord_Z_over_zeta(2s)": 1.0, "min|Z| on circle": 0.53739999340073} 7.0
+{"point": "s=1/2", "radius": 0.2, "ord_Z": -1.0000000000000002, "ord_Z_over_zeta(2s)": 0.0, "min|Z| on circle": 4.214746215247183} 14.0
+{"point": "s=rho1/2", "radius": 0.2, "ord_Z": 1.0, "ord_Z_over_zeta(2s)": 0.0, "min|Z| on circle": 0.35213983761078127} 21.7
+{"point": "s=1/2+i r1", "radius": 0.2, "ord_Z": 1.0, "ord_Z_over_zeta(2s)": 1.0, "min|Z| on circle": 0.41107673217000834} 29.7
+{"point": "s=0.75 (control point, no zero)", "radius": 0.04, "ord_Z": -1.4135798584282297e-16, "ord_Z_over_zeta(2s)": 0.0, "min|Z| on circle": 1.8434179736400518} 38.4
+(s-1/2) Z(s) at 1/2 +- 0.01: [(-1.816663193848165+0j), (-1.9614069859740162-0j)]
+(s-1/2) Z(s) at 1/2 +- 0.001: [(-1.8803843497723725+0j), (-1.894852801150004-0j)]
+(s-1/2) Z(s) at 1/2 +- 0.0001: [(-1.886880998839584+0j), (-1.8883278327401076-0j)]
+Z(1) = (3.2655152477971993e-15+0j)  Z(rho1/2) = (-5.357904609101378e-14-2.809110950741235e-15j)  Z(1/2+i r1) = (-4.459219376181362e-13-2.18694516503946e-12j)
+K-convergence Z(0.25+7i): [(0.05206916364428777-0.1340272551111973j), (0.05206916376873926-0.13402725508980692j), (0.05206916376865278-0.13402725508982216j), (0.05206916376865022-0.13402725508982466j)]
+{"x": 100.0, "psi_Gamma": 86.41584713357294, "psi": 94.0453112293574, "diff": -7.629464095784456, "diff_over_sqrt_x": -0.7629464095784456}
+{"x": 1000.0, "psi_Gamma": 916.6064125102351, "psi": 996.6809122471755, "diff": -80.07449973694031, "diff_over_sqrt_x": -2.532178016672851}
+{"x": 10000.0, "psi_Gamma": 9929.964175019924, "psi": 10013.396693263108, "diff": -83.43251824318395, "diff_over_sqrt_x": -0.8343251824318395}
+{"x": 100000.0, "psi_Gamma": 99753.86810066951, "psi": 100051.56402565801, "diff": -297.6959249884967, "diff_over_sqrt_x": -0.9413971731142846}
+{"x": 990000.0, "psi_Gamma": 986326.5341737731, "psi": 989622.3291343983, "diff": -3295.7949606251204, "diff_over_sqrt_x": -3.312398566768992}
+[2, 3, 4, 5] 9700 21233

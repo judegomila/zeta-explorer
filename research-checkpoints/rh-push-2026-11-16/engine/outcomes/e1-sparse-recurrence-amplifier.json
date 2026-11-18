@@ -1,0 +1,40 @@
+{
+ "slug": "e1-sparse-recurrence-amplifier",
+ "round": 1,
+ "batch": 1,
+ "kind": "attack",
+ "nodes": [
+  "bagchi-strong-recurrence",
+  "large-sieve-density-selector"
+ ],
+ "launchedNodes": [
+  "bagchi-strong-recurrence",
+  "euler-product-torus-parametrisation",
+  "tinfty-flow-generator-spectrum",
+  "large-sieve-density-selector"
+ ],
+ "tags": [
+  "recurrence",
+  "bohr-set",
+  "density-estimate",
+  "restatement"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "CLASSICAL (Rouche step of Bagchi's criterion; not new): for a zero with gamma_0 > 0 the number of one-separated Rouche returns is R(T) <= N(beta_0 - r, T + gamma_0 + 1). So power-sparse recurrence at every hypothetical off-line zero (exponent 0.2308 at beta_0 = 7/8, tending to 1 as beta_0 -> 1/2) is equivalent to RH. For a hypothetical zeta zero the return set has frequency 0 and every finite Bohr set leaves the zero in the tail R_P. MEASURED (float64): DH has 8116 zeros in 0.52 <= Re s <= 1.2 up to 1e5; returns at positive rate at three DH zeros (fraction 1.0e-4 to 4.3e-4 at r = 0.1), within 13 to 17 percent of a Haar Monte Carlo model.",
+ "obstruction": "A recurrence hypothesis whose returns each produce a zero is bounded by the zero count, so it is as strong as the zero-free statement (restatement). zeta_P never vanishes, so an off-line zeta zero is a Haar-null event carried by the tail beyond every finite prime set; Kronecker equidistribution gives frequencies only for sets of positive Haar measure. Closed at step 2.",
+ "obstructionKind": "restatement-of-rh",
+ "controlsThatDefeat": [
+  "sign twist: not separated (argued, not proved)",
+  "DH and E_a: separated only through the density estimate, not through the recurrence step"
+ ],
+ "lesson": "Reject combinations whose amplifier is 'one zero implies many zeros' via Bohr sets or almost periodicity.",
+ "refereeHolds": true,
+ "refereeNote": "Lemma 1 must be stated for gamma_0 > 0 (pole at s = 1 otherwise); Lemma 1 and Corollary 2 are classical, not new.",
+ "referees": 1,
+ "aboutZeros": false,
+ "strength": 0.05,
+ "newNodes": [],
+ "followUp": "",
+ "resultFile": "tmp/research-2026-11-16/push/e1-sparse-recurrence-amplifier/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/e1-sparse-recurrence-amplifier/REFEREE.md"
+}

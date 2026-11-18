@@ -1,0 +1,26 @@
+planned allocation: object arrays of length 400000 (python ints), about 4 arrays x 400001 x ~40 B = 64 MB; dense float matrices at most 310 x 2000 x 8 B = 5 MB each
+delta =  +1 q^1 -56 q^4 +120 q^5 -240 q^8 +9 q^9 +1440 q^12 -1320 q^13 -704 q^16 -240 q^17 +960 q^20
+plus space (c(n) = 0 for n = 2, 3 mod 4), n <= 400000: True
+fundamental discriminants 1 < D <= 2000: 607 with c(D) != 0, 0 with c(D) = 0
+sample c(D): [(5, 120), (8, -240), (12, 1440), (13, -1320), (17, -240), (21, 5040), (24, -12960), (28, 13440), (29, -3960), (33, -6480), (37, -23880), (40, 23520)]
+(1) Kohnen-Shimura relation: 15647 cases, 0 mismatches
+(2) c(D p^2)/c(D) over rows D (raw q-expansion): values by (D/p), and the two parameters
+   p= 3 single value per symbol class: True  values {-1: 495, 0: 252, 1: 9}  frequency-0 part = 252 (tau(p) = 252)  symbol part = -(D/p) * 243 (p^5 = 243)
+   p= 5 single value per symbol class: True  values {0: 4830, -1: 7955, 1: 1705}  frequency-0 part = 4830 (tau(p) = 4830)  symbol part = -(D/p) * 3125 (p^5 = 3125)
+   p= 7 single value per symbol class: True  values {-1: 63, 1: -33551, 0: -16744}  frequency-0 part = -16744 (tau(p) = -16744)  symbol part = -(D/p) * 16807 (p^5 = 16807)
+   p=11 single value per symbol class: True  values {1: 373561, -1: 695663, 0: 534612}  frequency-0 part = 534612 (tau(p) = 534612)  symbol part = -(D/p) * 161051 (p^5 = 161051)
+   p=13 single value per symbol class: True  values {-1: -206445, 1: -949031, 0: -577738}  frequency-0 part = -577738 (tau(p) = -577738)  symbol part = -(D/p) * 371293 (p^5 = 371293)
+(3) row matrices 607 x 2000 (theta rows 607 x 44); rows scaled to mean norm 1
+   symbol table (D/m)                 sv1..4 =   3.425   2.781   2.511   2.319   sv1^2/rows = 0.0193   off-diag corr rms 0.0303 max 0.1961  pairs>0.5: 0 
+   theta rows (D/n), m = n^2          sv1..4 =   8.479   6.840   6.034   5.288   sv1^2/rows = 0.1185   off-diag corr rms 0.2025 max 0.9305  pairs>0.5: 5482 
+   Shimura rows c(Dm^2)/c(D)          sv1..4 =  21.308   8.284   5.869   3.779   sv1^2/rows = 0.7480   off-diag corr rms 0.7606 max 0.9909  pairs>0.5: 172418 
+   Shimura rows minus tau~(m)         sv1..4 =  16.713  11.676   7.529   5.456   sv1^2/rows = 0.4602   off-diag corr rms 0.4705 max 0.9762  pairs>0.5: 67007 
+   max-parabolic model (D/m) c~(m)    sv1..4 =   3.644   3.291   2.802   2.697   sv1^2/rows = 0.0219   off-diag corr rms 0.0604 max 0.3010  pairs>0.5: 0 
+   same with random column signs      sv1..4 =   3.644   3.291   2.802   2.697   sv1^2/rows = 0.0219   off-diag corr rms 0.0604 max 0.3010  pairs>0.5: 0 
+   max |Gram(MP) - Gram(symbol table with weights |c~(m)|)| = 0.00e+00 (the Gram matrix depends on c only through |c(m)|^2)
+   random signs (control)             sv1..4 =   1.542   1.539   1.525   1.521   sv1^2/rows = 0.0039   off-diag corr rms 0.0223 max 0.1310  pairs>0.5: 0 
+   control E_a Hecke part, a = 0.3    sv1..4 =  23.971   3.476   3.206   2.187   sv1^2/rows = 0.9466   off-diag corr rms 0.9349 max 0.9994  pairs>0.5: 183921 
+     minus common part                sv1..4 =  21.489   8.599   5.825   4.050   sv1^2/rows = 0.7608   off-diag corr rms 0.6329 max 0.9991  pairs>0.5: 111514 
+   control: (5/e) inserted, minus common sv1..4 =  17.741  12.518   5.829   4.747   sv1^2/rows = 0.5185   off-diag corr rms 0.5162 max 0.9834  pairs>0.5: 78062 
+   control: random mult. signs on e, minus common sv1..4 =  16.629  11.824   7.470   5.459   sv1^2/rows = 0.4556   off-diag corr rms 0.4696 max 0.9775  pairs>0.5: 66978 
+   largest off-diagonal correlation of the symbol part: D = 1117, D' = 1933, corr = 0.976

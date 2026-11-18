@@ -1,0 +1,10 @@
+PLAN X=160000: variables 801, nonzeros ~5.6e+04; measured peak RSS 0.53 GB at 3e6
+COF {"x": 160000, "X": 160000, "i": 0, "cof": 179.80477973806407, "cof_over_sqrtx": 0.4495119493451602, "density_in_x_units": 0.09319121365723822, "excess_density1_over_sqrtx": 4.823544320374309, "maxabs_e": 1.0000000002037268, "rounds": 1, "secs": 0.4, "maxrss_MB": 104.765625}
+PLAN X=320000: variables 1132, nonzeros ~9.42e+04; measured peak RSS 0.53 GB at 3e6
+COF {"x": 160000, "X": 320000, "i": 1, "cof": 166.3030646579882, "cof_over_sqrtx": 0.41575766164497047, "density_in_x_units": 0.08624327583150325, "excess_density1_over_sqrtx": 4.820754518384158, "maxabs_e": 1.0000000004074536, "rounds": 1, "secs": 1.0, "maxrss_MB": 144.953125}
+PLAN X=640000: variables 1601, nonzeros ~1.58e+05; measured peak RSS 0.53 GB at 3e6
+COF {"x": 160000, "X": 640000, "i": 2, "cof": 157.91174744024482, "cof_over_sqrtx": 0.3947793686006121, "density_in_x_units": 0.07474858520885634, "excess_density1_over_sqrtx": 5.281429307291263, "maxabs_e": 1.0000000002328306, "rounds": 1, "secs": 2.7, "maxrss_MB": 201.3125}
+PLAN X=1280000: variables 2263, nonzeros ~2.66e+05; measured peak RSS 0.53 GB at 3e6
+COF {"x": 160000, "X": 1280000, "i": 3, "cof": 150.51980260661603, "cof_over_sqrtx": 0.37629950651654004, "density_in_x_units": 0.06885619134392498, "excess_density1_over_sqrtx": 5.465006111607131, "maxabs_e": 1.0000000003911105, "rounds": 1, "secs": 6.9, "maxrss_MB": 306.25}
+PLAN X=2560000: variables 3201, nonzeros ~4.48e+05; measured peak RSS 0.53 GB at 3e6
+COF {"x": 160000, "X": 2560000, "i": 4, "cof": 142.50496595408703, "cof_over_sqrtx": 0.3562624148852176, "density_in_x_units": 0.0644955424381525, "excess_density1_over_sqrtx": 5.523830041849056, "maxabs_e": 1.0000000067520887, "rounds": 1, "secs": 22.1, "maxrss_MB": 498.078125}

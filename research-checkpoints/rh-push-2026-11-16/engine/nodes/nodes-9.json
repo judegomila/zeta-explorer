@@ -1,0 +1,1631 @@
+[
+ {
+  "id": "fifty-routes-four-walls",
+  "type": "obstruction",
+  "name": "Four walls of the fifty-routes campaign",
+  "statement": "22 of 50 routes reduce to one of four walls: pointwise (averaged or modulus-only inputs carry no every-window information), verified height, flow-blindness (SL2-class soft hypotheses), RH-equivalence (object restates RH, GRH or the explicit formula). Other classes: method-cap, Euler-blind, consumes-zeros, measurement.",
+  "status": "closed",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "routes-md:fifty-routes-synthesis-2026-10-15.md",
+  "tags": [
+   "antibridge",
+   "heat-flow",
+   "weil",
+   "explicit-formula"
+  ]
+ },
+ {
+  "id": "weil-positivity-four-outcomes",
+  "type": "obstruction",
+  "name": "Certified Weil positivity: four outcomes",
+  "statement": "Every certified Weil-positivity result of routes 11-15, 19, 26, 44 is inside the verified height, blind above a finite horizon, Euler-blind (passes a same-gamma-factor twin with off-line zeros), or equivalent to (G)RH at full support.",
+  "status": "closed",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "routes-md:fifty-routes-synthesis-2026-10-15.md",
+  "tags": [
+   "weil",
+   "pick",
+   "euler-product"
+  ]
+ },
+ {
+  "id": "lambda-ledger-0145276",
+  "type": "object",
+  "name": "Route-P combined value 0.145276368594868",
+  "statement": "Lambda <= 36319092148717/250000000000000 certified relative to the route-P ledger (round 7 campaign certificates, 3-band layout, 281 lambda<2 kernels). Depends on Raymond chain G0, Lemma B, Theorem B'_m, one engine, RH verified to 3.0001753e12. Internal referee only; 0.145 not certified.",
+  "status": "certified",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "routes-md:fifty-routes-synthesis-2026-10-15.md",
+  "tags": [
+   "lambda",
+   "heat-flow"
+  ],
+  "obstructionRow": "F6"
+ },
+ {
+  "id": "lambda-conditional-qrh-0116091",
+  "type": "object",
+  "name": "Conditional value 0.116091488672439 on the 7/8 half-plane",
+  "statement": "Route-P consumer started at q0 = 9/16 + eps gives 0.116091488672439, conditional on zeta nonvanishing for Re s > 7/8 (openai/math 003, Lean), chain G0 and the route-P ledger. The 7/8 start supplies -0.0309 of the step from 0.1453.",
+  "status": "certified",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "routes-md:fifty-routes-synthesis-2026-10-15.md",
+  "tags": [
+   "lambda",
+   "zero-free",
+   "heat-flow",
+   "lean"
+  ],
+  "obstructionRow": "F4"
+ },
+ {
+  "id": "g0-chain-external-referee",
+  "type": "open-lemma",
+  "name": "Raymond chain G0 unrefereed",
+  "statement": "AF Part I/II, Lemmas 2-3, Theorem 4/4', G0-c and G0-d (OP) have internal review only. G0 is the binding premise of both sub-0.2 values (0.1452..., 0.1160...). G0-c and G0-d are not formalised; Lemma R is Lean-checked conditional on AF (4.6) and Phi' = Re beta_t.",
+  "status": "conjectural",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "routes-md:fifty-routes-synthesis-2026-10-15.md",
+  "tags": [
+   "lambda",
+   "lean",
+   "heat-flow"
+  ]
+ },
+ {
+  "id": "p47-late-cell-floors",
+  "type": "open-lemma",
+  "name": "P47 late-cell WOL-C floors (cells 417-424)",
+  "statement": "Lambda < 0.145 by route P needs 125 missing P47 late-cell floors; cells 417-424 (0.88 sharp) need point bound + 0.008 and stalled at 0.10-0.19. Floors are suprema over the Kronecker torus with all prime phases free and carry no height coordinate.",
+  "status": "conjectural",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "route:route-1-finish-route-p-2026-10-06",
+  "tags": [
+   "lambda",
+   "torus"
+  ],
+  "obstructionRow": "F6"
+ },
+ {
+  "id": "barrier-floor-not-binding",
+  "type": "obstruction",
+  "name": "Lowered barrier floor moves no Lambda value",
+  "statement": "The barrier floor is not an input of route P; under Polymath15 Thm 1.2 it enters only through containment (t0 <= 129/800, f^2 <= y0^2), which does not bind. 0.1787854 and 0.1758354 are unchanged at every floor from 0.1809 to 0.022.",
+  "status": "closed",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "route:route-2-lowered-barrier-floor-2026-10-06",
+  "tags": [
+   "lambda",
+   "heat-flow"
+  ]
+ },
+ {
+  "id": "lemma-mp3-multipoint-phase",
+  "type": "identity",
+  "name": "Lemma MP3 (multi-point phase lemma)",
+  "statement": "For omega_s >= 0, |z| = |u_s| = 1, eps = +-1, c_s >= c0 >= 0: sum omega_s c_s [1 - eps Re(z u_s)] >= c0 (sum omega_s - |sum omega_s u_s|), sharp in z. One pair without centre weight is Raymond's Lemma 3. Worth -7.86e-7 on Lambda.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "route:route-3-three-point-probes-2026-10-07",
+  "tags": [
+   "lambda",
+   "torus"
+  ]
+ },
+ {
+  "id": "probe-measure-linearity",
+  "type": "mechanism",
+  "name": "Linearity of the floor in the probe measure",
+  "statement": "Kernel inequality, self cap and the Lemma H2 far-field inequality are linear in the probe measure, so mixtures of certified components need no new kernel certificate (lambda = min of components). Six certified lambda<2 two-point kernels give -2.28e-4.",
+  "status": "certified",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "route:route-3-three-point-probes-2026-10-07",
+  "tags": [
+   "lambda"
+  ]
+ },
+ {
+  "id": "fejer-riesz-branch-reduction",
+  "type": "tool",
+  "name": "Fejer-Riesz branch-reduction lemma for fibre maxima",
+  "statement": "The fibre function g_q (terms |sin k theta|, k <= 7, |sin theta/2|, max(h_s,0)) has sup equal to the max over 1024 sign/branch choices of a trigonometric polynomial of degree <= 14; whole-circle Fejer-Riesz certifies it with residual <= 1.05e-12. Gain equals grid Lipschitz slack only.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "route:route-4-fejer-riesz-wol-2026-10-07",
+  "tags": [
+   "lambda",
+   "torus"
+  ]
+ },
+ {
+  "id": "multiband-lemma-b",
+  "type": "mechanism",
+  "name": "Theorem B'_m: multi-band Lemma B with line walls",
+  "statement": "Band argument split into m bands by certified line walls and local RH windows (width > 7252): 4 bands give 0.145620383931826, band 1 binds. Slab walls instead of line walls cost about c f^4/8 in Lambda. Unrefereed.",
+  "status": "certified",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "route:route-5-many-bands-2026-10-07",
+  "tags": [
+   "lambda",
+   "heat-flow"
+  ]
+ },
+ {
+  "id": "sparse-verification-theorem-n",
+  "type": "mechanism",
+  "name": "Theorems S and N: sparse RH verification in the Lemma-B framework",
+  "statement": "RH must be verified contiguously to a head x_*(tau); above it one local window wider than the far-field distance D_K = 921-1639 with right wall >= x_**(tau) replaces contiguous verification to x_**/2 (about 1.73e12 ordinate units at tau = 0.145). Framework-relative.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "route:route-6-sparse-verification-2026-10-07",
+  "tags": [
+   "lambda",
+   "zero-free"
+  ]
+ },
+ {
+  "id": "lemma-cg-lambda-euler-weights",
+  "type": "identity",
+  "name": "Lemma CG^lambda: weighted Euler mollifier head coefficients",
+  "statement": "The head coefficient of prod_{p in {2,3,5}} (1 - lambda_p b_t(p) p^{-s}) is a convex combination of Lemma CG covers with weights prod lambda_p prod (1 - lambda_p); so 0 <= c_n(t_L) <= c_n(t) <= c_n(t_R) for lambda_p in [0,1]. lambda = 1 is already optimal.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "route:route-7-time-dependent-mollifiers-2026-10-08",
+  "tags": [
+   "mollifier",
+   "lambda",
+   "euler-product"
+  ]
+ },
+ {
+  "id": "polymath-raymond-hybrid-no-gain",
+  "type": "obstruction",
+  "name": "Polymath/Raymond hybrid gives no gain",
+  "statement": "Joining lemma B'_P: a hybrid's bound is the max over its bands, Lambda <= max(U_1..U_m, t0 + y0^2/2). Any Polymath band from existing rows gives 0.1758354, which is +0.030141 above route P; the best split has no Polymath band.",
+  "status": "closed",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "route:route-8-polymath-raymond-hybrid-2026-10-08",
+  "tags": [
+   "lambda",
+   "heat-flow"
+  ]
+ },
+ {
+  "id": "barrier-height-schedule-w4",
+  "type": "tool",
+  "name": "Optimised barrier height set W4",
+  "statement": "A 10-knot piecewise-linear multiplier of Raymond's PLAN heights added to the multi-height menu gives 0.145637425999752 alone (-5.67e-5), and exactly 0 once the route-3 kernels are present. Local, not global, optimum.",
+  "status": "certified",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "route:route-9-barrier-height-schedule-2026-10-08",
+  "tags": [
+   "lambda"
+  ]
+ },
+ {
+  "id": "lean-cg-covering-identity",
+  "type": "tool",
+  "name": "Lean: Lemma CG covering identity and G0-a",
+  "statement": "Lean 4 theorem: c_n(t) = sum_{d|(n,30)} mu(d) beta_d(t) b_t(n/d) satisfies 0 <= c_n(t') <= c_n(t) for n >= 1, 0 <= t' <= t, with no hypotheses. Covering identity over ordered half-edge atoms exp(t a_p a_q/4) - 1.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "route:route-10-lean-core-raymond-chain-2026-10-14",
+  "tags": [
+   "lean",
+   "mollifier",
+   "heat-flow"
+  ]
+ },
+ {
+  "id": "lean-halfplane-substitution",
+  "type": "identity",
+  "name": "Lean: zero-free half-plane to strip and Lambda",
+  "statement": "Lean theorem: zeta(s) != 0 for Re s > theta >= 1/2 implies every zero of H_t, t >= 0, has Im(z)^2 <= max((2 theta - 1)^2 - 2t, 0), and Lambda <= (2 theta - 1)^2/2. theta = 7/8 gives Lambda <= 9/32; theta = 1 gives 1/2 from Mathlib alone.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "route:route-10-lean-core-raymond-chain-2026-10-14",
+  "tags": [
+   "lean",
+   "lambda",
+   "zero-free",
+   "heat-flow"
+  ],
+  "obstructionRow": "F4"
+ },
+ {
+  "id": "multi-rung-weil-symbol",
+  "type": "identity",
+  "name": "Multi-rung Weil symbol w_K",
+  "statement": "For support 2a <= ln(K+1) the pole-free Weil form is W(h) = (1/2 pi) int w_K |h^|^2 with w_K = 2 theta' - sum_{n<=K} beta_n cos(t ln n), beta_n = 2 Lambda(n)/sqrt n; rungs n > K drop out, so a certificate at ln(K+1) covers every smaller support.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "route:route-11-multi-prime-toeplitz-krein-2026-10-09",
+  "tags": [
+   "weil",
+   "explicit-formula",
+   "twin-ladder"
+  ]
+ },
+ {
+  "id": "arb-lege-margins-decay",
+  "type": "measured-phenomenon",
+  "name": "ARB-LEGE certified margins past ln 3",
+  "statement": "Pole-free Weil positivity W(h) >= c ||h||^2 certified at 2a <= ln 4 (c = 8.55e-8), ln 5 (2.25e-12), ln 6 (6.25e-17); margins decay like 10^(-4.8 e^{2a}). The whole range lies below the verified-height crossover 2a = 7.764.",
+  "status": "certified",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "route:route-11-multi-prime-toeplitz-krein-2026-10-09",
+  "tags": [
+   "weil",
+   "pick",
+   "zero-free"
+  ],
+  "obstructionRow": "P19"
+ },
+ {
+  "id": "virtual-rungs-positive-extension",
+  "type": "mechanism",
+  "name": "Virtual rungs: positive-extension freedom outside |u| < 2a",
+  "statement": "Adding cosines with frequencies |u_j| >= 2a (u = ln r, r rational, r >= K+1 or r <= 1/(K+1)) leaves W unchanged on support 2a; with the floor lemma w_K + f >= 2 theta'(T) - F for F >= sup_torus(P - f). Best floor is lambda_max of the rung operator (Krein extension).",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "route:route-11-multi-prime-toeplitz-krein-2026-10-09",
+  "tags": [
+   "weil",
+   "torus",
+   "de-branges"
+  ]
+ },
+ {
+  "id": "semilocal-s23-fourier",
+  "type": "identity",
+  "name": "Semilocal Fourier transform F_S for S = {inf, 2, 3}",
+  "statement": "F_S eta(w) = sum_{a,b>=-1} c_2(a) c_3(b) eta^(2^a 3^b w), c_p(k) = 1 - 1/p (k >= 0), -1/p (k = -1); Mellin multiplier rho_2 rho_3 with rho_p(s) = (1 - p^{s-1})/(1 - p^{-s}), unimodular on Re s = 1/2. For g-support < ln 4, W = L_S - D_S exactly. Conditional on Connes-Consani framework.",
+  "status": "conjectural",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "unknown",
+  "source": "route:route-12-semilocal-s23-identity-2026-10-09",
+  "tags": [
+   "weil",
+   "trace-formula",
+   "euler-product"
+  ]
+ },
+ {
+  "id": "semilocal-remainder-share-tautology",
+  "type": "obstruction",
+  "name": "Remainder share D_S/L_S cannot separate prime sets",
+  "statement": "On the unit-norm W-minimiser, 1 - share = lambda_W/L_S(h0) by definition for any decomposition W = L_S - D_S; share is 99.71%-99.99997% on [ln 3, ln 4] for S = {inf,2}, {inf,2,3}, {inf,2,3,5} alike. A statement about the metric at cutoff 1, not about the S -> all primes limit.",
+  "status": "closed",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "route:route-12-semilocal-s23-identity-2026-10-09",
+  "tags": [
+   "weil",
+   "trace-formula"
+  ]
+ },
+ {
+  "id": "semilocal-trace-side-positivity",
+  "type": "measured-phenomenon",
+  "name": "Semilocal trace side positive and growing with S",
+  "statement": "Trace-side symbol L^_S(0): +0.0650 (S = {inf,2}), +0.0504 (S3), +0.10 to +0.12 (S = {inf,2,3}), positive on [0,30]; Galerkin lambda_min(L_S23) = 0.175-0.225, lambda_min(L_S235) = 0.22-0.26. Not a certificate; the limit S -> all primes with cutoff -> infinity was not tested.",
+  "status": "measured",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "unknown",
+  "source": "route:route-12-semilocal-s23-identity-2026-10-09",
+  "tags": [
+   "weil",
+   "trace-formula",
+   "euler-product"
+  ]
+ },
+ {
+  "id": "lac-eq-caratheodory-interpolation",
+  "type": "identity",
+  "name": "LAC-EQ: lacunary Weil positivity as Caratheodory interpolation",
+  "statement": "Weil positivity on the cone spanned by e^{-nu t}, nu in Lambda, holds iff a Caratheodory function on Re w > 0 interpolates xi'/xi(1/2 + nu) on Lambda (Nevanlinna-Pick, Stieltjes in x = nu^2). For Blaschke Lambda (sum 1/nu < infinity) the problem is indeterminate.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "route:route-13-lacunary-muntz-cones-2026-10-09",
+  "tags": [
+   "pick",
+   "weil",
+   "de-branges"
+  ],
+  "obstructionRow": "P18"
+ },
+ {
+  "id": "lacunary-cone-4k-certificate",
+  "type": "measured-phenomenon",
+  "name": "Certified Pick margin on the cone {4^k}",
+  "statement": "Infinite normalised Pick operator of xi on Lambda_4 = {4^k}: M >= 3.6346e-4 I (Arb; head >= 6.12e-4 minus IMS localisation 2.4854e-4). Float margins: 3.89e-9 (2^k), 1.06e-21 (2^{k/2}). Insensitive to zeros above height 80 in a double-zero to quadruple model.",
+  "status": "certified",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "route:route-13-lacunary-muntz-cones-2026-10-09",
+  "tags": [
+   "pick",
+   "weil"
+  ],
+  "obstructionRow": "P18"
+ },
+ {
+  "id": "lacunary-detection-horizon-law",
+  "type": "measured-phenomenon",
+  "name": "Detection horizon of geometric lattices: T h about 7",
+  "statement": "On lattices 2^{k/m} the Pick operator detects a planted off-line zero only below heights 23.0, 31.7, 39.3, 60.1 (m = 2,3,4,6), T h about 7. Heuristic resolution law Delta(gamma) = 1/sum 2 nu/(nu^2 + gamma^2); reaching 3e12 geometrically needs h ~ 1e-11 and margins ~ e^{-pi^2/h}.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "route:route-13-lacunary-muntz-cones-2026-10-09",
+  "tags": [
+   "pick",
+   "weil"
+  ],
+  "obstructionRow": "P18"
+ },
+ {
+  "id": "near-muntz-threshold-cones",
+  "type": "open-lemma",
+  "name": "Near-Muntz-threshold Blaschke cones nu_k = k^p",
+  "statement": "For non-separated Blaschke node sets nu_k = k^p, p = 1.1-1.25, the heuristic horizon T_p ~ (2.2 C_p)^{p/(p-1)} passes 3e12 near p = 1.13 while margins tend to 0. Whether such cones carry zero information above the verified height is open; reduction to the pointwise wall is an analogy.",
+  "status": "conjectural",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "route:route-13-lacunary-muntz-cones-2026-10-09",
+  "tags": [
+   "pick",
+   "weil",
+   "zero-free"
+  ]
+ },
+ {
+  "id": "bounded-type-lemma-xi-logderiv",
+  "type": "open-lemma",
+  "name": "Bounded-type lemma for xi'/xi(1/2 + w)",
+  "statement": "'A complete discrete (Muntz-complete) node set forces the interpolant G = xi'/xi(1/2 + w), hence RH' is conditional on a bounded-type lemma for xi'/xi(1/2 + w) in Re w > 0; the written argument uses the identity theorem on the whole interval (1, infinity).",
+  "status": "conjectural",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "route:route-13-lacunary-muntz-cones-2026-10-09",
+  "tags": [
+   "pick",
+   "de-branges"
+  ]
+ },
+ {
+  "id": "lac-sens-displacement-bound",
+  "type": "identity",
+  "name": "LAC-SENS: sensitivity of Pick data to horizontal displacement",
+  "statement": "Moving a zero at ordinate gamma horizontally by delta changes the interpolation data by at most delta^2 sup|g_gamma''| <= 2.914 delta^2/gamma^3. Off-line displacement enters lacunary Pick data at second order with cubic height decay.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "route:route-13-lacunary-muntz-cones-2026-10-09",
+  "tags": [
+   "pick",
+   "zero-channel"
+  ]
+ },
+ {
+  "id": "family-weil-symbol",
+  "type": "identity",
+  "name": "Family-averaged Weil symbol over characters mod q",
+  "statement": "Average over the q-2 nonprincipal characters: sigma_F(t) = log(q/pi) + [(q-3) Re psi(1/4 + it/2) + (q-1) Re psi(3/4 + it/2)]/(2(q-2)) - sum beta_n cos(t log n), beta_n = 2 Lambda(n) n^{-1/2}((q-1)[n = 1 mod q] - 1)/(q-2). No pole terms.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "route:route-14-family-weil-positivity-2026-10-09",
+  "tags": [
+   "weil",
+   "explicit-formula",
+   "large-sieve"
+  ]
+ },
+ {
+  "id": "family-positivity-euler-blind",
+  "type": "obstruction",
+  "name": "Family Weil positivity is Euler-blind",
+  "statement": "Family positivity is certified to 2a about 2 log q (10.0 at q = 257) through orthogonality plus the conductor term log q. A family containing the RH-false Davenport-Heilbronn function is certified positive at 2a = 7.764. At all supports it is GRH for every character mod q.",
+  "status": "closed",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "route:route-14-family-weil-positivity-2026-10-09",
+  "tags": [
+   "weil",
+   "large-sieve",
+   "euler-product"
+  ],
+  "obstructionRow": "P23"
+ },
+ {
+  "id": "certificate-type-limit-lemma",
+  "type": "obstruction",
+  "name": "Limit of symbol-floor certificates",
+  "statement": "For a certificate W >= c ||h||^2 built from a compact Galerkin part with cutoff T: c <= inf_{|t|>=T} sigma(t). A point sigma(t0) < 0 with t0 >= T rules out every such certificate with cutoff T <= t0. Individual characters reach only 2a about 1.95-2.40 by this method.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "route:route-14-family-weil-positivity-2026-10-09",
+  "tags": [
+   "weil",
+   "pick"
+  ]
+ },
+ {
+  "id": "epstein-twins-control",
+  "type": "control",
+  "name": "Epstein zeta twins, class number 2-4",
+  "statement": "27 Epstein zeta functions of binary quadratic forms (same gamma factor and conductor as zeta_K, no Euler product for non-trivial classes) are Arb-certified Weil-negative at support a* <= A; principal forms fail near log(|D|/4) - 0.13 (even sector, measured).",
+  "status": "certified",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "route:route-15-epstein-euler-blindness-2026-10-09",
+  "tags": [
+   "weil",
+   "euler-product",
+   "theta",
+   "torus"
+  ]
+ },
+ {
+  "id": "odd-sector-pole-term",
+  "type": "identity",
+  "name": "Odd-sector pole term of the Weil form",
+  "statement": "For odd real test g the pole term becomes -2 (int g sinh(x/2))^2 <= 0 (even: +2 (int g cosh(x/2))^2), so the odd sector can fail first: D = -23 principal form goes negative at about 1.662 (odd) against (1.679, 1.689] (even).",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "route:route-15-epstein-euler-blindness-2026-10-09",
+  "tags": [
+   "weil",
+   "explicit-formula"
+  ]
+ },
+ {
+  "id": "af-rank-trace-inertia",
+  "type": "mechanism",
+  "name": "Alpoge-Furman mechanism: rank-trace inequality and Sylvester inertia",
+  "statement": "Proportion >= 2/3 comes from Montgomery's pair-correlation second moment, a rank-trace inequality (Lemma 3.2) and Sylvester inertia applied to a Gabor compression G of Weil's Hermitian form (phi(u) e^{i alpha_k u}, support L = log(T/2 pi)). Measured: tr G = N(T,2T) +- 1 for T = 1e3 to 2.9e5.",
+  "status": "measured",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "route:route-16-alpoge-furman-twin-ladder-2026-10-10",
+  "tags": [
+   "pair-correlation",
+   "weil",
+   "twin-ladder",
+   "explicit-formula"
+  ],
+  "obstructionRow": "P27"
+ },
+ {
+  "id": "af-closed-form-constants",
+  "type": "identity",
+  "name": "Closed forms in the 2/3 argument",
+  "statement": "R(psi0) = 4/3; R(psi_MT) = 1/2 + cot(1/sqrt2)/sqrt2 = 1.32749929632, so 2 - R = 0.672500703679 (Lamzouri C0); R_lambda(psi0) = 1/lambda + lambda/3, H(lambda) = 2 - 1/lambda - lambda/3 increasing on (0,1]; Christoffel value Lambda_2(0) = 5/36, 1 - 2 Lambda_2(0) = 13/18.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "route:route-16-alpoge-furman-twin-ladder-2026-10-10",
+  "tags": [
+   "pair-correlation",
+   "weil"
+  ],
+  "obstructionRow": "P27"
+ },
+ {
+  "id": "af-hl-star-hierarchy",
+  "type": "conjecture",
+  "name": "HL*(k) hierarchy gives proportion 13/18 and 100%",
+  "statement": "Statements of the Alpoge-Furman preprint (arithmetic reproduced only): under a Hardy-Littlewood-type hypothesis HL*(4) the proportion of zeros on the line is >= 13/18; HL*(k) for all k gives 100%. A proportion statement, not an every-window statement.",
+  "status": "conjectural",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "route:route-16-alpoge-furman-twin-ladder-2026-10-10",
+  "tags": [
+   "pair-correlation",
+   "weil",
+   "large-sieve"
+  ]
+ },
+ {
+  "id": "conrey-kappa-theta-table",
+  "type": "measured-phenomenon",
+  "name": "Conditional one-piece Conrey kappa(theta) table",
+  "statement": "Conditional on the twisted second moment at length theta: kappa passes 5/12 at theta = 0.58508, 1/2 at 0.75515, 2/3 at 1.31084, equals 0.5884 at theta = 1; d kappa/d theta = 0.5707 at 4/7. Finite-T recipe main term matches direct averages to theta = 2 within 0.52% (55 configurations).",
+  "status": "measured",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "route:route-17-mollifiers-beyond-four-sevenths-2026-10-10",
+  "tags": [
+   "mollifier",
+   "large-sieve"
+  ],
+  "obstructionRow": "P26"
+ },
+ {
+  "id": "jensen-loss-in-levinson",
+  "type": "measured-phenomenon",
+  "name": "Jensen step loses most of the mollified signal",
+  "statement": "Finite-T kappa with / without the Jensen inequality: 0.4903 / 0.8578 at theta = 4/7, T = 1e6; 0.6587 / 0.9434 at theta = 1. Mollifier alone: mean |psi|^2 / diagonal in [0.992, 1.011].",
+  "status": "measured",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "route:route-17-mollifiers-beyond-four-sevenths-2026-10-10",
+  "tags": [
+   "mollifier"
+  ],
+  "obstructionRow": "P26"
+ },
+ {
+  "id": "pair-statistic-insensitivity",
+  "type": "obstruction",
+  "name": "Insensitivity lemma: n-level statistics are beta-blind",
+  "statement": "A normalised pair or n-level statistic with fixed bounded compactly supported test changes by O(H (log T)^{c_n}/T) when zeros in windows of total length H are changed; so GUE + O(T^{-delta}) is consistent with moving zeros off the line in windows shorter than T^{1-delta}. Point-set statement only.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "route:route-18-local-levinson-pair-correlation-2026-10-10",
+  "tags": [
+   "pair-correlation",
+   "zero-channel"
+  ],
+  "obstructionRow": "P31"
+ },
+ {
+  "id": "gue-palm-coalesced-pair",
+  "type": "identity",
+  "name": "GUE Palm density at a coalesced pair",
+  "statement": "GUE Palm density given a coalesced pair: rho(u) = 1 - S^2 - 3 S'^2/pi^2 (S the sine kernel), deficit integral exactly 2 (Parseval). Linearised zero-ODE mode rate (4/s^2)(pi theta/2 - theta^2/4). Mirror count 3.021 against required p_req = 4.3743.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "route:route-18-local-levinson-pair-correlation-2026-10-10",
+  "tags": [
+   "pair-correlation",
+   "heat-flow",
+   "zero-channel"
+  ]
+ },
+ {
+  "id": "mollified-weil-reduction",
+  "type": "obstruction",
+  "name": "Mollified Weil form reduces to the plain Weil form",
+  "statement": "With M(s) = sum_{n<=N} m_n n^{-s}, mu = sum m_n n^{-1/2} delta_{log n}, h = g*g~: sum_rho h^(gamma_rho) M(rho) M(1-rho) = W(G*G~), G = mu*g supported in [-a, a + log N]. So a*_mol >= a*_plain - (1/2) log N; DH passes whenever 2a + log N <= ln 11.",
+  "status": "closed",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "route:route-19-mollified-weil-forms-2026-10-10",
+  "tags": [
+   "mollifier",
+   "weil",
+   "explicit-formula"
+  ]
+ },
+ {
+  "id": "mollifier-holomorphy-constraint",
+  "type": "identity",
+  "name": "Holomorphy constraint on mollifier weights",
+  "statement": "A weight with an explicit-formula representation equal to |M(1/2 + it)|^2 on the line weights off-line zeros by M(rho) M(1 - rho), not |M(rho)|^2. A finite-length weight Phi(rho) Phi*(1 - rho) with measure support L gives the plain form at A = a + L/2.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "route:route-19-mollified-weil-forms-2026-10-10",
+  "tags": [
+   "mollifier",
+   "weil",
+   "zero-channel"
+  ]
+ },
+ {
+  "id": "explicit-kkl-threshold",
+  "type": "tool",
+  "name": "Explicit Ki-Kim-Lee threshold x0(t)",
+  "statement": "For t in [t_lo, 1/2] all zeros of H_t with Re z >= x0(t_lo) + 0.47 are real and simple, x0(t) about 4 pi exp(c/t), c = 5.31-5.76 on [0.1, 0.2] (Arb; conditional on Polymath15 Thm 1.3 and de Bruijn). At X = 6e12 it covers only t >= 0.217.",
+  "status": "certified",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "route:route-20-effective-ki-kim-lee-2026-10-07",
+  "tags": [
+   "heat-flow",
+   "lambda"
+  ]
+ },
+ {
+  "id": "kkl-triangle-method-floor",
+  "type": "obstruction",
+  "name": "Triangle-method floor c > 4.9144 for KKL constants",
+  "statement": "Every term of D(1/2; t, L) is >= n^{-1/2 - tL/4} and sum_{n=2}^{690988} n^{-1.7286} = 1.0000095 > 1, so D(1/2) < 1 fails whenever t log(x0/4 pi) <= 4.9144 (asymptotically 4(s0 - 1/2), zeta(s0) = 2). Beating route P needs c <= 3.912.",
+  "status": "closed",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "route:route-50-kkl-lambda-curve-2026-10-08",
+  "tags": [
+   "heat-flow",
+   "lambda"
+  ]
+ },
+ {
+  "id": "zero-flow-graph-laplacian",
+  "type": "identity",
+  "name": "Heat-flow zero dynamics as a weighted graph Laplacian",
+  "statement": "For polynomial heat flows d_t f = -f'': dz/dt = L(z) conj(z), L the Laplacian of the zero graph with weights w_kj = 2/|z_k - z_j|^2; dx/dt = +Lx, dy/dt = -Ly. Conserved: sum z_k, sum x_k y_k; sum z_k^2 = sum z_k(0)^2 + 2n(n-1)t.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "route:route-21-zero-flow-entropy-functionals-2026-10-11",
+  "tags": [
+   "heat-flow",
+   "zero-channel",
+   "vortex"
+  ]
+ },
+ {
+  "id": "zero-flow-majorization",
+  "type": "obstruction",
+  "name": "Majorization theorems for the zero flow are flow-blind",
+  "statement": "Theorem A: y(t2) is majorized by y(t1) for t1 < t2. Theorem A': sum F(x_k,y_k) is nonincreasing along every heat flow iff F_xx <= 0 <= F_yy. Theorem B: sum psi(|Im z_k|) nonincreasing when y psi'(y) is nondecreasing. All hold for polynomials with non-real zeros: forward-only soft inequalities.",
+  "status": "closed",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "route:route-21-zero-flow-entropy-functionals-2026-10-11",
+  "tags": [
+   "heat-flow",
+   "zero-channel",
+   "antibridge"
+  ],
+  "obstructionRow": "F1"
+ },
+ {
+  "id": "de-bruijn-sharp-in-ymax",
+  "type": "identity",
+  "name": "de Bruijn bound sharp in y_max; count above a height not monotone",
+  "statement": "Lambda <= t0 + y_max(t0)^2/2 is sharp as a function of y_max alone (isolated pair z^2 + Y^2 becomes real at t = Y^2/2). The count of zeros above a fixed height is not monotone: {+-0.9i, 0.001 +- 1.3i} goes from 1 to 2 zeros above height 1 by t = 0.02.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "route:route-21-zero-flow-entropy-functionals-2026-10-11",
+  "tags": [
+   "heat-flow",
+   "lambda",
+   "zero-channel"
+  ]
+ },
+ {
+  "id": "csv-lehmer-criterion",
+  "type": "tool",
+  "name": "Csordas-Smith-Varga Lehmer-pair criterion",
+  "statement": "With D = gamma_{k+1} - gamma_k and G = sum over other +-gamma_j of [(gamma_k - gamma_j)^{-2} + (gamma_{k+1} - gamma_j)^{-2}]: if D^2 G < 4/5 then Lambda >= ((1 - (5/4) D^2 G)^{4/5} - 1)/(2G). Best found over 1.55e6 zeros to 1e13: Lambda >= -4.2577e-6; superseded by Rodgers-Tao.",
+  "status": "certified",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "route:route-22-lehmer-pair-hunt-2026-10-11",
+  "tags": [
+   "lambda",
+   "heat-flow",
+   "pair-correlation"
+  ],
+  "obstructionRow": "P31"
+ },
+ {
+  "id": "cue-neff-small-gap-correction",
+  "type": "measured-phenomenon",
+  "name": "Finite-height small-gap deficit matches CUE_Neff",
+  "statement": "Pooled gaps s < 0.2 over 1.55e6 zeros near 1e10-1e13: 12834 observed against 13186 GUE (0.9733 +- 0.0088) and 12782 CUE_Neff (1.004 +- 0.009). Replicates Bogomolny-Bohigas-Leboeuf-Monastra. 6.2-6.6% of pairs satisfy D^2 G < 4/5; lambda tail exponent 1.38-1.62.",
+  "status": "measured",
+  "usesMultiplicativity": "unknown",
+  "heightUniform": "no",
+  "source": "route:route-22-lehmer-pair-hunt-2026-10-11",
+  "tags": [
+   "pair-correlation"
+  ],
+  "obstructionRow": "P31"
+ },
+ {
+  "id": "zero-ode-ht",
+  "type": "identity",
+  "name": "Zero ODE of H_t in unfolded units",
+  "statement": "Convention d_t H = -H_zz, zeros at z = 2 gamma: dz_k/dt = 2 sum' [1/(z_k - z_j) + 1/(z_k + z_j)] + 1/z_k for simple zeros; with tau = t/Dz^2, Dz = 4 pi/log(gamma/2 pi), dx_k/d tau = 2 sum' 1/(x_k - x_j) up to density-gradient corrections.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "route:route-23-ht-vs-dyson-bm-2026-10-11",
+  "tags": [
+   "heat-flow",
+   "zero-channel",
+   "vortex"
+  ]
+ },
+ {
+  "id": "dyson-loop-identity-defect",
+  "type": "measured-phenomenon",
+  "name": "Zeros miss the Dyson loop identity by an arithmetic term",
+  "statement": "For CUE_N, E[g D] = -1 exactly (beta = 2 Ward identity). Zeta zeros at T about 1e6: Q = -0.9414 +- 0.003-0.004; Q + 1 = c 12 Lambda_B/L^2 with c = 0.434 +- 0.008 over L in [7,12], Lambda_B = 1.57314; equivalent beta_eff about 2.13. Finite-tau runs unfinished.",
+  "status": "measured",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "route:route-23-ht-vs-dyson-bm-2026-10-11",
+  "tags": [
+   "pair-correlation",
+   "heat-flow",
+   "euler-product"
+  ],
+  "obstructionRow": "P31"
+ },
+ {
+  "id": "poisson-smoothed-count-ceiling",
+  "type": "obstruction",
+  "name": "Local-count channel capped at L/4; triangle method below de Bruijn ceiling",
+  "statement": "S_t(x,eta) = -Im(H_t'/H_t)(x + i eta) is the Poisson(eta)-smoothed zero count, and any x-uniform lower bound q satisfies q <= L/4 + o(1). The Polymath15 triangle criterion at X controls arg H_t only above sqrt(1-2t) for t <= 0.137. Ideal B2 channel ceiling Lambda about 0.148.",
+  "status": "closed",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "route:route-24-mean-field-local-counts-2026-10-11",
+  "tags": [
+   "heat-flow",
+   "lambda",
+   "zero-channel"
+  ]
+ },
+ {
+  "id": "modular-scattering-factorisation",
+  "type": "identity",
+  "name": "Modular-surface scattering matrix through the bridge",
+  "statement": "phi(s) = Lambda(2s-1)/Lambda(2s) = c_inf(s) chi(2s-1) Z(s), c_inf = sqrt(pi) Gamma(s-1/2)/Gamma(s), chi the bridge, Z(s) = zeta(2-2s)/zeta(2s); equivalently phi = beta Z with beta = pi^{2s-1} Gamma(1-s)/Gamma(s), each unimodular on Re s = 1/2. Poles in 0 < Re s < 1/2 are exactly rho/2.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "route:route-25-bridge-as-scattering-2026-10-12",
+  "tags": [
+   "bridge",
+   "trace-formula",
+   "twin-ladder"
+  ]
+ },
+ {
+  "id": "lax-phillips-axioms-rh-blind",
+  "type": "obstruction",
+  "name": "Scattering axioms survive moved resonances",
+  "statement": "Under xi -> xi Q_delta/Q_0 (an on-line pair replaced by an off-line quartet) phi_delta stays unitary on the axis, satisfies phi(s) phi(1-s) = 1, has positive residue at s = 1 and S = phi(s)(s-1)/s stays inner. The de Bruijn-flow phi_t keeps these for every real t.",
+  "status": "closed",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "route:route-25-bridge-as-scattering-2026-10-12",
+  "tags": [
+   "bridge",
+   "antibridge",
+   "trace-formula",
+   "heat-flow"
+  ],
+  "obstructionRow": "G6"
+ },
+ {
+  "id": "scattering-causality-at-one-line",
+  "type": "identity",
+  "name": "Causality criterion sits at the zeta(1+it) level",
+  "statement": "The mirror resonance of a zero z = x + iy of H_t has Re s >= 1/2 iff |y| >= 1 iff Re w >= 1. The local all-pass factors z_p(s) = zeta_p(2-2s)/zeta_p(2s) need Re s > 1/2 and Re s < 1/2 at once: their product converges absolutely nowhere.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "route:route-25-bridge-as-scattering-2026-10-12",
+  "tags": [
+   "bridge",
+   "euler-product",
+   "trace-formula"
+  ],
+  "obstructionRow": "G10"
+ },
+ {
+  "id": "scattering-winding-split",
+  "type": "identity",
+  "name": "Winding split of the scattering phase",
+  "statement": "W(T) = W_inf(T) + arg zeta(1 + 2iT)/pi + 1/2, with W_inf(T) ~ (T/pi) log(T/(pi e)). On the axis s = 1/2 + it the bridge is sampled at w = 2it: |chi(2it)| = sqrt(t/pi) sqrt(tanh pi t), cancelled exactly by |c_inf|.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "route:route-25-bridge-as-scattering-2026-10-12",
+  "tags": [
+   "bridge",
+   "trace-formula"
+  ]
+ },
+ {
+  "id": "gl2-weil-symbol",
+  "type": "identity",
+  "name": "Weil symbol of a holomorphic newform",
+  "statement": "For weight k, level N, trivial character: W(h) = (1/2 pi) int sigma |h^|^2, sigma(t) = log N - 2 log 2 pi + 2 Re psi(k/2 + it) - sum_{log n < 2a} 2 c(n) n^{-1/2} cos(t log n); no pole terms; N enters only as + log N ||h||^2.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "route:route-26-gl2-twin-ladder-2026-10-12",
+  "tags": [
+   "weil",
+   "hecke",
+   "twin-ladder",
+   "explicit-formula"
+  ]
+ },
+ {
+  "id": "gl2-ramanujan-box-vertex",
+  "type": "mechanism",
+  "name": "Worst case over the Ramanujan box is a vertex",
+  "statement": "lambda_min of the Weil form is concave in the rung amplitudes, so over |lambda_f(p)| <= 2 the worst case is a vertex (lambda(p) = +2). If c0(k,N) = log N - 2 log 2 pi + 2 psi(k/2) > sum_{n<e^{2a}} 4 Lambda(n)/sqrt n then W >= 0; holds for every weight >= 36 at 2a <= log 3.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "route:route-26-gl2-twin-ladder-2026-10-12",
+  "tags": [
+   "hecke",
+   "weil",
+   "twin-ladder"
+  ],
+  "obstructionRow": "L3"
+ },
+ {
+  "id": "gl2-ramanujan-is-rung-rh",
+  "type": "obstruction",
+  "name": "Ramanujan is RH per rung, not for the ladder",
+  "statement": "For p not dividing N the 11a rung is 1/P_1(p^{-s}) with P_1 the H^1 factor of Z(E_p,T) (Hasse = curve RH); for weight k > 2 the rung lies in H^{k-1} of the Kuga-Sato variety (Deligne). Provable ladder statements are conductor-driven and Euler-blind (weight-24 non-eigenform also certified).",
+  "status": "closed",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "route:route-26-gl2-twin-ladder-2026-10-12",
+  "tags": [
+   "hecke",
+   "function-field",
+   "hodge",
+   "twin-ladder"
+  ],
+  "obstructionRow": "L1"
+ },
+ {
+  "id": "ff-weil-form-intersection-identity",
+  "type": "identity",
+  "name": "Function-field twin-ladder Weil form = minus intersection form",
+  "statement": "On C x C over F_q with Frobenius graphs Gamma_j and P_j = Gamma_j - H - q^j V: q^j + q^k - Gamma_j.Gamma_k = -P_j.P_k = q^{(j+k)/2} S_{k-j}, S_n = q^{-n/2} sum alpha_i^n. Hodge index on span{P_j} gives Q_TL >= 0, hence RH for the curve.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "route:route-27-function-field-twin-ladder-2026-10-06",
+  "tags": [
+   "function-field",
+   "hodge",
+   "twin-ladder",
+   "weil"
+  ]
+ },
+ {
+  "id": "ff-ghost-index-toeplitz",
+  "type": "identity",
+  "name": "Exact ghost index of the Frobenius Toeplitz matrix",
+  "statement": "For N >= number of distinct Frobenius eigenvalues, T_N = [S_{j-k}] has exactly nu negative eigenvalues, nu = number of off-circle pairs; curve-RH iff T_{2g} >= 0. R_a(z) = X(q^a z)/X(q^{-a} z) is a degree-2g Blaschke product under RH. Sensitivity lambda_min(T_2g) = -C eps^2 + o(eps^2).",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "route:route-27-function-field-twin-ladder-2026-10-06",
+  "tags": [
+   "function-field",
+   "pick",
+   "twin-ladder"
+  ],
+  "obstructionRow": "Q6"
+ },
+ {
+  "id": "ff-euler-product-fakes",
+  "type": "control",
+  "name": "Function-field fakes: Euler product without RH",
+  "statement": "215 exact polynomials in the census boxes (17 at q = 3, g = 2; 198 at q = 5, g = 2; g = 1: 1 - 5T + 5T^2, 1 + 6T + 7T^2) have an Euler product with nonnegative integer closed-point counts, functional equation, lossless bridge and rationality, with RH false. Lambda_C of fakes: +0.020 to +0.172.",
+  "status": "certified",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "route:route-27-function-field-twin-ladder-2026-10-06",
+  "tags": [
+   "function-field",
+   "euler-product",
+   "twin-ladder"
+  ],
+  "obstructionRow": "T3"
+ },
+ {
+  "id": "spec-z-squared-hodge-index",
+  "type": "open-lemma",
+  "name": "Missing surface Spec Z x Spec Z with a Hodge index theorem",
+  "statement": "The function-field proof lifts to Q only given (O3) a surface playing C x C with a Hodge index theorem on Frobenius-graph classes, and (O1) a regularisation of the infinite zero count (archimedean term as regularised self-intersection). Faltings-Hriljac covers fibred arithmetic surfaces, not the analogue of C x C.",
+  "status": "conjectural",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "route:route-27-function-field-twin-ladder-2026-10-06",
+  "tags": [
+   "function-field",
+   "hodge",
+   "weil"
+  ],
+  "obstructionRow": "T3"
+ },
+ {
+  "id": "ff-lambda-of-elliptic-curve",
+  "type": "identity",
+  "name": "de Bruijn-Newman analogue for elliptic curves over F_q",
+  "statement": "Lambda_E = 4 log(|a|/(2 sqrt q))/(log q)^2 (minus infinity at a = 0); sup over E/F_p tends to 0 along all primes with |sup Lambda_E| <= 4/((2 sqrt p - 1)(log p)^2); 0 exactly for maximal curves over F_{p^2}.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "route:route-27-function-field-twin-ladder-2026-10-06",
+  "tags": [
+   "function-field",
+   "lambda",
+   "heat-flow"
+  ]
+ },
+ {
+  "id": "selberg-theorem-u-geodesic-monoid",
+  "type": "identity",
+  "name": "Theorem U on the geodesic monoid",
+  "statement": "For a finite set G of primitive geodesic classes the sieve algebra is span{T_D : D subset G}, dimension 2^|G|; every freeze word followed by a linear functional is L(diag(m) c) for a unique m. Telescope and five-shell identities are telescoping algebra with no zero information. Collapse: 72 instead of 256 for the first 8 classes.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "route:route-28-selberg-zeta-freeze-sandbox-2026-10-12",
+  "tags": [
+   "trace-formula",
+   "euler-product",
+   "twin-ladder"
+  ]
+ },
+ {
+  "id": "selberg-phase-gate-vs-zeta",
+  "type": "measured-phenomenon",
+  "name": "Phase gate on sigma = 0.55: Selberg zeta against zeta",
+  "statement": "On sigma = 0.55, t <= 26, Re Z < 0 on 6.1% of the grid for the PSL2(Z) Selberg zeta against 0% for zeta (min Re zeta = 0.014); modulus-first threshold sigma*(0): zeta 1.578, Selberg 1.173. Attribution confounded by the rho/2 zero family at Re s = 1/4.",
+  "status": "measured",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "route:route-28-selberg-zeta-freeze-sandbox-2026-10-12",
+  "tags": [
+   "trace-formula",
+   "euler-product"
+  ]
+ },
+ {
+  "id": "selberg-control-pair",
+  "type": "open-lemma",
+  "name": "RH-true / RH-false Selberg control pair",
+  "statement": "No RH-false control was run in the Selberg sandbox. A pair (cocompact arithmetic group with the half-plane RH-analogue, against a group with an exceptional eigenvalue) would test whether Euler-product calculi over prime geodesics see zero location. Z = det(1 - L_s^2) (Mayer) supplies a transfer operator.",
+  "status": "conjectural",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "unknown",
+  "source": "route:route-28-selberg-zeta-freeze-sandbox-2026-10-12",
+  "tags": [
+   "trace-formula",
+   "euler-product"
+  ]
+ },
+ {
+  "id": "interferometer-visibility-gauge",
+  "type": "obstruction",
+  "name": "Interferometer visibility is vacuous, false or a gauge choice",
+  "statement": "Split Lambda_F = A(s) + A(1-s), V = 2|A(s)||A(1-s)|/(|A(s)|^2 + |A(1-s)|^2). Exact arms give V0 = sech(log|chi|), a function of the gamma factor alone. A -> A + O with O(1-s) = -O(s) changes V; the bound sup V < 1 is certified false (79 crossings for zeta, t <= 200).",
+  "status": "closed",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "route:route-29-interferometer-visibility-2026-10-12",
+  "tags": [
+   "bridge",
+   "twin-ladder",
+   "visualization"
+  ]
+ },
+ {
+  "id": "xi-arm-split-incomplete-gamma",
+  "type": "identity",
+  "name": "Arm split of the completed zeta function at the self-dual point",
+  "statement": "Lambda(s) = A(s) + A(1-s), A(s) = -1/s + sum_n (pi n^2)^{-s/2} Gamma(s/2, pi n^2). A(s) = -theta3(e^{-pi})/s + 4 psi'(1)/(s(s+2)) + O(t^{-3}), theta3(e^{-pi}) = pi^{1/4}/Gamma(3/4): each arm is ~1/t while Lambda ~ e^{-pi t/4}.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "route:route-29-interferometer-visibility-2026-10-12",
+  "tags": [
+   "bridge",
+   "theta",
+   "twin-ladder"
+  ]
+ },
+ {
+  "id": "dh-partial-euler-factorisation",
+  "type": "identity",
+  "name": "Davenport-Heilbronn = partial Euler product times G",
+  "statement": "a(n mod 5) = (0, 1, kappa, -kappa, -1), kappa = 0.2840790438; a(nm) = a(n) a(m) for m = +-1 mod 5, so F_DH = [Euler product over p = +-1 mod 5] x G(s), G supported on integers built from primes = +-2 mod 5. Log-derivative coefficients c(n) vanish on 1031 non-prime-powers <= 3000, 906 nonzero.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "route:route-30-finite-support-euler-detector-2026-10-12",
+  "tags": [
+   "euler-product",
+   "twin-ladder"
+  ]
+ },
+ {
+  "id": "rung-toeplitz-euler-detector",
+  "type": "mechanism",
+  "name": "Rung Toeplitz (Herglotz) test detects DH at ln 2 / ln 4 / ln 6",
+  "statement": "Rung moments m_k(p) = c(p^k)/log p; for unitary local degree 1 the Toeplitz T_p^(K) = [m_|i-j|] is PSD. DH fails: lambda_min(T_2^(2)) = -1.15558, Szego limit -1.79360. Onsets sharp against formal local Euler products: ln 2 (unitary, full), ln 4 (even data), ln 6 (Euler only). No zero-location content.",
+  "status": "certified",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "route:route-30-finite-support-euler-detector-2026-10-12",
+  "tags": [
+   "euler-product",
+   "pick",
+   "twin-ladder",
+   "hecke"
+  ],
+  "obstructionRow": "L1"
+ },
+ {
+  "id": "euler-detection-decouples-from-offline",
+  "type": "measured-phenomenon",
+  "name": "Rung data are read from the on-line zeros",
+  "statement": "From DH's zeros below 130 (71 on-line, 2 off-line pairs): c(2) = 0.1969085883 recovered at support 1.093 (error 3.2e-12), c(4) = -1.4422324 at 1.606; both off-line pairs together contribute 7e-7 / 1.7e-4. At small support Euler detection and off-line-zero detection decouple.",
+  "status": "measured",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "route:route-30-finite-support-euler-detector-2026-10-12",
+  "tags": [
+   "euler-product",
+   "explicit-formula",
+   "zero-channel"
+  ]
+ },
+ {
+  "id": "euler-aware-weil-radius",
+  "type": "obstruction",
+  "name": "Euler-aware Weil radius over unitary rung data",
+  "statement": "Proposed SDP: Weil positivity over the formal unitary degree-1 rung class, against the archimedean radius 0.9385 and DH's 1.72. The 2026-11 campaign measured class-uniform positivity over tempered local data only to support 0.7228 at conductor 1 (worst case alpha_2 = -1).",
+  "status": "closed",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "route:route-30-finite-support-euler-detector-2026-10-12",
+  "tags": [
+   "euler-product",
+   "weil",
+   "hecke"
+  ],
+  "obstructionRow": "L3"
+ },
+ {
+  "id": "information-floor-ln2",
+  "type": "obstruction",
+  "name": "Information floor at support ln 2",
+  "statement": "For 2a <= ln 2 the prime side of the explicit formula is empty, so a twin and its Euler arm have the same Weil form and no quantity separates them. At conductor 1 there is no DH-type twin with zeta's bridge (Hamburger).",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "route:route-30-finite-support-euler-detector-2026-10-12",
+  "tags": [
+   "weil",
+   "explicit-formula",
+   "euler-product"
+  ]
+ },
+ {
+  "id": "berry-keating-smooth-count-only",
+  "type": "obstruction",
+  "name": "Regularised xp models reproduce only the smooth count",
+  "statement": "Sierra-Rodriguez-Laguna: semiclassical count (E/2 pi)(ln(E/2 pi) - 1) + mu + 2 pi/E; fit constant 0.875007 +- 5.3e-5 (= 7/8). The gamma-phase spectrum theta(E_n) = pi(n - 3/2) misses the zeros by exactly S(T) (rms 0.3108 spacings, correlation 0.9999999994). Fluctuations need primes.",
+  "status": "closed",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "route:route-31-berry-keating-xp-regularised-2026-10-13",
+  "tags": [
+   "trace-formula",
+   "explicit-formula"
+  ]
+ },
+ {
+  "id": "bbm-growth-class-implication",
+  "type": "identity",
+  "name": "Bender-Brody-Muller growth classes",
+  "statement": "psi_s = -zeta(s, x+1), Delta psi_s = x^{-s}, psi_s(0) = -zeta(s): the boundary condition selects all zeros. An off-line zero with sigma > 1/2 gives growth x^{1-sigma}; reality of the point spectrum on a growth-cap domain of order >= x^{1/2} implies RH (one direction; Delta^{-1} ambiguous).",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "route:route-31-berry-keating-xp-regularised-2026-10-13",
+  "tags": [
+   "trace-formula"
+  ]
+ },
+ {
+  "id": "inverse-spectral-consumes-zeros",
+  "type": "obstruction",
+  "name": "Inverse spectral potentials consume the ordinates",
+  "statement": "Wu-Sprung V(x) ~ pi^2 x^2/log^2 x from Abel inversion reproduces smooth points only (rms 0.387 / 0.333). Gauss-Newton potentials match 5000 zeros to 2e-11 discretely, 1-2% of a spacing in the continuum, interpolant-dependent. A 1D Schrodinger Hilbert-Polya operator would force RH and simplicity.",
+  "status": "closed",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "route:route-32-inverse-spectral-potential-2026-10-13",
+  "tags": [
+   "trace-formula"
+  ]
+ },
+ {
+  "id": "bogomolny-keating-amplitude-one",
+  "type": "measured-phenomenon",
+  "name": "Pair-correlation departure from GUE = Bogomolny-Keating at amplitude 1",
+  "statement": "Data - GUE = a (BK - GUE) with a = 1.0000 +- 0.0008 over 8 windows (T = 5.5e4 to 1e13); diagonal 0.9999 +- 0.0008, oscillating 1.0023 +- 0.0031, Hardy-Littlewood factor 1.0032 +- 0.0067; per-prime amplitudes n = 2..13 detected above 20 sigma. Lambda_B = 1.5731511.",
+  "status": "measured",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "route:route-33-arithmetic-rmt-corrections-2026-10-13",
+  "tags": [
+   "pair-correlation",
+   "euler-product",
+   "explicit-formula"
+  ],
+  "obstructionRow": "P31"
+ },
+ {
+  "id": "bk-diagonal-prime-identity",
+  "type": "identity",
+  "name": "Diagonal term of the pair correlation as a prime sum",
+  "statement": "G1(r) = (zeta'/zeta)'(1 + ir) - B(ir) = sum_{n = p^k} log^2 p n^{-1-ir}; A'(0) = 0, so the Bogomolny-Keating series in L has no 1/L term. The oscillating part (Hardy-Littlewood factor A) has no proof.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "route:route-33-arithmetic-rmt-corrections-2026-10-13",
+  "tags": [
+   "pair-correlation",
+   "euler-product"
+  ]
+ },
+ {
+  "id": "de-branges-lagarias-hamiltonian",
+  "type": "obstruction",
+  "name": "de Branges Hamiltonian of Xi + i Xi' restates RH",
+  "statement": "Lagarias E = A - iB, A = Xi, B = -Xi' is Hermite-Biehler iff RH. Finite-N chain is the reversed counting-measure Jacobi chain (weights 1/A'(x)^2); H = diag(h, 1-h). E_a(z) = Xi(z + ia) ~ Xi + ia Xi' as a -> 0: H_a positive for every a > 0 is the zero-free-strip ladder T3.",
+  "status": "closed",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "route:route-34-de-branges-hamiltonian-xi-2026-10-13",
+  "tags": [
+   "de-branges",
+   "twin-ladder",
+   "zero-free"
+  ],
+  "obstructionRow": "G6"
+ },
+ {
+  "id": "krein-string-total-length",
+  "type": "identity",
+  "name": "Total length of the Krein string of Xi",
+  "statement": "Total length 2 sum 1/gamma^2 = xi''(1/2)/xi(1/2) = 0.0462099862308 (measured from 1e6 zeros plus tail: 0.0462099862327). Type tau(x) = int sqrt(det H): tau(1e10) = 0.638-0.654. Infinite-N Hamiltonian exists iff RH (with simple zeros).",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "route:route-34-de-branges-hamiltonian-xi-2026-10-13",
+  "tags": [
+   "de-branges"
+  ]
+ },
+ {
+  "id": "li-coefficients-certified",
+  "type": "obstruction",
+  "name": "Li coefficients positive to n = 10^4; no all-n route",
+  "statement": "lambda_n = n [z^n] log xi(1/(1-z)) > 0 certified for 1 <= n <= 10^4 (Arb); lambda_1 = 0.0230957, osc_1 = gamma_E exactly. Weaker than verified height implies. The 7/8 half-plane gives only |1 - 1/rho|^2 <= 1 + O(1/gamma^2): no all-n positivity.",
+  "status": "closed",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "route:route-35-certified-li-coefficients-2026-10-13",
+  "tags": [
+   "zero-free",
+   "explicit-formula"
+  ],
+  "obstructionRow": "P16"
+ },
+ {
+  "id": "random-platt-windows",
+  "type": "measured-phenomenon",
+  "name": "16 random Platt windows at 1.06e13 to 3.09e19",
+  "statement": "146,768 zeros between Turing points certified simple and on the line; no anomaly. Closest pair at T about 4.0686e14 with gap in [0.0026693172, 0.0026693212]; Rosser violation at 1.0626e13. No-parity direct-integral Turing test (Trudgian 2011 Thm 2.2) certifies simplicity and location.",
+  "status": "certified",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "route:route-36-random-local-windows-2026-10-14",
+  "tags": [
+   "zero-free",
+   "pair-correlation"
+  ]
+ },
+ {
+  "id": "gram-law-statistics",
+  "type": "measured-phenomenon",
+  "name": "Gram-law fractions 1e8 to 3e13",
+  "statement": "Gram-law fraction / bad-Gram rate: 0.7292/0.1715 at 1e8 falling to 0.7007/0.2112 at 1.5e13-3e13 (451,291 Gram points); 18 Rosser violations. Violation density predicts neither binding floors nor barrier difficulty (|rho| <= 0.31): the binding floors are torus suprema with no height coordinate.",
+  "status": "certified",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "route:route-37-gram-law-barrier-difficulty-2026-10-11",
+  "tags": [
+   "torus",
+   "lambda"
+  ]
+ },
+ {
+  "id": "barrier-slab-height-scaling",
+  "type": "measured-phenomenon",
+  "name": "Barrier slabs certify at 2X, 5X, 10X",
+  "statement": "Closed slabs [X', X'+1] x [y0, 1] x [0, 0.16125] certify at X' = 1.2e13, 3e13, 6e13 with margins about 0.50 (y0 = 0.17) and 0.08-0.10 (y0 = 0.03); mesh cost grows like X^0.45-0.57. No Lambda change without RH verified to X'/2.",
+  "status": "certified",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "route:route-38-barrier-height-scaling-2026-10-08",
+  "tags": [
+   "lambda",
+   "heat-flow"
+  ]
+ },
+ {
+  "id": "lean-weil-small-support",
+  "type": "tool",
+  "name": "Lean: Yoshida-type small-support Weil positivity",
+  "statement": "Lean 4: prime side vanishes for supp g in [-b, b], b < log 2; F(f*f~) = |Ff|^2; uncertainty_toeplitz_nonneg (w >= m off [-T,T], deficit <= D, 2aD <= m gives int w |Ff|^2 >= 0). Model functional >= 0 for supp f in [-13/150, 13/150]. Explicit formula is a hypothesis over an abstract zero functional.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "route:route-39-lean-weil-small-support-2026-10-14",
+  "tags": [
+   "lean",
+   "weil",
+   "explicit-formula"
+  ]
+ },
+ {
+  "id": "lean-explicit-formula-hypothesis",
+  "type": "open-lemma",
+  "name": "Discharge Weil's explicit formula in Lean",
+  "statement": "Route 39's zeroSide_nonneg_small_support takes the explicit formula as hypothesis hEF over an abstract functional Z never tied to zeta's zeros; integrability of archSymbol |Ff|^2 is not formalised. Proposed route: the PNT+ Kadiri scaffold.",
+  "status": "conjectural",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "route:route-39-lean-weil-small-support-2026-10-14",
+  "tags": [
+   "lean",
+   "explicit-formula",
+   "weil"
+  ]
+ },
+ {
+  "id": "heat-evolved-von-mangoldt-positivity",
+  "type": "identity",
+  "name": "Heat-evolved von Mangoldt coefficients stay nonnegative",
+  "statement": "Lean: with G_t(n) = exp(t log^2 n/4) and D = multiplication by log n (Leibniz for Dirichlet convolution), beta(t) is the unique solution of beta * G_t = D G_t; beta(0) = Lambda; 4 d beta_n/dt = log^2(n) beta_n + 2 sum_{de=n} beta_d (log e) beta_e; hence beta_n(t) >= 0 and nondecreasing on t >= 0.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "route:route-40-lean-wol-band-barrier-2026-10-14",
+  "tags": [
+   "heat-flow",
+   "euler-product",
+   "lean",
+   "mollifier"
+  ]
+ },
+ {
+  "id": "lean-arb-certificate-replay",
+  "type": "tool",
+  "name": "Lean replay of PSD certificates (ARB-LEGE)",
+  "statement": "Generic soundness ArbReplay.Cert.lower_bound: if the integer checker passes (A symmetric, F = G - R^T R diagonally dominant) then x^T A' x >= (s - n rhoA - ...)|x|^2 for all data in the stored enclosures and x orthogonal to c'. Six sector certificates by decide +kernel; assembly c = 9.04e-4 at T400 N320.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "route:route-41-lean-arb-certificate-replay-2026-10-14",
+  "tags": [
+   "lean",
+   "weil",
+   "pick"
+  ]
+ },
+ {
+  "id": "mv-cap-zero-side-theorem",
+  "type": "obstruction",
+  "name": "MV-CAP theorem for zero-side premises",
+  "statement": "Window replacement: for any centre c0 in [3.1e12, 7.50e16] a model zeta_W has a nonreal zero z* = 2c + 0.17i with mirror count <= 3.0119 < p_req = 4.3743, N(sigma,T) up by <= 1, new pair beta <= 0.585. A certifying zero-side premise needs slack < 19.3 zeros, relative precision <= 1.5e-12.",
+  "status": "closed",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "route:route-42-formal-mv-cap-2026-10-10",
+  "tags": [
+   "zero-channel",
+   "large-sieve",
+   "antibridge"
+  ],
+  "obstructionRow": "P29"
+ },
+ {
+  "id": "window-replacement-control",
+  "type": "control",
+  "name": "Window-replacement model xi_W",
+  "statement": "xi_W = kappa xi Q_{W'}/Q_W replaces the zeros in one window by a configuration with an off-line pair, keeping order 1, functional equation, reality and xi_W(1) = xi(1). The unshifted model fails O-form function-side premises (mean square moves by |kappa^2 - 1| T log T); the kappa = 1 shifted variant satisfies them.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "route:route-42-formal-mv-cap-2026-10-10",
+  "tags": [
+   "zero-channel",
+   "antibridge"
+  ],
+  "obstructionRow": "P29"
+ },
+ {
+  "id": "mv-cap-function-side",
+  "type": "obstruction",
+  "name": "Function-side MV-CAP",
+  "statement": "Open after route 42: a counter-model surviving explicit sigma >= 1 L^2 inputs, or a proof that L^2 mean values at sigma > 1/2 force the local count. The 2026-11 campaign built cluster lifts F = zeta (p+q)/p with sup |F/zeta - 1| <= 8.7e-6 at sigma = 2 (relative to an unverified window hypothesis).",
+  "status": "closed",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "route:route-42-formal-mv-cap-2026-10-10",
+  "tags": [
+   "large-sieve",
+   "zero-channel"
+  ],
+  "obstructionRow": "P29"
+ },
+ {
+  "id": "flow-criticality-grade-kappa",
+  "type": "object",
+  "name": "Graded flow-criticality kappa(P) = sup Lambda",
+  "statement": "kappa(P) = sup{Lambda(F) : F in P} over the de Bruijn class. kappa(Strip_Y) = Y^2/2 without Phi > 0: critical strip 1/2, QRH 7/8 gives 9/32, QRH 11/12 gives 25/72. Proportion, zero-density and 'all but finitely many on the line' add no kappa beyond their strip.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "route:route-43-flow-criticality-classes-2026-10-14",
+  "tags": [
+   "heat-flow",
+   "lambda",
+   "zero-free",
+   "lean"
+  ]
+ },
+ {
+  "id": "exact-witness-quadratic-cosine",
+  "type": "identity",
+  "name": "Exact de Bruijn-Newman constant of (z^2 + Y^2) cos(cz)",
+  "statement": "Lambda((z^2 + Y^2) cos(cz)) = (sqrt(1 + 4 c^2 Y^2) - 1)/(4 c^2), tending to Y^2/2 as c -> 0. For c >= T the fixed-support Weil form satisfies W_T >= 0 iff 2c >= sinh(2YT)/Y - 2T; lower ladder T^2 kappa_low -> 0.349.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "route:route-43-flow-criticality-classes-2026-10-14",
+  "tags": [
+   "heat-flow",
+   "lambda",
+   "weil"
+  ]
+ },
+ {
+  "id": "escape-law-backward-flow",
+  "type": "obstruction",
+  "name": "Escape law for the backward flow",
+  "statement": "Route 43 left open whether zeros of H_{-tau} leave every strip for every tau > 0 (measured: H_{-1} zero at 5040.39 + 1.41i; heuristic reach tau log(x/4 pi)/2 - 1). The 2026-11 campaign proved it (internal): every horizontal-strip statement true for xi is flow-critical; holds for DH.",
+  "status": "closed",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "route:route-43-flow-criticality-classes-2026-10-14",
+  "tags": [
+   "heat-flow",
+   "zero-free",
+   "antibridge"
+  ],
+  "obstructionRow": "F1"
+ },
+ {
+  "id": "dirichlet-dh-twins-control",
+  "type": "control",
+  "name": "440 Dirichlet DH-type twins, conductors 5-49",
+  "statement": "For each conjugate pair of primitive characters mod q: F_theta = sum Re(e^{i theta} chi(n)) n^{-s}, e^{2i theta} = omega conj(eps(chi)), omega = +-1; same gamma factor and functional equation, no Euler product. q = 5, T+ is Davenport-Heilbronn. 387 certified Weil-negative at a in [0.36, 3.40]; 53 blind to a = 3.6.",
+  "status": "certified",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "route:route-44-euler-detection-depth-2026-10-15",
+  "tags": [
+   "euler-product",
+   "weil"
+  ]
+ },
+ {
+  "id": "weil-sector-split",
+  "type": "identity",
+  "name": "Even/odd sector split of the Weil form",
+  "statement": "For real g = g_e + g_o the cross-correlations cancel in G(x) = int g(y) g(y+x) dy, so W(g) = W(g_e) + W(g_o) for every linear functional of G. A real zero beta in (1/2,1) contributes -(int g sinh((beta-1/2)x))^2 in the odd sector and +(int g cosh)^2 in the even.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "route:route-44-euler-detection-depth-2026-10-15",
+  "tags": [
+   "weil",
+   "explicit-formula"
+  ]
+ },
+ {
+  "id": "weil-onset-zero-side-law",
+  "type": "measured-phenomenon",
+  "name": "Weil-negativity onset follows the first off-line zero",
+  "statement": "Fitted over 240 twins: a* = -0.748 + 0.387 log gamma - 0.278 log(beta - 1/2) + 0.278 log q (rms 0.139, R^2 0.883; predicts DH 1.746). Onset is set mainly by root-number phase; conductor slope 0.2-0.37 per log q against slope 1 for Epstein principal forms. Euler arms never negative.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "route:route-44-euler-detection-depth-2026-10-15",
+  "tags": [
+   "weil",
+   "zero-channel",
+   "euler-product"
+  ]
+ },
+ {
+  "id": "l-damped-finite-window-floor",
+  "type": "open-lemma",
+  "name": "Deterministic finite-window source floor at t > 0",
+  "statement": "For t > 0 the source at height x uses L = log(x/4 pi) and head amplitudes exp(t v(v - L)/4) damp as x grows, so uniformity in x forces a sup only over a finite x-window per L-band (x in [X-2, about 1.105X]). Realised heights sit 0.05-0.10 below the torus lower bound (heuristic).",
+  "status": "conjectural",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "route:route-45-multiplicative-chaos-source-tails-2026-10-15",
+  "tags": [
+   "lambda",
+   "torus",
+   "heat-flow"
+  ],
+  "obstructionRow": "F5"
+ },
+ {
+  "id": "source-field-finite-variance",
+  "type": "measured-phenomenon",
+  "name": "Source field is finite-variance Bohr-Jessen, not log-correlated",
+  "statement": "At the binding cells sigma_eff = (1+h)/2 in [0.88, 1.59]; labels <= 10 carry 93-98% of first-order variance. Steinhaus Monte Carlo: sd 0.099-0.115, Kronecker lower bounds 3.7-5.1 sd above the mean, lighter-than-Gaussian tails. Multiplicative-chaos maximum asymptotics do not apply.",
+  "status": "measured",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "route:route-45-multiplicative-chaos-source-tails-2026-10-15",
+  "tags": [
+   "torus",
+   "lambda"
+  ]
+ },
+ {
+  "id": "kronecker-sup-lower-bounds",
+  "type": "measured-phenomenon",
+  "name": "Certified Kronecker suprema at the 12 binding cells",
+  "statement": "Arb lower bounds on sup over the prime-phase torus of the leading-order source (labels <= 690988): >= 0.533514111339326 at t = 0.075. Any floor improvement is capped at U2 = 0.144254643222956; box growth 3-7x per added prime, k >= 6 primes out of reach.",
+  "status": "certified",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "route:route-46-exact-kronecker-floors-2026-10-06",
+  "tags": [
+   "torus",
+   "lambda"
+  ]
+ },
+ {
+  "id": "one-line-ambiguity-group",
+  "type": "obstruction",
+  "name": "Hilbert-transform wall: |xi| on the line fixes xi only up to off-line flips",
+  "statement": "G entire of order <= 1 with |G| = |xi| on Re s = 1/2 implies G = e^{i alpha + lambda(s - 1/2)} xi prod_{rho in S} B~_rho(s)/B~_rho(1/2), S any multiset of off-line zeros; each off-line quadruple has 9 configurations with identical modulus on the line.",
+  "status": "closed",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "route:route-48-phase-retrieval-zeta-2026-10-15",
+  "tags": [
+   "antibridge",
+   "zero-channel",
+   "bridge"
+  ]
+ },
+ {
+  "id": "fe-plus-reality-rigidity",
+  "type": "identity",
+  "name": "One line + functional equation + reality gives +-xi",
+  "statement": "If |G| = |xi| on the line and G* = G (G*(s) = conj G(1 - conj s)) then G^2 = xi^2, G = +-xi. Either symmetry alone fails: xi B~_rho B~_{1-rho} keeps FE without reality, xi B~_rho B~_{conj rho} keeps reality without FE.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "route:route-48-phase-retrieval-zeta-2026-10-15",
+  "tags": [
+   "bridge",
+   "zero-channel"
+  ]
+ },
+ {
+  "id": "two-line-zero-detector",
+  "type": "mechanism",
+  "name": "Two-line zero detector D(w) (Poisson-Jensen)",
+  "statement": "For F = zeta(s)(s-1)/s: D(w) = log|F(w)| - P_w[log|F(1/2 + i.)|] = sum_{beta > 1/2} log|B_rho(w)| <= 0 on Re w > 1/2. Evaluated on Re w = sigma1 >= 1 it determines all zeros with beta > 1/2; found 8 DH off-line zeros below 400 (sigma1 > 1.39514 for DH).",
+  "status": "proved",
+  "usesMultiplicativity": "unknown",
+  "heightUniform": "yes",
+  "source": "route:route-48-phase-retrieval-zeta-2026-10-15",
+  "tags": [
+   "zero-channel",
+   "bridge",
+   "euler-product"
+  ]
+ },
+ {
+  "id": "bsy-interior-value-criterion",
+  "type": "identity",
+  "name": "One line + one interior value (Balazard-Saias-Yor extension)",
+  "statement": "J(a) = log|F(a)| deficit = sum_{beta > 1/2} -log|B_rho(a)| >= 0, equal to 0 iff no zeros right of the line; at a = 1 it is exactly Balazard-Saias-Yor. Decides RH but cannot locate zeros: an off-line quadruple contributes about 2 delta/gamma^2.",
+  "status": "proved",
+  "usesMultiplicativity": "unknown",
+  "heightUniform": "no",
+  "source": "route:route-48-phase-retrieval-zeta-2026-10-15",
+  "tags": [
+   "zero-channel",
+   "bridge"
+  ]
+ },
+ {
+  "id": "minimum-phase-hilbert-identity",
+  "type": "identity",
+  "name": "Minimum-phase identity on vertical lines",
+  "statement": "For 1/2 <= sigma < 1, F_sigma = zeta(s)(s-1)/(s + 1 - 2 sigma): arg F_sigma(sigma + it) = H_sigma[log|zeta(sigma + i.)|](t) + arg B_sigma(sigma + it), B_sigma the Blaschke product over zeros with beta > sigma; exact Hilbert relation iff no zeros right of sigma (sigma = 1/2: RH).",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "route:route-48-phase-retrieval-zeta-2026-10-15",
+  "tags": [
+   "zero-channel",
+   "bridge",
+   "antibridge"
+  ]
+ },
+ {
+  "id": "sawtooth-s-of-t-lemma",
+  "type": "tool",
+  "name": "Sawtooth lemma for S(T)",
+  "statement": "If |S_1(t2) - S_1(t1)| <= A(t2) and rho = theta'/pi, then S(t) <= A(t+delta)/delta + delta rho(t+delta)/2 and S(t) >= -A(t)/delta - delta rho(t)/2; optimal delta gives |S(t)| <= sqrt(2 A rho)(1+o(1)): 5.6748 against 6.6612 at 3e12. Input constant (Trudgian 2011) unchecked.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "route:route-49-unconditional-s-of-t-2026-10-06",
+  "tags": [
+   "zero-channel",
+   "explicit-formula"
+  ]
+ },
+ {
+  "id": "s-of-t-channel-no-lever",
+  "type": "obstruction",
+  "name": "Pointwise S(T) bounds give no Lambda lever",
+  "statement": "Counting-input ceiling for mirror descent p_E(Y) = 4 rho_z (pi/2 - arctan((E+1)/(rho_z Y))): the all-real model needs E <= 3.363 for formal Lambda 0.2 while the proved E = 5.675 gives 0.2424. Beurling-Selberg extremal functions do not help: off-line zeros in short windows lack local density control.",
+  "status": "closed",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "route:route-49-unconditional-s-of-t-2026-10-06",
+  "tags": [
+   "lambda",
+   "zero-channel",
+   "large-sieve"
+  ]
+ }
+]

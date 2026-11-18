@@ -1,0 +1,19 @@
+planned allocation: integer array 200 x 20000 int64 = 32 MB; sympy objects < 50 MB
+(a1) [(1-y) f_even_x](x, 1/p) = -1/((x - 1)*(x + 1))   minus 1/(1-x^2): 0
+     odd part in x at y = 1/p (no pole globally, listed for the record): x*(p - 1)/((-p + x**2)*(x - 1)*(x + 1))
+(a2) [(1-x) f_even_y](1/p, y) - 1/(1-y^2) = 0
+(a3) local factor of Res_{w=1} at s = 1: p**2/(p**2 - 1)  (finite: zeta(2); no pole at s = 1, so the iterated residue of the (1,1) Whittaker coefficient at s = w = 1 is 0)
+(a4) N(x,y) = -x**2*y**2 - x**2*y - x*y**2 + x + y + 1
+     Whittaker-normalised residue local factor at w = 1: -(-p + x**2)*(p - 1)*(p + 1)/p**3  = local factor of 1/(zeta(2) zeta(2s+1))
+(b) twist chi_b(d), b= 1: mean over odd d<=19999 of chi_b(d) a(m,d): on slice m = b n^2: [(1, 1.0), (9, 1.0), (25, 1.0), (49, 1.0), (81, 1.0), (121, 1.0), (169, 1.0)]
+      max |mean| off the slice: D=4999: 0.0048   D=19999: 0.0015
+(b) twist chi_b(d), b= 3: mean over odd d<=19999 of chi_b(d) a(m,d): on slice m = b n^2: [(3, 0.667), (27, 0.667), (75, 0.667), (147, 0.667)]
+      max |mean| off the slice: D=4999: 0.0096   D=19999: 0.0020
+(b) twist chi_b(d), b= 5: mean over odd d<=19999 of chi_b(d) a(m,d): on slice m = b n^2: [(5, 0.8), (45, 0.8), (125, 0.8)]
+      max |mean| off the slice: D=4999: 0.0112   D=19999: 0.0033
+(b) twist chi_b(d), b= 7: mean over odd d<=19999 of chi_b(d) a(m,d): on slice m = b n^2: [(7, 0.857), (63, 0.857), (175, 0.857)]
+      max |mean| off the slice: D=4999: 0.0144   D=19999: 0.0047
+(b) twist chi_b(d), b=15: mean over odd d<=19999 of chi_b(d) a(m,d): on slice m = b n^2: [(15, 0.533), (135, 0.533)]
+      max |mean| off the slice: D=4999: 0.0112   D=19999: 0.0034
+(b) twist chi_b(d), b=21: mean over odd d<=19999 of chi_b(d) a(m,d): on slice m = b n^2: [(21, 0.571), (189, 0.571)]
+      max |mean| off the slice: D=4999: 0.0172   D=19999: 0.0056

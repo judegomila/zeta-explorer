@@ -1,0 +1,125 @@
+== T1. infimum of B (searched down to 1/2; '<=1/2' means B = 1/2 is feasible), box 16
+  G=polar k=zero    comp=True   inf B = 0.8333333  at (lx,ly,l)=(68719476735/137438953472, 68719476735/137438953472, 68719476733/137438953472)  h=68719476735/68719476736
+  G=polar k=zero    comp=False  inf B = <=1/2      at (lx,ly,l)=(5, 5, 7)  h=3
+  G=polar k=wls     comp=True   inf B = 0.8333333  at (lx,ly,l)=(68719476735/68719476736, 68719476735/68719476736, 34359738367/34359738368)  h=68719476735/68719476736
+  G=polar k=wls     comp=False  inf B = <=1/2      at (lx,ly,l)=(5, 5, 7)  h=3
+  G=polar k=hb      comp=True   inf B = 1.0000000  at (lx,ly,l)=(16, 16, 15)  h=0
+  G=polar k=hb      comp=False  inf B = 1.0000000  at (lx,ly,l)=(16, 16, 15)  h=0
+  G=polar k=src     comp=True   inf B = 0.8666667  at (lx,ly,l)=(34359738369/85899345920, 34359738367/85899345920, 1/5)  h=13743895347/17179869184
+  G=polar k=src     comp=False  inf B = 0.8809524  at (lx,ly,l)=(88353612947/206158430208, 88353612947/206158430208, 14725602157/103079215104)  h=49085340525/68719476736
+  G=polar k=dual    comp=True   inf B = 0.8333333  at (lx,ly,l)=(68719476735/137438953472, 68719476735/137438953472, 68719476733/137438953472)  h=68719476735/68719476736
+  G=polar k=dual    comp=False  inf B = <=1/2      at (lx,ly,l)=(5, 5, 7)  h=3
+  G=polar k=srcdual comp=True   inf B = 0.8666667  at (lx,ly,l)=(34359738369/85899345920, 34359738367/85899345920, 1/5)  h=13743895347/17179869184
+  G=polar k=srcdual comp=False  inf B = 0.8809524  at (lx,ly,l)=(88353612947/206158430208, 88353612947/206158430208, 14725602157/103079215104)  h=49085340525/68719476736
+  G=tro6  k=zero    comp=True   inf B = <=1/2      at (lx,ly,l)=(4, 8, 6)  h=3
+  G=tro6  k=zero    comp=False  inf B = <=1/2      at (lx,ly,l)=(5/2, 5, 9/2)  h=3
+  G=tro6  k=wls     comp=True   inf B = <=1/2      at (lx,ly,l)=(4, 8, 6)  h=3
+  G=tro6  k=wls     comp=False  inf B = <=1/2      at (lx,ly,l)=(5/2, 5, 9/2)  h=3
+  G=tro6  k=hb      comp=True   inf B = <=1/2      at (lx,ly,l)=(6, 12, 8)  h=3
+  G=tro6  k=hb      comp=False  inf B = <=1/2      at (lx,ly,l)=(6, 12, 8)  h=3
+  G=tro6  k=src     comp=True   inf B = 0.8571429  at (lx,ly,l)=(39268272421/137438953472, 39268272421/68719476736, 19634136209/137438953472)  h=29451204315/34359738368
+  G=tro6  k=src     comp=False  inf B = 0.8666667  at (lx,ly,l)=(20615843021/68719476736, 20615843021/34359738368, 6871947673/68719476736)  h=13743895347/17179869184
+  G=tro6  k=dual    comp=True   inf B = <=1/2      at (lx,ly,l)=(4, 8, 6)  h=3
+  G=tro6  k=dual    comp=False  inf B = <=1/2      at (lx,ly,l)=(5/2, 5, 9/2)  h=3
+  G=tro6  k=srcdual comp=True   inf B = 0.8571429  at (lx,ly,l)=(39268272421/137438953472, 39268272421/68719476736, 19634136209/137438953472)  h=29451204315/34359738368
+  G=tro6  k=srcdual comp=False  inf B = 0.8666667  at (lx,ly,l)=(20615843021/68719476736, 20615843021/34359738368, 6871947673/68719476736)  h=13743895347/17179869184
+  G=src   k=zero    comp=True   inf B = 0.8333333  at (lx,ly,l)=(68719476735/137438953472, 68719476735/137438953472, 68719476733/137438953472)  h=68719476735/68719476736
+  G=src   k=zero    comp=False  inf B = <=1/2      at (lx,ly,l)=(5, 5, 7)  h=3
+  G=src   k=wls     comp=True   inf B = 0.8333333  at (lx,ly,l)=(68719476735/68719476736, 68719476735/68719476736, 34359738367/34359738368)  h=68719476735/68719476736
+  G=src   k=wls     comp=False  inf B = <=1/2      at (lx,ly,l)=(5, 5, 7)  h=3
+  G=src   k=hb      comp=True   inf B = 1.0000000  at (lx,ly,l)=(16, 16, 15)  h=0
+  G=src   k=hb      comp=False  inf B = 1.0000000  at (lx,ly,l)=(16, 16, 15)  h=0
+  G=src   k=src     comp=True   inf B = 0.8666667  at (lx,ly,l)=(34359738369/85899345920, 34359738367/85899345920, 1/5)  h=13743895347/17179869184
+  G=src   k=src     comp=False  inf B = 0.8809524  at (lx,ly,l)=(88353612947/206158430208, 88353612947/206158430208, 14725602157/103079215104)  h=49085340525/68719476736
+  G=src   k=dual    comp=True   inf B = 0.8333333  at (lx,ly,l)=(68719476735/137438953472, 68719476735/137438953472, 68719476733/137438953472)  h=68719476735/68719476736
+  G=src   k=dual    comp=False  inf B = <=1/2      at (lx,ly,l)=(5, 5, 7)  h=3
+  G=src   k=srcdual comp=True   inf B = 0.8666667  at (lx,ly,l)=(34359738369/85899345920, 34359738367/85899345920, 1/5)  h=13743895347/17179869184
+  G=src   k=srcdual comp=False  inf B = 0.8809524  at (lx,ly,l)=(88353612947/206158430208, 88353612947/206158430208, 14725602157/103079215104)  h=49085340525/68719476736
+== T2. smallest-l vertex at B = 1/2 for the packages where 1/2 is feasible
+  G=polar k=zero  comp=False  (lx,ly,l)=(5, 5, 7)  M=10  h=3  l-M=-3  M-(1+l)=2  b=0
+  G=polar k=wls   comp=False  (lx,ly,l)=(5, 5, 7)  M=10  h=3  l-M=-3  M-(1+l)=2  b=0
+  G=polar k=dual  comp=False  (lx,ly,l)=(5, 5, 7)  M=10  h=3  l-M=-3  M-(1+l)=2  b=0
+  G=tro6  k=zero  comp=True   (lx,ly,l)=(4, 8, 6)  M=12  h=3  l-M=-6  M-(1+l)=5  b=4
+  G=tro6  k=zero  comp=False  (lx,ly,l)=(5/2, 5, 9/2)  M=15/2  h=3  l-M=-3  M-(1+l)=2  b=5/2
+  G=tro6  k=wls   comp=True   (lx,ly,l)=(4, 8, 6)  M=12  h=3  l-M=-6  M-(1+l)=5  b=4
+  G=tro6  k=wls   comp=False  (lx,ly,l)=(5/2, 5, 9/2)  M=15/2  h=3  l-M=-3  M-(1+l)=2  b=5/2
+  G=tro6  k=hb    comp=True   (lx,ly,l)=(6, 12, 8)  M=18  h=3  l-M=-10  M-(1+l)=9  b=6
+  G=tro6  k=hb    comp=False  (lx,ly,l)=(6, 12, 8)  M=18  h=3  l-M=-10  M-(1+l)=9  b=6
+  G=tro6  k=dual  comp=True   (lx,ly,l)=(4, 8, 6)  M=12  h=3  l-M=-6  M-(1+l)=5  b=4
+  G=tro6  k=dual  comp=False  (lx,ly,l)=(5/2, 5, 9/2)  M=15/2  h=3  l-M=-3  M-(1+l)=2  b=5/2
+  G=src   k=zero  comp=False  (lx,ly,l)=(5, 5, 7)  M=10  h=3  l-M=-3  M-(1+l)=2  b=0
+  G=src   k=wls   comp=False  (lx,ly,l)=(5, 5, 7)  M=10  h=3  l-M=-3  M-(1+l)=2  b=0
+  G=src   k=dual  comp=False  (lx,ly,l)=(5, 5, 7)  M=10  h=3  l-M=-3  M-(1+l)=2  b=0
+== T3. same at B = 3/4 and 4/5 (first vertices below 5/6)
+  B=4/5 G=polar k=zero  comp=True   infeasible
+  B=4/5 G=polar k=zero  comp=False  (lx,ly,l)=(7/5, 7/5, 8/5)  M=14/5  h=6/5  l-M=-6/5
+  B=4/5 G=polar k=wls   comp=True   infeasible
+  B=4/5 G=polar k=wls   comp=False  (lx,ly,l)=(7/5, 7/5, 8/5)  M=14/5  h=6/5  l-M=-6/5
+  B=4/5 G=polar k=hb    comp=True   infeasible
+  B=4/5 G=polar k=hb    comp=False  infeasible
+  B=4/5 G=polar k=dual  comp=True   infeasible
+  B=4/5 G=polar k=dual  comp=False  (lx,ly,l)=(7/5, 7/5, 8/5)  M=14/5  h=6/5  l-M=-6/5
+  B=4/5 G=tro6  k=zero  comp=True   (lx,ly,l)=(2/5, 4/5, 3/5)  M=6/5  h=6/5  l-M=-3/5
+  B=4/5 G=tro6  k=zero  comp=False  (lx,ly,l)=(7/10, 7/5, 9/10)  M=21/10  h=6/5  l-M=-6/5
+  B=4/5 G=tro6  k=wls   comp=True   (lx,ly,l)=(3/5, 6/5, 4/5)  M=9/5  h=6/5  l-M=-1
+  B=4/5 G=tro6  k=wls   comp=False  (lx,ly,l)=(7/10, 7/5, 9/10)  M=21/10  h=6/5  l-M=-6/5
+  B=4/5 G=tro6  k=hb    comp=True   (lx,ly,l)=(12/5, 24/5, 13/5)  M=36/5  h=6/5  l-M=-23/5
+  B=4/5 G=tro6  k=hb    comp=False  (lx,ly,l)=(12/5, 24/5, 13/5)  M=36/5  h=6/5  l-M=-23/5
+  B=4/5 G=tro6  k=dual  comp=True   (lx,ly,l)=(2/5, 4/5, 3/5)  M=6/5  h=6/5  l-M=-3/5
+  B=4/5 G=tro6  k=dual  comp=False  (lx,ly,l)=(7/10, 7/5, 9/10)  M=21/10  h=6/5  l-M=-6/5
+  B=3/4 G=polar k=zero  comp=True   infeasible
+  B=3/4 G=polar k=zero  comp=False  (lx,ly,l)=(2, 2, 5/2)  M=4  h=3/2  l-M=-3/2
+  B=3/4 G=polar k=wls   comp=True   infeasible
+  B=3/4 G=polar k=wls   comp=False  (lx,ly,l)=(2, 2, 5/2)  M=4  h=3/2  l-M=-3/2
+  B=3/4 G=polar k=hb    comp=True   infeasible
+  B=3/4 G=polar k=hb    comp=False  infeasible
+  B=3/4 G=polar k=dual  comp=True   infeasible
+  B=3/4 G=polar k=dual  comp=False  (lx,ly,l)=(2, 2, 5/2)  M=4  h=3/2  l-M=-3/2
+  B=3/4 G=tro6  k=zero  comp=True   (lx,ly,l)=(1, 2, 3/2)  M=3  h=3/2  l-M=-3/2
+  B=3/4 G=tro6  k=zero  comp=False  (lx,ly,l)=(1, 2, 3/2)  M=3  h=3/2  l-M=-3/2
+  B=3/4 G=tro6  k=wls   comp=True   (lx,ly,l)=(1, 2, 3/2)  M=3  h=3/2  l-M=-3/2
+  B=3/4 G=tro6  k=wls   comp=False  (lx,ly,l)=(1, 2, 3/2)  M=3  h=3/2  l-M=-3/2
+  B=3/4 G=tro6  k=hb    comp=True   (lx,ly,l)=(3, 6, 7/2)  M=9  h=3/2  l-M=-11/2
+  B=3/4 G=tro6  k=hb    comp=False  (lx,ly,l)=(3, 6, 7/2)  M=9  h=3/2  l-M=-11/2
+  B=3/4 G=tro6  k=dual  comp=True   (lx,ly,l)=(1, 2, 3/2)  M=3  h=3/2  l-M=-3/2
+  B=3/4 G=tro6  k=dual  comp=False  (lx,ly,l)=(1, 2, 3/2)  M=3  h=3/2  l-M=-3/2
+== T4. bootstrap: marks priced by pointwise ZF(theta) prime sums, k = l(2 theta - 1); G = zero (most favourable)
+  theta=1/2    comp=True   f(theta) = 0.2500000 = 1/4  at (0, 7, 7/2)  h=9/2   f - theta = -0.250000
+  theta=1/2    comp=False  f(theta) = 0.2500000 = 1/4  at (0, 8, 7/2)  h=9/2   f - theta = -0.250000
+  theta=11/20  comp=True   f(theta) = 0.2500000 = 1/4  at (0, 10, 5)  h=6   f - theta = -0.300000
+  theta=11/20  comp=False  f(theta) = 0.2500000 = 1/4  at (0, 21/2, 5)  h=6   f - theta = -0.300000
+  theta=3/5    comp=True   f(theta) = 0.3000000 = ~  at (0, 1099511627755/68719476736, 1099511627755/137438953472)  h=1236950581227/137438953472   f - theta = -0.300000
+  theta=3/5    comp=False  f(theta) = 0.2777778 = ~  at (0, 2199023255513/137438953472, 1145324612245/137438953472)  h=1282763565717/137438953472   f - theta = -0.322222
+  theta=2/3    comp=True   f(theta) = 0.8333333 = ~  at (1/68719476736, 206158430203/137438953472, 206158430205/274877906944)  h=481036337145/274877906944   f - theta = +0.166667
+  theta=2/3    comp=False  f(theta) = 0.8333333 = ~  at (1/68719476736, 16, 1546188226563/171798691840)  h=3435973836801/343597383680   f - theta = +0.166667
+  theta=3/4    comp=True   f(theta) = 0.8333333 = ~  at (0, 68719476737/68719476736, 1/34359738368)  h=34359738369/34359738368   f - theta = +0.083333
+  theta=3/4    comp=False  f(theta) = 0.8333333 = ~  at (0, 68719476739/68719476736, 1/34359738368)  h=34359738369/34359738368   f - theta = +0.083333
+  theta=5/6    comp=True   f(theta) = 0.8333333 = ~  at (0, 206158430209/206158430208, 1/68719476736)  h=68719476737/68719476736   f - theta = +0.000000
+  theta=5/6    comp=False  f(theta) = 0.8333333 = ~  at (0, 51539607553/51539607552, 1/68719476736)  h=68719476737/68719476736   f - theta = +0.000000
+  theta=7/8    comp=True   f(theta) = 0.8333333 = ~  at (0, 343597383681/343597383680, 1/85899345920)  h=85899345921/85899345920   f - theta = -0.041667
+  theta=7/8    comp=False  f(theta) = 0.8333333 = ~  at (0, 68719476737/68719476736, 1/85899345920)  h=85899345921/85899345920   f - theta = -0.041667
+== T5. thin branch only (l >= M): infimum with k = dual and with k = zero
+  thin  G=polar k=zero  comp=True   inf B = 1.0000000 at none (infeasible up to B = 1)
+  thin  G=polar k=zero  comp=False  inf B = 1.0000000 at none (infeasible up to B = 1)
+  thin  G=polar k=dual  comp=True   inf B = 1.0000000 at none (infeasible up to B = 1)
+  thin  G=polar k=dual  comp=False  inf B = 1.0000000 at none (infeasible up to B = 1)
+  thin  G=tro6  k=zero  comp=True   inf B = 1.0000000 at none (infeasible up to B = 1)
+  thin  G=tro6  k=zero  comp=False  inf B = 1.0000000 at none (infeasible up to B = 1)
+  thin  G=tro6  k=dual  comp=True   inf B = 1.0000000 at none (infeasible up to B = 1)
+  thin  G=tro6  k=dual  comp=False  inf B = 1.0000000 at none (infeasible up to B = 1)
+== T6. criticality: low rows at B_low < 1/2 together with the high rows at B = 1/2 (geometries with h > 3)
+  G=polar k=wls   comp=False  B_low=49/100: feasible at (51/10, 51/10, 179/25)  h=153/50  (h-3)/6=1/100
+  G=polar k=wls   comp=False  B_low=2/5   : feasible at (6, 6, 43/5)  h=18/5  (h-3)/6=1/10
+  G=polar k=wls   comp=False  B_low=1/4   : feasible at (15/2, 15/2, 11)  h=9/2  (h-3)/6=1/4
+  G=tro6  k=wls   comp=True   B_low=49/100: feasible at (103/25, 206/25, 309/50)  h=153/50  (h-3)/6=1/100
+  G=tro6  k=wls   comp=True   B_low=2/5   : feasible at (26/5, 52/5, 39/5)  h=18/5  (h-3)/6=1/10
+  G=tro6  k=wls   comp=True   B_low=1/4   : feasible at (7, 14, 21/2)  h=9/2  (h-3)/6=1/4
+  G=tro6  k=hb    comp=True   B_low=49/100: feasible at (153/25, 306/25, 409/50)  h=153/50  (h-3)/6=1/100
+  G=tro6  k=hb    comp=True   B_low=2/5   : feasible at (36/5, 72/5, 49/5)  h=18/5  (h-3)/6=1/10
+  G=tro6  k=hb    comp=True   B_low=1/4   : feasible at (9, 18, 25/2)  h=9/2  (h-3)/6=1/4
+  G=polar k=dual  comp=False  B_low=49/100: feasible at (51/10, 51/10, 179/25)  h=153/50  (h-3)/6=1/100
+  G=polar k=dual  comp=False  B_low=2/5   : feasible at (6, 6, 43/5)  h=18/5  (h-3)/6=1/10
+  G=polar k=dual  comp=False  B_low=1/4   : feasible at (15/2, 15/2, 11)  h=9/2  (h-3)/6=1/4
+  G=tro6  k=zero  comp=True   B_low=49/100: feasible at (103/25, 206/25, 309/50)  h=153/50  (h-3)/6=1/100
+  G=tro6  k=zero  comp=True   B_low=2/5   : feasible at (26/5, 52/5, 39/5)  h=18/5  (h-3)/6=1/10
+  G=tro6  k=zero  comp=True   B_low=1/4   : feasible at (7, 14, 21/2)  h=9/2  (h-3)/6=1/4

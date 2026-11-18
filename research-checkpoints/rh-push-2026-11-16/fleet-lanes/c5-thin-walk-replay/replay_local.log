@@ -1,0 +1,33 @@
+planned memory: < 50 MB
+(e0,l)=(0,2) k=0 t=6 eta-degrees=[6] OK
+(e0,l)=(0,2) k=0 t=6 eta-degrees=[6] OK
+(e0,l)=(0,2) k=1 t=6 eta-degrees=[6] OK
+(e0,l)=(1,0) k=0 t=1 eta-degrees=[1] OK
+(e0,l)=(1,0) k=1 t=1 eta-degrees=[1] OK
+(e0,l)=(1,0) k=1 t=1 eta-degrees=[1] OK
+(e0,l)=(0,1) k=0 t=3 eta-degrees=[3] OK
+(e0,l)=(0,1) k=1 t=3 eta-degrees=[3] OK
+(e0,l)=(1,1) k=0 t=4 eta-degrees=[4] OK
+(e0,l)=(1,1) k=1 t=4 eta-degrees=[4] OK
+eta-degree audit: PASS
+R eta-degree: [(6,)]
+(7.17) j=0 residual: Q**(-7*w - 2*x - 30*z - 2)*(Q**(2*w + 6*z + 1)*(Q**(6*z) - 1)*(Q**(3*w + x + 18*z)*eta*(Q**w - rho)*(Q**x*(-Q**(w + 1)*(Q**(6*z) - 1) + Q**(w + x)*rho*(Q - 1)*(Q**(4 - 6*x)*alpha**6*eta**5 - Q**(-w - x + 1)) + Q**(-5*x - 6*z + 5)*alpha**6*eta**5*rho**2*(Q**(6*z) - 1)) - Q**(w + x + 1)*rho**2*(Q**(6*z) - 1)*(Q**(-6*x - 6*z + 4)*alpha**6*eta**6 - 1)) - Q**(3*w + 2*x + 12*z + 1)*eta*rho**2*(Q**(-6*x - 6*z + 4)*alpha**6*eta**6 - 1)*(-Q**(w + 6*z)*rho + Q**(w + 12*z)*rho + Q**(2*w + 6*z)) + Q**(4*w + 3*x + 18*z + 1)*rho**2*(Q**(-6*x - 6*z + 4)*alpha**6*eta**6 - 1)) + Q**(5*w + 2*x + 24*z + 1)*(Q**(6*z) - 1)*(Q**(w + x + 1)*rho**2*(Q**(6*z) - 1)*(Q**(-6*x - 6*z + 4)*alpha**6*eta**6 - 1) + Q**(w + x + 6*z + 1)*rho*(Q**w - rho)*(Q**(-6*x - 6*z + 4)*alpha**6*eta**6 - 1) + eta*(Q**w - rho)*(Q**(w + 1)*(Q**(6*z) - 1) - Q**(w + x)*rho*(Q - 1)*(Q**(4 - 6*x)*alpha**6*eta**5 - Q**(-w - x + 1)) + Q**(-5*x - 6*z + 5)*alpha**6*eta**5*rho**2*(1 - Q**(6*z)))) + Q**(7*w + 2*x + 30*z + 2)*rho*(1 - Q**(6*z))*(Q**x - eta*rho)*(Q**(-6*x - 6*z + 4)*alpha**6*eta**6 - 1))/(rho*(Q**x - eta*rho)*(Q**(6*z) - 1)*(Q**(-6*x - 6*z + 4)*alpha**6*eta**6 - 1))
+(7.17) j=1 residual: 0
+(7.17) j=2 residual: 0
+(7.17) j=5 residual: 0
+('D=eta*conj(rho)*Q^-x', 7) sup |H_p-1| Q^(363/200) = 3.4783
+('D=eta*conj(rho)*Q^-x', 13) sup |H_p-1| Q^(363/200) = 2.789
+('D=eta*conj(rho)*Q^-x', 19) sup |H_p-1| Q^(363/200) = 2.4359
+('D=eta*conj(rho)*Q^-x', 31) sup |H_p-1| Q^(363/200) = 2.4419
+('D=eta*conj(rho)*Q^-x', 97) sup |H_p-1| Q^(363/200) = 1.7434
+('D=eta*conj(rho)*Q^-x', 1009) sup |H_p-1| Q^(363/200) = 1.5837
+('D=eta*conj(rho)*Q^-x', 10007) sup |H_p-1| Q^(363/200) = 0.9019
+('D=eta*conj(rho)*Q^-x', 100003) sup |H_p-1| Q^(363/200) = 0.9969
+('D=eta*rho*Q^-x', 7) sup |H_p-1| Q^(363/200) = 14.5289
+('D=eta*rho*Q^-x', 13) sup |H_p-1| Q^(363/200) = 23.1113
+('D=eta*rho*Q^-x', 19) sup |H_p-1| Q^(363/200) = 30.075
+('D=eta*rho*Q^-x', 31) sup |H_p-1| Q^(363/200) = 46.0137
+('D=eta*rho*Q^-x', 97) sup |H_p-1| Q^(363/200) = 130.7306
+('D=eta*rho*Q^-x', 1009) sup |H_p-1| Q^(363/200) = 1149.0109
+('D=eta*rho*Q^-x', 10007) sup |H_p-1| Q^(363/200) = 9969.1065
+('D=eta*rho*Q^-x', 100003) sup |H_p-1| Q^(363/200) = 86055.3307

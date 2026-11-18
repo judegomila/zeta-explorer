@@ -1,0 +1,9 @@
+PLAN: recompute c(n), n<=1000000 (two int64 arrays of 8 MB); relation check over p in {3,5,7,13,17}
+p= 3: c(n p^2) = (a_p - (-n/p)) c(n) - p c(n/p^2): 111111 cases, 0 mismatches
+p= 5: c(n p^2) = (a_p - (-n/p)) c(n) - p c(n/p^2): 40000 cases, 0 mismatches
+p= 7: c(n p^2) = (a_p - (-n/p)) c(n) - p c(n/p^2): 20408 cases, 0 mismatches
+p=13: c(n p^2) = (a_p - (-n/p)) c(n) - p c(n/p^2): 5917 cases, 0 mismatches
+p=17: c(n p^2) = (a_p - (-n/p)) c(n) - p c(n/p^2): 3460 cases, 0 mismatches
+d0=3, 1413 columns: corr(row d0, row 9 d0) -1.000 ; (25 d0) +0.624 ; (49 d0) -0.872 ; unrelated rows 5 d0: -0.026, 7 d0: +0.000, 13 d0: +0.000 ; null 0.027
+d0=23, 176 columns: corr(row d0, row 9 d0) -0.617 ; (25 d0) +0.415 ; (49 d0) -0.888 ; unrelated rows 5 d0: -0.043, 7 d0: +0.000, 13 d0: +0.000 ; null 0.075
+d0=31, 132 columns: corr(row d0, row 9 d0) -0.722 ; (25 d0) +0.781 ; (49 d0) -0.866 ; unrelated rows 5 d0: +0.012, 7 d0: +0.000, 13 d0: +0.000 ; null 0.087

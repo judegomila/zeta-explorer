@@ -1,0 +1,28 @@
+# k=2 X=1000 theta=0.3 D=8: planned memory: cumulative arrays 0.000 GB, LP nnz <= 3.08e+03 (0.000 GB)
+k=2 X=1e+03 th=0.3 D=8 val=166.259811 truth=165.744910 gap=5.1490e-01 gap/sqrtX=0.0163 exc/sqrtX=-0.0129 true_exc/sqrtX=-0.0291 l1=5.53 l1kD=1.76 A=2.44e-04 B=1.00177 C0=-1.982 ynonpp=593 rows=146 it=2 t=0.0s
+# k=2 X=1000 theta=0.4 D=16: planned memory: cumulative arrays 0.000 GB, LP nnz <= 3.77e+03 (0.000 GB)
+k=2 X=1e+03 th=0.4 D=16 val=165.940916 truth=165.744910 gap=1.9601e-01 gap/sqrtX=0.0062 exc/sqrtX=-0.0230 true_exc/sqrtX=-0.0291 l1=9.32 l1kD=2.63 A=2.50e-06 B=1.00113 C0=-1.999 ynonpp=616 rows=142 it=1 t=0.0s
+# k=2 X=1000 theta=0.5 D=32: planned memory: cumulative arrays 0.000 GB, LP nnz <= 4.47e+03 (0.000 GB)
+k=2 X=1e+03 th=0.5 D=32 val=165.857700 truth=165.744910 gap=1.1279e-01 gap/sqrtX=0.0036 exc/sqrtX=-0.0256 true_exc/sqrtX=-0.0291 l1=40.1 l1kD=18.5 A=-2.70e-05 B=1.00081 C0=-2.009 ynonpp=567 rows=142 it=1 t=0.0s
+# k=2 X=1000 theta=0.6 D=63: planned memory: cumulative arrays 0.000 GB, LP nnz <= 5.14e+03 (0.000 GB)
+k=2 X=1e+03 th=0.6 D=63 val=165.744910 truth=165.744910 gap=6.3380e-12 gap/sqrtX=0.0000 exc/sqrtX=-0.0291 true_exc/sqrtX=-0.0291 l1=1.89e+03 l1kD=1.27e+03 A=-7.90e-04 B=1.00365 C0=-2.041 ynonpp=563 rows=142 it=1 t=0.0s
+# k=2 X=1000 theta=0.7 D=126: planned memory: cumulative arrays 0.000 GB, LP nnz <= 5.84e+03 (0.000 GB)
+k=2 X=1e+03 th=0.7 D=126 val=165.744910 truth=165.744910 gap=-3.6664e-12 gap/sqrtX=-0.0000 exc/sqrtX=-0.0291 true_exc/sqrtX=-0.0291 l1=1.47e+03 l1kD=1.32e+03 A=5.08e-05 B=1.00031 C0=-2.026 ynonpp=558 rows=142 it=1 t=0.0s
+# k=2 X=1000 theta=0.8 D=251: planned memory: cumulative arrays 0.000 GB, LP nnz <= 6.53e+03 (0.000 GB)
+k=2 X=1e+03 th=0.8 D=251 val=165.744910 truth=165.744910 gap=1.9895e-13 gap/sqrtX=0.0000 exc/sqrtX=-0.0291 true_exc/sqrtX=-0.0291 l1=56.5 l1kD=5.95 A=4.78e-04 B=0.99708 C0=-1.803 ynonpp=563 rows=142 it=1 t=0.0s
+# k=2 X=1000 theta=0.9 D=501: planned memory: cumulative arrays 0.000 GB, LP nnz <= 7.22e+03 (0.000 GB)
+k=2 X=1e+03 th=0.9 D=501 val=165.744910 truth=165.744910 gap=2.5580e-13 gap/sqrtX=0.0000 exc/sqrtX=-0.0291 true_exc/sqrtX=-0.0291 l1=57.2 l1kD=1.63 A=3.63e-04 B=0.99776 C0=-1.844 ynonpp=611 rows=142 it=1 t=0.0s
+# k=2 X=10000 theta=0.3 D=16: planned memory: cumulative arrays 0.001 GB, LP nnz <= 3.77e+04 (0.001 GB)
+k=2 X=1e+04 th=0.3 D=16 val=1667.705444 truth=1665.652994 gap=2.0524e+00 gap/sqrtX=0.0205 exc/sqrtX=0.0104 true_exc/sqrtX=-0.0101 l1=9.23 l1kD=2.54 A=5.01e-07 B=1.00117 C0=-1.999 ynonpp=6.57e+03 rows=493 it=3 t=0.0s
+# k=2 X=10000 theta=0.4 D=40: planned memory: cumulative arrays 0.001 GB, LP nnz <= 4.69e+04 (0.001 GB)
+k=2 X=1e+04 th=0.4 D=40 val=1666.829713 truth=1665.652994 gap=1.1767e+00 gap/sqrtX=0.0118 exc/sqrtX=0.0016 true_exc/sqrtX=-0.0101 l1=58 l1kD=35.9 A=-2.76e-06 B=1.00067 C0=-2.009 ynonpp=6.65e+03 rows=524 it=40 t=0.4s
+# k=2 X=10000 theta=0.5 D=100: planned memory: cumulative arrays 0.001 GB, LP nnz <= 5.61e+04 (0.001 GB)
+k=2 X=1e+04 th=0.5 D=100 val=1666.189162 truth=1665.652994 gap=5.3617e-01 gap/sqrtX=0.0054 exc/sqrtX=-0.0048 true_exc/sqrtX=-0.0101 l1=1.15e+04 l1kD=9.86e+03 A=-1.75e-05 B=1.00039 C0=-2.000 ynonpp=6.62e+03 rows=462 it=1 t=0.0s
+# k=2 X=10000 theta=0.6 D=251: planned memory: cumulative arrays 0.001 GB, LP nnz <= 6.53e+04 (0.001 GB)
+k=2 X=1e+04 th=0.6 D=251 val=1665.652994 truth=1665.652994 gap=-3.7994e-10 gap/sqrtX=-0.0000 exc/sqrtX=-0.0101 true_exc/sqrtX=-0.0101 l1=1.14e+05 l1kD=8.3e+04 A=-2.46e-04 B=1.00147 C0=-2.007 ynonpp=6.45e+03 rows=462 it=1 t=0.1s
+# k=2 X=10000 theta=0.7 D=631: planned memory: cumulative arrays 0.001 GB, LP nnz <= 7.45e+04 (0.001 GB)
+k=2 X=1e+04 th=0.7 D=631 val=1665.652994 truth=1665.652994 gap=8.6402e-12 gap/sqrtX=0.0000 exc/sqrtX=-0.0101 true_exc/sqrtX=-0.0101 l1=5.98e+03 l1kD=4.86e+03 A=-8.97e-05 B=1.00053 C0=-1.954 ynonpp=6.42e+03 rows=462 it=1 t=0.1s
+# k=2 X=10000 theta=0.8 D=1585: planned memory: cumulative arrays 0.001 GB, LP nnz <= 8.37e+04 (0.001 GB)
+k=2 X=1e+04 th=0.8 D=1585 val=1665.652994 truth=1665.652994 gap=1.2733e-11 gap/sqrtX=0.0000 exc/sqrtX=-0.0101 true_exc/sqrtX=-0.0101 l1=3.23e+03 l1kD=665 A=1.77e-04 B=0.99842 C0=-1.078 ynonpp=6.43e+03 rows=462 it=1 t=0.2s
+# k=2 X=10000 theta=0.9 D=3981: planned memory: cumulative arrays 0.001 GB, LP nnz <= 9.29e+04 (0.001 GB)
+k=2 X=1e+04 th=0.9 D=3981 val=1665.652994 truth=1665.652994 gap=1.2051e-11 gap/sqrtX=0.0000 exc/sqrtX=-0.0101 true_exc/sqrtX=-0.0101 l1=1.73e+03 l1kD=57.5 A=1.66e-03 B=0.98589 C0=5.679 ynonpp=8.72e+03 rows=462 it=1 t=0.3s

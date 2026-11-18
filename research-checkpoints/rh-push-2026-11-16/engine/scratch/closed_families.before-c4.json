@@ -1,0 +1,151 @@
+[
+ {
+  "id": "fam-legendre-dual-limits",
+  "closedBy": "e1-cofinal-legendre-dual",
+  "name": "Limits or compactness of optimal Legendre-LP duals",
+  "all": [
+   "legendre",
+   "dual|\\bLP\\b|cofinal|compact"
+  ]
+ },
+ {
+  "id": "fam-torus-exclusion-sign-test",
+  "closedBy": "e1-rs-torus-laguerre-orbit",
+  "name": "Prime-torus exclusion sets for the Riemann-Siegel main sum with Laguerre/Turan sign tests",
+  "all": [
+   "torus|riemann-siegel main sum",
+   "laguerre|tur[a\\xe1]n|jensen"
+  ]
+ },
+ {
+  "id": "fam-one-zero-forces-many",
+  "closedBy": "e1-sparse-recurrence-amplifier",
+  "name": "Amplifiers \"one off-line zero forces many\" via Bohr sets, Kronecker or universality",
+  "all": [
+   "strong[- ]recurren|universality|bohr set|almost[- ]period",
+   "off-line zero|forces|returns|RH is equivalent|equivalent to RH"
+  ]
+ },
+ {
+  "id": "fam-selberg-control-companion",
+  "closedBy": "e1-selberg-twist-control",
+  "name": "Selberg/Ruelle zeta as control with functional equation or as companion in Theorem PC",
+  "all": [
+   "selberg[- ]zeta|ruelle|selberg-(zeta|control|freeze|phase)",
+   "control|companion|theorem pc|pole[- ]coupling"
+  ]
+ },
+ {
+  "id": "fam-nb-gram-lammin",
+  "closedBy": "e1-nb-gram-period-transfer",
+  "name": "Smallest eigenvalue of Nyman-Beurling Gram matrices; period-function recursion on Gram entries",
+  "all": [
+   "vasyunin|nyman",
+   "gram",
+   "lam(bda)?_?min|smallest eigen|period[- ]function"
+  ]
+ },
+ {
+  "id": "fam-vaughan-split-landau",
+  "closedBy": "e1-forcing-free-bilinear-split",
+  "name": "Vaughan/Heath-Brown splits or mollifiers feeding the one-sided Landau target",
+  "all": [
+   "vaughan|heath-brown|type[- ]i\\b|bilinear split",
+   "landau|one-sided"
+  ]
+ },
+ {
+  "id": "fam-order2-theta-rows",
+  "closedBy": "e1-gl3-theta-order2-rows",
+  "name": "Order-2 versions of the 7/8 mechanism via theta or half-integral weight forms",
+  "all": [
+   "order[- ]2|order two|half-integral|double cover|h ?= ?r/2",
+   "theta|7/8|seven-eighths|kubota"
+  ]
+ },
+ {
+  "id": "fam-euler-anchor-heat",
+  "closedBy": "e1-euler-anchor-heat-certificate",
+  "name": "Heat-time certificates anchored in the Euler region without S transport",
+  "all": [
+   "euler[- ]anchor|anchor(ed)? (in|with) (the|an) euler",
+   "heat"
+  ]
+ },
+ {
+  "id": "fam-heat-monotone-hankel",
+  "closedBy": "e1-burgers-cascade-anticausal",
+  "name": "Heat-monotone functionals of the anticausal Hankel block or of zero configurations",
+  "all": [
+   "anticausal|gamma_-|hankel",
+   "burgers|heat|monoton|flow"
+  ]
+ },
+ {
+  "id": "fam-arithmetic-nb-span",
+  "closedBy": "e1-heegner-averaged-nb-span",
+  "name": "Nyman-Beurling spans chosen by an arithmetic family with the ratio as measured quantity",
+  "all": [
+   "heegner|cm point|n[e\\xe9]ron",
+   "nyman|\\bNB\\b|span"
+  ]
+ },
+ {
+  "id": "fam-hecke-shear-commutator",
+  "closedBy": "c1-shear-hecke-fricke",
+  "name": "Hecke operators commuted with a Gaussian shear or heat factor (identity, not inequality)",
+  "all": [
+   "hecke",
+   "shear|fricke",
+   "commut|defect|tau ?-> ?0"
+  ]
+ },
+ {
+  "id": "fam-stage-limit-semicontinuity",
+  "closedBy": "c1-leeyang-krein-limit",
+  "name": "Limit of zero-free product stages by Krein-index semicontinuity or Hurwitz",
+  "all": [
+   "lee-yang|stage",
+   "krein|semicontinu|hurwitz",
+   "limit"
+  ]
+ },
+ {
+  "id": "fam-primitive-test-restriction",
+  "closedBy": "c1-spinor-hecke-primitive",
+  "name": "Restriction of a translation-invariant form (Weil, Q_L) to Hecke-primitive tests",
+  "all": [
+   "primitive",
+   "weil|q_l|hecke",
+   "test"
+  ]
+ },
+ {
+  "id": "fam-linear-zero-measure-lmi",
+  "closedBy": "c1-window-sdp-scaling",
+  "name": "Positivity LMI linear in the zero measure coupled to the explicit formula",
+  "all": [
+   "\\\\blmi\\\\b|\\\\bsdp\\\\b|semidefinite",
+   "pick|explicit formula|explicit-formula"
+  ]
+ },
+ {
+  "id": "fam-multidelay-section",
+  "closedBy": "c1-multidelay-bohr-section",
+  "name": "Jointly passive multi-delay sections of the prime chain",
+  "all": [
+   "multi-?delay|joint(ly)? (inner|passive|contractive)",
+   "section|prime chain|cascade"
+  ]
+ },
+ {
+  "id": "fam-pd-log-strip",
+  "closedBy": "c1-pd-log-strip",
+  "name": "Positive-definiteness of log zeta on vertical lines left of the pole",
+  "all": [
+   "positive[- ]definite",
+   "log (zeta|F)\\b|log-zeta",
+   "strip|sigma|line"
+  ]
+ }
+]

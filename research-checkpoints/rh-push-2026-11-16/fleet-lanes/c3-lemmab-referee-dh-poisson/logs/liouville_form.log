@@ -1,0 +1,6 @@
+S [2] Tw 0.65 T 3000 | sum Phi(rho/2-1/2) = 3.340299793-0.1522540706i ; arch 4.02450883-4.887736832e-05i ; residues -0.6842090376-0.1522051933i ; |diff| 9.51e-11 rel 2.84e-11 | Lemma B (zeta) rel -3.6e-11 | Hermitian sum at rho/2: 5.91959
+S [3] Tw 1.05 T 2000 | sum Phi(rho/2-1/2) = 4.362263809-0.04621181177i ; arch 4.587725891-8.882511349e-05i ; residues -0.2254620815-0.04612298665i ; |diff| 1.08e-10 rel 2.47e-11 | Lemma B (zeta) rel -3.3e-11 | Hermitian sum at rho/2: 8.57072
+S [2, 3] Tw 1.70 T 3000 | sum Phi(rho/2-1/2) = 8.505004731-0.6082672578i ; arch 9.966245026-0.000121041314i ; residues -1.461240295-0.6081462165i ; |diff| 2.35e-10 rel 2.75e-11 | Lemma B (zeta) rel -3.5e-11 | Hermitian sum at rho/2: 19.9556
+S [2, 3, 5] Tw 3.30 T 4000 | sum Phi(rho/2-1/2) = 8.744407686-12.52009692i ; arch 127.2788287-0.001113387047i ; residues -118.534421-12.51898354i ; |diff| 6.17e-10 rel 4.04e-11 | Lemma B (zeta) rel 2.6e-10 | Hermitian sum at rho/2: 125.41
+S [7] Tw 2.50 T 5000 | sum Phi(rho/2-1/2) = 9.079378814+0.8712807062i ; arch 9.701550798-6.57958713e-05i ; residues -0.6221719853+0.871346502i ; |diff| 1.98e-09 rel 2.17e-10 | Lemma B (zeta) rel 2.1e-10 | Hermitian sum at rho/2: 22.9761
+scripts/memcap.sh 8 .venv-arb/bin/python   0.93s user 0.06s system 48% cpu 2.040 total

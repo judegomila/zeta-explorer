@@ -1,0 +1,35 @@
+{
+ "slug": "c5-repair-engine-map-r4",
+ "round": 5,
+ "kind": "repair",
+ "nodes": [],
+ "tags": [
+  "control",
+  "filter",
+  "generator",
+  "helson",
+  "heat"
+ ],
+ "verdict": "partial-result",
+ "survivingClaim": "Repair debts discharged as counted: engine files show 34 closed families, 21 device types / 60 nodes (51 closed, 6 floored, 3 open), 38,112 generated / 10,726 scored, and the top 60 classified independently give 0 closed, 25 open, 35 floored-only; map is 471 lines with rows P44-P49, G26. Theorem 1 with C6 and Theorem 2 re-derived step by step and hold (constants included); all steps of Theorem 2 also hold numerically on a different case (complex chi with values i and exp(2 pi i/3) on 251 primes, X = 1e6, independent code). Corollary in corrected form: the largest real zero b of F in (theta, 1) satisfies b(1-b) <= 10 theta; a chi with E(x) << x^eps for every eps has no real zero of F in (0,1) and its zeros in Re s > 0 are those of zeta with the order identity. Not proved: the bound for non-largest real zeros; r(theta) -> 0. Heat: norms of the truncated pole operator reproduced by an independent Nystrom computation (including two new parameter cases); failure time depends on truncation height; non-existence of the causal kernel for tau < 0 holds relative to the internal escape law plus measured non-cancellation. No statement about zeros of zeta; no RH assumption; no verified-height restatement.",
+ "obstruction": "Repair lane, no attack. Curated list leaves 3 open device nodes; 35 of the top 60 candidates rest on the floored 7/8 device. Theorem 2 corollary holds for the largest real zero only (b(1-b) <= 10 theta); non-largest real zeros and r(theta) -> 0 not proved; conclusion relative to zeta. The owed heat Ritz run has no object: no causal kernel for tau < 0 (relative to the internal escape law plus measured non-cancellation).",
+ "obstructionKind": "filter-repair",
+ "controlsThatDefeat": [
+  "not applicable (repair lane)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "E1 (medium, statement scope): the corollary \"a real zero b of F satisfies b(1-b) <= 10 theta\" is proved only for the LARGEST real zero sigma_0 (the proof takes beta from sigma_0 and applies C6 at sigma_0); a smaller real zero in (b_-, b_+) is not excluded when sigma_0 lies in the upper branch. The same overstatement is in map section 4 entry 49 and in the Decision bullet \"real zeros lie in (theta, b_-] or [b_+, 1)\". The exponent-zero conclusion (no real zero in (0,1)) is unaffected. E2 (minor): ",
+ "lesson": "A keyword role ranked closed devices first (24 of the old top 60); a curated state list removes them but leaves only 3 open device nodes, so 35 of 60 rest on the floored 7/8 device. Residue classes mod p (additive characters plus large sieve) bound the deviation of chi from 1 by the discrepancy; this step uses the integers and has no Beurling analogue, yet the conclusion stays relative to zeta. The heat family lies outside the domain of Suzuki's determinant criterion; it is not a control that passes for small t.",
+ "followUp": "Referee Theorem 2 and its corollary (RESULT.md section 2.3); if it fails, remove map section 4 entry 49 and the last sentence of row P46. The learn step must then set the states of map-open-1, map-open-21 and the six pending proposals in engine/curated/mk_devices.py when the round-5 lanes report.",
+ "resultFile": "tmp/research-2026-11-16/push/c5-repair-engine-map-r4/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c5-repair-engine-map-r4/REFEREE.md"
+}

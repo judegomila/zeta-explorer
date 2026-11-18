@@ -1,0 +1,1 @@
+{"label": "chi5@1e+06", "kind": "chi5", "T0": 1000000, "segs": [{"N": 892, "ua": 0.0, "ub": 200, "screen_right": 81, "attempted": 81, "certified": 81, "failed": [], "min_ds_certified": 0.0009213308530737254, "max_abs_F_upper": 2.8119468554837944e-13}], "certified_total": 81, "attempted_total": 81, "screen_right_total": 81, "seconds": 0.046911001205444336, "prec": 128}

@@ -1,0 +1,39 @@
+kernel=liouville P=97 window U=9.1494 nodes n=183 h=0.05 panels=24 r-nodes=2400 Rmax=4.025 dps=300
+planned allocation: 2 x 183 x 2400 = 878400 arb of 1000 bits ~ 166 MB
+  row 0/183  0s
+  row 20/183  1s
+  row 40/183  1s
+  row 60/183  2s
+  row 80/183  2s
+  row 100/183  3s
+  row 120/183  3s
+  row 140/183  3s
+  row 160/183  4s
+  row 180/183  4s
+matrix built 6s
+window p=  2 (0,1.386] nodes= 28: n+=26 n-=2 unresolved=0 uncertain=0 smallest resolved log10|pivot|=-42.75 neg/2x2 pivots log10=[-8.27, -12.12]  6s
+window p=  3 (0,2.197] nodes= 44: n+=42 n-=2 unresolved=0 uncertain=0 smallest resolved log10|pivot|=-54.91 neg/2x2 pivots log10=[-7.7, -11.92]  6s
+window p=  5 (0,3.219] nodes= 64: n+=62 n-=2 unresolved=0 uncertain=0 smallest resolved log10|pivot|=-64.53 neg/2x2 pivots log10=[-8.12, -11.96]  6s
+window p=  7 (0,3.892] nodes= 78: n+=76 n-=2 unresolved=0 uncertain=0 smallest resolved log10|pivot|=-69.01 neg/2x2 pivots log10=[-8.04, -12.07]  6s
+window p= 11 (0,4.796] nodes= 96: n+=94 n-=2 unresolved=0 uncertain=0 smallest resolved log10|pivot|=-72.8 neg/2x2 pivots log10=[-7.67, -12.15]  7s
+window p= 13 (0,5.130] nodes=103: n+=101 n-=2 unresolved=0 uncertain=0 smallest resolved log10|pivot|=-73.72 neg/2x2 pivots log10=[-7.75, -12.04]  7s
+window p= 17 (0,5.666] nodes=113: n+=111 n-=2 unresolved=0 uncertain=0 smallest resolved log10|pivot|=-75.4 neg/2x2 pivots log10=[-7.73, -11.68]  8s
+window p= 19 (0,5.889] nodes=118: n+=116 n-=2 unresolved=0 uncertain=0 smallest resolved log10|pivot|=-76.0 neg/2x2 pivots log10=[-8.13, -11.54]  9s
+window p= 23 (0,6.271] nodes=125: n+=123 n-=2 unresolved=0 uncertain=0 smallest resolved log10|pivot|=-76.43 neg/2x2 pivots log10=[-7.84, -11.48]  9s
+window p= 29 (0,6.735] nodes=135: n+=133 n-=2 unresolved=0 uncertain=0 smallest resolved log10|pivot|=-77.5 neg/2x2 pivots log10=[-8.0, -11.83]  11s
+window p= 31 (0,6.868] nodes=137: n+=135 n-=2 unresolved=0 uncertain=0 smallest resolved log10|pivot|=-77.64 neg/2x2 pivots log10=[-8.05, -12.03]  12s
+window p= 37 (0,7.222] nodes=144: n+=142 n-=2 unresolved=0 uncertain=0 smallest resolved log10|pivot|=-78.07 neg/2x2 pivots log10=[-8.04, -12.1]  13s
+window p= 41 (0,7.427] nodes=149: n+=147 n-=2 unresolved=0 uncertain=0 smallest resolved log10|pivot|=-78.42 neg/2x2 pivots log10=[-8.03, -12.07]  15s
+window p= 43 (0,7.522] nodes=150: n+=148 n-=2 unresolved=0 uncertain=0 smallest resolved log10|pivot|=-78.47 neg/2x2 pivots log10=[-8.03, -12.07]  16s
+window p= 47 (0,7.700] nodes=154: n+=152 n-=2 unresolved=0 uncertain=0 smallest resolved log10|pivot|=-78.63 neg/2x2 pivots log10=[-8.03, -12.07]  18s
+window p= 53 (0,7.941] nodes=159: n+=157 n-=2 unresolved=0 uncertain=0 smallest resolved log10|pivot|=-78.84 neg/2x2 pivots log10=[-8.0, -11.72]  20s
+window p= 59 (0,8.155] nodes=163: n+=161 n-=2 unresolved=0 uncertain=0 smallest resolved log10|pivot|=-79.0 neg/2x2 pivots log10=[-8.02, -11.75]  21s
+window p= 61 (0,8.222] nodes=164: n+=162 n-=2 unresolved=0 uncertain=0 smallest resolved log10|pivot|=-79.1 neg/2x2 pivots log10=[-8.02, -11.8]  23s
+window p= 67 (0,8.409] nodes=168: n+=166 n-=2 unresolved=0 uncertain=0 smallest resolved log10|pivot|=-79.05 neg/2x2 pivots log10=[-7.96, -11.8]  26s
+window p= 71 (0,8.525] nodes=171: n+=169 n-=2 unresolved=0 uncertain=0 smallest resolved log10|pivot|=-79.12 neg/2x2 pivots log10=[-7.97, -11.87]  28s
+window p= 73 (0,8.581] nodes=172: n+=170 n-=2 unresolved=0 uncertain=0 smallest resolved log10|pivot|=-79.4 neg/2x2 pivots log10=[-7.97, -12.16]  30s
+window p= 79 (0,8.739] nodes=175: n+=173 n-=2 unresolved=0 uncertain=0 smallest resolved log10|pivot|=-79.49 neg/2x2 pivots log10=[-7.95, -11.92]  33s
+window p= 83 (0,8.838] nodes=177: n+=175 n-=2 unresolved=0 uncertain=0 smallest resolved log10|pivot|=-79.51 neg/2x2 pivots log10=[-7.95, -11.92]  35s
+window p= 89 (0,8.977] nodes=180: n+=178 n-=2 unresolved=0 uncertain=0 smallest resolved log10|pivot|=-79.67 neg/2x2 pivots log10=[-7.95, -11.91]  38s
+window p= 97 (0,9.149] nodes=183: n+=181 n-=2 unresolved=0 uncertain=0 smallest resolved log10|pivot|=-79.75 neg/2x2 pivots log10=[-7.95, -11.64]  40s
+done 40.50273609161377

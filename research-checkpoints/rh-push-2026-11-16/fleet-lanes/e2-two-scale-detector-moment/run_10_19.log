@@ -1,0 +1,30 @@
+U=2^10 rows=138 cols=142 primes=70 maxfac=4 chunk=138 planned peak ~0.00 GB
+   true: k=19 om_rand=0.4024 S_half: det 0.2131 plain 0.3491 inv 0.1972 two 0.3354 self 0.0940 mix6 1.984 | over-thr 0 / norm 0 | 0s
+   rand: det 0.2862 plain 0.3041 inv 0.3262 two 0.3054 self 0.0868 mix6 1.606
+U=2^11 rows=252 cols=238 primes=105 maxfac=4 chunk=252 planned peak ~0.00 GB
+   true: k=27 om_rand=0.4039 S_half: det 0.3291 plain 0.5079 inv 0.2443 two 0.4016 self 0.0846 mix6 1.133 | over-thr 0 / norm 0 | 0s
+   rand: det 0.3951 plain 0.4031 inv 0.4123 two 0.4288 self 0.1038 mix6 1.087
+U=2^12 rows=456 cols=401 primes=162 maxfac=4 chunk=456 planned peak ~0.01 GB
+   true: k=38 om_rand=0.4059 S_half: det 0.3285 plain 0.4184 inv 0.3664 two 0.4171 self 0.1111 mix6 1.283 | over-thr 0 / norm 0 | 0s
+   rand: det 0.3499 plain 0.3327 inv 0.3933 two 0.3646 self 0.1001 mix6 1.328
+U=2^13 rows=868 cols=669 primes=256 maxfac=5 chunk=868 planned peak ~0.03 GB
+   true: k=55 om_rand=0.4077 S_half: det 0.2566 plain 0.3518 inv 0.2696 two 0.3198 self 0.0972 mix6 1.510 | over-thr 0 / norm 0 | 0s
+   rand: det 0.3761 plain 0.4022 inv 0.3933 two 0.3732 self 0.1103 mix6 1.149
+U=2^14 rows=1612 cols=1117 primes=402 maxfac=5 chunk=1612 planned peak ~0.08 GB
+   true: k=79 om_rand=0.4084 S_half: det 0.3926 plain 0.3943 inv 0.3949 two 0.3448 self 0.1205 mix6 1.088 | over-thr 0 / norm 0 | 0s
+   rand: det 0.3840 plain 0.3677 inv 0.3894 two 0.3955 self 0.1141 mix6 1.161
+U=2^15 rows=3028 cols=1876 primes=632 maxfac=6 chunk=3028 planned peak ~0.24 GB
+   true: k=114 om_rand=0.4091 S_half: det 0.4108 plain 0.3812 inv 0.3962 two 0.4338 self 0.1126 mix6 1.189 | over-thr 0 / norm 0 | 1s
+   rand: det 0.3545 plain 0.3532 inv 0.3699 two 0.3448 self 0.1259 mix6 1.321
+U=2^16 rows=5690 cols=3149 primes=986 maxfac=6 chunk=5690 planned peak ~0.74 GB
+   true: k=165 om_rand=0.4095 S_half: det 0.3499 plain 0.3408 inv 0.3598 two 0.3348 self 0.1318 mix6 1.339 | over-thr 0 / norm 0 | 2s
+   rand: det 0.3571 plain 0.3694 inv 0.3828 two 0.3692 self 0.1263 mix6 1.228
+U=2^17 rows=10722 cols=5278 primes=1558 maxfac=6 chunk=4736 planned peak ~1.30 GB
+   true: k=240 om_rand=0.4094 S_half: det 0.3783 plain 0.3546 inv 0.3799 two 0.3668 self 0.1337 mix6 1.342 | over-thr 0 / norm 0 | 6s
+   rand: det 0.3472 plain 0.3371 inv 0.3816 two 0.3494 self 0.1314 mix6 1.377
+U=2^18 rows=20424 cols=8853 primes=2466 maxfac=7 chunk=2823 planned peak ~2.34 GB
+   true: k=351 om_rand=0.4095 S_half: det 0.3734 plain 0.3721 inv 0.4198 two 0.3585 self 0.1412 mix6 1.215 | over-thr 0 / norm 0 | 24s
+   rand: det 0.3549 plain 0.3301 inv 0.3926 two 0.3610 self 0.1346 mix6 1.301
+U=2^19 rows=38616 cols=14842 primes=3897 maxfac=7 chunk=1684 planned peak ~5.42 GB
+   true: k=511 om_rand=0.4095 S_half: det 0.3482 plain 0.3357 inv 0.3870 two 0.3485 self 0.1487 mix6 1.396 | over-thr 0 / norm 0 | 67s
+   rand: det 0.3350 plain 0.3145 inv 0.3821 two 0.3337 self 0.1403 mix6 1.447

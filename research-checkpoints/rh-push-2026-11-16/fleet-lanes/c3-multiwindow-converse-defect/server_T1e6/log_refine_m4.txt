@@ -1,0 +1,6 @@
+planned: N=1277 P=206 windows=4; rows 2016 x 1277 complex x2 = 82 MB
+{"T": 1000000.0, "layout": "cluster", "m": 4, "delta": 0.1, "label": "start", "maxdef": 5.745552109197335e-05, "absF": 3.968760749823321e-06, "s0_xindep": 8.295198333799341e-06, "sec": 216}
+{"T": 1000000.0, "layout": "cluster", "m": 4, "delta": 0.1, "label": "round0 nfev=2000 status=0", "maxdef": 9.955730961156868e-07, "absF": 4.350120053775827e-09, "s0_xindep": 1.8275623723477976e-07, "sec": 353}
+{"T": 1000000.0, "layout": "cluster", "m": 4, "delta": 0.1, "label": "round1 nfev=2000 status=0", "maxdef": 9.081261023350707e-07, "absF": 5.509522902202843e-10, "s0_xindep": 1.3950994292923444e-07, "sec": 456}
+{"T": 1000000.0, "layout": "cluster", "m": 4, "delta": 0.1, "label": "round2 nfev=2000 status=0", "maxdef": 7.910684358752566e-07, "absF": 4.676516843062833e-10, "s0_xindep": 1.0616034744001809e-07, "sec": 553}
+{"T": 1000000.0, "layout": "cluster", "m": 4, "delta": 0.1, "label": "round3 nfev=2000 status=0", "maxdef": 6.610569488183478e-07, "absF": 1.6601755996928422e-09, "s0_xindep": 7.737184218753731e-08, "sec": 654}

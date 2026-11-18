@@ -1,0 +1,49 @@
+Traceback (most recent call last):
+  File "tmp/research-2026-11-16/push/c1-window-sdp-scaling/run_dh.py", line 25, in <module>
+    print('c(2) =', c[2], ' kap ln 2 =', kap*np.log(2), ' c(6) =', c[6], '(route-30: 1.93635607662)')
+                    ~^^^
+IndexError: index 2 is out of bounds for axis 0 with size 2
+Traceback (most recent call last):
+  File "tmp/research-2026-11-16/push/c1-window-sdp-scaling/run_dh.py", line 25, in <module>
+    print('c(2) =', c[2], ' kap ln 2 =', kap*np.log(2), ' c(6) =', c[6], '(route-30: 1.93635607662)')
+                                                                   ~^^^
+IndexError: index 6 is out of bounds for axis 0 with size 3
+## DH gamma0=85.6993 L=2.1 N=8 J=14 dens=0.672 L*~2.11
+  M1 + quartet delta=all on line: s* = 0.000e+00  -> feasible
+  M1 + quartet delta=0.0500: s* = 0.000e+00  -> feasible
+  M1 + quartet delta=0.1500: s* = 0.000e+00  -> feasible
+  M1 + quartet delta=0.2500: s* = 0.000e+00  -> feasible
+  M1 + quartet delta=0.2900: s* = 0.000e+00  -> feasible
+  M1 + quartet delta=0.3000: s* = 0.000e+00  -> feasible
+  M1 + quartet delta=0.3085: s* = 0.000e+00  -> feasible
+  M1 + quartet delta=0.3200: s* = 0.000e+00  -> feasible
+  M1 + quartet delta=0.3300: s* = 0.000e+00  -> feasible
+  M1 + quartet delta=0.3700: s* = 0.000e+00  -> feasible
+  M1 + quartet delta=0.4500: s* = 0.000e+00  -> feasible
+  M1 + quartet delta=true delta, height shifted by 0.3: s* = 0.000e+00  -> feasible
+## DH gamma0=85.6993 L=4.2 N=66 J=27 dens=0.672 L*~2.11
+  M1 + quartet delta=all on line: s* = 4.721e-05  -> INFEASIBLE
+  M1 + quartet delta=0.0500: s* = 1.207e-04  -> INFEASIBLE
+  M1 + quartet delta=0.1500: s* = 1.860e-06  -> INFEASIBLE
+  M1 + quartet delta=0.2500: s* = 0.000e+00  -> feasible
+  M1 + quartet delta=0.2900: s* = 0.000e+00  -> feasible
+  M1 + quartet delta=0.3000: s* = 0.000e+00  -> feasible
+  M1 + quartet delta=0.3085: s* = 0.000e+00  -> feasible
+  M1 + quartet delta=0.3200: s* = 7.937e-04  -> INFEASIBLE
+  M1 + quartet delta=0.3300: s* = 2.391e-03  -> INFEASIBLE
+  M1 + quartet delta=0.3700: s* = 1.329e-02  -> INFEASIBLE
+  M1 + quartet delta=0.4500: s* = 5.343e-02  -> INFEASIBLE
+  M1 + quartet delta=true delta, height shifted by 0.3: s* = 3.911e-02  -> INFEASIBLE
+## DH gamma0=85.6993 L=5.0 N=148 J=32 dens=0.672 L*~2.11
+  M1 + quartet delta=all on line: s* = 9.348e-03  -> INFEASIBLE
+  M1 + quartet delta=0.0500: s* = 1.101e-02  -> INFEASIBLE
+  M1 + quartet delta=0.1500: s* = 7.664e-03  -> INFEASIBLE
+  M1 + quartet delta=0.2500: s* = 2.292e-03  -> INFEASIBLE
+  M1 + quartet delta=0.2900: s* = 4.612e-04  -> INFEASIBLE
+  M1 + quartet delta=0.3000: s* = 1.398e-04  -> INFEASIBLE
+  M1 + quartet delta=0.3085: s* = 0.000e+00  -> feasible
+  M1 + quartet delta=0.3200: s* = 6.452e-03  -> INFEASIBLE
+  M1 + quartet delta=0.3300: s* = 1.307e-02  -> INFEASIBLE
+  M1 + quartet delta=0.3700: s* = 4.472e-02  -> INFEASIBLE
+  M1 + quartet delta=0.4500: s* = 1.306e-01  -> INFEASIBLE
+  M1 + quartet delta=true delta, height shifted by 0.3: s* = 1.688e-01  -> INFEASIBLE

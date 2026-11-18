@@ -1,0 +1,14 @@
+k=6 Q=7500: 5920 conductors, 324 groups with n >= 5 (median size 18), N(c)/Q in (1.20, 4.00]
+j=+0 conj=0: T mean 1.4100 sd 0.2287 max 2.233 at system (A,B,U)=(np.int64(1), np.int64(4), np.int64(0)) sigma col 1 tau 5 | null mean 1.2321 sd 0.1033 max 1.537 | per-system mean over (sigma,tau): max 1.9805 null max 1.2858; 1s
+j=+0 conj=1: T mean 1.2666 sd 0.1276 max 1.647 at system (A,B,U)=(np.int64(0), np.int64(2), np.int64(1)) sigma col 0 tau 1 | null mean 1.2224 sd 0.0997 max 1.509 | per-system mean over (sigma,tau): max 1.4376 null max 1.2856; 1s
+j=+1 conj=0: T mean 0.9538 sd 0.0555 max 1.143 at system (A,B,U)=(np.int64(2), np.int64(1), np.int64(0)) sigma col 4 tau 10 | null mean 0.9730 sd 0.0537 max 1.140 | per-system mean over (sigma,tau): max 1.0005 null max 1.0126; 2s
+j=+1 conj=1: T mean 0.9738 sd 0.0597 max 1.168 at system (A,B,U)=(np.int64(0), np.int64(1), np.int64(0)) sigma col 4 tau 8 | null mean 0.9683 sd 0.0508 max 1.153 | per-system mean over (sigma,tau): max 0.9955 null max 0.9983; 2s
+j=-1 conj=0: T mean 0.9451 sd 0.0530 max 1.127 at system (A,B,U)=(np.int64(0), np.int64(3), np.int64(2)) sigma col 3 tau 5 | null mean 0.9658 sd 0.0510 max 1.126 | per-system mean over (sigma,tau): max 0.9697 null max 0.9992; 3s
+j=-1 conj=1: T mean 0.9628 sd 0.0549 max 1.159 at system (A,B,U)=(np.int64(0), np.int64(4), np.int64(0)) sigma col 4 tau 11 | null mean 0.9629 sd 0.0524 max 1.117 | per-system mean over (sigma,tau): max 0.9859 null max 0.9921; 3s
+j=+2 conj=0: T mean 0.9733 sd 0.0506 max 1.143 at system (A,B,U)=(np.int64(1), np.int64(1), np.int64(1)) sigma col 3 tau 2 | null mean 0.9904 sd 0.0521 max 1.151 | per-system mean over (sigma,tau): max 1.0084 null max 1.0096; 4s
+j=+2 conj=1: T mean 0.9933 sd 0.0539 max 1.217 at system (A,B,U)=(np.int64(1), np.int64(0), np.int64(0)) sigma col 2 tau 2 | null mean 0.9806 sd 0.0515 max 1.184 | per-system mean over (sigma,tau): max 1.0471 null max 1.0102; 5s
+j=-2 conj=0: T mean 0.9704 sd 0.0528 max 1.138 at system (A,B,U)=(np.int64(0), np.int64(5), np.int64(0)) sigma col 1 tau 6 | null mean 0.9790 sd 0.0503 max 1.120 | per-system mean over (sigma,tau): max 1.0115 null max 0.9999; 5s
+j=-2 conj=1: T mean 0.9826 sd 0.0529 max 1.162 at system (A,B,U)=(np.int64(2), np.int64(3), np.int64(1)) sigma col 0 tau 1 | null mean 0.9722 sd 0.0515 max 1.173 | per-system mean over (sigma,tau): max 1.0330 null max 1.0132; 6s
+planted (amplitude 0.3 = 8% of the energy, system 77, tau 5): T at the planted entry 2.687; max elsewhere 2.848
+all 155520 entries: T mean 1.0432 sd 0.1794 max 2.233; null mean 1.0247 sd 0.1205 max 1.537
+quantiles [0.5, 0.9, 0.99, 0.999, 0.9999] real [0.987, 1.307, 1.761, 2.127, 2.216] null [0.989, 1.234, 1.384, 1.501, 1.534]

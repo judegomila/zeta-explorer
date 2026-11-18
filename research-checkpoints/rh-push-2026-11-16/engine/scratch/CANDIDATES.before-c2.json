@@ -1,0 +1,5122 @@
+{
+ "meta": {
+  "graph": "IDEA_GRAPH.json",
+  "graphCounts": {
+   "nodes": 1436,
+   "edges": 8102,
+   "byType": {
+    "mechanism": 77,
+    "identity": 373,
+    "conjecture": 14,
+    "tool": 57,
+    "obstruction": 466,
+    "measured-phenomenon": 215,
+    "open-lemma": 116,
+    "control": 41,
+    "object": 61,
+    "open-direction": 15,
+    "target": 1
+   },
+   "byOrigin": {
+    "corpus": 1202,
+    "map": 220,
+    "outcome": 14
+   },
+   "edgesByType": {
+    "composes-with": 7211,
+    "control-defeats": 415,
+    "obstructs": 152,
+    "restates": 170,
+    "separates-from": 3,
+    "special-case-of": 96,
+    "uses": 55
+   },
+   "live": 922,
+   "rows": 154,
+   "controls": 10,
+   "underused": 20
+  },
+  "moves": {
+   "M1": "rigid structure x arithmetic input x crossing mechanism",
+   "M2": "measured phenomenon x explaining mechanism x control it must fail on",
+   "M3": "open lemma x proved tool x arithmetic or crossing partner",
+   "M4": "flow functional x prime-side input x crossing mechanism or DH-separator",
+   "P2": "under-used node x arithmetic partner"
+  },
+  "pools": {
+   "arithmetic": 262,
+   "rigidUniform": 193,
+   "crossing": 132,
+   "phenomenon": 204,
+   "explainer": 376,
+   "lemma": 136,
+   "separator": 7,
+   "flowFunctional": 56,
+   "underusedExplicit": 18,
+   "underusedAuto": 355
+  },
+  "generated": 60821,
+  "scored": 57269,
+  "rejected": {
+   "contains a combination closed in outcomes.json": 42,
+   "all members flow-stable and none arithmetic (backward heat passes)": 578,
+   "all members attached to one closed row": 13,
+   "all members from one module": 5,
+   "no member uses multiplicativity (DH passes)": 2914
+  },
+  "families": {
+   "M1/flow": {
+    "count": 5131,
+    "best": 15.72
+   },
+   "M1/geometry": {
+    "count": 2619,
+    "best": 15.81
+   },
+   "M1/nyman": {
+    "count": 324,
+    "best": 13.01
+   },
+   "M1/positivity": {
+    "count": 11410,
+    "best": 15.79
+   },
+   "M1/prime-chain": {
+    "count": 10928,
+    "best": 16.0
+   },
+   "M1/statistics": {
+    "count": 262,
+    "best": 14.61
+   },
+   "M1/zero-free": {
+    "count": 4580,
+    "best": 15.06
+   },
+   "M2/flow": {
+    "count": 421,
+    "best": 13.33
+   },
+   "M2/geometry": {
+    "count": 160,
+    "best": 14.0
+   },
+   "M2/nyman": {
+    "count": 112,
+    "best": 12.0
+   },
+   "M2/positivity": {
+    "count": 867,
+    "best": 14.0
+   },
+   "M2/prime-chain": {
+    "count": 323,
+    "best": 13.89
+   },
+   "M2/statistics": {
+    "count": 86,
+    "best": 10.33
+   },
+   "M2/zero-free": {
+    "count": 277,
+    "best": 13.98
+   },
+   "M3/flow": {
+    "count": 2926,
+    "best": 16.0
+   },
+   "M3/geometry": {
+    "count": 1098,
+    "best": 16.0
+   },
+   "M3/nyman": {
+    "count": 465,
+    "best": 14.0
+   },
+   "M3/positivity": {
+    "count": 3880,
+    "best": 16.0
+   },
+   "M3/prime-chain": {
+    "count": 2438,
+    "best": 16.0
+   },
+   "M3/statistics": {
+    "count": 403,
+    "best": 15.0
+   },
+   "M3/zero-free": {
+    "count": 2782,
+    "best": 15.0
+   },
+   "M4/flow": {
+    "count": 2885,
+    "best": 16.0
+   },
+   "M4/geometry": {
+    "count": 65,
+    "best": 15.02
+   },
+   "M4/positivity": {
+    "count": 1044,
+    "best": 14.0
+   },
+   "M4/prime-chain": {
+    "count": 770,
+    "best": 15.61
+   },
+   "M4/statistics": {
+    "count": 159,
+    "best": 13.06
+   },
+   "M4/zero-free": {
+    "count": 381,
+    "best": 14.84
+   },
+   "P2/flow": {
+    "count": 338,
+    "best": 13.99
+   },
+   "P2/geometry": {
+    "count": 32,
+    "best": 13.51
+   },
+   "P2/positivity": {
+    "count": 78,
+    "best": 12.97
+   },
+   "P2/prime-chain": {
+    "count": 14,
+    "best": 12.0
+   },
+   "P2/statistics": {
+    "count": 5,
+    "best": 9.97
+   },
+   "P2/zero-free": {
+    "count": 6,
+    "best": 10.97
+   }
+  },
+  "closedRowsByTheme": {
+   "flow": {
+    "count": 27,
+    "rows": [
+     "A1",
+     "A6",
+     "F2",
+     "F3",
+     "F5",
+     "G5",
+     "G7",
+     "G11",
+     "G17",
+     "L1",
+     "P3",
+     "P6",
+     "P13",
+     "P16",
+     "P17",
+     "P21",
+     "P22",
+     "P27",
+     "P30",
+     "P31",
+     "Q7",
+     "S5",
+     "S6",
+     "S7",
+     "S10",
+     "T2",
+     "Z20"
+    ]
+   },
+   "positivity": {
+    "count": 57,
+    "rows": [
+     "A1",
+     "A2",
+     "A5",
+     "A7",
+     "G1",
+     "G2",
+     "G3",
+     "G8",
+     "G9",
+     "G10",
+     "G11",
+     "G12",
+     "G14",
+     "G18",
+     "G19",
+     "G20",
+     "G21",
+     "L1",
+     "L3",
+     "L5",
+     "N2",
+     "N7",
+     "N8",
+     "N12",
+     "OBS-SPARSE-FERRO",
+     "OBS-IDENTITY-SOLENOID",
+     "OBS-ORDER-TWO-NONPOISSON",
+     "P1",
+     "P2",
+     "P3",
+     "P4",
+     "P5",
+     "P6",
+     "P7",
+     "P8",
+     "P9",
+     "P12",
+     "P13",
+     "P14",
+     "P16",
+     "P17",
+     "P18",
+     "P19",
+     "P21",
+     "P30",
+     "Q3",
+     "Q4",
+     "Q6",
+     "Q8",
+     "Q14",
+     "S3",
+     "S6",
+     "S7",
+     "S8",
+     "S9",
+     "S10",
+     "T1"
+    ]
+   },
+   "prime-chain": {
+    "count": 39,
+    "rows": [
+     "A3",
+     "F7",
+     "G10",
+     "G14",
+     "G15",
+     "G16",
+     "G18",
+     "G19",
+     "G21",
+     "L2",
+     "L5",
+     "N1",
+     "N7",
+     "N8",
+     "N9",
+     "N11",
+     "N12",
+     "N20",
+     "N21",
+     "N24",
+     "N25",
+     "P4",
+     "P14",
+     "P15",
+     "P25",
+     "P33",
+     "Q4",
+     "Q10",
+     "Q14",
+     "S1",
+     "S4",
+     "S5",
+     "S6",
+     "S7",
+     "S10",
+     "T1",
+     "T3",
+     "Z14",
+     "Z17"
+    ]
+   },
+   "zero-free": {
+    "count": 68,
+    "rows": [
+     "A1",
+     "A2",
+     "A3",
+     "A5",
+     "A6",
+     "A7",
+     "F3",
+     "F4",
+     "F5",
+     "F7",
+     "G18",
+     "G20",
+     "L1",
+     "L2",
+     "N3",
+     "N6",
+     "N7",
+     "N11",
+     "N14",
+     "N15",
+     "N17",
+     "N18",
+     "N21",
+     "N24",
+     "N25",
+     "OBS-IDENTITY-SOLENOID",
+     "OBS-ORDER-TWO-NONPOISSON",
+     "P2",
+     "P4",
+     "P8",
+     "P11",
+     "P12",
+     "P14",
+     "P16",
+     "P17",
+     "P19",
+     "P20",
+     "P22",
+     "P26",
+     "P27",
+     "Q3",
+     "Q5",
+     "Q9",
+     "Q14",
+     "Q18",
+     "S1",
+     "S2",
+     "S5",
+     "S6",
+     "S10",
+     "T1",
+     "T2",
+     "Z1",
+     "Z2",
+     "Z3",
+     "Z4",
+     "Z5",
+     "Z6",
+     "Z7",
+     "Z8",
+     "Z9",
+     "Z10",
+     "Z12",
+     "Z14",
+     "Z16",
+     "Z17",
+     "Z18",
+     "Z20"
+    ]
+   },
+   "statistics": {
+    "count": 17,
+    "rows": [
+     "A6",
+     "N6",
+     "N9",
+     "N16",
+     "P15",
+     "P25",
+     "P29",
+     "Q9",
+     "Q18",
+     "S1",
+     "Z3",
+     "Z10",
+     "Z11",
+     "Z12",
+     "Z14",
+     "Z16",
+     "Z17"
+    ]
+   },
+   "nyman": {
+    "count": 4,
+    "rows": [
+     "G9",
+     "P12",
+     "P14",
+     "P15"
+    ]
+   },
+   "geometry": {
+    "count": 29,
+    "rows": [
+     "A4",
+     "A5",
+     "A7",
+     "G3",
+     "G6",
+     "G12",
+     "G13",
+     "G17",
+     "G18",
+     "G19",
+     "N1",
+     "N2",
+     "N3",
+     "N8",
+     "N13",
+     "N15",
+     "N18",
+     "N20",
+     "N21",
+     "N22",
+     "OBS-POINT-SPEC-SQ",
+     "P25",
+     "P26",
+     "Q10",
+     "S4",
+     "T1",
+     "T3",
+     "Z4",
+     "Z17"
+    ]
+   }
+  },
+  "scoring": "multiplicativity 0-2; heightUniform 0-3; controls 0-3; crossing 0-2; underused 0-4; cheapTest 0-2; cohesion 0-2; breadth 0-1; penalties <= 0",
+  "filters": {
+   "top": 40,
+   "node": null,
+   "move": null,
+   "theme": null,
+   "per_node": 2,
+   "per_family": 6,
+   "dump_all": null
+  },
+  "note": "Heuristic ranking. Read each candidate against OBSTRUCTION_MAP.md section 2 (Q1-Q3) before work."
+ },
+ "candidates": [
+  {
+   "key": "M1-6bd401",
+   "move": "M1",
+   "theme": "prime-chain",
+   "score": 16.0,
+   "scoreParts": {
+    "multiplicativity": 2,
+    "heightUniform": 3,
+    "controls": 2,
+    "crossing": 2,
+    "underused": 2,
+    "cheapTest": 2,
+    "cohesion": 2.0,
+    "breadth": 1,
+    "penalties": 0
+   },
+   "nodes": [
+    {
+     "id": "pick-weil-native-span",
+     "role": "rigid",
+     "name": "Theorem PICK-WEIL: Weil form on exponentials is a Caratheodory-Pick matrix",
+     "type": "identity",
+     "status": "proved",
+     "source": "[impr:31779] imp-95520 ; OBSTRUCTION_MAP P1,P8"
+    },
+    {
+     "id": "euler-fe-coupling-at-height",
+     "role": "arithmetic",
+     "name": "An identity coupling the Euler product to the functional equation at the height of a zero",
+     "type": "open-lemma",
+     "status": "conjectural",
+     "source": "form:rh-attempts/2026-11-01-r2-synthesis.md §2 item 4; form:rh-attempts/2026-11-01-synthesis.md §2 item 2"
+    },
+    {
+     "id": "tinfty-flow-generator-spectrum",
+     "role": "crossing",
+     "name": "Kronecker flow on T^inf has spectrum unrelated to zeta zeros",
+     "type": "measured-phenomenon",
+     "status": "measured",
+     "source": "[impr:928] [impr:930] src/data/tinfty-flow-spectrum.js"
+    }
+   ],
+   "control": null,
+   "requirements": {
+    "multiplicativity": "euler-fe-coupling-at-height",
+    "heightUniform": "pick-weil-native-span",
+    "controlFailure": "euler-fe-coupling-at-height",
+    "crossing": "tinfty-flow-generator-spectrum"
+   },
+   "underused": [
+    "pick-weil-native-span",
+    "tinfty-flow-generator-spectrum"
+   ],
+   "reason": "rigid structure x arithmetic input x crossing mechanism. Multiplicativity from euler-fe-coupling-at-height; height-uniform member pick-weil-native-span; control failure: euler-fe-coupling-at-height; crossing: tinfty-flow-generator-spectrum. Under-used: pick-weil-native-span, tinfty-flow-generator-spectrum.",
+   "firstTest": "Evaluate the quantity of 'Theorem PICK-WEIL: Weil form on exponentials is a Caratheodory-Pick ma' with the input 'An identity coupling the Euler product to the functional equation at t' in one window at two heights; repeat for DH and a sign twist. Continue only if zeta's margin does not decay with height and a control fails.",
+   "rowsChecked": [
+    {
+     "row": "G16",
+     "name": "Lattice-variable Hecke relations on tori",
+     "overlap": [
+      "euler-product",
+      "hecke"
+     ],
+     "jaccard": 0.286,
+     "verdict": "row falls to DH; candidate has a member recorded as failing for DH (euler-fe-coupling-at-height)"
+    },
+    {
+     "row": "G21",
+     "name": "Local change of Tate test vector (T-NR)",
+     "overlap": [
+      "euler-product",
+      "pick"
+     ],
+     "jaccard": 0.286,
+     "verdict": "adjacent by tags only; row falls to NR: answer Q1 for these controls first"
+    },
+    {
+     "row": "G3",
+     "name": "Symmetry of the loaded torus + Schur's lemma",
+     "overlap": [
+      "pick",
+      "torus"
+     ],
+     "jaccard": 0.286,
+     "verdict": "row falls to DH; candidate has a member recorded as failing for DH (euler-fe-coupling-at-height)"
+    },
+    {
+     "row": "Q10",
+     "name": "Prime chain as sections; sectionwise passivity",
+     "overlap": [
+      "euler-product",
+      "torus"
+     ],
+     "jaccard": 0.286,
+     "verdict": "row falls to DH; candidate has a member recorded as failing for DH (euler-fe-coupling-at-height)"
+    },
+    {
+     "row": "S4",
+     "name": "Plan 3: chain with hard cap",
+     "overlap": [
+      "euler-product",
+      "torus"
+     ],
+     "jaccard": 0.286,
+     "verdict": "row falls to DH; candidate has a member recorded as failing for DH (euler-fe-coupling-at-height)"
+    },
+    {
+     "row": "G10",
+     "name": "Passive cascade (Euler product as lossless stubs)",
+     "overlap": [
+      "euler-product",
+      "pick"
+     ],
+     "jaccard": 0.25,
+     "verdict": "row falls to DH; candidate has a member recorded as failing for DH (euler-fe-coupling-at-height)"
+    }
+   ],
+   "rank": 1
+  },
+  {
+   "key": "M3-108bd5",
+   "move": "M3",
+   "theme": "prime-chain",
+   "score": 16.0,
+   "scoreParts": {
+    "multiplicativity": 2,
+    "heightUniform": 3,
+    "controls": 2,
+    "crossing": 2,
+    "underused": 3,
+    "cheapTest": 2,
+    "cohesion": 2.0,
+    "breadth": 1,
+    "penalties": -1
+   },
+   "nodes": [
+    {
+     "id": "sympow-conductor-normalised-shift",
+     "role": "open lemma",
+     "name": "Sym^m functoriality of the contraction needs uniform Rankin-Selberg residue bound",
+     "type": "open-lemma",
+     "status": "conjectural",
+     "source": "[imp:imp-2437-sympow-rs-second-moment-2026-06] [imp:imp-2459-sympow-rs-uniform-margin-2026-06] [imp:imp-2436-sympow-volterra-functoriality-2026-06]"
+    },
+    {
+     "id": "gauss-plancherel-alias-lemma",
+     "role": "tool",
+     "name": "Gauss-Plancherel lemma for additive-character aliases",
+     "type": "identity",
+     "status": "proved",
+     "source": "imp:imp-95519-localized-barrier-sum-prime-zero-nogo"
+    },
+    {
+     "id": "rung-toeplitz-euler-detector",
+     "role": "arithmetic",
+     "name": "Rung Toeplitz (Herglotz) test detects DH at ln 2 / ln 4 / ln 6",
+     "type": "mechanism",
+     "status": "certified",
+     "source": "route:route-30-finite-support-euler-detector-2026-10-12; dag:project-attempts-dag#route30-euler-detector"
+    }
+   ],
+   "control": null,
+   "requirements": {
+    "multiplicativity": "sympow-conductor-normalised-shift",
+    "heightUniform": "gauss-plancherel-alias-lemma",
+    "controlFailure": "rung-toeplitz-euler-detector",
+    "crossing": "rung-toeplitz-euler-detector"
+   },
+   "underused": [
+    "sympow-conductor-normalised-shift",
+    "gauss-plancherel-alias-lemma"
+   ],
+   "reason": "open lemma x proved tool x arithmetic or crossing partner. Multiplicativity from sympow-conductor-normalised-shift; height-uniform member gauss-plancherel-alias-lemma; control failure: rung-toeplitz-euler-detector; crossing: rung-toeplitz-euler-detector. Under-used: sympow-conductor-normalised-shift, gauss-plancherel-alias-lemma. Notes: one member attached to closed row(s) L1.",
+   "firstTest": "Write 'Sym^m functoriality of the contraction needs uniform Rankin-Selberg re' as one inequality with explicit constants; evaluate it at three heights using 'Gauss-Plancherel lemma for additive-character aliases', then on DH and on a sign twist.",
+   "rowsChecked": [
+    {
+     "row": "P25",
+     "name": "3-4-1 positivity with Sym^m / Hecke / Rankin-Selberg companions",
+     "overlap": [
+      "automorphic",
+      "hecke",
+      "mean-value",
+      "trace-formula"
+     ],
+     "jaccard": 0.364,
+     "verdict": "adjacent by tags only; row falls to B/EA: answer Q1 for these controls first"
+    },
+    {
+     "row": "G19",
+     "name": "Twistor / Penrose reading of the flow",
+     "overlap": [
+      "euler-product",
+      "hecke",
+      "shear"
+     ],
+     "jaccard": 0.25,
+     "verdict": "adjacent by tags only; row falls to HEAT: answer Q1 for these controls first"
+    },
+    {
+     "row": "G14",
+     "name": "Hecke on the twin ladder (V_p, Shimura T(p^2))",
+     "overlap": [
+      "hecke",
+      "twin-ladder"
+     ],
+     "jaccard": 0.182,
+     "verdict": "row falls to DH; candidate has a member recorded as failing for DH (rung-toeplitz-euler-detector)"
+    },
+    {
+     "row": "G16",
+     "name": "Lattice-variable Hecke relations on tori",
+     "overlap": [
+      "euler-product",
+      "hecke"
+     ],
+     "jaccard": 0.182,
+     "verdict": "row falls to DH; candidate has a member recorded as failing for DH (rung-toeplitz-euler-detector)"
+    },
+    {
+     "row": "G21",
+     "name": "Local change of Tate test vector (T-NR)",
+     "overlap": [
+      "euler-product",
+      "pick"
+     ],
+     "jaccard": 0.182,
+     "verdict": "adjacent by tags only; row falls to NR: answer Q1 for these controls first"
+    },
+    {
+     "row": "L5",
+     "name": "Minimal package M1-M4 (FE, multiplicativity, spherical local vector, unsheared position)",
+     "overlap": [
+      "euler-product",
+      "shear"
+     ],
+     "jaccard": 0.182,
+     "verdict": "adjacent by tags only; row has no control listed"
+    },
+    {
+     "row": "L1",
+     "name": "Local temperedness at p (rung Toeplitz PSD for all K iff unimodular Satake parameters)",
+     "overlap": [],
+     "jaccard": 0.0,
+     "verdict": "a member is attached to this row"
+    }
+   ],
+   "rank": 2
+  },
+  {
+   "key": "M3-6ad36b",
+   "move": "M3",
+   "theme": "geometry",
+   "score": 16.0,
+   "scoreParts": {
+    "multiplicativity": 2,
+    "heightUniform": 3,
+    "controls": 2,
+    "crossing": 2,
+    "underused": 2,
+    "cheapTest": 2,
+    "cohesion": 2.0,
+    "breadth": 1,
+    "penalties": 0
+   },
+   "nodes": [
+    {
+     "id": "star-min-pointwise-prime-bound",
+     "role": "open lemma",
+     "name": "(star_min): pointwise von Mangoldt polynomial bound at one height",
+     "type": "open-lemma",
+     "status": "conjectural",
+     "source": "form:rh-attempts/2026-11-01-contradiction.md 'The line where it fails', §7"
+    },
+    {
+     "id": "dbn-prime-torus-phase-closure",
+     "role": "tool",
+     "name": "Dirichlet phases as a Laurent system on the prime torus",
+     "type": "mechanism",
+     "status": "proved",
+     "source": "[sib:dbn-lambda-below-015-research/research/twistor_phase_freeze/README.md] Phase interpretation"
+    },
+    {
+     "id": "dbn-phase-orbit-screen",
+     "role": "arithmetic",
+     "name": "Mollified approximant stays near 1 below the triangle wall",
+     "type": "measured-phenomenon",
+     "status": "measured",
+     "source": "[sib:dbn-lambda-below-015-research/research/twistor_phase_freeze/RESULTS_PRELIMINARY.md]"
+    }
+   ],
+   "control": null,
+   "requirements": {
+    "multiplicativity": "star-min-pointwise-prime-bound",
+    "heightUniform": "dbn-prime-torus-phase-closure",
+    "controlFailure": "star-min-pointwise-prime-bound",
+    "crossing": "dbn-prime-torus-phase-closure"
+   },
+   "underused": [
+    "dbn-prime-torus-phase-closure",
+    "dbn-phase-orbit-screen"
+   ],
+   "reason": "open lemma x proved tool x arithmetic or crossing partner. Multiplicativity from star-min-pointwise-prime-bound; height-uniform member dbn-prime-torus-phase-closure; control failure: star-min-pointwise-prime-bound; crossing: dbn-prime-torus-phase-closure. Under-used: dbn-prime-torus-phase-closure, dbn-phase-orbit-screen.",
+   "firstTest": "Write '(star_min): pointwise von Mangoldt polynomial bound at one height' as one inequality with explicit constants; evaluate it at three heights using 'Dirichlet phases as a Laurent system on the prime torus', then on DH and on a sign twist.",
+   "rowsChecked": [
+    {
+     "row": "Q10",
+     "name": "Prime chain as sections; sectionwise passivity",
+     "overlap": [
+      "euler-product",
+      "torus"
+     ],
+     "jaccard": 0.25,
+     "verdict": "row falls to DH; candidate has a member recorded as failing for DH (star-min-pointwise-prime-bound)"
+    },
+    {
+     "row": "S4",
+     "name": "Plan 3: chain with hard cap",
+     "overlap": [
+      "euler-product",
+      "torus"
+     ],
+     "jaccard": 0.25,
+     "verdict": "row falls to DH; candidate has a member recorded as failing for DH (star-min-pointwise-prime-bound)"
+    },
+    {
+     "row": "Z11",
+     "name": "Critical-class count",
+     "overlap": [
+      "mean-value",
+      "pair-correlation"
+     ],
+     "jaccard": 0.25,
+     "verdict": "adjacent by tags only; row has no control listed"
+    },
+    {
+     "row": "N9",
+     "name": "Even-moment family positivity (Landau) + duality in the conductor",
+     "overlap": [
+      "mean-value",
+      "pair-correlation"
+     ],
+     "jaccard": 0.222,
+     "verdict": "adjacent by tags only; row has no control listed"
+    },
+    {
+     "row": "S1",
+     "name": "Conjunction of mechanisms that jointly exclude every control (61-row table, hitting sets)",
+     "overlap": [
+      "euler-product",
+      "mean-value"
+     ],
+     "jaccard": 0.222,
+     "verdict": "row falls to DH; candidate has a member recorded as failing for DH (star-min-pointwise-prime-bound)"
+    },
+    {
+     "row": "Z10",
+     "name": "Numerator average (Liu II Prop 14.3; Xu-Sang (25))",
+     "overlap": [
+      "mean-value",
+      "mollifier"
+     ],
+     "jaccard": 0.222,
+     "verdict": "adjacent by tags only; row has no control listed"
+    }
+   ],
+   "rank": 3
+  },
+  {
+   "key": "M3-93241a",
+   "move": "M3",
+   "theme": "flow",
+   "score": 16.0,
+   "scoreParts": {
+    "multiplicativity": 2,
+    "heightUniform": 3,
+    "controls": 0,
+    "crossing": 2,
+    "underused": 4,
+    "cheapTest": 2,
+    "cohesion": 2.0,
+    "breadth": 1,
+    "penalties": 0
+   },
+   "nodes": [
+    {
+     "id": "h-desc-mirror-palm-surplus",
+     "role": "open lemma",
+     "name": "H_desc-mirror and the Palm surplus 1.73",
+     "type": "open-lemma",
+     "status": "conjectural",
+     "source": "dag:project-attempts-dag#mirror-descent-theorem; dag:project-attempts-dag#twin-mirror-palm"
+    },
+    {
+     "id": "discriminant-gradient-flow",
+     "role": "tool",
+     "name": "Backward Dyson flow is gradient descent of -log Disc",
+     "type": "identity",
+     "status": "proved",
+     "source": "[imp:imp-2563-discriminant-tc-characterization] [imp:imp-3001-heat-discriminant-vs-dyson-N1e5]"
+    },
+    {
+     "id": "resolvent-burgers-identity",
+     "role": "crossing",
+     "name": "Finite-N resolvent flux identity (complex Burgers with viscosity)",
+     "type": "identity",
+     "status": "measured",
+     "source": "[imp:imp-3899-g6a-p1-resolvent-identity-caustic-stress] [imp:imp-3891-g6a-h2-continuum-inviscid-burgers-meanfield-scoping] [imp:imp-3727-g6a-k4-entropy-solution"
+    }
+   ],
+   "control": null,
+   "requirements": {
+    "multiplicativity": "h-desc-mirror-palm-surplus",
+    "heightUniform": "h-desc-mirror-palm-surplus",
+    "controlFailure": "none recorded: Q1 open",
+    "crossing": "resolvent-burgers-identity"
+   },
+   "underused": [
+    "discriminant-gradient-flow",
+    "resolvent-burgers-identity"
+   ],
+   "reason": "open lemma x proved tool x arithmetic or crossing partner. Multiplicativity from h-desc-mirror-palm-surplus; height-uniform member h-desc-mirror-palm-surplus; control failure: none recorded: Q1 open; crossing: resolvent-burgers-identity. Under-used: discriminant-gradient-flow, resolvent-burgers-identity.",
+   "firstTest": "Write 'H_desc-mirror and the Palm surplus 1.73' as one inequality with explicit constants; evaluate it at three heights using 'Backward Dyson flow is gradient descent of -log Disc', then on DH and on a sign twist.",
+   "rowsChecked": [
+    {
+     "row": "F3",
+     "name": "Lowering Lambda as a route to a zero-free wall",
+     "overlap": [
+      "heat-flow",
+      "lambda"
+     ],
+     "jaccard": 0.333,
+     "verdict": "adjacent by tags only; row has no control listed"
+    },
+    {
+     "row": "G7",
+     "name": "Zero channels under heat flow (tubes, walls)",
+     "overlap": [
+      "heat-flow",
+      "zero-channel"
+     ],
+     "jaccard": 0.333,
+     "verdict": "adjacent by tags only; row falls to DH: answer Q1 for these controls first"
+    },
+    {
+     "row": "A1",
+     "name": "Xi as a ferromagnet or limit of ferromagnets (pair interactions, Newman / Lieb-Sokal)",
+     "overlap": [
+      "heat-flow",
+      "lambda"
+     ],
+     "jaccard": 0.286,
+     "verdict": "adjacent by tags only; row falls to DH: answer Q1 for these controls first"
+    },
+    {
+     "row": "A6",
+     "name": "Order-2 probe (quadratic characters, square rows) as an analogue of the sextic method",
+     "overlap": [
+      "heat-flow",
+      "pair-correlation"
+     ],
+     "jaccard": 0.286,
+     "verdict": "adjacent by tags only; row falls to DH/NR: answer Q1 for these controls first"
+    }
+   ],
+   "rank": 4
+  },
+  {
+   "key": "M3-27ebb0",
+   "move": "M3",
+   "theme": "flow",
+   "score": 15.98,
+   "scoreParts": {
+    "multiplicativity": 2,
+    "heightUniform": 3,
+    "controls": 0,
+    "crossing": 2,
+    "underused": 4,
+    "cheapTest": 2,
+    "cohesion": 1.98,
+    "breadth": 1,
+    "penalties": 0
+   },
+   "nodes": [
+    {
+     "id": "w3-tail-lemma",
+     "role": "open lemma",
+     "name": "W3 tail lemma |A_t + B_t| > |C_t| for all x >= T_PT + Delta",
+     "type": "open-lemma",
+     "status": "conjectural",
+     "source": "imp-35674, imp-35698"
+    },
+    {
+     "id": "dbn-prime-torus-phase-closure",
+     "role": "tool",
+     "name": "Dirichlet phases as a Laurent system on the prime torus",
+     "type": "mechanism",
+     "status": "proved",
+     "source": "[sib:dbn-lambda-below-015-research/research/twistor_phase_freeze/README.md] Phase interpretation"
+    },
+    {
+     "id": "dbn-finite-lane-margins",
+     "role": "arithmetic",
+     "name": "Finite final-time lane: row count and binding margin",
+     "type": "measured-phenomenon",
+     "status": "certified",
+     "source": "[sib:dbn-lambda-01787854-candidate-audit/README.md] Decisive certified margins; [sib:dbn-lambda-01787854-candidate-audit/CANDIDATE_PARAMETERS.md]"
+    }
+   ],
+   "control": null,
+   "requirements": {
+    "multiplicativity": "dbn-prime-torus-phase-closure",
+    "heightUniform": "w3-tail-lemma",
+    "controlFailure": "none recorded: Q1 open",
+    "crossing": "w3-tail-lemma"
+   },
+   "underused": [
+    "w3-tail-lemma",
+    "dbn-prime-torus-phase-closure",
+    "dbn-finite-lane-margins"
+   ],
+   "reason": "open lemma x proved tool x arithmetic or crossing partner. Multiplicativity from dbn-prime-torus-phase-closure; height-uniform member w3-tail-lemma; control failure: none recorded: Q1 open; crossing: w3-tail-lemma. Under-used: w3-tail-lemma, dbn-prime-torus-phase-closure, dbn-finite-lane-margins.",
+   "firstTest": "Write 'W3 tail lemma |A_t + B_t| > |C_t| for all x >= T_PT + Delta' as one inequality with explicit constants; evaluate it at three heights using 'Dirichlet phases as a Laurent system on the prime torus', then on DH and on a sign twist.",
+   "rowsChecked": [
+    {
+     "row": "Q10",
+     "name": "Prime chain as sections; sectionwise passivity",
+     "overlap": [
+      "euler-product",
+      "torus"
+     ],
+     "jaccard": 0.333,
+     "verdict": "adjacent by tags only; row falls to DH/EA/HEAT: answer Q1 for these controls first"
+    },
+    {
+     "row": "S4",
+     "name": "Plan 3: chain with hard cap",
+     "overlap": [
+      "euler-product",
+      "torus"
+     ],
+     "jaccard": 0.333,
+     "verdict": "adjacent by tags only; row falls to DH/EA/TW-: answer Q1 for these controls first"
+    },
+    {
+     "row": "F3",
+     "name": "Lowering Lambda as a route to a zero-free wall",
+     "overlap": [
+      "heat-flow",
+      "lambda"
+     ],
+     "jaccard": 0.286,
+     "verdict": "adjacent by tags only; row has no control listed"
+    },
+    {
+     "row": "A1",
+     "name": "Xi as a ferromagnet or limit of ferromagnets (pair interactions, Newman / Lieb-Sokal)",
+     "overlap": [
+      "heat-flow",
+      "lambda"
+     ],
+     "jaccard": 0.25,
+     "verdict": "adjacent by tags only; row falls to DH: answer Q1 for these controls first"
+    },
+    {
+     "row": "G19",
+     "name": "Twistor / Penrose reading of the flow",
+     "overlap": [
+      "euler-product",
+      "twistor"
+     ],
+     "jaccard": 0.25,
+     "verdict": "adjacent by tags only; row falls to HEAT: answer Q1 for these controls first"
+    },
+    {
+     "row": "S10",
+     "name": "Stack of parity + Hankel causality + Stieltjes class; prime chain in the s = x^2 coordinate",
+     "overlap": [
+      "euler-product",
+      "lambda"
+     ],
+     "jaccard": 0.25,
+     "verdict": "adjacent by tags only; row falls to DH/HEAT: answer Q1 for these controls first"
+    }
+   ],
+   "rank": 5
+  },
+  {
+   "key": "M1-24fa8f",
+   "move": "M1",
+   "theme": "geometry",
+   "score": 15.81,
+   "scoreParts": {
+    "multiplicativity": 2,
+    "heightUniform": 3,
+    "controls": 2,
+    "crossing": 2,
+    "underused": 2,
+    "cheapTest": 2,
+    "cohesion": 1.81,
+    "breadth": 1,
+    "penalties": 0
+   },
+   "nodes": [
+    {
+     "id": "zv-elliptic-double-cover",
+     "role": "rigid",
+     "name": "Elliptic double cover E_r with spectral lens L",
+     "type": "object",
+     "status": "proved",
+     "source": "[zv:docs/KLEIN-ANNULUS.md] sec 1; [zv:docs/ROADMAP.md] sec 1"
+    },
+    {
+     "id": "star-min-pointwise-prime-bound",
+     "role": "arithmetic",
+     "name": "(star_min): pointwise von Mangoldt polynomial bound at one height",
+     "type": "open-lemma",
+     "status": "conjectural",
+     "source": "form:rh-attempts/2026-11-01-contradiction.md 'The line where it fails', §7"
+    },
+    {
+     "id": "tinfty-flow-generator-spectrum",
+     "role": "crossing",
+     "name": "Kronecker flow on T^inf has spectrum unrelated to zeta zeros",
+     "type": "measured-phenomenon",
+     "status": "measured",
+     "source": "[impr:928] [impr:930] src/data/tinfty-flow-spectrum.js"
+    }
+   ],
+   "control": null,
+   "requirements": {
+    "multiplicativity": "star-min-pointwise-prime-bound",
+    "heightUniform": "zv-elliptic-double-cover",
+    "controlFailure": "star-min-pointwise-prime-bound",
+    "crossing": "tinfty-flow-generator-spectrum"
+   },
+   "underused": [
+    "zv-elliptic-double-cover",
+    "tinfty-flow-generator-spectrum"
+   ],
+   "reason": "rigid structure x arithmetic input x crossing mechanism. Multiplicativity from star-min-pointwise-prime-bound; height-uniform member zv-elliptic-double-cover; control failure: star-min-pointwise-prime-bound; crossing: tinfty-flow-generator-spectrum. Under-used: zv-elliptic-double-cover, tinfty-flow-generator-spectrum.",
+   "firstTest": "Evaluate the quantity of 'Elliptic double cover E_r with spectral lens L' with the input '(star_min): pointwise von Mangoldt polynomial bound at one height' in one window at two heights; repeat for DH and a sign twist. Continue only if zeta's margin does not decay with height and a control fails.",
+   "rowsChecked": [
+    {
+     "row": "G1",
+     "name": "Bridge +- antibridge symmetrisation",
+     "overlap": [
+      "antibridge",
+      "bridge"
+     ],
+     "jaccard": 0.2,
+     "verdict": "row falls to DH; candidate has a member recorded as failing for DH (star-min-pointwise-prime-bound)"
+    },
+    {
+     "row": "Q10",
+     "name": "Prime chain as sections; sectionwise passivity",
+     "overlap": [
+      "euler-product",
+      "torus"
+     ],
+     "jaccard": 0.2,
+     "verdict": "row falls to DH; candidate has a member recorded as failing for DH (star-min-pointwise-prime-bound)"
+    },
+    {
+     "row": "S4",
+     "name": "Plan 3: chain with hard cap",
+     "overlap": [
+      "euler-product",
+      "torus"
+     ],
+     "jaccard": 0.2,
+     "verdict": "row falls to DH; candidate has a member recorded as failing for DH (star-min-pointwise-prime-bound)"
+    },
+    {
+     "row": "Z11",
+     "name": "Critical-class count",
+     "overlap": [
+      "mean-value",
+      "pair-correlation"
+     ],
+     "jaccard": 0.2,
+     "verdict": "adjacent by tags only; row has no control listed"
+    },
+    {
+     "row": "G12",
+     "name": "Modular average over the torus",
+     "overlap": [
+      "bridge",
+      "torus"
+     ],
+     "jaccard": 0.182,
+     "verdict": "row falls to DH; candidate has a member recorded as failing for DH (star-min-pointwise-prime-bound)"
+    },
+    {
+     "row": "N15",
+     "name": "Maass-Selberg / Parseval for the marked row norm",
+     "overlap": [
+      "metaplectic",
+      "trace-formula"
+     ],
+     "jaccard": 0.182,
+     "verdict": "adjacent by tags only; row has no control listed"
+    }
+   ],
+   "rank": 6
+  },
+  {
+   "key": "M3-66585c",
+   "move": "M3",
+   "theme": "flow",
+   "score": 15.77,
+   "scoreParts": {
+    "multiplicativity": 2,
+    "heightUniform": 3,
+    "controls": 0,
+    "crossing": 2,
+    "underused": 4,
+    "cheapTest": 2,
+    "cohesion": 1.77,
+    "breadth": 1,
+    "penalties": 0
+   },
+   "nodes": [
+    {
+     "id": "w3-tail-lemma",
+     "role": "open lemma",
+     "name": "W3 tail lemma |A_t + B_t| > |C_t| for all x >= T_PT + Delta",
+     "type": "open-lemma",
+     "status": "conjectural",
+     "source": "imp-35674, imp-35698"
+    },
+    {
+     "id": "field-channel-transfer-modulus",
+     "role": "tool",
+     "name": "Collision-time transfer modulus in the vector-field-error channel",
+     "type": "mechanism",
+     "status": "certified",
+     "source": "[imp:imp-3933-eps-field-robust-bootstrap] [imp:imp-33226-bracket-field-channel-rearchitecture]"
+    },
+    {
+     "id": "lemma-cg-covering-identity",
+     "role": "arithmetic",
+     "name": "Lemma CG: covering identity for finite Euler multiplier coefficients",
+     "type": "identity",
+     "status": "proved",
+     "source": "form:paper/cg-monotonicity.md; lean:lean/raymond-core/RaymondCore/CG.covering_identity"
+    }
+   ],
+   "control": null,
+   "requirements": {
+    "multiplicativity": "lemma-cg-covering-identity",
+    "heightUniform": "w3-tail-lemma",
+    "controlFailure": "none recorded: Q1 open",
+    "crossing": "w3-tail-lemma"
+   },
+   "underused": [
+    "w3-tail-lemma",
+    "field-channel-transfer-modulus"
+   ],
+   "reason": "open lemma x proved tool x arithmetic or crossing partner. Multiplicativity from lemma-cg-covering-identity; height-uniform member w3-tail-lemma; control failure: none recorded: Q1 open; crossing: w3-tail-lemma. Under-used: w3-tail-lemma, field-channel-transfer-modulus.",
+   "firstTest": "Write 'W3 tail lemma |A_t + B_t| > |C_t| for all x >= T_PT + Delta' as one inequality with explicit constants; evaluate it at three heights using 'Collision-time transfer modulus in the vector-field-error channel', then on DH and on a sign twist.",
+   "rowsChecked": [
+    {
+     "row": "G16",
+     "name": "Lattice-variable Hecke relations on tori",
+     "overlap": [
+      "euler-product",
+      "hecke"
+     ],
+     "jaccard": 0.286,
+     "verdict": "adjacent by tags only; row falls to DH: answer Q1 for these controls first"
+    },
+    {
+     "row": "F3",
+     "name": "Lowering Lambda as a route to a zero-free wall",
+     "overlap": [
+      "heat-flow",
+      "lambda"
+     ],
+     "jaccard": 0.25,
+     "verdict": "adjacent by tags only; row has no control listed"
+    },
+    {
+     "row": "N11",
+     "name": "theta^w: w-monotone lever or kernel-open condition at w = 1",
+     "overlap": [
+      "euler-product",
+      "hecke"
+     ],
+     "jaccard": 0.25,
+     "verdict": "adjacent by tags only; row falls to THW: answer Q1 for these controls first"
+    },
+    {
+     "row": "N20",
+     "name": "Spin of prime ideals (cyclic cubic fields) as an order-2 row",
+     "overlap": [
+      "euler-product",
+      "hecke"
+     ],
+     "jaccard": 0.25,
+     "verdict": "adjacent by tags only; row has no control listed"
+    },
+    {
+     "row": "A1",
+     "name": "Xi as a ferromagnet or limit of ferromagnets (pair interactions, Newman / Lieb-Sokal)",
+     "overlap": [
+      "heat-flow",
+      "lambda"
+     ],
+     "jaccard": 0.222,
+     "verdict": "adjacent by tags only; row falls to DH: answer Q1 for these controls first"
+    },
+    {
+     "row": "G19",
+     "name": "Twistor / Penrose reading of the flow",
+     "overlap": [
+      "euler-product",
+      "hecke"
+     ],
+     "jaccard": 0.222,
+     "verdict": "adjacent by tags only; row falls to HEAT: answer Q1 for these controls first"
+    }
+   ],
+   "rank": 7
+  },
+  {
+   "key": "M4-9e68f9",
+   "move": "M4",
+   "theme": "prime-chain",
+   "score": 15.61,
+   "scoreParts": {
+    "multiplicativity": 2,
+    "heightUniform": 3,
+    "controls": 2,
+    "crossing": 2,
+    "underused": 2,
+    "cheapTest": 2,
+    "cohesion": 1.61,
+    "breadth": 1,
+    "penalties": 0
+   },
+   "nodes": [
+    {
+     "id": "twisted-log-positivity-b-n",
+     "role": "flow functional",
+     "name": "wol-pd L2: log-positivity of b_n under completely multiplicative twisting",
+     "type": "identity",
+     "status": "proved",
+     "source": "form:paper/wol-pd-lemmas.md §2; lean:lean/Route40/WolPdL2.b_nonneg_and_mono, b_zero_eq_vonMangoldt"
+    },
+    {
+     "id": "sympow-conductor-normalised-shift",
+     "role": "arithmetic",
+     "name": "Sym^m functoriality of the contraction needs uniform Rankin-Selberg residue bound",
+     "type": "open-lemma",
+     "status": "conjectural",
+     "source": "[imp:imp-2437-sympow-rs-second-moment-2026-06] [imp:imp-2459-sympow-rs-uniform-margin-2026-06] [imp:imp-2436-sympow-volterra-functoriality-2026-06]"
+    },
+    {
+     "id": "euler-detection-depth-law",
+     "role": "separator",
+     "name": "Euler-detection depth of 440 DH-type twins",
+     "type": "measured-phenomenon",
+     "status": "measured",
+     "source": "dag:project-attempts-dag#route44-euler-detection-depth"
+    }
+   ],
+   "control": null,
+   "requirements": {
+    "multiplicativity": "twisted-log-positivity-b-n",
+    "heightUniform": "twisted-log-positivity-b-n",
+    "controlFailure": "euler-detection-depth-law",
+    "crossing": "twisted-log-positivity-b-n"
+   },
+   "underused": [
+    "sympow-conductor-normalised-shift"
+   ],
+   "reason": "flow functional x prime-side input x crossing mechanism or DH-separator. Multiplicativity from twisted-log-positivity-b-n; height-uniform member twisted-log-positivity-b-n; control failure: euler-detection-depth-law; crossing: twisted-log-positivity-b-n. Under-used: sympow-conductor-normalised-shift.",
+   "firstTest": "Evaluate the quantity of 'wol-pd L2: log-positivity of b_n under completely multiplicative twist' with the input 'Sym^m functoriality of the contraction needs uniform Rankin-Selberg re' in one window at two heights; repeat for DH and a sign twist. Continue only if zeta's margin does not decay with height and a control fails.",
+   "rowsChecked": [
+    {
+     "row": "N11",
+     "name": "theta^w: w-monotone lever or kernel-open condition at w = 1",
+     "overlap": [
+      "euler-product",
+      "hecke",
+      "theta"
+     ],
+     "jaccard": 0.3,
+     "verdict": "adjacent by tags only; row falls to THW: answer Q1 for these controls first"
+    },
+    {
+     "row": "N3",
+     "name": "Rank-2 (SL3) Maass-Selberg / Langlands kernel positivity",
+     "overlap": [
+      "automorphic",
+      "theta",
+      "trace-formula"
+     ],
+     "jaccard": 0.3,
+     "verdict": "row falls to DH; candidate has a member recorded as failing for DH (euler-detection-depth-law)"
+    },
+    {
+     "row": "A1",
+     "name": "Xi as a ferromagnet or limit of ferromagnets (pair interactions, Newman / Lieb-Sokal)",
+     "overlap": [
+      "heat-flow",
+      "lambda",
+      "theta"
+     ],
+     "jaccard": 0.273,
+     "verdict": "row falls to DH; candidate has a member recorded as failing for DH (euler-detection-depth-law)"
+    },
+    {
+     "row": "G19",
+     "name": "Twistor / Penrose reading of the flow",
+     "overlap": [
+      "euler-product",
+      "hecke",
+      "shear"
+     ],
+     "jaccard": 0.273,
+     "verdict": "adjacent by tags only; row falls to HEAT: answer Q1 for these controls first"
+    },
+    {
+     "row": "P14",
+     "name": "Nyman-Beurling / Baez-Duarte rate at sigma_0",
+     "overlap": [
+      "hecke",
+      "theta",
+      "weil"
+     ],
+     "jaccard": 0.273,
+     "verdict": "adjacent by tags only; row falls to EA: answer Q1 for these controls first"
+    },
+    {
+     "row": "P25",
+     "name": "3-4-1 positivity with Sym^m / Hecke / Rankin-Selberg companions",
+     "overlap": [
+      "automorphic",
+      "hecke",
+      "trace-formula"
+     ],
+     "jaccard": 0.273,
+     "verdict": "adjacent by tags only; row falls to B/EA: answer Q1 for these controls first"
+    }
+   ],
+   "rank": 8
+  },
+  {
+   "key": "M1-b41558",
+   "move": "M1",
+   "theme": "positivity",
+   "score": 15.58,
+   "scoreParts": {
+    "multiplicativity": 2,
+    "heightUniform": 3,
+    "controls": 0,
+    "crossing": 2,
+    "underused": 4,
+    "cheapTest": 2,
+    "cohesion": 1.58,
+    "breadth": 1,
+    "penalties": 0
+   },
+   "nodes": [
+    {
+     "id": "capture-ratio-psd-slope",
+     "role": "rigid",
+     "name": "Linear-shear capture norm = peak slope of the Phi power spectrum",
+     "type": "identity",
+     "status": "certified",
+     "source": "[imp:imp-3400-Ttilde-spectral-slope-closed-form] [imp:imp-3470-Ttilde-spectral-peak-xistar-obstruction] [imp:imp-3548-xistar-quadrature-scheme-invariance]"
+    },
+    {
+     "id": "zv-divisor-cosine-euler-product",
+     "role": "arithmetic",
+     "name": "Divisor cosine sum factorises over prime powers",
+     "type": "identity",
+     "status": "proved",
+     "source": "[zv:docs/BRIDGE-RESEARCH.md] sec 5"
+    },
+    {
+     "id": "vonmangoldt-weighted-sign-image",
+     "role": "crossing",
+     "name": "Von Mangoldt weighted per-window sign image",
+     "type": "open-lemma",
+     "status": "conjectural",
+     "source": "imp:imp-95917-vonmangoldt-weighted-sign-image; imp-95957"
+    }
+   ],
+   "control": null,
+   "requirements": {
+    "multiplicativity": "zv-divisor-cosine-euler-product",
+    "heightUniform": "capture-ratio-psd-slope",
+    "controlFailure": "none recorded: Q1 open",
+    "crossing": "vonmangoldt-weighted-sign-image"
+   },
+   "underused": [
+    "capture-ratio-psd-slope",
+    "zv-divisor-cosine-euler-product",
+    "vonmangoldt-weighted-sign-image"
+   ],
+   "reason": "rigid structure x arithmetic input x crossing mechanism. Multiplicativity from zv-divisor-cosine-euler-product; height-uniform member capture-ratio-psd-slope; control failure: none recorded: Q1 open; crossing: vonmangoldt-weighted-sign-image. Under-used: capture-ratio-psd-slope, zv-divisor-cosine-euler-product, vonmangoldt-weighted-sign-image.",
+   "firstTest": "Evaluate the quantity of 'Linear-shear capture norm = peak slope of the Phi power spectrum' with the input 'Divisor cosine sum factorises over prime powers' in one window at two heights; repeat for DH and a sign twist. Continue only if zeta's margin does not decay with height and a control fails.",
+   "rowsChecked": [
+    {
+     "row": "P4",
+     "name": "Theta-preservation ladder as an induction (PRs 51-55; P(k) \"k-th reduced pair is full\")",
+     "overlap": [
+      "euler-product",
+      "theta",
+      "twin-ladder"
+     ],
+     "jaccard": 0.375,
+     "verdict": "adjacent by tags only; row falls to DH: answer Q1 for these controls first"
+    },
+    {
+     "row": "P19",
+     "name": "Damped Weil / Toeplitz ladder past ln 3",
+     "overlap": [
+      "theta",
+      "toeplitz",
+      "twin-ladder"
+     ],
+     "jaccard": 0.3,
+     "verdict": "adjacent by tags only; row falls to DH/EA: answer Q1 for these controls first"
+    },
+    {
+     "row": "Q14",
+     "name": "Suzuki determinant criterion via the bridge",
+     "overlap": [
+      "bridge",
+      "euler-product",
+      "theta"
+     ],
+     "jaccard": 0.273,
+     "verdict": "adjacent by tags only; row falls to DH: answer Q1 for these controls first"
+    },
+    {
+     "row": "L5",
+     "name": "Minimal package M1-M4 (FE, multiplicativity, spherical local vector, unsheared position)",
+     "overlap": [
+      "euler-product",
+      "shear"
+     ],
+     "jaccard": 0.25,
+     "verdict": "adjacent by tags only; row has no control listed"
+    },
+    {
+     "row": "N12",
+     "name": "Continuation in w from the w = 0 product endpoint (twin ladder bridging)",
+     "overlap": [
+      "euler-product",
+      "twin-ladder"
+     ],
+     "jaccard": 0.25,
+     "verdict": "adjacent by tags only; row falls to DH: answer Q1 for these controls first"
+    },
+    {
+     "row": "A2",
+     "name": "Lee-Yang at finite stages of the ladder (rung set = divisors of M)",
+     "overlap": [
+      "theta",
+      "twin-ladder"
+     ],
+     "jaccard": 0.222,
+     "verdict": "adjacent by tags only; row falls to DH: answer Q1 for these controls first"
+    }
+   ],
+   "rank": 9
+  },
+  {
+   "key": "M4-c7fed4",
+   "move": "M4",
+   "theme": "prime-chain",
+   "score": 15.34,
+   "scoreParts": {
+    "multiplicativity": 2,
+    "heightUniform": 3,
+    "controls": 2,
+    "crossing": 2,
+    "underused": 2,
+    "cheapTest": 2,
+    "cohesion": 1.34,
+    "breadth": 1,
+    "penalties": 0
+   },
+   "nodes": [
+    {
+     "id": "dbn-native-triangle-binding",
+     "role": "flow functional",
+     "name": "Euler-mollified triangle floor bounds |f_t| from below",
+     "type": "identity",
+     "status": "proved",
+     "source": "[sib:dbn-lambda-01787854-candidate-audit/NATIVE_BINDING.md]"
+    },
+    {
+     "id": "vasyunin-lammin-uniform-lower-bound",
+     "role": "arithmetic",
+     "name": "N-uniform lower bound lam_min(G_N) >= A N^{-p}",
+     "type": "open-lemma",
+     "status": "conjectural",
+     "source": "imp-96613-route-m-lammin-nuniform-lowerbound-obstruction-assessment; imp-96631; imp-96697"
+    },
+    {
+     "id": "finite-support-euler-detector",
+     "role": "separator",
+     "name": "Route 30: finite-support rung Euler detector",
+     "type": "tool",
+     "status": "proved",
+     "source": "form:routes/fifty-routes-synthesis-2026-10-15.md routes 30, 44; OBSTRUCTION_MAP L1"
+    }
+   ],
+   "control": null,
+   "requirements": {
+    "multiplicativity": "dbn-native-triangle-binding",
+    "heightUniform": "vasyunin-lammin-uniform-lower-bound",
+    "controlFailure": "finite-support-euler-detector",
+    "crossing": "vasyunin-lammin-uniform-lower-bound"
+   },
+   "underused": [
+    "dbn-native-triangle-binding",
+    "vasyunin-lammin-uniform-lower-bound"
+   ],
+   "reason": "flow functional x prime-side input x crossing mechanism or DH-separator. Multiplicativity from dbn-native-triangle-binding; height-uniform member vasyunin-lammin-uniform-lower-bound; control failure: finite-support-euler-detector; crossing: vasyunin-lammin-uniform-lower-bound. Under-used: dbn-native-triangle-binding, vasyunin-lammin-uniform-lower-bound.",
+   "firstTest": "Evaluate the quantity of 'Euler-mollified triangle floor bounds |f_t| from below' with the input 'N-uniform lower bound lam_min(G_N) >= A N^{-p}' in one window at two heights; repeat for DH and a sign twist. Continue only if zeta's margin does not decay with height and a control fails.",
+   "rowsChecked": [
+    {
+     "row": "N12",
+     "name": "Continuation in w from the w = 0 product endpoint (twin ladder bridging)",
+     "overlap": [
+      "euler-product",
+      "twin-ladder"
+     ],
+     "jaccard": 0.286,
+     "verdict": "row falls to DH; candidate has a member recorded as failing for DH (finite-support-euler-detector)"
+    },
+    {
+     "row": "P4",
+     "name": "Theta-preservation ladder as an induction (PRs 51-55; P(k) \"k-th reduced pair is full\")",
+     "overlap": [
+      "euler-product",
+      "twin-ladder"
+     ],
+     "jaccard": 0.25,
+     "verdict": "row falls to DH; candidate has a member recorded as failing for DH (finite-support-euler-detector)"
+    },
+    {
+     "row": "T2",
+     "name": "Stepanov-Bombieri transplant",
+     "overlap": [
+      "lambda",
+      "large-sieve"
+     ],
+     "jaccard": 0.25,
+     "verdict": "row falls to DH; candidate has a member recorded as failing for DH (finite-support-euler-detector)"
+    },
+    {
+     "row": "S10",
+     "name": "Stack of parity + Hankel causality + Stieltjes class; prime chain in the s = x^2 coordinate",
+     "overlap": [
+      "euler-product",
+      "lambda"
+     ],
+     "jaccard": 0.222,
+     "verdict": "row falls to DH; candidate has a member recorded as failing for DH (finite-support-euler-detector)"
+    },
+    {
+     "row": "P19",
+     "name": "Damped Weil / Toeplitz ladder past ln 3",
+     "overlap": [
+      "twin-ladder",
+      "weil"
+     ],
+     "jaccard": 0.2,
+     "verdict": "row falls to DH; candidate has a member recorded as failing for DH (finite-support-euler-detector)"
+    }
+   ],
+   "rank": 10
+  },
+  {
+   "key": "M1-55f2f6",
+   "move": "M1",
+   "theme": "flow",
+   "score": 15.33,
+   "scoreParts": {
+    "multiplicativity": 2,
+    "heightUniform": 3,
+    "controls": 0,
+    "crossing": 2,
+    "underused": 4,
+    "cheapTest": 2,
+    "cohesion": 1.33,
+    "breadth": 1,
+    "penalties": 0
+   },
+   "nodes": [
+    {
+     "id": "telescoping-kernel-projection-domination",
+     "role": "rigid",
+     "name": "Telescoping gap kernel and projection domination",
+     "type": "mechanism",
+     "status": "proved",
+     "source": "imp-34427-spectator-realness-channel-closure"
+    },
+    {
+     "id": "h-desc-mirror-palm-surplus",
+     "role": "arithmetic",
+     "name": "H_desc-mirror and the Palm surplus 1.73",
+     "type": "open-lemma",
+     "status": "conjectural",
+     "source": "dag:project-attempts-dag#mirror-descent-theorem; dag:project-attempts-dag#twin-mirror-palm"
+    },
+    {
+     "id": "field-channel-transfer-modulus",
+     "role": "crossing",
+     "name": "Collision-time transfer modulus in the vector-field-error channel",
+     "type": "mechanism",
+     "status": "certified",
+     "source": "[imp:imp-3933-eps-field-robust-bootstrap] [imp:imp-33226-bracket-field-channel-rearchitecture]"
+    }
+   ],
+   "control": null,
+   "requirements": {
+    "multiplicativity": "h-desc-mirror-palm-surplus",
+    "heightUniform": "telescoping-kernel-projection-domination",
+    "controlFailure": "none recorded: Q1 open",
+    "crossing": "field-channel-transfer-modulus"
+   },
+   "underused": [
+    "telescoping-kernel-projection-domination",
+    "field-channel-transfer-modulus"
+   ],
+   "reason": "rigid structure x arithmetic input x crossing mechanism. Multiplicativity from h-desc-mirror-palm-surplus; height-uniform member telescoping-kernel-projection-domination; control failure: none recorded: Q1 open; crossing: field-channel-transfer-modulus. Under-used: telescoping-kernel-projection-domination, field-channel-transfer-modulus.",
+   "firstTest": "Evaluate the quantity of 'Telescoping gap kernel and projection domination' with the input 'H_desc-mirror and the Palm surplus 1.73' in one window at two heights; repeat for DH and a sign twist. Continue only if zeta's margin does not decay with height and a control fails.",
+   "rowsChecked": [
+    {
+     "row": "F3",
+     "name": "Lowering Lambda as a route to a zero-free wall",
+     "overlap": [
+      "heat-flow",
+      "lambda"
+     ],
+     "jaccard": 0.333,
+     "verdict": "adjacent by tags only; row has no control listed"
+    },
+    {
+     "row": "G7",
+     "name": "Zero channels under heat flow (tubes, walls)",
+     "overlap": [
+      "heat-flow",
+      "zero-channel"
+     ],
+     "jaccard": 0.333,
+     "verdict": "adjacent by tags only; row falls to DH: answer Q1 for these controls first"
+    },
+    {
+     "row": "A1",
+     "name": "Xi as a ferromagnet or limit of ferromagnets (pair interactions, Newman / Lieb-Sokal)",
+     "overlap": [
+      "heat-flow",
+      "lambda"
+     ],
+     "jaccard": 0.286,
+     "verdict": "adjacent by tags only; row falls to DH: answer Q1 for these controls first"
+    },
+    {
+     "row": "A6",
+     "name": "Order-2 probe (quadratic characters, square rows) as an analogue of the sextic method",
+     "overlap": [
+      "heat-flow",
+      "pair-correlation"
+     ],
+     "jaccard": 0.286,
+     "verdict": "adjacent by tags only; row falls to DH/NR: answer Q1 for these controls first"
+    }
+   ],
+   "rank": 11
+  },
+  {
+   "key": "M1-658ff6",
+   "move": "M1",
+   "theme": "flow",
+   "score": 15.33,
+   "scoreParts": {
+    "multiplicativity": 2,
+    "heightUniform": 3,
+    "controls": 0,
+    "crossing": 2,
+    "underused": 4,
+    "cheapTest": 2,
+    "cohesion": 1.33,
+    "breadth": 1,
+    "penalties": 0
+   },
+   "nodes": [
+    {
+     "id": "telescoping-kernel-projection-domination",
+     "role": "rigid",
+     "name": "Telescoping gap kernel and projection domination",
+     "type": "mechanism",
+     "status": "proved",
+     "source": "imp-34427-spectator-realness-channel-closure"
+    },
+    {
+     "id": "ff-ghost-second-order",
+     "role": "arithmetic",
+     "name": "A ghost at distance eps enters the Weil form at second order",
+     "type": "measured-phenomenon",
+     "status": "measured",
+     "source": "form:paper/function-field-twin-ladder.md §0 item 5"
+    },
+    {
+     "id": "joint-h3-h4-minimal-input",
+     "role": "crossing",
+     "name": "N-uniform two-sided bound on renormalised fold moduli",
+     "type": "open-lemma",
+     "status": "conjectural",
+     "source": "imp-33766-h4-independent-discharge-scoping; imp-33786-h3-joint-curvature-input-scoping; imp-33812-h0-strip-height-modulus-scoping"
+    }
+   ],
+   "control": null,
+   "requirements": {
+    "multiplicativity": "ff-ghost-second-order",
+    "heightUniform": "telescoping-kernel-projection-domination",
+    "controlFailure": "none recorded: Q1 open",
+    "crossing": "joint-h3-h4-minimal-input"
+   },
+   "underused": [
+    "telescoping-kernel-projection-domination",
+    "joint-h3-h4-minimal-input"
+   ],
+   "reason": "rigid structure x arithmetic input x crossing mechanism. Multiplicativity from ff-ghost-second-order; height-uniform member telescoping-kernel-projection-domination; control failure: none recorded: Q1 open; crossing: joint-h3-h4-minimal-input. Under-used: telescoping-kernel-projection-domination, joint-h3-h4-minimal-input.",
+   "firstTest": "Evaluate the quantity of 'Telescoping gap kernel and projection domination' with the input 'A ghost at distance eps enters the Weil form at second order' in one window at two heights; repeat for DH and a sign twist. Continue only if zeta's margin does not decay with height and a control fails.",
+   "rowsChecked": [
+    {
+     "row": "P21",
+     "name": "PR 56 cutoff form and Taylor blocks",
+     "overlap": [
+      "heat-flow",
+      "weil"
+     ],
+     "jaccard": 0.333,
+     "verdict": "adjacent by tags only; row falls to DH/HEAT: answer Q1 for these controls first"
+    },
+    {
+     "row": "F3",
+     "name": "Lowering Lambda as a route to a zero-free wall",
+     "overlap": [
+      "heat-flow",
+      "lambda"
+     ],
+     "jaccard": 0.286,
+     "verdict": "adjacent by tags only; row has no control listed"
+    },
+    {
+     "row": "G7",
+     "name": "Zero channels under heat flow (tubes, walls)",
+     "overlap": [
+      "heat-flow",
+      "zero-channel"
+     ],
+     "jaccard": 0.286,
+     "verdict": "adjacent by tags only; row falls to DH: answer Q1 for these controls first"
+    },
+    {
+     "row": "T3",
+     "name": "Hodge-index / section-count transplant",
+     "overlap": [
+      "euler-product",
+      "function-field"
+     ],
+     "jaccard": 0.286,
+     "verdict": "adjacent by tags only; row has no control listed"
+    },
+    {
+     "row": "A1",
+     "name": "Xi as a ferromagnet or limit of ferromagnets (pair interactions, Newman / Lieb-Sokal)",
+     "overlap": [
+      "heat-flow",
+      "lambda"
+     ],
+     "jaccard": 0.25,
+     "verdict": "adjacent by tags only; row falls to DH: answer Q1 for these controls first"
+    },
+    {
+     "row": "N8",
+     "name": "Lee-Yang stability of a multi-affine spin deformation (hyperelliptic, F_q)",
+     "overlap": [
+      "euler-product",
+      "function-field"
+     ],
+     "jaccard": 0.25,
+     "verdict": "adjacent by tags only; row has no control listed"
+    }
+   ],
+   "rank": 12
+  },
+  {
+   "key": "M3-1ebc96",
+   "move": "M3",
+   "theme": "flow",
+   "score": 15.33,
+   "scoreParts": {
+    "multiplicativity": 2,
+    "heightUniform": 3,
+    "controls": 0,
+    "crossing": 2,
+    "underused": 4,
+    "cheapTest": 2,
+    "cohesion": 1.33,
+    "breadth": 1,
+    "penalties": 0
+   },
+   "nodes": [
+    {
+     "id": "joint-h3-h4-minimal-input",
+     "role": "open lemma",
+     "name": "N-uniform two-sided bound on renormalised fold moduli",
+     "type": "open-lemma",
+     "status": "conjectural",
+     "source": "imp-33766-h4-independent-discharge-scoping; imp-33786-h3-joint-curvature-input-scoping; imp-33812-h0-strip-height-modulus-scoping"
+    },
+    {
+     "id": "qrh-symmetric-strip-lean",
+     "role": "tool",
+     "name": "QRH strip 1/8 <= Re rho <= 7/8 and Lambda <= 9/32 in Lean",
+     "type": "tool",
+     "status": "certified",
+     "source": "lean:lean/Route43/FlowCriticality.qrh_symmetric_strip; lean:lean/raymond-core/RaymondCoreOAI/Instance78.Lambda_le_nine_thirtyseconds"
+    },
+    {
+     "id": "resolvent-burgers-identity",
+     "role": "crossing",
+     "name": "Finite-N resolvent flux identity (complex Burgers with viscosity)",
+     "type": "identity",
+     "status": "measured",
+     "source": "[imp:imp-3899-g6a-p1-resolvent-identity-caustic-stress] [imp:imp-3891-g6a-h2-continuum-inviscid-burgers-meanfield-scoping] [imp:imp-3727-g6a-k4-entropy-solution"
+    }
+   ],
+   "control": null,
+   "requirements": {
+    "multiplicativity": "qrh-symmetric-strip-lean",
+    "heightUniform": "qrh-symmetric-strip-lean",
+    "controlFailure": "none recorded: Q1 open",
+    "crossing": "joint-h3-h4-minimal-input"
+   },
+   "underused": [
+    "joint-h3-h4-minimal-input",
+    "resolvent-burgers-identity"
+   ],
+   "reason": "open lemma x proved tool x arithmetic or crossing partner. Multiplicativity from qrh-symmetric-strip-lean; height-uniform member qrh-symmetric-strip-lean; control failure: none recorded: Q1 open; crossing: joint-h3-h4-minimal-input. Under-used: joint-h3-h4-minimal-input, resolvent-burgers-identity.",
+   "firstTest": "Write 'N-uniform two-sided bound on renormalised fold moduli' as one inequality with explicit constants; evaluate it at three heights using 'QRH strip 1/8 <= Re rho <= 7/8 and Lambda <= 9/32 in Lean', then on DH and on a sign twist.",
+   "rowsChecked": [
+    {
+     "row": "F3",
+     "name": "Lowering Lambda as a route to a zero-free wall",
+     "overlap": [
+      "heat-flow",
+      "lambda",
+      "zero-free"
+     ],
+     "jaccard": 0.5,
+     "verdict": "adjacent by tags only; row has no control listed"
+    },
+    {
+     "row": "G7",
+     "name": "Zero channels under heat flow (tubes, walls)",
+     "overlap": [
+      "heat-flow",
+      "zero-channel"
+     ],
+     "jaccard": 0.286,
+     "verdict": "adjacent by tags only; row falls to DH: answer Q1 for these controls first"
+    },
+    {
+     "row": "L1",
+     "name": "Local temperedness at p (rung Toeplitz PSD for all K iff unimodular Satake parameters)",
+     "overlap": [
+      "heat-flow",
+      "zero-free"
+     ],
+     "jaccard": 0.286,
+     "verdict": "adjacent by tags only; row falls to B: answer Q1 for these controls first"
+    },
+    {
+     "row": "P27",
+     "name": "Alpoge-Furman proportion chain with 7/8",
+     "overlap": [
+      "lambda",
+      "zero-free"
+     ],
+     "jaccard": 0.286,
+     "verdict": "adjacent by tags only; row falls to DH: answer Q1 for these controls first"
+    },
+    {
+     "row": "T2",
+     "name": "Stepanov-Bombieri transplant",
+     "overlap": [
+      "lambda",
+      "zero-free"
+     ],
+     "jaccard": 0.286,
+     "verdict": "adjacent by tags only; row falls to DH: answer Q1 for these controls first"
+    },
+    {
+     "row": "A1",
+     "name": "Xi as a ferromagnet or limit of ferromagnets (pair interactions, Newman / Lieb-Sokal)",
+     "overlap": [
+      "heat-flow",
+      "lambda"
+     ],
+     "jaccard": 0.25,
+     "verdict": "adjacent by tags only; row falls to DH: answer Q1 for these controls first"
+    }
+   ],
+   "rank": 13
+  },
+  {
+   "key": "M1-0a3b95",
+   "move": "M1",
+   "theme": "positivity",
+   "score": 15.0,
+   "scoreParts": {
+    "multiplicativity": 2,
+    "heightUniform": 3,
+    "controls": 0,
+    "crossing": 2,
+    "underused": 3,
+    "cheapTest": 2,
+    "cohesion": 2.0,
+    "breadth": 1,
+    "penalties": 0
+   },
+   "nodes": [
+    {
+     "id": "capture-ratio-psd-slope",
+     "role": "rigid",
+     "name": "Linear-shear capture norm = peak slope of the Phi power spectrum",
+     "type": "identity",
+     "status": "certified",
+     "source": "[imp:imp-3400-Ttilde-spectral-slope-closed-form] [imp:imp-3470-Ttilde-spectral-peak-xistar-obstruction] [imp:imp-3548-xistar-quadrature-scheme-invariance]"
+    },
+    {
+     "id": "prime-delay-domination-15-4",
+     "role": "arithmetic",
+     "name": "Conj 15.4: Re xi'/xi > 0 on sigma > 1/2",
+     "type": "conjecture",
+     "status": "conjectural",
+     "source": "dag:project-attempts-dag#twin-conj-15-4"
+    },
+    {
+     "id": "zv-axis-limit-laguerre",
+     "role": "crossing",
+     "name": "Axis limit of W/x",
+     "type": "identity",
+     "status": "proved",
+     "source": "[zv:docs/KLEIN-ANNULUS.md] sec 7"
+    }
+   ],
+   "control": null,
+   "requirements": {
+    "multiplicativity": "prime-delay-domination-15-4",
+    "heightUniform": "capture-ratio-psd-slope",
+    "controlFailure": "none recorded: Q1 open",
+    "crossing": "zv-axis-limit-laguerre"
+   },
+   "underused": [
+    "capture-ratio-psd-slope",
+    "zv-axis-limit-laguerre"
+   ],
+   "reason": "rigid structure x arithmetic input x crossing mechanism. Multiplicativity from prime-delay-domination-15-4; height-uniform member capture-ratio-psd-slope; control failure: none recorded: Q1 open; crossing: zv-axis-limit-laguerre. Under-used: capture-ratio-psd-slope, zv-axis-limit-laguerre.",
+   "firstTest": "Evaluate the quantity of 'Linear-shear capture norm = peak slope of the Phi power spectrum' with the input 'Conj 15.4: Re xi'/xi > 0 on sigma > 1/2' in one window at two heights; repeat for DH and a sign twist. Continue only if zeta's margin does not decay with height and a control fails.",
+   "rowsChecked": [
+    {
+     "row": "G1",
+     "name": "Bridge +- antibridge symmetrisation",
+     "overlap": [
+      "antibridge",
+      "bridge"
+     ],
+     "jaccard": 0.333,
+     "verdict": "adjacent by tags only; row falls to DH: answer Q1 for these controls first"
+    },
+    {
+     "row": "P2",
+     "name": "Margin version (prime term <= theta E_gamma, theta < 1)",
+     "overlap": [
+      "pick",
+      "theta"
+     ],
+     "jaccard": 0.333,
+     "verdict": "adjacent by tags only; row has no control listed"
+    },
+    {
+     "row": "Q14",
+     "name": "Suzuki determinant criterion via the bridge",
+     "overlap": [
+      "bridge",
+      "pick",
+      "theta"
+     ],
+     "jaccard": 0.333,
+     "verdict": "adjacent by tags only; row falls to DH: answer Q1 for these controls first"
+    },
+    {
+     "row": "G12",
+     "name": "Modular average over the torus",
+     "overlap": [
+      "bridge",
+      "pick"
+     ],
+     "jaccard": 0.286,
+     "verdict": "adjacent by tags only; row falls to DH: answer Q1 for these controls first"
+    },
+    {
+     "row": "G20",
+     "name": "The 7/8 input in bridge language",
+     "overlap": [
+      "bridge",
+      "pick"
+     ],
+     "jaccard": 0.286,
+     "verdict": "adjacent by tags only; row falls to DH: answer Q1 for these controls first"
+    },
+    {
+     "row": "G18",
+     "name": "Metaplectic / spin cover",
+     "overlap": [
+      "bridge",
+      "theta"
+     ],
+     "jaccard": 0.222,
+     "verdict": "adjacent by tags only; row falls to DH: answer Q1 for these controls first"
+    }
+   ],
+   "rank": 14
+  },
+  {
+   "key": "M3-2f7e67",
+   "move": "M3",
+   "theme": "positivity",
+   "score": 15.0,
+   "scoreParts": {
+    "multiplicativity": 2,
+    "heightUniform": 3,
+    "controls": 0,
+    "crossing": 2,
+    "underused": 3,
+    "cheapTest": 2,
+    "cohesion": 2.0,
+    "breadth": 1,
+    "penalties": 0
+   },
+   "nodes": [
+    {
+     "id": "selberg-freeze-sandbox",
+     "role": "open lemma",
+     "name": "Selberg zeta freeze sandbox lacks an RH-false control",
+     "type": "open-lemma",
+     "status": "measured",
+     "source": "dag:project-attempts-dag#route28-selberg-freeze-sandbox; src/data/route-28-selberg-zeta-freeze-sandbox-2026-10-12.js"
+    },
+    {
+     "id": "zpo-divergence-law-at-half",
+     "role": "tool",
+     "name": "Divergence law of the kinetic term at sigma -> 1/2+",
+     "type": "identity",
+     "status": "proved",
+     "source": "imp-34790-phase-boundary-energy"
+    },
+    {
+     "id": "connes-twin-ladder-crosswalk",
+     "role": "arithmetic",
+     "name": "Twin-ladder route D = prime side of the Connes/Weil trace formula",
+     "type": "identity",
+     "status": "proved",
+     "source": "[imp:imp-1205-connes-four-route-crosswalk] [imp:imp-1236-attack-route-crosswalk] [imp:imp-1343-connes-consani-2019]"
+    }
+   ],
+   "control": null,
+   "requirements": {
+    "multiplicativity": "selberg-freeze-sandbox",
+    "heightUniform": "connes-twin-ladder-crosswalk",
+    "controlFailure": "none recorded: Q1 open",
+    "crossing": "selberg-freeze-sandbox"
+   },
+   "underused": [
+    "zpo-divergence-law-at-half",
+    "connes-twin-ladder-crosswalk"
+   ],
+   "reason": "open lemma x proved tool x arithmetic or crossing partner. Multiplicativity from selberg-freeze-sandbox; height-uniform member connes-twin-ladder-crosswalk; control failure: none recorded: Q1 open; crossing: selberg-freeze-sandbox. Under-used: zpo-divergence-law-at-half, connes-twin-ladder-crosswalk.",
+   "firstTest": "Write 'Selberg zeta freeze sandbox lacks an RH-false control' as one inequality with explicit constants; evaluate it at three heights using 'Divergence law of the kinetic term at sigma -> 1/2+', then on DH and on a sign twist.",
+   "rowsChecked": [
+    {
+     "row": "N12",
+     "name": "Continuation in w from the w = 0 product endpoint (twin ladder bridging)",
+     "overlap": [
+      "euler-product",
+      "twin-ladder"
+     ],
+     "jaccard": 0.286,
+     "verdict": "adjacent by tags only; row falls to DH: answer Q1 for these controls first"
+    },
+    {
+     "row": "N2",
+     "name": "Function-field Mayer operator as a template",
+     "overlap": [
+      "transfer-operator",
+      "weil"
+     ],
+     "jaccard": 0.25,
+     "verdict": "adjacent by tags only; row has no control listed"
+    },
+    {
+     "row": "P4",
+     "name": "Theta-preservation ladder as an induction (PRs 51-55; P(k) \"k-th reduced pair is full\")",
+     "overlap": [
+      "euler-product",
+      "twin-ladder"
+     ],
+     "jaccard": 0.25,
+     "verdict": "adjacent by tags only; row falls to DH: answer Q1 for these controls first"
+    },
+    {
+     "row": "P19",
+     "name": "Damped Weil / Toeplitz ladder past ln 3",
+     "overlap": [
+      "twin-ladder",
+      "weil"
+     ],
+     "jaccard": 0.2,
+     "verdict": "adjacent by tags only; row falls to DH/EA: answer Q1 for these controls first"
+    },
+    {
+     "row": "Q14",
+     "name": "Suzuki determinant criterion via the bridge",
+     "overlap": [
+      "bridge",
+      "euler-product"
+     ],
+     "jaccard": 0.182,
+     "verdict": "adjacent by tags only; row falls to DH: answer Q1 for these controls first"
+    }
+   ],
+   "rank": 15
+  },
+  {
+   "key": "M3-44f169",
+   "move": "M3",
+   "theme": "positivity",
+   "score": 15.0,
+   "scoreParts": {
+    "multiplicativity": 2,
+    "heightUniform": 3,
+    "controls": 2,
+    "crossing": 2,
+    "underused": 2,
+    "cheapTest": 2,
+    "cohesion": 2.0,
+    "breadth": 1,
+    "penalties": -1
+   },
+   "nodes": [
+    {
+     "id": "cotangent-second-moment-upper-lemma",
+     "role": "open lemma",
+     "name": "Weighted cotangent second moment Q(b) <= s0* b + O(1)",
+     "type": "open-lemma",
+     "status": "conjectural",
+     "source": "imp-96770-route-m-weighted-cotangent-homogeneous-envelope; imp-96750; imp-97142"
+    },
+    {
+     "id": "rung-toeplitz-euler-detector",
+     "role": "tool",
+     "name": "Rung Toeplitz (Herglotz) test detects DH at ln 2 / ln 4 / ln 6",
+     "type": "mechanism",
+     "status": "certified",
+     "source": "route:route-30-finite-support-euler-detector-2026-10-12; dag:project-attempts-dag#route30-euler-detector"
+    },
+    {
+     "id": "arith-first-moment-residual-sign-law",
+     "role": "arithmetic",
+     "name": "Residual sign law (-1)^omega(b) of the arithmetic first moment",
+     "type": "measured-phenomenon",
+     "status": "measured",
+     "source": "imp-97140-route-m-fixed-omega-residual-cohorts; imp-97122"
+    }
+   ],
+   "control": null,
+   "requirements": {
+    "multiplicativity": "cotangent-second-moment-upper-lemma",
+    "heightUniform": "cotangent-second-moment-upper-lemma",
+    "controlFailure": "rung-toeplitz-euler-detector",
+    "crossing": "rung-toeplitz-euler-detector"
+   },
+   "underused": [
+    "cotangent-second-moment-upper-lemma",
+    "arith-first-moment-residual-sign-law"
+   ],
+   "reason": "open lemma x proved tool x arithmetic or crossing partner. Multiplicativity from cotangent-second-moment-upper-lemma; height-uniform member cotangent-second-moment-upper-lemma; control failure: rung-toeplitz-euler-detector; crossing: rung-toeplitz-euler-detector. Under-used: cotangent-second-moment-upper-lemma, arith-first-moment-residual-sign-law. Notes: one member attached to closed row(s) L1.",
+   "firstTest": "Write 'Weighted cotangent second moment Q(b) <= s0* b + O(1)' as one inequality with explicit constants; evaluate it at three heights using 'Rung Toeplitz (Herglotz) test detects DH at ln 2 / ln 4 / ln 6', then on DH and on a sign twist.",
+   "rowsChecked": [
+    {
+     "row": "G14",
+     "name": "Hecke on the twin ladder (V_p, Shimura T(p^2))",
+     "overlap": [
+      "hecke",
+      "twin-ladder"
+     ],
+     "jaccard": 0.286,
+     "verdict": "row falls to DH; candidate has a member recorded as failing for DH (rung-toeplitz-euler-detector)"
+    },
+    {
+     "row": "G16",
+     "name": "Lattice-variable Hecke relations on tori",
+     "overlap": [
+      "euler-product",
+      "hecke"
+     ],
+     "jaccard": 0.286,
+     "verdict": "row falls to DH; candidate has a member recorded as failing for DH (rung-toeplitz-euler-detector)"
+    },
+    {
+     "row": "G21",
+     "name": "Local change of Tate test vector (T-NR)",
+     "overlap": [
+      "euler-product",
+      "pick"
+     ],
+     "jaccard": 0.286,
+     "verdict": "adjacent by tags only; row falls to NR: answer Q1 for these controls first"
+    },
+    {
+     "row": "N12",
+     "name": "Continuation in w from the w = 0 product endpoint (twin ladder bridging)",
+     "overlap": [
+      "euler-product",
+      "twin-ladder"
+     ],
+     "jaccard": 0.286,
+     "verdict": "row falls to DH; candidate has a member recorded as failing for DH (rung-toeplitz-euler-detector)"
+    },
+    {
+     "row": "Z12",
+     "name": "Count tools: phase-blind hybrids, sextic large sieve, Guth-Maynard, cubic-trace Halasz",
+     "overlap": [
+      "large-sieve",
+      "mean-value"
+     ],
+     "jaccard": 0.286,
+     "verdict": "adjacent by tags only; row has no control listed"
+    },
+    {
+     "row": "G10",
+     "name": "Passive cascade (Euler product as lossless stubs)",
+     "overlap": [
+      "euler-product",
+      "pick"
+     ],
+     "jaccard": 0.25,
+     "verdict": "row falls to DH; candidate has a member recorded as failing for DH (rung-toeplitz-euler-detector)"
+    },
+    {
+     "row": "L1",
+     "name": "Local temperedness at p (rung Toeplitz PSD for all K iff unimodular Satake parameters)",
+     "overlap": [],
+     "jaccard": 0.0,
+     "verdict": "a member is attached to this row"
+    }
+   ],
+   "rank": 16
+  },
+  {
+   "key": "M3-4d7358",
+   "move": "M3",
+   "theme": "flow",
+   "score": 15.0,
+   "scoreParts": {
+    "multiplicativity": 2,
+    "heightUniform": 3,
+    "controls": 0,
+    "crossing": 2,
+    "underused": 4,
+    "cheapTest": 1,
+    "cohesion": 2.0,
+    "breadth": 1,
+    "penalties": 0
+   },
+   "nodes": [
+    {
+     "id": "backward-flow-displacement-residual",
+     "role": "open lemma",
+     "name": "Displacement residual of the eps' certificate",
+     "type": "open-lemma",
+     "status": "conjectural",
+     "source": "imp-34427-spectator-realness-channel-closure"
+    },
+    {
+     "id": "discriminant-gradient-flow",
+     "role": "tool",
+     "name": "Backward Dyson flow is gradient descent of -log Disc",
+     "type": "identity",
+     "status": "proved",
+     "source": "[imp:imp-2563-discriminant-tc-characterization] [imp:imp-3001-heat-discriminant-vs-dyson-N1e5]"
+    },
+    {
+     "id": "euler-transport-flow",
+     "role": "arithmetic",
+     "name": "Euler transport flow of -zeta'/zeta",
+     "type": "object",
+     "status": "proved",
+     "source": "[page:VizEulerTransportFlowPage] src/data/viz-euler-transport-flow.js"
+    }
+   ],
+   "control": null,
+   "requirements": {
+    "multiplicativity": "euler-transport-flow",
+    "heightUniform": "euler-transport-flow",
+    "controlFailure": "none recorded: Q1 open",
+    "crossing": "euler-transport-flow"
+   },
+   "underused": [
+    "backward-flow-displacement-residual",
+    "discriminant-gradient-flow"
+   ],
+   "reason": "open lemma x proved tool x arithmetic or crossing partner. Multiplicativity from euler-transport-flow; height-uniform member euler-transport-flow; control failure: none recorded: Q1 open; crossing: euler-transport-flow. Under-used: backward-flow-displacement-residual, discriminant-gradient-flow.",
+   "firstTest": "Write 'Displacement residual of the eps' certificate' as one inequality with explicit constants; evaluate it at three heights using 'Backward Dyson flow is gradient descent of -log Disc', then on DH and on a sign twist.",
+   "rowsChecked": [
+    {
+     "row": "F3",
+     "name": "Lowering Lambda as a route to a zero-free wall",
+     "overlap": [
+      "heat-flow",
+      "lambda"
+     ],
+     "jaccard": 0.286,
+     "verdict": "adjacent by tags only; row has no control listed"
+    },
+    {
+     "row": "G7",
+     "name": "Zero channels under heat flow (tubes, walls)",
+     "overlap": [
+      "heat-flow",
+      "zero-channel"
+     ],
+     "jaccard": 0.286,
+     "verdict": "adjacent by tags only; row falls to DH: answer Q1 for these controls first"
+    },
+    {
+     "row": "A1",
+     "name": "Xi as a ferromagnet or limit of ferromagnets (pair interactions, Newman / Lieb-Sokal)",
+     "overlap": [
+      "heat-flow",
+      "lambda"
+     ],
+     "jaccard": 0.25,
+     "verdict": "adjacent by tags only; row falls to DH: answer Q1 for these controls first"
+    },
+    {
+     "row": "S10",
+     "name": "Stack of parity + Hankel causality + Stieltjes class; prime chain in the s = x^2 coordinate",
+     "overlap": [
+      "euler-product",
+      "lambda"
+     ],
+     "jaccard": 0.25,
+     "verdict": "adjacent by tags only; row falls to DH/HEAT: answer Q1 for these controls first"
+    },
+    {
+     "row": "S6",
+     "name": "Below-bandwidth joint constraints",
+     "overlap": [
+      "euler-product",
+      "heat-flow"
+     ],
+     "jaccard": 0.25,
+     "verdict": "adjacent by tags only; row has no control listed"
+    }
+   ],
+   "rank": 17
+  },
+  {
+   "key": "M3-778708",
+   "move": "M3",
+   "theme": "flow",
+   "score": 15.0,
+   "scoreParts": {
+    "multiplicativity": 2,
+    "heightUniform": 3,
+    "controls": 0,
+    "crossing": 2,
+    "underused": 3,
+    "cheapTest": 2,
+    "cohesion": 2.0,
+    "breadth": 1,
+    "penalties": 0
+   },
+   "nodes": [
+    {
+     "id": "backward-flow-displacement-residual",
+     "role": "open lemma",
+     "name": "Displacement residual of the eps' certificate",
+     "type": "open-lemma",
+     "status": "conjectural",
+     "source": "imp-34427-spectator-realness-channel-closure"
+    },
+    {
+     "id": "collision-ladder-data",
+     "role": "tool",
+     "name": "Measured backward-Dyson collision-time ladder to N = 1e6",
+     "type": "object",
+     "status": "certified",
+     "source": "[imp:imp-360-extended-ladder-N1e6] [imp:imp-2485-dp8-rk4-N1e5] [imp:imp-2636-units-audit]"
+    },
+    {
+     "id": "twisted-log-positivity-b-n",
+     "role": "arithmetic",
+     "name": "wol-pd L2: log-positivity of b_n under completely multiplicative twisting",
+     "type": "identity",
+     "status": "proved",
+     "source": "form:paper/wol-pd-lemmas.md §2; lean:lean/Route40/WolPdL2.b_nonneg_and_mono, b_zero_eq_vonMangoldt"
+    }
+   ],
+   "control": null,
+   "requirements": {
+    "multiplicativity": "twisted-log-positivity-b-n",
+    "heightUniform": "twisted-log-positivity-b-n",
+    "controlFailure": "none recorded: Q1 open",
+    "crossing": "twisted-log-positivity-b-n"
+   },
+   "underused": [
+    "backward-flow-displacement-residual",
+    "collision-ladder-data"
+   ],
+   "reason": "open lemma x proved tool x arithmetic or crossing partner. Multiplicativity from twisted-log-positivity-b-n; height-uniform member twisted-log-positivity-b-n; control failure: none recorded: Q1 open; crossing: twisted-log-positivity-b-n. Under-used: backward-flow-displacement-residual, collision-ladder-data.",
+   "firstTest": "Write 'Displacement residual of the eps' certificate' as one inequality with explicit constants; evaluate it at three heights using 'Measured backward-Dyson collision-time ladder to N = 1e6', then on DH and on a sign twist.",
+   "rowsChecked": [
+    {
+     "row": "G14",
+     "name": "Hecke on the twin ladder (V_p, Shimura T(p^2))",
+     "overlap": [
+      "hecke",
+      "twin-ladder"
+     ],
+     "jaccard": 0.286,
+     "verdict": "adjacent by tags only; row falls to DH: answer Q1 for these controls first"
+    },
+    {
+     "row": "G16",
+     "name": "Lattice-variable Hecke relations on tori",
+     "overlap": [
+      "euler-product",
+      "hecke"
+     ],
+     "jaccard": 0.286,
+     "verdict": "adjacent by tags only; row falls to DH: answer Q1 for these controls first"
+    },
+    {
+     "row": "N12",
+     "name": "Continuation in w from the w = 0 product endpoint (twin ladder bridging)",
+     "overlap": [
+      "euler-product",
+      "twin-ladder"
+     ],
+     "jaccard": 0.286,
+     "verdict": "adjacent by tags only; row falls to DH: answer Q1 for these controls first"
+    },
+    {
+     "row": "F3",
+     "name": "Lowering Lambda as a route to a zero-free wall",
+     "overlap": [
+      "heat-flow",
+      "lambda"
+     ],
+     "jaccard": 0.25,
+     "verdict": "adjacent by tags only; row has no control listed"
+    },
+    {
+     "row": "G7",
+     "name": "Zero channels under heat flow (tubes, walls)",
+     "overlap": [
+      "heat-flow",
+      "zero-channel"
+     ],
+     "jaccard": 0.25,
+     "verdict": "adjacent by tags only; row falls to DH: answer Q1 for these controls first"
+    },
+    {
+     "row": "N11",
+     "name": "theta^w: w-monotone lever or kernel-open condition at w = 1",
+     "overlap": [
+      "euler-product",
+      "hecke"
+     ],
+     "jaccard": 0.25,
+     "verdict": "adjacent by tags only; row falls to THW: answer Q1 for these controls first"
+    }
+   ],
+   "rank": 18
+  },
+  {
+   "key": "M3-f162c7",
+   "move": "M3",
+   "theme": "prime-chain",
+   "score": 15.0,
+   "scoreParts": {
+    "multiplicativity": 2,
+    "heightUniform": 3,
+    "controls": 2,
+    "crossing": 2,
+    "underused": 2,
+    "cheapTest": 1,
+    "cohesion": 2.0,
+    "breadth": 1,
+    "penalties": 0
+   },
+   "nodes": [
+    {
+     "id": "euler-fe-coupling-at-height",
+     "role": "open lemma",
+     "name": "An identity coupling the Euler product to the functional equation at the height of a zero",
+     "type": "open-lemma",
+     "status": "conjectural",
+     "source": "form:rh-attempts/2026-11-01-r2-synthesis.md §2 item 4; form:rh-attempts/2026-11-01-synthesis.md §2 item 2"
+    },
+    {
+     "id": "gauss-plancherel-alias-lemma",
+     "role": "tool",
+     "name": "Gauss-Plancherel lemma for additive-character aliases",
+     "type": "identity",
+     "status": "proved",
+     "source": "imp:imp-95519-localized-barrier-sum-prime-zero-nogo"
+    },
+    {
+     "id": "vonmangoldt-weighted-sign-image",
+     "role": "arithmetic",
+     "name": "Von Mangoldt weighted per-window sign image",
+     "type": "open-lemma",
+     "status": "conjectural",
+     "source": "imp:imp-95917-vonmangoldt-weighted-sign-image; imp-95957"
+    }
+   ],
+   "control": null,
+   "requirements": {
+    "multiplicativity": "euler-fe-coupling-at-height",
+    "heightUniform": "gauss-plancherel-alias-lemma",
+    "controlFailure": "euler-fe-coupling-at-height",
+    "crossing": "vonmangoldt-weighted-sign-image"
+   },
+   "underused": [
+    "gauss-plancherel-alias-lemma",
+    "vonmangoldt-weighted-sign-image"
+   ],
+   "reason": "open lemma x proved tool x arithmetic or crossing partner. Multiplicativity from euler-fe-coupling-at-height; height-uniform member gauss-plancherel-alias-lemma; control failure: euler-fe-coupling-at-height; crossing: vonmangoldt-weighted-sign-image. Under-used: gauss-plancherel-alias-lemma, vonmangoldt-weighted-sign-image.",
+   "firstTest": "Write 'An identity coupling the Euler product to the functional equation at t' as one inequality with explicit constants; evaluate it at three heights using 'Gauss-Plancherel lemma for additive-character aliases', then on DH and on a sign twist.",
+   "rowsChecked": [
+    {
+     "row": "N11",
+     "name": "theta^w: w-monotone lever or kernel-open condition at w = 1",
+     "overlap": [
+      "euler-product",
+      "hecke",
+      "theta"
+     ],
+     "jaccard": 0.429,
+     "verdict": "adjacent by tags only; row falls to THW: answer Q1 for these controls first"
+    },
+    {
+     "row": "P4",
+     "name": "Theta-preservation ladder as an induction (PRs 51-55; P(k) \"k-th reduced pair is full\")",
+     "overlap": [
+      "euler-product",
+      "theta",
+      "twin-ladder"
+     ],
+     "jaccard": 0.429,
+     "verdict": "row falls to DH; candidate has a member recorded as failing for DH (euler-fe-coupling-at-height)"
+    },
+    {
+     "row": "A3",
+     "name": "Q_L as a covariant square: Theta S_a = U(a) Theta, norm(Theta v)^2 = Q_L(v) (Tate, theta lift, Rallis, Waldspu",
+     "overlap": [
+      "hecke",
+      "theta"
+     ],
+     "jaccard": 0.286,
+     "verdict": "row falls to DH; candidate has a member recorded as failing for DH (euler-fe-coupling-at-height)"
+    },
+    {
+     "row": "G14",
+     "name": "Hecke on the twin ladder (V_p, Shimura T(p^2))",
+     "overlap": [
+      "hecke",
+      "twin-ladder"
+     ],
+     "jaccard": 0.286,
+     "verdict": "row falls to DH; candidate has a member recorded as failing for DH (euler-fe-coupling-at-height)"
+    },
+    {
+     "row": "G16",
+     "name": "Lattice-variable Hecke relations on tori",
+     "overlap": [
+      "euler-product",
+      "hecke"
+     ],
+     "jaccard": 0.286,
+     "verdict": "row falls to DH; candidate has a member recorded as failing for DH (euler-fe-coupling-at-height)"
+    },
+    {
+     "row": "N12",
+     "name": "Continuation in w from the w = 0 product endpoint (twin ladder bridging)",
+     "overlap": [
+      "euler-product",
+      "twin-ladder"
+     ],
+     "jaccard": 0.286,
+     "verdict": "row falls to DH; candidate has a member recorded as failing for DH (euler-fe-coupling-at-height)"
+    }
+   ],
+   "rank": 19
+  },
+  {
+   "key": "M1-b427d5",
+   "move": "M1",
+   "theme": "flow",
+   "score": 14.87,
+   "scoreParts": {
+    "multiplicativity": 2,
+    "heightUniform": 2,
+    "controls": 2,
+    "crossing": 2,
+    "underused": 2,
+    "cheapTest": 2,
+    "cohesion": 1.87,
+    "breadth": 1,
+    "penalties": 0
+   },
+   "nodes": [
+    {
+     "id": "gauss-conv-equals-negative-time-flow",
+     "role": "rigid",
+     "name": "Gaussian convolution of H_0 is the exact flow at negative time",
+     "type": "identity",
+     "status": "proved",
+     "source": "imp-34813-winding-monotonicity-rigor"
+    },
+    {
+     "id": "finite-support-euler-detector",
+     "role": "arithmetic",
+     "name": "Route 30: finite-support rung Euler detector",
+     "type": "tool",
+     "status": "proved",
+     "source": "form:routes/fifty-routes-synthesis-2026-10-15.md routes 30, 44; OBSTRUCTION_MAP L1"
+    },
+    {
+     "id": "n-uniform-fold-modulus-five-inputs",
+     "role": "crossing",
+     "name": "N-uniform fold-modulus back-conversion",
+     "type": "open-lemma",
+     "status": "conjectural",
+     "source": "imp-35152, imp-35192, imp-35193"
+    }
+   ],
+   "control": null,
+   "requirements": {
+    "multiplicativity": "finite-support-euler-detector",
+    "heightUniform": "gauss-conv-equals-negative-time-flow",
+    "controlFailure": "finite-support-euler-detector",
+    "crossing": "n-uniform-fold-modulus-five-inputs"
+   },
+   "underused": [
+    "gauss-conv-equals-negative-time-flow",
+    "n-uniform-fold-modulus-five-inputs"
+   ],
+   "reason": "rigid structure x arithmetic input x crossing mechanism. Multiplicativity from finite-support-euler-detector; height-uniform member gauss-conv-equals-negative-time-flow; control failure: finite-support-euler-detector; crossing: n-uniform-fold-modulus-five-inputs. Under-used: gauss-conv-equals-negative-time-flow, n-uniform-fold-modulus-five-inputs.",
+   "firstTest": "Evaluate the quantity of 'Gaussian convolution of H_0 is the exact flow at negative time' with the input 'Route 30: finite-support rung Euler detector' in one window at two heights; repeat for DH and a sign twist. Continue only if zeta's margin does not decay with height and a control fails.",
+   "rowsChecked": [
+    {
+     "row": "G14",
+     "name": "Hecke on the twin ladder (V_p, Shimura T(p^2))",
+     "overlap": [
+      "hecke",
+      "twin-ladder"
+     ],
+     "jaccard": 0.25,
+     "verdict": "row falls to DH; candidate has a member recorded as failing for DH (finite-support-euler-detector)"
+    },
+    {
+     "row": "G16",
+     "name": "Lattice-variable Hecke relations on tori",
+     "overlap": [
+      "euler-product",
+      "hecke"
+     ],
+     "jaccard": 0.25,
+     "verdict": "row falls to DH; candidate has a member recorded as failing for DH (finite-support-euler-detector)"
+    },
+    {
+     "row": "N12",
+     "name": "Continuation in w from the w = 0 product endpoint (twin ladder bridging)",
+     "overlap": [
+      "euler-product",
+      "twin-ladder"
+     ],
+     "jaccard": 0.25,
+     "verdict": "row falls to DH; candidate has a member recorded as failing for DH (finite-support-euler-detector)"
+    },
+    {
+     "row": "P21",
+     "name": "PR 56 cutoff form and Taylor blocks",
+     "overlap": [
+      "heat-flow",
+      "weil"
+     ],
+     "jaccard": 0.25,
+     "verdict": "row falls to DH; candidate has a member recorded as failing for DH (finite-support-euler-detector)"
+    },
+    {
+     "row": "F3",
+     "name": "Lowering Lambda as a route to a zero-free wall",
+     "overlap": [
+      "heat-flow",
+      "lambda"
+     ],
+     "jaccard": 0.222,
+     "verdict": "adjacent by tags only; row has no control listed"
+    },
+    {
+     "row": "N11",
+     "name": "theta^w: w-monotone lever or kernel-open condition at w = 1",
+     "overlap": [
+      "euler-product",
+      "hecke"
+     ],
+     "jaccard": 0.222,
+     "verdict": "adjacent by tags only; row falls to THW: answer Q1 for these controls first"
+    }
+   ],
+   "rank": 20
+  },
+  {
+   "key": "M1-9ea5a6",
+   "move": "M1",
+   "theme": "prime-chain",
+   "score": 14.34,
+   "scoreParts": {
+    "multiplicativity": 2,
+    "heightUniform": 3,
+    "controls": 0,
+    "crossing": 2,
+    "underused": 3,
+    "cheapTest": 2,
+    "cohesion": 1.34,
+    "breadth": 1,
+    "penalties": 0
+   },
+   "nodes": [
+    {
+     "id": "bridge-winding-equals-NT",
+     "role": "rigid",
+     "name": "Winding of the bridge chi(1/2+it) equals N(T)",
+     "type": "identity",
+     "status": "proved",
+     "source": "[impr:911] src/data/topological-invariants.js ; OBSTRUCTION_MAP G13"
+    },
+    {
+     "id": "dbn-phase-orbit-screen",
+     "role": "arithmetic",
+     "name": "Mollified approximant stays near 1 below the triangle wall",
+     "type": "measured-phenomenon",
+     "status": "measured",
+     "source": "[sib:dbn-lambda-below-015-research/research/twistor_phase_freeze/RESULTS_PRELIMINARY.md]"
+    },
+    {
+     "id": "vasyunin-lammin-uniform-lower-bound",
+     "role": "crossing",
+     "name": "N-uniform lower bound lam_min(G_N) >= A N^{-p}",
+     "type": "open-lemma",
+     "status": "conjectural",
+     "source": "imp-96613-route-m-lammin-nuniform-lowerbound-obstruction-assessment; imp-96631; imp-96697"
+    }
+   ],
+   "control": null,
+   "requirements": {
+    "multiplicativity": "dbn-phase-orbit-screen",
+    "heightUniform": "bridge-winding-equals-NT",
+    "controlFailure": "none recorded: Q1 open",
+    "crossing": "vasyunin-lammin-uniform-lower-bound"
+   },
+   "underused": [
+    "bridge-winding-equals-NT",
+    "dbn-phase-orbit-screen",
+    "vasyunin-lammin-uniform-lower-bound"
+   ],
+   "reason": "rigid structure x arithmetic input x crossing mechanism. Multiplicativity from dbn-phase-orbit-screen; height-uniform member bridge-winding-equals-NT; control failure: none recorded: Q1 open; crossing: vasyunin-lammin-uniform-lower-bound. Under-used: bridge-winding-equals-NT, dbn-phase-orbit-screen, vasyunin-lammin-uniform-lower-bound.",
+   "firstTest": "Evaluate the quantity of 'Winding of the bridge chi(1/2+it) equals N(T)' with the input 'Mollified approximant stays near 1 below the triangle wall' in one window at two heights; repeat for DH and a sign twist. Continue only if zeta's margin does not decay with height and a control fails.",
+   "rowsChecked": [
+    {
+     "row": "G16",
+     "name": "Lattice-variable Hecke relations on tori",
+     "overlap": [
+      "euler-product",
+      "hecke"
+     ],
+     "jaccard": 0.222,
+     "verdict": "adjacent by tags only; row falls to DH: answer Q1 for these controls first"
+    },
+    {
+     "row": "N11",
+     "name": "theta^w: w-monotone lever or kernel-open condition at w = 1",
+     "overlap": [
+      "euler-product",
+      "hecke"
+     ],
+     "jaccard": 0.2,
+     "verdict": "adjacent by tags only; row falls to THW: answer Q1 for these controls first"
+    },
+    {
+     "row": "N20",
+     "name": "Spin of prime ideals (cyclic cubic fields) as an order-2 row",
+     "overlap": [
+      "euler-product",
+      "hecke"
+     ],
+     "jaccard": 0.2,
+     "verdict": "adjacent by tags only; row has no control listed"
+    },
+    {
+     "row": "T2",
+     "name": "Stepanov-Bombieri transplant",
+     "overlap": [
+      "lambda",
+      "large-sieve"
+     ],
+     "jaccard": 0.2,
+     "verdict": "adjacent by tags only; row falls to DH: answer Q1 for these controls first"
+    },
+    {
+     "row": "G19",
+     "name": "Twistor / Penrose reading of the flow",
+     "overlap": [
+      "euler-product",
+      "hecke"
+     ],
+     "jaccard": 0.182,
+     "verdict": "adjacent by tags only; row falls to HEAT: answer Q1 for these controls first"
+    },
+    {
+     "row": "S10",
+     "name": "Stack of parity + Hankel causality + Stieltjes class; prime chain in the s = x^2 coordinate",
+     "overlap": [
+      "euler-product",
+      "lambda"
+     ],
+     "jaccard": 0.182,
+     "verdict": "adjacent by tags only; row falls to DH/HEAT: answer Q1 for these controls first"
+    }
+   ],
+   "rank": 21
+  },
+  {
+   "key": "M4-c12a68",
+   "move": "M4",
+   "theme": "zero-free",
+   "score": 14.27,
+   "scoreParts": {
+    "multiplicativity": 2,
+    "heightUniform": 3,
+    "controls": 2,
+    "crossing": 2,
+    "underused": 1,
+    "cheapTest": 2,
+    "cohesion": 1.27,
+    "breadth": 1,
+    "penalties": 0
+   },
+   "nodes": [
+    {
+     "id": "zv-theta-kernel-phi",
+     "role": "flow functional",
+     "name": "Theta kernel Phi and its cosine transform",
+     "type": "object",
+     "status": "proved",
+     "source": "[zv:docs/BRIDGE-RESEARCH.md] sec 5; [zv:docs/ZERO-CHANNELS-MATH.md] sec 1"
+    },
+    {
+     "id": "mem-atlas-closing-line",
+     "role": "arithmetic",
+     "name": "Atlas open tasks: signed all-scale estimate / cofinal form floor / theta collision certificate",
+     "type": "open-lemma",
+     "status": "conjectural",
+     "source": "mem:reference_user_rh_route_atlas.md"
+    },
+    {
+     "id": "euler-detection-depth-law",
+     "role": "separator",
+     "name": "Euler-detection depth of 440 DH-type twins",
+     "type": "measured-phenomenon",
+     "status": "measured",
+     "source": "dag:project-attempts-dag#route44-euler-detection-depth"
+    }
+   ],
+   "control": null,
+   "requirements": {
+    "multiplicativity": "mem-atlas-closing-line",
+    "heightUniform": "zv-theta-kernel-phi",
+    "controlFailure": "euler-detection-depth-law",
+    "crossing": "mem-atlas-closing-line"
+   },
+   "underused": [
+    "zv-theta-kernel-phi"
+   ],
+   "reason": "flow functional x prime-side input x crossing mechanism or DH-separator. Multiplicativity from mem-atlas-closing-line; height-uniform member zv-theta-kernel-phi; control failure: euler-detection-depth-law; crossing: mem-atlas-closing-line. Under-used: zv-theta-kernel-phi.",
+   "firstTest": "Evaluate the quantity of 'Theta kernel Phi and its cosine transform' with the input 'Atlas open tasks: signed all-scale estimate / cofinal form floor / the' in one window at two heights; repeat for DH and a sign twist. Continue only if zeta's margin does not decay with height and a control fails.",
+   "rowsChecked": [
+    {
+     "row": "P14",
+     "name": "Nyman-Beurling / Baez-Duarte rate at sigma_0",
+     "overlap": [
+      "hecke",
+      "theta",
+      "weil"
+     ],
+     "jaccard": 0.5,
+     "verdict": "adjacent by tags only; row falls to EA: answer Q1 for these controls first"
+    },
+    {
+     "row": "A3",
+     "name": "Q_L as a covariant square: Theta S_a = U(a) Theta, norm(Theta v)^2 = Q_L(v) (Tate, theta lift, Rallis, Waldspu",
+     "overlap": [
+      "hecke",
+      "theta"
+     ],
+     "jaccard": 0.4,
+     "verdict": "row falls to DH; candidate has a member recorded as failing for DH (euler-detection-depth-law)"
+    },
+    {
+     "row": "P21",
+     "name": "PR 56 cutoff form and Taylor blocks",
+     "overlap": [
+      "heat-flow",
+      "weil"
+     ],
+     "jaccard": 0.4,
+     "verdict": "row falls to DH; candidate has a member recorded as failing for DH (euler-detection-depth-law)"
+    },
+    {
+     "row": "N11",
+     "name": "theta^w: w-monotone lever or kernel-open condition at w = 1",
+     "overlap": [
+      "hecke",
+      "theta"
+     ],
+     "jaccard": 0.333,
+     "verdict": "adjacent by tags only; row falls to THW: answer Q1 for these controls first"
+    },
+    {
+     "row": "A1",
+     "name": "Xi as a ferromagnet or limit of ferromagnets (pair interactions, Newman / Lieb-Sokal)",
+     "overlap": [
+      "heat-flow",
+      "theta"
+     ],
+     "jaccard": 0.286,
+     "verdict": "row falls to DH; candidate has a member recorded as failing for DH (euler-detection-depth-law)"
+    },
+    {
+     "row": "A6",
+     "name": "Order-2 probe (quadratic characters, square rows) as an analogue of the sextic method",
+     "overlap": [
+      "heat-flow",
+      "theta"
+     ],
+     "jaccard": 0.286,
+     "verdict": "row falls to DH; candidate has a member recorded as failing for DH (euler-detection-depth-law)"
+    }
+   ],
+   "rank": 22
+  },
+  {
+   "key": "M1-074228",
+   "move": "M1",
+   "theme": "positivity",
+   "score": 14.0,
+   "scoreParts": {
+    "multiplicativity": 2,
+    "heightUniform": 3,
+    "controls": 0,
+    "crossing": 2,
+    "underused": 2,
+    "cheapTest": 2,
+    "cohesion": 2.0,
+    "breadth": 1,
+    "penalties": 0
+   },
+   "nodes": [
+    {
+     "id": "autocorrelation-moment-ladder",
+     "role": "rigid",
+     "name": "Bridge-mass moment expansion and degree-d miss factor",
+     "type": "identity",
+     "status": "proved",
+     "source": "[imp:imp-3524-general-degree-d-miss-factor] [imp:imp-3532-moment-tail-closed-error-bound] [imp:imp-3405-bridge-mass-lambda-scaling-law]"
+    },
+    {
+     "id": "prime-delay-domination-15-4",
+     "role": "arithmetic",
+     "name": "Conj 15.4: Re xi'/xi > 0 on sigma > 1/2",
+     "type": "conjecture",
+     "status": "conjectural",
+     "source": "dag:project-attempts-dag#twin-conj-15-4"
+    },
+    {
+     "id": "shear-perron-monotone-ceiling",
+     "role": "crossing",
+     "name": "||R(s)|| is monotone in s and saturates at DEG+1",
+     "type": "measured-phenomenon",
+     "status": "measured",
+     "source": "imp-33795-r-s-monotonicity; imp-33846-r-s-monotonicity-deg-robust; imp-33791-deg-ceiling-saturation"
+    }
+   ],
+   "control": null,
+   "requirements": {
+    "multiplicativity": "prime-delay-domination-15-4",
+    "heightUniform": "autocorrelation-moment-ladder",
+    "controlFailure": "none recorded: Q1 open",
+    "crossing": "shear-perron-monotone-ceiling"
+   },
+   "underused": [
+    "autocorrelation-moment-ladder",
+    "shear-perron-monotone-ceiling"
+   ],
+   "reason": "rigid structure x arithmetic input x crossing mechanism. Multiplicativity from prime-delay-domination-15-4; height-uniform member autocorrelation-moment-ladder; control failure: none recorded: Q1 open; crossing: shear-perron-monotone-ceiling. Under-used: autocorrelation-moment-ladder, shear-perron-monotone-ceiling.",
+   "firstTest": "Evaluate the quantity of 'Bridge-mass moment expansion and degree-d miss factor' with the input 'Conj 15.4: Re xi'/xi > 0 on sigma > 1/2' in one window at two heights; repeat for DH and a sign twist. Continue only if zeta's margin does not decay with height and a control fails.",
+   "rowsChecked": [
+    {
+     "row": "P2",
+     "name": "Margin version (prime term <= theta E_gamma, theta < 1)",
+     "overlap": [
+      "pick",
+      "theta"
+     ],
+     "jaccard": 0.4,
+     "verdict": "adjacent by tags only; row has no control listed"
+    },
+    {
+     "row": "Q14",
+     "name": "Suzuki determinant criterion via the bridge",
+     "overlap": [
+      "bridge",
+      "pick",
+      "theta"
+     ],
+     "jaccard": 0.375,
+     "verdict": "adjacent by tags only; row falls to DH: answer Q1 for these controls first"
+    },
+    {
+     "row": "G12",
+     "name": "Modular average over the torus",
+     "overlap": [
+      "bridge",
+      "pick"
+     ],
+     "jaccard": 0.333,
+     "verdict": "adjacent by tags only; row falls to DH: answer Q1 for these controls first"
+    },
+    {
+     "row": "G20",
+     "name": "The 7/8 input in bridge language",
+     "overlap": [
+      "bridge",
+      "pick"
+     ],
+     "jaccard": 0.333,
+     "verdict": "adjacent by tags only; row falls to DH: answer Q1 for these controls first"
+    },
+    {
+     "row": "Z10",
+     "name": "Numerator average (Liu II Prop 14.3; Xu-Sang (25))",
+     "overlap": [
+      "mean-value",
+      "theta"
+     ],
+     "jaccard": 0.333,
+     "verdict": "adjacent by tags only; row has no control listed"
+    },
+    {
+     "row": "G18",
+     "name": "Metaplectic / spin cover",
+     "overlap": [
+      "bridge",
+      "theta"
+     ],
+     "jaccard": 0.25,
+     "verdict": "adjacent by tags only; row falls to DH: answer Q1 for these controls first"
+    }
+   ],
+   "rank": 23
+  },
+  {
+   "key": "M1-10aa3a",
+   "move": "M1",
+   "theme": "geometry",
+   "score": 14.0,
+   "scoreParts": {
+    "multiplicativity": 2,
+    "heightUniform": 3,
+    "controls": 0,
+    "crossing": 2,
+    "underused": 2,
+    "cheapTest": 2,
+    "cohesion": 2.0,
+    "breadth": 1,
+    "penalties": 0
+   },
+   "nodes": [
+    {
+     "id": "rz-pen-symbol-pencil-floor",
+     "role": "rigid",
+     "name": "RZ-PEN chain: r-uniform block symbol-pencil floor",
+     "type": "mechanism",
+     "status": "proved",
+     "source": "imp:imp-95288-runiform-block-pencil-floor; imp-95328..95334"
+    },
+    {
+     "id": "selberg-geodesic-ground-truth",
+     "role": "arithmetic",
+     "name": "Geometric object with primitive length spectrum {log p}",
+     "type": "open-lemma",
+     "status": "conjectural",
+     "source": "[impr:923] [impr:926] [impr:904] [impr:928]"
+    },
+    {
+     "id": "hyperbolic-prime-spiral",
+     "role": "crossing",
+     "name": "Hyperbolic prime spiral",
+     "type": "object",
+     "status": "measured",
+     "source": "[page:VizHyperbolicPrimeSpiralPage] [page:VizZoomHierarchyPage]"
+    }
+   ],
+   "control": null,
+   "requirements": {
+    "multiplicativity": "selberg-geodesic-ground-truth",
+    "heightUniform": "rz-pen-symbol-pencil-floor",
+    "controlFailure": "none recorded: Q1 open",
+    "crossing": "hyperbolic-prime-spiral"
+   },
+   "underused": [
+    "rz-pen-symbol-pencil-floor",
+    "selberg-geodesic-ground-truth"
+   ],
+   "reason": "rigid structure x arithmetic input x crossing mechanism. Multiplicativity from selberg-geodesic-ground-truth; height-uniform member rz-pen-symbol-pencil-floor; control failure: none recorded: Q1 open; crossing: hyperbolic-prime-spiral. Under-used: rz-pen-symbol-pencil-floor, selberg-geodesic-ground-truth.",
+   "firstTest": "Evaluate the quantity of 'RZ-PEN chain: r-uniform block symbol-pencil floor' with the input 'Geometric object with primitive length spectrum {log p}' in one window at two heights; repeat for DH and a sign twist. Continue only if zeta's margin does not decay with height and a control fails.",
+   "rowsChecked": [
+    {
+     "row": "G3",
+     "name": "Symmetry of the loaded torus + Schur's lemma",
+     "overlap": [
+      "pick",
+      "torus"
+     ],
+     "jaccard": 0.222,
+     "verdict": "adjacent by tags only; row falls to DH: answer Q1 for these controls first"
+    },
+    {
+     "row": "N22",
+     "name": "Simpson / Higgs scaling on the Connes-Consani complex lift",
+     "overlap": [
+      "function-field",
+      "trace-formula"
+     ],
+     "jaccard": 0.222,
+     "verdict": "adjacent by tags only; row falls to PA: answer Q1 for these controls first"
+    },
+    {
+     "row": "P2",
+     "name": "Margin version (prime term <= theta E_gamma, theta < 1)",
+     "overlap": [
+      "pick",
+      "theta"
+     ],
+     "jaccard": 0.222,
+     "verdict": "adjacent by tags only; row has no control listed"
+    },
+    {
+     "row": "A2",
+     "name": "Lee-Yang at finite stages of the ladder (rung set = divisors of M)",
+     "overlap": [
+      "theta",
+      "twin-ladder"
+     ],
+     "jaccard": 0.2,
+     "verdict": "adjacent by tags only; row falls to DH: answer Q1 for these controls first"
+    },
+    {
+     "row": "A7",
+     "name": "Finite-stage Lee-Yang sweep across truncation schemes",
+     "overlap": [
+      "theta",
+      "torus"
+     ],
+     "jaccard": 0.2,
+     "verdict": "adjacent by tags only; row falls to DH: answer Q1 for these controls first"
+    },
+    {
+     "row": "G12",
+     "name": "Modular average over the torus",
+     "overlap": [
+      "pick",
+      "torus"
+     ],
+     "jaccard": 0.2,
+     "verdict": "adjacent by tags only; row falls to DH: answer Q1 for these controls first"
+    }
+   ],
+   "rank": 24
+  },
+  {
+   "key": "M1-22c4d0",
+   "move": "M1",
+   "theme": "positivity",
+   "score": 14.0,
+   "scoreParts": {
+    "multiplicativity": 2,
+    "heightUniform": 3,
+    "controls": 0,
+    "crossing": 2,
+    "underused": 2,
+    "cheapTest": 2,
+    "cohesion": 2.0,
+    "breadth": 1,
+    "penalties": 0
+   },
+   "nodes": [
+    {
+     "id": "sep-opt-lattice-extremal",
+     "role": "rigid",
+     "name": "SEP-OPT: the lattice is the extremal delta-separated configuration",
+     "type": "identity",
+     "status": "certified",
+     "source": "imp:imp-95419-separated-class-optimal-riesz-floor; imp-95421"
+    },
+    {
+     "id": "krein-degree4-atom-cap",
+     "role": "arithmetic",
+     "name": "Degree-4 certificate atoms capped by 2theta' - sqrt2 ln2",
+     "type": "identity",
+     "status": "measured",
+     "source": "imp-96610-krein-t4-tailatom-cap"
+    },
+    {
+     "id": "mem-atlas-closing-line",
+     "role": "crossing",
+     "name": "Atlas open tasks: signed all-scale estimate / cofinal form floor / theta collision certificate",
+     "type": "open-lemma",
+     "status": "conjectural",
+     "source": "mem:reference_user_rh_route_atlas.md"
+    }
+   ],
+   "control": null,
+   "requirements": {
+    "multiplicativity": "mem-atlas-closing-line",
+    "heightUniform": "sep-opt-lattice-extremal",
+    "controlFailure": "none recorded: Q1 open",
+    "crossing": "mem-atlas-closing-line"
+   },
+   "underused": [
+    "sep-opt-lattice-extremal",
+    "krein-degree4-atom-cap"
+   ],
+   "reason": "rigid structure x arithmetic input x crossing mechanism. Multiplicativity from mem-atlas-closing-line; height-uniform member sep-opt-lattice-extremal; control failure: none recorded: Q1 open; crossing: mem-atlas-closing-line. Under-used: sep-opt-lattice-extremal, krein-degree4-atom-cap.",
+   "firstTest": "Evaluate the quantity of 'SEP-OPT: the lattice is the extremal delta-separated configuration' with the input 'Degree-4 certificate atoms capped by 2theta' - sqrt2 ln2' in one window at two heights; repeat for DH and a sign twist. Continue only if zeta's margin does not decay with height and a control fails.",
+   "rowsChecked": [
+    {
+     "row": "P19",
+     "name": "Damped Weil / Toeplitz ladder past ln 3",
+     "overlap": [
+      "theta",
+      "twin-ladder",
+      "weil"
+     ],
+     "jaccard": 0.375,
+     "verdict": "adjacent by tags only; row falls to DH/EA: answer Q1 for these controls first"
+    },
+    {
+     "row": "A2",
+     "name": "Lee-Yang at finite stages of the ladder (rung set = divisors of M)",
+     "overlap": [
+      "theta",
+      "twin-ladder"
+     ],
+     "jaccard": 0.286,
+     "verdict": "adjacent by tags only; row falls to DH: answer Q1 for these controls first"
+    },
+    {
+     "row": "N2",
+     "name": "Function-field Mayer operator as a template",
+     "overlap": [
+      "de-branges",
+      "weil"
+     ],
+     "jaccard": 0.286,
+     "verdict": "adjacent by tags only; row has no control listed"
+    },
+    {
+     "row": "OBS-IDENTITY-SOLENOID",
+     "name": "Identity coset of the solenoid / self-dual translates / interlacing partner",
+     "overlap": [
+      "de-branges",
+      "theta"
+     ],
+     "jaccard": 0.286,
+     "verdict": "adjacent by tags only; row falls to DH/EA/NR: answer Q1 for these controls first"
+    },
+    {
+     "row": "P4",
+     "name": "Theta-preservation ladder as an induction (PRs 51-55; P(k) \"k-th reduced pair is full\")",
+     "overlap": [
+      "theta",
+      "twin-ladder"
+     ],
+     "jaccard": 0.286,
+     "verdict": "adjacent by tags only; row falls to DH: answer Q1 for these controls first"
+    },
+    {
+     "row": "A6",
+     "name": "Order-2 probe (quadratic characters, square rows) as an analogue of the sextic method",
+     "overlap": [
+      "large-sieve",
+      "theta"
+     ],
+     "jaccard": 0.25,
+     "verdict": "adjacent by tags only; row falls to DH/NR: answer Q1 for these controls first"
+    }
+   ],
+   "rank": 25
+  },
+  {
+   "key": "M1-24071d",
+   "move": "M1",
+   "theme": "flow",
+   "score": 14.0,
+   "scoreParts": {
+    "multiplicativity": 2,
+    "heightUniform": 3,
+    "controls": 0,
+    "crossing": 2,
+    "underused": 2,
+    "cheapTest": 2,
+    "cohesion": 2.0,
+    "breadth": 1,
+    "penalties": 0
+   },
+   "nodes": [
+    {
+     "id": "mesoscopic-density-floor-cotangent",
+     "role": "rigid",
+     "name": "Density floor from the uniform lattice",
+     "type": "identity",
+     "status": "proved",
+     "source": "[imp:imp-3707-mesoscopic-density-floor-coefficient-derivation] [imp:imp-3642-sigma-crossover-tc-direct-dyson-crosscheck]"
+    },
+    {
+     "id": "lane-audit-h-desc",
+     "role": "arithmetic",
+     "name": "Lane audit: flow-descent hypothesis H_desc",
+     "type": "open-lemma",
+     "status": "conjectural",
+     "source": "dag:project-attempts-dag#lane-audit; src/data/lane-arithmetic-input-audit-2026-09-22.js"
+    },
+    {
+     "id": "beta-n-uniformity-fails-real-ordinates",
+     "role": "crossing",
+     "name": "Background-field sup is N-uniform on unit spacing, not on real ordinates",
+     "type": "measured-phenomenon",
+     "status": "measured",
+     "source": "imp-35194, imp-35218, imp-35239"
+    }
+   ],
+   "control": null,
+   "requirements": {
+    "multiplicativity": "lane-audit-h-desc",
+    "heightUniform": "mesoscopic-density-floor-cotangent",
+    "controlFailure": "none recorded: Q1 open",
+    "crossing": "beta-n-uniformity-fails-real-ordinates"
+   },
+   "underused": [
+    "mesoscopic-density-floor-cotangent",
+    "beta-n-uniformity-fails-real-ordinates"
+   ],
+   "reason": "rigid structure x arithmetic input x crossing mechanism. Multiplicativity from lane-audit-h-desc; height-uniform member mesoscopic-density-floor-cotangent; control failure: none recorded: Q1 open; crossing: beta-n-uniformity-fails-real-ordinates. Under-used: mesoscopic-density-floor-cotangent, beta-n-uniformity-fails-real-ordinates.",
+   "firstTest": "Evaluate the quantity of 'Density floor from the uniform lattice' with the input 'Lane audit: flow-descent hypothesis H_desc' in one window at two heights; repeat for DH and a sign twist. Continue only if zeta's margin does not decay with height and a control fails.",
+   "rowsChecked": [
+    {
+     "row": "F3",
+     "name": "Lowering Lambda as a route to a zero-free wall",
+     "overlap": [
+      "heat-flow",
+      "lambda",
+      "zero-free"
+     ],
+     "jaccard": 0.333,
+     "verdict": "adjacent by tags only; row has no control listed"
+    },
+    {
+     "row": "P27",
+     "name": "Alpoge-Furman proportion chain with 7/8",
+     "overlap": [
+      "density",
+      "lambda",
+      "zero-free"
+     ],
+     "jaccard": 0.333,
+     "verdict": "adjacent by tags only; row falls to DH: answer Q1 for these controls first"
+    },
+    {
+     "row": "S1",
+     "name": "Conjunction of mechanisms that jointly exclude every control (61-row table, hitting sets)",
+     "overlap": [
+      "euler-product",
+      "mean-value",
+      "zero-free"
+     ],
+     "jaccard": 0.333,
+     "verdict": "adjacent by tags only; row falls to DH/EA/HEAT/NR/TW+/TW-: answer Q1 for these controls first"
+    },
+    {
+     "row": "S10",
+     "name": "Stack of parity + Hankel causality + Stieltjes class; prime chain in the s = x^2 coordinate",
+     "overlap": [
+      "density",
+      "euler-product",
+      "lambda"
+     ],
+     "jaccard": 0.3,
+     "verdict": "adjacent by tags only; row falls to DH/HEAT: answer Q1 for these controls first"
+    },
+    {
+     "row": "S6",
+     "name": "Below-bandwidth joint constraints",
+     "overlap": [
+      "euler-product",
+      "heat-flow",
+      "zero-free"
+     ],
+     "jaccard": 0.3,
+     "verdict": "adjacent by tags only; row has no control listed"
+    },
+    {
+     "row": "Z17",
+     "name": "Density under ZF(theta)",
+     "overlap": [
+      "density",
+      "mean-value",
+      "zero-free"
+     ],
+     "jaccard": 0.231,
+     "verdict": "adjacent by tags only; row has no control listed"
+    }
+   ],
+   "rank": 26
+  },
+  {
+   "key": "M1-458e85",
+   "move": "M1",
+   "theme": "flow",
+   "score": 14.0,
+   "scoreParts": {
+    "multiplicativity": 2,
+    "heightUniform": 3,
+    "controls": 0,
+    "crossing": 2,
+    "underused": 2,
+    "cheapTest": 2,
+    "cohesion": 2.0,
+    "breadth": 1,
+    "penalties": 0
+   },
+   "nodes": [
+    {
+     "id": "debruijn-landing-rate-thm13",
+     "role": "rigid",
+     "name": "de Bruijn Theorem 13 landing rate",
+     "type": "tool",
+     "status": "proved",
+     "source": "imp-34813-winding-monotonicity-rigor"
+    },
+    {
+     "id": "lane-audit-h-desc",
+     "role": "arithmetic",
+     "name": "Lane audit: flow-descent hypothesis H_desc",
+     "type": "open-lemma",
+     "status": "conjectural",
+     "source": "dag:project-attempts-dag#lane-audit; src/data/lane-arithmetic-input-audit-2026-09-22.js"
+    },
+    {
+     "id": "n-uniform-fold-modulus-five-inputs",
+     "role": "crossing",
+     "name": "N-uniform fold-modulus back-conversion",
+     "type": "open-lemma",
+     "status": "conjectural",
+     "source": "imp-35152, imp-35192, imp-35193"
+    }
+   ],
+   "control": null,
+   "requirements": {
+    "multiplicativity": "lane-audit-h-desc",
+    "heightUniform": "debruijn-landing-rate-thm13",
+    "controlFailure": "none recorded: Q1 open",
+    "crossing": "n-uniform-fold-modulus-five-inputs"
+   },
+   "underused": [
+    "debruijn-landing-rate-thm13",
+    "n-uniform-fold-modulus-five-inputs"
+   ],
+   "reason": "rigid structure x arithmetic input x crossing mechanism. Multiplicativity from lane-audit-h-desc; height-uniform member debruijn-landing-rate-thm13; control failure: none recorded: Q1 open; crossing: n-uniform-fold-modulus-five-inputs. Under-used: debruijn-landing-rate-thm13, n-uniform-fold-modulus-five-inputs.",
+   "firstTest": "Evaluate the quantity of 'de Bruijn Theorem 13 landing rate' with the input 'Lane audit: flow-descent hypothesis H_desc' in one window at two heights; repeat for DH and a sign twist. Continue only if zeta's margin does not decay with height and a control fails.",
+   "rowsChecked": [
+    {
+     "row": "F3",
+     "name": "Lowering Lambda as a route to a zero-free wall",
+     "overlap": [
+      "heat-flow",
+      "lambda",
+      "zero-free"
+     ],
+     "jaccard": 0.3,
+     "verdict": "adjacent by tags only; row has no control listed"
+    },
+    {
+     "row": "P22",
+     "name": "PR 44 separated tail + PR 45 identities + 7/8",
+     "overlap": [
+      "density",
+      "verified-height",
+      "zero-free"
+     ],
+     "jaccard": 0.3,
+     "verdict": "adjacent by tags only; row falls to DH: answer Q1 for these controls first"
+    },
+    {
+     "row": "P27",
+     "name": "Alpoge-Furman proportion chain with 7/8",
+     "overlap": [
+      "density",
+      "lambda",
+      "zero-free"
+     ],
+     "jaccard": 0.3,
+     "verdict": "adjacent by tags only; row falls to DH: answer Q1 for these controls first"
+    },
+    {
+     "row": "S1",
+     "name": "Conjunction of mechanisms that jointly exclude every control (61-row table, hitting sets)",
+     "overlap": [
+      "euler-product",
+      "mean-value",
+      "zero-free"
+     ],
+     "jaccard": 0.3,
+     "verdict": "adjacent by tags only; row falls to DH/EA/HEAT/NR/TW+/TW-: answer Q1 for these controls first"
+    },
+    {
+     "row": "S5",
+     "name": "Joint feasibility LP: window count + explicit formula + half-plane",
+     "overlap": [
+      "explicit-formula",
+      "verified-height",
+      "zero-free"
+     ],
+     "jaccard": 0.3,
+     "verdict": "adjacent by tags only; row falls to DH/TW+/TW-: answer Q1 for these controls first"
+    },
+    {
+     "row": "S10",
+     "name": "Stack of parity + Hankel causality + Stieltjes class; prime chain in the s = x^2 coordinate",
+     "overlap": [
+      "density",
+      "euler-product",
+      "lambda"
+     ],
+     "jaccard": 0.273,
+     "verdict": "adjacent by tags only; row falls to DH/HEAT: answer Q1 for these controls first"
+    }
+   ],
+   "rank": 27
+  },
+  {
+   "key": "M1-461800",
+   "move": "M1",
+   "theme": "zero-free",
+   "score": 14.0,
+   "scoreParts": {
+    "multiplicativity": 2,
+    "heightUniform": 3,
+    "controls": 0,
+    "crossing": 2,
+    "underused": 2,
+    "cheapTest": 2,
+    "cohesion": 2.0,
+    "breadth": 1,
+    "penalties": 0
+   },
+   "nodes": [
+    {
+     "id": "sep-opt-lattice-extremal",
+     "role": "rigid",
+     "name": "SEP-OPT: the lattice is the extremal delta-separated configuration",
+     "type": "identity",
+     "status": "certified",
+     "source": "imp:imp-95419-separated-class-optimal-riesz-floor; imp-95421"
+    },
+    {
+     "id": "mem-mollifier-proportion-loophole",
+     "role": "arithmetic",
+     "name": "Dirichlet-coefficient/mollifier inputs as the non-circular class",
+     "type": "mechanism",
+     "status": "proved",
+     "source": "mem:project_flow_blindness_and_T3_strip.md"
+    },
+    {
+     "id": "inverse-line-cotangent-mean-value",
+     "role": "crossing",
+     "name": "Absolute-value mean of cotangent sums along the inverse line",
+     "type": "open-lemma",
+     "status": "conjectural",
+     "source": "imp-97116-route-m-cotangent-varying-modulus-abs-value-reduction"
+    }
+   ],
+   "control": null,
+   "requirements": {
+    "multiplicativity": "mem-mollifier-proportion-loophole",
+    "heightUniform": "sep-opt-lattice-extremal",
+    "controlFailure": "none recorded: Q1 open",
+    "crossing": "inverse-line-cotangent-mean-value"
+   },
+   "underused": [
+    "sep-opt-lattice-extremal",
+    "inverse-line-cotangent-mean-value"
+   ],
+   "reason": "rigid structure x arithmetic input x crossing mechanism. Multiplicativity from mem-mollifier-proportion-loophole; height-uniform member sep-opt-lattice-extremal; control failure: none recorded: Q1 open; crossing: inverse-line-cotangent-mean-value. Under-used: sep-opt-lattice-extremal, inverse-line-cotangent-mean-value.",
+   "firstTest": "Evaluate the quantity of 'SEP-OPT: the lattice is the extremal delta-separated configuration' with the input 'Dirichlet-coefficient/mollifier inputs as the non-circular class' in one window at two heights; repeat for DH and a sign twist. Continue only if zeta's margin does not decay with height and a control fails.",
+   "rowsChecked": [
+    {
+     "row": "P4",
+     "name": "Theta-preservation ladder as an induction (PRs 51-55; P(k) \"k-th reduced pair is full\")",
+     "overlap": [
+      "euler-product",
+      "theta",
+      "twin-ladder"
+     ],
+     "jaccard": 0.333,
+     "verdict": "adjacent by tags only; row falls to DH: answer Q1 for these controls first"
+    },
+    {
+     "row": "Z10",
+     "name": "Numerator average (Liu II Prop 14.3; Xu-Sang (25))",
+     "overlap": [
+      "mean-value",
+      "mollifier",
+      "theta"
+     ],
+     "jaccard": 0.333,
+     "verdict": "adjacent by tags only; row has no control listed"
+    },
+    {
+     "row": "Z16",
+     "name": "Bootstrap theta -> theta' < theta",
+     "overlap": [
+      "density",
+      "mollifier",
+      "theta"
+     ],
+     "jaccard": 0.3,
+     "verdict": "adjacent by tags only; row falls to EA: answer Q1 for these controls first"
+    },
+    {
+     "row": "A5",
+     "name": "Global compact object (Bohr torus T^P, idele class group) with translation-invariant structure",
+     "overlap": [
+      "de-branges",
+      "density",
+      "twin-ladder"
+     ],
+     "jaccard": 0.273,
+     "verdict": "adjacent by tags only; row falls to DH: answer Q1 for these controls first"
+    },
+    {
+     "row": "Z17",
+     "name": "Density under ZF(theta)",
+     "overlap": [
+      "density",
+      "mean-value",
+      "theta"
+     ],
+     "jaccard": 0.231,
+     "verdict": "adjacent by tags only; row has no control listed"
+    },
+    {
+     "row": "L2",
+     "name": "Euler-at-p as a membership constraint in FE-spaces",
+     "overlap": [
+      "density",
+      "euler-product"
+     ],
+     "jaccard": 0.222,
+     "verdict": "adjacent by tags only; row has no control listed"
+    }
+   ],
+   "rank": 28
+  },
+  {
+   "key": "M1-59a504",
+   "move": "M1",
+   "theme": "positivity",
+   "score": 14.0,
+   "scoreParts": {
+    "multiplicativity": 2,
+    "heightUniform": 2,
+    "controls": 0,
+    "crossing": 2,
+    "underused": 3,
+    "cheapTest": 2,
+    "cohesion": 2.0,
+    "breadth": 1,
+    "penalties": 0
+   },
+   "nodes": [
+    {
+     "id": "zv-boundary-kernel-pa",
+     "role": "rigid",
+     "name": "Strip boundary kernel P_a",
+     "type": "object",
+     "status": "proved",
+     "source": "[zv:docs/BRIDGE-RESEARCH.md] sec 3"
+    },
+    {
+     "id": "restricted-mobius-delay-lift",
+     "role": "arithmetic",
+     "name": "Restricted reciprocal Mobius-delay lift (App H) and its conditioning barrier",
+     "type": "mechanism",
+     "status": "measured",
+     "source": "[imp:imp-1204-restricted-lift-pilot] [imp:imp-1207-app-S-adaptive-refinement]"
+    },
+    {
+     "id": "schur-ratio-max-principle-gap",
+     "role": "crossing",
+     "name": "Route A: |R_a(w)|<1 on Re w>0 by maximum principle",
+     "type": "open-lemma",
+     "status": "conjectural",
+     "source": "[impr:2431] src/data/closure-routes-section.js ; OBSTRUCTION_MAP G2,G20"
+    }
+   ],
+   "control": null,
+   "requirements": {
+    "multiplicativity": "restricted-mobius-delay-lift",
+    "heightUniform": "zv-boundary-kernel-pa",
+    "controlFailure": "none recorded: Q1 open",
+    "crossing": "schur-ratio-max-principle-gap"
+   },
+   "underused": [
+    "zv-boundary-kernel-pa",
+    "restricted-mobius-delay-lift",
+    "schur-ratio-max-principle-gap"
+   ],
+   "reason": "rigid structure x arithmetic input x crossing mechanism. Multiplicativity from restricted-mobius-delay-lift; height-uniform member zv-boundary-kernel-pa; control failure: none recorded: Q1 open; crossing: schur-ratio-max-principle-gap. Under-used: zv-boundary-kernel-pa, restricted-mobius-delay-lift, schur-ratio-max-principle-gap.",
+   "firstTest": "Evaluate the quantity of 'Strip boundary kernel P_a' with the input 'Restricted reciprocal Mobius-delay lift (App H) and its conditioning b' in one window at two heights; repeat for DH and a sign twist. Continue only if zeta's margin does not decay with height and a control fails.",
+   "rowsChecked": [
+    {
+     "row": "Q14",
+     "name": "Suzuki determinant criterion via the bridge",
+     "overlap": [
+      "bridge",
+      "euler-product",
+      "pick",
+      "theta"
+     ],
+     "jaccard": 0.444,
+     "verdict": "adjacent by tags only; row falls to DH: answer Q1 for these controls first"
+    },
+    {
+     "row": "P4",
+     "name": "Theta-preservation ladder as an induction (PRs 51-55; P(k) \"k-th reduced pair is full\")",
+     "overlap": [
+      "euler-product",
+      "theta",
+      "twin-ladder"
+     ],
+     "jaccard": 0.429,
+     "verdict": "adjacent by tags only; row falls to DH: answer Q1 for these controls first"
+    },
+    {
+     "row": "G18",
+     "name": "Metaplectic / spin cover",
+     "overlap": [
+      "bridge",
+      "moebius",
+      "theta"
+     ],
+     "jaccard": 0.333,
+     "verdict": "adjacent by tags only; row falls to DH: answer Q1 for these controls first"
+    },
+    {
+     "row": "G21",
+     "name": "Local change of Tate test vector (T-NR)",
+     "overlap": [
+      "euler-product",
+      "pick"
+     ],
+     "jaccard": 0.286,
+     "verdict": "adjacent by tags only; row falls to NR: answer Q1 for these controls first"
+    },
+    {
+     "row": "N12",
+     "name": "Continuation in w from the w = 0 product endpoint (twin ladder bridging)",
+     "overlap": [
+      "euler-product",
+      "twin-ladder"
+     ],
+     "jaccard": 0.286,
+     "verdict": "adjacent by tags only; row falls to DH: answer Q1 for these controls first"
+    },
+    {
+     "row": "P2",
+     "name": "Margin version (prime term <= theta E_gamma, theta < 1)",
+     "overlap": [
+      "pick",
+      "theta"
+     ],
+     "jaccard": 0.286,
+     "verdict": "adjacent by tags only; row has no control listed"
+    }
+   ],
+   "rank": 29
+  },
+  {
+   "key": "M1-8cccbc",
+   "move": "M1",
+   "theme": "positivity",
+   "score": 14.0,
+   "scoreParts": {
+    "multiplicativity": 2,
+    "heightUniform": 3,
+    "controls": 0,
+    "crossing": 2,
+    "underused": 2,
+    "cheapTest": 2,
+    "cohesion": 2.0,
+    "breadth": 1,
+    "penalties": 0
+   },
+   "nodes": [
+    {
+     "id": "rz-twin-block-riesz-floor",
+     "role": "rigid",
+     "name": "RZ-TWIN: m-uniform block Riesz lower bound on the octave twin lattice",
+     "type": "identity",
+     "status": "proved",
+     "source": "imp:imp-95252-muniform-block-riesz-seam-pencil"
+    },
+    {
+     "id": "selberg-geodesic-ground-truth",
+     "role": "arithmetic",
+     "name": "Geometric object with primitive length spectrum {log p}",
+     "type": "open-lemma",
+     "status": "conjectural",
+     "source": "[impr:923] [impr:926] [impr:904] [impr:928]"
+    },
+    {
+     "id": "poly-de-bruijn-heatop-lean",
+     "role": "crossing",
+     "name": "Polynomial de Bruijn / Polya-Schur theorem (Lean)",
+     "type": "tool",
+     "status": "proved",
+     "source": "form:POLYNOMIAL_DE_BRUIJN.md; lean:mathlib-pr/RealRootedPreservation.heat_preserves_LP"
+    }
+   ],
+   "control": null,
+   "requirements": {
+    "multiplicativity": "selberg-geodesic-ground-truth",
+    "heightUniform": "rz-twin-block-riesz-floor",
+    "controlFailure": "none recorded: Q1 open",
+    "crossing": "poly-de-bruijn-heatop-lean"
+   },
+   "underused": [
+    "rz-twin-block-riesz-floor",
+    "selberg-geodesic-ground-truth"
+   ],
+   "reason": "rigid structure x arithmetic input x crossing mechanism. Multiplicativity from selberg-geodesic-ground-truth; height-uniform member rz-twin-block-riesz-floor; control failure: none recorded: Q1 open; crossing: poly-de-bruijn-heatop-lean. Under-used: rz-twin-block-riesz-floor, selberg-geodesic-ground-truth.",
+   "firstTest": "Evaluate the quantity of 'RZ-TWIN: m-uniform block Riesz lower bound on the octave twin lattice' with the input 'Geometric object with primitive length spectrum {log p}' in one window at two heights; repeat for DH and a sign twist. Continue only if zeta's margin does not decay with height and a control fails.",
+   "rowsChecked": [
+    {
+     "row": "A5",
+     "name": "Global compact object (Bohr torus T^P, idele class group) with translation-invariant structure",
+     "overlap": [
+      "de-branges",
+      "toeplitz",
+      "torus",
+      "twin-ladder"
+     ],
+     "jaccard": 0.333,
+     "verdict": "adjacent by tags only; row falls to DH: answer Q1 for these controls first"
+    },
+    {
+     "row": "G3",
+     "name": "Symmetry of the loaded torus + Schur's lemma",
+     "overlap": [
+      "pick",
+      "torus"
+     ],
+     "jaccard": 0.182,
+     "verdict": "adjacent by tags only; row falls to DH: answer Q1 for these controls first"
+    },
+    {
+     "row": "N22",
+     "name": "Simpson / Higgs scaling on the Connes-Consani complex lift",
+     "overlap": [
+      "function-field",
+      "trace-formula"
+     ],
+     "jaccard": 0.182,
+     "verdict": "adjacent by tags only; row falls to PA: answer Q1 for these controls first"
+    },
+    {
+     "row": "A2",
+     "name": "Lee-Yang at finite stages of the ladder (rung set = divisors of M)",
+     "overlap": [
+      "lee-yang",
+      "twin-ladder"
+     ],
+     "jaccard": 0.167,
+     "verdict": "adjacent by tags only; row falls to DH: answer Q1 for these controls first"
+    },
+    {
+     "row": "A7",
+     "name": "Finite-stage Lee-Yang sweep across truncation schemes",
+     "overlap": [
+      "lee-yang",
+      "torus"
+     ],
+     "jaccard": 0.167,
+     "verdict": "adjacent by tags only; row falls to DH: answer Q1 for these controls first"
+    },
+    {
+     "row": "G12",
+     "name": "Modular average over the torus",
+     "overlap": [
+      "pick",
+      "torus"
+     ],
+     "jaccard": 0.167,
+     "verdict": "adjacent by tags only; row falls to DH: answer Q1 for these controls first"
+    }
+   ],
+   "rank": 30
+  },
+  {
+   "key": "M1-bb5bb4",
+   "move": "M1",
+   "theme": "prime-chain",
+   "score": 14.0,
+   "scoreParts": {
+    "multiplicativity": 2,
+    "heightUniform": 3,
+    "controls": 0,
+    "crossing": 2,
+    "underused": 3,
+    "cheapTest": 1,
+    "cohesion": 2.0,
+    "breadth": 1,
+    "penalties": 0
+   },
+   "nodes": [
+    {
+     "id": "m23-unconditional-window-positivity",
+     "role": "rigid",
+     "name": "Positivity of zero pair sums for any non-negative h",
+     "type": "identity",
+     "status": "proved",
+     "source": "[sib:morethan2-3rd/docs/02-adversary-and-ceiling.md] sec 4"
+    },
+    {
+     "id": "connes-twin-ladder-crosswalk",
+     "role": "arithmetic",
+     "name": "Twin-ladder route D = prime side of the Connes/Weil trace formula",
+     "type": "identity",
+     "status": "proved",
+     "source": "[imp:imp-1205-connes-four-route-crosswalk] [imp:imp-1236-attack-route-crosswalk] [imp:imp-1343-connes-consani-2019]"
+    },
+    {
+     "id": "number-variance-cap-selberg",
+     "role": "crossing",
+     "name": "Envelope r_cap(T) from Selberg's variance of S(T)",
+     "type": "identity",
+     "status": "measured",
+     "source": "imp:imp-95722-number-variance-ratio-window-bottom-bound; imp-95958; imp-96070"
+    }
+   ],
+   "control": null,
+   "requirements": {
+    "multiplicativity": "connes-twin-ladder-crosswalk",
+    "heightUniform": "m23-unconditional-window-positivity",
+    "controlFailure": "none recorded: Q1 open",
+    "crossing": "m23-unconditional-window-positivity"
+   },
+   "underused": [
+    "m23-unconditional-window-positivity",
+    "connes-twin-ladder-crosswalk",
+    "number-variance-cap-selberg"
+   ],
+   "reason": "rigid structure x arithmetic input x crossing mechanism. Multiplicativity from connes-twin-ladder-crosswalk; height-uniform member m23-unconditional-window-positivity; control failure: none recorded: Q1 open; crossing: m23-unconditional-window-positivity. Under-used: m23-unconditional-window-positivity, connes-twin-ladder-crosswalk, number-variance-cap-selberg.",
+   "firstTest": "Evaluate the quantity of 'Positivity of zero pair sums for any non-negative h' with the input 'Twin-ladder route D = prime side of the Connes/Weil trace formula' in one window at two heights; repeat for DH and a sign twist. Continue only if zeta's margin does not decay with height and a control fails.",
+   "rowsChecked": [
+    {
+     "row": "N12",
+     "name": "Continuation in w from the w = 0 product endpoint (twin ladder bridging)",
+     "overlap": [
+      "euler-product",
+      "twin-ladder"
+     ],
+     "jaccard": 0.333,
+     "verdict": "adjacent by tags only; row falls to DH: answer Q1 for these controls first"
+    },
+    {
+     "row": "P4",
+     "name": "Theta-preservation ladder as an induction (PRs 51-55; P(k) \"k-th reduced pair is full\")",
+     "overlap": [
+      "euler-product",
+      "twin-ladder"
+     ],
+     "jaccard": 0.286,
+     "verdict": "adjacent by tags only; row falls to DH: answer Q1 for these controls first"
+    },
+    {
+     "row": "P19",
+     "name": "Damped Weil / Toeplitz ladder past ln 3",
+     "overlap": [
+      "twin-ladder",
+      "weil"
+     ],
+     "jaccard": 0.222,
+     "verdict": "adjacent by tags only; row falls to DH/EA: answer Q1 for these controls first"
+    }
+   ],
+   "rank": 31
+  },
+  {
+   "key": "M1-ef480f",
+   "move": "M1",
+   "theme": "zero-free",
+   "score": 14.0,
+   "scoreParts": {
+    "multiplicativity": 2,
+    "heightUniform": 3,
+    "controls": 0,
+    "crossing": 2,
+    "underused": 2,
+    "cheapTest": 2,
+    "cohesion": 2.0,
+    "breadth": 1,
+    "penalties": 0
+   },
+   "nodes": [
+    {
+     "id": "parity-pure-maj-witness-threshold",
+     "role": "rigid",
+     "name": "Parity-pure MAJ witness class and its certified rate threshold",
+     "type": "object",
+     "status": "certified",
+     "source": "imp:imp-95134-sharp-cluster-cap-threshold; imp-95143-displacement-witness-certificate; imp-95168"
+    },
+    {
+     "id": "selberg-theorem-u-geodesic-monoid",
+     "role": "arithmetic",
+     "name": "Theorem U on the geodesic monoid",
+     "type": "identity",
+     "status": "proved",
+     "source": "route:route-28-selberg-zeta-freeze-sandbox-2026-10-12"
+    },
+    {
+     "id": "inverse-line-cotangent-mean-value",
+     "role": "crossing",
+     "name": "Absolute-value mean of cotangent sums along the inverse line",
+     "type": "open-lemma",
+     "status": "conjectural",
+     "source": "imp-97116-route-m-cotangent-varying-modulus-abs-value-reduction"
+    }
+   ],
+   "control": null,
+   "requirements": {
+    "multiplicativity": "selberg-theorem-u-geodesic-monoid",
+    "heightUniform": "parity-pure-maj-witness-threshold",
+    "controlFailure": "none recorded: Q1 open",
+    "crossing": "inverse-line-cotangent-mean-value"
+   },
+   "underused": [
+    "parity-pure-maj-witness-threshold",
+    "inverse-line-cotangent-mean-value"
+   ],
+   "reason": "rigid structure x arithmetic input x crossing mechanism. Multiplicativity from selberg-theorem-u-geodesic-monoid; height-uniform member parity-pure-maj-witness-threshold; control failure: none recorded: Q1 open; crossing: inverse-line-cotangent-mean-value. Under-used: parity-pure-maj-witness-threshold, inverse-line-cotangent-mean-value.",
+   "firstTest": "Evaluate the quantity of 'Parity-pure MAJ witness class and its certified rate threshold' with the input 'Theorem U on the geodesic monoid' in one window at two heights; repeat for DH and a sign twist. Continue only if zeta's margin does not decay with height and a control fails.",
+   "rowsChecked": [
+    {
+     "row": "N12",
+     "name": "Continuation in w from the w = 0 product endpoint (twin ladder bridging)",
+     "overlap": [
+      "euler-product",
+      "twin-ladder"
+     ],
+     "jaccard": 0.5,
+     "verdict": "adjacent by tags only; row falls to DH: answer Q1 for these controls first"
+    },
+    {
+     "row": "P4",
+     "name": "Theta-preservation ladder as an induction (PRs 51-55; P(k) \"k-th reduced pair is full\")",
+     "overlap": [
+      "euler-product",
+      "twin-ladder"
+     ],
+     "jaccard": 0.4,
+     "verdict": "adjacent by tags only; row falls to DH: answer Q1 for these controls first"
+    }
+   ],
+   "rank": 32
+  },
+  {
+   "key": "M3-05c964",
+   "move": "M3",
+   "theme": "positivity",
+   "score": 14.0,
+   "scoreParts": {
+    "multiplicativity": 2,
+    "heightUniform": 3,
+    "controls": 0,
+    "crossing": 2,
+    "underused": 2,
+    "cheapTest": 2,
+    "cohesion": 2.0,
+    "breadth": 1,
+    "penalties": 0
+   },
+   "nodes": [
+    {
+     "id": "krein-uniform-n-lower-bound-open",
+     "role": "open lemma",
+     "name": "N-free coercivity T_a[sigma_2]>=c I for 0.96<2a<=ln3",
+     "type": "open-lemma",
+     "status": "conjectural",
+     "source": "imp-96846-krein-uniform-N-lower-bound-routes-assessment; imp-96865; imp-97121; imp-97058"
+    },
+    {
+     "id": "ff-three-approaches-one-statement",
+     "role": "tool",
+     "name": "Passivity, prime-delay domination and Weil index coincide over F_q",
+     "type": "identity",
+     "status": "proved",
+     "source": "form:paper/function-field-twin-ladder.md §0 item 1"
+    },
+    {
+     "id": "krein-floor-measured-plateau",
+     "role": "arithmetic",
+     "name": "Galerkin Rayleigh floors of T_a[sigma_2]",
+     "type": "measured-phenomenon",
+     "status": "measured",
+     "source": "imp-96768-gegenbauer-krein-lammin-recompute; imp-96769; imp-97027"
+    }
+   ],
+   "control": null,
+   "requirements": {
+    "multiplicativity": "krein-uniform-n-lower-bound-open",
+    "heightUniform": "ff-three-approaches-one-statement",
+    "controlFailure": "none recorded: Q1 open",
+    "crossing": "krein-floor-measured-plateau"
+   },
+   "underused": [
+    "krein-uniform-n-lower-bound-open",
+    "krein-floor-measured-plateau"
+   ],
+   "reason": "open lemma x proved tool x arithmetic or crossing partner. Multiplicativity from krein-uniform-n-lower-bound-open; height-uniform member ff-three-approaches-one-statement; control failure: none recorded: Q1 open; crossing: krein-floor-measured-plateau. Under-used: krein-uniform-n-lower-bound-open, krein-floor-measured-plateau.",
+   "firstTest": "Write 'N-free coercivity T_a[sigma_2]>=c I for 0.96<2a<=ln3' as one inequality with explicit constants; evaluate it at three heights using 'Passivity, prime-delay domination and Weil index coincide over F_q', then on DH and on a sign twist.",
+   "rowsChecked": [
+    {
+     "row": "A5",
+     "name": "Global compact object (Bohr torus T^P, idele class group) with translation-invariant structure",
+     "overlap": [
+      "de-branges",
+      "toeplitz",
+      "twin-ladder"
+     ],
+     "jaccard": 0.375,
+     "verdict": "adjacent by tags only; row falls to DH: answer Q1 for these controls first"
+    },
+    {
+     "row": "P19",
+     "name": "Damped Weil / Toeplitz ladder past ln 3",
+     "overlap": [
+      "toeplitz",
+      "twin-ladder",
+      "weil"
+     ],
+     "jaccard": 0.375,
+     "verdict": "adjacent by tags only; row falls to DH/EA: answer Q1 for these controls first"
+    },
+    {
+     "row": "N2",
+     "name": "Function-field Mayer operator as a template",
+     "overlap": [
+      "de-branges",
+      "weil"
+     ],
+     "jaccard": 0.286,
+     "verdict": "adjacent by tags only; row has no control listed"
+    },
+    {
+     "row": "P1",
+     "name": "Codex residual-energy target, PR 48 eq. (21)",
+     "overlap": [
+      "pick",
+      "weil"
+     ],
+     "jaccard": 0.286,
+     "verdict": "adjacent by tags only; row falls to DH/EA/HEAT/NR: answer Q1 for these controls first"
+    },
+    {
+     "row": "T1",
+     "name": "TRO6 over F_q[T]",
+     "overlap": [
+      "function-field",
+      "weil"
+     ],
+     "jaccard": 0.222,
+     "verdict": "adjacent by tags only; row has no control listed"
+    }
+   ],
+   "rank": 33
+  },
+  {
+   "key": "M3-129e7c",
+   "move": "M3",
+   "theme": "nyman",
+   "score": 14.0,
+   "scoreParts": {
+    "multiplicativity": 2,
+    "heightUniform": 3,
+    "controls": 0,
+    "crossing": 2,
+    "underused": 3,
+    "cheapTest": 2,
+    "cohesion": 2.0,
+    "breadth": 0,
+    "penalties": 0
+   },
+   "nodes": [
+    {
+     "id": "rm-cot-sign-open",
+     "role": "open lemma",
+     "name": "Sign of the signed cotangent half S(b) < 0",
+     "type": "open-lemma",
+     "status": "conjectural",
+     "source": "src/data/imp-97287-route-m-cotangent-signed-half-residue-resonance-decomposition.js; imp-97181; imp-97314"
+    },
+    {
+     "id": "frobenius-gcd-factorisation",
+     "role": "tool",
+     "name": "gcd factorisation of the Vasyunin Gram Frobenius norm",
+     "type": "identity",
+     "status": "proved",
+     "source": "imp-96688-route-m-frobenius-g-factorization-assessment; imp-96667; imp-96708; imp-96907"
+    },
+    {
+     "id": "rm-bulk-profile",
+     "role": "crossing",
+     "name": "Bulk profile of the Vasyunin coefficient",
+     "type": "identity",
+     "status": "measured",
+     "source": "src/data/imp-97329-route-m-uniform-crossover-second-moment.js; imp-97460; imp-97441"
+    }
+   ],
+   "control": null,
+   "requirements": {
+    "multiplicativity": "frobenius-gcd-factorisation",
+    "heightUniform": "frobenius-gcd-factorisation",
+    "controlFailure": "none recorded: Q1 open",
+    "crossing": "rm-bulk-profile"
+   },
+   "underused": [
+    "rm-cot-sign-open",
+    "frobenius-gcd-factorisation",
+    "rm-bulk-profile"
+   ],
+   "reason": "open lemma x proved tool x arithmetic or crossing partner. Multiplicativity from frobenius-gcd-factorisation; height-uniform member frobenius-gcd-factorisation; control failure: none recorded: Q1 open; crossing: rm-bulk-profile. Under-used: rm-cot-sign-open, frobenius-gcd-factorisation, rm-bulk-profile.",
+   "firstTest": "Write 'Sign of the signed cotangent half S(b) < 0' as one inequality with explicit constants; evaluate it at three heights using 'gcd factorisation of the Vasyunin Gram Frobenius norm', then on DH and on a sign twist.",
+   "rowsChecked": [
+    {
+     "row": "N18",
+     "name": "Rational (F_q[T]) deflation of the cubic large sieve",
+     "overlap": [
+      "function-field",
+      "large-sieve"
+     ],
+     "jaccard": 0.222,
+     "verdict": "adjacent by tags only; row has no control listed"
+    },
+    {
+     "row": "Z12",
+     "name": "Count tools: phase-blind hybrids, sextic large sieve, Guth-Maynard, cubic-trace Halasz",
+     "overlap": [
+      "large-sieve",
+      "mean-value"
+     ],
+     "jaccard": 0.222,
+     "verdict": "adjacent by tags only; row has no control listed"
+    },
+    {
+     "row": "P15",
+     "name": "Route M: first moment of the NB Gram matrix",
+     "overlap": [
+      "mean-value",
+      "nyman-beurling"
+     ],
+     "jaccard": 0.2,
+     "verdict": "adjacent by tags only; row falls to DH: answer Q1 for these controls first"
+    },
+    {
+     "row": "S1",
+     "name": "Conjunction of mechanisms that jointly exclude every control (61-row table, hitting sets)",
+     "overlap": [
+      "euler-product",
+      "mean-value"
+     ],
+     "jaccard": 0.2,
+     "verdict": "adjacent by tags only; row falls to DH/EA/HEAT/NR/TW+/TW-: answer Q1 for these controls first"
+    },
+    {
+     "row": "T3",
+     "name": "Hodge-index / section-count transplant",
+     "overlap": [
+      "euler-product",
+      "function-field"
+     ],
+     "jaccard": 0.2,
+     "verdict": "adjacent by tags only; row has no control listed"
+    },
+    {
+     "row": "N8",
+     "name": "Lee-Yang stability of a multi-affine spin deformation (hyperelliptic, F_q)",
+     "overlap": [
+      "euler-product",
+      "function-field"
+     ],
+     "jaccard": 0.182,
+     "verdict": "adjacent by tags only; row has no control listed"
+    }
+   ],
+   "rank": 34
+  },
+  {
+   "key": "M3-1749aa",
+   "move": "M3",
+   "theme": "prime-chain",
+   "score": 14.0,
+   "scoreParts": {
+    "multiplicativity": 2,
+    "heightUniform": 3,
+    "controls": 0,
+    "crossing": 2,
+    "underused": 2,
+    "cheapTest": 2,
+    "cohesion": 2.0,
+    "breadth": 1,
+    "penalties": 0
+   },
+   "nodes": [
+    {
+     "id": "route-m-kappa-first-moment",
+     "role": "open lemma",
+     "name": "Route M first-moment constant kappa",
+     "type": "open-lemma",
+     "status": "measured",
+     "source": "dag:project-attempts-dag#routes-m-kappa-ledger; dag:project-attempts-dag#routes-m-quarter-ceiling; dag:project-attempts-dag#routes-m-mcm-refuted"
+    },
+    {
+     "id": "route-m-arith-first-moment-constant",
+     "role": "tool",
+     "name": "Arithmetic part of the Vasyunin first moment",
+     "type": "identity",
+     "status": "proved",
+     "source": "imp-97096-route-m-arith-first-moment-evaluation; imp-97133-route-m-arith-first-moment-explicit-remainder"
+    },
+    {
+     "id": "rm-parity-sign-law",
+     "role": "arithmetic",
+     "name": "Liouville/Moebius parity sign law of the first-moment residual",
+     "type": "identity",
+     "status": "proved",
+     "source": "src/data/imp-97167-route-m-parity-sign-law-derivation.js; imp-97156; imp-97249"
+    }
+   ],
+   "control": null,
+   "requirements": {
+    "multiplicativity": "route-m-kappa-first-moment",
+    "heightUniform": "route-m-arith-first-moment-constant",
+    "controlFailure": "none recorded: Q1 open",
+    "crossing": "rm-parity-sign-law"
+   },
+   "underused": [
+    "route-m-arith-first-moment-constant",
+    "rm-parity-sign-law"
+   ],
+   "reason": "open lemma x proved tool x arithmetic or crossing partner. Multiplicativity from route-m-kappa-first-moment; height-uniform member route-m-arith-first-moment-constant; control failure: none recorded: Q1 open; crossing: rm-parity-sign-law. Under-used: route-m-arith-first-moment-constant, rm-parity-sign-law.",
+   "firstTest": "Write 'Route M first-moment constant kappa' as one inequality with explicit constants; evaluate it at three heights using 'Arithmetic part of the Vasyunin first moment', then on DH and on a sign twist.",
+   "rowsChecked": [
+    {
+     "row": "Z12",
+     "name": "Count tools: phase-blind hybrids, sextic large sieve, Guth-Maynard, cubic-trace Halasz",
+     "overlap": [
+      "large-sieve",
+      "mean-value"
+     ],
+     "jaccard": 0.222,
+     "verdict": "adjacent by tags only; row has no control listed"
+    },
+    {
+     "row": "N25",
+     "name": "Spectral-window positivity with Moebius mollifier",
+     "overlap": [
+      "moebius",
+      "mollifier"
+     ],
+     "jaccard": 0.2,
+     "verdict": "adjacent by tags only; row falls to DH/HEAT/TW+/TW-: answer Q1 for these controls first"
+    },
+    {
+     "row": "P15",
+     "name": "Route M: first moment of the NB Gram matrix",
+     "overlap": [
+      "mean-value",
+      "nyman-beurling"
+     ],
+     "jaccard": 0.2,
+     "verdict": "adjacent by tags only; row falls to DH: answer Q1 for these controls first"
+    },
+    {
+     "row": "S1",
+     "name": "Conjunction of mechanisms that jointly exclude every control (61-row table, hitting sets)",
+     "overlap": [
+      "euler-product",
+      "mean-value"
+     ],
+     "jaccard": 0.2,
+     "verdict": "adjacent by tags only; row falls to DH/EA/HEAT/NR/TW+/TW-: answer Q1 for these controls first"
+    },
+    {
+     "row": "Z10",
+     "name": "Numerator average (Liu II Prop 14.3; Xu-Sang (25))",
+     "overlap": [
+      "mean-value",
+      "mollifier"
+     ],
+     "jaccard": 0.2,
+     "verdict": "adjacent by tags only; row has no control listed"
+    },
+    {
+     "row": "Z14",
+     "name": "Higher-order or mixed rows (r = 4, 5; product families)",
+     "overlap": [
+      "mean-value",
+      "moebius"
+     ],
+     "jaccard": 0.2,
+     "verdict": "adjacent by tags only; row has no control listed"
+    }
+   ],
+   "rank": 35
+  },
+  {
+   "key": "M3-1f62a4",
+   "move": "M3",
+   "theme": "nyman",
+   "score": 14.0,
+   "scoreParts": {
+    "multiplicativity": 2,
+    "heightUniform": 3,
+    "controls": 0,
+    "crossing": 2,
+    "underused": 2,
+    "cheapTest": 2,
+    "cohesion": 2.0,
+    "breadth": 1,
+    "penalties": 0
+   },
+   "nodes": [
+    {
+     "id": "rm-sign-law-t-negative",
+     "role": "open lemma",
+     "name": "Sign law T(b) < 0 for squarefree b",
+     "type": "open-lemma",
+     "status": "conjectural",
+     "source": "src/data/imp-97333-route-m-sign-law-proof-attempt.js; imp-97352; imp-97396; imp-97372"
+    },
+    {
+     "id": "spectral-head-mobius-poisson",
+     "role": "tool",
+     "name": "Mean-zero head lemma via finite Mobius inverse",
+     "type": "identity",
+     "status": "proved",
+     "source": "[pr:26] research/rh/modules/spectral-head-theory.md sec 3, 8"
+    },
+    {
+     "id": "binet-positive-kernel",
+     "role": "arithmetic",
+     "name": "Binet positive-kernel representation of Stirling tails over divisors",
+     "type": "tool",
+     "status": "proved",
+     "source": "src/data/imp-97289-route-m-arith-tail-o1-proof.js; imp-97309; imp-97423"
+    }
+   ],
+   "control": null,
+   "requirements": {
+    "multiplicativity": "rm-sign-law-t-negative",
+    "heightUniform": "spectral-head-mobius-poisson",
+    "controlFailure": "none recorded: Q1 open",
+    "crossing": "spectral-head-mobius-poisson"
+   },
+   "underused": [
+    "rm-sign-law-t-negative",
+    "binet-positive-kernel"
+   ],
+   "reason": "open lemma x proved tool x arithmetic or crossing partner. Multiplicativity from rm-sign-law-t-negative; height-uniform member spectral-head-mobius-poisson; control failure: none recorded: Q1 open; crossing: spectral-head-mobius-poisson. Under-used: rm-sign-law-t-negative, binet-positive-kernel.",
+   "firstTest": "Write 'Sign law T(b) < 0 for squarefree b' as one inequality with explicit constants; evaluate it at three heights using 'Mean-zero head lemma via finite Mobius inverse', then on DH and on a sign twist.",
+   "rowsChecked": [
+    {
+     "row": "T1",
+     "name": "TRO6 over F_q[T]",
+     "overlap": [
+      "moebius",
+      "weil"
+     ],
+     "jaccard": 0.2,
+     "verdict": "adjacent by tags only; row has no control listed"
+    }
+   ],
+   "rank": 36
+  },
+  {
+   "key": "M3-328437",
+   "move": "M3",
+   "theme": "prime-chain",
+   "score": 14.0,
+   "scoreParts": {
+    "multiplicativity": 2,
+    "heightUniform": 3,
+    "controls": 0,
+    "crossing": 2,
+    "underused": 2,
+    "cheapTest": 2,
+    "cohesion": 2.0,
+    "breadth": 1,
+    "penalties": 0
+   },
+   "nodes": [
+    {
+     "id": "mobius-packet-energy-target",
+     "role": "open lemma",
+     "name": "Mobius packet block-energy target",
+     "type": "open-lemma",
+     "status": "conjectural",
+     "source": "[pr:27:atlas] research/rh/modules/historical-routes.md sec 10; [pr:14] rigorous/mobius_bridge_reduction/README.md"
+    },
+    {
+     "id": "rm-parity-sign-law",
+     "role": "tool",
+     "name": "Liouville/Moebius parity sign law of the first-moment residual",
+     "type": "identity",
+     "status": "proved",
+     "source": "src/data/imp-97167-route-m-parity-sign-law-derivation.js; imp-97156; imp-97249"
+    },
+    {
+     "id": "rm-residual-smallest-prime",
+     "role": "arithmetic",
+     "name": "First-moment residual magnitude governed by smallest prime factor",
+     "type": "measured-phenomenon",
+     "status": "measured",
+     "source": "src/data/imp-97157-route-m-residual-vs-smallest-prime.js; imp-97209"
+    }
+   ],
+   "control": null,
+   "requirements": {
+    "multiplicativity": "mobius-packet-energy-target",
+    "heightUniform": "mobius-packet-energy-target",
+    "controlFailure": "none recorded: Q1 open",
+    "crossing": "rm-parity-sign-law"
+   },
+   "underused": [
+    "rm-parity-sign-law",
+    "rm-residual-smallest-prime"
+   ],
+   "reason": "open lemma x proved tool x arithmetic or crossing partner. Multiplicativity from mobius-packet-energy-target; height-uniform member mobius-packet-energy-target; control failure: none recorded: Q1 open; crossing: rm-parity-sign-law. Under-used: rm-parity-sign-law, rm-residual-smallest-prime.",
+   "firstTest": "Write 'Mobius packet block-energy target' as one inequality with explicit constants; evaluate it at three heights using 'Liouville/Moebius parity sign law of the first-moment residual', then on DH and on a sign twist.",
+   "rowsChecked": [
+    {
+     "row": "N25",
+     "name": "Spectral-window positivity with Moebius mollifier",
+     "overlap": [
+      "moebius",
+      "mollifier",
+      "zero-free"
+     ],
+     "jaccard": 0.3,
+     "verdict": "adjacent by tags only; row falls to DH/HEAT/TW+/TW-: answer Q1 for these controls first"
+    },
+    {
+     "row": "S1",
+     "name": "Conjunction of mechanisms that jointly exclude every control (61-row table, hitting sets)",
+     "overlap": [
+      "euler-product",
+      "mean-value",
+      "zero-free"
+     ],
+     "jaccard": 0.3,
+     "verdict": "adjacent by tags only; row falls to DH/EA/HEAT/NR/TW+/TW-: answer Q1 for these controls first"
+    },
+    {
+     "row": "Z14",
+     "name": "Higher-order or mixed rows (r = 4, 5; product families)",
+     "overlap": [
+      "mean-value",
+      "moebius",
+      "zero-free"
+     ],
+     "jaccard": 0.3,
+     "verdict": "adjacent by tags only; row has no control listed"
+    },
+    {
+     "row": "Z3",
+     "name": "TRO6 polar part (Theorem P)",
+     "overlap": [
+      "mean-value",
+      "zero-free"
+     ],
+     "jaccard": 0.2,
+     "verdict": "adjacent by tags only; row falls to DH/TW+/TW-: answer Q1 for these controls first"
+    },
+    {
+     "row": "S5",
+     "name": "Joint feasibility LP: window count + explicit formula + half-plane",
+     "overlap": [
+      "explicit-formula",
+      "zero-free"
+     ],
+     "jaccard": 0.182,
+     "verdict": "adjacent by tags only; row falls to DH/TW+/TW-: answer Q1 for these controls first"
+    },
+    {
+     "row": "Z10",
+     "name": "Numerator average (Liu II Prop 14.3; Xu-Sang (25))",
+     "overlap": [
+      "mean-value",
+      "mollifier"
+     ],
+     "jaccard": 0.182,
+     "verdict": "adjacent by tags only; row has no control listed"
+    }
+   ],
+   "rank": 37
+  },
+  {
+   "key": "M3-5776ae",
+   "move": "M3",
+   "theme": "positivity",
+   "score": 14.0,
+   "scoreParts": {
+    "multiplicativity": 2,
+    "heightUniform": 3,
+    "controls": 0,
+    "crossing": 2,
+    "underused": 2,
+    "cheapTest": 2,
+    "cohesion": 2.0,
+    "breadth": 1,
+    "penalties": 0
+   },
+   "nodes": [
+    {
+     "id": "shift-bridge-ka-psd",
+     "role": "open lemma",
+     "name": "Conjecture 15.2/15.3: shift-bridge positivity K_a>=0",
+     "type": "conjecture",
+     "status": "conjectural",
+     "source": "[impr:2270] [impr:2273] src/data/paper-audit-dashboard.js ; OBSTRUCTION_MAP G20,G2"
+    },
+    {
+     "id": "ff-three-approaches-one-statement",
+     "role": "tool",
+     "name": "Passivity, prime-delay domination and Weil index coincide over F_q",
+     "type": "identity",
+     "status": "proved",
+     "source": "form:paper/function-field-twin-ladder.md §0 item 1"
+    },
+    {
+     "id": "freezing-inertia-tool",
+     "role": "crossing",
+     "name": "Freezing as inertia-preserving reduction (section 23)",
+     "type": "tool",
+     "status": "conjectural",
+     "source": "[imp:imp-1288-section23-freezing-bridge]"
+    }
+   ],
+   "control": null,
+   "requirements": {
+    "multiplicativity": "ff-three-approaches-one-statement",
+    "heightUniform": "shift-bridge-ka-psd",
+    "controlFailure": "none recorded: Q1 open",
+    "crossing": "freezing-inertia-tool"
+   },
+   "underused": [
+    "shift-bridge-ka-psd",
+    "freezing-inertia-tool"
+   ],
+   "reason": "open lemma x proved tool x arithmetic or crossing partner. Multiplicativity from ff-three-approaches-one-statement; height-uniform member shift-bridge-ka-psd; control failure: none recorded: Q1 open; crossing: freezing-inertia-tool. Under-used: shift-bridge-ka-psd, freezing-inertia-tool.",
+   "firstTest": "Write 'Conjecture 15.2/15.3: shift-bridge positivity K_a>=0' as one inequality with explicit constants; evaluate it at three heights using 'Passivity, prime-delay domination and Weil index coincide over F_q', then on DH and on a sign twist.",
+   "rowsChecked": [
+    {
+     "row": "A5",
+     "name": "Global compact object (Bohr torus T^P, idele class group) with translation-invariant structure",
+     "overlap": [
+      "de-branges",
+      "toeplitz",
+      "twin-ladder"
+     ],
+     "jaccard": 0.3,
+     "verdict": "adjacent by tags only; row falls to DH: answer Q1 for these controls first"
+    },
+    {
+     "row": "P19",
+     "name": "Damped Weil / Toeplitz ladder past ln 3",
+     "overlap": [
+      "toeplitz",
+      "twin-ladder",
+      "weil"
+     ],
+     "jaccard": 0.3,
+     "verdict": "adjacent by tags only; row falls to DH/EA: answer Q1 for these controls first"
+    },
+    {
+     "row": "G10",
+     "name": "Passive cascade (Euler product as lossless stubs)",
+     "overlap": [
+      "passive",
+      "pick"
+     ],
+     "jaccard": 0.222,
+     "verdict": "adjacent by tags only; row falls to DH/TW+/TW-: answer Q1 for these controls first"
+    },
+    {
+     "row": "G12",
+     "name": "Modular average over the torus",
+     "overlap": [
+      "bridge",
+      "pick"
+     ],
+     "jaccard": 0.222,
+     "verdict": "adjacent by tags only; row falls to DH: answer Q1 for these controls first"
+    },
+    {
+     "row": "G20",
+     "name": "The 7/8 input in bridge language",
+     "overlap": [
+      "bridge",
+      "pick"
+     ],
+     "jaccard": 0.222,
+     "verdict": "adjacent by tags only; row falls to DH: answer Q1 for these controls first"
+    },
+    {
+     "row": "N2",
+     "name": "Function-field Mayer operator as a template",
+     "overlap": [
+      "de-branges",
+      "weil"
+     ],
+     "jaccard": 0.222,
+     "verdict": "adjacent by tags only; row has no control listed"
+    }
+   ],
+   "rank": 38
+  },
+  {
+   "key": "M3-69db2f",
+   "move": "M3",
+   "theme": "positivity",
+   "score": 14.0,
+   "scoreParts": {
+    "multiplicativity": 2,
+    "heightUniform": 3,
+    "controls": 0,
+    "crossing": 2,
+    "underused": 3,
+    "cheapTest": 1,
+    "cohesion": 2.0,
+    "breadth": 1,
+    "penalties": 0
+   },
+   "nodes": [
+    {
+     "id": "m23-real-u-positivity-certificate",
+     "role": "open lemma",
+     "name": "A certificate acting on |S_I(u)|^2 for real u",
+     "type": "open-lemma",
+     "status": "conjectural",
+     "source": "[sib:morethan2-3rd/docs/04-lane1-postmortem.md] What would reopen it"
+    },
+    {
+     "id": "arch-native-prime-jordan-product",
+     "role": "tool",
+     "name": "Explicit formula on the native span: closed forms of each term",
+     "type": "identity",
+     "status": "proved",
+     "source": "imp:imp-95520-weil-pick-identity-finite-truncation"
+    },
+    {
+     "id": "m23-unconditional-window-positivity",
+     "role": "crossing",
+     "name": "Positivity of zero pair sums for any non-negative h",
+     "type": "identity",
+     "status": "proved",
+     "source": "[sib:morethan2-3rd/docs/02-adversary-and-ceiling.md] sec 4"
+    }
+   ],
+   "control": null,
+   "requirements": {
+    "multiplicativity": "arch-native-prime-jordan-product",
+    "heightUniform": "arch-native-prime-jordan-product",
+    "controlFailure": "none recorded: Q1 open",
+    "crossing": "m23-unconditional-window-positivity"
+   },
+   "underused": [
+    "m23-real-u-positivity-certificate",
+    "arch-native-prime-jordan-product",
+    "m23-unconditional-window-positivity"
+   ],
+   "reason": "open lemma x proved tool x arithmetic or crossing partner. Multiplicativity from arch-native-prime-jordan-product; height-uniform member arch-native-prime-jordan-product; control failure: none recorded: Q1 open; crossing: m23-unconditional-window-positivity. Under-used: m23-real-u-positivity-certificate, arch-native-prime-jordan-product, m23-unconditional-window-positivity.",
+   "firstTest": "Write 'A certificate acting on |S_I(u)|^2 for real u' as one inequality with explicit constants; evaluate it at three heights using 'Explicit formula on the native span: closed forms of each term', then on DH and on a sign twist.",
+   "rowsChecked": [
+    {
+     "row": "G21",
+     "name": "Local change of Tate test vector (T-NR)",
+     "overlap": [
+      "euler-product",
+      "pick"
+     ],
+     "jaccard": 0.4,
+     "verdict": "adjacent by tags only; row falls to NR: answer Q1 for these controls first"
+    },
+    {
+     "row": "G10",
+     "name": "Passive cascade (Euler product as lossless stubs)",
+     "overlap": [
+      "euler-product",
+      "pick"
+     ],
+     "jaccard": 0.333,
+     "verdict": "adjacent by tags only; row falls to DH/TW+/TW-: answer Q1 for these controls first"
+    },
+    {
+     "row": "P1",
+     "name": "Codex residual-energy target, PR 48 eq. (21)",
+     "overlap": [
+      "pick",
+      "weil"
+     ],
+     "jaccard": 0.333,
+     "verdict": "adjacent by tags only; row falls to DH/EA/HEAT/NR: answer Q1 for these controls first"
+    },
+    {
+     "row": "S6",
+     "name": "Below-bandwidth joint constraints",
+     "overlap": [
+      "euler-product",
+      "pick"
+     ],
+     "jaccard": 0.286,
+     "verdict": "adjacent by tags only; row has no control listed"
+    },
+    {
+     "row": "S7",
+     "name": "Finite-order constraints (Pick K <= 12, sector positivity, Lambda <= 0.2) at verified height",
+     "overlap": [
+      "explicit-formula",
+      "pick"
+     ],
+     "jaccard": 0.286,
+     "verdict": "adjacent by tags only; row falls to HEAT: answer Q1 for these controls first"
+    },
+    {
+     "row": "Q14",
+     "name": "Suzuki determinant criterion via the bridge",
+     "overlap": [
+      "euler-product",
+      "pick"
+     ],
+     "jaccard": 0.222,
+     "verdict": "adjacent by tags only; row falls to DH: answer Q1 for these controls first"
+    }
+   ],
+   "rank": 39
+  },
+  {
+   "key": "M3-7a5942",
+   "move": "M3",
+   "theme": "positivity",
+   "score": 14.0,
+   "scoreParts": {
+    "multiplicativity": 2,
+    "heightUniform": 3,
+    "controls": 0,
+    "crossing": 2,
+    "underused": 2,
+    "cheapTest": 2,
+    "cohesion": 2.0,
+    "breadth": 1,
+    "penalties": 0
+   },
+   "nodes": [
+    {
+     "id": "ka-positivity-residual",
+     "role": "open lemma",
+     "name": "K_a >= 0 residual (roadmap gap G7)",
+     "type": "open-lemma",
+     "status": "conjectural",
+     "source": "imp-33685-scalar-cover-offdiagonal-reachability; imp-33705-rank2-antisymmetry-offdiagonal-inertness"
+    },
+    {
+     "id": "function-field-twin-ladder",
+     "role": "tool",
+     "name": "Function-field twin-ladder Weil form = minus intersection form",
+     "type": "identity",
+     "status": "proved",
+     "source": "form:paper/function-field-twin-ladder.md §0 item 2; dag:project-attempts-dag#route27-function-field-ladder; formalization/paper/function-field-twin-ladder.md; r"
+    },
+    {
+     "id": "freezing-inertia-tool",
+     "role": "crossing",
+     "name": "Freezing as inertia-preserving reduction (section 23)",
+     "type": "tool",
+     "status": "conjectural",
+     "source": "[imp:imp-1288-section23-freezing-bridge]"
+    }
+   ],
+   "control": null,
+   "requirements": {
+    "multiplicativity": "function-field-twin-ladder",
+    "heightUniform": "function-field-twin-ladder",
+    "controlFailure": "none recorded: Q1 open",
+    "crossing": "freezing-inertia-tool"
+   },
+   "underused": [
+    "ka-positivity-residual",
+    "freezing-inertia-tool"
+   ],
+   "reason": "open lemma x proved tool x arithmetic or crossing partner. Multiplicativity from function-field-twin-ladder; height-uniform member function-field-twin-ladder; control failure: none recorded: Q1 open; crossing: freezing-inertia-tool. Under-used: ka-positivity-residual, freezing-inertia-tool.",
+   "firstTest": "Write 'K_a >= 0 residual (roadmap gap G7)' as one inequality with explicit constants; evaluate it at three heights using 'Function-field twin-ladder Weil form = minus intersection form', then on DH and on a sign twist.",
+   "rowsChecked": [
+    {
+     "row": "Q14",
+     "name": "Suzuki determinant criterion via the bridge",
+     "overlap": [
+      "bridge",
+      "hankel",
+      "pick"
+     ],
+     "jaccard": 0.25,
+     "verdict": "adjacent by tags only; row falls to DH: answer Q1 for these controls first"
+    },
+    {
+     "row": "G10",
+     "name": "Passive cascade (Euler product as lossless stubs)",
+     "overlap": [
+      "passive",
+      "pick"
+     ],
+     "jaccard": 0.2,
+     "verdict": "adjacent by tags only; row falls to DH/TW+/TW-: answer Q1 for these controls first"
+    },
+    {
+     "row": "G12",
+     "name": "Modular average over the torus",
+     "overlap": [
+      "bridge",
+      "pick"
+     ],
+     "jaccard": 0.2,
+     "verdict": "adjacent by tags only; row falls to DH: answer Q1 for these controls first"
+    },
+    {
+     "row": "G20",
+     "name": "The 7/8 input in bridge language",
+     "overlap": [
+      "bridge",
+      "pick"
+     ],
+     "jaccard": 0.2,
+     "verdict": "adjacent by tags only; row falls to DH: answer Q1 for these controls first"
+    },
+    {
+     "row": "P1",
+     "name": "Codex residual-energy target, PR 48 eq. (21)",
+     "overlap": [
+      "pick",
+      "weil"
+     ],
+     "jaccard": 0.2,
+     "verdict": "adjacent by tags only; row falls to DH/EA/HEAT/NR: answer Q1 for these controls first"
+    },
+    {
+     "row": "T3",
+     "name": "Hodge-index / section-count transplant",
+     "overlap": [
+      "function-field",
+      "hodge"
+     ],
+     "jaccard": 0.2,
+     "verdict": "adjacent by tags only; row has no control listed"
+    }
+   ],
+   "rank": 40
+  }
+ ]
+}

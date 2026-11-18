@@ -1,0 +1,16 @@
+{'k': 0, 'X': 1000, 'Dstar': 63, 'sqrtX': 31, 'ratio': 1.992234925906079, 'primepowers_le_sqrtX': 17, 'pred': 48}
+{'k': 0, 'X': 3000, 'Dstar': 101, 'sqrtX': 54, 'ratio': 1.8439992769340592, 'primepowers_le_sqrtX': 24, 'pred': 78}
+{'k': 0, 'X': 10000, 'Dstar': 173, 'sqrtX': 100, 'ratio': 1.73, 'primepowers_le_sqrtX': 35, 'pred': 135}
+{'k': 0, 'X': 30000, 'Dstar': 327, 'sqrtX': 173, 'ratio': 1.8879353802500762, 'primepowers_le_sqrtX': 54, 'pred': 227}
+{'k': 0, 'X': 100000, 'Dstar': 589, 'sqrtX': 316, 'ratio': 1.8625815418391753, 'primepowers_le_sqrtX': 82, 'pred': 398}
+{'k': 1, 'X': 1000, 'Dstar': 59, 'sqrtX': 31, 'ratio': 1.8657438194993439, 'primepowers_le_sqrtX': 17, 'pred': 48}
+{'k': 1, 'X': 3000, 'Dstar': 84, 'sqrtX': 54, 'ratio': 1.533623161014465, 'primepowers_le_sqrtX': 24, 'pred': 78}
+{'k': 1, 'X': 10000, 'Dstar': 157, 'sqrtX': 100, 'ratio': 1.57, 'primepowers_le_sqrtX': 35, 'pred': 135}
+Traceback (most recent call last):
+  File "tmp/research-2026-11-16/push/e2-legendre-riesz-level-phase/pin.py", line 14, in <module>
+    if pinned(mid): hi = mid
+       ~~~~~~^^^^^
+  File "tmp/research-2026-11-16/push/e2-legendre-riesz-level-phase/pin.py", line 10, in <lambda>
+    pinned = lambda D: (solve(sysm, D)['val'] - truth) < 1e-7 * math.sqrt(X)
+                        ~~~~~~~~~~~~~~^^^^^^^
+KeyError: 'val'

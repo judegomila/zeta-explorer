@@ -1,0 +1,24 @@
+# k=0 X=1000 theta=0.3 D=8: planned memory: LP nnz <= 6.16e+03 (0.000 GB)
+R k=0 X=1e+03 th=0.3 D=8 val=1141.9345 exc/sqrtX=4.4884 (lin-main)/sqrtX=4.0979 pen/sqrtX=0.3904 exact(c)-truth/sqrtX=4.2393 l1=4 nnz=4 A=2.38e-02 B-1=-9.24e-03 C0=-2.000 it=1 worst=-2.2e-16 t=0.0s
+# k=0 X=1000 theta=0.5 D=32: planned memory: LP nnz <= 8.93e+03 (0.000 GB)
+R k=0 X=1e+03 th=0.5 D=32 val=1074.3290 exc/sqrtX=2.3505 (lin-main)/sqrtX=1.2905 pen/sqrtX=1.0600 exact(c)-truth/sqrtX=1.3490 l1=13.6 nnz=22 A=4.41e-04 B-1=4.06e-02 C0=-2.643 it=1 worst=-1.0e-15 t=0.0s
+# k=0 X=1000 theta=0.7 D=126: planned memory: LP nnz <= 1.17e+04 (0.000 GB)
+R k=0 X=1e+03 th=0.7 D=126 val=1052.3749 exc/sqrtX=1.6562 (lin-main)/sqrtX=-0.5005 pen/sqrtX=2.1568 exact(c)-truth/sqrtX=0.2581 l1=35 nnz=30 A=-1.36e-02 B-1=6.75e-02 C0=-3.000 it=1 worst=0.0e+00 t=0.0s
+# k=0 X=1000 theta=0.9 D=501: planned memory: LP nnz <= 1.44e+04 (0.000 GB)
+R k=0 X=1e+03 th=0.9 D=501 val=1046.3784 exc/sqrtX=1.4666 (lin-main)/sqrtX=-0.8051 pen/sqrtX=2.2717 exact(c)-truth/sqrtX=0.0615 l1=41 nnz=33 A=-1.57e-02 B-1=6.84e-02 C0=-1.000 it=1 worst=0.0e+00 t=0.0s
+# k=0 X=10000 theta=0.3 D=16: planned memory: LP nnz <= 7.55e+04 (0.001 GB)
+R k=0 X=1e+04 th=0.3 D=16 val=11356.4969 exc/sqrtX=13.5650 (lin-main)/sqrtX=13.3266 pen/sqrtX=0.2384 exact(c)-truth/sqrtX=13.1109 l1=6 nnz=12 A=6.82e-03 B-1=7.75e-02 C0=-2.667 it=1 worst=-1.3e-15 t=0.0s
+# k=0 X=10000 theta=0.5 D=100: planned memory: LP nnz <= 1.12e+05 (0.002 GB)
+R k=0 X=1e+04 th=0.5 D=100 val=10409.4631 exc/sqrtX=4.0946 (lin-main)/sqrtX=2.8876 pen/sqrtX=1.2071 exact(c)-truth/sqrtX=2.6626 l1=39.9 nnz=66 A=7.46e-05 B-1=2.86e-02 C0=-3.261 it=1 worst=-1.2e-14 t=0.0s
+# k=0 X=10000 theta=0.7 D=631: planned memory: LP nnz <= 1.49e+05 (0.002 GB)
+R k=0 X=1e+04 th=0.7 D=631 val=10216.6552 exc/sqrtX=2.1666 (lin-main)/sqrtX=-0.9943 pen/sqrtX=3.1608 exact(c)-truth/sqrtX=0.1624 l1=139 nnz=90 A=-7.94e-03 B-1=5.58e-02 C0=-6.400 it=1 worst=-7.1e-15 t=0.1s
+# k=0 X=10000 theta=0.9 D=3981: planned memory: LP nnz <= 1.86e+05 (0.003 GB)
+R k=0 X=1e+04 th=0.9 D=3981 val=10204.8701 exc/sqrtX=2.0487 (lin-main)/sqrtX=-1.2910 pen/sqrtX=3.3397 exact(c)-truth/sqrtX=0.0661 l1=164 nnz=89 A=-9.10e-03 B-1=6.23e-02 C0=-6.000 it=1 worst=-1.8e-15 t=0.5s
+# k=0 X=100000 theta=0.3 D=32: planned memory: LP nnz <= 8.93e+05 (0.014 GB)
+R k=0 X=1e+05 th=0.3 D=32 val=109083.6951 exc/sqrtX=28.7252 (lin-main)/sqrtX=28.5448 pen/sqrtX=0.1803 exact(c)-truth/sqrtX=28.3734 l1=11.8 nnz=31 A=3.38e-03 B-1=5.48e-02 C0=-2.939 it=1 worst=-3.3e-16 t=0.0s
+# k=0 X=100000 theta=0.5 D=316: planned memory: LP nnz <= 1.35e+06 (0.022 GB)
+R k=0 X=1e+05 th=0.5 D=316 val=101855.7087 exc/sqrtX=5.8683 (lin-main)/sqrtX=3.9175 pen/sqrtX=1.9507 exact(c)-truth/sqrtX=3.8497 l1=178 nnz=218 A=-3.00e-04 B-1=1.56e-02 C0=-4.151 it=1 worst=-1.2e-13 t=0.9s
+# k=0 X=100000 theta=0.7 D=3162: planned memory: LP nnz <= 1.81e+06 (0.029 GB)
+R k=0 X=1e+05 th=0.7 D=3162 val=100713.0915 exc/sqrtX=2.2550 (lin-main)/sqrtX=-2.3966 pen/sqrtX=4.6516 exact(c)-truth/sqrtX=0.2275 l1=563 nnz=266 A=-3.30e-03 B-1=2.72e-02 C0=-7.987 it=1 worst=-2.8e-13 t=7.4s
+# k=0 X=100000 theta=0.9 D=31623: planned memory: LP nnz <= 2.27e+06 (0.036 GB)
+R k=0 X=1e+05 th=0.9 D=31623 val=100694.4924 exc/sqrtX=2.1962 (lin-main)/sqrtX=-1.7530 pen/sqrtX=3.9492 exact(c)-truth/sqrtX=0.2554 l1=487 nnz=270 A=-2.78e-03 B-1=2.37e-02 C0=-1.482 it=1 worst=-1.1e-13 t=49.1s

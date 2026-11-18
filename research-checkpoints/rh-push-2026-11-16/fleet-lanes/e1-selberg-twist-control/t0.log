@@ -1,0 +1,17 @@
+.venv-arb/lib/python3.14/site-packages/numpy/linalg/_linalg.py:2406: RuntimeWarning: divide by zero encountered in det
+  r = _umath_linalg.det(a, signature=signature)
+.venv-arb/lib/python3.14/site-packages/numpy/linalg/_linalg.py:2406: RuntimeWarning: overflow encountered in det
+  r = _umath_linalg.det(a, signature=signature)
+.venv-arb/lib/python3.14/site-packages/numpy/linalg/_linalg.py:2406: RuntimeWarning: invalid value encountered in det
+  r = _umath_linalg.det(a, signature=signature)
+max |rho(g)rho(h)-rho(gh)| = 2.220446049250313e-16
+chi(A), chi(B), chi(AB^-1) exponents: (1, 0) (0, 1) (1, -1)
+eigenphases rho(T): [np.float64(-0.49), np.float64(-0.485), np.float64(-0.025), np.float64(0.01), np.float64(0.015), np.float64(0.475)]
+eigenphases rho(L): [np.float64(-0.475), np.float64(-0.015), np.float64(-0.01), np.float64(0.025), np.float64(0.485), np.float64(0.49)]
+K 20 Z(2)= (0.9933734654034005+3.56910344366951e-18j) Z(0.8)= (-0.21184869814931728-1.0322083197037925e-16j) Z(0.3+2i)= (65.82098778575423-40.952600920303595j) 2.8
+K 28 Z(2)= (0.9933734653425217+3.362315134993583e-18j) Z(0.8)= (-0.21184868857203162+1.3099254340691854e-16j) Z(0.3+2i)= (65.82205997659561-40.95133746217193j) 7.0
+K 36 Z(2)= (0.9933734653424704+2.869548555275649e-18j) Z(0.8)= (-0.21184868855204617+3.2524220956771564e-16j) Z(0.3+2i)= (65.82205726404247-40.95133322956482j) 12.6
+tmax 60 words 778 exp(logZ) s=2: (0.9933812016992274-9.547319786755947e-21j) s=3: (0.9998407067128671+8.351461352915747e-21j) s=1.5+2i: (0.9885687345241662+0.017340951224834495j)
+tmax 400 words 34075 exp(logZ) s=2: (0.9933735258074591-2.7233769534866986e-20j) s=3: (0.9998407053819875+8.345016657278928e-21j) s=1.5+2i: (0.9885872479562743+0.017079671692886066j)
+det s=3: (0.9998407053817947+1.5145593123753633e-19j) det s=1.5+2i: (0.9885729884398226+0.017080961333151606j)
+chi=1: Euler Z_Gamma(2)(2)= (0.9924152475669828-1.3555169372199977e-18j)  det: (0.9924147767386771-1.599363139319264e-33j)  Z_PSL2Z(2)= (0.9537995977872837+0j)

@@ -1,0 +1,15 @@
+test G, ref liou: 162 points (Z, M); nu = E Z/(M M_ref^2) binned in log2 Y, Y = Z^2/M (weighted mean, se, chi2 of the spread within the bin)
+  log2 Y in [10,12): n =   6  nu =    0.524 +- 0.020   chi2/(n-1) = 58.8/5   Y^(1/6) = 3.56
+  log2 Y in [12,14): n =  13  nu =    0.964 +- 0.012   chi2/(n-1) = 254.0/12   Y^(1/6) = 4.49
+  log2 Y in [14,16): n =  19  nu =    1.341 +- 0.008   chi2/(n-1) = 383.9/18   Y^(1/6) = 5.66
+  log2 Y in [16,18): n =  22  nu =    1.710 +- 0.005   chi2/(n-1) = 947.1/21   Y^(1/6) = 7.13
+  log2 Y in [18,20): n =  26  nu =    2.101 +- 0.004   chi2/(n-1) = 1982.9/25   Y^(1/6) = 8.98
+  log2 Y in [20,22): n =  22  nu =    2.465 +- 0.008   chi2/(n-1) = 821.0/21   Y^(1/6) = 11.31
+  log2 Y in [22,24): n =  18  nu =    2.947 +- 0.018   chi2/(n-1) = 211.8/17   Y^(1/6) = 14.25
+  log2 Y in [24,26): n =  15  nu =    3.577 +- 0.040   chi2/(n-1) = 50.1/14   Y^(1/6) = 17.96
+  log2 Y in [26,28): n =  11  nu =    4.382 +- 0.095   chi2/(n-1) = 15.0/10   Y^(1/6) = 22.63
+  log2 Y in [28,30): n =   7  nu =    5.111 +- 0.224   chi2/(n-1) = 2.2/6   Y^(1/6) = 28.51
+  log2 Y in [30,32): n =   3  nu =    6.372 +- 0.638   chi2/(n-1) = 0.4/2   Y^(1/6) = 35.92
+  exponent of nu in Y (points with nu > 3 se, Y >= 2^12; 150 points): 0.1475 +- 0.0044 (chi2/dof 3041/148); sixth-power count 0.1667
+  exponent of nu in Y (points with nu > 3 se, Y >= 2^16; 120 points): 0.1372 +- 0.0051 (chi2/dof 2388/118); sixth-power count 0.1667
+  exponent of nu in Y (points with nu > 3 se, Y >= 2^20; 76 points): 0.1325 +- 0.0080 (chi2/dof 718/74); sixth-power count 0.1667

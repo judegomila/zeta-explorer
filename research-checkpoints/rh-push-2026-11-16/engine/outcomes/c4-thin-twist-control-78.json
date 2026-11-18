@@ -1,0 +1,37 @@
+{
+ "slug": "c4-thin-twist-control-78",
+ "round": 4,
+ "kind": "deepen",
+ "nodes": [],
+ "tags": [
+  "seven-eighths",
+  "control",
+  "sign-twist",
+  "euler-product",
+  "sextic-theta",
+  "periodicity",
+  "poisson"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "Relative to a Hoheisel-type short-interval theorem (with the dyadic repair of Lemma 1), for every b in (1/2,1) there is a completely multiplicative eps with values +-1, equal to 1 on primes of relative density one, with sum eps(n) n^-s = zeta(s)(s-b)W(s), W analytic and non-vanishing on Re s > max(b-eta, b/3): one simple pole at 1, a simple zero at b, partial sums c x + O(x^(b+epsilon)), and sum mu*eps not O(x^(b-delta)). eps is not periodic to any modulus. Numerics at b=0.9 (result) and b=0.8 (referee, separate code) agree with the construction. Proposition D holds as a corollary of the proof of the manuscript's Proposition 2.1: for a target with a zero at real part beta reachable by continuation, the low bound (2.4) and the high comparison (2.5) cannot both hold. The localisation of the first unavailable hypothesis (ray-class periodicity of the target weight in Proposition 5.1 / Lemma 5.8) is consistent with the manuscript text and remains argued, not replayed; which of the two estimates fails for the eps-probe is open. No statement about zeros of zeta.",
+ "obstruction": "Control lane. The completely multiplicative eps = -1 on a thin regular prime set S gives F = zeta(s)(s-b)W(s) with a simple zero at any b in (1/2,1) (relative to a Hoheisel-type short-interval theorem cited from memory). In a walk of the 7/8 proof by hypotheses (not replayed), every multiplicative and local-size step holds for eps; the first unavailable step is Proposition 5.1 / Lemma 5.8: periodicity of the target weight to a ray-class lattice (also Lemmas 4.8, 8.1, 17.5). Proposition D: the low estimate (2.4) and the high comparison (2.5) cannot both hold for the eps-probe; which one fails is not decided. So the 7/8 mechanism uses lattice-translation invariance of the coefficients (Poisson dual uniform in the modulus) beyond multiplicativity.",
+ "obstructionKind": "new-control-localises-periodicity-input",
+ "controlsThatDefeat": [
+  "THIN itself is the new control: it passes complete multiplicativity, unimodularity at every prime, continuation, the pole, density-one agreement with zeta at primes and local temperedness, and has a zero at b"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "Report written to tmp/research-2026-11-16/push/c4-thin-twist-control-78/REFEREE.md. All PROVED steps re-derived and confirmed (greedy rule, Theorem 1(i)-(v), Lemma N, inert identity, Proposition D against the manuscript text of Proposition 2.1). Independent numeric rerun in a different case (b=0.8, N=2e7, own code): D in [-1,0]; direct Euler product equals (s-b)W(s) to 8 digits at s=1.2 and 1.5; M_eps/x^0.8 = -0.1325 at 2e7 vs residue prediction -0",
+ "lesson": "Complete multiplicativity, unimodular parameters at every prime, continuation, the pole and density-one agreement with zeta at primes are consistent with a zero at any b in (7/8,1). The one extra input of the 7/8 mechanism is lattice-translation invariance of the coefficients: every sextic twist is periodic and has a Poisson dual uniformly in the modulus. It is used in the conductor aspect of a family, never as s <-> 1-s for the target. THIN passes local temperedness (table row 34), complementary to the one-prime twin Z18.",
+ "followUp": "Decide the dichotomy numerically: mean square over m of the completed cubic theta row with weight eps_K versus weight 1 at two or three scales Z (tmp/sextic tools), b = 0.95 so Part I applies; growth like Z^(2(b-11/12)) means the low estimate (row reflection) is the false side. Also: re-read the short-interval theorem, and add ctl-THIN.json (in the slug directory) to the engine.",
+ "resultFile": "tmp/research-2026-11-16/push/c4-thin-twist-control-78/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c4-thin-twist-control-78/REFEREE.md"
+}

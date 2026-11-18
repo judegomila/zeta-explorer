@@ -1,0 +1,2 @@
+planned memory per worker: 20000 x 128 complex x 4 = 164 MB; workers 8
+done 152.29917907714844

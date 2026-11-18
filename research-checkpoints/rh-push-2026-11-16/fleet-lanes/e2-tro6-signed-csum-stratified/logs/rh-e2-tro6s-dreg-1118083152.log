@@ -1,0 +1,57 @@
+k=0 Q=938: 8141 conductors with 1125 < N(c) <= 30000
+  map s=1 u=0 a=0 b=0: n=8141, groups 156, cells 528; last U 11.755 null 12.003; planted (amplitude 0.3 on one tau) U 17.017; 4s
+  map s=1 u=0 a=0 b=1: n=1793, groups 96, cells 96; last U 11.729 null 12.273; planted (amplitude 0.3 on one tau) U 13.628; 4s
+  map s=1 u=0 a=1 b=0: n=2513, groups 108, cells 168; last U 11.498 null 12.315; planted (amplitude 0.3 on one tau) U 14.311; 5s
+  map s=1 u=0 a=2 b=0: n=623, groups 57, cells 0; last U 0.000 null 0.000; planted (amplitude 0.3 on one tau) U 0.000; 5s
+  map s=1 u=1 a=0 b=0: n=8141, groups 156, cells 528; last U 11.708 null 11.948; planted (amplitude 0.3 on one tau) U 17.261; 7s
+  map s=1 u=1 a=0 b=1: n=1793, groups 96, cells 96; last U 12.429 null 11.911; planted (amplitude 0.3 on one tau) U 14.547; 7s
+  map s=1 u=1 a=1 b=0: n=2513, groups 108, cells 168; last U 12.033 null 12.010; planted (amplitude 0.3 on one tau) U 14.771; 8s
+  map s=1 u=1 a=2 b=0: n=623, groups 57, cells 0; last U 0.000 null 0.000; planted (amplitude 0.3 on one tau) U 0.000; 8s
+  map s=1 u=2 a=0 b=0: n=8141, groups 156, cells 528; last U 11.708 null 11.783; planted (amplitude 0.3 on one tau) U 17.401; 9s
+  map s=1 u=2 a=0 b=1: n=1793, groups 96, cells 96; last U 12.429 null 11.636; planted (amplitude 0.3 on one tau) U 14.932; 10s
+  map s=1 u=2 a=1 b=0: n=2513, groups 108, cells 168; last U 12.033 null 12.041; planted (amplitude 0.3 on one tau) U 14.820; 10s
+  map s=1 u=2 a=2 b=0: n=623, groups 57, cells 0; last U 0.000 null 0.000; planted (amplitude 0.3 on one tau) U 0.000; 10s
+  map s=7 u=0 a=0 b=0: n=894, groups 69, cells 0; last U 0.000 null 0.000; planted (amplitude 0.3 on one tau) U 0.000; 10s
+  map s=7 u=1 a=0 b=0: n=894, groups 69, cells 0; last U 0.000 null 0.000; planted (amplitude 0.3 on one tau) U 0.000; 10s
+  map s=7 u=2 a=0 b=0: n=894, groups 69, cells 0; last U 0.000 null 0.000; planted (amplitude 0.3 on one tau) U 0.000; 10s
+  map s=7 u=0 a=0 b=0: n=894, groups 69, cells 0; last U 0.000 null 0.000; planted (amplitude 0.3 on one tau) U 0.000; 10s
+  map s=7 u=1 a=0 b=0: n=894, groups 69, cells 0; last U 0.000 null 0.000; planted (amplitude 0.3 on one tau) U 0.000; 10s
+  map s=7 u=2 a=0 b=0: n=894, groups 69, cells 0; last U 0.000 null 0.000; planted (amplitude 0.3 on one tau) U 0.000; 10s
+configurations 1080: U mean 6.049 sd 6.096 max 19.593; null mean 6.080 sd 6.121 max 19.215 (n 3240)
+maps with n >= 2000: 360 configurations: U mean 12.114 sd 1.130 max 19.593; null mean 12.159 sd 1.056 max 19.215
+{'s': 1, 'u': 2, 'a': 0, 'b': 0, 'var': 'loo', 'f': 1, 'j': 0, 'conj': 0, 'U': np.float64(19.592523094051664), 'null': [np.float64(18.868357639804408), np.float64(19.066879281714826), np.float64(19.21481287799992)], 'cells': 528, 'n': 8141}
+{'s': 1, 'u': 1, 'a': 0, 'b': 0, 'var': 'loo', 'f': 1, 'j': 0, 'conj': 0, 'U': np.float64(19.592523094051657), 'null': [np.float64(18.97025890251269), np.float64(19.037347835163352), np.float64(18.99191373586059)], 'cells': 528, 'n': 8141}
+{'s': 1, 'u': 0, 'a': 0, 'b': 0, 'var': 'loo', 'f': 1, 'j': 0, 'conj': 0, 'U': np.float64(19.425173437550022), 'null': [np.float64(19.152979198860187), np.float64(18.871473709105263), np.float64(19.05618382198955)], 'cells': 528, 'n': 8141}
+{'s': 1, 'u': 1, 'a': 0, 'b': 0, 'var': 'loo', 'f': 1, 'j': 0, 'conj': 1, 'U': np.float64(18.85817766839621), 'null': [np.float64(18.65432036250943), np.float64(18.8743385437776), np.float64(18.862093404070663)], 'cells': 528, 'n': 8141}
+{'s': 1, 'u': 2, 'a': 0, 'b': 0, 'var': 'loo', 'f': 1, 'j': 0, 'conj': 1, 'U': np.float64(18.858177668396166), 'null': [np.float64(19.196291583411693), np.float64(19.196126995569283), np.float64(18.90842627058383)], 'cells': 528, 'n': 8141}
+{'s': 1, 'u': 0, 'a': 0, 'b': 0, 'var': 'loo', 'f': 1, 'j': 0, 'conj': 1, 'U': np.float64(18.788253477618674), 'null': [np.float64(18.946026166875402), np.float64(19.130754236982717), np.float64(18.964591640159416)], 'cells': 528, 'n': 8141}
+{'s': 1, 'u': 0, 'a': 0, 'b': 1, 'var': 'loo', 'f': 1, 'j': 0, 'conj': 0, 'U': np.float64(16.951871480569647), 'null': [np.float64(16.054917617434565), np.float64(16.193064379412743), np.float64(16.573243036336958)], 'cells': 96, 'n': 1793}
+{'s': 1, 'u': 2, 'a': 0, 'b': 1, 'var': 'loo', 'f': 1, 'j': 0, 'conj': 0, 'U': np.float64(16.873093868473436), 'null': [np.float64(16.788225013890756), np.float64(16.579329153381828), np.float64(16.7073501188412)], 'cells': 96, 'n': 1793}
+{'s': 1, 'u': 1, 'a': 0, 'b': 1, 'var': 'loo', 'f': 1, 'j': 0, 'conj': 0, 'U': np.float64(16.873093868473394), 'null': [np.float64(16.271091974534183), np.float64(16.253925967379725), np.float64(16.247821239602974)], 'cells': 96, 'n': 1793}
+{'s': 1, 'u': 0, 'a': 1, 'b': 0, 'var': 'loo', 'f': 1, 'j': 0, 'conj': 0, 'U': np.float64(16.687451077630616), 'null': [np.float64(15.620661667350621), np.float64(16.196343462212425), np.float64(16.163210683725026)], 'cells': 168, 'n': 2513}
+{'s': 1, 'u': 1, 'a': 1, 'b': 0, 'var': 'loo', 'f': 1, 'j': 0, 'conj': 0, 'U': np.float64(16.38830856218762), 'null': [np.float64(15.998475680491527), np.float64(16.006040759578262), np.float64(15.81766135908747)], 'cells': 168, 'n': 2513}
+{'s': 1, 'u': 2, 'a': 1, 'b': 0, 'var': 'loo', 'f': 1, 'j': 0, 'conj': 0, 'U': np.float64(16.38830856218754), 'null': [np.float64(16.06061114621736), np.float64(15.536875012498518), np.float64(15.793029976873727)], 'cells': 168, 'n': 2513}
+k=2 Q=1875: 7832 conductors with 2250 < N(c) <= 30000
+  map s=1 u=0 a=0 b=0: n=7832, groups 120, cells 510; last U 12.063 null 11.909; planted (amplitude 0.3 on one tau) U 18.261; 3s
+  map s=1 u=0 a=0 b=1: n=1484, groups 60, cells 84; last U 11.657 null 12.065; planted (amplitude 0.3 on one tau) U 13.966; 3s
+  map s=1 u=0 a=1 b=0: n=2204, groups 72, cells 222; last U 11.914 null 11.853; planted (amplitude 0.3 on one tau) U 14.845; 4s
+  map s=1 u=1 a=0 b=0: n=7832, groups 120, cells 510; last U 11.656 null 11.999; planted (amplitude 0.3 on one tau) U 17.914; 6s
+  map s=1 u=1 a=0 b=1: n=1484, groups 60, cells 84; last U 11.579 null 11.954; planted (amplitude 0.3 on one tau) U 13.614; 6s
+  map s=1 u=1 a=1 b=0: n=2204, groups 72, cells 222; last U 12.056 null 12.014; planted (amplitude 0.3 on one tau) U 14.619; 6s
+  map s=1 u=2 a=0 b=0: n=7832, groups 120, cells 510; last U 11.656 null 11.790; planted (amplitude 0.3 on one tau) U 17.832; 8s
+  map s=1 u=2 a=0 b=1: n=1484, groups 60, cells 84; last U 11.579 null 11.717; planted (amplitude 0.3 on one tau) U 14.135; 9s
+  map s=1 u=2 a=1 b=0: n=2204, groups 72, cells 222; last U 12.056 null 11.970; planted (amplitude 0.3 on one tau) U 14.601; 9s
+configurations 540: U mean 12.143 sd 1.428 max 22.975; null mean 12.191 sd 1.338 max 22.454 (n 1620)
+maps with n >= 2000: 360 configurations: U mean 12.181 sd 1.556 max 22.975; null mean 12.215 sd 1.457 max 22.454
+{'s': 1, 'u': 1, 'a': 0, 'b': 0, 'var': 'loo', 'f': 1, 'j': 0, 'conj': 0, 'U': np.float64(22.974562492647294), 'null': [np.float64(22.096540702983376), np.float64(22.316129322726454), np.float64(22.217649518929576)], 'cells': 510, 'n': 7832}
+{'s': 1, 'u': 2, 'a': 0, 'b': 0, 'var': 'loo', 'f': 1, 'j': 0, 'conj': 0, 'U': np.float64(22.974562492647287), 'null': [np.float64(22.28621890304639), np.float64(22.143726897831474), np.float64(22.189015006649363)], 'cells': 510, 'n': 7832}
+{'s': 1, 'u': 0, 'a': 0, 'b': 0, 'var': 'loo', 'f': 1, 'j': 0, 'conj': 0, 'U': np.float64(22.94858725058457), 'null': [np.float64(22.425211894202537), np.float64(21.827085331017102), np.float64(22.4535458996175)], 'cells': 510, 'n': 7832}
+{'s': 1, 'u': 0, 'a': 0, 'b': 0, 'var': 'loo', 'f': 1, 'j': 0, 'conj': 1, 'U': np.float64(22.236920252395013), 'null': [np.float64(22.108544296204972), np.float64(22.365910348055184), np.float64(22.299293390895148)], 'cells': 510, 'n': 7832}
+{'s': 1, 'u': 1, 'a': 0, 'b': 0, 'var': 'loo', 'f': 1, 'j': 0, 'conj': 1, 'U': np.float64(22.213772821116777), 'null': [np.float64(22.363107782964633), np.float64(22.17912317775352), np.float64(22.247706414929887)], 'cells': 510, 'n': 7832}
+{'s': 1, 'u': 2, 'a': 0, 'b': 0, 'var': 'loo', 'f': 1, 'j': 0, 'conj': 1, 'U': np.float64(22.213772821116766), 'null': [np.float64(22.272955395751872), np.float64(22.31500645128677), np.float64(22.276559196644836)], 'cells': 510, 'n': 7832}
+{'s': 1, 'u': 1, 'a': 0, 'b': 1, 'var': 'loo', 'f': 1, 'j': 0, 'conj': 1, 'U': np.float64(17.8898756224363), 'null': [np.float64(17.321749930329872), np.float64(17.482665676836504), np.float64(17.182913040601655)], 'cells': 84, 'n': 1484}
+{'s': 1, 'u': 2, 'a': 0, 'b': 1, 'var': 'loo', 'f': 1, 'j': 0, 'conj': 1, 'U': np.float64(17.889875622436204), 'null': [np.float64(17.466102432086462), np.float64(17.262935339740757), np.float64(17.669440828999342)], 'cells': 84, 'n': 1484}
+{'s': 1, 'u': 1, 'a': 0, 'b': 1, 'var': 'loo', 'f': 1, 'j': 0, 'conj': 0, 'U': np.float64(17.73978354888494), 'null': [np.float64(17.720851718267973), np.float64(17.383891233411603), np.float64(17.42772630640857)], 'cells': 84, 'n': 1484}
+{'s': 1, 'u': 2, 'a': 0, 'b': 1, 'var': 'loo', 'f': 1, 'j': 0, 'conj': 0, 'U': np.float64(17.739783548884844), 'null': [np.float64(17.378934664055258), np.float64(17.63325372498649), np.float64(17.53269735805573)], 'cells': 84, 'n': 1484}
+{'s': 1, 'u': 0, 'a': 0, 'b': 1, 'var': 'loo', 'f': 1, 'j': 0, 'conj': 1, 'U': np.float64(17.394246250803015), 'null': [np.float64(18.187856866346124), np.float64(17.259288373888484), np.float64(17.227303964228334)], 'cells': 84, 'n': 1484}
+{'s': 1, 'u': 1, 'a': 1, 'b': 0, 'var': 'loo', 'f': 1, 'j': 0, 'conj': 0, 'U': np.float64(17.393147096001517), 'null': [np.float64(16.42219749928391), np.float64(16.74655310784884), np.float64(16.448889745045882)], 'cells': 222, 'n': 2204}

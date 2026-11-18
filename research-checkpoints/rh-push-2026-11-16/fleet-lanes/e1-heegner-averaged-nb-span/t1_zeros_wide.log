@@ -1,0 +1,65 @@
+      root 0.73783211 + 23.71417241 i  resid 8.7e-15  in_cell True
+      root 0.84514601 + 25.59234167 i  resid 7.1e-15  in_cell True
+trace 50 n_D 16 zeros 1/2<Re<1: 2  1<Re<3: 4  maxedge 3.129 not-in-cell 0
+      root 0.71843716 + 13.22230150 i  resid 2.0e-14  in_cell True
+      root 0.76067472 + 34.11806065 i  resid 5.3e-14  in_cell True
+      root 0.95869143 + 42.76724931 i  resid 7.4e-14  in_cell True
+      root 0.98679110 + 22.20291269 i  resid 2.2e-14  in_cell True
+      root 0.98123409 + 38.54501339 i  resid 3.3e-14  in_cell True
+trace 100 n_D 31 zeros 1/2<Re<1: 5  1<Re<3: 0  maxedge 3.139 not-in-cell 0
+      root 0.50000000 + 1.34597633 i  resid 2.0e-14  in_cell True
+      root 0.65613835 + 21.13577830 i  resid 6.2e-14  in_cell True
+      root 0.85712536 + 43.31091153 i  resid 8.6e-14  in_cell True
+      root 0.92566834 + 37.75907824 i  resid 3.4e-13  in_cell True
+trace 200 n_D 62 zeros 1/2<Re<1: 4  1<Re<3: 3  maxedge 3.135 not-in-cell 0
+      root 0.89963013 + 12.33673921 i  resid 6.7e-15  in_cell False
+classsum 50 n_D 16 zeros 1/2<Re<1: 1  1<Re<3: 6  maxedge 3.126 not-in-cell 1
+      root 0.69737455 + 34.21865469 i  resid 4.8e-14  in_cell True
+      root 0.88497688 + 22.18229051 i  resid 1.3e-13  in_cell True
+      root 0.91291532 + 13.25446394 i  resid 1.1e-14  in_cell True
+classsum 100 n_D 31 zeros 1/2<Re<1: 3  1<Re<3: 2  maxedge 3.139 not-in-cell 0
+      root 0.50000000 + 1.35255818 i  resid 9.7e-15  in_cell True
+      root 0.76655514 + 21.10427174 i  resid 7.8e-14  in_cell True
+      root 0.96889059 + 43.31484300 i  resid 1.4e-13  in_cell True
+classsum 200 n_D 62 zeros 1/2<Re<1: 3  1<Re<3: 4  maxedge 3.135 not-in-cell 2
+      root 0.72315334 + 30.06260017 i  resid 1.4e-14  in_cell False
+      root 0.86230518 + 12.07815877 i  resid 2.5e-15  in_cell True
+      root 0.96207021 + 44.95683737 i  resid 2.1e-14  in_cell True
+      root 0.99531017 + 25.44078131 i  resid 3.3e-15  in_cell True
+perclass 50 n_D 16 zeros 1/2<Re<1: 4  1<Re<3: 4  maxedge 3.129 not-in-cell 1
+      root 0.50000000 + 1.55230423 i  resid 3.4e-15  in_cell True
+      root 0.69499997 + 34.02436081 i  resid 5.3e-14  in_cell True
+      root 0.80090038 + 30.25622705 i  resid 2.0e-14  in_cell True
+      root 0.83664083 + 45.63381581 i  resid 8.6e-15  in_cell True
+      root 0.90074544 + 24.46676097 i  resid 9.1e-15  in_cell True
+      root 0.94042501 + 38.53089099 i  resid 2.8e-14  in_cell True
+perclass 100 n_D 31 zeros 1/2<Re<1: 6  1<Re<3: 2  maxedge 3.141 not-in-cell 0
+      root 0.50000000 + 1.23530766 i  resid 5.0e-15  in_cell True
+      root 0.75883472 + 15.29467808 i  resid 1.3e-14  in_cell True
+      root 0.78126470 + 24.01133534 i  resid 3.6e-14  in_cell True
+      root 0.77754523 + 34.33494203 i  resid 3.8e-14  in_cell True
+      root 0.94440935 + 31.06772193 i  resid 8.8e-14  in_cell True
+perclass 200 n_D 62 zeros 1/2<Re<1: 5  1<Re<3: 3  maxedge 3.132 not-in-cell 0
+      root 0.88034984 + 29.17170163 i  resid 1.2e-14  in_cell True
+cesaro 50 n_D 16 zeros 1/2<Re<1: 1  1<Re<3: 3  maxedge 3.12 not-in-cell 0
+      root 0.63958076 + 26.75217785 i  resid 8.6e-16  in_cell True
+      root 0.70645288 + 19.10357446 i  resid 1.2e-14  in_cell True
+      root 0.73070460 + 45.45571984 i  resid 2.0e-14  in_cell True
+      root 0.85223400 + 24.37691375 i  resid 5.3e-15  in_cell True
+cesaro 100 n_D 31 zeros 1/2<Re<1: 4  1<Re<3: 3  maxedge 3.134 not-in-cell 0
+      root 0.50000000 + 1.49379540 i  resid 7.1e-15  in_cell True
+      root 0.61173702 + 19.22198037 i  resid 9.5e-15  in_cell True
+      root 0.77488814 + 28.09686214 i  resid 8.6e-14  in_cell False
+      root 0.85947742 + 24.27330872 i  resid 2.8e-14  in_cell True
+cesaro 200 n_D 62 zeros 1/2<Re<1: 4  1<Re<3: 4  maxedge 3.138 not-in-cell 1
+deg0 50 n_D 16 zeros 1/2<Re<1: 0  1<Re<3: 4  maxedge 3.142 not-in-cell 0
+deg0 100 n_D 31 zeros 1/2<Re<1: 0  1<Re<3: 13  maxedge 3.142 not-in-cell 1
+deg0 200 n_D 62 zeros 1/2<Re<1: 0  1<Re<3: 15  maxedge 3.142 not-in-cell 0
+      root 0.80783942 + 27.69925478 i  resid 5.6e-16  in_cell True
+minimiser 60 n_D 21 zeros 1/2<Re<1: 1  1<Re<3: 2  maxedge 3.142 not-in-cell 0
+minimiser 100 n_D 31 zeros 1/2<Re<1: 0  1<Re<3: 0  maxedge 3.142 not-in-cell 0
+      root 0.63103712 + 29.73109453 i  resid 6.7e-16  in_cell True
+minimiser 200 n_D 62 zeros 1/2<Re<1: 1  1<Re<3: 0  maxedge 3.142 not-in-cell 0
+plain 50 n_D 16 zeros 1/2<Re<1: 0  1<Re<3: 0  maxedge 0.584 not-in-cell 0
+plain 100 n_D 31 zeros 1/2<Re<1: 0  1<Re<3: 0  maxedge 0.506 not-in-cell 0
+plain 200 n_D 62 zeros 1/2<Re<1: 0  1<Re<3: 0  maxedge 0.606 not-in-cell 0

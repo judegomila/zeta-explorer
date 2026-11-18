@@ -1,0 +1,24 @@
+planned allocation: < 20 MB (coefficient lists of length 3000)
+zeta (eps=1) {'T1_max_eigen_defect': '0.0', 'T2_max_inverse_defect': '0.0', 'exact': True}
+TW+ a: eps_2=1/2 {'T1_max_eigen_defect': '0.0', 'T2_max_inverse_defect': '0.0', 'exact': True}
+TW+ b: eps_p=1/2 all p {'T1_max_eigen_defect': '0.0', 'T2_max_inverse_defect': '0.0', 'exact': True}
+TW+ c: eps_p random in [0,1] {'T1_max_eigen_defect': '0.0', 'T2_max_inverse_defect': '0.0', 'exact': True}
+TW- a: eps_2=-1 {'T1_max_eigen_defect': '0.0', 'T2_max_inverse_defect': '0.0', 'exact': True}
+TW- b: Liouville {'T1_max_eigen_defect': '0.0', 'T2_max_inverse_defect': '0.0', 'exact': True}
+TW- c: eps_p random signs {'T1_max_eigen_defect': '0.0', 'T2_max_inverse_defect': '0.0', 'exact': True}
+DH {'T1_max_eigen_defect': '1.0807009', 'T2_max_inverse_defect': '6.2693468', 'exact': False}
+DH: a(6)-a(2)a(3) = 1.0807009
+T3: {'zeta (eps=1)': ['1.72e-40', '4.09e-40', '1.85e-39'], 'TW+ a: eps_2=1/2': ['2.2e-40', '3.27e-40', '2.15e-39'], 'TW+ b: eps_p=1/2 all p': ['1.61e-40', '2.69e-40', '1.16e-39'], 'TW+ c: eps_p random in [0,1]': ['3.25e-40', '3.04e-40', '1.81e-39'], 'TW- a: eps_2=-1': ['2.55e-40', '7.19e-40', '2.83e-39'], 'TW- b: Liouville': ['2.89e-40', '6.26e-40', '3.03e-39'], 'TW- c: eps_p random signs': ['3.11e-40', '6.27e-40', '3.05e-39'], 'DH': None}
+T4 zeta (eps=1) ['1.0', '1.0', '1.0', '1.0'] -0.539
+T4 TW+ a: eps_2=1/2 ['0.999815554171', '0.998684432076', '0.97839057608', '0.925512853569'] -0.50615
+T4 TW+ b: eps_p=1/2 all p ['0.999815548947', '0.998683921368', '0.977964858393', '0.91517697681'] -0.36673
+T4 TW+ c: eps_p random in [0,1] ['0.999815545029', '0.998683538337', '0.977645570128', '0.907425071184'] -0.34565
+T4 TW- a: eps_2=-1 ['0.999262216668', '0.994737728354', '0.913572766274', '0.706012858544'] -0.45786
+T4 TW- b: Liouville ['0.999262195774', '0.994735685523', '0.911869895528', '0.664670889354'] -0.62166
+T4 TW- c: eps_p random signs ['0.999262195774', '0.994735685523', '0.911869895528', '0.664670889354'] 0.24046
+T4 DH ['1.0', '1.0', '1.0', '1.0']
+T4 line zeta (eps=1) ['4.5917748e-41', '0.0', '0.0', '0.0']
+T4 line TW+ a: eps_2=1/2 ['3.0917075', '0.48558877', '2.6774405', '0.19833024']
+T4 line TW- a: eps_2=-1 ['2.408311', '1.0410872', '2.0354591', '1.2078087']
+T4 line TW- b: Liouville ['2.4267349', '2.5250053', '3.1023941', '0.62658806']
+done

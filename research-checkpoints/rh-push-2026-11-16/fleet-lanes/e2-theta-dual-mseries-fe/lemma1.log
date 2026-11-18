@@ -1,0 +1,36 @@
+(a) local-global product, 4500 nodes of depth 2-4: max |lhs - rhs| = 2.24e-15
+(b) s=(1, 3) mu=(1, 0): index y = 4^5 s mu^3 = (1024, 3072), N(y) = 7340032: max |lhs - rhs| over 2469785 moduli = 1.39e-15
+(b) s=(1, 0) mu=(1, -3): index y = 4^5 s mu^3 = (-54272, -36864), N(y) = 2303721472: max |lhs - rhs| over 2620986 moduli = 1.73e-15
+(b) s=(1, 3) mu=(1, -3): index y = 4^5 s mu^3 = (56320, -89088), N(y) = 16126050304: max |lhs - rhs| over 2293370 moduli = 1.67e-15
+(b) s=(-2, 3) mu=(1, 6): index y = 4^5 s mu^3 = (53248, 795648), N(y) = 593524424704: max |lhs - rhs| over 2597718 moduli = 1.69e-15
+(b) s=(4, 3) mu=(-5, 0): index y = 4^5 s mu^3 = (-512000, -384000), N(y) = 212992000000: max |lhs - rhs| over 2520176 moduli = 1.73e-15
+(b) G is a function of m mod 4 (12 classes), values: -0.50-0.87i -0.50-0.87i +1.00+0.00i -0.50+0.87i -0.00+1.00i -0.87-0.50i -0.87+0.50i +0.87-0.50i +1.00-0.00i +0.87+0.50i -0.00-1.00i -0.50+0.87i
+(c) sextic gamma_1, exponent 2/3: l, all-n constant, z; sum over the 12 classes mod 4 of z^2 (null mean 12 for complex constants ~ 2 per class -> 24)
+    l=-6: c = +0.05445-0.00000i  se 0.03210  z =   1.7   sum_classes z^2 =    18.4
+    l=-5: c = -0.00725+0.00000i  se 0.03210  z =   0.2   sum_classes z^2 =    20.3
+    l=-4: c = +0.02514-0.00000i  se 0.03210  z =   0.8   sum_classes z^2 =    12.8
+    l=-3: c = +0.04415-0.00000i  se 0.03210  z =   1.4   sum_classes z^2 =    12.2
+    l=-2: c = +0.00158+0.00000i  se 0.03210  z =   0.0   sum_classes z^2 =     7.0
+    l=-1: c = +0.02299+0.00000i  se 0.03210  z =   0.7   sum_classes z^2 =     2.2
+    l=+0: c = +0.18361-0.00000i  se 0.03210  z =   5.7   sum_classes z^2 =   251.3
+    l=+1: c = -0.00031+0.00000i  se 0.03210  z =   0.0   sum_classes z^2 =     4.9
+    l=+2: c = -0.00849+0.00000i  se 0.03210  z =   0.3   sum_classes z^2 =     8.0
+    l=+3: c = -0.04161-0.00000i  se 0.03210  z =   1.3   sum_classes z^2 =     6.4
+    l=+4: c = +0.02199+0.00000i  se 0.03210  z =   0.7   sum_classes z^2 =    13.9
+    l=+5: c = -0.04551+0.00000i  se 0.03210  z =   1.4   sum_classes z^2 =    10.0
+    l=+6: c = +0.02710-0.00000i  se 0.03210  z =   0.8   sum_classes z^2 =    13.3
+(c) cubic gamma_2, exponent 5/6: l, all-n constant, z; sum over the 12 classes mod 4 of z^2 (null mean 12 for complex constants ~ 2 per class -> 24)
+    l=-6: c = +0.00014+0.00000i  se 0.00242  z =   0.1   sum_classes z^2 =     2.4
+    l=-5: c = -0.00046-0.00000i  se 0.00242  z =   0.2   sum_classes z^2 =     1.1
+    l=-4: c = -0.00060+0.00000i  se 0.00242  z =   0.2   sum_classes z^2 =     2.3
+    l=-3: c = +0.00006-0.00000i  se 0.00242  z =   0.0   sum_classes z^2 =     0.9
+    l=-2: c = -0.00019+0.00000i  se 0.00242  z =   0.1   sum_classes z^2 =     0.3
+    l=-1: c = -0.00023-0.00000i  se 0.00242  z =   0.1   sum_classes z^2 =     1.0
+    l=+0: c = +0.19641-0.00000i  se 0.00242  z =  81.2   sum_classes z^2 = 10752.3
+    l=+1: c = +0.00040-0.00000i  se 0.00242  z =   0.2   sum_classes z^2 =     0.7
+    l=+2: c = -0.00026+0.00000i  se 0.00242  z =   0.1   sum_classes z^2 =     0.7
+    l=+3: c = -0.00026-0.00000i  se 0.00242  z =   0.1   sum_classes z^2 =     0.7
+    l=+4: c = -0.00044+0.00000i  se 0.00242  z =   0.2   sum_classes z^2 =     1.1
+    l=+5: c = -0.00045-0.00000i  se 0.00242  z =   0.2   sum_classes z^2 =     1.2
+    l=+6: c = +0.00012+0.00000i  se 0.00242  z =   0.1   sum_classes z^2 =     1.5
+(c) null (random phases, 20 draws): sum_classes z^2 mean 12.4, max 21.8

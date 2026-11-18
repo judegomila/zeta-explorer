@@ -1,0 +1,27 @@
+(1) family (w^2-2c w+1)(w+1)^m, c = m/(m+2) (largest c with nonnegative coefficients):
+  m=2 deg=4 min coeff=+0.000e+00 max third cumulant on h>0: -6.1441e-06 at h=12.000
+  m=3 deg=5 min coeff=+4.000e-01 max third cumulant on h>0: -1.1059e-05 at h=12.000
+  m=4 deg=6 min coeff=+4.441e-16 max third cumulant on h>0: -1.6384e-05 at h=12.000
+  m=5 deg=7 min coeff=+7.143e-01 max third cumulant on h>0: -2.1943e-05 at h=12.000
+  m=6 deg=8 min coeff=+0.000e+00 max third cumulant on h>0: -2.7648e-05 at h=12.000
+  m=7 deg=9 min coeff=+1.000e+00 max third cumulant on h>0: -3.3451e-05 at h=12.000
+  m=8 deg=10 min coeff=-7.105e-15 max third cumulant on h>0: -3.9322e-05 at h=12.000
+  m=9 deg=11 min coeff=+1.000e+00 max third cumulant on h>0: -4.5242e-05 at h=12.000
+  m=10 deg=12 min coeff=-2.842e-14 max third cumulant on h>0: -5.1200e-05 at h=12.000
+  m=11 deg=13 min coeff=+1.000e+00 max third cumulant on h>0: -5.7187e-05 at h=12.000
+  m=12 deg=14 min coeff=+1.137e-13 max third cumulant on h>0: -6.3196e-05 at h=12.000
+(1b) two free quadratic factors (w^2-2c1 w+1)(w^2-2c2 w+1)(w+1)^m, random search for GHS violation, degree <= 8
+  deg 2 max third cumulant -1.0045e-09 cos: [-0.] m: 0
+  deg 3 max third cumulant -7.3982e-10 cos: [0.4999] m: 1
+  deg 4 max third cumulant -6.9848e-09 cos: [ 0.0428 -0.0432] m: 0
+  deg 5 max third cumulant -2.0398e-09 cos: [0.4964 0.0035] m: 1
+  deg 6 max third cumulant -2.3357e-09 cos: [ 0.1827 -0.8847  0.7018] m: 0
+  deg 7 max third cumulant -8.7291e-09 cos: [ 0.1004 -0.1953  0.5943] m: 1
+  deg 8 max third cumulant -7.4206e-09 cos: [ 0.6439 -0.1608  0.5164] m: 2
+(2) degree 5 grid over LY_5: max third cumulant
+  max over LY_5 grid: -1.6167023279713408e-24 at (np.float64(0.0), np.float64(0.0))
+(3) coupled copies of P0: k sites with single-site law on {-5,-1,1,5} masses (1,c,c,1), c=5/4, weight exp(J sum_{i<j} S_i S_j + h sum S_i)
+  k=2: max third cumulant of total spin over J in (0,2], h in (0,1.5]: -7.4861e-10 at (J,h)=(np.float64(2.0), np.float64(1.5))
+  k=3: max third cumulant of total spin over J in (0,2], h in (0,1.5]: -7.7288e-16 at (J,h)=(np.float64(1.6693877551020408), np.float64(1.5))
+  two sites, unequal fields, c=1: max mixed third cumulant = +7.1054e-15
+  two sites, unequal fields, c=5/4: max mixed third cumulant = +7.1054e-14

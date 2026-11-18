@@ -1,0 +1,52 @@
+{
+ "slug": "c5-device-table-extension",
+ "round": 5,
+ "kind": "explore",
+ "nodes": [
+  "ctrl-interpolation-twin",
+  "padic-interpolation-reads-nonpositive-integers",
+  "frequency-only-devices-coefficient-blind",
+  "strip-dtn-phase-identity",
+  "tensor-squeeze-supplies-size-only",
+  "additive-multiplicative-pairing-is-vinogradov"
+ ],
+ "tags": [
+  "device",
+  "baker",
+  "turan",
+  "p-adic",
+  "iwasawa",
+  "carleson",
+  "corona",
+  "tensor-power",
+  "sum-product",
+  "vinogradov",
+  "dirichlet-to-neumann",
+  "control"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "Precise obstruction stands: seven devices CLOSED, no CANDIDATE, nothing about zeros of zeta, RH not assumed, no verified-height restatement, no known theorem presented as new. Every PROVED step was re-derived by hand: the twin's parity vanishing, the strip Poisson-Jensen identity with its kernels and signs, the Laguerre form of -theta', the pole position and height, the model fraction 1/(b alpha lam^2), and the fixed-stage window mean square. Reruns with different cases: (e) the twin zeta + c L(s,chi_-4) L(s,chi_5) was rebuilt in Hurwitz-zeta form; the four quoted c=1 zeros reproduce (including 0.86409960179+29.95041276875i, residual below 1.1e-29), and new prescribed zeros at 0.6+40i, 0.95+300.5i and 0.55+7i work with values at s=0..-15 unchanged. The twin also passes all Dirichlet twists, because chi*chi_-4 and chi*chi_5 always have opposite parity; the lane did not state this. (g) The identity holds for zeta at alpha=0.3, y=40.2 and 43.1 (residual 7e-17) and for DH at a second alpha (0.3, b=1, residual 5e-10, pole sum 14.41, -theta' = -11.64) and at a second off-line zero near 114.16 (residual 2e-11, pole sum 38.16, -theta' = -33.79); pole positions match the two-term prediction. The prime-side fraction at six new heights is 0.46, 0.26, 0.20, 0.104, 0.095, 0.075 for T = 300 to 3e5, within about 30 percent of the model; the 1/log^2 T rate stays ARGUED. (b) is Vinogradov-Korobov and crosses Re s = 1 only by the classical amount. Referee file: tmp/research-2026-11-16/push/c5-device-table-extension/REFEREE.md",
+ "obstruction": "Each device is closed by what it reads. Baker bounds and finite Turan sums read the frequencies log n only (every Dirichlet-series control passes). p-adic/Iwasawa data read zeta at non-positive integers only (the interpolation twin zeta + c L(s,chi_-4) L(s,chi_5) has the same values and a zero at any prescribed point). The tensor squeeze bounds local parameters only (every unimodular twist passes). Carleson/corona criteria assume S bounded, which is RH. The strip Dirichlet-to-Neumann identity holds for DH with its pole sum; the positive prime-side term is a vanishing fraction of the mean phase derivative. Sum-product is Vinogradov-Korobov: it fails DH and sign twists at named steps and crosses Re s = 1 by (log t)^(-2/3) only (closed by argument). Turan's equivalence for general Euler products not established.",
+ "obstructionKind": "device-reads-frequencies-values-sizes-or-zero-set",
+ "controlsThatDefeat": [
+  "interpolation twin zeta + c L(s,chi_-4) L(s,chi_5) (new control: p-adic/special-value devices)",
+  "every Dirichlet-series control (frequency-only devices)",
+  "every unimodular twist (tensor squeeze)",
+  "DH (strip Dirichlet-to-Neumann identity holds with a pole sum)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "No error changes a closure or a flag; six wording corrections are needed before the row texts go into the map. (1) Device (f): \"Turan's equivalence holds for every Euler product, including TW+-, THIN\" is not established; the cited theorem is for zeta and its proof needs finite-order continuation into the strip, which a general sign twist lacks. (2) Device (a): \"the constant is doubly exponential in the stage length\" describes the Baker-Matveev provable constant, not the frequencies; the lane's o",
+ "lesson": "Before work, ask what a device reads: frequencies only (coefficient-blind), discrete special values (passed by the interpolation twin), size of local parameters (passed by every unimodular twist), or the zero set itself (identity that holds for DH). Only the additive-against-multiplicative pairing fails both DH and the sign twists at non-identity steps, and that pairing is Vinogradov-Korobov, capped because log|zeta(1+it)| is unbounded. Device (b) is closed by argument, not proof; Turan's equivalence and other classical statements were cited from memory.",
+ "followUp": "Add the interpolation twin (nodes.json: ctrl-interpolation-twin) to the control list and the seven rows to the map. Have a referee check Turan's equivalence against the source and rerun dtn_identity.py for DH. No round-6 seed from this lane.",
+ "resultFile": "tmp/research-2026-11-16/push/c5-device-table-extension/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c5-device-table-extension/REFEREE.md"
+}

@@ -1,0 +1,2 @@
+Heat quad: bits 760 digits 213 Umax 5.229 panels 105 nodes/panel 96 total nodes 10080 (planned memory ~ 7.9 MB)
+{"tau": -0.1, "window": [230.0, 405.0], "sign_changes": 109, "zeta_zeros_in_window": 109, "offline_upper_right": [], "total_count": 109} elapsed 284

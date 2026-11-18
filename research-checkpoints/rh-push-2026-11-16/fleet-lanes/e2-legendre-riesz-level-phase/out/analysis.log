@@ -1,0 +1,114 @@
+LP-E: gap/sqrt(X) = (LP value - psi_k/X^k)/sqrt X
+k=0 | theta: 0.3 | 0.4 | 0.5 | 0.6 | 0.7 | 0.8 | 0.9
+  X=1e+03 | 4.2393 | 3.4020 | 1.1876 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | true excess/sqrtX = -0.1050
+  X=1e+04 | 13.1110 | 5.5933 | 2.2683 | -0.0000 | -0.0000 | -0.0000 | -0.0000 | true excess/sqrtX = +0.1340
+  X=1e+05 | 28.3735 | 12.7041 | 3.2736 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | true excess/sqrtX = +0.1631
+  X=3e+05 | 37.5482 | 16.6822 | 5.6671 | -0.0000 | -0.0000 | - | - | true excess/sqrtX = -0.6209
+  X=1e+06 | 57.6620 | 23.4410 | 6.4148 | -0.0000 | -0.0000 | - | - | true excess/sqrtX = -0.4134
+  fit gap ~ X^alpha, X>=1e4, theta=0.3: alpha = 0.818  (4 points); proved upper bound under RH 1-theta/2 = 0.850
+  fit gap ~ X^alpha, X>=1e4, theta=0.4: alpha = 0.811  (4 points); proved upper bound under RH 1-theta/2 = 0.800
+  fit gap ~ X^alpha, X>=1e4, theta=0.5: alpha = 0.740  (4 points); proved upper bound under RH 1-theta/2 = 0.750
+k=1 | theta: 0.3 | 0.4 | 0.5 | 0.6 | 0.7 | 0.8 | 0.9
+  X=1e+03 | 0.1899 | 0.0999 | 0.0611 | 0.0000 | -0.0000 | 0.0000 | 0.0000 | true excess/sqrtX = -0.0677
+  X=1e+04 | 0.3153 | 0.1597 | 0.0850 | -0.0000 | -0.0000 | -0.0000 | -0.0000 | true excess/sqrtX = -0.0173
+  X=1e+05 | 0.6391 | 0.3142 | 0.1373 | -0.0000 | -0.0000 | -0.0000 | -0.0000 | true excess/sqrtX = +0.0010
+  X=3e+05 | 0.8512 | 0.4461 | 0.1936 | -0.0000 | -0.0000 | - | - | true excess/sqrtX = -0.0062
+  X=1e+06 | 1.4084 | 0.5603 | 0.2848 | - | -0.0000 | - | - | true excess/sqrtX = +0.0061
+  fit gap ~ X^alpha, X>=1e4, theta=0.3: alpha = 0.818  (4 points); proved upper bound under RH 1-theta/2 = 0.850
+  fit gap ~ X^alpha, X>=1e4, theta=0.4: alpha = 0.779  (4 points); proved upper bound under RH 1-theta/2 = 0.800
+  fit gap ~ X^alpha, X>=1e4, theta=0.5: alpha = 0.761  (4 points); proved upper bound under RH 1-theta/2 = 0.750
+k=2 | theta: 0.3 | 0.4 | 0.5 | 0.6 | 0.7 | 0.8 | 0.9
+  X=1e+03 | 0.0163 | 0.0062 | 0.0036 | 0.0000 | -0.0000 | 0.0000 | 0.0000 | true excess/sqrtX = -0.0291
+  X=1e+04 | 0.0205 | 0.0118 | 0.0054 | -0.0000 | 0.0000 | 0.0000 | 0.0000 | true excess/sqrtX = -0.0101
+  X=1e+05 | 0.0390 | 0.0201 | 0.0105 | - | - | - | - | true excess/sqrtX = -0.0033
+  X=3e+05 | 0.0501 | 0.0259 | 0.0120 | - | - | - | - | true excess/sqrtX = -0.0009
+  fit gap ~ X^alpha, X>=1e4, theta=0.3: alpha = 0.765  (3 points); proved upper bound under RH 1-theta/2 = 0.850
+  fit gap ~ X^alpha, X>=1e4, theta=0.4: alpha = 0.732  (3 points); proved upper bound under RH 1-theta/2 = 0.800
+  fit gap ~ X^alpha, X>=1e4, theta=0.5: alpha = 0.746  (3 points); proved upper bound under RH 1-theta/2 = 0.750
+
+LP-R: (robust value - X/(k+1)!)/sqrtX ; (robust value - truth)/sqrtX ; penalty/sqrtX
+k=0 theta=0.3
+  X=1e+03 D=8 excess/sqrtX=+4.4884 robust_gap/sqrtX=4.5933 pen/sqrtX=0.3904 true_excess/sqrtX=-0.1050
+  X=1e+04 D=16 excess/sqrtX=+13.5650 robust_gap/sqrtX=13.4310 pen/sqrtX=0.2384 true_excess/sqrtX=+0.1340
+  X=1e+05 D=32 excess/sqrtX=+28.7252 robust_gap/sqrtX=28.5621 pen/sqrtX=0.1803 true_excess/sqrtX=+0.1631
+k=0 theta=0.5
+  X=1e+03 D=32 excess/sqrtX=+2.3505 robust_gap/sqrtX=2.4554 pen/sqrtX=1.0600 true_excess/sqrtX=-0.1050
+  X=1e+04 D=100 excess/sqrtX=+4.0946 robust_gap/sqrtX=3.9607 pen/sqrtX=1.2071 true_excess/sqrtX=+0.1340
+  X=1e+05 D=316 excess/sqrtX=+5.8683 robust_gap/sqrtX=5.7052 pen/sqrtX=1.9507 true_excess/sqrtX=+0.1631
+  X=3e+05 D=548 excess/sqrtX=+7.8690 robust_gap/sqrtX=8.4898 pen/sqrtX=2.0947 true_excess/sqrtX=-0.6209
+  X=1e+06 D=1000 excess/sqrtX=+9.7060 robust_gap/sqrtX=10.1194 pen/sqrtX=2.3973 true_excess/sqrtX=-0.4134
+  fit robust_gap/sqrtX ~ X^s: s = +0.207  (so robust gap ~ X^0.707)
+k=0 theta=0.7
+  X=1e+03 D=126 excess/sqrtX=+1.6562 robust_gap/sqrtX=1.7612 pen/sqrtX=2.1568 true_excess/sqrtX=-0.1050
+  X=1e+04 D=631 excess/sqrtX=+2.1666 robust_gap/sqrtX=2.0326 pen/sqrtX=3.1608 true_excess/sqrtX=+0.1340
+  X=1e+05 D=3162 excess/sqrtX=+2.2550 robust_gap/sqrtX=2.0919 pen/sqrtX=4.6516 true_excess/sqrtX=+0.1631
+  X=3e+05 D=6823 excess/sqrtX=+1.6732 robust_gap/sqrtX=2.2941 pen/sqrtX=6.4699 true_excess/sqrtX=-0.6209
+  X=1e+06 D=15849 excess/sqrtX=+1.8436 robust_gap/sqrtX=2.2570 pen/sqrtX=6.8103 true_excess/sqrtX=-0.4134
+  fit robust_gap/sqrtX ~ X^s: s = +0.036  (so robust gap ~ X^0.536)
+k=0 theta=0.9
+  X=1e+03 D=501 excess/sqrtX=+1.4666 robust_gap/sqrtX=1.5716 pen/sqrtX=2.2717 true_excess/sqrtX=-0.1050
+  X=1e+04 D=3981 excess/sqrtX=+2.0487 robust_gap/sqrtX=1.9147 pen/sqrtX=3.3397 true_excess/sqrtX=+0.1340
+  X=1e+05 D=31623 excess/sqrtX=+2.1962 robust_gap/sqrtX=2.0331 pen/sqrtX=3.9492 true_excess/sqrtX=+0.1631
+k=1 theta=0.3
+  X=1e+03 D=8 excess/sqrtX=+0.1225 robust_gap/sqrtX=0.1902 pen/sqrtX=0.0002 true_excess/sqrtX=-0.0677
+  X=1e+04 D=16 excess/sqrtX=+0.2980 robust_gap/sqrtX=0.3154 pen/sqrtX=0.0000 true_excess/sqrtX=-0.0173
+  X=1e+05 D=32 excess/sqrtX=+0.6401 robust_gap/sqrtX=0.6391 pen/sqrtX=0.0000 true_excess/sqrtX=+0.0010
+k=1 theta=0.5
+  X=1e+03 D=32 excess/sqrtX=-0.0026 robust_gap/sqrtX=0.0652 pen/sqrtX=0.0039 true_excess/sqrtX=-0.0677
+  X=1e+04 D=100 excess/sqrtX=+0.0780 robust_gap/sqrtX=0.0953 pen/sqrtX=0.0046 true_excess/sqrtX=-0.0173
+  X=1e+05 D=316 excess/sqrtX=+0.1607 robust_gap/sqrtX=0.1597 pen/sqrtX=0.0050 true_excess/sqrtX=+0.0010
+k=1 theta=0.6
+  X=2e+03 D=96 excess/sqrtX=-0.0069 robust_gap/sqrtX=0.0337 pen/sqrtX=0.0267 true_excess/sqrtX=-0.0405
+  X=5e+03 D=166 excess/sqrtX=+0.0127 robust_gap/sqrtX=0.0406 pen/sqrtX=0.0265 true_excess/sqrtX=-0.0279
+  X=2e+04 D=381 excess/sqrtX=+0.0269 robust_gap/sqrtX=0.0437 pen/sqrtX=0.0415 true_excess/sqrtX=-0.0169
+  X=5e+04 D=660 excess/sqrtX=+0.0335 robust_gap/sqrtX=0.0487 pen/sqrtX=0.0555 true_excess/sqrtX=-0.0152
+  X=2e+05 D=1516 excess/sqrtX=+0.0591 robust_gap/sqrtX=0.0679 pen/sqrtX=0.0696 true_excess/sqrtX=-0.0087
+  X=5e+05 D=2627 excess/sqrtX=+0.0675 robust_gap/sqrtX=0.0788 pen/sqrtX=0.1053 true_excess/sqrtX=-0.0113
+  X=1e+06 D=3981 excess/sqrtX=+0.0627 robust_gap/sqrtX=0.0566 pen/sqrtX=0.0961 true_excess/sqrtX=+0.0061
+  fit robust_gap/sqrtX ~ X^s: s = +0.114  (so robust gap ~ X^0.614)
+k=1 theta=0.7
+  X=1e+03 D=126 excess/sqrtX=-0.0394 robust_gap/sqrtX=0.0284 pen/sqrtX=0.0304 true_excess/sqrtX=-0.0677
+  X=2e+03 D=205 excess/sqrtX=-0.0248 robust_gap/sqrtX=0.0158 pen/sqrtX=0.0210 true_excess/sqrtX=-0.0405
+  X=5e+03 D=388 excess/sqrtX=-0.0072 robust_gap/sqrtX=0.0207 pen/sqrtX=0.0281 true_excess/sqrtX=-0.0279
+  X=1e+04 D=631 excess/sqrtX=+0.0040 robust_gap/sqrtX=0.0214 pen/sqrtX=0.0332 true_excess/sqrtX=-0.0173
+  X=2e+04 D=1025 excess/sqrtX=+0.0062 robust_gap/sqrtX=0.0231 pen/sqrtX=0.0391 true_excess/sqrtX=-0.0169
+  X=5e+04 D=1947 excess/sqrtX=+0.0112 robust_gap/sqrtX=0.0264 pen/sqrtX=0.0399 true_excess/sqrtX=-0.0152
+  X=1e+05 D=3162 excess/sqrtX=+0.0215 robust_gap/sqrtX=0.0204 pen/sqrtX=0.0366 true_excess/sqrtX=+0.0010
+  X=2e+05 D=5137 excess/sqrtX=+0.0155 robust_gap/sqrtX=0.0242 pen/sqrtX=0.0441 true_excess/sqrtX=-0.0087
+  X=5e+05 D=9756 excess/sqrtX=+0.0140 robust_gap/sqrtX=0.0252 pen/sqrtX=0.0506 true_excess/sqrtX=-0.0113
+  fit robust_gap/sqrtX ~ X^s: s = +0.023  (so robust gap ~ X^0.523)
+k=1 theta=0.8
+  X=2e+03 D=437 excess/sqrtX=-0.0275 robust_gap/sqrtX=0.0131 pen/sqrtX=0.0155 true_excess/sqrtX=-0.0405
+  X=5e+03 D=910 excess/sqrtX=-0.0104 robust_gap/sqrtX=0.0175 pen/sqrtX=0.0251 true_excess/sqrtX=-0.0279
+  X=2e+04 D=2759 excess/sqrtX=-0.0050 robust_gap/sqrtX=0.0119 pen/sqrtX=0.0207 true_excess/sqrtX=-0.0169
+  X=5e+04 D=5743 excess/sqrtX=+0.0024 robust_gap/sqrtX=0.0176 pen/sqrtX=0.0317 true_excess/sqrtX=-0.0152
+  X=2e+05 D=17411 excess/sqrtX=+0.0054 robust_gap/sqrtX=0.0141 pen/sqrtX=0.0272 true_excess/sqrtX=-0.0087
+  X=5e+05 D=36239 excess/sqrtX=+0.0051 robust_gap/sqrtX=0.0164 pen/sqrtX=0.0343 true_excess/sqrtX=-0.0113
+  fit robust_gap/sqrtX ~ X^s: s = +0.018  (so robust gap ~ X^0.518)
+k=1 theta=0.9
+  X=1e+03 D=501 excess/sqrtX=-0.0433 robust_gap/sqrtX=0.0244 pen/sqrtX=0.0299 true_excess/sqrtX=-0.0677
+  X=1e+04 D=3981 excess/sqrtX=-0.0045 robust_gap/sqrtX=0.0129 pen/sqrtX=0.0194 true_excess/sqrtX=-0.0173
+  X=1e+05 D=31623 excess/sqrtX=+0.0110 robust_gap/sqrtX=0.0099 pen/sqrtX=0.0192 true_excess/sqrtX=+0.0010
+k=2 theta=0.3
+  X=1e+03 D=8 excess/sqrtX=-0.0129 robust_gap/sqrtX=0.0163 pen/sqrtX=0.0000 true_excess/sqrtX=-0.0291
+  X=1e+04 D=16 excess/sqrtX=+0.0104 robust_gap/sqrtX=0.0205 pen/sqrtX=0.0000 true_excess/sqrtX=-0.0101
+  X=1e+05 D=32 excess/sqrtX=+0.0357 robust_gap/sqrtX=0.0390 pen/sqrtX=0.0000 true_excess/sqrtX=-0.0033
+k=2 theta=0.5
+  X=1e+03 D=32 excess/sqrtX=-0.0255 robust_gap/sqrtX=0.0036 pen/sqrtX=0.0000 true_excess/sqrtX=-0.0291
+  X=1e+04 D=100 excess/sqrtX=-0.0038 robust_gap/sqrtX=0.0063 pen/sqrtX=0.0006 true_excess/sqrtX=-0.0101
+  X=1e+05 D=316 excess/sqrtX=+0.0075 robust_gap/sqrtX=0.0108 pen/sqrtX=0.0000 true_excess/sqrtX=-0.0033
+k=2 theta=0.7
+  X=1e+03 D=126 excess/sqrtX=-0.0279 robust_gap/sqrtX=0.0013 pen/sqrtX=0.0008 true_excess/sqrtX=-0.0291
+  X=2e+03 D=205 excess/sqrtX=-0.0191 robust_gap/sqrtX=0.0007 pen/sqrtX=0.0005 true_excess/sqrtX=-0.0199
+  X=5e+03 D=388 excess/sqrtX=-0.0116 robust_gap/sqrtX=0.0008 pen/sqrtX=0.0005 true_excess/sqrtX=-0.0124
+  X=1e+04 D=631 excess/sqrtX=-0.0085 robust_gap/sqrtX=0.0016 pen/sqrtX=0.0015 true_excess/sqrtX=-0.0101
+  X=2e+04 D=1025 excess/sqrtX=-0.0050 robust_gap/sqrtX=0.0007 pen/sqrtX=0.0006 true_excess/sqrtX=-0.0057
+  X=5e+04 D=1947 excess/sqrtX=-0.0027 robust_gap/sqrtX=0.0008 pen/sqrtX=0.0009 true_excess/sqrtX=-0.0035
+  X=1e+05 D=3162 excess/sqrtX=-0.0019 robust_gap/sqrtX=0.0014 pen/sqrtX=0.0016 true_excess/sqrtX=-0.0033
+  X=2e+05 D=5137 excess/sqrtX=-0.0010 robust_gap/sqrtX=0.0012 pen/sqrtX=0.0014 true_excess/sqrtX=-0.0022
+  X=5e+05 D=9756 excess/sqrtX=-0.0005 robust_gap/sqrtX=0.0011 pen/sqrtX=0.0014 true_excess/sqrtX=-0.0016
+  fit robust_gap/sqrtX ~ X^s: s = +0.031  (so robust gap ~ X^0.531)
+k=2 theta=0.9
+  X=1e+03 D=501 excess/sqrtX=-0.0284 robust_gap/sqrtX=0.0007 pen/sqrtX=0.0008 true_excess/sqrtX=-0.0291
+  X=1e+04 D=3981 excess/sqrtX=-0.0090 robust_gap/sqrtX=0.0011 pen/sqrtX=0.0013 true_excess/sqrtX=-0.0101
+  X=1e+05 D=31623 excess/sqrtX=-0.0027 robust_gap/sqrtX=0.0006 pen/sqrtX=0.0007 true_excess/sqrtX=-0.0033

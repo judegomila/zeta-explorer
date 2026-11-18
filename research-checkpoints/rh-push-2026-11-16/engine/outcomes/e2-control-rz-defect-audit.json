@@ -1,0 +1,70 @@
+{
+ "slug": "e2-control-rz-defect-audit",
+ "round": 2,
+ "batch": 2,
+ "kind": "filter",
+ "family": "filter lane: a twist control with an off-line zero, and the local-defect bound as a statement shape",
+ "nodes": [
+  "ctrl-rz-reciprocal-shift",
+  "map-pos-23",
+  "map-pos-22"
+ ],
+ "launchedNodes": [
+  "ctrl-rz-reciprocal-shift",
+  "rung-toeplitz-euler-detector",
+  "map-pos-23",
+  "map-pos-22",
+  "pole-coupling-theorem-pc"
+ ],
+ "rowsChecked": [
+  "L1",
+  "L4",
+  "S1",
+  "Q4"
+ ],
+ "tags": [
+  "control",
+  "local-defect",
+  "rz-reciprocal-shift",
+  "statement-shape",
+  "filter"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "Not a lead. The literal statement 'zero offset <= sup_p |log|alpha_p||/log p' is false (1/zeta: defect 0, offset 1/2; T-NR: defect 1/2+delta0, offset delta0). Under convention D1 (fitted, not forced by the functional equation), within products and quotients of shifted zeta and primitive Dirichlet L-functions with T-NR factors at finitely many primes, the offset is given by a divisor formula: identity for finite-prime local zeros and quotient poles; for product factors equivalent to |Re a_j| + Theta_j - 1/2 <= delta (RH/GRH at maximal shift). For E_a, offset = a + Theta - 1/2 unconditionally. The fake (1-5T+5T^2)/((1-T)(1-5T)) (unimodular generalised-prime Euler product, FE, offset 0.29899) and zeta(2s)/zeta(s) show the integers and the functional equation cannot be dropped. RZ_b properties hold (b=0.93, 0.9); completed function has zeros exactly at b and b-1.",
+ "obstruction": "'Zero offset <= local defect' is GRH with defects: for shifted L-function factors it is equivalent to RH/GRH for the factor with the largest shift, and an equality read off E_a silently assumes RH. Local defect is a property of the prime system, not of the function. RZ_b passes every prime-side identity and size inequality after s -> s+1-b and F -> 1/F, so a valid argument needs a step not covariant under shift and reciprocal: the sign of Lambda, or the position of the pole and symmetry line relative to the chain. The chain l^2 threshold sees only infinitely many primes (T-NR: threshold 1/2, zeros at 1/2+delta0) and is not a zero locator.",
+ "obstructionKind": "statement-shape-equivalent-to-grh",
+ "controlsThatDefeat": [
+  "RZ_b = 1/zeta(s+1-b): unimodular parameters, zero at offset 1/2 (counterexample to the literal reading)",
+  "T-NR: fails the literal reading; chain threshold 1/2 with zeros at 1/2+delta0",
+  "E_a = zeta(s+a)zeta(s-a): offset = a + Theta - 1/2",
+  "fake over generalised primes (Beurling-type): unimodular, exact FE, offset 0.299",
+  "zeta(2s)/zeta(s): zero at s = 1, no FE",
+  "DH: statement not formulable without local factors"
+ ],
+ "lesson": "Add RZ_b as a standing control: any step covariant under shift and reciprocal is defeated by it. The 9x7 control table is mostly ARGUED, not replayed.",
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "strength": 0.08,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false
+ },
+ "newNodes": [
+  {
+   "id": "ctrl-fake-genprime-unimodular-fe",
+   "type": "control",
+   "status": "proved",
+   "statement": "(1-5T+5T^2)/((1-T)(1-5T)), T = 5^-s: Euler product over generalised primes, unimodular parameters, exact functional equation, zero offset 0.29899. Shows the integers cannot be dropped from any local-defect statement."
+  },
+  {
+   "id": "shift-reciprocal-covariance-filter",
+   "type": "obstruction",
+   "status": "argued",
+   "statement": "RZ_b passes every prime-side identity and size inequality after s -> s+1-b, F -> 1/F; a valid argument needs a step not covariant under shift and reciprocal (sign of Lambda, or position of pole/symmetry line)."
+  }
+ ],
+ "resultFile": "tmp/research-2026-11-16/push/e2-control-rz-defect-audit/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/e2-control-rz-defect-audit/REFEREE.md"
+}

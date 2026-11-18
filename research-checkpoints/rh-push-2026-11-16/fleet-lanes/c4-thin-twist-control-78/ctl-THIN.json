@@ -1,0 +1,29 @@
+{
+ "id": "ctl-THIN",
+ "type": "control",
+ "name": "Thin sign twist with a prescribed zero in (7/8, 1)",
+ "status": "proved-rel (Hoheisel-type short-interval theorem); numerics measured to 1e9; unrefereed",
+ "statement": "S = set of primes with pi_S(x) = (1/2) int_2^x t^(b-1) dt/log t + O(x^(b-eta)) (greedy floor rule); eps completely multiplicative, -1 on S, +1 elsewhere; F(s) = sum eps(n) n^-s = zeta(s)(s-b)W(s), W analytic and non-vanishing on Re s > max(b-eta, b/3). Has: complete multiplicativity, unimodular local parameters at every prime, ordinary Dirichlet series, continuation past b, one simple pole at 1, eps(p) = 1 on primes of relative density one, partial sums c x + O(x^(b+epsilon)). Lacks: periodicity modulo any ideal (hence the functional equation of every twist), Lambda >= 0. Zero: simple, at s = b, any b in (1/2, 1); translate by n^(-i tau) for b + i tau. Kills: any argument for a zero-free half-plane that uses the target only through multiplicativity, local size, continuation and the pole. First failing step of the 7/8 argument: Proposition 5.1, L-periodicity of the target weight (low estimate); same property missing at Lemmas 4.8, 8.1, 17.5.",
+ "usesMultiplicativity": "n/a",
+ "heightUniform": "n/a",
+ "source": "push/c4-thin-twist-control-78/RESULT.md",
+ "tags": ["control", "sign-twist", "zero-free-78", "additive-structure"],
+ "tagsInferred": [],
+ "provenance": ["push/c4-thin-twist-control-78/RESULT.md sections 1-4"],
+ "sourceKinds": ["lane"],
+ "origin": "lane",
+ "lacks": "periodicity of the coefficient sequence (functional equation in the conductor aspect of twists), Lambda >= 0",
+ "rows": [],
+ "roles": ["wall"],
+ "relatedControls": ["ctl-TW-", "ctl-U", "ctl-NR", "ctl-FM", "ctrl-rz-reciprocal-shift"],
+ "tableOutcomes": {
+  "N": [1,2,3,4,5,6,9,10,11,12,13,14,15,16,18,21,22,23,24,26,39,42,43,44,45,46,48,49,51,54,57,58,59,60,61],
+  "N*": [7,8,36,52],
+  "P": [25,33,34,37,38,40,41,53],
+  "P*": [28,35],
+  "F": [29,30,50],
+  "F*": [17,19,20,27,31,32],
+  "?": [47,55,56]
+ },
+ "numerics": {"b": 0.9, "primesUpTo": 1e9, "discrepancyRange": [-1.0, 0.0], "Gprime_b": 2.307069927, "c": 0.204018005, "MepsOverXb_at_1e8": -0.051038, "prediction": -0.051071638}
+}

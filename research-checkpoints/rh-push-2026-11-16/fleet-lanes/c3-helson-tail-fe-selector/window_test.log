@@ -1,0 +1,42 @@
+w(0)=0.057208 w(10)=2.114e-02 w(30)=9.804e-06 w(60)=-1.261e-08 w(120)=-9.187e-12
+zeta check (0.6+10j) 9.43689570931383e-16
+zeta check (0.75+1000.3j) 3.7358264485146835e-13
+zeta check (0.6+100000j) 3.1219735788651656e-11
+DH check 3.2124605855954973e-15
+zeta sigma=0.60 T=10  J=-5.310e-02  J_finmod=-5.310e-02  pred(pole only)=-5.310e-02  mean|log|=0.655
+zeta sigma=0.75 T=10  J=-3.320e-02  J_finmod=-3.320e-02  pred(pole only)=-3.320e-02  mean|log|=0.536
+zeta sigma=1.20 T=10  J=-8.958e-11  J_finmod=+8.515e-11  pred(pole only)=+0.000e+00  mean|log|=0.329
+  (0s)
+zeta sigma=0.60 T=20  J=-6.129e-04  J_finmod=-6.129e-04  pred(pole only)=-6.129e-04  mean|log|=0.655
+zeta sigma=0.75 T=20  J=-3.872e-04  J_finmod=-3.872e-04  pred(pole only)=-3.872e-04  mean|log|=0.536
+zeta sigma=1.20 T=20  J=-1.960e-11  J_finmod=+4.024e-11  pred(pole only)=+0.000e+00  mean|log|=0.328
+  (0s)
+zeta sigma=0.60 T=1000  J=+5.609e-11  J_finmod=-8.363e-11  pred(pole only)=+3.469e-16  mean|log|=0.722
+zeta sigma=0.75 T=1000  J=+5.136e-11  J_finmod=-7.409e-11  pred(pole only)=+2.168e-16  mean|log|=0.544
+zeta sigma=1.20 T=1000  J=+3.884e-11  J_finmod=-5.233e-11  pred(pole only)=+0.000e+00  mean|log|=0.328
+  (1s)
+zeta sigma=0.60 T=10000  J=-7.026e-11  J_finmod=+7.739e-11  pred(pole only)=-2.144e-02  mean|log|=0.723
+zeta sigma=0.75 T=10000  J=-6.124e-11  J_finmod=+7.136e-11  pred(pole only)=-1.340e-02  mean|log|=0.547
+zeta sigma=1.20 T=10000  J=-4.273e-11  J_finmod=+5.368e-11  pred(pole only)=+0.000e+00  mean|log|=0.325
+  (3s)
+zeta sigma=0.60 T=100000  J=-5.796e-11  J_finmod=+5.889e-12  pred(pole only)=-7.793e-03  mean|log|=0.718
+zeta sigma=0.75 T=100000  J=-5.007e-11  J_finmod=+7.140e-12  pred(pole only)=-4.870e-03  mean|log|=0.542
+zeta sigma=1.20 T=100000  J=-3.313e-11  J_finmod=+8.322e-12  pred(pole only)=+0.000e+00  mean|log|=0.326
+  (30s)
+DH zeros with beta>0.5 (off-line), 0<t<215, beta<3: [(np.float64(0.808517), np.float64(85.699348)), (np.float64(0.65083), np.float64(114.163343)), (np.float64(0.574356), np.float64(166.479306)), (np.float64(0.724258), np.float64(176.702461))]
+DH sigma=0.60 T=60  J=-4.929665e-05  pred(zero list)=-4.929668e-05
+DH sigma=0.75 T=60  J=-1.384708e-05  pred(zero list)=-1.384711e-05
+DH sigma=0.85 T=60  J=+2.400502e-11  pred(zero list)=+0.000000e+00
+DH sigma=0.60 T=85.699  J=+7.496299e-02  pred(zero list)=+7.496299e-02
+DH sigma=0.75 T=85.699  J=+2.103400e-02  pred(zero list)=+2.103400e-02
+DH sigma=0.85 T=85.699  J=+4.366444e-11  pred(zero list)=+0.000000e+00
+DH sigma=0.60 T=100  J=+1.069111e-02  pred(zero list)=+1.069111e-02
+DH sigma=0.75 T=100  J=+2.390447e-03  pred(zero list)=+2.390447e-03
+DH sigma=0.85 T=100  J=-4.629005e-11  pred(zero list)=+0.000000e+00
+DH sigma=0.60 T=114.163  J=+1.827917e-02  pred(zero list)=+1.827917e-02
+DH sigma=0.75 T=114.163  J=+2.325084e-06  pred(zero list)=+2.325042e-06
+DH sigma=0.85 T=114.163  J=+3.891778e-11  pred(zero list)=+0.000000e+00
+DH sigma=0.60 T=140  J=-1.221834e-05  pred(zero list)=-1.221807e-05
+DH sigma=0.75 T=140  J=+1.348447e-08  pred(zero list)=+1.358970e-08
+DH sigma=0.85 T=140  J=+2.911829e-12  pred(zero list)=+0.000000e+00
+scripts/memcap.sh 8 .venv-arb/bin/python   76.79s user 0.67s system 100% cpu 1:17.44 total

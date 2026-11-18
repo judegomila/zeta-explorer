@@ -1,0 +1,74 @@
+{
+ "E_a = zeta(s+a)zeta(s-a), a=0.2": {
+  "D1_defect": 0.2,
+  "box_right_of_line: zeros-poles": -2.0,
+  "known poles in box": 2,
+  "zeros in box (winding + poles)": 0.0,
+  "max arg step": 1.331,
+  "thin strip around offset=defect: zeros-poles": 6.0,
+  "strip max arg step": 0.75
+ },
+ "L(s+a,chi4)L(s-a,chi4), a=0.15": {
+  "D1_defect": 0.15,
+  "box_right_of_line: zeros-poles": -0.0,
+  "known poles in box": 0,
+  "zeros in box (winding + poles)": -0.0,
+  "max arg step": 1.326,
+  "thin strip around offset=defect: zeros-poles": 14.0,
+  "strip max arg step": 0.743
+ },
+ "T-NR q=3 c=2.2": {
+  "D1_defect": 0.40375322482772363,
+  "box_right_of_line: zeros-poles": -1.0,
+  "known poles in box": 1,
+  "zeros in box (winding + poles)": 0.0,
+  "max arg step": 1.242,
+  "thin strip around offset=defect: zeros-poles": 7.0,
+  "strip max arg step": 0.741
+ },
+ "T-NR two primes q=2 c=-2.5, q=5 c=2.3": {
+  "D1_defect": 1.0,
+  "box_right_of_line: zeros-poles": 0.0,
+  "known poles in box": 0,
+  "zeros in box (winding + poles)": 0.0,
+  "max arg step": 1.308,
+  "thin strip around offset=defect: zeros-poles": 5.0,
+  "strip max arg step": 0.743
+ },
+ "E_a * D_{3,2.2}, a=0.1": {
+  "D1_defect": 0.40375322482772363,
+  "box_right_of_line: zeros-poles": -1.0,
+  "known poles in box": 1,
+  "zeros in box (winding + poles)": -0.0,
+  "max arg step": 1.249,
+  "thin strip around offset=defect: zeros-poles": 6.0,
+  "strip max arg step": 0.875
+ },
+ "zeta(s+a)zeta(s-a)/zeta(s), a=0.3": {
+  "D1_defect": 0.5,
+  "box_right_of_line: zeros-poles": -1.0,
+  "known poles in box": 1,
+  "zeros in box (winding + poles)": 0.0,
+  "max arg step": 1.012,
+  "thin strip around offset=defect: zeros-poles": 1.0,
+  "strip max arg step": 0.664
+ },
+ "1/zeta(s) (RZ_b in own coordinate)": {
+  "D1_defect": 0.5,
+  "box_right_of_line: zeros-poles": -0.0,
+  "known poles in box": 0,
+  "zeros in box (winding + poles)": -0.0,
+  "max arg step": 0.983,
+  "thin strip around offset=defect: zeros-poles": 1.0,
+  "strip max arg step": 0.661
+ },
+ "zeta(s+a)zeta(s-a)/(zeta(s+b)zeta(s-b)), a=0.1 b=0.2": {
+  "D1_defect": 0.7,
+  "box_right_of_line: zeros-poles": -0.0,
+  "known poles in box": 0,
+  "zeros in box (winding + poles)": -0.0,
+  "max arg step": 0.804,
+  "thin strip around offset=defect: zeros-poles": 1.0,
+  "strip max arg step": 0.779
+ }
+}

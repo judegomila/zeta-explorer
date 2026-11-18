@@ -1,0 +1,8 @@
+{'k': 2, 'X': 1000, 'Dstar': 59, 'sqrtX': 31, 'ratio': 1.8657438194993439, 'primepowers_le_sqrtX': 17, 'pred': 48}
+{'k': 2, 'X': 3000, 'Dstar': 96, 'sqrtX': 54, 'ratio': 1.7527121840165314, 'primepowers_le_sqrtX': 24, 'pred': 78}
+{'k': 2, 'X': 10000, 'Dstar': 215, 'sqrtX': 100, 'ratio': 2.15, 'primepowers_le_sqrtX': 35, 'pred': 135}
+Traceback (most recent call last):
+  File "tmp/research-2026-11-16/push/e2-legendre-riesz-level-phase/pin.py", line 16, in <module>
+    assert pinned(hi) and not pinned(lo)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

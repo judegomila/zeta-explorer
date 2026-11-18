@@ -1,0 +1,22 @@
+p 2 theta 0.00 Tw 0.65 T 3000 | zero 1.191464183 arch 1.808980882 residues -0.6175166992 pole -2.9e-24 | rel diff -3.60e-11 | R 4.063 Obar 6.168 E -2.106 sum|res|/Den 2.21 max|zeta'/zeta(1-theta+it_k)| 1.61
+p 2 theta 0.10 Tw 0.65 T 3000 | zero 1.23273011 arch 2.12495875 residues -0.8922286403 pole -3.0e-32 | rel diff -4.08e-11 | R 3.578 Obar 6.168 E -2.590 sum|res|/Den 2.74 max|zeta'/zeta(1-theta+it_k)| 1.98
+p 2 theta 0.20 Tw 0.65 T 3000 | zero 1.275394959 arch 2.658342262 residues -1.382947302 pole -1.6e-32 | rel diff -4.93e-11 | R 2.959 Obar 6.168 E -3.209 sum|res|/Den 3.44 max|zeta'/zeta(1-theta+it_k)| 2.46
+p 2 theta 0.30 Tw 0.65 T 3000 | zero 1.317295722 arch 3.735376341 residues -2.418080618 pole -1.1e-32 | rel diff -6.70e-11 | R 2.175 Obar 6.168 E -3.993 sum|res|/Den 4.32 max|zeta'/zeta(1-theta+it_k)| 3.04
+p 2 theta 0.40 Tw 0.65 T 3000 | zero 1.345199804 arch 6.987210318 residues -5.642010514 pole -9.1e-33 | rel diff -1.22e-10 | R 1.188 Obar 6.168 E -4.981 sum|res|/Den 5.36 max|zeta'/zeta(1-theta+it_k)| 3.70
+p 2 theta 0.45 Tw 0.65 T 3000 | zero 1.339380238 arch 13.50650806 residues -12.16712783 pole -8.6e-33 | rel diff -2.35e-10 | R 0.612 Obar 6.168 E -5.557 sum|res|/Den 5.92 max|zeta'/zeta(1-theta+it_k)| 4.03
+p 2 theta 0.49 Tw 0.65 T 3000 | zero 1.316871006 arch 65.69848373 residues -64.38161272 pole -8.2e-33 | rel diff -1.07e-09 | R 0.124 Obar 6.168 E -6.045 sum|res|/Den 6.37 max|zeta'/zeta(1-theta+it_k)| 4.64
+p 3 theta 0.00 Tw 1.05 T 9000 | zero 2.081979027 arch 2.581985946 residues -0.5000069198 pole -6.8e-25 | rel diff 2.53e-10 | R 5.860 Obar 7.267 E -1.407 sum|res|/Den 2.18 max|zeta'/zeta(1-theta+it_k)| 1.45
+p 3 theta 0.10 Tw 1.05 T 9000 | zero 2.224755697 arch 2.943660128 residues -0.7189044313 pole -6.8e-33 | rel diff 2.69e-10 | R 5.492 Obar 7.267 E -1.775 sum|res|/Den 2.81 max|zeta'/zeta(1-theta+it_k)| 1.75
+p 3 theta 0.20 Tw 1.05 T 9000 | zero 2.439320785 arch 3.565898632 residues -1.126577847 pole -3.4e-33 | rel diff 2.98e-10 | R 4.971 Obar 7.267 E -2.296 sum|res|/Den 3.72 max|zeta'/zeta(1-theta+it_k)| 2.13
+p 3 theta 0.30 Tw 1.05 T 9000 | zero 2.776714676 arch 4.840537097 residues -2.063822422 pole -2.4e-33 | rel diff 3.54e-10 | R 4.169 Obar 7.267 E -3.098 sum|res|/Den 5.08 max|zeta'/zeta(1-theta+it_k)| 2.86
+p 3 theta 0.40 Tw 1.05 T 9000 | zero 3.278565598 arch 8.726237405 residues -5.447671809 pole -1.9e-33 | rel diff 5.40e-10 | R 2.730 Obar 7.267 E -4.537 sum|res|/Den 7.05 max|zeta'/zeta(1-theta+it_k)| 5.00
+p 3 theta 0.45 Tw 1.05 T 9000 | zero 3.541049897 arch 16.54458363 residues -13.00353374 pole -1.7e-33 | rel diff 9.45e-10 | R 1.555 Obar 7.267 E -5.712 sum|res|/Den 8.24 max|zeta'/zeta(1-theta+it_k)| 8.08
+p 3 theta 0.49 Tw 1.05 T 9000 | zero 3.608174727 arch 79.20464334 residues -75.59646863 pole -1.6e-33 | rel diff 4.43e-09 | R 0.331 Obar 7.267 E -6.936 sum|res|/Den 9.19 max|zeta'/zeta(1-theta+it_k)| 10.77
+p 7 theta 0.00 Tw 2.50 T 5000 | zero 4.258067855 arch 4.394713267 residues -0.1366454131 pole -1.5e-30 | rel diff 2.10e-10 | R 6.472 Obar 6.679 E -0.208 sum|res|/Den 0.70 max|zeta'/zeta(1-theta+it_k)| 1.76
+p 7 theta 0.10 Tw 2.50 T 5000 | zero 4.637021898 arch 4.773206614 residues -0.1361847167 pole -1.4e-38 | rel diff 2.10e-10 | R 6.489 Obar 6.679 E -0.191 sum|res|/Den 1.15 max|zeta'/zeta(1-theta+it_k)| 2.06
+p 7 theta 0.20 Tw 2.50 T 5000 | zero 5.446069684 arch 5.468220683 residues -0.02215099975 pole -6.6e-39 | rel diff 2.05e-10 | R 6.652 Obar 6.679 E -0.027 sum|res|/Den 2.08 max|zeta'/zeta(1-theta+it_k)| 2.41
+p 7 theta 0.30 Tw 2.50 T 5000 | zero 7.602327908 arch 6.964853204 residues 0.6374747025 pole -4.2e-39 | rel diff 1.87e-10 | R 7.291 Obar 6.679 E 0.611 sum|res|/Den 4.01 max|zeta'/zeta(1-theta+it_k)| 2.80
+p 7 theta 0.40 Tw 2.50 T 5000 | zero 18.2143801 arch 11.68431096 residues 6.53006914 pole -3.0e-39 | rel diff 1.31e-10 | R 10.412 Obar 6.679 E 3.733 sum|res|/Den 9.19 max|zeta'/zeta(1-theta+it_k)| 7.03
+p 7 theta 0.45 Tw 2.50 T 5000 | zero 58.21889154 arch 21.30249693 residues 36.9163946 pole -2.7e-39 | rel diff 7.58e-11 | R 18.254 Obar 6.679 E 11.575 sum|res|/Den 18.38 max|zeta'/zeta(1-theta+it_k)| 16.80
+p 7 theta 0.49 Tw 2.50 T 5000 | zero 1103.78866 arch 98.68567595 residues 1005.102984 pole -2.5e-39 | rel diff 3.53e-11 | R 74.707 Obar 6.679 E 68.028 sum|res|/Den 82.28 max|zeta'/zeta(1-theta+it_k)| 89.32
+scripts/memcap.sh 8 .venv-arb/bin/python   2.83s user 0.07s system 71% cpu 4.085 total

@@ -1,0 +1,15 @@
+== X. free geometry (lx, ly, l >= 0), w free in [0, 8], ideal high side, box 8 unless stated
+X1 dir (Lemma 9.1 sieve), G src                            B=1.0000000 row=dir   lx=8.0000 ly=8.0000 l=7.0000 w=0.0000 h=-0.0000  exact 1: CONFIRMED
+X2 dir (Lemma 9.1 sieve), G polar                          B=1.0000000 row=dir   lx=8.0000 ly=8.0000 l=7.0000 w=0.0000 h=-0.0000  exact 1: CONFIRMED
+X3 dir (Lemma 9.1 sieve), G = 0                            B=1.0000000 row=dir   lx=8.0000 ly=8.0000 l=7.0000 w=0.0000 h=-0.0000
+X4 refl, G = 0                                             B=0.8666667 row=refl  lx=0.4000 ly=0.4000 l=0.2000 w=0.0000 h=0.8000
+X5 refl | dir | empty, G polar                             B=0.8666667 row=refl  lx=0.4000 ly=0.4000 l=0.2000 w=0.0000 h=0.8000  exact 13/15: CONFIRMED
+X6 refl | dir | empty, G polar, K removed                  B=0.8518519 row=refl  lx=0.4444 ly=0.4444 l=0.3333 w=0.2222 h=0.8889
+== Y. lx <= l (h >= 1), no compensation on the high side, box 8
+Y1 refl | dir | empty, G src                               B=1.0000000 row=refl  lx=0.3030 ly=0.6667 l=0.3030 w=0.0000 h=1.0000
+Y2 refl | dir | empty, G polar                             B=1.0000000 row=refl  lx=0.3030 ly=0.6667 l=0.3030 w=0.0000 h=1.0000
+Y3 dir0, G polar                                           B=0.4653168 row=dir0  lx=5.7919 ly=5.7919 l=8.0000 w=0.0000 h=3.2081
+Y4 dir0, G polar, box 16                                   B=0.2500000 row=dir0  lx=12.0000 ly=12.0000 l=15.5000 w=0.0000 h=4.5000
+Y5 k = 0, G polar                                          B=0.4653168 row=k0    lx=5.7919 ly=5.7919 l=8.0000 w=0.0000 h=3.2081
+Y6 refl, K removed, G polar                                B=0.9102564 row=refl  lx=0.3846 ly=0.8462 l=0.3846 w=0.0000 h=1.0000
+Y7 refl, K and P removed, G polar                          B=0.4653168 row=refl  lx=5.7919 ly=5.7919 l=8.0000 w=1.8324 h=3.2081

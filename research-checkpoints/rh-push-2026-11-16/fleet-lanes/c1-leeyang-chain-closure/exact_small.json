@@ -1,0 +1,62 @@
+{
+ "szego_identity_exact_n2_7": true,
+ "n3": {
+  "grid_SC_vectors": 289,
+  "all_in_LY": true,
+  "grid_LY_points": 193,
+  "all_have_exact_chain_preimage": true
+ },
+ "n4": {
+  "grid_SC_vectors": 2197,
+  "all_in_LY": true,
+  "complete_graph_grid": 4096,
+  "complete_all_in_LY": true,
+  "grid_LY_points": 1169,
+  "of_which_quadratic_irrational_preimage": 352,
+  "all_have_exact_chain_preimage": true
+ },
+ "n5": {
+  "vertex_images": [
+   [
+    0,
+    0
+   ],
+   [
+    0,
+    1
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    1,
+    2
+   ],
+   [
+    2,
+    1
+   ],
+   [
+    3,
+    4
+   ],
+   [
+    5,
+    10
+   ]
+  ],
+  "max_separator_on_vertices": "0",
+  "P0": [
+   "1",
+   "0",
+   "5/4",
+   "5/4",
+   "0",
+   "1"
+  ],
+  "P0_factorisation_checked": true,
+  "separator_at_P0": "5/4",
+  "multiaffine_check": true
+ }
+}

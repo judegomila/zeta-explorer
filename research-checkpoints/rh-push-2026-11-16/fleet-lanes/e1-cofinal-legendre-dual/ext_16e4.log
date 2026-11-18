@@ -1,0 +1,10 @@
+PLAN X=160000: variables 801, nonzeros ~5.6e+04; measured peak RSS 0.53 GB at 3e6
+EXT {"x": 160000, "X": 160000, "i": 0, "ext": 390.9248796778047, "ext_over_sqrtx": 0.9773121991945117, "ext_logX_over_sqrtx": 11.7110627858601, "alpha": 0.2866876424795747, "vlogX_over_X": 3.4353576920206796, "Gx": 46260.947676409756, "GX_minus_v": 390.9248796778047, "maxabs_e": 1.000000000174623, "secs": 1.0, "maxrss_MB": 127.765625}
+PLAN X=320000: variables 1132, nonzeros ~9.42e+04; measured peak RSS 0.53 GB at 3e6
+EXT {"x": 160000, "X": 320000, "i": 1, "ext": 354.0582991617339, "ext_over_sqrtx": 0.8851457479043348, "ext_logX_over_sqrtx": 11.220175014728916, "alpha": 0.2594648668740075, "vlogX_over_X": 3.288996443119496, "Gx": 41868.43699900293, "GX_minus_v": -236.7741245518846, "maxabs_e": 1.000000001047738, "secs": 2.3, "maxrss_MB": 167.734375}
+PLAN X=640000: variables 1601, nonzeros ~1.58e+05; measured peak RSS 0.53 GB at 3e6
+EXT {"x": 160000, "X": 640000, "i": 2, "ext": 329.74478775994066, "ext_over_sqrtx": 0.8243619693998516, "ext_logX_over_sqrtx": 11.021079376987354, "alpha": 0.21970540053660212, "vlogX_over_X": 2.9372905941178997, "Gx": 35482.60887361628, "GX_minus_v": -27.779531674052123, "maxabs_e": 1.0000000034924597, "secs": 7.2, "maxrss_MB": 233.984375}
+PLAN X=1280000: variables 2263, nonzeros ~2.66e+05; measured peak RSS 0.53 GB at 3e6
+EXT {"x": 160000, "X": 1280000, "i": 3, "ext": 307.0209690946431, "ext_over_sqrtx": 0.7675524227366077, "ext_logX_over_sqrtx": 10.793606651001951, "alpha": 0.18930930478763813, "vlogX_over_X": 2.6621376087475306, "Gx": 30596.509735116746, "GX_minus_v": -93.20140995274414, "maxabs_e": 1.0000000055879354, "secs": 20.4, "maxrss_MB": 345.40625}
+PLAN X=2560000: variables 3201, nonzeros ~4.48e+05; measured peak RSS 0.53 GB at 3e6
+EXT {"x": 160000, "X": 2560000, "i": 4, "ext": 288.6077556120181, "ext_over_sqrtx": 0.7215193890300452, "ext_logX_over_sqrtx": 10.646392199751096, "alpha": 0.1785344281151499, "vlogX_over_X": 2.634367934903832, "Gx": 28854.116254036, "GX_minus_v": 70.41258012910839, "maxabs_e": 1.0000000031723175, "secs": 37.9, "maxrss_MB": 543.84375}

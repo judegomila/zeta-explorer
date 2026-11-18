@@ -1,0 +1,38 @@
+{
+ "slug": "c3-lemmab-halfplane-growing-s",
+ "round": 3,
+ "kind": "combine",
+ "nodes": [],
+ "tags": [
+  "euler-product",
+  "explicit-formula",
+  "weil",
+  "zero-free-region",
+  "seven-eighths",
+  "short-support"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "Lemma B at shift delta = sigma_0 - 1/2 (multiplier zeta_S(s-1+sigma_0)) is a correct identity (measured: 23 lane cases to <= 2.0e-10 plus 7 referee cases, including non-empty prime line and E_a). Support threshold stays log(2 N_S); sqrt(p) becomes p^(sigma_0-1/2) in the worst case over profiles. The |S|>=2 residue sum is bounded in contour form without divided differences (lines must avoid s=1). The absolute-value bounds given certify positivity only for T_w <= f(sigma_0) log log T, f = (sigma_0-Theta)/((1-Theta)(sigma_0-1/2)), increasing, f(1)=2 for every Theta; the 7/8 input gives no range beyond absolute convergence or the classical no-multiplier Weil range 2 log log T - C. For sigma_0 > 1 the residue sum equals the Weil prime sum of the test Z_S w. This is an obstruction of this bounding method, not a proof that positivity fails beyond 2 log log T. Pontryagin count vacuous (argued). No statement about zeros of zeta.",
+ "obstruction": "With the residues bounded in absolute value through sup bounds of zeta'/zeta on a vertical line, positivity is certified only for support T_w <= f(sigma_0) log log T, f = (sigma_0-Theta)/((1-Theta)(sigma_0-1/2)), f(1) = 2 for every Theta including RH: the Littlewood scale X = (log T)^2. Support c log T is not reached; the 7/8 input gives nothing beyond absolute convergence or the classical no-multiplier Weil range 2 log log T - C. For sigma_0 > 1 the residue sum is the Weil prime sum. This is an obstruction of the bounding method, not a proof that positivity fails beyond 2 log log T; a signed treatment of the lattice sum is the target itself (row P10).",
+ "obstructionKind": "littlewood-scale-cap-on-sup-bounds",
+ "controlsThatDefeat": [
+  "E_a (the shifted identity holds for it, measured)",
+  "every control with a zero-free region of the same shape gets the same range; the method reads only the sup bound",
+  "not run: DH form, Beurling, T-NR, heat, theta^w"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "All PROVED steps (Lemma 2, Corollary B1', Lemma 3, Proposition 4 arithmetic, Proposition 5) were re-derived and confirmed; no RH assumption, no restated verified height, classical items labelled classical. Corrections, none changing the verdict or a flag: (E1) t1.json holds 23 cases, not 24, and the largest |rel diff| is 2.0e-10 (2.4e-11 only at T=3000). (E2) Proposition 4 is a statement about one chain of upper bounds: it shows the bound certifies positivity only for T_w <= f(sigma_0) log log T [record truncated in transit; full text in push/c3-lemmab-halfplane-growing-s/REFEREE.md]",
+ "lesson": "Any zero-free input (7/8 or RH) used through sup bounds of zeta'/zeta on a vertical line stops at the Littlewood scale X = (log T)^2, i.e. support 2 log log T; moving poles into the strip loses (log T)^(8(1-sigma_0)) against a gain N_S^(sigma_0-1) and growing S only adds small-divisor factors. Lemma B is the explicit formula regularised, with no sign of its own. Constants are T-independent, but only on a non-resolving class. Not run: DH form, Beurling, T-NR, heat, theta^w; Lemma 1 constants not numerical.",
+ "followUp": "None on this route (close the family 'Lemma B x sup bounds on vertical lines'). If anything: a signed, not absolute, treatment of the lattice sum of zeta'/zeta(sigma_0+it_k), which is the target itself (row P10).",
+ "resultFile": "tmp/research-2026-11-16/push/c3-lemmab-halfplane-growing-s/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c3-lemmab-halfplane-growing-s/REFEREE.md"
+}

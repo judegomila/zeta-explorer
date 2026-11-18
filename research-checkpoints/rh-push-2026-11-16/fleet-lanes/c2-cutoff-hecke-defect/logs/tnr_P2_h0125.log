@@ -1,0 +1,9 @@
+kernel=tnr P=2 window U=1.3863 nodes n=111 h=0.0125 panels=39 r-nodes=7800 Rmax=4.862 dps=700
+planned allocation: 2 x 111 x 200 per panel + 3 x 111^2 = 81363 arb of 2329 bits ~ 29 MB
+  panel 0/39  6s
+  panel 10/39  55s
+  panel 20/39  92s
+  panel 30/39  122s
+matrix built 143s
+window p=  2 (0,1.386] nodes=111: n+=97 n-=14 unresolved=0 uncertain=0 smallest resolved log10|pivot|=-186.63 neg/2x2 pivots log10=[-3.99, -6.78, -12.34, -18.75, -61.19, -68.98, -80.98, -89.81]  146s
+done 146.2129681110382

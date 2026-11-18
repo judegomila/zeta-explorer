@@ -1,0 +1,39 @@
+N1 k=1 Theta(1/t)=0.064198569910341493383 t^(6k+1)Theta(t)=0.064198569910341493383 rel.diff=-2.0663e-40
+N1 k=2 Theta(1/t)=0.070126760423193343525 t^(6k+1)Theta(t)=0.070126760423193343525 rel.diff=2.5255e-40
+N1 k=3 Theta(1/t)=-0.060720431565430964907 t^(6k+1)Theta(t)=-0.060720431565430964907 rel.diff=4.3622e-40
+N1 k=4 Theta(1/t)=5.3411798328986860074 t^(6k+1)Theta(t)=5.3411798328986860074 rel.diff=0.0
+elements: Y-shell 72486, Z-shell 18150; planned largest array 500 x 72486 complex = 580 MB
+N2 k=    0 k/sqrtY=  0.000 |A_k|=2.321e-01 |A_k|sqrtY=3.282e+01
+N2 k=    1 k/sqrtY=  0.007 |A_k|=3.288e-14 |A_k|sqrtY=4.650e-12
+N2 k=    5 k/sqrtY=  0.035 |A_k|=4.494e-14 |A_k|sqrtY=6.356e-12
+N2 k=   10 k/sqrtY=  0.071 |A_k|=5.398e-14 |A_k|sqrtY=7.634e-12
+N2 k=   20 k/sqrtY=  0.141 |A_k|=3.547e-14 |A_k|sqrtY=5.017e-12
+N2 k=   30 k/sqrtY=  0.212 |A_k|=3.943e-14 |A_k|sqrtY=5.576e-12
+N2 k=   40 k/sqrtY=  0.283 |A_k|=6.540e-14 |A_k|sqrtY=9.249e-12
+N2 k=   60 k/sqrtY=  0.424 |A_k|=8.446e-14 |A_k|sqrtY=1.194e-11
+N2 k=   80 k/sqrtY=  0.566 |A_k|=1.881e-14 |A_k|sqrtY=2.661e-12
+N2 k=  120 k/sqrtY=  0.849 |A_k|=9.271e-14 |A_k|sqrtY=1.311e-11
+N2 k=  200 k/sqrtY=  1.414 |A_k|=6.129e-03 |A_k|sqrtY=8.668e-01
+N2 k=  400 k/sqrtY=  2.828 |A_k|=3.369e-03 |A_k|sqrtY=4.765e-01
+N2 k=  800 k/sqrtY=  5.657 |A_k|=7.931e-04 |A_k|sqrtY=1.122e-01
+N2 k= 1500 k/sqrtY= 10.607 |A_k|=1.923e-03 |A_k|sqrtY=2.720e-01
+N3 K=    5  sum_k Om A_k B_k = +5.722560e-03   k=0 term = +5.722560e-03   |diff| = 3.82e-14
+N3 K=   10  sum_k Om A_k B_k = +5.722560e-03   k=0 term = +5.722560e-03   |diff| = 7.82e-14
+N3 K=   20  sum_k Om A_k B_k = +5.722560e-03   k=0 term = +5.722560e-03   |diff| = 1.18e-13
+N3 K=   40  sum_k Om A_k B_k = +5.722560e-03   k=0 term = +5.722560e-03   |diff| = 1.10e-13
+N3 K=   80  sum_k Om A_k B_k = +5.722560e-03   k=0 term = +5.722560e-03   |diff| = 4.26e-14
+N3 K=  160  sum_k Om A_k B_k = +5.722560e-03   k=0 term = +5.722560e-03   |diff| = 7.35e-13
+N3 K=  400  sum_k Om A_k B_k = +4.742351e-03   k=0 term = +5.722560e-03   |diff| = 9.80e-04
+N3 K= 1500  sum_k Om A_k B_k = -5.151492e-02   k=0 term = +5.722560e-03   |diff| = 5.72e-02
+N4 K=   50 mean_k |B_k|^2 = 0.1615   |B_0|^2 = 0.0006  (B_0 = Z^-1/2 * smoothed Moebius sum over Z[omega])
+N4 K=  200 mean_k |B_k|^2 = 0.1399   |B_0|^2 = 0.0006  (B_0 = Z^-1/2 * smoothed Moebius sum over Z[omega])
+N4 K=  800 mean_k |B_k|^2 = 0.1427   |B_0|^2 = 0.0006  (B_0 = Z^-1/2 * smoothed Moebius sum over Z[omega])
+N4 K= 1500 mean_k |B_k|^2 = 0.1417   |B_0|^2 = 0.0006  (B_0 = Z^-1/2 * smoothed Moebius sum over Z[omega])
+N5 min over off-ray elements of |6 arg| sqrt(N) = 5.1963 (>= 6*sqrt(3)/2*... lower bound 3*sqrt3=5.196 asymptotically); on-ray elements with N<=4000: 378 = 6*floor(sqrt(4000))=378
+N6 f=   5 ideals prime to f (N<=4000): 2324; with a generator in Z+fO (all 6 unit multiples counted /6): 387.6666666666667 ; lattice prediction ~483.7 ; rational-only floor ~21.1
+N6 f=   7 ideals prime to f (N<=4000): 1779; with a generator in Z+fO (all 6 unit multiples counted /6): 298 ; lattice prediction ~345.5 ; rational-only floor ~21.1
+N6 f=  11 ideals prime to f (N<=4000): 2401; with a generator in Z+fO (all 6 unit multiples counted /6): 200.66666666666666 ; lattice prediction ~219.9 ; rational-only floor ~21.1
+N6 f=  13 ideals prime to f (N<=4000): 2061; with a generator in Z+fO (all 6 unit multiples counted /6): 172.33333333333334 ; lattice prediction ~186.0 ; rational-only floor ~21.1
+N6 f=  31 ideals prime to f (N<=4000): 2266; with a generator in Z+fO (all 6 unit multiples counted /6): 78.33333333333333 ; lattice prediction ~78.0 ; rational-only floor ~21.1
+N6 f=  61 ideals prime to f (N<=4000): 2342; with a generator in Z+fO (all 6 unit multiples counted /6): 43.333333333333336 ; lattice prediction ~39.6 ; rational-only floor ~21.1
+N6 f= 101 ideals prime to f (N<=4000): 2421; with a generator in Z+fO (all 6 unit multiples counted /6): 21 ; lattice prediction ~23.9 ; rational-only floor ~21.1

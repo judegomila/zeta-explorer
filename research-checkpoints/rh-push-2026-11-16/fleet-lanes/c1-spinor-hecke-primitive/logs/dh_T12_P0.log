@@ -1,0 +1,10 @@
+name=dh T=12.0 Nmax=400 primes=[] shifts=1 X=1.628e+05; planned: atoms<= 0.01 GB worst case (DH), matrices 0.010 GB
+atoms=222545 built in 0.1s
+E,D done 5.1s
+{'N': 12, 'full_min': -45.596773272506205, 'full_max': 78.01028418677257, 'full_neg': 1}
+{'N': 25, 'full_min': -49.24967593901819, 'full_max': 78.08987915849154, 'full_neg': 1}
+{'N': 50, 'full_min': -51.187997192965454, 'full_max': 78.10469181212432, 'full_neg': 1}
+{'N': 100, 'full_min': -52.134049826102185, 'full_max': 78.10923176144519, 'full_neg': 2}
+{'N': 200, 'full_min': -52.60812143527369, 'full_max': 78.1136653499335, 'full_neg': 2}
+{'N': 400, 'full_min': -52.84888831301779, 'full_max': 78.115363105373, 'full_neg': 4}
+total 5.2s

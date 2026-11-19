@@ -7,8 +7,11 @@
  * holding EXACTLY ONE zero therefore holds it on the critical line, simple.
  * That implication is exact. What varies is how the count "one" is known:
  *
- *   certified  - matches the fixed Arb/Rouche witness shipped in
- *                experiments/zero-channel-bounds.json (first zero only).
+ *   certified  - the exact disc is covered by an interval-arithmetic record:
+ *                at tau = 0, the Arb winding certificate for every tracked
+ *                disc (zero-line-certificate.js); for small |tau|, the fixed
+ *                Arb/Rouche witness in experiments/zero-channel-bounds.json
+ *                (first zero only).
  *   count-one  - floating-point argument-principle winding equals one.
  *                Numerical evidence, not a certificate.
  *   unresolved - winding not resolved, or not equal to one.
@@ -17,11 +20,18 @@
  * says nothing about the rest; the complete count to height T is separate.
  */
 import { evaluatePolar } from './math.js';
+import { LINE_CERTIFICATE } from './zero-line-certificate.js';
 
 const TAU=2*Math.PI;
 export const TRAP_STATUS=Object.freeze({certified:'#8dffb0','count-one':'#ffd27a',unresolved:'#ff7d8a'});
 /** The single shipped certificate: fixed disc, completed family, small |tau|. */
 export const CERTIFIED_WITNESS=Object.freeze({t:14.134725141734693,radius:.35,tauMax:.05,id:'theta-first-disk-arb-v1'});
+
+/** Certified at tau = 0 only when centre and radius match a record bit for bit. */
+export function lineCertificateFor(disc,tau=0){
+  if(tau!==0)return null;
+  return LINE_CERTIFICATE.discs.some(d=>d.t===disc.t&&d.radius===disc.radius&&d.winding===1)?LINE_CERTIFICATE.certificateId:null;
+}
 
 /** Disjoint symmetric discs: radius is a fixed share of the nearest gap. */
 export function trapDiscs(heights,{share=.4,maxRadius=.6,firstRadius=CERTIFIED_WITNESS.radius}={}){
@@ -61,8 +71,10 @@ export function computeTraps(heights,{kind='xi',tau=0}={}){
   return trapDiscs(heights).map(disc=>{
     const winding=trapWinding(disc.t,disc.radius,family,time);
     const witness=Math.abs(disc.t-CERTIFIED_WITNESS.t)<1e-9&&disc.radius===CERTIFIED_WITNESS.radius&&Math.abs(time)<=CERTIFIED_WITNESS.tauMax;
-    const status=!winding.resolved||winding.count!==1?'unresolved':witness?'certified':'count-one';
+    const certificateId=lineCertificateFor(disc,time)??(witness?CERTIFIED_WITNESS.id:null);
+    // A certificate never overrides a floating-point count that disagrees.
+    const status=!winding.resolved||winding.count!==1?'unresolved':certificateId?'certified':'count-one';
     return {...disc,sigma:.5,count:winding.count,resolved:winding.resolved,status,color:TRAP_STATUS[status],
-      certificateId:status==='certified'?CERTIFIED_WITNESS.id:null,countedOn:family};
+      certificateId:status==='certified'?certificateId:null,countedOn:family};
   });
 }

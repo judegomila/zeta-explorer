@@ -41,7 +41,9 @@ function zeroTraps(state){
  if(!state.traps)return [];
  const limit=state._domain.holeRadius?state._domain.holeRadius-1:120;
  const inWindow=t=>state.geometry!=='plane'||(t>state.tMin&&t<state.tMax);
- const traps=computeTraps(criticalRoots(state).filter(t=>t<=limit),{kind:state.function,tau:state.tau});
+ // Radii come from the whole tracked list, so a windowed view draws the same
+ // discs (and keeps their certificates) as the full one.
+ const traps=computeTraps(criticalRoots(state),{kind:state.function,tau:state.tau}).filter(trap=>trap.t<=limit);
  const result=[];
  for(const trap of traps)for(const sign of state.geometry==='plane'?[1]:[-1,1]){
   if(!inWindow(trap.t))continue;

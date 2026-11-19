@@ -1,6 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { trapDiscs, trapWinding, computeTraps, CERTIFIED_WITNESS } from '../dist/zero-traps.js';
+import { trapDiscs, trapWinding, computeTraps, lineCertificateFor, CERTIFIED_WITNESS } from '../dist/zero-traps.js';
+import { LINE_CERTIFICATE } from '../dist/zero-line-certificate.js';
+import { completeZeroCount } from '../dist/zero-count.js';
 import { sampleField } from '../dist/sampler.js';
 import { fieldKey } from '../dist/field-cache.js';
 import { ZERO_HEIGHTS } from '../dist/math.js';
@@ -17,11 +19,37 @@ test('winding counts one around a zero, zero around none, two around a pair',()=
   assert.equal(wide.count,2);assert.ok(wide.resolved);
 });
 
-test('only the shipped witness disc is labelled certified, and only for small heat time',()=>{
+test('every tracked disc is interval-certified at tau = 0; off tau = 0 only the first-zero witness is',()=>{
   const traps=computeTraps(ZERO_HEIGHTS);
-  assert.equal(traps[0].status,'certified');assert.equal(traps[0].certificateId,CERTIFIED_WITNESS.id);
-  for(const trap of traps.slice(1)){assert.equal(trap.status,'count-one');assert.equal(trap.certificateId,null);}
+  for(const trap of traps){assert.equal(trap.status,'certified');assert.equal(trap.certificateId,LINE_CERTIFICATE.certificateId);}
+  const heated=computeTraps(ZERO_HEIGHTS,{kind:'heat',tau:.03});
+  assert.equal(heated[0].status,'certified');assert.equal(heated[0].certificateId,CERTIFIED_WITNESS.id);
+  for(const trap of heated.slice(1)){assert.equal(trap.status,'count-one');assert.equal(trap.certificateId,null);}
   assert.equal(computeTraps(ZERO_HEIGHTS.slice(0,3),{kind:'heat',tau:.2})[0].status==='certified',false);
+});
+
+test('a certificate applies only to the exact recorded disc',()=>{
+  const [disc]=trapDiscs(ZERO_HEIGHTS);
+  assert.equal(lineCertificateFor(disc),LINE_CERTIFICATE.certificateId);
+  assert.equal(lineCertificateFor({...disc,radius:disc.radius+1e-12}),null);
+  assert.equal(lineCertificateFor({...disc,t:disc.t+1e-12}),null);
+  assert.equal(lineCertificateFor(disc,1e-9),null);
+  // A different neighbour list changes the last radius, so it is not certified.
+  const subset=computeTraps(ZERO_HEIGHTS.slice(0,13));
+  assert.equal(subset[12].status,'count-one');
+});
+
+test('the shipped certificate is internally consistent with the discs the app draws',()=>{
+  const discs=trapDiscs(ZERO_HEIGHTS),c=LINE_CERTIFICATE;
+  assert.equal(c.tau,0);assert.equal(c.discs.length,discs.length);
+  discs.forEach((disc,i)=>{assert.equal(c.discs[i].t,disc.t);assert.equal(c.discs[i].radius,disc.radius);assert.equal(c.discs[i].winding,1);});
+  const {T,sigmaMin,sigmaMax,winding,zerosInside}=c.rectangle;
+  // One simple pole at s = 1 inside the rectangle: zeros = winding + 1.
+  assert.equal(zerosInside,winding+1);assert.equal(c.complete,zerosInside===2*discs.length);assert.equal(c.complete,true);
+  assert.equal(c.completeHeight,T);
+  for(const disc of discs){assert.ok(disc.t-disc.radius>0&&disc.t+disc.radius<T);assert.ok(.5-disc.radius>sigmaMin&&.5+disc.radius<sigmaMax);}
+  // Independent floating-point count agrees with the certified one.
+  const count=completeZeroCount(T);assert.equal(count.strip,discs.length);assert.equal(count.line,discs.length);
 });
 
 test('a disc holding two zeros is unresolved, never reported as a trap',()=>{

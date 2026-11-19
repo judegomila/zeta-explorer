@@ -9,6 +9,7 @@ import { evaluatePolar, ZERO_HEIGHTS, NUMERICS } from './math.js';
 import { surfacePoint } from './geometry.js';
 import { domainFor, withinDomain, domainLabel, HOLE_DEFAULTS, HOLE_LIMITS } from './domain.js';
 import { completeZeroCount } from './zero-count.js';
+import { LINE_CERTIFICATE } from './zero-line-certificate.js';
 import { FieldService } from './field-service.js';
 import { fieldKey } from './field-cache.js';
 import { createSequencePlan, sequenceKey, prepareSequence, nearestFrame } from './playback.js';
@@ -286,7 +287,7 @@ $('countZeros').onclick=async()=>{const T=Number($('countHeight').value),out=$('
  out.textContent='Counting…';$('countZeros').disabled=true;
  try{const r=await runCount(T);
   out.textContent=!r.resolved?'Unresolved at T = '+T+' (T may be too close to a zero). Try a nearby height.'
-   :r.complete?'Strip: '+r.strip+' zeros with 0 < Im s < '+T+'. On the line: '+r.line+'. They agree, so every zero below this height is on the critical line and simple. The counted region is outlined on the surface. Floating-point check to this height only; not a certificate.'
+   :r.complete?'Strip: '+r.strip+' zeros with 0 < Im s < '+T+'. On the line: '+r.line+'. They agree, so every zero below this height is on the critical line and simple. The counted region is outlined on the surface. '+(LINE_CERTIFICATE.complete&&T<=LINE_CERTIFICATE.completeHeight?'For heights up to '+LINE_CERTIFICATE.completeHeight+' this is also certified with interval arithmetic ('+LINE_CERTIFICATE.certificateId+').':'This is a floating-point check to this height only; the interval certificate stops at '+LINE_CERTIFICATE.completeHeight+'.')
    :'Strip: '+r.strip+'. On the line: '+r.line+'. The counts differ, so this scan is not complete at T = '+T+'.';
   // Outline the region only when the two counts agreed.
   change('countT',r.resolved&&r.complete?T:0);

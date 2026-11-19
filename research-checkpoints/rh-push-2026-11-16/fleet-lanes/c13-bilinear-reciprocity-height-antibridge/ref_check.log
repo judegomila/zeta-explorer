@@ -1,0 +1,15 @@
+  (i) a=3 q=11 s_B=(0.0 + 1.7j) J=5 c=-0.7: D_0(a/q)=(-1.27091931225 + 1.27801837343j); |D_0 - main - E_J| = 2.02e-12; |E_J|=6.65301
+  (i) a=5 q=7 s_B=(0.0 + 3.2j) J=6 c=-0.8: D_0(a/q)=(-1.22031612159 - 1.49692146045j); |D_0 - main - E_J| = 1.39e-11; |E_J|=84.5325
+  (ii) t=2.31: sign changes of Z_chi on (-t,t) = 0; R_chi(t) = 3.33026; parity rule ok; Z(t)Z(-t)/R = (1.0 + 3.123483554e-19j)
+  (ii) t=5.05: sign changes of Z_chi on (-t,t) = 1; R_chi(t) = -3.33107; parity rule ok; Z(t)Z(-t)/R = (1.0 + 2.044076483e-20j)
+  (ii) t=7.77: sign changes of Z_chi on (-t,t) = 2; R_chi(t) = 4.49446; parity rule ok; Z(t)Z(-t)/R = (1.0 - 1.177817181e-20j)
+  (ii) t=11.9: sign changes of Z_chi on (-t,t) = 5; R_chi(t) = -4.17705; parity rule ok; Z(t)Z(-t)/R = (1.0 + 8.125333867e-19j)
+  (ii) t=13.33: sign changes of Z_chi on (-t,t) = 6; R_chi(t) = 3.97332; parity rule ok; Z(t)Z(-t)/R = (1.0 + 8.754510438e-19j)
+  (ii) t=17.01: sign changes of Z_chi on (-t,t) = 9; R_chi(t) = -0.0601395; parity rule ok; Z(t)Z(-t)/R = (1.0 + 2.558876762e-17j)
+  (ii) t=20.5: sign changes of Z_chi on (-t,t) = 12; R_chi(t) = 7.28207; parity rule ok; Z(t)Z(-t)/R = (1.0 - 6.466715883e-19j)
+  (ii) t=24.97: sign changes of Z_chi on (-t,t) = 16; R_chi(t) = 5.34247; parity rule ok; Z(t)Z(-t)/R = (1.0 + 1.909835005e-18j)
+  (ii) max |Im Z_chi| on the grid = 1.38e-17; parity rule 8/8
+  (iii) s=(0.5 + 3.3j) a=1: twin moment=(35.64451054 + 34.02712387j); |twin - five-term| = 6.94e-18
+  (iii) s=(0.5 + 3.3j) a=2: twin moment=(-30.90656502 - 37.89120811j); |twin - five-term| = 9.81e-18
+  (iii) s=(0.72 + 6.1j) a=1: twin moment=(-0.2840674399 - 5.266321927j); |twin - five-term| = 2.53e-18
+  (iii) s=(0.72 + 6.1j) a=2: twin moment=(1.678488614 + 5.777759102j); |twin - five-term| = 1.75e-18

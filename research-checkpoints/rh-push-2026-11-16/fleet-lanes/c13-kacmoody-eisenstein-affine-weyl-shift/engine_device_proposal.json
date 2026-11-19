@@ -1,0 +1,8 @@
+{
+ "id": "kacmoody-loop-eisenstein-maass-selberg",
+ "state": "closed",
+ "name": "Borel Eisenstein series on the loop group of SL_2: constant term over the affine Weyl group, Maass-Selberg positivity, degenerate Whittaker coefficients",
+ "evidence": "lane c13-kacmoody-eisenstein-affine-weyl-shift (round 13; author referee pass only). Stage A stops. In the chamber 0 < Re z < Re c every denominator argument of the constant term and of the degenerate Whittaker coefficients has Re > 1; strip arguments occur only in numerators. The Maass-Selberg inequality of the rank-one Levi is equivalent to: N = z(1-S)/(1+S), S = T^(-z) xi(z)/xi(z+1), is a Nevanlinna function of z^2 (Theorem B), and this is preserved under multiplication of S by Blaschke factors over non-real conjugate pairs in the right half-plane (Theorem C). T-NR (c > 2) and the scattering-level Blaschke control BLS pass every analytic step. For the two-variable affine kernel the same closure is argued, not proved (Garland's relations not opened). Level 1 identity: at c = 1 every non-identity coefficient is xi(z)/xi(z+n).",
+ "controls": ["T-NR", "BLS", "DH", "E_a", "EIS-w"],
+ "nodes": []
+}

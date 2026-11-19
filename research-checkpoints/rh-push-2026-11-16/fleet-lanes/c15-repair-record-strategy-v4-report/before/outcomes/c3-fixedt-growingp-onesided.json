@@ -1,0 +1,37 @@
+{
+ "slug": "c3-fixedt-growingp-onesided",
+ "round": 3,
+ "kind": "deepen",
+ "nodes": [],
+ "tags": [
+  "euler-product",
+  "finite-stage",
+  "landau",
+  "prime-oscillation",
+  "zero-free"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "Precise obstruction (equivalence with no unconditional hypothesis; Landau target in twisted form). For fixed s = sigma+it, 1/2 < sigma < 1, t != 0: the Laplace transform in log P of G(P;s) is (1/w)[log((s+w-1)zeta(s+w)) - log(s-1) - H(s+w)] with singular points w = 0 and w = rho - s for every zero at every height. An upper bound Re G <= C P^alpha for all large P at that one point gives beta <= max(sigma+alpha, beta_t) for every zero; a lower bound Re G >= -C P^alpha gives Theta <= sigma+alpha (the referee's argument shows no exceptional ordinate for this sign); conversely Theta <= sigma+alpha gives the two-sided bound O(P^(alpha+eps)). G_lambda = -G_zeta identically, which rules out one-sided derivations that use only complete multiplicativity, real unimodular local parameters and meromorphy, but not derivations using the functional equation. The claim that no unconditional input gives a one-sided bound without the two-sided one is a survey (ARGUED), not a theorem. Measured (float64, P <= 1e7, plus referee rerun to 4e6 at other points): the zero term has size P^(beta-sigma)/(|s-rho| log P), seen on U, RZ_b and DH near their zeros, with monotone descent at t = gamma; controls with the zero at distance >= 500 are not separated from zeta; the zeta table restates verified height. No statement about zeros of zeta is established.",
+ "obstruction": "The Laplace transform in log P of G(P;s) has singular points w = 0 and w = rho - s for every zero at every height, so a one-sided bound Re G <= C P^alpha or >= -C P^alpha at one fixed point is equivalent (up to eps, with the exceptional ordinate t = gamma for the upper sign) to Theta <= sigma + alpha: the Landau target of rows T2/P10 in twisted form. No unconditional input is known to give the one-sided bound without the two-sided one (survey, argued). The step from fixed P to all P is the statement to be proved.",
+ "obstructionKind": "landau-equivalence-no-unconditional-hypothesis",
+ "controlsThatDefeat": [
+  "Liouville twist (G_lambda = -G_zeta identically: exact mirror)",
+  "unimodular twist U, RZ_b, DH (the criterion holds verbatim; growth is visible only within distance about 3 of a zero at P <= 1e7)",
+  "any control whose zero is farther than Pmax^(beta-sigma)/log Pmax is not separated at fixed height"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "Referee file: tmp/research-2026-11-16/push/c3-fixedt-growingp-onesided/REFEREE.md. Lemma 1, Thm. 1, Prop. 2(i),(iii) and the 3-4-1 computation for U were re-derived and confirmed; no RH assumption; no classical result presented as new. Errors/corrections: (E1) Prop. 2(ii) lists \"a functional equation of the same type\" among hypotheses shared by zeta and zeta(2s)/zeta(s); the Liouville function has no such functional equation (BRIEF says the sign tw [record truncated in transit; full text in push/c3-fixedt-growingp-onesided/REFEREE.md]",
+ "lesson": "A one-sided bound in P at a fixed strip point is a global Landau equivalence, not a window statement: it reads zeros at all heights with weight P^(beta-sigma)/(|s-rho| log P), holds for every control verbatim as a criterion, and U lacks nothing at hypothesis level. The sign information (zeros, not poles) shows in Re G only at t = gamma. A fixed-height test with P <= Pmax cannot separate zeta from a control whose zero is farther than Pmax^(beta-sigma)/log Pmax.",
+ "followUp": "None on this object. Add to map row T2 that the twisted fixed-s form is the same target (one point, either sign). Optional: a finite-range Landau/Turan version would make the coupled P = T^theta section rigorous, but it stays an equivalence with no unconditional hypothesis. The compute server was not used.",
+ "resultFile": "tmp/research-2026-11-16/push/c3-fixedt-growingp-onesided/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c3-fixedt-growingp-onesided/REFEREE.md"
+}

@@ -1,0 +1,1046 @@
+{
+ "family": "D1",
+ "entries": 6650,
+ "float_decided_agree": 6642,
+ "float_decided_disagree": 0,
+ "float_undecided": 8,
+ "float_decided_ball_undecided": 0,
+ "bad": [],
+ "seconds": 83.34551668167114,
+ "top_rows_ball": [
+  {
+   "row": 89896,
+   "params": {
+    "m": 3,
+    "ci": 20,
+    "u0": -2.0,
+    "h": 0.1,
+    "g": 0.0
+   },
+   "ball": {
+    "P0": {
+     "sign": -1,
+     "classes_rejected_train": 2,
+     "classes_any_member": 5,
+     "classes_heldout95": 0,
+     "fracH": [
+      0.583,
+      0.667,
+      0.0,
+      0.0,
+      0.333,
+      0.458,
+      0.0,
+      0.542,
+      0.0
+     ],
+     "rejT": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0
+     ],
+     "ph_same": 1.0,
+     "full": false
+    },
+    "P1": {
+     "sign": -1,
+     "classes_rejected_train": 2,
+     "classes_any_member": 5,
+     "classes_heldout95": 0,
+     "fracH": [
+      0.583,
+      0.667,
+      0.0,
+      0.0,
+      0.333,
+      0.458,
+      0.0,
+      0.542,
+      0.0
+     ],
+     "rejT": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0
+     ],
+     "ph_same": 0.5,
+     "full": false
+    },
+    "P2": {
+     "sign": -1,
+     "classes_rejected_train": 2,
+     "classes_any_member": 5,
+     "classes_heldout95": 0,
+     "fracH": [
+      0.583,
+      0.667,
+      0.0,
+      0.0,
+      0.333,
+      0.458,
+      0.0,
+      0.542,
+      0.0
+     ],
+     "rejT": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0
+     ],
+     "ph_same": 0.5833333333333334,
+     "full": false
+    }
+   },
+   "ball_undecided": 0
+  },
+  {
+   "row": 89902,
+   "params": {
+    "m": 3,
+    "ci": 20,
+    "u0": -2.0,
+    "h": 0.2,
+    "g": -0.05
+   },
+   "ball": {
+    "P0": {
+     "sign": -1,
+     "classes_rejected_train": 2,
+     "classes_any_member": 5,
+     "classes_heldout95": 0,
+     "fracH": [
+      0.583,
+      0.667,
+      0.0,
+      0.0,
+      0.333,
+      0.458,
+      0.0,
+      0.5,
+      0.0
+     ],
+     "rejT": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0
+     ],
+     "ph_same": 1.0,
+     "full": false
+    },
+    "P1": {
+     "sign": -1,
+     "classes_rejected_train": 2,
+     "classes_any_member": 5,
+     "classes_heldout95": 0,
+     "fracH": [
+      0.583,
+      0.667,
+      0.0,
+      0.0,
+      0.333,
+      0.458,
+      0.0,
+      0.5,
+      0.0
+     ],
+     "rejT": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0
+     ],
+     "ph_same": 0.5,
+     "full": false
+    },
+    "P2": {
+     "sign": -1,
+     "classes_rejected_train": 2,
+     "classes_any_member": 5,
+     "classes_heldout95": 0,
+     "fracH": [
+      0.583,
+      0.667,
+      0.0,
+      0.0,
+      0.333,
+      0.458,
+      0.0,
+      0.5,
+      0.0
+     ],
+     "rejT": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0
+     ],
+     "ph_same": 0.5833333333333334,
+     "full": false
+    }
+   },
+   "ball_undecided": 0
+  },
+  {
+   "row": 89894,
+   "params": {
+    "m": 3,
+    "ci": 20,
+    "u0": -2.0,
+    "h": 0.05,
+    "g": 0.05
+   },
+   "ball": {
+    "P0": {
+     "sign": -1,
+     "classes_rejected_train": 2,
+     "classes_any_member": 5,
+     "classes_heldout95": 0,
+     "fracH": [
+      0.583,
+      0.667,
+      0.0,
+      0.0,
+      0.333,
+      0.458,
+      0.0,
+      0.5,
+      0.0
+     ],
+     "rejT": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0
+     ],
+     "ph_same": 1.0,
+     "full": false
+    },
+    "P1": {
+     "sign": -1,
+     "classes_rejected_train": 2,
+     "classes_any_member": 5,
+     "classes_heldout95": 0,
+     "fracH": [
+      0.583,
+      0.667,
+      0.0,
+      0.0,
+      0.333,
+      0.458,
+      0.0,
+      0.5,
+      0.0
+     ],
+     "rejT": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0
+     ],
+     "ph_same": 0.5,
+     "full": false
+    },
+    "P2": {
+     "sign": -1,
+     "classes_rejected_train": 2,
+     "classes_any_member": 5,
+     "classes_heldout95": 0,
+     "fracH": [
+      0.583,
+      0.667,
+      0.0,
+      0.0,
+      0.333,
+      0.458,
+      0.0,
+      0.5,
+      0.0
+     ],
+     "rejT": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0
+     ],
+     "ph_same": 0.5833333333333334,
+     "full": false
+    }
+   },
+   "ball_undecided": 0
+  },
+  {
+   "row": 89888,
+   "params": {
+    "m": 3,
+    "ci": 20,
+    "u0": -2.1,
+    "h": 0.4054651081081644,
+    "g": -0.1
+   },
+   "ball": {
+    "P0": {
+     "sign": -1,
+     "classes_rejected_train": 2,
+     "classes_any_member": 5,
+     "classes_heldout95": 0,
+     "fracH": [
+      0.583,
+      0.667,
+      0.0,
+      0.0,
+      0.333,
+      0.458,
+      0.0,
+      0.5,
+      0.0
+     ],
+     "rejT": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0
+     ],
+     "ph_same": 1.0,
+     "full": false
+    },
+    "P1": {
+     "sign": -1,
+     "classes_rejected_train": 2,
+     "classes_any_member": 5,
+     "classes_heldout95": 0,
+     "fracH": [
+      0.583,
+      0.667,
+      0.0,
+      0.0,
+      0.333,
+      0.458,
+      0.0,
+      0.5,
+      0.0
+     ],
+     "rejT": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0
+     ],
+     "ph_same": 0.5,
+     "full": false
+    },
+    "P2": {
+     "sign": -1,
+     "classes_rejected_train": 2,
+     "classes_any_member": 5,
+     "classes_heldout95": 0,
+     "fracH": [
+      0.583,
+      0.667,
+      0.0,
+      0.0,
+      0.333,
+      0.458,
+      0.0,
+      0.5,
+      0.0
+     ],
+     "rejT": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0
+     ],
+     "ph_same": 0.5833333333333334,
+     "full": false
+    }
+   },
+   "ball_undecided": 0
+  },
+  {
+   "row": 89820,
+   "params": {
+    "m": 3,
+    "ci": 20,
+    "u0": -2.1,
+    "h": 0.4,
+    "g": -0.1
+   },
+   "ball": {
+    "P0": {
+     "sign": -1,
+     "classes_rejected_train": 2,
+     "classes_any_member": 5,
+     "classes_heldout95": 0,
+     "fracH": [
+      0.583,
+      0.667,
+      0.0,
+      0.0,
+      0.333,
+      0.458,
+      0.0,
+      0.5,
+      0.0
+     ],
+     "rejT": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0
+     ],
+     "ph_same": 1.0,
+     "full": false
+    },
+    "P1": {
+     "sign": -1,
+     "classes_rejected_train": 2,
+     "classes_any_member": 5,
+     "classes_heldout95": 0,
+     "fracH": [
+      0.583,
+      0.667,
+      0.0,
+      0.0,
+      0.333,
+      0.458,
+      0.0,
+      0.5,
+      0.0
+     ],
+     "rejT": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0
+     ],
+     "ph_same": 0.5,
+     "full": false
+    },
+    "P2": {
+     "sign": -1,
+     "classes_rejected_train": 2,
+     "classes_any_member": 5,
+     "classes_heldout95": 0,
+     "fracH": [
+      0.583,
+      0.667,
+      0.0,
+      0.0,
+      0.333,
+      0.458,
+      0.0,
+      0.5,
+      0.0
+     ],
+     "rejT": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0
+     ],
+     "ph_same": 0.5833333333333334,
+     "full": false
+    }
+   },
+   "ball_undecided": 0
+  },
+  {
+   "row": 89811,
+   "params": {
+    "m": 3,
+    "ci": 20,
+    "u0": -2.1,
+    "h": 0.3,
+    "g": -0.05
+   },
+   "ball": {
+    "P0": {
+     "sign": -1,
+     "classes_rejected_train": 2,
+     "classes_any_member": 5,
+     "classes_heldout95": 0,
+     "fracH": [
+      0.583,
+      0.667,
+      0.0,
+      0.0,
+      0.333,
+      0.458,
+      0.0,
+      0.5,
+      0.0
+     ],
+     "rejT": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0
+     ],
+     "ph_same": 1.0,
+     "full": false
+    },
+    "P1": {
+     "sign": -1,
+     "classes_rejected_train": 2,
+     "classes_any_member": 5,
+     "classes_heldout95": 0,
+     "fracH": [
+      0.583,
+      0.667,
+      0.0,
+      0.0,
+      0.333,
+      0.458,
+      0.0,
+      0.5,
+      0.0
+     ],
+     "rejT": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0
+     ],
+     "ph_same": 0.5,
+     "full": false
+    },
+    "P2": {
+     "sign": -1,
+     "classes_rejected_train": 2,
+     "classes_any_member": 5,
+     "classes_heldout95": 0,
+     "fracH": [
+      0.583,
+      0.667,
+      0.0,
+      0.0,
+      0.333,
+      0.458,
+      0.0,
+      0.5,
+      0.0
+     ],
+     "rejT": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0
+     ],
+     "ph_same": 0.5833333333333334,
+     "full": false
+    }
+   },
+   "ball_undecided": 0
+  },
+  {
+   "row": 170642,
+   "params": {
+    "m": 3,
+    "ci": 63,
+    "u0": -1.9,
+    "h": 0.35,
+    "g": 0.1
+   },
+   "ball": {
+    "P0": {
+     "sign": -1,
+     "classes_rejected_train": 4,
+     "classes_any_member": 5,
+     "classes_heldout95": 0,
+     "fracH": [
+      0.625,
+      0.458,
+      0.0,
+      0.0,
+      0.25,
+      0.375,
+      0.0,
+      0.792,
+      0.0
+     ],
+     "rejT": [
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      0
+     ],
+     "ph_same": 1.0,
+     "full": false
+    },
+    "P1": {
+     "sign": -1,
+     "classes_rejected_train": 4,
+     "classes_any_member": 5,
+     "classes_heldout95": 0,
+     "fracH": [
+      0.625,
+      0.458,
+      0.0,
+      0.0,
+      0.25,
+      0.375,
+      0.0,
+      0.792,
+      0.0
+     ],
+     "rejT": [
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      0
+     ],
+     "ph_same": 0.75,
+     "full": false
+    },
+    "P2": {
+     "sign": -1,
+     "classes_rejected_train": 4,
+     "classes_any_member": 5,
+     "classes_heldout95": 0,
+     "fracH": [
+      0.625,
+      0.458,
+      0.0,
+      0.0,
+      0.25,
+      0.375,
+      0.0,
+      0.792,
+      0.0
+     ],
+     "rejT": [
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      0
+     ],
+     "ph_same": 0.7916666666666666,
+     "full": false
+    }
+   },
+   "ball_undecided": 0
+  },
+  {
+   "row": 173913,
+   "params": {
+    "m": 3,
+    "ci": 65,
+    "u0": -1.9,
+    "h": 0.35,
+    "g": -0.1
+   },
+   "ball": {
+    "P0": {
+     "sign": -1,
+     "classes_rejected_train": 4,
+     "classes_any_member": 5,
+     "classes_heldout95": 0,
+     "fracH": [
+      0.625,
+      0.458,
+      0.0,
+      0.0,
+      0.25,
+      0.542,
+      0.0,
+      0.625,
+      0.0
+     ],
+     "rejT": [
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      0
+     ],
+     "ph_same": 1.0,
+     "full": false
+    },
+    "P1": {
+     "sign": -1,
+     "classes_rejected_train": 4,
+     "classes_any_member": 5,
+     "classes_heldout95": 0,
+     "fracH": [
+      0.625,
+      0.458,
+      0.0,
+      0.0,
+      0.25,
+      0.542,
+      0.0,
+      0.625,
+      0.0
+     ],
+     "rejT": [
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      0
+     ],
+     "ph_same": 0.75,
+     "full": false
+    },
+    "P2": {
+     "sign": -1,
+     "classes_rejected_train": 4,
+     "classes_any_member": 5,
+     "classes_heldout95": 0,
+     "fracH": [
+      0.625,
+      0.458,
+      0.0,
+      0.0,
+      0.25,
+      0.542,
+      0.0,
+      0.625,
+      0.0
+     ],
+     "rejT": [
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      0
+     ],
+     "ph_same": 0.75,
+     "full": false
+    }
+   },
+   "ball_undecided": 0
+  },
+  {
+   "row": 173905,
+   "params": {
+    "m": 3,
+    "ci": 65,
+    "u0": -1.9,
+    "h": 0.25,
+    "g": -0.05
+   },
+   "ball": {
+    "P0": {
+     "sign": -1,
+     "classes_rejected_train": 4,
+     "classes_any_member": 5,
+     "classes_heldout95": 0,
+     "fracH": [
+      0.625,
+      0.458,
+      0.0,
+      0.0,
+      0.25,
+      0.542,
+      0.0,
+      0.625,
+      0.0
+     ],
+     "rejT": [
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      0
+     ],
+     "ph_same": 1.0,
+     "full": false
+    },
+    "P1": {
+     "sign": -1,
+     "classes_rejected_train": 4,
+     "classes_any_member": 5,
+     "classes_heldout95": 0,
+     "fracH": [
+      0.625,
+      0.458,
+      0.0,
+      0.0,
+      0.25,
+      0.542,
+      0.0,
+      0.625,
+      0.0
+     ],
+     "rejT": [
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      0
+     ],
+     "ph_same": 0.75,
+     "full": false
+    },
+    "P2": {
+     "sign": -1,
+     "classes_rejected_train": 4,
+     "classes_any_member": 5,
+     "classes_heldout95": 0,
+     "fracH": [
+      0.625,
+      0.458,
+      0.0,
+      0.0,
+      0.25,
+      0.542,
+      0.0,
+      0.625,
+      0.0
+     ],
+     "rejT": [
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      0
+     ],
+     "ph_same": 0.75,
+     "full": false
+    }
+   },
+   "ball_undecided": 0
+  },
+  {
+   "row": 173898,
+   "params": {
+    "m": 3,
+    "ci": 65,
+    "u0": -1.9,
+    "h": 0.15,
+    "g": 0.0
+   },
+   "ball": {
+    "P0": {
+     "sign": -1,
+     "classes_rejected_train": 4,
+     "classes_any_member": 5,
+     "classes_heldout95": 0,
+     "fracH": [
+      0.625,
+      0.458,
+      0.0,
+      0.0,
+      0.167,
+      0.625,
+      0.0,
+      0.625,
+      0.0
+     ],
+     "rejT": [
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      0
+     ],
+     "ph_same": 1.0,
+     "full": false
+    },
+    "P1": {
+     "sign": -1,
+     "classes_rejected_train": 4,
+     "classes_any_member": 5,
+     "classes_heldout95": 0,
+     "fracH": [
+      0.625,
+      0.458,
+      0.0,
+      0.0,
+      0.167,
+      0.625,
+      0.0,
+      0.625,
+      0.0
+     ],
+     "rejT": [
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      0
+     ],
+     "ph_same": 0.75,
+     "full": false
+    },
+    "P2": {
+     "sign": -1,
+     "classes_rejected_train": 4,
+     "classes_any_member": 5,
+     "classes_heldout95": 0,
+     "fracH": [
+      0.625,
+      0.458,
+      0.0,
+      0.0,
+      0.167,
+      0.625,
+      0.0,
+      0.625,
+      0.0
+     ],
+     "rejT": [
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      0
+     ],
+     "ph_same": 0.75,
+     "full": false
+    }
+   },
+   "ball_undecided": 0
+  }
+ ],
+ "prediction2_tnr_counterexamples_ball": {
+  "tested": 30,
+  "confirmed": 30
+ }
+}

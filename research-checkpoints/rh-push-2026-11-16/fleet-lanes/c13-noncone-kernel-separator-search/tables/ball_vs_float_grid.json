@@ -1,0 +1,710 @@
+{
+ "D1": {
+  "pairs": 1371,
+  "float_decided_agree": 1124,
+  "float_decided_disagree": 0,
+  "float_decided_ball_undecided": 0,
+  "float_undecided": 247,
+  "by_type_agree_disagree_floatund_ballresolved": {
+   "EA": [
+    216,
+    0,
+    39,
+    39
+   ],
+   "ThetaW": [
+    109,
+    0,
+    41,
+    41
+   ],
+   "NoFE": [
+    312,
+    0,
+    150,
+    150
+   ],
+   "DHType": [
+    137,
+    0,
+    2,
+    2
+   ],
+   "TNR": [
+    109,
+    0,
+    12,
+    12
+   ],
+   "Chi": [
+    235,
+    0,
+    0,
+    0
+   ],
+   "Zeta": [
+    3,
+    0,
+    1,
+    1
+   ],
+   "Heat": [
+    3,
+    0,
+    2,
+    2
+   ]
+  },
+  "bad": [],
+  "seconds": 25.98562526702881
+ },
+ "D3a": {
+  "pairs": 1500,
+  "float_decided_agree": 1496,
+  "float_decided_disagree": 0,
+  "float_decided_ball_undecided": 0,
+  "float_undecided": 4,
+  "by_type_agree_disagree_floatund_ballresolved": {
+   "NoFE": [
+    457,
+    0,
+    1,
+    1
+   ],
+   "Heat": [
+    146,
+    0,
+    0,
+    0
+   ],
+   "Chi": [
+    258,
+    0,
+    0,
+    0
+   ],
+   "EA": [
+    256,
+    0,
+    0,
+    0
+   ],
+   "TNR": [
+    126,
+    0,
+    3,
+    3
+   ],
+   "ThetaW": [
+    118,
+    0,
+    0,
+    0
+   ],
+   "DHType": [
+    129,
+    0,
+    0,
+    0
+   ],
+   "Zeta": [
+    6,
+    0,
+    0,
+    0
+   ]
+  },
+  "bad": [],
+  "seconds": 14.780232906341553
+ },
+ "D2-F1": {
+  "pairs": 1379,
+  "float_decided_agree": 1217,
+  "float_decided_disagree": 0,
+  "float_decided_ball_undecided": 0,
+  "float_undecided": 162,
+  "by_type_agree_disagree_floatund_ballresolved": {
+   "DHType": [
+    103,
+    0,
+    0,
+    0
+   ],
+   "NoFE": [
+    342,
+    0,
+    145,
+    145
+   ],
+   "Chi": [
+    242,
+    0,
+    0,
+    0
+   ],
+   "EA": [
+    282,
+    0,
+    0,
+    0
+   ],
+   "TNR": [
+    123,
+    0,
+    8,
+    8
+   ],
+   "ThetaW": [
+    119,
+    0,
+    6,
+    6
+   ],
+   "Zeta": [
+    6,
+    0,
+    0,
+    0
+   ],
+   "Heat": [
+    0,
+    0,
+    3,
+    3
+   ]
+  },
+  "bad": [],
+  "seconds": 5.668446779251099
+ },
+ "D2-F2": {
+  "pairs": 1372,
+  "float_decided_agree": 1246,
+  "float_decided_disagree": 0,
+  "float_decided_ball_undecided": 0,
+  "float_undecided": 126,
+  "by_type_agree_disagree_floatund_ballresolved": {
+   "EA": [
+    272,
+    0,
+    0,
+    0
+   ],
+   "NoFE": [
+    362,
+    0,
+    114,
+    114
+   ],
+   "TNR": [
+    111,
+    0,
+    4,
+    4
+   ],
+   "Chi": [
+    230,
+    0,
+    0,
+    0
+   ],
+   "DHType": [
+    134,
+    0,
+    0,
+    0
+   ],
+   "ThetaW": [
+    134,
+    0,
+    5,
+    5
+   ],
+   "Heat": [
+    2,
+    0,
+    2,
+    2
+   ],
+   "Zeta": [
+    1,
+    0,
+    1,
+    1
+   ]
+  },
+  "bad": [],
+  "seconds": 4.710565805435181
+ },
+ "D2-F3": {
+  "pairs": 1382,
+  "float_decided_agree": 981,
+  "float_decided_disagree": 0,
+  "float_decided_ball_undecided": 0,
+  "float_undecided": 401,
+  "by_type_agree_disagree_floatund_ballresolved": {
+   "EA": [
+    198,
+    0,
+    82,
+    82
+   ],
+   "NoFE": [
+    252,
+    0,
+    210,
+    210
+   ],
+   "Chi": [
+    239,
+    0,
+    8,
+    8
+   ],
+   "TNR": [
+    101,
+    0,
+    25,
+    25
+   ],
+   "ThetaW": [
+    69,
+    0,
+    64,
+    64
+   ],
+   "DHType": [
+    120,
+    0,
+    6,
+    6
+   ],
+   "Zeta": [
+    1,
+    0,
+    1,
+    1
+   ],
+   "Heat": [
+    1,
+    0,
+    5,
+    5
+   ]
+  },
+  "bad": [],
+  "seconds": 19.35021209716797
+ },
+ "D2-F4": {
+  "pairs": 1365,
+  "float_decided_agree": 1096,
+  "float_decided_disagree": 0,
+  "float_decided_ball_undecided": 0,
+  "float_undecided": 269,
+  "by_type_agree_disagree_floatund_ballresolved": {
+   "NoFE": [
+    305,
+    0,
+    131,
+    131
+   ],
+   "DHType": [
+    120,
+    0,
+    2,
+    2
+   ],
+   "TNR": [
+    111,
+    0,
+    9,
+    9
+   ],
+   "Chi": [
+    251,
+    0,
+    0,
+    0
+   ],
+   "EA": [
+    217,
+    0,
+    55,
+    55
+   ],
+   "ThetaW": [
+    87,
+    0,
+    64,
+    64
+   ],
+   "Zeta": [
+    2,
+    0,
+    1,
+    1
+   ],
+   "Heat": [
+    3,
+    0,
+    7,
+    7
+   ]
+  },
+  "bad": [],
+  "seconds": 6.09397292137146
+ },
+ "D2-F5": {
+  "pairs": 1388,
+  "float_decided_agree": 1158,
+  "float_decided_disagree": 0,
+  "float_decided_ball_undecided": 0,
+  "float_undecided": 230,
+  "by_type_agree_disagree_floatund_ballresolved": {
+   "NoFE": [
+    328,
+    0,
+    151,
+    151
+   ],
+   "Chi": [
+    209,
+    0,
+    0,
+    0
+   ],
+   "EA": [
+    261,
+    0,
+    1,
+    1
+   ],
+   "ThetaW": [
+    81,
+    0,
+    64,
+    64
+   ],
+   "DHType": [
+    131,
+    0,
+    0,
+    0
+   ],
+   "TNR": [
+    146,
+    0,
+    11,
+    11
+   ],
+   "Heat": [
+    1,
+    0,
+    3,
+    3
+   ],
+   "Zeta": [
+    1,
+    0,
+    0,
+    0
+   ]
+  },
+  "bad": [],
+  "seconds": 2.350740909576416
+ },
+ "D3b-F1": {
+  "pairs": 1500,
+  "float_decided_agree": 1498,
+  "float_decided_disagree": 0,
+  "float_decided_ball_undecided": 0,
+  "float_undecided": 2,
+  "by_type_agree_disagree_floatund_ballresolved": {
+   "Chi": [
+    244,
+    0,
+    0,
+    0
+   ],
+   "ThetaW": [
+    139,
+    0,
+    0,
+    0
+   ],
+   "NoFE": [
+    458,
+    0,
+    0,
+    0
+   ],
+   "EA": [
+    256,
+    0,
+    0,
+    0
+   ],
+   "TNR": [
+    112,
+    0,
+    0,
+    0
+   ],
+   "Heat": [
+    140,
+    0,
+    0,
+    0
+   ],
+   "DHType": [
+    145,
+    0,
+    2,
+    2
+   ],
+   "Zeta": [
+    4,
+    0,
+    0,
+    0
+   ]
+  },
+  "bad": [],
+  "seconds": 3.442260265350342
+ },
+ "D3b-F2": {
+  "pairs": 1500,
+  "float_decided_agree": 1499,
+  "float_decided_disagree": 0,
+  "float_decided_ball_undecided": 0,
+  "float_undecided": 1,
+  "by_type_agree_disagree_floatund_ballresolved": {
+   "ThetaW": [
+    134,
+    0,
+    0,
+    0
+   ],
+   "TNR": [
+    128,
+    0,
+    0,
+    0
+   ],
+   "NoFE": [
+    415,
+    0,
+    0,
+    0
+   ],
+   "Heat": [
+    143,
+    0,
+    0,
+    0
+   ],
+   "Chi": [
+    259,
+    0,
+    0,
+    0
+   ],
+   "EA": [
+    306,
+    0,
+    1,
+    1
+   ],
+   "DHType": [
+    104,
+    0,
+    0,
+    0
+   ],
+   "Zeta": [
+    10,
+    0,
+    0,
+    0
+   ]
+  },
+  "bad": [],
+  "seconds": 1.311591625213623
+ },
+ "D3b-F3": {
+  "pairs": 1500,
+  "float_decided_agree": 1478,
+  "float_decided_disagree": 0,
+  "float_decided_ball_undecided": 0,
+  "float_undecided": 22,
+  "by_type_agree_disagree_floatund_ballresolved": {
+   "NoFE": [
+    441,
+    0,
+    2,
+    2
+   ],
+   "EA": [
+    283,
+    0,
+    0,
+    0
+   ],
+   "ThetaW": [
+    128,
+    0,
+    0,
+    0
+   ],
+   "Chi": [
+    216,
+    0,
+    13,
+    13
+   ],
+   "TNR": [
+    131,
+    0,
+    0,
+    0
+   ],
+   "Heat": [
+    141,
+    0,
+    0,
+    0
+   ],
+   "DHType": [
+    133,
+    0,
+    7,
+    6
+   ],
+   "Zeta": [
+    5,
+    0,
+    0,
+    0
+   ]
+  },
+  "bad": [],
+  "seconds": 6.674117565155029
+ },
+ "D3b-F4": {
+  "pairs": 1500,
+  "float_decided_agree": 1495,
+  "float_decided_disagree": 0,
+  "float_decided_ball_undecided": 0,
+  "float_undecided": 5,
+  "by_type_agree_disagree_floatund_ballresolved": {
+   "EA": [
+    282,
+    0,
+    0,
+    0
+   ],
+   "DHType": [
+    123,
+    0,
+    0,
+    0
+   ],
+   "NoFE": [
+    469,
+    0,
+    2,
+    2
+   ],
+   "Chi": [
+    228,
+    0,
+    0,
+    0
+   ],
+   "Heat": [
+    125,
+    0,
+    1,
+    1
+   ],
+   "TNR": [
+    139,
+    0,
+    1,
+    1
+   ],
+   "ThetaW": [
+    122,
+    0,
+    1,
+    1
+   ],
+   "Zeta": [
+    7,
+    0,
+    0,
+    0
+   ]
+  },
+  "bad": [],
+  "seconds": 1.7216589450836182
+ },
+ "D3b-F5": {
+  "pairs": 1500,
+  "float_decided_agree": 1500,
+  "float_decided_disagree": 0,
+  "float_decided_ball_undecided": 0,
+  "float_undecided": 0,
+  "by_type_agree_disagree_floatund_ballresolved": {
+   "EA": [
+    276,
+    0,
+    0,
+    0
+   ],
+   "NoFE": [
+    456,
+    0,
+    0,
+    0
+   ],
+   "Chi": [
+    241,
+    0,
+    0,
+    0
+   ],
+   "Heat": [
+    118,
+    0,
+    0,
+    0
+   ],
+   "DHType": [
+    132,
+    0,
+    0,
+    0
+   ],
+   "TNR": [
+    132,
+    0,
+    0,
+    0
+   ],
+   "ThetaW": [
+    143,
+    0,
+    0,
+    0
+   ],
+   "Zeta": [
+    2,
+    0,
+    0,
+    0
+   ]
+  },
+  "bad": [],
+  "seconds": 1.550874948501587
+ }
+}

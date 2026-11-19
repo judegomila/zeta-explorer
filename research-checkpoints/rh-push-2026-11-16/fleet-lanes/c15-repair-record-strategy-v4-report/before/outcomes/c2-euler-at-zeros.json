@@ -1,0 +1,38 @@
+{
+ "slug": "c2-euler-at-zeros",
+ "round": 2,
+ "kind": "combine",
+ "nodes": [],
+ "tags": [
+  "euler-product",
+  "explicit-formula",
+  "mean-value",
+  "spinor",
+  "weil"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "S-periodised explicit formula (Lemma B): for finite S and smooth w of support length T_w, the Krein zero sum of |zeta_S W|^2 equals the archimedean integral plus residues of zeta'/zeta at 1 + 2 pi i k/log p plus a finite prime sum over N_S m m' n <= e^T_w (empty for T_w < log(2 N_S)); re-derived and verified in 13 lane cases plus 5 referee cases to relative 4e-10. For |S|=1, T_w <= log p it gives R_S > 0 for T >= T_0(p,b) via Vinogradov-Korobov (non-uniform threshold). The identity holds for every control with the functional equation and uses only Re s = 1 data. No one-sided inequality on R_S separating zeta from the controls was found: the lower one is the target (P10); the upper depletion law is a long-average mean-value statement (-2 L1(P)) also satisfied by E_a and backward heat on the measured Gaussian windows with zeta's product as multiplier; its every-window form is unproved, with no measured height trend at equal sample size. Off-line pair weights of E_a are damped in size by a partial Euler product (both zeta's and E_a's own), with indefinite sign for the own product. Nothing about zeros of zeta is established.",
+ "obstruction": "No one-sided inequality on R_S separates zeta from the controls. The lower inequality R_S >= 0 for all tests is the target itself (P10). The upper depletion inequality is the Landau-Gonek mean value -2 sum_{p<=P} log p/(p-1); its every-window form needs a sup-over-height bound on a prime sum outside S and is unproved. R_S tends to 0 as P grows and a partial Euler product damps off-line pair weights, so the multiplier is not an amplifier. The exact S-periodised explicit formula (Lemma B) holds for every control with the functional equation and samples zeta'/zeta only on Re s = 1.",
+ "obstructionKind": "mean-value-shared-with-controls",
+ "controlsThatDefeat": [
+  "E_a = zeta(s+a)zeta(s-a) (passes the depletion inequality, measured)",
+  "backward heat (passes the depletion inequality, measured)",
+  "every control with a functional equation satisfies Lemma B",
+  "DH, Liouville twist, height shift, non-multiplicative multipliers fail the depletion inequality (mean-value statement only)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "Verdict (precise obstruction, all flags false) stands; PROVED items confirmed (Lemma B re-derived term by term and rerun on 5 new cases incl. two in the sharp range log N_S < T_w < log(2N_S) and profiles sin^4/sin^8: rel diff <= 4e-10; Corollary B1 constant re-derived). Four corrections, none changing the verdict:\nE1. \"max E_out grows with height 2.7 -> 11.2\" is a sample-size artifact: the five bands hold 60/175/500/1500/2259 windows. In equal-count blocks (lane's own zeta_E_P7_D2.npy) the maxim [record truncated in transit; full text in push/c2-euler-at-zeros/REFEREE.md]",
+ "lesson": "Putting the Euler product on the test side gives only a mean-value correlation with Lambda (Landau-Gonek); it hides off-line pairs (left partner damped roughly like exp(-li(P^(2 beta-1)))) and sends R_S to 0 as P grows, so it is not an amplifier. The local functional equation of zeta_S moves the trivial positivity range from support < log 2 to < log(2 N_S), at the price of sampling zeta'/zeta on Re s = 1.",
+ "followUp": "Referee Lemma B (contour shift, k=0 residue, small divisors) and run its DH form. Only if it holds: test whether for |S|>=2 the residue sum can be bounded by o(log T) without derivatives of zeta'/zeta on Re s=1. Otherwise none; do not re-run partial-Euler multipliers as amplifiers.",
+ "resultFile": "tmp/research-2026-11-16/push/c2-euler-at-zeros/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c2-euler-at-zeros/REFEREE.md"
+}

@@ -1,0 +1,243 @@
+{
+ "ZETA": {
+  "points": 4001,
+  "negative": 0,
+  "imag_not_zero": 0,
+  "max_rel_imag": 4.3100102430034076e-33,
+  "min_form": 3.780866705066689e-07
+ },
+ "DH": {
+  "points": 4001,
+  "negative": 0,
+  "imag_not_zero": 0,
+  "max_rel_imag": 4.4162782265343406e-33,
+  "min_form": 2.6768019490517115e-06
+ },
+ "EA-1/8": {
+  "points": 4001,
+  "negative": 0,
+  "imag_not_zero": 0,
+  "max_rel_imag": 4.636422560551801e-33,
+  "min_form": 0.00024058738974298867
+ },
+ "EA-1/4": {
+  "points": 4001,
+  "negative": 0,
+  "imag_not_zero": 0,
+  "max_rel_imag": 4.422249164505781e-33,
+  "min_form": 0.002475367085537939
+ },
+ "EA-1/2": {
+  "points": 4000,
+  "negative": 0,
+  "imag_not_zero": 0,
+  "max_rel_imag": 4.815610857624784e-33,
+  "min_form": 0.02796119313567838
+ },
+ "TNR": {
+  "points": 4001,
+  "negative": 0,
+  "imag_not_zero": 0,
+  "max_rel_imag": 4.718558279622326e-33,
+  "min_form": 2.034893677367451e-07
+ },
+ "DH_offline": {
+  "pairs": 84,
+  "min_form_at_offline_ordinates": 1.994591857235411e-06,
+  "first_two": [
+   0.12735420930256636,
+   0.009194141948245497
+  ],
+  "ordinates": [
+   "85.699348485377592171929267708942",
+   "114.16334273075698090416436263335"
+  ]
+ },
+ "TNR_offline": {
+  "pairs": 350,
+  "min_form": 1.5023345283758684e-06
+ },
+ "WT": {
+  "max_rel_imag_of_bilinear_form": 0.999989396851853
+ },
+ "W1_min": 0.019387244927604373,
+ "HEAT--0.1": {
+  "points": 4001,
+  "max_abs_imag_on_line": 0.0,
+  "min_accuracy_bits": 229,
+  "offline_pairs": 41,
+  "smallest_scaled_abs": 1.0004073218609992
+ },
+ "HEAT--0.5": {
+  "points": 4001,
+  "max_abs_imag_on_line": 0.0,
+  "min_accuracy_bits": 228,
+  "offline_pairs": 277,
+  "smallest_scaled_abs": 1.0002151351930735
+ },
+ "stage_column": {
+  "DEL-0.75": {
+   "points": 4001,
+   "min_form": 1.4198168483623745e-18,
+   "note": "1e7 stage with the conjugation rule: |.|^2 >= 0 by construction"
+  },
+  "DEL-0.9": {
+   "points": 4001,
+   "min_form": 1.436229852695771e-107,
+   "note": "1e7 stage with the conjugation rule: |.|^2 >= 0 by construction"
+  },
+  "THIN-0.9": {
+   "points": 4001,
+   "min_form": 2.0400299301625936e-106,
+   "note": "1e7 stage with the conjugation rule: |.|^2 >= 0 by construction"
+  },
+  "BEU": {
+   "points": 4001,
+   "min_form": 1.5386110349438522e-06,
+   "note": "zeta table x H_X; continued object zeta H on Re s = 1/2 (tail radius in the table)"
+  },
+  "U, SGN random": "not defined on Re s = 1/2 (no continuation): not formulable, as in the record (\"where continued\")"
+ },
+ "checks": [
+  {
+   "check": "ZETA: form real and >= 0 at 4001 grid ordinates on Re s = 1/2 (table x direct value at the conjugate point)",
+   "ok": true,
+   "got": {
+    "negative": 0,
+    "imag": 0,
+    "min": 3.780866705066689e-07
+   },
+   "recorded": "passes"
+  },
+  {
+   "check": "DH: form real and >= 0 at 4001 grid ordinates on Re s = 1/2 (table x direct value at the conjugate point)",
+   "ok": true,
+   "got": {
+    "negative": 0,
+    "imag": 0,
+    "min": 2.6768019490517115e-06
+   },
+   "recorded": "passes"
+  },
+  {
+   "check": "EA-1/8: form real and >= 0 at 4001 grid ordinates on Re s = 1/2 (table x direct value at the conjugate point)",
+   "ok": true,
+   "got": {
+    "negative": 0,
+    "imag": 0,
+    "min": 0.00024058738974298867
+   },
+   "recorded": "passes"
+  },
+  {
+   "check": "EA-1/4: form real and >= 0 at 4001 grid ordinates on Re s = 1/2 (table x direct value at the conjugate point)",
+   "ok": true,
+   "got": {
+    "negative": 0,
+    "imag": 0,
+    "min": 0.002475367085537939
+   },
+   "recorded": "passes"
+  },
+  {
+   "check": "EA-1/2: form real and >= 0 at 4000 grid ordinates on Re s = 1/2 (table x direct value at the conjugate point)",
+   "ok": true,
+   "got": {
+    "negative": 0,
+    "imag": 0,
+    "min": 0.02796119313567838
+   },
+   "recorded": "passes"
+  },
+  {
+   "check": "TNR: form real and >= 0 at 4001 grid ordinates on Re s = 1/2 (table x direct value at the conjugate point)",
+   "ok": true,
+   "got": {
+    "negative": 0,
+    "imag": 0,
+    "min": 2.034893677367451e-07
+   },
+   "recorded": "passes"
+  },
+  {
+   "check": "DH: form > 0 at the ordinates of all 84 off-line pairs below 2000 (does not see them)",
+   "ok": true,
+   "got": 1.994591857235411e-06,
+   "recorded": "> 0"
+  },
+  {
+   "check": "DH: form vanishes at on-line zeros (first 200, < 1e-50)",
+   "ok": true,
+   "got": 8.683986495983508e-58,
+   "recorded": "0"
+  },
+  {
+   "check": "TNR: form > 0 at the ordinates of its 350 off-line pairs",
+   "ok": true,
+   "got": 1.5023345283758684e-06,
+   "recorded": "> 0"
+  },
+  {
+   "check": "EA-1/8: form > 0 at the ordinates of its (off-line) zeros, 152 sampled",
+   "ok": true,
+   "got": 9.680202216567827e-05,
+   "recorded": "> 0"
+  },
+  {
+   "check": "EA-1/4: form > 0 at the ordinates of its (off-line) zeros, 152 sampled",
+   "ok": true,
+   "got": 0.0015574151723079085,
+   "recorded": "> 0"
+  },
+  {
+   "check": "EA-1/2: form > 0 at the ordinates of its (off-line) zeros, 152 sampled",
+   "ok": true,
+   "got": 0.025475027371382505,
+   "recorded": "> 0"
+  },
+  {
+   "check": "WT: bilinear form not real (twist not self-dual; hermitian form |F|^2 is >= 0 by definition)",
+   "ok": true,
+   "got": 0.999989396851853,
+   "recorded": "not self-dual"
+  },
+  {
+   "check": "Lemma W1: no grid t != 0 with 2^(-it), 3^(-it) both real",
+   "ok": true,
+   "got": 0.019387244927604373,
+   "recorded": "> 0"
+  },
+  {
+   "check": "HEAT--0.1: F real on Re s = 1/2 at 4001 grid ordinates, so the form is a square >= 0",
+   "ok": true,
+   "got": {
+    "max_imag": 0.0,
+    "min_bits": 229
+   },
+   "recorded": "passes"
+  },
+  {
+   "check": "HEAT--0.1: form > 0 at every grid ordinate (off-line pairs: 41)",
+   "ok": true,
+   "got": 4001,
+   "recorded": 4001
+  },
+  {
+   "check": "HEAT--0.5: F real on Re s = 1/2 at 4001 grid ordinates, so the form is a square >= 0",
+   "ok": true,
+   "got": {
+    "max_imag": 0.0,
+    "min_bits": 228
+   },
+   "recorded": "passes"
+  },
+  {
+   "check": "HEAT--0.5: form > 0 at every grid ordinate (off-line pairs: 277)",
+   "ok": true,
+   "got": 4001,
+   "recorded": 4001
+  }
+ ],
+ "reproduced": true,
+ "verdict": "every control on which the form is defined passes: the form is >= 0 at height t and does not vanish at off-line ordinates"
+}

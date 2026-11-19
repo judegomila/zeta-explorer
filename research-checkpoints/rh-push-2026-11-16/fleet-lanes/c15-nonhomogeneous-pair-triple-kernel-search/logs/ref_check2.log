@@ -1,0 +1,3 @@
+R4 2 {'sampled': 300, 'with_both_signs_among_529_positives': 300, 'min_minority_count': 89}
+R4 3 {'sampled': 300, 'with_both_signs_among_529_positives': 300, 'min_minority_count': 54}
+R5 {'n': 383, 'ph_same_max': 17, 'min_opp_max': 0}

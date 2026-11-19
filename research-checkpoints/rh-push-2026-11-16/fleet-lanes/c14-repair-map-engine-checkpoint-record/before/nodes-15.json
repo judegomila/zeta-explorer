@@ -1,0 +1,315 @@
+[
+ {
+  "id": "legendre-dual-limit-density-zero",
+  "type": "identity",
+  "name": "Limit points of Legendre-LP dual-feasible points have density 0",
+  "statement": "Every limit point of Legendre-LP dual-feasible points is feasible at every real scale and has density 0, psi(t) <= 3 log2 t + 3.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "engine lane e1-cofinal-legendre-dual (push/e1-cofinal-legendre-dual/RESULT.md, refereed once)",
+  "tags": [
+   "landau",
+   "certificate",
+   "legendre-lp"
+  ]
+ },
+ {
+  "id": "legendre-dual-restriction-rule",
+  "type": "identity",
+  "name": "Legendre-LP dual feasibility restricts along divisibility chains",
+  "statement": "Feasibility of a Legendre-LP dual point at qx implies feasibility of its restriction at x.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "engine lane e1-cofinal-legendre-dual (push/e1-cofinal-legendre-dual/RESULT.md, refereed once)",
+  "tags": [
+   "landau",
+   "certificate",
+   "legendre-lp"
+  ]
+ },
+ {
+  "id": "cofinal-pointwise-mobius-sum",
+  "type": "open-lemma",
+  "name": "Pointwise bound for the Moebius sum of one fixed cofinal sawtooth remainder",
+  "statement": "Pointwise polylog bound for sum_k mu(k) r_b(x/k) for one fixed cofinal r_b. Uses the integers and all primes jointly; fails for DH, Liouville and theta^3 at Lambda_a >= 0; not separated from E_a at the level of exponents (returns 1/2 + a); only a mean-square bound is argued (MV-CAP).",
+  "status": "conjectural",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "engine lane e1-cofinal-legendre-dual (push/e1-cofinal-legendre-dual/RESULT.md, refereed once)",
+  "tags": [
+   "moebius",
+   "landau",
+   "legendre-lp",
+   "explicit-formula"
+  ]
+ },
+ {
+  "id": "vaughan-forcing-is-gauge",
+  "type": "identity",
+  "name": "Vaughan X^(1/4) forcing is a normalisation removable by two linear mollifier conditions",
+  "statement": "The X^{1/4} Vaughan forcing equals -(4+2gamma) sqrt X M'(1) - zeta'(1/2) M'(1/2) and is removed by two linear conditions on the mollifier; residual |Xi'| <= (U + 32 sqrt U + 25)(6 + log X)/sqrt X.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "engine lane e1-forcing-free-bilinear-split (push/e1-forcing-free-bilinear-split/RESULT.md, refereed once)",
+  "tags": [
+   "landau",
+   "mollifier",
+   "moebius"
+  ]
+ },
+ {
+  "id": "vasyunin-lammin-two-sided",
+  "type": "identity",
+  "name": "Two-sided bound for the smallest eigenvalue of the Nyman-Beurling Gram matrix",
+  "statement": "1/(64*2^Omega_N*N^2) <= lam_min(G_N) <= (3+log N)/(N-1)^2; exponent exactly 2 up to N^o(1); p = 2 open. Same law for DH and periodic non-multiplicative sequences; carries no zero information.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "n/a",
+  "source": "engine lane e1-nb-gram-period-transfer (push/e1-nb-gram-period-transfer/RESULT.md, refereed once)",
+  "tags": [
+   "nyman-beurling",
+   "gram"
+  ]
+ },
+ {
+  "id": "ctrl-sel-twisted-selberg",
+  "type": "control",
+  "name": "Control SEL: twisted Selberg zeta of Gamma(2)",
+  "statement": "Twisted Selberg zeta of Gamma(2): Euler product over geodesics, s <-> 1-s equation, real exceptional zeros off the line; lacks INT, order one, finite degree, sign of the zero side.",
+  "status": "measured",
+  "usesMultiplicativity": "n/a",
+  "heightUniform": "n/a",
+  "source": "engine lane e1-selberg-twist-control (push/e1-selberg-twist-control/RESULT.md, refereed once)",
+  "tags": [
+   "control",
+   "trace-formula"
+  ]
+ },
+ {
+  "id": "selberg-pc-abscissa-half",
+  "type": "obstruction",
+  "name": "Selberg companion in Theorem PC has abscissa sigma* >= 1/2",
+  "statement": "Any non-negative-coefficient coupling c Z'/Z + E with the PSL2(Z) Selberg zeta has sigma* >= 1/2; Theorem PC is silent at rho/2.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "engine lane e1-selberg-twist-control (push/e1-selberg-twist-control/RESULT.md, refereed once)",
+  "tags": [
+   "trace-formula",
+   "landau"
+  ]
+ },
+ {
+  "id": "m1plus-cubic-gauss-prime-sum-uniform",
+  "type": "open-lemma",
+  "name": "m1plus cubic gauss prime sum uniform",
+  "statement": "(M1+): cancellation in sums of normalised cubic Gauss sums over primes, uniform in the dual index, for the fixed coefficients of the 7/8 method. GRH-type below-level estimate; the single point where arithmetic of the coefficients enters lanes e2-below-level-mixed-moment, e2-ms-slot-capacity, e2-two-scale-detector-moment.",
+  "status": "conjectural",
+  "usesMultiplicativity": "unknown",
+  "heightUniform": "unknown",
+  "source": "engine lane e2-below-level-mixed-moment (push/e2-below-level-mixed-moment/RESULT.md, refereed once)",
+  "tags": []
+ },
+ {
+  "id": "z0-charge-is-lemma-14-2-term-l",
+  "type": "identity",
+  "name": "z0 charge is lemma 14 2 term l",
+  "statement": "The '+z_0' charge in the 7/8 manuscript enters through term L of Lemma 14.2 at short dual length, not a triangle-inequality loss (corrects r3-critical-count 5.1).",
+  "status": "read",
+  "usesMultiplicativity": "unknown",
+  "heightUniform": "unknown",
+  "source": "engine lane e2-below-level-mixed-moment (push/e2-below-level-mixed-moment/RESULT.md, refereed once)",
+  "tags": []
+ },
+ {
+  "id": "cofinal-mobius-sum-equals-x-m",
+  "type": "identity",
+  "name": "cofinal mobius sum equals x m",
+  "statement": "For density-0 b >= 0 with log discrepancy, sum_k mu(k) r_b(x/k) form F_b = -c x m(x) + psi_b, 0 <= psi_b = O(log^2 x).",
+  "status": "proved",
+  "usesMultiplicativity": "unknown",
+  "heightUniform": "unknown",
+  "source": "engine lane e2-cofinal-moebius-pointwise (push/e2-cofinal-moebius-pointwise/RESULT.md, refereed once)",
+  "tags": []
+ },
+ {
+  "id": "ctrl-fake-genprime-unimodular-fe",
+  "type": "control",
+  "name": "ctrl fake genprime unimodular fe",
+  "statement": "(1-5T+5T^2)/((1-T)(1-5T)), T = 5^-s: Euler product over generalised primes, unimodular parameters, exact functional equation, zero offset 0.29899. Shows the integers cannot be dropped from any local-defect statement.",
+  "status": "proved",
+  "usesMultiplicativity": "unknown",
+  "heightUniform": "unknown",
+  "source": "engine lane e2-control-rz-defect-audit (push/e2-control-rz-defect-audit/RESULT.md, refereed once)",
+  "tags": []
+ },
+ {
+  "id": "shift-reciprocal-covariance-filter",
+  "type": "obstruction",
+  "name": "shift reciprocal covariance filter",
+  "statement": "RZ_b passes every prime-side identity and size inequality after s -> s+1-b, F -> 1/F; a valid argument needs a step not covariant under shift and reciprocal (sign of Lambda, or position of pole/symmetry line).",
+  "status": "argued",
+  "usesMultiplicativity": "unknown",
+  "heightUniform": "unknown",
+  "source": "engine lane e2-control-rz-defect-audit (push/e2-control-rz-defect-audit/RESULT.md, refereed once)",
+  "tags": []
+ },
+ {
+  "id": "order2-row-three-conditions",
+  "type": "obstruction",
+  "name": "order2 row three conditions",
+  "statement": "An order-2 row attack needs jointly: Moebius produced by the row, shift 0, coherent set of relative size 1/2. Waldspurger product-index rows give none; square classes give two at shift 1/2.",
+  "status": "argued",
+  "usesMultiplicativity": "unknown",
+  "heightUniform": "unknown",
+  "source": "engine lane e2-gl3-cover-cuspidal-rows (push/e2-gl3-cover-cuspidal-rows/RESULT.md, refereed once)",
+  "tags": []
+ },
+ {
+  "id": "legendre-riesz-sandwich-theorem-u",
+  "type": "identity",
+  "name": "legendre riesz sandwich theorem u",
+  "statement": "Theta <= min_theta nu^R_k <= Theta + (1-Theta)^2/(k+2-Theta) for the robust (prime-free) Legendre-Riesz LP exponent; upper half uses M(y) << y^(Theta+eps). Refereed once.",
+  "status": "proved",
+  "usesMultiplicativity": "unknown",
+  "heightUniform": "unknown",
+  "source": "engine lane e2-legendre-riesz-level-phase (push/e2-legendre-riesz-level-phase/RESULT.md, refereed once)",
+  "tags": []
+ },
+ {
+  "id": "legendre-lp-hyperbola-pinning",
+  "type": "measured-phenomenon",
+  "name": "legendre lp hyperbola pinning",
+  "statement": "For D >= about 2.2 sqrt X the exact Legendre-Riesz LP equals psi_k(X)/X^k for k=0,1,2 (X up to 1e6 for k=0,1; reproduced at X=2700).",
+  "status": "measured",
+  "usesMultiplicativity": "unknown",
+  "heightUniform": "unknown",
+  "source": "engine lane e2-legendre-riesz-level-phase (push/e2-legendre-riesz-level-phase/RESULT.md, refereed once)",
+  "tags": []
+ },
+ {
+  "id": "ms-slot-condition-is-reflected-dual-length",
+  "type": "identity",
+  "name": "ms slot condition is reflected dual length",
+  "statement": "Lemma 17.1 condition r+2z <= m equals T_d <= F on the reflected dual length of Lemma 14.3 (principal configuration, r+z >= 2m/3, r+3z >= m); the 2z_a comes from mark primes in the reflection conductor.",
+  "status": "proved-relative",
+  "usesMultiplicativity": "unknown",
+  "heightUniform": "unknown",
+  "source": "engine lane e2-ms-slot-capacity (push/e2-ms-slot-capacity/RESULT.md, refereed once)",
+  "tags": []
+ },
+ {
+  "id": "theta-dual-mseries-is-twisted-kubota",
+  "type": "identity",
+  "name": "Theta-dual m-series is a twisted stripped sextic Kubota series (target-blind)",
+  "statement": "On squarefree m the theta-dual m-series of MS (5.3) is an alpha^(-2)-twisted stripped sextic Kubota series in the modulus m at index 4^5 s mu^3. The identity contains no factor depending on the target function: it is the same for every eta and for DH (lane e2-theta-dual-mseries-fe).",
+  "status": "proved-relative",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "n/a",
+  "source": "engine lane e2-theta-dual-mseries-fe (push/e2-theta-dual-mseries-fe/RESULT.md, refereed once)",
+  "tags": [
+   "target-blind",
+   "metaplectic",
+   "theta"
+  ]
+ },
+ {
+  "id": "tro6-dual-term-lambda-c-correlation",
+  "type": "measured-phenomenon",
+  "name": "tro6 dual term lambda c correlation",
+  "statement": "Non-polar remainder times conj gamma_1(c) correlates with theta estimators at index lambda*c: excess R^2 about 0.25 over permutation null, flat in Q (3750..10607). Origin (theta coefficients vs shared Gauss-sum table) not separated.",
+  "status": "measured",
+  "usesMultiplicativity": "unknown",
+  "heightUniform": "unknown",
+  "source": "engine lane e2-tro6-signed-csum-stratified (push/e2-tro6-signed-csum-stratified/RESULT.md, refereed once)",
+  "tags": []
+ },
+ {
+  "id": "tro6-lemma-s-squarefull-twist",
+  "type": "identity",
+  "name": "tro6 lemma s squarefull twist",
+  "statement": "chi_c(u m1 m2^2 ... t^6) = chi_c(u m1) xi_k(c), xi_k of bounded conductor; row sum stays sextic.",
+  "status": "proved",
+  "usesMultiplicativity": "unknown",
+  "heightUniform": "unknown",
+  "source": "engine lane e2-tro6-signed-csum-stratified (push/e2-tro6-signed-csum-stratified/RESULT.md, refereed once)",
+  "tags": []
+ },
+ {
+  "id": "saddle-pair-count-saving-equivalence",
+  "type": "identity",
+  "name": "saddle pair count saving equivalence",
+  "statement": "In the estimate system C1-C3 of the 7/8 method, a restricted fourth-moment saving U^-omega at block m* = 0.4183 implies a count saving U^-omega on plain-witness rows; detector-beside-fourth-moment needs > 53%, two-scale 48-49%, one-scale mixed moment 1/6 of the large-sieve-to-Lindelof gap.",
+  "status": "proved-relative",
+  "usesMultiplicativity": "unknown",
+  "heightUniform": "unknown",
+  "source": "engine lane e2-two-scale-detector-moment (push/e2-two-scale-detector-moment/RESULT.md, refereed once)",
+  "tags": []
+ },
+ {
+  "id": "ctrl-rz-reciprocal-shift",
+  "type": "control",
+  "name": "Control RZ_b: 1/zeta(s + 1 - b), 7/8 < b < 1",
+  "statement": "RZ_b(s) = 1/zeta(s + 1 - b) = prod_p (1 - p^(b-1) p^-s) = sum mu(n) n^(b-1) n^-s. Log-derivative coefficients -n^(b-1) Lambda(n): a signed twist of Lambda with |eps_n| <= 1 (control TW-). Meromorphic on C, real zero at s = b (the pole of zeta), functional equation about Re s = b - 1/2 instead of 1/2. Has: Euler product, size, support, continuation. Lacks: Lambda >= 0, the integers (coefficients mu(n) n^(b-1)), symmetry line 1/2. Elementary; stated by the engine in batch 2, not refereed. Answers the open item of lane c1-missing-controls (a twist with a zero in 7/8 < Re s < 1); it needs infinitely many primes, as that lane noted.",
+  "status": "proved",
+  "usesMultiplicativity": "n/a",
+  "heightUniform": "n/a",
+  "source": "engine batch 2 (merge_outcomes.py STATIC_NODES); follow-up of push/c1-missing-controls",
+  "tags": [
+   "control",
+   "euler-product"
+  ]
+ },
+ {
+  "id": "rouche-fe-symmetrised-euler-stage",
+  "type": "mechanism",
+  "name": "Rouche comparison of zeta with a functional-equation-symmetrised Euler stage",
+  "statement": "Stage zeta_X(s) = P_X(s) + chi(s) conj(P_X(1 - conj s)), P_X an Euler stage over the primes up to X and chi the factor of the functional equation (Gonek 2012 type; recalled, source not opened). The stage satisfies the functional equation by construction, and its zero measure on the line is the phase comb of phi(t) = -2 vartheta(t) - 2 arg P_X(1/2 + it). Proposed device: Rouche comparison of zeta with zeta_X on the boundary of a window through the approximate functional equation, so that the zero count of zeta in the window equals that of the stage. Uses all primes up to X jointly and the functional equation in the same step. Known so far: the k = 0 term of the comb is the explicit-formula density with primes up to X, and its positivity on a window is the sup bound of the truncated prime sum against (1/2) log(t/2 pi), which holds for X of order log^2 t only (round 3, lesson 2); anything further must come from the k != 0 terms or from the comparison. Not established: any Rouche margin. To be checked: the unimodular twist has the same stage theorem and no approximate functional equation; rows G10, Q10 (finite Euler stages without the functional equation are closed); Hamburger uniqueness past the Riemann-Siegel length. Closed by lane c4-fe-stage-rouche-crossing (refereed once): the stage has all zeros on the line for any non-vanishing P_X; the Rouche inequality on a box is implied only by zero-freeness of a slightly larger region.",
+  "status": "closed",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "unknown",
+  "source": "campaign/ROUND_LOG.md, round 4 allocation, lane 3 (c4-fe-stage-rouche-crossing); follows push/c3-twinladder-prime-built-chain",
+  "tags": [
+   "euler-product",
+   "functional-equation",
+   "finite-stage",
+   "riemann-siegel",
+   "rouche"
+  ]
+ },
+ {
+  "id": "hecke-compression-lax-phillips",
+  "type": "mechanism",
+  "name": "Hecke operators compressed to the Lax-Phillips space of the modular surface",
+  "statement": "Lax-Phillips scattering for PSL(2,Z): the scattering matrix is xi(2s-1)/xi(2s) (classical), so the resonances of the compressed semigroup on K = H minus (D_- + D_+) are at rho/2. Proposed device: compress the Hecke operators T_p to K; a norm bound of the form p^theta + p^-theta with theta < 1/2 on resonance states would bound Re rho. It would use the commuting Hecke family at all primes (an operator-norm statement, so independent of height), and non-arithmetic groups, which have no Hecke family, are a structural control. Not established: no bound is proved; expected first obstacle: T_p does not preserve the incoming and outgoing subspaces D_-, D_+. Related nodes: bridge-scattering-factorisation, antihermitian-strip-bound. The Lax-Phillips rows already closed concern the scattering form of zeta(s-a)/zeta(s+a) with heat-fiber-completion-theorem, not a Hecke compression. Closed by lane c4-laxphillips-hecke-compression (refereed once): on the Eisenstein channel T_p = 2 cos(log p sqrt(-L)); the compression has norm at most 2 for every inner scattering function; only Re rho <= 1 follows.",
+  "status": "closed",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "unknown",
+  "source": "campaign/ROUND_LOG.md, round 4 allocation, lane 5 (c4-laxphillips-hecke-compression)",
+  "tags": [
+   "hecke",
+   "automorphic",
+   "lax-phillips",
+   "scattering"
+  ]
+ },
+ {
+  "id": "helson-discrepancy-rigidity",
+  "type": "open-lemma",
+  "name": "Discrepancy rigidity for completely multiplicative unimodular functions (Helson)",
+  "statement": "Property D(theta) for a completely multiplicative unimodular chi: sum_{n <= x} chi(n) = c x + O(x^theta). It is not a tail property (finite modifications of chi = 1 have discrepancy of order log x; Klurman, recalled, source not opened) and it holds at chi = 1 with theta = 0: the one object found in round 3 that is both non-tail and tied to chi = 1. D(theta) gives the continuation of F(s) - c/(s-1) to Re s > theta, which is data to the left of Re s = 1. Proposed device: D(theta) forces a zero-free region Re s > f(theta) for F with f(0) < 1. Open alternative to be decided: the converse lemma (D(theta) forces the set of primes with chi(p) != 1 to be thin, so F/zeta is zero-free and pole-free on Re s > theta and the implication runs through zeta, circular) or a non-thin example. The proposed control THIN (thin twist) bounds what the implication can give: at best zero-free Re s > theta. Closed by lane c4-helson-discrepancy-zerofree (Theorem 1, two referee checks): right of the largest real zero of F the zeros of F are those of zeta with matching orders; the implication is relative to zeta and transfers to Beurling systems.",
+  "status": "closed",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "unknown",
+  "source": "campaign/ROUND_LOG.md, round 3 results (results that could be combined) and round 4 allocation, lane 1 (c4-helson-discrepancy-zerofree); follows push/c3-helson-tail-fe-selector",
+  "tags": [
+   "torus",
+   "helson",
+   "euler-product",
+   "discrepancy"
+  ]
+ }
+]

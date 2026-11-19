@@ -1,0 +1,43 @@
+{
+ "slug": "c5-twisted-helson-arcs",
+ "round": 5,
+ "kind": "combine",
+ "nodes": [
+  "map-open-21",
+  "helson-discrepancy-rigidity"
+ ],
+ "tags": [
+  "helson",
+  "discrepancy",
+  "additive-twist",
+  "euler-product",
+  "thin",
+  "beurling",
+  "control",
+  "identification"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "Precise obstruction; family closed; nothing about zeta zeros. For unimodular completely multiplicative chi with S(x) not o(x), power-saving additive twists with no main term at prime moduli force chi = n^(-i alpha) (chi = 1 if the main term is cx) via sum_{a mod p} T(x;a/p) = p chi(p) S(x/p); the hypothesis is then classical. With S(x) = o(x) the strict hypothesis is the strip hypothesis itself (circular). With main terms allowed, THIN passes (error O(q x^(b+eps)) proved; about x^0.4-0.5 measured for random members with a zero at b, q<=103, x<=1e10 author and x<=1e8 referee) and fails the strict form (main term -2cx/(p-1), proved and reproduced). For real chi the twisted series equals L(s,psi) exp(-A(s,psi)) right of sigma_0 with no twisted hypothesis. Greedy discrepancy exponent well below b is measured and is consistent with the parent Theorem 1. Status: author-checked plus one referee (general lens).",
+ "obstruction": "Strict form (no main term at q > 1): sum over a mod p of the twisted sums equals p chi(p) S(x/p), so any theta < 1 forces chi = n^(-i alpha) (chi = 1 if the main term is cx): an identification with no inequality; with S(x) = o(x) the hypothesis is the strip hypothesis itself. General form (main terms allowed): THIN passes with error O(q x^(b+eps)) (proved) and has a zero at b. For real chi the twisted series equals L(s,psi) exp(-A(s,psi)) right of sigma_0 without any twisted hypothesis. One referee; Lemma A step (c) to be refereed.",
+ "obstructionKind": "identification-or-passed-by-thin",
+ "controlsThatDefeat": [
+  "THIN (passes the general form; zero at b)",
+  "every chi other than n^(-i alpha) fails the strict form at the identification step (no inequality)",
+  "Beurling: hypothesis not formulable (no additive characters); separated but without an inequality"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "No error in any PROVED step; all were re-derived (Lemma A (a)-(d) including the limsup-to-limit step, Lemma B, Lemma C with the c_q formula, Theorem 1', the double zero at b for the greedy set). Independent numpy rerun at N=1e8 on three new cases (greedy b=0.8; random b=0.8 seed 7; random b=0.9 seed 11) reproduced the Lemma C main terms, discrepancy exponents below b (0.38 greedy b=0.8), and random twisted exponents of about 0.4-0.5 for q<=103; the orthogonality identity was checked exactly. Wor",
+ "lesson": "Modulus-uniform additive-twist hypotheses on a unimodular completely multiplicative chi are either an identification (strict form: only n^(-i alpha) passes, at any theta<1) or passed by THIN (general form). Periodicity of twists separates zeta from THIN and Beurling but carries no inequality. Separately: the greedy THIN set is biased in residue classes (mod 3 imbalance 26000 of 1.02e6 at 1e8), giving twisted errors near x^0.8; the random set does not show this.",
+ "followUp": "Apply the proposed map row P44 (text in RESULT.md section 0). Check whether the greedy set's residue-class bias affects c5-thin-propd-dichotomy, which tests a regular THIN set against lattice-periodic weights; a class-balanced or random set avoids the artefact. Referee Lemma A step (c).",
+ "resultFile": "tmp/research-2026-11-16/push/c5-twisted-helson-arcs/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c5-twisted-helson-arcs/REFEREE.md"
+}

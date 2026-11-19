@@ -1,0 +1,39 @@
+{
+ "slug": "c3-lemmab-referee-dh-poisson",
+ "round": 3,
+ "kind": "deepen",
+ "nodes": [],
+ "tags": [
+  "euler-product",
+  "explicit-formula",
+  "weil",
+  "poisson",
+  "davenport-heilbronn",
+  "zero-free-region"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "Lemma B is the Weil explicit formula for the test Z_S w with pole term and prime sum truncated together; it is proved for |S|=1 (finite-smoothness profiles included) and, for |S|>=2, for C_c^infinity tests with absolute convergence from a power-type Baker bound. For |S|=1 this is Proposition P termwise (re-derived; measured to 3-6 digits); for general S it follows as the eps->0+ limit, not run. The k=0 residue closed form for |S|=1 is correct. The identity holds for Davenport-Heilbronn (14 cases in two independent codes, rel <= 5.4e-12, off-line pairs up to 61% of the zero side), so it does not separate zeta. The only inequality step is the cited zero-free region (Littlewood/Vinogradov-Korobov form). Corollary B1' (|E| <= 2 kappa_b M plus a k=0 term, M the sup over the lattice) is correct; |E| <= 2.60 is a measured finite-range statement (p <= 1000, T <= 2e4). The theta-family identity is correct and is also a restatement. Route closed as a restatement; no statement about zeros of zeta.",
+ "obstruction": "By Poisson summation in k the residue sum over the poles 1 + 2 pi i k/log p equals Weil's pole term minus the prime sum for the test Z_S w, truncated together: Lemma B is the explicit formula for a non-compactly supported test, regularised, with no sign of its own. The only inequality step is the classical zero-free region (Littlewood/Vinogradov-Korobov form). DH satisfies the identity, so nothing in it separates zeta. Proved for |S|=1; for |S|>=2 only for C_c^infinity tests, with a Baker-type bound whose constant was not checked against the source.",
+ "obstructionKind": "restatement-explicit-formula",
+ "controlsThatDefeat": [
+  "DH (satisfies the identity: 14 cases, rel <= 5.4e-12, off-line pairs up to 61% of the zero side)",
+  "Liouville twist (the identity exists, no Krein zero sum)",
+  "height-shift twist (the zero-free region step is true for it, so that step does not separate controls)",
+  "heat, E_a, generic twist: argued by hand, not run"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "Verdict stands (restatement, closed); seven corrections, none changes the verdict or a flag. Referee report: tmp/research-2026-11-16/push/c3-lemmab-referee-dh-poisson/REFEREE.md\n\nE1 Hypothesis mismatch: Lemma B is stated for smooth w, but every run uses sin^(2m) 1_[0,T_w], which is C^(2m-1) (V decays like t^-14 for sin^6). For |S|=1 the proof goes through with finite decay. For |S|>=2, step (h) proves absolute convergence only if V beats B^-(kappa+ [record truncated in transit; full text in push/c3-lemmab-referee-dh-poisson/REFEREE.md]",
+ "lesson": "Lattice samples of zeta'/zeta on Re s = 1 (or on Re s = 1 - theta with a shifted multiplier) are Fourier coefficients of the periodised prime measure: any identity built from poles of a finite Euler factor on the test side is the explicit formula for a non-compactly supported test, regularised. The only inequality step is the classical zero-free region; it is false for DH but true for the height-shift twist, so it does not separate the controls. The sqrt(p) in Corollary B1 came from a worst-case profile estimate, not from zeta.",
+ "followUp": "None on this lead. Housekeeping only: referee Proposition P (the uniform bound for truncated sums on Re s = 1) and check the Baker-Wustholz constant against the source. The lane record is in push/c3-lemmab-referee-dh-poisson/lanes_line.jsonl and was not appended to campaign/lanes.jsonl. Do not reopen pole-lattice test multipliers as a route to an inequality.",
+ "resultFile": "tmp/research-2026-11-16/push/c3-lemmab-referee-dh-poisson/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c3-lemmab-referee-dh-poisson/REFEREE.md"
+}

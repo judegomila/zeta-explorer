@@ -1,0 +1,248 @@
+#!/usr/bin/env python3
+"""Writes curated/devices.json: the curated list of crossing devices (requirement R4) read by build_graph.py and
+generate.py. It replaces the keyword role 'crossing' (CROSSING_RE). Written by lane c5-repair-engine-map-r4; edited by c7-repair-engine-map-r6
+(map-open-9 closed for pointwise outputs, map-open-1 narrowed, three round-7 device nodes of nodes/nodes-17.json); edited by c8-repair-engine-map-r7
+(three open devices of round 8: (E-K), (E-H), single-row bridge; nodes/nodes-18.json); edited by the round-8 learn step (single-row-bridge closed; evidence of (E-K), (E-H), function-field vertex updated).
+Edited by c9-repair-referee-debts-r8: device hecke-correspondence-recurrence (closed; nodes/nodes-19.json); landau-siegel-mechanism floored -> closed for the height aspect.
+
+States.
+  closed   a map row or a refereed lane shows that the device returns its input, restates the target, or holds for a
+           control. A candidate containing a closed device node is rejected.
+  floored  the device yields a proved statement about zeros with a floor above Re s = 1/2 fixed by the method.
+  open     no row or lane closes it; includes devices under test in a lane that has not reported.
+'targetForms' are statements equivalent to RH or final-step lemmas (Landau type). They are not devices of any state.
+'pending' are device proposals of running lanes that have no node yet; the learn step moves them into 'devices'.
+Edited by the strategy review after round 10 (STRATEGY v3): effective-order-two and function-field-order2-vertex open -> closed; three pending read-set proposals RS-1..RS-3.
+Edited by c11-repair-del-referee-record (round 11): three open device types for the round-11 explore lanes (twist-modulus-reciprocity, regular-rep-matrix-bridge, de-branges-positivity-family; nodes/nodes-20.json); pending proposals RS-1, RS-3 carry the lane names. Previous file: scratch/mk_devices.pre-c11-repair.py.
+Edited by c12-repair-sources-statement-o-v3 (round 12): twist-modulus-reciprocity, regular-rep-matrix-bridge, de-branges-positivity-family open -> closed, each on two referee files (previous file scratch/mk_devices.pre-c12-repair.py).
+Edited by c13-repair-map-engine-battery-records (round 13): three device types of round 12 added, each closed on the independent referee pass of its lane (bost-connes-crossed-product-positivity, depth-aspect-height-transfer, x04-oval-hecke-fricke-loading; no node); evidence of regular-rep-matrix-bridge and de-branges-positivity-family extended (previous file scratch/mk_devices.pre-c13-repair.py).
+Edited by c14-repair-map-engine-checkpoint-record (round 14): six device types of round 13 added, each closed on the independent referee pass of its lane (kacmoody-loop-eisenstein-maass-selberg: rank-one proved, affine kernel argued; fourier-interpolation-zero-nodes; lrs-amplification-eisenstein-at-zero; edrei-thoma-local-total-positivity; bilinear-reciprocity-height-jform; dictionary-d-kernel-sign-functionals: MEASURED, finite search; no node) (previous file scratch/mk_devices.pre-c14-repair.py).
+Edit this file, then run it, then build_graph.py."""
+import json, os
+HERE = os.path.dirname(os.path.abspath(__file__))
+D = [
+ # ---- closed
+ ('mean-value-convexity', 'closed', 'Convexity or mean values (lossy; MV-CAP)', 'map section 5 part 1; rows P14, P15, P29',
+  ['kronecker-sup-rms-transfer', 'inverse-line-cotangent-mean-value', 'nyman-beurling-dx', 'route-m-quarter-ceiling']),
+ ('exact-uniqueness', 'closed', 'Exact uniqueness (identifies the function, no inequality)', 'rows L2, P6',
+  ['fe-plus-reality-rigidity', 'phase-retrieval-zeta']),
+ ('residue-explicit-formula', 'closed', 'Residue theorem / explicit formula (exact, no sign)', 'rows P1, P8',
+  ['pick-weil-native-span', 'offline-zero-visibility-law']),
+ ('positive-kernel-transport', 'closed', 'Positive-kernel (Harnack) transport, positive-real ladder with Montel closure, phase transport',
+  'direct attempts of 2026-11-01 (ROADMAP device table); rows P3, P7, G13, G17',
+  ['harmonic-strip-transport', 'h5-euler-products-bounded', 'positive-real-ladder-step', 'klein-phase-transport-certificate']),
+ ('maximum-principle', 'closed', 'Maximum principle / Phragmen-Lindelof for the Schur ratio (needs the zero-free statement as input)',
+  'node statement (circular gap); rows P3, G20', ['schur-ratio-max-principle-gap']),
+ ('dual-measure-compactness', 'closed', 'Compactness or cofinal limits of dual measures over the integers',
+  'row P36 (e1-cofinal-legendre-dual); e2-cofinal-moebius-pointwise; e2-legendre-riesz-level-phase',
+  ['cofinal-legendre-dual', 'cofinal-pointwise-mobius-sum', 'cofinal-mobius-sum-equals-x-m', 'map-open-16', 'map-open-17']),
+ ('recurrence-ergodicity', 'closed', 'Recurrence / unique ergodicity plus density (one off-line zero forces many)',
+  'row P39 (e1-sparse-recurrence-amplifier)', ['bagchi-strong-recurrence', 'tinfty-flow-generator-spectrum']),
+ ('euler-fe-phase-at-height', 'closed', 'Euler phases coupled to the functional-equation phase at one height (torus sign tests, window rigidity, FE-symmetrised stage with Rouche or Hurwitz, stage collisions)',
+  'rows P40, S12; c4-fe-stage-rouche-crossing; c4-stage-collision-law; c2-euler-cone-fe-rigidity',
+  ['dbn-prime-torus-phase-closure', 'euler-fe-coupling-at-height', 'rouche-fe-symmetrised-euler-stage', 'collision-local-index']),
+ ('selberg-operator', 'closed', 'Self-adjoint operator of Selberg type as control or companion', 'row G24 (e1-selberg-twist-control)',
+  ['selberg-control-pair', 'selberg-zeta-companion', 'selberg-freeze-sandbox']),
+ ('monotone-flow-functional', 'closed', 'Monotone flow functional (forward-only; anchor in the Euler region)',
+  'rows F1, Q20, F8', ['discriminant-gradient-flow', 'resolvent-burgers-identity', 'heat-evolved-von-mangoldt-positivity',
+                       'euler-anchor-heat-certificate', 'map-open-12']),
+ ('geometric-positivity', 'closed', 'Geometric positivity (Neron-Tate heights, Hodge index, Heegner spans)', 'rows T3, P38',
+  ['spec-z-squared-hodge-index', 'heegner-height-upper-bound-h4prime', 'heegner-nb-ratio']),
+ ('stage-limit', 'closed', 'Limit of zero-free stages (Krein-index semicontinuity, Hurwitz, polydisc Lee-Yang bounds)',
+  'rows Q19, Q21', ['map-open-19']),
+ ('section-extraction', 'closed', 'Passive or J-contractive sections of the prime chain (single and several delays)',
+  'rows Q12, Q22', ['map-open-7']),
+ ('test-restriction-commutator', 'closed', 'Restriction of the Weil form to Hecke-primitive tests; Hecke commutators with shear or cutoff; window SDP; positive-definiteness of log F',
+  'rows P35, G22, G25, S11, P29', ['map-open-6', 'map-open-11', 'map-open-20', 'map-open-10', 'map-open-8']),
+ ('finite-support-positivity', 'closed', 'Finite-support or finite-order positivity (Suzuki screw, lacunary Pick, Schwarzian stage, cofinal scalar comparison, pulse leakage)',
+  'rows P2, P3, P9, P10, P18, P21, P22',
+  ['scalar-comparison-target', 'suzuki-reserve-update', 'suzuki-screw-response-psi', 'suzuki-spectral-convergence',
+   'lac-eq-caratheodory-interpolation', 'fourth-stage-schwarzian', 'pulse-leakage-zero-target']),
+ ('hecke-compression-lax-phillips', 'closed', 'Hecke operators compressed to the Lax-Phillips space',
+  'c4-laxphillips-hecke-compression (refereed once)', ['hecke-compression-lax-phillips']),
+ ('hecke-correspondence-recurrence', 'closed', 'Joint Hecke recurrence (finite correspondences at all primes) with entropy / measure rigidity on Eisenstein resonance states',
+  'c8-hecke-entropy-resonance-rigidity (round 8; first referee holds after withdrawal of Lemma G2 (i); second referee c9-repair-referee-debts-r8 holds the corrected '
+  'statement): control EIS-w (off-resonance Eisenstein series; curated/controls.json) satisfies every input the device reads; recurrence bound has P-exponent -1 '
+  'for every sigma (m counted with Gamma-multiplicity); limit measures m_sigma are A-conformal, not A-invariant. DH row withdrawn (not run)',
+  ['hecke-correspondence-recurrence']),
+ ('helson-discrepancy', 'closed', 'Power-saving discrepancy of a completely multiplicative unimodular function as a source of a zero-free region',
+  'c4-helson-discrepancy-zerofree (Theorem 1, two referee checks); relative to zeta, passes Beurling', ['helson-discrepancy-rigidity']),
+ ('twisted-discrepancy', 'closed', 'Discrepancy hypothesis for all additively twisted sums of chi, uniform in the modulus',
+  'c5-twisted-helson-arcs (referee holds): strict form is an identification (chi = n^(-i alpha)); general form passed by THIN', ['map-open-21']),
+ ('frequency-only', 'closed', 'Baker linear forms and finite Turan power sums (read the frequencies log n only)',
+  'c5-device-table-extension (referee holds); every Dirichlet-series control passes', ['frequency-only-devices-coefficient-blind']),
+ ('padic-special-values', 'closed', 'p-adic interpolation / Iwasawa data (read zeta at non-positive integers only)',
+  'c5-device-table-extension; interpolation twin zeta + c L(chi_-4) L(chi_5) passes', ['padic-interpolation-reads-nonpositive-integers']),
+ ('tensor-squeeze', 'closed', 'Tensor-power squeeze (bounds local parameters only)', 'c5-device-table-extension; every unimodular twist passes',
+  ['tensor-squeeze-supplies-size-only']),
+ ('strip-dtn-identity', 'closed', 'Strip Dirichlet-to-Neumann phase identity (holds for DH with a pole sum)', 'c5-device-table-extension',
+  ['strip-dtn-phase-identity']),
+ ('sum-product-vinogradov', 'closed', 'Additive-against-multiplicative pairing (Vinogradov-Korobov; crosses Re s = 1 by (log t)^(-2/3) only)',
+  'c5-device-table-extension; closed by argument, not proof', ['additive-multiplicative-pairing-is-vinogradov']),
+ ('quadratic-positivity-companions', 'closed', 'Quadratic positivity with automorphic companions (degree-2 positive forms): closed for pointwise outputs',
+  'row P50 (c6-quadratic-companion-positivity, referee holds): log-level squares lie in the P25 cone, products need admissible linear factors, '
+  'coefficient squares are positive for every sequence and for DH and are twist-invariant, Landau on L(s, Pi x Pi~) reaches Re s = 1 only. '
+  'Density (family) half not run and left open in the record; MV-CAP (device mean-value-convexity) applies to it, so it is not a pointwise device',
+  ['map-open-9']),
+ # ---- floored
+ ('coherent-set-large-sieve', 'floored', 'Coherent set with large sieve (7/8 type): the only mechanism meeting R1-R3',
+  'rows Z15, Z16: floors 5/6 at r = 6; proved abscissa 7/8 (unrefereed manuscripts about 0.874887)',
+  ['qrh-seven-eighths', 'seven-eighths-abscissa-formula', 'tro6-natural', 'map-pos-35', 'map-open-2', 'map-open-4']),
+ # ---- open
+ ('effective-order-two', 'closed', 'Effective order 2 in the 7/8 architecture (h = r/2): closed as an attack lead after round 10',
+  'map section 6 item 1; narrowed after round 6 (lesson 1) to derivation items. Closed parts: re-expression of the same probe '
+  '(Lemma U, two referees; row Z15b); abelian families (row Z22; abstract-family statement ARGUED); double covers through local data '
+  '(row Z23, claim narrowed by its referee); probes of higher degree in the target (row Z15c); long marks at h = 3 as an input weaker '
+  'than GRH (row Z26); the sextic probe as a route below abscissa 2/3 (normaliser H_eta, row Z24, two referees). Left open: (a) the '
+  'uncompensated high side derived from manuscript (12.5)/(16.1) with the normaliser kept; (b) the compensated principal signal below '
+  'Re s = 3/5; (c) whether any model vertex with 1 < h <= 3 exists. Requirement added: the normaliser of the probe has no zeros in Re s > 1/2. '
+  'State set to closed by the strategy review after round 10 (STRATEGY v3, section 3.1 item 22): items (a) to (c) were derived in rounds 7 to 10 and each '
+  'ends at an input of zero-free type for the twist family of the target or fails in the F_q[T] model ((E-K) row Z30, (E-H) row Z31, normaliser ladder rows '
+  'Z24, Z24b, Hilbert-Schmidt cap, completed rows at (6, 9, 2)). Several closures are measured or argued, not theorems. Reopen only with one of: a relation '
+  'among the reciprocals 1/L across rows that is not a norm bound; a method keeping the signs of the dual sum in the window Z/P < X < ZP; a probe whose '
+  'normaliser has no zeros in Re s > 1/2; global Whittaker constants of a genuine cusp form on the double cover of GL(3)',
+  ['map-open-1']),
+ ('laurent-shell-gamma-section', 'closed', 'Sections of the prime chain on a Reinhardt (Laurent) shell around the critical torus, gamma one-port included',
+  'lane c7-laurent-shell-gamma-section (round 7, one referee): the first-moment bracket has no forced sign for zeta or for DH on the shell or with '
+  'the gamma term; every statement holds for DH; the limit step is void in measure form and is the height-coupled reserve inequality of '
+  'g-passive-cascade in formula form. Map rows under Q12/Q22 owed. Not covered: a section with P(t) growing like a power of t', ['laurent-shell-gamma-section']),
+ ('function-field-order2-vertex', 'closed', 'Prop. 2.1 probe with signal constant h > 1 in F_q[T] (region lx < l), where the Riemann hypothesis is a theorem',
+  'lane c7-ff-order2-vertex-exact (round 7, one referee; q = 7, 13, N <= 4): base probe at lx < l re-expresses blocks with h < 1; the '
+  'uncompensated marked probe has h > 1 where RH holds, but its low input (diagonal-level row bound) contains the squared signal and fails for '
+  'the Moebius-twisted weight. Round 8 (c8-ek-ff-reflected-rows-exact, one referee): compensated probe (12.5) computed at dual length 0: h > 1 survives, the '
+  'rescaled term is about q^(-lam) of the marked signal, the low input is unchanged. Left open: reflected completed rows; threshold test undecided at N <= 4. '
+  'Constraint from row Z24: the normaliser must have no zeros in Re s > 1/2. '
+  'State set to closed as a crossing device by the strategy review after round 10 (STRATEGY v3, section 3.1 item 23): c9-mv6-ff-window-exact (exact, '
+  'pre-registered: the diagonal-level row bound fails in active classes at N = 2 above dual length 3N), c10-ff-completed-rows-692 (run (6, 9, 2), q = 7: '
+  'completed energy 1.69 to 5.9 times the diagonal; the completed-row law fails with exact inputs; one configuration, no exponent), '
+  'c10-ff-slot-cross-decomposition (the excess is a cross term over pairs of marked primes and is not target-specific: random multiplicative signs are not '
+  'separated, 50 of 51), c10-ff-signal-intersection-square (the squared signal is an intersection square for an algebraic reason in genus 1 and holds for '
+  'fakes with off-line zeros). One referee each. Kept as a bounded model question with no requirement flag: whether the non-principal half of the cube term '
+  'is bounded once the principal signal is removed; genus >= 2 targets. Reopen as a device only with a low input that does not contain the squared signal', ['ff-order2-vertex-probe']),
+ ('vector-specific-row-mean-square', 'closed', '(E-K): mean square of reflected marked theta rows for the probe vector itself, dual longer than the row set',
+  'named by c7-probe-format-h-cap (one referee; second referee of Theorem K and Lemma A in push/c8-repair-engine-map-r7/c7-probe-format-h-cap/REFEREE2.md). '
+  'Not an operator-norm statement: every blockwise l2-l2 estimate of the reflected rows is at or above the K-branch (Hilbert-Schmidt). Under test in round 8 '
+  '(c8-ek-ff-reflected-rows-exact, c8-ek-theta-second-moment-formula). Model value with the polar term kept: 31/36, no vertex with h > 1 (first referee E2); '
+  'form of the hypothesis corrected by first referee E3. Ceiling 2/3 from row Z24. Round 8 (state kept open, narrowed; one referee each): '
+  'c8-ek-theta-second-moment-formula: the row mean square equals X D + X Sum_k F_k exactly, F_k bilinear in Moebius sums over the order-6 twist family of the '
+  'target, so (E-K) is a mean value of 1/L over a family containing the target (zero-free type; holds for X >= ZP under GRH for the family, outline only); '
+  'c8-ek-ff-reflected-rows-exact: in F_q[T] row energy = diagonal + squared signal, targets not separated from random vectors (reflected completed rows not run). '
+  'Left open after round 8: the window Z/P < X < ZP. Round 9 (planner edit, round 10; c9-mv6-window-statement, c9-mv6-ff-window-exact, one referee each; '
+  'evidence text corrected against the two referee files by c10-repair-record-referee-r9): closed for two named absolute-value techniques (family GRH pointwise; '
+  'the second-moment step of c8-liou-row-bound-theorem): the 1/L form with more dual frequencies than columns has its own diagonal and both techniques return '
+  'N^(1+eps); this is ARGUED + MEASURED, no lower bound is proved for the Moebius vector, and a method that keeps the signs of the dual sum or works on the row '
+  'side is not excluded (referee E1). In F_q[T] at N = 2 (exact integers, rule pre-registered: FAILS) the probe vectors of quadratic Weil targets have row energy '
+  '1.19 to 20.6 (q = 7) and 2.17 to 18.1 (q = 13) times the diagonal in active classes with sharp degree classes, rising in steps (two at q = 7, one at q = 13), '
+  'not a fitted exponent; in inactive classes they are below the diagonal; a bound restricted to inactive classes or with weights removing the sixth-power '
+  'frequencies is not tested; reflected dual sums not built; N = 3 undecided (referee E1 to E6). Model excess and the Z[omega] screen (ratio at most 1.007) not '
+  'reconciled. Map row Z30. Outstanding bounded check: completed rows, run (6, 9, 2) at q = 7', ['ek-vector-specific-row-mean-square']),
+ ('nonprincipal-row-cancellation', 'closed', '(E-H): cancellation over non-principal rows below the floor-class high bound',
+  'named by c7-probe-format-h-cap; values corrected by its referee (E1: 4/5 with G = 0, 13/15 with the polar term kept, 1 - 2/r only in the three-input model). '
+  'Round 8, c8-eh-nonprincipal-row-cancellation (state kept open: the referee does not hold the circularity headline): NP = I - I_1 exactly, so a bound on NP '
+  'is necessary and sufficient for the conclusion given the low estimate (necessity, not circularity); termwise and norm treatments closed in the model '
+  '(13/15; 31/36 with E-K); row cancellation in F_q[T] at r <= 4 is present for every weight, random non-multiplicative included. Left open: a target-specific '
+  'treatment. Ceiling 2/3 from row Z24. Round 9 (planner edit, round 10; c9-eh-dual-r5-target-excess, one referee; evidence text corrected against the referee '
+  'file by c10-repair-record-referee-r9): closed in the model as a source of a target-specific input: the non-principal row sum is a linear functional of the '
+  'weight with target-independent kernel (proved); the pre-registered target excess over seeded random multiplicative and non-multiplicative classes is not '
+  'detected at q = 7, r <= 5 (24 seeds per class at r = 5, resolution 0.05 to 0.07 in the exponent). Referee wording: not detected, not absent; power of the '
+  'test unknown; an excess below 0.05 or setting in at r >= 6 is not excluded; linearity does not imply norm type, the measurement supports it; Lemma A in the '
+  'model is a sketch for q -> infinity, its number-field sub-step is open. Not a theorem that no proof of (E-H) from the rows exists. Map row Z31', ['eh-nonprincipal-row-cancellation']),
+ ('positive-term-sum-rule', 'closed', 'Sum rule with positive terms crossing from summable to square-summable coefficients (Szego-Verblunsky, Killip-Simon, Simon-Zlatos) on the prime stub chain',
+  'lane c9-szego-sum-rule-prime-cascade (round 9, one referee holds, eight corrections of scope and wording): closed for five named forms, not for every sum '
+  'rule (referee E5): Littlewood window functional (Jensen count), mean form (classical density identity), stage functionals continuous in the phases, the '
+  'Simon-Zlatos type difference condition (a coefficient condition only; no theorem of that family is stated for a product over incommensurable delays), H^2 '
+  'point evaluation (reaches Re s > sigma_0 + 1/2; Hedenmalm-Lindqvist-Seip). Controls U (torus rotation), THIN (difference condition holds for sigma > b/2 '
+  'with a zero at b), Liouville twist, WT, FM pass every step; DH and HEAT fail only at chain formation; five controls not run. Not covered: a sum rule whose '
+  'coefficient side vanishes identically with a semicontinuous limit step (that limit step is the R4 statement). Map row Q27', []),
+ ('single-row-bridge', 'closed', 'Bridge (spinor square-root) form built from one completed probe row B_m',
+  'closed by c8-single-row-bridge-crossing (round 8, one referee, holds with five wording corrections): a theta row is T = L0 D with L0 = L(3s - 1/2, psi); '
+  'the row axis Re s = 1/2 is Re w = 1 for L0 (1/6 in s from its own axis), so the bridge of T is blind to zeros of L0; the bridge of D reads them as an '
+  'identity with no sign; the target enters one row only as a coefficient twist. Kubota-Patterson normalisation in bridge language. Map row Q26',
+  ['single-row-bridge']),
+ ('landau-siegel-mechanism', 'closed', 'Mechanism of the 2026 Landau-Siegel claim (conductor-aspect family of real characters)',
+  'lane c7-landau-siegel-device-read (round 7, one referee; Lean tree read as text, not compiled): interpolation determinant over a box in '
+  'Z[sqrt d, sqrt 2] with Frobenius-congruence divisibility against the prime bias of a real zero. Floor: real zeros with 1 - beta <= c/log q '
+  'only; empty to the left; no height-aspect form (n^(-it) is control U). THIN and the Liouville twist fail at S4/S5. The statement itself '
+  'follows from the compiled Dirichlet 7/8 theorem. State set to closed FOR THE HEIGHT ASPECT by c9-repair-referee-debts-r8 (was floored): the engine target is a '
+  'height-aspect statement, the lane (referee holds) found no height-aspect form and no crossing outside width c/log q, and the closed outcome record '
+  'c7-landau-siegel-device-read already rejected every candidate containing the node (1,060). The conductor-aspect statement keeps its floor 1 - c/log q; '
+  'reopen as floored only with a lane that names a conductor-to-height transfer', ['landau-siegel-2026-mechanism']),
+ # ---- round 11 explore lanes (stage A = displayed inequality, marked steps, eleven-control table); closed in round 12 on two referee files each
+ ('twist-modulus-reciprocity', 'closed', 'Reciprocity of twisted second moments exchanging the twist variable with the modulus (Conrey, Young, Bettin; Bettin-Conrey cotangent-sum period relation), as the RS-1 device: functional equation of the target joined to periodicity in the modulus',
+  'lane c11-rs1-twist-modulus-reciprocity (round 11). CLOSED at stage A by c12-repair-sources-statement-o-v3 (round 12) on two referee files: push/c11-rs1-twist-modulus-reciprocity/REFEREE.md (independent; holds with corrections E1 to E6) and push/c12-repair-sources-statement-o-v3/REFEREE2.md section 2 (control table re-derived; Bettin arXiv:1607.05595 opened). The T-NR twin passes every step that holds for zeta with general twists prime to p (nine-term identity, exact at every s) and its bound is false at its zeros in the strip; the window translate passes by substitution; for twist length >= p - 1 and free weights the candidate is its conclusion (zero-one law); the functional equation of the target is not read. Withdrawn: the E_a pass (a linear form, not the candidate), the abscissa claim for short twists, exact reciprocity at height t != 0 (not in the opened source). Map row Z34. Reason for the entry: STRATEGY v3 section 3.1 item 25 names '
+  'a reciprocity acting on the Moebius variable l as the only reopening input of lead 4 (map row P52). First controls: E_a, T-NR, EIS-w, window translate. '
+  'Existing partner nodes cotangent-reciprocity-period-function and bettin-conrey-intercept are measured phenomena and are not device nodes',
+  ['twist-modulus-reciprocity']),
+ ('regular-rep-matrix-bridge', 'closed', 'Matrix Dirichlet series M_q(s) = sum_n R(n) n^-s over the regular representation of (Z/q)^*, entrywise non-negative, with matrix Euler product and Gauss-sum functional equation; bridge / Krein square for the matrix symbol (RS-1 with the bridge square)',
+  'lane c11-rs1-regular-rep-matrix-bridge (round 11). CLOSED at stage A, for the displayed forms (K), (E), (Q), (H), by c12-repair-sources-statement-o-v3 (round 12) on two referee files: push/c11-rs1-regular-rep-matrix-bridge/REFEREE.md (independent; holds with six corrections) and push/c12-repair-sources-statement-o-v3/REFEREE2.md section 1 (E_a and T-NR lifts re-derived step by step). The bridge objects lie in the commutative group algebra and decompose over characters; the vector 1 is in the cone and is the chi_0 eigenvector, so every cone-quantified statement restricts to the scalar zeta statement (RH for forms K and E); the E_a lift keeps entry positivity at both levels, the Euler product, a functional equation of Gauss-sum type (squared root-number matrix, degree-two gamma factor) and periodicity; the T-NR lift keeps product-level positivity, the Euler product, the functional equation of M_q itself and periodicity. Not covered: statements mixing several bridge objects. The cell "a cone other than R_+^G" was run by lane c12-univ-pointwise-control-wcone (independent referee pass in its REFEREE.md): candidate (CW) on the cone K_F = {v >= 0, Fv >= 0} is closed (extreme rays at q = 5 with zeros off the line; the T-NR lift has every input); other F-adapted cones (non-polyhedral, or not containing v_+-) are not covered. Map rows Q28, Q29. Device type absent from the list before round 11 '
+  '(no map row for matrix-valued or regular-representation objects). DH at q = 5 is a non-eigen linear functional of M_5. First controls: E_a, T-NR, EIS-w, window translate; '
+  'bridge rows Q25, Q26 (family sums have gain 0; single rows have their axis at the edge of the Euler factor) are the closed neighbours',
+  ['regular-rep-matrix-bridge']),
+ ('de-branges-positivity-family', 'closed', 'de Branges positivity condition for Euler products with the gamma factor, and the variants not covered by its known failure for zeta (twin-ladder shift, conductor family), as the RS-3 device',
+  'lane c11-rs3-debranges-positivity-family (round 11). CLOSED at stage A by c12-repair-sources-statement-o-v3 (round 12) on two referee files: push/c11-rs3-debranges-positivity-family/REFEREE.md (independent part; holds with corrections E1 to E4) and push/c12-repair-sources-statement-o-v3/REFEREE2.md section 3 (lattice control re-derived; Bohr 1916 Satz A opened). Every variant examined is a restatement of a closed row (T3, G6) or is false for zeta at a named step: the condition implies a phase balance at every zero, which fails at zero 34 (h = 1) in the entire-function form and next to the first zero in the weight form (measured, not interval-certified); the two-parameter weight family is false for every conclusion half-plane sigma_0 <= 1 relative to Bohr. A lattice passes the hypotheses and necessary conditions. The two cells left open were run by lane c12-heat-tied-family-open-cell (round 12; one referee, second referee for its Lemmas S and T owed to lane c13-referee-r12-independent): backward heat fails (N2) at on-line zeros for six tau < 0 and forward heat tau >= 0.5 passes below 500; the tied conductor family V3b is closed for q = 5, 7, 13. Numeric screen of the lane corrected in ball arithmetic by c13-repair-map-engine-battery-records (DH and gamma-only windows; no verdict changed). Map row P53. The condition is reported to fail for zeta '
+  '(Conrey-Li 2000; relative to that source, not on file). First controls: DH, E_a with real a, backward heat. The node de-branges-hamiltonian-xi is a target form, not a device',
+  ['de-branges-positivity-family']),
+ # ---- round 12 lanes (entered by c13-repair-map-engine-battery-records; each closed on the independent referee pass in the lane's REFEREE.md)
+ ('bost-connes-crossed-product-positivity', 'closed', 'Positivity in the Bost-Connes Hecke algebra C*(Q/Z) x N^x (KMS states, dual-system state, archimedean vector states with Poisson summation on e(r))',
+  'lane c12-bost-connes-crossed-product-duality (round 12, explore). CLOSED at stage A for three classes of states, on push/c12-bost-connes-crossed-product-duality/REFEREE.md (independent pass; holds with corrections E1 to E6). Sigma-invariant states factor through C(Z^); the Galois-invariant KMS state reads finitely many local factors and the extremal KMS states at beta > 1 read L(beta, chi)/zeta(beta) with positivity of the coefficients only (E1); vector states read {L(s, chi)} with the mu_n and Poisson steps as identities and the inequality a square; Bochner positivity of the state holds only on lines sigma > 1; the Weil prime side is phi_{1/2}(H_g) (target, row P1). T-NR is Tr(D e^{-beta H}) with D >= 1 a fixed positive element of C*(Q/Z) and passes every step an inequality uses; E_a passes on A (x) A. Principle recorded (E3 wording): a device invariant under multiplication of the state by a positive element of C*(Q/Z) is passed by T-NR. Open cell: states outside the three classes (type II_infinity weights at beta <= 1; no candidate inequality on file). Map row D8. ',
+  []),
+ ('depth-aspect-height-transfer', 'closed', 'Depth-aspect exchange of height: characters mod p^k in place of the height twist n^(-it), so that a zero at height t is posed in a periodic family (R4 by transfer from the conductor aspect)',
+  'lane c12-depth-aspect-height-transfer (round 12, explore). CLOSED for the termwise exchange step, on push/c12-depth-aspect-height-transfer/REFEREE.md (independent pass appended to the author check; Lemmas P, X, D re-derived, exact arithmetic and brute force; overstatements G1 to G5 narrowed). Lemma X: no character mod p^k is within 0.479/s of c n^(-it) on n <= N once N >= C_r p (p^k abs(t))^(1/r) and abs(t) >= t_r; integers below N give relations trivial p-adically and non-trivial at the real place. In the 7/8 format the depth characters are already targets and as rows they give Parseval. Zeta and every control fail the step identically (nothing separated). Open cell: a transfer that is not termwise (weighted sums special to the coefficients of the target), bounded heights below t_r in a written proof, and the range between log q and q^delta; no candidate on file. Map row Z35. ',
+  []),
+ ('x04-oval-hecke-fricke-loading', 'closed', 'Hecke operators T_{p^2}, U_2 and the Fricke involution w_4 loaded on theta restricted to the real oval of X_0(4) (real against complex isogenous points)',
+  'lane c12-x04-oval-hecke-fricke-loading (round 12, combine). CLOSED for four forms (linear expressions in Hecke images of theta on the arc, dilation-covariant quadratic forms, single complex points, their second moment), on push/c12-x04-oval-hecke-fricke-loading/REFEREE.md (independent pass; holds with corrections E1 to E4). The summed complex isogenous points are dilates of theta; R_p + C_p = 1 + 1/p is the relation c(pm) = c(m), an identity; C_p Lambda is a T-NR twin and every twin lies in the dilation module of theta; <D_l, W> acts on a W-fixed vector through a commutative quotient; the second moment of the unsummed points is map row G16. T-NR and E_a pass every step. Open cell: a functional of the unsummed complex points that is neither linear nor a second moment (no candidate on file). Map row G33. ',
+  []),
+ # ---- round 13 lanes (entered by c14-repair-map-engine-checkpoint-record; each closed on the independent referee pass in the lane's REFEREE.md; no node)
+ ('kacmoody-loop-eisenstein-maass-selberg', 'closed', 'Borel Eisenstein series on the loop group of SL_2: constant term over the affine Weyl group, Maass-Selberg positivity, degenerate Whittaker coefficients',
+  'lane c13-kacmoody-eisenstein-affine-weyl-shift (round 13, explore). CLOSED at stage A: rank-one PROVED, affine kernel ARGUED. On push/c13-kacmoody-eisenstein-affine-weyl-shift/REFEREE.md (independent pass; every PROVED step re-derived; holds with five corrections of wording or scope). In the chamber 0 < Re z < Re c every denominator argument of the constant term and of the degenerate Whittaker coefficients has Re > 1; strip arguments occur only as numerator arguments (coefficient census relative to a recalled normalisation; Garland and FKP not opened). The Maass-Selberg inequality of the rank-one Levi is equivalent to: N = z(1-S)/(1+S), S = T^(-z) xi(z)/xi(z+1), is a Nevanlinna function of z^2 (Theorem B), and this is preserved under multiplication of S by Blaschke factors over non-real conjugate pairs of the right half-plane (Theorem C). T-NR (c > 2, arccosh(c/2)/log q < 1/2) and control BLS pass every analytic step of the rank-one inequality. For the two-variable affine kernel the same closure is argued, not proved. At c = 1 every non-identity coefficient is xi(z)/xi(z+n) (identity). Controls recorded: T-NR, BLS pass; DH no failure found on grids (measured, low power); E_a passes as a group object; EIS-w not run. Open cells: a proof for the affine kernel; the wall Re c -> 0; inequalities other than truncated-norm positivity. Map row D9. Proposal file engine_device_proposal.json of the lane',
+  []),
+ ('fourier-interpolation-zero-nodes', 'closed', 'Fourier interpolation with nodes at the zeros and frequencies log n/(4 pi) (Bondarenko-Radchenko-Seip kernel; Radchenko-Viazovska pair as the case s = 0)',
+  "lane c13-fourier-interpolation-zero-nodes (round 13, explore). CLOSED at stage A, on push/c13-fourier-interpolation-zero-nodes/REFEREE.md (independent pass; holds with corrections C1 to C9). The kernel is (F*(s)/F*(w)) x A_k(w,s), with A_k a target-independent Dirichlet series of the theta group, unique by Bochner's converse theorem (relative to arXiv:2005.02996 sections 3, 4; not re-derived); kernels of one gamma class and one sign of the functional equation are related by symmetric multipliers G(s)/G(w) (Lemma M: an identity of kernels, not a classification of bases). The target enters by division. The Euler product is read twice: absolute convergence of 1/F right of 1 (edge Re w = 1, partial sums x^(1/2+eps), inequality (I-1); T-NR satisfies it) and the Ramachandra-Sankaranarayanan horizontal lower bound (function class only). Off-line nodes move the exponent of the partial sums in the frequency index from 1/4 to beta/2 < 1/2; exponent 1/4+eps for all s implies RH (converse argued): a restatement. For multiplier controls no sign or decay of the basis functions changes (Lemma T); for a general target nothing about signs is established. Controls: T-NR passes every step (height selection argued); WT passes as a translate; DH and theta^w pass in a smaller class (argued on source sketches); E_a open at the gamma-class step and fails (I-1) in size; controls without a functional equation stop at the definition. The Weil functional in the basis is the explicit formula in coordinates. Open cells: kernel for the gamma factor Gamma_R(s+a)Gamma_R(s-a) (E_a, EIS-w); sign pattern of DH basis functions; stage B (the functions U_n, V_rho) not run. Map row G34. Proposal file engine_device_proposal.json of the lane",
+  []),
+ ('lrs-amplification-eisenstein-at-zero', 'closed', 'Luo-Rudnick-Sarnak mechanism (Rankin-Selberg positivity, even twists in the conductor aspect, gamma pole at the non-tempered parameter) on E*(z, rho/2) and on Borel Eisenstein data at regular parameters in any rank',
+  'lane c13-lrs-twist-amplification-zero-representation (round 13, explore; RS-1 with RS-2). CLOSED at stage A at the generic-parameter control, on push/c13-lrs-twist-amplification-zero-representation/REFEREE.md (independent pass; Lemmas 0 to 4 re-derived, residues recomputed by contour at two zeros and two generic parameters; holds with five wording defects). At xi(rho) = 0 the completed Rankin-Selberg function has exactly one simple pole pair, at 2 - beta and beta - 1; the gamma pole of the even twists is at 1 - beta, so pole minus gamma pole is 1 for every parameter (from the Hecke eigenvalues alone); the vanishing forced at the gamma pole is the trivial zero L(0, chi) = 0; the inequality reads beta <= 7/4. LRS needs the pole at 1 independent of the parameter (square-integrability). LRS exponent count reconstructed, paper not opened; the verdict does not depend on it. Controls: E_a, EIS-w (generic parameter) and WT pass every step with the same output; T-NR, DH, DEL, THIN, U not formulable (no eigen-object constructed). Reads: Hecke relations at all primes (identity), xi(rho) = 0 and the functional equation at rho (residue pattern), functional equation of twists (conductor aspect). Open cells: non-Borel Hecke eigen-objects with parameter rho and Rankin-Selberg pole left of 2 - beta (residual or cuspidal data on a larger group; no candidate on file); a level-q object for T-NR; walls. Map row G35',
+  []),
+ ('edrei-thoma-local-total-positivity', 'closed', 'Edrei-Thoma local total positivity of Euler factors, and the non-cone inequality types of the round-13 census as single-object devices',
+  'lane c13-tnr-invariance-prefilter-noncone-census (round 13, combine). CLOSED, on push/c13-tnr-invariance-prefilter-noncone-census/REFEREE.md (independent pass; Lemmas P, L, E re-derived; holds with corrections R-1 to R-5). Local total positivity holds exactly for T-NR with c >= 2 and for E_a and fails for the tempered twin, for L(s, chi) at chi(p) = -1 and for tempered degree-2 factors: ordered against the target. Census of twelve inequality types not preserved by cone endomorphisms: no entry fails both T-NR and E_a at a step that is an unconditional property of zeta, reads the functional equation and is not passed by another control (theta^w with w = 1/3, 1/2, 3 passes the one measured entry that fails both). Lemma P (pre-filter, proved): T-NR with c > 0 passes every device reading only linear identities, dilation-invariant cone conditions on objects linear in F and conditions away from p0; exclusions X1 to X5; 13 device types carry a T-NR record, 0 disagreements (typed with the records visible). Open cells: 23 device types with no T-NR record by name; functionals of two objects (lanes c14-joint-zeta-twist-noncone-search, c14-joint-pair-design-ratio-vortex-cross-bridge). Map rows P55, L6; hand-off file PREFILTER.md',
+  []),
+ ('bilinear-reciprocity-height-jform', 'closed', 'Exact reciprocity at height t for the bilinear pair L(s,chi)L(s,chi-bar) (Bettin 2016 Theorem 5 with the Estermann reciprocity) read as a J-form over characters',
+  'lane c13-bilinear-reciprocity-height-antibridge (round 13, combine). CLOSED at the decisive test, on push/c13-bilinear-reciprocity-height-antibridge/REFEREE.md (independent pass; every PROVED step re-derived; holds with corrections E1 to E4). Entries are real, R_chi(t) = const Z_chi(t) Z_chi(-t); the sign is (-1)^(number of zeros in the strip with ordinate in (-t, t)), fixed by the argument principle whether or not the zeros are on the line. The reciprocity is the period relation of the Eichler-integral series of E(z, 1/2 + it) (reading argued): the height is a spectral parameter and the two L-arguments are tied at integer offsets, so no kernel in two independent heights is reached. Controls: T-NR multiplies every entry by a positive number (all signs, inertias and cone statements unchanged); for E_a with real a every entry is a Hermitian square; DH has real entries for q = +-1 mod 5 with the same sign rule; window translate covariant; DEL, THIN, U not formulable. With twist-modulus-reciprocity (Hermitian form, row Z34) exact reciprocity is closed as a height-reading device in both forms. Open cell: an exact law for the Estermann function off its central point (none known). Map row Z36',
+  []),
+ ('dictionary-d-kernel-sign-functionals', 'closed', 'Dictionary D: sign functionals of the theta-normalised kernel with at most three real parameters (dilation minors of orders 2 to 4, Turan-type expressions, Hecke-compensated forms at primes up to 13) as separators of zeta and L(s,chi), q <= 13, from the battery control classes',
+  'lane c13-noncone-kernel-separator-search (round 13, compute). CLOSED as MEASURED, finite search: closed on the registered grid and draws only, with the conventions of the lane\'s PREREG section 2. On push/c13-noncone-kernel-separator-search/REFEREE.md (independent pass; 1,226 entries re-evaluated with separate code at 330 digits, 0 sign differences; seven findings on the reading; counts of the server-only stages read, not recomputed). Of 12,994,697 functionals on 290 objects, 629,432 are one-signed on the 24 positives and none has the opposite sign on a member of every control class; 0 reject battery DH, 400 reject backward heat. The one-signed condition is fitted on 24 objects and does not hold out (held-out L-functions opposite at mean rate 0.287, above held-out DH members of real-part type at 0.193). Registered prediction "T-NR passes the minors with polar terms" false (0.646); "E_a passes" holds. Lemma H (order 2) is the only proved statement. Open cells (not run): Hermitian forms for complex kernels; orders above 4; more than three parameters or nodes outside [-2.6, 2.6]; functionals reading two kernels at once (lane c14-joint-zeta-twist-noncone-search); other kernels or normalisations. Map row G36',
+  []),
+]
+TARGET_FORMS = dict(
+ note='RH-equivalent statements and final-step lemmas found by the old keyword rule. Not devices.',
+ nodes=['landau-one-sided-target', 'landau-transport-lemma-l', 'v7-floor-theorem-c', 'four-closure-routes', 'eventual-psd-is-global',
+        'first-radix-layer-criterion', 'prime-tent-rh-equivalence', 'two-tents-joint-zero-completeness', 'zero-complete-rational-tents',
+        'pascal-carry-ballot', 'prime-square-pole-recurrence', 'de-branges-hamiltonian-xi', 'zv-signed-shear-w',
+        'toeplitz-krein-sigma2', 'fixed-support-weil-symbol'])
+PENDING = [
+ dict(name='Read set RS-1 (STRATEGY v3 section 4.0): functional equation used in the same inequality as periodicity of twists in the conductor aspect; screen: E_a, T-NR, EIS-w, window translate. Proposal; round-11 lanes c11-rs1-twist-modulus-reciprocity and c11-rs1-regular-rep-matrix-bridge (device types twist-modulus-reciprocity, regular-rep-matrix-bridge)', lane='c11-rs1-twist-modulus-reciprocity', state='open'),
+ dict(name='Read set RS-2 (STRATEGY v3 section 4.0): an attached object (curve, sheaf, automorphic representation) whose positivity is not algebraic; screen: fakes with off-line zeros, EIS-w, genus-1 identity. Proposal; no lane in round 11 (central-value squares set aside by the planner: no condition at height t)', lane=None, state='open'),
+ dict(name='Read set RS-3 (STRATEGY v3 section 4.0): positivity that uses the gamma side of zeta together with the Euler product in one step; screen: DH, E_a with real a, backward heat. Proposal; round-11 lane c11-rs3-debranges-positivity-family (device type de-branges-positivity-family)', lane='c11-rs3-debranges-positivity-family', state='open'),
+ dict(name='Density (family) quadratic forms with automorphic companions: not run; MV-CAP applies', lane='c6-quadratic-companion-positivity', state='open'),
+ dict(name='Global Whittaker constants of a genuine cusp form on the double cover of GL(3) (map 6.18; local data closed by row Z23)', lane='c6-gl3-cover-epsilon-cocycle', state='open'),
+ dict(name='Rank >= 2 compact-at-infinity squares without a Hecke rule (no R1)', lane='c6-square-intertwiner-weyl', state='open'),
+ dict(name='Model vertices with 1 < h <= 3 in the order-2 ledger (underived)', lane='c6-unreflected-marks-kd23', state='open'),
+ dict(name='Lax-Phillips Hecke norms outside the weighted-L2 family', lane=None, state='open'),
+ dict(name='Non-locality step 4 of the Rouche lane', lane=None, state='open'),
+]
+out = dict(
+    about='Curated list of crossing devices for requirement R4. Replaces the keyword role "crossing" of build_graph.py. '
+          'Generated by curated/mk_devices.py; edit that file.',
+    states=dict(closed='a map row or refereed lane shows the device returns its input, restates the target or holds for a control',
+                floored='yields a proved statement about zeros with a floor above 1/2 fixed by the method',
+                open='not closed by any row or lane; may be under test in a running lane'),
+    devices=[dict(id=i, state=s, name=n, evidence=e, nodes=nodes) for i, s, n, e, nodes in D],
+    targetForms=TARGET_FORMS, pending=PENDING)
+json.dump(out, open(os.path.join(HERE, 'devices.json'), 'w', encoding='utf-8'), indent=1, ensure_ascii=False)
+seen = {}
+for d in out['devices']:
+    for n in d['nodes']:
+        assert n not in seen, (n, seen[n], d['id'])
+        seen[n] = d['id']
+print('devices.json: %d device types (%s), %d nodes, %d target forms, %d pending' % (
+    len(D), ', '.join('%s %d' % (s, sum(1 for d in D if d[1] == s)) for s in ('closed', 'floored', 'open')),
+    len(seen), len(TARGET_FORMS['nodes']), len(PENDING)))

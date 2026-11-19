@@ -1,0 +1,187 @@
+{
+ "exact_totals": {
+  "nodes": 2918330,
+  "ttrain": 0,
+  "und": 752,
+  "full": 0,
+  "fe_ttrain": 7314,
+  "fe_und": 62003,
+  "fe_full": 0,
+  "pz_ttrain": 16727,
+  "pz_full": 0
+ },
+ "minors": {
+  "a2": {
+   "functionals": 943802,
+   "stage2": 106749,
+   "tiers": {
+    "PA/all": {
+     "one": 0,
+     "ttrain": 0,
+     "full": 0,
+     "optimistic": 0,
+     "best_min_heldout": 0,
+     "rejected": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "nrej_hist": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    "PA/FE": {
+     "one": 0,
+     "ttrain": 0,
+     "full": 0,
+     "optimistic": 0,
+     "best_min_heldout": 0,
+     "rejected": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "nrej_hist": [
+      0,
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    "PZ/all": {
+     "one": 106749,
+     "ttrain": 0,
+     "full": 0,
+     "optimistic": 0,
+     "best_min_heldout": 0,
+     "rejected": [
+      106749,
+      47776,
+      6624,
+      0,
+      96561,
+      81189,
+      27937,
+      93307,
+      35878
+     ],
+     "nrej_hist": [
+      0,
+      303,
+      6783,
+      14941,
+      35200,
+      17641,
+      15665,
+      15394,
+      822,
+      0
+     ]
+    }
+   }
+  },
+  "a3": {
+   "functionals": 654471,
+   "stage2": 35734,
+   "tiers": {
+    "PA/all": {
+     "one": 0,
+     "ttrain": 0,
+     "full": 0,
+     "optimistic": 0,
+     "best_min_heldout": 0,
+     "rejected": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "nrej_hist": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    "PA/FE": {
+     "one": 0,
+     "ttrain": 0,
+     "full": 0,
+     "optimistic": 0,
+     "best_min_heldout": 0,
+     "rejected": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "nrej_hist": [
+      0,
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    "PZ/all": {
+     "one": 35734,
+     "ttrain": 0,
+     "full": 0,
+     "optimistic": 0,
+     "best_min_heldout": 0,
+     "rejected": [
+      35734,
+      24229,
+      35684,
+      0,
+      35734,
+      34847,
+      10423,
+      34433,
+      10422
+     ],
+     "nrej_hist": [
+      0,
+      0,
+      0,
+      20,
+      1001,
+      6017,
+      17126,
+      7959,
+      3611,
+      0
+     ]
+    }
+   }
+  }
+ }
+}

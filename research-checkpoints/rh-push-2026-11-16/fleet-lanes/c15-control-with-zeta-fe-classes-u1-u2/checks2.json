@@ -1,0 +1,28 @@
+{
+ "NRq_q_1+sqrt2_c_2.1": {
+  "c_max_for_strip": 2.19736822693562,
+  "fe_defect_max": 1.877279105206384e-30,
+  "offline_zero": [
+   0.857311316383781,
+   3.564427956382738
+  ],
+  "absG_at_zero": 7.292158697365485e-32,
+  "winding": 1.0,
+  "l1_mass_off_integer_over_integer_coefficient": 1.0463658223502952,
+  "log_coefficient_modulus_per_step_at_q": 2.1289130623617436
+ },
+ "DH5e_t_1_offline_zeros_in_strip": [
+  [
+   0.7795572047714178,
+   61.16851669405819,
+   1.0,
+   1.0
+  ],
+  [
+   0.6417573184625626,
+   75.39947672949825,
+   1.0,
+   1.0
+  ]
+ ]
+}

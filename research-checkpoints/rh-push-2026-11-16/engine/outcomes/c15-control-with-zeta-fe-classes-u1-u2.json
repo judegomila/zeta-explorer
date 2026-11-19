@@ -1,0 +1,45 @@
+{
+ "slug": "c15-control-with-zeta-fe-classes-u1-u2",
+ "round": 15,
+ "kind": "combine",
+ "nodes": [],
+ "tags": [
+  "control",
+  "functional-equation",
+  "symmetric-multiplier",
+  "hamburger",
+  "identification",
+  "U1",
+  "U2",
+  "U3",
+  "prefilter",
+  "control-zq",
+  "control-nrq"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "No statement about zeros of zeta. ZQ = zeta(s)m(s), m rational in s(1-s) of degree 0, has zeta's functional equation, pole, order, N(T) and every prime-power atom of log zeta, has zeros at 1/2 +- eta +- i gbar, and its defect is an absolutely continuous density with sup <= 8e^-2(eta^2+d^2)/(1/2-eta)^2 (PROVED; MEASURED on pairs 1-2, 6709-6710 and by the referee on 298-299: sup 0.2004 against bound 0.2847). If GEOM, SIZE and EP are read on the atoms, ZQ is a control for U1 and the SIZE branch of U2; if read on ordinary coefficients, U1 lies inside U3 by Hamburger. Either way U1 is not a separate untestable class. Lemma L (PROVED given Landau): FE, no pole other than s = 1, and Lambda_G >= Lambda force G = c zeta; without the pole clause it fails (a member with Lambda_G >= Lambda >= 0, exact atoms, off-line zeros and real poles in (0,1) exists). Lemma D (PROVED) only for multipliers 1 + sum c_j(l_j^(s-1/2)+l_j^(1/2-s)). For twist families the control is NR-q. One independent referee pass (this one).",
+ "obstruction": "U1 {FE, GEOM} and the SIZE branch of U2 are not control-free. ZQ = zeta(s) m(s), m rational in s(1-s) of degree 0, keeps zeta's functional equation, pole, order, N(T) and every prime-power atom of log zeta, has zeros at 1/2 +- eta +- i gbar, and its defect is an absolutely continuous density with sup <= 8e^-2 (eta^2+d^2)/(1/2-eta)^2 (PROVED). If GEOM, SIZE and EP are read on atoms ZQ is a control for U1 and U2-SIZE; if read on ordinary coefficients U1 lies inside U3 by Hamburger. Lemma L (PROVED given Landau): FE, no pole other than s = 1 and Lambda_G >= Lambda force G = c zeta; without the pole clause it fails. Lemma D (PROVED) for discrete symmetric multipliers only: off-integer l1 mass >= 1. Open cell: a member with zeta's FE and Lambda_G >= 0 (neither constructed nor excluded). Referee correction E1 (material): the pole clause of Lemma L was dropped in three places of RESULT.md.",
+ "obstructionKind": "control-passes",
+ "controlsThatDefeat": [
+  "ZQ (zeta times a rational symmetric multiplier: passes every U1 / U2-SIZE read taken on atoms)",
+  "SG (companion symmetric-multiplier control)",
+  "NR-q (T-NR at base 1 + sqrt 2: the control for twist families, where ZQ's twists have poles on the line)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "All PROVED steps re-derived and confirmed (Lemma A, closed form of m, D, sup bound, integral bound, density E of 1/ZQ, Lemma L, Lemma D, forced exponent). Rerun on a different case (zeros 298, 299, eta = 0.07; SG with zero 5, b = 0.45; NR-q at the golden ratio; DH5e rectangles) agrees. Corrections required: E1 (material): the pole clause of Lemma L is dropped in three places (table row F2 'POS fails'; section 3 consequence (a); section 6 U2 POS branch 'no member with exact atoms keeps POS'). Fal - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "With zeta's functional equation fixed, the family is zeta times a symmetric multiplier. Small-defect controls are absolutely continuous (rational multipliers); discrete ones sit at distance >= 1. A U1/U2 device must name the step that reads absence of coefficient mass off log N, or the sign of Lambda against a density of size O(eta^2+d^2); otherwise ZQ passes it. T-NR in symmetric normalisation already had zeta's FE (map row NR), so \"no control on file has it\" was imprecise. Process note: the first run of checks.py wrote checks.json to the repo root, where an untracked checks.json already existed; that root file is now absent and its earlier content may have been overwritten. The lane copy was rebuilt from checks.log and the script now writes next to itself.",
+ "followUp": "Independent referee of Lemma L and of reading GEOM/SIZE on atoms (if rejected, U1/U2 fold into U3 with ZQ as witness). Then apply the unapplied proposals: map control row ZQ with companions SG and NR-q, question Q-A under Lemma F, checkpoint rewording, engine nodes from engine_control_proposal.json. Open cell: a member with zeta's FE and Lambda_G >= 0 (neither constructed nor excluded).",
+ "resultFile": "tmp/research-2026-11-16/push/c15-control-with-zeta-fe-classes-u1-u2/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c15-control-with-zeta-fe-classes-u1-u2/REFEREE.md",
+ "launchedNodes": [],
+ "engineVerdict": "closed"
+}

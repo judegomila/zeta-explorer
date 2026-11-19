@@ -1,0 +1,4 @@
+88960cfaef34ef4a08519bf9a034f9c42e867bc880c741144f04957fbca4fc5b  tmp/research-2026-11-16/push/c12-control-battery-harness/records/screen.json
+f67648c4718520f797defad7f21f35ece0161ecbd3d8ddc21236f81d9738692b  tmp/research-2026-11-16/push/c12-control-battery-harness/records/screen.original.json
+f31a13d9f8063f02a73964970a211e6210108638c0bc909244afa6a3c4ecbc2f  tmp/research-2026-11-16/push/c12-control-battery-harness/tables/zeros_HEAT--0.5.json
+bd3cb471fbad63b7e0a809972723479b88a6266dc0c1e11f403bffec84dc97dc  tmp/research-2026-11-16/push/c12-control-battery-harness/tables/zeros_HEAT--0.5.original.json

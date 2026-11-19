@@ -1,0 +1,33 @@
+{
+ "about": "Curated auxiliary controls added by lanes (merged into CONTROLS by build_graph.py at import). Each entry: code -> name, has, lacks, kills, kw, status, source. Written by c9-repair-referee-debts-r8.",
+ "controls": {
+  "EISW": {
+   "name": "EIS-w: Eisenstein series E(z, w') of PSL_2(Z) off resonance (phi(w') != 0), Re w' in (1/2, 1)",
+   "has": "the group, the functional equation, the Euler product, the Hecke algebra: Gamma-invariance, the joint eigen-relation for all T_p with eigenvalue p^(w'-1/2) + p^(1/2-w'), the Laplace equation, moderate growth, an explicit truncated mass (Maass-Selberg)",
+   "lacks": "phi(w') = 0: the constant term carries both powers y^w' and y^(1-w'); it is not attached to a zero of zeta",
+   "kills": "any argument on the modular surface whose inputs are invariance, the joint Hecke eigen-relation, the growth exponent and the truncated mass (it exists for every Re w', so such inputs locate no abscissa)",
+   "kw": "EIS-w|\\bEISW\\b|off[- ]resonance eisenstein",
+   "status": "proved",
+   "source": "push/c8-hecke-entropy-resonance-rigidity/RESULT.md Proposition 4 (classical properties of E); REFEREE.md (confirmed, Maass-Selberg checked at 3 points to 14 digits); push/c9-repair-referee-debts-r8/c8-hecke-entropy-resonance-rigidity/REFEREE2.md"
+  },
+  "DEL": {
+   "name": "DEL: thin prime deletion, F = prod over p not in S of (1 - p^-s)^-1 = zeta(s)(s - b)W(s), S a greedy set of primes of density t^(b-1)/log t, 1/2 < b < 1",
+   "has": "Euler product, Lambda >= 0, abs(Lambda(n)) <= log n, prime-power support, ordinary Dirichlet series with coefficients 0 or 1 (completely multiplicative), one simple pole at 1, continuation to Re s > max(b - eta, b/2); simple real zero at s = b; right of b its zeros are those of zeta",
+   "lacks": "the functional equation; periodicity of the coefficients modulo any q; unimodular local parameter at the primes of S (it is 0); zeros at non-zero height off the zero set of zeta",
+   "kills": "any argument for a zero-free half-plane that uses the target only through prime positivity, size, support, the Euler product, the pole and the integers, without the functional equation or periodicity",
+   "kw": "\\bDEL(_b)?\\b|thin prime deletion|prime deletion control|deletion control",
+   "status": "proved-relative",
+   "source": "push/c10-thin-deletion-zero-mode-control/RESULT.md Lemma 1 (+ REFEREE.md, Lemma 0 repaired); push/c11-repair-del-referee-record/REFEREE2.md (second pass; relative to a counting form S(theta) of a short-interval prime theorem; Huxley 1972 opened by push/c12-repair-sources-statement-o-v3: it states the density estimate with exponent 12/5 and the gap bound, not a count; the count is the deduction of Ingham 1937, not opened)"
+  },
+  "UNIV": {
+   "name": "UNIV: joint universality filter. For pairwise non-equivalent Dirichlet characters chi_1..chi_m (zeta included) and a compact K with connected complement in 1/2 < Re s < 1, the translates (L(s + i tau, chi_j))_j approximate every m-tuple of non-vanishing analytic functions on K for a set of tau of positive lower density",
+   "has": "every property of the L-functions that is a closed condition (sup norm) on a fixed compact window in 1/2 < Re s < 1 with constants independent of height and that holds at all heights (or outside a set of upper density zero); the same jointly with finitely many prime phases p^(-i tau) (hybrid form); continuous inequalities in finitely many values and derivatives at finitely many fixed offsets that hold at all heights hold for every jet (no content); linear combinations of two or more of the L-functions with non-vanishing Dirichlet-polynomial coefficients have at least CT zeros in every sub-strip",
+   "lacks": "Re s <= 1/2 and Re s > 1 (right of 1 the corresponding control is U, Kronecker-Weyl); statements non-local in height (t with 2t, positive-definiteness in t, mean values, sums over zeros); families with m growing with T and the conductor aspect; inequalities using s and 1 - conj s together or the completed function (height-dependent through the gamma factor); height-dependent constants or regions; conditions not closed on a compact window; existence statements in short intervals; companions that are not Dirichlet L-functions; effectivity (the heights are not located; a sample up to height 8000 shows 58 of 256 sign patterns)",
+   "kills": "any step of an argument that is a height-uniform local inequality on values of finitely many Dirichlet L-functions in the open right half of the strip and is claimed to carry arithmetic: it is of class T (true for every analytic tuple), class N (true for every non-vanishing tuple; automatic on zero-free windows, can fail only on a window containing a zero) or class F (false on a set of heights of positive lower density)",
+   "kw": "\\bUNIV\\b|joint universality|universality filter|Voronin universality",
+   "status": "relative to joint universality",
+   "source": "push/c12-univ-pointwise-control-wcone/RESULT.md sections 1-3 (Lemma U1, Corollaries U2-U5), DEVICE_READ_UNIV.md and REFEREE.md (independent referee pass of 2026-11-19: holds with corrections E1 to E5; E2 narrows the class-N sentence); relative to Theorems 7, 10, 11, 20, 30, 31 as printed in K. Matsumoto, A survey on the theory of universality for zeta and L-functions, arXiv:1407.4216 (opened by the lane and by its referee); primary texts (Voronin, Gonek, Bagchi, Kaczorowski-Kulas, Nakamura-Pankowski) not opened. Map row P54 and the UNIV note of map section 2. Entered by c13-repair-map-engine-battery-records (previous file scratch/controls.pre-c13-repair.json)",
+   "scope": "filter for one step type, not a function with zeros off the line. Against the 34 device rows read in push/c12-univ-pointwise-control-wcone/DEVICE_READ_UNIV.md (codes ARGUED from one-line readings, not checked against the device lanes by the referee): decides 1 device (7), part of 4 (1, 4, 14, 25), restates 2 (12, 32), out of scope for 27. Not numerically checkable: the approximating heights are not located"
+  }
+ }
+}

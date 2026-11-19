@@ -467,3 +467,168 @@ Limits: the generator still cannot propose a device type with no node (`positive
 - `generate.py` (previous file `scratch/generate.before-strategy-v3.py`): `WEIGHTS` deviceOpen 3 -> 2, deviceFloored 1 -> 0, new key cohesionCap 1.0 (was the constant 2.0).
 - Rerun through `scripts/memcap.sh 8`, log `scratch/rerun-strategy-v3.log`: 34 device types (33 closed, 1 floored, 0 open); 100 outcome entries (66 closed); 1,643 nodes (960 live); 8,864 edges; 36,569 generated; 8,438 scored. Top 60: all on the floored 7/8 device; none with an open or closed device. Previous list: `scratch/CANDIDATES.before-strategy-v3.json`.
 - `ROADMAP.md` section 11 added (previous file `scratch/ROADMAP.before-strategy-v3.md`).
+
+## Round 11 repair slot (2026-11-19, lane `c11-repair-del-referee-record`)
+
+- `curated/mk_devices.py` (previous file `scratch/mk_devices.pre-c11-repair.py`, also `push/c11-repair-del-referee-record/before/mk_devices.py`): three device types added with state open, one node each: `twist-modulus-reciprocity`, `regular-rep-matrix-bridge`, `de-branges-positivity-family` (round-11 explore lanes). The three lanes reported while this entry was written (each "stage A stops", author checks only, no independent referee); the evidence text says so and the state stays open until the learn step has a referee file. Pending proposals RS-1 and RS-3 carry the lane names; RS-2 has no lane. No state of an existing device changed.
+- `nodes/nodes-20.json` (new): the three device nodes (type mechanism, status conjectural). Tags are existing tags only.
+- `curated/controls.json` (previous file `scratch/controls.pre-c11-repair.json`): control `DEL` (thin prime deletion; status proved-relative; two referee files; relative to Huxley 1972, primary text not opened).
+- Map input changed by the same lane: `push/OBSTRUCTION_MAP.md` rows P52, Z33, control row DEL, addition to Z30 (180 -> 182 rows).
+- Rerun, each through `scripts/memcap.sh 8` (log `push/c11-repair-del-referee-record/engine_rerun.log`; counts `engine_counts_before.json`, `engine_counts_after.json`):
+
+| quantity | before | after |
+|---|---|---|
+| device types closed / floored / open | 33 / 1 / 0 | 33 / 1 / 3 |
+| device nodes listed | 72 | 75 |
+| pending proposals | 9 | 9 |
+| outcome entries (closed) | 100 (66) | 100 (66) |
+| closed families | 34 | 34 |
+| map rows parsed | 216 | 218 |
+| controls | 16 | 17 |
+| nodes (live) | 1,643 (960) | 1,649 (963) |
+| nodes by origin: corpus / map / outcome | 1,239 / 304 / 100 | 1,242 / 307 / 100 |
+| edges | 8,864 | 8,900 |
+| control-defeats edges | 745 | 751 |
+| device nodes closed (live) / floored / open | 66 (58) / 6 / 0 | 66 (58) / 6 / 3 |
+| crossing pool | 6 | 9 |
+| generated | 36,569 | 44,860 |
+| scored | 8,438 | 14,980 |
+
+- Top 60 after the rerun: 12 candidates on each of the three open device nodes and 24 on the floored 7/8 device. The partners of the open devices are placed by tag overlap (for example rank 1: `capture-ratio-psd-slope` x `sympow-conductor-normalised-shift` x `regular-rep-matrix-bridge`); none was read as a lane proposal. Since all three lanes report a stop at stage A, these 36 candidates are expected to be rejected once the learn step closes the devices.
+- Limits: the control node `ctl-DEL` has no edge (the keyword rule finds the code in no reader node, and no map row names DEL in its "defeated by" cell yet); outcome records for round 11 are not written (learn step); the first rerun of this lane (before the three lane reports were read) is kept as `push/c11-repair-del-referee-record/engine_rerun.first.log` and differs only in the evidence texts (scored 15,025 against 14,980).
+
+## Round 12 repair slot (2026-11-19, lane `c12-repair-sources-statement-o-v3`)
+
+- `curated/mk_devices.py` (previous file `scratch/mk_devices.pre-c12-repair.py`, also `push/c12-repair-sources-statement-o-v3/before/mk_devices.py`; patch script `push/c12-repair-sources-statement-o-v3/patch_devices.py`): `twist-modulus-reciprocity`, `regular-rep-matrix-bridge`, `de-branges-positivity-family` open -> closed. Each evidence text cites two referee files: the lane's `REFEREE.md` (independent) and `push/c12-repair-sources-statement-o-v3/REFEREE2.md` (control table re-derived), and the map row (Z34, Q28, P53). Open cells named by the lanes are kept in the evidence text (cone other than R_+^G; backward heat at the phase-balance step; tied conductor family). No other device state changed. The device `central-value-squares` proposed by `c11-del-device-read-confirm` was not added (not assigned; that lane has no independent referee).
+- Map input changed by the same lane: `push/OBSTRUCTION_MAP.md` rows P53, G32, Q28, Z34 added; control row DEL, rows P36, Z29, O1 and section 7 edited (182 -> 186 rows).
+- Not rerun: `merge_outcomes.py` (the learn step of round 11 had run; outcome records untouched by this lane).
+- Rerun, each through `scripts/memcap.sh 8` (`curated/mk_devices.py`, `build_graph.py`, `generate.py --top 60`; log `push/c12-repair-sources-statement-o-v3/engine_rerun.log`; counts `engine_counts_before.json`, `engine_counts_after.json`; previous list `scratch/CANDIDATES.pre-c12-repair.json`). "Before" is the state left by the round-12 planner rerun.
+
+| quantity | before | after |
+|---|---|---|
+| device types closed / floored / open | 33 / 1 / 3 | 36 / 1 / 0 |
+| device nodes listed | 75 | 75 |
+| pending proposals | 9 | 9 |
+| outcome entries | 108 | 108 |
+| closed families | 34 | 34 |
+| map rows parsed | 218 | 222 |
+| controls | 17 | 17 |
+| nodes (live) | 1,655 (963) | 1,659 (963) |
+| nodes by origin: corpus / map / outcome | 1,242 / 307 / 106 | 1,242 / 311 / 106 |
+| edges | 8,903 | 8,922 |
+| control-defeats edges | 751 | 770 |
+| device nodes closed (live) / floored / open | 66 (58) / 6 / 3 | 69 (61) / 6 / 0 |
+| crossing pool | 9 | 6 |
+| generated | 44,860 | 36,558 |
+| scored | 14,980 | 8,437 |
+| rejected for "no open or floored crossing device" | 16,358 | 16,809 |
+| rejected for "contains a closed device" (rule fired independently of order) | 4,261 | 3,521 |
+
+- Top 60 after the rerun: 0 candidates on the three devices closed here (before: 36). By last member: `map-open-4` 12, `tro6-natural` 10, `qrh-seven-eighths` 10, `seven-eighths-abscissa-formula` 9, `map-open-2` 9, others 10. Rank 1: `zv-theta-kernel-phi` x `tro6-natural` x `euler-detection-depth-law` (11.5). The list was not read as lane proposals.
+- The four new nodes are the four new map rows (type obstruction, not live). The 19 new control-defeats edges come from the defeated-by cells of the new and edited rows (keyword rule; not traced edge by edge). The fall in the "closed device" rejection count is the smaller generated set: the three nodes leave the crossing pool, so fewer triples are formed with them.
+- Limits: unchanged from the round-11 entry (the generator cannot propose a device type with no node; `ctl-DEL` edges were not inspected). Generated and scored counts return to within 11 and 1 of the strategy-v3 rerun (36,569 / 8,438), which had the same crossing pool.
+- `curated/controls.json` (previous file `scratch/controls.pre-c12-repair.json`): source field of control `DEL` reworded after Huxley 1972 was opened (relative to the counting statement S(theta); density estimate opened, Ingham's deduction not opened). Status `proved-relative` unchanged. Edited after the rerun above; `build_graph.py` and `generate.py --top 60` were run a second time (log `push/c12-repair-sources-statement-o-v3/engine_rerun.second.log`): all counts in the table and the top-60 list are unchanged.
+
+## Round 13 repair slot (2026-11-19, lane `c13-repair-map-engine-battery-records`)
+
+- `curated/controls.json` (previous file `scratch/controls.pre-c13-repair.json`, also `push/c13-repair-map-engine-battery-records/before/controls.json`): control `UNIV` added from `push/c12-univ-pointwise-control-wcone/controls_UNIV_proposed.json`. Status string `relative to joint universality` (not one of the ranked status values of `build_graph.py`; the node type is control, so the rank is not used). New field `scope`: filter for one step type, decides 1 device, part of 4, restates 2, out of scope for 27 of the 34 device rows read by the lane. The `kills` text carries the referee's narrowing of the class-N sentence (E2); the source field names the independent referee pass.
+- `curated/mk_devices.py` (previous file `scratch/mk_devices.pre-c13-repair.py`; patch script `push/c13-repair-map-engine-battery-records/patch_devices.py`): three device types added, state closed, no node: `bost-connes-crossed-product-positivity` (open cell: states outside the three classes), `depth-aspect-height-transfer` (open cell: non-termwise transfer; bounded heights in a written proof; range between log q and q^delta), `x04-oval-hecke-fricke-loading` (open cell: a functional of the unsummed complex points that is neither linear nor a second moment). Each evidence text cites the independent referee pass in the lane's `REFEREE.md` and the map row (D8, Z35, G33). Evidence texts extended, state unchanged: `regular-rep-matrix-bridge` (candidate (CW) on K_F closed by `c12-univ-pointwise-control-wcone`; other F-adapted cones not covered; row Q29) and `de-branges-positivity-family` (both open cells run by `c12-heat-tied-family-open-cell`; numeric screen corrected). No entry for a round-13 lane. The device `w-adapted-cone` proposed by the UNIV lane was not added as a type (not in the assignment; recorded in the evidence of `regular-rep-matrix-bridge`); `central-value-squares` still not added.
+- Map input changed by the same lane: `push/OBSTRUCTION_MAP.md` rows P54, G33, Q29, Z35, D8 added; rows Z11, Z12, P43, P53, three notes of section 2 and seven rows of section 7 edited (186 -> 191 rows).
+- Not rerun: `merge_outcomes.py` (outcome records untouched by this lane).
+- Rerun, each through `scripts/memcap.sh 8` (`curated/mk_devices.py`, `build_graph.py`, `generate.py --top 60`; log `push/c13-repair-map-engine-battery-records/engine_rerun.log`; counts `engine_counts_before.json`, `engine_counts_after.json`; previous list `scratch/CANDIDATES.pre-c13-repair.json`). A first run stopped at `mk_devices.py` with a syntax error made by this lane's patch (a quotation mark inside an evidence string); `build_graph.py` and `generate.py` of that run used the old `devices.json`; log kept as `engine_rerun.failed-syntax.log`; the table is from the second run. "Before" is the state left by the round-13 planner rerun (it already contains the six outcome nodes of the round-12 learn step).
+
+| quantity | before | after |
+|---|---|---|
+| device types closed / floored / open | 36 / 1 / 0 | 39 / 1 / 0 |
+| device nodes listed | 75 | 75 |
+| pending proposals | 9 | 9 |
+| map rows parsed | 222 | 227 |
+| controls | 17 | 18 |
+| nodes (live) | 1,665 (963) | 1,671 (963) |
+| nodes by origin: corpus / map / outcome | 1,242 / 311 / 112 | 1,242 / 317 / 112 |
+| nodes of type obstruction / control | 639 / 52 | 644 / 53 |
+| edges | 8,922 | 8,937 |
+| control-defeats edges | 770 | 783 |
+| restates edges | 183 | 185 |
+| device nodes closed (live) / floored / open | 69 (61) / 6 / 0 | 69 (61) / 6 / 0 |
+| crossing pool | 6 | 6 |
+| generated | 36,558 | 36,558 |
+| scored | 8,437 | 8,437 |
+| rejected | 28,121 | 28,121 |
+
+- The six new nodes are the five new map rows (type obstruction, not live) and `ctl-UNIV`. `ctl-UNIV` has four edges: control-defeats to `signed-interferometer-dh` and `supercritical-phase-circular`, restates from `mem-signed-interferometer-dh` and `voronin-universality` (keyword rule on "joint universality" / "Voronin universality"; the two control-defeats edges were not checked against the nodes' statements and may be keyword matches only). The other eleven new control-defeats edges come from the defeated-by cells of the new rows (not traced edge by edge).
+- Top 60: 59 of 60 candidates unchanged with unchanged scores; rank 57 changed one member (`semilocal-trace-side-positivity` -> `route-i-kato-temple`, same score 1.76; a tie resolved differently after the closed-row counts by theme moved). Rank 1 unchanged: `zv-theta-kernel-phi` x `tro6-natural` x `euler-detection-depth-law` (11.5). No open device node: the list was not read as lane proposals.
+- The three new device types have no node, so they reject no candidate and the generated, scored and rejected counts are unchanged. They are a record for the planner (closed device list 36 -> 39), not a generator input. Limit unchanged from rounds 11 and 12: the generator cannot propose a device type with no node.
+- `campaign/scoreboard.py` rerun through `scripts/memcap.sh 8` (log `push/c13-repair-map-engine-battery-records/scoreboard_rerun.log`; previous files in `before/`): headline unchanged, 1 of 4. Changes against the file of 12:45Z: lanes 106 -> 107 (one round-13 lane line written by another lane before this rerun), nodes 1,659 -> 1,671 (six from the planner rerun, six from this lane), tags 342 -> 360, families 58,311 -> 64,620, closed 2,702 -> 2,796, tried and not closed 519 -> 521, open lemmas decided 61 -> 65. These moves were not attributed between the two sources.
+
+## Round 14 repair slot (2026-11-19, lane `c14-repair-map-engine-checkpoint-record`)
+
+- `curated/controls.json` (previous file `scratch/controls.pre-c14-repair.json`, also `push/c14-repair-map-engine-checkpoint-record/before/controls.json`): control `BLS` (scattering-level Blaschke control) added from `push/c13-kacmoody-eisenstein-affine-weyl-shift/controls_BLS_proposed.json`. Status string `proved in rank one` (not one of the ranked status values; node type control, rank not used). New field `scope`: proved for the rank-one Maass-Selberg inequality, argued for the affine kernel, not a Dirichlet-series control. The `lacks` text carries the limits found by the lane's referee passes (single real factor not covered; sign not free). Source of control `UNIV` extended with the second referee of `c13-referee-r12-independent` (Corollary U4 argued).
+- `curated/mk_devices.py` (previous file `scratch/mk_devices.pre-c14-repair.py`; patch script `push/c14-repair-map-engine-checkpoint-record/patch_engine.py`, entries written with `repr()`): six device types of round 13 added, state closed, no node: `kacmoody-loop-eisenstein-maass-selberg` (rank-one proved, affine kernel argued; open cells: proof for the affine kernel, the wall Re c -> 0), `fourier-interpolation-zero-nodes` (open cells: kernel for the gamma class of E_a; signs of DH basis functions; stage B not run), `lrs-amplification-eisenstein-at-zero` (open cell: non-Borel eigen-objects with Rankin-Selberg pole left of 2 - beta), `edrei-thoma-local-total-positivity` (with the census of twelve non-cone types and Lemma P; open cells: 23 device types without a T-NR record, functionals of two objects), `bilinear-reciprocity-height-jform` (open cell: an exact law for the Estermann function off its central point), `dictionary-d-kernel-sign-functionals` (closed as MEASURED, finite search, on the registered grid and draws only; open cells: Hermitian forms, orders above 4, two kernels at once). Each evidence text cites the independent referee pass in the lane's REFEREE.md. No pending proposal was changed: RS-1 to RS-3 stay in `pending` until the round-14 learn step decides the checkpoint (draft `campaign/CHECKPOINT_R14_DRAFT.md`).
+- Map input changed by the same lane: `push/OBSTRUCTION_MAP.md` rows D9, G34, G35, G36, P55, L6, Z36 added; rows D8, Z35, G33, P54, P53, the UNIV note, three new notes of section 2 (BLS, NR on a scattering carrier, Lemma P) and eight rows of section 7 edited or added (191 -> 198 rows).
+- Rerun, each after `python -m py_compile` and through `scripts/memcap.sh 8`, in the order `curated/mk_devices.py`, `merge_outcomes.py`, `build_graph.py`, `generate.py --top 60` (log `push/c14-repair-map-engine-checkpoint-record/engine_rerun.log`; counts `engine_counts_before.json`, `engine_counts_after.json`; previous list `scratch/CANDIDATES.pre-c14-repair.json`; previous `outcomes.json` in `scratch/outcomes.pre-c14-repair.json`). "Before" is the state left by the round-14 planner rerun.
+
+| quantity | before | after |
+|---|---|---|
+| device types closed / floored / open | 39 / 1 / 0 | 45 / 1 / 0 |
+| device nodes listed | 75 | 75 |
+| pending proposals | 9 | 9 |
+| outcome entries (closed) | 124 | 124 (84) |
+| closed families | 34 | 34 |
+| map rows parsed | 227 | 234 |
+| controls | 18 | 19 |
+| nodes (live) | 1,677 (963) | 1,685 (963) |
+| nodes by origin: corpus / map / outcome | 1,242 / 317 / 118 | 1,242 / 325 / 118 |
+| nodes of type obstruction / control | 650 / 53 | 657 / 54 |
+| edges | 8,937 | 9,002 |
+| control-defeats edges | 783 | 848 |
+| restates edges | 185 | 185 |
+| device nodes closed (live) / floored / open | 69 (61) / 6 / 0 | 69 (61) / 6 / 0 |
+| crossing pool | 6 | 6 |
+| generated | 36,558 | 36,558 |
+| scored | 8,437 | 8,437 |
+| rejected | 28,121 | 28,121 |
+
+- The eight new nodes are the seven new map rows (type obstruction, not live) and `ctl-BLS`. The parsed row count rises by 7, the number of rows added.
+- `merge_outcomes.py` had not been run since the learn steps began writing `outcomes.json` entries directly. Its rerun rewrote 24 entries (rounds 11 to 13) from `outcomes/*.json`: fields `batch`, `defeatedBy`, `notSeparated`, `controlsText` filled; `note` regenerated without the learn-step prefix "round N, score 0, referee holds:"; no field lost, no verdict changed, entry count 124 unchanged; `closed_families.json` and `nodes/nodes-15.json` identical to before. The filled `defeatedBy` lists are keyword readings of the lanes' control text and include controls recorded as passing (the field name is the script's).
+- The 65 new control-defeats edges: from the filled `defeatedBy` lists of those outcome entries and from the defeated-by cells of the seven new rows (by source: `ctl-NR` 18, `ctl-DH` 13, `ctl-EA` 11, `ctl-EISW` 5, `ctl-WT` 5, `ctl-THIN` 4, theta^w 3, `ctl-U` 3, others 3; not traced edge by edge). `ctl-BLS` has no edge: row cells are read with the fixed code list of `build_graph.py` (`CONTROL_CODE_RE`), which does not contain BLS (nor UNIV), and no reader node matches its keyword. `build_graph.py` is outside this lane's write set; adding the two codes to the list is a one-line change for the engine owner.
+- Top 60: all 60 candidates unchanged with unchanged scores (rank 1 `zv-theta-kernel-phi` x `tro6-natural` x `euler-detection-depth-law`, 11.5). No open device node; the list was not read as lane proposals. The six new device types have no node, so they reject no candidate; they are a record for the planner (closed device list 39 -> 45). Limit unchanged from rounds 11 to 13: the generator cannot propose a device type with no node.
+- `campaign/scoreboard.py` rerun through `scripts/memcap.sh 8` after a syntax check (log `push/c14-repair-map-engine-checkpoint-record/scoreboard_rerun.log`; previous files in `before/`): headline unchanged, 1 of 4 (`c1-leeyang-krein-limit`); lanes 114, hold rate 90.4%, three-referee statements 1 (0 about zeros), all unchanged. Part C against the file of 15:27Z: nodes 1,671 -> 1,685 (six from the round-14 planner rerun, eight from this lane), tags 360 -> 398, families 64,620 -> 79,003, closed 2,811 -> 3,019, tried and not closed 525 -> 538, open and untried 61,284 -> 75,446. These moves were not attributed between the planner rerun and this lane; the tag count rises because six round-13 outcome nodes and seven rows entered the graph since the previous scoreboard.
+- Second run (same lane, same day; log `push/c14-repair-map-engine-checkpoint-record/engine_rerun.second.log`): one sentence of the new row G34 was reworded by the lane's own check (the direction of the Littlewood-type statement), the map was rebuilt from `before/OBSTRUCTION_MAP.md` with the corrected script, and `build_graph.py`, `generate.py --top 60` and `campaign/scoreboard.py` were run again: every count of the table and the top-60 list are identical. Between the two scoreboard runs another lane (`c14-joint-pair-design-ratio-vortex-cross-bridge`) appended its line to `campaign/lanes.jsonl`: lanes 114 -> 115, lanes at score 0 112 -> 113, open lemmas decided 75 -> 78, one history row for round 14; headline still 1 of 4 (`c1-leeyang-krein-limit`), hold rate 90%. That move is not this lane's. Third run (log `engine_rerun.third.log`): one sentence was added to the introduction of map section 3.9 (rows D8, D9 come from later lanes; not a table row), the map was rebuilt again from the copy, and `build_graph.py`, `generate.py --top 60`, `scoreboard.py` rerun: counts and top 60 identical; by then a second round-14 line had been appended to `campaign/lanes.jsonl` by another lane (lanes 116, one not yet refereed), headline unchanged.
+
+## Round 15 repair slot (2026-11-19, lane `c15-repair-record-strategy-v4-report`)
+
+- `build_graph.py`, one line: `CONTROL_CODE_RE` now starts `(NR-vec|BLS|UNIV|DH|...`. BLS and UNIV were owed since round 14; NR-vec is listed before NR so that the string "NR-vec" in a row cell is not read as T-NR. Syntax-checked with `python -m py_compile`; previous file `scratch/build_graph.pre-c15-repair.py`.
+- `curated/controls.json`: control `NR-vec` (local-vector control on the double cover; definition as repaired by the referee of `c14-theta-orthogonal-metaplectic-eigenobject`). Controls 19 -> 20.
+- `curated/mk_devices.py` (previous file `scratch/mk_devices.pre-c15-repair.py`): five device types of round 14, each closed on the independent referee pass of its lane and with no node: `laxphillips-hecke-norm-outside-l2` (four named norm families), `joint-pair-ratio-crossgram-twist-transfer`, `lrs-count-rank-one-eigenobject-at-zero-theta-orthogonal`, `catalogued-x2-inequality-torus-parameter-eigenobject`, `dictionary-dj-joint-pair-sign-functionals` (MEASURED, finite search, lane-defined lifts; no map row). Evidence of `kacmoody-loop-eisenstein-maass-selberg`, `fourier-interpolation-zero-nodes`, `lrs-amplification-eisenstein-at-zero` carries restrictions 6, 7 to 9 and 10 of `c14-referee-r13-independent`. Pending: RS-1, RS-2, RS-3 removed; one entry per read class U1 to U8 with no lane (U3; U6 cells (e), (f), (g); U8); the Lax-Phillips proposal moved to devices. Pending 9 -> 8.
+- `merge_outcomes.py` was NOT run (round-14 lesson 7). `outcomes.json`, every file of `outcomes/` and `closed_families.json` are byte-identical before and after (sha256; `push/c15-repair-record-strategy-v4-report/ref_checks.json`).
+- Map input changed by the same lane: rows G37 to G40 added (198 -> 202 labelled rows), 11 existing lines edited (the 13 label restrictions; notes NR-vec and Lemma F added; five rows of section 7).
+- Rerun through `scripts/memcap.sh 8`: a baseline run of `build_graph.py`, `generate.py --top 60`, `campaign/scoreboard.py` before any edit (log `push/c15-repair-record-strategy-v4-report/engine_rerun.baseline.log`), then `curated/mk_devices.py` and the same three after the edits (log `engine_rerun.log`).
+
+| quantity | on file at start | baseline rerun (no edit) | after the edits | attributed to |
+|---|---|---|---|---|
+| device types closed / floored / open | 45 / 1 / 0 | 45 / 1 / 0 | 50 / 1 / 0 | five round-14 types |
+| pending proposals | 9 | 9 | 8 | RS-1..3 out, U3 / U6 / U8 in, Lax-Phillips proposal to devices |
+| controls | 19 | 19 | 20 | NR-vec |
+| map rows parsed | 234 | 234 | 238 | G37 to G40 |
+| nodes (live) | 1,690 (963) | 1,690 (963) | 1,695 (963) | four row nodes, `ctl-NR-vec` |
+| nodes of type obstruction / control | 662 / 54 | 662 / 54 | 666 / 55 | same |
+| edges | 9,002 | 9,002 | 9,020 | 18 control-defeats edges, below |
+| control-defeats edges | 848 | 848 | 866 | below |
+| outcome entries | 132 | 132 | 132 | not touched |
+| generated / scored / rejected | 36,558 / 8,437 / 28,121 | same | same | - |
+| top 60 (node keys, order, scores) | - | identical to on-file | identical | - |
+
+- The 18 new edges, all of type control-defeats, traced edge by edge: 17 from the defeated-by cells of the four new rows (`ctl-NR` 4, `ctl-BLS` 4, `ctl-DH` 3, `ctl-EISW` 3, `ctl-THIN` 1, `ctl-WT` 1, `ctl-NR-vec` 1) and 1 from the regex change on an existing row (`ctl-BLS` -> `row-D9`). UNIV received no row edge: no defeated-by cell of the map names it (it is a filter described in a section 2 note and named in the route or "stops" cell of row P54 only). The edge type is the builder's name; a cell that says a control passes a device and a cell that says a control is not formulable both produce the edge when the code is printed.
+- Top 60: keys, order and scores unchanged (rank 1 `zv-theta-kernel-phi` x `tro6-natural` x `euler-detection-depth-law`, 11.5). 16 of the 60 candidates have a changed `rowsChecked` list (rows entering: G40 in 8, G39 in 6, D9 in 5, G37 in 3, G38 in 2). The five new device types have no node and reject no candidate. The U-classes have no node: the generator cannot propose a device in a silent class.
+- `campaign/scoreboard.py`: headline 1 of 4 (`c1-leeyang-krein-limit`), hold rate 90.2%, lanes 122, PROVED broken 11, three-referee statements 1: unchanged at the baseline run and after the edits. Part C: the file found at start (17:52Z) showed 1,685 nodes; the baseline run moved it to 1,690 nodes, 566 marked closed, 423 tags, 89,253 families (3,190 closed, 651 tried, 85,412 untried), which is the graph left by the round-15 planner rerun (five round-14 outcome nodes) and not an effect of this lane; the edits moved nodes to 1,695 and nodes marked closed to 570 (the four rows) and nothing else.
+
+## 2026-11-19, strategy review after round 15 (STRATEGY version 5)
+
+- Baseline rerun through `scripts/memcap.sh 8` with the old weights after the round-15 learn step: `build_graph.py` (1,701 nodes, 963 live, 238 rows, 9,025 edges; six round-15 outcome nodes added, obstructs edges 265 -> 270), `generate.py --top 60` (36,558 generated, 8,437 scored, 28,121 rejected): top 60 identical in keys and scores to the list on file.
+- `generate.py`, dict `WEIGHTS`: separator 3 -> 1.5; new keys `cheapMeasured` 0.25 (the measured / certified / tool part of the cheap-test score, was 1) and `cheapNamed` 1 (the named open lemma or conjecture part, unchanged). Reason and evidence: `../campaign/STRATEGY.md` section 5, v5 entry. Previous file `scratch/generate.before-strategy-v5.py`.
+- Rerun `generate.py --top 60` with the new weights: 44 of 60 keys in common with the baseline, 16 new; rank 1 `capture-ratio-psd-slope` x `sympow-conductor-normalised-shift` x `tro6-natural` at 10.25 (former rank 3); former rank 1 at rank 5 (9.25); topWithOpenDevice 0, topWithFlooredDeviceOnly 60, topWithClosedDevice 0.
+- `merge_outcomes.py` not run. `outcomes.json` and `closed_families.json` byte-identical before and after (sha256 in `scratch/rerun-strategy-v5.sha.before`).
+- `campaign/scoreboard.py` rerun: headline, lanes (130), hold rate and lemma count unchanged; part C moved with the graph rebuild (nodes 1,695 -> 1,701; tags 423 -> 462; tag-pair families 89,253 -> 106,491; closed 3,305 -> 3,618; tried 592 -> 610; untried 85,356 -> 102,263). Previous file `scratch/SCOREBOARD.before-strategy-v5.md`.
+- Not done by this review: device states and pending proposals in `curated/` (round-15 rows and the silent cells of ROADMAP section 13.2 have no node); outcome records for the screening lanes `push/s1-*`.
+

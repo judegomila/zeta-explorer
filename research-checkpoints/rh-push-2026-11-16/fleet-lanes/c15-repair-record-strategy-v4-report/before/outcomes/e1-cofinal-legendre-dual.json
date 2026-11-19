@@ -1,0 +1,61 @@
+{
+ "slug": "e1-cofinal-legendre-dual",
+ "round": 1,
+ "batch": 1,
+ "kind": "attack",
+ "nodes": [
+  "cofinal-legendre-dual",
+  "legendre-lp-nu1"
+ ],
+ "launchedNodes": [
+  "cofinal-legendre-dual",
+  "rig-continuum-sawtooth",
+  "plant-suppressed-by-zeta-rho0",
+  "legendre-lcm-identity",
+  "legendre-lp-nu1"
+ ],
+ "tags": [
+  "legendre-lp",
+  "cofinal",
+  "compactness",
+  "mv-cap"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "PROVED (author and referee): dual-feasible points of the Legendre LP restrict along divisibility chains; alpha log x <= 8 + o(1); every limit point of dual-feasible points is feasible at every real scale, has density 0, psi(t) <= 3 log2 t + 3, and a Dirichlet transform holomorphic in Re s > 0; at density 1 the sawtooth discrepancy is >= (1/8 - o(1)) log x for integer-supported b. MEASURED (1e4..1e7): v log x/x falls from 4.08 to 2.86 with +-0.2 fluctuations, limit undecided; the optimum vanishes at fixed t; the optimum at qx restricted to x has objective -0.39 to -0.52 sqrt x at q = 2, 3 against +1.0 sqrt x. No statement about zeros.",
+ "obstruction": "The cofinal limit of dual-feasible points keeps none of nu_1(x) ~ sqrt x: integer unit steps against Y log Y force any bounded-discrepancy cofinal dual to density 0, and the LP optima live at t ~ x in x-dependent Moebius-resonant configurations that are not sections of one measure. A fixed cofinal b is controlled only in mean square (MV-CAP); the pointwise bound is the open Moebius sum sum_k mu(k) r_b(x/k) (the source's Step 7).",
+ "obstructionKind": "no-limit-object",
+ "controlsThatDefeat": [
+  "E_a = zeta(s+a)zeta(s-a): passes every step (chain returns exponent 1/2 + a; nothing separates it from zeta at the level of exponents; ARGUED)",
+  "Beurling: Lambda_a >= 0 holds, power-size sawtooth discrepancy",
+  "DH, Liouville sign twist, theta^3: fail only at Lambda_a >= 0 (the separating step is positivity with log discrepancy)"
+ ],
+ "lesson": "Do not re-run limits of optimal Legendre duals. The only open item is the pointwise sum of mu(k) r_b(x/k) for one fixed r_b.",
+ "refereeHolds": true,
+ "refereeNote": "All PROVED steps re-derived. Measured range corrected: v log x/x reaches 2.864 at x = 1e7, below the first stated range; size law mu(m) sqrt(m)/sigma(m) only approximate.",
+ "referees": 1,
+ "aboutZeros": false,
+ "strength": 0.08,
+ "newNodes": [
+  {
+   "id": "legendre-dual-limit-density-zero",
+   "type": "identity",
+   "status": "proved",
+   "statement": "Every limit point of Legendre-LP dual-feasible points is feasible at every real scale and has density 0, psi(t) <= 3 log2 t + 3."
+  },
+  {
+   "id": "legendre-dual-restriction-rule",
+   "type": "identity",
+   "status": "proved",
+   "statement": "Feasibility of a Legendre-LP dual point at qx implies feasibility of its restriction at x."
+  },
+  {
+   "id": "cofinal-pointwise-mobius-sum",
+   "type": "open-lemma",
+   "status": "open",
+   "statement": "Pointwise polylog bound for sum_k mu(k) r_b(x/k) for one fixed cofinal r_b."
+  }
+ ],
+ "followUp": "",
+ "resultFile": "tmp/research-2026-11-16/push/e1-cofinal-legendre-dual/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/e1-cofinal-legendre-dual/REFEREE.md"
+}

@@ -1,0 +1,1 @@
+T0 100000 LEN 100000 theta 0.5 samples 5000000 | zeta min 0.4750 neg 0 | liouville min -0.5660 neg 26 | random: seeds with neg 24/24, total neg samples 829, min over seeds -1.1690, median min -0.2963

@@ -1,0 +1,30 @@
+== A. three-term reciprocity (exact rationals) ==
+triples 1515 mismatches 0
+== B. Lemma 1: sum_{chi odd mod p} chi(h)|L(1,chi)|^2 = pi^2 (p-1) s(h,p)/p ==
+max abs difference over p in {7,11,13,29}, all h: 3.5595e-29
+== C. T-NR twin, s=1 model: X(s,chi) = L(s,chi)(1 + c q^(1/2-s) chi(q) + q^(1-2s) chi(q)^2) ==
+p,q,c = 29 2 3.0  max abs diff 4.4028e-28  max abs value 179.88669  zeros of twin at Re s = 1/2 +- 1.3884838
+p,q,c = 29 3 -2.5  max abs diff 1.0751e-28  max abs value 42.706906  zeros of twin at Re s = 1/2 +- 0.63092975
+p,q,c = 13 2 3.0  max abs diff 9.5969e-29  max abs value 61.464283  zeros of twin at Re s = 1/2 +- 1.3884838
+p,q,c = 29 3 2.2  max abs diff 1.4255e-28  max abs value 75.776843  zeros of twin at Re s = 1/2 +- 0.40375322
+p,q,c = 31 5 2.1  max abs diff 9.8153e-29  max abs value 44.977017  zeros of twin at Re s = 1/2 +- 0.19567375
+== D. E_a, real a: L(1/2-a,chi)/conj(L(1/2+a,chi)) divided by its value at a=0 ==
+p 7 a 0.2 parity 0  ratio: min re 0.480467112892 max re 0.480467112892 max abs im 2.85e-31
+p 7 a 0.2 parity 1  ratio: min re 0.942969803311 max re 0.942969803311 max abs im 2.57e-31
+p 7 a 0.35 parity 0  ratio: min re 0.21519904805 max re 0.21519904805 max abs im 1.58e-31
+p 7 a 0.35 parity 1  ratio: min re 0.896368545368 max re 0.896368545368 max abs im 1.64e-31
+p 13 a 0.2 parity 0  ratio: min re 0.54379189311 max re 0.54379189311 max abs im 4.46e-31
+p 13 a 0.2 parity 1  ratio: min re 1.06725168223 max re 1.06725168223 max abs im 4.74e-31
+p 13 a 0.35 parity 0  ratio: min re 0.267261379148 max re 0.267261379148 max abs im 1.21e-30
+p 13 a 0.35 parity 1  ratio: min re 1.11322376112 max re 1.11322376112 max abs im 2.45e-30
+== E. off the central line of E_a: L(1/2+2a+ig,chi) L(1/2+ig,chi)/eps is not real >= 0 ==
+r 1 (0.61494493 - 3.8708287j)
+r 3 (0.49091506 - 1.5865291j)
+r 5 (-0.16642625 - 0.22732327j)
+== F. EIS-w (complex a): L(1/2+a+it,chi) conj(L(1/2+conj(a)+it,chi)), a = 0.2+1.5i, t = 3, p = 7, odd chi ==
+r 1 (0.23039587 - 1.4760161j)
+r 3 (0.29451555 - 0.00073793598j)
+r 5 (0.46166595 + 1.2101575j)
+== G. zero-one law at X >= p-1: weights a_l, l = 1..p-1, with F(s,chi) A_chi(s) = 1 for all chi mod p ==
+p 7 s (0.75 + 3.0j)  sum_chi |F A - 1|^2 = 2.47e-60  max |a_l| = 1.65239  min |L(s,chi)| = 0.468943
+p 13 s (0.6 + 14.2j)  sum_chi |F A - 1|^2 = 3.32e-58  max |a_l| = 3.58931  min |L(s,chi)| = 0.0877867

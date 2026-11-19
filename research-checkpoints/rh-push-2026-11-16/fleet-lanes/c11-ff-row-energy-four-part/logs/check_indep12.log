@@ -1,0 +1,9 @@
+OK   (6, 9, 2) one: D_c 22540391694240 and E_2 92097946616256 equal to assemble6: True;  E_2/D_c = 4.0859
+OK   (6, 9, 2) a: D_c 22474889379376 and E_2 30950062077648 equal to assemble6: True;  E_2/D_c = 1.3771
+OK   (6, 9, 2) b: D_c 22474889379376 and E_2 28723225590640 equal to assemble6: True;  E_2/D_c = 1.278
+OK   (6, 9, 2) mu: D_c 22143611500416 and E_2 2231330794056 equal to assemble6: True;  E_2/D_c = 0.10077
+OK   (6, 12, 2) one: D_c 5798514778014000 and E_2 152831042201412288 equal to assemble6: True;  E_2/D_c = 26.357
+OK   (6, 12, 2) a: D_c 5781664310378600 and E_2 39983030126024244 equal to assemble6: True;  E_2/D_c = 6.9155
+OK   (6, 12, 2) b: D_c 5781664310378600 and E_2 37011337475119420 equal to assemble6: True;  E_2/D_c = 6.4015
+OK   (6, 12, 2) mu: D_c 5696443090497600 and E_2 3562058345665218 equal to assemble6: True;  E_2/D_c = 0.62531
+INDEP PASS

@@ -1,0 +1,129 @@
+{
+ "derived": {
+  "EA-1/8": 3034,
+  "EA-1/4": 3034,
+  "EA-1/2": 3034,
+  "TNR": [
+   1517,
+   700
+  ],
+  "WT": 1517,
+  "SGN-LIOU": 3474
+ },
+ "nonvanishing": {
+  "ZETA": {
+   "min_abs_on_Re_s_2": 0.6755945206671485,
+   "at_t": 1083.5,
+   "proved_lower_bound": 0.6579736267392906,
+   "ok": true,
+   "max_rel_ball_radius": 6.542783801306289e-36
+  },
+  "DH": {
+   "min_abs_on_Re_s_2": 0.790620398977401,
+   "at_t": 612.0,
+   "proved_lower_bound": 0.3550659331517736,
+   "ok": true,
+   "max_rel_ball_radius": 1.237908940105482e-32
+  },
+  "TNR": {
+   "min_abs_on_Re_s_2": 0.42112749026199653,
+   "at_t": 1364.0,
+   "proved_lower_bound": 0.3550246494434444,
+   "ok": true,
+   "max_rel_ball_radius": 2.7701280822602928e-33
+  },
+  "WT": {
+   "min_abs_on_Re_s_2": 0.6748730160848112,
+   "at_t": 1734.5,
+   "proved_lower_bound": 0.6579736267392906,
+   "ok": true,
+   "max_rel_ball_radius": 5.517755006415877e-31
+  },
+  "SGN-LIOU": {
+   "min_abs_on_Re_s_2": 0.6579736267392906,
+   "at_t": 0.0,
+   "proved_lower_bound": 0.5639773943479633,
+   "ok": true,
+   "max_rel_ball_radius": 1.3658612745117222e-35
+  },
+  "DEL-0.75": {
+   "min_abs_on_Re_s_2": 0.7179671629853175,
+   "at_t": 775.0,
+   "proved_lower_bound": 0.6579736267392906,
+   "ok": true,
+   "max_rel_ball_radius": 1.0514178788497511e-86
+  },
+  "DEL-0.9": {
+   "min_abs_on_Re_s_2": 0.7973724177612251,
+   "at_t": 639.0,
+   "proved_lower_bound": 0.6579736267392906,
+   "ok": true,
+   "max_rel_ball_radius": 1.006959132247074e-57
+  },
+  "THIN-0.9": {
+   "min_abs_on_Re_s_2": 0.6738949023326446,
+   "at_t": 1409.5,
+   "proved_lower_bound": 0.6579736267392906,
+   "ok": true,
+   "max_rel_ball_radius": 6.739843621181528e-75
+  },
+  "EA-1/8": {
+   "min_abs_on_Re_s_2": 0.45336590782129466,
+   "at_t": 1083.5,
+   "proved_lower_bound": 0.42844264544511323,
+   "ok": true,
+   "max_rel_ball_radius": 8.861368744200333e-36
+  },
+  "EA-1/4": {
+   "min_abs_on_Re_s_2": 0.444207897680661,
+   "at_t": 1083.5,
+   "proved_lower_bound": 0.414732110397525,
+   "ok": true,
+   "max_rel_ball_radius": 8.229626535545113e-36
+  },
+  "EA-1/2": {
+   "min_abs_on_Re_s_2": 0.40810749422686887,
+   "at_t": 1083.5,
+   "proved_lower_bound": 0.35567340899728717,
+   "ok": true,
+   "max_rel_ball_radius": 7.0667214716477e-36
+  },
+  "U-00..23": {
+   "min_abs_on_Re_s_2": 0.6686221451711276,
+   "proved_lower_bound": 0.6579736164924573,
+   "ok": true
+  },
+  "SGN-00..23": {
+   "min_abs_on_Re_s_2": 0.6712485938788175,
+   "proved_lower_bound": 0.6579736164924573,
+   "ok": true
+  },
+  "BEU": {
+   "min_abs_on_Re_s_2": 0.7526500374030429,
+   "proved_lower_bound": 0.6579736267392906,
+   "ok": true
+  },
+  "HEAT--0.1": {
+   "note": "no lower bound known on Re s = 2 (not an Euler product); reported: minimum ball accuracy and the smallest scaled modulus on Re s = 2",
+   "min_rel_accuracy_bits": 225,
+   "min_scaled_abs_on_Re_s_2": 1.0025932639307167,
+   "ok": true
+  },
+  "HEAT--0.5": {
+   "note": "no lower bound known on Re s = 2 (not an Euler product); reported: minimum ball accuracy and the smallest scaled modulus on Re s = 2",
+   "min_rel_accuracy_bits": 227,
+   "min_scaled_abs_on_Re_s_2": 1.0065559020788208,
+   "ok": true
+  }
+ },
+ "table_spot_check_max_rel": {
+  "ZETA": 5.652965436754913e-33,
+  "DH": 1.3687502529023653e-32,
+  "EA-1/8": 5.597257732186657e-33,
+  "EA-1/4": 5.3252003783185114e-33,
+  "EA-1/2": 5.172897469973377e-33,
+  "TNR": 5.562632501454418e-33,
+  "WT": 7.191949474162311e-33,
+  "SGN-LIOU": 5.8782489464359856e-33
+ }
+}

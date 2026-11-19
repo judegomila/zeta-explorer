@@ -1,0 +1,43 @@
+{
+ "slug": "c7-bridge-seven-eighths-krein-index",
+ "round": 7,
+ "kind": "combine",
+ "nodes": [
+  "bridge-scattering-factorisation",
+  "qrh-seven-eighths-input"
+ ],
+ "tags": [
+  "bridge",
+  "krein-square",
+  "hankel",
+  "anticausal",
+  "seven-eighths",
+  "family",
+  "density",
+  "mv-cap"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "For a finite family of class-(H) members with finitely many simple right-half-plane poles: the gapped anticausal trace equals sum conj(r_j) r_k e^{-(conj z_j+z_k)c}/(conj z_j+z_k)^2 with rank |Z_+| for every c and decay rate 2 min Re z_j; a positive-weight or PSD-weighted family sum has rate 2 min over members and is bounded below by the diagonal sum when pole sets are disjoint; the half-disk lemma gives Re z_j < max off-line distance, so the 7/8 input gives Re z_j < 3/8 identically for one member and for the family and bounds no count; the sum of bridge forms is the bridge form of the weighted product, with negative index equal to the number of distinct off-line right-half-plane zeros of the union (rel. sq-krein-index Thm A, numerically confirmed including shared zeros). Gain 0 for this object; the closure does not extend to infinite off-line sets or to a bridge built on the manuscript's row series. No statement about zeros of zeta.",
+ "obstruction": "Gain 0. The gapped anticausal trace is sum conj(r_j) r_k e^(-(conj z_j + z_k) c)/(conj z_j + z_k)^2 over right-half-plane poles (finite pole sets); its decay rate is 2 min Re z_j, and a positive-weight family sum has the minimum over members. The 7/8 input bounds max Re z_j < 3/8 identically for one member and the family and bounds no count. The sum of bridge forms is the bridge of the product; the negative index adds over distinct off-line zeros. Every-window content is the input restated (row G20); below tilt 3/8 only family-mean (density) bounds exist (MV-CAP). Not covered: infinite off-line sets; a bridge of a single probe row.",
+ "obstructionKind": "family-sum-of-bridges-is-direct-sum-or-product-gain-zero",
+ "controlsThatDefeat": [
+  "any sign twist (prime-side value of every Gamma_- is zero before the family sum)",
+  "U (a family sum over n^(-i alpha) is a height average: density output)",
+  "not run: DH, heat, THIN, Beurling"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "No PROVED step failed. Hand re-derivations confirmed Lemma 1(b)-(f), Lemma 2 (Schur-product bound), the half-disk lemma behind Theorem B(c) and |S|<=1 on Re z>=3/8, Theorem B(b), Prop. D(c). Independent numeric run on a different toy (two quartets + real pair, alpha=0.45; /tmp/c7ref/ref.py via memcap 8 GB): 5 RHP poles by Newton and by argument principle; quadrature vs pole formula for T(c) agree to <=7e-6 at five c; two-sided bound holds; rate 0.0263097671 = min Re z_j; discretised gapped-block [record truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "The 7/8 mechanism and the anticausal Hankel block read opposite ends of the off-line pole set: 7/8 bounds the largest real part (growth of the causal prime-side kernel, a half-plane device that is height-uniform), while the summed anticausal trace reads the smallest real part and the index is a count that no growth exponent sees. Family sums of bridges are either a direct sum or the bridge of the product; neither couples members, and for a positive quadratic quantity orthogonality keeps the diagonal. For unimodular twists n^{-i alpha} a family sum is literally a height average, so family bounds on the index are densities.",
+ "followUp": "None on this object. Only non-restatement left: whether the completed Dirichlet series of a single probe row B_m (cubic theta coefficients twisted by chi_.(m), manuscript Prop. 5.1) has an axis of unimodularity so that a bridge of the row itself can be formed; this requires reading the manuscript, which this lane did not re-read. Weak points to referee: finite-pole hypothesis, disjoint pole sets across members, Theorem C with non-integer weights.",
+ "resultFile": "tmp/research-2026-11-16/push/c7-bridge-seven-eighths-krein-index/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c7-bridge-seven-eighths-krein-index/REFEREE.md"
+}

@@ -1,0 +1,65 @@
+{
+ "sign_rule": {
+  "chi5.2": {
+   "parity": 1,
+   "R_at_0": 0.7952718604755874,
+   "zeros_found_below_40_in_abs": 31,
+   "heights_tested": 61,
+   "sign_rule_holds": 61,
+   "sign_rule_fails": 0,
+   "negative_entries": 19,
+   "max_rel_imag": 4.228195533015727e-36,
+   "min_abs_R": 0.08442698384307015,
+   "modulus_defect": 3.415723283680595
+  },
+  "chi7.3": {
+   "parity": 1,
+   "R_at_0": 1.0975073866771188,
+   "zeros_found_below_40_in_abs": 36,
+   "heights_tested": 61,
+   "sign_rule_holds": 61,
+   "sign_rule_fails": 0,
+   "negative_entries": 27,
+   "max_rel_imag": 4.440065872421876e-36,
+   "min_abs_R": 0.04912946835418263,
+   "modulus_defect": 4.073177490823496
+  },
+  "chi7.2": {
+   "parity": 0,
+   "R_at_0": 0.1514084796354756,
+   "zeros_found_below_40_in_abs": 35,
+   "heights_tested": 61,
+   "sign_rule_holds": 60,
+   "sign_rule_fails": 1,
+   "negative_entries": 18,
+   "max_rel_imag": 1.960320373968557e-35,
+   "min_abs_R": 0.019339691295808287,
+   "modulus_defect": 2.56694316936249
+  },
+  "chi11.2": {
+   "parity": 1,
+   "R_at_0": 4.320764297294645,
+   "zeros_found_below_40_in_abs": 42,
+   "heights_tested": 61,
+   "sign_rule_holds": 60,
+   "sign_rule_fails": 1,
+   "negative_entries": 21,
+   "max_rel_imag": 1.106664106980294e-35,
+   "min_abs_R": 0.008696359766949727,
+   "modulus_defect": 0.2134981945063546
+  }
+ },
+ "TNR_lemma5": {
+  "max_abs_ratio_minus_mumu": 5.964767871916876e-34,
+  "mumu_min": 0.3144565847522149,
+  "mumu_max": 9.609828940050932,
+  "bounds": [
+   0.01,
+   16.81
+  ],
+  "twin_zero_real_parts": [
+   0.9543403846055354,
+   0.04565961539446467
+  ]
+ }
+}

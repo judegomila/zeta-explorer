@@ -1,0 +1,200 @@
+{
+ "family": "D3b-F5",
+ "P0": {
+  "n_every_class_has_an_opposite_member": 0,
+  "best_min_heldout_fraction": 0.0,
+  "rows": [
+   {
+    "row": 0,
+    "params": {
+     "p": 0,
+     "u": -2.5,
+     "h": 0.0,
+     "lam": 1.0,
+     "mu": -2.0
+    },
+    "float64": {
+     "sign": 1,
+     "rejT": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0
+     ],
+     "fracH": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.208,
+      0.458,
+      0.542,
+      0.0,
+      0.0
+     ],
+     "anyH": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0
+     ],
+     "ph_same": 1.0,
+     "min_fracH": 0.0,
+     "ttrain": false,
+     "full": false
+    },
+    "ball": {
+     "sign": 1,
+     "rejT": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0
+     ],
+     "fracH": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.208,
+      0.458,
+      0.542,
+      0.0,
+      0.0
+     ],
+     "anyH": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0
+     ],
+     "ph_same": 1.0,
+     "min_fracH": 0.0,
+     "ttrain": false,
+     "full": false
+    }
+   }
+  ]
+ },
+ "P1": {
+  "n_every_class_has_an_opposite_member": 0,
+  "best_min_heldout_fraction": 0.0,
+  "rows": [
+   {
+    "row": 0,
+    "params": {
+     "p": 0,
+     "u": -2.5,
+     "h": 0.0,
+     "lam": 1.0,
+     "mu": -2.0
+    },
+    "float64": {
+     "sign": 1,
+     "rejT": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0
+     ],
+     "fracH": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.208,
+      0.458,
+      0.542,
+      0.0,
+      0.0
+     ],
+     "anyH": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0
+     ],
+     "ph_same": 1.0,
+     "min_fracH": 0.0,
+     "ttrain": false,
+     "full": false
+    },
+    "ball": {
+     "sign": 1,
+     "rejT": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0
+     ],
+     "fracH": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.208,
+      0.458,
+      0.542,
+      0.0,
+      0.0
+     ],
+     "anyH": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0
+     ],
+     "ph_same": 1.0,
+     "min_fracH": 0.0,
+     "ttrain": false,
+     "full": false
+    }
+   }
+  ]
+ },
+ "P2": {
+  "n_every_class_has_an_opposite_member": 0,
+  "best_min_heldout_fraction": -1.0,
+  "rows": []
+ }
+}

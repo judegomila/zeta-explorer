@@ -1,0 +1,43 @@
+{
+ "slug": "c10-new-inputs-scan-2026",
+ "round": 10,
+ "kind": "explore",
+ "nodes": [
+  "out-c10-new-inputs-scan-2026"
+ ],
+ "tags": [
+  "literature",
+  "scan",
+  "large-sieve",
+  "zero-density",
+  "tro6",
+  "seven-eighths",
+  "frontier-number",
+  "quartic",
+  "record"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "As of 2026-11-18, the lane's listings and web searches plus five further arXiv searches by the referee show no posted result supplying (a) a signed sum over Gauss-sum moduli of the TRO6 kind, (b) a new epsilon-cocycle row type, (c) a zero-free normaliser, or (d) a new every-window mechanism; no closed family is reopened toward the critical line. Bibliographically confirmed, all claims unverified: de Faveri 2610.04045 (n-th order large sieve with off-diagonal term A^(1-1/n)B^(2/n)+A^(2/n)B^(1-1/n), exceeding A+B on B^(1/2)<A<B^2; family zero-density exponents of section 2.3 confirmed relative to the transcribed formula), a candidate part-B input for rows Z14 (named), Z12 and Z6; Xu-Sang 2610.17675 (claimed matching sextic lower bound and structured prime second moment; added by the referee); Ji 2611.16665 (599/600, quartic rows over Q(i)); Liu 2610.26835 v2 (0.874887, all number fields per its abstract); Chang-Wang 2611.00924 (0.874462, conditional, resting on a boundary B_* whose source was not located); Li-Zhong 2611.12500 (different object); Hong's GRH-conditional moment papers. Lanes A, B, C stand as part-B/record lanes after corrections E1-E3. All four requirement flags are false.",
+ "obstruction": "Abstract-level scan (17 identifiers confirmed bibliographically; no proof checked; every preprint claim unverified). No posted result supplies a signed sum over Gauss-sum moduli of the TRO6 kind, a new epsilon-cocycle row type, a zero-free normaliser, or a new every-window mechanism; no closed family is reopened toward the critical line. Inputs found are arbitrary-coefficient inequalities (de Faveri 2610.04045, n-th order large sieve; candidate part-B input for rows Z14, Z12, Z6, expected to stay within [5/6, 7/8]), which are control-blind. Claimed, unverified: Ji 2611.16665 (599/600, quartic rows over Q(i)); Chang-Wang 2611.00924 (0.874462, conditional, source of boundary B_* not located); Xu-Sang 2610.17675.",
+ "obstructionKind": "literature-scan-no-new-input-toward-the-critical-line",
+ "controlsThatDefeat": [
+  "not applicable (scan); the inputs found hold for arbitrary coefficients, so every control passes them"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "Report: tmp/research-2026-11-16/push/c10-new-inputs-scan-2026/REFEREE.md. The result has no PROVED step and makes no statement about zeros. Checked: 17 arXiv identifiers fetched independently (titles, authors, dates, abstract-level statements agree, except as below); density_table.py rerun under memcap and its transcription compared with the saved PDF text; breakpoint values 1/n and 1-2/n and two further cases re-derived by hand; Liu quartic root a - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "Five weeks of public follow-ups all stay inside the same probe format and normaliser; new inputs arriving are arbitrary-coefficient inequalities (large sieve, density), which are control-blind and move only part-B numbers. The brief's frontier figure 0.874887 is behind the claimed 0.874462 (unverified). The repo literature monitor has not logged since 2026-10-22.",
+ "followUp": "Lane A: open 2610.04045 in full and rerun rows Z12, Z6 and the quartic line of Z14 with the n-th order sieve (expected to stay within [5/6, 7/8]); then Lane B: exact replay of the 2611.16665 density-input ledger and its transplant to r = 6.",
+ "resultFile": "tmp/research-2026-11-16/push/c10-new-inputs-scan-2026/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c10-new-inputs-scan-2026/REFEREE.md",
+ "launchedNodes": [],
+ "engineVerdict": "partial"
+}

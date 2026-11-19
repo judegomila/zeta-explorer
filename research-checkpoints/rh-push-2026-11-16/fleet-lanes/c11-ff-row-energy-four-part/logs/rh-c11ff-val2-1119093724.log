@@ -1,0 +1,126 @@
+Thu Nov 19 09:37:28 AM UTC 2026
+# ytab q=7 d=2 N=3 lam=6 threads=4 primes(necklace)=19544 planes=16 sieve block q^5=16807 blocks=7 sieve primes=140 cofactor primes=140 composites=259
+# planned allocations: TP (cubic symbol tables of the cofactor primes) 0.0000 GB; planes TIs 0.0000 GB; T (Res(A', m)) 0.0000 GB; output Y 0.0003 GB; per thread 0.0005 GB x 4 threads (vertical counters 0.0005, batch masks 0.0000); total 0.0024 GB
+# prime loop finished at 0 s
+# ytab primes=19544 (equals the necklace count); self-checks on 4 primes passed
+OK   one: (N, lam, d) = (3, 6, 2): 49 rows, diag, sW2, np identical
+OK   a: (N, lam, d) = (3, 6, 2): 49 rows, diag, sW2, np identical
+OK   b: (N, lam, d) = (3, 6, 2): 49 rows, diag, sW2, np identical
+OK   mu: (N, lam, d) = (3, 6, 2): 49 rows, diag, sW2, np identical
+OK   al: (N, lam, d) = (3, 6, 2): 49 rows, diag, sW2, np identical
+VALIDATION y_q7_N3_lam6_d2 against q7_N3_lam6_d2.txt: 5 identical, 0 different
+# ytab q=7 d=1 N=3 lam=6 threads=4 primes(necklace)=19544 planes=16 sieve block q^5=16807 blocks=7 sieve primes=140 cofactor primes=140 composites=259
+# planned allocations: TP (cubic symbol tables of the cofactor primes) 0.0000 GB; planes TIs 0.0000 GB; T (Res(A', m)) 0.0000 GB; output Y 0.0000 GB; per thread 0.0001 GB x 4 threads (vertical counters 0.0001, batch masks 0.0000); total 0.0005 GB
+# prime loop finished at 0 s
+# ytab primes=19544 (equals the necklace count); self-checks on 4 primes passed
+OK   one: (N, lam, d) = (3, 6, 1): 7 rows, diag, sW2, np identical
+OK   a: (N, lam, d) = (3, 6, 1): 7 rows, diag, sW2, np identical
+OK   b: (N, lam, d) = (3, 6, 1): 7 rows, diag, sW2, np identical
+OK   mu: (N, lam, d) = (3, 6, 1): 7 rows, diag, sW2, np identical
+OK   al: (N, lam, d) = (3, 6, 1): 7 rows, diag, sW2, np identical
+VALIDATION y_q7_N3_lam6_d1 against q7_N3_lam6_d1.txt: 5 identical, 0 different
+# ytab q=7 d=2 N=0 lam=6 threads=4 primes(necklace)=19544 planes=16 sieve block q^5=16807 blocks=7 sieve primes=140 cofactor primes=0 composites=0
+# planned allocations: TP (cubic symbol tables of the cofactor primes) 0.0000 GB; planes TIs 0.0000 GB; T (Res(A', m)) 0.0000 GB; output Y 0.0000 GB; per thread 0.0001 GB x 4 threads (vertical counters 0.0001, batch masks 0.0000); total 0.0004 GB
+# prime loop finished at 0 s
+# ytab primes=19544 (equals the necklace count); self-checks on 4 primes passed
+OK   one: (N, lam, d) = (0, 6, 2): 49 rows, diag, sW2, np identical
+OK   al: (N, lam, d) = (0, 6, 2): 49 rows, diag, sW2, np identical
+VALIDATION y_q7_N0_lam6_d2 against q7_N0_lam6_d2.txt: 2 identical, 0 different
+# ytab q=7 d=2 N=2 lam=7 threads=4 primes(necklace)=117648 planes=18 sieve block q^6=117649 blocks=7 sieve primes=140 cofactor primes=28 composites=28
+# planned allocations: TP (cubic symbol tables of the cofactor primes) 0.0000 GB; planes TIs 0.0000 GB; T (Res(A', m)) 0.0000 GB; output Y 0.0000 GB; per thread 0.0002 GB x 4 threads (vertical counters 0.0001, batch masks 0.0000); total 0.0009 GB
+# prime loop finished at 0 s
+# ytab primes=117648 (equals the necklace count); self-checks on 4 primes passed
+OK   one: (N, lam, d) = (2, 7, 2): 49 rows, diag, sW2, np identical
+OK   a: (N, lam, d) = (2, 7, 2): 49 rows, diag, sW2, np identical
+OK   b: (N, lam, d) = (2, 7, 2): 49 rows, diag, sW2, np identical
+OK   mu: (N, lam, d) = (2, 7, 2): 49 rows, diag, sW2, np identical
+OK   al: (N, lam, d) = (2, 7, 2): 49 rows, diag, sW2, np identical
+VALIDATION y_q7_N2_lam7_d2 against q7_N2_lam7_d2.txt: 5 identical, 0 different
+# ytab q=7 d=2 N=0 lam=9 threads=4 primes(necklace)=4483696 planes=24 sieve block q^6=117649 blocks=343 sieve primes=728 cofactor primes=0 composites=0
+# planned allocations: TP (cubic symbol tables of the cofactor primes) 0.0000 GB; planes TIs 0.0000 GB; T (Res(A', m)) 0.0000 GB; output Y 0.0000 GB; per thread 0.0002 GB x 4 threads (vertical counters 0.0001, batch masks 0.0000); total 0.0010 GB
+# prime loop finished at 2 s
+# ytab primes=4483696 (equals the necklace count); self-checks on 71 primes passed
+OK   one: (N, lam, d) = (0, 9, 2): 49 rows, diag, sW2, np identical
+OK   al: (N, lam, d) = (0, 9, 2): 49 rows, diag, sW2, np identical
+VALIDATION y_q7_N0_lam9_d2 against q7_N0_lam9_d2.txt: 2 identical, 0 different
+# ytab q=7 d=2 N=3 lam=9 threads=4 primes(necklace)=4483696 planes=24 sieve block q^6=117649 blocks=343 sieve primes=728 cofactor primes=140 composites=259
+# planned allocations: TP (cubic symbol tables of the cofactor primes) 0.0000 GB; planes TIs 0.0000 GB; T (Res(A', m)) 0.0000 GB; output Y 0.0003 GB; per thread 0.0008 GB x 4 threads (vertical counters 0.0007, batch masks 0.0000); total 0.0037 GB
+# prime loop finished at 6 s
+# ytab primes=4483696 (equals the necklace count); self-checks on 71 primes passed
+OK   one: (N, lam, d) = (3, 9, 2): 49 rows, diag, sW2, np identical
+OK   a: (N, lam, d) = (3, 9, 2): 49 rows, diag, sW2, np identical
+OK   b: (N, lam, d) = (3, 9, 2): 49 rows, diag, sW2, np identical
+OK   mu: (N, lam, d) = (3, 9, 2): 49 rows, diag, sW2, np identical
+OK   al: (N, lam, d) = (3, 9, 2): 49 rows, diag, sW2, np identical
+VALIDATION y_q7_N3_lam9_d2 against q7_N3_lam9_d2.txt: 5 identical, 0 different
+# ytab q=7 d=2 N=2 lam=9 threads=4 primes(necklace)=4483696 planes=24 sieve block q^6=117649 blocks=343 sieve primes=728 cofactor primes=28 composites=28
+# planned allocations: TP (cubic symbol tables of the cofactor primes) 0.0000 GB; planes TIs 0.0000 GB; T (Res(A', m)) 0.0000 GB; output Y 0.0000 GB; per thread 0.0002 GB x 4 threads (vertical counters 0.0001, batch masks 0.0000); total 0.0010 GB
+# prime loop finished at 3 s
+# ytab primes=4483696 (equals the necklace count); self-checks on 70 primes passed
+OK   one: (N, lam, d) = (2, 9, 2): 49 rows, diag, sW2, np identical
+OK   a: (N, lam, d) = (2, 9, 2): 49 rows, diag, sW2, np identical
+OK   b: (N, lam, d) = (2, 9, 2): 49 rows, diag, sW2, np identical
+OK   mu: (N, lam, d) = (2, 9, 2): 49 rows, diag, sW2, np identical
+OK   al: (N, lam, d) = (2, 9, 2): 49 rows, diag, sW2, np identical
+VALIDATION y_q7_N2_lam9_d2 against q7_N2_lam9_d2.txt: 5 identical, 0 different
+# ytab q=7 d=2 N=0 lam=10 threads=4 primes(necklace)=28245840 planes=26 sieve block q^6=117649 blocks=2401 sieve primes=4088 cofactor primes=0 composites=0
+# planned allocations: TP (cubic symbol tables of the cofactor primes) 0.0000 GB; planes TIs 0.0000 GB; T (Res(A', m)) 0.0000 GB; output Y 0.0000 GB; per thread 0.0003 GB x 4 threads (vertical counters 0.0001, batch masks 0.0000); total 0.0010 GB
+# prime loop finished at 15 s
+# ytab primes=28245840 (equals the necklace count); self-checks on 434 primes passed
+OK   one: (N, lam, d) = (0, 10, 2): 49 rows, diag, sW2, np identical
+OK   al: (N, lam, d) = (0, 10, 2): 49 rows, diag, sW2, np identical
+VALIDATION y_q7_N0_lam10_d2 against q7_N0_lam10_d2.txt: 2 identical, 0 different
+# ytab q=7 d=2 N=3 lam=10 threads=4 primes(necklace)=28245840 planes=26 sieve block q^6=117649 blocks=2401 sieve primes=4088 cofactor primes=140 composites=259
+# planned allocations: TP (cubic symbol tables of the cofactor primes) 0.0000 GB; planes TIs 0.0000 GB; T (Res(A', m)) 0.0000 GB; output Y 0.0003 GB; per thread 0.0009 GB x 4 threads (vertical counters 0.0007, batch masks 0.0000); total 0.0039 GB
+# prime loop finished at 38 s
+# ytab primes=28245840 (equals the necklace count); self-checks on 432 primes passed
+OK   one: (N, lam, d) = (3, 10, 2): 49 rows, diag, sW2, np identical
+OK   a: (N, lam, d) = (3, 10, 2): 49 rows, diag, sW2, np identical
+OK   b: (N, lam, d) = (3, 10, 2): 49 rows, diag, sW2, np identical
+OK   mu: (N, lam, d) = (3, 10, 2): 49 rows, diag, sW2, np identical
+OK   al: (N, lam, d) = (3, 10, 2): 49 rows, diag, sW2, np identical
+VALIDATION y_q7_N3_lam10_d2 against q7_N3_lam10_d2.txt: 5 identical, 0 different
+# ytab q=7 d=1 N=6 lam=7 threads=4 primes(necklace)=117648 planes=18 sieve block q^6=117649 blocks=7 sieve primes=140 cofactor primes=23632 composites=113624
+# planned allocations: TP (cubic symbol tables of the cofactor primes) 2.3573 GB; planes TIs 0.0011 GB; T (Res(A', m)) 0.0008 GB; output Y 0.0132 GB; per thread 0.0305 GB x 4 threads (vertical counters 0.0222, batch masks 0.0075); total 2.4933 GB
+# prime loop finished at 66 s
+# ytab primes=117648 (equals the necklace count); self-checks on 4 primes passed
+OK   one: (N, lam, d) = (6, 7, 1): 7 rows, diag, sW2, np identical
+OK   a: (N, lam, d) = (6, 7, 1): 7 rows, diag, sW2, np identical
+OK   b: (N, lam, d) = (6, 7, 1): 7 rows, diag, sW2, np identical
+OK   mu: (N, lam, d) = (6, 7, 1): 7 rows, diag, sW2, np identical
+OK   al: (N, lam, d) = (6, 7, 1): 7 rows, diag, sW2, np identical
+VALIDATION y_q7_N6_lam7_d1 against q7_N6_lam7_d1.txt: 5 identical, 0 different
+OK   cm1: (N, lam, d) = (3, 6, 2): 49 rows, diag, sW2, np identical
+OK   cm2: (N, lam, d) = (3, 6, 2): 49 rows, diag, sW2, np identical
+OK   cm17: (N, lam, d) = (3, 6, 2): 49 rows, diag, sW2, np identical
+OK   one: (N, lam, d) = (3, 6, 2): 49 rows, diag, sW2, np identical
+OK   mu: (N, lam, d) = (3, 6, 2): 49 rows, diag, sW2, np identical
+OK   al: (N, lam, d) = (3, 6, 2): 49 rows, diag, sW2, np identical
+OK   a: (N, lam, d) = (3, 6, 2): 49 rows, diag, sW2, np identical
+VALIDATION y_q7_N3_lam6_d2 against enw6_N3_lam6_d2.txt: 7 identical, 0 different
+OK   cm1: (N, lam, d) = (3, 7, 1): 7 rows, diag, sW2, np identical
+OK   cm2: (N, lam, d) = (3, 7, 1): 7 rows, diag, sW2, np identical
+OK   cm17: (N, lam, d) = (3, 7, 1): 7 rows, diag, sW2, np identical
+OK   one: (N, lam, d) = (3, 7, 1): 7 rows, diag, sW2, np identical
+OK   mu: (N, lam, d) = (3, 7, 1): 7 rows, diag, sW2, np identical
+OK   al: (N, lam, d) = (3, 7, 1): 7 rows, diag, sW2, np identical
+OK   a: (N, lam, d) = (3, 7, 1): 7 rows, diag, sW2, np identical
+VALIDATION y_q7_N3_lam7_d1 against enw6_N3_lam7_d1.txt: 7 identical, 0 different
+OK   cm1: (N, lam, d) = (2, 7, 2): 49 rows, diag, sW2, np identical
+OK   cm2: (N, lam, d) = (2, 7, 2): 49 rows, diag, sW2, np identical
+OK   cm17: (N, lam, d) = (2, 7, 2): 49 rows, diag, sW2, np identical
+OK   one: (N, lam, d) = (2, 7, 2): 49 rows, diag, sW2, np identical
+OK   mu: (N, lam, d) = (2, 7, 2): 49 rows, diag, sW2, np identical
+OK   al: (N, lam, d) = (2, 7, 2): 49 rows, diag, sW2, np identical
+OK   a: (N, lam, d) = (2, 7, 2): 49 rows, diag, sW2, np identical
+VALIDATION y_q7_N2_lam7_d2 against enw6_N2_lam7_d2.txt: 7 identical, 0 different
+OK   cm1: (N, lam, d) = (4, 5, 2): 49 rows, diag, sW2, np identical
+OK   cm2: (N, lam, d) = (4, 5, 2): 49 rows, diag, sW2, np identical
+OK   cm17: (N, lam, d) = (4, 5, 2): 49 rows, diag, sW2, np identical
+OK   one: (N, lam, d) = (4, 5, 2): 49 rows, diag, sW2, np identical
+OK   mu: (N, lam, d) = (4, 5, 2): 49 rows, diag, sW2, np identical
+OK   al: (N, lam, d) = (4, 5, 2): 49 rows, diag, sW2, np identical
+OK   a: (N, lam, d) = (4, 5, 2): 49 rows, diag, sW2, np identical
+VALIDATION y_q7_N4_lam5_d2 against enw6_N4_lam5_d2.txt: 7 identical, 0 different
+Thu Nov 19 09:39:41 AM UTC 2026
+VAL_DONE

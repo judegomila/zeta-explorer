@@ -1,0 +1,5 @@
+q=5 deg=5 squarefree curves=2500 (all=2500) distinct (r,L1,L2,L3)=95 S-not-a-function-of-point mismatches=0 time=0.3s
+q=7 deg=5 squarefree curves=14406 (all=14406) distinct (r,L1,L2,L3)=165 S-not-a-function-of-point mismatches=0 time=2.4s
+q=5 deg=7 squarefree curves=62500 (all=62500) distinct (r,L1,L2,L3)=1481 S-not-a-function-of-point mismatches=0 time=3.8s
+q=7 deg=7 squarefree curves=6000 (all=705894) distinct (r,L1,L2,L3)=2726 S-not-a-function-of-point mismatches=0 time=2.0s
+q=7 deg=7 squarefree curves=705894 (all=705894) distinct (r,L1,L2,L3)=4600 S-not-a-function-of-point mismatches=0 time=113.1s

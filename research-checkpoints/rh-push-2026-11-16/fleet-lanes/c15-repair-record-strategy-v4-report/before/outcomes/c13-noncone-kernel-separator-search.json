@@ -1,0 +1,55 @@
+{
+ "slug": "c13-noncone-kernel-separator-search",
+ "round": 13,
+ "kind": "compute",
+ "nodes": [],
+ "tags": [
+  "noncone",
+  "kernel-separator-search",
+  "total-positivity",
+  "turan",
+  "control-battery",
+  "davenport-heilbronn",
+  "backward-heat",
+  "t-nr",
+  "e_a",
+  "closed-device-class"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "Outcome \"none\" (MEASURED, finite search; no statement about zeta): in dictionary D on the registered grid, draws and adaptive stage (12,994,697 functionals x 290 objects, conventions of PREREG section 2) no functional is one-signed on zeta and the characters q <= 13 and opposite on a battery member of each of the nine control classes. Independently confirmed: Lemma H re-derived (algebra plus random off-grid cases at 330 digits, identities to 1.7e-267, 0 sign failures; consistent with all 45,520 order-2 D3a rows and the F1/F2 rows in scope); grid totals recomputed from the sign matrices with separate code (2,794,368 rows, 51,764 one-signed, battery DH opposite on 0, float T-train 0, 262,135 ball-stage rows); 1,226 sign entries re-evaluated in mpmath at 330 digits without the reflection, 0 differences, including DH on 114 one-signed rows (same sign as zeta in 114/114), 20 new T-NR counterexamples to prediction 2a (20/20), and the five zeta-only functionals including HEAT with polar terms. Prediction \"T-NR passes D1\" is false; the five zeta-only functionals separate zeta from the L-functions as well and reject heat only through the member tau = -0.5. The map row should read: closed, MEASURED, finite search; controls that pass: battery DH, backward heat (>99.9%), plus the per-family classes named in the result.",
+ "obstruction": "Registered question, outcome 'none' (MEASURED, finite search). Dictionary D (minors of orders 2-4 of K(u_i + log n_j); Turan-type expressions, also Hecke-compensated; kernels with and without polar terms; at most 3 real parameters): 12,994,697 functionals x 290 objects; none is one-signed on zeta and the characters q <= 13 and opposite on a battery member of every control class. Of 629,432 functionals one-signed on the positives, 0 reject battery DH and 400 reject backward heat. The positive condition itself does not hold out (held-out L-functions q 14-40 opposite at mean rate 0.287). Lemma H proved for order-2 expressions. Not run: Hermitian forms for complex kernels, orders above 4, functionals reading zeta and a twist jointly.",
+ "obstructionKind": "",
+ "controlsThatDefeat": [
+  "battery DH (same sign as zeta on every one-signed functional)",
+  "backward heat (rejected by 400 of 629,432; Lemma H for order 2)",
+  "E_a, EIS-w, theta^w (keep the Polya-frequency sign pattern more often than character kernels)",
+  "T-NR does not pass D1 (pass fraction 0.646) but no functional separates it together with every other class"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 2,
+ "aboutZeros": false,
+ "refereeNote": "No PROVED step broken and no reported number found wrong. Qualifications (written to tmp/research-2026-11-16/push/c13-noncone-kernel-separator-search/REFEREE.md; the author's own check is kept as an appendix): (1) The positive condition does not hold out: on the 51,764 grid functionals one-signed on zeta and the characters q <= 13, held-out L-functions (q 14-40) are opposite at mean rate 0.287 (single members up to 0.98) and only 529 (1.0%) keep si - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "Sign functionals of the theta-normalised kernel up to order 4 do not separate Euler products from the controls: the character kernels break the Polya-frequency sign pattern more often than E_a, backward heat, EIS-w and theta^w do, so anything one-signed on the L-functions is also one-signed on those classes and on the battery DH function. Backward heat only pushes order-2 expressions further in the direction log-concavity already gives (Lemma H). Total positivity of a local coefficient sequence says nothing about dilation minors of the kernel (T-NR prediction refuted). Float64 is blind where polar terms dominate (about 20% of entries) and gave one wrong sign on a cancelled polar kernel before a noise rule was added; ball arithmetic was needed there.",
+ "followUp": "Record D as a closed device class in the map with the per-class table (tables/class_totals.json, tables/per_class_tables.md) and assign an independent referee. No round-14 lead comes from this lane. Different questions that were not run: Hermitian forms for complex kernels, orders above 4, and functionals that read zeta and a twist jointly.",
+ "resultFile": "tmp/research-2026-11-16/push/c13-noncone-kernel-separator-search/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c13-noncone-kernel-separator-search/REFEREE.md",
+ "launchedNodes": [],
+ "engineVerdict": "closed",
+ "secondReferee": {
+  "by": "c14-referee-r13-independent",
+  "outcome": "holds on the sample and on the grid recount; random, adaptive and A3 stages not refereed",
+  "narrowerForm": "Refereed: the stored float64 grid signs (300 functionals x 35 objects recomputed from PREREG with separate code, 0 disagreements in 10,123 jointly decided entries), table 3.1 and the grid tiers (recount from the stored matrices, identical), Lemma H (i)-(iii). The consequence of Lemma H is relative to the classical log-concavity of the Riemann-Polya kernel. Not refereed: the 10.2 million functionals of the random, adaptive and A3 stages (sign matrices on the server), the ball stage, held-out members, seeded SGN/U/DEL/THIN members.",
+  "downgrades": [
+   "section 4, Lemma H 'Consequence': add 'relative to the classical log-concavity of the Riemann-Polya kernel (source not opened)'"
+  ],
+  "upgrades": [],
+  "report": "tmp/research-2026-11-16/push/c14-referee-r13-independent/REFEREE_c13-noncone-kernel-separator-search.md"
+ }
+}

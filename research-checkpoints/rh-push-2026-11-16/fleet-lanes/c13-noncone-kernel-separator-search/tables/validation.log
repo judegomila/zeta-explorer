@@ -1,0 +1,23 @@
+ZETA {'max_rel_err_Kpol_jets': 1.995287905506143e-15, 'max_rel_err_K3_jets': 1.181098206960503e-15, 'orders': (4, 2), 'points': 6}
+chi5.4 {'max_rel_err_Kpol_jets': 6.546471719142108e-15, 'max_rel_err_K3_jets': None, 'orders': (4, 2), 'points': 6}
+chi7.6 {'max_rel_err_Kpol_jets': 5.856846322282935e-15, 'max_rel_err_K3_jets': None, 'orders': (4, 2), 'points': 6}
+chi13.2c {'max_rel_err_Kpol_jets': 7.03090381670499e-13, 'max_rel_err_K3_jets': None, 'orders': (4, 2), 'points': 6}
+chi11.2c {'max_rel_err_Kpol_jets': 2.297525632243637e-15, 'max_rel_err_K3_jets': None, 'orders': (4, 2), 'points': 6}
+heldout chi37.18c {'max_rel_err_Kpol_jets': 1.2961975511433692e-14, 'max_rel_err_K3_jets': None, 'orders': (4, 2), 'points': 6}
+DH {'max_rel_err_Kpol_jets': 1.918069356077367e-15, 'max_rel_err_K3_jets': None, 'orders': (4, 2), 'points': 6}
+TNR3_2.2 {'max_rel_err_Kpol_jets': 2.501087609453203e-14, 'max_rel_err_K3_jets': 8.046685875142074e-15, 'orders': (4, 2), 'points': 6}
+SGN-00 {'max_rel_err_Kpol_jets': 1.2537825148648048e-15, 'max_rel_err_K3_jets': 7.002504769008879e-16, 'orders': (4, 2), 'points': 6}
+U-00 {'max_rel_err_Kpol_jets': 9.250858266690514e-16, 'max_rel_err_K3_jets': 1.0203605882006613e-15, 'orders': (4, 2), 'points': 6}
+DEL-0.9 {'max_rel_err_Kpol_jets': 1.4722331886480895e-15, 'max_rel_err_K3_jets': 6.479524298947814e-15, 'orders': (4, 2), 'points': 6}
+THW0.50 {'max_rel_err_Kpol_jets': 1.470716978788783e-15, 'max_rel_err_K3_jets': 4.287838566194467e-14, 'orders': (4, 2), 'points': 6}
+THW3.00 {'max_rel_err_Kpol_jets': 1.4341887556047776e-15, 'max_rel_err_K3_jets': 1.0616935429332975e-15, 'orders': (4, 2), 'points': 6}
+HEAT-0.50 {'max_rel_err_Kpol_jets': 2.1509668457563495e-16, 'max_rel_err_K3_jets': None, 'orders': (2, 2), 'points': 4}
+HEAT K3 6.487111078787701e-15
+{'float64': -2.330993813414815, 'closed': -2.3309938134148154, 'c12_record': -2.33099381341482}
+ZETA: int K3 e^(zu) / completed [(1-3.475524214679627e-17j), (1+2.2152160937087742e-16j), (1.0000000000000253+1.6604809059605852e-14j)] spread 3.029236488651766e-14
+DH: int K e^(zu) / completed [(1.2135489773516333+5.34488871102102e-17j), (1.2135489773516355+6.302510761753217e-16j), (1.213548977351858-2.5276031367897664e-14j)] spread 1.863395896986357e-13
+TNR(3,2.2): int K3 e^(zu) / completed [(0.5773502691896257+8.938160870246334e-18j), (0.5773502691896252+5.806979809419614e-17j), (0.5773502691897523-1.0946712328570369e-13j)] spread 2.8984727764720274e-13
+EA-1/4: int K3 e^(zu) / completed [(0.9999999999999999-1.0258317521153191e-17j), (0.9999999999999991+4.343685704251872e-16j), (1.000000000013485+8.635362892730437e-12j)] spread 1.6013046036236545e-11
+EA0.250 {'max_rel_err_Kpol_jets': 3.658918011262376e-16, 'max_rel_err_K3_jets': 8.065819805081701e-16, 'orders': (2, 0), 'points': 3}
+EIS0.20+3.00i {'max_rel_err_Kpol_jets': 5.296923542564498e-16, 'max_rel_err_K3_jets': 1.335350825130968e-16, 'orders': (2, 0), 'points': 3}
+heldout EIS0.3236+5.8955i {'max_rel_err_Kpol_jets': 2.199267683720686e-15, 'max_rel_err_K3_jets': 3.2418845991503227e-15, 'orders': (2, 0), 'points': 3}

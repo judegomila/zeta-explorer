@@ -1,0 +1,43 @@
+{
+ "proposedBy": "c15-control-with-zeta-fe-classes-u1-u2",
+ "status": "proposal, not applied; one same-lane check, independent referee owed",
+ "controls": [
+  {
+   "id": "ctrl-zq-zero-quartet-multiplier",
+   "code": "ZQ",
+   "name": "Zero-quartet multiplier twin: zeta(s) m(s), m rational in s(1-s) of degree 0, two on-line zero pairs at +-g1, +-g2 exchanged for the quartet 1/2 +- eta +- i (g1+g2)/2",
+   "keeps": ["FE (zeta's own, exact, all heights)", "pole at 1", "order 1", "N(T) for T > g2", "every prime-power atom of log zeta: EP, GEOM, SIZE on atoms", "mu(n) as the atoms of 1/G"],
+   "lacks": ["INT", "SUPP (absolutely continuous density D(x) = -4 x^(-1/2) cos(gbar log x)(cosh(eta log x) - cos(d log x)))", "POS (forced: Lemma L)"],
+   "defect": "sup abs D <= 8 e^-2 (eta^2 + d^2)/(1/2 - eta)^2; 1.971e-3 measured at zeros 6709, 6710, eta = 0.01",
+   "zeros": "1/2 +- eta +- i gbar, any 0 < eta < 1/2",
+   "kills": "devices reading FE with atom-level multiplicative structure (U1) or with size of mu or log coefficients (U2, SIZE branch) and not the absence of coefficient mass off log N",
+   "label": "PROVED (construction, defect bound); MEASURED (four instances)"
+  },
+  {
+   "id": "ctrl-sg-real-zero-twin",
+   "code": "SG",
+   "name": "Real-zero twin: zeta(s) (t^2 + b^2)/(t^2 - g1^2), t^2 = s(1-s) - 1/4",
+   "keeps": ["FE exact", "atoms exact", "Lambda_G <= Lambda"],
+   "lacks": ["INT", "SUPP", "POS (density -2 x^(-1/2)(cosh(b log x) - cos(g1 log x)) <= 0)"],
+   "zeros": "real pair 1/2 +- b",
+   "kills": "steps that use an upper bound for Lambda or positivity of the atoms only, together with FE",
+   "label": "PROVED; MEASURED at b = 0.3"
+  },
+  {
+   "id": "ctrl-nrq-noninteger-base",
+   "code": "NR-q",
+   "name": "T-NR at a base with no rational power: zeta(s)(q^(s-1/2) + c + q^(1/2-s)), q = 1 + sqrt 2, 2 < abs c < q^(1/2) + q^(-1/2)",
+   "keeps": ["FE exact", "integer-frequency part equal to c zeta", "Hecke relations at every rational prime", "discrete frequencies"],
+   "lacks": ["INT", "GEOM, SIZE, POS at the one added generalised prime q"],
+   "zeros": "Re s = 1/2 +- arccosh(abs c/2)/log q",
+   "kills": "steps that read coefficients at integers only, or covariance at rational primes only, together with FE",
+   "label": "PROVED; MEASURED at c = 2.1"
+  }
+ ],
+ "lemmas": [
+  {"id": "lemma-L-one-sided-positivity-rigidity", "statement": "zeta's FE, only pole a simple one at 1, Lambda_G - Lambda a non-negative measure with Laplace-Stieltjes transform -m'/m in a half-plane: G = c zeta", "label": "PROVED given Landau's theorem (classical, recalled)"},
+  {"id": "lemma-D-discrete-multiplier-mass", "statement": "a symmetric Dirichlet-polynomial multiplier 1 + sum c_j (l_j^(s-1/2) + l_j^(1/2-s)) with a zero in the closed strip has sum abs(c_j)(l_j^(1/2) + l_j^(-1/2)) >= 1", "label": "PROVED"},
+  {"id": "prefilter-Q-A", "statement": "fourth instance of Lemma F: multiplication by a ZQ multiplier; stable for atom-level conditions, FE, linear classes stable under bounded rational multipliers", "label": "PROVED as an instance; stability to be checked per step"}
+ ],
+ "checkpointEdits": ["U1: has control ZQ unless the step reads INT (then inside U3)", "U2 SIZE branch: control ZQ", "U2 POS branch with exact atoms: identification class (Lemma L), moves to U3", "U3: relaxation-family test T1 (ZQ), T2 (SG), T3 (NR-q), T4 (E_a, T-NR, WT, DEL, THIN)"]
+}

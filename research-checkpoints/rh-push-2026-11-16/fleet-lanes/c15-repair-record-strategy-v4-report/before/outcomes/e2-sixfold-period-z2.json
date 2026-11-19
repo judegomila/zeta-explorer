@@ -1,0 +1,53 @@
+{
+ "slug": "e2-sixfold-period-z2",
+ "round": 2,
+ "batch": 2,
+ "kind": "attack",
+ "family": "renderer spin sign x 7/8 probe: period on the 6-fold cover",
+ "nodes": [
+  "map-open-5",
+  "zv-spinor-arithmetic-coupling-missing",
+  "probe-equals-theta-row-form"
+ ],
+ "launchedNodes": [
+  "map-open-5",
+  "probe-equals-theta-row-form",
+  "zv-spinor-arithmetic-coupling-missing",
+  "map-pos-33",
+  "qrh-seven-eighths-input"
+ ],
+ "rowsChecked": [
+  "G13",
+  "N20",
+  "Z14",
+  "A3"
+ ],
+ "tags": [
+  "seven-eighths",
+  "sixfold-cover",
+  "z2-grading",
+  "period",
+  "hasse-davenport",
+  "renderer-spin"
+ ],
+ "verdict": "dead",
+ "survivingClaim": "Route dead, by reduction to tro6-period (MB), on step S3 alone. For squarefree moduli prime to m and the n = 1 part of the rows, relative to manuscript (4.7): each signal entry equals the corresponding additive Gram entry times mu(c) alpha(c)^2 G(c)^2 Psi(c) chi_c(-1), independent of the row variable, for every pair of moduli. The integrand cubic theta x sextic section x Hecke character is odd under -1 in mu_6 and integrates to zero. Balanced Gauss-sum triple (corrected): gt_2(m,c) G(c) chi_c(m)^3 = mu(c) alpha(c) G(c)^2 conj(gt_1(m,c)). G(c) depends only on c mod 4. j -> 4-j fixes j mod 2. No global period constructed. No statement about zeros.",
+ "obstruction": "The rows are complex conjugates of the additive Gauss functions up to mu(c) Psi(c), so the signal form and the Gram form share matrix entries: no grading or linear operation on the row variable (the Z/2 factor of Z/6 included), the modulus class or the Hecke grade distinguishes them. Any separation must come from the modulus weight mu(c) Psi(c), which is the tro6-period (MB) form already recorded. The proposed period is Z/2-odd and vanishes. NOT established (referee): that the exceptional P_a^(1/6) term has a definite Z/6 or Z/2 character; the measured 'index 0' concerns the diagonal k = 0 term, not the exceptional term (which comes from nonzero frequencies k = a1^6 e).",
+ "obstructionKind": "shared-matrix-entries",
+ "controlsThatDefeat": [
+  "all controls: the character computation contains no target, so it is the same for every control"
+ ],
+ "lesson": "Gradings on the row variable cannot separate signal from exceptional term. The renderer spin sign has no arithmetic counterpart here. The pivot (mu as the Hasse-Davenport constant) returns positive-list item 33.",
+ "refereeHolds": false,
+ "referees": 1,
+ "aboutZeros": false,
+ "strength": 0.03,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false
+ },
+ "refereeNote": "Referee does not hold the claim as worded: steps T1/S2 test the diagonal Gram summand, not the P_a^(1/6) term. The dead verdict stands on S3 only.",
+ "resultFile": "tmp/research-2026-11-16/push/e2-sixfold-period-z2/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/e2-sixfold-period-z2/REFEREE.md"
+}

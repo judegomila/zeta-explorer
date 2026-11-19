@@ -1,0 +1,9 @@
+grid (61, 79700) t range 8.0125 2000.4875000000002 max |Im G| / |G| on the axis 6.357392500441774e-34
+on-line sign changes (step 0.025) below 2000: 929; table: 929
+table on-line zeros without a sign change here: [] 0 ; sign changes not in the table: [] 0
+max phase step on the right side X = 3: 0.075 rad
+cut rows: 400, worst horizontal phase step on a cut: 0.112 rad
+boxes 399; worst |count - integer| 2.35e-12; total count 1516; on-line 928; table pairs 277; sum of deficits 34
+boxes with deficit != 0: 17 odd deficits: 0
+cells with winding != 0 (X >= 0.05): 293 (values [1])
+axis local minima without sign change: 254

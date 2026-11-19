@@ -1,0 +1,1 @@
+{"family": "D3b-F1", "candidates": 0, "processed": 0, "status": {}, "kills_with_a_ball_zero_member": 0, "unclean_rows": [], "zeta_plus": 0, "zeta_minus": 0, "ball_evaluations": 0, "maxprec_hist": {"0": 0, "300": 0, "3000": 0, "12000": 0}, "alive": [], "tiers_alive": {}, "seconds": 0.03399062156677246, "precs": [300, 3000, 12000], "order": [2, 9, 1, 7, 5, 6, 3, 8, 4]}

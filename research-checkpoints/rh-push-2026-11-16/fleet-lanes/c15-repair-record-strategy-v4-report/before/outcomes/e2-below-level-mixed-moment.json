@@ -1,0 +1,66 @@
+{
+ "slug": "e2-below-level-mixed-moment",
+ "round": 2,
+ "batch": 2,
+ "kind": "attack",
+ "family": "7/8 mechanism: mean-value input inside the method (not excluded by any proved lemma)",
+ "nodes": [
+  "map-open-2",
+  "target-0874-restricted-moment"
+ ],
+ "launchedNodes": [
+  "map-open-2",
+  "map-pos-34",
+  "target-0874-restricted-moment",
+  "mem-abscissa-formula",
+  "sextic-theta-mean-square"
+ ],
+ "rowsChecked": [
+  "Z10",
+  "Z12",
+  "Z15",
+  "Z16"
+ ],
+ "tags": [
+  "seven-eighths",
+  "mixed-moment",
+  "below-level",
+  "density-estimate",
+  "control-blind"
+ ],
+ "verdict": "partial-result",
+ "survivingClaim": "MEASURED (reproduced; extended to r = 0.6, 0.9 and height twists t <= 1000 at U = 1e6): on the sextic residue-symbol rows over Z[omega] the mixed moment sum_u |M_r S_m|^2 has exponent E = 1.000 +- 0.004 for 1e5 <= U <= 1e9 at m = m* and m = 1/2, equal to the random-multiplicative baseline up to the coprimality factor 0.87, the same for Moebius, random-sign and twisted coefficients; no row exceeds 121 times the mean in the complete families (relative to the mean only). MODEL (float LP, hypothesis H(lam)): no change for lam >= 0.9; 0.8748595 at 0.85; 0.87409 at 0.75; 0.87250 at 0.6; 0.87170 at 0.5; 13/15 for lam <= 0.1; 0.8730210 with the written gates (not rerun). READ: the '+z_0' charge enters through the term L of Lemma 14.2, not the inactive-slot triangle step of Lemma 14.3. Nothing proved; no abscissa below 0.874886647.",
+ "obstruction": "The mixed moment is control-blind (same exponent for random multiplicative rows and for Moebius, random-sign and sign-twisted coefficients), and below level the hypothesis H(lam < 1) is itself a density-type statement for the twist family. It moves the model abscissa only inside [13/15, 0.8749]; the count carries the whole gain and the numerator line adds nothing. The one place where Moebius/Gauss-sum structure could enter is (M1+) for fixed coefficients: cancellation in sums of normalised cubic Gauss sums over primes, uniform in the dual index; it is unproved.",
+ "obstructionKind": "control-blind-density-restatement",
+ "controlsThatDefeat": [
+  "random multiplicative rows: same exponent (ratio 0.87-0.88, flat)",
+  "sign-twisted primes and random-sign coefficients: same moment",
+  "all controls: the statistic contains no target-specific factor (control-blind)"
+ ],
+ "lesson": "Mean-value input inside the 7/8 method is a density estimate in another form; finite-U tests cannot see it. Only (M1+) with the specific Gauss-sum coefficients remains.",
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "strength": 0.2,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false
+ },
+ "newNodes": [
+  {
+   "id": "m1plus-cubic-gauss-prime-sum-uniform",
+   "type": "open-lemma",
+   "status": "open",
+   "statement": "(M1+): cancellation in sums of normalised cubic Gauss sums over primes, uniform in the dual index, for the fixed coefficients of the 7/8 method. GRH-type below-level estimate; the single point where arithmetic of the coefficients enters lanes e2-below-level-mixed-moment, e2-ms-slot-capacity, e2-two-scale-detector-moment."
+  },
+  {
+   "id": "z0-charge-is-lemma-14-2-term-l",
+   "type": "identity",
+   "status": "read",
+   "statement": "The '+z_0' charge in the 7/8 manuscript enters through term L of Lemma 14.2 at short dual length, not a triangle-inequality loss (corrects r3-critical-count 5.1)."
+  }
+ ],
+ "resultFile": "tmp/research-2026-11-16/push/e2-below-level-mixed-moment/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/e2-below-level-mixed-moment/REFEREE.md"
+}

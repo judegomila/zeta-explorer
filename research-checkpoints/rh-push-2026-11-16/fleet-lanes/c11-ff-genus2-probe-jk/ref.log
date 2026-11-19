@@ -1,0 +1,4 @@
+ref q=3 deg=5 lams=[1, 4, 5]: curves 162, distinct (r,L) 35; S function of (r,L): yes; N=1 S = c L1: 24/24 vector-strata; N=2 affine in (L1,L2) fails: 24/24; N=1 inequality on distinct L: 32/32 (violations 0); closed form -D.D = 2q sum s^2: all
+ref q=3 deg=7 lams=[1, 4]: curves 1458, distinct (r,L) 236; S function of (r,L): yes; N=1 S = c L1: 24/24 vector-strata; N=2 affine in (L1,L2) fails: 16/24; N=1 inequality on distinct L: 218/218 (violations 0); closed form -D.D = 2q sum s^2: all
+ref q=5 deg=5 lams=[1, 4]: curves 300, distinct (r,L) 80; S function of (r,L): yes; N=1 S = c L1: 24/24 vector-strata; N=2 affine in (L1,L2) fails: 24/24; N=1 inequality on distinct L: 68/68 (violations 0); closed form -D.D = 2q sum s^2: all
+ref identities (2000 random real/complex s, float): max relative deviation 1.70e-13

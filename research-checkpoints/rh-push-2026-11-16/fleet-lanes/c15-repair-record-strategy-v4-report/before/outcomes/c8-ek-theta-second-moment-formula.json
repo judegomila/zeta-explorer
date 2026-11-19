@@ -1,0 +1,51 @@
+{
+ "slug": "c8-ek-theta-second-moment-formula",
+ "round": 8,
+ "kind": "deepen",
+ "nodes": [
+  "ek-vector-specific-row-mean-square",
+  "out-c8-ek-theta-second-moment-formula"
+ ],
+ "tags": [
+  "seven-eighths",
+  "effective-order",
+  "sextic-theta",
+  "mean-square",
+  "poisson",
+  "gauss-sum",
+  "moebius",
+  "twist-family",
+  "grh-conditional",
+  "dunn-radziwill"
+ ],
+ "verdict": "partial-result",
+ "survivingClaim": "(E-K) is neither refuted nor proved. Exact (confirmed independently): for squarefree columns, Poisson in the complete row variable plus gamma_1 gamma_2 = mu alpha G give Sum_m g_X(m)|B_m|^2 = X D + X Sum_{k!=0} F_k, F_k bilinear in localized Moebius sums M_k (Mellin transforms of 1/L(1+u, eta theta chi_k^-1) over the order-6 twist family), effective range q_k <= N^2/X. In outline only, under GRH for that family (circular: it contains the target), the error is N^(1+eps) for squarefree unmarked columns, giving (E-K) for X >= N; marked rows and cube parts by analogy. The sixth-power frequencies carry the target's own sum M_1 with multiplicity about K^(1/6) through a positive semidefinite form (not indefinite); an excess is measured for the Liouville and aligned twists, growing with size, exponent not resolved. The Dunn-Radziwill extremal vector (cubic Gauss sums against cubic symbols) is not the probe's configuration. Float screen: theta ratio within the random-phase spread at nine sizes. Window Z/P < X < ZP open. No abscissa and no statement about zeros.",
+ "obstruction": "Exact (confirmed independently): Sum_m g_X(m)|B_m|^2 = X D + X Sum_{k != 0} F_k, with F_k bilinear in localized Moebius sums, i.e. Mellin transforms of 1/L(1+u, eta theta chi_k^-1) over the order-6 twist family of the target, q_k <= N^2/X. So (E-K) is a mean value of 1/L over a family that contains the target: under GRH for that family (circular) the error is N^(1+eps) and (E-K) holds for X >= N = ZP (outline only; marked rows and cube parts by analogy). The sixth-power frequencies carry the target's own sum with multiplicity about K^(1/6) through a positive semidefinite form; an excess is measured for the Liouville and aligned twists, exponent not resolved. The window Z/P < X < ZP, where the 31/36 vertex sits, is open. The Dunn-Radziwill sharpness example (cubic Gauss sums against cubic symbols) is not the probe's configuration.",
+ "obstructionKind": "row-mean-square-is-mean-value-of-reciprocal-l-over-target-twist-family",
+ "controlsThatDefeat": [
+  "Liouville twist and aligned twist (measured excess +38% to +63%, growing with size)",
+  "cubic-row control (reproduces Dunn-Radziwill growth, exponent 0.31 to 0.32 against 1/3; confirms the test detects a pole term)",
+  "random phases (theta ratio within the random-phase spread: the float screen does not separate the target)",
+  "not run: DH, heat, THIN, U, E_a, T-NR, Beurling"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "Verdict \"partial-result; (E-K) neither refuted nor proved\" holds; PROVED steps (Lemma 1 pair formula, Corollary 1 identity, Fourier normalisation, diagonal) were re-derived by hand and confirmed with independent code (own sextic symbol and Gauss sums, no lane code: pair formula to 1.8e-14 on ten pairs at new X; (4.7) and the Cor. 1 identity to 1e-13). Errors/gaps found, none in a PROVED step: (E1) WRONG: the sixth-power form is not \"indefinite, signature (2,2), sign +-\". RESULT takes the signatu [record truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "When the row variable is a complete lattice variable, sum it first: the theta coefficient then meets the Gauss sum of its own row symbol and collapses to Moebius times a ray character, so the row mean square is a mean value of 1/L over the twist family of the target. (E-K) is therefore target-dependent and of zero-free type, not an operator-norm statement. A sharpness theorem for a sieve has to be read against the exact row symbol and angular factor before it is used as a refutation; the cubic-row control reproduces the Dunn-Radziwill growth (exponent 0.31 to 0.32 against 1/3), the probe rows show none. Under family GRH deleting the K-loss is a theorem for M >= 1+l, so the false input of the no-floor free-geometry region is among the signal exponent at lx < l, H0 at h > 1, and G.",
+ "followUp": "Referee Lemma 1 and replay the Theorem 2 bookkeeping (gcd sums, ray expansion of G and R, signature (2,2) of the excess form). Then decide the window Z/P < X < ZP, where the 31/36 vertex sits: larger slots on the server, plus a proof attempt. Separately state (MV6), the large-sieve-optimal mean value of 1/L over the order-6 family for the Moebius vector, as the single remaining input at the 7/9 vertex.",
+ "resultFile": "tmp/research-2026-11-16/push/c8-ek-theta-second-moment-formula/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c8-ek-theta-second-moment-formula/REFEREE.md",
+ "launchedNodes": [
+  "ek-vector-specific-row-mean-square"
+ ],
+ "engineVerdict": "partial",
+ "correction": "round 9 (c9-repair-referee-debts-r8, referee holds): the sixth-power class kernel is 6 times a sum of six rank-one squares on the 108 classes mod 36: positive semidefinite of rank 6 at leading order. 'Signature (2,2)' in the follow-up text is wrong (it is the signature of R alone). Lemma 1 holds; Theorem 2 is a conditional outline under family GRH."
+}

@@ -1,0 +1,10 @@
+p 11 complex part - dilates 5.05e-31
+p 13 complex part - dilates 7.92e-31
+q 3 |C_q(zero)| 3.33e-31 C - twin form at 0.3+4.4i 1.23e-32
+q 7 |C_q(zero)| 9.66e-31 C - twin form at 0.3+4.4i 1.98e-31
+(1, 0, 5) T_7 -> 2 Theta (2, 2, 3) 6.54e-26 ; vs 2 Theta (1, 0, 5) 0.64
+(1, 0, 6) T_11 -> 2 Theta (2, 0, 3) 2.87e-27 ; vs 2 Theta (1, 0, 6) 0.687
+(1, 0, 5) T_41 -> 2 Theta (1, 0, 5) 3.16e-22 ; vs 2 Theta (1, 0, 5) 3.16e-22
+(2, 2, 3) T_3 -> 2 Theta (1, 0, 5) 1.19e-30 ; vs 2 Theta (2, 2, 3) 0.64
+commutator multiplier diff 1.98e-31
+p=13 b=2: G = (-3.6055513 + 3.9443045e-31j)  (p-G)/(G-1) - G = 1.0e-30  direct real-part series - zeta component = (0.840841 + 0.0778471j) (nonzero: other even characters)

@@ -1,0 +1,39 @@
+{
+ "slug": "c15-referee-r14-independent-checkpoint",
+ "round": 15,
+ "kind": "repair",
+ "nodes": [],
+ "tags": [
+  "referee",
+  "lift-ruling",
+  "checkpoint",
+  "control-HEAT",
+  "control-T-NR",
+  "control-BLS",
+  "u-classes"
+ ],
+ "verdict": "partial-result",
+ "survivingClaim": "Referee record only; nothing about zeros of zeta. Round-14 lanes 1 to 6 and the checkpoint draft hold with the stated scope lines. The three named sentences are false as written (re-derived: the 2-adic factor 1+2^(1-u) with W_1 non-zero there; pole cancellation in the bridge ratio; T-NR in Laurent form keeps zeta's functional equation). On the grid stage the outcome \"none\" (full criterion) holds with T-NR, E_a, HEAT alone, with any one class dropped, and with the held-out threshold lowered to 22 or 20 (own recount reproduces every count in lift_loo.json). BEU has zeta's zeros in Re s > 0 (proved by absolute convergence). The DH twist keeps its functional equation exactly when chi_G^2(q_psi)=1 (three-line root-number proof; checked numerically at conductors 3, 4, 7, 11, 13, 19). The T-NR quotient is Schur for c < p0^(1/2)+p0^(-1/2). Lemma J1' holds (elementary). Corrections 1 to 5 apply.",
+ "obstruction": "Record lane, no attack. Round-14 lanes 1 to 6 and the checkpoint draft hold with scope lines; no assigned PROVED lemma is broken. Three sentences are false as written ('b(1) = 0 propagated by the Hecke relation'; 'for a < 1/2 the Schur condition is the zero-free statement'; 'no control on file has zeta's own functional equation': T-NR in Laurent form has it). Lift ruling: T-NR, E_a, HEAT lifts canonical; BLS, theta^w, BEU lane-defined; BEU is not an off-line control. Grid-stage recount (1,487,558 functionals): outcome 'none' holds with the three canonical lifts alone, with any one class dropped and with the held-out threshold lowered to 22 or 20; the draw stage is not recounted. Checkpoint: U1, U2 become cells of U3; U4, U6 (a), (b), (g), U8 narrowed. 30 label restrictions listed, not applied. Lemma J1' and the U8 heat-inheritance exclusion were derived here without a referee.",
+ "obstructionKind": "",
+ "controlsThatDefeat": [
+  "not applicable (referee lane)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "No PROVED step is broken; five corrections. (1) REFEREE2 Lax-Phillips: \"divergence not visible before k of about 45\" is wrong; for p=2, a=1/4, theta=0.20 the ratio first exceeds 1 at k=56 (suprema 1.000 for k<=30 and 1.154 for k<=60 are right). (2) \"HEAT is the binding class everywhere\" is overstated: on PA with nine classes, dropping HEAT leaves T-train 0 and full is 0 in every tier; HEAT binds T-train only in the FE and canonical tiers and on PZ; HEAT alone leaves 6 PA T-train rows. (3) \"1,487 - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "Lift-dependence of a search outcome \"none\" can be decided without a rerun: the criterion is monotone in the control set, so a leave-one-class-out recount on stored sign matrices settles it. Zeta's own functional equation is kept by every symmetric multiplier; what identifies zeta is that equation together with an ordinary Dirichlet series. Single-truncation checks would have misread three results here.",
+ "followUp": "Recount the draw-stage sign matrices of the joint search (on the server) for the canonical-only tier; apply LABEL_RESTRICTIONS.md; pass CHECKPOINT_R15_REFEREED.md and LIFT_RULING.md sections 4-5 to the planner and the pair/triple search lane; referee Lemma J1' and the U8 heat-inheritance exclusion, both derived here without a referee.",
+ "resultFile": "tmp/research-2026-11-16/push/c15-referee-r14-independent-checkpoint/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c15-referee-r14-independent-checkpoint/REFEREE.md",
+ "launchedNodes": [],
+ "engineVerdict": "partial"
+}

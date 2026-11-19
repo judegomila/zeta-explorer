@@ -1,0 +1,44 @@
+(6, 10, 2), q = 7, np = 28245840.  Rows against stored exact files: N=3 one: identical, N=3 a: identical, N=3 b: identical, N=3 mu: identical, N=3 al: identical, N=0 one: identical, N=0 al: identical
+Cofactor-slot energy over diagonal (mean of the squarefree-row energy over independent unimodular phases on the cofactors): N = 6: 0.736809, N = 3: 1.17812, N = 0: 0.00177987
+vector | e_c | A principal | B own-char | C = |Tq|^2 | C_perp | D = |Pi Tf|^2 | |Tf|^2 | G bulk | x_CD | x_CG | x_DG | e_s = |S_6|^2/D_0 | E_j1 | identity
+one | 211.7 | 0 | 0 | 3.145e-05 | 3.145e-05 | 3.145e-05 | 3.145e-05 | 211.7 | -6.291e-05 | 0.03376 | -0.03376 | 247.8 | 0.01144 | True
+      A by term (X, Tq, Tf): 0, 0, 0;  B by term: 0, 0, 0
+a | 0.5928 | 0 | 0 | 3.154e-05 | 3.154e-05 | 3.885e-05 | 3.885e-05 | 0.5944 | -1.462e-06 | 0.0005583 | -0.002225 | 0.5316 | 0.128 | True
+      A by term (X, Tq, Tf): 0, 0, 0;  B by term: 0, 0, 0
+b | 0.5807 | 0.01894 | 0.002689 | 3.154e-05 | 3.089e-05 | 2.951e-05 | 3.252e-05 | 0.5587 | 1.672e-06 | 0.001185 | -0.0008941 | 0.6693 | 0.07515 | True
+      A by term (X, Tq, Tf): 0.01883, 0, 2.192e-06;  B by term: 0.00274, 6.546e-07, 8.209e-07
+mu | 5.51 | 0 | 0 | 0 | 0 | 8.653e-07 | 8.653e-07 | 5.511 | 0 | 0 | -0.001512 | 0.9134 | 2.986 | True
+      A by term (X, Tq, Tf): 0, 0, 0;  B by term: 0, 0, 0
+al | 5.693e+10 | 1.162e+09 | 0 | 1.376e+04 | 1.348e+04 | 4.625e+05 | 4.721e+05 | 5.611e+10 | 1.579e+05 | -4.994e+07 | -2.925e+08 | 6.522e+10 | 1.619e+08 | True
+      A by term (X, Tq, Tf): 1.169e+09, 280.5, 9634;  B by term: 0, 0, 0
+
+Seeded classes (24 seeds each): min | lower quartile | median | upper quartile | max | mean
+cm E_c: 0.5074 | 0.6501 | 0.7394 | 0.7957 | 0.983 | 0.7288
+cm A: 0.002238 | 0.004152 | 0.00954 | 0.01494 | 0.05387 | 0.01193
+cm B: 0.0008033 | 0.007915 | 0.01102 | 0.02182 | 0.06799 | 0.015
+cm C_total: 3.145e-05 | 3.145e-05 | 3.145e-05 | 3.145e-05 | 3.145e-05 | 3.145e-05
+cm D: 1.953e-05 | 2.713e-05 | 2.92e-05 | 3.466e-05 | 3.823e-05 | 3.033e-05
+cm G: 0.4967 | 0.628 | 0.7107 | 0.7546 | 0.9635 | 0.7022
+cm e_s: 0.5301 | 0.6156 | 0.7229 | 0.8064 | 1.098 | 0.7257
+cm cross sum: min -0.002895, max 0.001613
+ru E_c: 0.5252 | 0.6763 | 0.8158 | 0.8787 | 1.019 | 0.7864
+ru A: 0.001252 | 0.00391 | 0.008514 | 0.01745 | 0.04629 | 0.01185
+ru B: 0.001271 | 0.006123 | 0.01217 | 0.02609 | 0.06314 | 0.0182
+ru C_total: 1.359e-06 | 1.359e-06 | 1.359e-06 | 6.446e-06 | 1.653e-05 | 4.315e-06
+ru D: 2.359e-05 | 2.683e-05 | 3.066e-05 | 3.256e-05 | 3.51e-05 | 2.998e-05
+ru G: 0.518 | 0.624 | 0.8032 | 0.8339 | 0.9921 | 0.7566
+ru e_s: 0.5373 | 0.6501 | 0.7334 | 0.8772 | 0.9235 | 0.7531
+ru cross sum: min -0.002376, max 0.001248
+
+Position of the targets in the class of multiplicative signs (cm), and in ru:  quantity: value, rank among the 24 seeds (0 = below all, 24 = above all)
+a E_c = 0.5928: cm rank 4, ru rank 3
+a D = 3.885e-05: cm rank 24, ru rank 24
+a G = 0.5944: cm rank 4, ru rank 4
+a A = 0: cm rank 0, ru rank 0
+a B = 0: cm rank 0, ru rank 0
+b E_c = 0.5807: cm rank 2, ru rank 3
+b D = 2.951e-05: cm rank 13, ru rank 9
+b G = 0.5587: cm rank 3, ru rank 2
+b A = 0.01894: cm rank 20, ru rank 18
+b B = 0.002689: cm rank 3, ru rank 3
+identity E_c = A + B + C_perp + D + G + x_CD + x_CG + x_DG exact for 53 of 53 vectors

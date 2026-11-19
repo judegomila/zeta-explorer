@@ -11,11 +11,11 @@ Options: --no-fetch  (do not git-fetch missing PR refs)
 """
 import os, re, sys, glob, hashlib, subprocess, json
 
-ROOT = ''
+ROOT = '.'
 GH = '~/Documents/GitHub'
 ENGINE = ROOT + '/tmp/research-2026-11-16/engine'
 OUT = ENGINE + '/index'
-MEM = '~/.claude/projects/-Users-USER-Documents-GitHub-mathexplorer/memory'
+MEM = '~/.claude/projects/[project]/memory'
 CAP = 180_000          # bytes per chunk
 NO_FETCH = '--no-fetch' in sys.argv
 MANIFEST = []          # (file, bytes, lines, covers, notes)

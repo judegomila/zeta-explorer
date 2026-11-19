@@ -1,0 +1,69 @@
+{
+ "R1_series_vs_closed_forms_and_Hecke": {
+  "(1.6+0.45j)": {
+   "A(1) series - closed": 3.372413689986904e-07,
+   "A(0) series - closed": 1.748025813442523e-07,
+   "A(9) series - closed": 3.3508473869833667e-07,
+   "A(25) series - closed": 3.276426434360013e-07,
+   "abs A(1)": 0.021716270304485915,
+   "Hecke defect p=11 m=1 (rel)": 3.078945409383897e-07,
+   "Hecke defect p=11 m=2 (rel)": 1.6108633151027389e-06,
+   "Hecke defect p=11 m=5 (rel)": 1.359886451247925e-06,
+   "Hecke defect p=11 m=-3 (rel)": 1.223094159800698e-07,
+   "Hecke defect p=13 m=1 (rel)": 4.284718901441703e-07,
+   "Hecke defect p=13 m=2 (rel)": 7.877806543070278e-07,
+   "Hecke defect p=13 m=5 (rel)": 5.190752445882515e-07,
+   "Hecke defect p=13 m=-3 (rel)": 2.229596082247416e-07
+  },
+  "(1.75-1.2j)": {
+   "A(1) series - closed": 2.3787022191500425e-08,
+   "A(0) series - closed": 1.2330695801723458e-08,
+   "A(9) series - closed": 2.344376848790904e-08,
+   "A(25) series - closed": 2.2811458095540623e-08,
+   "abs A(1)": 0.010726675284819022,
+   "Hecke defect p=11 m=1 (rel)": 6.65729329332211e-08,
+   "Hecke defect p=11 m=2 (rel)": 2.3895610251128863e-07,
+   "Hecke defect p=11 m=5 (rel)": 2.0372138697000837e-07,
+   "Hecke defect p=11 m=-3 (rel)": 2.6388854620362893e-08,
+   "Hecke defect p=13 m=1 (rel)": 9.529919788655973e-08,
+   "Hecke defect p=13 m=2 (rel)": 1.0471103093737415e-07,
+   "Hecke defect p=13 m=5 (rel)": 7.7000062313355e-08,
+   "Hecke defect p=13 m=-3 (rel)": 2.5123260265321784e-08
+  }
+ },
+ "R1_note": "series truncated at c <= 1400; tail of order C^(-2.2) times divisor factors",
+ "R2_zeros_1_3_4_5": {
+  "zero1": {
+   "abs A(1,s_rho)": 1.31336636708762e-26,
+   "abs A(5,s_rho)": 1.0830919306282156,
+   "abs A(-3,s_rho)": 0.7432606006115687,
+   "abs zeta(2rho)": 1.9487573138172474
+  },
+  "zero3": {
+   "abs A(1,s_rho)": 2.065606647106002e-25,
+   "abs A(5,s_rho)": 1.1737280361334133,
+   "abs A(-3,s_rho)": 1.684839424902497,
+   "abs zeta(2rho)": 0.5341799783695194
+  },
+  "zero4": {
+   "abs A(1,s_rho)": 6.793379037857698e-26,
+   "abs A(5,s_rho)": 2.661629531710712,
+   "abs A(-3,s_rho)": 0.9737559807551918,
+   "abs zeta(2rho)": 0.5147663391810411
+  },
+  "zero5": {
+   "abs A(1,s_rho)": 1.468443149348205e-25,
+   "abs A(5,s_rho)": 0.16312027712512356,
+   "abs A(-3,s_rho)": 1.7615350696591956,
+   "abs zeta(2rho)": 0.8129714713445292
+  }
+ },
+ "R3_min over d, beta_0 in [0,1/2] of w*(1+beta_0,d) - beta_0": 0.19999999999999996,
+ "R3_w*(1+b0,4) for b0 = 0, .1, .25, .5": [
+  0.6,
+  0.6862068965517243,
+  0.8214285714285714,
+  1.0555555555555556
+ ],
+ "seconds": 0.19954609870910645
+}

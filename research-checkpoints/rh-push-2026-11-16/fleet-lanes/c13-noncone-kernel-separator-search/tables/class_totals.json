@@ -1,0 +1,542 @@
+{
+ "P2|D1 (all stages)": {
+  "one": 122277,
+  "rejected_by_training_member": {
+   "DH": 0,
+   "T-NR": 68585,
+   "E_a": 0,
+   "HEAT": 0,
+   "SGN": 104899,
+   "U": 86004,
+   "DEL/THIN": 0,
+   "EIS-w": 119655,
+   "theta^w": 0
+  },
+  "heldout_ge95": {
+   "DH": 0,
+   "T-NR": 0,
+   "E_a": 0,
+   "HEAT": 0,
+   "SGN": 0,
+   "U": 0,
+   "DEL/THIN": 0,
+   "EIS-w": 0,
+   "theta^w": 0
+  },
+  "no_member_opposite": {
+   "DH": 0,
+   "T-NR": 9692,
+   "E_a": 122277,
+   "HEAT": 122277,
+   "SGN": 17150,
+   "U": 18053,
+   "DEL/THIN": 122277,
+   "EIS-w": 0,
+   "theta^w": 122277
+  }
+ },
+ "P2|D2 (all stages)": {
+  "one": 166471,
+  "rejected_by_training_member": {
+   "DH": 0,
+   "T-NR": 29355,
+   "E_a": 50501,
+   "HEAT": 34,
+   "SGN": 137385,
+   "U": 136004,
+   "DEL/THIN": 551,
+   "EIS-w": 46025,
+   "theta^w": 60078
+  },
+  "heldout_ge95": {
+   "DH": 0,
+   "T-NR": 5109,
+   "E_a": 26270,
+   "HEAT": 2,
+   "SGN": 0,
+   "U": 828,
+   "DEL/THIN": 0,
+   "EIS-w": 113,
+   "theta^w": 3
+  },
+  "no_member_opposite": {
+   "DH": 8603,
+   "T-NR": 98097,
+   "E_a": 86630,
+   "HEAT": 166383,
+   "SGN": 17440,
+   "U": 15112,
+   "DEL/THIN": 165920,
+   "EIS-w": 26375,
+   "theta^w": 86074
+  }
+ },
+ "P2|D3a (all stages)": {
+  "one": 148987,
+  "rejected_by_training_member": {
+   "DH": 0,
+   "T-NR": 68144,
+   "E_a": 0,
+   "HEAT": 0,
+   "SGN": 138940,
+   "U": 138918,
+   "DEL/THIN": 120990,
+   "EIS-w": 0,
+   "theta^w": 0
+  },
+  "heldout_ge95": {
+   "DH": 0,
+   "T-NR": 0,
+   "E_a": 0,
+   "HEAT": 0,
+   "SGN": 20567,
+   "U": 107563,
+   "DEL/THIN": 62390,
+   "EIS-w": 0,
+   "theta^w": 0
+  },
+  "no_member_opposite": {
+   "DH": 0,
+   "T-NR": 5454,
+   "E_a": 148987,
+   "HEAT": 148987,
+   "SGN": 10034,
+   "U": 9888,
+   "DEL/THIN": 27856,
+   "EIS-w": 148987,
+   "theta^w": 148987
+  }
+ },
+ "P2|D3b (all stages)": {
+  "one": 191697,
+  "rejected_by_training_member": {
+   "DH": 0,
+   "T-NR": 8157,
+   "E_a": 254,
+   "HEAT": 366,
+   "SGN": 154793,
+   "U": 182964,
+   "DEL/THIN": 130263,
+   "EIS-w": 336,
+   "theta^w": 4213
+  },
+  "heldout_ge95": {
+   "DH": 1265,
+   "T-NR": 0,
+   "E_a": 254,
+   "HEAT": 15,
+   "SGN": 0,
+   "U": 1013,
+   "DEL/THIN": 5266,
+   "EIS-w": 145,
+   "theta^w": 0
+  },
+  "no_member_opposite": {
+   "DH": 27762,
+   "T-NR": 50754,
+   "E_a": 191442,
+   "HEAT": 190439,
+   "SGN": 28535,
+   "U": 7975,
+   "DEL/THIN": 57036,
+   "EIS-w": 191116,
+   "theta^w": 180963
+  }
+ },
+ "P2|all": {
+  "one": 629432,
+  "rejected_by_training_member": {
+   "DH": 0,
+   "T-NR": 174241,
+   "E_a": 50755,
+   "HEAT": 400,
+   "SGN": 536017,
+   "U": 543890,
+   "DEL/THIN": 251804,
+   "EIS-w": 166016,
+   "theta^w": 64291
+  },
+  "heldout_ge95": {
+   "DH": 1265,
+   "T-NR": 5109,
+   "E_a": 26524,
+   "HEAT": 17,
+   "SGN": 20567,
+   "U": 109404,
+   "DEL/THIN": 67656,
+   "EIS-w": 258,
+   "theta^w": 3
+  },
+  "no_member_opposite": {
+   "DH": 36365,
+   "T-NR": 163997,
+   "E_a": 549336,
+   "HEAT": 628086,
+   "SGN": 73159,
+   "U": 51028,
+   "DEL/THIN": 373089,
+   "EIS-w": 366478,
+   "theta^w": 538301
+  }
+ },
+ "P1|D1 (all stages)": {
+  "one": 461695,
+  "rejected_by_training_member": {
+   "DH": 0,
+   "T-NR": 228479,
+   "E_a": 0,
+   "HEAT": 0,
+   "SGN": 136141,
+   "U": 104489,
+   "DEL/THIN": 0,
+   "EIS-w": 312759,
+   "theta^w": 0
+  },
+  "heldout_ge95": {
+   "DH": 0,
+   "T-NR": 11241,
+   "E_a": 0,
+   "HEAT": 0,
+   "SGN": 0,
+   "U": 0,
+   "DEL/THIN": 0,
+   "EIS-w": 0,
+   "theta^w": 0
+  },
+  "no_member_opposite": {
+   "DH": 11797,
+   "T-NR": 51342,
+   "E_a": 461695,
+   "HEAT": 461695,
+   "SGN": 313644,
+   "U": 314068,
+   "DEL/THIN": 461671,
+   "EIS-w": 9775,
+   "theta^w": 461695
+  }
+ },
+ "P1|D2 (all stages)": {
+  "one": 1351536,
+  "rejected_by_training_member": {
+   "DH": 7273,
+   "T-NR": 200939,
+   "E_a": 505684,
+   "HEAT": 619,
+   "SGN": 343281,
+   "U": 346123,
+   "DEL/THIN": 58568,
+   "EIS-w": 393264,
+   "theta^w": 451899
+  },
+  "heldout_ge95": {
+   "DH": 0,
+   "T-NR": 50366,
+   "E_a": 442362,
+   "HEAT": 34,
+   "SGN": 446,
+   "U": 1058,
+   "DEL/THIN": 5953,
+   "EIS-w": 31477,
+   "theta^w": 112487
+  },
+  "no_member_opposite": {
+   "DH": 470024,
+   "T-NR": 881402,
+   "E_a": 785809,
+   "HEAT": 1349458,
+   "SGN": 950201,
+   "U": 871604,
+   "DEL/THIN": 1279928,
+   "EIS-w": 165682,
+   "theta^w": 805057
+  }
+ },
+ "P1|D3a (all stages)": {
+  "one": 1592432,
+  "rejected_by_training_member": {
+   "DH": 2148,
+   "T-NR": 518741,
+   "E_a": 0,
+   "HEAT": 0,
+   "SGN": 332894,
+   "U": 333259,
+   "DEL/THIN": 249476,
+   "EIS-w": 0,
+   "theta^w": 3
+  },
+  "heldout_ge95": {
+   "DH": 0,
+   "T-NR": 6747,
+   "E_a": 0,
+   "HEAT": 0,
+   "SGN": 29592,
+   "U": 178226,
+   "DEL/THIN": 95839,
+   "EIS-w": 0,
+   "theta^w": 0
+  },
+  "no_member_opposite": {
+   "DH": 203006,
+   "T-NR": 336365,
+   "E_a": 1592432,
+   "HEAT": 1592432,
+   "SGN": 1253459,
+   "U": 1252111,
+   "DEL/THIN": 1333198,
+   "EIS-w": 1592325,
+   "theta^w": 1587865
+  }
+ },
+ "P1|D3b (all stages)": {
+  "one": 2832171,
+  "rejected_by_training_member": {
+   "DH": 3548,
+   "T-NR": 354296,
+   "E_a": 4318,
+   "HEAT": 1289,
+   "SGN": 801877,
+   "U": 1146924,
+   "DEL/THIN": 665001,
+   "EIS-w": 4041,
+   "theta^w": 8528
+  },
+  "heldout_ge95": {
+   "DH": 1265,
+   "T-NR": 380,
+   "E_a": 4315,
+   "HEAT": 56,
+   "SGN": 10121,
+   "U": 18287,
+   "DEL/THIN": 77952,
+   "EIS-w": 2774,
+   "theta^w": 0
+  },
+  "no_member_opposite": {
+   "DH": 1161728,
+   "T-NR": 1217649,
+   "E_a": 2827851,
+   "HEAT": 2827867,
+   "SGN": 1891328,
+   "U": 1627381,
+   "DEL/THIN": 2072655,
+   "EIS-w": 2827518,
+   "theta^w": 2775958
+  }
+ },
+ "P1|all": {
+  "one": 6237834,
+  "rejected_by_training_member": {
+   "DH": 12969,
+   "T-NR": 1302455,
+   "E_a": 510002,
+   "HEAT": 1908,
+   "SGN": 1614193,
+   "U": 1930795,
+   "DEL/THIN": 973045,
+   "EIS-w": 710064,
+   "theta^w": 460430
+  },
+  "heldout_ge95": {
+   "DH": 1265,
+   "T-NR": 68734,
+   "E_a": 446677,
+   "HEAT": 90,
+   "SGN": 40159,
+   "U": 197571,
+   "DEL/THIN": 179744,
+   "EIS-w": 34251,
+   "theta^w": 112487
+  },
+  "no_member_opposite": {
+   "DH": 1846555,
+   "T-NR": 2486758,
+   "E_a": 5667787,
+   "HEAT": 6231452,
+   "SGN": 4408632,
+   "U": 4065164,
+   "DEL/THIN": 5147452,
+   "EIS-w": 4595300,
+   "theta^w": 5630575
+  }
+ },
+ "P0|D1 (all stages)": {
+  "one": 1523842,
+  "rejected_by_training_member": {
+   "DH": 750997,
+   "T-NR": 508985,
+   "E_a": 780180,
+   "HEAT": 0,
+   "SGN": 362109,
+   "U": 292804,
+   "DEL/THIN": 58728,
+   "EIS-w": 1208652,
+   "theta^w": 0
+  },
+  "heldout_ge95": {
+   "DH": 67017,
+   "T-NR": 16052,
+   "E_a": 754462,
+   "HEAT": 0,
+   "SGN": 463,
+   "U": 14772,
+   "DEL/THIN": 22486,
+   "EIS-w": 52868,
+   "theta^w": 0
+  },
+  "no_member_opposite": {
+   "DH": 11798,
+   "T-NR": 677727,
+   "E_a": 741300,
+   "HEAT": 1523842,
+   "SGN": 1140470,
+   "U": 1149026,
+   "DEL/THIN": 1461527,
+   "EIS-w": 14527,
+   "theta^w": 1502472
+  }
+ },
+ "P0|D2 (all stages)": {
+  "one": 2884037,
+  "rejected_by_training_member": {
+   "DH": 817144,
+   "T-NR": 616349,
+   "E_a": 1367326,
+   "HEAT": 1628,
+   "SGN": 1075206,
+   "U": 1069497,
+   "DEL/THIN": 486464,
+   "EIS-w": 1523989,
+   "theta^w": 1071650
+  },
+  "heldout_ge95": {
+   "DH": 248657,
+   "T-NR": 156224,
+   "E_a": 1223763,
+   "HEAT": 83,
+   "SGN": 3063,
+   "U": 44383,
+   "DEL/THIN": 56937,
+   "EIS-w": 254215,
+   "theta^w": 180914
+  },
+  "no_member_opposite": {
+   "DH": 500592,
+   "T-NR": 1638658,
+   "E_a": 1400541,
+   "HEAT": 2878755,
+   "SGN": 1730177,
+   "U": 1644215,
+   "DEL/THIN": 2331145,
+   "EIS-w": 198394,
+   "theta^w": 1578098
+  }
+ },
+ "P0|D3a (all stages)": {
+  "one": 2305985,
+  "rejected_by_training_member": {
+   "DH": 86932,
+   "T-NR": 773907,
+   "E_a": 0,
+   "HEAT": 0,
+   "SGN": 601781,
+   "U": 592463,
+   "DEL/THIN": 388840,
+   "EIS-w": 0,
+   "theta^w": 1780
+  },
+  "heldout_ge95": {
+   "DH": 0,
+   "T-NR": 7437,
+   "E_a": 0,
+   "HEAT": 0,
+   "SGN": 36748,
+   "U": 264292,
+   "DEL/THIN": 128425,
+   "EIS-w": 0,
+   "theta^w": 0
+  },
+  "no_member_opposite": {
+   "DH": 204171,
+   "T-NR": 539560,
+   "E_a": 2305985,
+   "HEAT": 2305985,
+   "SGN": 1691987,
+   "U": 1695788,
+   "DEL/THIN": 1894739,
+   "EIS-w": 2302610,
+   "theta^w": 2212732
+  }
+ },
+ "P0|D3b (all stages)": {
+  "one": 4192743,
+  "rejected_by_training_member": {
+   "DH": 416039,
+   "T-NR": 752462,
+   "E_a": 166926,
+   "HEAT": 2156,
+   "SGN": 1419806,
+   "U": 1830980,
+   "DEL/THIN": 1115105,
+   "EIS-w": 202747,
+   "theta^w": 65173
+  },
+  "heldout_ge95": {
+   "DH": 147179,
+   "T-NR": 14260,
+   "E_a": 166757,
+   "HEAT": 101,
+   "SGN": 24044,
+   "U": 40399,
+   "DEL/THIN": 117762,
+   "EIS-w": 168231,
+   "theta^w": 0
+  },
+  "no_member_opposite": {
+   "DH": 1194214,
+   "T-NR": 1737152,
+   "E_a": 4025785,
+   "HEAT": 4185727,
+   "SGN": 2582633,
+   "U": 2280614,
+   "DEL/THIN": 2934887,
+   "EIS-w": 3967346,
+   "theta^w": 3771900
+  }
+ },
+ "P0|all": {
+  "one": 10906607,
+  "rejected_by_training_member": {
+   "DH": 2071112,
+   "T-NR": 2651703,
+   "E_a": 2314432,
+   "HEAT": 3784,
+   "SGN": 3458902,
+   "U": 3785744,
+   "DEL/THIN": 2049137,
+   "EIS-w": 2935388,
+   "theta^w": 1138603
+  },
+  "heldout_ge95": {
+   "DH": 462853,
+   "T-NR": 193973,
+   "E_a": 2144982,
+   "HEAT": 184,
+   "SGN": 64318,
+   "U": 363846,
+   "DEL/THIN": 325610,
+   "EIS-w": 475314,
+   "theta^w": 180914
+  },
+  "no_member_opposite": {
+   "DH": 1910775,
+   "T-NR": 4593097,
+   "E_a": 8473611,
+   "HEAT": 10894309,
+   "SGN": 7145267,
+   "U": 6769643,
+   "DEL/THIN": 8622298,
+   "EIS-w": 6482877,
+   "theta^w": 9065202
+  }
+ }
+}

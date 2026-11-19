@@ -1,0 +1,55 @@
+{
+ "slug": "c13-tnr-invariance-prefilter-noncone-census",
+ "round": 13,
+ "kind": "combine",
+ "nodes": [],
+ "tags": [
+  "control-tnr",
+  "control-ea",
+  "prefilter",
+  "total-positivity",
+  "edrei-thoma",
+  "cone-endomorphism",
+  "polya-frequency",
+  "dilation-minors",
+  "theta-kernel"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "No statement about zeros of zeta. Lemma P (proved): T-NR with c > 0 satisfies every hypothesis of type S1 (linear identities and classes), S2 (dilation-invariant convex cone conditions on objects linear in F) and S3 (conditions at primes other than p0); exclusions X1-X5 listed. Consistency check against the device table: 13 of 37 device types carry a T-NR record, 8 recorded passes and 7 recorded failures, each failure at an excluded step, 0 disagreements (typed with the records visible; 8 of the 15 cells are inferences). Lemma L (proved, classical ingredients; conditional on a measured sign hypothesis for zeta): for c > 0 the T-NR weights are totally positive iff c >= 2, and minors with rows on one p0^2-lattice inherit zeta's sign. Lemma E (proved, classical corollary): the xi-kernel of E_a inherits every Polya-frequency order of Phi. Edrei-Thoma local total positivity holds exactly for T-NR (c >= 2) and E_a and is closed as a device. Census of 12 non-cone inequality types: no entry fails both T-NR and E_a at an unconditional input of zeta that another control does not pass; order-4 theta-kernel minors fail both in measurement (rarely for T-NR outside p0 = 2, 3) but theta^(1/2), theta^(1/3) and theta^3 pass, while theta^w with w >= 3.5 does not. Verdict precise-obstruction, score 0.",
+ "obstruction": "Pre-filter and census. Lemma P: T-NR with c > 0 satisfies every hypothesis of type S1 (linear identities), S2 (dilation-invariant convex cone conditions on objects linear in F) and S3 (conditions at primes other than p0); exclusions X1-X5. Device table: 13 of 37 types carry a T-NR record, 0 disagreements. Lemma L: T-NR weights totally positive iff c >= 2. Lemma E: the xi-kernel of E_a inherits every Polya-frequency order. Census of 12 non-cone types: no entry fails both T-NR and E_a at an unconditional input of zeta that another control does not pass; order-4 theta-kernel minors fail both in measurement but theta^(1/2), theta^(1/3), theta^3 pass. Edrei-Thoma local total positivity closed as a device.",
+ "obstructionKind": "control-passes",
+ "controlsThatDefeat": [
+  "T-NR (cone conditions, lattice-aligned minors, Edrei-Thoma for c >= 2)",
+  "E_a (translation-type determinantal conditions on the xi-kernel; Edrei-Thoma)",
+  "theta^w for w = 1/2, 1/3, 3 (order-4 theta-kernel minors)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 2,
+ "aboutZeros": false,
+ "refereeNote": "Independent pass appended to tmp/research-2026-11-16/push/c13-tnr-invariance-prefilter-noncone-census/REFEREE.md (author's second pass kept above it). Lemmas P, L, E re-derived by hand and confirmed; no RH assumption, no verified-height input, no statement about zeros. Five corrections. (R-1) Record misquoted: devices 2 and 15 cite stack-combinator TABLE row 19 (Theorem R) as F for T-NR; the NR cell is N (not formulable); the F cells are TW+ and TW - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "T-NR and E_a are separated by complementary kernels: translation-type determinantal conditions on the xi-kernel cannot fail E_a (convolution) and fail T-NR at order 2; theta-kernel conditions of order 1-2 with the constant term cannot fail T-NR (cone) and fail E_a. Total positivity at one prime is ordered against the target: it holds exactly when parameters are real and non-tempered. Low-order minor signs of the theta kernel follow its constant term, so zeta and primitive characters differ.",
+ "followUp": "Independent referee for Lemmas P, L, E and the device table (REFEREE.md is the author's second pass). Then let c13-noncone-kernel-separator-search test the PREFILTER.md prediction: no survivor under P2; under P0 only order-3/4 minors on nodes not aligned with p0, expected to be passed by theta^w.",
+ "resultFile": "tmp/research-2026-11-16/push/c13-tnr-invariance-prefilter-noncone-census/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c13-tnr-invariance-prefilter-noncone-census/REFEREE.md",
+ "launchedNodes": [],
+ "engineVerdict": "closed",
+ "secondReferee": {
+  "by": "c14-referee-r13-independent",
+  "outcome": "holds; two sentences in a narrower form",
+  "narrowerForm": "Lemma P and Proposition S hold when every hypothesis of a device is typed in ONE normalisation (Laurent form: exact s <-> 1-s, frequencies log(n/p0^N); D form: integer frequencies, conductor p0^(2N)); a step using both is type X4. Lemma L is conditional on a constant sign of zeta's lattice-row minors (measured, orders 3 to 5, two node ranges; not proved). 'Totally positive exactly when the zeros leave the line' holds for c > 0 with c = 2 separated (totally positive, double zeros on the line). Lemma E concerns the kernel of the product of two Riemann xi functions.",
+  "downgrades": [
+   "verdict item 3 and section 2.3 closing sentence: restrict to c > 0; at c = 2 the zeros are on the line",
+   "census N2 and PREFILTER.md row 'T-NR, c >= 2, lattice rows': 'PROVED from the zeta row' -> 'PROVED relative to the measured zeta row'",
+   "use rule of Lemma P: add 'all hypotheses typed in one normalisation'"
+  ],
+  "upgrades": [],
+  "report": "tmp/research-2026-11-16/push/c14-referee-r13-independent/REFEREE_c13-tnr-invariance-prefilter-noncone-census.md"
+ }
+}

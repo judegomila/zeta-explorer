@@ -1,0 +1,5 @@
+== F. DH twisted by psi mod q: rotated pair F(s,psi)F(s,psibar) (5q/pi)^s Gamma((s+k)/2)^2/|.|, s = 1/2+it
+   q=11 (q mod 5 = 1): max |Im|/|value| over 4 heights x 3 characters = 3.96e-20; signs of real part seen: [-1, 1]
+   q=19 (q mod 5 = 4): max |Im|/|value| over 4 heights x 3 characters = 7.78e-20; signs of real part seen: [-1, 1]
+   q=7 (q mod 5 = 2): max |Im|/|value| over 4 heights x 3 characters = 1.0; signs of real part seen: [-1, 1]
+   q=13 (q mod 5 = 3): max |Im|/|value| over 4 heights x 3 characters = 1.0; signs of real part seen: [-1, 1]

@@ -1,0 +1,314 @@
+{
+ "functionals": 300,
+ "setA": 240,
+ "setB": 60,
+ "objects": 35,
+ "entries": {
+  "stored_undecided_mine_decided": 377,
+  "agree": 10123
+ },
+ "by_family": {
+  "D1": {
+   "stored_undecided_mine_decided": 47,
+   "agree": 1353
+  },
+  "D2-F1": {
+   "stored_undecided_mine_decided": 36,
+   "agree": 1014
+  },
+  "D2-F2": {
+   "agree": 1021,
+   "stored_undecided_mine_decided": 29
+  },
+  "D2-F3": {
+   "stored_undecided_mine_decided": 156,
+   "agree": 544
+  },
+  "D2-F4": {
+   "agree": 662,
+   "stored_undecided_mine_decided": 38
+  },
+  "D2-F5": {
+   "stored_undecided_mine_decided": 38,
+   "agree": 662
+  },
+  "D3a": {
+   "agree": 1399,
+   "stored_undecided_mine_decided": 1
+  },
+  "D3b-F1": {
+   "agree": 700
+  },
+  "D3b-F2": {
+   "agree": 700
+  },
+  "D3b-F3": {
+   "agree": 668,
+   "stored_undecided_mine_decided": 32
+  },
+  "D3b-F4": {
+   "agree": 700
+  },
+  "D3b-F5": {
+   "agree": 700
+  }
+ },
+ "by_object": {
+  "ZETA": {
+   "stored_undecided_mine_decided": 41,
+   "agree": 259
+  },
+  "chi3.2": {
+   "agree": 300
+  },
+  "chi4.3": {
+   "agree": 299,
+   "stored_undecided_mine_decided": 1
+  },
+  "chi5.2c": {
+   "agree": 297,
+   "stored_undecided_mine_decided": 3
+  },
+  "chi5.4": {
+   "agree": 300
+  },
+  "chi7.2c": {
+   "agree": 294,
+   "stored_undecided_mine_decided": 6
+  },
+  "chi7.3c": {
+   "agree": 298,
+   "stored_undecided_mine_decided": 2
+  },
+  "chi7.6": {
+   "agree": 295,
+   "stored_undecided_mine_decided": 5
+  },
+  "chi8.3": {
+   "agree": 299,
+   "stored_undecided_mine_decided": 1
+  },
+  "chi8.5": {
+   "agree": 295,
+   "stored_undecided_mine_decided": 5
+  },
+  "chi9.2c": {
+   "agree": 297,
+   "stored_undecided_mine_decided": 3
+  },
+  "chi9.4c": {
+   "agree": 291,
+   "stored_undecided_mine_decided": 9
+  },
+  "chi11.2c": {
+   "agree": 299,
+   "stored_undecided_mine_decided": 1
+  },
+  "chi11.3c": {
+   "agree": 292,
+   "stored_undecided_mine_decided": 8
+  },
+  "chi11.5c": {
+   "agree": 293,
+   "stored_undecided_mine_decided": 7
+  },
+  "chi11.7c": {
+   "agree": 292,
+   "stored_undecided_mine_decided": 8
+  },
+  "chi11.10": {
+   "agree": 300
+  },
+  "chi12.11": {
+   "agree": 292,
+   "stored_undecided_mine_decided": 8
+  },
+  "chi13.2c": {
+   "agree": 291,
+   "stored_undecided_mine_decided": 9
+  },
+  "chi13.3c": {
+   "agree": 291,
+   "stored_undecided_mine_decided": 9
+  },
+  "chi13.4c": {
+   "agree": 291,
+   "stored_undecided_mine_decided": 9
+  },
+  "chi13.5c": {
+   "agree": 299,
+   "stored_undecided_mine_decided": 1
+  },
+  "chi13.6c": {
+   "agree": 299,
+   "stored_undecided_mine_decided": 1
+  },
+  "chi13.12": {
+   "agree": 299,
+   "stored_undecided_mine_decided": 1
+  },
+  "DH": {
+   "agree": 298,
+   "stored_undecided_mine_decided": 2
+  },
+  "TNR3_2.2": {
+   "agree": 282,
+   "stored_undecided_mine_decided": 18
+  },
+  "EA0.125": {
+   "agree": 285,
+   "stored_undecided_mine_decided": 15
+  },
+  "EA0.250": {
+   "agree": 285,
+   "stored_undecided_mine_decided": 15
+  },
+  "HEAT-0.10": {
+   "stored_undecided_mine_decided": 41,
+   "agree": 259
+  },
+  "HEAT-0.50": {
+   "stored_undecided_mine_decided": 41,
+   "agree": 259
+  },
+  "SGN-LIOU": {
+   "stored_undecided_mine_decided": 34,
+   "agree": 266
+  },
+  "EIS0.20+3.00i": {
+   "agree": 292,
+   "stored_undecided_mine_decided": 8
+  },
+  "EIS0.10+5.00i": {
+   "agree": 297,
+   "stored_undecided_mine_decided": 3
+  },
+  "THW0.50": {
+   "stored_undecided_mine_decided": 31,
+   "agree": 269
+  },
+  "THW3.00": {
+   "stored_undecided_mine_decided": 31,
+   "agree": 269
+  }
+ },
+ "disagreements": [],
+ "precision_bits_used": {
+  "256": 10426,
+  "1024": 74
+ },
+ "unresolved_examples": [],
+ "zeta_sign_by_order": {
+  "D1_order3": {
+   "-1": 30
+  },
+  "D1_HEAT-0.10_vs_zeta": {
+   "same": 40
+  },
+  "D1_HEAT-0.50_vs_zeta": {
+   "same": 40
+  },
+  "D1_EA0.125_vs_zeta": {
+   "same": 30,
+   "opp": 10
+  },
+  "D1_EA0.250_vs_zeta": {
+   "same": 30,
+   "opp": 10
+  },
+  "D1_EIS0.20+3.00i_vs_zeta": {
+   "same": 13,
+   "opp": 27
+  },
+  "D1_EIS0.10+5.00i_vs_zeta": {
+   "opp": 16,
+   "same": 24
+  },
+  "D1_THW0.50_vs_zeta": {
+   "same": 40
+  },
+  "D1_THW3.00_vs_zeta": {
+   "same": 40
+  },
+  "D1_order4": {
+   "-1": 10
+  },
+  "D3a_order2": {
+   "-1": 2
+  },
+  "D3a_HEAT-0.10_vs_zeta": {
+   "same": 40
+  },
+  "D3a_HEAT-0.50_vs_zeta": {
+   "same": 40
+  },
+  "D3a_EA0.125_vs_zeta": {
+   "same": 40
+  },
+  "D3a_EA0.250_vs_zeta": {
+   "same": 40
+  },
+  "D3a_EIS0.20+3.00i_vs_zeta": {
+   "same": 40
+  },
+  "D3a_EIS0.10+5.00i_vs_zeta": {
+   "same": 40
+  },
+  "D3a_THW0.50_vs_zeta": {
+   "same": 40
+  },
+  "D3a_THW3.00_vs_zeta": {
+   "same": 40
+  },
+  "D3a_order4": {
+   "1": 13
+  },
+  "D3a_order3": {
+   "-1": 25
+  }
+ },
+ "n_positives_implemented": 24,
+ "P2_one_signed_by_referee_signs": 63,
+ "P2_one_signed_by_tag": {
+  "B:D1": 20,
+  "B:D2-F1": 10,
+  "A:D2-F2": 1,
+  "B:D2-F2": 10,
+  "A:D3a": 1,
+  "B:D3a": 20,
+  "A:D3b-F2": 1
+ },
+ "controls_on_P2_one_signed": {
+  "DH:same": 63,
+  "EA0.125:opposite": 2,
+  "EA0.125:same": 61,
+  "EA0.250:opposite": 2,
+  "EA0.250:same": 61,
+  "EIS0.10+5.00i:opposite": 8,
+  "EIS0.10+5.00i:same": 55,
+  "EIS0.20+3.00i:opposite": 21,
+  "EIS0.20+3.00i:same": 42,
+  "HEAT-0.10:same": 63,
+  "HEAT-0.50:same": 63,
+  "SGN-LIOU:opposite": 31,
+  "SGN-LIOU:same": 32,
+  "THW0.50:opposite": 2,
+  "THW0.50:same": 61,
+  "THW3.00:same": 63,
+  "TNR3_2.2:opposite": 25,
+  "TNR3_2.2:same": 38
+ },
+ "setB_stored_onesigned_confirmed": [
+  60,
+  60
+ ],
+ "D1_setB_TNR": {
+  "stored_opp/mine_opp": 10,
+  "stored_notopp/mine_notopp": 10
+ },
+ "lemmaH_rows_in_sample": {
+  "D3a:zeta-1:heat-1": 4,
+  "D3b-F1:zeta-1:heat-1": 2
+ },
+ "max_task_seconds": 4.302366018295288
+}

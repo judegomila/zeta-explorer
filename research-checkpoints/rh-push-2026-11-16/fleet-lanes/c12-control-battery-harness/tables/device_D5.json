@@ -1,0 +1,202 @@
+{
+ "DEL-0.75": {
+  "sizeS": 16210,
+  "A_coefficients_min": 0.0,
+  "prime_powers_checked": 665134,
+  "logG_X_at_b": -2.7267506442281846,
+  "D_X": -0.42854444631146565,
+  "exponent_estimate": 0.9999820252692794,
+  "stage_identity_max_rel": 6.121659339392615e-34,
+  "table_vs_stage": [
+   {
+    "s": "2",
+    "diff": 3.9728923262316584e-08,
+    "tail_bound": 1e-07
+   },
+   {
+    "s": "3",
+    "diff": 2.4424906541753444e-15,
+    "tail_bound": 5e-15
+   },
+   {
+    "s": "(2+10j)",
+    "diff": 3.953770774425024e-09,
+    "tail_bound": 1e-07
+   }
+  ],
+  "A_X_real": {
+   "0.95": 1.0995719952115137,
+   "0.8": 2.0834687934687084,
+   "0.76": 2.576344212821164,
+   "0.75": 2.7267506442281846
+  }
+ },
+ "DEL-0.9": {
+  "sizeS": 148727,
+  "A_coefficients_min": 0.0,
+  "prime_powers_checked": 665134,
+  "logG_X_at_b": -2.9272801194912508,
+  "D_X": -0.4228636952561132,
+  "exponent_estimate": 1.0000352253371672,
+  "stage_identity_max_rel": 8.766918441312083e-33,
+  "table_vs_stage": [
+   {
+    "s": "2",
+    "diff": 1.5934800812189565e-08,
+    "tail_bound": 1e-07
+   },
+   {
+    "s": "3",
+    "diff": 8.881784197001252e-16,
+    "tail_bound": 5e-15
+   },
+   {
+    "s": "(2+10j)",
+    "diff": 1.5921869245361811e-09,
+    "tail_bound": 1e-07
+   }
+  ],
+  "A_X_real": {
+   "1.1": 1.294781220611458,
+   "0.9500000000000001": 2.2859742150049325,
+   "0.91": 2.777539405537698,
+   "0.9": 2.9272801194912508
+  }
+ },
+ "checks": [
+  {
+   "check": "DEL-0.75: |S| exact",
+   "ok": true,
+   "got": 16210,
+   "recorded": 16210
+  },
+  {
+   "check": "DEL-0.75: coefficients of A >= 0 at every prime power <= 1e7",
+   "ok": true,
+   "got": 0.0,
+   "recorded": ">= 0"
+  },
+  {
+   "check": "DEL-0.75: a(p) = 0 exactly on S, 1 off S",
+   "ok": true,
+   "got": 16210,
+   "recorded": 16210
+  },
+  {
+   "check": "DEL-0.75: table completely multiplicative (20000 random products)",
+   "ok": true,
+   "got": "all equal",
+   "recorded": "all equal"
+  },
+  {
+   "check": "DEL-0.75: log G_X(b), abs 1e-10",
+   "ok": true,
+   "got": -2.7267506442281846,
+   "recorded": -2.7267506442281846
+  },
+  {
+   "check": "DEL-0.75: D(1e7), abs 1e-9",
+   "ok": true,
+   "got": -0.42854444631146565,
+   "recorded": -0.42854444631146565
+  },
+  {
+   "check": "DEL-0.75: exponent estimate (order of the zero at b), abs 1e-9",
+   "ok": true,
+   "got": 0.9999820252692794,
+   "recorded": 0.9999820252692792
+  },
+  {
+   "check": "DEL-0.75: stage identity H = exp(-2A), rel 1e-25",
+   "ok": true,
+   "got": 6.121659339392615e-34,
+   "recorded": "< 1e-25"
+  },
+  {
+   "check": "DEL-0.75: Dirichlet sum to 1e7 against zeta G_X at s = 2, within tail bound + 1e-12",
+   "ok": true,
+   "got": 3.9728923262316584e-08,
+   "recorded": 1e-07
+  },
+  {
+   "check": "DEL-0.75: Dirichlet sum to 1e7 against zeta G_X at s = 3, within tail bound + 1e-12",
+   "ok": true,
+   "got": 2.4424906541753444e-15,
+   "recorded": 5e-15
+  },
+  {
+   "check": "DEL-0.75: Dirichlet sum to 1e7 against zeta G_X at s = (2+10j), within tail bound + 1e-12",
+   "ok": true,
+   "got": 3.953770774425024e-09,
+   "recorded": 1e-07
+  },
+  {
+   "check": "DEL-0.9: |S| exact",
+   "ok": true,
+   "got": 148727,
+   "recorded": 148727
+  },
+  {
+   "check": "DEL-0.9: coefficients of A >= 0 at every prime power <= 1e7",
+   "ok": true,
+   "got": 0.0,
+   "recorded": ">= 0"
+  },
+  {
+   "check": "DEL-0.9: a(p) = 0 exactly on S, 1 off S",
+   "ok": true,
+   "got": 148727,
+   "recorded": 148727
+  },
+  {
+   "check": "DEL-0.9: table completely multiplicative (20000 random products)",
+   "ok": true,
+   "got": "all equal",
+   "recorded": "all equal"
+  },
+  {
+   "check": "DEL-0.9: log G_X(b), abs 1e-10",
+   "ok": true,
+   "got": -2.9272801194912508,
+   "recorded": -2.9272801194912508
+  },
+  {
+   "check": "DEL-0.9: D(1e7), abs 1e-9",
+   "ok": true,
+   "got": -0.4228636952561132,
+   "recorded": -0.4228636952561132
+  },
+  {
+   "check": "DEL-0.9: exponent estimate (order of the zero at b), abs 1e-9",
+   "ok": true,
+   "got": 1.0000352253371672,
+   "recorded": 1.0000352253371665
+  },
+  {
+   "check": "DEL-0.9: stage identity H = exp(-2A), rel 1e-25",
+   "ok": true,
+   "got": 8.766918441312083e-33,
+   "recorded": "< 1e-25"
+  },
+  {
+   "check": "DEL-0.9: Dirichlet sum to 1e7 against zeta G_X at s = 2, within tail bound + 1e-12",
+   "ok": true,
+   "got": 1.5934800812189565e-08,
+   "recorded": 1e-07
+  },
+  {
+   "check": "DEL-0.9: Dirichlet sum to 1e7 against zeta G_X at s = 3, within tail bound + 1e-12",
+   "ok": true,
+   "got": 8.881784197001252e-16,
+   "recorded": 5e-15
+  },
+  {
+   "check": "DEL-0.9: Dirichlet sum to 1e7 against zeta G_X at s = (2+10j), within tail bound + 1e-12",
+   "ok": true,
+   "got": 1.5921869245361811e-09,
+   "recorded": 1e-07
+  }
+ ],
+ "reproduced": true,
+ "verdict": "DEL passes the Landau step of P46 (A has non-negative coefficients; identity holds; set and abscissa data as recorded)"
+}

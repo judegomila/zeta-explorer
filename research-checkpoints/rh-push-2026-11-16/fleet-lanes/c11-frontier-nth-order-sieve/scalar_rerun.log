@@ -1,0 +1,4 @@
+S1 averaged, balanced, region A          B* old count 0.874886508041 | with new options 0.874886508041 | difference 0.0e+00
+S3 averaged, free geometry, region A     B* old count 0.874886508041 | with new options 0.874886508041 | difference 0.0e+00
+S0 pointwise, free geometry, region A    B* old count 0.874956784797 | with new options 0.874956784797 | difference 0.0e+00
+classes at which a new option was selected (all LP rows, all bisection steps): 0

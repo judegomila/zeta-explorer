@@ -1,0 +1,2913 @@
+{
+ "rows": [
+  {
+   "row": "P1",
+   "lanes": [
+    [
+     "eq48",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "P2",
+   "lanes": [
+    [
+     "eq48",
+     1,
+     "files"
+    ],
+    [
+     "g-antibridge-cancel",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 2
+  },
+  {
+   "row": "P3",
+   "lanes": [
+    [
+     "pick",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "P4",
+   "lanes": [
+    [
+     "pick-induction",
+     0,
+     "files"
+    ],
+    [
+     "pick",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 2
+  },
+  {
+   "row": "P5",
+   "lanes": [
+    [
+     "r2-pick-euler-entry",
+     1,
+     "files"
+    ],
+    [
+     "pick-induction",
+     0,
+     "files"
+    ],
+    [
+     "euler",
+     0,
+     "files"
+    ],
+    [
+     "g-coupling-norm",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 4
+  },
+  {
+   "row": "P6",
+   "lanes": [
+    [
+     "pick-induction",
+     0,
+     "files"
+    ],
+    [
+     "r2-pick-euler-entry",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 2
+  },
+  {
+   "row": "P7",
+   "lanes": [
+    [
+     "r2-pick-euler-entry",
+     1,
+     "files"
+    ],
+    [
+     "g-coupling-norm",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 2
+  },
+  {
+   "row": "P8",
+   "lanes": [
+    [
+     "dh-separator",
+     1,
+     "files"
+    ],
+    [
+     "g-renderer-learnings",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 2
+  },
+  {
+   "row": "P9",
+   "lanes": [
+    [
+     "screw-canonical",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "P10",
+   "lanes": [
+    [
+     "cc-latest",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "P11",
+   "lanes": [
+    [
+     "weil-onesided",
+     0,
+     "files"
+    ],
+    [
+     "r2-lowpass-cone",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 2
+  },
+  {
+   "row": "P12",
+   "lanes": [
+    [
+     "weil-onesided",
+     0,
+     "files"
+    ]
+   ],
+   "count": 0,
+   "cited": 1
+  },
+  {
+   "row": "P13",
+   "lanes": [
+    [
+     "weil-onesided",
+     0,
+     "files"
+    ],
+    [
+     "stack-combinator",
+     0,
+     "files"
+    ]
+   ],
+   "count": 0,
+   "cited": 2
+  },
+  {
+   "row": "P14",
+   "lanes": [
+    [
+     "nyman-baez-duarte",
+     1,
+     "files"
+    ],
+    [
+     "weil-onesided",
+     0,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 2
+  },
+  {
+   "row": "P15",
+   "lanes": [
+    [
+     "b-route-m-first-moment",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "P16",
+   "lanes": [
+    [
+     "li-coefficients",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "P17",
+   "lanes": [
+    [
+     "jensen-hyperbolicity",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "P18",
+   "lanes": [
+    [
+     "b-lacunary-threshold",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "P19",
+   "lanes": [
+    [
+     "b-toeplitz-beyond",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "P20",
+   "lanes": [
+    [
+     "b-volterra-norm",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "P21",
+   "lanes": [
+    [
+     "b-codex-zero-channels",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "P22",
+   "lanes": [
+    [
+     "b-codex-energy-lanes",
+     1,
+     "files"
+    ],
+    [
+     "g-channel-geometry",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 2
+  },
+  {
+   "row": "P23",
+   "lanes": [
+    [
+     "twist-rigidity",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "P24",
+   "lanes": [
+    [
+     "support-rigidity",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "P25",
+   "lanes": [
+    [
+     "sym-power-positivity",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "P26",
+   "lanes": [
+    [
+     "mollifier-halfplane",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "P27",
+   "lanes": [
+    [
+     "b-alpoge-furman",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "P28",
+   "lanes": [
+    [
+     "b-lean-eq48",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "P29",
+   "lanes": [
+    [
+     "b-mvcap-function-side",
+     1,
+     "files"
+    ],
+    [
+     "c1-pd-log-strip",
+     1,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 1,
+   "cited": 2
+  },
+  {
+   "row": "P30",
+   "lanes": [
+    [
+     "b-conjecture-22-1",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "P31",
+   "lanes": [
+    [
+     "b-lehmer-lower",
+     1,
+     "files"
+    ],
+    [
+     "b-dyson-defect",
+     1,
+     "files"
+    ],
+    [
+     "b-sg1c-r1-transfer",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 3
+  },
+  {
+   "row": "P32",
+   "lanes": [
+    [
+     "r2-classgroup-homotopy",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "P33",
+   "lanes": [
+    [
+     "ideation-panel",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "P34",
+   "lanes": [
+    [
+     "pick-induction",
+     0,
+     "files"
+    ],
+    [
+     "weil-onesided",
+     0,
+     "files"
+    ]
+   ],
+   "count": 0,
+   "cited": 2
+  },
+  {
+   "row": "P35",
+   "lanes": [
+    [
+     "c1-spinor-hecke-primitive",
+     2,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 2,
+   "cited": 1
+  },
+  {
+   "row": "P36",
+   "lanes": [
+    [
+     "e1-cofinal-legendre-dual",
+     1,
+     "max(lanes.jsonl, files)"
+    ],
+    [
+     "c11-del-device-read-confirm",
+     1,
+     "max(lanes.jsonl, files)"
+    ],
+    [
+     "c12-repair-sources-statement-o-v3",
+     2,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 2,
+   "cited": 3
+  },
+  {
+   "row": "P37",
+   "lanes": [
+    [
+     "e1-forcing-free-bilinear-split",
+     1,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "P38",
+   "lanes": [
+    [
+     "e1-heegner-averaged-nb-span",
+     1,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "P39",
+   "lanes": [
+    [
+     "e1-sparse-recurrence-amplifier",
+     1,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "P40",
+   "lanes": [
+    [
+     "e1-rs-torus-laguerre-orbit",
+     1,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "P41",
+   "lanes": [
+    [
+     "c2-euler-at-zeros",
+     1,
+     "max(lanes.jsonl, files)"
+    ],
+    [
+     "c2-euler-at-zeros-scale",
+     1,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 1,
+   "cited": 2
+  },
+  {
+   "row": "P42",
+   "lanes": [
+    [
+     "c2-projection-domination-gonek",
+     1,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "P43",
+   "lanes": [
+    [
+     "c3-lemmab-referee-dh-poisson",
+     1,
+     "max(lanes.jsonl, files)"
+    ],
+    [
+     "c3-lemmab-halfplane-growing-s",
+     1,
+     "max(lanes.jsonl, files)"
+    ],
+    [
+     "c2-euler-at-zeros",
+     1,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 1,
+   "cited": 3
+  },
+  {
+   "row": "P44",
+   "lanes": [
+    [
+     "c4-fe-stage-rouche-crossing",
+     1,
+     "max(lanes.jsonl, files)"
+    ],
+    [
+     "c4-stage-collision-law",
+     1,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 1,
+   "cited": 2
+  },
+  {
+   "row": "P45",
+   "lanes": [
+    [
+     "c4-fe-stage-rouche-crossing",
+     1,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "P46",
+   "lanes": [
+    [
+     "c4-helson-discrepancy-zerofree",
+     1,
+     "max(lanes.jsonl, files)"
+    ],
+    [
+     "c5-repair-engine-map-r4",
+     2,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 2,
+   "cited": 2
+  },
+  {
+   "row": "P47",
+   "lanes": [
+    [
+     "c4-ramare-factorisation-pointwise",
+     1,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "P48",
+   "lanes": [
+    [
+     "c4-ramare-factorisation-pointwise",
+     1,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "P49",
+   "lanes": [
+    [
+     "c4-ramare-factorisation-pointwise",
+     1,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "P50",
+   "lanes": [
+    [
+     "c6-quadratic-companion-positivity",
+     1,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "P51",
+   "lanes": [
+    [
+     "c5-twisted-helson-arcs",
+     2,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 2,
+   "cited": 1
+  },
+  {
+   "row": "P52",
+   "lanes": [
+    [
+     "n4-spectral-window-moebius",
+     1,
+     "files"
+    ],
+    [
+     "c10-spectral-reciprocity-signed-moduli",
+     1,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 1,
+   "cited": 2
+  },
+  {
+   "row": "P53",
+   "lanes": [
+    [
+     "c11-rs3-debranges-positivity-family",
+     1,
+     "max(lanes.jsonl, files)"
+    ],
+    [
+     "c12-repair-sources-statement-o-v3",
+     2,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 2,
+   "cited": 2
+  },
+  {
+   "row": "P54",
+   "lanes": [
+    [
+     "c12-univ-pointwise-control-wcone",
+     2,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 2,
+   "cited": 1
+  },
+  {
+   "row": "P55",
+   "lanes": [
+    [
+     "c13-tnr-invariance-prefilter-noncone-census",
+     2,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 2,
+   "cited": 1
+  },
+  {
+   "row": "G1",
+   "lanes": [
+    [
+     "g-antibridge-cancel",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "G2",
+   "lanes": [
+    [
+     "g-coupling-norm",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "G3",
+   "lanes": [
+    [
+     "g-symmetry-schur",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "G4",
+   "lanes": [
+    [
+     "g-odd-sign-tp",
+     1,
+     "files"
+    ],
+    [
+     "g-odd-sign-factor",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 2
+  },
+  {
+   "row": "G5",
+   "lanes": [
+    [
+     "g-odd-adversary",
+     1,
+     "files"
+    ],
+    [
+     "g-odd-sign-factor",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 2
+  },
+  {
+   "row": "G6",
+   "lanes": [
+    [
+     "g-spinor-square-root",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "G7",
+   "lanes": [
+    [
+     "g-zero-channels",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "G8",
+   "lanes": [
+    [
+     "g-renderer-learnings",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "G9",
+   "lanes": [
+    [
+     "g-arithmetic-gain",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "G10",
+   "lanes": [
+    [
+     "g-passive-cascade",
+     1,
+     "files"
+    ],
+    [
+     "c3-twinladder-prime-built-chain",
+     1,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 1,
+   "cited": 2
+  },
+  {
+   "row": "G11",
+   "lanes": [
+    [
+     "g-channel-geometry",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "G12",
+   "lanes": [
+    [
+     "g-torus-modular",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "G13",
+   "lanes": [
+    [
+     "g-klein-bottle-seam",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "G14",
+   "lanes": [
+    [
+     "h-hecke-torus-symmetry",
+     1,
+     "files"
+    ],
+    [
+     "h-metaplectic-spin",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 2
+  },
+  {
+   "row": "G15",
+   "lanes": [
+    [
+     "h-hecke-torus-symmetry",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "G16",
+   "lanes": [
+    [
+     "h-hecke-channels",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "G17",
+   "lanes": [
+    [
+     "h-klein-fricke",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "G18",
+   "lanes": [
+    [
+     "h-metaplectic-spin",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "G19",
+   "lanes": [
+    [
+     "h-twistor-penrose",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "G20",
+   "lanes": [
+    [
+     "h-seven-eighths-in-bridge",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "G21",
+   "lanes": [
+    [
+     "h-tnr-geometric",
+     1,
+     "files"
+    ],
+    [
+     "ideation-panel",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 2
+  },
+  {
+   "row": "G22",
+   "lanes": [
+    [
+     "c1-shear-hecke-fricke",
+     1,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "G23",
+   "lanes": [
+    [
+     "c1-leeyang-chain-closure",
+     2,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 2,
+   "cited": 1
+  },
+  {
+   "row": "G24",
+   "lanes": [
+    [
+     "e1-selberg-twist-control",
+     1,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "G25",
+   "lanes": [
+    [
+     "c2-cutoff-hecke-defect",
+     1,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "G26",
+   "lanes": [
+    [
+     "c4-laxphillips-hecke-compression",
+     1,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "G27",
+   "lanes": [
+    [
+     "c6-square-intertwiner-weyl",
+     1,
+     "max(lanes.jsonl, files)"
+    ],
+    [
+     "res-point-spectrum-square",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 2
+  },
+  {
+   "row": "G28",
+   "lanes": [
+    [
+     "c6-square-intertwiner-weyl",
+     1,
+     "max(lanes.jsonl, files)"
+    ],
+    [
+     "res-point-spectrum-square",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 2
+  },
+  {
+   "row": "G29",
+   "lanes": [
+    [
+     "c6-square-intertwiner-weyl",
+     1,
+     "max(lanes.jsonl, files)"
+    ],
+    [
+     "res-point-spectrum-square",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 2
+  },
+  {
+   "row": "G30",
+   "lanes": [
+    [
+     "c6-square-intertwiner-weyl",
+     1,
+     "max(lanes.jsonl, files)"
+    ],
+    [
+     "res-point-spectrum-square",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 2
+  },
+  {
+   "row": "G31",
+   "lanes": [
+    [
+     "c8-hecke-entropy-resonance-rigidity",
+     1,
+     "max(lanes.jsonl, files)"
+    ],
+    [
+     "c9-repair-referee-debts-r8",
+     1,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 1,
+   "cited": 2
+  },
+  {
+   "row": "G32",
+   "lanes": [
+    [
+     "c11-del-device-read-confirm",
+     1,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "G33",
+   "lanes": [
+    [
+     "c12-x04-oval-hecke-fricke-loading",
+     2,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 2,
+   "cited": 1
+  },
+  {
+   "row": "G34",
+   "lanes": [
+    [
+     "c13-fourier-interpolation-zero-nodes",
+     2,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 2,
+   "cited": 1
+  },
+  {
+   "row": "G35",
+   "lanes": [
+    [
+     "c13-lrs-twist-amplification-zero-representation",
+     2,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 2,
+   "cited": 1
+  },
+  {
+   "row": "G36",
+   "lanes": [
+    [
+     "c13-noncone-kernel-separator-search",
+     2,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 2,
+   "cited": 1
+  },
+  {
+   "row": "G37",
+   "lanes": [
+    [
+     "c14-laxphillips-hecke-norm-outside-l2",
+     1,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "G38",
+   "lanes": [
+    [
+     "c14-joint-pair-design-ratio-vortex-cross-bridge",
+     1,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "G39",
+   "lanes": [
+    [
+     "c14-theta-orthogonal-metaplectic-eigenobject",
+     1,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "G40",
+   "lanes": [
+    [
+     "c14-x2-step-catalogue-zero-indexed-objects",
+     1,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "Q1",
+   "lanes": [
+    [
+     "sq-hankel-traces",
+     0,
+     "files"
+    ]
+   ],
+   "count": 0,
+   "cited": 1
+  },
+  {
+   "row": "Q2",
+   "lanes": [
+    [
+     "sq-hankel-traces",
+     0,
+     "files"
+    ]
+   ],
+   "count": 0,
+   "cited": 1
+  },
+  {
+   "row": "Q3",
+   "lanes": [
+    [
+     "sq-hankel-traces",
+     0,
+     "files"
+    ]
+   ],
+   "count": 0,
+   "cited": 1
+  },
+  {
+   "row": "Q4",
+   "lanes": [
+    [
+     "sq-hankel-traces",
+     0,
+     "files"
+    ]
+   ],
+   "count": 0,
+   "cited": 1
+  },
+  {
+   "row": "Q5",
+   "lanes": [
+    [
+     "sq-hankel-traces",
+     0,
+     "files"
+    ]
+   ],
+   "count": 0,
+   "cited": 1
+  },
+  {
+   "row": "Q6",
+   "lanes": [
+    [
+     "sq-krein-index",
+     0,
+     "files"
+    ]
+   ],
+   "count": 0,
+   "cited": 1
+  },
+  {
+   "row": "Q7",
+   "lanes": [
+    [
+     "sq-krein-index",
+     0,
+     "files"
+    ]
+   ],
+   "count": 0,
+   "cited": 1
+  },
+  {
+   "row": "Q8",
+   "lanes": [
+    [
+     "sq-krein-index",
+     0,
+     "files"
+    ]
+   ],
+   "count": 0,
+   "cited": 1
+  },
+  {
+   "row": "Q9",
+   "lanes": [
+    [
+     "sq-krein-index",
+     0,
+     "files"
+    ]
+   ],
+   "count": 0,
+   "cited": 1
+  },
+  {
+   "row": "Q10",
+   "lanes": [
+    [
+     "sq-causal-cascade",
+     0,
+     "files"
+    ],
+    [
+     "c3-twinladder-prime-built-chain",
+     1,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 1,
+   "cited": 2
+  },
+  {
+   "row": "Q11",
+   "lanes": [
+    [
+     "sq-causal-cascade",
+     0,
+     "files"
+    ]
+   ],
+   "count": 0,
+   "cited": 1
+  },
+  {
+   "row": "Q12",
+   "lanes": [
+    [
+     "sq-causal-cascade",
+     0,
+     "files"
+    ],
+    [
+     "g-passive-cascade",
+     1,
+     "files"
+    ],
+    [
+     "c1-multidelay-bohr-section",
+     2,
+     "max(lanes.jsonl, files)"
+    ],
+    [
+     "c2-jinner-multidelay-lft",
+     1,
+     "max(lanes.jsonl, files)"
+    ],
+    [
+     "c3-repair-map-theorem-a",
+     2,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 2,
+   "cited": 5
+  },
+  {
+   "row": "Q13",
+   "lanes": [
+    [
+     "sq-causal-cascade",
+     0,
+     "files"
+    ],
+    [
+     "stack-combinator",
+     0,
+     "files"
+    ]
+   ],
+   "count": 0,
+   "cited": 2
+  },
+  {
+   "row": "Q14",
+   "lanes": [
+    [
+     "sq-canonical-det",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "Q15",
+   "lanes": [
+    [
+     "sq-canonical-det",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "Q16",
+   "lanes": [
+    [
+     "stack-quantum-gap",
+     0,
+     "files"
+    ],
+    [
+     "stack-combinator",
+     0,
+     "files"
+    ]
+   ],
+   "count": 0,
+   "cited": 2
+  },
+  {
+   "row": "Q17",
+   "lanes": [
+    [
+     "stack-quantum-gap",
+     0,
+     "files"
+    ]
+   ],
+   "count": 0,
+   "cited": 1
+  },
+  {
+   "row": "Q18",
+   "lanes": [
+    [
+     "stack-quantum-gap",
+     0,
+     "files"
+    ]
+   ],
+   "count": 0,
+   "cited": 1
+  },
+  {
+   "row": "Q19",
+   "lanes": [
+    [
+     "c1-leeyang-krein-limit",
+     1,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "Q20",
+   "lanes": [
+    [
+     "e1-burgers-cascade-anticausal",
+     1,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "Q21",
+   "lanes": [
+    [
+     "c2-polydisc-leeyang-bound",
+     1,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "Q22",
+   "lanes": [
+    [
+     "c2-jinner-multidelay-lft",
+     1,
+     "max(lanes.jsonl, files)"
+    ],
+    [
+     "c3-repair-map-theorem-a",
+     2,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 2,
+   "cited": 2
+  },
+  {
+   "row": "Q23",
+   "lanes": [
+    [
+     "c7-laurent-shell-gamma-section",
+     1,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "Q24",
+   "lanes": [
+    [
+     "c7-laurent-shell-gamma-section",
+     1,
+     "max(lanes.jsonl, files)"
+    ],
+    [
+     "c8-repair-engine-map-r7",
+     1,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 1,
+   "cited": 2
+  },
+  {
+   "row": "Q25",
+   "lanes": [
+    [
+     "c7-bridge-seven-eighths-krein-index",
+     1,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "Q26",
+   "lanes": [
+    [
+     "c8-single-row-bridge-crossing",
+     1,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "Q27",
+   "lanes": [
+    [
+     "c9-szego-sum-rule-prime-cascade",
+     1,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "Q28",
+   "lanes": [
+    [
+     "c11-rs1-regular-rep-matrix-bridge",
+     1,
+     "max(lanes.jsonl, files)"
+    ],
+    [
+     "c12-repair-sources-statement-o-v3",
+     2,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 2,
+   "cited": 2
+  },
+  {
+   "row": "Q29",
+   "lanes": [
+    [
+     "c12-univ-pointwise-control-wcone",
+     2,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 2,
+   "cited": 1
+  },
+  {
+   "row": "S1",
+   "lanes": [
+    [
+     "stack-combinator",
+     0,
+     "files"
+    ]
+   ],
+   "count": 0,
+   "cited": 1
+  },
+  {
+   "row": "S2",
+   "lanes": [
+    [
+     "stack-combinator",
+     0,
+     "files"
+    ]
+   ],
+   "count": 0,
+   "cited": 1
+  },
+  {
+   "row": "S3",
+   "lanes": [
+    [
+     "stack-combinator",
+     0,
+     "files"
+    ],
+    [
+     "stack-quantum-gap",
+     0,
+     "files"
+    ]
+   ],
+   "count": 0,
+   "cited": 2
+  },
+  {
+   "row": "S4",
+   "lanes": [
+    [
+     "stack-combinator",
+     0,
+     "files"
+    ]
+   ],
+   "count": 0,
+   "cited": 1
+  },
+  {
+   "row": "S5",
+   "lanes": [
+    [
+     "stack-feasibility",
+     0,
+     "files"
+    ]
+   ],
+   "count": 0,
+   "cited": 1
+  },
+  {
+   "row": "S6",
+   "lanes": [
+    [
+     "stack-feasibility",
+     0,
+     "files"
+    ]
+   ],
+   "count": 0,
+   "cited": 1
+  },
+  {
+   "row": "S7",
+   "lanes": [
+    [
+     "stack-feasibility",
+     0,
+     "files"
+    ]
+   ],
+   "count": 0,
+   "cited": 1
+  },
+  {
+   "row": "S8",
+   "lanes": [
+    [
+     "stack-antibridge",
+     0,
+     "files"
+    ]
+   ],
+   "count": 0,
+   "cited": 1
+  },
+  {
+   "row": "S9",
+   "lanes": [
+    [
+     "stack-antibridge",
+     0,
+     "files"
+    ]
+   ],
+   "count": 0,
+   "cited": 1
+  },
+  {
+   "row": "S10",
+   "lanes": [
+    [
+     "stack-antibridge",
+     0,
+     "files"
+    ]
+   ],
+   "count": 0,
+   "cited": 1
+  },
+  {
+   "row": "S11",
+   "lanes": [
+    [
+     "c1-window-sdp-scaling",
+     1,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "S12",
+   "lanes": [
+    [
+     "c3-multiwindow-converse-defect",
+     1,
+     "max(lanes.jsonl, files)"
+    ],
+    [
+     "c2-euler-cone-fe-rigidity",
+     1,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 1,
+   "cited": 2
+  },
+  {
+   "row": "Z1",
+   "lanes": [
+    [
+     "tro6-shifted-conv",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "Z2",
+   "lanes": [
+    [
+     "tro6-period",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "Z3",
+   "lanes": [
+    [
+     "r2-tro6-polar-theorem",
+     1,
+     "files"
+    ],
+    [
+     "tro6-spectral",
+     0,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 2
+  },
+  {
+   "row": "Z4",
+   "lanes": [
+    [
+     "tro6-spectral",
+     0,
+     "files"
+    ]
+   ],
+   "count": 0,
+   "cited": 1
+  },
+  {
+   "row": "Z5",
+   "lanes": [
+    [
+     "tro6-sieve",
+     0,
+     "files"
+    ]
+   ],
+   "count": 0,
+   "cited": 1
+  },
+  {
+   "row": "Z6",
+   "lanes": [
+    [
+     "r2-tro6-type12-split",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "Z7",
+   "lanes": [
+    [
+     "r3-nonpolar-proof",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "Z8",
+   "lanes": [
+    [
+     "r3-nonpolar-numerics",
+     1,
+     "files"
+    ],
+    [
+     "r2-tro6-nonpolar-scale",
+     1,
+     "files"
+    ],
+    [
+     "tro6-numerics",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 3
+  },
+  {
+   "row": "Z9",
+   "lanes": [
+    [
+     "bypass-78",
+     0,
+     "files"
+    ]
+   ],
+   "count": 0,
+   "cited": 1
+  },
+  {
+   "row": "Z10",
+   "lanes": [
+    [
+     "r3-lemma181-a",
+     1,
+     "files"
+    ],
+    [
+     "r3-lemma181-b",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 2
+  },
+  {
+   "row": "Z11",
+   "lanes": [
+    [
+     "r3-critical-count",
+     1,
+     "files"
+    ],
+    [
+     "r2-zf-critical-density",
+     1,
+     "files"
+    ],
+    [
+     "zf-hecke-all-fields",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 3
+  },
+  {
+   "row": "Z12",
+   "lanes": [
+    [
+     "r2-zf-critical-density",
+     1,
+     "files"
+    ],
+    [
+     "zf-large-values",
+     1,
+     "files"
+    ],
+    [
+     "r2-zf-gm-inverse-witness",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 3
+  },
+  {
+   "row": "Z13",
+   "lanes": [
+    [
+     "zf-hecke-all-fields",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "Z14",
+   "lanes": [
+    [
+     "zf-higher-rows",
+     1,
+     "files"
+    ],
+    [
+     "r2-zf-paired-rows",
+     1,
+     "files"
+    ],
+    [
+     "r3-higher-rows-dual",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 3
+  },
+  {
+   "row": "Z15",
+   "lanes": [
+    [
+     "r3-method-limit",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "Z16",
+   "lanes": [
+    [
+     "bootstrap",
+     0,
+     "files"
+    ]
+   ],
+   "count": 0,
+   "cited": 1
+  },
+  {
+   "row": "Z17",
+   "lanes": [
+    [
+     "vertical-statistics",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "Z18",
+   "lanes": [
+    [
+     "r3-tnr-control",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "Z19",
+   "lanes": [
+    [
+     "r2-lean-kappa-1318",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "Z20",
+   "lanes": [
+    [
+     "lit-dedekind-qrh",
+     0,
+     "files"
+    ],
+    [
+     "mb-lean-replay",
+     0,
+     "files"
+    ]
+   ],
+   "count": 0,
+   "cited": 2
+  },
+  {
+   "row": "Z21",
+   "lanes": [
+    [
+     "e1-gl3-theta-order2-rows",
+     1,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "Z15b",
+   "lanes": [
+    [
+     "c5-target-fe-order2-ledger",
+     2,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 2,
+   "cited": 1
+  },
+  {
+   "row": "Z22",
+   "lanes": [
+    [
+     "c5-angular-family-absorption",
+     2,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 2,
+   "cited": 1
+  },
+  {
+   "row": "Z15c",
+   "lanes": [
+    [
+     "c6-pair-probe-bridge-order2",
+     1,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "Z23",
+   "lanes": [
+    [
+     "c6-gl3-cover-epsilon-cocycle",
+     1,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "Z24",
+   "lanes": [
+    [
+     "c6-marks-bc-manuscript-check",
+     2,
+     "max(lanes.jsonl, files)"
+    ],
+    [
+     "r3-tnr-control",
+     1,
+     "files"
+    ]
+   ],
+   "count": 2,
+   "cited": 2
+  },
+  {
+   "row": "Z24b",
+   "lanes": [
+    [
+     "c9-normaliser-cap-avoidance",
+     1,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "Z25",
+   "lanes": [
+    [
+     "c5-thin-propd-dichotomy",
+     1,
+     "max(lanes.jsonl, files)"
+    ],
+    [
+     "c6-probe61-thin-three-weights",
+     1,
+     "max(lanes.jsonl, files)"
+    ],
+    [
+     "c5-thin-walk-replay",
+     2,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 2,
+   "cited": 3
+  },
+  {
+   "row": "Z26",
+   "lanes": [
+    [
+     "c5-marks-circularity-order2",
+     1,
+     "max(lanes.jsonl, files)"
+    ],
+    [
+     "c6-marks-bc-manuscript-check",
+     2,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 2,
+   "cited": 2
+  },
+  {
+   "row": "Z27",
+   "lanes": [
+    [
+     "c7-probe-format-h-cap",
+     1,
+     "max(lanes.jsonl, files)"
+    ],
+    [
+     "c8-repair-engine-map-r7",
+     1,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 1,
+   "cited": 2
+  },
+  {
+   "row": "Z28",
+   "lanes": [
+    [
+     "c7-liou-high-row-bound",
+     1,
+     "max(lanes.jsonl, files)"
+    ],
+    [
+     "c8-liou-row-bound-theorem",
+     1,
+     "max(lanes.jsonl, files)"
+    ],
+    [
+     "c4-thin-twist-control-78",
+     1,
+     "max(lanes.jsonl, files)"
+    ],
+    [
+     "c5-thin-walk-replay",
+     2,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 2,
+   "cited": 4
+  },
+  {
+   "row": "Z29",
+   "lanes": [
+    [
+     "c7-landau-siegel-device-read",
+     1,
+     "max(lanes.jsonl, files)"
+    ],
+    [
+     "c11-del-device-read-confirm",
+     1,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 1,
+   "cited": 2
+  },
+  {
+   "row": "Z30",
+   "lanes": [
+    [
+     "c8-ek-theta-second-moment-formula",
+     1,
+     "max(lanes.jsonl, files)"
+    ],
+    [
+     "c9-repair-referee-debts-r8",
+     1,
+     "max(lanes.jsonl, files)"
+    ],
+    [
+     "c8-ek-ff-reflected-rows-exact",
+     1,
+     "max(lanes.jsonl, files)"
+    ],
+    [
+     "c9-mv6-window-statement",
+     1,
+     "max(lanes.jsonl, files)"
+    ],
+    [
+     "c9-mv6-ff-window-exact",
+     1,
+     "max(lanes.jsonl, files)"
+    ],
+    [
+     "c10-ff-slot-cross-decomposition",
+     1,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 1,
+   "cited": 6
+  },
+  {
+   "row": "Z31",
+   "lanes": [
+    [
+     "c8-eh-nonprincipal-row-cancellation",
+     1,
+     "max(lanes.jsonl, files)"
+    ],
+    [
+     "c9-eh-dual-r5-target-excess",
+     1,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 1,
+   "cited": 2
+  },
+  {
+   "row": "Z32",
+   "lanes": [
+    [
+     "c9-tro6-interstratum-cancellation",
+     1,
+     "max(lanes.jsonl, files)"
+    ],
+    [
+     "e2-tro6-signed-csum-stratified",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 2
+  },
+  {
+   "row": "Z33",
+   "lanes": [
+    [
+     "c10-ff-signal-intersection-square",
+     1,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "Z34",
+   "lanes": [
+    [
+     "c11-rs1-twist-modulus-reciprocity",
+     1,
+     "max(lanes.jsonl, files)"
+    ],
+    [
+     "c12-repair-sources-statement-o-v3",
+     2,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 2,
+   "cited": 2
+  },
+  {
+   "row": "Z35",
+   "lanes": [
+    [
+     "c12-depth-aspect-height-transfer",
+     2,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 2,
+   "cited": 1
+  },
+  {
+   "row": "Z36",
+   "lanes": [
+    [
+     "c13-bilinear-reciprocity-height-antibridge",
+     2,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 2,
+   "cited": 1
+  },
+  {
+   "row": "F1",
+   "lanes": [
+    [
+     "b-escape-law",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "F2",
+   "lanes": [
+    [
+     "flow-euler-defect",
+     1,
+     "files"
+    ],
+    [
+     "h-hecke-channels",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 2
+  },
+  {
+   "row": "F3",
+   "lanes": [
+    [
+     "h-seven-eighths-in-bridge",
+     1,
+     "files"
+    ],
+    [
+     "lit-dedekind-qrh",
+     0,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 2
+  },
+  {
+   "row": "F4",
+   "lanes": [
+    [
+     "lambda-from-halfplane",
+     1,
+     "files"
+    ],
+    [
+     "r2-lambda-reopt-run",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 2
+  },
+  {
+   "row": "F5",
+   "lanes": [
+    [
+     "r2-lambda-tpos-floors",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "F6",
+   "lanes": [
+    [
+     "b-route-p-motherbox",
+     1,
+     "files"
+    ],
+    [
+     "b-route-p-recert",
+     0,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 2
+  },
+  {
+   "row": "F7",
+   "lanes": [
+    [
+     "lit-dedekind-qrh",
+     0,
+     "files"
+    ]
+   ],
+   "count": 0,
+   "cited": 1
+  },
+  {
+   "row": "F8",
+   "lanes": [
+    [
+     "e1-euler-anchor-heat-certificate",
+     1,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "T1",
+   "lanes": [
+    [
+     "r2-ff-tro6-complete",
+     1,
+     "files"
+    ],
+    [
+     "tro6-functionfield",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 2
+  },
+  {
+   "row": "T2",
+   "lanes": [
+    [
+     "ff-transplant",
+     0,
+     "files"
+    ],
+    [
+     "c3-fixedt-growingp-onesided",
+     1,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 1,
+   "cited": 2
+  },
+  {
+   "row": "T3",
+   "lanes": [
+    [
+     "ff-transplant",
+     0,
+     "files"
+    ]
+   ],
+   "count": 0,
+   "cited": 1
+  },
+  {
+   "row": "L1",
+   "lanes": [
+    [
+     "b-euler-detector",
+     1,
+     "files"
+    ],
+    [
+     "stack-combinator",
+     0,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 2
+  },
+  {
+   "row": "L2",
+   "lanes": [
+    [
+     "b-euler-detector",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "L3",
+   "lanes": [
+    [
+     "b-euler-detector",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "L4",
+   "lanes": [
+    [
+     "h-local-sign-change",
+     0,
+     "files"
+    ]
+   ],
+   "count": 0,
+   "cited": 1
+  },
+  {
+   "row": "L5",
+   "lanes": [
+    [
+     "h-tnr-geometric",
+     1,
+     "files"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "L6",
+   "lanes": [
+    [
+     "c13-tnr-invariance-prefilter-noncone-census",
+     2,
+     "max(lanes.jsonl, files)"
+    ],
+    [
+     "c13-noncone-kernel-separator-search",
+     2,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 2,
+   "cited": 2
+  },
+  {
+   "row": "D1",
+   "lanes": [
+    [
+     "c5-device-table-extension",
+     1,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "D2",
+   "lanes": [
+    [
+     "c5-device-table-extension",
+     1,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "D3",
+   "lanes": [
+    [
+     "c5-device-table-extension",
+     1,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "D4",
+   "lanes": [
+    [
+     "c5-device-table-extension",
+     1,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "D5",
+   "lanes": [
+    [
+     "c5-device-table-extension",
+     1,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "D6",
+   "lanes": [
+    [
+     "c5-device-table-extension",
+     1,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "D7",
+   "lanes": [
+    [
+     "c5-device-table-extension",
+     1,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 1,
+   "cited": 1
+  },
+  {
+   "row": "D8",
+   "lanes": [
+    [
+     "c12-bost-connes-crossed-product-duality",
+     2,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 2,
+   "cited": 1
+  },
+  {
+   "row": "D9",
+   "lanes": [
+    [
+     "c13-kacmoody-eisenstein-affine-weyl-shift",
+     2,
+     "max(lanes.jsonl, files)"
+    ]
+   ],
+   "count": 2,
+   "cited": 1
+  },
+  {
+   "row": "O1",
+   "lanes": [
+    [
+     "c9-obstruction-record-statement",
+     1,
+     "max(lanes.jsonl, files)"
+    ],
+    [
+     "c10-repair-record-referee-r9",
+     2,
+     "max(lanes.jsonl, files)"
+    ],
+    [
+     "c11-repair-del-referee-record",
+     2,
+     "max(lanes.jsonl, files)"
+    ],
+    [
+     "c12-repair-sources-statement-o-v3",
+     2,
+     "max(lanes.jsonl, files)"
+    ],
+    [
+     "campaign",
+     0,
+     "files"
+    ]
+   ],
+   "count": 2,
+   "cited": 5
+  }
+ ],
+ "distribution": {
+  "0": 35,
+  "1": 138,
+  "2": 29
+ },
+ "bySection": {
+  "P": {
+   "0": 3,
+   "1": 45,
+   "2": 7
+  },
+  "G": {
+   "1": 35,
+   "2": 5
+  },
+  "Q": {
+   "0": 14,
+   "1": 11,
+   "2": 4
+  },
+  "S": {
+   "0": 10,
+   "1": 2
+  },
+  "Z": {
+   "0": 5,
+   "1": 25,
+   "2": 9
+  },
+  "F": {
+   "0": 1,
+   "1": 7
+  },
+  "T": {
+   "0": 1,
+   "1": 2
+  },
+  "L": {
+   "0": 1,
+   "1": 4,
+   "2": 1
+  },
+  "D": {
+   "1": 7,
+   "2": 2
+  },
+  "O": {
+   "2": 1
+  }
+ }
+}

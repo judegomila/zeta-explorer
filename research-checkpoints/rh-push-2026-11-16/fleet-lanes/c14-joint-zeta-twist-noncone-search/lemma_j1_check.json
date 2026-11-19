@@ -1,0 +1,20 @@
+{
+ "JC2-without": {
+  "heat_pairs_with_matching_positive": 12,
+  "equal": 80484,
+  "different": 0,
+  "one_undecided": 0
+ },
+ "JC2-with": {
+  "heat_pairs_with_matching_positive": 12,
+  "equal": 88410,
+  "different": 6,
+  "one_undecided": 0
+ },
+ "JC1-without": {
+  "heat_pairs_with_matching_positive": 12,
+  "equal": 178310,
+  "different": 22,
+  "one_undecided": 0
+ }
+}

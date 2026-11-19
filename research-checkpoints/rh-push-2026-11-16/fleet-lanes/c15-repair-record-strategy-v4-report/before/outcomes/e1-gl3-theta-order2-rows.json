@@ -1,0 +1,41 @@
+{
+ "slug": "e1-gl3-theta-order2-rows",
+ "round": 1,
+ "batch": 1,
+ "kind": "attack",
+ "nodes": [
+  "map-open-1",
+  "mem-new-probe-non-sextic",
+  "seven-eighths-abscissa-formula"
+ ],
+ "launchedNodes": [
+  "map-open-1",
+  "separating-probe",
+  "mem-new-probe-non-sextic",
+  "seven-eighths-abscissa-formula"
+ ],
+ "tags": [
+  "metaplectic",
+  "seven-eighths",
+  "order-2",
+  "abscissa"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "In the Goldfeld-Hoffstein/CFH model of the quadratic A_2 series: the residue at w = 1 has p-part 1/(1 - x^2); the iterated residue at s = w = 1 vanishes; the chi_b-twisted residue is supported on m = b_0 n^2 with value phi(b)/b (measured, 12 twists). Given the recalled (not opened) non-genericity of theta on the double cover of GL(3), theta and theta-induced rows are of symbol type with no reciprocal: h = 0, model abscissa 1. For genuine cusp forms on the double cover of GL(2) (weights 13/2, 17/2, exact): rows R = X T with X = mu(e)(D/e) e^-1/2; c(D) is a row scaling; the Gram is sign-blind; detection condition beta > 3/2 - h/r >= 1.",
+ "obstruction": "On double covers a Moebius sign on a quadratic symbol and centring on the unitary axis did not occur together in any computed case: the symbol enters Hecke relations as a Gauss sum over p, so the reciprocal sits at shift 1/2, cancelling the largest order-2 gain h/r = 1/2. Model abscissa 1 or detection only for beta >= 1.",
+ "obstructionKind": "abscissa-at-or-right-of-1",
+ "controlsThatDefeat": [
+  "sign twist: gives the same rows (Gram is sign-blind)",
+  "controls give the same rows in the non-symbol pivot"
+ ],
+ "lesson": "Order-2 (quadratic) analogues of the 7/8 mechanism through theta or half-integral weight GL(2) forms are closed. Untested: genuine cusp forms on the GL(3) double cover; exact Whittaker coefficients of cusp-induced Eisenstein series.",
+ "refereeHolds": true,
+ "refereeNote": "All PROVED steps confirmed; one false parenthetical in section 3; non-genericity of GL(3) theta is cited from memory, not opened.",
+ "referees": 1,
+ "aboutZeros": false,
+ "strength": 0.06,
+ "newNodes": [],
+ "followUp": "",
+ "resultFile": "tmp/research-2026-11-16/push/e1-gl3-theta-order2-rows/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/e1-gl3-theta-order2-rows/REFEREE.md"
+}

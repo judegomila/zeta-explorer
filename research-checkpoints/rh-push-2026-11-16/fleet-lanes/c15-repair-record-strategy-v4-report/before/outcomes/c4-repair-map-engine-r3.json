@@ -1,0 +1,33 @@
+{
+ "slug": "c4-repair-map-engine-r3",
+ "round": 4,
+ "kind": "repair",
+ "nodes": [],
+ "tags": [
+  "control",
+  "filter",
+  "generator"
+ ],
+ "verdict": "partial-result",
+ "survivingClaim": "Repair lane; no mathematics, no statement about zeros. Map: 16 anchored edits plus 4 wording edits, replay byte-identical. Engine: 44 outcome entries, 37 closed (28 before), 7 partial; 29 families (16); 1,550 nodes; 11 edges on WT/FM (9 control-defeats, 2 special-case-of). Generator: rejected 16,486 of 62,055 before; 17,006 of 63,111 with merge and families; 42,311 with the new rules. Of the 13 new families, 8 match candidates and 2 add rejections beyond older families; all 776 candidates containing the Rouche device node match the fixed-window-count family and are exempted by an `unless` keyword. Top 60: reported counts reproduce but are measured with the rules' own predicates; 6 entries contain a curated, conjectural, score-boosted device; 54 rest on a keyword role that still admits a mean-value node and two certificate nodes. Scoreboard parts A, B, D unchanged; part C accounted for. DH derivation (D1)-(D7) holds (re-derived, checked numerically on other cases); (D7) needs the disc form of the Caratheodory bound, constant 1.0597 correct.",
+ "obstruction": "Repair lane, no attack. Map replay byte-identical; engine merge run (37 closed, 29 families, 11 WT/FM edges); generator rejections 16,486 -> 42,311 with the new rules. Remaining defect: 54 of the top 60 candidates rest on the keyword role 'crossing', which still admits a mean-value node and two certificate nodes; all 776 candidates with the Rouche device node are exempted by an `unless` keyword although the device is now closed by c4-fe-stage-rouche-crossing. Referee correction: 8 of 13 new family patterns match candidates (2 add rejections), not 2 of 13.",
+ "obstructionKind": "filter-repair",
+ "controlsThatDefeat": [
+  "not applicable (repair lane)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "Report: tmp/research-2026-11-16/push/c4-repair-map-engine-r3/REFEREE.md. Every rerun count reproduces (map replay byte-identical; 28 -> 37 closed; 16 -> 29 families; WT/FM edges 0 -> 11; rejected 16,486 / 17,006 / 42,311; top-60 table; scoreboard diff limited to part C) except one statement.\nE1 (false as worded): \"only 2 of 13 new family patterns match any candidate\". Counted independently of family order, 8 of 13 match (fixed-window-count 776, rot",
+ "lesson": "The ranking noise came from the keyword role 'crossing' (all 60 old top candidates had it), not from missing closed-family patterns: 11 of 13 new patterns match nothing. A device requirement only filters when the role excludes flow/Lambda-side, mean-value, phenomenon and certificate nodes. Also: merge_outcomes.py must be run after every learn step; it had been skipped since batch 1, so closed batch-2 lanes were still treated as proposed. The scoreboard's 'families' count is C(tags,2) and rises with tag vocabulary, not with coverage.",
+ "followUp": "Replace the keyword role with a curated crossing-device list for existing nodes (54 of the top 60 still depend on the keyword). When c4-fe-stage-rouche-crossing, c4-laxphillips-hecke-compression, c4-helson-discrepancy-zerofree and c4-thin-twist-control-78 report, remove the crossing-device tag or add a closed family for each closed device, and confirm or delete ctl-THIN. Still owed: batch-2 graph repairs in ENGINE_LOG; map rows for the Helson tail and half-sum lanes; Selberg-named nodes in the top 60.",
+ "resultFile": "tmp/research-2026-11-16/push/c4-repair-map-engine-r3/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c4-repair-map-engine-r3/REFEREE.md"
+}

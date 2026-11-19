@@ -1,0 +1,21 @@
+{
+ "about": "Proposal from lane c12-univ-pointwise-control-wcone (2026-11-19) for one entry of engine/curated/controls.json. Not entered: the engine file is not edited by this lane. UNIV is a filter for one step type, not a function with zeros off the line.",
+ "controls": {
+  "UNIV": {
+   "name": "UNIV: joint universality filter. For pairwise non-equivalent Dirichlet characters chi_1..chi_m (zeta included) and a compact K with connected complement in 1/2 < Re s < 1, the translates (L(s + i tau, chi_j))_j approximate every m-tuple of non-vanishing analytic functions on K for a set of tau of positive lower density",
+   "has": "every property of the L-functions that is a closed condition (sup norm) on a fixed compact window in 1/2 < Re s < 1 with constants independent of height and that holds at all heights (or outside a set of upper density zero); the same jointly with finitely many prime phases p^(-i tau) (hybrid form); continuous inequalities in finitely many values and derivatives at finitely many fixed offsets hold for every jet (no content); linear combinations of two or more of the L-functions with non-vanishing Dirichlet-polynomial coefficients have at least CT zeros in every sub-strip",
+   "lacks": "Re s <= 1/2 and Re s > 1 (right of 1 the corresponding control is U, Kronecker-Weyl); statements non-local in height (t with 2t, positive-definiteness in t, mean values, sums over zeros); families with m growing with T and the conductor aspect; inequalities using s and 1 - conj s together or the completed function (height-dependent through the gamma factor); height-dependent constants or regions; conditions not closed on a compact window; existence statements in short intervals; companions that are not Dirichlet L-functions; effectivity (the heights are not located; a sample up to height 8000 shows 58 of 256 sign patterns)",
+   "kills": "any step of an argument that is a height-uniform local inequality on values of finitely many Dirichlet L-functions in the open right half of the strip and is claimed to carry arithmetic: it is of class T (true for every analytic tuple), class N (true for every non-vanishing tuple; can fail only in a window containing a zero; equal in content to a zero statement in that window) or class F (false on a set of heights of positive lower density)",
+   "kw": "\\bUNIV\\b|joint universality|universality filter|Voronin universality",
+   "status": "proved-relative",
+   "source": "push/c12-univ-pointwise-control-wcone/RESULT.md sections 1-3 (Lemma U1, Corollaries U2-U5) and DEVICE_READ_UNIV.md; relative to Theorems 1, 2, 7, 10, 11, 20, 30, 31 as printed in K. Matsumoto, A survey on the theory of universality for zeta and L-functions, arXiv:1407.4216 (opened); primary texts (Voronin, Gonek, Bagchi, Kaczorowski-Kulas, Nakamura-Pankowski) not opened; author check only, no independent referee"
+  }
+ },
+ "device_row_proposed": {
+  "id": "w-adapted-cone",
+  "state": "closed",
+  "name": "Cone adapted to the functional-equation matrix: non-negative and positive-definite even functions on Z/q, K_F = {v >= 0, Fv >= 0}, with the dilations as cone automorphisms (cell left open by regular-rep-matrix-bridge)",
+  "evidence": "lane c12-univ-pointwise-control-wcone (round 12, author check only): linear inequalities of K_F are the entrywise ones at x and 1/x (Lemma C); every dilation-invariant pointed cone meets the dilation eigenvectors only in the trivial slice (Lemma P'); at q = 5 the F-fixed extreme rays give zeta(s)(1 + 5^(1/2-s)) +- L(s, chi_5) with zeros off the line (measured; relative to Nakamura-Pankowski); the T-NR lift passes every step (kernel in K_F with the same F); the E_a lift fails only at the polar terms of the theta-normalised kernel; 'automorphism at every prime' is an input no cone inequality consumes; no value-side cone in the open strip (UNIV)",
+  "nodes": []
+ }
+}

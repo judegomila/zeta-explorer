@@ -1,0 +1,182 @@
+{
+ "map_reproduced_from_before": true,
+ "rows_before_after": [
+  198,
+  202
+ ],
+ "rows_added": [
+  "G37",
+  "G38",
+  "G39",
+  "G40"
+ ],
+ "rows_removed": [],
+ "duplicate_labels": [],
+ "old_lines_changed": 11,
+ "old_lines_changed_heads": [
+  "- Control BLS,",
+  "- Pre-filter L",
+  "Row count (202",
+  "| D9 | Borel E",
+  "| G26 | Hecke ",
+  "| G34 | Fourie",
+  "| G35 | Luo-Ru",
+  "| G36 | Dictio",
+  "| L6 | Edrei-T",
+  "| P55 | Pre-fi",
+  "| Z36 | Biline"
+ ],
+ "new_row_cells": {
+  "G37": 6,
+  "G38": 6,
+  "G39": 6,
+  "G40": 6
+ },
+ "restriction_markers": {
+  "1": true,
+  "2": true,
+  "3": true,
+  "4": true,
+  "5": false,
+  "6": false,
+  "7": true,
+  "8": true,
+  "9": true,
+  "10": true,
+  "11": true,
+  "12": true,
+  "13": true
+ },
+ "E1_not_holding_marked": true,
+ "regex": {
+  "pattern": "(?<![A-Za-z])(NR-vec|BLS|UNIV|DH|HEAT|TW\\+-|TW\\+|TW-|TW|EA|NR|THW|THIN|PA|WT|FM|EIS-w|EISW|U|B)(?![A-Za-z_0-9(])",
+  "t1": [
+   "BLS",
+   "EIS-w",
+   "NR",
+   "NR-vec",
+   "UNIV"
+  ],
+  "t2": [
+   "NR-vec"
+  ],
+  "t3": [],
+  "t4": [
+   "B",
+   "DH",
+   "HEAT",
+   "U"
+  ]
+ },
+ "regex_lines_changed": 1,
+ "quoted_numbers_missing_in_source": [
+  [
+   "r13",
+   "(0.62, 9.3)"
+  ]
+ ],
+ "quoted_numbers_missing_in_map": [],
+ "round12_14_lane_files_modified_after_start": [],
+ "devices": {
+  "closed": 50,
+  "floored": 1
+ },
+ "pending": 8,
+ "pending_RS_left": [],
+ "graph": {
+  "nodes": 1695,
+  "edges": 9020,
+  "rows": 238,
+  "controls": 20,
+  "live": 963
+ },
+ "outcomes_json_identical": true,
+ "outcomes_dir_identical": true,
+ "headline_before_after": [
+  {
+   "bestScore": 1,
+   "slug": "c1-leeyang-krein-limit",
+   "missing": [
+    "R2",
+    "R3",
+    "R4"
+   ],
+   "file": "tmp/research-2026-11-16/push/c1-leeyang-krein-limit/RESULT.md"
+  },
+  {
+   "bestScore": 1,
+   "slug": "c1-leeyang-krein-limit",
+   "missing": [
+    "R2",
+    "R3",
+    "R4"
+   ],
+   "file": "tmp/research-2026-11-16/push/c1-leeyang-krein-limit/RESULT.md"
+  }
+ ],
+ "headline_unchanged": true,
+ "holdrate_before_after": [
+  0.902,
+  0.902
+ ],
+ "partD_unchanged": true,
+ "partB_unchanged": true,
+ "partC_changed_keys": {
+  "nodes": [
+   1685,
+   1695
+  ],
+  "nodesMarkedClosed": [
+   561,
+   570
+  ],
+  "tags": [
+   398,
+   423
+  ],
+  "families": [
+   79003,
+   89253
+  ],
+  "familiesClosed": [
+   3034,
+   3190
+  ],
+  "familiesTriedNotClosed": [
+   633,
+   651
+  ],
+  "familiesOpenUntried": [
+   75336,
+   85412
+  ]
+ },
+ "top60_keys_scores_order_identical": true,
+ "strategy": {
+  "title": "# Campaign strategy, version 4 (2026-11-19, checkpoint after round 14)",
+  "sentence": true,
+  "U_rows": [
+   "U1",
+   "U2",
+   "U3",
+   "U4",
+   "U5",
+   "U6",
+   "U7",
+   "U8"
+  ],
+  "directive_section_identical": true,
+  "v3_title": "# Campaign strategy, version 3 (2026-11-19, review after round 10)",
+  "changelog_v4": true,
+  "allocation": true
+ },
+ "report": {
+  "headline": true,
+  "figure": true,
+  "rh_open": true,
+  "rows": true,
+  "devices": true,
+  "statement_o": true,
+  "words_flagged": []
+ }
+}

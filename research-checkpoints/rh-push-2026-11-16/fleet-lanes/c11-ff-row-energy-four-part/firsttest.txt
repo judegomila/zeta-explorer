@@ -1,0 +1,28 @@
+(6, 9, 2): np = 4483696; companion S_0: energy/diagonal = 37.5269, share along v_0 = 0.999598
+   one: D = |Pi Tf|^2/D_c = 3.57778  (|Tf|^2/D_c = 3.57934);  C = |Tq|^2/D_c = 0.660833 (C_perp 0.01587);  mean Vsf^2 = 216.9
+   a: D = |Pi Tf|^2/D_c = 0.568794  (|Tf|^2/D_c = 0.717274);  C = |Tq|^2/D_c = 0.662759 (C_perp 0.01579);  mean Vsf^2 = 39.31
+   b: D = |Pi Tf|^2/D_c = 0.603007  (|Tf|^2/D_c = 0.614275);  C = |Tq|^2/D_c = 0.662759 (C_perp 0.01579);  mean Vsf^2 = 33.76
+   mu: D = |Pi Tf|^2/D_c = 0.100722  (|Tf|^2/D_c = 0.100766);  C = |Tq|^2/D_c = 0 (C_perp 0);  mean Vsf^2 = 6
+   class cm, 24 seeds: D min 0.394328, median 0.598001, max 0.976508, mean 0.619935
+   class ru, 24 seeds: D min 0.467663, median 0.616735, max 1.02341, mean 0.65859
+(6, 10, 2): np = 28245840; companion S_0: energy/diagonal = 0.00177987, share along v_0 = 0.000000
+   one: D = |Pi Tf|^2/D_c = 3.14527e-05  (|Tf|^2/D_c = 3.14527e-05);  C = |Tq|^2/D_c = 3.14527e-05 (C_perp 3.145e-05);  mean Vsf^2 = 216.9
+   a: D = |Pi Tf|^2/D_c = 3.88519e-05  (|Tf|^2/D_c = 3.88519e-05);  C = |Tq|^2/D_c = 3.15443e-05 (C_perp 3.154e-05);  mean Vsf^2 = 39.31
+   b: D = |Pi Tf|^2/D_c = 2.95055e-05  (|Tf|^2/D_c = 3.25187e-05);  C = |Tq|^2/D_c = 3.15443e-05 (C_perp 3.089e-05);  mean Vsf^2 = 33.76
+   mu: D = |Pi Tf|^2/D_c = 8.65304e-07  (|Tf|^2/D_c = 8.65304e-07);  C = |Tq|^2/D_c = 0 (C_perp 0);  mean Vsf^2 = 6
+   class cm, 24 seeds: D min 1.95261e-05, median 2.91965e-05, max 3.82294e-05, mean 3.03341e-05
+   class ru, 24 seeds: D min 2.35938e-05, median 3.06637e-05, max 3.51013e-05, mean 2.99804e-05
+(6, 11, 2): np = 179756976; companion S_0: energy/diagonal = 0, share along v_0 = 0.000000
+   one: D = |Pi Tf|^2/D_c = 0  (|Tf|^2/D_c = 0);  C = |Tq|^2/D_c = 0 (C_perp 0);  mean Vsf^2 = 216.9
+   a: D = |Pi Tf|^2/D_c = 0  (|Tf|^2/D_c = 0);  C = |Tq|^2/D_c = 0 (C_perp 0);  mean Vsf^2 = 39.31
+   b: D = |Pi Tf|^2/D_c = 0  (|Tf|^2/D_c = 0);  C = |Tq|^2/D_c = 0 (C_perp 0);  mean Vsf^2 = 33.76
+   mu: D = |Pi Tf|^2/D_c = 0  (|Tf|^2/D_c = 0);  C = |Tq|^2/D_c = 0 (C_perp 0);  mean Vsf^2 = 6
+   class cm, 24 seeds: D min 0, median 0, max 0, mean 0
+   class ru, 24 seeds: D min 0, median 0, max 0, mean 0
+(6, 12, 2): np = 1153430600; companion S_0: energy/diagonal = 191.268, share along v_0 = 0.997898
+   one: D = |Pi Tf|^2/D_c = 22.1499  (|Tf|^2/D_c = 22.1914);  C = |Tq|^2/D_c = 3.36502 (C_perp 0.08332);  mean Vsf^2 = 216.9
+   a: D = |Pi Tf|^2/D_c = 2.79816  (|Tf|^2/D_c = 3.51789);  C = |Tq|^2/D_c = 3.37483 (C_perp 0.08005);  mean Vsf^2 = 39.31
+   b: D = |Pi Tf|^2/D_c = 2.97975  (|Tf|^2/D_c = 3.03426);  C = |Tq|^2/D_c = 3.37483 (C_perp 0.08297);  mean Vsf^2 = 33.76
+   mu: D = |Pi Tf|^2/D_c = 0.62414  (|Tf|^2/D_c = 0.625313);  C = |Tq|^2/D_c = 0 (C_perp 0);  mean Vsf^2 = 6
+   class cm, 24 seeds: D min 2.05238, median 3.05885, max 5.21222, mean 3.13072
+   class ru, 24 seeds: D min 2.31975, median 3.14607, max 5.67085, mean 3.35774

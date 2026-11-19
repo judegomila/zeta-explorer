@@ -1,0 +1,33 @@
+===== ITEM 1 (Bost-Connes) =====
+A. KMS formula vs Galois average of type I states (beta=1.3,2.5,4; b in 2,3,4,6,9,12,35,49): max abs diff 2.21e-31
+B. beta=0.25: least eigenvalue of circulant on (1/84)Z/Z = 0.051518  (min f value 0.2019)
+B. beta=0.5: least eigenvalue of circulant on (1/84)Z/Z = 0.269509  (min f value 0.0294)
+B. beta=1.0: least eigenvalue of circulant on (1/84)Z/Z = 1.000000  (min f value 0.0000)
+B. beta=2.0: least eigenvalue of circulant on (1/84)Z/Z = 0.011905  (min f value -0.5000)
+B. beta=3.0: least eigenvalue of circulant on (1/84)Z/Z = 0.000142  (min f value -0.7500)
+   local measure p=3 k=2 beta=0.5: integral of e(x/p^k) d nu = 0.211324865405182 ; formula f_beta(p^k) = 0.211324865405187
+   local measure p=5 k=1 beta=0.7: integral of e(x/p^k) d nu = 0.155164149173191 ; formula f_beta(p^k) = 0.155164149173191
+   local measure p=2 k=3 beta=2.0: integral of e(x/p^k) d nu = -0.03125 ; formula f_beta(p^k) = -0.03125
+C. extremal state phi_{beta,1}(sum conj chi(a) e(a/5)), beta=2: (0.51683265726972 + 1.21263789412471j)  tau(conj chi) L(2,chi)/zeta(2) = (0.51683265726972 + 1.21263789412471j)  Galois-invariant state on the same element: (0.0 + 0.0j)
+D. q=3 c=2.100: zero at 0.786656866897 + 2.85960086738 i ; |value| <= 4.38e-59 ; inside 0<Re<1: True; strip range for c: 2 < c < 2.3094
+D. q=5 c=2.300: zero at 0.836202642680 + 1.95198126583 i ; |value| <= 3.21e-59 ; inside 0<Re<1: True; strip range for c: 2 < c < 2.6833
+D. q=2 c=2.050: zero at 0.821928094887 + 4.53236014183 i ; |value| <= 3.28e-59 ; inside 0<Re<1: True; strip range for c: 2 < c < 2.1213
+   min eigenvalue of D on k<=10^4: 1.0 ; cocycle a(qk)/a(k) range: 1.0 6.142956348249516
+   Poisson relation G(l)-(q l)^-1 G(1/(q^2 l)) at l=0.037: 1.32e-15 (G=60.507156)
+   Poisson relation G(l)-(q l)^-1 G(1/(q^2 l)) at l=0.11: 1.23e-15 (G=23.442316)
+   Poisson relation G(l)-(q l)^-1 G(1/(q^2 l)) at l=0.4: 1.39e-16 (G=12.642992)
+   Dirichlet series identity is exact algebra: sum_{q|k} k^-s = q^-s zeta(s); checked symbolically, numerically at s=3: -8.52e-6
+   DH kappa = 0.2840790438  a(6)-a(2)a(3) = 1+kappa^2 = 1.0807
+===== ITEM 3 (X_0(4) oval) =====
+p=11 x=0.21: |complex-point sum - dilate formula| = 6.8e-30 ; |T_p^2 theta - (1+1/p) theta| = 6.8e-30 ; complex points counted 120+10
+p=11 x=0.9: |complex-point sum - dilate formula| = 1.39e-30 ; |T_p^2 theta - (1+1/p) theta| = 1.37e-30 ; complex points counted 120+10
+p=13 x=0.21: |complex-point sum - dilate formula| = 9.76e-30 ; |T_p^2 theta - (1+1/p) theta| = 9.99e-30 ; complex points counted 168+12
+p=13 x=0.9: |complex-point sum - dilate formula| = 1.71e-30 ; |T_p^2 theta - (1+1/p) theta| = 1.71e-30 ; complex points counted 168+12
+p=17 x=0.21: |complex-point sum - dilate formula| = 4.02e-29 ; |T_p^2 theta - (1+1/p) theta| = 4.02e-29 ; complex points counted 288+16
+p=17 x=0.9: |complex-point sum - dilate formula| = 5.54e-30 ; |T_p^2 theta - (1+1/p) theta| = 5.63e-30 ; complex points counted 288+16
+q=3: max|C_q(s) - (-q^-3/2)(2cosh+c)| over 3 points <= 5.8e-37; c=-6.9282 (|c| > strip bound 2.3094); real zero of C_q at 2.242274554 certified by sign change: True; min of C_q on the line = 0.9484
+q=5: max|C_q(s) - (-q^-3/2)(2cosh+c)| over 3 points <= 1.2e-36; c=-13.4164 (|c| > strip bound 2.6833); real zero of C_q at 2.109801766 certified by sign change: True; min of C_q on the line = 1.0211
+q=7: max|C_q(s) - (-q^-3/2)(2cosh+c)| over 3 points <= 1.3e-36; c=-21.1660 (|c| > strip bound 3.0237); real zero of C_q at 2.067470607 certified by sign change: True; min of C_q on the line = 1.0349
+q=11: max|C_q(s) - (-q^-3/2)(2cosh+c)| over 3 points <= 3.0e-36; c=-39.7995 (|c| > strip bound 3.6181); real zero of C_q at 2.036023035 certified by sign change: True; min of C_q on the line = 1.0361
+one complex point p=5 b=1: |lhs-rhs| = 1.23e-31
+one complex point p=5 b=2: |lhs-rhs| = 3.56e-31

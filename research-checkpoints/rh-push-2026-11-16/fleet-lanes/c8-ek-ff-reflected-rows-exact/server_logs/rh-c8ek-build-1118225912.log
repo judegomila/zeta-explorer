@@ -1,4 +1,4 @@
--rwxrwxr-x 1 jude-gomila jude-gomila 72256 Nov 18 22:59 ffx
+-rwxrwxr-x 1 user user 72256 Nov 18 22:59 ffx
 # en q=7 d=5 N=4 lam=4 mode=0 primes=588 planned memory 0.069 GB (char tables (2401+588) x 16807 bytes, pair table 588 x 2401 x 2, W 5764801 x 2)
 EN 7 5 4 4 0 3 2 3 | 588 | 17396094021 | 17673823860 | 1205712 | 8775012 | 946611
 

@@ -1,0 +1,92 @@
+== q=5 deg F=5 genus=2 curves=2500 strata r: 0: 50 pts / 1024 curves, 1: 28 pts / 975 curves, 2: 12 pts / 400 curves, 3: 4 pts / 100 curves, 5: 1 pts / 1 curves
+-- N=1
+   r=0: pts=50 curves=1024 nonzero vectors=20/20 | poly lemma: holds 20 (mono rank 2/2, free pts 48) | linear in t_0..t_N: holds 20 (free pts 48; off-fit pts min 0 max 0) | S^2 in span t_0..t_2N: holds 0 (free pts 47) | S in span t_0..t_2N: holds 20
+   r=1: pts=28 curves=975 nonzero vectors=20/20 | poly lemma: holds 20 (mono rank 2/2, free pts 26) | linear in t_0..t_N: holds 20 (free pts 26; off-fit pts min 0 max 0) | S^2 in span t_0..t_2N: holds 0 (free pts 25) | S in span t_0..t_2N: holds 20
+   r=2: pts=12 curves=400 nonzero vectors=20/20 | poly lemma: holds 20 (mono rank 2/2, free pts 10) | linear in t_0..t_N: holds 20 (free pts 10; off-fit pts min 0 max 0) | S^2 in span t_0..t_2N: holds 0 (free pts 9) | S in span t_0..t_2N: holds 20
+   r=3: pts=4 curves=100 nonzero vectors=20/20 | poly lemma: holds 20 (mono rank 2/2, free pts 2) | linear in t_0..t_N: holds 20 (free pts 2; off-fit pts min 0 max 0) | S^2 in span t_0..t_2N: holds 0 (free pts 1) | S in span t_0..t_2N: holds 20
+   r=5: all vectors zero
+   inequality where linear: vector-strata=80 curve-cases=49980 S^2<=H: 49980 S^2>H: 0 -D.D<0: 0 rho in [0.000000, 1.000000] rho=1: 200 (all s_m equal: 300) vector-strata with constant S^2/E: 0
+-- N=2
+   r=0: pts=50 curves=1024 nonzero vectors=20/20 | poly lemma: holds 20 (mono rank 4/4, free pts 46) | linear in t_0..t_N: holds 0 (free pts 47; off-fit pts min 39 max 39) | S^2 in span t_0..t_2N: holds 0 (free pts 45) | S in span t_0..t_2N: holds 0
+   r=1: pts=28 curves=975 nonzero vectors=20/20 | poly lemma: holds 20 (mono rank 4/4, free pts 24) | linear in t_0..t_N: holds 0 (free pts 25; off-fit pts min 18 max 18) | S^2 in span t_0..t_2N: holds 0 (free pts 23) | S in span t_0..t_2N: holds 0
+   r=2: pts=12 curves=400 nonzero vectors=20/20 | poly lemma: holds 20 (mono rank 4/4, free pts 8) | linear in t_0..t_N: holds 0 (free pts 9; off-fit pts min 6 max 6) | S^2 in span t_0..t_2N: holds 0 (free pts 7) | S in span t_0..t_2N: holds 0
+   r=3: pts=4 curves=100 nonzero vectors=20/20 | poly lemma: holds 20 (mono rank 4/4, free pts 0) | linear in t_0..t_N: holds 0 (free pts 1; off-fit pts min 1 max 1) | S^2 in span t_0..t_2N: holds 20 (free pts 0) | S in span t_0..t_2N: holds 20
+   r=5: pts=1 curves=1 nonzero vectors=20/20 | poly lemma: holds 20 (mono rank 1/4, free pts 0) | linear in t_0..t_N: holds 20 (free pts 0; off-fit pts min 0 max 0) | S^2 in span t_0..t_2N: holds 20 (free pts 0) | S in span t_0..t_2N: holds 20
+-- N=3
+   r=0: pts=50 curves=1024 nonzero vectors=20/20 | poly lemma: holds 20 (mono rank 6/6, free pts 44) | linear in t_0..t_N: holds 0 (free pts 46; off-fit pts min 39 max 39) | S^2 in span t_0..t_2N: holds 0 (free pts 43) | S in span t_0..t_2N: holds 0
+   r=1: pts=28 curves=975 nonzero vectors=20/20 | poly lemma: holds 20 (mono rank 6/6, free pts 22) | linear in t_0..t_N: holds 0 (free pts 24; off-fit pts min 18 max 18) | S^2 in span t_0..t_2N: holds 0 (free pts 21) | S in span t_0..t_2N: holds 0
+   r=2: pts=12 curves=400 nonzero vectors=20/20 | poly lemma: holds 20 (mono rank 6/6, free pts 6) | linear in t_0..t_N: holds 0 (free pts 8; off-fit pts min 6 max 6) | S^2 in span t_0..t_2N: holds 0 (free pts 5) | S in span t_0..t_2N: holds 0
+   r=3: pts=4 curves=100 nonzero vectors=20/20 | poly lemma: holds 20 (mono rank 4/6, free pts 0) | linear in t_0..t_N: holds 20 (free pts 1; off-fit pts min 0 max 0) | S^2 in span t_0..t_2N: holds 20 (free pts 0) | S in span t_0..t_2N: holds 20
+   r=5: all vectors zero
+== q=7 deg F=5 genus=2 curves=14406 strata r: 0: 88 pts / 5712 curves, 1: 48 pts / 5586 curves, 2: 18 pts / 2352 curves, 3: 10 pts / 735 curves, 5: 1 pts / 21 curves
+-- N=1
+   r=0: pts=88 curves=5712 nonzero vectors=20/20 | poly lemma: holds 20 (mono rank 2/2, free pts 86) | linear in t_0..t_N: holds 20 (free pts 86; off-fit pts min 0 max 0) | S^2 in span t_0..t_2N: holds 0 (free pts 85) | S in span t_0..t_2N: holds 20
+   r=1: pts=48 curves=5586 nonzero vectors=20/20 | poly lemma: holds 20 (mono rank 2/2, free pts 46) | linear in t_0..t_N: holds 20 (free pts 46; off-fit pts min 0 max 0) | S^2 in span t_0..t_2N: holds 0 (free pts 45) | S in span t_0..t_2N: holds 20
+   r=2: pts=18 curves=2352 nonzero vectors=20/20 | poly lemma: holds 20 (mono rank 2/2, free pts 16) | linear in t_0..t_N: holds 20 (free pts 16; off-fit pts min 0 max 0) | S^2 in span t_0..t_2N: holds 0 (free pts 15) | S in span t_0..t_2N: holds 20
+   r=3: pts=10 curves=735 nonzero vectors=20/20 | poly lemma: holds 20 (mono rank 2/2, free pts 8) | linear in t_0..t_N: holds 20 (free pts 8; off-fit pts min 0 max 0) | S^2 in span t_0..t_2N: holds 0 (free pts 7) | S in span t_0..t_2N: holds 20
+   r=5: all vectors zero
+   inequality where linear: vector-strata=80 curve-cases=287700 S^2<=H: 287700 S^2>H: 0 -D.D<0: 0 rho in [0.000000, 1.000000] rho=1: 840 (all s_m equal: 1680) vector-strata with constant S^2/E: 0
+-- N=2
+   r=0: pts=88 curves=5712 nonzero vectors=20/20 | poly lemma: holds 20 (mono rank 4/4, free pts 84) | linear in t_0..t_N: holds 0 (free pts 85; off-fit pts min 79 max 79) | S^2 in span t_0..t_2N: holds 0 (free pts 83) | S in span t_0..t_2N: holds 0
+   r=1: pts=48 curves=5586 nonzero vectors=20/20 | poly lemma: holds 20 (mono rank 4/4, free pts 44) | linear in t_0..t_N: holds 0 (free pts 45; off-fit pts min 39 max 39) | S^2 in span t_0..t_2N: holds 0 (free pts 43) | S in span t_0..t_2N: holds 0
+   r=2: pts=18 curves=2352 nonzero vectors=20/20 | poly lemma: holds 20 (mono rank 4/4, free pts 14) | linear in t_0..t_N: holds 0 (free pts 15; off-fit pts min 14 max 14) | S^2 in span t_0..t_2N: holds 0 (free pts 13) | S in span t_0..t_2N: holds 0
+   r=3: pts=10 curves=735 nonzero vectors=20/20 | poly lemma: holds 20 (mono rank 4/4, free pts 6) | linear in t_0..t_N: holds 0 (free pts 7; off-fit pts min 7 max 7) | S^2 in span t_0..t_2N: holds 0 (free pts 5) | S in span t_0..t_2N: holds 0
+   r=5: pts=1 curves=21 nonzero vectors=20/20 | poly lemma: holds 20 (mono rank 1/4, free pts 0) | linear in t_0..t_N: holds 20 (free pts 0; off-fit pts min 0 max 0) | S^2 in span t_0..t_2N: holds 20 (free pts 0) | S in span t_0..t_2N: holds 20
+-- N=3
+   r=0: pts=88 curves=5712 nonzero vectors=20/20 | poly lemma: holds 20 (mono rank 6/6, free pts 82) | linear in t_0..t_N: holds 0 (free pts 84; off-fit pts min 79 max 79) | S^2 in span t_0..t_2N: holds 0 (free pts 81) | S in span t_0..t_2N: holds 0
+   r=1: pts=48 curves=5586 nonzero vectors=20/20 | poly lemma: holds 20 (mono rank 6/6, free pts 42) | linear in t_0..t_N: holds 0 (free pts 44; off-fit pts min 39 max 39) | S^2 in span t_0..t_2N: holds 0 (free pts 41) | S in span t_0..t_2N: holds 0
+   r=2: pts=18 curves=2352 nonzero vectors=20/20 | poly lemma: holds 20 (mono rank 6/6, free pts 12) | linear in t_0..t_N: holds 0 (free pts 14; off-fit pts min 13 max 13) | S^2 in span t_0..t_2N: holds 0 (free pts 11) | S in span t_0..t_2N: holds 0
+   r=3: pts=10 curves=735 nonzero vectors=20/20 | poly lemma: holds 20 (mono rank 6/6, free pts 4) | linear in t_0..t_N: holds 0 (free pts 6; off-fit pts min 6 max 6) | S^2 in span t_0..t_2N: holds 0 (free pts 3) | S in span t_0..t_2N: holds 20
+   r=5: all vectors zero
+== q=5 deg F=7 genus=3 curves=62500 strata r: 0: 840 pts / 25200 curves, 1: 427 pts / 24900 curves, 2: 158 pts / 10240 curves, 3: 50 pts / 1950 curves, 4: 4 pts / 200 curves, 5: 2 pts / 10 curves
+-- N=1
+   r=0: pts=840 curves=25200 nonzero vectors=20/20 | poly lemma: holds 20 (mono rank 2/2, free pts 838) | linear in t_0..t_N: holds 20 (free pts 838; off-fit pts min 0 max 0) | S^2 in span t_0..t_2N: holds 0 (free pts 837) | S in span t_0..t_2N: holds 20
+   r=1: pts=427 curves=24900 nonzero vectors=20/20 | poly lemma: holds 20 (mono rank 2/2, free pts 425) | linear in t_0..t_N: holds 20 (free pts 425; off-fit pts min 0 max 0) | S^2 in span t_0..t_2N: holds 0 (free pts 424) | S in span t_0..t_2N: holds 20
+   r=2: pts=158 curves=10240 nonzero vectors=20/20 | poly lemma: holds 20 (mono rank 2/2, free pts 156) | linear in t_0..t_N: holds 20 (free pts 156; off-fit pts min 0 max 0) | S^2 in span t_0..t_2N: holds 0 (free pts 155) | S in span t_0..t_2N: holds 20
+   r=3: pts=50 curves=1950 nonzero vectors=20/20 | poly lemma: holds 20 (mono rank 2/2, free pts 48) | linear in t_0..t_N: holds 20 (free pts 48; off-fit pts min 0 max 0) | S^2 in span t_0..t_2N: holds 0 (free pts 47) | S in span t_0..t_2N: holds 20
+   r=4: pts=4 curves=200 nonzero vectors=20/20 | poly lemma: holds 20 (mono rank 2/2, free pts 2) | linear in t_0..t_N: holds 20 (free pts 2; off-fit pts min 0 max 0) | S^2 in span t_0..t_2N: holds 20 (free pts 1) | S in span t_0..t_2N: holds 20
+   r=5: all vectors zero
+   inequality where linear: vector-strata=100 curve-cases=1249800 S^2<=H: 1249800 S^2>H: 0 -D.D<0: 0 rho in [0.000000, 0.641026] rho=1: 0 (all s_m equal: 0) vector-strata with constant S^2/E: 0
+-- N=2
+   r=0: pts=840 curves=25200 nonzero vectors=20/20 | poly lemma: holds 20 (mono rank 4/4, free pts 836) | linear in t_0..t_N: holds 0 (free pts 837; off-fit pts min 657 max 657) | S^2 in span t_0..t_2N: holds 0 (free pts 835) | S in span t_0..t_2N: holds 0
+   r=1: pts=427 curves=24900 nonzero vectors=20/20 | poly lemma: holds 20 (mono rank 4/4, free pts 423) | linear in t_0..t_N: holds 0 (free pts 424; off-fit pts min 278 max 278) | S^2 in span t_0..t_2N: holds 0 (free pts 422) | S in span t_0..t_2N: holds 0
+   r=2: pts=158 curves=10240 nonzero vectors=20/20 | poly lemma: holds 20 (mono rank 4/4, free pts 154) | linear in t_0..t_N: holds 0 (free pts 155; off-fit pts min 79 max 79) | S^2 in span t_0..t_2N: holds 0 (free pts 153) | S in span t_0..t_2N: holds 0
+   r=3: pts=50 curves=1950 nonzero vectors=20/20 | poly lemma: holds 20 (mono rank 4/4, free pts 46) | linear in t_0..t_N: holds 0 (free pts 47; off-fit pts min 16 max 16) | S^2 in span t_0..t_2N: holds 0 (free pts 45) | S in span t_0..t_2N: holds 0
+   r=4: pts=4 curves=200 nonzero vectors=20/20 | poly lemma: holds 20 (mono rank 3/4, free pts 1) | linear in t_0..t_N: holds 20 (free pts 1; off-fit pts min 0 max 0) | S^2 in span t_0..t_2N: holds 20 (free pts 0) | S in span t_0..t_2N: holds 20
+   r=5: pts=2 curves=10 nonzero vectors=20/20 | poly lemma: holds 20 (mono rank 1/4, free pts 1) | linear in t_0..t_N: holds 20 (free pts 1; off-fit pts min 0 max 0) | S^2 in span t_0..t_2N: holds 20 (free pts 0) | S in span t_0..t_2N: holds 20
+   inequality where linear: vector-strata=20 curve-cases=4000 S^2<=H: 4000 S^2>H: 0 -D.D<0: 0 rho in [0.031128, 0.045198] rho=1: 0 (all s_m equal: 0) vector-strata with constant S^2/E: 0
+-- N=3
+   r=0: pts=840 curves=25200 nonzero vectors=20/20 | poly lemma: holds 20 (mono rank 7/7, free pts 833) | linear in t_0..t_N: holds 0 (free pts 836; off-fit pts min 794 max 794) | S^2 in span t_0..t_2N: holds 0 (free pts 833) | S in span t_0..t_2N: holds 0
+   r=1: pts=427 curves=24900 nonzero vectors=20/20 | poly lemma: holds 20 (mono rank 7/7, free pts 420) | linear in t_0..t_N: holds 0 (free pts 423; off-fit pts min 376 max 377) | S^2 in span t_0..t_2N: holds 0 (free pts 420) | S in span t_0..t_2N: holds 0
+   r=2: pts=158 curves=10240 nonzero vectors=20/20 | poly lemma: holds 20 (mono rank 7/7, free pts 151) | linear in t_0..t_N: holds 0 (free pts 154; off-fit pts min 130 max 130) | S^2 in span t_0..t_2N: holds 0 (free pts 151) | S in span t_0..t_2N: holds 0
+   r=3: pts=50 curves=1950 nonzero vectors=20/20 | poly lemma: holds 20 (mono rank 6/7, free pts 44) | linear in t_0..t_N: holds 0 (free pts 46; off-fit pts min 30 max 30) | S^2 in span t_0..t_2N: holds 0 (free pts 43) | S in span t_0..t_2N: holds 0
+   r=4: pts=4 curves=200 nonzero vectors=20/20 | poly lemma: holds 20 (mono rank 4/7, free pts 0) | linear in t_0..t_N: holds 20 (free pts 0; off-fit pts min 0 max 0) | S^2 in span t_0..t_2N: holds 20 (free pts 0) | S in span t_0..t_2N: holds 20
+   r=5: pts=2 curves=10 nonzero vectors=20/20 | poly lemma: holds 20 (mono rank 2/7, free pts 0) | linear in t_0..t_N: holds 20 (free pts 0; off-fit pts min 0 max 0) | S^2 in span t_0..t_2N: holds 20 (free pts 0) | S in span t_0..t_2N: holds 20
+   inequality where linear: vector-strata=20 curve-cases=4000 S^2<=H: 4000 S^2>H: 0 -D.D<0: 0 rho in [0.000886, 0.309554] rho=1: 0 (all s_m equal: 0) vector-strata with constant S^2/E: 0
+== q=7 deg F=7 genus=3 curves=705894 strata r: 0: 2576 pts / 277584 curves, 1: 1286 pts / 276066 curves, 2: 538 pts / 119952 curves, 3: 163 pts / 27930 curves, 4: 30 pts / 3920 curves, 5: 6 pts / 441 curves, 7: 1 pts / 1 curves
+-- N=1
+   r=0: pts=2576 curves=277584 nonzero vectors=20/20 | poly lemma: holds 20 (mono rank 2/2, free pts 2574) | linear in t_0..t_N: holds 20 (free pts 2574; off-fit pts min 0 max 0) | S^2 in span t_0..t_2N: holds 0 (free pts 2573) | S in span t_0..t_2N: holds 20
+   r=1: pts=1286 curves=276066 nonzero vectors=20/20 | poly lemma: holds 20 (mono rank 2/2, free pts 1284) | linear in t_0..t_N: holds 20 (free pts 1284; off-fit pts min 0 max 0) | S^2 in span t_0..t_2N: holds 0 (free pts 1283) | S in span t_0..t_2N: holds 20
+   r=2: pts=538 curves=119952 nonzero vectors=20/20 | poly lemma: holds 20 (mono rank 2/2, free pts 536) | linear in t_0..t_N: holds 20 (free pts 536; off-fit pts min 0 max 0) | S^2 in span t_0..t_2N: holds 0 (free pts 535) | S in span t_0..t_2N: holds 20
+   r=3: pts=163 curves=27930 nonzero vectors=20/20 | poly lemma: holds 20 (mono rank 2/2, free pts 161) | linear in t_0..t_N: holds 20 (free pts 161; off-fit pts min 0 max 0) | S^2 in span t_0..t_2N: holds 0 (free pts 160) | S in span t_0..t_2N: holds 20
+   r=4: pts=30 curves=3920 nonzero vectors=20/20 | poly lemma: holds 20 (mono rank 2/2, free pts 28) | linear in t_0..t_N: holds 20 (free pts 28; off-fit pts min 0 max 0) | S^2 in span t_0..t_2N: holds 0 (free pts 27) | S in span t_0..t_2N: holds 20
+   r=5: pts=6 curves=441 nonzero vectors=20/20 | poly lemma: holds 20 (mono rank 2/2, free pts 4) | linear in t_0..t_N: holds 20 (free pts 4; off-fit pts min 0 max 0) | S^2 in span t_0..t_2N: holds 0 (free pts 3) | S in span t_0..t_2N: holds 20
+   r=7: all vectors zero
+   inequality where linear: vector-strata=120 curve-cases=14117860 S^2<=H: 14117860 S^2>H: 0 -D.D<0: 0 rho in [0.000000, 1.000000] rho=1: 280 (all s_m equal: 420) vector-strata with constant S^2/E: 0
+-- N=2
+   r=0: pts=2576 curves=277584 nonzero vectors=20/20 | poly lemma: holds 20 (mono rank 4/4, free pts 2572) | linear in t_0..t_N: holds 0 (free pts 2573; off-fit pts min 2317 max 2317) | S^2 in span t_0..t_2N: holds 0 (free pts 2571) | S in span t_0..t_2N: holds 0
+   r=1: pts=1286 curves=276066 nonzero vectors=20/20 | poly lemma: holds 20 (mono rank 4/4, free pts 1282) | linear in t_0..t_N: holds 0 (free pts 1283; off-fit pts min 1071 max 1071) | S^2 in span t_0..t_2N: holds 0 (free pts 1281) | S in span t_0..t_2N: holds 0
+   r=2: pts=538 curves=119952 nonzero vectors=20/20 | poly lemma: holds 20 (mono rank 4/4, free pts 534) | linear in t_0..t_N: holds 0 (free pts 535; off-fit pts min 409 max 409) | S^2 in span t_0..t_2N: holds 0 (free pts 533) | S in span t_0..t_2N: holds 0
+   r=3: pts=163 curves=27930 nonzero vectors=20/20 | poly lemma: holds 20 (mono rank 4/4, free pts 159) | linear in t_0..t_N: holds 0 (free pts 160; off-fit pts min 107 max 107) | S^2 in span t_0..t_2N: holds 0 (free pts 158) | S in span t_0..t_2N: holds 0
+   r=4: pts=30 curves=3920 nonzero vectors=20/20 | poly lemma: holds 20 (mono rank 4/4, free pts 26) | linear in t_0..t_N: holds 0 (free pts 27; off-fit pts min 15 max 15) | S^2 in span t_0..t_2N: holds 0 (free pts 25) | S in span t_0..t_2N: holds 0
+   r=5: pts=6 curves=441 nonzero vectors=20/20 | poly lemma: holds 20 (mono rank 4/4, free pts 2) | linear in t_0..t_N: holds 0 (free pts 3; off-fit pts min 2 max 2) | S^2 in span t_0..t_2N: holds 0 (free pts 1) | S in span t_0..t_2N: holds 0
+   r=7: pts=1 curves=1 nonzero vectors=20/20 | poly lemma: holds 20 (mono rank 1/4, free pts 0) | linear in t_0..t_N: holds 20 (free pts 0; off-fit pts min 0 max 0) | S^2 in span t_0..t_2N: holds 20 (free pts 0) | S in span t_0..t_2N: holds 20
+-- N=3
+   r=0: pts=2576 curves=277584 nonzero vectors=20/20 | poly lemma: holds 20 (mono rank 7/7, free pts 2569) | linear in t_0..t_N: holds 0 (free pts 2572; off-fit pts min 2516 max 2516) | S^2 in span t_0..t_2N: holds 0 (free pts 2569) | S in span t_0..t_2N: holds 0
+   r=1: pts=1286 curves=276066 nonzero vectors=20/20 | poly lemma: holds 20 (mono rank 7/7, free pts 1279) | linear in t_0..t_N: holds 0 (free pts 1282; off-fit pts min 1224 max 1224) | S^2 in span t_0..t_2N: holds 0 (free pts 1279) | S in span t_0..t_2N: holds 0
+   r=2: pts=538 curves=119952 nonzero vectors=20/20 | poly lemma: holds 20 (mono rank 7/7, free pts 531) | linear in t_0..t_N: holds 0 (free pts 534; off-fit pts min 504 max 504) | S^2 in span t_0..t_2N: holds 0 (free pts 531) | S in span t_0..t_2N: holds 0
+   r=3: pts=163 curves=27930 nonzero vectors=20/20 | poly lemma: holds 20 (mono rank 7/7, free pts 156) | linear in t_0..t_N: holds 0 (free pts 159; off-fit pts min 143 max 143) | S^2 in span t_0..t_2N: holds 0 (free pts 156) | S in span t_0..t_2N: holds 0
+   r=4: pts=30 curves=3920 nonzero vectors=20/20 | poly lemma: holds 20 (mono rank 7/7, free pts 23) | linear in t_0..t_N: holds 0 (free pts 26; off-fit pts min 22 max 22) | S^2 in span t_0..t_2N: holds 0 (free pts 23) | S in span t_0..t_2N: holds 0
+   r=5: pts=6 curves=441 nonzero vectors=20/20 | poly lemma: holds 20 (mono rank 5/7, free pts 1) | linear in t_0..t_N: holds 20 (free pts 2; off-fit pts min 0 max 0) | S^2 in span t_0..t_2N: holds 20 (free pts 0) | S in span t_0..t_2N: holds 20
+   r=7: all vectors zero
+   inequality where linear: vector-strata=20 curve-cases=8820 S^2<=H: 8820 S^2>H: 0 -D.D<0: 0 rho in [0.000000, 0.330720] rho=1: 0 (all s_m equal: 0) vector-strata with constant S^2/E: 0

@@ -336,3 +336,95 @@ Still pending (not applied by this lane):
 - Rows for round-10 lanes: none proposed here.
 - `stack-combinator/TABLE.md` has no THIN row (unchanged debt).
 - Sources recalled, not opened (unchanged): Beurling construction (Statement O line 5); Coleman 1990 primary text; Huxley's short-interval asymptotic; Turan's equivalence (row D6); Blomer-Goldmakher-Louvel journal text; Gelfand-Tsetlin recipe for double covers (row Z23); Weil 1952; Montgomery's fixed-X omega theorem (row P44). Each is carried as "relative to" in the row or line that uses it.
+
+## Status 2026-11-19, fifth (lane `c11-repair-del-referee-record`)
+
+Applied to `push/OBSTRUCTION_MAP.md` (scripts `push/c11-repair-del-referee-record/apply_map.py`, `apply_map2.py`; edit list `map_edits.json`; previous file `push/c11-repair-del-referee-record/before/OBSTRUCTION_MAP.md`; 551 -> 561 lines; rows 180 -> 182: P 52, G 31, Q 27, S 12, Z 36, F 8, T 3, L 5, D 7, O 1; controls in the section 2 table 9 -> 10):
+
+| Proposed by | Applied as |
+|---|---|
+| `c10-thin-deletion-zero-mode-control` RESULT section 4 (control row DEL) | section 2 table row DEL and a note; wording after both referee files (Lemma C for the deleted factor; branch point of order two; relative to Huxley 1972; count 14 / 20 with the unrefereed re-read 11 / 23 of `c11-del-device-read-confirm`); row B kept as a literature pointer |
+| `c10-ff-slot-cross-decomposition/MAP_ROW_PROPOSED.md` (addition to Z30) | text in row Z30 in place of "not reconciled", with referee corrections 1 to 4 (583 of 596 for n; second signal at d = 1 only; interior short-mark values; visibility size ARGUED); status and source cells |
+| `c10-spectral-reciprocity-signed-moduli` RESULT ("Row for the map") | row P52, together with the n4 lane that had no row; referee corrections C1 to C6 (Lemma R classical; "composite is the functional equation" by ranges only; variants recalled) |
+| `c10-ff-signal-intersection-square` RESULT section 7 | row Z33 (the lane asked for the next free Z number), referee corrections 1 to 5 |
+| (added) | row O1 (pointer to Statement O version 3; line 5 control DEL); four rows of section 7; header update line "seventh"; row count line |
+
+Still pending (not applied by this lane):
+
+- Rows for `c10-ff-completed-rows-692` and `c10-tro6-dual-squarefree-type1-level`: no row text proposed by those lanes; Z30 and Z32 carry a pointer only.
+- Round-11 proposals that arrived while this lane ran: row G32 (central-value squares), a row for the Landau-Siegel device, the corrected P36 control cell, Statement O section C row 3 (`c11-del-device-read-confirm`, no independent referee yet); rows of `c11-rs1-twist-modulus-reciprocity`, `c11-rs1-regular-rep-matrix-bridge`, `c11-rs3-debranges-positivity-family` (each has a "row for the map"; author checks only).
+- `push/c9-obstruction-record-statement/STATEMENT_O.md` is unchanged; version 3 is `push/c11-repair-del-referee-record/STATEMENT_O_v3.md`. Replacing the c9 file by version 3 needs a reader who is not this lane.
+- Section 1 and section 5 of the map unchanged. `stack-combinator/TABLE.md` has no THIN or DEL row.
+- Sources recalled, not opened (unchanged, with one change): the Beurling construction is no longer used by Statement O; Huxley 1972 is now read in two secondary sources (primary text not opened); Trudgian 2016 Theorem 2 not confirmed from the abstract page; Coleman 1990, Turan (row D6), Blomer-Goldmakher-Louvel, Gelfand-Tsetlin (row Z23), Weil 1952, Montgomery (row P44) as before.
+
+## Status 2026-11-19, round 12 (lane `c12-repair-sources-statement-o-v3`)
+
+Applied to `push/OBSTRUCTION_MAP.md` (scripts `push/c12-repair-sources-statement-o-v3/apply_map.py`, `apply_map2.py`; list `map_edits.json`; previous file `before/OBSTRUCTION_MAP.md`). Rows 182 -> 186.
+
+| source of the proposal | applied as |
+|---|---|
+| `c11-del-device-read-confirm` section 4 | row G32 (central-value squares); status cell says "author's check only" |
+| `c11-del-device-read-confirm` section 2 (row for the Landau-Siegel device) | no new row: row Z29 already is that row; a note added to its defeated-by cell (no control on file passes every step; closed for the height aspect) |
+| `c11-del-device-read-confirm` sections 1, 5 (P36 cell) | defeated-by cell of P36: E_a passes every step; B fails at the logarithmic discrepancy; DEL not established |
+| `c11-rs1-twist-modulus-reciprocity` ("row for the map") | row Z34, with the corrections of both referee files (E_a statement withdrawn; abscissa claim withdrawn; Bettin opened) |
+| `c11-rs1-regular-rep-matrix-bridge` section 8 | row Q28 (first placed as S13 by mistake, moved by `apply_map2.py`), with the wording of the first referee and corrections R-1 to R-3 of the second |
+| `c11-rs3-debranges-positivity-family` section 7 | row P53, "implies" in place of "equals", Bohr opened |
+| (added) | control row DEL: source chain after Huxley 1972 was opened, device count 11 / 23; row O1: current text of Statement O is `push/c12-repair-sources-statement-o-v3/STATEMENT_O_v3.md`; four rows of section 7; update line "eighth"; row count line |
+
+Still pending (not applied by this lane):
+
+- Rows for `c10-ff-completed-rows-692`, `c10-tro6-dual-squarefree-type1-level`, and the round-11 lanes `c11-ff-genus2-probe-jk`, `c11-ff-row-energy-four-part`, `c11-frontier-nth-order-sieve` (not in this lane's assignment).
+- An independent referee for `c11-del-device-read-confirm` (row G32 and the 11 / 23 table rest on the author's check; this lane recounted the codes and re-read one cell).
+- Engine device entry `central-value-squares` (proposed by that lane; not in this lane's assignment; not added).
+- Sources: opened in round 12: Bettin 2016 (arXiv source), Huxley 1972, Hamburger 1921, Kaczorowski-Perelli 1999, Bohr 1916 (scans). Newly owed: Ingham 1937 (deduction of the short-interval count from the density estimate). Unchanged: Trudgian 2016 Theorem 2, Coleman 1990, Turan (row D6), Blomer-Goldmakher-Louvel, Gelfand-Tsetlin (row Z23), Weil 1952, Montgomery (row P44), Conrey 2007 and Young 2011 (read only through Bettin's introduction).
+- `stack-combinator/TABLE.md` has no THIN or DEL row (unchanged).
+
+## Status 2026-11-19, round 13 (lane `c13-repair-map-engine-battery-records`)
+
+Applied to `push/OBSTRUCTION_MAP.md` (script `push/c13-repair-map-engine-battery-records/apply_map.py`; previous file `before/OBSTRUCTION_MAP.md`). Rows 186 -> 191.
+
+| source of the proposal | applied as |
+|---|---|
+| `c12-bost-connes-crossed-product-duality/MAP_ROW.md` | row D8 (section 3.9), with corrections E1 to E6 of the independent referee (Galois-invariant against extremal KMS states; "multiplication of the state by a positive element"; range of c; two last sentences relabelled ARGUED); note on T-NR in section 2 |
+| `c12-depth-aspect-height-transfer` section 4 (row "Z-new") | row Z35, first cell "termwise exchange", thresholds abs(t) >= t_r carried, G1 to G6 of the independent referee |
+| `c12-univ-pointwise-control-wcone` section 7 (two rows) | row P54 (filter UNIV) and row Q29 (candidate (CW) on K_F), with E1 to E5; note UNIV in section 2 (no row in the control table: UNIV is a filter, not a function) |
+| `c12-x04-oval-hecke-fricke-loading` (no row text proposed) | row G33, worded from the referee's "surviving claim" and E2 |
+| `c12-frontier-xu-sang-structured-moment` section 7 | additions to rows Z11 and Z12 (M1 range corrected to z < 3/8 per referee E1; spike case E2) |
+| `c12-control-battery-harness` items A1, A3; this lane's recomputation | row P43 (residual about 2.2e-11); row P53 (corrected record; failures at h = 1/2; the two cells run by `c12-heat-tied-family-open-cell`); battery note in section 2 |
+| (added) | seven rows of section 7; update line "ninth"; row count line |
+
+Still pending (not applied by this lane):
+
+- Second independent referees for round-12 lanes 1, 2, 4, Lemmas S and T of `c12-heat-tied-family-open-cell`, and the UNIV statement: lane `c13-referee-r12-independent`. Rows D8, Z35, G33, P54, Q29 each rest on one independent referee pass.
+- A row for `c12-heat-tied-family-open-cell` (Lemmas S, T): not in this lane's assignment; its outcome is cited inside row P53 only.
+- The corrected record files are in `push/c13-repair-map-engine-battery-records/records_corrected/`; `push/c11-rs3-debranges-positivity-family/screen.json`, `push/c12-control-battery-harness/records/screen.json`, `tables/zeros_HEAT--0.5.json` and `tables/MANIFEST.json` are unchanged (outside this lane's write set). A battery owner should copy the two corrected files in and regenerate the manifest; the server copy of the battery was not touched.
+- The windows of the c11 record at height 1e4 are corrected in the record file but are outside the battery (tables stop at 2000), so no battery replay covers them; an mpmath check at 40 digits agrees with the corrected values (`ref_checks.json`).
+- Items listed as pending by `c12-repair-sources-statement-o-v3` are unchanged (rows for five round-10 and round-11 lanes; referee for `c11-del-device-read-confirm`; device `central-value-squares`; Ingham 1937).
+
+## Status 2026-11-19, round 14 (lane `c14-repair-map-engine-checkpoint-record`)
+
+Applied to `push/OBSTRUCTION_MAP.md` (script `push/c14-repair-map-engine-checkpoint-record/apply_map.py`; previous file `before/OBSTRUCTION_MAP.md`). Rows 191 -> 198.
+
+| source of the proposal | applied as |
+|---|---|
+| `c13-kacmoody-eisenstein-affine-weyl-shift/MAP_ROW.md`, `controls_BLS_proposed.json` | row D9 (section 3.9): rank-one inequality PROVED closed, affine kernel ARGUED; notes BLS and "NR on a scattering carrier" in section 2 (no row in the control table: BLS is a scattering-level control), with corrections 1 to 5 of the independent referee |
+| `c13-fourier-interpolation-zero-nodes` section 9 | row G34, with C1 to C9 of the independent referee ("implies RH; converse argued"; Lemma M as an identity; DH and theta^w rows argued) |
+| `c13-lrs-twist-amplification-zero-representation/MAP_ROW.md` | row G35, with defects 1 to 3 (Borel data at regular parameters; reason is the Hecke eigenvalues; beta != 1/2) |
+| `c13-tnr-invariance-prefilter-noncone-census` (no row text proposed) | row P55 (Lemma P and the census), row L6 (Edrei-Thoma), note "Pre-filter Lemma P" in section 2, with R-1 to R-5 (13 device types, 8 passes, 7 failures) |
+| `c13-bilinear-reciprocity-height-antibridge` ("Row for the map") | row Z36, with E1 to E4 and the referee's addition (sign = parity of the total zero count) |
+| `c13-noncone-kernel-separator-search` section 9 | row G36: dictionary D closed as MEASURED, finite search, with the referee's findings 1 to 7 on the reading |
+| `c13-referee-r12-independent/RESULT.md` section 4 (eight relabels) | rows D8 (relabels 1 to 4), Z35 (5, 6), G33 (7, with the one upgrade), P54 and the UNIV note (8); two rows of section 7. The lanes' RESULT files were not edited; relabel table in `push/c14-repair-map-engine-checkpoint-record/RESULT.md` section 2.2 |
+| same lane, item on `c12-heat-tied-family-open-cell` | row P53: "second referee owed" replaced by the outcome (Lemmas S, T hold given Conrey-Li Theorem 2) |
+| (added) | eight rows of section 7; update line "tenth"; row count line |
+
+Battery records: the two corrected files of `c13-repair-map-engine-battery-records/records_corrected/` are now in `push/c12-control-battery-harness/` (`records/screen.json`, `tables/zeros_HEAT--0.5.json`; originals kept as `screen.original.json`, `zeros_HEAT--0.5.original.json`; note `records/CORRECTED_RECORDS.md`). D1 rerun against the record in place: 20 of 20.
+
+Still pending (not applied by this lane):
+
+- The eight relabels in the round-12 lanes' own RESULT.md files (this lane's assignment: map rows only).
+- Corrections owed inside round-13 RESULT.md files by their independent referees (kac-moody items 1 to 3; fourier C1 to C9; LRS defects 1 to 5; census R-1 to R-5; bilinear E1 to E4): entered in the map rows and section 7, not in the lanes.
+- Second independent referees for round-13 lanes 1 to 6 (lane `c14-referee-r13-independent`, not reported when this status was written): rows D9, G34, G35, G36, P55, L6, Z36 each rest on one independent referee pass.
+- `push/c12-control-battery-harness/devices/d1_debranges.py` (recorded numbers typed in; still 19 of 20), `tables/device_D1.json`, `tables/device_D4.json` (D4 read the 277-pair HEAT table; not rerun), `tables/MANIFEST.json`, the server copy of the battery, and `push/c11-rs3-debranges-positivity-family/screen.json`: unchanged.
+- `engine/build_graph.py`: the fixed control code list does not contain BLS or UNIV, so their nodes get no row edges.
+- A row for `c12-heat-tied-family-open-cell` and the items listed as pending by the round-12 and round-13 repair lanes (rows for five round-10 and round-11 lanes; referee for `c11-del-device-read-confirm`; device `central-value-squares`; Ingham 1937): unchanged.
+- `campaign/CHECKPOINT_R14_DRAFT.md` is a draft for the round-14 learn step; STRATEGY.md was not edited.

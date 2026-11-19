@@ -1,0 +1,22 @@
+ok   CL (3.2) value, rel 1e-11 | got -5.389100507182945181443853e-69 | recorded -5.389100507182945e-69
+ok   zeta fails at zero 34, h = 1 (sign certified by ball) | got [-5.389100507182945181443853e-69 +/- 1.29e-94] | recorded < 0
+ok   first failing zero of zeta at h = 1 is the 34th | got 34 | recorded 34
+ok   zeta_1_100 zero count | got 100 | recorded 100
+ok   zeta_1_100 fail counts h = 0.1..4 | got [0, 0, 0, 2, 50, 99] | recorded [0, 0, 0, 2, 50, 99]
+ok   zeta_1_100 min q_1, abs 1e-9 | got -0.17845535996405765 | recorded -0.17845535996405765
+ok   zeta_1_100 no undecided sign | got 0 | recorded 0
+ok   zeta_620_680 zero count | got 61 | recorded 61
+ok   zeta_620_680 fail counts h = 0.1..4 | got [0, 0, 0, 6, 33, 57] | recorded [0, 0, 0, 6, 33, 57]
+ok   zeta_620_680 min q_1, abs 1e-9 | got -0.4774690487348363 | recorded -0.4774690487348363
+ok   zeta_620_680 no undecided sign | got 0 | recorded 0
+ok   DH_t1_200 zero count | got 122 | recorded 122
+ok   DH_t1_200 fail counts h = 0.1..4 | got [0, 0, 0, 2, 54, 122] | recorded [0, 0, 0, 2, 54, 122]
+ok   DH_t1_200 min q_1, abs 1e-9 | got -0.18900481690394497 | recorded -0.18900481690394497
+ok   DH_t1_200 no undecided sign | got 0 | recorded 0
+ok   DH_t1000_1020 zero count | got 17 | recorded 17
+ok   DH_t1000_1020 fail counts h = 0.1..4 | got [0, 0, 0, 3, 10, 16] | recorded [0, 0, 0, 3, 10, 16]
+FAIL DH_t1000_1020 min q_1, abs 1e-9 | got -0.33053338578645175 | recorded -0.3348103021277858
+ok   DH_t1000_1020 no undecided sign | got 0 | recorded 0
+ok   zeta_1_100 min q_0.5, abs 1e-9 | got 0.531848072452459 | recorded 0.531848072452459
+D1 registered numbers: 19 of 20; reproduced: False
+extension (not registered), minima within 1e-9: 17 of 24; differing: [('DH_t1_200', '2', -0.92847936282289, -0.9298201600999175), ('DH_t1000_1020', '0.1', 0.705888337404966, 0.6931693355775165), ('DH_t1000_1020', '0.25', 0.3103807260967289, 0.30133049551832836), ('DH_t1000_1020', '0.5', 0.022224165438735833, 0.016245116591315924), ('DH_t1000_1020', '1', -0.33053338578645175, -0.3348103021277858), ('DH_t1000_1020', '2', -0.8703400738555503, -0.8723542901688655), ('DH_t1000_1020', '4', -0.9992806838983552, -0.9992878058546377)]

@@ -1,0 +1,6 @@
+table pairs with Re z < 0.05 restarted from the table value: 6
+tau -0.1 candidates: 35 cells, 0 axis minima in boxes with a deficit
+refined: 41 distinct off-line zeros with Re z > 0; cell candidates without convergence: 0; axis starts that fell on the line: 0; 5 s
+table pairs 41; matched 41 (largest |difference| 5.00e-29); new pairs 0; table pairs above t = 8.01 not found here: 0
+sum over boxes: count 1517, on-line 1435, pairs 41
+boxes: 399; boxes with count != on-line + 2 pairs after the fill: 0

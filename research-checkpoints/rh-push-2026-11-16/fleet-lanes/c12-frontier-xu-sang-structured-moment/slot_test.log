@@ -1,0 +1,35 @@
+1. Constants of Xu-Sang 2610.17675 v2 Theorem 1.2 (exact in Q(sqrt 6))
+  PASS F(a*) = R(a*) + 2a* = (37 - 10 sqrt6)/6 with a* = (21 - 5 sqrt6)/12
+  PASS delta* = 2a* - 1 = (15 - 5 sqrt6)/6
+     kappa_6 = 2.08418376202803650300452654216
+     a*      = 0.729379273840342459084464968873   delta* = 0.458758547680684918168929937745
+     13/6 - kappa_6 = 0.0824829046386301636621401245098 (saving over the general norm)
+     normalised moment exponent N = kappa_6 - 1 = 1.08418376202803650300452654216 (level value: 1)
+2. Lemma C (domination identity): N - delta - R0(delta) = 6 (delta - delta*)^2 / (15 - 6 delta)
+  PASS identity exact at 1000 rational delta in (0, 5/6]
+  PASS second branch: N - delta - (1 - delta) = kappa_6 - 2 = 0.084183762028036503005 > 0
+3. x-monotonicity: R_kappa(delta, x) <= R_kappa(delta, 0) = R0(delta) (exact rational grid)
+  PASS x = 0 column equals (15 - 16 d)/(15 - 6 d) for every kappa (kappa drops out)
+  PASS R_kappa(delta, x) nonincreasing in x on 34680 grid points
+4. Forced substitution: option Opt = N - spike with a prime-only polynomial of length Y = 1
+   (a) spike 2 delta x (class amplitude g = delta x at z = 1); (b) spike delta (largest allowed by Lemma 7.1)
+  PASS option never at or below R_kappa(delta, x): selected at 0 of 34680 classes (exact signs)
+     least margin (a): 0.0231346746632 at kappa=1 delta=0.5165692 x=1/2
+     least margin (b): 2.19108153927e-7 at kappa=13/18 delta=0.45808967 x=0
+5. Critical class (delta_c, x = 1/2, kappa_flat)
+     R_kappa(delta_c, 1/2) from the closed form = 0.590332352433 (file: 0.590332)
+     option N - delta_c = 0.61483890333 ; R0(delta_c) = 0.614783714254 ; excess over R_c = 0.0245065493299
+     a moment at Y = 1 enters the window only with N < R_c + delta_c = 1.059677213, i.e. unnormalised exponent < 2.059677213; theorem: 2.084183762; shortfall 0.02450654933
+  PASS theorem exponent is above the window threshold at the critical class
+     level window of Lemma W2 (r3-critical-count): 0.8728499703529905 < Y < 1.1124595015733447 ; Y = 1 is inside it (the window is stated for N = max(1, Y); for general N the condition at Y = 1 is N < R_c + delta_c)
+6. Ranges: slot capacities at the saddle against the theorem's length z = 1
+     M1: r + 2z < 1 -> z < 0.12715 at r*; z < 1/2 at r = 0.   M2: 2m + 6 kappa z < 1 -> z < 0.036342555235606866 at m*; z < 0.22228950184478058 at m = 0
+     probe prime supply (U-units): about 0.2105 ; theorem length: 1 ; Prop 7.2 needs every prime >= Y^c, c > 13/6 - kappa_6 = 0.082482905, so at most 12 factors
+  PASS z = 1 lies outside the hypothesis range of M1 (z < 1/2) and of M2 (z < 3/13) even with no witness factor
+7. Abscissa (count vector unchanged => system unchanged): root of the Liu II quartic in [5/6, 7/8]
+  PASS sign change on [5/6, 7/8]
+  PASS exactly one sign change on a 2000-point rational grid
+     B_flat = 0.87488664703996413094461400053 (rational bisection, width < 1e-36)
+  PASS mpmath Newton agrees to 30 digits: 0.87488664703996413094461400053
+  PASS equals the scoreboard figure 0.8748866470 to 10 digits: unchanged
+ALL PASS

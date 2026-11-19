@@ -1,0 +1,52 @@
+{
+ "slug": "c12-depth-aspect-height-transfer",
+ "round": 12,
+ "kind": "explore",
+ "nodes": [],
+ "tags": [
+  "p-adic",
+  "periodicity",
+  "unimodular-twist",
+  "conductor-aspect",
+  "depth-aspect",
+  "height-transfer",
+  "stage-a",
+  "R4"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "No statement about zeta. Precise obstruction of the termwise exchange step only: for an r-datum (equal power sums to degree r-1, s terms), H = p^ceil(k/r), abs(t) >= t_r and N >= H((kappa abs(t)/1.12)^(1/r) + A), every character mod p^k and every unimodular c has max over n <= N prime to p of abs(chi(n) - c n^(-it)) >= 0.479/s (Lemma X with Lemma P, elementary, confirmed). Corollaries that survive: X2 for even k (abs(t) >= 41, N >= sqrt(q)(sqrt(t)+1)); X5 (abs(t) >= 2.27e10 and q abs(t) >= (9p)^20); X-delta for t_r <= abs(t) <= q^B. Lemma D survives as existence of an exchange at fixed N for some depth, with no rate. In the 7/8 format the depth characters are already targets (a reading consistent with the manuscript text) and as a row family they give Parseval. Zeta and all controls fail step (E) identically, so nothing is separated. Not established: bounded heights abs(t) < t_r, the range between log q and q^delta, \"only for N of order log q\", and any transfer that does not go through termwise agreement.",
+ "obstruction": "Exchange step (E). Lemma X: for an r-datum with s terms, H = p^ceil(k/r), |t| >= t_r and N >= H((kappa |t|/1.12)^(1/r) + A), every character mod p^k and unimodular c has max_{n<=N,(n,p)=1} |chi(n) - c n^(-it)| >= 0.479/s. So no termwise exchange for N >= about (q|t|)^(1/r). In the 7/8 format the depth characters are already targets and as rows give Parseval; there is no height slot. Not established: |t| < t_r, the range between log q and q^delta, transfers not through termwise agreement.",
+ "obstructionKind": "",
+ "controlsThatDefeat": [
+  "zeta and every control fail step (E) identically (no separation)",
+  "U (unimodular twist) is what the lemma separates from periodic characters; an obstruction for the device"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 2,
+ "aboutZeros": false,
+ "refereeNote": "No PROVED step failed. Lemma P, Lemma X, X2, X5, X-delta, Lemma D and the Parseval identity were re-derived line by line; exact-integer instances at new cases (r=3 p=3 k=30 t=1e6; r=4 p=2 k=41; r=2 odd k; r=5 p=11) and a brute force over all characters mod q with c optimised and all n (5 moduli, including 2^10 and odd k) confirm the conclusion (min error 1.97 to 2.00 against the bound 0.2395). No RH assumption, no verified-height restatement, no statement about zeros.\n\nOverstatements in the summ - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "Height and depth are independent coordinates of the dual of R_{>0} x Z_p^x: the analytic conductor is p^k(1+|t|), a product, and the two twists never substitute. Integers below N supply multiplicative relations (Prouhet-Tarry-Escott products, congruent mod H^r) that are trivial p-adically and non-trivial at the real place as soon as N exceeds about (q|t|)^(1/r). A periodic family cannot carry a height by approximating n^(-it); U is separated from periodic characters by this lemma, which is an obstruction for the device, not a handle on zeta.",
+ "followUp": "None on this device. Bookkeeping only: add the device row of RESULT.md section 4 to the map, and have an independent referee check Lemma X for one r >= 3 in exact arithmetic and the reading (N2) that the 7/8 format never reads the height. REFEREE.md is the author's self-check, not an independent referee. The lane line is in lanes_line.json in the slug directory; it was not appended to campaign/lanes.jsonl. Open reservations: only termwise exchange is excluded, and bounded heights at large depth need an unwritten continuity variant of Lemma X.",
+ "resultFile": "tmp/research-2026-11-16/push/c12-depth-aspect-height-transfer/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c12-depth-aspect-height-transfer/REFEREE.md",
+ "launchedNodes": [],
+ "engineVerdict": "closed",
+ "secondReferee": {
+  "by": "c13-referee-r12-independent",
+  "outcome": "holds",
+  "narrowerForm": "Requires |t| >= t_r (40.3, 3.4e5, 7.7e7, 2.3e10 for r=2..5); threshold equals C_r (q|t|)^(1/r) only when r | k (factor up to p otherwise). 'Exchange only for N about log q' proved for N >= q^delta, measured between.",
+  "downgrades": [
+   "section 3.5 first bullet: CLASSICAL -> ARGUED (error term misstated; not load-bearing)",
+   "verdict sentence 'exchange exists only for N of about log q': add 'measured between log q and q^delta; |t| bounded below'"
+  ],
+  "upgrades": [],
+  "report": "tmp/research-2026-11-16/push/c13-referee-r12-independent/REFEREE2_c12-depth-aspect-height-transfer.md"
+ }
+}

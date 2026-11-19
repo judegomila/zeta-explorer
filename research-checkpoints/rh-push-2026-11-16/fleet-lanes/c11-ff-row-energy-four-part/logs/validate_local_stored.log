@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "tmp/research-2026-11-16/push/c11-ff-row-energy-four-part/ylib.py", line 7, in <module>
+    import os, sys, numpy as np
+ModuleNotFoundError: No module named 'numpy'. Did you mean: 'runpy'?
+Traceback (most recent call last):
+  File "tmp/research-2026-11-16/push/c11-ff-row-energy-four-part/ylib.py", line 7, in <module>
+    import os, sys, numpy as np
+ModuleNotFoundError: No module named 'numpy'. Did you mean: 'runpy'?
+Traceback (most recent call last):
+  File "tmp/research-2026-11-16/push/c11-ff-row-energy-four-part/ylib.py", line 7, in <module>
+    import os, sys, numpy as np
+ModuleNotFoundError: No module named 'numpy'. Did you mean: 'runpy'?
+Traceback (most recent call last):
+  File "tmp/research-2026-11-16/push/c11-ff-row-energy-four-part/ylib.py", line 7, in <module>
+    import os, sys, numpy as np
+ModuleNotFoundError: No module named 'numpy'. Did you mean: 'runpy'?

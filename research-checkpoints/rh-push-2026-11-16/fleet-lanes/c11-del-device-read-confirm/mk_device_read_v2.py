@@ -1,0 +1,131 @@
+#!/usr/bin/env python3
+"""Builds DEVICE_READ_V2.md (table part) and checks coverage of engine/curated/devices.json.
+Text/JSON only. Run: scripts/memcap.sh 8 python3 <this file>. Output paths are absolute."""
+import json, os, collections
+HERE = os.path.dirname(os.path.abspath(__file__))
+DEV = os.path.join(HERE, '..', '..', 'engine', 'curated', 'devices.json')
+# code: PF full pass, PP partial pass, T transferred only, O not established, NF, FAIL
+# (id, c10 code, v2 code, changed?, deciding rows, v2 text, control on file that passes (for non-PF), its row)
+R = [
+("mean-value-convexity","P (Re s > b)","PP","no","P14, P15, P29",
+ "Mean values on Re s >= b + delta transfer from zeta (F = zeta G, G and 1/G bounded there). Output is a density statement, true for DEL. Not available: the convexity bound (reads FE) and anything left of b (growth of W unknown).",
+ "E_a (P14, inferred cell); DH (P15, analogue measured); cluster lifts, DH (P29, relative to H_W)","P14, P15, P29"),
+("exact-uniqueness","NF","NF","no","L2, P6",
+ "Reads FE with INT (Hamburger). Identification, no inequality.",
+ "mode I (identity): Theorem R holds for DH with its own functional equation (P6); L2 is an identity for every FE-space","P6, L2"),
+("residue-explicit-formula","NF / P","NF","no (second code dropped: not in a cited row)","P1, P8",
+ "Both cited rows are built on the completed function (pairing rho with 1 - conj rho; L = xi'/xi). The one-sided Perron identities of c10 are true for DEL but are not a statement of P1 or P8.",
+ "DH, E_a (P1: identity holds); DH, HEAT, E_a, T-NR (P8: identity holds, inferred cells)","P1, P8"),
+("positive-kernel-transport","P / NF","PP","no (annotated)","P3, P7, G13, G17; nodes harmonic-strip-transport, h5-euler-products-bounded",
+ "All four cited map rows read the completed function: NF. The P part rests on the two nodes of the 2026-11-01 attempts (transport of log abs of zero-free completions of the finite Euler product; corrected Euler products), not on a map row: stage statements hold for DEL, transport stops at b.",
+ "DH (P3: passes orders 2 to 148; P7: r_0..r_147 > 0; G13); HEAT (P3); Epstein class with h > 1 (G17)","P3, P7, G13, G17"),
+("maximum-principle","NF","NF","no","P3, G20",
+ "Schur ratio of the completed function: reads FE. Circular (needs the zero-free statement as input).",
+ "DH (P3; G20: restatements hold, Dirichlet inverse has a pole at its off-line zero)","P3, G20"),
+("dual-measure-compactness","P","O","YES","P36 and e1-cofinal-legendre-dual/RESULT.md section 6",
+ "DEL has Lambda_F >= 0 and integer frequencies: the cone step holds. The step the lane names as the only separating one is membership of the true point in the class with LOGARITHMIC discrepancy (Stirling for N(Y) = floor(Y)); the lane's own Beurling row fails there. For DEL the counting discrepancy is proved O(Y^(b+eps)) only (c10 Lemma 1 (v)); O(log Y) is not established and not expected. DEL is not shown to pass. The c10 sentence 'P36 now has a control on file' is withdrawn for DEL.",
+ "E_a passes every step (lane section 6: 'none'; map cell EA*, same exponents)","P36"),
+("recurrence-ergodicity","P (Re s > b)","PP","no","P39",
+ "Stages never vanish (inherited); density estimate right of b transfers from zeta; the zero at b is carried by the tail beyond every finite prime set, as in the row. Left of b: NF (growth).",
+ "TW- not separated (argued); DH, E_a separated only at the density estimate","P39"),
+("euler-fe-phase-at-height","NF","NF","no","P40, S12",
+ "Couples Euler phases to the FE phase at one height.",
+ "DH (P40: the coupling holds up to O(t^-2)); HEAT (P40); WT, U (S12: any fixed number of windows)","P40, S12"),
+("selberg-operator","NF","NF","no","G24",
+ "Reads a discrete group and its Laplacian. The device is itself a proposed control or companion.",
+ "none: row G24 records that the control does not exist in the needed form; closed by an identity (Landau positivity holds with reversed inequality; Theorem PC silent at rho/2). No R1","G24"),
+("monotone-flow-functional","NF / P","NF","no (second code dropped: trivial)","F1, Q20, F8",
+ "The flow acts on the kernel of the completed function: KER, FE. 'Lambda >= 0 at the anchor' is true for DEL and decides nothing.",
+ "HEAT (F1, Q20); DH (F1, Euler-blind); DH-type and E_a-type configurations (Q20); E_a passes the anchor step, TW- (F8)","F1, Q20, F8"),
+("geometric-positivity","NF","NF","no","T3, P38",
+ "Reads a geometric object (heights, intersection form, Heegner brackets).",
+ "function-field fakes (T3, argued, unrefereed; genus-1 fakes with off-line zeros: c10-ff-signal-intersection-square); block-permuted non-multiplicative family, DH-type brackets (P38)","T3, P38"),
+("stage-limit","P","PF","no","Q19, Q21",
+ "Row Q21 lists every control with product stages (TW+ named). A DEL stage is zeta's stage with z_p = 0 for p in S, inside the polydisc. The limit has a zero at b (mode Z at the limit step).",
+ "","Q21"),
+("section-extraction","P / NF","PP","no (annotated)","Q12, Q22",
+ "Chain formation holds (stubs at S removed). The no-go theorems of both rows use the first moment over the poles of the completed function: row Q22 says of TW+ 'no functional equation: the first-moment step is void'.",
+ "DH (Q12: the no-go holds for it); DH, E_a, T-NR (Q22: Lemma R holds for each)","Q12, Q22"),
+("test-restriction-commutator","P / NF","PP","no","P29, G22, P35; G25, S11",
+ "Positive-definiteness of log F on Re s > 1 (P29) holds (non-negative coefficients of log F). G22 (order-1 eigen-defect iff multiplicative at p) holds at coefficient level for a completely multiplicative sequence. Weil form, cutoff commutator, window SDP read the completed function: NF.",
+ "every control at the orthogonalisation step (P35); zeta(s + a), TW-, U (G22); DH, HEAT at tau = -2 (G25); DH (S11)","P35, G22, G25, S11"),
+("finite-support-positivity","FAIL","FAIL","no","P6, P9",
+ "With zeta's archimedean side kept, DEL = Lambda + eta, eta real and not zero: Theorem R (P6: TW+ fails the positivity); P9: TW+ fails. Not computed.",
+ "DH (P3, P7, P18, P21); HEAT (P3, P21: finite orders are open conditions); kappa_sharp (P22)","P3, P7, P18, P21, P22"),
+("hecke-compression-lax-phillips","NF","NF","no","G26",
+ "Reads the modular surface and its Hecke operators.",
+ "every inner scattering function, non-arithmetic groups included (G26)","G26"),
+("hecke-correspondence-recurrence","NF","NF","no","G31",
+ "Reads the modular surface, all T_p, Eisenstein resonance states. Row: U, THIN, sign twists fail at automorphy.",
+ "EIS-w passes every step (G31; two referee passes)","G31"),
+("helson-discrepancy","NF as stated / P in transferred form","T","no","P46",
+ "The row's class is completely multiplicative UNIMODULAR chi; DEL has a(p) = 0 on S. The proof carries over verbatim to abs(chi(p)) <= 1: the coefficients (1 - Re chi(p)^k)/k of A stay non-negative, H = F F*/zeta^2 = exp(-2A) (checked here, one line). DEL meets the discrepancy hypothesis with theta = b + eps and the conclusion (zeros right of b are zeta's) is true for it.",
+ "B passes every step; THIN and TW- are inside the class and carry the real zeros (P46)","P46"),
+("twisted-discrepancy","P (general form)","T","YES","P51",
+ "Same class hypothesis as row 18 (unimodular chi), so the same code. Transferred form: a = 1 * g, twisted sums have a main term at q and error O(q x^(b+eps)) (elementary). Strict form: identification.",
+ "THIN passes the general form (P51); WT is the residual class of the strict form (identification)","P51"),
+("frequency-only","P","PF","no","D1, D6",
+ "Coefficient-blind.",
+ "","D1, D6"),
+("padic-special-values","NF","NF","no","D5",
+ "Reads values at non-positive integers; DEL is continued to Re s > max(b - eta, b/2) only.",
+ "interpolation twin zeta + c L(chi_-4) L(chi_5) passes every step (D5)","D5"),
+("tensor-squeeze","P","PF","no","D4",
+ "Row D4: TW+- pass every step. Local parameters of DEL lie in {0, 1}.",
+ "","D4"),
+("strip-dtn-identity","NF","NF","no","D7",
+ "Strip identity for the phase of S = N/D built from xi: reads FE.",
+ "DH (identity holds with its pole terms, measured); HEAT, E_a, T-NR argued (D7)","D7"),
+("sum-product-vinogradov","P","PF","no (annotated)","D2 and c5-device-table-extension/RESULT.md Q1",
+ "The lane lists TW+ as failing the additive step in the class of arbitrary eps_n. For DEL (thin deletion) the additive step holds with relative loss x^(b-1+eps) (a = 1 * g, sum abs(g(d)) d^-sigma finite for sigma > b), which is below the Vinogradov saving N^(-c eps^2) at N = t^eps; the 3-4-1 step holds (POS). Same reading as the row's sentence on THIN. ARGUED. The device is closed by its floor (the classical region), not by a control.",
+ "","D2"),
+("quadratic-positivity-companions","P","PF","no","P50, P25",
+ "Log-level squares, products of admissible linear forms and coefficient squares are non-negative for DEL (POS; sum a(n)^2 n^-s = F). Landau reaches Re s = 1 only. Companions (Sym^m) are not attached to DEL and are not needed for the three classes of the row.",
+ "","P50"),
+("coherent-set-large-sieve","NF (not replayed)","NF","no","Z15, Z16; THIN row of map section 2",
+ "Reads PER (every sextic twist periodic, Poisson dual uniform in the modulus) and unimodular parameters at every prime. Not replayed.",
+ "NONE: this is the floored mechanism (state 'floored', not closed). stack-combinator TABLE row 50: DH F, HEAT F*, TW+ F*, TW- F*, E_a F for a > 3/8; THIN fails at PER. Floor 5/6 at r = 6; proved abscissa 7/8","Z15, Z16, TABLE row 50"),
+("effective-order-two","NF (not replayed)","NF","state cell: open -> closed","Z22, Z27, Z15b, Z15c, Z24, Z30, Z31",
+ "State in devices.json is 'closed' (STRATEGY v3, item 22), not 'open'. The probe reads PER. The closure rows are coefficient-blind (Z22: THIN, TW+-, arbitrary bounded coefficients pass; Z27: U, DH, THIN) or end at an input of zero-free type (circular).",
+ "per closed part: THIN, TW+-, bounded coefficients (Z22); U, DH, THIN (Z27); THIN on the unreflected branch (Z15b, Z15c); local identity for Liouville, THIN, U (Z24). No single control passes a complete argument because none exists; the remaining parts are closed by circularity","Z22, Z27, Z15b, Z15c, Z24"),
+("laurent-shell-gamma-section","P / NF","NF","YES","c7-laurent-shell-gamma-section/RESULT.md section 6 (control table); map rows owed under Q12/Q22",
+ "The lane's control table has, for THIN and TW+-: first moment at sigma = 1/2 not formulable (no functional equation); Lemma 2, closure and limit step not formulable or void. Only the definition of the class is unchanged. No statement of the device holds for DEL in a non-void way.",
+ "DH and WT: every formulable statement holds (lane section 6 and R3 line)","lane table; Q12/Q22 (owed)"),
+("function-field-order2-vertex","NF","NF","state cell: open -> closed","devices.json evidence (item 23); c10-ff-* lanes",
+ "State in devices.json is 'closed'. Model in F_q[T]; DEL is not built there.",
+ "genus-1 fakes with off-line zeros (squared signal identity holds for them); random multiplicative signs not separated (50 of 51)","Z30 (model part); c10-ff-signal-intersection-square, c10-ff-slot-cross-decomposition"),
+("vector-specific-row-mean-square","NF (not replayed)","NF","no","Z30",
+ "Reflected theta rows: reads PER. Not replayed for the DEL weight.",
+ "generic U, random-phase, random-sign and multiplicative-sign vectors satisfy the window statement at the diagonal (Z30); the hypothesis is of zero-free type for the twist family (circular)","Z30"),
+("nonprincipal-row-cancellation","NF (not replayed)","NF","no (annotated)","Z31",
+ "Probe reads PER. The closure statement (Lemma D: NP is linear in the weight with a target-independent kernel) holds for every weight, DEL's included.",
+ "control-blind: THIN, Liouville, U, DH, random weights (Z31)","Z31"),
+("positive-term-sum-rule","P","PF","no","Q27",
+ "Row Q27: U, THIN, Liouville, WT, FM pass every step. DEL is the chain with the stubs at S removed (reflection coefficient 0 there); the five forms hold. ARGUED, not re-run.",
+ "","Q27"),
+("single-row-bridge","NF","NF","no","Q26",
+ "Bridge of one completed theta row: FE of the row and the 7/8 weight. Row: THIN fails by non-existence of the row.",
+ "DH, theta^w, HEAT pass the T-bridge (Q26); no control separated by a signed step","Q26"),
+("landau-siegel-mechanism","NF","NF","no","c7-landau-siegel-device-read/RESULT.md section 5",
+ "Reads Frobenius congruences of real characters (S4, S5). DEL is not a character: no field, no congruence.",
+ "NONE: THIN, Liouville, sign twists, U fail at S4/S5 (proved, elementary); DH and Beurling argued to fail. Closed for the height aspect because no height-aspect form exists (n^-it is U, which fails S5); conductor-aspect floor 1 - c/log q","c7 lane section 5 (no map row)"),
+]
+dev = json.load(open(DEV))["devices"]
+ids = [d["id"] for d in dev]
+assert [r[0] for r in R] == ids, "device ids or order differ from devices.json"
+state = {d["id"]: d["state"] for d in dev}
+cnt = collections.Counter(r[2] for r in R)
+c10first = collections.Counter('P' if r[1].startswith('P') else 'N' for r in R)
+out = []
+out.append("| # | device | state in devices.json | c10 code | V2 code | cell changed | rows that decide | reading | control on file that passes (devices not PF) | its row |")
+out.append("|---|---|---|---|---|---|---|---|---|---|")
+for i, r in enumerate(R, 1):
+    out.append("| %d | `%s` | %s | %s | %s | %s | %s | %s | %s | %s |" % (i, r[0], state[r[0]], r[1], r[2], r[3], r[4], r[5], r[6] or "-", r[7]))
+open(os.path.join(HERE, "table_v2.md"), "w").write("\n".join(out) + "\n")
+summary = {"n": len(R), "v2": dict(cnt), "c10_first_code": dict(c10first),
+           "by_code": {k: [r[0] for r in R if r[2] == k] for k in cnt},
+           "changed_code_cells": [r[0] for r in R if r[3].startswith("YES")],
+           "changed_state_cells": [r[0] for r in R if r[3].startswith("state")],
+           "no_control_on_file": [r[0] for r in R if (r[6] or "").lower().startswith("none")]}
+json.dump(summary, open(os.path.join(HERE, "counts_v2.json"), "w"), indent=1)
+print(json.dumps(summary, indent=1))

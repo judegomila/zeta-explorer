@@ -1,0 +1,37 @@
+zeta_x=0 {'neg_points': 0, 'of': 4800, 'min_sin_argN': 0.00012027811316491772, 'at': (0.02, 0.13)}
+zeta_x=0.5 {'neg_points': 0, 'of': 4800, 'min_sin_argN': 0.0014637795705839968, 'at': (0.02, 0.13)}
+zeta_x=-0.5 {'neg_points': 2870, 'of': 4800, 'min_sin_argN': -0.9999999985802162, 'at': (2.57, 4.63)}
+zeta_x=-2 {'neg_points': 4521, 'of': 4800, 'min_sin_argN': -0.9999999998531618, 'at': (1.97, 26.13)}
+ARCH-BL_a=0.25+3i_x=0 {'neg_points': 0, 'of': 4800, 'min_sin_argN': 0.00044281250912574515, 'at': (0.02, 0.13)}
+ARCH-BL_x=0.5 {'neg_points': 0, 'of': 4800, 'min_sin_argN': 0.0018396311267101875, 'at': (0.02, 0.13)}
+TNR_q=2_c=2.1_x=0 {'neg_points': 0, 'of': 4800, 'min_sin_argN': 0.0007541462358494795, 'at': (0.02, 0.13)}
+ANTI-BL(pole in RHP)_x=0 {'neg_points': 295, 'of': 4800, 'min_sin_argN': -0.9970158524797225, 'at': (0.24499999999999997, 2.63)}
+E_a_a=0.2_x=0 {'neg_points': 150, 'of': 4800, 'min_sin_argN': -0.9941584283323388, 'at': (0.395, 0.63)}
+E_a_a=0.2_x=0.5 {'neg_points': 79, 'of': 4800, 'min_sin_argN': -0.9999228701430517, 'at': (0.095, 1.63)}
+DH_x=0 {'neg_points': 0, 'of': 4800, 'min_sin_argN': 0.01777738869556095, 'at': (0.02, 3.13)}
+DH_x=0.5 {'neg_points': 0, 'of': 4800, 'min_sin_argN': 0.023302543538490574, 'at': (0.02, 7.13)}
+gram zeta_x=0 [8.006144410620247e-16, 2.9186087829503493]
+gram zeta_x=0.5 [2.5441490620140252e-09, 5.357540824875027]
+gram zeta_x=-0.5 [-1.519306139307435, 1.9401393591279685]
+gram zeta_x=-2 [-11.650473721316134, 0.7052840276595833]
+gram ARCH-BL_a=0.25+3i_x=0 [7.386007622576732e-13, 2.9214537572841115]
+gram ARCH-BL_x=0.5 [4.175788379911664e-07, 5.352731016571864]
+gram TNR_q=2_c=2.1_x=0 [4.497402413769688e-05, 3.136227872743263]
+gram ANTI-BL(pole in RHP)_x=0 [-0.010162954387940251, 2.9149816217997113]
+gram E_a_a=0.2_x=0 [-0.0007377072678462308, 3.518288349819832]
+gram E_a_a=0.2_x=0.5 [0.000321995141991085, 5.3752248444909485]
+gram DH_x=0 [0.0016495733949991119, 3.5057499017536093]
+gram DH_x=0.5 [0.0032239770821061394, 5.188206509721885]
+A1_cocycle_vs_inversion_product_maxrel 4.214412466345263e-31
+A2_level1_telescoping_maxrel 4.471757049164829e-31
+A3_level1_coeffs_at_rho1_maxabs 7.604108563272234e-31
+A4_args_godement(z=1.5,c=3.2) [1.5, 2.5, 0.0]
+A4_args_chamber(z=0.3,c=0.45) [0.15000000000000002, 1.15, 2.0]
+A4_args_level1(z=0.3,c=1) [0.3, 1.3, 1.0]
+B1_MS_kernel_equals_Nevanlinna_kernel_maxrel 9.590490926413098e-31
+B2_bound_ratio_max_T=1 0.995616868499756
+C1_lemmaM_violations_of_20000 0
+C2_composition_formula_rel 1.5776383773464122e-31
+D0_DH_functional_equation_rel 8.668721768515361e-31
+D0_TNR_b 0.45434038460553516
+scripts/memcap.sh 8 .venv-arb/bin/python -u $D/identity_checks.py   368.71s user 1.78s system 99% cpu 6:10.69 total

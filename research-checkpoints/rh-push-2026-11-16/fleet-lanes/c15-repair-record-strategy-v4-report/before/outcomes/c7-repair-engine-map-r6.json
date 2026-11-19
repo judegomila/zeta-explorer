@@ -1,0 +1,36 @@
+{
+ "slug": "c7-repair-engine-map-r6",
+ "round": 7,
+ "kind": "repair",
+ "nodes": [],
+ "tags": [
+  "control",
+  "filter",
+  "generator",
+  "referee",
+  "normaliser",
+  "manuscript-check"
+ ],
+ "verdict": "partial-result",
+ "survivingClaim": "Repair lane, no statement about zeros of zeta. Relative to MS Lemma 7.1 as printed (not re-derived): for the sextic probe, H_eta = zeta_F^S(2)^-1 L^S(6s-3,(alpha eta)^6) E_eta on Re s > 1/2 with E_eta non-vanishing; H_eta has infinitely many zeros in 7/12 <= Re s < 2/3 and none with Re s >= 2/3; hypothesis (2.2) holds for suitable S exactly when sigma_0 > 2/3 and fails unconditionally for every sigma_0 <= 2/3 (sharper than the lane's \"below 7/12\"). Lemma S and Theorem B1' (1a), (2a), (2b) as labelled. Engine rerun counts (1,612 nodes, 8,713 edges, 202 rows, top 60 = 12 open / 48 floored / 0 closed), map (11 rows, 515 lines, 166 id rows) and scoreboard parse (58 of 58) confirmed. To repair: two outcome entries over-closed by the merge (E2), Z24 wording (E1, E4), map-open-9 device state scope (E3).",
+ "obstruction": "Repair lane, no attack. Lemma H holds under a second referee (relative to MS Lemma 7.1 as printed): (2.2) holds exactly for sigma_0 > 2/3. Owed: third referee (derive MS Lemma 7.1 for j = 0); map row Z24 wording (E1, E4); map-open-9 device state scope (E3). The merge-rule fault (E2) and the map-open-1 node sets were handled by the round-7 learn step.",
+ "obstructionKind": "filter-repair",
+ "controlsThatDefeat": [
+  "not applicable (repair lane)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "Report: tmp/research-2026-11-16/push/c7-repair-engine-map-r6/REFEREE.md. Every confirmed step of section 1 was re-derived from the manuscript text and stands (local factor from (7.11)/(7.12), both factorisations, abscissae 1/2 and 3/7, local bound 0.625, zero location and symmetry about 7/12). Numeric rerun with a different case (exact geometric sums at general V != W, 400 points, new seed) agrees exactly. Engine, map and scoreboard counts were rec [record truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "Two pipeline faults found, not changed. merge_outcomes.py maps precise-obstruction to closed without reading refereeHolds, so the rerun turned two round-6 entries the learn step had set to open into closed. map-open-1 is an open device the generator cannot use: seven closed outcome entries list it as their only node, so every candidate containing it is rejected (this predates the rerun). Of the three new device nodes only landau-siegel-2026-mechanism reaches the top 60. The map parser rejects row ids like A3-C1; they were entered as G27 to G30.",
+ "followUp": "Third referee for Lemma H: derive MS Lemma 7.1 for j = 0 from (7.10) and (7.8) and check the conjugation convention of (7.6) against the PDF. In the round-7 learn step, decide the merge_outcomes refereeHolds mapping and give map-open-1 outcome records node sets of at least two members; set the three new device nodes from their lanes' reports.",
+ "resultFile": "tmp/research-2026-11-16/push/c7-repair-engine-map-r6/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c7-repair-engine-map-r6/REFEREE.md"
+}

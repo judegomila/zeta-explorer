@@ -1,0 +1,43 @@
+{
+ "slug": "c7-landau-siegel-device-read",
+ "round": 7,
+ "kind": "explore",
+ "nodes": [
+  "landau-siegel-2026-mechanism"
+ ],
+ "tags": [
+  "landau-siegel",
+  "real-zeros",
+  "conductor-aspect",
+  "interpolation-determinant",
+  "frobenius",
+  "reciprocity",
+  "device",
+  "thin",
+  "unimodular-twist"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "Precise obstruction. The Landau-Siegel statement (real primitive chi, real zero, (1-beta) log q >= c) follows from the locally compiled Dirichlet 7/8 theorem with c = (log 3)/8. The released independent Lean tree (306 files, read as text, not compiled) refutes the prime bias forced by a real zero within c/log q of 1 using an interpolation determinant over a box in Z[sqrt d, sqrt 2]. The determinant is divisible by p^{sum floor(alpha0/p)} at every prime with Frobenius in {1, sigma, sigma tau}; the tree uses the inert ones only, with constant 13/16 against a generic balance of 3/4. The input is reciprocity (chi is the Frobenius of a field of height sqrt q), not lattice-translation invariance. THIN and the Liouville twist fail at S4/S5 (no field); the unimodular twist is argued to fail there. The device gives nothing for 1 - beta > c/log q (first step needing Re s near 1 is S3) and has no height-aspect form. No statement about zeros of zeta.",
+ "obstruction": "The statement is a corollary of the locally compiled Dirichlet 7/8 theorem (c = (log 3)/8). The independent Lean tree (read as text, not compiled) uses an interpolation determinant over a box in Z[sqrt d, sqrt 2] with Frobenius-congruence divisibility against the classical prime bias of a real zero. The zero enters only through the bias at s = 1 + 1/log X: the device is empty for 1 - beta > c/log q and has no height-aspect form (n^(-it) is the failing control U). No R4 mechanism.",
+ "obstructionKind": "device-floored-at-one-minus-c-over-log-q-no-height-aspect",
+ "controlsThatDefeat": [
+  "THIN and the Liouville twist fail at S4/S5 (no field): the device separates them, in the conductor aspect only",
+  "U (height aspect n^(-it)): fails at S4/S5 (argued); this is the reason there is no height-aspect form",
+  "not run: DH, heat, E_a, T-NR, Beurling"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "Report: tmp/research-2026-11-16/push/c7-landau-siegel-device-read/REFEREE.md. All PROVED steps were confirmed (corollary of the 7/8 theorem, Statement F arithmetic, 13/16 and H constants, THIN and Liouville controls, floor at 1 - c/log q); Lean statements were re-read as text, nothing compiled. Errors found:\nE1 (main): \"split primes fail the divisibility; it is a property of the sign chi(p)\" is wrong as stated. Divisibility holds for every prime wi [record truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "The proof's arithmetic half is an L-function-free field statement (inert primes carry at most 13/16 of the log-mass up to q^A, by product formula); the zero enters only through the classical bias at s = 1 + 1/log X, so the crossing has the classical width c/log q. The height aspect n^{-it} is exactly the failing control U. R1 holds only in the device's own class (real characters, conductor aspect), read from an uncompiled tree.",
+ "followUp": "Add device node frobenius-congruence-determinant (floored at 1 - c/log q, real zeros) to engine/curated/devices.json; optionally compile OAI.NumberTheory.SiegelZeros.Main and run #print axioms (tree at ~/lean-deps/qrh-verify/lean) and have a referee re-derive Statement F from clauses harch/hraw. No further attack lane: no R4 mechanism.",
+ "resultFile": "tmp/research-2026-11-16/push/c7-landau-siegel-device-read/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c7-landau-siegel-device-read/REFEREE.md"
+}

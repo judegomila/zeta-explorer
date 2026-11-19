@@ -1,0 +1,11 @@
+{
+ "id": "fourier-interpolation-zero-nodes",
+ "state": "closed",
+ "name": "Fourier interpolation with nodes at the zeros and frequencies log n/(4 pi) (Bondarenko-Radchenko-Seip kernel; Radchenko-Viazovska pair as the case s = 0)",
+ "evidence": "lane c13-fourier-interpolation-zero-nodes (round 13). CLOSED at stage A, one referee pass by the lane's own agent (independent referee owed). The kernel is (F*(s)/F*(w)) x A_k(w,s), with A_k a target-independent Dirichlet series of the theta group, unique by Bochner's converse theorem (relative to arXiv:2005.02996 sections 3, 4; not re-derived); bases form one orbit under symmetric multipliers G(s)/G(w) (Lemma M, proved). The Euler product is read twice: abs(mu) <= 1 (edge of absolute convergence Re w = 1, partial sums x^(1/2+eps), inequality (I-1)) and the Ramachandra-Sankaranarayanan horizontal lower bound (function class only). Off-line nodes change no sign or decay of the basis functions in z (T-NR: factor P(1/2+iz) of one sign, Lemma T); they move the exponent of the partial sums in the frequency index from 1/4 to beta/2 < 1/2; exponent 1/4+eps for all s is equivalent to RH. Controls: T-NR passes every step (source section 5.3.3; joint height selection argued, Jensen fallback proved in a smaller class); WT passes as a translate; DH and theta^w pass in the smaller class of source section 5.3.2; E_a open at the gamma-class step and fails (I-1) in size; controls without FE stop at the definition. Pivot (Weil functional in the basis, W U_n = Lambda/(pi sqrt m)) is the explicit formula in coordinates: positivity rows of map section 3.1. Not run: stage B (the functions U_n, V_rho).",
+ "controls": ["NR", "WT", "DH", "theta^w"],
+ "openCells": ["kernel for the gamma factor Gamma_R(s+a)Gamma_R(s-a) (E_a, EIS-w)", "sign pattern of DH basis functions (no basis function computed)"],
+ "nodes": [],
+ "tags": ["fourier-interpolation", "theta-group", "modular-integral", "dirichlet-series-kernel", "bochner-converse", "explicit-formula", "t-nr", "x0-4"],
+ "source": "push/c13-fourier-interpolation-zero-nodes/RESULT.md"
+}

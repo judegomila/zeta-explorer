@@ -1,0 +1,23 @@
+{
+ "about": "Curated auxiliary controls added by lanes (merged into CONTROLS by build_graph.py at import). Each entry: code -> name, has, lacks, kills, kw, status, source. Written by c9-repair-referee-debts-r8.",
+ "controls": {
+  "EISW": {
+   "name": "EIS-w: Eisenstein series E(z, w') of PSL_2(Z) off resonance (phi(w') != 0), Re w' in (1/2, 1)",
+   "has": "the group, the functional equation, the Euler product, the Hecke algebra: Gamma-invariance, the joint eigen-relation for all T_p with eigenvalue p^(w'-1/2) + p^(1/2-w'), the Laplace equation, moderate growth, an explicit truncated mass (Maass-Selberg)",
+   "lacks": "phi(w') = 0: the constant term carries both powers y^w' and y^(1-w'); it is not attached to a zero of zeta",
+   "kills": "any argument on the modular surface whose inputs are invariance, the joint Hecke eigen-relation, the growth exponent and the truncated mass (it exists for every Re w', so such inputs locate no abscissa)",
+   "kw": "EIS-w|\\bEISW\\b|off[- ]resonance eisenstein",
+   "status": "proved",
+   "source": "push/c8-hecke-entropy-resonance-rigidity/RESULT.md Proposition 4 (classical properties of E); REFEREE.md (confirmed, Maass-Selberg checked at 3 points to 14 digits); push/c9-repair-referee-debts-r8/c8-hecke-entropy-resonance-rigidity/REFEREE2.md"
+  },
+  "DEL": {
+   "name": "DEL: thin prime deletion, F = prod over p not in S of (1 - p^-s)^-1 = zeta(s)(s - b)W(s), S a greedy set of primes of density t^(b-1)/log t, 1/2 < b < 1",
+   "has": "Euler product, Lambda >= 0, abs(Lambda(n)) <= log n, prime-power support, ordinary Dirichlet series with coefficients 0 or 1 (completely multiplicative), one simple pole at 1, continuation to Re s > max(b - eta, b/2); simple real zero at s = b; right of b its zeros are those of zeta",
+   "lacks": "the functional equation; periodicity of the coefficients modulo any q; unimodular local parameter at the primes of S (it is 0); zeros at non-zero height off the zero set of zeta",
+   "kills": "any argument for a zero-free half-plane that uses the target only through prime positivity, size, support, the Euler product, the pole and the integers, without the functional equation or periodicity",
+   "kw": "\\bDEL(_b)?\\b|thin prime deletion|prime deletion control|deletion control",
+   "status": "proved-relative",
+   "source": "push/c10-thin-deletion-zero-mode-control/RESULT.md Lemma 1 (+ REFEREE.md, Lemma 0 repaired); push/c11-repair-del-referee-record/REFEREE2.md (second pass; relative to a counting form S(theta) of a short-interval prime theorem; Huxley 1972 opened by push/c12-repair-sources-statement-o-v3: it states the density estimate with exponent 12/5 and the gap bound, not a count; the count is the deduction of Ingham 1937, not opened)"
+  }
+ }
+}

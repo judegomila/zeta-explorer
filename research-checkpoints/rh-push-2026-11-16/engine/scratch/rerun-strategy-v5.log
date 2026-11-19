@@ -1,0 +1,13 @@
+== baseline build_graph
+records 1278 -> nodes 1242 corpus + 459 map/control/outcome = 1701; live 963; rows 238; edges 9025
+edges by type: composes-with 7474, control-defeats 866, obstructs 270, restates 185, separates-from 4, special-case-of 132, uses 94
+wrote tmp/research-2026-11-16/engine/IDEA_GRAPH.json
+== baseline generate --top 60
+generated 36558, scored 8437, rejected 28121
+  rejected  13903  no open or floored crossing device (curated/devices.json)
+  rejected   3462  contains a combination closed in outcomes.json
+== after weight change (separator 1.5; cheapMeasured 0.25): generate --top 60
+generated 36558, scored 8437, rejected 28121
+  rejected  13903  no open or floored crossing device (curated/devices.json)
+  rejected   3462  contains a combination closed in outcomes.json
+scoreboard: nodes=1701 families=106491 lanes=130 best=1/4 -> scoreboard.json, SCOREBOARD.md

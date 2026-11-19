@@ -1,0 +1,22 @@
+[
+ {"id":"resolvent-burgers-identity","why":"exact finite-N identity m_s = 2 m m_z + m_zz; used only for the Lambda bridge, never paired with the Cayley form S or the prime chain"},
+ {"id":"discriminant-gradient-flow","why":"proved monotone functional of the zero configuration; not used by flow rows F1-F5"},
+ {"id":"sympow-conductor-normalised-shift","why":"only node of its chunk where Hecke/Euler structure enters a contraction margin; not the same as map row P25"},
+ {"id":"skew-toeplitz-pair-ladder","why":"exact eigenvalue pairing with a measured (j^2-1) N^-2 law; kernel-only, needs an arithmetic partner"},
+ {"id":"capture-ratio-psd-slope","why":"linear-shear norm = a sup|d/dxi |Phihat|^2|, maximiser xi* = 12.0667; kernel-only"},
+ {"id":"field-channel-transfer-modulus","why":"N-uniform collision-time transfer bound with no Gronwall step; tool for flow comparisons"},
+ {"id":"telescoping-kernel-projection-domination","why":"proved, RH-free per-window domination of off-line zeros by their projections; holds on backward heat, needs an arithmetic partner"},
+ {"id":"straddle-exclusion-window-completeness","why":"companion of the projection-domination lemma"},
+ {"id":"backward-flow-displacement-residual","why":"the one named open lemma left in the field-channel reroute"},
+ {"id":"exact-flow-collision-meter","why":"exact H_t collision time for (gamma_9, gamma_10); flagged as an unused cross-validation seed"},
+ {"id":"joint-h3-h4-minimal-input","why":"one N-uniform two-sided bound would discharge both fold-modulus rows; must be proved from scratch"},
+ {"id":"zpo-divergence-law-at-half","why":"only multiplicativity-using node of its chunk; filter example of a finite-stage property with no limit"},
+ {"id":"beta-gmin-span-three-factor-invariant","why":"ensemble-blind three-factor invariant at the collision front; not attacked in the campaign"},
+ {"id":"route-b-koksma-hlawka-per-n-rate","why":"unconditional per-N rate; whole N^(1/4) loss sits in one Holder-1/2 step"},
+ {"id":"route-b-quarter-exponent-gap","why":"names the single step carrying the exponent loss"},
+ {"id":"e200-wall-leading-rate-artifact","why":"height threshold comes only from the leading pair-correlation rate; a subleading rate would lower it below verified height"},
+ {"id":"w3-tail-lemma","why":"the one non-finite item in porting the Polymath15 barrier; height-uniform by form"},
+ {"id":"s-barrier-statement","why":"companion statement of the W3 tail lemma"},
+ {"id":"crossover-map-bernstein-function","why":"exact positivity structure (Bernstein function with Levy-Khintchine form)"},
+ {"id":"ramanujan-polynomial-triangle","why":"exact combinatorial identity behind the crossover map"}
+]

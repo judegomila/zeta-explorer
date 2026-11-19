@@ -1,0 +1,4 @@
+planned: T=1e+06 N=1277 free primes=201 (p > 11) points=65; rows complex x2 = 32 MB
+K=1 FREEZE=11: score 4.22e-09 (window 4.2e-09, F(s0) 1.3e-15, xdep 5.8e-12); |zeta(s0)|=2.05; worst step on path 5.5e-09; 3s
+K=4 FREEZE=11: score 7.79e-09 (window 7.8e-09, F(s0) 1.3e-15, xdep 5.1e-11); |zeta(s0)|=2.05; worst step on path 1.3e-08; 11s
+K=16 FREEZE=11: score 9.22e-09 (window 9.2e-09, F(s0) 1.4e-15, xdep 2.9e-10); |zeta(s0)|=2.05; worst step on path 1.1e-08; 23s

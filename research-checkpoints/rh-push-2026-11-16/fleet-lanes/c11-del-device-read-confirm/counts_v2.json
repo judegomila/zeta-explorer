@@ -1,0 +1,77 @@
+{
+ "n": 34,
+ "v2": {
+  "PP": 5,
+  "NF": 19,
+  "O": 1,
+  "PF": 6,
+  "FAIL": 1,
+  "T": 2
+ },
+ "c10_first_code": {
+  "P": 14,
+  "N": 20
+ },
+ "by_code": {
+  "PP": [
+   "mean-value-convexity",
+   "positive-kernel-transport",
+   "recurrence-ergodicity",
+   "section-extraction",
+   "test-restriction-commutator"
+  ],
+  "NF": [
+   "exact-uniqueness",
+   "residue-explicit-formula",
+   "maximum-principle",
+   "euler-fe-phase-at-height",
+   "selberg-operator",
+   "monotone-flow-functional",
+   "geometric-positivity",
+   "hecke-compression-lax-phillips",
+   "hecke-correspondence-recurrence",
+   "padic-special-values",
+   "strip-dtn-identity",
+   "coherent-set-large-sieve",
+   "effective-order-two",
+   "laurent-shell-gamma-section",
+   "function-field-order2-vertex",
+   "vector-specific-row-mean-square",
+   "nonprincipal-row-cancellation",
+   "single-row-bridge",
+   "landau-siegel-mechanism"
+  ],
+  "O": [
+   "dual-measure-compactness"
+  ],
+  "PF": [
+   "stage-limit",
+   "frequency-only",
+   "tensor-squeeze",
+   "sum-product-vinogradov",
+   "quadratic-positivity-companions",
+   "positive-term-sum-rule"
+  ],
+  "FAIL": [
+   "finite-support-positivity"
+  ],
+  "T": [
+   "helson-discrepancy",
+   "twisted-discrepancy"
+  ]
+ },
+ "changed_code_cells": [
+  "dual-measure-compactness",
+  "twisted-discrepancy",
+  "laurent-shell-gamma-section"
+ ],
+ "changed_state_cells": [
+  "effective-order-two",
+  "function-field-order2-vertex"
+ ],
+ "no_control_on_file": [
+  "selberg-operator",
+  "coherent-set-large-sieve",
+  "landau-siegel-mechanism"
+ ]
+}

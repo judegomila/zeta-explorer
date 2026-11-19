@@ -1,0 +1,9 @@
+ball stage: 114 jobs; nodes per family {'b2-with': {'main': 80, 'fe_only': 0, 'fe_sampled': 0}, 'b5l-with': {'main': 2494, 'fe_only': 0, 'fe_sampled': 0}, 'b5m-with': {'main': 80, 'fe_only': 0, 'fe_sampled': 0}, 'b5p-with': {'main': 80, 'fe_only': 0, 'fe_sampled': 0}, 'b6-with': {'main': 40, 'fe_only': 0, 'fe_sampled': 0}}
+  job 50/114 308s
+  job 100/114 577s
+b2-with: read 80 of {'main': 80, 'fe_only': 0, 'fe_sampled': 0}; ball evals 0; sym 80; {'PA/six': ({'ttrain': 0, 'undecided': 0, 'excluded': 80}, {'ttrain': 0, 'undecided': 0, 'excluded': 80})}; min |u| undecided None
+b5l-with: read 2494 of {'main': 2494, 'fe_only': 0, 'fe_sampled': 0}; ball evals 98158; sym 80; {'PA/six': ({'ttrain': 0, 'undecided': 0, 'excluded': 2494}, {'ttrain': 0, 'undecided': 0, 'excluded': 2494})}; min |u| undecided None
+b5m-with: read 80 of {'main': 80, 'fe_only': 0, 'fe_sampled': 0}; ball evals 0; sym 80; {'PA/six': ({'ttrain': 0, 'undecided': 0, 'excluded': 80}, {'ttrain': 0, 'undecided': 0, 'excluded': 80})}; min |u| undecided None
+b5p-with: read 80 of {'main': 80, 'fe_only': 0, 'fe_sampled': 0}; ball evals 0; sym 80; {'PA/six': ({'ttrain': 0, 'undecided': 0, 'excluded': 80}, {'ttrain': 0, 'undecided': 0, 'excluded': 80})}; min |u| undecided None
+b6-with: read 40 of {'main': 40, 'fe_only': 0, 'fe_sampled': 0}; ball evals 0; sym 40; {'PA/six': ({'ttrain': 0, 'undecided': 0, 'excluded': 40}, {'ttrain': 0, 'undecided': 0, 'excluded': 40})}; min |u| undecided None
+BALL-DONE 622s

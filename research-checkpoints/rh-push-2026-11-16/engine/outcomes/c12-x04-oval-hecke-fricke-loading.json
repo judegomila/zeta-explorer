@@ -1,0 +1,57 @@
+{
+ "slug": "c12-x04-oval-hecke-fricke-loading",
+ "round": 12,
+ "kind": "combine",
+ "nodes": [],
+ "tags": [
+  "klein",
+  "hecke",
+  "theta",
+  "hecke-operators",
+  "modular-surface",
+  "fricke",
+  "t-nr",
+  "e-a-control"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "Precise obstruction, no statement about zeros of zeta. On theta restricted to the arc of X_0(4)(R), T_{p^2} has 2 real and p^2+p-2 complex isogenous points (outside a countable set of x); the summed complex points equal theta - p^{-2} D_{p^{-2}} theta + p^{-1}(theta - D_{p^2} theta), positive on the arc, with Mellin multiplier C_p = 1+1/p-R_p, R_p = 2p^{-3/2}cosh((s-1/2)log p); the relation is the identity c(pm)=c(m); C_p*Lambda is -p^{-3/2} times the T-NR twin with c=-(p^{3/2}+p^{1/2}) and every T-NR twin lies in the same module; the algebra <D_l, W> acts on a W-fixed vector through a+bW -> a+b (Dirichlet polynomials); termwise bounds on complex points lose (p-1)p^{-1/2}; the second moment over the points tau+b/p is Theta_{L+}+Theta_{L-}-theta(p^2 x)^2 (map row G16). Controls: T-NR and E_a pass every step; Epstein n=5,6 and DH fail only at the multiplicativity identity; twists fail at the Fricke step. MEASURED only (float, confirmed by a second method, not enclosed): off-line zeros of the p=5 single-point function and of the Epstein zeta of [2,2,5]. The device is closed for the four listed forms; all identities are classical.",
+ "obstruction": "Decisive test. On theta restricted to the arc, the summed complex isogenous points of T_{p^2} are dilates of theta; Mellin multiplier C_p = 1 + 1/p - R_p, R_p = 2p^(-3/2)cosh((s-1/2)log p); the relation is the identity c(pm) = c(m). C_p*Lambda is -p^(-3/2) times a T-NR twin. <D_l, W> acts on a W-fixed vector through Dirichlet polynomials; M_{1/2}(Gamma_0(4)) is one-dimensional. Termwise bounds on complex points lose (p-1)p^(-1/2). Second moment over tau+b/p is map row G16. Closed for the four listed forms; not excluded: a functional of unsummed complex points that is neither linear nor a second moment.",
+ "obstructionKind": "",
+ "controlsThatDefeat": [
+  "T-NR (passes every step; the complex-point term is itself a T-NR twin)",
+  "E_a (passes every step)",
+  "Epstein n = 5, 6 and DH fail only at the multiplicativity identity",
+  "twists fail at the Fricke step",
+  "not run: Beurling, transfer operator, theta^w"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 2,
+ "aboutZeros": false,
+ "refereeNote": "No PROVED step failed on re-derivation (Lemmas 1-4, sections 5(a), 5(b) all confirmed by hand; numerics rerun at other cases: T_{p^2} pointwise at p=17,19 residual <=7.2e-30; Mellin multiplier C_3 by quadrature 5e-23; p=5 single-point identity via Hurwitz zeta <=2.3e-30 incl. outside convergence; single-point zeros reproduced to 7 digits; second moment p=7 3.9e-31; Epstein zeros of [1,0,5], [1,0,6], [2,2,5] reproduced by a different method (incomplete-gamma expansion)). Corrections, none changin - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "Base-side loading on the oval adds no input. Summing the complex isogenous points over b projects onto dilates of theta, so every Hecke statement on the arc is a multiplier times Lambda. A non-commutative Hecke/Fricke algebra acting on a Fricke-fixed vector collapses to its commutative dilation part, and M_{1/2}(Gamma_0(4)) is one-dimensional. The complex-point term is itself a T-NR twin. A device on this arc must read something that E_a and T-NR lack, i.e. the size of the Hecke eigenvalue.",
+ "followUp": "None on this device. Add the proposed map row (RESULT.md section 6) and mark 'base-side loading on X_0(4)(R)' in STRATEGY 3.1 as run and closed. An independent referee is still owed. Not excluded by a theorem: a functional of the unsummed complex points that is neither linear nor a second moment.",
+ "resultFile": "tmp/research-2026-11-16/push/c12-x04-oval-hecke-fricke-loading/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c12-x04-oval-hecke-fricke-loading/REFEREE.md",
+ "launchedNodes": [],
+ "engineVerdict": "closed",
+ "secondReferee": {
+  "by": "c13-referee-r12-independent",
+  "outcome": "holds; twin statement in a narrower form",
+  "narrowerForm": "The twin has c = -(q^(3/2)+q^(1/2)) < -2; its extra zeros are real and outside the critical strip (Re s = 2.2423 at q=3). The control fact that holds: every T-NR function is the Mellin transform of a W-fixed element of A theta, positive on the arc for c > 0.",
+  "downgrades": [
+   "Lemma 2(c) and round-log phrase 'is a T-NR twin': add '(c < -2, extra zeros outside the strip)'",
+   "Lemma 1(a) (real-locus count): not re-derived by this referee; not used by the reduction"
+  ],
+  "upgrades": [
+   "T-NR row positivity 'Cx_p theta > 0 at 9 points' MEASURED -> PROVED (two-line argument in the report)"
+  ],
+  "report": "tmp/research-2026-11-16/push/c13-referee-r12-independent/REFEREE2_c12-x04-oval-hecke-fricke-loading.md"
+ }
+}

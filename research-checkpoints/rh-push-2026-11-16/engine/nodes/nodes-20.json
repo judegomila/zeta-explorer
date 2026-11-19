@@ -1,0 +1,54 @@
+[
+ {
+  "id": "twist-modulus-reciprocity",
+  "type": "mechanism",
+  "name": "Twist-modulus reciprocity of twisted second moments as a crossing device (RS-1)",
+  "statement": "Device under test in lane c11-rs1-twist-modulus-reciprocity (campaign round 11). Lane report of 2026-11-19, author check only: stage A stops; T-NR, E_a with real a and the window translate pass every step; the Moebius variable becomes the modulus under the reciprocity and the wall of the spectral-window lead returns (Moebius weights on the moduli, characters of conductor at least the length). Not yet refereed; node status unchanged until the learn step. Read set RS-1 of STRATEGY v3 section 4.0: the functional equation of the target used in the same inequality as periodicity of twists in the conductor aspect. The device is the reciprocity of twisted second moments that exchanges the twist variable with the modulus (Conrey, Young, Bettin; the cotangent-sum period relation of Bettin-Conrey). Origin: map row P52 closes the spectral-window lead for reciprocities acting on (n, c) and names a reciprocity acting on the Moebius variable l as the only reopening input. Stage A of the lane: one displayed inequality, the step using multiplicativity and the step using the functional equation marked, and a table of eleven controls (DEL, THIN, U, DH, E_a, T-NR, EIS-w, window translate, interpolation twin, backward heat, sign twist) naming the first failing step for each. No statement about zeros of zeta.",
+  "status": "conjectural",
+  "usesMultiplicativity": "unknown",
+  "heightUniform": "unknown",
+  "source": "campaign/ROUND_LOG.md, round 11 allocation, lane 1; campaign/STRATEGY.md section 4.0 (RS-1, CROSS-1); push/OBSTRUCTION_MAP.md row P52",
+  "tags": [
+   "cotangent-sum",
+   "period-function",
+   "mollifier",
+   "functional-equation",
+   "reciprocity",
+   "periodicity"
+  ]
+ },
+ {
+  "id": "regular-rep-matrix-bridge",
+  "type": "mechanism",
+  "name": "Regular-representation matrix Dirichlet series with the bridge (Krein) square (RS-1)",
+  "statement": "Device under test in lane c11-rs1-regular-rep-matrix-bridge (campaign round 11). Lane report of 2026-11-19, internal check by the lane itself: stage A stops; the bridge objects lie in the commutative group algebra and decompose over characters; E_a and T-NR matrix lifts keep every input. Not yet refereed independently; node status unchanged until the learn step. Object: M_q(s) = sum_n R(n) n^-s with R the regular representation of (Z/q)^*, entrywise non-negative coefficients, a matrix Euler product and a Gauss-sum functional equation; the bridge / Krein square of the square-root lane (g-spinor-square-root) is formed for the matrix symbol. The object holds Euler product, functional equation and periodicity together; Davenport-Heilbronn at q = 5 is a linear functional of M_5 that is not an eigen-direction. Closed neighbours: bridge rows Q25 (family sums, gain 0) and Q26 (single row, axis at the edge of the Euler factor). Stage A as for the other round-11 explore lanes (displayed inequality, marked steps, eleven-control table). No statement about zeros of zeta.",
+  "status": "conjectural",
+  "usesMultiplicativity": "unknown",
+  "heightUniform": "unknown",
+  "source": "campaign/ROUND_LOG.md, round 11 allocation, lane 2; campaign/STRATEGY.md section 4.0 (RS-1); push/g-spinor-square-root/RESULT.md",
+  "tags": [
+   "bridge",
+   "krein",
+   "euler-product",
+   "functional-equation",
+   "periodicity",
+   "gram-matrix"
+  ]
+ },
+ {
+  "id": "de-branges-positivity-family",
+  "type": "mechanism",
+  "name": "de Branges positivity condition for Euler products with the gamma factor, in a family (RS-3)",
+  "statement": "Device under test in lane c11-rs3-debranges-positivity-family (campaign round 11). Lane report of 2026-11-19, author check only: stage A stops; each variant examined is a restatement of a closed row or is false for zeta at a named step (phase balance at every zero; measured). Not yet refereed; node status unchanged until the learn step. Read set RS-3 of STRATEGY v3 section 4.0: positivity that uses the gamma side of zeta together with the Euler product in one step. The device is the positivity condition of de Branges for Euler products with the gamma factor, reported to fail for zeta (Conrey-Li 2000; relative to that source, not on file), and the variants not covered by that failure (a twin-ladder shift, a conductor family). It is an inequality and not the Weil form. First controls: Davenport-Heilbronn, E_a with real a, backward heat. Stage A as for the other round-11 explore lanes. No statement about zeros of zeta.",
+  "status": "conjectural",
+  "usesMultiplicativity": "unknown",
+  "heightUniform": "unknown",
+  "source": "campaign/ROUND_LOG.md, round 11 allocation, lane 3; campaign/STRATEGY.md section 4.0 (RS-3)",
+  "tags": [
+   "de-branges",
+   "euler-product",
+   "total-positivity",
+   "functional-equation"
+  ]
+ }
+]

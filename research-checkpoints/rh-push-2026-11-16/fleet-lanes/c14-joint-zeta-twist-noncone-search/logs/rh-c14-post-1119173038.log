@@ -1,0 +1,169 @@
+JA-with: optimistic 0 (not processed 0), ball evaluations 0, positives opposite 0 / undecided 0, killed by class {}, FE tier killed {}, alive all 0 FE 0, full survivors 0 / FE 0, 0s
+JA-without: optimistic 0 (not processed 0), ball evaluations 0, positives opposite 0 / undecided 0, killed by class {}, FE tier killed {}, alive all 0 FE 0, full survivors 0 / FE 0, 0s
+JB1-with: optimistic 138 (not processed 0), ball evaluations 648, positives opposite 138 / undecided 0, killed by class {}, FE tier killed {}, alive all 0 FE 0, full survivors 0 / FE 0, 0s
+JB1-without: optimistic 85 (not processed 0), ball evaluations 1612, positives opposite 85 / undecided 0, killed by class {}, FE tier killed {}, alive all 0 FE 0, full survivors 0 / FE 0, 0s
+JB2-with: optimistic 0 (not processed 0), ball evaluations 0, positives opposite 0 / undecided 0, killed by class {}, FE tier killed {}, alive all 0 FE 0, full survivors 0 / FE 0, 0s
+JB2-without: optimistic 0 (not processed 0), ball evaluations 0, positives opposite 0 / undecided 0, killed by class {}, FE tier killed {}, alive all 0 FE 0, full survivors 0 / FE 0, 0s
+JC1-with: optimistic 0 (not processed 0), ball evaluations 0, positives opposite 0 / undecided 0, killed by class {}, FE tier killed {}, alive all 0 FE 0, full survivors 0 / FE 0, 0s
+JC1-without: optimistic 0 (not processed 0), ball evaluations 0, positives opposite 0 / undecided 0, killed by class {}, FE tier killed {}, alive all 0 FE 0, full survivors 0 / FE 0, 0s
+JC2-with: optimistic 0 (not processed 0), ball evaluations 0, positives opposite 0 / undecided 0, killed by class {}, FE tier killed {}, alive all 0 FE 0, full survivors 0 / FE 0, 0s
+JC2-without: optimistic 0 (not processed 0), ball evaluations 0, positives opposite 0 / undecided 0, killed by class {}, FE tier killed {}, alive all 0 FE 0, full survivors 0 / FE 0, 0s
+JA-with-rnd: optimistic 0 (not processed 0), ball evaluations 0, positives opposite 0 / undecided 0, killed by class {}, FE tier killed {}, alive all 0 FE 0, full survivors 0 / FE 0, 0s
+JA-without-rnd: optimistic 0 (not processed 0), ball evaluations 0, positives opposite 0 / undecided 0, killed by class {}, FE tier killed {}, alive all 0 FE 0, full survivors 0 / FE 0, 0s
+JB1-with-rnd: optimistic 836 (not processed 0), ball evaluations 4561, positives opposite 836 / undecided 0, killed by class {}, FE tier killed {}, alive all 0 FE 0, full survivors 0 / FE 0, 0s
+JB1-without-rnd: optimistic 526 (not processed 0), ball evaluations 9963, positives opposite 526 / undecided 0, killed by class {}, FE tier killed {}, alive all 0 FE 0, full survivors 0 / FE 0, 1s
+JB2-with-rnd: optimistic 2 (not processed 0), ball evaluations 0, positives opposite 0 / undecided 0, killed by class {7: 2}, FE tier killed {}, alive all 0 FE 2, full survivors 0 / FE 0, 0s
+JB2-without-rnd: optimistic 0 (not processed 0), ball evaluations 0, positives opposite 0 / undecided 0, killed by class {}, FE tier killed {}, alive all 0 FE 0, full survivors 0 / FE 0, 0s
+JC1-with-rnd: optimistic 0 (not processed 0), ball evaluations 0, positives opposite 0 / undecided 0, killed by class {}, FE tier killed {}, alive all 0 FE 0, full survivors 0 / FE 0, 0s
+JC1-without-rnd: optimistic 0 (not processed 0), ball evaluations 0, positives opposite 0 / undecided 0, killed by class {}, FE tier killed {}, alive all 0 FE 0, full survivors 0 / FE 0, 0s
+JC2-with-rnd: optimistic 0 (not processed 0), ball evaluations 0, positives opposite 0 / undecided 0, killed by class {}, FE tier killed {}, alive all 0 FE 0, full survivors 0 / FE 0, 0s
+JC2-without-rnd: optimistic 0 (not processed 0), ball evaluations 0, positives opposite 0 / undecided 0, killed by class {}, FE tier killed {}, alive all 0 FE 0, full survivors 0 / FE 0, 0s
+JA-with-adp: optimistic 0 (not processed 0), ball evaluations 0, positives opposite 0 / undecided 0, killed by class {}, FE tier killed {}, alive all 0 FE 0, full survivors 0 / FE 0, 0s
+JA-without-adp: optimistic 0 (not processed 0), ball evaluations 0, positives opposite 0 / undecided 0, killed by class {}, FE tier killed {}, alive all 0 FE 0, full survivors 0 / FE 0, 0s
+JB1-with-adp: optimistic 10 (not processed 0), ball evaluations 147, positives opposite 10 / undecided 0, killed by class {}, FE tier killed {}, alive all 0 FE 0, full survivors 0 / FE 0, 0s
+JB1-without-adp: optimistic 1 (not processed 0), ball evaluations 1, positives opposite 1 / undecided 0, killed by class {}, FE tier killed {}, alive all 0 FE 0, full survivors 0 / FE 0, 0s
+JB2-with-adp: optimistic 35 (not processed 0), ball evaluations 0, positives opposite 0 / undecided 0, killed by class {7: 35}, FE tier killed {}, alive all 0 FE 35, full survivors 0 / FE 0, 0s
+JB2-without-adp: optimistic 0 (not processed 0), ball evaluations 0, positives opposite 0 / undecided 0, killed by class {}, FE tier killed {}, alive all 0 FE 0, full survivors 0 / FE 0, 0s
+JC1-with-adp: optimistic 0 (not processed 0), ball evaluations 0, positives opposite 0 / undecided 0, killed by class {}, FE tier killed {}, alive all 0 FE 0, full survivors 0 / FE 0, 0s
+JC1-without-adp: optimistic 0 (not processed 0), ball evaluations 0, positives opposite 0 / undecided 0, killed by class {}, FE tier killed {}, alive all 0 FE 0, full survivors 0 / FE 0, 0s
+JC2-with-adp: optimistic 0 (not processed 0), ball evaluations 0, positives opposite 0 / undecided 0, killed by class {}, FE tier killed {}, alive all 0 FE 0, full survivors 0 / FE 0, 0s
+JC2-without-adp: optimistic 0 (not processed 0), ball evaluations 0, positives opposite 0 / undecided 0, killed by class {}, FE tier killed {}, alive all 0 FE 0, full survivors 0 / FE 0, 0s
+JA-with-rnd2: optimistic 0 (not processed 0), ball evaluations 0, positives opposite 0 / undecided 0, killed by class {}, FE tier killed {}, alive all 0 FE 0, full survivors 0 / FE 0, 0s
+JA-without-rnd2: optimistic 0 (not processed 0), ball evaluations 0, positives opposite 0 / undecided 0, killed by class {}, FE tier killed {}, alive all 0 FE 0, full survivors 0 / FE 0, 0s
+JB1-with-rnd2: optimistic 8248 (not processed 0), ball evaluations 47363, positives opposite 8248 / undecided 0, killed by class {}, FE tier killed {}, alive all 0 FE 0, full survivors 0 / FE 0, 2s
+JB1-without-rnd2: optimistic 5170 (not processed 0), ball evaluations 86218, positives opposite 5170 / undecided 0, killed by class {}, FE tier killed {}, alive all 0 FE 0, full survivors 0 / FE 0, 6s
+JB2-with-rnd2: optimistic 22 (not processed 0), ball evaluations 0, positives opposite 0 / undecided 0, killed by class {7: 21, 1: 1}, FE tier killed {}, alive all 0 FE 22, full survivors 0 / FE 0, 0s
+JB2-without-rnd2: optimistic 0 (not processed 0), ball evaluations 0, positives opposite 0 / undecided 0, killed by class {}, FE tier killed {}, alive all 0 FE 0, full survivors 0 / FE 0, 0s
+JC1-with-rnd2: optimistic 0 (not processed 0), ball evaluations 0, positives opposite 0 / undecided 0, killed by class {}, FE tier killed {}, alive all 0 FE 0, full survivors 0 / FE 0, 6s
+JC1-without-rnd2: optimistic 0 (not processed 0), ball evaluations 0, positives opposite 0 / undecided 0, killed by class {}, FE tier killed {}, alive all 0 FE 0, full survivors 0 / FE 0, 2s
+JC2-with-rnd2: optimistic 0 (not processed 0), ball evaluations 0, positives opposite 0 / undecided 0, killed by class {}, FE tier killed {}, alive all 0 FE 0, full survivors 0 / FE 0, 1s
+JC2-without-rnd2: optimistic 0 (not processed 0), ball evaluations 0, positives opposite 0 / undecided 0, killed by class {}, FE tier killed {}, alive all 0 FE 0, full survivors 0 / FE 0, 1s
+JA-with xcheck {'agree': 391, 'disagree': 0, 'ball_undecided': 0, 'no_ball': 9} []
+JA-without xcheck {'agree': 386, 'disagree': 0, 'ball_undecided': 0, 'no_ball': 14} []
+JB1-with xcheck {'agree': 390, 'disagree': 0, 'ball_undecided': 0, 'no_ball': 10} []
+JB1-without xcheck {'agree': 386, 'disagree': 0, 'ball_undecided': 0, 'no_ball': 14} []
+JB2-with xcheck {'agree': 386, 'disagree': 0, 'ball_undecided': 0, 'no_ball': 14} []
+JB2-without xcheck {'agree': 384, 'disagree': 0, 'ball_undecided': 0, 'no_ball': 16} []
+JC1-with xcheck {'agree': 382, 'disagree': 0, 'ball_undecided': 0, 'no_ball': 18} []
+JC1-without xcheck {'agree': 388, 'disagree': 0, 'ball_undecided': 0, 'no_ball': 12} []
+JC2-with xcheck {'agree': 377, 'disagree': 0, 'ball_undecided': 0, 'no_ball': 23} []
+JC2-without xcheck {'agree': 386, 'disagree': 0, 'ball_undecided': 0, 'no_ball': 14} []
+XCHECK-TOTAL {'agree': 3856, 'disagree': 0, 'ball_undecided': 0, 'no_ball': 144}
+| stage | functionals | stage 2 | PZ one-signed | PZ T-train | PZ full | PA one-signed | PA T-train | PA T-weak | PA full | FE tier PA T-train | FE tier PA full | optimistic PA (all/FE) |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| grid | 1487558 | 523771 | 440516 | 3 | 0 | 94531 | 0 | 0 | 0 | 0 | 0 | 214 / 223 |
+| rnd | 3299608 | 1865621 | 1777753 | 14 | 0 | 376714 | 0 | 0 | 0 | 2 | 0 | 1332 / 1364 |
+| adp | 316193 | 186483 | 179543 | 81 | 0 | 30084 | 0 | 0 | 0 | 35 | 0 | 11 / 46 |
+| rnd2 | 32998268 | 18652726 | 17771663 | 180 | 0 | 3765315 | 0 | 0 | 0 | 22 | 0 | 13077 / 13440 |
+
+per family (all stages), positives PA, strict: one-signed; training rejections per class 1..9; rows with >= 23/24 held-out opposite per class; best min-over-classes held-out fraction
+
+| family | functionals | PA one-signed | DH | T-NR | E_a | HEAT | theta^w | U | THIN | BLS | BEU | held-out >= 23/24 per class | best min |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| JA-with | 5647389 | 4878 | 1206 | 2830 | 477 | 0 | 3333 | 2671 | 319 | 3852 | 1229 | [0, 0, 73, 114, 0, 10, 74, 1, 478] | 0.417 |
+| JA-without | 2821842 | 4401 | 1174 | 2795 | 0 | 0 | 2856 | 2236 | 97 | 3384 | 1224 | [0, 0, 38, 114, 0, 10, 74, 1, 478] | 0.417 |
+| JB1-with | 9169600 | 8592 | 4320 | 1227 | 0 | 0 | 1638 | 0 | 0 | 4004 | 0 | [0, 0, 0, 0, 0, 0, 0, 0, 0] | 0.292 |
+| JB1-without | 4589918 | 4223 | 2200 | 1 | 0 | 0 | 7 | 0 | 0 | 1931 | 0 | [0, 0, 0, 0, 0, 0, 0, 0, 0] | 0.250 |
+| JB2-with | 6871031 | 1724235 | 169489 | 11283 | 731113 | 163 | 224936 | 117785 | 0 | 575130 | 39673 | [0, 0, 69915, 0, 0, 0, 0, 840, 0] | 0.333 |
+| JB2-without | 3437428 | 894082 | 95852 | 916 | 402 | 40 | 77749 | 51482 | 0 | 91996 | 14354 | [0, 0, 0, 0, 0, 0, 0, 840, 0] | 0.292 |
+| JC1-with | 8214355 | 312529 | 11976 | 42744 | 158125 | 4 | 123747 | 60153 | 12311 | 264225 | 15198 | [0, 0, 0, 0, 0, 6134, 528, 0, 693] | 0.125 |
+| JC1-without | 4103458 | 154404 | 6051 | 13097 | 0 | 4 | 49558 | 31113 | 5224 | 145864 | 7627 | [0, 0, 0, 0, 0, 6134, 528, 0, 693] | 0.125 |
+| JC2-with | 8199252 | 2216410 | 360184 | 600795 | 303354 | 808 | 80553 | 363179 | 532866 | 989830 | 696956 | [0, 0, 0, 200, 366, 14059, 111485, 21, 31010] | 0.125 |
+| JC2-without | 4097198 | 1105591 | 187187 | 382587 | 0 | 0 | 57027 | 260330 | 295704 | 656707 | 382144 | [0, 0, 0, 200, 366, 14059, 111485, 21, 31010] | 0.125 |
+
+the same with positives PZ
+
+| family | PZ one-signed | DH | T-NR | E_a | HEAT | theta^w | U | THIN | BLS | BEU | T-train | best min |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| JA-with | 1386245 | 677955 | 919237 | 313377 | 5951 | 600741 | 475688 | 194142 | 1029173 | 268946 | 22 | 0.542 |
+| JA-without | 864514 | 287698 | 609025 | 2498 | 2966 | 379535 | 285342 | 124131 | 610576 | 219589 | 0 | 0.500 |
+| JB1-with | 2283678 | 1671265 | 39488 | 545573 | 558 | 319605 | 218964 | 712 | 256496 | 103996 | 0 | 0.292 |
+| JB1-without | 1641452 | 1146699 | 21298 | 70404 | 558 | 214674 | 145104 | 596 | 177858 | 73802 | 0 | 0.292 |
+| JB2-with | 3766915 | 1075870 | 91078 | 1201874 | 817 | 540923 | 233643 | 0 | 1091651 | 88301 | 0 | 0.375 |
+| JB2-without | 2197459 | 619017 | 29805 | 52556 | 432 | 226909 | 104095 | 0 | 189950 | 37371 | 0 | 0.375 |
+| JC1-with | 6711007 | 2991526 | 4436265 | 2840385 | 4906 | 3343981 | 2786472 | 2011641 | 4211739 | 2074048 | 256 | 0.500 |
+| JC1-without | 3497161 | 1283554 | 2438507 | 100543 | 1734 | 1658136 | 1488671 | 994566 | 2191007 | 1259646 | 3 | 0.500 |
+| JC2-with | 6021630 | 2936632 | 1694281 | 1716396 | 808 | 745939 | 1629187 | 1780007 | 2356900 | 1707852 | 0 | 1.000 |
+| JC2-without | 2475769 | 535943 | 1092511 | 76614 | 0 | 133519 | 775365 | 765422 | 1482681 | 948677 | 0 | 0.125 |
+
+{
+"grid": {
+"shuffle": {
+"runs": 2000,
+"full": 0,
+"tweak": 0,
+"ttrain": 0
+},
+"planted_all_recovered": true,
+"ball": {
+"optimistic_rows": 223,
+"not_processed": 0,
+"evaluations": 2260,
+"pos_opposite": 223,
+"pos_undecided": 0,
+"alive_all": 0,
+"alive_fe": 0,
+"full": 0,
+"full_fe": 0,
+"unresolved_class_entries": 0
+},
+"xcheck": {
+"agree": 3856,
+"disagree": 0,
+"ball_undecided": 0,
+"no_ball": 144
+}
+},
+"rnd": {
+"shuffle": {
+"runs": 2000,
+"full": 0,
+"tweak": 0,
+"ttrain": 0
+},
+"planted_all_recovered": true,
+"ball": {
+"optimistic_rows": 1364,
+"not_processed": 0,
+"evaluations": 14524,
+"pos_opposite": 1362,
+"pos_undecided": 0,
+"alive_all": 0,
+"alive_fe": 2,
+"full": 0,
+"full_fe": 0,
+"unresolved_class_entries": 0
+}
+},
+"adp": {
+"planted_all_recovered": true,
+"ball": {
+"optimistic_rows": 46,
+"not_processed": 0,
+"evaluations": 148,
+"pos_opposite": 11,
+"pos_undecided": 0,
+"alive_all": 0,
+"alive_fe": 35,
+"full": 0,
+"full_fe": 0,
+"unresolved_class_entries": 0
+}
+},
+"rnd2": {
+"planted_all_recovered": true,
+"ball": {
+"optimistic_rows": 13440,
+"not_processed": 0,
+"evaluations": 133581,
+"pos_opposite": 13418,
+"pos_undecided": 0,
+"alive_all": 0,
+"alive_fe": 22,
+"full": 0,
+"full_fe": 0,
+"unresolved_class_entries": 0
+}
+}
+}
+POST-DONE

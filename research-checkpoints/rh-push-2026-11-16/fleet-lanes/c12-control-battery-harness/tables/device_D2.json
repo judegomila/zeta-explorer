@@ -1,0 +1,152 @@
+{
+ "prec_bits": 3197,
+ "Nmax": 100,
+ "interval": [
+  "0.01",
+  "0.5"
+ ],
+ "DH": {
+  "first_indefinite": null,
+  "pivots": {
+   "5": "[9.13551e-18 +/- 1.90e-24]",
+   "10": "[4.55453e-47 +/- 2.71e-53]",
+   "20": "[1.34403e-105 +/- 1.66e-111]",
+   "30": "[8.81911e-159 +/- 3.06e-165]",
+   "40": "[7.18061e-229 +/- 6.87e-236]",
+   "60": "[3.55044e-360 +/- 2.18e-366]",
+   "80": "[1.02084e-490 +/- 4.94e-496]",
+   "100": "[9.74265e-637 +/- 6.13e-644]"
+  },
+  "all_pivot_balls_positive": true,
+  "seconds": 14.170791864395142,
+  "min_rel_accuracy_bits_last_pivot": 1018
+ },
+ "ZETA": {
+  "first_indefinite": null,
+  "pivots": {
+   "5": "[3.91335e-21 +/- 1.70e-27]",
+   "10": "[1.23782e-53 +/- 1.06e-59]",
+   "20": "[7.34326e-118 +/- 4.19e-124]",
+   "30": "[5.17389e-176 +/- 2.71e-182]",
+   "40": "[9.88232e-251 +/- 3.48e-257]",
+   "60": "[8.56440e-391 +/- 4.20e-397]",
+   "80": "[1.68022e-529 +/- 4.41e-535]",
+   "100": "[2.53856e-683 +/- 4.15e-689]"
+  },
+  "all_pivot_balls_positive": true,
+  "seconds": 1.3731002807617188,
+  "min_rel_accuracy_bits_last_pivot": 862
+ },
+ "checks": [
+  {
+   "check": "DH positive definite through order 100 (every pivot ball > 0)",
+   "ok": true,
+   "got": null,
+   "recorded": null
+  },
+  {
+   "check": "DH pivot(5), rel 6e-3",
+   "ok": true,
+   "got": "[9.13551e-18 +/- 1.90e-24]",
+   "recorded": "9.14e-18"
+  },
+  {
+   "check": "DH pivot(10), rel 6e-3",
+   "ok": true,
+   "got": "[4.55453e-47 +/- 2.71e-53]",
+   "recorded": "4.55e-47"
+  },
+  {
+   "check": "DH pivot(20), rel 6e-3",
+   "ok": true,
+   "got": "[1.34403e-105 +/- 1.66e-111]",
+   "recorded": "1.34e-105"
+  },
+  {
+   "check": "DH pivot(30), rel 6e-3",
+   "ok": true,
+   "got": "[8.81911e-159 +/- 3.06e-165]",
+   "recorded": "8.82e-159"
+  },
+  {
+   "check": "DH pivot(40), rel 6e-3",
+   "ok": true,
+   "got": "[7.18061e-229 +/- 6.87e-236]",
+   "recorded": "7.18e-229"
+  },
+  {
+   "check": "DH pivot(60), rel 6e-3",
+   "ok": true,
+   "got": "[3.55044e-360 +/- 2.18e-366]",
+   "recorded": "3.55e-360"
+  },
+  {
+   "check": "DH pivot(80), rel 6e-3",
+   "ok": true,
+   "got": "[1.02084e-490 +/- 4.94e-496]",
+   "recorded": "1.02e-490"
+  },
+  {
+   "check": "DH pivot(100), rel 6e-3",
+   "ok": true,
+   "got": "[9.74265e-637 +/- 6.13e-644]",
+   "recorded": "9.74e-637"
+  },
+  {
+   "check": "ZETA positive definite through order 100 (every pivot ball > 0)",
+   "ok": true,
+   "got": null,
+   "recorded": null
+  },
+  {
+   "check": "ZETA pivot(5), rel 6e-3",
+   "ok": true,
+   "got": "[3.91335e-21 +/- 1.70e-27]",
+   "recorded": "3.91e-21"
+  },
+  {
+   "check": "ZETA pivot(10), rel 6e-3",
+   "ok": true,
+   "got": "[1.23782e-53 +/- 1.06e-59]",
+   "recorded": "1.24e-53"
+  },
+  {
+   "check": "ZETA pivot(20), rel 6e-3",
+   "ok": true,
+   "got": "[7.34326e-118 +/- 4.19e-124]",
+   "recorded": "7.34e-118"
+  },
+  {
+   "check": "ZETA pivot(30), rel 6e-3",
+   "ok": true,
+   "got": "[5.17389e-176 +/- 2.71e-182]",
+   "recorded": "5.17e-176"
+  },
+  {
+   "check": "ZETA pivot(40), rel 6e-3",
+   "ok": true,
+   "got": "[9.88232e-251 +/- 3.48e-257]",
+   "recorded": "9.88e-251"
+  },
+  {
+   "check": "ZETA pivot(60), rel 6e-3",
+   "ok": true,
+   "got": "[8.56440e-391 +/- 4.20e-397]",
+   "recorded": "8.56e-391"
+  },
+  {
+   "check": "ZETA pivot(80), rel 6e-3",
+   "ok": true,
+   "got": "[1.68022e-529 +/- 4.41e-535]",
+   "recorded": "1.68e-529"
+  },
+  {
+   "check": "ZETA pivot(100), rel 6e-3",
+   "ok": true,
+   "got": "[2.53856e-683 +/- 4.15e-689]",
+   "recorded": "2.54e-683"
+  }
+ ],
+ "reproduced": true,
+ "verdict": "DH passes real-Pick positivity to order 100 on the nested nodes (as zeta does)"
+}

@@ -135,7 +135,15 @@ WEIGHTS = {
     'uniformLabel': 0, 'uniformArith': 1,
     'underExplicit': 1, 'underAuto': 0.5, 'underCap': 2,
     'deviceOpen': 2, 'deviceFloored': 0,
-    'separator': 3, 'controlNamed': 1,
+    # STRATEGY v5 (2026-11-19, review after round 15): separator 3 -> 1.5; the cheap-test part is split into
+    # cheapMeasured (was 1, now 0.25) and cheapNamed (1, unchanged). Reason: the screening arm (push/s1-*, 40
+    # combinations, 33 with a measured/certified/tool member, 0 survivors) and the rank-1 separator node
+    # euler-detection-depth-law (screened in s1-kernel-shear-norms, no survivor) show that a measured member or a
+    # measured separation does not predict a control failure for a structural reason: each measured separation was
+    # the control's own off-line zeros read at the explicit-formula scale, coefficient size right of 1, or a zero
+    # count. Previous file: scratch/generate.before-strategy-v5.py.
+    'separator': 1.5, 'controlNamed': 1,
+    'cheapMeasured': 0.25, 'cheapNamed': 1,
     'sizeKeyword': 0.5, 'nonlinKeyword': 0.5, 'integersKeyword': 1,
     'cohesionCap': 1.0,
 }
@@ -437,7 +445,7 @@ def main():
         # cheap first test
         cheap = any(m.get('status') in ('measured', 'certified') or m['type'] == 'tool' for m in members)
         named = any(m['type'] in ('open-lemma', 'conjecture') for m in members)
-        parts['cheapTest'] = (1 if cheap else 0) + (1 if named else 0)
+        parts['cheapTest'] = (WEIGHTS['cheapMeasured'] if cheap else 0) + (WEIGHTS['cheapNamed'] if named else 0)
         # cohesion and breadth
         parts['cohesion'] = round(min(WEIGHTS['cohesionCap'], sum(sw(x, y) for x, y in linked) / (2.0 * len(pairs))), 2)
         kinds = set()
@@ -649,9 +657,9 @@ def main():
                   generated=len(raw), scored=len(scored), rejected=dict(reject),
                   families={k: v for k, v in sorted(fam_stats.items())},
                   closedRowsByTheme=closed_by_theme,
-                  scoring=('weights of 2026-11-19 (STRATEGY v3): multiplicativity 0-2; heightUniform 0-1; controls 0-4; '
+                  scoring=('weights of 2026-11-19 (STRATEGY v5): multiplicativity 0-2; heightUniform 0-1; controls 0-2.5; '
                            'crossing 0-2 (2 = open device, 0 = floored device of curated/devices.json); underused 0-2; '
-                           'cheapTest 0-2; cohesion 0-1; breadth 0-1; size / nonlinear keywords 0-0.5 each; integers 0-1; '
+                           'cheapTest 0-1.25; cohesion 0-1; breadth 0-1; size / nonlinear keywords 0-0.5 each; integers 0-1; '
                            'sharedObject 0-1; penalties <= 0'),
                   r4Rules=dict(active=r4_rules, firedIndependentlyOfOrder=dict(independent),
                                targetBlindArithNodes=sorted(i for i in DECL if 'arith' in R_[i] and is_target_blind(i)),

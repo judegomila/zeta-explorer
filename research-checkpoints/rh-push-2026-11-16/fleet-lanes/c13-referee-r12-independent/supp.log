@@ -1,0 +1,11 @@
+== item 2 supplement: bounded heights, r=2 datum (1,-1),(0,0), m = 2H+1
+   -log(1-x^2) at 0.4, 0.5: [0.174353 +/- 3.88e-7] [0.287682 +/- 7.25e-8]  20*hi = [5.75364 +/- 1.45e-6]  2pi-0.52 = [5.76319 +/- 4.70e-6]
+   p=3 k=4 q=81 t=14.134725 N=3H+1=28: min over all chi, c of max error = 1.4734 ; referee bound 0.1285 ; holds=True
+   p=7 k=2 q=49 t=3.0 N=3H+1=22: min over all chi, c of max error = 1.7041 ; referee bound 0.1285 ; holds=True
+   p=5 k=3 q=125 t=0.5 N=3H+1=76: min over all chi, c of max error = 1.0306 ; referee bound 0.0217 ; holds=True
+   p=3 k=6 q=729 t=0.1 N=3H+1=82: min over all chi, c of max error = 0.2199 ; referee bound 0.0043 ; holds=True
+   p=11 k=2 q=121 t=19.9 N=3H+1=34: min over all chi, c of max error = 1.7519 ; referee bound 0.1285 ; holds=True
+== item 1 supplement: Dirichlet series of D, direct partial sum with tail bound
+   partial sum to 200000: 1.251898570789 ; zeta(3)(1+c sqrt q q^-3 + q q^-6) = 1.251898570817 ; diff 2.79e-11 ; tail bound 1.39e-10
+== item 5 supplement: reproduction of the lane's measured illustration to T=1000 (s=0.75+it, step 0.2)
+   samples 4951; sign patterns of (Re,Im) of (zeta, L(chi_5(2,.)), L(chi_5(3,.)), L(chi_5(4,.))): 46 of 256; |L(real chi)|/|zeta| min 0.0427 at t=617.0, max 25.26 at t=992.8; 5s

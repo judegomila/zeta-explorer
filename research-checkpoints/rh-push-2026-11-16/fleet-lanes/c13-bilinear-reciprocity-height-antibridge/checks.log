@@ -1,0 +1,75 @@
+== A. Moment <-> Estermann (Bettin Thm 5 at z = 0): bilinear pair at s
+ a=2 q=5 s=(0.5 + 2.5j): D=(-1.61728451781 + 3.12963615963e-35j)  |D-rhs|=3.0e-34  zeta(s)^2=(0.20985832 - 0.18075943j)  zeta part of M*=(-0.25406077 + 0.21883277j)  nonprincipal part=(-0.97132812 + 0.83664403j)
+ a=2 q=5 s=(0.5 + 10.0j): D=(-3.72464907084 + 9.62964972194e-35j)  |D-rhs|=1.67e-34  zeta(s)^2=(2.3733987 - 0.35636551j)  zeta part of M*=(-3.6445831 + 0.54723367j)  nonprincipal part=(-0.038776788 + 0.0058223296j)
+ a=2 q=5 s=(0.3 + 1.7j): D=(-1.00264918842 - 0.142096073485j)  |D-rhs|=1.38e-34  zeta(s)^2=(-0.025486754 - 0.24055081j)  zeta part of M*=(0.0055487541 + 0.38399943j)  nonprincipal part=(-0.097832666 + 0.38596811j)
+ a=3 q=7 s=(0.5 + 2.5j): D=(-1.26630347559 - 1.09220264086j)  |D-rhs|=4.1e-34  zeta(s)^2=(0.20985832 - 0.18075943j)  zeta part of M*=(-0.041858488 + 0.036054401j)  nonprincipal part=(-0.2054444 + 1.6184606j)
+ a=3 q=7 s=(0.5 + 10.0j): D=(0.0267537833835 - 3.85783418312j)  |D-rhs|=7.8e-34  zeta(s)^2=(2.3733987 - 0.35636551j)  zeta part of M*=(0.92505064 - 0.13889623j)  nonprincipal part=(-0.32576139 + 3.9499922j)
+ a=3 q=7 s=(0.3 + 1.7j): D=(-0.930350798864 - 0.725954110176j)  |D-rhs|=2.82e-34  zeta(s)^2=(-0.025486754 - 0.24055081j)  zeta part of M*=(0.046389742 + 0.30395606j)  nonprincipal part=(0.39373639 + 0.54778251j)
+   [t=0.4s]
+== B. Reciprocity a/q <-> -q/a for D(1/2+s, 2s; a/q) (Bettin Prop. after Lemma 8, truncated at J with explicit remainder)
+ a=2 q=5 s_B=(0.0 + 2.5j) J=6 V=260.0: LHS D_0(a/q)=(-1.61728451781 + 3.12963615963e-35j)
+    sum_j main=(-21.2164135199 - 19.7177206268j)  remainder E_J=(19.5991290021 + 19.7177206268j)  |LHS-(main+E_J)|=3.45e-13  (integrand at V: 1.83e-11, 12120 nodes)
+    j=0: dual Estermann D_0(-q/a)=(-0.6803594296 - 3.009265538e-36j)  zeta term -zeta(1/2+s)zeta(1/2-s)=(-0.2769738 + 0.0j)  polar term=(-0.1086456844 + 0.4818728913j)
+    j=1: dual=(2.4904853e-36 - 0.34939444j) zeta=(-1.8003297 - 0.23636451j) polar=(-1.2587946 - 0.029742524j); without the dual terms |LHS-rest|=0.66507
+   [t=35.7s]
+ a=3 q=7 s_B=(0.0 + 2.5j) J=6 V=260.0: LHS D_0(a/q)=(-1.26630347559 - 1.09220264086j)
+    sum_j main=(-19.2855125465 - 20.7323314621j)  remainder E_J=(18.019209071 + 19.6401288212j)  |LHS-(main+E_J)|=1.8e-13  (integrand at V: 1.74e-11, 12120 nodes)
+    j=0: dual Estermann D_0(-q/a)=(-0.7197539946 - 1.066481528j)  zeta term -zeta(1/2+s)zeta(1/2-s)=(-0.2769738 + 0.0j)  polar term=(-0.1963810435 + 0.472150067j)
+    j=1: dual=(0.42292417 - 0.27564342j) zeta=(-1.8003297 - 0.25324769j) polar=(-1.2781849 - 0.25396127j); without the dual terms |LHS-rest|=1.24438
+   [t=71.5s]
+ a=1 q=5 s_B=(0.0 + 2.5j) J=6 V=260.0: LHS D_0(a/q)=(0.946658962035 + 1.92060920147j)
+    sum_j main=(-32.6193433709 - 10.5919193145j)  remainder E_J=(33.5660023329 + 12.512528516j)  |LHS-(main+E_J)|=7.04e-13  (integrand at V: 3.07e-11, 12120 nodes)
+    j=0: dual Estermann D_0(-q/a)=(0.2769738 + 0.0j)  zeta term -zeta(1/2+s)zeta(1/2-s)=(-0.2769738 + 0.0j)  polar term=(0.348608095 + 0.02057414349j)
+    j=1: dual=(0.0 + 0.11818225j) zeta=(-1.8003297 - 0.11818225j) polar=(0.12219202 + 0.88184751j); without the dual terms |LHS-rest|=0.279527
+   [t=106.6s]
+ a=2 q=5 s_B=(0.0 + 10.0j) J=9 V=500.0: LHS D_0(a/q)=(-3.72464907084 + 9.62964972194e-35j)
+    sum_j main=(-205710874.698 - 74498048.0355j)  remainder E_J=(205710870.973 + 74498048.0355j)  |LHS-(main+E_J)|=1.66e-7  (integrand at V: 2.97e-12, 22000 nodes)
+    j=0: dual Estermann D_0(-q/a)=(0.6110283455 + 0.0j)  zeta term -zeta(1/2+s)zeta(1/2-s)=(-2.400003742 + 0.0j)  polar term=(0.5755883288 - 0.2131881217j)
+    j=1: dual=(3.8410947e-35 - 1.2869868j) zeta=(-240.60038 - 10.488665j) polar=(2.4196754 + 5.6492892j); without the dual terms |LHS-rest|=267.847
+   [t=211.2s]
+ a=3 q=7 s_B=(0.0 + 10.0j) J=9 V=500.0: LHS D_0(a/q)=(0.0267537833835 - 3.85783418312j)
+    sum_j main=(-202082878.817 - 78324798.1891j)  remainder E_J=(202082878.844 + 78324794.3313j)  |LHS-(main+E_J)|=1.55e-7  (integrand at V: 2.82e-12, 22000 nodes)
+    j=0: dual Estermann D_0(-q/a)=(-2.439291954 - 1.381556611j)  zeta term -zeta(1/2+s)zeta(1/2-s)=(-2.400003742 + 0.0j)  polar term=(0.5999810543 + 0.2090086762j)
+    j=1: dual=(4.5955745 - 6.3045746j) zeta=(-240.60038 - 11.237856j) polar=(-1.7900962 + 6.1043149j); without the dual terms |LHS-rest|=513.536
+   [t=310.2s]
+ a=2 q=5 s_B=(0.2 + 1.5j) J=6 V=260.0: LHS D_0(a/q)=(-0.862924127807 + 0.141857439399j)
+    sum_j main=(-3.58972158588 - 2.24161176368j)  remainder E_J=(2.726797458 + 2.38346920291j)  |LHS-(main+E_J)|=1.8e-10  (integrand at V: 1.07e-12, 12080 nodes)
+    j=0: dual Estermann D_0(-q/a)=(-0.2053802919 + 0.09489180042j)  zeta term -zeta(1/2+s)zeta(1/2-s)=(-0.3460407287 - 0.04059471889j)  polar term=(-0.2675593924 - 0.08434071238j)
+    j=1: dual=(-0.030849578 - 0.075321674j) zeta=(-0.88697573 - 0.038857477j) polar=(-0.045561792 - 0.45791137j); without the dual terms |LHS-rest|=0.219575
+   [t=344.9s]
+== C. J-form over characters: R_chi(t) = Z_chi(t) Z_chi(-t) (rotated bilinear pair), reality, sign changes, inertia
+ q=5: max |Im R_chi(t)| over 401 heights x 4 characters = 6.83e-19
+   k=0 [zeta entry of M*]: R(0)=2.974500 min=-19.623744 max=11.729316 sign changes on (0,40]=21  fraction of heights with R<0: 0.641
+   k=1 [complex, pair with k=3]: R(0)=0.795272 min=-4.091305 max=5.732365 sign changes on (0,40]=31  fraction of heights with R<0: 0.357
+   k=2 [real]: R(0)=0.067757 min=0.000004 max=37.959953 sign changes on (0,40]=0  fraction of heights with R<0: 0.000
+   k=3 [complex, pair with k=1]: R(0)=0.795272 min=-4.091305 max=5.732365 sign changes on (0,40]=31  fraction of heights with R<0: 0.357
+   t=3.0: K_t real symmetric (max|Im|=1.0e-20, asym=6.8e-21); inertia (+,-)=(3,1); 2 x #(complex pairs with R<0) = 0, zeta entry neg (sign of cos(t log q) - q^-1/2: -0.332); trace/n = 8.323072 = sum_chi R_chi = 8.323072
+   t=9.3: K_t real symmetric (max|Im|=1.9e-20, asym=1.7e-21); inertia (+,-)=(1,3); 2 x #(complex pairs with R<0) = 2, zeta entry neg (sign of cos(t log q) - q^-1/2: -1.19); trace/n = -6.841993 = sum_chi R_chi = -6.841993
+   t=21.7: K_t real symmetric (max|Im|=7.9e-20, asym=1.0e-20); inertia (+,-)=(1,3); 2 x #(complex pairs with R<0) = 2, zeta entry neg (sign of cos(t log q) - q^-1/2: -1.38); trace/n = -2.578521 = sum_chi R_chi = -2.578521
+   weight real character: 1, pair k=1: +0.05: min over grid of R_real + 2 lam R_1 = -0.35450 at t=39.6
+   weight real character: 1, pair k=1: +1.0: min over grid of R_real + 2 lam R_1 = -7.59445 at t=39.6
+   weight real character: 1, pair k=1: -0.05: min over grid of R_real + 2 lam R_1 = -0.55311 at t=16.0
+   weight real character: 1, pair k=1: -1.0: min over grid of R_real + 2 lam R_1 = -11.35384 at t=15.9
+ q=7: max |Im R_chi(t)| over 401 heights x 6 characters = 7.13e-19
+   k=0 [zeta entry of M*]: R(0)=3.960371 min=-32.511426 max=15.964797 sign changes on (0,40]=25  fraction of heights with R<0: 0.621
+   k=1 [complex, pair with k=5]: R(0)=1.097507 min=-11.009253 max=8.671962 sign changes on (0,40]=34  fraction of heights with R<0: 0.394
+   k=2 [complex, pair with k=4]: R(0)=0.151408 min=-6.976825 max=10.357777 sign changes on (0,40]=33  fraction of heights with R<0: 0.307
+   k=3 [real]: R(0)=1.962398 min=0.000000 max=60.778098 sign changes on (0,40]=0  fraction of heights with R<0: 0.000
+   k=4 [complex, pair with k=2]: R(0)=0.151408 min=-6.976825 max=10.357777 sign changes on (0,40]=33  fraction of heights with R<0: 0.307
+   k=5 [complex, pair with k=1]: R(0)=1.097507 min=-11.009253 max=8.671962 sign changes on (0,40]=34  fraction of heights with R<0: 0.394
+   t=3.0: K_t real symmetric (max|Im|=8.8e-20, asym=6.9e-20); inertia (+,-)=(4,2); 2 x #(complex pairs with R<0) = 2, zeta entry pos (sign of cos(t log q) - q^-1/2: 0.524); trace/n = 9.502688 = sum_chi R_chi = 9.502688
+   t=9.3: K_t real symmetric (max|Im|=1.7e-19, asym=1.7e-19); inertia (+,-)=(6,0); 2 x #(complex pairs with R<0) = 0, zeta entry pos (sign of cos(t log q) - q^-1/2: 0.352); trace/n = 35.165615 = sum_chi R_chi = 35.165615
+   t=21.7: K_t real symmetric (max|Im|=3.4e-19, asym=6.0e-20); inertia (+,-)=(3,3); 2 x #(complex pairs with R<0) = 2, zeta entry neg (sign of cos(t log q) - q^-1/2: -0.562); trace/n = -10.894833 = sum_chi R_chi = -10.894833
+   weight real character: 1, pair k=1: +0.05: min over grid of R_real + 2 lam R_1 = -1.00480 at t=23.3
+   weight real character: 1, pair k=1: +1.0: min over grid of R_real + 2 lam R_1 = -21.80654 at t=23.4
+   weight real character: 1, pair k=1: -0.05: min over grid of R_real + 2 lam R_1 = -0.76155 at t=11.2
+   weight real character: 1, pair k=1: -1.0: min over grid of R_real + 2 lam R_1 = -16.50610 at t=40.0
+   q=5, pair k=1 at the first 12 zeta ordinates (zeta entry = 0 there): -0.077 +2.304 +3.298 -0.293 +2.756 -1.100 -1.580 +1.091 +3.419 -2.371 +4.645 -2.953
+   [t=363.6s]
+== D. T-NR twin at q0 = 2, c = 2.1: pair term = mu_chi mu_chibar x (zeta-family pair term)
+   over 200 heights x 3 characters mod 5: max |twin pair/zeta pair - mu_chi mu_chibar| = 5.42e-20; mu product in [0.0100027, 16.8097]; bounds (c-2)^2=0.01, (c+2)^2=16.81
+   twin zeros (principal character): Re s = 1/2 +- 0.45434038 (inside the strip), ordinates (2m+1) pi/log 2
+   check: 2cosh((s0-1/2)log 2)+c at s0=(0.9543403846 + 4.532360142j): 5.86e-22
+== E. E_a control (real a): bilinear pair of E_a(s,chi) = L(s+a,chi)L(s-a,chi) is a Hermitian square on Re s = 1/2
+   max relative |pair - |Lam(s+a,chi)Lam(s-a,chibar)|^2| = 8.29e-20; min of pair/|pair| = 1.0 (always +1: no sign change)
+done [t=371.7s]

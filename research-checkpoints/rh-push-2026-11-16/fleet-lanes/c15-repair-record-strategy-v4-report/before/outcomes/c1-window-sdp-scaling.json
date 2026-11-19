@@ -1,0 +1,32 @@
+{
+ "slug": "c1-window-sdp-scaling",
+ "round": 1,
+ "kind": "compute",
+ "nodes": [],
+ "tags": [
+  "pick",
+  "explicit-formula",
+  "certificate"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "Lead 23 closes as an obstruction: in the window model with outside zeros fixed to zeta's, the real-node Pick LMI of order K <= 24 adds nothing to the explicit-formula LP. PROVED: Pick matrix linear in the zero measure, on-line pairs PSD, quartet = 2P_t + R, LMI is a function of the zero configuration only. GRID-CERTIFIED for the five tabulated node families at all 15 (T,K) cells (product 0.32 at (100,24), below 4e-6 for T >= 1000); CERTIFIED 445/445 LP-feasible points pass Pick and 40/40 LP duals pass on the grid. Corrections: for general node sets the Proposition D hypothesis fails at (100,24) (product up to 6.4) and the T >= 1000 bound is 1.1e-5 not 4e-6; at (100,24) the equality rests on the direct single-quartet criterion (critical multiplicity >= 61 vs cap 19.5 on 22 node sets, grid values), node-uniform statement OPEN. Thresholds are MEASURED and model-dependent. DH accepted at its true quartet; twisted prime sides give the same kind of exclusion sets. No statement about zeros of zeta. R1-R4 all false.",
+ "obstruction": "The real-node Pick matrix is linear in the zero measure, on-line pairs add PSD terms, and the LMI never contains the primes; so the joint window SDP equals the explicit-formula LP (delta*_joint = delta*_EF, T in 1e2..1e6, K <= 24; grid-certified on five node families, node-uniform statement open at (100,24)). No exclusion for L <= L*/2 at any height. Untested: an LMI whose on-line terms are not sign-definite (sector matrices P+-B).",
+ "obstructionKind": "linear-in-zero-measure-prime-blind",
+ "controlsThatDefeat": [
+  "DH (accepted at its true quartet)",
+  "sign-twisted primes (same kind of exclusion sets)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "lesson": "A positivity LMI that is linear in the zero measure and monotone in on-line mass cannot couple to the explicit formula: it acts only where it already excludes the configuration with the window emptied (K of about 4 per zero below, i.e. the verified-height horizon), and it is blind to the prime data. Half-plane Pick kernels for Re z > a0 are implied by the support constraint. Weakest point: the domination constant is certified on a grid and on five node families plus 48 hill climbs, with only a factor 2.5 margin at (T,K) = (100,24).",
+ "followUp": "none for lead 23. If the lane is revisited, the only untested variant is an LMI whose on-line terms are not sign-definite (the sector matrices P+-B of stack-feasibility section 6); they were not run here.",
+ "resultFile": "tmp/research-2026-11-16/push/c1-window-sdp-scaling/RESULT.md"
+}

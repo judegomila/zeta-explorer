@@ -1,0 +1,54 @@
+{
+ "slug": "c15-u5-window-count-threshold-translate-control",
+ "round": 15,
+ "kind": "deepen",
+ "nodes": [
+  "window-fe-rigidity",
+  "window-translate-control",
+  "u5-growing-window-count"
+ ],
+ "tags": [
+  "deepen",
+  "u5",
+  "window-count",
+  "span-law",
+  "control-wt",
+  "control-u",
+  "control-dh",
+  "control-interpolation-twin",
+  "finite-combination",
+  "poisson-bound",
+  "closed-row-proposed",
+  "r4-direct"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "No statement about zeros of zeta. Outcome (a). For windows inside one span [T, T+L], the translate zeta(s+i alpha), alpha ~ 2pi/log(T/2pi), has relative FE defect pi L/(T log(T/2pi))(1+o(1)) on the whole span (proved to leading order; measured ratio 0.99995-1.004) and is optimal among translates with |alpha| <= T/2; the reflection translate alpha ~ -2T has defect L^2/(8T) and is better for L < 8pi/log(T/2pi). Contiguous unit windows passed at tolerance eta: max(eta T log(T/2pi)/pi, sqrt(8 eta T)) to leading order: above T^a for every a<1 at fixed eta; 0, 0, 3 at T=1e4, 1e5, 1e6 for eta=1e-6. Free-prime unimodular Euler products with an off-line zero of the finite model (float64 search, no certificate): conditions 24+0.36K; largest K passed 0; 16-32 (32 for an added fourth seed); 128 (2.0e-6 at 256, one seed); K=512 not run. (zeta(s)+zeta(s+i alpha))/2 (a(1)=1): same absolute (not relative) defect, not multiplicative, one off-line zero found at T=1e6; (zeta(s)-zeta(s+i alpha))/2 has a(1)=0. Translates are controls for identification-type conclusions only. No rigidity inequality found.",
+ "obstruction": "Outcome (a): a control exists at every K = T^a, a < 1, at fixed tolerance. For windows inside one span [T, T+L] the translate zeta(s + i alpha), alpha ~ 2pi/log(T/2pi), has relative FE defect pi L/(T log(T/2pi))(1+o(1)) on the whole span (PROVED to leading order), optimal among translates with |alpha| <= T/2; contiguous unit windows passed at tolerance eta: max(eta T log(T/2pi)/pi, sqrt(8 eta T)). Free-prime unimodular Euler products with an off-line zero of the finite model pass 24 + 0.36K conditions up to a parameter-count crossover (float64 search, no certificate; K = 512 at T = 1e6 not run). Translates are controls for identification-type conclusions only. No rigidity inequality found. Open cell: a device comparing heights with ratio beyond 1 + eta log T/pi and reading more than pi(N) prime conditions, where every statement found so far is F = zeta on the window (row S12).",
+ "obstructionKind": "control-passes: translate passes every window inside a span of length eta T log T/pi; free-prime U passes below a parameter-count crossover; beyond it identification only",
+ "controlsThatDefeat": [
+  "WT translate zeta(s + i alpha) (passes every window inside a span of relative length eta log(T/2pi)/pi)",
+  "free-prime unimodular Euler product U (passes below the parameter-count crossover; measured)",
+  "(zeta(s) + zeta(s + i alpha))/2 (same absolute defect, not multiplicative, off-line zero found at T = 1e6)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "Verdict (precise obstruction, outcome (a), no zeta-zero statement) holds; all PROVED steps re-derived (translate identity, Lemma 1 (a) and (b) under its stated hypothesis |alpha| <= a/2, Lemma 2 existence constant 0.976 eta, Lemma 4 Poisson bound, section 5 identity). Reruns: span law at 4 new (a,L) ratio 0.99995-1.00000; 3 combination zeros re-solved, winding 1; contig.py at T=1e5 with new seed 7 gives identical rank law and largest K passed = 32 (8.3e-6 at 64); zeta 2e-10, DH 0.81-1.24. Errors - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "The number of windows is not the controlling variable. Against translates only the relative spread of heights counts (L/T >= eta log(T/2pi)/pi), and adjacent windows cost about 0.36 real conditions each, not 30. STRATEGY 4.0 (b) should speak of conditions at heights whose ratios differ from 1 by more than eta log T/pi, not of sqrt(T)/log T windows.",
+ "followUp": "None as a lead. Owed: an independent referee (none could be started from this lane; lanes.jsonl carries referees 0), then the proposed map row S12b in RESULT.md section 7. The only open cell of U5 is a device comparing heights with ratio beyond 1 + eta log T/pi and reading more than pi(N) prime conditions; every statement found there so far is F = zeta on the window (row S12).",
+ "resultFile": "tmp/research-2026-11-16/push/c15-u5-window-count-threshold-translate-control/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c15-u5-window-count-threshold-translate-control/REFEREE.md",
+ "launchedNodes": [
+  "window-fe-rigidity",
+  "window-translate-control",
+  "u5-growing-window-count"
+ ],
+ "engineVerdict": "closed"
+}

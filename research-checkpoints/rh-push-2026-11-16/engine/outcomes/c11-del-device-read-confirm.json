@@ -1,0 +1,44 @@
+{
+ "slug": "c11-del-device-read-confirm",
+ "round": 11,
+ "kind": "combine",
+ "nodes": [
+  "out-c11-del-device-read-confirm"
+ ],
+ "tags": [
+  "record",
+  "control",
+  "thin-deletion",
+  "device-table",
+  "statement-o",
+  "read-set",
+  "central-value",
+  "degree-one-classification",
+  "periodicity"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "Record lane, no statement about zeta. Corrected DEL device table: 10 or 11 pass (5 full established from rows, 1 full argued, 5 partial) / 23 or 24; the three changed cells (dual-measure-compactness to not established, twisted-discrepancy to transferred only, laurent-shell-gamma-section to not formulable) are supported by the cited lane texts. No closed device whose read set omits both the functional equation and periodicity lacks a passing control; devices without a control passing every step (coherent-set-large-sieve, landau-siegel-mechanism, selberg-operator, plus devices closed by circularity such as effective-order-two) all read periodicity or are not attacks, so STRATEGY 4.0 (c) stands with the narrowing that a read set containing the exact integer count is passed by E_a and is an identification under residue 1 (Lemma J, proved for completely multiplicative a with abs(a(p)) <= 1; extends to TW+ in one line). Among ordinary Dirichlet series, zeta's functional equation alone gives zeta (Hamburger, classical, recalled); in degree one the functional equation gives periodic coefficients up to a height translate (relative to Kaczorowski-Perelli, not opened); T-NR proposed for the RS-3 screen. Central-value-squares row: Lemmas W1 (GL(1) case) and W2 proved; every control passes the form at height t. Round-12 allocation unchanged. R1 = R2 = R3 = R4 = false.",
+ "obstruction": "Record lane. Corrected DEL table: 10 or 11 pass / 23 or 24 (c10 said 14 / 20). No closed device whose read set omits both the functional equation and periodicity lacks a passing control. Devices with no control passing every step (coherent-set-large-sieve, landau-siegel-mechanism, selberg-operator, and circularity closures) read periodicity or are not attacks. A read set containing the exact integer count is passed by E_a and is an identification under residue 1 (Lemma J). In degree one the functional equation gives periodic coefficients up to a height translate (relative to Kaczorowski-Perelli, not opened), so no control with Euler product, unimodular parameters and zeta's functional equation without periodic twists exists among ordinary Dirichlet series.",
+ "obstructionKind": "device-table-confirmed-no-device-without-control-outside-periodicity",
+ "controlsThatDefeat": [
+  "not applicable (record lane)",
+  "central-value-squares form: every control passes it at height t (Lemmas W1, W2)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "Independent referee section appended to push/c11-del-device-read-confirm/REFEREE.md (author's self-check kept). All PROVED steps re-derived and confirmed (Lemma J, P46 line, P51 transferred form, W1 for GL(1), W2, T-NR zero locus). Numeric checks with different cases agree (Lemma J with random complex a(p) on primes <= 2e6; twisted sums of a random deletion set, b = 0.8, x = 1e6; table recount 6/5/2/1/19/1, c10 tally 14). Th - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "The devices that no control on file passes are exactly the two periodicity mechanisms. In degree one the functional equation with integer frequencies forces periodicity, so RS-1 and RS-3 admit the same single function and can be screened only by controls that each drop one input.",
+ "followUp": "Independent referee of DEVICE_READ_V2.md (REFEREE.md is a self-check, referees = 0). Repair slot: apply proposed map row G32, add a map row for the Landau-Siegel device, correct the P36 cell and Statement O section C row 2a, open Hamburger and Kaczorowski-Perelli. RS-3 explore lanes: add T-NR to the stage-A screen.",
+ "resultFile": "tmp/research-2026-11-16/push/c11-del-device-read-confirm/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c11-del-device-read-confirm/REFEREE.md",
+ "launchedNodes": [],
+ "engineVerdict": "partial"
+}

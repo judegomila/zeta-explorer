@@ -1,0 +1,12 @@
+inf new option 0.697323 at Y = 1.0000 ; 7/6 - dc = 0.697322
+inf old option 0.765330 at Y = 0.5000 ; 1 - dc/2 = 0.765328
+window D^(1/2) < K < D^2 mismatches: 0
+Z6 old 0.8000 new 0.7500
+Framework A order 3: min exponent of |A_1|^2 = 2.000000 -> theta = 1.0000
+Framework A order 4: min exponent of |A_1|^2 = 2.000000 -> theta = 1.0000
+Framework A order 5: min exponent of |A_1|^2 = 2.000000 -> theta = 1.0000
+Framework A order 6: min exponent of |A_1|^2 = 2.000000 -> theta = 1.0000
+max |1 - h/6 + b/12 + k3/2 - 1| over 1e5 random geometries: 5.55e-16
+Ji: upper 0.99826389 (575/576 = 0.99826389); Y-term 0.99833333 (599/600 = 0.99833333)
+E_6 = 1/6 at sigma = 0.967202 ; E_4 = 1/4 at 0.95
+B_flat = 0.8748866470

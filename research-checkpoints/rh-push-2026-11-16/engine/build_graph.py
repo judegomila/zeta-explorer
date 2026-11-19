@@ -171,7 +171,7 @@ EXTRA_EDGES = [
     ('ctl-EISW', 'hecke-correspondence-recurrence', 'control-defeats', 'E(z, w\') off resonance satisfies every input the device reads (c8-hecke-entropy-resonance-rigidity Proposition 4; two referees)'),
     ('ctl-WT', 'ctl-EISW', 'special-case-of', 'on the modular surface the window translate tau_{w - i alpha} is the Eisenstein series E(., w - i alpha)'),
 ]
-CONTROL_CODE_RE = re.compile(r'(?<![A-Za-z])(DH|HEAT|TW\+-|TW\+|TW-|TW|EA|NR|THW|THIN|PA|WT|FM|EIS-w|EISW|U|B)(?![A-Za-z_0-9(])')
+CONTROL_CODE_RE = re.compile(r'(?<![A-Za-z])(NR-vec|BLS|UNIV|DH|HEAT|TW\+-|TW\+|TW-|TW|EA|NR|THW|THIN|PA|WT|FM|EIS-w|EISW|U|B)(?![A-Za-z_0-9(])')
 
 # ----------------------------------------------------------------------------- roles
 CROSSING_RE = re.compile(

@@ -1,0 +1,752 @@
+{
+ "c1-T": {
+  "PA/all": {
+   "ttrain": 0,
+   "undecided": 0,
+   "full": 0,
+   "best_min_heldout": 0,
+   "nrej_hist": [
+    3422,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rejected": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  "PA/FE": {
+   "ttrain": 0,
+   "undecided": 0,
+   "full": 0,
+   "best_min_heldout": 0,
+   "nrej_hist": [
+    3422,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rejected": [
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  "PA/canon": {
+   "ttrain": 0,
+   "undecided": 0,
+   "full": 0,
+   "best_min_heldout": 0,
+   "nrej_hist": [
+    3422,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rejected": [
+    0,
+    0,
+    0
+   ]
+  },
+  "PA/six": {
+   "ttrain": 0,
+   "undecided": 0,
+   "full": 0,
+   "best_min_heldout": 0,
+   "nrej_hist": [
+    3422,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rejected": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  "PZ/all": {
+   "ttrain": 0,
+   "undecided": 0,
+   "full": 0,
+   "best_min_heldout": 0,
+   "nrej_hist": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    63,
+    742,
+    1947,
+    670,
+    0
+   ],
+   "rejected": [
+    3422,
+    3422,
+    3348,
+    3406,
+    3422,
+    3407,
+    3407,
+    3422,
+    3422
+   ]
+  },
+  "rows": []
+ },
+ "c2-T": {
+  "PA/all": {
+   "ttrain": 0,
+   "undecided": 0,
+   "full": 0,
+   "best_min_heldout": 0,
+   "nrej_hist": [
+    0,
+    346,
+    139,
+    991,
+    1192,
+    685,
+    69,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rejected": [
+    431,
+    1475,
+    0,
+    2884,
+    2885,
+    926,
+    816,
+    1941,
+    249
+   ]
+  },
+  "PA/FE": {
+   "ttrain": 0,
+   "undecided": 0,
+   "full": 0,
+   "best_min_heldout": 0,
+   "nrej_hist": [
+    0,
+    377,
+    1639,
+    1390,
+    16,
+    0
+   ],
+   "rejected": [
+    1475,
+    0,
+    2884,
+    1941
+   ]
+  },
+  "PA/canon": {
+   "ttrain": 0,
+   "undecided": 0,
+   "full": 0,
+   "best_min_heldout": 0,
+   "nrej_hist": [
+    0,
+    466,
+    1559,
+    1397,
+    0
+   ],
+   "rejected": [
+    1475,
+    0,
+    2884
+   ]
+  },
+  "PA/six": {
+   "ttrain": 0,
+   "undecided": 0,
+   "full": 0,
+   "best_min_heldout": 0,
+   "nrej_hist": [
+    0,
+    437,
+    1001,
+    1448,
+    536,
+    0,
+    0,
+    0
+   ],
+   "rejected": [
+    431,
+    1475,
+    0,
+    2884,
+    926,
+    816
+   ]
+  },
+  "PZ/all": {
+   "ttrain": 0,
+   "undecided": 0,
+   "full": 0,
+   "best_min_heldout": 0,
+   "nrej_hist": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    15,
+    210,
+    2190,
+    1007,
+    0
+   ],
+   "rejected": [
+    3422,
+    3422,
+    3369,
+    3418,
+    3422,
+    3407,
+    3407,
+    3421,
+    3422
+   ]
+  },
+  "rows": []
+ },
+ "c3-T": {
+  "PA/all": {
+   "ttrain": 0,
+   "undecided": 0,
+   "full": 0,
+   "best_min_heldout": 0,
+   "nrej_hist": [
+    1494,
+    258,
+    1135,
+    247,
+    93,
+    79,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rejected": [
+    105,
+    1488,
+    158,
+    0,
+    0,
+    0,
+    0,
+    188,
+    298
+   ]
+  },
+  "PA/FE": {
+   "ttrain": 0,
+   "undecided": 0,
+   "full": 0,
+   "best_min_heldout": 0,
+   "nrej_hist": [
+    1494,
+    263,
+    1276,
+    273,
+    0,
+    0
+   ],
+   "rejected": [
+    1488,
+    158,
+    0,
+    188
+   ]
+  },
+  "PA/canon": {
+   "ttrain": 0,
+   "undecided": 0,
+   "full": 0,
+   "best_min_heldout": 0,
+   "nrej_hist": [
+    1494,
+    324,
+    1334,
+    154,
+    0
+   ],
+   "rejected": [
+    1488,
+    158,
+    0
+   ]
+  },
+  "PA/six": {
+   "ttrain": 0,
+   "undecided": 0,
+   "full": 0,
+   "best_min_heldout": 0,
+   "nrej_hist": [
+    1494,
+    324,
+    1308,
+    101,
+    79,
+    0,
+    0,
+    0
+   ],
+   "rejected": [
+    105,
+    1488,
+    158,
+    0,
+    0,
+    0
+   ]
+  },
+  "PZ/all": {
+   "ttrain": 383,
+   "undecided": 334,
+   "full": 0,
+   "best_min_heldout": 0,
+   "nrej_hist": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    52,
+    243,
+    1453,
+    1175,
+    383
+   ],
+   "rejected": [
+    3306,
+    3239,
+    3197,
+    3306,
+    3248,
+    2739,
+    2755,
+    3306,
+    3303
+   ]
+  },
+  "rows": []
+ },
+ "c1-Q": {
+  "PA/all": {
+   "ttrain": 0,
+   "undecided": 0,
+   "full": 0,
+   "best_min_heldout": 0,
+   "nrej_hist": [
+    3420,
+    0,
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rejected": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    1
+   ]
+  },
+  "PA/FE": {
+   "ttrain": 0,
+   "undecided": 0,
+   "full": 0,
+   "best_min_heldout": 0,
+   "nrej_hist": [
+    3420,
+    0,
+    2,
+    0,
+    0,
+    0
+   ],
+   "rejected": [
+    0,
+    0,
+    0,
+    2
+   ]
+  },
+  "PA/canon": {
+   "ttrain": 0,
+   "undecided": 0,
+   "full": 0,
+   "best_min_heldout": 0,
+   "nrej_hist": [
+    3420,
+    2,
+    0,
+    0,
+    0
+   ],
+   "rejected": [
+    0,
+    0,
+    0
+   ]
+  },
+  "PA/six": {
+   "ttrain": 0,
+   "undecided": 0,
+   "full": 0,
+   "best_min_heldout": 0,
+   "nrej_hist": [
+    3420,
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rejected": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  "PZ/all": {
+   "ttrain": 0,
+   "undecided": 0,
+   "full": 0,
+   "best_min_heldout": 0,
+   "nrej_hist": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    300,
+    2622,
+    305,
+    188,
+    6,
+    0
+   ],
+   "rejected": [
+    3243,
+    3330,
+    3106,
+    3108,
+    3326,
+    2061,
+    800,
+    3417,
+    3422
+   ]
+  },
+  "rows": []
+ },
+ "c2-Q": {
+  "PA/all": {
+   "ttrain": 0,
+   "undecided": 0,
+   "full": 0,
+   "best_min_heldout": 0,
+   "nrej_hist": [
+    1,
+    288,
+    222,
+    1324,
+    1339,
+    235,
+    13,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rejected": [
+    18,
+    825,
+    0,
+    2791,
+    3016,
+    1257,
+    680,
+    2428,
+    1105
+   ]
+  },
+  "PA/FE": {
+   "ttrain": 0,
+   "undecided": 0,
+   "full": 0,
+   "best_min_heldout": 0,
+   "nrej_hist": [
+    1,
+    372,
+    2417,
+    612,
+    20,
+    0
+   ],
+   "rejected": [
+    825,
+    0,
+    2791,
+    2428
+   ]
+  },
+  "PA/canon": {
+   "ttrain": 0,
+   "undecided": 0,
+   "full": 0,
+   "best_min_heldout": 0,
+   "nrej_hist": [
+    1,
+    571,
+    2458,
+    392,
+    0
+   ],
+   "rejected": [
+    825,
+    0,
+    2791
+   ]
+  },
+  "PA/six": {
+   "ttrain": 0,
+   "undecided": 0,
+   "full": 0,
+   "best_min_heldout": 0,
+   "nrej_hist": [
+    1,
+    489,
+    1601,
+    1177,
+    154,
+    0,
+    0,
+    0
+   ],
+   "rejected": [
+    18,
+    825,
+    0,
+    2791,
+    1257,
+    680
+   ]
+  },
+  "PZ/all": {
+   "ttrain": 0,
+   "undecided": 1,
+   "full": 0,
+   "best_min_heldout": 0,
+   "nrej_hist": [
+    1,
+    0,
+    0,
+    0,
+    77,
+    260,
+    1910,
+    686,
+    488,
+    0,
+    0
+   ],
+   "rejected": [
+    3242,
+    3329,
+    3105,
+    3107,
+    3325,
+    2061,
+    800,
+    3416,
+    3421
+   ]
+  },
+  "rows": []
+ },
+ "c3-Q": {
+  "PA/all": {
+   "ttrain": 0,
+   "undecided": 0,
+   "full": 0,
+   "best_min_heldout": 0,
+   "nrej_hist": [
+    1566,
+    27,
+    710,
+    522,
+    481,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rejected": [
+    260,
+    1680,
+    911,
+    0,
+    0,
+    0,
+    0,
+    419,
+    13
+   ]
+  },
+  "PA/FE": {
+   "ttrain": 0,
+   "undecided": 0,
+   "full": 0,
+   "best_min_heldout": 0,
+   "nrej_hist": [
+    1566,
+    27,
+    726,
+    763,
+    224,
+    0
+   ],
+   "rejected": [
+    1680,
+    911,
+    0,
+    419
+   ]
+  },
+  "PA/canon": {
+   "ttrain": 0,
+   "undecided": 0,
+   "full": 0,
+   "best_min_heldout": 0,
+   "nrej_hist": [
+    1566,
+    60,
+    787,
+    893,
+    0
+   ],
+   "rejected": [
+    1680,
+    911,
+    0
+   ]
+  },
+  "PA/six": {
+   "ttrain": 0,
+   "undecided": 0,
+   "full": 0,
+   "best_min_heldout": 0,
+   "nrej_hist": [
+    1566,
+    60,
+    782,
+    643,
+    255,
+    0,
+    0,
+    0
+   ],
+   "rejected": [
+    260,
+    1680,
+    911,
+    0,
+    0,
+    0
+   ]
+  },
+  "PZ/all": {
+   "ttrain": 0,
+   "undecided": 0,
+   "full": 0,
+   "best_min_heldout": 0,
+   "nrej_hist": [
+    0,
+    0,
+    0,
+    0,
+    156,
+    856,
+    592,
+    538,
+    722,
+    442,
+    0
+   ],
+   "rejected": [
+    2772,
+    3081,
+    3246,
+    3306,
+    264,
+    2227,
+    1149,
+    3305,
+    1551
+   ]
+  },
+  "rows": []
+ }
+}

@@ -1,0 +1,20 @@
+ok   DH positive definite through order 100 (every pivot ball > 0) | got None | recorded None
+ok   DH pivot(5), rel 6e-3 | got [9.13551e-18 +/- 1.90e-24] | recorded 9.14e-18
+ok   DH pivot(10), rel 6e-3 | got [4.55453e-47 +/- 2.71e-53] | recorded 4.55e-47
+ok   DH pivot(20), rel 6e-3 | got [1.34403e-105 +/- 1.66e-111] | recorded 1.34e-105
+ok   DH pivot(30), rel 6e-3 | got [8.81911e-159 +/- 3.06e-165] | recorded 8.82e-159
+ok   DH pivot(40), rel 6e-3 | got [7.18061e-229 +/- 6.87e-236] | recorded 7.18e-229
+ok   DH pivot(60), rel 6e-3 | got [3.55044e-360 +/- 2.18e-366] | recorded 3.55e-360
+ok   DH pivot(80), rel 6e-3 | got [1.02084e-490 +/- 4.94e-496] | recorded 1.02e-490
+ok   DH pivot(100), rel 6e-3 | got [9.74265e-637 +/- 6.13e-644] | recorded 9.74e-637
+ok   ZETA positive definite through order 100 (every pivot ball > 0) | got None | recorded None
+ok   ZETA pivot(5), rel 6e-3 | got [3.91335e-21 +/- 1.70e-27] | recorded 3.91e-21
+ok   ZETA pivot(10), rel 6e-3 | got [1.23782e-53 +/- 1.06e-59] | recorded 1.24e-53
+ok   ZETA pivot(20), rel 6e-3 | got [7.34326e-118 +/- 4.19e-124] | recorded 7.34e-118
+ok   ZETA pivot(30), rel 6e-3 | got [5.17389e-176 +/- 2.71e-182] | recorded 5.17e-176
+ok   ZETA pivot(40), rel 6e-3 | got [9.88232e-251 +/- 3.48e-257] | recorded 9.88e-251
+ok   ZETA pivot(60), rel 6e-3 | got [8.56440e-391 +/- 4.20e-397] | recorded 8.56e-391
+ok   ZETA pivot(80), rel 6e-3 | got [1.68022e-529 +/- 4.41e-535] | recorded 1.68e-529
+ok   ZETA pivot(100), rel 6e-3 | got [2.53856e-683 +/- 4.15e-689] | recorded 2.54e-683
+D2 reproduced: True
+scripts/memcap.sh 8 .venv-arb/bin/python -I  /tmp/c12test 100  10.64s user 0.12s system 58% cpu 18.453 total

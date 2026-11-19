@@ -1,0 +1,16 @@
+R1 a1-with {'compared': 800, 'disagree': 0, 'feasible_among_compared': 0}
+R1 b1-Aw {'compared': 765, 'disagree': 0, 'feasible_among_compared': 0}
+R1 b1-Ao {'compared': 800, 'disagree': 0, 'feasible_among_compared': 0}
+R1 b1-B {'compared': 800, 'disagree': 0, 'feasible_among_compared': 0}
+R1 b3-with {'compared': 767, 'disagree': 0, 'feasible_among_compared': 0}
+R1 b3-without {'compared': 800, 'disagree': 0, 'feasible_among_compared': 0}
+R1 b4m-with {'compared': 800, 'disagree': 0, 'feasible_among_compared': 0}
+R1 b4p-with {'compared': 800, 'disagree': 0, 'feasible_among_compared': 0}
+R1 b4p-without {'compared': 800, 'disagree': 0, 'feasible_among_compared': 0}
+R1 b6-with {'compared': 800, 'disagree': 0, 'feasible_among_compared': 0}
+R1 b2-with {'compared': 772, 'disagree': 0, 'feasible_among_compared': 20}
+R1 b5l-with {'compared': 772, 'disagree': 0, 'feasible_among_compared': 0}
+R1 b5m-with {'compared': 800, 'disagree': 0, 'feasible_among_compared': 0}
+R1 b5p-with {'compared': 800, 'disagree': 0, 'feasible_among_compared': 0}
+R2 {'values': 40, 'worst_abs_or_rel_difference': 1.9430351089042594e-15, 'split_prime_chi7': 13}
+R3 {'max_rel_diff': 3.751097246589275e-15, 'hermite_midpoint_max_rel': 2.629390764114746e-07}

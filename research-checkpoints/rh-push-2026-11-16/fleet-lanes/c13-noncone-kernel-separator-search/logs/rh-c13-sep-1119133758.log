@@ -1,0 +1,1766 @@
+objects 282 workers 16
+D1: 1294690 functionals; planned allocation: sign matrix int8[1294690 x 282] = 365.1 MB; per worker chunk 100000 functionals, largest temporary complex128[100000 x 4 x 4] = 25.6 MB
+  D1 chunk 1/13  11 s
+  D1 chunk 11/13  25 s
+D1 done in 26 s
+D3a: 1294690 functionals; planned allocation: sign matrix int8[1294690 x 282] = 365.1 MB; per worker chunk 100000 functionals, largest temporary complex128[100000 x 4 x 4] = 25.6 MB
+  D3a chunk 1/13  10 s
+  D3a chunk 11/13  25 s
+D3a done in 26 s
+D2-F1: 48069 functionals; planned allocation: sign matrix int8[48069 x 282] = 13.6 MB; per worker chunk 100000 functionals, largest temporary complex128[100000 x 4 x 4] = 25.6 MB
+  D2-F1 chunk 1/1  0 s
+D2-F1 done in 0 s
+D2-F2: 44541 functionals; planned allocation: sign matrix int8[44541 x 282] = 12.6 MB; per worker chunk 100000 functionals, largest temporary complex128[100000 x 4 x 4] = 25.6 MB
+  D2-F2 chunk 1/1  1 s
+D2-F2 done in 1 s
+D2-F3: 4228 functionals; planned allocation: sign matrix int8[4228 x 282] = 1.2 MB; per worker chunk 100000 functionals, largest temporary complex128[100000 x 4 x 4] = 25.6 MB
+  D2-F3 chunk 1/1  0 s
+D2-F3 done in 0 s
+D2-F4: 707 functionals; planned allocation: sign matrix int8[707 x 282] = 0.2 MB; per worker chunk 100000 functionals, largest temporary complex128[100000 x 4 x 4] = 25.6 MB
+  D2-F4 chunk 1/1  0 s
+D2-F4 done in 0 s
+D2-F5: 4949 functionals; planned allocation: sign matrix int8[4949 x 282] = 1.4 MB; per worker chunk 100000 functionals, largest temporary complex128[100000 x 4 x 4] = 25.6 MB
+  D2-F5 chunk 1/1  0 s
+D2-F5 done in 0 s
+D3b-F1: 48069 functionals; planned allocation: sign matrix int8[48069 x 282] = 13.6 MB; per worker chunk 100000 functionals, largest temporary complex128[100000 x 4 x 4] = 25.6 MB
+  D3b-F1 chunk 1/1  0 s
+D3b-F1 done in 0 s
+D3b-F2: 44541 functionals; planned allocation: sign matrix int8[44541 x 282] = 12.6 MB; per worker chunk 100000 functionals, largest temporary complex128[100000 x 4 x 4] = 25.6 MB
+  D3b-F2 chunk 1/1  1 s
+D3b-F2 done in 1 s
+D3b-F3: 4228 functionals; planned allocation: sign matrix int8[4228 x 282] = 1.2 MB; per worker chunk 100000 functionals, largest temporary complex128[100000 x 4 x 4] = 25.6 MB
+  D3b-F3 chunk 1/1  0 s
+D3b-F3 done in 0 s
+D3b-F4: 707 functionals; planned allocation: sign matrix int8[707 x 282] = 0.2 MB; per worker chunk 100000 functionals, largest temporary complex128[100000 x 4 x 4] = 25.6 MB
+  D3b-F4 chunk 1/1  0 s
+D3b-F4 done in 0 s
+D3b-F5: 4949 functionals; planned allocation: sign matrix int8[4949 x 282] = 1.4 MB; per worker chunk 100000 functionals, largest temporary complex128[100000 x 4 x 4] = 25.6 MB
+  D3b-F5 chunk 1/1  0 s
+D3b-F5 done in 0 s
+D1: planned read of int8[1294690 x 282] = 365.1 MB in blocks of 400000 rows
+D1 n=1294690 one-signed(P2)=1227464  T-train=67742 T-weak=67742 full=4454 | P0 one=1290622 T-train=73504 full=4454 | fav full=4454 | 13 s
+   pass frac train (P2): [0.783, 0.768, 0.688, 0.789, 0.797, 0.679, 0.792, 0.798, 0.823]  hist_any: [668648, 12885, 7966, 10558, 6024, 7570, 18184, 42969, 32336, 420324]
+   optimistic reading (undecided counted for a separator): P0 T-train 79133 full 8232, P1 T-train 76374 full 5108, P2 T-train 76374 full 5108
+   shuffle: {'n': 20, 'step': 5, 'with_full': 0, 'with_tweak': 0, 'with_ttrain': 0, 'mean_ttrain': 0.0, 'mean_one': 146958.3, 'max_ttrain': 0}
+D3a: planned read of int8[1294690 x 282] = 365.1 MB in blocks of 400000 rows
+D3a n=1294690 one-signed(P2)=1227464  T-train=67742 T-weak=67742 full=4454 | P0 one=1290622 T-train=73504 full=4454 | fav full=4454 | 12 s
+   pass frac train (P2): [0.783, 0.768, 0.688, 0.789, 0.797, 0.679, 0.792, 0.798, 0.823]  hist_any: [668648, 12885, 7966, 10558, 6024, 7570, 18184, 42969, 32336, 420324]
+   optimistic reading (undecided counted for a separator): P0 T-train 79133 full 8232, P1 T-train 76374 full 5108, P2 T-train 76374 full 5108
+   shuffle: {'n': 20, 'step': 5, 'with_full': 0, 'with_tweak': 0, 'with_ttrain': 0, 'mean_ttrain': 0.0, 'mean_one': 146958.3, 'max_ttrain': 0}
+D2-F1: planned read of int8[48069 x 282] = 13.6 MB in blocks of 400000 rows
+D2-F1 n=48069 one-signed(P2)=43913  T-train=2139 T-weak=2114 full=655 | P0 one=48069 T-train=2836 full=918 | fav full=655 | 1 s
+   pass frac train (P2): [0.841, 0.915, 0.842, 0.926, 0.924, 0.827, 0.909, 0.861, 0.925]  hist_any: [33004, 180, 198, 199, 282, 456, 438, 485, 746, 7925]
+   optimistic reading (undecided counted for a separator): P0 T-train 2836 full 918, P1 T-train 2139 full 655, P2 T-train 2139 full 655
+   shuffle: {'n': 20, 'step': 1, 'with_full': 0, 'with_tweak': 0, 'with_ttrain': 0, 'mean_ttrain': 0.0, 'mean_one': 34751.4, 'max_ttrain': 0}
+D2-F2: planned read of int8[44541 x 282] = 12.6 MB in blocks of 400000 rows
+D2-F2 n=44541 one-signed(P2)=35307  T-train=3681 T-weak=3627 full=1811 | P0 one=44532 T-train=5923 full=2408 | fav full=1811 | 1 s
+   pass frac train (P2): [0.755, 0.814, 0.725, 0.83, 0.821, 0.735, 0.8, 0.801, 0.812]  hist_any: [21173, 141, 113, 358, 258, 613, 436, 570, 546, 11099]
+   optimistic reading (undecided counted for a separator): P0 T-train 5932 full 2417, P1 T-train 3690 full 1820, P2 T-train 3690 full 1820
+   shuffle: {'n': 20, 'step': 1, 'with_full': 0, 'with_tweak': 0, 'with_ttrain': 0, 'mean_ttrain': 0.0, 'mean_one': 23835.9, 'max_ttrain': 0}
+D2-F3: planned read of int8[4228 x 282] = 1.2 MB in blocks of 400000 rows
+D2-F3 n=4228 one-signed(P2)=2807  T-train=92 T-weak=79 full=2 | P0 one=3630 T-train=552 full=218 | fav full=2 | 0 s
+   pass frac train (P2): [0.872, 0.881, 0.828, 0.896, 0.883, 0.833, 0.861, 0.898, 0.883]  hist_any: [2148, 2, 13, 6, 7, 2, 12, 30, 36, 551]
+   optimistic reading (undecided counted for a separator): P0 T-train 1192 full 800, P1 T-train 207 full 20, P2 T-train 207 full 20
+   shuffle: {'n': 20, 'step': 1, 'with_full': 0, 'with_tweak': 0, 'with_ttrain': 0, 'mean_ttrain': 0.0, 'mean_one': 2290.55, 'max_ttrain': 0}
+D2-F4: planned read of int8[707 x 282] = 0.2 MB in blocks of 400000 rows
+D2-F4 n=707 one-signed(P2)=569  T-train=10 T-weak=7 full=0 | P0 one=706 T-train=94 full=36 | fav full=0 | 0 s
+   pass frac train (P2): [0.861, 0.963, 0.872, 0.979, 0.977, 0.845, 0.944, 0.896, 0.96]  hist_any: [474, 1, 1, 0, 2, 0, 4, 4, 5, 78]
+   optimistic reading (undecided counted for a separator): P0 T-train 95 full 37, P1 T-train 11 full 1, P2 T-train 11 full 1
+   shuffle: {'n': 20, 'step': 1, 'with_full': 0, 'with_tweak': 0, 'with_ttrain': 0, 'mean_ttrain': 0.0, 'mean_one': 497.65, 'max_ttrain': 0}
+D2-F5: planned read of int8[4949 x 282] = 1.4 MB in blocks of 400000 rows
+D2-F5 n=4949 one-signed(P2)=4640  T-train=615 T-weak=615 full=307 | P0 one=4948 T-train=776 full=363 | fav full=307 | 0 s
+   pass frac train (P2): [0.768, 0.778, 0.736, 0.8, 0.757, 0.744, 0.756, 0.813, 0.756]  hist_any: [2681, 21, 7, 63, 70, 119, 70, 77, 77, 1455]
+   optimistic reading (undecided counted for a separator): P0 T-train 777 full 364, P1 T-train 616 full 308, P2 T-train 616 full 308
+   shuffle: {'n': 20, 'step': 1, 'with_full': 0, 'with_tweak': 0, 'with_ttrain': 0, 'mean_ttrain': 0.0, 'mean_one': 3021.85, 'max_ttrain': 0}
+D3b-F1: planned read of int8[48069 x 282] = 13.6 MB in blocks of 400000 rows
+D3b-F1 n=48069 one-signed(P2)=43913  T-train=2139 T-weak=2114 full=655 | P0 one=48069 T-train=2836 full=918 | fav full=655 | 1 s
+   pass frac train (P2): [0.841, 0.915, 0.842, 0.926, 0.924, 0.827, 0.909, 0.861, 0.925]  hist_any: [33004, 180, 198, 199, 282, 456, 438, 485, 746, 7925]
+   optimistic reading (undecided counted for a separator): P0 T-train 2836 full 918, P1 T-train 2139 full 655, P2 T-train 2139 full 655
+   shuffle: {'n': 20, 'step': 1, 'with_full': 0, 'with_tweak': 0, 'with_ttrain': 0, 'mean_ttrain': 0.0, 'mean_one': 34751.4, 'max_ttrain': 0}
+D3b-F2: planned read of int8[44541 x 282] = 12.6 MB in blocks of 400000 rows
+D3b-F2 n=44541 one-signed(P2)=35307  T-train=3681 T-weak=3627 full=1811 | P0 one=44532 T-train=5923 full=2408 | fav full=1811 | 1 s
+   pass frac train (P2): [0.755, 0.814, 0.725, 0.83, 0.821, 0.735, 0.8, 0.801, 0.812]  hist_any: [21173, 141, 113, 358, 258, 613, 436, 570, 546, 11099]
+   optimistic reading (undecided counted for a separator): P0 T-train 5932 full 2417, P1 T-train 3690 full 1820, P2 T-train 3690 full 1820
+   shuffle: {'n': 20, 'step': 1, 'with_full': 0, 'with_tweak': 0, 'with_ttrain': 0, 'mean_ttrain': 0.0, 'mean_one': 23835.9, 'max_ttrain': 0}
+D3b-F3: planned read of int8[4228 x 282] = 1.2 MB in blocks of 400000 rows
+D3b-F3 n=4228 one-signed(P2)=2807  T-train=92 T-weak=79 full=2 | P0 one=3630 T-train=552 full=218 | fav full=2 | 0 s
+   pass frac train (P2): [0.872, 0.881, 0.828, 0.896, 0.883, 0.833, 0.861, 0.898, 0.883]  hist_any: [2148, 2, 13, 6, 7, 2, 12, 30, 36, 551]
+   optimistic reading (undecided counted for a separator): P0 T-train 1192 full 800, P1 T-train 207 full 20, P2 T-train 207 full 20
+   shuffle: {'n': 20, 'step': 1, 'with_full': 0, 'with_tweak': 0, 'with_ttrain': 0, 'mean_ttrain': 0.0, 'mean_one': 2290.55, 'max_ttrain': 0}
+D3b-F4: planned read of int8[707 x 282] = 0.2 MB in blocks of 400000 rows
+D3b-F4 n=707 one-signed(P2)=569  T-train=10 T-weak=7 full=0 | P0 one=706 T-train=94 full=36 | fav full=0 | 0 s
+   pass frac train (P2): [0.861, 0.963, 0.872, 0.979, 0.977, 0.845, 0.944, 0.896, 0.96]  hist_any: [474, 1, 1, 0, 2, 0, 4, 4, 5, 78]
+   optimistic reading (undecided counted for a separator): P0 T-train 95 full 37, P1 T-train 11 full 1, P2 T-train 11 full 1
+   shuffle: {'n': 20, 'step': 1, 'with_full': 0, 'with_tweak': 0, 'with_ttrain': 0, 'mean_ttrain': 0.0, 'mean_one': 497.65, 'max_ttrain': 0}
+D3b-F5: planned read of int8[4949 x 282] = 1.4 MB in blocks of 400000 rows
+D3b-F5 n=4949 one-signed(P2)=4640  T-train=615 T-weak=615 full=307 | P0 one=4948 T-train=776 full=363 | fav full=307 | 0 s
+   pass frac train (P2): [0.768, 0.778, 0.736, 0.8, 0.757, 0.744, 0.756, 0.813, 0.756]  hist_any: [2681, 21, 7, 63, 70, 119, 70, 77, 77, 1455]
+   optimistic reading (undecided counted for a separator): P0 T-train 777 full 364, P1 T-train 616 full 308, P2 T-train 616 full 308
+   shuffle: {'n': 20, 'step': 1, 'with_full': 0, 'with_tweak': 0, 'with_ttrain': 0, 'mean_ttrain': 0.0, 'mean_one': 3021.85, 'max_ttrain': 0}
+objects 290 workers 16
+D1: 1294690 functionals; planned allocation: sign matrix int8[1294690 x 290] = 375.5 MB; per worker chunk 50000 functionals, largest temporary complex128[50000 x 4 x 4] = 12.8 MB
+  D1 chunk 1/26  5 s
+  D1 chunk 11/26  11 s
+  D1 chunk 21/26  20 s
+D1 done in 22 s
+D3a: 1294690 functionals; planned allocation: sign matrix int8[1294690 x 290] = 375.5 MB; per worker chunk 50000 functionals, largest temporary complex128[50000 x 4 x 4] = 12.8 MB
+  D3a chunk 1/26  8 s
+  D3a chunk 11/26  11 s
+  D3a chunk 21/26  22 s
+D3a done in 24 s
+D2-F1: 48069 functionals; planned allocation: sign matrix int8[48069 x 290] = 13.9 MB; per worker chunk 50000 functionals, largest temporary complex128[50000 x 4 x 4] = 12.8 MB
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+  D2-F1 chunk 1/1  3 s
+D2-F1 done in 3 s
+D2-F2: 44541 functionals; planned allocation: sign matrix int8[44541 x 290] = 12.9 MB; per worker chunk 50000 functionals, largest temporary complex128[50000 x 4 x 4] = 12.8 MB
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+  D2-F2 chunk 1/1  7 s
+D2-F2 done in 7 s
+D2-F3: 4228 functionals; planned allocation: sign matrix int8[4228 x 290] = 1.2 MB; per worker chunk 50000 functionals, largest temporary complex128[50000 x 4 x 4] = 12.8 MB
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+  D2-F3 chunk 1/1  3 s
+D2-F3 done in 3 s
+D2-F4: 707 functionals; planned allocation: sign matrix int8[707 x 290] = 0.2 MB; per worker chunk 50000 functionals, largest temporary complex128[50000 x 4 x 4] = 12.8 MB
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+  D2-F4 chunk 1/1  10 s
+D2-F4 done in 10 s
+D2-F5: 4949 functionals; planned allocation: sign matrix int8[4949 x 290] = 1.4 MB; per worker chunk 50000 functionals, largest temporary complex128[50000 x 4 x 4] = 12.8 MB
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+  D2-F5 chunk 1/1  8 s
+D2-F5 done in 8 s
+D3b-F1: 48069 functionals; planned allocation: sign matrix int8[48069 x 290] = 13.9 MB; per worker chunk 50000 functionals, largest temporary complex128[50000 x 4 x 4] = 12.8 MB
+  D3b-F1 chunk 1/1  10 s
+D3b-F1 done in 10 s
+D3b-F2: 44541 functionals; planned allocation: sign matrix int8[44541 x 290] = 12.9 MB; per worker chunk 50000 functionals, largest temporary complex128[50000 x 4 x 4] = 12.8 MB
+  D3b-F2 chunk 1/1  15 s
+D3b-F2 done in 15 s
+D3b-F3: 4228 functionals; planned allocation: sign matrix int8[4228 x 290] = 1.2 MB; per worker chunk 50000 functionals, largest temporary complex128[50000 x 4 x 4] = 12.8 MB
+  D3b-F3 chunk 1/1  12 s
+D3b-F3 done in 12 s
+D3b-F4: 707 functionals; planned allocation: sign matrix int8[707 x 290] = 0.2 MB; per worker chunk 50000 functionals, largest temporary complex128[50000 x 4 x 4] = 12.8 MB
+  D3b-F4 chunk 1/1  20 s
+D3b-F4 done in 20 s
+D3b-F5: 4949 functionals; planned allocation: sign matrix int8[4949 x 290] = 1.4 MB; per worker chunk 50000 functionals, largest temporary complex128[50000 x 4 x 4] = 12.8 MB
+  D3b-F5 chunk 1/1  17 s
+D3b-F5 done in 17 s
+D1: planned read of int8[1294690 x 290] = 375.5 MB in blocks of 400000 rows
+D1 n=1294690 one-signed(P2)=19269  T-train=0 T-weak=0 full=0 | P0 one=829568 T-train=0 full=0 | fav full=0 | 48 s
+   pass frac train (P2): [1.0, 0.646, 1.0, 1.0, 0.363, 0.547, 1.0, 0.078, 1.0]  hist_any: [0, 0, 1571, 5451, 3692, 8555, 0, 0, 0, 0]
+   optimistic reading (undecided counted for a separator): P0 T-train 246765 full 13725, P1 T-train 64 full 4, P2 T-train 27 full 7
+   shuffle: {'n': 200, 'step': 5, 'with_full': 0, 'with_tweak': 0, 'with_ttrain': 0, 'mean_ttrain': 0.0, 'mean_one': 1812.38, 'max_ttrain': 0}
+D3a: planned read of int8[1294690 x 290] = 375.5 MB in blocks of 400000 rows
+D3a n=1294690 one-signed(P2)=27421  T-train=0 T-weak=0 full=0 | P0 one=1294690 T-train=0 full=0 | fav full=0 | 47 s
+   pass frac train (P2): [1.0, 0.355, 1.0, 1.0, 0.145, 0.146, 0.402, 1.0, 1.0]  hist_any: [0, 222, 3663, 825, 7427, 15284, 0, 0, 0, 0]
+   optimistic reading (undecided counted for a separator): P0 T-train 0 full 0, P1 T-train 0 full 0, P2 T-train 0 full 0
+   shuffle: {'n': 200, 'step': 5, 'with_full': 0, 'with_tweak': 0, 'with_ttrain': 1, 'mean_ttrain': 0.01, 'mean_one': 18415.4, 'max_ttrain': 2}
+D2-F1: planned read of int8[48069 x 290] = 13.9 MB in blocks of 400000 rows
+D2-F1 n=48069 one-signed(P2)=1352  T-train=0 T-weak=0 full=0 | P0 one=33183 T-train=0 full=0 | fav full=0 | 4 s
+   pass frac train (P2): [1.0, 0.964, 0.925, 0.996, 0.604, 0.716, 1.0, 0.695, 0.927]  hist_any: [54, 189, 223, 305, 373, 149, 59, 0, 0, 0]
+   optimistic reading (undecided counted for a separator): P0 T-train 9397 full 281, P1 T-train 0 full 0, P2 T-train 0 full 0
+   shuffle: {'n': 200, 'step': 1, 'with_full': 0, 'with_tweak': 0, 'with_ttrain': 0, 'mean_ttrain': 0.0, 'mean_one': 5567.025, 'max_ttrain': 0}
+D2-F2: planned read of int8[44541 x 290] = 12.9 MB in blocks of 400000 rows
+D2-F2 n=44541 one-signed(P2)=1092  T-train=0 T-weak=0 full=0 | P0 one=32723 T-train=0 full=0 | fav full=0 | 4 s
+   pass frac train (P2): [1.0, 0.925, 0.944, 1.0, 0.073, 0.071, 0.999, 0.981, 0.841]  hist_any: [2, 2, 74, 300, 485, 100, 73, 55, 1, 0]
+   optimistic reading (undecided counted for a separator): P0 T-train 4279 full 383, P1 T-train 9 full 9, P2 T-train 0 full 0
+   shuffle: {'n': 200, 'step': 1, 'with_full': 0, 'with_tweak': 0, 'with_ttrain': 0, 'mean_ttrain': 0.0, 'mean_one': 2517.78, 'max_ttrain': 0}
+D2-F3: planned read of int8[4228 x 290] = 1.2 MB in blocks of 400000 rows
+D2-F3 n=4228 one-signed(P2)=0  T-train=0 T-weak=0 full=0 | P0 one=1919 T-train=0 full=0 | fav full=0 | 0 s
+   pass frac train (P2): [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]  hist_any: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+   optimistic reading (undecided counted for a separator): P0 T-train 1468 full 575, P1 T-train 14 full 0, P2 T-train 0 full 0
+   shuffle: {'n': 200, 'step': 1, 'with_full': 0, 'with_tweak': 0, 'with_ttrain': 0, 'mean_ttrain': 0.0, 'mean_one': 7.03, 'max_ttrain': 0}
+D2-F4: planned read of int8[707 x 290] = 0.2 MB in blocks of 400000 rows
+D2-F4 n=707 one-signed(P2)=0  T-train=0 T-weak=0 full=0 | P0 one=425 T-train=0 full=0 | fav full=0 | 0 s
+   pass frac train (P2): [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]  hist_any: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+   optimistic reading (undecided counted for a separator): P0 T-train 172 full 104, P1 T-train 1 full 1, P2 T-train 0 full 0
+   shuffle: {'n': 200, 'step': 1, 'with_full': 0, 'with_tweak': 0, 'with_ttrain': 0, 'mean_ttrain': 0.0, 'mean_one': 1.16, 'max_ttrain': 0}
+D2-F5: planned read of int8[4949 x 290] = 1.4 MB in blocks of 400000 rows
+D2-F5 n=4949 one-signed(P2)=0  T-train=0 T-weak=0 full=0 | P0 one=2976 T-train=0 full=0 | fav full=0 | 0 s
+   pass frac train (P2): [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]  hist_any: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+   optimistic reading (undecided counted for a separator): P0 T-train 1 full 1, P1 T-train 1 full 1, P2 T-train 0 full 0
+   shuffle: {'n': 200, 'step': 1, 'with_full': 0, 'with_tweak': 0, 'with_ttrain': 0, 'mean_ttrain': 0.0, 'mean_one': 0.035, 'max_ttrain': 0}
+D3b-F1: planned read of int8[48069 x 290] = 13.9 MB in blocks of 400000 rows
+D3b-F1 n=48069 one-signed(P2)=1747  T-train=0 T-weak=0 full=0 | P0 one=48069 T-train=0 full=0 | fav full=0 | 5 s
+   pass frac train (P2): [1.0, 0.981, 0.998, 1.0, 0.514, 0.259, 0.787, 0.999, 1.0]  hist_any: [132, 331, 100, 339, 642, 200, 1, 2, 0, 0]
+   optimistic reading (undecided counted for a separator): P0 T-train 0 full 0, P1 T-train 0 full 0, P2 T-train 0 full 0
+   shuffle: {'n': 200, 'step': 1, 'with_full': 0, 'with_tweak': 0, 'with_ttrain': 0, 'mean_ttrain': 0.0, 'mean_one': 13624.02, 'max_ttrain': 0}
+D3b-F2: planned read of int8[44541 x 290] = 12.9 MB in blocks of 400000 rows
+D3b-F2 n=44541 one-signed(P2)=877  T-train=0 T-weak=0 full=0 | P0 one=44496 T-train=0 full=0 | fav full=0 | 3 s
+   pass frac train (P2): [1.0, 0.999, 0.999, 0.999, 0.26, 0.015, 0.382, 0.999, 0.978]  hist_any: [0, 15, 150, 183, 402, 116, 9, 2, 0, 0]
+   optimistic reading (undecided counted for a separator): P0 T-train 45 full 45, P1 T-train 18 full 9, P2 T-train 0 full 0
+   shuffle: {'n': 200, 'step': 1, 'with_full': 0, 'with_tweak': 0, 'with_ttrain': 0, 'mean_ttrain': 0.0, 'mean_one': 7518.95, 'max_ttrain': 0}
+D3b-F3: planned read of int8[4228 x 290] = 1.2 MB in blocks of 400000 rows
+D3b-F3 n=4228 one-signed(P2)=5  T-train=0 T-weak=0 full=0 | P0 one=4228 T-train=0 full=0 | fav full=0 | 0 s
+   pass frac train (P2): [1.0, 0.0, 1.0, 1.0, 0.0, 0.0, 1.0, 1.0, 1.0]  hist_any: [0, 0, 0, 0, 3, 2, 0, 0, 0, 0]
+   optimistic reading (undecided counted for a separator): P0 T-train 0 full 0, P1 T-train 0 full 0, P2 T-train 0 full 0
+   shuffle: {'n': 200, 'step': 1, 'with_full': 0, 'with_tweak': 0, 'with_ttrain': 0, 'mean_ttrain': 0.0, 'mean_one': 311.77, 'max_ttrain': 0}
+D3b-F4: planned read of int8[707 x 290] = 0.2 MB in blocks of 400000 rows
+D3b-F4 n=707 one-signed(P2)=1  T-train=0 T-weak=0 full=0 | P0 one=702 T-train=0 full=0 | fav full=0 | 0 s
+   pass frac train (P2): [1.0, 0.0, 1.0, 1.0, 0.0, 0.0, 1.0, 1.0, 1.0]  hist_any: [0, 0, 0, 0, 1, 0, 0, 0, 0, 0]
+   optimistic reading (undecided counted for a separator): P0 T-train 3 full 1, P1 T-train 2 full 1, P2 T-train 0 full 0
+   shuffle: {'n': 200, 'step': 1, 'with_full': 0, 'with_tweak': 0, 'with_ttrain': 0, 'mean_ttrain': 0.0, 'mean_one': 54.12, 'max_ttrain': 0}
+D3b-F5: planned read of int8[4949 x 290] = 1.4 MB in blocks of 400000 rows
+D3b-F5 n=4949 one-signed(P2)=0  T-train=0 T-weak=0 full=0 | P0 one=4944 T-train=0 full=0 | fav full=0 | 0 s
+   pass frac train (P2): [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]  hist_any: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+   optimistic reading (undecided counted for a separator): P0 T-train 5 full 1, P1 T-train 2 full 1, P2 T-train 0 full 0
+   shuffle: {'n': 200, 'step': 1, 'with_full': 0, 'with_tweak': 0, 'with_ttrain': 0, 'mean_ttrain': 0.0, 'mean_one': 401.405, 'max_ttrain': 0}
+D1: 246765 candidate rows (optimistic, P0); processing 246765 with 16 workers; planned memory: per-worker kernel cache at most 200000 balls of 12000 bits = 300 MB
+  D1 chunk 1/1234  1 s
+  D1 chunk 51/1234  2 s
+  D1 chunk 101/1234  2 s
+  D1 chunk 151/1234  2 s
+  D1 chunk 201/1234  2 s
+  D1 chunk 251/1234  3 s
+  D1 chunk 301/1234  3 s
+  D1 chunk 351/1234  3 s
+  D1 chunk 401/1234  3 s
+  D1 chunk 451/1234  4 s
+  D1 chunk 501/1234  4 s
+  D1 chunk 551/1234  4 s
+  D1 chunk 601/1234  4 s
+  D1 chunk 651/1234  5 s
+  D1 chunk 701/1234  5 s
+  D1 chunk 751/1234  6 s
+  D1 chunk 801/1234  6 s
+  D1 chunk 851/1234  7 s
+  D1 chunk 901/1234  8 s
+  D1 chunk 951/1234  9 s
+  D1 chunk 1001/1234  10 s
+  D1 chunk 1051/1234  11 s
+  D1 chunk 1101/1234  12 s
+  D1 chunk 1151/1234  13 s
+  D1 chunk 1201/1234  15 s
+D1: status {'killed_by_2': 204176, 'killed_by_9': 42589} | zeta +389 -246376 | alive tiers {} | 16 s
+D3a: 0 candidate rows (optimistic, P0); processing 0 with 16 workers; planned memory: per-worker kernel cache at most 200000 balls of 12000 bits = 300 MB
+D3a: status {} | zeta +0 -0 | alive tiers {} | 1 s
+D2-F1: 9397 candidate rows (optimistic, P0); processing 9397 with 16 workers; planned memory: per-worker kernel cache at most 200000 balls of 12000 bits = 300 MB
+  D2-F1 chunk 1/47  0 s
+D2-F1: status {'killed_by_2': 8950, 'killed_by_7': 447} | zeta +434 -8963 | alive tiers {} | 0 s
+D2-F2: 4279 candidate rows (optimistic, P0); processing 4279 with 16 workers; planned memory: per-worker kernel cache at most 200000 balls of 12000 bits = 300 MB
+  D2-F2 chunk 1/22  0 s
+D2-F2: status {'killed_by_2': 4279} | zeta +3259 -1020 | alive tiers {} | 0 s
+D2-F3: 1468 candidate rows (optimistic, P0); processing 1468 with 16 workers; planned memory: per-worker kernel cache at most 200000 balls of 12000 bits = 300 MB
+  D2-F3 chunk 1/8  0 s
+D2-F3: status {'killed_by_2': 1346, 'killed_by_9': 120, 'killed_by_7': 1, 'killed_by_1': 1} | zeta +72 -1396 | alive tiers {} | 0 s
+D2-F4: 172 candidate rows (optimistic, P0); processing 172 with 16 workers; planned memory: per-worker kernel cache at most 200000 balls of 12000 bits = 300 MB
+  D2-F4 chunk 1/1  0 s
+D2-F4: status {'killed_by_2': 172} | zeta +0 -172 | alive tiers {} | 0 s
+D2-F5: 1 candidate rows (optimistic, P0); processing 1 with 16 workers; planned memory: per-worker kernel cache at most 200000 balls of 12000 bits = 300 MB
+  D2-F5 chunk 1/1  0 s
+D2-F5: status {'killed_by_2': 1} | zeta +0 -1 | alive tiers {} | 0 s
+D3b-F1: 0 candidate rows (optimistic, P0); processing 0 with 16 workers; planned memory: per-worker kernel cache at most 200000 balls of 12000 bits = 300 MB
+D3b-F1: status {} | zeta +0 -0 | alive tiers {} | 0 s
+D3b-F2: 45 candidate rows (optimistic, P0); processing 45 with 16 workers; planned memory: per-worker kernel cache at most 200000 balls of 12000 bits = 300 MB
+  D3b-F2 chunk 1/1  0 s
+D3b-F2: status {'killed_by_2': 45} | zeta +45 -0 | alive tiers {} | 0 s
+D3b-F3: 0 candidate rows (optimistic, P0); processing 0 with 16 workers; planned memory: per-worker kernel cache at most 200000 balls of 12000 bits = 300 MB
+D3b-F3: status {} | zeta +0 -0 | alive tiers {} | 0 s
+D3b-F4: 3 candidate rows (optimistic, P0); processing 3 with 16 workers; planned memory: per-worker kernel cache at most 200000 balls of 12000 bits = 300 MB
+  D3b-F4 chunk 1/1  0 s
+D3b-F4: status {'killed_by_2': 3} | zeta +0 -3 | alive tiers {} | 0 s
+D3b-F5: 5 candidate rows (optimistic, P0); processing 5 with 16 workers; planned memory: per-worker kernel cache at most 200000 balls of 12000 bits = 300 MB
+  D3b-F5 chunk 1/1  0 s
+D3b-F5: status {'killed_by_2': 5} | zeta +5 -0 | alive tiers {} | 0 s
+D1 {'family': 'D1', 'entries': 6650, 'float_decided_agree': 6642, 'float_decided_disagree': 0, 'float_undecided': 8, 'float_decided_ball_undecided': 0, 'seconds': 83.34551668167114, 'prediction2_tnr_counterexamples_ball': {'tested': 30, 'confirmed': 30}} best top (P2): 5
+D3a {'family': 'D3a', 'entries': 5900, 'float_decided_agree': 5896, 'float_decided_disagree': 0, 'float_undecided': 4, 'float_decided_ball_undecided': 0, 'seconds': 1.6459846496582031} best top (P2): 5
+D2-F1 {'family': 'D2-F1', 'entries': 5900, 'float_decided_agree': 5900, 'float_decided_disagree': 0, 'float_undecided': 0, 'float_decided_ball_undecided': 0, 'seconds': 60.63044834136963} best top (P2): 6
+D2-F2 {'family': 'D2-F2', 'entries': 5900, 'float_decided_agree': 5900, 'float_decided_disagree': 0, 'float_undecided': 0, 'float_decided_ball_undecided': 0, 'seconds': 25.157896280288696} best top (P2): 8
+D2-F3 {'family': 'D2-F3', 'entries': 2900, 'float_decided_agree': 2875, 'float_decided_disagree': 0, 'float_undecided': 25, 'float_decided_ball_undecided': 0, 'seconds': 73.66011953353882} best top (P2): 0
+D2-F4 {'family': 'D2-F4', 'entries': 2900, 'float_decided_agree': 2900, 'float_decided_disagree': 0, 'float_undecided': 0, 'float_decided_ball_undecided': 0, 'seconds': 25.47301936149597} best top (P2): 0
+D2-F5 {'family': 'D2-F5', 'entries': 2900, 'float_decided_agree': 2900, 'float_decided_disagree': 0, 'float_undecided': 0, 'float_decided_ball_undecided': 0, 'seconds': 25.97247624397278} best top (P2): 0
+D3b-F1 {'family': 'D3b-F1', 'entries': 5900, 'float_decided_agree': 5895, 'float_decided_disagree': 0, 'float_undecided': 5, 'float_decided_ball_undecided': 0, 'seconds': 1.5316500663757324} best top (P2): 7
+D3b-F2 {'family': 'D3b-F2', 'entries': 5900, 'float_decided_agree': 5899, 'float_decided_disagree': 0, 'float_undecided': 1, 'float_decided_ball_undecided': 0, 'seconds': 0.8238201141357422} best top (P2): 7
+D3b-F3 {'family': 'D3b-F3', 'entries': 3150, 'float_decided_agree': 3133, 'float_decided_disagree': 0, 'float_undecided': 17, 'float_decided_ball_undecided': 0, 'seconds': 2.439695119857788} best top (P2): 5
+D3b-F4 {'family': 'D3b-F4', 'entries': 2950, 'float_decided_agree': 2949, 'float_decided_disagree': 0, 'float_undecided': 1, 'float_decided_ball_undecided': 0, 'seconds': 0.6211185455322266} best top (P2): 4
+D3b-F5 {'family': 'D3b-F5', 'entries': 2900, 'float_decided_agree': 2900, 'float_decided_disagree': 0, 'float_undecided': 0, 'float_decided_ball_undecided': 0, 'seconds': 0.625415563583374} best top (P2): 0
+objects 290 workers 16
+D1-rnd: 82709 functionals; planned allocation: sign matrix int8[82709 x 290] = 24.0 MB; per worker chunk 20000 functionals, largest temporary complex128[20000 x 4 x 4] = 5.1 MB
+  D1-rnd chunk 1/5  12 s
+D1-rnd done in 101 s
+D3a-rnd: 82843 functionals; planned allocation: sign matrix int8[82843 x 290] = 24.0 MB; per worker chunk 20000 functionals, largest temporary complex128[20000 x 4 x 4] = 5.1 MB
+  D3a-rnd chunk 1/5  15 s
+D3a-rnd done in 156 s
+D2-F1-rnd: 73541 functionals; planned allocation: sign matrix int8[73541 x 290] = 21.3 MB; per worker chunk 20000 functionals, largest temporary complex128[20000 x 4 x 4] = 5.1 MB
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: overflow encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: invalid value encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: overflow encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: invalid value encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: overflow encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: invalid value encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: overflow encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: invalid value encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: overflow encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: overflow encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+  D2-F1-rnd chunk 1/4  13 s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: overflow encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+D2-F1-rnd done in 18 s
+D2-F2-rnd: 100000 functionals; planned allocation: sign matrix int8[100000 x 290] = 29.0 MB; per worker chunk 20000 functionals, largest temporary complex128[20000 x 4 x 4] = 5.1 MB
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: overflow encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: invalid value encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:228: RuntimeWarning: invalid value encountered in multiply
+  return _decide(k1 * k1 - lam * k0 * k2, np.abs(k1) ** 2 + np.abs(lam) * np.abs(k0 * k2), rho, 2)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: overflow encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: invalid value encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:228: RuntimeWarning: invalid value encountered in multiply
+  return _decide(k1 * k1 - lam * k0 * k2, np.abs(k1) ** 2 + np.abs(lam) * np.abs(k0 * k2), rho, 2)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: overflow encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: invalid value encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:228: RuntimeWarning: invalid value encountered in multiply
+  return _decide(k1 * k1 - lam * k0 * k2, np.abs(k1) ** 2 + np.abs(lam) * np.abs(k0 * k2), rho, 2)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: overflow encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: invalid value encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:228: RuntimeWarning: invalid value encountered in multiply
+  return _decide(k1 * k1 - lam * k0 * k2, np.abs(k1) ** 2 + np.abs(lam) * np.abs(k0 * k2), rho, 2)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: overflow encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: invalid value encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:228: RuntimeWarning: invalid value encountered in multiply
+  return _decide(k1 * k1 - lam * k0 * k2, np.abs(k1) ** 2 + np.abs(lam) * np.abs(k0 * k2), rho, 2)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+  D2-F2-rnd chunk 1/5  13 s
+D2-F2-rnd done in 14 s
+D2-F3-rnd: 44801 functionals; planned allocation: sign matrix int8[44801 x 290] = 13.0 MB; per worker chunk 20000 functionals, largest temporary complex128[20000 x 4 x 4] = 5.1 MB
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:151: RuntimeWarning: overflow encountered in divide
+  M = M / r
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:151: RuntimeWarning: invalid value encountered in divide
+  M = M / r
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:155: RuntimeWarning: invalid value encountered in divide
+  M = M / c
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:151: RuntimeWarning: overflow encountered in divide
+  M = M / r
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:151: RuntimeWarning: invalid value encountered in divide
+  M = M / r
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:155: RuntimeWarning: invalid value encountered in divide
+  M = M / c
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+  D2-F3-rnd chunk 1/3  7 s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: overflow encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+D2-F3-rnd done in 30 s
+D2-F5-rnd: 100000 functionals; planned allocation: sign matrix int8[100000 x 290] = 29.0 MB; per worker chunk 20000 functionals, largest temporary complex128[20000 x 4 x 4] = 5.1 MB
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: overflow encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: invalid value encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: overflow encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: invalid value encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: overflow encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: invalid value encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: overflow encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: invalid value encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: overflow encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: invalid value encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+  D2-F5-rnd chunk 1/5  18 s
+D2-F5-rnd done in 18 s
+D3b-F1-rnd: 73368 functionals; planned allocation: sign matrix int8[73368 x 290] = 21.3 MB; per worker chunk 20000 functionals, largest temporary complex128[20000 x 4 x 4] = 5.1 MB
+  D3b-F1-rnd chunk 1/4  26 s
+D3b-F1-rnd done in 36 s
+D3b-F2-rnd: 100000 functionals; planned allocation: sign matrix int8[100000 x 290] = 29.0 MB; per worker chunk 20000 functionals, largest temporary complex128[20000 x 4 x 4] = 5.1 MB
+  D3b-F2-rnd chunk 1/5  29 s
+D3b-F2-rnd done in 30 s
+D3b-F3-rnd: 44483 functionals; planned allocation: sign matrix int8[44483 x 290] = 12.9 MB; per worker chunk 20000 functionals, largest temporary complex128[20000 x 4 x 4] = 5.1 MB
+  D3b-F3-rnd chunk 1/3  18 s
+D3b-F3-rnd done in 54 s
+D3b-F5-rnd: 100000 functionals; planned allocation: sign matrix int8[100000 x 290] = 29.0 MB; per worker chunk 20000 functionals, largest temporary complex128[20000 x 4 x 4] = 5.1 MB
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+  D3b-F5-rnd chunk 1/5  36 s
+D3b-F5-rnd done in 38 s
+D1-rnd: planned read of int8[82709 x 290] = 24.0 MB in blocks of 400000 rows
+D1-rnd n=82709 one-signed(P2)=1079  T-train=0 T-weak=0 full=0 | P0 one=54398 T-train=0 full=0 | fav full=0 | 9 s
+   pass frac train (P2): [1.0, 0.654, 1.0, 1.0, 0.376, 0.556, 1.0, 0.081, 1.0]  hist_any: [0, 0, 104, 299, 185, 491, 0, 0, 0, 0]
+   optimistic reading (undecided counted for a separator): P0 T-train 14372 full 987, P1 T-train 18 full 7, P2 T-train 9 full 7
+   shuffle: {'n': 200, 'step': 1, 'with_full': 0, 'with_tweak': 0, 'with_ttrain': 0, 'mean_ttrain': 0.0, 'mean_one': 528.915, 'max_ttrain': 0}
+D3a-rnd: planned read of int8[82843 x 290] = 24.0 MB in blocks of 400000 rows
+D3a-rnd n=82843 one-signed(P2)=2710  T-train=0 T-weak=0 full=0 | P0 one=82843 T-train=0 full=0 | fav full=0 | 10 s
+   pass frac train (P2): [1.0, 0.544, 1.0, 1.0, 0.177, 0.177, 0.423, 1.0, 1.0]  hist_any: [0, 66, 413, 70, 713, 1448, 0, 0, 0, 0]
+   optimistic reading (undecided counted for a separator): P0 T-train 0 full 0, P1 T-train 0 full 0, P2 T-train 0 full 0
+   shuffle: {'n': 200, 'step': 1, 'with_full': 0, 'with_tweak': 0, 'with_ttrain': 1, 'mean_ttrain': 0.01, 'mean_one': 7352.735, 'max_ttrain': 2}
+D2-F1-rnd: planned read of int8[73541 x 290] = 21.3 MB in blocks of 400000 rows
+D2-F1-rnd n=73541 one-signed(P2)=1504  T-train=0 T-weak=0 full=0 | P0 one=48394 T-train=0 full=0 | fav full=0 | 8 s
+   pass frac train (P2): [1.0, 0.932, 0.963, 0.999, 0.64, 0.887, 1.0, 0.783, 0.899]  hist_any: [64, 274, 339, 185, 459, 108, 67, 8, 0, 0]
+   optimistic reading (undecided counted for a separator): P0 T-train 20300 full 535, P1 T-train 0 full 0, P2 T-train 0 full 0
+   shuffle: {'n': 200, 'step': 1, 'with_full': 0, 'with_tweak': 0, 'with_ttrain': 0, 'mean_ttrain': 0.0, 'mean_one': 9587.885, 'max_ttrain': 0}
+D2-F2-rnd: planned read of int8[100000 x 290] = 29.0 MB in blocks of 400000 rows
+D2-F2-rnd n=100000 one-signed(P2)=1793  T-train=0 T-weak=0 full=0 | P0 one=76102 T-train=0 full=0 | fav full=0 | 13 s
+   pass frac train (P2): [1.0, 0.843, 0.752, 1.0, 0.153, 0.13, 0.985, 0.96, 0.674]  hist_any: [1, 26, 85, 415, 440, 232, 244, 324, 25, 1]
+   optimistic reading (undecided counted for a separator): P0 T-train 7524 full 409, P1 T-train 0 full 0, P2 T-train 0 full 0
+   shuffle: {'n': 200, 'step': 1, 'with_full': 0, 'with_tweak': 0, 'with_ttrain': 0, 'mean_ttrain': 0.0, 'mean_one': 3324.64, 'max_ttrain': 0}
+D2-F3-rnd: planned read of int8[44801 x 290] = 13.0 MB in blocks of 400000 rows
+D2-F3-rnd n=44801 one-signed(P2)=18  T-train=0 T-weak=0 full=0 | P0 one=21613 T-train=0 full=0 | fav full=0 | 4 s
+   pass frac train (P2): [1.0, 0.944, 1.0, 1.0, 0.833, 0.833, 0.833, 0.0, 1.0]  hist_any: [0, 0, 15, 0, 0, 0, 3, 0, 0, 0]
+   optimistic reading (undecided counted for a separator): P0 T-train 8257 full 2616, P1 T-train 98 full 1, P2 T-train 90 full 3
+   shuffle: {'n': 200, 'step': 1, 'with_full': 0, 'with_tweak': 0, 'with_ttrain': 0, 'mean_ttrain': 0.0, 'mean_one': 143.025, 'max_ttrain': 0}
+D2-F5-rnd: planned read of int8[100000 x 290] = 29.0 MB in blocks of 400000 rows
+D2-F5-rnd n=100000 one-signed(P2)=0  T-train=0 T-weak=0 full=0 | P0 one=60278 T-train=0 full=0 | fav full=0 | 12 s
+   pass frac train (P2): [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]  hist_any: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+   optimistic reading (undecided counted for a separator): P0 T-train 0 full 0, P1 T-train 0 full 0, P2 T-train 0 full 0
+   shuffle: {'n': 200, 'step': 1, 'with_full': 0, 'with_tweak': 0, 'with_ttrain': 0, 'mean_ttrain': 0.0, 'mean_one': 0.74, 'max_ttrain': 0}
+D3b-F1-rnd: planned read of int8[73368 x 290] = 21.3 MB in blocks of 400000 rows
+D3b-F1-rnd n=73368 one-signed(P2)=2150  T-train=0 T-weak=0 full=0 | P0 one=73368 T-train=0 full=0 | fav full=0 | 8 s
+   pass frac train (P2): [1.0, 0.988, 1.0, 1.0, 0.454, 0.241, 0.866, 1.0, 0.995]  hist_any: [112, 391, 116, 339, 1019, 167, 6, 0, 0, 0]
+   optimistic reading (undecided counted for a separator): P0 T-train 0 full 0, P1 T-train 0 full 0, P2 T-train 0 full 0
+   shuffle: {'n': 200, 'step': 1, 'with_full': 0, 'with_tweak': 0, 'with_ttrain': 0, 'mean_ttrain': 0.0, 'mean_one': 21521.065, 'max_ttrain': 0}
+D3b-F2-rnd: planned read of int8[100000 x 290] = 29.0 MB in blocks of 400000 rows
+D3b-F2-rnd n=100000 one-signed(P2)=1215  T-train=0 T-weak=0 full=0 | P0 one=100000 T-train=0 full=0 | fav full=0 | 14 s
+   pass frac train (P2): [1.0, 0.999, 0.999, 0.993, 0.321, 0.052, 0.474, 0.993, 0.928]  hist_any: [8, 41, 186, 250, 449, 243, 25, 13, 0, 0]
+   optimistic reading (undecided counted for a separator): P0 T-train 0 full 0, P1 T-train 0 full 0, P2 T-train 0 full 0
+   shuffle: {'n': 200, 'step': 1, 'with_full': 0, 'with_tweak': 0, 'with_ttrain': 0, 'mean_ttrain': 0.0, 'mean_one': 12414.325, 'max_ttrain': 0}
+D3b-F3-rnd: planned read of int8[44483 x 290] = 12.9 MB in blocks of 400000 rows
+D3b-F3-rnd n=44483 one-signed(P2)=204  T-train=0 T-weak=0 full=0 | P0 one=44483 T-train=0 full=0 | fav full=0 | 5 s
+   pass frac train (P2): [1.0, 0.755, 1.0, 1.0, 0.765, 0.755, 0.941, 1.0, 1.0]  hist_any: [0, 153, 1, 0, 22, 28, 0, 0, 0, 0]
+   optimistic reading (undecided counted for a separator): P0 T-train 0 full 0, P1 T-train 0 full 0, P2 T-train 0 full 0
+   shuffle: {'n': 200, 'step': 1, 'with_full': 0, 'with_tweak': 0, 'with_ttrain': 0, 'mean_ttrain': 0.0, 'mean_one': 3647.845, 'max_ttrain': 0}
+D3b-F5-rnd: planned read of int8[100000 x 290] = 29.0 MB in blocks of 400000 rows
+D3b-F5-rnd n=100000 one-signed(P2)=0  T-train=0 T-weak=0 full=0 | P0 one=100000 T-train=0 full=0 | fav full=0 | 14 s
+   pass frac train (P2): [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]  hist_any: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+   optimistic reading (undecided counted for a separator): P0 T-train 0 full 0, P1 T-train 0 full 0, P2 T-train 0 full 0
+   shuffle: {'n': 200, 'step': 1, 'with_full': 0, 'with_tweak': 0, 'with_ttrain': 0, 'mean_ttrain': 0.0, 'mean_one': 8116.83, 'max_ttrain': 0}
+D1-rnd: 14372 candidate rows (optimistic, P0); processing 14372 with 16 workers; planned memory: per-worker kernel cache at most 200000 balls of 12000 bits = 300 MB
+  D1-rnd chunk 1/72  0 s
+  D1-rnd chunk 51/72  1 s
+D1-rnd: status {'killed_by_2': 11957, 'killed_by_9': 2415} | kills relying on a ball-zero member: 0 | zeta +110 -14262 | alive tiers {} | 1 s
+D3a-rnd: 0 candidate rows (optimistic, P0); processing 0 with 16 workers; planned memory: per-worker kernel cache at most 200000 balls of 12000 bits = 300 MB
+D3a-rnd: status {} | kills relying on a ball-zero member: 0 | zeta +0 -0 | alive tiers {} | 0 s
+D2-F1-rnd: 20300 candidate rows (optimistic, P0); processing 20300 with 16 workers; planned memory: per-worker kernel cache at most 200000 balls of 12000 bits = 300 MB
+  D2-F1-rnd chunk 1/102  0 s
+  D2-F1-rnd chunk 51/102  0 s
+  D2-F1-rnd chunk 101/102  1 s
+D2-F1-rnd: status {'killed_by_2': 20178, 'killed_by_7': 122} | kills relying on a ball-zero member: 0 | zeta +82 -20218 | alive tiers {} | 1 s
+D2-F2-rnd: 7524 candidate rows (optimistic, P0); processing 7524 with 16 workers; planned memory: per-worker kernel cache at most 200000 balls of 12000 bits = 300 MB
+  D2-F2-rnd chunk 1/38  0 s
+D2-F2-rnd: status {'killed_by_2': 7518, 'killed_by_9': 6} | kills relying on a ball-zero member: 0 | zeta +4065 -3459 | alive tiers {} | 0 s
+D2-F3-rnd: 8257 candidate rows (optimistic, P0); processing 8257 with 16 workers; planned memory: per-worker kernel cache at most 200000 balls of 12000 bits = 300 MB
+  D2-F3-rnd chunk 1/42  0 s
+D2-F3-rnd: status {'killed_by_2': 7871, 'killed_by_1': 1, 'killed_by_9': 385} | kills relying on a ball-zero member: 0 | zeta +178 -8079 | alive tiers {} | 1 s
+D2-F5-rnd: 0 candidate rows (optimistic, P0); processing 0 with 16 workers; planned memory: per-worker kernel cache at most 200000 balls of 12000 bits = 300 MB
+D2-F5-rnd: status {} | kills relying on a ball-zero member: 0 | zeta +0 -0 | alive tiers {} | 0 s
+D3b-F1-rnd: 0 candidate rows (optimistic, P0); processing 0 with 16 workers; planned memory: per-worker kernel cache at most 200000 balls of 12000 bits = 300 MB
+D3b-F1-rnd: status {} | kills relying on a ball-zero member: 0 | zeta +0 -0 | alive tiers {} | 0 s
+D3b-F2-rnd: 0 candidate rows (optimistic, P0); processing 0 with 16 workers; planned memory: per-worker kernel cache at most 200000 balls of 12000 bits = 300 MB
+D3b-F2-rnd: status {} | kills relying on a ball-zero member: 0 | zeta +0 -0 | alive tiers {} | 0 s
+D3b-F3-rnd: 0 candidate rows (optimistic, P0); processing 0 with 16 workers; planned memory: per-worker kernel cache at most 200000 balls of 12000 bits = 300 MB
+D3b-F3-rnd: status {} | kills relying on a ball-zero member: 0 | zeta +0 -0 | alive tiers {} | 0 s
+D3b-F5-rnd: 0 candidate rows (optimistic, P0); processing 0 with 16 workers; planned memory: per-worker kernel cache at most 200000 balls of 12000 bits = 300 MB
+D3b-F5-rnd: status {} | kills relying on a ball-zero member: 0 | zeta +0 -0 | alive tiers {} | 0 s
+D1 adaptive rows 95700 from 200 centres
+D3a adaptive rows 99887 from 200 centres
+D2-F1 adaptive rows 95034 from 200 centres
+D2-F2 adaptive rows 100000 from 200 centres
+D2-F3 adaptive rows 95865 from 200 centres
+D2-F4 adaptive rows 99951 from 200 centres
+D2-F5 adaptive rows 100000 from 200 centres
+D3b-F1 adaptive rows 98921 from 200 centres
+D3b-F2 adaptive rows 100000 from 200 centres
+D3b-F3 adaptive rows 91932 from 200 centres
+D3b-F4 adaptive rows 99946 from 200 centres
+D3b-F5 adaptive rows 99817 from 200 centres
+objects 290 workers 16
+D1-adp: 95700 functionals; planned allocation: sign matrix int8[95700 x 290] = 27.8 MB; per worker chunk 20000 functionals, largest temporary complex128[20000 x 4 x 4] = 5.1 MB
+  D1-adp chunk 1/5  47 s
+D1-adp done in 67 s
+D3a-adp: 99887 functionals; planned allocation: sign matrix int8[99887 x 290] = 29.0 MB; per worker chunk 20000 functionals, largest temporary complex128[20000 x 4 x 4] = 5.1 MB
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+  D3a-adp chunk 1/5  28 s
+D3a-adp done in 56 s
+D2-F1-adp: 95034 functionals; planned allocation: sign matrix int8[95034 x 290] = 27.6 MB; per worker chunk 20000 functionals, largest temporary complex128[20000 x 4 x 4] = 5.1 MB
+  D2-F1-adp chunk 1/5  17 s
+D2-F1-adp done in 22 s
+D2-F2-adp: 100000 functionals; planned allocation: sign matrix int8[100000 x 290] = 29.0 MB; per worker chunk 20000 functionals, largest temporary complex128[20000 x 4 x 4] = 5.1 MB
+  D2-F2-adp chunk 1/5  11 s
+D2-F2-adp done in 12 s
+D2-F3-adp: 95865 functionals; planned allocation: sign matrix int8[95865 x 290] = 27.8 MB; per worker chunk 20000 functionals, largest temporary complex128[20000 x 4 x 4] = 5.1 MB
+  D2-F3-adp chunk 1/5  20 s
+D2-F3-adp done in 34 s
+D2-F4-adp: 99951 functionals; planned allocation: sign matrix int8[99951 x 290] = 29.0 MB; per worker chunk 20000 functionals, largest temporary complex128[20000 x 4 x 4] = 5.1 MB
+  D2-F4-adp chunk 1/5  19 s
+D2-F4-adp done in 22 s
+D2-F5-adp: 100000 functionals; planned allocation: sign matrix int8[100000 x 290] = 29.0 MB; per worker chunk 20000 functionals, largest temporary complex128[20000 x 4 x 4] = 5.1 MB
+  D2-F5-adp chunk 1/5  13 s
+D2-F5-adp done in 16 s
+D3b-F1-adp: 98921 functionals; planned allocation: sign matrix int8[98921 x 290] = 28.7 MB; per worker chunk 20000 functionals, largest temporary complex128[20000 x 4 x 4] = 5.1 MB
+  D3b-F1-adp chunk 1/5  32 s
+D3b-F1-adp done in 34 s
+D3b-F2-adp: 100000 functionals; planned allocation: sign matrix int8[100000 x 290] = 29.0 MB; per worker chunk 20000 functionals, largest temporary complex128[20000 x 4 x 4] = 5.1 MB
+  D3b-F2-adp chunk 1/5  19 s
+D3b-F2-adp done in 25 s
+D3b-F3-adp: 91932 functionals; planned allocation: sign matrix int8[91932 x 290] = 26.7 MB; per worker chunk 20000 functionals, largest temporary complex128[20000 x 4 x 4] = 5.1 MB
+  D3b-F3-adp chunk 1/5  35 s
+D3b-F3-adp done in 60 s
+D3b-F4-adp: 99946 functionals; planned allocation: sign matrix int8[99946 x 290] = 29.0 MB; per worker chunk 20000 functionals, largest temporary complex128[20000 x 4 x 4] = 5.1 MB
+  D3b-F4-adp chunk 1/5  25 s
+D3b-F4-adp done in 43 s
+D3b-F5-adp: 99817 functionals; planned allocation: sign matrix int8[99817 x 290] = 28.9 MB; per worker chunk 20000 functionals, largest temporary complex128[20000 x 4 x 4] = 5.1 MB
+  D3b-F5-adp chunk 1/5  20 s
+D3b-F5-adp done in 26 s
+D1-adp: planned read of int8[95700 x 290] = 27.8 MB in blocks of 400000 rows
+D1-adp n=95700 one-signed(P2)=90857  T-train=0 T-weak=0 full=0 | P0 one=95436 T-train=0 full=0 | fav full=0 | 1 s
+   pass frac train (P2): [1.0, 0.366, 1.0, 1.0, 0.063, 0.208, 1.0, 0.0, 1.0]  hist_any: [0, 0, 0, 5764, 1331, 83762, 0, 0, 0, 0]
+   optimistic reading (undecided counted for a separator): P0 T-train 49 full 0, P1 T-train 0 full 0, P2 T-train 0 full 0
+D3a-adp: planned read of int8[99887 x 290] = 29.0 MB in blocks of 400000 rows
+D3a-adp n=99887 one-signed(P2)=91482  T-train=0 T-weak=0 full=0 | P0 one=99887 T-train=0 full=0 | fav full=0 | 1 s
+   pass frac train (P2): [1.0, 0.598, 1.0, 1.0, 0.007, 0.007, 0.045, 1.0, 1.0]  hist_any: [0, 38, 570, 5, 3880, 86989, 0, 0, 0, 0]
+   optimistic reading (undecided counted for a separator): P0 T-train 0 full 0, P1 T-train 0 full 0, P2 T-train 0 full 0
+D2-F1-adp: planned read of int8[95034 x 290] = 27.6 MB in blocks of 400000 rows
+D2-F1-adp n=95034 one-signed(P2)=57147  T-train=0 T-weak=0 full=0 | P0 one=95034 T-train=0 full=0 | fav full=0 | 0 s
+   pass frac train (P2): [1.0, 0.878, 0.541, 1.0, 0.238, 0.187, 1.0, 0.314, 0.793]  hist_any: [0, 1, 313, 1057, 6961, 38758, 9661, 396, 0, 0]
+   optimistic reading (undecided counted for a separator): P0 T-train 0 full 0, P1 T-train 0 full 0, P2 T-train 0 full 0
+D2-F2-adp: planned read of int8[100000 x 290] = 29.0 MB in blocks of 400000 rows
+D2-F2-adp n=100000 one-signed(P2)=70508  T-train=0 T-weak=0 full=0 | P0 one=100000 T-train=0 full=0 | fav full=0 | 1 s
+   pass frac train (P2): [1.0, 0.742, 0.736, 1.0, 0.012, 0.022, 0.998, 0.969, 0.433]  hist_any: [0, 4, 214, 3874, 8466, 18206, 21245, 18330, 166, 3]
+   optimistic reading (undecided counted for a separator): P0 T-train 0 full 0, P1 T-train 0 full 0, P2 T-train 0 full 0
+D2-F3-adp: planned read of int8[95865 x 290] = 27.8 MB in blocks of 400000 rows
+D2-F3-adp n=95865 one-signed(P2)=0  T-train=0 T-weak=0 full=0 | P0 one=85410 T-train=0 full=0 | fav full=0 | 1 s
+   pass frac train (P2): [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]  hist_any: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+   optimistic reading (undecided counted for a separator): P0 T-train 2096 full 39, P1 T-train 86 full 36, P2 T-train 86 full 38
+D2-F4-adp: planned read of int8[99951 x 290] = 29.0 MB in blocks of 400000 rows
+D2-F4-adp n=99951 one-signed(P2)=42  T-train=0 T-weak=0 full=0 | P0 one=98563 T-train=0 full=0 | fav full=0 | 0 s
+   pass frac train (P2): [1.0, 0.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0]  hist_any: [0, 0, 0, 0, 0, 0, 42, 0, 0, 0]
+   optimistic reading (undecided counted for a separator): P0 T-train 431 full 0, P1 T-train 0 full 0, P2 T-train 0 full 0
+D2-F5-adp: planned read of int8[100000 x 290] = 29.0 MB in blocks of 400000 rows
+D2-F5-adp n=100000 one-signed(P2)=0  T-train=0 T-weak=0 full=0 | P0 one=99590 T-train=0 full=0 | fav full=0 | 1 s
+   pass frac train (P2): [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]  hist_any: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+   optimistic reading (undecided counted for a separator): P0 T-train 0 full 0, P1 T-train 0 full 0, P2 T-train 0 full 0
+D3b-F1-adp: planned read of int8[98921 x 290] = 28.7 MB in blocks of 400000 rows
+D3b-F1-adp n=98921 one-signed(P2)=86168  T-train=0 T-weak=0 full=0 | P0 one=98921 T-train=0 full=0 | fav full=0 | 1 s
+   pass frac train (P2): [1.0, 0.937, 0.998, 1.0, 0.129, 0.0, 0.177, 0.998, 1.0]  hist_any: [0, 73, 839, 6948, 18105, 60000, 51, 152, 0, 0]
+   optimistic reading (undecided counted for a separator): P0 T-train 0 full 0, P1 T-train 0 full 0, P2 T-train 0 full 0
+D3b-F2-adp: planned read of int8[100000 x 290] = 29.0 MB in blocks of 400000 rows
+D3b-F2-adp n=100000 one-signed(P2)=61959  T-train=0 T-weak=0 full=0 | P0 one=100000 T-train=0 full=0 | fav full=0 | 1 s
+   pass frac train (P2): [1.0, 0.995, 0.999, 0.995, 0.121, 0.0, 0.235, 0.998, 0.947]  hist_any: [0, 594, 3058, 4210, 29675, 21855, 1966, 589, 12, 0]
+   optimistic reading (undecided counted for a separator): P0 T-train 0 full 0, P1 T-train 0 full 0, P2 T-train 0 full 0
+D3b-F3-adp: planned read of int8[91932 x 290] = 26.7 MB in blocks of 400000 rows
+D3b-F3-adp n=91932 one-signed(P2)=1180  T-train=0 T-weak=0 full=0 | P0 one=91875 T-train=0 full=0 | fav full=0 | 0 s
+   pass frac train (P2): [1.0, 0.0, 1.0, 1.0, 0.044, 0.0, 0.855, 1.0, 1.0]  hist_any: [0, 0, 0, 0, 706, 474, 0, 0, 0, 0]
+   optimistic reading (undecided counted for a separator): P0 T-train 57 full 50, P1 T-train 57 full 48, P2 T-train 57 full 50
+D3b-F4-adp: planned read of int8[99946 x 290] = 29.0 MB in blocks of 400000 rows
+D3b-F4-adp n=99946 one-signed(P2)=204  T-train=0 T-weak=0 full=0 | P0 one=99946 T-train=0 full=0 | fav full=0 | 1 s
+   pass frac train (P2): [1.0, 0.0, 1.0, 1.0, 0.0, 0.0, 1.0, 1.0, 1.0]  hist_any: [0, 0, 0, 0, 204, 0, 0, 0, 0, 0]
+   optimistic reading (undecided counted for a separator): P0 T-train 0 full 0, P1 T-train 0 full 0, P2 T-train 0 full 0
+D3b-F5-adp: planned read of int8[99817 x 290] = 28.9 MB in blocks of 400000 rows
+D3b-F5-adp n=99817 one-signed(P2)=0  T-train=0 T-weak=0 full=0 | P0 one=99817 T-train=0 full=0 | fav full=0 | 1 s
+   pass frac train (P2): [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]  hist_any: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+   optimistic reading (undecided counted for a separator): P0 T-train 0 full 0, P1 T-train 0 full 0, P2 T-train 0 full 0
+D1-adp: 49 candidate rows (optimistic, P0); processing 49 with 16 workers; planned memory: per-worker kernel cache at most 200000 balls of 12000 bits = 300 MB
+  D1-adp chunk 1/1  0 s
+D1-adp: status {'killed_by_2': 44, 'killed_by_9': 5} | kills relying on a ball-zero member: 0 | zeta +0 -49 | alive tiers {} | 0 s
+D3a-adp: 0 candidate rows (optimistic, P0); processing 0 with 16 workers; planned memory: per-worker kernel cache at most 200000 balls of 12000 bits = 300 MB
+D3a-adp: status {} | kills relying on a ball-zero member: 0 | zeta +0 -0 | alive tiers {} | 0 s
+D2-F1-adp: 0 candidate rows (optimistic, P0); processing 0 with 16 workers; planned memory: per-worker kernel cache at most 200000 balls of 12000 bits = 300 MB
+D2-F1-adp: status {} | kills relying on a ball-zero member: 0 | zeta +0 -0 | alive tiers {} | 0 s
+D2-F2-adp: 0 candidate rows (optimistic, P0); processing 0 with 16 workers; planned memory: per-worker kernel cache at most 200000 balls of 12000 bits = 300 MB
+D2-F2-adp: status {} | kills relying on a ball-zero member: 0 | zeta +0 -0 | alive tiers {} | 0 s
+D2-F3-adp: 2096 candidate rows (optimistic, P0); processing 2096 with 16 workers; planned memory: per-worker kernel cache at most 200000 balls of 12000 bits = 300 MB
+  D2-F3-adp chunk 1/11  0 s
+D2-F3-adp: status {'killed_by_2': 2029, 'killed_by_9': 67} | kills relying on a ball-zero member: 0 | zeta +45 -2051 | alive tiers {} | 0 s
+D2-F4-adp: 431 candidate rows (optimistic, P0); processing 431 with 16 workers; planned memory: per-worker kernel cache at most 200000 balls of 12000 bits = 300 MB
+  D2-F4-adp chunk 1/3  0 s
+D2-F4-adp: status {'killed_by_2': 430, 'killed_by_9': 1} | kills relying on a ball-zero member: 0 | zeta +1 -430 | alive tiers {} | 0 s
+D2-F5-adp: 0 candidate rows (optimistic, P0); processing 0 with 16 workers; planned memory: per-worker kernel cache at most 200000 balls of 12000 bits = 300 MB
+D2-F5-adp: status {} | kills relying on a ball-zero member: 0 | zeta +0 -0 | alive tiers {} | 0 s
+D3b-F1-adp: 0 candidate rows (optimistic, P0); processing 0 with 16 workers; planned memory: per-worker kernel cache at most 200000 balls of 12000 bits = 300 MB
+D3b-F1-adp: status {} | kills relying on a ball-zero member: 0 | zeta +0 -0 | alive tiers {} | 0 s
+D3b-F2-adp: 0 candidate rows (optimistic, P0); processing 0 with 16 workers; planned memory: per-worker kernel cache at most 200000 balls of 12000 bits = 300 MB
+D3b-F2-adp: status {} | kills relying on a ball-zero member: 0 | zeta +0 -0 | alive tiers {} | 0 s
+D3b-F3-adp: 57 candidate rows (optimistic, P0); processing 57 with 16 workers; planned memory: per-worker kernel cache at most 200000 balls of 12000 bits = 300 MB
+  D3b-F3-adp chunk 1/1  0 s
+D3b-F3-adp: status {'killed_by_2': 55, 'killed_by_7': 1, 'killed_by_9': 1} | kills relying on a ball-zero member: 0 | zeta +12 -45 | alive tiers {} | 0 s
+D3b-F4-adp: 0 candidate rows (optimistic, P0); processing 0 with 16 workers; planned memory: per-worker kernel cache at most 200000 balls of 12000 bits = 300 MB
+D3b-F4-adp: status {} | kills relying on a ball-zero member: 0 | zeta +0 -0 | alive tiers {} | 0 s
+D3b-F5-adp: 0 candidate rows (optimistic, P0); processing 0 with 16 workers; planned memory: per-worker kernel cache at most 200000 balls of 12000 bits = 300 MB
+D3b-F5-adp: status {} | kills relying on a ball-zero member: 0 | zeta +0 -0 | alive tiers {} | 0 s
+objects 290 workers 16
+D1-rnd2: 828563 functionals; planned allocation: sign matrix int8[828563 x 290] = 240.3 MB; per worker chunk 20000 functionals, largest temporary complex128[20000 x 4 x 4] = 5.1 MB
+  D1-rnd2 chunk 1/42  43 s
+  D1-rnd2 chunk 11/42  153 s
+  D1-rnd2 chunk 21/42  254 s
+  D1-rnd2 chunk 31/42  563 s
+  D1-rnd2 chunk 41/42  667 s
+D1-rnd2 done in 681 s
+D3a-rnd2: 828568 functionals; planned allocation: sign matrix int8[828568 x 290] = 240.3 MB; per worker chunk 20000 functionals, largest temporary complex128[20000 x 4 x 4] = 5.1 MB
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+  D3a-rnd2 chunk 1/42  51 s
+  D3a-rnd2 chunk 11/42  316 s
+  D3a-rnd2 chunk 21/42  405 s
+  D3a-rnd2 chunk 31/42  1196 s
+  D3a-rnd2 chunk 41/42  1369 s
+D3a-rnd2 done in 1390 s
+D2-F1-rnd2: 737247 functionals; planned allocation: sign matrix int8[737247 x 290] = 213.8 MB; per worker chunk 20000 functionals, largest temporary complex128[20000 x 4 x 4] = 5.1 MB
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: overflow encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: invalid value encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: overflow encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: invalid value encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: overflow encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: invalid value encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: overflow encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: invalid value encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: overflow encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: invalid value encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: overflow encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: invalid value encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: overflow encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: invalid value encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: overflow encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: invalid value encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: overflow encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: overflow encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: invalid value encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: overflow encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: overflow encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: overflow encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: invalid value encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: overflow encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: invalid value encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: overflow encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: invalid value encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: overflow encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: invalid value encountered in divide
+  return J / s
+  D2-F1-rnd2 chunk 1/37  21 s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: overflow encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: overflow encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+  D2-F1-rnd2 chunk 11/37  29 s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: overflow encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: invalid value encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: overflow encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: overflow encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: invalid value encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: overflow encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: overflow encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: overflow encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:223: RuntimeWarning: invalid value encountered in multiply
+  return _decide(a * c - lam * b * b, np.abs(a * c) + np.abs(lam) * np.abs(b) ** 2, rho, 2)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: overflow encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+  D2-F1-rnd2 chunk 21/37  48 s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:223: RuntimeWarning: invalid value encountered in multiply
+  return _decide(a * c - lam * b * b, np.abs(a * c) + np.abs(lam) * np.abs(b) ** 2, rho, 2)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: overflow encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+  D2-F1-rnd2 chunk 31/37  62 s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: overflow encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+D2-F1-rnd2 done in 72 s
+D2-F2-rnd2: 1000000 functionals; planned allocation: sign matrix int8[1000000 x 290] = 290.0 MB; per worker chunk 20000 functionals, largest temporary complex128[20000 x 4 x 4] = 5.1 MB
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: overflow encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: invalid value encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:228: RuntimeWarning: invalid value encountered in multiply
+  return _decide(k1 * k1 - lam * k0 * k2, np.abs(k1) ** 2 + np.abs(lam) * np.abs(k0 * k2), rho, 2)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: overflow encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: invalid value encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:228: RuntimeWarning: invalid value encountered in multiply
+  return _decide(k1 * k1 - lam * k0 * k2, np.abs(k1) ** 2 + np.abs(lam) * np.abs(k0 * k2), rho, 2)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: overflow encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: invalid value encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:228: RuntimeWarning: invalid value encountered in multiply
+  return _decide(k1 * k1 - lam * k0 * k2, np.abs(k1) ** 2 + np.abs(lam) * np.abs(k0 * k2), rho, 2)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: overflow encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: invalid value encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:228: RuntimeWarning: invalid value encountered in multiply
+  return _decide(k1 * k1 - lam * k0 * k2, np.abs(k1) ** 2 + np.abs(lam) * np.abs(k0 * k2), rho, 2)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: overflow encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: invalid value encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:228: RuntimeWarning: invalid value encountered in multiply
+  return _decide(k1 * k1 - lam * k0 * k2, np.abs(k1) ** 2 + np.abs(lam) * np.abs(k0 * k2), rho, 2)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: overflow encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: invalid value encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:228: RuntimeWarning: invalid value encountered in multiply
+  return _decide(k1 * k1 - lam * k0 * k2, np.abs(k1) ** 2 + np.abs(lam) * np.abs(k0 * k2), rho, 2)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: overflow encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: invalid value encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:228: RuntimeWarning: invalid value encountered in multiply
+  return _decide(k1 * k1 - lam * k0 * k2, np.abs(k1) ** 2 + np.abs(lam) * np.abs(k0 * k2), rho, 2)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: overflow encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: invalid value encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:228: RuntimeWarning: invalid value encountered in multiply
+  return _decide(k1 * k1 - lam * k0 * k2, np.abs(k1) ** 2 + np.abs(lam) * np.abs(k0 * k2), rho, 2)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: overflow encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: invalid value encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:228: RuntimeWarning: invalid value encountered in multiply
+  return _decide(k1 * k1 - lam * k0 * k2, np.abs(k1) ** 2 + np.abs(lam) * np.abs(k0 * k2), rho, 2)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: overflow encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: invalid value encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:228: RuntimeWarning: invalid value encountered in multiply
+  return _decide(k1 * k1 - lam * k0 * k2, np.abs(k1) ** 2 + np.abs(lam) * np.abs(k0 * k2), rho, 2)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: overflow encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: invalid value encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:228: RuntimeWarning: invalid value encountered in multiply
+  return _decide(k1 * k1 - lam * k0 * k2, np.abs(k1) ** 2 + np.abs(lam) * np.abs(k0 * k2), rho, 2)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: overflow encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: invalid value encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:228: RuntimeWarning: invalid value encountered in multiply
+  return _decide(k1 * k1 - lam * k0 * k2, np.abs(k1) ** 2 + np.abs(lam) * np.abs(k0 * k2), rho, 2)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: overflow encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: invalid value encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:228: RuntimeWarning: invalid value encountered in multiply
+  return _decide(k1 * k1 - lam * k0 * k2, np.abs(k1) ** 2 + np.abs(lam) * np.abs(k0 * k2), rho, 2)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: overflow encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: invalid value encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:228: RuntimeWarning: invalid value encountered in multiply
+  return _decide(k1 * k1 - lam * k0 * k2, np.abs(k1) ** 2 + np.abs(lam) * np.abs(k0 * k2), rho, 2)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: overflow encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: invalid value encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:228: RuntimeWarning: invalid value encountered in multiply
+  return _decide(k1 * k1 - lam * k0 * k2, np.abs(k1) ** 2 + np.abs(lam) * np.abs(k0 * k2), rho, 2)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: overflow encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: invalid value encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:228: RuntimeWarning: invalid value encountered in multiply
+  return _decide(k1 * k1 - lam * k0 * k2, np.abs(k1) ** 2 + np.abs(lam) * np.abs(k0 * k2), rho, 2)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+  D2-F2-rnd2 chunk 1/50  17 s
+  D2-F2-rnd2 chunk 11/50  20 s
+  D2-F2-rnd2 chunk 21/50  37 s
+  D2-F2-rnd2 chunk 31/50  46 s
+  D2-F2-rnd2 chunk 41/50  57 s
+D2-F2-rnd2 done in 68 s
+D2-F3-rnd2: 445250 functionals; planned allocation: sign matrix int8[445250 x 290] = 129.1 MB; per worker chunk 20000 functionals, largest temporary complex128[20000 x 4 x 4] = 5.1 MB
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:151: RuntimeWarning: overflow encountered in divide
+  M = M / r
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:151: RuntimeWarning: invalid value encountered in divide
+  M = M / r
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:155: RuntimeWarning: invalid value encountered in divide
+  M = M / c
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:151: RuntimeWarning: overflow encountered in divide
+  M = M / r
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:151: RuntimeWarning: invalid value encountered in divide
+  M = M / r
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:155: RuntimeWarning: invalid value encountered in divide
+  M = M / c
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:151: RuntimeWarning: overflow encountered in divide
+  M = M / r
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:151: RuntimeWarning: invalid value encountered in divide
+  M = M / r
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:155: RuntimeWarning: invalid value encountered in divide
+  M = M / c
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:151: RuntimeWarning: overflow encountered in divide
+  M = M / r
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:151: RuntimeWarning: invalid value encountered in divide
+  M = M / r
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:155: RuntimeWarning: invalid value encountered in divide
+  M = M / c
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: overflow encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:151: RuntimeWarning: overflow encountered in divide
+  M = M / r
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:151: RuntimeWarning: invalid value encountered in divide
+  M = M / r
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:155: RuntimeWarning: invalid value encountered in divide
+  M = M / c
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:151: RuntimeWarning: overflow encountered in divide
+  M = M / r
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:151: RuntimeWarning: invalid value encountered in divide
+  M = M / r
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:155: RuntimeWarning: invalid value encountered in divide
+  M = M / c
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: overflow encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:151: RuntimeWarning: overflow encountered in divide
+  M = M / r
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:151: RuntimeWarning: invalid value encountered in divide
+  M = M / r
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:155: RuntimeWarning: invalid value encountered in divide
+  M = M / c
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: overflow encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:151: RuntimeWarning: overflow encountered in divide
+  M = M / r
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:151: RuntimeWarning: invalid value encountered in divide
+  M = M / r
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:155: RuntimeWarning: invalid value encountered in divide
+  M = M / c
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:151: RuntimeWarning: overflow encountered in divide
+  M = M / r
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:151: RuntimeWarning: invalid value encountered in divide
+  M = M / r
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:155: RuntimeWarning: invalid value encountered in divide
+  M = M / c
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:151: RuntimeWarning: overflow encountered in divide
+  M = M / r
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:151: RuntimeWarning: invalid value encountered in divide
+  M = M / r
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:155: RuntimeWarning: invalid value encountered in divide
+  M = M / c
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:151: RuntimeWarning: overflow encountered in divide
+  M = M / r
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:151: RuntimeWarning: invalid value encountered in divide
+  M = M / r
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:155: RuntimeWarning: invalid value encountered in divide
+  M = M / c
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:151: RuntimeWarning: overflow encountered in divide
+  M = M / r
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:151: RuntimeWarning: invalid value encountered in divide
+  M = M / r
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:155: RuntimeWarning: invalid value encountered in divide
+  M = M / c
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:151: RuntimeWarning: overflow encountered in divide
+  M = M / r
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:151: RuntimeWarning: invalid value encountered in divide
+  M = M / r
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:155: RuntimeWarning: invalid value encountered in divide
+  M = M / c
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:151: RuntimeWarning: overflow encountered in divide
+  M = M / r
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:151: RuntimeWarning: invalid value encountered in divide
+  M = M / r
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:155: RuntimeWarning: invalid value encountered in divide
+  M = M / c
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:151: RuntimeWarning: overflow encountered in divide
+  M = M / r
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:151: RuntimeWarning: invalid value encountered in divide
+  M = M / r
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:155: RuntimeWarning: invalid value encountered in divide
+  M = M / c
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: overflow encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: overflow encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: overflow encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+  D2-F3-rnd2 chunk 1/23  41 s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: overflow encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: overflow encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:151: RuntimeWarning: overflow encountered in divide
+  M = M / r
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:151: RuntimeWarning: invalid value encountered in divide
+  M = M / r
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:155: RuntimeWarning: invalid value encountered in divide
+  M = M / c
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: overflow encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: overflow encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+  D2-F3-rnd2 chunk 11/23  71 s
+  D2-F3-rnd2 chunk 21/23  95 s
+D2-F3-rnd2 done in 103 s
+D2-F4-rnd2: 100000 functionals; planned allocation: sign matrix int8[100000 x 290] = 29.0 MB; per worker chunk 20000 functionals, largest temporary complex128[20000 x 4 x 4] = 5.1 MB
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:151: RuntimeWarning: overflow encountered in divide
+  M = M / r
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:151: RuntimeWarning: invalid value encountered in divide
+  M = M / r
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:155: RuntimeWarning: invalid value encountered in divide
+  M = M / c
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: overflow encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:151: RuntimeWarning: overflow encountered in divide
+  M = M / r
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:151: RuntimeWarning: invalid value encountered in divide
+  M = M / r
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:155: RuntimeWarning: invalid value encountered in divide
+  M = M / c
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:151: RuntimeWarning: overflow encountered in divide
+  M = M / r
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:151: RuntimeWarning: invalid value encountered in divide
+  M = M / r
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:155: RuntimeWarning: invalid value encountered in divide
+  M = M / c
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: overflow encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:151: RuntimeWarning: overflow encountered in divide
+  M = M / r
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:151: RuntimeWarning: invalid value encountered in divide
+  M = M / r
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:155: RuntimeWarning: invalid value encountered in divide
+  M = M / c
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: overflow encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:151: RuntimeWarning: overflow encountered in divide
+  M = M / r
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:151: RuntimeWarning: invalid value encountered in divide
+  M = M / r
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:155: RuntimeWarning: invalid value encountered in divide
+  M = M / c
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: overflow encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: overflow encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+  D2-F4-rnd2 chunk 1/5  26 s
+D2-F4-rnd2 done in 35 s
+D2-F5-rnd2: 1000000 functionals; planned allocation: sign matrix int8[1000000 x 290] = 290.0 MB; per worker chunk 20000 functionals, largest temporary complex128[20000 x 4 x 4] = 5.1 MB
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: overflow encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: invalid value encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: overflow encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: invalid value encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: overflow encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: invalid value encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: overflow encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: invalid value encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: overflow encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: invalid value encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: overflow encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: invalid value encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: overflow encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: invalid value encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: overflow encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: invalid value encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: overflow encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: invalid value encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: overflow encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: invalid value encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: overflow encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: invalid value encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: overflow encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: invalid value encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: overflow encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: invalid value encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: overflow encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: invalid value encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: overflow encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: invalid value encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:139: RuntimeWarning: overflow encountered in divide
+  r = np.where(N == 0, 0.0, N / A)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: overflow encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:215: RuntimeWarning: invalid value encountered in divide
+  return J / s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:130: RuntimeWarning: overflow encountered in multiply
+  thr = np.maximum(TOL, 10 * deg * rho)
+  D2-F5-rnd2 chunk 1/50  22 s
+  D2-F5-rnd2 chunk 11/50  25 s
+  D2-F5-rnd2 chunk 21/50  47 s
+  D2-F5-rnd2 chunk 31/50  56 s
+  D2-F5-rnd2 chunk 41/50  73 s
+D2-F5-rnd2 done in 88 s
+D3b-F1-rnd2: 736380 functionals; planned allocation: sign matrix int8[736380 x 290] = 213.6 MB; per worker chunk 20000 functionals, largest temporary complex128[20000 x 4 x 4] = 5.1 MB
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+  D3b-F1-rnd2 chunk 1/37  44 s
+  D3b-F1-rnd2 chunk 11/37  51 s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+  D3b-F1-rnd2 chunk 21/37  95 s
+  D3b-F1-rnd2 chunk 31/37  109 s
+D3b-F1-rnd2 done in 140 s
+D3b-F2-rnd2: 1000000 functionals; planned allocation: sign matrix int8[1000000 x 290] = 290.0 MB; per worker chunk 20000 functionals, largest temporary complex128[20000 x 4 x 4] = 5.1 MB
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+  D3b-F2-rnd2 chunk 1/50  36 s
+  D3b-F2-rnd2 chunk 11/50  44 s
+  D3b-F2-rnd2 chunk 21/50  80 s
+  D3b-F2-rnd2 chunk 31/50  91 s
+  D3b-F2-rnd2 chunk 41/50  125 s
+D3b-F2-rnd2 done in 148 s
+D3b-F3-rnd2: 445523 functionals; planned allocation: sign matrix int8[445523 x 290] = 129.2 MB; per worker chunk 20000 functionals, largest temporary complex128[20000 x 4 x 4] = 5.1 MB
+  D3b-F3-rnd2 chunk 1/23  66 s
+  D3b-F3-rnd2 chunk 11/23  83 s
+  D3b-F3-rnd2 chunk 21/23  131 s
+D3b-F3-rnd2 done in 140 s
+D3b-F4-rnd2: 100000 functionals; planned allocation: sign matrix int8[100000 x 290] = 29.0 MB; per worker chunk 20000 functionals, largest temporary complex128[20000 x 4 x 4] = 5.1 MB
+  D3b-F4-rnd2 chunk 1/5  43 s
+D3b-F4-rnd2 done in 46 s
+D3b-F5-rnd2: 1000000 functionals; planned allocation: sign matrix int8[1000000 x 290] = 290.0 MB; per worker chunk 20000 functionals, largest temporary complex128[20000 x 4 x 4] = 5.1 MB
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+  D3b-F5-rnd2 chunk 1/50  45 s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+  D3b-F5-rnd2 chunk 11/50  54 s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+  D3b-F5-rnd2 chunk 21/50  99 s
+~/rh-push/c13-noncone-kernel-separator-search/funcs.py:131: RuntimeWarning: invalid value encountered in multiply
+  ok = np.isfinite(v) & np.isfinite(S) & (np.abs(v) > thr * S) & np.isfinite(thr)
+  D3b-F5-rnd2 chunk 31/50  114 s
+  D3b-F5-rnd2 chunk 41/50  155 s
+D3b-F5-rnd2 done in 188 s
+D1-rnd2: planned read of int8[828563 x 290] = 240.3 MB in blocks of 400000 rows
+D1-rnd2 n=828563 one-signed(P2)=11072  T-train=0 T-weak=0 full=0 | P0 one=544440 T-train=0 full=0 | fav full=0 | 12 s
+   pass frac train (P2): [1.0, 0.657, 1.0, 1.0, 0.38, 0.562, 1.0, 0.09, 1.0]  hist_any: [0, 0, 1108, 3090, 2130, 4744, 0, 0, 0, 0]
+   optimistic reading (undecided counted for a separator): P0 T-train 143440 full 10480, P1 T-train 196 full 79, P2 T-train 119 full 84
+   shuffle: {'n': 50, 'step': 5, 'with_full': 0, 'with_tweak': 0, 'with_ttrain': 0, 'mean_ttrain': 0.0, 'mean_one': 1046.18, 'max_ttrain': 0}
+D3a-rnd2: planned read of int8[828568 x 290] = 240.3 MB in blocks of 400000 rows
+D3a-rnd2 n=828568 one-signed(P2)=27374  T-train=0 T-weak=0 full=0 | P0 one=828565 T-train=0 full=0 | fav full=0 | 12 s
+   pass frac train (P2): [1.0, 0.545, 1.0, 1.0, 0.182, 0.182, 0.428, 1.0, 1.0]  hist_any: [0, 642, 4271, 805, 7179, 14477, 0, 0, 0, 0]
+   optimistic reading (undecided counted for a separator): P0 T-train 3 full 3, P1 T-train 3 full 3, P2 T-train 3 full 3
+   shuffle: {'n': 50, 'step': 5, 'with_full': 0, 'with_tweak': 0, 'with_ttrain': 0, 'mean_ttrain': 0.0, 'mean_one': 14632.16, 'max_ttrain': 0}
+D2-F1-rnd2: planned read of int8[737247 x 290] = 213.8 MB in blocks of 400000 rows
+D2-F1-rnd2 n=737247 one-signed(P2)=15115  T-train=0 T-weak=0 full=0 | P0 one=487829 T-train=0 full=0 | fav full=0 | 10 s
+   pass frac train (P2): [1.0, 0.934, 0.953, 0.999, 0.637, 0.879, 1.0, 0.797, 0.901]  hist_any: [801, 2667, 3248, 1893, 4586, 1219, 628, 73, 0, 0]
+   optimistic reading (undecided counted for a separator): P0 T-train 201413 full 5556, P1 T-train 0 full 0, P2 T-train 0 full 0
+   shuffle: {'n': 50, 'step': 5, 'with_full': 0, 'with_tweak': 0, 'with_ttrain': 0, 'mean_ttrain': 0.0, 'mean_one': 19802.24, 'max_ttrain': 0}
+D2-F2-rnd2: planned read of int8[1000000 x 290] = 290.0 MB in blocks of 400000 rows
+D2-F2-rnd2 n=1000000 one-signed(P2)=17752  T-train=0 T-weak=0 full=0 | P0 one=763123 T-train=1 full=0 | fav full=0 | 14 s
+   pass frac train (P2): [1.0, 0.85, 0.759, 1.0, 0.152, 0.124, 0.985, 0.969, 0.673]  hist_any: [23, 248, 874, 4039, 4708, 1929, 2458, 3210, 259, 4]
+   optimistic reading (undecided counted for a separator): P0 T-train 74964 full 4119, P1 T-train 0 full 0, P2 T-train 0 full 0
+   shuffle: {'n': 50, 'step': 5, 'with_full': 0, 'with_tweak': 0, 'with_ttrain': 0, 'mean_ttrain': 0.0, 'mean_one': 7044.66, 'max_ttrain': 0}
+D2-F3-rnd2: planned read of int8[445250 x 290] = 129.1 MB in blocks of 400000 rows
+D2-F3-rnd2 n=445250 one-signed(P2)=128  T-train=0 T-weak=0 full=0 | P0 one=213731 T-train=4 full=0 | fav full=0 | 19 s
+   pass frac train (P2): [1.0, 0.953, 1.0, 1.0, 0.828, 0.828, 0.828, 0.0, 0.984]  hist_any: [0, 0, 106, 0, 0, 0, 15, 7, 0, 0]
+   optimistic reading (undecided counted for a separator): P0 T-train 82850 full 26582, P1 T-train 863 full 10, P2 T-train 737 full 22
+   shuffle: {'n': 50, 'step': 1, 'with_full': 0, 'with_tweak': 0, 'with_ttrain': 0, 'mean_ttrain': 0.0, 'mean_one': 1470.36, 'max_ttrain': 0}
+D2-F4-rnd2: planned read of int8[100000 x 290] = 29.0 MB in blocks of 400000 rows
+D2-F4-rnd2 n=100000 one-signed(P2)=20  T-train=0 T-weak=0 full=0 | P0 one=60656 T-train=0 full=0 | fav full=0 | 4 s
+   pass frac train (P2): [1.0, 0.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0]  hist_any: [0, 0, 0, 0, 0, 0, 20, 0, 0, 0]
+   optimistic reading (undecided counted for a separator): P0 T-train 23757 full 14308, P1 T-train 0 full 0, P2 T-train 0 full 0
+   shuffle: {'n': 50, 'step': 1, 'with_full': 0, 'with_tweak': 0, 'with_ttrain': 0, 'mean_ttrain': 0.0, 'mean_one': 196.76, 'max_ttrain': 0}
+D2-F5-rnd2: planned read of int8[1000000 x 290] = 290.0 MB in blocks of 400000 rows
+D2-F5-rnd2 n=1000000 one-signed(P2)=0  T-train=0 T-weak=0 full=0 | P0 one=602488 T-train=0 full=0 | fav full=0 | 13 s
+   pass frac train (P2): [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]  hist_any: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+   optimistic reading (undecided counted for a separator): P0 T-train 0 full 0, P1 T-train 0 full 0, P2 T-train 0 full 0
+   shuffle: {'n': 50, 'step': 5, 'with_full': 0, 'with_tweak': 0, 'with_ttrain': 0, 'mean_ttrain': 0.0, 'mean_one': 3.32, 'max_ttrain': 0}
+D3b-F1-rnd2: planned read of int8[736380 x 290] = 213.6 MB in blocks of 400000 rows
+D3b-F1-rnd2 n=736380 one-signed(P2)=21058  T-train=0 T-weak=0 full=0 | P0 one=736380 T-train=0 full=0 | fav full=0 | 10 s
+   pass frac train (P2): [1.0, 0.987, 1.0, 0.999, 0.465, 0.249, 0.864, 1.0, 0.997]  hist_any: [1121, 3941, 1231, 3523, 9420, 1780, 34, 8, 0, 0]
+   optimistic reading (undecided counted for a separator): P0 T-train 0 full 0, P1 T-train 0 full 0, P2 T-train 0 full 0
+   shuffle: {'n': 50, 'step': 5, 'with_full': 0, 'with_tweak': 0, 'with_ttrain': 0, 'mean_ttrain': 0.0, 'mean_one': 46849.86, 'max_ttrain': 0}
+D3b-F2-rnd2: planned read of int8[1000000 x 290] = 290.0 MB in blocks of 400000 rows
+D3b-F2-rnd2 n=1000000 one-signed(P2)=12783  T-train=0 T-weak=0 full=0 | P0 one=1000000 T-train=0 full=0 | fav full=0 | 14 s
+   pass frac train (P2): [1.0, 0.997, 0.999, 0.995, 0.332, 0.056, 0.461, 0.996, 0.939]  hist_any: [45, 461, 2084, 2627, 4969, 2196, 224, 177, 0, 0]
+   optimistic reading (undecided counted for a separator): P0 T-train 0 full 0, P1 T-train 0 full 0, P2 T-train 0 full 0
+   shuffle: {'n': 50, 'step': 5, 'with_full': 0, 'with_tweak': 0, 'with_ttrain': 0, 'mean_ttrain': 0.0, 'mean_one': 26500.14, 'max_ttrain': 0}
+D3b-F3-rnd2: planned read of int8[445523 x 290] = 129.2 MB in blocks of 400000 rows
+D3b-F3-rnd2 n=445523 one-signed(P2)=1988  T-train=0 T-weak=0 full=0 | P0 one=445514 T-train=0 full=0 | fav full=0 | 19 s
+   pass frac train (P2): [1.0, 0.796, 1.0, 0.999, 0.807, 0.796, 0.946, 1.0, 0.999]  hist_any: [0, 1572, 11, 0, 157, 246, 1, 1, 0, 0]
+   optimistic reading (undecided counted for a separator): P0 T-train 3 full 0, P1 T-train 1 full 0, P2 T-train 0 full 0
+   shuffle: {'n': 50, 'step': 1, 'with_full': 0, 'with_tweak': 0, 'with_ttrain': 0, 'mean_ttrain': 0.0, 'mean_one': 39858.62, 'max_ttrain': 0}
+D3b-F4-rnd2: planned read of int8[100000 x 290] = 29.0 MB in blocks of 400000 rows
+D3b-F4-rnd2 n=100000 one-signed(P2)=158  T-train=0 T-weak=0 full=0 | P0 one=100000 T-train=0 full=0 | fav full=0 | 4 s
+   pass frac train (P2): [1.0, 0.0, 1.0, 0.994, 0.0, 0.0, 1.0, 1.0, 1.0]  hist_any: [0, 0, 0, 0, 157, 1, 0, 0, 0, 0]
+   optimistic reading (undecided counted for a separator): P0 T-train 0 full 0, P1 T-train 0 full 0, P2 T-train 0 full 0
+   shuffle: {'n': 50, 'step': 1, 'with_full': 0, 'with_tweak': 0, 'with_ttrain': 0, 'mean_ttrain': 0.0, 'mean_one': 8642.8, 'max_ttrain': 0}
+D3b-F5-rnd2: planned read of int8[1000000 x 290] = 290.0 MB in blocks of 400000 rows
+D3b-F5-rnd2 n=1000000 one-signed(P2)=0  T-train=0 T-weak=0 full=0 | P0 one=1000000 T-train=0 full=0 | fav full=0 | 14 s
+   pass frac train (P2): [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]  hist_any: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+   optimistic reading (undecided counted for a separator): P0 T-train 0 full 0, P1 T-train 0 full 0, P2 T-train 0 full 0
+   shuffle: {'n': 50, 'step': 5, 'with_full': 0, 'with_tweak': 0, 'with_ttrain': 0, 'mean_ttrain': 0.0, 'mean_one': 12785.62, 'max_ttrain': 0}
+D1-rnd2: 143440 candidate rows (optimistic, P0); processing 143440 with 16 workers; planned memory: per-worker kernel cache at most 200000 balls of 12000 bits = 300 MB
+  D1-rnd2 chunk 1/718  1 s
+  D1-rnd2 chunk 51/718  1 s
+  D1-rnd2 chunk 101/718  2 s
+  D1-rnd2 chunk 151/718  2 s
+  D1-rnd2 chunk 201/718  2 s
+  D1-rnd2 chunk 251/718  2 s
+  D1-rnd2 chunk 301/718  3 s
+  D1-rnd2 chunk 351/718  3 s
+  D1-rnd2 chunk 401/718  3 s
+  D1-rnd2 chunk 451/718  5 s
+  D1-rnd2 chunk 501/718  6 s
+  D1-rnd2 chunk 551/718  7 s
+  D1-rnd2 chunk 601/718  9 s
+  D1-rnd2 chunk 651/718  10 s
+  D1-rnd2 chunk 701/718  11 s
+D1-rnd2: status {'killed_by_2': 119276, 'killed_by_9': 24164} | kills relying on a ball-zero member: 0 | zeta +1121 -142319 | alive tiers {} | 12 s
+D3a-rnd2: 3 candidate rows (optimistic, P0); processing 3 with 16 workers; planned memory: per-worker kernel cache at most 200000 balls of 12000 bits = 300 MB
+  D3a-rnd2 chunk 1/1  1 s
+D3a-rnd2: status {'killed_by_2': 3} | kills relying on a ball-zero member: 0 | zeta +3 -0 | alive tiers {} | 1 s
+D2-F1-rnd2: 201413 candidate rows (optimistic, P0); processing 201413 with 16 workers; planned memory: per-worker kernel cache at most 200000 balls of 12000 bits = 300 MB
+  D2-F1-rnd2 chunk 1/1008  1 s
+  D2-F1-rnd2 chunk 51/1008  1 s
+  D2-F1-rnd2 chunk 101/1008  1 s
+  D2-F1-rnd2 chunk 151/1008  2 s
+  D2-F1-rnd2 chunk 201/1008  2 s
+  D2-F1-rnd2 chunk 251/1008  2 s
+  D2-F1-rnd2 chunk 301/1008  2 s
+  D2-F1-rnd2 chunk 351/1008  3 s
+  D2-F1-rnd2 chunk 401/1008  3 s
+  D2-F1-rnd2 chunk 451/1008  3 s
+  D2-F1-rnd2 chunk 501/1008  3 s
+  D2-F1-rnd2 chunk 551/1008  4 s
+  D2-F1-rnd2 chunk 601/1008  4 s
+  D2-F1-rnd2 chunk 651/1008  4 s
+  D2-F1-rnd2 chunk 701/1008  5 s
+  D2-F1-rnd2 chunk 751/1008  5 s
+  D2-F1-rnd2 chunk 801/1008  5 s
+  D2-F1-rnd2 chunk 851/1008  5 s
+  D2-F1-rnd2 chunk 901/1008  6 s
+  D2-F1-rnd2 chunk 951/1008  6 s
+  D2-F1-rnd2 chunk 1001/1008  6 s
+D2-F1-rnd2: status {'killed_by_2': 200102, 'killed_by_7': 1311} | kills relying on a ball-zero member: 0 | zeta +783 -200630 | alive tiers {} | 6 s
+D2-F2-rnd2: 74964 candidate rows (optimistic, P0); processing 74964 with 16 workers; planned memory: per-worker kernel cache at most 200000 balls of 12000 bits = 300 MB
+  D2-F2-rnd2 chunk 1/375  1 s
+  D2-F2-rnd2 chunk 51/375  1 s
+  D2-F2-rnd2 chunk 101/375  1 s
+  D2-F2-rnd2 chunk 151/375  1 s
+  D2-F2-rnd2 chunk 201/375  2 s
+  D2-F2-rnd2 chunk 251/375  2 s
+  D2-F2-rnd2 chunk 301/375  2 s
+  D2-F2-rnd2 chunk 351/375  2 s
+D2-F2-rnd2: status {'killed_by_2': 74927, 'killed_by_9': 36, 'alive': 1} | kills relying on a ball-zero member: 0 | zeta +41851 -33113 | alive tiers {'P0': (1, 1, 0), 'P1': (0, 0, 0), 'P2': (0, 0, 0)} | 2 s
+D2-F3-rnd2: 82850 candidate rows (optimistic, P0); processing 82850 with 16 workers; planned memory: per-worker kernel cache at most 200000 balls of 12000 bits = 300 MB
+  D2-F3-rnd2 chunk 1/415  1 s
+  D2-F3-rnd2 chunk 51/415  1 s
+  D2-F3-rnd2 chunk 101/415  2 s
+  D2-F3-rnd2 chunk 151/415  2 s
+  D2-F3-rnd2 chunk 201/415  3 s
+  D2-F3-rnd2 chunk 251/415  4 s
+  D2-F3-rnd2 chunk 301/415  4 s
+  D2-F3-rnd2 chunk 351/415  10 s
+  D2-F3-rnd2 chunk 401/415  10 s
+D2-F3-rnd2: status {'killed_by_2': 78848, 'killed_by_9': 3961, 'killed_by_7': 7, 'killed_by_1': 25, 'alive': 4, 'killed_by_3': 4, 'killed_by_4': 1} | kills relying on a ball-zero member: 0 | zeta +1628 -81222 | alive tiers {'P0': (4, 4, 0), 'P1': (0, 0, 0), 'P2': (0, 0, 0)} | 10 s
+D2-F4-rnd2: 23757 candidate rows (optimistic, P0); processing 23757 with 16 workers; planned memory: per-worker kernel cache at most 200000 balls of 12000 bits = 300 MB
+  D2-F4-rnd2 chunk 1/119  0 s
+  D2-F4-rnd2 chunk 51/119  0 s
+  D2-F4-rnd2 chunk 101/119  1 s
+D2-F4-rnd2: status {'killed_by_2': 23756, 'killed_by_9': 1} | kills relying on a ball-zero member: 0 | zeta +0 -23757 | alive tiers {} | 1 s
+D2-F5-rnd2: 0 candidate rows (optimistic, P0); processing 0 with 16 workers; planned memory: per-worker kernel cache at most 200000 balls of 12000 bits = 300 MB
+D2-F5-rnd2: status {} | kills relying on a ball-zero member: 0 | zeta +0 -0 | alive tiers {} | 1 s
+D3b-F1-rnd2: 0 candidate rows (optimistic, P0); processing 0 with 16 workers; planned memory: per-worker kernel cache at most 200000 balls of 12000 bits = 300 MB
+D3b-F1-rnd2: status {} | kills relying on a ball-zero member: 0 | zeta +0 -0 | alive tiers {} | 1 s
+D3b-F2-rnd2: 0 candidate rows (optimistic, P0); processing 0 with 16 workers; planned memory: per-worker kernel cache at most 200000 balls of 12000 bits = 300 MB
+D3b-F2-rnd2: status {} | kills relying on a ball-zero member: 0 | zeta +0 -0 | alive tiers {} | 1 s
+D3b-F3-rnd2: 3 candidate rows (optimistic, P0); processing 3 with 16 workers; planned memory: per-worker kernel cache at most 200000 balls of 12000 bits = 300 MB
+  D3b-F3-rnd2 chunk 1/1  0 s
+D3b-F3-rnd2: status {'killed_by_2': 2, 'killed_by_7': 1} | kills relying on a ball-zero member: 0 | zeta +2 -1 | alive tiers {} | 0 s
+D3b-F4-rnd2: 0 candidate rows (optimistic, P0); processing 0 with 16 workers; planned memory: per-worker kernel cache at most 200000 balls of 12000 bits = 300 MB
+D3b-F4-rnd2: status {} | kills relying on a ball-zero member: 0 | zeta +0 -0 | alive tiers {} | 0 s
+D3b-F5-rnd2: 0 candidate rows (optimistic, P0); processing 0 with 16 workers; planned memory: per-worker kernel cache at most 200000 balls of 12000 bits = 300 MB
+D3b-F5-rnd2: status {} | kills relying on a ball-zero member: 0 | zeta +0 -0 | alive tiers {} | 1 s
+PIPELINE-DONE all

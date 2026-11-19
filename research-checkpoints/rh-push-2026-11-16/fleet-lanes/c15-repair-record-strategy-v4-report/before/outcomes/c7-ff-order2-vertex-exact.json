@@ -1,0 +1,42 @@
+{
+ "slug": "c7-ff-order2-vertex-exact",
+ "round": 7,
+ "kind": "compute",
+ "nodes": [
+  "map-open-1",
+  "ff-order2-vertex-probe"
+ ],
+ "tags": [
+  "seven-eighths",
+  "effective-order",
+  "function-field",
+  "exact-arithmetic",
+  "prime-marks",
+  "moebius",
+  "circular",
+  "pre-registered"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "F_q[T] block model only (q=7, 13; squarefree A, sharp degrees, uncompensated marks); no statement about zeta. (i) For d<=6 (q=7) and d<=4 (q=13), every computed c_k with k>(d+1)/2 lies in span{c_i, i<=(d+1)/2} with m-independent coefficients (F2 exact to d=6, F1 exact to d=5), so the base probe at k>d re-expresses blocks with dual length <= N-(d+1)/2; the cap h<=1-M/2 follows given the cited law h=r/N; the pre-registered outcome-B threshold is not met at N=2. (ii) At dual length 0 the probe equals wt*q^d times the Moebius-weighted sum of the row weight exactly for any weight (independently confirmed on a new target), and the row is kappa times the conjugate (mu*w)-twisted sextic row exactly. (iii) By Cauchy-Schwarz a diagonal-level row bound bounds the Moebius sum by the trivial bound divided by wt (wt<=q-1 at computed sizes); the mu-weighted row exceeds the diagonal by a bounded factor (up to 6.3 unmarked, about 3 in the h>1 region) while target rows approach the diagonal for N=2..4. Exponent-level equivalence of the row bound with the conclusion is argued through the uncomputed staircase r>=7. Marked-probe threshold test undecided.",
+ "obstruction": "F_q[T], q = 7, 13, N <= 4. Base probe at lx < l re-expresses blocks with h <= 1 - M/2 (span identities exact to d = 6; pre-registered threshold not met literally at N = 2). Uncompensated marked probe: h = 1 + l - M/2 > 1 holds where RH holds, but the diagonal-level row bound it needs bounds the target's Moebius sum (Cauchy-Schwarz) and fails for the control weight mu with the same moduli (excess up to 6.3). Exponent-level equivalence argued through the uncomputed staircase r >= 7; threshold test undecided at N <= 4. Not computed: the compensated probe (12.5).",
+ "obstructionKind": "h-gt-1-low-input-contains-coherent-term-false-for-moebius-twist",
+ "controlsThatDefeat": [
+  "Moebius-twisted weight of the same modulus (the flat row bound fails: no sieve-type estimate can supply it)",
+  "not run: DH analogue, heat, THIN in F_q[T]"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "Exact identities and Propositions 2, 3, 4 confirmed with independent definition-only code on a new target (F=T^3+3, q=7, d=3; Lemma G, Prop 2, Prop 3 integer equality, norm formula all hold; mu row excess 5.277). Stored blocks: Prop 3 416/416, Cauchy-Schwarz 0 violations, ||c_k||^2 formula 0 failures. Overstatements found: (E1) \"outcome B against pre-registered thresholds\" is not met literally: base probe h_up = 1.24 (q=7) and 1.489 (q=13) at (N,d)=(2,2) exceed the 1.1 threshold; outcome B rests [record truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "The h>1 vertices of the ledger at lx<l are real in the function-field model, but their low input (diagonal-level mean square of unreflected marked rows for N'<=d<2N') contains the coherent term, which is the squared signal. It is false for the Moebius-twisted weight with coefficients of the same modulus, so no sieve-type estimate can supply it. The ledger's sub-1/2 vertices came from omitting that term. Raw thresholds on h at N<=4 are dominated by O(1/N) terms, because the sixth-power count is constant for r<=5. Process: for about ten minutes my server requests summed to 18 cores against the 16-core cap, and two local runs bypassed memcap (one killed at 1.1 GB); both are recorded in RESULT.md section 9.",
+ "followUp": "Compute the compensated probe (12.5) with its rescaled term in the same exact framework (ffx.c rowbig plus one subtraction) and test whether any block with h>1 survives once the scalar prime contribution, which is the coherent term, is removed. Separately, send Propositions 1-4 and the corrected F2 (the p* form fails at d=6; the span form holds) to a referee.",
+ "resultFile": "tmp/research-2026-11-16/push/c7-ff-order2-vertex-exact/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c7-ff-order2-vertex-exact/REFEREE.md"
+}

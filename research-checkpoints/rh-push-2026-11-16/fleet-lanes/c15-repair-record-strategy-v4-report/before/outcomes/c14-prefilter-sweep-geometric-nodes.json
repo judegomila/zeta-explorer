@@ -1,0 +1,63 @@
+{
+ "slug": "c14-prefilter-sweep-geometric-nodes",
+ "round": 14,
+ "kind": "combine",
+ "nodes": [
+  "klein-phase-transport-certificate",
+  "lemma-w-wide-support",
+  "bridge-scattering-factorisation",
+  "modular-scattering-factorisation",
+  "wiener-hopf-phase-condition",
+  "zv-shifted-ratio-ra"
+ ],
+ "tags": [
+  "prefilter",
+  "control-tnr",
+  "control-bls",
+  "symmetric-multiplier",
+  "twin-ladder",
+  "bridge",
+  "shear",
+  "antibridge",
+  "torus",
+  "klein",
+  "spinor",
+  "twistor",
+  "zero-channel",
+  "vortex"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "No statement about zeros of zeta. Lemma F (a device whose hypotheses are stable under a set of maps, one of which inserts a strip zero, is false) holds, with instances Q-P (quoted from round 13), Q-B (stability of identities, Schur, H-infinity and Pick conditions under Blaschke multiplication confirmed; classical in content; Nevanlinna form quoted) and Q-S (quoted; convergence abscissa 1/2 + b confirmed), as a sufficient test for \"a control passes\". Sweep of 443 geometric-program nodes by one reader: about 133 predicted PASS (120 as plain identities), 71 silent, 239 not formulable, with the PASS/silent-t and PASS/not-formulable boundaries set by convention; no control was run on any node. Among the silent nodes read, each displayed inequality is the target, a certificate, or cites a closing row or lane, except nodes 142 and 157. Control check: no recorded failure cell receives a yes from Q-B or Q-S; the three \"resolved\" passes carry no independent weight. Bridge ratio R_a(w) = X(w-a)/X(w+a): abs(Re lambda) <= a for all zeros implies R_a is Schur on Re w > 0 (proved in REFEREE.md), so it is Schur and Blaschke-closed for every a >= 1/2; for a < 1/2 the Schur property is the cancellation-aware condition of node 386, not the zero-free strip statement.",
+ "obstruction": "Pre-filter and sweep; the referee does not hold on one sentence labelled PROVED (E1, row Q-B (a)); all other PROVED steps confirmed. Lemma F holds as a sufficient test for 'a control passes'. Sweep by one reader, no control run on any node: about 133 nodes predicted PASS (120 as plain identities), 71 silent, 239 not formulable; boundaries PASS/silent and PASS/not-formulable set by convention. Each silent node read displays the target, a certificate, or cites a closing row or lane, except nodes 142 and 157 (klein-phase-transport-certificate, lemma-w-wide-support: no map row by name). Bridge ratio R_a(w) = X(w-a)/X(w+a): Schur and Blaschke-closed for a >= 1/2; for a < 1/2 strip zeros are poles and the Schur property is the cancellation-aware condition of node 386. The three 'resolved' passes of Q-B/Q-S carry no independent weight.",
+ "obstructionKind": "control-passes",
+ "controlsThatDefeat": [
+  "T-NR (Q-P: about 133 nodes)",
+  "symmetric multipliers (Q-S: 13 nodes)",
+  "BLS / Blaschke multiplication (Q-B: 3 nodes; bridge shift a >= 1/2)",
+  "not run: no control was run on any node; verdicts are typings by one reader"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": false,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "Referee section appended to tmp/research-2026-11-16/push/c14-prefilter-sweep-geometric-nodes/REFEREE.md (the author's pass is kept above it). Rerun script: /tmp/ref_c14_general/chk.py (mpmath, 60 digits, through scripts/memcap.sh 8; server not used).\n\nholds=false because one sentence labelled PROVED is false as written (E1). All other PROVED steps were re-derived and confirmed.\n\nE1 (false, labelled PROVED; verdict item 5, section 2.2 row Q-B (a), \" - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "In the user geometric program every node is either an identity that holds for a control with its off-line zeros (PASS), the target itself or a certificate (silent), or has no condition on a function class. Q-B applies only where strip zeros are zeros of the coefficient (scattering form, bridge shift a >= 1/2); for a < 1/2 they are poles and the Schur condition is the zero-free statement. None of the 70 silent nodes names an X1 or X2 step used with the functional equation. Almost all filtering is Q-P (133 nodes; Q-S 13, Q-B 3).",
+ "followUp": "Independent referee of the 70 silent typings and the PASS / not-formulable boundary (author re-read of 36 found 3 boundary cases). Round-15 stage-A explore on the two silent nodes with no map row by name: klein-phase-transport-certificate and lemma-w-wide-support; both are expected to stop. Pass the Lax-Phillips Q-B answer (conditions through the scattering coefficient are passed by BLS) to c14-laxphillips-hecke-norm-outside-l2. The lanes line is in the lane directory only, not appended to campaign/lanes.jsonl.",
+ "resultFile": "tmp/research-2026-11-16/push/c14-prefilter-sweep-geometric-nodes/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c14-prefilter-sweep-geometric-nodes/REFEREE.md",
+ "launchedNodes": [
+  "klein-phase-transport-certificate",
+  "lemma-w-wide-support",
+  "bridge-scattering-factorisation",
+  "modular-scattering-factorisation",
+  "wiener-hopf-phase-condition",
+  "zv-shifted-ratio-ra"
+ ],
+ "engineVerdict": "partial"
+}

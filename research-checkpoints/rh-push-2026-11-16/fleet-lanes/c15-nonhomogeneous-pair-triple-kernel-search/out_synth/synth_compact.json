@@ -1,0 +1,1738 @@
+{
+ "a1-with": {
+  "nodes": 62601,
+  "PA/all": {
+   "ttrain": 11505,
+   "optimistic": 11506,
+   "undecided": 1,
+   "tweak": 11505,
+   "full": 0,
+   "best_min_heldout": 13,
+   "nrej_hist": [
+    0,
+    1,
+    18867,
+    3673,
+    8453,
+    12989,
+    11,
+    742,
+    3552,
+    2808,
+    11505
+   ],
+   "rejected": [
+    43733,
+    31607,
+    14313,
+    18618,
+    17865,
+    18607,
+    62600,
+    40060,
+    11505
+   ],
+   "classes": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ]
+  },
+  "PA/FE": {
+   "ttrain": 14313,
+   "optimistic": 14314,
+   "undecided": 1,
+   "tweak": 14313,
+   "full": 0,
+   "best_min_heldout": 13,
+   "nrej_hist": [
+    0,
+    22541,
+    8453,
+    12989,
+    4305,
+    14313
+   ],
+   "rejected": [
+    31607,
+    14313,
+    18618,
+    40060
+   ],
+   "classes": [
+    2,
+    3,
+    4,
+    8
+   ]
+  },
+  "PZ/all": {
+   "ttrain": 12374,
+   "optimistic": 12375,
+   "undecided": 1,
+   "tweak": 12374,
+   "full": 0,
+   "best_min_heldout": 14,
+   "nrej_hist": [
+    0,
+    1,
+    9173,
+    3392,
+    9481,
+    18910,
+    1190,
+    1687,
+    3602,
+    2791,
+    12374
+   ],
+   "rejected": [
+    53427,
+    40554,
+    15165,
+    21644,
+    24222,
+    20454,
+    62600,
+    50035,
+    12374
+   ],
+   "classes": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ]
+  },
+  "und_share": 0.0,
+  "planted_ok": true,
+  "shuffle": {
+   "n": 200,
+   "ttrain": 0,
+   "full": 0
+  }
+ },
+ "b1-Ao": {
+  "nodes": 54684,
+  "PA/all": {
+   "ttrain": 0,
+   "optimistic": 0,
+   "undecided": 0,
+   "tweak": 0,
+   "full": 0,
+   "best_min_heldout": 0,
+   "nrej_hist": [
+    0,
+    0,
+    0,
+    54684,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rejected": [
+    0,
+    0,
+    0,
+    0,
+    54684,
+    0,
+    54684,
+    0,
+    0
+   ],
+   "classes": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ]
+  },
+  "PA/FE": {
+   "ttrain": 0,
+   "optimistic": 0,
+   "undecided": 0,
+   "tweak": 0,
+   "full": 0,
+   "best_min_heldout": 0,
+   "nrej_hist": [
+    0,
+    54684,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rejected": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "classes": [
+    2,
+    3,
+    4,
+    8
+   ]
+  },
+  "PZ/all": {
+   "ttrain": 0,
+   "optimistic": 0,
+   "undecided": 0,
+   "tweak": 0,
+   "full": 0,
+   "best_min_heldout": 0,
+   "nrej_hist": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    54684,
+    0,
+    0,
+    0
+   ],
+   "rejected": [
+    0,
+    54684,
+    54684,
+    54684,
+    54684,
+    0,
+    54684,
+    0,
+    54684
+   ],
+   "classes": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ]
+  },
+  "und_share": 0.0,
+  "planted_ok": true,
+  "shuffle": {
+   "n": 200,
+   "ttrain": 0,
+   "full": 0
+  }
+ },
+ "b1-Aw": {
+  "nodes": 54684,
+  "PA/all": {
+   "ttrain": 0,
+   "optimistic": 0,
+   "undecided": 0,
+   "tweak": 0,
+   "full": 0,
+   "best_min_heldout": 0,
+   "nrej_hist": [
+    0,
+    0,
+    0,
+    54684,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rejected": [
+    0,
+    0,
+    0,
+    0,
+    54684,
+    0,
+    54684,
+    0,
+    0
+   ],
+   "classes": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ]
+  },
+  "PA/FE": {
+   "ttrain": 0,
+   "optimistic": 0,
+   "undecided": 0,
+   "tweak": 0,
+   "full": 0,
+   "best_min_heldout": 0,
+   "nrej_hist": [
+    0,
+    54684,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rejected": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "classes": [
+    2,
+    3,
+    4,
+    8
+   ]
+  },
+  "PZ/all": {
+   "ttrain": 0,
+   "optimistic": 0,
+   "undecided": 0,
+   "tweak": 0,
+   "full": 0,
+   "best_min_heldout": 0,
+   "nrej_hist": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    54684,
+    0,
+    0,
+    0
+   ],
+   "rejected": [
+    0,
+    54684,
+    54684,
+    54684,
+    54684,
+    0,
+    54684,
+    0,
+    54684
+   ],
+   "classes": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ]
+  },
+  "und_share": 0.0,
+  "planted_ok": true,
+  "shuffle": {
+   "n": 200,
+   "ttrain": 0,
+   "full": 0
+  }
+ },
+ "b1-B": {
+  "nodes": 54684,
+  "PA/all": {
+   "ttrain": 18526,
+   "optimistic": 18526,
+   "undecided": 0,
+   "tweak": 18335,
+   "full": 1743,
+   "best_min_heldout": 23,
+   "nrej_hist": [
+    0,
+    0,
+    1373,
+    11167,
+    9580,
+    889,
+    5086,
+    1534,
+    2969,
+    3560,
+    18526
+   ],
+   "rejected": [
+    24591,
+    30473,
+    52528,
+    41709,
+    54174,
+    33202,
+    34678,
+    25960,
+    31531
+   ],
+   "classes": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ]
+  },
+  "PA/FE": {
+   "ttrain": 25055,
+   "optimistic": 25055,
+   "undecided": 0,
+   "tweak": 24719,
+   "full": 2456,
+   "best_min_heldout": 23,
+   "nrej_hist": [
+    0,
+    1373,
+    11602,
+    15120,
+    1534,
+    25055
+   ],
+   "rejected": [
+    30473,
+    52528,
+    41709,
+    25960
+   ],
+   "classes": [
+    2,
+    3,
+    4,
+    8
+   ]
+  },
+  "PZ/all": {
+   "ttrain": 18526,
+   "optimistic": 18526,
+   "undecided": 0,
+   "tweak": 18335,
+   "full": 1743,
+   "best_min_heldout": 23,
+   "nrej_hist": [
+    0,
+    0,
+    0,
+    0,
+    8083,
+    167,
+    14141,
+    1272,
+    6362,
+    6133,
+    18526
+   ],
+   "rejected": [
+    40461,
+    30473,
+    54684,
+    54684,
+    54684,
+    46695,
+    34678,
+    31634,
+    35126
+   ],
+   "classes": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ]
+  },
+  "und_share": 0.0,
+  "planted_ok": true,
+  "shuffle": {
+   "n": 200,
+   "ttrain": 0,
+   "full": 0
+  }
+ },
+ "b2-with": {
+  "nodes": 41397,
+  "PA/all": {
+   "ttrain": 0,
+   "optimistic": 41397,
+   "undecided": 41397,
+   "tweak": 0,
+   "full": 0,
+   "best_min_heldout": 0,
+   "nrej_hist": [
+    0,
+    41397,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rejected": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "classes": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ]
+  },
+  "PA/FE": {
+   "ttrain": 0,
+   "optimistic": 41397,
+   "undecided": 41397,
+   "tweak": 0,
+   "full": 0,
+   "best_min_heldout": 0,
+   "nrej_hist": [
+    0,
+    41397,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rejected": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "classes": [
+    2,
+    3,
+    4,
+    8
+   ]
+  },
+  "PZ/all": {
+   "ttrain": 0,
+   "optimistic": 41397,
+   "undecided": 41397,
+   "tweak": 0,
+   "full": 0,
+   "best_min_heldout": 0,
+   "nrej_hist": [
+    0,
+    41397,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rejected": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "classes": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ]
+  },
+  "und_share": 0.0,
+  "planted_ok": true,
+  "shuffle": {
+   "n": 200,
+   "ttrain": 0,
+   "full": 0
+  }
+ },
+ "b3-with": {
+  "nodes": 54684,
+  "PA/all": {
+   "ttrain": 17656,
+   "optimistic": 17656,
+   "undecided": 0,
+   "tweak": 17656,
+   "full": 3885,
+   "best_min_heldout": 24,
+   "nrej_hist": [
+    0,
+    0,
+    11780,
+    20037,
+    953,
+    693,
+    322,
+    928,
+    1627,
+    688,
+    17656
+   ],
+   "rejected": [
+    18179,
+    21484,
+    40411,
+    21577,
+    51261,
+    22872,
+    30678,
+    20662,
+    23596
+   ],
+   "classes": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ]
+  },
+  "PA/FE": {
+   "ttrain": 19827,
+   "optimistic": 19827,
+   "undecided": 0,
+   "tweak": 19827,
+   "full": 3886,
+   "best_min_heldout": 24,
+   "nrej_hist": [
+    0,
+    12889,
+    20574,
+    322,
+    1072,
+    19827
+   ],
+   "rejected": [
+    21484,
+    40411,
+    21577,
+    20662
+   ],
+   "classes": [
+    2,
+    3,
+    4,
+    8
+   ]
+  },
+  "PZ/all": {
+   "ttrain": 17656,
+   "optimistic": 17656,
+   "undecided": 0,
+   "tweak": 17656,
+   "full": 3885,
+   "best_min_heldout": 24,
+   "nrej_hist": [
+    0,
+    0,
+    0,
+    1875,
+    14641,
+    16947,
+    322,
+    928,
+    1627,
+    688,
+    17656
+   ],
+   "rejected": [
+    18179,
+    21484,
+    54684,
+    38003,
+    54684,
+    22872,
+    54684,
+    20662,
+    23596
+   ],
+   "classes": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ]
+  },
+  "und_share": 0.0,
+  "planted_ok": true,
+  "shuffle": {
+   "n": 200,
+   "ttrain": 0,
+   "full": 0
+  }
+ },
+ "b3-without": {
+  "nodes": 54684,
+  "PA/all": {
+   "ttrain": 17656,
+   "optimistic": 17656,
+   "undecided": 0,
+   "tweak": 17656,
+   "full": 3885,
+   "best_min_heldout": 24,
+   "nrej_hist": [
+    0,
+    0,
+    11780,
+    20037,
+    953,
+    693,
+    322,
+    928,
+    1627,
+    688,
+    17656
+   ],
+   "rejected": [
+    18179,
+    21484,
+    40411,
+    21577,
+    51261,
+    22872,
+    30678,
+    20662,
+    23596
+   ],
+   "classes": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ]
+  },
+  "PA/FE": {
+   "ttrain": 19827,
+   "optimistic": 19827,
+   "undecided": 0,
+   "tweak": 19827,
+   "full": 3886,
+   "best_min_heldout": 24,
+   "nrej_hist": [
+    0,
+    12889,
+    20574,
+    322,
+    1072,
+    19827
+   ],
+   "rejected": [
+    21484,
+    40411,
+    21577,
+    20662
+   ],
+   "classes": [
+    2,
+    3,
+    4,
+    8
+   ]
+  },
+  "PZ/all": {
+   "ttrain": 17656,
+   "optimistic": 17656,
+   "undecided": 0,
+   "tweak": 17656,
+   "full": 3885,
+   "best_min_heldout": 24,
+   "nrej_hist": [
+    0,
+    0,
+    0,
+    1875,
+    14641,
+    16947,
+    322,
+    928,
+    1627,
+    688,
+    17656
+   ],
+   "rejected": [
+    18179,
+    21484,
+    54684,
+    38003,
+    54684,
+    22872,
+    54684,
+    20662,
+    23596
+   ],
+   "classes": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ]
+  },
+  "und_share": 0.0,
+  "planted_ok": true,
+  "shuffle": {
+   "n": 200,
+   "ttrain": 0,
+   "full": 0
+  }
+ },
+ "b4m-with": {
+  "nodes": 54684,
+  "PA/all": {
+   "ttrain": 1188,
+   "optimistic": 1188,
+   "undecided": 0,
+   "tweak": 1188,
+   "full": 0,
+   "best_min_heldout": 14,
+   "nrej_hist": [
+    0,
+    59,
+    11320,
+    30826,
+    3931,
+    5407,
+    160,
+    455,
+    768,
+    570,
+    1188
+   ],
+   "rejected": [
+    13448,
+    8635,
+    32020,
+    3141,
+    36362,
+    2981,
+    26506,
+    12407,
+    1188
+   ],
+   "classes": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ]
+  },
+  "PA/FE": {
+   "ttrain": 1758,
+   "optimistic": 1758,
+   "undecided": 0,
+   "tweak": 1758,
+   "full": 0,
+   "best_min_heldout": 13,
+   "nrej_hist": [
+    0,
+    12435,
+    33614,
+    5494,
+    1383,
+    1758
+   ],
+   "rejected": [
+    8635,
+    32020,
+    3141,
+    12407
+   ],
+   "classes": [
+    2,
+    3,
+    4,
+    8
+   ]
+  },
+  "PZ/all": {
+   "ttrain": 1362,
+   "optimistic": 1362,
+   "undecided": 0,
+   "tweak": 1362,
+   "full": 0,
+   "best_min_heldout": 14,
+   "nrej_hist": [
+    0,
+    0,
+    1990,
+    13673,
+    8261,
+    14889,
+    2536,
+    3319,
+    7090,
+    1564,
+    1362
+   ],
+   "rejected": [
+    39257,
+    13321,
+    39722,
+    10974,
+    42644,
+    20800,
+    37452,
+    17421,
+    11822
+   ],
+   "classes": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ]
+  },
+  "und_share": 0.0,
+  "planted_ok": true,
+  "shuffle": {
+   "n": 200,
+   "ttrain": 0,
+   "full": 0
+  }
+ },
+ "b4p-with": {
+  "nodes": 54684,
+  "PA/all": {
+   "ttrain": 5204,
+   "optimistic": 5204,
+   "undecided": 0,
+   "tweak": 5204,
+   "full": 0,
+   "best_min_heldout": 16,
+   "nrej_hist": [
+    0,
+    14746,
+    9930,
+    2220,
+    891,
+    1893,
+    8769,
+    1362,
+    6310,
+    3359,
+    5204
+   ],
+   "rejected": [
+    5204,
+    27376,
+    15569,
+    38419,
+    16818,
+    27309,
+    38412,
+    8563,
+    25004
+   ],
+   "classes": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ]
+  },
+  "PA/FE": {
+   "ttrain": 8563,
+   "optimistic": 8563,
+   "undecided": 0,
+   "tweak": 8563,
+   "full": 0,
+   "best_min_heldout": 16,
+   "nrej_hist": [
+    0,
+    16265,
+    11043,
+    12001,
+    6812,
+    8563
+   ],
+   "rejected": [
+    27376,
+    15569,
+    38419,
+    8563
+   ],
+   "classes": [
+    2,
+    3,
+    4,
+    8
+   ]
+  },
+  "PZ/all": {
+   "ttrain": 7034,
+   "optimistic": 7034,
+   "undecided": 0,
+   "tweak": 7034,
+   "full": 0,
+   "best_min_heldout": 17,
+   "nrej_hist": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    29135,
+    3347,
+    4776,
+    10392,
+    7034
+   ],
+   "rejected": [
+    7034,
+    54684,
+    25931,
+    54684,
+    25435,
+    54684,
+    54684,
+    17426,
+    54684
+   ],
+   "classes": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ]
+  },
+  "und_share": 0.0,
+  "planted_ok": true,
+  "shuffle": {
+   "n": 200,
+   "ttrain": 0,
+   "full": 0
+  }
+ },
+ "b4p-without": {
+  "nodes": 54684,
+  "PA/all": {
+   "ttrain": 5204,
+   "optimistic": 5204,
+   "undecided": 0,
+   "tweak": 5204,
+   "full": 0,
+   "best_min_heldout": 16,
+   "nrej_hist": [
+    0,
+    14746,
+    9930,
+    2220,
+    891,
+    1893,
+    8769,
+    1362,
+    6310,
+    3359,
+    5204
+   ],
+   "rejected": [
+    5204,
+    27376,
+    15569,
+    38419,
+    16818,
+    27309,
+    38412,
+    8563,
+    25004
+   ],
+   "classes": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ]
+  },
+  "PA/FE": {
+   "ttrain": 8563,
+   "optimistic": 8563,
+   "undecided": 0,
+   "tweak": 8563,
+   "full": 0,
+   "best_min_heldout": 16,
+   "nrej_hist": [
+    0,
+    16265,
+    11043,
+    12001,
+    6812,
+    8563
+   ],
+   "rejected": [
+    27376,
+    15569,
+    38419,
+    8563
+   ],
+   "classes": [
+    2,
+    3,
+    4,
+    8
+   ]
+  },
+  "PZ/all": {
+   "ttrain": 7034,
+   "optimistic": 7034,
+   "undecided": 0,
+   "tweak": 7034,
+   "full": 0,
+   "best_min_heldout": 17,
+   "nrej_hist": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    29135,
+    3347,
+    4776,
+    10392,
+    7034
+   ],
+   "rejected": [
+    7034,
+    54684,
+    25931,
+    54684,
+    25435,
+    54684,
+    54684,
+    17426,
+    54684
+   ],
+   "classes": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ]
+  },
+  "und_share": 0.0,
+  "planted_ok": true,
+  "shuffle": {
+   "n": 200,
+   "ttrain": 0,
+   "full": 0
+  }
+ },
+ "b5l-with": {
+  "nodes": 41397,
+  "PA/all": {
+   "ttrain": 0,
+   "optimistic": 41397,
+   "undecided": 41397,
+   "tweak": 0,
+   "full": 0,
+   "best_min_heldout": 0,
+   "nrej_hist": [
+    0,
+    41397,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rejected": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "classes": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ]
+  },
+  "PA/FE": {
+   "ttrain": 0,
+   "optimistic": 41397,
+   "undecided": 41397,
+   "tweak": 0,
+   "full": 0,
+   "best_min_heldout": 0,
+   "nrej_hist": [
+    0,
+    41397,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rejected": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "classes": [
+    2,
+    3,
+    4,
+    8
+   ]
+  },
+  "PZ/all": {
+   "ttrain": 0,
+   "optimistic": 41397,
+   "undecided": 41397,
+   "tweak": 0,
+   "full": 0,
+   "best_min_heldout": 0,
+   "nrej_hist": [
+    0,
+    41397,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rejected": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "classes": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ]
+  },
+  "und_share": 0.292111801242236,
+  "planted_ok": true,
+  "shuffle": {
+   "n": 200,
+   "ttrain": 0,
+   "full": 0
+  }
+ },
+ "b5m-with": {
+  "nodes": 41397,
+  "PA/all": {
+   "ttrain": 41317,
+   "optimistic": 41397,
+   "undecided": 80,
+   "tweak": 41317,
+   "full": 3275,
+   "best_min_heldout": 24,
+   "nrej_hist": [
+    0,
+    80,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    41317
+   ],
+   "rejected": [
+    41317,
+    41317,
+    41317,
+    41317,
+    41317,
+    41317,
+    41317,
+    41317,
+    41317
+   ],
+   "classes": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ]
+  },
+  "PA/FE": {
+   "ttrain": 41317,
+   "optimistic": 41397,
+   "undecided": 80,
+   "tweak": 41317,
+   "full": 9094,
+   "best_min_heldout": 24,
+   "nrej_hist": [
+    0,
+    80,
+    0,
+    0,
+    0,
+    41317
+   ],
+   "rejected": [
+    41317,
+    41317,
+    41317,
+    41317
+   ],
+   "classes": [
+    2,
+    3,
+    4,
+    8
+   ]
+  },
+  "PZ/all": {
+   "ttrain": 41317,
+   "optimistic": 41397,
+   "undecided": 80,
+   "tweak": 41317,
+   "full": 3275,
+   "best_min_heldout": 24,
+   "nrej_hist": [
+    0,
+    80,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    41317
+   ],
+   "rejected": [
+    41317,
+    41317,
+    41317,
+    41317,
+    41317,
+    41317,
+    41317,
+    41317,
+    41317
+   ],
+   "classes": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ]
+  },
+  "und_share": 0.0,
+  "planted_ok": true,
+  "shuffle": {
+   "n": 200,
+   "ttrain": 0,
+   "full": 0
+  }
+ },
+ "b5p-with": {
+  "nodes": 41397,
+  "PA/all": {
+   "ttrain": 41317,
+   "optimistic": 41397,
+   "undecided": 80,
+   "tweak": 41317,
+   "full": 3275,
+   "best_min_heldout": 24,
+   "nrej_hist": [
+    0,
+    80,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    41317
+   ],
+   "rejected": [
+    41317,
+    41317,
+    41317,
+    41317,
+    41317,
+    41317,
+    41317,
+    41317,
+    41317
+   ],
+   "classes": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ]
+  },
+  "PA/FE": {
+   "ttrain": 41317,
+   "optimistic": 41397,
+   "undecided": 80,
+   "tweak": 41317,
+   "full": 9094,
+   "best_min_heldout": 24,
+   "nrej_hist": [
+    0,
+    80,
+    0,
+    0,
+    0,
+    41317
+   ],
+   "rejected": [
+    41317,
+    41317,
+    41317,
+    41317
+   ],
+   "classes": [
+    2,
+    3,
+    4,
+    8
+   ]
+  },
+  "PZ/all": {
+   "ttrain": 41317,
+   "optimistic": 41397,
+   "undecided": 80,
+   "tweak": 41317,
+   "full": 3275,
+   "best_min_heldout": 24,
+   "nrej_hist": [
+    0,
+    80,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    41317
+   ],
+   "rejected": [
+    41317,
+    41317,
+    41317,
+    41317,
+    41317,
+    41317,
+    41317,
+    41317,
+    41317
+   ],
+   "classes": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ]
+  },
+  "und_share": 0.0,
+  "planted_ok": true,
+  "shuffle": {
+   "n": 200,
+   "ttrain": 0,
+   "full": 0
+  }
+ },
+ "b6-with": {
+  "nodes": 54684,
+  "PA/all": {
+   "ttrain": 3031,
+   "optimistic": 3071,
+   "undecided": 40,
+   "tweak": 3031,
+   "full": 0,
+   "best_min_heldout": 13,
+   "nrej_hist": [
+    0,
+    180,
+    26279,
+    1322,
+    5430,
+    13597,
+    271,
+    1032,
+    2084,
+    1458,
+    3031
+   ],
+   "rejected": [
+    28225,
+    21473,
+    4489,
+    7876,
+    6573,
+    7605,
+    54504,
+    26903,
+    3031
+   ],
+   "classes": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ]
+  },
+  "PA/FE": {
+   "ttrain": 4489,
+   "optimistic": 4529,
+   "undecided": 40,
+   "tweak": 4489,
+   "full": 0,
+   "best_min_heldout": 13,
+   "nrej_hist": [
+    0,
+    27781,
+    5430,
+    13597,
+    3387,
+    4489
+   ],
+   "rejected": [
+    21473,
+    4489,
+    7876,
+    26903
+   ],
+   "classes": [
+    2,
+    3,
+    4,
+    8
+   ]
+  },
+  "PZ/all": {
+   "ttrain": 3460,
+   "optimistic": 3500,
+   "undecided": 40,
+   "tweak": 3460,
+   "full": 0,
+   "best_min_heldout": 14,
+   "nrej_hist": [
+    0,
+    40,
+    6944,
+    15722,
+    4167,
+    17365,
+    1353,
+    1922,
+    2145,
+    1566,
+    3460
+   ],
+   "rejected": [
+    32715,
+    27811,
+    20011,
+    10446,
+    28951,
+    9093,
+    54644,
+    31978,
+    3460
+   ],
+   "classes": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ]
+  },
+  "und_share": 0.0,
+  "planted_ok": true,
+  "shuffle": {
+   "n": 200,
+   "ttrain": 0,
+   "full": 0
+  }
+ }
+}

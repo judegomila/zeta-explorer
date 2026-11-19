@@ -1,0 +1,520 @@
+a1-without {'kind': 'equal', 'pairs': 34, 'entries': 68000, 'worst_scaled_difference': 4.424514891067724e-16}
+b4m-without {'kind': 'equal', 'pairs': 34, 'entries': 68000, 'worst_scaled_difference': 1.8474041311656335e-13}
+b6-without {'kind': 'equal', 'pairs': 34, 'entries': 68000, 'worst_scaled_difference': 2.2052724698880505e-14}
+b1-Ao {'kind': 'shift tau h^2/2', 'pairs': 34, 'entries': 68000, 'worst_scaled_difference': 1.7439205782411264e-13}
+b1-B {'kind': 'shift tau h^2/2', 'pairs': 34, 'entries': 68000, 'worst_scaled_difference': 4.307756957591734e-14}
+b2-without {'kind': 'equal', 'pairs': 34, 'entries': 67694, 'worst_scaled_difference': 5.115876831508228e-13}
+b2-B {'kind': 'equal', 'pairs': 34, 'entries': 67694, 'worst_scaled_difference': 1.2789746626437622e-13}
+b5m-without {'kind': 'equal', 'pairs': 34, 'entries': 67694, 'worst_scaled_difference': 5.098112431059411e-13}
+objects 368 built in 0s; workers 16
+g0: 62601 nodes (2601 grid); planned per worker: 1 families x 4 x float64[1200 x 368] = 14 MB; 16 workers
+  g0 chunk 10/53 (2s chunk, 2s group)
+  g0 chunk 20/53 (1s chunk, 3s group)
+  g0 chunk 30/53 (2s chunk, 4s group)
+  g0 chunk 40/53 (1s chunk, 5s group)
+  g0 chunk 50/53 (1s chunk, 5s group)
+  g0 chunk 53/53 (1s chunk, 5s group)
+a1-with: nodes=62601 | PA ttrain=11505 und=1 full=0 rej=[43733, 31607, 14313, 18618, 17865, 18607, 62600, 40060, 11505] nrej_hist=[0, 1, 18867, 3673, 8453, 12989, 11, 742, 3552, 2808, 11505] best=13 | FE ttrain=14313 und=1 full=0 | PZ ttrain=12374 und=1 full=0 | shuffle={'n': 200, 'ttrain': 0, 'full': 0} planted=True und_share=0.0000
+g0 done 6s
+g1: 54684 nodes (14380 grid); planned per worker: 9 families x 4 x float64[1200 x 368] = 127 MB; 16 workers
+  g1 chunk 10/46 (10s chunk, 10s group)
+  g1 chunk 20/46 (5s chunk, 15s group)
+  g1 chunk 30/46 (20s chunk, 20s group)
+  g1 chunk 40/46 (7s chunk, 25s group)
+  g1 chunk 46/46 (12s chunk, 27s group)
+b1-Aw: nodes=54684 | PA ttrain=0 und=0 full=0 rej=[0, 0, 0, 0, 54684, 0, 54684, 0, 0] nrej_hist=[0, 0, 0, 54684, 0, 0, 0, 0, 0, 0, 0] best=0 | FE ttrain=0 und=0 full=0 | PZ ttrain=0 und=0 full=0 | shuffle={'n': 200, 'ttrain': 0, 'full': 0} planted=True und_share=0.0000
+b1-Ao: nodes=54684 | PA ttrain=0 und=0 full=0 rej=[0, 0, 0, 0, 54684, 0, 54684, 0, 0] nrej_hist=[0, 0, 0, 54684, 0, 0, 0, 0, 0, 0, 0] best=0 | FE ttrain=0 und=0 full=0 | PZ ttrain=0 und=0 full=0 | shuffle={'n': 200, 'ttrain': 0, 'full': 0} planted=True und_share=0.0000
+b1-B: nodes=54684 | PA ttrain=18526 und=0 full=1743 rej=[24591, 30473, 52528, 41709, 54174, 33202, 34678, 25960, 31531] nrej_hist=[0, 0, 1373, 11167, 9580, 889, 5086, 1534, 2969, 3560, 18526] best=23 | FE ttrain=25055 und=0 full=2456 | PZ ttrain=18526 und=0 full=1743 | shuffle={'n': 200, 'ttrain': 0, 'full': 0} planted=True und_share=0.0000
+b3-with: nodes=54684 | PA ttrain=17656 und=0 full=3885 rej=[18179, 21484, 40411, 21577, 51261, 22872, 30678, 20662, 23596] nrej_hist=[0, 0, 11780, 20037, 953, 693, 322, 928, 1627, 688, 17656] best=24 | FE ttrain=19827 und=0 full=3886 | PZ ttrain=17656 und=0 full=3885 | shuffle={'n': 200, 'ttrain': 0, 'full': 0} planted=True und_share=0.0000
+b3-without: nodes=54684 | PA ttrain=17656 und=0 full=3885 rej=[18179, 21484, 40411, 21577, 51261, 22872, 30678, 20662, 23596] nrej_hist=[0, 0, 11780, 20037, 953, 693, 322, 928, 1627, 688, 17656] best=24 | FE ttrain=19827 und=0 full=3886 | PZ ttrain=17656 und=0 full=3885 | shuffle={'n': 200, 'ttrain': 0, 'full': 0} planted=True und_share=0.0000
+b4m-with: nodes=54684 | PA ttrain=1188 und=0 full=0 rej=[13448, 8635, 32020, 3141, 36362, 2981, 26506, 12407, 1188] nrej_hist=[0, 59, 11320, 30826, 3931, 5407, 160, 455, 768, 570, 1188] best=14 | FE ttrain=1758 und=0 full=0 | PZ ttrain=1362 und=0 full=0 | shuffle={'n': 200, 'ttrain': 0, 'full': 0} planted=True und_share=0.0000
+b4p-with: nodes=54684 | PA ttrain=5204 und=0 full=0 rej=[5204, 27376, 15569, 38419, 16818, 27309, 38412, 8563, 25004] nrej_hist=[0, 14746, 9930, 2220, 891, 1893, 8769, 1362, 6310, 3359, 5204] best=16 | FE ttrain=8563 und=0 full=0 | PZ ttrain=7034 und=0 full=0 | shuffle={'n': 200, 'ttrain': 0, 'full': 0} planted=True und_share=0.0000
+b4p-without: nodes=54684 | PA ttrain=5204 und=0 full=0 rej=[5204, 27376, 15569, 38419, 16818, 27309, 38412, 8563, 25004] nrej_hist=[0, 14746, 9930, 2220, 891, 1893, 8769, 1362, 6310, 3359, 5204] best=16 | FE ttrain=8563 und=0 full=0 | PZ ttrain=7034 und=0 full=0 | shuffle={'n': 200, 'ttrain': 0, 'full': 0} planted=True und_share=0.0000
+b6-with: nodes=54684 | PA ttrain=3031 und=40 full=0 rej=[28225, 21473, 4489, 7876, 6573, 7605, 54504, 26903, 3031] nrej_hist=[0, 180, 26279, 1322, 5430, 13597, 271, 1032, 2084, 1458, 3031] best=13 | FE ttrain=4489 und=40 full=0 | PZ ttrain=3460 und=40 full=0 | shuffle={'n': 200, 'ttrain': 0, 'full': 0} planted=True und_share=0.0000
+g1 done 31s
+g2: 41397 nodes (11110 grid); planned per worker: 4 families x 4 x float64[1200 x 368] = 57 MB; 16 workers
+  g2 chunk 10/35 (5s chunk, 6s group)
+  g2 chunk 20/35 (9s chunk, 9s group)
+  g2 chunk 30/35 (11s chunk, 11s group)
+  g2 chunk 35/35 (5s chunk, 12s group)
+b2-with: nodes=41397 | PA ttrain=0 und=41397 full=0 rej=[0, 0, 0, 0, 0, 0, 0, 0, 0] nrej_hist=[0, 41397, 0, 0, 0, 0, 0, 0, 0, 0, 0] best=0 | FE ttrain=0 und=41397 full=0 | PZ ttrain=0 und=41397 full=0 | shuffle={'n': 200, 'ttrain': 0, 'full': 0} planted=True und_share=0.0000
+b5l-with: nodes=41397 | PA ttrain=0 und=41397 full=0 rej=[0, 0, 0, 0, 0, 0, 0, 0, 0] nrej_hist=[0, 41397, 0, 0, 0, 0, 0, 0, 0, 0, 0] best=0 | FE ttrain=0 und=41397 full=0 | PZ ttrain=0 und=41397 full=0 | shuffle={'n': 200, 'ttrain': 0, 'full': 0} planted=True und_share=0.2921
+b5m-with: nodes=41397 | PA ttrain=41317 und=80 full=3275 rej=[41317, 41317, 41317, 41317, 41317, 41317, 41317, 41317, 41317] nrej_hist=[0, 80, 0, 0, 0, 0, 0, 0, 0, 0, 41317] best=24 | FE ttrain=41317 und=80 full=9094 | PZ ttrain=41317 und=80 full=3275 | shuffle={'n': 200, 'ttrain': 0, 'full': 0} planted=True und_share=0.0000
+b5p-with: nodes=41397 | PA ttrain=41317 und=80 full=3275 rej=[41317, 41317, 41317, 41317, 41317, 41317, 41317, 41317, 41317] nrej_hist=[0, 80, 0, 0, 0, 0, 0, 0, 0, 0, 41317] best=24 | FE ttrain=41317 und=80 full=9094 | PZ ttrain=41317 und=80 full=3275 | shuffle={'n': 200, 'ttrain': 0, 'full': 0} planted=True und_share=0.0000
+g2 done 17s
+RUN-DONE 53s
+objects 834 built in 40s; workers 16
+g0: 302601 nodes (2601 grid); planned per worker: 1 families x 4 x float64[1200 x 834] = 32 MB; 16 workers
+  g0 chunk 10/253 (4s chunk, 15s group)
+  g0 chunk 20/253 (9s chunk, 26s group)
+  g0 chunk 30/253 (32s chunk, 32s group)
+  g0 chunk 40/253 (8s chunk, 40s group)
+  g0 chunk 50/253 (23s chunk, 49s group)
+  g0 chunk 60/253 (12s chunk, 66s group)
+  g0 chunk 70/253 (27s chunk, 75s group)
+  g0 chunk 80/253 (14s chunk, 88s group)
+  g0 chunk 90/253 (5s chunk, 98s group)
+  g0 chunk 100/253 (4s chunk, 106s group)
+  g0 chunk 110/253 (4s chunk, 115s group)
+  g0 chunk 120/253 (31s chunk, 125s group)
+  g0 chunk 130/253 (9s chunk, 134s group)
+  g0 chunk 140/253 (18s chunk, 143s group)
+  g0 chunk 150/253 (4s chunk, 153s group)
+  g0 chunk 160/253 (21s chunk, 161s group)
+  g0 chunk 170/253 (8s chunk, 172s group)
+  g0 chunk 180/253 (5s chunk, 177s group)
+  g0 chunk 190/253 (10s chunk, 186s group)
+  g0 chunk 200/253 (11s chunk, 195s group)
+  g0 chunk 210/253 (19s chunk, 203s group)
+  g0 chunk 220/253 (15s chunk, 217s group)
+  g0 chunk 230/253 (16s chunk, 233s group)
+  g0 chunk 240/253 (30s chunk, 248s group)
+  g0 chunk 250/253 (15s chunk, 261s group)
+  g0 chunk 253/253 (17s chunk, 262s group)
+a1-with: nodes=302601 | PA ttrain=0 und=0 full=0 rej=[111535, 0, 105620, 0, 63601, 16829, 0, 115041, 0] nrej_hist=[0, 86049, 99830, 69063, 18261, 27103, 2295, 0, 0, 0, 0] best=0 | FE ttrain=0 und=0 full=0 | PZ ttrain=8956 und=0 full=0 | shuffle={'n': 200, 'ttrain': 0, 'full': 0} planted=True und_share=0.0000
+g0 done 263s
+g1: 215769 nodes (14380 grid); planned per worker: 9 families x 4 x float64[1200 x 834] = 288 MB; 16 workers
+  g1 chunk 10/180 (65s chunk, 65s group)
+  g1 chunk 20/180 (54s chunk, 113s group)
+  g1 chunk 30/180 (76s chunk, 157s group)
+  g1 chunk 40/180 (73s chunk, 197s group)
+  g1 chunk 50/180 (89s chunk, 246s group)
+  g1 chunk 60/180 (108s chunk, 288s group)
+  g1 chunk 70/180 (88s chunk, 364s group)
+  g1 chunk 80/180 (58s chunk, 420s group)
+  g1 chunk 90/180 (118s chunk, 504s group)
+  g1 chunk 100/180 (100s chunk, 592s group)
+  g1 chunk 110/180 (123s chunk, 644s group)
+  g1 chunk 120/180 (125s chunk, 757s group)
+  g1 chunk 130/180 (81s chunk, 839s group)
+  g1 chunk 140/180 (146s chunk, 916s group)
+  g1 chunk 150/180 (133s chunk, 972s group)
+  g1 chunk 160/180 (95s chunk, 1067s group)
+  g1 chunk 170/180 (124s chunk, 1123s group)
+  g1 chunk 180/180 (86s chunk, 1161s group)
+b1-Aw: nodes=215769 | PA ttrain=0 und=0 full=0 rej=[0, 130549, 36275, 34581, 161403, 18660, 0, 142051, 44615] nrej_hist=[0, 9658, 28004, 63887, 71269, 24215, 18356, 380, 0, 0, 0] best=0 | FE ttrain=0 und=19253 full=0 | PZ ttrain=7279 und=8714 full=0 | shuffle={'n': 200, 'ttrain': 0, 'full': 0} planted=True und_share=0.0000
+b1-Ao: nodes=215769 | PA ttrain=0 und=0 full=0 rej=[0, 161458, 21910, 213029, 213078, 121219, 103203, 126115, 110436] nrej_hist=[0, 405, 1661, 26499, 81281, 73634, 31827, 462, 0, 0, 0] best=0 | FE ttrain=0 und=0 full=0 | PZ ttrain=0 und=0 full=0 | shuffle={'n': 200, 'ttrain': 0, 'full': 0} planted=True und_share=0.0000
+b1-B: nodes=215769 | PA ttrain=0 und=0 full=0 rej=[187971, 166828, 157482, 208326, 164641, 91301, 119980, 186809, 82852] nrej_hist=[0, 88, 6272, 20807, 61354, 40430, 5140, 2354, 42998, 36326, 0] best=0 | FE ttrain=0 und=0 full=0 | PZ ttrain=0 und=0 full=0 | shuffle={'n': 200, 'ttrain': 0, 'full': 0} planted=True und_share=0.0003
+b3-with: nodes=215769 | PA ttrain=0 und=0 full=0 rej=[180020, 165783, 43200, 0, 112819, 80184, 74843, 138867, 75779] nrej_hist=[0, 32566, 10441, 32056, 50989, 26942, 15857, 32285, 14633, 0, 0] best=0 | FE ttrain=0 und=18381 full=0 | PZ ttrain=57 und=0 full=0 | shuffle={'n': 200, 'ttrain': 0, 'full': 0} planted=True und_share=0.0010
+b3-without: nodes=215769 | PA ttrain=0 und=0 full=0 rej=[73339, 119656, 0, 0, 85462, 81244, 69169, 104004, 70763] nrej_hist=[0, 44571, 35510, 35953, 31466, 11393, 22445, 10958, 23473, 0, 0] best=0 | FE ttrain=0 und=0 full=0 | PZ ttrain=52 und=261 full=0 | shuffle={'n': 200, 'ttrain': 0, 'full': 0} planted=True und_share=0.0010
+b4m-with: nodes=215769 | PA ttrain=0 und=0 full=0 rej=[11584, 18282, 2076, 187776, 72786, 0, 33591, 110575, 13394] nrej_hist=[0, 14063, 59790, 84430, 47772, 7168, 2172, 374, 0, 0, 0] best=0 | FE ttrain=0 und=0 full=0 | PZ ttrain=0 und=0 full=0 | shuffle={'n': 200, 'ttrain': 0, 'full': 0} planted=True und_share=0.0003
+b4p-with: nodes=215769 | PA ttrain=0 und=0 full=0 rej=[9961, 165862, 145438, 0, 103665, 88922, 86795, 128689, 78698] nrej_hist=[0, 2667, 29235, 61191, 38041, 2696, 3399, 45809, 30335, 2396, 0] best=0 | FE ttrain=0 und=0 full=0 | PZ ttrain=0 und=0 full=0 | shuffle={'n': 200, 'ttrain': 0, 'full': 0} planted=True und_share=0.0003
+b4p-without: nodes=215769 | PA ttrain=0 und=0 full=0 rej=[10692, 166996, 75120, 208478, 75825, 90191, 113341, 117163, 86048] nrej_hist=[0, 146, 25158, 46076, 63509, 36890, 43606, 383, 1, 0, 0] best=0 | FE ttrain=0 und=0 full=0 | PZ ttrain=0 und=0 full=0 | shuffle={'n': 200, 'ttrain': 0, 'full': 0} planted=True und_share=0.0003
+b6-with: nodes=215769 | PA ttrain=0 und=40 full=0 rej=[16812, 0, 38, 156447, 130797, 70177, 21508, 37898, 67674] nrej_hist=[0, 20181, 68030, 56125, 9209, 48295, 12462, 1466, 1, 0, 0] best=0 | FE ttrain=0 und=40 full=0 | PZ ttrain=0 und=40 full=0 | shuffle={'n': 200, 'ttrain': 0, 'full': 0} planted=True und_share=0.0001
+g1 done 1162s
+g2: 163377 nodes (11110 grid); planned per worker: 4 families x 4 x float64[1200 x 834] = 128 MB; 16 workers
+  g2 chunk 10/137 (76s chunk, 76s group)
+  g2 chunk 20/137 (115s chunk, 115s group)
+  g2 chunk 30/137 (53s chunk, 168s group)
+  g2 chunk 40/137 (84s chunk, 228s group)
+  g2 chunk 50/137 (56s chunk, 280s group)
+  g2 chunk 60/137 (94s chunk, 341s group)
+  g2 chunk 70/137 (43s chunk, 394s group)
+  g2 chunk 80/137 (51s chunk, 430s group)
+  g2 chunk 90/137 (77s chunk, 483s group)
+  g2 chunk 100/137 (55s chunk, 538s group)
+  g2 chunk 110/137 (59s chunk, 572s group)
+  g2 chunk 120/137 (90s chunk, 613s group)
+  g2 chunk 130/137 (42s chunk, 644s group)
+  g2 chunk 137/137 (48s chunk, 654s group)
+b2-with: nodes=163377 | PA ttrain=0 und=80 full=0 rej=[0, 127952, 85867, 51754, 112726, 89030, 37264, 99323, 82509] nrej_hist=[0, 2031, 26800, 13411, 12021, 33060, 23540, 25450, 27064, 0, 0] best=0 | FE ttrain=7314 und=12085 full=0 | PZ ttrain=0 und=14496 full=0 | shuffle={'n': 200, 'ttrain': 0, 'full': 0} planted=True und_share=0.0000
+b5l-with: nodes=163377 | PA ttrain=0 und=472 full=0 rej=[135082, 140010, 68655, 51754, 124497, 120197, 97892, 100033, 117381] nrej_hist=[0, 20500, 33, 5187, 15887, 9754, 28587, 46923, 34910, 1596, 0] best=0 | FE ttrain=0 und=12084 full=0 | PZ ttrain=0 und=13125 full=0 | shuffle={'n': 200, 'ttrain': 0, 'full': 0} planted=True und_share=0.0014
+b5m-with: nodes=163377 | PA ttrain=0 und=80 full=0 rej=[26610, 44836, 8221, 49180, 80994, 64877, 66835, 128555, 86087] nrej_hist=[0, 8267, 44974, 27147, 8700, 14609, 46253, 12351, 1076, 0, 0] best=0 | FE ttrain=0 und=80 full=0 | PZ ttrain=0 und=80 full=0 | shuffle={'n': 200, 'ttrain': 0, 'full': 0} planted=True und_share=0.0004
+b5p-with: nodes=163377 | PA ttrain=0 und=80 full=0 rej=[29015, 148200, 139433, 0, 95281, 86122, 85073, 95502, 82697] nrej_hist=[0, 9, 5890, 41544, 29721, 8414, 5196, 37667, 21766, 13170, 0] best=0 | FE ttrain=0 und=80 full=0 | PZ ttrain=0 und=80 full=0 | shuffle={'n': 200, 'ttrain': 0, 'full': 0} planted=True und_share=0.0004
+g2 done 654s
+RUN-DONE 2118s
+a2-with: 943802 functionals (12336 grid); planned per worker: int8[20000 x 834] = 17 MB and complex128[80000 x 4] = 5 MB
+  a2 chunk 20/48 (105s chunk, 106s)
+  a2 chunk 40/48 (52s chunk, 171s)
+  a2 chunk 48/48 (45s chunk, 181s)
+a2-with: F=943802 stage2=106749 | {"PA/all": {"one": 0, "ttrain": 0, "full": 0, "optimistic": 0, "best_min_heldout": 0, "rejected": [0, 0, 0, 0, 0, 0, 0, 0, 0], "nrej_hist": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}, "PA/FE": {"one": 0, "ttrain": 0, "full": 0, "optimistic": 0, "best_min_heldout": 0, "rejected": [0, 0, 0, 0], "nrej_hist": [0, 0, 0, 0, 0]}, "PZ/all": {"one": 106749, "ttrain": 0, "full": 0, "optimistic": 0, "best_min_heldout": 0, "rejected": [106749, 47776, 6624, 0, 96561, 81189, 27937, 93307, 35878], "nrej_hist": [0, 303, 6783, 14941, 35200, 17641, 15665, 15394, 822, 0]}}
+a3-with: 654471 functionals (93517 grid); planned per worker: int8[20000 x 834] = 17 MB and complex128[180000 x 4] = 12 MB
+  a3 chunk 20/33 (43s chunk, 86s)
+  a3 chunk 33/33 (47s chunk, 112s)
+a3-with: F=654471 stage2=35734 | {"PA/all": {"one": 0, "ttrain": 0, "full": 0, "optimistic": 0, "best_min_heldout": 0, "rejected": [0, 0, 0, 0, 0, 0, 0, 0, 0], "nrej_hist": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}, "PA/FE": {"one": 0, "ttrain": 0, "full": 0, "optimistic": 0, "best_min_heldout": 0, "rejected": [0, 0, 0, 0], "nrej_hist": [0, 0, 0, 0, 0]}, "PZ/all": {"one": 35734, "ttrain": 0, "full": 0, "optimistic": 0, "best_min_heldout": 0, "rejected": [35734, 24229, 35684, 0, 35734, 34847, 10423, 34433, 10422], "nrej_hist": [0, 0, 0, 20, 1001, 6017, 17126, 7959, 3611, 0]}}
+MIN-DONE
+kind T: 344 objects built in 91s; groups {'P': 3, 'PX': 56, 'PH': 24, 'C1': 5, 'H1': 24, 'C2': 5, 'H2': 24, 'C3': 5, 'H3': 24, 'C4': 5, 'H4': 24, 'C5': 5, 'H5': 24, 'C6': 5, 'H6': 24, 'C7': 5, 'H7': 24, 'C8': 5, 'H8': 24, 'C9': 5, 'H9': 24}
+planned: per object complex128[5 x 116]; Phi tables 2 x float64[5889]; convolution grids complex128[4225]; theta^w lists as registered; workers 8
+    theta route: lattice n, Y = 7171, planned 186 MB
+    theta route: lattice n, Y = 11561, planned 186 MB
+    theta route: lattice n, Y = 331, planned 186 MB
+    theta route: lattice n, Y = 425, planned 186 MB
+    theta route: lattice n, Y = 613, planned 186 MB
+    theta route: lattice n, Y = 14853, planned 187 MB
+    theta route: lattice n, Y = 7546, planned 186 MB
+    theta route: lattice n, Y = 3059, planned 186 MB
+    theta route: lattice n, Y = 13316, planned 186 MB
+    theta route: lattice n, Y = 14864, planned 187 MB
+    theta route: lattice n, Y = 21469, planned 187 MB
+    theta route: lattice n, Y = 3544, planned 186 MB
+    theta route: lattice n, Y = 4556, planned 186 MB
+    theta route: lattice n, Y = 4556, planned 186 MB
+    theta route: lattice n, Y = 41246, planned 188 MB
+    theta route: lattice n, Y = 29317, planned 187 MB
+    theta route: lattice n, Y = 28301, planned 187 MB
+    theta route: lattice n, Y = 6580, planned 186 MB
+    theta route: lattice n, Y = 3544, planned 186 MB
+    theta route: lattice n, Y = 47500, planned 189 MB
+    theta route: lattice n, Y = 12459, planned 186 MB
+    theta route: lattice n, Y = 22012, planned 187 MB
+    theta route: lattice n, Y = 64907, planned 190 MB
+    theta route: lattice n, Y = 22210, planned 187 MB
+    theta route: lattice n, Y = 22210, planned 187 MB
+    theta route: lattice n, Y = 9698, planned 186 MB
+    theta route: lattice n, Y = 23952, planned 187 MB
+    theta route: lattice n, Y = 33740, planned 188 MB
+    theta route: lattice n, Y = 19096, planned 187 MB
+    theta route: lattice n, Y = 26242, planned 187 MB
+    theta route: lattice n, Y = 11561, planned 186 MB
+    theta route: lattice n, Y = 19096, planned 187 MB
+    theta route: lattice n, Y = 15889, planned 187 MB
+    theta route: lattice n, Y = 48734, planned 189 MB
+    theta route: lattice n, Y = 29317, planned 187 MB
+    theta route: lattice n, Y = 29317, planned 187 MB
+    theta route: lattice n, Y = 11561, planned 186 MB
+    theta route: lattice n, Y = 56628, planned 189 MB
+    theta route: lattice n, Y = 23952, planned 187 MB
+    theta route: lattice n, Y = 64907, planned 190 MB
+    theta route: lattice m, Y = 225065, planned 470 MB
+    theta route: lattice m, Y = 101179, planned 313 MB
+    theta route: lattice m, Y = 167254, planned 397 MB
+    theta route: lattice m, Y = 348961, planned 627 MB
+    theta route: lattice m, Y = 136151, planned 358 MB
+    theta route: lattice m, Y = 101179, planned 313 MB
+    theta route: lattice m, Y = 142685, planned 366 MB
+    theta route: lattice m, Y = 247185, planned 498 MB
+    theta route: lattice m, Y = 185133, planned 420 MB
+    theta route: lattice m, Y = 192508, planned 429 MB
+    theta route: lattice m, Y = 160425, planned 388 MB
+    theta route: lattice m, Y = 194018, planned 431 MB
+    theta route: lattice m, Y = 167254, planned 397 MB
+    theta route: lattice m, Y = 239580, planned 488 MB
+    theta route: lattice m, Y = 544720, planned 874 MB
+    theta route: lattice m, Y = 386264, planned 674 MB
+    theta route: lattice m, Y = 144932, planned 369 MB
+    theta route: lattice m, Y = 430909, planned 730 MB
+    theta route: lattice m, Y = 351698, planned 630 MB
+    theta route: lattice m, Y = 365708, planned 648 MB
+    theta route: lattice m, Y = 469578, planned 779 MB
+    theta route: lattice m, Y = 515730, planned 837 MB
+    theta route: lattice m, Y = 209783, planned 451 MB
+    theta route: lattice m, Y = 507735, planned 827 MB
+    theta route: lattice m, Y = 451589, planned 756 MB
+    theta route: lattice m, Y = 357236, planned 637 MB
+    theta route: lattice m, Y = 407977, planned 701 MB
+    theta route: lattice m, Y = 178966, planned 412 MB
+    theta route: lattice m, Y = 162951, planned 392 MB
+    theta route: lattice n, Y = 331, planned 186 MB
+    theta route: lattice n, Y = 425, planned 186 MB
+    theta route: lattice n, Y = 613, planned 186 MB
+    theta route: lattice n, Y = 331, planned 186 MB
+    theta route: lattice n, Y = 425, planned 186 MB
+    theta route: lattice n, Y = 1743, planned 186 MB
+    theta route: lattice n, Y = 896, planned 186 MB
+    theta route: lattice n, Y = 896, planned 186 MB
+    theta route: lattice n, Y = 1743, planned 186 MB
+    theta route: lattice n, Y = 1461, planned 186 MB
+    theta route: lattice n, Y = 1461, planned 186 MB
+    theta route: lattice n, Y = 896, planned 186 MB
+    theta route: lattice n, Y = 1461, planned 186 MB
+    theta route: lattice n, Y = 1743, planned 186 MB
+    theta route: lattice n, Y = 896, planned 186 MB
+    theta route: lattice n, Y = 1461, planned 186 MB
+    theta route: lattice n, Y = 1461, planned 186 MB
+    theta route: lattice n, Y = 1743, planned 186 MB
+    theta route: lattice n, Y = 1743, planned 186 MB
+    theta route: lattice n, Y = 1461, planned 186 MB
+    theta route: lattice n, Y = 1743, planned 186 MB
+    theta route: lattice n, Y = 896, planned 186 MB
+    theta route: lattice n, Y = 896, planned 186 MB
+    theta route: lattice n, Y = 1461, planned 186 MB
+    theta route: lattice n, Y = 1743, planned 186 MB
+    theta route: lattice n, Y = 1461, planned 186 MB
+    theta route: lattice n, Y = 896, planned 186 MB
+    theta route: lattice n, Y = 1461, planned 186 MB
+    theta route: lattice n, Y = 1743, planned 186 MB
+    theta route: lattice n, Y = 331, planned 186 MB
+    theta route: lattice n, Y = 425, planned 186 MB
+    theta route: lattice n, Y = 613, planned 186 MB
+    theta route: lattice n, Y = 331, planned 186 MB
+    theta route: lattice n, Y = 425, planned 186 MB
+    theta route: lattice n, Y = 1461, planned 186 MB
+    theta route: lattice n, Y = 896, planned 186 MB
+    theta route: lattice n, Y = 1461, planned 186 MB
+    theta route: lattice n, Y = 896, planned 186 MB
+    theta route: lattice n, Y = 1743, planned 186 MB
+    theta route: lattice n, Y = 1743, planned 186 MB
+    theta route: lattice n, Y = 1461, planned 186 MB
+    theta route: lattice n, Y = 896, planned 186 MB
+    theta route: lattice n, Y = 896, planned 186 MB
+    theta route: lattice n, Y = 1743, planned 186 MB
+    theta route: lattice n, Y = 1461, planned 186 MB
+    theta route: lattice n, Y = 1461, planned 186 MB
+    theta route: lattice n, Y = 1461, planned 186 MB
+    theta route: lattice n, Y = 896, planned 186 MB
+    theta route: lattice n, Y = 1743, planned 186 MB
+    theta route: lattice n, Y = 1743, planned 186 MB
+    theta route: lattice n, Y = 896, planned 186 MB
+    theta route: lattice n, Y = 1743, planned 186 MB
+    theta route: lattice n, Y = 1743, planned 186 MB
+    theta route: lattice n, Y = 896, planned 186 MB
+    theta route: lattice n, Y = 1461, planned 186 MB
+    theta route: lattice n, Y = 896, planned 186 MB
+    theta route: lattice n, Y = 896, planned 186 MB
+    theta route: lattice n, Y = 1461, planned 186 MB
+    theta route: lattice None, Y = 331, planned 186 MB
+    theta route: lattice None, Y = 425, planned 186 MB
+    theta route: lattice None, Y = 613, planned 186 MB
+    theta route: lattice None, Y = 331, planned 186 MB
+    theta route: lattice None, Y = 425, planned 186 MB
+    theta route: lattice None, Y = 1743, planned 186 MB
+    theta route: lattice None, Y = 1461, planned 186 MB
+    theta route: lattice None, Y = 1743, planned 186 MB
+    theta route: lattice None, Y = 1461, planned 186 MB
+    theta route: lattice None, Y = 1743, planned 186 MB
+    theta route: lattice None, Y = 1743, planned 186 MB
+    theta route: lattice None, Y = 1743, planned 186 MB
+    theta route: lattice None, Y = 1461, planned 186 MB
+    theta route: lattice None, Y = 1743, planned 186 MB
+    theta route: lattice None, Y = 1461, planned 186 MB
+    theta route: lattice None, Y = 1461, planned 186 MB
+    theta route: lattice None, Y = 1743, planned 186 MB
+    theta route: lattice None, Y = 896, planned 186 MB
+    theta route: lattice None, Y = 1461, planned 186 MB
+    theta route: lattice None, Y = 1743, planned 186 MB
+    theta route: lattice None, Y = 1743, planned 186 MB
+    theta route: lattice None, Y = 896, planned 186 MB
+    theta route: lattice None, Y = 1743, planned 186 MB
+    theta route: lattice None, Y = 1461, planned 186 MB
+    theta route: lattice None, Y = 1461, planned 186 MB
+    theta route: lattice None, Y = 1743, planned 186 MB
+    theta route: lattice None, Y = 1743, planned 186 MB
+    theta route: lattice None, Y = 1743, planned 186 MB
+    theta route: lattice None, Y = 1461, planned 186 MB
+kind T: products done 1549s; two-route check on 11 positives: max diff / max|C| = 5.59e-12; conv edge max 0.0e+00
+c1-T: nodes=3422 | PA ttrain=0 und=0 full=0 rej=[0, 0, 0, 0, 0, 0, 0, 0, 0] nrej_hist=[0, 3422, 0, 0, 0, 0, 0, 0, 0, 0, 0] best=0 | FE ttrain=0 und=0 full=0 best=0 | PZ ttrain=0 und=0 full=0 best=0 | shuffle={'n': 200, 'ttrain': 0, 'full': 0} planted=True und_share=0.0005
+c2-T: nodes=3422 | PA ttrain=0 und=0 full=0 rej=[389, 1475, 0, 2884, 2885, 926, 816, 1941, 249] nrej_hist=[0, 369, 116, 991, 1192, 685, 69, 0, 0, 0, 0] best=0 | FE ttrain=0 und=0 full=0 best=0 | PZ ttrain=0 und=0 full=0 best=0 | shuffle={'n': 200, 'ttrain': 1, 'full': 0} planted=True und_share=0.0005
+c3-T: nodes=3306 | PA ttrain=0 und=0 full=0 rej=[105, 1488, 158, 0, 0, 0, 0, 188, 298] nrej_hist=[0, 1752, 1135, 247, 93, 79, 0, 0, 0, 0, 0] best=0 | FE ttrain=0 und=0 full=0 best=0 | PZ ttrain=383 und=334 full=0 best=0 | shuffle={'n': 200, 'ttrain': 0, 'full': 0} planted=True und_share=0.0085
+kind Q: 462 objects built in 42s; groups {'P': 9, 'PX': 168, 'PH': 24, 'C1': 5, 'H1': 24, 'C2': 5, 'H2': 24, 'C3': 5, 'H3': 24, 'C4': 5, 'H4': 24, 'C5': 5, 'H5': 24, 'C6': 5, 'H6': 24, 'C7': 5, 'H7': 24, 'C8': 5, 'H8': 24, 'C9': 5, 'H9': 24}
+planned: per object complex128[5 x 116]; Phi tables 2 x float64[5889]; convolution grids complex128[4225]; theta^w lists as registered; workers 8
+    theta route: lattice n, Y = 59, planned 186 MB
+    theta route: lattice n, Y = 97, planned 186 MB
+    theta route: lattice n, Y = 102, planned 186 MB
+    theta route: lattice n, Y = 98, planned 186 MB
+    theta route: lattice n, Y = 306, planned 186 MB
+    theta route: lattice n, Y = 480, planned 186 MB
+    theta route: lattice n, Y = 51, planned 186 MB
+    theta route: lattice n, Y = 152, planned 186 MB
+    theta route: lattice n, Y = 64, planned 186 MB    theta route: lattice n, Y = 80, planned 186 MB
+
+    theta route: lattice n, Y = 453, planned 186 MB
+    theta route: lattice n, Y = 83, planned 186 MB
+    theta route: lattice n, Y = 78, planned 186 MB
+    theta route: lattice n, Y = 654, planned 186 MB
+    theta route: lattice n, Y = 378, planned 186 MB
+    theta route: lattice n, Y = 643, planned 186 MB
+    theta route: lattice n, Y = 700, planned 186 MB
+    theta route: lattice n, Y = 333, planned 186 MB
+    theta route: lattice n, Y = 732, planned 186 MB
+    theta route: lattice n, Y = 865, planned 186 MB
+    theta route: lattice n, Y = 498, planned 186 MB
+    theta route: lattice n, Y = 782, planned 186 MB
+    theta route: lattice n, Y = 518, planned 186 MB
+    theta route: lattice n, Y = 813, planned 186 MB
+    theta route: lattice n, Y = 667, planned 186 MB
+    theta route: lattice n, Y = 1083, planned 186 MB
+    theta route: lattice n, Y = 251, planned 186 MB
+    theta route: lattice n, Y = 924, planned 186 MB
+    theta route: lattice n, Y = 634, planned 186 MB
+    theta route: lattice n, Y = 1177, planned 186 MB
+    theta route: lattice n, Y = 695, planned 186 MB
+    theta route: lattice n, Y = 378, planned 186 MB
+    theta route: lattice n, Y = 219, planned 186 MB
+    theta route: lattice n, Y = 1036, planned 186 MB
+    theta route: lattice n, Y = 252, planned 186 MB
+    theta route: lattice n, Y = 356, planned 186 MB
+    theta route: lattice n, Y = 371, planned 186 MB
+    theta route: lattice n, Y = 955, planned 186 MB
+    theta route: lattice n, Y = 1719, planned 186 MB
+    theta route: lattice n, Y = 1130, planned 186 MB
+    theta route: lattice n, Y = 333, planned 186 MB
+    theta route: lattice n, Y = 1551, planned 186 MB
+    theta route: lattice n, Y = 2081, planned 186 MB
+    theta route: lattice n, Y = 1699, planned 186 MB
+    theta route: lattice n, Y = 1719, planned 186 MB
+    theta route: lattice n, Y = 1021, planned 186 MB
+    theta route: lattice n, Y = 740, planned 186 MB
+    theta route: lattice n, Y = 827, planned 186 MB
+    theta route: lattice n, Y = 1130, planned 186 MB
+    theta route: lattice n, Y = 593, planned 186 MB
+    theta route: lattice n, Y = 1344, planned 186 MB
+    theta route: lattice n, Y = 1066, planned 186 MB
+    theta route: lattice n, Y = 996, planned 186 MB
+    theta route: lattice n, Y = 654, planned 186 MB
+    theta route: lattice n, Y = 480, planned 186 MB
+    theta route: lattice n, Y = 1001, planned 186 MB
+    theta route: lattice n, Y = 862, planned 186 MB
+    theta route: lattice n, Y = 1156, planned 186 MB
+    theta route: lattice n, Y = 924, planned 186 MB
+    theta route: lattice n, Y = 1208, planned 186 MB
+    theta route: lattice n, Y = 654, planned 186 MB
+    theta route: lattice n, Y = 498, planned 186 MB
+    theta route: lattice m, Y = 3800, planned 190 MB
+    theta route: lattice m, Y = 3040, planned 189 MB
+    theta route: lattice m, Y = 2280, planned 188 MB
+    theta route: lattice m, Y = 5319, planned 192 MB
+    theta route: lattice m, Y = 6078, planned 193 MB
+    theta route: lattice m, Y = 9406, planned 197 MB
+    theta route: lattice m, Y = 5887, planned 193 MB
+    theta route: lattice m, Y = 6676, planned 194 MB
+    theta route: lattice m, Y = 7624, planned 195 MB
+    theta route: lattice m, Y = 6624, planned 194 MB
+    theta route: lattice m, Y = 10493, planned 199 MB
+    theta route: lattice m, Y = 7051, planned 195 MB
+    theta route: lattice m, Y = 5984, planned 193 MB
+    theta route: lattice m, Y = 6321, planned 194 MB
+    theta route: lattice m, Y = 9935, planned 198 MB
+    theta route: lattice m, Y = 8164, planned 196 MB
+    theta route: lattice m, Y = 9770, planned 198 MB
+    theta route: lattice m, Y = 5751, planned 193 MB
+    theta route: lattice m, Y = 6370, planned 194 MB
+    theta route: lattice m, Y = 9619, planned 198 MB
+    theta route: lattice m, Y = 8489, planned 196 MB
+    theta route: lattice m, Y = 6316, planned 194 MB
+    theta route: lattice m, Y = 11435, planned 200 MB
+    theta route: lattice m, Y = 11258, planned 200 MB
+    theta route: lattice m, Y = 11615, planned 200 MB
+    theta route: lattice m, Y = 10002, planned 198 MB
+    theta route: lattice m, Y = 11435, planned 200 MB
+    theta route: lattice m, Y = 6370, planned 194 MB
+    theta route: lattice m, Y = 6723, planned 194 MB
+    theta route: lattice n, Y = 51, planned 186 MB
+    theta route: lattice n, Y = 59, planned 186 MB
+    theta route: lattice n, Y = 64, planned 186 MB
+    theta route: lattice n, Y = 78, planned 186 MB
+    theta route: lattice n, Y = 83, planned 186 MB
+    theta route: lattice n, Y = 127, planned 186 MB
+    theta route: lattice n, Y = 178, planned 186 MB
+    theta route: lattice n, Y = 171, planned 186 MB
+    theta route: lattice n, Y = 162, planned 186 MB
+    theta route: lattice n, Y = 127, planned 186 MB
+    theta route: lattice n, Y = 138, planned 186 MB
+    theta route: lattice n, Y = 142, planned 186 MB
+    theta route: lattice n, Y = 178, planned 186 MB
+    theta route: lattice n, Y = 172, planned 186 MB
+    theta route: lattice n, Y = 139, planned 186 MB
+    theta route: lattice n, Y = 181, planned 186 MB
+    theta route: lattice n, Y = 171, planned 186 MB
+    theta route: lattice n, Y = 181, planned 186 MB
+    theta route: lattice n, Y = 183, planned 186 MB
+    theta route: lattice n, Y = 116, planned 186 MB
+    theta route: lattice n, Y = 183, planned 186 MB
+    theta route: lattice n, Y = 129, planned 186 MB
+    theta route: lattice n, Y = 129, planned 186 MB
+    theta route: lattice n, Y = 138, planned 186 MB
+    theta route: lattice n, Y = 130, planned 186 MB
+    theta route: lattice n, Y = 129, planned 186 MB
+    theta route: lattice n, Y = 139, planned 186 MB
+    theta route: lattice n, Y = 172, planned 186 MB
+    theta route: lattice n, Y = 172, planned 186 MB
+    theta route: lattice n, Y = 51, planned 186 MB
+    theta route: lattice n, Y = 59, planned 186 MB
+    theta route: lattice n, Y = 64, planned 186 MB
+    theta route: lattice n, Y = 78, planned 186 MB
+    theta route: lattice n, Y = 83, planned 186 MB
+    theta route: lattice n, Y = 113, planned 186 MB
+    theta route: lattice n, Y = 139, planned 186 MB
+    theta route: lattice n, Y = 162, planned 186 MB
+    theta route: lattice n, Y = 139, planned 186 MB
+    theta route: lattice n, Y = 172, planned 186 MB
+    theta route: lattice n, Y = 116, planned 186 MB
+    theta route: lattice n, Y = 116, planned 186 MB
+    theta route: lattice n, Y = 162, planned 186 MB
+    theta route: lattice n, Y = 162, planned 186 MB
+    theta route: lattice n, Y = 162, planned 186 MB
+    theta route: lattice n, Y = 116, planned 186 MB
+    theta route: lattice n, Y = 127, planned 186 MB
+    theta route: lattice n, Y = 162, planned 186 MB
+    theta route: lattice n, Y = 171, planned 186 MB
+    theta route: lattice n, Y = 142, planned 186 MB
+    theta route: lattice n, Y = 183, planned 186 MB
+    theta route: lattice n, Y = 139, planned 186 MB
+    theta route: lattice n, Y = 127, planned 186 MB
+    theta route: lattice n, Y = 142, planned 186 MB
+    theta route: lattice n, Y = 162, planned 186 MB
+    theta route: lattice n, Y = 162, planned 186 MB
+    theta route: lattice n, Y = 171, planned 186 MB
+    theta route: lattice n, Y = 142, planned 186 MB
+    theta route: lattice n, Y = 113, planned 186 MB
+    theta route: lattice None, Y = 51, planned 186 MB
+    theta route: lattice None, Y = 59, planned 186 MB
+    theta route: lattice None, Y = 64, planned 186 MB
+    theta route: lattice None, Y = 78, planned 186 MB
+    theta route: lattice None, Y = 83, planned 186 MB
+    theta route: lattice None, Y = 142, planned 186 MB
+    theta route: lattice None, Y = 183, planned 186 MB
+    theta route: lattice None, Y = 113, planned 186 MB
+    theta route: lattice None, Y = 162, planned 186 MB
+    theta route: lattice None, Y = 149, planned 186 MB
+    theta route: lattice None, Y = 129, planned 186 MB
+    theta route: lattice None, Y = 183, planned 186 MB
+    theta route: lattice None, Y = 149, planned 186 MB
+    theta route: lattice None, Y = 129, planned 186 MB
+    theta route: lattice None, Y = 139, planned 186 MB
+    theta route: lattice None, Y = 171, planned 186 MB
+    theta route: lattice None, Y = 127, planned 186 MB
+    theta route: lattice None, Y = 171, planned 186 MB
+    theta route: lattice None, Y = 183, planned 186 MB
+    theta route: lattice None, Y = 129, planned 186 MB
+    theta route: lattice None, Y = 162, planned 186 MB
+    theta route: lattice None, Y = 178, planned 186 MB
+    theta route: lattice None, Y = 162, planned 186 MB
+    theta route: lattice None, Y = 149, planned 186 MB
+    theta route: lattice None, Y = 149, planned 186 MB
+    theta route: lattice None, Y = 162, planned 186 MB
+    theta route: lattice None, Y = 130, planned 186 MB
+    theta route: lattice None, Y = 127, planned 186 MB
+    theta route: lattice None, Y = 181, planned 186 MB
+kind Q: products done 46s; two-route check on 33 positives: max diff / max|C| = 5.08e-11; conv edge max 0.0e+00
+c1-Q: nodes=3422 | PA ttrain=0 und=0 full=0 rej=[0, 0, 0, 0, 0, 0, 0, 2, 1] nrej_hist=[0, 3420, 1, 1, 0, 0, 0, 0, 0, 0, 0] best=0 | FE ttrain=0 und=0 full=0 best=0 | PZ ttrain=0 und=0 full=0 best=0 | shuffle={'n': 200, 'ttrain': 0, 'full': 0} planted=True und_share=0.0004
+c2-Q: nodes=3422 | PA ttrain=0 und=0 full=0 rej=[18, 825, 0, 2791, 3016, 1257, 680, 2428, 1105] nrej_hist=[0, 289, 222, 1324, 1339, 235, 13, 0, 0, 0, 0] best=0 | FE ttrain=0 und=0 full=0 best=0 | PZ ttrain=0 und=1 full=0 best=0 | shuffle={'n': 200, 'ttrain': 0, 'full': 0} planted=True und_share=0.0004
+c3-Q: nodes=3306 | PA ttrain=0 und=0 full=0 rej=[260, 1680, 911, 0, 0, 0, 0, 419, 13] nrej_hist=[0, 1593, 710, 522, 481, 0, 0, 0, 0, 0, 0] best=0 | FE ttrain=0 und=0 full=0 best=0 | PZ ttrain=0 und=0 full=0 best=0 | shuffle={'n': 200, 'ttrain': 0, 'full': 0} planted=True und_share=0.0249
+C-DONE
+a1-with {'agree': 291, 'disagree': 0, 'no_ball': 9, 'float_undecided': 0, 'worst_dev': 0.07165724723385851}
+b1-Aw {'agree': 300, 'disagree': 0, 'no_ball': 0, 'float_undecided': 0, 'worst_dev': 0.22204460492503128}
+b1-Ao {'agree': 300, 'disagree': 0, 'no_ball': 0, 'float_undecided': 0, 'worst_dev': 0.05283158819271912}
+b1-B {'agree': 286, 'disagree': 0, 'no_ball': 14, 'float_undecided': 0, 'worst_dev': 0.11275739243666347}
+b3-with {'agree': 287, 'disagree': 0, 'no_ball': 12, 'float_undecided': 1, 'worst_dev': 0.2303662962544938}
+b3-without {'agree': 284, 'disagree': 0, 'no_ball': 16, 'float_undecided': 0, 'worst_dev': 0.07743534046410464}
+b4m-with {'agree': 288, 'disagree': 0, 'no_ball': 11, 'float_undecided': 1, 'worst_dev': 0.06759763989390234}
+b4p-with {'agree': 286, 'disagree': 0, 'no_ball': 14, 'float_undecided': 0, 'worst_dev': 0.04409247765689693}
+b4p-without {'agree': 297, 'disagree': 0, 'no_ball': 3, 'float_undecided': 0, 'worst_dev': 0.034241927656122495}
+b6-with {'agree': 291, 'disagree': 0, 'no_ball': 9, 'float_undecided': 0, 'worst_dev': 0.06308094471585608}
+b2-with {'agree': 300, 'disagree': 0, 'no_ball': 0, 'float_undecided': 0, 'worst_dev': 0.25910545336456636}
+b5l-with {'agree': 290, 'disagree': 0, 'no_ball': 9, 'float_undecided': 1, 'worst_dev': 0.175159728130335}
+b5m-with {'agree': 294, 'disagree': 0, 'no_ball': 6, 'float_undecided': 0, 'worst_dev': 0.18473307854723525}
+b5p-with {'agree': 290, 'disagree': 0, 'no_ball': 10, 'float_undecided': 0, 'worst_dev': 0.28807376916158883}
+BALL-DONE 94s
+ball stage: 349 jobs; nodes per family {'a1-with': {'main': 0, 'fe_only': 0, 'fe_sampled': 0}, 'b1-Aw': {'main': 0, 'fe_only': 19253, 'fe_sampled': 150}, 'b1-Ao': {'main': 0, 'fe_only': 0, 'fe_sampled': 0}, 'b1-B': {'main': 0, 'fe_only': 0, 'fe_sampled': 0}, 'b3-with': {'main': 0, 'fe_only': 18381, 'fe_sampled': 150}, 'b3-without': {'main': 0, 'fe_only': 0, 'fe_sampled': 0}, 'b4m-with': {'main': 0, 'fe_only': 0, 'fe_sampled': 0}, 'b4p-with': {'main': 0, 'fe_only': 0, 'fe_sampled': 0}, 'b4p-without': {'main': 0, 'fe_only': 0, 'fe_sampled': 0}, 'b6-with': {'main': 40, 'fe_only': 0, 'fe_sampled': 0}, 'b2-with': {'main': 7394, 'fe_only': 12005, 'fe_sampled': 150}, 'b5l-with': {'main': 472, 'fe_only': 11612, 'fe_sampled': 150}, 'b5m-with': {'main': 80, 'fe_only': 0, 'fe_sampled': 0}, 'b5p-with': {'main': 80, 'fe_only': 0, 'fe_sampled': 0}}
+  job 50/349 66s
+  job 100/349 133s
+  job 150/349 157s
+  job 200/349 171s
+  job 250/349 187s
+  job 300/349 200s
+a1-with: read 0 of {'main': 0, 'fe_only': 0, 'fe_sampled': 0}; ball evals 0; sym 0; PA/all {'ttrain': 0, 'undecided': 0, 'excluded': 0} (main {'ttrain': 0, 'undecided': 0, 'excluded': 0}); PA/FE {'ttrain': 0, 'undecided': 0, 'excluded': 0}; min |u| undecided None
+b1-Aw: read 150 of {'main': 0, 'fe_only': 19253, 'fe_sampled': 150}; ball evals 8780; sym 0; PA/all {'ttrain': 0, 'undecided': 0, 'excluded': 150} (main {'ttrain': 0, 'undecided': 0, 'excluded': 0}); PA/FE {'ttrain': 0, 'undecided': 15, 'excluded': 135}; min |u| undecided 2.141983762208491
+b1-Ao: read 0 of {'main': 0, 'fe_only': 0, 'fe_sampled': 0}; ball evals 0; sym 0; PA/all {'ttrain': 0, 'undecided': 0, 'excluded': 0} (main {'ttrain': 0, 'undecided': 0, 'excluded': 0}); PA/FE {'ttrain': 0, 'undecided': 0, 'excluded': 0}; min |u| undecided None
+b1-B: read 0 of {'main': 0, 'fe_only': 0, 'fe_sampled': 0}; ball evals 0; sym 0; PA/all {'ttrain': 0, 'undecided': 0, 'excluded': 0} (main {'ttrain': 0, 'undecided': 0, 'excluded': 0}); PA/FE {'ttrain': 0, 'undecided': 0, 'excluded': 0}; min |u| undecided None
+b3-with: read 150 of {'main': 0, 'fe_only': 18381, 'fe_sampled': 150}; ball evals 8473; sym 0; PA/all {'ttrain': 0, 'undecided': 0, 'excluded': 150} (main {'ttrain': 0, 'undecided': 0, 'excluded': 0}); PA/FE {'ttrain': 0, 'undecided': 7, 'excluded': 143}; min |u| undecided 2.1049157320456904
+b3-without: read 0 of {'main': 0, 'fe_only': 0, 'fe_sampled': 0}; ball evals 0; sym 0; PA/all {'ttrain': 0, 'undecided': 0, 'excluded': 0} (main {'ttrain': 0, 'undecided': 0, 'excluded': 0}); PA/FE {'ttrain': 0, 'undecided': 0, 'excluded': 0}; min |u| undecided None
+b4m-with: read 0 of {'main': 0, 'fe_only': 0, 'fe_sampled': 0}; ball evals 0; sym 0; PA/all {'ttrain': 0, 'undecided': 0, 'excluded': 0} (main {'ttrain': 0, 'undecided': 0, 'excluded': 0}); PA/FE {'ttrain': 0, 'undecided': 0, 'excluded': 0}; min |u| undecided None
+b4p-with: read 0 of {'main': 0, 'fe_only': 0, 'fe_sampled': 0}; ball evals 0; sym 0; PA/all {'ttrain': 0, 'undecided': 0, 'excluded': 0} (main {'ttrain': 0, 'undecided': 0, 'excluded': 0}); PA/FE {'ttrain': 0, 'undecided': 0, 'excluded': 0}; min |u| undecided None
+b4p-without: read 0 of {'main': 0, 'fe_only': 0, 'fe_sampled': 0}; ball evals 0; sym 0; PA/all {'ttrain': 0, 'undecided': 0, 'excluded': 0} (main {'ttrain': 0, 'undecided': 0, 'excluded': 0}); PA/FE {'ttrain': 0, 'undecided': 0, 'excluded': 0}; min |u| undecided None
+b6-with: read 40 of {'main': 40, 'fe_only': 0, 'fe_sampled': 0}; ball evals 0; sym 40; PA/all {'ttrain': 0, 'undecided': 0, 'excluded': 40} (main {'ttrain': 0, 'undecided': 0, 'excluded': 40}); PA/FE {'ttrain': 0, 'undecided': 0, 'excluded': 40}; min |u| undecided None
+b2-with: read 7544 of {'main': 7394, 'fe_only': 12005, 'fe_sampled': 150}; ball evals 8665; sym 80; PA/all {'ttrain': 0, 'undecided': 0, 'excluded': 7544} (main {'ttrain': 0, 'undecided': 0, 'excluded': 7394}); PA/FE {'ttrain': 7314, 'undecided': 34, 'excluded': 196}; min |u| undecided 2.110689118176276
+b5l-with: read 622 of {'main': 472, 'fe_only': 11612, 'fe_sampled': 150}; ball evals 28422; sym 80; PA/all {'ttrain': 0, 'undecided': 0, 'excluded': 622} (main {'ttrain': 0, 'undecided': 0, 'excluded': 472}); PA/FE {'ttrain': 0, 'undecided': 357, 'excluded': 265}; min |u| undecided 2.0921636967483583
+b5m-with: read 80 of {'main': 80, 'fe_only': 0, 'fe_sampled': 0}; ball evals 0; sym 80; PA/all {'ttrain': 0, 'undecided': 0, 'excluded': 80} (main {'ttrain': 0, 'undecided': 0, 'excluded': 80}); PA/FE {'ttrain': 0, 'undecided': 0, 'excluded': 80}; min |u| undecided None
+b5p-with: read 80 of {'main': 80, 'fe_only': 0, 'fe_sampled': 0}; ball evals 0; sym 80; PA/all {'ttrain': 0, 'undecided': 0, 'excluded': 80} (main {'ttrain': 0, 'undecided': 0, 'excluded': 80}); PA/FE {'ttrain': 0, 'undecided': 0, 'excluded': 80}; min |u| undecided None
+BALL-DONE 451s
+PIPELINE-DONE

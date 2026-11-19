@@ -1,0 +1,52 @@
+{
+ "constant_term_coefficients_at_zeros": [
+  {
+   "zero": 1,
+   "gamma": 14.134725141734695,
+   "O1: |xi(rho)| (coefficient of y^(rho/2))": 1.081861980641167e-35,
+   "O1: |xi(rho-1)| (coefficient of y^(1-rho/2))": 1.4227340141064082e-05,
+   "O1: |xi(2-rho)| (same by FE; argument right of 1)": 1.4227340141064082e-05,
+   "O2 shadow E*(z,rho): |xi(2rho)|": 6.276685671132075e-10,
+   "O2 shadow E*(z,rho): |xi(2rho-1)|": 6.276685671132075e-10,
+   "central value zeta(rho)zeta(1-rho) of the shadow": 3.8527756727045905e-61
+  },
+  {
+   "zero": 2,
+   "gamma": 21.022039638771556,
+   "O1: |xi(rho)| (coefficient of y^(rho/2))": 3.0588993667720875e-38,
+   "O1: |xi(rho-1)| (coefficient of y^(1-rho/2))": 8.576768151904517e-08,
+   "O1: |xi(2-rho)| (same by FE; argument right of 1)": 8.576768151904517e-08,
+   "O2 shadow E*(z,rho): |xi(2rho)|": 5.359314909869234e-15,
+   "O2 shadow E*(z,rho): |xi(2rho-1)|": 5.359314909869234e-15,
+   "central value zeta(rho)zeta(1-rho) of the shadow": 1.8761757156670342e-61
+  },
+  {
+   "zero": 3,
+   "gamma": 25.01085758014569,
+   "O1: |xi(rho)| (coefficient of y^(rho/2))": 4.58882925428058e-39,
+   "O1: |xi(rho-1)| (coefficient of y^(1-rho/2))": 4.378352102209737e-09,
+   "O1: |xi(2-rho)| (same by FE; argument right of 1)": 4.378352102209737e-09,
+   "O2 shadow E*(z,rho): |xi(2rho)|": 6.547737621130678e-18,
+   "O2 shadow E*(z,rho): |xi(2rho-1)|": 6.547737621130678e-18,
+   "central value zeta(rho)zeta(1-rho) of the shadow": 2.4233490813468957e-60
+  }
+ ],
+ "generic_O1_type": {
+  "s0": "w/2, w=0.7+14.1347i",
+  "|xi(w)|": 2.76812159066579e-06,
+  "|xi(w-1)|": 1.126527828194773e-05
+ },
+ "edge_equal_modulus": {
+  "t": 7.3,
+  "|xi(1+2it)|": 6.760815150672246e-06,
+  "|xi(2it)|": 6.760815150672246e-06
+ },
+ "casimir_beta_0.5": {
+  "Im s(1-s), O1": 3.5336812854336737,
+  "Im s(1-s), O2": 0.0
+ },
+ "casimir_beta_0.7": {
+  "Im s(1-s), O1": 2.120208771260204,
+  "Im s(1-s), O2": -1.4134725141734694
+ }
+}

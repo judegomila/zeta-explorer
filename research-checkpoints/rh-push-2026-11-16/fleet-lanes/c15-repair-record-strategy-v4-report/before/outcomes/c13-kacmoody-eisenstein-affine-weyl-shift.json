@@ -1,0 +1,59 @@
+{
+ "slug": "c13-kacmoody-eisenstein-affine-weyl-shift",
+ "round": 13,
+ "kind": "explore",
+ "nodes": [],
+ "tags": [
+  "kac-moody",
+  "loop-group",
+  "eisenstein-series",
+  "maass-selberg",
+  "nevanlinna",
+  "blaschke",
+  "affine-weyl-group",
+  "whittaker",
+  "RS-2",
+  "T-NR",
+  "E_a",
+  "stage-A"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "Nothing about zeros of zeta. For the rank-one Levi: the Maass-Selberg inequality (I) for all T>=1 is equivalent to N(omega)=z(1-S)/(1+S), S=e^(-xz)M(z), being a Nevanlinna function of omega=z^2 (proved; classical in content), and this property is preserved under multiplication of M by Blaschke factors over non-real conjugate pairs (or real double zeros) anywhere in Re z>0 and by locally uniform limits (proved). Hence T-NR (c>2, b<1/2) and the control BLS satisfy S2-S4 with zeros off Re z=1/2, and (I) alone gives no constraint on numerator zeros. Relative to the recalled loop-group normalisation (sources not opened): affine SL_2 constant-term coefficients are chain products of M at z+kc, kc-z; in the chamber 0<Re z<Re c every denominator argument has Re>1; at c=1 every non-identity coefficient equals xi(z)/xi(z+n). DH shows no failure of the formal inequality at computed heights and has no zero with Re s>1 below height 2000 (measured for Re<=1.5, bound for Re>=1.5). Formal E_a fails on grids (measured). Closure for the two-variable affine kernel is argued, not proved. Verdict precise-obstruction stands with scope \"rank-one proved, affine argued\".",
+ "obstruction": "Stage A. Coefficients are chain products of M(u) = xi(u)/xi(u+1) at u = z+kc, kc-z; in the chamber 0 < Re z < Re c every denominator argument has Re > 1 and strip arguments occur only as numerator zeros (relative to the recalled Garland / Fleig-Kleinschmidt-Persson normalisation, sources not opened). Rank-one Maass-Selberg positivity for all T >= 1 is equivalent to N = z(1-S)/(1+S) being Nevanlinna in z^2 (proved) and is preserved under Blaschke factors over non-real conjugate pairs anywhere in Re z > 0 (proved), so it gives no constraint on numerator zeros. Scope: rank-one proved; closure for the two-variable affine Gram kernel argued, not proved.",
+ "obstructionKind": "positivity of truncated norms constrains denominators at Re >= 1 only; the inequality is closed under insertion of zeros (inner factors); T-NR passes",
+ "controlsThatDefeat": [
+  "T-NR with c > 2 (a convergent Blaschke product; passes every analytic step)",
+  "BLS (new Blaschke control at the scattering level; passes)",
+  "DH passes the formal inequality at computed heights (to 122; measured)",
+  "formal E_a fails on grids (measured; no separation needed, the device is closed by T-NR and BLS)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 2,
+ "aboutZeros": false,
+ "refereeNote": "No PROVED step failed. Re-derived by hand: (I) = Maass-Selberg in z=2s-1; Theorem B (Wronskian expansion, f'/f = N/2, evenness, iff-Nevanlinna); diagonal bound; Theorem C (composition formula, Im = q*kappa*(N^2+kappa N+m), discriminant -4(Im a)^2, pole in lower half-plane); T-NR factor D(z)/D(z+1) as a convergent Blaschke product with constant +1 (supplies the convergence argument RESULT lists as missing); Lemmas A1-A3 given the recalled normalisation. Independent numeric run (different cases: B - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "Positivity of truncated Eisenstein norms and Langlands-Shahidi non-vanishing act on denominators xi(u+1), which stay at Re >= 1 wherever the mechanism applies; strip arguments are zeros of scattering coefficients, and the inequality is closed under inner (Blaschke) factors. The affine Weyl shift moves the chamber, not the information. Pre-filter for any scattering carrier: does the inequality survive multiplying the coefficient by a Blaschke product over non-real conjugate pairs? T-NR with c>2 is such a product.",
+ "followUp": "Independent referee for Theorems B and C and control BLS (owed before reuse). Then one bounded item: open Garland's Maass-Selberg relations and test whether the two-variable affine Gram kernel stays positive under M -> M*Theta; if it does, the device is closed in full. The lane also wrote lanes_line.json (appended to campaign/lanes.jsonl), engine_device_proposal.json, controls_BLS_proposed.json and MAP_ROW.md for the repair lane.",
+ "resultFile": "tmp/research-2026-11-16/push/c13-kacmoody-eisenstein-affine-weyl-shift/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c13-kacmoody-eisenstein-affine-weyl-shift/REFEREE.md",
+ "launchedNodes": [],
+ "engineVerdict": "closed",
+ "secondReferee": {
+  "by": "c14-referee-r13-independent",
+  "outcome": "holds in rank one; one sentence in a narrower form",
+  "narrowerForm": "Zeros may be inserted at non-real conjugate pairs and at real points with even multiplicity; a single real factor is not covered (Im N' = q a N (N + a)/|.|^2 changes sign). Everything about the affine kernel (I_aff) is argued or relative to unopened sources: closure of (I_aff) under M -> M Theta is OPEN; the affine Maass-Selberg relation, the argument census (Lemmas A1 to A3), convergence in the Tits cone and the degenerate Whittaker formula are relative to Garland and FKP read through summaries. BLS is a control for rank-one truncated-norm positivity only.",
+  "downgrades": [
+   "verdict item 2 and section 3.3 heading: 'arbitrary conjugate pairs' -> 'non-real conjugate pairs or real points with even multiplicity'",
+   "section 3.3 (b) parenthesis (c = -2.1, single real factors): MEASURED only",
+   "'the inequality carries no constraint on numerator zeros': proved for (I); OPEN for (I_aff)"
+  ],
+  "upgrades": [],
+  "report": "tmp/research-2026-11-16/push/c14-referee-r13-independent/REFEREE_c13-kacmoody-eisenstein-affine-weyl-shift.md"
+ }
+}

@@ -1,0 +1,28 @@
+planned: T=10000 Ts=10038.0821 N=128 P=31 R=2.001 points=1025 rows=12300; full rows complex x2 = 50 MB; weights chunk 4000 x 2191 complex = 140 MB
+  rows 0/1025 0s
+  rows 64/1025 6s
+  rows 128/1025 12s
+  rows 192/1025 17s
+  rows 256/1025 23s
+  rows 320/1025 29s
+  rows 384/1025 35s
+  rows 448/1025 41s
+  rows 512/1025 47s
+  rows 576/1025 54s
+  rows 640/1025 60s
+  rows 704/1025 66s
+  rows 768/1025 73s
+  rows 832/1025 79s
+  rows 896/1025 85s
+  rows 960/1025 92s
+  rows 1024/1025 99s
+controls (window defect): {1: {'zeta': 1.7981192724106407e-11, 'dh': 0.5553229187842519}, 2: {'zeta': 1.7981192724106407e-11, 'dh': 0.5779774846066583}, 4: {'zeta': 1.8769167121318846e-11, 'dh': 0.6127566079680624}, 8: {'zeta': 2.1218901878782932e-11, 'dh': 0.6319813541964667}, 16: {'zeta': 2.7151373465284515e-11, 'dh': 0.6480787744683021}, 32: {'zeta': 2.8265157838955896e-11, 'dh': 1.447298627106795}, 64: {'zeta': 3.7220012445750793e-11, 'dh': 1.648461126102932}, 128: {'zeta': 4.670810583657999e-11, 'dh': 1.648461126102932}, 256: {'zeta': 7.41020912304494e-11, 'dh': 1.648461126102932}} DH multiplicativity defects a(4)-a(2)^2, a(6)-a(2)a(3): [1.080700903149283, 1.080700903149283]
+K=1: rank [23, 26] of 31; score 2.47e-05 (window 2.5e-05, F(s0) 9.8e-09, xdep 3.4e-06; start zeta+1.0+refine; offgrid 3.4e-04); dist to translates 0.85; nonmult rank [25, 31, 254] score 4.2e-12 max|a| 1.10; 1s
+K=2: rank [23, 27] of 31; score 6.54e-05 (window 6.5e-05, F(s0) 2.5e-09, xdep 2.6e-06; start prev+refine; offgrid 3.1e-04); dist to translates 0.88; nonmult rank [26, 36, 254] score 5.0e-12 max|a| 1.11; 1s
+K=4: rank [25, 28] of 31; score 1.06e-04 (window 1.1e-04, F(s0) 5.2e-07, xdep 2.8e-06; start zeta+0.1; offgrid 2.0e-04); dist to translates 0.60; nonmult rank [28, 38, 254] score 5.4e-12 max|a| 1.11; 2s
+K=8: rank [26, 29] of 31; score 1.36e-04 (window 1.4e-04, F(s0) 5.1e-08, xdep 6.0e-06; start zeta+0.1; offgrid 1.7e-04); dist to translates 0.81; nonmult rank [30, 41, 254] score 7.3e-12 max|a| 1.11; 2s
+K=16: rank [27, 29] of 31; score 5.06e-04 (window 5.1e-04, F(s0) 1.5e-09, xdep 1.9e-06; start zeta+1.0+refine; offgrid 2.7e-04); dist to translates 0.87; nonmult rank [33, 45, 254] score 8.1e-12 max|a| 1.11; 2s
+K=32: rank [27, 30] of 31; score 2.31e-03 (window 2.3e-03, F(s0) 3.2e-05, xdep 2.6e-04; start zeta+0.1; offgrid 1.1e-03); dist to translates 0.82; nonmult rank [39, 51, 254] score 1.1e-11 max|a| 1.11; 2s
+K=64: rank [29, 30] of 31; score 2.17e-02 (window 2.2e-02, F(s0) 5.5e-03, xdep 8.3e-03; start zeta+0.03; offgrid 1.2e-02); dist to translates 0.78; nonmult rank [50, 63, 254] score 1.1e-11 max|a| 1.11; 2s
+K=128: rank [30, 30] of 31; score 2.03e-01 (window 1.9e-01, F(s0) 2.0e-01, xdep 2.8e-02; start random; offgrid 1.6e-01); dist to translates 0.85; nonmult rank [71, 87, 254] score 1.5e-11 max|a| 1.12; 2s
+K=256: rank [30, 30] of 31; score 3.95e-01 (window 3.3e-01, F(s0) 3.9e-01, xdep 4.1e-02; start prev; offgrid 3.1e-01); dist to translates 0.29; nonmult rank [115, 134, 254] score 1.4e-11 max|a| 1.13; 2s

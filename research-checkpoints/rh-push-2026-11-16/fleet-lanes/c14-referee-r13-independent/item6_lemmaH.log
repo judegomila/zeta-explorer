@@ -1,0 +1,34 @@
+{
+ "minor2": {
+  "K3>0 at 4 points": 80,
+  "tau=-0.02 zeta-1 heat-1": 80,
+  "tau=-0.1 zeta-1 heat-1": 80,
+  "tau=-0.5 zeta-1 heat-1": 80,
+  "tau=-1.66 zeta-1 heat-1": 80,
+  "tau=-5.0 zeta-1 heat-1": 80,
+  "tau=60.0 zeta-1 heat+1": 17,
+  "tau=60.0 zeta-1 heat-1": 63,
+  "tau=8.0 zeta-1 heat-1": 80
+ },
+ "D3b-F1": {
+  "tau=-0.02 zeta-1 heat-1": 80,
+  "tau=-0.1 zeta-1 heat-1": 80,
+  "tau=-0.5 zeta-1 heat-1": 80,
+  "tau=-1.66 zeta-1 heat-1": 80,
+  "tau=-5.0 zeta-1 heat-1": 80,
+  "tau=60.0 zeta-1 heat+1": 7,
+  "tau=60.0 zeta-1 heat-1": 73,
+  "tau=8.0 zeta-1 heat-1": 80
+ },
+ "D3b-F2": {
+  "tau=-0.02 zeta+1 heat+1": 80,
+  "tau=-0.1 zeta+1 heat+1": 80,
+  "tau=-0.5 zeta+1 heat+1": 80,
+  "tau=-1.66 zeta+1 heat+1": 80,
+  "tau=-5.0 zeta+1 heat+1": 80,
+  "tau=60.0 zeta+1 heat+1": 67,
+  "tau=60.0 zeta+1 heat-1": 13,
+  "tau=8.0 zeta+1 heat+1": 80
+ },
+ "identity_i_max_rel_defect": 0.0
+}

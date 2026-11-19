@@ -1,0 +1,33 @@
+{
+"q": 5,
+"fam": [
+2
+],
+"mode": "L",
+"T": 40.0,
+"dt": 0.01,
+"grid_points": 4000,
+"undetermined": 0,
+"C_v": 31,
+"C_w": 31,
+"neg_points_v": 779,
+"neg_points_w": 779,
+"first_negative": {
+"v": 5.41,
+"w": 5.41
+},
+"min_normalised_Sv": [
+-0.9529486751754552,
+34.45,
+"[-0.952948675175 +/- 4.56e-13]"
+],
+"min_normalised_Sw": [
+-0.9529486751754552,
+34.45,
+"[-0.952948675175 +/- 4.56e-13]"
+],
+"single_term_sign_changes": [
+31
+],
+"seconds": 1.99859619140625
+}

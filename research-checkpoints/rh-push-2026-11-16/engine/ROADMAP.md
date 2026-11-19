@@ -1,6 +1,6 @@
-# Roadmap: attack paths generated from the idea graph (batches 1 and 2, 2026-11-17; campaign state after round 5 in section 10; after round 10 in section 11, 2026-11-19)
+# Roadmap: attack paths generated from the idea graph (batches 1 and 2, 2026-11-17; campaign state after round 5 in section 10; after round 10 in section 11, 2026-11-19; after round 14 in section 12; after round 15 in section 13)
 
-**Current state: section 11.** It overrides sections 1 to 10 where they differ.
+**Current state: section 13** (with the counts of sections 11.1 to 11.3 and section 12 where section 13 does not replace them). It overrides sections 1 to 12 where they differ.
 
 Status of every statement below: RH is open. Nothing here is a result about zeros. The roadmap orders work; it does not rank likelihood of success. Row ids (P1, Q10, N25, ...) refer to `../push/OBSTRUCTION_MAP.md` and the syntheses in `../push/`; node ids refer to `IDEA_GRAPH.json`.
 
@@ -321,3 +321,61 @@ Dependencies: 4 before the round-12 explore lanes (its list replaces the argued 
 ### 11.6 Generator after the review
 
 Weights (`generate.py`, dict `WEIGHTS`; previous file `scratch/generate.before-strategy-v3.py`): open device 3 to 2, floored device 1 to 0, cohesion cap 2 to 1. Reason: the device nodes ranked first in rounds 8 to 10 were each closed within two rounds with score 0; the floored device filled 27 of the top 60 of round 10 and its lanes cannot change the headline; every partner placed by tag overlap was discarded by the planner. Run of 2026-11-19 (log `scratch/rerun-strategy-v3.log`): 100 outcome entries (66 closed), 34 closed families, 1,643 nodes (960 live), 8,864 edges; 36,569 generated, 28,131 rejected, 8,438 scored. Top 60: no open device (none exists), no closed device, 60 on the floored 7/8 device (five nodes, 12 each). The list is part-B reading only. Use of the generator from round 11: after an explore lane passes stage A its device gets a node (`curated/mk_devices.py`, `nodes/`), and `generate.py --node <id>` enumerates partners. The ranking has not predicted an outcome in ten rounds; the scoring defects of section 9 item 2 remain.
+
+## 12. State after campaign round 14 (2026-11-19; checkpoint applied; matches `../campaign/STRATEGY.md` version 4)
+
+Written by `push/c15-repair-record-strategy-v4-report`. Sections 11.4 and 11.5 are superseded; 11.1 to 11.3 stand with the counts below.
+
+- No explore lane passed stage A in rounds 11 to 14 (12 lanes). The checkpoint rule applies: 1 explore lane, 2 repair-and-record lanes, the other five slots only on items that would turn a silent read class into a verdict.
+- Device table: 51 types, 50 closed, 1 floored (the 7/8 architecture), 0 open. Map: 202 labelled rows. Controls with an engine code: 20.
+- There is no current lead. The read sets RS-1 to RS-3 are replaced by the read classes U1 to U8 (`../campaign/STRATEGY.md` section 4.0). These are the classes on which the record is silent, not leads. They have no node in the graph; the generator cannot rank them.
+- The campaign result is reported as the refereed record of obstructions plus the part-B figure (`../campaign/CAMPAIGN_REPORT_R15.md`). Headline 1 of 4. RH is open.
+- Generator: top 60 unchanged by the round-15 record edits; ranks 1 to 24 stand on the floored 7/8 device, the rest on `map-open-2`, `map-open-4`, `seven-eighths-abscissa-formula`; reading list for part B only.
+
+## 13. State after campaign round 15 (2026-11-19; matches `../campaign/STRATEGY.md` version 5)
+
+Written by the strategy review after round 15. Section 12 stands except for its third bullet (the classes U1 to U8), which section 13.2 replaces.
+
+### 13.1 Counts
+
+- 130 campaign lanes, each with at least one referee file (three or more of them author passes); headline 1 of 4 (`c1-leeyang-krein-limit`), unchanged since round 1; no lane with R2, R3 or R4; 107 lemmas decided; 11 PROVED sub-steps broken by referees. RH is open and no lane states anything about zeros of zeta.
+- Screening arm (`../push/s1-*`, parallel workflow, server): 10 lanes, 40 combinations of untried tag-pair families, 0 survivors; not in `lanes.jsonl`, no independent referee, no map row.
+- Graph after the rebuild of this review: 1,701 nodes (963 live), 9,025 edges, 462 tags; tag-pair families 106,491 (closed 3,618; tried, not closed 610; untried 102,263). The six added nodes are the round-15 outcome nodes; the family count rose from 89,253 because their tags are new, not because routes opened.
+- Device table: 51 types, 50 closed, 1 floored, 0 open (unchanged; the round-15 device entries and map rows S12b, Q25, DN and the control rows ZQ, SG, NR-q are owed to the repair slot).
+
+### 13.2 What round 15 changed in the map of the wall (replaces the U-class bullet of section 12)
+
+| class of section 12 | state after round 15 | by |
+|---|---|---|
+| U1 {FE, GEOM}; U2 {FE, SIZE} | not control-free: ZQ = zeta times a rational symmetric multiplier has zeta's functional equation, all prime-power atoms and prescribed off-line zeros; read on coefficients both are cells of U3 | `c15-control-with-zeta-fe-classes-u1-u2` |
+| U2, POS branch | open cell: missing lemma POS-FE (below) | same lane, Lemma L and referee item E1 |
+| U3 identification | unchanged; fourth identification class added: {FE, pole at 1 only, Lambda_G >= Lambda} | Lemma L |
+| U4 joint functionals | dictionary DN closed at two tiers (measured); canonical tier undecided at float64 | `c15-nonhomogeneous-pair-triple-kernel-search` |
+| U5 growing window counts | closed inside one span (translate control); beyond a span every statement found is an identification | `c15-u5-window-count-threshold-translate-control` |
+| U6 (a) to (g) | (a) amplification with T >= N closed; (c) to (g) unchanged | `c15-edge-argument-strip-width-hecke-amplified` |
+| U7 growing sections | closed as a row: the tapered stage inequality at unbounded P is the Weil form (row P45) | `c15-u7-growing-section-twin-ladder-bridge` |
+| U8 kernel conditions beyond range | three proved exclusions, one unrefereed | `c15-referee-r14-independent-checkpoint` |
+
+### 13.3 Current lead and missing lemma
+
+There is no lead with a referee-confirmed score of 2 or more. Least blocked item: the POS cell of U2.
+
+**POS-FE.** G meromorphic in C, simple pole at 1 and no other pole, finite order, zeta's functional equation, and -G'/G the transform of a non-negative measure on [1, infinity). Claim to decide: G = c zeta. A construction of another G closes the cell with a control; a proof is an identification statement and scores 0; only a quantitative form (negative part of size eps forces zeros within f(eps) of the line) would be a non-identity statement, and none is on file.
+
+**C(theta)** (the wall R4 in its most concrete form on file): Re L_F(1/2 + it; P = t^theta) >= -M for all large t, L_F the Fejer-tapered section of the prime chain on the gamma one-port. Implied by RH; proved for P up to about ((1/4) log t log log t)^2 only; at unbounded P equivalent to RH with a sound limit step. No step on file uses multiplicativity between the two ranges.
+
+### 13.4 Order of attack for round 16 (allocation 1 explore / 2 deepen / 1 combine / 1 to 3 compute / 2 repair)
+
+1. Deepen: POS-FE (construct or exclude; then the quantitative form if the exclusion proof gives one).
+2. Deepen: Proposition 5 of the U7 lane by a power-sum argument (what C(theta) implies on the zero side).
+3. Combine: Q-A filter (ZQ, NR-q, Lemma F, canonical lifts) run on paper over U3, U4, U6, U8; output the cells in which no control on file passes.
+4. Explore, stage A: one of U6 (e), (f), (g), chosen after item 3 if it reports in time, otherwise U6 (g).
+5. Compute (server): certified conversion of the canonical tier of dictionary DN (67,138 float64-undecided nodes, ball arithmetic).
+6. Compute (server), only if registered: draw-stage recount of the c14 joint search for the canonical tier; U8 beyond range only after its exclusion lemma has a referee.
+7. Repair A: independent referees (round 15, author-pass lanes, Lemma J1', U8 exclusion, a sample of the screening lanes).
+8. Repair B: the owed list of round 15 and the report corrections.
+
+### 13.5 Generator after the review
+
+Weights changed in `generate.py` (`WEIGHTS`): separator 3 -> 1.5; cheap-test part split into `cheapMeasured` 0.25 (was 1) and `cheapNamed` 1. Reason: 40 screened combinations (33 with a measured, certified or tool member, among them the separator node of the former rank 1) gave no survivor; a measured member does not predict a structural control failure. Effect on the top 60: 44 keys in common, 16 new; rank 1 is now `capture-ratio-psd-slope` x `sympow-conductor-normalised-shift` x `tro6-natural` (10.25); all 60 still stand on the floored 7/8 device. The generator cannot propose a device in a silent cell, because the cells have no node; giving the cells of section 13.2 nodes (pending proposals in `curated/mk_devices.py`) is owed to the repair slot. Log: `scratch/rerun-strategy-v5.log`. Previous files: `scratch/generate.before-strategy-v5.py`, `scratch/CANDIDATES.before-strategy-v5.json`.
+

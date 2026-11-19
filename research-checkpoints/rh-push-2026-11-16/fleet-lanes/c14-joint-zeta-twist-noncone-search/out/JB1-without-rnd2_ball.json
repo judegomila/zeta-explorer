@@ -1,0 +1,16 @@
+{
+ "family": "JB1-without-rnd2",
+ "optimistic_rows": 5170,
+ "not_processed": 0,
+ "ball_evaluations": 86218,
+ "pos_opposite": 5170,
+ "pos_undecided": 0,
+ "killed_by_class": {},
+ "killed_fe_by_class": {},
+ "unresolved_class_entries": 0,
+ "alive_all": [],
+ "alive_fe": [],
+ "full_survivors": [],
+ "full_survivors_fe": [],
+ "seconds": 5.816553115844727
+}

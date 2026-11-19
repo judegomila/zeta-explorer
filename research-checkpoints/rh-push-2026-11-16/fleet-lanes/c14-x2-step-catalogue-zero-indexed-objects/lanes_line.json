@@ -1,0 +1,59 @@
+{
+ "round": 14,
+ "slug": "c14-x2-step-catalogue-zero-indexed-objects",
+ "kind": "combine",
+ "verdict": "precise-obstruction",
+ "claim": "Paper lane; nothing about zeros of zeta. Twelve proved inequalities that consume a Hecke eigen-relation or exact local factor at every prime were catalogued (step using the eigen-relation, step using the functional equation, hypotheses) and the three zero-indexed objects substituted. No entry is met in full by a zero-indexed object at a zero in the open strip. Lemma T (proved): for a torus parameter every L(s,Pi,r x chi) is a product of shifted Dirichlet L-functions and rightmost pole minus rightmost local/gamma pole is 1 for every parameter and r; 'pole at 1' is equivalent to the conclusion with exponent 0. Proposition E: the Eisenstein-series proof of zeta(1+it)!=0 is the one entry met in full with a zero-specific hypothesis, at Re rho=1; in the strip the missing hypothesis is xi(2-rho)=0. For the weight-1/2 object every failing hypothesis is equivalent to beta=1/2 and not specific to zeros; theta-orthogonality is a hypothesis of no entry. For the resonance vector the eigen-relation fails (G26).",
+ "aboutZeros": false,
+ "refereeHolds": null,
+ "referees": 0,
+ "r1": false,
+ "r2": false,
+ "r3": false,
+ "r4": false,
+ "score": 0,
+ "file": "tmp/research-2026-11-16/push/c14-x2-step-catalogue-zero-indexed-objects/RESULT.md",
+ "heavy": false,
+ "serverUnits": [],
+ "restatement": false,
+ "knownArchitecture": false,
+ "brokenProved": 0,
+ "lemmasDecided": 2,
+ "catalogueEntries": 12,
+ "listStrictInStrip": 0,
+ "listStrictOnEdge": [
+  "E10 x E*(z,rho/2) at Re rho = 1 (classical)"
+ ],
+ "listOneFailureWithZeroSpecificMet": [
+  "E1",
+  "E2",
+  "E5",
+  "E10"
+ ],
+ "listFailureEquivalentToTarget": [
+  "E2",
+  "E3",
+  "E4",
+  "E5",
+  "E6",
+  "E7",
+  "E11",
+  "E12 (weight-1/2 object)"
+ ],
+ "tags": [
+  "x2-step",
+  "catalogue",
+  "eisenstein-at-zero",
+  "weight-half",
+  "lax-phillips",
+  "torus-parameter",
+  "control-EIS-w",
+  "control-E_a",
+  "control-BLS",
+  "rs-1",
+  "rs-2"
+ ],
+ "obstructionKind": "every catalogued inequality with exponent below 1/2 needs L2, pole at 1, spectral membership or unitarity; for torus-parameter objects these are false at every parameter or equivalent to the target; zero-specific properties (single exponent, theta-orthogonality) are not what fails",
+ "lesson": "A zero in the strip removes the constant-term coefficient whose argument is in the strip, never the one right of 1 (difference 1 in the L-argument); the template 'zero supplies cuspidality, a theorem contradicts it' is the classical proof on Re s = 1 and stops there. Inequalities that read an object through L(s,Pi,r x chi) cannot bound a torus parameter: pole and local pole move together for every r.",
+ "followUp": "Independent referee owed. No explore device from this catalogue. A device would need a proved inequality without L2 / pole-at-1 / spectral membership / unitarity among its hypotheses and with a zero-specific hypothesis; on file only Maass-Selberg (G31), Lax-Phillips contraction (G26) and the edge theorem qualify, each reaching Re rho <= 1."
+}

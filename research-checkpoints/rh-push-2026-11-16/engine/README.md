@@ -46,6 +46,8 @@ Rules added in campaign round 4 (lane `c4-repair-map-engine-r3`; details and lim
 
 Changed in campaign round 5 (lane `c5-repair-engine-map-r4`): devices are the nodes listed in `curated/devices.json`. A candidate containing a closed device node is rejected; a candidate needs at least one open or floored device; score part `crossing` is 3 for an open device and 2 for a floored one; a device node may appear `--per-device` times in the output (default 12). The three round-4 device nodes have status `closed` (walls). After editing `curated/mk_devices.py` run it, then `build_graph.py`, then `generate.py`.
 
+Changed in campaign round 8 (lane `c8-repair-engine-map-r7`): a closed family that is matched only through the text of an open device node does not reject the candidate (a member that is not an open device must match one of its groups); the penalty "reuses a node of closed lane" is not taken when the shared node is an open device (the lanes are listed in a note). When a node statement of an open device is rewritten, check with `generate.py --node <id>` that it still has scored candidates.
+
 ## The graph
 
 Counts after batch 1 (2026-11-17, late): 1,246 reader records from 15 node files; 1,463 nodes, 8,258 edges, 927 live nodes, 12 controls (SEL and PERM added), 31 outcome and family nodes. Counts before batch 1: 1,238 reader records from 14 node files merge to 1,202 corpus nodes; 154 obstruction rows, 10 controls, 40 positive-list items and 15 uncovered items come from the map and syntheses; 1,422 nodes, 8,102 edges, 922 live nodes.

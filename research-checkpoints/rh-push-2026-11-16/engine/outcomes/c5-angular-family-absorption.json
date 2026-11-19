@@ -3,7 +3,8 @@
  "round": 5,
  "kind": "explore",
  "nodes": [
-  "map-open-1"
+  "map-open-1",
+  "out-c5-angular-family-absorption"
  ],
  "tags": [
   "seven-eighths",
@@ -37,5 +38,8 @@
  "lesson": "A coherent set of exponent 1/2 is not enough: it must be coherent for every (s, c) pair, as squares are. In a group family (characters injective in the row parameter) the only uncoupled coherent row is the trivial character, which is the Moebius sum itself. mu is absorbed only through a nontrivial weight-1 cocycle of the epsilon factor (Jacobi sums, order >= 3); at order 2 and for characters trivial on a subfield's ideles the cocycle is a root of unity or 1.",
  "followUp": "None inside abelian families. The remaining candidate type is nonabelian: a family whose epsilon factor has a nontrivial weight-1 cocycle at effective order 2 (existing map entry: genuine cusp forms on the double cover of GL(3), section 6 item 18). Referee Theorem 7 and re-read Froehlich-Queyrut before adding the row to the map.",
  "resultFile": "tmp/research-2026-11-16/push/c5-angular-family-absorption/RESULT.md",
- "refereeFile": "tmp/research-2026-11-16/push/c5-angular-family-absorption/REFEREE.md"
+ "refereeFile": "tmp/research-2026-11-16/push/c5-angular-family-absorption/REFEREE.md",
+ "launchedNodes": [
+  "map-open-1"
+ ]
 }

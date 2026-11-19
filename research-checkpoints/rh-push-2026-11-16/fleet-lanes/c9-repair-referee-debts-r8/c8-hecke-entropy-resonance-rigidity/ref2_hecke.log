@@ -1,0 +1,19 @@
+== 1. G_chi(z, w) = sum_{(c,d)=1, 5|c} chi(d) y^w/|cz+d|^(2w), truncated |c|,|d| <= 40, z = 0.13+0.9i, w = 1.7
+   chi_0 (trivial, even)      |sum| = 1.749e+00   sum of |terms| = 1.748638   chi(-1) = 1
+   chi (chi(2)=i, odd)        |sum| = 5.740e-27   sum of |terms| = 1.748638   chi(-1) = -1
+   chi^2 (quadratic, even)    |sum| = 1.673e+00   sum of |terms| = 1.748638   chi(-1) = 1
+   chi^3 (chi(2)=-i, odd)     |sum| = 5.740e-27   sum of |terms| = 1.748638   chi(-1) = -1
+== 2. Lemma 3 with m = number of pairs (p, j) (lane) against m with Gamma-multiplicity (first referee)
+   y0 =   20.0: resonance w = 0.7500-7.0674i, |tau_w(2)|^2 = 0.2586, int_B y^(2s) dmu = 7.34180e+01, LHS = 1.89860e+01, 2(p+1)||L^Y f||^2 = 9.74507e+01, LHS/RHS = 0.195, Gamma-multiplicity of the image of B under z -> pz about 42
+   y0 =  200.0: resonance w = 0.7500-7.0674i, |tau_w(2)|^2 = 0.2586, int_B y^(2s) dmu = 2.32168e+03, LHS = 6.00390e+02, 2(p+1)||L^Y f||^2 = 3.08166e+02, LHS/RHS = 1.948, Gamma-multiplicity of the image of B under z -> pz about 417
+   y0 = 2000.0: resonance w = 0.7500-7.0674i, |tau_w(2)|^2 = 0.2586, int_B y^(2s) dmu = 7.34180e+04, LHS = 1.89860e+04, 2(p+1)||L^Y f||^2 = 9.74507e+02, LHS/RHS = 19.483, Gamma-multiplicity of the image of B under z -> pz about 4169
+   (f = E(., w) at a resonance equals y^w up to terms below exp(-2 pi (y0 e^-r)) on B; ||Lambda^Y f||^2 = Y^(2s-1)/(2s-1) exactly)
+== 3. Lemma 5: push-forward under y -> e^s y and Hecke eigenvalue of m_sigma (test function g(y) = y^2 e^-y)
+   sigma = 0.6: push/base = 0.869358235399, e^(-(2s-1)s) = 0.869358235399, e^(+(2s-1)s) = 1.150273798857; T_3: ratio 2.621132336747, p^(2s-1/2)+p^(1/2-2s) = 2.621132336747
+   sigma = 0.75: push/base = 0.704688089719, e^(-(2s-1)s) = 0.704688089719, e^(+(2s-1)s) = 1.419067548593; T_3: ratio 3.333333333333, p^(2s-1/2)+p^(1/2-2s) = 3.333333333333
+   sigma = 0.9: push/base = 0.571209063849, e^(-(2s-1)s) = 0.571209063849, e^(+(2s-1)s) = 1.750672500296; T_3: ratio 4.410908542056, p^(2s-1/2)+p^(1/2-2s) = 4.410908542056
+== 4. Lemma G1: f_eps for the Liouville twist is not the zero function; difference of eigenvalues in (ii)
+   f_eps(0.3+0.8i), w = 0.75+3i, 30 modes: (-0.00086953252 - 0.00011905626j)  (|f| = 8.776e-04; first term 8.625e-04)
+   p0 = 2: tau^eps - (p^u + p^-u) = (1.9772982 - 0.60843267j), (eps-1)(p^u - conj(eps) p^-u) = (1.9772982 - 0.60843267j), |.| = 2.0688
+   p0 = 3: tau^eps - (p^u + p^-u) = (4.1025287 + 0.17091349j), (eps-1)(p^u - conj(eps) p^-u) = (4.1025287 + 0.17091349j), |.| = 4.1061
+   p0 = 5: tau^eps - (p^u + p^-u) = (-0.50061997 + 1.642121j), (eps-1)(p^u - conj(eps) p^-u) = (-0.50061997 + 1.642121j), |.| = 1.7167

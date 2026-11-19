@@ -38,6 +38,7 @@ CTRL_PATTERNS = [
     ('WT', r'\bWT\b|window[- ]translate|lattice (height )?translates?|height translates?'),
     ('FM', r'\bFM\b|finite modification|finitely many (euler|local) factors'),
     ('THIN', r'\bTHIN\b|thin twist'),
+    ('EISW', r'EIS-w|\bEISW\b|off[- ]resonance eisenstein'),
 ]
 
 # Closed combination families (ENGINE_LOG.md, batch 1, plus round-1 lanes). A candidate is
@@ -311,6 +312,9 @@ def main():
         nodes = d.get('nodes') or C1_NODES.get(slug, [])
         hit, passing = codes(d.get('controlsThatDefeat'))
         verdict = VERDICT.get(d['verdict'], d['verdict'])
+        # round-7 learn step: a record may carry engineVerdict (closed | partial | open). Used when the referee does not
+        # hold the claim as stated, so that a precise-obstruction record is not counted as a closure (c7-repair E2).
+        verdict = d.get('engineVerdict', verdict)
         out.append(dict(
             slug=slug, verdict=verdict, batch=d.get('batch', 0), nodes=nodes,
             launchedNodes=d.get('launchedNodes', nodes), tags=d.get('tags', []),

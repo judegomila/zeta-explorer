@@ -3,7 +3,8 @@
  "round": 5,
  "kind": "deepen",
  "nodes": [
-  "map-open-1"
+  "map-open-1",
+  "out-c5-target-fe-order2-ledger"
  ],
  "tags": [
   "seven-eighths",
@@ -36,5 +37,8 @@
  "lesson": "The abscissa of a probe in the Prop. 2.1 format is (true exponent of J) minus c, and both are invariants of J (Lemma U). Re-expressing a probe can only improve the proved low exponent; it never moves the signal. The target's functional equation is already used in the conductor aspect (Prop. 5.1) and is the origin of the K-loss; s <-> 1-s cannot act on 1/L without crossing the zeros. Any route to h > 1 needs a different probe with lx < l, where the reduced system is inconsistent and the false input is not yet identified.",
  "followUp": "Identify the false input in the inconsistent region lx < l: test numerically (tmp/sextic tools, default size) whether the unreflected marked theta rows obey a K + D mean square for 1 + l <= M < 2 + 2l or carry the (KD)^{2/3} term; this also settles referee item E3 of r3-method-limit. Also referee Lemma U and add proposed map row Z15b (RESULT section 9).",
  "resultFile": "tmp/research-2026-11-16/push/c5-target-fe-order2-ledger/RESULT.md",
- "refereeFile": "tmp/research-2026-11-16/push/c5-target-fe-order2-ledger/REFEREE.md"
+ "refereeFile": "tmp/research-2026-11-16/push/c5-target-fe-order2-ledger/REFEREE.md",
+ "launchedNodes": [
+  "map-open-1"
+ ]
 }

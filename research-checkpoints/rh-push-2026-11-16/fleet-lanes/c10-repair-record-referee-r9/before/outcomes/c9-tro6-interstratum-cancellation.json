@@ -1,0 +1,47 @@
+{
+ "slug": "c9-tro6-interstratum-cancellation",
+ "round": 9,
+ "kind": "deepen",
+ "nodes": [
+  "map-open-4",
+  "out-c9-tro6-interstratum-cancellation"
+ ],
+ "tags": [
+  "tro6",
+  "sextic-theta",
+  "signed-c-sum",
+  "stratification",
+  "squarefull",
+  "inclusion-exclusion",
+  "sublattice",
+  "pre-registered",
+  "frontier-number"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "PROVED: Lemma I (each squarefull stratum is a signed sum, signs mu(d)mu(e), of sublattice sums Phi(j), j squarefull) and one-directional Proposition E (a power saving of |B| against sum_kappa |B_kappa| requires some squarefull j != 1, of norm up to Q, with N(j)^(1/2+eps)|Phi(j)| >= c Q^delta |Phi(1)|). MEASURED, for the finite trilinear estimator (rows 77-85% not common to its two halves) in the class-cell mean square at X = 1e6 and 1e7: the ratio of the signed sum over strata to the root sum of squares has exponent -0.005 / +0.001 in Q, equal to random-phase, conjugated, Liouville, THIN, random multiplicative and cubic rows within null scatter 0.003, stable under a shift of the conductor octave; r2 >= 0.72 at every point from the measured arrays. Not established: the converse of Proposition E; any statement for true sextic theta coefficients or a single target; that the squarefree share is more than the 93% row count. Closing lead 17 for squarefull stratification is supported by the two proved statements; the data add little weight. No eta, no abscissa, nothing about zeros.",
+ "obstruction": "Lemma I (proved): each squarefull stratum is a signed sum, signs mu(d) mu(e), of sublattice sums Phi(j). Proposition E (proved, one direction): a power saving between strata requires some squarefull j != 1 with N(j)^(1/2+eps) |Phi(j)| >= c Q^delta |Phi(1)|. Measured at X = 1e6, 1e7: exponent of |B| / root sum of squares is -0.005 / +0.001 against the pre-registered -0.02, equal to every control within null scatter 0.003. Lead 17 is closed for squarefull stratification only (second same-kind obstruction after e2-tro6-signed-csum-stratified). Open as stand-alone routes: dual form on squarefree n; Type I on average over the level. The estimator is mostly non-polar remainder and samples no single target.",
+ "obstructionKind": "squarefull-stratification-is-inclusion-exclusion-over-sublattice-sums-no-saving",
+ "controlsThatDefeat": [
+  "random-phase, conjugated, Liouville, THIN, random multiplicative and cubic-theta rows (same exponents within null scatter)",
+  "not run: DH, heat, U, E_a, T-NR, Beurling"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "Report: tmp/research-2026-11-16/push/c9-tro6-interstratum-cancellation/REFEREE.md. Proved steps confirmed: Lemma I re-derived by hand (reduced B_{p^2} formula, sign table, c(j) <= 4^omega(j)) and checked exactly with independent Z[omega] code at Q = 20,000 (6,045 rows, 55 strata, 0 mismatches) and Q = 3,001 (0 mismatches); Proposition E inequality and contrapositive confirmed. Headline numbers reproduced with own stratification code (r2 exponents - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "Stratifying rows by squarefull part is inclusion-exclusion over divisibility: it recombines bounded-level copies of the total and has no saving of its own. The assigned L1 ratio has a random-sign control that decays like 1/log Q (fitted exponent about -0.10), so it must be read against that control, not against 0. The estimator is mostly non-polar remainder (split-half correlation 0.14 at 1e6, 0.23 at 1e7), and the statistic is a family mean square that does not sample zero-carrying targets.",
+ "followUp": "Close lead 17 for squarefull stratification (second same-kind obstruction after e2); reopen only with an input that separates level 1 from level j in Phi(j). Still open as stand-alone routes: the dual form on squarefree n, and Type I on average over the level. A referee pass on Lemma I and Proposition E is owed. The server directory ~/rh-push/c9-tro6-interstratum-cancellation (477 MB) can be deleted.",
+ "resultFile": "tmp/research-2026-11-16/push/c9-tro6-interstratum-cancellation/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c9-tro6-interstratum-cancellation/REFEREE.md",
+ "launchedNodes": [
+  "map-open-4"
+ ],
+ "engineVerdict": "partial"
+}

@@ -1,0 +1,3 @@
+X = 10000000, nodes = 2822619, conductors = 705012, rows = 11230, workers = 4
+planned memory: per process table 519 MB + T 271 MB + temporaries 271 MB; x5 = 5.30 GB
+saved data/t_1e7.npz 712s

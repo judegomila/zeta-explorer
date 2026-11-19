@@ -1,12 +1,12 @@
 # Campaign scoreboard
 
-Generated 2026-11-18T22:42Z by scoreboard.py. Definitions: METRIC.md. Four parts, reported separately; there is no combined number.
+Generated 2026-11-19T09:04Z by scoreboard.py. Definitions: METRIC.md. Four parts, reported separately; there is no combined number.
 
 ## A. Requirement score (referee-confirmed R1..R4)
 
 Headline (best mechanism that is not the 7/8 architecture): **1 of 4** (`c1-leeyang-krein-limit`); missing: R2, R3, R4.
 Lanes with R4 confirmed: none.
-Lanes by score 0/1/2/3/4: 64 / 2 / 0 / 0 / 0.
+Lanes by score 0/1/2/3/4: 88 / 2 / 0 / 0 / 0.
 
 Calibration:
 
@@ -27,17 +27,17 @@ Calibration:
 ## C. Search coverage
 
 - Graph source: IDEA_GRAPH.json
-- Nodes: 1612 (marked closed in graph: 498); tags: 235
-- Combination families (tag pairs): 27495; closed: 1428; tried, not closed: 467; open and untried: 25600
-- Outcome records read: 76 (files unparsed: 0)
-- Open lemmas decided this campaign: 23
+- Nodes: 1640 (marked closed in graph: 522); tags: 267
+- Combination families (tag pairs): 35511; closed: 1867; tried, not closed: 511; open and untried: 33133
+- Outcome records read: 100 (files unparsed: 0)
+- Open lemmas decided this campaign: 43
 
 ## D. Reliability
 
-- Lanes run: 66 (refereed: 66; unparsed lines: 0)
-- Referee hold rate: 87.9%
-- PROVED claims broken by referees: 7
-- Statements with three-referee confirmation: 0 (about zeros of zeta: 0)
+- Lanes run: 90 (refereed: 90; unparsed lines: 0)
+- Referee hold rate: 87.8%
+- PROVED claims broken by referees: 10
+- Statements with three-referee confirmation: 1 (about zeros of zeta: 0)
 - Claims about zeros not yet counted (fewer than three referees hold): none
 
 ## History by round (cumulative)
@@ -51,3 +51,6 @@ Calibration:
 | 5 | 8 | 50 | 1 | c1-leeyang-krein-limit | R2,R3,R4 | 88% | 5 | 0 | 9 |
 | 6 | 8 | 58 | 1 | c1-leeyang-krein-limit | R2,R3,R4 | 86% | 7 | 0 | 16 |
 | 7 | 8 | 66 | 1 | c1-leeyang-krein-limit | R2,R3,R4 | 88% | 7 | 0 | 23 |
+| 8 | 8 | 74 | 1 | c1-leeyang-krein-limit | R2,R3,R4 | 86% | 8 | 1 | 30 |
+| 9 | 8 | 82 | 1 | c1-leeyang-krein-limit | R2,R3,R4 | 88% | 9 | 1 | 37 |
+| 10 | 8 | 90 | 1 | c1-leeyang-krein-limit | R2,R3,R4 | 88% | 10 | 1 | 43 |

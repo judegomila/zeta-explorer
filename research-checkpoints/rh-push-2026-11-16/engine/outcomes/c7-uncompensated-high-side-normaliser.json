@@ -1,0 +1,42 @@
+{
+ "slug": "c7-uncompensated-high-side-normaliser",
+ "round": 7,
+ "kind": "combine",
+ "nodes": [
+  "out-c6-marks-bc-manuscript-check",
+  "out-c6-unreflected-marks-kd23"
+ ],
+ "tags": [
+  "seven-eighths",
+  "effective-order",
+  "prime-marks",
+  "normaliser",
+  "sextic-theta",
+  "linear-program",
+  "circular",
+  "manuscript-check"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "Estimate-system result only; nothing about zeros; no probe with h > 1 is established and the state of the 7/8 architecture is unchanged.\n\nEXACT / PROVED relative to the unrefereed manuscript (confirmed, including general unit phase): the marked-only probe of MS (12.5) has an exact high representation of the form (10.5) with holomorphic correction Gmark_p = G_p + Q^-w H_p = -(v^-1 - Q^-w) H_p + Delta_p. Its slot factor is Q_i + S_i + D_i, with the scalar prime sum S_i of size P_i^(z0 - 1/2 + delta/2) on the retained contour. At the principal point Bmark_p = B_p + q, so the signal and the normaliser H_eta are those of the compensated probe.\n\nPROVED relative to classical bounds: the slot term has relative size at most P_i^(theta_omega + 2 - 5 Re s) and is absent for slots longer than 1/5. The factorisation (10.18) is available for Re s > (2 + theta_omega)/5, unconditionally for Re s > 3/5.\n\nEXACT on MODEL inputs (reproduced independently): proved rows with lx <= l give 8/9 at h = 1, 0.9051 at h = 1.1, and exceed 1 from h = 3/2. With constraint (C1) the dir0 system returns exactly beta0 at the cone point (t, t, 2t-1), t = 6(1 - beta0).\n\nARGUED, not established: the high-side line (2.1) beyond S_i (ideal model only), and Lemma C, which needs control of the non-sixth-power dual frequencies. Conditional on Lemma C: the h > 1 cone vertices have one input (K + D for coherent marked rows) that implies their conclusion, and that input is false for h_E > 3.",
+ "obstruction": "Dropping the compensation costs l*delta/2 on the high side and changes neither the signal nor the normaliser H_eta. Vertices with 1 < h <= 3 exist on the cone (t, t, 2t-1), but their single low input (K + D energy bound for coherent marked rows) implies their conclusion: marks are coherent at sixth-power frequencies, so the row energy contains the squared signal and B_low >= beta* for M >= 1 + l (Lemma C, ARGUED: needs control of non-sixth-power dual frequencies). The high-side line beyond the slot term S_i is ARGUED in the ideal model. Factorisation (10.18) holds only for Re s > (2 + theta_omega)/5, unconditionally Re s > 3/5.",
+ "obstructionKind": "marked-row-energy-contains-squared-signal",
+ "controlsThatDefeat": [
+  "not a control question: statement inside the 7/8 estimate system (holds for any target)",
+  "not run: all controls"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "Report: tmp/research-2026-11-16/push/c7-uncompensated-high-side-normaliser/REFEREE.md. Every PROVED/EXACT step was confirmed: Lemma 1 rerun exactly at 600 new rational points with the unit phase v left free (the lane fixed v=1); Corollary 1 and the cited equations checked against the manuscript text; the S_i exponent and the section 2 cross-check; the (C1)/(C2) arithmetic; the LP reproduced by an independent exact implementation, with new cases (ne [record truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "In the unreflected regime (rows >= columns) a Cauchy-Schwarz low bound with true norms is always at or above the signal, because coherent marks put the squared signal into the row energy; h > 1 by marks therefore needs an energy input that is itself the zero-free statement. Dropping the compensation costs only l*delta/2 on the high side and changes neither the signal nor the normaliser. Also: c5 tiers_fe2.log rows Y2, Y6 do not reproduce with the current script (0.9 and 0.8810, logged 1.0 and 0.9103). Disclosure: no server job was run; one ssh connection running only `true` was opened to the box.",
+ "followUp": "Referee Lemma C (positive-definite dual kernel, diagonal term, cube completion, coherence from MS (16.13)) since it reverses the attribution of c6-kd23 Prop. E; if it holds, close the STRATEGY 4.0 branch 'h > 1 by marks' and regenerate c5 rows Y2, Y6.",
+ "resultFile": "tmp/research-2026-11-16/push/c7-uncompensated-high-side-normaliser/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c7-uncompensated-high-side-normaliser/REFEREE.md"
+}

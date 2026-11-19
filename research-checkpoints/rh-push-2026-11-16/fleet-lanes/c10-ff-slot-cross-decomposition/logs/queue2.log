@@ -1,0 +1,11 @@
+short done 7 3 3 1 2 s
+short done 7 4 4 1 2 s
+short done 7 3 4 1 2 s
+short done 7 5 4 1 2 s
+short done 7 5 6 2 331 s
+short done 13 3 3 1 2 s
+short done 13 4 4 1 70 s
+short done 7 6 6 2 447 s
+zw done 2000 12.6 rc=1 2 s
+zw done 4000 16 rc=1 2 s
+zw done 8000 20 rc=1 2 s

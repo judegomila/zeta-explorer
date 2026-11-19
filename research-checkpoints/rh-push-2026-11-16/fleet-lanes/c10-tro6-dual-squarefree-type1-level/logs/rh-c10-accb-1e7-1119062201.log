@@ -1,0 +1,24 @@
+mode b: X = 10000000, nodes = 2822619, Qmax = 37149.9, rows = 11230, NB = 10, levels = 154 (per bin [154, 115, 88, 65, 48, 34, 27, 19, 15, 12]), pairs (c, a) = 1586977, workers = 4
+planned memory: per worker table 440 MB + working arrays 265 MB; x5 processes = 3.52 GB; results 305 MB (held twice at save: 0.61 GB)
+chunk 0/351 7s
+chunk 17/351 30s
+chunk 34/351 54s
+chunk 51/351 79s
+chunk 68/351 106s
+chunk 85/351 132s
+chunk 102/351 163s
+chunk 119/351 185s
+chunk 136/351 208s
+chunk 153/351 232s
+chunk 170/351 256s
+chunk 187/351 281s
+chunk 204/351 308s
+chunk 221/351 334s
+chunk 238/351 358s
+chunk 255/351 381s
+chunk 272/351 404s
+chunk 289/351 428s
+chunk 306/351 454s
+chunk 323/351 478s
+chunk 340/351 502s
+saved data/b_1e7.npz 517s

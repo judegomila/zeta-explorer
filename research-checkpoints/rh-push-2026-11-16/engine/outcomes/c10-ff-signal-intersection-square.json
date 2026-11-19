@@ -1,0 +1,55 @@
+{
+ "slug": "c10-ff-signal-intersection-square",
+ "round": 10,
+ "kind": "combine",
+ "nodes": [
+  "ff-order2-vertex-probe",
+  "function-field-twin-ladder",
+  "ff-three-approaches-one-statement",
+  "sign-only-certificate-reach",
+  "out-c10-ff-signal-intersection-square"
+ ],
+ "tags": [
+  "function-field",
+  "exact-arithmetic",
+  "intersection-form",
+  "hodge-index",
+  "twin-ladder",
+  "elliptic-curve",
+  "genus-two",
+  "weil-bound",
+  "effective-order",
+  "control"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "Model only (F_q[T], prime cubic conductor, N <= 3, exact arithmetic; checked at q = 5, 7, 11). The Moebius sum of the probe is S_cop(k) = sum_j c_j t_j with c = c(q, N, lam, k) independent of the curve (proved; at k = 0, lam > N it is -pi(lam) h_N(alpha, alphabar)). For every vector c and every real quadratic 1 - a u + q u^2, on or off the circle, (sum_j c_j t_j)^2 = -D.D/(2 q^N) with D = sum_j c_j (P_{N+j} + q^j P_{N-j}); the equality is algebraic (deg[m] = m^2 on an elliptic curve), uses no index theorem and carries no positivity. B_coh of the round-8 law is a non-negative combination of such numbers. In genus 2 the equality fails (0/80 at q = 7; 0/624 at q = 5) and is replaced by l^2 = (g/2)(-D.D)/q^N - sum (phi_m - phi_n)^2 for trace-linear signals; M_N = h_N is not trace-linear for g >= 2, N >= 2. The Riemann hypothesis of the target (Weil's theorem) enters only as the upper bound on the signal. Within the round-8 law (measured, extrapolated for r >= 6) the growth of B_coh comes from wt_k^2. No new input is named; no statement about zeta.",
+ "obstruction": "F_q[T], prime cubic conductor, N <= 3, q = 5, 7, 11, exact. For genus-1 targets the Moebius sum is S_cop(k) = sum_j c_j t_j with c independent of the curve, and (sum c_j t_j)^2 = -D.D/(2 q^N) for every real quadratic 1 - a u + q u^2, on or off the circle: the equality is deg[m] = m^2 on an elliptic curve, uses no index theorem and carries no positivity. Fakes with off-line zeros pass (3444 of 3444). In genus 2 the equality fails (0 of 80; 0 of 624) and the index theorem bounds the squared signal from above (the Weil bound), the opposite side from the low input. M_N = h_N is not trace-linear for g >= 2, N >= 2. No new input is named; the model's h > 1 comes from the sixth-power count of the probe rows.",
+ "obstructionKind": "genus-one-squared-signal-is-algebraic-identity-deg-m-equals-m-squared-no-positivity-fakes-pass",
+ "controlsThatDefeat": [
+  "genus-1 fakes with zeros off the line (identity holds unchanged, 3444 of 3444)",
+  "Liouville-twisted target (passes)",
+  "not run: DH-type model weight, heat, THIN, U, E_a, T-NR, Beurling"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "Verdict (precise obstruction, model only, all flags false) confirmed; proved steps re-derived; referee report at tmp/research-2026-11-16/push/c10-ff-signal-intersection-square/REFEREE.md. Independent reruns (own code, /tmp/ref_c10/ref.py): Lemma 1 + identity at q=7 with lam in {4,5,9}, k<=4 (45 vectors), q=5 (48 vectors), q=11 (27 vectors): 0 mismatches; genus 2 at q=5 on all 624 prime quintics with the Moebius sums computed directly: genus-1 equal - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "In genus 1 every symmetric function of the Frobenius eigenvalues is linear in the traces, so any squared signal is trivially an intersection-form square (deg[m] = m^2) and the test separates nothing: fakes with off-line zeros and the Liouville-twisted target pass. The Hodge index theorem acts on the squared signal only as an upper bound (Weil bound for the target), the opposite side from what the low input needs. Model targets must have genus >= 2 before a \"square\" identity carries positivity content; there the Moebius signal is the trace on Sym^N H^1 with 1/L' weights, not a Weil functional.",
+ "followUp": "None for this route: do not allocate round-11 effort to naming an intersection-form input for the squared signal. If the model probe is run again, use genus >= 2 targets (conductor degree >= 5) and recompute J_k itself for r >= 6 instead of the starred law; a referee pass on Proposition 2 and the proposed map row (RESULT.md section 7) is the only debt. Server not used; no units to stop.",
+ "resultFile": "tmp/research-2026-11-16/push/c10-ff-signal-intersection-square/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c10-ff-signal-intersection-square/REFEREE.md",
+ "launchedNodes": [
+  "ff-order2-vertex-probe",
+  "function-field-twin-ladder",
+  "ff-three-approaches-one-statement",
+  "sign-only-certificate-reach"
+ ],
+ "engineVerdict": "closed"
+}

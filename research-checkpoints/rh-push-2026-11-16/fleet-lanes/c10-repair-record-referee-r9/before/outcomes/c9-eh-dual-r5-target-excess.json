@@ -1,0 +1,47 @@
+{
+ "slug": "c9-eh-dual-r5-target-excess",
+ "round": 9,
+ "kind": "deepen",
+ "nodes": [
+  "eh-nonprincipal-row-cancellation"
+ ],
+ "tags": [
+  "seven-eighths",
+  "effective-order",
+  "poisson",
+  "function-field",
+  "exact-arithmetic",
+  "control",
+  "pre-registered",
+  "seeded-controls",
+  "linear-functional"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "F_q[T] model, q = 7, exact dual decomposition at (k,N') = (6,6), r = 3, 4, 5 and (referee) (5,5), r = 3, 4: NP is a linear functional of the weight with target-independent kernel (PROVED; confirmed rowwise). The pre-registered excess E > S of targets a, b over random multiplicative and random non-multiplicative signs is not detected at any size, including against 24 seeds per class at r = 5 (resolution 0.05-0.07 in the exponent). The two control classes have exactly the same second moment of NP and are not separated in pooled data. Aligned vector W = mu: Princ = +-(q-1) Sum phi exactly, non-principal rows below it at every tested size, all inside r < (k+N')/2 (sketch for q -> infinity; measured at q = 7). Status MEASURED, pre-asymptotic: an excess below about 0.05 or setting in at r >= 6 is not excluded; target a leans low at r = 5 without significance. Number-field sub-step of Lemma A remains open. No statement about zeros.",
+ "obstruction": "F_q[T], q = 7, (k, N') = (6, 6), r = 3, 4, 5 (and (5, 5), r = 3, 4 by the referee): NP is a linear functional of the weight with a target-independent kernel (proved), so cancellation over non-principal rows is of norm type. The pre-registered target excess over random multiplicative and random non-multiplicative signs is not detected at any size, including against 24 seeds per class at r = 5 (resolution 0.05-0.07 in the exponent). Second same-kind obstruction after c8-eh-nonprincipal-row-cancellation. MEASURED and pre-asymptotic: an excess below about 0.05, or setting in at r >= 6, is not excluded. The number-field sub-step of Lemma A (first moment of the sextic row family) is open.",
+ "obstructionKind": "nonprincipal-row-sum-is-linear-functional-with-target-independent-kernel-no-target-excess",
+ "controlsThatDefeat": [
+  "random multiplicative signs and random non-multiplicative signs (same cancellation exponent as the targets; the two classes have exactly the same second moment of NP)",
+  "aligned vector W = mu (exponent 0.06-0.08: the test detects absence of cancellation)",
+  "not run: heat, U, E_a, T-NR, Beurling"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "Report: tmp/research-2026-11-16/push/c9-eh-dual-r5-target-excess/REFEREE.md. All recomputed integers and table entries are confirmed (15/15 blocks recomputed from stored rows, 0 mismatches; c_u(dh) = c_u(a) + c_u(b) rowwise in all blocks; decision table reproduced to 3 decimals). Independent checks: (i) 16 new seeds per class at r = 5 on the server (rhrun, 4 cores, 8 GB, unit ended by itself): rule still fails (pooled 24 seeds: E_a +0.035, E_b -0.0 [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "A gap of 0.1-0.2 in a cancellation exponent between single control weights is inside the seed spread (0.04-0.19 per geometry). Seeded control classes plus a pre-registered rule decided what one-seed comparisons in round 8 could not. Writing the row sum as a linear functional of the weight shows directly that row cancellation is a device property unless the target is unusually close to the functional's kernel; it is not (target a leans low at r = 5 in two of four geometries, target b does not).",
+ "followUp": "Close (E-H) in the map with the section 6 wording (row Z15d, not applied) and send the lane to a referee. Optional only if someone wants to test the non-significant lean of target a at r = 5: one exact run at (k, N') = (7, 7), d = 8 (r = 5, complete range, about 7 times the cost per frequency; needs shared phase tables to stay under 8 GB). Otherwise none.",
+ "resultFile": "tmp/research-2026-11-16/push/c9-eh-dual-r5-target-excess/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c9-eh-dual-r5-target-excess/REFEREE.md",
+ "launchedNodes": [
+  "eh-nonprincipal-row-cancellation"
+ ],
+ "engineVerdict": "closed"
+}

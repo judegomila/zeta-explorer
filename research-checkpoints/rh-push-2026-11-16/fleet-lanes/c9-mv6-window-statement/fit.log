@@ -1,0 +1,68 @@
+
+w_Z2000_P12.json: Z=2000 P=12.6 N=25200 columns=36197 rows=457008; window points used 6: X = 787.5 .. 25200
+  THETA    ratio min 0.9544 max 0.9946  at lower end 0.9544  at X=N 0.9946  slope e = +0.0123
+  THETA*G  ratio min 0.9641 max 0.9910  at lower end 0.9726  at X=N 0.9910  slope e = +0.0067
+  LIOU     ratio min 0.9664 max 1.0133  at lower end 0.9695  at X=N 1.0133  slope e = +0.0142
+  LIOU*G   ratio min 0.9926 max 1.0138  at lower end 0.9926  at X=N 1.0138  slope e = +0.0054
+  ALIGNED  ratio min 0.9874 max 1.0258  at lower end 0.9874  at X=N 1.0258  slope e = +0.0105
+  THIN     ratio min 0.9732 max 0.9959  at lower end 0.9732  at X=N 0.9959  slope e = +0.0064
+  U        ratio min 0.9815 max 0.9922  at lower end 0.9899  at X=N 0.9922  slope e = +0.0009
+  RAND1    ratio min 0.9697 max 0.9958  at lower end 0.9697  at X=N 0.9958  slope e = +0.0076
+  MUG      ratio min 0.9238 max 0.9875  at lower end 0.9238  at X=N 0.9875  slope e = +0.0206
+  slot THETA    sd min 0.9727 max 0.9965; cr min -0.0196 max -0.0012; cr at lower end -0.0196, at X=N -0.0020
+  slot LIOU     sd min 0.9582 max 0.9863; cr min +0.0062 max +0.0263; cr at lower end +0.0063, at X=N +0.0263; slope of log cr = +0.470
+  slot ALIGNED  sd min 0.9495 max 0.9789; cr min +0.0355 max +0.0478; cr at lower end +0.0355, at X=N +0.0458; slope of log cr = +0.065
+  slot U        sd min 0.9831 max 0.9949; cr min -0.0078 max +0.0060; cr at lower end +0.0060, at X=N -0.0029
+  slot RAND1    sd min 0.9588 max 0.9946; cr min +0.0009 max +0.0088; cr at lower end +0.0088, at X=N +0.0009; slope of log cr = -0.656
+  slot MUG      sd min 0.9498 max 0.9900; cr min -0.0284 max -0.0030; cr at lower end -0.0284, at X=N -0.0030
+
+w_Z4000_P16.json: Z=4000 P=16 N=64000 columns=72933 rows=580380; window points used 8: X = 500 .. 64000
+  THETA    ratio min 0.9649 max 1.0069  at lower end 0.9649  at X=N 1.0019  slope e = +0.0071
+  THETA*G  ratio min 0.8930 max 0.9995  at lower end 0.8930  at X=N 0.9995  slope e = +0.0247
+  LIOU     ratio min 1.0193 max 1.0282  at lower end 1.0282  at X=N 1.0275  slope e = +0.0004
+  LIOU*G   ratio min 1.0309 max 1.0461  at lower end 1.0456  at X=N 1.0416  slope e = -0.0012
+  ALIGNED  ratio min 1.0653 max 1.1021  at lower end 1.1021  at X=N 1.0653  slope e = -0.0047
+  THIN     ratio min 0.9853 max 0.9964  at lower end 0.9853  at X=N 0.9964  slope e = +0.0016
+  U        ratio min 0.9925 max 1.0136  at lower end 1.0136  at X=N 0.9941  slope e = -0.0038
+  RAND1    ratio min 0.9587 max 0.9998  at lower end 0.9587  at X=N 0.9998  slope e = +0.0084
+  MUG      ratio min 0.9822 max 0.9978  at lower end 0.9950  at X=N 0.9978  slope e = +0.0019
+  slot THETA    sd min 0.9693 max 1.0009; cr min -0.0062 max +0.0119; cr at lower end -0.0062, at X=N +0.0016
+  slot LIOU     sd min 0.9552 max 0.9903; cr min +0.0366 max +0.0704; cr at lower end +0.0704, at X=N +0.0366; slope of log cr = -0.116
+  slot ALIGNED  sd min 0.9682 max 0.9850; cr min +0.0794 max +0.1183; cr at lower end +0.1183, at X=N +0.0794; slope of log cr = -0.068
+  slot U        sd min 0.9947 max 1.0065; cr min -0.0036 max +0.0086; cr at lower end +0.0086, at X=N -0.0019
+  slot RAND1    sd min 0.9556 max 0.9990; cr min -0.0048 max +0.0008; cr at lower end +0.0005, at X=N +0.0008
+  slot MUG      sd min 0.9797 max 0.9947; cr min -0.0004 max +0.0053; cr at lower end +0.0027, at X=N +0.0027
+
+w_Z8000_P20.json: Z=8000 P=20 N=160000 columns=145509 rows=1451094; window points used 9: X = 625 .. 160000
+  THETA    ratio min 0.8974 max 0.9979  at lower end 0.8974  at X=N 0.9979  slope e = +0.0176
+  THETA*G  ratio min 0.9104 max 0.9992  at lower end 0.9104  at X=N 0.9992  slope e = +0.0144
+  LIOU     ratio min 1.0437 max 1.0890  at lower end 1.0890  at X=N 1.0437  slope e = -0.0079
+  LIOU*G   ratio min 1.0709 max 1.0956  at lower end 1.0956  at X=N 1.0721  slope e = -0.0021
+  ALIGNED  ratio min 1.1074 max 1.1630  at lower end 1.1630  at X=N 1.1074  slope e = -0.0093
+  THIN     ratio min 0.9794 max 0.9993  at lower end 0.9794  at X=N 0.9993  slope e = +0.0031
+  U        ratio min 0.9763 max 1.0005  at lower end 0.9763  at X=N 0.9988  slope e = +0.0020
+  RAND1    ratio min 0.9923 max 1.0209  at lower end 1.0209  at X=N 0.9984  slope e = -0.0032
+  MUG      ratio min 0.9532 max 0.9924  at lower end 0.9626  at X=N 0.9924  slope e = +0.0074
+  slot THETA    sd min 0.9593 max 1.0035; cr min -0.0649 max -0.0045; cr at lower end -0.0649, at X=N -0.0045
+  slot LIOU     sd min 0.9682 max 0.9927; cr min +0.0505 max +0.1184; cr at lower end +0.1184, at X=N +0.0505; slope of log cr = -0.153
+  slot ALIGNED  sd min 0.9432 max 0.9867; cr min +0.1197 max +0.2157; cr at lower end +0.2157, at X=N +0.1197; slope of log cr = -0.106
+  slot U        sd min 0.9948 max 1.0020; cr min -0.0189 max -0.0012; cr at lower end -0.0189, at X=N -0.0012
+  slot RAND1    sd min 0.9934 max 1.0060; cr min -0.0043 max +0.0153; cr at lower end +0.0153, at X=N -0.0014
+  slot MUG      sd min 0.9664 max 0.9947; cr min -0.0157 max -0.0024; cr at lower end -0.0085, at X=N -0.0027
+
+w_Z16000_P25.json: Z=16000 P=25 N=400000 columns=371888 rows=3627558; window points used 10: X = 781.25 .. 400000
+  THETA    ratio min 0.9561 max 0.9974  at lower end 0.9561  at X=N 0.9974  slope e = +0.0058
+  THETA*G  ratio min 0.9605 max 1.0019  at lower end 0.9605  at X=N 0.9993  slope e = +0.0036
+  LIOU     ratio min 1.0842 max 1.2206  at lower end 1.2206  at X=N 1.0842  slope e = -0.0176
+  LIOU*G   ratio min 1.1208 max 1.2287  at lower end 1.2287  at X=N 1.1208  slope e = -0.0144
+  ALIGNED  ratio min 1.1923 max 1.4028  at lower end 1.4028  at X=N 1.1923  slope e = -0.0272
+  THIN     ratio min 0.9976 max 1.0037  at lower end 0.9991  at X=N 0.9988  slope e = -0.0007
+  U        ratio min 0.9898 max 1.0042  at lower end 0.9898  at X=N 1.0005  slope e = +0.0012
+  RAND1    ratio min 0.9911 max 1.0058  at lower end 1.0058  at X=N 0.9982  slope e = -0.0004
+  MUG      ratio min 0.9456 max 0.9952  at lower end 0.9490  at X=N 0.9952  slope e = +0.0094
+  slot THETA    sd min 0.9733 max 1.0001; cr min -0.0199 max -0.0025; cr at lower end -0.0199, at X=N -0.0025
+  slot LIOU     sd min 0.9775 max 0.9946; cr min +0.0891 max +0.2355; cr at lower end +0.2355, at X=N +0.0891; slope of log cr = -0.150
+  slot ALIGNED  sd min 0.9597 max 0.9884; cr min +0.2028 max +0.4391; cr at lower end +0.4391, at X=N +0.2028; slope of log cr = -0.129
+  slot U        sd min 1.0010 max 1.0067; cr min -0.0159 max +0.0025; cr at lower end -0.0159, at X=N -0.0004
+  slot RAND1    sd min 0.9966 max 1.0009; cr min -0.0075 max +0.0050; cr at lower end +0.0050, at X=N -0.0008
+  slot MUG      sd min 0.9550 max 0.9964; cr min -0.0156 max -0.0016; cr at lower end -0.0129, at X=N -0.0016

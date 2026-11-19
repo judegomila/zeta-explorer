@@ -1,0 +1,51 @@
+[
+ {
+  "id": "laurent-shell-gamma-section",
+  "type": "open-direction",
+  "name": "Section of the prime chain on a Reinhardt shell around the critical torus, with the gamma one-port",
+  "statement": "Device proposal of campaign round 7 (lane c7-laurent-shell-gamma-section; not reported when this node was written). In the bridge / spinor square-root setting (S = N/D, Cayley transform of alpha F'/F), take sections of the prime chain as Laurent series on a Reinhardt shell r < abs(z_p) < 1/r around the torus abs(z_p) = p^(-1/2), with the gamma one-port kept in the chain. Rows Q12 and Q22 close passive and J-contractive sections on the polydisc without the gamma term; the shell with the gamma term is their uncovered remainder. Question: is there a limit step on the shell (requirement R4), and does the first-moment sign differ for Davenport-Heilbronn (requirement R3). No statement about zeros.",
+  "status": "conjectural",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "unknown",
+  "source": "campaign/ROUND_LOG.md round 7 allocation, lane 4; map rows Q12, Q22 (uncovered remainder); entered by c7-repair-engine-map-r6",
+  "tags": [
+   "passive",
+   "bridge",
+   "spinor",
+   "torus",
+   "euler-product",
+   "lee-yang"
+  ]
+ },
+ {
+  "id": "ff-order2-vertex-probe",
+  "type": "open-direction",
+  "name": "Function-field ORDER-2 vertex: Proposition 2.1 probe with h > 1 in F_q[T]",
+  "statement": "Device proposal of campaign round 7 (lane c7-ff-order2-vertex-exact, pre-registered compute; not reported when this node was written). In F_q[T], where the Riemann hypothesis is a theorem, test in exact arithmetic whether a probe of the Proposition 2.1 format realises signal constant h > 1 in the region lx < l. Outcome h > 1: effective order 2 stays a lead and the next step names the sheaf-theoretic input. Outcome h <= 1: the format is capped independently of the truth of the hypothesis. Constraint from map row Z24: the normaliser of the probe must have no zeros in Re s > 1/2 (for sextic rows it contains L(6s-3, psi) and the format stops at 2/3). No statement about zeros of zeta.",
+  "status": "conjectural",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "unknown",
+  "source": "campaign/ROUND_LOG.md round 7 allocation, lane 5; campaign/STRATEGY.md section 4.0 (ORDER-2); map rows Z15, Z24; entered by c7-repair-engine-map-r6",
+  "tags": [
+   "function-field",
+   "zero-free",
+   "large-sieve",
+   "theta"
+  ]
+ },
+ {
+  "id": "landau-siegel-2026-mechanism",
+  "type": "open-direction",
+  "name": "Mechanism of the 2026 Landau-Siegel claim as a crossing device",
+  "statement": "Device proposal of campaign round 7 (lane c7-landau-siegel-device-read, explore; not reported when this node was written). Read the mechanism of the 2026 Landau-Siegel claim (model-produced corpus of 2026-10-06, unrefereed): what it reads (a family of real characters in the conductor aspect), which control of its class it must fail on (non-periodic THIN), and whether it is a device type not in the curated list. As posed it concerns real zeros near Re s = 1, so requirement R4 is met only at Re s = 1. The lane must show a step that THIN fails before further work. No statement about zeros of zeta.",
+  "status": "conjectural",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "unknown",
+  "source": "campaign/ROUND_LOG.md round 7 allocation, lane 6; STRATEGY lead 28 (2026 inputs not yet read); entered by c7-repair-engine-map-r6",
+  "tags": [
+   "zero-free",
+   "sieve-parity",
+   "automorphic"
+  ]
+ }
+]

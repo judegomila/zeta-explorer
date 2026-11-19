@@ -1,0 +1,43 @@
+TABLE 1. (N, lam, d) = (6, 9, 2), q = 7, np = 4483696. Exact rationals shown as floats.
+vector | e_c = E_c/D_c | x_c = e_c - 1 | e_s = E_0/D_0 | x_s | b_s (Bessel, c_0) | E_0/D_c | E_1/D_c | E_2/D_c | cross_01/D_c | cross_02/D_c | cross_12/D_c | e_c with naive diagonal | share of E_c on the 7 square rows
+one | 5.90503 | 4.905 | 0.86197 | -0.13803 | 0.093691 | 0.7397 | 0.04691 | 4.086 | 0.01903 | 0.1448 | 0.8687 | 5.99335 | 0.874
+a | 1.68847 | 0.68847 | 0.566755 | -0.43325 | 0.019547 | 0.4864 | 0.05879 | 1.377 | -0.03614 | -0.2224 | 0.02474 | 1.7138 | 0.152
+b | 2.00216 | 1.0022 | 0.597432 | -0.40257 | 0.00061496 | 0.5127 | 0.1192 | 1.278 | 0.07632 | 0.0061 | 0.00981 | 2.03219 | 0.0865
+mu | 1221.85 | 1220.9 | 1367.59 | 1366.6 | 1354.8 | 1195 | 23.19 | 0.1008 | 2.509 | -0.5022 | 1.882 | 1221.85 | 0.107
+al | 9.03637e+09 | 9.0364e+09 | 1.03523e+10 | 1.0352e+10 | 2.1127e+08 | 8.885e+09 | 2.57e+07 | 1.027e+05 | 1.806e+08 | -5.61e+07 | 6.141e+05 | 9.17429e+09 | 1.67e-14
+r11 | 0.931769 | -0.068231 | 0.990227 | -0.0097733 | 0.0023686 | 0.8644 | 0.08442 | 0.02175 | -0.07339 | 0.02412 | 0.01051 | 0.929778 | 0.124
+r12 | 1.07155 | 0.071549 | 1.09643 | 0.09643 | 0.0013132 | 0.955 | 0.08766 | 0.01845 | 0.04026 | -0.03055 | 0.0007151 | 1.07155 | 0.0705
+r13 | 0.801378 | -0.19862 | 0.76342 | -0.23658 | 0.0068331 | 0.6628 | 0.09338 | 0.02369 | -0.006604 | 0.03557 | -0.007488 | 0.803946 | 0.113
+
+TABLE 2. Coherent part of the squarefree row against the law (B_0 law from predictions6.json).
+vector | b_s | B_0 law | ratio
+one | 0.093691 | 0 | nan
+a | 0.019547 | 0.0012456 | 15.6929
+b | 0.00061496 | 0.0070169 | 0.0876
+mu | 1354.8 | 1833.3 | 0.7390
+
+TABLE 3. Cube term j = 2 split by the type of n (units D_c): n = l^2 part | squarefree-n part | mixed | mean (V_2 square part)^2 | mean (V_2 squarefree part)^2
+one | 0.6608 | 3.579 | -0.1543 | 36.86 | 216.9
+a | 0.6628 | 0.7173 | -0.002938 | 36.86 | 39.31
+b | 0.6628 | 0.6143 | 0.0009794 | 36.86 | 33.76
+mu | 0 | 0.1008 | 0 | 0 | 6
+
+TABLE 4 (post hoc). Part of the row energy along the constant direction c_0 (Bessel): b_c = |sum_m R_m|^2/(q^d D_c) for the completed row, b_s for the squarefree row; share of E_0 on the 7 square rows.
+vector | b_c | b_c / e_c | b_s | b_s / e_s | share of E_0 on square rows
+one | 1.2091 | 0.205 | 0.093691 | 0.109 | 0.00176
+a | 0.53483 | 0.317 | 0.019547 | 0.0345 | 0.391
+b | 0.71071 | 0.355 | 0.00061496 | 0.00103 | 0.168
+mu | 1187.8 | 0.972 | 1354.8 | 0.991 | 0.133
+al | 1.8442e+08 | 0.0204 | 2.1127e+08 | 0.0204 | 5.71e-15
+r11 | 0.0026077 | 0.0028 | 0.0023686 | 0.00239 | 0.0963
+r12 | 0.00020505 | 0.000191 | 0.0013132 | 0.0012 | 0.0514
+r13 | 0.012084 | 0.0151 | 0.0068331 | 0.00895 | 0.146
+
+RULE (PREREG sections 5, 6).
+(L) literal: x_c(a) = 0.68847 in [0.6, 1.0]: True;  b_s(a) = 0.019547 in [0.015, 0.025]: True
+(X) x_c(a) = 0.68847 in [0.99, 1.65] and x_c(b) = 1.0022 in [0.95, 1.58]: False
+(B) b_s / B_0 law in [0.55, 1.25] for a and b, b_s(one) = 0: False
+(S) e_s <= 1.2 for a, b, one: True  (0.56675, 0.59743, 0.86197)
+(C) random vectors inside [0.571, 1.429] with E_2/D_c <= 0.2: True; al >= 100: True; mu >= 500: True; controls separated (and e_c(a), e_c(b) > 1.429): True
+Outcome 1 (CONFIRMED-AS-STATED): True
+Outcome 2 (CONFIRMED-EXACT-INPUTS): False

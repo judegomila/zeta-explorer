@@ -22,6 +22,11 @@ Rules added by lane c4-repair-map-engine-r3 (campaign round 4; switch off with -
              (control RZ_b; ENGINE_LOG batch 2, lane 10).
   object     penalty: no two members share an object (declared object tag or a graph edge).
 
+Rules changed by lane c8-repair-engine-map-r7 (campaign round 8):
+  family     a closed family matched only through the text of an open device node does not reject the candidate.
+  reuse      the 3-point penalty 'reuses a node of closed lane' is not taken when the shared node is an open device;
+             the lanes are listed in one note.
+
 Run:  python3 generate.py --top 40
       python3 generate.py --top 40 --node discriminant-gradient-flow
       python3 generate.py --top 20 --move M2 --theme flow
@@ -116,12 +121,23 @@ MOVES = {
 #   controls       separator was 2: the only referee-confirmed flags and the held partial results came from lanes
 #                  with a recorded control separation. Now 3.
 #   size / nonlinear keyword parts were 1 each: keyword matches with no outcome behind them. Now 0.5 each.
+# Changed again by the strategy review after campaign round 10 (STRATEGY.md v3, 2026-11-19); previous file:
+# scratch/generate.before-strategy-v3.py.
+#   crossing       open device was 3: every open device node that headed the list in rounds 8 to 10 ((E-K), (E-H),
+#                  function-field vertex, map-open-1, map-open-4) was closed one or two rounds later with score 0;
+#                  the bonus followed the planner's last choice and did not lead it. Now 2.
+#                  floored device was 1: 27 of the top 60 of round 10 stood on the floored 7/8 device; three lanes
+#                  on it (TRO6 lead 17) found no saving and such lanes cannot change the headline. Now 0 (the
+#                  candidates still pass the hard filter and are listed; they are part-B work).
+#   cohesion       cap was 2: in rounds 9 and 10 every partner placed by tag overlap (shared tag 'theta',
+#                  'function-field') was discarded by the planner as kernel-only or unrelated. Cap now 1.
 WEIGHTS = {
     'uniformLabel': 0, 'uniformArith': 1,
     'underExplicit': 1, 'underAuto': 0.5, 'underCap': 2,
-    'deviceOpen': 3, 'deviceFloored': 1,
+    'deviceOpen': 2, 'deviceFloored': 0,
     'separator': 3, 'controlNamed': 1,
     'sizeKeyword': 0.5, 'nonlinKeyword': 0.5, 'integersKeyword': 1,
+    'cohesionCap': 1.0,
 }
 PER_ANCHOR = 14     # partners kept per anchor node
 THIRD = 8           # third members tried per pair
@@ -342,10 +358,24 @@ def main():
             continue
         joint = ' '.join(m['id'] + ' ' + m.get('name', '') + ' ' + m.get('statement', '') + ' ' + ' '.join(m.get('tags', []))
                          for m in members)
-        fam_hit = [f['id'] for f in families if all(r.search(joint) for r in f['re'])
+        fam_hit = [f for f in families if all(r.search(joint) for r in f['re'])
                    and not (f['unless_re'] and f['unless_re'].search(joint))]
+        # c8-repair: a closed family must not be matched by the text of an open device node alone. The text of
+        # map-open-1 ('h = r/2', 'double covers') and of ff-order2-vertex-probe ('ORDER-2', tag theta) matches both
+        # groups of fam-order2-theta-rows, which rejected every candidate containing them (841 + 2,209 in the
+        # round-8 planner rerun). The curated device list is the authority on the state of a device; a family
+        # applies to a candidate with an open device only if a member that is not an open device matches one of
+        # its groups (the partner supplies part of the closed combination).
+        open_dev_ids = [i for i in mid if device_kind(i) == 'open'] if r4_rules else []
+        if fam_hit and open_dev_ids:
+            rest = ' '.join(m['id'] + ' ' + m.get('name', '') + ' ' + m.get('statement', '') + ' ' + ' '.join(m.get('tags', []))
+                            for m in members if m['id'] not in open_dev_ids)
+            kept = [f for f in fam_hit if any(r.search(rest) for r in f['re'])]
+            if len(kept) < len(fam_hit):
+                independent['closed family matched by the open device text alone (exempt)'] += 1
+            fam_hit = kept
         if fam_hit:
-            rej('closed family: ' + fam_hit[0], c)
+            rej('closed family: ' + fam_hit[0]['id'], c)
             continue
         dev_all = [(i, device_kind(i)) for i in mid]
         closed_dev = [i for i, k in dev_all if k == 'closed']
@@ -409,7 +439,7 @@ def main():
         named = any(m['type'] in ('open-lemma', 'conjecture') for m in members)
         parts['cheapTest'] = (1 if cheap else 0) + (1 if named else 0)
         # cohesion and breadth
-        parts['cohesion'] = round(min(2.0, sum(sw(x, y) for x, y in linked) / (2.0 * len(pairs))), 2)
+        parts['cohesion'] = round(min(WEIGHTS['cohesionCap'], sum(sw(x, y) for x, y in linked) / (2.0 * len(pairs))), 2)
         kinds = set()
         for m in members:
             kinds |= set(m['sourceKinds'])
@@ -466,10 +496,17 @@ def main():
         if all('flow-stable' in r or 'arith' not in r for r in roles) and (alltags & THEMES['flow']) and \
                 not any('arith' in r for r in roles):
             pen -= 2
+        open_dev_lanes = []
         for o in outcomes:
             on = set(o.get('nodes', []))
             # c2-repair: one member of a closed lane's minimal failing set: penalise and name the lane
             if o.get('verdict') in ('closed', 'refuted') and len(on & set(mid)) == 1:
+                # c8-repair: an open device node is shared by every lane that narrowed it (map-open-1: 8 closed
+                # lanes, 24 points), which placed all of its candidates below the listed ones. For an open device
+                # the lanes are listed in one note and no points are taken; the state is kept in curated/devices.json.
+                if (on & set(mid)) <= set(open_dev_ids):
+                    open_dev_lanes.append(o['slug'])
+                    continue
                 pen -= 3
                 notes.append('reuses a node of closed lane ' + o['slug'] + ' (' + ', '.join(sorted(on & set(mid))) +
                              '): state what differs from its stop reason')
@@ -480,6 +517,9 @@ def main():
             if o.get('verdict') == 'in-progress' and ot and ot <= alltags:
                 pen -= 3
                 notes.append('overlaps lane in progress: ' + o['slug'])
+        if open_dev_lanes:
+            notes.append('open device ' + ', '.join(open_dev_ids) + ' was narrowed by ' + str(len(open_dev_lanes)) +
+                         ' closed lane(s) (' + ', '.join(sorted(open_dev_lanes)) + '): state what differs from each stop reason')
         # tag signature against closed rows
         row_hits = []
         for r, rt in row_tags.items():
@@ -609,9 +649,9 @@ def main():
                   generated=len(raw), scored=len(scored), rejected=dict(reject),
                   families={k: v for k, v in sorted(fam_stats.items())},
                   closedRowsByTheme=closed_by_theme,
-                  scoring=('weights of 2026-11-18 (STRATEGY v2): multiplicativity 0-2; heightUniform 0-1; controls 0-4; '
-                           'crossing 0-3 (3 = open device, 1 = floored device of curated/devices.json); underused 0-2; '
-                           'cheapTest 0-2; cohesion 0-2; breadth 0-1; size / nonlinear keywords 0-0.5 each; integers 0-1; '
+                  scoring=('weights of 2026-11-19 (STRATEGY v3): multiplicativity 0-2; heightUniform 0-1; controls 0-4; '
+                           'crossing 0-2 (2 = open device, 0 = floored device of curated/devices.json); underused 0-2; '
+                           'cheapTest 0-2; cohesion 0-1; breadth 0-1; size / nonlinear keywords 0-0.5 each; integers 0-1; '
                            'sharedObject 0-1; penalties <= 0'),
                   r4Rules=dict(active=r4_rules, firedIndependentlyOfOrder=dict(independent),
                                targetBlindArithNodes=sorted(i for i in DECL if 'arith' in R_[i] and is_target_blind(i)),

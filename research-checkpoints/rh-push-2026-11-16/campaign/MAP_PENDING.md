@@ -172,3 +172,167 @@ Still pending (not applied by this lane):
 - Row P44: Montgomery's fixed-X omega theorem is recalled, not opened. Row P48: the two-function averaged Elliott statement was not found in the abstract opened; the DH pass does not use it.
 - Section 1 ("Status in ten lines") is unchanged: no bound moves, no requirement beyond R1 (relative or at stage level) was confirmed in round 4.
 - Rows for round-5 lanes: none proposed here.
+
+## Status 2026-11-18, second (lane `c6-repair-referee-debts-r5`)
+
+Applied to `push/OBSTRUCTION_MAP.md` (script `push/c6-repair-referee-debts-r5/apply_map.py`; previous file `push/c6-repair-referee-debts-r5/before/OBSTRUCTION_MAP.md`; 471 -> 490 lines):
+
+| Pending item (ROUND_LOG round 5, "Open items carried forward") | Applied as |
+|---|---|
+| seven device rows with the referee's six wording corrections | section 3.9, rows D1 to D7 |
+| row Z15b (corrected free-geometry statement) | row Z15b, with Lemma U marked as refereed twice |
+| angular-family row after Theorem 7 is refereed | row Z22; Theorem 7 (iv) labelled ARGUED for the abstract family |
+| section 4 entry 49 and row P46: "largest real zero" | both corrected; Theorem 2 marked as two referee passes; section reference 2.3 |
+| THIN: replace "cited from memory" | control row THIN and its note; ray-class variant relative to Coleman 1990 Theorem 2.1 as quoted; `ctl-THIN` status proved-relative in `engine/build_graph.py` |
+| (added) | interpolation twin as an auxiliary control (section 2 notes); row count line recounted; header update line |
+
+Still pending (not applied by this lane):
+
+- Row for `c5-twisted-helson-arcs`: its proposed number P44 is taken by the Gonek-stage row; needs a new number (P50) and the qualifier limsup abs(S(x))/x > 0 of its referee.
+- Rows or notes for `c5-thin-propd-dichotomy` and `c5-marks-circularity-order2`; update of row Z15 and section 6 item 1 after Theorems B, C are checked against the manuscript (lane `c6-marks-bc-manuscript-check`).
+- Section 7 (referee-broken claims index): round-5 entries (Proposition 5 error term of the angular lane; verdict statement 3 of the target-reflection lane; control claim of `c5-thin-propd-dichotomy`).
+- Section 1 ("Status in ten lines") unchanged: no bound moves.
+- Sources still recalled, not opened: Weil 1952 (Jacobi sums; Remark 8 of the angular lane); Turan's equivalence (row D6); Coleman 1990 primary text; the Baker-Harman-Pintz counting constant; Montgomery's fixed-X omega theorem (row P44); `stack-combinator/TABLE.md` has no THIN row and was not edited.
+
+## Status 2026-11-18, third (lane `c7-repair-engine-map-r6`)
+
+Applied to `push/OBSTRUCTION_MAP.md` (script `push/c7-repair-engine-map-r6/apply_map.py`; previous file `push/c7-repair-engine-map-r6/before/OBSTRUCTION_MAP.md`; 490 -> 515 lines; edit list `map_edits.json`). The map parser accepts row ids of the form letters + digits + optional letter only, so the lane labels A3-C1 .. A3-R were renumbered.
+
+| Pending item (ROUND_LOG round 6, "Open items carried forward") | Applied as |
+|---|---|
+| A3-C1, A3-C2, A3-C3, A3-R (square intertwiners) | rows G27, G28, G29, G30 (label kept in the route cell), with the referee's corrections to Theorem H2 |
+| P50 (quadratic positivity) | row P50; section 6 item 9 replaced (closed for pointwise outputs; density half not run) |
+| row for the pair probe | row Z15c, with the referee's corrected classification of h_pair > 1 points |
+| row for the double-cover cocycle (narrowed wording) | row Z23 (text of REFEREE.md section 5 of that lane); section 6 item 18 updated |
+| row for the normaliser cap at 2/3 | row Z24 (two referees; second: `push/c6-marks-bc-manuscript-check/REFEREE2.md`) |
+| row for `c5-twisted-helson-arcs` | row P51 (the lane's label P44 was taken; P50 went to the quadratic row), with the qualifier limsup abs(S(x))/x > 0; section 6 item 21 closed |
+| rows for `c5-thin-propd-dichotomy` and `c5-marks-circularity-order2` | rows Z25 (with `c6-probe61-thin-three-weights`) and Z26 (with the corrected chain of `c6-marks-bc-manuscript-check`); note in row Z15; section 6 items 1, 22 updated |
+| section 7 entries for rounds 5 and 6 | twelve rows appended |
+| (added) | header update line "fifth"; row count line recounted (P 51, G 30, Q 22, S 12, Z 28, F 8, T 3, L 5, D 7 = 166) |
+
+Still pending (not applied by this lane):
+
+- Row proposed by `c6-unreflected-marks-kd23` (its label Z15c is used by the pair probe): not entered; its referee does not hold two headline sentences. Enter after the uncompensated high side is derived (lane `c7-uncompensated-high-side-normaliser`), as Z27.
+- Section 1 ("Status in ten lines") and section 5 unchanged: no bound moves; a round-5/6 paragraph for section 5 was not written.
+- `stack-combinator/TABLE.md` has no THIN row (unchanged debt).
+- Sources recalled, not opened: Gelfand-Tsetlin recipe for double covers (row Z23); Weil 1952; Coleman 1990 primary text; Turan's equivalence (row D6); Montgomery's fixed-X omega theorem (row P44).
+- Third referee for Lemma H: MS Lemma 7.1 for j = 0 from (7.10) and (7.8); the conjugation convention of (7.6) against the PDF.
+
+---
+
+# Part 2: owed edits after campaign round 7 (proposed text; not applied)
+
+Written 2026-11-18 by lane `c8-repair-engine-map-r7`. Part 1 above (round 2) was applied by `c3-repair-map-theorem-a`
+and is kept for the record. `push/OBSTRUCTION_MAP.md` was not edited by this lane. Last ids in the file at the time
+of writing: P51, G30, Q22, S12, Z26, F8, D7. Table columns as in the map: id | route | where it stops | status |
+controls | source. "Second referee" means a REFEREE2.md under `push/c8-repair-engine-map-r7/<lane>/`. No entry is a
+statement about zeros of zeta.
+
+## C. Section 3.3 (square-root lane): rows under Q12 / Q22
+
+### C1. New row Q23 (after Q22)
+
+> | Q23 | Sections of the prime chain holomorphic only on a Reinhardt shell around the tori (Laurent class; left open by Q12, Q22) | For a positive-real lossless h whose boundary measure is the pullback of a positive measure mu on T^P carried by a hypersurface crossed by the orbit t -> (p^{-it}), the Bohr series of h runs over the half-space k . log p > 0, not the orthant, and the first moment of F over the poles is (2 int F_P dmu)/(2 pi delta) + O(delta^{-1/2-eps}), F_P the P-part of F on the torus (Lemma 1; in coefficients a_1 + conj((Pi_int h)(1/2)), Pi_int the projection onto integer frequencies). Proved for trigonometric-polynomial densities on a coordinate hyperplane; measured for Poisson densities. Sign rule: the real part is forced non-negative over the class iff Re F_P >= 0 on T^P; for zeta iff sum_{p in P} arcsin(p^{-1/2}) <= pi/2 (true for {2}, {2,3}, {2,3,p} with p >= 37; false for {2,3,7} and richer sets); for DH forced on {2,3} (min Re D_P = 0.0387) and not on {2,3,7} (min -0.62). So the Harnack sign of Theorem A' (polydisc) does not survive non-integral frequencies, for zeta and DH alike. Closure: if every pole is a zero of F, all twisted first moments vanish and mu = 0 (zeta: E_P has no zero on the torus; DH: relative to the unproved statement that the zero set of D_P has codimension 2). Limit step: in measure form the class is locally dense in all lossless positive-real functions (the statement "alpha L is a limit of sections" is RH restated); in formula form see Q24. Not covered: P growing like a power of t. | PROVED (Lemma 1, restricted class; one referee, independent run for zeta and DH); MEASURED (Poisson densities); Corollary 1 direction "sign forced" needs Lemma 1 for general measures; the constant-density case is a mean value of zeta on an arithmetic progression (literature not cited by the lane) | holds for DH at every step; no control fails | `c7-laurent-shell-gamma-section` (+ REFEREE.md) |
+
+### C2. New row Q24
+
+> | Q24 | Sections containing the gamma one-port: poles at X_F(1/2 + it) m((p^{-it})_p) = 1, m unimodular on T^P (left open by Q22) | Normalised first moment of F over the poles -> 1 + conj(int_{T^P} F_P m dHaar) (Lemma 2). Monomial m = c w^kappa (these are all unimodular trigonometric polynomials): the poles are shifted Gram-type points 2 theta(t) + t log q = a mod 2 pi, the mean is 1 + conj(c) n^{-1/2} if 1/q = n is an integer and 1 otherwise; proved for zeta by the Gram-point method (Riemann-Siegel formula and Kusmin-Landau), second referee. m = 1: Titchmarsh's mean 2. Holomorphic inner m: 1 + conj(m(0)) (first referee's correction of the lane's value), sign forced. m = -conj(F_P)/F_P (reflected Euler stage): 0. m = -conj(F_P)/abs(F_P): 1 - norm(F_P)_{L^1} < 0 when F_P has no zero on the torus (argued and measured: -0.298 / -0.340 for zeta on {2,3}, {2,3,7}; -0.168 for DH on {2,3}); for DH with three or more primes this m is not continuous. So no forced sign with the gamma term, for zeta or DH; this conclusion rests on a non-monomial m and is not proved. Closure by twists: a prime q outside P has twisted mean f_q q^{-1/2}, so every prime with f_q != 0 must lie in P, and inside the module of P the only candidate is the reflected stage (rows G10, Q10). Limit step in formula form: contractivity abs(U_P) < 1 of the reflected stage on a shell holds at height t only while log(t/2 pi) > 2 sum_{p <= P} log p/(sqrt p - 1); this is the height-coupled reserve bound Q*(t) of `g-passive-cascade` ({2,3} from t = 3590), not uniform in height. | PROVED for monomial m and zeta (second referee's proof, itself unrefereed); ARGUED + MEASURED otherwise (uniformity in k of the expansion sum U^k not established); Proposition 3 ARGUED | holds for DH wherever formulable; uses f_q != 0, not multiplicativity; no control fails | `c7-laurent-shell-gamma-section` (+ REFEREE.md); `c8-repair-engine-map-r7/c7-laurent-shell-gamma-section/REFEREE2.md` |
+
+### C3. Rows Q12 and Q22, last sentence ("Not covered: sections holomorphic only on a Reinhardt shell ...; sections containing the gamma term"). Append:
+
+> Both treated in round 7: rows Q23 (shell) and Q24 (gamma-coupled). Still not covered: P(t) growing like a power of t; J-expansive sections.
+
+### C4. New row Q25 (family bridge)
+
+> | Q25 | Anticausal Hankel block or Krein index of the bridge form summed over a twist family, with the 7/8 theorem as input | The single-cutoff trace tr Gamma_-^* Gamma_- does not depend on c; the gapped block has weights e^{-(beta_j - 1/2)c} and its decay rate in c is twice the least real part of a pole. The prime-side value of every member block is zero before any family sum; a family sum with positive weights is a positive form in the off-line data of all members and equals the bridge form of the product prod F_chi^{c_chi}; its negative index is the number of distinct off-line zeros of the union. The 7/8 input bounds the pole farthest from the line (Re z < 3/8) with the same constant for one member and for the family: gain 0; the family sum reads the pole nearest the line. Every-window form: the tilted block vanishes at tilt >= 3/8 member by member (row G20 restated). Below 3/8 a family bound controls a member only when it is below one unit of the index (MV-CAP, row P23); for unimodular twists n^{-i alpha_k} the family sum is a sum over height translates of one member. Not covered: a bridge formed from a single completed probe row B_m (lane `c8-single-row-bridge-crossing`, round 8). | PROVED for finite pole sets (author-checked; one referee); PROVED-rel 7/8 (unrefereed manuscript); MEASURED (double precision, rational toys) | no control separated: every object lives on the axis (valid for the controls) or where the prime side converges | `c7-bridge-seven-eighths-krein-index` (+ REFEREE.md) |
+
+## D. Section 3.5 (zero-free machinery)
+
+### D1. New row Z27 (Hilbert-Schmidt cap). The lane proposed the label Z15c, which is taken.
+
+> | Z27 | Cap of the Prop. 2.1 format without the hypothesis lx >= l; which low estimates can pass 1 - 1/r | With h = 1 + l - lx, M = lx + ly: the three inputs B >= 1 - h/r (square-root level), B >= 1 - h/r + (M + l - 1)/2 (K-branch), B >= 1/2 - ly/2 + h(1 - 1/r) - l/2 (floor-class high bound H0) give B >= 1 - 1/r + lx/(2r) for all lx, ly, l >= 0, by the identity with weights (r-2)/r, 1/r, 1/r (2lx/(3r) with the uncompensated high bound); attained on the segment l = lx/2, ly = 1 - 3lx/2, which contains the 13/15 point. The K-branch of Liu II Lemma 2.4 (checked against its text) is the Hilbert-Schmidt lower bound max(Q, D) of the reflected row matrix: no l2-l2 operator bound of that matrix is below it, whether applied to the whole matrix or blockwise on a partition of rows and columns (blocks with a positive proportion of unimodular entries; reflected coefficients without a large entry). The cap contains no target data and holds for U, DH, THIN. Not covered: estimates specific to the coefficient vector of the probe ((E-K): sum_m abs(B_m)^2 << Q^{1+eps} Z^{max(0, k_J, k_P)} for Q P > Z; in the form with all range losses removed it contradicts the consistency bound h <= r/2 for long marks, so it is restricted to lx >= l) or to the vector A; mixed norms; cancellation over non-principal rows below H0 ((E-H)). Model values (first referee): with the polar term kept, K-loss removed gives 31/36 at h = 5/6 and no vertex with h > 1; H0 removed gives 13/15 (4/5 with G = 0); 1 - 2/r only in the three-input system. "h <= 1" is not a consequence of the format: the format bounds h by r/2 only (given the high comparison and a true low estimate at exponent lx/2). Phase-blind (unreflected) low estimates have B >= 1 by alignment with the Liouville-twisted target (ARGUED: the high identity (7.5), the principal residue and H_lambda(1) != 0 are checked for the twisted target; the bound for its non-principal rows is not written); with G = 0 this is violated, and keeping the polar term b/(2r) suffices for r >= 3. Outside lx >= l the signal exponent and H0 have no numbered source. | PROVED (identity; Hilbert-Schmidt bound and its blockwise form; two referees, the blockwise form by the second only); EXACT LP on MODEL inputs; alignment ARGUED | target-independent by construction: holds for U, DH, THIN (gives no R3) | `c7-probe-format-h-cap` (+ REFEREE.md); `c8-repair-engine-map-r7/c7-probe-format-h-cap/REFEREE2.md` |
+
+### D2. Row Z15, sentence "for r = 6, B >= 5/6 under lx >= l (a modelling hypothesis) or M >= 2l with the polar term kept". Append:
+
+> Update (round 7): the hypothesis lx >= l is replaced by two inputs, the K-branch and the floor-class high bound (row Z27); the cap is then 1 - 1/r + lx/(2r) in every geometry, for every operator-norm low estimate.
+
+### D3. Row Z24: replace the two sentences from "MS hypothesis (2.2) is false for every sigma_0 < 7/12 ..." to "... fails at sigma_0 = 2/3 exactly (second referee)." by:
+
+> MS hypothesis (2.2) (sup over Re s > sigma_0 of abs(H_eta - 1) <= 1/2) holds, for suitable S, if and only if sigma_0 > 2/3: for every sigma_0 <= 2/3 the half-plane contains Re s > 2/3, where sup abs(H_eta) is infinite for every finite S (Kronecker on the logs of rational primes; sum over split l of abs(c_l) l^{-sigma} is unbounded as sigma -> 1+, c_l = psi(p) + psi(pbar)). This uses no zero of L(w, psi_eta). The zeros of H_eta in 7/12 <= Re s < 2/3 matter for a different statement, the holomorphy of H_eta / L^S(s, eta) on Re s > B (Lemma S), whose binding abscissa lies in [7/12, 2/3]. The two statements are separate (referee of `c7-repair-engine-map-r6`, E1).
+
+### D4. Row Z24, control cell. Replace the sentence stating that Lemma H holds for THIN and unimodular twists by:
+
+> Local identity only: the formula for H_p and its two factorisations use complete multiplicativity alone (third referee: re-derived from the series (7.10) with (7.8)), so they hold for the Liouville twist, THIN and unimodular twists; H_lambda(1) != 0. The global statements (continuation of L(w, psi_eta), zeros in 7/12 <= Re s < 2/3, symmetry about 7/12, Lemma S) need (alpha eta)^6 to be a Hecke character and are not available for a general unimodular completely multiplicative weight (E4).
+
+### D5. Row Z24, status cell. Replace "re-derived from MS table (7.16) by a second referee" by:
+
+> Lemma H: three referees (sum of table (7.16); (7.11) against the table; series (7.10) with (7.8) and the lift formula, `c8-repair-engine-map-r7/c6-marks-bc-manuscript-check/REFEREE3.md`); the derivation of (7.8) from (7.1)-(7.7) read, not replayed
+
+### D6. Two-row entry on the two uses of periodicity (new rows Z28, Z29)
+
+> | Z28 | Periodicity used as lattice-translation invariance (the 7/8 mechanism) | Every sextic twist of the target is periodic in the row variable, with a Poisson dual uniform in the modulus (MS Lemma 5.8, Prop. 5.1). In the low half this appears as the absence of one coherent term kappa abs(m_w)^2 in the row second moment: for Liouville rows in one ray class, sum_m w(m) abs(B_m)^2 = D + P + Rem with P >= 0 of order M^{5/6} X^{1/3} (exponent 7/6 at M = X = Z against 1 + eps for a periodic weight); P is proportional to the squared smoothed Mertens sum of the weight and is present for non-multiplicative weights as well. So the periodicity input separates THIN and the Liouville twist (R3 of the mechanism) but is a Hermitian form in the weight: the low half carries neither R1 nor R4. It acts in the conductor aspect of the row family at every height of the target. Floor of the device: row Z15 / Z27 (1 - 1/r), normaliser row Z24 (2/3). For THIN the statement is conditional on conductor-uniform bounds (T1, T2). | PROVED (principal term; one referee); remainder ARGUED-rel a recalled second-moment bound and a contour step (referee: label "PROVED-rel (H2)" lowered); MEASURED Z = 2^7 .. 2^14 | Liouville twist fails the periodic row bound by Z^{1/6} (averaged over the characters mod f_0); THIN conditional; U not separated in the height aspect | `c7-liou-high-row-bound` (+ REFEREE.md); `c4-thin-twist-control-78`; `c5-thin-walk-replay` |
+> | Z29 | Periodicity used as reciprocity (the 2026 Landau-Siegel device) | A real primitive character is the Frobenius of a quadratic field: for chi mod q the Frobenius class of every prime H < p <= q^A in Gal(Q(sqrt d, sqrt 2)/Q) is determined by chi(p) and (2/p), and an interpolation determinant over a box in Z[sqrt d, sqrt 2] is divisible by the primes of the relevant Frobenius classes (the divisibility holds for the classes {1, sigma, sigma tau}; referee correction of the lane's statement about split primes). The zero enters only through the classical prime bias of a real zero at s = 1 + 1/log X. Floor: real zeros with 1 - beta <= c/log q; the device is empty to the left and has no height-aspect form (n^{-it} has no field: control U). A completely multiplicative sign function that is not periodic (THIN, Liouville) has no field, and the congruence theta^p = Frob_p(theta) mod p has no object: these controls fail at the field step. The statement itself is a corollary of the compiled Dirichlet 7/8 theorem ((1 - beta) log q >= (log 3)/8). The two uses differ: Z28 uses invariance of the coefficients under translation of the argument and acts at every height; Z29 uses the reciprocity law that turns chi(p) into a splitting condition and acts only in the conductor aspect at height 0. Neither supplies R4. | LEAN-RELEASE (tree read as text, not compiled locally); reading of statements, one referee with five corrections | THIN, Liouville twist: fail at the field step (conductor aspect only); U: fails, which is why there is no height-aspect form; DH, heat, E_a, T-NR, Beurling not run | `c7-landau-siegel-device-read` (+ REFEREE.md) |
+
+## E. Section 7 (referee-broken claims index) and section 6
+
+### E1. Entry for `c6-unreflected-marks-kd23` ("No consistent model vertex with h > 1; Lemma D(b)"). Append:
+
+> Attribution of Proposition E replaced (round 7): Proposition E placed the false input of the region lx < l on the uncompensated high side ((S) or H0'), using Lemma D(a) with a bounded mark polynomial. `c7-uncompensated-high-side-normaliser` argues the opposite attribution: the marks carry the conjugate phase of eta(p) and the u = 1 multiplier is -1 + O(Q^{-7/8}) (MS (16.13)), so the mark polynomial has modulus P^{1/2} at sixth-power frequencies and the false input is the row-energy bound (K + D or K for coherent marked rows), which contains the squared signal. Both attributions are conditional: Proposition E was not held by its referee, and the replacement is ARGUED at the level of exponents (its referee: "replaces the attribution ... by an argued one", not "corrects"). The measurement of c6-kd23 (no (KD)^{2/3} term) is not affected. Open debt: Lemma C of `c7-uncompensated-high-side-normaliser` (lane `c8-row-energy-squared-signal`).
+
+### E2. New entry in the index
+
+> | "(E-H) alone gives 1 - 2/r"; "(E-K) alone gives 7/9 at h = 4/3"; "the K-branch is forced for every operator-norm estimate"; "the false input is G = 0" | c7-probe-format-h-cap | First: only in the three-input system at a single row; with the source ledger 4/5 (G = 0) or 13/15 (polar kept). Second: that run has G = 0, which the same result argues is false; with the polar term kept the value is 31/36 at h = 5/6. Third: proved for l2-l2 bounds of the reflected matrix, whole or blockwise; vector-specific estimates are outside. Fourth: G = 0 is a false input there if (S) and k_dir hold; keeping the polar term suffices. |
+> | Lemma 2, bullet "m holomorphic and inner: int F_P m = m((p^{-1/2})_p)" | c7-laurent-shell-gamma-section | The value is m(0); the stated value is int conj(F_P) m. Measured 0.9995 for m = w_2 against 1 (formula) and 1.7071 (bullet). |
+
+### E3. Section 6, item 1 (effective order 2). Replace the last two sentences ("Left: ...") by:
+
+> Left after round 7: (E-K), the mean square of reflected marked theta rows for the probe vector with the dual longer than the row set (row Z27; lanes `c8-ek-*`); (E-H), cancellation over non-principal rows (lane `c8-eh-*`); the compensated probe (12.5) in F_q[T]; global Whittaker constants of a genuine cusp form on the double cover of GL(3) (item 18). Closed in round 7: h > 1 by uncompensated marks (the low input contains the squared signal; conditional on Lemma C, exact in F_q[T] at N <= 4); operator-norm estimates below 1 - 1/r. Any order-2 probe needs a normaliser without zeros in Re s > 1/2 (row Z24).
+
+## F. Log rows to mark (no map row)
+
+`push/c5-target-fe-order2-ledger/tiers_fe2.log`, rows Y2 and Y6. Checked by rerunning `tiers_fe2.py` unchanged
+(`push/c8-repair-engine-map-r7/c5-target-fe-order2-ledger/tiers_fe2.rerun.log`): the stored log reproduces line for
+line. The rows are mislabelled, not stale: no call in `tiers_fe2.py` passes `G=`, so every row ran with the default
+G = "src" although the labels say "G polar" (error E1 of the c5 referee). Values under the label actually printed:
+Y2 = 9/10 at (1/15, 13/15, 1/15), h = 1; Y6 = 0.88095 at (1/3, 19/21, 1/3), h = 1 (c5 referee; reproduced by
+`c7-uncompensated-high-side-normaliser/regress.log` with G = "polar" passed explicitly). The explanation in that
+lane's regression note ("a version in which the option G = polar still contained the term b - ly/2") is not the cause;
+there is one version of the script. Neither value is a vertex with h > 1. Mark: Y1 = Y2 and X1 = X2 = X3 in that log
+are the same run; read the c5 referee's table instead of rows X2, X3, X4, Y2, Y6.
+
+---
+
+## Status 2026-11-19, fourth (lane `c10-repair-record-referee-r9`)
+
+Part 2 above is applied to `push/OBSTRUCTION_MAP.md`; its title words "not applied" are historical. Script `push/c10-repair-record-referee-r9/apply_map.py`, edit list `map_edits.json`, previous file `push/c10-repair-record-referee-r9/before/OBSTRUCTION_MAP.md` (515 -> 551 lines; rows 166 -> 180: P 51, G 31, Q 27, S 12, Z 35, F 8, T 3, L 5, D 7, O 1).
+
+| Pending item | Applied as |
+|---|---|
+| Part 2 C1, C2 (shell and gamma-coupled sections) | rows Q23, Q24, text as written |
+| Part 2 C3 | sentence appended to rows Q22 and Q12 (the Q12 sentence has a different wording in the map; the pointer to Q23, Q24 is appended to it) |
+| Part 2 C4 (family bridge) | row Q25, last sentence replaced by the pointer to Q26 (`MAP_ROWS_PROPOSED.md` Part 1) |
+| Part 2 D1 (Hilbert-Schmidt cap) | row Z27, with the pointer to Z30, Z31 |
+| Part 2 D2 | note in row Z15 (as a parenthesis after the sentence it amends) |
+| Part 2 D3, D4, D5 | row Z24: (2.2) sentences, control cell, status cell |
+| Part 2 D6 | rows Z28 (with the round-8 sentence on Theorem A of `c8-liou-row-bound-theorem`) and Z29 |
+| Part 2 E1 | section 7, entry for `c6-unreflected-marks-kd23`, with the Lemma C sentence of round 8 in place of "Open debt" |
+| Part 2 E2 | section 7, two rows |
+| Part 2 E3 | section 6 item 1, extended to the state after round 9 |
+| Part 2 F (log rows Y2, Y6) | no map row (as stated there); unchanged |
+| `MAP_ROWS_PROPOSED.md` Q26 (single-row bridge) | row Q26 |
+| `MAP_ROWS_PROPOSED.md` Z30; working label Z15d, (E-K); window extension proposed by `c9-mv6-ff-window-exact` | row Z30, with the window paragraph worded after the referees of `c9-mv6-window-statement` (E1 to E4) and `c9-mv6-ff-window-exact` (E1 to E6) |
+| `MAP_ROWS_PROPOSED.md` Z31; working label Z15d, (E-H); replacement text proposed by `c9-eh-dual-r5-target-excess` | row Z31, round-9 paragraph worded after its referee (E1 to E3: "not detected", not "absent") |
+| Z24b (`c9-normaliser-cap-avoidance` section 8) | row Z24b, with referee corrections E1 to E6 |
+| EIS-w and G31 (drafts, "apply only after a referee holds") | section 2 note EIS-w and row G31, on the corrected statement held by the second pass in `c9-repair-referee-debts-r8` |
+| O1 (Statement O) | new section 3.10, row O1, worded as separate conditional statements (first referee E1), labels after the second pass |
+| positive-term sum rule (round 9; no text proposed by the lane) | row Q27, written from `c9-szego-sum-rule-prime-cascade` RESULT and REFEREE (five named forms) |
+| squarefull stratification, lead 17 (round 9; no text proposed by the lane) | row Z32, written from `c9-tro6-interstratum-cancellation` RESULT and REFEREE |
+| (added) | section 7: ten rows for claims of rounds 8 and 9 corrected by referees; header update line "sixth"; row count line |
+
+Still pending (not applied by this lane):
+
+- A row for the thin-prime-deletion control (positivity kept, real zero in (1/2, 1)): after lane `c10-thin-deletion-zero-mode-control` and its referee report. Statement O lines 1 and 5 are to be updated then.
+- Section 1 ("Status in ten lines") and section 5 unchanged: no bound moves; no paragraph for rounds 5 to 9 was written for section 5.
+- Rows for round-10 lanes: none proposed here.
+- `stack-combinator/TABLE.md` has no THIN row (unchanged debt).
+- Sources recalled, not opened (unchanged): Beurling construction (Statement O line 5); Coleman 1990 primary text; Huxley's short-interval asymptotic; Turan's equivalence (row D6); Blomer-Goldmakher-Louvel journal text; Gelfand-Tsetlin recipe for double covers (row Z23); Weil 1952; Montgomery's fixed-X omega theorem (row P44). Each is carried as "relative to" in the row or line that uses it.

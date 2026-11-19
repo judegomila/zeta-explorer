@@ -1,0 +1,7 @@
+# en q=7 d=5 N=4 lam=4 mode=0 primes=588 planned memory 0.067 GB (char tables (2401+588) x 16807 bytes, pair table 588 x 2401 x 3, W 5764801 x 2)
+EN 7 5 4 4 0 3 2 3 | 588 | 17396094021 | 17673823860 | 1205712 | 8775012 | 946611
+
+real	0m1.266s
+user	0m15.699s
+sys	0m0.147s
+# en q=7 d=6 N=6 lam=3 mode=0 primes=112 planned memory 13.984 GB (char tables (117649+112) x 117649 bytes, pair table 112 x 117649 x 3, W 40353607 x 2)

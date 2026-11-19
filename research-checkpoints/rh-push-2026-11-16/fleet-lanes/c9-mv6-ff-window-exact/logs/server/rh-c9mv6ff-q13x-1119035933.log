@@ -1,0 +1,4 @@
+# enw q=13 d=1 N=2 lam=10 weights=6 threads=16 sieve block q^5=371293 blocks=371293 small primes=82173 planned memory 0.0100 GB
+# enw primes=13785812040 (equals the necklace count); self-checks on 210363 primes passed
+done q=13 N=2 lam=10 d=1 6320 s
+# enw q=13 d=1 N=3 lam=9 weights=6 threads=16 sieve block q^5=371293 blocks=28561 small primes=7917 planned memory 0.0112 GB

@@ -1,0 +1,12 @@
+OK stored (N,lam,d)=(2,7,2): 300 lines identical (ENW + every ROW); # enw q=7 d=2 N=2 lam=7 weights=6 threads=1 sieve block q^6=117649 blocks=7 small primes=140 planned memory 0.0001 GB
+# enw primes=117648 (equals the necklace count); self-checks on 2 primes passed
+OK stored (N,lam,d)=(3,6,2): 300 lines identical (ENW + every ROW); # enw q=7 d=2 N=3 lam=6 weights=6 threads=1 sieve block q^5=16807 blocks=7 small primes=140 planned memory 0.0002 GB
+# enw primes=19544 (equals the necklace count); self-checks on 1 primes passed
+OK stored (N,lam,d)=(3,6,1): 48 lines identical (ENW + every ROW); # enw q=7 d=1 N=3 lam=6 weights=6 threads=1 sieve block q^5=16807 blocks=7 small primes=140 planned memory 0.0001 GB
+# enw primes=19544 (equals the necklace count); self-checks on 1 primes passed
+OK stored (N,lam,d)=(0,6,2): 150 lines identical (ENW + every ROW); # enw q=7 d=2 N=0 lam=6 weights=3 threads=1 sieve block q^5=16807 blocks=7 small primes=140 planned memory 0.0000 GB
+# enw primes=19544 (equals the necklace count); self-checks on 1 primes passed
+OK ffx en (N,lam,d)=(4,5,2): 5 vectors identical (np, sumnorm, diag, sW2); # enw q=7 d=2 N=4 lam=5 weights=5 threads=1 sieve block q^4=2401 blocks=7 small primes=28 planned memory 0.0060 GB
+# enw primes=3360 (equals the necklace count); self-checks on 1 primes passed
+OK ffx en (N,lam,d)=(4,5,1): 5 vectors identical (np, sumnorm, diag, sW2); # enw q=7 d=1 N=4 lam=5 weights=5 threads=1 sieve block q^4=2401 blocks=7 small primes=28 planned memory 0.0058 GB
+# enw primes=3360 (equals the necklace count); self-checks on 1 primes passed

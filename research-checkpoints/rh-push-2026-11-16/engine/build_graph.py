@@ -135,21 +135,27 @@ CONTROLS = {
                has='every Euler factor at p > P_0, every tail property of the prime sequence, multiplicative coefficients',
                kills='any argument whose hypotheses do not change when finitely many local factors change (tail properties, limits in P)',
                kw=r'finite modification|finitely many (euler|local) factors|finite twist'),
-    # built by lane c4-thin-twist-control-78 (refereed once; map section 2, row THIN). Status stays conjectural until
-    # lane c5-thin-walk-replay re-reads the short-interval theorem the construction rests on (cited from memory).
+    # built by lane c4-thin-twist-control-78 (refereed once; map section 2, row THIN). Status set to proved-relative by
+    # c6-repair-referee-debts-r5: the short-interval inputs are located as stated theorems (Huxley; ray classes: Coleman
+    # 1990 Thm 2.1, read through two secondary quotations; primary texts not opened). See push/c5-thin-walk-replay/REFEREE2.md.
     # Text replaced by c5-repair-engine-map-r4 (the proposed form had a double zero and exponent b; both were wrong).
     'THIN': dict(name='thin sign twist: eps completely multiplicative, -1 on a set S of primes with pi_S(x) = '
                       '(1/2) int_2^x t^(b-1) dt/log t + O(x^(b-eta)), +1 elsewhere; F = zeta(s)(s - b)W(s), 1/2 < b < 1',
                  lacks='periodicity of the coefficients modulo any ideal (hence the functional equation of every twist); Lambda >= 0',
                  has='complete multiplicativity, unimodular local parameters at every prime, ordinary Dirichlet series, '
                      'continuation past b, one simple pole at 1, eps(p) = 1 on primes of relative density one; simple zero at '
-                     's = b (PROVED relative to a short-interval theorem cited from memory; numerics to 1e9, b = 0.9); partial '
+                     's = b (PROVED relative to a short-interval counting theorem: Huxley; ray-class variant relative to Coleman 1990 as quoted; numerics to 1e9, b = 0.9); partial '
                      'sums c x + O(x^(b+eps)) proved, measured exponent near b/2',
                  kills='any argument for a zero-free half-plane that uses the target only through multiplicativity, local '
                        'size, continuation and the pole; first unavailable step of the 7/8 proof: periodicity of the target '
                        'weight (Prop. 5.1 / Lemma 5.8), argued from hypotheses, not replayed',
-                 kw=r'thin twist|thin sign twist|\bTHIN\b', status='conjectural'),
+                 kw=r'thin twist|thin sign twist|\bTHIN\b', status='proved-relative'),
 }
+# Curated auxiliary controls (curated/controls.json; added by c9-repair-referee-debts-r8: EISW = off-resonance Eisenstein series).
+_cpath = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'curated', 'controls.json')
+if os.path.exists(_cpath):
+    for _code, _c in json.load(open(_cpath, encoding='utf-8'))['controls'].items():
+        CONTROLS[_code] = {k: _c[k] for k in ('name', 'has', 'lacks', 'kills', 'kw', 'status') if k in _c}
 # Control-to-control and control-to-row edges stated in OBSTRUCTION_MAP.md section 2 (notes on use) and rows Q21, S12,
 # which the keyword rules do not produce. (source, target, type, why). Added by c4-repair-map-engine-r3.
 EXTRA_EDGES = [
@@ -162,8 +168,10 @@ EXTRA_EDGES = [
     ('ctl-WT', 'out-c2-euler-cone-fe-rigidity', 'control-defeats', 'lane that introduced the window translate'),
     ('ctl-WT', 'fam-fixed-window-count-rigidity', 'control-defeats', 'family closed by the height translate'),
     ('ctl-FM', 'fam-tail-generic-selector', 'control-defeats', 'finite modifications share the tail class of zeta'),
+    ('ctl-EISW', 'hecke-correspondence-recurrence', 'control-defeats', 'E(z, w\') off resonance satisfies every input the device reads (c8-hecke-entropy-resonance-rigidity Proposition 4; two referees)'),
+    ('ctl-WT', 'ctl-EISW', 'special-case-of', 'on the modular surface the window translate tau_{w - i alpha} is the Eisenstein series E(., w - i alpha)'),
 ]
-CONTROL_CODE_RE = re.compile(r'(?<![A-Za-z])(DH|HEAT|TW\+-|TW\+|TW-|TW|EA|NR|THW|THIN|PA|WT|FM|U|B)(?![A-Za-z_0-9(])')
+CONTROL_CODE_RE = re.compile(r'(?<![A-Za-z])(DH|HEAT|TW\+-|TW\+|TW-|TW|EA|NR|THW|THIN|PA|WT|FM|EIS-w|EISW|U|B)(?![A-Za-z_0-9(])')
 
 # ----------------------------------------------------------------------------- roles
 CROSSING_RE = re.compile(
@@ -366,6 +374,8 @@ def controls_in(text):
         c = m.group(1)
         if c in ('TW', 'TW+-'):
             out += ['TW+', 'TW-']
+        elif c in ('EIS-w', 'EISW'):
+            out.append('EISW')
         elif c in ('U', 'B'):
             # single letters: accept only as a list item (followed by comma, star, semicolon, end, or space+paren)
             tail = text[m.end():m.end() + 2]

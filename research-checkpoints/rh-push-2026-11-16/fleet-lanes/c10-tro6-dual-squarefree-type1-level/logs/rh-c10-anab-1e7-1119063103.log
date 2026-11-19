@@ -1,0 +1,18 @@
+[b] X=1e+07 levels N(a) <= Q^0.4: points 9 (Q 708..37150, levels 4..18)
+     r2 along path (theta rows): 1.188 1.214 1.034 1.229 1.087 1.138 1.149 1.163 1.043 | randphase0: 1.224 1.192 1.176 1.233 1.192 1.206 1.189 1.101 1.134 | random signs on levels: 1.008 0.983 1.031 1.008 0.992 1.010 1.004 0.996 1.000
+     exponent r2: theta +0.0173; seeds mean +0.0169 sd 0.0054 [+0.0096, +0.0261]; diff +0.0004; saving False; excess False
+     exponent L: theta -0.0605; seeds mean +0.0060 sd 0.0125 [-0.0099, +0.0250]; diff -0.0665; saving True; excess False
+     other rows, exponent r2 / L: liouville +0.0410 / +0.0067; thin +0.0105 / +0.0039; cubicrows +0.0534 / -0.0012; nomu_levels +0.0301 / -0.0605; planted10 +0.2387 / +0.2049 | planted r2: 2.85 2.50 2.28 2.08 1.67 1.54 1.38 1.27 1.12
+     L values theta: 0.978 0.967 0.904 0.946 0.963 0.895 1.065 1.147 1.260 | x2 theta: 0.88 1.33 0.01 1.51 0.67 1.05 1.14 1.30 0.93 | full form / CS: 0.00006 0.00011 0.00023 0.00030 0.00059 0.00113 0.00121 0.00235 0.00365
+[b] X=1e+07 levels N(a) <= Q^0.5: points 9 (Q 708..37150, levels 7..52)
+     r2 along path (theta rows): 1.137 1.162 1.037 1.054 1.223 1.225 1.327 1.253 1.037 | randphase0: 1.121 1.173 1.172 1.197 1.161 1.193 1.330 1.165 1.170 | random signs on levels: 1.020 0.997 0.987 1.012 0.993 1.009 1.001 0.976 1.008
+     exponent r2: theta -0.0169; seeds mean -0.0121 sd 0.0077 [-0.0225, +0.0032]; diff -0.0048; saving False; excess False
+     exponent L: theta -0.0417; seeds mean +0.0049 sd 0.0074 [-0.0043, +0.0197]; diff -0.0466; saving True; excess False
+     other rows, exponent r2 / L: liouville +0.0125 / -0.0059; thin -0.0157 / -0.0029; cubicrows +0.0192 / -0.0034; nomu_levels +0.0543 / -0.0417; planted10 +0.2448 / +0.1397 | planted r2: 3.21 2.82 2.42 2.08 1.93 1.67 1.58 1.44 1.13
+     L values theta: 0.983 0.983 0.923 0.965 0.974 0.925 1.048 1.071 1.192 | x2 theta: 1.00 1.44 0.06 0.67 1.22 1.43 1.96 1.68 0.81 | full form / CS: 0.00006 0.00011 0.00023 0.00030 0.00059 0.00113 0.00121 0.00235 0.00365
+[b] X=1e+07 levels N(a) <= Q^0.6: points 9 (Q 708..37150, levels 14..153)
+     r2 along path (theta rows): 1.090 1.171 1.085 1.061 1.234 1.232 1.205 1.229 1.081 | randphase0: 0.978 1.156 1.056 1.170 1.100 1.158 1.247 1.158 1.140 | random signs on levels: 0.986 0.999 0.997 0.990 0.964 0.980 0.973 0.976 0.998
+     exponent r2: theta -0.0159; seeds mean -0.0327 sd 0.0058 [-0.0430, -0.0254]; diff +0.0168; saving False; excess False
+     exponent L: theta -0.0278; seeds mean +0.0034 sd 0.0061 [-0.0025, +0.0162]; diff -0.0312; saving True; excess False
+     other rows, exponent r2 / L: liouville -0.0246 / -0.0056; thin -0.0362 / +0.0023; cubicrows +0.0452 / -0.0033; nomu_levels +0.0696 / -0.0278; planted10 +0.2599 / +0.0931 | planted r2: 3.39 3.01 2.50 2.19 1.97 1.70 1.47 1.45 1.18
+     L values theta: 0.993 0.981 0.928 0.987 0.995 0.932 1.046 1.050 1.109 | x2 theta: 1.29 1.66 0.68 0.97 1.48 1.47 1.59 1.65 0.76 | full form / CS: 0.00006 0.00011 0.00023 0.00030 0.00059 0.00113 0.00121 0.00235 0.00365

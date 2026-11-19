@@ -1,0 +1,15 @@
+{
+ "proposal_for": "engine/curated/devices.json (devices list); written by lane c9-szego-sum-rule-prime-cascade, not applied",
+ "device": {
+  "id": "positive-term-sum-rule",
+  "state": "closed",
+  "state_note": "proposed; one lane, no referee yet: 'tried, not closed' until a referee holds",
+  "name": "Sum rule with positive terms crossing from summable to square-summable coefficients (Szego-Verblunsky, Killip-Simon, Simon-Zlatos, Lukic, Krein-Denisov) on the prime stub chain",
+  "reads": "moduli p^(-sigma) and phases arg u_p - t log p of the stub coefficients in delay order",
+  "class_control": "U passes every stage step (torus rotation, row Q21: same value set and distribution of every stage functional over window positions). THIN satisfies the Simon-Zlatos difference condition for sigma > b/2 with a zero at b. LIOU has identical differences to zeta. FM: the bound-state term is a tail invariant. DH and HEAT fail only at chain formation; the Littlewood identity holds for DH and shows its zero (B_W = 0.0585171825 on [80,90] at sigma = 0.75)",
+  "evidence": "lane c9-szego-sum-rule-prime-cascade: stage identity int_W log|F_P| = Phi_P(T) - Phi_P(T+H) to 5e-13 for zeta, LIOU, U, THIN, WT at P = 1e2, 1e3, 1e4; mean form E + 4 pi delta = log zeta(2 sigma) with three nonnegative terms; window entropy sd 0.33 for every object, KS p-values 0.29 to 1.00 against U; difference functional converges for zeta on Re s > 0 (3.6358 on the critical line), grows as 2 log log P for U, converges for THIN on Re s > 0.45; tail ratio small only for p > about 10 t; H^2(T^inf) kernel at depth delta equals zeta(2 delta)",
+  "returns": "a density (Blaschke / Lieb-Thirring) bound in mean form; Jensen's zero count in window form; smoothness of p^(-it) in p for p > t in difference form; convergence only on Re s > sigma_0 + 1/2",
+  "not_covered": "a sum rule whose coefficient side vanishes identically and whose limit step is semicontinuous in the direction 'bound states of the limit <= liminf of the stages'; one-delay theorems recalled, not opened; HEAT, EA, Beurling, phase-rotated transfer operator, theta^w not computed",
+  "nodes": []
+ }
+}

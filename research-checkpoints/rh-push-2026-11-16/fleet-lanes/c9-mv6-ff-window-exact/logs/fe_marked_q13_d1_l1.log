@@ -1,0 +1,8 @@
+q=13 d=1 lam=1 D=2: 4 marked primes tested: indices [0, 3, 6, 9]
+(b) modulus relation norm(M'_{D-N}) = q^(d+lam-1-N) norm(M_N):  N: (pairs, pairs satisfying it): {0: (48, 0), 1: (48, 48), 2: (48, 48)}
+N | pairs (P, m) | completed M_N: # nonzero | sum of norms | companion M'_N: # nonzero | sum of norms | squarefree only: # nonzero | sum of norms
+0 | 48 | 48 | 48 | 48 | 48 | 48 | 48
+1 | 48 | 48 | 624 | 48 | 624 | 48 | 624
+2 | 48 | 48 | 624 | 48 | 8112 | 48 | 624
+3 | 48 | 0 | 0 | 0 | 0 | 48 | 624
+4 | 48 | 0 | 0 | 0 | 0 | 48 | 8112

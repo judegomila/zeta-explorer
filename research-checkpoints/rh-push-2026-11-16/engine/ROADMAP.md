@@ -1,4 +1,6 @@
-# Roadmap: attack paths generated from the idea graph (batches 1 and 2, 2026-11-17; campaign state after round 5 in section 10, 2026-11-18)
+# Roadmap: attack paths generated from the idea graph (batches 1 and 2, 2026-11-17; campaign state after round 5 in section 10; after round 10 in section 11, 2026-11-19)
+
+**Current state: section 11.** It overrides sections 1 to 10 where they differ.
 
 Status of every statement below: RH is open. Nothing here is a result about zeros. The roadmap orders work; it does not rank likelihood of success. Row ids (P1, Q10, N25, ...) refer to `../push/OBSTRUCTION_MAP.md` and the syntheses in `../push/`; node ids refer to `IDEA_GRAPH.json`.
 
@@ -262,3 +264,60 @@ Dependencies: 1 before any further lane on Proposition D; 3 and 4 share the redu
 
 `generate.py` weights are now in the dict `WEIGHTS` (previous file: `scratch/generate.before-strategy-v2.py`): heightUniform 0-3 to 0-1, underused 0-4 to 0-2, floored device 2 to 1, separator 2 to 3, size and nonlinear keyword parts 1 to 0.5. Run of 2026-11-18 after `merge_outcomes.py` and `build_graph.py`: 1,577 nodes (953 live), 60 outcome entries (48 closed), 34 closed families; 36,471 generated, 27,558 rejected, 8,913 scored. Top 60: no closed device, 12 with an open device (all `map-open-9`), 48 with the floored 7/8 device only. Comparison of ranks with outcomes: none of the 240 top-60 candidates of rounds 2 to 5 was launched as generated, and the hand-selected candidates of batch 1 ranked between 662 and 39,988, so the ranking has not predicted an outcome. With two open device nodes the composition of the list is fixed by the per-device cap; a new device type enters only as a new node in `curated/mk_devices.py`. Scoring defects of section 9 item 2 remain (reader labels and keyword matches).
 
+## 11. State after campaign round 10 (2026-11-19; matches `../campaign/STRATEGY.md` version 3)
+
+RH is open; no lane has produced a statement about zeros of zeta. Scoreboard: headline 1 of 4 (`c1-leeyang-krein-limit`, R1 at stage level; closed as a lead), 90 campaign lanes refereed, hold rate 87.8%, 43 lemmas decided, 10 PROVED steps broken, no lane with R2, R3 or R4, no frontier number moved. Section 10.4 (ORDER-2 as the lead) and section 10.5 are superseded.
+
+### 11.1 Device table (source of truth: `curated/devices.json`)
+
+34 device types: 33 closed, 1 floored (coherent-set / large-sieve, the 7/8 type; floor 5/6 at r = 6; ceiling 2/3 for the sextic format by the normaliser, row Z24), 0 open. Closed by the strategy review after round 10:
+
+- `effective-order-two` (node `map-open-1`). Rounds 6 to 10: re-expression (Lemma U), abelian rows, double covers through local data, higher-degree probes, long marks, the Hilbert-Schmidt cap on operator-norm low estimates, the two escapes (E-K) and (E-H), the normaliser ladder, bridge forms at the junction. Each ends at an input of zero-free type for the twist family of the target, or fails in the F_q[T] model. Several closures are measured or argued. Reopening inputs are listed in STRATEGY section 3.1 item 22.
+- `function-field-order2-vertex` (node `ff-order2-vertex-probe`). The vertex with h > 1 exists where the Riemann hypothesis is a theorem, but its low input contains the squared signal, fails at N = 2 above dual length 3N, and its excess is not target-specific. Kept as a bounded model question with no flag.
+
+Closed in rounds 6 to 10 before this review: quadratic positivity with companions (pointwise half), Laurent-shell and gamma-coupled sections, Landau-Siegel determinant in the height aspect, single-row bridge, Hecke recurrence on resonance states (control EIS-w), (E-K), (E-H), positive-term sum rules. Closed as leads without a device node: TRO6 lead 17 in four forms (one trilinear sum; part B only), the n4 spectral window by reciprocity on (n, c), the intersection-form square (algebraic in genus 1).
+
+A fourth crossing device (section 1) has not been found.
+
+Pending proposals without a node (`mk_devices.py`, list `PENDING`): read sets RS-1, RS-2, RS-3 below; density forms with companions (MV-CAP applies); global Whittaker constants on the double cover of GL(3); rank >= 2 compact-at-infinity squares; Lax-Phillips norms outside the weighted-L2 family; Rouche step 4.
+
+### 11.2 Controls added since section 1
+
+`THIN` (complete multiplicativity, unimodular parameters, zero at any b in (1/2, 1); relative to a short-interval prime theorem in ray classes, source located second-hand), `DEL` (thin prime deletion: Lambda >= 0, coefficients 0/1, pole at 1, simple real zero at b; relative to a classical short-interval theorem; one referee, Lemma 0 repaired), `EIS-w` (off-resonance Eisenstein series: keeps group, functional equation, Euler product, Hecke algebra), window translate, interpolation twin, first-moment control FM. DEL with THIN passes every degree-one Euler-product read set that omits the functional equation and periodicity.
+
+### 11.3 Themes after round 10 (replaces 10.3)
+
+| Theme | State |
+|---|---|
+| positivity | closed in every tested form, now including quadratic forms with pointwise output, sum rules on the prime chain, shell sections, bridge forms on rows and row families. |
+| zero-free (7/8 method) | still the one mechanism with R1, R2, R3; R3 is periodicity of twists in the conductor aspect and sits in a weight-blind Hermitian form of the low half (no R1, no R4 there). Order 2 closed as an attack lead. Refinements inside [5/6, 7/8] are part B; one named new input (n-th order large sieve, unverified preprint). TRO6 by the signed c-sum closed at reachable resolution. |
+| prime-chain | closed, as in 10.3, plus shell and gamma-coupled sections and sum rules. |
+| geometry | closed for the tested structures, now including square intertwiners with a fixed Hecke rule, the Casimir class, Hecke recurrence on resonance states, the intersection-form square in genus 1. Not run: genus >= 2 model probe; rank >= 2 squares without a Hecke rule (no R1). |
+| flow | closed as a route to zeros; Lambda only. |
+| statistics | closed (MV-CAP). |
+| nyman | closed. |
+
+### 11.4 Current lead and missing lemma
+
+No lead has a referee-confirmed score of 2 or more. Least blocked direction by the record: a device from read set RS-1, the functional equation of the target used in the same inequality as periodicity of twists in the conductor aspect. RS-2: an attached object whose positivity is not algebraic. RS-3: positivity using zeta's gamma side together with the Euler product in one step.
+
+**CROSS-1 (open; no candidate on file).** A functional I on Dirichlet series with (i) an Euler product with unimodular local parameters, (ii) the functional equation of zeta, (iii) twists periodic with a Poisson dual uniform in the modulus, such that: I >= 0 (or a one-sided bound) is proved by a step using (i), (ii), (iii) in one inequality, with (ii) entering through at least of the order of sqrt(T)/log T conditions at height T; the bound gives a one-sided bound at every height in Re s > sigma_0 for some sigma_0 < 1 without the Proposition 2.1 format; the proof fails at a named step for DEL, THIN, U, DH, E_a, T-NR, EIS-w, the window translate and the interpolation twin. Full text: STRATEGY section 4.0.
+
+### 11.5 Order of attack for round 11 (allocation 3 explore / 1 deepen / 1 combine / 1 compute / 1 frontier / 1 referee-repair-record)
+
+| # | Kind | Item | First decisive test |
+|---|---|---|---|
+| 1 | explore, stage A | RS-1 device design | one displayed candidate inequality; control table over the eleven controls; stop at the first control that passes every step |
+| 2 | explore, stage A | RS-2 device design | same; first controls: fakes with off-line zeros, EIS-w, the genus-1 identity |
+| 3 | explore, stage A | RS-3 device design | same; first controls: DH, E_a with real a, backward heat |
+| 4 | combine | deletion control + Statement O | the 20 devices DEL does not pass, checked against `curated/devices.json` and grouped by read set; lines 1, 5 and section C rows 1b, 2a rewritten |
+| 5 | compute (heavy allowed) | row-energy decomposition in F_q[T] at a second size ((6, 10, 2) at q = 7, or q = 13), seeded classes | registered parts: principal signal, own-character signal, n = l^2 normaliser term, squarefree-n non-principal part; question: is the non-principal part bounded once the principal signal is removed |
+| 6 | deepen | genus >= 2 targets: the probe J_k for r >= 6 on conductor degree >= 5 (or the paper side of item 5) | whether any square identity there carries positivity; no flag claimed |
+| 7 | frontier (part B) | n-th order large sieve (de Faveri 2610.04045) on map rows Z12, Z6, Z14; then the Ji 2611.16665 density ledger at r = 6 | a changed figure inside [5/6, 7/8], relative to unrefereed manuscripts |
+| 8 | referee, repair, record | referee on Lemma 1 and the tail bound of the deletion lane; Statement O line 3; map rows proposed by round-10 lanes 1, 3, 6, 7; nodes for any device proposal that passes stage A | acceptance as in `campaign/OBSTRUCTION_RECORD_OUTLINE.md` |
+
+Dependencies: 4 before the round-12 explore lanes (its list replaces the argued count 14 / 20); 5 and 6 share the exact code of `push/c9-mv6-ff-window-exact` and `push/c10-ff-completed-rows-692`; 1 to 3 are independent and use no computation in stage A.
+
+### 11.6 Generator after the review
+
+Weights (`generate.py`, dict `WEIGHTS`; previous file `scratch/generate.before-strategy-v3.py`): open device 3 to 2, floored device 1 to 0, cohesion cap 2 to 1. Reason: the device nodes ranked first in rounds 8 to 10 were each closed within two rounds with score 0; the floored device filled 27 of the top 60 of round 10 and its lanes cannot change the headline; every partner placed by tag overlap was discarded by the planner. Run of 2026-11-19 (log `scratch/rerun-strategy-v3.log`): 100 outcome entries (66 closed), 34 closed families, 1,643 nodes (960 live), 8,864 edges; 36,569 generated, 28,131 rejected, 8,438 scored. Top 60: no open device (none exists), no closed device, 60 on the floored 7/8 device (five nodes, 12 each). The list is part-B reading only. Use of the generator from round 11: after an explore lane passes stage A its device gets a node (`curated/mk_devices.py`, `nodes/`), and `generate.py --node <id>` enumerates partners. The ranking has not predicted an outcome in ten rounds; the scoring defects of section 9 item 2 remain.

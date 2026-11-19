@@ -1,0 +1,9 @@
+q=7 d=1 lam=1 P=[1, 1] F=[0, 1] rows coprime to P: 6
+N=0: completed: nonzero rows 6, sum of norms 6; on the 5 rows coprime to F: nonzero 5, sum of norms 5 | squarefree row: sum of norms 6
+N=1: completed: nonzero rows 5, sum of norms 21; on the 5 rows coprime to F: nonzero 4, sum of norms 14 | squarefree row: sum of norms 21
+N=2: completed: nonzero rows 6, sum of norms 208; on the 5 rows coprime to F: nonzero 5, sum of norms 33 | squarefree row: sum of norms 208
+N=3: completed: nonzero rows 5, sum of norms 1274; on the 5 rows coprime to F: nonzero 5, sum of norms 1274 | squarefree row: sum of norms 1239
+N=4: completed: nonzero rows 6, sum of norms 63749; on the 5 rows coprime to F: nonzero 5, sum of norms 245 | squarefree row: sum of norms 47334
+N=5: completed: nonzero rows 1, sum of norms 3111696; on the 5 rows coprime to F: nonzero 0, sum of norms 0 | squarefree row: sum of norms 2525089
+N=6: completed: nonzero rows 0, sum of norms 0; on the 5 rows coprime to F: nonzero 0, sum of norms 0 | squarefree row: sum of norms 16464
+N=7: completed: nonzero rows 1, sum of norms 1067311728; on the 5 rows coprime to F: nonzero 0, sum of norms 0 | squarefree row: sum of norms 848696709

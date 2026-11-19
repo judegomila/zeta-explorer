@@ -1,0 +1,14 @@
+ptcheck q=7 degrees 1..6: primes compared 252, tables differing 0
+# en q=7 d=5 N=4 lam=4 weights=2 marked primes=588 planned memory 0.029 GB (prime character tables 728 x 16807 bytes, pair tables 588 x 2401 x 3, W 5764801 x 2)
+EN 7 5 4 4 0 3 2 3 | 588 | 17396094021 | 17673823860 | 1205712 | 8775012 | 946611
+EN 7 5 4 4 5 0 0 0 | 588 | 1488838074094 | 23523886680 | 1554672 | 1462928954256 | 1036938
+
+real	0m2.096s
+user	0m29.453s
+sys	0m0.022s
+# en q=7 d=6 N=6 lam=3 weights=1 marked primes=112 planned memory 2.917 GB (prime character tables 23632 x 117649 bytes, pair tables 112 x 117649 x 3, W 40353607 x 2)
+EN 7 6 6 3 0 3 2 3 | 112 | 1149949389472 | 1148148638818 | 11211034 | 111035484 | 9115960
+
+real	1m12.549s
+user	18m21.772s
+sys	0m0.912s

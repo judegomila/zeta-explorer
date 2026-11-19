@@ -1,0 +1,27 @@
+# en q=7 d=8 N=4 lam=1 weights=6 marked primes=7 planned memory 4.476 GB (prime character tables 728 x 5764801 bytes, pair tables 7 x 2401 x 4, W 16807 x 2)
+done en 7 8 4 1 24 s
+# en q=7 d=5 N=3 lam=6 weights=10 marked primes=19544 planned memory 0.441 GB (prime character tables 19684 x 16807 bytes, pair tables 19544 x 343 x 4, W 40353607 x 2)
+done en 7 5 3 6 60 s
+# en q=7 d=4 N=5 lam=5 weights=10 marked primes=3360 planned memory 0.802 GB (prime character tables 4088 x 2401 bytes, pair tables 3360 x 16807 x 4, W 282475249 x 2)
+done en 7 4 5 5 85 s
+# en q=7 d=6 N=4 lam=4 weights=10 marked primes=588 planned memory 0.110 GB (prime character tables 728 x 117649 bytes, pair tables 588 x 2401 x 4, W 5764801 x 2)
+done en 7 6 4 4 77 s
+# en q=7 d=5 N=6 lam=3 weights=10 marked primes=112 planned memory 0.539 GB (prime character tables 23632 x 16807 bytes, pair tables 112 x 117649 x 4, W 40353607 x 2)
+done en 7 5 6 3 88 s
+# en q=7 d=3 N=6 lam=6 weights=10 marked primes=19544 planned memory 9.213 GB (prime character tables 23632 x 343 bytes, pair tables 19544 x 117649 x 4, W 13841287201 x 2)
+done en 7 3 6 6 567 s
+# en q=7 d=6 N=3 lam=6 weights=10 marked primes=19544 planned memory 2.432 GB (prime character tables 19684 x 117649 bytes, pair tables 19544 x 343 x 4, W 40353607 x 2)
+done en 7 6 3 6 365 s
+# en q=7 d=5 N=5 lam=5 weights=10 marked primes=3360 planned memory 0.862 GB (prime character tables 4088 x 16807 bytes, pair tables 3360 x 16807 x 4, W 282475249 x 2)
+done en 7 5 5 5 329 s
+# en q=7 d=7 N=4 lam=4 weights=10 marked primes=588 planned memory 0.658 GB (prime character tables 728 x 823543 bytes, pair tables 588 x 2401 x 4, W 5764801 x 2)
+done en 7 7 4 4 428 s
+# en q=7 d=6 N=6 lam=3 weights=10 marked primes=112 planned memory 2.928 GB (prime character tables 23632 x 117649 bytes, pair tables 112 x 117649 x 4, W 40353607 x 2)
+done en 7 6 6 3 597 s
+# en q=7 d=4 N=6 lam=6 weights=3 marked primes=19544 planned memory 9.261 GB (prime character tables 23632 x 2401 bytes, pair tables 19544 x 117649 x 4, W 13841287201 x 2)
+done en 7 4 6 6 1575 s
+# en q=7 d=5 N=6 lam=5 weights=3 marked primes=3360 planned memory 5.941 GB (prime character tables 23632 x 16807 bytes, pair tables 3360 x 117649 x 4, W 1977326743 x 2)
+done en 7 5 6 5 1278 s
+# en q=7 d=6 N=5 lam=5 weights=7 marked primes=3360 planned memory 1.280 GB (prime character tables 4088 x 117649 bytes, pair tables 3360 x 16807 x 4, W 282475249 x 2)
+done en 7 6 5 5 2081 s
+ALLDONE

@@ -1,0 +1,27 @@
+primary primes prime to 6 with norm < 3000 : 422
+kernel K = R * unit sum: values [-6, 0, 6]  nonzero entries 29288 of 177662
+R depends only on classes mod 4: True  classes mod 4 seen: 12  pairs seen: 144 of 144
+K depends only on classes mod 36: True  classes mod 36 seen: 107  pairs seen: 11449 of 11449
+distinct rows of R on the 12 odd classes mod 4: 4  sizes [3, 3, 3, 3]
+R on the 4 square classes:
+ [[ 1  1  1  1]
+ [ 1  1 -1 -1]
+ [ 1 -1 -1  1]
+ [ 1 -1  1 -1]] 
+ eigenvalues [-2.0, -2.0, 2.0, 2.0]  diag [1, 1, -1, -1]
+chi_c(-1) depends only on the class mod 4: True  and equals R(x,x): True
+lane form R alone: signature (+,-,0) = (2, 2, 0)
+pairing k with -k: R(x,y)(s(x)+s(y)) =
+ [[ 2  2  0  0]
+ [ 2  2  0  0]
+ [ 0  0  2 -2]
+ [ 0  0 -2  2]] 
+ eigenvalues [0.0, 0.0, 4.0, 4.0]
+class form mod 36: 107 classes; blocks [18, 18, 17, 18, 18, 18]
+EXACT: K = 6 * sum over blocks of phi phi^T with phi = +-1 on the block: True  => positive semidefinite, rank 6
+float eigenvalues of the class form: min -3.723e-14, max 108.000000, number > 1e-6: 6
+kernel on 422 primes (diagonal = class value 6): min eig -1.693e-13, max 444.000, rank 6
+frequency k = (2, 1) (norm 3, not a unit times a sixth power): unit-orbit kernel min eig -1.917e-13, max 444.000, rank 6
+frequency k = (5, 3) (norm 19, not a unit times a sixth power): unit-orbit kernel min eig -2.002e-13, max 438.000, rank 6
+frequency k = (7, -4) (norm 93, not a unit times a sixth power): unit-orbit kernel min eig -1.723e-13, max 444.000, rank 6
+R alone on the primes: eigenvalues > 0: 2, < 0: 2 (extremes -216.00, 217.34)

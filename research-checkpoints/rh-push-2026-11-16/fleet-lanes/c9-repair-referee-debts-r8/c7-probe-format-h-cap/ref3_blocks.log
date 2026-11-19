@@ -1,0 +1,15 @@
+planned allocation: 80 x 1500 complex128 = 1.9 MB
+Q = 80, D = 1500: entries of modulus 1: 0.9998 of all; ||T||^2 = 7953, max(Q, D) = 1500; b1 = 1.431, a0 = 0.485; |<A, T beta>| = 1.048 (not zero)
+   (a) product partitions: min of blockwise sum / ((c^(1/2)/b1) ||A|| ||beta|| D^(1/2)) = 3.354
+   (b) row-dependent column partitions: min ratio = 3.271
+   (c) rectangle tilings: min of blockwise sum / ((c^(1/2) a0/b1) ||A|| ||beta|| D^(1/2)) = 6.968
+planned allocation: 240 x 1500 complex128 = 5.8 MB
+Q = 240, D = 1500: entries of modulus 1: 0.9997 of all; ||T||^2 = 11874, max(Q, D) = 1500; b1 = 1.428, a0 = 0.470; |<A, T beta>| = 1.425 (not zero)
+   (a) product partitions: min of blockwise sum / ((c^(1/2)/b1) ||A|| ||beta|| D^(1/2)) = 4.089
+   (b) row-dependent column partitions: min ratio = 4.017
+   (c) rectangle tilings: min of blockwise sum / ((c^(1/2) a0/b1) ||A|| ||beta|| D^(1/2)) = 8.067
+planned allocation: 200 x 200 complex128 = 0.6 MB
+Q = 200, D = 200: entries of modulus 1: 0.9978 of all; ||T||^2 = 1643, max(Q, D) = 200; b1 = 1.436, a0 = 0.493; |<A, T beta>| = 0.990 (not zero)
+   (a) product partitions: min of blockwise sum / ((c^(1/2)/b1) ||A|| ||beta|| D^(1/2)) = 4.854
+   (b) row-dependent column partitions: min ratio = 5.051
+   (c) rectangle tilings: min of blockwise sum / ((c^(1/2) a0/b1) ||A|| ||beta|| D^(1/2)) = 9.765

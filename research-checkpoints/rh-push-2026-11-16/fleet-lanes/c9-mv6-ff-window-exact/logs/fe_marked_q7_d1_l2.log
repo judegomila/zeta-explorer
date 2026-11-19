@@ -1,0 +1,10 @@
+q=7 d=1 lam=2 D=4: 3 marked primes tested: indices [1, 17, 34]
+(b) modulus relation norm(M'_{D-N}) = q^(d+lam-1-N) norm(M_N):  N: (pairs, pairs satisfying it): {0: (21, 0), 1: (21, 3), 2: (21, 12), 3: (21, 3), 4: (21, 21)}
+N | pairs (P, m) | completed M_N: # nonzero | sum of norms | companion M'_N: # nonzero | sum of norms | squarefree only: # nonzero | sum of norms
+0 | 21 | 21 | 21 | 21 | 21 | 21 | 21
+1 | 21 | 18 | 126 | 18 | 126 | 18 | 126
+2 | 21 | 21 | 1029 | 21 | 2037 | 21 | 1029
+3 | 21 | 0 | 0 | 18 | 6174 | 0 | 0
+4 | 21 | 21 | 1029 | 21 | 50421 | 21 | 1029
+5 | 21 | 0 | 0 | 0 | 0 | 0 | 0
+6 | 21 | 0 | 0 | 0 | 0 | 21 | 1029

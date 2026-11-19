@@ -3,7 +3,8 @@
  "round": 5,
  "kind": "explore",
  "nodes": [
-  "map-open-1"
+  "map-open-1",
+  "out-c5-marks-circularity-order2"
  ],
  "tags": [
   "seven-eighths",
@@ -37,5 +38,8 @@
  "lesson": "The heuristic's stated mechanism (GRH-strength prime sums against few rows) never occurs: that configuration is infeasible. The branch closes for a different reason: a comparison system reaching 1/2 sits at a critical point (h = 3) where its low input is equivalent to the conclusion, and any geometry-uniform norm or correlation package extends to h > 3, where it is false. On the tall compensated ray the abscissa is 1 minus the power saving in the TRO6 polar correlation, so TRO6 at large b is a restatement of the conclusion. Impose compensation geometry (M >= 2l, ly >= l) in every future LP.",
  "followUp": "Referee Theorems B and C against the manuscript: derive the signal formula and the uncompensated high side for l > lx from sections 12 and 16 (r3 guessed the latter; the dichotomy in section 5 suggests it is wrong), and check the scalar factor L^S(6s-3,(lambda eta)^6) E_eta down to Re s = 1/2, including its pole at 2/3 for some targets. Then update map row Z15 and section 6 item 1 as in RESULT section 8.",
  "resultFile": "tmp/research-2026-11-16/push/c5-marks-circularity-order2/RESULT.md",
- "refereeFile": "tmp/research-2026-11-16/push/c5-marks-circularity-order2/REFEREE.md"
+ "refereeFile": "tmp/research-2026-11-16/push/c5-marks-circularity-order2/REFEREE.md",
+ "launchedNodes": [
+  "map-open-1"
+ ]
 }

@@ -1,0 +1,12 @@
+primes 15, squarefree nodes with N <= 1400: 108
+L0  beta gamma_1 = mu alpha^2 G on 108 nodes (brute-force Gauss sums): max err 4.57e-14; | |gamma_1| - 1 | max 1.20e-14
+REC chi_b(a) = R(a,b) chi_a(b): 8504 coprime pairs (3496 with R = -1), mismatches 0
+A   moduli 68, c 14, s 12, pairs (c,s) 80, distinct n 74; |D| = 7.795936
+A1  mu alpha^2 G form vs beta gamma_1 form: 2.32e-14
+A2  divisor regrouping sum_n rho-hat(u n) Lambda(n): 1.78e-15
+A3  trilinear form with reciprocity (Moebius sum of conj chi_c(k) R(c,k)): 5.77e-15
+B1  beta_ab chi_ab(m) = beta_a chi_a(m) beta_b chi_b(m a^4): 1020 triples, max err 3.88e-14
+B2  level sum t_a = mu(a) beta_a sum_m rho chi_a(m) sum_b alpha^2 G conj gt(m a^4, b): 11 levels, max err 6.79e-10
+B3  sum_a mu(a) t_a = sum_c mu(c) beta_c T(c) M(c): err 4.62e-14; |value| = 73.2161; M(c) range -3..-1
+B4  = sum_m rho sum_b mu(b) beta_b chi_b(m) sum_a alpha(a) chi_a(m)^3 gt_2(m b, a) (cubic Gauss sums, brute force): err 5.08e-12
+L0t table 1e6: beta gamma_1 = mu alpha^2 G on 282269 nodes, max err 4.72e-09

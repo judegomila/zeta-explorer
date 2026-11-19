@@ -1,0 +1,6 @@
+q=7 (3,4,1) one: brute force sum of norms 0; assembled 0; equal: True; diagonal 1234800
+q=7 (3,4,1) a: brute force sum of norms 973062; assembled 973062; equal: True; diagonal 1230684
+q=7 (3,4,1) mu: brute force sum of norms 0; assembled 0; equal: True; diagonal 1234800
+q=7 (3,4,2) one: brute force sum of norms 4537890; assembled 4537890; equal: True; diagonal 8618904
+q=7 (3,4,2) a: brute force sum of norms 13463100; assembled 13463100; equal: True; diagonal 8590092
+q=7 (3,4,2) mu: brute force sum of norms 63794682; assembled 63794682; equal: True; diagonal 8618904

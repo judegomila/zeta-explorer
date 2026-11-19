@@ -1,0 +1,50 @@
+{
+ "slug": "c9-mv6-window-statement",
+ "round": 9,
+ "kind": "combine",
+ "nodes": [
+  "ek-vector-specific-row-mean-square",
+  "out-c9-mv6-window-statement"
+ ],
+ "tags": [
+  "seven-eighths",
+  "effective-order",
+  "sextic-theta",
+  "mean-square",
+  "poisson",
+  "moebius",
+  "twist-family",
+  "window",
+  "prime-marks",
+  "cross-term",
+  "grh-conditional"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "Negative result with corrected labels. Proved (relative to c8 Lemma 1 / Corollary 1 for squarefree columns, and to the twisted multiplicativity of gamma_2): the display (MV6-W) and its equivalence with (E-K) at each X (Lemma 0); the identity N_K = K D# + K Off_K (Prop. 1, definitional); the slot decomposition B_m = Sum_pi u_pi chi_pi(m) B^Z_m[nu xi_pi] and S_X = slot-diagonal part + Cross (Lemmas S1, S2; independently checked to 1e-15); the interpolation remark. Conditional outline only: under GRH for the enlarged twist family, (E-K) in the upper half-window is the named unproved input (CROSS). Obstruction, ARGUED + MEASURED, not a theorem: the two absolute-value techniques (family GRH pointwise; Theorem A Step 5 with L in the numerator) return N^(1+eps) in the window, and the frequency form they bound has size (N/X)D on average over phases and, by float measurement at three sizes and two weightings, for the Moebius vector; other methods are not excluded. Float screen: the theta vector shows no excess in the window at Z = 2000, 3000, 4000, 8000, 16000 (ratio at most 1.007, deficit near the lower edge unexplained); the aligned and Liouville vectors show a positive cross term, separated from random vectors only in the runs at Z >= 4000, where the slot primes also change. No proved window statement; headline unchanged; no statement about zeros.",
+ "obstruction": "For K = N^2/X > N (more dual frequencies than columns) the absolute 1/L frequency form N_K = K D# + K Off_K has its own diagonal of size (N/X) D (identity; measured 0.99-1.00 for the Moebius vector), so the window statement is a cancellation of relative size X/N. Family GRH taken pointwise and the Theorem A second moment with L in the numerator both return N^(1+eps), above the X D needed for X < N. ARGUED + MEASURED, not a theorem: sign-keeping or row-side methods are not excluded. What remains is a signed cross term over pairs of distinct slot primes ((CROSS), unproved, conditional outline in the upper half-window).",
+ "obstructionKind": "window-frequency-form-dominated-by-own-diagonal-absolute-value-methods-stop-at-n-1-plus-eps",
+ "controlsThatDefeat": [
+  "aligned vector (+7 to +40%) and Liouville-twisted vector (+2 to +22% from Z = 4000): excess sits in the cross term, as required of controls; the target shows none (float screen, no proof)",
+  "random phases (not separated from the theta vector below Z = 4000)",
+  "not run: DH, heat, THIN, U, E_a, T-NR, Beurling"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "No PROVED step failed. Corrections (labels and wording; outcome unchanged). Full text: tmp/research-2026-11-16/push/c9-mv6-window-statement/REFEREE.md\n\nE1 (verdict label): \"precise obstruction\" and \"a cancellation of relative size X/N, not a mean value\" rest on a definitional identity (Prop. 1), a float measurement for the Moebius vector, and an ARGUED description of Off_X as a positive form minus its diagonal. No lower bound N_K(m_1) >= c K D is p [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "In the window (more frequencies than columns) the Poisson-dual 1/L form is dominated by its own diagonal, so any bound that takes absolute values over the frequency sum (family GRH, density estimates, or the Theorem A second moment with L in the numerator) stops at N^(1+eps). The open content is a signed cross term over pairs of distinct slot primes; that is where the aligned and Liouville controls carry their excess (slope of log cross -0.07 to -0.15 against the predicted -1/6). Not proved: that no sign-keeping or row-side method works. The theta vector shows an unexplained deficit (ratio down to 0.90) near the lower edge.",
+ "followUp": "Split the row energy of the F_q[T] model of c8-ek-ff-reflected-rows-exact by pairs of marked primes and compare the cross term with the squared probe signal B_coh; if Cross = B_coh + O(diagonal) there, (CROSS) for a Weil target is the model's bulk result and the upper half-window closes in the model.",
+ "resultFile": "tmp/research-2026-11-16/push/c9-mv6-window-statement/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c9-mv6-window-statement/REFEREE.md",
+ "launchedNodes": [
+  "ek-vector-specific-row-mean-square"
+ ],
+ "engineVerdict": "partial"
+}

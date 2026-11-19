@@ -1,0 +1,37 @@
+{
+ "slug": "c6-repair-referee-debts-r5",
+ "round": 6,
+ "kind": "repair",
+ "nodes": [],
+ "tags": [
+  "control",
+  "filter",
+  "generator",
+  "referee",
+  "lemma-u",
+  "thin",
+  "hoheisel"
+ ],
+ "verdict": "partial-result",
+ "survivingClaim": "Repair lane, no statement about zeros. Lemma U holds under a third derivation; U-stab (triangle-inequality corollary) and U-slope hold, the exception being beta* > 1/2 an isolated real top zero across the family (empty when beta* = 1/2); (iv-a), Lemma A step (c), Theorem 2 and its corollary (largest real zero only) hold; Theorem 7 (iv) is ARGUED; Froehlich-Queyrut covers finite-order characters only, and the finite-place extension to infinite-order characters needs a classical input at split places as well as at the complex place; the Coleman 19/24 input is located second-hand only; map and engine counts agree (490 lines, 155 rows, 1,592 nodes, 36,447 generated, 8,890 scored). No score change.",
+ "obstruction": "Repair lane, no attack. Lemma U holds under a further derivation, with U-stab and U-slope added (exception: beta* > 1/2 an isolated real top zero across the family). Theorem 7(iv) is ARGUED; Froehlich-Queyrut covers finite-order characters only; the ray-class Hoheisel exponent (Coleman 1990, 19/24 + eps) is located second-hand only, primary text not opened. Still owed: map rows for c5-twisted-helson-arcs and two other round-5 lanes, section 7 entries for round 5.",
+ "obstructionKind": "filter-repair",
+ "controlsThatDefeat": [
+  "not applicable (repair lane)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "No PROVED step fails. Re-derived and confirmed: Lemma U, U-stab, U-slope, (iv-a), Lemma A step (c), Theorem 2 and its corollary. Numeric rerun on a different case (X=3e5, seventh-root values on 114 primes p = 2 mod 3, including p=2) agrees with the lane. Errors and gaps: E1 (false sentence, not load-bearing): \"at finite places K_v^*/F_v^* is compact and totally disconnected, so the local character has finite order\" is false at split places (K_v^*/F_v^* is isomorphic to F_v^*, and the local compo [record truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "Opening the sources changed two labels: Froehlich-Queyrut as printed covers only finite-order characters (the angular family needs Hecke theta inversion instead), and the ray-class Hoheisel exponent exists as a stated theorem (Coleman 1990) but was read only second-hand. Lemma U fixes the pair (slope, constant) of a probe under identities and small perturbations; only a probe differing by the full top size of the signal can have a different h.",
+ "followUp": "Open the primary text of Coleman 1990 (Theorem 2.1) and Weil 1952, and rerun tiers_fe2.py with the G argument passed, so rows THIN, Z22 and Z15b carry no second-hand entry. Still owed in the map: a row for c5-twisted-helson-arcs (its number P44 is taken), rows for the two other round-5 lanes, and section 7 entries for round 5.",
+ "resultFile": "tmp/research-2026-11-16/push/c6-repair-referee-debts-r5/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c6-repair-referee-debts-r5/REFEREE.md"
+}

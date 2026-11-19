@@ -1,0 +1,6 @@
+vector | share along c_0 of: S_6 | Jbar V_1 S_3 | Jbar^2 V_2 S_0 | its n = l^2 part | its squarefree-n part | completed row | companion S_0 (all vectors): 0.9996
+   and, in units of D_c, the c_0-component |sum_m X_m|^2/(q^d D_c) of: the n = l^2 part | the completed row
+one | 0.1087 | 0.1684 | 0.1429 | 0.9760 | 0.0004 | 0.2048 || 0.6450 | 1.2091
+a | 0.0345 | 0.0093 | 0.4686 | 0.9760 | 0.0000 | 0.3168 || 0.6468 | 0.5348
+b | 0.0010 | 0.0120 | 0.5065 | 0.9760 | 0.0000 | 0.3550 || 0.6468 | 0.7107
+mu | 0.9906 | 0.0013 | 0.0004 | 0.0000 | 0.0004 | 0.9721 || 0.0000 | 1187.7842

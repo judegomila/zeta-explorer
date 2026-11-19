@@ -1,0 +1,24 @@
+mode a: X = 1000000, nodes = 282269, M = 240000, rows = 67739, workers = 4
+planned memory: per worker table 44 MB + working arrays 17 MB; x4 = 0.24 GB; results 104 MB
+chunk 0/1059 2s
+chunk 52/1059 29s
+chunk 104/1059 45s
+chunk 156/1059 58s
+chunk 208/1059 70s
+chunk 260/1059 82s
+chunk 312/1059 94s
+chunk 364/1059 107s
+chunk 416/1059 120s
+chunk 468/1059 140s
+chunk 520/1059 152s
+chunk 572/1059 163s
+chunk 624/1059 173s
+chunk 676/1059 185s
+chunk 728/1059 197s
+chunk 780/1059 210s
+chunk 832/1059 229s
+chunk 884/1059 240s
+chunk 936/1059 251s
+chunk 988/1059 262s
+chunk 1040/1059 272s
+saved data/a_1e6.npz 276s

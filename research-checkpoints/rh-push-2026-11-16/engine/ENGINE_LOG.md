@@ -240,3 +240,230 @@ The generated count falls because pool C (third member of moves M1, M3, M4) has 
 
 No attack; no statement about zeros of zeta. `generate.py`: score weights moved to the dict `WEIGHTS` and changed (heightUniform 0-3 to 0-1; underused 0-4 to 0-2; floored device 2 to 1; separator 2 to 3; size and nonlinear keyword parts 1 to 0.5). Previous files: `scratch/generate.before-strategy-v2.py`, `scratch/CANDIDATES.before-strategy-v2.json`, `scratch/STRATEGY.v1.md`. `merge_outcomes.py`, `build_graph.py`, `generate.py --top 60` rerun through `scripts/memcap.sh 8`: 60 outcome entries (48 closed), 1,577 nodes (953 live), 36,471 generated, 27,558 rejected, 8,913 scored; device nodes live: 2 open (`map-open-1`, `map-open-9`), 6 floored. Top 60: 0 closed devices, 12 with an open device, 48 floored only. Reasons and the comparison with outcomes: `ROADMAP.md` section 10.6 and `../campaign/STRATEGY.md` section 5.
 
+
+## Referee-and-repair slot of campaign round 6 (2026-11-18, lane `c6-repair-referee-debts-r5`)
+
+No attack; no statement about zeros of zeta. Previous files: `../push/c6-repair-referee-debts-r5/engine_before/` (IDEA_GRAPH.json, CANDIDATES.json, outcomes.json, closed_families.json, build_graph.py).
+
+### Edits
+
+1. `nodes/nodes-16.json` (new): the six device-lane nodes of `../push/c5-device-table-extension/nodes.json` (`ctrl-interpolation-twin`, `padic-interpolation-reads-nonpositive-integers`, `frequency-only-devices-coefficient-blind`, `strip-dtn-phase-identity`, `tensor-squeeze-supplies-size-only`, `additive-multiplicative-pairing-is-vinogradov`). One statement changed on the way in (referee correction 4 of that lane: rank one is proved on a rectangle, argued for forms with the cut mn <= x). Five of the six ids were already listed in `curated/devices.json` with state closed and now resolve to nodes; the control node has no device entry.
+2. `build_graph.py`, control `THIN`: status `conjectural` -> `proved-relative`; text of the `has` field names the located short-interval statements (Huxley; ray-class variant relative to Coleman 1990 Theorem 2.1 as quoted in two later papers; primary texts not opened). Record: `../push/c5-thin-walk-replay/REFEREE2.md`.
+3. No change to `merge_outcomes.py`, `generate.py`, `curated/`, `closed_families.json`.
+4. Map (read by `build_graph.py`): `../push/OBSTRUCTION_MAP.md` gained rows D1 to D7 (section 3.9), Z15b, Z22; corrected P46, section 4 entry 49, control THIN (script `../push/c6-repair-referee-debts-r5/apply_map.py`).
+
+### Counts (`merge_outcomes.py`, `build_graph.py`, `generate.py --top 60`, each through `scripts/memcap.sh 8`)
+
+| | before | after |
+|---|---|---|
+| outcome entries (closed) | 60 (48) | 60 (48) |
+| closed families | 34 | 34 |
+| node files / raw records | 15 / 1,262 | 16 / 1,268 |
+| nodes (live) | 1,577 (953) | 1,592 (954) |
+| map rows parsed | 182 | 191 (D1-D7, Z15b, Z22) |
+| edges | 8,567 | 8,621 (control-defeats 625 -> 666) |
+| device nodes closed (live) / floored / open | 52 (49) / 6 / 2 | 57 (50) / 6 / 2 |
+| generated | 36,471 | 36,447 |
+| rejected | 27,558 | 27,557 |
+| scored | 8,913 | 8,890 |
+| rejected: closed device `strip-dtn-identity` | 0 (no node) | 28 |
+| top 60: open device / floored only / closed device | 12 / 48 / 0 | 12 / 48 / 0 |
+| top 60 containing one of the six new nodes | n/a | 0 |
+
+Of the 15 added nodes, 6 are the device-lane nodes and 9 are the new map rows. One of the six is live (`strip-dtn-phase-identity`, roles uniform / rigid / device / explainer, device state closed, so every candidate containing it is rejected: 28); the other five have role `wall`. Open device nodes are unchanged: `map-open-1`, `map-open-9`. `ctl-THIN` now has status `proved-relative`.
+
+### Limits
+
+- The top-60 list is the same in composition by device state as before the rerun; this step changes bookkeeping, not ranking.
+- `curated/mk_devices.py` was not rerun; the evidence text of `map-open-1` still says "Lemma U, referee holds" (now two referees) and "abelian families ... referee holds" (Theorem 7 (iv) is now labelled ARGUED for the abstract family; the two computed families stand).
+
+
+## Repair slot of campaign round 7 (2026-11-18, lane `c7-repair-engine-map-r6`)
+
+No attack; no statement about zeros of zeta. Previous files: `../push/c7-repair-engine-map-r6/engine_before/` (IDEA_GRAPH.json, CANDIDATES.json, outcomes.json, closed_families.json, mk_devices.py, devices.json, ENGINE_LOG.md).
+
+### Edits
+
+1. `curated/mk_devices.py` (rerun; `curated/devices.json` rewritten): 29 device types (24 closed, 1 floored, 4 open), 68 nodes, 6 pending.
+   - `map-open-9` (device `quadratic-positivity-companions`): open -> closed for pointwise outputs (map row P50, `c6-quadratic-companion-positivity`). The density (family) half was not run; it is listed under `pending` and falls under MV-CAP (device `mean-value-convexity`, closed).
+   - `map-open-1` (device `effective-order-two`): stays open; evidence narrowed to the derivation items of round-6 lesson 1 (uncompensated high side from manuscript (12.5)/(16.1) with the normaliser kept; compensated principal signal below Re s = 3/5; existence of a model vertex with 1 < h <= 3), with the requirement "normaliser has no zeros in Re s > 1/2" (map row Z24).
+   - Three open devices added for round-7 proposals that had no node: `laurent-shell-gamma-section`, `function-field-order2-vertex` (node `ff-order2-vertex-probe`), `landau-siegel-mechanism` (node `landau-siegel-2026-mechanism`).
+   - `pending` rewritten (four items of round 6 not closed; two older items kept).
+2. `nodes/nodes-17.json` (new): the three device nodes (type open-direction, status conjectural, usesMultiplicativity yes). Their lanes had not reported when the nodes were written; the statements describe the proposal only.
+3. Map (read by `build_graph.py`): `../push/OBSTRUCTION_MAP.md` gained rows P50, P51, G27 to G30, Z15c, Z23 to Z26 (script `../push/c7-repair-engine-map-r6/apply_map.py`).
+4. No change to `merge_outcomes.py`, `build_graph.py`, `generate.py`, `closed_families.json` rules.
+
+### Counts (`merge_outcomes.py`, `build_graph.py`, `generate.py --top 60`, each through `scripts/memcap.sh 8`; log `../push/c7-repair-engine-map-r6/engine_rerun.log`, table source `engine_counts.json`)
+
+| | before (planner rerun of round 7) | after |
+|---|---|---|
+| outcome entries (closed) | 68 (52) | 68 (54) |
+| closed families | 34 | 34 |
+| node files / raw records | 16 / 1,268 | 17 / 1,271 |
+| nodes (live) | 1,596 (954) | 1,612 (957) |
+| map rows parsed | 191 | 202 (P50, P51, G27-G30, Z15c, Z23-Z26) |
+| edges | 8,627 | 8,713 (control-defeats 666 -> 692) |
+| device nodes closed (live) / floored / open | 57 (50) / 6 / 2 | 58 (51) / 6 / 4 |
+| open device nodes, live | `map-open-1`, `map-open-9` | `map-open-1`, `laurent-shell-gamma-section`, `ff-order2-vertex-probe`, `landau-siegel-2026-mechanism` |
+| generated | 36,447 | 41,507 |
+| scored | 8,289 | 8,761 |
+| rejected | 28,158 | 32,746 |
+| top 60: listed / open device / floored only / closed device | 59 / 0 / 59 / 0 | 60 / 12 / 48 / 0 |
+
+Controls after the rerun: no top-60 candidate contains a closed device node (`meta.r4Rules.topWithClosedDevice` = 0; recounted from the node list in `engine_counts.json`); `map-open-9` is in the closed list and in no candidate. `campaign/scoreboard.py` parses all 58 lines of `lanes.jsonl` (0 unparsed; `../push/c7-repair-engine-map-r6/scoreboard_check.log`; the scoreboard files were not rewritten).
+
+### Limits
+
+- The 12 top-60 candidates with an open device all contain `landau-siegel-2026-mechanism` (cap `--per-device 12`); its partners come from the tag heuristic (tags zero-free, sieve-parity, automorphic) and were not read. `laurent-shell-gamma-section` and `ff-order2-vertex-probe` are live and open but appear in no top-60 candidate (their scored candidates rank below the listed ones or fall under the family caps; not examined further). `generate.py --node <id>` lists candidates of one node; it rewrites CANDIDATES.json, so rerun `--top 60` afterwards.
+- The three new nodes are proposals of lanes that have not reported. The learn step of round 7 must set each device to closed, floored or keep it open with the lane's evidence, and replace the node statements by the lanes' results.
+- The outcome count 52 -> 54 closed: the round-6 learn step had written the entries of `c6-gl3-cover-epsilon-cocycle` and `c6-unreflected-marks-kd23` into `outcomes.json` with verdict open (referee does not hold as stated); their record files in `outcomes/` say precise-obstruction, and `merge_outcomes.py` maps that to closed without reading `refereeHolds` (same treatment as five earlier lanes with `refereeHolds` false). Both list `nodes = ['map-open-1']`. No record file was written by this lane. To decide in the learn step: either set the two record files to partial, or accept the mapping.
+- `map-open-1` is an open device that the generator cannot use: seven closed outcome entries list `nodes = ['map-open-1']` alone (three of them from round 5), and the rule 'contains a combination closed in outcomes.json' rejects every candidate that contains all nodes of a closed entry. This was already the case before this rerun (top 60 before: 0 candidates with an open device). The derivation items left under the device are hand-built lanes of round 7, so no candidate is lost; if the device is to be offered again, the records need node sets with at least two members.
+- The generated count rises by 5,060 because pool C (device members) has 10 live nodes instead of 8.
+
+## Round 7 learn step (2026-11-18)
+
+- Eight records written to `outcomes/c7-*.json` and entered in `outcomes.json` (76 entries). `merge_outcomes.py`, `build_graph.py`, `generate.py` not rerun.
+- `merge_outcomes.py`: a record may carry `engineVerdict` (closed | partial | open), which overrides the verdict mapping. Set to open on `c6-gl3-cover-epsilon-cocycle` and `c6-unreflected-marks-kd23` (referee did not hold the claim as stated). The five earlier records with refereeHolds false and verdict closed were left as they are (not reviewed).
+- Node sets: the six records whose only node was `map-open-1` now list `[map-open-1, out-<slug>]` (`launchedNodes` keeps the old value), in the record files and in `outcomes.json`. Round-7 records on `map-open-1` have two nodes.
+- `curated/mk_devices.py` rerun (25 closed, 2 floored, 2 open): `laurent-shell-gamma-section` closed, `landau-siegel-mechanism` floored (width c/log q, real zeros, conductor aspect), `function-field-order2-vertex` open with the lane's evidence.
+
+
+## Repair slot of campaign round 8 (2026-11-18, lane `c8-repair-engine-map-r7`)
+
+No attack; no statement about zeros of zeta. Previous files: `../push/c8-repair-engine-map-r7/engine_before/` (IDEA_GRAPH.json, CANDIDATES.json, outcomes.json, closed_families.json, generate.py, build_graph.py, merge_outcomes.py, mk_devices.py, devices.json, ENGINE_LOG.md).
+
+### Why `map-open-1` and `ff-order2-vertex-probe` were in no top-60 candidate
+
+Traced with an instrumented copy of `generate.py` (`../push/c8-repair-engine-map-r7/diag/generate_diag.py`, counts in `diag/watch_before.json`; state of the round-8 planner rerun).
+
+| node | candidates generated | rejected by `fam-order2-theta-rows` | other closed families | closed outcome sets | scored |
+|---|---|---|---|---|---|
+| `map-open-1` | 978 | 841 | 36 | 101 | 0 |
+| `ff-order2-vertex-probe` | 2,405 | 2,209 | 139 | 57 | 0 |
+| `landau-siegel-2026-mechanism` (floored) | 1,247 | 0 | 0 | 1,247 | 0 |
+
+1. Rule responsible: the closed family `fam-order2-theta-rows` (groups `order[- ]2|order two|half-integral|double cover|h ?= ?r/2` and `theta|half-integral|kubota|double cover`) is matched by the text of each node alone. `map-open-1` has "h = r/2" in its name and "double covers" in its statement (rewritten in round 7); `ff-order2-vertex-probe` has "ORDER-2" in its name and the tag `theta`. The family is evaluated on the joint text of the members, so every candidate containing either node was rejected whatever its partners. The same defect was repaired once in round 5 for the words "7/8" and returned with the new node texts. The node-set repair of the round-7 learn step (two-member node sets in the records) was correct and not sufficient.
+2. Second cause, which would have kept both nodes out after (1): the penalty "reuses a node of closed lane" takes 3 points for each closed outcome entry sharing exactly one node. `map-open-1` is shared by 8 closed entries (24 points).
+3. No output cap is involved (`--per-device`, `--per-family`, `PER_ANCHOR`, `THIRD` were not binding: the scored count was 0).
+
+### Edits
+
+1. `generate.py`, closed families: a family rejects a candidate that contains an open device node only if a member that is not an open device matches at least one of its groups (the partner supplies part of the closed combination). Counted in `meta.r4Rules.firedIndependentlyOfOrder['closed family matched by the open device text alone (exempt)']`.
+2. `generate.py`, reuse penalty: not taken when the single shared node is an open device; the closed lanes on that device are listed in one note on the candidate. Floored devices keep the penalty.
+3. `nodes/nodes-18.json` (new): `ek-vector-specific-row-mean-square` ((E-K), in the form corrected by the first referee of `c7-probe-format-h-cap`), `eh-nonprincipal-row-cancellation` ((E-H), with the corrected model values), `single-row-bridge`. Type open-direction, status conjectural, usesMultiplicativity yes. Their lanes (`c8-ek-*`, `c8-eh-*`, `c8-single-row-bridge-crossing`) had not reported when the nodes were written.
+4. `curated/mk_devices.py` (rerun): three open device types `vector-specific-row-mean-square`, `nonprincipal-row-cancellation`, `single-row-bridge`. 32 device types (25 closed, 2 floored, 5 open), 71 nodes.
+5. No change to `merge_outcomes.py`, `build_graph.py`, `closed_families.json`.
+
+### Counts (`curated/mk_devices.py`, `merge_outcomes.py`, `build_graph.py`, `generate.py --top 60`, each through `scripts/memcap.sh 8`; log `../push/c8-repair-engine-map-r7/engine_rerun1.log`, table source `engine_counts.json`, per-node trace `diag/watch_after.json`)
+
+| | before (planner rerun of round 8) | after |
+|---|---|---|
+| outcome entries (closed) | 76 (58) | 76 (58) |
+| closed families | 34 | 34 |
+| node files / raw records | 17 / 1,271 | 18 / 1,274 |
+| nodes (live) | 1,616 (957) | 1,619 (960) |
+| map rows parsed | 202 | 202 |
+| edges | 8,728 | 8,797 |
+| device nodes closed (live) / floored / open | 59 (52) / 7 / 2 | 59 (52) / 7 / 5 |
+| generated | 39,193 | 42,801 |
+| scored | 7,985 | 12,701 |
+| rejected | 31,208 | 30,100 |
+| exempted from a closed family (open device text alone) | n/a | 1,360 |
+| top 60: listed / open device / floored only / closed device | 59 / 0 / 59 / 0 | 60 / 42 / 18 / 0 |
+
+Open device nodes in the top 60 (recounted from `curated/devices.json`): `single-row-bridge` 12, `ek-vector-specific-row-mean-square` 12, `ff-order2-vertex-probe` 8, `eh-nonprincipal-row-cancellation` 6, `map-open-1` 4. Candidates with a closed device node: 0. Decisive check of the lane: met.
+
+Per node after the rerun (generated / scored / best rank among all scored): `map-open-1` 820 / 272 / 968; `ff-order2-vertex-probe` 2,261 / 860 / 478; `ek-...` 2,648 / 2,169 / 8; `eh-...` 2,255 / 1,890 / 144; `single-row-bridge` 2,076 / 1,341 / 1.
+
+### Limits
+
+- `map-open-1` and `ff-order2-vertex-probe` enter the list through the diversity limits (`--per-device 12`, `--per-family 6`, one use of a pair), not by score: their best candidates rank 968 and 478 among 12,701. `fam-order2-theta-rows` still rejects 389 and 1,129 of their candidates, those whose partner mentions theta, Kubota, half-integral weight or double covers; that is the family as closed by `e1-gl3-theta-order2-rows`.
+- The partners of the open devices come from the tag heuristic and were not read. No candidate was launched. The new device nodes carry the tag `theta`, shared with many measured-phenomenon nodes; ranks 1 to 23 of the list are of that kind.
+- The three new nodes are proposals of lanes that have not reported. The learn step of round 8 must set each device to closed, floored or open with the lane's evidence and replace the node statements.
+- Not fixed, recorded: `landau-siegel-2026-mechanism` (device state floored) cannot appear in any candidate because the closed outcome entry `c7-landau-siegel-device-read` lists it as its only node (1,060 candidates rejected by "contains a combination closed in outcomes.json"). The lane found no crossing mechanism outside width c/log q and no height-aspect form, so no candidate is lost in substance. To decide in the learn step: either give the record a second node (`out-c7-landau-siegel-device-read`) as was done for `map-open-1`, or set the device to closed for the height aspect.
+- Not reviewed: the five earlier records with refereeHolds false and verdict closed (carried from the round-7 log).
+- c5 `tiers_fe2.log` rows Y2, Y6 (round-7 lesson 7(e)): checked. The stored log reproduces line for line with the unchanged script (`../push/c8-repair-engine-map-r7/c5-target-fe-order2-ledger/tiers_fe2.rerun.log`). The rows are mislabelled: `tiers_fe2.py` passes no `G=`, so they ran with G = src under the label "G polar" (error E1 of the c5 referee). Values for the printed label: Y2 = 9/10, Y6 = 0.88095. No engine node cites either value. Entry F of `../campaign/MAP_PENDING.md` Part 2.
+
+## 2026-11-18, lane c9-repair-referee-debts-r8: device node for the Hecke recurrence lane, control EIS-w, Landau-Siegel record
+
+Scripts run in the order `curated/mk_devices.py`, `merge_outcomes.py`, `build_graph.py`, `generate.py --top 60`, each through `scripts/memcap.sh 8` (log `../push/c9-repair-referee-debts-r8/engine_rerun.log`; counts `engine_counts.json` there; copies of the files before the edits in `engine_before/`).
+
+### Edits
+
+1. `nodes/nodes-19.json` (new, one record): `hecke-correspondence-recurrence`, type mechanism, status closed. Statement = the corrected form after two referees (`../push/c8-hecke-entropy-resonance-rigidity/REFEREE.md`, `../push/c9-repair-referee-debts-r8/c8-hecke-entropy-resonance-rigidity/REFEREE2.md`): Lemma G2 (i) and the Davenport-Heilbronn row withdrawn (the weight-0 object is identically 0; DH not run); multiplicity m of Lemma 3 counted with Gamma-multiplicity (with the count of pairs (p, j) the inequality is false high in the cusp: ratio 19.5 at height 2000, r = 1/2, p = 2); sign of the conformal exponent in Lemma 5 corrected to e^(-(2 sigma - 1) s).
+2. `curated/controls.json` (new): auxiliary control `EISW` (EIS-w: Eisenstein series of PSL_2(Z) off resonance; keeps the group, the functional equation, the Euler product and the Hecke algebra; lacks phi(w') = 0). `build_graph.py` merges this file into `CONTROLS` at import; the code pattern `CONTROL_CODE_RE` and `controls_in` accept `EIS-w` and `EISW`; two curated edges (`ctl-EISW` defeats `hecke-correspondence-recurrence`; `ctl-WT` special case of `ctl-EISW` on the modular surface). `merge_outcomes.py`: pattern `EISW` in `CTRL_PATTERNS`.
+3. `curated/mk_devices.py` (rerun): new closed device `hecke-correspondence-recurrence`; `landau-siegel-mechanism` floored -> closed.
+4. No change to `generate.py`, `closed_families.json`, `outcomes/*.json`.
+
+### Choice for the Landau-Siegel single-node record (item left open by the previous section)
+
+Chosen: **device set to closed for the height aspect**; no second node was added to the outcome record. Reasons: (a) the engine's target is a height-aspect statement, and the refereed lane `c7-landau-siegel-device-read` found no height-aspect form (the twist n^(-it) is control U and fails at steps S4/S5 of the mechanism) and no crossing outside width c/log q; (b) the single-node closed record already rejected every candidate with the node, so state and behaviour now agree; (c) giving the record a second node would have returned about 1,060 candidates to scoring, none with an R4 mechanism by the lane's verdict. What is kept: the evidence text records the conductor-aspect floor 1 - c/log q. To reopen: set the device to floored and add `out-c7-landau-siegel-device-read` to the record's nodes, when a lane names a conductor-to-height transfer.
+
+### Counts
+
+| | before (round-8 learn step, files of 17:42) | after |
+|---|---|---|
+| outcome entries (closed) | 84 (60) | 84 (60) |
+| closed families | 34 | 34 |
+| node files / raw records | 18 / 1,274 | 19 / 1,275 |
+| nodes (live) | 1,621 (960) | 1,623 (960) |
+| control nodes (canonical controls) | 50 (15) | 51 (16) |
+| map rows parsed | 202 | 202 |
+| edges | 8,801 | 8,806 |
+| device types closed / floored / open | 26 / 2 / 4 | 28 / 1 / 4 |
+| device nodes closed (live) / floored / open | 60 (53) / 7 / 4 | 62 (54) / 6 / 4 |
+| crossing pool | 11 | 10 |
+| generated | 41,827 | 41,659 |
+| scored | 11,561 | 12,165 |
+| rejected | 30,266 | 29,494 |
+| rejected by "contains a combination closed in outcomes.json" | 4,196 | 3,297 |
+| top 60: open device / floored only / closed device | 33 / 27 / 0 | 33 / 27 / 0 |
+
+Open device nodes in the top 60, before and after: `ek-vector-specific-row-mean-square` 12, `ff-order2-vertex-probe` 8, `eh-nonprincipal-row-cancellation` 7, `map-open-1` 6. 59 of the 60 listed keys are unchanged.
+
+Why the scored count rose by 604 although nothing was opened: the Landau-Siegel node left the crossing pool (11 -> 10), so its generation slots (all of which ended in the outcome-record rejection, 4,196 -> 3,297) went to the other crossing nodes, whose candidates are rejected at a lower rate. None of the 60 listed candidates contains `landau-siegel-2026-mechanism`, `hecke-correspondence-recurrence` or `ctl-EISW`; the generator reports no rejection under the two new closed device names, so neither node was drawn as a member.
+
+### Limits
+
+- The outcome record `outcomes/c8-hecke-entropy-resonance-rigidity.json` still has `refereeHolds: false`, `referees: 1`, `engineVerdict: open` (it describes the result as first written). The device state is closed on the corrected statement. The learn step should set the record from the second referee file.
+- `EISW` is a control on the modular surface only. It is not a Dirichlet-series control and is not added to the list of nine in the brief; `controls_in` produces it only where a text names `EIS-w` or `EISW`.
+- The new node carries the tags hecke, automorphic, eisenstein-series, measure-rigidity, entropy, scattering; edges to it come from the tag heuristic and were not read.
+
+## Round-10 planner step (2026-11-19)
+
+`curated/mk_devices.py` (previous file: `scratch/mk_devices.pre-r10.py`): `vector-specific-row-mean-square` open -> closed; `nonprincipal-row-cancellation` open -> closed (model); new closed device `positive-term-sum-rule` (no node; proposal of `push/c9-szego-sum-rule-prime-cascade/DEVICE_NODE.json`). `function-field-order2-vertex` and `effective-order-two` unchanged (open). Rerun of `mk_devices.py`, `merge_outcomes.py`, `build_graph.py`, `generate.py --top 60`: 34 device types (closed 31, floored 1, open 2); 92 outcome entries (63 closed); 1,626 nodes (960 live); 8,814 edges; generated 39,138; scored 9,333. No change to `generate.py` or `closed_families.json`.
+
+## Repair slot of round 10 (2026-11-19, lane `c10-repair-record-referee-r9`)
+
+Inputs changed since the planner step:
+- `push/OBSTRUCTION_MAP.md`: 14 rows added (Q23 to Q27, G31, Z24b, Z27 to Z32, O1), control note EIS-w, edits to rows Z15, Z24, Q12, Q22, section 6 item 1, section 7. Rows 166 -> 180.
+- `curated/mk_devices.py`: evidence text of three devices corrected against the referee files; states unchanged. `vector-specific-row-mean-square` (closed): "closed for absolute-value methods" narrowed to the two named techniques, ARGUED + MEASURED; the F_q[T] failure stated for active classes at N = 2 with sharp degree classes, in steps, no exponent; untested cases listed. `nonprincipal-row-cancellation` (closed): "no target excess" worded as "not detected at q = 7, r <= 5, resolution 0.05 to 0.07"; linearity does not imply norm type. `positive-term-sum-rule` (closed): closed for five named forms, not for every sum rule. `single-row-bridge`: "map row owed" -> "map row Q26". Previous file: `push/c10-repair-record-referee-r9/before/mk_devices.py`.
+- `outcomes/c9-*.json` (7 of 8) and the matching lines of `campaign/lanes.jsonl`: field `correction` added from the referee files; one sentence of the `obstruction` field of `c9-eh-dual-r5-target-excess` and one phrase of the `lesson` field of `c9-tro6-interstratum-cancellation` reworded. Verdicts, scores, requirement flags, referee counts and `engineVerdict` unchanged (all eight agree with the referee files: holds, flags false, not about zeros). Previous files: `push/c10-repair-record-referee-r9/before/outcomes/`, `before/lanes.jsonl`.
+
+Rerun, each through `scripts/memcap.sh 8` (log `push/c10-repair-record-referee-r9/engine_rerun.log`, counts `engine_counts.json`):
+
+| quantity | before | after |
+|---|---|---|
+| device types closed / floored / open | 31 / 1 / 2 | 31 / 1 / 2 |
+| outcome entries (closed) | 92 (63) | 92 (63) |
+| closed families | 34 | 34 |
+| map rows parsed | 202 | 216 |
+| nodes (live) | 1,626 (960) | 1,640 (960) |
+| nodes by origin: corpus / map / outcome | 1,239 / 290 / 97 | 1,239 / 304 / 97 |
+| edges | 8,814 | 8,855 |
+| control-defeats edges | 713 | 741 |
+| device nodes closed (live) / floored / open | 64 (56) / 6 / 2 | 64 (56) / 6 / 2 |
+| crossing pool | 8 | 8 |
+| generated | 39,138 | 40,671 |
+| scored | 9,333 | 10,311 |
+
+The 14 new nodes are the 14 new map rows (type obstruction, not live). No device state changed, so the change in generated and scored counts comes from the new row nodes and their edges entering the pools' neighbourhoods; it was not traced candidate by candidate. Open device nodes remain `ff-order2-vertex-probe` and `map-open-1` (as left by the planner step; `ff-order2-vertex-probe` waits for lane `c10-ff-completed-rows-692`).
+
+Limits: the generator still cannot propose a device type with no node (`positive-term-sum-rule` has none). The outcome record for `c9-obstruction-record-statement` keeps `referees: 1`; the second pass is a file in another lane's directory and will be counted by the learn step of round 10.
+
+## Strategy review after round 10 (2026-11-19, STRATEGY v3)
+
+- `curated/mk_devices.py` (previous file `scratch/mk_devices.before-strategy-v3.py`): `effective-order-two` open -> closed (as an attack lead; reopening inputs in the evidence text); `function-field-order2-vertex` open -> closed (as a crossing device; bounded model question kept); three pending proposals RS-1, RS-2, RS-3 (no node).
+- `generate.py` (previous file `scratch/generate.before-strategy-v3.py`): `WEIGHTS` deviceOpen 3 -> 2, deviceFloored 1 -> 0, new key cohesionCap 1.0 (was the constant 2.0).
+- Rerun through `scripts/memcap.sh 8`, log `scratch/rerun-strategy-v3.log`: 34 device types (33 closed, 1 floored, 0 open); 100 outcome entries (66 closed); 1,643 nodes (960 live); 8,864 edges; 36,569 generated; 8,438 scored. Top 60: all on the floored 7/8 device; none with an open or closed device. Previous list: `scratch/CANDIDATES.before-strategy-v3.json`.
+- `ROADMAP.md` section 11 added (previous file `scratch/ROADMAP.before-strategy-v3.md`).

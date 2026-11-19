@@ -1,0 +1,15 @@
+threads 4
+# ens q=7 d=2 N=2 lam=7 weights=8 threads=4 sieve block q^6=117649 blocks=7 small primes=140 planned memory 0.0006 GB
+# ens primes=117648 (equals the necklace count); self-checks on 4 primes passed
+# ens q=7 d=1 N=3 lam=5 weights=6 threads=4 sieve block q^4=2401 blocks=7 small primes=28 planned memory 0.0001 GB
+# ens primes=3360 (equals the necklace count); self-checks on 4 primes passed
+validation written
+done q=7 N=2 lam=12 d=1 kind=L 1721 s
+done q=13 N=2 lam=7 d=2 kind=F 612 s
+done q=7 N=2 lam=11 d=2 kind=L 1061 s
+done q=13 N=3 lam=7 d=1 kind=L 104 s
+done q=13 N=2 lam=8 d=1 kind=L 201 s
+done q=13 N=3 lam=6 d=2 kind=L 72 s
+done q=7 N=3 lam=11 d=1 kind=L 435 s
+done q=7 N=3 lam=10 d=2 kind=L 253 s
+ALLDONE

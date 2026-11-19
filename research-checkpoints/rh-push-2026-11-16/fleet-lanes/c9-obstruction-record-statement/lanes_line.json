@@ -1,0 +1,20 @@
+{
+ "round": 9,
+ "slug": "c9-obstruction-record-statement",
+ "verdict": "partial-result",
+ "claim": "Record lane; no attack, no new mathematics, no statement about zeros. Statement O written for lines 1 to 12 of the obstruction-record outline: definitions fixed (read class; defeat by a control in three modes: zero, step, identity), one lemma per read class with control construction, the step at which the control satisfies the class, floor, map rows, lanes and referee counts from the files on disk. Citation check: 56 row ids (50 in the map, 3 pending, 3 proposed), 52 lanes, 44 referee-count claims, 0 mismatches. Under the two-referee rule: PROVED 0 of 12, ARGUED 9, MEASURED 3; two sub-statements have two referee files (P46 transfer theorem, P51 Lemma A / Theorem 1'). Outline section 3 updated with the five round-8 outcomes; clause on R1, R3, R4 written with 13 items each tied to a control; EIS-w added to 'not covered'. Map rows Q26, Z30, Z31, O1 and drafts for EIS-w and G31 written as proposed text; the map was not edited. Four control zeros re-run at 40 digits.",
+ "aboutZeros": false,
+ "refHolds": null,
+ "threeReferees": false,
+ "allHold": null,
+ "r1": false,
+ "r2": false,
+ "r3": false,
+ "r4": false,
+ "score": 0,
+ "errors": "No referee pass on STATEMENT_O yet. Corrections made to the outline table while writing: line 1 (Liouville zeros lie in Re s < 1/2, so it is not a zero-mode control; THIN, E_a, B named instead), line 2 (DH kernel certificate has one referee, not two), line 6 (referee of r3-tnr-control: holds = false as labelled; only the surviving part cited). Clause item 2c (control RZ_b) has no line among 1 to 12.",
+ "surviving": "STATEMENT_O.md sections A to E; MAP_ROWS_PROPOSED.md",
+ "lesson": "With one referee per lane, no line of the record reaches PROVED; the binding debts are sources not on file (Beurling construction, ray-class short-interval theorem, H_W) and the absence of single two-referee statements for MV-CAP and for finite Pick orders. The outline's single definition of defeat (a zero right of the abscissa) fits 5 of 12 lines without qualification.",
+ "followUp": "Lane B: line 7 primary source, MV-CAP statement, finite-Pick lemma, second referee on F1; one referee pass on STATEMENT_O (in particular definition A4); write lines 13 to 20; apply MAP_PENDING Part 2 and MAP_ROWS_PROPOSED Part 2.",
+ "file": "push/c9-obstruction-record-statement/RESULT.md"
+}

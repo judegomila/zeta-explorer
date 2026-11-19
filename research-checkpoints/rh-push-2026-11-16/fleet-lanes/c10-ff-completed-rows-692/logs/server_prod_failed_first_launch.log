@@ -1,0 +1,5 @@
+Thu Nov 19 06:28:42 AM UTC 2026
+./job_prod.sh: line 6: /usr/bin/time: No such file or directory
+rc=127
+Thu Nov 19 06:28:42 AM UTC 2026
+PROD_FAILED

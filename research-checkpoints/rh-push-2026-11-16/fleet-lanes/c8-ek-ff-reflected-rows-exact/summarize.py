@@ -125,5 +125,30 @@ def main():
                 b = bcoh(q, name, N, lam, d) if name not in ('r1', 'al') else None
                 parts.append(f"{name}: {r['sumnorm'] / r['diag'] - 1:+.4g}" + (f" (B {float(b[0]):.3g}{'*' if b[1] else ''})" if b else ''))
             P(f'  (N,lam,d)=({N},{lam},{d}), a at diagonal+K-size would be {min(N + lam, 2 * d + lam - N) / d:.2f}: ' + '; '.join(parts))
+    # ---- T8: non-coherent part e - B_coh, and the long-mark corner
+    for q in (7, 13):
+        P(f'\n## T8 (q = {q}): non-coherent part n = e - B_coh (all computed configurations with lam >= 1, N >= 1, d >= 2, d + lam > N; unstarred = no k with r >= 6)')
+        P('| weight | unstarred configs | min n | 5% | median | 95% | max n | starred configs | min n | median | max n |')
+        P('|---|---|---|---|---|---|---|---|---|---|---|')
+        for name in NAMES:
+            if name in ('r1', 'al'): continue
+            U = []; S_ = []
+            for (qq, nm, N, lam, d), r in R.items():
+                if qq != q or nm != name or lam < 1 or N < 1 or d < 2 or not r['diag']: continue
+                b = bcoh(q, name, N, lam, d)
+                if b is None: continue
+                (S_ if b[1] else U).append(r['sumnorm'] / r['diag'] - float(b[0]))
+            if not U: continue
+            U.sort(); S_.sort(); pc = lambda L, p: L[min(len(L) - 1, int(p * len(L)))]
+            P(f"| {name} | {len(U)} | {U[0]:.3g} | {pc(U, 0.05):.3g} | {pc(U, 0.5):.3g} | {pc(U, 0.95):.3g} | {U[-1]:.3g} | {len(S_)} | " + (f"{S_[0]:.3g} | {pc(S_, 0.5):.3g} | {S_[-1]:.3g} |" if S_ else "- | - | - |"))
+    P('\n## T9 (q = 7): long marks. e = energy/diagonal; B = coherent part (starred: contains a k with r >= 6); a = exponent in q^d; rmax = largest dual length among k <= d/2')
+    for cfg in [(1, 5, 2), (1, 6, 2), (1, 7, 2), (1, 8, 2), (1, 9, 2), (1, 10, 2), (1, 7, 3), (1, 8, 3), (1, 9, 3), (1, 7, 4), (1, 8, 4), (2, 6, 2), (2, 7, 2), (2, 10, 2), (2, 7, 3), (2, 7, 4), (3, 6, 3), (3, 6, 4), (6, 6, 3), (6, 6, 4)]:
+        parts = []
+        for name in NAMES:
+            r = R.get((7, name) + cfg)
+            if not r or not r['diag']: continue
+            e, En, a, aK = stats(r, 7, *cfg); b = bcoh(7, name, *cfg) if name not in ('r1', 'al') else None
+            parts.append(f"{name}: e {e:.4g}, a {a:.2f}" + (f", B {float(b[0]):.3g}{'*' if b[1] else ''}" if b else ''))
+        if parts: P(f"  (N,lam,d)={cfg}, rmax = {cfg[2] // 2 + cfg[0] + cfg[1] - 1 - cfg[2]}, 3N = {3 * cfg[0]}: " + '; '.join(parts))
     open(os.path.join(HERE, 'summary.txt'), 'w').write('\n'.join(out) + '\n'); print('\n'.join(out))
 if __name__ == '__main__': main()

@@ -1,0 +1,69 @@
+A. prime cubics: 112  trace histogram: [(-5, 7), (-3, 21), (-1, 28), (1, 28), (3, 21), (5, 7)]
+   target a = T^3+2: a = 1  target b = T^3+T+1: a = -3
+B. brute point counts #C_F(F_q^n) = q^n + 1 - t_n: n = 1, 2 for 112 curves, n = 3 for targets a, b; mismatches 0
+   closed-point counts from splitting of primes of degree <= 6 (target a), n = 1..6: mismatches 0  N_n = [7, 63, 364, 2331, 16597, 117936]
+C. S_cop(k; F) = sum_j c_j t_j(F) fitted on N+1 curves, checked on all 112; then S_cop^2 = -D.D/(2 q^N), D = sum_j c_j (P_{N+j} + q^j P_{N-j})
+   N=1 lam=0 k=0: c = ['0', '1']  S_cop(a) = 1  fit mismatches 0/112, square mismatches 0/112, family sum S^2 = 784 = sum -D.D/(2q^N): True
+   N=1 lam=0 k=1: c = ['0', '6']  S_cop(a) = 6  fit mismatches 0/112, square mismatches 0/112, family sum S^2 = 28224 = sum -D.D/(2q^N): True
+   N=1 lam=0 k=2: c = ['0', '42']  S_cop(a) = 42  fit mismatches 0/112, square mismatches 0/112, family sum S^2 = 1382976 = sum -D.D/(2q^N): True
+   N=1 lam=0 k=3: c = ['0', '294']  S_cop(a) = 294  fit mismatches 0/112, square mismatches 0/112, family sum S^2 = 67765824 = sum -D.D/(2q^N): True
+   N=1 lam=2 k=0: c = ['0', '-21']  S_cop(a) = -21  fit mismatches 0/112, square mismatches 0/112, family sum S^2 = 345744 = sum -D.D/(2q^N): True
+   N=1 lam=2 k=1: c = ['0', '-126']  S_cop(a) = -126  fit mismatches 0/112, square mismatches 0/112, family sum S^2 = 12446784 = sum -D.D/(2q^N): True
+   N=1 lam=2 k=2: c = ['0', '-861']  S_cop(a) = -861  fit mismatches 0/112, square mismatches 0/112, family sum S^2 = 581195664 = sum -D.D/(2q^N): True
+   N=1 lam=7 k=0: c = ['0', '-117648']  S_cop(a) = -117648  fit mismatches 0/112, square mismatches 0/112, family sum S^2 = 10851384692736 = sum -D.D/(2q^N): True
+   N=1 lam=7 k=1: c = ['0', '-705888']  S_cop(a) = -705888  fit mismatches 0/112, square mismatches 0/112, family sum S^2 = 390649848938496 = sum -D.D/(2q^N): True
+   N=1 lam=7 k=2: c = ['0', '-4941216']  S_cop(a) = -4941216  fit mismatches 0/112, square mismatches 0/112, family sum S^2 = 19141842597986304 = sum -D.D/(2q^N): True
+   N=1 lam=7 k=3: c = ['0', '-34588512']  S_cop(a) = -34588512  fit mismatches 0/112, square mismatches 0/112, family sum S^2 = 937950287301328896 = sum -D.D/(2q^N): True
+   N=2 lam=0 k=0: c = ['7/2', '0', '1']  S_cop(a) = -6  fit mismatches 0/112, square mismatches 0/112, family sum S^2 = 6720 = sum -D.D/(2q^N): True
+   N=2 lam=0 k=1: c = ['21', '0', '6']  S_cop(a) = -36  fit mismatches 0/112, square mismatches 0/112, family sum S^2 = 241920 = sum -D.D/(2q^N): True
+   N=2 lam=0 k=2: c = ['147', '0', '42']  S_cop(a) = -252  fit mismatches 0/112, square mismatches 0/112, family sum S^2 = 11854080 = sum -D.D/(2q^N): True
+   N=2 lam=0 k=3: c = ['1029', '0', '294']  S_cop(a) = -1764  fit mismatches 0/112, square mismatches 0/112, family sum S^2 = 580849920 = sum -D.D/(2q^N): True
+   N=2 lam=2 k=0: c = ['-287/4', '0', '-41/2']  S_cop(a) = 123  fit mismatches 0/112, square mismatches 0/112, family sum S^2 = 2824080 = sum -D.D/(2q^N): True
+   N=2 lam=2 k=1: c = ['-1715/4', '0', '-245/2']  S_cop(a) = 735  fit mismatches 0/112, square mismatches 0/112, family sum S^2 = 100842000 = sum -D.D/(2q^N): True
+   N=2 lam=2 k=2: c = ['-11725/4', '0', '-1675/2']  S_cop(a) = 5025  fit mismatches 0/112, square mismatches 0/112, family sum S^2 = 4713450000 = sum -D.D/(2q^N): True
+   N=2 lam=7 k=0: c = ['-411768', '0', '-117648']  S_cop(a) = 705888  fit mismatches 0/112, square mismatches 0/112, family sum S^2 = 93011868794880 = sum -D.D/(2q^N): True
+   N=2 lam=7 k=1: c = ['-2470608', '0', '-705888']  S_cop(a) = 4235328  fit mismatches 0/112, square mismatches 0/112, family sum S^2 = 3348427276615680 = sum -D.D/(2q^N): True
+   N=2 lam=7 k=2: c = ['-17294256', '0', '-4941216']  S_cop(a) = 29647296  fit mismatches 0/112, square mismatches 0/112, family sum S^2 = 164072936554168320 = sum -D.D/(2q^N): True
+   N=2 lam=7 k=3: c = ['-121059792', '0', '-34588512']  S_cop(a) = 207531072  fit mismatches 0/112, square mismatches 0/112, family sum S^2 = 8039573891154247680 = sum -D.D/(2q^N): True
+   N=3 lam=0 k=0: c = ['0', '7', '0', '1']  S_cop(a) = -13  fit mismatches 0/112, square mismatches 0/112, family sum S^2 = 61264 = sum -D.D/(2q^N): True
+   N=3 lam=0 k=1: c = ['0', '41', '0', '6']  S_cop(a) = -79  fit mismatches 0/112, square mismatches 0/112, family sum S^2 = 2191504 = sum -D.D/(2q^N): True
+   N=3 lam=0 k=2: c = ['0', '281', '0', '42']  S_cop(a) = -559  fit mismatches 0/112, square mismatches 0/112, family sum S^2 = 106856848 = sum -D.D/(2q^N): True
+   N=3 lam=0 k=3: c = ['0', '1974', '0', '294']  S_cop(a) = -3906  fit mismatches 0/112, square mismatches 0/112, family sum S^2 = 5240096064 = sum -D.D/(2q^N): True
+   N=3 lam=2 k=0: c = ['0', '-140', '0', '-41/2']  S_cop(a) = 270  fit mismatches 0/112, square mismatches 0/112, family sum S^2 = 25579008 = sum -D.D/(2q^N): True
+   N=3 lam=2 k=1: c = ['0', '-819', '0', '-123']  S_cop(a) = 1641  fit mismatches 0/112, square mismatches 0/112, family sum S^2 = 915517008 = sum -D.D/(2q^N): True
+   N=3 lam=2 k=2: c = ['0', '-5474', '0', '-841']  S_cop(a) = 11346  fit mismatches 0/112, square mismatches 0/112, family sum S^2 = 42608760768 = sum -D.D/(2q^N): True
+   N=3 lam=7 k=0: c = ['0', '-823536', '0', '-117648']  S_cop(a) = 1529424  fit mismatches 0/112, square mismatches 0/112, family sum S^2 = 847958203846656 = sum -D.D/(2q^N): True
+   N=3 lam=7 k=1: c = ['0', '-4823568', '0', '-705888']  S_cop(a) = 9294192  fit mismatches 0/112, square mismatches 0/112, family sum S^2 = 30332720611823616 = sum -D.D/(2q^N): True
+   N=3 lam=7 k=2: c = ['0', '-33059088', '0', '-4941216']  S_cop(a) = 65765232  fit mismatches 0/112, square mismatches 0/112, family sum S^2 = 1479011179465838592 = sum -D.D/(2q^N): True
+   N=3 lam=7 k=3: c = ['0', '-232237152', '0', '-34588512']  S_cop(a) = 459533088  fit mismatches 0/112, square mismatches 0/112, family sum S^2 = 72528441603770105856 = sum -D.D/(2q^N): True
+   totals over 84 (N, lam, k): fit mismatches 0, square mismatches 0
+   closed form N=1: c/(-pi(7)) = ['0', '1']  Chebyshev prediction ['0', '1']
+   closed form N=2: c/(-pi(7)) = ['7/2', '0', '1']  Chebyshev prediction ['7/2', '0', '1']
+   closed form N=3: c/(-pi(7)) = ['0', '7', '0', '1']  Chebyshev prediction ['0', '7', '0', '1']
+   family mean of M_1^2/q^1 over 112 curves = 784/784 = 1.0000
+   family mean of M_2^2/q^2 over 112 curves = 6720/5488 = 1.2245
+   family mean of M_3^2/q^3 over 112 curves = 61264/38416 = 1.5948
+D. B_coh(target) = sum_k kappa_k (-D_k.D_k), kappa_k = wt_k^2 q^(2d) / (2 q^N ||c_k||^2 q^(N+lam) diagsum); against c9 predictions.json
+   7 2 7 2 a: B_coh = 0.999992 (c9: 0.999992); S_cop equal to ffx sc: True; equal to the intersection-number expression: True
+   7 2 10 2 a: B_coh = 4.701760 (c9: 4.701760); S_cop equal to ffx sc: True; equal to the intersection-number expression: True
+   7 2 12 2 a: B_coh = 24.499788 (c9: 24.499788); S_cop equal to ffx sc: True; equal to the intersection-number expression: True
+   7 2 7 2 b: B_coh = 0.111110 (c9: 0.111110); S_cop equal to ffx sc: True; equal to the intersection-number expression: True
+   7 2 10 2 b: B_coh = 0.522418 (c9: 0.522418); S_cop equal to ffx sc: True; equal to the intersection-number expression: True
+   7 2 12 2 b: B_coh = 2.722199 (c9: 2.722199); S_cop equal to ffx sc: True; equal to the intersection-number expression: True
+   7 2 7 1 a: B_coh = 0.000000 (c9: 0.000000); S_cop equal to ffx sc: True; equal to the intersection-number expression: True
+   7 2 10 1 a: B_coh = 4.701760 (c9: 4.701760); S_cop equal to ffx sc: True; equal to the intersection-number expression: True
+   7 2 12 1 a: B_coh = 28.583086 (c9: 28.583086); S_cop equal to ffx sc: True; equal to the intersection-number expression: True
+   7 2 7 1 b: B_coh = 0.000000 (c9: 0.000000); S_cop equal to ffx sc: True; equal to the intersection-number expression: True
+   7 2 10 1 b: B_coh = 0.522418 (c9: 0.522418); S_cop equal to ffx sc: True; equal to the intersection-number expression: True
+   7 2 12 1 b: B_coh = 3.175898 (c9: 3.175898); S_cop equal to ffx sc: True; equal to the intersection-number expression: True
+   7 2 10 3 a: B_coh = 4.701760 (c9: 4.701760); S_cop equal to ffx sc: True; equal to the intersection-number expression: True
+   7 2 10 3 b: B_coh = 0.522418 (c9: 0.522418); S_cop equal to ffx sc: True; equal to the intersection-number expression: True
+   7 3 10 2 a: B_coh = 0.389659 (c9: 0.389659); S_cop equal to ffx sc: True; equal to the intersection-number expression: True
+   7 3 12 2 a: B_coh = 2.694111 (c9: 2.694111); S_cop equal to ffx sc: True; equal to the intersection-number expression: True
+   7 3 10 2 b: B_coh = 0.540004 (c9: 0.540004); S_cop equal to ffx sc: True; equal to the intersection-number expression: True
+   7 3 12 2 b: B_coh = 3.586834 (c9: 3.586834); S_cop equal to ffx sc: True; equal to the intersection-number expression: True
+   7 3 10 1 a: B_coh = 0.000000 (c9: 0.000000); S_cop equal to ffx sc: True; equal to the intersection-number expression: True
+   7 3 12 1 a: B_coh = 0.000000 (c9: 0.000000); S_cop equal to ffx sc: True; equal to the intersection-number expression: True
+   7 3 10 1 b: B_coh = 0.000000 (c9: 0.000000); S_cop equal to ffx sc: True; equal to the intersection-number expression: True
+   7 3 12 1 b: B_coh = 0.000000 (c9: 0.000000); S_cop equal to ffx sc: True; equal to the intersection-number expression: True
+   52 configurations (targets a, b; q = 7; all lam of the c9 plan): failures 0

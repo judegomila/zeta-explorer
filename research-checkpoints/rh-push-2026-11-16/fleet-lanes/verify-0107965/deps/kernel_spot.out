@@ -1,0 +1,5 @@
+max sum w*h 1.9997952715228986 min 1.9971738559673384
+rows with sum w > 1/sqrt(cap): []
+SGN 0 rows with a negative relative margin on the grid: []
+smallest relative margin, jet rows (overlay omitted): (8.395057776876963e-05, 16)
+smallest relative margin over non-jet rows: (7.718769644521806e-05, 66)

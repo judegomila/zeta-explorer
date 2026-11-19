@@ -362,3 +362,171 @@ Closed inside a model only (not a closed family): long prime marks to h = r/2 (`
 - Map: seven device rows with the referee's six wording corrections; row Z15b (corrected free-geometry statement); angular-family row after Theorem 7 is refereed; update of row Z15 and section 6 item 1 after Theorems B, C are checked against the manuscript; correct section 4 entry 49 and row P46 to "largest real zero".
 - Referee debts: Lemma U (one referee); Lemma A step (c) of the twisted lane; Theorem 7(iv) of the angular lane and Froehlich-Queyrut (recalled); Theorems B and C of the marks lane; Hoheisel exponent in ray classes (not located); Lemma 7.1 discrepancy against the PDF or Lean; Turan's equivalence (cited from memory); Theorem 2 of the repair lane (one referee).
 - Controls not run in the 7/8-ledger lanes: all (they are floor statements inside the estimate system).
+
+## Round 6: allocation (planner, 2026-11-18)
+
+Allocation follows STRATEGY.md version 2: 1 explore / 3 deepen / 2 combine / 1 compute / 1 referee-and-repair. No lead has a referee-confirmed score of 3 or more outside the known architecture, so the three-lane rule does not apply. Generator rerun (`build_graph.py`, `generate.py --top 60`, through `scripts/memcap.sh 8`): 1,577 nodes, 36,471 generated, 8,913 scored. Reading of the top 60: ranks 1, 5, 7, 8, 12-16, 20, 22-26 rest on the floored 7/8 device with partner nodes chosen by tag overlap (no lever stated; discarded as generated); ranks 2, 3, 6, 9, 10, 17-19, 21, 27, 30, 32 contain `map-open-9` (used for the explore slot, with the partners replaced by hand); ranks 4, 28, 34-37, 40, 42-50 contain `map-open-2` / `map-open-4` (part B numbers only; not launched). No candidate was launched as generated.
+
+State of "R4 inside the 7/8 architecture" at the start of the round: no probe with h > 1.
+
+| slug | kind | heavy | reason | supplies / targets | decisive first test | raises the score if |
+|---|---|---|---|---|---|---|
+| c6-probe61-thin-three-weights | compute | yes | Section 4.0 item 1; the one pre-registered question; round 5 measured a neighbouring object | locates R3 of the 7/8 mechanism | I_w of (6.1) with both norms of Proposition D for w = eps (random THIN, b = 0.95), Liouville, 1 at Z = 2^10..2^18 | no headline change; names the half of Proposition D that carries periodicity |
+| c6-gl3-cover-epsilon-cocycle | deepen | no | Section 4.0 item 2; cocycle criterion of `c5-angular-family-absorption` with map 6.18 | R4 inside the architecture (family side) | finite check of the weight-1 epsilon cocycle for genuine cusp forms on the double cover of GL(3) | a family that absorbs mu with shift not 1/2: model vertex with h > 1 |
+| c6-unreflected-marks-kd23 | deepen | no | Section 4.0 item 3; `c5-target-fe-order2-ledger` + `c5-marks-circularity-order2`; referee item E3 | R4 inside the architecture (probe side) | mean square of unreflected marked theta rows for 1 + l <= M < 2 + 2l: K + D or (KD)^(2/3) | K + D holds in range: the region lx < l is consistent and h > 1 has a named unproved input |
+| c6-marks-bc-manuscript-check | deepen | no | Section 4.0 item 4; referee does not hold claim A as written | checks the h = 3 / GRH equivalence | Theorems B, C re-derived against manuscript text, not r3's transcription | the equivalence fails at the manuscript level: the h = 3 vertex is reopened |
+| c6-pair-probe-bridge-order2 | combine | no | Lemma U says a different probe is needed; the bridge Krein square (g-spinor-square-root) is a probe quadratic in the target with a zero and its reflected partner; never put in the Prop. 2.1 ledger | R4 direct: bridge supplies the pair structure, the coherent set supplies R1-R3 | signal constant h of the pair probe by Lemma U's definition and the exact LP | h > 1 with a low estimate not equivalent to GRH |
+| c6-square-intertwiner-weyl | combine | no | lead 7, never run; spinor square root + metaplectic Hecke spectrum | R4 direct: a square realisation gives positivity at every height at once | Weyl law of each candidate spectrum against (T/2 pi) log(T/2 pi e) | a class with the right counting law and a DH-failing intertwiner step |
+| c6-quadratic-companion-positivity | explore | no | open device `map-open-9`, the one device type never tested; reads the family in the conductor aspect; control named in advance: DH with the same companions, and round-4 lesson 7 | R1, R3 candidates; R2 only if the output is pointwise | does any degree-2 positive form in (zeta, companions) give a pointwise bound not closed under linear combination; DH test | a pointwise inequality that fails for DH and sign twists (R1 + R3; R2 if uniform in t) |
+| c6-repair-referee-debts-r5 | repair | no | Section 4.0 item 5 and open items of round 5 | reliability | second referee of Lemma U; Hoheisel exponent in ray classes located or THIN marked relative; engine nodes and rerun | none (keeps the lead's inputs refereed) |
+
+Lanes aimed at R4 directly: `c6-pair-probe-bridge-order2`, `c6-square-intertwiner-weyl`; inside the architecture `c6-gl3-cover-epsilon-cocycle` and `c6-unreflected-marks-kd23`. Not launched: the Kloss Lemma O / K4a combination (part B only); candidates on `map-open-2` and `map-open-4` (part B only); any re-expression of the present probe (closed, 3.1 item 11).
+
+## Round 6 results (learn step, 2026-11-18)
+
+Scoreboard after the round: headline 1 of 4 (`c1-leeyang-krein-limit`; missing R2, R3, R4), unchanged. Lanes 58, referee hold rate 86.2% (round 6: 6 of 8 hold), PROVED claims broken 7 (+2), three-referee statements 0, statements about zeros 0. Coverage: 1,592 nodes, 22,155 tag-pair families, 1,102 closed, 446 tried and not closed, 20,607 untried. No lane meets the ALERT condition; ALERT.md not written.
+
+One line per lane:
+
+- `c6-probe61-thin-three-weights` (compute): partial-result, referee holds, score 0. Probe (6.1) measured for 14 sign weights, Z = 2^10..2^18: I_w = principal row + remainder; principal coefficient 1 for Liouville, THIN and the non-multiplicative control; remainder ~ Z^(-0.24) for all. Range is pre-asymptotic (one frequency); pre-registered thresholds undecided; condition (N) not seen.
+- `c6-gl3-cover-epsilon-cocycle` (deepen): precise-obstruction, referee does not hold the claim as worded (narrower claim stands), score 0. Double covers have exponent group Z/2: the quadratic symbol always carries q^(-1/2), so no absorption of mu at shift 0 through local data; twist families inherit the GL(1) cocycle. Not covered: global Whittaker constants of a genuine cusp form; chi(-1) = -1; sources recalled only.
+- `c6-unreflected-marks-kd23` (deepen): precise-obstruction, referee does not hold as stated (measurement and two identities stand), score 0. Unreflected theta rows show no (KD)^(2/3) term (random rows pass the same test); dual coefficients are mu times a Hecke character, so K + D is a zero-free statement about the target family (argued). "No consistent vertex with h > 1" is not shown; vertices with 1 < h <= 3 are underived.
+- `c6-marks-bc-manuscript-check` (deepen): precise-obstruction, referee holds, score 0. The reduced system omitted the normaliser H_eta, which contains L^S(6s-3,(alpha eta)^6) and has zeros in 7/12 <= Re s < 2/3; hypothesis (2.2) fails below 7/12; chain GRH => low input => (R), with (R) => GRH open. The c5 sentence "equivalent to GRH" is replaced by this chain. Long-marks branch gives no input weaker than its conclusion.
+- `c6-pair-probe-bridge-order2` (combine): precise-obstruction, referee holds with one correction, score 0. The estimate system is degree-one homogeneous in the target-row length: pair probe = linear probe at a rescaled point; ledger 13/15, 31/36, 5/6 unchanged. The functional-equation pair has product of size Z for every beta (sign information only).
+- `c6-square-intertwiner-weyl` (combine): precise-obstruction, referee holds, score 0. Lead had already been run (`res-point-spectrum-square`). Added: Theorem H2 (no fixed Hecke rule for a GL_2 cuspidal target; one referee, nebentypus repair noted); Casimir class has Weyl law R^2 or R^3; the free Borel rule exists iff RH. Holds for all controls alike.
+- `c6-quadratic-companion-positivity` (explore): precise-obstruction, referee holds, score 0. Degree-2 positive forms: log-level squares lie in the P25 cone; products need admissible linear factors; coefficient squares are positive for every sequence, twist-invariant, positive for DH; Landau on L(s, Pi x Pi~) reaches Re s = 1 only. Density forms not run.
+- `c6-repair-referee-debts-r5` (repair): partial-result, referee holds, score 0. Lemma U confirmed again with U-stab and U-slope; Theorem 7(iv) downgraded to ARGUED; Froehlich-Queyrut covers finite-order characters only; Coleman 1990 (19/24) located second-hand; map rows D1-D7, Z15b, Z22; engine rerun (1,592 nodes).
+
+### Lessons
+
+1. Section 4.0 (effective order 2 inside the 7/8 architecture) has an obstruction on each of its attack items: family side (double covers, item 2), probe side (unreflected marks, item 3), the h = 3 vertex (item 4), and probes of higher degree in the target (pair lane). Lemma U (three derivations) plus degree-one homogeneity of the estimate system cover every re-expression and every n-fold probe. What is left under 4.0 is derivation work, not a new vertex: the uncompensated high side from manuscript (12.5)/(16.1), and the compensated principal signal below Re s = 3/5.
+2. New structural fact for the format: a Prop. 2.1 probe must carry its normaliser H. For sextic rows H contains L(6s-3, infinite-order character) with zeros in [7/12, 2/3), so the format's unconditional conclusion stops at 2/3. ORDER-2 needs the added requirement "normaliser has no zeros in Re s > 1/2".
+3. In the unreflected range the row norm K + D is itself a zero-free statement about the target (Hasse-Davenport turns the dual coefficients into mu times a Hecke character). Norm inputs and the conclusion are not independent there. Random rows pass the flatness measurement, so flatness is not an arithmetic test.
+4. The periodicity question (which half of Proposition D fails for THIN) cannot be settled by enumeration: the second sixth-power frequency enters at Z >= 2^36. It is now a paper question: LIOU-HIGH (high comparison for the Liouville weight via 1/L(x, liou chi) = L(x, chi)/L(2x, chi^2)).
+5. Sign information and size information do not compose: the bridge reads the pair (rho, 1 - conj rho) by sign, and its product has size Z for every beta, so it cannot feed a size comparison.
+6. Coefficient squares are positive without multiplicativity and invariant under unimodular twists; multiplicativity enters only through factorisation, which is evaluated at the leading pole on Re s >= 1. Quadratic positivity is closed for pointwise outputs.
+7. Square realisations: counting tests are defeated by sub-selection; fixed Hecke rules fail because a zero's eigencharacter is that of an Eisenstein series; the no-gos hold for all controls and supply no R3.
+8. Process: one STRATEGY lead was stale (already run). Check push/ and engine/outcomes/ for an existing lane before allocating. Scripts run from the repo root write relative outputs there; lanes must pass absolute output paths. Recalled sources changed labels twice when opened; "recalled" stays a debt.
+
+### Families now closed (added this round)
+
+- Double covers of any rank as a source of a weight-0 (shift 0) cocycle through local data; twist families of any GL(n) form (given the recalled Gelfand-Tsetlin recipe; referee narrowed the claim).
+- Probes of higher degree in the target inside the Prop. 2.1 ledger (pair, n-fold, unequal rows); the bridge pair as a size input.
+- Long prime marks at h = 3 as an input weaker than GRH (closed inside the model; (R) => GRH open).
+- Square intertwiners with a fixed Hecke rule (GL_2 cuspidal target over Q) and the Casimir class.
+- Degree-2 positive forms with pointwise output (device `map-open-9`, pointwise half).
+
+Not closed: global Whittaker constants of a genuine cusp form on the double cover of GL(3); density (family) quadratic forms (MV-CAP applies); rank >= 2 compact-at-infinity squares without a Hecke rule (no R1); model vertices with 1 < h <= 3.
+
+### Results that could be combined
+
+- `c6-marks-bc-manuscript-check` (normaliser H_eta, relation (R)) + `c6-unreflected-marks-kd23` (row norm = zero-free statement for the family, uncompensated branch underived): derive the uncompensated high side from manuscript (12.5)/(16.1) with the normaliser kept. This decides whether any vertex with 1 < h <= 3 exists and whether (S) or H0' is the false input.
+- `c6-probe61-thin-three-weights` (principal-row decomposition, linear in the weight) + `c5-thin-walk-replay` (first failing hypothesis Lemma 5.8) + Lemma 9.1: paper proof LIOU-HIGH, then class-regular THIN. Outcome would be a theorem: row bound (5.36) is false for a non-periodic completely multiplicative unimodular weight, which locates R3 of the 7/8 mechanism in the low half.
+- `c6-marks-bc-manuscript-check` (common zeros of the target with L(6s-3,(alpha eta)^6) in (R)) + `c6-repair-referee-debts-r5` (U-slope exception: isolated real top zero): both name a rigid exceptional configuration; a statement excluding common top-layer zeros would turn (R) into GRH inside the model. Model inputs unsourced; low expectation.
+
+### Open items carried forward
+
+- Engine: `curated/mk_devices.py` should mark `map-open-9` closed for pointwise outputs (density half open under MV-CAP); `map-open-1` narrowed to the derivation items of lesson 1. Not edited or rerun by this learn step.
+- Map: rows A3-C1, A3-C2, A3-C3, A3-R (square intertwiners), P50 (quadratic positivity), a row for the pair probe, a row for the double-cover cocycle (narrowed wording), a row for the normaliser cap at 2/3; rows still owed for `c5-twisted-helson-arcs` and two other round-5 lanes; section 7 entries for rounds 5 and 6.
+- STRATEGY: line 80 (square intertwiner "never run") is stale; section 4.0 items 2, 3, 4 have their obstructions; add the normaliser requirement to ORDER-2.
+- Referee debts: Theorem H2 part (b) (sym^i constituents, nebentypus); Lemma D Step 3 and Proposition E; Lemma H, Lemma S, Theorem B1' of the manuscript-check lane; Lemma Q with companions and the Edge Lemma; Lemma L against an opened source (Brubaker-Bump-Friedberg / McNamara); primary texts of Coleman 1990 and Weil 1952.
+
+## Round 7: allocation (planner, 2026-11-18)
+
+Inputs read: STRATEGY v2, SCOREBOARD (headline 1 of 4, no R4, 58 lanes), round-6 lessons, ROADMAP section 10, ENGINE_LOG tail, the `push/` listing. Engine rerun (`build_graph.py`, `generate.py --top 60`, each through `scripts/memcap.sh 8`): 59 candidates listed; every one rests on the floored 7/8 device node or on `map-open-2` / `map-open-22` (mean-value inputs inside [5/6, 7/8], or a statement about a control). None was launched as generated: the generator still cannot propose a device type that has no node. All eight lanes are hand-built from the round-6 "could be combined" list, the derivation items left under STRATEGY 4.0, the uncovered remainder of map rows Q12/Q22, and lead 28 (2026 inputs not yet read). `rhstatus` at planning time: rh.slice 17 GB in use; two units of another workflow active (`rh-b7-e1-kloss`, `rh-b7-e3-tro6`), so K-loss and TRO6 computations are not duplicated here.
+
+No lead has a referee-confirmed score of 3 or more outside the known architecture, so the three-lane rule is not triggered. State of "R4 inside the 7/8 architecture": no probe with h > 1.
+
+| # | slug | kind | heavy | what it decides | requirement it could raise |
+|---|---|---|---|---|---|
+| 1 | `c7-liou-high-row-bound` | combine | no | paper proof LIOU-HIGH: row bound (5.36) for the Liouville weight and for class-regular THIN | locates R3 of the 7/8 mechanism (low half or high half); no headline change |
+| 2 | `c7-uncompensated-high-side-normaliser` | combine | no | uncompensated high side from manuscript (12.5)/(16.1) with H_eta kept; compensated principal signal below Re s = 3/5 | existence of a model vertex with 1 < h <= 3 (R4 inside the architecture) |
+| 3 | `c7-probe-format-h-cap` | deepen | no | a general bound h <= 1 for every probe of the Proposition 2.1 format, or the hypothesis whose removal permits h > 1 | R4 inside the architecture: closes ORDER-2 or names its one admissible form |
+| 4 | `c7-laurent-shell-gamma-section` | deepen | no | sections of the prime chain on a Reinhardt shell around the critical torus, with the gamma one-port included (remainder of Q12/Q22), in the bridge / spinor square-root setting | R4 directly (limit step on the shell), R3 if the DH first-moment sign differs |
+| 5 | `c7-ff-order2-vertex-exact` | compute | yes | pre-registered: in F_q[T], where the Riemann hypothesis is a theorem, does the Proposition 2.1 probe realise h > 1 in the region lx < l | decides whether the format can reach the line at all; changes the round-8 allocation either way |
+| 6 | `c7-landau-siegel-device-read` | explore | no | the mechanism of the 2026 Landau-Siegel claim: what it reads, its control, whether it is a new crossing device | a new device node (R1, R3 candidates); R4 only at Re s = 1 as posed |
+| 7 | `c7-bridge-seven-eighths-krein-index` | combine | no | the bridge Hankel block Gamma_- under the 7/8 input and the Proposition 2.1 family: whether a family-averaged Krein index bound is every-window | R2 for a geometric object carrying R1, R3 from the 7/8 input |
+| 8 | `c7-repair-engine-map-r6` | repair | no | second referee for the normaliser lemma (lanes 2, 3 rest on it); map rows and engine bookkeeping owed from rounds 5 and 6; new device nodes | reliability (part D); generator coverage |
+
+Reasons.
+
+1. Kinds: 1 explore, 2 deepen, 3 combine, 1 compute, 1 repair. One deepen slot of STRATEGY section 1 went to a third combine (lane 7) because the task rule for this round asks for the geometric program joined to the arithmetic input, and section 4.0 has only derivation items left (round-6 lesson 1); lanes 2 and 3 carry those.
+2. R4 is targeted directly by lane 4 (limit step on a shell around the critical torus) and, inside the architecture, by lanes 2, 3 and 5.
+3. Lane 5 is the one heavy lane. Its question has a verdict in exact arithmetic and two pre-registered outcomes: h > 1 realised where the Riemann hypothesis holds (ORDER-2 stays the lead; next round names the sheaf-theoretic input), or h <= 1 there as well (the format is capped independently of the truth; the lead is closed under adaptation rule 2 and the allocation returns to 3 / 2 / 2 / 1).
+4. Lane 6 passes the explore condition: the device reads a family in the conductor aspect (real characters); the control of that class is non-periodic THIN; the plan must show a step THIN fails before any further work.
+5. Not allocated: zero statistics beyond pair level (density output, MV-CAP, the interpolation twin passes); entropy-decrement and other devices using complete multiplicativity only (THIN passes every step); enumeration for LIOU-HIGH (needs Z >= 2^36); K-loss and TRO6 runs (another workflow's units are active); common top-layer zeros of the target and the normaliser (inputs unsourced).
+6. Checkpoint reminder: after round 8, if no lane has referee-confirmed R4 and 4.0 has no proved step beyond its present state, two lanes per round go to the written record of obstructions (STRATEGY section 2).
+
+## Round 7 results
+
+Learn step 2026-11-18. Records: `campaign/round7_records.json` (referee notes truncated in the input; full text in each lane's REFEREE.md). Script: `campaign/learn_r7.py`. Eight lanes, eight referee holds (one referee each), every score 0, no statement about zeros, no ALERT.
+
+- `c7-liou-high-row-bound` (combine, partial-result, score 0): for Liouville rows in one ray class the row second moment is D + P + Rem with P >= 0 of order M^(5/6) X^(1/3) (proved); failure of the Liouville analogue of (5.36) by Z^(1/6) is argued relative to a recalled second-moment bound; THIN open (T1, T2).
+- `c7-uncompensated-high-side-normaliser` (combine, precise-obstruction, score 0): uncompensated probe has the same signal and normaliser; vertices with 1 < h <= 3 exist on a cone, but their one low input (K + D for coherent marked rows) implies the conclusion (Lemma C, argued).
+- `c7-probe-format-h-cap` (deepen, precise-obstruction, score 0): no cap on h from the format, but the abscissa is capped at 1 - 1/r + lx/(2r) for every operator-norm low estimate (K-loss = Hilbert-Schmidt lower bound, proved); escape only by a vector-specific row mean square (E-K).
+- `c7-laurent-shell-gamma-section` (deepen, precise-obstruction, score 0): first-moment bracket on a Reinhardt shell or with the gamma term has no forced sign for zeta or DH; limit step is the height-coupled reserve inequality.
+- `c7-ff-order2-vertex-exact` (compute, heavy, precise-obstruction, score 0): in F_q[T] (q = 7, 13, N <= 4) h > 1 holds for the uncompensated marked probe, but its low input contains the squared signal and fails for the Moebius-twisted weight; compensated probe not computed; pre-registered threshold undecided.
+- `c7-landau-siegel-device-read` (explore, precise-obstruction, score 0): interpolation determinant with Frobenius-congruence divisibility; floored at 1 - c/log q for real zeros, no height-aspect form; statement follows from the compiled Dirichlet 7/8 theorem.
+- `c7-bridge-seven-eighths-krein-index` (combine, precise-obstruction, score 0): gain 0; a family sum of bridge forms is a direct sum or the bridge of the product; the 7/8 input bounds the largest real part, the anticausal trace reads the smallest, the index is a count.
+- `c7-repair-engine-map-r6` (repair, partial-result, score 0): Lemma H holds under a second referee ((2.2) holds exactly for sigma_0 > 2/3); engine, map and STRATEGY bookkeeping for rounds 5 and 6.
+
+Scoreboard after the round: headline 1 of 4 (`c1-leeyang-krein-limit`; missing R2, R3, R4); no lane with R4; 66 lanes, hold rate 87.9%; tag-pair families 27,495: closed 1,428, tried and not closed 467, untried 25,600 (graph not rebuilt by this step); lemmas decided 23; three-referee statements 0.
+
+### Lessons
+
+1. "h > 1 by marks" is circular, on three independent lines. (a) Manuscript algebra: marks are coherent at sixth-power frequencies, so the marked-row energy contains the squared signal (Lemma C, argued). (b) F_q[T] exact arithmetic: the h > 1 vertices are real where the Riemann hypothesis holds, and the row bound they need bounds the target's Moebius sum and fails for the Moebius-twisted weight of the same modulus. (c) Estimate system: the cone vertices (t, t, 2t-1) have one input that implies the conclusion. The round-6 attribution (false input = (S) or H0') is reversed: the false input at lx < l is the K + D energy bound.
+2. The abscissa cap 1 - 1/r of the Proposition 2.1 format needs neither lx >= l nor the target: the K-loss is the Hilbert-Schmidt lower bound of the reflected row operator. No large-sieve (operator-norm) improvement passes it. What remains under ORDER-2 is one hypothesis: a vector-specific mean square of reflected, completed marked theta rows for QP > Z (E-K). It is numerically decidable with the stand-alone tools in tmp/sextic.
+3. Periodicity (R3 of the 7/8 mechanism) sits in the low half as the absence of one term kappa |m_w|^2, kappa ~ Z^(7/6). That term is a Hermitian form in the weight and is present for non-multiplicative weights, so the low half carries neither R1 nor R4. For Liouville the statement is one written contour argument away from a theorem; THIN needs conductor-uniform bounds.
+4. First-moment signs do not separate zeta from DH in any section class (polydisc, shell, gamma-coupled). The forced sign of Theorem A' is Harnack on the polydisc and does not survive non-integral frequencies or the gamma ratio.
+5. The 7/8 input and the anticausal Hankel block read opposite ends of the off-line pole set (largest real part against smallest; growth exponent against count). Family sums do not couple members. Joining the geometric program to the 7/8 input through traces or indices gives the input restated or a density.
+6. The Landau-Siegel device uses periodicity as reciprocity (chi is the Frobenius of a field), which is a different use from lattice-translation invariance in the 7/8 proof. It works in the conductor aspect only; the height aspect n^(-it) is control U.
+7. Process. (a) `merge_outcomes.py` now reads an optional `engineVerdict` in a record; the two round-6 records whose referee did not hold carry `engineVerdict: open`. (b) The six earlier records with `map-open-1` as only node now list `[map-open-1, out-<slug>]`, so the open device is no longer rejected wholesale; the generator has not been rerun. (c) Devices: `laurent-shell-gamma-section` closed, `landau-siegel-mechanism` floored, `function-field-order2-vertex` kept open (compensated probe). (d) Two lanes disclosed rule deviations: `c7-ff-order2-vertex-exact` (18 requested cores against 16 for about ten minutes; two local runs outside memcap), `c7-uncompensated-high-side-normaliser` (one ssh connection running `true`). (e) c5 `tiers_fe2.log` rows Y2, Y6 do not reproduce with the current script.
+
+### Families now closed (added this round)
+
+- Sections of the prime chain on a Reinhardt shell or with the gamma one-port, tested by first moments (holds for DH). Not covered: P(t) growing like a power of t.
+- Family sums or family-averaged Krein indices of bridge forms under the 7/8 input (finite pole sets).
+- The Landau-Siegel determinant device as a crossing device beyond width c/log q or in the height aspect.
+- Inside the 7/8 architecture: h > 1 by uncompensated marks (conditional on Lemma C; exact in F_q[T] at N <= 4); operator-norm estimates below 1 - 1/r.
+
+Not closed: (E-K) vector-specific mean square of reflected marked theta rows for QP > Z; the compensated probe (12.5) in F_q[T]; THIN row bound (T1, T2); a bridge formed from a single probe row B_m.
+
+### Results that could be combined
+
+- `c7-probe-format-h-cap` (E-K is the only escape) + `c7-ff-order2-vertex-exact` (exact framework `ffx.c`, compensated probe one subtraction away) + tmp/sextic stand-alone tools: decide (E-K) in F_q[T] exactly and over Z[omega] numerically. If false, ORDER-2 closes at 13/15-type floors; if true in F_q[T], the next step is its sheaf-theoretic source.
+- `c7-uncompensated-high-side-normaliser` (Lemma C) + `c7-ff-order2-vertex-exact` (Propositions 2-4) + `c7-liou-high-row-bound` (the same coherent term kappa |m_w|^2): one written statement "row energy at sixth-power frequencies = squared signal", to be refereed twice. It closes the marks branch of STRATEGY 4.0 and fixes R3 of the 7/8 mechanism in the low half.
+- `c7-landau-siegel-device-read` (reciprocity use of periodicity) + `c7-liou-high-row-bound` (translation-invariance use): a two-row entry in the map on which form of periodicity each known mechanism uses; no attack.
+
+### Open items carried forward
+
+- Engine: rerun `merge_outcomes.py`, `build_graph.py`, `generate.py` (not run by this step); check that `map-open-1` now appears in candidates. `map-open-9` device state scope (E3).
+- Map: rows under Q12/Q22 for the shell and gamma-coupled sections; row for the Hilbert-Schmidt cap; row for the family bridge; Z24 wording (E1, E4); correction of the c6-kd23 Prop. E attribution.
+- Referee debts: Lemma C; Lemma A aligned-probe size; remainder of Theorem A of the Liouville lane (contour, recalled second-moment bound); Lemma 2 of the shell lane; Propositions 1-4 and corrected F2 of the function-field lane; third referee for Lemma H (MS Lemma 7.1, j = 0); optional compile of the Landau-Siegel tree.
+- Checkpoint (allocation note 6): after round 8, if no lane has referee-confirmed R4 and 4.0 has no proved step beyond its present state, two lanes per round go to the written record of obstructions.
+
+## Round 8: allocation (planner, 2026-11-18)
+
+Inputs read: BRIEF (to the end), STRATEGY v2, SCOREBOARD, round-7 results and lessons, ROADMAP, ENGINE_LOG tail, the `push/` listing. Engine rerun through `scripts/memcap.sh 8` (`merge_outcomes.py`, `build_graph.py`, `generate.py --top 60`): 76 outcome entries (58 closed), 1,616 nodes (957 live), 34 closed families, 59 candidates listed. Every listed candidate rests on the floored 7/8 device node (`qrh-seven-eighths`, `seven-eighths-abscissa-formula`, `tro6-natural`) or on `map-open-2` / `map-open-4` / `map-open-22` (mean-value inputs inside [5/6, 7/8], TRO6 signed forms, or a statement about a control). `map-open-1` and `ff-order2-vertex-probe` still appear in no listed candidate. None was launched as generated; rank 4 (`map-open-4 x finite-support-euler-detector x connes-twin-ladder-crosswalk`) was read and discarded: the detector is a window form on the critical-line side (STRATEGY 3.1 item 3). All eight lanes are hand-built from the round-7 "could be combined" list, the escapes (E-K) and (E-H) named by `c7-probe-format-h-cap`, the item "bridge formed from a single probe row B_m" left open by `c7-bridge-seven-eighths-krein-index`, and one device type without a node. `rhstatus` at planning time: rh.slice 16 GB in use; units `rh-b7-e1-kloss` and `rh-b7-e3-tro6` of another workflow active, so K-loss and TRO6 runs are not duplicated.
+
+No lead has a referee-confirmed score of 3 or more, so the three-lane rule is not triggered. Headline 1 of 4, no lane with R4. State of "R4 inside the 7/8 architecture": no probe with h > 1 whose low input is not circular; one named escape under ORDER-2 that is numerically decidable, (E-K).
+
+| # | slug | kind | heavy | what it decides | requirement it could raise |
+|---|---|---|---|---|---|
+| 1 | `c8-ek-ff-reflected-rows-exact` | compute | yes | pre-registered: (E-K) in F_q[T] in exact arithmetic (reflected, completed marked rows, dual longer than the row set), and the compensated probe (12.5) in the same framework | R4 inside the architecture: closes ORDER-2 at 13/15-type floors, or keeps it with a named source |
+| 2 | `c8-ek-theta-second-moment-formula` | deepen | no | (E-K) over Z[omega]: a period or spectral evaluation of Sum_m abs(B_m)^2 beyond the approximate-functional-equation range; the recalled sharpness example of the cubic large sieve, opened | same; supplies the proof side of lane 1 |
+| 3 | `c8-eh-nonprincipal-row-cancellation` | deepen | no | (E-H): is cancellation over non-principal rows a zero-free statement about the target (circular, as K + D was) or an independent input | R4 inside the architecture to 2/3 only |
+| 4 | `c8-liou-row-bound-theorem` | deepen | no | Theorem A of `c7-liou-high-row-bound` completed (contour, second-moment bound sourced), THIN conditions T1, T2 | fixes R3 of the 7/8 mechanism as a theorem; no headline change |
+| 5 | `c8-row-energy-squared-signal` | combine | no | one written statement "row energy at sixth-power frequencies = squared signal" from Lemma C, function-field Propositions 2-4 and the Liouville term; two referees | closes the marks branch of 4.0; reliability |
+| 6 | `c8-single-row-bridge-crossing` | combine | no | bridge (spinor square-root) form built from one completed probe row B_m: axis of unimodularity, anticausal block, and whether a target zero is read at every height | R4 directly, with R1 and R3 from the row |
+| 7 | `c8-hecke-entropy-resonance-rigidity` | explore | no | device type without a node: joint Hecke recurrence / entropy on residues of Eisenstein series at rho/2 | new device node; R1, R3 candidates; R4 by continuation |
+| 8 | `c8-repair-engine-map-r7` | repair | no | referee debts of round 7, map rows owed, generator coverage of `map-open-1`, outline of the obstruction record for the checkpoint | part D; generator coverage |
+
+Reasons.
+
+1. Kinds follow STRATEGY section 1 exactly: 1 explore, 3 deepen, 2 combine, 1 compute, 1 repair.
+2. Lanes 1 and 2 take the least blocked lead from two sides (exact function-field arithmetic; proof side over Z[omega]). Lane 1 is the one heavy lane. Pre-registered outcomes: exponent of Sum_m abs(B_m)^2 in Q at most 1 + 0.05 at the three largest sizes means (E-K) holds in the model and the next round asks for its sheaf-theoretic source; exponent at least 1 + 0.15 with the K-loss size means (E-K) is false there, ORDER-2 is closed under adaptation rule 2 and the allocation returns to 3 / 2 / 2 / 1. Between the two: undecided, recorded as such.
+3. Lane 3 takes the second escape (E-H), which no lane has tested. Its first test is the circularity test that closed K + D.
+4. R4 is targeted directly by lane 6. It joins the bridge / spinor square-root object to the one arithmetic input known to carry R1 and R3 (periodicity of theta rows), on an object that round 7 left explicitly open. Lanes 1 to 3 target R4 inside the architecture.
+5. Lane 7 passes the explore condition only if its plan shows a step that fails for U and THIN before further work; map row G26 already records that Hecke norms on resonance states in weighted L^2 are equivalent to resonance location, so the lane must use recurrence or entropy, not norms. If the gate fails the lane reports that and stops.
+6. Not allocated: shell sections with P(t) a power of t (the limit step equals the reserve bound Q*(t) of `g-passive-cascade`, family 3.1 item 4); the Catalan mechanism of the 2026 release (reads discrete special values; interpolation twin); the generator's TRO6 triples (another workflow's unit is running); enumeration for LIOU-HIGH.
+7. Checkpoint: this is round 8. If after this round no lane has referee-confirmed R4 and lanes 1 to 3 give no proved step beyond the present state of 4.0, two lanes per round go to the written record of obstructions from round 9 (STRATEGY section 2). Lane 8 prepares its outline.

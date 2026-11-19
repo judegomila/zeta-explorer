@@ -1,1 +1,1 @@
-python: can't open file '~/rh-push/c3-rs-matched-halfsum-hb/cert_watch.py': [Errno 2] No such file or directory
+python: can't open file '/home/USER/rh-push/c3-rs-matched-halfsum-hb/cert_watch.py': [Errno 2] No such file or directory

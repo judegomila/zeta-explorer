@@ -1,0 +1,42 @@
+=== T1. Lemma 1 (gapped trace): pole formula vs quadrature of int_c^inf (u-c)|k(-u)|^2 du ===
+   RHP poles [0.09064376-3.01638431j 0.09064376+3.01638431j]  residues [-0.11463678+0.07566012j -0.11463678-0.07566012j]
+   planned allocation: 1500000 complex128 = 24 MB per array
+   max |k_quad - k_pole| on u in [0.2,40] = 9.88e-06
+   c=0.0: quadrature (u<=40) = 1.141192  + pole tail (u>40) 0.006544 = 1.147736   pole formula = 1.147738
+   c=1.0: quadrature (u<=40) = 0.951246  + pole tail (u>40) 0.006401 = 0.957647   pole formula = 0.957649
+   c=3.0: quadrature (u<=40) = 0.660590  + pole tail (u>40) 0.006115 = 0.666704   pole formula = 0.666705
+   c=6.0: quadrature (u<=40) = 0.381520  + pole tail (u>40) 0.005685 = 0.387205   pole formula = 0.387205
+=== T2. isolated pair: singular value = alpha/sqrt(alpha^2+beta^2) * exp(-w_+ c), w_+ = sqrt(alpha^2+beta^2)-alpha ===
+   alpha=0.7 beta=0.3 c=0.0: sqrt(T/2) = 0.91914492  predicted 0.91914503   Re z_j = [0.06157734 0.06157734]  w_+ = 0.06157731
+   alpha=0.7 beta=0.3 c=2.0: sqrt(T/2) = 0.81264076  predicted 0.81264089   Re z_j = [0.06157734 0.06157734]  w_+ = 0.06157731
+   alpha=0.1 beta=0.375 c=0.0: sqrt(T/2) = 0.25766253  predicted 0.25766265   Re z_j = [0.28810438 0.28810438]  w_+ = 0.28810437
+   alpha=0.1 beta=0.375 c=2.0: sqrt(T/2) = 0.14481287  predicted 0.14481288   Re z_j = [0.28810438 0.28810438]  w_+ = 0.28810437
+   alpha=3.0 beta=0.375 c=0.0: sqrt(T/2) = 0.99227786  predicted 0.99227788   Re z_j = [0.02334668 0.02334668]  w_+ = 0.02334666
+   alpha=3.0 beta=0.375 c=2.0: sqrt(T/2) = 0.94701016  predicted 0.94701021   Re z_j = [0.02334668 0.02334668]  w_+ = 0.02334666
+   alpha=0.01 beta=0.375 c=0.0: sqrt(T/2) = 0.02665718  predicted 0.02665719   Re z_j = [0.36513331 0.36513331]  w_+ = 0.36513331
+   alpha=0.01 beta=0.375 c=2.0: sqrt(T/2) = 0.01284292  predicted 0.01284292   Re z_j = [0.36513331 0.36513331]  w_+ = 0.36513331
+=== T3. two-sided bound lam_min(A2) sum|r_j|^2 e^{-2 x_j c} <= T(c) <= lam_max(A2) sum ...; rate = min Re z_j ===
+   chi1: Re z_j = [0.19888549]  lam(A2) in [6.2934,6.3471]  c=0.0: T=4.4392e-01 ratio T/sum=6.3154; c=5.0: T=6.0978e-02 ratio T/sum=6.3389; c=20.0: T=1.5552e-04 ratio T/sum=6.3079; c=60.0: T=1.9092e-11 ratio T/sum=6.2941; measured rate -dlogT/2dc on [60,80] = 0.198715  min Re z_j = 0.198885
+   chi2: Re z_j = [0.06291803 0.16325109]  lam(A2) in [9.3759,63.1682]  c=0.0: T=2.0018e+00 ratio T/sum=21.3051; c=5.0: T=8.4029e-01 ratio T/sum=33.0331; c=20.0: T=1.0779e-01 ratio T/sum=59.9439; c=60.0: T=6.9603e-04 ratio T/sum=63.1412; measured rate -dlogT/2dc on [60,80] = 0.062908  min Re z_j = 0.062918
+   chi3: Re z_j = [0.00416378]  lam(A2) in [14419.9596,14420.0465]  c=0.0: T=1.9450e+00 ratio T/sum=14419.9596; c=5.0: T=1.8657e+00 ratio T/sum=14419.9862; c=20.0: T=1.6466e+00 ratio T/sum=14420.0075; c=60.0: T=1.1801e+00 ratio T/sum=14419.9874; measured rate -dlogT/2dc on [60,80] = 0.004164  min Re z_j = 0.004164
+   chi4: no RHP poles, T(c) = 0
+=== T4. family sum with positive weights: rate = min over members (no gain) ===
+   c in [0.0,5.0]: family local rate = 0.099831   (member min rates: chi1=0.1989, chi2=0.0629, chi3=0.0042)
+   c in [5.0,10.0]: family local rate = 0.078498   (member min rates: chi1=0.1989, chi2=0.0629, chi3=0.0042)
+   c in [20.0,25.0]: family local rate = 0.063543   (member min rates: chi1=0.1989, chi2=0.0629, chi3=0.0042)
+   c in [60.0,65.0]: family local rate = 0.062742   (member min rates: chi1=0.1989, chi2=0.0629, chi3=0.0042)
+   c in [120.0,125.0]: family local rate = 0.020458   (member min rates: chi1=0.1989, chi2=0.0629, chi3=0.0042)
+   c in [400.0,405.0]: family local rate = 0.004164   (member min rates: chi1=0.1989, chi2=0.0629, chi3=0.0042)
+   c in [1500.0,1505.0]: family local rate = 0.004164   (member min rates: chi1=0.1989, chi2=0.0629, chi3=0.0042)
+   rank-one Gram coupling v v^*: HS^2 of the anticausal block of sum v_chi S_chi = form over the union of pole sets
+   union of 8 distinct poles: lam_min(A2) = 6.272e+00 > 0; T(0) = 3.209996; rate on [60,80] = 0.004348
+=== T5. sum of forms = bridge of the product: negative index adds ===
+   nodes: 5 on a circle of radius 0.03 about each of the 8 right-half-plane zeros, plus 20 random: 60 nodes
+   chi1: off-line zeros in RHP = 2, negative eigenvalues of the Pick kernel = 2
+   chi2: off-line zeros in RHP = 4, negative eigenvalues of the Pick kernel = 4
+   chi3: off-line zeros in RHP = 2, negative eigenvalues of the Pick kernel = 2
+   chi4: off-line zeros in RHP = 0, negative eigenvalues of the Pick kernel = 0
+   sum of the four kernels (= kernel of the product): negative eigenvalues = 8, sum of member indices = 8, RHP poles of S_prod = 8
+   weights (1, 7.3, 0.01) on (chi1, chi4, chi3): negative eigenvalues = 4 (expected 2 + 0 + 2 = 4)
+   real nodes only (the eq48 class):
+   product kernel on 60 real nodes in (0.02, 3): negative eigenvalues above 1e-9 relative = 0, lowest [-4.89801189e-14 -3.66065030e-14 -2.71175506e-14]

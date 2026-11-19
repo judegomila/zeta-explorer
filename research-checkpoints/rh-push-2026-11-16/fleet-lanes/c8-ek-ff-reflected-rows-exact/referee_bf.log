@@ -1,0 +1,6 @@
+(N,lam,d)=(1,1,2) weight a: brute force energy 28812.000000, kernel q^(N+lam)*sumnorm = 28812; brute force diagonal 63504, kernel 63504; agree: True
+(N,lam,d)=(2,1,2) weight a: brute force energy 2768010.000000, kernel q^(N+lam)*sumnorm = 2768010; brute force diagonal 2864736, kernel 2864736; agree: True
+(N,lam,d)=(1,2,2) weight a: brute force energy 1146306.000000, kernel q^(N+lam)*sumnorm = 1146306; brute force diagonal 2067261, kernel 2067261; agree: True
+(N,lam,d)=(2,1,1) weight mu: brute force energy 0.000000, kernel q^(N+lam)*sumnorm = 0; brute force diagonal 734706, kernel 734706; agree: True
+(N,lam,d)=(1,2,1) weight mu: brute force energy 0.000000, kernel q^(N+lam)*sumnorm = 0; brute force diagonal 302526, kernel 302526; agree: True
+(N,lam,d)=(2,1,3) weight a: brute force energy 22298430.000000, kernel q^(N+lam)*sumnorm = 22298430; brute force diagonal 20077848, kernel 20077848; agree: True

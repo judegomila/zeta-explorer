@@ -1,0 +1,7 @@
+nodes 109 primes 77
+(a) max |G - chi_c(4) gamma_3| = 1.732e+00
+(a) max |G - conj chi_c(4) gamma_3| = 2.038e-09
+(a) max ||G|-1| = 1.1803756860828685e-09  max ||tau|-1| = 1.038148234044911e-09
+(b) pair formula: 68 pairs (N <= 130, X = 60.0), max |direct - dual| = 8.378e-09
+(c) theta: direct 17.2580757837  dual 17.2580757845  imag 1.48e-16
+(c) aligned: direct 18.3936902226  dual 18.3936902217  imag 7.74e-17

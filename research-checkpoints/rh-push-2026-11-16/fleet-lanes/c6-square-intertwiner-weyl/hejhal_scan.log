@@ -1,0 +1,18 @@
+window [6.6,7.6] step 0.02 M=8 Q=24: median residual even 0.861 odd 0.558; grid min even 5.55e-01 odd 5.26e-01
+window [9.3,9.8] step 0.02 M=8 Q=24: median residual even 0.860 odd 0.540; grid min even 8.23e-01 odd 2.13e-01
+window [13.5,14.7] step 0.01 M=8 Q=24: median residual even 0.587 odd 0.803; grid min even 3.47e-04 odd 7.27e-03
+   minimum: {'parity': 'even', 'r': 13.77975134880449, 'residual': 4.306490607595959e-09}
+   minimum: {'parity': 'odd', 'r': 14.358509514736816, 'residual': 1.724923562011323e-08}
+window [20.0,21.6] step 0.01 M=10 Q=28: median residual even 0.533 odd 0.510; grid min even 3.39e-02 odd 3.28e-03
+   minimum: {'parity': 'even', 'r': 21.315795941736802, 'residual': 1.2343358892474094e-08}
+   minimum: {'parity': 'odd', 'r': 20.106694682727888, 'residual': 2.565944892985952e-10}
+   minimum: {'parity': 'odd', 'r': 21.479057552681137, 'residual': 2.7619960159231678e-08}
+window [24.8,25.2] step 0.005 M=11 Q=30: median residual even 0.587 odd 0.451; grid min even 4.82e-01 odd 4.41e-03
+   minimum: {'parity': 'odd', 'r': 25.050854846898474, 'residual': 1.989966542175373e-08}
+r = 14.134725142: residual even 0.7182 odd 0.7740
+r = 7.067362571: residual even 0.8960 odd 0.5599
+r = 21.022039639: residual even 0.5599 odd 0.6186
+r = 10.511019819: residual even 0.7141 odd 0.7601
+r = 25.010857580: residual even 0.5559 odd 0.2073
+r = 12.505428790: residual even 0.6106 odd 0.8673
+seconds 666.0511100292206

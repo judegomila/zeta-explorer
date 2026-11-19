@@ -1,0 +1,23 @@
+Z = 185364, taper [3.5, 4.0], Xmax = 10120531, nodes 2856648; planned arrays < 0.26 GB
+(4.7) checks: |g2^3 - mu alpha| 7.69e-09; |g1 g2 - mu alpha G| 3.98e-09; |Gamma - g3| 3.48e-09
+n-terms 62 (list entries 20861), s-values 129 (table entries 83409), rows q_m in [2237081, 5547498]
+c_S = 0.0158322; c_S f_w: one -0.00110+0.00000i, liou +0.22748+0.00000i, t95a -0.01849+0.00000i, t95b -0.01792+0.00000i, t95c -0.02514-0.00002i, g95 -0.02841+0.00002i, t99 -0.00810-0.00002i, t97 -0.01592+0.00002i, t90 -0.01662+0.00000i, d50a -0.00078+0.00002i, d50b -0.00065+0.00000i, nm50 +0.11318+0.00000i, iid -0.00011-0.00002i, d75 +0.07855-0.00002i
+wrote data/in_G_185364.bin
+Z=185364 npr=672111 nodes=2856648 NW=14 nterm=62 ns=129 rows in [2237081, 5547498]; planned shared memory 0.150 GB
+row primes 383924, cached 349 (0.235 GB)
+threads 16; per-thread memory 0.024 GB
+rows 6004392 (active 6003324) written data/out_G_185364.txt
+probe G 185364: 1402 s wall
+DONE G 185364 18:47:31
+Z = 262144, taper [3.5, 4.0], Xmax = 14312577, nodes 4039880; planned arrays < 0.36 GB
+(4.7) checks: |g2^3 - mu alpha| 8.00e-09; |g1 g2 - mu alpha G| 4.06e-09; |Gamma - g3| 3.48e-09
+n-terms 72 (list entries 29493), s-values 150 (table entries 115122), rows q_m in [3213312, 7841280]
+c_S = 0.0158322; c_S f_w: one -0.00089-0.00000i, liou +0.25536+0.00000i, t95a -0.02032+0.00000i, t95b -0.01971+0.00000i, t95c -0.02767-0.00002i, g95 -0.03129+0.00002i, t99 -0.00890-0.00002i, t97 -0.01762+0.00002i, t90 -0.01800+0.00000i, d50a -0.00079+0.00002i, d50b -0.00055+0.00000i, nm50 +0.12719+0.00000i, iid -0.00003-0.00002i, d75 +0.08708-0.00002i
+wrote data/in_G_262144.bin
+Z=262144 npr=929064 nodes=4039880 NW=14 nterm=72 ns=150 rows in [3213312, 7841280]; planned shared memory 0.210 GB
+row primes 529798, cached 405 (0.376 GB)
+threads 16; per-thread memory 0.033 GB
+rows 8394228 (active 8392916) written data/out_G_262144.txt
+probe G 262144: 2686 s wall
+DONE G 262144 19:32:24
+ALLDONE-G

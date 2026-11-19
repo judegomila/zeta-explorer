@@ -1,0 +1,32 @@
+== T1 claim A: vertices at B = 1/2
+  G=zero k=zero comp=True: (lx,ly,l)=(0, 4, 2) M=4 h=3 b=4 | lx>l:False lx>0:False M>=2l:True ly>=l:True M+l<=1:False l<=1/5:False
+  G=zero k=hb comp=True: (lx,ly,l)=(0, 6, 2) M=6 h=3 b=6 | lx>l:False lx>0:False M>=2l:True ly>=l:True M+l<=1:False l<=1/5:False
+  G=polar k=zero comp=True: none
+  G=polar k=wls comp=False: (lx,ly,l)=(5, 5, 7) M=10 h=3 b=0 | lx>l:False lx>0:True M>=2l:False ly>=l:False M+l<=1:False l<=1/5:False
+  G=tro6 k=wls comp=False: (lx,ly,l)=(5/2, 5, 9/2) M=15/2 h=3 b=5/2 | lx>l:False lx>0:True M>=2l:False ly>=l:True M+l<=1:False l<=1/5:False
+  G=tro6 k=zero comp=True: (lx,ly,l)=(4, 8, 6) M=12 h=3 b=4 | lx>l:False lx>0:True M>=2l:True ly>=l:True M+l<=1:False l<=1/5:False
+  G=tro6 k=hb comp=True: (lx,ly,l)=(6, 12, 8) M=18 h=3 b=6 | lx>l:False lx>0:True M>=2l:True ly>=l:True M+l<=1:False l<=1/5:False
+   polar G with GEO-Q: inf B = 114532461227/137438953472
+== T2 vertices at B = 2/3
+  G=zero k=zero comp=True: (lx,ly,l)=(0, 2, 1) M=2 h=2 b=2 | lx>l:False lx>0:False M>=2l:True ly>=l:True M+l<=1:False l<=1/5:False
+  G=zero k=hb comp=True: (lx,ly,l)=(0, 4, 1) M=4 h=2 b=4 | lx>l:False lx>0:False M>=2l:True ly>=l:True M+l<=1:False l<=1/5:False
+  G=polar k=wls comp=False: (lx,ly,l)=(3, 3, 4) M=6 h=2 b=0 | lx>l:False lx>0:True M>=2l:False ly>=l:False M+l<=1:False l<=1/5:False
+  G=tro6 k=wls comp=False: (lx,ly,l)=(3/2, 3, 5/2) M=9/2 h=2 b=3/2 | lx>l:False lx>0:True M>=2l:False ly>=l:True M+l<=1:False l<=1/5:False
+  G=tro6 k=zero comp=True: (lx,ly,l)=(2, 4, 3) M=6 h=2 b=2 | lx>l:False lx>0:True M>=2l:True ly>=l:True M+l<=1:False l<=1/5:False
+  G=tro6 k=hb comp=True: (lx,ly,l)=(4, 8, 5) M=12 h=2 b=4 | lx>l:False lx>0:True M>=2l:True ly>=l:True M+l<=1:False l<=1/5:False
+== T3 source hypotheses added (lx >= l, M + l <= 1, l <= 1/5): infimum of B, packages polar/src G, src k
+  G=polar k=zero: inf B = 0.8666666666686069  at (13743895347/34359738368, 13743895347/34359738368, 6871947673/34359738368)  h=13743895347/17179869184
+  G=polar k=src : inf B = 0.8666666666686069  at (34359738369/85899345920, 34359738367/85899345920, 1/5)  h=13743895347/17179869184
+  G=src   k=zero: inf B = 0.8666666666686069  at (13743895347/34359738368, 13743895347/34359738368, 6871947673/34359738368)  h=13743895347/17179869184
+  G=src   k=src : inf B = 0.8666666666686069  at (34359738369/85899345920, 34359738367/85899345920, 1/5)  h=13743895347/17179869184
+  G=tro6  k=zero: inf B = 0.857142857144936  at (9817068105/34359738368, 9817068105/17179869184, 1227133513/8589934592)  h=29451204315/34359738368
+  G=tro6  k=src : inf B = 0.857142857144936  at (39268272421/137438953472, 39268272421/68719476736, 19634136209/137438953472)  h=29451204315/34359738368
+  G=zero  k=zero: inf B = 0.8333333333357587  at (1/34359738368, 68719476733/68719476736, 1/68719476736)  h=68719476735/68719476736
+  G=zero  k=src : inf B = 0.8333333333357587  at (1/34359738368, 68719476733/68719476736, 1/68719476736)  h=68719476735/68719476736
+== T4 h > 1 with lx >= l is empty (h = 1 - lx + l <= 1): any B = 1/2 or 2/3 vertex violates lx > l
+  B=1/2 G=zero k=zero comp, lx>=l: infeasible
+  B=1/2 G=tro6 k=zero comp, lx>=l: infeasible
+  B=1/2 G=polar k=zero comp, lx>=l: infeasible
+  B=2/3 G=zero k=zero comp, lx>=l: infeasible
+  B=2/3 G=tro6 k=zero comp, lx>=l: infeasible
+  B=2/3 G=polar k=zero comp, lx>=l: infeasible

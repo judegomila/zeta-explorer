@@ -1,0 +1,321 @@
+records (block, weight) 5620; with a reference |J|^2 in ../c7-ff-order2-vertex-exact/blocks_*.jsonl: 2644; identical integers: 2644; mismatches: 0
+weights: a = target (quadratic character mod T^3+2); b = target (mod T^3+T+1); mu = w = mu: Moebius sum trivial (pole control, Liouville type); lnu = w = mu nu_a (Liouville twist of the target); thin = nu_a times thin sign twist; rm = random completely multiplicative signs; rma = nu_a times random multiplicative signs; n1 = random +-1, not multiplicative; n2 = random +-1, not multiplicative; dh = nu_a + nu_b; t = w = 1
+
+T1. complete row range d >= N', at least 20 nonzero non-principal rows
+w      q blocks  NP=0 of which J=0 | NP != 0:   n  med U  med rho  max rho med theta med NP/RMS med NP/env med env/T1
+a      7     92    66           66 |           26    384   0.1220   0.7834     0.411      1.445     0.0032    19.0473
+b      7     92    61           61 |           31    340   0.1102   0.9994     0.383      1.529     0.0072    12.0183
+mu     7     83    61           61 |           22    392   0.5226   1.0000     0.108      5.785     0.0029    56.9509
+lnu    7     96    68           68 |           28    371   0.1264   1.0000     0.382      1.624     0.0116     6.2090
+thin   7     96    63           63 |           33    340   0.2386   1.0000     0.317      2.005     0.0251    11.2225
+rm     7     96    64           64 |           32    341   0.1225   1.0000     0.369      1.788     0.0274     5.8928
+rma    7     96    63           63 |           33    340   0.2300   1.0000     0.252      2.706     0.0204    10.5305
+n1     7     96    63           63 |           33    343   0.2576   1.0000     0.278      2.159     0.0763     5.9408
+n2     7     93    60           60 |           33    343   0.1876   1.0000     0.287      2.005     0.0511     6.1642
+dh     7     92    61           61 |           31    342   0.1647   0.8964     0.372      1.421     0.0198     6.3684
+t      7     90    66           66 |           24    340   0.7214   1.0000     0.078      3.485     0.1057     6.3016
+a     13     22    15           15 |            7   2379   0.1283   0.7697     0.293      2.652     0.0059    33.5690
+mu    13     18    12           12 |            6   1606   0.7415   1.0000     0.039     12.703     0.0027   210.5752
+lnu   13     24    17           17 |            7   2379   0.0757   0.3912     0.332      2.964     0.0052    15.5735
+thin  13     24    14           14 |           10    182   0.1797   0.4975     0.274      2.904     0.0066    34.4776
+rm    13     24    14           14 |           10    182   0.2306   0.8184     0.231      3.111     0.0112    11.6002
+rma   13     24    14           14 |           10    182   0.1885   0.5010     0.276      2.781     0.0069    16.4336
+n1    13     24    14           14 |           10    182   0.1756   0.5107     0.320      2.874     0.0138     8.7246
+n2    13     22    12           12 |           10    182   0.1171   0.4091     0.349      2.044     0.0088     4.1326
+
+T2. same, marked blocks (lam >= 1) in the ledger region lx < l (k + lam > d)
+w      q blocks  NP=0 of which J=0 | NP != 0:   n  med U  med rho  max rho med theta med NP/RMS med NP/env med env/T1
+a      7     71    51           51 |           20    399   0.0890   0.7834     0.498      0.924     0.0029    18.7344
+b      7     71    49           49 |           22    399   0.0661   0.4437     0.534      0.685     0.0029    12.1932
+mu     7     65    48           48 |           17    399   0.2000   1.0000     0.271      2.581     0.0029    42.5280
+lnu    7     72    50           50 |           22    399   0.1120   1.0000     0.514      0.882     0.0076     5.9035
+thin   7     72    48           48 |           24    389   0.2220   1.0000     0.281      2.086     0.0183    12.1932
+rm     7     72    49           49 |           23    399   0.0932   1.0000     0.393      1.850     0.0172    12.0183
+rma    7     72    48           48 |           24    399   0.1897   1.0000     0.278      2.019     0.0117    12.1932
+n1     7     72    48           48 |           24    399   0.1913   1.0000     0.300      2.059     0.0228    10.4835
+n2     7     72    48           48 |           24    399   0.1546   1.0000     0.290      1.912     0.0132    12.1932
+dh     7     71    49           49 |           22    399   0.0560   0.3456     0.493      0.878     0.0032     6.8298
+t      7     66    47           47 |           19    399   0.4924   1.0000     0.102      2.721     0.0607    12.9504
+a     13     15    10           10 |            5   2379   0.0670   0.3024     0.348      2.652     0.0059    37.5723
+mu    13     13     9            9 |            4   1612   0.6491   0.8452     0.056     11.902     0.0053   146.1918
+lnu   13     15    10           10 |            5   2379   0.0757   0.3912     0.332      2.964     0.0059    14.4482
+thin  13     15     9            9 |            6   1280   0.1961   0.4076     0.274      3.217     0.0048    47.0882
+rm    13     15     9            9 |            6   1280   0.1332   0.8184     0.302      2.860     0.0073    11.6002
+rma   13     15     9            9 |            6   1280   0.1115   0.3447     0.350      2.064     0.0069    20.8991
+n1    13     15     9            9 |            6   1280   0.1852   0.5107     0.280      3.255     0.0069    34.9072
+n2    13     15     9            9 |            6   1280   0.1171   0.4091     0.344      2.332     0.0059    11.9914
+
+T3. same as T1 restricted to k <= (d+1)/2 (no re-expression by F1/F2), at least 6 rows
+w      q blocks  NP=0 of which J=0 | NP != 0:   n  med U  med rho  max rho med theta med NP/RMS med NP/env med env/T1
+a      7     26    22           22 |            4      7   0.4117   0.5985     0.356      1.241     1.0000     0.4117
+b      7     26    15           15 |           11      7   0.4639   0.6471     0.402      1.028     1.0000     0.4639
+mu     7      6     5            5 |            1     49   0.3041   0.3041     0.306      1.950     1.0000     0.3041
+lnu    7     27    22           22 |            5      7   0.3663   1.0000     0.458      0.961     1.0000     0.3663
+thin   7     27    15           15 |           12      7   0.3463   1.0000     0.532      0.871     1.0000     0.3463
+rm     7     27    18           18 |            9      7   0.2102   1.0000     0.482      0.954     1.0000     0.2102
+rma    7     27    15           15 |           12      7   0.5666   1.0000     0.292      1.345     1.0000     0.5666
+n1     7     27    15           15 |           12      7   0.4459   1.0000     0.407      1.106     1.0000     0.4459
+n2     7     27    15           15 |           12      7   0.4096   1.0000     0.425      1.110     1.0000     0.4096
+dh     7     26    15           15 |           11      7   0.4004   0.7868     0.470      0.976     1.0000     0.4004
+t      7      7     5            5 |            2     46   0.9987   1.0000     0.000      6.490     1.0000     0.9987
+a     13      6     6            6 |            0    nan      nan      nan       nan        nan        nan        nan
+lnu   13      6     6            6 |            0    nan      nan      nan       nan        nan        nan        nan
+thin  13      6     3            3 |            3     13   0.1145   0.1500     0.845      0.360     1.0000     0.1145
+rm    13      6     3            3 |            3     13   0.3327   0.4486     0.429      1.072     1.0000     0.3327
+rma   13      6     3            3 |            3     13   0.3054   0.3898     0.462      0.870     1.0000     0.3054
+n1    13      6     3            3 |            3     13   0.2333   0.2374     0.567      0.764     1.0000     0.2333
+n2    13      6     3            3 |            3     13   0.2694   0.3260     0.511      0.856     1.0000     0.2694
+
+T4. d < N' (short row range), at least 20 rows
+w      q blocks  NP=0 of which J=0 | NP != 0:   n  med U  med rho  max rho med theta med NP/RMS med NP/env med env/T1
+a      7    155    91           91 |           64    343   0.1610   1.0000     0.291      2.471     1.0000     0.2055
+b      7    155    53           53 |          102    343   0.0699   1.0000     0.448      1.056     1.0000     0.0754
+mu     7    152   101           98 |           51    343   0.4873   1.0000     0.111      5.500     1.0000     0.6958
+lnu    7    155    93           93 |           62    343   0.1119   1.0000     0.360      1.886     1.0000     0.1347
+thin   7    155    53           53 |          102    343   0.1102   1.0000     0.381      1.557     1.0000     0.1281
+rm     7    155    55           55 |          100    343   0.0743   1.0000     0.441      1.073     1.0000     0.0894
+rma    7    155    53           53 |          102    343   0.1047   1.0000     0.367      1.664     1.0000     0.1265
+n1     7    155    55           55 |          100    343   0.0815   1.0000     0.389      1.393     1.0000     0.0848
+n2     7    155    53           53 |          102    343   0.0736   1.0000     0.442      1.106     1.0000     0.0788
+dh     7    155    53           53 |          102    343   0.0914   1.0000     0.388      1.408     1.0000     0.0970
+t      7    149    99           99 |           50    343   0.4917   1.0000     0.092      6.145     1.0000     0.6630
+a     13     68    40           40 |           28   2196   0.1120   0.6319     0.313      2.874     1.0000     0.1178
+mu    13     65    43           43 |           22   2197   0.6445   1.0000     0.073     11.143     1.0000     0.6445
+lnu   13     68    42           42 |           26   2197   0.0754   0.6319     0.366      1.993     1.0000     0.0772
+thin  13     68    26           26 |           42    182   0.1123   0.7834     0.307      2.339     1.0000     0.1123
+rm    13     68    26           26 |           42    182   0.0873   0.7317     0.393      1.288     1.0000     0.0906
+rma   13     68    26           26 |           42    182   0.0651   0.4379     0.402      1.456     1.0000     0.0774
+n1    13     68    26           26 |           42    182   0.0861   0.7816     0.393      1.576     1.0000     0.0883
+n2    13     68    26           26 |           42    176   0.0546   0.7817     0.437      1.237     1.0000     0.0576
+
+T5. blocks with c_k = 0 identically (d odd, k = (d+1)/2): J = 0, so NP = -(Princ + Diag) exactly; at least 6 rows
+w      q blocks  NP=0 of which J=0 | NP != 0:   n  med U  med rho  max rho med theta med NP/RMS med NP/env med env/T1
+a      7     44    44           44 |            0    nan      nan      nan       nan        nan        nan        nan
+b      7     44    44           44 |            0    nan      nan      nan       nan        nan        nan        nan
+mu     7     31    31           31 |            0    nan      nan      nan       nan        nan        nan        nan
+lnu    7     44    44           44 |            0    nan      nan      nan       nan        nan        nan        nan
+thin   7     44    44           44 |            0    nan      nan      nan       nan        nan        nan        nan
+rm     7     44    44           44 |            0    nan      nan      nan       nan        nan        nan        nan
+rma    7     44    44           44 |            0    nan      nan      nan       nan        nan        nan        nan
+n1     7     44    44           44 |            0    nan      nan      nan       nan        nan        nan        nan
+n2     7     44    44           44 |            0    nan      nan      nan       nan        nan        nan        nan
+dh     7     44    44           44 |            0    nan      nan      nan       nan        nan        nan        nan
+t      7     30    30           30 |            0    nan      nan      nan       nan        nan        nan        nan
+a     13     20    20           20 |            0    nan      nan      nan       nan        nan        nan        nan
+mu    13     14    14           14 |            0    nan      nan      nan       nan        nan        nan        nan
+lnu   13     20    20           20 |            0    nan      nan      nan       nan        nan        nan        nan
+thin  13     20    20           20 |            0    nan      nan      nan       nan        nan        nan        nan
+rm    13     20    20           20 |            0    nan      nan      nan       nan        nan        nan        nan
+rma   13     20    20           20 |            0    nan      nan      nan       nan        nan        nan        nan
+n1    13     20    20           20 |            0    nan      nan      nan       nan        nan        nan        nan
+n2    13     20    20           20 |            0    nan      nan      nan       nan        nan        nan        nan
+
+T6. exact identity check: number of (block, weight) records with |NP| > |J'| + |Princ| + |Diag| (must be 0): 0
+    records with NP = 0 exactly and T1 > 0: 2042 of 4116
+    of these, records with J = 0 and Princ = Diag = 0: 2039
+
+T7. same geometry, different weights: theta_w - theta_a over geometries with NP != 0 for both, d >= N', U_a >= 20
+q= 7 a     geometries  26  median +0.000  min +0.000  max +0.000   geometries where exactly one of the two has NP = 0: 0
+q= 7 b     geometries  26  median +0.000  min -0.455  max +0.502   geometries where exactly one of the two has NP = 0: 5
+q= 7 mu    geometries  24  median -0.210  min -0.689  max +0.233   geometries where exactly one of the two has NP = 0: 2
+q= 7 lnu   geometries  26  median +0.000  min -0.283  max +0.370   geometries where exactly one of the two has NP = 0: 1
+q= 7 thin  geometries  26  median -0.038  min -0.396  max +1.377   geometries where exactly one of the two has NP = 0: 6
+q= 7 rm    geometries  26  median -0.028  min -0.422  max +0.453   geometries where exactly one of the two has NP = 0: 5
+q= 7 rma   geometries  26  median -0.050  min -0.360  max +0.459   geometries where exactly one of the two has NP = 0: 6
+q= 7 n1    geometries  26  median -0.063  min -0.581  max +1.080   geometries where exactly one of the two has NP = 0: 6
+q= 7 n2    geometries  26  median -0.011  min -0.470  max +0.289   geometries where exactly one of the two has NP = 0: 6
+q= 7 dh    geometries  26  median +0.000  min -0.401  max +0.853   geometries where exactly one of the two has NP = 0: 5
+q= 7 t     geometries  24  median -0.187  min -0.617  max +0.030   geometries where exactly one of the two has NP = 0: 3
+q=13 a     geometries   7  median +0.000  min +0.000  max +0.000   geometries where exactly one of the two has NP = 0: 0
+q=13 mu    geometries   7  median -0.230  min -0.305  max -0.050   geometries where exactly one of the two has NP = 0: 0
+q=13 lnu   geometries   7  median +0.000  min -0.113  max +1.087   geometries where exactly one of the two has NP = 0: 0
+q=13 thin  geometries   7  median -0.052  min -0.188  max +0.084   geometries where exactly one of the two has NP = 0: 3
+q=13 rm    geometries   7  median +0.035  min -0.254  max +0.268   geometries where exactly one of the two has NP = 0: 3
+q=13 rma   geometries   7  median +0.078  min -0.124  max +0.300   geometries where exactly one of the two has NP = 0: 3
+q=13 n1    geometries   7  median -0.034  min -0.164  max +0.250   geometries where exactly one of the two has NP = 0: 3
+q=13 n2    geometries   7  median +0.119  min -0.072  max +0.520   geometries where exactly one of the two has NP = 0: 3
+
+T8. the largest blocks with NP != 0 for weight a, d >= N' (top 14 by U): per weight  U, |NP|, T1, rho, theta, |Princ|+|Diag|, |J'|
+q=7 k=5 N=0 lam=5 d=5 r=4 even
+    a     U= 2800 |NP|= 2.352e+04 T1= 1.611e+07 rho=0.00146 theta= 0.823 PD= 3.953e+08 |J'|= 3.953e+08
+    b     U= 2800 |NP|= 2.352e+04 T1= 1.611e+07 rho=0.00146 theta= 0.823 PD= 3.953e+08 |J'|= 3.953e+08
+    mu    U= 2800 |NP|= 2.352e+04 T1= 1.611e+07 rho=0.00146 theta= 0.823 PD= 3.953e+08 |J'|= 3.953e+08
+    lnu   U= 2800 |NP|= 2.352e+04 T1= 1.611e+07 rho=0.00146 theta= 0.823 PD= 3.953e+08 |J'|= 3.953e+08
+    thin  U= 2800 |NP|= 2.352e+04 T1= 1.611e+07 rho=0.00146 theta= 0.823 PD= 3.953e+08 |J'|= 3.953e+08
+    rm    U= 2800 |NP|= 2.352e+04 T1= 1.611e+07 rho=0.00146 theta= 0.823 PD= 3.953e+08 |J'|= 3.953e+08
+    rma   U= 2800 |NP|= 2.352e+04 T1= 1.611e+07 rho=0.00146 theta= 0.823 PD= 3.953e+08 |J'|= 3.953e+08
+    n1    U= 2800 |NP|= 2.352e+04 T1= 1.611e+07 rho=0.00146 theta= 0.823 PD= 3.953e+08 |J'|= 3.953e+08
+    n2    U= 2800 |NP|= 2.352e+04 T1= 1.611e+07 rho=0.00146 theta= 0.823 PD= 3.953e+08 |J'|= 3.953e+08
+    dh    U= 2800 |NP|= 4.704e+04 T1= 3.222e+07 rho=0.00146 theta= 0.823 PD= 7.906e+08 |J'|= 7.906e+08
+    t     U= 2800 |NP|= 2.352e+04 T1= 1.611e+07 rho=0.00146 theta= 0.823 PD= 3.953e+08 |J'|= 3.953e+08
+q=7 k=5 N=1 lam=4 d=5 r=4 even
+    a     U= 2800 |NP|=  2.47e+04 T1= 1.414e+07 rho=0.00175 theta= 0.800 PD= 5.927e+07 |J'|=  5.93e+07
+    b     U= 2800 |NP|= 7.409e+04 T1=  1.48e+07 rho=0.00501 theta= 0.667 PD= 1.778e+08 |J'|= 1.779e+08
+    mu    U= 1071 |NP|= 1.729e+05 T1= 9.162e+06 rho=0.01887 theta= 0.569 PD= 4.149e+08 |J'|= 4.151e+08
+    lnu   U= 2800 |NP|=  2.47e+04 T1= 1.414e+07 rho=0.00175 theta= 0.800 PD= 5.927e+07 |J'|=  5.93e+07
+    thin  U= 2800 |NP|= 7.409e+04 T1=  1.48e+07 rho=0.00501 theta= 0.667 PD= 1.778e+08 |J'|= 1.779e+08
+    rm    U= 2800 |NP|= 7.409e+04 T1=  1.48e+07 rho=0.00501 theta= 0.667 PD= 1.778e+08 |J'|= 1.779e+08
+    rma   U= 2800 |NP|= 7.409e+04 T1=  1.48e+07 rho=0.00501 theta= 0.667 PD= 1.778e+08 |J'|= 1.779e+08
+    n1    U= 2800 |NP|= 7.409e+04 T1=  1.48e+07 rho=0.00501 theta= 0.667 PD= 1.778e+08 |J'|= 1.779e+08
+    n2    U= 2800 |NP|= 7.409e+04 T1=  1.48e+07 rho=0.00501 theta= 0.667 PD= 1.778e+08 |J'|= 1.779e+08
+    dh    U= 2800 |NP|= 4.939e+04 T1= 1.857e+07 rho=0.00266 theta= 0.747 PD= 1.185e+08 |J'|= 1.186e+08
+    t     U= 1071 |NP|= 1.729e+05 T1= 9.162e+06 rho=0.01887 theta= 0.569 PD= 4.149e+08 |J'|= 4.151e+08
+q=7 k=5 N=3 lam=2 d=5 r=4 even
+    a     U= 2800 |NP|= 3.099e+05 T1= 1.433e+07 rho=0.02163 theta= 0.483 PD= 2.727e+07 |J'|= 2.758e+07
+    b     U= 2800 |NP|= 5.878e+04 T1= 1.498e+07 rho=0.00392 theta= 0.698 PD= 3.319e+07 |J'|= 3.313e+07
+    mu    U= 2800 |NP|= 1.448e+07 T1=  2.17e+07 rho=0.66756 theta= 0.051 PD= 6.081e+08 |J'|= 6.226e+08
+    lnu   U= 2800 |NP|=  1.79e+05 T1= 1.374e+07 rho=0.01303 theta= 0.547 PD= 1.566e+07 |J'|= 1.548e+07
+    thin  U= 2800 |NP|= 2.904e+06 T1= 1.893e+07 rho=0.15340 theta= 0.236 PD= 9.517e+07 |J'|= 9.807e+07
+    rm    U= 2800 |NP|= 1.439e+06 T1= 1.572e+07 rho=0.09152 theta= 0.301 PD= 6.931e+06 |J'|=  8.37e+06
+    rma   U= 2800 |NP|= 3.423e+06 T1= 1.775e+07 rho=0.19289 theta= 0.207 PD= 6.349e+07 |J'|= 6.691e+07
+    n1    U= 2800 |NP|= 1.227e+06 T1= 1.576e+07 rho=0.07786 theta= 0.322 PD= 7.945e+07 |J'|= 8.067e+07
+    n2    U= 2800 |NP|= 6.212e+04 T1= 1.527e+07 rho=0.00407 theta= 0.693 PD= 3.291e+07 |J'|= 3.298e+07
+    dh    U= 2800 |NP|= 3.686e+05 T1= 2.151e+07 rho=0.01714 theta= 0.512 PD= 5.915e+06 |J'|= 5.546e+06
+    t     U= 2800 |NP|= 9.471e+06 T1= 1.923e+07 rho=0.49243 theta= 0.089 PD= 3.912e+07 |J'|= 2.965e+07
+q=7 k=5 N=4 lam=1 d=5 r=4 even
+    a     U= 2800 |NP|= 5.001e+05 T1= 4.114e+06 rho=0.12154 theta= 0.266 PD= 1.724e+07 |J'|= 1.674e+07
+    b     U= 2800 |NP|= 5.015e+05 T1= 9.084e+06 rho=0.05520 theta= 0.365 PD= 3.163e+07 |J'|= 3.113e+07
+    mu    U= 2800 |NP|= 1.793e+07 T1= 2.987e+07 rho=0.60004 theta= 0.064 PD= 1.128e+09 |J'|=  1.11e+09
+    lnu   U= 2800 |NP|= 3.637e+04 T1= 5.641e+06 rho=0.00645 theta= 0.635 PD= 3.163e+07 |J'|= 3.166e+07
+    thin  U= 2800 |NP|= 2.967e+06 T1= 1.444e+07 rho=0.20550 theta= 0.199 PD=  4.53e+07 |J'|= 4.827e+07
+    rm    U= 2800 |NP|=  4.63e+05 T1= 1.046e+07 rho=0.04425 theta= 0.393 PD= 1.824e+07 |J'|= 1.778e+07
+    rma   U= 2800 |NP|= 1.326e+06 T1= 1.296e+07 rho=0.10237 theta= 0.287 PD= 3.746e+07 |J'|= 3.879e+07
+    n1    U= 2800 |NP|= 1.265e+06 T1= 1.115e+07 rho=0.11342 theta= 0.274 PD= 2.399e+06 |J'|= 3.664e+06
+    n2    U= 2800 |NP|= 2.642e+05 T1=  9.74e+06 rho=0.02712 theta= 0.454 PD= 3.131e+06 |J'|= 3.395e+06
+    dh    U= 2800 |NP|=      1400 T1= 1.008e+07 rho=0.00014 theta= 1.119 PD= 1.439e+07 |J'|= 1.439e+07
+    t     U= 2800 |NP|= 5.313e+06 T1= 1.476e+07 rho=0.35989 theta= 0.129 PD= 2.155e+07 |J'|= 1.624e+07
+q=13 k=4 N=1 lam=3 d=4 r=3 even
+    a     U= 2379 |NP|= 5.678e+05 T1= 3.243e+07 rho=0.01751 theta= 0.520 PD= 1.247e+09 |J'|= 1.248e+09
+    mu    U=  845 |NP|= 1.476e+06 T1= 1.181e+07 rho=0.12500 theta= 0.309 PD= 3.242e+09 |J'|= 3.244e+09
+    lnu   U= 2379 |NP|= 5.678e+05 T1= 3.243e+07 rho=0.01751 theta= 0.520 PD= 1.247e+09 |J'|= 1.248e+09
+    thin  U= 2379 |NP|=  7.95e+05 T1= 3.087e+07 rho=0.02576 theta= 0.471 PD= 1.746e+09 |J'|= 1.747e+09
+    rm    U= 2379 |NP|= 1.136e+05 T1= 3.189e+07 rho=0.00356 theta= 0.725 PD= 2.494e+08 |J'|= 2.495e+08
+    rma   U= 2379 |NP|= 3.407e+05 T1= 3.223e+07 rho=0.01057 theta= 0.585 PD= 7.482e+08 |J'|= 7.485e+08
+    n1    U= 2379 |NP|=  7.95e+05 T1= 3.078e+07 rho=0.02583 theta= 0.470 PD= 1.746e+09 |J'|= 1.747e+09
+    n2    U= 2379 |NP|=  7.95e+05 T1= 3.085e+07 rho=0.02577 theta= 0.471 PD= 1.746e+09 |J'|= 1.747e+09
+q=13 k=4 N=2 lam=2 d=4 r=3 even
+    a     U= 2379 |NP|= 1.872e+06 T1= 2.958e+07 rho=0.06329 theta= 0.355 PD= 3.167e+08 |J'|= 3.186e+08
+    mu    U= 2379 |NP|= 2.433e+07 T1= 4.176e+07 rho=0.58274 theta= 0.069 PD= 4.117e+09 |J'|= 4.141e+09
+    lnu   U= 2379 |NP|= 2.176e+06 T1= 2.928e+07 rho=0.07432 theta= 0.334 PD= 2.233e+07 |J'|= 2.451e+07
+    thin  U= 2379 |NP|= 8.989e+06 T1= 3.303e+07 rho=0.27216 theta= 0.167 PD= 1.233e+09 |J'|= 1.242e+09
+    rm    U= 2379 |NP|= 1.197e+06 T1= 2.482e+07 rho=0.04823 theta= 0.390 PD= 2.602e+08 |J'|= 2.614e+08
+    rma   U= 2379 |NP|= 1.299e+06 T1= 2.731e+07 rho=0.04756 theta= 0.392 PD= 1.621e+08 |J'|= 1.634e+08
+    n1    U= 2379 |NP|= 1.821e+06 T1= 2.811e+07 rho=0.06478 theta= 0.352 PD= 3.658e+08 |J'|= 3.676e+08
+    n2    U= 2379 |NP|=  6.24e+05 T1=   2.8e+07 rho=0.02228 theta= 0.489 PD= 1.056e+08 |J'|= 1.062e+08
+q=13 k=4 N=3 lam=1 d=4 r=3 even
+    a     U= 2379 |NP|= 1.084e+06 T1= 1.618e+07 rho=0.06701 theta= 0.348 PD= 2.508e+07 |J'|= 2.399e+07
+    mu    U= 2379 |NP|= 3.828e+07 T1= 5.351e+07 rho=0.71549 theta= 0.043 PD=  7.84e+09 |J'|= 7.802e+09
+    lnu   U= 2379 |NP|= 1.318e+06 T1= 1.741e+07 rho=0.07572 theta= 0.332 PD= 2.515e+08 |J'|= 2.502e+08
+    thin  U= 2379 |NP|= 2.556e+06 T1= 2.538e+07 rho=0.10068 theta= 0.295 PD= 6.928e+08 |J'|= 6.903e+08
+    rm    U= 2379 |NP|= 8.073e+05 T1= 4.219e+06 rho=0.19136 theta= 0.213 PD=  5.78e+07 |J'|= 5.861e+07
+    rma   U= 2379 |NP|= 1.753e+06 T1= 9.986e+06 rho=0.17552 theta= 0.224 PD= 1.855e+08 |J'|= 1.837e+08
+    n1    U= 2379 |NP|= 1.322e+06 T1=  1.52e+07 rho=0.08696 theta= 0.314 PD= 6.517e+07 |J'|= 6.649e+07
+    n2    U= 2379 |NP|= 1.684e+06 T1= 1.436e+07 rho=0.11727 theta= 0.276 PD= 3.055e+06 |J'|= 1.371e+06
+q=13 k=4 N=4 lam=0 d=4 r=3 even
+    a     U= 2379 |NP|= 2.393e+05 T1= 1.865e+06 rho=0.12829 theta= 0.264 PD= 6.262e+07 |J'|= 6.238e+07
+    mu    U= 2366 |NP|= 3.796e+06 T1= 4.947e+06 rho=0.76741 theta= 0.034 PD= 9.085e+09 |J'|= 9.089e+09
+    lnu   U= 2379 |NP|= 2.638e+05 T1= 3.472e+06 rho=0.07598 theta= 0.332 PD= 5.407e+07 |J'|= 5.381e+07
+    thin  U= 2379 |NP|= 1.674e+06 T1= 7.119e+06 rho=0.23519 theta= 0.186 PD= 2.216e+08 |J'|= 2.233e+08
+    rm    U= 2379 |NP|= 3.292e+05 T1= 1.346e+06 rho=0.24459 theta= 0.181 PD= 1.892e+07 |J'|= 1.925e+07
+    rma   U= 2379 |NP|= 8.609e+04 T1= 1.386e+06 rho=0.06209 theta= 0.357 PD= 1.974e+07 |J'|= 1.982e+07
+    n1    U= 2379 |NP|=  8.78e+04 T1= 4.798e+06 rho=0.01830 theta= 0.515 PD= 1.488e+07 |J'|= 1.479e+07
+    n2    U= 2379 |NP|=      9516 T1=  4.23e+06 rho=0.00225 theta= 0.784 PD= 8.192e+07 |J'|= 8.191e+07
+q=7 k=5 N=2 lam=3 d=5 r=4 even
+    a     U= 2187 |NP|= 1.976e+05 T1= 1.598e+07 rho=0.01236 theta= 0.571 PD= 6.757e+07 |J'|= 6.777e+07
+    b     U= 2201 |NP|= 6.586e+04 T1=  1.57e+07 rho=0.00419 theta= 0.711 PD= 2.252e+07 |J'|= 2.259e+07
+    mu    U= 2205 |NP|= 1.383e+06 T1= 1.115e+07 rho=0.12399 theta= 0.271 PD=  4.73e+08 |J'|= 4.744e+08
+    lnu   U= 2800 |NP|= 1.642e+06 T1= 1.683e+07 rho=0.09757 theta= 0.293 PD= 9.653e+06 |J'|= 1.129e+07
+    thin  U= 2775 |NP|= 4.226e+06 T1= 1.702e+07 rho=0.24835 theta= 0.176 PD= 1.577e+08 |J'|= 1.619e+08
+    rm    U= 2800 |NP|= 1.292e+06 T1= 1.643e+07 rho=0.07862 theta= 0.320 PD=   7.4e+07 |J'|=  7.53e+07
+    rma   U= 2800 |NP|= 3.131e+06 T1= 1.678e+07 rho=0.18657 theta= 0.212 PD= 1.512e+08 |J'|= 1.544e+08
+    n1    U= 2800 |NP|= 2.736e+06 T1= 1.721e+07 rho=0.15901 theta= 0.232 PD= 1.609e+07 |J'|= 1.882e+07
+    n2    U= 2800 |NP|= 2.255e+06 T1=  1.76e+07 rho=0.12809 theta= 0.259 PD= 3.539e+07 |J'|= 3.765e+07
+    dh    U= 2190 |NP|= 1.317e+05 T1= 2.144e+07 rho=0.00614 theta= 0.662 PD= 4.505e+07 |J'|= 4.518e+07
+    t     U= 2541 |NP|= 1.149e+07 T1= 1.578e+07 rho=0.72847 theta= 0.040 PD= 6.757e+07 |J'|= 7.906e+07
+q=7 k=4 N=0 lam=4 d=4 r=3 even
+    a     U=  399 |NP|=      4116 T1= 3.993e+05 rho=0.01031 theta= 0.764 PD= 9.878e+06 |J'|= 9.883e+06
+    b     U=  399 |NP|=      4116 T1= 3.993e+05 rho=0.01031 theta= 0.764 PD= 9.878e+06 |J'|= 9.883e+06
+    mu    U=  399 |NP|=      4116 T1= 3.993e+05 rho=0.01031 theta= 0.764 PD= 9.878e+06 |J'|= 9.883e+06
+    lnu   U=  399 |NP|=      4116 T1= 3.993e+05 rho=0.01031 theta= 0.764 PD= 9.878e+06 |J'|= 9.883e+06
+    thin  U=  399 |NP|=      4116 T1= 3.993e+05 rho=0.01031 theta= 0.764 PD= 9.878e+06 |J'|= 9.883e+06
+    rm    U=  399 |NP|=      4116 T1= 3.993e+05 rho=0.01031 theta= 0.764 PD= 9.878e+06 |J'|= 9.883e+06
+    rma   U=  399 |NP|=      4116 T1= 3.993e+05 rho=0.01031 theta= 0.764 PD= 9.878e+06 |J'|= 9.883e+06
+    n1    U=  399 |NP|=      4116 T1= 3.993e+05 rho=0.01031 theta= 0.764 PD= 9.878e+06 |J'|= 9.883e+06
+    n2    U=  399 |NP|=      4116 T1= 3.993e+05 rho=0.01031 theta= 0.764 PD= 9.878e+06 |J'|= 9.883e+06
+    dh    U=  399 |NP|=      8232 T1= 7.985e+05 rho=0.01031 theta= 0.764 PD= 1.976e+07 |J'|= 1.977e+07
+    t     U=  399 |NP|=      4116 T1= 3.993e+05 rho=0.01031 theta= 0.764 PD= 9.878e+06 |J'|= 9.883e+06
+q=7 k=4 N=1 lam=3 d=4 r=3 even
+    a     U=  399 |NP|=      4704 T1= 3.919e+05 rho=0.01200 theta= 0.738 PD= 1.609e+06 |J'|= 1.613e+06
+    b     U=  399 |NP|= 1.411e+04 T1= 3.914e+05 rho=0.03606 theta= 0.555 PD= 4.826e+06 |J'|=  4.84e+06
+    mu    U=  147 |NP|= 3.293e+04 T1= 1.646e+05 rho=0.20000 theta= 0.323 PD= 1.126e+07 |J'|= 1.129e+07
+    lnu   U=  399 |NP|=      4704 T1= 3.919e+05 rho=0.01200 theta= 0.738 PD= 1.609e+06 |J'|= 1.613e+06
+    thin  U=  399 |NP|= 1.411e+04 T1= 3.914e+05 rho=0.03606 theta= 0.555 PD= 4.826e+06 |J'|=  4.84e+06
+    rm    U=  399 |NP|= 1.411e+04 T1= 3.914e+05 rho=0.03606 theta= 0.555 PD= 4.826e+06 |J'|=  4.84e+06
+    rma   U=  399 |NP|= 1.411e+04 T1= 3.914e+05 rho=0.03606 theta= 0.555 PD= 4.826e+06 |J'|=  4.84e+06
+    n1    U=  399 |NP|= 1.411e+04 T1= 3.914e+05 rho=0.03606 theta= 0.555 PD= 4.826e+06 |J'|=  4.84e+06
+    n2    U=  399 |NP|= 1.411e+04 T1= 3.914e+05 rho=0.03606 theta= 0.555 PD= 4.826e+06 |J'|=  4.84e+06
+    dh    U=  399 |NP|=      9408 T1= 5.067e+05 rho=0.01857 theta= 0.666 PD= 3.218e+06 |J'|= 3.227e+06
+    t     U=  147 |NP|= 3.293e+04 T1= 1.646e+05 rho=0.20000 theta= 0.323 PD= 1.126e+07 |J'|= 1.129e+07
+q=7 k=4 N=2 lam=2 d=4 r=3 even
+    a     U=  399 |NP|= 3.501e+04 T1= 2.858e+05 rho=0.12249 theta= 0.351 PD=  1.73e+06 |J'|= 1.765e+06
+    b     U=  399 |NP|= 1.167e+04 T1= 3.154e+05 rho=0.03700 theta= 0.550 PD= 5.766e+05 |J'|= 5.882e+05
+    mu    U=  399 |NP|=  2.45e+05 T1= 4.534e+05 rho=0.54042 theta= 0.103 PD= 1.211e+07 |J'|= 1.235e+07
+    lnu   U=  399 |NP|= 4.647e+04 T1= 2.867e+05 rho=0.16212 theta= 0.304 PD= 2.056e+05 |J'|= 2.521e+05
+    thin  U=  399 |NP|= 1.785e+05 T1= 3.876e+05 rho=0.46039 theta= 0.130 PD= 3.939e+06 |J'|= 4.118e+06
+    rm    U=  399 |NP|= 6.599e+04 T1= 3.382e+05 rho=0.19511 theta= 0.273 PD= 1.867e+06 |J'|= 1.933e+06
+    rma   U=  399 |NP|= 1.475e+05 T1= 3.751e+05 rho=0.39318 theta= 0.156 PD= 3.802e+06 |J'|=  3.95e+06
+    n1    U=  399 |NP|= 7.746e+04 T1= 3.463e+05 rho=0.22368 theta= 0.250 PD= 3.427e+05 |J'|= 4.202e+05
+    n2    U=  399 |NP|= 7.363e+04 T1= 3.025e+05 rho=0.24345 theta= 0.236 PD= 8.508e+05 |J'|= 9.244e+05
+    dh    U=  399 |NP|= 2.334e+04 T1= 4.199e+05 rho=0.05558 theta= 0.483 PD= 1.153e+06 |J'|= 1.176e+06
+    t     U=  399 |NP|= 3.253e+05 T1= 4.302e+05 rho=0.75613 theta= 0.047 PD= 1.439e+06 |J'|= 1.765e+06
+q=7 k=4 N=3 lam=1 d=4 r=3 even
+    a     U=  399 |NP|= 2.201e+04 T1= 7.967e+04 rho=0.27623 theta= 0.215 PD=  1.03e+06 |J'|= 1.008e+06
+    b     U=  399 |NP|= 3.192e+04 T1= 1.875e+05 rho=0.17021 theta= 0.296 PD= 1.271e+06 |J'|= 1.239e+06
+    mu    U=  399 |NP|=  3.09e+05 T1= 6.122e+05 rho=0.50473 theta= 0.114 PD=  2.32e+07 |J'|= 2.289e+07
+    lnu   U=  399 |NP|= 1.873e+04 T1= 1.156e+05 rho=0.16202 theta= 0.304 PD=  5.95e+05 |J'|= 5.762e+05
+    thin  U=  399 |NP|=  5.72e+04 T1= 3.132e+05 rho=0.18266 theta= 0.284 PD= 3.515e+06 |J'|= 3.457e+06
+    rm    U=  399 |NP|= 2.743e+04 T1= 2.145e+05 rho=0.12788 theta= 0.343 PD= 3.039e+05 |J'|= 3.313e+05
+    rma   U=  399 |NP|= 2.024e+04 T1= 2.628e+05 rho=0.07703 theta= 0.428 PD= 2.515e+06 |J'|= 2.535e+06
+    n1    U=  399 |NP|= 7.413e+04 T1=  1.71e+05 rho=0.43343 theta= 0.140 PD= 2.912e+06 |J'|= 2.838e+06
+    n2    U=  399 |NP|= 5.666e+04 T1= 1.798e+05 rho=0.31513 theta= 0.193 PD= 1.108e+06 |J'|= 1.052e+06
+    dh    U=  399 |NP|=      9912 T1= 2.022e+05 rho=0.04902 theta= 0.504 PD= 2.404e+05 |J'|= 2.305e+05
+    t     U=  399 |NP|= 1.485e+05 T1= 6.449e+05 rho=0.23021 theta= 0.245 PD= 1.863e+06 |J'|= 1.714e+06
+q=7 k=5 N=0 lam=5 d=6 r=3 even
+    a     U=  399 |NP|= 2.352e+04 T1= 2.281e+06 rho=0.01031 theta= 0.764 PD= 3.953e+08 |J'|= 3.953e+08
+    b     U=  399 |NP|= 2.352e+04 T1= 2.281e+06 rho=0.01031 theta= 0.764 PD= 3.953e+08 |J'|= 3.953e+08
+    mu    U=  399 |NP|= 2.352e+04 T1= 2.281e+06 rho=0.01031 theta= 0.764 PD= 3.953e+08 |J'|= 3.953e+08
+    lnu   U=  399 |NP|= 2.352e+04 T1= 2.281e+06 rho=0.01031 theta= 0.764 PD= 3.953e+08 |J'|= 3.953e+08
+    thin  U=  399 |NP|= 2.352e+04 T1= 2.281e+06 rho=0.01031 theta= 0.764 PD= 3.953e+08 |J'|= 3.953e+08
+    rm    U=  399 |NP|= 2.352e+04 T1= 2.281e+06 rho=0.01031 theta= 0.764 PD= 3.953e+08 |J'|= 3.953e+08
+    rma   U=  399 |NP|= 2.352e+04 T1= 2.281e+06 rho=0.01031 theta= 0.764 PD= 3.953e+08 |J'|= 3.953e+08
+    n1    U=  399 |NP|= 2.352e+04 T1= 2.281e+06 rho=0.01031 theta= 0.764 PD= 3.953e+08 |J'|= 3.953e+08
+    n2    U=  399 |NP|= 2.352e+04 T1= 2.281e+06 rho=0.01031 theta= 0.764 PD= 3.953e+08 |J'|= 3.953e+08
+    dh    U=  399 |NP|= 4.704e+04 T1= 4.563e+06 rho=0.01031 theta= 0.764 PD= 7.906e+08 |J'|= 7.906e+08
+    t     U=  399 |NP|= 2.352e+04 T1= 2.281e+06 rho=0.01031 theta= 0.764 PD= 3.953e+08 |J'|= 3.953e+08
+
+T9. parity classes among records with T1 > 0 (all d): odd = 6 does not divide k - N' (no principal weight for r <= 5: Princ = Diag = 0, J' = NP); even = principal row present
+q= 7 odd  records  2556  NP = 0:  1607  NP != 0:   949  of these with Princ + Diag != 0:     0  median |NP|/(|Princ|+|Diag|) there: nan
+q= 7 even records   641  NP = 0:     5  NP != 0:   636  of these with Princ + Diag != 0:   635  median |NP|/(|Princ|+|Diag|) there: 0.0278
+q=13 odd  records   787  NP = 0:   430  NP != 0:   357  of these with Princ + Diag != 0:     0  median |NP|/(|Princ|+|Diag|) there: nan
+q=13 even records   132  NP = 0:     0  NP != 0:   132  of these with Princ + Diag != 0:   132  median |NP|/(|Princ|+|Diag|) there: 0.0064
+
+T10. even blocks with U >= 20, NP != 0, any d: per weight, median of |NP|/T1, |Princ+Diag|/T1, |J'|/T1
+q= 7 a     n= 46  rho 0.1184  PD/T1     2.192  J'/T1     2.120  theta 0.319
+q= 7 b     n= 46  rho 0.0602  PD/T1     1.748  J'/T1     1.926  theta 0.467
+q= 7 mu    n= 41  rho 0.5699  PD/T1    26.702  J'/T1    27.243  theta 0.076
+q= 7 lnu   n= 46  rho 0.0918  PD/T1     0.780  J'/T1     0.845  theta 0.406
+q= 7 thin  n= 46  rho 0.1392  PD/T1     2.994  J'/T1     3.092  theta 0.299
+q= 7 rm    n= 46  rho 0.0851  PD/T1     1.604  J'/T1     1.751  theta 0.385
+q= 7 rma   n= 46  rho 0.1392  PD/T1     2.906  J'/T1     3.015  theta 0.325
+q= 7 n1    n= 46  rho 0.1105  PD/T1     1.265  J'/T1     1.508  theta 0.347
+q= 7 n2    n= 46  rho 0.0772  PD/T1     1.604  J'/T1     1.895  theta 0.413
+q= 7 dh    n= 46  rho 0.0813  PD/T1     1.036  J'/T1     1.096  theta 0.386
+q= 7 t     n= 42  rho 0.4529  PD/T1     1.587  J'/T1     1.050  theta 0.107
+q=13 a     n= 12  rho 0.1730  PD/T1     7.167  J'/T1     7.515  theta 0.279
+q=13 mu    n= 11  rho 0.8552  PD/T1    98.589  J'/T1    99.172  theta 0.020
+q=13 lnu   n= 12  rho 0.0787  PD/T1     4.266  J'/T1     4.778  theta 0.332
+q=13 thin  n= 12  rho 0.3212  PD/T1    29.212  J'/T1    29.279  theta 0.170
+q=13 rm    n= 12  rho 0.1561  PD/T1     9.152  J'/T1     9.276  theta 0.271
+q=13 rma   n= 12  rho 0.1200  PD/T1    10.085  J'/T1    10.140  theta 0.332
+q=13 n1    n= 12  rho 0.2659  PD/T1     4.558  J'/T1     5.170  theta 0.211
+q=13 n2    n= 12  rho 0.1124  PD/T1     4.307  J'/T1     4.467  theta 0.402

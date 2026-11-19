@@ -1,0 +1,5 @@
+non-empty lines 58, json-bad 0, lanes parsed by scoreboard.load_lanes 58, unparsed 0
+part A headline: {'bestScore': 1, 'slug': 'c1-leeyang-krein-limit', 'missing': ['R2', 'R3', 'R4'], 'file': 'tmp/research-2026-11-16/push/c1-leeyang-krein-limit/RESULT.md'}
+part D: {'lanesRun': 58, 'lanesRefereed': 58, 'refereeHoldRate': 0.862, 'provedClaimsBroken': 7, 'threeRefereeStatements': 0, 'threeRefereeStatementsAboutZeros': 0}
+part C: {'graphSource': 'IDEA_GRAPH.json', 'nodes': 1612, 'nodesMarkedClosed': 498, 'tags': 235, 'families': 27495, 'familiesClosed': 1289, 'familiesTriedNotClosed': 500, 'familiesOpenUntried': 25706, 'outcomeRecords': 68, 'outcomeFilesUnparsed': 0, 'openLemmasDecided': 16}
+history rounds: 6 (nothing written; scoreboard.json and SCOREBOARD.md untouched)

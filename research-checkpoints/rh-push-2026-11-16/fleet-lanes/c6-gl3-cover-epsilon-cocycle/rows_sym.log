@@ -1,0 +1,40 @@
+eps=+1 l1=0 e=0 kappa=(0, 0): truncation OK; numerator = (U*Xu**2*Yu**4 - U*Xu**2*Yu**2*r**2 + U*Xu**2*Yu**2 - U*Yu**2*r**2 - Xu**2*Yu**2 + r**4)/r**4
+eps=+1 l1=0 e=0 kappa=(0, 1): truncation OK; numerator = -T*Yu*(U - 1)*(-Xu + r)*(Xu + r)/r**3
+eps=+1 l1=0 e=0 kappa=(1, 0): truncation OK; numerator = T*Xu*(-Yu + r)*(Yu + r)*(-U*Xu**2*Yu**2 + r**2)/r**5
+eps=+1 l1=0 e=1 kappa=(0, 0): truncation OK; numerator = (-Yu + r)*(Yu + r)*(-U*Xu**2*Yu**2 + r**2)/r**4
+eps=+1 l1=0 e=1 kappa=(1, 0): truncation OK; numerator = -T*Xu*(-U*Xu**2*Yu**4 + U*Yu**2*r**4 + Xu**2*Yu**2*r**2 - Yu**2*r**4 + Yu**2*r**2 - r**4)/r**5
+eps=+1 l1=0 e=1 kappa=(1, 1): truncation OK; numerator = -Xu*Yu**3*(U - 1)*(-Xu + r)*(Xu + r)/r**4
+eps=+1 l1=1 e=0 kappa=(0, 0): truncation OK; numerator = (-Xu + r)*(Xu + r)*(U**2*Xu**2*Yu**4*r**2 - U*Xu**2*Yu**4*r**2 + U*Xu**2*Yu**4 - U*Xu**2*Yu**2*r**2 - U*Yu**2*r**2 + r**4)/r**6
+eps=+1 l1=1 e=0 kappa=(0, 1): truncation OK; numerator = T*Yu*(U - 1)*(-U*Xu**4*Yu**4 + U*Xu**2*Yu**2*r**4 + Xu**2*Yu**2*r**2 - Xu**2*r**4 + Xu**2*r**2 - r**4)/r**5
+eps=+1 l1=1 e=0 kappa=(1, 1): truncation OK; numerator = Xu**3*Yu*(U - 1)*(-Yu + r)*(Yu + r)*(U*Yu**2 - 1)/r**4
+eps=+1 l1=1 e=1 kappa=(0, 0): truncation OK; numerator = (-Xu + r)*(Xu + r)*(-Yu + r)*(Yu + r)*(-Xu*Yu + r)*(Xu*Yu + r)/r**6
+eps=+1 l1=2 e=0 kappa=(0, 0): truncation OK; numerator = -(U**2*Xu**4*Yu**6*r**2 - U**2*Xu**4*Yu**4*r**4 + U**2*Xu**4*Yu**4*r**2 - U**2*Xu**2*Yu**4*r**4 - U*Xu**4*Yu**6*r**2 + U*Xu**4*Yu**4*r**4 - 3*U*Xu**4*Yu**4*r**2 + U*Xu**4*Yu**4 + U*Xu**4*Yu**2*r**4 - U*Xu**4*Yu**2*r**2 + U*Xu**2*Yu**4*r**4 - U*Xu**2*Yu**4*r**2 + U*Xu**2*Yu**2*r**6 + U*Xu**2*Yu**2*r**4 - U*Xu**2*Yu**2*r**2 + U*Yu**2*r**4 + Xu**4*Yu**4*r**2 - Xu**2*Yu**2*r**6 + Xu**2*Yu**2*r**4 - Xu**2*r**6 + Xu**2*r**4 - r**6)/r**6
+eps=+1 l1=2 e=0 kappa=(0, 1): truncation OK; numerator = T*Yu*(U - 1)*(-Xu + r)*(Xu + r)*(U*Xu**2*Yu**2*r**2 - Xu**2*Yu**2*r**2 + Xu**2*Yu**2 - Xu**2*r**2 - r**2)/r**5
+eps=+1 l1=2 e=0 kappa=(1, 0): truncation OK; numerator = -T*Xu**3*(-Yu + r)*(Yu + r)*(-U*Xu**2*Yu**2 + r**2)*(U*Yu**2 - Yu**2 - 1)/r**5
+eps=+1 l1=2 e=1 kappa=(0, 0): truncation OK; numerator = -(-Yu + r)*(Yu + r)*(U*Xu**2*Yu**2*r**4 + Xu**4*Yu**2*r**2 - Xu**4*Yu**2 - Xu**2*Yu**2*r**4 + Xu**2*Yu**2*r**2 - Xu**2*r**4 + Xu**2*r**2 - r**4)/r**6
+eps=+1 l1=2 e=1 kappa=(1, 0): truncation OK; numerator = -T*Xu**3*(-U*Xu**2*Yu**4*r**2 + U*Yu**4*r**4 - U*Yu**4*r**2 + U*Yu**2*r**4 + Xu**2*Yu**4*r**2 - Xu**2*Yu**4 + Xu**2*Yu**2*r**2 - Yu**4*r**4 + Yu**4*r**2 - Yu**2*r**4 + Yu**2*r**2 - r**4)/r**5
+eps=+1 l1=2 e=1 kappa=(1, 1): truncation OK; numerator = -Xu**3*Yu**5*(U - 1)*(-Xu + r)*(Xu + r)/r**4
+eps=+1 l1=3 e=0 kappa=(0, 0): truncation OK; numerator = -(-Xu + r)*(Xu + r)*(-U**2*Xu**4*Yu**6*r**2 + U**2*Xu**4*Yu**6 - U**2*Xu**4*Yu**4*r**2 - U**2*Xu**2*Yu**4*r**2 + U*Xu**4*Yu**6*r**2 - U*Xu**4*Yu**6 + U*Xu**4*Yu**4*r**2 - U*Xu**4*Yu**4 + U*Xu**4*Yu**2*r**2 + U*Xu**2*Yu**4*r**2 - U*Xu**2*Yu**4 + U*Xu**2*Yu**2*r**4 + U*Xu**2*Yu**2*r**2 + U*Yu**2*r**2 - Xu**2*Yu**2*r**4 + Xu**2*Yu**2*r**2 - Xu**2*r**4 - r**4)/r**6
+eps=+1 l1=3 e=0 kappa=(0, 1): truncation OK; numerator = T*Yu*(U - 1)*(-U*Xu**6*Yu**6 + U*Xu**4*Yu**4*r**4 - U*Xu**4*Yu**4*r**2 + U*Xu**4*Yu**2*r**4 - U*Xu**4*Yu**2*r**2 + U*Xu**2*Yu**2*r**4 + Xu**4*Yu**4*r**2 - Xu**4*Yu**2*r**4 + 2*Xu**4*Yu**2*r**2 - Xu**4*Yu**2 - Xu**4*r**4 + Xu**4*r**2 - Xu**2*Yu**2*r**4 + Xu**2*Yu**2*r**2 - Xu**2*r**4 + Xu**2*r**2 - r**4)/r**5
+eps=+1 l1=3 e=0 kappa=(1, 1): truncation OK; numerator = Xu**5*Yu*(U - 1)*(-Yu + r)*(Yu + r)*(Yu**2 + 1)*(U*Yu**2 - 1)/r**4
+eps=+1 l1=3 e=1 kappa=(0, 0): truncation OK; numerator = -(-Xu + r)*(Xu + r)*(-Yu + r)*(Yu + r)*(-Xu*Yu + r)*(Xu*Yu + r)*(U*Xu**2*Yu**2 - Xu**2*Yu**2 - Xu**2 - 1)/r**6
+eps=-1 l1=0 e=0 kappa=(0, 0): truncation OK; numerator = (2*U**2*Xu**2*Yu**4 - U*Xu**2*Yu**4 - U*Xu**2*Yu**2*r**2 - U*Xu**2*Yu**2 - U*Yu**2*r**2 + Xu**2*Yu**2 + r**4)/r**4
+eps=-1 l1=0 e=0 kappa=(0, 1): truncation OK; numerator = -T*Yu*(U - 1)*(-Xu + r)*(Xu + r)/r**3
+eps=-1 l1=0 e=0 kappa=(1, 0): truncation OK; numerator = T*Xu*(-Yu + r)*(Yu + r)*(-U*Xu**2*Yu**2 + r**2)/r**5
+eps=-1 l1=0 e=1 kappa=(0, 0): truncation OK; numerator = (-Yu + r)*(Yu + r)*(-U*Xu**2*Yu**2 + r**2)/r**4
+eps=-1 l1=0 e=1 kappa=(1, 0): truncation OK; numerator = -T*Xu*(-U*Xu**2*Yu**4 + U*Yu**2*r**4 + Xu**2*Yu**2*r**2 - Yu**2*r**4 + Yu**2*r**2 - r**4)/r**5
+eps=-1 l1=0 e=1 kappa=(1, 1): truncation OK; numerator = Xu*Yu**3*(U - 1)*(-Xu + r)*(Xu + r)/r**4
+eps=-1 l1=1 e=0 kappa=(0, 0): truncation OK; numerator = (-U**2*Xu**4*Yu**4*r**2 - U**2*Xu**2*Yu**4*r**4 + 2*U**2*Xu**2*Yu**4*r**2 + U*Xu**4*Yu**4*r**2 - U*Xu**4*Yu**4 + U*Xu**4*Yu**2*r**2 + U*Xu**2*Yu**4*r**4 - U*Xu**2*Yu**4*r**2 + U*Xu**2*Yu**2*r**4 - U*Xu**2*Yu**2*r**2 - U*Yu**2*r**4 - 2*Xu**2*Yu**2*r**4 + 2*Xu**2*Yu**2*r**2 - Xu**2*r**4 + r**6)/r**6
+eps=-1 l1=1 e=0 kappa=(0, 1): truncation OK; numerator = T*Yu*(U - 1)*(-U*Xu**4*Yu**4 + U*Xu**2*Yu**2*r**4 + Xu**2*Yu**2*r**2 - Xu**2*r**4 + Xu**2*r**2 - r**4)/r**5
+eps=-1 l1=1 e=0 kappa=(1, 1): truncation OK; numerator = -Xu**3*Yu*(U - 1)*(-Yu + r)*(Yu + r)*(U*Yu**2 - 1)/r**4
+eps=-1 l1=1 e=1 kappa=(0, 0): truncation OK; numerator = (-Xu + r)*(Xu + r)*(-Yu + r)*(Yu + r)*(-Xu*Yu + r)*(Xu*Yu + r)/r**6
+eps=-1 l1=2 e=0 kappa=(0, 0): truncation OK; numerator = -(-U**2*Xu**4*Yu**6*r**2 - U**2*Xu**4*Yu**4*r**4 + U**2*Xu**4*Yu**4*r**2 + U**2*Xu**2*Yu**4*r**4 - 2*U**2*Xu**2*Yu**4*r**2 + U*Xu**4*Yu**6*r**2 + U*Xu**4*Yu**4*r**4 - U*Xu**4*Yu**4*r**2 + U*Xu**4*Yu**4 + U*Xu**4*Yu**2*r**4 - U*Xu**4*Yu**2*r**2 - U*Xu**2*Yu**4*r**4 + U*Xu**2*Yu**4*r**2 + U*Xu**2*Yu**2*r**6 - U*Xu**2*Yu**2*r**4 + U*Xu**2*Yu**2*r**2 + U*Yu**2*r**4 - Xu**4*Yu**4*r**2 - Xu**2*Yu**2*r**6 + 3*Xu**2*Yu**2*r**4 - 2*Xu**2*Yu**2*r**2 - Xu**2*r**6 + Xu**2*r**4 - r**6)/r**6
+eps=-1 l1=2 e=0 kappa=(0, 1): truncation OK; numerator = T*Yu*(U - 1)*(-Xu + r)*(Xu + r)*(U*Xu**2*Yu**2*r**2 - Xu**2*Yu**2*r**2 + Xu**2*Yu**2 - Xu**2*r**2 - r**2)/r**5
+eps=-1 l1=2 e=0 kappa=(1, 0): truncation OK; numerator = -T*Xu**3*(-Yu + r)*(Yu + r)*(-U*Xu**2*Yu**2 + r**2)*(U*Yu**2 - Yu**2 - 1)/r**5
+eps=-1 l1=2 e=1 kappa=(0, 0): truncation OK; numerator = -(-Yu + r)*(Yu + r)*(U*Xu**2*Yu**2*r**4 + Xu**4*Yu**2*r**2 - Xu**4*Yu**2 - Xu**2*Yu**2*r**4 + Xu**2*Yu**2*r**2 - Xu**2*r**4 + Xu**2*r**2 - r**4)/r**6
+eps=-1 l1=2 e=1 kappa=(1, 0): truncation OK; numerator = -T*Xu**3*(-U*Xu**2*Yu**4*r**2 + U*Yu**4*r**4 - U*Yu**4*r**2 + U*Yu**2*r**4 + Xu**2*Yu**4*r**2 - Xu**2*Yu**4 + Xu**2*Yu**2*r**2 - Yu**4*r**4 + Yu**4*r**2 - Yu**2*r**4 + Yu**2*r**2 - r**4)/r**5
+eps=-1 l1=2 e=1 kappa=(1, 1): truncation OK; numerator = Xu**3*Yu**5*(U - 1)*(-Xu + r)*(Xu + r)/r**4
+eps=-1 l1=3 e=0 kappa=(0, 0): truncation OK; numerator = -(U**2*Xu**6*Yu**6*r**2 - U**2*Xu**6*Yu**6 + U**2*Xu**6*Yu**4*r**2 + U**2*Xu**4*Yu**6*r**4 - U**2*Xu**4*Yu**6*r**2 - U**2*Xu**4*Yu**4*r**4 + U**2*Xu**4*Yu**4*r**2 + U**2*Xu**2*Yu**4*r**4 - 2*U**2*Xu**2*Yu**4*r**2 - U*Xu**6*Yu**6*r**2 + U*Xu**6*Yu**6 - U*Xu**6*Yu**4*r**2 + U*Xu**6*Yu**4 - U*Xu**6*Yu**2*r**2 - U*Xu**4*Yu**6*r**4 + U*Xu**4*Yu**6*r**2 - U*Xu**4*Yu**4*r**4 + U*Xu**4*Yu**4 - U*Xu**4*Yu**2*r**2 - U*Xu**2*Yu**4*r**4 + U*Xu**2*Yu**4*r**2 + U*Xu**2*Yu**2*r**6 - U*Xu**2*Yu**2*r**4 + U*Xu**2*Yu**2*r**2 + U*Yu**2*r**4 + 2*Xu**4*Yu**4*r**4 - 2*Xu**4*Yu**4*r**2 + Xu**4*Yu**2*r**4 - Xu**4*Yu**2*r**2 + Xu**4*r**4 - Xu**2*Yu**2*r**6 + 3*Xu**2*Yu**2*r**4 - 2*Xu**2*Yu**2*r**2 - Xu**2*r**6 + Xu**2*r**4 - r**6)/r**6
+eps=-1 l1=3 e=0 kappa=(0, 1): truncation OK; numerator = T*Yu*(U - 1)*(-U*Xu**6*Yu**6 + U*Xu**4*Yu**4*r**4 - U*Xu**4*Yu**4*r**2 + U*Xu**4*Yu**2*r**4 - U*Xu**4*Yu**2*r**2 + U*Xu**2*Yu**2*r**4 + Xu**4*Yu**4*r**2 - Xu**4*Yu**2*r**4 + 2*Xu**4*Yu**2*r**2 - Xu**4*Yu**2 - Xu**4*r**4 + Xu**4*r**2 - Xu**2*Yu**2*r**4 + Xu**2*Yu**2*r**2 - Xu**2*r**4 + Xu**2*r**2 - r**4)/r**5
+eps=-1 l1=3 e=0 kappa=(1, 1): truncation OK; numerator = -Xu**5*Yu*(U - 1)*(-Yu + r)*(Yu + r)*(Yu**2 + 1)*(U*Yu**2 - 1)/r**4
+eps=-1 l1=3 e=1 kappa=(0, 0): truncation OK; numerator = -(-Xu + r)*(Xu + r)*(-Yu + r)*(Yu + r)*(-Xu*Yu + r)*(Xu*Yu + r)*(U*Xu**2*Yu**2 - Xu**2*Yu**2 - Xu**2 - 1)/r**6

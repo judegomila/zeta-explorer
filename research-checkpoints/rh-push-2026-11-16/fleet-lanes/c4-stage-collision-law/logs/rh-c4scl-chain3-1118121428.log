@@ -102,10 +102,10 @@ Traceback (most recent call last):
   File "/usr/lib/python3.12/multiprocessing/pool.py", line 48, in mapstar
     return list(map(*args))
            ^^^^^^^^^^^^^^^^
-  File "~/rh-push/c4-stage-collision-law/stage.py", line 145, in w_dmin
+  File "/home/USER/rh-push/c4-stage-collision-law/stage.py", line 145, in w_dmin
     s = apt(0.0, tau); thp = -(arb_dlogchi(s).real) / 2; d = arb_stage(s, [c], want='D')[0]
                                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "~/rh-push/c4-stage-collision-law/stage.py", line 116, in arb_stage
+  File "/home/USER/rh-push/c4-stage-collision-law/stage.py", line 116, in arb_stage
     z = (-s * G['alogp'][i]).exp(); L1 += (1 - z).log()
               ~~~~~~~~~~^^^
 IndexError: list index out of range
@@ -114,9 +114,9 @@ IndexError: list index out of range
 The above exception was the direct cause of the following exception:
 
 Traceback (most recent call last):
-  File "~/rh-push/c4-stage-collision-law/stage.py", line 403, in <module>
+  File "/home/USER/rh-push/c4-stage-collision-law/stage.py", line 403, in <module>
     main(sys.argv[1], len(sys.argv) > 2 and sys.argv[2] == 'heavy')
-  File "~/rh-push/c4-stage-collision-law/stage.py", line 278, in main
+  File "/home/USER/rh-push/c4-stage-collision-law/stage.py", line 278, in main
     lm = lm[:400]; rr = pool.map(w_dmin, [(cnts[col], tau64[lm[i:i + 20]]) for i in range(0, len(lm), 20)], chunksize=1)
                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/usr/lib/python3.12/multiprocessing/pool.py", line 367, in map
@@ -143,10 +143,10 @@ Traceback (most recent call last):
   File "/usr/lib/python3.12/multiprocessing/pool.py", line 48, in mapstar
     return list(map(*args))
            ^^^^^^^^^^^^^^^^
-  File "~/rh-push/c4-stage-collision-law/stage.py", line 145, in w_dmin
+  File "/home/USER/rh-push/c4-stage-collision-law/stage.py", line 145, in w_dmin
     s = apt(0.0, tau); thp = -(arb_dlogchi(s).real) / 2; d = arb_stage(s, [c], want='D')[0]
                                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "~/rh-push/c4-stage-collision-law/stage.py", line 116, in arb_stage
+  File "/home/USER/rh-push/c4-stage-collision-law/stage.py", line 116, in arb_stage
     z = (-s * G['alogp'][i]).exp(); L1 += (1 - z).log()
               ~~~~~~~~~~^^^
 IndexError: list index out of range
@@ -155,9 +155,9 @@ IndexError: list index out of range
 The above exception was the direct cause of the following exception:
 
 Traceback (most recent call last):
-  File "~/rh-push/c4-stage-collision-law/stage.py", line 403, in <module>
+  File "/home/USER/rh-push/c4-stage-collision-law/stage.py", line 403, in <module>
     main(sys.argv[1], len(sys.argv) > 2 and sys.argv[2] == 'heavy')
-  File "~/rh-push/c4-stage-collision-law/stage.py", line 278, in main
+  File "/home/USER/rh-push/c4-stage-collision-law/stage.py", line 278, in main
     lm = lm[:400]; rr = pool.map(w_dmin, [(cnts[col], tau64[lm[i:i + 20]]) for i in range(0, len(lm), 20)], chunksize=1)
                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/usr/lib/python3.12/multiprocessing/pool.py", line 367, in map
@@ -184,10 +184,10 @@ Traceback (most recent call last):
   File "/usr/lib/python3.12/multiprocessing/pool.py", line 48, in mapstar
     return list(map(*args))
            ^^^^^^^^^^^^^^^^
-  File "~/rh-push/c4-stage-collision-law/stage.py", line 145, in w_dmin
+  File "/home/USER/rh-push/c4-stage-collision-law/stage.py", line 145, in w_dmin
     s = apt(0.0, tau); thp = -(arb_dlogchi(s).real) / 2; d = arb_stage(s, [c], want='D')[0]
                                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "~/rh-push/c4-stage-collision-law/stage.py", line 116, in arb_stage
+  File "/home/USER/rh-push/c4-stage-collision-law/stage.py", line 116, in arb_stage
     z = (-s * G['alogp'][i]).exp(); L1 += (1 - z).log()
               ~~~~~~~~~~^^^
 IndexError: list index out of range
@@ -196,9 +196,9 @@ IndexError: list index out of range
 The above exception was the direct cause of the following exception:
 
 Traceback (most recent call last):
-  File "~/rh-push/c4-stage-collision-law/stage.py", line 403, in <module>
+  File "/home/USER/rh-push/c4-stage-collision-law/stage.py", line 403, in <module>
     main(sys.argv[1], len(sys.argv) > 2 and sys.argv[2] == 'heavy')
-  File "~/rh-push/c4-stage-collision-law/stage.py", line 278, in main
+  File "/home/USER/rh-push/c4-stage-collision-law/stage.py", line 278, in main
     lm = lm[:400]; rr = pool.map(w_dmin, [(cnts[col], tau64[lm[i:i + 20]]) for i in range(0, len(lm), 20)], chunksize=1)
                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/usr/lib/python3.12/multiprocessing/pool.py", line 367, in map

@@ -1,0 +1,23 @@
+c8: low-side alternatives from Lemma 1 (MODEL; same format as c7 cap_lp.py; r = 6). D = family GRH (circular), E = zero-free 7/8 pointwise, S = frozen-powerful sieve
+regression 13/15: G src, k = JKP, src geometry             B=0.8666667 (lx,ly,l)=(0.4000,0.4000,0.2000) h=0.8000  exact 13/15: CONFIRMED
+G=src   geo=src  k=D H0 comp                               B=0.8333333 (lx,ly,l)=(1.0000,1.0000,1.0000) h=1.0000
+G=src   geo=src  k=E H0 comp                               B=0.8333333 (lx,ly,l)=(7.0000,7.0000,7.0000) h=1.0000
+G=src   geo=src  k=S H0 comp                               B=1.0000000 (lx,ly,l)=(8.0000,8.0000,7.0000) h=0.0000
+G=src   geo=free k=D H0 comp                               B=0.2500000 (lx,ly,l)=(4.5000,4.5000,8.0000) h=4.5000  [= search bound: no floor]
+G=src   geo=free k=E H0 comp                               B=0.8125000 (lx,ly,l)=(7.8750,7.8750,8.0000) h=1.1250
+G=src   geo=free k=S H0 comp                               B=1.0000000 (lx,ly,l)=(8.0000,8.0000,7.0000) h=0.0000
+G=polar geo=src  k=D H0 comp                               B=0.8333333 (lx,ly,l)=(1.0000,1.0000,1.0000) h=1.0000
+G=polar geo=src  k=E H0 comp                               B=0.8333333 (lx,ly,l)=(7.0000,7.0000,7.0000) h=1.0000
+G=polar geo=src  k=S H0 comp                               B=1.0000000 (lx,ly,l)=(8.0000,8.0000,7.0000) h=0.0000
+G=polar geo=free k=D H0 comp                               B=0.2500000 (lx,ly,l)=(4.5000,4.5000,8.0000) h=4.5000  [= search bound: no floor]
+G=polar geo=free k=E H0 comp                               B=0.8125000 (lx,ly,l)=(7.8750,7.8750,8.0000) h=1.1250
+G=polar geo=free k=S H0 comp                               B=1.0000000 (lx,ly,l)=(8.0000,8.0000,7.0000) h=0.0000
+G=zero  geo=src  k=D H0 comp                               B=0.8333333 (lx,ly,l)=(1.0000,1.0000,1.0000) h=1.0000
+G=zero  geo=src  k=E H0 comp                               B=0.8333333 (lx,ly,l)=(7.0000,7.0000,7.0000) h=1.0000
+G=zero  geo=src  k=S H0 comp                               B=0.8333333 (lx,ly,l)=(6.0000,8.0000,6.0000) h=1.0000
+G=zero  geo=free k=D H0 comp                               B=0.2500000 (lx,ly,l)=(0.0000,4.5000,3.5000) h=4.5000  [= search bound: no floor]
+G=zero  geo=free k=E H0 comp                               B=0.2500000 (lx,ly,l)=(0.0000,7.8750,3.5000) h=4.5000  [= search bound: no floor]
+G=zero  geo=free k=S H0 comp                               B=0.3333333 (lx,ly,l)=(0.0000,8.0000,3.0000) h=4.0000
+G=src free k=D no compensation                             B=0.4444444 (lx,ly,l)=(5.6667,5.6667,8.0000) h=3.3333
+G=src free k=D box 16                                      B=0.2500000 (lx,ly,l)=(4.5000,4.5000,8.0000) h=4.5000  [= search bound: no floor]
+G=polar free k=D box 16                                    B=0.2500000 (lx,ly,l)=(4.5000,4.5000,8.0000) h=4.5000  [= search bound: no floor]

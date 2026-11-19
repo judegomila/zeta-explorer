@@ -1,0 +1,22 @@
+{
+ "proposal_for": "engine/curated/devices.json (devices list); written by lane c8-hecke-entropy-resonance-rigidity, not applied",
+ "device": {
+  "id": "hecke-correspondence-recurrence",
+  "state": "closed",
+  "state_note": "proposed; one lane, no referee yet. Under STRATEGY section 3 this is 'tried, not closed' until a referee holds",
+  "name": "Joint Hecke recurrence (finite correspondences at all primes) with entropy and measure rigidity, applied to Eisenstein resonance states on the modular surface",
+  "reads": "one Gamma-invariant function: invariance, the joint eigen-relation over the p+1 Hecke points for all p, the Laplace equation, growth and truncated mass",
+  "class_control": "EIS-w: E(z, w') off resonance, any Re w' in (1/2, 1), passes every step. U, THIN and sign twists fail at Gamma-invariance (Lemma G1); the DH-type combination on Gamma_1(5) fails at the eigen-relation (Lemma G2)",
+  "evidence": "lane c8-hecke-entropy-resonance-rigidity: truncated mass at a resonance is Y^(2 sigma-1)/(2 sigma-1) exactly (Maass-Selberg); recurrence bound 2 m (2 sigma/(2 sigma-1)) ht^(2 sigma-1) log P / P, exponent of P equal to -1 for every sigma; limit measures m_sigma = int nu_y y^(2 sigma-2) dy are N-invariant, A-conformal of exponent 2 sigma-1 and Hecke eigen-measures for every sigma > 1/2, so the rigidity theorem's hypotheses (A-invariant probability measure) fail at every sigma != 1/2; horocycle-period form is Zagier's criterion; Hecke action on closed horocycles is a function of the dilation (row G26)",
+  "returns": "its input (the conformal exponent 2 sigma - 1 = Re w datum)",
+  "not_covered": "limit statement for |E(z, sigma+it)|^2 is argued and measured, not proved; five controls not run; a device that reads phi(w) = 0 by a route other than truncated mass or horocycle periods",
+  "nodes": []
+ },
+ "auxiliary_control": {
+  "id": "EIS-w",
+  "definition": "Eisenstein series E(z, w') of PSL_2(Z) at a point with phi(w') != 0, Re w' in (1/2, 1)",
+  "keeps": "group, functional equation, Euler product, Hecke algebra, joint eigenfunction of moderate growth",
+  "lacks": "phi(w') = 0 (the constant term has both powers)",
+  "kills": "any argument on the modular surface whose inputs are invariance, joint Hecke eigen-relation, growth exponent and truncated mass"
+ }
+}

@@ -1,0 +1,122 @@
+== 0. regression (theta = 0 must reproduce cap_lp.log)
+13/15: G src, k = JKP, src geometry                                B=0.8666667 (lx,ly,l)=(0.4000,0.4000,0.2000) h=0.8000  exact 13/15: CONFIRMED
+free, G=0, k=K, H0                                                 B=0.8333333 (lx,ly,l)=(0.0000,1.0000,-0.0000) h=1.0000  exact 5/6: CONFIRMED
+free, G=0, k=K, H0 removed                                         B=0.6666667 (lx,ly,l)=(0.0000,0.0000,1.0000) h=2.0000  exact 2/3: CONFIRMED
+== G = zero; free geometry, box 8; r = 6
+k = K only; theta = 0                                              B=0.8333333 (lx,ly,l)=(0.0000,1.0000,-0.0000) h=1.0000
+k = K only; theta = 1/12                                           B=0.8181818 (lx,ly,l)=(0.0000,0.9091,0.0909) h=1.0909
+k = K only; theta = 1/6                                            B=0.8000000 (lx,ly,l)=(0.0000,0.8000,0.2000) h=1.2000
+k = K only; theta = 1/4                                            B=0.7777778 (lx,ly,l)=(0.0000,0.6667,0.3333) h=1.3333
+k = K only; theta = 1/3                                            B=0.7500000 (lx,ly,l)=(0.0000,0.5000,0.5000) h=1.5000
+k = K only; theta = 1/2                                            B=0.6666667 (lx,ly,l)=(0.0000,0.0000,1.0000) h=2.0000
+k = K only; theta = 5/6                                            B=0.6666667 (lx,ly,l)=(0.0000,0.0000,1.0000) h=2.0000
+k = K only; H removed                                              B=0.6666667 (lx,ly,l)=(0.0000,0.0000,1.0000) h=2.0000
+k = J,K,P (source ledger); theta = 0                               B=0.8333333 (lx,ly,l)=(0.0000,1.0000,-0.0000) h=1.0000
+k = J,K,P (source ledger); theta = 1/12                            B=0.8181818 (lx,ly,l)=(0.0000,0.9091,0.0909) h=1.0909
+k = J,K,P (source ledger); theta = 1/6                             B=0.8000000 (lx,ly,l)=(0.0000,0.8000,0.2000) h=1.2000
+k = J,K,P (source ledger); theta = 1/4                             B=0.8000000 (lx,ly,l)=(0.0000,0.8000,0.2000) h=1.2000
+k = J,K,P (source ledger); theta = 1/3                             B=0.8000000 (lx,ly,l)=(0.0000,0.8000,0.2000) h=1.2000
+k = J,K,P (source ledger); theta = 1/2                             B=0.8000000 (lx,ly,l)=(0.0000,0.8000,0.2000) h=1.2000
+k = J,K,P (source ledger); theta = 5/6                             B=0.8000000 (lx,ly,l)=(0.0000,0.8000,0.2000) h=1.2000
+k = J,K,P (source ledger); H removed                               B=0.8000000 (lx,ly,l)=(0.0000,0.8000,0.2000) h=1.2000
+(E-K): K deleted, J,P kept; theta = 0                              B=0.7777778 (lx,ly,l)=(0.0000,8.0000,0.3333) h=1.3333
+(E-K): K deleted, J,P kept; theta = 1/12                           B=0.7777778 (lx,ly,l)=(0.0000,8.0000,0.3333) h=1.3333
+(E-K): K deleted, J,P kept; theta = 1/6                            B=0.7777778 (lx,ly,l)=(0.0000,1.0000,0.3333) h=1.3333
+(E-K): K deleted, J,P kept; theta = 1/4                            B=0.7777778 (lx,ly,l)=(0.0000,1.0000,0.3333) h=1.3333
+(E-K): K deleted, J,P kept; theta = 1/3                            B=0.7777778 (lx,ly,l)=(0.0000,1.0000,0.3333) h=1.3333
+(E-K): K deleted, J,P kept; theta = 1/2                            B=0.7777778 (lx,ly,l)=(0.0000,1.0000,0.3333) h=1.3333
+(E-K): K deleted, J,P kept; theta = 5/6                            B=0.7777778 (lx,ly,l)=(0.0000,1.0000,0.3333) h=1.3333
+(E-K): K deleted, J,P kept; H removed                              B=0.7777778 (lx,ly,l)=(0.0000,1.0000,0.3333) h=1.3333
+k = 0 (all range losses deleted); theta = 0                        B=0.2500000 (lx,ly,l)=(0.0000,8.0000,3.5000) h=4.5000  [= search bound: no floor]
+k = 0 (all range losses deleted); theta = 1/12                     B=0.2500000 (lx,ly,l)=(0.0000,8.0000,3.5000) h=4.5000  [= search bound: no floor]
+k = 0 (all range losses deleted); theta = 1/6                      B=0.2500000 (lx,ly,l)=(0.0000,8.0000,3.5000) h=4.5000  [= search bound: no floor]
+k = 0 (all range losses deleted); theta = 1/4                      B=0.2500000 (lx,ly,l)=(0.0000,8.0000,3.5000) h=4.5000  [= search bound: no floor]
+k = 0 (all range losses deleted); theta = 1/3                      B=0.2500000 (lx,ly,l)=(0.0000,8.0000,3.5000) h=4.5000  [= search bound: no floor]
+k = 0 (all range losses deleted); theta = 1/2                      B=0.2500000 (lx,ly,l)=(0.0000,-0.0000,3.5000) h=4.5000  [= search bound: no floor]
+k = 0 (all range losses deleted); theta = 5/6                      B=0.2500000 (lx,ly,l)=(0.0000,-0.0000,3.5000) h=4.5000  [= search bound: no floor]
+k = 0 (all range losses deleted); H removed                        B=0.2500000 (lx,ly,l)=(0.0000,-0.0000,3.5000) h=4.5000  [= search bound: no floor]
+== G = polar; free geometry, box 8; r = 6
+k = K only; theta = 0                                              B=0.8666667 (lx,ly,l)=(0.4000,0.4000,0.2000) h=0.8000
+k = K only; theta = 1/12                                           B=0.8518519 (lx,ly,l)=(0.3704,0.3704,0.2593) h=0.8889
+k = K only; theta = 1/6                                            B=0.8333333 (lx,ly,l)=(0.3333,0.3333,0.3333) h=1.0000
+k = K only; theta = 1/4                                            B=0.8095238 (lx,ly,l)=(0.2857,0.2857,0.4286) h=1.1429
+k = K only; theta = 1/3                                            B=0.7777778 (lx,ly,l)=(0.2222,0.2222,0.5556) h=1.3333
+k = K only; theta = 1/2                                            B=0.6666667 (lx,ly,l)=(0.0000,0.0000,1.0000) h=2.0000
+k = K only; theta = 5/6                                            B=0.6666667 (lx,ly,l)=(0.0000,0.0000,1.0000) h=2.0000
+k = K only; H removed                                              B=0.6666667 (lx,ly,l)=(0.0000,0.0000,1.0000) h=2.0000
+k = J,K,P (source ledger); theta = 0                               B=0.8666667 (lx,ly,l)=(0.4000,0.4000,0.2000) h=0.8000
+k = J,K,P (source ledger); theta = 1/12                            B=0.8666667 (lx,ly,l)=(0.4000,0.4000,0.2000) h=0.8000
+k = J,K,P (source ledger); theta = 1/6                             B=0.8666667 (lx,ly,l)=(0.4000,0.4000,0.2000) h=0.8000
+k = J,K,P (source ledger); theta = 1/4                             B=0.8666667 (lx,ly,l)=(0.4000,0.4000,0.2000) h=0.8000
+k = J,K,P (source ledger); theta = 1/3                             B=0.8666667 (lx,ly,l)=(0.4000,0.4000,0.2000) h=0.8000
+k = J,K,P (source ledger); theta = 1/2                             B=0.8666667 (lx,ly,l)=(0.4000,0.4000,0.2000) h=0.8000
+k = J,K,P (source ledger); theta = 5/6                             B=0.8666667 (lx,ly,l)=(0.4000,0.4000,0.2000) h=0.8000
+k = J,K,P (source ledger); H removed                               B=0.8666667 (lx,ly,l)=(0.4000,0.4000,0.2000) h=0.8000
+(E-K): K deleted, J,P kept; theta = 0                              B=0.8611111 (lx,ly,l)=(0.5000,0.5000,0.3333) h=0.8333
+(E-K): K deleted, J,P kept; theta = 1/12                           B=0.8611111 (lx,ly,l)=(0.5000,0.5000,0.3333) h=0.8333
+(E-K): K deleted, J,P kept; theta = 1/6                            B=0.8611111 (lx,ly,l)=(0.5000,0.5000,0.3333) h=0.8333
+(E-K): K deleted, J,P kept; theta = 1/4                            B=0.8611111 (lx,ly,l)=(0.5000,0.5000,0.3333) h=0.8333
+(E-K): K deleted, J,P kept; theta = 1/3                            B=0.8611111 (lx,ly,l)=(0.5000,0.5000,0.3333) h=0.8333
+(E-K): K deleted, J,P kept; theta = 1/2                            B=0.8611111 (lx,ly,l)=(0.5000,0.5000,0.3333) h=0.8333
+(E-K): K deleted, J,P kept; theta = 5/6                            B=0.8611111 (lx,ly,l)=(0.5000,0.5000,0.3333) h=0.8333
+(E-K): K deleted, J,P kept; H removed                              B=0.8611111 (lx,ly,l)=(0.5000,0.5000,0.3333) h=0.8333
+k = 0 (all range losses deleted); theta = 0                        B=0.2500000 (lx,ly,l)=(4.5000,4.5000,8.0000) h=4.5000  [= search bound: no floor]
+k = 0 (all range losses deleted); theta = 1/12                     B=0.2500000 (lx,ly,l)=(4.5000,4.5000,8.0000) h=4.5000  [= search bound: no floor]
+k = 0 (all range losses deleted); theta = 1/6                      B=0.2500000 (lx,ly,l)=(4.5000,4.5000,8.0000) h=4.5000  [= search bound: no floor]
+k = 0 (all range losses deleted); theta = 1/4                      B=0.2500000 (lx,ly,l)=(4.5000,4.5000,8.0000) h=4.5000  [= search bound: no floor]
+k = 0 (all range losses deleted); theta = 1/3                      B=0.2500000 (lx,ly,l)=(4.5000,4.5000,8.0000) h=4.5000  [= search bound: no floor]
+k = 0 (all range losses deleted); theta = 1/2                      B=0.2500000 (lx,ly,l)=(0.0000,0.0000,3.5000) h=4.5000  [= search bound: no floor]
+k = 0 (all range losses deleted); theta = 5/6                      B=0.2500000 (lx,ly,l)=(0.0000,0.0000,3.5000) h=4.5000  [= search bound: no floor]
+k = 0 (all range losses deleted); H removed                        B=0.2500000 (lx,ly,l)=(0.0000,0.0000,3.5000) h=4.5000  [= search bound: no floor]
+== G = src; free geometry, box 8; r = 6
+k = K only; theta = 0                                              B=0.8666667 (lx,ly,l)=(0.4000,0.4000,0.2000) h=0.8000
+k = K only; theta = 1/12                                           B=0.8518519 (lx,ly,l)=(0.3704,0.3704,0.2593) h=0.8889
+k = K only; theta = 1/6                                            B=0.8333333 (lx,ly,l)=(0.3333,0.3333,0.3333) h=1.0000
+k = K only; theta = 1/4                                            B=0.8095238 (lx,ly,l)=(0.2857,0.2857,0.4286) h=1.1429
+k = K only; theta = 1/3                                            B=0.7777778 (lx,ly,l)=(0.2222,0.2222,0.5556) h=1.3333
+k = K only; theta = 1/2                                            B=0.6666667 (lx,ly,l)=(0.0000,0.0000,1.0000) h=2.0000
+k = K only; theta = 5/6                                            B=0.6666667 (lx,ly,l)=(0.0000,0.0000,1.0000) h=2.0000
+k = K only; H removed                                              B=0.6666667 (lx,ly,l)=(0.0000,0.0000,1.0000) h=2.0000
+k = J,K,P (source ledger); theta = 0                               B=0.8666667 (lx,ly,l)=(0.4000,0.4000,0.2000) h=0.8000
+k = J,K,P (source ledger); theta = 1/12                            B=0.8666667 (lx,ly,l)=(0.4000,0.4000,0.2000) h=0.8000
+k = J,K,P (source ledger); theta = 1/6                             B=0.8666667 (lx,ly,l)=(0.4000,0.4000,0.2000) h=0.8000
+k = J,K,P (source ledger); theta = 1/4                             B=0.8666667 (lx,ly,l)=(0.4000,0.4000,0.2000) h=0.8000
+k = J,K,P (source ledger); theta = 1/3                             B=0.8666667 (lx,ly,l)=(0.4000,0.4000,0.2000) h=0.8000
+k = J,K,P (source ledger); theta = 1/2                             B=0.8666667 (lx,ly,l)=(0.4000,0.4000,0.2000) h=0.8000
+k = J,K,P (source ledger); theta = 5/6                             B=0.8666667 (lx,ly,l)=(0.4000,0.4000,0.2000) h=0.8000
+k = J,K,P (source ledger); H removed                               B=0.8666667 (lx,ly,l)=(0.4000,0.4000,0.2000) h=0.8000
+(E-K): K deleted, J,P kept; theta = 0                              B=0.8611111 (lx,ly,l)=(0.5000,0.5000,0.3333) h=0.8333
+(E-K): K deleted, J,P kept; theta = 1/12                           B=0.8611111 (lx,ly,l)=(0.5000,0.5000,0.3333) h=0.8333
+(E-K): K deleted, J,P kept; theta = 1/6                            B=0.8611111 (lx,ly,l)=(0.5000,0.5000,0.3333) h=0.8333
+(E-K): K deleted, J,P kept; theta = 1/4                            B=0.8611111 (lx,ly,l)=(0.5000,0.5000,0.3333) h=0.8333
+(E-K): K deleted, J,P kept; theta = 1/3                            B=0.8611111 (lx,ly,l)=(0.5000,0.5000,0.3333) h=0.8333
+(E-K): K deleted, J,P kept; theta = 1/2                            B=0.8611111 (lx,ly,l)=(0.5000,0.5000,0.3333) h=0.8333
+(E-K): K deleted, J,P kept; theta = 5/6                            B=0.8611111 (lx,ly,l)=(0.5000,0.5000,0.3333) h=0.8333
+(E-K): K deleted, J,P kept; H removed                              B=0.8611111 (lx,ly,l)=(0.5000,0.5000,0.3333) h=0.8333
+k = 0 (all range losses deleted); theta = 0                        B=0.2500000 (lx,ly,l)=(4.5000,4.5000,8.0000) h=4.5000  [= search bound: no floor]
+k = 0 (all range losses deleted); theta = 1/12                     B=0.2500000 (lx,ly,l)=(4.5000,4.5000,8.0000) h=4.5000  [= search bound: no floor]
+k = 0 (all range losses deleted); theta = 1/6                      B=0.2500000 (lx,ly,l)=(4.5000,4.5000,8.0000) h=4.5000  [= search bound: no floor]
+k = 0 (all range losses deleted); theta = 1/4                      B=0.2500000 (lx,ly,l)=(4.5000,4.5000,8.0000) h=4.5000  [= search bound: no floor]
+k = 0 (all range losses deleted); theta = 1/3                      B=0.2500000 (lx,ly,l)=(4.5000,4.5000,8.0000) h=4.5000  [= search bound: no floor]
+k = 0 (all range losses deleted); theta = 1/2                      B=0.2500000 (lx,ly,l)=(0.0000,0.0000,3.5000) h=4.5000  [= search bound: no floor]
+k = 0 (all range losses deleted); theta = 5/6                      B=0.2500000 (lx,ly,l)=(0.0000,0.0000,3.5000) h=4.5000  [= search bound: no floor]
+k = 0 (all range losses deleted); H removed                        B=0.2500000 (lx,ly,l)=(0.0000,0.0000,3.5000) h=4.5000  [= search bound: no floor]
+== source geometry lx, ly >= l (the only region with a sourced compensated probe)
+G=polar; k = J,K,P; theta = 0                                      B=0.8666667 (lx,ly,l)=(0.4000,0.4000,0.2000) h=0.8000
+G=polar; k = J,K,P; theta = 1/2                                    B=0.8666667 (lx,ly,l)=(0.4000,0.4000,0.2000) h=0.8000
+G=polar; k = J,K,P; H removed                                      B=0.8666667 (lx,ly,l)=(0.4000,0.4000,0.2000) h=0.8000
+G=polar; (E-K); theta = 0                                          B=0.8611111 (lx,ly,l)=(0.5000,0.5000,0.3333) h=0.8333
+G=polar; (E-K); theta = 1/2                                        B=0.8611111 (lx,ly,l)=(0.5000,0.5000,0.3333) h=0.8333
+G=polar; (E-K); H removed                                          B=0.8611111 (lx,ly,l)=(0.5000,0.5000,0.3333) h=0.8333
+G=polar; k = 0; theta = 0                                          B=0.8333333 (lx,ly,l)=(8.0000,8.0000,8.0000) h=1.0000
+G=polar; k = 0; theta = 1/2                                        B=0.8333333 (lx,ly,l)=(8.0000,8.0000,8.0000) h=1.0000
+G=polar; k = 0; H removed                                          B=0.8333333 (lx,ly,l)=(8.0000,8.0000,8.0000) h=1.0000
+G=src; k = J,K,P; theta = 0                                        B=0.8666667 (lx,ly,l)=(0.4000,0.4000,0.2000) h=0.8000
+G=src; k = J,K,P; theta = 1/2                                      B=0.8666667 (lx,ly,l)=(0.4000,0.4000,0.2000) h=0.8000
+G=src; k = J,K,P; H removed                                        B=0.8666667 (lx,ly,l)=(0.4000,0.4000,0.2000) h=0.8000
+G=src; (E-K); theta = 0                                            B=0.8611111 (lx,ly,l)=(0.5000,0.5000,0.3333) h=0.8333
+G=src; (E-K); theta = 1/2                                          B=0.8611111 (lx,ly,l)=(0.5000,0.5000,0.3333) h=0.8333
+G=src; (E-K); H removed                                            B=0.8611111 (lx,ly,l)=(0.5000,0.5000,0.3333) h=0.8333
+G=src; k = 0; theta = 0                                            B=0.8333333 (lx,ly,l)=(8.0000,8.0000,8.0000) h=1.0000
+G=src; k = 0; theta = 1/2                                          B=0.8333333 (lx,ly,l)=(8.0000,8.0000,8.0000) h=1.0000
+G=src; k = 0; H removed                                            B=0.8333333 (lx,ly,l)=(8.0000,8.0000,8.0000) h=1.0000

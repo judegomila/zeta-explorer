@@ -1,0 +1,56 @@
+Z = 1024, taper [5.5, 6.0], Xmax = 413111, nodes 116600; planned arrays < 0.01 GB
+(4.7) checks: |g2^3 - mu alpha| 6.52e-09; |g1 g2 - mu alpha G| 3.43e-09; |Gamma - g3| 3.24e-09
+n-terms 22 (list entries 851), s-values 9 (table entries 429), rows q_m in [14208, 29280]
+c_S = 0.0158322; c_S f_w: one -0.00572+0.00000i, liou +0.04063+0.00000i, t95a -0.00395+0.00000i, t95b -0.00491+0.00000i, t95c -0.00578+0.00000i, g95 -0.00597+0.00000i, t99 -0.00150+0.00000i, t97 -0.00375+0.00000i, t90 -0.00440+0.00000i, d50a +0.00117+0.00000i, d50b -0.00084+0.00000i, nm50 +0.01983+0.00000i, iid +0.00183+0.00000i, d75 +0.01811+0.00000i
+wrote data/in_U6_1024.bin
+Z=1024 npr=34843 nodes=116600 NW=14 nterm=22 ns=9 rows in [14208, 29280]; planned shared memory 0.007 GB
+row primes 3179, cached 38 (0.001 GB)
+threads 16; per-thread memory 0.002 GB
+rows 27354 (active 27330) written data/out_U6_1024.txt
+probe U6 1024: 1 s wall
+DONE U6 1024 19:32:42
+Z = 2048, taper [5.5, 6.0], Xmax = 826222, nodes 233222; planned arrays < 0.02 GB
+(4.7) checks: |g2^3 - mu alpha| 6.91e-09; |g1 g2 - mu alpha G| 3.50e-09; |Gamma - g3| 3.24e-09
+n-terms 28 (list entries 1698), s-values 11 (table entries 707), rows q_m in [26609, 53627]
+c_S = 0.0158322; c_S f_w: one -0.00463+0.00000i, liou +0.05120+0.00000i, t95a -0.00510+0.00000i, t95b -0.00549+0.00000i, t95c -0.00690+0.00000i, g95 -0.00752+0.00000i, t99 -0.00189+0.00000i, t97 -0.00431+0.00000i, t90 -0.00538+0.00000i, d50a +0.00104+0.00000i, d50b -0.00063+0.00000i, nm50 +0.02503+0.00000i, iid +0.00075+0.00000i, d75 +0.02209+0.00000i
+wrote data/in_U6_2048.bin
+Z=2048 npr=65872 nodes=233222 NW=14 nterm=28 ns=11 rows in [26609, 53627]; planned shared memory 0.013 GB
+row primes 5468, cached 50 (0.003 GB)
+threads 16; per-thread memory 0.003 GB
+rows 49032 (active 49032) written data/out_U6_2048.txt
+probe U6 2048: 1 s wall
+DONE U6 2048 19:32:45
+Z = 4096, taper [5.5, 6.0], Xmax = 1652444, nodes 466431; planned arrays < 0.04 GB
+(4.7) checks: |g2^3 - mu alpha| 7.44e-09; |g1 g2 - mu alpha G| 3.54e-09; |Gamma - g3| 3.24e-09
+n-terms 34 (list entries 3396), s-values 19 (table entries 1795), rows q_m in [51456, 121920]
+c_S = 0.0158322; c_S f_w: one -0.00369+0.00000i, liou +0.06449+0.00000i, t95a -0.00640+0.00000i, t95b -0.00637+0.00000i, t95c -0.00843-0.00000i, g95 -0.00933+0.00000i, t99 -0.00243-0.00000i, t97 -0.00510+0.00000i, t90 -0.00649+0.00000i, d50a +0.00089+0.00000i, d50b -0.00041+0.00000i, nm50 +0.03159+0.00000i, iid -0.00011-0.00000i, d75 +0.02688-0.00000i
+wrote data/in_U6_4096.bin
+Z=4096 npr=124816 nodes=466431 NW=14 nterm=34 ns=19 rows in [51456, 121920]; planned shared memory 0.025 GB
+row primes 11459, cached 69 (0.009 GB)
+threads 16; per-thread memory 0.005 GB
+rows 127872 (active 127848) written data/out_U6_4096.txt
+probe U6 4096: 7 s wall
+DONE U6 4096 19:32:54
+Z = 8192, taper [5.5, 6.0], Xmax = 3304888, nodes 932821; planned arrays < 0.08 GB
+(4.7) checks: |g2^3 - mu alpha| 7.53e-09; |g1 g2 - mu alpha G| 3.88e-09; |Gamma - g3| 3.29e-09
+n-terms 43 (list entries 6818), s-values 32 (table entries 4328), rows q_m in [98836, 245734]
+c_S = 0.0158322; c_S f_w: one -0.00291+0.00000i, liou +0.08123+0.00000i, t95a -0.00787+0.00000i, t95b -0.00757+0.00000i, t95c -0.01034-0.00000i, g95 -0.01150+0.00000i, t99 -0.00311-0.00000i, t97 -0.00617+0.00000i, t90 -0.00770+0.00000i, d50a +0.00062+0.00000i, d50b -0.00033+0.00000i, nm50 +0.03992-0.00000i, iid -0.00060-0.00000i, d75 +0.03252-0.00000i
+wrote data/in_U6_8192.bin
+Z=8192 npr=237200 nodes=932821 NW=14 nterm=43 ns=32 rows in [98836, 245734]; planned shared memory 0.050 GB
+row primes 21694, cached 91 (0.022 GB)
+threads 16; per-thread memory 0.009 GB
+rows 266484 (active 251652) written data/out_U6_8192.txt
+probe U6 8192: 24 s wall
+DONE U6 8192 19:33:21
+Z = 16384, taper [5.5, 6.0], Xmax = 6609777, nodes 1865714; planned arrays < 0.17 GB
+(4.7) checks: |g2^3 - mu alpha| 7.68e-09; |g1 g2 - mu alpha G| 3.96e-09; |Gamma - g3| 3.48e-09
+n-terms 56 (list entries 13632), s-values 39 (table entries 7419), rows q_m in [204288, 474240]
+c_S = 0.0158322; c_S f_w: one -0.00232+0.00000i, liou +0.10228-0.00000i, t95a -0.00958+0.00000i, t95b -0.00912+0.00000i, t95c -0.01266-0.00000i, g95 -0.01415+0.00000i, t99 -0.00394-0.00000i, t97 -0.00757+0.00000i, t90 -0.00910+0.00000i, d50a +0.00024+0.00000i, d50b -0.00040+0.00000i, nm50 +0.05045-0.00000i, iid -0.00076-0.00000i, d75 +0.03932-0.00000i
+wrote data/in_U6_16384.bin
+Z=16384 npr=451740 nodes=1865714 NW=14 nterm=56 ns=39 rows in [204288, 474240]; planned shared memory 0.098 GB
+row primes 39582, cached 120 (0.054 GB)
+threads 16; per-thread memory 0.016 GB
+rows 489732 (active 489624) written data/out_U6_16384.txt
+probe U6 16384: 88 s wall
+DONE U6 16384 19:34:53
+ALLDONE-U6

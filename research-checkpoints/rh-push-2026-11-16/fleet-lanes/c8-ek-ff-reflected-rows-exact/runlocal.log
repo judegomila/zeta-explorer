@@ -1,0 +1,5 @@
+# en q=7 d=2 N=1 lam=7 weights=10 marked primes=117648 planned memory 0.021 GB (prime character tables 117655 x 49 bytes, pair tables 117648 x 7 x 4, W 5764801 x 2)
+# en q=7 d=3 N=1 lam=7 weights=10 marked primes=117648 planned memory 0.056 GB (prime character tables 117655 x 343 bytes, pair tables 117648 x 7 x 4, W 5764801 x 2)
+# en q=7 d=4 N=1 lam=7 weights=10 marked primes=117648 planned memory 0.298 GB (prime character tables 117655 x 2401 bytes, pair tables 117648 x 7 x 4, W 5764801 x 2)
+# en q=7 d=2 N=1 lam=8 weights=10 marked primes=720300 planned memory 0.142 GB (prime character tables 720307 x 49 bytes, pair tables 720300 x 7 x 4, W 40353607 x 2)
+# en q=7 d=3 N=1 lam=8 weights=10 marked primes=720300 planned memory 0.354 GB (prime character tables 720307 x 343 bytes, pair tables 720300 x 7 x 4, W 40353607 x 2)

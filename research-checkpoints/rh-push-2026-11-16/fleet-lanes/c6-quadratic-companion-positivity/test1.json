@@ -1,0 +1,211 @@
+{
+ "N": 10000,
+ "kappa_minpoly": "x^4+2x^3-6x^2-2x+1",
+ "kappa": 0.28407904384041227,
+ "A1_DH_f": {
+  "negatives": 4000,
+  "zeros": 2000,
+  "first_negative_n": [
+   3,
+   4,
+   8,
+   9,
+   13,
+   14,
+   18,
+   19
+  ],
+  "first_negative_values": [
+   -0.28407904384041227,
+   -1.0,
+   -0.28407904384041227,
+   -1.0,
+   -0.28407904384041227,
+   -1.0,
+   -0.28407904384041227,
+   -1.0
+  ]
+ },
+ "A2_DH_f^2": {
+  "negatives": 4000,
+  "zeros": 2000,
+  "first_negative_n": [
+   3,
+   4,
+   8,
+   9,
+   13,
+   14,
+   18,
+   19
+  ],
+  "first_negative_values": [
+   -0.5681580876808245,
+   -1.919299096850717,
+   -1.136316175361649,
+   -1.919299096850717,
+   -0.5681580876808245,
+   -1.8385981937014342,
+   -1.7044742630424738,
+   -2.0
+  ]
+ },
+ "A3_DH_f^4 (Ingham form at gamma=0)": {
+  "negatives": 4000,
+  "zeros": 2000,
+  "first_negative_n": [
+   3,
+   4,
+   8,
+   9,
+   13,
+   14,
+   18,
+   19
+  ],
+  "first_negative_values": [
+   -1.136316175361649,
+   -3.5157945811043025,
+   -4.453562959831773,
+   -3.5157945811043025,
+   -1.136316175361649,
+   -3.0315891622086055,
+   -7.679108002687072,
+   -4.0
+  ]
+ },
+ "B1_identity_aDH^2 = (1+k^2)/2 chi0 + (1-k^2)/2 legendre5, exact for n<=N": true,
+ "B2_DH_|a|^2": {
+  "negatives": 0,
+  "zeros": 2000,
+  "first_negative_n": [],
+  "first_negative_values": []
+ },
+ "B3_DH_|a*a|^2": {
+  "negatives": 0,
+  "zeros": 2000,
+  "first_negative_n": [],
+  "first_negative_values": []
+ },
+ "B4_defect_|aDH|^2": {
+  "first": [
+   2,
+   3,
+   1.0,
+   0.006512635769109937
+  ],
+  "count_m<=100": 4449,
+  "c(1)": 1.0
+ },
+ "B5_defect_|aDH*aDH|^2": {
+  "first": [
+   2,
+   3,
+   3.3804433178821767,
+   0.104202172305759
+  ],
+  "count_m<=100": 10047,
+  "c(1)": 1.0
+ },
+ "B6_defect_aDH": {
+  "first": [
+   2,
+   3,
+   1.0,
+   -0.0807009031492829
+  ],
+  "count_m<=100": 4449,
+  "c(1)": 1.0
+ },
+ "C_zeta_Ramanujan_identity_gamma1=14.134725141734693": {
+  "max_mid_difference": 3.449570824434545e-38,
+  "max_interval_width": 1.9246883284791798e-36
+ },
+ "C_zeta_product_zeta^2 zeta(s+ig) zeta(s-ig), gamma1=14.134725141734693": {
+  "certified_negative": 0,
+  "undecided(interval contains 0)": 0,
+  "first_negative_n": [],
+  "first_negative_values": [],
+  "max_abs_imag": 3.4438311059246704e-41
+ },
+ "D_DH_product_f^2 f(s+ig) f(s-ig), gamma1=14.134725141734693": {
+  "certified_negative": 3970,
+  "undecided(interval contains 0)": 0,
+  "first_negative_n": [
+   3,
+   4,
+   8,
+   9,
+   13,
+   14,
+   18,
+   19
+  ],
+  "first_negative_values": [
+   -0.00911643320335766,
+   -3.608967504311106,
+   -0.13216705225358652,
+   -4.028887334465735,
+   -0.6398603394630739,
+   -4.1486582263185845,
+   -0.19610314311696528,
+   -0.5755467896806347
+  ],
+  "max_abs_imag": 1.0483465208230557e-40
+ },
+ "E_DH_|aDH * aDH n^-ig|^2 defect, gamma1=14.134725141734693": {
+  "first certified": [
+   2,
+   3,
+   4.605142502454408,
+   2.8691426773552608e-05
+  ],
+  "count_m<60": 9588
+ },
+ "C_zeta_Ramanujan_identity_gammaDH=85.6993484854": {
+  "max_mid_difference": 6.612385312115762e-37,
+  "max_interval_width": 6.622735172532768e-35
+ },
+ "C_zeta_product_zeta^2 zeta(s+ig) zeta(s-ig), gammaDH=85.6993484854": {
+  "certified_negative": 0,
+  "undecided(interval contains 0)": 0,
+  "first_negative_n": [],
+  "first_negative_values": [],
+  "max_abs_imag": 5.050952288689517e-40
+ },
+ "D_DH_product_f^2 f(s+ig) f(s-ig), gammaDH=85.6993484854": {
+  "certified_negative": 3995,
+  "undecided(interval contains 0)": 0,
+  "first_negative_n": [
+   3,
+   4,
+   8,
+   9,
+   13,
+   14,
+   18,
+   19
+  ],
+  "first_negative_values": [
+   -1.1336220871222784,
+   -3.8254059570993175,
+   -0.08416045896972058,
+   -3.479480840778759,
+   -1.1336455402980248,
+   -4.321440838850778,
+   -0.19097236406307705,
+   -3.065262435125789
+  ],
+  "max_abs_imag": 1.2808882164697495e-40
+ },
+ "E_DH_|aDH * aDH n^-ig|^2 defect, gammaDH=85.6993484854": {
+  "first certified": [
+   2,
+   3,
+   0.1351910010797567,
+   0.0021407348141653584
+  ],
+  "count_m<60": 9588
+ },
+ "seconds": 7.778028964996338
+}

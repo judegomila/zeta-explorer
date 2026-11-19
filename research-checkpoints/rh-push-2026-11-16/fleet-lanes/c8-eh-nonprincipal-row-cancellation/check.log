@@ -1,0 +1,4 @@
+(1) factor() and mu: polynomials 2800 failures 0
+(2) chi_c(y) = chi_0(Res(c, y)): pairs 12634 failures 0
+(3) row label invariant under sixth powers: cases 300 failures 0
+(4) weight a = chi_0^3(Res(T^3 + 2, A)): polynomials 2800 failures 0

@@ -1,0 +1,9 @@
+X 2^20  squarefree c 443980  classes 432  0s
+K_1 0.075316  rho_b 0.283932  E_S 28.9709  I_V 0.837443  C_inf (family) 5.091523e-03
+    per class (Liouville): P^sigma / (P_pred / 432): min 0.9758  max 1.0208  mean 0.9998  over 432 classes
+M = X/1: same-class pairs 227928985 (with d != 1: 12287729)  P_liou 52016.9147 (d = 1 part 51834.9730)  P_pred 52029.6103  ratio 0.9998   limit form 53812.2249  P/limit 0.9666   38s
+    nm    P_w 12992.6638  P_w/P_liou 0.24978  |mean|^2 0.24972
+    nmph  P_w 23033.8846  P_w/P_liou 0.44282  |mean|^2 0.44279
+    iid   P_w -5.1213  P_w/P_liou -0.00010  |mean|^2 0.00000
+    one   P_w -1.7602  P_w/P_liou -0.00003  |mean|^2 0.00000
+    rmult P_w -1.5737  P_w/P_liou -0.00003  |mean|^2 0.00000

@@ -1,0 +1,6 @@
+a: F = T^3+2 | coefficients of L(u,nu): [1, -1, 7, 0, 0] | a_2 = q: True | a_1^2 - 4q = -27 < 0: True => both inverse roots have modulus sqrt(q) exactly
+    M_n: [1, 1, -6, -13, 29, 120, -83, -923, -342]  |M_n| q^(-n/2): ['1.000', '0.378', '0.857', '0.702', '0.592', '0.926', '0.242', '1.017', '0.142']
+b: F = T^3+T+1 | coefficients of L(u,nu): [1, 3, 7, 0, 0] | a_2 = q: True | a_1^2 - 4q = -19 < 0: True => both inverse roots have modulus sqrt(q) exactly
+    M_n: [1, -3, 2, 15, -59, 72, 197, -1095, 1906]  |M_n| q^(-n/2): ['1.000', '1.134', '0.286', '0.810', '1.204', '0.555', '0.574', '1.207', '0.794']
+a (q=13): F = T^3+2 | coefficients of L(u,nu): [1, 5, 13, 0, 0] | a_2 = q: True | a_1^2 - 4q = -27 < 0: True => both inverse roots have modulus sqrt(q) exactly
+    M_n: [1, -5, 12, 5, -181, 840, -1847, -1685, 32436]  |M_n| q^(-n/2): ['1.000', '1.387', '0.923', '0.107', '1.071', '1.379', '0.841', '0.213', '1.136']

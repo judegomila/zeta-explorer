@@ -1,12 +1,12 @@
 # Campaign scoreboard
 
-Generated 2026-11-18T17:12Z by scoreboard.py. Definitions: METRIC.md. Four parts, reported separately; there is no combined number.
+Generated 2026-11-18T22:42Z by scoreboard.py. Definitions: METRIC.md. Four parts, reported separately; there is no combined number.
 
 ## A. Requirement score (referee-confirmed R1..R4)
 
 Headline (best mechanism that is not the 7/8 architecture): **1 of 4** (`c1-leeyang-krein-limit`); missing: R2, R3, R4.
 Lanes with R4 confirmed: none.
-Lanes by score 0/1/2/3/4: 48 / 2 / 0 / 0 / 0.
+Lanes by score 0/1/2/3/4: 64 / 2 / 0 / 0 / 0.
 
 Calibration:
 
@@ -27,16 +27,16 @@ Calibration:
 ## C. Search coverage
 
 - Graph source: IDEA_GRAPH.json
-- Nodes: 1577 (marked closed in graph: 472); tags: 202
-- Combination families (tag pairs): 20301; closed: 800; tried, not closed: 456; open and untried: 19045
-- Outcome records read: 60 (files unparsed: 0)
-- Open lemmas decided this campaign: 9
+- Nodes: 1612 (marked closed in graph: 498); tags: 235
+- Combination families (tag pairs): 27495; closed: 1428; tried, not closed: 467; open and untried: 25600
+- Outcome records read: 76 (files unparsed: 0)
+- Open lemmas decided this campaign: 23
 
 ## D. Reliability
 
-- Lanes run: 50 (refereed: 50; unparsed lines: 0)
-- Referee hold rate: 88.0%
-- PROVED claims broken by referees: 5
+- Lanes run: 66 (refereed: 66; unparsed lines: 0)
+- Referee hold rate: 87.9%
+- PROVED claims broken by referees: 7
 - Statements with three-referee confirmation: 0 (about zeros of zeta: 0)
 - Claims about zeros not yet counted (fewer than three referees hold): none
 
@@ -49,3 +49,5 @@ Calibration:
 | 3 | 8 | 34 | 1 | c1-leeyang-krein-limit | R2,R3,R4 | 88% | 4 | 0 | 4 |
 | 4 | 8 | 42 | 1 | c1-leeyang-krein-limit | R2,R3,R4 | 90% | 4 | 0 | 5 |
 | 5 | 8 | 50 | 1 | c1-leeyang-krein-limit | R2,R3,R4 | 88% | 5 | 0 | 9 |
+| 6 | 8 | 58 | 1 | c1-leeyang-krein-limit | R2,R3,R4 | 86% | 7 | 0 | 16 |
+| 7 | 8 | 66 | 1 | c1-leeyang-krein-limit | R2,R3,R4 | 88% | 7 | 0 | 23 |

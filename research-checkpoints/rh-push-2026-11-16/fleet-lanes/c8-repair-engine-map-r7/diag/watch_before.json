@@ -1,0 +1,55 @@
+{
+ "map-open-1": {
+  "rawCount": 978,
+  "rejected": {
+   "closed family: fam-order2-theta-rows": 841,
+   "closed family: fam-one-zero-forces-many": 4,
+   "closed family: fam-legendre-dual-limits": 16,
+   "contains a combination closed in outcomes.json": 36,
+   "shares two nodes with a closed lane (nodes or launchedNodes)": 65,
+   "closed family: fam-selberg-control-companion": 14,
+   "closed family: fam-vaughan-split-landau": 2
+  },
+  "scoredCount": 0,
+  "best": []
+ },
+ "ff-order2-vertex-probe": {
+  "rawCount": 2405,
+  "rejected": {
+   "closed family: fam-order2-theta-rows": 2209,
+   "closed family: fam-legendre-dual-limits": 54,
+   "contains a combination closed in outcomes.json": 51,
+   "closed family: fam-one-zero-forces-many": 12,
+   "closed family: fam-nb-gram-lammin": 35,
+   "shares two nodes with a closed lane (nodes or launchedNodes)": 6,
+   "closed family: fam-selberg-control-companion": 19,
+   "closed family: fam-torus-exclusion-sign-test": 8,
+   "closed family: fam-vaughan-split-landau": 11
+  },
+  "scoredCount": 0,
+  "best": []
+ },
+ "landau-siegel-2026-mechanism": {
+  "rawCount": 1247,
+  "rejected": {
+   "contains a combination closed in outcomes.json": 1247
+  },
+  "scoredCount": 0,
+  "best": []
+ },
+ "poolC": [
+  "ff-order2-vertex-probe",
+  "landau-siegel-2026-mechanism",
+  "map-open-1",
+  "map-open-2",
+  "map-open-4",
+  "map-pos-35",
+  "qrh-seven-eighths",
+  "seven-eighths-abscissa-formula",
+  "tro6-natural"
+ ],
+ "inA": [
+  "ff-order2-vertex-probe",
+  "landau-siegel-2026-mechanism"
+ ]
+}

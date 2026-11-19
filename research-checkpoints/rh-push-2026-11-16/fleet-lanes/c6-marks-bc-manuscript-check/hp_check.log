@@ -1,0 +1,11 @@
+H_p(u=1; w=1, z=1/6) == (1-q^2)(1 - D(1-q) - Rq)/((1-R)(1-D)) : True
+(7.17) agrees with (7.11),(7.12) at j = 0                      : True
+1 - D(1-q) - Rq == (1-D)(1-Rq) + Dq(1-R)                      : True
+local nonvanishing on Re s >= 1/2:  |D|(1-q) + |R| q <= Q^-1/2 (1 - 1/Q) + 1/Q
+   Q = 4  bound = 0.625
+   Q = 7  bound = 0.4668
+   Q = 13  bound = 0.3329
+   Q = 19  bound = 0.27
+second factor: |Dq(1-R)/((1-D)(1-Rq))| at Re s = 3/7+: Q^(-1-s), Q^(2-7s): convergent for Re s > 3/7
+B_p(u=1; 1, 1/6; eta(p)=1) == [(R/D - 1)(1-q) - q(1 - D(1-q) - Rq)]/(1 - D(1-q) - Rq): True
+   leading terms: B_p = -1 + R/D + O(q, D), R/D = a_p^2 Q^(3-5x): not small for Re x <= 3/5

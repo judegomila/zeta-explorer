@@ -1,0 +1,14 @@
+points: 390
+(i)   G_p = Gmark_p - Q^-w H_p                                        : True
+      (16.4) eta Q^x P* - Q^-w P = (1-D)/((1-V)(1-W)) G_p             : True
+      (16.8) at v = 1 from (7.11)                                     : True
+(ii)  Gmark_p = -(1 - Q^-w) H_p + Delta_p, Delta_p = rhs of (16.8)    : True
+(iii) principal point: Gmark_p = -(1-q^2)(1-q)(1 - R/D)/((1-R)(1-D))  : True
+(iv)  Bmark_p = Gmark_p/H_p = -(1-q)(1 - R/D)/(1 - D(1-q) - Rq)       : True
+(v)   compensated B_p = Bmark_p - q   (R/D = eta a_p^2 Q^(3-5s))      : True
+slot multiplier at real s, phases 1:  Bmark_p + 1,  R/D = Q^(3-5s),  D = Q^-s
+   s = 1/2   +3.6458 +6.5678 +11.1489 +32.7648    (Q = 7, 31, 103, 1009; exponent 3 - 5s = +0.500)
+   s = 11/20 +1.8574 +2.5625 +3.3522 +5.7375    (Q = 7, 31, 103, 1009; exponent 3 - 5s = +0.250)
+   s = 3/5   +1.0000 +1.0000 +1.0000 +1.0000    (Q = 7, 31, 103, 1009; exponent 3 - 5s = +0.000)
+   s = 2/3   +0.4512 +0.2677 +0.1841 +0.0916    (Q = 7, 31, 103, 1009; exponent 3 - 5s = -0.333)
+   s = 7/8   +0.0522 -0.0075 -0.0059 -0.0013    (Q = 7, 31, 103, 1009; exponent 3 - 5s = -1.375)

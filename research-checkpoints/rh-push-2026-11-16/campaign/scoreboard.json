@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-18T17:12Z",
+ "generated": "2026-11-18T22:42Z",
  "A_requirements": {
   "headline": {
    "bestScore": 1,
@@ -13,7 +13,7 @@
   },
   "lanesWithR4Confirmed": [],
   "scoreHistogram": {
-   "0": 48,
+   "0": 64,
    "1": 2,
    "2": 0,
    "3": 0,
@@ -68,22 +68,22 @@
  },
  "C_coverage": {
   "graphSource": "IDEA_GRAPH.json",
-  "nodes": 1577,
-  "nodesMarkedClosed": 472,
-  "tags": 202,
-  "families": 20301,
-  "familiesClosed": 800,
-  "familiesTriedNotClosed": 456,
-  "familiesOpenUntried": 19045,
-  "outcomeRecords": 60,
+  "nodes": 1612,
+  "nodesMarkedClosed": 498,
+  "tags": 235,
+  "families": 27495,
+  "familiesClosed": 1428,
+  "familiesTriedNotClosed": 467,
+  "familiesOpenUntried": 25600,
+  "outcomeRecords": 76,
   "outcomeFilesUnparsed": 0,
-  "openLemmasDecided": 9
+  "openLemmasDecided": 23
  },
  "D_reliability": {
-  "lanesRun": 50,
-  "lanesRefereed": 50,
-  "refereeHoldRate": 0.88,
-  "provedClaimsBroken": 5,
+  "lanesRun": 66,
+  "lanesRefereed": 66,
+  "refereeHoldRate": 0.879,
+  "provedClaimsBroken": 7,
   "threeRefereeStatements": 0,
   "threeRefereeStatementsAboutZeros": 0,
   "aboutZerosClaimsNotYetCounted": [],
@@ -169,6 +169,38 @@
    "provedBroken": 5,
    "threeReferee": 0,
    "lemmasDecided": 9
+  },
+  {
+   "round": 6,
+   "lanesThisRound": 8,
+   "lanesCumulative": 58,
+   "bestScore": 1,
+   "bestSlug": "c1-leeyang-krein-limit",
+   "missing": [
+    "R2",
+    "R3",
+    "R4"
+   ],
+   "holdRate": 0.862,
+   "provedBroken": 7,
+   "threeReferee": 0,
+   "lemmasDecided": 16
+  },
+  {
+   "round": 7,
+   "lanesThisRound": 8,
+   "lanesCumulative": 66,
+   "bestScore": 1,
+   "bestSlug": "c1-leeyang-krein-limit",
+   "missing": [
+    "R2",
+    "R3",
+    "R4"
+   ],
+   "holdRate": 0.879,
+   "provedBroken": 7,
+   "threeReferee": 0,
+   "lemmasDecided": 23
   }
  ]
 }

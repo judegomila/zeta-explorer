@@ -1,0 +1,33 @@
+{
+  "status": "PASS_ANALYTIC_AND_BOUNDED_IMPLEMENTATION_AUDIT_NOT_FULL_DIRECTION_REPLAY",
+  "independent_precision_bits": 512,
+  "exact_fraction_cauchy_entries": 503,
+  "arb_cauchy_entries_contain_exact_fraction": 503,
+  "exact_fraction_quadratic_tests": 51,
+  "literal_shifted_prime_entries": 163,
+  "historical_manifest_source_matches": 9,
+  "all_current_producer_hashes_match_receipt": true,
+  "receipt_scalar_algebra_verified": true,
+  "inverse_c": "2/25",
+  "young_near_coefficient": "3/50",
+  "young_far_energy_coefficient": "6/25",
+  "source_sha256_before": {
+    "rh_attack_cycle_20261030/support_endpoint_X165/near_tail_inverse_repair/certify_prime_retained_direction.py": "cb5a9ad91c974abea8a6290f568a7670ae9b2bec204937261eb8dea2e5ba1618",
+    "rh_attack_cycle_20261030/support_endpoint_X165/near_tail_inverse_repair/PRIME_RETAINED_DIRECTION_GATE.json": "838c840cfeb8e5f06845aac5387804f3b6363d33841c2ed0e3df901e2b967980",
+    "rh_attack_cycle_20261028/tail_coercivity/FULL_TAIL_COERCIVITY.md": "2532c36dfa94fcbc8a009eb63f30fff00abc32d15d57bb0cb155243eca6f80c1",
+    "rh_attack_cycle_20261030/support_endpoint_continuity/generic_actual_head_pilot.py": "5f445ed152eefc96539b1af7f9b1d2deed1618a3e786f8658d8ef5aab2b427de",
+    "rh_attack_cycle_20261030/support_endpoint_X165/BOUNDED_ATTEMPT_TERMINAL_MANIFEST.json": "ac80ae840bc9fb057bc5858c8473aa30b82bb3a0be5693499512d5cb30e8980c",
+    "rh_attack_cycle_20261030/support_endpoint_X165/near_tail_inverse_repair/audit_prime_retained_inverse.py": "593da1ef6e66a705318d09a143a617e83baf26fb4a1bb90432cc9145e9aebee9"
+  },
+  "source_sha256_after": {
+    "rh_attack_cycle_20261030/support_endpoint_X165/near_tail_inverse_repair/certify_prime_retained_direction.py": "cb5a9ad91c974abea8a6290f568a7670ae9b2bec204937261eb8dea2e5ba1618",
+    "rh_attack_cycle_20261030/support_endpoint_X165/near_tail_inverse_repair/PRIME_RETAINED_DIRECTION_GATE.json": "838c840cfeb8e5f06845aac5387804f3b6363d33841c2ed0e3df901e2b967980",
+    "rh_attack_cycle_20261028/tail_coercivity/FULL_TAIL_COERCIVITY.md": "2532c36dfa94fcbc8a009eb63f30fff00abc32d15d57bb0cb155243eca6f80c1",
+    "rh_attack_cycle_20261030/support_endpoint_continuity/generic_actual_head_pilot.py": "5f445ed152eefc96539b1af7f9b1d2deed1618a3e786f8658d8ef5aab2b427de",
+    "rh_attack_cycle_20261030/support_endpoint_X165/BOUNDED_ATTEMPT_TERMINAL_MANIFEST.json": "ac80ae840bc9fb057bc5858c8473aa30b82bb3a0be5693499512d5cb30e8980c",
+    "rh_attack_cycle_20261030/support_endpoint_X165/near_tail_inverse_repair/audit_prime_retained_inverse.py": "593da1ef6e66a705318d09a143a617e83baf26fb4a1bb90432cc9145e9aebee9"
+  },
+  "full_direction_producer_rerun": false,
+  "full_head_positivity_proved": false,
+  "scope": "Analytic proof audit and independent bounded exact/literal tests. Numeric directional margin is the pinned producer result, not a fresh complete replay. No endpoint or RH claim."
+}

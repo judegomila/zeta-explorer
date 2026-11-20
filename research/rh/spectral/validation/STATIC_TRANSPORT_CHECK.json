@@ -1,0 +1,19 @@
+{
+  "status": "PASS_STATIC_TRANSPORT_AND_COMPARISON_CHECK",
+  "original_python_sources_byte_identical": 17,
+  "original_json_receipts": 23,
+  "only_transformed_receipts": [
+    "rh_attack_cycle_20261030/independent_review/GENERIC_X16001_COMPLETE_EVEN_POSITIVITY_AUDIT.json",
+    "rh_attack_cycle_20261030/independent_review/GENERIC_PHASE_PREREQUISITES_AUDIT.json",
+    "rh_attack_cycle_20261030/support_endpoint_X161/PREFLIGHT_SUPPORT_AND_CACHE.json",
+    "rh_attack_cycle_20261030/independent_review/GENERIC_X161_PARAMETERIZATION_AND_FAILED_GATE_AUDIT.json"
+  ],
+  "mathematical_field_filter_keeps_sign_accuracy_and_floor_fields": true,
+  "launcher_sha256": "f50e72d9cc1d804c4ee00f1e727ebfbab22f8e9299b2d5d2193bbcaa2490d896",
+  "manifest_sha256": "1b5cc0afddecf88f23074f7b60cc3aa7de707d07d217223d632e745224737303",
+  "transformation_preserves_all_mathematical_fields": true,
+  "transformed_metadata_fields_only": [
+    "PREFLIGHT_SUPPORT_AND_CACHE.json source_sha256 path keys",
+    "Three audit JSON reviewer values"
+  ]
+}

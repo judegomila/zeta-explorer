@@ -1,0 +1,19 @@
+{
+  "bits": 256,
+  "exact_checks": {
+    "critical_continuous_integral": "exact symbolic zero",
+    "critical_stieltjes_derivative": "exact symbolic zero",
+    "flow_derivative": "exact symbolic zero",
+    "power_stieltjes_derivative": "exact symbolic zero",
+    "subcritical_integral": "exact symbolic zero",
+    "unweighted_constant": "exact symbolic zero"
+  },
+  "scalar_intervals": {
+    "critical_B3_tail_at512": "0.01662445068359375000000000000000000000000000000000000000000000000000000000000",
+    "log2_minus_two_thirds": "[0.0264805138932786427505654547915099014088334676935885874540133428267269553030 +/- 4.44e-77]",
+    "two_log_7_over_2": "[2.505525936990735991376241243970006323123169190443211868677420280888372481565 +/- 2.92e-76]",
+    "unweighted_tail_at512": "[7.813804307973902093275875883494598200282752531238182952334704468998845040766e-108 +/- 4.95e-184]"
+  },
+  "scope": "Exact algebra and scalar gates only. No prime sequence is enumerated and no global signed credit estimate is certified.",
+  "script_sha256": "ffa49b6c7c5fe987c4873468a08d5d400dfa8c95e411241b46cc383336ab26f8"
+}

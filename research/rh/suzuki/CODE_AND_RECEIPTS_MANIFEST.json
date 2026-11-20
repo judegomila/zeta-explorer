@@ -1,0 +1,124 @@
+{
+  "files": [
+    {
+      "byte_identical": true,
+      "source_path": "rh_attack_cycle_20261030/suzuki_coarse_reserve_certificate/certify_coarse_reserve.py",
+      "source_sha256": "e9e83a7c0727b667459090d22db8774381edacb8dae2cbefc768f5bf9420762b",
+      "transport_path": "code/certify_coarse_reserve.py",
+      "transport_sha256": "e9e83a7c0727b667459090d22db8774381edacb8dae2cbefc768f5bf9420762b"
+    },
+    {
+      "byte_identical": true,
+      "source_path": "rh_attack_cycle_20261030/suzuki_coarse_reserve_certificate/origin_interval/check_origin_interval.py",
+      "source_sha256": "b4bc7cbd42a0eaa59ad7d2ca248e68b760e1ba474e18e082bae3aa6eb7adde3c",
+      "transport_path": "code/check_origin_interval.py",
+      "transport_sha256": "b4bc7cbd42a0eaa59ad7d2ca248e68b760e1ba474e18e082bae3aa6eb7adde3c"
+    },
+    {
+      "byte_identical": true,
+      "source_path": "rh_attack_cycle_20261030/suzuki_prime_only_renormalization/check_prime_only_algebra.py",
+      "source_sha256": "60425e59e6b39f7037170d55bed2cc047f73149ec976eff400e170d5c866f557",
+      "transport_path": "code/check_prime_only_algebra.py",
+      "transport_sha256": "60425e59e6b39f7037170d55bed2cc047f73149ec976eff400e170d5c866f557"
+    },
+    {
+      "byte_identical": true,
+      "source_path": "rh_attack_cycle_20261030/suzuki_prime_credit_variation/check_variation_constants.py",
+      "source_sha256": "ffa49b6c7c5fe987c4873468a08d5d400dfa8c95e411241b46cc383336ab26f8",
+      "transport_path": "code/check_variation_constants.py",
+      "transport_sha256": "ffa49b6c7c5fe987c4873468a08d5d400dfa8c95e411241b46cc383336ab26f8"
+    },
+    {
+      "byte_identical": true,
+      "source_path": "rh_attack_cycle_20261030/suzuki_coarse_reserve_certificate/check_elementary_onset.py",
+      "source_sha256": "f8ab10c0f96be1593734f435035c73f2bb4d7873e45fd591665353a6ec075e49",
+      "transport_path": "code/check_elementary_onset.py",
+      "transport_sha256": "f8ab10c0f96be1593734f435035c73f2bb4d7873e45fd591665353a6ec075e49"
+    },
+    {
+      "byte_identical": true,
+      "source_path": "rh_attack_cycle_20261030/suzuki_coarse_reserve_certificate/future_hull_budget/check_future_hull_budget.py",
+      "source_sha256": "4a1e2f759f80aab35f237944a7b91e28675caf4849b293e9b5deeb5e1c92e373",
+      "transport_path": "code/check_future_hull_budget.py",
+      "transport_sha256": "4a1e2f759f80aab35f237944a7b91e28675caf4849b293e9b5deeb5e1c92e373"
+    },
+    {
+      "byte_identical": true,
+      "source_path": "rh_attack_cycle_20261030/independent_review/coarse_reserve_certificate_review/independent_spf_and_direct_reserve.py",
+      "source_sha256": "d6e04e32993634a9de7682f49711684c421eea209836da83118a33b6ac7782f9",
+      "transport_path": "code/independent_spf_and_direct_reserve.py",
+      "transport_sha256": "d6e04e32993634a9de7682f49711684c421eea209836da83118a33b6ac7782f9"
+    },
+    {
+      "byte_identical": true,
+      "source_path": "rh_attack_cycle_20261030/suzuki_coarse_reserve_certificate/origin_interval/ORIGIN_INTERVAL_192_256BIT.json",
+      "source_sha256": "cbc466cd426b79bc70400a461890839ebbe370b2dbbd2a5d9e1203c1f6329159",
+      "transport_path": "receipts/ORIGIN_INTERVAL_192_256BIT.json",
+      "transport_sha256": "cbc466cd426b79bc70400a461890839ebbe370b2dbbd2a5d9e1203c1f6329159"
+    },
+    {
+      "byte_identical": true,
+      "source_path": "rh_attack_cycle_20261030/suzuki_prime_only_renormalization/PRIME_ONLY_ALGEBRA_256BIT.json",
+      "source_sha256": "30adbfee615fb1ca4998591a13ff4e57ec29fd7aaf5204bed3216cba2509ba7e",
+      "transport_path": "receipts/PRIME_ONLY_ALGEBRA_256BIT.json",
+      "transport_sha256": "30adbfee615fb1ca4998591a13ff4e57ec29fd7aaf5204bed3216cba2509ba7e"
+    },
+    {
+      "byte_identical": true,
+      "source_path": "rh_attack_cycle_20261030/suzuki_prime_credit_variation/VARIATION_CHECKS_256BIT.json",
+      "source_sha256": "c0dced9252e0ddc10e8efcf5b0282cf47ecd60664ae6546015b83521decef0d3",
+      "transport_path": "receipts/VARIATION_CHECKS_256BIT.json",
+      "transport_sha256": "c0dced9252e0ddc10e8efcf5b0282cf47ecd60664ae6546015b83521decef0d3"
+    },
+    {
+      "byte_identical": true,
+      "source_path": "rh_attack_cycle_20261030/suzuki_coarse_reserve_certificate/ELEMENTARY_ONSET_CHECKS.json",
+      "source_sha256": "488b021e995f100f5f4dc9b65ac34f273d905d9a2369516752b11119edd75d7d",
+      "transport_path": "receipts/ELEMENTARY_ONSET_CHECKS.json",
+      "transport_sha256": "488b021e995f100f5f4dc9b65ac34f273d905d9a2369516752b11119edd75d7d"
+    },
+    {
+      "byte_identical": true,
+      "source_path": "rh_attack_cycle_20261030/suzuki_coarse_reserve_certificate/future_hull_budget/FUTURE_HULL_BUDGET_192_256BIT.json",
+      "source_sha256": "fc527ad09120816c803ac5126c54b8239097c0fac349e047670f64e7c454e26c",
+      "transport_path": "receipts/FUTURE_HULL_BUDGET_192_256BIT.json",
+      "transport_sha256": "fc527ad09120816c803ac5126c54b8239097c0fac349e047670f64e7c454e26c"
+    },
+    {
+      "byte_identical": true,
+      "source_path": "rh_attack_cycle_20261030/independent_review/coarse_reserve_certificate_review/INDEPENDENT_SPF_DIRECT_384BIT.json",
+      "source_sha256": "8761ba88f4cb572dc88b4033fd0969a67d2b8e99a5b7fa02fa5c360bf705542b",
+      "transport_path": "receipts/INDEPENDENT_SPF_DIRECT_384BIT.json",
+      "transport_sha256": "8761ba88f4cb572dc88b4033fd0969a67d2b8e99a5b7fa02fa5c360bf705542b"
+    },
+    {
+      "decompressed_byte_identical": true,
+      "encoding": "gzip, deterministic mtime=0",
+      "source_bytes": 1152332,
+      "source_path": "rh_attack_cycle_20261030/suzuki_coarse_reserve_certificate/extension_10million/COARSE_RESERVE_10M_256BIT.json",
+      "source_sha256": "8d4347f8fdcfc78886ad648849f4baf2041b0e01dc342baba1a76f5dffefe18e",
+      "transport_bytes": 279729,
+      "transport_path": "receipts/COARSE_RESERVE_10M_256BIT.json.gz",
+      "transport_sha256": "5043211b81a548d8e661a8aac26427564c0c0d79081a0dfba89214cb1d47e95d"
+    }
+  ],
+  "new_portable_files": [
+    {
+      "path": "replay.py",
+      "sha256": "83c3a6bf376a3c0407c7c3d146ccedf9dfd63cb39780d147732858b5348177d3"
+    },
+    {
+      "path": "requirements.txt",
+      "sha256": "bb4f8aebda388ffdedfb18af388a182858b7b7e3da32432152feb80b654c63a3"
+    },
+    {
+      "path": "REPRODUCE.md",
+      "sha256": "92d7dcb9511a8285bb9408b05d0136efdb8fe591ed968124424d7a5d5c0925f1"
+    },
+    {
+      "path": "receipts/CLEAN_PACKAGE_REPLAY_RESULT.json",
+      "sha256": "fc34e1fcfacf813352dfe58860f8fc478468053667a8d6bd0eef5e6121da02eb"
+    }
+  ],
+  "scope": "Focused accepted Suzuki recurrence/prime-memory/finite-scalar module transport only. No new pending research branch included."
+}

@@ -1,0 +1,16 @@
+{
+  "status": "PASS_ACTUAL_THRESHOLD_PROJECTION_AND_JORDAN_GEOMETRY",
+  "utc": "2026-10-30T09:13:08.265405+00:00",
+  "raw_gram_constant": "1/(48 lambda^2), lambda>=8",
+  "main_reserve_at_lambda8": "(4 sqrt(3)-5)/8 > 0.2410",
+  "arithmetic_defect_bound_proved": false,
+  "uniform_evenized_gram_proved": false,
+  "new_numerical_run": false,
+  "files": {
+    "rh_attack_cycle_20261030/independent_review/POSITIVE_CHI_CORE_AND_JORDAN_RESERVE_AUDIT.md": "0d0de89128b15e6da19d8a2a8a6860f3358e95c89b6bcd12f6db11b80921c29b",
+    "rh_attack_cycle_20261030/gamma_complement_attack/POSITIVE_CHI_CORE_PROJECTION_AND_MAIN_RESERVE.md": "4c48c438efc32a3c64b9248683ac89adf5f46d9c0ffbd0e85ec907361e3100b2",
+    "rh_attack_cycle_20261030/gamma_complement_attack/MAXIMAL_POSITIVE_CHI_HEAD_AND_TRANSITION_PRICE.md": "3a4fa2df9fbc34a787aedbdbf96d458ca74de5dc51e151fae3fa5cdac6a58c3b",
+    "rh_attack_cycle_20261030/gamma_complement_attack/EXACT_POISSON_MOBIUS_EDGE_AND_SIGNED_GRAM_TARGET.md": "891f2400ca23fe404658ad4735ffeb86713e959ef219c25ba8853a2249678304",
+    "rh_attack_cycle_20261030/independent_review/MAXIMAL_POSITIVE_CHI_HEAD_AUDIT.json": "c8b07c6a21b8891850f94014d190d3c8c8d72a731719ae8aa759bd81d1926cbb"
+  }
+}

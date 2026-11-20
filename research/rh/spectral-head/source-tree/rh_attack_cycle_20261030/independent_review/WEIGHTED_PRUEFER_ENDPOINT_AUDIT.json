@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "utc": "2026-10-30T09:51:00.389222+00:00",
+  "independent_exact_replay_identical": true,
+  "new_spectral_numerics": false,
+  "signed_arithmetic_bound_proved": false,
+  "files": {
+    "rh_attack_cycle_20261030/independent_review/WEIGHTED_PRUEFER_ENDPOINT_AUDIT.md": "a016d7ae190d20e3f1a6dbb2228ee7a76a47b00cbb07cb6c82e9c51ade951fed",
+    "rh_attack_cycle_20261030/prolate_exterior_phase_attack/WEIGHTED_PRUEFER_LOG_LEAKAGE.md": "5fb617fa2628e694e60e1fc907a3dec379b746731fe9876107f9e22107978271",
+    "rh_attack_cycle_20261030/prolate_exterior_phase_attack/check_phase_constants.py": "a50544c3efb460d2bc95b18b028725bf353113364ae6e82f0e4c1b60c9e56728",
+    "rh_attack_cycle_20261030/prolate_exterior_phase_attack/PHASE_CONSTANTS.json": "09618e57f4b89425a7223607e4db2672cfbdc6a864ed232278132b435463a572",
+    "rh_attack_cycle_20261030/independent_review/prolate_weighted_phase_replay/check_phase_constants.py": "a50544c3efb460d2bc95b18b028725bf353113364ae6e82f0e4c1b60c9e56728",
+    "rh_attack_cycle_20261030/independent_review/prolate_weighted_phase_replay/PHASE_CONSTANTS.json": "09618e57f4b89425a7223607e4db2672cfbdc6a864ed232278132b435463a572"
+  }
+}

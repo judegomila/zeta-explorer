@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "reviewUnit": "prime-retained-inverse",
+  "module": {
+    "id": "prime-retained-tail-certificate",
+    "bodyPath": "research/rh/modules/prime-retained-tail-certificate.md",
+    "status": "certified-finite",
+    "reviewStatus": "accepted",
+    "reviewScope": "internal",
+    "rhStatus": "open",
+    "claim": "Actual reflection-even whole-form coercivity for every1<lambda<=sqrt(33/2), with an existential positive constant; no numerical floor, odd/cofinal/RH claim.",
+    "verification": {
+      "reproducibilityStatus": "current-replay",
+      "scope": "Independent internal complete analytic/source audit and isolated complete replay; same arithmetic implementation, not external peer review or proof-assistant formalization."
+    }
+  },
+  "fixedSettings": {
+    "X": "33/2",
+    "N": 2048,
+    "J": 16384,
+    "L": 36,
+    "precisionBits": 1000,
+    "primeNormPower": 8,
+    "primeEnvelope": "477513/125000",
+    "inverseC": "2/25",
+    "youngEpsilon": "1/4"
+  },
+  "sourcePins": {
+    "rh_attack_cycle_20261030/support_endpoint_X165/certify_generic_support.py": "4ce3e1108b2bd8e2b24cc778f2dda721be0da84725f2c854be44a13e43b679dd",
+    "rh_attack_cycle_20261030/support_endpoint_X165/support_config.py": "2dcf1502b4fd8883744250460ec652b59299280f144eed4ea0c20898cead0838",
+    "rh_attack_cycle_20261030/support_endpoint_X165/generic_full_inputs.py": "d06c87677c1b3ee15d66c12a46f4c445a85045f898be53302d20443389298e88",
+    "rh_attack_cycle_20261030/support_endpoint_continuity/generic_actual_head_pilot.py": "5f445ed152eefc96539b1af7f9b1d2deed1618a3e786f8658d8ef5aab2b427de",
+    "rh_attack_cycle_20261030/support_endpoint_X165/scalar_phase_gate.py": "e6c2df8aadb3dcaa97fcbe6b0b87845985673ec197dd9b817247a04ebf486539",
+    "rh_attack_cycle_20261030/support_endpoint_X165/SCALAR_PHASE_GATE.json": "748d176cc92f64452d6eb4079f339853eb978e05cfa0d80a07f7383ad1236787",
+    "rh_attack_cycle_20261030/support_endpoint_X165/X165_power8_targeted.py": "dcc2cc778b782b1cb64d042dfe97a8188395b7c4d500ece0543374700f929bd1",
+    "rh_attack_cycle_20261030/support_endpoint_X165/X165_POWER8_TARGETED.json": "d095ae94e743fa5b503479bf34514e92fce9b29b45aaf27b5475cb146090640e",
+    "rh_attack_cycle_20261028/structured_inertia/certify_structured_lambda25.py": "e428d4e886045d5b31a5018953308e95ce527c832a0f28cdcc6692b23d15eeee",
+    "rh_attack_cycle_20261028/structured_inertia/certify_structured_factored.py": "ce639d73178ed2ebae8e6e11bca6c73f37ce3cc8081daeb388868f0f6984cd46",
+    "rh_attack_cycle_20261030/support_endpoint_X165/prime_retained_rankone_attempt/certify_prime_retained_rankone.py": "7a5725e4522317c5993326b494fc81d4ee188716ef822e489adb670e4d937c61",
+    "rh_attack_cycle_20261030/support_endpoint_X165/prime_retained_rankone_attempt/retained_prime_rankone_inputs.py": "238b04e13d65e214d827c1d7b53cd976985e5f4d4275d3d444a248a84c24fc50",
+    "rh_attack_cycle_20261030/support_endpoint_X165/diagnosis/LAST_CORE_FROZEN_TRIAL.json": "837f928bfd8ebd3a76b65b423713d42e2f4ce7c1e6c4847a3e17b8ba1794339f",
+    "rh_attack_cycle_20261030/support_endpoint_X165/near_tail_inverse_repair/PRIME_RETAINED_DIRECTION_GATE.json": "838c840cfeb8e5f06845aac5387804f3b6363d33841c2ed0e3df901e2b967980",
+    "rh_attack_cycle_20261030/support_endpoint_X165/BOUNDED_ATTEMPT_TERMINAL_MANIFEST.json": "ac80ae840bc9fb057bc5858c8473aa30b82bb3a0be5693499512d5cb30e8980c",
+    "rh_attack_cycle_20261030/support_endpoint_X165/near_tail_inverse_repair/certify_prime_retained_direction.py": "cb5a9ad91c974abea8a6290f568a7670ae9b2bec204937261eb8dea2e5ba1618",
+    "rh_attack_cycle_20261030/support_endpoint_X165/near_tail_inverse_repair/COUPLED_PRIME_RETAINED_INVERSE_AND_RANK_ONE_SPEC.md": "a4bd385dbd48fd7f53f5bc5b1a906d5a1d916c85c5196b3954b19c651617ee71",
+    "rh_attack_cycle_20261028/tail_coercivity/FULL_TAIL_COERCIVITY.md": "2532c36dfa94fcbc8a009eb63f30fff00abc32d15d57bb0cb155243eca6f80c1",
+    "frequency_sensitive_bound/FREQUENCY_BLOCK_SUPPORT_BOUND.md": "0f05f3a881685c96a7016fcf5a9133e628254055f2ede55d25e8afeee9352e62"
+  },
+  "producerReceiptSha256": "8fad3f81f08b714052715c368bd6480764f7448347494d36ec50f2d38067406c",
+  "independentReceiptSha256": "774b0121e863088495d1867281824a69f37bd6bdc30a14ddddf6df2096c63dc1",
+  "oldFailedTerminalSha256": "ac80ae840bc9fb057bc5858c8473aa30b82bb3a0be5693499512d5cb30e8980c",
+  "newBound": "D>=d+B, B=Pstar I-P_tail>=0; retained inverse bound, fully charged near/far Young estimate, safe rank-one near-head Gram lower term.",
+  "scope": "All2049core,72H,72Schur pivots positive in producer and isolated independent replay; all nontiming fields and permutation identical. Pivots are not eigenvalue floors.",
+  "wordingAudit": "source-tree/rh_attack_cycle_20261030/support_endpoint_X165/prime_retained_rankone_attempt/independent_review/FINAL_THEOREM_MODULE_WORDING_AUDIT.json",
+  "editorialMappings": [
+    {
+      "file": "README.md",
+      "originalSha256": "68272dd144dde86593fa93e2e8478a5ffd298d1d611c88a4246219c8e1fb8cf2",
+      "publishedSha256": "aad8b48ef00ec2c4483aff19044881da0c5016f50b52496e558007da30771d34",
+      "transformation": "Added assertions-enabled safety, canonical module mapping, separate-PR boundary and portable-comparison guidance; no mathematical or runtime-source change."
+    },
+    {
+      "file": "INTEGRATION_MANIFEST.json",
+      "originalSha256": "90f1bca30c5bcde198cdcf101a6a706117292c9ac30c0e8591b75c3614faf998",
+      "publishedSha256": "f7c63d799b8328aed9ffae176aee89cf7f8cffb4a2528d3f78bca80c0b96e33e",
+      "transformation": "Added completed review comparison source/log and canonical repository module target; unchanged math/source/receipt bytes."
+    }
+  ],
+  "moduleBodyUnchanged": true,
+  "all19RuntimeSourceDependenciesUnchanged": true,
+  "publicationBoundary": "Local prepared export only. Prior publication snapshots and PR heads remain unchanged. Coordinator owns separate focused draft PR; no merge or deployment authorized by this export."
+}

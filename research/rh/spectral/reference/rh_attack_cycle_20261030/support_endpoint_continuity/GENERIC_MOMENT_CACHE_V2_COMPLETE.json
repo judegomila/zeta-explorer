@@ -1,0 +1,22 @@
+{
+  "status": "COMPLETE",
+  "cached_total": 10437,
+  "required_total": 10437,
+  "new_this_batch": 10437,
+  "workers": 4,
+  "wall_seconds": 125.7319347858429,
+  "sum_worker_seconds": 501.22568702697754,
+  "mean_worker_seconds": 0.04802392325639336,
+  "minimum_new_restored_bits": 942,
+  "meta": {
+    "X": "16001/1000",
+    "J": 16384,
+    "precision_bits": 1000,
+    "digits": 350,
+    "required_min_relative_accuracy_bits": 900,
+    "quadrature_U": 1600,
+    "abs_rel_tolerance_bits": 950,
+    "primitive_sha256": "8a94380ef617b34d27902c9c1ae18e8dcc034d57d5a1f25652a23b2981834a04"
+  },
+  "source_sha256": "b8878ab8b70a5b96d4fc34022535bdd91ae61b6f48473bb3c1130b0b84842bf2"
+}

@@ -1,0 +1,17 @@
+{
+  "status": "PASS_SOURCE_AND_TRANSPORT_IDENTITY",
+  "manifest_sha256": "5a470ac83c3f4d6d62164e835b9da6ca857cf9c440bb78ee5c4282f8d5ea2fd8",
+  "launcher_sha256": "8b96d457f1d9bb264137136fb9b915e5f6958aa32ede366371b3f8f012fc6563",
+  "new_python_sources_byte_identical": 3,
+  "reference_receipts": 9,
+  "reviewer_only_metadata_transforms": [
+    "rh_attack_cycle_20261030/independent_review/GENERIC_X161_POWER8_COMPLETE_EVEN_POSITIVITY_AUDIT.md",
+    "rh_attack_cycle_20261030/independent_review/GENERIC_X161_POWER8_COMPLETE_EVEN_POSITIVITY_AUDIT.json"
+  ],
+  "all_other_reference_fields_or_text_unchanged": true,
+  "frozen_base_manifest_and_helper_pins_match": true,
+  "base_cache_canonical_nontiming_digest": "a16c51de67b2d0296ee0689f2201511e29c3a43705a8ab2f277360b66bf00faf",
+  "bulk_cache_in_package": false,
+  "complete_clean_overlay_replay_status": "PASS_COMPLETE_CLEAN_REPAIR_REPRODUCTION",
+  "complete_clean_overlay_replay_sha256": "05586d72a8253e098a37339b6ba51046419dde1e39297091fb74636222175c2b"
+}

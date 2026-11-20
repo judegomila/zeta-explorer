@@ -1,0 +1,377 @@
+{
+  "schemaVersion": 1,
+  "reviewUnit": "suzuki",
+  "asOf": "2026-10-30",
+  "publicationRelocation": {
+    "sourceStagingHead": "1a85a498d3de8a42bb7d7b18a916b9b603cfd688",
+    "reason": "Keep canonical mathematical module bodies beside their research evidence and outside the browser bundle.",
+    "method": "Byte-identical path-only moves; bodySha256 and curated original-source hashes are unchanged.",
+    "paths": [
+      "content/rh-modules/suzuki-recurrence.md -> research/rh/modules/suzuki-recurrence.md",
+      "content/rh-modules/prime-memory.md -> research/rh/modules/prime-memory.md",
+      "content/rh-modules/finite-suzuki-certificate.md -> research/rh/modules/finite-suzuki-certificate.md"
+    ]
+  },
+  "modules": [
+    {
+      "id": "suzuki-recurrence",
+      "title": "Suzuki scalar criterion and signed reserve recurrence",
+      "status": "accepted",
+      "statusMeaning": "Internally reviewed scoped claim; not external peer review or formal verification.",
+      "bodyPath": "research/rh/modules/suzuki-recurrence.md",
+      "relocatedFrom": "content/rh-modules/suzuki-recurrence.md (byte-identical move; body SHA-256 unchanged)",
+      "bodySha256": "46453c52806db3757535fb10aca6875b219e2a024c5c4b9b9351f2a0ac5a6e30",
+      "evidenceType": "internally-reviewed-proof",
+      "scope": "Finite scalar and analytic reductions only; global arithmetic gap remains open.",
+      "proofNotes": [
+        "research/rh/suzuki/notes/normalization-and-constant-box.md",
+        "research/rh/suzuki/notes/closed-reserve-and-debt.md"
+      ],
+      "internalReviews": [
+        "research/rh/suzuki/reviews/reserve-bregman-review.md"
+      ]
+    },
+    {
+      "id": "prime-memory",
+      "title": "Prime-only memory and credit variation",
+      "status": "accepted",
+      "statusMeaning": "Internally reviewed scoped claim; not external peer review or formal verification.",
+      "bodyPath": "research/rh/modules/prime-memory.md",
+      "relocatedFrom": "content/rh-modules/prime-memory.md (byte-identical move; body SHA-256 unchanged)",
+      "bodySha256": "1e793a7d2a49bc6140b9012cca6864418526109c98a906d1a32d9326d3c24496",
+      "evidenceType": "internally-reviewed-proof-with-symbolic-and-scalar-replay",
+      "scope": "Finite scalar and analytic reductions only; global arithmetic gap remains open.",
+      "proofNotes": [
+        "research/rh/suzuki/notes/proper-power-memory.md",
+        "research/rh/suzuki/notes/prime-only-flow.md",
+        "research/rh/suzuki/notes/weighted-credit-variation.md"
+      ],
+      "internalReviews": [
+        "research/rh/suzuki/reviews/prime-memory-review.md",
+        "research/rh/suzuki/reviews/credit-variation-review.md"
+      ]
+    },
+    {
+      "id": "finite-suzuki-certificate",
+      "title": "All-real finite Suzuki certificate through 10^7",
+      "status": "accepted",
+      "statusMeaning": "Internally reviewed scoped claim; not external peer review or formal verification.",
+      "bodyPath": "research/rh/modules/finite-suzuki-certificate.md",
+      "relocatedFrom": "content/rh-modules/finite-suzuki-certificate.md (byte-identical move; body SHA-256 unchanged)",
+      "bodySha256": "4dc523d105722c74645eed93265147c8a58480d239195c8c03fbbb184c5b8cb2",
+      "evidenceType": "complete-finite-scalar-replay-bundle",
+      "scope": "Finite scalar and analytic reductions only; global arithmetic gap remains open.",
+      "proofNotes": [
+        "research/rh/suzuki/notes/coarse-prefix-hull.md",
+        "research/rh/suzuki/notes/finite-extension-10million.md",
+        "research/rh/suzuki/notes/origin-interval.md"
+      ],
+      "internalReviews": [
+        "research/rh/suzuki/reviews/finite-certificate-review.md"
+      ]
+    }
+  ],
+  "primaryReferences": [
+    {
+      "title": "Suzuki, Aspects of the screw function corresponding to the Riemann zeta-function, Theorem 1.7",
+      "url": "https://arxiv.org/html/2206.03682v4",
+      "verified": "2026-10-30",
+      "use": "Known RH-equivalent nonnegativity criterion, attributed; not a new theorem claim."
+    },
+    {
+      "title": "Fiori–Kadiri–Swidinsky, Sharper bounds for the Chebyshev function, Corollary 1.4",
+      "url": "https://arxiv.org/html/2204.02588v3#S1.SS2",
+      "verified": "2026-10-30",
+      "use": "Unconditional explicit prime-error theorem; external finite-height computation not rerun here."
+    }
+  ],
+  "curatedSourceMapping": [
+    {
+      "review_unit": "suzuki",
+      "local_file": "research/rh/suzuki/notes/normalization-and-constant-box.md",
+      "destination": "research/rh/suzuki/notes/normalization-and-constant-box.md",
+      "role": "source-note",
+      "original_path": "rh_attack_cycle_20261030/curvature_bulk/SUZUKI_FOLLOWTHROUGH_ADDENDUM.md",
+      "original_sha256": "a48e10d579cfdf171992f827ca4f4876f6174ce230491c32c783984052c00dfe",
+      "published_sha256": "3c498e3e949f50f7691fca4bd8c56d4963ffc222dbd433abb995532863843127",
+      "transformation": [
+        "Extracted mathematical Sections 1–4; removed private conversation/attachment discovery and operational audit framing.",
+        "Replaced executor-specific Python path with portable python; removed reviewer/delegation identifiers and private-chat references where present."
+      ]
+    },
+    {
+      "review_unit": "suzuki",
+      "local_file": "research/rh/suzuki/notes/closed-reserve-and-debt.md",
+      "destination": "research/rh/suzuki/notes/closed-reserve-and-debt.md",
+      "role": "source-note",
+      "original_path": "rh_attack_cycle_20261030/suzuki_recurrence_attack/CLOSED_RESERVE_AND_SUMMABLE_DEBT.md",
+      "original_sha256": "4bdb66b66c101b5c2f2cbae57e57bc3c1b5e292d2d5e1a48fd8c7b892b07172d",
+      "published_sha256": "8294f9598408fd0f47502cd7214ad17a24b88ff7025d684c1b2cd5f8ab62d1a0",
+      "transformation": [
+        "Replaced introductory operational framing with publication provenance notice.",
+        "Replaced executor-specific Python path with portable python; removed reviewer/delegation identifiers and private-chat references where present."
+      ]
+    },
+    {
+      "review_unit": "suzuki",
+      "local_file": "research/rh/suzuki/notes/proper-power-memory.md",
+      "destination": "research/rh/suzuki/notes/proper-power-memory.md",
+      "role": "source-note",
+      "original_path": "rh_attack_cycle_20261030/suzuki_prime_only_renormalization/PROPER_POWER_CREDIT_TAIL_AND_PRIME_MEMORY.md",
+      "original_sha256": "1a933084ef789e42fcca1273c6f45a9f46c13b5d9f772debe44f8157582ba57d",
+      "published_sha256": "024a4dec3509502f193478357cc24a8207c108a6a073b48f44260ead36b8cc31",
+      "transformation": [
+        "Replaced introductory operational framing with publication provenance notice.",
+        "Removed discovery-only source navigation paragraph; mathematical hypotheses retained.",
+        "Replaced executor-specific Python path with portable python; removed reviewer/delegation identifiers and private-chat references where present."
+      ]
+    },
+    {
+      "review_unit": "suzuki",
+      "local_file": "research/rh/suzuki/notes/prime-only-flow.md",
+      "destination": "research/rh/suzuki/notes/prime-only-flow.md",
+      "role": "source-note",
+      "original_path": "rh_attack_cycle_20261030/suzuki_prime_only_renormalization/PRIME_ONLY_RESERVE_FLOW_ADDENDUM.md",
+      "original_sha256": "6140f2c37f0c24bddbabc443d2c1c9f9ab4ffedbf448e133d0f976ece03021a4",
+      "published_sha256": "4e25e7391ceea30e1bb4f9810464513d376d1407f0c2c7c59c92d89ae6e98c54",
+      "transformation": [
+        "Replaced introductory operational framing with publication provenance notice.",
+        "Replaced executor-specific Python path with portable python; removed reviewer/delegation identifiers and private-chat references where present."
+      ]
+    },
+    {
+      "review_unit": "suzuki",
+      "local_file": "research/rh/suzuki/notes/weighted-credit-variation.md",
+      "destination": "research/rh/suzuki/notes/weighted-credit-variation.md",
+      "role": "source-note",
+      "original_path": "rh_attack_cycle_20261030/suzuki_prime_credit_variation/WEIGHTED_CREDIT_VARIATION_AND_CRITICAL_BLOCK_FREEZING.md",
+      "original_sha256": "d9cc475ebec5115d1dc1b4d770a3857381a19af73909c5e862dbd7d0fbd40579",
+      "published_sha256": "35c5eed40c0bc8e3c79a2c1de437b7f36cd98cdadef20374248074b8c9fef334",
+      "transformation": [
+        "Replaced introductory operational framing with publication provenance notice.",
+        "Replaced executor-specific Python path with portable python; removed reviewer/delegation identifiers and private-chat references where present."
+      ]
+    },
+    {
+      "review_unit": "suzuki",
+      "local_file": "research/rh/suzuki/notes/coarse-prefix-hull.md",
+      "destination": "research/rh/suzuki/notes/coarse-prefix-hull.md",
+      "role": "source-note",
+      "original_path": "rh_attack_cycle_20261030/suzuki_coarse_reserve_certificate/COARSE_PREFIX_HULL_CERTIFICATE_TO_ONE_MILLION.md",
+      "original_sha256": "9e6c9c10d19c894e3bc616ae61da2d97a0b32d5d0ea3c973721889957905aa49",
+      "published_sha256": "335402eb96a6594cf8d59b533d56d041abf48e51ec7dbdc64b5cd03bde9d2da4",
+      "transformation": [
+        "Replaced introductory operational framing with publication provenance notice.",
+        "Replaced executor-specific Python path with portable python; removed reviewer/delegation identifiers and private-chat references where present."
+      ]
+    },
+    {
+      "review_unit": "suzuki",
+      "local_file": "research/rh/suzuki/notes/finite-extension-10million.md",
+      "destination": "research/rh/suzuki/notes/finite-extension-10million.md",
+      "role": "source-note",
+      "original_path": "rh_attack_cycle_20261030/suzuki_coarse_reserve_certificate/extension_10million/COARSE_CERTIFICATE_EXTENSION_TO_TEN_MILLION.md",
+      "original_sha256": "5501227e96a32a68d8367a12b147b58ee64458cee99f8c9aaf326c428db2af75",
+      "published_sha256": "4e3a6047bb556deeb735b4e4e0fa46e002549e5b7906d4b8d7729f79ff339992",
+      "transformation": [
+        "Replaced introductory operational framing with publication provenance notice.",
+        "Replaced executor-specific Python path with portable python; removed reviewer/delegation identifiers and private-chat references where present."
+      ]
+    },
+    {
+      "review_unit": "suzuki",
+      "local_file": "research/rh/suzuki/notes/origin-interval.md",
+      "destination": "research/rh/suzuki/notes/origin-interval.md",
+      "role": "source-note",
+      "original_path": "rh_attack_cycle_20261030/suzuki_coarse_reserve_certificate/origin_interval/ORIGIN_INTERVAL_CONCAVITY_CERTIFICATE.md",
+      "original_sha256": "6d7f015138a1bcd0b77bebe4e70d438c15a5152ec6184b7b6f4b9a5c6a97313d",
+      "published_sha256": "4575ca75709826554acba103bc2b3887c97e70f242711063857a5f10bb6aec7a",
+      "transformation": [
+        "Replaced introductory operational framing with publication provenance notice.",
+        "Replaced executor-specific Python path with portable python; removed reviewer/delegation identifiers and private-chat references where present."
+      ]
+    },
+    {
+      "review_unit": "suzuki",
+      "local_file": "research/rh/suzuki/notes/elementary-onset-and-freezing.md",
+      "destination": "research/rh/suzuki/notes/elementary-onset-and-freezing.md",
+      "role": "source-note",
+      "original_path": "rh_attack_cycle_20261030/suzuki_coarse_reserve_certificate/ELEMENTARY_ONSET_AND_ALL_FUTURE_FREEZING_BUDGET.md",
+      "original_sha256": "a631b9d64e8d4895e026974cb0c2697cac059c451e825e74572d89e06ca554d5",
+      "published_sha256": "7c1e2acdca6d8381dbb9dc96dd25b42d93985101d5d198cf20663f3adb3d2f90",
+      "transformation": [
+        "Replaced introductory operational framing with publication provenance notice.",
+        "Replaced executor-specific Python path with portable python; removed reviewer/delegation identifiers and private-chat references where present."
+      ]
+    },
+    {
+      "review_unit": "suzuki",
+      "local_file": "research/rh/suzuki/notes/future-hull-loss.md",
+      "destination": "research/rh/suzuki/notes/future-hull-loss.md",
+      "role": "source-note",
+      "original_path": "rh_attack_cycle_20261030/suzuki_coarse_reserve_certificate/future_hull_budget/ALL_FUTURE_PRIME_POWER_HULL_LOSS.md",
+      "original_sha256": "54a356d127929efecd97f2db67ef40d34adfbe08bc8a1347e8ef0cc1593ae033",
+      "published_sha256": "950d880189fa01203e9df1b2a6d48f9ee305525648aa3bf7ead0c58e8a27bc1f",
+      "transformation": [
+        "Replaced introductory operational framing with publication provenance notice.",
+        "Replaced executor-specific Python path with portable python; removed reviewer/delegation identifiers and private-chat references where present."
+      ]
+    },
+    {
+      "review_unit": "suzuki",
+      "local_file": "research/rh/suzuki/reviews/reserve-bregman-review.md",
+      "destination": "research/rh/suzuki/reviews/reserve-bregman-review.md",
+      "role": "internal-review",
+      "original_path": "rh_attack_cycle_20261030/independent_review/SUZUKI_BREGMAN_CREDIT_REDUCTION.md",
+      "original_sha256": "6baf1ff998c90517cd326783b35a2d608601a26084d9095a60a2fce64350d618",
+      "published_sha256": "9d51a4256496afec2266c3e22c67a82450ff617d8c18f2fcd504c933bfa2536f",
+      "transformation": [
+        "Replaced introductory operational framing with publication provenance notice.",
+        "Replaced executor-specific Python path with portable python; removed reviewer/delegation identifiers and private-chat references where present."
+      ]
+    },
+    {
+      "review_unit": "suzuki",
+      "local_file": "research/rh/suzuki/reviews/prime-memory-review.md",
+      "destination": "research/rh/suzuki/reviews/prime-memory-review.md",
+      "role": "internal-review",
+      "original_path": "rh_attack_cycle_20261030/independent_review/prime_only_renormalization_review/AUDIT_PRIME_MEMORY_AND_FLOW.md",
+      "original_sha256": "3ac50133bd6a27a91fc30550e9243c23b046e43c7ab19410308a6fbf135e17ba",
+      "published_sha256": "d43e6a28cd198153f698c566fcfdbfb2b72c19aa6e09e05db3e977a25085cc13",
+      "transformation": [
+        "Replaced introductory operational framing with publication provenance notice.",
+        "Replaced executor-specific Python path with portable python; removed reviewer/delegation identifiers and private-chat references where present."
+      ]
+    },
+    {
+      "review_unit": "suzuki",
+      "local_file": "research/rh/suzuki/reviews/credit-variation-review.md",
+      "destination": "research/rh/suzuki/reviews/credit-variation-review.md",
+      "role": "internal-review",
+      "original_path": "rh_attack_cycle_20261030/independent_review/prime_credit_variation_review/AUDIT_WEIGHTED_VARIATION_AND_FREEZING.md",
+      "original_sha256": "77b610bbd306800e704f17dab149e93af4f90902367091904bdc2ef4936f4da1",
+      "published_sha256": "59a39c3cda795d69f4b116953342056ce8857ca798e51a370c1d7fa1db3c8ff9",
+      "transformation": [
+        "Replaced introductory operational framing with publication provenance notice.",
+        "Replaced executor-specific Python path with portable python; removed reviewer/delegation identifiers and private-chat references where present."
+      ]
+    },
+    {
+      "review_unit": "suzuki",
+      "local_file": "research/rh/suzuki/reviews/finite-certificate-review.md",
+      "destination": "research/rh/suzuki/reviews/finite-certificate-review.md",
+      "role": "internal-review",
+      "original_path": "rh_attack_cycle_20261030/independent_review/coarse_reserve_certificate_review/AUDIT_FINITE_HEAD_ORIGIN_AND_FUTURE_BUDGETS.md",
+      "original_sha256": "9e671ed8fdd779a52ad07b5eee47b2e88aa0f6f12ef451b17eafeff817f23ef4",
+      "published_sha256": "96f7661557aac63ebe174ac3917be5e4068ef11aef5c9ab0db5c2e0ce62b1950",
+      "transformation": [
+        "Replaced introductory operational framing with publication provenance notice.",
+        "Replaced executor-specific Python path with portable python; removed reviewer/delegation identifiers and private-chat references where present."
+      ]
+    }
+  ],
+  "codeAndReceiptMapping": [
+    {
+      "byte_identical": true,
+      "source_path": "rh_attack_cycle_20261030/suzuki_coarse_reserve_certificate/certify_coarse_reserve.py",
+      "source_sha256": "e9e83a7c0727b667459090d22db8774381edacb8dae2cbefc768f5bf9420762b",
+      "transport_path": "code/certify_coarse_reserve.py",
+      "transport_sha256": "e9e83a7c0727b667459090d22db8774381edacb8dae2cbefc768f5bf9420762b"
+    },
+    {
+      "byte_identical": true,
+      "source_path": "rh_attack_cycle_20261030/suzuki_coarse_reserve_certificate/origin_interval/check_origin_interval.py",
+      "source_sha256": "b4bc7cbd42a0eaa59ad7d2ca248e68b760e1ba474e18e082bae3aa6eb7adde3c",
+      "transport_path": "code/check_origin_interval.py",
+      "transport_sha256": "b4bc7cbd42a0eaa59ad7d2ca248e68b760e1ba474e18e082bae3aa6eb7adde3c"
+    },
+    {
+      "byte_identical": true,
+      "source_path": "rh_attack_cycle_20261030/suzuki_prime_only_renormalization/check_prime_only_algebra.py",
+      "source_sha256": "60425e59e6b39f7037170d55bed2cc047f73149ec976eff400e170d5c866f557",
+      "transport_path": "code/check_prime_only_algebra.py",
+      "transport_sha256": "60425e59e6b39f7037170d55bed2cc047f73149ec976eff400e170d5c866f557"
+    },
+    {
+      "byte_identical": true,
+      "source_path": "rh_attack_cycle_20261030/suzuki_prime_credit_variation/check_variation_constants.py",
+      "source_sha256": "ffa49b6c7c5fe987c4873468a08d5d400dfa8c95e411241b46cc383336ab26f8",
+      "transport_path": "code/check_variation_constants.py",
+      "transport_sha256": "ffa49b6c7c5fe987c4873468a08d5d400dfa8c95e411241b46cc383336ab26f8"
+    },
+    {
+      "byte_identical": true,
+      "source_path": "rh_attack_cycle_20261030/suzuki_coarse_reserve_certificate/check_elementary_onset.py",
+      "source_sha256": "f8ab10c0f96be1593734f435035c73f2bb4d7873e45fd591665353a6ec075e49",
+      "transport_path": "code/check_elementary_onset.py",
+      "transport_sha256": "f8ab10c0f96be1593734f435035c73f2bb4d7873e45fd591665353a6ec075e49"
+    },
+    {
+      "byte_identical": true,
+      "source_path": "rh_attack_cycle_20261030/suzuki_coarse_reserve_certificate/future_hull_budget/check_future_hull_budget.py",
+      "source_sha256": "4a1e2f759f80aab35f237944a7b91e28675caf4849b293e9b5deeb5e1c92e373",
+      "transport_path": "code/check_future_hull_budget.py",
+      "transport_sha256": "4a1e2f759f80aab35f237944a7b91e28675caf4849b293e9b5deeb5e1c92e373"
+    },
+    {
+      "byte_identical": true,
+      "source_path": "rh_attack_cycle_20261030/independent_review/coarse_reserve_certificate_review/independent_spf_and_direct_reserve.py",
+      "source_sha256": "d6e04e32993634a9de7682f49711684c421eea209836da83118a33b6ac7782f9",
+      "transport_path": "code/independent_spf_and_direct_reserve.py",
+      "transport_sha256": "d6e04e32993634a9de7682f49711684c421eea209836da83118a33b6ac7782f9"
+    },
+    {
+      "byte_identical": true,
+      "source_path": "rh_attack_cycle_20261030/suzuki_coarse_reserve_certificate/origin_interval/ORIGIN_INTERVAL_192_256BIT.json",
+      "source_sha256": "cbc466cd426b79bc70400a461890839ebbe370b2dbbd2a5d9e1203c1f6329159",
+      "transport_path": "receipts/ORIGIN_INTERVAL_192_256BIT.json",
+      "transport_sha256": "cbc466cd426b79bc70400a461890839ebbe370b2dbbd2a5d9e1203c1f6329159"
+    },
+    {
+      "byte_identical": true,
+      "source_path": "rh_attack_cycle_20261030/suzuki_prime_only_renormalization/PRIME_ONLY_ALGEBRA_256BIT.json",
+      "source_sha256": "30adbfee615fb1ca4998591a13ff4e57ec29fd7aaf5204bed3216cba2509ba7e",
+      "transport_path": "receipts/PRIME_ONLY_ALGEBRA_256BIT.json",
+      "transport_sha256": "30adbfee615fb1ca4998591a13ff4e57ec29fd7aaf5204bed3216cba2509ba7e"
+    },
+    {
+      "byte_identical": true,
+      "source_path": "rh_attack_cycle_20261030/suzuki_prime_credit_variation/VARIATION_CHECKS_256BIT.json",
+      "source_sha256": "c0dced9252e0ddc10e8efcf5b0282cf47ecd60664ae6546015b83521decef0d3",
+      "transport_path": "receipts/VARIATION_CHECKS_256BIT.json",
+      "transport_sha256": "c0dced9252e0ddc10e8efcf5b0282cf47ecd60664ae6546015b83521decef0d3"
+    },
+    {
+      "byte_identical": true,
+      "source_path": "rh_attack_cycle_20261030/suzuki_coarse_reserve_certificate/ELEMENTARY_ONSET_CHECKS.json",
+      "source_sha256": "488b021e995f100f5f4dc9b65ac34f273d905d9a2369516752b11119edd75d7d",
+      "transport_path": "receipts/ELEMENTARY_ONSET_CHECKS.json",
+      "transport_sha256": "488b021e995f100f5f4dc9b65ac34f273d905d9a2369516752b11119edd75d7d"
+    },
+    {
+      "byte_identical": true,
+      "source_path": "rh_attack_cycle_20261030/suzuki_coarse_reserve_certificate/future_hull_budget/FUTURE_HULL_BUDGET_192_256BIT.json",
+      "source_sha256": "fc527ad09120816c803ac5126c54b8239097c0fac349e047670f64e7c454e26c",
+      "transport_path": "receipts/FUTURE_HULL_BUDGET_192_256BIT.json",
+      "transport_sha256": "fc527ad09120816c803ac5126c54b8239097c0fac349e047670f64e7c454e26c"
+    },
+    {
+      "byte_identical": true,
+      "source_path": "rh_attack_cycle_20261030/independent_review/coarse_reserve_certificate_review/INDEPENDENT_SPF_DIRECT_384BIT.json",
+      "source_sha256": "8761ba88f4cb572dc88b4033fd0969a67d2b8e99a5b7fa02fa5c360bf705542b",
+      "transport_path": "receipts/INDEPENDENT_SPF_DIRECT_384BIT.json",
+      "transport_sha256": "8761ba88f4cb572dc88b4033fd0969a67d2b8e99a5b7fa02fa5c360bf705542b"
+    },
+    {
+      "decompressed_byte_identical": true,
+      "encoding": "gzip, deterministic mtime=0",
+      "source_bytes": 1152332,
+      "source_path": "rh_attack_cycle_20261030/suzuki_coarse_reserve_certificate/extension_10million/COARSE_RESERVE_10M_256BIT.json",
+      "source_sha256": "8d4347f8fdcfc78886ad648849f4baf2041b0e01dc342baba1a76f5dffefe18e",
+      "transport_bytes": 279729,
+      "transport_path": "receipts/COARSE_RESERVE_10M_256BIT.json.gz",
+      "transport_sha256": "5043211b81a548d8e661a8aac26427564c0c0d79081a0dfba89214cb1d47e95d"
+    }
+  ],
+  "provenanceLimit": "Hashes establish file identity, not mathematical truth. Source notes were editorially curated; no claim of byte-identical source recovery. Historical broader research trees and their unavailable artifacts are not required by the included finite scalar replay."
+}

@@ -1,0 +1,14 @@
+{
+  "checks": {
+    "COARSE_RESERVE_10M_256BIT.json": "all JSON fields identical except elapsed_seconds",
+    "ELEMENTARY_ONSET_CHECKS.json": "all JSON fields identical",
+    "FUTURE_HULL_BUDGET_192_256BIT.json": "all JSON fields identical",
+    "ORIGIN_INTERVAL_192_256BIT.json": "all JSON fields identical",
+    "PRIME_ONLY_ALGEBRA_256BIT.json": "all JSON fields identical",
+    "VARIATION_CHECKS_256BIT.json": "all JSON fields identical"
+  },
+  "cutoff": 10000000,
+  "independent_384bit_rerun": false,
+  "scope": "Scoped scalar finite positivity and symbolic/scalar algebra replay; analytic proofs and audit conditions remain required. No all-future endpoint bound or RH claim.",
+  "status": "PASS"
+}

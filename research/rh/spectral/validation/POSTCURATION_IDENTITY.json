@@ -1,0 +1,36 @@
+{
+  "status": "PASS_METADATA_ONLY_POSTCURATION_IDENTITY",
+  "accepted_clean_replay_report_sha256_unchanged": "0c056655f85782baef9385755bbb64dc671aa8bfd08b200d1964012cd929ce86",
+  "replay_input_manifest_sha256": "107c99ab1fed185dbbfc55f0e49ddb6bdeddcf696822e804572a4f09641d7264",
+  "current_manifest_sha256": "1b5cc0afddecf88f23074f7b60cc3aa7de707d07d217223d632e745224737303",
+  "replay_input_manifest_preserved_at": "validation/REPLAY_INPUT_MANIFEST.json",
+  "changed_reference_receipts": [
+    {
+      "path": "rh_attack_cycle_20261030/independent_review/GENERIC_X16001_COMPLETE_EVEN_POSITIVITY_AUDIT.json",
+      "original_sha256": "2b71fb9a9f7e0f1e71487f0a4c7a9174d34caa0e6b1e59fb1bad4348528f5cba",
+      "transport_sha256": "e46765602300ec44b16a87772e81a51f187cb73c2a5d822a1b080544476bdf78",
+      "only_changed_json_field": "reviewer",
+      "all_other_fields_identical": true
+    },
+    {
+      "path": "rh_attack_cycle_20261030/independent_review/GENERIC_PHASE_PREREQUISITES_AUDIT.json",
+      "original_sha256": "03af04eca8a4cdf9c384ecc2d47de3fd58488c3d588468762a99a0adec76039b",
+      "transport_sha256": "bfaff9acf5d623034aa655c1c133df1f6da28df4a6480822fc69b9f24ba7d8bb",
+      "only_changed_json_field": "reviewer",
+      "all_other_fields_identical": true
+    },
+    {
+      "path": "rh_attack_cycle_20261030/independent_review/GENERIC_X161_PARAMETERIZATION_AND_FAILED_GATE_AUDIT.json",
+      "original_sha256": "db67f80371c408e8592265ea3089452ec8974f1baaa7dbe079a4bb5b9174d98e",
+      "transport_sha256": "1950cda955688bfc110e5ace987eaab9781fdf90b56b58f9000fecfb719020e8",
+      "only_changed_json_field": "reviewer",
+      "all_other_fields_identical": true
+    }
+  ],
+  "all17_python_source_bytes_unchanged": true,
+  "case_commands_and_all10437row_canonical_digests_unchanged": true,
+  "all_mathematical_gate_receipt_bytes_unchanged": true,
+  "all_non_reviewer_audit_fields_unchanged": true,
+  "full_replay_repeated": false,
+  "scope": "The completed clean numerical replay used the preserved input manifest. This subsequent transport-only audit-metadata generalization changes no executable source, gate receipt, moment digest, theorem/audit status, or mathematical field. No numerical rerun is claimed."
+}

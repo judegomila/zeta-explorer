@@ -1,0 +1,36 @@
+{
+  "status": "PASS_EXACT_IDENTITIES_AND_CONDITIONAL_SIGNED_TESTS",
+  "reviewed_sha256": {
+    "rh_attack_cycle_20261030/signed_packet_cancellation/EXACT_PAIRED_PACKET_SIGNED_CANCELLATION.md": "b5c7843f266ce7a66f9f150cb0f625cfba0a6789c972050ac49160068417aa9f",
+    "rh_attack_cycle_20261030/signed_packet_cancellation/DEPENDENCY_MANIFEST.json": "7a96a714bea5a325185d620272c4b92e07c8cc608ab3184d08fed0a094cb7a71",
+    "rh_attack_cycle_20261030/signed_packet_cancellation/check_one_paired_envelope.py": "b773d282dfef438e26026867caf79f4d91fdb09cc4dd529d9a23de0567a8679b",
+    "rh_attack_cycle_20261030/signed_packet_cancellation/ONE_PAIRED_ENVELOPE_DIAGNOSTIC.json": "64160b5990f2b91f6bff3175571bb0d0a11aad4a77113208b3814ddb3709af0c",
+    "rh_attack_cycle_20261030/signed_packet_cancellation/independent_review/diagnostic_replay/ONE_PAIRED_ENVELOPE_DIAGNOSTIC.json": "64160b5990f2b91f6bff3175571bb0d0a11aad4a77113208b3814ddb3709af0c",
+    "rh_attack_cycle_20261030/signed_packet_cancellation/independent_review/PAIRED_PACKET_CANCELLATION_AUDIT.md": "0de77d977419e4f48e5738576f220b10069b43486c4e98b34616b49463972fa4"
+  },
+  "complex_even_prime_coefficient_one_verified": true,
+  "pole_gamma_and_continuous_prime_cancellations_exact": true,
+  "positive_cross_gram_and_geometric_operator_tail_valid": true,
+  "closed_form_and_moment_operator_domains_valid": true,
+  "compact_signed_Birman_Schwinger_one_sided_threshold_valid": true,
+  "neutral_compression_and_scalar_Schur_port_valid_conditionally": true,
+  "sharp_projection_error_constant": "2/sqrt(3)",
+  "subtracted_Gram_requires_upper_enclosure_clarified": true,
+  "one_point_floating_replay_byte_identical": true,
+  "not_interval_or_positivity_certificate": true,
+  "active_prime_power_labels": [
+    8,
+    9
+  ],
+  "source_pins_matching": 29,
+  "immutable_failed_accepted_export_pins_matching": 4,
+  "pending_background_not_promoted": [
+    "SELFDUAL_EXTERIOR_MINIMUM_AND_WEIGHTED_CHARGE_PORTS.md",
+    "FINITE_MOBIUS_INVERSE_COST_SURVIVES_HEAD_REMOVAL.md"
+  ],
+  "actual_endpoint_or_spectral_runs": 0,
+  "uniform_signed_Delta_bound_proved": false,
+  "new_sector_or_endpoint_positivity_proved": false,
+  "RH_result": false,
+  "scope": "Local proof audit and one fixed floating identity replay only. No accepted file/package or remote/PR changes."
+}

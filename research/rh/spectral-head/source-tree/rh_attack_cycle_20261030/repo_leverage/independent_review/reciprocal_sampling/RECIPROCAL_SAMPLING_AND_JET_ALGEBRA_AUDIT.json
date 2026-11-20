@@ -1,0 +1,18 @@
+{
+  "status": "analytic PASS",
+  "reviewer": "independent internal mathematical/source review",
+  "reviewed_at_utc": "2026-10-30T10:29:00Z",
+  "sources": [
+    {
+      "path": "gamma_complement_attack/COLLAR_RECIPROCAL_SAMPLING_AND_SMALL_LABEL_REDUCTION.md",
+      "sha256": "2f3642c389ca9e56064945d3350357e83ab9cf73ae42beff1614d05b660a87ad"
+    },
+    {
+      "path": "gamma_complement_attack/FOURIER_ENDPOINT_JET_RECURRENCE_AND_ARITHMETIC_PORT_MATRIX.md",
+      "sha256": "6974e50e558c51aca7d2748b032ff51034568442e29362cd83cc32bd75dcf5df"
+    }
+  ],
+  "audit": "repo_leverage/independent_review/reciprocal_sampling/RECIPROCAL_SAMPLING_AND_JET_ALGEBRA_AUDIT.md",
+  "audit_sha256": "4616b92eb7243ab75096937c0b59e696f1e204b862e68cbef2a3a41d4dc6fe04",
+  "scope": "Actual polylogarithmic low-label localization and exact signed jet algebra, not exceptional-matrix positivity."
+}

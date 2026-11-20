@@ -1,0 +1,15 @@
+{
+  "scope": "Synthetic algebra only; not actual-prime numerical certification",
+  "checks": [
+    {
+      "checker": "research/rh/channel-geometry/source-tree/rh_attack_cycle_20261030/superwire_channel_attack/check_channel_algebra.py",
+      "status": "PASS_BYTE_IDENTICAL",
+      "output_sha256": "3400788f5afdb8ff50db9a4069a23c23ea590a0ccffdd58deacc7aa23b035f45"
+    },
+    {
+      "checker": "research/rh/channel-geometry/source-tree/rh_attack_cycle_20261030/triangle_channel_bridge/check_triangle_channel_algebra.py",
+      "status": "PASS_BYTE_IDENTICAL",
+      "output_sha256": "71e82d81f1f166327657f1ed472eaa718890833ef6129462b918aa49bcc1b425"
+    }
+  ]
+}

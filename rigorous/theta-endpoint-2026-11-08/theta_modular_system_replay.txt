@@ -1,0 +1,8 @@
+{
+  "symbolic_modular_and_volterra_identities": "passed",
+  "simple_cone_outward_derivative": "-27/256",
+  "variational_negative_two_cycle": "-2*v",
+  "normalization_checks": 15,
+  "maximum_normalization_absolute_error": "4.2018351e-69",
+  "scope": "No all-orders energy positivity is asserted; cusp obstruction has a separate analytic proof."
+}

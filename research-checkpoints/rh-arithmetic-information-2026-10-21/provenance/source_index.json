@@ -1,0 +1,84 @@
+{
+  "date": "2026-10-21",
+  "status": "Content identifiers only; omitted source bytes and proof data are not reproduced by this checkpoint.",
+  "sources": [
+    {
+      "label": "fixed_support_certificate",
+      "source_basename": "L1200_RESIDUAL_CERTIFICATE.md",
+      "bytes": 3886,
+      "sha256": "2b4e8e271e7b0def15eb441e13780b2e1185f15b5766adc7340e33664fcd6e7a",
+      "included": false
+    },
+    {
+      "label": "extension_outcomes",
+      "source_basename": "OUTCOME_MAP_20261021.md",
+      "bytes": 6758,
+      "sha256": "f02f4f9dd0ff9f941ee2404b986688a1ae35cc23680b2f9094c09a24ca8ca02a",
+      "included": false
+    },
+    {
+      "label": "null_symbol_completeness",
+      "source_basename": "NULL_SYMBOL_DUAL_COMPLETENESS.md",
+      "bytes": 12077,
+      "sha256": "624c1bdbe10a82bc61f3a0b4aea7b20f52059cdb207ec9491811233cd77fd56b",
+      "included": false
+    },
+    {
+      "label": "periodic_toeplitz_dual",
+      "source_basename": "PERIODIC_ENVELOPE_TOEPLITZ.md",
+      "bytes": 13238,
+      "sha256": "685ac50ad833f3267ff94105e9227e4da35d9c73b4dab1e6c25c3ef0fff845fd",
+      "included": false
+    },
+    {
+      "label": "adaptive_null_dual",
+      "source_basename": "GENERAL_ADAPTIVE_NULL_DUAL.md",
+      "bytes": 10503,
+      "sha256": "65918d092dfa61a8bfab41d6704c02fe5fd5966bf2cfce84f2042568ae74222f",
+      "included": false
+    },
+    {
+      "label": "fixed_off_lattice_result",
+      "source_basename": "FIXED_OFF_LATTICE_COEFFICIENT.md",
+      "bytes": 3587,
+      "sha256": "ad085ddfbad3ad5b1911901cf74b0c665813d74e9e81f673efe5a4a45460d0f2",
+      "included": false
+    },
+    {
+      "label": "network_transform",
+      "source_basename": "NETWORK_TRANSFORM.md",
+      "bytes": 14050,
+      "sha256": "956eded1346b516848470f95069194ea47317aa4f02d4842ca0644804733bb37",
+      "included": false
+    },
+    {
+      "label": "information_relaxation",
+      "source_basename": "information_relaxation_theorem.md",
+      "bytes": 12053,
+      "sha256": "5d57e3fb2da173ed8ed4a5d37054881c40817ea5ea94084b8bb62d50538dcde4",
+      "included": false
+    },
+    {
+      "label": "information_prior_art_review",
+      "source_basename": "INFORMATION_OPTIMALITY_NOVELTY_20261021.md",
+      "bytes": 15385,
+      "sha256": "6dcdee72099cb094e7ec44f41243c7809ffd93ff31012590bd4da7ed63b1a3c5",
+      "included": false
+    },
+    {
+      "label": "vortex_mathematical_reconciliation",
+      "source_basename": "RECONCILIATION.md",
+      "bytes": 16656,
+      "sha256": "53949fd63645b84220d8c21ae3037ae20dda9fdc936ca14d82e1bb34ed599902",
+      "included": false
+    },
+    {
+      "label": "frozen_l1200_original_inventory",
+      "source_basename": "SHA256SUMS",
+      "bytes": 13174,
+      "sha256": "8263aedd4bac1bfc031d16bb5cb5e4d83973de0645b46fb477c2f01d6c1765e3",
+      "included_as": "provenance/frozen_l1200_inventory.sha256",
+      "referenced_data_included": false
+    }
+  ]
+}

@@ -3,6 +3,15 @@ import { toLabState } from './channels-state.js';
 
 const LAB_URL = new URL('./experiments/zero-channels.html', import.meta.url);
 const LAB_CSS_URL = new URL('./experiments/zero-channels.css', import.meta.url);
+
+/**
+ * The lab stylesheet is inlined into a shadow root, where its relative
+ * url(...) references (including its @import of the shared base sheet) would
+ * resolve against the page instead of the stylesheet. Make them absolute.
+ */
+export function resolveStyleURLs(css, base) {
+  return String(css).replace(/url\((['"]?)(\.{1,2}\/[^'")]+)\1\)/g, (_, quote, path) => `url(${quote}${new URL(path, base).href}${quote})`);
+}
 const MODES = new Set(['channels', 'coupling', 'newton']);
 const EMBEDDED_CSS = `
 :host{display:block;width:100%;min-width:0;--bg:#09121c;--panel:#0e1c29;--panel-alt:#112330;--line:#2c4556;--text:#e1e9ed;--muted:#96aebd;--green:#c7e8a1;--blue:#83cddd;--orange:#e9b17b;--red:#ee9b9d;--purple:#c3a3e0;background:var(--bg);color:var(--text);font:14px/1.55 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
@@ -76,7 +85,7 @@ export class ChannelsPanel {
     const responses = await Promise.all([this.fetcher(LAB_URL), this.fetcher(LAB_CSS_URL)]);
     for (const response of responses) if (!response.ok) throw new Error(`Channel resources: HTTP ${response.status}`);
     const [html, css] = await Promise.all(responses.map(response => response.text()));
-    return { html, css };
+    return { html, css: resolveStyleURLs(css, LAB_CSS_URL) };
   }
 
   _status(title, message, retry = false) {

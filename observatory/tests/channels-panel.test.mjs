@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { ChannelsPanel } from '../dist/channels-panel.js';
+import { ChannelsPanel, resolveStyleURLs } from '../dist/channels-panel.js';
 import { CHANNELS_DEFAULTS } from '../dist/channels-state.js';
 
 const deferred = () => { let resolve, reject; const promise = new Promise((yes, no) => { resolve = yes; reject = no; }); return { promise, resolve, reject }; };
@@ -89,4 +89,13 @@ test('restore intent, playback commands, and exported state reach the current em
   assert.equal(exported.state.view, 'newton'); assert.equal(exported.state.seed, 8); assert.equal(exported.state.travel, .4);
   assert.equal(exported.snapshot.sample, true); assert.match(exported.standaloneURL, /view=newton/); assert.match(h.standalone.href, /seed=8/);
   h.panel.destroy();
+});
+
+test('inlined lab styles keep their relative imports pointing at the stylesheet folder', () => {
+  const base = 'https://example.test/observatory/experiments/zero-channels.css';
+  assert.equal(resolveStyleURLs("@import url('./zero-confinement.css');a{b:url(../x.png)}", base),
+    "@import url('https://example.test/observatory/experiments/zero-confinement.css');a{b:url(https://example.test/observatory/x.png)}");
+  // Absolute, data and fragment references are left alone.
+  const untouched = 'a{b:url(data:image/png;base64,AA)}c{d:url(#g)}e{f:url(https://example.test/y.css)}';
+  assert.equal(resolveStyleURLs(untouched, base), untouched);
 });

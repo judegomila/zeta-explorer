@@ -22,7 +22,7 @@ export default function ResearchModuleIndex({ modules = [] }) {
       meta={[`${modules.length} scope-graded records`]}
       title="RH research modules"
       dek="Exact mathematics, explicit evidence status, open blockers, and routes that failed."
-      byline={['mathexplorer', 'research ledger']}
+      byline={['exploreriemann', 'research ledger']}
       ticker={<span>RH open · evidence graded</span>}
       footer={<>← <Link to="/">the atlas</Link></>}
     >

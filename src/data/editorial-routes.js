@@ -92,6 +92,8 @@ export const EDITORIAL_ROUTES = new Set([
   '/rh-whole-even-certificate',
   '/rh-spectral-denominator-repair',
   '/rh-spectral-head-theory',
+  '/rh-prime-retained-tail-certificate',
+  '/rh-channel-geometry',
   '/rh-historical-routes',
   '/rh-signed-complement',
   '/spectral-attack',

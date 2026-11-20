@@ -9,6 +9,65 @@
       "source": "/observatory",
       "destination": "/observatory/",
       "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "view"
+        }
+      ],
+      "destination": "/observatory/",
+      "permanent": false
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "state"
+        }
+      ],
+      "destination": "/observatory/",
+      "permanent": false
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "camera"
+        }
+      ],
+      "destination": "/observatory/",
+      "permanent": false
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "probe"
+        }
+      ],
+      "destination": "/observatory/",
+      "permanent": false
+    },
+    {
+      "source": "/methods.html",
+      "destination": "/observatory/methods.html",
+      "permanent": false
+    },
+    {
+      "source": "/experiments/zero-channels.html",
+      "destination": "/observatory/experiments/zero-channels.html",
+      "permanent": false
+    },
+    {
+      "source": "/experiments/zero-confinement.html",
+      "destination": "/observatory/experiments/zero-confinement.html",
+      "permanent": false
     }
   ],
   "headers": [

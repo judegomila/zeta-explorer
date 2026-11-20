@@ -73,8 +73,8 @@ For a block matrix `[[A,B],[B*,D]]` with `A>0`, visualize `D-B* A^-1 B` as reser
 - [NIST DLMF: xi and the functional equation](https://dlmf.nist.gov/25.4)
 - [Elliott and Jury: positive-real/Pick kernel criterion](https://people.clas.ufl.edu/mjury/files/halfplane.pdf)
 - [Polymath: de Bruijn-Newman heat family](https://arxiv.org/abs/1904.12438)
-- [Math Explorer six-node checkpoint](https://github.com/judegomila/mathexplorer/blob/c617017e3a90562cd828e58ffc71b03afab128cc/rigorous/theta-third-preservation-2026-11-11/README.md)
-- [Math Explorer rational/Schur residual analysis](https://github.com/judegomila/mathexplorer/blob/146ce77aa8407e912ed54c73e30664d86936c253/rigorous/theta-fourth-stage-2026-11-09/theta_rational_residual_20261109.md)
+- [Math Explorer six-node checkpoint](https://github.com/judegomila/zeta-explorer/blob/ba04ef9b74ad26448384cf7bf00861dc4ed96d68/rigorous/theta-third-preservation-2026-11-11/README.md)
+- [Math Explorer rational/Schur residual analysis](https://github.com/judegomila/zeta-explorer/blob/7e99e8c76d43de00ec30d32db7b0f43f8b992b76/rigorous/theta-fourth-stage-2026-11-09/theta_rational_residual_20261109.md)
 
 
 ## Additional research views now implemented

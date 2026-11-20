@@ -36,3 +36,14 @@ test('the exposition page loads only same-origin code and the shared tokens',()=
   assert.ok(main.indexOf('./tokens.css')<main.indexOf('./styles.css'));
   assert.doesNotMatch(readFileSync(new URL('../dist/styles.css',import.meta.url),'utf8'),/^:root\{--bg/);
 });
+
+test('the site bar accepts only well-formed internal routes and counts pages',async()=>{
+  const {cleanNav,pageCount,siteHref}=await import('../dist/site-bar.js');
+  const nav=cleanNav([{label:'A',sections:[{heading:'h',items:[{to:'/x',label:'X'},{to:'javascript:alert(1)',label:'bad'},{to:'//evil.example',label:'bad'},{to:'/y-z/2',label:'Y'}]}]},
+    {label:'',sections:[]},{label:'Empty',sections:[{heading:'h',items:[]}]},null]);
+  assert.equal(nav.length,1);
+  assert.deepEqual(nav[0].sections[0].items.map(item=>item.to),['/x','/y-z/2']);
+  assert.equal(pageCount(nav),2);
+  assert.equal(siteHref('/atlas'),'../#/atlas');
+  assert.deepEqual(cleanNav('nope'),[]);
+});

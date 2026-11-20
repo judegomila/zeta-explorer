@@ -1,4 +1,4 @@
-.dynamics-workbench{position:relative;display:flex;flex-direction:column;flex:1 0 auto;min-width:0;min-height:620px;height:calc(100dvh - 129px);color:#dce6ef;background:#0b1420;scroll-margin-top:62px}
+.dynamics-workbench{position:relative;display:flex;flex-direction:column;flex:1 0 auto;min-width:0;min-height:620px;height:calc(100dvh - 129px - var(--site-bar,0px));color:#dce6ef;background:#0b1420;scroll-margin-top:62px}
 .dynamics-workbench[hidden],.dynamics-controls[hidden],.dynamics-inspector[hidden]{display:none!important}
 .dynamics-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;padding:21px 24px 15px;background:linear-gradient(115deg,#132437,#111b2c);border-bottom:1px solid #2c3b4d}
 .dynamics-eyebrow{display:block;font:8px/1.5 var(--mono,monospace);letter-spacing:1.65px;color:#a6c9af}

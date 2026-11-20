@@ -4,6 +4,12 @@
     <meta name="zetaexplorer-canary" content="zx-9f731def-7203-4cf1-8b53-3e4a2c7db757" />
     <!-- zetaexplorer provenance: github.com/judegomila/zeta-explorer · zx-9f731def-7203-4cf1-8b53-3e4a2c7db757 -->
   <meta charset="UTF-8" />
+  <script>
+    // Front door: the bare address opens the Observatory. Every page of this
+    // app has a hash route (the home page is #/), so links into it are
+    // unaffected. Skipped on localhost, where the Observatory is not mounted.
+    if (!location.hash && !/^(localhost|127\.0\.0\.1)$/.test(location.hostname)) location.replace('./observatory/' + location.search);
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="application-name" content="zetaexplorer" />
   <meta name="description" content="An open engine room for the Riemann Hypothesis (RH ⇔ Λ = 0): the twin-ladder model, interactive simulators, and an autonomous fleet pushing barrier bounds on Λ, with a live ledger of results and no-go theorems." />

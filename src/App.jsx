@@ -11,7 +11,7 @@ import './styles/app.css';
 import './styles/editorial.css';
 import { isEditorialRoute, isVizLegacyRoute } from './data/editorial-routes.js';
 import { getConceptIndex, loadConceptRegistry } from './components/conceptRegistryClient.js';
-import { EditorialHeader, GroupDropdown, useDropdownRow, useMenuPanel } from './components/editorial/PostLayout.jsx';
+import { EditorialHeader, GroupDropdown, ModeSwitch, useDropdownRow, useMenuPanel } from './components/editorial/PostLayout.jsx';
 
 // Lazy-load all pages except the editorial landing for code-splitting
 const HomePage = lazy(() => import('./pages/HomePage.jsx')); // legacy dark home, now /classic
@@ -2341,6 +2341,7 @@ function NavBar({ onShowShortcuts, onShowPalette }) {
       >
         zeta<span className="nav-logo-text">explorer</span>
       </NavLink>
+      <ModeSwitch />
       <nav id="mobile-nav" ref={panelRef} aria-label="Site sections" className={`nav-links ${menuOpen ? 'nav-open' : ''}`}>
         {/* >= 1100px: grouped dropdowns */}
         <div className="nav-desktop-groups" ref={row.rowRef}>

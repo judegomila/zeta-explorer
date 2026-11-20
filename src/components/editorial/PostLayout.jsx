@@ -353,6 +353,17 @@ function openPalette() {
 // Cream site header for editorial routes (the classic NavBar hides itself on
 // these routes; see App.jsx AppShell). At >= NAV_COLLAPSE_PX it shows the six
 // group dropdowns; below that, brand + Search + a burger that opens a panel.
+// Two modes of one site: the visual Observatory (static, at ./observatory/)
+// and this written research app. Shown in both headers.
+export function ModeSwitch() {
+  return (
+    <span className="mode-switch" title="Switch between the visual Observatory and the research programme">
+      <a href="./observatory/">Observatory</a>
+      <span aria-current="page">Research</span>
+    </span>
+  );
+}
+
 export function EditorialHeader({ ticker }) { // eslint-disable-line no-unused-vars
   const row = useDropdownRow();
   const { pathname } = row;
@@ -383,6 +394,7 @@ export function EditorialHeader({ ticker }) { // eslint-disable-line no-unused-v
     <header className="ed-head" ref={headRef}>
       <div className="ed-headbar">
         <Link className="ed-brand" to="/" aria-label="zetaexplorer home">zeta<i>explorer</i></Link>
+        <ModeSwitch />
         <nav className="ed-headnav" aria-label="Site sections" ref={row.rowRef}>
           {NAV_GROUPS.map((g, i) => <GroupDropdown key={g.label} group={g} idx={i} row={row} />)}
         </nav>

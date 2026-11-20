@@ -399,3 +399,11 @@
   .nav-bar .nav-links,
   .nav-bar .nav-mobile-chevron { transition: none !important; }
 }
+
+/* Observatory / Research mode switch (both headers) */
+.mode-switch { flex: 0 0 auto; display: inline-flex; padding: 3px; border: 1px solid var(--rule); border-radius: 999px; font-family: var(--ed-mono, var(--font-mono)); font-size: 11px; letter-spacing: .04em; white-space: nowrap; }
+.mode-switch > * { padding: 5px 12px; border-radius: 999px; }
+.mode-switch a { color: var(--ink-soft); text-decoration: none; }
+.mode-switch a:hover { color: var(--accent); text-decoration: none; }
+.mode-switch [aria-current] { background: var(--ink); color: var(--paper); font-weight: 600; }
+@media (max-width: 520px) { .mode-switch > * { padding: 5px 8px; } }

@@ -1,0 +1,14 @@
+/* Zeta Observatory colour and type tokens: the single source for every
+   Observatory page. Other pages on the site may link this file to share the
+   look. Values only; no selectors beyond :root. */
+:root{
+  --bg:#0b111b;--panel:#101721;--panel2:#141e2b;
+  --line:#26303e;--line2:#1e2835;
+  --text:#e6eaf0;--muted:#91a0b2;--dim:#68778a;
+  --accent:#d1f1a8;--accent-strong:#cff4a1;
+  --good:#8dffb0;--caution:#ffd27a;--bad:#ff7d8a;
+  --pink:#e1a2d5;--blue:#8ebae9;
+  --mono:ui-monospace,SFMono-Regular,Consolas,monospace;
+  --sans:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --serif:Georgia,"Times New Roman",serif;
+}

@@ -28,13 +28,19 @@ const dropdown=group=>el('details',{},el('summary',{},group.label,el('small',{te
 
 export function buildSiteBar(nav){
   const groups=el('div',{className:'sb-groups'},...nav.map(dropdown));
-  const menu=el('details',{className:'sb-menu'},el('summary',{textContent:'Menu'}),el('div',{className:'sb-panel'},...nav.map(dropdown)));
+  const menu=el('details',{className:'sb-menu'},el('summary',{},'Research menu',el('small',{textContent:String(pageCount(nav))})),el('div',{className:'sb-panel'},...nav.map(dropdown)));
   // Two modes of one site: this visual workbench, and the written research.
   const here=el('span',{textContent:'Observatory'});here.setAttribute('aria-current','page');
   const mode=el('div',{className:'sb-mode',title:'Switch between the visual Observatory and the research programme'},
     here,el('a',{href:siteHref('/')},'Research',el('small',{textContent:pageCount(nav)+' pages'})));
-  const bar=el('nav',{className:'site-bar'},mode,groups,menu,
-    el('div',{className:'sb-right'},el('a',{href:'./learn/',textContent:'New to RH? Start here'})));
+  // One header for the combined site: brand, mode switch, research menus, then
+  // the Observatory's own actions (saved views, help, source), which move here.
+  const right=el('div',{className:'sb-right'});
+  const actions=document.querySelector('.topbar .header-actions');
+  if(actions)right.append(actions);
+  const bar=el('nav',{className:'site-bar'},
+    el('a',{className:'sb-brand',href:'./',title:'Front page'},'explore',el('i',{textContent:'zeta'})),
+    mode,groups,menu,right);
   bar.setAttribute('aria-label','Site sections');
   // One dropdown open at a time; close on outside click or Escape.
   const tops=[...groups.children,menu];
@@ -48,7 +54,9 @@ if(typeof document!=='undefined'){
   fetch('./site-nav.json').then(r=>r.ok?r.json():null).then(raw=>{
     const nav=cleanNav(raw);
     if(!nav.length)return;
-    document.documentElement.style.setProperty('--site-bar','56px');
+    // The bar replaces the Observatory's 74px header (64px on phones) and is
+    // 18px shorter, so the layout offset is negative.
+    document.documentElement.style.setProperty('--site-bar','-18px');
     document.body.prepend(buildSiteBar(nav));
     document.body.dataset.siteBar='true';
     window.dispatchEvent(new Event('resize'));

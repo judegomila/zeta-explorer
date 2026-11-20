@@ -45,4 +45,3 @@ body[data-infinity="true"] .view-actions>:not(#focusBtn){display:none!important}
 @media(max-width:1250px){body[data-infinity="true"] .workspace{grid-template-columns:244px minmax(0,1fr)}}
 @media(max-width:760px){body[data-infinity="true"] .workspace{display:block;height:auto}body[data-infinity="true"] .main-stage{overflow:visible;min-height:calc(100dvh - 64px - var(--site-bar,0px))}body[data-infinity="true"] #controls{display:none}#dualWorkbench{scroll-margin-top:110px}}
 
-body[data-site-bar="true"] .learn-link{display:none}

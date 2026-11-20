@@ -1,0 +1,143 @@
+WEIGHTED THETA RESOLVENT: POSITIVE THEOREM AND EXACT INTERTWINING DEFECT
+Research session: November 7, 2026 (America/Los_Angeles). All statements below are independent of RH.
+
+Definitions
+-----------
+c=1/4; H(u)=exp(u/4)*theta(exp(u)); kappa=H''-c^2 H.
+Q=kappa/H>0; q=sqrt(Q); A=-D^2+c^2.
+B=q A^(-1) q; T=(I+B)^(-1).
+The free Green kernel is A^(-1)(u,v)=exp(-c|u-v|)/(2c).
+Q is positive, even, bounded, integrable, and decays faster than every exponential.
+
+1. A proved weighted-contraction theorem
+----------------------------------------
+For real a define the bounded integral operator
+
+B_a(u,v)=q(u)q(v) exp(a(u-v)-c|u-v|)/(2c).
+
+For |a|<=c this is Hilbert-Schmidt: the exponential factor is <=1, so
+||B_a||_HS <= (integral Q)/(2c). Its Hermitian part has kernel
+
+(B_a+B_a^*)(u,v)
+ =q(u)q(v)/(2c)*[exp(-(c-a)|u-v|)+exp(-(c+a)|u-v|)].
+
+Both exponential kernels are positive definite, including exp(0)=1 at the
+endpoints. Therefore B_a is accretive, I+B_a is invertible, and
+
+T_a=(I+B_a)^(-1), ||T_a||<=1, for every |a|<=1/4.
+
+The inverse exists because I+B_a and its adjoint are bounded below by 1 in
+real part; hence its range is both closed and dense. The inverse norm is <=1.
+
+This is the bounded extension of exp(au) T exp(-au). To justify the otherwise
+unbounded conjugations, use
+T=I-q(A+Q)^(-1)q and the positive Green-kernel bound
+0< (A+Q)^(-1)(u,v) <= A^(-1)(u,v).
+Conjugating the compact correction gives a Hilbert-Schmidt kernel for |a|<=c.
+The resolvent identity identifies that bounded extension with (I+B_a)^(-1).
+
+In the original Mellin tilt a=x/2, this proves weighted contractivity throughout
+|x|<=1/2. The theorem itself does NOT identify T_a with the desired C_x.
+
+2. Explicit positive Gram for this contraction defect
+-----------------------------------------------------
+For r>0 define
+(V_r f)(t)=sqrt(2r)*integral_t^infinity exp(-r(u-t))*q(u)*f(u) du.
+Then V_r^*V_r has kernel q(u)q(v)exp(-r|u-v|).
+For r=0 take V_0 f=integral_R q(u)f(u)du, a scalar-valued map.
+Put G_a=(V_(c-a) direct-sum V_(c+a))/sqrt(2c).
+Thus G_a^*G_a=B_a+B_a^* and
+
+I-T_a^*T_a
+ =T_a^*(B_a+B_a^*+B_a^*B_a)T_a
+ =(G_a T_a)^*(G_a T_a)+(B_a T_a)^*(B_a T_a).
+
+This is an actual positive Gram factorization, proved from elementary kernels.
+
+3. Quantitative obstruction to the required intertwining
+-------------------------------------------------------
+Define f_x(u)=exp(xu/2)kappa(u),
+h_(x,b)^+/- (t)=[1 +/- alpha(t+2b)/2]*f_x(t+2b)/sqrt(2alpha), alpha>0.
+These are ordinary translates of h_(x,0)^+/-.
+
+B_a is compact, hence T_a=I+compact. Translates of any L2 vector tend weakly
+to zero as |b| tends to infinity; compact operators send them to zero in norm.
+It follows exactly that
+
+lim_(|b|->infinity) ||T_a h_(x,b)^+ - h_(x,b)^-||
+ =||h_(x,0)^+ - h_(x,0)^-||
+ =sqrt[(alpha/2)*integral_R u^2 exp(xu)kappa(u)^2 du] >0.
+
+Therefore this weighted resolvent cannot be the desired C_x on all translates.
+More generally no operator lambda*I+compact can do it: the corresponding
+residual limit is ||lambda h_(x,0)^+ - h_(x,0)^-||>0, because the two linear
+polynomials 1+alpha*u/2 and 1-alpha*u/2 are not scalar multiples.
+
+At x=0, b=0 there is also a direct parity defect. Since T preserves parity,
+
+||T h^+ -h^-||^2
+ =||(I-T)kappa||^2/(2alpha)+(alpha/8)||(I+T)(u*kappa)||^2 >0.
+
+The required boundary operator C_0 is unitary on the translate span, whereas
+this positive T already has a nonzero contraction defect on those features.
+
+4. Explicit scattering-state / energy-shift defect
+--------------------------------------------------
+Let L=-D^2+Q, so (L+c^2)H=0. Simply changing the growth rate by setting
+Y_p(u)=exp((p-c)u)H(u) gives the exact defect
+
+(L+p^2)Y_p=2(p-c)exp((p-c)u)[cH-H'].
+
+For the theta H, the missing source is explicitly
+
+cH(u)-H'(u)
+ =2pi exp(5u/4)*sum_(n>=1) n^2 exp(-pi*n^2*exp(u)) >0.
+
+On the half-line, this trial also violates the even/Neumann boundary condition:
+Y_p'(0)=(p-c)H(0).
+
+One can remove that boundary defect, but a bulk defect remains. Put
+Z_p(u)=cosh(pu)H(u)/cosh(cu) and r=H'/H. Then Z_p'(0)=0 and
+
+(L+p^2)Z_p
+ =-2Z_p [r-c*tanh(cu)] [p*tanh(pu)-c*tanh(cu)].
+
+The first bracket is strictly positive for u>0, because with U=2cosh(cu),
+
+H'U-HU'=integral_0^u kappa(v)U(v)dv>0.
+
+For real p>c the second bracket is also strictly positive. Thus the residual
+is strictly negative and cannot be discarded through modular symmetry.
+For 0<p<2c, let H_p be the true even solution of (L+p^2)H_p=0, normalized to
+leading growth exp(pu) at +infinity. Then Z_p-H_p decays at infinity and
+
+Z_p-H_p=(L_N+p^2)^(-1)[(L+p^2)Z_p],
+
+where L_N is the nonnegative half-line Neumann operator. In particular H_p>Z_p
+for c<p<2c. (For p>=2c the trial state has a slower growing correction, so this
+ordinary L2 resolvent formula is not asserted.) This is an exact correction formula between a tilted theta state and
+an energy-dependent scattering state, not an unspecified error term.
+
+5. Optional scope distinction about stationary scattering
+---------------------------------------------------------
+The compactness argument above does not apply to a full stationary scattering
+map, which is a noncompact multiplier. But a separate high-energy obstruction
+excludes the standard scattering map of this particular short-range Q from
+being the desired Cayley multiplier with its usual spectral parameter.
+
+For an integrable short-range potential, the stationary scattering matrix tends
+to the free matrix at large real frequency (Jost Volterra estimates give
+transmission=1+O(1/k), reflection=O(1/k)). By contrast
+S_0(y)=[Xi(y)+i*alpha*Xi'(y)]/[Xi(y)-i*alpha*Xi'(y)]
+takes value -1 at real Xi zeros (after cancelling common multiplicity factors)
+and +1 at the nonzero extrema between consecutive real zeros. Infinitely many
+real Xi zeros are known without RH. Thus S_0 has no high-frequency limit.
+
+This does not exclude another spectral operator with a nontrivial background,
+or an independently justified scattering normalization. It excludes only the
+direct standard short-range scattering identification for Q=kappa/H.
+
+Primary background source for Green/Lagrange and scattering framework:
+Gerald Teschl, Mathematical Methods in Quantum Mechanics, 2nd ed.,
+https://www.mat.univie.ac.at/~gerald/ftp/book-schroe/schroe2.pdf
+The weighted theorem and explicit defects above are direct derivations.

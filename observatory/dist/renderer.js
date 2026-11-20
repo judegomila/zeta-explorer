@@ -455,12 +455,15 @@ export class ZetaScene {
   }
 
   /** A polyline with real thickness; WebGL lines are one pixel wide. */
-  tubeLine(points, color, radius = 0.012, opacity = 1) {
+  tubeLine(points, color, radius = 0.012, opacity = 1, { throughSurface = false } = {}) {
     if (points.length < 2) return null;
     const curve = new THREE.CatmullRomCurve3(points, false, 'centripetal');
     const geometry = new THREE.TubeGeometry(curve, Math.min(400, Math.max(8, 2 * points.length)), radius, 5, false);
     const mesh = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color, transparent: opacity < 1, opacity, depthWrite: opacity >= 1 }));
-    mesh.renderOrder = 4;
+    // A marker that must stay findable where an immersed surface passes
+    // through itself is drawn over the surface instead of being hidden by it.
+    // It joins the transparent pass so it is drawn after the surface.
+    if (throughSurface) { Object.assign(mesh.material, { depthTest: false, depthWrite: false, transparent: true }); mesh.renderOrder = 6; } else mesh.renderOrder = 4;
     this.overlayGroup.add(mesh);
     return mesh;
   }
@@ -496,7 +499,7 @@ export class ZetaScene {
     // Region covered by the last complete count: 0 < Re s < 1, 0 < Im s < T.
     for (const edge of data.countBox || []) this.tubeLine(this.raisedLine(edge, 0.1), edge.color, 0.018, 1);
     // Boundary of the removed disc at infinity: evaluated points only.
-    for (const rim of data.hole?.rim || []) this.pathLine(this.raisedLine(rim, 0.07), 0xffd27a, 1);
+    for (const rim of data.hole?.rim || []) this.tubeLine(this.raisedLine(rim, 0.07), 0xffd27a, 0.02, 1, { throughSurface: this.state.geometry === 'klein' });
     if (this.state.zeros) {
       const points = data.zeroPoints || [];
       const heights = [...new Set(points.filter(p => p.t > 0 && p.kind !== 'pole').map(p => p.t))].sort((a,b) => a-b).slice(0,3);

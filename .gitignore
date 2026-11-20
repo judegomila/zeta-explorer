@@ -1,5 +1,7 @@
 node_modules/
 dist/
+# observatory/dist is hand-maintained source, not build output.
+!/observatory/dist/
 .vite/
 *.log
 scripts/logs/

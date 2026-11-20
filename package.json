@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite build && node server.js",
     "build": "(node scripts/fleet-status-writer.mjs || true) && node scripts/audit-nav-links.mjs && node scripts/check-bundle-sizes.mjs && vite build",
+    "mount:observatory": "node observatory/scripts/mount.mjs",
     "preview": "vite preview",
     "assert": "node scripts/run-assertions.mjs --fail-inject && node scripts/audit-nav-links.mjs && node scripts/run-assertions.mjs && node scripts/reproduce-headline-numbers.mjs",
     "assert:pr": "node scripts/run-assertions.mjs --fail-inject && node scripts/audit-nav-links.mjs && node scripts/run-assertions.mjs --fast --since-ref=origin/main && node scripts/reproduce-headline-numbers.mjs && node scripts/smoke-tests.mjs",

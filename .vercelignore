@@ -1,13 +1,15 @@
 # Keep the Vercel upload to just what `vite build` needs.
 # Everything below is local-only engine/harness state or build artifacts.
+# scripts/ and dist/ are anchored to the repo root: observatory/dist is the
+# Observatory's source and observatory/scripts holds its build step.
 
 .git/
 .claude/
-scripts/
+/scripts/
 rust/
 thinking/
 node_modules/
-dist/
+/dist/
 .vite/
 
 # Local dev server (Vercel serves dist/ statically — server.js is unused there)

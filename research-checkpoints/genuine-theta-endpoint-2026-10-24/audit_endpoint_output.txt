@@ -1,0 +1,19 @@
+Derivative quadratures: 194 seconds: 6.110982894897461
+Per-component scaled remainder: [6.5759378029501375176564146064186844950265289699719151451745113771090788052877061591056441958404916635235421398301600544432320698304089282078258921189424e-33 +/- 5.15e-185]
+x=200 certified segments: 1
+t=1/2 certified segments: 11
+x=220 certified segments: 1
+t=0 certified segments: 11
+Winding enclosure: [+/- 2.93e-33]
+Certified winding: 0; minimum scaled boundary norm: [2.76202651980498857042178285545880136462995548204899209617262588935230126008926111823445893906416767372504679944835033897767465757118468013640959588805567 +/- 2.54e-153]
+Interior: all 90 closed rectangles exclude G=0 directly.
+PASS: complete continuous-boundary certificate saved to audit_replay_512.json
+Independent exact coverage: 90 cells, disjoint interiors, total area 10.
+Entire closed t=0 edge is covered by interior cells, with no limit argument.
+Independent xi and xi-derivative consistency at t=0, x= 200
+Independent xi and xi-derivative consistency at t=0, x= 205
+Independent xi and xi-derivative consistency at t=0, x= 210
+Independent xi and xi-derivative consistency at t=0, x= 211
+Independent xi and xi-derivative consistency at t=0, x= 215
+Independent xi and xi-derivative consistency at t=0, x= 220
+ENDPOINT AUDIT PASS

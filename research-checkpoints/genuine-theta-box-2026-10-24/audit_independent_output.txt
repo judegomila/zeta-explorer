@@ -1,0 +1,17 @@
+Derivative quadratures: 162 seconds: 5.3162641525268555
+Per-component scaled remainder: [3.1141331091474837351770069279342849367806578180838442100143440804295195103176132038314265396478113837650141411139993352829016506333839383334200971915188e-16 +/- 3.16e-168]
+x=200 certified segments: 1
+t=1/3 certified segments: 11
+x=220 certified segments: 1
+t=1/5 certified segments: 10
+Winding enclosure: [+/- 1.36e-16]
+Certified winding: 0; minimum scaled boundary norm: [2.94936594931215228629897244891703297044120756150189012927495694079532899622677876288279792872667480217163507481964303842174019703339302779148691691546733 +/- 4.68e-153]
+Interior: all 68 closed rectangles exclude G=0 directly.
+PASS: complete continuous-boundary certificate saved to audit_replay_512.json
+INDEPENDENT exact-rational coverage: 68 disjoint interiors, full area 8/3 within domain.
+Independent extended-integral consistency 1/5 200
+Independent extended-integral consistency 1/3 220
+Independent extended-integral consistency 4/15 210
+Independent extended-integral consistency 1/4 211
+Independent extended-integral consistency 3/10 205
+AUDIT PASS

@@ -1,0 +1,4 @@
+PASS: certificate_384.json 24 continuous edge cells; 90 closed interior cells; exact polygon winding=0; area=10.
+Scope: verifies saved enclosure geometry; analytic containment is checked by regenerating with certify_boundary.py and reviewing PROOF.md.
+PASS: certificate_512.json 24 continuous edge cells; 90 closed interior cells; exact polygon winding=0; area=10.
+Scope: verifies saved enclosure geometry; analytic containment is checked by regenerating with certify_boundary.py and reviewing PROOF.md.
